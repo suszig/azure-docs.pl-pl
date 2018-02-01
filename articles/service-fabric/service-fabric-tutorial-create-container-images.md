@@ -1,13 +1,13 @@
 ---
-title: "Tworzenie obrazów kontener dla sieci szkieletowej usług Azure | Dokumentacja firmy Microsoft"
-description: "Informacje o sposobie tworzenia obrazów kontener dla aplikacji sieci szkieletowej usług wielu kontenera."
+title: "Tworzenie obrazów kontenerów dla usługi Azure Service Fabric | Microsoft Docs"
+description: "Informacje o sposobie tworzenia obrazów kontenerów dla aplikacji obsługującej wiele kontenerów usługi Service Fabric."
 services: service-fabric
 documentationcenter: 
 author: suhuruli
 manager: timlt
 editor: suhuruli
 tags: servicefabric
-keywords: "Rozwiązanie docker kontenerów, Mikrousług, sieć szkieletowa usług Azure"
+keywords: Docker, Containers, Microservices, Service Fabric, Azure
 ms.assetid: 
 ms.service: service-fabric
 ms.topic: tutorial
@@ -16,41 +16,41 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 9ea5be818cfc104c243ce31cc0e2d0f10135259f
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
-ms.translationtype: MT
+ms.openlocfilehash: e1d110aea526c4632219ef8fd2a9681b1b6c330f
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/22/2018
 ---
-# <a name="create-container-images-for-service-fabric"></a>Tworzenie obrazów kontener dla sieci szkieletowej usług
+# <a name="create-container-images-for-service-fabric"></a>Tworzenie obrazów kontenerów dla usługi Service Fabric
 
-W tym samouczku znajduje się jeden z samouczka serii, która pokazuje, jak używać kontenery w klastrze usługi sieć szkieletowa usług systemu Linux. W tym samouczku aplikacji kontenera wielu jest gotowy do użycia z sieci szkieletowej usług. W kolejnych samouczkach te obrazy są używane jako część aplikacji sieci szkieletowej usług. Ten samouczek zawiera informacje na temat wykonywania następujących czynności: 
+Ten samouczek jest częścią serii samouczków demonstrujących sposób korzystania z kontenerów w klastrze usługi Service Fabric w systemie Linux. W tym samouczku aplikacja obsługująca wiele kontenerów jest przygotowywana do użycia z usługą Service Fabric. W kolejnych samouczkach te obrazy są używane jako część aplikacji usługi Service Fabric. Ten samouczek zawiera informacje na temat wykonywania następujących czynności: 
 
 > [!div class="checklist"]
-> * Źródło powielania aplikacji z usługi GitHub  
+> * Klonowanie źródła aplikacji z usługi GitHub  
 > * Tworzenie obrazu kontenera ze źródła aplikacji
-> * Wdróż wystąpienie rejestru kontenera platformy Azure (ACR)
-> * Tag obrazu kontener dla ACR
-> * Przekaż obraz do awaryjnego
+> * Wdrażanie wystąpienia usługi Azure Container Registry (ACR)
+> * Tagowanie obrazu kontenera na potrzeby usługi ACR
+> * Przekazywanie obrazu do usługi ACR
 
-W tej serii samouczka, dowiesz się, jak: 
+Ta seria samouczków zawiera informacje na temat wykonywania następujących czynności: 
 
 > [!div class="checklist"]
-> * Tworzenie obrazów kontener dla sieci szkieletowej usług
-> * [Tworzenie i uruchamianie aplikacji sieci szkieletowej usług z kontenerami](service-fabric-tutorial-package-containers.md)
-> * [Sposób obsługi trybu failover i skalowania w sieci szkieletowej usług](service-fabric-tutorial-containers-failover.md)
+> * Tworzenie obrazów kontenerów dla usługi Service Fabric
+> * [Kompilowanie i uruchamianie aplikacji usługi Service Fabric z kontenerami](service-fabric-tutorial-package-containers.md)
+> * [Sposób obsługi trybu failover i skalowania w usłudze Service Fabric](service-fabric-tutorial-containers-failover.md)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Środowisko programistyczne systemu Linux dla platformy Service Fabric. Postępuj zgodnie z instrukcjami [tutaj](service-fabric-get-started-linux.md) do konfigurowania środowiska systemu Linux. 
-- Ten samouczek wymaga używasz interfejsu wiersza polecenia Azure w wersji 2.0.4 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
-- Ponadto wymaga posiadania subskrypcji platformy Azure dostępna. Aby uzyskać więcej informacji dotyczących bezpłatną wersję próbną, przejdź [tutaj](https://azure.microsoft.com/free/).
+- Środowisko projektowe systemu Linux skonfigurowane na potrzeby usługi Service Fabric. Postępuj zgodnie z instrukcjami znajdującymi się [tutaj](service-fabric-get-started-linux.md), aby skonfigurować środowisko systemu Linux. 
+- Ten samouczek wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
+- Wymagana jest również dostępna subskrypcja platformy Azure. Aby uzyskać więcej informacji dotyczących bezpłatnej wersji próbnej, przejdź [tutaj](https://azure.microsoft.com/free/).
 
 ## <a name="get-application-code"></a>Pobieranie kodu aplikacji
 
-Przykładowa aplikacja używana w tym samouczku jest głosowania aplikacji. Aplikacja składa się z składników frontonu sieci web oraz wystąpienia pamięci podręcznej Redis zaplecza. Składniki są pakowane w kontenerze obrazów. 
+W tym samouczku jest używana przykładowa aplikacja do głosowania. Ta aplikacja składa się ze składnika internetowego frontonu oraz działającego na zapleczu wystąpienia usługi Redis. Te składniki są spakowane w kontenerze obrazów. 
 
-Użyj git, aby pobrać kopię aplikacji w środowisku deweloperskim.
+Użyj narzędzia git, aby pobrać kopię tej aplikacji do swojego środowiska projektowego.
 
 ```bash
 git clone https://github.com/Azure-Samples/service-fabric-containers.git
@@ -58,23 +58,23 @@ git clone https://github.com/Azure-Samples/service-fabric-containers.git
 cd service-fabric-containers/Linux/container-tutorial/
 ```
 
-Rozwiązanie zawiera dwa foldery i "docker-compse.yml" pliku. Folder "azure głosowanie" zawiera usługę frontonu Python oraz plik Dockerfile używany do tworzenia obrazu. Katalog "Głosowania" zawiera pakiet aplikacji sieci szkieletowej usług, które zostało wdrożone w klastrze. Te katalogi zawiera zasoby niezbędne do celów tego samouczka.  
+Rozwiązanie zawiera dwa foldery i plik „docker-compose.yml”. Folder „azure-vote” zawiera napisaną w języku Python usługę frontonu oraz plik Dockerfile używany do tworzenia obrazu. Katalog „Voting” zawiera wdrożony w klastrze pakiet aplikacji usługi Service Fabric. Te katalogi zawierają zasoby wymagane w tym samouczku.  
 
-## <a name="create-container-images"></a>Tworzenie kontenera obrazów
+## <a name="create-container-images"></a>Tworzenie obrazów kontenerów
 
-Wewnątrz **głos azure** katalogu, uruchom następujące polecenie, aby utworzyć obraz dla składników frontonu sieci web. To polecenie używa plik Dockerfile w tym katalogu do utworzenia obrazu. 
+Z poziomu katalogu **azure-vote** uruchom następujące polecenie, aby utworzyć obraz dla składnika internetowego frontonu. Do utworzenia obrazu to polecenie używa pliku Dockerfile znajdującego się w tym katalogu. 
 
 ```bash
 docker build -t azure-vote-front .
 ```
 
-To polecenie może zająć trochę czasu, ponieważ wszystkie wymagane zależności wymagane do pobrania z Centrum Docker. Po zakończeniu użyj [obrazy usługi docker](https://docs.docker.com/engine/reference/commandline/images/) polecenie, aby wyświetlić utworzony obrazów.
+Wykonanie tego polecenia może zająć trochę czasu, ponieważ wszystkie wymagane zależności muszą zostać pobrane z usługi Docker Hub. Po zakończeniu użyj polecenia [docker images](https://docs.docker.com/engine/reference/commandline/images/) w celu wyświetlenia utworzonych obrazów.
 
 ```bash
 docker images
 ```
 
-Zwróć uwagę, że dwa obrazy zostały pobrane lub utworzony. *Azure głos początku* obraz zawiera aplikację. Został uzyskany z *python* obrazu z Centrum Docker.
+Zwróć uwagę, że zostały pobrane lub utworzone dwa obrazy. Obraz *azure-vote-front* zawiera aplikację. Został on uzyskany z obrazu *python* z usługi Docker Hub.
 
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
@@ -83,51 +83,51 @@ tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago 
 
 ```
 
-## <a name="deploy-azure-container-registry"></a>Wdrażanie rejestru kontenera platformy Azure
+## <a name="deploy-azure-container-registry"></a>Wdrażanie usługi Azure Container Registry
 
-Najpierw uruchom **logowania az** polecenie, aby zalogować się do konta platformy Azure. 
+Najpierw uruchom polecenie **az login**, aby zalogować się do konta platformy Azure. 
 
 ```bash
 az login
 ```
 
-Następnie użyj **konta az** polecenie, aby wybrać subskrypcję do utworzenia kontenera Azure rejestru. Należy wprowadzić identyfikator subskrypcji z subskrypcją platformy Azure zamiast < IDENTYFIKATOR_SUBSKRYPCJI >. 
+Następnie użyj polecenia **az account**, aby wybrać subskrypcję używaną do utworzenia rejestru usługi Azure Container. Zamiast ciągu <subscription_id> wprowadź identyfikator swojej subskrypcji platformy Azure. 
 
 ```bash
 az account set --subscription <subscription_id>
 ```
 
-W przypadku wdrażania rejestru kontenera platformy Azure, musisz najpierw grupę zasobów. Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi.
+W przypadku wdrażania usługi Azure Container Registry należy najpierw posiadać grupę zasobów. Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi.
 
-Utwórz grupę zasobów za pomocą polecenia **az group create**. W tym przykładzie grupy zasobów o nazwie *myResourceGroup* jest tworzony w *westus* regionu.
+Utwórz grupę zasobów za pomocą polecenia **az group create**. W tym przykładzie grupa zasobów o nazwie *myResourceGroup* jest tworzona w regionie *westus*.
 
 ```bash
 az group create --name <myResourceGroup> --location westus
 ```
 
-Tworzenie kontenera Azure rejestru **az acr utworzyć** polecenia. Zastąp \<acrName > o nazwie rejestru kontenera ma zostać utworzona w ramach Twojej subskrypcji. Ta nazwa musi być alfanumeryczny i unikatowe. 
+Utwórz rejestr usługi Azure Container za pomocą polecenia **az acr create**. Zamiast ciągu \<acrName> wpisz nazwę rejestru kontenerów, który ma zostać utworzony w ramach Twojej subskrypcji. Ta nazwa może zawierać tylko znaki alfanumeryczne i musi być unikatowa. 
 
 ```bash
 az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --admin-enabled true
 ```
 
-W dalszej części tego samouczka używamy "acrName" jako symbolu zastępczego dla wybranej nazwy rejestru kontenera. Zanotuj tę wartość. 
+W dalszej części tego samouczka wartość „acrName” jest używana jako symbol zastępczy wybranej nazwy rejestru kontenerów. Zanotuj tę wartość. 
 
-## <a name="log-in-to-your-container-registry"></a>Zaloguj się do rejestru kontenera
+## <a name="log-in-to-your-container-registry"></a>Logowanie do rejestru kontenerów
 
-Zaloguj się do swojego wystąpienia ACR przed wypchnięciem obrazów do niego. Użyj **logowania acr az** polecenia do wykonania operacji. Podaj unikatową nazwę podane w rejestrze kontenera podczas jej tworzenia.
+Zaloguj się do swojego wystąpienia usługi ACR przed wypchnięciem do niego obrazów. Aby wykonać tę operację, użyj polecenia **az acr login**. Podaj unikatową nazwę nadaną rejestrowi kontenerów podczas jego tworzenia.
 
 ```bash
 az acr login --name <acrName>
 ```
 
-Polecenie zwraca komunikat "Pomyślnie logowania" po ukończeniu.
+Polecenie zwraca komunikat „Logowanie pomyślne” po ukończeniu.
 
-## <a name="tag-container-images"></a>Tag kontener obrazów
+## <a name="tag-container-images"></a>Tagowanie obrazów kontenerów
 
-Obraz każdego kontenera musi być oznakowane o nazwie loginServer rejestru. Ten tag jest używane do przesyłania przypadku wypychania kontener obrazów w rejestrze obrazu.
+Każdy obraz kontenera należy otagować za pomocą nazwy loginServer rejestru. Ten tag jest używany na potrzeby kierowania podczas wypychania obrazów kontenerów do rejestru obrazów.
 
-Aby wyświetlić listę bieżącego obrazów, użyj [obrazy usługi docker](https://docs.docker.com/engine/reference/commandline/images/) polecenia.
+Aby wyświetlić listę bieżących obrazów, użyj polecenia [docker images](https://docs.docker.com/engine/reference/commandline/images/).
 
 ```bash
 docker images
@@ -147,7 +147,7 @@ Aby uzyskać nazwę loginServer, uruchom następujące polecenie:
 az acr show --name <acrName> --query loginServer --output table
 ```
 
-To generuje tabelę z poniższymi wynikami. Ten wynik będzie służyć do tagu z **azure głos początku** obrazów przed wypchnięciem go w rejestrze kontenera w następnym kroku.
+Spowoduje to wygenerowanie tabeli z następującymi wynikami. Ten wynik zostanie użyty do otagowania obrazu **azure-vote-front** przed jego wypchnięciem do rejestru kontenerów w następnym kroku.
 
 ```bash
 Result
@@ -155,13 +155,13 @@ Result
 <acrName>.azurecr.io
 ```
 
-Teraz, tag *azure głos początku* obrazu o loginServer Twojego rejestru kontenera. Ponadto Dodaj `:v1` na końcu nazwy obrazu. Znacznik określa wersję obrazu.
+Teraz otaguj obraz *azure-vote-front* za pomocą nazwy loginServer swojego rejestru kontenerów. Ponadto dodaj wartość `:v1` na końcu nazwy obrazu. Ten tag wskazuje wersję obrazu.
 
 ```bash
 docker tag azure-vote-front <acrName>.azurecr.io/azure-vote-front:v1
 ```
 
-Po oznakowany, uruchom "obrazy usługi docker" Aby zweryfikować działanie.
+Po otagowaniu uruchom polecenie „docker images”, aby zweryfikować operację.
 
 
 Dane wyjściowe:
@@ -176,19 +176,19 @@ tiangolo/uwsgi-nginx-flask             python3.6           590e17342131        5
 
 ## <a name="push-images-to-registry"></a>Wypychanie obrazów do rejestru
 
-Wypychanie *azure głos początku* obrazu w rejestrze. 
+Wypchnij obraz *azure-vote-front* do rejestru. 
 
-Korzystając z następującego przykładu, Zamień nazwa ACR loginServer loginServer ze środowiska.
+Korzystając z następującego przykładu, zastąp nazwę loginServer usługi ACR nazwą loginServer z używanego środowiska.
 
 ```bash
 docker push <acrName>.azurecr.io/azure-vote-front:v1
 ```
 
-Polecenia wypychania docker potrwać kilka minut.
+Wykonanie poleceń docker push może potrwać kilka minut.
 
-## <a name="list-images-in-registry"></a>Listy obrazów w rejestrze
+## <a name="list-images-in-registry"></a>Wyświetlanie listy obrazów w rejestrze
 
-Aby powrócić do listy obrazów, do których został przypisany do rejestru kontenera platformy Azure, użyj [listy repozytorium acr az](/cli/azure/acr/repository#list) polecenia. Zaktualizuj polecenia o nazwie ACR.
+Aby zwrócić listę obrazów, które zostały wypchnięte do rejestru usługi Azure Container, użyj polecenia [az acr repository list](/cli/azure/acr/repository#list). Zaktualizuj polecenie nazwą wystąpienia usługi ACR.
 
 ```bash
 az acr repository list --name <acrName> --output table
@@ -202,20 +202,20 @@ Result
 azure-vote-front
 ```
 
-Po ukończeniu samouczka obrazu kontenera przechowywanych w prywatnej wystąpienia rejestru kontenera platformy Azure. Ten obraz jest wdrażana w kolejnych samouczkach z ACR do klastra usługi sieć szkieletowa usług.
+Po ukończeniu tego samouczka obraz kontenera zostanie zapisany w prywatnym wystąpieniu usługi Azure Container Registry. W kolejnych samouczkach ten obraz zostanie wdrożony z usługi ACR do klastra usługi Service Fabric.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku aplikacji ściągnięcia z usługi Github i kontener obrazów utworzonych i przypisany do rejestru. Wykonano następujące czynności:
+W tym samouczku aplikacja została ściągnięta z witryny Github, a obrazy kontenerów zostały utworzone i wypchnięte do rejestru. Wykonano następujące czynności:
 
 > [!div class="checklist"]
-> * Źródło powielania aplikacji z usługi GitHub  
+> * Klonowanie źródła aplikacji z usługi GitHub  
 > * Tworzenie obrazu kontenera ze źródła aplikacji
-> * Wdróż wystąpienie rejestru kontenera platformy Azure (ACR)
-> * Tag obrazu kontener dla ACR
-> * Przekaż obraz do awaryjnego
+> * Wdrażanie wystąpienia usługi Azure Container Registry (ACR)
+> * Tagowanie obrazu kontenera na potrzeby usługi ACR
+> * Przekazywanie obrazu do usługi ACR
 
-Przejdź do następnego w samouczku Dowiedz się więcej o kontenery opakowania do aplikacji sieci szkieletowej usług za pomocą narzędzia Yeoman. 
+Przejdź do następnego samouczka, aby dowiedzieć się więcej o pakowaniu kontenerów do aplikacji usługi Service Fabric przy użyciu narzędzia Yeoman. 
 
 > [!div class="nextstepaction"]
-> [Pakiet i wdróż kontenery jako aplikacji sieci szkieletowej usług](service-fabric-tutorial-package-containers.md)
+> [Tworzenie pakietów kontenerów i wdrażanie ich jako aplikacji usługi Service Fabric](service-fabric-tutorial-package-containers.md)

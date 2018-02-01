@@ -72,6 +72,21 @@
             - name: Publikowanie aplikacji usługi HDInsight w portalu Azure Marketplace
               href: ../hdinsight-apps-publish-applications.md
               maintainContext: true
+            - name: Instalowanie opublikowanej aplikacji — Cask Data Application Platform (CDAP)
+              href: ../hdinsight-apps-install-cask.md
+              maintainContext: true
+            - name: Instalowanie opublikowanej aplikacji — Dataiku
+              href: ../hdinsight-apps-install-dataiku.md
+              maintainContext: true
+            - name: Instalowanie opublikowanej aplikacji — Datameer
+              href: ../hdinsight-apps-install-datameer.md
+              maintainContext: true
+            - name: Instalowanie opublikowanej aplikacji — H2O
+              href: ../hdinsight-apps-install-h2o.md
+              maintainContext: true
+            - name: Instalowanie opublikowanej aplikacji — Streamsets
+              href: ../hdinsight-apps-install-streamsets.md
+              maintainContext: true
     - name: Bezpieczeństwo
       items:
         - name: Używanie protokołu SSH z usługą HDInsight
@@ -165,6 +180,8 @@
         - name: Uaktualnianie klastra usługi HDInsight do nowszej wersji
           href: ../hdinsight-upgrade-cluster.md
           maintainContext: true
+        - name: Migracja klastra HBase do nowszej wersji
+          href: apache-hbase-migrate-new-version.md
         - name: Stosowanie poprawek systemu operacyjnego do klastra usługi HDInsight
           href: ../hdinsight-os-patching.md
           maintainContext: true
@@ -227,11 +244,15 @@
           href: apache-hbase-provision-vnet.md
         - name: Replikacja klastra HBase w sieci wirtualnej platformy Azure
           href: apache-hbase-replication.md
+        - name: Konfigurowanie kopii zapasowej i replikacji dla bazy danych HBase i rozwiązania Phoenix
+          href: apache-hbase-backup-replication.md
     - name: Monitorowanie przy użyciu pakietu OMS
       items:
         - name: Korzystanie z usługi Azure Log Analytics
           href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
           maintainContext: true
+        - name: Monitorowanie bazy danych HBase za pomocą pakietu OMS
+          href: apache-hbase-monitor-with-oms.md
         - name: Pulpity nawigacyjne specyficzne dla klastra
           href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
           maintainContext: true
@@ -241,6 +262,8 @@
         - name: Monitorowanie wydajności klastra
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
+        - name: Najlepsze rozwiązania w zakresie wydajności dla rozwiązania Phoenix
+          href: apache-hbase-phoenix-performance.md
 - name: Dokumentacja
   items:
     - name: Przykłady kodu

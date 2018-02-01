@@ -14,11 +14,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 07/14/2016
 ms.author: evboyle
-ms.openlocfilehash: f6ca06a0349def97b38a1bf6d0d8f36236077e92
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 8b253ef1eccfbc6ca703657b124d17d1482c2eed
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Wprowadzenie do usługi Azure Search w języku Java
 > [!div class="op_single_selector"]
@@ -72,7 +72,7 @@ Wszystkie wywołania interfejsu API REST do usługi Azure Search wymagają podan
 5. Skopiuj adres URL usługi i klucz administratora. Będą Ci potrzebne później podczas dodawania ich do pliku **config.properties**.
 
 ## <a name="download-the-sample-files"></a>Pobieranie plików przykładowych
-1. Przejdź do pozycji [AzureSearchJavaDemo](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo) w usłudze GitHub.
+1. Przejdź do elementu [search-java-indexer-demo](https://github.com/Azure-Samples/search-java-indexer-demo) w witrynie GitHub.
 2. Kliknij przycisk **Download ZIP** (Pobierz ZIP), zapisz plik zip na dysku, a następnie wyodrębnij wszystkie pliki w nim zawarte. Rozważ wyodrębnienie plików do obszaru roboczego Java, aby ułatwić znajdowanie projektu w przyszłości.
 3. Pliki przykładowe są tylko do odczytu. Kliknij prawym przyciskiem myszy folder właściwości i usuń atrybut tylko do odczytu.
 

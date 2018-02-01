@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 12/13/2017
 ms.author: barbkess
-ms.openlocfilehash: 10d06fd29640a350c5522c00c4c9ebd9c6b24c89
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 80974f7660696887783e97b674e2d9921fe2feac
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Najlepsze rozwiązania dotyczące ładowania danych do usługi Azure SQL Data Warehouse
 Zalecenia dotyczące ładowania danych do usługi Azure SQL Data Warehouse i optymalizacji wydajności tego procesu. 
@@ -31,7 +31,7 @@ Zalecenia dotyczące ładowania danych do usługi Azure SQL Data Warehouse i opt
 ## <a name="preparing-data-in-azure-storage"></a>Przygotowywanie danych w usłudze Azure Storage
 Aby zminimalizować opóźnienie, warstwa magazynu i magazyn danych powinny znajdować się w jednej lokalizacji.
 
-Podczas eksportowania danych do formatu pliku ORC, jeśli dane obejmują kolumny zawierające dużo tekstu, liczba kolumn może zostać ograniczona nawet do 50 z powodu błędów braku pamięci w środowisku Java. Aby obejść to ograniczenie, można wyeksportować tylko podzestaw wszystkich kolumn.
+Podczas eksportowania danych do formatu plików ORC mogą pojawić się błędy braku pamięci Java, jeśli w danych znajdują się duże kolumny tekstu. Aby obejść to ograniczenie, można wyeksportować tylko podzestaw wszystkich kolumn.
 
 Technologia PolyBase nie umożliwia ładowania wierszy zawierających ponad 1 000 000 bajtów danych. Dane umieszczane w plikach tekstowych w usłudze Azure Blob Storage lub Azure Data Lake Store muszą zawierać mniej niż 1 000 000 bajtów danych. Ograniczenie liczby bajtów jest niezależne od zdefiniowanego schematu tabeli.
 
@@ -45,14 +45,22 @@ Aby uzyskać większą szybkość ładowania, uruchamiaj tylko jedno zadanie ła
 
 Aby uruchamiać zadania ładowania przy użyciu odpowiednich zasobów obliczeniowych, utwórz użytkowników ładujących na potrzeby uruchamiania ładowania. Przypisz każdego użytkownika ładującego do określonej klasy zasobów. Aby uruchomić ładowanie, zaloguj się jako jeden z użytkowników ładujących, a następnie uruchom ładowanie. Ładowanie zostanie uruchomione przy użyciu klasy zasobów przypisanej do użytkownika.  Jest to prostsza metoda niż zmienianie klasy zasobów użytkownika odpowiednio do bieżących potrzeb.
 
-Ten kod umożliwia utworzenie użytkownika ładującego dla klasy zasobów staticrc20. Przyznaje użytkownikowi uprawnienia kontrolne w bazie danych, a następnie dodaje użytkownika jako członka roli bazy danych staticrc20. Aby uruchomić ładowanie z zasobami należącymi do klasy zasobów staticRC20, wystarczy zalogować się jako użytkownik LoaderRC20 i uruchomić ładowanie. 
+### <a name="example-of-creating-a-loading-user"></a>Przykład tworzenia użytkownika ładującego
+Ten przykład umożliwia utworzenie użytkownika ładującego dla klasy zasobów staticrc20. Pierwszym krokiem jest **nawiązanie połączenia z główną bazą danych** i utworzenie nazwy logowania.
 
-    ```sql
-    CREATE LOGIN LoaderRC20 WITH PASSWORD = 'a123STRONGpassword!';
-    CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
-    GRANT CONTROL ON DATABASE::[mySampleDataWarehouse] to LoaderRC20;
-    EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
-    ```
+```sql
+   -- Connect to master
+   CREATE LOGIN LoaderRC20 WITH PASSWORD = 'a123STRONGpassword!';
+```
+Nawiąż połączenie z bazą danych magazynu danych i utwórz użytkownika. W poniższym kodzie przyjęto założenie, że nawiązano połączenie z bazą danych o nazwie mySampleDataWarehouse. Widoczny jest w nim sposób utworzenia użytkownika o nazwie LoaderRC20 i nadanie mu uprawnień do kontroli w bazie danych. Następnie użytkownik jest dodawany jako członek roli bazy danych staticrc20.  
+
+```sql
+   -- Connect to the database
+   CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
+   GRANT CONTROL ON DATABASE::[mySampleDataWarehouse] to LoaderRC20;
+   EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
+```
+Aby uruchomić ładowanie z zasobami należącymi do klasy zasobów staticRC20, wystarczy zalogować się jako użytkownik LoaderRC20 i uruchomić ładowanie.
 
 Lepszym rozwiązaniem jest uruchamianie ładowania przy użyciu statycznych, a nie dynamicznych klas zasobów. Użycie statycznych klas zasobów gwarantuje takie same zasoby niezależnie od [poziomu usług](performance-tiers.md#service-levels). W przypadku użycia dynamicznej klasy zasobów zasoby różnią się w zależności od poziomu usług. W przypadku dynamicznych klas zasobów niższy poziom usług oznacza, że prawdopodobnie konieczne będzie użycie większej klasy zasobów na potrzeby użytkownika ładującego.
 
@@ -60,7 +68,7 @@ Lepszym rozwiązaniem jest uruchamianie ładowania przy użyciu statycznych, a n
 
 Często istnieje potrzeba umożliwienia ładowania danych do magazynu danych wielu użytkownikom. Ładowanie za pomocą instrukcji [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] wymaga uprawnień kontrolnych (CONTROL) w bazie danych.  Uprawnienia kontrolne (CONTROL) zapewniają dostęp z prawem kontroli do wszystkich schematów. Być może nie chcesz, aby wszyscy użytkownicy, którzy wykonują zadania ładowania, mieli dostęp z prawem kontroli do wszystkich schematów. Aby ograniczyć uprawnienia, użyj instrukcji DENY CONTROL.
 
-Rozważmy na przykład dwa schematy bazy danych, schema_A dla działu A i schema_B dla działu B. Załóżmy, że użytkownicy bazy danych o nazwie user_A i user_B są użytkownikami ładującymi technologii PolyBase w działach A i B. Obaj użytkownicy otrzymali uprawnienia CONTROL do bazy danych. Osoby, które utworzyły schematy A i B, blokują teraz swoje schematy przy użyciu instrukcji DENY:
+Rozważmy na przykład dwa schematy bazy danych, schema_A dla działu A i schema_B dla działu B. Załóżmy, że użytkownicy bazy danych o nazwie user_A i user_B są użytkownikami ładującymi technologii PolyBase w działach A i B. Obaj użytkownicy otrzymali uprawnienia CONTROL do bazy danych. Osoby, które utworzyły schematy A i B, teraz blokują swoje schematy przy użyciu instrukcji DENY:
 
 ```sql
    DENY CONTROL ON SCHEMA :: schema_A TO user_B;
@@ -124,7 +132,7 @@ Po przeprowadzeniu migracji tabel zewnętrznych do nowego źródła danych wykon
 
 
 ## <a name="next-steps"></a>Następne kroki
-Aby dowiedzieć się, jak monitorować proces ładowania, zobacz [Monitor your workload using DMVs (Monitorowanie obciążenia przy użyciu widoków DMV)](sql-data-warehouse-manage-monitor.md).
+Aby dowiedzieć się, jak monitorować ładowanie danych, zobacz [Monitor your workload using DMVs](sql-data-warehouse-manage-monitor.md) (Monitorowanie obciążenia przy użyciu widoków DMV).
 
 
 

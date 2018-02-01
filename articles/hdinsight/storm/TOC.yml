@@ -2,7 +2,7 @@
   href: /azure/hdinsight
 - name: Usługa Storm w usłudze HDInsight
   items:
-    - name: Przegląd
+    - name: Omówienie
       href: apache-storm-overview.md
     - name: Obsługa wersji składników
       href: ../hdinsight-component-versioning.md
@@ -69,6 +69,21 @@
               href: 'https://msdn.microsoft.com/library/mt706515.aspx'
             - name: Publikowanie aplikacji usługi HDInsight w portalu Azure Marketplace
               href: ../hdinsight-apps-publish-applications.md
+              maintainContext: true
+            - name: Instalowanie opublikowanej aplikacji — Cask Data Application Platform (CDAP)
+              href: ../hdinsight-apps-install-cask.md
+              maintainContext: true
+            - name: Instalowanie opublikowanej aplikacji — Dataiku
+              href: ../hdinsight-apps-install-dataiku.md
+              maintainContext: true
+            - name: Instalowanie opublikowanej aplikacji — Datameer
+              href: ../hdinsight-apps-install-datameer.md
+              maintainContext: true
+            - name: Instalowanie opublikowanej aplikacji — H2O
+              href: ../hdinsight-apps-install-h2o.md
+              maintainContext: true
+            - name: Instalowanie opublikowanej aplikacji — Streamsets
+              href: ../hdinsight-apps-install-streamsets.md
               maintainContext: true
     - name: Bezpieczeństwo
       items:
@@ -233,7 +248,7 @@
         - name: Monitorowanie wydajności klastra
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: Odwołanie
+- name: Dokumentacja
   items:
     - name: Przykłady kodu
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: narayan;anavin
-ms.openlocfilehash: df1d316654bdfd282965000966f79543e0d5124c
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: f43c95753e2cb190270a25fecd4c490e6fb0ed34
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="virtual-network-peering"></a>Wirtualne sieci równorzędne
 
@@ -35,7 +35,7 @@ Korzystanie z wirtualnych sieci równorzędnych zapewnia m.in. następujące kor
 
 ## <a name="requirements-constraints"></a>Wymagania i ograniczenia
 
-* Łączenie sieci wirtualnych za pomocą komunikacji równorzędnej w tym samym regionie jest ogólnie dostępne. Łączenie sieci wirtualnych za pomocą komunikacji równorzędnej w różnych regionach jest obecnie dostępne w wersji zapoznawczej w następujących regionach: Zachodnio-środkowe stany USA, Kanada Środkowa i Zachodnie stany USA 2. Przed rozpoczęciem łączenia sieci wirtualnych za pomocą komunikacji równorzędnej w różnych regionach należy [zarejestrować subskrypcję](virtual-network-create-peering.md#register) w celu uzyskania dostępu do wersji zapoznawczej. Próba połączenia sieci wirtualnych za pomocą komunikacji równorzędnej w różnych regionach zakończy się niepowodzeniem, jeśli rejestracja w celu uzyskania dostępu do wersji zapoznawczej nie została zakończona.
+* Łączenie sieci wirtualnych za pomocą komunikacji równorzędnej w tym samym regionie jest ogólnie dostępne. Możliwość łączenia sieci wirtualnych za pomocą komunikacji równorzędnej w różnych regionach jest aktualnie dostępna w wersji zapoznawczej w następujących regionach: Zachodnio-środkowe stany USA, Kanada Środkowa, Zachodnie stany USA 2, Korea Południowa, Południowe Zjednoczone Królestwo, Zachodnie Zjednoczone Królestwo, Kanada Wschodnia, Indie Południowe, Indie Środkowe i Indie Zachodnie. Przed rozpoczęciem łączenia sieci wirtualnych za pomocą komunikacji równorzędnej w różnych regionach należy [zarejestrować subskrypcję](virtual-network-create-peering.md#register) w celu uzyskania dostępu do wersji zapoznawczej. Próba połączenia sieci wirtualnych za pomocą komunikacji równorzędnej w różnych regionach zakończy się niepowodzeniem, jeśli rejestracja w celu uzyskania dostępu do wersji zapoznawczej nie została zakończona.
     > [!WARNING]
     > Połączenia sieci wirtualnych za pomocą komunikacji równorzędnej między regionami mogą nie mieć takiego samego poziomu dostępności i niezawodności jak połączenia za pomocą komunikacji równorzędnej w wersji ogólnodostępnej. Połączenia sieci wirtualnych za pomocą komunikacji równorzędnej mogą mieć ograniczone możliwości i mogą nie być dostępne we wszystkich regionach platformy Azure. Najbardziej aktualne powiadomienia dotyczące dostępności i stanu tej funkcji można znaleźć na stronie [aktualizacji usługi Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network).
 

@@ -1,6 +1,6 @@
 ---
-title: "Zasoby Azure skalowania automatycznego na podstawie danych wydajności lub harmonogramu | Dokumentacja firmy Microsoft"
-description: "Utwórz ustawienie automatycznego skalowania dla planu usługi aplikacji przy użyciu danych metryki i harmonogramu"
+title: "Automatyczne skalowanie zasobów na podstawie danych wydajności lub harmonogramu | Microsoft Docs"
+description: "Tworzenie ustawienia automatycznego skalowania dla planu usługi App Service przy użyciu danych metryk i harmonogramu"
 author: anirudhcavale
 manager: orenr
 services: monitoring-and-diagnostics
@@ -10,22 +10,22 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: 3a85e288fa6f7d6c7138b7fea8319bd8dee01c2c
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
-ms.translationtype: MT
+ms.openlocfilehash: e56b637858af27f9a09f70867e455d06dd122d92
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Utwórz ustawienie automatycznego skalowania dla zasobów platformy Azure na podstawie danych wydajności lub harmonogramu
+# <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Tworzenie ustawienia automatycznego skalowania dla zasobów platformy Azure na podstawie danych wydajności lub harmonogramu
 
-Ustawienia skalowania automatycznego umożliwiają dodawanie/usuwanie wystąpienia usługi na podstawie istniejących warunków. Te ustawienia mogą być tworzone za pośrednictwem portalu. Ta metoda zapewnia interfejsu użytkownika opartego na przeglądarce do tworzenia i konfigurowania ustawienia skalowania automatycznego. 
+Ustawienia automatycznego skalowania umożliwiają dodawanie/usuwanie wystąpień usługi na podstawie wstępnie ustawionych warunków. Te ustawienia można tworzyć za pośrednictwem portalu. Ta metoda zapewnia interfejs użytkownika oparty na przeglądarce przeznaczony do tworzenia i konfigurowania ustawienia automatycznego skalowania. 
 
-W tym samouczku zostanie 
+W tym samouczku zostaną wykonane następujące czynności: 
 > [!div class="checklist"]
-> * Tworzenie planu usługi aplikacji i aplikacji sieci Web
-> * Konfigurowanie skalowania automatycznego zasady w skali i skalowania w poziomie na podstawie liczby żądań, które otrzymuje aplikacji sieci Web
-> * Wyzwalanie akcji skalowania w poziomie i obserwować liczbę wystąpień zwiększyć
-> * Uruchomić akcję skalowania i obejrzyj liczba wystąpień, Zmniejsz
+> * Tworzenie aplikacji internetowej i planu usługi App Service
+> * Konfigurowanie reguł automatycznego skalowania w celu skalowania na zewnątrz i do wewnątrz na podstawie liczby żądań odbieranych przez aplikację internetową
+> * Wyzwalanie akcji skalowania do wewnątrz i obserwowanie wzrostu liczby wystąpień
+> * Wyzwalanie akcji skalowania na zewnątrz i obserwowanie spadku liczby wystąpień
 > * Czyszczenie zasobów
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
@@ -34,156 +34,156 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 
-## <a name="create-a-web-app-and-app-service-plan"></a>Tworzenie planu usługi aplikacji i aplikacji sieci Web
-Kliknij przycisk **nowy** opcji z okienka nawigacji po lewej stronie
+## <a name="create-a-web-app-and-app-service-plan"></a>Tworzenie aplikacji internetowej i planu usługi App Service
+Kliknij opcję **Nowy** w okienku nawigacji po lewej stronie
 
-Wyszukaj i wybierz *aplikacji sieci Web* element i kliknij przycisk **Utwórz**
+Wyszukaj i wybierz element *Aplikacja internetowa*, a następnie kliknij przycisk **Utwórz**
 
-Wybierz nazwę aplikacji, takich jak *MyTestScaleWebApp*. Utwórz nową grupę zasobów * myResourceGroup "i umieszczenie go w grupie zasobów wybrane.
+Wybierz nazwę aplikacji, np. *TestowaAplikacjaInternetowaSkalowania*. Utwórz nową grupę zasobów „mojaGrupaZasobów” i umieść ją w wybranej grupie zasobów.
 
-W ciągu kilku minut powinien zainicjowana zasobów. Za pomocą aplikacji sieci Web, a odpowiedni Plan usługi App Service w pozostałej części tego samouczka.
+Twoje zasoby powinny zostać aprowizowane w ciągu kilku minut. W pozostałej części tego samouczka korzystaj z tej aplikacji internetowej i odpowiadającego jej planu usługi App Service.
 
-    ![Create a new app service in the portal](./media/monitor-tutorial-autoscale-performance-schedule/Web-App-Create.png)
+   ![Tworzenie nowej usługi App Service w portalu](./media/monitor-tutorial-autoscale-performance-schedule/Web-App-Create.png)
 
-## <a name="navigate-to-autoscale-settings"></a>Przejdź do ustawienia skalowania automatycznego
-1. W okienku nawigacji po lewej stronie wybierz **Monitor** opcji. Po pobraniu strony wybierz **skalowania automatycznego** kartę.
-2. Lista zasobów w ramach Twojej subskrypcji, które obsługują skalowania automatycznego znajduje się w tym miejscu. Zidentyfikować Plan usługi App Service utworzonego wcześniej w samouczku i kliknij ją.
+## <a name="navigate-to-autoscale-settings"></a>Przechodzenie do ustawień automatycznego skalowania
+1. W okienku nawigacji po lewej stronie wybierz opcję **Monitor**. Po załadowaniu strony wybierz kartę **Automatyczne skalowanie**.
+2. Tutaj znajduje się lista zasobów w ramach Twojej subskrypcji, które obsługują automatyczne skalowanie. Zidentyfikuj plan usługi App Service, który został utworzony wcześniej w samouczku, i kliknij go.
 
-    ![Przejdź do ustawienia skalowania automatycznego](./media/monitor-tutorial-autoscale-performance-schedule/monitor-blade-autoscale.png)
+    ![Przechodzenie do ustawień automatycznego skalowania](./media/monitor-tutorial-autoscale-performance-schedule/monitor-blade-autoscale.png)
 
-3. W ustawieniu skalowania automatycznego, kliknij polecenie **Włączanie automatycznego skalowania** przycisku
+3. W ustawieniu automatycznego skalowania kliknij przycisk **Włącz automatyczne skalowanie**
 
-Następny kilka kroków pomocy wypełnione ekranu skalowania automatycznego wygląd na poniższej ilustracji:
+Kilka następnych kroków pomoże Ci w takim wypełnieniu ekranu automatycznego skalowania, aby wyglądał jak na poniższym obrazie:
 
-   ![Zapisz ustawienia skalowania automatycznego](./media/monitor-tutorial-autoscale-performance-schedule/Autoscale-Setting-Save.png)
+   ![Zapisywanie ustawienia automatycznego skalowania](./media/monitor-tutorial-autoscale-performance-schedule/Autoscale-Setting-Save.png)
 
- ## <a name="configure-default-profile"></a>Skonfiguruj profil domyślny
-1. Podaj **nazwa** Ustawienia skalowania automatycznego
-2. Profil domyślny, upewnij się, **tryb skali** ma ustawioną wartość "Skalowania liczby wystąpień określonego"
-3. Ustaw liczbę wystąpień **1**. To ustawienie zapewnia, że nie inne profil jest aktywny lub w efekcie profil domyślny zwraca liczbę wystąpień do 1.
+ ## <a name="configure-default-profile"></a>Konfigurowanie profilu domyślnego
+1. W polu **Nazwa** podaj nazwę ustawienia automatycznego skalowania
+2. Upewnij się, że w profilu domyślnym opcja **Tryb skalowania** ma ustawioną wartość „Skaluj do określonej liczby wystąpień”
+3. Ustaw liczbę wystąpień na **1**. To ustawienie powoduje, że kiedy żaden inny profil nie jest aktywny (nie obowiązuje), profil domyślny przywraca wartość 1 dla liczby wystąpień.
 
-  ![Przejdź do ustawienia skalowania automatycznego](./media/monitor-tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
+  ![Przechodzenie do ustawień automatycznego skalowania](./media/monitor-tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
 
 
-## <a name="create-recurrance-profile"></a>Utwórz profil recurrance
+## <a name="create-recurrance-profile"></a>Tworzenie profilu cyklu
 
-1. Polecenie **Dodaj warunek skali** łącze w obszarze profil domyślny
+1. Kliknij link **Dodaj warunek skalowania** w obszarze profilu domyślnego
 
-2. Edytuj **nazwa** profilu jako "Od poniedziałku do piątku profilu"
+2. Zmień wartość w polu **Nazwa** profilu na „Profil od poniedziałku do piątku”
 
-3. Upewnij się, **tryb skali** ma ustawioną wartość "Skali w oparciu metryki"
+3. Upewnij się, że opcja **Tryb skalowania** ma ustawioną wartość „Skalowanie na podstawie metryki”
 
-4. Dla **wystąpienie limity** ustawić **Minimum** jako "1", **maksymalna** jako "2" i **domyślne** jako "1". To ustawienie zapewnia, że ten profil jest nie skalowania automatycznego planu usług mniej niż 1 wystąpienie lub więcej niż 2 wystąpienia. Jeśli profil nie ma wystarczających danych podjęcie decyzji, wykorzystuje domyślną liczbę wystąpień (w tym przypadku 1).
+4. W sekcji **Limity wystąpień** ustaw pozycję **Minimum** na wartość „1”, pozycję **Maksimum** na wartość „2”, a pozycję **Domyślnie** na wartość „1”. To ustawienie zapewni, że profil nie przeprowadzi automatycznego skalowania planu usługi w taki sposób, aby miał mniej niż 1 wystąpienie lub więcej niż 2 wystąpienia. Jeśli profil nie ma wystarczających danych do podjęcia decyzji, zastosuje domyślną liczbę wystąpień (w tym przypadku 1).
 
-5. Aby uzyskać **harmonogram**, wybierz opcję "Repeat określone dni"
+5. Dla pozycji **Harmonogram** wybierz wartość „Powtarzaj w określone dni”
 
-6. Ustaw profil powtórzeń od poniedziałku do piątku, z PST 09:00 do 18:00 PST. To ustawienie zapewnia, że ten profil jest tylko aktywne i stosowane 9 AM do 18: 00, od poniedziałku do piątku. W pozostałych godzinach "Default" profil jest profil, który używa w ustawieniu skalowania automatycznego.
+6. Ustaw profil tak, aby powtarzał się od poniedziałku do piątku, od 09:00 do 18:00 czasu pacyficznego. To ustawienie powoduje, że profil jest aktywny i obowiązuje tylko od 9:00 do 18:00, od poniedziałku do piątku. W pozostałych godzinach ustawienie automatycznego skalowania korzysta z profilu „Domyślny”.
 
-## <a name="create-a-scale-out-rule"></a>Utwórz regułę skalowalnego w poziomie
+## <a name="create-a-scale-out-rule"></a>Tworzenie reguły skalowania do wewnątrz
 
-1. W polu "Od poniedziałku do piątku w profilu"
+1. W profilu „Profil od poniedziałku do piątku”
 
-2. Kliknij przycisk **dodać regułę** łącza
+2. Kliknij link **Dodaj regułę**
 
-3. Ustaw **metryki źródła** jako innego zasobu. Ustaw **typu zasobu** jako "App Services" i **zasobów** jako aplikacji sieci Web utworzonej wcześniej w tym samouczku.
+3. Ustaw pozycję **Źródło metryki** na wartość „Inny zasób”. Ustaw pozycję **Typ zasobu** na wartość „App Services” i pozycję **Zasób** na aplikację internetową utworzoną wcześniej w tym samouczku.
 
-4. Ustaw **czasu agregacji** jako "Ogółem" **Nazwa metryki** jako "Żądania" i **Statystyka ziarno czasu** jako "Sum"
+4. Ustaw pozycję **Agregacja czasu** na wartość „Łącznie”, pozycję **Nazwa metryki** na wartość „Żądania” i pozycję **Statystyka ziarna czasu** na wartość „Suma”
 
-5. Ustaw **Operator** jako "Greater than" **próg** jako "10" i **czas trwania** "5" minut.
+5. Ustaw pozycję **Operator** na wartość „Większe niż”, pozycję **Próg** na wartość „10” i pozycję **Czas trwania** na „5” minut.
 
-6. Wybierz **operacji** jako "Wzrost liczby przez" **wystąpienia licznika** jako "1" i **chłodnych dół** "5" minut
+6. Ustaw pozycję **Operacja** na wartość „Zwiększ liczbę o”, pozycję **Liczba wystąpień** na wartość „1” i pozycję **Czas ochładzania** na „5” minut
 
-7. Kliknij przycisk **Dodaj** przycisku
+7. Kliknij przycisk **Dodaj**
 
-Ta reguła zapewnia, że jeśli aplikacja sieci Web odbiera więcej niż 10 żądania w ciągu 5 minut lub mniej, jedno wystąpienie dodatkowe zostanie dodany do Twojego planu usługi App Service do zarządzania obciążenia.
+Ta reguła zapewnia, że jeśli aplikacja internetowa odbierze więcej niż 10 żądań w czasie nie dłuższym niż 5 minut, do Twojego planu usługi App Service zostanie dodane jedno wystąpienie na potrzeby zarządzania obciążeniem.
 
-   ![Utwórz regułę skalowalnego w poziomie](./media/monitor-tutorial-autoscale-performance-schedule/Scale-Out-Rule.png)
+   ![Tworzenie reguły skalowania do wewnątrz](./media/monitor-tutorial-autoscale-performance-schedule/Scale-Out-Rule.png)
 
-## <a name="create-a-scale-in-rule"></a>Utwórz regułę skali
-Firma Microsoft zaleca zawsze Aby reguła skali w towarzyszące reguł skalowania w poziomie. Oba mających gwarantuje, że zasoby nie są ponad zainicjowane. Za pośrednictwem udostępniania oznacza, że masz wystąpień więcej niż jest to potrzebne do obsługi bieżącego obciążenia. 
+## <a name="create-a-scale-in-rule"></a>Tworzenie reguły skalowania na zewnątrz
+Zaleca się, aby wraz z regułą skalowania do wewnątrz zawsze istniała reguła skalowania na zewnątrz. Jeśli istnieją obie reguły, zasoby nie będą nadmiernie aprowizowane. Nadmierna aprowizacja oznacza, że działa więcej wystąpień niż jest to konieczne do obsługi bieżącego obciążenia. 
 
-1. W polu "Od poniedziałku do piątku w profilu"
+1. W profilu „Profil od poniedziałku do piątku”
 
-2. Kliknij przycisk **dodać regułę** łącza
+2. Kliknij link **Dodaj regułę**
 
-3. Ustaw **metryki źródła** jako innego zasobu. Ustaw **typu zasobu** jako "App Services" i **zasobów** jako aplikacji sieci Web utworzonej wcześniej w tym samouczku.
+3. Ustaw pozycję **Źródło metryki** na wartość „Inny zasób”. Ustaw pozycję **Typ zasobu** na wartość „App Services” i pozycję **Zasób** na aplikację internetową utworzoną wcześniej w tym samouczku.
 
-4. Ustaw **czasu agregacji** jako "Ogółem" **Nazwa metryki** jako "Żądania" i **Statystyka ziarno czasu** jako "Średnia"
+4. Ustaw pozycję **Agregacja czasu** na wartość „Łącznie”, pozycję **Nazwa metryki** na wartość „Żądania” i pozycję **Statystyka ziarna czasu** na wartość „Średnia”
 
-5. Ustaw **Operator** jako "Poniżej", **próg** jako "5" i **czas trwania** "5" minut.
+5. Ustaw pozycję **Operator** na wartość „Mniejsze niż”, pozycję **Próg** na wartość „5” i pozycję **Czas trwania** na „5” minut.
 
-6. Wybierz **operacji** jako "Zmniejszenie liczby przez" **wystąpienia licznika** jako "1" i **chłodnych dół** "5" minut
+6. Ustaw pozycję **Operacja** na wartość „Zmniejsz liczbę o”, pozycję **Liczba wystąpień** na wartość „1” i pozycję **Czas ochładzania** na „5” minut
 
-7. Kliknij przycisk **Dodaj** przycisku
+7. Kliknij przycisk **Dodaj**
 
-    ![Utwórz regułę skali](./media/monitor-tutorial-autoscale-performance-schedule/Scale-In-Rule.png)
+    ![Tworzenie reguły skalowania na zewnątrz](./media/monitor-tutorial-autoscale-performance-schedule/Scale-In-Rule.png)
 
-8. **Zapisz** w ustawieniu skalowania automatycznego
+8. **Zapisz** ustawienie automatycznego skalowania
 
-    ![Zapisz ustawienia skalowania automatycznego](./media/monitor-tutorial-autoscale-performance-schedule/Autoscale-Setting-Save.png)
+    ![Zapisywanie ustawienia automatycznego skalowania](./media/monitor-tutorial-autoscale-performance-schedule/Autoscale-Setting-Save.png)
 
-## <a name="trigger-scale-out-action"></a>Wyzwalacz akcji skalowania w poziomie
-Aby wyzwolić warunku skalowalnego w poziomie w ustawieniu skalowania automatycznego właśnie utworzony, aplikacji sieci Web musi mieć więcej niż 10 żądań w mniej niż 5 minut.
+## <a name="trigger-scale-out-action"></a>Wyzwalanie akcji skalowania do wewnątrz
+Aby wyzwolić warunek skalowania do wewnątrz we właśnie utworzonym ustawieniu automatycznego skalowania, aplikacja internetowa musi odebrać ponad 10 żądań w mniej niż 5 minut.
 
-1. Otwórz okno przeglądarki i przejdź do aplikacji sieci Web utworzonej wcześniej w tym samouczku. Można znaleźć adres URL dla aplikacji sieci Web w portalu Azure, przechodząc do zasobu aplikacji sieci Web i kliknięcie **Przeglądaj** przycisku na karcie "Informacje".
+1. Otwórz okno przeglądarki i przejdź do aplikacji internetowej utworzonej wcześniej w tym samouczku. Adres URL aplikacji internetowej można znaleźć w witrynie Azure Portal, przechodząc do zasobu aplikacji internetowej i klikając przycisk **Przeglądaj** na karcie „Przegląd”.
 
-2. Szybkie naciśnięcie ponownie załaduj stronę więcej niż 10 razy
+2. Szybko ponownie załaduj stronę ponad 10 razy
 
-3. W okienku nawigacji po lewej stronie wybierz **Monitor** opcji. Po pobraniu strony wybierz **skalowania automatycznego** kartę.
+3. W okienku nawigacji po lewej stronie wybierz opcję **Monitor**. Po załadowaniu strony wybierz kartę **Automatyczne skalowanie**.
 
-4. Z listy wybierz Plan usługi aplikacji używane w tym samouczku
+4. Z listy wybierz plan usługi App Service używany w tym samouczku
 
-5. W ustawieniu skalowania automatycznego, kliknij polecenie **Historia uruchomień** kartę
+5. W ustawieniu automatycznego skalowania kliknij kartę **Historia uruchamiania**
 
-6. Zostanie wyświetlony wykres odzwierciedlające liczby wystąpień Plan usługi aplikacji w czasie
+6. Zostanie wyświetlony wykres odzwierciedlający liczbę wystąpień planu usługi App Service w czasie
 
-7. Za kilka minut liczba wystąpień powinno spowodować od 1, 2.
+7. W ciągu kilku minut liczba wystąpień powinna wzrosnąć z 1 na 2.
 
-8. W obszarze wykresu zobacz temat wpisy dziennika aktywności dla każdej akcji skalowania podjętej przez to ustawienie skalowania automatycznego.
+8. Pod wykresem znajdują się wpisy dziennika aktywności dla każdej akcji skalowania podjętej przez to ustawienie automatycznego skalowania.
 
-## <a name="trigger-scale-in-action"></a>Akcja wyzwalacza w skali
-Warunek w skali w skalowania automatycznego ustawienie wyzwalacze, jeśli mniej niż 5 żądań do aplikacji sieci Web w okresie 10 minut. 
+## <a name="trigger-scale-in-action"></a>Wyzwalanie akcji skalowania na zewnątrz
+Warunek skalowania na zewnątrz w ustawieniu automatycznego skalowania jest wyzwalany, jeśli w ciągu 10 minut aplikacja internetowa odbierze mniej niż 5 żądań. 
 
-1. Upewnij się, że żądania nie są wysyłane do aplikacji sieci Web
+1. Upewnij się, że żadne żądania nie są wysyłane do aplikacji internetowej
 
-2. Obciążenia portalu Azure
+2. Załaduj witrynę Azure Portal
 
-3. W okienku nawigacji po lewej stronie wybierz **Monitor** opcji. Po pobraniu strony wybierz **skalowania automatycznego** kartę.
+3. W okienku nawigacji po lewej stronie wybierz opcję **Monitor**. Po załadowaniu strony wybierz kartę **Automatyczne skalowanie**.
 
-4. Z listy wybierz Plan usługi aplikacji używane w tym samouczku
+4. Z listy wybierz plan usługi App Service używany w tym samouczku
 
-5. W ustawieniu skalowania automatycznego, kliknij polecenie **Historia uruchomień** kartę
+5. W ustawieniu automatycznego skalowania kliknij kartę **Historia uruchamiania**
 
-6. Zostanie wyświetlony wykres odzwierciedlające liczby wystąpień Plan usługi aplikacji w czasie.
+6. Zostanie wyświetlony wykres odzwierciedlający liczbę wystąpień planu usługi App Service w czasie.
 
-7. Za kilka minut liczba wystąpień należy usunąć z 2, do 1. Proces trwa co najmniej 100 minut.  
+7. W ciągu kilku minut liczba wystąpień powinna zmniejszyć się z 2 na 1. Zajmie to co najmniej 100 minut.  
 
-8. W obszarze wykresu jest odpowiedni zestaw działań wpisy dziennika dla każdej akcji skalowania podjętej przez to ustawienie skalowania automatycznego
+8. Pod wykresem znajdują się wpisy dziennika aktywności dla każdej akcji skalowania podjętej przez to ustawienie automatycznego skalowania
 
-    ![Wyświetlanie w skali akcji](./media/monitor-tutorial-autoscale-performance-schedule/Scale-In-Chart.png)
+    ![Widok akcji skalowania na zewnątrz](./media/monitor-tutorial-autoscale-performance-schedule/Scale-In-Chart.png)
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-1. Z menu po lewej stronie w portalu Azure kliknij **wszystkie zasoby** , a następnie wybierz aplikację sieci Web utworzonej w tym samouczku.
+1. W witrynie Azure Portal w menu po lewej stronie kliknij pozycję **Wszystkie zasoby**, a następnie wybierz aplikację internetową utworzoną w tym samouczku.
 
-2. Na stronie zasobów, kliknij przycisk **usunąć**, wpisując potwierdzić zamiar usunięcia **tak** w polu tekstowym, a następnie kliknij przycisk **usunąć**.
+2. Na stronie zasobów kliknij pozycję **Usuń**, potwierdź usunięcie, wpisując w polu tekstowym wartość **tak**, i kliknij pozycję **Usuń**.
 
-3. Następnie wybierz Plan usługi App Service zasobów i kliknij przycisk **usunąć**
+3. Następnie wybierz zasób planu usługi App Service i kliknij pozycję **Usuń**
 
-4. Potwierdź usunięcie wpisując **tak** w polu tekstowym, a następnie kliknij przycisk **usunąć**.
+4. Potwierdź usunięcie, wpisując w polu tekstowym wartość **tak**, a następnie kliknij pozycję **Usuń**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku można  
+W tym samouczku zostały wykonane następujące czynności:  
 > [!div class="checklist"]
-> * Utworzona aplikacja sieci Web i Plan usługi aplikacji
-> * Skalowania automatycznego skonfigurowane zasady w skali i skalowania w poziomie na podstawie liczby żądań aplikacji sieci Web odebrał
-> * Wyzwalane akcji skalowania w poziomie i obserwowane liczba wystąpień zwiększyć
-> * Wyzwalane akcję skalowania i obserwowane liczba wystąpień, Zmniejsz
-> * Wyczyszczone zasobów
+> * Utworzenie aplikacji internetowej i planu usługi App Service
+> * Skonfigurowanie reguł automatycznego skalowania w celu skalowania na zewnątrz i do wewnątrz na podstawie liczby żądań odbieranych przez aplikację internetową
+> * Wyzwolenie akcji skalowania do wewnątrz i zaobserwowanie wzrostu liczby wystąpień
+> * Wyzwolenie akcji skalowania na zewnątrz i zaobserwowanie spadku liczby wystąpień
+> * Wyczyszczenie zasobów
 
 
-Aby dowiedzieć się więcej na temat ustawień automatycznego skalowania, w dalszym ciągu na [Omówienie automatycznego skalowania](monitoring-overview-autoscale.md).
+Aby dowiedzieć się więcej na temat ustawień automatycznego skalowania, przejdź do [omówienia automatycznego skalowania](monitoring-overview-autoscale.md).
 
 > [!div class="nextstepaction"]
-> [Archiwizowanie danych monitorowania](monitor-tutorial-archive-monitoring-data.md)
+> [Archiwizuj dane monitorowania](monitor-tutorial-archive-monitoring-data.md)

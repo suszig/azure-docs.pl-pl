@@ -1,7 +1,7 @@
 <!--
-    Separate the generic "Getting started" paragraph from each connector-* article in azure-docs-pr/articles/data-factory/ to ease future central update.
+    Separate the generic "Get started" paragraph from each connector-* article in azure-docs-pr/articles/data-factory/ to ease future central update.
 -->
-Można utworzyć potoku o aktywności kopiowania za pomocą jednej z następujących narzędzi/zestawów SDK: kliknij łącze, aby przejść do samouczek z instrukcjami krok po kroku można utworzyć potoku o działanie kopiowania. 
+Można utworzyć potok z działania kopiowania za pomocą jednej z następujących narzędzi lub zestawów SDK. Wybierz łącze, aby przejść do samouczek z instrukcjami krok po kroku można utworzyć potoku o działanie kopiowania. 
 
 - [Skopiuj narzędzie danych](../articles/data-factory/quickstart-create-data-factory-copy-data-tool.md)
 - [Azure portal](../articles/data-factory/quickstart-create-data-factory-portal.md)

@@ -1,6 +1,6 @@
 ---
-title: "Kubernetes na Azure samouczek — przygotowanie ACR"
-description: "Samouczek AKS — przygotowanie ACR"
+title: "Samouczek dotyczący usługi Kubernetes na platformie Azure — przygotowywanie rejestru Azure Container Registry"
+description: "Samouczek dotyczący środowiska AKS — przygotowywanie rejestru Azure Container Registry"
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,60 +9,60 @@ ms.topic: tutorial
 ms.date: 11/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: d436e7d9046fa9c1bced890c005f98b40b372ef6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: b50d3b091848776feb33c042c2cddfcf2a598fc9
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/22/2018
 ---
-# <a name="deploy-and-use-azure-container-registry"></a>Wdrażanie i użytkowanie rejestru kontenera platformy Azure
+# <a name="deploy-and-use-azure-container-registry"></a>Wdrażanie usługi Azure Container Registry i korzystanie z niej
 
-Rejestru kontenera platformy Azure (ACR) to Azure, prywatnego rejestru dla obrazów kontenera Docker. Ten samouczek, część dwa ośmiu przeprowadzi Cię przez wdrażanie wystąpienia rejestru kontenera Azure i wypychanie obrazu kontenera do niego. Ukończono kroki obejmują:
+Usługa Azure Container Registry to oparty na platformie Azure rejestr prywatny na potrzeby obrazów kontenerów platformy Docker. Ten samouczek (druga część z ośmiu) zawiera opis sposobu wdrażania wystąpienia usługi Azure Container Registry i wypychania do niego obrazu kontenera. Wykonano następujące czynności:
 
 > [!div class="checklist"]
-> * Wdrażanie wystąpienia rejestru kontenera platformy Azure (ACR)
-> * Znakowanie obrazu kontener dla ACR
-> * Przekazywanie obrazu na ACR
+> * Wdrażanie wystąpienia usługi Azure Container Registry
+> * Tagowanie obrazu kontenera na potrzeby rejestru Azure Container Registry
+> * Przekazywanie obrazu do rejestru Azure Container Registry
 
-W kolejnych samouczkach tego wystąpienia ACR jest zintegrowana z klastrem Kubernetes w AKS.
+W kolejnych samouczkach to wystąpienie rejestru Azure Container Registry zostanie zintegrowane z klastrem Kubernetes w środowisku AKS.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-W [poprzedniego samouczek][aks-tutorial-prepare-app], obrazu kontener został utworzony dla prostą aplikację Azure głosu. Jeśli nie utworzono obraz aplikacji Azure głosowania, wróć do [samouczek 1 — Tworzenie kontenera obrazy][aks-tutorial-prepare-app].
+W [poprzednim samouczku ][aks-tutorial-prepare-app] utworzono obraz kontenera na potrzeby prostej aplikacji do głosowania platformy Azure. Jeśli obraz aplikacji do głosowania platformy Azure nie został utworzony, wróć do artykułu [Samouczek 1 — Tworzenie obrazów kontenerów][aks-tutorial-prepare-app].
 
-Ten samouczek wymaga używasz interfejsu wiersza polecenia Azure w wersji 2.0.21 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli musisz zainstalować lub uaktualnić, zobacz [instalowanie interfejsu wiersza polecenia Azure][azure-cli-install].
+W tym samouczku wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.21 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli-install].
 
-## <a name="deploy-azure-container-registry"></a>Wdrażanie rejestru kontenera platformy Azure
+## <a name="deploy-azure-container-registry"></a>Wdrażanie usługi Azure Container Registry
 
-W przypadku wdrażania rejestru kontenera platformy Azure, musisz najpierw grupę zasobów. Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi.
+W przypadku wdrażania usługi Azure Container Registry należy najpierw posiadać grupę zasobów. Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi.
 
-Utwórz grupę zasobów za pomocą polecenia [az group create][az-group-create]. W tym przykładzie grupy zasobów o nazwie `myResourceGroup` jest tworzony w `eastus` regionu.
+Utwórz grupę zasobów za pomocą polecenia [az group create][az-group-create]. W tym przykładzie grupa zasobów o nazwie `myResourceGroup` zostanie utworzona w regionie `eastus`.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Tworzenie kontenera Azure rejestru [utworzyć az acr] [ az-acr-create] polecenia. Nazwa rejestru kontenera **muszą być unikatowe**.
+Utwórz usługę Azure Container Registry za pomocą polecenia [az acr create][az-acr-create]. Nazwa rejestru musi być unikatowa w obrębie platformy Azure i może zawierać od 5 do 50 znaków alfanumerycznych.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
 ```
 
-W dalszej części tego samouczka, używamy `<acrName>` jako nazwę rejestru kontenera.
+W dalszej części tego samouczka wartość `<acrName>` zostanie użyta jako symbol zastępczy nazwy rejestru kontenerów.
 
-## <a name="container-registry-login"></a>Kontener rejestru logowania
+## <a name="container-registry-login"></a>Logowanie do rejestru Container Registry
 
-Użyj [logowania acr az] [ az-acr-login] polecenie, aby zalogować się do wystąpienia ACR. Musisz podać unikatową nazwę podane w rejestrze kontenera podczas jej tworzenia.
+Użyj polecenia [az acr login][az-acr-login], aby zalogować się do wystąpienia rejestru Azure Container Registry. Należy podać unikatową nazwę nadaną kontenerowi podczas jego tworzenia.
 
 ```azurecli
 az acr login --name <acrName>
 ```
 
-Polecenie zwraca komunikat "Pomyślnie logowania" po ukończeniu.
+Polecenie zwraca komunikat „Logowanie pomyślne” po ukończeniu.
 
-## <a name="tag-container-images"></a>Tag kontener obrazów
+## <a name="tag-container-images"></a>Tagowanie obrazów kontenerów
 
-Aby wyświetlić listę bieżącego obrazów, użyj [obrazy usługi docker] [ docker-images] polecenia.
+Aby wyświetlić listę bieżących obrazów, użyj polecenia [docker images][docker-images].
 
 ```console
 docker images
@@ -77,7 +77,7 @@ redis                        latest              a1b99da73d05        7 days ago 
 tiangolo/uwsgi-nginx-flask   flask               788ca94b2313        9 months ago        694MB
 ```
 
-Obraz każdego kontenera musi być oznakowane o nazwie loginServer rejestru. Ten tag jest używane do przesyłania przypadku wypychania kontener obrazów w rejestrze obrazu.
+Każdy obraz kontenera należy otagować za pomocą nazwy loginServer rejestru. Ten tag jest używany na potrzeby kierowania podczas wypychania obrazów kontenerów do rejestru obrazów.
 
 Aby uzyskać nazwę loginServer, uruchom następujące polecenie.
 
@@ -85,13 +85,13 @@ Aby uzyskać nazwę loginServer, uruchom następujące polecenie.
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Teraz, tag `azure-vote-front` obrazu o loginServer rejestru kontenera. Ponadto Dodaj `:redis-v1` na końcu nazwy obrazu. Znacznik określa wersję obrazu.
+Następnie otaguj obraz `azure-vote-front` wartością loginServer rejestru kontenerów. Ponadto dodaj wartość `:redis-v1` na końcu nazwy obrazu. Ten tag wskazuje wersję obrazu.
 
 ```console
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v1
 ```
 
-Uruchom po oznakowany, [obrazy usługi docker] [ docker-images] Aby zweryfikować działanie.
+Po otagowaniu uruchom polecenie [docker images][docker-images], aby zweryfikować operację.
 
 ```console
 docker images
@@ -109,19 +109,19 @@ tiangolo/uwsgi-nginx-flask                           flask               788ca94
 
 ## <a name="push-images-to-registry"></a>Wypychanie obrazów do rejestru
 
-Wypychanie `azure-vote-front` obrazu w rejestrze.
+Wypchnij obraz `azure-vote-front` do rejestru.
 
-Korzystając z następującego przykładu, Zamień nazwa ACR loginServer loginServer ze środowiska.
+Korzystając z następującego przykładu, zastąp nazwę loginServer usługi ACR nazwą loginServer z używanego środowiska.
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:redis-v1
 ```
 
-Trwa to kilka minut.
+Wykonanie tej operacji może zająć kilka minut.
 
-## <a name="list-images-in-registry"></a>Listy obrazów w rejestrze
+## <a name="list-images-in-registry"></a>Wyświetlanie listy obrazów w rejestrze
 
-Aby powrócić do listy obrazów, do których został przypisany do rejestru kontenera platformy Azure, użytkownik [listy repozytorium acr az] [ az-acr-repository-list] polecenia. Zaktualizuj polecenia o nazwie ACR.
+Aby zwrócić listę obrazów, które zostały wypchnięte do usługi Azure Container Registry, użyj polecenia [az acr repository list][az-acr-repository-list]. Zaktualizuj polecenie nazwą wystąpienia usługi ACR.
 
 ```azurecli
 az acr repository list --name <acrName> --output table
@@ -135,7 +135,7 @@ Result
 azure-vote-front
 ```
 
-A następnie wyświetlić tagi dla określonego obrazu, użyj [az acr repozytorium Pokaż znaczniki] [ az-acr-repository-show-tags] polecenia.
+Aby następnie wyświetlić tagi dla określonego obrazu, użyj polecenia [az acr repository show-tags][az-acr-repository-show-tags].
 
 ```azurecli
 az acr repository show-tags --name <acrName> --repository azure-vote-front --output table
@@ -149,18 +149,18 @@ Result
 redis-v1
 ```
 
-Po ukończeniu samouczka obrazu kontenera przechowywanych w prywatnej wystąpienia rejestru kontenera platformy Azure. Ten obraz jest rozmieszczany z ACR klastrowi Kubernetes w kolejnych samouczkach.
+Po ukończeniu tego samouczka obraz kontenera zostanie zapisany w prywatnym wystąpieniu usługi Azure Container Registry. W kolejnych samouczkach ten obraz zostanie wdrożony z rejestru Azure Container Registry do klastra Kubernetes.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku rejestru kontenera Azure zostało przygotowane do użycia w klastrze AKS. Wykonano następujące czynności:
+W tym samouczku usługa Azure Container Registry została przygotowana do użycia w klastrze AKS. Wykonano następujące czynności:
 
 > [!div class="checklist"]
-> * Wdrożone wystąpienie rejestru kontenera platformy Azure
-> * Tagged image kontenera dla ACR
-> * Przekazać obraz do awaryjnego
+> * Wdrażanie wystąpienia usługi Azure Container Registry
+> * Tagowanie obrazu kontenera na potrzeby rejestru Azure Container Registry
+> * Przekazywanie obrazu do rejestru Azure Container Registry
 
-Przejdź do następnego samouczek, aby dowiedzieć się więcej o wdrażaniu klastra Kubernetes na platformie Azure.
+Przejdź do kolejnego samouczka, aby uzyskać więcej informacji o wdrażaniu klastra Kubernetes na platformie Azure.
 
 > [!div class="nextstepaction"]
 > [Wdrażanie klastra Kubernetes][aks-tutorial-deploy-cluster]

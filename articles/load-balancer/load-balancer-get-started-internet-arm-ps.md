@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie modułu równoważenia obciążenia platformy Azure dostępnego z Internetu — PowerShell | Microsoft Docs"
-description: "Dowiedz się, jak utworzyć dostępny z Internetu moduł równoważenia obciążenia w usłudze Resource Manager za pomocą programu PowerShell"
+title: "Tworzenie publicznego modułu równoważenia obciążenia — PowerShell | Microsoft Docs"
+description: "Dowiedz się, jak utworzyć publiczny moduł równoważenia obciążenia w usłudze Resource Manager za pomocą programu PowerShell"
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: d11ad8ff7f3d3357d1af276a9643b7a74e6c3f6d
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 15e1c868a72a61d9721b96032d304fdec6d6e213
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="get-started"></a>Tworzenie dostępnego z Internetu modułu równoważenia obciążenia w usłudze Resource Manager za pomocą programu PowerShell
+# <a name="get-started"></a>Tworzenie publicznego modułu równoważenia obciążenia przy użyciu usługi Resource Manager i programu PowerShell
 
 > [!div class="op_single_selector"]
 > * [Portal](../load-balancer/load-balancer-get-started-internet-portal.md)
@@ -36,7 +36,7 @@ ms.lasthandoff: 12/18/2017
 
 ## <a name="deploying-the-solution-by-using-azure-powershell"></a>Wdrażanie rozwiązania przy użyciu programu Azure PowerShell
 
-Poniższe procedury przedstawiają sposób tworzenia dostępnego z Internetu modułu równoważenia obciążenia w usłudze Azure Resource Manager przy użyciu programu PowerShell. Usługa Azure Resource Manager pozwala tworzyć i konfigurować każdy zasób osobno, a następnie łączyć je ze sobą, aby utworzyć moduł równoważenia obciążenia.
+Poniższe procedury przedstawiają sposób tworzenia publicznego modułu równoważenia obciążenia przy użyciu usługi Azure Resource Manager i programu PowerShell. Usługa Azure Resource Manager pozwala tworzyć i konfigurować każdy zasób osobno, a następnie łączyć je ze sobą, aby utworzyć moduł równoważenia obciążenia.
 
 Aby wdrożyć moduł równoważenia obciążenia, należy utworzyć i skonfigurować poniższe obiekty:
 

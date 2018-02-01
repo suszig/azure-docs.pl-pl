@@ -31,7 +31,7 @@ Następujące limity mają zastosowanie tylko w przypadku zasobów sieciowych za
 | Współbieżne TCP lub UDP przepływów na kartę Sieciową maszyny wirtualnej lub wystąpienia roli |500 000 |500 000 |
 | Interfejsy sieciowe (karta sieciowa) |350 |20000 |
 | Sieciowe grupy zabezpieczeń (NSG) |100 |5000 |
-| Reguły sieciowej grupy zabezpieczeń na sieciową grupę zabezpieczeń |200 |500 |
+| Reguły sieciowej grupy zabezpieczeń na sieciową grupę zabezpieczeń |200 |1000 |
 | Adresy IP i zakresów określony dla źródła lub miejsca docelowego w grupie zabezpieczeń |2000 |4000 |
 | Grupy zabezpieczeń aplikacji |200 |500 |
 | Stosowanie grup zabezpieczeń dla konfiguracji IP dla karty Sieciowej |10 |20 |

@@ -1,6 +1,6 @@
 ---
-title: "Diagnozowanie wyjątków czasu wykonywania przy użyciu usługi Azure Application Insights | Dokumentacja firmy Microsoft"
-description: "Samouczek można znaleźć i diagnozowanie wyjątków środowiska wykonawczego w aplikacji przy użyciu usługi Azure Application Insights."
+title: "Diagnozowanie wyjątków czasu wykonywania za pomocą usługi Azure Application Insights | Microsoft Docs"
+description: "Samouczek omawiający znajdowanie i diagnozowanie wyjątków czasu wykonywania w aplikacji za pomocą usługi Azure Application Insights."
 services: application-insights
 keywords: 
 author: mrbullwinkle
@@ -10,23 +10,23 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: f6844dd6747854a60ff8eb8be0d913b73ca2bdb2
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 115611c5d4eeffb0f0600dd0a792ee9f80247e36
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Znajdź i diagnozowanie wyjątków środowiska wykonawczego z usługą Azure Application Insights
+# <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Znajdowanie i diagnozowanie wyjątków czasu wykonywania za pomocą usługi Azure Application Insights
 
-Azure Application Insights zbiera dane telemetryczne z aplikacji do identyfikacji i diagnozowanie wyjątków w czasie wykonywania.  Ten samouczek przedstawia ten proces z aplikacją.  Omawiane kwestie:
+Usługa Azure Application Insights gromadzi dane telemetryczne z Twojej aplikacji, aby identyfikować i diagnozować wyjątki czasu wykonywania.  W tym samouczku przedstawiono ten proces dla Twojej aplikacji.  Omawiane kwestie:
 
 > [!div class="checklist"]
-> * Modyfikowanie projektu, aby włączyć śledzenie wyjątków
-> * Rozpoznanie wyjątków dla różnych składników aplikacji
-> * Wyświetl szczegóły wyjątku
-> * Pobierz migawkę wyjątek dla programu Visual Studio do debugowania
-> * Analizować szczegółowe informacje dotyczące żądań zakończonych niepowodzeniem przy użyciu języka zapytań
-> * Utwórz nowy element roboczy, aby skorygować błędny kod
+> * Modyfikowanie projektu w celu włączenia śledzenia wyjątków
+> * Identyfikowanie wyjątków dla różnych składników aplikacji
+> * Wyświetlanie szczegółów wyjątku
+> * Pobieranie migawki wyjątku do programu Visual Studio w celu debugowania
+> * Analizowanie szczegółów nieudanych żądań przy użyciu języka zapytań
+> * Tworzenie nowego elementu roboczego w celu poprawienia błędnego kodu
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -36,80 +36,85 @@ W celu ukończenia tego samouczka:
 - Zainstaluj program [Visual Studio 2017](https://www.visualstudio.com/downloads/) z następującymi pakietami roboczymi:
     - Tworzenie aplikacji na platformie ASP.NET i aplikacji internetowych
     - Tworzenie aplikacji na platformie Azure
-- Pobierz i zainstaluj [Visual Studio Debugger migawki](http://aka.ms/snapshotdebugger).
-- Włącz [programu Visual Studio migawki debugera](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger)
-- Wdrażanie aplikacji .NET na platformie Azure i [włączyć zestaw SDK usługi Application Insights](app-insights-asp-net.md). 
-- Samouczek śledzi identyfikacji Wystąpił wyjątek w aplikacji, więc modyfikowanie kodu w środowisku deweloperskich lub testowania można wygenerować wyjątek. 
+- Pobierz i zainstaluj rozszerzenie [Visual Studio Snapshot Debugger](http://aka.ms/snapshotdebugger).
+- Włącz rozszerzenie [Visual Studio Snapshot Debugger](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger).
+- Wdróż aplikację .NET na platformie Azure i [włącz zestaw Application Insights SDK](app-insights-asp-net.md). 
+- Samouczek śledzi identyfikowanie wyjątków w Twojej aplikacji, dlatego zmodyfikuj kod w środowisku deweloperskim lub testowym, aby wygenerować wyjątek. 
 
 ## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
 Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com).
 
 
 ## <a name="analyze-failures"></a>Analizowanie błędów
-Usługa Application Insights zbiera żadnych błędów w aplikacji i umożliwia wyświetlanie ich częstotliwość przez różne operacje, aby skupić się wysiłków na tych, których najlepiej wpłynąć.  Następnie można Przechodzenie do szczegółów tych błędów, aby zidentyfikować przyczynę.   
+Usługa Application Insights zbiera wszelkie błędy z Twojej aplikacji i pozwala wyświetlać ich częstotliwość dla różnych operacji, aby pomóc w skoncentrowaniu wysiłków na tych z nich, które niosą za sobą największe skutki.  Następnie można przechodzić do szczegółów tych błędów, aby odkryć ich główną przyczynę.   
 
-1. Wybierz **usługi Application Insights** , a następnie subskrypcja.  
-1. Aby otworzyć **błędów** panelu wybierz opcję **błędów** w obszarze **zbadaj** menu lub kliknij przycisk **żądań zakończonych niepowodzeniem** wykresu.
+1. Wybierz pozycję **Application Insights**, a następnie swoją subskrypcję.  
+2. Aby otworzyć panel **Błędy**, wybierz pozycję **Błędy** z menu **Zbadaj** albo kliknij wykres **Żądania zakończone niepowodzeniem**.
 
     ![Żądania zakończone niepowodzeniem](media/app-insights-tutorial-runtime-exceptions/failed-requests.png)
 
-2. **Żądań zakończonych niepowodzeniem** panelu informuje o liczbie nieudanych żądań i liczbę użytkowników, dla każdej operacji dla aplikacji.  Sortując tych informacji przez użytkownika można zidentyfikować te błędy większość wpływ na użytkowników.  W tym przykładzie **UZYSKAĆ pracowników/Utwórz** i **UZYSKAĆ klientów, uzyskać szczegółowe informacje** prawdopodobnie nadają się do sprawdzania, czy z powodu dużej liczby błędów i wpływ na użytkowników.  Wybranie operacji zawiera dodatkowe informacje na temat tej operacji na prawym panelu.
+3. Panel **Żądania zakończone niepowodzeniem** pokazuje liczbę żądań zakończonych niepowodzeniem oraz liczbę użytkowników, których to dotyczy, dla każdej operacji aplikacji.  Sortując te informacje według użytkowników, można znaleźć te błędy, które mają największy wpływ na użytkowników.  W tym przykładzie dobrymi kandydatami do przyjrzenia się bliżej są operacje **GET Employees/Create** i **GET Customers/Details** z powodu ich dużej liczby błędów i dotkniętych użytkowników.  Po wybraniu operacji na prawym panelu pokazywane są dalsze informacje na temat tej operacji.
 
-    ![Nie powiodło się panelu żądań](media/app-insights-tutorial-runtime-exceptions/failed-requests-blade.png)
+    ![Panel Żądania zakończone niepowodzeniem](media/app-insights-tutorial-runtime-exceptions/failed-requests-blade.png)
 
-3. Zmniejsza okno czasu powiększyć okres, w przypadku gdy współczynnik awaryjności przedstawiono kolekcji.
+4. Zmniejsz przedział czasu, aby przybliżyć okres, w którym współczynnik błędów wykazuje największy wzrost.
 
-    ![Okno żądań zakończonych niepowodzeniem](media/app-insights-tutorial-runtime-exceptions/failed-requests-window.png)
+    ![Okno Żądania zakończone niepowodzeniem](media/app-insights-tutorial-runtime-exceptions/failed-requests-window.png)
 
-4. Kliknij przycisk **Wyświetl szczegóły** Aby wyświetlić szczegóły dla tej operacji.  Dotyczy to również wykres Gantta przedstawiający dwa zależności nie powiodło się, co łącznie trwało prawie pół sekundy do ukończenia.  Można dowiedzieć się więcej na temat analizowania problemów z wydajnością, wykonując samouczka [znaleźć i diagnozowanie problemów z wydajnością z usługą Azure Application Insights](app-insights-tutorial-performance.md).
+5. Kliknij pozycję **Wyświetl szczegóły**, aby zobaczyć szczegóły operacji.  Obejmują one wykres Gantta z dwoma błędnymi zależnościami, które w sumie wymagają niemal pół sekundy na ukończenie.  Więcej na temat analizowania problemów z wydajnością możesz się dowiedzieć, kończąc samouczek [Find and diagnose performance issues with Azure Application Insights (Znajdowanie i diagnozowanie problemów z wydajnością w usłudze Azure Application Insights)](app-insights-tutorial-performance.md).
 
-    ![Nie powiodło się szczegóły żądania](media/app-insights-tutorial-runtime-exceptions/failed-requests-details.png)
+    ![Szczegóły żądań zakończonych niepowodzeniem](media/app-insights-tutorial-runtime-exceptions/failed-requests-details.png)
 
-5. Szczegóły operacji przedstawiono również FormatException widocznego spowodował błąd.  Kliknij przycisk wyjątek lub na **typów wyjątków 3 pierwszych** liczbę, aby wyświetlić jego szczegóły.  Widoczny jest ze względu na nieprawidłowy kod pocztowy.
+6. W szczegółach operacji widać również wyjątek FormatException, który wydaje się być przyczyną błędu.  Kliknij wyjątek lub licznik **Najważniejsze 3 typy wyjątków**, aby wyświetlić jego szczegóły.  Zobaczysz, że przyczyną jest nieprawidłowy kod pocztowy.
 
     ![Szczegóły wyjątku](media/app-insights-tutorial-runtime-exceptions/failed-requests-exception.png)
 
+> [!NOTE]
+Włącz [środowisko podglądu](app-insights-previews.md) o nazwie „Ujednolicone szczegóły: diagnostyka transakcji E2E”, aby zobaczyć wszystkie powiązane dane telemetryczne po stronie serwera, takie jak żądania, zależności, wyjątki, ślady, zdarzenia itp. w pojedynczym widoku pełnoekranowym. 
 
+Na włączonym podglądzie możesz sprawdzić czas potrzebny do wywołania zależności wraz z wszelkimi błędami i wyjątkami w ujednoliconym środowisku. W przypadku transakcji między składnikami wykres Gantta wraz z okienkiem szczegółów mogą pomóc w szybkim wykryciu składnika, zależności lub wyjątku będącego główną przyczyną problemu. Dolną sekcję można rozwinąć, aby zobaczyć sekwencję czasową wszelkich śladów lub zdarzeń zebranych dla wybranego komponentu i operacji. [Dowiedz się więcej na temat nowego środowiska](app-insights-transaction-diagnostics.md)  
 
-## <a name="identify-failing-code"></a>Zidentyfikuj w przypadku braku kodu
-Debuger migawki zbiera dane migawki najczęstsze wyjątków w aplikacji, aby pomóc w zdiagnozowaniu jego główną przyczynę w środowisku produkcyjnym.  Migawki debugowania można wyświetlić w portalu w celu sprawdzenia wywołania stosu i sprawdzić zmiennych w każdej ramki stosu wywołań. Następnie można debugować kodu źródłowego pobieranie migawki i otwierając go w programie Visual Studio 2017 r.
+![Diagnostyka transakcji](media/app-insights-tutorial-runtime-exceptions/e2e-transaction-preview.png)
 
-1. W oknie Właściwości wyjątku kliknij **migawki Otwórz debugowania**.
-2. **Debugowania migawki** panelu otwiera ze stosu wywołań dla żądania.  Kliknij dowolną metodę, aby wyświetlić wartości wszystkich zmiennych lokalnych w momencie żądania.  Począwszy od top — metoda w tym przykładzie, możemy stwierdzić, zmienne lokalne, które mają żadnej wartości.
+## <a name="identify-failing-code"></a>Identyfikowanie błędnego kodu
+Rozszerzenie Snapshot Debugger zbiera migawki najczęściej występujących wyjątków w Twojej aplikacji, aby pomóc Ci w diagnozowaniu głównej przyczyny problemu w środowisku produkcyjnym.  Migawki debugowania można wyświetlić w portalu, aby zobaczyć stos wywołań i sprawdzić zmienne w każdej ramce tego stosu. Następnie można debugować kod źródłowy, pobierając migawkę i otwierając ją w programie Visual Studio 2017.
 
-    ![Debugowanie migawki](media/app-insights-tutorial-runtime-exceptions/debug-snapshot-01.png)
+1. We właściwościach wyjątku kliknij pozycję **Otwórz migawkę debugowania**.
+2. Zostanie otwarty panel **Migawka debugowania** ze stosem wywołań dla żądania.  Kliknij dowolną metodę, aby wyświetlić wartości wszystkich zmiennych lokalnych w momencie żądania.  Zaczynając od pierwszej metody w tym przykładzie, widać zmienne lokalne bez wartości.
 
-4. Pierwsze wywołanie, które znajdowały się prawidłowe wartości to **ValidZipCode**, i zobaczysz, że kod pocztowy podano z literami, nie można przetłumaczyć jej na liczbę całkowitą.  Wydaje się być błąd kodu, który musi zostać usunięty.
+    ![Migawka debugowania](media/app-insights-tutorial-runtime-exceptions/debug-snapshot-01.png)
 
-    ![Debugowanie migawki](media/app-insights-tutorial-runtime-exceptions/debug-snapshot-02.png)
+4. Pierwsze wywołanie z prawidłowymi wartościami to **ValidZipCode** i widać, że w kodzie pocztowym podano litery, których nie można przekształcić na liczbę całkowitą.  Wygląda to na błąd w kodzie, który trzeba poprawić.
 
-5. Aby pobrać tę migawkę do programu Visual Studio, w którym można znaleźć rzeczywisty kod, który musi zostać usunięty, kliknij przycisk **pobrać migawki**.
-6. Migawka została załadowana do programu Visual Studio.
-7. Teraz możesz uruchomić sesję debugowania w programie Visual Studio, która szybko identyfikuje wiersz kodu, który spowodował wyjątek.
+    ![Migawka debugowania](media/app-insights-tutorial-runtime-exceptions/debug-snapshot-02.png)
+
+5. Aby pobrać tę migawkę do programu Visual Studio, w którym będzie można znaleźć faktyczny kod do poprawienia, kliknij pozycję **Pobierz migawkę**.
+6. Migawka zostanie załadowana do programu Visual Studio.
+7. Teraz możesz uruchomić sesję debugowania w programie Visual Studio, która szybko zidentyfikuje wiersz kodu będący przyczyną wyjątku.
 
     ![Wyjątek w kodzie](media/app-insights-tutorial-runtime-exceptions/exception-code.png)
 
 
-## <a name="use-analytics-data"></a>Użyj analizy danych
-Wszystkie dane zebrane przez usługę Application Insights są przechowywane w Azure Log Analytics, która zapewnia rozwinięty język zapytań umożliwiający analizowanie danych w różny sposób.  Możemy użyć tych danych do analizowania żądania, które spowodowało wyjątku, który możemy Cię badanie. 
+## <a name="use-analytics-data"></a>Korzystanie z danych analizy
+Wszystkie dane zbierane przez usługę Application Insights są przechowywane w usłudze Azure Log Analytics, która oferuje rozbudowany język zapytań umożliwiający analizowanie danych na różne sposoby.  Możemy użyć tych danych do przeanalizowania żądań, które spowodowały badany wyjątek. 
 
-8. Kliknij przycisk informacje wskaźników CodeLens powyżej kod, aby wyświetlić dane telemetryczne udostępniane przez usługi Application Insights.
+8. Kliknij informacje CodeLens nad kodem, aby wyświetlić dane telemetryczne dostarczane przez usługę Application Insights.
 
     ![Kod](media/app-insights-tutorial-runtime-exceptions/codelens.png)
 
-9. Kliknij przycisk **analizy wpływu** otworzyć analizy wgląd w aplikacji.  Nagłówkowy kilka zapytań, które zawierają szczegółowe informacje dotyczące żądań zakończonych niepowodzeniem, takie jak wpływ na użytkowników, przeglądarki i regionach.<br><br>![Analiza](media/app-insights-tutorial-runtime-exceptions/analytics.png)<br>
+9. Kliknij pozycję **Analiza wpływu**, aby otworzyć okno Application Insights — analiza.  Jest ono wypełnione kilkoma zapytaniami udostępniającymi szczegóły żądań zakończonych niepowodzeniem, takie jak użytkownicy, przeglądarki i regiony dotknięte niepowodzeniem.<br><br>![Analiza](media/app-insights-tutorial-runtime-exceptions/analytics.png)<br>
 
-## <a name="add-work-item"></a>Dodaj element roboczy
-Jeśli system śledzenia, takiego jak Visual Studio Team Services lub GitHub połączenie usługi Application Insights, można utworzyć elementu roboczego bezpośrednio z usługi Application Insights.
+## <a name="add-work-item"></a>Dodawanie elementu roboczego
+Jeśli usługa Application Insights zostanie połączona z systemem śledzenia, takim jak Visual Studio Team Services lub GitHub, element roboczy można utworzyć bezpośrednio z usługi Application Insights.
 
-1. Wróć do **właściwości wyjątku** panelu w usłudze Application Insights.
-2. Kliknij przycisk **nowego elementu roboczego**.
-3. **Nowego elementu roboczego** panelu otwiera się ze szczegółami wyjątek już wypełnione.  Można dodać żadnych dodatkowych informacji przed zapisaniem.
+1. Wróć do panelu **Właściwości wyjątku** w usłudze Application Insights.
+2. Kliknij pozycję **Nowy element roboczy**.
+3. Zostanie otwarty panel **Nowy element roboczy** z już wypełnionymi informacjami na temat wyjątku.  Przed jego zapisaniem możesz dodać dowolne informacje dodatkowe.
 
     ![Nowy element roboczy](media/app-insights-tutorial-runtime-exceptions/new-work-item.png)
 
 ## <a name="next-steps"></a>Następne kroki
-Teraz, kiedy znasz już identyfikowanie wyjątki czasu wykonywania, przejdź do następnego samouczek informacje na temat identyfikowania i diagnozowanie problemów z wydajnością.
+Teraz, gdy już wiesz, jak identyfikować wyjątki czasu wykonywania, przejdź do następnego samouczka, aby dowiedzieć się, jak identyfikować i diagnozować problemy z wydajnością.
 
 > [!div class="nextstepaction"]
 > [Identyfikowanie problemów z wydajnością](app-insights-tutorial-performance.md)

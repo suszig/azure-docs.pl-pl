@@ -1,6 +1,6 @@
 ---
-title: "Czy potrzebujesz pomocy przy użyciu portalu Moje aplikacje w usłudze Azure Active Directory | Dokumentacja firmy Microsoft"
-description: "Pobierz instrukcje dotyczące wykonywania typowych zadań, podczas pracy z panelu dostępu."
+title: "Uzyskaj pomoc dotyczącą uzyskiwanie dostępu i korzystania z portalu Moje aplikacje w usłudze Azure Active Directory | Dokumentacja firmy Microsoft"
+description: "Uzyskaj pomoc dotyczącą logowanie do i wykonywanie typowych zadań w panelu dostępu."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -15,123 +15,109 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: 9bec51e1d49308baecc76143ec80902d2da418e8
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 285ee0c4e7f963c372c4f95face73864ba2a4f68
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="do-you-need-help-with-the-my-apps-portal"></a>Potrzebujesz pomocy przy użyciu portalu Moje aplikacje?
+# <a name="troubleshoot-issues-with-accessing-and-using-the-my-apps-portal"></a>Rozwiązywanie problemów z uzyskiwanie dostępu i korzystania z portalu Moje aplikacje
 
-Ta strona została wyświetlona prawdopodobnie, ponieważ Niestety uruchomionym problem przy użyciu portalu Moje aplikacje. Gdy istnieją przypadki, które wymagają skontaktuj się z pomocą techniczną lub administratorem, aby uzyskać problem można rozwiązać, poniżej przedstawiono niektóre tematy dotyczące rozwiązywania problemów, które mogą okazać się pomocne, najpierw.
+Jeśli występują problemy dotyczące logowania się lub przy użyciu portalu Moje aplikacje, spróbuj te wskazówki dotyczące rozwiązywania problemów, zanim zostanie skontaktuj się z pomocą techniczną lub administratorem Aby uzyskać pomoc.
 
 ## <a name="i-am-having-trouble-signing-into-the-my-apps-portal"></a>Mam problemy z logowaniem do portalu Moje aplikacje
 
-Ogólne problemy, aby sprawdzić:
+Wypróbuj te ogólne wskazówki:
 
-- Sprawdź, czy logujesz się do poprawny adres URL: [https://myapps.microsoft.com](https://myapps.microsoft.com)
-
+- Po pierwsze, wyboru, aby zobaczyć, czy używasz poprawny adres URL [https://myapps.microsoft.com](https://myapps.microsoft.com).
 - Spróbuj dodać do zaufanych witryn w przeglądarce adres URL.
-
-- Upewnij się, nie wygasł lub zapomnienia hasła. Sprawdź [tutaj](active-directory-passwords-update-your-own-password.md) Aby uzyskać więcej informacji na temat aktualizowania hasła.
-
-- Sprawdź, czy swoje informacje kontaktowe uwierzytelniania jest aktualny i nie blokują dostęp. Sprawdź [tutaj](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user) Aby uzyskać więcej informacji na temat konfigurowania swoje informacje uwierzytelniania.
-
+- Upewnij się, że hasło jest poprawna i czy nie wygasł. Aby uzyskać więcej informacji, zobacz [zresetować hasło lub szkoły](active-directory-passwords-update-your-own-password.md).
+- Sprawdź, czy informacje kontaktowe dotyczące uwierzytelniania jest aktualny i nie blokują dostęp. Aby uzyskać więcej informacji, zobacz [co oznacza Azure Multi-Factor Authentication dla mnie?](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user).
 - Wyczyść pliki cookie w przeglądarce, a następnie spróbuj się ponownie zalogować.
 
-Jeśli nadal wystąpią problemy podczas próby zarejestrowania się, skontaktuj się z administratorem, aby uzyskać dalszą pomoc.
+Jeśli nadal wystąpią problemy podczas próby zarejestrowania się, skontaktuj się z administratorem.
 
 
-## <a name="how-do-i-update-my-password"></a>Jak zaktualizować hasło?
+## <a name="i-seem-to-be-having-password-issues"></a>Mogę się problemy hasła
 
-Jeśli nie pamiętasz hasła, nigdy nie otrzymanych z działu IT, zostały zablokowane konta lub chcesz je zmienić, zobacz [pomocy, pamiętam hasła usługi Azure AD](active-directory-passwords-update-your-own-password.md) więcej szczegółów.
+Jeśli nie pamiętasz hasła nigdy nie otrzymanych z działu IT, są zablokowane konta lub chcesz zmienić swoje hasło, zobacz [pomocy, pamiętam hasła usługi Azure AD](active-directory-passwords-update-your-own-password.md).
 
-## <a name="how-do-i-register-for-password-reset"></a>Jak zarejestrować do resetowania hasła
+## <a name="i-need-to-register-for-password-reset"></a>Należy zarejestrować do resetowania hasła
 
-Jako użytkownik końcowy może zresetować hasło lub odblokować konto bez konieczności mowy do osoby za pomocą Samoobsługowego resetowania hasła (SSPR). Przed użyciem tej funkcji musisz zarejestrować metody uwierzytelniania lub potwierdzić wstępnie zdefiniowane metody uwierzytelniania podane przez administratora. Aby uzyskać więcej informacji, zobacz [rejestrowanie się w celu samodzielnego resetowania hasła](active-directory-passwords-reset-register.md).
+Możesz zresetować hasło lub odblokować konto bez konieczności Porozmawiaj z kimś przy użyciu samodzielnego resetowania hasła (SSPR). Przed użyciem tej funkcji, musisz zarejestrować metody uwierzytelniania lub potwierdź metody uwierzytelniania wstępnie zdefiniowane, które wymaga od administratora. Aby uzyskać więcej informacji, zobacz [rejestrowanie się w celu samodzielnego resetowania hasła](active-directory-passwords-reset-register.md).
 
 
 ## <a name="i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension"></a>Problemy dotyczące instalowania Moje aplikacje bezpiecznego logowania rozszerzenia
 
-Sprawdź, czy spełniasz wymagania dotyczące przeglądarki:
+Portal Moje aplikacje wymaga przeglądarki obsługującej JavaScript i włączył CSS. Jeśli używasz hasła aplikacji opartych na jednym logowania jednokrotnego towarzyszący rozszerzenia musi być zainstalowany także. To rozszerzenie jest pobierany automatycznie podczas uruchamiania aplikacji, która jest skonfigurowana dla hasła aplikacji opartych na jednym logowania jednokrotnego.
 
-- Portal wymaga przeglądarki obsługującej JavaScript i włączył CSS. Jeśli używasz hasła aplikacji opartych na jednym logowania jednokrotnego towarzyszący rozszerzenia musi być zainstalowany także. To rozszerzenie jest pobierany automatycznie podczas uruchamiania aplikacji, która jest skonfigurowana dla hasła aplikacji opartych na jednym logowania jednokrotnego.
+Sprawdź, upewnij się, że spełniają następujące wymagania dotyczące przeglądarki:
+- **Krawędź**: w systemie Windows 10 Anniversary Edition lub nowszy.
+- **Chrome**: w systemie Windows 7 lub nowszym i w systemie Mac OS X lub później.
+- **Firefox 26.0 lub nowsze**: w systemie Windows XP SP2 lub nowszy i Mac OS X 10.6 lub później.
+- **Internet Explorer 8, 9, 10, 11**: w systemie Windows 7 lub nowszy (obsługa ograniczona).
 
-- Wymagania dotyczące przeglądarki rozszerzenia są:
-    - Krawędź w systemie Windows 10 Anniversary Edition lub nowszy
-    - Chrome w systemie Windows 7 lub nowszy oraz System MacOS x lub nowszych
-    - Firefox 26.0 lub nowszej w systemie Windows XP SP2 lub nowszym i w systemie Mac OS X 10.6 lub nowszej
-    - Internet Explorer 8, 9, 10, 11, w systemie Windows 7 lub nowszy (ograniczony pomocy technicznej)
-
-Możesz również pobrać rozszerzenia dla programu Chrome i krawędzi, z poniższe linki bezpośrednie:
+Możesz również pobrać rozszerzenia dla programu Chrome i krawędzi bezpośrednio z następujących witryn:
 
 - [Rozszerzenia programu Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
-
 - [Rozszerzenie krawędzi](https://www.microsoft.com/store/apps/9pc9sckkzk84)
 
-Po instalacji spróbuj wykonać następujące kroki, jeśli wystąpią problemy:
+Jeśli zainstalowano rozszerzenia i nadal występują problemy, wypróbuj następujące metody:
 
-- Sprawdź w ustawieniach rozszerzenia przeglądarki włączenie rozszerzenia.
-
-- Uruchom ponownie przeglądarkę i zaloguj się do portalu Moje aplikacje.
-
+- Sprawdź ustawienia rozszerzenia przeglądarki, aby upewnić się, że rozszerzenie jest włączona.
+- Uruchom ponownie przeglądarkę, a następnie zaloguj się do portalu Moje aplikacje.
 - Wyczyszczenie plików cookie w przeglądarce i zaloguj się do portalu Moje aplikacje.
-- Postępuj zgodnie z [Rozwiązywanie problemów z rozszerzeniem Panel dostępu dla programu Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting) przewodniku dostęp do narzędzia diagnostycznego i instrukcje krok po kroku dotyczące konfigurowania rozszerzenia dla programu Internet Explorer.
+- Aby uzyskać dostęp do narzędzia diagnostycznego i instrukcje krok po kroku dotyczące konfigurowania rozszerzenia dla programu Internet Explorer, zobacz [Rozwiązywanie problemów z rozszerzeniem Panel dostępu dla programu Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting).
 
-## <a name="how-do-i-use-the-my-apps-secure-sign-in-extension"></a>Jak używać Moje aplikacje bezpiecznego logowania rozszerzenie?
-Zmiana domyślnego adresu URL aplikacji Moje rozszerzenia
+## <a name="use-the-my-apps-secure-sign-in-extension"></a>Użyj mojej aplikacji bezpiecznego logowania rozszerzenia
+* Jeśli używasz Mój adres URL aplikacji innych niż `https://myapps.microsoft.com`, skonfiguruj adres URL domyślnej przez wykonanie następujących czynności:
+   1. Podczas *nie* zalogowany do rozszerzenia, kliknij prawym przyciskiem myszy ikonę rozszerzenia.
+   2. W menu, wybierz **adres URL aplikacji Mój**.
+   3. Wybierz adres URL domyślnej.
+   4. Wybierz ikonę rozszerzenia.
+   5. Aby zalogować się do rozszerzenia, wybierz **Zaloguj się rozpocząć**.
 
-Jeśli używasz różnych Moje aplikacje adresu URL niż https://myapps.microsoft.com następnie należy skonfigurować adres URL domyślnej jednak następujące czynności:
-1. Nie jest zalogowany do rozszerzenia, **kliknij prawym przyciskiem myszy** ikona rozszerzenia.
-2. Polecenie **wybierz adres URL Moje aplikacje** z menu.
-3. **Wybierz** Twojego domyślny adres URL.
-4. Kliknij ikonę rozszerzenia.
-5. Zaloguj się do rozszerzenia, wybierając **Zaloguj się rozpocząć**.
+* Aby zalogować się bezpośrednio do aplikacji z przeglądarki, wykonaj następujące czynności:
+   1. Po zainstalowaniu rozszerzenia, zaloguj się do niego, wybierając **Zaloguj się rozpocząć**.
+   2. Zaloguj się do aplikacji z adresem URL logowania jednokrotnego.  
+       Adres URL logowania jest zwykle adres URL aplikacji, która wyświetla formularz logowania.
+      Rozszerzenia należy zmienić stan i informacją o tym, że hasło jest dostępny.
+   3. Aby się zarejestrować, wybierz ikonę rozszerzenia.
 
-Zaloguj się bezpośrednio do aplikacji z przeglądarki
-1. Po zainstalowaniu rozszerzenia, zaloguj się do rozszerzenia, wybierając **Zaloguj się rozpocząć**.
-2. Przejdź do **adres URL logowania na** aplikacji, które chcesz logować się do, zazwyczaj jest to adres URL aplikacji, która wyświetla formularz logowania.
-3. Rozszerzenia należy zmiany stanu i umożliwiają znać hasło jest dostępna, kliknij pozycję **ikona rozszerzenia** do logowania
-
-Uruchom aplikację z rozszerzenia
-1. Po zainstalowaniu rozszerzenia, zaloguj się do rozszerzenia, wybierając **Zaloguj się rozpocząć**.
-2. Kliknij ikonę rozszerzenia, aby otworzyć menu.
-3. **Wyszukiwanie** dla aplikacji, które są dostępne w portalu Moje aplikacje.
-4. Kliknij aplikację z **wyniki wyszukiwania** można go uruchomić.
-5. Ostatnie trzy aplikacje uruchomione będą również widoczne w **ostatnio używane** listy skrótów
+* Aby uruchomić aplikację z rozszerzenia, wykonaj następujące czynności:
+   1. Po zainstalowaniu rozszerzenia, zaloguj się do niego, wybierając **Zaloguj się rozpocząć**.
+   2. Wybierz ikonę rozszerzenia, aby otworzyć menu.
+   3. Wyszukaj aplikację, która jest dostępna w portalu Moje aplikacje.
+   4. Na liście wyników wyszukiwania wybierz aplikację.  
+       Ostatnie trzy aplikacje używane są wyświetlane w **ostatnio używane** listy skrótów.
 
 > [!NOTE]
-> Te opcje są dostępne tylko na krawędzi, Chrome, Firefox.
+> Te opcje są dostępne tylko w przypadku krawędzi, Chrome i Firefox.
 
 ## <a name="how-do-i-add-a-new-app"></a>Jak dodać nową aplikację?
 
-1.  Na **aplikacje** kliknij przycisk **Dodaj aplikację**.
+1.  Na **aplikacje** wybierz pozycję **Dodaj aplikację**.
+2.  Wyszukaj aplikację, którą chcesz dodać, a następnie wybierz **Dodaj**.
 
-2.  Wyszukiwanie aplikacji, którą chcesz dodać, a następnie kliknij przycisk **Dodaj**.
-
-**Uwagi:**
-
-- Tylko masz dostęp do tej opcji, jeśli administrator zostały włączone dla Twojego konta.
-
-- Jeśli aplikacja wymaga uprawnień, może być konieczne czekać na zatwierdzenie administratora.
-
+   > [!NOTE]
+   > * Ta opcja jest dostępne tylko wtedy, gdy administrator włączył go dla Twojego konta.
+   > * Jeśli aplikacja wymaga uprawnień, konieczne może czekać na zatwierdzenie przez administratora.
+   > 
 
 ## <a name="how-do-i-manage-my-group-memberships"></a>Jak zarządzać członkostwa w grupach?
 
-1. Kliknij przycisk **grup** kafelka. 
-2. Aby utworzyć grupę, w obszarze grupy własnego, kliknij przycisk **Utwórz grupę**, a następnie postępuj zgodnie z instrukcjami.
-3. Aby dołączyć do grupy, w obszarze grupy w, kliknij przycisk **dołączanie do grupy**, a następnie postępuj zgodnie z instrukcjami.
+Wybierz **grup** Kafelek, a następnie wykonaj jedną z następujących czynności: 
+* Aby utworzyć grupę, w obszarze **grup własnym**, wybierz pozycję **Utwórz grupę**, a następnie postępuj zgodnie z instrukcjami.
+* Do dołączenia do grupy, w obszarze **grup w**, wybierz pozycję **dołączanie do grupy**, a następnie postępuj zgodnie z instrukcjami.
 
-**Uwagi:**
-
-- Tylko masz dostęp do tej opcji, jeśli administrator zostały włączone dla Twojego konta.
-
-- Grupy, które są członkami umożliwiają wyświetlanie szczegółów i pozostaw grupę.
-
-- Grupy, który jest właścicielem służy do wyświetlania szczegółów, Dodaj lub usuń elementy członkowskie i pozostawić grupę.
+   > [!NOTE]
+   > * Ta opcja jest dostępne tylko wtedy, gdy administrator włączył go dla Twojego konta.
+   > * Jeśli jesteś członkiem grupy, możesz wyświetlić szczegóły i pozostawić grupę.
+   > * Jeśli jesteś właścicielem grupy, można wyświetlić szczegóły, dodać lub usunąć członków i pozostawić grupę.
+   >
 
 
 ## <a name="next-steps"></a>Kolejne kroki
 
-Powiązane informacje dotyczące rozwiązywania problemów, zobacz [problemów za pomocą aplikacji dostęp do panelu witryny sieci Web lub aplikacji mobilnej](active-directory-application-access-panel-content-map.md)
+Aby uzyskać więcej informacji o rozwiązywaniu problemów, zobacz [problemów za pomocą aplikacji dostęp do panelu witryny sieci Web lub aplikacji mobilnej](active-directory-application-access-panel-content-map.md).
 

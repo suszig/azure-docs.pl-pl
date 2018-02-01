@@ -13,37 +13,39 @@
 ## [WebSocket](application-gateway-websocket.md)
 ## [Limity usługi](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)
 # Rozpoczęcie pracy
-## Tworzenie bramy aplikacji
-### [Witryna Azure Portal](application-gateway-create-gateway-portal.md)
-### [Azure PowerShell](application-gateway-create-gateway-arm.md)
-### [Szablon usługi Resource Manager](application-gateway-create-gateway-arm-template.md)
-### [Interfejs wiersza polecenia platformy Azure](application-gateway-create-gateway-cli.md)
+## [Azure portal](application-gateway-create-gateway-portal.md)
+## [Azure PowerShell](application-gateway-create-gateway-arm.md)
+## [Interfejs wiersza polecenia platformy Azure](application-gateway-create-gateway-cli.md)
 # Instrukcje
+## Tworzenie bramy aplikacji za pomocą usługi VMSS
+### [Azure PowerShell](tutorial-create-vmss-powershell.md)
+### [Interfejs wiersza polecenia platformy Azure](tutorial-create-vmss-cli.md)
+## [Korzystanie z szablonu](application-gateway-create-gateway-arm-template.md)
 ## Konfigurowanie zapory aplikacji sieci Web
-### [Witryna Azure Portal](application-gateway-web-application-firewall-portal.md)
+### [Azure portal](application-gateway-web-application-firewall-portal.md)
 ### [Azure PowerShell](application-gateway-web-application-firewall-powershell.md)
 ### [Interfejs wiersza polecenia platformy Azure](application-gateway-web-application-firewall-cli.md)
 ## Dostosowywanie reguł zapory aplikacji sieci Web
-### [Witryna Azure Portal](application-gateway-customize-waf-rules-portal.md)
+### [Azure portal](application-gateway-customize-waf-rules-portal.md)
 ### [Interfejs wiersza polecenia platformy Azure](application-gateway-customize-waf-rules-cli.md)
 ## Konfigurowanie protokołu SSL
-### [Witryna Azure Portal](application-gateway-ssl-portal.md)
+### [Azure portal](application-gateway-ssl-portal.md)
 ### [Azure PowerShell](application-gateway-ssl-arm.md)
 ### [Interfejs wiersza polecenia platformy Azure](application-gateway-ssl-cli.md)
 ### [Zasady SSL](application-gateway-configure-ssl-policy-powershell.md)
 ## Konfigurowanie routingu opartego na ścieżkach URL
-### [Witryna Azure Portal](application-gateway-create-url-route-portal.md)
+### [Azure portal](application-gateway-create-url-route-portal.md)
 ### [Azure PowerShell](application-gateway-create-url-route-arm-ps.md)
 ### [Interfejs wiersza polecenia platformy Azure](application-gateway-create-url-route-cli.md)
 ## Konfigurowanie hostingu wielu witryn
-### [Witryna Azure Portal](application-gateway-create-multisite-portal.md)
+### [Azure portal](application-gateway-create-multisite-portal.md)
 ### [Azure PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
 ## Konfigurowanie przekierowania
 ### [Azure PowerShell](application-gateway-configure-redirect-powershell.md)
-## Konfigurowanie aplikacji internetowych jako elementów członkowskich puli zaplecza
+## Konfigurowanie aplikacji internetowych jako składowych puli zaplecza
 ### [Azure PowerShell](application-gateway-web-app-powershell.md)
 ## Konfigurowanie sond kondycji
-### [Witryna Azure Portal](application-gateway-create-probe-portal.md)
+### [Azure portal](application-gateway-create-probe-portal.md)
 ### [Azure PowerShell](application-gateway-create-probe-ps.md)
 ## [Integracja z usługą Azure Security Center](application-gateway-integration-security-center.md)
 ## [Łączenie usług równoważenia obciążenia](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)

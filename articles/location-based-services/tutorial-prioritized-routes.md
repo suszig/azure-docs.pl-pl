@@ -1,6 +1,6 @@
 ---
-title: "Wiele tras z usług na podstawie lokalizacji platformy Azure | Dokumentacja firmy Microsoft"
-description: "Znajdź trasy dla różnych trybach podróży przy użyciu usługi na podstawie lokalizacji platformy Azure"
+title: "Znajdowanie wielu tras za pomocą usług Azure Location Based Services | Microsoft Docs"
+description: "Znajdowanie tras dla różnych sposobów podróży za pomocą usług Azure Location Based Services"
 services: location-based-services
 keywords: 
 author: dsk-2015
@@ -12,32 +12,32 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 19cf9da839d9d3a1ec78c8d1f6994628684f4e31
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.openlocfilehash: 78e911d17fe8c468cf89ec1477f1c5144e6669b6
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="find-routes-for-different-modes-of-travel-using-azure-location-based-services"></a>Znajdź trasy dla różnych trybach podróży przy użyciu usługi na podstawie lokalizacji platformy Azure
+# <a name="find-routes-for-different-modes-of-travel-using-azure-location-based-services"></a>Znajdowanie tras dla różnych sposobów podróży za pomocą usług Azure Location Based Services
 
-Ten samouczek przedstawia sposób użycia konta usługi na podstawie lokalizacji platformy Azure i zestawu SDK usług trasy, można znaleźć trasy do punktu odsetek priorytety przez tryb podróży. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+W tym samouczku pokazano, jak używać konta usług Azure Location Based Services i zestawu Route Service SDK w celu znajdowania trasy do punktu orientacyjnego z uwzględnieniem priorytetów na podstawie sposobu podróży. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Skonfiguruj zapytanie usługi trasy
-> * Renderowanie trasy nadać priorytet w trybie podróży
+> * Konfigurowanie zapytania do usługi Route Service
+> * Renderowanie tras z uwzględnieniem priorytetów na podstawie sposobu podróży
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed kontynuowaniem upewnij się, że [tworzenia konta usługi na podstawie lokalizacji Azure](./tutorial-search-location.md#createaccount), i [Pobierz klucz subskrypcji dla Twojego konta](./tutorial-search-location.md#getkey). Można również zauważyć, jak używać formantu mapy i interfejsy API wyszukiwania usługi zgodnie z opisem w samouczku [wyszukiwania w pobliżu z interesujących przy użyciu usługi na podstawie lokalizacji Azure](./tutorial-search-location.md), jak również informacje podstawowe sposoby użycia interfejsów API usługi trasy jako omówione w samouczku [trasy do punktu przydatne przy użyciu usługi na podstawie lokalizacji Azure](./tutorial-route-location.md).
+Przed kontynuowaniem [utwórz konto usług Azure Location Based Services](./tutorial-search-location.md#createaccount) i [pobierz klucz ze swojego konta](./tutorial-search-location.md#getkey). Możesz też zapoznać się z informacjami o używaniu kontrolki mapy i interfejsów API usługi wyszukiwania podanymi w samouczku [Wyszukiwanie pobliskiego punktu orientacyjnego za pomocą usług Azure Location Based Services](./tutorial-search-location.md), a także poznać podstawy używania interfejsów API usługi Route Service przedstawione w samouczku [Ustalanie trasy do punktu orientacyjnego za pomocą usług Azure Location Based Services](./tutorial-route-location.md).
 
 
 <a id="queryroutes"></a>
 
-## <a name="configure-your-route-service-query"></a>Skonfiguruj zapytanie usługi trasy
+## <a name="configure-your-route-service-query"></a>Konfigurowanie zapytania do usługi Route Service
 
-Poniższe kroki umożliwiają utworzenie statycznej strony HTML osadzonych z interfejsem API sterowania mapy lokalizacji na podstawie usług. 
+Poniższa procedura umożliwia utworzenie statycznej strony HTML z osadzonym interfejsem API kontrolki mapy usług Location Based Services. 
 
-1. Na komputerze lokalnym, Utwórz nowy plik i nadaj jej nazwę **MapTruckRoute.html**. 
+1. Na komputerze lokalnym utwórz nowy plik i nadaj mu nazwę **MapTruckRoute.html**. 
 2. Dodaj następujące składniki HTML do pliku:
 
     ```HTML
@@ -75,19 +75,19 @@ Poniższe kroki umożliwiają utworzenie statycznej strony HTML osadzonych z int
 
     </html>
     ```
-    Należy pamiętać, że nagłówek HTML osadza lokalizacje zasobów pliki CSS i JavaScript dla biblioteki usług na podstawie lokalizacji platformy Azure. Spójrz również *skryptu* segmentu dodany do treści HTML, zawiera wbudowany kod JavaScript można uzyskać dostępu do interfejsu API Azure mapy formantu.
-3. Dodaj następujący kod JavaScript do *skryptu* bloku pliku HTML. Zastąp symbol zastępczy *< klawisza insert >* z konta usługi na podstawie lokalizacji klucza podstawowego.
+    Zwróć uwagę, że w nagłówku HTML są osadzone lokalizacje zasobów dotyczące plików CSS i JavaScript dla biblioteki usług Azure Location Based Services. Zwróć też uwagę na segment *script* dodany do treści pliku HTML, który zawiera śródwierszowy kod JavaScript uzyskujący dostęp do interfejsu API kontrolki mapy platformy Azure.
+3. Dodaj następujący kod JavaScript do bloku *script* w pliku HTML. Zamień symbol zastępczy *<insert-key>* na klucz podstawowy konta usług Location Based Services.
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var subscriptionKey = "<insert-key>";
+    var LBSAccountKey = "<_your account key_>";
     var map = new atlas.Map("map", {
-        "subscription-key": subscriptionKey
+        "subscription-key": LBSAccountKey
     });
     ```
-    **Atlas. Mapa** zapewnia formantu mapy visual i interaktywne sieci web i wchodzi w skład interfejsu API Azure mapy formantu.
+    Element **atlas.Map** zapewnia kontrolkę dla wizualnej interakcyjnej mapy internetowej i jest składnikiem interfejsu API kontrolki mapy platformy Azure.
 
-4. Dodaj następujący kod JavaScript do *skryptu* bloku, aby dodać wyświetlania przepływu ruchu do mapy:
+4. Dodaj następujący kod JavaScript do bloku *script*, aby dodać wyświetlanie przepływu ruchu do mapy:
 
     ```JavaScript
     // Add Traffic Flow to the Map
@@ -95,9 +95,9 @@ Poniższe kroki umożliwiają utworzenie statycznej strony HTML osadzonych z int
         flow: "relative"
     });
     ```
-    Ten kod ustawia przepływ ruchu `relative`, czyli szybkości drogowej względem zwolnienia przepływu. Możesz również ustawić ją `absolute` szybkości podróży, lub `relative-delay` wyświetlające względną prędkość gdy różni się od zwolnienia przepływu. 
+    Ten kod ustawia wartość przepływu ruchu na `relative`, czyli szybkość ruchu na drodze względem swobodnego przepływu ruchu. Możesz również ustawić ją na `absolute` (względna szybkość ruchu na drodze) lub `relative-delay` (umożliwia wyświetlanie względnej szybkości, gdy różni się ona od swobodnego przepływu ruchu). 
 
-5. Dodaj następujący kod JavaScript, aby utworzyć kody PIN dla punktu początkowego i końcowego trasy:
+5. Dodaj następujący kod JavaScript, aby utworzyć pinezki dla punktu początkowego i punktu końcowego trasy:
 
     ```JavaScript
     // Create the GeoJSON objects which represent the start and end point of the route
@@ -113,9 +113,9 @@ Poniższe kroki umożliwiają utworzenie statycznej strony HTML osadzonych z int
         icon: "pin-blue"
     });
     ```
-    Ten kod tworzy dwa [obiektów GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) do reprezentowania punktu początkowego i końcowego trasy. 
+    Ten kod tworzy dwa [obiekty GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) reprezentujące punkt początkowy i punkt końcowy trasy. 
 
-6. Dodaj następujący kod JavaScript, aby dodać warstw *linestrings* do formantu mapy, aby wyświetlić tras na podstawie trybu transportu, na przykład _samochodu_ i _ciężarówka_.
+6. Dodaj następujący kod JavaScript, aby dodać warstwy *linestrings* do kontrolki mapy w celu wyświetlania tras na podstawie sposobu podróży, na przykład _car_ (samochód) i _truck_ (ciężarówka).
 
     ```JavaScript
     // Place route layers on the map
@@ -140,7 +140,7 @@ Poniższe kroki umożliwiają utworzenie statycznej strony HTML osadzonych z int
     });
     ```
 
-7. Dodaj następujący kod JavaScript, aby dodać punkt początkowy i końcowy do mapy:
+7. Dodaj następujący kod JavaScript, aby dodać punkt początkowy i punkt końcowy do mapy:
 
     ```JavaScript
     // Fit the map window to the bounding box defined by the start and destination points
@@ -160,17 +160,17 @@ Poniższe kroki umożliwiają utworzenie statycznej strony HTML osadzonych z int
         textOffset: [0, -20]
     });
     ``` 
-    Interfejs API **map.setCameraBounds** dostosowuje okna mapy zgodnie z współrzędne punktu początkowego i końcowego. Interfejs API **map.addPins** dodaje punkty do formantu mapy jako składniki wizualne.
+    Wywołanie interfejsu API **map.setCameraBounds** dostosowuje okno mapy według współrzędnych punktu początkowego i punktu końcowego. Wywołanie interfejsu API **map.addPins** dodaje punkty do kontrolki mapy jako składniki wizualne.
 
-8. Zapisz **MapTruckRoute.html** plików na tym komputerze. 
+8. Zapisz plik **MapTruckRoute.html** na swoim komputerze. 
 
 <a id="multipleroutes"></a>
 
-## <a name="render-routes-prioritized-by-mode-of-travel"></a>Renderowanie trasy nadać priorytet w trybie podróży
+## <a name="render-routes-prioritized-by-mode-of-travel"></a>Renderowanie tras z uwzględnieniem priorytetów na podstawie sposobu podróży
 
-W tej sekcji przedstawia sposób użycia interfejsu API usługi trasy Azure lokalizacji na podstawie usług można znaleźć wiele tras z danym start wskaż lokalizację docelową, na podstawie Twojej trybu transportu. Usługa trasa udostępnia interfejsy API do zaplanowania najszybciej, jak najkrótszym lub oznakowania trasy między dwiema lokalizacjami, biorąc pod uwagę warunki ruchu w czasie rzeczywistym. Umożliwia także użytkownikom planowanie trasy w przyszłości przy użyciu bazy danych szeroką gamę ruchu historycznych platformy Azure i prognozowania okresów trasy dla każdego dnia i godziny. 
+W tej sekcji pokazano, jak używać interfejsu API usługi Route Service w usługach Azure Location Based Services do znajdowania wielu tras z danego punktu początkowego do punktu docelowego na podstawie sposobu podróży. Usługa Route Service udostępnia interfejsy API do planowania najszybszej, najkrótszej lub najbardziej ekologicznej trasy między dwiema lokalizacjami, uwzględniając ruch drogowy w czasie rzeczywistym. Umożliwia ona też użytkownikom planowanie tras w przyszłości, korzystając z obszernej historycznej bazy danych ruchu drogowego na platformie Azure i przewidując długość podróży trasami w dowolnym dniu i czasie. 
 
-1. Otwórz **MapTruckRoute.html** plik utworzony w poprzedniej sekcji i Dodaj następujący kod JavaScript, aby *skryptu* bloku, można uzyskać trasy ciężarówka, przy użyciu usługi trasy.
+1. Otwórz plik **MapTruckRoute.html** utworzony w poprzedniej sekcji i dodaj następujący kod JavaScript do bloku *script*, aby uzyskać trasę dla ciężarówki przy użyciu usługi Route Service.
 
     ```JavaScript
     // Perform a request to the route service and draw the resulting truck route on the map
@@ -195,7 +195,7 @@ W tej sekcji przedstawia sposób użycia interfejsu API usługi trasy Azure loka
 
     var truckRouteUrl = "https://atlas.microsoft.com/route/directions/json?";
     truckRouteUrl += "&api-version=1.0";
-    truckRouteUrl += "&subscription-key=" + subscriptionKey;
+    truckRouteUrl += "&subscription-key=" + LBSAccountKey;
     truckRouteUrl += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
         destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
     truckRouteUrl += "&travelMode=truck";
@@ -207,13 +207,13 @@ W tej sekcji przedstawia sposób użycia interfejsu API usługi trasy Azure loka
     xhttpTruck.open("GET", truckRouteUrl, true);
     xhttpTruck.send();
     ```
-    Następujący fragment kodu tworzy [XMLHttpRequest](https://xhr.spec.whatwg.org/), i dodanie obsługi zdarzeń mógł przeanalizować odpowiedzi przychodzących. Dla pomyślnej odpowiedzi, jego tworzy tablicę współrzędne trasy zwrócił i dodaje go mapy `truckRouteLayerName` warstwy. 
+    Ten fragment kodu tworzy element [XMLHttpRequest](https://xhr.spec.whatwg.org/) i dodaje procedurę obsługi zdarzeń, która analizuje przychodzącą odpowiedź. W przypadku pomyślnej odpowiedzi tworzy on tablicę współrzędnych dla zwróconej trasy i dodaje ją do warstwy `truckRouteLayerName` mapy. 
     
-    Następujący fragment kodu wysyła również zapytania do usługi trasy uzyskać trasy dla określonego początkowy i punkt końcowy dla Twojego konta subskrypcji klucza. Następujące parametry opcjonalne służą do wskazywania trasę dla duże ciężarówka:-parametr `travelMode=truck` Określa tryb podróży jako *ciężarówka*. Inne tryby podróży obsługiwane są *taksówki*, *magistrali*, *van*, *motocykla*, wartością domyślną *samochodu* .  
-        Parametry `vehicleWidth`, `vehicleHeight`, i `vehicleLength` Określ wymiary mechanizm metry i uwzględniane są tylko jeśli jest tryb podróży *ciężarówka*.  
-        - `vehicleLoadType` Klasyfikuje ładunku jako niebezpieczne i ograniczeniami na niektóre drogi. To jest również obecnie uważane za tylko w przypadku *ciężarówka* tryb.  
+    Ten fragment kodu wysyła też zapytanie do usługi Route Service, aby uzyskać trasę dla określonego punktu początkowego i punktu końcowego dla klucza konta. Następujące parametry opcjonalne są używane do wskazania trasy dla dużej ciężarówki: - Parametr `travelMode=truck` określa sposób podróży *truck* (ciężarówka). Inne obsługiwane sposoby podróży to *taxi* (taksówka), *bus* (autobus), *van* (furgonetka), *motorcycle* (motocykl) i wartość domyślna *car* (samochód).  
+        - Parametry `vehicleWidth`, `vehicleHeight` i `vehicleLength` określają wymiary pojazdu w metrach i są uwzględniane tylko w przypadku sposobu podróży *truck*.  
+        - Parametr `vehicleLoadType` klasyfikuje ładunek jako niebezpieczny i objęty ograniczeniami na niektórych drogach. Obecnie jest on uwzględniany również tylko w przypadku sposobu podróży *truck*.  
 
-2. Dodaj następujący kod JavaScript można uzyskać trasy samochodu przy użyciu usługi trasy:
+2. Dodaj następujący kod JavaScript, aby uzyskać trasę dla samochodu przy użyciu usługi Route Service:
 
     ```JavaScript
     // Perform a request to the route service and draw the resulting car route on the map
@@ -238,28 +238,28 @@ W tej sekcji przedstawia sposób użycia interfejsu API usługi trasy Azure loka
 
     var carRouteUrl = "https://atlas.microsoft.com/route/directions/json?";
     carRouteUrl += "&api-version=1.0";
-    carRouteUrl += "&subscription-key=" + subscriptionKey;
+    carRouteUrl += "&subscription-key=" + LBSAccountKey;
     carRouteUrl += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
         destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
 
     xhttpCar.open("GET", carRouteUrl, true);
     xhttpCar.send();
     ```
-    Następujący fragment kodu tworzy innego [XMLHttpRequest](https://xhr.spec.whatwg.org/), i dodanie obsługi zdarzeń mógł przeanalizować odpowiedzi przychodzących. Dla pomyślnej odpowiedzi, jego tworzy tablicę współrzędne trasy zwrócił i dodaje go mapy `carRouteLayerName` warstwy. 
+    Ten fragment kodu tworzy kolejny element [XMLHttpRequest](https://xhr.spec.whatwg.org/) i dodaje procedurę obsługi zdarzeń, która analizuje przychodzącą odpowiedź. W przypadku pomyślnej odpowiedzi tworzy on tablicę współrzędnych dla zwróconej trasy i dodaje ją do warstwy `carRouteLayerName` mapy. 
     
-    Następujący fragment kodu wysyła również zapytania do usługi trasy uzyskać trasy dla określonego początkowy i punkt końcowy dla Twojego konta subskrypcji klucza. Ponieważ nie inne parametry są używane, trasa dla domyślnego trybu podróży *samochodu* jest zwracany. 
+    Ten fragment kodu wysyła też zapytanie do usługi Route Service, aby uzyskać trasę dla określonego punktu początkowego i punktu końcowego dla klucza konta. Ponieważ nie są używane żadne inne parametry, zwracana jest trasa dla domyślnego sposobu podróży *car* (samochód). 
 
-3. Zapisz **MapTruckRoute.html** plików lokalnie, a następnie otworzyć go w przeglądarce sieci web i sprawdź wynik. W przypadku pomyślnego połączenia z interfejsami API lokalizacji na podstawie usług powinna zostać wyświetlona mapy podobny do następującego. 
+3. Zapisz lokalnie plik **MapTruckRoute.html**, a następnie otwórz go w wybranej przeglądarce sieci Web i obejrzyj wynik. W przypadku pomyślnego połączenia z interfejsami API usług Location Based Services powinna pojawić się mapa podobna do poniższej. 
 
-    ![Priorytetową tras za pomocą usługi Azure trasy](./media/tutorial-prioritized-routes/lbs-prioritized-routes.png)
+    ![Określanie priorytetów tras za pomocą usługi Azure Route Service](./media/tutorial-prioritized-routes/lbs-prioritized-routes.png)
 
-    Należy pamiętać, że trasy ciężarówka w kolorze niebieskim, gdy trasa samochodu jest purpurowy.
+    Zwróć uwagę, że trasa ciężarówki ma kolor niebieski, a trasa samochodu — purpurowy.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Skonfiguruj zapytanie usługi trasy
-> * Renderowanie trasy nadać priorytet w trybie podróży
+> * Konfigurowanie zapytania do usługi Route Service
+> * Renderowanie tras z uwzględnieniem priorytetów na podstawie sposobu podróży
 
-Przejdź do **pojęcia** i **jak** artykuły, aby dowiedzieć się więcej lokalizacji na podstawie zestaw SDK usług Azure szczegółowo. 
+Przejdź do artykułów **Pojęcia** i **Instrukcje**, aby dokładnie poznać zestaw Azure Location Based Services SDK. 

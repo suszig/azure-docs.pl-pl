@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 0edca9e5eb709eb3e1b42b45e5a41ac7a5ba1e75
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: bfc31553c32ac4dbfde55aa30b33025b579f6139
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="launch-a-demo-interactive-map-search-using-azure-location-based-services-preview"></a>Uruchamianie demonstracyjnego wyszukiwania na mapie za pomocą usług Azure Location Based Services (wersja zapoznawcza)
 
@@ -38,13 +38,13 @@ Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 
     ![Tworzenie konta usług Location Based Services w portalu](./media/quick-demo-map-app/create-lbs-account.png)
 
-5. Po pomyślnym utworzeniu konta otwórz je i przejdź do sekcji **USTAWIENIA** konta. Kliknij pozycję **Klucze**, aby uzyskać klucze podstawowe i pomocnicze subskrypcji dla Twojego konta. Skopiuj wartość pola **Klucz podstawowy** do lokalnego schowka do użycia w następnej sekcji. 
+5. Po pomyślnym utworzeniu konta otwórz je i przejdź do sekcji **USTAWIENIA** konta. Kliknij pozycję **Klucze**, aby uzyskać klucz podstawowy i klucz pomocniczy dla swojego konta usług Azure Location Based Services. Skopiuj wartość pola **Klucz podstawowy** do lokalnego schowka do użycia w następnej sekcji. 
 
 ## <a name="download-the-demo-application-for-azure-maps"></a>Pobieranie aplikacji demonstracyjnej dla usługi Azure Maps
 
 1. Pobierz lub skopiuj zawartość pliku [interactiveSearch.html](https://github.com/Azure-Samples/location-based-services-samples/blob/master/src/interactiveSearch.html).
 2. Zapisz lokalnie zawartość tego pliku jako **AzureMapDemo.html** i otwórz go w edytorze tekstów.
-3. Wyszukaj ciąg **&#60;insert-key&#62;** i zastąp go wartością pola **Klucz podstawowy** uzyskaną w poprzedniej sekcji. 
+3. Wyszukaj ciąg `<insert-key>` i zamień go na wartość pola **Klucz podstawowy** uzyskaną w poprzedniej sekcji. 
 
 
 ## <a name="launch-the-demo-application-for-azure-maps"></a>Uruchamianie aplikacji demonstracyjnej dla usługi Azure Maps

@@ -1,6 +1,6 @@
 ---
-title: "Znajdź trasy z usług na podstawie lokalizacji platformy Azure | Dokumentacja firmy Microsoft"
-description: "Trasy do punktu przydatne przy użyciu usługi na podstawie lokalizacji platformy Azure"
+title: "Znajdowanie trasy za pomocą usług Azure Location Based Services | Microsoft Docs"
+description: "Ustalanie trasy do punktu orientacyjnego za pomocą usług Azure Location Based Services"
 services: location-based-services
 keywords: 
 author: dsk-2015
@@ -12,32 +12,32 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: f2be9ca98330866ac8b6fb12efd56efdc711eedf
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.openlocfilehash: 7303347444952d9c09dc6c04eea5b962e18729b4
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="route-to-a-point-of-interest-using-azure-location-based-services"></a>Trasy do punktu przydatne przy użyciu usługi na podstawie lokalizacji platformy Azure
+# <a name="route-to-a-point-of-interest-using-azure-location-based-services"></a>Ustalanie trasy do punktu orientacyjnego za pomocą usług Azure Location Based Services
 
-Ten samouczek przedstawia sposób użycia konta usługi na podstawie lokalizacji platformy Azure i zestawu SDK usług trasy, można znaleźć trasy do punktu zainteresowań. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+W tym samouczku pokazano, jak używać konta usług Azure Location Based Services i zestawu Route Service SDK w celu znajdowania trasy do punktu orientacyjnego. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Pobierz adres współrzędnych
-> * Zapytanie usługi trasy dla kierunków punktu zainteresowań
+> * Pobieranie współrzędnych adresu
+> * Wysyłanie do usługi Route Service zapytania dotyczącego wskazówek dojazdu do punktu orientacyjnego
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed kontynuowaniem upewnij się, że [tworzenia konta usługi na podstawie lokalizacji Azure](./tutorial-search-location.md#createaccount), i [Pobierz klucz subskrypcji dla Twojego konta](./tutorial-search-location.md#getkey). Można również zauważyć, jak używać formantu mapy i interfejsy API wyszukiwania usługi zgodnie z opisem w samouczku [wyszukiwania w pobliżu z interesujących przy użyciu usługi na podstawie lokalizacji Azure](./tutorial-search-location.md).
+Przed kontynuowaniem [utwórz konto usług Azure Location Based Services](./tutorial-search-location.md#createaccount) i [pobierz klucz subskrypcji dla swojego konta](./tutorial-search-location.md#getkey). Możesz też zapoznać się z informacjami o używaniu kontrolki mapy i interfejsów API usługi wyszukiwania podanymi w samouczku [Wyszukiwanie pobliskiego punktu orientacyjnego za pomocą usług Azure Location Based Services](./tutorial-search-location.md).
 
 
 <a id="getcoordinates"></a>
 
-## <a name="get-address-coordinates"></a>Pobierz adres współrzędnych
+## <a name="get-address-coordinates"></a>Pobieranie współrzędnych adresu
 
-Poniższe kroki umożliwiają utworzenie statycznej strony HTML osadzonych z interfejsem API sterowania mapy lokalizacji na podstawie usług. 
+Poniższa procedura umożliwia utworzenie statycznej strony HTML z osadzonym interfejsem API kontrolki mapy usług Location Based Services. 
 
-1. Na komputerze lokalnym, Utwórz nowy plik i nadaj jej nazwę **MapRoute.html**. 
+1. Na komputerze lokalnym utwórz nowy plik i nadaj mu nazwę **MapRoute.html**. 
 2. Dodaj następujące składniki HTML do pliku:
 
     ```HTML
@@ -75,20 +75,20 @@ Poniższe kroki umożliwiają utworzenie statycznej strony HTML osadzonych z int
 
     </html>
     ```
-    Należy zwrócić uwagę, jak nagłówka HTML osadza lokalizacje zasobów pliki CSS i JavaScript dla biblioteki usług na podstawie lokalizacji platformy Azure. Spójrz również *skryptu* segmentu w treści pliku HTML, który będzie zawierać wbudowanego kodu JavaScript dostępu do interfejsów API Azure lokalizacji na podstawie usługi.
+    Zwróć uwagę, że w nagłówku HTML są osadzone lokalizacje zasobów dotyczące plików CSS i JavaScript dla biblioteki usług Azure Location Based Services. Zwróć też uwagę na segment *script* w treści pliku HTML, który będzie zawierał śródwierszowy kod JavaScript uzyskujący dostęp do interfejsów API usług Azure Location Based Services.
 
-3. Dodaj następujący kod JavaScript do *skryptu* bloku pliku HTML. Zastąp symbol zastępczy *< klawisza insert >* z konta usługi na podstawie lokalizacji klucza podstawowego.
+3. Dodaj następujący kod JavaScript do bloku *script* w pliku HTML. W skrypcie użyj klucza podstawowego z konta usług Location Based Services.
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var subscriptionKey = "<insert-key>";
+    var LBSAccountKey = "<_your account key_>";
     var map = new atlas.Map("map", {
-        "subscription-key": subscriptionKey
+        "subscription-key": LBSAccountKey
     });
     ```
-    **Atlas. Mapa** zapewnia formantu mapy visual i interaktywne sieci web i wchodzi w skład interfejsu API Azure mapy formantu.
+    Element **atlas.Map** zapewnia kontrolkę dla wizualnej interakcyjnej mapy internetowej i jest składnikiem interfejsu API kontrolki mapy platformy Azure.
 
-4. Dodaj następujący kod JavaScript do *skryptu* bloku. Spowoduje to dodanie warstwę *linestrings* do formantu mapy, aby wyświetlić trasy:
+4. Dodaj następujący kod JavaScript do bloku *script*. Spowoduje to dodanie warstwy *linestrings* do kontrolki mapy w celu wyświetlania trasy:
 
     ```JavaScript
     // Initialize the linestring layer for routes on the map
@@ -103,7 +103,7 @@ Poniższe kroki umożliwiają utworzenie statycznej strony HTML osadzonych z int
     });
     ```
 
-5. Dodaj następujący kod JavaScript, aby utworzyć punkt początkowy i końcowy dla trasy:
+5. Dodaj następujący kod JavaScript, aby utworzyć punkt początkowy i punkt końcowy trasy:
 
     ```JavaScript
     // Create the GeoJSON objects which represent the start and end point of the route
@@ -119,9 +119,9 @@ Poniższe kroki umożliwiają utworzenie statycznej strony HTML osadzonych z int
         icon: "pin-blue"
     });
     ```
-    Ten kod tworzy dwa [obiektów GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) do reprezentowania punktu początkowego i końcowego trasy. Punkt końcowy jest kombinacja szerokości geograficznej/długości dla jednego z *stacje benzyny* przeszukiwane w poprzednim samouczek [wyszukiwania w pobliżu z interesujących przy użyciu usługi na podstawie lokalizacji Azure](./tutorial-search-location.md).
+    Ten kod tworzy dwa [obiekty GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) reprezentujące punkt początkowy i punkt końcowy trasy. Punkt końcowy to kombinacja szerokości i długości geograficznej jednej ze *stacji benzynowych* wyszukanych w poprzednim samouczku [Wyszukiwanie pobliskiego punktu orientacyjnego za pomocą usług Azure Location Based Services](./tutorial-search-location.md).
 
-6. Dodaj następujący kod JavaScript, aby dodać kody PIN dla punktu początkowego i końcowego do mapy:
+6. Dodaj następujący kod JavaScript, aby dodać pinezki punktu początkowego i punktu końcowego do mapy:
 
     ```JavaScript
     // Fit the map window to the bounding box defined by the start and destination points
@@ -141,17 +141,17 @@ Poniższe kroki umożliwiają utworzenie statycznej strony HTML osadzonych z int
         textOffset: [0, -20]
     });
     ``` 
-    Interfejs API **map.setCameraBounds** dostosowuje okna mapy zgodnie z współrzędne punktu początkowego i końcowego. Interfejs API **map.addPins** dodaje punkty do formantu mapy jako składniki wizualne.
+    Wywołanie interfejsu API **map.setCameraBounds** dostosowuje okno mapy według współrzędnych punktu początkowego i punktu końcowego. Wywołanie interfejsu API **map.addPins** dodaje punkty do kontrolki mapy jako składniki wizualne.
 
-7. Zapisz **MapRoute.html** plików na tym komputerze. 
+7. Zapisz plik **MapRoute.html** na swoim komputerze. 
 
 <a id="getroute"></a>
 
-## <a name="query-route-service-for-directions-to-point-of-interest"></a>Zapytanie usługi trasy dla kierunków punktu zainteresowań
+## <a name="query-route-service-for-directions-to-point-of-interest"></a>Wysyłanie do usługi Route Service zapytania dotyczącego wskazówek dojazdu do punktu orientacyjnego
 
-W tej sekcji przedstawia sposób użycia interfejsu API usługi trasy Azure lokalizacji na podstawie usług można znaleźć trasy z punktu rozpoczęcia danego do miejsca docelowego. Usługa trasa udostępnia interfejsy API do zaplanowania najszybciej, jak najkrótszym lub oznakowania trasy między dwiema lokalizacjami, biorąc pod uwagę warunki ruchu w czasie rzeczywistym. Umożliwia także użytkownikom planowanie trasy w przyszłości przy użyciu bazy danych szeroką gamę ruchu historycznych platformy Azure i prognozowania okresów trasy dla każdego dnia i godziny. 
+W tej sekcji pokazano, jak używać interfejsu API usługi Route Service w usługach Azure Location Based Services do znajdowania trasy z danego punktu początkowego do punktu docelowego. Usługa Route Service udostępnia interfejsy API do planowania najszybszej, najkrótszej lub najbardziej ekologicznej trasy między dwiema lokalizacjami, uwzględniając ruch drogowy w czasie rzeczywistym. Umożliwia ona też użytkownikom planowanie tras w przyszłości, korzystając z obszernej historycznej bazy danych ruchu drogowego na platformie Azure i przewidując długość podróży trasami w dowolnym dniu i czasie. 
 
-1. Otwórz **MapRoute.html** plik utworzony w poprzedniej sekcji i Dodaj następujący kod JavaScript, aby *skryptu* bloku, aby zilustrować usługi trasy.
+1. Otwórz plik **MapRoute.html** utworzony w poprzedniej sekcji i dodaj do bloku *script* następujący kod JavaScript, który przedstawia działanie usługi Route Service.
 
     ```JavaScript
     // Perform a request to the route service and draw the resulting route on the map
@@ -172,32 +172,32 @@ W tej sekcji przedstawia sposób użycia interfejsu API usługi trasy Azure loka
         }
     };
     ```
-    Następujący fragment kodu tworzy [XMLHttpRequest](https://xhr.spec.whatwg.org/), i dodanie obsługi zdarzeń mógł przeanalizować odpowiedzi przychodzących. Dla pomyślnej odpowiedzi tworzy go tablicę współrzędne segmenty linii trasy pierwszy zwrócony. Następnie dodaje ten zestaw współrzędnych dla tej trasy do mapowania *linestrings* warstwy.
+    Ten fragment kodu tworzy element [XMLHttpRequest](https://xhr.spec.whatwg.org/) i dodaje procedurę obsługi zdarzeń, która analizuje przychodzącą odpowiedź. W przypadku pomyślnej odpowiedzi tworzy on tablicę współrzędnych dla liniowych segmentów pierwszej zwróconej trasy. Następnie dodaje ten zestaw współrzędnych dla tej trasy do warstwy *linestrings* mapy.
 
-2. Dodaj następujący kod do *skryptu* bloku, aby wysłać XMLHttpRequest usługą trasy Azure lokalizacji na podstawie usług:
+2. Dodaj następujący kod do bloku *script* w celu wysłania elementu XMLHttpRequest do usługi Route Service w usługach Azure Location Based Services:
 
     ```JavaScript
     var url = "https://atlas.microsoft.com/route/directions/json?";
     url += "&api-version=1.0";
-    url += "&subscription-key=" + subscriptionKey;
+    url += "&subscription-key=" + LBSAccountKey;
     url += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
         destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
 
     xhttp.open("GET", url, true);
     xhttp.send();
     ```
-    Żądanie powyżej przedstawiono wymaganych parametrów, które są Twoje konto subskrypcji klucza i współrzędne punktu początkowego i końcowego, w podanej kolejności. 
+    Powyższe żądanie przedstawia wymagane parametry — klucz konta oraz współrzędne punktu początkowego i punktu końcowego w podanej kolejności. 
 
-3. Zapisz **MapRoute.html** plików lokalnie, a następnie otworzyć go w przeglądarce sieci web i sprawdź wynik. W przypadku pomyślnego połączenia z interfejsami API lokalizacji na podstawie usług powinna zostać wyświetlona mapy podobny do następującego. 
+3. Zapisz lokalnie plik **MapRoute.html**, a następnie otwórz go w wybranej przeglądarce sieci Web i obejrzyj wynik. W przypadku pomyślnego połączenia z interfejsami API usług Location Based Services powinna pojawić się mapa podobna do poniższej. 
 
-    ![Formant mapy platformy Azure i usługi trasy](./media/tutorial-route-location/lbs-map-route.png)
+    ![Kontrolka mapy platformy Azure i usługa Route Service](./media/tutorial-route-location/lbs-map-route.png)
 
 
 ## <a name="next-steps"></a>Następne kroki
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Pobierz adres współrzędnych
-> * Zapytanie usługi trasy dla kierunków punktu zainteresowań
+> * Pobieranie współrzędnych adresu
+> * Wysyłanie do usługi Route Service zapytania dotyczącego wskazówek dojazdu do punktu orientacyjnego
 
-Przejdź do samouczka [znaleźć trasy dla różnych trybach podróży przy użyciu usługi na podstawie lokalizacji Azure](./tutorial-prioritized-routes.md) Aby dowiedzieć się, jak używać usługi na podstawie lokalizacji Azure priorytety trasy do punktu zainteresowań, na podstawie trybu transportu. 
+Przejdź do samouczka [Znajdowanie tras dla różnych sposobów podróży za pomocą usług Azure Location Based Services](./tutorial-prioritized-routes.md), aby dowiedzieć się, jak używać usług Azure Location Based Services w celu określania priorytetów tras do punktów orientacyjnych na podstawie sposobu podróży. 

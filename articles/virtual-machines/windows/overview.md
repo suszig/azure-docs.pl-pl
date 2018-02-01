@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.openlocfilehash: 2944021cbaf777137512f4bfe0eb4cf5e6f996dc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4e33186b189394172cba6cf550c01954db941c19
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Omówienie maszyn wirtualnych z systemem Windows na platformie Azure
 
@@ -62,6 +62,7 @@ W poniższej tabeli przedstawiono wybrane metody uzyskania dostępu do listy dos
 | Azure Portal |Wybór lokalizacji z listy podczas tworzenia maszyny wirtualnej. |
 | Azure PowerShell |Użycie polecenia [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation). |
 | Interfejs API REST |Użycie operacji [wyświetlania listy lokalizacji](https://docs.microsoft.com/rest/api/resources/subscriptions#Subscriptions_ListLocations). |
+| Interfejs wiersza polecenia platformy Azure |Użyj operacji [az account list-locations](https://docs.microsoft.com/en-us/cli/azure/account?view=azure-cli-latest#az_account_list_locations). |
 
 ### <a name="vm-size"></a>Rozmiar maszyny wirtualnej
 [Rozmiar](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) maszyny wirtualnej zależy od obciążenia, które ma zostać uruchomione. Wybrany rozmiar ma więc wpływ na takie czynniki jak moc procesora, pamięć i przestrzeń dyskowa. W ramach platformy Azure dostępna jest szeroka gama rozmiarów umożliwiających wykorzystanie produktu do wielu różnych zastosowań.
@@ -83,6 +84,7 @@ W poniższej tabeli pokazano, jak można znaleźć informacje o obrazie.
 | Azure Portal |Wartości są podawane automatycznie po wybraniu obrazu, który ma zostać użyty. |
 | Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagepublisher) -Location "lokalizacja"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimageoffer) -Location "lokalizacja" -Publisher "nazwa_wydawcy"<BR>[Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location "lokalizacja" -Publisher "nazwa_wydawcy" -Offer "nazwa_oferty" |
 | Interfejsy API REST |[Wyświetl listę wydawców obrazów](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[Wyświetl listę ofert obrazów](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[Wyświetl listę jednostek SKU obrazów](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
+| Interfejs wiersza polecenia platformy Azure |[az vm image list-publishers](https://docs.microsoft.com/en-us/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_publishers) --location "lokalizacja"<BR>[az vm image list-offers](https://docs.microsoft.com/en-us/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_offers) --location "lokalizacja" --publisher "nazwa_wydawcy"<BR>[az vm image list-skus](https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az_vm_list_skus) --location "lokalizacja" --publisher "nazwa_wydawcy" --offer "nazwa_oferty"|
 
 Istnieje możliwość [przesłania i użycia własnego obrazu](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account) — nazwa wydawcy, oferta i jednostka SKU nie są wtedy używane.
 
@@ -100,11 +102,11 @@ Zasoby wymienione w tej tabeli są używane przez maszynę wirtualną i muszą i
 
 | Zasób | Wymagany | Opis |
 | --- | --- | --- |
-| [Grupa zasobów](../../azure-resource-manager/resource-group-overview.md) |Tak |Maszyna wirtualna musi być zawarta w grupie zasobów. |
-| [Konto magazynu](../../storage/common/storage-create-storage-account.md) |Tak |Maszyna wirtualna wymaga konta magazynu do przechowywania wirtualnych dysków twardych. |
-| [Sieć wirtualna](../../virtual-network/virtual-networks-overview.md) |Tak |Maszyna wirtualna musi należeć do sieci wirtualnej. |
+| [Grupa zasobów](../../azure-resource-manager/resource-group-overview.md) |Yes |Maszyna wirtualna musi być zawarta w grupie zasobów. |
+| [Konto magazynu](../../storage/common/storage-create-storage-account.md) |Yes |Maszyna wirtualna wymaga konta magazynu do przechowywania wirtualnych dysków twardych. |
+| [Sieć wirtualna](../../virtual-network/virtual-networks-overview.md) |Yes |Maszyna wirtualna musi należeć do sieci wirtualnej. |
 | [Publiczny adres IP](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |Nie |Maszyna wirtualna może mieć przypisany publiczny adres IP umożliwiający uzyskiwanie do niej dostępu zdalnego. |
-| [Interfejs sieciowy](../../virtual-network/virtual-network-network-interface.md) |Tak |Maszyna wirtualna wymaga interfejsu sieciowego do komunikacji w sieci. |
+| [Interfejs sieciowy](../../virtual-network/virtual-network-network-interface.md) |Yes |Maszyna wirtualna wymaga interfejsu sieciowego do komunikacji w sieci. |
 | [Dyski danych](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Nie |Maszyna wirtualna może zawierać dyski danych zwiększające jej pojemność. |
 
 ## <a name="how-do-i-create-my-first-vm"></a>Jak utworzyć maszynę wirtualną?
@@ -119,6 +121,7 @@ Ta tabela zawiera informacje ułatwiające utworzenie maszyny wirtualnej.
 | Azure PowerShell |[Tworzenie maszyny wirtualnej z systemem Windows przy użyciu programu PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Zestawy SDK klienta |[Wdrażanie zasobów Azure przy użyciu języka C#](csharp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Interfejsy API REST |[Tworzenie lub aktualizowanie maszyny wirtualnej](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-create-or-update) |
+| Interfejs wiersza polecenia platformy Azure |[Tworzenie maszyny wirtualnej za pomocą interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-vm) |
 
 Nikt tego nie lubi, ale czasem coś może pójść nie tak. Warto zapoznać się wtedy z artykułem [Troubleshoot Resource Manager deployment issues with creating a Windows virtual machine in Azure](troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Rozwiązywanie problemów z wdrażaniem programu Resource Manager dotyczących tworzenia maszyny wirtualnej z systemem Windows na platformie Azure).
 
@@ -134,6 +137,7 @@ W tej tabeli opisano, w jaki sposób można uzyskiwać informacje o maszynie wir
 | Azure PowerShell |Aby uzyskać informacje na temat używania programu PowerShell zarządzania maszynami wirtualnymi, zobacz [Create and manage Windows VMs with the Azure PowerShell module (Tworzenie maszyn wirtualnych z systemem Windows i zarządzanie nimi za pomocą programu Azure PowerShell)](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
 | Interfejs API REST |Użyj operacji [Get VM information](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-get) (Pobierz informacje o maszynie wirtualnej), aby uzyskać informacje na temat maszyny wirtualnej. |
 | Zestawy SDK klienta |Aby dowiedzieć się więcej o zarządzaniu maszynami wirtualnymi za pomocą języka C#, zobacz artykuł [Manage Azure Virtual Machines using Azure Resource Manager and C#](csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Zarządzanie maszynami wirtualnymi na platformie Azure za pomocą usługi Azure Resource Manager i języka C#). |
+| Interfejs wiersza polecenia platformy Azure |Aby uzyskać informacje o zarządzaniu maszynami wirtualnymi za pomocą interfejsu wiersza polecenia platformy Azure, zobacz [Dokumentacja interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/en-us/cli/azure/vm). |
 
 ### <a name="log-on-to-the-vm"></a>Logowanie się do maszyny wirtualnej
 Korzystając z przycisku Połącz w witrynie Azure, można [uruchomić sesję pulpitu zdalnego (RDP)](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Podczas próby użycia połączenia zdalnego mogą czasami występować problemy. W takiej sytuacji zapoznaj się z artykułem [Rozwiązywanie problemów z połączeniami Pulpitu zdalnego z maszynami wirtualnymi systemu Windows na platformie Azure](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

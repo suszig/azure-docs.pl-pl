@@ -2,62 +2,89 @@
 title: "Opcje konta usługi Azure Storage | Microsoft Docs"
 description: "Opis opcji korzystania z usługi Azure Storage."
 services: storage
-documentationcenter: 
 author: jirwin
 manager: jwillis
-editor: 
 ms.service: storage
 ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/11/2017
+ms.date: 01/17/2018
 ms.author: jirwin
-ms.openlocfilehash: 1b1770e25b4b423466120cb74c08edacf2de3977
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: bdbcdc7d46d5395b28cf9ba7066703ce5da900a5
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-storage-account-options"></a>Opcje konta usługi Azure Storage
 
 ## <a name="overview"></a>Omówienie
-Usługa Azure Storage udostępnia trzy różne opcje kont z różnymi cenami i obsługiwanymi funkcjami. Ważne jest, aby użytkownicy wzięli pod uwagę te różnice, wybierając opcję najlepszą w przypadku używanych aplikacji.  Oto trzy różne opcje:
+Usługa Azure Storage udostępnia trzy różne opcje kont z różnymi cenami i obsługiwanymi funkcjami. Zanim utworzysz konto magazynu, weź pod uwagę te różnice. Umożliwi Ci to wybranie najlepszej opcji dla używanych aplikacji. Oto trzy różne opcje konta magazynu:
 
-* Konta **ogólnego przeznaczenia, wersja 2 (GPv2)** oferują wszystkie najnowsze funkcje i obsługują obiekty blob, pliki, kolejki i tabele. Obecnie te najnowsze funkcje obejmują obsługę warstw na poziomie obiektów blob, magazyn w warstwie Archiwum, limity konta w wyższej skali i zdarzenia magazynu. Cennik został zaprojektowany tak, aby udostępniać najniższe ceny za GB oraz konkurencyjne w branży ceny transakcji.
+* Konta **ogólnego przeznaczenia, wersja 2 (GPv2)** 
+* Konta **ogólnego przeznaczenia, wersja 1 (GPv1)**
+* Konta **usługi Blob Storage**
 
-* Konta **usługi Blob Storage** oferują najnowsze funkcje blokowych obiektów blob, ale obsługują tylko blokowe obiekty blob.  Cennik jest w znacznej mierze podobny do cennika kont ogólnego przeznaczenia w wersji 2. Zachęcamy większość użytkowników do korzystania z kont ogólnego przeznaczenia w wersji 2, zamiast kont usługi Blob Storage.
+Poszczególne typy kont zostały dokładniej opisane w poniższej sekcji:
 
-* Konta **ogólnego przeznaczenia, wersja 1 (GPv1)** oferują możliwość korzystania ze wszystkich usług Azure Storage, ale mogą nie zapewniać dostępu do najnowszych funkcji lub najniższych cen za GB. Na przykład warstwy magazynowania Chłodna i Archiwum nie są obsługiwane w przypadku kont GPv1.  Ceny transakcji są niższe, dlatego obciążenia z dużą liczbą zmian lub operacji odczytu mogą skorzystać z zalet tego typu konta.
+## <a name="storage-account-options"></a>Opcje konta magazynu
 
-### <a name="changing-account-kind"></a>Zmienianie rodzaju konta
-Użytkownicy mogą uaktualnić konto GPv1 do konta GPv2 w dowolnej chwili za pomocą portalu, interfejsu wiersza polecenia lub programu PowerShell. Tej zmiany nie można cofnąć i żadne inne zmiany nie są dozwolone. Możliwość uaktualnienia kont usługi Blob Storage do kont GPv2 będzie dostępna wkrótce.
+### <a name="general-purpose-v2"></a>Ogólnego przeznaczenia, wersja 2
 
-## <a name="general-purpose-v2"></a>Ogólnego przeznaczenia, wersja 2
-Konta **ogólnego przeznaczenia, wersja 2 (GPv2)** to konta magazynu, które obsługują wszystkie funkcje wszystkich usług magazynu, w tym obiekty blob, pliki, kolejki i tabele. W przypadku blokowych obiektów blob można wybrać warstwę magazynowania Gorąca lub Chłodna na poziomie konta. Na podstawie wzorców dostępu można też wybrać warstwę Gorąca, Chłodna lub Archiwum na poziomie obiektu blob. Przechowuj dane, do których uzyskujesz dostęp często, niezbyt często i rzadko, odpowiednio w warstwach magazynowania Gorąca, Chłodna i Archiwum, aby zoptymalizować koszty. Należy pamiętać, że dowolne konto GPv1 można uaktualnić do konta GPv2 za pomocą portalu, interfejsu wiersza polecenia lub programu PowerShell. Konta GPv2 obsługują wszystkie interfejsy API i funkcje obsługiwane w przypadku kont usługi Blob Storage i GPv1 oraz oferują te same atrakcyjne funkcje dotyczące trwałości, dostępności, skalowalności i wydajności, co te typy kont.
+Konta ogólnego przeznaczenia w wersji 2 (GPv2, General-purpose v2) to konta magazynu, które obsługują wszystkie najnowsze funkcje obiektów blob, plików, kolejek i tabel. Konta GPv2 obsługują wszystkie interfejsy API i funkcje obsługiwane na kontach GPv1 i kontach usługi Blob Storage. Zapewniają również taką samą trwałość, dostępność, skalowalność i wydajność, jak pozostałe typy kont. Cennik kont GPv2 został zaprojektowany tak, aby zapewniać najniższe ceny za gigabajt oraz konkurencyjne w branży ceny transakcji.
 
-Konta usługi Blob Storage uwidaczniają atrybut **Warstwa dostępu** na poziomie konta. Określa on domyślną warstwę konta magazynu: **Gorąca** lub **Chłodna**. Domyślna warstwa konta magazynu jest stosowana do każdego obiektu blob, który nie ma jawnie ustawionej warstwy na poziomie obiektu blob. W przypadku zmiany wzorca użycia danych można także w dowolnym momencie przełączyć się między tymi warstwami magazynowania. **Warstwę Archiwum** można stosować tylko na poziomie obiektu blob.
+Poziom konta GPv1 można podnieść na wersję GPv2, korzystając z programu PowerShell lub interfejsu wiersza polecenia platformy Azure. 
 
-> [!NOTE]
-> Zmiana warstwy magazynowania może spowodować naliczenie dodatkowych opłat. Więcej szczegółów zawiera sekcja dotycząca [cennika i rozliczeń](#pricing-and-billing).
+W przypadku blokowych obiektów blob na koncie magazynu GPv2 można wybrać warstwę magazynowania Gorąca lub Chłodna na poziomie konta. Na podstawie wzorców dostępu można też wybrać warstwę Gorąca, Chłodna lub Archiwum na poziomie obiektu blob. Przechowuj dane, do których uzyskujesz dostęp często, niezbyt często i rzadko, odpowiednio w warstwach magazynowania Gorąca, Chłodna i Archiwum, aby zoptymalizować koszty. 
 
-## <a name="blob-storage-accounts"></a>Konta usługi Blob Storage
-
-**Konta usługi Blob Storage** obsługują te same funkcje blokowych obiektów blob co konta GPv2, są jednak ograniczone tylko do obsługi blokowych obiektów blob. Klienci powinni zapoznać się z różnicami cen kont usługi Blob Storage i GPv2, a następnie rozważyć uaktualnienie do konta GPv2. Należy pamiętać, że tego uaktualnienia nie można cofnąć.
+Konta magazynu GPv2 uwidaczniają atrybut **Warstwa dostępu** na poziomie konta. Określa on domyślną warstwę konta magazynu: **Gorąca** lub **Chłodna**. Domyślna warstwa konta magazynu jest stosowana do każdego obiektu blob, który nie ma jawnie ustawionej warstwy na poziomie obiektu blob. W przypadku zmiany wzorca użycia danych można także w dowolnym momencie przełączyć się między tymi warstwami magazynowania. **Warstwę Archiwum** można stosować tylko na poziomie obiektu blob.
 
 > [!NOTE]
-> Konta usługi Blob Storage obsługują tylko blokowe obiekty blob i uzupełnialne obiekty blob — stronicowe obiekty blob nie są obsługiwane.
+> Zmiana warstwy magazynowania może spowodować naliczenie dodatkowych opłat. Aby uzyskać więcej informacji, zapoznaj się z sekcją [Cennik i rozliczenia](#pricing-and-billing).
+>
+> W przypadku większości scenariuszy firma Microsoft zaleca używanie kont magazynu ogólnego przeznaczenia w wersji 2, a nie kont usługi Blob Storage.
 
-## <a name="general-purpose-v1"></a>Ogólnego przeznaczenia, wersja 1
-Konta **ogólnego przeznaczenia, wersja 1 (GPv1)** to najstarsze konta magazynu i jedyny rodzaj, który może być używany w klasycznym modelu wdrażania. Funkcje, takie jak magazyn w warstwie Chłodna i Archiwum, są niedostępne w przypadku kont GPv1. Konta GPv1 mają zazwyczaj wyższe koszty magazynowania za GB, ale niższe koszty transakcji niż konta GPv2 lub Blob Storage.
+### <a name="upgrade-a-storage-account-to-gpv2"></a>Podnoszenie poziomu konta magazynu do wersji GPv2
+
+Użytkownicy mogą podnieść poziom konta GPv1 do wersji GPv2 w dowolnej chwili za pomocą interfejsu wiersza polecenia platformy Azure lub programu PowerShell. Tej zmiany nie można cofnąć i żadne inne zmiany nie są dozwolone.
+
+#### <a name="upgrade-with-powershell"></a>Podnoszenie poziomu przy użyciu programu PowerShell
+
+Aby podnieść poziom konta GPv1 do wersji GPv2 przy użyciu programu PowerShell, należy najpierw zaktualizować program PowerShell, aby umożliwić korzystanie z najnowszej wersji modułu **AzureRm.Storage**. Aby uzyskać więcej informacji na temat instalowania programu PowerShell, zobacz [Instalowanie i konfigurowanie programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Następnie wywołaj następujące polecenie, aby podnieść poziom konta, wprowadzając odpowiednią nazwę grupy zasobów i konta magazynu:
+
+```powershell
+Set-AzureRmStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2
+```
+
+#### <a name="upgrade-with-azure-cli"></a>Podnoszenie poziomu za pomocą interfejsu wiersza polecenia platformy Azure
+
+Aby podnieść poziom konta GPv1 do wersji GPv2 przy użyciu interfejsu wiersza polecenia platformy Azure, należy najpierw zainstalować najnowszą wersję interfejsu wiersza polecenia platformy Azure. Aby uzyskać więcej informacji na temat instalowania interfejsu wiersza polecenia, zobacz [Instalacja interfejsu wiersza polecenia platformy Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Następnie wywołaj następujące polecenie, aby podnieść poziom konta, wprowadzając odpowiednią nazwę grupy zasobów i konta magazynu:
+
+```cli
+az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2
+```` 
+
+### <a name="general-purpose-v1"></a>Ogólnego przeznaczenia, wersja 1
+
+Konta ogólnego przeznaczenia w wersji 1 (GPv1, general-purpose v1) umożliwiają dostęp do wszystkich usług Azure Storage, ale mogą nie zapewniać dostępu do najnowszych funkcji lub najniższych cen za gigabajt. Na przykład warstwy magazynowania Chłodna i Archiwum nie są obsługiwane w przypadku kont GPv1. Dla konta GPv1 ceny transakcji są niższe, dlatego ten typ konta może być korzystniejszy dla obciążeń z dużą liczbą zmian lub operacji odczytu.
+
+Konta ogólnego przeznaczenia w wersji 1 (GPv1) to najstarszy typ konta magazynu i jedyny, który może być używany w klasycznym modelu wdrażania. 
+
+### <a name="blob-storage-accounts"></a>Konta usługi Blob Storage
+
+Konta usługi Blob Storage obsługują te same funkcje blokowych obiektów blob co konta GPv2, są jednak ograniczone tylko do obsługi blokowych obiektów blob. Cennik jest w znacznej mierze podobny do cennika kont ogólnego przeznaczenia w wersji 2. Klienci powinni zapoznać się z różnicami w cenach kont usługi Blob Storage i GPv2, a następnie rozważyć podniesienie poziomu do konta GPv2. Tego podniesienia poziomu nie można cofnąć.
+
+Możliwość podniesienia poziomu konta usługi Blob Storage do konta GPv2 będzie dostępna wkrótce.
+
+> [!NOTE]
+> Konta Magazynu obiektów blob obsługują tylko blokowe obiekty blob i uzupełnialne obiekty blob — stronicowe obiekty blob nie są obsługiwane.
 
 ## <a name="recommendations"></a>Zalecenia
 
 Aby uzyskać więcej informacji dotyczących kont magazynu, zobacz [Informacje o kontach magazynu Azure](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-W przypadku aplikacji wymagających tylko magazynu blokowych obiektów blob lub magazynu uzupełnialnych obiektów blob zaleca się użycie kont GPv2, co pozwoli na korzystanie ze zróżnicowanego modelu cenowego magazynu warstwowego. Zdajemy sobie jednak sprawę z tego, że może to nie być możliwe w pewnych okolicznościach, gdy najlepszym rozwiązaniem jest użycie kont magazynu GPv1. Przykład:
+W przypadku aplikacji wymagających tylko magazynu blokowych obiektów blob lub magazynu uzupełnialnych obiektów blob zaleca się użycie kont GPv2, co pozwoli na korzystanie ze zróżnicowanego modelu cenowego magazynu warstwowego. Czasem korzystniejsze może być używanie konta GPv1, na przykład wtedy, gdy:
 
-* Nadal musisz korzystać z klasycznego modelu wdrożenia. Konta magazynu Blob Storage są dostępne tylko za pośrednictwem modelu wdrażania przy użyciu usługi Azure Resource Manager.
+* Nadal musisz korzystać z klasycznego modelu wdrożenia. Konta Magazynu obiektów blob są dostępne tylko za pośrednictwem modelu wdrażania przy użyciu usługi Azure Resource Manager.
 
 * Używasz dużej liczby transakcji lub dużej przepustowości replikacji geograficznej, które są droższe w przypadku kont GPv2 i Blob Storage niż kont GPv1, i nie masz wystarczająco dużego magazynu, aby skorzystać z zalet niższych kosztów magazynu za GB.
 
@@ -75,21 +102,21 @@ Wszystkie konta magazynu używają modelu cenowego dla magazynu obiektów blob o
 
 * **Koszty transakcji**: w przypadku wszystkich warstw naliczana jest opłata za transakcję, która wzrasta w miarę, jak warstwa staje się chłodniejsza.
 
-* **Koszty transferu danych replikacji geograficznej**: dotyczy to tylko kont ze skonfigurowaną replikacją geograficzną, w tym GRS i RA-GRS. Transfer danych w ramach replikacji geograficznej powoduje naliczanie opłaty za każdy gigabajt.
+* **Koszty transferu danych replikacji geograficznej**: ta opłata dotyczy tylko kont ze skonfigurowaną replikacją geograficzną, w tym GRS i RA-GRS. Transfer danych w ramach replikacji geograficznej powoduje naliczanie opłaty za każdy gigabajt.
 
 * **Koszty transferu danych wychodzących**: transfery danych wychodzących (dane przesyłane poza region platformy Azure) powodują naliczanie opłat za zużycie przepustowości za każdy gigabajt, co jest spójne z kontami magazynu ogólnego przeznaczenia.
 
 * **Zmiana warstwy magazynowania**: zmiana warstwy magazynowania z Chłodna na Gorąca spowoduje naliczenie opłaty równej opłacie za odczytanie wszystkich danych istniejących w ramach konta magazynu. Natomiast zmiana warstwy magazynowania konta z Gorąca na Chłodna spowoduje naliczenie opłaty równej opłacie za zapisanie wszystkich danych w warstwie Chłodna (tylko konta GPv2).
 
 > [!NOTE]
-> Dodatkowe szczegóły dotyczące modelu cenowego dla kont usługi Blob Storage można znaleźć na stronie [Cennik usługi Azure Storage](https://azure.microsoft.com/pricing/details/storage/). Dodatkowe szczegóły dotyczące opłat za transfer danych wychodzących można znaleźć na stronie [Szczegóły cennika transferów danych](https://azure.microsoft.com/pricing/details/data-transfers/).
+> Więcej informacji dotyczących modelu cenowego dla kont usługi Blob Storage można znaleźć na stronie [Cennik usługi Azure Storage](https://azure.microsoft.com/pricing/details/storage/). Więcej informacji dotyczących opłat za transfer danych wychodzących można znaleźć na stronie [Szczegóły cennika transferów danych](https://azure.microsoft.com/pricing/details/data-transfers/).
 
 ## <a name="quickstart-scenarios"></a>Scenariusze typu Szybki start
 
 W tej sekcji przedstawiono następujące scenariusze obejmujące użycie witryny Azure Portal:
 
 * Tworzenie konta magazynu GPv2.
-* Konwertowanie konta GPv1 lub usługi Blob Storage na konto magazynu GPv2.
+* Konwertowanie konta GPv1 lub konta usługi Blob Storage na konto magazynu GPv2.
 * Ustawianie warstwy obiektu blob i konta na koncie magazynu GPv2.
 
 W poniższych przykładach nie można ustawić warstwy dostępu na Archiwum, ponieważ to ustawienie dotyczy całego konta magazynu. Warstwę archiwalną można ustawić tylko dla określonego obiektu blob.
@@ -106,19 +133,17 @@ W poniższych przykładach nie można ustawić warstwy dostępu na Archiwum, pon
 
 4. Wybierz pozycję **Resource Manager** jako model wdrażania.
 
-    Magazynu warstwowego można używać tylko z kontami magazynu usługi Resource Manager — jest to zalecany model wdrażania dla nowych zasobów. Aby uzyskać więcej informacji, zobacz temat [Omówienie usługi Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).  
+    Magazynu warstwowego można używać tylko z kontami magazynu usługi Resource Manager — jest to zalecany model wdrażania dla nowych zasobów. Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).  
 
-5. Z listy rozwijanej Rodzaj konta wybierz pozycję **Ogólnego przeznaczenia, wersja 2**.
+5. Z listy rozwijanej **Rodzaj konta** wybierz pozycję **Ogólnego przeznaczenia, wersja 2**.
 
-    Tutaj wybierasz typ konta magazynu. Magazyn warstwowy nie jest dostępny w magazynie ogólnego przeznaczenia — jest on dostępny tylko w ramach konta typu Blob Storage.     
+    Po wybraniu opcji GPv2 warstwa wydajności jest ustawiana na Standardowa. Magazyn warstwowy nie jest dostępny z warstwą wydajności Premium.
 
-    Po wybraniu tej opcji warstwa wydajności jest ustawiana na Standardowa. Magazyn warstwowy nie jest dostępny z warstwą wydajności Premium.
+6. Wybierz opcję replikacji dla konta magazynu: **LRS**, **ZRS**, **GRS** lub **RA-GRS**. Wartość domyślna to **RA-GRS**.
 
-6. Wybierz opcję replikacji dla konta magazynu: **LRS**, **GRS** lub **RA-GRS**. Wartość domyślna to **RA-GRS**.
+    LRS = magazyn lokalnie nadmiarowy; ZRS = magazyn strefowo nadmiarowy; GRS = magazyn geograficznie nadmiarowy (dwa regiony); RA-GRS to magazyn geograficznie nadmiarowy z dostępem do odczytu (dwa regiony z dostępem do odczytu do drugiego).
 
-    LRS = magazyn lokalnie nadmiarowy; GRS = magazyn geograficznie nadmiarowy (dwa regiony); RA-GRS to magazyn geograficznie nadmiarowy z dostępem do odczytu (2 regiony z dostępem do odczytu do drugiego).
-
-    Aby uzyskać więcej informacji na temat opcji replikacji usługi Azure Storage, zobacz [Azure Storage replication](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) (Replikacja usługi Azure Storage).
+    Aby uzyskać więcej szczegółów na temat opcji replikacji usługi Azure Storage, zobacz [Replikacja usługi Azure Storage](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 7. Wybierz odpowiednią dla Twoich potrzeb warstwę magazynu: ustaw pozycję **Warstwa dostępu** na wartość **Chłodna** lub **Gorąca**. Wartość domyślna to **Gorąca**.
 
@@ -136,11 +161,11 @@ W poniższych przykładach nie można ustawić warstwy dostępu na Archiwum, pon
 
 2. Aby przejść do konta magazynu, zaznacz pozycję Wszystkie zasoby, a następnie wybierz konto magazynu.
 
-3. W bloku Ustawienia kliknij pozycję **Konfiguracja**.
+3. W sekcji Ustawienia kliknij pozycję **Konfiguracja**.
 
-4. W obszarze rodzaju konta kliknij pozycję **Uaktualnij**.
+4. W obszarze **Rodzaj konta** kliknij pozycję **Uaktualnij**.
 
-5. Po prawej stronie pojawi się nowy blok na potrzeby potwierdzenia. W obszarze potwierdzania uaktualnienia wpisz nazwę konta. 
+5. W obszarze **Potwierdź uaktualnianie** wpisz nazwę konta. 
 
 5. Kliknij pozycję Uaktualnij w dolnej części bloku.
 
@@ -167,7 +192,7 @@ W poniższych przykładach nie można ustawić warstwy dostępu na Archiwum, pon
 5. Kliknij pozycję Zapisz w górnej części bloku.
 
 > [!NOTE]
-> Zmiana warstwy magazynowania może spowodować naliczenie dodatkowych opłat. Więcej szczegółów zawiera sekcja dotycząca [cennika i rozliczeń](#pricing-and-billing).
+> Zmiana warstwy magazynowania może spowodować naliczenie dodatkowych opłat. Aby uzyskać więcej informacji, zapoznaj się z sekcją [Cennik i rozliczenia](#pricing-and-billing).
 
 
 ## <a name="evaluating-and-migrating-to-gpv2-storage-accounts"></a>Ocenianie i migrowanie do kont magazynu GPv2
@@ -188,20 +213,20 @@ Aby oszacować koszty magazynowania i uzyskiwania dostępu do danych przechowywa
 
 ## <a name="monitoring-existing-storage-accounts"></a>Monitorowanie istniejących kont magazynu
 
-Aby monitorować istniejące konta magazynu i gromadzić uzyskane dane, można skorzystać z usługi Azure Storage Analytics, która umożliwia rejestrowanie i dostarcza danych metryk dotyczących konta magazynu. Usługa Storage Analytics może przechowywać metryki, które obejmują zagregowane statystyki transakcji oraz dane dyspozycyjności o żądaniach do usługi Storage dla następujących rodzajów kont: GPv1, GPv2 i Blob Storage. Te dane są przechowywane w dobrze znanych tabelach tego samego konta magazynu.
+Aby monitorować istniejące konta magazynu i gromadzić uzyskane dane, można skorzystać z usługi Azure Storage Analytics, która umożliwia rejestrowanie i dostarcza danych metryk dotyczących konta magazynu. Usługa Storage Analytics może przechowywać metryki, które obejmują zagregowane statystyki transakcji oraz dane pojemności o żądaniach do usługi Storage dla następujących rodzajów kont: GPv1, GPv2 i Blob Storage. Te dane są przechowywane w dobrze znanych tabelach tego samego konta magazynu.
 
-Aby uzyskać więcej szczegółowych informacji, zobacz artykuły [About Storage Analytics Metrics (Metryki w usłudze Storage Analytics)](https://msdn.microsoft.com/library/azure/hh343258.aspx) i [Storage Analytics Metrics Table Schema (Schemat tabeli metryk usługi Storage Analytics)](https://msdn.microsoft.com/library/azure/hh343264.aspx).
+Aby uzyskać więcej informacji, zapoznaj się z artykułami [About Storage Analytics Metrics (Informacje o metrykach w usłudze Storage Analytics)](https://msdn.microsoft.com/library/azure/hh343258.aspx) i [Storage Analytics Metrics Table Schema (Schemat tabeli metryk usługi Storage Analytics)](https://msdn.microsoft.com/library/azure/hh343264.aspx)
 
 > [!NOTE]
-> Konta usługi Blob Storage ujawniają punkt końcowy usługi tabel tylko w odniesieniu do przechowywania i uzyskiwania dostępu do danych metryk dla tego konta. Konta magazynu ZRS typu GPv1 nie obsługują danych metryk.
+> Konta usługi Blob Storage ujawniają punkt końcowy usługi tabel tylko w odniesieniu do przechowywania i uzyskiwania dostępu do danych metryk dla tego konta. Konta magazynu strefowo nadmiarowego (ZRS) obsługują zbieranie danych metryk, natomiast klasyczne konta magazynu strefowo nadmiarowego — nie. Aby uzyskać więcej informacji na temat konta ZRS, zobacz [Magazyn strefowo nadmiarowy](storage-redundancy.md#zone-redundant-storage). 
 
 Aby monitorować użycie magazynu dla usługi Blob Storage, należy włączyć metryki pojemności.
 Dzięki włączeniu tej opcji dane pojemności są rejestrowane codziennie dla konta usługi Blob Storage oraz rejestrowane jako wpis tabeli, który jest zapisywany w tabeli *$MetricsCapacityBlob* w obrębie tego samego konta magazynu.
 
-Aby monitorować wzorzec dostępu do danych dla usługi Blob Storage, należy włączyć godzinowe metryki transakcji na poziomie interfejsu API. Dzięki włączeniu tej opcji transakcje interfejsu API są agregowane co godzinę i rejestrowane jako wpis tabeli, który jest zapisywany w tabeli *$MetricsHourPrimaryTransactionsBlob* w obrębie tego samego konta magazynu. W przypadku używania kont magazynu RA-GRS tabela *$MetricsHourSecondaryTransactionsBlob* rejestruje transakcje kierowane do pomocniczego punktu końcowego.
+Aby monitorować wzorce dostępu do danych dla usługi Blob Storage, należy włączyć godzinowe metryki transakcji z poziomu interfejsu API. Dzięki włączeniu godzinowych metryk transakcji transakcje interfejsu API są agregowane co godzinę i rejestrowane jako wpis tabeli, który jest zapisywany w tabeli *$MetricsHourPrimaryTransactionsBlob* w obrębie tego samego konta magazynu. W przypadku używania kont magazynu RA-GRS tabela *$MetricsHourSecondaryTransactionsBlob* rejestruje transakcje kierowane do pomocniczego punktu końcowego.
 
 > [!NOTE]
-> Jeśli masz konto magazynu ogólnego przeznaczenia, w którym są przechowywane stronicowe obiekty blob i dyski maszyny wirtualnej albo kolejki, pliki lub tabele (obok blokowych obiektów blob i danych uzupełnialnych obiektów blob), ten proces szacowania nie ma zastosowania. Dzieje się tak, ponieważ dane wydajności nie odróżniają blokowych obiektów blob od innych typów i nie oferują danych wydajności dla innych typów danych. Jeśli używasz tych typów, alternatywną metodologią będzie zapoznanie się z ilościami na najnowszym rachunku.
+> Jeśli masz konto magazynu ogólnego przeznaczenia, w którym są przechowywane stronicowe obiekty blob i dyski maszyny wirtualnej albo kolejki, pliki lub tabele (obok danych blokowych obiektów blob i uzupełnialnych obiektów blob), ten proces szacowania nie ma zastosowania. Dane pojemności nie odróżniają blokowych obiektów blob od innych typów i nie oferują danych pojemności dla innych typów danych. Jeśli używasz tych typów, alternatywną metodologią będzie zapoznanie się z ilościami na najnowszym rachunku.
 
 Aby uzyskać najbardziej zbliżone do prawdziwych informacje o użyciu danych i wzorcu dostępu, zalecamy wybranie takiego okresu przechowywania dla metryk, który odzwierciedla normalne użycie, i ekstrapolację. Jedną z opcji jest przechowywanie danych metryk przez siedem dni i zbieranie danych co tydzień, aby przeprowadzić analizę pod koniec miesiąca. Innym rozwiązaniem jest przechowywanie danych metryk z ostatnich 30 dni i zbieranie oraz analizowanie danych z końcem 30-dniowego okresu.
 
@@ -212,13 +237,13 @@ Aby uzyskać szczegółowe informacje na temat włączania metryk oraz gromadzen
 
 ### <a name="utilizing-usage-metrics-to-estimate-costs"></a>Używanie metryk użycia do szacowania kosztów
 
-### <a name="storage-costs"></a>Koszty magazynowania
+#### <a name="storage-costs"></a>Koszty magazynowania
 
 Najnowszy wpis w tabeli metryk pojemności *$MetricsCapacityBlob* z kluczem wiersza *„data”* pokazuje pojemność magazynu zajętą przez dane użytkownika. Najnowszy wpis w tabeli metryk pojemności *$MetricsCapacityBlob* z kluczem wiersza *„analytics”* pokazuje pojemność magazynu zajętą przez dzienniki analiz.
 
 Łączna pojemność zajęta przez dane użytkownika i dzienniki analiz (jeśli są włączone) może być użyta do szacowania kosztów magazynowania danych w ramach konta magazynu. Tę samą metodę można również użyć do szacowania kosztów magazynowania na kontach magazynu GPv1.
 
-### <a name="transaction-costs"></a>Koszty transakcji
+#### <a name="transaction-costs"></a>Koszty transakcji
 
 Suma *„TotalBillableRequests”* dla wszystkich wpisów interfejsu API w tabeli metryk transakcji wskazuje całkowitą liczbę transakcji dla tego konkretnego interfejsu API. *Na przykład* całkowitą liczbę transakcji *„GetBlob”* w danym okresie można obliczyć, sumując liczbę płatnych żądań dla wszystkich wpisów z kluczem wiersza *'user;GetBlob'*.
 
@@ -247,9 +272,9 @@ Koszt transferu danych replikacji geograficznej dla kont usługi Blob Storage mo
 
 ## <a name="migrating-existing-data"></a>Migrowanie istniejących danych
 
-Konto GPv1 można łatwo uaktualnić do konta GPv2 bez przestojów ani zmian interfejsów API oraz bez konieczności przenoszenia danych. Jest to jedna z podstawowych zalet kont GPv2 w porównaniu do kont usługi Blob Storage.
+Poziom konta GPv1 można łatwo podnieść do wersji GPv2 bez przestojów ani zmian interfejsów API oraz bez konieczności migrowania danych. Z tego powodu zaleca się migrację kont GPv1 do kont GPv2, a nie do kont usługi Blob Storage.
 
-Jednak jeśli chcesz przeprowadzić migrację do konta usługi Blob Storage, możesz skorzystać z poniższych instrukcji.
+Jeśli jednak chcesz przeprowadzić migrację do konta usługi Blob Storage, postępuj według następujących instrukcji.
 
 Konto usługi Blob Storage jest przeznaczone do przechowywania tylko blokowych obiektów blob i uzupełnialnych obiektów blob. Istniejących kont magazynu ogólnego przeznaczenia, które umożliwiają przechowywanie tabel, kolejek, plików, dysków, a także obiektów blob, nie można konwertować na konta usługi Blob Storage. Aby użyć warstw magazynowania, należy utworzyć nowe konta usługi Blob Storage i przeprowadzić migrację istniejących danych do nowo utworzonych kont.
 
@@ -257,40 +282,40 @@ Poniższych metod można użyć do migrowania istniejących danych do kont usłu
 
 ### <a name="azcopy"></a>Narzędzie AzCopy
 
-Narzędzie AzCopy to narzędzie wiersza polecenia systemu Windows przeznaczone do kopiowania z wysoką wydajnością danych z i do usługi Azure Storage. Narzędzia AzCopy można użyć do skopiowania danych na konto usługi Blob Storage z istniejących kont magazynu ogólnego przeznaczenia lub do przekazania danych z lokalnych urządzeń magazynujących na konto usługi Blob Storage.
+Narzędzie AzCopy to narzędzie wiersza polecenia systemu Windows przeznaczone do kopiowania z wysoką wydajnością danych z i do usługi Azure Storage. Narzędzia AzCopy można użyć do skopiowania danych na konto usługi Magazynu obiektów blob z istniejących kont magazynu ogólnego przeznaczenia lub do przekazania danych z lokalnych urządzeń magazynujących na konto Magazynu obiektów blob.
 
 Aby uzyskać więcej informacji, zobacz [Transfer danych za pomocą narzędzia wiersza polecenia AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ### <a name="data-movement-library"></a>Biblioteka przenoszenia danych
 
-Biblioteka przenoszenia danych usługi Azure Storage dla programu .NET jest oparta na podstawowym środowisku przenoszenia danych, w którym działa narzędzie AzCopy. Biblioteka została zaprojektowana na potrzeby przeprowadzania wysokowydajnych, niezawodnych i prostych operacji transferu danych w sposób podobny do narzędzia AzCopy. Pozwala to w pełni wykorzystać funkcje oferowane przez narzędzie AzCopy natywnie w aplikacji bez konieczności uruchamiania i monitorowania zewnętrznych wystąpień narzędzia AzCopy.
+Biblioteka przenoszenia danych usługi Azure Storage dla programu .NET jest oparta na podstawowym środowisku przenoszenia danych, w którym działa narzędzie AzCopy. Biblioteka została zaprojektowana na potrzeby przeprowadzania wysokowydajnych, niezawodnych i prostych operacji transferu danych w sposób podobny do narzędzia AzCopy. Umożliwia to wykorzystanie funkcji oferowanych przez narzędzie AzCopy natywnie w aplikacji bez konieczności uruchamiania i monitorowania zewnętrznych wystąpień narzędzia AzCopy.
 
-Aby uzyskać więcej informacji, zobacz [Azure Storage Data Movement Library for .Net](https://github.com/Azure/azure-storage-net-data-movement) (Biblioteka przenoszenia danych usługi Magazyn Azure dla platformy .NET).
+Aby uzyskać więcej informacji, zobacz [Azure Storage Data Movement Library for .Net (Biblioteka przenoszenia danych usługi Magazyn Azure dla platformy .NET)](https://github.com/Azure/azure-storage-net-data-movement)
 
 ### <a name="rest-api-or-client-library"></a>Interfejs API REST lub biblioteka klienta
 
-Można utworzyć aplikację niestandardową służącą do migracji danych do konta usługi Blob Storage przy użyciu jednej z bibliotek klienta platformy Azure lub interfejsu API REST usług magazynu platformy Azure. Usługa Azure Storage udostępnia rozbudowane biblioteki dla wielu języków programowania i platform, takich jak .NET, Java, C++, Node.JS, PHP, Ruby i Python. Biblioteki klienta oferują zaawansowane możliwości, takie jak logika ponowień, rejestrowanie i przekazywanie równoległe. Możliwe jest również programowanie bezpośrednio przy użyciu interfejsu API REST, który może być wywoływany przez dowolny język programowania mający możliwość wysyłania żądań HTTP lub HTTPS.
+Można utworzyć aplikację niestandardową służącej do migracji danych do konta Magazynu obiektów blob przy użyciu jednej z bibliotek klienta platformy Azure lub interfejsu API REST usług magazynu platformy Azure. Usługa Azure Storage udostępnia rozbudowane biblioteki dla wielu języków programowania i platform, takich jak .NET, Java, C++, Node.JS, PHP, Ruby i Python. Biblioteki klienta oferują zaawansowane możliwości, takie jak logika ponowień, rejestrowanie i przekazywanie równoległe. Możliwe jest również programowanie bezpośrednio przy użyciu interfejsu API REST, który może być wywoływany przez dowolny język programowania mający możliwość wysyłania żądań HTTP lub HTTPS.
 
-Aby uzyskać więcej szczegółów, zobacz [Rozpoczynanie pracy z usługą Azure Blob Storage](../blobs/storage-dotnet-how-to-use-blobs.md).
+Aby uzyskać więcej informacji, zobacz [Rozpoczynanie pracy z usługą Azure Blob Storage](../blobs/storage-dotnet-how-to-use-blobs.md).
 
 > [!NOTE]
-> Obiekty blob zaszyfrowane za pomocą szyfrowania po stronie klienta przechowują metadane związane z szyfrowaniem przechowywane w ramach obiektu blob. Jest absolutnie krytyczne, aby każdy mechanizm kopiowania zapewnił, że metadane obiektu blob, a w szczególności metadane związane z szyfrowaniem, zostały zachowane. Jeśli obiekty blob zostaną skopiowane bez takich metadanych, nie będzie można ponownie pobrać zawartości obiektu blob. Aby uzyskać więcej informacji na temat metadanych związanych z szyfrowaniem, zobacz [Azure Storage Client-Side Encryption](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) (Szyfrowanie po stronie klienta usługi Azure Storage).
+> Obiekty blob zaszyfrowane za pomocą szyfrowania po stronie klienta przechowują metadane związane z szyfrowaniem przechowywane w ramach obiektu blob. Każdy mechanizm kopiowania musi bezwzględnie zapewnić zachowanie metadanych obiektu blob, a w szczególności metadanych związanych z szyfrowaniem. Jeśli obiekty blob zostaną skopiowane bez takich metadanych, nie będzie można ponownie pobrać zawartości obiektu blob. Aby uzyskać więcej informacji na temat metadanych związanych z szyfrowaniem, zobacz [Azure Storage Client-Side Encryption (Szyfrowanie po stronie klienta usługi Azure Storage)](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## <a name="faq"></a>Często zadawane pytania
 
 **Czy istniejące konta magazynu są nadal dostępne?**
 
-Tak, istniejące konta magazynu (GPv1) są nadal dostępne, a ich ceny i funkcje nie zostały zmienione.  W przypadku kont GPv1 nie ma możliwości wyboru warstwy magazynowania, a funkcje obsługi warstw nie zostaną wprowadzone w przyszłości.
+Tak, istniejące konta magazynu (GPv1) są nadal dostępne, a ich ceny i funkcje nie zostały zmienione. W przypadku kont GPv1 nie ma możliwości wyboru warstwy magazynowania, a funkcje obsługi warstw nie zostaną wprowadzone w przyszłości.
 
 **Kiedy i dlaczego należy rozpocząć używanie kont magazynu GPv2?**
 
-Konta magazynu GPv2 zostały stworzone specjalnie tak, aby oferować najniższe koszty magazynowania za GB przy równoczesnym zachowaniu konkurencyjnych w branży kosztów dostępu do danych i transakcji. Idąc dalej, konta magazynu GPv2 to zalecany sposób przechowywania obiektów blob, ponieważ przyszłe możliwości, takie powiadomienia o zmianach, zostaną wprowadzone na podstawie tego typu konta. Decyzja o uaktualnieniu należy jednak do użytkownika i zależy od jego potrzeb biznesowych.  Może on na przykład zdecydować, że przed uaktualnieniem zoptymalizuje wzorce swoich transakcji.
+Konta magazynu GPv2 zostały stworzone specjalnie tak, aby oferować najniższe koszty magazynowania za GB przy równoczesnym zachowaniu konkurencyjnych w branży kosztów dostępu do danych i transakcji. Idąc dalej, konta magazynu GPv2 to zalecany sposób przechowywania obiektów blob, ponieważ przyszłe możliwości, takie powiadomienia o zmianach, zostaną wprowadzone na podstawie tego typu konta. Decyzja o uaktualnieniu należy jednak do użytkownika i zależy od jego potrzeb biznesowych. Może on na przykład zdecydować, że przed uaktualnieniem zoptymalizuje wzorce swoich transakcji.
 
 Obniżanie wersji z konta GPv2 nie jest obsługiwane, dlatego należy wziąć pod uwagę wszystkie implikacje cenowe przed uaktualnieniem swoich kont do wersji GPv2.
 
 **Czy mogę uaktualnić istniejące konto magazynu do konta GPv2?**
 
-Tak. Konta GPv1 można łatwo uaktualnić do kont GPv2 za pomocą portalu, programu PowerShell lub interfejsu wiersza polecenia. Konta usługi Blob Storage można uaktualnić do kont GPv2 za pomocą programu PowerShell lub interfejsu wiersza polecenia. Możliwość uaktualnienia kont usługi Blob Storage do kont GPv2 w portalu będzie dostępna wkrótce.
+Tak. Konta GPv1 można łatwo uaktualnić do kont GPv2 za pomocą portalu, programu PowerShell lub interfejsu wiersza polecenia. Poziom kont usługi Blob Storage można podnieść do kont GPv2 za pomocą programu PowerShell lub interfejsu wiersza polecenia. Możliwość podniesienia poziomu kont usługi Blob Storage do kont GPv2 w portalu będzie dostępna wkrótce.
 
 Obniżanie wersji z konta GPv2 nie jest obsługiwane, dlatego należy wziąć pod uwagę wszystkie implikacje cenowe przed uaktualnieniem swoich kont do wersji GPv2.
 
@@ -310,11 +335,11 @@ Nie wymuszamy limitu częstotliwości zmiany warstwy magazynowania, ale należy 
 
 Obiekty blob w warstwie magazynowania Gorąca na kontach GPv2 i Blob Storage mają takie samo opóźnienie jak obiekty blob na kontach magazynu GPv1. Obiekty blob w warstwie magazynowania Chłodna mają podobne opóźnienie (w milisekundach) jak obiekty blob w warstwie Gorąca. Obiekty blob w warstwie magazynowania Archiwum mają kilka godzin opóźnienia.
 
-Obiekty blob w chłodnej warstwie magazynowania będą miały nieco niższy poziom dostępności usług (umowa SLA) niż obiekty blob przechowywane w gorącej warstwie magazynowania. Aby uzyskać więcej szczegółów, zobacz [Magazyn — umowa SLA](https://azure.microsoft.com/support/legal/sla/storage).
+Obiekty blob w chłodnej warstwie magazynowania będą miały nieco niższy poziom dostępności usług (umowa SLA) niż obiekty blob przechowywane w gorącej warstwie magazynowania. Aby uzyskać więcej informacji, zobacz [Magazyn — umowa SLA](https://azure.microsoft.com/support/legal/sla/storage).
 
 **Czy mogę przechowywać stronicowe obiekty i dyski maszyny wirtualnej na kontach usługi Blob Storage?**
 
-Nie. Konta usługi Blob Storage obsługują tylko blokowe obiekty blob i uzupełnialne obiekty blob — stronicowe obiekty blob nie są obsługiwane. Dyski maszyny wirtualnej platformy Azure są oparte na stronicowych obiektach blob, w związku z czym konta usługi Blob Storage nie mogą być używane do przechowywania dysków maszyny wirtualnej. Istnieje jednak możliwość przechowywania kopii zapasowych dysków maszyny wirtualnej jako blokowych obiektów blob na kontach usługi Blob Storage. Jest to jedna z przyczyn, dla których warto rozważyć użycie kont GPv2 zamiast kont usługi Blob Storage.
+Nie. Konta Magazynu obiektów blob obsługują tylko blokowe obiekty blob i uzupełnialne obiekty blob — stronicowe obiekty blob nie są obsługiwane. Dyski maszyny wirtualnej platformy Azure są oparte na stronicowych obiektach blob, w związku z czym konta Magazynu obiektów blob nie mogą być używane do przechowywania dysków maszyny wirtualnej. Istnieje jednak możliwość przechowywania kopii zapasowych dysków maszyny wirtualnej jako blokowych obiektów blob na kontach Magazynu obiektów blob. Jest to jedna z przyczyn, dla których warto rozważyć użycie konta GPv2 zamiast konta usługi Blob Storage.
 
 **Czy muszę zmienić swoje istniejące aplikacje, aby umożliwić korzystanie z kont magazynu GPv2?**
 
@@ -324,11 +349,11 @@ Ceny za korzystanie z kont GPv2 są ogólnie wyższe niż w przypadku kont GPv1,
 
 **Czy w środowisku użytkownika zostaną wprowadzone zmiany?**
 
-Konta magazynu GPv2 są bardzo podobne do kont magazynu GPv1 i obsługują wszystkie kluczowe funkcje usługi Azure Storage, w tym funkcje związane z wysoką trwałością i dostępnością, skalowalnością, wydajnością i zabezpieczeniami. Wszystkie inne elementy niż opisane powyżej funkcje oraz ograniczenia dotyczące kont usługi Blob Storage i ich warstw magazynowania pozostają takie same w przypadku uaktualniania do konta GPv2 lub Blob Storage.
+Konta magazynu GPv2 są bardzo podobne do kont magazynu GPv1 i obsługują wszystkie kluczowe funkcje usługi Azure Storage, w tym funkcje związane z wysoką trwałością i dostępnością, skalowalnością, wydajnością i zabezpieczeniami. Wszystkie inne elementy niż opisane powyżej funkcje oraz ograniczenia dotyczące kont usługi Blob Storage i ich warstw magazynowania pozostają takie same w przypadku podniesienia poziomu do konta GPv2 lub Blob Storage.
 
 ## <a name="next-steps"></a>Następne kroki
 
-### <a name="evaluate-blob-storage-accounts"></a>Ocena kont usługi Blob Storage
+### <a name="evaluate-blob-storage-accounts"></a>Ocena konta Magazynu obiektów blob
 
 [Sprawdzanie dostępności kont usługi Blob Storage według regionu](https://azure.microsoft.com/regions/#services)
 
@@ -340,7 +365,7 @@ Konta magazynu GPv2 są bardzo podobne do kont magazynu GPv1 i obsługują wszys
 
 ### <a name="start-using-gpv2-storage-accounts"></a>Rozpoczynanie korzystania z kont magazynu GPv2
 
-[Rozpoczynanie pracy z usługą Azure Blob Storage](../blobs/storage-dotnet-how-to-use-blobs.md)
+[Rozpoczynanie pracy z usługą Azure Blob Storage przy użyciu platformy .NET](../blobs/storage-dotnet-how-to-use-blobs.md)
 
 [Przenoszenie danych do i z usługi Azure Storage](../common/storage-moving-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 

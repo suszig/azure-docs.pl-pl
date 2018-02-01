@@ -9,11 +9,11 @@ ms.workload: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: 1514750b13f5108c480d5dd234132d35dc82fdd2
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
-ms.translationtype: HT
+ms.openlocfilehash: 18d0e8bc6cc1559f9ae1a1a4457aa85d2a206597
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-storage-replication"></a>Replikacja usługi Azure Storage
 
@@ -49,17 +49,8 @@ Zobacz [cennik usługi Azure Storage](https://azure.microsoft.com/pricing/detail
 ## <a name="locally-redundant-storage"></a>Magazyn lokalnie nadmiarowy
 [!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
 
-## <a name="zone-redundant-storage"></a>Magazyn strefowo nadmiarowy
-
-Magazyn strefowo nadmiarowy (ZRS) (wersja zapoznawcza) pozwala uprościć tworzenie aplikacji wysokiej dostępności. Magazyn ZRS zapewnia trwałość obiektów magazynu co najmniej % 99.9999999999 (12 na 9) w danym roku. Magazyn ZRS są replikowane synchronicznie w wielu strefach dostępności. Należy wziąć pod uwagę ZRS scenariuszy, takich jak transakcyjnych aplikacji, których nie jest dopuszczalne przestoju.
-
-Magazyn ZRS służy do odczytywania i zapisywania danych, nawet jeśli jedna strefa jest niedostępny lub ich nieodwracalnej utraty. Wstawia i aktualizacje danych zostały wprowadzone synchronicznie i silnie zgodne.   
-
-Magazyn ZRS jest obecnie dostępna w następujących regionach, przy kolejnych regionach wkrótce dostępne w wersji zapoznawczej:
-
-- Wschodnie stany USA 2 
-- Środkowe stany USA 
-- Francja centralnej (ten region jest obecnie w wersji zapoznawczej. Zobacz [Microsoft Azure w wersji zapoznawczej w strefach dostępności Azure jest obecnie otwarty w Francja](https://azure.microsoft.com/blog/microsoft-azure-preview-with-azure-availability-zones-now-open-in-france) Aby zażądać dostępu.)
+## <a name="zone-redundant-storage"></a>Strefa magazynu geograficznie nadmiarowego
+[!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-ZRS.md)]
 
 ### <a name="zrs-classic-accounts"></a>Magazyn ZRS klasycznych kont
 

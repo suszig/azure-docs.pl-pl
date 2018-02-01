@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: e25a6555e06a437259cddcc46c27add5f8b2ad8b
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: bae09ffafc14463fa00d0c29dfa6c2628e644773
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Często zadawane pytania dotyczące usługi pliki Azure
 [Usługa pliki Azure](storage-files-introduction.md) oferuje pełni zarządzanych udziałów plików w chmurze, które są dostępne za pośrednictwem standardu branżowego [protokołu bloku komunikatów serwera (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (znanej także jako Common Internet File System, lub CIFS). Udziały plików platformy Azure można zainstalować w chmurze lub lokalnie wdrożeń systemu Windows, Linux i macOS jednocześnie. Możesz również buforować udziały plików platformy Azure na komputerach z systemem Windows Server przy użyciu synchronizacji plików Azure (wersja zapoznawcza) zapewniania szybkiego dostępu bliski gdzie dane są używane.
@@ -73,7 +73,7 @@ Ten artykuł zawiera odpowiedzi na często zadawane pytania na temat funkcji us�
 
 * <a id="redundancy-options"></a>
 **Jakie opcje nadmiarowość magazynu są obsługiwane przez usługi pliki Azure?**  
-    Obecnie plików Azure obsługuje magazyn tylko lokalnie nadmiarowy (LRS) i magazynu geograficznie nadmiarowego (GRS). Firma Microsoft planuje obsługuje magazyn strefowo nadmiarowy (ZRS) i magazynu geograficznie nadmiarowego (RA-GRS) dostęp do odczytu w przyszłości, ale osi czasu, aby udostępnić w tej chwili nie mamy.
+    Obecnie plików Azure obsługuje magazyn lokalnie nadmiarowy (LRS), strefy magazyn geograficznie nadmiarowy (ZRS) i magazynu geograficznie nadmiarowego (GRS). Firma Microsoft planuje obsługiwać magazynu geograficznie nadmiarowego (RA-GRS) dostęp do odczytu w przyszłości, ale osi czasu, aby udostępnić w tej chwili nie mamy.
 
 * <a id="tier-options"></a>
 **Jakie warstwy magazynowania są obsługiwane w plikach Azure?**  
@@ -86,7 +86,7 @@ Ten artykuł zawiera odpowiedzi na często zadawane pytania na temat funkcji us�
 **Czy na pewno chcesz Zobacz określoną funkcję dodane do usługi pliki Azure. Można dodać, go?**  
     Zespół usługi pliki Azure jest zainteresowana wysłuchaniu wszystkie opinie, które masz o naszej usługi. Głosowania żądania funkcji [UserVoice plików Azure](https://feedback.azure.com/forums/217298-storage/category/180670-files)! Firma Microsoft jest czekamy na delighting możesz z wielu nowych funkcji.
 
-## <a name="azure-file-sync"></a>Synchronizacja plików na platformę Azure
+## <a name="azure-file-sync"></a>Usługa Azure File Sync
 
 * <a id="afs-region-availability"></a>
 **Jakie regiony są obsługiwane w przypadku synchronizacji plików Azure (wersja zapoznawcza)?**  
@@ -103,7 +103,7 @@ Ten artykuł zawiera odpowiedzi na często zadawane pytania na temat funkcji us�
 * <a id="afs-conflict-resolution"></a>**Jeśli tego samego pliku została zmieniona na dwóch serwerach w tym samym czasie, co się stanie?**  
     Synchronizacja programu Azure pliku używa strategii proste rozwiązywania konfliktów: Firma Microsoft zachować zarówno zmiany do plików, które są zmieniane na dwóch serwerach w tym samym czasie. Zmiana niedawno napisanych zachowuje oryginalna nazwa pliku. Starszy plik ma maszyny "source" i liczby konfliktów dołączonym do nazwy. Wynika to taksonomii: 
    
-    \<FileNameWithoutExtension\>-\<MachineName\>\[-#\].\< numer wewnętrzny\>  
+    \<FileNameWithoutExtension\>-\<MachineName\>\[-#\].\<ext\>  
 
     Na przykład pierwszy konfliktu CompanyReport.docx może stać się CompanyReport CentralServer.docx CentralServer którym wystąpił starsze zapisu. Drugi konflikt będą miały postać CompanyReport-CentralServer-1.docx.
 
@@ -171,18 +171,18 @@ Ten artykuł zawiera odpowiedzi na często zadawane pytania na temat funkcji us�
 * <a id="afs-files-excluded"></a>
 **Które pliki i foldery, automatycznie są wyłączone przez synchronizacji plików Azure?**  
     Domyślnie synchronizacja plików Azure nie obejmuje następujące pliki:
-    * Desktop.ini
-    * Thumbs.dB
+    * desktop.ini
+    * thumbs.db
     * ehthumbs.dB
     * ~$\*.\*
-    * \*laccdb
-    * \*TMP
+    * \*.laccdb
+    * \*.tmp
     * 635D02A9D91C401B97884B82B3BCDAEA.\*
 
     Następujące foldery są również wykluczone domyślnie:
 
     * \System volume Information
-    * \$ODTWÓRZ. BIN
+    * \$RECYCLE.BIN
     * \SyncShareState
 
 * <a id="afs-os-support"></a>
