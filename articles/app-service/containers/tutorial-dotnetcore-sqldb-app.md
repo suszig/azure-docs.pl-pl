@@ -1,8 +1,8 @@
 ---
-title: "Tworzenie aplikacji sieci web platformy .NET Core i bazy danych SQL w usłudze Azure App Service w systemie Linux | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak pobrać aplikację .NET Core, pracy z połączenia z bazą danych SQL w usłudze Azure App Service w systemie Linux."
+title: "Tworzenie aplikacji internetowej platformy .NET Core i usługi SQL Database w usłudze Azure App Service w systemie Linux | Microsoft Docs"
+description: "Dowiedz się, jak uruchomić aplikację .NET Core w usłudze Azure App Service w systemie Linux z użyciem połączenia z usługą SQL Database."
 services: app-service\web
-documentationcenter: nodejs
+documentationcenter: dotnet
 author: cephalin
 manager: syntaxc4
 editor: 
@@ -10,62 +10,62 @@ ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: nodejs
+ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: d6c679518bfc712e6a08ffae722b0cc5d2b038aa
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 1418914b2886ce3f896e62b5b4a3da573655e274
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service-on-linux"></a>Tworzenie aplikacji sieci web platformy .NET Core i bazy danych SQL w usłudze Azure App Service w systemie Linux
+# <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service-on-linux"></a>Tworzenie aplikacji internetowej platformy .NET Core i usługi SQL Database w usłudze Azure App Service w systemie Linux
 
-[Usługa aplikacji w systemie Linux](app-service-linux-intro.md) oferuje wysoce skalowalną, własnym poprawiania usługi hosta sieci web przy użyciu systemu operacyjnego Linux. W tym samouczku pokazano, jak utworzyć aplikację sieci web .NET Core i podłącz go do bazy danych SQL. Gdy wszystko będzie gotowe, będziesz mieć aplikację .NET Core MVC, działające w usłudze aplikacji w systemie Linux.
+Usługa [App Service w systemie Linux](app-service-linux-intro.md) oferuje wysoce skalowalną i samonaprawialną usługę hostingu w Internecie przy użyciu systemu operacyjnego Linux. W tym samouczku pokazano, jak utworzyć aplikację internetową platformy .NET Core i połączyć ją z usługą SQL Database. Po zakończeniu aplikacja MVC platformy .NET Core będzie działać w usłudze App Service w systemie Linux.
 
-![aplikacji uruchomionej w usłudze App Service w systemie Linux](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
+![aplikacja działająca w usłudze App Service w systemie Linux](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
 
-Czego możesz dowiedzieć się, jak:
+Omawiane kwestie:
 
 > [!div class="checklist"]
-> * Tworzenie bazy danych SQL na platformie Azure
-> * Połącz .NET Core aplikacji z bazą danych SQL
+> * Tworzenie bazy danych SQL Database na platformie Azure
+> * Łączenie aplikacji .NET Core z bazą danych SQL Database
 > * Wdrażanie aplikacji na platformie Azure
-> * Aktualizacja modelu danych i ponownie wdrożyć aplikację
+> * Aktualizowanie modelu danych i ponowne wdrażanie aplikacji
 > * Strumieniowe przesyłanie dzienników diagnostycznych z platformy Azure
-> * Zarządzanie aplikacją w portalu Azure
+> * Zarządzanie aplikacją w witrynie Azure Portal
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 W celu ukończenia tego samouczka:
 
 1. [Zainstaluj oprogramowanie Git](https://git-scm.com/)
-1. [Zainstaluj oprogramowanie .NET Core SDK 1.1.2](https://github.com/dotnet/core/blob/master/release-notes/download-archives/1.1.2-download.md)
+1. [Zainstaluj zestaw SDK 1.1.2 platformy .NET Core](https://github.com/dotnet/core/blob/master/release-notes/download-archives/1.1.2-download.md)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-local-net-core-app"></a>Tworzenie lokalnych aplikacji .NET Core
+## <a name="create-local-net-core-app"></a>Tworzenie lokalnej aplikacji .NET Core
 
-Ten krok służy do konfigurowania lokalnego projektu platformy .NET Core.
+Ten krok umożliwia skonfigurowanie lokalnego projektu platformy .NET Core.
 
 ### <a name="clone-the-sample-application"></a>Klonowanie przykładowej aplikacji
 
-W oknie terminalu `cd` do katalogu roboczego.
+W oknie terminalu dodaj element `cd` do katalogu roboczego.
 
-Uruchom następujące polecenia w klonowania repozytorium przykładowej i zmień jego głównym.
+Uruchom następujące polecenia w celu sklonowania przykładowego repozytorium i zmiany jego katalogu głównego.
 
 ```bash
 git clone https://github.com/azure-samples/dotnetcore-sqldb-tutorial
 cd dotnetcore-sqldb-tutorial
 ```
 
-Przykładowy projekt zawiera podstawowe aplikacji CRUD (Tworzenie odczytu aktualizowania i usuwania), za pomocą [Entity Framework Core](https://docs.microsoft.com/ef/core/).
+Przykładowy projekt zawiera podstawową aplikację CRUD (create-read-update-delete, tworzenie-odczytywanie-aktualizowanie-usuwanie) korzystającą z rozwiązania [Entity Framework Core](https://docs.microsoft.com/ef/core/).
 
 ### <a name="run-the-application"></a>Uruchamianie aplikacji
 
-Uruchom następujące polecenia, aby zainstalować wymagane pakiety, uruchom migracji bazy danych i uruchom aplikację.
+Uruchom następujące polecenia, aby zainstalować wymagane pakiety, uruchom migracje baz danych i uruchom aplikację.
 
 ```bash
 dotnet restore
@@ -73,36 +73,36 @@ dotnet ef database update
 dotnet run
 ```
 
-W przeglądarce przejdź do adresu `http://localhost:5000`. Wybierz **Utwórz nowy** link i Utwórz kilka _zadań do wykonania_ elementów.
+W przeglądarce przejdź do adresu `http://localhost:5000`. Wybierz link **Utwórz nowy** i utwórz kilka elementów typu _zadanie do wykonania_.
 
-![pomyślnie nawiąże połączenie z bazą danych SQL](./media/tutorial-dotnetcore-sqldb-app/local-app-in-browser.png)
+![pomyślne połączenie z bazą danych SQL Database](./media/tutorial-dotnetcore-sqldb-app/local-app-in-browser.png)
 
-Aby zatrzymać .NET Core w dowolnym momencie, naciśnij klawisz `Ctrl+C` w terminalu.
+Aby zatrzymać platformę .NET Core w dowolnym momencie, naciśnij kombinację klawiszy `Ctrl+C` w terminalu.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## <a name="create-production-sql-database"></a>Utwórz produkcyjnej bazy danych SQL
+## <a name="create-production-sql-database"></a>Tworzenie produkcyjnej bazy danych SQL Database
 
-W tym kroku utworzysz bazę danych SQL platformy Azure. Po wdrożeniu aplikacji na platformie Azure wykorzystuje tę bazę danych w chmurze.
+W tym kroku utworzysz bazę danych SQL Database na platformie Azure. Aplikacja wdrożona na platformie Azure używa tej bazy danych w chmurze.
 
-Bazy danych SQL, w tym samouczku używana [bazy danych SQL Azure](/azure/sql-database/).
+W tym samouczku jako baza danych SQL jest używana baza danych [Azure SQL Database](/azure/sql-database/).
 
 ### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
 [!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)]
 
-### <a name="create-a-sql-database-logical-server"></a>Tworzenie serwera logicznego bazy danych SQL
+### <a name="create-a-sql-database-logical-server"></a>Tworzenie serwera logicznego bazy danych SQL Database
 
-W powłoce chmury Tworzenie serwera logicznego bazy danych SQL z [az programu sql server Utwórz](/cli/azure/sql/server?view=azure-cli-latest#az_sql_server_create) polecenia.
+W usłudze Cloud Shell utwórz serwer logiczny SQL Database za pomocą polecenia [az sql server create](/cli/azure/sql/server?view=azure-cli-latest#az_sql_server_create).
 
-Zastąp  *\<nazwa_serwera >* symbolu zastępczego o unikatowej nazwie bazy danych SQL. Ta nazwa jest używana jako część punktu końcowego bazy danych SQL `<server_name>.database.windows.net`, więc nazwa musi być unikatowa na wszystkich serwerach logiczne w systemie Azure. Nazwa musi zawierać tylko małe litery, cyfry i znaki łącznika (-) i musi mieć długość od 3 do 50 znaków. Ponadto Zastąp  *\<db_username >* i  *\<db_password >* przy użyciu nazwy użytkownika i hasła wybranych przez użytkownika. 
+Zastąp symbol zastępczy *\<nazwa_serwera>* unikatową nazwą bazy danych SQL Database. Ta nazwa jest używana jako część punktu końcowego bazy danych SQL Database, `<server_name>.database.windows.net`, więc nazwa musi być unikatowa na wszystkich serwerach logicznych platformy Azure. Nazwa może zawierać tylko małe litery, cyfry oraz znak łącznika (-) i musi się składać z 3–50 znaków. Ponadto zastąp elementy *\<nazwa_bazy_danych>* i *\<hasło_bazy_danych>* wybraną nazwą użytkownika i hasłem. 
 
 
 ```azurecli-interactive
 az sql server create --name <server_name> --resource-group myResourceGroup --location "West Europe" --admin-user <db_username> --admin-password <db_password>
 ```
 
-Podczas tworzenia serwera logicznego bazy danych SQL Azure CLI zawiera informacje podobne do poniższego przykładu:
+Po utworzeniu serwera logicznego SQL Database w interfejsie wiersza polecenia platformy Azure zostaną wyświetlone informacje podobne do następujących:
 
 ```json
 {
@@ -124,7 +124,7 @@ Podczas tworzenia serwera logicznego bazy danych SQL Azure CLI zawiera informacj
 
 ### <a name="configure-a-server-firewall-rule"></a>Konfigurowanie reguły zapory serwera
 
-Utwórz [regułę zapory na poziomie serwera Azure SQL Database](../../sql-database/sql-database-firewall-configure.md) za pomocą polecenia [az sql server firewall create](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az_sql_server_firewall_rule_create). Gdy IP początkowy i końcowy IP są wartość 0.0.0.0, Zapora tylko został otwarty do innych zasobów platformy Azure. 
+Utwórz [regułę zapory na poziomie serwera Azure SQL Database](../../sql-database/sql-database-firewall-configure.md) za pomocą polecenia [az sql server firewall create](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az_sql_server_firewall_rule_create). Po ustawieniu początkowego i końcowego adresu IP na 0.0.0.0 zapora będzie otwierana tylko dla innych zasobów platformy Azure. 
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group myResourceGroup --server <server_name> --name AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -140,17 +140,17 @@ az sql db create --resource-group myResourceGroup --server <server_name> --name 
 
 ### <a name="create-connection-string"></a>Tworzenie parametrów połączenia
 
-Zastąp następujący ciąg z  *\<nazwa_serwera >*,  *\<db_username >*, i  *\<db_password >* możesz używana wcześniej.
+Zastąp poniższe parametry użytym wcześniej ciągiem *\<nazwa_serwera>*, *\<nazwa_bazy_danych>* i *\<hasło_bazy_danych>*.
 
 ```
 Server=tcp:<server_name>.database.windows.net,1433;Initial Catalog=coreDB;Persist Security Info=False;User ID=<db_username>;Password=<db_password>;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 ```
 
-Jest to ciąg połączenia dla aplikacji .NET Core. Należy skopiować go do użycia później.
+To są parametry połączenia dla aplikacji .NET Core. Skopiuj je w celu późniejszego użycia.
 
 ## <a name="deploy-app-to-azure"></a>Wdrażanie aplikacji na platformie Azure
 
-W tym kroku w przypadku wdrażania aplikacji połączonej bazy danych SQL platformy .NET Core App Service w systemie Linux.
+W tym kroku wdrożysz aplikację .NET Core połączoną z bazą danych SQL Database w usłudze App Service w systemie Linux.
 
 ### <a name="configure-local-git-deployment"></a>Konfigurowanie lokalnego wdrożenia narzędzia Git
 
@@ -164,51 +164,55 @@ W tym kroku w przypadku wdrażania aplikacji połączonej bazy danych SQL platfo
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-no-h.md)] 
 
-### <a name="configure-an-environment-variable"></a>Skonfigurować zmienną środowiskową
+### <a name="configure-an-environment-variable"></a>Konfigurowanie zmiennej środowiskowej
 
-Aby ustawić parametry połączenia dla aplikacji platformy Azure, użyj [az aplikacji sieci Web config appsettings zestaw](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) polecenie w powłoce chmury. W poniższym poleceniu zastąp  *\<Nazwa aplikacji >*, jak również  *\<ciągu łączącym >* parametru utworzoną wcześniej parametrami połączenia.
+Aby ustawić parametry połączenia dla aplikacji platformy Azure, użyj polecenia [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) w usłudze Cloud Shell. W poniższym poleceniu zastąp parametry *\<nazwa_aplikacji>* i *\<parametry_połączenia>* utworzonymi wcześniej parametrami połączenia.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection_string>' --connection-string-type SQLServer
 ```
 
-Następnie należy ustawić `ASPNETCORE_ENVIRONMENT` ustawienia aplikacji na _produkcji_. To ustawienie umożliwia wiedzieć, czy jest uruchomiona na platformie Azure, ponieważ używają SQLLite dla bazy danych SQL i lokalne Środowisko deweloperskie do środowiska Azure.
+Następnie wybierz dla ustawienia aplikacji `ASPNETCORE_ENVIRONMENT` wartość _Produkcja_. To ustawienie umożliwia sprawdzenie, czy pracujesz na platformie Azure, ponieważ używasz języka SQLite w lokalnym środowisku programowania i bazy danych SQL Database w środowisku platformy Azure.
 
-Poniższy przykład konfiguruje `ASPNETCORE_ENVIRONMENT` ustawienie aplikacji w aplikacji sieci web platformy Azure. Zastąp  *\<nazwa_aplikacji >* symbolu zastępczego.
+W poniższym przykładzie ustawienie aplikacji `ASPNETCORE_ENVIRONMENT` jest konfigurowane w aplikacji internetowej platformy Azure. Zastąp symbol zastępczy *\<nazwa_aplikacji>*.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings ASPNETCORE_ENVIRONMENT="Production"
 ```
 
-### <a name="connect-to-sql-database-in-production"></a>Połącz z bazą danych SQL w środowisku produkcyjnym
+### <a name="connect-to-sql-database-in-production"></a>Łączenie z bazą danych SQL Database w środowisku produkcyjnym
 
-W lokalnym repozytorium Otwórz Startup.cs i znajdź następujący kod:
+W repozytorium lokalnym otwórz plik Startup.cs i znajdź następujący kod:
 
 ```csharp
 services.AddDbContext<MyDatabaseContext>(options =>
         options.UseSqlite("Data Source=localdatabase.db"));
 ```
 
-Zastąp go następującym kodem, który używa zmiennych środowiskowych, które zostało wcześniej skonfigurowane.
+Zastąp go poniższym kodem, który używa skonfigurowanych wcześniej zmiennych środowiskowych.
 
 ```csharp
-// Use SQL Database if in Azure, otherwise, use SQLLite
+// Use SQL Database if in Azure, otherwise, use SQLite
 if(Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
-    services.AddDbContext<DotNetCoreSqlDbContext>(options =>
+    services.AddDbContext<MyDatabaseContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection")));
 else
-    services.AddDbContext<DotNetCoreSqlDbContext>(options =>
+    services.AddDbContext<MyDatabaseContext>(options =>
             options.UseSqlite("Data Source=MvcMovie.db"));
 
 // Automatically perform database migration
-services.BuildServiceProvider().GetService<DotNetCoreSqlDbContext>().Database.Migrate();
+services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate();
 ```
 
-W przypadku wykrycia przez ten kod jest uruchomiony w środowisku produkcyjnym (co oznacza środowiska platformy Azure), a następnie używa parametrów połączenia, należy skonfigurować do nawiązania połączenia z bazą danych SQL.
+Jeśli kod wykryje, że został uruchomiony w środowisku produkcyjnym (co wskazuje na środowisko platformy Azure), używa skonfigurowanych parametrów połączenia w celu połączenia z bazą danych SQL Database.
 
-`Database.Migrate()` Wywołania pomaga uruchamianych na platformie Azure, ponieważ spowoduje to automatyczne utworzenie bazy danych który potrzeb aplikacji .NET Core na podstawie konfiguracji migracji. 
+Wywołanie `Database.Migrate()` jest pomocne, gdy działa na platformie Azure, ponieważ automatycznie tworzy bazy danych, których potrzebuje aplikacja .NET Core, w oparciu o konfigurację migracji. 
 
-Zapisz zmiany.
+Zapisz zmiany, a następnie zatwierdź je w repozytorium Git. 
+
+```bash
+git commit -am "connect to SQLDB in Azure"
+```
 
 ### <a name="push-to-azure-from-git"></a>Wypychanie z narzędzia Git na platformę Azure
 
@@ -240,9 +244,9 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
 ```
 
-### <a name="browse-to-the-azure-web-app"></a>Przejdź do aplikacji sieci web platformy Azure
+### <a name="browse-to-the-azure-web-app"></a>Przechodzenie do aplikacji internetowej platformy Azure
 
-Przejdź do wdrożonej aplikacji sieci web za pomocą przeglądarki sieci web.
+Przejdź do wdrożonej aplikacji internetowej w przeglądarce internetowej.
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -250,51 +254,51 @@ http://<app_name>.azurewebsites.net
 
 Dodaj kilka elementów do wykonania.
 
-![aplikacji uruchomionej w usłudze App Service w systemie Linux](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
+![aplikacja działająca w usłudze App Service w systemie Linux](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
 
-**Gratulacje!** Używasz aplikacji .NET Core sieci opartych na danych w usłudze App Service w systemie Linux.
+**Gratulacje!** Używasz opartej na danych aplikacji .NET Core w usłudze App Service w systemie Linux.
 
-## <a name="update-locally-and-redeploy"></a>Zaktualizuj lokalnie i Wdróż ponownie
+## <a name="update-locally-and-redeploy"></a>Lokalne aktualizowanie i ponowne wdrażanie
 
-W tym kroku możesz wprowadzić zmianę do schematu bazy danych i opublikowania go w usłudze Azure.
+W tym kroku wprowadzisz zmianę schematu bazy danych i opublikujesz ją na platformie Azure.
 
-### <a name="update-your-data-model"></a>Aktualizacja modelu danych
+### <a name="update-your-data-model"></a>Aktualizowanie modelu danych
 
-Otwórz _Models\Todo.cs_ w edytorze kodu. Dodaj następujące właściwości do `ToDo` klasy:
+Otwórz plik _Models\Todo.cs_ w edytorze kodu. Dodaj następującą właściwość do klasy `ToDo`:
 
 ```csharp
 public bool Done { get; set; }
 ```
 
-### <a name="run-code-first-migrations-locally"></a>Uruchom lokalnie migracje Code First
+### <a name="run-code-first-migrations-locally"></a>Lokalne uruchamianie migracji Code First
 
-Uruchomienie kilku poleceń, aby aktualizacje z lokalną bazą danych.
+Uruchom kilka poleceń, aby zastosować aktualizacje w lokalnej bazie danych.
 
 ```bash
 dotnet ef migrations add AddProperty
 ```
 
-Aktualizacja lokalnej bazy danych:
+Zaktualizuj lokalną bazę danych:
 
 ```bash
 dotnet ef database update
 ```
 
-### <a name="use-the-new-property"></a>Użyj nowej właściwości
+### <a name="use-the-new-property"></a>Używanie nowej właściwości
 
-Niektóre zmiany w kodzie do użycia `Done` właściwości. Dla uproszczenia w tym samouczku, tylko zamierzasz zmienić `Index` i `Create` widoków, aby wyświetlić właściwości działania.
+Wprowadź zmiany kodu, aby użyć właściwości `Done`. Dla uproszczenia w tym samouczku zmienisz tylko widoki `Index` i `Create`, aby zobaczyć, jak działa właściwość.
 
-Otwórz _Controllers\TodosController.cs_.
+Otwórz plik _Controllers\TodosController.cs_.
 
-Znajdź `Create()` — metoda i Dodaj `Done` do listy właściwości w `Bind` atrybutu. Gdy wszystko będzie gotowe, Twoje `Create()` podpis metody wygląda podobnie do następującego kodu:
+Znajdź metodę `Create()` i dodaj element `Done` do listy właściwości w atrybucie `Bind`. Po zakończeniu podpis metody `Create()` będzie wyglądać podobnie do następującego kodu:
 
 ```csharp
 public async Task<IActionResult> Create([Bind("ID,Description,CreatedDate,Done")] Todo todo)
 ```
 
-Otwórz _Views\Todos\Create.cshtml_.
+Otwórz plik _Views\Todos\Create.cshtml_.
 
-W kodzie Razor, powinna zostać wyświetlona `<div class="form-group">` elementu `Description`, a następnie inne `<div class="form-group">` elementu `CreatedDate`. Bezpośrednio po tych dwóch elementów, dodać kolejne `<div class="form-group">` elementu `Done`:
+W kodzie Razor powinien zostać wyświetlony element `<div class="form-group">` dla `Description`, a następnie inny element `<div class="form-group">` dla `CreatedDate`. Bezpośrednio po tych dwóch elementach dodaj kolejny element `<div class="form-group">` dla `Done`:
 
 ```csharp
 <div class="form-group">
@@ -306,9 +310,9 @@ W kodzie Razor, powinna zostać wyświetlona `<div class="form-group">` elementu
 </div>
 ```
 
-Otwórz _Views\Todos\Index.cshtml_.
+Otwórz plik _Views\Todos\Index.cshtml_.
 
-Poszukaj pustych `<th></th>` elementu. Powyżej tego elementu Dodaj następujący kod Razor:
+Wyszukaj pusty element `<th></th>`. Bezpośrednio nad tym elementem dodaj następujący kod Razor:
 
 ```csharp
 <th>
@@ -316,7 +320,7 @@ Poszukaj pustych `<th></th>` elementu. Powyżej tego elementu Dodaj następując
 </th>
 ```
 
-Znajdź `<td>` element, który zawiera `asp-action` pomocników tagów. Powyżej tego elementu Dodaj następujący kod Razor:
+Znajdź element `<td>` z pomocnikami tagów (`asp-action`). Bezpośrednio nad tym elementem dodaj następujący kod Razor:
 
 ```csharp
 <td>
@@ -324,17 +328,17 @@ Znajdź `<td>` element, który zawiera `asp-action` pomocników tagów. Powyżej
 </td>
 ```
 
-To już wszystko, czego potrzebujesz, aby zobaczyć zmiany w `Index` i `Create` widoków.
+To już wszystko, czego potrzebujesz, aby zobaczyć zmiany w widokach `Index` i `Create`.
 
-### <a name="test-your-changes-locally"></a>Przetestuj zmiany lokalnie
+### <a name="test-your-changes-locally"></a>Lokalne testowanie zmian
 
-Uruchamianie aplikacji lokalnie.
+Uruchom aplikację lokalnie.
 
 ```bash
 dotnet run
 ```
 
-W przeglądarce przejdź do `http://localhost:5000/`. Można teraz dodać element do wykonania i sprawdzić **gotowe**. Następnie go powinny być widoczne w strony głównej jako element ukończone. Należy pamiętać, że `Edit` nie wyświetla widok `Done` pól, ponieważ nie zmieniły `Edit` widoku.
+W przeglądarce przejdź do `http://localhost:5000/`. Teraz możesz dodać element do wykonania i zaznaczyć pole **Gotowe**. Następnie powinien zostać on wyświetlony na stronie głównej jako ukończony. Pamiętaj, że widok `Edit` nie zawiera pola `Done`, ponieważ nie zmieniono widoku `Edit`.
 
 ### <a name="publish-changes-to-azure"></a>Publikowanie zmian na platformie Azure
 
@@ -344,21 +348,21 @@ git commit -am "added done field"
 git push azure master
 ```
 
-Raz `git push` jest zakończenie, przejdź do aplikacji sieci web platformy Azure i wypróbowanie nowych funkcji.
+Po ukończeniu `git push` przejdź do aplikacji internetowej platformy Azure i wypróbuj nowe funkcje.
 
-![Aplikacja sieci web platformy Azure po zakończeniu migracji pierwszy kodu](./media/tutorial-dotnetcore-sqldb-app/this-one-is-done.png)
+![Aplikacja internetowa platformy Azure po zakończeniu migracji Code First](./media/tutorial-dotnetcore-sqldb-app/this-one-is-done.png)
 
-Nadal wyświetlane są wszystkie istniejące elementy zadań do wykonania. Istniejące dane w bazie danych SQL można ponownie opublikować aplikację .NET Core, nie zostaną utracone. Ponadto Entity Framework Core migracje tylko zmiany schematu danych oraz pozostawia niezmienione istniejących danych.
+Nadal wyświetlane są wszystkie istniejące elementy do wykonania. Po ponownym opublikowaniu aplikacji .NET Core dane istniejące w bazie danych SQL Database nie zostaną utracone. Ponadto migracje Entity Framework Core zmieniają tylko schemat danych i pozostawiają istniejące dane bez zmian.
 
-## <a name="manage-your-azure-web-app"></a>Zarządzanie aplikacji sieci web platformy Azure
+## <a name="manage-your-azure-web-app"></a>Zarządzanie aplikacją internetową platformy Azure
 
-Przejdź do [portalu Azure](https://portal.azure.com) zobaczyć aplikacji sieci web został utworzony.
+Przejdź do witryny [Azure Portal](https://portal.azure.com), aby wyświetlić utworzoną aplikację internetową.
 
 W lewym menu kliknij pozycję **App Services**, a następnie kliknij nazwę swojej aplikacji sieci Web platformy Azure.
 
 ![Nawigacja w portalu do aplikacji sieci Web platformy Azure](./media/tutorial-dotnetcore-sqldb-app/access-portal.png)
 
-Domyślnie portalu zawiera aplikację sieci web **omówienie** strony. Ta strona udostępnia widok sposobu działania aplikacji. Tutaj możesz również wykonywać podstawowe zadania zarządzania, takie jak przeglądanie, zatrzymywanie, uruchamianie, ponowne uruchamianie i usuwanie. W lewej części strony kartach stron innej konfiguracji może być otwarty.
+Domyślnie portal zawiera stronę **Omówienie** aplikacji internetowej. Ta strona udostępnia widok sposobu działania aplikacji. Tutaj możesz również wykonywać podstawowe zadania zarządzania, takie jak przeglądanie, zatrzymywanie, uruchamianie, ponowne uruchamianie i usuwanie. Na kartach po lewej stronie strony są pokazane poszczególne strony konfiguracji, które można otworzyć.
 
 ![Strona usługi App Service w witrynie Azure Portal](./media/tutorial-dotnetcore-sqldb-app/web-app-blade.png)
 
@@ -367,17 +371,17 @@ Domyślnie portalu zawiera aplikację sieci web **omówienie** strony. Ta strona
 <a name="next"></a>
 ## <a name="next-steps"></a>Następne kroki
 
-Wiadomości:
+Które czynności umiesz wykonać:
 
 > [!div class="checklist"]
-> * Tworzenie bazy danych SQL na platformie Azure
-> * Połącz .NET Core aplikacji z bazą danych SQL
+> * Tworzenie bazy danych SQL Database na platformie Azure
+> * Łączenie aplikacji .NET Core z bazą danych SQL Database
 > * Wdrażanie aplikacji na platformie Azure
-> * Aktualizacja modelu danych i ponownie wdrożyć aplikację
-> * Strumieniowe przesyłanie dzienników z platformy Azure na terminalu
-> * Zarządzanie aplikacją w portalu Azure
+> * Aktualizowanie modelu danych i ponowne wdrażanie aplikacji
+> * Strumieniowe przesyłanie dzienników z platformy Azure do terminala
+> * Zarządzanie aplikacją w witrynie Azure Portal
 
-Przejdź do następnego samouczek, aby dowiedzieć się, jak zamapować niestandardową nazwę DNS na aplikację sieci web.
+Przejdź do następnego samouczka, aby dowiedzieć się, jak zmapować niestandardową nazwę DNS na aplikację internetową.
 
 > [!div class="nextstepaction"]
 > [Map an existing custom DNS name to Azure Web Apps (Mapowanie istniejącej niestandardowej nazwy DNS na aplikacje internetowe platformy Azure)](../app-service-web-tutorial-custom-domain.md)

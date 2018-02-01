@@ -13,52 +13,52 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: kumud
-ms.openlocfilehash: 3cb1a70835b5fa2b615f4adac4b0d9ae31074bce
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: a13d9b360e2c43aa2a3d4f62215e4570ce42cd5b
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="delegate-a-domain-to-azure-dns"></a>Delegowanie domeny do usługi Azure DNS
 
-Usługa Azure DNS umożliwia hostowanie strefy DNS i zarządzanie rekordami DNS dla domeny na platformie Azure. Aby zapytania DNS dla domeny miały dostęp do usługi Azure DNS, należy delegować domenę do usługi Azure DNS z domeny nadrzędnej. Należy pamiętać, że usługa Azure DNS nie jest rejestratorem domen. W tym artykule wyjaśniono, jak delegować domenę do usługi Azure DNS.
+Usługa Azure DNS umożliwia hostowanie strefy DNS i zarządzanie rekordami DNS dla domeny na platformie Azure. Aby zapytania DNS dla domeny miały dostęp do usługi Azure DNS, należy delegować domenę do usługi Azure DNS z domeny nadrzędnej. Pamiętaj, że usługa Azure DNS nie jest rejestratorem domen. W tym artykule wyjaśniono, jak delegować domenę do usługi Azure DNS.
 
-W przypadku domen zakupionych u rejestratora domen rejestrator zaoferuje opcję skonfigurowania tych rekordów NS. Nie musisz być właścicielem domeny, aby utworzyć strefę DNS z tą nazwą domeny w usłudze Azure DNS. Musisz być jednak właścicielem domeny, aby skonfigurować delegowanie do usługi Azure DNS u rejestratora.
+W przypadku domen zakupionych u rejestratora domen rejestrator zaoferuje opcję skonfigurowania rekordów NS. Nie musisz być właścicielem domeny, aby utworzyć strefę DNS z tą nazwą domeny w usłudze Azure DNS. Musisz być jednak właścicielem domeny, aby skonfigurować delegowanie do usługi Azure DNS u rejestratora.
 
-Załóżmy na przykład, że masz zakupioną domenę „contoso.net” i tworzysz strefę o nazwie „contoso.net” w usłudze Azure DNS. Jako właścicielowi domeny rejestrator oferuje Ci opcję skonfigurowania adresów serwerów nazw (czyli rekordów NS) dla domeny. Rejestrator przechowuje te rekordy NS w domenie nadrzędnej (w tym przypadku „.net”). Klienci na całym świecie mogą być kierowani do Twojej domeny w strefie usługi Azure DNS podczas próby rozpoznania rekordów DNS w strefie „contoso.net”.
+Załóżmy na przykład, że masz zakupioną domenę „contoso.net” i tworzysz strefę o nazwie „contoso.net” w usłudze Azure DNS. Ponieważ jesteś właścicielem domeny, rejestrator oferuje Ci opcję skonfigurowania adresów serwerów nazw (czyli rekordów NS) dla domeny. Rejestrator przechowuje te rekordy NS w domenie nadrzędnej — .net. Klienci na całym świecie mogą być kierowani do Twojej domeny w strefie usługi Azure DNS podczas próby rozpoznania rekordów DNS w strefie „contoso.net”.
 
 ## <a name="create-a-dns-zone"></a>Tworzenie strefy DNS
 
 1. Zaloguj się do Portalu Azure.
-1. W menu Centrum kliknij pozycję **Nowa > Sieć >**, a następnie kliknij pozycję **Strefa DNS**, aby otworzyć stronę **Tworzenie strefy DNS**.
+1. W menu **Centrum** wybierz pozycję **Nowy** > **Sieć** > **Strefa DNS**, aby otworzyć stronę **Tworzenie strefy DNS**.
 
-    ![Strefa DNS](./media/dns-domain-delegation/dns.png)
+   ![Strefa DNS](./media/dns-domain-delegation/dns.png)
 
-1. Na stronie **Tworzenie strefy DNS** wprowadź następujące wartości, a następnie kliknij pozycję **Utwórz**:
+1. Na stronie **Tworzenie strefy DNS** wprowadź następujące wartości, a następnie wybierz pozycję **Utwórz**:
 
    | **Ustawienie** | **Wartość** | **Szczegóły** |
    |---|---|---|
-   |**Nazwa**|contoso.net|Nazwa strefy DNS|
+   |**Nazwa**|contoso.net|Wprowadź nazwę strefy DNS.|
    |**Subskrypcja**|[Twoja subskrypcja]|Wybierz subskrypcję, w której chcesz utworzyć bramę aplikacji.|
-   |**Grupa zasobów**|**Utwórz nową:** contosoRG|Utwórz grupę zasobów. Nazwa grupy zasobów musi być unikatowa w obrębie wybranej subskrypcji. Aby dowiedzieć się więcej na temat grup zasobów, zapoznaj się z artykułem [Omówienie usługi Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups).|
+   |**Grupa zasobów**|**Utwórz nową:** contosoRG|Utwórz grupę zasobów. Nazwa grupy zasobów musi być unikatowa w obrębie wybranej subskrypcji. Aby dowiedzieć się więcej na temat grup zasobów, zapoznaj się z artykułem [Omówienie usługi Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups).|
    |**Lokalizacja**|Zachodnie stany USA||
 
 > [!NOTE]
-> Ustawienie Grupa zasobów dotyczy lokalizacji grupy zasobów i nie ma wpływu na strefę DNS. Lokalizacja strefy DNS jest zawsze „globalna” i nie jest wyświetlana.
+> Lokalizacja grupy zasobów nie ma wpływu na strefę DNS. Lokalizacja strefy DNS jest zawsze „globalna” i nie jest wyświetlana.
 
 ## <a name="retrieve-name-servers"></a>Pobieranie serwerów nazw
 
-Aby móc delegować swoją strefę DNS do usługi Azure DNS, musisz najpierw znać nazwy serwerów nazw dla swojej strefy. Usługa Azure DNS przydziela serwery nazw z puli za każdym razem, gdy tworzona jest strefa.
+Aby móc delegować swoją strefę DNS do usługi Azure DNS, musisz znać serwery nazw dla swojej strefy. Usługa Azure DNS przydziela serwery nazw z puli za każdym razem, gdy tworzona jest strefa.
 
-1. Gdy utworzysz strefę DNS, w okienku **Ulubione** witryny Azure Portal kliknij pozycję **Wszystkie zasoby**. Na stronie **Wszystkie zasoby** kliknij strefę DNS **contoso.net**. Jeśli wybrana subskrypcja zawiera kilka zasobów, możesz wpisać **contoso.net** w polu Filtruj według nazwy..., aby łatwo uzyskać dostęp do bramy aplikacji. 
+1. Gdy utworzysz strefę DNS, w okienku **Ulubione** witryny Azure Portal wybierz pozycję **Wszystkie zasoby**. Na stronie **Wszystkie zasoby** wybierz strefę DNS **contoso.net**. Jeśli wybrana subskrypcja zawiera kilka zasobów, możesz wpisać wartość **contoso.net** w polu **Filtruj według nazwy**, aby łatwo uzyskać dostęp do bramy aplikacji. 
 
 1. Na stronie Strefa DNS pobierz serwery nazw. W tym przykładzie strefie „contoso.net” przypisano serwery nazw „ns1-01.azure-dns.com”, „ns2-01.azure-dns.net”, „ns3-01.azure-dns.org” i „ns4-01.azure-dns.info”:
 
- ![Dns-nameserver](./media/dns-domain-delegation/viewzonens500.png)
+   ![Lista serwerów nazw](./media/dns-domain-delegation/viewzonens500.png)
 
-Usługa Azure DNS automatycznie tworzy autorytatywne rekordy NS w strefie zawierającej przypisane serwery nazw.  Aby wyświetlić nazwy serwerów nazw za pomocą programu Azure PowerShell lub interfejsu wiersza polecenia platformy Azure, musisz po prostu pobrać te rekordy.
+Usługa Azure DNS automatycznie tworzy autorytatywne rekordy NS w strefie zawierającej przypisane serwery nazw. Aby wyświetlić serwery nazw za pomocą programu Azure PowerShell lub interfejsu wiersza polecenia platformy Azure, musisz pobrać te rekordy.
 
-W poniższych przykładach udostępniono również instrukcje pobierania serwerów nazw dla strefy w usłudze Azure DNS przy użyciu programu PowerShell i interfejsu wiersza polecenia platformy Azure.
+W poniższych przykładach udostępniono instrukcje pobierania serwerów nazw dla strefy w usłudze Azure DNS przy użyciu programu PowerShell i interfejsu wiersza polecenia platformy Azure.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -68,7 +68,7 @@ $zone = Get-AzureRmDnsZone -Name contoso.net -ResourceGroupName contosoRG
 Get-AzureRmDnsRecordSet -Name "@" -RecordType NS -Zone $zone
 ```
 
-Odpowiedzią jest poniższy przykład.
+Poniższy przykład przedstawia odpowiedź:
 
 ```
 Name              : @
@@ -88,7 +88,7 @@ Metadata          :
 az network dns record-set list --resource-group contosoRG --zone-name contoso.net --type NS --name @
 ```
 
-Odpowiedzią jest poniższy przykład.
+Poniższy przykład przedstawia odpowiedź:
 
 ```json
 {
@@ -118,17 +118,17 @@ Odpowiedzią jest poniższy przykład.
 
 ## <a name="delegate-the-domain"></a>Delegowanie domeny
 
-Po utworzeniu strefy DNS i pobraniu serwerów nazw domena nadrzędna powinna zostać zaktualizowana przy użyciu informacji o serwerach nazw usługi Azure DNS. Każdy rejestrator ma swoje własne narzędzia do zarządzania systemem DNS służące do zmiany rekordów serwerów nazw dla domeny. Na stronie zarządzania systemem DNS rejestratora edytuj rekordy NS i zastąp je rekordami utworzonymi przez usługę Azure DNS.
+Po utworzeniu strefy DNS i pobraniu serwerów nazw należy zaktualizować domenę nadrzędną przy użyciu informacji o serwerach nazw usługi Azure DNS. Każdy rejestrator ma swoje własne narzędzia do zarządzania systemem DNS służące do zmiany rekordów serwerów nazw dla domeny. Na stronie zarządzania systemem DNS rejestratora edytuj rekordy NS i zastąp je rekordami utworzonymi przez usługę Azure DNS.
 
-Podczas delegowania domeny do usługi Azure DNS należy użyć nazw serwerów nazw udostępnionych przez usługę Azure DNS. Zaleca się używanie wszystkich czterech nazw serwerów nazw, niezależnie od nazwy domeny. Delegowanie domeny nie wymaga, aby nazwa serwera nazw korzystała z tej samej domeny najwyższego poziomu, co domena użytkownika.
+Podczas delegowania domeny do usługi Azure DNS należy użyć serwerów nazw udostępnionych przez usługę Azure DNS. Zaleca się używanie wszystkich czterech serwerów nazw, niezależnie od nazwy domeny. Delegowanie domeny nie wymaga, aby serwer nazw korzystał z tej samej domeny najwyższego poziomu, co domena użytkownika.
 
-Nie należy używać rekordów sklejki do wskazywania adresów IP serwerów nazw usługi Azure DNS, ponieważ te adresy IP mogą ulec zmianie w przyszłości. Delegowanie z wykorzystaniem nazw serwerów nazw we własnej strefie, niekiedy nazywanych „serwerami nazw znaczących”, nie jest obecnie obsługiwane w usłudze Azure DNS.
+Nie należy używać *rekordów sklejki* do wskazywania adresów IP serwerów nazw usługi Azure DNS, ponieważ te adresy IP mogą ulec zmianie w przyszłości. Delegowanie z wykorzystaniem serwerów nazw we własnej strefie, niekiedy nazywanych *serwerami nazw znaczących*, nie jest obecnie obsługiwane w usłudze Azure DNS.
 
-## <a name="verify-name-resolution-is-working"></a>Sprawdzanie prawidłowego rozpoznawania nazw
+## <a name="verify-that-name-resolution-is-working"></a>Sprawdzanie prawidłowego rozpoznawania nazw
 
-Po zakończeniu delegowania możesz sprawdzić, czy rozpoznawanie nazw działa, uruchamiając zapytanie o rekord SOA dla swojej strefy (który również jest tworzony automatycznie podczas tworzenia strefy) za pomocą narzędzia takiego jak „nslookup”.
+Po zakończeniu delegowania możesz sprawdzić, czy rozpoznawanie nazw działa, uruchamiając zapytanie o rekord SOA dla swojej strefy za pomocą narzędzia takiego jak „nslookup”. (Rekord SOA jest automatycznie tworzony po utworzeniu strefy).
 
-Nie musisz określać serwerów nazw usługi Azure DNS, jeśli delegowanie zostało skonfigurowane prawidłowo, ponieważ normalny proces rozpoznawania nazw DNS znajdzie serwery nazw automatycznie.
+Określenie serwerów nazw usługi Azure DNS nie jest konieczne. Jeśli delegowanie zostało skonfigurowane prawidłowo, normalny proces rozpoznawania nazw DNS znajdzie serwery nazw automatycznie.
 
 ```
 nslookup -type=SOA contoso.com
@@ -150,77 +150,77 @@ expire = 604800 (7 days)
 default TTL = 300 (5 mins)
 ```
 
-## <a name="delegate-sub-domains-in-azure-dns"></a>Delegowanie domen podrzędnych w usłudze Azure DNS
+## <a name="delegate-subdomains-in-azure-dns"></a>Delegowanie domen podrzędnych w usłudze Azure DNS
 
-Jeśli chcesz skonfigurować oddzielną strefę podrzędną, możesz delegować domenę podrzędną w usłudze Azure DNS. Załóżmy na przykład, że po skonfigurowaniu i delegowaniu domeny „contoso.net” w usłudze Azure DNS chcesz skonfigurować oddzielną strefę podrzędną „partners.contoso.net”.
+Jeśli chcesz skonfigurować oddzielną strefę podrzędną, możesz delegować domenę podrzędną w usłudze Azure DNS. Załóżmy na przykład, że skonfigurowano i delegowano domenę „contoso.net” w usłudze Azure DNS. Teraz chcesz utworzyć oddzielną strefę podrzędną „partners.contoso.net”.
 
 1. Utwórz strefę podrzędną „partners.contoso.net” w usłudze Azure DNS.
 2. Wyszukaj autorytatywne rekordy NS w strefie podrzędnej, aby uzyskać serwery nazw hostujące strefę podrzędną w usłudze Azure DNS.
-3. Deleguj strefę podrzędną przez skonfigurowanie rekordów NS w strefie nadrzędnej wskazującej strefę podrzędną.
+3. Deleguj strefę podrzędną przez skonfigurowanie w strefie nadrzędnej rekordów NS wskazujących strefę podrzędną.
 
 ### <a name="create-a-dns-zone"></a>Tworzenie strefy DNS
 
-1. Logowanie się do witryny Azure Portal
-1. W menu Centrum kliknij pozycję **Nowa > Sieć >**, a następnie kliknij pozycję **Strefa DNS**, aby otworzyć stronę Tworzenie strefy DNS.
+1. Zaloguj się do Portalu Azure.
+1. W menu **Centrum** wybierz pozycję **Nowy** > **Sieć** > **Strefa DNS**, aby otworzyć stronę **Tworzenie strefy DNS**.
 
-    ![Strefa DNS](./media/dns-domain-delegation/dns.png)
+   ![Strefa DNS](./media/dns-domain-delegation/dns.png)
 
-1. Na stronie **Tworzenie strefy DNS** wprowadź następujące wartości, a następnie kliknij pozycję **Utwórz**:
+1. Na stronie **Tworzenie strefy DNS** wprowadź następujące wartości, a następnie wybierz pozycję **Utwórz**:
 
    | **Ustawienie** | **Wartość** | **Szczegóły** |
    |---|---|---|
-   |**Nazwa**|partners.contoso.net|Nazwa strefy DNS|
+   |**Nazwa**|partners.contoso.net|Wprowadź nazwę strefy DNS.|
    |**Subskrypcja**|[Twoja subskrypcja]|Wybierz subskrypcję, w której chcesz utworzyć bramę aplikacji.|
    |**Grupa zasobów**|**Użyj istniejącej:** contosoRG|Utwórz grupę zasobów. Nazwa grupy zasobów musi być unikatowa w obrębie wybranej subskrypcji. Aby dowiedzieć się więcej na temat grup zasobów, zapoznaj się z artykułem [Omówienie usługi Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups).|
    |**Lokalizacja**|Zachodnie stany USA||
 
 > [!NOTE]
-> Ustawienie Grupa zasobów dotyczy lokalizacji grupy zasobów i nie ma wpływu na strefę DNS. Lokalizacja strefy DNS jest zawsze „globalna” i nie jest wyświetlana.
+> Lokalizacja grupy zasobów nie ma wpływu na strefę DNS. Lokalizacja strefy DNS jest zawsze „globalna” i nie jest wyświetlana.
 
 ### <a name="retrieve-name-servers"></a>Pobieranie serwerów nazw
 
-1. Gdy utworzysz strefę DNS, w okienku **Ulubione** witryny Azure Portal kliknij pozycję **Wszystkie zasoby**. Na stronie **Wszystkie zasoby** kliknij strefę DNS **partners.contoso.net**. Jeśli wybrana subskrypcja zawiera kilka zasobów, możesz wpisać **partners.contoso.net** w polu Filtruj według nazwy..., aby łatwo uzyskać dostęp do strefy DNS.
+1. Gdy utworzysz strefę DNS, w okienku **Ulubione** witryny Azure Portal wybierz pozycję **Wszystkie zasoby**. Na stronie **Wszystkie zasoby** wybierz strefę DNS **partners.contoso.net**. Jeśli wybrana subskrypcja zawiera kilka zasobów, możesz wpisać wartość **partners.contoso.net** w polu **Filtruj według nazwy**, aby łatwo uzyskać dostęp do strefy DNS.
 
 1. Na stronie Strefa DNS pobierz serwery nazw. W tym przykładzie strefie „contoso.net” przypisano serwery nazw „ns1-01.azure-dns.com”, „ns2-01.azure-dns.net”, „ns3-01.azure-dns.org” i „ns4-01.azure-dns.info”:
 
- ![Dns-nameserver](./media/dns-domain-delegation/viewzonens500.png)
+   ![Lista serwerów nazw](./media/dns-domain-delegation/viewzonens500.png)
 
-Usługa Azure DNS automatycznie tworzy autorytatywne rekordy NS w strefie zawierającej przypisane serwery nazw.  Aby wyświetlić nazwy serwerów nazw za pomocą programu Azure PowerShell lub interfejsu wiersza polecenia platformy Azure, musisz po prostu pobrać te rekordy.
+Usługa Azure DNS automatycznie tworzy autorytatywne rekordy NS w strefie zawierającej przypisane serwery nazw.  Aby wyświetlić serwery nazw za pomocą programu Azure PowerShell lub interfejsu wiersza polecenia platformy Azure, musisz pobrać te rekordy.
 
-### <a name="create-name-server-record-in-parent-zone"></a>Tworzenie rekordu serwera nazw w strefie nadrzędnej
+### <a name="create-a-name-server-record-in-the-parent-zone"></a>Tworzenie rekordu serwera nazw w strefie nadrzędnej
 
 1. W witrynie Azure Portal przejdź do strefy DNS **contoso.net**.
-1. Kliknij pozycję **+ Zestaw rekordów**.
-1. Na stronie **Dodaj zestaw rekordów** wprowadź następujące wartości, a następnie kliknij przycisk **OK**:
+1. Wybierz pozycję **+ Zestaw rekordów**.
+1. Na stronie **Dodawanie zestawu rekordów** wprowadź następujące wartości, a następnie wybierz przycisk **OK**:
 
    | **Ustawienie** | **Wartość** | **Szczegóły** |
    |---|---|---|
-   |**Nazwa**|partners|Nazwa podrzędnej strefy DNS|
+   |**Nazwa**|partners|Wprowadź nazwę podrzędnej strefy DNS.|
    |**Typ**|NS|Użyj wartości NS w przypadku rekordów serwera nazw.|
-   |**Czas wygaśnięcia**|1|Czas wygaśnięcia.|
-   |**Jednostka czasu wygaśnięcia**|Godziny|Ustawia jednostkę czasu wygaśnięcia na godziny|
-   |**SERWER NAZW**|{serwery nazw ze strefy partners.contoso.net}|Wprowadź wszystkie 4 serwery nazw ze strefy partners.contoso.net. |
+   |**Czas wygaśnięcia**|1|Wprowadź czas wygaśnięcia.|
+   |**Jednostka czasu wygaśnięcia**|Godziny|Ustaw jednostkę czasu wygaśnięcia na godziny.|
+   |**SERWER NAZW**|{serwery nazw ze strefy partners.contoso.net}|Wprowadź wszystkie cztery serwery nazw ze strefy partners.contoso.net. |
 
-   ![Dns-nameserver](./media/dns-domain-delegation/partnerzone.png)
+   ![Wartości rekordu serwera nazw](./media/dns-domain-delegation/partnerzone.png)
 
 
-### <a name="delegating-sub-domains-in-azure-dns-with-other-tools"></a>Delegowanie domen podrzędnych w usłudze Azure DNS za pomocą innych narzędzi
+### <a name="delegate-subdomains-in-azure-dns-by-using-other-tools"></a>Delegowanie domen podrzędnych w usłudze Azure DNS przy użyciu innych narzędzi
 
-Poniższe przykłady zawierają instrukcje delegowania domen podrzędnych w usłudze Azure DNS przy użyciu programu PowerShell i interfejsu wiersza polecenia:
+Poniższe przykłady zawierają instrukcje delegowania domen podrzędnych w usłudze Azure DNS przy użyciu programu PowerShell i interfejsu wiersza polecenia platformy Azure.
 
 #### <a name="powershell"></a>PowerShell
 
 W poniższym przykładzie programu PowerShell pokazano, jak to działa. Te same czynności można wykonać w witrynie Azure Portal lub międzyplatformowym interfejsie wiersza polecenia platformy Azure.
 
 ```powershell
-# Create the parent and child zones. These can be in same resource group or different resource groups as Azure DNS is a global service.
+# Create the parent and child zones. These can be in the same resource group or different resource groups, because Azure DNS is a global service.
 $parent = New-AzureRmDnsZone -Name contoso.net -ResourceGroupName contosoRG
 $child = New-AzureRmDnsZone -Name partners.contoso.net -ResourceGroupName contosoRG
 
-# Retrieve the authoritative NS records from the child zone as shown in the next example. This contains the name servers assigned to the child zone.
+# Retrieve the authoritative NS records from the child zone as shown in the next example. This information contains the name servers assigned to the child zone.
 $child_ns_recordset = Get-AzureRmDnsRecordSet -Zone $child -Name "@" -RecordType NS
 
-# Create the corresponding NS record set in the parent zone to complete the delegation. The record set name in the parent zone matches the child zone name, in this case "partners".
+# Create the corresponding NS record set in the parent zone to complete the delegation. The record set name in the parent zone matches the child zone name (in this case, "partners").
 $parent_ns_recordset = New-AzureRmDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
 $parent_ns_recordset.Records = $child_ns_recordset.Records
 Set-AzureRmDnsRecordSet -RecordSet $parent_ns_recordset
@@ -251,7 +251,7 @@ partners.contoso.com
 ```azurecli
 #!/bin/bash
 
-# Create the parent and child zones. These can be in same resource group or different resource groups as Azure DNS is a global service.
+# Create the parent and child zones. These can be in the same resource group or different resource groups, because Azure DNS is a global service.
 az network dns zone create -g contosoRG -n contoso.net
 az network dns zone create -g contosoRG -n partners.contoso.net
 ```
@@ -286,7 +286,7 @@ Utwórz zestaw rekordów i rekordy NS dla poszczególnych serwerów nazw.
 # Create the record set
 az network dns record-set ns create --resource-group contosorg --zone-name contoso.net --name partners
 
-# Create a ns record for each name server.
+# Create an NS record for each name server.
 az network dns record-set ns add-record --resource-group contosorg --zone-name contoso.net --record-set-name partners --nsdname ns1-09.azure-dns.com.
 az network dns record-set ns add-record --resource-group contosorg --zone-name contoso.net --record-set-name partners --nsdname ns2-09.azure-dns.net.
 az network dns record-set ns add-record --resource-group contosorg --zone-name contoso.net --record-set-name partners --nsdname ns3-09.azure-dns.org.
@@ -297,9 +297,11 @@ az network dns record-set ns add-record --resource-group contosorg --zone-name c
 
 Aby usunąć wszystkie zasoby utworzone w tym artykule, wykonaj następujące czynności:
 
-1. W okienku **Ulubione** witryny Azure Portal kliknij pozycję **Wszystkie zasoby**. Na stronie Wszystkie zasoby kliknij grupę zasobów **contosorg**. Jeśli wybrana subskrypcja zawiera kilka zasobów, możesz wpisać **contosorg** w polu **Filtruj według nazwy...**, aby łatwo uzyskać dostęp do grupy zasobów.
-1. Na stronie **contosorg** kliknij przycisk **Usuń**.
-1. Portal wymaga wpisania nazwy grupy zasobów w celu potwierdzenia zamiaru jej usunięcia. Wpisz nazwę grupy zasobów *contosorg*, po czym kliknij przycisk **Usuń**. Usunięcie grupy zasobów powoduje usunięcie wszystkich zasobów w niej zawartych, dlatego zawsze należy sprawdzić zawartość grupy zasobów przed jej usunięciem. Portal usuwa wszystkie zasoby zawarte w grupie zasobów, a następnie usuwa tę grupę zasobów. Ten proces trwa kilka minut.
+1. W okienku **Ulubione** witryny Azure Portal wybierz pozycję **Wszystkie zasoby**. Na stronie **Wszystkie zasoby** wybierz grupę zasobów **contosorg**. Jeśli wybrana subskrypcja zawiera kilka zasobów, możesz wpisać wartość **contosorg** w polu **Filtruj według nazwy**, aby łatwo uzyskać dostęp do grupy zasobów.
+1. Na stronie **contosorg** wybierz przycisk **Usuń**.
+1. Portal wymaga wpisania nazwy grupy zasobów w celu potwierdzenia zamiaru jej usunięcia. Wpisz nazwę grupy zasobów **contosorg**, po czym wybierz przycisk **Usuń**. 
+
+Usunięcie grupy zasobów powoduje usunięcie wszystkich zasobów w grupie zasobów. Przed usunięciem grupy zasobów należy zawsze sprawdzić jej zawartość. Portal usuwa wszystkie zasoby w grupie zasobów, a następnie usuwa tę grupę zasobów. Ten proces trwa kilka minut.
 
 ## <a name="next-steps"></a>Następne kroki
 

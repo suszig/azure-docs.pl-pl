@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 09/28/2017
-ms.openlocfilehash: f417154c2c2a27b356cefb94739838bd2136e756
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: 4e558518a5a1fb7b4cd0a58fe2453fd4c083b46a
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="classify-iris-part-1-prepare-the-data"></a>Klasyfikowanie irysów, część 1: przygotowanie danych
 Usługa Azure Machine Learning (wersja zapoznawcza) stanowi zintegrowane, kompleksowe rozwiązanie do nauki o danych i do analiz zaawansowanych przeznaczone dla profesjonalnych analityków, którzy będą z niego korzystać w celu przygotowywania danych, opracowywania eksperymentów i wdrażania modeli na skalę chmury.
@@ -64,26 +64,30 @@ Możesz postępować zgodnie z instrukcjami przewodnika Szybki start [Instalowan
 
    ![Widok danych](media/tutorial-classifying-iris/data_view.png)
 
-3. Pozostaw wartości domyślne, a następnie wybierz przycisk **Dalej**.  
+3. Wybierz pozycję **Pliki tekstowe (*.csv, *.json, *.txt, ...)** i kliknij przycisk **Dalej**.
+   ![Źródło danych](media/tutorial-classifying-iris/data-source.png)
+   
+
+4. Wskaż plik **iris.csv** i kliknij przycisk **Dalej**.  
  
    ![Wybierz iris](media/tutorial-classifying-iris/select_iris_csv.png)
 
    >[!IMPORTANT]
    >Na potrzeby tego ćwiczenia wybierz plik **iris.csv** z bieżącego katalogu projektu. W przeciwnym razie dalsze kroki mogą zakończyć się niepowodzeniem.
    
-4. Po wybraniu pliku wybierz przycisk **Zakończ**.
+5. Pozostaw wartości domyślne i kliknij przycisk **Zakończ**.
 
-4. Zostanie utworzony nowy plik o nazwie **iris-1.dsource**. Plik ma unikalną nazwę z łącznikiem i cyfrą 1, ponieważ przykładowy projekt zawiera już nienumerowany plik **iris.dsource**.  
+6. Zostanie utworzony nowy plik o nazwie **iris-1.dsource**. Plik ma unikatową nazwę z sufiksem „-1”, ponieważ przykładowy projekt zawiera już nienumerowany plik **iris.dsource**.  
 
    Plik zostanie otwarty i widoczne będą dane. Do zestawu danych zostaną automatycznie dodane nagłówki kolumn od **Column1** do **Column5**. Przewiń w dół i zwróć uwagę, że ostatni wiersz z zestawu danych jest pusty. Wiersz jest pusty, ponieważ plik CSV zawiera dodatkowy podział wiersza.
 
    ![Widok danych irysów](media/tutorial-classifying-iris/iris_data_view.png)
 
-5. Wybierz przycisk **Metryki**. Przyjrzyj się histogramom. Dla każdej kolumny został obliczony kompletny zestaw statystyk. Możesz również wybrać przycisk **Dane**, aby ponownie wyświetlić dane. 
+7. Wybierz przycisk **Metryki**. Przyjrzyj się histogramom. Dla każdej kolumny został obliczony kompletny zestaw statystyk. Możesz również wybrać przycisk **Dane**, aby ponownie wyświetlić dane. 
 
    ![Widok danych irysów](media/tutorial-classifying-iris/iris_metrics_view.png)
 
-6. Wybierz przycisk **Przygotuj**. Zostanie otwarte okno dialogowe **Przygotowywanie**. 
+8. Wybierz przycisk **Przygotuj**. Zostanie otwarte okno dialogowe **Przygotowywanie**. 
 
    Przykładowy projekt zawiera plik **iris.dprep**. Domyślnie prosi o utworzenie nowego przepływu danych w istniejącym pakiecie przygotowywania danych **iris.dprep**. 
 
@@ -93,27 +97,27 @@ Możesz postępować zgodnie z instrukcjami przewodnika Szybki start [Instalowan
 
    Nowy pakiet przygotowania danych o nazwie **iris-1.dprep** zostanie utworzony i otwarty w edytorze przygotowywania danych.
 
-7. Teraz wykonajmy kilka podstawowych operacji przygotowania danych. Zmień nazwy kolumn. Zaznacz poszczególne nagłówki kolumn, aby przystąpić do ich edycji. 
+9. Teraz wykonajmy kilka podstawowych operacji przygotowania danych. Zmień nazwy kolumn. Zaznacz poszczególne nagłówki kolumn, aby przystąpić do ich edycji. 
 
    Wprowadź wartości **Długość słupka**, **Szerokość słupka**, **Długość płatka**, **Szerokość płatka** i **Gatunek** odpowiednio w pięciu kolumnach.
 
    ![Zmienianie nazw kolumn](media/tutorial-classifying-iris/rename_column.png)
 
-8. Aby obliczyć różne wartości, wybierz kolumnę **Gatunek** i zaznacz ją, klikając prawym przyciskiem myszy. Z menu rozwijanego wybierz pozycję **Liczba wartości**. 
+10. Aby obliczyć różne wartości, wybierz kolumnę **Gatunek** i zaznacz ją, klikając prawym przyciskiem myszy. Z menu rozwijanego wybierz pozycję **Liczba wartości**. 
 
    ![Wybieranie pozycji Liczba wartości](media/tutorial-classifying-iris/value_count.png)
 
    Ta akcja powoduje otwarcie okienka **Inspektorzy**, które zawiera histogram z czterema paskami. Kolumna docelowa ma trzy różne wartości: **Iris_virginica**, **Iris_versicolor**, **Iris-setosa** i wartość **(null)**.
 
-9. Aby odfiltrować wartości null, wybierz na wykresie pasek reprezentujący wartość null. Istnieje również jeden wiersz z wartością **(null)**. Aby usunąć ten wiersz, wybierz znak minus (**-**).
+11. Aby odfiltrować wartości null, wybierz na wykresie pasek reprezentujący wartość null. Istnieje również jeden wiersz z wartością **(null)**. Aby usunąć ten wiersz, wybierz znak minus (**-**).
 
    ![Histogram liczby wartości](media/tutorial-classifying-iris/filter_out.png)
 
-10. Poszczególne kroki zostały szczegółowo przedstawione w okienku **KROKI**. Każda akcja dotycząca zmiany nazw kolumn i filtrowania wierszy z wartością null została zarejestrowana jako krok przygotowywania danych. Poszczególne kroki można edytować, aby dostosować ustawienia, zmienić kolejność kroków i usunąć kroki.
+12. Poszczególne kroki zostały szczegółowo przedstawione w okienku **KROKI**. Każda akcja dotycząca zmiany nazw kolumn i filtrowania wierszy z wartością null została zarejestrowana jako krok przygotowywania danych. Poszczególne kroki można edytować, aby dostosować ustawienia, zmienić kolejność kroków i usunąć kroki.
 
    ![Kroki](media/tutorial-classifying-iris/steps.png)
 
-11. Zamknij Kreatora przygotowywania danych. Wybierz polecenie **Zamknij** (x) na karcie **iris-1** oznaczonej ikoną wykresu. Twoja praca zostanie automatycznie zapisana w pliku **iris-1.dprep** wyświetlanym w obszarze oznaczonym nagłówkiem **Przygotowywanie danych**.
+13. Zamknij Kreatora przygotowywania danych. Wybierz polecenie **Zamknij** (x) na karcie **iris-1** oznaczonej ikoną wykresu. Twoja praca zostanie automatycznie zapisana w pliku **iris-1.dprep** wyświetlanym w obszarze oznaczonym nagłówkiem **Przygotowywanie danych**.
 
 ## <a name="generate-pythonpyspark-code-to-invoke-a-data-preparation-package"></a>Generowanie kodu Python/PySpark w celu wywołania pakietu przygotowywania danych
 
@@ -144,7 +148,7 @@ Możesz postępować zgodnie z instrukcjami przewodnika Szybki start [Instalowan
 
    Więcej informacji na temat przygotowywania danych w aplikacji Azure Machine Learning Workbench zawiera przewodnik [Get started with data preparation (Wprowadzenie do przygotowywania danych)](data-prep-getting-started.md).
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 Po zapoznaniu się z pierwszą z trzech części samouczka wiesz już, jak używać aplikacji Azure Machine Learning Workbench, aby wykonywać następujące czynności:
 > [!div class="checklist"]
 > * Tworzenie nowego projektu. 

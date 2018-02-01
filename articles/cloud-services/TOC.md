@@ -44,12 +44,12 @@
 ### [Połączenie z niestandardowym kontrolerem domeny](cloud-services-connect-to-custom-domain.md)
 
 ## Zarządzanie usługą
-### [Ograniczanie ryzyka związanego z wykonywaniem spekulatywnym](mitigate-se.md)
 ### [Typowe zadania zarządzania](cloud-services-how-to-manage-portal.md)
 ### [Konfigurowanie usługi w chmurze](cloud-services-how-to-configure-portal.md)
 ### [Zarządzanie usługą w chmurze przy użyciu usługi Azure Automation](automation-manage-cloud-services.md)
 ### [Konfigurowanie automatycznego skalowania](cloud-services-how-to-scale-portal.md)
 ### [Zarządzanie zasobami platformy Azure przy użyciu języka Python](cloud-services-python-how-to-use-service-management.md)
+### [Ograniczanie ryzyka związanego z wykonywaniem spekulatywnym](mitigate-se.md)
 
 ### [Poprawki systemu operacyjnego gościa](cloud-services-guestos-msrc-releases.md)
 ### Wycofanie systemu operacyjnego gościa

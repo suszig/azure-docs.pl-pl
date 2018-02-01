@@ -1,6 +1,6 @@
 ---
-title: "Zabezpieczenia serwera sieci web z certyfikatów SSL na platformie Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak zabezpieczyć serwer sieci web NGINX z certyfikatów SSL na maszynie Wirtualnej systemu Linux na platformie Azure"
+title: "Zabezpieczanie serwera sieci Web za pomocą certyfikatów SSL na platformie Azure | Microsoft Docs"
+description: "Dowiedz się, jak zabezpieczyć serwer sieci Web NGINX za pomocą certyfikatów SSL na maszynie wirtualnej z systemem Linux na platformie Azure"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,40 +16,40 @@ ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 6b333b75f571e367470037ab9ce8b273fcae5498
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.openlocfilehash: 2cebe6dd35e2a20738e2766447451ee32807eb4d
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="secure-a-web-server-with-ssl-certificates-on-a-linux-virtual-machine-in-azure"></a>Zabezpieczenia serwera sieci web z certyfikatów SSL na maszynie wirtualnej systemu Linux na platformie Azure
-Do zabezpieczania serwerów sieci web, certyfikatu później SSL (Secure Sockets) może być używany do szyfrowania ruchu w sieci web. Te certyfikaty SSL mogą być przechowywane w usłudze Azure Key Vault i Zezwalaj wdrożeń zabezpieczonych certyfikatów na maszynach wirtualnych systemu Linux (VM) na platformie Azure. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+# <a name="secure-a-web-server-with-ssl-certificates-on-a-linux-virtual-machine-in-azure"></a>Zabezpieczanie serwera sieci Web za pomocą certyfikatów SSL na maszynie wirtualnej z systemem Linux na platformie Azure
+Aby zabezpieczyć serwery sieci Web, można używać certyfikatu SSL (Secure Sockets Layer) do szyfrowania ruchu w sieci Web. Te certyfikaty SSL mogą być przechowywane w usłudze Azure Key Vault i umożliwiają bezpieczne wdrażanie certyfikatów na maszynach wirtualnych z systemem Linux na platformie Azure. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie usługi Azure Key Vault
-> * Generowanie lub Przekaż certyfikat do magazynu kluczy
-> * Utwórz maszynę Wirtualną i zainstaluj NGINX serwera sieci web
-> * Wstaw certyfikat do maszyny Wirtualnej i skonfigurować NGINX wraz z powiązaniem SSL
+> * Generowanie lub przekazywanie certyfikatu do usługi Key Vault
+> * Tworzenie maszyny wirtualnej i instalowanie serwera sieci Web NGINX
+> * Wstrzykiwanie certyfikatu do maszyny wirtualnej i konfigurowanie serwera NGINX z powiązaniem SSL
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Jeśli wybierzesz do zainstalowania i używania interfejsu wiersza polecenia lokalnie, w tym samouczku wymaga używasz interfejsu wiersza polecenia Azure w wersji 2.0.22 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli).  
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.22 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli).  
 
 
 ## <a name="overview"></a>Omówienie
-Usługa Azure Key Vault zabezpiecza kluczy kryptograficznych i kluczy tajnych takich certyfikatów lub hasła. Key Vault ułatwia uprościć proces zarządzania certyfikatu i pozwala zachować kontrolę nad kluczami, które uzyskują dostęp do tych certyfikatów. Można utworzyć certyfikatu z podpisem własnym wewnątrz usługi Key Vault, lub Przekaż istniejących, zaufanego certyfikatu, który już następującą.
+Usługa Azure Key Vault chroni klucze kryptograficzne i klucze tajne, takie jak certyfikaty lub hasła. Usługa Key Vault pomaga uprościć proces zarządzania certyfikatami i pozwala zachować kontrolę nad kluczami, które uzyskują dostęp do tych certyfikatów. Możesz utworzyć certyfikat z podpisem własnym wewnątrz usługi Key Vault lub przekazać istniejący zaufany certyfikat, który już posiadasz.
 
-Zamiast przy użyciu niestandardowego obrazu maszyny Wirtualnej, który zawiera certyfikaty rozszerzania w, wstrzyknąć certyfikatów do uruchomionej maszyny Wirtualnej. Ten proces zapewnia, że najbardziej aktualne certyfikaty są zainstalowane na serwerze sieci web podczas wdrażania. Jeśli odnowić lub Zastąp certyfikat, masz nie można utworzyć nowego niestandardowego obrazu maszyny Wirtualnej. Najnowsze certyfikaty są automatycznie dodane podczas tworzenia dodatkowych maszyn wirtualnych. W trakcie całego nigdy nie certyfikatów pozostaw platformy Azure lub są widoczne w skrypcie, Historia wiersza polecenia lub szablonu.
+Zamiast używania niestandardowego obrazu maszyny wirtualnej, który zawiera wbudowane certyfikaty, należy wstrzyknąć certyfikaty do uruchomionej maszyny wirtualnej. Ten proces zapewnia, że podczas wdrażania na serwerze sieci Web zostaną zainstalowane najbardziej aktualne certyfikaty. Jeśli odnowisz lub zamienisz certyfikat, nie musisz też tworzyć nowego niestandardowego obrazu maszyny wirtualnej. Najnowsze certyfikaty są automatycznie wstrzykiwane podczas tworzenia dodatkowych maszyn wirtualnych. W trakcie całego procesu certyfikaty nigdy nie opuszczają platformy Azure oraz nie są udostępniane w skrypcie, historii wiersza polecenia ani w szablonie.
 
 
 ## <a name="create-an-azure-key-vault"></a>Tworzenie usługi Azure Key Vault
-Przed utworzeniem magazyn kluczy i certyfikatów, Utwórz nową grupę zasobów o [Tworzenie grupy az](/cli/azure/group#create). Poniższy przykład tworzy grupę zasobów o nazwie *myResourceGroupSecureWeb* w *eastus* lokalizacji:
+Aby można było utworzyć usługę Key Vault i certyfikaty, utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#create). Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myResourceGroupSecureWeb* w lokalizacji *eastus*:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupSecureWeb --location eastus
 ```
 
-Następnie należy utworzyć magazyn kluczy o [az keyvault utworzyć](/cli/azure/keyvault#create) i włącz ją do użycia podczas wdrażania maszyny Wirtualnej. Każdy magazyn kluczy wymaga unikatowej nazwy i powinna być małe litery. Zastąp  *<mykeyvault>*  w poniższym przykładzie z własną unikatową nazwę usługi Key Vault:
+Następnie utwórz usługę Key Vault za pomocą polecenia [az keyvault create](/cli/azure/keyvault#create) i włącz ją do użycia podczas wdrażania maszyny wirtualnej. Każda usługa Key Vault wymaga unikatowej nazwy, która powinna zawierać tylko małe litery. Zamień wartość *<mykeyvault>* w poniższym przykładzie na własną unikatową nazwę usługi Key Vault:
 
 ```azurecli-interactive 
 keyvault_name=<mykeyvault>
@@ -59,8 +59,8 @@ az keyvault create \
     --enabled-for-deployment
 ```
 
-## <a name="generate-a-certificate-and-store-in-key-vault"></a>Wygeneruj certyfikat i przechowywania w magazynie kluczy
-W środowisku produkcyjnym, należy zaimportować prawidłowy certyfikat podpisane przez zaufanego dostawcę z [importu certyfikatów keyvault az](/cli/azure/keyvault/certificate#az_keyvault_certificate_import). W tym samouczku, w poniższym przykładzie pokazano, jak można wygenerować certyfikatu z podpisem własnym z [utworzenia certyfikatu keyvault az](/cli/azure/keyvault/certificate#az_keyvault_certificate_create) używającą domyślne zasady certyfikatu:
+## <a name="generate-a-certificate-and-store-in-key-vault"></a>Generowanie certyfikatu i zapisywanie go w usłudze Key Vault
+Do użycia w środowisku produkcyjnym należy zaimportować prawidłowy certyfikat podpisany przez zaufanego dostawcę, używając polecenia [az keyvault certificate import](/cli/azure/keyvault/certificate#az_keyvault_certificate_import). W tym samouczku poniższy przykład przedstawia, jak można wygenerować certyfikat z podpisem własnym za pomocą polecenia [az keyvault certificate create](/cli/azure/keyvault/certificate#az_keyvault_certificate_create) z użyciem domyślnych zasad certyfikatów:
 
 ```azurecli-interactive 
 az keyvault certificate create \
@@ -69,8 +69,8 @@ az keyvault certificate create \
     --policy "$(az keyvault certificate get-default-policy)"
 ```
 
-### <a name="prepare-a-certificate-for-use-with-a-vm"></a>Przygotowanie certyfikat do użycia z maszyny Wirtualnej
-Do używania certyfikatu podczas maszyny Wirtualnej utworzyć procesu, Uzyskaj identyfikator certyfikatu z [az keyvault wersje klucza tajnego listy-](/cli/azure/keyvault/secret#list-versions). Konwertuj certyfikatu z [az wirtualna format klucz tajny](/cli/azure/vm#format-secret). Poniższy przykład przypisuje dane wyjściowe tych poleceń zmienne łatwość użycia w następnych krokach:
+### <a name="prepare-a-certificate-for-use-with-a-vm"></a>Przygotowywanie certyfikatu do użycia z maszyną wirtualną
+Aby użyć certyfikatu podczas tworzenia maszyny wirtualnej, uzyskaj identyfikator certyfikatu za pomocą polecenia [az keyvault secret list-versions](/cli/azure/keyvault/secret#list-versions). Przekonwertuj certyfikat za pomocą polecenia [az vm format-secret](/cli/azure/vm#format-secret). W poniższym przykładzie przypisano dane wyjściowe tych poleceń do zmiennych w celu łatwiejszego użycia w następnych krokach:
 
 ```azurecli-interactive 
 secret=$(az keyvault secret list-versions \
@@ -80,12 +80,12 @@ secret=$(az keyvault secret list-versions \
 vm_secret=$(az vm format-secret --secret "$secret")
 ```
 
-### <a name="create-a-cloud-init-config-to-secure-nginx"></a>Tworzenie konfiguracji chmury init, aby zabezpieczyć NGINX
-[Init chmury](https://cloudinit.readthedocs.io) jest powszechnie używaną podejście, aby dostosować Maszynę wirtualną systemu Linux, ponieważ jest on uruchamiany po raz pierwszy. Init chmury można użyć, aby zainstalować pakiety i zapisywać pliki, lub aby skonfigurować użytkowników i zabezpieczeń. Podczas inicjowania chmury działania podczas początkowego procesu rozruchu, nie ma, nie dodatkowe kroki lub agentów wymaganych do zastosowania konfiguracji.
+### <a name="create-a-cloud-init-config-to-secure-nginx"></a>Tworzenie konfiguracji cloud-init do zabezpieczenia serwera NGINX
+[Cloud-init](https://cloudinit.readthedocs.io) to powszechnie używana metoda dostosowywania maszyny wirtualnej z systemem Linux podczas jej pierwszego rozruchu. Za pomocą pakietu cloud-init można instalować pakiety i zapisywać pliki lub konfigurować użytkowników i zabezpieczenia. Pakiet cloud-init jest uruchamiany w trakcie początkowego rozruchu, więc do zastosowania konfiguracji nie są wymagane żadne dodatkowe kroki ani agenci.
 
-Podczas tworzenia maszyny Wirtualnej, certyfikaty i klucze są przechowywane w chronionej */var/lib/agentawaagent/* katalogu. Aby zautomatyzować Dodawanie certyfikatu do maszyny Wirtualnej i skonfigurowanie serwera sieci web, użyj init chmury. W tym przykładzie możesz zainstalować i skonfigurować serwer sieci web NGINX. Ten sam proces służy do instalowania i konfigurowania Apache. 
+Podczas tworzenia maszyny wirtualnej certyfikaty i klucze są przechowywane w chronionym katalogu */var/lib/agentawaagent/*. Aby zautomatyzować dodawanie certyfikatu do maszyny wirtualnej i konfigurowanie serwera sieci Web, użyj pakietu cloud-init. W tym przykładzie zainstalujesz i skonfigurujesz serwer sieci Web NGINX. Ten sam proces można zastosować do zainstalowania i skonfigurowania serwera Apache. 
 
-Utwórz plik o nazwie *chmurze init-web-server.txt* i wklej następującą konfigurację:
+Utwórz plik o nazwie *cloud-init-web-server.txt* i wklej następującą konfigurację:
 
 ```yaml
 #cloud-config
@@ -109,8 +109,8 @@ runcmd:
   - service nginx restart
 ```
 
-### <a name="create-a-secure-vm"></a>Tworzenie bezpiecznej maszyny Wirtualnej
-Teraz Utwórz maszynę Wirtualną z [tworzenia maszyny wirtualnej az](/cli/azure/vm#create). Dane certyfikatu jest wprowadzonym z magazynu kluczy o `--secrets` parametru. Przekazywane w konfiguracji chmury init z `--custom-data` parametru:
+### <a name="create-a-secure-vm"></a>Tworzenie bezpiecznej maszyny wirtualnej
+Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm#create). Dane certyfikatu są wstrzykiwane z usługi Key Vault za pomocą parametru `--secrets`. Konfiguracja pakietu cloud-init jest przekazywana za pomocą parametru `--custom-data`:
 
 ```azurecli-interactive 
 az vm create \
@@ -123,9 +123,9 @@ az vm create \
     --secrets "$vm_secret"
 ```
 
-Trwa kilka minut, aż do utworzenia maszyny Wirtualnej, pakietów do zainstalowania i aplikacji, aby rozpocząć. Po utworzeniu maszyny Wirtualnej, zanotuj `publicIpAddress` wyświetlanych przez wiersza polecenia platformy Azure. Ten adres jest używany do dostępu do witryny w przeglądarce sieci web.
+Utworzenie maszyny wirtualnej, zainstalowanie pakietów i uruchomienie aplikacji potrwa kilka minut. Podczas tworzenia maszyny wirtualnej zanotuj wartość `publicIpAddress` wyświetlaną w wierszu polecenia platformy Azure. Ten adres służy do uzyskiwania dostępu do witryny w przeglądarce sieci Web.
 
-Aby zezwolić na ruch bezpieczną internetową nawiązać połączenie z maszyną Wirtualną, otwórz port 443 z Internetu z [port Otwórz az maszyny wirtualnej](/cli/azure/vm#open-port):
+Aby zezwolić na bezpieczny ruch internetowy do maszyny wirtualnej, otwórz port 443 z Internetu za pomocą polecenia [az vm open-port](/cli/azure/vm#open-port):
 
 ```azurecli-interactive 
 az vm open-port \
@@ -135,27 +135,28 @@ az vm open-port \
 ```
 
 
-### <a name="test-the-secure-web-app"></a>Testowanie aplikacji sieci web bezpieczne
-Teraz możesz otworzyć przeglądarkę sieci web i wprowadź *https://<publicIpAddress>*  na pasku adresu. Podaj własny publicznego adresu IP z maszyny Wirtualnej utworzyć procesu. Jeśli używasz certyfikatu z podpisem własnym, zaakceptuj ostrzeżenie o zabezpieczeniach:
+### <a name="test-the-secure-web-app"></a>Testowanie bezpiecznej aplikacji sieci Web
+Teraz możesz otworzyć przeglądarkę sieci Web i wprowadzić ciąg *https://<publicIpAddress>*  na pasku adresu. Podaj własny publiczny adres IP z procesu tworzenia maszyny wirtualnej. Jeśli został użyty certyfikat z podpisem własnym, zaakceptuj ostrzeżenie dotyczące zabezpieczeń:
 
-![Zaakceptuj ostrzeżenie o zabezpieczeniach przeglądarki sieci web](./media/tutorial-secure-web-server/browser-warning.png)
+![Akceptowanie ostrzeżenia dotyczącego zabezpieczeń w przeglądarce sieci Web](./media/tutorial-secure-web-server/browser-warning.png)
 
-Następnie wyświetleniem zabezpieczonej witrynie NGINX jak w poniższym przykładzie:
+Zostanie wyświetlona zabezpieczona witryna serwera NGINX, tak jak w poniższym przykładzie:
 
-![Uruchamianie zabezpieczoną witryną NGINX widoku](./media/tutorial-secure-web-server/secured-nginx.png)
+![Wyświetlanie uruchomionej zabezpieczonej witryny serwera NGINX](./media/tutorial-secure-web-server/secured-nginx.png)
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku NGINX serwera sieci web jest zabezpieczony za pomocą certyfikatu SSL, przechowywane w usłudze Azure Key Vault. W tym samouczku omówiono:
+W tym samouczku serwer sieci Web NGINX został zabezpieczony za pomocą certyfikatu SSL przechowywanego w usłudze Azure Key Vault. W tym samouczku omówiono:
 
 > [!div class="checklist"]
 > * Tworzenie usługi Azure Key Vault
-> * Generowanie lub Przekaż certyfikat do magazynu kluczy
-> * Utwórz maszynę Wirtualną i zainstaluj NGINX serwera sieci web
-> * Wstaw certyfikat do maszyny Wirtualnej i skonfigurować NGINX wraz z powiązaniem SSL
+> * Generowanie lub przekazywanie certyfikatu do usługi Key Vault
+> * Tworzenie maszyny wirtualnej i instalowanie serwera sieci Web NGINX
+> * Wstrzykiwanie certyfikatu do maszyny wirtualnej i konfigurowanie serwera NGINX z powiązaniem SSL
 
-Wykonaj to łącze, aby wyświetlić przykłady skryptów wbudowanych maszyny wirtualnej.
+Użyj tego linku, aby wyświetlić przykłady wstępnie utworzonych skryptów maszyn wirtualnych.
 
 > [!div class="nextstepaction"]
-> [Przykłady skryptów maszyny wirtualnej systemu Windows](./cli-samples.md)
+> [Przykłady skryptów maszyn wirtualnych z systemem Linux](./cli-samples.md)
+

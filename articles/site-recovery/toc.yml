@@ -123,6 +123,8 @@
           href: site-recovery-create-recovery-plans.md
         - name: Dodawanie elementów Runbook platformy Azure do planów odzyskiwania
           href: site-recovery-runbook-automation.md
+        - name: Dodawanie skryptów programu VMM do planów odzyskiwania
+          href: site-recovery-how-to-add-vmmscript.md
         - name: Tryb failover
           items:
             - name: Informacje o trybie failover

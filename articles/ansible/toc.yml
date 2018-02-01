@@ -1,0 +1,46 @@
+- name: Rozwiązanie Ansible na platformie Azure
+  href: ./index.yml
+- name: Omówienie
+  items:
+    - name: Informacje o rozwiązaniu Ansible na platformie Azure
+      href: ./ansible-overview.md
+- name: Przewodniki Szybki start
+  expanded: true
+  items:
+    - name: Instalowanie i konfigurowanie rozwiązania Ansible
+      href: /azure/virtual-machines/linux/ansible-install-configure
+      maintainContext: true
+    - name: Tworzenie maszyny wirtualnej z systemem Linux
+      href: /azure/virtual-machines/linux/ansible-create-vm
+      maintainContext: true
+- name: Samouczki
+  items:
+    - name: Tworzenie pełnej maszyny wirtualnej z systemem Linux
+      href: /azure/virtual-machines/linux/ansible-create-complete-vm
+      maintainContext: true
+    - name: Uruchamianie elementu playbook w usłudze Cloud Shell
+      href: ./ansible-run-playbook-in-cloudshell.md
+      maintainContext: true
+    - name: Zarządzanie spisami dynamicznymi
+      href: ./ansible-manage-azure-dynamic-inventories.md
+      maintainContext: true
+- name: Dokumentacja
+  items:
+    - name: Role elementu playbook
+      items:
+        - name: azure_module
+          href: 'https://galaxy.ansible.com/Azure/azure_modules/'
+        - name: azure_preview_module
+          href: 'https://galaxy.ansible.com/Azure/azure_preview_modules'
+    - name: Wydania i funkcje
+      href: ./ansible-matrix.md
+    - name: Azure Container Instances
+      href: 'http://docs.ansible.com/ansible/latest/azure_rm_acs_module.html'
+    - name: Azure Functions
+      href: 'http://docs.ansible.com/ansible/latest/azure_rm_functionapp_module.html'
+    - name: Moduły równoważenia obciążenia
+      href: 'http://docs.ansible.com/ansible/latest/azure_rm_loadbalancer_module.html'
+    - name: Maszyny wirtualne
+      href: 'http://docs.ansible.com/ansible/latest/azure_rm_virtualmachine_module.html'
+    - name: Wszystkie moduły dla platformy Azure
+      href: 'http://docs.ansible.com/ansible/latest/list_of_cloud_modules.html#azure'

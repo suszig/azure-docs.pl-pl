@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 02/16/2017
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 89cb7dc488da42724f212d13f8550064ff8b9188
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: dea6b137fb12467a881afaa9a3e6985b584f5559
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Wprowadzenie do usługi Azure App Service w systemie Linux
 
@@ -73,7 +73,7 @@ Niektóre funkcje, takie jak integracja sieci wirtualnej, uwierzytelnianie w us�
 Usługa App Service w systemie Linux jest obsługiwana tylko w planach usługi App Service [Podstawowa i Standardowa](https://azure.microsoft.com/pricing/details/app-service/plans/) i nie ma warstwy [Bezpłatna lub Współdzielona](https://azure.microsoft.com/pricing/details/app-service/plans/). Poniżej przedstawiono również ważne ograniczenia dotyczące usługi App Service w systemie Linux:
 
 * Nie można utworzyć usługi Web App for Containers w planie usługi App Service już hostującym usługę Web Apps w systemie innym niż Linux.
-* W przypadku tworzenia usługi Web App for Containers w grupie zasobów zawierającej usługę Web Apps dla systemu innego niż Linux, należy utworzyć plan usługi App Service w regionie innym niż istniejący plan usługi App Service.
+* W przypadku tworzenia usługi Web App for Containers w grupie zasobów zawierającej usługę Web Apps dla systemu innego niż Linux, należy utworzyć plan usługi App Service w grupie zasobów innej niż istniejący plan usługi App Service.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 

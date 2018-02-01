@@ -7,7 +7,7 @@
 ## [Widok grupy zabezpieczeń](network-watcher-security-group-view-overview.md)
 ## [Następny przeskok](network-watcher-next-hop-overview.md)
 ## [Rozwiązywanie problemów z połączeniem sieci VPN](network-watcher-troubleshoot-overview.md)
-## [Connectivity check (Kontrola połączeń)](network-watcher-connectivity-overview.md)
+## [Rozwiązywanie problemów z połączeniami](network-watcher-connectivity-overview.md)
 ## [Limity usługi](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-watcher-limits)
 
 # Rozpoczęcie pracy
@@ -46,7 +46,7 @@
 ### [Interfejs wiersza polecenia platformy Azure 1.0](network-watcher-security-group-view-cli-nodejs.md)
 ### [Interfejs wiersza polecenia platformy Azure](network-watcher-security-group-view-cli.md)
 ### [REST](network-watcher-security-group-view-rest.md)
-## Testowanie łączności
+## Rozwiązywanie problemów z połączeniami
 ### [Azure portal](network-watcher-connectivity-portal.md)
 ### [Azure PowerShell](network-watcher-connectivity-powershell.md)
 ### [Interfejs wiersza polecenia platformy Azure](network-watcher-connectivity-cli.md)

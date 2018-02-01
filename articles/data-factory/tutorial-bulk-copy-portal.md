@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 2100b5d1804f81f7c5a9dacfbb133e8d14dee39e
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 6aa5d4aa032ef4dc3583bf76b9c451874b74f9a6
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Zbiorcze kopiowanie wielu tabel przy użyciu usługi Azure Data Factory
 W tym samouczku przedstawiono **kopiowanie wielu tabel z bazy danych Azure SQL Database do usługi Azure SQL Data Warehouse**. Tego samego wzorca można użyć także w innych scenariuszach kopiowania. Na przykład kopiowanie tabel z programu SQL Server/Oracle do usługi Azure SQL Database/Data Warehouse/Azure Blob, kopiowanie różnych ścieżek z obiektów blob do tabeli bazy danych Azure SQL Database.
@@ -195,7 +195,7 @@ W tym samouczku źródłowe i docelowe tabele SQL nie są ustalone w definicjach
 5. Przejdź do karty **Parametry**, a następnie kliknij pozycję **+ Nowy**
 
     ![Strona połączenia źródłowego zestawu danych](./media/tutorial-bulk-copy-portal/sink-dataset-new-parameter-button.png)
-6. Wprowadź ciąg **DWTableName** jako nazwę parametru. 
+6. Wprowadź ciąg **DWTableName** jako nazwę parametru. Jeśli kopiujesz/wklejasz tę nazwę ze strony, upewnij się, że nie ma **znaku spacji na końcu** ciągu **DWTableName**. 
 7. W sekcji **Właściwości sparametryzowane** wprowadź `@{dataset().DWTableName}` jako wartość właściwości **tableName**. Właściwość **tableName** zestawu danych jest ustawiana na wartość przekazywaną jako argument parametru **DWTableName**. Działanie ForEach iteruje w obrębie listy tabel i przekazuje je po jednej do działania Copy (Kopiowanie). 
    
     ![Nazwa parametru](./media/tutorial-bulk-copy-portal/dwtablename-tablename.png)

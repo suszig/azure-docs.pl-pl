@@ -1,129 +1,137 @@
 ---
 title: "Utwórz bramę aplikacji - portalu Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak utworzyć bramę aplikacji przy użyciu portalu"
+description: "Dowiedz się, jak utworzyć bramę aplikacji przy użyciu portalu Azure."
 services: application-gateway
-documentationcenter: na
 author: davidmu1
 manager: timlt
 editor: 
 tags: azure-resource-manager
-ms.assetid: 54dffe95-d802-4f86-9e2e-293f49bd1e06
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/31/2017
+ms.date: 01/25/2018
 ms.author: davidmu
-ms.openlocfilehash: 17d09ce98c40717d1db0927f791a7c97ea7835e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: df9235bc7ff61943de52a0bcc4064bf9fab6636a
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="create-an-application-gateway-with-the-portal"></a>Tworzenie bramy aplikacji za pomocą portalu
+# <a name="create-an-application-gateway-using-the-azure-portal"></a>Utwórz bramę aplikacji przy użyciu portalu Azure
 
-[Brama aplikacji w](application-gateway-introduction.md) jest dedykowany urządzenie wirtualne udostępniające kontroler dostarczania aplikacji (ADC) jako usługa, oferty różne obciążenia warstwy 7 równoważenia możliwości aplikacji. W tym artykule przeprowadza użytkownika przez kroki, aby utworzyć bramę aplikacji przy użyciu portalu Azure i Dodawanie istniejącego serwera jako członka wewnętrznej bazy danych.
+Azure portal umożliwia tworzenie lub zarządzanie bramy aplikacji. Ta opcja szybkiego startu przedstawia tworzenie zasobów sieciowych, serwerów wewnętrznej bazy danych oraz bramy aplikacji.
+
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
 
 Zaloguj się do portalu Azure pod adresem [http://portal.azure.com](http://portal.azure.com)
 
-## <a name="create-application-gateway"></a>Utwórz bramę aplikacji
+## <a name="create-an-application-gateway"></a>Tworzenie bramy aplikacji
 
-Aby utworzyć bramę aplikacji, wykonaj kroki, które należy wykonać. Brama aplikacji wymaga jego własnej podsieci. Podczas tworzenia sieci wirtualnej, upewnij się, że pozostanie wystarczająco dużo przestrzeni adresowej do mają wiele podsieci. Po wdrożeniu brama aplikacji w podsieci tylko inne bramy aplikacji można dodać do niego.
+Sieć wirtualna jest wymagany dla komunikacji między zasobami, które można utworzyć. Dwie podsieci są tworzone w tym przykładzie: jeden dla bramy aplikacji, a drugi dla serwerów zaplecza. W tym samym czasie utworzonego bramy aplikacji może utworzyć sieć wirtualną.
 
-1. W okienku Ulubione w portalu kliknij **nowy**
-1. W bloku **Nowy** kliknij pozycję **Sieć**. W **sieci** bloku, kliknij przycisk **brama aplikacji w**, jak pokazano na poniższej ilustracji:
+1. Kliknij przycisk **nowy** znaleziono w lewym górnym rogu portalu Azure.
+2. Wybierz **sieci** , a następnie wybierz **brama aplikacji w** na liście duży.
+3. Wprowadź wartości dla bramy aplikacji:
 
-    ![Tworzenie bramy aplikacji][1]
+    - *myAppGateway* — nazwa bramy aplikacji.
+    - *myResourceGroupAG* — dla nowej grupy zasobów.
 
-1. W **podstawy** bloku, zostanie wyświetlone, wprowadź następujące wartości, a następnie kliknij przycisk **OK**:
+    ![Utwórz nową bramę aplikacji](./media/application-gateway-create-gateway-portal/application-gateway-create.png)
 
-   | **Ustawienie** | **Wartość** | **Szczegóły**|
-   |---|---|---|
-   |**Nazwa**|AdatumAppGateway|Nazwa bramy aplikacji|
-   |**Warstwy**|Standardowa|Dostępne wartości to Standard i zapory aplikacji sieci Web. Odwiedź stronę [zapory aplikacji sieci web](application-gateway-web-application-firewall-overview.md) Aby dowiedzieć się więcej na temat zapory aplikacji sieci Web.|
-   |**Rozmiar jednostki SKU**|Medium|Wybór, w przypadku wybrania warstwy standardowa jest mały, średni i duży. W przypadku wybrania warstwy zapory aplikacji sieci Web, opcje tylko są średni i duży.|
-   |**Liczba wystąpień**|2|Liczba wystąpień brama aplikacji w celu zapewnienia wysokiej dostępności. Liczby wystąpień 1 należy używać tylko do celów testowych.|
-   |**Subskrypcja**|[Twoja subskrypcja]|Wybierz subskrypcję, w której chcesz utworzyć bramę aplikacji.|
-   |**Grupa zasobów**|**Utwórz nowy:** AdatumAppGatewayRG|Utwórz grupę zasobów. Nazwa grupy zasobów musi być unikatowa w obrębie wybranej subskrypcji. Aby dowiedzieć się więcej na temat grup zasobów, zapoznaj się z artykułem [Omówienie usługi Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#resource-groups).|
-   |**Lokalizacja**|Zachodnie stany USA||
+4. Zaakceptuj wartości domyślne dla innych ustawień, a następnie kliknij przycisk **OK**.
+5. Kliknij przycisk **wybierz sieć wirtualną**, kliknij przycisk **Utwórz nowy**, a następnie wprowadź wartości dla sieci wirtualnej:
 
-1. W **ustawienia** bloku, który jest wyświetlany w obszarze **sieci wirtualnej**, kliknij przycisk **wybierz sieć wirtualną**. **Sieci wirtualnej wybierz** zostanie otwarty blok.  Kliknij przycisk **Utwórz nowy** otworzyć **Utwórz sieć wirtualną** bloku.
+    - *myVNet* — dla nazwy sieci wirtualnej.
+    - *10.0.0.0/16* — do przestrzeni adresowej sieci wirtualnej.
+    - *myAGSubnet* — dla nazwy podsieci.
+    - *10.0.0.0/24* — do przestrzeni adresowej podsieci.
 
-   ![Wybierz sieć wirtualną][2]
+    ![Tworzenie sieci wirtualnej](./media/application-gateway-create-gateway-portal/application-gateway-vnet.png)
 
-1. Na **bloku sieci wirtualnej Utwórz** wprowadź następujące wartości, a następnie kliknij przycisk **OK**. **Utwórz sieć wirtualną** i **sieci wirtualnej wybierz** zamknąć bloków. Ten krok powoduje wypełnienie **podsieci** na **ustawienia** blok podsieci wybrany.
+6. Kliknij przycisk **OK** do tworzenia sieci wirtualnej i podsieci.
+6. Kliknij przycisk **wybierz publiczny adres IP**, kliknij przycisk **Utwórz nowy**, a następnie wprowadź nazwę publicznego adresu IP. W tym przykładzie publiczny adres IP o nazwie *myAGPublicIPAddress*. Zaakceptuj wartości domyślne dla innych ustawień, a następnie kliknij przycisk **OK**.
+8. Zaakceptuj wartości domyślne w konfiguracji odbiornika, pozostaw zapory aplikacji sieci Web, które są wyłączone, a następnie kliknij **OK**.
+9. Przejrzyj ustawienia na stronie Podsumowanie, a następnie kliknij przycisk **OK** Aby utworzyć sieć wirtualną, publiczny adres IP i bramy aplikacji. Może upłynąć kilka minut dla bramy aplikacji można utworzyć, poczekaj na wdrożenie zakończy się pomyślnie przed przejściem do następnej sekcji.
 
-   | **Ustawienie** | **Wartość** | **Szczegóły**|
-   |---|---|---|
-   |**Nazwa**|AdatumAppGatewayVNET|Nazwa bramy aplikacji|
-   |**Przestrzeń adresów**|10.0.0.0/16|Jest to przestrzeni adresowej dla sieci wirtualnej|
-   |**Nazwa podsieci**|AppGatewaySubnet|Nazwa podsieci bramy aplikacji|
-   |**Zakres adresów podsieci**|10.0.0.0/28|Ta podsieć umożliwia więcej dodatkowe podsieci w sieci wirtualnej dla członków puli wewnętrznej bazy danych|
+### <a name="add-a-subnet"></a>Dodaj podsieć
 
-1. Na **ustawienia** bloku w obszarze **konfiguracji IP frontonu**, wybierz **publicznego** jako **typ adresu IP**
+1. Kliknij przycisk **wszystkie zasoby** w menu po lewej stronie, a następnie kliknij przycisk **myVNet** na liście zasobów.
+2. Kliknij przycisk **podsieci**, a następnie kliknij przycisk **podsieci**.
 
-1. Na **ustawienia** bloku w obszarze **publicznego adresu IP** kliknij **wybierz publiczny adres IP**, **wybierz publiczny adres IP** zostanie otwarty blok Kliknij przycisk **Utwórz nowy**.
+    ![Utwórz podsieć](./media/application-gateway-create-gateway-portal/application-gateway-subnet.png)
 
-   ![Wybierz publiczny adres ip][3]
+3. Wprowadź *myBackendSubnet* dla nazwy podsieci, a następnie kliknij przycisk **OK**.
 
-1. Na **tworzenie publicznego adresu IP** bloku, zaakceptuj wartość domyślną, a następnie kliknij przycisk **OK**. Blok zamyka i wypełnia **publicznego adresu IP** z wybranego publicznego adresu IP.
+## <a name="create-backend-servers"></a>Utwórz serwerów wewnętrznej bazy danych
 
-1. Na **ustawienia** bloku w obszarze **konfiguracji odbiornika**, kliknij przycisk **HTTP** w obszarze **protokołu**. Wprowadź port używany w **portu** pola.
+W tym przykładzie utworzysz dwie maszyny wirtualne do użycia jako serwery zaplecza bramy aplikacji. Należy również zainstalować usług IIS na maszynach wirtualnych, aby sprawdzić, czy brama aplikacji została pomyślnie utworzona.
 
-2. Kliknij przycisk **OK** na **ustawienia** bloku, aby kontynuować.
+### <a name="create-a-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
-1. Sprawdź ustawienia na **Podsumowanie** bloku i kliknij przycisk **OK** aby rozpocząć tworzenie bramy aplikacji. Tworzenie bramy aplikacji jest długo działające zadania i czas do ukończenia.
+1. Kliknij przycisk **Nowy**.
+2. Kliknij przycisk **obliczeniowe** , a następnie wybierz **systemu Windows Server 2016 Datacenter** na liście duży.
+3. Wprowadź wartości dla maszyny wirtualnej:
 
-## <a name="add-servers-to-backend-pools"></a>Dodawanie serwerów do puli wewnętrznej bazy danych
+    - *myVM* — Nazwa maszyny wirtualnej.
+    - *azureuser* — nazwa użytkownika administratora.
+    - *Azure123456!* hasła.
+    - Wybierz **Użyj istniejącego**, a następnie wybierz *myResourceGroupAG*.
 
-Po utworzeniu bramy aplikacji, systemów tego hosta aplikacji o zrównoważonym obciążeniu nadal należy do dodania do bramy aplikacji. Adresy IP, nazwy FQDN lub kart sieciowych z tych serwerów są dodawane do puli adresów zaplecza.
+4. Kliknij przycisk **OK**.
+5. Wybierz **DS1_V2** dla rozmiaru maszyny wirtualnej, a następnie kliknij przycisk **wybierz**.
+6. Upewnij się, że **myVNet** został wybrany do sieci wirtualnej i podsieci jest **myBackendSubnet**. 
+7. Kliknij przycisk **wyłączone** wyłączyć diagnostyki rozruchu.
+8. Kliknij przycisk **OK**Przejrzyj ustawienia na stronie Podsumowanie, a następnie kliknij przycisk **Utwórz**.
 
-### <a name="ip-address-or-fqdn"></a>Adres IP lub nazwa FQDN
+### <a name="install-iis"></a>Zainstaluj usługi IIS
 
-1. Bramy aplikacji utworzone w portalu Azure **ulubione** okienku, kliknij przycisk **wszystkie zasoby**. Kliknij przycisk **AdatumAppGateway** brama aplikacji w bloku wszystkich zasobów. Jeśli subskrypcja już ma kilka zasobów, możesz wprowadzić **AdatumAppGateway** w **filtrować według nazwy...** aby łatwo uzyskać dostęp do bramy aplikacji.
+1. Otwórz powłokę interakcyjne i upewnij się, że jest ustawiona na **PowerShell**.
 
-1. Brama aplikacji utworzonej jest wyświetlany. Kliknij przycisk **pul zaplecza**i wybierz bieżącej puli zaplecza **appGatewayBackendPool**, **appGatewayBackendPool** zostanie otwarty blok.
+    ![Zainstaluj rozszerzenia niestandardowego](./media/application-gateway-create-gateway-portal/application-gateway-extension.png)
 
-   ![Pule zaplecza bramy aplikacji][4]
+2. Uruchom następujące polecenie, aby zainstalować usługi IIS na maszynie wirtualnej: 
 
-1. Kliknij przycisk **dodać docelowy** do dodawania adresów IP z wartości nazw FQDN. Wybierz **IP adres lub nazwa FQDN** jako **typu** i wprowadź adres IP lub nazwa FQDN w polu. Powtórz ten krok dla członków puli dodatkowych wewnętrznej bazy danych. Po zakończeniu kliknij przycisk **zapisać**.
+    ```azurepowershell-interactive
+    Set-AzureRmVMExtension `
+      -ResourceGroupName myResourceGroupAG `
+      -ExtensionName IIS `
+      -VMName myVM `
+      -Publisher Microsoft.Compute `
+      -ExtensionType CustomScriptExtension `
+      -TypeHandlerVersion 1.4 `
+      -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
+      -Location EastUS
+    ```
 
-### <a name="virtual-machine-and-nic"></a>Maszyna wirtualna i karty Sieciowej
+3. Utwórz maszynę wirtualną drugiej i zainstaluj usługi IIS, wykonując kroki, które właśnie zostało zakończone. Wprowadź *myVM2* dla nazwy i VMName w AzureRmVMExtension zestawu.
 
-Karty sieciowe maszyny wirtualnej można również dodać jako członków puli wewnętrznej bazy danych. Tylko dla maszyn wirtualnych w tej samej sieci wirtualnej co brama aplikacji są dostępne za pośrednictwem listy rozwijanej.
+### <a name="add-backend-servers"></a>Dodawanie serwerów wewnętrznej bazy danych
 
-1. Bramy aplikacji utworzone w portalu Azure **ulubione** okienku, kliknij przycisk **wszystkie zasoby**. Kliknij przycisk **AdatumAppGateway** brama aplikacji w bloku wszystkich zasobów. Jeśli subskrypcja już ma kilka zasobów, możesz wprowadzić **AdatumAppGateway** w **filtrować według nazwy...** aby łatwo uzyskać dostęp do bramy aplikacji.
+3. Kliknij przycisk **wszystkie zasoby**, a następnie kliknij przycisk **myAppGateway**.
+4. Kliknij przycisk **pul zaplecza**. Domyślna pula został utworzony automatycznie z bramy aplikacji. Kliknij przycisk **appGatewayBackendPool**.
+5. Kliknij przycisk **docelowy Dodaj** dodawania każdej maszyny wirtualnej, który został utworzony do puli wewnętrznej bazy danych.
 
-1. Brama aplikacji utworzonej jest wyświetlany. Kliknij przycisk **pul zaplecza**i wybierz bieżącej puli zaplecza **appGatewayBackendPool**, **appGatewayBackendPool** zostanie otwarty blok.
+    ![Dodawanie serwerów wewnętrznej bazy danych](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)
 
-   ![Pule zaplecza bramy aplikacji][5]
+6. Kliknij pozycję **Zapisz**.
 
-1. Kliknij przycisk **dodać docelowy** do dodawania adresów IP z wartości nazw FQDN. Wybierz **maszyny wirtualnej** jako **typu** i wybierz maszynę wirtualną, a kartę Sieciową do użycia. Po zakończeniu kliknij przycisk **Zapisz**
+## <a name="test-the-application-gateway"></a>Testowanie bramy aplikacji
 
-   > [!NOTE]
-   > Tylko dla maszyn wirtualnych w tej samej sieci wirtualnej co brama aplikacji są dostępne w menu rozwijane.
+1. Znajdź publicznego adresu IP dla bramy aplikacji na ekran Przegląd. Kliknij przycisk **wszystkie zasoby** , a następnie kliknij przycisk **myAGPublicIPAddress**.
+
+    ![Zarejestruj publiczny adres IP bramy aplikacji](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png)
+
+2. Skopiuj publicznego adresu IP, a następnie wklej go w pasku adresu przeglądarki.
+
+    ![Brama aplikacji w testu](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
+
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Gdy nie są już potrzebne, Usuń grupę zasobów, bramę aplikacji i wszystkie powiązane zasoby. Aby to zrobić, wybierz grupę zasobów z bloku bramy aplikacji, a następnie kliknij przycisk **usunąć**.
+Gdy nie są już potrzebne, Usuń grupę zasobów, bramę aplikacji i wszystkie powiązane zasoby. Aby to zrobić, wybierz grupę zasobów, która zawiera bramy aplikacji i kliknij przycisk **usunąć**.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
-W tym scenariuszu wdrożyć bramę aplikacji i dodać serwer do wewnętrznej bazy danych. Następne kroki są do skonfigurowania bramy aplikacji przez modyfikowanie ustawień i dostosowywanie reguły w bramie. Te kroki można znaleźć odwiedzając następujące artykuły:
-
-Dowiedz się, jak utworzyć sondy kondycji niestandardowych odwiedzając [utworzyć sondy kondycji niestandardowych](application-gateway-create-probe-portal.md)
-
-Dowiedz się, jak skonfigurować odciążanie protokołu SSL i podejmij kosztowne odszyfrowywania SSL poza serwerów sieci web, odwiedzając [skonfigurować odciążanie protokołu SSL](application-gateway-ssl-portal.md)
-
-Dowiedz się, jak chronić swoje aplikacje za pomocą [zapory aplikacji sieci Web](application-gateway-webapplicationfirewall-overview.md) funkcji bramy aplikacji.
-
-<!--Image references-->
-[1]: ./media/application-gateway-create-gateway-portal/figure1.png
-[2]: ./media/application-gateway-create-gateway-portal/figure2.png
-[3]: ./media/application-gateway-create-gateway-portal/figure3.png
-[4]: ./media/application-gateway-create-gateway-portal/figure4.png
-[5]: ./media/application-gateway-create-gateway-portal/figure5.png
-[scenario]: ./media/application-gateway-create-gateway-portal/scenario.png
+W tym szybkiego startu utworzyć grupę zasobów, zasobów sieciowych i serwerów wewnętrznej bazy danych. Te zasoby są następnie używane do tworzenia bramy aplikacji. Aby dowiedzieć się więcej na temat bram aplikacji i ich skojarzonych zasobów, nadal artykuły.

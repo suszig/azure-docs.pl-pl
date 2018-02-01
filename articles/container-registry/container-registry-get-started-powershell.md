@@ -1,27 +1,27 @@
 ---
-title: "Szybki Start — tworzenie prywatnych rejestru Docker na platformie Azure przy użyciu programu PowerShell"
-description: "Dowiedz się szybko utworzyć prywatnego rejestru kontenera Docker przy użyciu programu PowerShell."
+title: "Szybki start — tworzenie rejestru prywatnego platformy Docker na platformie Azure przy użyciu programu PowerShell"
+description: "Szybko naucz się tworzyć rejestr prywatny platformy Docker przy użyciu programu PowerShell."
 services: container-registry
 author: neilpeterson
 manager: timlt
 ms.service: container-registry
-ms.topic: quicksart
+ms.topic: quickstart
 ms.date: 10/08/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: fbf643ad342d712452d39c71b8706b6213198512
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: MT
+ms.openlocfilehash: c7d74395b1c8b386ce190906aa5b63b48c1bb1bf
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/22/2018
 ---
-# <a name="create-an-azure-container-registry-using-powershell"></a>Tworzenie rejestru kontenera Azure za pomocą programu PowerShell
+# <a name="create-an-azure-container-registry-using-powershell"></a>Tworzenie usługi Azure Container Registry przy użyciu programu PowerShell
 
-Usługa Azure Container Registry to zarządzana usługa rejestru kontenerów platformy Docker używana do przechowywania prywatnych obrazów kontenerów Docker. Szczegóły tego przewodnika tworzenia wystąpienia rejestru kontenera Azure za pomocą programu PowerShell.
+Usługa Azure Container Registry to zarządzana usługa rejestru kontenerów platformy Docker używana do przechowywania prywatnych obrazów kontenerów Docker. W tym przewodniku znajdują się szczegółowe informacje dotyczące tworzenia wystąpienia usługi Azure Container Registry przy użyciu programu PowerShell.
 
-Ta opcja szybkiego startu wymaga programu Azure PowerShell w wersji modułu 3,6 lub nowszej. Uruchom polecenie `Get-Module -ListAvailable AzureRM`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Dla tego przewodnika Szybki start jest wymagany moduł Azure PowerShell w wersji 3.6 lub nowszej. Uruchom polecenie `Get-Module -ListAvailable AzureRM`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
-Musi mieć również Docker zainstalowane lokalnie. Środowisko Docker zawiera pakiety, które umożliwiają łatwe konfigurowanie platformy Docker w systemie [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) lub [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
+Musisz mieć również zainstalowane lokalnie środowisko Docker. Środowisko Docker zawiera pakiety, które umożliwiają łatwe konfigurowanie platformy Docker w systemie [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) lub [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
 
 ## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
 
@@ -41,23 +41,23 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-a-container-registry"></a>Tworzenie rejestru kontenerów
 
-Tworzenie wystąpienia ACR przy użyciu [AzureRMContainerRegistry nowy](/powershell/module/containerregistry/New-AzureRMContainerRegistry) polecenia.
+Utwórz wystąpienie usługi ACR za pomocą polecenia [New-AzureRMContainerRegistry](/powershell/module/containerregistry/New-AzureRMContainerRegistry).
 
-Nazwa rejestru **muszą być unikatowe**. W poniższym przykładzie *myContainerRegistry007* jest używany. Zaktualizuj to unikatowe wartości.
+Nazwa rejestru musi być unikatowa w obrębie platformy Azure i może zawierać od 5 do 50 znaków alfanumerycznych. W poniższym przykładzie użyto nazwy *myContainerRegistry007*. Zaktualizuj ją do unikatowej wartości.
 
 ```powershell
 $registry = New-AzureRMContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic
 ```
 
-## <a name="log-in-to-acr"></a>Zaloguj się do awaryjnego
+## <a name="log-in-to-acr"></a>Zaloguj się do usługi ACR
 
-Przed wypychaniem i ściąganiem obrazów kontenerów musisz zalogować się do wystąpienia usługi ACR. Najpierw użyj [Get AzureRmContainerRegistryCredential](/powershell/module/containerregistry/get-azurermcontainerregistrycredential) polecenie, aby uzyskać poświadczenia administratora dla tego wystąpienia ACR.
+Przed wypychaniem i ściąganiem obrazów kontenerów musisz zalogować się do wystąpienia usługi ACR. Najpierw użyj polecenia [Get-AzureRmContainerRegistryCredential](/powershell/module/containerregistry/get-azurermcontainerregistrycredential), aby uzyskać poświadczenia administratora dla wystąpienia usługi ACR.
 
 ```powershell
 $creds = Get-AzureRmContainerRegistryCredential -Registry $registry
 ```
 
-Następnie użyj [logowania docker](https://docs.docker.com/engine/reference/commandline/login/) polecenie, aby zalogować się do wystąpienia ACR.
+Następnie użyj polecenia [docker login](https://docs.docker.com/engine/reference/commandline/login/), aby zalogować się do wystąpienia usługi ACR.
 
 ```bash
 docker login $registry.LoginServer -u $creds.Username -p $creds.Password
@@ -65,27 +65,27 @@ docker login $registry.LoginServer -u $creds.Username -p $creds.Password
 
 Polecenie zwraca komunikat „Logowanie pomyślne” po ukończeniu.
 
-## <a name="push-image-to-acr"></a>Obraz wypychania do awaryjnego
+## <a name="push-image-to-acr"></a>Wypychanie obrazu do usługi ACR
 
-Aby wypchnąć obrazu do rejestru kontenera platformy Azure, najpierw musi mieć obraz. W razie potrzeby, uruchom następujące polecenie, aby ściąganie wstępnie utworzony obraz z Centrum Docker.
+Aby wypchnąć obraz do usługi Azure Container Registry, najpierw musisz go mieć. W razie potrzeby uruchom następujące polecenie, aby ściągnąć wcześniej utworzony obraz z usługi Docker Hub.
 
 ```bash
 docker pull microsoft/aci-helloworld
 ```
 
-Obraz musi być oznaczane nazwa ACR logowania serwera. Uruchom [Get-AzureRmContainerRegistry](/powershell/module/containerregistry/Get-AzureRmContainerRegistry) polecenia, aby zwrócić nazwę logowania serwera wystąpienia ACR.
+Obraz musi być otagowany nazwą serwera logowania usługi ACR. Uruchom polecenie [Get-AzureRmContainerRegistry](/powershell/module/containerregistry/Get-AzureRmContainerRegistry), aby zwrócić nazwę serwera logowania wystąpienia usługi ACR.
 
 ```powershell
 Get-AzureRmContainerRegistry | Select Loginserver
 ```
 
-Tag przy użyciu obrazu [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) polecenia. Zastąp *acrLoginServer* z nazwą serwera logowania wystąpienia ACR.
+Aby dodać tag do obrazu, użyj polecenia [docker tag](https://docs.docker.com/engine/reference/commandline/tag/). Zastąp element *acrLoginServer* nazwą serwera logowania wystąpienia usługi ACR.
 
 ```bash
 docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
 ```
 
-Na koniec użyj [wypychania docker](https://docs.docker.com/engine/reference/commandline/push/) do dystrybuowania obrazów do wystąpienia ACR. Zastąp *acrLoginServer* z nazwą serwera logowania wystąpienia ACR.
+Na koniec użyj polecenia [docker push](https://docs.docker.com/engine/reference/commandline/push/), aby wypchnąć obrazy do wystąpienia usługi ACR. Zastąp element *acrLoginServer* nazwą serwera logowania wystąpienia usługi ACR.
 
 ```bash
 docker push <acrLoginServer>/aci-helloworld:v1
@@ -93,7 +93,7 @@ docker push <acrLoginServer>/aci-helloworld:v1
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Gdy nie są już potrzebne, można użyć [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) polecenie, aby usunąć grupę zasobów, wystąpienie ACR i wszystkie obrazy kontenera.
+Gdy grupa zasobów, wystąpienie usługi ACR i wszystkie obrazy kontenerów nie będą już potrzebne, możesz je usunąć za pomocą polecenia [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup).
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -101,7 +101,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>Następne kroki
 
-Ta opcja szybkiego startu została utworzona rejestru kontenera platformy Azure z wiersza polecenia platformy Azure. Jeśli chcesz rejestru kontenera Azure za pomocą wystąpień kontenera platformy Azure, przejdź do samouczka wystąpień kontenera platformy Azure.
+W tym samouczku Szybki start utworzono usługę Azure Container Registry za pomocą interfejsu wiersza polecenia platformy Azure. Jeśli chcesz używać usługi Azure Container Registry z usługą Azure Container Instances, przejdź do samouczka dotyczącego usługi Azure Container Instances.
 
 > [!div class="nextstepaction"]
-> [Samouczek wystąpień kontenera platformy Azure](../container-instances/container-instances-tutorial-prepare-app.md)
+> [Samouczek dotyczący usługi Azure Container Instances](../container-instances/container-instances-tutorial-prepare-app.md)

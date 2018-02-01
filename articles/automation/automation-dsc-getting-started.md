@@ -14,16 +14,16 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: magoedte;gwallace
-ms.openlocfilehash: 45afb09f09e754e37ae8dba02e1e16b3fde1e408
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: ff23b4f5022597763728ccf301966c34c5423b34
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="getting-started-with-azure-automation-dsc"></a>Wprowadzenie do korzystania z usługi Konfiguracja DSC automatyzacji Azure
 W tym artykule opisano sposób wykonywania typowych zadań z żądanego stanu konfiguracji (Konfiguracja DSC automatyzacji Azure), takie jak tworzenie, importowanie i konfiguracje, dołączania urządzenia do zarządzania, kompilowanie i wyświetlania raportów. Omówienie jakie Konfiguracja DSC automatyzacji Azure jest, zobacz [Przegląd usługi Konfiguracja DSC automatyzacji Azure](automation-dsc-overview.md). Dokumentacja usługi Konfiguracja DSC w temacie [żądany stan konfiguracji Omówienie środowiska Windows PowerShell](https://msdn.microsoft.com/PowerShell/dsc/overview).
 
-Ten artykuł zawiera przewodnik krok po kroku przy użyciu usługi Konfiguracja DSC automatyzacji Azure. Chcąc środowiska próbki, który został już skonfigurowany bez wykonanie kroków opisanych w tym artykule, można użyć następujących [szablonu usługi Resource Manager](https://github.com/azureautomation/automation-packs/tree/master/102-sample-automation-setup). Ten szablon ustawia ukończone środowiska Konfiguracja DSC automatyzacji Azure, łącznie z maszyny Wirtualnej platformy Azure, który jest zarządzany przez Konfiguracja DSC automatyzacji Azure.
+Ten artykuł zawiera przewodnik krok po kroku przy użyciu usługi Konfiguracja DSC automatyzacji Azure. Chcąc środowiska próbki, który został już skonfigurowany bez wykonanie kroków opisanych w tym artykule, można użyć następującego szablonu usługi Resource Manager: ten szablon ustawia ukończone środowiska Konfiguracja DSC automatyzacji Azure, łącznie z maszyny Wirtualnej platformy Azure, która jest zarządzane przez Konfiguracja DSC automatyzacji Azure.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Aby ukończyć przykłady przedstawione w tym artykule, wymagane są następujące elementy:
@@ -134,11 +134,11 @@ Konfiguracja DSC automatyzacji Azure umożliwia zarządzanie maszynach wirtualny
 ### <a name="to-onboard-an-azure-resource-manager-vm-for-management-by-azure-automation-dsc"></a>Dołączyć maszyny Wirtualnej platformy Azure Resource Manager do zarządzania przez Konfiguracja DSC automatyzacji Azure
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Po lewej stronie, kliknij przycisk **wszystkie zasoby** , a następnie nazwę konta automatyzacji.
-3. Na **konto automatyzacji** kliknij przycisk **węzłów DSC** w obszarze **zarządzania konfiguracją**...
+3. Na **konto automatyzacji** kliknij przycisk **węzłów DSC** w obszarze **zarządzania konfiguracją**.
 4. W **węzłów DSC** kliknij przycisk **dodać maszyny Wirtualnej Azure**.
    
     ![Zrzut ekranu przedstawiający stronę węzłów DSC wyróżnianie przycisku Dodaj maszyny Wirtualnej Azure](./media/automation-dsc-getting-started/OnboardVM.png)
-5. Na **maszyn wirtualnych** wybierz maszyny Wirtualnej.  **Dodawanie maszyn wirtualnych Azure** kliknij przycisk **wybierz maszyny wirtualne do dołączenia**.
+5. Na stronie maszyny wirtualne wybierz maszyny Wirtualnej. **Dodawanie maszyn wirtualnych Azure** kliknij przycisk **wybierz maszyny wirtualne do dołączenia**.
 6. Kliknij przycisk **Połącz**.
    
    > [!IMPORTANT]

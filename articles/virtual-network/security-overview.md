@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 142b9e052e09f88826ae8ea3866316444a5d7acc
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 89a4a165690c7a308d5bc7222b8a5a9716d22785
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="network-security"></a>Bezpieczeństwo sieci
 
@@ -119,7 +119,7 @@ Nie można usunąć reguł domyślnych, ale można je przesłonić, tworząc reg
 * **VirtualNetwork** (model wdrażania przy użyciu usługi *Resource Manager) (**VIRTUAL_NETWORK** — model klasyczny): ten znacznik obejmuje przestrzeń adresową sieci wirtualnej (wszystkie zakresy CIDR zdefiniowane dla sieci wirtualnej), wszystkie połączone lokalne przestrzenie adresowe oraz [skomunikowane równorzędnie](virtual-network-peering-overview.md) sieci wirtualne lub sieć wirtualna połączona z [bramą sieci wirtualnej](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * **AzureLoadBalancer** (model usługi Resource Manager) (**AZURE_LOADBALANCER** — model klasyczny): ten znacznik określa moduł równoważenia obciążenia infrastruktury platformy Azure. Ten znacznik przekłada się na [adres IP centrum danych Azure](https://www.microsoft.com/download/details.aspx?id=41653), z którego pochodzą sondy kondycji platformy Azure. Jeśli nie jest używana usługa Azure Load Balancer, tę zasadę można przesłonić.
 * **Internet** (model usługi Resource Manager) (**INTERNET** — model klasyczny): ten tag określa przestrzeń adresów IP, która znajduje się poza siecią wirtualną i do której można uzyskać dostęp w publicznym Internecie. Ten zakres adresów obejmuje [publiczną przestrzeń adresów IP należącą do platformy Azure](https://www.microsoft.com/download/details.aspx?id=41653).
-* **AzureTrafficManager** (tylko model wdrażania przy użyciu usługi Resource Manager): ten tag określa przestrzeń adresów IP dla usługi Azure Traffic Manager.
+* **AzureTrafficManager** (tylko model usługi Resource Manager): ten tag określa przestrzeń adresów IP sondy usługi Azure Traffic Manager. Więcej informacji na temat adresów IP sondy usługi Traffic Manager można znaleźć w temacie [Azure Traffic Manager FAQ (Azure Traffic Manager — często zadawane pytania)](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-faqs).
 * **Storage** (tylko model wdrażania przy użyciu usługi Resource Manager): ten tag określa przestrzeń adresów IP dla usługi Azure Storage. W przypadku określenia wartości *Storage* dozwolony lub blokowany jest ruch do usługi Storage. Jeśli chcesz zezwolić na dostęp do usługi Storage w konkretnym [regionie](https://azure.microsoft.com/regions), możesz określić region. Jeśli na przykład chcesz zezwolić na dostęp do usługi Azure Storage tylko w regionie Wschodnie stany USA, możesz określić *Storage.EastUS* jako tag usługi. Tag reprezentuje usługę, ale nie konkretne wystąpienia usługi. Na przykład tag reprezentuje usługę Azure Storage, ale nie konkretne konto usługi Azure Storage.
 * **Sql** (tylko model wdrażania przy użyciu usługi Resource Manager): ten tag określa prefiksy adresów usług Azure SQL Database i Azure SQL Data Warehouse. W przypadku określenia wartości *Sql* dozwolony lub blokowany jest ruch do usługi Sql. Jeśli chcesz zezwolić na dostęp do usługi Sql w konkretnym [regionie](https://azure.microsoft.com/regions), możesz określić region. Jeśli na przykład chcesz zezwolić na dostęp do usługi Azure SQL Database tylko w regionie Wschodnie stany USA, możesz określić *Sql.EastUS* jako tag usługi. Tag reprezentuje usługę, ale nie konkretne wystąpienia usługi. Na przykład tag reprezentuje usługę Azure SQL Database, ale nie konkretną bazę danych lub serwer SQL.
 

@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/10/2017
+ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: e0da76d1c99de94762a54f552e49f7ee75eba26f
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 9af4bfd5b5ae46a856b25a94cdbe55e098ea940e
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Wprowadzenie do usługi Microsoft Azure Storage
 
@@ -149,19 +149,17 @@ Aby uzyskać więcej informacji na temat zabezpieczania konta magazynu i szyfrow
 
 ## <a name="replication"></a>Replikacja
 
-Aby zapewnić trwałość danych, usługa Azure Storage ma możliwość przechowywania kilku kopii danych (i zarządzania nimi). Jest to nazywane replikacją lub czasami nadmiarowością. Podczas konfigurowania konta magazynu należy określić typ replikacji. W większości przypadków to ustawienie można zmodyfikować po skonfigurowaniu konta magazynu.
-
-Wszystkie konta magazynu mają **magazyn lokalnie nadmiarowy (LRS)**, który został zaprogramowany z myślą o zapewnieniu co najmniej 99,999999999% (11 cyfr 9) trwałości obiektów w danym roku. To oznacza, że wiele kopii danych jest zarządzanych przez usługę Azure Storage w centrum danych określonym podczas konfigurowania konta magazynu. Gdy zmiany zostaną zatwierdzone, wszystkie kopie są aktualizowane i zwracany jest komunikat o powodzeniu. To oznacza, że repliki są zawsze zsynchronizowane. Ponadto kopie znajdują się w oddzielnych domenach błędów i domenach uaktualnień, co oznacza, że dane są dostępne nawet wtedy, gdy węzeł magazynu, na którym są przechowywane, ulegnie awarii lub zostanie przełączony w tryb offline w celu aktualizacji.
+Aby zapewnić trwałość danych, usługa Azure Storage będzie przechowywać kilka kopii danych (i zarządzać nimi). Jest to nazywane replikacją lub czasami nadmiarowością. Podczas konfigurowania konta magazynu należy określić typ replikacji. W większości przypadków to ustawienie można zmodyfikować po skonfigurowaniu konta magazynu.
 
 **Magazyn lokalnie nadmiarowy (LRS)**
 
-Jak wyjaśniono powyżej, dzięki magazynowi LRS masz wiele kopii danych w jednym centrum danych. Rozwiązuje to problem niedostępności danych w przypadku awarii węzła magazynu lub przełączenia go w tryb offline w celu aktualizacji, ale nie w przypadku niedostępności całego centrum danych.
+Magazyn lokalnie nadmiarowy (LRS, locally-redundant storage) został zaprojektowany z myślą o zapewnieniu co najmniej 99,999999999% (11 cyfr 9) trwałości obiektów w danym roku. To oznacza, że wiele kopii danych jest zarządzanych przez usługę Azure Storage w centrum danych określonym podczas konfigurowania konta magazynu. Gdy zmiany zostaną zatwierdzone, wszystkie kopie są aktualizowane i zwracany jest komunikat o powodzeniu. To oznacza, że repliki są zawsze zsynchronizowane. Ponadto kopie znajdują się w oddzielnych domenach błędów i domenach uaktualnień, co oznacza, że dane są dostępne nawet wtedy, gdy węzeł magazynu, na którym są przechowywane, ulegnie awarii lub zostanie przełączony w tryb offline w celu aktualizacji.
 
-**Magazyn strefowo nadmiarowy (ZRS, Zone redundant storage)**
+**Magazyn strefowo nadmiarowy (ZRS) (wersja zapoznawcza)**
 
-Magazyn strefowo nadmiarowy (ZRS) został zaprojektowany z myślą o zapewnieniu co najmniej 99,9999999999% (12 cyfr 9) trwałości obiektów w danym roku dzięki przechowywaniu lokalnych kopii danych, a także drugiego zestawu kopii danych. Drugi zestaw kopii danych jest replikowany asynchronicznie między centrami danych w jednym lub w dwóch regionach. Należy pamiętać, że magazyn ZRS jest dostępny tylko w przypadku blokowych obiektów blob na kontach magazynu ogólnego przeznaczenia. Ponadto po utworzeniu konta magazynu i wybraniu magazynu ZRS nie można przekonwertować go w celu użycia żadnego innego typu replikacji ani odwrotnie.
+Magazyn strefowo nadmiarowy (ZRS, zone-redundant storage) został zaprojektowany w celu uproszczenia opracowywania aplikacji o wysokiej dostępności. Magazyn ZRS zapewnia co najmniej 99,9999999999% (12 cyfr 9) trwałość obiektów magazynu w danym roku. Magazyn ZRS replikuje Twoje dane synchronicznie w wielu strefach dostępności. Zastosowanie magazynu ZRS należy rozważyć w scenariuszach takich, jak aplikacje transakcyjne, w których przestój jest niedopuszczalny. Magazyn ZRS umożliwia klientom odczytywanie i zapisywanie danych nawet wtedy, gdy jedna strefa jest niedostępna lub nie można jej odzyskać. Operacje wstawiania do danych i ich aktualizowania są wykonywane synchronicznie i są silnie spójne.    
 
-Konta magazynu ZRS zapewniają większą trwałość niż magazyn LRS, ale konta magazynu ZRS nie mają metryk ani funkcji rejestrowania.
+Wcześniejsza możliwość magazynu ZRS jest teraz nazywana klasycznym magazynem ZRS. Konta klasycznego magazynu ZRS są dostępne tylko dla blokowych obiektów blob w ramach kont magazynu ogólnego przeznaczenia w wersji 1. Klasyczny magazyn ZRS replikuje dane asynchronicznie między centrami danych w jednym lub dwóch regionach. Replika może być niedostępna, chyba że firma Microsoft zainicjuje przejście w tryb failover do regionu pomocniczego. Nie można przekonwertować konta klasycznego magazynu ZRS na konto magazynu LRS lub GRS ani odwrotnie, a ponadto konto klasycznego magazynu ZRS nie ma metryk ani funkcji rejestrowania.
 
 **Magazyn geograficznie nadmiarowy (GRS)**
 
@@ -172,10 +170,10 @@ Magazyn geograficznie nadmiarowy (GRS) został zaprojektowany z myślą o zapewn
 Magazyn geograficznie nadmiarowy dostępny do odczytu jest dokładnie taki sam jak magazyn GRS, ale zapewnia jedynie dostęp do odczytu danych w lokalizacji pomocniczej. Jeśli podstawowe centrum danych stanie się tymczasowo niedostępne, możesz nadal odczytywać dane z lokalizacji pomocniczej. Może to być bardzo przydatne. Na przykład aplikacja internetowa może przechodzić w tryb tylko do odczytu i wskazywać kopię pomocniczą, zapewniając w ten sposób pewien poziom dostępu, mimo iż aktualizacje nie są dostępne.
 
 > [!IMPORTANT]
-> Możesz zmienić sposób replikacji danych po utworzeniu konta magazynu, o ile jest on inny niż ZRS. Zwróć jednak uwagę, że w wypadku przejścia z replikacji LRS na GRS lub RA-GRS mogą zostać naliczone dodatkowo i jednorazowo koszty transferu danych.
+> Sposób replikacji danych możesz zmienić po utworzeniu konta magazynu. W przypadku zmiany z magazynu LRS lub ZRS na GRS lub RA-GRS może jednak zostać naliczona dodatkowa jednorazowa opłata za transfer danych.
 >
 
-Aby uzyskać więcej informacji na temat replikacji, zobacz [Replikacja usługi Azure Storage](storage-redundancy.md).
+Aby uzyskać więcej informacji na temat opcji replikacji, zobacz [Replikacja usługi Azure Storage](storage-redundancy.md).
 
 Aby uzyskać informacje na temat odzyskiwania po awarii, zobacz [Co zrobić po wystąpieniu awarii usługi Azure Storage](storage-disaster-recovery-guidance.md).
 

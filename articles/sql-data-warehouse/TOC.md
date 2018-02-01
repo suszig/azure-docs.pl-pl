@@ -6,6 +6,10 @@
 # Przewodniki Szybki start
 
 ## [Tworzenie i łączenie — portal](create-data-warehouse-portal.md)
+## Wstrzymywanie i wznawianie obliczeń
+### [Portal](pause-and-resume-compute-portal.md)
+### [Program PowerShell](pause-and-resume-compute-powershell.md)
+
 
 # Samouczki
 ## [1 — Ładowanie danych z obiektu blob](load-data-from-azure-blob-storage-using-polybase.md)

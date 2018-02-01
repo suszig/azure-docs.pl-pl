@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 01/24/2018
 ms.author: mimig
-ms.openlocfilehash: 242ec5bfbe33acd4731809efed9b70897b7a9608
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 2e49613cf37fa625efc7859802db86780dcb128a
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/29/2018
 ---
 > [!div class="op_single_selector"]
 > * [Java](performance-tips-java.md)
@@ -120,6 +120,13 @@ Dlatego jeśli "jak poprawić wydajność mojej bazy danych?" należy wziąć po
 6. **Implementowanie wycofywania odstępach RetryAfter**
 
     Podczas testowania wydajności, należy zwiększyć obciążenie dopóki mała liczba żądań pobrania ograniczany. Jeśli ograniczany, aplikacja kliencka powinna wycofywania na ograniczania dla interwału ponawiania określić serwer. Przestrzeganie wycofywania zapewnia spędzają na skraca czas oczekiwania między kolejnymi próbami. Obsługa zasad ponawiania znajduje się w wersji 1.8.0 lub nowszym programu SQL Server [.NET](sql-api-sdk-dotnet.md) i [Java](sql-api-sdk-java.md), wersja 1.9.0 i nowszymi wersjami z [Node.js](sql-api-sdk-node.md) i [Python](sql-api-sdk-python.md), a wszystkie obsługiwane wersje [.NET Core](sql-api-sdk-dotnet-core.md) zestawów SDK. Aby uzyskać więcej informacji, zobacz [Exceeding zastrzeżone ograniczenia przepływności](request-units.md#RequestRateTooLarge) i [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
+    
+    Z wersji 1,19 i nowszych zestawu .NET SDK istnieje mechanizm rejestrowania dodatkowych informacji diagnostycznych i rozwiązywania problemów opóźnienia, jak pokazano w poniższym przykładzie. Możesz zalogować się ciąg diagnostycznych dla żądania, które mają wyższe opóźnienie odczytu. Przechwycony ciąg diagnostycznych pomoże poznać liczbę obserwowanych 429s dla danego żądania.
+    ```csharp
+    ResourceResponse<Document> readDocument = await this.readClient.ReadDocumentAsync(oldDocuments[i].SelfLink);
+    readDocument.RequestDiagnosticsString 
+    ```
+    
 7. **Skalowanie w poziomie obciążenia klientami**
 
     Jeśli testujesz na poziomach wysokiej przepływności (> 50 000 RU/s), może stać się aplikacja kliencka "wąskie gardło" z powodu maszyny nakładanie się na użycie procesora CPU lub sieci. Jeśli osiągnąć tego punktu, można nadal push dodatkowe konto bazy danych Azure rozwiązania Cosmos przez skalowania aplikacji klienta na wielu serwerach.

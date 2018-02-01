@@ -1,6 +1,6 @@
 ---
-title: "Usługi na podstawie wyszukiwania z lokalizacji platformy Azure | Dokumentacja firmy Microsoft"
-description: "Wyszukiwanie w pobliżu z interesujących przy użyciu usługi na podstawie lokalizacji platformy Azure"
+title: "Wyszukiwanie za pomocą usług Azure Location Based Services | Microsoft Docs"
+description: "Wyszukiwanie punktu orientacyjnego w pobliżu za pomocą usług Azure Location Based Services"
 services: location-based-services
 keywords: 
 author: dsk-2015
@@ -12,21 +12,21 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: e033b1005902a9639fc352ffb9af91cb20875bee
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.openlocfilehash: 8da7d9112c9527945ab4b524625603faa84cf00d
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="search-nearby-point-of-interest-using-azure-location-based-services"></a>Wyszukiwanie w pobliżu z interesujących przy użyciu usługi na podstawie lokalizacji platformy Azure
+# <a name="search-nearby-point-of-interest-using-azure-location-based-services"></a>Wyszukiwanie punktu orientacyjnego w pobliżu za pomocą usług Azure Location Based Services
 
-W tym samouczku przedstawiono sposób skonfigurowane konto z usług na podstawie lokalizacji platformy Azure, a następnie użyć podanego interfejsów API do wyszukania punktu zainteresowań. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+W tym samouczku przedstawiono sposób konfigurowania konta przy użyciu usług Azure Location Based Services, a następnie używania udostępnionych interfejsów API do wyszukiwania punktu orientacyjnego. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Tworzenie konta usługi z usługami na podstawie lokalizacji platformy Azure
-> * Pobierz klucz subskrypcji dla Twojego konta
-> * Utwórz nową stronę sieci web przy użyciu interfejsu API sterowania mapy
-> * Użyj usługi wyszukiwania, aby znaleźć pobliskie z interesujących
+> * Tworzenie konta przy użyciu usług Azure Location Based Services
+> * Identyfikowanie klucza podstawowego dla konta usług Azure Location Based Services
+> * Tworzenie nowej strony internetowej przy użyciu interfejsu API kontrolki mapy
+> * Wyszukiwanie punktu orientacyjnego w pobliżu przy użyciu usługi Search Service
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
 
@@ -35,43 +35,43 @@ Zaloguj się do witryny [Azure Portal](https://portal.azure.com).
 
 <a id="createaccount"></a>
 
-## <a name="create-an-account-with-azure-location-based-services"></a>Tworzenie konta usługi z usługami na podstawie lokalizacji platformy Azure
+## <a name="create-an-account-with-azure-location-based-services"></a>Tworzenie konta przy użyciu usług Azure Location Based Services
 
-Wykonaj następujące kroki, aby utworzyć nowe konto usługi na podstawie lokalizacji.
+Wykonaj następujące kroki, aby utworzyć nowe konto usług Location Based Services.
 
 1. W lewym górnym rogu witryny [Azure Portal](https://portal.azure.com) kliknij przycisk **Utwórz zasób**.
 2. W polu *Wyszukaj w portalu Marketplace* wpisz **location based services**.
 3. Na liście *Wyniki* kliknij pozycję **Usługi oparte na lokalizacji (preview)**. Kliknij przycisk **Utwórz** znajdujący się poniżej mapy. 
-4. Na **tworzenie lokalizacji na podstawie usługi konta** strony, wprowadź następujące wartości:
-    - *Nazwa* z nowego konta. 
-    - *Subskrypcji* , który ma być używany dla tego konta.
-    - *Grupy zasobów* nazwę dla tego konta. Można wybrać opcję *Utwórz nowy* lub *Użyj istniejącego* grupy zasobów.
-    - Wybierz *lokalizacja grupy zasobów*.
-    - Odczyt *warunki dotyczące* i zaznacz pole wyboru, aby zaakceptować warunki. 
-    - Na koniec kliknij **Utwórz** przycisku.
+4. Na stronie **Tworzenie konta usług Location Based Services** wprowadź następujące wartości:
+    - *Nazwa* nowego konta. 
+    - *Subskrypcja*, która ma być używana dla tego konta.
+    - Nazwa *grupy zasobów* dla tego konta. Można wybrać pozycję *Utwórz nowe* lub *Użyj istniejącego* dla grupy zasobów.
+    - Wybierz *lokalizację grupy zasobów*.
+    - Zapoznaj się z *Warunkami dotyczącymi wersji zapoznawczej* i zaznacz pole wyboru, aby zaakceptować warunki. 
+    - Na koniec kliknij przycisk **Utwórz**.
    
     ![Tworzenie konta usług Location Based Services w portalu](./media/tutorial-search-location/create-lbs-account.png)
 
 
 <a id="getkey"></a>
 
-## <a name="get-the-subscription-key-for-your-account"></a>Pobierz klucz subskrypcji dla Twojego konta
+## <a name="get-the-primary-key-for-your-account"></a>Pobieranie klucza podstawowego konta
 
-Po pomyślnym utworzeniu konta usługi na podstawie lokalizacji, wykonaj kroki, aby połączyć wyszukiwanie w mapie interfejsów API:
+Po pomyślnym utworzeniu konta usług Location Based Services wykonaj kroki, aby połączyć je z interfejsami API wyszukiwania na mapach:
 
-1. Otwórz konto usługi na podstawie lokalizacji w portalu.
-2. Przejdź do swojego konta **ustawienia**, a następnie wybierz **klucze**.
-3. Kopiuj **klucz podstawowy** do Schowka. Zapisz lokalnie, do użycia w krokach postępowania. 
+1. Otwórz konto usług Location Based Services w portalu.
+2. Przejdź do obszaru **USTAWIENIA** konta, a następnie wybierz pozycję **Klucze**.
+3. Skopiuj **klucz podstawowy** do schowka. Zapisz go lokalnie do użycia w kolejnych krokach. 
 
-    ![Pobierz klucz podstawowy w portalu](./media/tutorial-search-location/lbs-get-key.png)
+    ![Pobieranie klucza podstawowego w portalu](./media/tutorial-search-location/lbs-get-key.png)
 
 
 <a id="createmap"></a>
 
-## <a name="create-new-web-page-using-azure-map-control-api"></a>Utwórz nową stronę sieci web przy użyciu interfejsu API Azure mapy formantu
-Azure interfejs API sterowania mapy jest biblioteki wygodny klienta, która pozwala łatwo zintegrować usługi na podstawie lokalizacji Azure aplikacji sieci web. Ukrywa złożoność systemu od zera wywołań usługi REST, a zwiększa wydajność pracy ze składnikami styleable i dostosowania. Poniższe kroki pokazują, jak utworzyć statyczne strony HTML osadzonych z interfejsem API sterowania mapy lokalizacji na podstawie usług. 
+## <a name="create-new-web-page-using-azure-map-control-api"></a>Tworzenie nowej strony internetowej przy użyciu interfejsu API kontrolki mapy platformy Azure
+Interfejs API kontrolek mapy platformy Azure to wygodna biblioteka klienta, która ułatwia integrowanie usług Azure Location Based Services z aplikacją internetową. Zmniejsza ona złożoność podstawowych wywołań usługi REST i zwiększa produktywność dzięki składnikom z możliwością definiowania stylu i dostosowywania. Poniższe kroki pokazują, jak utworzyć statyczną stronę HTML osadzoną przy użyciu interfejsu API kontrolki mapy w usługach Location Based Services. 
 
-1. Na komputerze lokalnym, Utwórz nowy plik i nadaj jej nazwę **MapSearch.html**. 
+1. Na maszynie lokalnej utwórz nowy plik i nadaj mu nazwę **MapSearch.html**. 
 2. Dodaj następujące składniki HTML do pliku:
 
     ```HTML
@@ -111,20 +111,20 @@ Azure interfejs API sterowania mapy jest biblioteki wygodny klienta, która pozw
 
     </html>
     ``` 
-    Zwróć uwagę, że nagłówek HTML zawiera pliki zasobów CSS i JavaScript, obsługiwanych przez biblioteki Azure formantu mapy. Uwaga *skryptu* dodane do segmentu *treści* pliku HTML. Ten segment będzie zawierać wbudowanego kodu JavaScript dostępu do interfejsów API Azure lokalizacji na podstawie tej usługi.
+    Zwróć uwagę, że nagłówek HTML zawiera pliki zasobów CSS i JavaScript obsługiwane przez bibliotekę kontrolek mapy platformy Azure. Zanotuj segment *script* dodany do *treści* pliku HTML. Ten segment będzie zawierać wbudowany kod JavaScript umożliwiający dostęp do interfejsów API usług Azure Location Based Services.
  
-3.  Dodaj następujący kod JavaScript do *skryptu* bloku pliku HTML. Zastąp symbol zastępczy *< klawisza insert >* z konta usługi na podstawie lokalizacji klucza podstawowego. 
+3.  Dodaj następujący kod JavaScript do bloku *script* w pliku HTML. W skrypcie użyj klucza podstawowego z konta usług Location Based Services. 
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var subscriptionKey = "<insert-key>";
+    var LBSAccountKey = "<_your account key_>";
     var map = new atlas.Map("map", {
-        "subscription-key": subscriptionKey
+        "subscription-key": LBSAccountKey
     });
     ```
-    Ten segment inicjuje interfejs API sterowania mapy dla klucza subskrypcji. **Atlas** jest przestrzeni nazw, która zawiera interfejs API sterowania mapy Azure i powiązane składniki visual. **Atlas. Mapa** zapewnia formantu mapy visual i interaktywne sieci web. Można zauważyć, jak mapy wygląda przez otwarcie strony HTML w przeglądarce. 
+    Ten segment inicjuje interfejs API kontrolki mapy dla klucza konta usług Azure Location Based Services. **Atlas** to przestrzeń nazw, która zawiera interfejs API kontrolki mapy platformy Azure i powiązane składniki wizualne. **atlas.Map** udostępnia kontrolkę wizualnej i interaktywnej mapy internetowej. Aby sprawdzić, jak wygląda mapa, można otworzyć stronę HTML w przeglądarce. 
 
-4. Dodaj następujący kod JavaScript do *skryptu* bloku, aby dodać warstwę numerów PIN wyszukiwania do formantu mapy:
+4. Dodaj następujący kod JavaScript do bloku *script*, aby dodać warstwę pinezek wyszukiwania do kontrolki mapy:
 
     ```JavaScript
     // Initialize the pin layer for search results to the map
@@ -136,16 +136,16 @@ Azure interfejs API sterowania mapy jest biblioteki wygodny klienta, która pozw
     });
     ```
 
-5. Zapisz plik na komputerze. 
+5. Zapisz plik na maszynie. 
 
 
 <a id="usesearch"></a>
 
-## <a name="use-search-service-to-find-nearby-point-of-interest"></a>Użyj usługi wyszukiwania, aby znaleźć pobliskie z interesujących
+## <a name="use-search-service-to-find-nearby-point-of-interest"></a>Wyszukiwanie punktu orientacyjnego w pobliżu przy użyciu usługi Search Service
 
-W tej sekcji przedstawia sposób użycia interfejsu API usługi wyszukiwanie Azure lokalizacji na podstawie usług do znajdowania punktu zainteresowania na mapie. Jest przeznaczone dla deweloperów wyszukać adresy, interesujących akcji i inne informacje geograficzne interfejsu API RESTful. Usługa wyszukiwania przypisuje informacji współrzędne geograficzne do określonego adresu. 
+W tej sekcji przedstawiono sposób wyszukiwania punktu orientacyjnego na mapie przy użyciu interfejsu API usługi Search Service w usługach Azure Location Based Services. Jest to interfejs API RESTful umożliwiający deweloperom wyszukiwanie adresów, punktów orientacyjnych i innych informacji geograficznych. Usługa Search Service przypisuje informacje o długości i szerokości geograficznej do określonego adresu. 
 
-1. Otwórz **MapSearch.html** plik utworzony w poprzedniej sekcji i Dodaj następujący kod JavaScript, aby *skryptu* bloku, aby zilustrować usługi wyszukiwania. 
+1. Otwórz plik **MapSearch.html** utworzony w poprzedniej sekcji i dodaj następujący kod JavaScript do bloku *script*, aby zilustrować usługę Search Service. 
     ```JavaScript
     // Perform a request to the search service and create a pin on the map for each result
     var xhttp = new XMLHttpRequest();
@@ -185,15 +185,15 @@ W tej sekcji przedstawia sposób użycia interfejsu API usługi wyszukiwanie Azu
         }
     };
     ```
-    Następujący fragment kodu tworzy [XMLHttpRequest](https://xhr.spec.whatwg.org/), i dodanie obsługi zdarzeń mógł przeanalizować odpowiedzi przychodzących. Dla pomyślnej odpowiedzi, zbiera adresy, nazwy, szerokości i logitude informacji dla każdej lokalizacji zwracane w `searchPins` zmiennej. Na koniec dodaje ten zbiór lokalizację `map` formantu numerów PIN. 
+    Ten fragment kodu tworzy element [XMLHttpRequest](https://xhr.spec.whatwg.org/) i dodaje procedurę obsługi zdarzeń, która analizuje przychodzącą odpowiedź. W celu uzyskania pomyślnej odpowiedzi zbiera on informacje o adresach, nazwach oraz długości i szerokości geograficznej dla każdej zwróconej lokalizacji w zmiennej `searchPins`. Na koniec ta kolekcja punktów lokalizacji jest dodawana do kontrolki `map` jako pinezki. 
 
-2. Dodaj następujący kod do *skryptu* bloku, aby wysłać XMLHttpRequest usłudze Wyszukiwanie Azure lokalizacji na podstawie usług:
+2. Dodaj następujący kod do bloku *script*, aby wysłać element XMLHttpRequest do usługi Search Service w usługach Azure Location Based Services:
 
     ```JavaScript
     var url = "https://atlas.microsoft.com/search/fuzzy/json?";
     url += "&api-version=1.0";
     url += "&query=gasoline%20station";
-    url += "&subscription-key=" + subscriptionKey;
+    url += "&subscription-key=" + LBSAccountKey;
     url += "&lat=47.6292";
     url += "&lon=-122.2337";
     url += "&radius=100000";
@@ -201,9 +201,9 @@ W tej sekcji przedstawia sposób użycia interfejsu API usługi wyszukiwanie Azu
     xhttp.open("GET", url, true);
     xhttp.send();
     ``` 
-    Ta Wstawka kodu używa wyszukiwania podstawowego interfejsu API usługi wyszukiwania o nazwie **Wyszukiwanie rozmyte**. Obsługuje on najbardziej rozmytego dowolną kombinację adresu obsługi danych wejściowych lub *POI* tokenów. Wyszukuje pobliskich **stacji benzyny**, dla danego adresu w współrzędne geograficzne i w obrębie określonej usługi radius. Twoje konto subskrypcji klucza podane wcześniej w przykładowym pliku używa do wywoływania usług na podstawie lokalizacji. Zwraca wyniki w postaci szerokości geograficznej/geograficzne pary dla lokalizacji można odnaleźć. Numery PIN wyszukiwania można zaobserwować, otwierając stronę HTML w przeglądarce. 
+    Ten fragment kodu używa podstawowego interfejsu API usługi Search Service o nazwie **Wyszukiwanie rozmyte**. Zarządza on najbardziej rozmytymi danymi wejściowymi, które obsługują dowolną kombinację tokenów adresu lub *punktu orientacyjnego*. Umożliwia wyszukiwanie pobliskiej **stacji benzynowej** dla danego adresu z określoną długością i szerokością geograficzną i w obrębie wybranego promienia. Klucz podstawowy konta podany wcześniej w przykładowym pliku jest używany do wywoływania usługi Location Based Services. Wyniki są zwracane w postaci par długość/szerokość geograficzna dla znalezionych lokalizacji. Aby obejrzeć pinezki wyszukiwania, można otworzyć stronę HTML w przeglądarce. 
 
-3. Dodaj następujące wiersze do *skryptu* bloku, aby utworzyć wyskakujące okienka dla punktów odsetek zwrócony przez usługę wyszukiwania:
+3. Dodaj następujące wiersze do bloku *script*, aby utworzyć wyskakujące okienka dla punktów orientacyjnych zwróconych przez usługę Search Service:
 
     ```JavaScript
     // Add a popup to the map which will display some basic information about a search result on hover over a pin
@@ -232,20 +232,20 @@ W tej sekcji przedstawia sposób użycia interfejsu API usługi wyszukiwanie Azu
         popup.open(map);
     });
     ```
-    Interfejs API **atlas. Menu podręczne** informuje okno zakotwiczonych w pozycji wymagane na mapie. Następujący fragment kodu ustawia zawartości i pozycji dla elementu popup, a także dodaje odbiornik zdarzeń do `map` kontroli oczekiwanie na _myszy_ na menu podręcznego. 
+    Element **atlas.Popup** interfejsu API udostępnia okno informacyjne zakotwiczone w żądanym położeniu na mapie. Ten fragment kodu ustawia zawartość i położenie wyskakującego okienka, a także dodaje do kontrolki `map` odbiornik zdarzeń oczekujący na przesunięcie _myszy_ przez wyskakujące okienko. 
 
-4. Zapisz plik, a następnie otwórz **MapSearch.html** pliku w przeglądarce sieci web i sprawdź wynik. W tym momencie mapy w przeglądarce pokazuje informacje wyskakujące okienka po umieszczeniu na jeden z kodów PIN wyszukiwania pokazano, podobny do następującego. 
+4. Zapisz plik, a następnie otwórz plik **MapSearch.html** pliku w przeglądarce internetowej i sprawdź wynik. W tym momencie mapa w przeglądarce pokazuje wyskakujące okienka informacyjne (podobne do poniższego) po najechaniu kursorem na dowolną wyświetloną pinezkę wyszukiwania. 
 
-    ![Formant mapy platformy Azure i usługi wyszukiwania](./media/tutorial-search-location/lbs-map-search.png)
+    ![Kontrolka mapy platformy Azure i usługa Search Service](./media/tutorial-search-location/lbs-map-search.png)
 
 
 ## <a name="next-steps"></a>Następne kroki
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Tworzenie konta usługi z usługami na podstawie lokalizacji platformy Azure
-> * Pobierz klucz subskrypcji dla Twojego konta
-> * Utwórz nową stronę sieci web przy użyciu interfejsu API sterowania mapy
-> * Użyj usługi wyszukiwania, aby znaleźć pobliskie z interesujących
+> * Tworzenie konta przy użyciu usług Azure Location Based Services
+> * Pobieranie klucza podstawowego konta
+> * Tworzenie nowej strony internetowej przy użyciu interfejsu API kontrolki mapy
+> * Wyszukiwanie punktu orientacyjnego w pobliżu przy użyciu usługi Search Service
 
-Przejdź do samouczka [trasy do punktu przydatne przy użyciu usługi na podstawie lokalizacji Azure](./tutorial-route-location.md) Aby dowiedzieć się, jak używać usługi na podstawie lokalizacji platformy Azure do trasy do punktu zainteresowań. 
+Przejdź do samouczka [Ustalanie trasy do punktu orientacyjnego za pomocą usług Azure Location Based Services](./tutorial-route-location.md), aby dowiedzieć się, jak używać usług Azure Location Based Services w celu określenia trasy do punktu orientacyjnego. 

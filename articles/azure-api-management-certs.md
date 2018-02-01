@@ -1,6 +1,6 @@
 ---
-title: "Przekaż certyfikat interfejsu API zarządzania platformy Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak można przekazać certyfikatu interfejsu API zarządzania dla portalu Azure."
+title: "Przekaż certyfikat zarządzania usługi Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak można przekazać certyfikatu usługi zarządzania dla portalu Azure."
 services: cloud-services
 documentationcenter: .net
 author: Thraka
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: adegeo
-ms.openlocfilehash: ad55d71a56657e9cf33c1d33e09c58295206a2ae
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e74a3e918a7c7426c743447e23ede9938ce3f63e
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="upload-an-azure-management-api-management-certificate"></a>Przekaż certyfikat zarządzania interfejsem API zarządzania platformy Azure
+# <a name="upload-an-azure-service-management-certificate"></a>Przekaż certyfikat zarządzania usługi Azure
 Certyfikaty zarządzania umożliwiają uwierzytelniania za pomocą klasycznego modelu wdrażania dostarczany przez platformę Azure. Wiele programów i narzędzia (np. programu Visual Studio lub zestawu Azure SDK) korzystały z tych certyfikatów można zautomatyzować konfigurowanie i wdrażanie różnych usług platformy Azure. 
 
 > [!WARNING]
@@ -54,5 +54,5 @@ Po utworzeniu utworzony certyfikat zarządzania, (plik cer z kluczem publicznym)
 
     ![Ustawienia](./media/azure-api-management-certs/certificate_details.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Teraz, gdy masz certyfikat zarządzania skojarzony z subskrypcją można (po zainstalowaniu zgodnego certyfikatu lokalnie) programowo nawiązać [klasycznego modelu wdrażania interfejsu API REST](https://msdn.microsoft.com/library/azure/mt420159.aspx) i automatyzacji różnych zasobów Azure, które są również powiązaną z jego subskrypcją.

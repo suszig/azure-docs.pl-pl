@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: gwallace
-ms.openlocfilehash: 0cf0b1829c7e1f9b0b8be90983a705d82784c062
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 1f005ae28309879f36a28df499685937c37a3be0
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="my-first-python-runbook"></a>Moje pierwszego elementu runbook języka Python
 
@@ -68,12 +68,11 @@ Kliknij przycisk **zapisać** można zapisać elementu runbook.
 Przed opublikowaniem elementu runbook w celu udostępnienia go w środowisku produkcyjnym warto go przetestować, aby upewnić się, że działa prawidłowo. Testowanie elementu Runbook polega na uruchomieniu jego **wersji roboczej** i interaktywnym przejrzeniu danych wyjściowych.
 
 1. Kliknij pozycję **Okienko testowania**, aby otworzyć okienko testowania.
-   ![Okienko testowania](media/automation-first-runbook-textual-python/automation-runbook-edit-controls-test.png)
-1. Kliknij opcję **Uruchom**, aby rozpocząć test. Powinna to być jedyna włączona opcja.
-1. Zostanie utworzone [zadanie elementu Runbook](automation-runbook-execution.md) i pojawi się jego stan.
+2. Kliknij opcję **Uruchom**, aby rozpocząć test. Powinna to być jedyna włączona opcja.
+3. Zostanie utworzone [zadanie elementu Runbook](automation-runbook-execution.md) i pojawi się jego stan.
    Zadanie będzie miało początkowy stan *W kolejce*, wskazujący, że trwa oczekiwanie na udostępnienie procesu roboczego elementu runbook w chmurze. Powoduje przeniesienie do *uruchamianie* gdy pracownik oświadczeń zadania, a następnie *systemem* , gdy element runbook faktycznie zacznie działać.
-1. Po zakończeniu zadania elementu Runbook zostaną wyświetlone jego dane wyjściowe. W takim przypadku powinien zostać wyświetlony *Hello World*.
-1. Zamknij okienko testowania, aby wrócić do kanwy.
+4. Po zakończeniu zadania elementu Runbook zostaną wyświetlone jego dane wyjściowe. W takim przypadku powinien zostać wyświetlony *Hello World*.
+5. Zamknij okienko testowania, aby wrócić do kanwy.
 
 ## <a name="publish-and-start-the-runbook"></a>Publikowanie i uruchamiania elementu runbook
 
@@ -82,19 +81,18 @@ Podczas publikowania elementu runbook można zastąpienie istniejącej opublikow
 W takim przypadku nie masz opublikowanej wersji jeszcze ponieważ właśnie utworzony element runbook.
 
 1. Kliknij pozycję **Opublikuj**, aby opublikować element Runbook, a następnie kliknij pozycję **Tak** po wyświetleniu monitu.
-   ![Przycisk Opublikuj](media/automation-first-runbook-textual-python/automation-runbook-edit-controls-publish.png)
-1. Podczas przewijania po lewej, aby wyświetlić element runbook w programie **elementów Runbook** okienko teraz, będzie wyświetlana **stan pisania przyp** z **opublikowano**.
+2. Podczas przewijania po lewej, aby wyświetlić element runbook w programie **elementów Runbook** okienko teraz, będzie wyświetlana **stan pisania przyp** z **opublikowano**.
 1. Prawo do wyświetlania w okienku przewiń **MyFirstRunbook Python**.
    Opcje w górnej części umożliwiają uruchamianie elementu Runbook, wyświetlanie elementu Runbook, planowanie jego uruchomienia w przyszłości lub utworzenie [elementu webhook](automation-webhooks.md) w celu umożliwienia uruchamiania za pośrednictwem wywołania HTTP.
-1. Aby uruchomić element runbook, więc klikamy **Start** , a następnie kliknij przycisk **Ok** po otwarciu bloku Uruchom element Runbook.
-1. Okienko zadania jest otwarty dla zadania elementu runbook, który został utworzony. Możesz zamknąć to okienko, ale w takim przypadku można zostawić otwarty, możesz obserwować postęp zadania.
-1. Stan zadania jest wyświetlany w **Podsumowanie zadania** i odpowiada stany pokazaliśmy, gdy przetestować element runbook.
-1. Gdy stanem elementu Runbook będzie *Ukończono*, kliknij pozycję **Dane wyjściowe**. W okienku danych wyjściowych jest otwarty, aby zobaczyć Twojej *Hello World*.
-1. Zamknij okienko danych wyjściowych.
-1. Kliknij pozycję **Wszystkie dzienniki**, aby otworzyć okienko strumieni dla zadania elementu Runbook. W strumieniu danych wyjściowych powinien być widoczny tylko ciąg *Witaj, świecie*, ale mogą zostać wyświetlone inne strumienie zadania elementu runbook, takie jak Pełne informacje i Błąd, jeśli element runbook wykonuje w nich operacje zapisywania.
-1. Zamknij okienko strumieni i w okienku zadania, aby wrócić do okienka MyFirstRunbook Python.
-1. Kliknij pozycję **Zadania**, aby otworzyć okienko zadań dla tego elementu Runbook. Zawiera ono listę wszystkich zadań utworzonych przez dany element Runbook. Ponieważ uruchomiono zadanie tylko raz, powinno być widoczne tylko jedno zadanie.
-1. Możesz kliknąć to zadanie, aby otworzyć okienko Zadania wyświetlone wcześniej po uruchomieniu elementu runbook. Dzięki temu możesz cofnąć się w czasie i wyświetlić szczegóły dowolnego zadania, które zostało utworzone dla określonego elementu Runbook.
+2. Aby uruchomić element runbook, więc klikamy **Start** , a następnie kliknij przycisk **Ok** po otwarciu bloku Uruchom element Runbook.
+3. Okienko zadania jest otwarty dla zadania elementu runbook, który został utworzony. Możesz zamknąć to okienko, ale w takim przypadku można zostawić otwarty, możesz obserwować postęp zadania.
+4. Stan zadania jest wyświetlany w **Podsumowanie zadania** i odpowiada stany pokazaliśmy, gdy przetestować element runbook.
+5. Gdy stanem elementu Runbook będzie *Ukończono*, kliknij pozycję **Dane wyjściowe**. W okienku danych wyjściowych jest otwarty, aby zobaczyć Twojej *Hello World*.
+6. Zamknij okienko danych wyjściowych.
+7. Kliknij pozycję **Wszystkie dzienniki**, aby otworzyć okienko strumieni dla zadania elementu Runbook. W strumieniu danych wyjściowych powinien być widoczny tylko ciąg *Witaj, świecie*, ale mogą zostać wyświetlone inne strumienie zadania elementu runbook, takie jak Pełne informacje i Błąd, jeśli element runbook wykonuje w nich operacje zapisywania.
+8. Zamknij okienko strumieni i w okienku zadania, aby wrócić do okienka MyFirstRunbook Python.
+9. Kliknij pozycję **Zadania**, aby otworzyć okienko zadań dla tego elementu Runbook. Zawiera ono listę wszystkich zadań utworzonych przez dany element Runbook. Ponieważ uruchomiono zadanie tylko raz, powinno być widoczne tylko jedno zadanie.
+10. Możesz kliknąć to zadanie, aby otworzyć okienko Zadania wyświetlone wcześniej po uruchomieniu elementu runbook. Dzięki temu możesz cofnąć się w czasie i wyświetlić szczegóły dowolnego zadania, które zostało utworzone dla określonego elementu Runbook.
 
 ## <a name="add-authentication-to-manage-azure-resources"></a>Dodawanie uwierzytelniania do zarządzania zasobami Azure
 
@@ -194,9 +192,7 @@ async_vm_start = compute_client.virtual_machines.start(resource_group_name, vm_n
 async_vm_start.wait()
 ```
 
-Po uruchomieniu elementu runbook języka Python (na **testu** bloku lub jako opublikowanego elementu runbook), można wprowadzić wartości dla parametrów w **Uruchom element Runbook** bloku w obszarze **parametry**.
-
-![Pole wartości parametru](media/automation-first-runbook-textual-python/runbook-python-param-highlight.png)
+Po uruchomieniu elementu runbook języka Python (na **testu** strony lub jako opublikowanego elementu runbook), można wprowadzić wartości dla parametrów w **Uruchom element Runbook** w obszarze **parametry** .
 
 Po uruchomieniu wprowadzenie wartości w pierwszym polu, drugi wyświetlane i tak dalej, dzięki czemu w razie potrzeby można wprowadzić dowolną liczbę wartości parametrów.
 
