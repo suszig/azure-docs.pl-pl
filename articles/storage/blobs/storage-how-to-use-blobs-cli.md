@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/15/2017
 ms.author: tamram
-ms.openlocfilehash: bd96cf7eb1c0c7f51b110da848a8df7914ad85c7
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d47d85af7412def342437aedf35c3d129662451d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="perform-blob-storage-operations-with-azure-cli"></a>Wykonywanie operacji w usłudze Blob Storage przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -44,7 +44,7 @@ Wykonanie instrukcji opisanych w tym samouczku wymaga użycia interfejsu wiersza
 
 Kontenery są podobne do katalogów znajdujących się na komputerze — grupy obiektów blob można organizować w kontenerze tak jak pliki w katalogu. Konto magazynu może zawierać dowolną liczbę kontenerów. W kontenerze można przechowywać nawet 500 TB danych obiektów blob, co stanowi maksymalną ilość danych na koncie magazynu.
 
-Do tworzenia kontenera do przechowywania obiektów blob służy polecenie [az storage container create](/cli/azure/storage/container#create).
+Do tworzenia kontenera do przechowywania obiektów blob służy polecenie [az storage container create](/cli/azure/storage/container#az_storage_container_create).
 
 ```azurecli-interactive
 az storage container create --name mystoragecontainer
@@ -64,7 +64,7 @@ Nowo utworzony kontener jest domyślnie prywatny. Oznacza to, że nie można kor
 
 Ustawienie publicznego dostępu na wartość `blob` lub `container` powoduje włączenie dostępu tylko do odczytu dla wszystkich użytkowników Internetu. Jeśli na przykład chcesz wyświetlić obrazy przechowywane jako obiekty blob w witrynie internetowej, musisz włączyć publiczny dostęp do odczytu. Z kolei jeśli chcesz włączyć dostęp do odczytu i zapisu, musisz użyć [sygnatury dostępu współdzielonego (SAS)](#create-a-shared-access-signature-sas).
 
-Do włączania publicznego dostępu do odczytu do kontenera służy polecenie [az storage container set-permission](/cli/azure/storage/container#create).
+Do włączania publicznego dostępu do odczytu do kontenera służy polecenie [az storage container set-permission](/cli/azure/storage/container#az_storage_container_create).
 
 ```azurecli-interactive
 az storage container set-permission \
@@ -76,7 +76,7 @@ az storage container set-permission \
 
 Usługa Blob Storage obsługuje blokowe, uzupełnialne i stronicowe obiekty blob. Blokowe obiekty blob są najczęściej spotykanym typem obiektów blob przechowywanych w usłudze Azure Storage. Uzupełnialne obiekty blob są używane w razie konieczności dodania danych do istniejącego obiektu blob bez modyfikowania jego zawartości, na przykład w przypadku rejestrowania. Stronicowe obiekty blob obsługują pliki VHD maszyn wirtualnych IaaS.
 
-W tym przykładzie do kontenera utworzonego w ostatnim kroku zostanie przekazany obiekt blob za pomocą polecenia [az storage blob upload](/cli/azure/storage/blob#upload).
+W tym przykładzie do kontenera utworzonego w ostatnim kroku zostanie przekazany obiekt blob za pomocą polecenia [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload).
 
 ```azurecli-interactive
 az storage blob upload \
@@ -89,7 +89,7 @@ Jeśli obiekt blob nie istnieje, zostanie utworzony. W przeciwnym razie zostanie
 
 ## <a name="list-the-blobs-in-a-container"></a>Wyświetlanie listy obiektów blob w kontenerze
 
-Do wyświetlania listy obiektów blob w kontenerze służy polecenie [az storage blob list](/cli/azure/storage/blob#list).
+Do wyświetlania listy obiektów blob w kontenerze służy polecenie [az storage blob list](/cli/azure/storage/blob#az_storage_blob_list).
 
 ```azurecli-interactive
 az storage blob list \
@@ -111,7 +111,7 @@ dir1/file1.txt  BlockBlob        6700  application/octet-stream  2017-04-21T18:3
 
 ## <a name="download-a-blob"></a>Pobieranie obiektu blob
 
-Przy użyciu polecenia [az storage blob download](/cli/azure/storage/blob#download) zostanie pobrany obiekt blob przekazany w poprzednim kroku.
+Przy użyciu polecenia [az storage blob download](/cli/azure/storage/blob#az_storage_blob_download) zostanie pobrany obiekt blob przekazany w poprzednim kroku.
 
 ```azurecli-interactive
 az storage blob download \
@@ -155,7 +155,7 @@ az storage blob copy start \
 
 ## <a name="delete-a-blob"></a>Usuwanie obiektu blob
 
-Do usuwania obiektu blob z kontenera służy polecenie [az storage blob delete](/cli/azure/storage/blob#delete).
+Do usuwania obiektu blob z kontenera służy polecenie [az storage blob delete](/cli/azure/storage/blob#az_storage_blob_delete).
 
 ```azurecli-interactive
 az storage blob delete \
@@ -177,9 +177,9 @@ az storage blob update
 
 ## <a name="display-and-modify-blob-properties-and-metadata"></a>Wyświetlanie i modyfikowanie właściwości i metadanych obiektów blob
 
-Każdy obiekt blob ma kilka właściwości zdefiniowanych przez usługę, takich jak np. nazwa, typ i długość, które można wyświetlić za pomocą polecenia [az storage blob show](/cli/azure/storage/blob#show). Za pomocą polecenia [az storage blob metadata update](/cli/azure/storage/blob/metadata#update) można również skonfigurować obiekt blob z niestandardowymi właściwościami, którym można przypisać własne wartości.
+Każdy obiekt blob ma kilka właściwości zdefiniowanych przez usługę, takich jak np. nazwa, typ i długość, które można wyświetlić za pomocą polecenia [az storage blob show](/cli/azure/storage/blob#az_storage_blob_show). Za pomocą polecenia [az storage blob metadata update](/cli/azure/storage/blob/metadata#az_storage_blob_metadata_update) można również skonfigurować obiekt blob z niestandardowymi właściwościami, którym można przypisać własne wartości.
 
-W tym przykładzie najpierw wyświetlimy właściwości obiektu blob zdefiniowane przez usługę, a następnie zaktualizujemy obiekt blob przy użyciu dwóch własnych właściwości metadanych. Na koniec za pomocą polecenia [az storage blob metadata show](/cli/azure/storage/blob/metadata#show) wyświetlimy właściwości metadanych obiektu blob oraz ich wartości.
+W tym przykładzie najpierw wyświetlimy właściwości obiektu blob zdefiniowane przez usługę, a następnie zaktualizujemy obiekt blob przy użyciu dwóch własnych właściwości metadanych. Na koniec za pomocą polecenia [az storage blob metadata show](/cli/azure/storage/blob/metadata#az_storage_blob_metadata_show) wyświetlimy właściwości metadanych obiektu blob oraz ich wartości.
 
 ```azurecli-interactive
 # Show properties of a blob
@@ -218,7 +218,7 @@ az storage container set-permission \
 
 ### <a name="verify-private-access"></a>Weryfikowanie dostępu prywatnego
 
-Aby potwierdzić brak publicznego dostępu do odczytu do obiektów blob w kontenerze, uzyskaj adres URL jednego z jego obiektów blob za pomocą polecenia [az storage blob url](/cli/azure/storage/blob#url).
+Aby potwierdzić brak publicznego dostępu do odczytu do obiektów blob w kontenerze, uzyskaj adres URL jednego z jego obiektów blob za pomocą polecenia [az storage blob url](/cli/azure/storage/blob#az_storage_blob_url).
 
 ```azurecli-interactive
 az storage blob url \
@@ -231,7 +231,7 @@ Przejdź do adresu URL obiektu blob w prywatnym oknie przeglądarki. Pojawi się
 
 ### <a name="create-a-sas-uri"></a>Tworzenie identyfikatora URI sygnatury dostępu współdzielonego
 
-Teraz utworzymy identyfikator URI sygnatury dostępu współdzielonego, który umożliwia dostęp do obiektu blob. W poniższym przykładzie najpierw wypełnimy zmienną adresem URL obiektu blob za pomocą polecenia [az storage blob url](/cli/azure/storage/blob#url), a następnie wypełnimy inną zmienną tokenem sygnatury dostępu współdzielonego wygenerowanym za pomocą polecenia [az storage blob generate-sas](/cli/azure/storage/blob#generate-sas). Aby wygenerować pełny identyfikator URI sygnatury dostępu współdzielonego, połączymy te dwa elementy, oddzielając je separatorem ciągu zapytania `?`.
+Teraz utworzymy identyfikator URI sygnatury dostępu współdzielonego, który umożliwia dostęp do obiektu blob. W poniższym przykładzie najpierw wypełnimy zmienną adresem URL obiektu blob za pomocą polecenia [az storage blob url](/cli/azure/storage/blob#az_storage_blob_url), a następnie wypełnimy inną zmienną tokenem sygnatury dostępu współdzielonego wygenerowanym za pomocą polecenia [az storage blob generate-sas](/cli/azure/storage/blob#az_storage_blob_generate_sas). Aby wygenerować pełny identyfikator URI sygnatury dostępu współdzielonego, połączymy te dwa elementy, oddzielając je separatorem ciągu zapytania `?`.
 
 ```azurecli-interactive
 # Get UTC datetimes for SAS start and expiry (Example: 1994-11-05T13:15:30Z)
@@ -266,7 +266,7 @@ Poczekaj na wygaśnięcie adresu URL (w tym przykładzie dwie minuty), a następ
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Jeśli nie są już potrzebne żadne zasoby z grupy zasobów, w tym utworzone konto magazynu i obiekty blob przekazane w ramach tego samouczka, usuń grupę zasobów za pomocą polecenia [az group delete](/cli/azure/group#delete).
+Jeśli nie są już potrzebne żadne zasoby z grupy zasobów, w tym utworzone konto magazynu i obiekty blob przekazane w ramach tego samouczka, usuń grupę zasobów za pomocą polecenia [az group delete](/cli/azure/group#az_group_delete).
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

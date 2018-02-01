@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: negat
-ms.openlocfilehash: 355865b963c313097f7f5900007f341dba92bf67
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 88d4012145172bcd393070904980898d9923ea1c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Zestawy skalowania i dołączone dyski danych maszyn wirtualnych platformy Azure
 [Zestawy skalowania maszyn wirtualnych](/azure/virtual-machine-scale-sets/) platformy Azure obsługują teraz maszyny wirtualne z dołączonymi dyskami danych. Dla zestawów skalowania utworzonych przy użyciu usługi Azure Managed Disks można zdefiniować dyski danych w profilu magazynu. Wcześniej jedynymi opcjami bezpośrednio dołączonego magazynu dostępnymi dla maszyn wirtualnych w zestawach skalowania były dysk systemu operacyjnego oraz dyski tymczasowe.
@@ -28,14 +28,14 @@ ms.lasthandoff: 12/20/2017
 >  Podczas tworzenia zestawu skalowania ze zdefiniowanymi dołączonymi dyskami danych nadal konieczne jest zainstalowanie i sformatowanie tych dysków z poziomu maszyny wirtualnej w celu ich użycia (podobnie jak w przypadku autonomicznych maszyn wirtualnych platformy Azure). Wygodnym sposobem wykonania tych czynności jest użycie rozszerzenia niestandardowego skryptu, które wywołuje skrypt standardowy w celu podzielenia na partycje i sformatowania wszystkich dysków danych na maszynie wirtualnej.
 
 ## <a name="create-a-scale-set-with-attached-data-disks"></a>Tworzenie zestawu skalowania z dołączonymi dyskami danych
-Prostym sposobem utworzenia zestawu skalowania z dyskami dołączonymi jest użycie polecenia [az vmss create](/cli/azure/vmss#create). W poniższym przykładzie zostaje utworzona grupa zasobów platformy Azure oraz zestaw skalowania maszyn wirtualnych obejmujący 10 maszyn wirtualnych z systemem Ubuntu, z których każda ma 2 dołączone dyski danych o pojemności 50 GB i 100 GB.
+Prostym sposobem utworzenia zestawu skalowania z dyskami dołączonymi jest użycie polecenia [az vmss create](/cli/azure/vmss#az_vmss_create). W poniższym przykładzie zostaje utworzona grupa zasobów platformy Azure oraz zestaw skalowania maszyn wirtualnych obejmujący 10 maszyn wirtualnych z systemem Ubuntu, z których każda ma 2 dołączone dyski danych o pojemności 50 GB i 100 GB.
 
 ```bash
 az group create -l southcentralus -n dsktest
 az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --data-disk-sizes-gb 50 100
 ```
 
-Polecenie [az vmss create](/cli/azure/vmss#create) powoduje ustawienie pewnych domyślnych wartości konfiguracji, jeśli nie zostaną określone. Aby wyświetlić dostępne opcje, które można przesłonić, spróbuj użyć polecenia:
+Polecenie [az vmss create](/cli/azure/vmss#az_vmss_create) powoduje ustawienie pewnych domyślnych wartości konfiguracji, jeśli nie zostaną określone. Aby wyświetlić dostępne opcje, które można przesłonić, spróbuj użyć polecenia:
 
 ```bash
 az vmss create --help

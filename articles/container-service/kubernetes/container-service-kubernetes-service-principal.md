@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.date: 11/30/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 0c7e05525f1c6d11c17b4b36946dd797a7a95d08
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 4114093802d7e56eaeb64c0998d3fc675d9baa87
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>Konfigurowanie jednostki usługi Azure AD dla klastra Kubernetes w usłudze Azure Container Service
 
@@ -22,7 +22,7 @@ ms.lasthandoff: 12/06/2017
 W usłudze Azure Container Service klaster Kubernetes wymaga [jednostki usługi Azure Active Directory](../../active-directory/develop/active-directory-application-objects.md) do współpracy z interfejsami API platformy Azure. Nazwa główna usługi jest potrzebna do dynamicznego zarządzania zasobami, takimi jak [trasy zdefiniowane przez użytkownika](../../virtual-network/virtual-networks-udr-overview.md) i narzędzie [Azure Load Balancer dla warstwy 4](../../load-balancer/load-balancer-overview.md).
 
 
-W tym artykule przedstawiono różne sposoby konfigurowania jednostki usługi dla klastra Kubernetes. Na przykład jeśli zainstalowano i skonfigurowano [interfejs wiersza polecenia platformy Azure w wersji 2.0](/cli/azure/install-az-cli2), można uruchomić polecenie [`az acs create`](/cli/azure/acs#create), aby jednocześnie utworzyć klaster Kubernetes i nazwę główną usługi.
+W tym artykule przedstawiono różne sposoby konfigurowania jednostki usługi dla klastra Kubernetes. Na przykład jeśli zainstalowano i skonfigurowano [interfejs wiersza polecenia platformy Azure w wersji 2.0](/cli/azure/install-az-cli2), można uruchomić polecenie [`az acs create`](/cli/azure/acs#az_acs_create), aby jednocześnie utworzyć klaster Kubernetes i nazwę główną usługi.
 
 
 ## <a name="requirements-for-the-service-principal"></a>Wymagania dotyczące nazwy głównej usługi
@@ -95,7 +95,7 @@ Poniższy przykład przedstawia sposób przekazania parametrów poprzez interfej
 
 ## <a name="option-2-generate-a-service-principal-when-creating-the-cluster-with-az-acs-create"></a>Opcja 2. Wygenerowanie jednostki usługi podczas tworzenia klastra przy użyciu polecenia `az acs create`
 
-Jeśli uruchamiasz polecenie [`az acs create`](/cli/azure/acs#create) w celu utworzenia klastra Kubernetes, masz możliwość automatycznego wygenerowania jednostki usługi.
+Jeśli uruchamiasz polecenie [`az acs create`](/cli/azure/acs#az_acs_create) w celu utworzenia klastra Kubernetes, masz możliwość automatycznego wygenerowania jednostki usługi.
 
 Tak jak w przypadku innych opcji tworzenia klastra Kubernetes, parametry istniejącej nazwy głównej usługi można określić po uruchomieniu polecenia `az acs create`. Jednak w przypadku pominięcia tych parametrów interfejs wiersza polecenia platformy Azure automatycznie tworzy jednostkę usługi do użycia z usługą Container Service. Podczas wdrażania dzieje się to w sposób niewidoczny dla użytkownika.
 

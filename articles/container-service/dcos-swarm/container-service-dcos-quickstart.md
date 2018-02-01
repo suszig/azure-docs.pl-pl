@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 08/04/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 69f8f415ce851a5d8034d8196ab541e8491dc417
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: b81dc61e61f97e34ace21c1239681c1254efb7be
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-a-dcos-cluster"></a>Wdrażanie klastra DC/OS
 
@@ -25,7 +25,7 @@ Dla tego samouczka wymagany jest interfejs wiersza polecenia platformy Azure w w
 
 ## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure. 
 
-Zaloguj się do subskrypcji platformy Azure za pomocą polecenia [az login](/cli/azure/#login) i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie.
+Zaloguj się do subskrypcji platformy Azure za pomocą polecenia [az login](/cli/azure/#az_login) i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie.
 
 ```azurecli
 az login
@@ -33,7 +33,7 @@ az login
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#create). Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. 
+Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#az_group_create). Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. 
 
 Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myResourceGroup* w lokalizacji *eastus*.
 
@@ -43,7 +43,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-dcos-cluster"></a>Tworzenie klastra DC/OS
 
-Aby utworzyć klaster DC/OS, użyj polecenia [az acs create](/cli/azure/acs#create).
+Aby utworzyć klaster DC/OS, użyj polecenia [az acs create](/cli/azure/acs#az_acs_create).
 
 Następujący przykład umożliwia utworzenie klastra DC/OS o nazwie *myDCOSCluster* oraz kluczy SSH, jeśli jeszcze nie istnieją. Aby użyć określonego zestawu kluczy, użyj opcji `--ssh-key-value`.  
 
@@ -51,7 +51,7 @@ Następujący przykład umożliwia utworzenie klastra DC/OS o nazwie *myDCOSClus
 az acs create --orchestrator-type dcos --resource-group myResourceGroup --name myDCOSCluster --generate-ssh-keys
 ```
 
-W niektórych przypadkach, np. ograniczonej wersji próbnej, subskrypcja platformy Azure ma ograniczony dostęp do zasobów platformy Azure. Jeśli wdrożenie nie powiedzie się z powodu ograniczonej liczby dostępnych rdzeni, zmniejsz domyślną liczbę agentów, dodając `--agent-count 1` do polecenia [az acs create](/cli/azure/acs#create). 
+W niektórych przypadkach, np. ograniczonej wersji próbnej, subskrypcja platformy Azure ma ograniczony dostęp do zasobów platformy Azure. Jeśli wdrożenie nie powiedzie się z powodu ograniczonej liczby dostępnych rdzeni, zmniejsz domyślną liczbę agentów, dodając `--agent-count 1` do polecenia [az acs create](/cli/azure/acs#az_acs_create). 
 
 Po kilku minutach wykonywanie polecenia zostanie zakończone i zwrócone zostaną informacje o wdrożeniu.
 
@@ -156,7 +156,7 @@ Po przejściu do tego adresu zostanie zwrócona domyślna witryna serwera NGINX.
 
 ## <a name="delete-dcos-cluster"></a>Usuwanie klastra DC/OS
 
-Gdy klaster nie będzie już potrzebny, można użyć polecenia [az group delete](/cli/azure/group#delete), aby usunąć grupę zasobów, klaster DC/OS oraz wszystkie pokrewne zasoby.
+Gdy klaster nie będzie już potrzebny, można użyć polecenia [az group delete](/cli/azure/group#az_group_delete), aby usunąć grupę zasobów, klaster DC/OS oraz wszystkie pokrewne zasoby.
 
 ```azurecli
 az group delete --name myResourceGroup --no-wait
