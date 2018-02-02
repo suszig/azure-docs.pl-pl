@@ -5,19 +5,17 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: article
-ms.date: 12/12/2017
-ms.author: mabrigg
+ms.date: 01/31/2018
+ms.author: jeffgilb
+ms.reviewer: wfayed
 keywords: 
-ms.openlocfilehash: 642ed3298eec0bab5515df117c0310786358e417
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 2f15e130859272a729fb0ad6e0b718d4724f2103
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integracja Azure datacenter stosu - tożsamości
-
-*Dotyczy: Azure stosu zintegrowane systemy*
-
 Stos Azure za pomocą usługi Azure Active Directory (Azure AD) lub usługi Active Directory Federation Services (AD FS) można wdrożyć jako dostawcy tożsamości. Wybór należy przed wdrożeniem stosu Azure. Wdrożenia przy użyciu usług AD FS jest również nazywany wdrażanie stosu Azure w trybie rozłączonym.
 
 W poniższej tabeli przedstawiono różnice między tożsamości dwóch opcji:
@@ -26,7 +24,7 @@ W poniższej tabeli przedstawiono różnice między tożsamości dwóch opcji:
 |---------|---------|---------|
 |Rozliczenia|Musi być pojemności<br> Tylko Enterprise Agreement (EA)|Pojemności lub płatności jako — użytkownik użycia<br>Umowa EA lub dostawca rozwiązań w chmurze (CSP)|
 |Tożsamość|Musi być usług AD FS|Azure AD lub AD FS|
-|Syndykacja Marketplace|Nie jest obecnie dostępna|Obsługiwane<br>BYOL licencjonowania|
+|Syndykacja Marketplace|Obsługiwane<br>BYOL licencjonowania|Obsługiwane<br>BYOL licencjonowania|
 |Rejestracja|Zalecane, wymaga nośnika wymiennego<br> i oddzielne podłączonego urządzenia.|Automatyczne|
 |Poprawek i aktualizacji|Wymagane, wymaga nośnika wymiennego<br> i oddzielne podłączonego urządzenia.|Pakiet aktualizacji, które mogą być pobierane bezpośrednio<br> z Internetu do stosu platformy Azure.|
 
@@ -66,7 +64,7 @@ Jako dane wejściowe dla parametrów automatyzacji wymagane są następujące in
 
 |Parametr|Opis|Przykład|
 |---------|---------|---------|
-|CustomADGlobalCatalog|Nazwa FQDN docelowego lasu usługi Active Directory<br>Czy chcesz zintegrować z|contoso.com|
+|CustomADGlobalCatalog|Nazwa FQDN docelowego lasu usługi Active Directory<br>Czy chcesz zintegrować z|Contoso.com|
 |CustomADAdminCredentials|Użytkownik z uprawnieniami odczytu LDAP|YOURDOMAIN\graphservice|
 
 ### <a name="create-user-account-in-the-existing-active-directory-optional"></a>Utwórz konta użytkowników w istniejącej usługi Active Directory (opcjonalnie)
@@ -119,7 +117,7 @@ Wymagane są następujące informacje jako dane wejściowe dla parametrów autom
 |Parametr|Opis|Przykład|
 |---------|---------|---------|
 |CustomAdfsName|Nazwa dostawcy oświadczeń. <cr>Wygląda w ten sposób na strony docelowej usług AD FS.|Contoso|
-|CustomAD<br>FSFederationMetadataEndpointUri|Łącze metadanych Federacji|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.XML|
+|CustomAD<br>FSFederationMetadataEndpointUri|Łącze metadanych Federacji|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
 
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Wyzwalacz automatyzacji do skonfigurowania zaufania dostawcy oświadczeń w stosie Azure
@@ -158,7 +156,7 @@ Wymagane są następujące informacje jako dane wejściowe dla parametrów autom
 |Parametr|Opis|Przykład|
 |---------|---------|---------|
 |CustomAdfsName|Nazwa dostawcy oświadczeń. Wygląda na to w ten sposób na strony docelowej usług AD FS.|Contoso|
-|CustomADFSFederationMetadataFile|Plik metadanych Federacji|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.XML|
+|CustomADFSFederationMetadataFile|Plik metadanych Federacji|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
 
 ### <a name="create-federation-metadata-file"></a>Utwórz plik metadanych Federacji
 
@@ -333,6 +331,6 @@ Jeśli dowolnych poleceniach cmdlet nie powiedzie się, można zbierać dodatkow
    ```
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
-[Azure stosu integracji datacenter — publikować punkty końcowe](azure-stack-integrate-endpoints.md)
+[Zarejestruj Azure stosu](azure-stack-registration.md)

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: nitinme
-ms.openlocfilehash: ede1a974b32227edf44464ed56ae85a1ea7ee97b
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: c668dde33b3571436711c6c5e5289993a9edf1a2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>Tworzenie aplikacji Spark dla klastra usługi HDInsight za pomocą narzędzi Azure dla programu Eclipse
 
@@ -44,7 +44,7 @@ Narzędzia HDInsight w zestawie narzędzi Azure dla programu Eclipse do tworzeni
 
 
 ## <a name="install-hdinsight-tools-in-azure-toolkit-for-eclipse-and-the-scala-plug-in"></a>Instalowanie narzędzi HDInsight Tools w zestawie narzędzi Azure dla programu Eclipse i Scala wtyczki
-### <a name="install-hdinsight-toolsazure-toolkit-for"></a>Zainstaluj HDInsight Toolsazure-toolkit — dla
+### <a name="install-azure-toolkit-for-eclipse"></a>Zainstaluj zestaw narzędzi platformy Azure dla programu Eclipse
 Narzędzia HDInsight Tools dla programu Eclipse jest dostępny jako część zestawu narzędzi platformy Azure dla programu Eclipse. Aby uzyskać instrukcje instalacji, zobacz [Instalowanie zestawu narzędzi platformy Azure dla programu Eclipse](https://docs.microsoft.com/java/azure/eclipse/azure-toolkit-for-eclipse-installation).
 ### <a name="install-the-scala-plug-in"></a>Instalowanie wtyczki Scala
 Po otwarciu Eclipse, narzędzia HDInsight automatycznie wykrywa, czy zainstalowano Scala wtyczki. Wybierz **OK** aby kontynuować, a następnie postępuj zgodnie z instrukcjami, aby zainstalować wtyczkę z witryny Marketplace Eclipse.

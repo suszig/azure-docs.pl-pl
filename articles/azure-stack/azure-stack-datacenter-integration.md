@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: ef8b30744c3334086680ab8c7211ad73b792c95c
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 2c013c11dea5217d564ac15a13a8d11614989057
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Zagadnienia dotyczące integracji centrum danych Azure stosu zintegrowane systemy
 Jeśli interesuje Cię systemu Azure stosu zintegrowane, należy poznać niektóre z najważniejszych kwestii dotyczących planowania wdrożenia i jak system dopasowuje się do centrum danych. Ten artykuł zawiera omówienie te zagadnienia dotyczące ułatwiającym podejmowanie decyzji ważne infrastruktury systemu Azure stosu wieloma węzłami. Opis tych zagadnień pomaga podczas pracy z dostawcą sprzętu OEM zgodnie z wdrożeniem Azure stosu w centrum danych.  
@@ -27,9 +27,7 @@ Jeśli interesuje Cię systemu Azure stosu zintegrowane, należy poznać niektó
 > [!NOTE]
 > Azure systemów wielowęzłowego stosu zakupienia tylko autoryzowanym sprzętem dostawców. 
 
-Aby wdrożyć stosu Azure istnieje zestaw decyzji, które należy poprawnie integracji ze środowiskiem Azure stosu. Musisz Przekaż te informacje podczas procesu planowania dostawcy rozwiązań i być gotowy do dostawcy sprzętu przed rozpoczęciem wdrażania ułatwić proces Przejdź szybkie i sprawne.
-
-Informacje wymagane zakresów w sieci, zabezpieczeń i informacje o tożsamości z wiele istotnych decyzji, które mogą wymagać wiedzy z wielu różnych obszarów i inne osoby podejmujące decyzje. W związku z tym może być konieczne ściągnąć osób z wielu zespoły w organizacji, aby upewnić się, że wszystkie wymagane informacje gotowe, przed rozpoczęciem wdrażania. Ułatwia komunikować się z dostawcą sprzętu podczas zbierania tych informacji, jak mogą pojawić się porady przydatne do tworzenia swoje decyzje dotyczące.
+Aby wdrożyć stosu Azure, konieczne jest zapewnienie informacje na temat planowania dostawcy rozwiązań, przed rozpoczęciem wdrażania ułatwić proces Przejdź szybkie i sprawne. Informacje wymagane zakresów w sieci, zabezpieczeń i informacje o tożsamości z wiele istotnych decyzji, które mogą wymagać wiedzy z wielu różnych obszarów i inne osoby podejmujące decyzje. W związku z tym może być konieczne ściągnąć osób z wielu zespoły w organizacji, aby upewnić się, że wszystkie wymagane informacje gotowe, przed rozpoczęciem wdrażania. Ułatwia komunikować się z dostawcą sprzętu podczas zbierania tych informacji, jak mogą pojawić się porady przydatne do tworzenia swoje decyzje dotyczące.
 
 Podczas badania i zbieranie wymaganych informacji, może być konieczne dokonanie pewnych zmian w konfiguracji przed wdrożeniem w środowisku sieciowym. Mogą one obejmować rezerwacji przestrzeni adresów IP dla rozwiązania Azure stosu, konfigurowanie Twojego routery, przełączniki i zapór, aby przygotować się do łączność nowych przełączników rozwiązania Azure stosu. Upewnij się, że ma obszaru podmiotu ekspert wyrównany do pomóc w planowaniu.
 
@@ -38,7 +36,7 @@ Azure stos jest zapieczętowany system, gdzie infrastruktury jest zablokowana za
 
 Codzienne zarządzanie i operacje jest nie administratora nieograniczony dostęp do infrastruktury. Operatory stosu Azure muszą zarządzać systemu za pośrednictwem portalu administratora lub za pośrednictwem usługi Azure Resource Manager (za pośrednictwem programu PowerShell lub interfejsu API REST). Brak dostępu do systemu, narzędzia do zarządzania, takie jak Menedżer funkcji Hyper-V lub Menedżera klastra trybu Failover nie istnieje. Aby lepiej chronić systemu, oprogramowania innych firm (na przykład agenci) nie można zainstalować wewnątrz składników infrastruktury Azure stosu. Współdziałanie z zewnętrznego oprogramowania do zarządzania i zabezpieczeń odbywa się za pośrednictwem programu PowerShell lub interfejsu API REST.
 
-Gdy wyższy poziom dostępu jest potrzebna do rozwiązywania problemów, które nie są rozpoznawane za pomocą kroków pośrednictwa alertu, należy skontaktować się z pomocy technicznej. Za pomocą techniczną Brak metody zapewnienie tymczasowego pełne uprawnienia dostępu administratora systemu do bardziej zaawansowanych operacji. 
+Gdy wyższy poziom dostępu jest potrzebna do rozwiązywania problemów, które nie są rozpoznawane za pomocą kroków pośrednictwa alertu, należy skontaktować się z Microsoft Support. Za pomocą techniczną Brak metody zapewnienie tymczasowego pełne uprawnienia dostępu administratora systemu do bardziej zaawansowanych operacji. 
 
 ## <a name="identity-considerations"></a>Zagadnienia dotyczące tożsamości
 
@@ -179,7 +177,10 @@ Replikowanie danych w dodatkowej lokalizacji i organizowania aplikacji w tryb fa
 > [!IMPORTANT]
 > W początkowej wersji systemów zintegrowane firma Microsoft będzie obsługiwać technologii ochrony, które działają na poziomie gościa maszyny wirtualnej IaaS. Nie można zainstalować agentów na serwerach infrastruktury podstawowej.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="learn-more"></a>Dowiedz się więcej
 
 - Informacje o przypadki użycia, zakupu partnerami i dostawcami sprzętu OEM, zobacz [stosu Azure](https://azure.microsoft.com/overview/azure-stack/) stronę produktu.
 - Informacji o plan i dostępności geograficznie stosu Azure zintegrowanych systemów, zobacz oficjalny dokument: [stosu Azure: rozszerzenie Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
+
+## <a name="next-steps"></a>Kolejne kroki
+[Modele połączenia wdrażania w usłudze Azure stosu](azure-stack-connection-models.md)

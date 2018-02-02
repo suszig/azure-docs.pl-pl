@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 91fe06825d1db586b715617241b0ca39115414c0
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 4de290c2200aa3beffe277313d0b0b44a32d1fe5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-storage"></a>Użyj przypisany użytkownik zarządzane usługi tożsamości (MSI) na maszynie Wirtualnej systemu Linux dostęp do magazynu Azure
 
@@ -134,10 +134,10 @@ Ponieważ pliki wymagają magazynu obiektów blob, należy utworzyć kontener ob
 
 Za pomocą Instalatora MSI, kodu mogą uzyskiwać tokeny dostępu do uwierzytelniania do zasobów, które obsługują uwierzytelnianie usługi Azure AD. W tym samouczku jest używany Magazyn Azure.
 
-Najpierw należy udzielić dostępu tożsamości MSI do kontenera magazynu Azure. W takim przypadku można użyć kontenera utworzony wcześniej. Zaktualizuj wartości dla `<MSI PRINCIPALID>`, `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<STORAGE ACCOUNT NAME>`, i `<CONTAINER NAME>` jako odpowiednie dla danego środowiska. Zastąp `<CLIENT ID>` z `clientId` właściwości zwróconej przez `az identity create` w [utworzyć instalatora MSI przypisany użytkownik](#create-a-user-assigned-msi):
+Najpierw należy udzielić dostępu tożsamości MSI do kontenera magazynu Azure. W takim przypadku można użyć kontenera utworzony wcześniej. Zaktualizuj wartości dla `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<STORAGE ACCOUNT NAME>`, i `<CONTAINER NAME>` jako odpowiednie dla danego środowiska. Ponadto Zastąp `<MSI PRINCIPALID>` z `principalId` właściwości zwróconej przez `az identity create` w [utworzyć instalatora MSI przypisany użytkownik](#create-a-user-assigned-msi):
 
 ```azurecli-interactive
-az role assignment create --assignee <MSI PRINCIPALID> --role ‘Reader’ --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>/blobServices/default/containers/<CONTAINER NAME>"
+az role assignment create --assignee <MSI PRINCIPALID> --role 'Reader' --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>/blobServices/default/containers/<CONTAINER NAME>"
 ```
 
 Odpowiedź zawiera szczegóły dotyczące przypisania roli, utworzyć:

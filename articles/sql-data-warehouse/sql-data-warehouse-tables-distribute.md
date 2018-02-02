@@ -14,11 +14,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 01/18/2018
 ms.author: barbkess
-ms.openlocfilehash: 692d92f2e45e04a4eb284b43797b5b468cd9ec1b
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 3c86b89da796223336e3a0d9dd809ae140d6911e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Wskazówki dotyczące projektowania rozproszonych tabel w magazynie danych SQL Azure
 
@@ -121,7 +121,7 @@ Aby zminimalizować przenoszenia danych, wybierz kolumnę dystrybucji który:
 
 ### <a name="what-to-do-when-none-of-the-columns-are-a-good-distribution-column"></a>Co należy zrobić, gdy żaden z kolumn nie jest kolumną dobrej
 
-Gdy brak kolumn odpowiednimi kandydatami istnieje, a następnie należy rozważyć użycie okrężnego jako metoda dystrybucji.
+Jeśli żadna z kolumn nie ma za mało odrębnych wartości w kolumnie dystrybucji, można utworzyć nową kolumnę jako złożone z co najmniej jedną wartość. Aby uniknąć przenoszenia danych podczas wykonywania zapytania, należy użyć kolumny dystrybucji złożonego jako kolumnę sprzężenia w zapytaniach.
 
 Po projektowania tabeli rozpowszechniane skrót, następnym krokiem jest ładowanie danych do tabeli.  Ładowania wskazówki, zobacz [omówienie ładowania](sql-data-warehouse-overview-load.md). 
 

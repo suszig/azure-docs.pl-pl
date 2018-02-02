@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c1909183a33ed03d8165671cff25cc8b83b77733
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1097b1ddd2e8f2fae0ffc809aee63be5c2ed4cb1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="adding-azure-automation-resources-to-an-oms-management-solution-preview"></a>Dodawanie zasobów usługi Automatyzacja Azure OMS rozwiązania do zarządzania (wersja zapoznawcza)
 > [!NOTE]
@@ -40,7 +40,7 @@ W tym artykule przyjęto założenie, że znasz już następujące informacje.
 - Jak [Tworzenie szablonów usługi Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
 
 ## <a name="automation-account"></a>Konto usługi Automation
-Wszystkie zasoby w automatyzacji Azure są zawarte w [konto automatyzacji](../automation/automation-security-overview.md#automation-account-overview).  Zgodnie z opisem w [OMS obszaru roboczego i konto automatyzacji](operations-management-suite-solutions.md#oms-workspace-and-automation-account) konta automatyzacji nie jest zawarty w rozwiązaniu do zarządzania, ale musi istnieć przed zainstalowaniem rozwiązania.  Jeśli nie jest dostępny, nie będą instalacji rozwiązania.
+Wszystkie zasoby w automatyzacji Azure są zawarte w [konto automatyzacji](../automation/automation-security-overview.md#automation-account-overview).  Zgodnie z opisem w [OMS obszaru roboczego i konto automatyzacji](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account) konta automatyzacji nie jest zawarty w rozwiązaniu do zarządzania, ale musi istnieć przed zainstalowaniem rozwiązania.  Jeśli nie jest dostępny, nie będą instalacji rozwiązania.
 
 Nazwa każdego zasobu automatyzacji zawiera nazwę swojego konta automatyzacji.  Jest to rozwiązanie z **accountName** parametru, jak w poniższym przykładzie zasobu elementu runbook.
 
@@ -113,7 +113,7 @@ Właściwości automatyzacji zadań są opisane w poniższej tabeli.
 
 | Właściwość | Opis |
 |:--- |:--- |
-| Element runbook |Jedna nazwa jednostki o nazwie elementu runbook, aby rozpocząć. |
+| runbook |Jedna nazwa jednostki o nazwie elementu runbook, aby rozpocząć. |
 | parameters |Jednostki dla każdej wartości parametru wymagane przez element runbook. |
 
 Zadanie zawiera nazwę elementu runbook i wartości parametrów do wysłania do elementu runbook.  Zadanie powinno [są zależne od](operations-management-suite-solutions-solution-file.md#resources) elementu runbook, który jest uruchamiany od elementu runbook musi zostać utworzone przed zadania.  Jeśli masz wiele elementów runbook, który ma być uruchamiany przez zadanie, które są zależne od innych zadań, które powinny być uruchamiane w pierwszy można zdefiniować ich kolejność.
@@ -171,7 +171,7 @@ W poniższej tabeli opisano właściwości zasobów poświadczeń.
 
 | Właściwość | Opis |
 |:--- |:--- |
-| Nazwa użytkownika |Nazwa użytkownika dla poświadczenia. |
+| userName |Nazwa użytkownika dla poświadczenia. |
 | hasło |Hasło dla poświadczeń. |
 
 
@@ -281,10 +281,10 @@ Jeśli ustawisz wartość początkowa zmiennej musi być skonfigurowany jako pra
 
 | Typ danych | Opis | Przykład | Jest rozpoznawana jako |
 |:--|:--|:--|:--|
-| Ciąg   | Wartość należy ująć w cudzysłów.  | "\"Hello world\"" | "Hello world" |
+| ciąg   | Wartość należy ująć w cudzysłów.  | "\"Hello world\"" | "Hello world" |
 | numeryczne  | Wartość liczbowa z apostrofy.| "64" | 64 |
-| Wartość logiczna  | **wartość true,** lub **false** w cudzysłowy.  Należy pamiętać, że ta wartość musi być litera. | wartość "prawda" | Wartość true |
-| Data i godzina | Serializacji wartości typu date.<br>Polecenia cmdlet ConvertTo-Json w programie PowerShell służy do generowania wartości dla określonej daty.<br>Przykład: get data "2017-5/24 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
+| wartość logiczna  | **wartość true,** lub **false** w cudzysłowy.  Należy pamiętać, że ta wartość musi być litera. | wartość "prawda" | prawda |
+| datetime | Serializacji wartości typu date.<br>Polecenia cmdlet ConvertTo-Json w programie PowerShell służy do generowania wartości dla określonej daty.<br>Przykład: get data "2017-5/24 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
 
 ## <a name="modules"></a>Moduły
 Rozwiązania do zarządzania, nie trzeba definiować [modułów globalnych](../automation/automation-integration-modules.md) używany przez elementy runbook, ponieważ zawsze będzie dostępna na Twoim koncie automatyzacji.  Należy uwzględnić zasobów dla innych modułu używany przez elementy runbook.
@@ -322,16 +322,16 @@ Aktualizacji rozwiązanie do zarządzania, które zawiera element runbook, któr
 
 
 
-## <a name="sample"></a>Przykład
+## <a name="sample"></a>Sample
 Poniżej przedstawiono przykładowe rozwiązanie obejmujące obejmuje następujące zasoby:
 
-- Element Runbook.  To jest przykładowy element runbook, przechowywane w publicznych repozytorium GitHub.
+- Runbook.  To jest przykładowy element runbook, przechowywane w publicznych repozytorium GitHub.
 - Zadanie usługi Automatyzacja, który uruchomi element runbook, gdy rozwiązanie jest zainstalowane.
 - Harmonogram i harmonogram uruchamiania elementu runbook w regularnych odstępach czasu.
 - Certyfikat.
-- Poświadczenie.
+- Credential.
 - Zmienna.
-- Moduł.  Jest to [modułu OMSIngestionAPI](https://www.powershellgallery.com/packages/OMSIngestionAPI/1.5) do zapisywania danych do analizy dzienników. 
+- Module.  Jest to [modułu OMSIngestionAPI](https://www.powershellgallery.com/packages/OMSIngestionAPI/1.5) do zapisywania danych do analizy dzienników. 
 
 W przykładzie użyto [parametry standardowego rozwiązania](operations-management-suite-solutions-solution-file.md#parameters) zmiennych, które służy zwykle do rozwiązania, w przeciwieństwie do wartości hardcoding w definicji zasobu.
 
@@ -649,5 +649,5 @@ W przykładzie użyto [parametry standardowego rozwiązania](operations-manageme
 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Dodaj widok do rozwiązania](operations-management-suite-solutions-resources-views.md) do wizualizacji zebranych danych.

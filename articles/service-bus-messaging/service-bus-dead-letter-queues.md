@@ -12,25 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 01/31/2018
 ms.author: sethm
-ms.openlocfilehash: e5070e225387f5d4ae9d49234b4e260a57436291
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: a82d70e7bf776bf470d14e7f061774ccbb136316
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Omówienie kolejki utraconych wiadomości usługi Service Bus
 
-Kolejki usługi Service Bus i subskrypcje tematu zapewniają podrzędnej kolejki dodatkowej, nazywany *kolejki utraconych wiadomości* (DLQ). Kolejki utraconych wiadomości nie trzeba jawnie można utworzyć i nie może być usunięte ani w przeciwnym razie zarządzane niezależnie od głównego jednostki.
+Azure kolejek usługi Service Bus i subskrypcje tematu zapewniają podrzędnej kolejki dodatkowej, nazywany *kolejki utraconych wiadomości* (DLQ). Kolejki utraconych wiadomości nie trzeba jawnie można utworzyć i nie może być usunięte ani w przeciwnym razie zarządzane niezależnie od głównego jednostki.
 
-W tym artykule omówiono kolejki utraconych wiadomości w Azure Service Bus. Znacznie dyskusji zilustrowane [próbki kolejki utraconych wiadomości](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/DeadletterQueue) w witrynie GitHub.
+W tym artykule opisano kolejki utraconych wiadomości w usłudze Service Bus. Znacznie dyskusji zilustrowane [próbki kolejki utraconych wiadomości](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/DeadletterQueue) w witrynie GitHub.
  
 ## <a name="the-dead-letter-queue"></a>Kolejki utraconych wiadomości
 
 Kolejki utraconych wiadomości służy do przechowywania wiadomości, których nie można dostarczyć żadnych odbiorcy lub wiadomości, których nie można przetworzyć. Komunikaty można następnie usuwane z DLQ i inspekcji. Aplikacji może za pomocą operatora, rozwiązanie problemów i ponowne przesłanie wiadomości, fakt, że wystąpił błąd podczas logowania i podjęcia działań naprawczych. 
 
-Z perspektywy interfejsu API i protokół DLQ przede wszystkim jest podobny do każdej kolejki, z tą różnicą, że wiadomości mogą zostać przesłane tylko za pomocą gestu utraconych jednostki nadrzędnej. Ponadto, time-to-live nie zostaną spełnione, a nie utraconych komunikatów z DLQ. Kolejki utraconych wiadomości w pełni obsługuje operacje transakcyjne i dostarczania peek blokady.
+Z perspektywy interfejsu API i protokół DLQ przede wszystkim jest podobny do każdej kolejki, z tą różnicą, że komunikaty może zostać przesłane tylko za pośrednictwem operacji utraconych jednostki nadrzędnej. Ponadto, time-to-live nie zostaną spełnione, a nie utraconych komunikatów z DLQ. Kolejki utraconych wiadomości w pełni obsługuje operacje transakcyjne i dostarczania peek blokady.
 
 Należy zauważyć, że nie jest Brak automatycznego oczyszczania DLQ. Wiadomości pozostaną w DLQ, dopóki jawnie je odzyskać z DLQ i wywołanie [Complete()](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) wiadomości utraconych.
 
@@ -45,27 +45,31 @@ Aplikacje mogą definiować własne kody `DeadLetterReason` właściwości, ale 
 | Warunek | DeadLetterReason | DeadLetterErrorDescription |
 | --- | --- | --- |
 | Zawsze |HeaderSizeExceeded |Przekroczono przydział rozmiaru dla tego strumienia. |
-| ! TopicDescription.<br />EnableFilteringMessagesBeforePublishing i SubscriptionDescription.<br />EnableDeadLetteringOnFilterEvaluationExceptions |wyjątek. GetType(). Nazwa |wyjątek. Komunikat |
+| ! TopicDescription.<br />EnableFilteringMessagesBeforePublishing i SubscriptionDescription.<br />EnableDeadLetteringOnFilterEvaluationExceptions |exception.GetType().Name |exception.Message |
 | EnableDeadLetteringOnMessageExpiration |TTLExpiredException |Komunikat wygasła i została martwych lettered. |
 | SubscriptionDescription.RequiresSession |Identyfikator sesji ma wartość null. |Jednostki włączone sesji nie pozwala na komunikat, którego identyfikator sesji ma wartość null. |
-| ! kolejki utraconych wiadomości |MaxTransferHopCountExceeded |Wartość null |
+| ! kolejki utraconych wiadomości |MaxTransferHopCountExceeded |Null |
 | Jawne martwych drukiem aplikacji |Określone przez aplikację |Określone przez aplikację |
 
 ## <a name="exceeding-maxdeliverycount"></a>Powyżej MaxDeliveryCount
+
 Kolejki, jak i subskrypcje mają [QueueDescription.MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) i [SubscriptionDescription.MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.maxdeliverycount) właściwości wartość domyślna to 10. Zawsze, gdy wiadomość została dostarczona w obszarze blokady ([ReceiveMode.PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode)), ale został albo jawnie porzucone lub blokady wygasło wiadomości [BrokeredMessage.DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) jest zwiększany. Gdy [DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) przekracza [MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount), wiadomość zostanie przeniesiona do DLQ, określając `MaxDeliveryCountExceeded` kod przyczyny.
 
 Nie można wyłączyć to zachowanie, ale możesz ustawić [MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) do bardzo dużej liczby.
 
 ## <a name="exceeding-timetolive"></a>Wartość TimeToLive powyżej
+
 Podczas [QueueDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnableDeadLetteringOnMessageExpiration) lub [SubscriptionDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription#Microsoft_ServiceBus_Messaging_SubscriptionDescription_EnableDeadLetteringOnMessageExpiration) właściwość jest ustawiona na **wartość true,** (wartość domyślna to **false**), wszystkie komunikaty wygaszenie zostaną przeniesione do DLQ, określając `TTLExpiredException` kod przyczyny.
 
-Należy pamiętać, że wygasłych komunikatów są tylko usunięte, a w związku z tym przeniesiony do DLQ, gdy istnieje co najmniej jeden odbiornik active ściąganie kolejki głównej lub subskrypcji; to zachowanie jest celowe.
+Zauważ, że komunikaty wygasłe tylko usunięte i przeniesiony do DLQ, gdy istnieje co najmniej jeden odbiornik active ściąganie z kolejki głównej lub subskrypcji; to zachowanie jest celowe.
 
 ## <a name="errors-while-processing-subscription-rules"></a>Wystąpiły błędy podczas przetwarzania reguły subskrypcji
+
 Gdy [SubscriptionDescription.EnableDeadLetteringOnFilterEvaluationExceptions](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription#Microsoft_ServiceBus_Messaging_SubscriptionDescription_EnableDeadLetteringOnFilterEvaluationExceptions) właściwości jest włączony dla subskrypcji, wszystkie błędy, które są wykonywane, gdy wykonuje regułę filtru SQL subskrypcji są przechwytywane DLQ wraz z komunikatu ataku.
 
 ## <a name="application-level-dead-lettering"></a>Poziom aplikacji obsługa utraconych komunikatów
-Oprócz funkcji Obsługa utraconych komunikatów dostarczane przez system umożliwia aplikacjom DLQ jawnie odrzucić wiadomości nie do przyjęcia. Mogą to wiadomości, których nie można przetworzyć poprawnie ze względu na dowolny rodzaj problem systemu, komunikatów zawierających nieprawidłowo sformułowany ładunek lub wiadomości, które niepowodzenia uwierzytelniania, gdy jest używany schemat niektórych zabezpieczenia na poziomie wiadomości.
+
+Oprócz funkcji Obsługa utraconych komunikatów dostarczane przez system umożliwia aplikacjom DLQ jawnie odrzucić wiadomości nie do przyjęcia. Mogą to być wiadomości, których nie można przetworzyć poprawnie ze względu na dowolny rodzaj problemu z systemem, komunikatów zawierających nieprawidłowo sformułowany ładunek lub wiadomości, które niepowodzenia uwierzytelniania, gdy jest używany schemat niektórych zabezpieczenia na poziomie wiadomości.
 
 ## <a name="dead-lettering-in-forwardto-or-sendvia-scenarios"></a>Obsługa utraconych komunikatów w scenariuszach ForwardTo lub SendVia
 
@@ -78,6 +82,7 @@ Komunikaty będą wysyłane do kolejki utraconych wiadomości transfer w następ
 Aby pobrać te komunikaty lettered wiadomości, można utworzyć odbiornika za pomocą [FormatTransferDeadletterPath](/dotnet/api/microsoft.azure.servicebus.entitynamehelper.formattransferdeadletterpath) narzędzie metody.
 
 ## <a name="example"></a>Przykład
+
 Poniższy fragment kodu tworzy odbiorcy wiadomości. W pętli odbioru dla kolejki głównej, kod pobiera wiadomość z [Receive(TimeSpan.Zero)](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_Receive_System_TimeSpan_), z pytaniem brokera, aby natychmiast zwraca wszystkie dostępne wiadomości lub mają być zwracane z żadnego wyniku. Jeśli kod odbiera wiadomości, jego natychmiast odstępuje go, która zwiększa `DeliveryCount`. Po systemie przenosi wiadomość do DLQ, kolejki głównej jest pusty i kończy działanie pętli, jako [metody ReceiveAsync](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_ReceiveAsync_System_TimeSpan_) zwraca **null**.
 
 ```csharp
@@ -97,7 +102,8 @@ while(true)
 }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
+
 Zobacz następujące artykuły, aby uzyskać więcej informacji na temat kolejek usługi Service Bus:
 
 * [Wprowadzenie do kolejek usługi Service Bus](service-bus-dotnet-get-started-with-queues.md)

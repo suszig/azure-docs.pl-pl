@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 3fd392a3f5b48d6b8d19af530c949d91cd461099
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: c1a9310d0a09d714f1d58f29e5683097c9dc6b90
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Kod testu Azure funkcji i lokalnie
 
@@ -289,7 +289,7 @@ curl --request POST -H "Content-Type:application/json" --data '{"input":"sample 
 #### <a name="using-the-func-run-command-in-version-1x"></a>Przy użyciu `func run` w wersji 1.x
 
 >[!IMPORTANT]  
-> `func run` Polecenie nie jest obsługiwane w wersji 2.x narzędzi. Aby uzyskać więcej informacji, zobacz temat [jak korzystać z wersji środowiska uruchomieniowego usługi Azure Functions](functions-versions.md).
+> `func run` Polecenie nie jest obsługiwane w wersji 2.x narzędzi. Aby uzyskać więcej informacji, zobacz temat [jak korzystać z wersji środowiska uruchomieniowego usługi Azure Functions](set-runtime-version.md).
 
 Można także wywoływać bezpośrednio za pomocą funkcji `func run <FunctionName>` i podaj dane wejściowe dla funkcji. To polecenie jest podobny do uruchamiania przy użyciu funkcji **testu** kartę w portalu Azure. 
 

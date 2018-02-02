@@ -3,24 +3,23 @@ title: "Akcje i NotActions — kontrola dostępu oparta na rolach na platformie 
 description: "W tym temacie opisano wbudowanych ról dla kontroli dostępu opartej na rolach (RBAC). Role są stale dodawane, więc sprawdzaj świeżości dokumentacji."
 services: active-directory
 documentationcenter: 
-author: andredm7
+author: curtand
 manager: mtillman
 editor: 
-ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 06/28/2017
-ms.author: andredm
-ms.reviewer: 
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3e7c563547f04a16a1059ed709d9ded25d60792f
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.date: 01/30/2018
+ms.author: curtand
+ms.reviewer: rqureshi
+ms.custom: it-pro
+ms.openlocfilehash: 43a958129b3c86f5e7a596b992d793a600c46dfd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Wbudowanych ról dla kontroli dostępu opartej na rolach na platformie Azure
 Azure opartej na rolach kontroli dostępu (RBAC) zawiera następujące role wbudowane przypisane do użytkowników, grup i usług. Nie można zmodyfikować definicje ról wbudowanych. Można jednak utworzyć [niestandardowych ról w Azure RBAC](role-based-access-control-custom-roles.md) do określonych potrzeb organizacji.
@@ -68,7 +67,9 @@ W tym artykule opisano tylko różne role, które istnieją już dzisiaj. Po prz
 | [Współautor pamięci podręcznej redis](#redis-cache-contributor) |Można zarządzać pamięci podręczne Redis |
 | [Harmonogram zadania kolekcje współautora](#scheduler-job-collections-contributor) |Można zarządzać harmonogramu kolekcji zadań |
 | [Współautor usługi wyszukiwania](#search-service-contributor) |Można zarządzać usługi wyszukiwania |
-| [Menedżer zabezpieczeń](#security-manager) |Zarządzanie składniki zabezpieczeń, zasady zabezpieczeń i maszyny wirtualne |
+| [Administrator zabezpieczeń](#security-administrator) | W Centrum zabezpieczeń tylko: można wyświetlić zasady zabezpieczeń, wyświetlanie stanów zabezpieczeń, Edytuj zasady zabezpieczeń, wyświetlanie alertów i zalecenia, odrzucać alerty i zalecenia |
+| [Menedżer zabezpieczeń](#security-manager) | Zarządzanie składniki zabezpieczeń, zasady zabezpieczeń i maszyny wirtualne |
+| [Czytnik zabezpieczeń](#security-reader) | W Centrum zabezpieczeń tylko: można wyświetlić zalecenia i alertów, widok zasady zabezpieczeń, wyświetlanie stanów zabezpieczeń, ale nie można wprowadzić zmian |
 | [Współautor odzyskiwania lokacji](#site-recovery-contributor) | Można zarządzać Site Recovery w magazynie usług odzyskiwania |
 | [Operator odzyskiwania lokacji](#site-recovery-operator) | Można zarządzać trybu failover i powrotu po awarii operacje odzyskiwania lokacji w magazynie usług odzyskiwania |
 | [Czytnik odzyskiwania lokacji](#site-recovery-reader) | Można wyświetlić wszystkie operacje zarządzania usługi Site Recovery  |
@@ -506,21 +507,50 @@ Można zarządzać usługi wyszukiwania
 | Microsoft.Search/searchServices/* |Tworzenie i zarządzanie nimi usługi wyszukiwania |
 | Microsoft.Support/* |Tworzenie i zarządzanie biletami pomocy technicznej |
 
+### <a name="security-administrator"></a>Administrator zabezpieczeń
+W Centrum zabezpieczeń tylko: można wyświetlić zasady zabezpieczeń, wyświetlanie stanów zabezpieczeń, Edytuj zasady zabezpieczeń, wyświetlanie alertów i zalecenia, odrzucać alerty i zalecenia
+
+| **Akcje** |  |
+| --- | --- |
+| Microsoft.Authorization/*/read |Role odczytu i przypisania ról |
+| Microsoft.Authorization/policyAssignments/* | Tworzenie i zarządzanie nimi przypisania zasad |
+| Microsoft.Authorization/policySetDefinitions/* | Tworzenie i zarządzanie nimi zestawów zasad |
+| Microsoft.Authorization/policyDefinitions/* | Tworzenie i zarządzanie nimi definicje zasad |
+| Microsoft.Insights/alertRules/* | Tworzenie i zarządzanie nimi reguły alertów |
+| Microsoft.operationalInsights/workspaces/*/read | Wyświetl dane analizy dzienników |
+| Microsoft.Resources/deployments/* |Tworzenie i zarządzanie nimi wdrożenia grupy zasobów |
+| Microsoft.Resources/subscriptions/resourceGroups/read |Odczytanie grup zasobów |
+| Microsoft.Security/*/read | Składniki zabezpieczeń Odczytaj i zasady |
+| Microsoft.Support/* |Tworzenie i zarządzanie biletami pomocy technicznej |
+
 ### <a name="security-manager"></a>Menedżer zabezpieczeń
 Zarządzanie składniki zabezpieczeń, zasady zabezpieczeń i maszyny wirtualne
 
 | **Akcje** |  |
 | --- | --- |
-| Microsoft.Authorization/*/read |Role odczytu i przypisania roli |
-| Microsoft.ClassicCompute/*/read |Odczytywanie informacji o konfiguracji classic obliczeniowe maszyny wirtualne |
-| Microsoft.ClassicCompute/virtualMachines/*/write |Zapisać konfiguracji dla maszyn wirtualnych |
+| Microsoft.Authorization/*/read |Role odczytu i przypisania ról |
+| Microsoft.ClassicCompute/*/read |Przeczytaj informacje o konfiguracji klasycznych maszyn wirtualnych |
+| Microsoft.ClassicCompute/virtualMachines/*/write |Zapisać konfiguracji dla klasycznych maszyn wirtualnych |
 | Microsoft.ClassicNetwork/*/read |Odczytać informacji o sieci klasycznego |
-| Microsoft.Insights/alertRules/* |Tworzenie i zarządzanie nimi reguły alertów |
+| Microsoft.Insights/alertRules/* | Tworzenie i zarządzanie nimi reguły alertów |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Kondycja odczytu zasobów |
 | Microsoft.Resources/deployments/* |Tworzenie i zarządzanie nimi wdrożenia grupy zasobów |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Odczytanie grup zasobów |
 | Microsoft.Security/* |Tworzenie i zarządzanie składników zabezpieczeń i zasady |
 | Microsoft.Support/* |Tworzenie i zarządzanie biletami pomocy technicznej |
+
+### <a name="security-reader"></a>Czytelnik zabezpieczeń
+W Centrum zabezpieczeń tylko: można wyświetlić zalecenia i alertów, widok zasady zabezpieczeń, wyświetlanie stanów zabezpieczeń, ale nie można wprowadzić zmian
+
+| **Akcje** |  |
+| --- | --- |
+| Microsoft.Authorization/*/read |Role odczytu i przypisania ról |
+| Microsoft.Insights/alertRules/* | Tworzenie i zarządzanie nimi reguły alertów |
+| Microsoft.operationalInsights/workspaces/*/read | Wyświetl dane analizy dzienników |
+| Microsoft.Resources/subscriptions/resourceGroups/read |Odczytanie grup zasobów |
+| Microsoft.Security/*/read | Składniki zabezpieczeń Odczytaj i zasady |
+| Microsoft.Support/* |Tworzenie i zarządzanie biletami pomocy technicznej |
+| Microsoft.Resources/deployments/* |Tworzenie i zarządzanie nimi wdrożenia grupy zasobów |
 
 ### <a name="site-recovery-contributor"></a>Współautor usługi Site Recovery
 Można zarządzać wszystkie akcje zarządzania odzyskiwania lokacji, z wyjątkiem Tworzenie magazynu usług odzyskiwania i przypisywanie praw dostępu do innych użytkowników
@@ -872,3 +902,4 @@ Można zarządzać witryn sieci Web, ale nie planów sieci web, z którymi są p
 * [Role niestandardowe w Azure RBAC](role-based-access-control-custom-roles.md): Dowiedz się, jak tworzyć role niestandardowe, aby spełniały Twoje potrzeby dostępu.
 * [Tworzenie raportu historii zmian dostępu](role-based-access-control-access-change-history-report.md): informacje o zmieniania przypisań ról w RBAC.
 * [Rozwiązywanie kontroli dostępu opartej na rolach](role-based-access-control-troubleshooting.md): Pobierz sugestie dotyczące rozwiązywania typowych problemów.
+* [Uprawnienia w Centrum zabezpieczeń Azure](../security-center/security-center-permissions.md)

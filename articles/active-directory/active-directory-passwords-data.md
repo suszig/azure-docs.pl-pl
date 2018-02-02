@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 504316a7d09595d24318d1f574b0f8927914d424
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 2744c848b81c688f4083cf51b7ef7bc89f0e34e1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Wdrażanie resetowania hasła bez konieczności rejestrowania użytkownika końcowego
 
@@ -44,6 +44,11 @@ Jeśli używasz ustawienia domyślne w programie Azure AD Connect zostały wprow
 | TelephoneNumber | Telefon biurowy | Alternatywny numer telefonu |
 | Telefon komórkowy | Telefon komórkowy | Numer telefonu |
 
+Te pola może pojawić się pusta, dopóki użytkownik potwierdza swoich danych uwierzytelniania.
+
+Administrator globalny można ustawić ręcznie informacje o kontaktach uwierzytelniania użytkownika wyświetlane na poniższym zrzucie ekranu.
+
+![Skontaktuj się z][Contact]
 
 ## <a name="security-questions-and-answers"></a>Pytania zabezpieczające i odpowiedzi
 
@@ -154,3 +159,5 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 * [Jakie są dostępne opcje funkcji samoobsługowego resetowania haseł i do czego one służą?](active-directory-passwords-how-it-works.md)
 * [Myślę, że coś działa niewłaściwie. Jak rozwiązywać problemy z funkcją samoobsługowego resetowania haseł?](active-directory-passwords-troubleshoot.md)
 * [Mam pytanie, na które nie mogę znaleźć odpowiedzi](active-directory-passwords-faq.md)
+
+[Contact]: ./media/active-directory-passwords-data/user-authentication-contact-info.png "Administratorzy globalni mogą zmodyfikować informacje kontaktowe uwierzytelniania użytkownika"

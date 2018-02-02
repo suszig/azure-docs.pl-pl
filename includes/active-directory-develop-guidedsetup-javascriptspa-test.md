@@ -47,4 +47,4 @@ Jeśli interfejs API zaplecza nie wymaga zakresu (niezalecane), możesz użyć *
 
 <!--end-collapse-->
 
-[!INCLUDE  [Help and support](./active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]

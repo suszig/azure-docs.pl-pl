@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
+ms.date: 01/29/2018
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3b2b2877efe5f898b5759c03ac0ddcf3ecc03901
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 5bf2d24d0d5eadfea5ec8fd239a115c05a54fe99
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>W zrozumieniu i użytkowaniu twins urządzenie w Centrum IoT
 
@@ -58,47 +58,49 @@ Dwie urządzenia jest dokumentem JSON, który zawiera:
 
 W poniższym przykładzie przedstawiono dwie urządzenia dokumentu JSON:
 
-        {
-            "deviceId": "devA",
-            "etag": "AAAAAAAAAAc=", 
-            "status": "enabled",
-            "statusReason": "provisioned",
-            "statusUpdateTime": "0001-01-01T00:00:00",
-            "connectionState": "connected",
-            "lastActivityTime": "2015-02-30T16:24:48.789Z",
-            "cloudToDeviceMessageCount": 0, 
-            "authenticationType": "sas",
-            "x509Thumbprint": {     
-                "primaryThumbprint": null, 
-                "secondaryThumbprint": null 
-            }, 
-            "version": 2, 
-            "tags": {
-                "$etag": "123",
-                "deploymentLocation": {
-                    "building": "43",
-                    "floor": "1"
-                }
-            },
-            "properties": {
-                "desired": {
-                    "telemetryConfig": {
-                        "sendFrequency": "5m"
-                    },
-                    "$metadata" : {...},
-                    "$version": 1
-                },
-                "reported": {
-                    "telemetryConfig": {
-                        "sendFrequency": "5m",
-                        "status": "success"
-                    }
-                    "batteryLevel": 55,
-                    "$metadata" : {...},
-                    "$version": 4
-                }
-            }
+```json
+{
+    "deviceId": "devA",
+    "etag": "AAAAAAAAAAc=", 
+    "status": "enabled",
+    "statusReason": "provisioned",
+    "statusUpdateTime": "0001-01-01T00:00:00",
+    "connectionState": "connected",
+    "lastActivityTime": "2015-02-30T16:24:48.789Z",
+    "cloudToDeviceMessageCount": 0, 
+    "authenticationType": "sas",
+    "x509Thumbprint": {     
+        "primaryThumbprint": null, 
+        "secondaryThumbprint": null 
+    }, 
+    "version": 2, 
+    "tags": {
+        "$etag": "123",
+        "deploymentLocation": {
+            "building": "43",
+            "floor": "1"
         }
+    },
+    "properties": {
+        "desired": {
+            "telemetryConfig": {
+                "sendFrequency": "5m"
+            },
+            "$metadata" : {...},
+            "$version": 1
+        },
+        "reported": {
+            "telemetryConfig": {
+                "sendFrequency": "5m",
+                "status": "success"
+            }
+            "batteryLevel": 55,
+            "$metadata" : {...},
+            "$version": 4
+        }
+    }
+}
+```
 
 W obiekcie głównym są urządzenia właściwości tożsamości i kontener obiektów na `tags` i oba `reported` i `desired` właściwości. `properties` Kontener zawiera niektóre elementy tylko do odczytu (`$metadata`, `$etag`, i `$version`) opisano w [metadane dwie urządzenia] [ lnk-twin-metadata] i [ Optymistycznej współbieżności] [ lnk-concurrency] sekcje.
 
@@ -112,26 +114,32 @@ W poprzednim przykładzie zawiera dwie urządzenia `batteryLevel` właściwość
 W poprzednim przykładzie `telemetryConfig` potrzebne dwie urządzeń i właściwości zgłoszone są używane przez zaplecza rozwiązania i aplikacji urządzenia zsynchronizować konfiguracji dane telemetryczne dla tego urządzenia. Na przykład:
 
 1. Zaplecze rozwiązania ustawia żądanej właściwości na wartość wymaganą konfiguracją. Poniżej przedstawiono fragment dokumentu przy użyciu zestawu żądanej właściwości:
-   
-        ...
-        "desired": {
-            "telemetryConfig": {
-                "sendFrequency": "5m"
-            },
-            ...
+
+    ```json
+    ...
+    "desired": {
+        "telemetryConfig": {
+            "sendFrequency": "5m"
         },
         ...
+    },
+    ...
+    ```
+
 2. Powiadomienie do aplikacji urządzenia zmiany natychmiast, jeśli połączone lub przy pierwszym próba ponownego połączenia. Aplikacji urządzenia następnie raporty zaktualizowanej konfiguracji (lub warunek błędu przy użyciu `status` właściwości). Poniżej przedstawiono część zgłoszonych właściwości:
-   
-        ...
-        "reported": {
-            "telemetryConfig": {
-                "sendFrequency": "5m",
-                "status": "success"
-            }
-            ...
+
+    ```json
+    ...
+    "reported": {
+        "telemetryConfig": {
+            "sendFrequency": "5m",
+            "status": "success"
         }
         ...
+    }
+    ...
+    ```
+
 3. Zaplecze rozwiązania można śledzić wyniki operacji konfiguracji na wielu urządzeniach przez [badania] [ lnk-query] twins urządzenia.
 
 > [!NOTE]
@@ -144,23 +152,26 @@ Twins służy do synchronizowania długotrwałe operacje, takie jak aktualizacje
 ## <a name="back-end-operations"></a>Operacje zaplecza
 Zaplecze rozwiązania działa na dwie urządzenia przy użyciu następujących operacji niepodzielnych za pośrednictwem protokołu HTTPS:
 
-* **Pobrać dwie urządzenia za pomocą identyfikatora**. Ta operacja zwraca dokument dwie urządzenia, tym tagów i właściwości żądaną i podać systemu.
+* **Pobrać dwie urządzenia za pomocą Identyfikatora**. Ta operacja zwraca dokument dwie urządzenia, tym tagów i właściwości żądaną i podać systemu.
 * **Częściowego zaktualizowania dwie urządzenia**. Ta operacja umożliwia zaplecza rozwiązania celu częściowego zaktualizowania znaczników i odpowiednie właściwości w dwie urządzenia. Częściowej aktualizacji jest wyrażona jako dokument JSON, który dodaje lub aktualizuje dowolną właściwość. Wartość właściwości `null` zostaną usunięte. Poniższy przykład tworzy nową właściwość odpowiednią wartością `{"newProperty": "newValue"}`, spowoduje zastąpienie istniejącej wartości `existingProperty` z `"otherNewValue"`i usuwa `otherOldProperty`. Nie zmian do istniejących żądanej właściwości bądź tagi:
-   
-        {
-            "properties": {
-                "desired": {
-                    "newProperty": {
-                        "nestedProperty": "newValue"
-                    },
-                    "existingProperty": "otherNewValue",
-                    "otherOldProperty": null
-                }
+
+    ```json
+    {
+        "properties": {
+            "desired": {
+                "newProperty": {
+                    "nestedProperty": "newValue"
+                },
+                "existingProperty": "otherNewValue",
+                "otherOldProperty": null
             }
         }
+    }
+    ```
+
 * **Zastąp odpowiednie właściwości**. Ta operacja umożliwia zaplecza rozwiązania całkowicie zastąpić wszystkie istniejące odpowiednie właściwości i Zastąp nowy dokument JSON dla `properties/desired`.
 * **Zastąp znaczniki**. Ta operacja umożliwia zaplecza rozwiązania całkowicie zastąpić wszystkie istniejące znaczniki i Zastąp nowy dokument JSON dla `tags`.
-* **Odbieranie powiadomień dwie**. Ta operacja pozwala zaplecza rozwiązania otrzymać powiadomienie, gdy dwie jest modyfikowany. Aby to zrobić, rozwiązania IoT musi utworzyć trasę i ustaw źródło danych *twinChangeEvents*. Domyślnie są wysyłane żadne powiadomienia dwie, oznacza to, że istnieje wstępnie ma takie tras. Jeśli szybkość zmian jest zbyt duża lub z innych powodów, takich jak wewnętrzne błędy, Centrum IoT może wysłać tylko jedno powiadomienie, który zawiera wszystkie zmiany. Tak Jeśli aplikacja wymaga niezawodnej inspekcji i rejestrowania wszystkich stanów pośredniego, następnie nadal zalecane jest używanie D2C wiadomości. Komunikat powiadomienia dwie zawiera właściwości, oraz i treść.
+* **Odbieranie powiadomień dwie**. Ta operacja pozwala zaplecza rozwiązania otrzymać powiadomienie, gdy dwie jest modyfikowany. Aby to zrobić, rozwiązania IoT musi utworzyć trasę i ustaw źródło danych *twinChangeEvents*. Domyślnie są wysyłane żadne powiadomienia dwie, oznacza to, że istnieje wstępnie ma takie tras. Jeśli szybkość zmian jest zbyt duża lub z innych powodów, takich jak wewnętrzne błędy, Centrum IoT może wysłać tylko jedno powiadomienie, który zawiera wszystkie zmiany. W związku z tym jeśli aplikacja wymaga niezawodnej inspekcji i rejestrowania wszystkich stanów pośredniego, należy użyć wiadomości urządzenia do chmury. Komunikat powiadomienia dwie zawiera właściwości, oraz i treść.
 
     - Właściwości
 
@@ -168,12 +179,12 @@ Zaplecze rozwiązania działa na dwie urządzenia przy użyciu następujących o
     | --- | --- |
     $content — typ | application/json |
     $iothub-enqueuedtime |  Czas wysłania powiadomienia |
-    $iothub-komunikat-źródła | twinChangeEvents |
-    $content-kodowania | UTF-8 |
+    $iothub-message-source | twinChangeEvents |
+    $content-encoding | UTF-8 |
     deviceId | Identyfikator urządzenia |
     hubName | Nazwa centrum IoT |
     operationTimestamp | [ISO8601] sygnatury czasowej operacji |
-    Centrum iothub komunikat schemacie | deviceLifecycleNotification |
+    iothub-message-schema | deviceLifecycleNotification |
     opType | "replaceTwin" lub "updateTwin" |
 
     Właściwości systemu wiadomości są poprzedzane prefiksem `'$'` symbolu.
@@ -181,7 +192,8 @@ Zaplecze rozwiązania działa na dwie urządzenia przy użyciu następujących o
     - Treść
         
     Ta sekcja zawiera wszystkie zmiany dwie w formacie JSON. Używa tego samego formatu poprawek, z tą różnicą, że może zawierać wszystkie dwie sekcje: tagi, properties.reported properties.desired i czy zawiera on elementy "$metadata". Na przykład:
-    ```
+
+    ```json
     {
         "properties": {
             "desired": {
@@ -198,10 +210,10 @@ Zaplecze rozwiązania działa na dwie urządzenia przy użyciu następujących o
             }
         }
     }
-    ``` 
+    ```
 
 Obsługuje wszystkie poprzednie operacje [optymistycznej współbieżności] [ lnk-concurrency] i wymagają **ServiceConnect** uprawnienia, zgodnie z definicją w [zabezpieczeń] [ lnk-security] artykułu.
- 
+
 Oprócz tych operacji można zaplecza rozwiązania:
 
 * Zapytanie twins urządzenia przy użyciu przypominającego SQL [język zapytań Centrum IoT][lnk-query].
@@ -225,23 +237,25 @@ Znaczniki, odpowiednie właściwości i zgłoszone właściwości są obiektów 
 * Wszystkie wartości w formacie JSON obiekty mogą być następujące typy JSON: wartość logiczna, liczba, ciąg, obiekt. Tablice nie są dozwolone. Maksymalna wartość dla liczb całkowitych jest 4503599627370495 i-4503599627370496 jest minimalny liczb całkowitych.
 * Wszystkie obiekty JSON w tagach, żądane i podać właściwości mogą mieć maksymalną głębokość 5. Na przykład następujący obiekt jest prawidłowy:
 
-        {
-            ...
-            "tags": {
-                "one": {
-                    "two": {
-                        "three": {
-                            "four": {
-                                "five": {
-                                    "property": "value"
-                                }
+    ```json
+    {
+        ...
+        "tags": {
+            "one": {
+                "two": {
+                    "three": {
+                        "four": {
+                            "five": {
+                                "property": "value"
                             }
                         }
                     }
                 }
-            },
-            ...
-        }
+            }
+        },
+        ...
+    }
+    ```
 
 * Wszystkie wartości ciągu może mieć maksymalnie 4 KB długości.
 
@@ -254,48 +268,50 @@ Centrum IoT z powodu błędu odrzuca wszystkie operacje, które spowoduje zwięk
 Centrum IoT przechowuje sygnatura czasowa ostatniej aktualizacji dla każdego obiektu JSON w dwie urządzenia żądanego i podać właściwości. Sygnatury czasowe są w UTC i kodowany w [ISO8601] format `YYYY-MM-DDTHH:MM:SS.mmmZ`.
 Na przykład:
 
-        {
-            ...
-            "properties": {
-                "desired": {
-                    "telemetryConfig": {
-                        "sendFrequency": "5m"
-                    },
-                    "$metadata": {
-                        "telemetryConfig": {
-                            "sendFrequency": {
-                                "$lastUpdated": "2016-03-30T16:24:48.789Z"
-                            },
-                            "$lastUpdated": "2016-03-30T16:24:48.789Z"
-                        },
+```json
+{
+    ...
+    "properties": {
+        "desired": {
+            "telemetryConfig": {
+                "sendFrequency": "5m"
+            },
+            "$metadata": {
+                "telemetryConfig": {
+                    "sendFrequency": {
                         "$lastUpdated": "2016-03-30T16:24:48.789Z"
                     },
-                    "$version": 23
+                    "$lastUpdated": "2016-03-30T16:24:48.789Z"
                 },
-                "reported": {
-                    "telemetryConfig": {
-                        "sendFrequency": "5m",
-                        "status": "success"
-                    }
-                    "batteryLevel": "55%",
-                    "$metadata": {
-                        "telemetryConfig": {
-                            "sendFrequency": "5m",
-                            "status": {
-                                "$lastUpdated": "2016-03-31T16:35:48.789Z"
-                            },
-                            "$lastUpdated": "2016-03-31T16:35:48.789Z"
-                        }
-                        "batteryLevel": {
-                            "$lastUpdated": "2016-04-01T16:35:48.789Z"
-                        },
-                        "$lastUpdated": "2016-04-01T16:24:48.789Z"
-                    },
-                    "$version": 123
-                }
+                "$lastUpdated": "2016-03-30T16:24:48.789Z"
+            },
+            "$version": 23
+        },
+        "reported": {
+            "telemetryConfig": {
+                "sendFrequency": "5m",
+                "status": "success"
             }
-            ...
+            "batteryLevel": "55%",
+            "$metadata": {
+                "telemetryConfig": {
+                    "sendFrequency": "5m",
+                    "status": {
+                        "$lastUpdated": "2016-03-31T16:35:48.789Z"
+                    },
+                    "$lastUpdated": "2016-03-31T16:35:48.789Z"
+                }
+                "batteryLevel": {
+                    "$lastUpdated": "2016-04-01T16:35:48.789Z"
+                },
+                "$lastUpdated": "2016-04-01T16:24:48.789Z"
+            },
+            "$version": 123
         }
+    }
+    ...
+}
+```
 
 Ta informacja jest przechowywana na każdym poziomie (nie tylko liście strukturze JSON) do zachowania aktualizacji, które usunąć obiekt kluczy.
 
@@ -336,7 +352,7 @@ Teraz wiesz już, o twins urządzenie, może Cię zainteresować następujące t
 * [Wywoływanie metody bezpośrednio na urządzeniu][lnk-methods]
 * [Planowanie zadań na wielu urządzeniach][lnk-jobs]
 
-Jeśli chcesz wypróbować niektóre pojęcia opisane w tym artykule, może Cię zainteresować następujące samouczki Centrum IoT:
+Aby wypróbować pojęcia opisane w tym artykule, zobacz następujące samouczki Centrum IoT:
 
 * [Jak używać dwie urządzenia][lnk-twin-tutorial]
 * [Sposób użycia właściwości dwie urządzenia][lnk-twin-properties]

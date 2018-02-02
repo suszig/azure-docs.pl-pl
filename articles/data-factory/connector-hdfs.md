@@ -11,20 +11,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 
+ms.date: 01/29/2018
 ms.author: jingwang
-ms.openlocfilehash: 80892d5f87c1f7a588023e4baa5de79bd73329a5
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: fb4802a6a3bed163f0d2bba04cf9d80a917ba7ba
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="copy-data-from-and-to-hdfs-using-azure-data-factory"></a>Kopiowanie danych z i do systemu plików HDFS przy użyciu fabryki danych Azure
+# <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Kopiowanie danych z systemu plików HDFS przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Wersja 1 — ogólnie dostępna](v1/data-factory-hdfs-connector.md)
 > * [Wersja 2 — wersja zapoznawcza](connector-hdfs.md)
 
-W tym artykule omówiono sposób użycia działanie kopiowania w fabryce danych Azure, aby skopiować dane z i do systemu plików HDFS. Opiera się na [skopiuj omówienie działania](copy-activity-overview.md) artykułu, który przedstawia ogólny przegląd działanie kopiowania.
+W tym artykule omówiono sposób używania działania kopiowania w fabryce danych Azure można skopiować danych z systemu plików HDFS. Opiera się na [skopiuj omówienie działania](copy-activity-overview.md) artykułu, który przedstawia ogólny przegląd działanie kopiowania.
 
 > [!NOTE]
 > Ten artykuł dotyczy wersji 2 usługi Data Factory, która jest obecnie dostępna w wersji zapoznawczej. Jeśli używasz wersji 1 usługi fabryka danych, która jest ogólnie dostępna (GA), zobacz [łącznika systemu plików HDFS w wersji 1](v1/data-factory-hdfs-connector.md).
@@ -42,7 +42,7 @@ W szczególności ten łącznik systemu plików HDFS obsługuje:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skopiować dane z/do systemu plików HDFS, który nie jest dostępny publicznie, należy skonfigurować środowisko uruchomieniowe Self-hosted integracji. Zobacz [środowiska uruchomieniowego integracji Self-hosted](concepts-integration-runtime.md) artykuł, aby poznać szczegóły.
+Można skopiować danych z systemu plików HDFS, który nie jest dostępny publicznie, należy skonfigurować środowisko uruchomieniowe Self-hosted integracji. Zobacz [środowiska uruchomieniowego integracji Self-hosted](concepts-integration-runtime.md) artykuł, aby poznać szczegóły.
 
 ## <a name="getting-started"></a>Wprowadzenie
 
@@ -151,7 +151,7 @@ Aby skopiować dane z systemu plików HDFS, ustaw właściwość Typ zestawu dan
 
 ## <a name="copy-activity-properties"></a>Właściwości działania kopiowania
 
-Pełną listę sekcje i właściwości dostępnych dla definiowania działań, zobacz [potoki](concepts-pipelines-activities.md) artykułu. Ta sekcja zawiera listę obsługiwanych przez system plików HDFS źródłowy i odbiorczy właściwości.
+Pełną listę sekcje i właściwości dostępnych dla definiowania działań, zobacz [potoki](concepts-pipelines-activities.md) artykułu. Ta sekcja zawiera listę obsługiwanych przez system plików HDFS źródła właściwości.
 
 ### <a name="hdfs-as-source"></a>System plików HDFS jako źródło
 

@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2017
+ms.date: 01/29/2018
 ms.author: seguler
-ms.openlocfilehash: 3d4a7ceabc8cdb97fc8a0f29756d7648d253fe21
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 7d875a1e43908f49424f4e40fe923639cfa02385
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Transfer danych za pomocą narzędzia AzCopy w systemie Windows
 Narzędzie AzCopy to narzędzie wiersza polecenia przeznaczone do kopiowania danych z magazynu obiektów Blob Microsoft Azure, plików i tabeli, przy użyciu prostego polecenia przeznaczone do uzyskania optymalnej wydajności. Możesz skopiować dane między systemem plików i konto magazynu lub kont magazynu.  
@@ -624,7 +624,7 @@ Określa źródło danych do skopiowania. Źródło może być katalogu w system
 
 **Dotyczy:** obiektów blob, plików, tabel
 
-### <a name="destdestination"></a>/ Dest: "miejsce docelowe"
+### <a name="destdestination"></a>/Dest:"destination"
 
 Określa miejsce docelowe kopiowania. Miejsce docelowe może być katalogu w systemie plików, kontenera obiektów blob, katalog wirtualny obiektów blob, udział pliku magazynu, katalog pliku magazynu lub tabeli platformy Azure.
 
@@ -646,7 +646,7 @@ Plik domyślny wzorzec używany, jeśli nie określono żadnych wzorzec pliku je
 
 **Dotyczy:** obiektów blob, pliki
 
-### <a name="destkeystorage-key"></a>/ DestKey: "klucz magazynu"
+### <a name="destkeystorage-key"></a>/DestKey:"storage-key"
 
 Określa klucz konta magazynu dla zasobu docelowego.
 
@@ -662,7 +662,7 @@ Jeśli na źródłowym i docelowym są oba obiekty BLOB, docelowego obiektu blob
 
 **Dotyczy:** obiektów blob, plików, tabel
 
-### <a name="sourcekeystorage-key"></a>/ SourceKey: "klucz magazynu"
+### <a name="sourcekeystorage-key"></a>/SourceKey:"storage-key"
 
 Określa klucz konta magazynu dla zasobu źródła.
 
@@ -678,13 +678,13 @@ Jeśli źródło jest udział plików lub tabeli, należy podać klucz lub sygna
 
 **Dotyczy:** obiektów blob, plików, tabel
 
-### <a name="s"></a>/ S
+### <a name="s"></a>/S
 
 Określa tryb cyklicznych operacji kopiowania. W trybie cykliczne AzCopy kopiuje wszystkie obiekty BLOB lub pliki zgodne ze wzorcem określonego pliku, włącznie z zawartymi w podfolderach.
 
 **Dotyczy:** obiektów blob, pliki
 
-### <a name="blobtypeblock--page--append"></a>/ BlobType: "block" | "page" | "Dołącz"
+### <a name="blobtypeblock--page--append"></a>/BlobType:"block" | "page" | "append"
 
 Określa, czy docelowego obiektu blob jest blokowych obiektów blob i stronicowych obiektów blob, uzupełnialny obiekt blob. Ta opcja ma zastosowanie tylko wtedy, gdy przekazujesz obiektu blob. W przeciwnym razie zostanie wygenerowany błąd. Jeśli obiektem docelowym jest obiektu blob, a ta opcja nie jest określona, domyślnie AzCopy tworzy blokowych obiektów blob.
 
@@ -710,7 +710,7 @@ Domyślnie nie są kopiowane migawki.
 
 **Dotyczy:** obiektów blob
 
-### <a name="vverbose-log-file"></a>/ V: [plików pełnego dziennika]
+### <a name="vverbose-log-file"></a>/V:[verbose-log-file]
 
 Komunikaty stanu pełne dane wyjściowe do pliku dziennika.
 
@@ -718,7 +718,7 @@ Domyślnie plik dziennika pełne nosi nazwę AzCopyVerbose.log w `%LocalAppData%
 
 **Dotyczy:** obiektów blob, plików, tabel
 
-### <a name="zjournal-file-folder"></a>/ Z: [arkusza pliku folder]
+### <a name="zjournal-file-folder"></a>/Z:[journal-file-folder]
 
 Określa folder plików dziennika dla wznawia działanie.
 
@@ -750,7 +750,7 @@ Można określić wiele plików odpowiedzi. Jednak należy pamiętać, że narz�
 
 ### <a name="y"></a>/ Y
 
-Pomija wszystkie monity potwierdzenie narzędzia AzCopy.
+Pomija wszystkie monity potwierdzenie narzędzia AzCopy. Ta opcja umożliwia także użycie tokeny sygnatury dostępu Współdzielonego tylko do zapisu w przypadku scenariuszy przekazywania danych, gdy nie określono /XO i /XN.
 
 **Dotyczy:** obiektów blob, plików, tabel
 
@@ -766,7 +766,7 @@ Narzędzie AzCopy musi mieć uprawnienie listy i odczytu tej lokalizacji źród�
 
 **Dotyczy:** obiektów blob, pliki
 
-### <a name="mt"></a>/ MT
+### <a name="mt"></a>/MT
 
 Ustawia czas ostatniej modyfikacji pobrany plik na taki sam jak źródłowego obiektu blob lub pliku.
 
@@ -789,7 +789,7 @@ Wysyła tylko pliki, które mają ustawiony atrybut archiwum.
 
 **Dotyczy:** obiektów blob, pliki
 
-### <a name="iarashcnetoi"></a>/ IA: [RASHCNETOI]
+### <a name="iarashcnetoi"></a>/IA:[RASHCNETOI]
 
 Wysyła tylko pliki mające zestawu określonych atrybutów.
 
@@ -808,7 +808,7 @@ Dostępne atrybuty obejmują:
 
 **Dotyczy:** obiektów blob, pliki
 
-### <a name="xarashcnetoi"></a>/ XA: [RASHCNETOI]
+### <a name="xarashcnetoi"></a>/XA:[RASHCNETOI]
 
 Umożliwia wykluczenie plików, które nie ma żadnej z zestaw określonych atrybutów.
 
@@ -827,7 +827,7 @@ Dostępne atrybuty obejmują:
 
 **Dotyczy:** obiektów blob, pliki
 
-### <a name="delimiterdelimiter"></a>/ Ogranicznik: "ogranicznika"
+### <a name="delimiterdelimiter"></a>/Delimiter:"delimiter"
 
 Wskazuje znak ogranicznika używany do ograniczania katalogów wirtualnych w nazwie obiektu blob.
 
@@ -875,7 +875,7 @@ Każda operacja eksportuje jednego z trzech zakresów klucza partycji, jak pokaz
 
 **Dotyczy:** tabel
 
-### <a name="splitsizefile-size"></a>/ SplitSize: "rozmiar pliku"
+### <a name="splitsizefile-size"></a>/SplitSize:"file-size"
 
 Określa wyeksportowany plik podzielić rozmiar w MB, minimalnym dozwolona wartość to 32.
 
@@ -885,7 +885,7 @@ Jeśli dane w tabeli są eksportowane do obiektu blob, a rozmiar wyeksportowany 
 
 **Dotyczy:** tabel
 
-### <a name="entityoperationinsertorskip--insertormerge--insertorreplace"></a>/ EntityOperation: "InsertOrSkip" | "InsertOrMerge" | "InsertOrReplace"
+### <a name="entityoperationinsertorskip--insertormerge--insertorreplace"></a>/EntityOperation:"InsertOrSkip" | "InsertOrMerge" | "InsertOrReplace"
 
 Określa zachowanie importu danych tabeli.
 
@@ -895,7 +895,7 @@ Określa zachowanie importu danych tabeli.
 
 **Dotyczy:** tabel
 
-### <a name="manifestmanifest-file"></a>/ Manifest: "w pliku manifestu"
+### <a name="manifestmanifest-file"></a>/Manifest:"manifest-file"
 
 Określa plik manifestu dla tabeli eksportowania i importowania operacji.
 
@@ -905,7 +905,7 @@ Ta opcja jest wymagana podczas operacji importowania do lokalizowania plików da
 
 **Dotyczy:** tabel
 
-### <a name="synccopy"></a>/ SyncCopy
+### <a name="synccopy"></a>/SyncCopy
 
 Wskazuje, czy synchronicznie kopiowania obiektów blob lub plików między dwoma punktami końcowymi usługi Azure Storage.
 

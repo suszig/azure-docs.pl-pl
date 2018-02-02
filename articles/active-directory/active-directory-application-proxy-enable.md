@@ -3,7 +3,7 @@ title: "Rozpoczynanie pracy serwera Proxy aplikacji usługi Azure AD - zainstalo
 description: "Włącz serwer Proxy aplikacji w portalu Azure i zainstaluj łączniki dla zwrotnego serwera proxy."
 services: active-directory
 documentationcenter: 
-author: billmath
+author: MarkusVi
 manager: mtillman
 ms.assetid: c7186f98-dd80-4910-92a4-a7b8ff6272b9
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2017
-ms.author: billmath
+ms.date: 01/31/2018
+ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 09497144ef4047c1191f3c02afccb881d48aaf3c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2c2e0f977cdf0d31da19f71d9260b500184858e9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="get-started-with-application-proxy-and-install-the-connector"></a>Rozpoczynanie pracy z serwera Proxy aplikacji i zainstalować łącznik
 W tym artykule przedstawiono procedurę włączania serwera proxy aplikacji usługi Microsoft Azure AD dla katalogu w chmurze w ramach usługi Azure AD.
@@ -57,8 +57,8 @@ Aby przygotować swoje środowisko dla serwera Proxy aplikacji usługi Azure AD,
 
 3. Firma Microsoft używa czterech adresów do weryfikowania certyfikatów. Zezwalaj na dostęp do następujących adresów URL. Jeśli nie zostało to jeszcze zrobione dla innych produktów:
    * mscrl.microsoft.com:80
-   * CRL.microsoft.com:80
-   * OCSP.msocsp.com:80
+   * crl.microsoft.com:80
+   * ocsp.msocsp.com:80
    * www.microsoft.com:80
 
 4. Twoje łącznika musi mieć dostęp do login.windows.net i login.microsoftonline.com dla procesu rejestracji.
@@ -102,7 +102,7 @@ Na serwerze Sprawdź listę aktywnych usług dla łącznika i aktualizator łąc
 Aby uzyskać informacje na temat łączników i jak bądź na bieżąco, zobacz [łączniki serwera Proxy aplikacji usługi AD zrozumieć Azure](application-proxy-understand-connectors.md).
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Teraz można przystąpić do [publikowania aplikacji za pomocą serwera proxy aplikacji](application-proxy-publish-azure-portal.md).
 
 Jeśli masz aplikacje, które znajdują się w różnych sieciach lub innej lokalizacji, należy użyć grup łącznika do organizowania różnych łączniki do jednostek logicznych. Dowiedz się więcej o [pracy z łącznikami serwera proxy aplikacji](active-directory-application-proxy-connectors-azure-portal.md).

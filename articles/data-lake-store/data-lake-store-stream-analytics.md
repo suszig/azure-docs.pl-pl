@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/01/2017
+ms.date: 01/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 35b737cf5b53f0ad0dbe4a50772fdcaa2e14ca5e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 8ced5aff33ed23aee3f3399d876c1ed62d2b5707
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="stream-data-from-azure-storage-blob-into-data-lake-store-using-azure-stream-analytics"></a>Stream data from Azure Storage Blob into Data Lake Store using Azure Stream Analytics (Strumieniowe przesyłanie danych z obiektu blob usługi Azure Storage do usługi Data Lake Store za pomocą usługi Azure Stream Analytics)
 W tym artykule dowiesz się, jak używać usługi Azure Data Lake Store jako dane wyjściowe zadania usługi analiza strumienia Azure. W tym artykule przedstawiono prosty scenariusz, który będzie odczytywać dane z obiektu blob magazynu Azure (dane wejściowe) i zapisuje dane do usługi Data Lake Store (dane wyjściowe).
@@ -120,5 +120,5 @@ Rozpoczyna się od utworzenia zadanie usługi Stream Analytics, która zawiera �
 
     W okienku Eksplorator danych ustawienia w danych wyjściowych Zwróć uwagę, że dane wyjściowe są zapisywane w ścieżce folderu określone w usłudze Data Lake Store (`streamanalytics/job/output/{date}/{time}`).  
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Tworzenie klastra usługi HDInsight do użycia usługi Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)

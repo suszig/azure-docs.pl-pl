@@ -2,17 +2,17 @@
 title: "Zapewnij pule partii zadań Azure z niestandardowymi obrazami | Dokumentacja firmy Microsoft"
 description: "Można utworzyć plik wsadowy puli z niestandardowego obrazu, aby udostępnić obliczeniowe węzłów, które zawierają oprogramowanie i dane potrzebne do aplikacji. Niestandardowe obrazy są wydajnym sposobem konfigurowania węzłów obliczeniowych do uruchamiania obciążeń partii."
 services: batch
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 10/11/2017
-ms.author: v-dotren
-ms.openlocfilehash: d62abd673f89fd51edba721119d1680762a60c76
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.author: danlep
+ms.openlocfilehash: 63a567e9fdfef8dfceb275953cc0ac606355ea30
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-a-managed-custom-image-to-create-a-pool-of-virtual-machines"></a>Użyj zarządzanego obrazu niestandardowego do utworzenia puli maszyn wirtualnych 
 
@@ -93,6 +93,6 @@ Aby sprawdzić, czy istniejącej puli jest oparta na niestandardowego obrazu, zo
 
 Wszystkie obrazy niestandardowe skojarzone z pulą są wyświetlane w puli **właściwości** okna.
  
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Aby uzyskać szczegółowe informacje o partii, zobacz [Programowanie równoległe na dużą skalę obliczeniowe rozwiązań w partii](batch-api-basics.md).

@@ -2,17 +2,17 @@
 title: "Azure dostarczania zdarzeń siatki i spróbuj ponownie"
 description: "Opisuje sposób siatki zdarzeń Azure zapewnia zdarzeń i sposób obsługi niedostarczone wiadomości."
 services: event-grid
-author: djrosanova
+author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/10/2018
-ms.author: darosa
-ms.openlocfilehash: fe9089334deceb38186add56ce3fb1d6ecc20363
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.date: 01/30/2018
+ms.author: tomfitz
+ms.openlocfilehash: cdf6a4e999d55196e8f4eac5695163a7e5a933de
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Dostarczanie komunikatów siatki zdarzeń i spróbuj ponownie 
 
@@ -58,11 +58,11 @@ Siatka zdarzeń używa zasady ponawiania wykładniczego wycofywania w celu dosta
 6. 30 minut
 7. 1 godzina
 
-Siatka zdarzeń dodaje małe losowe do wszystkich interwałów ponów próbę.
+Siatka zdarzeń dodaje małe losowe do wszystkich interwałów ponów próbę. Po upływie godziny dostarczania zdarzeń próba zostanie ponowiona godzinę.
 
 ## <a name="retry-duration"></a>Spróbuj ponownie czas trwania
 
-W wersji zapoznawczej siatki zdarzeń Azure wygasa wszystkie zdarzenia, które nie zostały dostarczone w ciągu dwóch godzin.
+Azure siatki zdarzeń wygasa wszystkie zdarzenia, które nie zostały dostarczone w ciągu 24 godzin.
 
 ## <a name="next-steps"></a>Kolejne kroki
 

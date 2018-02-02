@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 12/06/2017
 ms.author: curtand
 ms.custom: it-pro;
-ms.openlocfilehash: ad6658aaed55801ac8f6a39a721fb7469892303d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 621ebec898e5b345556832097b12ca9b54506e7c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="understanding-resource-access-in-azure"></a>Opis dostęp do zasobów na platformie Azure
 
-Kontrola dostępu na platformie Azure rozpoczyna się z punktu widzenia rozliczeń. Właściciel konta platformy Azure, dostępne po przejściu na stronę [Centrum konta platformy Azure](https://account.windowsazure.com/subscriptions), jest kontem administratora (AA). Subskrypcje są kontener rozliczeń, ale również działają jako granic zabezpieczeń: Każda subskrypcja ma usługi administratora kto dodawania, usuwania i modyfikowania zasobów platformy Azure w ramach tej subskrypcji przy użyciu [portalu Azure](https://portal.azure.com/). SA domyślne nowej subskrypcji jest AA, ale AA można zmienić SA w Centrum konta platformy Azure.
+Kontrola dostępu na platformie Azure rozpoczyna się z punktu widzenia rozliczeń. Właściciel konta platformy Azure, dostępne po przejściu na stronę [Centrum konta platformy Azure](https://account.azure.com), jest kontem administratora (AA). Subskrypcje są kontener rozliczeń, ale również działają jako granic zabezpieczeń: Każda subskrypcja ma usługi administratora kto dodawania, usuwania i modyfikowania zasobów platformy Azure w ramach tej subskrypcji przy użyciu [portalu Azure](https://portal.azure.com/). SA domyślne nowej subskrypcji jest AA, ale AA można zmienić SA w Centrum konta platformy Azure.
 
 <br><br>![Konta platformy Azure][1]
 

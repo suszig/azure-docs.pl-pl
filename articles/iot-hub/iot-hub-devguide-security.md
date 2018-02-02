@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 43917e4fe4ce7643ea034d128f303a5397dbcdc2
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 4f75c5725046fb5e0348c405092edcc65c2d8129
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="control-access-to-iot-hub"></a>Kontrola dostępu do centrum IoT Hub
 
@@ -72,7 +72,7 @@ Aby uzyskać więcej informacji dotyczących sposobu tworzenia i używania token
 
 Każdego obsługiwanych protokołów, takich jak MQTT, AMQP i HTTPS, transport tokenów na różne sposoby.
 
-Korzystając z MQTT, pakiet CONNECT ma deviceId jako ClientId, {iothubhostname} / {deviceId} w polu nazwy użytkownika i tokenu sygnatury dostępu Współdzielonego, w polu hasła. {iothubhostname} powinna być pełną CName z Centrum IoT (na przykład devices.net contoso.azure).
+Korzystając z MQTT, pakiet CONNECT ma deviceId jako ClientId, `{iothubhostname}/{deviceId}` w polu nazwy użytkownika i tokenu sygnatury dostępu Współdzielonego, w polu hasła. `{iothubhostname}`powinna być pełną CName z Centrum IoT (na przykład devices.net contoso.azure).
 
 Korzystając z [AMQP][lnk-amqp], obsługuje Centrum IoT [zwykły SASL] [ lnk-sasl-plain] i [AMQP oświadczenia na podstawie-zabezpieczeń] [ lnk-cbs].
 

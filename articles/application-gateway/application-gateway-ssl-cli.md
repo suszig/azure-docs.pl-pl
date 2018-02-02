@@ -10,11 +10,11 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/18/2018
 ms.author: davidmu
-ms.openlocfilehash: f0a18f940cf3b4bbedd4b8e5c89cbbeb1bafef77
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: c69ab3db9f23b714f7de9244e4e7015ae60a4f6e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Utwórz bramę aplikacji z kończenia żądań SSL przy użyciu wiersza polecenia platformy Azure
 
@@ -137,17 +137,6 @@ az vmss create \
 
 ### <a name="install-nginx"></a>Instalowanie serwera NGINX
 
-Można użyć dowolnego edytora, który chcesz utworzyć plik, w powłoce chmury. Wprowadź `sensible-editor cloudConfig.json` umożliwia wyświetlenie listy dostępnych edytory do utworzenia pliku. W bieżącym powłoki Utwórz plik o nazwie customConfig.json i wklej następującą konfigurację:
-
-```json
-{
-  "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
-  "commandToExecute": "./install_nginx.sh"
-}
-```
-
-Uruchom następujące polecenie w oknie powłoki:
-
 ```azurecli-interactive
 az vmss extension set \
   --publisher Microsoft.Azure.Extensions \
@@ -155,7 +144,8 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings @cloudConfig.json
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
+  "commandToExecute": "./install_nginx.sh" }'
 ```
 
 ## <a name="test-the-application-gateway"></a>Testowanie bramy aplikacji
@@ -172,7 +162,7 @@ az network public-ip show \
 
 ![Ostrzeżenie bezpieczne](./media/application-gateway-ssl-cli/application-gateway-secure.png)
 
-Aby zaakceptować zabezpieczeń ostrzeżenie, jeśli używasz certyfikatu z podpisem własnym, wybierz **szczegóły** , a następnie **przejdź do strony sieci Web**. Następnie wyświetleniem zabezpieczonej witrynie NGINX jak w poniższym przykładzie:
+Aby zaakceptować zabezpieczeń ostrzeżenie, jeśli używasz certyfikatu z podpisem własnym, wybierz **szczegóły** , a następnie **przejdź do strony sieci Web**. Zostanie wyświetlona zabezpieczona witryna serwera NGINX, tak jak w poniższym przykładzie:
 
 ![Podstawowy adres URL testu bramy aplikacji](./media/application-gateway-ssl-cli/application-gateway-nginx.png)
 

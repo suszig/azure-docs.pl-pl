@@ -6,19 +6,21 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: caa709fdc2a59472ee812bde91f7300396aa5755
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 2b0039c7b90ef6f003641e096521f84885171c26
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-event-grid-event-schema"></a>Azure schematu zdarzeń siatki zdarzeń
 
 W tym artykule opisano właściwości i schematu, które znajdują się dla wszystkich zdarzeń. Zdarzenia składają się z zbiór właściwości pięć wymaganych parametrów obiektu wymaganych danych. Właściwości są wspólne dla wszystkich zdarzeń z dowolnego wydawcę. Obiekt danych zawiera właściwości, które są specyficzne dla każdego wydawcy. Tematy systemu te właściwości są specyficzne dla dostawcy zasobu, takiego jak magazyn Azure lub usługi Azure Event Hubs.
 
 Zdarzenia są wysyłane do usługi Azure Event siatki w tablicy, która może zawierać wiele obiektów zdarzeń. W przypadku pojedynczego zdarzenia tablicy ma długość 1. Tablica może mieć całkowity rozmiar maksymalnie 1 MB. Każde zdarzenie w tablicy jest ograniczony do 64 KB.
+
+Dla zdarzeń siatki zdarzeń i ładunek danych każdy wydawca Azure można znaleźć schematu JSON [magazynie schematów zdarzeń](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/eventgrid/data-plane).
 
 ## <a name="event-schema"></a>Schemat zdarzeń
 
@@ -34,7 +36,9 @@ W poniższym przykładzie przedstawiono właściwości, które są używane prze
     "eventTime": string,
     "data":{
       object-unique-to-each-publisher
-    }
+    },
+    "dataVersion": string,
+    "metadataVersion": string
   }
 ]
 ```
@@ -62,7 +66,9 @@ Na przykład schemat opublikowana na potrzeby zdarzenia magazynu obiektów Blob 
       "storageDiagnostics": {
         "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
       }
-    }
+    },
+    "dataVersion": "",
+    "metadataVersion": "1"
   }
 ]
 ```
@@ -73,12 +79,14 @@ Wszystkie zdarzenia zawierają tych samych danych najwyższego poziomu następuj
 
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
-| Temat | Ciąg | Zasobów Pełna ścieżka do źródła zdarzeń. To pole nie jest zapisywalny. |
-| Temat | Ciąg | Ścieżka zdefiniowana wydawcy podmiotem zdarzeń. |
-| Typ zdarzenia | Ciąg | Jeden z typów zdarzeń zarejestrowane dla tego źródła zdarzenia. |
-| eventTime | Ciąg | Czas jest generowane zdarzenie oparte na czas UTC dostawcy. |
-| id | Ciąg | Unikatowy identyfikator zdarzenia. |
-| Dane | Obiekt | Dane zdarzenia specyficzne dla dostawcy zasobów. |
+| Temat | ciąg | Zasobów Pełna ścieżka do źródła zdarzeń. To pole nie jest zapisywalny. Zdarzenie siatki udostępnia tę wartość. |
+| Temat | ciąg | Ścieżka zdefiniowana wydawcy podmiotem zdarzeń. |
+| Typ zdarzenia | ciąg | Jeden z typów zdarzeń zarejestrowane dla tego źródła zdarzenia. |
+| eventTime | ciąg | Czas jest generowane zdarzenie oparte na czas UTC dostawcy. |
+| id | ciąg | Unikatowy identyfikator zdarzenia. |
+| dane | obiekt | Dane zdarzenia specyficzne dla dostawcy zasobów. |
+| dataVersion | ciąg | Wersja schematu obiektu danych. Wydawca definiuje wersji schematu. |
+| Element metadataVersion | ciąg | Wersja schematu metadanych zdarzeń. Zdarzenie siatki definiuje schemat właściwości najwyższego poziomu. Zdarzenie siatki udostępnia tę wartość. |
 
 Aby dowiedzieć się więcej na temat właściwości w obiekcie danych, zobacz źródło zdarzenia:
 
@@ -89,7 +97,7 @@ Aby dowiedzieć się więcej na temat właściwości w obiekcie danych, zobacz �
 
 W przypadku niestandardowych tematów wydawca zdarzeń określa obiekt danych. Danych najwyższego poziomu powinien zawierać te same pola jako standardowych zdarzeń zdefiniowanych zasobów. Podczas publikowania zdarzeń w niestandardowych tematów, należy rozważyć modelowania przedmiotem zdarzeń ułatwiających routingu i filtrowania.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Aby obejrzeć wprowadzenie do usługi Azure Event siatki, zobacz [co to jest zdarzenie siatki?](overview.md)
 * Aby uzyskać więcej informacji o tworzeniu subskrypcji platformy Azure zdarzeń siatki, zobacz [schematu subskrypcji zdarzeń siatki](subscription-creation-schema.md).

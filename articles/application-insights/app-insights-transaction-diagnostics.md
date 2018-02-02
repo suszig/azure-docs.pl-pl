@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: sdash
-ms.openlocfilehash: b090699cf90c74af8480b811901b6e3078b007b3
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 8c1d8600b7f4aaa1e95f4acfbbdd55fdbfebb8fb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Diagnostyka ujednoliconego transakcji między składnikami
 
@@ -26,7 +26,7 @@ Wersja zapoznawcza wprowadza nową funkcjonalność ujednoliconego diagnostyki o
 
 ## <a name="what-does-component-mean-in-the-context-of-application-insights"></a>Co oznacza składnik w kontekście usługi Application Insights?
 
-Składniki są niezależnie można wdrożyć części aplikacji rozproszonych mikrousług. Zespoły deweloperów i operacji mają widoczność na poziomie kodu lub dostępu do danych telemetrycznych generowane przez te składniki aplikacji. 
+Składniki są niezależnie można wdrożyć części aplikacji rozproszonych mikrousług. Zespoły deweloperów i operacji mają widoczność na poziomie kodu lub dostępu do danych telemetrycznych generowane przez te składniki aplikacji.
 
 * Składniki różnią się od "obserwowanych" zależności zewnętrzne, takie jak SQL, EventHub itp., które zespół/organizacji nie mogą mieć dostęp do (kod lub dane telemetryczne).
 * Składniki uruchamiane na dowolnej liczbie wystąpień kontenera server/roli.
@@ -40,11 +40,11 @@ Włącz "Unified szczegółów: Diagnostyka transakcji E2E" z [listy podglądy](
 
 ![Włącz podgląd](media/app-insights-e2eTxn-diagnostics/previews.png)
 
-Ta wersja zapoznawcza jest obecnie dostępny dla żądania po stronie serwera, zależności i wyjątki. Są dostępne nowe środowisko w **wyniki wyszukiwania**, **wydajności**, lub **błąd** klasyfikowanie środowiska. Wersja zapoznawcza zastępuje odpowiednie bloki szczegóły klasycznego. 
+Ta wersja zapoznawcza jest obecnie dostępny dla żądania po stronie serwera, zależności i wyjątki. Są dostępne nowe środowisko w **wyniki wyszukiwania**, **wydajności**, lub **błąd** klasyfikowanie środowiska. Wersja zapoznawcza zastępuje odpowiednie bloki szczegóły klasycznego.
 
 ![Próbek wydajności](media/app-insights-e2eTxn-diagnostics/performanceSamplesClickThrough.png)
 
-## <a name="transaction-diagnostics-experience"></a>Wyniki diagnostyki transakcji 
+## <a name="transaction-diagnostics-experience"></a>Wyniki diagnostyki transakcji
 Ten widok zawiera trzy części klucza: wykres transakcji między składnikami, listę sekwencji czas wszystkie dane telemetryczne z operacją określonego składnika, a w okienku szczegółów dowolnego elementu wybrane dane telemetryczne po lewej stronie.
 
 ![Części klucza](media/app-insights-e2eTxn-diagnostics/3partsCrossComponent.png)
@@ -77,6 +77,10 @@ Szczegóły wybranego elementu z jednej z dwóch części w tym okienku są wyś
 ## <a name="profiler-and-snapshot-debugger"></a>Debuger profilera i migawki
 
 [Application Insights profilera](app-insights-profiler.md) lub [debugera migawki](app-insights-snapshot-debugger.md) pomoc w diagnostyce poziomie kodu problemów z wydajnością i niepowodzenie. Z tym środowiskiem widać ślady profilera, lub kliknij przycisk migawek z każdego składnika za pomocą pojedynczej.
+
+Jeśli nie można pobrać profilera pracy, skontaktuj się z**serviceprofilerhelp@microsoft.com**
+
+Jeśli nie można pobrać debugera migawki pracy, skontaktuj się z**snapshothelp@microsoft.com**
 
 ![Integracji debugera](media/app-insights-e2eTxn-diagnostics/debugSnapshot.png)
 

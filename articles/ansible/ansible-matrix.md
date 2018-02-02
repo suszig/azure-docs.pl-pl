@@ -8,11 +8,11 @@ manager: routlaw
 ms.author: tarcher
 ms.date: 01/19/2018
 ms.topic: article
-ms.openlocfilehash: da5d1a8277d87a771b080ef9cefb3b40448d1563
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
-ms.translationtype: HT
+ms.openlocfilehash: f62cc2df9e4ce815c4427b80e271ddc672748e4f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="ansible-module-and-version-matrix"></a>Macierz Ansible modułu i wersji
 
@@ -33,6 +33,7 @@ W tym artykule wymieniono modułów Ansible dla platformy Azure, które można u
 | azure_rm_virtualmachine                     | Yes          | Yes                         | Yes                                 | 
 | azure_rm_virtualmachine_extension           | Yes          | Yes                         | Yes                                 | 
 | azure_rm_virtualmachine_scaleset            | Yes          | Yes                         | Yes                                 | 
+| azure_rm_image                              |              | Yes                         | Yes                                 | 
 | **Sieć**                    |           |                          |                                  | 
 | azure_rm_virtualnetwork                     | Yes          | Yes                         | Yes                                 | 
 | azure_rm_virtualnetwork_facts               | Yes          | Yes                         | Yes                                 | 
@@ -45,13 +46,16 @@ W tym artykule wymieniono modułów Ansible dla platformy Azure, które można u
 | azure_rm_dnsrecordset_facts                 | Yes          | Yes                         | Yes                                 | 
 | azure_rm_dnszone                            | Yes          | Yes                         | Yes                                 | 
 | azure_rm_dnszone_facts                      | Yes          | Yes                         | Yes                                 | 
-| **Storage**                    |           |                          |                                  | 
 | azure_rm_loadbalancer                       | Yes          | Yes                         | Yes                                 | 
 | azure_rm_loadbalancer_facts                 | Yes          | Yes                         | Yes                                 | 
-| azure_rm_applicationgateway                 | -            | Yes                         |                                     | 
-| azure_rm_applicationgateway_facts           | -            | -                           | Yes                                 | 
-| azure_rm_securitygroup                      | -            | -                           | Yes                                 | 
-| azure_rm_securitygroup_facts                | -            | -                           | Yes                                 | 
+| azure_rm_appgw                              | -            | -                           | Yes                                 | 
+| azure_rm_appgwroute                         | -            | -                           | Yes                                 | 
+| azure_rm_appgwroute                         | -            | -                           | Yes                                 |
+| azure_rm_appgwroute_facts                   | -            | -                           | Yes                                 |
+| azure_rm_appgwroutetable                    | -            | -                           | Yes                                 |
+| azure_rm_securitygroup                      | Yes          | Yes                         | Yes                                 | 
+| azure_rm_appgwroutetable_facts              | Yes          | Yes                         | Yes                                 | 
+| **Storage**                    |           |                          |                                  | 
 | azure_rm_storageaccount                     | Yes          | Yes                         | Yes                                 | 
 | azure_rm_storageaccount_facts               | Yes          | Yes                         | Yes                                 | 
 | azure_rm_storageblob                        | Yes          | Yes                         | Yes                                 | 
@@ -59,7 +63,7 @@ W tym artykule wymieniono modułów Ansible dla platformy Azure, które można u
 | azure_rm_managed_disk_facts                 | Yes          | Yes                         | Yes                                 | 
 | **Kontenery**                    |           |                          |                                  | 
 | azure_rm_acs                                | Yes          | Yes                         | Yes                                 | 
-| azure_rm_containerinstance                  | -            | Yes                        |                                     | 
+| azure_rm_containerinstance                  | -            | Yes                         | Yes                                 | 
 | azure_rm_containerinstance_facts            | -            | -                           | Yes                                 | 
 | azure_rm_containerregistry                  | -            | Yes                         | Yes                                 | 
 | azure_rm_containerregistry_facts            | -            | -                           | Yes                                 | 
@@ -73,7 +77,7 @@ W tym artykule wymieniono modułów Ansible dla platformy Azure, które można u
 | **Bazy danych**                    |           |                          |                                  | 
 | azure_rm_sqlserver                          | -            | Yes                         | Yes                                 | 
 | azure_rm_sqlserver_facts                    | -            | -                           | Yes                                 | 
-| azure_rm_sqldatabase                        | -            | -                           | Yes                                 | 
+| azure_rm_sqldatabase                        | -            | Yes                         | Yes                                 | 
 | azure_rm_sqldatabase_facts                  | -            | -                           | Yes                                 | 
 | azure_rm_sqlelasticpool                     | -            | -                           | Yes                                 | 
 | azure_rm_sqlelasticpool_facts               | -            | -                           | Yes                                 | 
@@ -81,7 +85,7 @@ W tym artykule wymieniono modułów Ansible dla platformy Azure, które można u
 | azure_rm_sqlfirewallrule_facts              | -            | -                           | Yes                                 | 
 | azure_rm_mysqlserver                        | -            | Yes                         | Yes                                 | 
 | azure_rm_mysqlserver_facts                  | -            | -                           | Yes                                 | 
-| azure_rm_mysqldatabase                      | -            | -                           | Yes                                 | 
+| azure_rm_mysqldatabase                      | -            | Yes                         | Yes                                 | 
 | azure_rm_mysqldatabase_facts                | -            | -                           | Yes                                 | 
 | azure_rm_mysqlfirewallrule                  | -            | -                           | Yes                                 | 
 | azure_rm_mysqlfirewallrule_facts            | -            | -                           | Yes                                 | 
@@ -89,12 +93,17 @@ W tym artykule wymieniono modułów Ansible dla platformy Azure, które można u
 | azure_rm_mysqlconfiguration_facts           | -            | -                           | Yes                                 | 
 | azure_rm_postgresqlserver                   | -            | Yes                         | Yes                                 | 
 | azure_rm_postgresqlserver_facts             | -            | -                           | Yes                                 | 
-| azure_rm_postgresqldatabase                 | -            | -                           | Yes                                 | 
+| azure_rm_postgresqldatabase                 | -            | Yes                         | Yes                                 | 
 | azure_rm_postgresqldatabase_facts           | -            | -                           | Yes                                 | 
 | azure_rm_postgresqlfirewallrule             | -            | -                           | Yes                                 | 
 | azure_rm_postgresqlfirewallrule_facts       | -            | -                           | Yes                                 | 
 | azure_rm_postgresqlconfiguration            | -            | -                           | Yes                                 | 
 | azure_rm_postgresqlconfiguration_facts      | -            | -                           | Yes                                 | 
+| **Usługa Key Vault**                    |           |                          |                                  | 
+| azure_rm_keyvault                           | -            | -                           | Yes                                 |
+| azure_rm_keyvault_facts                     | -            | -                           | Yes                                 |
+| azure_rm_keyvaultkey                        | -            | -                           | Yes                                 |
+| azure_rm_keyvaultsecret                     | -            | -                           | Yes                                 |
 
 ## <a name="introduction-to-azuremodule"></a>Wprowadzenie do azure_module
 [Roli podręcznikowym azure_module](https://galaxy.ansible.com/Azure/azure_modules/) zawiera najnowsze zmiany i poprawki dla modułów Azure [devel gałęzi w repozytorium Ansible](https://github.com/ansible/ansible/tree/devel). Jeśli nie można czekać na Ansible następnej wersji, instalowanie roli azure_module jest dobrym rozwiązaniem.

@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 12/14/2017
+ms.date: 01/30/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: f62e5a224c2fb33714a80bc47b98238208b787e5
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: b3c7c19543d50ed91129a2040bea1db1c4df1ea7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Często zadawane pytania dotyczące usługi Azure Management koszt
 
@@ -89,7 +89,7 @@ Zmiana adresu e-mail w Cloudyn z domyślnym adresem na platformie Azure, Twoje k
 
 Firma Microsoft zaleca utworzenie co najmniej dwóch kont administratora Cloudyn na wypadek, gdyby jedno z kont zostanie zablokowane.
 
-Nie można zalogować się do portalu Cloudyn, upewnij się, logować się do Cloudyn używasz poprawny adres URL zarządzania koszt Azure. Użyj [https://azure.cloudyn.com](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade).
+Nie można zalogować się do portalu Cloudyn, upewnij się, logować się do Cloudyn używasz poprawny adres URL zarządzania koszt Azure. Use [https://azure.cloudyn.com](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade).
 
 Unikaj używania https://app.cloudyn.com Cloudyn bezpośredni adres URL.
 

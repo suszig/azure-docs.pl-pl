@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.openlocfilehash: 68aaf0fda2e60c5736ab020c15e516144e11d68e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 31254788b840ccc1f1017df3c533e84b9c99f10d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="how-to-configure-on-premises-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>Jak skonfigurować koderów lokalnych przy użyciu usługi Azure Media Services do tworzenia strumieni o wielokrotnej szybkości transmisji bitów
 W tym temacie wymieniono lokalnymi koderów na żywo, które służy do przechwytywania zdarzeń na żywo i wysyłać strumień na żywo pojedynczej szybkości transmisji bitów do AMS kanały (włączyć kodowanie na żywo) dla dalszego przetwarzania. Temat zawiera również linki do samouczków demonstrujących do konfigurowania wymienionych koderów.
@@ -27,7 +27,10 @@ W tym temacie wymieniono lokalnymi koderów na żywo, które służy do przechwy
 Aby uzyskać informacje na temat konfigurowania [stanie wolnym Live](http://www.elementaltechnologies.com/products/elemental-live) kodera, aby wysyłać strumień na żywo o pojedynczej szybkości transmisji bitów do kanału AMS, zobacz [Konfigurowanie stanie wolnym Live](media-services-configure-elemental-live-encoder.md).
 
 ## <a name="flash-media-live-encoder"></a>Koder na żywo Flash nośnika
-Aby uzyskać informacje na temat konfigurowania [Flash Media Live Encoder](http://www.adobe.com/products/flash-media-encoder.html) Zobacz kodera (FMLE), aby wysyłać strumień na żywo o pojedynczej szybkości transmisji bitów do kanału AMS [Konfigurowanie FMLE](media-services-configure-fmle-live-encoder.md) .
+Aby uzyskać informacje na temat konfigurowania [Flash Media Live Encoder](http://www.adobe.com/products/flash-media-encoder.html) Zobacz kodera (FMLE), aby wysyłać strumień na żywo o pojedynczej szybkości transmisji bitów do kanału AMS [Konfigurowanie FMLE](media-services-configure-fmle-live-encoder.md).
+
+## <a name="haivision-kb-encoder"></a>Koder Haivision KB
+Aby uzyskać informacje na temat konfigurowania [kodera KB Haivision](https://www.haivision.com/products/kb-series/) kodera, aby wysyłać strumień na żywo o pojedynczej szybkości transmisji bitów do kanału AMS, zobacz [Konfigurowanie kodera KB Haivision](media-services-configure-kb-live-encoder.md).
 
 ## <a name="telestream-wirecast"></a>Telestream Wirecast
 Aby uzyskać informacje na temat konfigurowania [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) Zobacz kodera, aby wysyłać strumień na żywo o pojedynczej szybkości transmisji bitów do kanału AMS [Konfigurowanie Wirecast](media-services-configure-wirecast-live-encoder.md).
@@ -41,6 +44,6 @@ Aby uzyskać informacje na temat konfigurowania [Tricaster](http://newtek.com/pr
 ## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 [Transmisja strumieniowa przy użyciu usługi Azure Media Services do tworzenia strumieni o wielokrotnej szybkości transmisji bitów na żywo](media-services-manage-live-encoder-enabled-channels.md).
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: jdial
-ms.openlocfilehash: 78091b515c00591a4af8d807945475b6be50188a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: af6e9d55038acba194f3cc631ff1b4e2e371852c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="route-traffic-through-a-network-virtual-appliance"></a>Kierować ruchem przez urządzenie wirtualne sieci
 
@@ -49,20 +49,20 @@ Ten skrypt używa następujących poleceń do utworzenia grupy zasobów, sieć w
 
 | Polecenie | Uwagi |
 |---|---|
-| [Tworzenie grupy az](/cli/azure/group#create) | Tworzy grupę zasobów, w którym przechowywane są wszystkie zasoby. |
-| [Tworzenie sieci wirtualnej sieci az](/cli/azure/network/vnet#create) | Tworzy sieć wirtualna platformy Azure i podsieci frontonu. |
-| [Utwórz podsieć sieci az](/cli/azure/network/vnet/subnet#create) | Tworzy zaplecza i strefą DMZ podsieci. |
-| [Tworzenie sieci az publicznego ip](/cli/azure/network/public-ip#create) | Tworzy publiczny adres IP na dostęp do maszyny Wirtualnej z Internetu. |
-| [Utwórz az kart interfejsu sieciowego](/cli/azure/network/nic#create) | Tworzy interfejs sieci wirtualnej i Włącz przesyłanie dalej IP dla niego. |
-| [Tworzenie grupy nsg sieci az](/cli/azure/network/nsg#create) | Tworzy sieciową grupę zabezpieczeń (NSG). |
-| [Tworzenie reguły nsg sieci az](/cli/azure/network/nsg/rule#create) | Tworzy reguły NSG, które zezwala na portach HTTP i HTTPS ruchu przychodzącego do maszyny Wirtualnej. |
-| [Aktualizacja podsieci sieci wirtualnej sieci az](/cli/azure/network/vnet/subnet#update)| Powoduje skojarzenie grupy NSG i tabele tras do podsieci. |
-| [Utwórz tabelę tras az sieci](/cli/azure/network/route-table#create)| Tworzy tabelę tras dla wszystkich tras. |
-| [Utwórz trasę tabeli tras sieciowych az](/cli/azure/network/route-table/route#create)| Tworzy tras można kierować ruchem między podsieciami i Internetem za pośrednictwem maszyny Wirtualnej. |
-| [Tworzenie maszyny wirtualnej az](/cli/azure/vm#create) | Tworzy maszynę wirtualną i dołącza do karty Sieciowej. To polecenie określa również obraz maszyny wirtualnej do użycia i poświadczenia administracyjne. |
-| [Usuwanie grupy az](/cli/azure/group#delete) | Usuwa grupę zasobów i wszystkie zasoby, które zawiera. |
+| [Tworzenie grupy az](/cli/azure/group#az_group_create) | Tworzy grupę zasobów, w którym przechowywane są wszystkie zasoby. |
+| [Tworzenie sieci wirtualnej sieci az](/cli/azure/network/vnet#az_network_vnet_create) | Tworzy sieć wirtualna platformy Azure i podsieci frontonu. |
+| [Utwórz podsieć sieci az](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) | Tworzy zaplecza i strefą DMZ podsieci. |
+| [Tworzenie sieci az publicznego ip](/cli/azure/network/public-ip#az_network_public_ip_create) | Tworzy publiczny adres IP na dostęp do maszyny Wirtualnej z Internetu. |
+| [Utwórz az kart interfejsu sieciowego](/cli/azure/network/nic#az_network_nic_create) | Tworzy interfejs sieci wirtualnej i Włącz przesyłanie dalej IP dla niego. |
+| [Tworzenie grupy nsg sieci az](/cli/azure/network/nsg#az_network_nsg_create) | Tworzy sieciową grupę zabezpieczeń (NSG). |
+| [Tworzenie reguły nsg sieci az](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) | Tworzy reguły NSG, które zezwala na portach HTTP i HTTPS ruchu przychodzącego do maszyny Wirtualnej. |
+| [Aktualizacja podsieci sieci wirtualnej sieci az](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update)| Powoduje skojarzenie grupy NSG i tabele tras do podsieci. |
+| [Utwórz tabelę tras az sieci](/cli/azure/network/route-table#az_network_route_table_create)| Tworzy tabelę tras dla wszystkich tras. |
+| [Utwórz trasę tabeli tras sieciowych az](/cli/azure/network/route-table/route#az_network_route_table_route_create)| Tworzy tras można kierować ruchem między podsieciami i Internetem za pośrednictwem maszyny Wirtualnej. |
+| [Tworzenie maszyny wirtualnej az](/cli/azure/vm#az_vm_create) | Tworzy maszynę wirtualną i dołącza do karty Sieciowej. To polecenie określa również obraz maszyny wirtualnej do użycia i poświadczenia administracyjne. |
+| [Usuwanie grupy az](/cli/azure/group#az_group_delete) | Usuwa grupę zasobów i wszystkie zasoby, które zawiera. |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby uzyskać więcej informacji dotyczących interfejsu wiersza polecenia Azure, zobacz [dokumentacji interfejsu wiersza polecenia Azure](/cli/azure/overview).
 

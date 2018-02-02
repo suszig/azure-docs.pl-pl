@@ -5,18 +5,18 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/29/2017
+ms.date: 01/30/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 92bb4f2a6458057613bdbcb749026781111a778d
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 0a4f6a5940ccffe897a5609b837ddaeea98d87aa
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="use-cost-management-reports"></a>Użyj raportów dotyczących zarządzania koszt
+# <a name="use-cost-management-reports"></a>Korzystanie z raportów rozwiązania Cost Management
 
 W tym artykule opisano sposób używania różnych raportach kosztów zarządzania w portalu Cloudyn. Większość raportów Cloudyn są intuicyjne i zapewnia jednolite wyglądu i działania. Aby uzyskać ogólne informacje o raportach Cloudyn, zobacz [opis koszt raporty](understading-cost-reports.md). Artykuł opisuje również różne opcje i pola używane w większości raportów.
 
@@ -135,7 +135,7 @@ Oto przykład tych samych informacji w widoku tabeli.
 
 
 
-### <a name="cost-over-time-report"></a>Raport koszt w czasie
+### <a name="cost-over-time-report"></a>Raport kosztu w czasie
 
 Raport koszt w czasie Wyświetla wydatków wraz z upływem czasu, dzięki czemu można obserwować trendy i wykrycia nieprawidłowości w danym wdrożeniu. Przedstawia on zasadniczo rozłożone w określonym przedziale czasu. Raport zawiera Twoje współautorzy głównego koszt tym bieżących kosztów i opłat jednorazowe wystąpienia zastrzeżonych, przeznaczanych w zadanym przedziale czasu. Zasadami ustawionymi w Menedżerze koszt 360° służy w tym raporcie.
 
@@ -160,6 +160,6 @@ Oto przykład raportu.
 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Jeśli nie zostało już ukończone pierwszy samouczek koszt zarządzania, przeczytaj je na [Przejrzyj użycia i koszty](tutorial-review-usage.md).

@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7dc10d0cc73960fac4759a0cebec8d294cf1b463
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 23249b92b4e99628d49bbd811b4ad1f1dc9cc9b0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-event-grid-event-schema-for-subscriptions"></a>Azure schematu zdarzeń siatki zdarzeń dla subskrypcji
 
@@ -39,7 +39,7 @@ W poniższym przykładzie przedstawiono schematu zasobu utworzone zdarzenie:
 
 ```json
 [
-    {
+  {
     "topic":"/subscriptions/{subscription-id}",
     "subject":"/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/eventSubscriptions/LogicAppdd584bdf-8347-49c9-b9a9-d1f980783501",
     "eventType":"Microsoft.Resources.ResourceWriteSuccess",
@@ -57,7 +57,9 @@ W poniższym przykładzie przedstawiono schematu zasobu utworzone zdarzenie:
         "subscriptionId":"{subscription-id}",
         "tenantId":"72f988bf-86f1-41af-91ab-2d7cd011db47"
         },
-    }
+      "dataVersion": "",
+      "metadataVersion": "1"
+  }
 ]
 ```
 
@@ -81,7 +83,9 @@ Schemat dla zdarzenia Usunięto zasób jest podobne:
     "status": "Succeeded",
     "subscriptionId": "{subscription-id}",
     "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
-  }
+  },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 ```
 
@@ -91,29 +95,31 @@ Zdarzenie ma następujące dane najwyższego poziomu:
 
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
-| Temat | Ciąg | Zasobów Pełna ścieżka do źródła zdarzeń. To pole nie jest zapisywalny. |
-| Temat | Ciąg | Ścieżka zdefiniowana wydawcy podmiotem zdarzeń. |
-| Typ zdarzenia | Ciąg | Jeden z typów zdarzeń zarejestrowane dla tego źródła zdarzenia. |
-| eventTime | Ciąg | Czas jest generowane zdarzenie oparte na czas UTC dostawcy. |
-| id | Ciąg | Unikatowy identyfikator zdarzenia. |
-| Dane | Obiekt | Dane zdarzenia subskrypcji. |
+| Temat | ciąg | Zasobów Pełna ścieżka do źródła zdarzeń. To pole nie jest zapisywalny. Zdarzenie siatki udostępnia tę wartość. |
+| Temat | ciąg | Ścieżka zdefiniowana wydawcy podmiotem zdarzeń. |
+| Typ zdarzenia | ciąg | Jeden z typów zdarzeń zarejestrowane dla tego źródła zdarzenia. |
+| eventTime | ciąg | Czas jest generowane zdarzenie oparte na czas UTC dostawcy. |
+| id | ciąg | Unikatowy identyfikator zdarzenia. |
+| dane | obiekt | Dane zdarzenia subskrypcji. |
+| dataVersion | ciąg | Wersja schematu obiektu danych. Wydawca definiuje wersji schematu. |
+| Element metadataVersion | ciąg | Wersja schematu metadanych zdarzeń. Zdarzenie siatki definiuje schemat właściwości najwyższego poziomu. Zdarzenie siatki udostępnia tę wartość. |
 
 Obiekt danych ma następujące właściwości:
 
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
-| Autoryzacji | Ciąg | Autoryzacja żądanej operacji. |
-| Oświadczenia | Ciąg | Właściwości oświadczenia. |
-| correlationId | Ciąg | Identyfikator operacji do rozwiązywania problemów. |
-| httpRequest | Ciąg | Szczegóły operacji. |
-| resourceProvider | Ciąg | Dostawca zasobów, wykonywanie operacji. |
-| resourceUri | Ciąg | Identyfikator URI zasobu podczas operacji. |
-| operationName | Ciąg | Operacja, która została wykonana. |
-| status | Ciąg | Stan operacji. |
-| subscriptionId | Ciąg | Identyfikator subskrypcji zasobu. |
-| Dla identyfikatora dzierżawcy | Ciąg | Identyfikator dzierżawy zasobu. |
+| Autoryzacji | ciąg | Autoryzacja żądanej operacji. |
+| Oświadczenia | ciąg | Właściwości oświadczenia. |
+| correlationId | ciąg | Identyfikator operacji do rozwiązywania problemów. |
+| httpRequest | ciąg | Szczegóły operacji. |
+| resourceProvider | ciąg | Dostawca zasobów, wykonywanie operacji. |
+| resourceUri | ciąg | Identyfikator URI zasobu podczas operacji. |
+| operationName | ciąg | Operacja, która została wykonana. |
+| status | ciąg | Stan operacji. |
+| subscriptionId | ciąg | Identyfikator subskrypcji zasobu. |
+| Dla identyfikatora dzierżawcy | ciąg | Identyfikator dzierżawy zasobu. |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Aby obejrzeć wprowadzenie do usługi Azure Event siatki, zobacz [co to jest zdarzenie siatki?](overview.md).
 * Aby uzyskać więcej informacji o tworzeniu subskrypcji platformy Azure zdarzeń siatki, zobacz [schematu subskrypcji zdarzeń siatki](subscription-creation-schema.md).

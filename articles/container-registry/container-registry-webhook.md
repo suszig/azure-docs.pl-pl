@@ -8,11 +8,11 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 12/02/2017
 ms.author: nepeters
-ms.openlocfilehash: 133e36179a500dc65c3a543266a7afcf9988b87d
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 915f90fd5d969d5544d56e5bec754b799f349015
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Za pomocą elementów webhook rejestru kontenera platformy Azure
 
@@ -35,7 +35,7 @@ Aby uzyskać szczegółowe informacje dotyczące żądań elementu webhook, zoba
 
 | Wartość | Opis |
 |---|---|
-| Nazwa | Nazwa, która ma zostać przypisany do elementu webhook. Może zawierać tylko małe litery i cyfry i musi składać się z 5 – 50 znaków. |
+| Name (Nazwa) | Nazwa, która ma zostać przypisany do elementu webhook. Może zawierać tylko małe litery i cyfry i musi składać się z 5 – 50 znaków. |
 | Identyfikator URI usługi | Identyfikator URI, gdzie elementu webhook wysłać powiadomienia POST. |
 | Nagłówki niestandardowe | Nagłówki, które mają być przekazywane wraz z żądaniem POST. Należy je w "klucz: wartość" format. |
 | Akcje wyzwalacza | Akcje, które mogą powodować elementu webhook. Elementów Webhook aktualnie może zostać wyzwolone przez obraz wypychania i/lub akcje usuwania. |
@@ -48,7 +48,7 @@ Przykład elementu webhook formularza:
 
 ## <a name="create-webhook-azure-cli"></a>Tworzenie elementu webhook wiersza polecenia platformy Azure
 
-Aby utworzyć elementu webhook przy użyciu wiersza polecenia platformy Azure, użyj [tworzenia elementu webhook acr az](/cli/azure/acr/webhook#create) polecenia.
+Aby utworzyć elementu webhook przy użyciu wiersza polecenia platformy Azure, użyj [tworzenia elementu webhook acr az](/cli/azure/acr/webhook#az_acr_webhook_create) polecenia.
 
 ```azurecli-interactive
 az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --actions delete --uri http://webhookuri.com
@@ -68,7 +68,7 @@ Przed przy użyciu elementu webhook w kontenerze obrazu wypychania i akcje usuwa
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-Aby przetestować element webhook ACR z wiersza polecenia platformy Azure, użyj [az acr elementu webhook ping](/cli/azure/acr/webhook#ping) polecenia.
+Aby przetestować element webhook ACR z wiersza polecenia platformy Azure, użyj [az acr elementu webhook ping](/cli/azure/acr/webhook#az_acr_webhook_ping) polecenia.
 
 ```azurecli-interactive
 az acr webhook ping --registry mycontainerregistry --name myacrwebhook01
@@ -92,6 +92,6 @@ Każdy element webhook może zostać usunięta przez wybranie elementu webhook, 
 az acr webhook delete --registry mycontainerregistry --name myacrwebhook01
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Odwołanie do schematu elementu webhook Azure rejestru kontenera](container-registry-webhook-reference.md)

@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: ff56ced9f1d43780097cd65e58b492daaba9b61d
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 0151b64b39699e2a7a804cdc57e368fd786119a7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-integrated-systems-connection-models"></a>Azure stosu zintegrowane systemy modelami połączenia
 Jeśli interesuje Cię systemu Azure stosu zintegrowane, musisz poznać [kilka kwestii integracji datacenter](azure-stack-datacenter-integration.md) dla wdrożenia stosu Azure określić, jak system zmieści się w centrum danych. Ponadto należy określić dokładnie sposób będzie integracji stosu Azure do środowiska chmury hybrydowej. Ten artykuł zawiera omówienie tych istotnych decyzji, w tym połączeniu z platformą Azure, Magazyn tożsamości i decyzje modelu rozliczeń.
@@ -46,5 +46,7 @@ Można wdrożyć stosu Azure albo połączony z Internetem (i na platformie Azur
 Po służący do wdrożenia usługi Azure stosu decydujesz się na model połączenia platformy Azure, decyzje dodatkowych, zależny od połączenia muszą być wprowadzane do magazynu tożsamości i rozliczeń — metoda. 
 
 ## <a name="next-steps"></a>Kolejne kroki
-- Dowiedz się więcej o [Azure połączone decyzji dotyczących wdrożenia stosu Azure](azure-stack-connected-deployment.md)
-- Dowiedz się więcej o [Azure odłączony decyzji dotyczących wdrożenia stosu Azure](azure-stack-disconnected-deployment.md)
+
+[Azure połączonych stosu Azure decyzji dotyczących wdrożenia](azure-stack-connected-deployment.md)
+
+[Azure odłączony decyzji dotyczących wdrożenia stosu Azure](azure-stack-disconnected-deployment.md)

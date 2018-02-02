@@ -2,17 +2,17 @@
 title: "Udostępnić puli partii zadań Azure w sieci wirtualnej | Dokumentacja firmy Microsoft"
 description: "Tak, aby węzły obliczeniowe można bezpiecznego komunikowania się z innych maszyn wirtualnych w sieci, takich jak serwer plików, można utworzyć puli partii w sieci wirtualnej."
 services: batch
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 10/16/2017
-ms.author: v-dotren
-ms.openlocfilehash: f34647afc600b72704859952d0a40edad4a3b40f
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.author: danlep
+ms.openlocfilehash: 647a123e403b0ed6458bc26e7b26a73f3c1f8e91
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Tworzenie puli partii zadań Azure w sieci wirtualnej
 
@@ -67,7 +67,7 @@ Po dodaniu trasy zdefiniowane przez użytkownika, należy zdefiniować trasy dla
 
 ![Trasa zdefiniowana przez użytkownika](./media/batch-virtual-network/user-defined-route.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Aby uzyskać szczegółowe informacje o partii, zobacz [Programowanie równoległe na dużą skalę obliczeniowe rozwiązań w partii](batch-api-basics.md).
 - Aby uzyskać więcej informacji o tworzeniu trasy zdefiniowane przez użytkownika, zobacz [utworzenie trasy zdefiniowanej przez użytkownika - portalu Azure](../virtual-network/create-user-defined-route-portal.md).

@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 381dacd14afe8a2cb20be8d5e5d8065034db22c8
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: dcc3da77d18a4488dcb4b74d78198f806cf3d64e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Tworzenie, zmienianie lub usunąć sieci wirtualnej komunikacji równorzędnej
 
 Dowiedz się, jak utworzyć, zmienić lub usunąć sieci wirtualnej komunikacji równorzędnej. Sieci wirtualnej komunikacji równorzędnej umożliwia łączenie z sieciami wirtualnymi w sieci Azure sieci szkieletowej. Po połączyć za pomocą, sieci wirtualne są nadal zarządzane jako oddzielne zasoby. Jeśli nie masz doświadczenia w obsłudze sieci wirtualnej komunikacji równorzędnej, zaleca się odczytu [komunikacji równorzędnej omówienie sieci wirtualnej](virtual-network-peering-overview.md) i wykonując [tworzenie sieci wirtualnej komunikacji równorzędnej samouczek](virtual-network-create-peering.md), przed wykonaniem zadania w tym artykule.
 
-Łączenie sieci wirtualnych za pomocą komunikacji równorzędnej w tym samym regionie jest ogólnie dostępne. Łączenie sieci wirtualnych za pomocą komunikacji równorzędnej w różnych regionach jest obecnie dostępne w wersji zapoznawczej w następujących regionach: Zachodnio-środkowe stany USA, Kanada Środkowa i Zachodnie stany USA 2. Możesz [zarejestrować subskrypcję w celu korzystania z wersji zapoznawczej](virtual-network-create-peering.md).
+Łączenie sieci wirtualnych za pomocą komunikacji równorzędnej w tym samym regionie jest ogólnie dostępne. Równorzędna sieci wirtualnych w różnych regionach jest obecnie w przeglądzie. Zobacz [aktualizacje sieci wirtualnej](https://azure.microsoft.com/en-us/updates/?product=virtual-network) dla dostępnych regionów. Należy [zarejestrować subskrypcji dla podglądu](virtual-network-create-peering.md).
 
 > [!WARNING]
 > Połączenia sieci wirtualnych za pomocą komunikacji równorzędnej, które utworzono w tym scenariuszu, mogą nie mieć takiego samego poziomu dostępności i niezawodności jak scenariusze w wersji ogólnodostępnej. Połączenia sieci wirtualnych za pomocą komunikacji równorzędnej mogą mieć ograniczone możliwości i mogą nie być dostępne we wszystkich regionach platformy Azure. Najbardziej aktualne powiadomienia dotyczące dostępności i stanu tej funkcji można znaleźć na stronie [aktualizacji usługi Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network).

@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 447844d1779c537eb9e336a32575cb68ac9ad9eb
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 8194e6bab35fe7a486fcc3bf0cdf5b00fcd9000c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="faq-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Często zadawane pytania i znane problemy z zarządzania usługi tożsamości (MSI) dla usługi Azure Active Directory
 
@@ -61,9 +61,12 @@ Gdzie:
 ### <a name="are-there-rbac-roles-for-user-assigned-identities"></a>Dostępne są role RBAC dla tożsamości przypisanych użytkowników?
 Tak:
 1. MSI Contributor: 
+
 - Można: CRUD przypisane tożsamości użytkowników. 
 - Nie można: Przypisz użytkownika przypisanego do zasobu tożsamości. (tj. Przypisz tożsamości do maszyny Wirtualnej)
+
 2. MSI Operator: 
+
 - Może: Przypisywanie tożsamości użytkownika przypisanego do zasobu. (tj. Przypisz tożsamości do maszyny Wirtualnej)
 - Nie można: CRUD przypisane tożsamości użytkowników.
 
@@ -118,10 +121,9 @@ az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 
 - Jedynym sposobem, aby usunąć wszystkich użytkowników przypisanych msi przypisano systemowi MSI. 
 - Inicjowanie obsługi rozszerzenia maszyny Wirtualnej do maszyny Wirtualnej może zakończyć się niepowodzeniem z powodu błędów wyszukiwania DNS. Uruchom ponownie maszynę Wirtualną, a następnie spróbuj ponownie. 
-- Azure CLI: `Az resource show` i `Az resource list` zakończy się niepowodzeniem na maszynie Wirtualnej z użytkownikiem przypisane MSI. Jako obejście Użyj`az vm/vmss show`
+- Dodawanie MSI "nieistniejącego" spowoduje, że maszyna wirtualna może się nie powieść. *Uwaga: Poprawka niepowodzenia Przypisz tożsamości w przypadku Instalatora MSI nie istnieje, ma zostać przeniesiona poza*
 - Samouczek usługi Azure magazynu jest dostępna tylko w centralnej nam EUAP w tej chwili. 
-- Gdy MSI przypisany użytkownik uzyskuje dostęp do zasobu, bloku IAM dla tego zasobu pokazuje "Nie można uzyskać dostępu do danych". Jako obejście Użyj interfejsu wiersza polecenia, aby przeglądanie i edytowanie przypisania roli dla tego zasobu.
-- Tworzenie użytkownika przypisanego MSI podkreślenia w nazwie, nie jest obsługiwane.
+- Tworzenie użytkownika przypisanego MSI znaki specjalne (np. podkreślenie) w nazwie, nie jest obsługiwane.
 - Dodawanie drugiego użytkownika przypisany tożsamości, clientID może być dostępne dla żądań tokenów dla niego. Jako ograniczenie Uruchom ponownie rozszerzenia MSI maszyny Wirtualnej za pomocą następujących poleceń dwóch bash:
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`

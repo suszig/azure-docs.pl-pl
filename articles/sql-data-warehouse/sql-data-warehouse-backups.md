@@ -15,11 +15,11 @@ ms.workload: NA
 ms.custom: backup-restore
 ms.date: 10/23/2017
 ms.author: jrj;barbkess
-ms.openlocfilehash: e76349ef7a2afa02d4f9e5295f299bb8084d1e08
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 159a1d34caba829750da33dbc4ad403fb21cd147
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="backup-and-restore-in-sql-data-warehouse"></a>Kopia zapasowa i przywracanie w usłudze SQL Data Warehouse
 W tym artykule opisano szczegółowe informacje na temat tworzenia kopii zapasowych w usłudze SQL Data Warehouse. Umożliwia przywracanie bazy danych migawek w regionie podstawowym kopii zapasowych magazynu danych lub przywrócić kopię zapasową geograficznie regionu łączyć z magazynu geograficznie. 
@@ -42,7 +42,7 @@ order by run_id desc
 ## <a name="geo-backups"></a>Kopie zapasowe Geo
 Usługa SQL Data Warehouse wykonuje kopię zapasową geograficznie raz dziennie w celu [centrum danych sparowanego](../best-practices-availability-paired-regions.md). Cel punktu odzyskiwania dla przywracaniem geograficznym wynosi 24 godziny. Można przywrócić kopii zapasowej z magazynu geograficznie do serwera w regionie łączyć geo. Kopia zapasowa geograficznie gwarantuje, że można przywrócić magazynu danych, w przypadku, gdy nie masz dostępu do migawki w danym regionie podstawowym.
 
-Kopie zapasowe geograficznie są domyślnie. Jeśli magazyn danych jest zoptymalizowana pod kątem elastyczność, możesz [zrezygnować](https://docs.microsoft.com/powershell/resourcemanager/Azurerm.sql/v2.1.0/Set-AzureRmSqlDatabaseGeoBackupPolicyredirectedfrom=msdn) w razie potrzeby. Nie można zrezygnować z geograficznie kopii zapasowych z zoptymalizowane dla warstwy wydajności obliczeniowej.
+Kopie zapasowe geograficznie są domyślnie. Jeśli magazyn danych jest zoptymalizowana pod kątem elastyczność, możesz [zrezygnować](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) w razie potrzeby. Nie można zrezygnować z geograficznie kopii zapasowych z zoptymalizowane dla warstwy wydajności obliczeniowej.
 
 ## <a name="backup-costs"></a>Koszty kopii zapasowej
 Zauważ, że rachunku Azure ma elementu wiersza dla usługi Azure Premium Storage i elementu wiersza dla magazynu geograficznie nadmiarowego. Magazyn w warstwie Premium jest całkowity koszt przechowywania danych w regionie podstawowym, w tym migawki.  Opłata geograficznie nadmiarowego obejmuje koszt przechowywania kopii zapasowych geo.  
@@ -72,7 +72,7 @@ Po upuszczeniu magazyn danych SQL Data Warehouse tworzy migawkę końcowego i za
 > Usunięcie logicznej wystąpienia programu SQL server, wszystkie bazy danych, które należą do tego wystąpienia, również zostaną usunięte i nie może zostać odzyskany. Nie można przywrócić usuniętego serwera.
 > 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby przywrócić SQL data warehouse, zobacz [przywrócić SQL data warehouse](sql-data-warehouse-restore-database-overview.md).
 
 Omówienie ciągłości działalności, można zobaczyć [omówienie ciągłości działalności biznesowej](../sql-database/sql-database-business-continuity.md)

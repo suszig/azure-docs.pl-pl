@@ -12,25 +12,25 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 68a6e999ac0ffe97c08b6420dd6e71d7154b5de8
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: e16c8b9e8bfb75226d7dec32e545da72cba107e9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Odwołanie - Centrum IoT przydziały i ograniczenia przepustowości
 
 ## <a name="quotas-and-throttling"></a>Limity przydziału i ograniczanie wydajności
 Każdej subskrypcji platformy Azure może mieć maksymalnie 10 centra IoT i maksymalnie 1 wolnego koncentratora.
 
-Każdy Centrum IoT jest udostępniane z określonej liczby jednostek w określonej jednostki SKU (Aby uzyskać więcej informacji, zobacz [cennik usługi Azure IoT Hub][lnk-pricing]). Jednostki SKU i liczby jednostek określić maksymalny limit przydziału codzienne wiadomości, które można wysyłać.
+Każdy Centrum IoT jest udostępniane z określonej liczby jednostek w określonej jednostce SKU. Aby uzyskać więcej informacji, zobacz [cennik usługi Azure IoT Hub][lnk-pricing]. Jednostki SKU i liczby jednostek określić maksymalny limit przydziału codzienne wiadomości, które można wysyłać.
 
 Jednostka SKU określa również sposób ograniczania przepustowości ograniczeń, które egzekwuje Centrum IoT na wszystkie operacje.
 
 ## <a name="operation-throttles"></a>Limity operacji
-Limity operacji są ograniczenia szybkości, są stosowane w zakresach minuty, które mają na celu Unikaj nadużywania. Centrum IoT podejmuje próbę uniknięcia zwraca błędy, jeśli to możliwe, ale rozpoczyna zwracania wyjątków, jeśli przepustnicy naruszenia zbyt długo.
+Limity operacji są ograniczenia szybkości, są stosowane w zakresach minuty, które mają na celu uniemożliwić nadużycia. Centrum IoT podejmuje próbę uniknięcia zwraca błędy, jeśli to możliwe, ale uruchamia zwracania wyjątków, jeśli przepustnicy naruszenia zbyt długo.
 
 W poniższej tabeli przedstawiono limity wymuszone. Wartości odnoszą się do poszczególnych koncentratora.
 
@@ -50,15 +50,16 @@ W poniższej tabeli przedstawiono limity wymuszone. Wartości odnoszą się do p
 
 <sup>1</sup>ograniczenie rozmiaru miernika jest 8 KB
 
-Ważne jest, aby wyjaśnić, że *połączenia urządzenia* ograniczania kontroluje częstotliwość, w którym można nawiązać nowe połączenia urządzenia z Centrum IoT. *Połączenia urządzenia* przepustnicy nie kontroluje maksymalna liczba równocześnie połączonych urządzeń. Przepustnica zależy od liczby jednostek, które są udostępniane dla Centrum IoT.
+> [!IMPORTANT]
+> *Połączenia urządzenia* ograniczania kontroluje częstotliwość, w którym można nawiązać nowe połączenia urządzenia z Centrum IoT. *Połączenia urządzenia* przepustnicy nie kontroluje maksymalna liczba równocześnie połączonych urządzeń. Przepustnica zależy od liczby jednostek, które są udostępniane dla Centrum IoT.
 
 Na przykład jeśli kupisz pojedynczą jednostkę S1 get przepustnicy połączenia o szybkości 100 na sekundę. W związku z tym nawiązać 100 000 urządzeń ma co najmniej 1 000 sekund (około 16 minut). Jednak może mieć dowolną liczbę równocześnie połączonych urządzeń zgodnie z urządzeń zarejestrowanych w rejestrze tożsamości.
 
 Szczegółowe omówienie Centrum IoT ograniczania zachowania, zobacz wpis w blogu [Centrum IoT ograniczania przepustowości i][lnk-throttle-blog].
 
 > [!NOTE]
-> W dowolnym momencie prawdopodobnie zwiększyć przydziały i limity przepustowości przez odpowiednie zwiększenie liczby elastycznie jednostki w Centrum IoT.
-> 
+> W dowolnym momencie można zwiększyć przydziały i limity przepustowości przez odpowiednie zwiększenie liczby elastycznie jednostki w Centrum IoT.
+
 > [!IMPORTANT]
 > Operacje rejestru tożsamości są przeznaczone dla środowiska wykonawczego używanych do zarządzania urządzeniami i inicjowania obsługi scenariuszy. Odczytu lub aktualizacji dużej liczby urządzeń tożsamości jest obsługiwany za pośrednictwem [importowanie i eksportowanie zadań][lnk-importexport].
 > 
@@ -77,7 +78,7 @@ Centrum IoT wymusza inne ograniczenia operacyjne:
 | Urządzenia do chmury do obsługi komunikatów | Rozmiar maksymalny komunikatu 256 KB |
 | Obsługa wiadomości chmury do urządzenia | Komunikat maksymalny rozmiar 64 KB |
 | Obsługa wiadomości chmury do urządzenia | Maksymalna liczba oczekujących komunikatów w celu dostarczania to 50 |
-| Metoda bezpośrednia | Metoda bezpośrednia maksymalny rozmiar ładunku jest 128KB |
+| Metoda bezpośrednia | Metoda bezpośrednia maksymalny rozmiar ładunku jest 128 KB |
 
 > [!NOTE]
 > Maksymalna liczba urządzeń, którymi możesz połączyć się z jednego centrum IoT jest obecnie, 500 000. Jeśli chcesz podwyższyć ten limit, skontaktuj się z [Microsoft Support](https://azure.microsoft.com/support/options/).

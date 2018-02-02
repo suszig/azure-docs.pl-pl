@@ -2,22 +2,20 @@
 title: Integracja Azure datacenter stosu - DNS
 description: "Dowiedz się, jak zintegrować usługę Azure DNS stosu z centrum danych DNS"
 services: azure-stack
-author: troettinger
+author: jeffgilb
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/10/2017
-ms.author: victorh
+ms.date: 01/31/2018
+ms.author: jeffgilb
+ms.reviewer: wfayed
 keywords: 
-ms.openlocfilehash: 40d6d4858ef2e3df61d04dc68c00e09c04f000e2
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 504cbabe6ea4b7ad71601186dac853515f8c4709
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Integracja Azure datacenter stosu - DNS
-
-*Dotyczy: Azure stosu zintegrowane systemy*
-
 Aby można było uzyskać dostępu do punktów końcowych stosu Azure (`portal`, `adminportal`, `management`, `adminmanagement`itp.)  ze stosu poza Azure musisz Integrowanie usług DNS stosu Azure z serwerów DNS, które hostuje stref DNS, który ma być używany w stosie Azure.
 
 ## <a name="azure-stack-dns-namespace"></a>Azure nazw DNS stosu
@@ -28,8 +26,8 @@ Jesteś wymagane jest podanie niektóre istotne informacje związane z usługą 
 |---------|---------|---------|
 |Region|Lokalizację geograficzną wdrożenia stosu Azure.|`east`|
 |Nazwy domen zewnętrznych|Nazwa strefy, który ma być używany dla danego wdrożenia stosu Azure.|`cloud.fabrikam.com`|
-|Nazwa domeny wewnętrznej|Nazwa strefy wewnętrzny używany dla infrastruktury usług Azure stosu.  Jest zintegrowana usługa katalogowa i prywatne (nieosiągalny z poza wdrożenia stosu Azure).|`azurestack.local`|
-|Usługa przesyłania dalej DNS|Serwery DNS, które są używane do przesyłania zapytań DNS, strefy DNS i rekordów, które znajdują się poza Azure stosu, w intranecie firmy lub publicznego Internetu.|`10.57.175.34`<br>`8.8.8.8`|
+|Internal Domain Name|Nazwa strefy wewnętrzny używany dla infrastruktury usług Azure stosu.  Jest zintegrowana usługa katalogowa i prywatne (nieosiągalny z poza wdrożenia stosu Azure).|`azurestack.local`|
+|DNS Forwarder|Serwery DNS, które są używane do przesyłania zapytań DNS, strefy DNS i rekordów, które znajdują się poza Azure stosu, w intranecie firmy lub publicznego Internetu.|`10.57.175.34`<br>`8.8.8.8`|
 |Prefiks nazwy (opcjonalnie)|Nazewnictwa prefiks nazwy użytkownika stosu Azure infrastruktury roli wystąpienia w maszyny mają mieć.  Jeśli nie zostanie podana, wartość domyślna to `azs`.|`azs`|
 
 W pełni kwalifikowaną nazwę (FQDN) wdrożenia stosu Azure i punkty końcowe jest kombinacją parametr regionu i parametr zewnętrzną nazwę domeny. Używając wartości z przykładów w poprzedniej tabeli, nazwy FQDN dla tego wdrożenia stosu Azure będzie następującej nazwy:
@@ -138,6 +136,6 @@ Każdy rejestrator ma swoje własne narzędzia do zarządzania systemem DNS słu
 
 Większość rejestratorów DNS wymaga podania co najmniej dwa serwery DNS, aby ukończyć delegowanie.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
-[Integracja Azure datacenter stosu - tożsamości](azure-stack-integrate-identity.md)
+[Integracja z zaporą](azure-stack-firewall.md)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: c283fb4d1a390de88b425ce51a312b5404503f0d
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: a43d2ea10bfd6de2f8177283821f7aad59e9f610
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Zarządzanie przechwytywania pakietów za pomocą Monitora sieci Azure przy użyciu portalu
 
@@ -80,6 +80,7 @@ Właściwości, które mogą być definiowane w przechwytywania pakietów są:
 
 **Przechwytywanie konfiguracji**
 
+- **Ścieżka do pliku lokalnego** — ścieżka lokalna na maszynie wirtualnej, w której jest zapisywany przechwytywania pakietów (prawidłowe tylko w przypadku **[plik]** jest zaznaczona). Należy określić prawidłową ścieżkę. Jeśli korzystasz z maszyny wirtualnej systemu Linux, ścieżka musi rozpoczynać się od / var / przechwytuje.
 - **Konto magazynu** — Określa, czy przechwytywania pakietów jest zapisywane na koncie magazynu.
 - **Plik** — Określa, czy przechwytywania pakietów jest zapisywane lokalnie na maszynie wirtualnej.
 - **Konta magazynu** — wybrać konto magazynu, aby zapisać pakiet w. Domyślna lokalizacja to identyfikator name}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscription konta https://{storage} /resourcegroups/ {Nazwa maszyny name}/providers/microsoft.compute/virtualmachines/{virtual grupy zasobów} / {YY} / {MM} / {DD} / {HH} packetcapture__{MM}_CAP _ {XXX} {SS}. (Włączone, tylko jeśli **magazynu** jest zaznaczone)
@@ -134,7 +135,7 @@ Jeśli określono konto magazynu, pliki przechwytywania pakietów są zapisywane
 https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscriptionId}/resourcegroups/{storageAccountResourceGroup}/providers/microsoft.compute/virtualmachines/{VMName}/{year}/{month}/{day}/packetCapture_{creationTime}.cap
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Dowiedz się, jak można zautomatyzować przechwytywania pakietów z alertami maszyny wirtualnej, wyświetlając [utworzyć przechwytywania alertów wyzwalanych pakietów](network-watcher-alert-triggered-packet-capture.md)
 

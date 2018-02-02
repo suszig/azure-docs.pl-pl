@@ -12,21 +12,22 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: 522e5a334b5165344b66524d03f0d85468b81332
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 6851fd46d243fcdce4f69811495c74dfe8311478
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Dodawanie dostawcy zasobów usługi aplikacji Azure stosu
+*Dotyczy: Azure stosu zintegrowanych systemów i Azure stosu Development Kit*
 
 Jako operator chmury Azure stosu można zapewnić użytkownikom możliwość tworzenia sieci web i aplikacji interfejsu API. Aby to zrobić, należy najpierw dodać [dostawcy zasobów usługi aplikacji](azure-stack-app-service-overview.md) do wdrożenia stosu Azure zgodnie z opisem w tym artykule. Po zainstalowaniu dostawcy zasobów usługi aplikacji, można dołączyć ją w Twojej oferty i planów. Użytkownicy mogą następnie subskrybować pobrać usługi i rozpocząć tworzenie aplikacji.
 
 > [!IMPORTANT]
 > Przed uruchomieniem Instalatora, upewnij się, że zostały wykonane wskazówek dotyczących [przed rozpoczęciem pracy](azure-stack-app-service-before-you-get-started.md).
-> 
+>
 >
 
 
@@ -85,7 +86,7 @@ Aby wdrożyć dostawcy zasobów usługi aplikacji, wykonaj następujące kroki:
 
     | Box | Przykład nazwy pliku certyfikatu |
     | --- | --- |
-    | **Plik certyfikatu SSL domyślne usługi aplikacji** | \_. appservice.local.AzureStack.external.pfx |
+    | **Plik certyfikatu SSL domyślne usługi aplikacji** | \_.appservice.local.AzureStack.external.pfx |
     | **Plik certyfikatu SSL usługi aplikacji interfejsu API** | api.appservice.local.AzureStack.external.pfx |
     | **Plik certyfikatu SSL wydawcy usługi aplikacji** | ftp.appservice.local.AzureStack.external.pfx |
 
@@ -101,7 +102,7 @@ Aby wdrożyć dostawcy zasobów usługi aplikacji, wykonaj następujące kroki:
 
     > [!NOTE]
     > W przypadku wdrożeń produkcyjnych, postępując zgodnie ze wskazówkami w [zaplanować role serwera usługi Azure App Service w stosie Azure wydajność](azure-stack-app-service-capacity-planning.md).
-    > 
+    >
     >
 
     | Rola | Minimalna wystąpień | Minimalna jednostki SKU | Uwagi |
@@ -183,7 +184,7 @@ Do tworzenia sieci web, interfejsu API i Azure funkcje aplikacji, należy użyć
 
 3. Jeśli wdrożono również dostawcy zasobów programu SQL Server, można wdrożyć DNN witryny sieci Web z witryny Marketplace. Gdy zostanie wyświetlony monit o parametry bazy danych, wybierz bazę danych na komputerze z uruchomionym programem SQL Server, połączoną z dostawcą zasobów.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Możesz również wypróbować innych [platforma jako usługa (PaaS) usługi](azure-stack-tools-paas-services.md).
 

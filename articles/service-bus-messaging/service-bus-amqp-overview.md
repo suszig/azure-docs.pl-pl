@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/06/2017
+ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: e2d190dddc3b84eb07eaf2ffea1af48bba0ea13a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6d2dffd22ecfc0aaf6e338567d5cf107a2c07383
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Obsługa protokołu AMQP 1.0 w usłudze Service Bus
 Zarówno usługa w chmurze Azure Service Bus, jak i dla lokalnego [Usługa Service Bus dla systemu Windows Server (Service Bus 1.1)](https://msdn.microsoft.com/library/dn282144.aspx) obsługuje zaawansowane komunikatów usługi kolejkowania protokołu (protokół AMQP) 1.0. Protokół AMQP umożliwia tworzenie wielu platform, hybrydowych aplikacji przy użyciu standardowego protokołu zapewniającego otwarte. Można utworzyć aplikacji przy użyciu składników, które są tworzone przy użyciu różnych języków i struktur, które działają w różnych systemach operacyjnych. Wszystkie te składniki mogą połączenia usługi Service Bus i bezproblemowo wymiany wiadomości biznesowych strukturalnych, wydajne i w pełnej rozdzielczości.
@@ -84,7 +84,7 @@ W tej chwili do pracy z usługą Service Bus znane są następujące biblioteki 
 * Protokołu AMQP 1.0 jest otwarty, niezawodnej obsługi komunikatów protokołu służącego do tworzenia i platform, hybrydowych aplikacji. Protokołu AMQP 1.0 jest standardem OASIS.
 * Obsługa protokołu AMQP 1.0 jest teraz dostępna w Azure Service Bus, a także Usługa Service Bus dla systemu Windows Server (Service Bus 1.1). Cennik jest taka sama jak w przypadku istniejących protokołów.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Chcesz dowiedzieć się więcej? Skorzystaj z następujących łączy:
 
 * [Przy użyciu usługi Service Bus z .NET z protokołu AMQP]

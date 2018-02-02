@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 6/06/2017
+ms.date: 01/30/2018
 ms.author: johnkem
-ms.openlocfilehash: f0e507cf2804edbcdd6c87f47b30defbc6a5eb94
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: c3c7ffe00263b8f76d89aa8d15fe2d502538527d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Strumień dziennika aktywności platformy Azure do usługi Event Hubs
 [ **Dziennika aktywności platformy Azure** ](monitoring-overview-activity-logs.md) mogą być przesyłane strumieniowo w najbliższym czasie rzeczywistym do aplikacji przy użyciu wbudowanych opcji "Eksportuj", w portalu lub przez włączenie identyfikator reguły magistrali usług w profilu dziennika za pomocą poleceń cmdlet Azure PowerShell lub interfejsu wiersza polecenia Azure.
@@ -35,16 +35,17 @@ Umożliwiają przesyłanie strumieniowe dziennika aktywności programowo lub za 
 Bus lub event hub przestrzeni nazw usługi nie musi znajdować się w tej samej subskrypcji co subskrypcji emitowanie dzienniki, dopóki użytkownik, który konfiguruje ustawienia ma odpowiedni dostęp RBAC do obu subskrypcji.
 
 ### <a name="via-azure-portal"></a>Za pomocą portalu Azure
-1. Przejdź do **dziennik aktywności** bloku przy użyciu menu po lewej stronie portalu.
+1. Przejdź do **dziennik aktywności** bloku przy użyciu wszystkich usług wyszukiwania po lewej stronie portalu.
    
-    ![Przejdź do dziennika aktywności w portalu](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
-2. Kliknij przycisk **wyeksportować** u góry bloku.
+    ![Przejdź do dziennika aktywności w portalu](./media/monitoring-stream-activity-logs-event-hubs/activity.png)
+2. Kliknij przycisk **wyeksportować** na górze bloku dziennika aktywności.
    
-    ![Przycisk Eksportuj w portalu](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
-3. W wyświetlonym bloku można wybrać regionów, dla których chcesz strumienia zdarzeń i Namespace magistrali usług, w którym chcesz Centrum zdarzeń należy utworzyć do przesyłania strumieniowego te zdarzenia.
+    ![Przycisk Eksportuj w portalu](./media/monitoring-stream-activity-logs-event-hubs/export.png)
+3. W wyświetlonym bloku można wybrać regionów, dla których chcesz strumienia zdarzeń i Namespace magistrali usług, w którym chcesz Centrum zdarzeń należy utworzyć do przesyłania strumieniowego te zdarzenia. Wybierz **wszystkie regiony**.
    
-    ![Eksport dziennika aktywności bloku](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
-4. Kliknij przycisk **zapisać** Aby zapisać te ustawienia. Ustawienia są zastosowane natychmiast do subskrypcji.
+    ![Eksport dziennika aktywności bloku](./media/monitoring-stream-activity-logs-event-hubs/export-audit.png)
+4. Kliknij przycisk **zapisać** Aby zapisać te ustawienia. Ustawienia są stosowane natychmiast do subskrypcji.
+5. Jeśli masz wiele subskrypcji, możesz Powtarzaj tę akcję i Wyślij wszystkie dane do tego samego Centrum zdarzeń.
 
 ### <a name="via-powershell-cmdlets"></a>Za pomocą poleceń cmdlet programu PowerShell
 Jeśli istnieje już profil dziennika, należy najpierw usunąć ten profil.
@@ -53,8 +54,10 @@ Jeśli istnieje już profil dziennika, należy najpierw usunąć ten profil.
 2. Jeśli tak, użyj `Remove-AzureRmLogProfile` go usunąć.
 3. Użyj `Set-AzureRmLogProfile` Aby utworzyć profil:
 
-```
+```powershell
+
 Add-AzureRmLogProfile -Name my_log_profile -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
+
 ```
 
 Identyfikator reguły magistrali usług jest ciąg w formacie: {identyfikator zasobu magistrali usługi} /authorizationrules/ {nazwa klucza}, np. 
@@ -66,7 +69,7 @@ Jeśli istnieje już profil dziennika, należy najpierw usunąć ten profil.
 2. Jeśli tak, użyj `azure insights logprofile delete` go usunąć.
 3. Użyj `azure insights logprofile add` Aby utworzyć profil:
 
-```
+```azurecli-interactive
 azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey --locations global,westus,eastus,northeurope --retentionInDays 90 –categories Write,Delete,Action
 ```
 

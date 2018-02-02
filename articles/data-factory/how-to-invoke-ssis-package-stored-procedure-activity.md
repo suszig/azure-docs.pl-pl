@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jingwang
-ms.openlocfilehash: 749deb6549e0ac90da4b44424026c897108a4bb7
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 84596041284139b8243287ba6ad719c7c8f7b47b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Wywołanie pakietów SSIS za pomocą działania procedury składowanej w fabryce danych Azure
 W tym artykule opisano sposób wywołania pakietów SSIS z potoku fabryki danych Azure za pomocą działania procedury składowanej. 
@@ -31,7 +31,7 @@ W tym artykule opisano sposób wywołania pakietów SSIS z potoku fabryki danych
 Wskazówki w tym artykule używa bazy danych Azure SQL katalogiem usług SSIS. Umożliwia także Azure zarządzane wystąpienia SQL (wersja zapoznawcza prywatnych).
 
 ## <a name="create-an-azure-ssis-integration-runtime"></a>Tworzenie środowiska Azure SSIS Integration Runtime
-Tworzenie środowiska uruchomieniowego integracji usług SSIS Azure, jeśli nie masz, wykonując instrukcje krok po kroku w [samouczek: pakiety wdrażania usług SSIS](tutorial-deploy-ssis-packages-azure.md).
+Tworzenie środowiska uruchomieniowego integracji usług SSIS Azure, jeśli nie masz, wykonując instrukcje krok po kroku w [samouczek: pakiety wdrażania usług SSIS](tutorial-create-azure-ssis-runtime-portal.md).
 
 ## <a name="data-factory-ui-azure-portal"></a>Fabryka danych interfejsu użytkownika (Azure portal)
 W tej sekcji służy do utworzyć potok fabryki danych z działaniem procedury składowanej wywołująca pakietów SSIS interfejsu użytkownika z fabryki danych.
@@ -43,13 +43,13 @@ Pierwszym krokiem jest tworzenie fabryki danych przy użyciu portalu Azure.
 2. Kliknij przycisk **Nowy** w lewym menu, kliknij pozycję **Dane + analiza**, a następnie kliknij pozycję **Data Factory**. 
    
    ![Nowy-> Fabryka danych](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory-menu.png)
-2. W **nowa fabryka danych** wprowadź **ADFTutorialDataFactory** dla **nazwa**. 
+2. Na stronie **Nowa fabryka danych** wprowadź wartość **ADFTutorialDataFactory** w polu **Nazwa**. 
       
-     ![Nowa strona fabryki danych](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory.png)
+     ![Strona Nowa fabryka danych](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory.png)
  
-   Nazwa fabryki danych platformy Azure musi być **globalnie unikatowa**. Jeśli zostanie wyświetlony następujący błąd dla pola Nazwa, Zmień nazwę fabryki danych (na przykład yournameADFTutorialDataFactory). Zobacz [fabryki danych - reguły nazewnictwa](naming-rules.md) artykułu dla reguł nazewnictwa artefakty fabryki danych.
+   Nazwa fabryki danych platformy Azure musi być **globalnie unikatowa**. Jeśli dla pola nazwy wystąpi poniższy błąd, zmień nazwę fabryki danych (np. twojanazwaADFTutorialDataFactory). Artykuł [Data Factory — Naming Rules (Usługa Data Factory — reguły nazewnictwa)](naming-rules.md) zawiera reguły nazewnictwa artefaktów usługi Data Factory.
   
-     ![Nazwa jest niedostępna — błąd](./media/how-to-invoke-ssis-package-stored-procedure-activity/name-not-available-error.png)
+     ![Nazwa nie jest dostępna — błąd](./media/how-to-invoke-ssis-package-stored-procedure-activity/name-not-available-error.png)
 3. Wybierz **subskrypcję** Azure, w której chcesz utworzyć fabrykę danych. 
 4. Dla opcji **Grupa zasobów** wykonaj jedną z następujących czynności:
      
@@ -58,30 +58,30 @@ Pierwszym krokiem jest tworzenie fabryki danych przy użyciu portalu Azure.
          
     Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md) (Używanie grup zasobów do zarządzania zasobami platformy Azure).  
 4. Wybierz wartość **V2 (wersja zapoznawcza)** dla **wersji**.
-5. Na liście **lokalizacja** wybierz lokalizację fabryki danych. Tylko te lokalizacje, które są obsługiwane przez fabrykę danych są wyświetlane na liście rozwijanej. Przechowuje dane (usługi Azure Storage, baza danych SQL Azure itp.) i oblicza (HDInsight itp.) używany przez fabryki danych mogą znajdować się w innych lokalizacjach.
+5. Na liście **lokalizacja** wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko lokalizacje obsługiwane przez usługę Data Factory. Magazyny danych (Azure Storage, Azure SQL Database itp.) i jednostki obliczeniowe (HDInsight itp.) używane przez fabrykę danych mogą mieścić się w innych lokalizacjach.
 6. Wybierz opcję **Przypnij do pulpitu nawigacyjnego**.     
 7. Kliknij przycisk **Utwórz**.
 8. Na pulpicie nawigacyjnym jest widoczny następujący kafelek ze stanem: **Wdrażanie fabryki danych**. 
 
     ![kafelek Wdrażanie fabryki danych](media//how-to-invoke-ssis-package-stored-procedure-activity/deploying-data-factory.png)
-9. Po zakończeniu tworzenia zobacz **fabryki danych** strony, jak pokazano w obrazie.
+9. Po zakończeniu tworzenia zostanie wyświetlona strona **Fabryka danych**, jak pokazano na poniższej ilustracji.
    
     ![Strona główna fabryki danych](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png)
-10. Kliknij przycisk **autora & Monitor** Kafelek, aby uruchomić aplikację interfejsu użytkownika usługi fabryka danych Azure w osobnej karcie. 
+10. Kliknij kafelek **Tworzenie i monitorowanie**, aby w osobnej karcie uruchomić interfejs użytkownika usługi Azure Data Factory. 
 
 ### <a name="create-a-pipeline-with-stored-procedure-activity"></a>Utworzyć potok z działania procedury składowanej
 W tym kroku używasz interfejsu użytkownika z fabryki danych do utworzenia potoku. Dodaj działania procedury składowanej do potoku i skonfigurować go do uruchamiania pakietów SSIS za pomocą procedury przechowywanej sp_executesql. 
 
 1. W strony wprowadzenie, kliknij przycisk **tworzenie potoku**: 
 
-    ![Pobierz strony wprowadzenie](./media/how-to-invoke-ssis-package-stored-procedure-activity/get-started-page.png)
+    ![Strona Wprowadzenie](./media/how-to-invoke-ssis-package-stored-procedure-activity/get-started-page.png)
 2. W **działania** przybornika, rozwiń węzeł **bazy danych SQL**i przeciągnij upuść **procedury składowanej** działania na powierzchnię desginer potoku. 
 
     ![Działania procedury składowanej przeciągnij i upuść](./media/how-to-invoke-ssis-package-stored-procedure-activity/drag-drop-sproc-activity.png)
 3. W oknie dialogowym właściwości działania procedury składowanej, przełącz się do **konto SQL** , a następnie kliknij pozycję **+ nowy**. Utwórz połączenie z bazą danych Azure SQL obsługującego katalogu SSIS (SSIDB bazy danych). 
    
-    ![Nowy przycisk połączonej usługi](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-linked-service-button.png)
-4. W **nowej usługi połączonej** okna, wykonaj następujące czynności: 
+    ![Przycisk Nowa połączona usługa](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-linked-service-button.png)
+4. W oknie **Nowa połączona usługa** wykonaj następujące czynności: 
 
     1. Wybierz **baza danych Azure SQL** dla **typu**.
     2. Wybierz serwer Azure SQL obsługującym bazę danych usług SSIS dla **nazwy serwera** pola.
@@ -107,9 +107,9 @@ W tym kroku używasz interfejsu użytkownika z fabryki danych do utworzenia poto
         ```
 
         ![Połączona usługa Azure SQL Database](./media/how-to-invoke-ssis-package-stored-procedure-activity/stored-procedure-settings.png)
-6. Aby sprawdzić poprawność konfiguracji potoku, kliknij przycisk **weryfikacji** na pasku narzędzi. Aby zamknąć **raport weryfikacji potoku**, kliknij przycisk  **>>** .
+6. Aby sprawdzić poprawność konfiguracji potoku, kliknij przycisk **weryfikacji** na pasku narzędzi. Aby zamknąć okno **Raport weryfikacji potoku**, kliknij pozycję **>>**.
 
-    ![Sprawdź poprawność potoku](./media/how-to-invoke-ssis-package-stored-procedure-activity/validate-pipeline.png)
+    ![Weryfikowanie potoku](./media/how-to-invoke-ssis-package-stored-procedure-activity/validate-pipeline.png)
 7. Publikowanie potoku fabryki danych, klikając **publikowania wszystkich** przycisku. 
 
     ![Publikowanie](./media/how-to-invoke-ssis-package-stored-procedure-activity/publish-all-button.png)    
@@ -119,11 +119,11 @@ W tej sekcji wyzwalanie wykonywania potoku, a następnie monitorować go.
 
 1. Aby wyzwolić potoku uruchamiania, kliknij przycisk **wyzwalacza** na pasku narzędzi, a następnie kliknij przycisk **uruchomić teraz**. 
 
-    ![Teraz wyzwalacza](./media/how-to-invoke-ssis-package-stored-procedure-activity/trigger-now.png)
-2. Przełącz się do **Monitor** karcie po lewej stronie. Zostanie wyświetlony potoku uruchamiania i jego stan oraz innych informacji (na przykład czas uruchomienia Start). Aby odświeżyć widok, kliknij przycisk **Odśwież**.
+    ![Wyzwól teraz](./media/how-to-invoke-ssis-package-stored-procedure-activity/trigger-now.png)
+2. Przejdź do karty **Monitorowanie** po lewej stronie. Zostanie wyświetlony potoku uruchamiania i jego stan oraz innych informacji (na przykład czas uruchomienia Start). Aby odświeżyć widok, kliknij przycisk **Odśwież**.
 
     ![Uruchomienia potoków](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
-3. Kliknij przycisk **uruchomień działania widoku** łącze w **akcje** kolumny. Użytkownik widzi tylko jedno działanie Uruchom jako potoku ma tylko jedno działanie (działania procedury składowanej).
+3. Kliknij link **Wyświetl uruchomienia działania** w kolumnie **Akcje**. Użytkownik widzi tylko jedno działanie Uruchom jako potoku ma tylko jedno działanie (działania procedury składowanej).
 
     ![Uruchomień działania](./media/how-to-invoke-ssis-package-stored-procedure-activity/activity-runs.png) można uruchomić następujące 4 **zapytania** względem bazy danych SSISDB bazy danych na serwerze Azure SQL, aby sprawdzić, czy pakiet wykonywane. 
 

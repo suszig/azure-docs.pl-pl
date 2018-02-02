@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 01/30/2018
 ms.author: jingwang
-ms.openlocfilehash: 2847be0fec83e923126ba436f09f24d83d69bd9d
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
-ms.translationtype: HT
+ms.openlocfilehash: 9481d8d9bbdb5081eae9b9a3d4b9a280cba86be5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="copy-data-from-and-to-dynamics-365-or-dynamics-crm-by-using-azure-data-factory"></a>Kopiowanie danych z i do Dynamics 365 lub usługi Dynamics CRM przy użyciu fabryki danych Azure
 
@@ -45,8 +45,7 @@ Dynamics 365 w szczególności następujące typy aplikacji są obsługiwane:
 - Dynamics 365 projektu usługi automatyzacji
 - Dynamics 365 Marketing
 
-> [!NOTE]
-> Do korzystania z łącznika programu Dynamics, przechowywania hasła w usłudze Azure Key Vault i umożliwić ściągania działania kopiowania stamtąd podczas wykonywania kopii danych. Aby uzyskać więcej informacji o konfiguracji, zobacz [połączona usługa właściwości](#linked-service-properties) sekcji.
+Inna aplikacja typów, np. operacje i finansowych, talenty, itp. nie są obsługiwane.
 
 ## <a name="get-started"></a>Rozpoczęcie pracy
 
@@ -67,7 +66,7 @@ Następujące właściwości są obsługiwane dla połączonej usługi Dynamics.
 | organizationName | Nazwa organizacji Dynamics wystąpienia. | Nie, należy określić, jeśli istnieje kilka wystąpień Dynamics skojarzonych z użytkownikiem |
 | authenticationType | Typ uwierzytelniania do nawiązania połączenia z serwerem programu Dynamics. Określ **"Usługi Office 365"** dla Dynamics w trybie online. | Yes |
 | nazwa użytkownika | Określ nazwę użytkownika, aby nawiązać połączenie Dynamics. | Yes |
-| hasło | Podaj hasło dla konta użytkownika, który został określony jako nazwy użytkownika. Należy umieścić hasło w magazynie kluczy i skonfigurować hasło jako **"AzureKeyVaultSecret"**. Aby dowiedzieć się więcej, zobacz [przechowywania poświadczeń w magazynie kluczy](store-credentials-in-key-vault.md). | Yes |
+| hasło | Podaj hasło dla konta użytkownika, który został określony jako nazwy użytkownika. Można wybrać opcję Oznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w ADF lub przechowywania haseł w usłudze Azure Key Vault i umożliwić działanie kopiowania ściągnięcia stamtąd podczas wykonywania kopii danych — Dowiedz się więcej o [przechowywania poświadczeń w magazynie kluczy](store-credentials-in-key-vault.md). | Yes |
 | connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. | Nie źródła, tak dla obiekt sink Jeśli źródło połączona usługa nie ma środowiska uruchomieniowego integracji |
 
 >[!IMPORTANT]
@@ -87,12 +86,8 @@ Następujące właściwości są obsługiwane dla połączonej usługi Dynamics.
             "authenticationType": "Office365",
             "username": "test@contoso.onmicrosoft.com",
             "password": {
-                "type": "AzureKeyVaultSecret",
-                "secretName": "<secret name in AKV>",
-                "store":{
-                    "referenceName": "<Azure Key Vault linked service>",
-                    "type": "LinkedServiceReference"
-                }
+                "type": "SecureString",
+                "value": "<password>"
             }
         },
         "connectVia": {
@@ -116,7 +111,7 @@ Następujące właściwości są obsługiwane dla połączonej usługi Dynamics.
 | organizationName | Nazwa organizacji Dynamics wystąpienia. | Yes |
 | authenticationType | Typ uwierzytelniania do nawiązania połączenia z serwerem Dynamics. Określ **"Ifd"** dla Dynamics lokalnego z IFD. | Yes |
 | nazwa użytkownika | Określ nazwę użytkownika, aby nawiązać połączenie Dynamics. | Yes |
-| hasło | Podaj hasło dla konta użytkownika, który został określony jako nazwy użytkownika. Należy umieścić hasło w magazynie kluczy i skonfigurować hasło jako **"AzureKeyVaultSecret"**. Aby dowiedzieć się więcej, zobacz [przechowywania poświadczeń w magazynie kluczy](store-credentials-in-key-vault.md). | Yes |
+| hasło | Podaj hasło dla konta użytkownika, który został określony jako nazwy użytkownika. Można wybrać opcję Oznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w ADF lub przechowywania haseł w usłudze Azure Key Vault i umożliwić działanie kopiowania ściągnięcia stamtąd podczas wykonywania kopii danych — Dowiedz się więcej o [przechowywania poświadczeń w magazynie kluczy](store-credentials-in-key-vault.md). | Yes |
 | connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. | Brak źródła tak dla obiekt sink |
 
 >[!IMPORTANT]
@@ -138,12 +133,8 @@ Następujące właściwości są obsługiwane dla połączonej usługi Dynamics.
             "authenticationType": "Ifd",
             "username": "test@contoso.onmicrosoft.com",
             "password": {
-                "type": "AzureKeyVaultSecret",
-                "secretName": "<secret name in AKV>",
-                "store":{
-                    "referenceName": "<Azure Key Vault linked service>",
-                    "type": "LinkedServiceReference"
-                }
+                "type": "SecureString",
+                "value": "<password>"
             }
         },
         "connectVia": {

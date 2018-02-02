@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/01/2017
+ms.date: 01/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 744759968706e0a2c9fe8c1c153f44cc958e31b8
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 8dd20d0cf7f202b5d5fdeffb5848235e73eb9349
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-store"></a>Użyj usługi Import/Eksport Azure dla trybu offline kopię danych do usługi Data Lake Store
 W tym artykule omówiono sposób kopiowania dużych zestawów danych (> 200 GB) do usługi Azure Data Lake Store za pomocą metody kopiowania w trybie offline, tak samo, jak [usługi Import/Eksport Azure](../storage/common/storage-import-export-service.md). W szczególności plik używany na przykład w tym artykule jest 339,420,860,416 bajtów lub około 319 GB na dysku. Umożliwia wywołanie 319GB.tsv tego pliku.
@@ -33,6 +33,7 @@ Przed rozpoczęciem należy dysponować następującymi elementami:
 * **Konto usługi Azure Data Lake Store**. Aby uzyskać instrukcje na temat go utworzyć, zobacz [wprowadzenie do usługi Azure Data Lake Store](data-lake-store-get-started-portal.md)
 
 ## <a name="preparing-the-data"></a>Przygotowywanie danych
+
 Przed rozpoczęciem korzystania z usługi Import/eksport, Podziel ma zostać przesłany plik danych **do kopie, które są mniej niż 200 GB** rozmiar. Narzędzie importu nie działa z pliki większe niż 200 GB. W tym samouczku możemy podzielić go na fragmenty 100 GB. Można to zrobić za pomocą [programów Cygwin](https://cygwin.com/install.html). Programów Cygwin obsługuje polecenia systemu Linux. W takim przypadku należy użyć następującego polecenia:
 
     split -b 100m 319GB.tsv
@@ -207,7 +208,7 @@ Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 Join-AzureRmDataLakeStoreItem -AccountName "<adls_account_name" -Paths "/importeddatafeb8job/319GB.tsv-part-aa","/importeddatafeb8job/319GB.tsv-part-ab", "/importeddatafeb8job/319GB.tsv-part-ac", "/importeddatafeb8job/319GB.tsv-part-ad" -Destination "/importeddatafeb8job/MergedFile.csv”
 ````
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Zabezpieczanie danych w usłudze Data Lake Store](data-lake-store-secure-data.md)
 * [Korzystanie z usługi Azure Data Lake Analytics z usługą Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Korzystanie z usługi Azure HDInsight z usługą Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)

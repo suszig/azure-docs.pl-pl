@@ -3,7 +3,7 @@ title: "Jak zapewnić bezpieczny zdalny dostęp do aplikacji lokalnych"
 description: "Uwzględniono również sposób Użyj serwera Proxy aplikacji usługi Azure AD, aby zapewnić bezpieczny zdalny dostęp do aplikacji lokalnych."
 services: active-directory
 documentationcenter: 
-author: daveba
+author: MarkusVi
 manager: mtillman
 ms.assetid: d5450da1-9e06-4d08-8146-011c84922ab5
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
-ms.author: daveba
+ms.date: 01/31/2018
+ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 24def898f282c4e122ae53932ae86047e815595c
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 819226d0ecace0be617e9a3ebc22942782510ec4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="how-to-provide-secure-remote-access-to-on-premises-applications"></a>Jak zapewnić bezpieczny zdalny dostęp do aplikacji lokalnych
 
@@ -45,7 +45,7 @@ Serwer Proxy aplikacji usługi Azure AD jest:
 * **Bezpieczeństwo**
    * Podczas publikowania aplikacji przy użyciu serwera Proxy aplikacji usługi Azure AD, możesz można korzystać z formantów sformatowanego autoryzacji i analiza zabezpieczeń w usłudze Azure. Otrzymasz skali chmury zabezpieczeń i funkcji zabezpieczeń platformy Azure, takich jak warunkowego dostępu i dwuetapowej weryfikacji.
    * Nie masz otworzyć wszystkie połączenia przychodzące za zaporą, aby zapewnić użytkownikom dostęp zdalny. 
-* **Ekonomiczne**
+* **Cost-effective**
    * Serwer Proxy aplikacji działa w chmurze, więc można oszczędzić czas i pieniądze. Lokalnymi rozwiązaniami zwykle wymagają konfiguracji i utrzymania sieci DMZ, serwery krawędzi lub innych złożonych infrastruktury.  
 
 ## <a name="what-kind-of-applications-work-with-application-proxy"></a>Jakiego rodzaju aplikacje korzystają z serwera Proxy aplikacji?

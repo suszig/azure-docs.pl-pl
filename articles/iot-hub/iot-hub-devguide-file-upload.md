@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 75a6b9bc3ecfe6d6901bb38e312d62333f38daf1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7bf1ba333f36dcfa8959320566bcb771f37cfe22
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="upload-files-with-iot-hub"></a>Przekazywanie plików z Centrum IoT
 
@@ -96,16 +96,16 @@ Następujące tematy dokumentacji dostarczają więcej informacji na temat przek
 
 ## <a name="file-upload-notifications"></a>Powiadomienia o przekazywania plików
 
-Opcjonalnie urządzenia IoT Hub powiadamia o zakończeniu przekazywania, Centrum IoT może wygenerować komunikat, który zawiera nazwę i magazynu lokalizację pliku.
+Opcjonalnie gdy urządzenia IoT Hub powiadamia o zakończeniu przekazywania, Centrum IoT generuje komunikat, który zawiera nazwę i magazynu lokalizację pliku.
 
 Zgodnie z objaśnieniem w [punkty końcowe][lnk-endpoints], Centrum IoT zapewnia powiadomienia o przekazywania plików za pośrednictwem punktu końcowego usługi połączonej (**/messages/servicebound/fileuploadnotifications**) jako wiadomości. Semantyka odbierania powiadomień przekazywania plików są takie same jak w przypadku wiadomości chmury do urządzenia i tej samej [cykl życia komunikatów][lnk-lifecycle]. Każdy komunikat pobierane z punktu końcowego powiadomienia przekazywania plików jest rekordem JSON z następującymi właściwościami:
 
 | Właściwość | Opis |
 | --- | --- |
 | EnqueuedTimeUtc |Sygnatura czasowa wskazująca utworzenia powiadomienia. |
-| Identyfikator urządzenia |**DeviceId** urządzenia, które przekazać plik. |
+| DeviceId |**DeviceId** urządzenia, które przekazać plik. |
 | BlobUri |Identyfikator URI przekazanego pliku. |
-| Element BlobName |Nazwa przekazanego pliku. |
+| BlobName |Nazwa przekazanego pliku. |
 | LastUpdatedTime |Sygnatura czasowa wskazująca, kiedy plik ostatniej aktualizacji. |
 | BlobSizeInBytes |Rozmiar przekazanego pliku. |
 
@@ -128,7 +128,7 @@ Każdy Centrum IoT udostępnia następujące opcje konfiguracji w pliku przekazy
 
 | Właściwość | Opis | Zakres i domyślne |
 | --- | --- | --- |
-| **enableFileUploadNotifications** |Określa, czy powiadomienia o przekazywania plików są zapisywane w pliku punktu końcowego powiadomienia. |Wartość logiczna. Domyślnie: True. |
+| **enableFileUploadNotifications** |Określa, czy powiadomienia o przekazywania plików są zapisywane w pliku punktu końcowego powiadomienia. |Bool. Domyślnie: True. |
 | **fileNotifications.ttlAsIso8601** |Domyślny czas wygaśnięcia pliku wysyłania powiadomień. |ISO_8601 interwał maksymalnie 48 H (minimalna 1 minuta). Wartość domyślna: 1 godzina. |
 | **fileNotifications.lockDuration** |Czas trwania blokady do kolejki powiadomień przekazywania plików. |5 a 300 sekund (minimalna 5 sekund). Domyślnie: 60 sekund. |
 | **fileNotifications.maxDeliveryCount** |Liczba maksymalna dostarczania dla pliku przekazać kolejka powiadomień. |1 do 100. Domyślnie: 100. |
@@ -143,7 +143,7 @@ Inne tematy referencyjne w Podręczniku dewelopera Centrum IoT obejmują:
 * [Język zapytań Centrum IoT] [ lnk-query] opisuje język kwerendy można pobrać z Centrum IoT informacji o twins urządzenia i zadania.
 * [Obsługa MQTT Centrum IoT] [ lnk-devguide-mqtt] zapewnia więcej informacji na temat Centrum IoT obsługi protokołu MQTT.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Po zapoznaniu się przekazywania plików z urządzeń przy użyciu Centrum IoT, mogą być zainteresowane w następujących tematach przewodnik dewelopera Centrum IoT:
 
@@ -153,7 +153,7 @@ Po zapoznaniu się przekazywania plików z urządzeń przy użyciu Centrum IoT, 
 * [Wywoływanie metody bezpośrednio na urządzeniu][lnk-devguide-directmethods]
 * [Planowanie zadań na wielu urządzeniach][lnk-devguide-jobs]
 
-Jeśli chcesz wypróbować niektóre pojęcia opisane w tym artykule, mogą być zainteresowane w następujących instrukcji Centrum IoT:
+Aby wypróbować pojęcia opisane w tym artykule, zobacz następujące samouczek Centrum IoT:
 
 * [Sposób przekazywania plików z urządzenia do chmury z Centrum IoT][lnk-fileupload-tutorial]
 

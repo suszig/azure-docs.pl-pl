@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: c1a3b2107abdc3ef19a314616518c494687d81bf
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: a2d4efc3a3e1480de71528144ae3f025f4879f07
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Połączone wdrożenia usługi Azure planowania decyzje dotyczące stosu Azure zintegrowanych systemów
 Po ustaleniu [jak zintegruje stosu Azure do środowiska chmury hybrydowej](azure-stack-deployment-decisions.md), można następnie zakończyć swoje decyzje dotyczące wdrażania usługi Azure stosu.
@@ -41,7 +41,7 @@ Jeśli używasz usługi Azure AD Twojego magazynu tożsamości wymaga dwóch kon
     - Za pomocą konta administratora usługi. To jest właścicielem subskrypcji dostawcy domyślnego (które można później zmienić). Można zalogować się do portalu administratora stosu Azure z tym kontem i służy do tworzenia oferty i planów, ustawiać przydziały i wykonywania innych zadań administracyjnych w stosie Azure.
 2. **Konto rozliczeniowe** (wymagane w przypadku obu podłączone i odłączone wdrożenia). To konto Azure jest używane do ustanawiania rozliczeń relacji między systemu Azure stosu zintegrowany i Azure commerce wewnętrznej bazy danych. To konto, które będą naliczane za opłaty stosu Azure. To konto będzie również zespolonego marketplace i innych scenariuszy hybrydowych. 
 
-### <a name="ad-fs-identity-store"></a>MAGAZYN TOŻSAMOŚCI USŁUGI AD FS
+### <a name="ad-fs-identity-store"></a>Magazyn tożsamości usługi AD FS
 Wybierz tę opcję, jeśli chcesz użyć własnych magazynu tożsamości, takie jak sieci firmowej usługi Active Directory, dla kont administratora usługi.  
 
 ## <a name="choose-a-billing-model"></a>Wybierz modelu rozliczeń
@@ -57,9 +57,8 @@ Jeśli zamierzasz używać subskrypcji dostawcy usług Kryptograficznych, przejr
 
 |Scenariusz|Opcje domeny i subskrypcji|
 |-----|-----|
-|Bezpośrednie lub pośrednie partnera dostawcy usług Kryptograficznych i będzie działać na stosie Azure|Użyj subskrypcji CSL (wspólnej warstwy usług).|
-|Bezpośrednie lub pośrednie partnera dostawcy usług Kryptograficznych i będzie działać na stosie Azure|W Centrum partnerskiego Utwórz dzierżawę usługi Azure AD z opisową nazwę, na przykład <your organization>CSPAdmin i subskrypcji platformy Azure dostawcy usług Kryptograficznych skojarzonych z nim.|
-|Jesteś pośrednim sprzedawcą dostawcy usług Kryptograficznych i będzie działać na stosie Azure|Poproś pośrednie dostawcy CSP do tworzenia, przy użyciu Centrum partnerskiego, dzierżawa usługi Azure AD dla Twojej organizacji i subskrypcji platformy Azure dostawcy usług Kryptograficznych skojarzonych z nim.|
+|Jesteś **bezpośredniego partnera dostawcy usług Kryptograficznych** lub **pośrednie dostawcy usług Kryptograficznych**, a będzie działać na stosie Azure|Użyj subskrypcji CSL (wspólnej warstwy usług).<br>     lub<br>Utwórz dzierżawę usługi Azure AD z nazwę opisową w Centrum partnerskiego. Na przykład &lt;organizacji > CSPAdmin z subskrypcją platformy Azure dostawcy usług Kryptograficznych skojarzonych z nim.|
+|Jesteś **pośrednie sprzedawcą dostawcy usług Kryptograficznych**, a będzie działać na stosie Azure|Poproś dostawcę pośrednie dostawcy usług Kryptograficznych do tworzenia dzierżawy usługi Azure AD dla organizacji z subskrypcją platformy Azure dostawcy usług Kryptograficznych skojarzonych z nim za pomocą Centrum partnera.|
 
 ### <a name="capacity-based-billing"></a>Pojemności na podstawie rozliczeń
 Jeśli zdecydujesz się używać modelu rozliczeń pojemności, należy zakupić Azure stosu pojemności planowanie jednostki SKU na podstawie wydajności systemu. Należy znać liczba fizycznych rdzeni w stosie Azure poprawną ilość zakupu. 
@@ -70,3 +69,6 @@ Enterprise Agreement (EA) wymaga pojemności rozliczeń subskrypcji platformy Az
 - Informacje o przypadki użycia, zakupu partnerami i dostawcami sprzętu OEM, zobacz [stosu Azure](https://azure.microsoft.com/overview/azure-stack/) stronę produktu.
 - Informacji o plan i dostępności geograficznie stosu Azure zintegrowanych systemów, zobacz oficjalny dokument: [stosu Azure: rozszerzenie Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
 - Aby dowiedzieć się więcej o Microsoft Azure stosu pakowania i cenach [Pobierz PDF](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 
+
+## <a name="next-steps"></a>Kolejne kroki
+[Integracja sieci centrum danych](azure-stack-network.md)

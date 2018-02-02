@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
-ms.reviewer: wfayed
-ms.openlocfilehash: 8f0bb2266cb3a8a869ad50c40a46eb82985d17ed
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.reviewer: ppacent
+ms.openlocfilehash: c8dd2866e24faacfccff7f5f490710853f426345
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Wymagania dotyczące certyfikatów infrastruktury kluczy publicznych stosu Azure
 Azure stos nie zawiera publicznych infrastruktury sieci przy użyciu dostępne z zewnątrz publiczne adresy IP przypisane do niewielki zestaw usług Azure stosu i prawdopodobnie maszyny wirtualne dzierżawców. Certyfikaty PKI z odpowiedniej nazwy DNS dla tych punktów końcowych infrastruktury publicznych stosu Azure są wymagane podczas wdrażania usługi Azure stosu. Ten artykuł zawiera informacje na temat:
@@ -91,8 +91,9 @@ W poniższej tabeli opisano punktów końcowych i certyfikatów wymaganych dla k
 
 <sup>2</sup> A &#42;. usługi aplikacji.  *&lt;region >.&lt; Nazwa FQDN >* certyfikatu przy użyciu symboli wieloznacznych nie można użyć zamiast te trzy certyfikaty (api.appservice. *&lt;region >. &lt;fqdn >*, ftp.appservice. *&lt;region >. &lt;fqdn >*i sso.appservice. *&lt;region >. &lt;fqdn >*. Appservice jawnie wymaga użycia osobnych certyfikatów dla tych punktów końcowych. 
 
+## <a name="learn-more"></a>Dowiedz się więcej
+Dowiedz się, jak [generowania certyfikatów PKI dla wdrożenia stosu Azure](azure-stack-get-pki-certs.md). 
 
 ## <a name="next-steps"></a>Kolejne kroki
-[Generowanie certyfikaty PKI dla wdrożenia usługi Azure stosu](azure-stack-get-pki-certs.md) 
-
+[Integracja tożsamości](azure-stack-integrate-identity.md)
 

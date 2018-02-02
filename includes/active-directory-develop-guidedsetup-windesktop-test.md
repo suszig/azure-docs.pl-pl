@@ -35,4 +35,4 @@ Aby uzyskać dostęp do kalendarzy użytkownika w kontekście aplikacji, należy
 
 <!--end-collapse-->
 
-[!INCLUDE  [Help and support](./active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: banders
-ms.openlocfilehash: c1f543d3379b7f6a29cb57b5d41825abaacabfc3
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: e3ff3d9c667e00995daa2023a7137870247b9ab3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="application-insights-connector-solution-preview-in-operations-management-suite-oms"></a>Rozwiązanie aplikacji łącznik usługi Insights (wersja zapoznawcza) w Operations Management Suite (OMS)
 
@@ -50,7 +50,7 @@ W przeciwieństwie do większości innych rozwiązań analizy dzienników nie je
 - Musi mieć co najmniej jeden zasób usługi Application Insights skonfigurowany.
 - Musisz być właścicielem lub współautorem zasobu usługi Application Insights.
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 1. Włącz rozwiązania analizy aplikacji sieci Web platformy Azure z [witrynę Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ApplicationInsights?tab=Overview) lub przy użyciu procesu opisanego w [rozwiązań dodać analizy dzienników z galerii rozwiązań](log-analytics-add-solutions.md).
 2. W portalu OMS kliknij **ustawienia** &gt; **danych** &gt; **usługi Application Insights**.
@@ -84,7 +84,7 @@ Kliknij przycisk **usługi Application Insights** Kafelek, aby otworzyć **usłu
 
 Pulpit nawigacyjny zawiera bloki z tabelą. Każdy blok zawiera maksymalnie 10 elementów spełniających kryteria tego bloku dla określonego zakresu i zakres czasu. Można uruchomić wyszukiwania dziennika, który zwraca wszystkie rekordy po kliknięciu **zobaczyć wszystkie** w dolnej części bloku lub po kliknięciu nagłówka bloku.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 | **Kolumny** | **Opis** |
 | --- | --- |
@@ -164,7 +164,7 @@ Rozwiązanie otrzymuje następujące typy telemetrii danych z połączonych apli
 
 Danych jest odbierany przez OMS z usługi Application Insights po jej udostępnieniu.
 
-## <a name="output-data"></a>dane wyjściowe
+## <a name="output-data"></a>Dane wyjściowe
 
 Rekord z *typu* z *ApplicationInsights* jest tworzony dla każdego typu danych wejściowych. Rejestruje ApplicationInsights mają właściwości opisane w następujących sekcjach:
 
@@ -175,7 +175,7 @@ Rekord z *typu* z *ApplicationInsights* jest tworzony dla każdego typu danych w
 | Typ | ApplicationInsights |
 | ClientIP |   |
 | TimeGenerated | Czas rekordu |
-| Identyfikator aplikacji | Klucz instrumentacji aplikacji usługi Application Insights |
+| ApplicationId | Klucz instrumentacji aplikacji usługi Application Insights |
 | ApplicationName | Nazwa usługi Application Insights aplikacji |
 | RoleInstance | Identyfikator serwera hosta |
 | DeviceType | Urządzenia klienckiego |
@@ -261,6 +261,6 @@ Rekord z *typu* z *ApplicationInsights* jest tworzony dla każdego typu danych w
 
 To rozwiązanie nie ma zestaw przykładowy dziennik wyszukiwania wyświetlane na pulpicie nawigacyjnym. Jednak w przedstawiono przykładowy dziennik wyszukiwania zapytania z opisami [informacji o widoku Application Insights łącznika](#view-application-insights-connector-information) sekcji.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Użyj [wyszukiwania dziennika](log-analytics-log-searches.md) Aby wyświetlić szczegółowe informacje o aplikacjach Application Insights.

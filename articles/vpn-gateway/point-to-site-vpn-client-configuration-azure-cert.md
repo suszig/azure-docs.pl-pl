@@ -13,21 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/27/2017
+ms.date: 01/29/2018
 ms.author: cherylmc
-ms.openlocfilehash: 7fe8d5e473e2c8281b1d6c8d7d5423294c428678
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: efe5d3db16db83568bb844894198b59a6b39f626
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Utwórz i zainstaluj pliki konfiguracji klienta sieci VPN w przypadku konfiguracji uwierzytelniania P2S natywnego certyfikatu Azure
 
 Pliki konfiguracji klienta sieci VPN znajdują się w pliku zip. Pliki konfiguracji Podaj ustawienia wymagane dla natywnego klienta systemu Windows lub Mac IKEv2 sieci VPN do nawiązania połączenia sieci wirtualnej za pośrednictwem połączenia punkt-lokacja, które używają uwierzytelniania natywnego certyfikatu Azure.
-
->[!NOTE]
->Protokół IKEv2 dla połączeń typu punkt-lokacja jest obecnie dostępny w wersji zapoznawczej.
->
 
 ### <a name="workflow"></a>Przepływ pracy P2S
 
@@ -113,7 +109,7 @@ Kliknij przycisk **Dodaj** do zaimportowania.
   ![identity](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
 7. W **identyfikator lokalny** Określ nazwę certyfikatu (z kroku 6). W tym przykładzie jest "ikev2Client.com". Następnie kliknij przycisk **Zastosuj** przycisk, aby zapisać zmiany.
 
-  ![Zastosuj](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
+  ![zastosuj](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
 8. Na **sieci** okna dialogowego, kliknij przycisk **Zastosuj** można zapisać wszystkich zmian. Następnie kliknij przycisk **Connect** nawiązaniu połączenia P2S do sieci wirtualnej platformy Azure.
 
 ## <a name="next-steps"></a>Następne kroki

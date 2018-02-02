@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: 5fe981b96725917b9cf567ded9ff38a8055fdb4d
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 608f5ec2fb4b8fa374778cb4f506f1d25eb7642b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure powiązania HTTP funkcje i elementu webhook
 
@@ -528,6 +528,8 @@ Autoryzacji elementu Webhook jest obsługiwany przez element webhook składnika 
 ## <a name="trigger---limits"></a>Wyzwalacz - limity
 
 Długość żądania HTTP jest ograniczona do 100 KB (102400), a długość adresu URL jest ograniczony do 4 k (4096) bajtów. Ograniczenia te są określane przez `httpRuntime` elementu środowiska uruchomieniowego [pliku Web.config](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config).
+
+Jeśli funkcja, która używa wyzwalacza HTTP nie zakończyła się w ciągu około 2,5 minut, upływu limitu czasu bramy spowoduje i zwróci błąd HTTP 502. Funkcja będzie nadal działać, ale nie będzie można zwracać odpowiedzi HTTP. Do funkcji długotrwałe zaleca się, wykonaj wzorców asynchronicznych i zwrócenie lokalizacji, w którym można zbadać poleceniem ping stan żądania. Aby uzyskać informacje, jak długo można uruchomić funkcję, zobacz [skali i hostingu — planowanie zużycie](functions-scale.md#consumption-plan). 
 
 ## <a name="trigger---hostjson-properties"></a>Wyzwalacz - host.json właściwości
 

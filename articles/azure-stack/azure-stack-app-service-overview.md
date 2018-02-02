@@ -12,15 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: fd2d355b2556faddb06acf2998b54ffcc9aa7919
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f3f0add4cf48ebcb4235fb05aa8bfa0b5365848c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Omówienie usługi App Service w usłudze Azure Stack
+*Dotyczy: Azure stosu zintegrowanych systemów i Azure stosu Development Kit*
 
 Usługa aplikacji Azure na stosie Azure jest ofertę platformy jako — usługa (PaaS) systemu Microsoft Azure dostępnych do stosu Azure. Usługa umożliwia klientom — wewnętrzne lub zewnętrzne — tworzenie sieci web, interfejsu API i usługi Azure Functions aplikacje dla dowolnej platformy lub urządzenia. Mogą pozwala integrować aplikacje z aplikacjami lokalnymi i automatyzację procesów biznesowych. Operatorzy chmury stosu Azure mogą korzystać z aplikacji klienta w pełni zarządzanych maszynach wirtualnych (VM), z ich wyboru udostępnianych zasobów maszyn lub dedykowanych maszyn wirtualnych.
 
@@ -59,7 +60,7 @@ Na platformie Azure Brak udostępnionego i dedykowanych procesów roboczych. Obs
 
 Usługi aplikacji Azure stosu używa ten sam interfejs użytkownika, które używa usługi Azure App Service, podobnie jak na zapleczu. Niektóre funkcje są wyłączone i nie są funkcjonalne w stosie Azure. Oczekiwań specyficzne dla platformy Azure lub usługi, które wymagają te funkcje nie są jeszcze dostępne w stosie Azure.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 
 - [Przed rozpoczęciem pracy z usługi aplikacji Azure stosu](azure-stack-app-service-before-you-get-started.md)

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: billgib
-ms.openlocfilehash: 1b6c780000d8c5e31a78f7f83ae74c002e8f8349
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: c4c5b79342aaa3c9b09e922956b095e8191cafd9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Wielodostępne SaaS bazy danych dzierżawców wzorców
 
@@ -96,7 +96,7 @@ Baza danych SQL Azure udostępnia narzędzia niezbędne do skonfigurowania, moni
 
 Platforma Azure SQL Database oferuje wiele funkcji zarządzania przeznaczone do zarządzania dużą liczbą baz danych na dużą skalę, takich jak również ponad 100 000 baz danych.  Te funkcje, że wzorca bazy danych na dzierżawy wiarygodne.
 
-Na przykład załóżmy, że system ma dzierżawy 1000 bazy danych jako jego tylko jedną bazę danych.  Baza danych może zawierać indeksów 20.  Jeśli system konwertuje o 1000 baz danych z pojedynczej dzierżawy, quatity indeksów wzrasta do 20 000.  W bazie danych SQL w ramach [automatycznego dostrajania][docu-sql-db-automatic-tuning-771a], automatycznego indeksowania funkcje są domyślnie włączone.  Automatycznego indeksowania zarządza dla Ciebie wszystkich indeksów 20 000 i ich trwającą optymalizacje tworzenie i upuść.  Te akcje automatyczne występują w ramach poszczególnych bazy danych, a nie są one koordynowane lub ograniczone przez podobnych działań w innych bazach danych.  Automatyczne indeksowanie traktuje indeksów inaczej zajęty bazy danych niż w bazie danych mniej zajęty.  Dostosowania zarządzania indeks tego typu będą niepraktyczne na dużą skalę bazy danych dla dzierżawy, jeśli to zadanie zarządzania ogromnych musiało być przeprowadzane ręcznie.
+Na przykład załóżmy, że system ma dzierżawy 1000 bazy danych jako jego tylko jedną bazę danych.  Baza danych może zawierać indeksów 20.  Jeśli system konwertuje o 1000 pojedynczego dzierżawcy z bazy danych, liczba indeksów wzrasta do 20 000.  W bazie danych SQL w ramach [automatycznego dostrajania][docu-sql-db-automatic-tuning-771a], automatycznego indeksowania funkcje są domyślnie włączone.  Automatycznego indeksowania zarządza dla Ciebie wszystkich indeksów 20 000 i ich trwającą optymalizacje tworzenie i upuść.  Te akcje automatyczne występują w ramach poszczególnych bazy danych, a nie są one koordynowane lub ograniczone przez podobnych działań w innych bazach danych.  Automatyczne indeksowanie traktuje indeksów inaczej zajęty bazy danych niż w bazie danych mniej zajęty.  Dostosowania zarządzania indeks tego typu będą niepraktyczne na dużą skalę bazy danych dla dzierżawy, jeśli to zadanie zarządzania ogromnych musiało być przeprowadzane ręcznie.
 
 Inne funkcje zarządzania, które skalowalne są następujące:
 
@@ -177,15 +177,15 @@ W poniższej tabeli przedstawiono różnice między modelami główny dzierżawy
 
 | Miary | Aplikacja autonomiczna | Bazy danych dla dzierżawcy | Podzielonej wieloma dzierżawcami |
 | :---------- | :------------- | :------------------ | :------------------- |
-| Skalowanie | Medium<br />1 100s | Bardzo wysoka<br />1 100,000s | Nieograniczona liczba<br />1 1,000,000s |
-| Izolacji dzierżawców | Bardzo wysoka | Wysoka | Niski; z wyjątkiem dowolnej dzierżawy pojedyncze (która jest tylko do bazy danych MT). |
+| Skalowanie | Medium<br />1 100s | Bardzo wysokie<br />1 100,000s | Nieograniczona liczba<br />1 1,000,000s |
+| Izolacji dzierżawców | Bardzo wysokie | Wysoka | Niski; z wyjątkiem dowolnej dzierżawy pojedyncze (która jest tylko do bazy danych MT). |
 | Koszt bazy danych dla każdego dzierżawcy | Wysoki; rozmiar jest szczytów. | Niski; pule używane. | Najniższa, w przypadku małych dzierżaw w MT bazami danych. |
 | Monitorowanie wydajności i zarządzanie | Dla dzierżawcy tylko | Agregacja + na dzierżawy | Agregacja; Mimo że jest na dzierżawy tylko dla pojedynczych wystąpień. |
-| Programowanie złożoności | Niska | Niska | Średnia liczba godzin; z powodu dzielenia na fragmenty. |
-| Złożoność działania | Wysoki niski. Proste pojedynczo, złożone na dużą skalę. | Średnia liczba godzin niski. Wzorce adresów złożoność na dużą skalę. | Wysoki niski. Zarządzanie pojedynczego dzierżawcy jest złożone. |
+| Programowanie złożoności | Małe | Małe | Średnia liczba godzin; z powodu dzielenia na fragmenty. |
+| Złożoność działania | Wysoki niski. Proste pojedynczo, złożone na dużą skalę. | Low-Medium. Wzorce adresów złożoność na dużą skalę. | Wysoki niski. Zarządzanie pojedynczego dzierżawcy jest złożone. |
 | &nbsp; ||||
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Wdrażanie i Eksploruj aplikacji Wingtip wielodostępne, która używa modelu SaaS bazy danych dla dzierżawcy — baza danych SQL Azure][docu-sql-db-saas-tutorial-deploy-wingtip-db-per-tenant-496y]
 

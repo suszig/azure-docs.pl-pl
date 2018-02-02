@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 80959ee589a1cfcf317a98c3bafd7f92c796fc2d
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 9fdc8816d8db88d4f1fd7b6ce722b7d2763eeaeb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-event-grid-event-schema-for-event-hubs"></a>Azure schematu zdarzeń siatki zdarzeń usługi event hubs
 
@@ -44,7 +44,9 @@ To zdarzenie próbkowania zawiera schemat centra zdarzeń zdarzenia wywoływane,
             "lastSequenceNumber": 3899,
             "firstEnqueueTime": "2017-08-31T19:12:14.674Z",
             "lastEnqueueTime": "2017-08-31T19:12:44.309Z"
-        }
+        },
+        "dataVersion": "",
+        "metadataVersion": "1"
     }
 ]
 ```
@@ -55,28 +57,30 @@ Zdarzenie ma następujące dane najwyższego poziomu:
 
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
-| Temat | Ciąg | Zasobów Pełna ścieżka do źródła zdarzeń. To pole nie jest zapisywalny. |
-| Temat | Ciąg | Ścieżka zdefiniowana wydawcy podmiotem zdarzeń. |
-| Typ zdarzenia | Ciąg | Jeden z typów zdarzeń zarejestrowane dla tego źródła zdarzenia. |
-| eventTime | Ciąg | Czas jest generowane zdarzenie oparte na czas UTC dostawcy. |
-| id | Ciąg | Unikatowy identyfikator zdarzenia. |
-| Dane | Obiekt | Dane zdarzenia Centrum zdarzeń. |
+| Temat | ciąg | Zasobów Pełna ścieżka do źródła zdarzeń. To pole nie jest zapisywalny. Zdarzenie siatki udostępnia tę wartość. |
+| Temat | ciąg | Ścieżka zdefiniowana wydawcy podmiotem zdarzeń. |
+| Typ zdarzenia | ciąg | Jeden z typów zdarzeń zarejestrowane dla tego źródła zdarzenia. |
+| eventTime | ciąg | Czas jest generowane zdarzenie oparte na czas UTC dostawcy. |
+| id | ciąg | Unikatowy identyfikator zdarzenia. |
+| dane | obiekt | Dane zdarzenia Centrum zdarzeń. |
+| dataVersion | ciąg | Wersja schematu obiektu danych. Wydawca definiuje wersji schematu. |
+| Element metadataVersion | ciąg | Wersja schematu metadanych zdarzeń. Zdarzenie siatki definiuje schemat właściwości najwyższego poziomu. Zdarzenie siatki udostępnia tę wartość. |
 
 Obiekt danych ma następujące właściwości:
 
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
-| fileUrl | Ciąg | Ścieżka do pliku przechwytywania. |
-| Typ pliku | Ciąg | Typ pliku przechwytywania. |
-| partitionId | Ciąg | Identyfikator niezależnego fragmentu. |
-| sizeInBytes | Liczba całkowita | Rozmiar pliku. |
-| eventCount | Liczba całkowita | Liczba zdarzeń w pliku. |
-| firstSequenceNumber | Liczba całkowita | Najmniejsza liczba sekwencji z kolejki. |
-| lastSequenceNumber | Liczba całkowita | Ostatni numer sekwencji z kolejki. |
-| firstEnqueueTime | Ciąg | Przy pierwszym z kolejki. |
-| lastEnqueueTime | Ciąg | Czas ostatniego z kolejki. |
+| fileUrl | ciąg | Ścieżka do pliku przechwytywania. |
+| Typ pliku | ciąg | Typ pliku przechwytywania. |
+| partitionId | ciąg | Identyfikator niezależnego fragmentu. |
+| sizeInBytes | liczba całkowita | Rozmiar pliku. |
+| eventCount | liczba całkowita | Liczba zdarzeń w pliku. |
+| firstSequenceNumber | liczba całkowita | Najmniejsza liczba sekwencji z kolejki. |
+| lastSequenceNumber | liczba całkowita | Ostatni numer sekwencji z kolejki. |
+| firstEnqueueTime | ciąg | Przy pierwszym z kolejki. |
+| lastEnqueueTime | ciąg | Czas ostatniego z kolejki. |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Aby obejrzeć wprowadzenie do usługi Azure Event siatki, zobacz [co to jest zdarzenie siatki?](overview.md)
 * Aby uzyskać więcej informacji o tworzeniu subskrypcji platformy Azure zdarzeń siatki, zobacz [schematu subskrypcji zdarzeń siatki](subscription-creation-schema.md).

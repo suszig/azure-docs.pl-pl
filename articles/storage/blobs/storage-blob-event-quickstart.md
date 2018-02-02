@@ -1,27 +1,27 @@
 ---
-title: "Kierowanie zdarzeń usługi Azure Blob Storage do niestandardowego internetowego punktu końcowego (wersja zapoznawcza) | Microsoft Docs"
+title: "Trasy do punktu końcowego sieci web niestandardowego zdarzenia magazynu obiektów Blob platformy Azure | Dokumentacja firmy Microsoft"
 description: "Zasubskrybuj zdarzenia usługi Blob Storage przy użyciu usługi Azure Event Grid."
 services: storage,event-grid
 keywords: 
 author: cbrooksmsft
 ms.author: cbrooks
-ms.date: 01/19/2018
+ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 50a6126f065b1b4d851f53b5cb3096c130314450
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 4f10d9b26cb75bee8103d986b7fa1197168c692f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="route-blob-storage-events-to-a-custom-web-endpoint-preview"></a>Kierowanie zdarzeń usługi Blob Storage do niestandardowego internetowego punktu końcowego (wersja zapoznawcza)
+# <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-azure-cli"></a>Zdarzenia magazynu obiektów Blob trasy do punktu końcowego niestandardowe sieci web z wiersza polecenia platformy Azure
 
 Azure Event Grid to usługa obsługi zdarzeń dla chmury. W tym artykule omówiono subskrybowanie zdarzeń usługi Blob Storage i wyzwalanie zdarzenia w celu wyświetlenia wyniku za pomocą interfejsu wiersza polecenia platformy Azure. 
 
-Zazwyczaj wysyła się zdarzenia do punktu końcowego, który na nie reaguje, takiego jak element webhook lub funkcja platformy Azure. Aby uprościć przykład w tym artykule, omówimy wysłanie zdarzeń na adres URL, który tylko zbiera komunikaty. Tworzenie tego adresu URL za pomocą narzędzia open source, innej firmy o nazwie [RequestBin](https://requestb.in/).
+Zazwyczaj wysyła się zdarzenia do punktu końcowego, który na nie reaguje, takiego jak element webhook lub funkcja platformy Azure. Aby uprościć przykład w tym artykule, omówimy wysłanie zdarzeń na adres URL, który tylko zbiera komunikaty. Utwórz ten adres URL przy użyciu narzędzia innej firmy z [RequestBin](https://requestb.in/) lub [Hookbin](https://hookbin.com/).
 
 > [!NOTE]
-> **RequestBin** jest narzędziem open source, który nie jest przeznaczony do użycia z wysokiej przepływności. To narzędzie zostało tutaj użyte wyłącznie w celach pokazowych. W przypadku wypchnięcia więcej niż jednego zdarzenia w tym samym czasie w narzędziu mogą nie być widoczne wszystkie zdarzenia.
+> **RequestBin** i **Hookbin** nie są przeznaczone do użycia z wysokiej przepływności. Korzystanie z tych narzędzi jest całkowicie demonstrative. W przypadku wypchnięcia więcej niż jednego zdarzenia w tym samym czasie w narzędziu mogą nie być widoczne wszystkie zdarzenia.
 
 Po wykonaniu czynności opisanych w tym artykule dane powinny zostać wysłane do punktu końcowego.
 
@@ -31,7 +31,7 @@ Po wykonaniu czynności opisanych w tym artykule dane powinny zostać wysłane d
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Jeśli wybierzesz do zainstalowania i używania interfejsu wiersza polecenia lokalnie, w tym artykule wymaga, że używasz najnowszej wersji Azure CLI (2.0.24 lub nowsza). Aby dowiedzieć się, jaka wersja jest używana, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0](/cli/azure/install-azure-cli).
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten artykuł będzie wymagał interfejsu wiersza polecenia platformy Azure w najnowszej wersji (2.0.24 lub nowszej). Aby dowiedzieć się, jaka wersja jest używana, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0](/cli/azure/install-azure-cli).
 
 Jeśli nie korzystasz z usługi Cloud Shell, musisz się najpierw zalogować za pomocą polecenia `az login`.
 
@@ -39,7 +39,7 @@ Jeśli nie korzystasz z usługi Cloud Shell, musisz się najpierw zalogować za 
 
 Tematy usługi Event Grid to zasoby platformy Azure i muszą być umieszczone w grupie zasobów platformy Azure. Grupa zasobów to kolekcja logiczna przeznaczona do wdrażania zasobów platformy Azure i zarządzania nimi.
 
-Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#create). 
+Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#az_group_create). 
 
 Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie `<resource_group_name>` w lokalizacji *westcentralus*.  Zamień `<resource_group_name>` na unikatową nazwę grupy zasobów.
 
@@ -47,14 +47,12 @@ Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie `<resource_group_
 az group create --name <resource_group_name> --location westcentralus
 ```
 
-## <a name="create-a-blob-storage-account"></a>Tworzenie konta usługi Blob Storage
+## <a name="create-a-storage-account"></a>Tworzenie konta magazynu
 
-Aby móc użyć usługi Azure Storage, musisz mieć konto magazynu.  Zdarzenia usługi Blob Storage są obecnie dostępne tylko w ramach kont usługi Blob Storage.
-
-Konto usługi Blob Storage to specjalne konto magazynu służące do przechowywania danych niestrukturalnych w formie obiektów blob w usłudze Azure Storage. Konta usługi Blob Storage są podobne do istniejących kont magazynu ogólnego przeznaczenia i udostępniają wszystkie używane obecnie funkcje doskonałej trwałości, dostępności, skalowalności i wydajności, łącznie z pełną spójnością interfejsu API na potrzeby blokowych i uzupełnialnych obiektów blob. W przypadku aplikacji wymagających tylko magazynu obiektów blokowych lub uzupełnialnych obiektów blob zalecamy używanie kont usługi Blob Storage.
+Aby używać zdarzenia magazynu obiektów Blob, należy albo [kontem magazynu obiektów Blob](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) lub [konta magazynu ogólnego przeznaczenia v2](../common/storage-account-options.md#general-purpose-v2). **Ogólnego przeznaczenia v2 (GPv2)** są konta magazynu, które obsługują wszystkie funkcje dla wszystkich usług magazynu, w tym obiekty BLOB, plików, kolejek i tabel. A **kontem magazynu obiektów Blob** to specjalne konto magazynu do przechowywania danych bez struktury jako obiekty BLOB (obiekty) w usłudze Azure Storage. Konta magazynu obiektów blob są podobne do kont magazynu ogólnego przeznaczenia i udostępniać wszystkie trwałości, dostępności, skalowalności i wydajności zalety że używane obecnie, łącznie z 100% spójnością interfejsu API dla blokowych obiektów blob i uzupełnialnych obiektów blob. W przypadku aplikacji wymagających tylko magazynu obiektów blokowych lub uzupełnialnych obiektów blob zalecamy używanie kont usługi Blob Storage. 
 
 > [!NOTE]
-> Siatka zdarzenie jest obecnie w wersji zapoznawczej i jest dostępna tylko w przypadku kont magazynu w **westcentralus** i **westus2** regionów.
+> Dostępność dla magazynu zdarzenia jest powiązany z siatki zdarzeń [dostępności](../../event-grid/overview.md) i będą dostępne w różnych regionach, tak jak w przypadku zdarzeń siatki.
 
 Zamień `<storage_account_name>` na unikatową nazwę konta magazynu oraz `<resource_group_name>` na wcześniej utworzoną grupę zasobów.
 
@@ -70,11 +68,11 @@ az storage account create \
 
 ## <a name="create-a-message-endpoint"></a>Tworzenie punktu końcowego komunikatów
 
-Przed zasubskrybowaniem zdarzeń w ramach konta usługi Blob Storage utwórzmy punkt końcowy dla komunikatów o zdarzeniach. Zamiast pisać kod w celu zareagowania na zdarzenie, utworzymy punkt końcowy, który będzie zbierać komunikaty, aby można było je wyświetlić. RequestBin jest narzędziem open source, innych firm, które umożliwia tworzenie punktu końcowego i wyświetlić żądań, które są wysyłane do niej. Przejdź do narzędzia [RequestBin](https://requestb.in/) i kliknij pozycję **Create a RequestBin** (Utwórz pojemnik na żądania).  Skopiuj adres URL pojemnika, ponieważ będzie on potrzebny podczas subskrybowania tematu.
+Przed zasubskrybowaniem tematu utwórzmy punkt końcowy dla komunikatów o zdarzeniach. Zamiast pisać kod w celu zareagowania na zdarzenie, utwórzmy punkt końcowy, który będzie zbierać komunikaty, aby można było je wyświetlić. RequestBin i Hookbin są narzędzia innych firm, które umożliwiają tworzenie punktu końcowego i wyświetlić żądań, które są wysyłane do niej. Przejdź do [RequestBin](https://requestb.in/)i kliknij przycisk **utworzyć RequestBin**, lub przejdź do [Hookbin](https://hookbin.com/) i kliknij przycisk **utworzyć nowy punkt końcowy**.  Skopiuj adres URL pojemnika, ponieważ będzie on potrzebny podczas subskrybowania tematu.
 
-## <a name="subscribe-to-your-blob-storage-account"></a>Subskrybowanie konta usługi Blob Storage
+## <a name="subscribe-to-your-storage-account"></a>Subskrypcja konta magazynu
 
-Subskrybowanie tematu ma poinformować usługę Event Grid o tym, które zdarzenia chcesz śledzić. Poniższy przykład ilustruje subskrybowanie utworzonego konta usługi Blob Storage i przekazanie adresu URL z narzędzia RequestBin jako punktu końcowego dla powiadomień o zdarzeniach. Zamień `<event_subscription_name>` na unikatową nazwę subskrypcji zdarzeń oraz `<URL_from_RequestBin>` na wartość z poprzedniej sekcji. Dzięki określeniu punktu końcowego podczas subskrybowania usługa Event Grid obsługuje kierowanie zdarzeń do tego punktu końcowego. Jako parametrów `<resource_group_name>` i `<storage_account_name>` użyj utworzonych wcześniej wartości. 
+Subskrybowanie tematu ma poinformować usługę Event Grid o tym, które zdarzenia chcesz śledzić. Poniższy przykład subskrybuje konta magazynu utworzone i przekazuje adres URL z RequestBin lub Hookbin jako punktu końcowego powiadomienia o zdarzeniach. Zamień `<event_subscription_name>` na unikatową nazwę subskrypcji zdarzeń oraz `<endpoint_URL>` na wartość z poprzedniej sekcji. Dzięki określeniu punktu końcowego podczas subskrybowania usługa Event Grid obsługuje kierowanie zdarzeń do tego punktu końcowego. Jako parametrów `<resource_group_name>` i `<storage_account_name>` użyj utworzonych wcześniej wartości.  
 
 ```azurecli-interactive
 storageid=$(az storage account show --name <storage_account_name> --resource-group <resource_group_name> --query id --output tsv)
@@ -82,12 +80,12 @@ storageid=$(az storage account show --name <storage_account_name> --resource-gro
 az eventgrid event-subscription create \
   --resource-id $storageid \
   --name <event_subscription_name> \
-  --endpoint <URL_from_RequestBin>
+  --endpoint <endpoint_URL>
 ```
 
 ## <a name="trigger-an-event-from-blob-storage"></a>Wyzwalanie zdarzenia z usługi Blob Storage
 
-Teraz wyzwólmy zdarzenie, aby zobaczyć, jak usługa Event Grid dystrybuuje komunikat do punktu końcowego. Po pierwsze umożliwia konfigurowanie nazwy i klucza dla konta magazynu, firma Microsoft będzie utworzyć kontener, a następnie utworzyć i przekazać plik. Jako parametrów `<storage_account_name>` i `<resource_group_name>` ponownie użyj utworzonych wcześniej wartości.
+Teraz wyzwólmy zdarzenie, aby zobaczyć, jak usługa Event Grid dystrybuuje komunikat do punktu końcowego. Po pierwsze umożliwia konfigurowanie nazwy i klucza konta magazynu, a następnie możemy utworzyć kontener, Utwórz i przekaż plik. Jako parametrów `<storage_account_name>` i `<resource_group_name>` ponownie użyj utworzonych wcześniej wartości.
 
 ```azurecli-interactive
 export AZURE_STORAGE_ACCOUNT=<storage_account_name>
@@ -99,7 +97,7 @@ touch testfile.txt
 az storage blob upload --file testfile.txt --container-name testcontainer --name testfile.txt
 ```
 
-Zdarzenie zostało wyzwolone, a usługa Event Grid wysłała komunikat do punktu końcowego skonfigurowanego podczas subskrybowania. Przejdź do adresu URL pojemnika RequestBin utworzonego wcześniej. Ewentualnie kliknij przycisk Refresh (Odśwież) w otwartej przeglądarce narzędzia RequestBin. Zobaczysz właśnie wysłane zdarzenie. 
+Zdarzenie zostało wyzwolone, a usługa Event Grid wysłała komunikat do punktu końcowego skonfigurowanego podczas subskrybowania. Przejdź do adresu URL punktu końcowego, który został utworzony wcześniej. Lub kliknij przycisk Odśwież w przeglądarce otwórz. Zobaczysz właśnie wysłane zdarzenie. 
 
 ```json
 [{

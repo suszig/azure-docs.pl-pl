@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/15/2017
+ms.date: 01/29/2018
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e299de0953cefac925b0015a15983d25d456576f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96dad8917f4483c3d7c74ea0462b96d89286f549
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="understand-and-use-azure-iot-sdks"></a>W zrozumieniu i użytkowaniu zestawów SDK IoT Azure
 
@@ -79,16 +79,16 @@ Możesz pobrać [Azure IoT krawędzi] [ lnk-iot-edge] z usługi GitHub.
 
 Poniższa lista zawiera łącza do trybu online dokumentacji interfejsu API urządzenia Azure IoT, usługi i bibliotek bramy:
 
-* [Internet rzeczy (IoT) platformy .NET][lnk-dotnet-ref]
+* [Internet of Things (IoT) .NET][lnk-dotnet-ref]
 * [Azure urządzenia IoT zestawu SDK dla języka Java][lnk-java-ref]
 * [IoT usługi Azure SDK dla języka Java][lnk-java-service-ref]
 * [Azure urządzenia IoT zestawu SDK dla środowiska Node.js][lnk-node-ref]
 * [IoT usługi Azure SDK dla środowiska Node.js][lnk-node-service-ref]
 * [Azure urządzenia IoT zestawu SDK dla języka C][lnk-c-ref]
 * [Centrum IoT REST][lnk-rest-ref]
-* [Krawędź IoT Azure][lnk-gateway-ref]
+* [Azure IoT Edge][lnk-gateway-ref]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Inne tematy dokumentacji, w tym przewodniku deweloperów Centrum IoT obejmują:
 

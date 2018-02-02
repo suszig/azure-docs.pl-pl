@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 126c5a5b3abd48b350c7d11a038a5d94e40280a0
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 8915abbb27184c2f0b47747e422e5a4fa7bc1cbb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Przewodnik dotyczący tworzenia obrazu maszyny wirtualnej do portalu Azure Marketplace
 W tym artykule **krok 2**, przeprowadzi Cię przez przygotowanie wirtualnych dysków twardych (VHD), które zostaną wdrożone w portalu Azure Marketplace. Dyski VHD są podstawę sieci jednostki SKU. Proces jest różny w zależności od tego, czy udostępniasz SKU opartych na systemie Linux lub z systemem Windows. W tym artykule przedstawiono oba scenariusze. Ten proces można przeprowadzić równolegle z [o tworzeniu konta i rejestracji][link-acct-creation].
@@ -95,7 +95,7 @@ W portalu Microsoft Azure można utworzyć maszyny Wirtualnej na podstawie zatwi
 
     b.    Jeśli zamierzasz utworzyć obraz na platformie Azure, warto wybrać jeden z zalecanych rozmiarów maszyny wirtualnej dla wybranego obrazu.
 
-    d.    Aby uzyskać informacje o cenach, zobacz **zalecana warstwa cenowa** selektora wyświetlane w portalu. Zobaczysz trzy zalecane rozmiary udostępniane przez wydawcę. (W tym przypadku wydawcą jest firma Microsoft).
+    c.    Aby uzyskać informacje o cenach, zobacz **zalecana warstwa cenowa** selektora wyświetlane w portalu. Zobaczysz trzy zalecane rozmiary udostępniane przez wydawcę. (W tym przypadku wydawcą jest firma Microsoft).
 
     ![Rysowanie][img-portal-vm-size]
 5. Ustaw właściwości:
@@ -104,7 +104,7 @@ W portalu Microsoft Azure można utworzyć maszyny Wirtualnej na podstawie zatwi
 
     b.    W obszarze **konta magazynu**, można opcjonalnie wybierz konto magazynu, w którym będą przechowywane wirtualnego dysku twardego systemu operacyjnego.
 
-    d.    W obszarze **grupy zasobów**, można opcjonalnie wybierz grupę logiczną, w którym można umieścić maszyny Wirtualnej.
+    c.    W obszarze **grupy zasobów**, można opcjonalnie wybierz grupę logiczną, w którym można umieścić maszyny Wirtualnej.
 6. Wybierz **lokalizacji** wdrożenia:
 
     a.    Jeśli planujesz tworzenie wirtualnego dysku twardego lokalnej lokalizacji nie ma znaczenia, ponieważ możesz przekazać obraz później na platformie Azure.
@@ -118,6 +118,9 @@ W portalu Microsoft Azure można utworzyć maszyny Wirtualnej na podstawie zatwi
 Zdecydowanie zaleca się tworzenie dysk VHD w chmurze za pomocą protokołu RDP (Remote Desktop). Połączenie RDP z nazwą użytkownika i hasło określone podczas inicjowania obsługi.
 
 > [!IMPORTANT]
+> **Nie należy używać dysków zarządzanych.** Stworzono wirtualnego dysku twardego do chmury maszyny wirtualnej nie musi być oparta na dyskach zarządzanych zgodnie z obecnie nie obsługuje tworzenia obrazu z nich.
+> Tworzenie maszyny wirtualnej w przypadku zmiany funkcja opcjonalna wartość domyślna dla dysków zarządzanych.
+
 > W przypadku tworzenia dysk VHD lokalnymi (co nie jest zalecane), zobacz [Tworzenie obrazu maszyny wirtualnej z lokalnymi](marketplace-publishing-vm-image-creation-on-premise.md). Pobieranie dysk VHD nie jest konieczne, jeśli tworzysz w chmurze.
 >
 >
@@ -348,7 +351,7 @@ Poniżej przedstawiono kroki podczas generowania adresu URL SAS za pomocą Ekspl
 
     b. **Dozwolony dostęp do:** wybierz datę, która jest co najmniej 3 tygodni po **zezwala na dostęp** daty.
 
-    d. **Akcje dozwolone:** wybierz **listy** i **odczytu** uprawnienia.
+    c. **Akcje dozwolone:** wybierz **listy** i **odczytu** uprawnienia.
 
     d. Jeśli wybrano plik VHD poprawnie, a następnie plik zostanie wyświetlony w **nazwa obiektu Blob, aby uzyskać dostęp do** z rozszerzenie VHD.
 
@@ -396,7 +399,7 @@ Poniżej przedstawiono kroki podczas generowania adresu URL SAS za pomocą Ekspl
 
     b.  **Czas wygaśnięcia:** wybierz datę, która jest co najmniej 3 tygodni po **czas rozpoczęcia** daty.
 
-    d.  **Uprawnienia:** wybierz **listy** i **odczytu** uprawnień
+    c.  **Uprawnienia:** wybierz **listy** i **odczytu** uprawnień
 
 8.  Skopiuj sygnatury dostępu współdzielonego kontenera identyfikatora URI
 
@@ -444,7 +447,7 @@ Poniżej przedstawiono kroki podczas generowania adresu URL sygnatury dostępu W
 
     b. **`<Storage Account Key>`**: Podać klucz konta magazynu
 
-    d. **`<Permission Start Date>`**: Aby chronić dla czasu UTC, wybierz dzień przed bieżącą datą. Na przykład, jeśli bieżąca data jest 26 października 2016 r. następnie wartość powinna być 2016-10-25. Jeśli za pomocą usługi Azure CLI 2.0 (polecenie az), podaj datę i godzinę rozpoczęcia oraz datę zakończenia, na przykład: 10-25-2016T00:00:00Z.
+    c. **`<Permission Start Date>`**: Aby chronić dla czasu UTC, wybierz dzień przed bieżącą datą. Na przykład, jeśli bieżąca data jest 26 października 2016 r. następnie wartość powinna być 2016-10-25. Jeśli za pomocą usługi Azure CLI 2.0 (polecenie az), podaj datę i godzinę rozpoczęcia oraz datę zakończenia, na przykład: 10-25-2016T00:00:00Z.
 
     d. **`<Permission End Date>`**: Wybierz datę, która jest co najmniej 3 tygodni po **Data rozpoczęcia**. Wartość powinna być **2016-11-02**. Jeśli za pomocą usługi Azure CLI 2.0 (polecenie az), podaj datę i godzinę rozpoczęcia oraz datę zakończenia, na przykład: 11-02-2016T00:00:00Z.
 

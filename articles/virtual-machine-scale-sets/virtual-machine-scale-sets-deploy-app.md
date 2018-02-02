@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 7e03d5e2bbdb1b3b206fa7fa455f7dce7951f02b
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 288bcdf6628f60d0b08fe151e630784d665db56f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Wdrażanie aplikacji na zestawy skalowania maszyny wirtualnej
 Do uruchamiania aplikacji na wystąpień maszyn wirtualnych (VM) w zestawie skalowania, najpierw należy zainstalować składniki aplikacji i wymaganych plików. W tym artykule przedstawiono sposoby budowania niestandardowego obrazu maszyny Wirtualnej dla wystąpień w skali ustawić lub automatycznego uruchamiania skryptów instalacji na istniejących wystąpień maszyny Wirtualnej. Możesz również sposób zarządzania aplikacji lub aktualizacji systemu operacyjnego przez zestaw skali.
@@ -43,11 +43,11 @@ Aby zmniejszyć Zarządzanie konfiguracją i czas do udostępnienia maszyny Wirt
 
 
 ## <a name="already-provisioned"></a>Instalowanie aplikacji z rozszerzeniem niestandardowego skryptu
-Niestandardowe rozszerzenie skryptu pobiera i uruchamia skrypty na maszynach wirtualnych Azure. To rozszerzenie jest przydatne w przypadku konfiguracji wdrożenia post, instalacja oprogramowania lub dowolnej innej konfiguracji / zadanie zarządzania. Skrypty można pobrać z magazynu Azure lub usługi GitHub lub dostarczony do portalu Azure w czasie wykonywania rozszerzenia.
+Niestandardowe rozszerzenie skryptu pobiera i uruchamia skrypty na maszynach wirtualnych Azure. To rozszerzenie jest przydatne w przypadku konfiguracji po wdrożeniu, instalowania oprogramowania lub każdego innego zadania związanego z konfiguracją lub zarządzaniem. Skrypty można pobrać z usługi Azure Storage lub GitHub bądź można je dostarczyć do witryny Azure Portal w czasie wykonywania rozszerzenia.
 
 Rozszerzenie skryptu niestandardowego integruje się z szablonów usługi Azure Resource Manager i mogą być także uruchamiane przy użyciu wiersza polecenia platformy Azure, programu PowerShell, portalu Azure lub interfejsu API REST dla maszyny wirtualnej Azure. 
 
-Aby uzyskać więcej informacji, zobacz [omówienie niestandardowe rozszerzenie skryptu](../virtual-machines/windows/extensions-customscript.md).
+Aby uzyskać więcej informacji, zobacz [Omówienie niestandardowego rozszerzenia skryptu](../virtual-machines/windows/extensions-customscript.md).
 
 
 ### <a name="use-azure-powershell"></a>Korzystanie z programu Azure PowerShell
@@ -94,7 +94,7 @@ W przypadku zasad uaktualniania na zestawie skali *ręczne*, zaktualizować wyst
 ### <a name="use-azure-cli-20"></a>Użyj interfejsu wiersza polecenia platformy Azure 2.0
 Aby niestandardowe rozszerzenie skryptu za pomocą interfejsu wiersza polecenia Azure, należy utworzyć plik JSON, który definiuje, jakie pliki, aby uzyskać i poleceń do wykonania. Te definicje JSON mogą być ponownie używane we wszystkich wdrożeniach zestaw skalowania, aby zastosować spójne aplikacji instaluje.
 
-W bieżącym powłoki, Utwórz plik o nazwie *customConfig.json* i wklej następującą konfigurację. Na przykład utworzyć plik, w powłoce chmury nie na komputerze lokalnym. Można użyć dowolnego edytora, którego chcesz. Wprowadź `sensible-editor cloudConfig.json` do tworzenia pliku i wyświetlić listę dostępnych edytory.
+W bieżącym powłoki, Utwórz plik o nazwie *customConfig.json* i wklej następującą konfigurację. Na przykład utwórz plik w usłudze Cloud Shell, a nie na maszynie lokalnej. Można użyć dowolnego edytora, którego chcesz. Wprowadź `sensible-editor cloudConfig.json`, aby utworzyć plik i wyświetlić listę dostępnych edytorów.
 
 ```json
 {
@@ -103,7 +103,7 @@ W bieżącym powłoki, Utwórz plik o nazwie *customConfig.json* i wklej następ
 }
 ```
 
-Zastosuj konfigurację niestandardowe rozszerzenie skryptu do wystąpień maszyn wirtualnych w Twojej zestaw z skalowania [az vmss rozszerzenia zestawu](/cli/azure/vmss/extension#set). Następujący przykład dotyczy *customConfig.json* konfigurację, aby *myScaleSet* wystąpień maszyn wirtualnych w grupie zasobów o nazwie *myResourceGroup*. Wprowadź własne nazwy w następujący sposób:
+Zastosuj konfigurację niestandardowe rozszerzenie skryptu do wystąpień maszyn wirtualnych w Twojej zestaw z skalowania [az vmss rozszerzenia zestawu](/cli/azure/vmss/extension#az_vmss_extension_set). Następujący przykład dotyczy *customConfig.json* konfigurację, aby *myScaleSet* wystąpień maszyn wirtualnych w grupie zasobów o nazwie *myResourceGroup*. Wprowadź własne nazwy w następujący sposób:
 
 ```azurecli
 az vmss extension set \
@@ -166,13 +166,13 @@ W przypadku zasad uaktualniania na zestawie skali *ręczne*, zaktualizować wyst
 
 
 ## <a name="install-an-app-to-a-linux-vm-with-cloud-init"></a>Instalowanie aplikacji do maszyny Wirtualnej systemu Linux z inicjowaniem chmury
-[Init chmury](https://cloudinit.readthedocs.io/latest/) jest powszechnie używaną podejście, aby dostosować Maszynę wirtualną systemu Linux, ponieważ jest on uruchamiany po raz pierwszy. Init chmury można użyć, aby zainstalować pakiety i zapisywać pliki, lub aby skonfigurować użytkowników i zabezpieczeń. Podczas inicjowania chmury działania podczas początkowego procesu rozruchu, nie ma, nie dodatkowe kroki lub agentów wymaganych do zastosowania konfiguracji.
+[Cloud-init](https://cloudinit.readthedocs.io/latest/) to powszechnie używana metoda dostosowywania maszyny wirtualnej z systemem Linux podczas jej pierwszego rozruchu. Za pomocą pakietu cloud-init można instalować pakiety i zapisywać pliki lub konfigurować użytkowników i zabezpieczenia. Pakiet cloud-init jest uruchamiany w trakcie początkowego rozruchu, więc do zastosowania konfiguracji nie są wymagane żadne dodatkowe kroki ani agenci.
 
 Init chmury działa także w dystrybucji. Na przykład nie używaj **instalacji stanie get** lub **yum zainstalować** do zainstalowania pakietu. Zamiast tego można zdefiniować listę pakietów do zainstalowania. Init chmury automatycznie używa narzędzia do zarządzania natywnego pakietu dla distro, którą wybierzesz.
 
 Aby uzyskać więcej informacji, w tym przykładzie *init.txt chmury* plików, zobacz [umożliwia dostosowywanie maszyn wirtualnych platformy Azure w chmurze init](../virtual-machines/linux/using-cloud-init.md).
 
-Aby utworzyć zestaw skali i przy użyciu pliku init chmury, Dodaj `--custom-data` parametr [az vmss utworzyć](/cli/azure/vmss#create) polecenia i określ nazwę pliku init chmury. Poniższy przykład tworzy zestaw o nazwie skalowania *myScaleSet* w *myResourceGroup* i konfiguruje wystąpień maszyn wirtualnych przy użyciu pliku o nazwie *init.txt chmury*. Wprowadź własne nazwy w następujący sposób:
+Aby utworzyć zestaw skali i przy użyciu pliku init chmury, Dodaj `--custom-data` parametr [az vmss utworzyć](/cli/azure/vmss#az_vmss_create) polecenia i określ nazwę pliku init chmury. Poniższy przykład tworzy zestaw o nazwie skalowania *myScaleSet* w *myResourceGroup* i konfiguruje wystąpień maszyn wirtualnych przy użyciu pliku o nazwie *init.txt chmury*. Wprowadź własne nazwy w następujący sposób:
 
 ```azurecli
 az vmss create \
@@ -222,5 +222,5 @@ Gdy dostępne są nowe wersje systemu operacyjnego, możesz użyć lub utworzyć
 Jeśli używasz niestandardowego obrazu maszyny Wirtualnej z wcześniej zainstalowaną aplikację może integrować aktualizacje aplikacji z potokiem wdrożenia do tworzenia nowych obrazów i wdrażania uaktualnień systemu operacyjnego na zestawie skali. Takie podejście umożliwia potoku do odebrania najnowszej kompilacji aplikacji, Utwórz i Zweryfikuj obrazu maszyny Wirtualnej, a następnie uaktualnić wystąpień maszyny Wirtualnej w zestawie skalowania. Aby uruchomić potok wdrożenia, który tworzy i wdraża aktualizacje aplikacji w niestandardowych obrazów maszyn wirtualnych, można użyć [Visual Studio Team Services](https://www.visualstudio.com/team-services/), [Spinnaker](https://www.spinnaker.io/), lub [Wpięć](https://jenkins.io/) .
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Jak skompilować i wdrożyć aplikacje na Twoje zestawy skalowania, możesz przejrzeć [Omówienie projektowania zestaw skali](virtual-machine-scale-sets-design-overview.md). Aby uzyskać więcej informacji na temat zarządzania zestaw skalowania, zobacz [Użyj programu PowerShell do zarządzania zestawie skali](virtual-machine-scale-sets-windows-manage.md).

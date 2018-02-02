@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2017
 ms.author: dobett
-ms.openlocfilehash: a3ebda292d16b2a420fb6d586f18201e34efffa7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1b34e579f2ba40f4d77f7a3ba1841f59f795d292
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>Wysyłanie wiadomości chmury do urządzenia z Centrum IoT
 
@@ -41,12 +41,12 @@ Gdy usługa Centrum IoT wysyła wiadomość do urządzenia, Usługa ustawia stan
 
 Urządzenia można także wybrać opcję:
 
-* *Odrzuć* wiadomości, co powoduje, że Centrum IoT ustawić ją na **Deadlettered** stanu. Urządzeń łączących się za pośrednictwem protokołu MQTT nie można odrzucić wiadomości chmury do urządzenia.
+* *Odrzuć* wiadomości, co powoduje, że Centrum IoT ustawić ją na **martwych lettered** stanu. Urządzeń łączących się za pośrednictwem protokołu MQTT nie można odrzucić wiadomości chmury do urządzenia.
 * *Porzuć* wiadomości, co powoduje, że Centrum IoT umieścić wiadomości w kolejce, ze stanem ustawioną **umieszczonych w kolejce**. Urządzeń łączących się za pośrednictwem protokołu MQTT nie można porzucić wiadomości chmury do urządzenia.
 
 Wątek może się nie powieść przetworzyć komunikatu bez powiadamiania Centrum IoT. W takim przypadku wiadomości automatycznie przejście od **niewidoczne** stanu do **umieszczonych w kolejce** stanu po *limitu czasu widoczności (lub blokowania)*. Wartość domyślna tego limitu czasu jest jedna minuta.
 
-**Maksymalna liczba dostarczania** właściwość Centrum IoT określa maksymalną liczbę razy komunikat może przejść między **umieszczonych w kolejce** i **niewidoczne** stanów. Po liczby przejść, Centrum IoT ustawia stan wiadomości **Deadlettered**. Podobnie, ustawia stan wiadomości w Centrum IoT **Deadlettered** po godzinie wygaśnięcia (zobacz [czas wygaśnięcia][lnk-ttl]).
+**Maksymalna liczba dostarczania** właściwość Centrum IoT określa maksymalną liczbę razy komunikat może przejść między **umieszczonych w kolejce** i **niewidoczne** stanów. Po liczby przejść, Centrum IoT ustawia stan wiadomości **martwych lettered**. Podobnie, ustawia stan wiadomości w Centrum IoT **martwych lettered** po godzinie wygaśnięcia (zobacz [czas wygaśnięcia][lnk-ttl]).
 
 [Sposób wysyłania wiadomości chmury do urządzenia z Centrum IoT] [ lnk-c2d-tutorial] pokazano, jak wysyłać chmury do urządzenia z chmury i ich odbierania na urządzeniu.
 
@@ -76,8 +76,8 @@ Podczas wysyłania komunikatu chmura urządzenie, usługa może wysłać żądan
 | Właściwość ACK. | Zachowanie |
 | ------------ | -------- |
 | **dodatnią** | Jeśli osiągnie komunikatu chmura urządzenie **Ukończono** stanu Centrum IoT generuje komunikat opinii. |
-| **ujemna** | Jeśli osiągnie komunikatu chmura urządzenie **Deadlettered** stanu Centrum IoT generuje komunikat opinii. |
-| **Pełna**     | Centrum IoT generuje komunikat opinii w każdym przypadku. |
+| **negative** | Jeśli osiągnie komunikatu chmura urządzenie **martwych lettered** stanu Centrum IoT generuje komunikat opinii. |
+| **full**     | Centrum IoT generuje komunikat opinii w każdym przypadku. |
 
 Jeśli **potwierdzenia** jest **pełne**i nie zostanie wyświetlony komunikat opinii, oznacza to, że opinia wygasł. Usługa nie może znać, co się stało z oryginalnej wiadomości. W praktyce usługi powinien upewnić, że opinii może przetworzyć przed jej wygaśnięciem. Czas wygaśnięcia maksymalną dwa dni, które pozostawia czas pobierania usługi działa ponownie, jeśli wystąpi błąd.
 
@@ -86,18 +86,18 @@ Zgodnie z objaśnieniem w [punkty końcowe][lnk-endpoints], Centrum IoT zapewnia
 | Właściwość     | Opis |
 | ------------ | ----------- |
 | EnqueuedTime | Sygnatura czasowa wskazująca, kiedy wiadomość została utworzona. |
-| Nazwa użytkownika       | `{iot hub name}` |
-| Typ zawartości  | `application/vnd.microsoft.iothub.feedback.json` |
+| UserId       | `{iot hub name}` |
+| ContentType  | `application/vnd.microsoft.iothub.feedback.json` |
 
 Treść jest serializacji JSON tablicą rekordów, każdy z następującymi właściwościami:
 
 | Właściwość           | Opis |
 | ------------------ | ----------- |
 | EnqueuedTimeUtc    | Sygnatura czasowa wskazująca, kiedy wystąpiło wynik komunikatu. Na przykład urządzenie zakończone lub komunikat wygasł. |
-| originalMessageId  | **Identyfikator komunikatu** wiadomości chmury do urządzenia, do którego odnosi się ten opinii. |
-| statusCode         | Wymagany ciąg. Używane w opinii komunikaty generowane przez Centrum IoT. <br/> 'Success' <br/> "Wygasł" <br/> "DeliveryCountExceeded" <br/> "Odrzucone" <br/> "Usunięte" |
+| OriginalMessageId  | **Identyfikator komunikatu** wiadomości chmury do urządzenia, do którego odnosi się ten opinii. |
+| StatusCode         | Wymagany ciąg. Używane w opinii komunikaty generowane przez Centrum IoT. <br/> 'Success' <br/> "Wygasł" <br/> 'DeliveryCountExceeded' <br/> "Odrzucone" <br/> "Usunięte" |
 | Opis        | Ciąg wartości **StatusCode**. |
-| Identyfikator urządzenia           | **DeviceId** urządzenia docelowego komunikatu chmury do urządzenia, do którego odnosi się ten element opinii. |
+| DeviceId           | **DeviceId** urządzenia docelowego komunikatu chmury do urządzenia, do którego odnosi się ten element opinii. |
 | DeviceGenerationId | **DeviceGenerationId** urządzenia docelowego komunikatu chmury do urządzenia, do którego odnosi się ten element opinii. |
 
 Usługa musi określać **MessageId** wiadomości chmury do urządzenia mógł skorelowania jego opinii z oryginalnej wiadomości.
@@ -134,7 +134,7 @@ Każdy Centrum IoT udostępnia następujące opcje konfiguracji dla obsługi wia
 
 Aby uzyskać więcej informacji na temat ustawiania tych opcji konfiguracji, zobacz [centra IoT utworzyć][lnk-portal].
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby uzyskać informacje o zestawy SDK służy do odbierania wiadomości chmury do urządzenia, zobacz [Azure IoT SDK][lnk-sdks].
 

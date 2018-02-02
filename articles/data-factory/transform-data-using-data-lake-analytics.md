@@ -3,7 +3,7 @@ title: "Przekształcanie danych za pomocą skryptu U-SQL - Azure | Dokumentacja 
 description: "Dowiedz się sposobu przetwarzania lub Przekształcanie danych za pomocą skryptów U-SQL w usłudze obliczeniowych Azure Data Lake Analytics."
 services: data-factory
 documentationcenter: 
-author: shengcmsft
+author: nabhishek
 manager: jhubbard
 editor: spelluru
 ms.service: data-factory
@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
-ms.author: shengc
-ms.openlocfilehash: 7800329e7f56d604c7911d3997fa76a0fac91664
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.date: 01/29/2018
+ms.author: abnarain
+ms.openlocfilehash: 4ae54bfda21d06d3d6ec963aaa17eba2b6e04de3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Przekształcanie danych za pomocą skryptów U-SQL w usłudze Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,17 +66,17 @@ Uwierzytelnianie usługi głównej przez określenie następujących właściwo�
     "properties": {
         "type": "AzureDataLakeAnalytics",
         "typeProperties": {
-            "accountName": "adftestaccount",
-            "dataLakeAnalyticsUri": "azuredatalakeanalytics URI",
-            "servicePrincipalId": "service principal id",
+            "accountName": "<account name>",
+            "dataLakeAnalyticsUri": "<azure data lake analytics URI>",
+            "servicePrincipalId": "<service principal id>",
             "servicePrincipalKey": {
-                "value": "service principal key",
+                "value": "<service principal key>",
                 "type": "SecureString"
             },
-            "tenant": "tenant ID",
+            "tenant": "<tenant ID>",
             "subscriptionId": "<optional, subscription id of ADLA>",
             "resourceGroupName": "<optional, resource group name of ADLA>"
-        }
+        },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
             "type": "IntegrationRuntimeReference"
@@ -96,12 +96,12 @@ Poniższy fragment kodu JSON definiuje potoku z działaniem Data Lake Analytics 
     "description": "description",
     "type": "DataLakeAnalyticsU-SQL",
     "linkedServiceName": {
-        "referenceName": "AzureDataLakeAnalyticsLinkedService",
+        "referenceName": "<linked service name of Azure Data Lake Analytics>",
         "type": "LinkedServiceReference"
     },
     "typeProperties": {
         "scriptLinkedService": {
-            "referenceName": "LinkedServiceofAzureBlobStorageforscriptPath",
+            "referenceName": "<linked service name of Azure Data Lake Store or Azure Storage which contains the U-SQL script>",
             "type": "LinkedServiceReference"
         },
         "scriptPath": "scripts\\kona\\SearchLogProcessing.txt",
@@ -124,11 +124,11 @@ W poniższej tabeli opisano nazwy i opisy właściwości, które są specyficzne
 | type                | Dla działania Data Lake Analytics U-SQL jest typ działania **DataLakeAnalyticsU SQL**. | Yes      |
 | linkedServiceName   | Połączona usługa do usługi Azure Data Lake Analytics. Aby dowiedzieć się więcej na temat tej połączonej usługi, zobacz [obliczeniowe połączonych usług](compute-linked-services.md) artykułu.  |Yes       |
 | scriptPath          | Ścieżka do folderu, który zawiera skrypt U-SQL. Nazwa pliku jest rozróżniana wielkość liter. | Yes      |
-| scriptLinkedService | Połączonej usługi, która łączy magazynu, który zawiera skrypt do fabryki danych | Yes      |
+| scriptLinkedService | Połączona usługa, która łączy **Azure Data Lake Store** lub **usługi Azure Storage** zawierający skrypt do fabryki danych | Yes      |
 | degreeOfParallelism | Maksymalna liczba węzłów jednocześnie użyta do uruchomienia zadania. | Nie       |
 | priorytet            | Określa, które spośród wszystkich znajdujących się w kolejce zadań należy wybrać ma być uruchomiony. Im niższy numer, tym wyższy priorytet. | Nie       |
-| parameters          | Parametry skryptu U-SQL          | Nie       |
-| runtimeVersion      | Wersja środowiska uruchomieniowego aparatu U-SQL do użycia | Nie       |
+| parameters          | Parametry do przekazania do skryptu U-SQL.    | Nie       |
+| runtimeVersion      | Wersja środowiska uruchomieniowego aparatu U-SQL do użycia. | Nie       |
 | compilationMode     | <p>Tryb kompilacji U-SQL. Musi być jedną z następujących wartości: **semantycznej:** wykonywać tylko semantycznego kontroli i potrzeby związane z poprawnością kontroli, **pełna:** wykonania pełnej kompilacji, takich jak sprawdzanie składni, optymalizacja, generowania kodu, itp., **SingleBox:** wykonania pełnej kompilacji, z ustawieniem TargetType do SingleBox. Jeśli nie określisz wartości dla tej właściwości, serwer określa tryb optymalne kompilacji. | Nie |
 
 Fabryka danych przesyła zobacz [definicji skryptu SearchLogProcessing.txt](#sample-u-sql-script) definicji skryptu. 
@@ -180,12 +180,12 @@ Istnieje możliwość zamiast tego użyj parametrów dynamicznych. Na przykład:
 
 ```json
 "parameters": {
-    "in": "$$Text.Format('/datalake/input/{0:yyyy-MM-dd HH:mm:ss}.tsv', SliceStart)",
-    "out": "$$Text.Format('/datalake/output/{0:yyyy-MM-dd HH:mm:ss}.tsv', SliceStart)"
+    "in": "/datalake/input/@{formatDateTime(pipeline().parameters.WindowStart,'yyyy/MM/dd')}/data.tsv",
+    "out": "/datalake/output/@{formatDateTime(pipeline().parameters.WindowStart,'yyyy/MM/dd')}/result.tsv"
 }
 ```
 
-W takim przypadku pliki wejściowe nadal są pobierane z folderu /datalake/input i pliki wyjściowe są generowane w folderze /datalake/output. Nazwy plików są dynamiczne na podstawie czasu rozpoczęcia wycinka.  
+W takim przypadku pliki wejściowe nadal są pobierane z folderu /datalake/input i pliki wyjściowe są generowane w folderze /datalake/output. Nazwy plików są dynamiczne na podstawie czasu rozpoczęcia okna przekazywany w potoku pobiera wyzwolenia.  
 
 ## <a name="next-steps"></a>Kolejne kroki
 Zobacz następujące artykuły, które opisują sposób przekształcania danych w inny sposób: 

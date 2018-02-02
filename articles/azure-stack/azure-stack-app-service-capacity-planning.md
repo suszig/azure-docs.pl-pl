@@ -12,15 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: 4ad91def00ca73f91f0ffd8e57afa442a93176f6
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 93e10235e3de4ecea4d0e356bb4b52922c8afac8
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Planowanie wydajności dla ról serwera usługi Azure App Service w stosie Azure
+*Dotyczy: Azure stosu zintegrowanych systemów i Azure stosu Development Kit*
 
 Aby udostępnić gotowy wdrożenia produkcyjnego usługi Azure App Service na stosie Azure, należy zaplanować pojemność oczekiwać systemu do obsługi.  Poniżej przedstawiono wskazówki dotyczące minimalnej liczby wystąpień i zasobów obliczeniowych jednostki SKU, należy użyć dla każdego wdrożenia produkcyjnego.
 
@@ -28,8 +29,8 @@ Można zaplanować strategii pojemność usługi App Service przy użyciu poniż
 
 | Rola serwera usługi aplikacji | Minimalna zalecana liczba wystąpień | Zalecane obliczeń jednostki SKU|
 | --- | --- | --- |
-| Kontrolera | 2 | A1 |
-| Serwer sieci Web | 2 | A1 |
+| Kontroler | 2 | A1 |
+| Fronton | 2 | A1 |
 | Zarządzanie | 2 | A3 |
 | Wydawca | 2 | A1 |
 | Pracownicy sieci Web — udostępnionych | 2 | A1 |
@@ -97,6 +98,6 @@ W środowiskach produkcyjnych rolę serwera plików występują we/wy dysku znac
 - klaster serwera plików
 - Urządzenie NAS (Network Attached Storage), aby uzyskać więcej informacji, zobacz [obsługi administracyjnej serwera plików](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Przed rozpoczęciem pracy z usługi aplikacji Azure stosu](azure-stack-app-service-before-you-get-started.md)

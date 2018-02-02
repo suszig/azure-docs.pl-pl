@@ -14,11 +14,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 7a980a9a4f0a4fa22e72aa9d6eec83865250a084
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
-ms.translationtype: HT
+ms.openlocfilehash: 0017986f9766fb8ad9fe15f04a064273ca675f9f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-marketplace-publisher-guide"></a>Przewodnik wydawcy witrynę Azure Marketplace
 
@@ -225,7 +225,7 @@ Każdy klient mający umowę Enterprise Agreement może dodać do niej opcję ko
 
 |**Wymaganie**  |**Szczegóły**  |**Opcja publikowania**  |
 |---------|---------|---------|
-|**Zasady udziału**    |  Zapoznaj się z umową wydawcy witrynę Azure Marketplace [here](file:///C:/Users/ellacroi/Downloads/Microsoft%20Marketplace%20Publisher%20Agreement.pdf). Przejrzyj Azure Marketplace udział zasady [tutaj] (https://azure.microsoft.com/support/legal/marketplace/participation-policies/).       | Lista, z wersji próbnej, Transact        |
+|**Zasady udziału**    | Przejrzyj Azure Marketplace udział zasady [tutaj] (https://azure.microsoft.com/support/legal/marketplace/participation-policies/).       | Lista, z wersji próbnej, Transact        |
 |**Integracja z programem Microsoft**    | Azure ofert witryny Marketplace należy wykorzystać lub rozszerzenia usług Microsoft Azure, takich jak obliczeniowych, sieci lub magazynu i wyrównanie do istniejącej kategorii portalu Azure Marketplace, np. baz danych, zabezpieczeń, sieci. Znajdź pełną listę [tutaj](https://azuremarketplace.microsoft.com/marketplace/apps).        | Lista, z wersji próbnej, Transact        |
 |**Grupy odbiorców**    | Azure ofert witryny Marketplace musi być dla specjalistów IT, deweloperów chmury lub innych ról technicznej klienta.       |  Lista, z wersji próbnej, Transact 
 |**Zarządzanie potencjalnymi klientami**    | Aby otrzymywać potencjalnych klientów z witryny Marketplace, należy włączyć programu CRM (Marketo, Microsoft Dynamics lub Salesforce) akceptować dane potencjalnych klientów.        |   Lista, z wersji próbnej, Transact      |

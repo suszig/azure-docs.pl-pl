@@ -1,11 +1,24 @@
- ---
-title: importowanie środowiska Postman dla usługi Azure Media Services REST wywołuje opis: w tym temacie przedstawiono definicję środowiska Postman dla wywołania usługi Azure Media Services REST.
-usług: documentationcenter usługi media services: "Autor: Menedżer Juliako: Edytor cfowler:"
-
-MS.Service: ms.workload usługi media services: ms.tgt_pltfrm nośnika: na ms.devlang: na ms.topic: artykuł ms.date: ms.author 01/04/2017: juliako
-
 ---
-
+title: "Importuj środowiska Postman dla wywołania usługi Azure Media Services REST"
+description: "Ten temat zawiera definicję środowiska Postman dla wywołania usługi Azure Media Services REST."
+services: media-services
+documentationcenter: 
+author: Juliako
+manager: cfowler
+editor: 
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/04/2018
+ms.author: juliako
+ms.openlocfilehash: aa3e1bb4c6ae53e24e3153dd55f6a6d07e29e091
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 02/01/2018
+---
 # <a name="import-the-postman-environment"></a>Importuj środowiska Postman 
 
 Ten artykuł zawiera definicję **Postman** zmiennych środowiskowych, które są używane [kolekcji Postman](postman-collection.md) zawierający grupowanych żądania HTTP, które wywoływania interfejsów API REST usługi Media. Pliki środowiska i kolekcji są używane przez [wymaga skonfigurowania Postman interfejsu API REST usługi Media](media-rest-apis-with-postman.md) samouczka.

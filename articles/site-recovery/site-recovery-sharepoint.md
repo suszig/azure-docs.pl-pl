@@ -12,20 +12,20 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2017
+ms.date: 12/23/2017
 ms.author: sutalasi
-ms.openlocfilehash: 55323df68715c80d5e8535199cd739921a3baad9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3610409691b71fcce0c36a3af94184dbe6db8661
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="replicate-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Replikowanie wielowarstwowej aplikacji programu SharePoint przy użyciu usługi Azure Site Recovery odzyskiwania po awarii
 
 W tym artykule opisano szczegółowo sposób chronić aplikacji programu SharePoint za pomocą [usługi Azure Site Recovery](site-recovery-overview.md).
 
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 Microsoft SharePoint jest zaawansowanych aplikacji, które mogą ułatwić grupy lub działu organizowanie, współpracę i udostępnianie informacji. SharePoint zapewniają portali sieci intranet, Zarządzanie dokumentami i plikami, współpracy, sieci społecznościowych, sieci ekstranet, witryn sieci Web, wyszukiwania enterprise i business intelligence. Ma również integracji systemu, integracji procesów i możliwości automatyzacji przepływu pracy. Zazwyczaj organizacje uważają, że jako aplikacja warstwy 1 wrażliwe na czas przestoju i utraty danych.
 
@@ -68,15 +68,16 @@ Do tworzenia w tym artykule, użyto maszyn wirtualnych VMware z systemem Windows
 
 **Scenariusz** | **Do lokacji dodatkowej** | **Na platformie Azure**
 --- | --- | ---
-**Funkcja Hyper-V** | Tak | Tak
-**VMware** | Tak | Tak
-**Serwer fizyczny** | Tak | Tak
+**Funkcja Hyper-V** | Yes | Yes
+**VMware** | Yes | Yes
+**Serwer fizyczny** | Yes | Yes
+**Azure** | Nie dotyczy | Yes
 
 ### <a name="sharepoint-versions"></a>Wersje programu SharePoint
 Obsługiwane są następujące wersje serwera programu SharePoint.
 
 * Program SharePoint server 2013 standardowe
-* Program SharePoint server 2013 Enterprise
+* SharePoint server 2013 Enterprise
 * Serwer programu SharePoint 2016 standardowe
 * Program SharePoint server 2016 Enterprise
 
@@ -90,7 +91,7 @@ Postępuj zgodnie z [w tych wskazówkach](site-recovery-vmware-to-azure.md) do r
 
 * Po zakończeniu replikacji, upewnij się, przejdź do każdej maszyny wirtualnej dla każdej warstwy i wybierz zestaw tej samej dostępności "elementu zreplikowane > Ustawienia > Właściwości > obliczenia i sieć". Na przykład jeśli warstwę web 3 maszyn wirtualnych, upewnij się, że wszystkie 3 maszyny wirtualne są skonfigurowane jako część tego samego zestawem dostępności w usłudze Azure.
 
-    ![Zestaw dostępności zestawu](./media/site-recovery-sharepoint/select-av-set.png)
+    ![Set-Availability-Set](./media/site-recovery-sharepoint/select-av-set.png)
 
 * Aby uzyskać wskazówki dotyczące ochrony usługi Active Directory i DNS, zapoznaj się [ochrony usługi Active Directory i DNS](site-recovery-active-directory.md) dokumentu.
 
@@ -116,7 +117,7 @@ Dla witryn, internetowy [tworzenia profilu usługi Traffic Manager typu 'Priorit
 
 | **Gdzie** | **Źródło** | **Docelowy**|
 | --- | --- | --- |
-| Publicznym systemie DNS | Publicznym systemie DNS dla witryny programu SharePoint <br/><br/> Przykład: sharepoint.contoso.com | Traffic Manager <br/><br/> contososharepoint.trafficmanager.NET |
+| Public DNS | Publicznym systemie DNS dla witryny programu SharePoint <br/><br/> Przykład: sharepoint.contoso.com | Traffic Manager <br/><br/> contososharepoint.trafficmanager.net |
 | DNS lokalnego | sharepointonprem.contoso.com | Publiczny adres IP w farmie lokalnej |
 
 
@@ -158,9 +159,9 @@ Najczęściej używane skrypty usługi Azure Site Recovery można wdrożyć na k
 
 2. Dodawanie skryptu akcji post do podłączenia modułu równoważenia obciążenia na nieudane przez maszyny wirtualne warstwy sieci Web (Grupa 2). Użyj skryptu "ASR AddSingleLoadBalancer" opublikowany w przykładowe skrypty. Upewnij się, postępuj zgodnie ze wskazówkami w skrypcie i odpowiednio wprowadzić wymagane zmiany w skrypcie.
 
-    ![Dodaj LB-skryptu krok-1](./media/site-recovery-sharepoint/add-lb-script-step1.png)
+    ![Add-LB-Script-Step-1](./media/site-recovery-sharepoint/add-lb-script-step1.png)
 
-    ![Dodaj LB-skryptu krok-2](./media/site-recovery-sharepoint/add-lb-script-step2.png)
+    ![Add-LB-Script-Step-2](./media/site-recovery-sharepoint/add-lb-script-step2.png)
 
 3. Dodaj krok wykonywany ręcznie do aktualizowania rekordów DNS, aby wskazywał nową farmę na platformie Azure.
 
@@ -211,5 +212,5 @@ Postępuj zgodnie z [w tych wskazówkach](site-recovery-failover.md) do wykonywa
 3.  Kliknij pozycję "Failover".
 4.  Wybierz punkt odzyskiwania, aby rozpocząć proces trybu failover.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Użytkownik może dowiedzieć się więcej o [replikowanie inne aplikacje](site-recovery-workload.md) przy użyciu usługi Site Recovery.

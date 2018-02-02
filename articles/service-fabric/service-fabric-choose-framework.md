@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 237b8396b56fdec86cc005c121646556825d8e98
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: a68db62f87bca5c641db310823588df6fb74f75e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="service-fabric-programming-model-overview"></a>Omówienie modelu programowania sieci szkieletowej usług
 Sieć szkieletowa usług oferuje wiele sposobów, aby zapisać i zarządzania usługami. Usługi mogą być w pełni korzystać z funkcji platformy i struktury aplikacji przy użyciu interfejsów API usługi sieci szkieletowej. Można także skompilowany program wykonywalny napisane w dowolnym języku lub kodu uruchamianego w kontenerze, po prostu hostowanych w klastrze usługi sieć szkieletowa usług.
@@ -45,7 +45,7 @@ Niezawodne usługi można też stanowe, wyłącznie dla sieci szkieletowej usłu
 ## <a name="aspnet-core"></a>ASP.NET Core
 Platformy ASP.NET Core to nowa open source i międzyplatformowa struktura do tworzenia nowoczesnych aplikacji działających w chmurze podłączonej do Internetu, takich jak aplikacje sieci web, aplikacji IoT i przenośnych zapleczy. Sieć szkieletowa usług integruje się z platformy ASP.NET Core tak zarówno bezstanowe i stanowe platformy ASP.NET Core mogą pisać aplikacje, które wykorzystać kolekcje niezawodnych i usługi sieć szkieletowa aranżacji zaawansowane możliwości.
 
-[Dowiedz się więcej na temat platformy ASP.NET Core w sieci szkieletowej usług](service-fabric-reliable-services-communication-aspnetcore.md) lub Rozpoczynanie pracy przez [pisanie pierwszej aplikacji platformy ASP.NET Core Service Fabric](service-fabric-add-a-web-frontend.md).
+[Dowiedz się więcej na temat platformy ASP.NET Core w sieci szkieletowej usług](service-fabric-reliable-services-communication-aspnetcore.md) lub Rozpoczynanie pracy przez [pisanie pierwszej aplikacji platformy ASP.NET Core Service Fabric](service-fabric-reliable-services-communication-aspnetcore.md).
 
 ## <a name="reliable-actors"></a>Reliable Actors
 Wbudowane niezawodne usługi, framework niezawodnego aktora jest struktury aplikacji, która implementuje wzorca aktora wirtualnego, oparte na wzorcu aktora. Platforma niezawodnego aktora korzysta niezależne jednostki zasobów obliczeniowych i stan z jednowątkowego wykonywania o nazwie złośliwych użytkowników. Framework niezawodnego aktora zapewnia komunikacji wbudowanej złośliwych użytkowników i wstępnie ustawiony stan stanu trwałego i skalowalnego w poziomie konfiguracji.
@@ -55,9 +55,9 @@ Reliable Actors sam jest struktury aplikacji w oparciu niezawodne usługi, jego 
 [Dowiedz się więcej o Reliable Actors](service-fabric-reliable-actors-introduction.md) lub Rozpoczynanie pracy przez [pisanie pierwszej usługi niezawodnego aktora](service-fabric-reliable-actors-get-started.md)
 
 
-[Tworzenie usługi frontonu przy użyciu platformy ASP.NET Core](service-fabric-add-a-web-frontend.md)
+[Tworzenie usługi frontonu przy użyciu platformy ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Omówienie sieci szkieletowej usług i kontenerów](service-fabric-containers-overview.md)
 
 [Niezawodne usługi — omówienie](service-fabric-reliable-services-introduction.md)

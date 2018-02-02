@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 43d79a8c14751ee25eaca7a3b50649702d159d76
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: a198ff5fe7135e17301025d6a712236b76be0ede
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
-## <a name="network-connectivity"></a>Połączenie sieciowe
+# <a name="network-connectivity"></a>Połączenie sieciowe
 Ten artykuł zawiera informacje infrastruktury sieci stosu Azure, aby ułatwić wybór najlepiej integrowanie stosu Azure z istniejącym środowiskiem sieci. 
 
 > [!NOTE]
@@ -62,10 +62,10 @@ Ta prefiksie/24 254 hosta w sieci IP jest prywatna w regionie Azure stosu (nie z
 - **Wewnętrzna sieć wirtualna IP**. A/25 sieciowych dedykowanych do wewnętrznych adresów VIP usługi równoważenia obciążenia oprogramowania.
 
 ### <a name="azure-stack-infrastructure-network"></a>Sieć platformy Azure infrastruktury stosu
-To/24 sieć jest przeznaczona do wewnętrznych składników stosu Azure, dzięki czemu mogą komunikować się i wymieniać dane między sobą. Ta podsieć wymaga rutowalne adresy IP, ale polega ochrona poufności do rozwiązania przy użyciu list kontroli dostępu (ACL), nie jest mogą być kierowane poza przełączniki obramowania, z wyjątkiem zakresu bardzo mały rozmiar odpowiednikiem /27 sieci wykorzystana przez niektóre z nich usługi, gdy potrzebują dostępu do zasobów zewnętrznych i/lub Internetu. 
+To/24 sieć jest przeznaczona do wewnętrznych składników stosu Azure, dzięki czemu mogą komunikować się i wymieniać dane między sobą. Ta podsieć wymaga rutowalne adresy IP, ale polega ochrona poufności do rozwiązania przy użyciu list kontroli dostępu (ACL). Oczekuje nie być kierowane poza przełączniki obramowania, z wyjątkiem zakresu mały rozmiar odpowiednikiem /27 sieci wykorzystana przez niektóre z tych usług, gdy potrzebują dostępu do zasobów zewnętrznych i/lub Internetu. 
 
 ### <a name="public-infrastructure-network"></a>Sieć publicznych infrastruktury
-To/27 sieć jest bardzo małych zakresu podsieci infrastruktury Azure stosu wspomniano wcześniej, nie wymaga publiczne adresy IP, ale wymagają dostępu do Internetu za pośrednictwem NAT lub przezroczystego obiektu pośredniczącego. Ta sieć zostanie przydzielone dla systemu konsoli odzyskiwania awaryjnego (ERCS), ERCS maszyna wirtualna wymaga dostępu do Internetu podczas rejestracji na platformie Azure i powinny obsługiwać routing do sieci zarządzania na potrzeby rozwiązywania problemów.
+To/27 sieci jest niewielki zakres z podsieci infrastruktury Azure stosu wspomniano wcześniej, nie wymaga publiczne adresy IP, ale wymagają dostępu do Internetu za pośrednictwem NAT lub przezroczystego obiektu pośredniczącego. Ta sieć zostanie przydzielone dla systemu konsoli odzyskiwania awaryjnego (ERCS), ERCS maszyna wirtualna wymaga dostępu do Internetu podczas rejestracji na platformie Azure i powinny obsługiwać routing do sieci zarządzania na potrzeby rozwiązywania problemów.
 
 ### <a name="public-vip-network"></a>Sieć publiczna VIP
 Sieć publiczna adresu VIP jest przypisany do kontrolera sieci w stosie Azure. Nie jest sieć logiczna na przełączniku. Programowego używa puli adresów i przypisuje/32 sieci dla obciążeń dzierżawców. W tabeli routingu przełącznika tych 32 adresów IP są rozgłaszane jako dostępny za pośrednictwem protokołu BGP. Ta sieć zawiera zewnętrzne dostępny lub publicznych adresów IP. Infrastruktury Azure stosu używa co najmniej 8 adresów tego publicznej sieci wirtualne adresy IP, podczas gdy pozostała jest używany przez dzierżawione maszyny wirtualne. Rozmiar sieci w tej podsieci może należeć do zakresu od co najmniej /26 (64 hostów) do maksymalnie /22 (1022 hostów), zaleca się zaplanowanie prefiksie/24 sieci.
@@ -82,12 +82,7 @@ Należy udostępnić usług Azure stosu użytkowników z zewnętrznego stosu Azu
 ### <a name="ports-and-urls"></a>Porty i adresy URL
 Aby usługi Azure stosu (takich jak portali usługi Azure Resource Manager, DNS, itp) dostępny dla zewnętrznych sieci, musisz zezwolić na ruch przychodzący z tymi punktami końcowymi dla określonych adresów URL, porty i protokoły.
  
-W przypadku wdrożenia w przypadku, gdy pasma przezroczystego obiektu pośredniczącego, aby serwer proxy tradycyjnych należy zezwolić na określone porty i adresy URL dla komunikacji wychodzącej. Obejmują one porty i adresy URL dla tożsamości, zespolonego marketplace poprawek i aktualizacji, rejestracji i dane użycia.
-
-Aby uzyskać więcej informacji, zobacz:
-- [Przychodzący portów i protokołów](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-protocols-inbound)
-- [Adresy URL i portów wychodzących](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-urls-outbound)
-
+We wdrożeniu w przypadku, gdy pasm przezroczystego obiektu pośredniczącego na serwer proxy tradycyjnych, musisz zezwolić na określone porty i adresy URL dla obu [przychodzących](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-protocols-inbound) i [wychodzących](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-urls-outbound) komunikacji. Obejmują one porty i adresy URL dla tożsamości, zespolonego marketplace poprawek i aktualizacji, rejestracji i dane użycia.
 
 ## <a name="next-steps"></a>Kolejne kroki
-[Azure łączności obramowania stosu](azure-stack-border-connectivity.md)
+[Łączność obramowania](azure-stack-border-connectivity.md)

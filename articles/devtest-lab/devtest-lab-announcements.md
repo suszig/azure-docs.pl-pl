@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 1/29/2018
 ms.author: v-craic
-ms.openlocfilehash: d376909a46da11ac1b6b1fa968e53ebef8f3dbf7
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 99b0938d5f4c8b022ead3473a0367de5d75cd6ff
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Opublikuj anonsu do laboratorium w usłudze Azure DevTest Labs
 
@@ -47,6 +47,13 @@ Ta funkcja anonsu jest przeznaczona do użycia dla tymczasowych powiadomienia.  
 
 1. Aby utworzyć wiadomości dla użytkowników w tym laboratorium, ustaw **włączone** do **tak**.
 
+1. Możesz wprowadzić **Data wygaśnięcia** do określenia daty i czasu, po którym anons nie jest już wyświetlana dla użytkowników. Jeśli nie wprowadzisz datę wygaśnięcia, anons pozostaje dopóki nie zostanie wyłączona.
+
+   > [!NOTE]
+   > Po wygaśnięciu anonsu, jest już wyświetlana dla użytkowników, lecz nadal istnieje w **anonsu laboratorium** okienka. Możesz dokonać edycji i ją włączyć ponownie, aby ją uaktywnić ponownie.
+   >
+   >
+
 1. Wprowadź **Tytuł anonsu** i **tekst anonsu**.
 
    Tytuł może być maksymalnie 100 znaków i jest wyświetlany na stronie Przegląd laboratorium. Jeśli użytkownik wybierze tytuł, zostanie wyświetlony tekst anonsu.
@@ -58,7 +65,7 @@ Ta funkcja anonsu jest przeznaczona do użycia dla tymczasowych powiadomienia.  
 
 1. Wybierz **zapisać** po anonsu jest gotowy do publikowania.
 
-Gdy nie chcesz pokazać to zawiadomienie użytkownikom laboratorium, wróć do **anonsu laboratorium** strony i ustaw **włączone** do **nr**.
+Gdy nie chcesz pokazać to zawiadomienie użytkownikom laboratorium, wróć do **anonsu laboratorium** strony i ustaw **włączone** do **nr**. Jeśli określono datę wygaśnięcia, anons jest automatycznie wyłączana podczas który daty i godziny.
 
 ## <a name="steps-for-users-to-view-an-announcement"></a>Kroki użytkownikom na wyświetlanie anonsu
 

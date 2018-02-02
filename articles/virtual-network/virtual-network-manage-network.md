@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
-ms.openlocfilehash: 74aace2136136c25bc56327d38cfbab168265401
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0d3f4a83b654315a5ff9344594323c5dcb801e77
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Tworzenie, zmienianie lub usuwanie sieci wirtualnej
 
@@ -36,7 +36,7 @@ W tym artykule wyjaśniono, jak tworzenie, zmienianie i usuwanie sieci wirtualny
 
 Przed rozpoczęciem zadań, które zostały opisane w tym artykule, należy wykonać następujące wymagania wstępne:
 
-- Jeśli zaczynasz pracę z sieciami wirtualnymi, firma Microsoft zaleca przejrzenie wykonywania w [tworzenie sieci wirtualnej platformy Azure pierwsze](virtual-network-get-started-vnet-subnet.md). Tego ćwiczenia ułatwiają zapoznanie się ze sieci wirtualnych.
+- Jeśli zaczynasz pracę z sieciami wirtualnymi, firma Microsoft zaleca przejrzenie wykonywania w [tworzenie sieci wirtualnej platformy Azure pierwsze](quick-create-portal.md). Tego ćwiczenia ułatwiają zapoznanie się ze sieci wirtualnych.
 - Informacje na temat limitów dla sieci wirtualnej, przejrzyj [limity Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - Zaloguj się do portalu Azure, narzędzia wiersza polecenia platformy Azure (Azure CLI) lub Azure PowerShell przy użyciu konta platformy Azure. Jeśli nie masz konta platformy Azure, należy zarejestrować się w celu [bezpłatnego konta wersji próbnej](https://azure.microsoft.com/free).
 - Jeśli planujesz używać poleceń programu PowerShell, aby wykonać zadania opisane w tym artykule, należy najpierw [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Upewnij się, że masz najnowszą wersję poleceń cmdlet programu Azure PowerShell zainstalowane. Aby uzyskać pomoc dotyczącą poleceń programu PowerShell w przykładach, wprowadź `get-help <command> -full`.
@@ -82,7 +82,7 @@ Aby utworzyć sieć wirtualną:
 |Narzędzie|Polecenie|
 |---|---|
 |Interfejs wiersza polecenia platformy Azure|[Tworzenie sieci wirtualnej sieci az](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
-|PowerShell|[Nowy AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name = "view-vnet"></a>Widok sieci wirtualnych i ustawień
 
@@ -194,7 +194,7 @@ Tylko wtedy, gdy nie ma żadnych zasobów dołączone do niego, można usunąć 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby utworzyć Maszynę wirtualną, a następnie podłącz je do sieci wirtualnej, zobacz [utworzyć sieć wirtualną i połączyć maszyny wirtualne](virtual-network-get-started-vnet-subnet.md#create-vms).
+- Aby utworzyć Maszynę wirtualną, a następnie podłącz je do sieci wirtualnej, zobacz [utworzyć sieć wirtualną i połączyć maszyny wirtualne](quick-create-portal.md#create-virtual-machines).
 - Aby filtrować ruch sieciowy między podsieciami sieci wirtualnej, zobacz [Utwórz grupy zabezpieczeń sieci](virtual-networks-create-nsg-arm-pportal.md).
 - -To-peer sieci wirtualnej do innej sieci wirtualnej, zobacz [tworzenie sieci wirtualnej komunikacji równorzędnej](virtual-network-create-peering.md#portal).
 - Aby dowiedzieć się więcej o opcjach sieci wirtualnej nawiązywania połączenia z siecią lokalną, zobacz [o bramy sieci VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#diagrams).

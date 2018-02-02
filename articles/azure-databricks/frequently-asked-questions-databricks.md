@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: nitinme
-ms.openlocfilehash: b56253e7b9c9ab144ebc4006511631756de4f89b
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 5da6ffc346cc0e7f0f83bf4a4c33600b668a17ca
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Często zadawane pytania dotyczące usługi Azure Databricks
 
@@ -36,7 +36,7 @@ Wykonaj następujące kroki:
 2. Przypisz uprawnienia niezbędne do nazwy głównej usługi w usłudze Data Lake Store.
 3. Dostęp do pliku w usłudze Data Lake Store, użyj poświadczenia główne w Notatniku.
 
-Aby uzyskać więcej informacji, zobacz [Użyj Data Lake Store z Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html#azure-data-lake-store).
+Aby uzyskać więcej informacji, zobacz [Użyj Data Lake Store z Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake.html).
 
 ## <a name="fix-common-problems"></a>Rozwiązywania typowych problemów
 
@@ -73,7 +73,7 @@ Poniżej przedstawiono kilka rozwiązania tego problemu:
 
     b. Dodaj użytkownika z `@<tenant_name>.onmicrosoft.com` e-mail zamiast `@<your_domain>` wiadomości e-mail. Można znaleźć tej opcji w **domen niestandardowych**, w obszarze usługi Azure AD w portalu Azure.
     
-    d. Przyznaj tym nowego użytkownika **współautora** roli Databricks zasobu obszaru roboczego.
+    c. Przyznaj tym nowego użytkownika **współautora** roli Databricks zasobu obszaru roboczego.
     
     d. Zaloguj się do portalu Azure za pomocą nowego użytkownika, a następnie znajdź obszar roboczy Databricks.
     

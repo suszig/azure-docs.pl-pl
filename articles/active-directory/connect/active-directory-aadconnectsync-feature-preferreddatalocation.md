@@ -1,5 +1,5 @@
 ---
-title: "Synchronizacja programu Azure AD Connect: Skonfiguruj preferowany danych lokalizacji dla użytkowników usługi Office 365 | Dokumentacja firmy Microsoft"
+title: "Synchronizacja programu Azure AD Connect: Skonfiguruj preferowany danych lokalizację dla możliwości wielu geograficznie w usłudze Office 365 | Dokumentacja firmy Microsoft"
 description: "Opisuje sposób put zasobami użytkowników usługi Office 365 zbliża się użytkownika z synchronizacji Azure AD Connect."
 services: active-directory
 documentationcenter: 
@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/13/2018
+ms.date: 01/30/2018
 ms.author: billmath
-ms.openlocfilehash: 73b9b8d208b5eac2e62f62ab786efafa056e3cb4
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 8a36fc45334a2f1d12e6eabbfb16731ccc9998bf
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-ad-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Synchronizacja programu Azure AD Connect: Skonfiguruj preferowany danych lokalizację dla zasobów usługi Office 365
-Cel, jeśli w tym temacie opisano sposób konfigurowania preferredDataLocation synchronizacji Azure AD Connect. Ten atrybut służy do wskazania usługi Office 365, gdzie znajduje się użytkownik, zasoby mogą być przełączane zbliża się użytkownika. Ta funkcja jest przeznaczony dla dużych klientów.
+W tym temacie ma na celu przeprowadzi użytkownika przez proces konfigurowania PreferredDataLocation synchronizacji Azure AD Connect. Gdy klient korzysta z możliwości wielu geograficznie w usłudze Office 365, ten atrybut służy do wyznaczania lokalizacja geograficzna danych użytkowników usługi Office 365.
 
 > [!IMPORTANT]
-> Ta funkcja jest obecnie w wersji preview i Wyłącz domyślnie w chmurze. Jeśli chcesz dołączyć do programu Podgląd, skontaktuj się z przedstawicielem firmy Microsoft.
+> Multi-geograficzna jest obecnie w przeglądzie. Jeśli chcesz dołączyć do programu Podgląd, skontaktuj się z przedstawicielem firmy Microsoft.
 >
 >
 
@@ -34,11 +34,11 @@ Domyślnie zasobów usługi Office 365 dla użytkowników znajdują się w tym s
 Ustawienia tego atrybutu, możesz mieć użytkownika usługi Office 365 zasoby, takie jak skrzynek pocztowych i OneDrive, w tym samym regionie co użytkownik i jeszcze jeden dzierżawy dla całej organizacji.
 
 > [!IMPORTANT]
-> Na kwalifikować się do tej funkcji musi mieć co najmniej 5000 miejsc, w ramach subskrypcji usługi Office 365.
+> Na kwalifikować się do wielu geograficznie, musi mieć co najmniej 5000 miejsc, w ramach subskrypcji usługi Office 365
 >
 >
 
-Regiony w usłudze Office 365 są:
+Dostępne są następujące regiony w usłudze Office 365 dostępne dla wielu Geo:
 
 | Region | Opis |
 | --- | --- |
@@ -56,7 +56,6 @@ Nie wszystkie usługi Office 365 obciążeń obsługuje ustawienia regionu użyt
 Azure AD Connect obsługuje synchronizacji **PreferredDataLocation** atrybutu dla **użytkownika** obiektów w wersji 1.1.524.0 i po. W szczególności wprowadzono następujące zmiany:
 
 * Schemat typu obiektu **użytkownika** w programie Azure AD Connector jest rozszerzona, aby uwzględnić atrybut PreferredDataLocation, który jest typu string pojedynczej wartości.
-
 * Schemat typu obiektu **osoby** w magazynie Metaverse jest rozszerzona, aby uwzględnić atrybut PreferredDataLocation, który jest typu string i jest pojedynczej wartości.
 
 Domyślnie atrybut PreferredDataLocation nie zostało włączone dla synchronizacji. Ta funkcja jest przeznaczony dla większych organizacji i nie wszyscy będzie korzystać z niego. Należy również określić atrybut do przechowywania region usługi Office 365 dla użytkowników, ponieważ nie ma atrybutu PreferredDataLocation w lokalnej usłudze Active Directory. Ma to być inne dla każdej organizacji.
@@ -69,14 +68,13 @@ Domyślnie atrybut PreferredDataLocation nie zostało włączone dla synchroniza
 
 Przed włączeniem synchronizacji atrybutu PreferredDataLocation, należy:
 
- * Najpierw zdecyduj, które lokalnymi atrybut usługi Active Directory mają być używane jako atrybut źródłowy. Powinien być typu **jednowartościowych ciąg**. W procedurze poniżej jednego extensionAttributes jest używany.
-
- * Atrybut PreferredDataLocation zostały wcześniej skonfigurowane na istniejące synchronizowane obiekty użytkownika w usłudze Azure AD przy użyciu programu PowerShell usługi Azure AD, należy **Poprawka usterki systemu** wartości atrybutów do odpowiednich obiektów użytkowników lokalne usługi Active Directory.
+* Najpierw zdecyduj, które lokalnymi atrybut usługi Active Directory mają być używane jako atrybut źródłowy. Powinien być typu **jednowartościowych ciąg**. W procedurze poniżej jednego extensionAttributes jest używany.
+* Atrybut PreferredDataLocation zostały wcześniej skonfigurowane na istniejące synchronizowane obiekty użytkownika w usłudze Azure AD przy użyciu programu PowerShell usługi Azure AD, należy **Poprawka usterki systemu** wartości atrybutów do odpowiednich obiektów użytkowników lokalne usługi Active Directory.
 
     > [!IMPORTANT]
     > Jeśli jednak nie Poprawka usterki systemu wartości atrybutów, aby odpowiednie obiekty użytkownika w lokalnej usłudze Active Directory Azure AD Connect spowoduje usunięcie istniejącej wartości atrybutów w usłudze Azure AD po włączeniu synchronizacji dla atrybutu PreferredDataLocation.
 
- * Zalecane jest skonfigurowanie atrybutu źródłowego na co najmniej kilka lokalnych użytkowników usługi AD obiekty, które mogą służyć do weryfikacji później.
+* Zalecane jest skonfigurowanie atrybutu źródłowego na co najmniej kilka lokalnych użytkowników usługi AD obiekty, które mogą służyć do weryfikacji później.
 
 Kroki umożliwiające włączenie synchronizacji atrybutu PreferredDataLocation można podsumować jako:
 
@@ -102,7 +100,7 @@ Upewnij się, że synchronizacja nie ma miejsce, gdy trwa aktualizowanie reguły
 
 ![Menedżera usługi synchronizacji — Sprawdź żadnych operacji w toku](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-step1.png)
 
-### <a name="step-2-add-the-source-attribute-to-the-on-premises-adds-connector-schema"></a>Krok 2: Dodawanie atrybutu źródłowego do schematu łącznika DODAJE lokalnej
+## <a name="step-2-add-the-source-attribute-to-the-on-premises-adds-connector-schema"></a>Krok 2: Dodawanie atrybutu źródłowego do schematu łącznika DODAJE lokalnej
 Nie wszystkie atrybuty AD są importowane do lokalnej przestrzeni łącznika usługi AD. Jeśli wybrano opcję Użyj atrybutu nie jest domyślnie synchronizowane, następnie należy go zaimportować. Aby dodać atrybut źródłowy do listy importowanych atrybuty:
 
 1. Przejdź do **łączniki** kartę Menedżera usługi synchronizacji.
@@ -124,7 +122,7 @@ Domyślnie ten atrybut PreferredDataLocation nie został zaimportowany do przest
 
 ![Dodaj atrybut źródłowy do schematu łącznika usługi Azure AD](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-step3.png)
 
-### <a name="step-4-create-an-inbound-synchronization-rule-to-flow-the-attribute-value-from-on-premises-active-directory"></a>Krok 4: Utwórz regułę synchronizacji ruchu przychodzącego na przepływ wartości atrybutu z lokalnej usługi Active Directory
+## <a name="step-4-create-an-inbound-synchronization-rule-to-flow-the-attribute-value-from-on-premises-active-directory"></a>Krok 4: Utwórz regułę synchronizacji ruchu przychodzącego na przepływ wartości atrybutu z lokalnej usługi Active Directory
 Reguła synchronizacji ruchu przychodzącego zezwala na wartość atrybutu mogą przepływać z atrybutu źródłowego z lokalnej usługi Active Directory do środowiska Metaverse:
 
 1. Uruchom **Edytor reguł synchronizacji** , przechodząc do **START** > **Edytor reguł synchronizacji**.
@@ -256,6 +254,15 @@ Zakładając, że aby można było korzystać z tej funkcji został oznaczony dz
 4. Aby sprawdzić, czy to ustawienie zostało skuteczne za pośrednictwem wielu skrzynek pocztowych, użyj skryptu w [galerii Technet](https://gallery.technet.microsoft.com/office/PowerShell-Script-to-a6bbfc2e). Ten skrypt ma również lista wszystkich prefiksy serwera centrów danych usługi Office 365 i który znajduje się w regionie. Może służyć jako odwołanie w poprzednim kroku można zweryfikować lokalizacji skrzynki pocztowej.
 
 ## <a name="next-steps"></a>Kolejne kroki
+
+**Dowiedz się więcej na temat Multi-geograficzną, w usłudze Office 365:**
+
+* Geograficznie wielu sesji w Ignite: https://aka.ms/MultiGeoIgnite
+* Multi geograficzną, w usłudze OneDrive: https://aka.ms/OneDriveMultiGeo
+* Multi geograficzną, w programie SharePoint Online: https://aka.ms/SharePointMultiGeo
+
+**Dowiedz się więcej na temat modelu konfiguracji w aparacie synchronizacji:**
+
 * Dowiedz się więcej o model konfiguracji w [Aprowizacją deklaratywną opis](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
 * Dowiedz się więcej o języku wyrażenia w [opis deklaratywne inicjowania obsługi administracyjnej wyrażenia](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
 

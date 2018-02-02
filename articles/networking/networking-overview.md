@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: 7ed018c8c9759bc497c5fea129257486f6128531
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b0de4aa816d7decab1831449f855ab01b101db3a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-networking"></a>Sieć platformy Azure
 
@@ -157,8 +157,8 @@ Można wdrożyć i skonfigurować zasoby sieci platformy Azure za pomocą dowoln
 
 Niektóre sieci usług Azure mają opłat, a inne są wolne. Widok [sieci wirtualnej](https://azure.microsoft.com/pricing/details/virtual-network), [bramy sieci VPN](https://azure.microsoft.com/pricing/details/vpn-gateway), [brama aplikacji w](https://azure.microsoft.com/en-us/pricing/details/application-gateway/), [modułu równoważenia obciążenia](https://azure.microsoft.com/pricing/details/load-balancer), [obserwatora sieciowego](https://azure.microsoft.com/pricing/details/network-watcher), [DNS](https://azure.microsoft.com/pricing/details/dns), [Traffic Manager](https://azure.microsoft.com/pricing/details/traffic-manager) i [ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute) cennik strony, aby uzyskać więcej informacji.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
-- Tworzenie pierwszej sieci wirtualnej i połączyć kilka maszyn wirtualnych, wykonując kroki opisane w [tworzenie pierwszej sieci wirtualnej](../virtual-network/virtual-network-get-started-vnet-subnet.md?toc=%2fazure%2fnetworking%2ftoc.json) artykułu.
+- Tworzenie pierwszej sieci wirtualnej i połączyć kilka maszyn wirtualnych, wykonując kroki opisane w [tworzenie pierwszej sieci wirtualnej](../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json) artykułu.
 - Połączenia komputera z sieci wirtualnej, wykonując kroki opisane w [skonfigurować połączenie punkt lokacja](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json) artykułu.
 - Równoważenie obciążenia ruchu internetowego na serwerach publicznych, wykonując kroki opisane w [utworzyć moduł równoważenia obciążenia internetowy](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fnetworking%2ftoc.json) artykułu.

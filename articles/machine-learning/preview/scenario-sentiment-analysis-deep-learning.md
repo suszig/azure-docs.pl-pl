@@ -13,17 +13,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2017
+ms.date: 01/20/2018
 ms.author: miprasad
-ms.openlocfilehash: 255c39ea21378aae23fc61da6dc882138fb66ab1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 3b0a5bfc911f3edf91367cbf4fde907cbf98e114
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="sentiment-analysis-using-deep-learning-with-azure-machine-learning"></a>Analiza wskaźniki nastrojów klientów za pomocą bezpośrednich uczenie przy użyciu usługi Azure Machine Learning
 
-Dobrze znane zadania w obszarze przetwarzania języka naturalnego jest analiza wskaźniki nastrojów klientów. Mając do dyspozycji zestaw teksty, celem jest sprawdzenie wskaźniki nastrojów klientów tego tekstu. Celem tego rozwiązania jest CNTK wewnętrznej bazy danych dla Keras (model poziomu bibliotekę, zapewnienie wysokiego poziomu bloków konstrukcyjnych dla tworzenia modeli uczenia głębokie) oraz implementuje analizy wskaźniki nastrojów klientów z recenzje filmów.
+Dobrze znane zadania w obszarze przetwarzania języka naturalnego jest analiza wskaźniki nastrojów klientów. Mając do dyspozycji zestaw teksty, celem jest sprawdzenie wskaźniki nastrojów klientów tego tekstu. Celem tego rozwiązania jest do użycia bezpośrednich Learning do przewidywania wskaźniki nastrojów klientów z recenzje filmów.
 
 Rozwiązanie znajduje się pod adresem https://github.com/Azure/MachineLearningSamples-SentimentAnalysis
 
@@ -67,7 +67,7 @@ Kolejność Hands-on Labs przeprowadzenie rozwiązania wygląda następująco:
 
 | Kolejność| Nazwa pliku | Powiązane pliki |
 |--|-----------|------|
-| 1 | [`SentimentAnalysisDataPreparation.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisDataPreparation.md) | "data/sampleReviews.txt" |
+| 1 | [`SentimentAnalysisDataPreparation.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisDataPreparation.md) | 'data/sampleReviews.txt' |
 | 2 | [`SentimentAnalysisModelingKeras.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisModelingKeras.md) | "SentimentExtraction.py" |
 | 4 | [`SentimentAnalysisOperationalization.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisOperationalization.md) | "Operaionalization" |
 

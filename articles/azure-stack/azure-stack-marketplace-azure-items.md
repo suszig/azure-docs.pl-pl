@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2018
+ms.date: 01/27/2018
 ms.author: JeffGoldner
-ms.openlocfilehash: d6a0cbf696d59cec5b70e147de2879a311d88687
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: a23b5ff4dc8b0cf18e529d9cdc9925ea7fcedba0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace dostępnych elementów dla usługi Azure stosu
 
@@ -38,8 +38,6 @@ Zaleca się, aby pobrać te zawsze, gdy są dostępne aktualizacje dla rozszerze
 | ![](media/azure-stack-marketplace-azure-items/cse.png) | [Dostęp do maszyny Wirtualnej dla systemu Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| <b>Pobierz aktualizację do wersji w polu VMAccess dla rozszerzenia systemu Linux. Jest to ważne, jeśli planujesz używać Debian maszyn wirtualnych systemu Linux.</b> | Microsoft | Linux |
 | ![](media/azure-stack-marketplace-azure-items/acronis.png) | [Rozszerzenie usługi Acronis Backup dla systemu Linux](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | Rozszerzenie Acronis kopia zapasowa Microsoft Azure jest częścią rodziny kopii zapasowej Acronis środków ochrony danych. | Acronis International GmbH. | Linux |
 | ![](media/azure-stack-marketplace-azure-items/acronis.png) | [Rozszerzenie usługi Acronis Backup dla systemu Windows](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | Rozszerzenie Acronis kopia zapasowa Microsoft Azure jest częścią rodziny kopii zapasowej Acronis środków ochrony danych. | Acronis International GmbH. | Windows |
-| ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Agent głębokie zabezpieczeń dla systemu Linux](https://azuremarketplace.microsoft.com/marketplace/apps/TrendMicroDeepSecurity.dsa-linux) | Rozszerzenia zabezpieczeń głębokie Micro Trend dla systemu Linux. | Trend Micro | Linux |
-| ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Agent głębokie zabezpieczeń dla systemu Windows](https://azuremarketplace.microsoft.com/marketplace/apps/TrendMicroDeepSecurity.dsa-windows-arm) | Rozszerzenia zabezpieczeń głębokie Micro Trend dla systemu Windows. | Trend Micro | Windows |
 
 ## <a name="microsoft-virtual-machine-images-and-solution-templates"></a>Obrazy maszyny wirtualnej firmy Microsoft i szablonów rozwiązania
 
@@ -47,7 +45,7 @@ Microsoft Azure stosu obsługuje następujące maszyny wirtualne Azure Marketpla
 
 |  | Nazwa elementu | Opis | Wydawca |
 | --- | --- | --- | --- |
-| ![](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) | Rozwiązania przedsiębiorstw, które są proste do wdrożenia, ekonomiczne fokus aplikacji i skoncentrowane na użytkowniku. Te obrazy są regularnie aktualizowane najnowsze poprawki. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) | Rozwiązania przedsiębiorstw, które są proste do wdrożenia, ekonomiczne fokus aplikacji i skoncentrowane na użytkowniku. Te obrazy są regularnie aktualizowane najnowsze poprawki. <b>Ważne informacje: obrazy pobrane przed 18 stycznia 2018 musi być usunięty i zastąpiony najnowszej wersji.</b> | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/remotedesktopservicesdeployment.png) | [Wdrożenie usług pulpitu zdalnego (RDS)](https://azuremarketplace.microsoft.com/marketplace/apps/rds.remote-desktop-services-basic-deployment) | Utwórz podstawowe wdrożenie usług pulpitu zdalnego (RDS). | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2013 Trial](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2013Trial) | Microsoft SharePoint Server 2013 w wersji próbnej systemu Windows Server 2012 Datacenter i Visual Studio 2017 community Edition. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/sharepoint.png) | [Wersję próbną programu SharePoint Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2016Trial) | Microsoft SharePoint Server 2016 w wersji próbnej w systemie Windows Server 2016 w centrum danych. | Microsoft |

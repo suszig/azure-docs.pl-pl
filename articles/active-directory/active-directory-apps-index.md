@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 01/26/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: 254f1913f1b9cb1a165d007a1f4204f7783472c1
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: eaceab7d0dba7719452000cc4e1bd19baa28af9e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Indeks artykułów dotyczących zarządzania aplikacjami w usłudze Azure Active Directory
 Ta strona zawiera pełną listę wszystkich dokumentów zapisywane o różnych funkcjach związanych z aplikacji w usłudze Azure Active Directory (Azure AD).
@@ -137,7 +137,7 @@ Umożliwia automatyzację tworzenia, obsługi i usuwania tożsamości użytkowni
 | Informacje dotyczące sposobu działania i odpowiedzi na często zadawane pytania |[Automatyzowanie użytkownik aprowizacji i anulowania obsługi do aplikacji SaaS](active-directory-saas-app-provisioning.md) |
 | Skonfiguruj odwzorowania informacji między usługą Azure AD i aplikacji SaaS |[Dostosowywanie mapowań atrybutów](active-directory-saas-customizing-attribute-mappings.md)<br><br>[Tworzenie wyrażeń na potrzeby mapowań atrybutów](active-directory-saas-writing-expressions-for-attribute-mappings.md) |
 | Jak włączyć automatyczne Inicjowanie obsługi do wszystkich aplikacji, który obsługuje protokół SCIM |[Skonfiguruj automatyczne Inicjowanie obsługi użytkowników do wszystkich aplikacji SCIM-Enabled](active-directory-scim-provisioning.md) |
-| Raport dotyczący i rozwiązywanie problemów z Inicjowanie obsługi użytkowników |[Raporty dotyczące użytkownika automatycznego inicjowania obsługi administracyjnej.](active-directory-saas-provisioning-reporting.md)<br><br>[Inicjowanie obsługi powiadomień](active-directory-saas-account-provisioning-notifications.md)<br><br>[Rozwiązywanie problemów z Inicjowanie obsługi użytkowników](active-directory-application-provisioning-content-map.md) |
+| Raport dotyczący i rozwiązywanie problemów z Inicjowanie obsługi użytkowników |[Raporty dotyczące użytkownika automatycznego inicjowania obsługi administracyjnej.](active-directory-saas-provisioning-reporting.md)<br><br>[Rozwiązywanie problemów z Inicjowanie obsługi użytkowników](active-directory-application-provisioning-content-map.md) |
 | Limit, który pobiera przygotowana do aplikacji na podstawie ich wartości atrybutu |[Filtrami zakresów](active-directory-saas-scoping-filters.md) |
 
 Inicjowanie obsługi użytkowników automatycznego jest dostępna dla wszystkich wersji programu Azure AD dla aplikacji do dziesięciu dla poszczególnych użytkowników. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) obsługuje aplikacje nieograniczone. Jeśli Twoja organizacja ma [Azure AD podstawowa](https://azure.microsoft.com/pricing/details/active-directory/) lub [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), a następnie możesz [używanie grup do zarządzania, uzyskiwanie obsługi administracyjnej użytkowników, którzy](#managing-access-to-applications).

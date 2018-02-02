@@ -12,15 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: d4398d1c292548b08d91d70a8ba35b31234c5d5f
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 18a671fe49b57dda3df33b58a464b300e574376f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Przed rozpoczęciem pracy z usługi aplikacji Azure stosu
+*Dotyczy: Azure stosu zintegrowanych systemów i Azure stosu Development Kit*
 
 Przed wdrożeniem usługi Azure App Service na stosie Azure musi spełnić wymagania wstępne w tym artykule.
 
@@ -30,14 +31,14 @@ Przed wdrożeniem usługi Azure App Service na stosie Azure musi spełnić wymag
 2. Pobierz [usługi aplikacji na stos Azure Instalatora](https://aka.ms/appsvconmasinstaller).
 3. Wyodrębnij pliki z pliku zip skryptów pomocnika. Są wyświetlane następujące pliki i struktury folderów:
    - Common.ps1
-   - Utwórz AADIdentityApp.ps1
-   - Utwórz ADFSIdentityApp.ps1
-   - Utwórz AppServiceCerts.ps1
+   - Create-AADIdentityApp.ps1
+   - Create-ADFSIdentityApp.ps1
+   - Create-AppServiceCerts.ps1
    - Get-AzureStackRootCert.ps1
-   - Usuń AppService.ps1
+   - Remove-AppService.ps1
    - Moduły
      - GraphAPI.psm1
-    
+
 ## <a name="prepare-for-high-availability"></a>Przygotowanie wysokiej dostępności
 
 Usługa aplikacji Azure na stosie Azure nie może obecnie oferty wysokiej dostępności, ponieważ stos Azure wdraża obciążeń do tylko jednej domeny błędów.
@@ -54,8 +55,8 @@ Pierwszy skryptu współpracuje z urzędu certyfikacji stosu Azure można utworz
 | Nazwa pliku | Użycie |
 | --- | --- |
 | _.appservice.local.azurestack.external.pfx | Certyfikat SSL domyślne usługi aplikacji |
-| API.appservice.local.azurestack.external.pfx | Certyfikat SSL interfejsu API usługi aplikacji |
-| FTP.appservice.local.azurestack.external.pfx | Certyfikat SSL wydawcy usługi aplikacji |
+| Api.appservice.local.azurestack.external.pfx | Certyfikat SSL interfejsu API usługi aplikacji |
+| ftp.appservice.local.azurestack.external.pfx | Certyfikat SSL wydawcy usługi aplikacji |
 | Sso.appservice.local.azurestack.external.pfx | Certyfikat aplikacji tożsamości usługi aplikacji |
 
 Uruchom skrypt na hoście Azure stosu Development Kit i upewnij się, że używasz programu PowerShell jako azurestack\CloudAdmin:
@@ -65,10 +66,10 @@ Uruchom skrypt na hoście Azure stosu Development Kit i upewnij się, że używa
 
 #### <a name="create-appservicecertsps1-parameters"></a>Utwórz AppServiceCerts.ps1 parametrów
 
-| Parametr | Wymagany lub opcjonalny | Wartość domyślna | Opis |
+| Parametr | Wymagane lub opcjonalne | Wartość domyślna | Opis |
 | --- | --- | --- | --- |
-| PfxPassword | Wymagane | Null | Hasła, która pomaga chronić klucz prywatny certyfikatu |
-| domainName | Wymagane | Local.azurestack.external | Azure sufiks regionu i domeny stosu |
+| pfxPassword | Wymagane | Null | Hasła, która pomaga chronić klucz prywatny certyfikatu |
+| DomainName | Wymagane | local.azurestack.external | Azure sufiks regionu i domeny stosu |
 
 ### <a name="certificates-required-for-a-production-deployment-of-azure-app-service-on-azure-stack"></a>Certyfikaty wymagane w przypadku wdrożenia produkcyjnego usługi Azure App Service na stosie Azure
 
@@ -82,8 +83,8 @@ Należy certyfikat uniwersalny dwa podmiotu certyfikatu i musi być w formacie p
 
 | Format | Przykład |
 | --- | --- |
-| \*.appservice. \<region\>.\< DomainName\>.\< rozszerzenia\> | \*. appservice.redmond.azurestack.external |
-| \*. scm.appservice. <region>. <DomainName>.<extension> | \*. appservice.scm.redmond.azurestack.external |
+| \*.appservice.\<region\>.\<DomainName\>.\<extension\> | \*.appservice.redmond.azurestack.external |
+| \*.scm.appservice.<region>.<DomainName>.<extension> | \*.appservice.scm.redmond.azurestack.external |
 
 #### <a name="api-certificate"></a>Certyfikat interfejsu API
 
@@ -91,7 +92,7 @@ Certyfikat interfejsu API zostanie umieszczony w roli zarządzania. Dostawca zas
 
 | Format | Przykład |
 | --- | --- |
-| API.appservice. \<region\>.\< DomainName\>.\< rozszerzenia\> | API.appservice.Redmond.azurestack.external |
+| api.appservice.\<region\>.\<DomainName\>.\<extension\> | api.appservice.redmond.azurestack.external |
 
 #### <a name="publishing-certificate"></a>Publikowanie certyfikatów
 
@@ -99,7 +100,7 @@ Certyfikat dla roli wydawcy zabezpiecza ruch FTPS dla właścicieli aplikacji, g
 
 | Format | Przykład |
 | --- | --- |
-| FTP.appservice. \<region\>.\< DomainName\>.\< rozszerzenia\> | API.appservice.Redmond.azurestack.external |
+| ftp.appservice.\<region\>.\<DomainName\>.\<extension\> | api.appservice.redmond.azurestack.external |
 
 #### <a name="identity-certificate"></a>Certyfikat tożsamości
 
@@ -111,15 +112,15 @@ Certyfikat tożsamości musi zawierać którego podmiot odpowiada następujący 
 
 | Format | Przykład |
 | --- | --- |
-| sso.appservice. \<region\>.\< DomainName\>.\< rozszerzenia\> | sso.appservice.Redmond.azurestack.external |
+| sso.appservice.\<region\>.\<DomainName\>.\<extension\> | sso.appservice.redmond.azurestack.external |
 
 ### <a name="azure-resource-manager-root-certificate-for-azure-stack"></a>Usługa Azure Resource Manager certyfikat główny dla stosu Azure
 
 W sesji programu PowerShell, uruchomione jako azurestack\CloudAdmin Uruchom skrypt Get AzureStackRootCert.ps1 z folderu, w którym została rozpakowana skrypty pomocnika. Skrypt tworzy cztery certyfikatów, w tym samym folderze, skrypt, który wymaga usługi aplikacji do tworzenia certyfikatów.
 
-| Parametr Get-AzureStackRootCert.ps1 | Wymagany lub opcjonalny | Wartość domyślna | Opis |
+| Get-AzureStackRootCert.ps1 parameter | Wymagane lub opcjonalne | Wartość domyślna | Opis |
 | --- | --- | --- | --- |
-| PrivelegedEndpoint | Wymagane | AzS ERCS01 | Uprzywilejowane punktu końcowego |
+| PrivelegedEndpoint | Wymagane | AzS-ERCS01 | Uprzywilejowane punktu końcowego |
 | CloudAdminCredential | Wymagane | AzureStack\CloudAdmin | Poświadczenia konta domeny dla administratorów chmury Azure stosu |
 
 
@@ -136,7 +137,7 @@ Azure stosu Development Kit tylko w przypadku wdrożeń, można użyć [Szablon 
    - FileShareOwners
    - FileShareUsers
 2. Utwórz następujące konta usługi Active Directory jako konta usług:
-   - Właściciel udziału plików
+   - FileShareOwner
    - FileShareUser
 
    Bezpieczeństwa najlepiej użytkowników dla tych kont (i dla wszystkich ról sieci web) powinny się różnić od siebie i ma silnej nazwy użytkowników i hasła. Ustaw hasła z następujących warunków:
@@ -244,7 +245,7 @@ W przypadku wdrożeń Azure stosu Development Kit można użyć programu SQL Ser
 
 Do celów wysokiej dostępności i produkcji, należy użyć pełną wersję programu SQL Server 2014 SP2 lub później, Włącz uwierzytelnianie w trybie mieszanym i wdrożyć w [konfiguracji wysokiej dostępności](https://docs.microsoft.com/sql/sql-server/failover-clusters/high-availability-solutions-sql-server).
 
-Wystąpienie programu SQL Server dla usługi Azure App Service na stosie Azure musi być dostępny ze wszystkich ról usługi aplikacji. Można wdrożyć program SQL Server w ramach subskrypcji domyślny dostawca w stosie Azure. Można też użyć istniejącej infrastruktury, w ramach organizacji (o ile istnieje łączność stos Azure). Jeśli używasz portalu Azure Marketplace obrazu, należy odpowiednio skonfigurować zaporę. 
+Wystąpienie programu SQL Server dla usługi Azure App Service na stosie Azure musi być dostępny ze wszystkich ról usługi aplikacji. Można wdrożyć program SQL Server w ramach subskrypcji domyślny dostawca w stosie Azure. Można też użyć istniejącej infrastruktury, w ramach organizacji (o ile istnieje łączność stos Azure). Jeśli używasz portalu Azure Marketplace obrazu, należy odpowiednio skonfigurować zaporę.
 
 Dla każdej z ról serwera SQL można użyć wystąpienie domyślne lub nazwane wystąpienie. Jeśli używasz nazwanego wystąpienia, należy ręcznie uruchomić usługę SQL Server Browser i otworzyć port 1434.
 
@@ -276,7 +277,7 @@ Wykonaj następujące kroki:
 12. Wybierz **aplikacji** na liście.
 13. Wybierz **wymagane uprawnienia** > **udzielić uprawnień** > **tak**.
 
-| Utwórz AADIdentityApp.ps1 parametru | Wymagany lub opcjonalny | Wartość domyślna | Opis |
+| Utwórz AADIdentityApp.ps1 parametru | Wymagane lub opcjonalne | Wartość domyślna | Opis |
 | --- | --- | --- | --- |
 | DirectoryTenantName | Wymagane | Null | Identyfikator dzierżawy usługi Azure AD Podaj identyfikator GUID lub ciąg. Przykładem jest myazureaaddirectory.onmicrosoft.com. |
 | AdminArmEndpoint | Wymagane | Null | Punkt końcowy administratora usługi Azure Resource Manager. Przykładem jest adminmanagement.local.azurestack.external. |
@@ -305,7 +306,7 @@ Wykonaj następujące kroki:
 5.  W **poświadczeń** okna, wprowadź konto administratora usług AD FS chmury i hasło. Kliknij przycisk **OK**.
 6.  Ścieżka do pliku certyfikatu i hasła certyfikatu dla [wcześniej utworzony certyfikat](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). Certyfikat utworzony dla tego kroku, domyślnie jest **sso.appservice.local.azurestack.external.pfx**.
 
-| Utwórz ADFSIdentityApp.ps1 parametru | Wymagany lub opcjonalny | Wartość domyślna | Opis |
+| Utwórz ADFSIdentityApp.ps1 parametru | Wymagane lub opcjonalne | Wartość domyślna | Opis |
 | --- | --- | --- | --- |
 | AdminArmEndpoint | Wymagane | Null | Punkt końcowy administratora usługi Azure Resource Manager. Przykładem jest adminmanagement.local.azurestack.external. |
 | PrivilegedEndpoint | Wymagane | Null | Punkt końcowy uprzywilejowanych. Przykładem jest AzS ERCS01. |
@@ -314,6 +315,6 @@ Wykonaj następujące kroki:
 | CertificatePassword | Wymagane | Null | Hasło chroni klucz prywatny certyfikatu. |
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Zainstaluj dostawcę zasobów usługi aplikacji](azure-stack-app-service-deploy.md)

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2018
+ms.date: 01/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 2738af56782dbe8c917afd942e3f6b1eada026b2
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
-ms.translationtype: HT
+ms.openlocfilehash: 47ba146d18a20cf6c7e7480d74a02ba354486988
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-patentsquare"></a>Samouczek: Integracji Azure Active Directory z PatentSQUARE
 
@@ -118,7 +118,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Skonfiguruj przycisk pojedynczego logowania jednokrotnego Zapisz](./media/active-directory-saas-patentsquare-tutorial/tutorial_general_400.png)
 
-6. Skonfigurować logowanie jednokrotne w **PatentSQUARE** stronie, musisz wysłać pobrany **XML metadanych** do [zespołem pomocy technicznej PatentSQUARE](http://www.panasonic.com/jp/company/pstc.html). To ustawienie, aby były prawidłowo po obu stronach połączenia logowania jednokrotnego SAML one wartość.
+6. Skonfigurować logowanie jednokrotne w **PatentSQUARE** stronie, musisz wysłać pobrany **XML metadanych** do [zespołem pomocy technicznej PatentSQUARE](https://www.panasonic.com/jp/business/its/patentsquare.html). To ustawienie, aby były prawidłowo po obu stronach połączenia logowania jednokrotnego SAML one wartość.
 
 > [!TIP]
 > Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -152,13 +152,13 @@ Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie 
 
     b. W **nazwy użytkownika** wpisz adres e-mail użytkownika Simona Britta.
 
-    d. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartość, która jest wyświetlana w **hasło** pole.
+    c. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartość, która jest wyświetlana w **hasło** pole.
 
     d. Kliknij przycisk **Utwórz**.
  
 ### <a name="create-a-patentsquare-test-user"></a>Tworzenie użytkownika testowego PatentSQUARE
 
-W tej sekcji należy utworzyć użytkownika o nazwie Simona Britta w PatentSQUARE. Praca z [zespołem pomocy technicznej PatentSQUARE](http://www.panasonic.com/jp/company/pstc.html) Aby dodać użytkowników do platformy PatentSQUARE. Użytkownicy muszą utworzyć i aktywowana, aby użyć rejestracji jednokrotnej. 
+W tej sekcji należy utworzyć użytkownika o nazwie Simona Britta w PatentSQUARE. Praca z [zespołem pomocy technicznej PatentSQUARE](https://www.panasonic.com/jp/business/its/patentsquare.html) Aby dodać użytkowników do platformy PatentSQUARE. Użytkownicy muszą utworzyć i aktywowana, aby użyć rejestracji jednokrotnej. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisz użytkownika testowego usługi Azure AD
 

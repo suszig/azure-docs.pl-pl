@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/12/2017
 ms.author: jdial
-ms.openlocfilehash: 6cc7035e798ef72f69958a7536a741f80939d4fe
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 55aece3f20ee98d21d7bb2b96cb3d039d4849f8f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-virtual-network"></a>Azure Virtual Network
 
@@ -90,6 +90,6 @@ Aby zapoznać się z często zadawane pytania dotyczące sieci wirtualnej platfo
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Tworzenie pierwszej sieci wirtualnej i wdrażanie kilka maszyn wirtualnych, wykonując kroki opisane w [tworzenie pierwszej sieci wirtualnej](virtual-network-get-started-vnet-subnet.md).
+- Tworzenie pierwszej sieci wirtualnej i wdrażanie kilka maszyn wirtualnych, wykonując kroki opisane w [tworzenie pierwszej sieci wirtualnej](quick-create-portal.md).
 - Utwórz połączenie punkt lokacja sieci wirtualnej, wykonując kroki opisane w [skonfigurować połączenie punkt lokacja](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Dowiedz się więcej o niektóre inne kluczowe [sieci możliwości](../networking/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) platformy Azure.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 10/11/2017
 ms.author: sashan
-ms.openlocfilehash: ef9463e464928b8fa8e64019037a41711cb77830
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 7d731865ae8da9e1ae9e9f11eef814b86fc10c64
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>Omówienie: Grup trybu Failover i aktywna replikacja geograficzna
 Aktywna replikacja geograficzna można skonfigurować maksymalnie cztery czytelny dodatkowej bazy danych w centrach danych tego samego lub innego (regiony). Pomocniczych baz danych dostępnych do wykonywania zapytań i pracy awaryjnej w przypadku awarii centrum danych lub brakiem możliwości nawiązania połączenia podstawowej bazy danych. Tryb failover musi być inicjowana ręcznie przez użytkownika aplikacji. Po przejściu w tryb failover nową podstawową ma końcowego innego połączenia. 
@@ -71,7 +71,7 @@ Aktywna replikacja geograficzna udostępnia następujące podstawowe możliwośc
 * **Wiele elementów dodatkowych do odczytu**: dwa lub więcej pomocniczych baz danych zwiększenia nadmiarowości i poziom ochrony dla podstawowej bazy danych i aplikacji. Jeśli istnieje wiele pomocniczych baz danych, aplikacji pozostaje chroniony nawet w przypadku awarii jednego z dodatkowej bazy danych. Jeśli istnieje tylko jeden z dodatkowej bazy danych, a jej nie powiedzie się, aplikacji jest narażony na większe ryzyko, dopóki nie zostanie utworzony nowy pomocniczej bazy danych.
 
    > [!NOTE]
-   > Do tworzenia aplikacji rozproszonych globalnie i trzeba zapewnić dostęp tylko do odczytu do danych w więcej niż czterech segions używasz aktywna replikacja geograficzna, można utworzyć dodatkowej pomocniczej (proces znany jako chaining). W ten sposób można osiągnąć nieograniczoną skali replikacji bazy danych. Ponadto łańcucha zmniejsza obciążenie związane z replikacją z podstawowej bazy danych. Rozwiązanie jest opóźnienie replikacji zwiększona, w bazach danych dodatkowej większość typu liść. 
+   > Jeśli używasz aktywna replikacja geograficzna do tworzenia aplikacji rozproszonych globalnie i trzeba zapewnić dostęp tylko do odczytu do danych w więcej niż czterech regionów, można utworzyć dodatkowej pomocniczej (proces znany jako łańcucha). W ten sposób można osiągnąć nieograniczoną skali replikacji bazy danych. Ponadto łańcucha zmniejsza obciążenie związane z replikacją z podstawowej bazy danych. Rozwiązanie jest opóźnienie replikacji zwiększona, w bazach danych dodatkowej większość typu liść. 
    >
 
 * **Obsługa elastycznej puli baz danych**: aktywna replikacja geograficzna można skonfigurować dla dowolnej bazy danych w każdej puli elastycznej. Dodatkowej bazy danych może być w innej puli elastycznej. W przypadku regularnego baz danych pomocniczej można elastycznej puli i na odwrót tak długo, jak warstwy usług są takie same. 
@@ -145,10 +145,10 @@ Zgodnie z opisem wcześniej, pracy awaryjnej automatycznie grupy (w — wersja z
 | [ALTER DATABASE (baza danych Azure SQL)](/sql/t-sql/statements/alter-database-azure-sql-database) |Aby utworzyć pomocniczą bazę danych do istniejącej bazy danych i rozpoczyna replikację danych, użyj argumentu dodawania serwera POMOCNICZEGO w |
 | [ALTER DATABASE (baza danych Azure SQL)](/sql/t-sql/statements/alter-database-azure-sql-database) |Przełączyć pomocniczej bazy danych jako głównej zainicjować trybu failover za pomocą trybu FAILOVER lub FORCE_FAILOVER_ALLOW_DATA_LOSS |
 | [ALTER DATABASE (baza danych Azure SQL)](/sql/t-sql/statements/alter-database-azure-sql-database) |Użyj Usuń POMOCNICZEGO serwera na zakończenie replikacji danych między bazą danych SQL i dodatkowej określonej bazy danych. |
-| [sys.geo_replication_links (baza danych SQL Azure)](/sql/relational-databases/system-dynamic-management-views/sys-geo-replication-links-azure-sql-database) |Zwraca informacje o wszystkich istniejących łączy replikacji dla każdej bazy danych na serwerze logicznym bazy danych SQL Azure. |
-| [sys.dm_geo_replication_link_status (baza danych SQL Azure)](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) |Pobiera czas ostatniej replikacji, ostatni opóźnienie replikacji i inne informacje na temat łącza replikacji określonej bazy danych SQL. |
-| [sys.dm_operation_status (baza danych SQL Azure)](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) |Pokazuje stan wszystkich operacji bazy danych, w tym stan łącza replikacji. |
-| [Operacja sp_wait_for_database_copy_sync (baza danych SQL Azure)](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) |powoduje, że aplikacja poczekać, aż wszystkie zatwierdzone transakcje są replikowane i potwierdzone przez aktywnej pomocniczej bazy danych. |
+| [sys.geo_replication_links (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-geo-replication-links-azure-sql-database) |Zwraca informacje o wszystkich istniejących łączy replikacji dla każdej bazy danych na serwerze logicznym bazy danych SQL Azure. |
+| [sys.dm_geo_replication_link_status (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) |Pobiera czas ostatniej replikacji, ostatni opóźnienie replikacji i inne informacje na temat łącza replikacji określonej bazy danych SQL. |
+| [sys.dm_operation_status (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) |Pokazuje stan wszystkich operacji bazy danych, w tym stan łącza replikacji. |
+| [sp_wait_for_database_copy_sync (Azure SQL Database)](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) |powoduje, że aplikacja poczekać, aż wszystkie zatwierdzone transakcje są replikowane i potwierdzone przez aktywnej pomocniczej bazy danych. |
 |  | |
 
 ## <a name="manage-sql-database-failover-using-powershell"></a>Zarządzanie trybu failover bazy danych SQL przy użyciu programu PowerShell
@@ -156,15 +156,15 @@ Zgodnie z opisem wcześniej, pracy awaryjnej automatycznie grupy (w — wersja z
 | Polecenie cmdlet | Opis |
 | --- | --- |
 | [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) |Pobiera jeden lub więcej baz danych. |
-| [Nowe AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary) |Tworzy pomocniczej bazy danych dla istniejącej bazy danych i rozpoczyna się replikacja danych. |
-| [Zestaw AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/set-azurermsqldatabasesecondary) |Zmienia pomocniczej bazy danych jako głównej zainicjować trybu failover. |
-| [Usuń AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary) |Kończy replikacji danych między bazą danych SQL i dodatkowej określonej bazy danych. |
+| [New-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary) |Tworzy pomocniczej bazy danych dla istniejącej bazy danych i rozpoczyna się replikacja danych. |
+| [Set-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/set-azurermsqldatabasesecondary) |Zmienia pomocniczej bazy danych jako głównej zainicjować trybu failover. |
+| [Remove-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary) |Kończy replikacji danych między bazą danych SQL i dodatkowej określonej bazy danych. |
 | [Get-AzureRmSqlDatabaseReplicationLink](/powershell/module/azurerm.sql/get-azurermsqldatabasereplicationlink) |Pobiera linki — replikacja geograficzna między bazą danych SQL Azure i grupy zasobów lub SQL Server. |
-| [Nowe AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |   To polecenie tworzy grupę trybu failover i rejestruje go na serwerach głównych i dodatkowych|
-| [Usuń AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/remove-azurermsqldatabasefailovergroup) | Usuwa grupę trybu failover z serwera i wszystkich baz danych w dodatkowej uwzględnione grupy |
+| [New-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |   To polecenie tworzy grupę trybu failover i rejestruje go na serwerach głównych i dodatkowych|
+| [Remove-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/remove-azurermsqldatabasefailovergroup) | Usuwa grupę trybu failover z serwera i wszystkich baz danych w dodatkowej uwzględnione grupy |
 | [Get-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/get-azurermsqldatabasefailovergroup) | Pobiera grupy konfiguracji trybu failover |
-| [Zestaw AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |   Modyfikuje konfigurację grupy pracy awaryjnej |
-| [Przełącznika AzureRMSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/switch-azurermsqldatabasefailovergroup) | Wyzwalacze pracy w trybie failover grupy trybu failover na serwer pomocniczy |
+| [Set-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |   Modyfikuje konfigurację grupy pracy awaryjnej |
+| [Switch-AzureRMSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/switch-azurermsqldatabasefailovergroup) | Wyzwalacze pracy w trybie failover grupy trybu failover na serwer pomocniczy |
 |  | |
 
 > [!IMPORTANT]
@@ -190,7 +190,7 @@ Zgodnie z opisem wcześniej, pracy awaryjnej automatycznie grupy (w — wersja z
 | [Aktualizacja trybu Failover grupy](/rest/api/sql/failovergroups/update) | Aktualizuje grupy pracy awaryjnej. |
 |  | |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Aby uzyskać przykładowe skrypty Zobacz:
    - [Konfigurowanie i pracy awaryjnej pojedynczej bazy danych przy użyciu aktywna replikacja geograficzna](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
    - [Konfigurowanie i pracy awaryjnej puli bazy danych przy użyciu aktywna replikacja geograficzna](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)

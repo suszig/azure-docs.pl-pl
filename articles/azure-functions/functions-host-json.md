@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/09/2017
 ms.author: tdykstra
-ms.openlocfilehash: 522d0590595b0fc0fef503599f1677658f223bd8
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 58fc58049e346d60c0882a91bd04485746a15cbd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Dokumentacja host.JSON dla usługi Azure Functions
 
@@ -49,6 +49,13 @@ Poniższy przykład *host.json* plik zawiera wszystkie opcje określone.
     },
     "functions": [ "QueueProcessor", "GitHubWebHook" ],
     "functionTimeout": "00:05:00",
+    "healthMonitor": {
+        "enabled": true,
+        "healthCheckInterval": "00:00:10",
+        "healthCheckWindow": "00:02:00",
+        "healthCheckThreshold": 6,
+        "counterThreshold": 0.80
+    },
     "http": {
         "routePrefix": "api",
         "maxOutstandingRequests": 20,
@@ -95,7 +102,7 @@ Poniższy przykład *host.json* plik zawiera wszystkie opcje określone.
 
 W poniższych sekcjach tego artykułu opisano poszczególne właściwości najwyższego poziomu. Wszystkie są opcjonalne, o ile nie wskazano inaczej.
 
-## <a name="aggregator"></a>Agregator
+## <a name="aggregator"></a>aggregator
 
 Określa, ile wywołania funkcji są agregowane kiedy [obliczanie metryki dla usługi Application Insights](functions-monitoring.md#configure-the-aggregator). 
 
@@ -135,13 +142,13 @@ Formanty [funkcji próbkowania w usłudze Application Insights](functions-monito
 |IsEnabled|fałsz|Włącza lub wyłącza próbkowania.| 
 |maxTelemetryItemsPerSecond|5|Rozpoczyna się progu, w których próbkowania.| 
 
-## <a name="eventhub"></a>EventHub
+## <a name="eventhub"></a>eventHub
 
 Ustawienia konfiguracji dla [Centrum zdarzeń wyzwalaczy i powiązań](functions-bindings-event-hubs.md).
 
 [!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
 
-## <a name="functions"></a>funkcje
+## <a name="functions"></a>functions
 
 Lista funkcji, które host zadania zostanie uruchomiony.  Pusta tablica oznacza uruchamiać wszystkie funkcje.  Przeznaczony do użytku tylko wtedy, gdy [uruchomiony lokalnie](functions-run-local.md). W aplikacjach funkcji, należy użyć *function.json* `disabled` właściwości zamiast tej właściwości w *host.json*.
 
@@ -161,6 +168,30 @@ Wskazuje wartość limitu czasu dla wszystkich funkcji. W planie zużycie prawid
 }
 ```
 
+## <a name="healthmonitor"></a>healthMonitor
+
+Ustawienia konfiguracji dla [monitor kondycji hosta](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Host-Health-Monitor).
+
+```
+{
+    "healthMonitor": {
+        "enabled": true,
+        "healthCheckInterval": "00:00:10",
+        "healthCheckWindow": "00:02:00",
+        "healthCheckThreshold": 6,
+        "counterThreshold": 0.80
+    }
+}
+```
+
+|Właściwość  |Domyślne | Opis |
+|---------|---------|---------| 
+|enabled|prawda|Określa, czy ta funkcja jest włączona. | 
+|healthCheckInterval|10 sekund|Odstęp czasu między kondycji tła okresowo sprawdza. | 
+|healthCheckWindow|2 minuty|Wysuwane okno czasu używany w połączeniu z `healthCheckThreshold` ustawienie.| 
+|healthCheckThreshold|6|Maksymalna dopuszczalna liczba operacji sprawdzania kondycji może zakończyć się niepowodzeniem przed odtworzenia hosta jest inicjowana.| 
+|counterThreshold|0.80|Próg, w którym licznik wydajności będą uznawane za złej kondycji.| 
+
 ## <a name="http"></a>http
 
 Ustawienia konfiguracji dla [http wyzwalaczy i powiązań](functions-bindings-http-webhook.md).
@@ -177,7 +208,7 @@ Unikatowy identyfikator dla hosta zadania. Małe litery identyfikatora GUID z kr
 }
 ```
 
-## <a name="logger"></a>Rejestratora
+## <a name="logger"></a>logger
 
 Formanty filtrowania dla dzienników napisane przez [obiektu ILogger](functions-monitoring.md#write-logs-in-c-functions) lub [context.log](functions-monitoring.md#write-logs-in-javascript-functions).
 
@@ -226,7 +257,7 @@ Ustawienia konfiguracji dla [magazynu kolejki wyzwalaczy i powiązań](functions
 |maxDequeueCount|5|Liczba prób przetwarzania przed jego przeniesieniem do skażone kolejki wiadomości.| 
 |newBatchThreshold|batchSize/2|Próg pobrane nową partię komunikatów.| 
 
-## <a name="servicebus"></a>Magistrali usług
+## <a name="servicebus"></a>serviceBus
 
 Ustawienia konfiguracji dla [usługi Service Bus wyzwalaczy i powiązań](functions-bindings-service-bus.md).
 
@@ -298,7 +329,7 @@ Zestaw [udostępnionych katalogów kodu](functions-reference-csharp.md#watched-d
 Nazwy Centrum dla zadań musi zaczynać się literą i zawierać tylko litery i cyfry. Jeśli nie zostanie określony, jest domyślną nazwę koncentratora zadań dla aplikacji funkcja **DurableFunctionsHub**. Aby uzyskać więcej informacji, zobacz [zadań koncentratory](durable-functions-task-hubs.md).
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 > [!div class="nextstepaction"]
 > [Dowiedz się, jak zaktualizować pliku host.json](functions-reference.md#fileupdate)

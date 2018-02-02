@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2017
 ms.author: maheshu
-ms.openlocfilehash: b48ba1a1a47bc27e1d394e6fa56826df1eb742dd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9046bdb5bd8ff21429c951cbe7120334bd000621
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="join-a-red-hat-enterprise-linux-7-virtual-machine-to-a-managed-domain"></a>Przyłączanie maszyny wirtualnej z systemem Red Hat Enterprise Linux 7 do domeny zarządzanej
 W tym artykule przedstawiono sposób Dołącz maszynę wirtualną Red Hat Enterprise Linux (RHEL) 7 do domeny zarządzanej usług domenowych Azure AD.
@@ -34,7 +34,7 @@ Aby wykonać zadania opisane w tym artykule, należy:
 
 ## <a name="provision-a-red-hat-enterprise-linux-virtual-machine"></a>Aprowizowanie maszyny wirtualnej Red Hat Enterprise Linux
 Zapewnij RHEL 7 maszyny wirtualnej na platformie Azure przy użyciu dowolnej z następujących metod:
-* [Witryna Azure Portal](../virtual-machines/linux/quick-create-portal.md)
+* [Azure portal](../virtual-machines/linux/quick-create-portal.md)
 * [Interfejs wiersza polecenia platformy Azure](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
@@ -69,7 +69,7 @@ W tym miejscu "contoso100.com" jest nazwa domeny DNS domeny zarządzanej. "conto
 Następnie zainstaluj pakiety wymagane do przyłączania do domeny na maszynie wirtualnej. W terminalu SSH wpisz następujące polecenie, aby zainstalować wymagane pakiety:
 
     ```
-    sudo yum install realmd sssd krb5-workstation krb5-libs
+    sudo yum install realmd sssd krb5-workstation krb5-libs samba-common-tools
     ```
 
 

@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
-ms.reviewer: wfayed
-ms.openlocfilehash: e7edbc1c4aa6e3cb1026d493886ef7ca704b9131
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.reviewer: ppacent
+ms.openlocfilehash: a9f2a882947e07cde0e0505458608f86043b2a67
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="generate-pki-certificates-for-azure-stack-deployment"></a>Generowanie certyfikaty PKI dla wdrożenia usługi Azure stosu
 Teraz, znając [wymagania dotyczące certyfikatu PKI](azure-stack-pki-certs.md) wdrożeń stosu Azure, należy uzyskać tych certyfikatów z urzędu certyfikacji, wybranych przez użytkownika. 
@@ -74,3 +74,5 @@ Poniższy przepływ pracy w tym artykule opisano sposób dostosowywania i Użyj 
 4. **Import. CER**. Zwraca urzędu certyfikacji. Plik CER. Przy użyciu tego samego komputera z systemem Windows, z którego są generowane z pliku żądania, zaimportować. Plik CER zwrócona w magazynie komputera/personal. 
 5. **Wyeksportować i skopiować. PFX do folderów wdrożenia**. Wyeksportuj certyfikat (łącznie z kluczem prywatnym) jako. PFX pliku i skopiować. Plik PFX do folderów wdrożenia opisanego w [wymagania dotyczące infrastruktury kluczy publicznych wdrażania stosu Azure](azure-stack-pki-certs.md).
 
+## <a name="next-steps"></a>Kolejne kroki
+[Integracja tożsamości](azure-stack-integrate-identity.md)

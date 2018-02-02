@@ -11,11 +11,11 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
 ms.author: davidmu
-ms.openlocfilehash: 1489990f583d15f22fb3db26b45f1509850513ec
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
-ms.translationtype: HT
+ms.openlocfilehash: fe36076988e65837340ec70982de788e532c455d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-azure-powershell"></a>Utwórz bramę aplikacji za pomocą zapory aplikacji sieci web przy użyciu programu Azure PowerShell
 
@@ -232,12 +232,18 @@ $storageAccount = New-AzureRmStorageAccount `
 
 ### <a name="configure-diagnostics"></a>Skonfiguruj diagnostyki
 
-Skonfiguruj diagnostykę, aby zapisać dane w dzienniku ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog i ApplicationGatewayFirewallLog. SUBSTITUTE `<subscriptionId>` z identyfikatorem subskrypcji, a następnie skonfigurować przy użyciu diagnostyki [Set-AzureRmDiagnosticSetting](/powershell/module/azurerm.insights/set-azurermdiagnosticsetting).
+Konfigurowanie diagnostykę, aby zapisać dane do ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog, i ApplicationGatewayFirewallLog loguje się przy użyciu [Set-AzureRmDiagnosticSetting](/powershell/module/azurerm.insights/set-azurermdiagnosticsetting).
 
 ```azurepowershell-interactive
+$appgw = Get-AzureRmApplicationGateway `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myAppGateway
+$store = Get-AzureRmStorageAccount `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myagstore1
 Set-AzureRmDiagnosticSetting `
-  -ResourceId '/subscriptions/<subscriptionId>/resourceGroups/myResourceGroupAG/providers/Microsoft.Network/applicationGateways/myAppGateway' `
-  -StorageAccountId '/subscriptions/<subscriptionId>/resourceGroups/myResourceGroupAG/providers/Microsoft.Storage/storageAccounts/myagstore1' `
+  -ResourceId $appgw.Id `
+  -StorageAccountId $store.Id `
   -Categories ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog, ApplicationGatewayFirewallLog `
   -Enabled $true `
   -RetentionEnabled $true `

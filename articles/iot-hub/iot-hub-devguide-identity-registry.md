@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
+ms.date: 01/29/2018
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 653c31fb1115c79216f882a52484cd37303e0322
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
-ms.translationtype: MT
+ms.openlocfilehash: 05b1f11158233a7c02950320741b405429a08d50
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Informacje w rejestrze tożsamości w Centrum IoT
 
@@ -74,11 +74,11 @@ Urządzenia można wyłączyć, aktualizując **stan** właściwość identity w
 
 ## <a name="import-and-export-device-identities"></a>Importowanie i eksportowanie tożsamości urządzenia
 
-Możesz wyeksportować tożsamości urządzenia w trybie zbiorczym z Centrum IoT rejestru tożsamości za pomocą operacji asynchronicznych w [punktu końcowego dostawcy zasobów Centrum IoT][lnk-endpoints]. Eksporty są długotrwałych zadań, które Użyj blobcontainer dostarczonych przez klienta, aby zapisać dane tożsamości urządzenia odczytać z rejestru tożsamości.
+Użyj operacji asynchronicznych w [punktu końcowego dostawcy zasobów Centrum IoT] [ lnk-endpoints] eksportowania tożsamości urządzenia w trybie zbiorczym z rejestru tożsamości Centrum IoT. Eksporty są długotrwałych zadań, które Użyj blobcontainer dostarczonych przez klienta, aby zapisać dane tożsamości urządzenia odczytać z rejestru tożsamości.
 
-W rejestrze tożsamości Centrum IoT można zaimportować tożsamości urządzenia w trybie zbiorczym, za pomocą operacji asynchronicznych w [punktu końcowego dostawcy zasobów Centrum IoT][lnk-endpoints]. Importy są długotrwałych zadań, korzystających z danych w kontenerze blob dostarczonych przez klienta do zapisania danych tożsamości urządzenia w rejestrze tożsamości.
+Użyj operacji asynchronicznych w [punktu końcowego dostawcy zasobów Centrum IoT] [ lnk-endpoints] do zaimportowania tożsamości urządzenia w trybie zbiorczym w rejestrze tożsamości Centrum IoT. Importy są długotrwałych zadań, korzystających z danych w kontenerze blob dostarczonych przez klienta do zapisania danych tożsamości urządzenia w rejestrze tożsamości.
 
-Aby uzyskać szczegółowe informacje na temat importowania i eksportowania interfejsów API, zobacz [interfejsy API REST dostawcy zasobów Centrum IoT][lnk-resource-provider-apis]. Aby dowiedzieć się więcej o uruchamianiu importowanie i eksportowanie zadań, zobacz [zbiorcze Zarządzanie tożsamościami urządzenia IoT Hub][lnk-bulk-identity].
+Aby uzyskać więcej informacji na temat Importowanie i eksportowanie interfejsów API, zobacz [interfejsy API REST dostawcy zasobów Centrum IoT][lnk-resource-provider-apis]. Aby dowiedzieć się więcej o uruchamianiu importowanie i eksportowanie zadań, zobacz [zbiorcze Zarządzanie tożsamościami urządzenia IoT Hub][lnk-bulk-identity].
 
 ## <a name="device-provisioning"></a>Inicjowanie obsługi administracyjnej urządzeń
 
@@ -109,13 +109,13 @@ Właściwości: Właściwości systemu wiadomości są poprzedzane prefiksem `'$
 | --- | --- |
 $content — typ | application/json |
 $iothub-enqueuedtime |  Czas wysłania powiadomienia |
-$iothub-komunikat-źródła | deviceLifecycleEvents |
-$content-kodowania | UTF-8 |
+$iothub-message-source | deviceLifecycleEvents |
+$content-encoding | UTF-8 |
 opType | **createDeviceIdentity** lub **deleteDeviceIdentity** |
 hubName | Nazwa centrum IoT |
 deviceId | Identyfikator urządzenia |
 operationTimestamp | Sygnatura czasowa ISO8601 operacji |
-Centrum iothub komunikat schemacie | deviceLifecycleNotification |
+iothub-message-schema | deviceLifecycleNotification |
 
 Treść: W tej sekcji jest w formacie JSON i przedstawia dwie tożsamości utworzonego urządzenia. Na przykład:
 
@@ -147,7 +147,7 @@ Tożsamości urządzenia są reprezentowane jako dokumenty JSON z następującym
 | Właściwość | Opcje | Opis |
 | --- | --- | --- |
 | deviceId |wymagane, tylko do odczytu na aktualizacje |Ciąg z uwzględnieniem wielkości liter (maksymalnie 128 znaków) znaki alfanumeryczne ASCII 7-bitowego oraz niektórych znaków specjalnych: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
-| Identyfikator generacji |wymagane, tylko do odczytu |IoT generowanych przez koncentrator, z uwzględnieniem wielkości liter ciąg maksymalnie 128 znaków. Ta wartość jest używana do rozróżniania urządzeń o takiej samej **deviceId**, gdy został usunięty i utworzony ponownie. |
+| generationId |wymagane, tylko do odczytu |IoT generowanych przez koncentrator, z uwzględnieniem wielkości liter ciąg maksymalnie 128 znaków. Ta wartość jest używana do rozróżniania urządzeń o takiej samej **deviceId**, gdy został usunięty i utworzony ponownie. |
 | Element etag |wymagane, tylko do odczytu |Ciąg reprezentujący słaby element ETag dla tożsamości tego urządzenia zgodnie [RFC7232][lnk-rfc7232]. |
 | uwierzytelniania |opcjonalne |Obiekt złożony zawierające materiały informacji i zabezpieczeń uwierzytelniania. |
 | auth.symkey |opcjonalne |Złożony obiekt zawierający podstawowy i klucz pomocniczy, są przechowywane w formacie base64. |
@@ -180,7 +180,7 @@ Teraz, kiedy znasz jak korzystać z Centrum IoT rejestru tożsamości, mogą by�
 * [Wywoływanie metody bezpośrednio na urządzeniu][lnk-devguide-directmethods]
 * [Planowanie zadań na wielu urządzeniach][lnk-devguide-jobs]
 
-Jeśli chcesz wypróbować niektóre pojęcia opisane w tym artykule, mogą być zainteresowane w następujących instrukcji Centrum IoT:
+Aby wypróbować pojęcia opisane w tym artykule, zobacz następujące samouczek Centrum IoT:
 
 * [Rozpoczynanie pracy z Centrum IoT Azure][lnk-getstarted-tutorial]
 

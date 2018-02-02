@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: shlo
-ms.openlocfilehash: cf98bb7fab4942955287e8e211e98b9da59472f6
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: dd2475d5940927c65cae4d12b9697cbe535b69a8
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-data-factory-faq"></a>Fabryki danych Azure — często zadawane pytania
 Ten artykuł dotyczy wersji 2 usługi fabryka danych Azure. Zawiera on odpowiedzi na często zadawane pytania dotyczące usługi fabryka danych.  
@@ -68,7 +68,7 @@ Masz teraz swobody modelu każdy styl przepływu, który wymaga integracji danyc
 Aby uzyskać więcej informacji, zobacz [samouczek: sterowanie przepływem](tutorial-control-flow.md).
 
 ### <a name="deploy-ssis-packages-to-azure"></a>Wdrażanie pakietów usług SSIS na platformie Azure 
-Jeśli chcesz przenieść obciążeń SSIS, można utworzyć fabryki danych w wersji 2 i udostępnić środowiska uruchomieniowego integracji usług SSIS Azure. Środowisko wykonawcze integracji usług SSIS Azure jest pełni zarządzany klaster maszyn wirtualnych platformy Azure (węzłów), które są przeznaczone wyłącznie do uruchamiania pakietów SSIS w chmurze. Aby uzyskać instrukcje, zobacz [pakietów SSIS wdrażanie na platformie Azure](tutorial-deploy-ssis-packages-azure.md) samouczka. 
+Jeśli chcesz przenieść obciążeń SSIS, można utworzyć fabryki danych w wersji 2 i udostępnić środowiska uruchomieniowego integracji usług SSIS Azure. Środowisko wykonawcze integracji usług SSIS Azure jest pełni zarządzany klaster maszyn wirtualnych platformy Azure (węzłów), które są przeznaczone wyłącznie do uruchamiania pakietów SSIS w chmurze. Aby uzyskać instrukcje, zobacz [pakietów SSIS wdrażanie na platformie Azure](tutorial-create-azure-ssis-runtime-portal.md) samouczka. 
  
 
 ### <a name="sdks"></a>Zestawy SDK

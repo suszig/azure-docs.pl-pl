@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2017
+ms.date: 01/29/2018
 ms.author: andredm
 ms.reviewer: rqureshi
-ms.openlocfilehash: b99264eb69f115db6e334b6aceae6ed897202d56
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f9ca915718cb9016b82ba6a415715c5527657dad
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>Zarządzanie oparte na rolach kontrola dostępu przy użyciu interfejsu wiersza polecenia platformy Azure
 > [!div class="op_single_selector"]
@@ -27,9 +27,14 @@ ms.lasthandoff: 12/21/2017
 > * [Interfejs API REST](role-based-access-control-manage-access-rest.md)
 
 
-Kontrola dostępu oparta na rolach (RBAC) w portalu Azure i interfejsu API usługi Azure Resource Manager umożliwia zarządzanie dostępem do Twojej subskrypcji i zasobów na poziomie szczegółowych. W przypadku tej funkcji mogą udzielać dostępu dla użytkowników, grupy lub podmiotów zabezpieczeń usługi Active Directory, przypisując niektóre role do ich w określonym zakresie.
+Kontrola dostępu oparta na rolach (RBAC) w portalu Azure i interfejsu API usługi Azure Resource Manager umożliwia zarządzanie dostępem do Twojej subskrypcji i zasobów na poziomie szczegółowych. W przypadku tej funkcji mogą udzielać dostępu dla użytkowników, grupy lub podmiotów zabezpieczeń usługi Active Directory, przypisując niektóre role do ich w określonym zakresie. 
 
-Zanim użyjesz Azure interfejsu wiersza polecenia (CLI) do zarządzania RBAC, musi mieć następujące wymagania wstępne:
+> [!NOTE] 
+> Najnowszą dokumentację roli jest teraz dostępna dla [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/role?view=azure-cli-latest).
+
+
+ 
++ > Najnowszą dokumentację roli [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/role?view=azure-cli-latest) przed Azure interfejsu wiersza polecenia (CLI) umożliwiają zarządzanie RBAC, musisz mieć następujące wymagania wstępne:
 
 * Azure CLI w wersji 0.8.8 lub nowszej. Aby zainstalować najnowszą wersję i skojarzyć go z subskrypcją platformy Azure, zobacz [Instalowanie i Konfigurowanie interfejsu wiersza polecenia Azure](../cli-install-nodejs.md).
 * Usługa Azure Resource Manager w interfejsu wiersza polecenia platformy Azure. Przejdź do [przy użyciu wiersza polecenia platformy Azure przy użyciu Menedżera zasobów](../xplat-cli-azure-resource-manager.md) więcej szczegółów.
