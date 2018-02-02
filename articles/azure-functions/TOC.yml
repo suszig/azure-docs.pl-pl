@@ -1,6 +1,6 @@
 - name: Dokumentacja funkcji
   href: index.yml
-- name: Przegląd
+- name: Omówienie
   items:
     - name: Informacje o funkcjach
       href: functions-overview.md
@@ -63,6 +63,8 @@
       href: functions-cli-samples.md
 - name: Pojęcia
   items:
+    - name: Porównanie wersji 1.x i 2.x
+      href: functions-versions.md
     - name: Skalowanie i hosting
       href: functions-scale.md
     - name: Wyzwalacze i powiązania
@@ -89,7 +91,7 @@
       href: functions-runtime-overview.md
     - name: Trwałe funkcje
       items:
-        - name: Przegląd
+        - name: Omówienie
           href: durable-functions-overview.md
         - name: Powiązania
           href: durable-functions-bindings.md
@@ -146,7 +148,7 @@
         - name: Zarządzanie aplikacją funkcji
           href: functions-how-to-use-azure-function-app-settings.md
         - name: Ustawianie wersji środowiska uruchomieniowego
-          href: functions-versions.md
+          href: set-runtime-version.md
     - name: Monitorowanie
       href: functions-monitoring.md
     - name: Integracja
@@ -175,7 +177,7 @@
           href: durable-functions-counter.md
         - name: Interakcja z użytkownikami
           href: durable-functions-phone-verification.md
-- name: Odwołanie
+- name: Dokumentacja
   items:
     - name: Powiązania
       items:
@@ -183,6 +185,8 @@
           href: functions-bindings-storage-blob.md
         - name: Azure Cosmos DB
           href: functions-bindings-cosmosdb.md
+        - name: Event Grid
+          href: functions-bindings-event-grid.md
         - name: Event Hubs
           href: functions-bindings-event-hubs.md
         - name: Plik zewnętrzny

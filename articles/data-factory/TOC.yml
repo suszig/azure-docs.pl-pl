@@ -37,7 +37,7 @@
           href: tutorial-copy-data-tool.md
         - name: Interfejs użytkownika
           href: tutorial-copy-data-portal.md
-        - name: Azure PowerShell
+        - name: .NET
           href: tutorial-copy-data-dot-net.md
     - name: 3 — Kopiowanie danych lokalnych do chmury
       items:
@@ -90,7 +90,7 @@
       items:
         - name: Interfejs użytkownika
           href: tutorial-control-flow-portal.md
-        - name: Azure PowerShell
+        - name: .NET
           href: tutorial-control-flow.md
 - name: Przykłady
   items:
@@ -350,6 +350,8 @@
           href: configure-azure-ssis-integration-runtime-performance.md
         - name: Wywoływanie pakietów SSIS za pomocą działania procedury składowanej
           href: how-to-invoke-ssis-package-stored-procedure-activity.md
+        - name: Harmonogram środowiska Azure SSIS Integration Runtime
+          href: how-to-schedule-azure-ssis-integration-runtime.md
     - name: Tworzenie wyzwalaczy
       items:
         - name: Tworzenie wyzwalacza harmonogramu

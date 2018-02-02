@@ -1,6 +1,6 @@
 - name: Dokumentacja usługi Security Center
   href: index.yml
-- name: Przegląd
+- name: Omówienie
   items:
     - name: Informacje o usłudze Security Center
       href: security-center-intro.md
@@ -146,6 +146,8 @@
           href: security-center-search.md
     - name: Integracja dzienników platformy Azure
       href: security-center-integrating-alerts-with-log-integration.md
+    - name: Eksportowanie danych do rozwiązania SIEM
+      href: security-center-export-data-to-siem.md
     - name: Scenariusze
       items:
         - name: Reagowanie na zdarzenia
@@ -154,7 +156,7 @@
           href: security-center-using-recommendations.md
     - name: Rozwiązywanie problemów
       href: security-center-troubleshooting-guide.md
-- name: Odwołanie
+- name: Dokumentacja
   items:
     - name: Interfejsy API REST
       href: 'https://msdn.microsoft.com/library/mt704034(Azure.100).aspx'

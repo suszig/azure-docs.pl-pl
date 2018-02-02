@@ -2,8 +2,8 @@
   href: index.yml
 - name: Omówienie
   items:
-    - name: Azure Monitor
-      href: monitoring-overview-azure-monitor.md
+    - name: Monitorowanie na platformie Azure
+      href: monitoring-overview.md
 - name: Przewodniki Szybki start
   expanded: true
   items:
@@ -27,8 +27,8 @@
       href: monitoring-partners.md
     - name: Omówienia dodatkowe
       items:
-        - name: Narzędzia do monitorowania na całej platformie Azure
-          href: monitoring-overview.md
+        - name: Azure Monitor
+          href: monitoring-overview-azure-monitor.md
         - name: Metryki
           href: monitoring-overview-metrics.md
         - name: Alerty
@@ -100,7 +100,7 @@
           href: monitoring-autoscale-common-scale-patterns.md
         - name: Automatyczne skalowanie za pomocą metryk niestandardowych
           href: monitoring-autoscale-scale-by-custom-metric.md
-        - name: Automatyczne skalowanie zestawów skalowania maszyn wirtualnych przy użyciu szablonów usługi Resource Manager
+        - name: Automatyczne skalowanie usługi VM Scale Sets przy użyciu szablonów usługi Resource Manager
           href: insights-advanced-autoscale-virtual-machine-scale-sets.md
         - name: Automatyczne skalowanie maszyn w zestawie skalowania maszyn wirtualnych
           href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json

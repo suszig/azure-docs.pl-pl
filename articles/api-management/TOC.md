@@ -42,7 +42,7 @@
 ## Pamięć podręczna
 ### [Dodawanie pamięci podręcznej w celu podniesienia wydajności](api-management-howto-cache.md)
 ## Zabezpieczanie zaplecza
-### [Ochrona zaplecza interfejsu API sieci Web za pomocą usługi AAD](api-management-howto-protect-backend-with-aad.md)
+### [Ochrona zaplecza internetowego interfejsu API za pomocą usługi Azure AD](api-management-howto-protect-backend-with-aad.md)
 ### [Łączenie z siecią wirtualną](api-management-using-with-vnet.md)
 ### [Łączenie z wewnętrzną siecią wirtualną](api-management-using-with-internal-vnet.md)
 ### [Integracja usługi Application Gateway w wewnętrznej sieci wirtualnej](api-management-howto-integrate-internal-vnet-appgateway.md)
@@ -50,8 +50,8 @@
 ## Dostosowywanie środowiska deweloperów
 ### [Modyfikowanie zawartości i układu strony](api-management-modify-content-layout.md)
 ### [Dostosowywanie stron systemowych za pomocą szablonów](api-management-developer-portal-templates.md)
-### [Uwierzytelnianie przy użyciu usługi AAD](api-management-howto-aad.md)
-### [Uwierzytelnianie przy użyciu usługi AAD B2C](api-management-howto-aad-b2c.md)
+### [Authentication with Azure AD (Uwierzytelnianie przy użyciu usługi Azure AD)](api-management-howto-aad.md)
+### [Authentication with Azure AD B2C (Uwierzytelnianie przy użyciu usługi Azure AD B2C)](api-management-howto-aad-b2c.md)
 ### [Uwierzytelnianie delegowane](api-management-howto-setup-delegation.md)
 ### [Powiadomienia e-mail i szablony wiadomości e-mail](api-management-howto-configure-notifications.md)
 ### [Włączanie obsługi uwierzytelniania OAuth w konsoli](api-management-howto-oauth2.md)
@@ -104,7 +104,7 @@
 ## [Wskazówki dotyczące implementowania interfejsów API](https://docs.microsoft.com/azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-management)
-## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=api-management) 
+## [Wideo](https://azure.microsoft.com/documentation/videos/index/?services=api-management) 
 ## [Harmonogram działania](http://aka.ms/apimroadmap)
 ## [Szablon rozwiązania usługi Power BI dla usługi API Management](http://aka.ms/apimpbi)
 ## [Blog](http://aka.ms/apimblog)

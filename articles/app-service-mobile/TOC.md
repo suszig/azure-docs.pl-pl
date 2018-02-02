@@ -2,7 +2,7 @@
 ## [Co to jest usługa Mobile Apps?](app-service-mobile-value-prop.md)
 ## [Plany usługi App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-# Wprowadzenie
+# Rozpoczęcie pracy
 ## Tworzenie aplikacji mobilnych
 ### [Android](app-service-mobile-android-get-started.md)
 ### [Cordova](app-service-mobile-cordova-get-started.md)
@@ -93,14 +93,14 @@
 
 ## Zarządzanie
 ### [Konfigurowanie](../app-service/web-sites-configure.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### Domeny niestandardowe
+### Niestandardowe domeny
 #### [Zakup i konfiguracja domen niestandardowych](../app-service/custom-dns-web-site-buydomains-web-app.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Mapowanie własnej domeny niestandardowej](../app-service/app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Domeny niestandardowe z usługą Traffic Manager](../app-service/web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ### [Klonowanie istniejącej aplikacji](../app-service/app-service-web-app-cloning.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Grupy zasobów](../app-service/app-service-move-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Grupy zasobów](../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json#app-service-limitations)
 #### [Uruchamianie zadań w tle za pomocą usługi WebJobs](../app-service/web-sites-create-web-jobs.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 #### [Konfigurowanie](../app-service/environment/app-service-web-configure-an-app-service-environment.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -109,7 +109,7 @@
 #### [Omówienie architektury sieci](../app-service/environment/app-service-app-service-environment-network-architecture-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Szczegóły konfiguracji sieci przy użyciu usługi ExpressRoute](../app-service/environment/app-service-app-service-environment-network-configuration-expressroute.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-## Migracja
+## Migrate (Migracja)
 ### [Jak wygląda porównanie usługi App Service z usługą Mobile Services?](app-service-mobile-value-prop-migration-from-mobile-services.md)
 ### [Migrowanie istniejącej usługi Mobile Service do usługi App Service](app-service-mobile-migrating-from-mobile-services.md)
 ### Uaktualnianie istniejącej usługi Mobile Service do usługi App Service
@@ -135,7 +135,7 @@
 #### [Implementowanie warstwowej architektury zabezpieczeń](../app-service/environment/app-service-app-service-environment-layered-security.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Bezpieczne nawiązywanie połączenia z zasobami zaplecza](../app-service/environment/app-service-app-service-environment-securely-connecting-to-backend-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-## Tworzenie kopii zapasowych
+## Backup
 ### [Tworzenie kopii zapasowej aplikacji na platformie Azure](../app-service/web-sites-backup.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Przywracanie aplikacji na platformie Azure](../app-service/web-sites-restore.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
@@ -174,7 +174,7 @@
 ## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=mobile-services)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-mobile-services)
-## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=mobile-services)
+## [Wideo](https://azure.microsoft.com/documentation/videos/index/?services=mobile-services)
 ## Przykłady
 ### [Field Engineer](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-fieldengineer/)
 ### [Synchronizacja danych strukturalnych](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-todo-list-files/)

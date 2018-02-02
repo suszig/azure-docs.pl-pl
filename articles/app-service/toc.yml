@@ -41,6 +41,8 @@
           href: app-service-web-tutorial-nodejs-mongodb-app.md
         - name: Java z bazą danych MySQL
           href: app-service-web-tutorial-java-mysql.md
+        - name: Python z bazą danych PostgreSQL
+          href: app-service-web-tutorial-python-postgresql.md
     - name: 1 — Tworzenie interfejsu API RESTful
       href: app-service-web-tutorial-rest-api.md
     - name: 2 — Mapowanie domeny niestandardowej
