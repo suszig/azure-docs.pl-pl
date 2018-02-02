@@ -62,25 +62,7 @@
         - name: Zabezpieczanie aplikacji logiki
           href: logic-apps-securing-a-logic-app.md
         - name: Opracowywanie łączników niestandardowych
-          items:
-            - name: Omówienie łączników niestandardowych
-              href: custom-connector-overview.md
-            - name: Tworzenie łączników z interfejsów API sieci Web
-              href: custom-connector-build-web-api-app-tutorial.md
-            - name: Bezpieczne łączniki z usługą Azure AD
-              href: custom-connector-azure-active-directory-authentication.md
-            - name: Opisywanie interfejsów API za pomocą narzędzia Postman
-              href: custom-connector-api-postman-collection.md
-            - name: Rozszerzanie interfejsu OpenAPI dla łączników niestandardowych
-              href: custom-connector-openapi-extensions.md
-            - name: Tworzenie i rejestrowanie łącznika interfejsu OpenAPI
-              href: logic-apps-custom-connector-register.md
-            - name: Tworzenie i rejestrowanie łącznika protokołu SOAP
-              href: logic-apps-soap-connector-create-register.md
-            - name: Certyfikowanie łącznika
-              href: custom-connector-submit-certification.md
-            - name: Często zadawane pytania dotyczące łączników niestandardowych
-              href: custom-connector-faq.md
+          href: custom-connector-overview.md
         - name: Opracowywanie niestandardowych interfejsów API
           items:
             - name: Tworzenie niestandardowych interfejsów API dla aplikacji logiki
@@ -140,6 +122,8 @@
           href: logic-apps-enterprise-integration-transform.md
         - name: Dodawanie map na potrzeby przekształceń danych XML
           href: logic-apps-enterprise-integration-maps.md
+        - name: Przekształcanie kodu JSON
+          href: logic-apps-enterprise-integration-liquid-transform.md
         - name: Dodawanie certyfikatów zabezpieczeń
           href: logic-apps-enterprise-integration-certificates.md
         - name: Rozwiązywanie problemów z błędami B2B

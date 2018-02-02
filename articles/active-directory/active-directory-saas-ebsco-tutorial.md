@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2018
+ms.date: 01/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 385d3aa356e6f4ec313790321b5b926810a06394
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 150609a7bf326c243b1a0b5f10bfcfe9a426c2de
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ebsco"></a>Samouczek: Integracji Azure Active Directory z EBSCO
 
@@ -80,13 +80,11 @@ W tej sekcji skonfigurować i przetestować usługi Azure AD rejestracji jednokr
 
 Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w EBSCO jest dla użytkownika, w usłudze Azure AD. Innymi słowy link relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w EBSCO musi się.
 
-W EBSCO, należy przypisać wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** do ustanawiania relacji łącza.
-
 Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z EBSCO, należy wykonać poniższe bloki konstrukcyjne:
 
 1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configure-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
 2. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego EBSCO](#create-a-ebsco-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta EBSCO połączonego z usługi Azure AD reprezentację użytkownika.
+3. **[Tworzenie użytkownika testowego EBSCO](#create-an-ebsco-test-user)**  — można zautomatyzować EBSCOhost udostępniania/Personalizacja użytkowników. EBSCO obsługuje Just In Time Inicjowanie obsługi użytkowników.
 4. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
 5. **[Test rejestracji jednokrotnej](#test-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
 
@@ -128,6 +126,9 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 5. Aplikacja EBSCO oczekuje potwierdzenia języka SAML w określonym formacie. Skonfiguruj następujące oświadczeń dla tej aplikacji. Możesz zarządzać wartości tych atrybutów z "**atrybuty użytkownika**" sekcji na stronie integracji aplikacji. Poniższy zrzut ekranu przedstawia przykład tego.
     
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_attribute.png)
+
+    > [!Note]
+    > **Nazwa** atrybut jest obowiązkowy i jest zamapowana z **identyfikator użytkownika** w EBSCO aplikacji. To jest domyślnie dodawany dzięki czemu nie trzeba Dodaj ją ręcznie.
     
 6. W **atrybuty użytkownika** sekcji na **logowanie jednokrotne** okna dialogowego, skonfiguruj atrybut tokenu SAML, jak pokazano na ilustracji powyżej i wykonaj następujące czynności:
     
@@ -145,7 +146,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
     
     b. W **nazwa** tekstowym, wpisz nazwę atrybut wyświetlany dla danego wiersza.
     
-    d. Z **wartość** listy, wpisz wartość atrybutu wyświetlany dla danego wiersza.
+    c. Z **wartość** listy, wpisz wartość atrybutu wyświetlany dla danego wiersza.
     
     d. Kliknij przycisk **Ok**
 
@@ -190,28 +191,20 @@ Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie 
 
     b. W **nazwy użytkownika** wpisz adres e-mail użytkownika Simona Britta.
 
-    d. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartość, która jest wyświetlana w **hasło** pole.
+    c. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartość, która jest wyświetlana w **hasło** pole.
 
     d. Kliknij przycisk **Utwórz**.
  
 ### <a name="create-an-ebsco-test-user"></a>Tworzenie użytkownika testowego EBSCO
 
-Celem tej sekcji jest utworzenie użytkownika o nazwie Simona Britta w EBSCO.
-
-W przypadku EBSCO, inicjowanie obsługi użytkowników jest automatyczne, ale należy wykonać następujące czynności podczas logowania do aplikacji po raz pierwszy.
+W przypadku EBSCO Inicjowanie obsługi użytkowników odbywa się automatycznie.
 
 **Aby udostępnić konta użytkownika, wykonaj następujące czynności:**
 
-1. Po zalogować się do aplikacji, kliknij na **"Zaloguj"** przycisk w prawym górnym rogu.
+Usługi Azure AD przekazuje wymagane dane do aplikacji EBSCO. Inicjowanie obsługi użytkowników w EBSCO można automatyczne lub wymagają jednorazowe formularza. To zależy od tego, czy klient ma wiele istniejące konta EBSCOhost z zapisane ustawienia osobiste. Taki sam zostać omówione z [EBSCO obsługuje zespołu](mailto:sso@ebsco.com) w trakcie realizacji. W obu przypadkach klient nie trzeba tworzyć kont EBSCOhost przed testowania.
 
-    ![Rejestrowanie EBSCO na liście aplikacji](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_signin.png)
- 
-2. Zostanie wyświetlony monit o jednorazowy pary nazwa instytucjonalnych/SAML logowania z **teraz Połącz z istniejącym kontem MyEBSCOhost ze swoim kontem instytucji** lub **Utwórz nowe konto MyEBSCOhost i połączenie jej z sieci Konto instytucji**. Konto jest używane na potrzeby personalizacji EBSCOhost aplikacji. Wybierz opcję **Utwórz nowe konto** i zostanie wyświetlony formularz na potrzeby personalizacji jest wstępnie wypełniony wartościami z odpowiedzi saml, jak pokazano na poniższym zrzucie ekranu. Kliknij przycisk **'Kontynuuj'** można zapisać tego zaznaczenia.
-    
-     ![Użytkownik EBSCO na liście aplikacji](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_user.png)
-
-3. Po zakończeniu instalacji powyższych wyczyścić pamięci podręcznej na pliki cookie/i zaloguj się ponownie. Nie trzeba ręcznie zarejestrować ponownie i są zapamiętywane ustawienia personalizacji 
-
+   >[!Note]
+   >Można zautomatyzować EBSCOhost udostępniania/Personalizacja użytkowników. Skontaktuj się z [EBSCO obsługuje zespołu](mailto:sso@ebsco.com) o Just In Time Inicjowanie obsługi użytkowników. 
  
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisz użytkownika testowego usługi Azure AD
 
@@ -247,8 +240,18 @@ W tej sekcji można włączyć Simona Britta do używania Azure logowania jednok
 
 W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.
 
-Po kliknięciu kafelka EBSCO w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do aplikacji EBSCO.
-Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md). 
+1. Po kliknięciu kafelka EBSCO w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do aplikacji EBSCO.
+Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md).
+
+2. Po zalogować się do aplikacji, kliknij na **Zaloguj** przycisk w prawym górnym rogu.
+
+    ![Rejestrowanie EBSCO na liście aplikacji](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_signin.png)
+ 
+3. Zostanie wyświetlony monit o jednorazowy pary nazwa instytucjonalnych/SAML logowania z **teraz Połącz z istniejącym kontem MyEBSCOhost ze swoim kontem instytucji** lub **Utwórz nowe konto MyEBSCOhost i połączenie jej z sieci Konto instytucji**. Konto jest używane na potrzeby personalizacji EBSCOhost aplikacji. Wybierz opcję **Utwórz nowe konto** i zostanie wyświetlony formularz na potrzeby personalizacji jest wstępnie wypełniony wartościami z odpowiedzi saml, jak pokazano na poniższym zrzucie ekranu. Kliknij przycisk **'Kontynuuj'** można zapisać tego zaznaczenia.
+    
+     ![Użytkownik EBSCO na liście aplikacji](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_user.png)
+
+4. Po zakończeniu instalacji powyższych wyczyścić pamięci podręcznej na pliki cookie/i zaloguj się ponownie. Nie trzeba ręcznie zarejestrować ponownie i są zapamiętywane ustawienia personalizacji
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 

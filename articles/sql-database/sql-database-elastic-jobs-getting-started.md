@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: ddove
-ms.openlocfilehash: d985008bf4aa6710f3aae89f13fc7e36ac0c176b
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: c5fe5256d4a8b8479f5e4aff95ec03fc1ba1018a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Wprowadzenie zadania elastycznej bazy danych
-Baza danych zadania elastyczne (wersja zapoznawcza) w bazie danych SQL Azure pozwala na niezawodność wykonywanie skryptów T-SQL, obejmującej wiele baz danych podczas Automatyczne ponawianie próby i zapewnienia gwarancji ostatecznego zakończenia. Aby uzyskać więcej informacji na temat funkcji zadania elastycznej bazy danych, zobacz [zadania elastyczne](sql-database-elastic-jobs-overview.md).
+Baza danych zadania elastyczne (wersja zapoznawcza) w bazie danych SQL Azure umożliwia niezawodnie wykonywanie skryptów T-SQL, obejmującej wiele baz danych podczas Automatyczne ponawianie próby i zapewnienia gwarancji ostatecznego zakończenia. Aby uzyskać więcej informacji na temat funkcji zadania elastycznej bazy danych, zobacz [zadania elastyczne](sql-database-elastic-jobs-overview.md).
 
 W tym artykule rozszerza próbki w [wprowadzenie do korzystania z narzędzi elastycznej bazy danych](sql-database-elastic-scale-get-started.md). Po zakończeniu zostanie przedstawiony sposób tworzenia i zarządzania zadaniami, które zarządzają grupy powiązanych baz danych. Nie jest to wymagane, aby można było skorzystać z zalet elastycznej zadań za pomocą narzędzi elastycznego skalowania.
 
@@ -226,7 +226,7 @@ Poniższy skrypt programu PowerShell może służyć do wyświetlania szczegół
    ```
 
 ## <a name="retrieve-failures-within-job-task-executions"></a>Pobrać błędów w ramach zadania wykonania zadania
-Obiekt JobTaskExecution zawiera właściwość dla cyklu życia zadania wraz z właściwością wiadomości. Jeżeli wykonanie zadania zadania nie powiodło się, ma ustawioną właściwość cyklu życia *niepowodzenie* i właściwości wiadomości ustawiono Wynikowy komunikat o wyjątku i jego stosu. Jeśli zadanie nie powiodło się, jest ważne wyświetlić szczegóły zadania, których nie powiodła się dla danego zadania.
+Obiekt JobTaskExecution zawiera właściwość dla cyklu życia zadania wraz z właściwością wiadomości. Jeżeli wykonanie zadania zadania *nie powiodło się*, ma ustawioną właściwość cyklu życia i właściwości wiadomości ustawiono Wynikowy komunikat o wyjątku i jego stosu. Jeśli zadanie nie powiodło się, jest ważne wyświetlić szczegóły zadania, których nie powiodła się dla danego zadania.
 
    ```
     $jobExecutionId = "{Job Execution Id}"
@@ -448,7 +448,7 @@ Usuń wyzwalacz zadania zatrzymania zadania z wykonywana zgodnie z harmonogramem
 ## <a name="import-elastic-database-query-results-to-excel"></a>Importuj wyniki zapytania elastycznej bazy danych do programu Excel
  Możesz zaimportować wyników zapytania do pliku programu Excel.
 
-1. Uruchom program Excel 2013.
+1. Launch Excel 2013.
 2. Przejdź do **danych** wstążki.
 3. Kliknij przycisk **z innych źródeł** i kliknij przycisk **z programu SQL Server**.
 
@@ -461,7 +461,7 @@ Usuń wyzwalacz zadania zatrzymania zadania z wykonywana zgodnie z harmonogramem
 
 Wszystkie wiersze z **klientów** tabeli, przechowywane w różnych odłamków wypełnić arkuszu programu Excel.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Możesz teraz użyć funkcji danych programu Excel. Umożliwiają parametry połączenia z nazwą serwera, nazwa bazy danych i poświadczeń nawiązanie narzędzi integracji danych i BI kwerendy elastycznej bazy danych. Upewnij się, czy program SQL Server jest obsługiwana jako źródło danych dla własnych narzędzi. Zobacz kwerendy elastycznej bazy danych i tabele zewnętrzne, podobnie jak wszystkie inne bazy danych programu SQL Server i tabel programu SQL Server, które można połączyć się z narzędziem.
 
 ### <a name="cost"></a>Koszty

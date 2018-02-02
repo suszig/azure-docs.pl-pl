@@ -1,4 +1,4 @@
-# Przegląd
+# Omówienie
 ## [Co to jest usługa Resource Manager?](resource-group-overview.md)
 ## [Dostawcy zasobów i ich typy](resource-manager-supported-services.md)
 ## [Wdrażanie za pomocą usługi Resource Manager i klasyczne](resource-manager-deployment-model.md)
@@ -20,8 +20,6 @@
 ### [Definiowanie zależności między zasobami](resource-group-define-dependencies.md)
 ### [Tworzenie wielu wystąpień](resource-group-create-multiple.md)
 ### [Aktualizowanie zasobu](/azure/architecture/building-blocks/extending-templates/update-resource)
-### [Wzorce projektowania szablonów](best-practices-resource-manager-design-templates.md)
-
 
 ## Wdrażanie
 ### Azure PowerShell
@@ -80,7 +78,7 @@
 #### [Problemy z wdrażaniem w systemie Windows](../virtual-machines/windows/troubleshoot-deploy-vm.md)
 ### [Understand deployment errors (Informacje o błędach wdrażania)](resource-manager-troubleshoot-tips.md)
 
-# Odwołanie
+# Dokumentacja
 ## [Format szablonu](/azure/templates/)
 ## [Funkcje szablonów](resource-group-template-functions.md)
 ### [Funkcje tablicy i obiektów](resource-group-template-functions-array.md)

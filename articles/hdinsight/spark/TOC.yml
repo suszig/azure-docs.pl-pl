@@ -84,10 +84,14 @@
       items:
         - name: Używanie z usługą Data Lake Store
           href: apache-spark-use-with-data-lake-store.md
+        - name: Łączenie z usługą Azure SQL Database
+          href: apache-spark-connect-to-sql-database.md
     - name: Przesyłanie strumieniowe w usłudze Spark
       items:
         - name: Omówienie
           href: apache-spark-streaming-overview.md
+        - name: Tworzenie zadań przesyłania strumieniowego platformy Spark o wysokiej dostępności na platformie YARN
+          href: apache-spark-streaming-high-availability.md
         - name: Zdarzenia przesyłania strumieniowego procesu
           href: apache-spark-eventhub-streaming.md
         - name: Przesyłanie strumieniowe ze strukturą za pomocą usługi Event Hubs
@@ -101,6 +105,8 @@
         - name: Przesyłanie strumieniowe w usłudze Spark (DStream) za pomocą usługi Kafka
           href: ../hdinsight-apache-spark-with-kafka.md
           maintainContext: true
+        - name: Tworzenie zadań przesyłania strumieniowego platformy Spark z dokładnie jednokrotnym przetwarzaniem zdarzeń
+          href: apache-spark-streaming-exactly-once.md
     - name: Usługa Spark i uczenie maszynowe
       items:
         - name: Przewidywanie wydajności systemu HVAC
@@ -198,6 +204,8 @@
           maintainContext: true
     - name: Zarządzanie
       items:
+        - name: Konfigurowanie ustawień platformy Spark
+          href: apache-spark-settings.md
         - name: Optymalizowanie zadań platformy Spark
           href: apache-spark-perf.md
         - name: Planowanie pojemności klastra

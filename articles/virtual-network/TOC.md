@@ -15,7 +15,9 @@
 ### [Listy kontroli dostępu](virtual-networks-acl.md)
 
 # Rozpoczęcie pracy
-## [Tworzenie pierwszej sieci wirtualnej](virtual-network-get-started-vnet-subnet.md)
+## [Create virtual network - Portal (Tworzenie sieci wirtualnej przy użyciu witryny Portal)](quick-create-portal.md)
+## [Create virtual network - PowerShell (Tworzenie sieci wirtualnej przy użyciu programu PowerShell)](quick-create-powershell.md)
+## [Create virtual network - Azure CLI (Tworzenie sieci wirtualnej przy użyciu interfejsu wiersza polecenia platformy Azure)](quick-create-cli.md)
 
 # Instrukcje
 ## Planowanie i projektowanie
