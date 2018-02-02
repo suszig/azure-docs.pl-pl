@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/09/2017
+ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: 335928776e1e62caf2855cd5a5684ccaf37f73cd
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: a9a062ebb8d6e3b37d917064209eda618d0dd308
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="device-to-cloud-communications-guidance"></a>Wskazówki dotyczące komunikacji urządzenia do chmury
 Podczas wysyłania informacji z aplikacji urządzenia zaplecza rozwiązania, Centrum IoT udostępnia trzy opcje:
@@ -34,10 +34,10 @@ Oto szczegółowe porównanie różnych opcji komunikacji urządzenia do chmury.
 | Scenariusz | Dane telemetryczne szeregów czasowych i alerty. Na przykład partii danych czujnika 256 KB wysyłane co 5 minut. | Dostępne możliwości i warunki. Na przykład bieżącego urządzenia tryb łączności przykład sieci komórkowej lub Wi-Fi. Synchronizowanie długotrwałe przepływów pracy, takich jak aktualizacje oprogramowania i konfiguracji oprogramowania. | Pliki multimedialne. Partie dużych telemetrii (zazwyczaj skompresowane). |
 | Przechowywanie i pobieranie | Tymczasowo przechowywane przez Centrum IoT maksymalnie 7 dni. Tylko sekwencyjnego odczytu. | Przechowywane przez Centrum IoT w dwie urządzenia. Pobieranie przy użyciu [język zapytań Centrum IoT][lnk-query]. | Przechowywane na koncie usługi Magazyn Azure dostarczane przez użytkownika. |
 | Rozmiar | Maksymalnie 256 KB wiadomości. | Rozmiar maksymalny zgłoszone właściwości jest 8 KB. | Maksymalny rozmiar obsługiwany przez magazyn obiektów Blob Azure. |
-| częstotliwość | Wysoki. Aby uzyskać więcej informacji, zobacz [ogranicza Centrum IoT][lnk-quotas]. | Średnia liczba godzin. Aby uzyskać więcej informacji, zobacz [ogranicza Centrum IoT][lnk-quotas]. | Niski. Aby uzyskać więcej informacji, zobacz [ogranicza Centrum IoT][lnk-quotas]. |
+| Częstotliwość | Wysoka. Aby uzyskać więcej informacji, zobacz [ogranicza Centrum IoT][lnk-quotas]. | Średnia. Aby uzyskać więcej informacji, zobacz [ogranicza Centrum IoT][lnk-quotas]. | Niski. Aby uzyskać więcej informacji, zobacz [ogranicza Centrum IoT][lnk-quotas]. |
 | Protokół | Dostępna dla wszystkich protokołów. | Dostępne przy użyciu MQTT lub AMQP. | Dostępne, gdy przy użyciu protokołów, ale wymaga protokołu HTTPS na urządzeniu. |
 
-Istnieje możliwość, że aplikacja wymaga aby zarówno wysyłać informacje jako szeregów czasowych telemetrii lub alert, a także aby udostępnić ją w dwie urządzenia. W tym scenariuszu można wybrać jedną z następujących opcji:
+Aplikacja może być konieczne wysyłanie informacji zarówno jako szeregów czasowych telemetrii lub alertu i udostępnić go w dwie urządzenia. W tym scenariuszu można wybrać jedną z następujących opcji:
 
 * Aplikacja urządzenie wysyła komunikat urządzenia do chmury i raporty zmiany właściwości.
 * Zaplecze rozwiązania może przechowywać informacje w znacznikach dwie urządzenia po odebraniu wiadomości.

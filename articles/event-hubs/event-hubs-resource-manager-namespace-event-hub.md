@@ -12,19 +12,19 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 10/09/2017
+ms.date: 01/30/2018
 ms.author: sethm;shvija
-ms.openlocfilehash: 4cc9a0b9eaabb15a5a316e094deb178ef2219692
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 16fafd8f786f86dfbe701a8d4a61ad6b261b1590
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-an-event-hubs-namespace-with-event-hub-and-consumer-group-using-an-azure-resource-manager-template"></a>Tworzenie przestrzeni nazw usługi Event Hubs z grupy koncentratora i odbiorców zdarzeń przy użyciu szablonu usługi Azure Resource Manager
 
-W tym artykule pokazano, jak użyć szablonu usługi Azure Resource Manager, który tworzy przestrzeni nazw typu usługi Event Hubs przy użyciu koncentratora jedno zdarzenie i jedna grupa odbiorców. Artykuł przedstawia sposób do definiowania zasobów, do których są wdrażane i sposób definiowania parametrów, które są określone, gdy wdrożenie jest wykonywane. Można użyć tego szablonu na potrzeby własnych wdrożeń lub dostosować go do konkretnych potrzeb.
+W tym artykule pokazano, jak szablon Menedżera zasobów Azure umożliwia tworzenie przestrzeni nazw typu [usługi Event Hubs](event-hubs-what-is-event-hubs.md)— ze sprzętem i Centrum zdarzeń jednej grupie użytkowników. Artykuł przedstawia sposób do definiowania zasobów, do których są wdrażane i sposób definiowania parametrów, które są określone, gdy wdrożenie jest wykonywane. Można użyć tego szablonu na potrzeby własnych wdrożeń lub dostosować go do konkretnych potrzeb.
 
-Aby uzyskać więcej informacji na temat tworzenia szablonów, zobacz [Tworzenie szablonów usługi Azure Resource Manager][Authoring Azure Resource Manager templates].
+Aby uzyskać informacje dotyczące tworzenia szablonów, zobacz [szablonów Authoring Azure Resource Manager][Authoring Azure Resource Manager templates].
 
 Zakończenie szablonu, zobacz [szablonu zdarzenia koncentratora i konsumentów grupy] [ Event Hub and consumer group template] w witrynie GitHub.
 
@@ -34,20 +34,21 @@ Zakończenie szablonu, zobacz [szablonu zdarzenia koncentratora i konsumentów g
 > 
 
 ## <a name="what-will-you-deploy"></a>Co chcesz wdrożyć?
-W przypadku tego szablonu zostanie wdrożona do przestrzeni nazw usługi Event Hubs z Centrum zdarzeń i grupy odbiorców.
 
-[Event Hubs](event-hubs-what-is-event-hubs.md) to usługa służąca do przetwarzania zdarzeń, która dostarcza zdarzenia i dane telemetryczne do platformy Azure w bardzo dużej skali, z małymi opóźnieniami i wysoką niezawodnością.
+W przypadku tego szablonu można wdrożyć do przestrzeni nazw usługi Event Hubs z Centrum zdarzeń i grupy odbiorców.
 
 Aby automatycznie uruchomić wdrożenie, kliknij poniższy przycisk:
 
 [![Wdrażanie na platformie Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Parametry
-Przy użyciu usługi Azure Resource Manager można zdefiniować parametry dla wartości, które mają zostać uwzględnione podczas wdrażania szablonu. Szablon zawiera sekcję o nazwie `Parameters` obejmującą wszystkie wartości parametrów. Należy zdefiniować parametr dla tych wartości, które będą się różnić na podstawie projektu, który jest wdrażany lub opartych na środowisku, w której wdrażasz. Nie należy definiować parametrów dla wartości, które pozostają niezmienione. Każda wartość parametru szablonu określa zasoby, które zostały wdrożone.
+
+Przy użyciu usługi Azure Resource Manager można zdefiniować parametry dla wartości, które mają zostać uwzględnione podczas wdrażania szablonu. Szablon zawiera sekcję o nazwie `Parameters` obejmującą wszystkie wartości parametrów. Należy zdefiniować parametr dla wartości, które będą się różnić na podstawie projektu, który jest wdrażany lub opartych na środowisku, w której wdrażasz. Nie należy definiować parametrów dla wartości, które pozostają niezmienione. Każda wartość parametru szablonu określa zasoby, które zostały wdrożone.
 
 Szablon definiuje następujące parametry:
 
 ### <a name="eventhubnamespacename"></a>eventHubNamespaceName
+
 Nazwa tworzonej przestrzeni nazw usługi Event Hubs.
 
 ```json
@@ -57,6 +58,7 @@ Nazwa tworzonej przestrzeni nazw usługi Event Hubs.
 ```
 
 ### <a name="eventhubname"></a>eventHubName
+
 Nazwa centrum zdarzeń utworzonego w przestrzeni nazw usługi Event Hubs.
 
 ```json
@@ -66,6 +68,7 @@ Nazwa centrum zdarzeń utworzonego w przestrzeni nazw usługi Event Hubs.
 ```
 
 ### <a name="eventhubconsumergroupname"></a>eventHubConsumerGroupName
+
 Nazwa grupy odbiorców utworzone dla Centrum zdarzeń.
 
 ```json
@@ -75,6 +78,7 @@ Nazwa grupy odbiorców utworzone dla Centrum zdarzeń.
 ```
 
 ### <a name="apiversion"></a>apiVersion
+
 Wersja interfejsu API szablonu.
 
 ```json
@@ -84,7 +88,8 @@ Wersja interfejsu API szablonu.
 ```
 
 ## <a name="resources-to-deploy"></a>Zasoby wymagające wdrożenia
-Tworzy nazw typu **EventHubs**, z Centrum zdarzeń i grupy odbiorców.
+
+Tworzy nazw typu **EventHubs**, z Centrum zdarzeń i grupy odbiorców:
 
 ```json
 "resources":[  
@@ -128,21 +133,25 @@ Tworzy nazw typu **EventHubs**, z Centrum zdarzeń i grupy odbiorców.
 ```
 
 ## <a name="commands-to-run-deployment"></a>Polecenia umożliwiające uruchomienie wdrożenia
+
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ## <a name="powershell"></a>PowerShell
+
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json
 ```
 
 ## <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
-```azurecli
+
+```azurecli-interactive
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json][]
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
+
 Następujące linki pozwalają dowiedzieć się więcej na temat usługi Event Hubs:
 
 * [Omówienie usługi Event Hubs](event-hubs-what-is-event-hubs.md)

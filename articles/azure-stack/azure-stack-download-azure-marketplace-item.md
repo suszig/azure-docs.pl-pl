@@ -3,8 +3,8 @@ title: "Pobieranie elementów marketplace z platformy Azure | Dokumentacja firmy
 description: "Można pobrać elementów marketplace z platformy Azure do mojego wdrożenia stosu Azure."
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -12,23 +12,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/30/2017
-ms.author: erikje
-ms.openlocfilehash: 33b7be4a85723ab03e4c656a8dd28632ad854e29
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.date: 01/30/2018
+ms.author: brenduns
+ms.openlocfilehash: 58f8287e5675e1134cb2fcceef9a9128ef97207c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Pobieranie elementów marketplace z platformy Azure do stosu Azure
 
 *Dotyczy: Azure stosu zintegrowanych systemów i Azure stosu Development Kit*
 
+
 Jak zdecydujesz zawartość do uwzględnienia w Twojej stosu Azure marketplace, należy wziąć pod uwagę zawartości z portalu Azure marketplace. Możesz pobrać wyselekcjonowanych listy elementów witrynę Azure marketplace, które zostały przetestowane na stosie Azure. Nowe elementy często są dodawane do tej listy, dlatego upewnij się, że sprawdzanie dostępności nową zawartość.
 
 ## <a name="download-marketplace-items-in-a-connected-scenario-with-internet-connectivity"></a>Pobieranie elementów marketplace w przypadku połączonych (z połączeniem internetowym)
 
-1. Aby pobrać elementów portalu marketplace, należy najpierw [zarejestrować stosu Azure w usłudze Azure](azure-stack-register.md). 
+1. Aby pobrać elementów portalu marketplace, należy najpierw [zarejestrować stosu Azure w usłudze Azure](azure-stack-register.md).
 2. Zaloguj się do portalu administratora platformy Azure stosu (https://portal.local.azurestack.external).
 3. Niektóre elementy marketplace mogą być duże. Upewnij się, że masz wystarczającą ilość miejsca w systemie, klikając **dostawców zasobów** > **magazynu**.
 
@@ -51,7 +52,7 @@ Jak zdecydujesz zawartość do uwzględnienia w Twojej stosu Azure marketplace, 
 
 ## <a name="download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity"></a>Pobieranie elementów marketplace w odłączone lub częściowo połączonego scenariusza (ograniczone z łącznością z Internetem)
 
-Podczas wdrażania usługi Azure stosu w trybie rozłączonym (bez żadnych łączności z Internetem), nie można pobrać elementów marketplace przy użyciu portalu Azure stosu. Jednak można pobrać elementów marketplace na komputerze, na którym ma połączenie z Internetem za pomocą narzędzia zespolonego marketplace i przesyła je do środowiska Azure stosu. 
+Podczas wdrażania usługi Azure stosu w trybie rozłączonym (bez żadnych łączności z Internetem), nie można pobrać elementów marketplace przy użyciu portalu Azure stosu. Jednak można pobrać elementów marketplace na komputerze, na którym ma połączenie z Internetem za pomocą narzędzia zespolonego marketplace i przesyła je do środowiska Azure stosu.
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 Przed użyciem narzędzia zespolonego marketplace, upewnij się, że masz [zarejestrowany stosu Azure w ramach subskrypcji Azure](azure-stack-register.md).  
@@ -132,12 +133,12 @@ Na komputerze, który ma łączność z Internetem wykonaj następujące kroki, 
     -Version "2017.09.25" `
     -OsDiskLocalPath "C:\AzureStack-Tools-master\Syndication\Microsoft.WindowsServer2016DatacenterServerCore-ARM-Eval.2017.09.25.vhd" `
     -CreateGalleryItem $False `
-    -Location Local 
+    -Location Local
    ```
 
 4. Użyj portalu można przekazać elementu z witryny Marketplace (. Azpkg) do magazynu obiektów Blob platformy Azure stosu. Można przekazać do lokalnego magazynu Azure stosu lub Przekaż do magazynu Azure. (Jest tymczasowej lokalizacji pakietu). Upewnij się, że obiekt blob jest publicznie i Zanotuj identyfikator URI.  
 
-5. Publikowanie elementu portalu marketplace stos Azure przy użyciu **AzureRMGalleryItem Dodaj**. Na przykład:
+5. Publikowanie elementu portalu marketplace stos Azure przy użyciu **AzsGalleryItem Dodaj**. Na przykład:
 
    ```powershell
    Add-AzsGalleryItem `
@@ -149,6 +150,6 @@ Na komputerze, który ma łączność z Internetem wykonaj następujące kroki, 
 
    ![Portal Marketplace](./media/azure-stack-download-azure-marketplace-item/image06.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Tworzenie i publikowanie elementu portalu Marketplace](azure-stack-create-and-publish-marketplace-item.md)

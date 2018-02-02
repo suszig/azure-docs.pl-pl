@@ -5,15 +5,15 @@ services: azure-stack
 author: jeffgilb
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: 
-ms.openlocfilehash: ae59ae74dd6dfe29a077ed5943eb1a16e561078a
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: e368109adc7db4c589ac37b28c4891cb3ec5346f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure stosu integracji datacenter — publikować punkty końcowe
 
@@ -46,11 +46,13 @@ Wewnętrzna infrastruktura adresy VIP nie są wyświetlane, ponieważ nie są on
 |Graph|Graph.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Listy odwołania certyfikatów|Crl.*&lt;region>.&lt;fqdn>*|HTTP|80|
 |DNS|&#42;.*&lt;region>.&lt;fqdn>*|TCP I UDP|53|
-|Magazyn kluczy (użytkownika)|*.vault.*&lt;region>.&lt;fqdn>*|TCP|443|
-|Magazyn kluczy (administrator)|&#42;.adminvault.*&lt;region>.&lt;fqdn>*|TCP|443|
+|Magazyn kluczy (użytkownika)|&#42;.vault.*&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Magazyn kluczy (administrator)|&#42;.adminvault.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Kolejka magazynu|&#42;.queue.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |Tabela magazynu|&#42;.table.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |Obiektu Blob magazynu|&#42;.blob.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
+|Dostawca zasobów SQL|sqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
+|Dostawca zasobów MySQL|mysqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304
 
 ## <a name="ports-and-urls-outbound"></a>Porty i adresy URL (wychodzące)
 
@@ -67,4 +69,4 @@ Stos Azure obsługuje tylko serwery przezroczystego obiektu pośredniczącego. W
 
 
 ## <a name="next-steps"></a>Kolejne kroki
-[Integracja Azure datacenter stosu - zabezpieczeń](azure-stack-integrate-security.md)
+[Wymagania dotyczące usługi Azure stosu infrastruktury kluczy publicznych](azure-stack-pki-certs.md)

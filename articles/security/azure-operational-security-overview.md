@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: dba643f5c8e926bee1c5d13e71f785e5cc72a2dc
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f656edee1460ce2bb17a582ca240e3bb4089b708
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-operational-security-overview"></a>Omówienie usługi Azure operational zabezpieczeń
 Azure bezpieczeństwa operacyjnego odwołuje się do usług, formanty i funkcje dostępne dla użytkowników do ochrony danych, aplikacji i innych zasobów na platformie Microsoft Azure. [Azure bezpieczeństwa operacyjnego](https://docs.microsoft.com/azure/security/azure-operational-security) jest platforma, która zawiera informacje o wiedzy uzyskane przy użyciu różnych funkcji, które są unikatowe dla firmy Microsoft, w tym Microsoft Security Development Lifecycle (SDL), program Microsoft Security Response Center i głębokie świadomości bezpieczeństwa przez zagrożeń.
@@ -52,11 +52,11 @@ Usługa [Log Analytics](http://azure.microsoft.com/documentation/services/log-an
 ### <a name="automation"></a>Automatyzacja
 Microsoft [usługi Automatyzacja Azure](https://docs.microsoft.com/azure/automation/automation-intro) umożliwia użytkownikom Automatyzowanie ręcznego, długotrwałą podatne na błędy i często powtarzanych zadań, które są często wykonywane w środowisku cloud i enterprise. Można dzięki niej zaoszczędzić czas i zwiększyć niezawodność regularnie wykonywanych zadań administracyjnych, a nawet zaplanować ich wykonywanie w regularnych odstępach czasu. Można automatyzować procesy za pomocą elementów Runbook lub automatyzować zarządzanie konfiguracją za pomocą konfiguracji żądanego stanu.
 
-### <a name="backup"></a>Tworzenie kopii zapasowych
+### <a name="backup"></a>Backup
 [Kopia zapasowa Azure](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup) jest — usługa Azure umożliwia tworzenie kopii zapasowej (lub ochrona) i przywracanie danych w chmurze firmy Microsoft. Usługa Azure Backup pozwala zastąpić dotychczasowe rozwiązania tworzenia kopii zapasowych, istniejące lokalnie lub poza siedzibą firmy, rozwiązaniem opartym na chmurze, które jest niezawodne, bezpieczne i konkurencyjne cenowo. Usługa Azure Backup oferuje wiele składników, które możesz pobrać i wdrożyć na odpowiednim komputerze, serwerze lub w chmurze. Wdrażany składnik lub agent zależy od tego, co ma być chronione. Wszystkie składniki usługi Azure Backup (niezależnie od tego, czy dane są chronione lokalnie, czy w chmurze) mogą służyć do tworzenia kopii zapasowych danych w magazynie usługi Recovery Services na platformie Azure. Zobacz [tabeli składników usługi Kopia zapasowa Azure](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup#which-azure-backup-components-should-i-use).
 
 ### <a name="site-recovery"></a>Usługa Site recovery
-Usługa [Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery) umożliwia zachowanie ciągłości działania przez organizowanie replikacji lokalnych maszyn wirtualnych i fizycznych do platformy Azure lub lokacji dodatkowej. Jeśli lokacja podstawowa jest niedostępna, możesz przejść w tryb failover do lokalizacji dodatkowej, aby użytkownicy mogli kontynuować pracę, i wrócić po awarii, gdy systemy wznowią działanie. wykrywanie zagrożeń inteligentnego i skuteczne.
+Usługa [Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery) umożliwia zachowanie ciągłości działania przez organizowanie replikacji lokalnych maszyn wirtualnych i fizycznych do platformy Azure lub lokacji dodatkowej. Jeśli lokacja podstawowa jest niedostępna, możesz przejść w tryb failover do lokalizacji dodatkowej, aby użytkownicy mogli kontynuować pracę, i wrócić po awarii, gdy systemy wznowią działanie. Korzystanie z Centrum zabezpieczeń Azure przeprowadzić bardziej inteligentne i skuteczne wykrywanie zagrożeń.
 
 ## <a name="azure-active-directory"></a>Usługa Azure Active Directory
 [Usługa Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-enable-sso-scenario) jest kompleksowe tożsamość firmy Microsoft jako rozwiązaniem Service (IDaaS) który:
@@ -154,7 +154,7 @@ Dojrzała lekarze DevOps przyjmuje kilka z następujących wskazówek. Praktyki 
 -   [Infrastruktura jako kodu (IaC)](https://www.visualstudio.com/learn/what-is-infrastructure-as-code/) jest rozwiązaniem, dzięki czemu automatyzacji i sprawdzanie poprawności tworzenia i usuwania sieci i maszyn wirtualnych ułatwiają dostarczanie aplikacji bezpiecznego, stabilna hostingu platformami.
 -   [Mikrousług](https://www.visualstudio.com/learn/what-are-microservices/) architektury jest wykorzystywana do izolowania przypadków użycia biznesowego w małych usług wielokrotnego użytku.  Taka architektura umożliwia stosowanie skalowalność i wydajność.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby dowiedzieć się więcej o rozwiązaniu OMS zabezpieczeń i inspekcji, zobacz następujące artykuły:
 
 - [Operations Management Suite | Bezpieczeństwo i zgodność](https://www.microsoft.com/cloud-platform/security-and-compliance).

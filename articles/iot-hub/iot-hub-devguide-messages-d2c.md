@@ -11,19 +11,19 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 4e346306ecb8f4897a249454c537ce9a1a4c4011
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 48b904818c80b9175d45b88345634f11cf4a4812
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="send-device-to-cloud-messages-to-iot-hub"></a>Wysyłanie komunikatów urządzenia do chmury do Centrum IoT
 
 Aby wysłać dane telemetryczne szeregów czasowych i alertów z urządzeń z zaplecza rozwiązania, wysyłać urządzenia do chmury z urządzenia do Centrum IoT. Omówienie opcji inne urządzenia do chmury, obsługiwanych przez Centrum IoT można znaleźć [wskazówki komunikację urządzenia do chmury][lnk-d2c-guidance].
 
-Wysyłać urządzenia do chmury za pośrednictwem punktu końcowego uwzględniającym urządzenia (**/devices/ {deviceId} / wiadomości/zdarzenia**). Zasady routingu, a następnie kierować wiadomości do jednej połączonej usługi punkty końcowe Centrum IoT. Reguły routingu umożliwia nagłówki i treści wiadomości urządzenia do chmury przepływających przez Centrum ustalić, gdzie można je rozesłać. Domyślnie komunikaty są kierowane do wbudowanym punktem końcowym usługi połączonej (**wiadomości/zdarzenia**), która jest zgodna z [usługi Event Hubs][lnk-event-hubs]. W takim przypadku używane standardowe [integracji usługi Event Hubs i zestawy SDK] [ lnk-compatible-endpoint] do odbierania wiadomości urządzenia do chmury w Twojej zaplecza rozwiązania.
+Wysyłać urządzenia do chmury za pośrednictwem punktu końcowego uwzględniającym urządzenia (**/devices/ {deviceId} / wiadomości/zdarzenia**). Zasady routingu, a następnie kierować wiadomości do jednej połączonej usługi punkty końcowe Centrum IoT. Reguły routingu Użyj nagłówki i treści wiadomości urządzenia do chmury, aby ustalić, gdzie można je rozesłać. Domyślnie komunikaty są kierowane do wbudowanym punktem końcowym usługi połączonej (**wiadomości/zdarzenia**), która jest zgodna z [usługi Event Hubs][lnk-event-hubs]. W takim przypadku używane standardowe [integracji usługi Event Hubs i zestawy SDK] [ lnk-compatible-endpoint] do odbierania wiadomości urządzenia do chmury w Twojej zaplecza rozwiązania.
 
 Centrum IoT implementuje wiadomości urządzenia do chmury przy użyciu przesyłania strumieniowego wzorzec przesyłania komunikatów. Przypominają komunikaty urządzenia do chmury Centrum IoT [usługi Event Hubs] [ lnk-event-hubs] *zdarzenia* niż [usługi Service Bus] [ lnk-servicebus] *wiadomości* w tym istnieje duża liczba zdarzeń przechodzącej przez usługę, która może zostać odczytany przez wielu czytników.
 
@@ -40,7 +40,7 @@ Aby uzyskać więcej informacji na temat różnic między centrum IoT i usługi 
 
 ## <a name="send-non-telemetry-traffic"></a>Wysyłaj ruch z systemem innym niż telemetrii
 
-Często oprócz punkty danych telemetrii, urządzenia wysyłają komunikaty i żądań, które wymagają oddzielnego wykonywania i obsługa w zaplecza rozwiązania. Na przykład alerty krytyczne musi wyzwalających określonej akcji w wewnętrznej. Możesz łatwo zapisywać [reguły routingu] [ lnk-devguide-custom] do wysyłania komunikatów tego typu punkt końcowy dedykowanego ich przetwarzanie na podstawie nagłówek wiadomości lub wartością w treści wiadomości.
+Często oprócz telemetrii, urządzenia wysyłają komunikaty i żądań, które wymagają oddzielnego wykonywania i obsługa w zaplecza rozwiązania. Na przykład alerty krytyczne musi wyzwalających określonej akcji w wewnętrznej. Można napisać [reguły routingu] [ lnk-devguide-custom] do wysyłania komunikatów tego typu punkt końcowy dedykowanego ich przetwarzanie na podstawie nagłówek wiadomości lub wartością w treści wiadomości.
 
 Aby uzyskać więcej informacji na temat najlepszy sposób, aby przetworzyć tego rodzaju wiadomości, zobacz [samouczek: jak do przetwarzania komunikatów urządzenia do chmury Centrum IoT] [ lnk-d2c-tutorial] samouczka.
 
@@ -71,7 +71,7 @@ Zawiera dwa pierwsze **deviceId** i **generationId** urządzenia źródłowego z
 }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby uzyskać informacje o zestawy SDK służy do wysyłania wiadomości urządzenia do chmury, zobacz [Azure IoT SDK][lnk-sdks].
 

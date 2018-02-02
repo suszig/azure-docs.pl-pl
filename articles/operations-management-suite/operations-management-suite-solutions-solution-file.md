@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie rozwiązania do zarządzania w Operations Management Suite (OMS) | Dokumentacja firmy Microsoft"
-description: "Rozwiązania do zarządzania zapewniają rozszerzenie funkcjonalności z Operations Management Suite (OMS) zapewniając scenariuszy pakietów zarządzania, dodawanych przez klientów do ich obszarem roboczym pakietu OMS.  Ten artykuł zawiera szczegółowe informacje dotyczące tworzenia rozwiązań do zarządzania do użycia w środowisku lub udostępniane klientom."
+title: "Tworzenie pliku rozwiązania zarządzania na platformie Azure | Dokumentacja firmy Microsoft"
+description: "Rozwiązania do zarządzania zapewniają scenariuszy pakietów zarządzania, dodawanych przez klientów do ich środowiska platformy Azure.  Ten artykuł zawiera szczegółowe informacje dotyczące tworzenia rozwiązań do zarządzania do użycia w środowisku lub udostępniane klientom."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -15,17 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1ace3042cc00cedd005955cdfb82c557fd4a8fb2
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: d896fb7c5ffed5c0fe338c2d2f1ef864aacd6f79
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="creating-a-management-solution-file-in-operations-management-suite-oms-preview"></a>Tworzenie pliku rozwiązania zarządzania w Operations Management Suite (OMS) (wersja zapoznawcza)
+# <a name="creating-a-management-solution-file-in-azure-preview"></a>Tworzenie pliku rozwiązania zarządzania na platformie Azure (wersja zapoznawcza)
 > [!NOTE]
-> To jest wstępna dokumentacji do tworzenia rozwiązań do zarządzania w OMS, które są obecnie w wersji zapoznawczej. Żadnego schematu opisanych poniżej może ulec zmianie.  
+> To jest wstępna dokumentacji do tworzenia rozwiązań do zarządzania na platformie Azure, które są obecnie w wersji zapoznawczej. Żadnego schematu opisanych poniżej może ulec zmianie.  
 
-Rozwiązania do zarządzania w Operations Management Suite (OMS) są zaimplementowane jako [szablonów Resource Manager](../azure-resource-manager/resource-manager-template-walkthrough.md).  Learning jest głównym zadaniem się dowiedzieć, jak tworzyć rozwiązania do zarządzania jak [Tworzenie szablonu](../azure-resource-manager/resource-group-authoring-templates.md).  Ten artykuł zawiera unikatowe szczegółowe informacje używane w celu rozwiązania oraz skonfigurować zasoby typowe rozwiązania szablonów.
+Rozwiązania do zarządzania na platformie Azure są zaimplementowane jako [szablonów Resource Manager](../azure-resource-manager/resource-manager-template-walkthrough.md).  Learning jest głównym zadaniem się dowiedzieć, jak tworzyć rozwiązania do zarządzania jak [Tworzenie szablonu](../azure-resource-manager/resource-group-authoring-templates.md).  Ten artykuł zawiera unikatowe szczegółowe informacje używane w celu rozwiązania oraz skonfigurować zasoby typowe rozwiązania szablonów.
 
 
 ## <a name="tools"></a>Narzędzia
@@ -53,7 +53,8 @@ Podstawowa struktura pliku rozwiązania zarządzania jest taka sama jak [szablon
 ## <a name="parameters"></a>Parametry
 [Parametry](../azure-resource-manager/resource-group-authoring-templates.md#parameters) wartości, które wymagają od użytkownika, przy instalacji rozwiązania do zarządzania.  Istnieją standardowe parametry, których wszystkie rozwiązania, a następnie można dodać dodatkowe parametry zgodnie z potrzebami dla określonego rozwiązania.  Jak użytkownicy będą podać wartości parametrów instalacji rozwiązanie będzie zależeć od określonego parametru i sposób instalacji rozwiązania.
 
-Kiedy użytkownik instaluje rozwiązania do zarządzania za pośrednictwem [portalu Azure Marketplace](operations-management-suite-solutions.md#finding-and-installing-management-solutions) lub [szablonów Szybki Start Azure](operations-management-suite-solutions.md#finding-and-installing-management-solutions) są monitowani o wybierz [OMS obszaru roboczego i konto automatyzacji](operations-management-suite-solutions.md#oms-workspace-and-automation-account).  Są one używane do wypełnienia wartości parametrów standardowa.  Użytkownik nie jest monitowany o bezpośrednio Podaj wartości parametrów standardowych, ale są monitowani o podanie wartości żadnych parametrów.
+Kiedy użytkownik instaluje rozwiązania do zarządzania za pośrednictwem [portalu Azure Marketplace](operations-management-suite-solutions.md#finding-and-installing-management-solutions) lub [szablonów Szybki Start Azure](operations-management-suite-solutions.md#finding-and-installing-management-solutions) są monitowani o wybierz [obszaru roboczego analizy dzienników i automatyzacji konto](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account).  Są one używane do wypełnienia wartości parametrów standardowa.  Użytkownik nie jest monitowany o bezpośrednio Podaj wartości parametrów standardowych, ale są monitowani o podanie wartości żadnych parametrów.
+
 
 Kiedy użytkownik instaluje rozwiązanie [innej metody](operations-management-suite-solutions.md#finding-and-installing-management-solutions), użytkownik musi podać wartość dla wszystkich parametrów standardowe i wszystkie dodatkowe parametry.
 
@@ -86,10 +87,10 @@ W poniższej tabeli wymieniono standardowe parametry dla wszystkich rozwiązań 
 
 | Parametr | Typ | Opis |
 |:--- |:--- |:--- |
-| Nazwa konta |ciąg |Nazwa konta automatyzacji Azure. |
+| accountName |ciąg |Nazwa konta automatyzacji Azure. |
 | pricingTier |ciąg |Warstwa cenowa obszaru roboczego analizy dzienników i konto usługi Automatyzacja Azure. |
 | regionId |ciąg |Region konto usługi Automatyzacja Azure. |
-| Nazwa rozwiązania |ciąg |Nazwa rozwiązania.  Jeśli wdrażasz rozwiązania za pomocą szablonów Szybki Start, następnie należy zdefiniować Nazwa rozwiązania jako parametru, można zdefiniować zamiast tego, gdyż użytkownik musi określić jeden ciąg. |
+| solutionName |ciąg |Nazwa rozwiązania.  Jeśli wdrażasz rozwiązania za pomocą szablonów Szybki Start, następnie należy zdefiniować Nazwa rozwiązania jako parametru, można zdefiniować zamiast tego, gdyż użytkownik musi określić jeden ciąg. |
 | workspaceName |ciąg |Nazwa obszaru roboczego analizy dzienników. |
 | workspaceRegionId |ciąg |Obszar roboczy analizy dzienników. |
 
@@ -168,8 +169,9 @@ W takim przypadku można odwoływać się do wartości zmiennych za pośrednictw
 ### <a name="dependencies"></a>Zależności
 **DependsOn** określa element [zależności](../azure-resource-manager/resource-group-define-dependencies.md) na inny zasób.  Po zainstalowaniu rozwiązania zasobu nie jest tworzony, dopóki wszystkie jego zależności zostały utworzone.  Na przykład może rozwiązania [uruchomienia elementu runbook](operations-management-suite-solutions-resources-automation.md#runbooks) po zainstalowaniu przy użyciu [zadania zasobu](operations-management-suite-solutions-resources-automation.md#automation-jobs).  Zasobów zadania będzie zależał od zasobu elementu runbook, aby upewnić się, że element runbook został utworzony przed utworzeniem zadania.
 
-### <a name="oms-workspace-and-automation-account"></a>Obszar roboczy OMS i konta automatyzacji
-Rozwiązania do zarządzania wymagają [obszarem roboczym pakietu OMS](../log-analytics/log-analytics-manage-access.md) zawiera widoki i [konto automatyzacji](../automation/automation-security-overview.md#automation-account-overview) zawiera elementy runbook i powiązanych zasobów.  Te muszą być dostępne, przed zasobów w rozwiązaniu są tworzone i nie powinna być zdefiniowana w rozwiązaniu do samej siebie.  Użytkownik będzie [Określ obszar roboczy i konta](operations-management-suite-solutions.md#oms-workspace-and-automation-account) podczas ich wdrażania rozwiązania, ale Autor powinien wziąć pod uwagę następujące kwestie.
+### <a name="log-analytics-workspace-and-automation-account"></a>Obszar roboczy analizy dzienników i konta automatyzacji
+Rozwiązania do zarządzania wymagają [obszaru roboczego analizy dzienników](../log-analytics/log-analytics-manage-access.md) zawiera widoki i [konto automatyzacji](../automation/automation-security-overview.md#automation-account-overview) zawiera elementy runbook i powiązanych zasobów.  Te muszą być dostępne, przed zasobów w rozwiązaniu są tworzone i nie powinna być zdefiniowana w rozwiązaniu do samej siebie.  Użytkownik będzie [Określ obszar roboczy i konta](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account) podczas ich wdrażania rozwiązania, ale Autor powinien wziąć pod uwagę następujące kwestie.
+
 
 ## <a name="solution-resource"></a>Rozwiązanie zasobów
 Każde rozwiązanie wymaga zapisu zasobów w **zasobów** element, który definiuje się rozwiązania.  Będzie to mieć typu **Microsoft.OperationsManagement/solutions** i ma następującą strukturę. Obejmuje to [standardowe parametry](#parameters) i [zmienne](#variables) zwykle używane do definiowania właściwości rozwiązania.
@@ -227,7 +229,7 @@ W powyższym przykładzie jest rozwiązania z elementu runbook, harmonogram i wi
 | name |Nazwa rozwiązania. |
 | wersja |Wersja rozwiązania zgodnie z ustaleniami autora. |
 | produkt |Unikatowy ciąg do identyfikowania rozwiązania. |
-| Wydawcy |Wydawca rozwiązania. |
+| publisher |Wydawca rozwiązania. |
 
 
 

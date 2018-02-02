@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: e57ad43cc9a82e3944e93c6500ad5740818d10cc
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: d8943db3ec6ef5875b2b884d42ea25dbb44a30e5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Poznaj możliwości zdalnego wstępnie skonfigurowane rozwiązanie monitorowania
 
@@ -31,6 +31,10 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Odpowiadanie na alarmu
 > * Zaktualizuj oprogramowanie układowe urządzenia
 > * Organizowanie zasobów
+
+Poniższe wideo przedstawia przewodnik zdalnego rozwiązanie monitorowania:
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-28-An-introduction-to-Azure-IoT-through-the-new-Remote-Monitoring-Preconfigured-Solution/Player]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -76,9 +80,9 @@ Operatory w firmie Contoso znać progi określające, czy urządzenie działa po
 | Nazwa reguły | Opis | Próg | Ważność | Dotyczy urządzeń |
 | --------- | ----------- | --------- | -------- | ---------------- |
 | Zbyt duże wykorzystanie Chłodnica | Alerty, jeśli chłodniach wyższe niż wykorzystania normalne poziomy dostępu   |P > 250 psi       | Krytyczne | Chłodniach            |
-| Tworzenie prototypów urządzenia temp zbyt wysoka  | Alerty, jeśli urządzenia prototypowania wyższe niż temperatury normalne poziomy dostępu  |T > 80&deg; F |Krytyczne | Tworzenie prototypów urządzeń |
+| Tworzenie prototypów urządzenia temp zbyt wysoka  | Alerty, jeśli urządzenia prototypowania wyższe niż temperatury normalne poziomy dostępu  |T>80&deg; F |Krytyczne | Tworzenie prototypów urządzeń |
 | Zbiornik aparat jest pusty  | Alerty, jeśli aparat zbiornika przechodzi pusty                     | F < galonach 5 | Info     | Aparaty             |
-| Wyższa niż temperatury normalne ładunku | Alerty, jeśli jego ciężarówka ładunku temperatury jest wyższy niż normalne                 | T < 45&deg; F |Ostrzeżenie  | Pojazdów              |
+| Wyższa niż temperatury normalne ładunku | Alerty, jeśli jego ciężarówka ładunku temperatury jest wyższy niż normalne                 | T<45&deg; F |Ostrzeżenie  | Pojazdów              |
 | Krótka wibrację zatrzymana      | Alerty, jeśli krótka całkowicie zatrzymuje (na podstawie wibrację poziomu)                     | V < 0,1 mm |Ostrzeżenie  | Windy           |
 
 ### <a name="operate-the-contoso-sample-deployment"></a>Działanie wdrażania przykładowej firmy Contoso
@@ -226,7 +230,7 @@ Można użyć wartości tagów, aby utworzyć filtry.
 
 Contoso operator można teraz kwerendy urządzeń według zespół operacyjny bez konieczności zmian na urządzeniach.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym samouczku przedstawiono do:
 

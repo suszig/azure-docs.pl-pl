@@ -1,6 +1,6 @@
 ---
-title: "Kopiowanie danych do/z programem Oracle przy użyciu fabryki danych Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak skopiować dane sklepach obsługiwanej źródłowej do bazy danych programu Oracle (lub) z bazy danych Oracle sklepów zbiornika obsługiwane przy użyciu fabryki danych."
+title: "Kopiowanie danych do i z programem Oracle przy użyciu fabryki danych Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak skopiować dane z obsługiwanej źródłowej magazynów z bazą danych Oracle lub Oracle sklepów zbiornika obsługiwanych przy użyciu fabryki danych."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -13,27 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 10db7959396b4ee9927e4272dec9939ac8c13580
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d6b96bc40325d398c91e293ec6ca8f8cc2993e58
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="copy-data-from-and-to-oracle-using-azure-data-factory"></a>Kopiowanie danych z i do Oracle przy użyciu fabryki danych Azure
+# <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Kopiowanie danych z i do Oracle przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Wersja 1 — ogólnie dostępna](v1/data-factory-onprem-oracle-connector.md)
+> * [Wersja 1 - ogólnie dostępna](v1/data-factory-onprem-oracle-connector.md)
 > * [Wersja 2 — wersja zapoznawcza](connector-oracle.md)
 
-W tym artykule omówiono sposób użycia działanie kopiowania w fabryce danych Azure, aby skopiować dane z i do bazy danych programu Oracle. Opiera się na [skopiuj omówienie działania](copy-activity-overview.md) artykułu, który przedstawia ogólny przegląd działanie kopiowania.
+W tym artykule omówiono sposób użycia działanie kopiowania w fabryce danych Azure, aby skopiować dane z i do bazy danych programu Oracle. Opiera się na [omówienie działania kopiowania](copy-activity-overview.md) artykułu, który przedstawia ogólne omówienie działania kopiowania.
 
 > [!NOTE]
-> Ten artykuł dotyczy wersji 2 usługi Data Factory, która jest obecnie dostępna w wersji zapoznawczej. Jeśli używasz wersji 1 usługi fabryka danych, która jest ogólnie dostępna (GA), zobacz [łącznika Oracle w wersji 1](v1/data-factory-onprem-oracle-connector.md).
+> Ten artykuł dotyczy wersji 2 usługi Data Factory, która jest obecnie dostępna w wersji zapoznawczej. Jeśli używasz wersji 1 fabryki danych, która jest ogólnie dostępna, zobacz [łącznika Oracle w wersji 1](v1/data-factory-onprem-oracle-connector.md).
 
 ## <a name="supported-capabilities"></a>Obsługiwane możliwości
 
-Możesz skopiować dane z bazy danych programu Oracle do żadnych obsługiwanych ujścia magazynu danych lub skopiować dane z dowolnego źródła obsługiwanych magazynu danych do bazy danych programu Oracle. Lista magazynów danych, które są obsługiwane jako źródła/wychwytywanie przez działanie kopiowania, zobacz [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats) tabeli.
+Możesz skopiować dane z bazy danych Oracle żadnych obsługiwanych ujścia magazynu danych. Możesz również skopiować danych z dowolnego źródła obsługiwanych magazynu danych z bazą danych Oracle. Lista magazynów danych, które są obsługiwane jako źródła lub wychwytywanie przez działanie kopiowania, zobacz [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats) tabeli.
 
-W szczególności ten łącznik Oracle obsługuje następujące wersje bazy danych Oracle i obsługuje uwierzytelnianie podstawowe lub identyfikator OID.
+W szczególności ten łącznik Oracle obsługuje następujące wersje bazy danych programu Oracle. Obsługuje ona również uwierzytelnianie podstawowe lub identyfikatora OID:
 
 - R1 Oracle 12c (12.1)
 - Oracle 11g R1, R2 (11.1, 11.2)
@@ -43,9 +43,9 @@ W szczególności ten łącznik Oracle obsługuje następujące wersje bazy dany
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skopiować dane z/do bazy danych programu Oracle, który nie jest dostępny publicznie, należy skonfigurować środowisko uruchomieniowe Self-hosted integracji. Zobacz [środowiska uruchomieniowego integracji Self-hosted](create-self-hosted-integration-runtime.md) artykułu, aby uzyskać więcej informacji o integracji środowiska uruchomieniowego. Środowiska uruchomieniowego integracji oferuje wbudowane Sterownik Oracle, w związku z tym nie trzeba ręcznie zainstalowania sterownika podczas kopiowania danych z/na Oracle.
+Aby skopiować dane z i do bazy danych programu Oracle nie jest dostępny publicznie, należy skonfigurować środowisko uruchomieniowe Self-hosted integracji. Aby uzyskać więcej informacji na temat środowiska uruchomieniowego integracji, zobacz [środowiska uruchomieniowego integracji Self-hosted](create-self-hosted-integration-runtime.md). Środowiska uruchomieniowego integracji zawiera wbudowane Sterownik Oracle. W związku z tym nie trzeba ręcznie zainstalować sterownik podczas kopiowania danych z i do programu Oracle.
 
-## <a name="getting-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -53,12 +53,12 @@ Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które
 
 ## <a name="linked-service-properties"></a>Połączona usługa właściwości
 
-Obsługiwane są następujące właściwości dla Oracle połączone usługi:
+Następujące właściwości są obsługiwane przez usługę Oracle połączone.
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość type musi mieć ustawioną: **Oracle** | Yes |
-| Parametry połączenia | Podaj informacje wymagane do nawiązania połączenia z wystąpieniem bazy danych programu Oracle. Zaznacz to pole jako SecureString.<br><br>**Obsługiwany typ połączenia**: mogą być używane **Oracle SID** lub **nazwa usługi Oracle** Aby zidentyfikować bazy danych:<br>— Za pomocą identyfikatora SID:`Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>-Przy użyciu nazwy usługi:`Host=<host>;Port=<port>;ServiceName=<sid>;User Id=<username>;Password=<password>;` | Yes |
+| type | Właściwość type musi mieć ustawioną **Oracle**. | Yes |
+| Parametry połączenia | Określa informacje wymagane do nawiązania połączenia z wystąpieniem bazy danych programu Oracle. Zaznacz to pole jako SecureString.<br><br>**Obsługiwany typ połączenia**: można użyć **Oracle SID** lub **nazwa usługi Oracle** Aby zidentyfikować bazy danych:<br>— Jeśli używasz identyfikator SID:`Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>— Jeśli używasz nazwa usługi:`Host=<host>;Port=<port>;ServiceName=<sid>;User Id=<username>;Password=<password>;` | Yes |
 | connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. (Jeśli w magazynie danych jest dostępny publicznie) można użyć środowiska uruchomieniowego integracji Self-hosted lub środowiska uruchomieniowego integracji Azure. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. |Nie |
 
 **Przykład:**
@@ -84,13 +84,13 @@ Obsługiwane są następujące właściwości dla Oracle połączone usługi:
 
 ## <a name="dataset-properties"></a>Właściwości zestawu danych
 
-Aby uzyskać pełną listę właściwości dostępnych do definiowania zestawów danych i sekcje zobacz artykuł zestawów danych. Ta sekcja zawiera listę właściwości obsługiwanych przez zestaw danych Oracle.
+Aby uzyskać pełną listę właściwości dostępnych do definiowania zestawów danych i sekcje, zobacz [zestawów danych](concepts-datasets-linked-services.md) artykułu. Ta sekcja zawiera listę właściwości obsługiwanych przez zestaw danych Oracle.
 
-Aby skopiować dane z/do Oracle, ustaw właściwość Typ zestawu danych do **OracleTable**. Obsługiwane są następujące właściwości:
+Aby skopiować dane z i do Oracle, ustaw właściwość Typ zestawu danych do **OracleTable**. Następujące właściwości są obsługiwane.
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type zestawu danych: **OracleTable** | Yes |
+| type | Właściwości typu zestawu danych musi mieć ustawioną **OracleTable**. | Yes |
 | tableName |Nazwa tabeli w bazie danych programu Oracle, odnoszący się do połączonej usługi. | Yes |
 
 **Przykład:**
@@ -116,16 +116,16 @@ Aby skopiować dane z/do Oracle, ustaw właściwość Typ zestawu danych do **Or
 
 Pełną listę sekcje i właściwości dostępnych dla definiowania działań, zobacz [potoki](concepts-pipelines-activities.md) artykułu. Ta sekcja zawiera listę obsługiwanych przez Oracle źródłowy i odbiorczy właściwości.
 
-### <a name="oracle-as-source"></a>Oracle jako źródło
+### <a name="oracle-as-a-source-type"></a>Oracle jako typ źródła
 
-Aby skopiować dane z bazy danych Oracle, należy ustawić typ źródła w przypadku działania kopiowania do **OracleSource**. Następujące właściwości są obsługiwane w przypadku działania kopiowania **źródła** sekcji:
+Aby skopiować dane z bazy danych Oracle, należy ustawić typ źródła w przypadku działania kopiowania do **OracleSource**. Następujące właściwości są obsługiwane w przypadku działania kopiowania **źródła** sekcji.
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **OracleSource** | Yes |
-| oracleReaderQuery | Użyj niestandardowych zapytania SQL można odczytać danych. Na przykład: `"SELECT * FROM MyTable"`. | Nie |
+| type | Musi mieć ustawioną właściwość type źródła działania kopiowania **OracleSource**. | Yes |
+| oracleReaderQuery | Użyj niestandardowych zapytania SQL można odczytać danych. Może to być na przykład `"SELECT * FROM MyTable"`. | Nie |
 
-Jeśli nie określisz "oracleReaderQuery" kolumny zdefiniowane w sekcji "structure" w zestawie danych są używane do utworzenia kwerendy (`select column1, column2 from mytable`) w celu uruchomienia bazy danych Oracle. Jeśli definicji zestawu danych nie ma "structure", wszystkie kolumny są wybierane w tabeli.
+Jeśli nie określisz "oracleReaderQuery" kolumn określona w sekcji "structure" zestawu danych służą do utworzenia kwerendy (`select column1, column2 from mytable`) w celu uruchomienia bazy danych Oracle. Jeśli definicji zestawu danych nie ma "structure", wszystkie kolumny są wybierane w tabeli.
 
 **Przykład:**
 
@@ -159,16 +159,16 @@ Jeśli nie określisz "oracleReaderQuery" kolumny zdefiniowane w sekcji "structu
 ]
 ```
 
-### <a name="oracle-as-sink"></a>Oracle jako odbioru
+### <a name="oracle-as-a-sink-type"></a>Oracle jako typ ujścia
 
-Aby skopiować dane do bazy danych Oracle, należy ustawić typ ujścia w działaniu kopiowania do **OracleSink**. Następujące właściwości są obsługiwane w przypadku działania kopiowania **zbiornika** sekcji:
+Aby skopiować dane do bazy danych Oracle, należy ustawić typ ujścia w działaniu kopiowania do **OracleSink**. Następujące właściwości są obsługiwane w przypadku działania kopiowania **zbiornika** sekcji.
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość typu sink działania kopiowania: **OracleSink** | Yes |
-| writeBatchSize | Wstawia dane do tabeli SQL, gdy writeBatchSize osiągnie rozmiar buforu.<br/>Dozwolone wartości to: liczba całkowita (liczba wierszy). |Nie (domyślna to 10 000) |
-| writeBatchTimeout | Czas na ukończenie zanim upłynie limit czasu operacji wstawiania wsadowego oczekiwania.<br/>Dozwolone wartości to: Timespan. Przykład: 00:30:00 (30 minut). | Nie |
-| preCopyScript | Określ zapytanie SQL dla aktywności kopiowania do wykonania przed zapisaniem danych do bazy danych Oracle w każdym przebiegu. Ta właściwość służy do oczyszczania danych wstępnie załadowane. | Nie |
+| type | Musi mieć ustawioną właściwość typu sink działania kopiowania **OracleSink**. | Yes |
+| writeBatchSize | Wstawia dane do tabeli SQL, gdy writeBatchSize osiągnie rozmiar buforu.<br/>Dozwolone wartości to liczba całkowita (liczba wierszy). |Nie (wartość domyślna to 10 000) |
+| writeBatchTimeout | Czas na ukończenie zanim upłynie limit czasu operacji wstawiania wsadowego oczekiwania.<br/>Dozwolone wartości to Timespan. Przykład to 00:30:00 (30 minut). | Nie |
+| preCopyScript | Określ zapytanie SQL dla działania kopiowania do wykonania przed zapisaniem danych do bazy danych Oracle w każdym przebiegu. Ta właściwość służy do oczyszczania załadowanych danych. | Nie |
 
 **Przykład:**
 
@@ -203,24 +203,24 @@ Aby skopiować dane do bazy danych Oracle, należy ustawić typ ujścia w dział
 
 ## <a name="data-type-mapping-for-oracle"></a>Mapowanie dla programu Oracle typu danych
 
-Podczas kopiowania danych z/na Oracle, następujące mapowania są używane z typów danych Oracle do typów danych tymczasowych fabryki danych Azure. Zobacz [schemat i dane typu mapowania](copy-activity-schema-and-type-mapping.md) Aby poznać sposób działania kopiowania mapowania typu źródłowego: schemat i dane sink.
+Po skopiowaniu danych od i do Oracle, następujące mapowania są używane z typów danych Oracle do typów danych tymczasowych fabryki danych. Aby poznać sposób działania kopiowania mapowania typu źródłowego: schemat i dane sink, zobacz temat [schemat i dane typu mapowania](copy-activity-schema-and-type-mapping.md).
 
 | Typ danych Oracle | Typ danych tymczasowych fabryki danych |
 |:--- |:--- |
-| BPLIK |Byte] |
-| OBIEKT BLOB |Byte]<br/>(obsługiwana tylko w bazie danych Oracle 10 GB/s i nowsze) |
+| BPLIK |Byte[] |
+| BLOB |Byte[]<br/>(obsługiwana tylko w bazie danych Oracle 10 GB/s i nowsze) |
 | CHAR |Ciąg |
 | CLOB |Ciąg |
 | DATE |Data/godzina |
 | FLOAT |Decimal, ciąg (jeśli precyzja > 28) |
 | LICZBA CAŁKOWITA |Decimal, ciąg (jeśli precyzja > 28) |
 | DŁUGA |Ciąg |
-| LONG RAW |Byte] |
+| LONG RAW |Byte[] |
 | NCHAR |Ciąg |
 | NCLOB |Ciąg |
-| NUMER |Decimal, ciąg (jeśli precyzja > 28) |
+| NUMBER |Decimal, ciąg (jeśli precyzja > 28) |
 | NVARCHAR2 |Ciąg |
-| NIEPRZETWORZONE |Byte] |
+| RAW |Byte[] |
 | ROWID |Ciąg |
 | ZNACZNIK CZASU |Data/godzina |
 | SYGNATURA CZASOWA Z LOKALNEJ STREFIE CZASOWEJ |Ciąg |
@@ -230,8 +230,8 @@ Podczas kopiowania danych z/na Oracle, następujące mapowania są używane z ty
 | XML |Ciąg |
 
 > [!NOTE]
-> Typ danych roku INTERWAŁ miesiąca i INTERWAŁ dzień do drugiego nie są obsługiwane.
+> DRUGI INTERWAŁ rok na miesiąc i INTERWAŁ dzień na typy danych nie są obsługiwane.
 
 
 ## <a name="next-steps"></a>Kolejne kroki
-Lista magazynów danych obsługiwane jako źródła i wychwytywanie przez działanie kopiowania w fabryce danych Azure, zobacz [obsługiwane magazyny danych](copy-activity-overview.md##supported-data-stores-and-formats).
+Lista magazynów danych obsługiwane jako źródła i wychwytywanie przez działanie kopiowania w fabryce danych, zobacz [obsługiwane magazyny danych](copy-activity-overview.md##supported-data-stores-and-formats).

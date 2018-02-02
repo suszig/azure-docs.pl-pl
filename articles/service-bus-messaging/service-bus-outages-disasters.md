@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/06/2017
+ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: 6dd9045d7aa8d4dc8b3a1acbe6f927e232d9b505
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b01412202b5091ad3ae420089049bf456f9a30b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Najlepsze rozwiązania dotyczące izolacji aplikacji przed awariami usługi Service Bus i awarii
 
@@ -31,12 +31,7 @@ Awarii jest zdefiniowany jako trwałą utratę jednostki skalowania usługi Serv
 ## <a name="current-architecture"></a>Architektura bieżącego
 Usługa Service Bus używa wiele magazynów obsługi komunikatów do przechowywania komunikatów, które są wysyłane do kolejki i tematy. Niepartycjonowany kolejka lub temat jest przypisany do jednego magazynu obsługi komunikatów. Ten magazyn obsługi komunikatów jest niedostępny, wszystkie operacje dla tej kolejki lub temat zakończy się niepowodzeniem.
 
-Wszystkie jednostki obsługi komunikatów usługi Service Bus (kolejek, tematów, przekaźników) znajdują się w przestrzeni nazw usługi, które jest powiązane z centrum danych. Magistrali usług nie są włączone automatyczne replikacja geograficzna danych nie jest możliwe przestrzeni nazw, aby obejmować wiele centrów danych.
-
-## <a name="protecting-against-acs-outages"></a>Ochrona przed awariami ACS
-Jeśli używane są poświadczenia ACS i usług ACS jest niedostępny, klienci nie mogą uzyskać tokeny. Klientów, którzy mają tokenu w chwili awarii ACS, można w dalszym ciągu korzystać z usługi Service Bus do momentu wygaśnięcia tokenów. Domyślny okres istnienia tokenów wynosi 3 godziny.
-
-Aby zapewnić ochronę przed awariami ACS, użyj tokenów dostępu sygnatury dostępu Współdzielonego. W takim przypadku klient uwierzytelnia bezpośrednio z usługą Service Bus przez podpisywania tokenu własnym minted za pomocą klucza tajnego. Wywołania usług ACS nie są już wymagane. Aby uzyskać więcej informacji na temat tokeny sygnatury dostępu Współdzielonego, zobacz [uwierzytelniania usługi Service Bus][Service Bus authentication].
+Wszystkie jednostki obsługi komunikatów usługi Service Bus (kolejek, tematów, przekaźników) znajdują się w przestrzeni nazw usługi, które jest powiązane z centrum danych. Usługa Service Bus obsługuje teraz [ *odzyskiwania po awarii geograficznie* i *— replikacja geograficzna* ](service-bus-geo-dr.md) na poziomie przestrzeni nazw.
 
 ## <a name="protecting-queues-and-topics-against-messaging-store-failures"></a>Ochrona kolejek i tematów z błędami magazynu do obsługi komunikatów
 Niepartycjonowany kolejka lub temat jest przypisany do jednego magazynu obsługi komunikatów. Ten magazyn obsługi komunikatów jest niedostępny, wszystkie operacje dla tej kolejki lub temat zakończy się niepowodzeniem. Kolejki podzielonym na partycje, z drugiej strony, składa się z wielu fragmentów. Każdy fragment są przechowywane w różnych magazynie obsługi komunikatów. Po wysłaniu wiadomości do kolejki podzielonym na partycje lub tematu usługi Service Bus przypisuje wiadomości na jeden z fragmentów. Jeśli odpowiedni magazyn obsługi komunikatów jest niedostępny, usługi Service Bus zapisuje komunikat różnych fragment, jeśli to możliwe. Aby uzyskać więcej informacji na temat partycjonowane jednostki, zobacz [partycjonowane jednostki do obsługi komunikatów][Partitioned messaging entities].
@@ -82,9 +77,14 @@ Korzystając z pasywnym replikacji, w następujących scenariuszach komunikaty m
 
 [— Replikacja geograficzna z usługą Service Bus obsługiwanych przez brokera komunikatów] [ Geo-replication with Service Bus Brokered Messages] przykładzie pokazano pasywnym replikacji jednostki do obsługi komunikatów.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="geo-replication"></a>Replikacja geograficzna
+
+Usługa Service Bus obsługuje odzyskiwania po awarii geograficznie i replikacja geograficzna, na poziomie przestrzeni nazw. Aby uzyskać więcej informacji, zobacz [Azure Service Bus geograficznie-odzyskiwaniem](service-bus-geo-dr.md). Funkcja odzyskiwania po awarii, dostępna dla [warstwy Premium](service-bus-premium-messaging.md) tylko implementuje odzyskiwania po awarii metadanych i zależy od usługi przestrzenie nazw odzyskiwania po awarii podstawowego i pomocniczego.
+
+## <a name="next-steps"></a>Kolejne kroki
 Aby dowiedzieć się więcej na temat odzyskiwania po awarii, zobacz następujące artykuły:
 
+* [Azure awarii usługi Service Bus Geo](service-bus-geo-dr.md)
 * [Ciągłość prowadzenia działalności biznesowej bazy danych Azure SQL][Azure SQL Database Business Continuity]
 * [Projektowanie aplikacji odporne na platformie Azure][Azure resiliency technical guidance]
 

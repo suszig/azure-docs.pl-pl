@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: jgao
-ms.openlocfilehash: 639f8540be289c03abc8d352f4bd9150c945625e
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: e37abf9bbcf8f98c969a32d8eb37b9a7a6ddeb14
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Zarządzanie zasobami klastra Apache Spark w usłudze Azure HDInsight 
 
@@ -76,7 +76,7 @@ Są trzy parametry kluczy, które mogą służyć do konfiguracji platformy Spar
 Parametry trzech konfiguracji można skonfigurować na poziomie klastra (dla wszystkich aplikacji, które są uruchamiane w klastrze) lub można określić dla każdej poszczególnych aplikacji.
 
 ### <a name="change-the-parameters-using-ambari-ui"></a>Zmień parametry za pomocą interfejsu użytkownika narzędzia Ambari
-1. Kliknij przycisk interfejsu użytkownika narzędzia Ambari **Spark**, kliknij przycisk **Contigs**, a następnie rozwiń węzeł **niestandardowe spark — domyślne**.
+1. W interfejsie użytkownika narzędzia Ambari kliknij **Spark**, kliknij przycisk **Configs**, a następnie rozwiń węzeł **niestandardowe spark — domyślne**.
 
     ![Ustawianie parametrów przy użyciu narzędzia Ambari](./media/apache-spark-resource-manager/set-parameters-using-ambari.png)
 2. Wartości domyślne są dobrym ma cztery aplikacji Spark jednocześnie uruchomione w klastrze. Te wartości można zmienić przy użyciu interfejsu użytkownika, jak pokazano na poniższym zrzucie ekranu:

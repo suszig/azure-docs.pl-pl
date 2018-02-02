@@ -3,7 +3,7 @@ title: Zrozumienie zadania Centrum IoT Azure | Dokumentacja firmy Microsoft
 description: "Przewodnik dewelopera — Planowanie zadań do uruchamiania na wielu urządzeniach połączona z Centrum IoT. Zadania można zaktualizować znaczniki i odpowiednie właściwości i wywołania metod bezpośrednio na wielu urządzeniach."
 services: iot-hub
 documentationcenter: .net
-author: juanjperez
+author: dominicbetts
 manager: timlt
 editor: 
 ms.assetid: fe78458f-4f14-4358-ac83-4f7bd14ee8da
@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
-ms.author: juanpere
-ms.openlocfilehash: f90ecb70ad12ed05d5d40f8b26a0a4e461c9f835
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.date: 01/29/2018
+ms.author: dobett
+ms.openlocfilehash: 7e0af40b2fd5bbb12d5565765aae4026922aec5c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Planowanie zadań na wielu urządzeniach
 
@@ -103,13 +103,13 @@ Na poniższej liście przedstawiono właściwości i odpowiednie opisy, które m
 
 | Właściwość | Opis |
 | --- | --- |
-| **Identyfikator zadania** |Aplikacja podany identyfikator zadania. |
-| **czas rozpoczęcia** |Aplikacja podany czas rozpoczęcia (ISO 8601) dla zadania. |
-| **wartość endTime** |Centrum IoT podać datę (ISO 8601) ukończenia zadania. Jest prawidłowy tylko wtedy, gdy zadanie osiągnie stan "ukończone". |
+| **jobId** |Aplikacja podany identyfikator zadania. |
+| **startTime** |Aplikacja podany czas rozpoczęcia (ISO 8601) dla zadania. |
+| **endTime** |Centrum IoT podać datę (ISO 8601) ukończenia zadania. Jest prawidłowy tylko wtedy, gdy zadanie osiągnie stan "ukończone". |
 | **Typ** |Typy zadań: |
 | | **scheduledUpdateTwin**: zadanie używane do aktualizowania zestaw żądaną właściwości bądź tagi. |
 | | **scheduledDeviceMethod**: zadanie służy do wywoływania metody urządzenia na zestawie twins urządzenia. |
-| **Stan** |Bieżący stan zadania. Dopuszczalne wartości stanu: |
+| **status** |Bieżący stan zadania. Dopuszczalne wartości stanu: |
 | | **Oczekujące**: Zaplanowane, oczekuje do pobrania przez usługę zadania. |
 | | **Zaplanowane**: Zaplanowane na czas w przyszłości. |
 | | **uruchomiona**: aktualnie aktywnego zadania. |
@@ -130,11 +130,11 @@ Inne tematy referencyjne w Podręczniku dewelopera Centrum IoT obejmują:
 * [Punkty końcowe Centrum IoT] [ lnk-endpoints] opisano różne punkty końcowe, które udostępnia każdego centrum IoT dla operacji zarządzania i środowiska wykonawczego.
 * [Ograniczenia przepustowości i przydziały] [ lnk-quotas] opisuje przydziałów, które dotyczą usługi IoT Hub i ograniczania przepustowości zachowania można oczekiwać podczas korzystania z usługi.
 * [Zestawy Azure IoT urządzenia i usługi SDK] [ lnk-sdks] wymieniono języka różnych zestawów SDK, można użyć podczas opracowywania aplikacji usług i urządzeń, które współdziałają z Centrum IoT.
-* [Język zapytań Centrum IoT urządzenia twins, zadań i rozsyłania wiadomości] [ lnk-query] opisuje język zapytań Centrum IoT można pobrać z Centrum IoT informacji o twins urządzenia i zadania.
+* [Język zapytań Centrum IoT urządzenia twins, zadań i rozsyłania wiadomości] [ lnk-query] opisuje język zapytań Centrum IoT. Użyj tego języka zapytań pobrać z Centrum IoT informacji o twins urządzenia i zadania.
 * [Obsługa MQTT Centrum IoT] [ lnk-devguide-mqtt] zapewnia więcej informacji na temat Centrum IoT obsługi protokołu MQTT.
 
-## <a name="next-steps"></a>Następne kroki
-Jeśli chcesz wypróbować niektóre pojęcia opisane w tym artykule, mogą być zainteresowane w następujących instrukcji Centrum IoT:
+## <a name="next-steps"></a>Kolejne kroki
+Aby wypróbować pojęcia opisane w tym artykule, zobacz następujące samouczek Centrum IoT:
 
 * [Zadania harmonogramu i emisji][lnk-jobs-tutorial]
 

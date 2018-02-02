@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 27b296092335ec5b95e8f259756aaf9572da1c16
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 37f9da7dcc8dd527fe0bfbf2fbcc40a3ba0e8a1c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Przewodnik dewelopera Centrum IoT Azure
 
@@ -42,10 +42,10 @@ Ten przewodnik dewelopera Centrum IoT zawiera następujące artykuły:
   * [Wysyłanie wiadomości chmury do urządzenia z Centrum IoT][devguide-messages-c2d].
   * [Tworzenie i odczytywanie wiadomości Centrum IoT][devguide-format].
 * [Przekazywanie plików z urządzenia] [ devguide-upload] w tym artykule opisano, jak można przekazać pliki z urządzenia. Artykuł zawiera także informacje o tematów, takich jak powiadomienia, czy można wysyłać procesu przekazywania.
-* [Zarządzanie tożsamościami urządzenie w Centrum IoT] [ devguide-identities] opisuje jakie informacje o każdej Centrum IoT magazyny rejestru tożsamości i jak można uzyskać dostęp i zmodyfikować go.
+* [Zarządzanie tożsamościami urządzenie w Centrum IoT] [ devguide-identities] opisuje jakie informacje magazyny rejestru tożsamości każdego centrum IoT. Artykuł opisuje również sposób dostępu i zmodyfikuj go.
 * [Kontrola dostępu do Centrum IoT] [ devguide-security] opisano model zabezpieczeń używany do udostępnienia funkcji Centrum IoT dla obu urządzeń i składniki w chmurze. Artykuł zawiera informacje dotyczące używania tokenów i certyfikaty X.509 i szczegóły uprawnień, które mogą udzielać dostępu.
-* [Umożliwia synchronizowanie stanu i konfiguracji urządzenia twins] [ devguide-device-twins] opisuje *dwie urządzenia* koncepcji i funkcji eksponuje takich jak synchronizowanie urządzenia z jego dwie urządzenia. Artykuł zawiera informacje na temat danych przechowywanych w dwie urządzenia.
-* [Wywoływanie metody bezpośrednio na urządzeniu] [ devguide-directmethods] informacje o cyklu życia metoda bezpośrednia informacji dotyczących sposobu wywoływania metod na urządzeniu z aplikacji zaplecza i obsługiwać metodę bezpośrednio na urządzeniu.
+* [Umożliwia synchronizowanie stanu i konfiguracji urządzenia twins] [ devguide-device-twins] opisuje *dwie urządzenia* koncepcji. Artykuł również funkcje twins urządzenie tym ujawnia, takich jak synchronizowanie urządzenia z jego dwie urządzenia. Artykuł zawiera informacje na temat danych przechowywanych w dwie urządzenia.
+* [Wywoływanie metody bezpośrednio na urządzeniu] [ devguide-directmethods] opisuje cyklem życia metoda bezpośrednia. Artykuł opisuje sposób wywołania metody na urządzeniu z aplikacji zaplecza i obsługiwać metodę bezpośrednio na urządzeniu.
 * [Planowanie zadań na wielu urządzeniach] [ devguide-jobs] zawiera opis sposobu tworzenia harmonogramu zadań na wielu urządzeniach. Artykuł opisuje sposób przesyłania zadań, wykonujących zadania jako wykonywania metoda bezpośrednia aktualizacja urządzenia przy użyciu podwójnego urządzenia. On również opis zbadać stanu zadania.
 * [Odwołanie — wybierz protokół komunikacyjny] [ devguide-protocol] opisuje protokołów komunikacyjnych, że Centrum IoT do komunikacji urządzeń i obsługuje listę portów, które powinno być otwarte.
 * [Odwołanie — punkty końcowe Centrum IoT] [ devguide-endpoints] opisano różne punkty końcowe, które udostępnia każdego centrum IoT dla operacji obsługi i zarządzania. Artykuł opisuje również sposób możesz utworzyć dodatkowe punkty końcowe w Centrum IoT i jak użyć bramy pola, aby umożliwić łączność z punktami końcowymi Centrum IoT w scenariuszach niestandardowe.

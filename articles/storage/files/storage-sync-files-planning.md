@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 0aac388f4499af018a4603bcad835ab41d6b6642
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 8f20e8d4329d815351147f90b598180839ce917a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planowanie wdrożenia synchronizacji plików Azure (wersja zapoznawcza)
 Umożliwia synchronizacji plików Azure (wersja zapoznawcza) scentralizowanie udziałów plików w organizacji w plikach Azure, przy zachowaniu elastyczności, wydajności i zgodności serwera plików lokalnych. Synchronizacja programu Azure pliku przy użyciu systemu Windows Server do szybkiego pamięci podręcznej udziału plików na platformę Azure. Można użyć każdego protokołu, który jest dostępny w systemie Windows Server dostępu do danych lokalnie, w tym protokołu SMB, systemu plików NFS i FTPS. Może mieć dowolną liczbę pamięci podręcznych zgodnie z potrzebami na całym świecie.
@@ -131,7 +131,7 @@ Znane są następujące rozwiązania do obsługi pomijanie plików trybu offline
 
 - [Symantec Endpoint Protection](https://support.symantec.com/en_US/article.tech173752.html)
 - [Zabezpieczenia punktu końcowego McAfee](https://kc.mcafee.com/resources/sites/MCAFEE/content/live/PRODUCT_DOCUMENTATION/26000/PD26799/en_US/ens_1050_help_0-00_en-us.pdf) (zobacz "Skanuj tylko najważniejsze" na stronie 90 PDF)
-- [Oprogramowanie antywirusowe Kaspersky](https://support.kaspersky.com/4684)
+- [Kaspersky Anti-Virus](https://support.kaspersky.com/4684)
 - [Sophos programu Endpoint Protection](https://community.sophos.com/kb/en-us/40102)
 - [TrendMicro OfficeScan](https://success.trendmicro.com/solution/1114377-preventing-performance-or-backup-and-restore-issues-when-using-commvault-software-with-osce-11-0#collapseTwo) 
 
@@ -158,11 +158,13 @@ Synchronizacja programu Azure plik jest dostępny tylko w następujących region
 
 | Region | Lokalizacja centrum danych |
 |--------|---------------------|
-| Wschodnie stany USA | Virginia, USA |
-| Zachodnie stany USA | Polski, USA |
-| Europa Zachodnia | Holandia |
+| Australia Wschodnia | Stan Nowa Południowa Walia |
+| Kanada Środkowa | Toronto |
+| Wschodnie stany USA | Wirginia |
 | Azja Południowo-Wschodnia | Singapur |
-| Australia Wschodnia | Nowe Pomorze, Australia |
+| Południowe Zjednoczone Królestwo | Londyn |
+| Europa Zachodnia | Holandia |
+| Zachodnie stany USA | Kalifornia |
 
 W wersji zapoznawczej firma Microsoft obsługuje synchronizację tylko z udziału plików na platformę Azure, który znajduje się w tym samym regionie co magazyn usługi synchronizacji.
 

@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/19/2018
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: b315bd77a47a6f106c5768da56828a5169de5fe9
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: dba17a860dffd87b3784c53cf288b7a312c77e33
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="stream-big-data-into-a-data-warehouse"></a>Strumień danych big data do magazynu danych
 
@@ -74,7 +74,7 @@ Do ukończenia tego samouczka wymagane są:
 
 ## <a name="deploy-the-infrastructure"></a>Wdrażanie infrastruktury
 
-Aby uprościć w tym artykule, możesz wdrożyć wymaganej infrastruktury przy użyciu szablonu usługi Resource Manager. Aby wyświetlić zasoby, które zostały wdrożone, Wyświetl [szablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json). W wersji zapoznawczej obsługuje zdarzenia siatki **westus2** i **westcentralus** regionów. Użyj jednej z tych regionów dla lokalizacja grupy zasobów.
+Aby uprościć w tym artykule, możesz wdrożyć wymaganej infrastruktury przy użyciu szablonu usługi Resource Manager. Aby wyświetlić zasoby, które zostały wdrożone, Wyświetl [szablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json). Użyj jednej z [obsługiwane regiony](overview.md) dla lokalizacja grupy zasobów.
 
 W przypadku interfejsu wiersza polecenia platformy Azure użyj polecenia:
 

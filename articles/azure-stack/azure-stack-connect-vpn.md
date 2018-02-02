@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: victorh
-ms.openlocfilehash: c06eb0bb44bdfeab956e9b5051786b5bc631acf5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5d963fe8b1b576768156500af39254f45939f90d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>Stos Azure połączenia z platformą Azure przy użyciu sieci VPN
 
@@ -43,7 +43,7 @@ Tabela wartości przykład sieci zawiera przykładowe wartości, które są uży
 **Tabela wartości przykład sieci**
 |   |Azure Stack|Azure|
 |---------|---------|---------|
-|Nazwa sieci wirtualnej     |Sieć wirtualna Azs|AzureVNet |
+|Nazwa sieci wirtualnej     |Azs-VNet|AzureVNet |
 |Przestrzeń adresową sieci wirtualnej |10.1.0.0/16|10.100.0.0/16|
 |Nazwa podsieci     |FrontEnd|FrontEnd|
 |Zakres adresów podsieci|10.1.0.0/24 |10.100.0.0/24 |
@@ -71,7 +71,7 @@ Najpierw należy utworzyć zasobów sieciowych dla platformy Azure. Poniższe in
 3. Wybierz **podsieci bramy** Aby dodać podsieci bramy sieci wirtualnej.
 4. Domyślna nazwa podsieci to **GatewaySubnet**.
    Podsieci bramy to specjalne podsieci i muszą mieć dokładnie tę nazwę, aby działać prawidłowo.
-5. W **zakres adresów** pola, sprawdź adres jest **10.100.0.0/24**.
+5. W **zakres adresów** pola, sprawdź adres jest **10.100.1.0/24**.
 6. Wybierz **OK** można utworzyć podsieci bramy.
 
 ### <a name="create-the-virtual-network-gateway"></a>Tworzenie bramy sieci wirtualnej
@@ -93,7 +93,7 @@ Najpierw należy utworzyć zasobów sieciowych dla platformy Azure. Poniższe in
 5. Wybierz z listy zasobów **bramy sieci lokalnej**.
 6. W **nazwa**, typ **Azs-GW**.
 7. W **adres IP**, typ publiczny adres IP dla sieci Azure stosu Brama sieci wirtualnej wymieniony w tabeli konfiguracji sieci.
-8. W **przestrzeni adresowej**, ze stosu Azure, wpisz **10.0.10.0/23** przestrzeni dla adresów **AzureVNet**.
+8. W **przestrzeni adresowej**, ze stosu Azure, wpisz **10.1.0.0/24** i **10.1.1.0/24** przestrzeni dla adresów **AzureVNet**.
 9. Upewnij się, że Twoje **subskrypcji**, **grupy zasobów**, i **lokalizacji** są poprawne, a następnie wybierz **Utwórz**.
 
 ## <a name="create-the-connection"></a>Tworzenie połączenia
@@ -118,7 +118,7 @@ Teraz Utwórz maszynę wirtualną na platformie Azure i umieszcza je w podsieci 
 5. Wpisz prawidłową nazwę użytkownika i hasło. Służy do logowania się na maszynie wirtualnej, po jego utworzeniu.
 6. Podaj **subskrypcji**, **grupy zasobów**, i **lokalizacji**, a następnie wybierz **OK**.
 7. Na **rozmiar** wybierz rozmiar maszyny wirtualnej dla tego wystąpienia, a następnie wybierz **wybierz**.
-8. Na **ustawienia** sekcji można zaakceptować wartości domyślne. Upewnij się, że **AzureVnet** sieci wirtualnej jest zaznaczone, a następnie sprawdź, czy podsieci ma ustawioną **10.0.20.0/24**. Kliknij przycisk **OK**.
+8. Na **ustawienia** sekcji można zaakceptować wartości domyślne. Upewnij się, że **AzureVnet** sieci wirtualnej jest zaznaczone, a następnie sprawdź, czy podsieci ma ustawioną **10.100.0.0/24**. Kliknij przycisk **OK**.
 9. Sprawdź ustawienia na **Podsumowanie** , a następnie wybierz **OK**.
 
 ## <a name="create-the-network-resources-in-azure-stack"></a>Tworzenie zasobów sieciowych w stosie Azure
@@ -181,7 +181,7 @@ Sposób można traktować to bardziej ogólnie jest zasobu bramy sieci lokalnej 
 4. Wybierz z listy zasobów **bramy sieci lokalnej**.
 5. W **nazwa**, typ **Azure-GW**.
 6. W **adres IP**, wpisz publiczny adres IP dla bramy sieci wirtualnej na platformie Azure **Azure-GW — PiP**. Ten adres występuje wcześniej w tabeli konfiguracji sieci.
-7. W **przestrzeni adresowej**, do przestrzeni adresowej sieci wirtualnej Azure, który został utworzony, wpisz **10.0.20.0/23**.
+7. W **przestrzeni adresowej**, do przestrzeni adresowej sieci wirtualnej Azure, który został utworzony, wpisz **10.100.0.0/24** i **10.100.1.0/24**.
 8. Upewnij się, że Twoje **subskrypcji**, **grupy zasobów**, i **lokalizacji** są poprawne, a następnie wybierz **Utwórz**.
 
 ### <a name="create-the-connection"></a>Tworzenie połączenia
@@ -225,7 +225,7 @@ Aby upewnić się, że wysyłać ruch przez połączenie lokacja lokacja, zbadaj
 5. Zaloguj się przy użyciu konta, które zostało skonfigurowane podczas tworzenia maszyny wirtualnej.
 6. Otwórz podwyższonym **programu Windows PowerShell** okna.
 7. Wpisz polecenie **ipconfig /all**.
-8. W danych wyjściowych, Znajdź **adres IPv4**, a następnie Zapisz adres do późniejszego użycia. Jest to adres, który będzie ping z platformy Azure. W środowisku przykładowym ten adres to **10.0.10.4**, ale w Twoim środowisku może on być inny. Należy włączyć w **10.0.10.0/24** podsieci utworzonego wcześniej.
+8. W danych wyjściowych, Znajdź **adres IPv4**, a następnie Zapisz adres do późniejszego użycia. Jest to adres, który będzie ping z platformy Azure. W środowisku przykładzie adres jest **10.1.0.4**, ale w danym środowisku mogą się różnić. Należy włączyć w **10.1.0.0/24** podsieci utworzonego wcześniej.
 9. Aby utworzyć regułę zapory zezwalającą maszyny wirtualnej, które odpowiadają na polecenia ping, uruchom następujące polecenie programu PowerShell:
 
    ```powershell
@@ -242,7 +242,7 @@ Aby upewnić się, że wysyłać ruch przez połączenie lokacja lokacja, zbadaj
 5. Zaloguj się przy użyciu konta, które zostało skonfigurowane podczas tworzenia maszyny wirtualnej.
 6. Otwórz podwyższonym **programu Windows PowerShell** okna.
 7. Wpisz polecenie **ipconfig /all**.
-8. Powinien zostać wyświetlony adres IPv4, który mieści się w **10.0.20.0/24**. W środowisku przykładzie adres jest **10.0.20.4**, ale adres mogą się różnić.
+8. Powinien zostać wyświetlony adres IPv4, który mieści się w **10.100.0.0/24**. W środowisku przykładzie adres jest **10.100.0.4**, ale adres mogą się różnić.
 9. Aby utworzyć regułę zapory zezwalającą maszyny wirtualnej, które odpowiadają na polecenia ping, uruchom następujące polecenie programu PowerShell:
 
    ```powershell
@@ -252,7 +252,7 @@ Aby upewnić się, że wysyłać ruch przez połączenie lokacja lokacja, zbadaj
    ```
 
 10. Z maszyny wirtualnej na platformie Azure Zbadaj maszyny wirtualnej w stosie Azure za pośrednictwem tunelu. Aby to zrobić, możesz wykonać polecenie ping zapisane z maszyny Wirtualnej Azs DIP.
-   W środowisku przykładzie jest to **10.0.10.4**, ale należy wysyłać polecenia ping adres zanotowaną w laboratorium. Powinny pojawić się wynik, który wygląda jak poniższy zrzut ekranu:
+   W środowisku przykładzie jest to **10.1.0.4**, ale należy wysyłać polecenia ping adres zanotowaną w laboratorium. Powinny pojawić się wynik, który wygląda jak poniższy zrzut ekranu:
    
     ![Pomyślne polecenie ping](media/azure-stack-create-vpn-connection-one-node-tp2/image19b.png)
 11. Odpowiedź od zdalnego maszyny wirtualnej wskazuje testów powiodło się! Możesz zamknąć okno maszyny wirtualnej. Aby przetestować połączenie, możesz wypróbować inne rodzaje transferów danych, takich jak kopiowania plików.
@@ -264,8 +264,8 @@ Jeśli chcesz wiedzieć, ile dane są przesyłane za pośrednictwem połączenia
 2. Przejdź do **wszystkie zasoby**, a następnie wybierz **Azs Azure** połączenia. **Połączenia** pojawi się.
 4. Na **połączenia** sekcji Statystyki dotyczące **danych w** i **dla danych wychodzących** są wyświetlane. Na poniższym zrzucie ekranu dużą liczbą są przypisane do transferu dodatkowych plików. Niektóre niezerowe wartości powinny być widoczne.
    
-    ![Data in i out](media/azure-stack-connect-vpn/Connection.png)
+    ![Dane wejściowe i wyjściowe](media/azure-stack-connect-vpn/Connection.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Wdrażanie aplikacji na platformie Azure oraz Azure stosu](azure-stack-solution-pipeline.md)

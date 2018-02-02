@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
-ms.openlocfilehash: 62a69aeb7499a961f95739fb3836942b670c7320
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7a480c77c93035e655606433aea2547a1c105cc
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Omówienie API raportowania dla przedsiębiorstw
 Interfejsy API raportowania umożliwiają klientom Enterprise Azure programowo ściągania danych rozliczeń i zużycia do narzędzia do analizy danych preferowany. 
@@ -43,6 +43,9 @@ Punktu końcowego struktury Swagger jest dostępna [tutaj](https://consumption.a
 
 * **Arkusz cen** - [API arkusza cen](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) udostępnia stawkę dla każdego licznika dla danego rejestracji i okresu rozliczeniowego. 
 
+## <a name="data-freshness"></a>Aktualność danych
+Elementy etag zostanie zwrócony w odpowiedzi na wszystkie powyższe interfejsu API. Zmiana Etag wskazuje, że dane zostały odświeżone.  W kolejnych wywołaniach tego samego interfejsu API z tymi samymi parametrami należy przekazać przechwyconych Etag z kluczem "If-None-Match" w nagłówku żądania http. Kod stanu odpowiedzi będą "NotModified", jeśli dane nie zostały odświeżone kolejnych i nie zostanie zwrócone dane. Interfejs API zwróci pełnego zestawu danych w okresie wymagana zawsze, gdy nastąpiła zmiana etag.
+
 ## <a name="helper-apis"></a>Interfejsy API pomocy
  **Lista rozliczeń okresów** — [rozliczeń API okresów](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) zwraca listę rozliczeń okresów, które mają dane dotyczące zużycia dla określonej rejestracji w odwrotnej kolejności. Każdego okresu zawiera właściwość wskazujący trasę interfejsu API dla cztery zestawy danych - BalanceSummary, UsageDetails opłat w witrynie Marketplace i arkusza cen.
 
@@ -50,9 +53,9 @@ Punktu końcowego struktury Swagger jest dostępna [tutaj](https://consumption.a
 ## <a name="api-response-codes"></a>Kody odpowiedzi interfejsu API  
 |Kod stanu odpowiedzi|Komunikat|Opis|
 |-|-|-|
-|200| OK|Błąd braku|
+|200| OK|Brak błędów|
 |401| Brak autoryzacji| Klucz interfejsu API nie został znaleziony, nieprawidłowy, ważność itp.|
-|404| Niedostępne| Nie znaleziono punktu końcowego raportu|
+|404| Niedostępny| Nie znaleziono punktu końcowego raportu|
 |400| Nieprawidłowe żądanie| Nieprawidłowe parametry — zakresy dat, liczb EA itp.|
 |500| Błąd serwera| Unexoected błąd podczas przetwarzania żądania| 
 

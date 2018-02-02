@@ -1,22 +1,22 @@
 ---
 title: "Wdrażanie zdalne monitorowanie rozwiązania - Azure Java | Dokumentacja firmy Microsoft"
-description: "W tym samouczku przedstawiono sposób udostępnienia zdalnego wstępnie skonfigurowane rozwiązanie monitorowania microsoervices języka Java przy użyciu interfejsu wiersza polecenia."
+description: "W tym samouczku przedstawiono sposób udostępnienia zdalnego rozwiązanie monitorowania wstępnie skonfigurowane przy użyciu interfejsu wiersza polecenia."
 services: 
 suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 01/29/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: ea3764299d07f548abbc2857a3adbfb4dc50dec8
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 94c3db3286623264e9df7873962d10dd5cc662d4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-the-remote-monitoring-preconfigured-solution-using-the-cli"></a>Wdrażanie zdalne rozwiązanie monitorowania wstępnie skonfigurowane przy użyciu interfejsu wiersza polecenia
 
@@ -54,8 +54,10 @@ Podczas wdrażania wstępnie skonfigurowanych rozwiązań, dostępnych jest kilk
 
 | Opcja | Wartości | Opis |
 | ------ | ------ | ----------- |
-| SKU    | `basic`, `standard` | A _podstawowe_ wdrożenia jest przeznaczony dla testu i pokazów, wszystkie mikrousług jest wdrażana na jednej maszynie wirtualnej. A _standardowe_ wdrożenia jest przeznaczony dla środowiska produkcyjnego, mikrousług wdrażania wielu maszyn wirtualnych. |
+| SKU    | `basic`, `standard`, `local` | A _podstawowe_ wdrożenia jest przeznaczony dla testu i pokazów, wszystkie mikrousług jest wdrażana na jednej maszynie wirtualnej. A _standardowe_ wdrożenia jest przeznaczony dla środowiska produkcyjnego, mikrousług wdrażania wielu maszyn wirtualnych. A _lokalnego_ wdrożenia konfiguruje kontener Docker do uruchomienia mikrousług na komputerze lokalnym i używa usług Azure, takich jak magazyn i DB rozwiązania Cosmos w chmurze. |
 | Środowisko uruchomieniowe | `dotnet`, `java` | Wybiera implementacja języka mikrousług. |
+
+Aby dowiedzieć się więcej o sposobie używania lokalnego wdrożenia, zobacz [uruchomiony lokalnie zdalnego rozwiązanie monitorowania](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Running-the-Remote-Monitoring-Solution-Locally#deploy-azure-services-and-set-environment-variables).
 
 ## <a name="deploy-the-preconfigured-solution"></a>Wdrażanie wstępnie skonfigurowane rozwiązanie
 
@@ -94,7 +96,7 @@ pcs -h
 
 Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia, zobacz [sposób użycia interfejsu wiersza polecenia](https://github.com/Azure/pcs-cli/blob/master/README.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 

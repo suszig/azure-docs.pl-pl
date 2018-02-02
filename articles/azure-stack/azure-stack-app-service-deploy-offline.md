@@ -12,15 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: d2a9b9fbe2a057a6d36e80c89af83a543e90d3be
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 2e527620825a3b419c0191244ba0baff4b74f0fa
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Dodaj dostawcy zasobów usługi aplikacji w środowisku bez połączenia stosu Azure zabezpieczonej przez usługi AD FS
+*Dotyczy: Azure stosu zintegrowanych systemów i Azure stosu Development Kit*
 
 Postępując zgodnie z instrukcjami w tym artykule, można zainstalować [dostawcy zasobów usługi aplikacji](azure-stack-app-service-overview.md) do środowiska Azure stosu:
 - nie jest połączony z Internetem
@@ -98,7 +99,7 @@ Wdrożenie usługi aplikacji w środowisku bez połączenia, należy najpierw ut
 
     | Box | Przykład nazwy pliku certyfikatu |
     | --- | --- |
-    | **Plik certyfikatu SSL domyślne usługi aplikacji** | \_. appservice.local.AzureStack.external.pfx |
+    | **Plik certyfikatu SSL domyślne usługi aplikacji** | \_.appservice.local.AzureStack.external.pfx |
     | **Plik certyfikatu SSL usługi aplikacji interfejsu API** | api.appservice.local.AzureStack.external.pfx |
     | **Plik certyfikatu SSL wydawcy usługi aplikacji** | ftp.appservice.local.AzureStack.external.pfx |
 
@@ -114,7 +115,7 @@ Wdrożenie usługi aplikacji w środowisku bez połączenia, należy najpierw ut
 
      > [!NOTE]
      > W przypadku wdrożeń produkcyjnych, postępując zgodnie ze wskazówkami w [zaplanować role serwera usługi Azure App Service w stosie Azure wydajność](azure-stack-app-service-capacity-planning.md).
-     > 
+     >
      >
 
     | Rola | Minimalna wystąpień | Minimalna jednostki SKU | Uwagi |
@@ -197,7 +198,7 @@ Począwszy od trzeciego technical preview można utworzyć sieci web, interfejsu
 
 3. Jeśli wdrożono również dostawcy zasobów programu SQL Server, można wdrożyć DNN witryny sieci Web z witryny Marketplace. Gdy zostanie wyświetlony monit o parametry bazy danych, wybierz bazę danych na komputerze z uruchomionym programem SQL Server, połączoną z dostawcą zasobów.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Możesz również wypróbować innych [platforma jako usługa (PaaS) usługi](azure-stack-tools-paas-services.md).
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/26/2016
 ms.author: magoedte
-ms.openlocfilehash: afe7043e31c05444dded089dc02689a3b0c94659
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 86d62ba7fb12b09a2c19b4689af38bb8c121880b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Obsługa błędów w graficznych elementach Runbook w usłudze Azure Automation
 
@@ -40,7 +40,7 @@ Graficzne elementy runbook usługi Azure Automation ulepszono o możliwość uwz
 
 Zawsze, gdy krytyczne działanie zgłasza błąd lub wyjątek, istotne jest uniemożliwienie przetworzenia następnego działania w elemencie runbook i odpowiednie obsłużenie błędu. Jest to bardzo ważne zwłaszcza wtedy, gdy Twoje elementy runbook obsługują proces operacji usługi lub biznesowy.
 
-Do każdego działania, które może powodować błąd, autor elementu runbook może dodać link błędu wskazujący dowolne inne działanie.  Działanie docelowe może mieć dowolny typ: działanie kodu, wywołanie polecenia cmdlet, wywołanie innego elementu runbook itd.
+Do każdego działania, które może powodować błąd, autor elementu runbook może dodać link błędu wskazujący dowolne inne działanie. Działanie docelowe może mieć dowolny typ: działanie kodu, wywołanie polecenia cmdlet, wywołanie innego elementu runbook itd.
 
 Ponadto działanie docelowe również może mieć linki wychodzące. Mogą to być zwykłe linki lub linki błędów. Oznacza to, że autor elementu runbook może zaimplementować złożoną logikę obsługi błędów bez konieczności używania działania kodu. Zaleca się utworzenie elementu runbook dedykowanego do obsługi błędów mającego typową funkcjonalność, ale nie jest to obowiązkowe. Logika obsługi błędów w działaniu kodu PowerShell nie jest jedyną możliwością.  
 
@@ -63,7 +63,7 @@ Po skonfigurowaniu tego ustawienia możesz utworzyć działanie obsługujące b�
 
 W poniższym przykładzie element runbook pobiera zmienną, która zawiera nazwę komputera maszyny wirtualnej. Następnie w kolejnym działaniu próbuje on uruchomić maszynę wirtualną.<br><br> ![Przykład obsługi błędu elementu runbook usługi Automation](media/automation-runbook-graphical-error-handling/runbook-example-error-handling.png)<br><br>      
 
-Działanie **Get-AutomationVariable** i **Start AzureRmVm** są skonfigurowane do przekształcania wyjątków w błędy.  Jeśli wystąpią problemy z pobraniem zmiennej lub uruchomieniem maszyny wirtualnej, zostaną wygenerowane błędy.<br><br> ![Ustawienia działania obsługi błędu elementu runbook usługi Automation](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png)
+Działanie **Get-AutomationVariable** i **Start AzureRmVm** są skonfigurowane do przekształcania wyjątków w błędy. Jeśli wystąpią problemy z pobraniem zmiennej lub uruchomieniem maszyny wirtualnej, zostaną wygenerowane błędy.<br><br> ![Ustawienia działania obsługi błędu elementu runbook usługi Automation](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png)
 
 Linki błędów z tych działań prowadzą do pojedynczego działania **zarządzania błędami** (działanie kodu). To działanie jest skonfigurowane za pomocą prostego wyrażenia programu PowerShell przy użyciu słowa kluczowego *Throw*, aby zatrzymać przetwarzanie, oraz *$Error.Exception.Message*, aby uzyskać komunikat, który opisuje bieżący wyjątek.<br><br> ![Przykład kodu obsługi błędu elementu runbook usługi Automation](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
 

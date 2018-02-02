@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 37602bf78f7a43fb8255ddc0aad21f24095cb43c
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: f115d1e7313d2c9d378129c021a37489674fe81f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="reference---choose-a-communication-protocol"></a>Odwołanie — wybierz protokół komunikacyjny
 
@@ -26,7 +26,7 @@ Centrum IoT umożliwia skonfigurowanie urządzenia do używania następujące pr
 
 * [MQTT][lnk-mqtt]
 * MQTT przez protokół WebSockets
-* [PROTOKÓŁ AMQP][lnk-amqp]
+* [AMQP][lnk-amqp]
 * Protokół AMQP przez protokół WebSockets
 * HTTPS
 
@@ -44,7 +44,7 @@ Po wybraniu użytkownika protokołu komunikacji po stronie urządzenia, należy 
 
 * **Wzorzec chmury do urządzenia**. Protokół HTTPS nie ma wydajnym sposobem wdrożenia serwera wypychania. Tak korzystając z protokołu HTTPS, urządzenia sondować Centrum IoT wiadomości chmury do urządzenia. Ta metoda jest nieefektywne dla Centrum IoT i urządzeniami. W obszarze bieżące wytyczne HTTPS każde urządzenie powinno sondowania wiadomości co 25 minut lub więcej. MQTT i protokołu AMQP obsługuje wypychania serwera podczas odbierania wiadomości chmury do urządzenia. Umożliwiają one natychmiastowego wypchnięć wiadomości z Centrum IoT na urządzeniu. Jeśli czas oczekiwania na dostarczenie jest istotny, MQTT lub AMQP są protokoły używane. Rzadko połączonych urządzeń HTTPS działa również.
 * **Pole bram**. Korzystając z MQTT i HTTPS, nie można połączyć z wieloma urządzeniami (każde z nich własne poświadczenia na urządzenie) przy użyciu tego samego połączenia TLS. Aby uzyskać [pola scenariusze bramy] [ lnk-azure-gateway-guidance] wymagające jednego połączenia TLS między bramą pola i Centrum IoT dla każdego podłączonego urządzenia, te protokoły są nieoptymalne.
-* **Mało zasobów urządzeń**. Biblioteki MQTT i HTTPS ma mniejszy wyświetlacz niż bibliotek protokołu AMQP. Tak Jeśli urządzenie ma ograniczone zasoby (na przykład mniejszą niż 1 MB pamięci RAM), te protokoły mogą być dostępne tylko implementacja protokołu.
+* **Mało zasobów urządzeń**. Biblioteki MQTT i HTTPS ma mniejszy wyświetlacz niż bibliotek protokołu AMQP. Tak Jeśli urządzenie ma ograniczone zasoby (na przykład mniejsza niż 1 MB pamięci RAM), te protokoły mogą być dostępne tylko implementacja protokołu.
 * **Przechodzenie sieci**. Standardowy protokół AMQP korzysta z portu 5671 i MQTT nasłuchuje na porcie 8883. Korzystanie z tych portów może spowodować problemy w sieciach, które zostały zamknięte do protokołów innych niż HTTPS. Użyj MQTT przez protokół WebSockets, AMQP za pośrednictwem protokołu WebSockets lub HTTPS, w tym scenariuszu.
 * **Rozmiar ładunku**. MQTT i AMQP są binarne protokołów, które powoduje ładunki mniejszych niż HTTPS.
 
@@ -66,7 +66,7 @@ Urządzenia mogą komunikować się z Centrum IoT na platformie Azure przy użyc
 Po utworzeniu Centrum IoT w regionie Azure, Centrum IoT przechowuje ten sam adres IP przez czas ich istnienia tego Centrum IoT. Jednak jeśli Microsoft przenosi Centrum IoT na jednostkę skalowania różnych utrzymanie jakości usług, następnie przypisano nowego adresu IP.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby dowiedzieć się więcej na temat sposobu Centrum IoT implementuje ten protokół MQTT, zobacz [komunikacja z Centrum IoT przy użyciu protokołu MQTT][lnk-mqtt-support].
 

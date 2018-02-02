@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: 4a4a06f90c2c48d35d836f0be89fec9cc47f32c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0a61918108a48f4a9fa3d1c07cc8d41525f1f2a0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>Pobrana z wyprzedzeniem komunikatów usługi Azure Service Bus
 
@@ -27,7 +27,7 @@ Pojedynczy początkowego [Receive](/dotnet/api/microsoft.servicebus.messaging.qu
 
 ## <a name="enable-prefetch"></a>Włącz pobieranie z wyprzedzeniem
 
-W środowisku .NET, Włącz funkcję wyprzedzeniem przez ustawienie [PrefetchCount](/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount#Microsoft_Azure_ServiceBus_QueueClient_PrefetchCount) właściwość **MessageReceiver**, **QueueClient**, lub **SubscriptionClient**  na większą niż zero. Ustawienie wartości zero spowoduje wyłączenie pobierania z wyprzedzeniem.
+Z platformą .NET, Włącz funkcję wyprzedzeniem przez ustawienie [PrefetchCount](/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount#Microsoft_Azure_ServiceBus_QueueClient_PrefetchCount) właściwość **MessageReceiver**, **QueueClient**, lub **SubscriptionClient**  na większą niż zero. Ustawienie wartości zero spowoduje wyłączenie pobierania z wyprzedzeniem.
 
 Możesz łatwo dodać to ustawienie po stronie odbioru z [QueuesGettingStarted](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/QueuesGettingStarted) lub [ReceiveLoop](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ReceiveLoop) ustawienia próbek, aby zobaczyć efekt tych kontekstach.
 
@@ -37,7 +37,7 @@ Pobieranie z wyprzedzeniem działa także w taki sam sposób, z [OnMessage](/dot
 
 ## <a name="if-it-is-faster-why-is-prefetch-not-the-default-option"></a>Jeśli jest szybsze, dlaczego pobierania z wyprzedzeniem nie jest opcją domyślną?
 
-Pobieranie z wyprzedzeniem przyspiesza przepływ komunikatów przez komunikat łatwo dostępne do pobrania lokalnych po i przed aplikacja prosi o jeden. Przyrost ten przepływności powstaje na podstawie decyzji zależność Autor aplikacji należy jawnie:
+Pobieranie z wyprzedzeniem przyspiesza przepływ komunikatów przez komunikat łatwo dostępne do pobrania lokalnych po i przed aplikacja prosi o jeden. Przyrost ten przepływności jest wynikiem zależność, które autor aplikacji należy jawnie:
 
 Z [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode.receiveanddelete) tryb odbierania, wszystkie komunikaty, które zostały nabyte w buforze pobierania z wyprzedzeniem nie będą już dostępne w kolejce, a tylko znajdują się w buforze pobierania z wyprzedzeniem w pamięci, dopóki nie zostaną odebrane do aplikacji za pomocą **odbierania**/**metody ReceiveAsync** lub **OnMessage**/**OnMessageAsync** interfejsów API. Jeśli aplikacja zakończy się przed komunikaty są odbierane w aplikacji, te komunikaty są bezpowrotnie utracona.
 
@@ -53,7 +53,7 @@ Potrzebne są wysokiego w całym i przetwarzanie komunikatu jest często tanie, 
 
 Liczba maksymalna pobierania z wyprzedzeniem i czas trwania blokady skonfigurowany dla kolejki lub subskrypcji musi uwzględniać w taki sposób, że limit czasu blokady co najmniej przekracza zbiorczą oczekiwanego komunikatu przetwarzania czas maksymalny rozmiar buforu pobierania z wyprzedzeniem plus jeden komunikat. W tym samym czasie, przekroczenie limitu czasu blokady nie powinny być tak długo, że komunikaty może być dłuższa niż ich maksymalna [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) podczas przypadkowo są usuwane, w związku z tym wymagających ich blokady wygaśnie przed trwa przed przeniesieniem.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby dowiedzieć się więcej o komunikatów usługi Service Bus, zobacz następujące tematy:
 

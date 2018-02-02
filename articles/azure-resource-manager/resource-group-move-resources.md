@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7d500d20dcce3e472e3e1e15b9ce307874caf22a
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
-ms.translationtype: MT
+ms.openlocfilehash: ea0c2487e24fcb924632d3277163b7732442b414
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Przenoszenie zasobów do nowej grupy zasobów lub subskrypcji
 
@@ -53,7 +53,10 @@ Przed przeniesieniem zasobu należy wykonać kilka ważnych kroków. Dzięki spr
   az account show --subscription <your-destination-subscription> --query tenantId
   ```
 
-  Jeśli dzierżawy identyfikatorów subskrypcji źródłowych i docelowych nie są takie same, należy skontaktować się [obsługuje](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) przeniesienie zasobów do nowej dzierżawy.
+  Jeśli dzierżawy identyfikatorów subskrypcji źródłowych i docelowych nie są takie same, aby uzgodnić dzierżawy identyfikatorów należy użyć następujących metod: 
+
+  * [Transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md) (Przenoszenie własności subskrypcji platformy Azure na inne konto)
+  * [Jak skojarzyć lub dodać subskrypcję platformy Azure do usługi Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md)
 
 2. Usługa musi mieć możliwość przenoszenia zasobów. W tym artykule wymieniono usług, które umożliwiają przenoszenie zasobów i usług, które nie należy włączać przenoszenia zasobów.
 3. Subskrypcja docelowa musi być zarejestrowana dla dostawcy przenoszonego zasobu. Jeśli nie, zostanie wyświetlony komunikat o błędzie informujący, że **subskrypcja nie jest zarejestrowana dla typu zasobu**. Ten problem może wystąpić podczas przenoszenia zasobu do nowej subskrypcji, która nigdy nie była używana z tym typem zasobu.
@@ -93,7 +96,7 @@ Można przenieść najwięcej zasobów za pomocą operacji samoobsługi wyświet
 
 Skontaktuj się z [obsługuje](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) konieczność:
 
-* Przenoszenie zasobów dla nowego konta platformy Azure (i dzierżawy usługi Azure Active Directory).
+* Przenoszenie zasobów dla nowego konta platformy Azure (i dzierżawy usługi Azure Active Directory) i potrzebujesz pomocy z instrukcjami w poprzedniej sekcji.
 * Przenoszenie zasobów klasycznych, ale występują problemy z ograniczeniami.
 
 ## <a name="services-that-enable-move"></a>Usługi, które pozwalają przenoszenia
@@ -319,7 +322,7 @@ Aby przenieść Maszynę wirtualną w **kopia zapasowa Azure** między grupami z
  1. Tymczasowo Zatrzymaj wykonywanie kopii zapasowej i Zachowaj dane kopii zapasowej
  2. Przenieś maszynę Wirtualną do docelowej grupy zasobów
  3. Włącz ochronę ponownie w tym samym/nowy magazyn, które użytkownicy mogą przywracać z dostępnych punktów przywracania utworzone przed operacji przenoszenia.
-Jeśli użytkownik przesuwa kopii zapasowej maszyny Wirtualnej w subskrypcjach, krok 1 i 2 pozostają takie same. W kroku 3 użytkownik musi ochronę maszyny Wirtualnej w obszarze Nowy magazyn istnieje / utworzone w docelowej subskrypcji. Magazyn usług odzyskiwania i pomocy technicznej cross subskrypcji kopii zapasowych.
+Jeśli użytkownik przesuwa kopii zapasowej maszyny Wirtualnej w subskrypcjach, krok 1 i 2 pozostają takie same. W kroku 3 użytkownik musi ochronę maszyny Wirtualnej w obszarze Nowy magazyn istnieje / utworzone w docelowej subskrypcji. Magazyn usług odzyskiwania nie obsługuje kopii zapasowych między subskrypcji.
 
 ## <a name="hdinsight-limitations"></a>Ograniczenia usługi HDInsight
 

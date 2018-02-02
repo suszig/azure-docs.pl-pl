@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 737df48a24d8e077f898d00526c7138db69dbb93
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: f7b621312677c0b250e267770ae0c445ee9f083f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-firewall-integration"></a>Integracja z zaporą Azure stosu
 Używanie urządzenia zapory ułatwiające bezpieczne stosu Azure jest zalecane. Mimo że zapory można ułatwić rozproszonej typu "odmowa usługi" (DDOS) ataków, wykrywania nieautoryzowanego dostępu i inspekcji zawartości, może również zostać wąskie gardło przepływności dla usług magazynu Azure, takich jak obiekty BLOB, tabel i kolejek.
@@ -59,7 +59,9 @@ W sieci intranet lub obwód wdrożenia w przedsiębiorstwie stosu Azure jest wdr
 
 ![Przykład sieci obwodowej w usłudze Azure stosu](.\media\azure-stack-firewall\perimeter-network-scenario.png)
 
+## <a name="learn-more"></a>Dowiedz się więcej
+Dowiedz się więcej o [portach i protokołach używanych przez punkty końcowe stosu Azure](azure-stack-integrate-endpoints.md).
 
 ## <a name="next-steps"></a>Kolejne kroki
-Dowiedz się więcej o [portach i protokołach używanych przez punkty końcowe platformy Azure stosu](azure-stack-integrate-endpoints.md)
+[Wymagania dotyczące usługi Azure stosu infrastruktury kluczy publicznych](azure-stack-pki-certs.md)
 

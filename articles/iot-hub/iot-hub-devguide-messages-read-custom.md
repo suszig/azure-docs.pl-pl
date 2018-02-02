@@ -11,26 +11,26 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: d1e22a4378caf69d2077d79f78682c4d438dbcd2
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: a40fa94260b488e9c01ac09b22da8c0677d73968
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Urządzenia do chmury wiadomości wysyłanych tras wiadomości i niestandardowe punkty końcowe
 
-Centrum IoT umożliwia trasy [wiadomości urządzenia do chmury] [ lnk-device-to-cloud] do punktów końcowych usługi połączonej Centrum IoT na podstawie właściwości komunikatu. Reguły routingu zapewniają elastyczność do wysyłania wiadomości, których potrzebują przejścia bez konieczności stosowania dodatkowych usług do przetwarzania komunikatów lub napisać dodatkowy kod. Reguł routingu, które można skonfigurować ma następujące właściwości:
+Centrum IoT umożliwia trasy [wiadomości urządzenia do chmury] [ lnk-device-to-cloud] do punktów końcowych usługi połączonej Centrum IoT na podstawie właściwości komunikatu. Reguły routingu zapewniają elastyczność do wysyłania wiadomości gdy muszą przejść bez konieczności stosowania dodatkowych usług lub kodu niestandardowego. Reguł routingu, które można skonfigurować ma następujące właściwości:
 
 | Właściwość      | Opis |
 | ------------- | ----------- |
 | **Nazwa**      | Unikatowa nazwa identyfikuje reguły. |
 | **Źródło**    | Pochodzenie strumień danych, które będą używane. Na przykład telemetrii urządzenia. |
-| **Warunek** | Wyrażenia zapytania dla reguły routingu, która jest uruchamiana nagłówki i treści wiadomości i używany w celu określenia, czy jest ono dopasowania dla punktu końcowego. Aby uzyskać więcej informacji na temat tworzenia warunku trasy, zobacz [odwołanie - zapytania języka twins urządzenia i zadania][lnk-devguide-query-language]. |
+| **Warunek** | Wyrażenia zapytania dla reguły routingu, który jest uruchamiany przed nagłówki i treści wiadomości i określa, czy dopasowanie dla punktu końcowego. Aby uzyskać więcej informacji na temat tworzenia warunku trasy, zobacz [odwołanie - zapytania języka twins urządzenia i zadania][lnk-devguide-query-language]. |
 | **Punkt końcowy**  | Nazwa punktu końcowego, w którym Centrum IoT wysyła komunikaty, które są zgodne z warunkiem. Punkty końcowe musi należeć do tego samego regionu Centrum IoT, w przeciwnym razie może być wymagana dla regionu między zapisów. |
 
-Pojedynczy komunikat może zgodne z warunkiem na wielu reguł routingu, w których przypadku Centrum IoT dostarcza wiadomość do punktu końcowego skojarzone z każdą regułę dopasowany. Centrum IoT automatycznie deduplicates dostarczanie komunikatów, jeśli komunikat odpowiada wielu reguł mające tego samego miejsca docelowego, jest ona tylko zapisywana do tego miejsca docelowego raz.
+Pojedynczy komunikat może zgodne z warunkiem na wielu reguł routingu, w których przypadku Centrum IoT dostarcza wiadomość do punktu końcowego skojarzone z każdą regułę dopasowany. Centrum IoT automatycznie deduplicates dostarczanie komunikatów, więc jeśli wiadomość pasuje do wielu reguł, które mają tego samego miejsca docelowego, jest ona tylko zapisywana raz do tego miejsca docelowego.
 
 Centrum IoT ma wartość domyślną [wbudowanym punktem końcowym][lnk-built-in]. Można tworzyć niestandardowe punkty końcowe do wyznaczania tras wiadomościom przez połączenie innych usług w Twojej subskrypcji do koncentratora. Centrum IoT obecnie obsługuje kontenery magazynu Azure, usługa Event Hubs, kolejek usługi Service Bus i tematów usługi Service Bus jako niestandardowe punkty końcowe.
 
@@ -51,7 +51,7 @@ Aby uzyskać więcej informacji na temat odczytu z niestandardowe punkty końcow
 * Odczytywanie z [kolejek usługi Service Bus][lnk-getstarted-queue].
 * Odczytywanie z [tematów usługi Service Bus][lnk-getstarted-topic].
 
-### <a name="next-steps"></a>Następne kroki
+### <a name="next-steps"></a>Kolejne kroki
 
 Aby uzyskać więcej informacji na temat punkty końcowe Centrum IoT, zobacz [punkty końcowe Centrum IoT][lnk-devguide-endpoints].
 

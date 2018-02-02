@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: cherylmc
-ms.openlocfilehash: 6a03986288fdb6acaf234a8abf690f728d160fd7
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.openlocfilehash: 63160bc8f334b975ade8b35ce809578ad3a5b3fa
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Konfigurowanie monitora wydajności sieci dla usługi ExpressRoute (wersja zapoznawcza)
 
@@ -46,6 +46,7 @@ Obwody usługi ExpressRoute w dowolnej części świata można monitorować za p
 * Europa Zachodnia 
 * Wschodnie stany USA 
 * Azja Południowo-Wschodnia 
+* Australia Wschodnią Południowa
 
 ## <a name="workflow"></a>Przepływ pracy
 
@@ -109,7 +110,7 @@ Jeśli korzystasz już z Monitora wydajności sieci do monitorowania innych obie
 Zaleca się zainstalowanie co najmniej dwóch agentów po obu stronach połączenia ExpressRoute (tj. w infrastrukturze lokalnej, sieci wirtualnych platformy Azure) nadmiarowości. Aby zainstalować agentów, wykonaj następujące kroki:
 
 1. Uruchom **Instalator** do zainstalowania agenta na każdym serwerze, który ma być używany do monitorowania usługi ExpressRoute. Używanego do monitorowania serwera może być maszyny Wirtualnej lub lokalnymi i musi mieć dostęp do Internetu. Należy zainstalować co najmniej jeden lokalny agent i jednego agenta w każdym segmencie sieci, które mają być monitorowane na platformie Azure.
-2. Na **powitalnej** kliknij przycisk **dalej**.
+2. Na **stronie powitalnej** kliknij przycisk **Dalej**.
 3. Na **postanowień licencyjnych** odczytu licencji, a następnie kliknij przycisk **zgadzam się**.
 4. Na **Folder docelowy** , zmienić lub zachować domyślny folder instalacji, a następnie kliknij przycisk **dalej**.
 5. Na **opcje instalacji agenta** strony, użytkownik może Połącz agenta z Analiza dzienników Azure (OMS) lub programu Operations Manager. Lub puste opcji, jeśli chcesz później skonfigurować agenta. Po wprowadzeniu selection(s) Twojego, kliknij przycisk **dalej**.
@@ -124,7 +125,7 @@ Zaleca się zainstalowanie co najmniej dwóch agentów po obu stronach połącze
 
     ![Konto](.\media\how-to-npm\10.png)
 6. Na **gotowy do instalacji** , przejrzyj wybrane opcje, a następnie kliknij przycisk **zainstalować**.
-7. Na **konfiguracji została ukończona pomyślnie** kliknij przycisk **Zakończ**.
+7. Na stronie **Konfiguracja została zakończona pomyślnie** kliknij przycisk **Zakończ**.
 8. Po zakończeniu programu Microsoft Monitoring Agent pojawi się w Panelu sterowania. Można przejrzeć konfigurację istnieje i sprawdź, czy agent jest podłączony do Operational Insights (OMS). Podczas połączenia z usługą OMS, agent wyświetla komunikat z informacją: **programu Microsoft Monitoring Agent pomyślnie połączył się z usługą Microsoft Operations Management Suite**.
 
 ### <a name="proxy"></a>2.3: Konfigurowanie ustawień serwera proxy (opcjonalnie)
@@ -174,16 +175,13 @@ Do monitorowania serwerów agenta, które są na platformie Azure, należy skonf
 
 Aby uzyskać więcej informacji na temat grupy NSG, zobacz [grup zabezpieczeń sieci](../virtual-network/virtual-networks-create-nsg-arm-portal.md).
 
-## <a name="whitelist"></a>Krok 4: Żądanie do listy dozwolonych obszaru roboczego
-
 >[!NOTE]
 >Upewnij się, czy po zainstalowaniu agentów (agent serwera lokalnego i agent serwera Azure) i zostało uruchomione przed kontynuowaniem skrypt programu PowerShell w ramach tego kroku.
 >
 >
 
-Przed rozpoczęciem za pomocą funkcji monitorowania ExpressRoute programu NPM, należy zażądać do białej z obszaru roboczego. [Kliknij tutaj, aby przejść do strony, a następnie wypełnij formularz żądania](https://aka.ms/npmcohort). (Wskazówki: chcesz otworzyć to łącze w nowym oknie lub na karcie). Listę dozwolonych podobnej może potrwać dzień roboczy lub więcej. Po zakończeniu listę dozwolonych podobnej otrzymasz wiadomość e-mail.
 
-## <a name="setupmonitor"></a>Krok 5: Konfigurowanie NPM do monitorowania usługi ExpressRoute
+## <a name="setupmonitor"></a>Krok 4: Konfigurowanie NPM do monitorowania usługi ExpressRoute
 
 >[!WARNING]
 >Nie kontynuować do momentu swojego obszaru roboczego zostało białej i otrzymasz wiadomość e-mail z potwierdzeniem.
@@ -208,7 +206,7 @@ Po ukończeniu poprzedniej sekcji i sprawdź, czy zostały białej, można skonf
 
   ![monitorowanie kafelków](.\media\how-to-npm\15.png)
 
-## <a name="explore"></a>Krok 6: Wyświetl Kafelki monitorowania
+## <a name="explore"></a>Krok 5: Wyświetl Kafelki monitorowania
 
 ### <a name="dashboard"></a>Strona wydajności monitorowania sieci
 

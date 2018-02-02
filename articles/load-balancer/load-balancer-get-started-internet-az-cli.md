@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/20/2017
 ms.author: kumud
-ms.openlocfilehash: 769eb86af3e0506ddf03d1ec616d5a17b7e5f714
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 180cf891611f148a1b9acd112fbcddab8eb54de3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zone-redundant-frontend-using-azure-cli"></a>Utwórz publiczny obciążenia standardowego równoważenia z strefowo nadmiarowy frontonu przy użyciu wiersza polecenia platformy Azure
 
@@ -41,7 +41,7 @@ Jeśli wybierzesz do zainstalowania i używania interfejsu wiersza polecenia lok
 
 Przed wybraniem strefy lub strefowo nadmiarowy opcję frontonu publicznego adresu IP usługi równoważenia obciążenia, należy najpierw wykonać kroki w [zarejestrować w wersji zapoznawczej stref dostępności](https://docs.microsoft.com/azure/availability-zones/az-overview).
 
-Upewnij się, że zainstalowano najnowszą [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)i zalogować się do konta platformy Azure z [logowania az](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest#login).
+Upewnij się, że zainstalowano najnowszą [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)i zalogować się do konta platformy Azure z [logowania az](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest#az_login).
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
@@ -86,7 +86,7 @@ az network lb rule create --resource-group myResourceGroup --lb-name myLoadBalan
   --backend-pool-name myBackEndPool --probe-name myHealthProbe
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - Dowiedz się, jak [tworzenie publicznego adresu IP w strefie dostępności](../virtual-network/create-public-ip-availability-zone-cli.md)
 
 

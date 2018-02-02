@@ -1,6 +1,6 @@
 ---
-title: "Automatyczne skrypt służący do tworzenia aplikacji sieci Web programu Service Manager, aby połączyć z łącznika zarządzania usługi IT w OMS | Dokumentacja firmy Microsoft"
-description: "Tworzenie aplikacji sieci Web programu Service Manager przy użyciu zautomatyzowanego skryptu, aby połączyć się z łącznika zarządzania usługi IT w OMS i centralnie monitorować i zarządzać nimi elementy robocze Zarządzanie usługami IT —."
+title: "Automatyczne skrypt służący do tworzenia aplikacji sieci Web programu Service Manager połączenie z łącznikiem zarządzania usługi IT na platformie Azure | Dokumentacja firmy Microsoft"
+description: "Tworzenie aplikacji sieci Web programu Service Manager przy użyciu zautomatyzowanego skryptu, aby połączyć się z łącznika zarządzania usługi IT na platformie Azure i centralnie monitorować i zarządzać nimi elementy robocze Zarządzanie usługami IT —."
 services: log-analytics
 documentationcenter: 
 author: JYOTHIRMAISURI
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2017
+ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: ad69d82e57be8bfd9ba40dd88cbc0a979c9e1722
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 34ec15781776fc8373cd6c9dafa75010e942e167
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-service-manager-web-app-using-the-automated-script-preview"></a>Tworzenie aplikacji sieci Web programu Service Manager za pomocą zautomatyzowanego skryptu (wersja zapoznawcza)
+# <a name="create-service-manager-web-app-using-the-automated-script"></a>Tworzenie aplikacji sieci Web programu Service Manager za pomocą zautomatyzowanego skryptu
 
 Użyj następującego skryptu, aby utworzyć aplikację sieci Web dla swojego wystąpienia programu Service Manager. Więcej informacji na temat połączenia programu Service Manager jest w tym miejscu: [aplikacji sieci Web programu Service Manager](log-analytics-itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
 
@@ -318,5 +318,5 @@ if(!$err)
 }
 
 ```
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Skonfiguruj połączenie hybrydowe](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).

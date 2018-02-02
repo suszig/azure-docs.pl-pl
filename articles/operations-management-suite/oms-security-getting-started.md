@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: yurid
-ms.openlocfilehash: 9772e4c1022cf8609e52ccfe16376959b67e92eb
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 5832d46636cce5ceeda7f42d2e87b5a3a633bfe5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="getting-started-with-operations-management-suite-security-and-audit-solution"></a>Wprowadzenie do korzystania z rozwiązania Zabezpieczenia i inspekcja w pakiecie Operations Management Suite
 Ten dokument pomaga szybko rozpocząć korzystanie z rozwiązania Zabezpieczenia i inspekcja w pakiecie Operations Management Suite (OMS), objaśniając działanie poszczególnych opcji.
@@ -72,7 +72,7 @@ Scenariusze reagowania na zdarzenia i ich analizowania odniosą bezpośrednie ko
 
 Po kliknięciu tego kafelka pojawi się blok **Wyszukiwanie** przedstawiający wyniki zapytania **Zdarzenia zabezpieczeń** (Type=SecurityEvents) na podstawie danych z ostatnich siedmiu dni, jak pokazano poniżej:
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Rekordy zabezpieczeń w czasie](./media/oms-security-getting-started/oms-getting-started-fig3.JPG)
 

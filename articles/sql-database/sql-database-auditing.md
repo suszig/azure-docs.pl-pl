@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: giladm
-ms.openlocfilehash: c97a9d96dbe6d9bc9eaa189384acad7579365e82
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 9be945493cf013f472566a2c7a1dda05fd9b0ca9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Rozpoczynanie pracy z inspekcją bazy danych SQL
 Usługa Azure SQL database auditing śledzi zdarzenia bazy danych i zapisuje je inspekcji logowania na koncie magazynu Azure. Inspekcja również:
@@ -123,7 +123,7 @@ Istnieje kilka metod, których można użyć do wyświetlenia obiektu blob, dzie
 
 * Użyj [synchronizacji aplikacji](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) , który został utworzony. Działa na platformie Azure, a używa Operations Management Suite (OMS) analizy dzienników publiczne interfejsy API, aby wypchnąć dzienników inspekcji SQL do OMS. Synchronizowanie aplikacji wypchnięcia dzienników inspekcji SQL do analizy dzienników OMS zużycia za pośrednictwem pulpitu nawigacyjnego Analytics dziennika OMS.
 
-* Przy użyciu usługi Power BI. Można wyświetlać i analizować dane dzienników inspekcji w usłudze Power BI. Dowiedz się więcej o [usługi Power BI i dostęp do pobrania szablonu](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/).
+* Use Power BI. Można wyświetlać i analizować dane dzienników inspekcji w usłudze Power BI. Dowiedz się więcej o [usługi Power BI i dostęp do pobrania szablonu](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/).
 
 * Pobierz pliki dziennika z kontenera obiektów blob magazynu Azure w portalu lub przy użyciu narzędzia, takie jak [Eksploratora usługi Storage Azure](http://storageexplorer.com/).
     * Po pobraniu pliku dziennika, który jest lokalnie, możesz kliknąć dwukrotnie plik, który będzie otwierać, przeglądać i analizować dzienniki w programie SSMS.
@@ -175,10 +175,8 @@ W środowisku produkcyjnym najprawdopodobniej będzie okresowo Odśwież kluczy 
 
    * [Get-AzureRMSqlDatabaseAuditing][101]
    * [Get-AzureRMSqlServerAuditing][102]
-   * [Usuń AzureRMSqlDatabaseAuditing][103]
-   * [Usuń AzureRMSqlServerAuditing][104]
-   * [Zestaw AzureRMSqlDatabaseAuditing][105]
-   * [Zestaw AzureRMSqlServerAuditing][106]
+   * [Set-AzureRMSqlDatabaseAuditing][105]
+   * [Set-AzureRMSqlServerAuditing][106]
 
    Na przykład skryptu, zobacz [konfigurowania inspekcji i wykrywania zagrożeń przy użyciu programu PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 

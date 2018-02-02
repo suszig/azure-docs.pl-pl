@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: e6665b3b0c6e92ed462f18dbd41d62ccd9304928
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 5e700e3e9d17e790083facf00c7f4b8decf9037a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Wprowadzenie do usługi Azure Event siatki
 
@@ -22,18 +22,20 @@ Filtry służy do kierowania określonych zdarzeń do różnych punktów końcow
 
 Siatka zdarzeń obsługuje obecnie następujących regionach:
 
+* Azja Południowo-wschodnia
+* Azja Wschodnia
 * Środkowe stany USA
 *   Wschodnie stany USA
 *   Wschodnie stany USA 2
+* Europa Zachodnia
+* Europa Północna
 *   Środkowo-zachodnie stany USA
 *   Zachodnie stany USA
 *   Zachodnie stany USA 2
 
-Zostanie dodany innych regionów.
-
 Ten artykuł zawiera omówienie Azure zdarzeń siatki. Jeśli chcesz rozpocząć pracę z siatki zdarzeń, zobacz [tworzenie i tras niestandardowych zdarzeń siatki zdarzeń Azure](custom-event-quickstart.md). Na poniższej ilustracji przedstawiono, jak siatki zdarzeń łączy wydawcy i programy obsługi, ale nie zapewnia kompleksowe opcje są obsługiwane.
 
-![Model funkcjonalności siatki zdarzeń](./media/overview/event-grid-functional-model.png)
+![Model funkcjonalności siatki zdarzeń](./media/overview/functional-model.png)
 
 ## <a name="event-publishers"></a>Wydawcy zdarzeń
 
@@ -41,24 +43,24 @@ Obecnie następujących usług platformy Azure są wbudowane wydawcy obsługę z
 
 * Subskrypcje platformy Azure (operacje zarządzania)
 * Niestandardowe — tematy
-* Usługa Event Hubs
+* Event Hubs
+* Usługa IoT Hub
 * Grupy zasobów (operacje zarządzania)
 * Obiektu Blob magazynu
-
-Innymi usługami Azure zostaną dodane tego roku.
+* Magazynu ogólnego przeznaczenia v2 (GPv2)
 
 ## <a name="event-handlers"></a>Uchwyty zdarzeń
 
 Obecnie następujących usług platformy Azure są wbudowana obsługa siatki zdarzeń: 
 
 * Azure Automation
-* Stan usługi Funkcje Azure
-* Usługa Event Hubs
+* Azure Functions
+* Event Hubs
 * Logic Apps
-* Przepływ firmy Microsoft
+* Microsoft Flow
 * Elementy webhook
 
-Innymi usługami Azure zostaną dodane tego roku.
+Podczas korzystania z usługi Azure Functions jako program obsługi, należy użyć wyzwalacza zdarzenia siatki ogólnego HTTP Wyzwalacze INSTEAD OF. Zdarzenie siatki automatycznie sprawdza poprawność wyzwalacze zdarzeń funkcji siatki. Z ogólnym wyzwalacze HTTP, musisz zaimplementować [weryfikacji odpowiedzi](security-authentication.md#webhook-event-delivery).
 
 ## <a name="concepts"></a>Pojęcia
 
@@ -111,11 +113,9 @@ Usługa Event Grid łączy aplikację z innymi usługami. Na przykład utworzyć
 
 ## <a name="how-much-does-event-grid-cost"></a>Ile kosztuje siatki zdarzeń
 
-Azure siatki zdarzeń używa modelu cenowego płatności na zdarzenie, więc płacisz tylko za można użyć.
+Azure siatki zdarzeń używa modelu cenowego płatności na zdarzenie, więc płacisz tylko za można użyć. Pierwsze 100 000 operacji miesięcznie są wolne. Operacje są definiowane jako zdarzeń wejściowych, zaawansowane dopasowania, próba dostarczania i zarządzania wywołania. Aby uzyskać więcej informacji, zobacz [cennikiem](https://azure.microsoft.com/pricing/details/event-grid/).
 
-Zdarzenia siatki koszty: 0,60 $ operacje milionów ($0.30 wersji zapoznawczej) i mogą pierwszych 100 000 operacji w ciągu miesiąca. Operacje są definiowane jako zdarzeń wejściowych, zaawansowane dopasowania, próba dostarczania i zarządzania wywołania.  Więcej informacji można znaleźć w [cennikiem](https://azure.microsoft.com/pricing/details/event-grid/).
-
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Trasy zdarzenia obiektu Blob magazynu](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)  
   Odpowiadanie na zdarzenia magazynu obiektów blob przy użyciu siatki zdarzeń.

@@ -12,15 +12,17 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: dc341d872a3b8943a934217ace21537f45bafd10
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 3738ca8ce8dfe0e5375779e9273a3d10baf8861a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="configure-deployment-sources"></a>Konfigurowanie źródeł wdrożenia
+*Dotyczy: Azure stosu zintegrowanych systemów i Azure stosu Development Kit*
+
 
 Usługa aplikacji Azure stosu obsługuje wdrożenia na żądanie z wielu dostawców kontroli źródła. Ta funkcja umożliwia deweloperom aplikacji, wdrażanie bezpośrednio z ich repozytoria kontroli źródła. Jeśli użytkownik chce skonfigurować usługę aplikacji do nawiązania połączenia ich repozytoriów, operatorowi chmury najpierw należy skonfigurować integrację usługi aplikacji Azure stosu i dostawca kontroli źródła.  
 
@@ -29,7 +31,7 @@ Dostawców kontroli źródła poza Git lokalnych, obsługiwane są:
 * GitHub
 * BitBucket
 * OneDrive
-* Skrzynki
+* DropBox
 
 ## <a name="view-deployment-sources-in-app-service-administration"></a>Widok źródła wdrożenia w administracji usługi aplikacji
 
@@ -150,6 +152,6 @@ Musi mieć Account Microsoft połączone z kontem usługi OneDrive w celu wykona
 [15]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-Dropbox-application-registration.png
 [16]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-Dropbox-application-configuration.png
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Użytkownicy mogą teraz używać źródła wdrożenia dla elementów, takich jak [ciągłe wdrażanie](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment), [lokalnego wdrożenia Git](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-local-git), i [chmury synchronizacji folderu](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-content-sync).

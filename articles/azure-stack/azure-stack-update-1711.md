@@ -3,7 +3,7 @@ title: Aktualizacja Azure stosu 1711 | Dokumentacja firmy Microsoft
 description: "Więcej informacji na temat nowości w aktualizacji 1711 stosu Azure zintegrowanych systemów, znane problemy i pobierania aktualizacji."
 services: azure-stack
 documentationcenter: 
-author: andredm7
+author: brenduns
 manager: femila
 editor: 
 ms.assetid: 2b66fe05-3655-4f1a-9b30-81bd64ba0013
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
-ms.author: andredm
-ms.openlocfilehash: 578d17bcfbb7e12c9855132772c2068a5cdf1f62
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.date: 01/31/2018
+ms.author: brenduns
+ms.openlocfilehash: 3b3f6d66d8d5a095ff839195ccf718a9fa085527
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-1711-update"></a>Azure aktualizacji 1711 stosu
 
@@ -62,7 +62,7 @@ Ta aktualizacja obejmuje następujące ulepszenia i poprawki dla stosu Azure.
 #### <a name="windows-server-2016-new-features-and-fixes"></a>Windows Server 2016 nowe funkcje i poprawki
 
 - [14 listopada 2017 — KB4048953 (kompilacja 14393.1884 systemu operacyjnego)](https://support.microsoft.com/help/4048953)
- 
+
 ### <a name="known-issues-with-the-update-process"></a>Znane problemy związane z procesem aktualizacji
 
 Ta sekcja zawiera znane problemy, które mogą wystąpić podczas instalacji aktualizacji 1711.
@@ -97,7 +97,7 @@ Ta sekcja zawiera poinstalacyjne znane problemy z kompilacją **20171201.3**.
 
    - Może pojawić się pusty wiersz na początku listy. Nadal można wybrać elementu zgodnie z oczekiwaniami.
    - Jeśli na liście elementów na liście rozwijanej jest krótki, nie można przeglądać nazwy elementu.
-   - Jeśli masz wiele subskrypcji użytkownika listy rozwijanej grupy zasobów może być pusta. 
+   - Jeśli masz wiele subskrypcji użytkownika listy rozwijanej grupy zasobów może być pusta.
 
         > [!NOTE]
         > Aby obejść problemy z ostatnich dwóch, możesz wpisać nazwę subskrypcji lub grupy zasobów (jeśli ją znasz), lub można użyć programu PowerShell.
@@ -118,18 +118,18 @@ Ta sekcja zawiera poinstalacyjne znane problemy z kompilacją **20171201.3**.
 - Można skonfigurować dostępność maszyn wirtualnych, ustaw tylko z jednej domeny błędów i jedną domenę aktualizacji.
 - Brak nie doświadczenie marketplace, aby utworzyć zestawy skalowania maszyny wirtualnej. Można utworzyć skali ustawić za pomocą szablonu.
 - Ustawienia skalowania dla zestawy skalowania maszyny wirtualnej nie są dostępne w portalu. Jako rozwiązanie alternatywne można zastosować [programu Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Z powodu różnic wersji programu PowerShell, należy użyć `-Name` parametru zamiast `-VMScaleSetName`.
- 
+
 #### <a name="networking"></a>Networking
 - Nie można utworzyć modułu równoważenia obciążenia z publicznym adresem IP, za pomocą portalu. Jako rozwiązanie alternatywne można utworzyć modułu równoważenia obciążenia za pomocą programu PowerShell.
 - Podczas tworzenia modułu równoważenia obciążenia sieciowego, należy utworzyć regułę translatora adresów sieciowych adres. Jeśli nie, otrzymasz wystąpił błąd podczas próby dodania reguły NAT po utworzeniu usługi równoważenia obciążenia.
 - Nie można usunąć skojarzenie publicznego adresu IP z maszyną wirtualną (VM), po utworzeniu maszyny Wirtualnej i skojarzonych z tym adresem IP. Usuwanie skojarzeń pojawi się do pracy, ale poprzednio przypisanych publiczny adres IP pozostają skojarzone z oryginalna maszyna wirtualna. Dzieje się tak nawet w przypadku ponownego przypisywania adresów IP do nowej maszyny Wirtualnej (nazywane *wymiany wirtualnych adresów IP*). Wszystkie przyszłe próbuje nawiązać połączenie za pośrednictwem tego wyniku adresów IP w przypadku połączenia pierwotnie skojarzonego VM, a nie nowy. Obecnie tylko musi używać nowego publiczne adresy IP do tworzenia nowej maszyny Wirtualnej.
 - Operatory stosu Azure może być niemożliwe do wdrożenia, usuwanie, modyfikowanie, sieciami wirtualnymi lub grup zabezpieczeń sieci. Ten problem występuje przede wszystkim prób kolejnych aktualizacji tego samego pakietu. Jest to spowodowane problemem pakietów za pomocą aktualizacji, który jest obecnie badanym.
 - Wewnętrzny równoważenia obciążenia (ILB) nieprawidłowo obsługuje adresów MAC dla maszyn wirtualnych zaplecza, które dzieli wystąpień systemu Linux.
- 
+
 #### <a name="sqlmysql"></a>SQL/MySQL
-- Może potrwać do godziny dzierżawców można utworzyć bazy danych w nowym SQL lub MySQL jednostki SKU. 
+- Może potrwać do godziny dzierżawców można utworzyć bazy danych w nowym SQL lub MySQL jednostki SKU.
 - Tworzenie elementów bezpośrednio na SQL i MySQL serwerów, które nie są wykonywane przez dostawcę zasobów hosta nie jest obsługiwana i może spowodować niezgodne stanu.
- 
+
 #### <a name="app-service"></a>App Service
 - Użytkownik musi zarejestrować dostawcy zasobów magazynu, przed utworzeniem ich pierwszej funkcji platformy Azure w ramach subskrypcji.
 
@@ -149,7 +149,7 @@ W usłudze Azure Active Directory Federation Services (ADFS) wdrożone w środow
 - **Włączanie infrastruktura kopii zapasowej na ASDK jest tylko do celów testowych.**  
   Infrastruktura kopii zapasowych może służyć do przywrócenia rozwiązania z wieloma węzłami. Można włączyć infrastruktury wykonanie kopii zapasowej na ASDK, ale nie istnieje sposób do testowania odzyskiwania.
 
-Aby uzyskać więcej informacji, zobacz [kopii zapasowej i odzyskiwanie danych dla stosu Azure w usłudze Kopia zapasowa infrastruktury](C:\Git\MS\azure-docs-pr\articles\azure-stack\azure-stack-backup-infrastructure-backup.md).
+Aby uzyskać więcej informacji, zobacz [kopii zapasowej i odzyskiwanie danych dla stosu Azure w usłudze Kopia zapasowa infrastruktury](azure-stack-backup-infrastructure-backup.md).
 
 ## <a name="download-the-update"></a>Pobierz aktualizację
 

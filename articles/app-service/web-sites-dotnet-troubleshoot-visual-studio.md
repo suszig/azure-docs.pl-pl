@@ -3,8 +3,8 @@ title: "Rozwiązywanie problemów z aplikacji sieci web w usłudze Azure App Ser
 description: "Dowiedz się, jak rozwiązywanie problemów z aplikacją sieci web platformy Azure przy użyciu zdalnego debugowania i śledzenia i narzędzia rejestrowania, które są wbudowane w programie Visual Studio 2013."
 services: app-service
 documentationcenter: .net
-author: tdykstra
-manager: erikre
+author: cephalin
+manager: cfowler
 editor: 
 ms.assetid: def8e481-7803-4371-aa55-64025d116c97
 ms.service: app-service
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
-ms.author: rachelap
-ms.openlocfilehash: 1e3aff1898665c834a70e6c49f23e408a508b10a
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.author: cephalin
+ms.openlocfilehash: 6b1d5694c4d80a4db584b0c76a044dd596c5d553
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Rozwiązywanie problemów z aplikacji sieci web w usłudze Azure App Service przy użyciu programu Visual Studio
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Ten samouczek pokazuje, jak za pomocą narzędzi Visual Studio do debugowania aplikacji sieci web w [usługi aplikacji](http://go.microsoft.com/fwlink/?LinkId=529714), uruchamiając w [tryb debugowania](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) zdalnie lub poprzez wyświetlenie Dzienniki aplikacji i dzienniki serwera sieci web.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
@@ -117,9 +117,9 @@ Jeśli szczegółowy komunikat o błędzie nie zawiera informacji wystarczający
 
 Debugowanie zdalne nie działa w wersji Express programu Visual Studio.
 
-W tej sekcji pokazano, jak można debugować zdalnie przy użyciu projektu, należy utworzyć w [tworzenie aplikacji sieci web platformy ASP.NET w Azure][app-service-web-get-started-dotnet.md].
+W tej sekcji pokazano, jak można debugować zdalnie przy użyciu projektu, należy utworzyć w [tworzenie aplikacji sieci web platformy ASP.NET na platformie Azure](app-service-web-get-started-dotnet.md).
 
-1. Otwórz projekt sieci web, który został utworzony w [tworzenie aplikacji sieci web platformy ASP.NET w Azure][app-service-web-get-started-dotnet.md].
+1. Otwórz projekt sieci web, który został utworzony w [tworzenie aplikacji sieci web platformy ASP.NET na platformie Azure](app-service-web-get-started-dotnet.md).
 
 2. Otwórz *Controllers\HomeController.cs*.
 
@@ -135,7 +135,7 @@ W tej sekcji pokazano, jak można debugować zdalnie przy użyciu projektu, nale
 
 5. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt i kliknij przycisk **publikowania**.
 
-6. W **profilu** listy rozwijanej wybierz pozycję takie same profilu tego można użyć w [tworzenie aplikacji sieci web platformy ASP.NET w Azure][app-service-web-get-started-dotnet.md]. Następnie kliknij przycisk Ustawienia.
+6. W **profilu** listy rozwijanej wybierz pozycję takie same profilu tego można użyć w [tworzenie aplikacji sieci web platformy ASP.NET na platformie Azure](app-service-web-get-started-dotnet.md). Następnie kliknij przycisk Ustawienia.
 
 7. W **publikowania** okna dialogowego, kliknij przycisk **ustawienia** karcie, a następnie zmień **konfiguracji** do **debugowania**, a następnie kliknij przycisk  **Zapisz**.
 

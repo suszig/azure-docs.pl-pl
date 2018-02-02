@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: raynew
-ms.openlocfilehash: ceb4b13e326b24360799c1a7a25fe48f213fabd7
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 1761da23c669d5370d12e5619e09b56c8b00c9a6
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Konfigurowanie odzyskiwania po awarii do platformy Azure dla lokalnych serwerów fizycznych
 
@@ -64,7 +64,7 @@ Upewnij się, że konto Azure ma uprawnienia do replikacji maszyn wirtualnych na
 
 ### <a name="set-up-an-azure-network"></a>Konfiguracja sieci platformy Azure
 
-Konfigurowanie [sieć platformy Azure](../virtual-network/virtual-network-get-started-vnet-subnet.md).
+Konfigurowanie [sieć platformy Azure](../virtual-network/quick-create-portal.md).
 
 - Maszyny wirtualne platformy Azure są umieszczane w tej sieci, gdy są tworzone po pracy awaryjnej.
 - Sieć powinna znajdować się w tym samym regionie co magazyn usług odzyskiwania
@@ -142,7 +142,7 @@ Wybierz i zweryfikować zasobów docelowych.
 2. Określ model wdrożenia docelowego.
 3. Usługa Site Recovery sprawdza, czy masz co najmniej jedno zgodne konto magazynu Azure i co najmniej jedną sieć platformy Azure.
 
-   ![docelowy](./media/tutorial-physical-to-azure/network-storage.png)
+   ![Obiekt docelowy](./media/tutorial-physical-to-azure/network-storage.png)
 
 
 ## <a name="create-a-replication-policy"></a>Tworzenie zasad replikacji
@@ -181,6 +181,6 @@ Włącz replikację dla każdego serwera.
 
 Do monitorowania serwerów, możesz dodać, można sprawdzić czas ostatniego odnalezionych ich w **serwery konfiguracji** > **ostatniego kontaktu w**. Aby dodać komputery bez oczekiwania na godziny zaplanowanego odnajdywania, zaznacz serwer konfiguracji (nie klikaj pozycji go) i kliknij przycisk **Odśwież**.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Uruchamianie próbnego odzyskiwania po awarii](tutorial-dr-drill-azure.md)

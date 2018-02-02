@@ -12,22 +12,22 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
+ms.date: 01/29/2018
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 243845139c7ae0389333d7490098ef73f95dceac
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 003b3f6ef8a6fbc1c6fcdfc58f7d35bf6c42c9ee
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Informacje o funkcji i wywołanie metody bezpośrednio z Centrum IoT
-Centrum IoT daje możliwość wywołania metod bezpośrednio na urządzeniach z chmury. Bezpośrednie metody reprezentują żądanie odpowiedź interakcji z urządzeniem podobna do wywołania HTTP w tym ich powodzenie lub niepowodzenie natychmiast (po limitu określonego przez użytkownika). Ta metoda jest przydatne w scenariuszach, w którym kursu natychmiastowego działania różni się w zależności od tego, czy urządzenie mógł odpowiedzieć, takie jak wysyłanie SMS wake-up na urządzeniu, jeśli urządzenie jest w trybie offline (SMS są droższe niż wywołania metody).
+Centrum IoT daje możliwość wywołania metod bezpośrednio na urządzeniach z chmury. Bezpośrednie metody reprezentują żądanie odpowiedź interakcji z urządzeniem podobna do wywołania HTTP w tym ich powodzenie lub niepowodzenie natychmiast (po limitu określonego przez użytkownika). Ta metoda jest przydatne w scenariuszach, w którym kursu natychmiastowego działania różni się w zależności od tego, czy urządzenie zostało mogą odpowiadać. Na przykład wysyłanie SMS wake-up na urządzeniu, jeśli jest w trybie offline (SMS są droższe niż wywołania metody).
 Każda metoda urządzenia jest przeznaczony dla jednego urządzenia. [Zadania] [ lnk-devguide-jobs] umożliwiają wywołania metod bezpośrednio na wielu urządzeniach i Zaplanuj wywołania metody odłączone urządzenia.
 
 Każda osoba mająca **usługa połączyć** uprawnień w Centrum IoT mogą wywołać metodę na urządzeniu.
 
-Bezpośrednie metody wykonaj wzorzec żądań i odpowiedzi i są przeznaczone do komunikacji, które wymagają natychmiastowego potwierdzenia ich wyniku sterowania zwykle interaktywnego urządzenia, na przykład aby włączyć wentylatora.
+Bezpośrednie metody wykonaj wzorzec żądań i odpowiedzi i są przeznaczone do komunikacji, które wymagają natychmiastowego potwierdzenia ich wyników. Na przykład interakcyjne kontrolę nad urządzeniem, jak włączenie wentylatora.
 
 Zapoznaj się [wskazówki dotyczące komunikacji chmury do urządzenia] [ lnk-c2d-guidance] w razie wątpliwości między przy użyciu żądanej właściwości, bezpośrednie metod lub komunikaty chmury do urządzenia.
 
@@ -39,7 +39,7 @@ Bezpośrednie metody są wdrożone na urządzeniu i może wymagać zero lub wię
 > 
 > 
 
-Bezpośrednie metody są synchroniczne i albo pomyślnie lub zakończyć się niepowodzeniem po upływie limitu czasu (domyślne: 30 sekund, można ustawić się do 3600 sekund). Bezpośrednie metody są przydatne w scenariuszach interakcyjne miejsce na urządzeniu działa tylko wtedy, gdy urządzenie jest online i odbierania poleceń, jak włączenie światła przez telefon. W tych scenariuszach chcesz wyświetlić natychmiastowego powodzenie lub niepowodzenie, dlatego usługa w chmurze może działać na wynik tak szybko, jak to możliwe. Urządzenie może zwrócić niektóre treści wiadomości wyniku metody, ale nie jest wymagane dla metody to zrobić. Brak żadnej gwarancji, w kolejności lub dowolnego semantyki współbieżności na wywołania metody.
+Bezpośrednie metody są synchroniczne i albo pomyślnie lub zakończyć się niepowodzeniem po upływie limitu czasu (domyślne: 30 sekund, można ustawić się do 3600 sekund). Bezpośrednie metody są przydatne w scenariuszach interakcyjne miejsce na urządzeniu działa tylko wtedy, gdy urządzenie jest online i odbierania poleceń. Na przykład włączenie światła przez telefon. W tych scenariuszach chcesz wyświetlić natychmiastowego powodzenie lub niepowodzenie, dlatego usługa w chmurze może działać na wynik tak szybko, jak to możliwe. Urządzenie może zwrócić niektóre treści wiadomości wyniku metody, ale nie jest wymagane dla metody to zrobić. Brak żadnej gwarancji, w kolejności lub dowolnego semantyki współbieżności na wywołania metody.
 
 Bezpośrednie metody są HTTPS tylko po stronie chmury i MQTT lub AMQP po stronie urządzenia.
 
@@ -54,16 +54,16 @@ Bezpośrednie wywołania metod na urządzeniu są wywołania protokołu HTTPS, k
 * *Nagłówki* który zawiera autoryzacji, żądań Identyfikatora, typu zawartości i kodowania zawartości
 * Przezroczysty JSON *treści* w następującym formacie:
 
-   ```
-   {
-       "methodName": "reboot",
-       "responseTimeoutInSeconds": 200,
-       "payload": {
-           "input1": "someInput",
-           "input2": "anotherInput"
-       }
-   }
-   ```
+    ```json
+    {
+        "methodName": "reboot",
+        "responseTimeoutInSeconds": 200,
+        "payload": {
+            "input1": "someInput",
+            "input2": "anotherInput"
+        }
+    }
+    ```
 
 Jest limit czasu w sekundach. Jeśli nie ustawiono limit czasu, domyślnie 30 sekund.
 
@@ -74,13 +74,14 @@ Aplikacja zaplecza odbiera odpowiedź, która obejmuje:
 * *Nagłówki* który zawiera element ETag, żądania Identyfikatora, typu zawartości i kodowania zawartości
 * JSON *treści* w następującym formacie:
 
-   ```   {
-       "status" : 201,
-       "payload" : {...}
-   }
-   ```
+    ```json
+    {
+        "status" : 201,
+        "payload" : {...}
+    }
+    ```
 
-   Zarówno `status` i `body` udostępnianym przez urządzenie i używane do odpowiedzi z kodem stanu własnych urządzeń i/lub opis.
+    Zarówno `status` i `body` udostępnianym przez urządzenie i używane do odpowiedzi z kodem stanu własnych urządzeń i/lub opis.
 
 ## <a name="handle-a-direct-method-on-a-device"></a>Dojście metody bezpośrednio na urządzeniu
 ### <a name="mqtt"></a>MQTT
@@ -89,7 +90,7 @@ Urządzenia odbierania żądań metoda bezpośrednia na temat MQTT:`$iothub/meth
 
 Jednostkę urządzenie otrzyma znajduje się w następującym formacie:
 
-```
+```json
 {
     "input1": "someInput",
     "input2": "anotherInput"
@@ -127,12 +128,12 @@ Odpowiedź metody jest zwracana wysyłania łącze i ma następującą postać:
 Inne tematy referencyjne w Podręczniku dewelopera Centrum IoT obejmują:
 
 * [Punkty końcowe Centrum IoT] [ lnk-endpoints] opisano różne punkty końcowe, które udostępnia każdego centrum IoT dla operacji zarządzania i środowiska wykonawczego.
-* [Ograniczenia przepustowości i przydziały] [ lnk-quotas] opisuje przydziałów, które dotyczą usługi IoT Hub i ograniczania przepustowości zachowania można oczekiwać podczas korzystania z usługi.
+* [Ograniczenia przepustowości i przydziały] [ lnk-quotas] opisano przydziałów, które są stosowane i ograniczania przepustowości zachowanie można oczekiwać, gdy używasz Centrum IoT.
 * [Zestawy Azure IoT urządzenia i usługi SDK] [ lnk-sdks] wymieniono języka różnych zestawów SDK, można użyć podczas opracowywania aplikacji usług i urządzeń, które współdziałają z Centrum IoT.
 * [Język zapytań Centrum IoT urządzenia twins, zadań i rozsyłania wiadomości] [ lnk-query] opisuje język zapytań Centrum IoT można pobrać z Centrum IoT informacji o twins urządzenia i zadania.
 * [Obsługa MQTT Centrum IoT] [ lnk-devguide-mqtt] zapewnia więcej informacji na temat Centrum IoT obsługi protokołu MQTT.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Po zapoznaniu bezpośredniego metod, mogą być zainteresowane w następującym artykule przewodnik dewelopera Centrum IoT:
 
 * [Planowanie zadań na wielu urządzeniach][lnk-devguide-jobs]

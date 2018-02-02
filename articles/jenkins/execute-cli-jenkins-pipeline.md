@@ -15,18 +15,18 @@ ms.workload: web
 ms.date: 6/7/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: 490112417870fb3bfdb75abdb82f9adfff550f0a
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 2b568bd22858a42178e2821e0e97a3b4ebdfccd5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Wdrażanie usługi Azure App Service z Wpięć i interfejsu wiersza polecenia platformy Azure
-Aby wdrożyć aplikację sieci web Java na platformie Azure, można użyć wiersza polecenia platformy Azure w [potoku Wpięć](https://jenkins.io/doc/book/pipeline/). W tym samouczku, możesz utworzyć potok CI/CD na maszynie Wirtualnej platformy Azure w tym jak:
+Aby wdrożyć aplikację sieci web Java na platformie Azure, można użyć wiersza polecenia platformy Azure w [potoku Wpięć](https://jenkins.io/doc/book/pipeline/). W tym samouczku utworzysz potok CI/CD na maszynie wirtualnej platformy Azure. Wykonasz m.in. następujące czynności:
 
 > [!div class="checklist"]
-> * Tworzenie maszyny Wirtualnej z Wpięć
-> * Skonfiguruj Wpięć
+> * Tworzenie maszyny wirtualnej usługi Jenkins
+> * Konfigurowanie usługi Jenkins
 > * Tworzenie aplikacji sieci web na platformie Azure
 > * Przygotowanie repozytorium GitHub
 > * Tworzenie potoku Wpięć
@@ -62,7 +62,7 @@ Poświadczenia platformy Azure jest wymagany do wykonania wiersza polecenia plat
 
 ## <a name="create-an-azure-app-service-for-deploying-the-java-web-app"></a>Tworzenie usługi Azure App Service dla wdrażania aplikacji sieci web Java
 
-Tworzenie planu usługi aplikacji Azure z **wolne** ceny za pomocą warstwy [Tworzenie planu usług aplikacji az](/cli/azure/appservice/plan#create) polecenia interfejsu wiersza polecenia. Planu usług aplikacji definiuje zasoby fizyczne, używana do hostowania aplikacji. Wszystkie aplikacje przypisane do planu usług aplikacji udostępniania tych zasobów, co umożliwia zapisywanie koszt odnośnie do hostowania wielu aplikacji. 
+Tworzenie planu usługi aplikacji Azure z **wolne** ceny za pomocą warstwy [Tworzenie planu usług aplikacji az](/cli/azure/appservice/plan#az_appservice_plan_create) polecenia interfejsu wiersza polecenia. Planu usług aplikacji definiuje zasoby fizyczne, używana do hostowania aplikacji. Wszystkie aplikacje przypisane do planu usług aplikacji udostępniania tych zasobów, co umożliwia zapisywanie koszt odnośnie do hostowania wielu aplikacji. 
 
 ```azurecli-interactive
 az appservice plan create \
@@ -121,7 +121,7 @@ Podczas definiowania aplikacji sieci web jest gotowy, interfejsu wiersza polecen
 
 ### <a name="configure-java"></a>Konfigurowanie języka Java 
 
-Ustawianie konfiguracji środowiska uruchomieniowego języka Java wymagające aplikacji z [aktualizacja konfiguracji sieci web appservice az](/cli/azure/appservice/web/config#update) polecenia.
+Ustawianie konfiguracji środowiska uruchomieniowego języka Java wymagające aplikacji z [aktualizacja konfiguracji sieci web appservice az](/cli/azure/appservice/web/config#az_appservice_web_config_update) polecenia.
 
 Następujące polecenie konfiguruje aplikacji sieci web do uruchamiania na ostatnie JDK 8 Java i [Apache Tomcat](http://tomcat.apache.org/) 8.0.
 
@@ -160,7 +160,7 @@ Otwórz Wpięć w przeglądarce sieci web, kliknij pozycję **nowy element**.
 * Wprowadź adres URL usługi GitHub dla Twojego repozytorium rozwidlonych: https:\<Twojego repozytorium rozwidlonych\>.git
 * Kliknij przycisk **Zapisz**
 
-## <a name="test-your-pipeline"></a>Testowanie potoku sieci
+## <a name="test-your-pipeline"></a>Testowanie potoku
 * Przejdź do potoku został utworzony, kliknij przycisk **kompilacji teraz**
 * Kompilacja ma być pomyślnie wykonane w ciągu kilku sekund i można przejść do kompilacji i kliknij przycisk **dane wyjściowe konsoli** Aby wyświetlić szczegóły
 
@@ -221,12 +221,12 @@ Aplikacji w systemie Linux sieci Web obsługuje inny sposób, aby wykonać wdro�
 
     Przejdź do http://&lt;nazwa_aplikacji >.azurewebsites.net/api/calculator/add?x=&lt;x > & y =&lt;y > (Zastąp &lt;x > i &lt;y > z dowolnej liczby) można pobrać sumy x i y
     
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 W tym samouczku należy skonfigurować Wpięć potok, który umożliwia sprawdzenie kodu źródłowego w repozytorium GitHub. Uruchamia Maven, aby utworzyć plik war, a następnie używa interfejsu wiersza polecenia Azure do wdrożenia w usłudze Azure App Service. W tym samouczku omówiono:
 
 > [!div class="checklist"]
-> * Tworzenie maszyny Wirtualnej z Wpięć
-> * Skonfiguruj Wpięć
+> * Tworzenie maszyny wirtualnej usługi Jenkins
+> * Konfigurowanie usługi Jenkins
 > * Tworzenie aplikacji sieci web na platformie Azure
 > * Przygotowanie repozytorium GitHub
 > * Tworzenie potoku Wpięć

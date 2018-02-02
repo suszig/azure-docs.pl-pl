@@ -1,5 +1,5 @@
 ---
-title: "Samoobsługi lub wirusa rejestracji w usłudze Azure Active Directory | Dokumentacja firmy Microsoft"
+title: "Samoobsługi lub próbnej usługi rejestracji w usłudze Azure Active Directory | Dokumentacja firmy Microsoft"
 description: "Użyj subskrypcji samoobsługowej w dzierżawie usługi Azure Active Directory (Azure AD)"
 services: active-directory
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/03/2017
+ms.date: 01/28/2018
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 2b41bb1b72cc773c29d464228c3177fbd1d9f5e0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9f2b541d5028596f9beabc7fd82001b4c9dacad4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>Co to jest subskrypcji samoobsługowej usługi Azure Active Directory?
 W tym artykule opisano subskrypcji samoobsługowej oraz do jego obsługi w usłudze Azure Active Directory (Azure AD). Jeśli chcesz przejąć nazwy domeny z usługi Azure AD niezarządzanej dzierżawy, zobacz [przejąć niezarządzane katalogu jako administrator](domains-admin-takeover.md).
@@ -46,7 +46,12 @@ Administratorzy mają dwa formanty samoobsługi dzisiaj. Kontrolować, czy:
 Administrator można skonfigurować te funkcje przy użyciu następujących parametrów polecenia cmdlet Set-MsolCompanySettings usługi Azure AD:
 
 * **AllowEmailVerifiedUsers** Określa, czy użytkownik może utworzyć czy Dołącz katalog niezarządzane. Jeśli ten parametr jest ustawiony na $false, użytkownicy nie zweryfikować poczty e-mail może dołączać katalogu.
-* **AllowAdHocSubscriptions** kontroluje zdolność użytkownikom wykonywanie subskrypcji samoobsługowej. Jeśli ten parametr jest ustawiony na $false, użytkownicy nie mogą wykonywać subskrypcji samoobsługowej.
+* **AllowAdHocSubscriptions** kontroluje zdolność użytkownikom wykonywanie subskrypcji samoobsługowej. Jeśli ten parametr jest ustawiony na $false, użytkownicy nie mogą wykonywać subskrypcji samoobsługowej. 
+  
+  > [!NOTE]
+  > Utworzenie przepływu i rozwiązanie PowerApps konta wersji próbnej nie są kontrolowane przez **AllowAdHocSubscriptions** ustawienie. Aby uzyskać więcej informacji zobacz następujące artykuły:
+  > * [Jak zapobiec Mój istniejący użytkownicy z zacznie korzystać z usługi Power BI](https://support.office.com/article/Power-BI-in-your-Organization-d7941332-8aec-4e5e-87e8-92073ce73dc5#bkmk_preventjoining)
+  > * [Przepływ w organizacji pytań i odpowiedzi](https://docs.microsoft.com/flow/organization-q-and-a)
 
 ### <a name="how-do-the-controls-work-together"></a>Jak formanty działają razem?
 Tych parametrów można w połączeniu do definiowania dokładniejszej kontroli nad subskrypcji samoobsługowej. Na przykład następujące polecenie umożliwi użytkownikom wykonywanie subskrypcji samoobsługowej, ale tylko wtedy, jeśli ci użytkownicy mają już konto w usłudze Azure AD (innymi słowy, użytkownicy potrzebują zweryfikować adres e-mail konta należy utworzyć najpierw nie można wykonać subskrypcji samoobsługowej):
@@ -60,7 +65,7 @@ Poniższy schemat wyjaśniono różnych kombinacji tych parametrów i wynikowy w
 
 Aby uzyskać dodatkowe informacje i przykłady dotyczące używania tych parametrów, zobacz [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Dodawanie niestandardowej nazwy domeny do usługi Azure AD](add-custom-domain.md)
 * [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview)
 * [Azure PowerShell](/powershell/azure/overview)

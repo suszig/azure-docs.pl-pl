@@ -11,13 +11,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: c9e6aa03e3a1e0592223630c7b81634bcb09add6
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 82681214e9e42819bfc698aa670755467d250fa7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Przeczytaj komunikaty urządzenia do chmury z wbudowanym punktem końcowym
 
@@ -32,7 +32,7 @@ Centrum IoT umożliwia także zarządzanie grupy konsumentów na wbudowanych urz
 
 Domyślnie wszystkie wiadomości, które nie są jawnie zgodne reguły routingu wiadomości są zapisywane na wbudowanym punktem końcowym. Jeśli wyłączysz tę trasę rezerwowy wiadomości, które nie są jawnie zgodne żadnych reguł routingu wiadomości są usuwane.
 
-Czas przechowywania, można zmodyfikować albo programowo za pomocą [interfejsy API REST dostawcy zasobów Centrum IoT][lnk-resource-provider-apis], lub za pomocą [portalu Azure] [ lnk-management-portal].
+Można zmodyfikować czas przechowywania programowo przy [interfejsy API REST dostawcy zasobów Centrum IoT][lnk-resource-provider-apis], lub za pomocą [portalu Azure] [ lnk-management-portal].
 
 Centrum IoT przedstawia **wiadomości/zdarzenia** wbudowanych punktu końcowego usługi zaplecza, aby odczytać odebrane przez Centrum wiadomości urządzenia do chmury. Ten punkt końcowy jest zdarzeń zgodnych koncentratora, dzięki czemu można użyć innych mechanizmów usługę Event Hubs obsługuje do odczytywania wiadomości.
 
@@ -40,14 +40,14 @@ Centrum IoT przedstawia **wiadomości/zdarzenia** wbudowanych punktu końcowego 
 
 Jeśli używasz [Azure Service Bus SDK dla platformy .NET] [ lnk-servicebus-sdk] lub [usługi Event Hubs - hosta procesora zdarzeń][lnk-eventprocessorhost], może używać dowolnego połączenia Centrum IoT ciągi z odpowiednimi uprawnieniami. Następnie użyj **wiadomości/zdarzenia** jako nazwy Centrum zdarzeń.
 
-Jeśli używasz zestawów SDK (lub integracji produktu) znają z Centrum IoT, należy pobrać punktu końcowego zgodnego Centrum zdarzeń i nazwę Centrum zdarzeń zgodnych z ustawień Centrum IoT:
+Jeśli używasz zestawów SDK (lub integracji produktu) znają z Centrum IoT, należy pobrać punktu końcowego zgodnego Centrum zdarzeń i nazwy zgodnego Centrum zdarzeń:
 
 1. Zaloguj się do [portalu Azure] [ lnk-management-portal] i przejdź do Centrum IoT.
 1. Kliknij przycisk **Punkty końcowe**.
 1. W **wbudowane punkty końcowe** kliknij **zdarzenia**. 
 1. Zostanie otwarta strona właściwości, która zawiera następujące wartości: **punktu końcowego Centrum zdarzeń zgodnych**, **nazwę Centrum zdarzeń zgodnych**, **partycje**,  **Czas przechowywania**, i **grupy konsumentów**.
 
-    ![Ustawienia urządzenia do chmury][img-eventhubcompatible]
+    ![Ustawienia komunikacji między urządzeniem i chmurą][img-eventhubcompatible]
 
 Nazwa punktu końcowego Centrum IoT, czyli wymaga zestawu SDK Centrum IoT **wiadomości/zdarzenia** według **punkty końcowe**.
 
@@ -65,7 +65,7 @@ Zestawy SDK i integracji w korzystające z punktów końcowych zgodnych z Centru
 * [Apache Storm spout](../hdinsight/storm/apache-storm-develop-csharp-event-hub-topology.md). Możesz wyświetlić [spout źródła](https://github.com/apache/storm/tree/master/external/storm-eventhubs) w witrynie GitHub.
 * [Platforma Apache Spark integracji](../hdinsight/spark/apache-spark-eventhub-streaming.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby uzyskać więcej informacji na temat punkty końcowe Centrum IoT, zobacz [punkty końcowe Centrum IoT][lnk-endpoints].
 

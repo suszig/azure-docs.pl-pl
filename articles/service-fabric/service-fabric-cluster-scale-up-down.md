@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
 ms.author: chackdan
-ms.openlocfilehash: 249fb4903c7b2de3ce290850a7759a4793f10aa7
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 4813276ea8180aa8bdd385da289e6073f08d400e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules"></a>Skalowanie klastra usługi sieć szkieletowa przychodzący lub wychodzący przy użyciu reguł automatycznego skalowania
 Zestawy skalowania maszyny wirtualnej są zasobu obliczeń platformy Azure, który służy do wdrażania i zarządzania nimi jako zestaw kolekcji maszyn wirtualnych. Każdy typ węzła który jest zdefiniowany w klastrze usługi sieć szkieletowa jest skonfigurowany jako osobny zestaw skali maszyny wirtualnej. Każdy typ węzła można skalować w lub wychodzących niezależnie, mają różne zestawy otwartych portów i może mieć inną pojemność metryki. Dowiedz się więcej o w [elementów sieci szkieletowej usług NodeType](service-fabric-cluster-nodetypes.md) dokumentu. Ponieważ sieci szkieletowej usług typy węzłów w klastrze składają się z zestawy skalowania maszyny wirtualnej w wewnętrznej bazie danych, należy skonfigurować reguły automatycznego skalowania dla zestawu skali maszyny każdego węzła typu/wirtualnej.
@@ -91,7 +91,7 @@ Wykonaj następujące kroki jednego wystąpienia maszyny Wirtualnej należy nara
 4. Powtórz kroki od 1 do 3 zgodnie z potrzebami, ale nigdy nie skalować liczbę wystąpień w typach węzła podstawowego mniej niż gwarantuje warstwa niezawodności. Zapoznaj się [szczegółowe informacje w tym miejscu warstwach niezawodności](service-fabric-cluster-capacity.md).
 
 ## <a name="behaviors-you-may-observe-in-service-fabric-explorer"></a>Zachowania można zaobserwować w narzędziu Service Fabric Explorer
-Skalowanie w górę klastra Eksploratora usługi sieć szkieletowa będzie odzwierciedlać liczba węzłów (wystąpienia zestawu skalowania maszyn wirtualnych), które są częścią klastra.  Jednak podczas skalowania klastra w dół możesz zostanie wyświetlone wystąpienie usunięty węzeł/wirtualna wyświetlane w złej kondycji, chyba że wywołujesz [cmd ServiceFabricNodeState Usuń](https://msdn.microsoft.com/library/mt125993.aspx) o nazwie odpowiedni węzeł.   
+Skalowanie w górę klastra Eksploratora usługi sieć szkieletowa będzie odzwierciedlać liczba węzłów (wystąpienia zestawu skalowania maszyn wirtualnych), które są częścią klastra.  Jednak podczas skalowania klastra w dół możesz zostanie wyświetlone wystąpienie usunięty węzeł/wirtualna wyświetlane w złej kondycji, chyba że wywołujesz [cmd ServiceFabricNodeState Usuń](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) o nazwie odpowiedni węzeł.   
 
 Oto wyjaśnienia tego zachowania.
 
@@ -109,7 +109,7 @@ Zapoznaj się [szczegółów dotyczących poziomów trwałości tutaj](service-f
 > 
 > 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Przeczytaj następujące również informacje na temat planowania pojemności klastra, Uaktualnianie klastra i partycjonowanie usług:
 
 * [Planowanie pojemności sieci klastra](service-fabric-cluster-capacity.md)

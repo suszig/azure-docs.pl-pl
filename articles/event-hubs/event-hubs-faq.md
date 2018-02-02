@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2017
+ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: c4faa071c4f2401fe3e852e787e3b7d4da0c7d44
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6bdcbbe37613d5384017409f3be2772085e276ae
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Usługa Event Hubs — często zadawane pytania
 
@@ -40,7 +40,7 @@ Należy wybrać jawnie jednostek przepływności usługi Event Hubs, za pomocą 
 
 * Się do 1 MB na sekundę zdarzenia transfer danych przychodzących (zdarzenia wysyłane do Centrum zdarzeń), ale nie więcej niż 1000 wejściowych zdarzenia, operacji zarządzania lub formantu wywołania interfejsu API na sekundę.
 * Do 2 MB na sekundę wyjście zdarzenia (zdarzenia używane z Centrum zdarzeń).
-* Do 84 GB przestrzeni dyskowej zdarzenia (wystarczające dla domyślnego okresu przechowywania 24-godzinnym).
+* Do 84 GB magazynu zdarzeń (wystarcza na domyślny 24-godzinny okres przechowywania).
 
 Jednostki przepływności centra zdarzeń są rozliczane godzinowo, oparte na maksymalną liczbę jednostek wybranych w ciągu danego godziny. Można automatycznie [zwiększyć liczbę jednostek przepływności](event-hubs-auto-inflate.md) miarę wzrostu użycie.
 
@@ -58,7 +58,7 @@ Przy użyciu [zwiększyć automatycznie](event-hubs-auto-inflate.md) funkcji, mo
 Tak, jak długo są wszystkie usługi event hubs w tej samej przestrzeni nazw.
 
 ### <a name="what-is-the-maximum-retention-period-for-events"></a>Co to jest maksymalny okres przechowywania dla zdarzeń?
-Warstwy standardowa centra zdarzeń obsługuje obecnie okres maksymalny czas przechowywania danych w ciągu 7 dni. Należy pamiętać, usługa event hubs nie są przeznaczone jako magazynu danych trwałych. Okresy przechowywania dłuższego niż 24 godziny są przeznaczone dla scenariuszy, w których jest wygodne powtarzania strumienia zdarzeń w tym samym systemy; na przykład uczenia lub sprawdź, czy nowy model uczenia maszynowego na istniejących danych. Jeśli konieczne komunikatu przechowywania poza 7 dni, włączanie [przechwytywania centra zdarzeń](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) na zdarzenie Centrum pobiera dane z Centrum zdarzeń do konta magazynu lub konta usługi Azure Data Lake usługi wybrane. Włączanie przechwytywania wiąże opłat oparte na sieci zakupionych jednostek przepływności.
+Warstwy standardowa centra zdarzeń obsługuje obecnie okres maksymalny czas przechowywania danych w ciągu 7 dni. Centra zdarzeń nie są przeznaczone do stałego przechowywania danych. Okresy przechowywania dłuższego niż 24 godziny są przeznaczone dla scenariuszy, w których jest wygodne powtarzania strumienia zdarzeń w tym samym systemy; na przykład uczenia lub sprawdź, czy nowy model uczenia maszynowego na istniejących danych. Jeśli konieczne komunikatu przechowywania poza 7 dni, włączanie [przechwytywania centra zdarzeń](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) na zdarzenie Centrum pobiera dane z Centrum zdarzeń do konta magazynu lub konta usługi Azure Data Lake usługi wybrane. Włączanie przechwytywania wiąże opłat oparte na sieci zakupionych jednostek przepływności.
 
 ### <a name="where-is-azure-event-hubs-available"></a>Gdzie jest usługa Azure Event Hubs?
 Usługa Azure Event Hubs jest dostępna we wszystkich obsługiwanych regionach platformy Azure. Lista, odwiedź stronę [regiony platformy Azure](https://azure.microsoft.com/regions/) strony.  
@@ -66,7 +66,8 @@ Usługa Azure Event Hubs jest dostępna we wszystkich obsługiwanych regionach p
 ## <a name="best-practices"></a>Najlepsze praktyki
 
 ### <a name="how-many-partitions-do-i-need"></a>Jak wiele partycji potrzebuję?
-Sprawdź należy pamiętać, że liczba partycji w Centrum zdarzeń nie można modyfikować po zakończeniu instalacji. Z tym pamiętać należy wziąć pod uwagę liczbę partycji należy przed rozpoczęciem pracy. 
+
+Należy pamiętać, że liczba partycji w Centrum zdarzeń nie można zmodyfikować po zakończeniu instalacji. Z tym pamiętać należy wziąć pod uwagę liczbę partycji należy przed rozpoczęciem pracy. 
 
 Usługa Event Hubs umożliwia czytnik jedną partycję na grupę odbiorców. W większości przypadków użycia wystarczające jest ustawieniem domyślnym cztery partycje. Jeśli szukasz skalowanie przetwarzania zdarzeń, można rozważyć dodanie dodatkowe partycje. Nie ma żadnego limitu określonego przepływności na partycji, jednak łącznej przepływności w przestrzeni nazw jest ograniczona przez liczbę jednostek przepływności. Jak zwiększyć liczbę jednostek przepływności w przestrzeni nazw, można dodatkowe partycje umożliwiają współbieżnych czytników do osiągnięcia własnych maksymalną przepustowość.
 
@@ -81,7 +82,7 @@ Aby uzyskać pełne informacje na temat cen usługi Event Hubs, zobacz [szczegó
 Warstwy standardowa centra zdarzeń Zezwalaj przechowywania wiadomości okresów dłużej niż 24 godziny, maksymalnie 7 dni. Jeśli rozmiar całkowitej liczby zdarzeń przechowywanych przekracza dozwolony magazynu dla liczby jednostek przepływności wybranego (84 GB na jednostkę przepływności), rozmiar przekracza dozwolony jest pobierana z szybkością opublikowanych magazynu obiektów Blob platformy Azure. Dodatek magazynu w każdej jednostki przepływności obejmuje kosztów magazynowania wszystkich okresów przechowywania 24 godzin (domyślnie), nawet jeśli jednostka przepływności jest wykorzystane do dodatku maksymalną transfer danych przychodzących.
 
 ### <a name="how-is-the-event-hubs-storage-size-calculated-and-charged"></a>Jak jest rozmiar magazynu usługi Event Hubs obliczone i pobierane?
-Całkowity rozmiar wszystkich zdarzeń przechowywanych, w tym wszelkie koszty wewnętrzny dla nagłówków zdarzeń lub struktur na dysku magazynu w wszystkie usługi event hubs, jest mierzony w ciągu dnia. Na koniec dnia wyliczana jest szczytowa wielkość magazynu. Codzienne dodatek magazynu jest obliczana na podstawie minimalną liczbę jednostek przepływności, które zostały wybrane w ciągu dnia (każdej jednostki przepływności udostępnia dodatek 84 GB). Jeśli łączny rozmiar przekracza obliczeniowej codzienne dodatek magazynu, nadmiarowe magazyn jest rozliczany przy użyciu stawek obowiązujących dla magazynu obiektów Blob platformy Azure (w **magazyn lokalnie nadmiarowy** szybkość).
+Całkowity rozmiar wszystkich zdarzeń przechowywanych, w tym wszelkie koszty wewnętrzny dla nagłówków zdarzeń lub struktur na dysku magazynu w wszystkie usługi event hubs, jest mierzony w ciągu dnia. Na koniec dnia wyliczana jest szczytowa wielkość magazynu. Dzienny limit magazynu jest wyliczany na podstawie minimalnej liczby jednostek przepływności, które zostały wybrane w ciągu dnia (każda jednostka przepływności ma limit 84 GB). Jeśli łączny rozmiar przekracza obliczeniowej codzienne dodatek magazynu, nadmiarowe magazyn jest rozliczany przy użyciu stawek obowiązujących dla magazynu obiektów Blob platformy Azure (w **magazyn lokalnie nadmiarowy** szybkość).
 
 ### <a name="how-are-event-hubs-ingress-events-calculated"></a>Jak są obliczane zdarzeń wejściowych centra zdarzeń
 Każdego zdarzenia wysyłane do Centrum zdarzeń jest traktowana jako rozliczeniowy wiadomości. *Zdarzeń wejściowych* jest zdefiniowany jako jednostka danych, która jest mniejsza niż 64 KB. Wszystkie zdarzenia, która jest mniejsza niż lub równe 64 KB rozmiaru jest uważana za jedno zdarzenie rozliczeniowy. Jeśli zdarzenie jest większa niż 64 KB, liczbę zdarzeń rozliczeniowy jest obliczane na podstawie rozmiar zdarzenia wielokrotności 64 KB. Na przykład zdarzenia 8 KB wysyłane do Centrum zdarzeń jest on rozliczany jako jedno zdarzenie, ale 96 KB komunikat wysyłany do Centrum zdarzeń jest on rozliczany jako dwa zdarzenia.
@@ -89,7 +90,7 @@ Każdego zdarzenia wysyłane do Centrum zdarzeń jest traktowana jako rozliczeni
 Zdarzenia używane z Centrum zdarzeń, jak również jako operacji zarządzania i kontroli wywołań, taką jak punkty kontrolne nie są liczone jako zdarzeń wejściowych rozliczeniowy, ale naliczania do dodatku jednostkę przepływności.
 
 ### <a name="do-brokered-connection-charges-apply-to-event-hubs"></a>Opłaty za połączenia obsługiwanych przez brokera są stosowane do usługi Event Hubs?
-Opłaty za połączenia mają zastosowanie tylko wtedy, jeśli jest używany protokół AMQP. Nie ma żadnych opłat połączenia do wysyłania zdarzeń przy użyciu protokołu HTTP, niezależnie od liczby wysyłania systemów lub urządzeń. Jeśli planujesz używać protokołu AMQP (na przykład osiągnąć większą wydajność przesyłania strumieniowego zdarzeń lub Włącz komunikację dwukierunkową w poleceniu IoT i kontrolować scenariusze), zobacz temat [uzyskać informacje o cenach usługi Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/) strony, aby uzyskać szczegółowe informacje, o ile połączeń są uwzględnione w poszczególnych warstwach usług.
+Opłaty za połączenia mają zastosowanie tylko wtedy, jeśli jest używany protokół AMQP. Nie ma opłat za połączenia związane z przesyłaniem zdarzeń przez protokół HTTP niezależnie od liczby systemów lub urządzeń wysyłających. Jeśli planujesz używać protokołu AMQP (na przykład osiągnąć większą wydajność przesyłania strumieniowego zdarzeń lub Włącz komunikację dwukierunkową w poleceniu IoT i kontrolować scenariusze), zobacz temat [uzyskać informacje o cenach usługi Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/) strony, aby uzyskać szczegółowe informacje, o ile połączeń są uwzględnione w poszczególnych warstwach usług.
 
 ### <a name="how-is-event-hubs-capture-billed"></a>W jaki sposób są naliczane opłaty za funkcję przechwytywanie usługi Event Hubs?
 Przechwytywanie jest włączona, gdy wszystkie Centrum zdarzeń w przestrzeni nazw włączono opcję przechwytywania. Przechwyć centra zdarzeń są rozliczane godzinowo na jednostkę przepływności zakupionych. Liczba jednostek przepływności jest zwiększyć lub zmniejszyć, rozliczeń przechwytywania centra zdarzeń odzwierciedla te zmiany w całej godz. Aby uzyskać więcej informacji dotyczących rozliczeń przechwytywania centra zdarzeń, zobacz [uzyskać informacje o cenach usługi Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
@@ -115,7 +116,7 @@ Pomoc techniczna dla usługi Event Hubs jest dostępna za pośrednictwem [Fora s
 
 Aby dowiedzieć się więcej na temat naszych umowy SLA, zobacz [umowy dotyczące poziomu usług](https://azure.microsoft.com/support/legal/sla/) strony.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Następujące linki pozwalają dowiedzieć się więcej na temat usługi Event Hubs:
 
 * [Omówienie usługi Event Hubs](event-hubs-what-is-event-hubs.md)

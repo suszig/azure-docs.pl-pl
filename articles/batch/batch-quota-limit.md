@@ -3,8 +3,8 @@ title: "Usługa przydziały i limity dla partii zadań Azure | Dokumentacja firm
 description: "Więcej informacji na temat przydziałów domyślnych partii zadań Azure, ograniczenia i ograniczenia i zwiększa jak utworzyć żądanie przydziału"
 services: batch
 documentationcenter: 
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 editor: 
 ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
 ms.service: batch
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 210ba4a90f24ce9b0b55c4565028232c2b7fd7cc
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 06445845ef8f93a06cb4b52e07108965cc3b7f8a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="batch-service-quotas-and-limits"></a>Limity przydziału i limity usługi Batch
 
@@ -55,7 +55,7 @@ Jeśli starszej wersji interfejsu API partii jest używany do tworzenia konta us
 
 <sup>1</sup> limit bloku maksymalny rozmiar obiektu blob magazynu azure<br />
 <sup>2</sup> obejmuje plików zasobów i zmienne środowiskowe<br />
-<sup>3</sup> maksymalny okres istnienia zadania, gdy jest ona dodawana do zadania, po jego ukończeniu, wynosi 7 dni. Zadania ukończone utrwalić nieskończoność; dane zadanie nie zostało ukończone w ciągu maksymalny okres istnienia nie jest dostępny.
+<sup>3</sup> maksymalny okres istnienia zadania, gdy jest ona dodawana do zadania, po jego ukończeniu, wynosi 7 dni. Ukończone zadania podrzędne są utrwalone przez czas nieokreślony. Dane dla zadań podrzędnych nieukończonych w ciągu maksymalnego okresu istnienia nie są dostępne.
 
 
 ## <a name="view-batch-quotas"></a>Przydziały partii widoku

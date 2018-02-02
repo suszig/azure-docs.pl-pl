@@ -4,20 +4,20 @@ description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej mię
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: c47894b1-f5df-4755-845d-f12f4c602dc4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 01/31/2017
 ms.author: jeedes
-ms.openlocfilehash: fbec2cee6e1ecd23b34fd879d978a05bd5a04ac4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: eb9243367d0817d37549fa147c6c5e1d2acf3761
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veritas-enterprise-vaultcloud-sso"></a>Samouczek: Integracji Azure Active Directory z logowania jednokrotnego Vault.cloud Enterprise Veritas
 
@@ -110,7 +110,23 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-veritas-tutorial/tutorial_veritas_url.png)
 
-    W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`https://personal.ap.archive.veritas.com/CID=<CUSTOMERID>`
+    a. W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`https://personal.ap.archive.veritas.com/CID=<CUSTOMERID>`
+
+    b. W **identyfikator** pole tekstowe, użyj adresu URL zgodnie z centrum danych
+
+    | Centrum danych| Adres URL |
+    |----------|----|
+    | Ameryka Północna| `https://auth.lax.archivecloud.net` |
+    | Europa | `https://auth.ams.archivecloud.net` |
+    | Azja i Pacyfik| `https://auth.syd.archivecloud.net`|
+
+    c. W **adres URL odpowiedzi** pole tekstowe, użyj adresu URL zgodnie z centrum danych
+
+    | Centrum danych| Adres URL |
+    |----------|----|
+    | Ameryka Północna| `https://auth.lax.archivecloud.net` |
+    | Europa | `https://auth.ams.archivecloud.net` |
+    | Azja i Pacyfik| `https://auth.syd.archivecloud.net`|
     
     > [!NOTE] 
     > Ta wartość nie jest prawdziwe. Zaktualizuj tę wartość przy rzeczywisty adres URL logowania. Skontaktuj się z [zespołem pomocy technicznej klienta logowania jednokrotnego Vault.cloud Enterprise Veritas](https://www.veritas.com/support/.html) aby zyskać tę wartość. 
@@ -204,7 +220,7 @@ W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego log
 
 Po kliknięciu kafelka Veritas Enterprise Vault.cloud Usługa rejestracji Jednokrotnej w panelu dostępu należy należy pobrać automatycznie zalogowane do logowania jednokrotnego Vault.cloud Enterprise Veritas aplikacji.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)

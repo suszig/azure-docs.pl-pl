@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 94771578d94b5b9bc23451049a78506e80c87d26
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: e082b9014e3734b554d3dae1cf8aecbaed65a28a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="choose-between-azure-services-that-deliver-messages"></a>Wybór między usługami Azure, których dostarczania komunikatów
 
@@ -28,11 +28,11 @@ Mimo że mają pewnych podobieństw każdej usługi jest przeznaczony dla konkre
 
 Jest to ważna różnica zauważyć między usług dostarczających zdarzenia i usług, które dostarczenia komunikatu.
 
-### <a name="event"></a>Zdarzenie (event)
+### <a name="event"></a>Wydarzenie
 
 Zdarzenie jest lekki powiadomienie z informacją o akcji lub zmiana stanu. Dane zdarzenia zawiera informacje o co się stało, ale nie ma danych, który wywołał zdarzenie. Na przykład zdarzenia powiadamia subskrybentów plik utworzono. Może on zawierać ogólne informacje o pliku, ale nie zawiera w samym pliku. Ogólnie rzecz biorąc zdarzenia wyzwolenia procedury obsługi zdarzeń do działania w czasie rzeczywistym.
 
-### <a name="message"></a>Wiadomość
+### <a name="message"></a>Komunikat
 
 Komunikat jest nieprzetworzone dane utworzone przez usługę mają być używane lub przechowywane w innym miejscu. Komunikat zawiera dane, która wyzwoliła potok wiadomości. Ten komunikat może być nic handlu elektronicznego celu telemetrii użytkownika. W odróżnieniu od powiadomienie o zdarzeniu wydawcy komunikat może spodziewać się odpowiedzi. Na przykład komunikat zawiera dane pierwotne, ale oczekuje następnej części systemu, aby utworzyć plik z tych danych.
 
@@ -41,8 +41,8 @@ Komunikat jest nieprzetworzone dane utworzone przez usługę mają być używane
 | Usługa | Przeznaczenie | Typ | Kiedy stosować |
 | ------- | ------- | ---- | ----------- |
 | Event Grid | Reaktywne programowania | Rozkład zdarzeń | Reagowanie na zmiany stanu |
-| Usługa Event Hubs | Dane big data potoku | Zdarzenie przesyłania strumieniowego | Dane telemetryczne i przesyłanie strumieniowe danych rozproszonych |
-| Service Bus | Enterprise wysokiej wartości do obsługi komunikatów | Wiadomość | Kolejność przetwarzania i transakcji finansowych |
+| Event Hubs | Dane big data potoku | Zdarzenie przesyłania strumieniowego | Dane telemetryczne i przesyłanie strumieniowe danych rozproszonych |
+| Service Bus | Enterprise wysokiej wartości do obsługi komunikatów | Komunikat | Kolejność przetwarzania i transakcji finansowych |
 
 ### <a name="event-grid"></a>Event Grid
 
@@ -56,7 +56,7 @@ Ma następującą charakterystykę:
 * Niski koszt
 * Niekorzystającą
 
-### <a name="event-hubs"></a>Usługa Event Hubs
+### <a name="event-hubs"></a>Event Hubs
 
 Usługa Azure Event Hubs jest potoku danych big data. Ułatwia on przechwytywania, przechowywania i powtarzania danych strumienia danych telemetrycznych i zdarzeń. Dane mogą pochodzić z wielu źródeł współbieżnych. Centra zdarzeń umożliwia telemetrii i zdarzeń danych będą dostępne w różnych usługach infrastruktury i analiza strumienia przetwarzania. Jest ona dostępna jako strumienie danych lub partie powiązane zdarzenia. Ta usługa udostępnia jedno rozwiązanie, która umożliwia pobieranie danych szybkiego przetwarzania w czasie rzeczywistym, a także powtarzane powtarzania przechowywanych danych pierwotnych. Go przechwycić dane przesyłane strumieniowo do pliku do przetwarzania i analizy.
 
@@ -84,7 +84,7 @@ W innych przypadkach to je połączyć ze sobą w celu utworzenia potoku zdarze�
 
 ![Strumień danych — omówienie](./media/compare-messaging-services/overview.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Aby uzyskać więcej informacji na temat wiadomości usług Azure, zobacz we wpisie blogu [zdarzeń, punktów danych i wiadomości — Wybieranie prawo Azure usługa obsługi komunikatów dla danych](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/).
 * Aby obejrzeć wprowadzenie do siatki zdarzeń, zobacz [o siatki zdarzeń](overview.md).

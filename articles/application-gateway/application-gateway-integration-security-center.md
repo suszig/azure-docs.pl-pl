@@ -15,17 +15,17 @@ ms.custom:
 ms.workload: infrastructure-services
 ms.date: 06/07/2017
 ms.author: davidmu
-ms.openlocfilehash: abed4095bcacac4ca3995acfaafae2f16d5f1532
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0ae5d797a2a502cceeb1be20af4953f16f1320a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>Omówienie integracji między bramą aplikacji i Centrum zabezpieczeń Azure
 
 Dowiedz się, jak bramy aplikacji i Centrum zabezpieczeń pomaga chronić zasobów aplikacji sieci web. Zapora aplikacji sieci web dla aplikacji bramy (WAF) integruje się z [Centrum zabezpieczeń](../security-center/security-center-intro.md) w celu zapewnienia bezproblemowego przeglądu zapobiegające, wykrywania i reagowania na zagrożenia do aplikacji sieci web niechronione w danym środowisku.
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 Bramy aplikacji zapory aplikacji sieci Web jest zalecenia w Centrum zabezpieczeń do ochrony aplikacji sieci web z luki w zabezpieczeniach i luk w zabezpieczeniach. Zasoby sieci Web jest włączona, które nie są chronione przez zapory aplikacji sieci Web są wyświetlane w Centrum zabezpieczeń jako zalecenia o wysokim znaczeniu. Zalecenia dotyczące zapory aplikacji sieci web zostaną wyświetlone na **omówienie** w obszarze **aplikacji**.
 
@@ -79,9 +79,9 @@ Kliknięcie reguła określi Lista alertów dla tej określonej reguły zapory a
  
 ![Szczegóły alertu][9]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
-Aby dowiedzieć się, jak włączyć zapory aplikacji sieci web na istniejącą bramę aplikacji, odwiedź stronę [Tworzenie lub aktualizacja bramy aplikacji Azure z zapory aplikacji sieci web](application-gateway-web-application-firewall-portal.md#add-web-application-firewall-to-an-existing-application-gateway)
+Aby dowiedzieć się, jak włączyć zapory aplikacji sieci web na istniejącą bramę aplikacji, odwiedź stronę [Tworzenie lub aktualizacja bramy aplikacji Azure z zapory aplikacji sieci web](application-gateway-web-application-firewall-portal.md).
 
 [1]: ./media/application-gateway-integration-security-center/figure1.png
 [2]: ./media/application-gateway-integration-security-center/figure2.png

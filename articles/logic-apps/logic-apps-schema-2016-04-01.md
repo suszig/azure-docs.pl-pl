@@ -15,23 +15,24 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/25/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 43df04d6478e44c82c88b17d916cfc9fe4afc03e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 525df7ddb8cd569bfd361da10d14ae08c1a721e0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Aktualizacje schematu dla usługi Azure Logic Apps — 1 czerwca 2016 r.
 
-Ten nowy schemat i interfejsu API w wersji dla usługi Azure Logic Apps obejmuje klucza ulepszeniom aplikacje logiki bardziej niezawodne i łatwiejsze w:
+[Zaktualizowany schemat](https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json) i wersja interfejsu API dla usługi Azure Logic Apps obejmuje klucza ulepszeniom aplikacje logiki bardziej niezawodne i łatwiejsze do użycia:
 
 * [Zakresy](#scopes) można zagnieździć działania jako zbiór akcji lub grupy.
 * [Warunkach i pętlach](#conditions-loops) są teraz akcje najwyższej jakości.
 * Bardziej dokładne kolejność uruchamiania akcji z `runAfter` właściwości, zastępując`dependsOn`
 
-Aby uaktualnić aplikacje logiki 1 sierpnia 2015 preview schematu do schematu 1 czerwca 2016 r. [wyewidencjonować sekcja uaktualnienie](##upgrade-your-schema).
+Aby uaktualnić aplikacje logiki 1 sierpnia 2015 preview schematu do schematu 1 czerwca 2016 r. [wyewidencjonować sekcja uaktualnienie](#upgrade-your-schema).
 
 <a name="scopes"></a>
+
 ## <a name="scopes"></a>Zakresy
 
 Ten schemat zawiera zakresy, które pozwalają grupy razem lub zagnieżdżania operacje wewnątrz siebie. Na przykład warunek może zawierać inny warunek. Dowiedz się więcej o [zakres składni](../logic-apps/logic-apps-loops-and-scopes.md), lub przejrzyj w tym przykładzie zakres podstawowe:
@@ -57,6 +58,7 @@ Ten schemat zawiera zakresy, które pozwalają grupy razem lub zagnieżdżania o
 ```
 
 <a name="conditions-loops"></a>
+
 ## <a name="conditions-and-loops-changes"></a>Zmiany w warunkach i pętlach
 
 W schemacie poprzedniej wersji, warunkach i pętlach zostały parametrów skojarzonych z jednej akcji. Ten schemat podnosi to ograniczenie, więc warunkach i pętlach są teraz wyświetlane jako typów akcji. Dowiedz się więcej o [pętli i zakresy](../logic-apps/logic-apps-loops-and-scopes.md), lub przejrzyj to prosty przykład dla warunku akcji:
@@ -86,6 +88,7 @@ W schemacie poprzedniej wersji, warunkach i pętlach zostały parametrów skojar
 ```
 
 <a name="run-after"></a>
+
 ## <a name="runafter-property"></a>Właściwość "runAfter"
 
 `runAfter` Zamienia właściwość `dependsOn`, zapewniających większą dokładność po określeniu kolejność wykonywania działań na podstawie stanu z poprzedniej akcji.
@@ -104,7 +107,7 @@ W schemacie poprzedniej wersji, warunkach i pętlach zostały parametrów skojar
 
 ## <a name="upgrade-your-schema"></a>Uaktualnienia schematu do
 
-Uaktualnianie do nowego schematu trwa tylko kilka kroków. Proces uaktualniania zawiera uruchomienie skryptu uaktualnienia, zapisywanie jako nową aplikację logiki, a jeśli chcesz, prawdopodobnie zastąpienie poprzedniej aplikacji logiki.
+Aby uaktualnić do [najnowszych schematu](https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json), tylko należy wykonać kilka kroków. Proces uaktualniania zawiera uruchomienie skryptu uaktualnienia, zapisywanie jako nową aplikację logiki, a jeśli chcesz, prawdopodobnie zastąpienie poprzedniej aplikacji logiki.
 
 1. Otwórz aplikację logiki w portalu Azure.
 

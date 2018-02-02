@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 11/29/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 4cb225266a45808e5fda271e901749bf03c636e2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 533229ae90828a0aeba9f10cbdfdb70afa21e1c5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="controls-in-azure-active-directory-conditional-access"></a>Formanty w usłudze Azure Active Directory dostępu warunkowego 
 
@@ -30,11 +30,11 @@ Z [dostępu warunkowego w usłudze Azure Active Directory (Azure AD)](active-dir
 
 - "**To zrobić**" jest wywoływana **formantów**
 
-![Formant](./media/active-directory-conditional-access-controls/11.png)
+![Kontrola](./media/active-directory-conditional-access-controls/11.png)
 
 Kombinacja instrukcji warunku z formantów reprezentuje zasady dostępu warunkowego.
 
-![Formant](./media/active-directory-conditional-access-controls/12.png)
+![Kontrola](./media/active-directory-conditional-access-controls/12.png)
 
 Każdej kontrolki jest wymagania, które muszą być spełnione przez osobę lub system logowania lub ograniczenie użytkownika można zrobić po zalogowaniu się. 
 
@@ -46,14 +46,14 @@ Istnieją dwa typy formantów:
 
 W tym temacie wyjaśniono różne formantów, które są dostępne w usłudze Azure AD dostęp warunkowy. 
 
-## <a name="grant-controls"></a>Udziel formantów
+## <a name="grant-controls"></a>Udziel kontroli
 
 Udziel kontroli możesz całkowicie blokowanie dostępu lub zezwolić na dostęp z dodatkowymi wymaganiami, wybierając żądane formanty. Wiele formantów można wymagać:
 
 - Wszystkie wybrane formanty, które należy spełnić (*i*) 
 - Jeden zaznaczony formant do spełnienia (*lub*)
 
-![Formant](./media/active-directory-conditional-access-controls/17.png)
+![Kontrola](./media/active-directory-conditional-access-controls/17.png)
 
 
 
@@ -107,7 +107,7 @@ Tych kontrolek Zezwalaj na korzystanie z niektórych usług zewnętrznych lub ni
 
 Obecnie oferty usługi zgodne dostawców obejmują:
 
-- Duo zabezpieczeń
+- [Duo Security](https://duo.com/docs/azure-ca)
 
 - RSA
 
@@ -123,12 +123,12 @@ Skopiuj dane JSON, a następnie wkleić ją w polu tekstowym powiązane. Nie wpr
 
 Można utworzyć niestandardowego formantu jest **Zarządzaj** sekcji **dostępu warunkowego** strony.
 
-![Formant](./media/active-directory-conditional-access-controls/82.png)
+![Kontrola](./media/active-directory-conditional-access-controls/82.png)
 
 Kliknięcie przycisku **nowej kontrolki niestandardowej**, powoduje otwarcie bloku z pola tekstowego danych JSON formantu.  
 
 
-![Formant](./media/active-directory-conditional-access-controls/81.png)
+![Kontrola](./media/active-directory-conditional-access-controls/81.png)
 
 
 ### <a name="deleting-custom-controls"></a>Usuwanie kontrolek niestandardowych
@@ -150,18 +150,18 @@ Aby edytować kontrolkę niestandardową, należy usunąć bieżącego formantu 
 
 ## <a name="session-controls"></a>Formanty sesji
 
-Formanty sesji włączyć ograniczone doświadczenie w aplikacji w chmurze. Formanty sesji są wymuszane przez aplikacje w chmurze i polegać na dodatkowe informacje dostarczane przez usługę Azure AD do aplikacji o sesji.
+Kontrolki sesji umożliwiają korzystanie z ograniczonego środowiska w ramach aplikacji w chmurze. Formanty sesji są wymuszane przez aplikacje w chmurze i polegać na dodatkowe informacje dostarczane przez usługę Azure AD do aplikacji o sesji.
 
-![Formant](./media/active-directory-conditional-access-controls/31.png)
+![Kontrola](./media/active-directory-conditional-access-controls/31.png)
 
-### <a name="use-app-enforced-restrictions"></a>Użyj aplikacji wymuszane ograniczeń
+### <a name="use-app-enforced-restrictions"></a>Użyj ograniczeń wymuszonych przez aplikację
 
 Aby wymagać usługi Azure AD do przekazywania informacji o urządzeniu do aplikacji w chmurze, można użyć tego formantu. Dzięki temu można sprawdzić, czy użytkownik jest pochodzi z zgodne urządzenie lub urządzenia przyłączone do domeny aplikacji w chmurze. Ten formant jest obecnie obsługiwana tylko z programem SharePoint jako aplikacji w chmurze. SharePoint używa informacji o urządzeniu umożliwia wyświetlanie użytkownikom bardziej ograniczony lub pełne środowisko w zależności od stanu urządzenia.
 Aby dowiedzieć się więcej na temat sposobu wymagać ograniczony dostęp z programem SharePoint, zobacz [kontroli dostępu z urządzeń niezarządzanych](https://aka.ms/spolimitedaccessdocs).
 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Jeśli chcesz wiedzieć, jak skonfigurować zasady dostępu warunkowego, zobacz [wprowadzenie dostępu warunkowego w usłudze Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
 

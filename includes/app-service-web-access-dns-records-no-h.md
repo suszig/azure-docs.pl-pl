@@ -1,3 +1,8 @@
+> [!NOTE]
+> Aby skonfigurować niestandardową nazwę DNS aplikacjach sieci Web platformy Azure, można użyć usługi Azure DNS. Aby uzyskać więcej informacji, zobacz [użycia usługi Azure DNS, aby określić ustawienia domeny niestandardowej dla usługi Azure](../articles/dns/dns-custom-domain.md#app-service-web-apps).
+>
+>
+
 Zaloguj się do witryny internetowej dostawcy domeny.
 
 Znajdź stronę służącą do zarządzania rekordami DNS. Każdy dostawca domeny ma własny interfejs rekordów DNS, dlatego zapoznaj się z dokumentacją dostawcy. Poszukaj obszarów witryny z etykietą **Nazwa domeny**, **DNS** lub **Zarządzanie serwerami nazw**. 

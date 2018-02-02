@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 764c6bd3c2466ceb93e33d03bece1c9036c1b1d9
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 34742208e9189eb31310b58770ee4a22e33f56d5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-iot-hub-get-started-tutorials"></a>Usługa Azure IoT Hub wprowadzenie samouczki
 
 Azure IoT Hub i zestawy SDK urządzenia Azure IoT służy do tworzenia rozwiązań Internetu rzeczy (IoT):
 
 * Centrum IoT Azure jest w pełni zarządzana usługa w chmurze, która bezpieczny sposób łączy, monitoruje i zarządza urządzeniami IoT. Zestawy SDK urządzenia IoT Azure umożliwia wdrożenie urządzenia IoT.
-* Użyj bramy IoT w bardziej złożonych scenariuszach IoT. Na przykład, gdzie należy wziąć pod uwagę czynników, takich jak starszych urządzeń, kosztów przepustowości, zasady zabezpieczeń i prywatności lub przetwarzania danych krawędzi. W tych scenariuszach przy użyciu usługi Azure IoT krawędzi bramy, która łączy się z Centrum IoT z urządzeń.
+* Użyj bramy IoT w bardziej złożonych scenariuszach IoT. Na przykład, gdzie należy wziąć pod uwagę czynników, takich jak starszych urządzeń, kosztów przepustowości, zasady zabezpieczeń i prywatności lub przetwarzania danych krawędzi. W tych scenariuszach użyj [Azure IoT krawędzi](https://docs.microsoft.com/azure/iot-edge/) do zaimplementowania bramy, która łączy się z Centrum IoT z urządzeń.
 
 ## <a name="what-the-tutorials-cover"></a>Obejmuje samouczków
 
@@ -41,10 +41,10 @@ Podłącz urządzenia IoT lub bramy do Centrum IoT Azure. Można wybrać urządz
 | Raspberry Pi                     | [Python][Pi_Py], [Node.js][Pi_Nd], [C][Pi_C]  |
 | Zestaw deweloperski IoT                       | [Arduino w VSCode][DevKit]     |
 | Intel Edison                     | [Node.js][Ed_Nd], [C][Ed_C]    |
-| ESP8266 HUZZAH Adafruit piór  | [Arduino][Hu_Ard]              |
+| Adafruit Feather HUZZAH ESP8266  | [Arduino][Hu_Ard]              |
 | Sparkfun ESP8266 operacją deweloperów       | [Arduino][Th_Ard]              |
 | M0 Adafruit piór              | [Arduino][M0_Ard]              |
-| Symulowane urządzenie na komputerze           | [.NET][Sim_NET], [Java][Sim_Jav], [Node.js][Sim_Nd], [języka Python][Sim_Pyth] |
+| Symulowane urządzenie na komputerze           | [.NET][Sim_NET], [Java][Sim_Jav], [Node.js][Sim_Nd], [Python][Sim_Pyth] |
 | Symulator urządzeń online         | [Pi malinowe (Node.js)][Ol_Sim] |
 
 [!INCLUDE [iot-hub-get-started-extended](../../includes/iot-hub-get-started-extended.md)]

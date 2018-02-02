@@ -64,4 +64,4 @@ Możesz ograniczyć dostęp do logowania do kont użytkowników tylko, które zn
 #### <a name="use-a-custom-method-to-validate-issuers"></a>Umożliwia sprawdzanie poprawności wystawców niestandardowe — metoda
 Można zaimplementować niestandardowych metodę do sprawdzania poprawności wystawcy przy użyciu **IssuerValidator** parametru. Aby uzyskać więcej informacji na temat używania tego parametru, przeczytaj o [klasy TokenValidationParameters](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx) w witrynie MSDN.
 
-[!INCLUDE  [Help and support](./active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]

@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: mahender
-ms.openlocfilehash: 63b94c0a9b77a3f3a6fd394a130bf8f132d51369
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 5d0f266047e1b083cdf23f8d1c55950a46406f61
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Program Microsoft Graph powiązania dla usługi Azure Functions
 
@@ -43,7 +43,7 @@ Program Microsoft Graph powiązania są dostępne za pośrednictwem _powiązanie
 
 Rozszerzenia powiązania są dostępne tylko dla 2.0 funkcji Azure w wersji zapoznawczej. 
 
-Aby uzyskać informacje dotyczące sposobu konfigurowania aplikacji funkcji w wersji 2.0 wersja zapoznawcza funkcji aparatu plików wykonywalnych, zobacz [do wykonywania w wersji 2.0](functions-versions.md#target-the-version-20-runtime).
+Aby uzyskać informacje dotyczące sposobu konfigurowania aplikacji funkcji w wersji 2.0 wersja zapoznawcza funkcji aparatu plików wykonywalnych, zobacz [jak korzystać z wersji środowiska uruchomieniowego usługi Azure Functions](set-runtime-version.md).
 
 ### <a name="installing-the-extension"></a>Instalowanie rozszerzenia
 
@@ -213,7 +213,7 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 |**tożsamości**|**Tożsamość**|Wymagana — tożsamości, która będzie służyć do wykonania akcji. Może to być jedna z następujących wartości:<ul><li><code>userFromRequest</code>— Jedyne prawidłowe z [wyzwalacza HTTP]. Używa tożsamości użytkownika wywołującego.</li><li><code>userFromId</code>-Używa tożsamości wcześniej zalogowanego użytkownika o określonym identyfikatorze. Zobacz <code>userId</code> właściwości.</li><li><code>userFromToken</code>-Używa tożsamości reprezentowany przez określony token. Zobacz <code>userToken</code> właściwości.</li><li><code>clientCredentials</code>-Ma zostać użyta tożsamość aplikacji funkcji.</li></ul>|
 |**Nazwa użytkownika**|**Nazwa użytkownika**  |Wymagane w przypadku i tylko wtedy, gdy _tożsamości_ ma ustawioną wartość `userFromId`. Użytkownik identyfikator podmiotu zabezpieczeń skojarzone z wcześniej zalogowanego użytkownika.|
 |**userToken**|**UserToken**|Wymagane w przypadku i tylko wtedy, gdy _tożsamości_ ma ustawioną wartość `userFromToken`. Token nieprawidłowy dla funkcji aplikacji. |
-|**Zasób**|**zasobów**|Wymagana — adres URL zasobu usługi Azure AD, dla którego token jest wymagany.|
+|**Zasób**|**resource**|Wymagana — adres URL zasobu usługi Azure AD, dla którego token jest wymagany.|
 
 <a name="token-input-code"></a>
 ### <a name="auth-token---usage"></a>Token uwierzytelniania — użycie
@@ -359,7 +359,7 @@ To powiązanie wymaga następujących uprawnień usługi Azure AD:
 |Microsoft Graph|Odczytuj pliki użytkownika|
 
 Powiązanie udostępnia następujące funkcje platformy .NET:
-- [String []]
+- string[][]
 - Microsoft.Graph.WorkbookTable
 - Typów obiektów niestandardowych (przy użyciu wiązania modelu strukturalnych)
 
@@ -509,7 +509,7 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 |**Ścieżka**|**Ścieżka**|Wymagana — ścieżka w usłudze OneDrive do skoroszytu programu Excel.|
 |**worksheetName**|**WorksheetName**|Arkusz, w którym znajduje się tabela.|
 |**tableName**|**TableName**|Nazwa tabeli. Jeśli nie zostanie określony, będzie używany zawartość arkusza.|
-|**Typ aktualizacji**|**Typ aktualizacji**|Wymagana — typ zmiany należy do tabeli. Może to być jedna z następujących wartości:<ul><li><code>update</code>-Zastępuje zawartość tabeli w usłudze OneDrive.</li><li><code>append</code>-Dodaje ładunku na koniec tabeli w usłudze OneDrive, tworząc nowe wiersze.</li></ul>|
+|**updateType**|**UpdateType**|Wymagana — typ zmiany należy do tabeli. Może to być jedna z następujących wartości:<ul><li><code>update</code>-Zastępuje zawartość tabeli w usłudze OneDrive.</li><li><code>append</code>-Dodaje ładunku na koniec tabeli w usłudze OneDrive, tworząc nowe wiersze.</li></ul>|
 
 <a name="excel-output-code"></a>
 ### <a name="excel-output---usage"></a>Wyjście - Excel użycia
@@ -520,7 +520,7 @@ To powiązanie wymaga następujących uprawnień usługi Azure AD:
 |Microsoft Graph|Miej pełny dostęp do plików użytkownika|
 
 Powiązanie udostępnia następujące funkcje platformy .NET:
-- [String []]
+- string[][]
 - Newtonsoft.Json.Linq.JObject
 - Microsoft.Graph.WorkbookTable
 - Typów obiektów niestandardowych (przy użyciu wiązania modelu strukturalnych)
@@ -661,7 +661,7 @@ To powiązanie wymaga następujących uprawnień usługi Azure AD:
 |Microsoft Graph|Odczytuj pliki użytkownika|
 
 Powiązanie udostępnia następujące funkcje platformy .NET:
-- Byte]
+- byte[]
 - Strumień
 - ciąg
 - Microsoft.Graph.DriveItem
@@ -806,7 +806,7 @@ To powiązanie wymaga następujących uprawnień usługi Azure AD:
 |Microsoft Graph|Miej pełny dostęp do plików użytkownika|
 
 Powiązanie udostępnia następujące funkcje platformy .NET:
-- Byte]
+- byte[]
 - Strumień
 - ciąg
 - Microsoft.Graph.DriveItem
@@ -1082,7 +1082,7 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 |**Nazwa**||Wymagana — nazwa zmiennej używane w kodzie funkcji wiadomości e-mail. Zobacz [wiadomości programu Outlook powiązania z kodu wyjściowego](#outlook-output-code).|
 |**Typ**||Wymagana — musi być ustawiona `graphWebhook`.|
 |**Kierunek**||Wymagana — musi być ustawiona `trigger`.|
-|**Typ zasobu**|**Typ zasobu**|Wymagana — zasobów wykresu, dla których ta funkcja powinno odpowiedzieć na elementów webhook. Może to być jedna z następujących wartości:<ul><li><code>#Microsoft.Graph.Message</code>-zmiany wprowadzone w wiadomości programu Outlook.</li><li><code>#Microsoft.Graph.DriveItem</code>-zmiany wprowadzone do usługi OneDrive elementów głównych.</li><li><code>#Microsoft.Graph.Contact</code>-zmiany wprowadzone do osobistego kontaktów programu Outlook.</li><li><code>#Microsoft.Graph.Event</code>-zmiany wprowadzone do elementów kalendarza programu Outlook.</li></ul>|
+|**resourceType**|**ResourceType**|Wymagana — zasobów wykresu, dla których ta funkcja powinno odpowiedzieć na elementów webhook. Może to być jedna z następujących wartości:<ul><li><code>#Microsoft.Graph.Message</code>-zmiany wprowadzone w wiadomości programu Outlook.</li><li><code>#Microsoft.Graph.DriveItem</code>-zmiany wprowadzone do usługi OneDrive elementów głównych.</li><li><code>#Microsoft.Graph.Contact</code>-zmiany wprowadzone do osobistego kontaktów programu Outlook.</li><li><code>#Microsoft.Graph.Event</code>-zmiany wprowadzone do elementów kalendarza programu Outlook.</li></ul>|
 
 > [!Note]
 > Aplikacja funkcji mogą mieć tylko jedną funkcję rejestrowane dla danego `resourceType` wartość.
@@ -1240,8 +1240,8 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 Powiązanie udostępnia następujące funkcje platformy .NET:
 - ciąg]
 - Tablice typu niestandardowego obiektu
-- [Newtonsoft.Json.Linq.JObject]
-- [Microsoft.Graph.Subscription]
+- Newtonsoft.Json.Linq.JObject[]
+- Microsoft.Graph.Subscription[]
 
 
 

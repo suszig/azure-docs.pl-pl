@@ -1,6 +1,6 @@
 ---
-title: "Rozwiązanie elementów docelowych w OMS | Dokumentacja firmy Microsoft"
-description: "Rozwiązanie docelowych jest funkcją w operacji pakietu zarządzania (OMS), który umożliwia ograniczenie rozwiązania do zarządzania do określonego zestawu agentów.  W tym artykule opisano sposób tworzenia konfiguracji zakresu i zastosować go do rozwiązania."
+title: "Celem rozwiązania do zarządzania na platformie Azure | Dokumentacja firmy Microsoft"
+description: "Przeznaczonych dla rozwiązań do zarządzania pozwala ograniczyć do określonego zestawu agentów rozwiązania do zarządzania.  W tym artykule opisano sposób tworzenia konfiguracji zakresu i zastosować go do rozwiązania."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: cb73a2d7ae57a5a11869259dbe913ae83ffb2b01
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e24a7540a67f842b8229223bf6602cd9e0ee5dbd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="use-solution-targeting-in-operations-management-suite-oms-to-scope-management-solutions-to-specific-agents-preview"></a>Użyj rozwiązania cel w Operations Management Suite (OMS) do rozwiązania do zarządzania zakresem do określonych agentów (wersja zapoznawcza)
-Po dodaniu rozwiązania do pakietu OMS jest automatycznie wdrażane domyślnie do wszystkich agentów systemu Windows i Linux podłączone do obszaru roboczego analizy dzienników.  Możesz zarządzać kosztów i ograniczyć ilość danych zebranych przez rozwiązanie ograniczając go z określonym zestawem agentów.  W tym artykule opisano sposób użycia **przeznaczonych dla rozwiązania** która to funkcja OMS, która pozwala zastosować zakres do rozwiązań.
+# <a name="targeting-management-solutions-in-azure-preview"></a>Celem rozwiązania do zarządzania na platformie Azure (wersja zapoznawcza)
+Po dodaniu rozwiązania do zarządzania do subskrypcji jest automatycznie wdrażane domyślnie do wszystkich agentów systemu Windows i Linux podłączone do obszaru roboczego analizy dzienników.  Możesz zarządzać kosztów i ograniczyć ilość danych zebranych przez rozwiązanie ograniczając go z określonym zestawem agentów.  W tym artykule opisano sposób użycia **przeznaczonych dla rozwiązania** która to funkcja, która pozwala zastosować zakres do rozwiązań.
 
 ## <a name="how-to-target-a-solution"></a>Jak pod kątem rozwiązania
-Istnieją trzy kroki umożliwiające rozwiązanie elementów docelowych, zgodnie z opisem w poniższych sekcjach.  Należy pamiętać, że konieczne będzie zarówno w portalu OMS, jak i w portalu Azure do wykonania różnych kroków.
+Istnieją trzy kroki umożliwiające rozwiązanie elementów docelowych, zgodnie z opisem w poniższych sekcjach. 
 
 
 ### <a name="1-create-a-computer-group"></a>1. Tworzenie grupy komputerów
@@ -72,6 +72,6 @@ Przeznaczonych dla rozwiązania nie można używać z następujących rozwiąza�
 
 - Oceny kondycji agenta
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - Dowiedz się więcej na temat rozwiązania, które są dostępne do zainstalowania w danym środowisku, w tym rozwiązania do zarządzania [rozwiązań do zarządzania dodać Analiza dzienników Azure do swojego obszaru roboczego](../log-analytics/log-analytics-add-solutions.md).
 - Dowiedz się więcej o tworzeniu grup komputerów na [grup komputerów w analizy dzienników dziennika wyszukiwania](../log-analytics/log-analytics-computer-groups.md).

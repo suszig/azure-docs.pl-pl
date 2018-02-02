@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: bdc64733b75fd809cf0245986aa96370343c1a34
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: d0a8a3726ac3c33668d8ad91c97c35937c299b46
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-event-grid-event-schema-for-blob-storage"></a>Azure schematu zdarzeń siatki zdarzeń dla magazynu obiektów Blob
 
@@ -51,7 +51,9 @@ W poniższym przykładzie przedstawiono schematu obiektu blob utworzone zdarzeni
     "storageDiagnostics": {
       "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
     }
-  }
+  },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 ```
 
@@ -74,7 +76,9 @@ Schemat dla zdarzenia usunąć obiektu blob jest podobne:
     "storageDiagnostics": {
       "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
     }
-  }
+  },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 ```
  
@@ -84,29 +88,31 @@ Zdarzenie ma następujące dane najwyższego poziomu:
 
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
-| Temat | Ciąg | Zasobów Pełna ścieżka do źródła zdarzeń. To pole nie jest zapisywalny. |
-| Temat | Ciąg | Ścieżka zdefiniowana wydawcy podmiotem zdarzeń. |
-| Typ zdarzenia | Ciąg | Jeden z typów zdarzeń zarejestrowane dla tego źródła zdarzenia. |
-| eventTime | Ciąg | Czas jest generowane zdarzenie oparte na czas UTC dostawcy. |
-| id | Ciąg | Unikatowy identyfikator zdarzenia. |
-| Dane | Obiekt | Dane zdarzenia magazynu obiektów blob. |
+| Temat | ciąg | Zasobów Pełna ścieżka do źródła zdarzeń. To pole nie jest zapisywalny. Zdarzenie siatki udostępnia tę wartość. |
+| Temat | ciąg | Ścieżka zdefiniowana wydawcy podmiotem zdarzeń. |
+| Typ zdarzenia | ciąg | Jeden z typów zdarzeń zarejestrowane dla tego źródła zdarzenia. |
+| eventTime | ciąg | Czas jest generowane zdarzenie oparte na czas UTC dostawcy. |
+| id | ciąg | Unikatowy identyfikator zdarzenia. |
+| dane | obiekt | Dane zdarzenia magazynu obiektów blob. |
+| dataVersion | ciąg | Wersja schematu obiektu danych. Wydawca definiuje wersji schematu. |
+| Element metadataVersion | ciąg | Wersja schematu metadanych zdarzeń. Zdarzenie siatki definiuje schemat właściwości najwyższego poziomu. Zdarzenie siatki udostępnia tę wartość. |
 
 Obiekt danych ma następujące właściwości:
 
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
-| api | Ciąg | Operacja, który wywołał zdarzenie. |
-| ClientRequestId | Ciąg | Generowane przez klientów, nieprzezroczyste wartość Limit znaków 1 KB. Włączenie rejestrowania analityka magazynu jest rejestrowane w dziennikach analytics. |
-| Identyfikator żądania | Ciąg | Unikatowy identyfikator dla żądania. Użyj go do rozwiązywania problemów z żądania. |
-| Element ETag | Ciąg | Wartość, która służy do wykonywania operacji warunkowo. |
-| Typ zawartości | Ciąg | Typ zawartości określony dla obiektu blob. |
-| contentLength | Liczba całkowita | Rozmiar obiektu blob w bajtach. |
-| BlobType | Ciąg | Typ obiektu blob. |
-| adres URL | Ciąg | Ścieżka do obiektu blob. |
-| Program Sequencer | Ciąg | Wartość kontrolowane przez użytkownika, która służy do śledzenia żądań. |
-| storageDiagnostics | Obiekt | Informacje o diagnostyki magazynu. |
+| api | ciąg | Operacja, który wywołał zdarzenie. |
+| clientRequestId | ciąg | Generowane przez klientów, nieprzezroczyste wartość Limit znaków 1 KB. Włączenie rejestrowania analityka magazynu jest rejestrowane w dziennikach analytics. |
+| requestId | ciąg | Unikatowy identyfikator dla żądania. Użyj go do rozwiązywania problemów z żądania. |
+| Element ETag | ciąg | Wartość, która służy do wykonywania operacji warunkowo. |
+| Typ zawartości | ciąg | Typ zawartości określony dla obiektu blob. |
+| contentLength | liczba całkowita | Rozmiar obiektu blob w bajtach. |
+| blobType | ciąg | Typ obiektu blob. Prawidłowe wartości to "BlockBlob" lub "PageBlob". |
+| adres url | ciąg | Ścieżka do obiektu blob. |
+| Program Sequencer | ciąg | Wartość kontrolowane przez użytkownika, która służy do śledzenia żądań. |
+| storageDiagnostics | obiekt | Informacje o diagnostyki magazynu. |
  
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Aby obejrzeć wprowadzenie do usługi Azure Event siatki, zobacz [co to jest zdarzenie siatki?](overview.md)
 * Aby uzyskać więcej informacji o tworzeniu subskrypcji platformy Azure zdarzeń siatki, zobacz [schematu subskrypcji zdarzeń siatki](subscription-creation-schema.md).

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: b54b806aad1e15702d2167dcf2870ba19c4708df
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 8eb3cae792a09fc530b84243f2baa01ecc5d13dc
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Przewodnik dla początkujących deweloperów platformy Azure
 
@@ -44,7 +44,7 @@ Teraz przyjrzymy określonych usług, które są zalecane do badania dla aplikac
 
 Azure zapewnia kilka oparte na chmurze obliczeniowe ofert do uruchamiania aplikacji, dzięki czemu nie trzeba martwić się o szczegóły infrastruktury. Możesz łatwo skalowanie w górę lub skalowania zasobów wraz z rozwojem korzystania z aplikacji.
 
-System Azure oferuje usług, które obsługują programowania aplikacji i hostingu potrzeb. Platforma Azure udostępnia infrastrukturę jako — usługa (IaaS), aby mieć pełną kontrolę nad hosting aplikacji. Azure platforma jako usługa (PaaS) ofert świadczenia usług pełni zarządzana potrzebne do aplikacji. Istnieje nawet true niekorzystającą hostingu na platformie Azure gdzie to wszystko, co należy zrobić, wpisz swój kod.
+System Azure oferuje usług, które obsługują programowania aplikacji i hostingu potrzeb. Platforma Azure udostępnia infrastrukturę jako usługę (IaaS), aby mieć pełną kontrolę nad hosting aplikacji. Platforma Azure jako ofert usługi (PaaS) świadczenia usług pełni zarządzana potrzebne do aplikacji. Istnieje nawet true niekorzystającą hostingu na platformie Azure gdzie to wszystko, co należy zrobić, wpisz swój kod.
 
 ![Hosting Opcje aplikacji Azure](./media/azure-developer-guide/azure-developer-hosting-options.png)
 
@@ -69,7 +69,7 @@ Przeprowadzić migrację istniejących aplikacji do usługi App Service przy uż
 
 #### <a name="azure-virtual-machines"></a>Azure Virtual Machines
 
-Funkcję dostawcy infrastruktury jako usługi (IaaS) Azure pozwala wdrożyć lub migracji aplikacji systemu Windows lub maszyn wirtualnych systemu Linux. Wraz z sieci wirtualnej platformy Azure maszyny wirtualne Azure obsługuje do wdrażania systemu Windows lub maszyn wirtualnych systemu Linux na platformie Azure. Z maszynami wirtualnymi masz pełną kontrolę nad konfiguracji komputera. Podczas korzystania z maszyn wirtualnych, wszystko jest odpowiedzialny za serwer instalacji, konfiguracji, obsługi i systemu operacyjnego poprawek oprogramowania.
+Jako infrastruktura jako usługa (IaaS) dostawcy usługi Azure pozwala wdrożyć lub migracji aplikacji systemu Windows lub maszyn wirtualnych systemu Linux. Wraz z sieci wirtualnej platformy Azure maszyny wirtualne Azure obsługuje do wdrażania systemu Windows lub maszyn wirtualnych systemu Linux na platformie Azure. Z maszynami wirtualnymi masz pełną kontrolę nad konfiguracji komputera. Podczas korzystania z maszyn wirtualnych, wszystko jest odpowiedzialny za serwer instalacji, konfiguracji, obsługi i systemu operacyjnego poprawek oprogramowania.
 
 Ze względu na poziom kontroli maszyn wirtualnych można uruchomić wielu obciążeń serwera na platformie Azure, która nie pasuje do modelu PaaS. Takie obciążenia zawierają serwery baz danych, usługi Active Directory systemu Windows Server i Microsoft SharePoint. Aby uzyskać więcej informacji, zobacz dokumentację maszyn wirtualnych albo [Linux](/azure/virtual-machines/linux/) lub [Windows](/azure/virtual-machines/windows/).
 

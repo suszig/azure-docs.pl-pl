@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: arluca
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: bebdccb616a4677fdf36ac257ac36f1827958af7
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 51e14d0e9130a5a870ed120010508dc5eda125f9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-resource-manager"></a>Użyj przypisany użytkownik zarządzane usługi tożsamości (MSI) na maszynie Wirtualnej systemu Linux, można uzyskać dostępu do usługi Azure Resource Manager
 
@@ -110,10 +110,10 @@ az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscripti
 
 MSI zapewnia kodu przy użyciu tokenu dostępu do uwierzytelniania zasobu interfejsów API, które obsługują uwierzytelniania usługi Azure AD. W tym samouczku kod uzyskuje dostęp do interfejsu API Azure Resource Manager. 
 
-Przed kodu dostępu do interfejsu API jednak, należy udzielić MSI tożsamości dostępu do zasobów w usłudze Azure Resource Manager. W takim przypadku grupę zasobów, w którym znajduje się maszyna wirtualna. Pamiętaj zastąpić `<CLIENT ID>`, `<SUBSCRIPTION ID>`, i `<RESOURCE GROUP>` wartości parametrów z własne wartości. Zastąp `<CLIENT ID>` z `clientId` właściwości zwróconej przez `az identity create` w [utworzyć instalatora MSI przypisany użytkownik](#create-a-user-assigned-msi): 
+Przed kodu dostępu do interfejsu API jednak, należy udzielić MSI tożsamości dostępu do zasobów w usłudze Azure Resource Manager. W takim przypadku grupę zasobów, w którym znajduje się maszyna wirtualna. Zaktualizuj wartości dla `<SUBSCRIPTION ID>` i `<RESOURCE GROUP>` jako odpowiednie dla danego środowiska. Ponadto Zastąp `<MSI PRINCIPALID>` z `principalId` właściwości zwróconej przez `az identity create` w [utworzyć instalatora MSI przypisany użytkownik](#create-a-user-assigned-msi):
 
 ```azurecli-interactive
-az role assignment create --assignee <CLIENT ID> --role ‘Reader’ --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP> "
+az role assignment create --assignee <MSI PRINCIPALID> --role 'Reader' --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP> "
 ```
 
 Odpowiedź zawiera szczegóły dotyczące przypisania roli utworzone, podobnie do poniższego przykładu:

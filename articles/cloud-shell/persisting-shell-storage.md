@@ -12,15 +12,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 01/30/2018
 ms.author: juluk
-ms.openlocfilehash: a04342f77126afe1e0a2707f1d213e0a8eb5825d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d8188634846a7ce75b5294cb3012069d9eafafc1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/01/2018
 ---
-[!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
+[!INCLUDE [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
 ## <a name="how-bash-in-cloud-shell-storage-works"></a>Jak działa Bash w magazynie w chmurze powłoki 
 Bash w powłoce chmurze będzie się powtarzał plików za pomocą obu z następujących metod: 
@@ -69,12 +69,12 @@ Udziału plików będzie nadal istnieje, jeśli nie można usunąć ręcznie. Ch
 ![Uruchomiona "clouddrive unmount'command](media/persisting-shell-storage/unmount-h.png)
 
 > [!WARNING]
-> Mimo że wykonanie tego polecenia nie usunie żadnych zasobów ręcznego usuwania grupy zasobów, konta magazynu lub udziału plików, który jest zamapowany na chmurze powłoki spowoduje usunięcie z `$Home` obrazu dysku katalogu oraz wszystkich plików w udziale plików. Nie można cofnąć tej akcji.
+> Mimo że wykonanie tego polecenia nie usunie żadnych zasobów, ręczne usunięcie grupy zasobów, konta magazynu lub udziału plików, który jest zamapowany na chmurze powłoki na partycje powoduje usunięcie z `$Home` obrazu dysku katalogu oraz wszystkich plików w udziale plików. Nie można cofnąć tej akcji.
 
 ## <a name="list-clouddrive"></a>Lista`clouddrive`
 Aby dowiedzieć się, które udziału plików jest zainstalowany jako `clouddrive`Uruchom `df` polecenia. 
 
-Ścieżka pliku clouddrive pojawi się oznaczenie Twojej nazwy konta magazynu i udziału pliku w adresie URL. Na przykład: `//storageaccountname.file.core.windows.net/filesharename`
+Ścieżka pliku do clouddrive pokazuje Twojej nazwy konta magazynu i udziału pliku w adresie URL. Na przykład: `//storageaccountname.file.core.windows.net/filesharename`
 
 ```
 justin@Azure:~$ df
@@ -88,9 +88,9 @@ shm                                                    65536       0      65536 
 justin@Azure:~$
 ```
 
-[!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
+[!INCLUDE [features-introblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Bash w chmurze powłoki — Szybki Start](quickstart.md) <br>
 [Informacje na temat magazynowania pliki programu Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
 [Więcej informacji na temat tagów magazynu](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

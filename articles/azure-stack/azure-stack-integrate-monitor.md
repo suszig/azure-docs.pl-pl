@@ -3,7 +3,7 @@ title: "Integracja rozwiązania monitorowania zewnętrznych z stosu Azure | Doku
 description: "Dowiedz się, jak zintegrować stosu Azure z zewnętrznego rozwiązanie monitorowania w centrum danych."
 services: azure-stack
 documentationcenter: 
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: 
 ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/20/2017
-ms.author: mabrigg
-ms.openlocfilehash: 76499ac959b77e83494bc4f9593c20a99da5c147
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.date: 01/31/2018
+ms.author: jeffgilb
+ms.reviewer: wfayed
+ms.openlocfilehash: a7f6d3691410711fcae692007b08977a93961845
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Integracja rozwiązania monitorowania zewnętrznych z Azure stosu
 
@@ -81,9 +82,9 @@ Konfigurowanie pliku wtyczki "Azurestack_plugin.py" z następującymi parametram
 | *arm_endpoint* | Punktu końcowego platformy Azure Resource Manager (administrator) |https://adminmanagement.local.azurestack.external |
 | *api_endpoint* | Punktu końcowego platformy Azure Resource Manager (administrator)  | https://adminmanagement.local.azurestack.external |
 | *Tenant_id* | Identyfikator subskrypcji administratora | Pobrać za pomocą portalu administratora lub programu PowerShell |
-| *Nazwa_użytkownika* | Nazwa użytkownika subskrypcji — operator | operator@myazuredirectory.onmicrosoft.com |
+| *User_name* | Nazwa użytkownika subskrypcji — operator | operator@myazuredirectory.onmicrosoft.com |
 | *User_password* | Hasło subskrypcji — operator | mojehasło |
-| *Client_id* | Klient | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417 * |
+| *Client_id* | Klient | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417* |
 | *region* |  Nazwa regionu platformy Azure stosu | lokalne |
 |  |  |
 
@@ -139,7 +140,7 @@ Wywołania interfejsu API REST umożliwia uzyskiwanie alertów, Zamknij alerty i
 
 |Metoda  |Identyfikator URI żądania  |
 |---------|---------|
-|POBIERZ     |   https://{armendpoint}/Subscriptions/{subId}/resourceGroups/system. {RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts?api-version=2016-05-01 "      |
+|GET     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts?api-version=2016-05-01"      |
 |     |         |
 
 **Argumenty**
@@ -205,7 +206,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 
 |  Argument  |Opis  |
 |---------|---------|
-|*Identyfikator*     |      Unikatowy identyfikator alertu.   |
+|*id*     |      Unikatowy identyfikator alertu.   |
 |*Nazwa*     |     Wewnętrzna nazwa alertu.   |
 |*Typ*     |     Definicja zasobu.    |
 |*location*     |       Nazwa regionu.     |
@@ -221,15 +222,15 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |*Nazwa*     |   Nazwa określonego alertu.      |
 |*fabricname*     |    Nazwa sieci szkieletowej w zarejestrowany uszkodzony składnika.   |
 |*Opis elementu*     |  Opis elementu zarejestrowanych sieci szkieletowej.   |
-|*Typ ServiceType*     |   Typ usługi zarejestrowanych sieci szkieletowej.   |
+|*servicetype*     |   Typ usługi zarejestrowanych sieci szkieletowej.   |
 |*korygowania*     |   Kroki zalecanych czynności naprawczych.    |
 |*Typ*     |   Typ alertu.    |
 |*resourceRegistrationid*    |     Identyfikator zarejestrowanego zasobu.    |
 |*resourceProviderRegistrationID*   |    Identyfikator zarejestrowanego dostawcy zasobów wykorzystywanych składnika.  |
 |*serviceregistrationid*     |    Identyfikator zarejestrowanej usługi.   |
 |*ważność*     |     Ważność alertu.  |
-|*Stan*     |    Stan alertu.   |
-|*Tytuł*     |    Tytuł alertu.   |
+|*state*     |    Stan alertu.   |
+|*title*     |    Tytuł alertu.   |
 |*impactedresourceid*     |     Identyfikator zasobu objęte wpływem.    |
 |*ImpactedresourceDisplayName*     |     Nazwa zasobu objęte wpływem.  |
 |*closedByUserAlias*     |   Użytkownik zamknął alert.      |
@@ -242,7 +243,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 
 |Metoda    |Identyfikator URI żądania  |
 |---------|---------|
-|UMIEŚĆ     |   https://{armendpoint}/Subscriptions/{subId}/resourceGroups/system. {RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts/alertid?api-version=2016-05-01 "    |
+|PUT     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts/alertid?api-version=2016-05-01"    |
 
 **Argumenty**
 
@@ -348,7 +349,7 @@ PUT https://adminmanagement.local.azurestack.external//subscriptions/<Subscripti
 
 |  Argument  |Opis  |
 |---------|---------|
-|*Identyfikator*     |      Unikatowy identyfikator alertu.   |
+|*id*     |      Unikatowy identyfikator alertu.   |
 |*Nazwa*     |     Wewnętrzna nazwa alertu.   |
 |*Typ*     |     Definicja zasobu.    |
 |*location*     |       Nazwa regionu.     |
@@ -364,15 +365,15 @@ PUT https://adminmanagement.local.azurestack.external//subscriptions/<Subscripti
 |*Nazwa*     |   Nazwa określonego alertu.      |
 |*fabricname*     |    Nazwa sieci szkieletowej w zarejestrowany uszkodzony składnika.   |
 |*Opis elementu*     |  Opis elementu zarejestrowanych sieci szkieletowej.   |
-|*Typ ServiceType*     |   Typ usługi zarejestrowanych sieci szkieletowej.   |
+|*servicetype*     |   Typ usługi zarejestrowanych sieci szkieletowej.   |
 |*korygowania*     |   Kroki zalecanych czynności naprawczych.    |
 |*Typ*     |   Typ alertu.    |
 |*resourceRegistrationid*    |     Identyfikator zarejestrowanego zasobu.    |
 |*resourceProviderRegistrationID*   |    Identyfikator zarejestrowanego dostawcy zasobów wykorzystywanych składnika.  |
 |*serviceregistrationid*     |    Identyfikator zarejestrowanej usługi.   |
 |*ważność*     |     Ważność alertu.  |
-|*Stan*     |    Stan alertu.   |
-|*Tytuł*     |    Tytuł alertu.   |
+|*state*     |    Stan alertu.   |
+|*title*     |    Tytuł alertu.   |
 |*impactedresourceid*     |     Identyfikator zasobu objęte wpływem.    |
 |*ImpactedresourceDisplayName*     |     Nazwa zasobu objęte wpływem.  |
 |*closedByUserAlias*     |   Użytkownik zamknął alert.      |
@@ -386,7 +387,7 @@ PUT https://adminmanagement.local.azurestack.external//subscriptions/<Subscripti
 
 |Metoda  |Identyfikator URI żądania  |
 |---------|---------|
-|POBIERZ    |   https://{armendpoint}/Subscriptions/{subId}/resourceGroups/system. {RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths?api-version=2016-05-01 "   |
+|GET    |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths?api-version=2016-05-01"   |
 
 
 **Argumenty**
@@ -440,9 +441,9 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |*location*     |  Nazwa regionu.       |
 |*tagów*     |     Tagi zasobów.    |
 |*registrationId*     |   Unikatowy Rejestracja dostawcy zasobów.      |
-|*Nazwa wyświetlana*     |Nazwa wyświetlana dostawcy zasobów.        |
-|*przestrzeń nazw*     |   Implementuje interfejs API przestrzeń nazw dostawcy zasobów.       |
-|*Element routePrefix*     |    Identyfikator URI do interakcji z dostawcy zasobów.     |
+|*displayName*     |Nazwa wyświetlana dostawcy zasobów.        |
+|*namespace*     |   Implementuje interfejs API przestrzeń nazw dostawcy zasobów.       |
+|*routePrefix*     |    Identyfikator URI do interakcji z dostawcy zasobów.     |
 |*serviceLocation*     |   Region tego dostawcy zasobów jest zarejestrowany.      |
 |*infraURI*     |   Identyfikator URI dostawcy zasobów wyświetlany jako rola infrastruktury.      |
 |*alertSummary*     |   Podsumowanie alertu krytycznego i ostrzeżenia skojarzoną z dostawcą zasobów.      |
@@ -457,7 +458,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 
 |Metoda  |Identyfikator URI żądania  |
 |---------|---------|
-|POBIERZ     |     https://{armendpoint}/Subscriptions/{subId}/resourceGroups/system. {RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths/{RegistrationID}/resourceHealths?api-version=2016-05-01 "    |
+|GET     |     https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths/{RegistrationID}/resourceHealths?api-version=2016-05-01"    |
 
 **Argumenty**
 
@@ -508,15 +509,18 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |*location*     |  Nazwa regionu.       |
 |*tagów*     |     Tagi zasobów.    |
 |*registrationId*     |   Unikatowy Rejestracja dostawcy zasobów.      |
-|*Typ zasobu*     |Typ zasobu.        |
+|*resourceType*     |Typ zasobu.        |
 |*resourceName*     |   Nazwa zasobu.   |
 |*usageMetrics*     |    Metryki użycia zasobów.     |
 |*resourceLocation*     |   Nazwa regionu w przypadku, gdy wdrożone.      |
 |*resourceURI*     |   Identyfikator URI zasobu.   |
 |*alertSummary*     |   Podsumowanie krytyczne i alerty ostrzegawcze, stan kondycji.     |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="learn-more"></a>Dowiedz się więcej
 
-- Informacje o monitorowaniu kondycji wbudowanych, zobacz [monitorowania kondycji i alertów w stosie Azure](azure-stack-monitor-health.md).
+Informacje o monitorowaniu kondycji wbudowanych, zobacz [monitorowania kondycji i alertów w stosie Azure](azure-stack-monitor-health.md).
 
 
+## <a name="next-steps"></a>Kolejne kroki
+
+[Integracja z zabezpieczeniami](azure-stack-integrate-security.md)

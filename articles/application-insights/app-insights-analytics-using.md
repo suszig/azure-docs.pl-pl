@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: danha; mbullwin
 ms.openlocfilehash: 0ca5c8b19f4699548a8551ec673e4a067d4e5fad
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="using-analytics-in-application-insights"></a>Za pomocą analizy w usłudze Application Insights
 [Analiza](app-insights-analytics.md) to funkcja wyszukiwania zaawansowanego [usługi Application Insights](app-insights-overview.md). Te strony opisano język zapytań usługi Analiza dzienników.
@@ -108,7 +108,7 @@ Jeśli uważasz, że nie występują wszystkie wyniki, które miały, istnieje k
     Dobrym rozwiązaniem, aby uniknąć naciśnięcie limit jest. Użyj filtru zakres czasu lub używać operatorów, takich jak:
 
   * [100 najpopularniejszych przez sygnatury czasowej](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/top-operator) 
-  * [podejmij 100](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/take-operator)
+  * [take 100](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/take-operator)
   * [Podsumowanie](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) 
   * [gdzie sygnatury czasowej > ago(3d)](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator)
 

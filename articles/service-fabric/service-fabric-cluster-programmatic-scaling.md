@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2017
+ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: 1744e3c49ac06abe9e1067d507fd56d694201ffc
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: bfa020e29a9bb67f0634d220725bc11279e1565c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Programowo skalowanie klastra sieci szkieletowej usług 
 
@@ -93,7 +93,7 @@ Podczas dodawania węzła ręcznie, dodając wystąpienia zestawu skalowania pow
 
 Skalowanie w jest podobny do skalowania. Rzeczywiste zestawu skalowania maszyn wirtualnych zmiany praktycznie są takie same. Jednak jak został już wcześniej, usługa sieć szkieletowa tylko automatycznie oczyszcza usuniętych węzłów trwałości Gold lub Silver. Tak, w tym trwałości brązowa skalowania w przypadku należy interakcje z klastrem usługi sieć szkieletowa można zamknąć węzeł ma zostać usunięty, a następnie usunąć jego stanu.
 
-Przygotowanie węzła dla zamknięcia polega na znajdowaniu się, że węzeł, który ma być usunięty (węzeł ostatnio dodane) i dezaktywowanie go. Dla węzłów z systemem innym niż inicjatora nowszej węzły znajdują się na podstawie porównania ilości `NodeInstanceId`. 
+Przygotowanie węzła dla zamknięcia polega na znajdowaniu węzeł, który ma być usunięty (ostatnio dodane wystąpienie maszyny wirtualnej skali zestawu) i dezaktywowanie go. Wystąpienia zestawu skali maszyny wirtualnej są numerowane w kolejności, są one dodawane, więc węzłów nowszej można znaleźć na podstawie porównania ilości numer sufiks nazwy tych węzłów (które dopasowania podstawowej zestawu skalowania maszyn wirtualnych nazw wystąpień). 
 
 ```csharp
 using (var client = new FabricClient())
@@ -101,11 +101,14 @@ using (var client = new FabricClient())
     var mostRecentLiveNode = (await client.QueryManager.GetNodeListAsync())
         .Where(n => n.NodeType.Equals(NodeTypeToScale, StringComparison.OrdinalIgnoreCase))
         .Where(n => n.NodeStatus == System.Fabric.Query.NodeStatus.Up)
-        .OrderByDescending(n => n.NodeInstanceId)
+        .OrderByDescending(n =>
+        {
+            var instanceIdIndex = n.NodeName.LastIndexOf("_");
+            var instanceIdString = n.NodeName.Substring(instanceIdIndex + 1);
+            return int.Parse(instanceIdString);
+        })
         .FirstOrDefault();
 ```
-
-Węzłów inicjatora są różne, a nie zawsze wykonaj Konwencji najpierw usunąć większa identyfikatorów wystąpienia.
 
 Po znalezieniu węzeł ma zostać usunięty, można dezaktywować i usunąć korzystającej z tego samego `FabricClient` wystąpienia i `IAzure` wystąpienie z wcześniej.
 

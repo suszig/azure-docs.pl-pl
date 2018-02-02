@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2018
+ms.date: 01/27/2018
 ms.author: brenduns
-ms.openlocfilehash: 6eafa2a5058ef1309cbf50be069ea1bb12f7e5b9
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 59053e4beda48fd8474da675e50e02438c79a98e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Zagadnienia dotyczące maszyn wirtualnych Azure stosu
 
@@ -59,9 +59,7 @@ Rozmiary maszyn wirtualnych i ich ilości zasobów są spójne stosu Azure i na 
 
 ## <a name="virtual-machine-extensions"></a>Rozszerzenia maszyny wirtualnej
 
- Stos Azure obsługuje następujące wersje rozszerzenia maszyny wirtualnej:
-
-![Rozszerzenia maszyn wirtualnych](media/azure-stack-vm-considerations/vm-extensions.png)
+ Stos Azure zawiera niewielki zestaw rozszerzeń. Aktualizacje i dodatkowe rozszerzenia i są dostępne za pośrednictwem portalu Marketplace zespolonego.
 
 Użyj następującego skryptu programu PowerShell można pobrać listy rozszerzeń maszyny wirtualnej, które są dostępne w środowisku Azure stosu:
 

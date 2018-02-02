@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 1/29/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4937b7725c8f39314ccc41584a8646b7197f6bdf
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 7018f0122ab1ef11d64cce8a9adf58419d0e9ba7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Zastąp składnik sprzętowy w węźle jednostki skali Azure stosu
 
@@ -28,7 +28,7 @@ W tym artykule opisano ogólny proces Zastąp składniki sprzętowe, które są 
 
 Następujące składniki bez wyłączania:
 
-- PROCESOR CPU *
+- CPU*
 - Pamięć *
 - Płyty głównej/kontrolera zarządzania płytą główną (BMC) / wideo karty
 - Karty magistrali hosta/kontrolera dysku (HBA) / IDE
@@ -44,11 +44,11 @@ Poniższy diagram przepływu przedstawia ogólny proces FRU wymiana sprzętu z s
 
 * Tej akcji nie może być wymagany na podstawie warunku fizycznego sprzętu.
 
-** Czy z dostawcą sprzętu OEM wykonuje wymiana składników i aktualizacje oprogramowania układowego może się różnić w zależności na obsługuje kontraktu.
+** Czy z dostawcą sprzętu OEM wykonuje wymiana składników i aktualizacje oprogramowania układowego mogą być różne na podstawie umowy pomocy technicznej.
 
 ## <a name="review-alert-information"></a>Przeglądanie informacji o alertach
 
-Kondycja stosu Azure i monitorowania systemu śledzenia stanu kart sieciowych i dysków z danymi kontrolowane przez bezpośrednie miejsca do magazynowania. Nie śledzi innych składników sprzętowych. Dla innych składników sprzętowych specyficznych dla dostawcy sprzętu rozwiązanie monitorujące, które działa na hoście cyklu życia sprzętu pojawienia się alertów.
+Kondycja stosu Azure i monitorowania systemu śledzenia stanu kart sieciowych i dysków z danymi kontrolowane przez bezpośrednie miejsca do magazynowania. Nie śledzi innych składników sprzętowych. Dla innych składników sprzętowych specyficznych dla dostawcy sprzętu rozwiązanie monitorujące, które działa na hoście cyklu życia sprzętu pojawienia się alertów.  
 
 ## <a name="component-replacement-process"></a>Proces zamiany składnika
 
@@ -60,7 +60,7 @@ W poniższych krokach przedstawiono ogólne omówienie proces zamiany składnika
    > W każdym przypadku tylko jeden węzeł można opróżnione i odłączony od zasilania w tym samym czasie bez przerywania S2D (bezpośrednie miejsca do magazynowania).
 
 2. Po węzeł jednostki skalowania jest w trybie konserwacji, użyj [wyłączenie](azure-stack-node-actions.md#scale-unit-node-actions) akcji. Ta akcja nie może być wymagany na podstawie warunku fizycznego sprzętu.
- 
+
    > [!NOTE]
    > W rzadkich przypadkach wyłączy akcji nie działa w zamian użyj interfejsu sieci web uzyskiwania informacji na temat kontrolera zarządzania płytą główną.
 
@@ -74,4 +74,3 @@ W poniższych krokach przedstawiono ogólne omówienie proces zamiany składnika
 
 - Uzyskać informacji dotyczących zastępowania wyłączania dysku fizycznego, zobacz [wymienić dysk](azure-stack-replace-disk.md).
 - Uzyskać informacji dotyczących zastępowania na węźle fizycznym, zobacz [zamienić węzła jednostki skali](azure-stack-replace-node.md).
-- 

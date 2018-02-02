@@ -1,6 +1,6 @@
 ---
-title: "Utworzenie rozwiązania do zarządzania w OMS | Dokumentacja firmy Microsoft"
-description: "Rozwiązania do zarządzania zapewniają rozszerzenie funkcjonalności z Operations Management Suite (OMS) zapewniając scenariuszy pakietów zarządzania, dodawanych przez klientów do ich obszarem roboczym pakietu OMS.  Ten artykuł zawiera szczegółowe informacje dotyczące tworzenia rozwiązań do zarządzania do użycia w środowisku lub udostępniane klientom."
+title: "Utworzenie rozwiązania do zarządzania na platformie Azure | Dokumentacja firmy Microsoft"
+description: "Rozwiązania do zarządzania obejmują scenariusze pakietów zarządzania na platformie Azure, która klientów można dodać do swojego obszaru roboczego analizy dzienników.  Ten artykuł zawiera szczegółowe informacje dotyczące tworzenia rozwiązań do zarządzania do użycia w środowisku lub udostępniane klientom."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -15,21 +15,21 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a17c73393ecbdff693e9b200d1506887e0f1d71e
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 0f5d42292c8e885491aed55ada129f05cb3bcd35
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="design-and-build-a-management-solution-in-operations-management-suite-oms-preview"></a>Projektowanie i kompilowanie rozwiązania do zarządzania w Operations Management Suite (OMS) (wersja zapoznawcza)
+# <a name="design-and-build-a-management-solution-in-azure-preview"></a>Projektowanie i kompilowanie rozwiązania do zarządzania na platformie Azure (wersja zapoznawcza)
 > [!NOTE]
-> To jest wstępna dokumentacji do tworzenia rozwiązań do zarządzania w OMS, które są obecnie w wersji zapoznawczej. Żadnego schematu opisanych poniżej może ulec zmianie.
+> To jest wstępna dokumentacji do tworzenia rozwiązań do zarządzania na platformie Azure, które są obecnie w wersji zapoznawczej. Żadnego schematu opisanych poniżej może ulec zmianie.
 
-[Rozwiązania do zarządzania](operations-management-suite-solutions.md) zapewniając scenariuszy pakietów zarządzania, dodawanych przez klientów do ich obszarem roboczym pakietu OMS na poszerzanie funkcjonalności z Operations Management Suite (OMS).  Ten artykuł przedstawia podstawowy proces projektowania i utworzenie rozwiązania do zarządzania, które jest odpowiednie dla najbardziej typowych wymagań.  Jeśli dopiero zaczynasz do tworzenia rozwiązań do zarządzania można użyć tego procesu jako punkt początkowy i korzystać z założenia bardziej złożonych rozwiązań zgodnie z wymaganiami rozwijać.
+[Rozwiązania do zarządzania](operations-management-suite-solutions.md) Podaj scenariusze zarządzania spakowanych klientów można dodać do swojego obszaru roboczego analizy dzienników.  Ten artykuł przedstawia podstawowy proces projektowania i utworzenie rozwiązania do zarządzania, które jest odpowiednie dla najbardziej typowych wymagań.  Jeśli dopiero zaczynasz do tworzenia rozwiązań do zarządzania można użyć tego procesu jako punkt początkowy i korzystać z założenia bardziej złożonych rozwiązań zgodnie z wymaganiami rozwijać.
 
 ## <a name="what-is-a-management-solution"></a>Co to jest rozwiązaniem do zarządzania?
 
-Rozwiązania do zarządzania zawiera OMS i zasobów platformy Azure, które współpracują ze sobą w celu osiągnięcia konkretnego scenariusza monitorowania.  Są one zaimplementowane jako [szablony zarządzania zasobami](../azure-resource-manager/resource-manager-template-walkthrough.md) zawierających szczegółowe informacje dotyczące sposobu instalowania i konfigurowania ich zawartych w niej zasobów, po zainstalowaniu rozwiązania.
+Rozwiązania do zarządzania zawiera zasobów platformy Azure, które współpracują, aby osiągnąć zarządzania konkretnego scenariusza.  Są one zaimplementowane jako [szablony zarządzania zasobami](../azure-resource-manager/resource-manager-template-walkthrough.md) zawierających szczegółowe informacje dotyczące sposobu instalowania i konfigurowania ich zawartych w niej zasobów, po zainstalowaniu rozwiązania.
 
 Podstawowa strategia jest zacząć od rozwiązania do zarządzania przez tworzenie pojedynczych składników w środowisku platformy Azure.  Po utworzeniu funkcji działa prawidłowo, następnie można uruchomić je do pakowania [plik rozwiązania zarządzania](operations-management-suite-solutions-solution-file.md). 
 
@@ -37,7 +37,7 @@ Podstawowa strategia jest zacząć od rozwiązania do zarządzania przez tworzen
 ## <a name="design-your-solution"></a>Projektowanie własnego rozwiązania
 Na poniższym diagramie przedstawiono najbardziej typowe wzorzec rozwiązania do zarządzania.  Różne składniki w tym wzorcu zostały omówione w poniżej.
 
-![Omówienie rozwiązania OMS](media/operations-management-suite-solutions-creating/solution-overview.png)
+![Rozwiązanie do zarządzania — omówienie](media/operations-management-suite-solutions-creating/solution-overview.png)
 
 
 ### <a name="data-sources"></a>Źródła danych

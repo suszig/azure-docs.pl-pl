@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: dc983549aea53ed29859205102d6308a3367bec7
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 54491d0ca1f515786af07146d83ef65fc7d46f11
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="reference---iot-hub-endpoints"></a>Odwołanie — punkty końcowe Centrum IoT
 
@@ -81,7 +81,12 @@ Limitów liczby można dodać punktów końcowych, zobacz [przydziały i ogranic
 
 ### <a name="when-using-azure-storage-containers"></a>Korzystając z kontenerami usługi Azure Storage
 
-Centrum IoT obsługuje tylko zapisywania danych do usługi Azure Storage kontenerów jako obiekty BLOB w [Apache Avro](http://avro.apache.org/) format. Centrum IoT partii wiadomości i zapisuje dane do obiektu blob, po osiągnięciu albo określonego rozmiaru lub po upływie pewnego czasu, zależnie od sytuacji najpierw. Centrum IoT zapisze nie pusty obiekt typu blob, jeśli nie ma żadnych danych do zapisania.
+Centrum IoT obsługuje tylko zapisywania danych do usługi Azure Storage kontenerów jako obiekty BLOB w [Apache Avro](http://avro.apache.org/) format. Centrum IoT partii wiadomości i zapisuje dane do obiektu blob zawsze, gdy:
+
+* Partii osiągnie określony rozmiar.
+* Lub upływie pewnego czasu.
+
+Centrum IoT będzie ma zapisu pusty obiekt typu blob, jeśli nie ma żadnych danych do zapisania.
 
 Centrum IoT domyślnie następującej konwencji nazewnictwa plików:
 

@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: 450f2d38f7b641bcf6b8be061969404a1b582b4c
-ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
+ms.openlocfilehash: 01951afa983e7a578281fda38bb4714df6b41891
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>Język zapytań Centrum IoT urządzenia twins, zadań i rozsyłania wiadomości
 
@@ -131,7 +131,7 @@ FROM devices
 GROUP BY properties.reported.telemetryConfig.status
 ```
 
-To zapytanie grupowania zwróci wynik podobny do poniższego przykładu. W tym miejscu urządzenia trzy zgłaszać Konfiguracja zakończyła się pomyślnie, nadal są dwa stosowania konfiguracji i jedną zgłosił błąd. 
+To zapytanie grupowania zwróci wynik podobny do poniższego przykładu:
 
 ```json
 [
@@ -149,6 +149,8 @@ To zapytanie grupowania zwróci wynik podobny do poniższego przykładu. W tym m
     }
 ]
 ```
+
+W tym przykładzie trzy urządzeń zgłoszonych Konfiguracja zakończyła się pomyślnie, nadal są dwa stosowania konfiguracji i jedną zgłosił błąd.
 
 Kwerend projekcji umożliwiają deweloperom zwracać tylko właściwości, które ich interesują. Na przykład można pobrać ostatniego działania wszystkich rozłączona urządzeń, użyj następującej kwerendy:
 
@@ -172,8 +174,9 @@ while (query.HasMoreResults)
 }
 ```
 
-Uwaga jak **zapytania** utworzeniu wystąpienia obiektu z rozmiarem strony (maksymalnie 100), a następnie wiele stron można pobranej poprzez wywołanie **GetNextAsTwinAsync** metody wiele razy.
-Należy pamiętać, że obiekt zapytania udostępnia wiele **dalej***, w zależności od opcji deserializacji wymagane przez kwerendy, na przykład dwie lub zadanie obiekty urządzeń lub zwykły JSON do użycia przy użyciu projekcji.
+**Zapytania** utworzeniu wystąpienia obiektu z rozmiarem strony (maksymalnie 100). Następnie wiele stron są pobierane przez wywołanie metody **GetNextAsTwinAsync** metody wiele razy.
+
+Obiekt zapytania udostępnia wiele **dalej** wartości, w zależności od opcji deserializacji wymagane przez zapytanie. Na przykład dwie lub zadanie obiekty urządzeń lub zwykły JSON przy użyciu projekcji.
 
 ### <a name="nodejs-example"></a>Przykład node.js
 Funkcje zapytań jest udostępniany przez [usługi Azure IoT SDK dla środowiska Node.js] [ lnk-hub-sdks] w **rejestru** obiektu.
@@ -198,16 +201,19 @@ var onResults = function(err, results) {
 query.nextAsTwin(onResults);
 ```
 
-Uwaga jak **zapytania** utworzeniu wystąpienia obiektu z rozmiarem strony (maksymalnie 100), a następnie wiele stron można pobranej poprzez wywołanie **nextAsTwin** metody wiele razy.
-Należy pamiętać, że obiekt zapytania udostępnia wiele **dalej***, w zależności od opcji deserializacji wymagane przez kwerendy, na przykład dwie lub zadanie obiekty urządzeń lub zwykły JSON do użycia przy użyciu projekcji.
+**Zapytania** utworzeniu wystąpienia obiektu z rozmiarem strony (maksymalnie 100). Następnie wiele stron są pobierane przez wywołanie metody **nextAsTwin** metody wiele razy.
+
+Obiekt zapytania udostępnia wiele **dalej** wartości, w zależności od opcji deserializacji wymagane przez zapytanie. Na przykład dwie lub zadanie obiekty urządzeń lub zwykły JSON przy użyciu projekcji.
 
 ### <a name="limitations"></a>Ograniczenia
+
 > [!IMPORTANT]
-> Wyniki zapytania może mieć kilka minut opóźnienie względem ostatnie wartości twins urządzenia. Jeśli zapytanie twins poszczególne urządzenia według identyfikatora, zawsze zaleca się za pomocą interfejsu API dwie urządzenia pobierania, w którym zawsze zawiera najnowsze wartości i ma wyższy ograniczenie.
+> Wyniki zapytania może mieć kilka minut opóźnienie względem ostatnie wartości twins urządzenia. Jeśli zapytanie twins poszczególne urządzenia przez identyfikator, za pomocą interfejsu API dwie pobrać urządzenia. Ten interfejs API zawsze zawiera najnowsze wartości i ma wyższy ograniczenie.
 
 Obecnie porównania są obsługiwane tylko między typy pierwotne (nie obiektów), na przykład `... WHERE properties.desired.config = properties.reported.config` jest obsługiwana tylko w przypadku pierwotnych wartości tych właściwości.
 
 ## <a name="get-started-with-jobs-queries"></a>Wprowadzenie do kwerend zadania
+
 [Zadania] [ lnk-jobs] umożliwiają wykonywanie operacji na zestawy urządzeń. Dwie każdego urządzenia zawiera informacje o wszystkich zadań, które jest częścią kolekcji o nazwie **zadania**.
 Logicznie,
 
@@ -243,7 +249,7 @@ Logicznie,
 Ta kolekcja jest obecnie kolejność jako **devices.jobs** w Centrum IoT języka zapytań.
 
 > [!IMPORTANT]
-> Obecnie właściwości zadania nigdy nie jest zwracana podczas wykonywania zapytania twins urządzenia (to znaczy zapytań, które zawiera "z urządzeń"). Będą one dostępne tylko bezpośrednio z zapytania przy użyciu `FROM devices.jobs`.
+> Obecnie właściwości zadania nigdy nie jest zwracana podczas wykonywania zapytania twins urządzenia. Oznacza to, zapytania, które zawierają "z urządzeń". Właściwości zadania są dostępne tylko bezpośrednio przy użyciu zapytań `FROM devices.jobs`.
 >
 >
 
@@ -282,9 +288,9 @@ Obecnie zapytanie na **devices.jobs** nie obsługują:
 
 ## <a name="device-to-cloud-message-routes-query-expressions"></a>Wyrażenia zapytań tras wiadomości urządzenia do chmury
 
-Przy użyciu [trasy urządzenia do chmury][lnk-devguide-messaging-routes], można skonfigurować Centrum IoT wysłania wiadomości urządzenia do chmury do różnych punktów końcowych oparte na wyrażeniach porównywany poszczególne wiadomości.
+Przy użyciu [trasy urządzenia do chmury][lnk-devguide-messaging-routes], można skonfigurować Centrum IoT wysłania wiadomości urządzenia do chmury do różnych punktów końcowych. Podczas wysyłania jest oparta na wyrażenia porównywany poszczególne wiadomości.
 
-Trasa [warunku] [ lnk-query-expressions] używa tego samego języka zapytań Centrum IoT jako warunki w zapytaniach dwie i zadania. Warunki trasy są oceniane w nagłówkach wiadomości oraz i treść. Routingu wyrażeniu zapytania może obejmować tylko nagłówki wiadomości, tylko treści wiadomości lub obie te nagłówki komunikatów, a treść komunikatu. Centrum IoT zakłada określonego schematu w nagłówkach i treści wiadomości celu kierowania wiadomości. W poniższych sekcjach opisano, co jest wymagane dla Centrum IoT można przekierować poprawnie.
+Trasa [warunku] [ lnk-query-expressions] używa tego samego języka zapytań Centrum IoT jako warunki w zapytaniach dwie i zadania. Warunki trasy są oceniane w nagłówkach wiadomości oraz i treść. Routingu wyrażeniu zapytania może obejmować tylko nagłówki komunikatów treść komunikatu lub oba. Centrum IoT zakłada określonego schematu w nagłówkach i treści wiadomości celu kierowania wiadomości. W poniższych sekcjach opisano, co jest wymagane dla Centrum IoT można przekierować poprawnie.
 
 ### <a name="routing-on-message-headers"></a>Routing w nagłówkach wiadomości
 
@@ -311,7 +317,7 @@ Centrum IoT przyjmuje następujące reprezentacja JSON w nagłówkach wiadomośc
 ```
 
 Właściwości systemu wiadomości są poprzedzane prefiksem `'$'` symbolu.
-Właściwości użytkownika są zawsze dostępne z jego nazwą. Jeśli nazwa właściwości użytkownika stanie się pokrywa się z właściwością systemu (takich jak `$to`), będzie można pobrać właściwości użytkownika z `$to` wyrażenia.
+Właściwości użytkownika są zawsze dostępne z jego nazwą. Jeśli nazwa właściwości użytkownika pokrywa się z właściwością systemu (takich jak `$to`), właściwości użytkownika są pobierane z `$to` wyrażenia.
 Zawsze dostęp do właściwości systemu za pomocą nawiasów `{}`: na przykład można użyć wyrażenia `{$to}` do dostępu do właściwości systemu `to`. Nazwy właściwości w nawiasach kwadratowych zawsze pobierają odpowiadających im właściwości systemu.
 
 Należy pamiętać, że nazwy właściwości bez uwzględniania wielkości liter.
@@ -342,7 +348,7 @@ Zapoznaj się [wyrażenie i warunki] [ lnk-query-expressions] sekcję, aby pełn
 
 ### <a name="routing-on-message-bodies"></a>Routing w treści wiadomości
 
-Centrum IoT można kierować tylko oparte na treść komunikatu zawartość, jeśli treść jest poprawnie sformułowany JSON zakodowane w formacie UTF-8, UTF-16 lub UTF-32. Ustaw typ zawartości wiadomości `application/json` i kodowania zawartości do jednego z obsługiwanych kodowania UTF w nagłówkach wiadomości. Jeśli jeden z nagłówków nie zostanie określony, Centrum IoT nie będzie podejmować próby oceny dowolnego wyrażenie zapytania dotyczące treści dla komunikatu. Jeśli wiadomość nie jest komunikat JSON lub jeśli wiadomość nie określa typu zawartości i kodowania zawartości, może nadal używasz rozsyłania wiadomości do rozsyłania wiadomości oparte na nagłówkach wiadomości.
+Centrum IoT można kierować tylko oparte na treść komunikatu zawartość, jeśli treść jest poprawnie sformułowany JSON zakodowane w formacie UTF-8, UTF-16 lub UTF-32. Ustaw typ zawartości wiadomości `application/json`. Ustaw zawartość, kodowanie obsługiwane kodowania UTF w nagłówkach wiadomości. Jeśli jeden z nagłówków nie zostanie określony, Centrum IoT nie próbuje ocenić żadnych wyrażenie zapytania dotyczące treści dla komunikatu. Jeśli wiadomość nie jest komunikat JSON lub jeśli wiadomość nie określa typu zawartości i kodowania zawartości, nadal służy rozsyłania wiadomości do rozsyłania wiadomości oparte na nagłówkach wiadomości.
 
 Można użyć `$body` w wyrażeniu zapytania do rozsyłania wiadomości. Proste treści odwołania, typu odwołania tablicy treści lub wiele odwołań treści można użyć w wyrażeniu zapytania. Wyrażenie zapytania można także połączyć treści odwołanie z odwołaniem nagłówka wiadomości. Na przykład poniżej przedstawiono wszystkie wyrażenia prawidłową kwerendę:
 
@@ -355,7 +361,7 @@ $body.Weather.Temperature = 50 AND Status = 'Active'
 ```
 
 ## <a name="basics-of-an-iot-hub-query"></a>Podstawowe informacje o kwerendzie Centrum IoT
-Każdej kwerendy Centrum IoT składa się wybierz i z klauzulami, w której opcjonalne i klauzul GROUP BY. Każdy zapytania jest uruchamiane na kolekcji dokumentów JSON, na przykład twins urządzenia. Klauzula FROM wskazuje kolekcji dokumentów, należy powtórzyć na (**urządzeń** lub **devices.jobs**). Następnie jest stosowany filtr w klauzuli WHERE. Z agregacji, wyniki tego kroku są grupowane jako określone w klauzuli GROUP BY i dla każdej grupy, wiersz jest generowany jak określono w klauzuli SELECT.
+Każdej kwerendy Centrum IoT składa się wybierz i z klauzulami, w której opcjonalne i klauzul GROUP BY. Każdy zapytania jest uruchamiane na kolekcji dokumentów JSON, na przykład twins urządzenia. Klauzula FROM wskazuje kolekcji dokumentów, należy powtórzyć na (**urządzeń** lub **devices.jobs**). Następnie jest stosowany filtr w klauzuli WHERE. Z agregacji, wyniki tego kroku są grupowane jak określono w klauzuli GROUP BY. Dla każdej grupy jest generowany wiersz jak określono w klauzuli SELECT.
 
 ```sql
 SELECT <select_list>
@@ -374,7 +380,7 @@ Dozwolone warunki opisane w sekcji [wyrażeń i warunki][lnk-query-expressions].
 
 ## <a name="select-clause"></a>klauzula SELECT
 **Wybierz < select_list >** jest wymagana i określa, jakie wartości są pobierane z zapytania. Określa wartości JSON ma być używany do generowania nowych obiektów JSON.
-Dla każdego elementu filtrowane (i opcjonalnie grupowanych) podzestaw kolekcji FROM faza projekcji generuje nowy obiekt JSON, skonstruowany przy wartości określone w klauzuli SELECT.
+Dla każdego elementu filtrowane (i opcjonalnie grupowanych) podzestaw kolekcji FROM faza projekcji generuje nowy obiekt JSON. Ten obiekt jest tworzony przy użyciu wartości określone w klauzuli SELECT.
 
 Gramatyka klauzuli SELECT jest następujący:
 
@@ -403,7 +409,7 @@ SELECT [TOP <max number>] <projection list>
 Obecnie wybór klauzule różni się od **wybierz*** są obsługiwane tylko w zapytaniach agregacji w twins urządzenia.
 
 ## <a name="group-by-clause"></a>klauzula GROUP BY
-**GROUP BY < group_specification >** klauzula jest opcjonalny krok, który może zostać wykonany po określony w klauzuli WHERE, a przed projekcji określonej w polu Wybierz filtr. Grup dokumentów na podstawie wartości atrybutu. Te grupy są używane do generowania wartości zagregowane, jak określono w klauzuli SELECT.
+**GROUP BY < group_specification >** klauzuli to krok opcjonalny, który jest wykonywany po określony w klauzuli WHERE, a przed projekcji określonej w polu Wybierz filtr. Grup dokumentów na podstawie wartości atrybutu. Te grupy są używane do generowania wartości zagregowane, jak określono w klauzuli SELECT.
 
 Przykładem zapytanie, używając GROUP BY jest:
 
@@ -433,7 +439,7 @@ Na wysokim poziomie *wyrażenie*:
 * Daje w wyniku wystąpienia typu JSON (na przykład logiczną, liczbą, string, tablicy lub obiektu).
 * Jest zdefiniowana przez manipulację danymi pochodzących z dokumentu JSON urządzenia oraz stałe za pomocą wbudowanych operatorów i funkcji.
 
-*Warunki* są wyrażenia, które zwrócą wartość logiczną. Wszystkie inne niż wartość logiczna stała **true** jest uznawany za **false** (w tym **null**, **Niezdefiniowany**, dowolnego wystąpienia obiektu ani tablicy, dowolny ciąg i wyraźnie typu Boolean **false**).
+*Warunki* są wyrażenia, które zwrócą wartość logiczną. Wszystkie inne niż wartość logiczna stała **true** jest uznawany za **false**. Ta reguła zawiera **null**, **Niezdefiniowany**, wystąpienie obiektu ani tablicy, dowolnego ciągu i typu Boolean **false**.
 
 Składnia wyrażeń jest następująca:
 
@@ -469,7 +475,7 @@ Aby zrozumieć, co oznacza każdy symbol w składni wyrażeń, można skorzysta�
 | --- | --- |
 | attribute_name | Dokument JSON w dowolnej właściwości **FROM** kolekcji. |
 | binary_operator | Wszelkie operatora binarnego na liście [operatory](#operators) sekcji. |
-| nazwa_funkcji| Dowolne funkcje wymienione w [funkcje](#functions) sekcji. |
+| function_name| Dowolne funkcje wymienione w [funkcje](#functions) sekcji. |
 | decimal_literal |Float, wyrażone w notacji dziesiętnej. |
 | hexadecimal_literal |Liczba wyrażona w ciągu '0 x' następuje ciąg cyfr szesnastkowych. |
 | literał |Literały ciągu są reprezentowane przez sekwencję zero lub więcej znaków Unicode lub sekwencji unikowych ciągów Unicode. Literały ciągu są ujęte w apostrofy lub podwójny cudzysłów. Dozwolone specjalne: `\'`, `\"`, `\\`, `\uXXXX` znaków Unicode, zdefiniowane przez 4 cyfr szesnastkowych. |
@@ -480,7 +486,7 @@ Obsługiwane są następujące operatory:
 | Rodzina | Operatory |
 | --- | --- |
 | Operacje arytmetyczne |+, -, *, /, % |
-| Logiczne |I, LUB NIE |
+| Logiczne |AND, OR, NOT |
 | Porównanie |=, !=, <, >, <=, >=, <> |
 
 ### <a name="functions"></a>Funkcje
@@ -513,8 +519,8 @@ W warunkach trasy następujące Sprawdzanie typu i rzutowanie funkcje są obsłu
 | IS_DEFINED | Zwraca wartość Boolean wskazującą, czy właściwość zostanie przypisana wartość. |
 | IS_NULL | Zwraca wartość logiczną wskazującą, czy typ określonego wyrażenia jest wartość null. |
 | IS_NUMBER | Zwraca wartość logiczną wskazującą, czy typ określonego wyrażenia jest liczbą. |
-| IS_OBJECT — | Zwraca wartość logiczną wskazującą, czy typ określonego wyrażenia jest obiektem JSON. |
-| IS_PRIMITIVE | Zwraca wartość logiczną wskazującą, czy typ określonego wyrażenia jest właściwością pierwotną (string, Boolean, liczbowego lub `null`). |
+| IS_OBJECT | Zwraca wartość logiczną wskazującą, czy typ określonego wyrażenia jest obiektem JSON. |
+| IS_PRIMITIVE | Zwraca wartość logiczną wskazującą, czy typ określonego wyrażenia jest właściwością pierwotną (string, Boolean, numeryczną, lub `null`). |
 | IS_STRING | Zwraca wartość logiczną wskazującą, czy typ określonego wyrażenia jest ciągiem. |
 
 Obsługiwane są następujące funkcje ciągów w warunkach trasy:

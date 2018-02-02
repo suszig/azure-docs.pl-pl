@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 10/24/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6f7ef46d9c40138c211427845423783fefde5dc3
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 6533ab205e07243e2f757ea0a66028e1d140c52b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="install-a-sql92iis92net-stack-in-azure"></a>Instalacja programu SQL &#92; IIS &#92;. Stos sieci na platformie Azure
 
@@ -32,7 +32,9 @@ W tym samouczku instalujemy program SQL &#92; IIS &#92;. Stos sieci przy użyciu
 > * Tworzenie maszyny Wirtualnej z uruchomionym programem SQL Server
 > * Zainstaluj rozszerzenie programu SQL Server
 
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
+Jeśli postanowisz zainstalować program PowerShell i używać go lokalnie, ten samouczek wymaga modułu Azure PowerShell w wersji 5.1.1 lub nowszej. Uruchom polecenie ` Get-Module -ListAvailable AzureRM`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-azurerm-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie `Login-AzureRmAccount`, aby utworzyć połączenie z platformą Azure.
 
 ## <a name="create-a-iis-vm"></a>Tworzenie maszyny Wirtualnej usług IIS 
 
@@ -41,9 +43,10 @@ W tym przykładzie używamy [AzVM nowy](https://www.powershellgallery.com/packag
 Polecenie **spróbuj on** przycisk, aby prawym górnym rogu bloku kodu do uruchomienia powłoki w chmurze w tym oknie. Użytkownik jest proszony o podanie poświadczeń dla maszyny wirtualnej w wierszu polecenia.
 
 ```azurepowershell-interactive
+$vmName = "IISVM$(Get-Random)"
 $vNetName = "myIISSQLvNet"
 $resourceGroup = "myIISSQLGroup"
-New-AzVm -Name myIISVM -ResourceGroupName $resourceGroup -VirtualNetworkName $vNetName 
+New-AzureRMVm -Name $vmName -ResourceGroupName $resourceGroup -VirtualNetworkName $vNetName 
 ```
 
 Zainstaluj usługi IIS i .NET framework za pomocą niestandardowego rozszerzenia skryptu.
@@ -52,7 +55,7 @@ Zainstaluj usługi IIS i .NET framework za pomocą niestandardowego rozszerzenia
 
 Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
     -ExtensionName IIS `
-    -VMName myIISVM `
+    -VMName $vmName `
     -Publisher Microsoft.Compute `
     -ExtensionType CustomScriptExtension `
     -TypeHandlerVersion 1.4 `
@@ -109,7 +112,7 @@ Użyj [AzureRmVMSqlServerExtension zestaw](/powershell/module/azurerm.compute/se
 Set-AzureRmVMSqlServerExtension -ResourceGroupName $resourceGroup -VMName mySQLVM -name "SQLExtension"
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym samouczku został zainstalowany SQL &#92; IIS &#92;. Stos sieci przy użyciu programu Azure PowerShell. W tym samouczku omówiono:
 

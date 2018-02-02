@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 01/30/2018
 ms.author: magoedte
-ms.openlocfilehash: 513855084c8b89d97b049f1df2ec24d0f9789afe
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: d12743b752c42e6a7373e9c15df6dac71b7f9d27
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Zbieranie danych z komputerów w środowisku z analizy dzienników
 
@@ -30,9 +30,9 @@ Analiza dzienników Azure można zbierać i działają na danych z komputerów z
 
 Komputery hostowanych w danym środowisku może być bezpośrednio połączony do analizy dzienników, lub jeśli już monitorowania tych komputerów z System Center Operations Manager 2012 R2 lub 2016, grupy zarządzania operacje zarządzania można zintegrować z analizy dzienników i kontynuacja, obsługi strategii i procesy operacji usługi.  
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
-![log-Analytics-Agent-Direct-Connect-diagram](media/log-analytics-concept-hybrid/log-analytics-on-prem-comms.png)
+![log-analytics-agent-direct-connect-diagram](media/log-analytics-concept-hybrid/log-analytics-on-prem-comms.png)
 
 Przed analizowanie i działającą w zebranych danych, należy najpierw zainstalować i połączyć agentów dla wszystkich komputerów, które chcesz wysyłać dane z usługą analizy dzienników. Można zainstalować agentów na komputerach lokalnych przy użyciu Instalatora, wiersza polecenia lub z żądanego stanu konfiguracji (DSC) w automatyzacji Azure. 
 
@@ -41,6 +41,10 @@ Agenta dla systemu Linux i Windows komunikuje się wychodzące z usługą analiz
 Agent dla systemu Linux i Windows, który nie jest tylko w przypadku łączenia do analizy dzienników, obsługuje również automatyzacji Azure łączenia się z hostem roli procesu roboczego Runbook hybrydowego i rozwiązań do zarządzania takich jak śledzenia zmian i zarządzania aktualizacjami.  Aby uzyskać więcej informacji na temat roli hybrydowy proces roboczy elementu Runbook, zobacz [procesu roboczego Runbook hybrydowego automatyzacji Azure](../automation/automation-offering-get-started.md#automation-architecture-overview).  
 
 Jeśli zasady zabezpieczeń IT nie zezwalają na komputerach w sieci, aby nawiązać połączenie z Internetem, aby połączyć się z bramą OMS do odbierania informacji o konfiguracji i wysyłania danych zebranych w zależności od rozwiązania, które aktywowano można skonfigurować agenta. Aby uzyskać więcej informacji i kroki dotyczące sposobu konfigurowania agenta systemu Linux lub Windows do komunikowania się za pośrednictwem bramy OMS z usługą analizy dzienników, zobacz [łączenia komputerów przy użyciu bramy OMS OMS](log-analytics-oms-gateway.md). 
+
+> [!NOTE]
+> Agent dla systemu Windows obsługuje tylko zabezpieczeń TLS (Transport Layer) 1.0 i 1.1.  
+> 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Przed rozpoczęciem należy przejrzeć następujące informacje, aby sprawdzić, czy zostały spełnione minimalne wymagania systemowe.
@@ -56,10 +60,10 @@ Informacje poniżej listy proxy i zapory konfiguracji wymaganych informacji dla 
 
 | Zasób agenta | Porty | Obejście inspekcji HTTPS|
 |----------------|-------|------------------------|
-|*.ods.opinsights.azure.com |443 | Tak |
-|*.oms.opinsights.azure.com | 443 | Tak | 
-|*.blob.core.windows.net | 443 | Tak | 
-|*.azure-automation.net | 443 | Tak | 
+|*.ods.opinsights.azure.com |443 | Yes |
+|*.oms.opinsights.azure.com | 443 | Yes | 
+|*.blob.core.windows.net | 443 | Yes | 
+|*.azure-automation.net | 443 | Yes | 
 
 ### <a name="linux-operating-systems"></a>Systemy operacyjne Linux
 Oficjalnie obsługiwane są następujące dystrybucje systemu Linux.  Jednak agenta systemu Linux mogą również uruchomić na innych dystrybucje nie na liście.
@@ -69,7 +73,7 @@ Oficjalnie obsługiwane są następujące dystrybucje systemu Linux.  Jednak age
 * Oracle Linux 5, 6 i 7 (x86/x64)
 * Red Hat Enterprise Linux Server 5, 6 i 7 (x86/x64)
 * Debian GNU/Linux 6, 7 i 8 (x86/x64)
-* Ubuntu 12.04 LTS, 14.04 LTS, LTS 16.04 (x86/x64)
+* Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)
 * SUSE Linux Enterprise Server 11 i 12 (x86/x64)
 
 #### <a name="network-configuration"></a>Konfiguracja sieci
@@ -109,11 +113,11 @@ Na przykład: `https://user01:password@proxy01.contoso.com:30443`
 
 |Element źródłowy | Metoda | Opis|
 |-------|-------------|-------------|
-| Komputer z systemem Windows|- [Instalacja ręczna](log-analytics-agent-windows.md)<br>- [Konfiguracja DSC automatyzacji Azure](log-analytics-agent-windows.md#install-the-agent-using-dsc-in-azure-automation)<br>- [Szablon Menedżera zasobów Azure stosu](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) |Zainstaluj program Microsoft Monitoring agent z wiersza polecenia lub przy użyciu zautomatyzowanej metody takie jak konfiguracja DSC automatyzacji Azure [System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/deploy-use/deploy-applications), lub za pomocą szablonu usługi Azure Resource Manager, jeśli wdrożono firmy Microsoft Azure stosu w centrum danych.| 
+| Komputer z systemem Windows|- [Instalacja ręczna](log-analytics-agent-windows.md)<br>- [Azure Automation DSC](log-analytics-agent-windows.md#install-the-agent-using-dsc-in-azure-automation)<br>- [Szablon Menedżera zasobów Azure stosu](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) |Zainstaluj program Microsoft Monitoring agent z wiersza polecenia lub przy użyciu zautomatyzowanej metody takie jak konfiguracja DSC automatyzacji Azure [System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/deploy-use/deploy-applications), lub za pomocą szablonu usługi Azure Resource Manager, jeśli wdrożono firmy Microsoft Azure stosu w centrum danych.| 
 |Komputer z systemem Linux| [Instalacja ręczna](log-analytics-quick-collect-linux-computer.md)|Zainstaluj agenta dla systemu Linux w usłudze GitHub otoki skryptu podczas wywoływania. | 
 | System Center Operations Manager|[Integrowanie programu Operations Manager z analizy dzienników](log-analytics-om-agents.md) | Skonfiguruj integrację programu Operations Manager i analizy dzienników do przekazywania zbiera dane z systemów Linux i Windows komputerów raportowania do grupy zarządzania.|  
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Przegląd [źródeł danych](log-analytics-data-sources.md) zrozumienie źródeł danych dostępnych do zbierania danych z systemu Windows lub Linux. 
 

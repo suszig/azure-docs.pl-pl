@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/04/2017
-ms.openlocfilehash: 8d709936bfba5c89091d7f26449d165bddb930de
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 49e22c5136da67f62a43374817fb1e462fcbcaf0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="scaling-the-cluster-to-manage-web-service-throughput"></a>Skalowanie klastra zarządzania przepływności usługi sieci web
 
@@ -85,11 +85,11 @@ Na przykład ustawienie `autoscale-min-replicas` do 5 spowoduje utworzenie pięc
 
 | Nazwa parametru | Typ | Opis |
 |--------------------|--------------------|--------------------|
-| `autoscale-enabled` | Wartość logiczna | Określa, czy jest włączona funkcja automatycznego skalowania. Domyślnie: true |
-| `autoscale-min-replicas` | Liczba całkowita | Określa minimalną liczbę stanowiskami. Musi być mniejsza od 0. Domyślne: 1 |
-| `autoscale-max-replicas` | Liczba całkowita | Określa maksymalną liczbę stanowiskami. Musi być mniejsza od 1. Jeśli funkcja automatycznego skalowania max repliki jest mniejsza niż skalowania automatycznego min replik, skalowania automatycznego max repliki zostaną zignorowane. Domyślny: 10 |
-| `autoscale-refresh-period-seconds` | Liczba całkowita | Określa czas w sekundach między operacjami odświeżania automatycznego skalowania. Domyślne: 1 |
-| `autoscale-target-utilization` | Liczba całkowita | Określa procent wykorzystania, którego element docelowy skalowania automatycznego, od 1 do 100. Domyślne: 70 |
+| `autoscale-enabled` | wartość logiczna | Określa, czy jest włączona funkcja automatycznego skalowania. Domyślnie: true |
+| `autoscale-min-replicas` | liczba całkowita | Określa minimalną liczbę stanowiskami. Musi być mniejsza od 0. Domyślne: 1 |
+| `autoscale-max-replicas` | liczba całkowita | Określa maksymalną liczbę stanowiskami. Musi być mniejsza od 1. Jeśli funkcja automatycznego skalowania max repliki jest mniejsza niż skalowania automatycznego min replik, skalowania automatycznego max repliki zostaną zignorowane. Domyślny: 10 |
+| `autoscale-refresh-period-seconds` | liczba całkowita | Określa czas w sekundach między operacjami odświeżania automatycznego skalowania. Domyślne: 1 |
+| `autoscale-target-utilization` | liczba całkowita | Określa procent wykorzystania, którego element docelowy skalowania automatycznego, od 1 do 100. Domyślne: 70 |
 
 Funkcja automatycznego skalowania działa zapewnienie następujących warunków:
 
@@ -159,6 +159,6 @@ Po uruchomieniu serwera pulpitu nawigacyjnego, otwórz przeglądarkę i wprowad�
 
 Na ekranie głównym pulpitu nawigacyjnego, kliknij przycisk **wdrożeń** na pasku nawigacyjnym po lewej stronie. Jeśli nie zostanie wyświetlone w okienku nawigacji, wybierz tę ikonę ![Menu składające się z trzech krótkich poziomych linii](media/how-to-scale-clusters/icon-hamburger.png) w lewym górnym rogu.
 
-Znajdź wdrożenie do zmodyfikowania, a następnie kliknij tę ikonę ![ikonę Menu składające się z trzech punktów w pionie](media/how-to-scale-clusters/icon-kebab.png) po prawej stronie, a następnie kliknij przycisk **widoku/edi yaml programu**.
+Znajdź wdrożenie do zmodyfikowania, a następnie kliknij tę ikonę ![ikonę Menu składające się z trzech punktów w pionie](media/how-to-scale-clusters/icon-kebab.png) po prawej stronie, a następnie kliknij przycisk **yaml programu przeglądanie i edytowanie**.
 
 Na ekranie wdrożenia edycji Znajdź *spec* węzła, zmodyfikuj *replik* wartość, a następnie kliknij przycisk **aktualizacji**.

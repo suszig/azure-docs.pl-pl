@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: a98e9ad891fcfaf02ca7df5d10d5b310445c9d34
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 4f5bc49bf58773a1510b552ce6fc20aa61076348
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>Platformy ASP.NET Core w niezawodnej usługi sieci szkieletowej usług
 
@@ -26,7 +26,7 @@ Platformy ASP.NET Core to nowa open source i międzyplatformowa struktura do two
 
 Ten artykuł zawiera szczegółowy przewodnik z usługami platformy ASP.NET Core za pomocą usługi sieć szkieletowa niezawodne usługi hostingu **Microsoft.ServiceFabric.AspNetCore.** * zestaw pakietów NuGet.
 
-Samouczek wprowadzający platformy ASP.NET Core w sieci szkieletowej usług i instrukcje dotyczące konfigurowania środowiska deweloperskiego, konfigurowanie, zobacz [tworzenie frontonu aplikacji przy użyciu platformy ASP.NET Core sieci web](service-fabric-add-a-web-frontend.md).
+Samouczek wprowadzający platformy ASP.NET Core w sieci szkieletowej usług i instrukcje dotyczące konfigurowania środowiska deweloperskiego, konfigurowanie, zobacz [utworzyć aplikację .NET](service-fabric-tutorial-create-dotnet-app.md).
 
 Pozostała część w tym artykule przyjęto założenie, że już znasz platformy ASP.NET Core. Jeśli nie, firma Microsoft zaleca odczytu za pomocą [podstawowe informacje na temat platformy ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/index).
 
@@ -59,7 +59,7 @@ Wystąpienie usługi niezawodnego jest reprezentowana przez usługi klasy wywodz
 
 ![Hosting platformy ASP.NET Core w niezawodnej usługi][1]
 
-## <a name="aspnet-core-icommunicationlisteners"></a>ICommunicationListeners platformy ASP.NET Core
+## <a name="aspnet-core-icommunicationlisteners"></a>ASP.NET Core ICommunicationListeners
 `ICommunicationListener` Implementacje Kestrel i HttpSys w `Microsoft.ServiceFabric.Services.AspNetCore.*` mają podobne wzorce użycia pakietów NuGet, ale akcje nieco inne specyficzne dla każdego serwera sieci web. 
 
 Zarówno odbiorników komunikacji zawierają konstruktora, który ma następujące argumenty:
@@ -104,7 +104,7 @@ W oparciu HttpSys [interfejsu API serwera HTTP systemu Windows](https://msdn.mic
 
 Na poniższym diagramie przedstawiono sposób używania HttpSys *http.sys* sterownik jądra w systemie Windows Udostępnianie portów:
 
-![Sterownik HTTP.sys][3]
+![http.sys][3]
 
 ### <a name="httpsys-in-a-stateless-service"></a>HttpSys usługi bezstanowej
 Do użycia `HttpSys` za pośrednictwem usługi bezstanowej, Zastąp `CreateServiceInstanceListeners` — metoda i przywracać `HttpSysCommunicationListener` wystąpienie:
@@ -308,9 +308,9 @@ Jeśli połączenie z Internetem, usługi bezstanowej należy używać punktu ko
 
 |  |  | **Uwagi** |
 | --- | --- | --- |
-| Serwer sieci Web | kestrel | Kestrel jest serwer preferowanych sieci web, ponieważ jest ona obsługiwana przez system Windows i Linux. |
-| Konfiguracja portów | Statyczne | Dobrze znanego portu statycznego powinna być skonfigurowana w `Endpoints` konfiguracji ServiceManifest.xml, takie jak 80 dla protokołu HTTP i 443 dla protokołu HTTPS. |
-| ServiceFabricIntegrationOptions | Brak | `ServiceFabricIntegrationOptions.None` Opcja powinna być używana podczas konfigurowania sieci szkieletowej usług integracji w oprogramowaniu pośredniczącym, aby usługa próbuje zweryfikować przychodzącego żądania Unikatowy identyfikator. Użytkownicy zewnętrzni aplikacji nie będzie wiedzieć, unikatowe informacje identyfikacyjne używane przez oprogramowanie pośredniczące. |
+| Serwer sieci Web | Kestrel | Kestrel jest serwer preferowanych sieci web, ponieważ jest ona obsługiwana przez system Windows i Linux. |
+| Konfiguracja portów | statyczny | Dobrze znanego portu statycznego powinna być skonfigurowana w `Endpoints` konfiguracji ServiceManifest.xml, takie jak 80 dla protokołu HTTP i 443 dla protokołu HTTPS. |
+| ServiceFabricIntegrationOptions | None | `ServiceFabricIntegrationOptions.None` Opcja powinna być używana podczas konfigurowania sieci szkieletowej usług integracji w oprogramowaniu pośredniczącym, aby usługa próbuje zweryfikować przychodzącego żądania Unikatowy identyfikator. Użytkownicy zewnętrzni aplikacji nie będzie wiedzieć, unikatowe informacje identyfikacyjne używane przez oprogramowanie pośredniczące. |
 | Liczba wystąpień | -1 | W typowych przypadkach liczba wystąpień ustawienie powinna być równa "-1", aby wystąpienie jest dostępna we wszystkich węzłach, które odbierać dane z usługi równoważenia obciążenia. |
 
 Jeśli wiele usług zewnętrznie narażonych współużytkować ten sam zestaw węzłów, można HttpSys ze ścieżką URL unikalny, ale stabilna. Można to zrobić, modyfikując adres URL podany podczas konfigurowania IWebHost. Należy zauważyć, że tylko dotyczy to HttpSys.
@@ -333,21 +333,21 @@ Usługi bezstanowej, wywoływane tylko z klastra należy używać unikatowe adre
 
 |  |  | **Uwagi** |
 | --- | --- | --- |
-| Serwer sieci Web | kestrel | Mimo że HttpSys może służyć do wewnętrznych usług bezstanowych, Kestrel jest zalecane serwera, aby umożliwić wiele wystąpień usługi udostępnić hosta.  |
+| Serwer sieci Web | Kestrel | Mimo że HttpSys może służyć do wewnętrznych usług bezstanowych, Kestrel jest zalecane serwera, aby umożliwić wiele wystąpień usługi udostępnić hosta.  |
 | Konfiguracja portów | przypisywane dynamicznie | Wiele replik usługi stanowej może udostępnić procesu hosta lub systemu operacyjnego hosta i w związku z tym należy unikatowych portów. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Z dynamiczne przypisywanie portów to ustawienie zapobiega problem tożsamości błędny opisanych wcześniej. |
-| Wartość InstanceCount | wszystkie | Liczba wystąpień ustawienie można ustawić dowolną wartość niezbędne do działania usługi. |
+| InstanceCount | dowolne | Liczba wystąpień ustawienie można ustawić dowolną wartość niezbędne do działania usługi. |
 
 ### <a name="internal-only-stateful-aspnet-core-service"></a>Tylko wewnętrznie usługi stanowej platformy ASP.NET Core
 Stanowe usług, które są wywoływać tylko z wewnątrz klastra należy używać portów przypisywany dynamicznie zapewnienie współpracy między wieloma usługami. Zaleca się użycie następującej konfiguracji:
 
 |  |  | **Uwagi** |
 | --- | --- | --- |
-| Serwer sieci Web | kestrel | `HttpSysCommunicationListener` Nie jest przeznaczony do użytku przez usługi stanowej w których replik udziału procesu hosta. |
+| Serwer sieci Web | Kestrel | `HttpSysCommunicationListener` Nie jest przeznaczony do użytku przez usługi stanowej w których replik udziału procesu hosta. |
 | Konfiguracja portów | przypisywane dynamicznie | Wiele replik usługi stanowej może udostępnić procesu hosta lub systemu operacyjnego hosta i w związku z tym należy unikatowych portów. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Z dynamiczne przypisywanie portów to ustawienie zapobiega problem tożsamości błędny opisanych wcześniej. |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Debugowanie aplikacji sieci szkieletowej usług za pomocą programu Visual Studio](service-fabric-debugging-your-application.md)
 
 <!--Image references-->

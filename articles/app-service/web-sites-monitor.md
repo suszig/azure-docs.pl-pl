@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: byvinyal
 ms.openlocfilehash: 72694743a9e1f520211d133dcc0d7f473c087f38
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>Porady: monitorować aplikacje w usłudze aplikacji Azure
 [Usługi aplikacji](http://go.microsoft.com/fwlink/?LinkId=529714) oferuje wbudowane funkcje monitorowania w [portalu Azure](https://portal.azure.com).
@@ -44,10 +44,10 @@ Jeśli aplikacja jest hostowana w **podstawowe**, **standardowe** lub **Premium*
   * Całkowita ilość Procesora dozwolone dla tej aplikacji w ciągu jednego dnia. Ten limit przydziału resetuje co 24 godziny, o północy czasu UTC.
 * **Pamięci**
   * Całkowita ilość pamięci dozwolone dla tej aplikacji.
-* **Przepustowość**
+* **Bandwidth**
   * Całkowita ilość przepustowości wychodzącej dozwolone dla tej aplikacji w ciągu jednego dnia.
     Ten limit przydziału resetuje co 24 godziny, o północy czasu UTC.
-* **System plików**
+* **Filesystem**
   * Całkowita liczba dozwoloną ilość pamięci masowej.
 
 Tylko przydział stosowane w aplikacjach hostowanych na **podstawowe**, **standardowe**, i **Premium** jest planów **Filesystem**.

@@ -1,5 +1,5 @@
 ---
-title: "Konfigurowanie zapór magazynu Azure i sieciami wirtualnymi (wersja zapoznawcza) | Dokumentacja firmy Microsoft"
+title: "Konfigurowanie usługi Azure Storage zapory i sieci wirtualne | Dokumentacja firmy Microsoft"
 description: "Konfigurowanie zabezpieczeń warstwowych sieci dla konta magazynu."
 services: storage
 documentationcenter: 
@@ -13,20 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: d29f2d180df93f45202e881336e492c45587b276
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: fc13b7cc164c948f25a6908bdf71124a5be02fb9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Konfigurowanie zapór magazynu Azure i sieciami wirtualnymi (wersja zapoznawcza)
+# <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Konfigurowanie usługi Azure Storage zapory i sieci wirtualnych
 Magazyn Azure oferuje model zabezpieczeń warstwowych, co umożliwia Zabezpieczanie kont magazynu do określonego zestawu dozwolonych sieci.  Gdy zasady sieci są skonfigurowane, tylko aplikacje z dozwolonych sieci można uzyskać dostęp do konta magazynu.  Podczas wywoływania metody z dozwolonych sieci, aplikacje będą nadal będą musieli właściwą autoryzację (prawidłowy dostęp do klucza lub tokenu sygnatury dostępu Współdzielonego) do uzyskania dostępu do konta magazynu.
 
-## <a name="preview-availability-and-support"></a>Podgląd dostępność i pomoc techniczna
-Zapory magazynu i sieci wirtualne są w wersji zapoznawczej.  Ta funkcja jest obecnie dostępna dla kont magazynu do nowego lub istniejącego we wszystkich regionach chmurze publicznej systemu Azure.
-
-> [!NOTE]
-> Obciążeń produkcyjnych nie są obsługiwane w wersji zapoznawczej.
+> [!IMPORTANT]
+> Włączenie reguły zapory dla konta magazynu zablokuje dostęp do żądań przychodzących danych, łącznie z innymi usługami Azure.  W tym za pomocą portalu zapisywania dzienników itp.  Dla usług uczestniczących można ponownie włączyć funkcję za pomocą [wyjątki](#Exceptions) poniższej sekcji.  Dostęp do portalu będzie potrzebny w tym celu z komputera w obrębie granicy zaufanych (IP lub sieci wirtualnej), które zostały skonfigurowane.
 >
 
 ## <a name="scenarios"></a>Scenariusze
@@ -55,9 +52,6 @@ Domyślnie kont magazynu akceptowania połączeń z klientami w dowolnej sieci. 
 
 #### <a name="azure-portal"></a>Azure Portal
 1. Przejdź do konta magazynu, które mają zostać zabezpieczone.  
-> [!NOTE]
-> Upewnij się, że Twoje konto magazynu jest w jednym z obsługiwanych regionów publicznej wersji zapoznawczej.
->
 
 2. Kliknij menu Ustawienia o nazwie **zapory i sieci wirtualne**.
 3. Aby odmówić dostępu domyślnie, chce zezwolić na dostęp z "Wybrane sieci".  Aby zezwalać na ruch z wszystkich sieci, wybierz się zezwolić na dostęp z "Wszystkie sieci".

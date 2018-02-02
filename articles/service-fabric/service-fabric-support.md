@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/22/2017
+ms.date: 1/26/2018
 ms.author: pkc
-ms.openlocfilehash: 0e4a2aa0ed7327a8ed19e9a716b0bd97abc71d5c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 970f1ff59560beaf898f22eb4e701088a6d5902a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-service-fabric-support-options"></a>Opcje pomocy technicznej usługi Azure Service Fabric
 
@@ -76,14 +76,15 @@ Poniżej przedstawiono listę wersji platformy Service Fabric, które są obsłu
 | 5.5.* | 5.4.164.* |Mniejsze niż wersja 2.5 |Sierpnia 10,2017    |
 | 5.6.* | 5.4.164.* |Mniejsze niż w wersji 2.6 |Październik 13,2017   |
 | 5.7.* | 5.4.164.* |Mniejsze niż w wersji 2.7 |Grudnia 15,2017  |
-| 6.0.* | 5.6.205.* |Mniejsze niż wersja 2.8 |Bieżąca wersja i dlatego bez daty zakończenia |
+| 6.0.* | 5.6.205.* |Mniejsze niż wersja 2.8 |Marzec 30,2018     | 
+| 6.1.* | 5.7.221.* |Mniejsze niż w wersji 3.0 |Bieżąca wersja i dlatego bez daty zakończenia |
 
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Usługi sieci szkieletowej Podgląd wersje — nieobsługiwany do użytku produkcyjnego.
 Od czasu do czasu firma Microsoft wersji mających znaczących funkcji, którą chcemy udostępnić opinię, które są wydawane jako podglądów. Te wersje preview należy używać tylko do celów testowych. Klastra produkcyjnego zawsze powinna działać obsługiwanych, stabilna wersja sieci szkieletowej usług. Wersja zapoznawcza zawsze zaczyna się od numeru wersji głównej i pomocniczej 255. Na przykład jeśli widzisz usługi sieć szkieletowa wersji 255.255.5703.949 tej wersji jest tylko do użycia w klastrach testu i jest w wersji zapoznawczej. Te wersje zapoznawcze również są ogłaszane na [blog zespołu usługi sieć szkieletowa](https://blogs.msdn.microsoft.com/azureservicefabric) i będą zawierały wszystkie szczegółowe informacje o funkcjach dostępnych.
 
 Nie ma żadnych opcji płatnej pomocy technicznej dla tych wersji zapoznawczej. Użyj jednej z opcji wymienionych w obszarze [wystawia sieć szkieletowa usług Azure raport](https://docs.microsoft.com/azure/service-fabric/service-fabric-support#report-azure-service-fabric-issues) aby zadać pytania lub wyrazić swoją opinię.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Uaktualnienie wersji sieci szkieletowej usług w klastrze platformy Azure](service-fabric-cluster-upgrade.md)
 - [Uaktualnienie wersji platformy Service Fabric w klastrze serwerów autonomicznych systemu windows](service-fabric-cluster-upgrade-windows-server.md)

@@ -1,6 +1,6 @@
 ---
-title: "Kopiowanie danych z Google BigQuery przy użyciu fabryki danych Azure (wersja Beta) | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak skopiować dane z Google BigQuery do zbiornika obsługiwane magazyny danych za pomocą działania kopiowania w potoku fabryki danych Azure."
+title: "Kopiowanie danych z Google BigQuery przy użyciu fabryki danych Azure (wersja beta) | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak skopiować dane z Google BigQuery do zbiornika obsługiwane magazyny danych za pomocą działania kopiowania w potoku fabryki danych."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -13,29 +13,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 2d3327bd3f27e9743524590faaec98d36bf6c549
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 3b559e64f38727b1e390160515b7614ad1dfaa97
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="copy-data-from-google-bigquery-using-azure-data-factory-beta"></a>Kopiowanie danych z Google BigQuery przy użyciu fabryki danych Azure (wersja Beta)
+# <a name="copy-data-from-google-bigquery-by-using-azure-data-factory-beta"></a>Kopiowanie danych z Google BigQuery przy użyciu fabryki danych Azure (wersja beta)
 
-Ten artykuł przedstawia sposób użycia działanie kopiowania w fabryce danych Azure, aby skopiować dane z Google BigQuery. Opiera się na [skopiuj omówienie działania](copy-activity-overview.md) artykułu, który przedstawia ogólny przegląd działanie kopiowania.
+Ten artykuł przedstawia sposób użycia działanie kopiowania w fabryce danych Azure, aby skopiować dane z Google BigQuery. Opiera się na [omówienie działania kopiowania](copy-activity-overview.md) artykułu, który przedstawia ogólne omówienie działania kopiowania.
 
 > [!NOTE]
-> Ten artykuł dotyczy wersji 2 usługi Data Factory, która jest obecnie dostępna w wersji zapoznawczej. Jeśli używasz wersji 1 usługi fabryka danych, która jest ogólnie dostępna (GA), zobacz [działanie kopiowania w wersji 1](v1/data-factory-data-movement-activities.md).
+> Ten artykuł dotyczy wersji 2 usługi Data Factory, która jest obecnie dostępna w wersji zapoznawczej. Jeśli używasz wersji 1 usługi fabryka danych, która jest ogólnie dostępna, zobacz [aktywności kopiowania w wersji 1](v1/data-factory-data-movement-activities.md).
 
 > [!IMPORTANT]
-> Ten łącznik jest obecnie w wersji Beta. Możesz wypróbować jej możliwości i przekaż nam swoją opinię. Nie należy używać go w środowisku produkcyjnym.
+> Ten łącznik jest obecnie w wersji beta. Możesz wypróbować jej możliwości i przekaż nam swoją opinię. Nie należy używać go w środowisku produkcyjnym.
 
 ## <a name="supported-capabilities"></a>Obsługiwane możliwości
 
-Możesz skopiować dane z Google BigQuery żadnych obsługiwanych ujścia magazynu danych. Lista magazynów danych, które są obsługiwane jako źródła/wychwytywanie przez działanie kopiowania, zobacz [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats) tabeli.
+Możesz skopiować dane z Google BigQuery żadnych obsługiwanych ujścia magazynu danych. Lista magazynów danych, które są obsługiwane jako źródła lub wychwytywanie przez działanie kopiowania, zobacz [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats) tabeli.
 
-Fabryka danych Azure oferuje wbudowane sterowników, aby umożliwić łączność, w związku z tym nie trzeba ręcznie zainstalowania sterownika korzystania z tego łącznika.
+ Fabryka danych zawiera wbudowane sterowników, aby umożliwić łączność. W związku z tym nie trzeba ręcznie zainstaluj sterownik używanie tego łącznika.
 
-## <a name="getting-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 [!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
@@ -43,20 +43,20 @@ Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które
 
 ## <a name="linked-service-properties"></a>Połączona usługa właściwości
 
-Następujące właściwości są obsługiwane w przypadku Google BigQuery połączonej usługi:
+Następujące właściwości są obsługiwane przez Google BigQuery połączonej usługi.
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość type musi mieć ustawioną: **GoogleBigQuery** | Yes |
+| type | Właściwość type musi mieć ustawioną **GoogleBigQuery**. | Yes |
 | Projekt | Identyfikator projektu BigQuery domyślne zapytanie.  | Yes |
 | additionalProjects | Rozdzielana przecinkami lista identyfikatorów projektów publicznych BigQuery projekty do dostępu.  | Nie |
-| requestGoogleDriveScope | Określa, czy żądania dostępu do dysku Google. Zezwalanie na dostęp dysk Google umożliwia obsługę tabel federacyjnych łączące dane BigQuery z danymi w usłudze dysk Google. Wartość domyślna to false.  | Nie |
-| authenticationType | Mechanizm uwierzytelniania OAuth 2.0, używany do uwierzytelniania. ServiceAuthentication można używać tylko na siebie IR. <br/>Dozwolone wartości to: **ServiceAuthentication**, **UserAuthentication** | Yes |
-| refreshToken | Token odświeżania uzyskane z usługi Google w celu autoryzowania dostępu do BigQuery dla UserAuthentication. Można wybrać opcję Oznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w ADF lub przechowywania haseł w usłudze Azure Key Vault i umożliwić działanie kopiowania ściągnięcia stamtąd podczas wykonywania kopii danych — Dowiedz się więcej o [przechowywania poświadczeń w magazynie kluczy](store-credentials-in-key-vault.md). | Nie |
-| e-mail | Identyfikator wiadomości e-mail konta usługi, jest używana do ServiceAuthentication, który można używać tylko na siebie IR.  | Nie |
-| keyFilePath | Pełna ścieżka do pliku klucza .p12, który jest używany do uwierzytelniania adres e-mail konta usługi i można używać tylko na hosta samodzielnego IR.  | Nie |
-| trustedCertPath | Pełna ścieżka pliku PEM, zawierająca zaufane certyfikaty urzędu certyfikacji do weryfikowania serwera podczas nawiązywania połączenia za pośrednictwem protokołu SSL. Tej właściwości można ustawić tylko w przypadku korzystania z protokołu SSL na siebie IR. Wartość domyślna to plik cacerts.pem zainstalowane z IR.  | Nie |
-| useSystemTrustStore | Określa, czy ma być używany certyfikat urzędu certyfikacji z magazynu zaufania systemu lub z określonego pliku PEM. Wartość domyślna to false.  | Nie |
+| requestGoogleDriveScope | Określa, czy żądania dostępu do dysku Google. Zezwalanie na dostęp dysk Google umożliwia obsługę tabel federacyjnych łączące dane BigQuery z danymi w usłudze dysk Google. Wartość domyślna to **false**.  | Nie |
+| authenticationType | Mechanizm uwierzytelniania OAuth 2.0, używany do uwierzytelniania. ServiceAuthentication może być używany tylko Self-hosted integracji w czasie wykonywania. <br/>Dozwolone wartości to **ServiceAuthentication** i **UserAuthentication**. | Yes |
+| refreshToken | Token odświeżania uzyskane z używany do autoryzacji dostępu do BigQuery dla UserAuthentication Google. W tym polu można oznaczyć jako SecureString Zapisz w bezpiecznej lokalizacji w fabryce danych. Możesz również przechowywania hasła w usłudze Azure Key Vault i umożliwić ściągania działania kopiowania stamtąd podczas wykonywania kopii danych. Aby dowiedzieć się więcej, zobacz [przechowywania poświadczeń w magazynie kluczy](store-credentials-in-key-vault.md). | Nie |
+| e-mail | Identyfikator konta usługi poczty e-mail używany do ServiceAuthentication. Może służyć tylko na Self-hosted integracji w czasie wykonywania.  | Nie |
+| keyFilePath | Pełna ścieżka do pliku klucza .p12, który jest używany do uwierzytelniania adres e-mail konta usługi. Może służyć tylko na Self-hosted integracji w czasie wykonywania.  | Nie |
+| trustedCertPath | Pełna ścieżka pliku PEM, który zawiera zaufane certyfikaty urzędu certyfikacji służącego do weryfikowania serwer podczas nawiązywania połączenia za pośrednictwem protokołu SSL. Tej właściwości można ustawić tylko wtedy, gdy na środowiska uruchomieniowego integracji Self-hosted za pomocą protokołu SSL. Wartość domyślna to plik cacerts.pem zainstalowane ze środowiskiem uruchomieniowym integracji.  | Nie |
+| useSystemTrustStore | Określa, czy ma być używany certyfikat urzędu certyfikacji z magazynu zaufania systemu lub z pliku PEM określony. Wartość domyślna to **false**.  | Nie |
 
 **Przykład:**
 
@@ -102,16 +102,16 @@ Aby skopiować dane z Google BigQuery, ustaw właściwość Typ zestawu danych d
 
 ## <a name="copy-activity-properties"></a>Właściwości działania kopiowania
 
-Pełną listę sekcje i właściwości dostępnych dla definiowania działań, zobacz [potoki](concepts-pipelines-activities.md) artykułu. Ta sekcja zawiera listę właściwości obsługiwane przez źródło Google BigQuery.
+Pełną listę sekcje i właściwości dostępnych dla definiowania działań, zobacz [potoki](concepts-pipelines-activities.md) artykułu. Ta sekcja zawiera listę właściwości obsługiwanych przez ten typ źródła Google BigQuery.
 
-### <a name="googlebigquerysource-as-source"></a>GoogleBigQuerySource jako źródło
+### <a name="googlebigquerysource-as-a-source-type"></a>GoogleBigQuerySource jako typ źródła
 
-Aby skopiować dane z Google BigQuery, należy ustawić typ źródła w przypadku działania kopiowania do **GoogleBigQuerySource**. Następujące właściwości są obsługiwane w przypadku działania kopiowania **źródła** sekcji:
+Aby skopiować dane z Google BigQuery, należy ustawić typ źródła w przypadku działania kopiowania do **GoogleBigQuerySource**. Następujące właściwości są obsługiwane w przypadku działania kopiowania **źródła** sekcji.
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **GoogleBigQuerySource** | Yes |
-| query | Użyj niestandardowych zapytania SQL można odczytać danych. Na przykład: `"SELECT * FROM MyTable"`. | Yes |
+| type | Musi mieć ustawioną właściwość type źródła działania kopiowania **GoogleBigQuerySource**. | Yes |
+| query | Użyj niestandardowych zapytania SQL można odczytać danych. Może to być na przykład `"SELECT * FROM MyTable"`. | Yes |
 
 **Przykład:**
 
@@ -146,4 +146,4 @@ Aby skopiować dane z Google BigQuery, należy ustawić typ źródła w przypadk
 ```
 
 ## <a name="next-steps"></a>Kolejne kroki
-Lista magazynów danych obsługiwane jako źródła i wychwytywanie przez działanie kopiowania w fabryce danych Azure, zobacz [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats).
+Lista magazynów danych obsługiwane jako źródła i wychwytywanie przez działanie kopiowania w fabryce danych, zobacz [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats).

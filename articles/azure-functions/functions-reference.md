@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: 80996c8bc6e40665201057ed185700ddaeea170a
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 53ba5eaf3272746bd107efbcbae4b5d5889a197f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-functions-developers-guide"></a>Przewodnik dla deweloperów funkcji platformy Azure
 W środowisku Azure Functions określonych funkcji udostępniania kilka podstawowe koncepcje techniczne i składników, niezależnie od języka i powiązanie, którego używasz. Przed możesz przejść do uczenia szczegóły specyficzne dla danego języka lub powiązanie, należy koniecznie zapoznaj się z artykułem ten przegląd, która ma zastosowanie do wszystkich z nich.
@@ -53,9 +53,9 @@ Ustaw `disabled` właściwości `true` aby zapobiec wykonywana przez funkcję.
 
 | Właściwość | Wartości/typów | Komentarze |
 | --- | --- | --- |
-| `type` |Ciąg |Typ wiązania. Na przykład `queueTrigger`. |
+| `type` |ciąg |Typ wiązania. Na przykład `queueTrigger`. |
 | `direction` |"in" "out" |Wskazuje, czy powiązanie jest odbieranie danych do funkcji lub wysyłanie danych z funkcji. |
-| `name` |Ciąg |Nazwa, która jest używana do powiązania danych w funkcji. Język C# jest to nazwa argumentu; dla języka JavaScript jest to klucz na liście klucza i wartości. |
+| `name` |ciąg |Nazwa, która jest używana do powiązania danych w funkcji. Język C# jest to nazwa argumentu; dla języka JavaScript jest to klucz na liście klucza i wartości. |
 
 ## <a name="function-app"></a>Aplikacja funkcji
 Aplikacja funkcji składa się z co najmniej jeden poszczególne funkcje, które są ze sobą zarządzane przez usługę Azure App Service. Wszystkie funkcje w aplikacji funkcji Udostępnianie tego samego planu cenowego, ciągłe wdrażanie i wersji środowiska wykonawczego. Funkcje zapisywane w wielu językach można udostępniać tej samej funkcji aplikacji. Aplikacja funkcji można traktować jako sposób organizowania i zbiorczo zarządzania funkcjami. 
@@ -102,7 +102,7 @@ Gdy wiele wyzwalająca zdarzenia występują szybciej, niż może je przetwarza�
 
 ## <a name="functions-runtime-versioning"></a>Funkcje wersji środowiska uruchomieniowego
 
-Można skonfigurować przy użyciu środowiska uruchomieniowego funkcje wersji `FUNCTIONS_EXTENSION_VERSION` ustawienia aplikacji. Na przykład wartość "~ 1" wskazuje, czy Twoja aplikacja funkcja będzie używać 1 jako jego wersji głównej. Funkcja aplikacji są uaktualniane do każdej nowej wersji pomocniczej, po ich wydaniu. Aby uzyskać więcej informacji, łącznie ze sposobem wyświetlenia dokładnej wersji aplikacji funkcji, zobacz [jak korzystać z wersji środowiska uruchomieniowego usługi Azure Functions](functions-versions.md).
+Można skonfigurować przy użyciu środowiska uruchomieniowego funkcje wersji `FUNCTIONS_EXTENSION_VERSION` ustawienia aplikacji. Na przykład wartość "~ 1" wskazuje, czy Twoja aplikacja funkcja będzie używać 1 jako jego wersji głównej. Funkcja aplikacji są uaktualniane do każdej nowej wersji pomocniczej, po ich wydaniu. Aby uzyskać więcej informacji, łącznie ze sposobem wyświetlenia dokładnej wersji aplikacji funkcji, zobacz [jak korzystać z wersji środowiska uruchomieniowego usługi Azure Functions](set-runtime-version.md).
 
 ## <a name="repositories"></a>Repozytoria
 Kod dla usługi Azure Functions to typu open source i przechowywane w repozytoriów GitHub:
@@ -121,7 +121,7 @@ W tym miejscu znajduje się tabela wszystkie obsługiwane powiązania.
 ## <a name="reporting-issues"></a>Zgłaszanie problemów
 [!INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Więcej informacji zawierają następujące zasoby:
 
 * [Najlepsze rozwiązania dotyczące usługi Azure Functions](functions-best-practices.md)
