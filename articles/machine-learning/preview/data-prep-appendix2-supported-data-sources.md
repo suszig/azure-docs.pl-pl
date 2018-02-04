@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/12/2017
-ms.openlocfilehash: 32707a8089abef6caebedea168f5891161b1b480
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.date: 02/01/2018
+ms.openlocfilehash: 625e3f599303bfb93db9d52beb2aed48ad50d3b7
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="supported-data-sources-for-azure-machine-learning-data-preparation"></a>Obsługiwanych źródeł danych w celu przygotowania danych usługi Azure Machine Learning 
 W tym artykule opisano aktualnie obsługiwanych źródeł danych w celu przygotowania danych usługi Azure Machine Learning.
@@ -49,7 +49,7 @@ Wybierz pojedynczy plik, a następnie go odczytać w przygotowaniu danych. Typ p
 Wybierz katalog lub zestawu plików w katalogu (selektora plików jest multiselect). Albo podejścia przy rozwiązywaniu pliki są odczytywane w jako przepływ danych jednego i dołączony do siebie, nagłówki wycięte w razie potrzeby.
 
 Są obsługiwane typy plików:
-- Przecinkami (.csv .tsv, txt, itp.)
+- Delimited (.csv, .tsv, .txt, etc.)
 - O stałej szerokości
 - Zwykły tekst
 - Plik JSON
@@ -86,7 +86,7 @@ Odczytać Excel pliku jeden arkusz naraz, określając nazwę arkusza lub numer.
 Plik JSON do odczytu z magazynu. Plik jest "spłaszczane" na odczyt.
 
 #### <a name="options"></a>Opcje
-- Brak
+- None
 
 ### <a name="parquet"></a>Parquet
 Przeczytaj Parquet zestawu danych, albo jednym pliku lub folderu.

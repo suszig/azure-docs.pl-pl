@@ -11,14 +11,14 @@ ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 10/10/2017
+ms.topic: article
+ms.date: 02/01/2018
 ms.author: sethm
-ms.openlocfilehash: 16da4e1732445b2480daf18130ea74935c6e6c49
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: feb4332f8f6b5ab26067b5c80a376cdee62c7739
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="send-events-to-azure-event-hubs-using-the-net-framework"></a>Wysyłanie zdarzeń do usługi Azure Event Hubs za pomocą programu .NET Framework
 
@@ -39,7 +39,7 @@ Pierwszym krokiem jest skorzystanie z witryny [Azure Portal](https://portal.azur
 
 ## <a name="create-a-sender-console-application"></a>Tworzenie aplikacji konsolowej nadawcy
 
-W tej sekcji przedstawiono tworzenie aplikacji konsoli systemu Windows, która wysyła zdarzenia do centrum zdarzeń.
+W tej sekcji służy do pisania aplikacji konsoli systemu Windows, która wysyła zdarzenia do Centrum zdarzeń.
 
 1. W programie Visual Studio utwórz nowy projekt aplikacji klasycznej Visual C# za pomocą szablonu projektu **Aplikacja konsoli**. Nazwij projekt **Nadawca**.
    
@@ -101,7 +101,7 @@ W tej sekcji przedstawiono tworzenie aplikacji konsoli systemu Windows, która w
   
 Gratulacje! Wysłano komunikaty do centrum zdarzeń.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Teraz, gdy masz utworzoną działającą aplikację, która tworzy centrum zdarzeń i wysyła dane, możesz przejść do następujących scenariuszy:
 
 * [Odbieranie zdarzeń za pomocą hosta procesora zdarzeń](event-hubs-dotnet-framework-getstarted-receive-eph.md)

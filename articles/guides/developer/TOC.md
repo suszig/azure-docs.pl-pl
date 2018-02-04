@@ -1,7 +1,5 @@
 # Omówienie
 ## [Przewodnik dla deweloperów](azure-developer-guide.md) 
-## [Omówienie usług platformy Azure](../../fundamentals-introduction-to-azure.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
-## [Omówienie portalu](../../azure-portal-overview.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
 ## [Zestawy SDK i narzędzia](https://docs.microsoft.com/azure/index#pivot=sdkstools)
 
 # Szybki start
@@ -77,7 +75,7 @@
 ## Bezpieczeństwo
 ### [Aplikacje internetowe i mobilne](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl)
 
-## Tworzenie kopii zapasowych
+## Backup
 ### [Aplikacje internetowe i mobilne](https://docs.microsoft.com/azure/app-service/web-sites-backup)
 ### [Maszyny wirtualne](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
 
@@ -112,4 +110,4 @@
 ## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
 ## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
 ## [Przykłady](https://azure.microsoft.com/resources/samples/)
-## [Filmy wideo](https://azure.microsoft.com/resources/videos/home/)
+## [Wideo](https://azure.microsoft.com/resources/videos/home/)

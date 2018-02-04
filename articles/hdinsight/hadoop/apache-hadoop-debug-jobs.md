@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: ashish
-ms.openlocfilehash: 682b73aefff2ac20cbd38f6780b73cde859378ed
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: a5db3848eda2dbb6f117562e059b909575966993
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="analyze-hadoop-logs"></a>Analizowanie dzienników usługi Hadoop
 
@@ -44,7 +44,7 @@ Nazwy plików tabeli są **u<ClusterName>DDMonYYYYatHHMMSSsss<TableName>**.
 Te tabele zawierają następujące pola:
 
 * ClusterDnsName
-* NazwaSkładnika
+* ComponentName
 * eventTimestamp
 * Host
 * MALoggingHash
@@ -321,7 +321,4 @@ Niektóre z tych komunikaty o błędach można także znaleźć w portalu Azure,
 
 * [Debugowanie aplikacji Tez zadania w usłudze HDInsight przy użyciu widoków Ambari](../hdinsight-debug-ambari-tez-view.md)
 * [Włącz zrzuty stosu dla usługi Hadoop w HDInsight opartych na systemie Linux](../hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-
-<!--
-TODO  * [Manage HDInsight clusters by using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md)
--->
+* [Zarządzanie klastrami usługi HDInsight przy użyciu interfejsu użytkownika sieci Web Ambari](../hdinsight-hadoop-manage-ambari.md)

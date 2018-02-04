@@ -10,16 +10,16 @@ ms.assetid: cf9a9631-56aa-4985-a565-1cacc297871d
 ms.service: sql-database
 ms.custom: load & move data
 ms.devlang: NA
-ms.date: 06/26/2017
+ms.date: 01/29/2018
 ms.author: carlrab
 ms.workload: Active
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.openlocfilehash: 34dee9511822acec46ba4854729939b84f3c06c6
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: a37fa94df794487969dfbaebf7a001de16857ea7
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="import-a-bacpac-file-to-a-new-azure-sql-database"></a>Importowanie pliku pliku BACPAC do nowej bazy danych SQL Azure
 
@@ -27,10 +27,6 @@ Kiedy należy zaimportować bazę danych z archiwum lub podczas migracji z innej
 
 > [!IMPORTANT] 
 > Po przeprowadzeniu migracji bazy danych do bazy danych SQL Azure, są dostępne do obsługi bazy danych na jego bieżący poziom zgodności (poziom 100 AdventureWorks2008R2 bazy danych) lub na wyższym poziomie. Aby uzyskać więcej informacji na wpływ i opcje dla działania bazy danych na poziomie zgodności określonego, zobacz [zmienić poziom zgodności bazy danych](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level). Zobacz też [ALTER DATABASE CONFIGURATION zakres](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) informacji o dodatkowe ustawienia bazy danych na poziomie związane z poziomy zgodności.   >
-
-> [!NOTE]
-> Aby zaimportować pliku BACPAC do nowej bazy danych, należy najpierw utworzyć serwera logicznego bazy danych SQL Azure. Samouczek pokazuje, jak przeprowadzić migrację bazy danych programu SQL Server z bazą danych SQL Azure przy użyciu SQLPackage, zobacz [migracji bazy danych programu SQL Server](sql-database-migrate-your-sql-server-database.md)
->
 
 ## <a name="import-from-a-bacpac-file-using-azure-portal"></a>Importuj z pliku pliku BACPAC przy użyciu portalu Azure
 
@@ -109,7 +105,7 @@ $importStatus
 > [!TIP]
 Na przykład innego skryptu, zobacz [zaimportować bazę danych z pliku pliku BACPAC](scripts/sql-database-import-from-bacpac-powershell.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Aby dowiedzieć się, jak nawiązać połączenie i zapytanie importowanych bazy danych SQL, zobacz [Połącz z bazą danych SQL za pomocą programu SQL Server Management Studio i wykonywanie przykładowego zapytania T-SQL](sql-database-connect-query-ssms.md).
 * Aby poczytać o migracji za pomocą plików BACPAC na blogu SQL Server Customer Advisory Team, zobacz [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/) (Migrowanie z programu SQL Server do usługi Azure SQL Database za pomocą plików BACPAC).
 * Omówienie całego programu SQL Server bazy danych procesu migracji, w tym zalecenia dotyczące wydajności, zobacz [migrację bazy danych programu SQL Server do bazy danych SQL Azure](sql-database-cloud-migrate.md).

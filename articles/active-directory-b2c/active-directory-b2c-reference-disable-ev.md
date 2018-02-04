@@ -1,5 +1,5 @@
 ---
-title: "Wyłączyć weryfikację emain podczas tworzenia konta - konsumentów Azure Active Directory B2C"
+title: "Wyłączyć weryfikację wiadomości e-mail podczas tworzenia konta - konsumentów Azure Active Directory B2C"
 description: "Temat pokazująca, jak wyłączyć Weryfikacja adresu e-mail, podczas tworzenia konta w usłudze Azure Active Directory B2C konsumenta"
 services: active-directory-b2c
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 2/06/2017
 ms.author: parakhj
 ms.custom: seohack1
-ms.openlocfilehash: 57da51fafbac8a1c165c37437e82c75cb238fd3d
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: f8e7e5dd8e5e5da6ff4c1e82215da019e8e101c9
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-active-directory-b2c-disable-email-verification-during-consumer-sign-up"></a>Usługa Azure Active Directory B2C: Weryfikacja adresu e-mail Wyłącz podczas tworzenia konta użytkownika
 Po włączeniu usługi Azure Active Directory (Azure AD) B2C umożliwia konsumenta zalogowania się do aplikacji, zapewniając adres e-mail i tworzenia konta lokalnego. Usługa Azure AD B2C zapewnia prawidłowe adresy e-mail, wymagając od użytkowników w celu weryfikacji w procesie rejestracji. Również uniemożliwia złośliwego zautomatyzowany proces generowania fałszywych kont dla aplikacji.

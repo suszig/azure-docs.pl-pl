@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 10/09/2017
-ms.openlocfilehash: 062143ae34450484cd66cd7364fb8839d697e483
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.date: 02/01/2018
+ms.openlocfilehash: d91985849bd2483e8a28a01d63d253960190829d
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-data-transforms-for-data-preparation-in-azure-machine-learning"></a>Przekształcenia danych użycia w celu przygotowania danych w usłudze Azure Machine Learning
 
@@ -48,7 +48,7 @@ Można wybrać kolumny przed wywołaniem transformacji. Po otwarciu edytora prze
 Aby uzyskać bardziej szczegółowy opis **pochodnych kolumny przykładzie** przekształcenia wraz z większej liczby próbek, zobacz [pochodzi kolumny przez odwołanie przykład](data-prep-derive-column-by-example.md).  
 
 ## <a name="split-column-by-example"></a>Podział kolumny według przykładu
-Tej transformacji przyjmuje istniejącej kolumny i przy użyciu aparatu "Według przykładu", próbuje podziału kolumny w * n * innych kolumn. Podziel automatycznie można uruchamiać na kolejnych wygenerowanego kolumn.
+Tej transformacji przyjmuje istniejącej kolumny i przy użyciu aparatu "Według przykładu", próbuje podziału kolumny w  *n*  innych kolumn. Podziel automatycznie można uruchamiać na kolejnych wygenerowanego kolumn.
 
 Aby uzyskać bardziej szczegółowy opis **podzielona kolumna przykładzie** przekształcenia wraz z większej liczby próbek, zobacz [kolumny podzielone przez odwołanie przykład](data-prep-split-column-by-example.md).
 
@@ -66,7 +66,7 @@ Tej transformacji dodaje nową kolumnę przez połączenie wartości z wielu kol
 Aby uzyskać bardziej szczegółowy opis **łączenie kolumn, na przykład** przekształcenia wraz z większej liczby próbek, zobacz [łączenie kolumn przez odwołanie przykład](data-prep-combine-columns-by-example.md).
 
 
-## <a name="duplicate-column"></a>Zduplikowana kolumna
+## <a name="duplicate-column"></a>Duplicate Column
 Tej transformacji zostanie utworzona kopia dokładnie jeden lub więcej wybranych kolumn oraz zapewnia każda nowa nazwa pochodzi od oryginalnej nazwy kolumny.
 
 ## <a name="text-clustering"></a>Tekst klastra 

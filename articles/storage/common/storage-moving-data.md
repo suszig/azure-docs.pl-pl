@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: jarrettr
-ms.openlocfilehash: db0f09433750a3af2d70039d780a25ad64bb4df1
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 980e4675c2d2e88716a3133abb027988aecd538f
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>Przenoszenie danych do i z usługi Azure Storage
 Jeśli chcesz przenieść lokalne na dane do magazynu Azure (lub odwrotnie), dostępne są na różne sposoby, w tym celu. Podejście, który jest najbardziej będzie zależeć od danego scenariusza. W tym artykule zapewnia szybki przegląd różnych scenariuszy i odpowiednich ofert dla każdej z nich.
@@ -41,9 +41,9 @@ Zapoznaj się z naszej listy [eksploratory usługi Storage Azure](../storage-exp
 Jeśli wymagają lub potrafisz więcej narzędzia wiersza polecenia (np. administratorów), poniżej przedstawiono kilka opcji, należy wziąć pod uwagę:
 
 ### <a name="azcopy"></a>Narzędzie AzCopy
-Narzędzie AzCopy to narzędzie wiersza polecenia systemu Windows przeznaczone do kopiowania z wysoką wydajnością danych z i do usługi Azure Storage. Można także skopiować dane w ramach konta magazynu lub od różnych kont magazynu.
+Narzędzie AzCopy to narzędzie wiersza polecenia, przeznaczony dla wysokiej wydajności kopiowanie danych do i z usługi Azure Storage. Można także skopiować dane w ramach konta magazynu lub od różnych kont magazynu. Narzędzie AzCopy jest dostępna w [Windows](storage-use-azcopy.md) i na [Linux](storage-use-azcopy-linux.md).
 
-Zobacz [Transfer danych za pomocą wiersza polecenia Azcopy](storage-use-azcopy.md) Aby dowiedzieć się więcej.
+Zobacz [Transfer danych za pomocą wiersza polecenia Azcopy](storage-use-azcopy.md) lub [Transfer danych za pomocą narzędzia AzCopy w systemie Linux](storage-use-azcopy-linux.md) Aby dowiedzieć się więcej.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 Azure PowerShell to moduł udostępniający polecenia cmdlet służące do zarządzania usługami na platformie Azure. Jest to język skryptów i powłoka wiersza polecenia oparta na zadaniach zaprojektowane pod kątem administrowania systemem.

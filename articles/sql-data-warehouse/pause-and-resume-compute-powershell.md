@@ -14,11 +14,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 01/25/2018
 ms.author: barbkess
-ms.openlocfilehash: 799210366978c68a390fa6d671184e94cf021301
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e2401f31ad88c8ee5fdd8912ff6033f0619a06b0
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-powershell"></a>Szybki Start: Wstrzymywanie i wznawianie obliczeniowe dla usługi Azure SQL Data Warehouse w programie PowerShell
 Za pomocą programu PowerShell wstrzymać obliczeniowe dla magazynu danych SQL Azure w celu ograniczenia kosztów. Wznowić operacje obliczeniowe, gdy wszystko będzie gotowe do użycia w magazynie danych.
@@ -59,15 +59,16 @@ Wykonaj następujące kroki, aby znaleźć informacje o lokalizacji dla magazynu
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 2. Kliknij przycisk **baz danych** w po lewej stronie portalu Azure.
-3. Wybierz **mySampleDataWarehouse** z **baz danych SQL** strony. Spowoduje to otwarcie magazynu danych. 
+3. Wybierz **mySampleDataWarehouse** z **baz danych SQL** strony. Otworzy się w magazynie danych.
 
     ![Nazwa i zasobów grupy serwerów](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
-4. Zanotuj nazwę magazynu danych, która będzie używana jako nazwa bazy danych. Również Zanotuj nazwę serwera i grupy zasobów. Będzie używane w wstrzymanie i wznowić poleceń.
-5. Jeśli serwer jest foo.database.windows.net, należy użyć pierwszej części jako nazwę serwera, polecenia cmdlet programu PowerShell. Na poprzedniej ilustracji pełną nazwę serwera jest NowySerwer 20171113.database.windows.net. Używamy **20171113 NowySerwer** jako nazwę serwera w poleceniu cmdlet programu PowerShell.
+4. Zanotuj nazwę magazynu danych, która jest nazwa bazy danych. Również Zanotuj nazwę serwera i grupy zasobów. Użytkownik 
+5.  te polecenia wstrzymywanie i wznawianie.
+6. Jeśli serwer jest foo.database.windows.net, należy użyć pierwszej części jako nazwę serwera, polecenia cmdlet programu PowerShell. Na poprzedniej ilustracji pełną nazwę serwera jest NowySerwer 20171113.database.windows.net. Usuń sufiks, a następnie użyć **20171113 NowySerwer** jako nazwę serwera w poleceniu cmdlet programu PowerShell.
 
 ## <a name="pause-compute"></a>Wstrzymaj obliczeń
-W celu ograniczenia kosztów, możesz wstrzymywać i wznawiać obliczeń zasobów na żądanie. Na przykład jeśli nie będzie używać bazy danych w nocy i w weekendy, można wstrzymywać go w tych godzinach i wznawiać go w ciągu dnia. Użytkownik nie zostanie obciążona dla zasobów obliczeniowych, podczas bazy danych zostało wstrzymane. Jednak będą nadal naliczane za magazynu. 
+W celu ograniczenia kosztów, możesz wstrzymywać i wznawiać obliczeń zasobów na żądanie. Na przykład jeśli nie używasz bazy danych w nocy i w weekendy, można wstrzymywać go w tych godzinach i wznawiać go w ciągu dnia. Gdy baza danych została wstrzymana jest bezpłatna dla zasobów obliczeniowych. Jednak nadal naliczane opłaty dotyczące magazynu. 
 
 Aby wstrzymać bazy danych, należy użyć [Suspend-AzureRmSqlDatabase](/powershell/module/azurerm.sql/suspend-azurermsqldatabase.md) polecenia cmdlet. W następującym przykładzie wstrzymano hurtowni danych o nazwie **mySampleDataWarehouse** znajdującej się na serwerze o nazwie **20171113 NowySerwer**. Serwer jest w grupie zasobów platformy Azure o nazwie **myResourceGroup**.
 

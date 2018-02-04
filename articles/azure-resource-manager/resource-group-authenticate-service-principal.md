@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/28/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9431483293bcc252b79d02ba2d655a3aa86aaa4a
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 8262162ce73176426057af4654f12614cac85472
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-to-access-resources"></a>Use Azure PowerShell to create a service principal to access resources (Tworzenie jednostki usługi używanej do uzyskiwania dostępu do zasobów przy użyciu programu Azure PowerShell)
 
@@ -46,7 +46,7 @@ Aby skonfigurować nazwy głównej usługi, należy użyć:
 
 | Polecenie | Opis |
 | ------- | ----------- | 
-| [Nowe AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) | Tworzy nazwę główną usługi Azure Active Directory |
+| [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) | Tworzy nazwę główną usługi Azure Active Directory |
 | [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) | Przypisuje określonej roli RBAC określony podmiot zabezpieczeń w podanym zakresie. |
 
 
@@ -62,7 +62,7 @@ Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-Przykład zostanie uśpiony na 20 sekund, pewien czas dla nowej usługi głównej propagację w usłudze Azure Active Directory. Jeśli skrypt nie oczekuje się wystarczająco długi, zobacz błąd z informacją: "PrincipalNotFound: podmiot zabezpieczeń {ID} nie istnieje w katalogu."
+Przykład zostanie uśpiony na 20 sekund, pewien czas dla nowej usługi głównej propagację w usłudze Azure Active Directory. Jeśli skrypt nie oczekuje się wystarczająco długi, pojawi się o błędzie informujący: "{ID} podmiot zabezpieczeń nie istnieje w katalogu {DIR-ID}."
 
 Poniższy skrypt można określić zakres innych niż domyślne subskrypcji i ponowi próbę przypisania roli, jeśli wystąpi błąd:
 
@@ -128,7 +128,7 @@ Kilka elementów należy pamiętać o skrypt:
 * Aby udzielić dostępu tożsamości do subskrypcji domyślne, nie należy podać parametry grupa zasobów lub subskrypcji o identyfikatorze.
 * Określ parametr ResourceGroup tylko wtedy, gdy chcesz ograniczyć zakres przypisania roli do grupy zasobów.
 *  W tym przykładzie należy dodać nazwy głównej usługi do roli współautora. Dla innych ról, zobacz [RBAC: role wbudowane](../active-directory/role-based-access-built-in-roles.md).
-* Skrypt zostanie uśpiony na 15 sekund, pewien czas dla nowej usługi głównej propagację w usłudze Azure Active Directory. Jeśli skrypt nie oczekuje się wystarczająco długi, zobacz błąd z informacją: "PrincipalNotFound: podmiot zabezpieczeń {ID} nie istnieje w katalogu."
+* Skrypt zostanie uśpiony na 15 sekund, pewien czas dla nowej usługi głównej propagację w usłudze Azure Active Directory. Jeśli skrypt nie oczekuje się wystarczająco długi, pojawi się o błędzie informujący: "{ID} podmiot zabezpieczeń nie istnieje w katalogu {DIR-ID}."
 * Aby udzielić dostępu główną usługi do więcej subskrypcji lub grupy zasobów, należy uruchomić `New-AzureRMRoleAssignment` polecenie cmdlet ponownie z różnymi zakresami.
 
 
@@ -160,7 +160,7 @@ Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-Przykład zostanie uśpiony na 20 sekund, pewien czas dla nowej usługi głównej propagację w usłudze Azure Active Directory. Jeśli skrypt nie oczekuje się wystarczająco długi, zobacz błąd z informacją: "PrincipalNotFound: podmiot zabezpieczeń {ID} nie istnieje w katalogu."
+Przykład zostanie uśpiony na 20 sekund, pewien czas dla nowej usługi głównej propagację w usłudze Azure Active Directory. Jeśli skrypt nie oczekuje się wystarczająco długi, pojawi się o błędzie informujący: "{ID} podmiot zabezpieczeń nie istnieje w katalogu {DIR-ID}."
 
 Poniższy skrypt można określić zakres innych niż domyślne subskrypcji i ponowi próbę przypisania roli, jeśli wystąpi błąd. Musi mieć Azure PowerShell 2.0 w systemie Windows 10 lub Windows Server 2016.
 
@@ -223,7 +223,7 @@ Kilka elementów należy pamiętać o skrypt:
 * Aby udzielić dostępu tożsamości do subskrypcji domyślne, nie należy podać parametry grupa zasobów lub subskrypcji o identyfikatorze.
 * Określ parametr ResourceGroup tylko wtedy, gdy chcesz ograniczyć zakres przypisania roli do grupy zasobów.
 * W tym przykładzie należy dodać nazwy głównej usługi do roli współautora. Dla innych ról, zobacz [RBAC: role wbudowane](../active-directory/role-based-access-built-in-roles.md).
-* Skrypt zostanie uśpiony na 15 sekund, pewien czas dla nowej usługi głównej propagację w usłudze Azure Active Directory. Jeśli skrypt nie oczekuje się wystarczająco długi, zobacz błąd z informacją: "PrincipalNotFound: podmiot zabezpieczeń {ID} nie istnieje w katalogu."
+* Skrypt zostanie uśpiony na 15 sekund, pewien czas dla nowej usługi głównej propagację w usłudze Azure Active Directory. Jeśli skrypt nie oczekuje się wystarczająco długi, pojawi się o błędzie informujący: "{ID} podmiot zabezpieczeń nie istnieje w katalogu {DIR-ID}."
 * Aby udzielić dostępu główną usługi do więcej subskrypcji lub grupy zasobów, należy uruchomić `New-AzureRMRoleAssignment` polecenie cmdlet ponownie z różnymi zakresami.
 
 Jeśli użytkownik **bez zainstalowanego systemu Windows 10 lub Windows Server 2016 Technical Preview**, należy pobrać [generator certyfikatu z podpisem własnym](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) z Microsoft Script Center. Wyodrębnij jego zawartość i zaimportuj polecenia cmdlet, które są potrzebne.
@@ -321,7 +321,7 @@ Kilka elementów należy pamiętać o skrypt:
 
 * Obejmuje dostęp do subskrypcji.
 * W tym przykładzie należy dodać nazwy głównej usługi do roli współautora. Dla innych ról, zobacz [RBAC: role wbudowane](../active-directory/role-based-access-built-in-roles.md).
-* Skrypt zostanie uśpiony na 15 sekund, pewien czas dla nowej usługi głównej propagację w usłudze Azure Active Directory. Jeśli skrypt nie oczekuje się wystarczająco długi, zobacz błąd z informacją: "PrincipalNotFound: podmiot zabezpieczeń {ID} nie istnieje w katalogu."
+* Skrypt zostanie uśpiony na 15 sekund, pewien czas dla nowej usługi głównej propagację w usłudze Azure Active Directory. Jeśli skrypt nie oczekuje się wystarczająco długi, pojawi się o błędzie informujący: "{ID} podmiot zabezpieczeń nie istnieje w katalogu {DIR-ID}."
 * Aby udzielić dostępu główną usługi do więcej subskrypcji lub grupy zasobów, należy uruchomić `New-AzureRMRoleAssignment` polecenie cmdlet ponownie z różnymi zakresami.
 
 ### <a name="provide-certificate-through-automated-powershell-script"></a>Podaj certyfikat przy użyciu zautomatyzowanego skryptu PowerShell

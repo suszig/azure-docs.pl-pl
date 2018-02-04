@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 05b1f11158233a7c02950320741b405429a08d50
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: HT
+ms.openlocfilehash: 50020f007096b45b843515ff765e40c550fcf4e3
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/01/2018
 ---
@@ -146,7 +146,7 @@ Tożsamości urządzenia są reprezentowane jako dokumenty JSON z następującym
 
 | Właściwość | Opcje | Opis |
 | --- | --- | --- |
-| deviceId |wymagane, tylko do odczytu na aktualizacje |Ciąg z uwzględnieniem wielkości liter (maksymalnie 128 znaków) znaki alfanumeryczne ASCII 7-bitowego oraz niektórych znaków specjalnych: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
+| deviceId |wymagane, tylko do odczytu na aktualizacje |Ciąg z uwzględnieniem wielkości liter (maksymalnie 128 znaków) znaki alfanumeryczne ASCII 7-bitowego oraz niektórych znaków specjalnych: `- . + % _ # * ? ! ( ) , = @ $ '`. |
 | generationId |wymagane, tylko do odczytu |IoT generowanych przez koncentrator, z uwzględnieniem wielkości liter ciąg maksymalnie 128 znaków. Ta wartość jest używana do rozróżniania urządzeń o takiej samej **deviceId**, gdy został usunięty i utworzony ponownie. |
 | Element etag |wymagane, tylko do odczytu |Ciąg reprezentujący słaby element ETag dla tożsamości tego urządzenia zgodnie [RFC7232][lnk-rfc7232]. |
 | uwierzytelniania |opcjonalne |Obiekt złożony zawierające materiały informacji i zabezpieczeń uwierzytelniania. |

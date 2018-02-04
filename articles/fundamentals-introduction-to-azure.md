@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
 ms.openlocfilehash: efcafa40c3d47ebfdd4520f98b65ad2c05b03c57
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="introducing-microsoft-azure"></a>Wprowadzenie do platformy Microsoft Azure
 Microsoft Azure to platforma aplikacji firmy Microsoft dla chmury publicznej.  Celem tego artykułu jest zapewniają podstawę dla zrozumienia podstaw dotyczących platformy Azure, nawet jeśli nie wiesz nic o chmury obliczeniowej.
@@ -82,7 +82,7 @@ Do tworzenia aplikacji aplikacje sieci Web obsługuje .NET, PHP, Node.js, Java i
 Aplikacje sieci Web ma być przydatne w przypadku firm, deweloperzy i agencje projektu sieci web. W firmach jest łatwy w zarządzaniu, skalowalnej, bardzo bezpieczny i wysokiej dostępności rozwiązanie służące do uruchamiania obecności witryn sieci Web. Musisz skonfigurować witrynę sieci Web, najlepiej do uruchamiania z aplikacjami sieci Web platformy Azure i przejdź do usługi w chmurze, gdy potrzebujesz funkcji, która nie jest dostępna. Zobacz koniec sekcji "Obliczeń" więcej łączy, które mogą pomóc wybrać opcje.
 
 ### <a name="cloud-services"></a>Cloud Services
-![Usługi w chmurze Azure](./media/fundamentals-introduction-to-azure/CloudServicesIntroNew.png)   
+![Azure Cloud Service](./media/fundamentals-introduction-to-azure/CloudServicesIntroNew.png)   
 *Rysunek: Usługi w chmurze Azure miejsce do uruchomienia skalowalnej niestandardowego kodu na platformie jako środowiska usługa (PaaS)*
 
 Załóżmy, że chcesz skompilować aplikacji w chmurze, która może obsługiwać wiele równoczesnych użytkowników, nie wymaga dużo administracji i nigdy nie przestanie działać. Może być nawiązane oprogramowania dostawcy, na przykład, że podjęto decyzję o dążenie oprogramowanie jako usługa (SaaS) przez tworzenie wersji jednej z aplikacji w chmurze. Lub może być uruchamiania, tworzenia aplikacji konsumenta oczekiwanego szybko rośnie. Jeśli tworzysz na platformie Azure, model, który wykonanie zasadny skorzystać?
@@ -139,7 +139,7 @@ I nie należy mylić o nazwie: Ta technologia nie udostępnia magazyn relacyjny.
 Załóżmy, że chcesz utworzyć aplikację Azure, która musi mieć szybki dostęp do typu danych, może być on wiele, ale nie trzeba wykonywać złożonych zapytań SQL na tych danych. Na przykład załóżmy, że tworzysz aplikację klienta, która musi przechowywać informacje o profilu klienta dla każdego użytkownika. Aplikacja ma być bardzo popularna, więc należy zezwolić na duże ilości danych, ale nie zrobisz wiele z tych danych oprócz przechowywania, pobierania jej w prosty sposób. Jest to dokładnie rodzaj scenariusz, w którym sens tabel Azure.
 
 ### <a name="blobs"></a>Obiekty blob
-![Obiekty BLOB magazynu Azure](./media/fundamentals-introduction-to-azure/StorageBlobsIntroNew.png)    
+![Azure Storage Blobs](./media/fundamentals-introduction-to-azure/StorageBlobsIntroNew.png)    
 *Rysunek: Obiekty BLOB platformy Azure udostępnia bez struktury danych binarnych.*  
 
 Obiekty BLOB platformy Azure (ponownie "Magazynu obiektów Blob" i po prostu "obiektów blob magazynu" są samo) służy do przechowywania danych niestrukturalnych binarnego. Jak tabele obiekty BLOB udostępnia niedrogich magazynów, a pojedynczego obiektu blob może być większy niż 1TB (jeden terabajt). Aplikacjami platformy Azure można także używać dysków Azure, które umożliwiają trwałe przechowywanie plików systemu Windows zainstalowane w wystąpieniu usługi Azure blob. Aplikacja czyta zwykłe pliki systemu Windows, ale zawartość są przechowywane w obiekcie blob.
@@ -372,7 +372,7 @@ Jeśli już używasz programu Windows Server lub programu System Center, kopia z
 Niezależnie od tego, co wykonywanie operacji kod często wymaga interakcji z innego kodu.  W niektórych sytuacjach potrzebne jest podstawowej obsługi wiadomości w kolejce. W innych przypadkach wymagane są bardziej złożone interakcji. Platforma Azure udostępnia na kilka różnych sposobów, aby rozwiązać te problemy. Rysunek 5 przedstawia możliwości.
 
 ### <a name="queues"></a>Kolejki
-![Przekaźnik magistrali usług Azure](./media/fundamentals-introduction-to-azure/QueuesIntroNew.png)
+![Azure Service Bus Relay](./media/fundamentals-introduction-to-azure/QueuesIntroNew.png)
 
 *Rysunek: Kolejki Zezwalaj utracić sprzężenia między częściami aplikacji i ułatwić skalowanie.*  
 
@@ -398,7 +398,7 @@ Czy działają w chmurze, w centrum danych, na urządzeniu przenośnym lub w inn
 Oprócz kolejki (mapowanie) opisana wcześniej Usługa Service Bus udostępnia również innych metod komunikacji.
 
 #### <a name="service-bus-relay"></a>Service Bus Relay
-![Przekaźnik magistrali usług Azure](./media/fundamentals-introduction-to-azure/ServiceBusRelayIntroNew.png)
+![Azure Service Bus Relay](./media/fundamentals-introduction-to-azure/ServiceBusRelayIntroNew.png)
 
 *Rysunek: Service Bus Relay umożliwia komunikację między aplikacjami na różnych stronach zapory.*
 
@@ -419,7 +419,7 @@ Usługa Service Bus udostępnia mechanizm publikowania i subskrybowania o nazwie
 W każdej chwili konfigurujesz gdzie istnieje wiele komunikatów, które są wszystkie ważne, ale różne systemy klienckie należy tylko słuchać różne podzbiór tych komunikacji tematów magistrali usługi i subskrypcje są dobrym rozwiązaniem.
 
 ### <a name="biztalk-services"></a>BizTalk Services
-![Usługi BizTalk Services](./media/fundamentals-introduction-to-azure/BizTalkServicesIntroNew.png)   
+![BizTalk Services](./media/fundamentals-introduction-to-azure/BizTalkServicesIntroNew.png)   
  *Rysunek: Usługi BizTalk Services pozwala na przekształcanie XML formaty komunikatów w chmurze.*
 
 Czasami trzeba Podłączaj systemów, które komunikują się przy użyciu różnych formatach obsługi wiadomości. Jest typowe dla firm, które mają innej bazy danych, schematów i XML wiadomości formatów, nawet jeśli dostępny jest common standard. Zamiast zapisu partii niestandardowego kodu lokalnej BizTalk Server umożliwia integrowanie różnych systemów.  Usługi BizTalk Azure zawiera ten sam typ usługi, ale w chmurze. Możesz zapłacić tylko co używane i nie martw się o skali, tak jak będzie musiał lokalnymi.
@@ -500,7 +500,7 @@ Platforma Azure udostępnia zakresu wirtualna rozmiary wystąpienia z różnymi 
 Azure oferuje również Big obliczeniowe deweloperzy aplikacji i partnerów pełny zestaw obliczeniowa, usług, opcji architektury i narzędzia deweloperskie. Azure obsługuje niestandardowe przepływy Big obliczeniowe obejmujące danych specjalistyczne przepływów pracy i zadania oraz zadania planowania wzorców, które można skalować do tysięcy obliczeniowe rdzeni.
 
 ## <a name="media"></a>Multimedia
-![Usługi Azure Media Services](./media/fundamentals-introduction-to-azure/MediaServicesIntroNew.png)   
+![Azure Media Services](./media/fundamentals-introduction-to-azure/MediaServicesIntroNew.png)   
  **Rysunek: Usługi Media Services to platforma dla aplikacji, które świadczą nośników wideo i innych klienci na całym świecie.**
 
 Film wideo stanowi dużą część ruchu internetowego dzisiaj, i wartość procentowa będzie jeszcze większym jutro. Jeszcze dostarczanie wideo w sieci web nie jest proste. Istnieje wiele zmiennych, takich jak algorytm kodowania i rozdzielczość ekranu użytkownika. Wideo zwykle mają seria popytu, takich jak kolekcji nocy sobota, w przypadku wielu użytkownikom decyzji, czy chce obejrzeć film online.

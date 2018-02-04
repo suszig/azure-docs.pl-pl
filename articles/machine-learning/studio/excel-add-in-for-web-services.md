@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/14/2017
+ms.date: 2/1/2018
 ms.author: tedway;garye
-ms.openlocfilehash: 4dbb1779bf36be74ee83aeed8e4940902915603a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cec26a5ccd4620dd0dabc92f4655f5fdfaf62e20
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="excel-add-in-for-azure-machine-learning-web-services"></a>Dodatki programu Excel do usług sieci Web Azure Machine Learning
 Excel ułatwia wywołują usługi sieci web bezpośrednio, bez konieczności pisania kodu.
@@ -74,7 +74,7 @@ Pobierz klucz interfejsu API usługi sieci web. Miejsce można wykonać tej akcj
 5. Kliknij przycisk **Dodaj usługę sieci Web**.
 6. Wklej adres URL do programu Excel z etykietą pola tekstowego dodatku **adres URL**.
 7. Wklej klucz interfejsu API/podstawowy w pole tekstowe z etykietą **klucz interfejsu API**.
-8. Kliknij pozycję **Dodaj**.
+8. Kliknij pozycję **Add** (Dodaj).
    
     ![Adres URL i klucz API usługi sieci Web klasycznego.][06]
 9. Aby korzystać z usługi sieci web, postępuj zgodnie z instrukcjami poprzedniego, "Czynności w celu istniejące sieci web usługi".

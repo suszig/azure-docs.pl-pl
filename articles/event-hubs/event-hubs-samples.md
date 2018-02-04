@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: 0af3f6bc6e074fae4d830f163419d6437d04e2df
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: e037d0e291384849739825ae7ad59064a135db95
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="event-hubs-samples"></a>Przykłady centra zdarzeń 
 
@@ -45,7 +45,7 @@ Poniższe przykłady przedstawiają sposób wysyłania i odbierania zdarzeń za 
 
 [Rozpocząć odbieranie z hosta procesora zdarzeń](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) próbka jest aplikacji konsoli .NET Core, który odbiera komunikaty z Centrum zdarzeń przy użyciu hosta procesora zdarzeń.
 
-## <a name="net-framework"></a>.NET framework   
+## <a name="net-framework"></a>.NET Framework   
 
 Te przykłady pokazują różnych funkcji usługi Azure Event hubs, przeznaczonych dla [Biblioteka programu .NET Framework](/dotnet/framework/index).
  
@@ -60,10 +60,6 @@ Te przykłady pokazują różnych funkcji usługi Azure Event hubs, przeznaczony
 ### <a name="scale-out-event-processing"></a>Skalowanie przetwarzania zdarzeń 
 
 [Skalowania przetwarzania zdarzeń](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3) przykładzie pokazano sposób użycia [hosta procesora zdarzeń](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/) do dystrybucji obciążenia zużycia strumienia usługi Event Hubs. Widoczny jest sposób wykonania **EventProcessor** i **EventProcessorFactory** obiekty do zarządzania strumienia zdarzeń. 
-
-###  <a name="pull-data-from-sql-into-an-event-hub"></a>Ściąganie danych z bazy danych SQL do Centrum zdarzeń
-
-[SQL ściąganie danych](https://github.com/Azure-Samples/event-hubs-dotnet-import-from-sql) przykładowych pokazano, jak ściąganie danych z tabeli SQL i wypchnąć go do Centrum zdarzeń do użycia jako dane wejściowe w podrzędnych aplikacji analitycznych.
 
 ### <a name="pull-web-data-into-an-event-hub"></a>Ściąganie danych sieci web do Centrum zdarzeń 
 

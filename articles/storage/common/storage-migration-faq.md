@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 11/16/2017
 ms.author: genli
-ms.openlocfilehash: 54ca65ac6fa794c542fc07cd64458b17c327d56d
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 362614d28cf62bd288d8aff10539c81381474955
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Często zadawane pytania dotyczące migracji usługi Azure Storage
 
@@ -280,7 +280,7 @@ Aby umożliwić innym osobom dostęp do zasobów magazynu:
       
     - **Narzędzie AzCopy**: Dołącz **-dodatkowej** do nazwy konta magazynu w adresie URL do dodatkowej punktu końcowego. Na przykład:  
      
-      https://storageaccountname-Secondary.blob.Core.Windows.NET/vhds/BlobName.VHD
+      https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 
     - **Token sygnatury dostępu Współdzielonego**: Użyj tokenu sygnatury dostępu Współdzielonego uzyskują dostęp do danych z punktu końcowego. Aby uzyskać więcej informacji, zobacz [używanie sygnatury dostępu współdzielonego](storage-dotnet-shared-access-signature-part-1.md).
 
@@ -294,6 +294,10 @@ Jednak można użyć niestandardowej domeny z systemem innym niż HTTPS. Aby uzy
 Nie istnieje sposób dostępu do konta magazynu bezpośrednio za pomocą FTP. Można jednak skonfigurować maszynę wirtualną platformy Azure, a następnie zainstaluj serwer FTP na maszynie wirtualnej. Program może przechowywać pliki w udziale plików Azure lub na dysku danych, która jest dostępna dla maszyny wirtualnej serwera FTP.
 
 Jeśli chcesz tylko do pobierania danych bez konieczności używania Eksploratora magazynu lub podobnej aplikacji, można użyć tokenu sygnatury dostępu Współdzielonego. Aby uzyskać więcej informacji, zobacz [używanie sygnatury dostępu współdzielonego](storage-dotnet-shared-access-signature-part-1.md).
+
+**Jak migrować obiekty BLOB z jednego konta magazynu do innego**
+
+ Można to zrobić za pomocą naszych [obiektu Blob skryptu migracji](../scripts/storage-common-transfer-between-storage-accounts.md).
 
 ## <a name="need-help-contact-support"></a>Potrzebujesz pomocy? Skontaktuj się z pomocą techniczną.
 

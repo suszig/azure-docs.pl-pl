@@ -57,14 +57,14 @@ Uruchamianie aplikacji HPC niestandardowych lub komercyjnych na platformie Azure
 * [Altair RADIOSS](https://azure.microsoft.com/blog/availability-of-altair-radioss-rdma-on-microsoft-azure/)
 * [ANSYS CFD](https://azure.microsoft.com/blog/ansys-cfd-and-microsoft-azure-perform-the-best-hpc-scalability-in-the-cloud/)
 * [MATLAB rozproszonego przetwarzania danych serwera](../articles/virtual-machines/windows/matlab-mdcs-cluster.md)
-* [StarCCM +](https://blogs.msdn.microsoft.com/azurecat/2017/07/07/run-star-ccm-in-an-azure-hpc-cluster/)
+* [StarCCM+](https://blogs.msdn.microsoft.com/azurecat/2017/07/07/run-star-ccm-in-an-azure-hpc-cluster/)
 * [OpenFOAM](https://simulation.azure.com/casestudies/Team-182-ABB-UC-Final.pdf)
 
 
 
 ### <a name="graphics-and-rendering"></a>Grafika i renderowania
 
-* [Plik Autodesk Maya, 3ds Max i Arnold](../articles/batch/batch-rendering-service.md) w partii zadań Azure (wersja zapoznawcza)
+* [Plik Autodesk Maya, 3ds Max i Arnold](../articles/batch/batch-rendering-service.md) w partii zadań Azure 
 
 ### <a name="ai-and-deep-learning"></a>AI i uczenie się bezpośrednich
 
@@ -103,11 +103,12 @@ Dostawców w modelu SaaS lub deweloperom można użyć partii zestawy SDK i narz
 
 Instrukcje:
 
-* [Wprowadzenie do programowania z użyciem partii](../articles/batch/batch-dotnet-get-started.md)
+* [Wprowadzenie do programowania z użyciem partii](../articles/batch/quick-run-dotnet.md)
 * [Użyj przykłady kodu partii zadań Azure](https://github.com/Azure/azure-batch-samples)
 * [Niskiego priorytetu maszyn wirtualnych za pomocą usługi partia zadań](../articles/batch/batch-low-pri-vms.md)
 * [Uruchom konteneryzowanych obciążeń HPC z stoczni partii](https://github.com/Azure/batch-shipyard)
 * [Użyj języka R z partii](https://github.com/Azure/doAzureParallel)
+* [Uruchom Toolkit Engineering Azure danych rozproszonych w partii](https://github.com/Azure/aztk)
 
 ## <a name="workload-managers"></a>Menedżerowie obciążenia
 
@@ -127,6 +128,7 @@ Obciążeń na dużą skalę partii i HPC ma wymagań dla magazynu danych i dost
 Więcej informacji:
 
 * [Systemy plików równoległych HPC magazynu na platformie Azure](https://blogs.msdn.microsoft.com/azurecat/2017/03/17/parallel-file-systems-for-hpc-storage-on-azure/)
+* Wysokowydajne rozwiązania magazynu chmury z [Avere](http://www.averesystems.com/about-us/about-avere) (teraz [połączony z Microsoft](https://blogs.microsoft.com/blog/2018/01/03/microsoft-to-acquire-avere-systems-accelerating-high-performance-computing-innovation-for-media-and-entertainment-industry-and-beyond/))
 
 
 ## <a name="related-azure-services"></a>Pokrewne usługi platformy Azure
@@ -139,13 +141,16 @@ Maszyny wirtualne platformy Azure, zestawy skalowania maszyny wirtualnej, partii
 * [Magazyn plików](../articles/storage/storage-files-introduction.md)
 
 ### <a name="data-and-analytics"></a>Dane i analiza
-* [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md) klastrów platformy Hadoop w systemie Azure
+* [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md)
 * [Fabryka danych](../articles/data-factory/introduction.md)
 * [Data Lake Store](../articles/data-lake-store/data-lake-store-overview.md)
 * [Machine Learning](../articles/machine-learning/machine-learning-what-is-machine-learning.md)
 * [SQL Database](../articles/sql-database/sql-database-technical-overview.md)
 
-### <a name="networking"></a>Sieć
+### <a name="ai-and-cognitive-services"></a>Kognitywnych usług i AI
+* [Usługa Batch — sztuczna inteligencja](../articles/batch-ai/overview.md)
+
+### <a name="networking"></a>Networking
 * [Virtual Network](../articles/virtual-network/virtual-networks-overview.md)
 * [ExpressRoute](../articles/expressroute/expressroute-introduction.md)
 
@@ -167,12 +172,12 @@ Poniżej przedstawiono przykłady klientów, które zostały rozwiązane problem
 * [MetLife](https://enterprise.microsoft.com/en-us/customer-story/industries/insurance/metlife/)
 * [Microsoft Research](https://customers.microsoft.com/doclink/fast-lmm-and-windows-azure-put-genetics-research-on-fa)
 * [Milliman](https://customers.microsoft.com/story/actuarial-firm-works-to-transform-insurance-industry-w)
-* [Mitsubishi UFJ zabezpieczeń międzynarodowych](https://customers.microsoft.com/story/powering-risk-compute-grids-in-the-cloud)
+* [Mitsubishi UFJ Securities International](https://customers.microsoft.com/story/powering-risk-compute-grids-in-the-cloud)
 * [Schlumberger](http://azure.microsoft.com/blog/big-compute-for-large-engineering-simulations)
 * [Wieże Watson](https://customers.microsoft.com/story/insurance-tech-provider-delivers-disruptive-solutions)
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Więcej informacji na temat rozwiązania obliczeniowe Big [inżynierii symulacji](https://simulation.azure.com/), [renderowania](https://simulation.azure.com/), [rynkach bankowości i inwestycyjne](https://finance.azure.com/), i [genomika](https://enterprise.microsoft.com/en-us/industries/health/genomics/) .
 * Najnowsze informacje można znaleźć na [blogu zespołu Microsoft HPC i usługi Batch](http://blogs.technet.com/b/windowshpc/) oraz [blogu platformy Azure](https://azure.microsoft.com/blog/tag/hpc/).
 

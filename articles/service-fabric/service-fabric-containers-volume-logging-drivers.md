@@ -14,9 +14,9 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 8918d6d53d7dd04e2a685707979526230ebfbc42
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: HT
+ms.openlocfilehash: cbe7e338ac7da9dc7e8d03cb1bb07a69af70cb17
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/01/2018
 ---
@@ -41,7 +41,7 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
 ```
 
 > [!NOTE]
-> Windows Server 2016 w centrum danych nie obsługuje instalacji SMB mapowania do kontenerów ([która jest tylko obsługiwana w systemie Windows Server w wersji 1709](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/container-storage)). Zapobiega to mapowanie woluminu sieci i plików Azure woluminu sterowników w wersjach starszych niż 1709. 
+> Windows Server 2016 w centrum danych nie obsługuje instalacji SMB mapowania do kontenerów ([która jest tylko obsługiwana w systemie Windows Server w wersji 1709](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/container-storage)). Tego ograniczenia zapobiega mapowania woluminu sieci i plików Azure woluminu sterowników w wersjach starszych niż 1709. 
 >   
 
 
@@ -53,8 +53,9 @@ Dodatki plug-in są określone w manifeście aplikacji:
 <ApplicationManifest ApplicationTypeName="WinNodeJsApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Description>Calculator Application</Description>
     <Parameters>
-        <Parameter Name="ServiceInstanceCount" DefaultValue="3"></Parameter>
+      <Parameter Name="ServiceInstanceCount" DefaultValue="3"></Parameter>
       <Parameter Name="MyCpuShares" DefaultValue="3"></Parameter>
+      <Parameter Name="MyStorageVar" DefaultValue="c:\tmp"></Parameter>
     </Parameters>
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="NodeServicePackage" ServiceManifestVersion="1.0"/>
@@ -66,7 +67,7 @@ Dodatki plug-in są określone w manifeście aplikacji:
           <DriverOption Name="test" Value="vale"/>
         </LogConfig>
         <Volume Source="c:\workspace" Destination="c:\testmountlocation1" IsReadOnly="false"></Volume>
-        <Volume Source="d:\myfolder" Destination="c:\testmountlocation2" IsReadOnly="true"> </Volume>
+        <Volume Source="[MyStorageVar]" Destination="c:\testmountlocation2" IsReadOnly="true"> </Volume>
         <Volume Source="myvolume1" Destination="c:\testmountlocation2" Driver="azure" IsReadOnly="true">
            <DriverOption Name="share" Value="models"/>
         </Volume>
@@ -83,6 +84,8 @@ Dodatki plug-in są określone w manifeście aplikacji:
 
 **Źródła** znacznika **woluminu** element odwołuje się do folderu źródłowego. Folder źródłowy może być folderem w maszynie Wirtualnej, która obsługuje kontenery lub trwałego magazynu zdalnego. **Docelowego** tag to lokalizacja, w który **źródła** jest mapowany w kontenerze uruchomione. W związku z tym folderu docelowego nie może być już istnieje w kontenerze Twojej lokalizacji.
 
+Parametry aplikacji są obsługiwane dla woluminów, jak pokazano w poprzednim fragment manifestu (Wyszukaj `MyStoreVar` na przykład użyć).
+
 Podczas określania woluminu wtyczki, usługi Service Fabric automatycznie tworzy woluminu przy użyciu określonych parametrów. **Źródła** tag jest nazwa woluminu i **sterownika** tag określa dodatek plug-in sterownika woluminu. Opcje można określić za pomocą **DriverOption** tagu w następujący sposób:
 
 ```xml
@@ -93,4 +96,4 @@ Podczas określania woluminu wtyczki, usługi Service Fabric automatycznie tworz
 Sterownik dziennika Docker jest określony, masz wdrażania agentów (lub kontenery) do obsługi dzienników w klastrze. **DriverOption** tag może służyć do określ opcje dla sterownika dziennika.
 
 ## <a name="next-steps"></a>Kolejne kroki
-Aby wdrożyć kontenerów do klastra usługi sieć szkieletowa usług, zobacz [wdrażanie kontenera w sieci szkieletowej usług](service-fabric-deploy-container.md).
+Do wdrażanie kontenerów do klastra usługi sieć szkieletowa, zobacz artykuł [wdrażanie kontenera w sieci szkieletowej usług](service-fabric-deploy-container.md).

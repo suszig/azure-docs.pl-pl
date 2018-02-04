@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: banders
-ms.openlocfilehash: e3ff3d9c667e00995daa2023a7137870247b9ab3
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 49a78faa98bd7eb3da16dc069f65ef39b5e092af
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="application-insights-connector-solution-preview-in-operations-management-suite-oms"></a>Rozwiązanie aplikacji łącznik usługi Insights (wersja zapoznawcza) w Operations Management Suite (OMS)
+# <a name="application-insights-connector-management-solution-preview"></a>Rozwiązania do zarządzania łącznika Insights aplikacji (wersja zapoznawcza) 
 
 ![Application Insights symbol](./media/log-analytics-app-insights-connector/app-insights-connector-symbol.png)
 
-Łącznik usługi Insights aplikacji rozwiązanie pomaga diagnozować problemy z wydajnością i zrozumieć, co zrobić użytkownicy z aplikacją, gdy jest monitorowany z [usługi Application Insights](../application-insights/app-insights-overview.md). Widoki danych telemetrycznych tej samej aplikacji, deweloperzy widoczne w usłudze Application Insights są dostępne w OMS. Jednak w przypadku aplikacji usługi Application Insights jest zintegrowane z usługą OMS, widoczność aplikacji zwiększa się o zebranie danych operacji i aplikacji w jednym miejscu. O tym samym widoków ułatwia współpracę z deweloperów w Twojej aplikacji. Widok typowych może pomóc zmniejszyć czas do wykrywania i rozwiązywania zarówno aplikacji, jak i problemów platformy.
+Łącznik usługi Insights aplikacji rozwiązanie pomaga diagnozować problemy z wydajnością i zrozumieć, co zrobić użytkownicy z aplikacją, gdy jest monitorowany z [usługi Application Insights](../application-insights/app-insights-overview.md). Widoki danych telemetrycznych tej samej aplikacji, deweloperzy widoczne w usłudze Application Insights są dostępne w analizy dzienników. Jednak po zintegrowaniu aplikacji usługi Application Insights z analizy dzienników widoczność aplikacji jest zwiększana o zebranie danych operacji i aplikacji w jednym miejscu. O tym samym widoków ułatwia współpracę z deweloperów w Twojej aplikacji. Widok typowych może pomóc zmniejszyć czas do wykrywania i rozwiązywania zarówno aplikacji, jak i problemów platformy.
 
 Użycie rozwiązania, można:
 
 - Wyświetl wszystkie aplikacje usługi Application Insights w jednym miejscu, nawet wtedy, gdy znajdują się w różnych subskrypcji platformy Azure
 - Skorelować danych infrastruktury z danych aplikacji
 - Wizualizuj dane aplikacji z perspektywy wyszukiwania dziennika
-- Przestawianie z analizy dzienników danych do aplikacji usługi Application Insights w OMS i portale Azure
+- Przestawianie z analizy dzienników danych do aplikacji usługi Application Insights w portalu Azure
 
 ## <a name="connected-sources"></a>Połączone źródła
 
@@ -63,8 +63,8 @@ W ciągu 30 minut dane będą dostępne, i na kafelku usługi Application Insigh
 
 Inne punkty, które należy wziąć pod uwagę:
 
-- Aplikacje usługi Application Insights można połączyć tylko jeden obszar roboczy OMS.
-- Można połączyć tylko [Standard lub Premium Application Insights zasobów](https://azure.microsoft.com/pricing/details/application-insights) do analizy dzienników OMS. Można jednak użyć warstwę bezpłatna analizy dziennika.
+- Aplikacje usługi Application Insights można połączyć tylko jednego obszaru roboczego analizy dzienników.
+- Można połączyć tylko [Standard lub Premium Application Insights zasobów](https://azure.microsoft.com/pricing/details/application-insights) do analizy dzienników. Można jednak użyć warstwę bezpłatna analizy dziennika.
 
 ## <a name="management-packs"></a>Pakiety administracyjne
 
@@ -129,7 +129,7 @@ Składniki perspektywy są aktualizowane w zależności od zapytania wyszukiwani
 
 ### <a name="pivot-to-an-app-in-the-azure-portal"></a>Przestawianie do aplikacji w portalu Azure
 
-Application Insights łącznika bloki zostały zaprojektowane do tabeli przestawnej — do wybranej aplikacji usługi Application Insights *Jeśli używasz portalu OMS*. Rozwiązanie służy jako platforma wysokiego poziomu monitorowania, ułatwiające rozwiązywanie problemów z aplikacją. Po wyświetleniu potencjalny problem w żadnym z połączonych aplikacji, można albo Przechodzenie do szczegółów w nim OMS wyszukiwania lub można przestawiać bezpośrednio do aplikacji usługi Application Insights.
+Application Insights łącznika bloki zostały zaprojektowane do tabeli przestawnej — do wybranej aplikacji usługi Application Insights *Jeśli używasz portalu OMS*. Rozwiązanie służy jako platforma wysokiego poziomu monitorowania, ułatwiające rozwiązywanie problemów z aplikacją. Po wyświetleniu potencjalny problem w żadnym z połączonych aplikacji, można albo przejście do niego w wyszukiwaniu analizy dzienników lub można przestawiać bezpośrednio do aplikacji usługi Application Insights.
 
 Aby przestawić, kliknij przycisk wielokropka (**...** ) pojawi się na końcu każdej linii i wybierz **Otwórz w usłudze Application Insights**.
 
@@ -140,7 +140,7 @@ Aby przestawić, kliknij przycisk wielokropka (**...** ) pojawi się na końcu k
 
 ### <a name="sample-corrected-data"></a>Poprawione próbki danych
 
-Usługa Application Insights udostępnia  *[próbkowania korekty](../application-insights/app-insights-sampling.md)*  Aby zmniejszyć ruch danych telemetrycznych. Po włączeniu próbkowania w aplikacji usługi Application Insights, możesz uzyskać zmniejszenie liczby wpisów przechowywanych zarówno w usłudze Application Insights i OMS. Gdy spójność danych jest zachowywana w **Application Insights łącznik** strony i perspektywy, należy ręcznie rozwiązać próbki danych dla zapytań niestandardowych.
+Usługa Application Insights udostępnia  *[próbkowania korekty](../application-insights/app-insights-sampling.md)*  Aby zmniejszyć ruch danych telemetrycznych. Po włączeniu próbkowania w aplikacji usługi Application Insights, możesz uzyskać zmniejszenie liczby wpisów przechowywanych zarówno w usłudze Application Insights i analizy dzienników. Gdy spójność danych jest zachowywana w **Application Insights łącznik** strony i perspektywy, należy ręcznie rozwiązać próbki danych dla zapytań niestandardowych.
 
 Oto przykład korekty próbkowania w kwerendzie wyszukiwania dziennika:
 
@@ -162,7 +162,7 @@ Rozwiązanie otrzymuje następujące typy telemetrii danych z połączonych apli
 - Wyświetleń strony — obszaru roboczego do odbierania wyświetleń strony, należy skonfigurować aplikacje do zbierania tych informacji. Aby uzyskać więcej informacji, zobacz [PageViews](../application-insights/app-insights-api-custom-events-metrics.md#page-views).
 - Niestandardowe zdarzenia — obszaru roboczego do odbierania zdarzeń niestandardowych, należy skonfigurować aplikacje do zbierania tych informacji. Aby uzyskać więcej informacji, zobacz [TrackEvent](../application-insights/app-insights-api-custom-events-metrics.md#trackevent).
 
-Danych jest odbierany przez OMS z usługi Application Insights po jej udostępnieniu.
+Danych jest odbierany przez analizy dzienników z usługi Application Insights po jej udostępnieniu.
 
 ## <a name="output-data"></a>Dane wyjściowe
 

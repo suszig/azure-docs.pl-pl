@@ -3,7 +3,7 @@ title: "Jak skonfigurować z obsługą MSI maszyny Wirtualnej platformy Azure pr
 description: "Krok instrukcje dotyczące konfigurowania i używania zarządzanych tożsamości usługi (MSI) na maszynie Wirtualnej platformy Azure, przy użyciu zestawu SDK platformy Azure."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/28/2017
-ms.author: bryanla
-ms.openlocfilehash: d5fb9decd1417a51c85f23d6b178c8a86cf292bd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: daveba
+ms.openlocfilehash: dee89e4cd6501bb56015a2e4cfc045cc6308400e
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-an-azure-sdk"></a>Konfigurowanie maszyny Wirtualnej zarządzane usługi tożsamości (MSI) przy użyciu zestawu Azure SDK
 
@@ -43,7 +43,7 @@ Azure obsługuje wiele platform programowania przez szereg [zestawów SDK usług
 | Python | [Tworzenie maszyny Wirtualnej z włączoną MSI](https://azure.microsoft.com/resources/samples/compute-python-msi-vm/) |
 | Ruby   | [Tworzenie maszyny Wirtualnej platformy Azure z Instalatora MSI](https://azure.microsoft.com/resources/samples/compute-ruby-msi-vm/) |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Zobacz pokrewne artykuły w obszarze "Konfigurowanie MSI dla maszyny Wirtualnej platformy Azure", aby dowiedzieć się, jak również użyć szablonów portalu, programu PowerShell, interfejsu wiersza polecenia i zasobów platformy Azure.
 

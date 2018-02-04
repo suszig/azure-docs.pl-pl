@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/17/2017
 ms.author: v-masebo
-ms.openlocfilehash: e5d57e087e5f4dc1e0abf112001218aa7390a4f7
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: f314d24250330a4dadf99d98b94c98b3db03f22c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="routing-messages-with-iot-hub-node"></a>Routing komunikatów z Centrum IoT (węzeł)
 
@@ -104,6 +104,9 @@ W tej sekcji możesz zmodyfikować aplikację urządzenia, utworzony w [Rozpoczy
 W tej sekcji Tworzenie kolejki usługi Service Bus, połącz go z Centrum IoT i skonfigurować do wysyłania wiadomości do kolejki na podstawie obecności właściwość w komunikacie Centrum IoT. Aby uzyskać więcej informacji o sposobie przetwarzania komunikatów z kolejek usługi Service Bus, zobacz [Rozpoczynanie pracy z kolejkami][lnk-sb-queues-node].
 
 1. Tworzenie kolejki usługi Service Bus, zgodnie z opisem w [Rozpoczynanie pracy z kolejkami][lnk-sb-queues-node]. Zanotuj nazwę przestrzeni nazw i kolejki.
+
+    > [!NOTE]
+    > Tematy dotyczące używany jako punkty końcowe Centrum IoT nie może mieć i kolejek usługi Service Bus **sesji** lub **wykrywania duplikatów** włączone. Jeśli dowolna z tych opcji są włączone, punkt końcowy jest wyświetlany jako **informujący** w portalu Azure.
 
 2. W portalu Azure Otwórz Centrum IoT i kliknij przycisk **punkty końcowe**.
 

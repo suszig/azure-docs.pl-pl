@@ -7,7 +7,7 @@ W poniższym przykładzie użyto narzędzie cURL można wysłać żądania, któ
 Zastąp `<deployment_user>` symbolu zastępczego z nazwą użytkownika poświadczeń wdrożenia. Po wyświetleniu monitu przez narzędzie cURL, wpisz hasło. Aby dowiedzieć się, jak ustawić poświadczenia wdrażania dla aplikacji, zobacz [ustawić i zresetowanie poświadczeń na poziomie użytkownika](../articles/app-service/app-service-deployment-credentials.md#userscope).   
 
 ```bash
-curl POST -u <deployment_user> --data-binary @"<zip_file_path>" https://<app_name>.scm.azurewebsites.net/api/zipdeploy
+curl -X POST -u <deployment_user> --data-binary @"<zip_file_path>" https://<app_name>.scm.azurewebsites.net/api/zipdeploy
 ```
 
 To żądanie wyzwala instalacji wypychanej przesłanego pliku zip. Możesz przejrzeć wdrożeń bieżących i starszych przy użyciu punktu końcowego https://<app_name>.scm.azurewebsites.net/api/deployments, jak pokazano w poniższym przykładzie cURL. Ponownie, Zastąp `<app_name>` o nazwie aplikacji i `<deployment_user>` z nazwą użytkownika poświadczeń wdrożenia.

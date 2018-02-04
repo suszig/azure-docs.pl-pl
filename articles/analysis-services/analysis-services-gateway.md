@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/30/2017
+ms.date: 02/02/2018
 ms.author: owend
-ms.openlocfilehash: 0b11c005ddcf4a3416104e7cef39a7ce97957ba3
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: a0af2e0448d8ce991c9bcc138d6132d216715768
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Łączenie z lokalnych źródeł danych z bramą danych lokalnych Azure
 Brama danych lokalna działa jako mostka zapewnianie bezpiecznego transferu danych między lokalnych źródeł danych i serwerów usług Azure Analysis Services w chmurze. Oprócz Praca z wieloma serwerami usług Azure Analysis Services, w tym samym regionie, najnowszą wersję bramy współdziała również z usługi Azure Logic Apps, usługi Power BI aplikacje zasilania i Flow firmy Microsoft. Wiele usług w tym samym regionie można skojarzyć z pojedynczą bramą. 
@@ -28,11 +28,11 @@ Pobieranie Instalatora z bramą po raz pierwszy jest procesem czteroczęściową
 
 - **Pobierz i uruchom Instalatora** -tego kroku Usługa bramy są instalowane na komputerze w organizacji. Możesz również logowanie do platformy Azure przy użyciu konta w sieci [dzierżawcy](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) usługi Azure AD. Funkcje B2B platformy Azure (Gość) konta nie są obsługiwane.
 
-- **Zarejestruj bramę** — w tym kroku określ nazwę i odzyskiwanie klucza bramy i wybierz region, rejestrowanie bramy z usługi bramy w chmurze. Zasób bramy **musi być zarejestrowana w tym samym regionie** jako serwery usług Analysis Services. 
+- **Zarejestruj bramę** — w tym kroku określ nazwę i odzyskiwanie klucza bramy i wybierz region, rejestrowanie bramy z usługi bramy w chmurze. Zasobu bramy może być zarejestrowane w dowolny region, ale zaleca się ona w tym samym regionie co serwery usług Analysis Services. 
 
 - **Tworzenie zasobu bramy na platformie Azure** — w tym kroku tworzenia zasobu bramy w Twojej subskrypcji platformy Azure.
 
-- **Połącz serwery z zasobu bramy** — po utworzeniu zasobu bramy w ramach subskrypcji, możesz rozpocząć nawiązywania serwerów. Możesz połączyć wiele serwerów i innych zasobów, pod warunkiem, są one w regionie.
+- **Połącz serwery z zasobu bramy** — po utworzeniu zasobu bramy w ramach subskrypcji, możesz rozpocząć nawiązywania serwerów. Możesz połączyć wiele serwerów i innych zasobów do niego.
 
 Aby rozpocząć pracę od razu, zobacz [Zainstaluj i skonfiguruj bramę danych lokalnych](analysis-services-gateway-install.md).
 
@@ -69,17 +69,17 @@ Poniżej przedstawiono w pełni kwalifikowane nazwy domeny używane przez bramę
 
 | Nazwy domen | Porty wyjściowe | Opis |
 | --- | --- | --- |
-| *. witrynie powerbi.com |80 |Protokół HTTP używany do pobierania Instalatora. |
-| *. witrynie powerbi.com |443 |HTTPS |
-| *. analysis.windows.net |443 |HTTPS |
-| *. login.windows.net |443 |HTTPS |
-| *. servicebus.windows.net |5671-5672 |Zaawansowane kolejkowania wiadomości protokołu (protokół AMQP) |
-| *. servicebus.windows.net |443, 9350-9354 |Obiekty nasłuchujące na przekaźnik magistrali usług za pośrednictwem protokołu TCP (wymaga 443 dla tokenu przejęcie kontroli dostępu) |
-| *. frontend.clouddatahub.net |443 |HTTPS |
-| *. core.windows.net |443 |HTTPS |
-| Login.microsoftonline.com |443 |HTTPS |
-| *. msftncsi.com |443 |Używany do sprawdzania łączności z Internetem, gdy brama jest nieosiągalny przez usługę Power BI. |
-| *.microsoftonline p.com |443 |Używany do uwierzytelniania w zależności od konfiguracji. |
+| *.powerbi.com |80 |Protokół HTTP używany do pobierania Instalatora. |
+| *.powerbi.com |443 |HTTPS |
+| *.analysis.windows.net |443 |HTTPS |
+| *.login.windows.net |443 |HTTPS |
+| *.servicebus.windows.net |5671-5672 |Zaawansowane kolejkowania wiadomości protokołu (protokół AMQP) |
+| *.servicebus.windows.net |443, 9350-9354 |Obiekty nasłuchujące na przekaźnik magistrali usług za pośrednictwem protokołu TCP (wymaga 443 dla tokenu przejęcie kontroli dostępu) |
+| *.frontend.clouddatahub.net |443 |HTTPS |
+| *.core.windows.net |443 |HTTPS |
+| login.microsoftonline.com |443 |HTTPS |
+| *.msftncsi.com |443 |Używany do sprawdzania łączności z Internetem, gdy brama jest nieosiągalny przez usługę Power BI. |
+| *.microsoftonline-p.com |443 |Używany do uwierzytelniania w zależności od konfiguracji. |
 
 ### <a name="force-https"></a>Wymuszanie komunikację HTTPS z usługi Azure Service Bus
 Możesz wymusić bramy do komunikacji z usługi Azure Service Bus przy użyciu protokołu HTTPS zamiast bezpośredniego TCP; Jednak to tak może znacznie zmniejszyć wydajność. Można zmodyfikować *Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config* pliku, zmieniając wartość `AutoDetect` do `Https`. Ten plik znajduje się zwykle w *bramy danych lokalnych Files\On C:\Program*.
@@ -131,7 +131,7 @@ Można użyć aplikacji Azure szybkości testowanie narzędzia innej firmy by zm
 **A**: nie. Usługa systemu Windows muszą mieć prawidłowe konto systemu Windows. Domyślnie usługa jest uruchamiana z identyfikatorem SID usługi NT SERVICE\PBIEgwService.
 
 **Q**: jak przejęcia bramę? <br/>
-**A**: W celu przejęcia bramy (uruchamiając ustawienia/zmiany w Panelu sterowania > Programy) musisz być właścicielem zasobu bramy na platformie Azure i klucz odzyskiwania. Właścicieli zasobów bramy są konfigurowane w kontroli dostępu.
+**A**: przejęcia bramy (uruchamiając ustawienia/zmiany w Panelu sterowania > Programy), musisz być właścicielem zasobu bramy na platformie Azure i klucz odzyskiwania. Właścicieli zasobów bramy są konfigurowane w kontroli dostępu.
 
 ### <a name="high-availability"></a>Wysoka dostępność i odzyskiwanie po awarii
 
@@ -144,7 +144,7 @@ Można użyć aplikacji Azure szybkości testowanie narzędzia innej firmy by zm
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
 **Q**: Dlaczego nie widzę mojego bramy na liście wystąpieniach bramy podczas próby utworzenia zasobu bramy na platformie Azure? <br/>
-**A**: istnieją dwie możliwe przyczyny. Najpierw jest już utworzony zasób dla bramy w bieżącej lub niektóre z innej subskrypcji. Aby wyeliminować tej możliwości, wyliczyć zasobów typu **bram danych lokalnych** z portalu. Upewnij się wybrać wszystkie subskrypcje podczas wyliczania wszystkich zasobów. Należy pamiętać, że po utworzeniu zasobu bramy nie będą widoczne w listy wystąpień bramy w portalu środowisko tworzenia zasobu bramy. Druga możliwość jest to użytkownik zalogowany do portalu Azure usługi Azure AD tożsamości użytkownika, który zainstalował bramy. Aby rozwiązać ten problem, należy zalogować się do portalu jako użytkownik, który zainstalował bramy przy użyciu tego samego konta.
+**A**: istnieją dwie możliwe przyczyny. Najpierw jest już utworzony zasób dla bramy w bieżącej lub niektóre z innej subskrypcji. Aby wyeliminować tej możliwości, wyliczyć zasobów typu **bram danych lokalnych** z portalu. Upewnij się wybrać wszystkie subskrypcje podczas wyliczania wszystkich zasobów. Po utworzeniu zasobu bramy nie znajdują się na liście wystąpienie bramy w portalu środowisko tworzenia zasobu bramy. Druga możliwość jest to użytkownik zalogowany do portalu Azure usługi Azure AD tożsamości użytkownika, który zainstalował bramy. Aby rozwiązać, zaloguj się do portalu jako użytkownik, który zainstalował bramy przy użyciu tego samego konta.
 
 **Q**: jak wyświetlić co zapytania są wysyłane do lokalnego źródła danych? <br/>
 **A**: można włączyć funkcja śledzenia zapytań, który zawiera zapytania, które są wysyłane. Pamiętaj, aby zmienić zapytania śledzenia wstecz do oryginalnej wartości po zakończeniu rozwiązywania problemów. Jeśli pozostanie włączona funkcja śledzenia zapytań tworzy większe dzienniki.
@@ -201,7 +201,7 @@ Dane telemetryczne może służyć do monitorowania i rozwiązywania problemów.
 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Zainstaluj i skonfiguruj bramę danych lokalnych](analysis-services-gateway-install.md).   
 * [Zarządzanie usług Analysis Services](analysis-services-manage.md)
 * [Pobieranie danych z usług Azure Analysis Services](analysis-services-connect.md)

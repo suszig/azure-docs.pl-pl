@@ -9,11 +9,11 @@ ms.workload: infrastructure
 ms.date: 10/19/2017
 ms.custom: devops
 ms.author: routlaw
-ms.openlocfilehash: 23d79fa4a1794a6dea69e6ae24da714babf54e62
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 7b402ebfd6c8e1ef6b7d3969a05191467f5864f4
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-vm-cluster-with-terraform-using-the-module-registry"></a>Tworzenie klastra maszyny Wirtualnej z Terraform za pomocą rejestru modułu
 
@@ -61,6 +61,7 @@ module mycompute {
     vm_os_simple = "WindowsServer"
     remote_port = "3389"
     nb_instances = 2
+    public_ip_dns = ["unique_dns_name"]
     vnet_subnet_id = "${module.network.vnet_subnets[0]}"
 }
 
@@ -74,7 +75,7 @@ output "vm_public_name" {
     value = "${module.mycompute.public_ip_dns_name}"
 }
 
-output = "vm_public_ip" {
+output "vm_public_ip" {
     value = "${module.mycompute.public_ip_address}"
 }
 
@@ -100,7 +101,7 @@ Uruchom `terraform apply` do obsługi administracyjnej maszyn wirtualnych na pla
 
 ![Zastosuj Terraform](media/terraform-create-vm-cluster-with-infrastructure/terraform-apply.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Przejrzyj listę [modułów Azure Terraform](https://registry.terraform.io/modules/Azure)
 - Utwórz [zestawu skalowania maszyn wirtualnych z Terraform](terraform-create-vm-scaleset-network-disks-hcl.md)

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/15/2017
-ms.openlocfilehash: 248cbcfe35db646a8bc71c6f825dcaa8a4661e91
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.date: 02/01/2018
+ms.openlocfilehash: 9025982d2a350941ef82733292ebbf15ab48d7fe
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="supported-matrix-for-this-release"></a>Macierz obsługiwane w tej wersji 
 Po kodzie ładuje dane przy użyciu źródeł danych Learning maszyny Azure lub Azure Machine Learning danych przygotowania, pobierania albo Pandas lub dataframe Spark, następujących kombinacji eksperymentu obliczeniowe środowisk i lokalizacje danych są obsługiwane:
@@ -35,6 +35,6 @@ Azure Data Lake Store nie jest obecnie obsługiwana dla dowolnego obiektu docelo
 
 * Jeśli są używane lokalne ścieżki do plików, pliki w projekcie są kopiowane do środowiska obliczeniowego, a następnie przeczytaj istnieje. Nie są kopiowane pliki poza projektem, a ścieżki nie zostanie rozwiązany w środowisku obliczeń. Należy rozważyć użycie podstawienia źródła danych, dzięki czemu kod może użyć lokalnego pliku podczas uruchamiania lokalnego. Następnie przełącz się do obiektu blob magazynu Azure do innej konfiguracji uruchamiania. Również służy Obsługa próbkowania w źródłach danych do zarządzania działa na dużej ilości danych tylko w niektórych konfiguracjach wykonywania.
 
-** Używa sterownik programu SQL Server JDBC Maven 6.2.1. Należy się upewnić, że ten pakiet (lub jeden zgodny) znajduje się w pliku spark_dependencies.yml dla środowiska obliczeniowego.
+**Uses Maven JDBC SQL Server driver 6.2.1. Należy się upewnić, że ten pakiet (lub jeden zgodny) znajduje się w pliku spark_dependencies.yml dla środowiska obliczeniowego.
 
 Obsługa usługi Azure SQL Database lub SQL Server pod warunkiem, że bazy danych jest osiągalna z poziomu środowiska obliczeniowego. 

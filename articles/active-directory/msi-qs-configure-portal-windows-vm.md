@@ -3,7 +3,7 @@ title: "Jak skonfigurować MSI w maszynie Wirtualnej platformy Azure przy użyci
 description: "Krok kroku instrukcje dotyczące konfigurowania zarządzane tożsamości usługi (MSI) na maszynie Wirtualnej platformy Azure, przy użyciu portalu Azure."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
-ms.author: bryanla
-ms.openlocfilehash: 8decfcedec94b9d78eac73a3e8db1219fac02029
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: daveba
+ms.openlocfilehash: f2891874fc6f894cfa141bd28c7c9edd92d7968c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-the-azure-portal"></a>Konfigurowanie maszyny Wirtualnej zarządzane usługi tożsamości (MSI) przy użyciu portalu Azure
 
@@ -68,7 +68,7 @@ Jeśli masz maszyny wirtualnej, która nie będzie już potrzebował MSI:
 
 - Omówienie MSI, zobacz [omówienie zarządzane tożsamość usługi](msi-overview.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Za pomocą portalu Azure, nadaj MSI wirtualna Azure [dostęp do zasobów platformy Azure w innym](msi-howto-assign-access-portal.md).
 

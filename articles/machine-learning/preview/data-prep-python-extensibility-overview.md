@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/07/2017
-ms.openlocfilehash: 3c3864480d2fcba4f6d388d4e0d00b917cb62d2b
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.date: 02/01/2018
+ms.openlocfilehash: 76ed1a93af22620ccc2074168b3ff20f6bb4c37d
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="data-preparations-python-extensions"></a>Rozszerzenia języka Python przygotowań danych
 Sposób wypełniania funkcji luki pomiędzy wbudowane funkcje usługi Azure Machine Learning danych przygotowania zawiera rozszerzalności na różnych poziomach. W tym dokumencie możemy konspektu rozszerzalność dzięki skrypt w języku Python. 
@@ -125,7 +125,7 @@ lub
 `./pip install <libraryname>`
 
 ## <a name="use-custom-modules"></a>Użyj niestandardowych modułów
-W transformacji przepływu danych (skrypt) zapisać python kodu w następujący sposób:
+W transformacji przepływu danych (skrypt) wpisz następujący kod języka Python
 
 ```python
 import sys
@@ -135,7 +135,7 @@ from UserModule import ExtensionFunction1
 df = ExtensionFunction1(df)
 ```
 
-Dodaj kolumny (skrypt), należy ustawić typ bloku kodu = modułu i zapisać python kod następujący:
+Dodaj kolumny (skrypt), należy ustawić typ bloku kodu = moduł i wpisz następujący kod Python
 
 ```python 
 import sys
@@ -146,7 +146,7 @@ from UserModule import ExtensionFunction2
 def newvalue(row):
     return ExtensionFunction2(row)
 ```
-Do wykonywania różnych kontekstach (lokalny, spark docker) wskaż ścieżkę bezwzględną we właściwym miejscu. Można użyć "os.getcwd() + relativePath", aby go zlokalizować.
+Do wykonywania różnych kontekstach (lokalny, Docker, Spark) wskaż ścieżkę bezwzględną we właściwym miejscu. Można użyć "os.getcwd() + relativePath", aby go zlokalizować.
 
 
 ## <a name="column-data"></a>Kolumny danych 

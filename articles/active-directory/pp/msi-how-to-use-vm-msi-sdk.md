@@ -3,8 +3,8 @@ title: "Jak używać przypisanych do użytkowników zarządzanych tożsamości u
 description: "Przykłady kodu dla przy użyciu zestawów SDK usługi Azure przypisany użytkownik msi w maszynie Wirtualnej."
 services: active-directory
 documentationcenter: 
-author: BryanLa
-manager: mbaldwin
+author: daveba
+manager: mtillman
 editor: 
 ms.service: active-directory
 ms.devlang: na
@@ -12,17 +12,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/22/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: f9a31a0500a6f5f1c49fc45d5811e28788e6f2b1
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 59d65e42c9b32bd0acd98645342833b4d57ad7a4
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-azure-sdks-with-a-user-assigned-managed-service-identity-msi"></a>Użyj zestawów SDK usługi Azure z przypisany użytkownik zarządzane usługi tożsamości (MSI)
 
-[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]Ten artykuł zawiera listę przykłady zestawu SDK, które wykazują, użyj ich odpowiednich SDK Azure obsługę MSI przypisane przez użytkownika.
+[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
+Ten artykuł zawiera listę przykłady zestawu SDK, które wykazują, użyj ich odpowiednich SDK Azure obsługę MSI przypisane przez użytkownika.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

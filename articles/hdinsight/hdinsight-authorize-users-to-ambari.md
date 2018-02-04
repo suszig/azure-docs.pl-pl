@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: b2040bfad42f2913882792c0055225b2c3d521b5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: HT
+ms.openlocfilehash: e8c1ff23ee00e15325a82e1df0f4643ec429b119
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/01/2018
 ---
 # <a name="authorize-users-for-ambari-views"></a>Autoryzowanie użytkowników na potrzeby widoków Ambari
 
-[Klastry HDInsight przyłączonych do domeny](./domain-joined/apache-domain-joined-introduction.md) zapewniają funkcje klasy korporacyjnej, łącznie z uwierzytelniania opartego na usłudze Azure Active Directory. Nowi użytkownicy mogą wykonywać synchronizację <!-- [synchronize new users](hdinsight-sync-aad-users-to-cluster.md) --> dodani do grup usługi Azure AD, które podano dostęp do klastra, pozwalając określonych do wykonywania pewnych działań. Praca z użytkowników, grup i uprawnień w Ambari jest obsługiwana dla klastra usługi HDInsight przyłączonych do domeny i standardowe klastra usługi HDInsight.
+[Klastry HDInsight przyłączonych do domeny](./domain-joined/apache-domain-joined-introduction.md) zapewniają funkcje klasy korporacyjnej, łącznie z uwierzytelniania opartego na usłudze Azure Active Directory. Możesz [synchronizować nowych użytkowników](hdinsight-sync-aad-users-to-cluster.md) dodani do grup usługi Azure AD, które podano dostęp do klastra, pozwalając określonych do wykonywania pewnych działań. Praca z użytkowników, grup i uprawnień w Ambari jest obsługiwana dla klastra usługi HDInsight przyłączonych do domeny i standardowe klastra usługi HDInsight.
 
 Użytkownicy usługi Active Directory mogą zalogować się do węzłów klastra przy użyciu swoich poświadczeń domeny. Mogą również wykorzystać swoich poświadczeń domeny do uwierzytelniania klastra interakcji z innych zatwierdzonych punktów końcowych, takie jak Hue, widoki Ambari ODBC, JDBC, programu PowerShell i interfejsów API REST.
 
@@ -145,5 +145,4 @@ Firma Microsoft przydzielono naszych użytkowników domeny usługi Azure AD "hiv
 * [Konfigurowanie zasad Hive w usłudze HDInsight z przyłączonych do domeny](./domain-joined/apache-domain-joined-run-hive.md)
 * [Zarządzanie klastrami HDInsight przyłączonych do domeny](./domain-joined/apache-domain-joined-manage.md)
 * [Użyj widoku Hive z usługą Hadoop w usłudze HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)
-
-<!-- * [Synchronize Azure AD users to the cluster](hdinsight-sync-aad-users-to-cluster.md) -->
+* [Synchronizowanie użytkowników usługi Azure AD do klastra](hdinsight-sync-aad-users-to-cluster.md)

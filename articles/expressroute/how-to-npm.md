@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/13/2017
-ms.author: cherylmc
-ms.openlocfilehash: 63160bc8f334b975ade8b35ce809578ad3a5b3fa
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: HT
+ms.date: 01/31/2018
+ms.author: pareshmu
+ms.openlocfilehash: 269c2e8a7867521b34128980e33ed97aa7b62a04
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/01/2018
 ---
@@ -43,7 +43,8 @@ Możesz:
 
 Obwody usługi ExpressRoute w dowolnej części świata można monitorować za pomocą obszaru roboczego, który znajduje się w jednym z następujących obszarów:
 
-* Europa Zachodnia 
+* Europa Zachodnia
+* Środkowo-zachodnie stany USA
 * Wschodnie stany USA 
 * Azja Południowo-Wschodnia 
 * Australia Wschodnią Południowa
@@ -57,14 +58,13 @@ Monitorowania agenci są zainstalowani na wielu serwerach, zarówno lokalnie i n
     * Agenci monitorowania należy zainstalować na serwerach lokalnych i maszyn wirtualnych platformy Azure.
     * Skonfiguruj ustawienia na serwerze agenta monitorowania umożliwia agenci monitorowania do komunikacji. (Otwórz porty zapory itp.)
 3. Konfigurowanie reguł grupa zabezpieczeń sieci umożliwia agenta monitorowania zainstalowanych na maszynach wirtualnych Azure do komunikowania się z lokalnymi monitorowanie agentów.
-4. Żądanie dozwolonych obszaru roboczego programu NPM.
-5. Konfigurowanie monitorowania: Wykryj automatycznie i zarządzanie sieciami, które są widoczne w NPM.
+4. Konfigurowanie monitorowania: Wykryj automatycznie i zarządzanie sieciami, które są widoczne w NPM.
 
 Jeśli korzystasz już z Monitora wydajności sieci do monitorowania innych obiektów lub usługi, a masz już obszar roboczy w jednym z obsługiwanych regionów, można pominąć krok 1 i 2 i rozpocząć konfigurację z kroku 3.
 
-## <a name="configure"></a>Krok 1: Tworzenie obszaru roboczego
+## <a name="configure"></a>Krok 1: Tworzenie obszaru roboczego (w subskrypcji, która ma sieci wirtualne, połączone z ExpressRoute Circuit(s))
 
-1. W [portalu Azure](https://portal.azure.com), wyszukaj na liście usług w **Marketplace** "Monitor wydajności sieci". Powrotu, kliknij, aby otworzyć **monitora wydajności sieci** strony.
+1. W [portalu Azure](https://portal.azure.com), wybierz subskrypcję, która ma sieci wirtualne połączyć za pomocą do obwodu usługi ExpressRoute. Następnie odszukaj na liście usług w **Marketplace** "Monitor wydajności sieci". Powrotu, kliknij, aby otworzyć **monitora wydajności sieci** strony.
 
   ![portal](.\media\how-to-npm\3.png)<br><br>
 2. W dolnej części głównym **monitora wydajności sieci** kliknij przycisk **Utwórz** otworzyć **sieci monitora wydajności — Utwórz nowe rozwiązanie** strony. Kliknij przycisk **obszarem roboczym pakietu OMS — wybierz obszar roboczy** aby otworzyć stronę obszarów roboczych. Kliknij przycisk **+ Utwórz nowy obszar roboczy** aby otworzyć stronę obszaru roboczego.
@@ -105,7 +105,7 @@ Jeśli korzystasz już z Monitora wydajności sieci do monitorowania innych obie
 
   ![Skrypt programu PowerShell](.\media\how-to-npm\7.png)
 
-### <a name="installagent"></a>2.2: Zainstaluj agenta monitorowania na każdym serwerze monitorowania
+### <a name="installagent"></a>2.2: Zainstaluj agenta monitorowania na każdym serwerze monitorowania (w każdej sieci Wirtualnej, który chcesz monitorować)
 
 Zaleca się zainstalowanie co najmniej dwóch agentów po obu stronach połączenia ExpressRoute (tj. w infrastrukturze lokalnej, sieci wirtualnych platformy Azure) nadmiarowości. Aby zainstalować agentów, wykonaj następujące kroki:
 
@@ -127,6 +127,8 @@ Zaleca się zainstalowanie co najmniej dwóch agentów po obu stronach połącze
 6. Na **gotowy do instalacji** , przejrzyj wybrane opcje, a następnie kliknij przycisk **zainstalować**.
 7. Na stronie **Konfiguracja została zakończona pomyślnie** kliknij przycisk **Zakończ**.
 8. Po zakończeniu programu Microsoft Monitoring Agent pojawi się w Panelu sterowania. Można przejrzeć konfigurację istnieje i sprawdź, czy agent jest podłączony do Operational Insights (OMS). Podczas połączenia z usługą OMS, agent wyświetla komunikat z informacją: **programu Microsoft Monitoring Agent pomyślnie połączył się z usługą Microsoft Operations Management Suite**.
+
+9. Sprawdź Powtórz te czynności dla każdej sieci Wirtualnej, które powinny być monitorowane.
 
 ### <a name="proxy"></a>2.3: Konfigurowanie ustawień serwera proxy (opcjonalnie)
 
@@ -165,7 +167,7 @@ Port 8084 jest domyślnie otwierany. Można użyć niestandardowego numeru portu
 >
 >
 
-Na serwerach agenta Otwórz okno programu PowerShell z uprawnieniami administracyjnymi. Uruchom [EnableRules](https://gallery.technet.microsoft.com/OMS-Network-Performance-04a66634) skrypt programu PowerShell, (który został wcześniej pobrany). Nie należy używać żadnych parametrów.
+Na serwerach agenta Otwórz okno programu PowerShell z uprawnieniami administracyjnymi. Uruchom [EnableRules](https://aka.ms/npmpowershellscript) skrypt programu PowerShell, (który został wcześniej pobrany). Nie należy używać żadnych parametrów.
 
   ![PowerShell_Script](.\media\how-to-npm\script.png)
 
@@ -183,12 +185,7 @@ Aby uzyskać więcej informacji na temat grupy NSG, zobacz [grup zabezpieczeń s
 
 ## <a name="setupmonitor"></a>Krok 4: Konfigurowanie NPM do monitorowania usługi ExpressRoute
 
->[!WARNING]
->Nie kontynuować do momentu swojego obszaru roboczego zostało białej i otrzymasz wiadomość e-mail z potwierdzeniem.
->
->
-
-Po ukończeniu poprzedniej sekcji i sprawdź, czy zostały białej, można skonfigurować monitorowanie.
+Po wykonaniu poprzednich sekcjach, można skonfigurować monitorowanie.
 
 1. Przejdź do monitora wydajności sieci kafelka przeglądu, przechodząc do **wszystkie zasoby** strony, a następnie klikając na białej obszaru roboczego programu NPM.
 

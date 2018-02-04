@@ -3,7 +3,7 @@ title: "Jak używać systemu Windows maszyny Wirtualnej zarządzane usługi toż
 description: "Samouczek przedstawiający sposób użycia systemu Windows maszyny Wirtualnej zarządzane usługi tożsamości (MSI) można uzyskać dostępu do usługi Azure Data Lake Store."
 services: active-directory
 documentationcenter: 
-author: skwan
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: ad9b92f11571b013f371eb36c0676afb3e9e5213
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 367008c41aee6ee31811f7fa7ee4be69120b8851
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Umożliwia dostęp do usługi Azure Data Lake Store Windows wirtualna zarządzane usługi tożsamości (MSI)
 
@@ -77,7 +77,7 @@ W usługi Data Lake Store Utwórz nowy folder i przyznanie uprawnień do odczytu
 2. Kliknij przycisk Data Lake Store, którego chcesz użyć na potrzeby tego samouczka.
 3. Kliknij przycisk **Eksploratora danych** na pasku poleceń.
 4. Wybrano folderu głównego usługi Data Lake Store.  Kliknij przycisk **dostępu** na pasku poleceń.
-5. Kliknij pozycję **Dodaj**.  W **wybierz** wprowadź nazwę maszyny Wirtualnej, na przykład **DevTestVM**.  Kliknij, aby wybrać maszyny Wirtualnej w wynikach wyszukiwania, a następnie kliknij przycisk **wybierz**.
+5. Kliknij pozycję **Add** (Dodaj).  W **wybierz** wprowadź nazwę maszyny Wirtualnej, na przykład **DevTestVM**.  Kliknij, aby wybrać maszyny Wirtualnej w wynikach wyszukiwania, a następnie kliknij przycisk **wybierz**.
 6. Kliknij przycisk **wybierz uprawnienia**.  Wybierz **odczytu** i **Execute**, Dodaj do **ten folder**i Dodaj jako **uprawnienie**.  Kliknij przycisk **OK**.  Uprawnienie powinno być dodane pomyślnie.
 7. Zamknij **dostępu** bloku.
 8. W tym samouczku Utwórz nowy folder.  Kliknij przycisk **nowy Folder** w pasku poleceń, a także pozwalają nowy folder na przykład nazwa **TestFolder**.  Kliknij przycisk **OK**.

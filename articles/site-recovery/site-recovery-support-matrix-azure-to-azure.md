@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 12/08/2017
 ms.author: sujayt
-ms.openlocfilehash: c15583b9420355bb7c35bd107b899c59e80e3741
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 6157ec92433830998c275b3b01b32f25c8d9f758
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Azure Site Recovery macierz obsługi replikacji z platformy Azure na platformie Azure
 
@@ -80,15 +80,15 @@ Poniżej Obsługa dotyczy dowolne obciążenia uruchomione na wymienione systemu
 
 #### <a name="linux"></a>Linux
 
-- Red Hat Enterprise Linux 6.7, 6.8, 6,9, 7.0, 7.1, 7.2, 7.3,7.4
-- CentOS 6.5, 6.6, 6.7, 6.8, 6,9, 7.0, 7.1, 7.2, 7.3,7.4
+- Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3,7.4
+- CentOS 6.5, 6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3,7.4
 - Ubuntu 14.04 LTS Server [ (obsługiwane wersje jądra)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Ubuntu 16.04 LTS Server [ (obsługiwane wersje jądra)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Debian 7
 - Debian 8
 - Oracle Linux przedsiębiorstwa 6.4, 6.5 systemem Red Hat jądra zgodny lub podzielenie Enterprise jądra wersji 3 (UEK3)
-- SUSE Linux Enterprise Server 11 z dodatkiem SP3
-- SUSE Linux Enterprise Server 11 z dodatkiem SP4
+- SUSE Linux Enterprise Server 11 SP3
+- SUSE Linux Enterprise Server 11 SP4
 
 (Uaktualnienie replikowanie maszyn z SLES 11 z dodatkiem SP3 do SLES 11 z dodatkiem SP4 nie jest obsługiwane. Jeśli zreplikowanej maszyny został uaktualniony z SLES 11SP3 do SLES 11 z dodatkiem SP4, należy wyłączyć replikację i chronić komputer ponownie post uaktualnienia.)
 
@@ -124,10 +124,10 @@ Można replikować i odzyskiwania maszyn wirtualnych między żadnych dwóch reg
 Ameryka | Kanada Wschodnia, środkowe stany USA Kanada centralnej, Południowej, zachodnie środkowe stany USA, wschodnie stany USA, wschodnie stany USA 2, zachodnie stany USA, zachodnie stany USA 2, środkowe stany USA, północno środkowe stany USA
 Europa | Wielka Brytania Zachodnia, Wielka Brytania Południowa, Europa Północna, Europa Zachodnia
 Azja | Indie Południowa, Indie środkowe, Azja południowo-wschodnia, Azja Wschodnia, Japonia Wschodnia, Japonia Zachodnia, Korea środkowe, Korea południe
-Australia   | Australia Wschodnia, Australia południowo-wschodnia
+Australia   | Australia East, Australia Southeast
 Azure Government    | Virginia wersji dla instytucji rządowych USA, Iowa wersji dla instytucji rządowych USA, Arizona wersji dla instytucji rządowych USA, Texas wersji dla instytucji rządowych USA, wschód DOD USA, środkowe stany USA DOD
 Niemcy | Niemcy środkowe, Niemcy północno-wschodnie
-Chiny | Wschodnia Chin, Chiny Północna
+Chiny | China East, China North
 
 >[!NOTE]
 >
@@ -154,8 +154,8 @@ Migracja maszyn wirtualnych przy użyciu usługi Site Recovery | Obsługiwane | 
 Maksymalny rozmiar dysku systemu operacyjnego | 2048 GB | Zapoznaj się [dysków używanych przez maszyny wirtualne.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
 Rozmiar dysku danych maksymalna | 4095 GB | Zapoznaj się [dysków używanych przez maszyny wirtualne.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
 Liczba dysków z danymi | Maksymalnie 64 obsługiwana przez określony rozmiar maszyny Wirtualnej Azure | Zapoznaj się [rozmiary maszyny wirtualnej platformy Azure](../virtual-machines/windows/sizes.md)
-Tymczasowe dysku | Zawsze wyłączone z replikacji | Dysku tymczasowym został wykluczony z replikacji zawsze. Nie należy umieszczać żadnych danych na dysku tymczasowym zgodnie z harmonogramem wskazówki platformy Azure. Zapoznaj się [dysku tymczasowym na maszynach wirtualnych Azure](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk) więcej szczegółów.
-Częstotliwość zmian danych na dysku | Maksymalna liczba 6 MB/s na dysk | Zmiana średni współczynnik na dysk jest stale poza 6 MB/s, replikacji nie będzie przechwytywać w. Jeśli jest serii danych okazjonalne i częstotliwości zmian danych jest większa niż 6 MB/s przez pewien czas i zawiera, replikacja będzie przechwytywać. W takim przypadku można napotkać punktów odzyskiwania nieco opóźnione.
+Tymczasowe dysku | Zawsze wyłączone z replikacji | Dysku tymczasowym został wykluczony z replikacji zawsze. Nie należy umieszczać żadnych danych na dysku tymczasowym zgodnie z harmonogramem nce guida platformy Azure. Zapoznaj się [dysku tymczasowym na maszynach wirtualnych Azure](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk) więcej szczegółów.
+Częstotliwość zmian danych na dysku | Maksymalnie 10 MB/s na dysku dla usługi Premium storage i 2 MB/s dla każdego dysku do magazynu w warstwie standardowa | Częstotliwość zmian uśrednianie danych na dysku jest ponad 10 MB/s (dla Premium) i 2 MB/s (standardu) stale, replikacji nie będzie przechwytywać. Jeśli jest serii danych okazjonalne i częstotliwości zmian danych jest większa niż 10 MB/s (w przypadku Premium) i 2 MB/s (standardu) przez pewien czas i zawiera, replikacja będzie przechwytywać. W takim przypadku można napotkać punktów odzyskiwania nieco opóźnione.
 Dyski na kontach magazynu w warstwie standardowa | Obsługiwane |
 Dyski na kontach magazynu w warstwie premium | Obsługiwane | Jeśli maszyna wirtualna zawiera dyski rozmieszczenie do konta magazynu w warstwie standardowa i premium, możesz wybrać inny element docelowy konta magazynu dla każdego dysku upewnić się, czy masz taką samą konfigurację magazynu w docelowym regionie
 Dyski standardowe zarządzane | Nieobsługiwane |  
@@ -170,7 +170,7 @@ GRS | Obsługiwane |
 RA-GRS | Obsługiwane |
 ZRS | Nieobsługiwane |  
 Chłodny i gorących magazynu | Nieobsługiwane | Dyski maszyny wirtualnej nie są obsługiwane na magazynu chłodnego i gorących
-Wirtualne sieci punktów końcowych usług (Azure Storage zapory i sieci wirtualne)  | Nie | Zezwalanie na dostęp do określonych sieci wirtualnych platformy Azure na kontach magazynu pamięci podręcznej używany do przechowywania replikowanych danych nie jest obsługiwane. 
+Wirtualne sieci punktów końcowych usług (Azure Storage zapory i sieci wirtualne)  | Nie | Zezwalanie na dostęp do określonych sieci wirtualnych platformy Azure na kontach magazynu pamięci podręcznej używany do przechowywania replikowanych danych nie jest obsługiwane.
 Konta magazynu ogólnego przeznaczenia V2 (zarówno gorącego i chłodnej warstwy) | Nie | Zwiększenie kosztów transakcji znacznie w porównaniu do ogólnego przeznaczenia V1 kont magazynu
 
 >[!IMPORTANT]
@@ -187,7 +187,7 @@ Grupa NSG w karcie Sieciowej (Resource Manager)| Obsługiwane | Musisz skojarzy�
 NSG podsieci (Resource Manager i model klasyczny)| Obsługiwane | Musisz skojarzyć grupę NSG z kartą sieciową w planie odzyskiwania przy użyciu skryptu automatyzacji azure.
 Grupy NSG na maszynie Wirtualnej (klasyczne)| Obsługiwane | Musisz skojarzyć grupę NSG z kartą sieciową w planie odzyskiwania przy użyciu skryptu automatyzacji azure.
 Zastrzeżony adres IP (statyczny adres IP) / zachować źródłowy adres IP | Obsługiwane | Jeśli karty interfejsu Sieciowego na źródłowej maszyny Wirtualnej ma konfiguracji statycznych adresów IP i podsieci docelowej ma tego samego adresu IP dostępne, jest przypisany do trybu failover maszyny Wirtualnej. Jeśli w podsieci docelowej nie ma tego samego adresu IP dostępne, jeden z dostępnych adresów IP w podsieci jest zarezerwowany dla tej maszyny Wirtualnej. Można określić stałego adresu IP w wybranym "elementu zreplikowane > Ustawienia > obliczenia i sieć > interfejsów sieciowych. Można wybrać kartę Sieciową i podaj podsieć lub adres IP wybranego.
-Dynamicznego adresu IP| Obsługiwane | Jeśli karta sieciowa na źródłowej maszyny Wirtualnej ma dynamicznej konfiguracji IP, karty Sieciowej w tryb failover maszyny Wirtualnej jest również dynamiczne domyślnie. Można określić stałego adresu IP w wybranym "elementu zreplikowane > Ustawienia > obliczenia i sieć > interfejsów sieciowych. Można wybrać kartę Sieciową i podaj podsieć lub adres IP wybranego.
+Dynamic IP| Obsługiwane | Jeśli karta sieciowa na źródłowej maszyny Wirtualnej ma dynamicznej konfiguracji IP, karty Sieciowej w tryb failover maszyny Wirtualnej jest również dynamiczne domyślnie. Można określić stałego adresu IP w wybranym "elementu zreplikowane > Ustawienia > obliczenia i sieć > interfejsów sieciowych. Można wybrać kartę Sieciową i podaj podsieć lub adres IP wybranego.
 Integracja z usługą Traffic Manager | Obsługiwane | Można wstępnie skonfigurować Menedżera ruchu w taki sposób, że ruch jest kierowany do punktu końcowego w regionie źródłowym w sposób regularny do punktu końcowego w region docelowy w przypadku trybu failover.
 Azure zarządzanych DNS | Obsługiwane |
 Niestandardowe DNS  | Obsługiwane |    

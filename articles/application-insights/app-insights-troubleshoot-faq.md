@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 9f6cf019d681ce6e844481ca58de1ff472b3d32c
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: ed10b364a809c519fe9fe49e019df22598b8c04e
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Usługa Application Insights: Często zadawane pytania
 
@@ -69,7 +69,7 @@ Szczegóły są zależne od typu projektu. Dla aplikacji sieci web:
 * Dodaje te pliki do projektu:
 
   * ApplicationInsights.config.
-  * AI.js
+  * ai.js
 * Instaluje te pakiety NuGet:
 
   * *Interfejsu API usługi Application Insights* -core API
@@ -82,7 +82,7 @@ Szczegóły są zależne od typu projektu. Dla aplikacji sieci web:
 * Wstawia elementy do:
 
   * Web.config
-  * pliku Packages.config
+  * packages.config
 * (Nowe projekty tylko — jeśli możesz [dodać usługi Application Insights do istniejącego projektu][start], należy to zrobić ręcznie.) Wstawia wstawki kodu klienta i serwera zainicjować o identyfikatorze zasobu usługi Application Insights. Na przykład w aplikacji MVC kodu zostaną wstawione do strony głównej Views/Shared/_Layout.cshtml
 
 ## <a name="how-do-i-upgrade-from-older-sdk-versions"></a>Jak uaktualnić ze starszych wersji zestawu SDK?
@@ -152,7 +152,7 @@ Spójrz na [przechowywanie danych i ochrona prywatności][data].
 
 Jest to możliwe, jeśli takie dane są wysyłane kodu. Możliwe również, czy zmienne w śladów stosu zawierają dane osobowe. Zespół deweloperów należy przeprowadzić ocenę ryzyka, aby upewnić się, czy dane osobowe poprawną obsługę. [Dowiedz się więcej o przechowywanie danych i ochrony prywatności](app-insights-data-retention-privacy.md).
 
-Ostatni oktet adres sieci web klienta jest zawsze równa 0 po wprowadzanie przez portal.
+**Wszystkie** oktety adresu internetowego klient zawsze są ustawione na 0, po atrybuty lokalizacji geo są wyszukiwane.
 
 ## <a name="my-ikey-is-visible-in-my-web-page-source"></a>Moje iKey jest widoczna w źródle strony sieci web. 
 

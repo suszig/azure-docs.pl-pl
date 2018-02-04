@@ -6,21 +6,22 @@ documentationcenter:
 author: MarkusVi
 manager: mtillman
 editor: 
-featureFlags: clicktale
+featureFlags:
+- clicktale
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/01/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f32fc2d2df73f4a01c300d565595e2c00b2baf4b
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 34826332db2e63d442d47ada74fcbad4cad600ae
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Nowości w usłudze Azure Active Directory
 
@@ -74,7 +75,7 @@ Wgląd w informacje o uzyskać zdarzenie wykryte zagrożenie jest powiązany z s
 
 Z wersji Azure AD Premium P1 wykryć, które nie są objęte licencję są wyświetlane jako zdarzenie ryzyka logowania z dodatkowe zagrożenie wykrywane.
 
-Aby uzyskać więcej informacji, zobacz [Zdarzenia o podwyższonym ryzyku w usłudze Azure Active Directory](active-directory-reporting-risk-events.md).
+Aby uzyskać więcej informacji, zobacz [Zdarzenia o podwyższonym ryzyku w usłudze Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events).
  
 
 ---
@@ -89,7 +90,7 @@ Aby uzyskać więcej informacji, zobacz [Zdarzenia o podwyższonym ryzyku w usł
 Można teraz lepiej zarządzać jak aplikacje pakietu Office 365 widoczne na panele dostępu użytkownika przy użyciu nowego ustawienia użytkownika. Ta opcja jest przydatna dla ograniczenie liczby aplikacji w panele dostępu użytkownika, jeśli wolisz Pokaż tylko aplikacje pakietu Office w portalu usługi Office. To ustawienie znajduje się w **ustawienia użytkownika** i nosi nazwę **użytkownicy widzą tylko aplikacje usługi Office 365 w portalu usługi Office 365**.
  
 
-Aby uzyskać więcej informacji, zobacz [Ukryj aplikację za pomocą środowiska użytkownika w usłudze Azure Active Directory](active-directory-coreapps-hide-third-party-app.md).
+Aby uzyskać więcej informacji, zobacz [Ukryj aplikację za pomocą środowiska użytkownika w usłudze Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-hide-third-party-app).
 
 ---
  
@@ -109,7 +110,7 @@ Moje aplikacje rozszerzenia przeglądarki jest teraz dostępna za pośrednictwem
 - Skróty do ostatnio używanych aplikacji z rozszerzenia
 - Rozszerzenie jest dostępny na krawędzi, Chrome i Firefox.
  
-Aby uzyskać więcej informacji, zobacz [Moje aplikacje bezpiecznego logowania rozszerzenia](active-directory-saas-access-panel-introduction.md#my-apps-secure-sign-in-extension).
+Aby uzyskać więcej informacji, zobacz [Moje aplikacje bezpiecznego logowania rozszerzenia](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction#my-apps-secure-sign-in-extension).
 
 ---
 
@@ -154,9 +155,9 @@ W ramach przejścia do nowej konsoli administracyjnej wprowadzono 2 nowych inter
 
 Aby uzyskać więcej informacji, zobacz:
 
-- [Wprowadzenie do usługi Azure Active Directory raportowania interfejsu API](active-directory-reporting-api-getting-started-azure-portal.md)
+- [Wprowadzenie do usługi Azure Active Directory raportowania interfejsu API](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal)
 
-- [Wprowadzenie do usługi Azure Active Directory Identity Protection oraz Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
+- [Wprowadzenie do usługi Azure Active Directory Identity Protection oraz Microsoft Graph](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-graph-getting-started)
 
 
 ---
@@ -226,7 +227,7 @@ Opcja dla administratorów wymaga użytkownikom rozwinąć warunki użytkowania,
 
 Wybierz opcję **na** lub **poza** aby wymagać od użytkowników rozwinąć warunki użytkowania. **Na** użytkownikom na wyświetlanie warunki użytkowania, przed rozpoczęciem akceptowania ich wymaga ustawienia.
 
-Aby uzyskać więcej informacji, zobacz [warunki usługi Azure AD, użyj funkcji (wersja zapoznawcza)](active-directory-tou.md).
+Aby uzyskać więcej informacji, zobacz [warunki usługi Azure AD, użyj funkcji (wersja zapoznawcza)](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
  
 ---
  
@@ -239,7 +240,7 @@ Aby uzyskać więcej informacji, zobacz [warunki usługi Azure AD, użyj funkcji
  
 Do aktywowania przypisań ról kwalifikujących się zasobów platformy Azure z mniej niezależność od oryginalnej wartości domyślnych przydziału można użyć aktywacji zakresami. Przykładem jest, jeśli jest przypisany właściciel subskrypcji w dzierżawie. Z zakresie aktywacji można aktywować rolę właściciela zasobów do pięciu zawartych w subskrypcji (takie jak grupy zasobów i maszyn wirtualnych). Określania zakresu proces aktywacji może zmniejszyć prawdopodobieństwo wystąpienia wykonywania niepożądanych zmian do kluczowych zasobów platformy Azure.
 
-Aby uzyskać więcej informacji, zobacz [co to jest usługa Azure AD Privileged Identity Management?](active-directory-privileged-identity-management-configure.md).
+Aby uzyskać więcej informacji, zobacz [co to jest usługa Azure AD Privileged Identity Management?](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure).
  
 ---
  
@@ -342,7 +343,7 @@ Obecnie dostęp będzie zablokowany, korzystając z tego warunku. Gdy Podgląd j
 
 Poszukaj tej możliwości i dodatkowe informacje w nadchodzących blogi i release notes. 
 
-Aby uzyskać więcej informacji, zobacz [dostępu warunkowego w usłudze Azure AD](active-directory-conditional-access-azure-portal.md).
+Aby uzyskać więcej informacji, zobacz [dostępu warunkowego w usłudze Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal).
 
  
 ---
@@ -357,7 +358,7 @@ Aby uzyskać więcej informacji, zobacz [dostępu warunkowego w usłudze Azure A
 
 
 
-Następujące aplikacje są planowane do dodania do listy [zatwierdzonych aplikacji klienta](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement):
+Następujące aplikacje są planowane do dodania do listy [zatwierdzonych aplikacji klienta](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement):
 
 - [Microsoft Kaizala](https://www.microsoft.com/garage/profiles/kaizala/)
 - [Microsoft StaffHub](https://staffhub.office.com/what-it-is)
@@ -365,8 +366,8 @@ Następujące aplikacje są planowane do dodania do listy [zatwierdzonych aplika
 
 Aby uzyskać więcej informacji, zobacz:
 
-- [Wymagania aplikacji zatwierdzonych klienta](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement)
-- [Azure AD na podstawie aplikacji dostępu warunkowego](active-directory-conditional-access-mam.md)
+- [Wymagania aplikacji zatwierdzonych klienta](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
+- [Azure AD na podstawie aplikacji dostępu warunkowego](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
 
 
 ---
@@ -408,7 +409,7 @@ Jeśli występują problemy z połączeniem klienta lokalnego zapisywania zwrotn
 - Łącze do dokumentacji, która pomaga w rozwiązaniu problemu. 
 
 
-Aby uzyskać więcej informacji, zobacz [integracji lokalnego](active-directory-passwords-how-it-works.md#on-premises-integration).
+Aby uzyskać więcej informacji, zobacz [integracji lokalnego](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-how-it-works#on-premises-integration).
 
  
 ---
@@ -427,9 +428,9 @@ Aby uzyskać więcej informacji, zobacz [integracji lokalnego](active-directory-
 
 
 
-Teraz można ograniczyć dostęp do innych aplikacji chmury Azure połączone AD i Office 365 [zatwierdzonych aplikacji klienta](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) obsługujących zasad ochrony aplikacji usługi Intune przy użyciu [dostępu warunkowego na podstawie aplikacji usługi Azure AD](active-directory-conditional-access-mam.md). Zasady ochrony aplikacji usługi Intune służą do konfigurowania i ochrony danych firmy na tych aplikacji klienckich.
+Teraz można ograniczyć dostęp do innych aplikacji chmury Azure połączone AD i Office 365 [zatwierdzonych aplikacji klienta](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement) obsługujących zasad ochrony aplikacji usługi Intune przy użyciu [dostępu warunkowego na podstawie aplikacji usługi Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam). Zasady ochrony aplikacji usługi Intune służą do konfigurowania i ochrony danych firmy na tych aplikacji klienckich.
 
-Łącząc [aplikacji na podstawie](active-directory-conditional-access-mam.md) z [oparta na urządzeniach](active-directory-conditional-access-policy-connected-applications.md) zasady dostępu warunkowego, masz możliwość ochrony danych osobistych i firmowych urządzeń.
+Łącząc [aplikacji na podstawie](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam) z [oparta na urządzeniach](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications) zasady dostępu warunkowego, masz możliwość ochrony danych osobistych i firmowych urządzeń.
 
 Poniższe warunki i formanty są teraz dostępne do użycia z dostępu warunkowego opartego na aplikacji:
 
@@ -447,7 +448,7 @@ Poniższe warunki i formanty są teraz dostępne do użycia z dostępu warunkowe
 - Wymagaj zatwierdzonej aplikacji klienckiej
 
 
-Aby uzyskać więcej informacji, zobacz [dostępu warunkowego na podstawie aplikacji usługi Azure AD](active-directory-conditional-access-mam.md).
+Aby uzyskać więcej informacji, zobacz [dostępu warunkowego na podstawie aplikacji usługi Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam).
 
  
 ---
@@ -471,7 +472,7 @@ Teraz można znaleźć wszystkie urządzenia podłączone do usługi Azure AD i 
 - Znajdowanie kluczy funkcji BitLocker dla urządzeń przyłączonych do usługi AD platformy Azure, zarządzać urządzenie z usługi Intune i inne.
 - Zarządzaj ustawieniami związanymi z urządzenia usługi Azure AD.
 
-Aby uzyskać więcej informacji, zobacz [zarządzania urządzeniami za pomocą portalu Azure](device-management-azure-portal.md).
+Aby uzyskać więcej informacji, zobacz [zarządzania urządzeniami za pomocą portalu Azure](https://docs.microsoft.com/azure/active-directory/device-management-azure-portal).
 
 
 
@@ -496,7 +497,7 @@ Teraz można uwzględnić (lub wykluczyć) macOS jako warunek platformy urządze
 Aby uzyskać więcej informacji, zobacz:
 
 - [Tworzenie zasad zgodności urządzeń dla urządzeń macOS przy użyciu usługi Intune](https://aka.ms/macoscompliancepolicy)
-- [Dostęp warunkowy w usłudze Azure AD](active-directory-conditional-access-azure-portal.md)
+- [Dostęp warunkowy w usłudze Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
 
 
  
@@ -517,7 +518,7 @@ Rozszerzenia serwera zasad sieciowych, uwierzytelnianie wieloskładnikowe Azure 
 To rozszerzenie został utworzony dla organizacji, które chcesz chronić połączenia sieci VPN bez wdrażania serwera usługi Azure Multi-Factor Authentication. Serwer zasad sieciowych, które rozszerzenia działa jako karta między usługi RADIUS i oparte na chmurze usługi Azure Multi-Factor Authentication, aby zapewnić drugi składnik uwierzytelniania federacyjnego lub zsynchronizowanych użytkowników.
 
 
-Aby uzyskać więcej informacji, zobacz [integracji istniejącej infrastrukturze serwera zasad sieciowych z usługi Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-nps-extension.md).
+Aby uzyskać więcej informacji, zobacz [integracji istniejącej infrastrukturze serwera zasad sieciowych z usługi Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-nps-extension).
 
  
 ---
@@ -556,7 +557,7 @@ W Centrum administracyjnym usługi Azure AD można teraz:
 **Możliwości produktu:** tożsamości zabezpieczenia i ochrona
 
 
-Następujące aplikacje zostały dodane do listy [zatwierdzonych aplikacji klienta](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement):
+Następujące aplikacje zostały dodane do listy [zatwierdzonych aplikacji klienta](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement):
 
 - Microsoft Planner
 - Azure Information Protection 
@@ -564,8 +565,8 @@ Następujące aplikacje zostały dodane do listy [zatwierdzonych aplikacji klien
 
 Aby uzyskać więcej informacji, zobacz:
 
-- [Wymagania aplikacji zatwierdzonych klienta](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement)
-- [Azure AD na podstawie aplikacji dostępu warunkowego](active-directory-conditional-access-mam.md)
+- [Wymagania aplikacji zatwierdzonych klienta](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
+- [Azure AD na podstawie aplikacji dostępu warunkowego](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
 
 
 ---
@@ -580,7 +581,7 @@ Aby uzyskać więcej informacji, zobacz:
  
 Możesz teraz użyć "lub" (wymagają wybranych formantów) kontroli dostępu warunkowego. Ta funkcja służy do tworzenia zasad z "lub" między kontroli dostępu. Na przykład służy tej funkcji można utworzyć zasadę, która wymaga od użytkownika, zaloguj się przy użyciu usługi Multi-Factor authentication "lub" na zgodnych urządzeniach.
 
-Aby uzyskać więcej informacji, zobacz [kontroli dostępu warunkowego dla usługi Azure AD](active-directory-conditional-access-controls.md).
+Aby uzyskać więcej informacji, zobacz [kontroli dostępu warunkowego dla usługi Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-controls).
 
  
 ---
@@ -634,7 +635,7 @@ Z powodu nowych funkcji raport interfejsów API w punkcie końcowym/Reports zost
 
 
 
-Usługi Azure AD obsługuje wykrywanie pola automatycznego logowania dla aplikacji, które renderują pola nazwy i hasła użytkownika HTML. Te kroki są udokumentowane w artykule [automatycznie Przechwytywanie pola logowania dla aplikacji](application-config-sso-problem-configure-password-sso-non-gallery.md#how-to-manually-capture-sign-in-fields-for-an-application). Tej funkcji można znaleźć, dodając *Non-galerii* aplikację na **aplikacje dla przedsiębiorstw** strony [portalu Azure](http://aad.portal.azure.com). Ponadto można skonfigurować **rejestracji jednokrotnej** tryb tej nowej aplikacji do **opartego na hasłach rejestracji jednokrotnej**, wprowadź adres URL sieci web, a następnie Zapisz strony.
+Usługi Azure AD obsługuje wykrywanie pola automatycznego logowania dla aplikacji, które renderują pola nazwy i hasła użytkownika HTML. Te kroki są udokumentowane w artykule [automatycznie Przechwytywanie pola logowania dla aplikacji](https://docs.microsoft.com/azure/active-directory/application-config-sso-problem-configure-password-sso-non-gallery#how-to-manually-capture-sign-in-fields-for-an-application). Tej funkcji można znaleźć, dodając *Non-galerii* aplikację na **aplikacje dla przedsiębiorstw** strony [portalu Azure](http://aad.portal.azure.com). Ponadto można skonfigurować **rejestracji jednokrotnej** tryb tej nowej aplikacji do **opartego na hasłach rejestracji jednokrotnej**, wprowadź adres URL sieci web, a następnie Zapisz strony.
  
 Ze względu na problem dotyczący usługi został tymczasowo wyłączyć tej funkcji. Problem został rozwiązany i wykrywanie automatyczne logowanie pole jest dostępne ponownie.
 
@@ -656,7 +657,7 @@ Uwierzytelnianie wieloskładnikowe (MFA) jest integralną część ochrony Twoje
 
 Z publicznej wersji zapoznawczej MFA zarządzania i raportowania są integralną częścią środowisko konfiguracji podstawowej usługi Azure AD. Teraz można zarządzać funkcje portalu zarządzania usługi MFA w ramach obsługi usługi Azure AD.
 
-Aby uzyskać więcej informacji, zobacz [dokumentacja dotycząca raportowania usługi MFA w portalu Azure](active-directory-reporting-activity-sign-ins-mfa.md). 
+Aby uzyskać więcej informacji, zobacz [dokumentacja dotycząca raportowania usługi MFA w portalu Azure](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-sign-ins-mfa). 
 
 
 ---
@@ -679,7 +680,7 @@ Warunki użytkowania usługi Azure AD można użyć w następujących scenariusz
 - Określone warunki użytkowania na podstawie atrybutów użytkownika (na przykład lekarzy a pielęgniarek) lub domowych a międzynarodowych pracowników, programach grup dynamicznych
 - Dostęp do aplikacji biznesowych o dużym znaczeniu, takie jak Salesforce określone warunki użytkowania
 
-Aby uzyskać więcej informacji, zobacz [warunki użytkowania usługi Azure AD](active-directory-tou.md).
+Aby uzyskać więcej informacji, zobacz [warunki użytkowania usługi Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
 
 
 ---
@@ -700,7 +701,7 @@ Azure AD Privileged Identity Management możesz zarządzanie, sterowanie i monit
 
 Wszystkie zasoby w portalu Azure, korzystających z funkcji Azure RBAC można korzystać z zabezpieczeń i możliwości zarządzania cyklem życia dostępnych Azure AD Privileged Identity Management.
 
-Aby uzyskać więcej informacji, zobacz [Privileged Identity Management zasobów Azure](privileged-identity-management/azure-pim-resource-rbac.md).
+Aby uzyskać więcej informacji, zobacz [Privileged Identity Management zasobów Azure](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-pim-resource-rbac).
 
 
 ---
@@ -721,7 +722,7 @@ Organizacje umożliwia efektywne zarządzanie członkostwa w grupach i uzyskiwan
 
 Kontrole z przeglądem dostępu można łączyć w programy odpowiednie dla danej organizacji, aby śledzić przeglądy dla aplikacji dotyczących zgodności lub aplikacji narażonych na ryzyko.
 
-Aby uzyskać więcej informacji, zobacz [sprawdza dostęp do usługi Azure AD](active-directory-azure-ad-controls-access-reviews-overview.md).
+Aby uzyskać więcej informacji, zobacz [sprawdza dostęp do usługi Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-azure-ad-controls-access-reviews-overview).
 
 
 ---
@@ -738,7 +739,7 @@ Aby uzyskać więcej informacji, zobacz [sprawdza dostęp do usługi Azure AD](a
 
 Teraz można lepiej zarządzać aplikacje, które są widoczne dla portali użytkowników za pomocą nowej **Ukryj aplikacji** właściwości. Aplikacje, aby pomóc w przypadkach, gdy kafelków aplikacji wyświetlane dla usług zaplecza lub zduplikowanych fragmentów i przyciski Uruchom aplikacji użytkownicy bałaganu można ukryć. Przełącznik jest **właściwości** części aplikacji innych producentów i etykietą **widoczny dla użytkownika?** Można również ukryć aplikacji programowo przy użyciu programu PowerShell. 
 
-Aby uzyskać więcej informacji, zobacz [ukrywanie aplikacji innych producentów, od środowiska użytkownika w usłudze Azure AD](active-directory-coreapps-hide-third-party-app.md). 
+Aby uzyskać więcej informacji, zobacz [ukrywanie aplikacji innych producentów, od środowiska użytkownika w usłudze Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-hide-third-party-app). 
 
 
 **Co to jest dostępny?**

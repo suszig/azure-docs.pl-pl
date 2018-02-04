@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: robb,bwren
-ms.openlocfilehash: ffd9a6f75a549b246a04adc5480e988b1622c5ca
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3ab7d2d5c3b95d215f3ee9eb9346e8a7895e734c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>Monitorowanie aplikacji platformy Azure i zasobów
 
 Monitorowanie jest czynnością zbierania i analizowania danych w celu ustalenia wydajności, kondycji i dostępności aplikacji biznesowych i zasobów, od których zależy. Strategia monitorowania skuteczne pomoże poznać szczegółowe funkcjonowanie poszczególnych składników aplikacji i zwiększenia Twojej pracy aktywnego informujący poważnych problemów, dzięki czemu można je rozwiązać, zanim wystąpią problemy.
 
-Azure zawiera wiele usług, które indywidualnie wykonania określonych ról i zadań w obszarze monitorowania i jednocześnie dostarczyć kompleksowe rozwiązanie umożliwiające obsługę zbierania, analizowanie i działające na dane telemetryczne z aplikacji i zasobów platformy Azure Obsługa.  Może również współpracować do monitorowania kluczowych zasobów lokalnych w celu zapewnienia hybrydowego monitorowania środowiska.   Opis narzędzi i dane, które są dostępne jest pierwszym etapem opracowanie pełnej strategii monitorowania aplikacji. 
+Azure zawiera wiele usług, które indywidualnie wykonania określonych ról i zadań w obszarze monitorowania i jednocześnie dostarczyć kompleksowe rozwiązanie umożliwiające obsługę zbierania, analizowanie i działające na dane telemetryczne z aplikacji i zasobów platformy Azure Obsługa.  Może również współpracować do monitorowania zasobów lokalnych krytyczne zapewnić monitorowanie środowiska hybrydowego.   Opis narzędzi i dane, które są dostępne jest pierwszym etapem opracowanie pełnej strategii monitorowania aplikacji. 
 
 Na poniższym diagramie przedstawiono koncepcję różne składniki, które współpracują ze sobą, aby zapewnić monitorowanie zasobów platformy Azure.  Każdy z tych jest opisane w poniższych sekcjach linki do szczegółowych informacji technicznych.
 

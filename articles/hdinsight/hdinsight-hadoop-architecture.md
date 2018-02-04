@@ -16,20 +16,18 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/19/2018
 ms.author: ashishth
-ms.openlocfilehash: 85383cc32e67db1f7e6964dc0b55bf3977311d40
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 49277871026e79b871b0216c05e051a1c93336b3
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="hadoop-architecture-in-hdinsight"></a>Architektura platformy Hadoop w usłudze HDInsight
+# <a name="hadoop-architecture-in-hdinsight"></a>Architektura usługi Hadoop w usłudze HDInsight
 
 Hadoop obejmuje dwa podstawowe składniki, wysokiej gęstości pliku System (HDFS), która umożliwia przechowywanie i jeszcze inny zasób moduł negocjowania (YARN) zapewniający przetwarzania. O możliwości przechowywania i przetwarzania klastra staje się możliwe uruchamianie programów MapReduce, aby wykonać żądaną przetwarzania danych.
 
 > [!NOTE]
-> System plików HDFS nie są zwykle wdrażane w ramach klastra usługi HDInsight w celu zapewnienia magazynu. Zamiast tego warstwy interfejsu zgodnego systemem plików HDFS jest używany przez składniki platformy Hadoop. Możliwość przechowywania są udostępniane przez usługi Azure Storage lub usługi Azure Data Lake Store. Dla platformy Hadoop zadań MapReduce wykonywania w klastrze usługi HDInsight Uruchom tak, jakby był obecny system plików HDFS i dlatego nie wymagają żadnych zmian do obsługi ich wymagania dotyczące magazynu. W Hadoop w usłudze HDInsight jest zewnętrzna Usługa magazynu, ale przetwarzanie YARN pozostaje podstawowym składnikiem. 
-
-<!--   As described in [HDInsight architecture](hdinsight-architecture.md)  -->
+> System plików HDFS nie są zwykle wdrażane w ramach klastra usługi HDInsight w celu zapewnienia magazynu. Zamiast tego warstwy interfejsu zgodnego systemem plików HDFS jest używany przez składniki platformy Hadoop. Możliwość przechowywania są udostępniane przez usługi Azure Storage lub usługi Azure Data Lake Store. Dla platformy Hadoop zadań MapReduce wykonywania w klastrze usługi HDInsight Uruchom tak, jakby był obecny system plików HDFS i dlatego nie wymagają żadnych zmian do obsługi ich wymagania dotyczące magazynu. W Hadoop w usłudze HDInsight jest zewnętrzna Usługa magazynu, ale przetwarzanie YARN pozostaje podstawowym składnikiem. Aby uzyskać więcej informacji, zobacz [wprowadzenie do usługi Azure HDInsight](hadoop/apache-hadoop-introduction.md).
 
 W tym artykule przedstawiono YARN i sposobu jego koordynuje wykonywania aplikacji w usłudze HDInsight.
 
@@ -56,8 +54,7 @@ Wszystkie typy klastrów usługi HDInsight wdrożyć YARN. ResourceManager jest 
 
 ![YARN w usłudze HDInsight](./media/hdinsight-hadoop-architecture/yarn-on-hdinsight.png)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Korzystać z usługi MapReduce w Hadoop w usłudze HDInsight](hadoop/hdinsight-use-mapreduce.md)
-
-<!--  * [HDInsight Architecture](hdinsight-architecture.md)  -->
+* [Wprowadzenie do usługi Azure HDInsight](hadoop/apache-hadoop-introduction.md)
