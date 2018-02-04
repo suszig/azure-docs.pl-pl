@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 02/02/2018
 ms.author: jingwang
-ms.openlocfilehash: 4d9a87f244501b91c60a895f0e16d0c979163444
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 88d71510c1d966c3250891eb9a430503959a91ba
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Kopiowanie danych z programu Sybase przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,7 +35,7 @@ Możesz skopiować dane z bazy danych programu Sybase do żadnych obsługiwanych
 
 W szczególności ten łącznik programu Sybase obsługuje:
 
-- Sybase **wersji 16 i powyżej**.
+- SAP Sybase SQL dowolnego miejsca (ASA) **wersji 16 i powyżej**; IQ i ASE nie są obsługiwane.
 - Kopiowanie danych przy użyciu **podstawowe** lub **Windows** uwierzytelniania.
 
 ## <a name="prerequisites"></a>Wymagania wstępne

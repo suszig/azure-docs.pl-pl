@@ -13,13 +13,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/07/2017
+ms.date: 01/31/2018
 ms.author: larryfr
-ms.openlocfilehash: 50a22877241c77ccb1a7df24ab7df006094a439f
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 866dd3abbcca12413d0e02651826365166db616f
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-apache-kafka-with-storm-on-hdinsight"></a>Używających Apache Kafka Storm w usłudze HDInsight
 
@@ -70,7 +70,7 @@ Podczas tworzenia sieci wirtualnej platformy Azure, Kafka, i ręcznie klastrów 
    
     Szablon usługi Azure Resource Manager znajduje się pod adresem **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-storm-cluster-in-vnet-v2.json**. Tworzy następujące zasoby:
     
-    * Grupy zasobów platformy Azure
+    * Grupa zasobów platformy Azure
     * Azure Virtual Network
     * Konto usługi Azure Storage
     * Kafka w usłudze HDInsight w wersji 3,6 (trzech węzłów procesu roboczego)
@@ -119,7 +119,7 @@ Ten projekt zawiera dwie topologie:
 * **KafkaReader**: zdefiniowane przez **reader.yaml** plik, ta topologia odczytuje dane z Kafka przy użyciu KafkaSpout dostarczane z systemu Apache Storm, a następnie rejestruje dane do stdout.
 
     Ta topologia używa Storm HdfsBolt do zapisu danych do magazynu domyślnego dla klastra Storm.
-### <a name="flux"></a>Strumień
+### <a name="flux"></a>Flux
 
 Topologie są definiowane przy użyciu [strumień](https://storm.apache.org/releases/1.1.0/flux.html). Strumień została wprowadzona w systemie Storm 0.10.x i umożliwia rozdzielenie konfiguracji topologii z kodu. Dla topologie, wykorzystujące framework strumienia topologia jest zdefiniowany w pliku yaml programu. Może to być plik yaml programu zawarte w ramach topologii. Można także użyć podczas przesyłania topologii autonomiczny plik. Strumień obsługuje również podstawienie zmiennej w czasie wykonywania, który jest używany w tym przykładzie.
 
@@ -339,7 +339,7 @@ W sesji SSH z klastrem Storm Użyj następujących poleceń, aby zatrzymać topo
 
 Ponieważ kroki opisane w tym dokumencie utworzyć obu klastrów w tej samej grupy zasobów platformy Azure, można usunąć grupy zasobów w portalu Azure. Usunięcie grupy zasobów powoduje usunięcie wszystkich zasobów tworzone przez wykonanie tego dokumentu.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby uzyskać więcej przykładowe topologie, które mogą być używane z systemu Storm w usłudze HDInsight, zobacz [topologii Storm przykład i składniki](storm/apache-storm-example-topology.md).
 

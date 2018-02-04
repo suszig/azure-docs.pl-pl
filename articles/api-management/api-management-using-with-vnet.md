@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 32ddb1489c89303ca3d094c1346d5071c7380c56
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 4e3c17a86281176726be64008fa9e59e08e026f0
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Jak używać usługi Azure API Management z sieciami wirtualnymi
 Sieci wirtualnych platformy Azure (sieci wirtualne) umożliwiają umieszczać zasobów platformy Azure w kontroli dostępu do sieci routeable z systemem innym niż internet. Te sieci następnie mogą być połączone z sieciami lokalnymi przy użyciu różnych technologii sieci VPN. Aby dowiedzieć się więcej o sieciach wirtualnych platformy Azure Uruchom z informacjami w tym miejscu: [omówienie sieci wirtualnych Azure](../virtual-network/virtual-networks-overview.md).
@@ -111,20 +111,21 @@ Gdy wystąpienie usługi API Management znajduje się w sieci Wirtualnej, są u�
 | * / 3443 |Przychodzący |TCP |INTERNET / VIRTUAL_NETWORK|Punkt końcowy zarządzania dla portalu Azure i programu Powershell |Wewnętrzny |
 | * / 80, 443 |Wychodzący |TCP |VIRTUAL_NETWORK / INTERNET|**Zależność od usługi Azure Storage**, usługi Azure Service Bus i Azure Active Directory (jeśli dotyczy).|Zewnętrzne i wewnętrzne | 
 | * / 1433 |Wychodzący |TCP |VIRTUAL_NETWORK / INTERNET|**Dostęp do punktów końcowych Azure SQL** |Zewnętrzne i wewnętrzne |
-| * / 5671, 5672 |Wychodzący |TCP |VIRTUAL_NETWORK / INTERNET|Zależność od dziennika zasad Centrum zdarzeń i agenta monitorowania |Zewnętrzne i wewnętrzne |
+| * / 5672 |Wychodzący |TCP |VIRTUAL_NETWORK / INTERNET|Zależność od dziennika zasad Centrum zdarzeń i agenta monitorowania |Zewnętrzne i wewnętrzne |
 | * / 445 |Wychodzący |TCP |VIRTUAL_NETWORK / INTERNET|Zależności w udziale plików platformy Azure dla GIT |Zewnętrzne i wewnętrzne |
+| * / 1886 |Wychodzący |TCP |VIRTUAL_NETWORK / INTERNET|Wymagane do publikowania kondycji zasobów stan kondycji |Zewnętrzne i wewnętrzne |
 | * / 25028 |Wychodzący |TCP |VIRTUAL_NETWORK / INTERNET|Połącz z przekazywaniem SMTP do wysyłania wiadomości E-mail |Zewnętrzne i wewnętrzne |
 | * / 6381 - 6383 |Dla ruchu przychodzącego i wychodzącego |TCP |VIRTUAL_NETWORK / VIRTUAL_NETWORK|Wystąpienia pamięci podręcznej Redis dostępu między RoleInstances |Zewnętrzne i wewnętrzne |
 | * / * | Przychodzący |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK| Moduł równoważenia obciążenia infrastruktury platformy Azure |Zewnętrzne i wewnętrzne |
 
 >[!IMPORTANT]
-> * Porty, dla którego *celu* jest **bold** są wymagane dla usługi interfejsu API zarządzania zostanie pomyślnie wdrożona. Blokowanie inne porty jednak spowoduje obniżenie w możliwość użycia i uruchomione usługi monitorowania.
+> Porty, dla którego *celu* jest **bold** są wymagane dla usługi interfejsu API zarządzania zostanie pomyślnie wdrożona. Blokowanie inne porty jednak spowoduje obniżenie w możliwość użycia i uruchomione usługi monitorowania.
 
 * **Funkcje protokołu SSL**: Aby umożliwić tworzenie łańcucha certyfikatów SSL i sprawdzania poprawności zarządzanie interfejsami API usługi musi mieć łączność sieciową wychodzących ocsp.msocsp.com, mscrl.microsoft.com i crl.microsoft.com. Ta zależność nie jest wymagana, jeśli dowolny certyfikat, które zostaną przesłane do interfejsu API zarządzania zawierają pełny łańcuch do głównego urzędu certyfikacji.
 
 * **Dostęp DNS**: wychodzący dostęp przez port 53 jest wymagana do komunikacji przy użyciu serwerów DNS. Jeśli istnieje niestandardowy serwer DNS na drugim końcu bramy sieci VPN, serwer DNS musi być dostępny w podsieci hostingu API Management.
 
-* **Monitorowanie kondycji i metryki**: połączenie sieciowe ruchu wychodzącego Azure punktów końcowych monitorowania, które rozwiązanie w następujących domen: global.metrics.nsatc.net, shoebox2.metrics.nsatc.net, prod3.metrics.nsatc.net, prod.warmpath.msftcloudes.com.
+* **Monitorowanie kondycji i metryki**: połączenie sieciowe ruchu wychodzącego Azure punktów końcowych monitorowania, które rozwiązanie w następujących domen: global.metrics.nsatc.net, shoebox2.metrics.nsatc.net, prod3.metrics.nsatc.net, prod.warmpath.msftcloudes.com prod3 black.prod3.metrics.nsatc.net i prod3 red.prod3.metrics.nsatc.net.
 
 * **Trasy Instalacja ekspresowa**: Typowa konfiguracja klienta jest określenie własnych trasa domyślna (0.0.0.0/0), co zmusza wychodzący ruch internetowy, zamiast niego przepływ lokalnymi. Ten przepływ ruchu niezmiennie dzieli łączność z usługą Azure API Management ruch wychodzący zablokowanych lokalnie, ponieważ NAT czy nierozpoznawalną zbiór adresów, które nie będą działać z różnymi punkty końcowe systemu Azure. Rozwiązanie jest określenie jednego (lub więcej) trasy zdefiniowane przez użytkownika ([Udr][UDRs]) w podsieci, która zawiera Azure API Management. PRZEZ definiuje tras specyficzne dla podsieci, które będą honorowane zamiast trasy domyślnej.
   Jeśli to możliwe zaleca się następującej konfiguracji:
@@ -132,7 +133,7 @@ Gdy wystąpienie usługi API Management znajduje się w sieci Wirtualnej, są u�
  * PRZEZ stosowana do podsieci, zawierający Azure API Management definiuje 0.0.0.0/0 z Internetu Typ następnego przeskoku.
  Łączna tych kroków powoduje, że poziomie podsieci przez ma pierwszeństwo przed ExpressRoute, wymuszone tunelowanie, w związku z tym zapewnienie wychodzący dostęp do Internetu z usługi Azure API Management.
 
-**Routingu za pośrednictwem sieci wirtualnych urządzeń**: uniemożliwi pełnej konfiguracji używanych przez trasa domyślna (0.0.0.0/0) do kierowania ruch internetowy przeznaczony z podsieci interfejsu API zarządzania przez urządzenie wirtualne sieci działające na platformie Azure Komunikacja między API Management i wymaganych usług. Ta konfiguracja nie jest obsługiwana. 
+* **Routingu za pośrednictwem sieci wirtualnych urządzeń**: blokuje konfiguracje, które umożliwia przez trasa domyślna (0.0.0.0/0) kierować ruch internetowy przeznaczony z podsieci interfejsu API zarządzania za pośrednictwem sieci urządzenie wirtualne działające na platformie Azure ruch związany z zarządzaniem pochodzące z Internetu do wystąpienia usługi Zarządzanie interfejsami API wdrożone w podsieci sieci wirtualnej. Ta konfiguracja nie jest obsługiwana.
 
 >[!WARNING]  
 >Azure API Management nie jest obsługiwany w konfiguracji usługi ExpressRoute który **niepoprawnie cross anonsować tras z publicznej komunikacji równorzędnej ścieżki do ścieżki prywatnej komunikacji równorzędnej**. Konfiguracji usługi ExpressRoute, które mają publicznej komunikacji równorzędnej skonfigurowane, otrzyma anonsów tras firmy Microsoft dla dużych zestawów zakresów adresów IP firmy Microsoft Azure. Jeśli te zakresy adresów są niepoprawnie cross anonsowany w ścieżce prywatnej komunikacji równorzędnej, wynik końcowy są wszystkie pakiety wychodzącego z podsieci wystąpienia usługi Azure API Management niepoprawnie force-tunneled do sieci lokalnej klienta infrastruktura. Ten przepływ sieci dzieli Azure API Management. Rozwiązanie tego problemu jest zatrzymanie tras między reklam z publicznej komunikacji równorzędnej ścieżki do ścieżki prywatnej komunikacji równorzędnej.
@@ -153,7 +154,7 @@ Gdy wystąpienie usługi API Management znajduje się w sieci Wirtualnej, są u�
 ## <a name="subnet-size"></a> Wymagany rozmiar podsieci
 Azure rezerwuje niektórych adresów IP w każdej podsieci, a nie można użyć tych adresów. Imię i nazwisko adresów IP podsieci są zastrzeżone dla protokołu zgodność, wraz z trzech więcej adresów używanych na potrzeby usług Azure. Aby uzyskać więcej informacji, zobacz [istnieją wszystkie ograniczenia dotyczące używania adresów IP w ramach tych podsieci?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
 
-Oprócz adresy IP używane przez infrastrukturę sieci Wirtualnej Azure każde wystąpienie interfejsu Api zarządzania w podsieci używa dwóch adresów IP na jednostkę warstwy Premium lub jeden 1 adresów IP dla jednostki SKU Developer. Każde wystąpienie rezerwuje 1 adres IP dla zewnętrznej usługi równoważenia obciążenia. W przypadku wdrażania w wewnętrznej sieci wirtualnej, wymaga dodatkowego adresu IP usługi równoważenia obciążenia wewnętrznego.
+Oprócz adresy IP używane przez infrastrukturę sieci Wirtualnej Azure każde wystąpienie interfejsu Api zarządzania w podsieci używa dwóch adresów IP na jednostkę warstwy Premium lub adresów IP dla jednostki SKU Developer. Każde wystąpienie rezerwuje dodatkowe adresu IP zewnętrznej usługi równoważenia obciążenia. W przypadku wdrażania w wewnętrznej sieci wirtualnej, wymaga dodatkowego adresu IP usługi równoważenia obciążenia wewnętrznego.
 
 Biorąc pod uwagę obliczania powyżej minimalny rozmiar podsieci, w którym można wdrożyć zarządzanie interfejsami API jest /29, co daje 3 adresów IP.
 

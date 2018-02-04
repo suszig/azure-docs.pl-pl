@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: roopalik;garye
-ms.openlocfilehash: be5ecf81c71dbf39593b2afb46ac0ae09ede466a
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.author: garye
+ms.openlocfilehash: 9a93a027ed5243496a86efff0d86de7092f44b43
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="discover-and-share-tutorials-in-azure-ai-gallery"></a>Odnajdywanie i udostępnianie samouczków w galerii Azure AI
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
@@ -31,7 +31,7 @@ Aby przeglądać samouczki [w galerii](http://gallery.cortanaintelligence.com)w 
 
 ![Wybierz samouczki na stronie głównej galerii](./media/gallery-tutorials/select-tutorials-in-gallery.png)
 
- **[Samouczki](https://gallery.cortanaintelligence.com/tutorials)**  zostanie wyświetlona lista samouczków ostatnio dodany i popularnych. Aby wyświetlić wszystkie samouczki, wybierz **zobaczyć wszystkie** przycisku. Do wyszukiwania określonych samouczek, wybierz **zobaczyć wszystkie**, a następnie wybierz kryteria. Można również wprowadzić terminy wyszukiwania w **wyszukiwania** u góry strony galerii.
+**[Samouczki](https://gallery.cortanaintelligence.com/tutorials)**  zostanie wyświetlona lista samouczków ostatnio dodany i popularnych. Aby wyświetlić wszystkie samouczki, wybierz **zobaczyć wszystkie** przycisku. Do wyszukiwania określonych samouczek, wybierz **zobaczyć wszystkie**, a następnie wybierz kryteria. Można również wprowadzić terminy wyszukiwania w **wyszukiwania** u góry strony galerii.
 
 Możesz uzyskać więcej informacji na temat samouczek na stronie szczegółów samouczka. Aby otworzyć stronę samouczka szczegóły, wybierz samouczka. W **komentarze** sekcja na stronie szczegółów samouczek, można dodać komentarz, wyrazić swoją opinię lub zadać pytania dotyczące samouczka. Możesz nawet udostępniać samouczka znajomych lub współpracowników w serwisie Twitter i LinkedIn. Można również e-mail łącze do strony szczegółów samouczek z zaproszeniem dla innych użytkowników, aby wyświetlić stronę.
 

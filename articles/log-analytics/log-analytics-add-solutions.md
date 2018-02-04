@@ -1,6 +1,6 @@
 ---
 title: "Dodawanie rozwiązania do zarządzania Azure Log Analytics | Dokumentacja firmy Microsoft"
-description: "Operations Management Suite (OMS) / Log Analytics rozwiązania do zarządzania są Kolekcja reguł nabycia logiki, wizualizacji i danych zawierających metryki przestawiać wokół obszaru określonego problemu."
+description: "Rozwiązania do zarządzania na platformie Azure są Kolekcja reguł nabycia logiki, wizualizacji i danych zawierających metryki przestawiać wokół obszaru określonego problemu."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d951387882a5a8f5e0ebdc01841bb8384e4848ee
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 6c7d8d6946d89e4c6541636287e3022c444e0eb8
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="add-azure-log-analytics-management-solutions-to-your-workspace"></a>Dodawanie rozwiązania do zarządzania usługi Analiza dzienników Azure do swojego obszaru roboczego
 
-Dziennik rozwiązań do zarządzania Analytics to zbiór **logiki**, **wizualizacji**, i **reguły pozyskiwania danych** zawierających metryki przestawiać wokół obszaru określonego problemu. W tym artykule wymieniono obsługiwane przez analizy dzienników rozwiązania do zarządzania i przedstawiono sposób dodawania i usuwania dla obszaru roboczego przy użyciu portalu Azure. Można również dodać rozwiązań w portalu OMS, za pomocą galerii rozwiązań.
+Dziennik rozwiązań do zarządzania Analytics to zbiór **logiki**, **wizualizacji**, i **reguły pozyskiwania danych** zawierających metryki przestawiać wokół obszaru określonego problemu. W tym artykule wymieniono obsługiwane przez analizy dzienników rozwiązania do zarządzania i przedstawiono sposób dodawania i usuwania dla obszaru roboczego przy użyciu portalu Azure.
 
 Zezwalaj na lepszy wgląd do rozwiązania do zarządzania:
 
@@ -34,9 +34,9 @@ Zezwalaj na lepszy wgląd do rozwiązania do zarządzania:
 > [!NOTE]
 > Analizy dzienników obejmuje funkcje wyszukiwania dziennika, więc nie trzeba zainstalować rozwiązania do zarządzania, aby je włączyć. Jednak otrzymasz wizualizacjami danych, sugerowane wyszukiwania i szczegółowe informacje, dodając rozwiązania do zarządzania do swojego obszaru roboczego.
 
-Korzystając z tego artykułu, należy dodać rozwiązania do zarządzania do obszaru roboczego przy użyciu portalu Azure Marketplace. Po dodaniu rozwiązania, dane są zbierane z serwerów w ramach infrastruktury i wysłane z usługą OMS. Przetwarzanie przez OMS usługi zazwyczaj zajmuje kilka minut na godzinę. Po usługa przetwarza dane, można go wyświetlić w OMS.
+Korzystając z tego artykułu, należy dodać rozwiązania do zarządzania do obszaru roboczego przy użyciu portalu Azure Marketplace. Po dodaniu rozwiązania, dane są zbierane z serwerów w ramach infrastruktury i wysyłane do analizy dzienników. Przetwarzanie zazwyczaj trwa kilka minut na godzinę. Po usługa przetwarza dane, można go wyświetlić w analizy dzienników.
 
-Gdy nie jest już potrzebne, można łatwo usunąć rozwiązania do zarządzania. Podczas usuwania rozwiązania do zarządzania jego dane nie są wysyłane z usługą OMS. Jeśli na warstwy cenowej bezpłatna, usuwanie rozwiązania można zmniejszyć ilość danych używane, pomaga pozostają w obszarze dzienny limit przydziału danych.
+Gdy nie jest już potrzebne, można łatwo usunąć rozwiązania do zarządzania. Podczas usuwania rozwiązania do zarządzania jego dane nie są wysyłane do analizy dzienników. Jeśli na warstwy cenowej bezpłatna, usuwanie rozwiązania można zmniejszyć ilość danych używane, pomaga pozostają w obszarze dzienny limit przydziału danych.
 
 ## <a name="view-available-management-solutions"></a>Widok zarządzania dostępnych rozwiązań
 
@@ -80,14 +80,14 @@ Wszystkie rozwiązania w poniższej tabeli są dostępne z poziomu portalu Azure
 | [Kondycja agenta](../operations-management-suite/oms-solution-agenthealth.md)                                                                                | <ul><li>Szczegółowe informacje o&nbsp;i&nbsp;analityka</li><li>Log Analytics</li></ul>   | Bezpłatna<br> Standardowa (Standard)<br> Premium&nbsp;(OMS)<br> Na&nbsp;GB&nbsp;(autonomiczna)<br> Na&nbsp;węzła&nbsp;(OMS)   | Dane nie mogą ulec zakończenia warstwa bezpłatna<br> Nie można dodać z portalu Azure/portalu marketplace. |
 | [Zarządzanie alertami](log-analytics-solution-alert-management.md)                            | <ul><li>Szczegółowe informacje o&nbsp;i&nbsp;analityka</li><li>Log Analytics</li></ul>   | Bezpłatna<br> Standardowa (Standard)<br> Premium&nbsp;(OMS)<br> Na&nbsp;GB&nbsp;(autonomiczna)<br> Na&nbsp;węzła&nbsp;(OMS)   | Nie można dodać z portalu Azure/portalu marketplace. |
 | [Łącznik aplikacji Insights (wersja zapoznawcza)](log-analytics-app-insights-connector.md)                                               | <ul><li>Szczegółowe informacje o&nbsp;i&nbsp;analityka</li><li>Log Analytics</li></ul>   | Bezpłatna<br> Standardowa (Standard)<br> Premium&nbsp;(OMS)<br> Na&nbsp;GB&nbsp;(autonomiczna)<br> Na&nbsp;węzła&nbsp;(OMS)   | |
-| [Automatyzacja hybrydowego procesu roboczego](../automation/automation-hybrid-runbook-worker.md)                                                                     | <ul><li>Automatyzacja i kontrola</li></ul>                                  | Bezpłatna<br> Na&nbsp;węzła&nbsp;(OMS)                                                                         | Wymaga obszaru roboczego analizy dzienników powiązać konto automatyzacji |
+| [Automatyzacja hybrydowego procesu roboczego](../automation/automation-hybrid-runbook-worker.md)                                                                     | <ul><li>Automation and Control</li></ul>                                  | Bezpłatna<br> Na&nbsp;węzła&nbsp;(OMS)                                                                         | Wymaga obszaru roboczego analizy dzienników powiązać konto automatyzacji |
 | [Analiza bramy aplikacji Azure](log-analytics-azure-networking-analytics.md)    | <ul><li>Szczegółowe informacje o&nbsp;i&nbsp;analityka</li><li>Log Analytics</li></ul>   | Bezpłatna<br> Standardowa (Standard)<br> Premium&nbsp;(OMS)<br> Na&nbsp;GB&nbsp;(autonomiczna)<br> Na&nbsp;węzła&nbsp;(OMS)   | |
 | [Grupy zabezpieczeń sieci Azure analityka](log-analytics-azure-networking-analytics.md)     | <ul><li>Szczegółowe informacje o&nbsp;i&nbsp;analityka</li><li>Log Analytics</li></ul>   | Bezpłatna<br> Standardowa (Standard)<br> Premium&nbsp;(OMS)<br> Na&nbsp;GB&nbsp;(autonomiczna)<br> Na&nbsp;węzła&nbsp;(OMS)   | |
 | [Analiza Azure SQL (wersja zapoznawcza)](log-analytics-azure-sql.md)                                                       | <ul><li>Szczegółowe informacje o&nbsp;i&nbsp;analityka</li><li>Log Analytics</li></ul>   | Bezpłatna<br>Na&nbsp;węzła&nbsp;(OMS)                                                                          | Wymaga obszaru roboczego analizy dzienników powiązać konto automatyzacji|
 | [Analiza w usłudze Azure Web Apps](log-analytics-azure-web-apps-analytics.md)     | <ul><li>Szczegółowe informacje o&nbsp;i&nbsp;analityka</li><li>Log Analytics</li></ul>   | Bezpłatna<br> Standardowa (Standard)<br> Premium&nbsp;(OMS)<br> Na&nbsp;GB&nbsp;(autonomiczna)<br> Na&nbsp;węzła&nbsp;(OMS)   | |
 |[Tworzenie kopii zapasowych](../backup/backup-introduction-to-azure-backup.md)                                                                                 | <ul><li>Wgląd w dane i analizy</li></ul>                                   | Bezpłatna<br> Standardowa (Standard)<br> Premium&nbsp;(OMS)<br> Na&nbsp;GB&nbsp;(autonomiczna)<br> Na&nbsp;węzła&nbsp;(OMS)                                                                       | Wymaga klasycznego magazyn kopii zapasowych.<br> Nie można dodać z portalu Azure/portalu marketplace. |
 | [Pojemność i wydajność (wersja zapoznawcza)](log-analytics-capacity.md)                                                   | <ul><li>Szczegółowe informacje o&nbsp;i&nbsp;analityka</li><li>Log Analytics</li></ul>   | Bezpłatna<br> Standardowa (Standard)<br> Premium&nbsp;(OMS)<br> Na&nbsp;GB&nbsp;(autonomiczna)<br> Na&nbsp;węzła&nbsp;(OMS)   | |
-| [Śledzenie zmian](log-analytics-change-tracking.md)                                       | <ul><li>Automatyzacja i kontrola</li></ul>                                  | Bezpłatna<br> Na&nbsp;węzła&nbsp;(OMS)                                                                         | Wymaga obszaru roboczego analizy dzienników powiązać konto automatyzacji |
+| [Śledzenie zmian](log-analytics-change-tracking.md)                                       | <ul><li>Automation and Control</li></ul>                                  | Bezpłatna<br> Na&nbsp;węzła&nbsp;(OMS)                                                                         | Wymaga obszaru roboczego analizy dzienników powiązać konto automatyzacji |
 | [Kontenery](log-analytics-containers.md)                                                 | <ul><li>Szczegółowe informacje o&nbsp;i&nbsp;analityka</li><li>Log Analytics</li></ul>   | Bezpłatna<br> Standardowa (Standard)<br> Premium&nbsp;(OMS)<br> Na&nbsp;GB&nbsp;(autonomiczna)<br> Na&nbsp;węzła&nbsp;(OMS)   | |
 | [Łącznik zarządzania usługami IT](log-analytics-itsmc-overview.md)                                                | <ul><li>Szczegółowe informacje o&nbsp;i&nbsp;analityka</li><li>Log Analytics</li></ul>   | Bezpłatna<br> Na&nbsp;węzła&nbsp;(OMS)     | |
 | HDInsight HBase monitorowania <br>(Wersja zapoznawcza)                                                  | <ul><li>Szczegółowe informacje o&nbsp;i&nbsp;analityka</li><li>Log Analytics</li></ul>   | Bezpłatna<br> Standardowa (Standard)<br> Premium&nbsp;(OMS)<br> Na&nbsp;GB&nbsp;(autonomiczna)<br> Na&nbsp;węzła&nbsp;(OMS)   | |
@@ -104,7 +104,7 @@ Wszystkie rozwiązania w poniższej tabeli są dostępne z poziomu portalu Azure
 | Uruchamianie lub zatrzymywanie maszyn wirtualnych po godzinach pracy<br>(Wersja zapoznawcza)                                              | <ul><li>Szczegółowe informacje o&nbsp;i&nbsp;analityka</li><li>Log Analytics</li></ul>   | Bezpłatna<br> Na&nbsp;węzła&nbsp;(OMS)                                                                         | Wymaga obszaru roboczego analizy dzienników powiązać konto automatyzacji |
 | [SurfaceHub](log-analytics-surface-hubs.md)                                               | <ul><li>Szczegółowe informacje o&nbsp;i&nbsp;analityka</li><li>Log Analytics</li></ul>   | Bezpłatna<br> Standardowa (Standard)<br> Premium&nbsp;(OMS)<br> Na&nbsp;GB&nbsp;(autonomiczna)<br> Na&nbsp;węzła&nbsp;(OMS)   | Nie można dodać z portalu Azure/portalu marketplace. |
 | [Do oceny programu System Center Operations Manager (wersja zapoznawcza)](log-analytics-scom-assessment.md)  | <ul><li>Wgląd w dane i analizy</li><li>Log Analytics</li></ul>        | Bezpłatna<br> Standardowa (Standard)<br> Premium&nbsp;(OMS)<br> Na&nbsp;GB&nbsp;(autonomiczna)<br> Na&nbsp;węzła&nbsp;(OMS)   | |
-| [Zarządzanie aktualizacjami](../operations-management-suite/oms-solution-update-management.md)                                                                         | <ul><li>Automatyzacja i kontrola</li></ul>                                  | Bezpłatna<br> Na&nbsp;węzła&nbsp;(OMS)                                                                         | Wymaga obszaru roboczego analizy dzienników powiązać konto automatyzacji |
+| [Zarządzanie aktualizacjami](../operations-management-suite/oms-solution-update-management.md)                                                                         | <ul><li>Automation and Control</li></ul>                                  | Bezpłatna<br> Na&nbsp;węzła&nbsp;(OMS)                                                                         | Wymaga obszaru roboczego analizy dzienników powiązać konto automatyzacji |
 | [Informacje o zgodności aktualizacji (wersja zapoznawcza)](https://docs.microsoft.com/windows/deployment/update/update-compliance-get-started)                                                             | <ul><li>Szczegółowe informacje o&nbsp;i&nbsp;analityka</li><li>Log Analytics</li></ul>   | Bezpłatna<br> Standardowa (Standard)<br> Premium&nbsp;(OMS)<br> Na&nbsp;GB&nbsp;(autonomiczna)<br> Na&nbsp;węzła&nbsp;(OMS)   | Bezpłatne danych lub w węzłach<br>Dane nie mogą ulec warstwę bezpłatna centralnych zasad dostępu.<br> Nie można dodać z portalu Azure/portalu marketplace. |
 | [Gotowość do uaktualnienia](https://docs.microsoft.com/windows/deployment/upgrade/upgrade-readiness-get-started)                                                          | <ul><li>Szczegółowe informacje o&nbsp;i&nbsp;analityka</li><li>Log Analytics</li></ul>   | Bezpłatna<br> Standardowa (Standard)<br> Premium&nbsp;(OMS)<br> Na&nbsp;GB&nbsp;(autonomiczna)<br> Na&nbsp;węzła&nbsp;(OMS)   | Bezpłatne danych lub w węzłach<br>Dane nie mogą ulec warstwę bezpłatna centralnych zasad dostępu.<br> Nie można dodać z portalu Azure/portalu marketplace. |
 | [VMware monitorowania (wersja zapoznawcza)](log-analytics-vmware.md)                                | <ul><li>Szczegółowe informacje o&nbsp;i&nbsp;analityka</li><li>Log Analytics</li></ul>   | Bezpłatna<br> Standardowa (Standard)<br> Premium&nbsp;(OMS)<br> Na&nbsp;GB&nbsp;(autonomiczna)<br> Na&nbsp;węzła&nbsp;(OMS)   | |
@@ -126,14 +126,14 @@ Są dostępne z rozwiązania społeczności podane [galerii szablonu Azure](http
 ## <a name="data-collection-details"></a>Szczegóły danych kolekcji
 W poniższej tabeli przedstawiono metody zbierania danych i inne szczegółowe informacje o jak zbierane są dane dla rozwiązania do zarządzania analizy dzienników i źródeł danych. Tabele są pogrupowane według oferty rozwiązania, które są równoważne [subskrypcji warstw cenowych](https://go.microsoft.com/fwlink/?linkid=827926). Rozwiązania analizy dziennika działanie jest dostępne dla wszystkich warstw cenowych bezpłatnie.
 
-Agent Windows analizy dziennika i agent programu System Center Operations Manager zasadniczo są takie same. Agent systemu Windows zawiera dodatkowe funkcje, aby zezwolić na nawiązywanie obszar roboczy OMS i rozsyłanie za pomocą serwera proxy. Jeśli używasz agenta programu Operations Manager, musi być celem jako agent pakietu OMS do komunikowania się z usługą OMS. Agenci programu Operations Manager w tej tabeli są OMS agentów, które są połączone z programem Operations Manager. Zobacz [połączenie programu Operations Manager do analizy dzienników](log-analytics-om-agents.md) informacji o podłączaniu istniejące środowisko programu Operations Manager z usługą OMS.
+Agent Windows analizy dziennika i agent programu System Center Operations Manager zasadniczo są takie same. Agent systemu Windows zawiera dodatkowe funkcje, aby zezwolić na nawiązywanie obszaru roboczego analizy dzienników i rozsyłanie za pomocą serwera proxy. Jeśli używasz agenta programu Operations Manager, musi być celem jako agent pakietu OMS do komunikowania się z analizy dzienników. Agenci programu Operations Manager w tej tabeli są OMS agentów, które są połączone z programem Operations Manager. Zobacz [połączenie programu Operations Manager do analizy dzienników](log-analytics-om-agents.md) informacji o podłączaniu istniejące środowisko programu Operations Manager do analizy dzienników.
 
 > [!NOTE]
-> Typ agenta, którego używasz Określa, jak dane są wysyłane do OMS, z następujących warunków:
+> Typ agenta, którego używasz Określa, jak dane są wysyłane do analizy dzienników z następujących warunków:
 > - Możesz użyć agenta systemu Windows lub dołączone do programu Operations Manager agent pakietu OMS.
-> - Gdy wymagana jest programu Operations Manager, danych agenta programu Operations Manager dla rozwiązania są zawsze wysyłane do OMS przy użyciu grupy zarządzania programu Operations Manager. Ponadto jeśli programu Operations Manager jest wymagane, tylko agenta programu Operations Manager jest używany przez rozwiązanie.
-> - Gdy programu Operations Manager nie jest wymagana i tabelą danych agenta programu Operations Manager są wysyłane do OMS za pomocą grupy zarządzania, a następnie danych agenta programu Operations Manager jest zawsze wysyłane do OMS przy użyciu grup zarządzania. Agentów systemu Windows obejścia grupy zarządzania i przekazuj dane bezpośrednio do OMS.
-> - Gdy danych agenta programu Operations Manager nie są wysyłane przy użyciu grupy zarządzania, następnie dane są wysyłane bezpośrednio do OMS — pomijanie grupy zarządzania.
+> - Gdy wymagana jest programu Operations Manager, danych agenta programu Operations Manager dla rozwiązania są zawsze wysyłane do analizy dzienników przy użyciu grupy zarządzania programu Operations Manager. Ponadto jeśli programu Operations Manager jest wymagane, tylko agenta programu Operations Manager jest używany przez rozwiązanie.
+> - Gdy programu Operations Manager nie jest wymagane, a tabela pokazuje, że dane agenta są wysyłane do analizy dzienników programu Operations Manager przy użyciu grupy zarządzania, a następnie programu Operations Manager agent dane są zawsze przesyłane do analizy dzienników przy użyciu grup zarządzania. Agentów systemu Windows obejścia grupy zarządzania i przekazuj dane bezpośrednio do analizy dzienników.
+> - Gdy danych agenta programu Operations Manager nie są wysyłane przy użyciu grupy zarządzania, następnie dane są wysyłane bezpośrednio do analizy dzienników — pomijanie grupy zarządzania.
 
 ### <a name="insight--analytics--log-analytics"></a>Szczegółowe informacje o & Analytics / Log Analytics
 
@@ -242,7 +242,7 @@ Poniższe informacje dotyczą podglądy publicznymi i prywatnymi:
 * Czynności może nie zawsze działać poprawnie.
   * Problemy z zakresu od są niewielkie określenia dokuczliwości za pośrednictwem na coś nie działa na wszystkich.
 * Istnieje możliwość skorzystania z wersji zapoznawczej mieć negatywny wpływ na systemy / środowiska.
-  * Firma Microsoft należy unikać ujemna czynności wykonywane na komputerach jest używany z usługą OMS, ale czasami nieoczekiwany wydarzenia.
+  * Firma Microsoft należy unikać ujemna czynności wykonywane systemów używasz, ale czasami nieoczekiwany wydarzenia.
 * Utrata danych / może spowodować uszkodzenie.
 * Firma Microsoft może poprosić o zbierania dzienników diagnostycznych lub innych danych, aby pomóc w rozwiązywaniu problemów.
 * Funkcja lub rozwiązania mogą zostać usunięte (tymczasowo lub na stałe).

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/12/2018
+ms.date: 02/01/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: de82062f605d060dc388022cdb8ee9d5c09b2b89
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 421e594f7bd4df1bc1c5faedc2c8bfab0540ca61
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalowanie sterowników NVIDIA GPU na maszynach wirtualnych N-series systemem Linux
 
@@ -101,18 +101,21 @@ sudo apt-get install cuda-drivers
 sudo reboot
 ```
 
-### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>Na podstawie centOS 7.3 lub Red Hat Enterprise Linux 7.3
+### <a name="centos-or-red-hat-enterprise-linux-73-or-74"></a>CentOS lub Red Hat Enterprise Linux 7.3 lub 7.4
 
-1. Zainstaluj najnowszą wersję usług integracji systemu Linux dla funkcji Hyper-V.
+1. Zaktualizuj jądra.
 
-  > [!IMPORTANT]
-  > Jeśli obraz na podstawie CentOS HPC jest zainstalowany na maszynie Wirtualnej NC24r, przejdź do kroku 3. Ponieważ sterowniki Azure RDMA i usługi integracji systemu Linux są wstępnie zainstalowane w obrazie HPC, LIS nie powinny zostać uaktualnione, a aktualizacje jądra są domyślnie wyłączone.
-  >
+  ```
+  sudo yum install kernel kernel-tools kernel-headers kernel-devel
+  
+  sudo reboot
+
+2. Install the latest Linux Integration Services for Hyper-V.
 
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-2.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-5.tar.gz
  
-  tar xvzf lis-rpms-4.2.3-2.tar.gz
+  tar xvzf lis-rpms-4.2.3-5.tar.gz
  
   cd LISISO
  
@@ -124,8 +127,6 @@ sudo reboot
 3. Połącz się ponownie do maszyny Wirtualnej i kontynuować instalację za pomocą następujących poleceń:
 
   ```bash
-  sudo yum install kernel-devel
-
   sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 
   sudo yum install dkms
@@ -162,20 +163,22 @@ Jeśli sterownik jest zainstalowany, pojawi się dane wyjściowe podobne do nast
 ![Stan urządzenia NVIDIA](./media/n-series-driver-setup/smi.png)
 
 
-
 ## <a name="rdma-network-connectivity"></a>Połączenie sieciowe RDMA
 
 Połączenie sieciowe RDMA można włączyć na maszynach wirtualnych, N-series z funkcją RDMA, takie jak NC24r wdrożone w tym samym zestawie dostępności. Sieć RDMA obsługuje ruch interfejsu Message (Passing) dla aplikacji działających z Intel MPI 5.x lub nowszej wersji. Wykonaj dodatkowe wymagania:
 
 ### <a name="distributions"></a>Dystrybucje
 
-Wdrażanie z funkcją RDMA N serii maszyn wirtualnych z jednego z następujących obrazów w portalu Azure Marketplace obsługującej funkcję RDMA połączenia:
+Wdrożenie funkcją RDMA N serii maszyn wirtualnych z obrazu w portalu Azure Marketplace, obsługująca łączność RDMA na maszynach wirtualnych N-series:
   
-* **Ubuntu** -LTS Ubuntu Server 16.04. Konfigurowanie sterowników RDMA na maszynie Wirtualnej i rejestrowanie z Intel, aby pobrać Intel MPI:
+* **Ubuntu 16.04 LTS** — Konfigurowanie sterowniki RDMA na maszynie Wirtualnej i rejestrowanie z Intel, aby pobrać Intel MPI:
 
   [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
 
-* **Na podstawie centOS HPC** — na podstawie CentOS 7.3 HPC. Sterowniki RDMA i Intel MPI 5.1 są zainstalowane na maszynie Wirtualnej. 
+> [!NOTE]
+> Na podstawie centOS HPC nie zaleca się obrazów obecnie połączeń RDMA na maszynach wirtualnych N serii. Dostęp RDMA nie jest obsługiwana na najnowszej jądra CentOS 7.4, która obsługuje NVIDIA GPU.
+> 
+
 
 ## <a name="install-grid-drivers-for-nv-vms"></a>Zainstaluj sterowniki siatki dla maszyn wirtualnych z wirtualizacją sieci
 
@@ -237,7 +240,7 @@ Aby zainstalować sterowniki NVIDIA siatki na maszynach wirtualnych z wirtualiza
 9. Ponowny rozruch maszyny Wirtualnej, a następnie przejdź do weryfikacji instalacji.
 
 
-### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>Na podstawie centOS 7.3 lub Red Hat Enterprise Linux 7.3
+### <a name="centos-or-red-hat-enterprise-linux"></a>CentOS lub Red Hat Enterprise Linux 
 
 1. Jądra i DKMS aktualizacji.
  
@@ -262,9 +265,9 @@ Aby zainstalować sterowniki NVIDIA siatki na maszynach wirtualnych z wirtualiza
 3. Ponowny rozruch maszyny Wirtualnej, połącz się ponownie i zainstalować najnowszą wersję usług integracji systemu Linux dla funkcji Hyper-V:
  
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-2.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-5.tar.gz
 
-  tar xvzf lis-rpms-4.2.3-2.tar.gz
+  tar xvzf lis-rpms-4.2.3-5.tar.gz
 
   cd LISISO
 
@@ -343,8 +346,6 @@ if grep -Fxq "${BUSID}" /etc/X11/XF86Config; then     echo "BUSID is matching"; 
 Ten plik może być wywoływany jako główny na rozruch, tworząc wpis dla niego w `/etc/rc.d/rc3.d`.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
-
-* Istnieje znany problem dotyczący CUDA sterowników w N-series maszyny wirtualne platformy Azure systemem jądra systemu Linux 4.4.0-75 Ubuntu 16.04 LTS. Jeśli uaktualniasz z wcześniejszej wersji jądra, uaktualnienie do co najmniej 4.4.0-77 wersji jądra.
 
 * Można ustawić w trybie trwałości `nvidia-smi` , dane wyjściowe polecenia jest szybsze, gdy trzeba karty zapytania. Aby ustawić tryb trwałości, należy wykonać `nvidia-smi -pm 1`. Należy pamiętać, że jeśli maszyna wirtualna zostanie ponownie uruchomiony, ustawienie trybu zniknie. Ustawienie trybu do wykonania podczas uruchamiania zawsze można skryptu.
 

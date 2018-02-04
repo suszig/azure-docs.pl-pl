@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: roopalik;garye
-ms.openlocfilehash: a90686d42aa3187e358d9ba3c8c5c3fb579a1d5e
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.author: garye
+ms.openlocfilehash: b7850b55baa690df22d8ebe14e9fa17fd91e0bad
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="discover-and-share-collections-in-azure-ai-gallery"></a>Odnajdywanie i udostępnić kolekcje w galerii Azure AI
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
@@ -31,7 +31,7 @@ Do przeglądania kolekcji [w galerii](http://gallery.cortanaintelligence.com)w o
 
 ![Wybierz kolekcje na stronie głównej galerii](./media/gallery-collections/select-collections-in-gallery.png)
 
- **[Kolekcje](https://gallery.cortanaintelligence.com/collections)**  zostanie wyświetlona lista kolekcje ostatnio dodany i popularnych. Zaznacz, aby wyświetlić wszystkie kolekcje **zobaczyć wszystkie**. Do wyszukiwania dla określonej kolekcji, wybierz **zobaczyć wszystkie**, a następnie wybierz kryteria. Można również wprowadzić terminy wyszukiwania w **wyszukiwania** u góry strony galerii.
+**[Kolekcje](https://gallery.cortanaintelligence.com/collections)**  zostanie wyświetlona lista kolekcje ostatnio dodany i popularnych. Zaznacz, aby wyświetlić wszystkie kolekcje **zobaczyć wszystkie**. Do wyszukiwania dla określonej kolekcji, wybierz **zobaczyć wszystkie**, a następnie wybierz kryteria. Można również wprowadzić terminy wyszukiwania w **wyszukiwania** u góry strony galerii.
 
 Możesz uzyskać więcej informacji na temat kolekcji na stronie Szczegóły dotyczące kolekcji. Aby otworzyć stronę szczegółów kolekcji, wybierz kolekcję. W kolekcji szczegółów strony w **komentarze** sekcji, możesz dodać komentarz, wyrazić swoją opinię lub zadać pytania dotyczące kolekcji. Możesz nawet udostępniać kolekcja znajomych lub współpracowników w serwisie Twitter i LinkedIn. Można również e-mail łącze do strony szczegółów kolekcji z zaproszeniem dla innych użytkowników, aby wyświetlić stronę.
 

@@ -1,6 +1,6 @@
 ---
 title: "Mapowanie aplikacji w usłudze Azure Application Insights | Dokumentacja firmy Microsoft"
-description: "Wizualną prezentację zależności między składnikami aplikacji etykietą kluczowych wskaźników wydajności i alerty."
+description: "Monitorowanie topologii złożonych aplikacji z planem aplikacji"
 services: application-insights
 documentationcenter: 
 author: SoubhagyaDash
@@ -13,23 +13,52 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: e1eb2177d6032142781e6e31af6c7f6313d38f4d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 3bbed59bf93eab5e729fbdd3ccae04599ac47081
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="application-map-in-application-insights"></a>Mapowanie aplikacji w usłudze Application Insights
-W [Azure Application Insights](app-insights-overview.md), mapa aplikacji jest układu wizualnego relacji zależności składników aplikacji. Każdego składnika zawiera kluczowych wskaźników wydajności, takich jak ładowania, wydajności błędów i alerty, ułatwiające ustalenie dowolny składnik przyczyną problemu z wydajnością lub błędu. Możesz kliknąć za pośrednictwem z każdego składnika, do bardziej szczegółowych diagnostyki, takich jak zdarzenia usługi Application Insights. Jeśli aplikacja korzysta z usług Azure, możesz również kliknąć za pośrednictwem do diagnostyki Azure, takich jak zalecenia doradcy bazy danych SQL.
+# <a name="application-map-triage-distributed-applications"></a>Mapowanie aplikacji: Aplikacje rozproszone klasyfikowanie
+Mapowanie aplikacji ułatwia wąskich gardeł wydajności dodatkowych lub błąd hotspotami dotyczące wszystkich składników aplikacji rozproszonej. Każdy węzeł na mapie reprezentuje składnika aplikacji lub jego zależności; ma kondycji kluczowy wskaźnik wydajności i alerty stanu. Możesz kliknąć za pośrednictwem z każdego składnika, do bardziej szczegółowych diagnostyki, takich jak zdarzenia usługi Application Insights. Jeśli aplikacja korzysta z usług Azure, możesz również kliknąć za pośrednictwem do diagnostyki Azure, takich jak zalecenia doradcy bazy danych SQL.
 
-Podobnie jak inne wykresy można przypiąć mapę aplikacji do pulpitu nawigacyjnego platformy Azure, gdzie jest pełną funkcjonalność. 
+## <a name="what-is-a-component"></a>Co to jest składnik?
 
-## <a name="open-the-application-map"></a>Otwórz mapę aplikacji
-Otwórz mapę z bloku Omówienie aplikacji:
+Składniki są niezależnie można wdrożyć części aplikacji rozproszonych mikrousług. Zespoły deweloperów i operacji mają widoczność na poziomie kodu lub dostępu do danych telemetrycznych generowane przez te składniki aplikacji. 
 
-![Otwórz aplikację mapy](./media/app-insights-app-map/01.png)
+* Składniki różnią się od "obserwowanych" zależności zewnętrzne, takie jak SQL, EventHub itp., które zespół/organizacji nie mogą mieć dostęp do (kod lub dane telemetryczne).
+* Składniki uruchamiane na dowolnej liczbie wystąpień kontenera server/roli.
+* Składniki mogą być osobne klucze Instrumentacji usługi Application Insights (nawet jeśli różnią się subskrypcje) lub różne role podlegające jednego klucza Instrumentacji usługi Application Insights. Środowisko mapy Podgląd przedstawiono składniki, niezależnie od tego, jak ustawić.
 
-![Mapa aplikacji](./media/app-insights-app-map/02.png)
+## <a name="composite-application-map-preview"></a>Mapowanie złożonych aplikacji (wersja zapoznawcza)
+*To jest podgląd wczesne i dodamy większą liczbą funkcji na tej mapie. Chętnie pobrać swoją opinię na temat nowego rozwiązania. Można przełączać się między Podgląd i klasycznego środowiska łatwe.*
+
+Włącz "Złożonych aplikacji mapy" z [listy wersji zapoznawczych](app-insights-previews.md), lub kliknij na "Wersja zapoznawcza mapy" Przełącz w prawym górnym rogu. Ten przełącznik, można użyć, aby przełączyć się do klasycznego środowiska.
+![Włącz podgląd mapy](media/app-insights-app-map/preview-from-classic.png)
+
+>[!Note]
+Ta wersja zapoznawcza zastępuje wcześniejszych wersji zapoznawczej "mapowanie iloczyn roli aplikacji". W tej chwili służy do wyświetlenia całego topologii na wielu poziomach zależności składnika aplikacji. Prześlij nam opinię, dodamy więcej funkcje podobne do obsługuje klasyczny mapy.
+
+Topologia pełnej aplikacji jest widoczny na wielu poziomach składników aplikacji powiązanych. Składniki wynikać z różnych zasobów usługi Application Insights lub różnych ról w pojedynczym zasobie. Mapa aplikacji znajduje składniki według następujących wywołania zależności HTTP między serwerami z zestawem SDK Insights aplikacji, które zostały zainstalowane. 
+
+To środowisko rozpoczyna się od progresywnego odnajdywania składników. Podczas ładowania najpierw podglądu, zbiór zapytania są wyzwalane odnajdywania składników związanych z tego składnika. Liczba składników aplikacji przycisk w lewym górnym rogu zostanie zaktualizowany zgodnie z ich odnalezieniu. 
+![Podgląd mapy](media/app-insights-app-map/preview.png)
+
+Po kliknięciu przycisku "Składników mapy aktualizacji", mapy są odświeżane ze wszystkimi składnikami wykryte do momentu na tym etapie.
+![Podgląd załadować mapy](media/app-insights-app-map/components-loaded-hierarchical.png)
+
+Jeśli wszystkie składniki są role w ramach pojedynczego zasobu usługi Application Insights, ten krok odnajdywania nie jest wymagane. Ładowania początkowego dla takich aplikacji będzie miał wszystkich jego składników.
+
+Jest jednym z celów klucza z nowego środowiska można zwizualizować złożonej topologii z setkami składników. Nowe środowisko obsługuje powiększanie i dodaje szczegółów, jak możesz powiększania. Użytkownik może pomniejszenia Aby wyświetlić więcej składników w skrócie i nadal dodatkowych składników z awariami wyższy. 
+
+![Poziom powiększenia](media/app-insights-app-map/zoom-levels.png)
+
+Polecenie każdego składnika, aby zobaczyć powiązane informacje na temat technologii i przejdź do wydajność i środowisko klasyfikacji błąd dla tego składnika.
+
+![Wysuwane okno](media/app-insights-app-map/preview-flyout.png)
+
+
+## <a name="classic-application-map"></a>Mapowanie aplikacji klasycznych
 
 Pokazuje mapy:
 
@@ -38,9 +67,11 @@ Pokazuje mapy:
 * Składnik po stronie serwera
 * Zależności składniki klienta i serwera
 
+![Mapa aplikacji](./media/app-insights-app-map/02.png)
+
 Można zwijać i rozwijać grupy łącze zależności:
 
-![Zwiń](./media/app-insights-app-map/03.png)
+![zwiń](./media/app-insights-app-map/03.png)
 
 Jeśli masz wiele zależności jednego typu (SQL, HTTP itp.) są zgrupowane. 
 
@@ -99,22 +130,6 @@ W przypadku niektórych typów zasobów kondycja zasobu jest wyświetlany w gór
 
 Można kliknąć nazwę zasobu, aby wyświetlić przegląd standardowe metryki dla tego zasobu.
 
-## <a name="end-to-end-system-app-maps"></a>System end-to-end aplikacji mapy
-
-*Wymaga zestawu SDK w wersji 2.3 lub nowszej*
-
-Jeśli aplikacja ma kilka składników — na przykład usługi zaplecza dodatkowo do aplikacji sieci web -, można wyświetlić wszystkich na mapie jednej zintegrowanej aplikacji.
-
-![Ustaw filtry](./media/app-insights-app-map/multi-component-app-map.png)
-
-Mapa aplikacji znajduje węzły serwera, wykonując wszystkie wywołania zależności HTTP między serwerami z zestawem SDK Insights aplikacji, które zostały zainstalowane. Przyjęto, że każdy zasób usługi Application Insights zawiera jeden serwer.
-
-### <a name="multi-role-app-map-preview"></a>Mapa aplikacji usługi roli (wersja zapoznawcza)
-
-Funkcja mapy usługi roli aplikacji w wersji zapoznawczej umożliwiają mapy aplikacji z wieloma serwerami wysyłanie danych do tego samego zasobu usługi Application Insights / klucz instrumentacji. Serwery w mapie są podzielone przez właściwość cloud_RoleName elementów telemetrii. Ustaw *Mapa aplikacji usługi roli* do *na* z bloku Podgląd, aby włączyć tę konfigurację.
-
-Ta metoda może być wskazane w aplikacji micro-services lub w innych sytuacjach, w którym ma zostać korelowanie zdarzeń na wielu serwerach w ramach pojedynczego zasobu usługi Application Insights.
-
 ## <a name="video"></a>Połączenia wideo
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player] 
@@ -125,6 +140,6 @@ Prześlij opinię za pośrednictwem portalu opinie.
 ![Obraz MapLink-1](./media/app-insights-app-map/13.png)
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
-* [Witryna Azure Portal](https://portal.azure.com)
+* [Azure portal](https://portal.azure.com)

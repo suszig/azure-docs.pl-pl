@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jingwang
-ms.openlocfilehash: 84596041284139b8243287ba6ad719c7c8f7b47b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7d245c2222b1ad9ba71c6f5dbdde66e56e1aa6ab
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Wywołanie pakietów SSIS za pomocą działania procedury składowanej w fabryce danych Azure
 W tym artykule opisano sposób wywołania pakietów SSIS z potoku fabryki danych Azure za pomocą działania procedury składowanej. 
@@ -75,7 +75,7 @@ W tym kroku używasz interfejsu użytkownika z fabryki danych do utworzenia poto
 1. W strony wprowadzenie, kliknij przycisk **tworzenie potoku**: 
 
     ![Strona Wprowadzenie](./media/how-to-invoke-ssis-package-stored-procedure-activity/get-started-page.png)
-2. W **działania** przybornika, rozwiń węzeł **bazy danych SQL**i przeciągnij upuść **procedury składowanej** działania na powierzchnię desginer potoku. 
+2. W **działania** przybornika, rozwiń węzeł **bazy danych SQL**i przeciągnij upuść **procedury składowanej** działania na powierzchnię projektanta potoku. 
 
     ![Działania procedury składowanej przeciągnij i upuść](./media/how-to-invoke-ssis-package-stored-procedure-activity/drag-drop-sproc-activity.png)
 3. W oknie dialogowym właściwości działania procedury składowanej, przełącz się do **konto SQL** , a następnie kliknij pozycję **+ nowy**. Utwórz połączenie z bazą danych Azure SQL obsługującego katalogu SSIS (SSIDB bazy danych). 
@@ -94,11 +94,11 @@ W tym kroku używasz interfejsu użytkownika z fabryki danych do utworzenia poto
         ![Połączona usługa Azure SQL Database](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
 5. W oknie właściwości, przełącz się do **procedury składowanej** karcie z **konto SQL** , i wykonaj następujące czynności: 
 
-    1. Dla **nazwę procedury przechowywane** pola Enter `sp_executesql` . 
+    1. Dla **nazwę procedury przechowywane** pola Enter `sp_executesql`. 
     2. Kliknij przycisk **+ nowy** w **parametry procedury przechowywane** sekcji. 
     3. Aby uzyskać **nazwa** parametru, wpisz **instrukcji INSERT**. 
-    4. Aby uzyskać **typu** parametru, wpisz **ciąg** . 
-    5. Aby uzyskać **wartość** parametru, wpisz poniższe zapytanie SQL.
+    4. Aby uzyskać **typu** parametru, wpisz **ciąg**. 
+    5. Aby uzyskać **wartość** parametru, wpisz poniższe zapytanie SQL:
 
         W zapytaniu SQL określ wartości prawo **nazwa_folderu**, **project_name**, i **nazwa_pakietu** parametrów. 
 
@@ -133,7 +133,9 @@ W tej sekcji wyzwalanie wykonywania potoku, a następnie monitorować go.
 
     ![Sprawdź wykonaniami pakietu](./media/how-to-invoke-ssis-package-stored-procedure-activity/verify-package-executions.png)
 
-Można również tworzyć wyzwalacz zaplanowane do potoku sieci, dzięki czemu potoku działa zgodnie z harmonogramem (houly, codziennie, itp.). Na przykład zobacz [tworzenie fabryki danych - UI fabryki danych](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule).
+
+> [!NOTE]
+> Można również tworzyć wyzwalacz zaplanowane do potoku sieci, dzięki czemu potoku działa zgodnie z harmonogramem (co godzinę, codziennie, itp.). Na przykład zobacz [tworzenie fabryki danych - UI fabryki danych](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule).
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 W tej sekcji umożliwia programu Azure PowerShell utworzyć potok fabryki danych z działaniem procedury składowanej wywołująca pakietów SSIS. 
@@ -321,7 +323,7 @@ W poprzednim kroku należy wywołać potoku na żądanie. Można również utwor
     }    
     ```
 2. W **programu Azure PowerShell**, przełącz się do **C:\ADF\RunSSISPackage** folderu.
-3. Uruchom **AzureRmDataFactoryV2Trigger zestaw** polecenia cmdlet można utworzyć wyzwalacza. 
+3. Uruchom **AzureRmDataFactoryV2Trigger zestaw** polecenia cmdlet, który tworzy wyzwalacz. 
 
     ```powershell
     Set-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName -DataFactoryName $DataFactory.DataFactoryName -Name "MyTrigger" -DefinitionFile ".\MyTrigger.json"

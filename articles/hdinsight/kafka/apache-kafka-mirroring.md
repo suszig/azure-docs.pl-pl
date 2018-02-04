@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/07/2017
+ms.date: 01/31/2018
 ms.author: larryfr
-ms.openlocfilehash: a7063375ac4a2f9f172b5c380c2d5472a12e1bfb
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 87b5912e7f9244dc1be74ac357200122b194dbdc
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Użyj MirrorMaker w celu zreplikowania Apache Kafka tematy z Kafka w usłudze HDInsight
 
@@ -120,7 +120,7 @@ Podczas tworzenia sieci wirtualnej platformy Azure i Kafka klastrów ręcznie, �
     export SOURCE_ZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
     ```
 
-    Zastąp `$CLUSTERNAME` o nazwie klastra źródłowego. Po wyświetleniu monitu wprowadź hasło dla konta logowania (Administrator) klastra.
+    Zastąp `$CLUSTERNAME` o nazwie klastra źródłowego. Po wyświetleniu monitu wprowadź hasło dla konta logowania klastra (administratora).
 
 3. Aby utworzyć temat o nazwie `testtopic`, użyj następującego polecenia:
 
@@ -187,7 +187,7 @@ Podczas tworzenia sieci wirtualnej platformy Azure i Kafka klastrów ręcznie, �
     echo $DEST_BROKERHOSTS
     ```
 
-    Zastąp `$CLUSTERNAME` o nazwie klastra docelowego. Po wyświetleniu monitu wprowadź hasło dla konta logowania (Administrator) klastra.
+    Zastąp `$CLUSTERNAME` o nazwie klastra docelowego. Po wyświetleniu monitu wprowadź hasło dla konta logowania klastra (administratora).
 
     `echo` Polecenie zwraca informacje podobne do następującego tekstu:
 
@@ -209,6 +209,41 @@ Podczas tworzenia sieci wirtualnej platformy Azure i Kafka klastrów ręcznie, �
     Zastąp **DEST_BROKERS** brokera informacje z poprzedniego kroku.
 
     Aby uzyskać więcej informacji o konfiguracji producenta, zobacz [Configs producent](https://kafka.apache.org/documentation#producerconfigs) na kafka.apache.org.
+
+5. Użyj następujących poleceń, aby znaleźć hosty dozorcy klastra docelowego:
+
+    ```bash
+    # Install jq if it is not installed
+    sudo apt -y install jq
+    # get the zookeeper hosts for the source cluster
+    export DEST_ZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    ```
+
+    Zastąp `$CLUSTERNAME` o nazwie klastra docelowego. Po wyświetleniu monitu wprowadź hasło dla konta logowania klastra (administratora).
+
+7. Konfigurację domyślną dla Kafka w usłudze HDInsight nie zezwalaj na automatyczne tworzenie tematów. Przed rozpoczęciem procesu funkcja dublowania, muszą używać jednej z następujących opcji:
+
+    * **Tworzenie tematów w docelowym klastrze**: Ta opcja umożliwia określenie liczby partycji i współczynnik replikacji.
+
+        Tematy wcześniej, można utworzyć za pomocą następującego polecenia:
+
+        ```bash
+        /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic testtopic --zookeeper $DEST_ZKHOSTS
+        ```
+
+        Zastąp `testtopic` o nazwie tematu, aby utworzyć.
+
+    * **Konfigurowanie klastra na temat automatycznego tworzenia**: Ta opcja umożliwia MirrorMaker automatycznie utworzyć tematy, jednak może je utworzyć za innej liczby partycji lub współczynnik replikacji niż tematu źródła.
+
+        Aby skonfigurować klaster docelowy do automatycznego tworzenia tematów, wykonaj następujące kroki:
+
+        1. Z [portalu Azure](https://portal.azure.com), wybierz miejsce docelowe Kafka klastra.
+        2. Na stronie przeglądu klastra, wybierz __pulpit nawigacyjny klastra__. Następnie wybierz __pulpit nawigacyjny klastra usługi HDInsight__. Po wyświetleniu monitu uwierzytelniania przy użyciu poświadczeń logowania (Administrator) dla klastra.
+        3. Wybierz __Kafka__ usługi na liście po lewej stronie.
+        4. Wybierz __Configs__ środku strony.
+        5. W __filtru__ wprowadź wartość `auto.create`. To filtruje listę właściwości i wyświetla `auto.create.topics.enable` ustawienie.
+        6. Zmień wartość `auto.create.topics.enable` na wartość PRAWDA, a następnie wybierz __zapisać__. Dodanie uwagi, a następnie wybierz __zapisać__ ponownie.
+        7. Wybierz __Kafka__ usługi, wybierz opcję __Uruchom ponownie__, a następnie wybierz __ponowne uruchomienie wszystkich odpowiednich__. Po wyświetleniu monitu wybierz __Potwierdź Uruchom ponownie wszystkie__.
 
 ## <a name="start-mirrormaker"></a>Uruchom MirrorMaker
 
@@ -243,19 +278,17 @@ Podczas tworzenia sieci wirtualnej platformy Azure i Kafka klastrów ręcznie, �
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $SOURCE_BROKERHOSTS --topic testtopic
     ```
 
-    Zastąp `$CLUSTERNAME` o nazwie klastra źródłowego. Po wyświetleniu monitu wprowadź hasło dla konta logowania (Administrator) klastra.
+    Zastąp `$CLUSTERNAME` o nazwie klastra źródłowego. Po wyświetleniu monitu wprowadź hasło dla konta logowania klastra (administratora).
 
      Po przyjeździe do pustego wiersza z kursorem, wpisz w kilku wiadomości SMS. Komunikaty są wysyłane do tematu **źródła** klastra. Na koniec użyj **klawisze Ctrl + C** można zakończyć procesu producenta.
 
-3. Połączenie SSH **docelowego** klastra, użyj **klawisze Ctrl + C** można zakończyć procesu MirrorMaker. Aby sprawdzić, tematu i komunikaty zostały zreplikowane do miejsca docelowego, użyj następujących poleceń:
+3. Połączenie SSH **docelowego** klastra, użyj **klawisze Ctrl + C** można zakończyć procesu MirrorMaker. Może potrwać kilka sekund, aby zakończyć proces. Aby sprawdzić, czy komunikaty zostały zreplikowane do miejsca docelowego, użyj następującego polecenia:
 
     ```bash
-    DEST_ZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
-    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $DEST_ZKHOSTS
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $DEST_ZKHOSTS --topic testtopic --from-beginning
     ```
 
-    Zastąp `$CLUSTERNAME` o nazwie klastra docelowego. Po wyświetleniu monitu wprowadź hasło dla konta logowania (Administrator) klastra.
+    Zastąp `$CLUSTERNAME` o nazwie klastra docelowego. Po wyświetleniu monitu wprowadź hasło dla konta logowania klastra (administratora).
 
     Lista tematów zawiera teraz `testtopic`, który jest tworzony podczas MirrorMaster odzwierciedla tematu z klastra źródłowego do docelowego. Wiadomości pobierane z tematu są takie same, jak został wprowadzony w klastrze źródłowym.
 

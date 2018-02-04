@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: 209968a598d3a579cc40edaf52bd7344fa3f60ed
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: e2176a41a115d77a60a8348d2d1b5928109dd65b
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Monitorowanie bazy danych SQL Azure przy użyciu analiza SQL Azure (wersja zapoznawcza) w analizy dzienników
 
@@ -47,7 +47,7 @@ W poniższej tabeli opisano połączone źródła, które obsługuje to rozwiąz
 | [Agenci dla systemu Linux](log-analytics-linux-agents.md) | Nie | Bezpośrednie agentów systemu Linux nie są używane przez to rozwiązanie. |
 | [Grupa zarządzania programu SCOM](log-analytics-om-agents.md) | Nie | Bezpośrednie połączenie z agenta programu SCOM Log Analytics nie jest używany przez rozwiązanie. |
 | [Konto usługi Azure Storage](log-analytics-azure-storage.md) | Nie | Analiza dzienników nie odczytuje dane z konta magazynu. |
-| [Diagnostyka Azure](log-analytics-azure-storage.md) | Tak | Metryka i dziennika danych Azure są wysyłane do analizy dzienników bezpośrednio przez platformę Azure. |
+| [Diagnostyka Azure](log-analytics-azure-storage.md) | Yes | Metryka i dziennika danych Azure są wysyłane do analizy dzienników bezpośrednio przez platformę Azure. |
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -55,7 +55,7 @@ W poniższej tabeli opisano połączone źródła, które obsługuje to rozwiąz
 - Obszar roboczy analizy dzienników. Można użyć istniejącego, lub możesz [Utwórz nową](log-analytics-quick-create-workspace.md) przed rozpoczęciem korzystania z tego rozwiązania.
 - Włącz diagnostyki Azure dla baz danych Azure SQL i pule elastyczne i [je skonfigurować do wysyłania danych do analizy dzienników](../sql-database/sql-database-metrics-diag-logging.md).
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 Wykonaj poniższe kroki, aby dodać do swojego obszaru roboczego rozwiązania analizy SQL Azure.
 
@@ -122,7 +122,7 @@ Dla każdej perspektywy umożliwia podsumowania subskrypcji, serwer puli elastyc
 
 Baza danych SQL Azure [Insights inteligentnego](../sql-database/sql-database-intelligent-insights.md) informuje Cię o tym, co dzieje z wydajność bazy danych. Wszystkie zebrane inteligentnego szczegółowe informacje można wizualizowane i dostępne za pośrednictwem perspektywy szczegółowych informacji.
 
-![Insights Analytics Azure SQL](./media/log-analytics-azure-sql/azure-sql-sol-insights.png)
+![Azure SQL Analytics Insights](./media/log-analytics-azure-sql/azure-sql-sol-insights.png)
 
 ### <a name="elastic-pool-and-database-reports"></a>Raporty dotyczące puli elastycznej i bazy danych
 
@@ -157,7 +157,7 @@ AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "
 AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/ELASTICPOOLS/" and MetricName=="dtu_consumption_percent" | summarize avg(Maximum) by ResourceId
 ```
 
-Można tych zapytań na podstawie alertu alert po wystąpieniu określone progi dla bazy danych SQL Azure i elastyczne pule. Aby skonfigurować alert dla obszaru roboczego OMS:
+Można tych zapytań na podstawie alertu alert po wystąpieniu określone progi dla bazy danych SQL Azure i elastyczne pule. Aby skonfigurować alert dla obszaru roboczego analizy dzienników:
 
 #### <a name="to-configure-an-alert-for-your-workspace"></a>Aby skonfigurować alert dla obszaru roboczego
 
@@ -170,7 +170,7 @@ Można tych zapytań na podstawie alertu alert po wystąpieniu określone progi 
 6. Na **Dodaj regułę alertu** Ustaw odpowiednie właściwości i określone progi, które mają, a następnie kliknij przycisk **zapisać**.  
 ![Dodaj regułę alertów](./media/log-analytics-azure-sql/create-alert02.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Użyj [dziennik wyszukiwania](log-analytics-log-searches.md) w analizy dzienników w celu wyświetlenia szczegółowych danych Azure SQL.
 - [Tworzenie własnych pulpity nawigacyjne](log-analytics-dashboards.md) przedstawiający danych Azure SQL.

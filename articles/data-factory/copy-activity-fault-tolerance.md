@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 293ffb2a56ae970c71d495d7d929720ddf758307
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: b7ca3f6da104da16bd64db042a2a13f593a393b6
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/03/2018
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Odporność na uszkodzenia działania kopiowania w fabryce danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,9 +36,17 @@ Działanie kopiowania w fabryce danych Azure oferuje obsługi niezgodne wierszy,
  ## <a name="supported-scenarios"></a>Obsługiwane scenariusze
 Działanie kopiowania obsługuje trzy scenariusze wykrywanie, pomijanie i rejestrowanie danych niezgodne:
 
-- **Niezgodność między typem źródła danych i typ macierzysty ujścia**. <br/><br/> Na przykład: kopiowanie danych z pliku CSV w magazynie obiektów Blob do bazy danych SQL z definicji schematu, która zawiera trzy kolumny typu INT. Wiersze pliku CSV, które zawierają dane liczbowe, takie jak 123,456,789 są została pomyślnie skopiowana do ujścia magazynu. Jednak wiersze zawierające wartości nieliczbowe, takich jak 123,456, abc Wykryto niezgodne i są pomijane.
-- **Niezgodność liczby kolumn między serwerem źródłowym a sink**. <br/><br/> Na przykład: kopiowanie danych z pliku CSV w magazynie obiektów Blob do bazy danych SQL z definicji schematu, który zawiera sześć kolumn. Wiersze pliku CSV, które zawierają sześć kolumn są została pomyślnie skopiowana do ujścia magazynu. Wiersze pliku CSV, które zawierają więcej lub mniej niż sześć kolumn są wykryte jako niezgodne, są pomijane.
-- **Naruszenia dotyczącego klucza podstawowego podczas zapisywania w relacyjnej bazie danych**.<br/><br/> Na przykład: kopiowanie danych z programu SQL server z bazą danych SQL. W bazie danych SQL zbiornika jest zdefiniowany klucz podstawowy, ale taki klucz podstawowy jest zdefiniowany w programie SQL server źródła. Zduplikowane wiersze, które istnieją w źródle nie można skopiować do ujścia. Działanie kopiowania kopiuje tylko pierwszy wiersz źródła danych do ujścia. Wiersze kolejnych źródła, które zawierają zduplikowane wartości klucza podstawowego są wykrywane niezgodne i są pomijane.
+- **Niezgodność między typem źródła danych i typ macierzysty ujścia**. 
+
+    Na przykład: kopiowanie danych z pliku CSV w magazynie obiektów Blob do bazy danych SQL z definicji schematu, która zawiera trzy kolumny typu INT. Wiersze pliku CSV, które zawierają dane liczbowe, takie jak 123,456,789 są została pomyślnie skopiowana do ujścia magazynu. Jednak wiersze zawierające wartości nieliczbowe, takich jak 123,456, abc Wykryto niezgodne i są pomijane.
+
+- **Niezgodność liczby kolumn między serwerem źródłowym a sink**.
+
+    Na przykład: kopiowanie danych z pliku CSV w magazynie obiektów Blob do bazy danych SQL z definicji schematu, który zawiera sześć kolumn. Wiersze pliku CSV, które zawierają sześć kolumn są została pomyślnie skopiowana do ujścia magazynu. Wiersze pliku CSV, które zawierają więcej lub mniej niż sześć kolumn są wykryte jako niezgodne, są pomijane.
+
+- **Naruszenia dotyczącego klucza podstawowego podczas zapisywania w relacyjnej bazie danych**.
+
+    Na przykład: kopiowanie danych z programu SQL server z bazą danych SQL. W bazie danych SQL zbiornika jest zdefiniowany klucz podstawowy, ale taki klucz podstawowy jest zdefiniowany w programie SQL server źródła. Zduplikowane wiersze, które istnieją w źródle nie można skopiować do ujścia. Działanie kopiowania kopiuje tylko pierwszy wiersz źródła danych do ujścia. Wiersze kolejnych źródła, które zawierają zduplikowane wartości klucza podstawowego są wykrywane niezgodne i są pomijane.
 
 >[!NOTE]
 >Ta funkcja nie ma zastosowania, gdy działanie kopiowania jest skonfigurowany do wywołania danych zewnętrznych ładowania, łącznie z mechanizmu [aparat PolyBase magazynu danych SQL Azure](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) lub [zwolnienie Redshift Amazon](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift). Ładowania danych do usługi SQL Data Warehouse przy użyciu programu PolyBase, korzystać z obsługi tolerancji błędów natywnego programu PolyBase w określając "[usługi](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)" w przypadku działania kopiowania.

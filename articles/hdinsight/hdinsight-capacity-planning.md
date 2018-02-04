@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: maxluk
-ms.openlocfilehash: b4bdf3339e585a7b22a1945871f802854020fb94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 391b691e895c672ef872f8b98c88567175ad8030
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planowanie wydajności dla klastrów usługi HDInsight
 
@@ -67,9 +67,7 @@ Klastra mogą uzyskać dostęp z kombinacją różnych kont magazynu. Typowe prz
 
 ## <a name="choose-a-cluster-type"></a>Wybierz typ klastra
 
-Typ klastra określa obciążenia klastra usługi HDInsight, jest skonfigurowana do uruchamiania, takie jak Hadoop, Storm, Kafka lub Spark. 
-<!-- For a detailed description of the available cluster types, see [HDInsight Architecture](hdinsight-architecture.md). -->
-Każdy typ klastra ma topologię wdrażania, która zawiera wymagania dotyczące rozmiaru i liczby węzłów.
+Typ klastra określa obciążenia klastra usługi HDInsight, jest skonfigurowana do uruchamiania, takie jak Hadoop, Storm, Kafka lub Spark. Aby uzyskać szczegółowy opis dostępnych typów, zobacz [wprowadzenie do usługi Azure HDInsight](hadoop/apache-hadoop-introduction.md#cluster-types-in-hdinsight). Każdy typ klastra ma topologię wdrażania, która zawiera wymagania dotyczące rozmiaru i liczby węzłów.
 
 ## <a name="choose-the-vm-size-and-type"></a>Wybierz rozmiar maszyny Wirtualnej i typ
 
@@ -96,9 +94,7 @@ Możesz skalować w poziomie z klastrem w celu spełnienia wymagań obciążenia
 
 ### <a name="cluster-lifecycle"></a>Cykl życia klastra
 
-Naliczane są opłaty za klaster okres istnienia. Jeśli istnieją tylko w określonych godzinach, które wymagają klastra się i uruchomiona, można utworzyć klastry na żądanie przy użyciu fabryki danych Azure.
-<!-- [create on-demand clusters using Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md). -->
-Można również tworzyć skrypty programu PowerShell, które udostępniania i usunąć klaster, a następnie zaplanować te skrypty przy użyciu [usługi Automatyzacja Azure](https://azure.microsoft.com/services/automation/).
+Naliczane są opłaty za klaster okres istnienia. Jeśli są tylko określone godziny należy sieci klastra w górę i działa, możesz [Tworzenie klastrów na żądanie przy użyciu fabryki danych Azure](hdinsight-hadoop-create-linux-clusters-adf.md). Można również tworzyć skrypty programu PowerShell, które udostępniania i usunąć klaster, a następnie zaplanować te skrypty przy użyciu [usługi Automatyzacja Azure](https://azure.microsoft.com/services/automation/).
 
 > [!NOTE]
 > Po usunięciu klastra powoduje również usunięcie jego potrzeby magazynu metadanych Hive domyślne. Aby zachować na potrzeby magazynu metadanych dla następnego ponownego tworzenia klastra, należy użyć magazynu zewnętrznego metadanych, takich jak bazy danych platformy Azure lub Oozie.
@@ -118,7 +114,7 @@ Po ustaleniu klaster docelowy rozmiar maszyny Wirtualnej, skalę i typ, sprawdź
 
 Jednak brak niektóre limity przydziału stałej, na przykład jedna subskrypcja platformy Azure może mieć maksymalnie 10 000 rdzeni. Szczegółowe informacje dotyczące tych ograniczeń, zawiera [subskrypcji platformy Azure i usługi limity, przydziały i ograniczenia](https://docs.microsoft.com/azure/azure-subscription-service-limits#limits-and-the-azure-resource-manager).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Ustawianie klastrów w usłudze HDInsight Hadoop, Spark, Kafka i](hdinsight-hadoop-provision-linux-clusters.md): informacje o sposobie instalowania i konfigurowania klastrów w usłudze HDInsight Hadoop, Spark, Kafka, interakcyjne Hive, HBase, R Server lub Storm.
 * [Monitorowanie wydajności klastra](hdinsight-key-scenarios-to-monitor.md): więcej informacji na temat kluczowych scenariuszy monitorowania dla klastra usługi HDInsight, co może wpłynąć na wydajność sieci klastra.

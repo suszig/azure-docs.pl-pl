@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: rafats
-ms.openlocfilehash: d179f2880b026cb10db53c1218507e7d1e396b8a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3fa321a3354be3eb7dce2ff886cd40c6c9f1ebbb
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Praca z zmiany źródła pomocy technicznej w usłudze Azure DB rozwiązania Cosmos
 
@@ -179,6 +179,7 @@ Po lewej stronie klient został uruchomiony w pierwszej i jego uruchomienia moni
 
 Należy pamiętać, że jeśli dwie niekorzystającą funtions Azure monitorowanie tej samej kolekcji i przy użyciu tej samej dzierżawy, a następnie dwie funkcje mogą wystąpić różne dokumenty jak biblioteki procesora postanawia processs partycji w zależności od.
 
+<a id="understand-cf"></a>
 ### <a name="understanding-the-change-feed-processor-library"></a>Opis biblioteki zmiany źródła procesora
 
 Istnieją cztery główne składniki wdrażania procesora źródła danych zmian: monitorowanych kolekcję, Kolekcja dzierżawy hosta procesora i konsumentów. 

@@ -3,21 +3,21 @@ title: "Umożliwia dostęp do usługi Azure Storage przy użyciu poświadczeń s
 description: "Samouczek przedstawiający sposób użycia Linux VM zarządzane usługi tożsamości (MSI), dostęp do magazynu Azure, a klucz dostępu do konta magazynu przy użyciu poświadczeń sygnatury dostępu Współdzielonego."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
-editor: bryanla
+editor: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: bryanla
-ms.openlocfilehash: a4dda36ce1ae01c4fe66394a86dd9624b3c41d9f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: daveba
+ms.openlocfilehash: d612e71b7a765a2243be54964a56f5be7bfdc09b
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Umożliwia dostęp do usługi Azure Storage za pomocą poświadczeń sygnatury dostępu Współdzielonego maszyny Wirtualnej systemu Linux zarządzanych tożsamości usługi
 
@@ -254,7 +254,7 @@ Odpowiedź:
 }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Omówienie MSI, zobacz [omówienie zarządzane tożsamość usługi](../active-directory/msi-overview.md).
 - Aby dowiedzieć się, jak to zrobić na tej samej instrukcji za pomocą klucza konta magazynu, zobacz [użyć maszyny Wirtualnej systemu Linux zarządzanych tożsamości usługi dostępu do magazynu Azure](msi-tutorial-linux-vm-access-storage.md)

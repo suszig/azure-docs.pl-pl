@@ -12,19 +12,19 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: sdash
-ms.openlocfilehash: 8c1d8600b7f4aaa1e95f4acfbbdd55fdbfebb8fb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1c7eaafe99717324ad03287a1f1e0699d77cc74f
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Diagnostyka ujednoliconego transakcji między składnikami
 
 *To środowisko jest obecnie w wersji zapoznawczej i zastępuje istniejące bloków diagnostyki dla żądania po stronie serwera, zależności i wyjątki.*
 
-Wersja zapoznawcza wprowadza nową funkcjonalność ujednoliconego diagnostyki odpowiadająca automatycznie telemetrii po stronie serwera z dotyczące wszystkich składników usługi Application Insights monitorowane w jednym widoku. Nie ma znaczenia, jeśli masz wiele zasobów z kluczami oddzielne Instrumentacji; Usługa Application Insights wykrycia relacji podstawowej i umożliwia łatwe diagnozowanie składnika aplikacji, zależności lub wyjątek, która spowodowała spowolnienie transakcji lub niepowodzenie.
+Wersja zapoznawcza wprowadza nową funkcjonalność ujednoliconego diagnostyki odpowiadająca automatycznie telemetrii po stronie serwera z dotyczące wszystkich składników usługi Application Insights monitorowane w jednym widoku. Nie ma znaczenia, jeśli masz wiele zasobów z kluczami oddzielne instrumentacji. Usługa Application Insights wykrycia relacji podstawowej i umożliwia łatwe diagnozowanie składnika aplikacji, zależności lub wyjątek, która spowodowała spowolnienie transakcji lub niepowodzenie.
 
-## <a name="what-does-component-mean-in-the-context-of-application-insights"></a>Co oznacza składnik w kontekście usługi Application Insights?
+## <a name="what-is-a-component"></a>Co to jest składnik?
 
 Składniki są niezależnie można wdrożyć części aplikacji rozproszonych mikrousług. Zespoły deweloperów i operacji mają widoczność na poziomie kodu lub dostępu do danych telemetrycznych generowane przez te składniki aplikacji.
 
@@ -32,10 +32,12 @@ Składniki są niezależnie można wdrożyć części aplikacji rozproszonych mi
 * Składniki uruchamiane na dowolnej liczbie wystąpień kontenera server/roli.
 * Składniki mogą być osobne klucze Instrumentacji usługi Application Insights (nawet jeśli różnią się subskrypcje) lub różne role podlegające jednego klucza Instrumentacji usługi Application Insights. Nowe środowisko przedstawia szczegółowe informacje dotyczące wszystkich składników, niezależnie od tego, jak ich zostały zdefiniowane.
 
-> [!Tip]
-> Aby uzyskać najlepsze wyniki upewnij się, że wszystkie składniki są instrumentowane przy użyciu najnowszych SDK stabilna usługi Application Insights. W przypadku różnych zasobów usługi Application Insights, upewnij się, że masz odpowiednie uprawnienia, aby wyświetlić ich telemetrii.
+> [!NOTE]
+> * **Brak elementów pokrewnych łącza?** Wszystkie dane telemetryczne, powiązane z żądania po stronie serwera, zależności i wyjątków znajdują się w [górnej](#cross-component-transaction-chart) i [dolnej](#all-telemetry-related-to-the-selected-component-operation) sekcje po lewej stronie. 
+> * [Górnej](#cross-component-transaction-chart) sekcji skorelowany transakcji dotyczące wszystkich składników. Aby uzyskać najlepsze wyniki upewnij się, że wszystkie składniki są instrumentowane przy użyciu najnowszych SDK stabilna usługi Application Insights. W przypadku różnych zasobów usługi Application Insights, upewnij się, że masz odpowiednie uprawnienia, aby wyświetlić ich telemetrii.
+> * [Dolnej](#all-telemetry-related-to-the-selected-component-operation) sekcji przedstawiono po lewej stronie **wszystkie** tym śladów i zdarzenia związane z na żądanie z wybranego składnika.
 
-## <a name="enable-and-access"></a>Włączanie i dostępu
+## <a name="enable-transaction-diagnostics-experience"></a>Włącz wyniki diagnostyki transakcji
 Włącz "Unified szczegółów: Diagnostyka transakcji E2E" z [listy podglądy](app-insights-previews.md)
 
 ![Włącz podgląd](media/app-insights-e2eTxn-diagnostics/previews.png)
@@ -49,7 +51,7 @@ Ten widok zawiera trzy części klucza: wykres transakcji między składnikami, 
 
 ![Części klucza](media/app-insights-e2eTxn-diagnostics/3partsCrossComponent.png)
 
-### <a name="1-cross-component-transaction-chart"></a>[1] między składnikami transakcji wykresu
+## <a name="cross-component-transaction-chart"></a>Wykres transakcji między składnikami
 
 Ten wykres zawiera oś czasu z słupkach poziomych na czas trwania żądania i zależności między składnikami. Wszelkie wyjątki, które są zbierane są również oznaczane na osi czasu.
 
@@ -57,20 +59,20 @@ Ten wykres zawiera oś czasu z słupkach poziomych na czas trwania żądania i z
 * Wszystkie wywołania zależności zewnętrznych są proste-zwijanej wiersze, w których ikony reprezentujący typ zależności.
 * Wywołania z innymi składnikami są zwijane wierszy. Każdy wiersz odpowiada określonej operacji wywołać składnika.
 * Domyślnie żądania, zależności lub wyjątek, który początkowo zaznaczone jest wyświetlane na wykresie.
-* Wybierz wszystkie wiersze, aby wyświetlić jego szczegóły po prawej stronie. Kliknij przycisk "ślady profilera Otwórz" lub "debugowania Otwórz migawkę" dla poziomu diagnostyki kodu w odpowiednich okienka szczegółów.
+* Wybierz wszystkie wiersze, aby wyświetlić jego [szczegóły po prawej stronie](#details-of-the-selected-telemetry). 
 
 > [!NOTE]
-Wywołania z innymi składnikami mają dwa wiersze: jeden wiersz reprezentuje wywołanie wychodzącego (zależności) ze składnika wywołującego i drugiego wiersza odpowiada żądania przychodzącego na składnik o nazwie. Ikona początkowych i różne style pasków czas trwania pomoże rozróżnianie między nimi.
+Wywołania z innymi składnikami mają dwa wiersze: jeden wiersz reprezentuje wywołanie wychodzącego (zależności) ze składnika wywołującego i drugiego wiersza odpowiada żądania przychodzącego na składnik o nazwie. Ikona początkowych i różne style pasków czas trwania pomocy rozróżnianie między nimi.
 
-### <a name="2-time-sequenced-telemetry-of-the-selected-component-operation"></a>[2] czas sekwencjonowania telemetrii operacji wybranego składnika.
+## <a name="all-telemetry-related-to-the-selected-component-operation"></a>Wszystkie dane telemetryczne dotyczące wybranej operacji składników
 
-Każdy wiersz na wykresie między składnikami transakcji jest powiązany z operacji wywoływanej w poszczególnych składników. Ta operacja wybranego składnika znajduje odzwierciedlenie w tytule dolnej części. Otworzyć tę sekcję, aby zobaczyć sekwencji płaskiej czas wszystkie dane telemetryczne dotyczące tej operacji. Można wybrać dowolny element telemetrii na tej liście, aby wyświetlić szczegóły po prawej stronie.
+Każdy wiersz na wykresie między składnikami transakcji jest powiązany z operacji wywoływanej w poszczególnych składników. Ta operacja wybranego składnika znajduje odzwierciedlenie w tytule dolnej części. Otworzyć tę sekcję, aby zobaczyć sekwencji płaskiej czas wszystkie dane telemetryczne dotyczące tej operacji. Można wybrać dowolny element telemetrii na tej liście, aby wyświetlić odpowiednie [szczegóły po prawej stronie](#details-of-the-selected-telemetry).
 
 ![Wszystkie dane telemetryczne czasu sekwencji](media/app-insights-e2eTxn-diagnostics/allTelemetryDrawerOpened.png)
 
-### <a name="3-details-pane"></a>[3] w okienku szczegółów
+## <a name="details-of-the-selected-telemetry"></a>Szczegóły wybranego telemetrii
 
-Szczegóły wybranego elementu z jednej z dwóch części w tym okienku są wyświetlane po lewej stronie. "Pokaż wszystko" zawiera wszystkie standardowe atrybuty, które są zbierane. Atrybuty niestandardowe oddzielnie są wymienione poniżej standardowego zestawu.
+Szczegóły wybranego elementu z jednej z dwóch części w tym okienku są wyświetlane po lewej stronie. "Pokaż wszystko" zawiera wszystkie standardowe atrybuty, które są zbierane. Atrybuty niestandardowe oddzielnie są wymienione poniżej standardowego zestawu. Kliknij przycisk "ślady profilera Otwórz" lub "debugowania Otwórz migawkę" dla poziomu diagnostyki kodu w odpowiednich okienka szczegółów.
 
 ![Szczegóły wyjątku](media/app-insights-e2eTxn-diagnostics/exceptiondetail.png)
 
@@ -104,7 +106,7 @@ Tak. Nowe środowisko łączy wszystkie powiązane dane telemetryczne po stronie
 
 *Widać zduplikowane wiersze dla zależności. Jest to oczekiwane?*
 
-W tej chwili możemy są wyświetlane wywołania zależności wychodzącego oddzielony od ruchu przychodzącego żądania. Zazwyczaj dwa wywołania Szukaj taka sama, jak są różne z powodu sieci Rundy tylko wartości czasu trwania. Ikona początkowych i różne style pasków czas trwania pomoże rozróżnianie między nimi. Jest myląca ze tej prezentacji danych? Przekaż nam swoją opinię!
+W tej chwili możemy są wyświetlane wywołania zależności wychodzącego oddzielony od ruchu przychodzącego żądania. Zazwyczaj dwa wywołania Szukaj taka sama, jak są różne z powodu sieci Rundy tylko wartości czasu trwania. Ikona początkowych i różne style pasków czas trwania pomocy rozróżnianie między nimi. Jest myląca ze tej prezentacji danych? Przekaż nam swoją opinię!
 
 *Jak zegar pochyla w wystąpieniach różnych składników?*
 

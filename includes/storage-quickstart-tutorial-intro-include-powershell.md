@@ -6,7 +6,7 @@ Zaloguj się do subskrypcji platformy Azure za pomocą polecenia `Login-AzureRmA
 Login-AzureRmAccount
 ```
 
-Jeśli nie wiesz, której lokalizacji użyć, możesz wyświetlić listę dostępnych lokalizacji. Po wyświetleniu listy znajdź lokalizację, której chcesz użyć. W tym przykładzie użyto **eastus**. Zapisz ją w zmiennej i używaj tej zmiennej, dzięki czemu będzie można zmieniać lokalizację w jednym miejscu.
+Jeśli nie wiesz, której lokalizacji użyć, możesz wyświetlić listę dostępnych lokalizacji. Po wyświetleniu listy znajdź lokalizację, której chcesz użyć. W tym przykładzie użyto lokalizacji **eastus**. Zapisz ją w zmiennej i używaj tej zmiennej, dzięki czemu będzie można zmieniać lokalizację w jednym miejscu.
 
 ```powershell
 Get-AzureRmLocation | select Location 
@@ -31,7 +31,7 @@ $storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Name "mystorageaccount" `
   -Location $location `
   -SkuName Standard_LRS `
-  -Kind Storage `
+  -Kind Storage
 
 $ctx = $storageAccount.Context
 ```

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
-ms.author: roopalik;garye
-ms.openlocfilehash: ad41d431b78a69e54bb5e4df3aaea1ec7c858b7f
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.author: garye
+ms.openlocfilehash: 80c2ab0cd97ce5afef7e38bad9f0fa0e4f3f363c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="discover-experiments-in-azure-ai-gallery"></a>Odnajdywanie eksperymenty w galerii Azure AI
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
@@ -34,7 +34,7 @@ Galeria zawiera szeroką gamę [eksperymenty](https://gallery.cortanaintelligenc
 ## <a name="discover"></a>Wykrywanie
 Aby przeglądać eksperymenty [w galerii](http://gallery.cortanaintelligence.com), w górnej części strony głównej galerii, wybierz **eksperymenty**.
 
- **[Eksperymenty](https://gallery.cortanaintelligence.com/experiments)**  zostanie wyświetlona lista ostatnio dodany i popularne eksperymenty. Aby zobaczyć wszystkie eksperymenty, zaznacz **zobaczyć wszystkie** przycisku. Do wyszukiwania określonych eksperymentu, wybierz **zobaczyć wszystkie**, a następnie wybierz kryteria. Można również wprowadzić terminy wyszukiwania w **wyszukiwania** u góry strony galerii.
+**[Eksperymenty](https://gallery.cortanaintelligence.com/experiments)**  zostanie wyświetlona lista ostatnio dodany i popularne eksperymenty. Aby zobaczyć wszystkie eksperymenty, zaznacz **zobaczyć wszystkie** przycisku. Do wyszukiwania określonych eksperymentu, wybierz **zobaczyć wszystkie**, a następnie wybierz kryteria. Można również wprowadzić terminy wyszukiwania w **wyszukiwania** u góry strony galerii.
 
 Możesz uzyskać więcej informacji na temat eksperyment na stronie szczegółów eksperymentu. Aby otworzyć stronę szczegółów eksperymentu, wybierz eksperymentu. W eksperymencie szczegóły strony w **komentarze** sekcji, można dodać komentarz, wyrazić swoją opinię lub zadać pytania dotyczące eksperymentu. Możesz nawet udostępniać eksperyment znajomych lub współpracowników w serwisie Twitter i LinkedIn. Można również e-mail łącze do strony szczegółów doświadczenia z zaproszeniem dla innych użytkowników, aby wyświetlić stronę.
 

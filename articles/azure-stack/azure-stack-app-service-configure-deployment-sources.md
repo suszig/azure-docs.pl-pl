@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: 3738ca8ce8dfe0e5375779e9273a3d10baf8861a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e73a607a7f8ad948ab821b0aeda164418509f076
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="configure-deployment-sources"></a>Konfigurowanie źródeł wdrożenia
 *Dotyczy: Azure stosu zintegrowanych systemów i Azure stosu Development Kit*
@@ -49,8 +49,7 @@ Musisz mieć konto GitHub, aby zakończyć to zadanie. Możesz użyć konta orga
 2. Wprowadź **Nazwa aplikacji** na przykład - usługi aplikacji Azure stosu.
 3. Wprowadź **adres URL strony głównej**. Adres URL strony głównej musi być adresem Portal Azure stosu. Na przykład https://portal.local.azurestack.external.
 4. Wprowadź **opis aplikacji**.
-5. Wprowadź **adresu URL wywołania zwrotnego autoryzacji**.  W domyślnym wdrożeniu Azure stosu adres Url jest https://portal.local.azurestack.external/tokenauthorize formularza, jeśli używane do uruchamiania zastępuje inną domenę domenę dla azurestack.local.
-    ![GitHub - zarejestrować nową aplikację z wartościami wypełnione][4]
+5. Wprowadź **adresu URL wywołania zwrotnego autoryzacji**.  We wdrożeniu stosu Azure domyślny adres Url jest https://portal.local.azurestack.external/tokenauthorize formularza, jeśli używane do uruchamiania zastępuje inną domenę domenę dla local.azurestack.external ![GitHub - zarejestrować nowe Aplikacja o wartości wypełnione][4]
 6. Kliknij przycisk **zarejestrować aplikację**.  Teraz zostanie wyświetlona z listą strony **identyfikator klienta** i **klucz tajny klienta** dla aplikacji.
     ![GitHub — rejestracja ukończona aplikacja][5]
 7.  W oknie lub nową kartę przeglądarki zalogować się do stosu administratora portalu Azure (https://adminportal.local.azurestack.external) jako administratora usługi.

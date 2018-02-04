@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/22/2018
 ms.author: v-masebo
-ms.openlocfilehash: 24c556c8ea585a522c890dab16ae9fb96dc51c22
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: f467437afb4bf89e77668cfd3e8a824bfbde9e10
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="routing-messages-with-iot-hub-python"></a>Routing komunikatów z Centrum IoT (Python)
 
@@ -117,6 +117,9 @@ W tej sekcji możesz zmodyfikować aplikację urządzenia, utworzony w [Rozpoczy
 W tej sekcji tworzyć kolejki usługi Service Bus oraz konto magazynu, podłącz je do Centrum IoT i konfigurowanie Centrum IoT do wysyłania wiadomości do kolejki na podstawie obecności właściwości wiadomości i wszystkie komunikaty do konta magazynu. Aby uzyskać więcej informacji o sposobie przetwarzania komunikatów z kolejek usługi Service Bus, zobacz [Rozpoczynanie pracy z kolejkami] [ lnk-sb-queues-node] i zarządzania magazynem, zobacz [Rozpoczynanie pracy z magazynem Azure] [Magazynu azure].
 
 1. Tworzenie kolejki usługi Service Bus, zgodnie z opisem w [Rozpoczynanie pracy z kolejkami][lnk-sb-queues-node]. Zanotuj nazwę przestrzeni nazw i kolejki.
+
+    > [!NOTE]
+    > Tematy dotyczące używany jako punkty końcowe Centrum IoT nie może mieć i kolejek usługi Service Bus **sesji** lub **wykrywania duplikatów** włączone. Jeśli dowolna z tych opcji są włączone, punkt końcowy jest wyświetlany jako **informujący** w portalu Azure.
 
 1. W portalu Azure Otwórz Centrum IoT i kliknij przycisk **punkty końcowe**.
 

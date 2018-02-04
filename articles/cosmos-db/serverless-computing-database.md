@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: aeef39294bbf3ad4192fe116c6972e52bfa1c816
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 297f8929ec11b37a2cbbfb79bb442da75b4368a8
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure rozwiązania Cosmos bazy danych: Za pomocą usługi Azure Functions obliczeniowych bez serwera bazy danych
 
@@ -35,7 +35,7 @@ Bazę danych rozwiązania Cosmos systemu Azure i usługi Azure Functions umożli
 * Powiązać kolekcji bazy danych rozwiązania Cosmos Azure przy użyciu funkcji **powiązania wyjściowego**. Powiązania danych wyjściowych zapisu danych do kontenera, po zakończeniu działania funkcji.
 
 > [!NOTE]
-> W tej chwili wyzwalacza, powiązania wejściowe i powiązania danych wyjściowych bazy danych Azure rozwiązania Cosmos współpracować tylko konta interfejsu API SQL i interfejsu API programu Graph.
+> W tej chwili wyzwalacz usługi Azure Cosmos DB, powiązania danych wejściowych i powiązania danych wyjściowych współpracują tylko z kontami interfejsu API SQL i interfejsu API programu Graph.
 
 Poniższy diagram ilustruje każdą z tych trzech integracji: 
 
@@ -101,7 +101,7 @@ W implementacji sprzedaży detalicznej gdy użytkownik dodaje element do koszyka
 
 **Implementacja:** wyzwalaczy wielu DB rozwiązania Cosmos Azure nasłuchiwanie jednej kolekcji
 
-1. Wiele funkcji Azure można utworzyć przez dodanie źródła danych koszyka zakupów zmienić wyzwalacze bazy danych Azure rozwiązania Cosmos do każdego — które nasłuchiwanie na takie same. Należy pamiętać, że po wielu funkcji nasłuchiwanie na takie same zmienić źródło nowej kolekcji dzierżawy jest wymagany dla każdej funkcji.
+1. Wiele funkcji Azure można utworzyć przez dodanie źródła danych koszyka zakupów zmienić wyzwalacze bazy danych Azure rozwiązania Cosmos do każdego — które nasłuchiwanie na takie same. Należy pamiętać, że po wielu funkcji nasłuchiwanie na takie same zmienić źródło nowej kolekcji dzierżawy jest wymagany dla każdej funkcji. Aby uzyskać więcej informacji o kolekcjach dzierżawy, zobacz [opis biblioteki procesora źródła danych zmian](change-feed.md#understand-cf).
 2. Zawsze, gdy nowy element jest dodawany do użytkowników, koszyka, każda funkcja niezależnie jest wywoływany przez zmiany źródła danych z kontenera koszyka zakupów.
     * Jedna funkcja może używać zawartości bieżący koszyk można zmienić wyświetlanie innych elementów, które mogą być zainteresowani użytkownika.
     * Inną funkcję może zaktualizować sumy spisu.
@@ -138,7 +138,7 @@ Jeśli rozważasz usługę do integracji z usługi Azure Functions do przechowyw
 
 Zalety funkcji platformy Azure: 
 
-* **Sterowane zdarzeniami**. Funkcje platformy Azure są sterowane zdarzeniami i wykrywać do zmiany źródła danych z bazy danych usługi Azure rozwiązania Cosmos. Oznacza to, nie trzeba tworzyć logikę nasłuchiwania, możesz po prostu uważać na zmiany, które jest nasłuchiwanie. 
+* **Event-driven**. Funkcje platformy Azure są sterowane zdarzeniami i wykrywać do zmiany źródła danych z bazy danych usługi Azure rozwiązania Cosmos. Oznacza to, nie trzeba tworzyć logikę nasłuchiwania, możesz po prostu uważać na zmiany, które jest nasłuchiwanie. 
 
 * **Brak ograniczeń**. Funkcje wykonywanie równoległe i usłudze obroty w górę tyle, zgodnie z potrzebami. Należy ustawić parametry.
 

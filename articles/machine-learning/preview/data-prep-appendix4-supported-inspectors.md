@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/11/2017
-ms.openlocfilehash: ff5fcbc6df8cb07e0b98b877f20d981d6bef5117
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.date: 02/01/2018
+ms.openlocfilehash: 1046f08d4e3b1111f8f82551b71252856174a308
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="supported-inspectors-for-the-azure-machine-learning-data-preparation-preview"></a>Obsługiwane inspektorzy dla usługi Azure Machine Learning przygotowywania danych z wersji zapoznawczej
 W tym dokumencie przedstawiono zbiór inspektorzy, które są dostępne w tej wersji zapoznawczej.
@@ -39,7 +39,7 @@ Dla kolumny liczbowe Ten inspektor zawiera szereg różnych statystyki dotycząc
 
 
 ### <a name="options"></a>Opcje 
-- None
+- Brak
 
 ## <a name="histogram"></a>Histogram 
 Oblicza i wyświetla histogram pojedynczej kolumny liczbowe. Domyślna liczba zasobników jest obliczana przy użyciu reguły Scotta. Jednak można zastąpić reguły za pomocą opcji.
@@ -52,6 +52,7 @@ Ten inspektor obsługuje otoczek.
 - Domyślna liczba zasobników (Scotta reguła) 
 - Pokaż halo
 - Nakładka kreślenia gęstość jądra (Gaussa jądra) 
+- Użyj skali logarytmicznej
 
 
 ### <a name="actions"></a>Akcje
@@ -65,6 +66,7 @@ Ten inspektor przedstawia częstotliwość tabeli wartości dla aktualnie wybran
 - Malejąco
 - Zawierają wartości null/błędów
 - Pokaż halo
+- Użyj skali logarytmicznej
 
 
 ### <a name="actions"></a>Akcje 

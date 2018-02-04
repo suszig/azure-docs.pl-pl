@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 3343dbe0093ad8fbeebe5893d44abdbe356e1789
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4bdcd6d57989df3d1b67c87d56b8c57035ef2f63
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="test-your-solution-with-simulated-devices"></a>Testowanie rozwiązania z symulowanego urządzenia
 
@@ -131,24 +131,24 @@ Następujące polecenia, użyj `az` polecenie [Azure CLI 2.0](https://docs.micro
 1. Aby włączyć dostęp SSH maszyny wirtualnej, uruchom następujące polecenie, używając nazwy sieciowej grupy zabezpieczeń z poprzedniego kroku:
 
     ```sh
-    az network nsg rule create --name SSH --nsg-name your-network-security-group --priority 101 --destination-port-ranges 22 --access Allow --protocol TCP
+    az network nsg rule create --name SSH --nsg-name YOUR-NETWORK-SECURITY-GROUP --priority 101 --destination-port-ranges 22 --access Allow --protocol TCP
     ```
 
     Aby wyświetlić listę reguł ruchu przychodzącego dla danej sieci, uruchom następujące polecenie:
 
     ```sh
-    az network nsg rule list --nsg-name Contoso-01-nsg -o table
+    az network nsg rule list --nsg-name YOUR-NETWORK-SECURITY-GROUP -o table
     ```
 
 1. Aby zmienić hasło, które znasz hasła maszyny wirtualnej, uruchom następujące polecenie. Użyj nazwy maszyny wirtualnej, który już wspomniano i wybrane hasło:
 
     ```sh
-    az vm user update --name your-vm-name --username azureuser --password your-password
+    az vm user update --name YOUR-VM-NAME --username azureuser --password YOUR-PASSWORD
     ```
 1. Aby znaleźć adres IP maszyny wirtualnej, użyj następującego polecenia, a następnie zanotuj publicznego adresu IP:
 
     ```sh
-    az vm list-ip-addresses --name your-vm-name
+    az vm list-ip-addresses --name YOUR-VM-NAME
     ```
 
 1. Można teraz używanie protokołu SSH, aby połączyć się z maszyną wirtualną. `ssh` Polecenie jest wstępnie zainstalowane w powłoce chmury. Użyj publicznego adresu IP z poprzedniego kroku i po wyświetleniu monitu hasło skonfigurowane dla maszyny wirtualnej:

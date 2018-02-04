@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: magoedte
-ms.openlocfilehash: d73bb33b4b330df803e140145ed63319af4a6733
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: ca63f9c7a11bc072bd73c3d61c63a8d603020e68
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Uruchomione elementy runbook na hybrydowy proces roboczy elementu Runbook 
 Nie ma różnic w strukturze elementów runbook, które są uruchamiane w automatyzacji Azure oraz te, które uruchamiane na hybrydowy proces roboczy elementu Runbook. Elementy Runbook korzystające z każdym najprawdopodobniej różnią się znacznie jednak ponieważ elementy runbook, elementów docelowych hybrydowy proces roboczy elementu Runbook, zwykle zarządzać zasobami na komputerze lokalnym lub w odniesieniu do zasobów w środowisku lokalnym, w których jest wdrożona, gdy elementy runbook automatyzacji Azure zazwyczaj zarządzać zasobami w chmurze Azure.
@@ -112,9 +112,10 @@ Następujący element runbook programu PowerShell *RunAsCertificateToHybridWorke
 
     [OutputType([string])] 
 
-    # Set the password used for this certificate
-    $Password = "YourStrongPasswordForTheCert"
-
+    # Generate the password used for this certificate
+    Add-Type -AssemblyName System.Web -ErrorAction SilentlyContinue | Out-Null
+    $Password = [System.Web.Security.Membership]::GeneratePassword(25, 10)
+    
     # Stop on errors
     $ErrorActionPreference = 'stop'
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: roopalik;garye
-ms.openlocfilehash: 813b431b2e8ee22435e302800b7f707f6ba693b9
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.author: garye
+ms.openlocfilehash: 8e8a6ca078e43f757a4f0eb532af35da97513d17
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="discover-solutions-in-the-azure-ai-gallery"></a>Poznaj rozwiązania w galerii Azure AI
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
@@ -30,7 +30,7 @@ Należy je własne instrukcje dołączone lub z witryny partnera.
 ## <a name="discover"></a>Wykrywanie
   Aby wyszukać rozwiązań w galerii, otwórz [galerii](http://gallery.cortanaintelligence.com) i kliknij przycisk **rozwiązań** w górnej części strony głównej galerii.
 
-  **[Rozwiązań](https://gallery.cortanaintelligence.com/solutions)**  strona wyświetla listę ostatnio dodane rozwiązań.
+ **[Rozwiązań](https://gallery.cortanaintelligence.com/solutions)**  strona wyświetla listę ostatnio dodane rozwiązań.
 Kliknij przycisk **zobaczyć wszystkie** Aby wyświetlić wszystkie rozwiązania.
 Na tej stronie można przeglądać wszystkie rozwiązania w galerii. Można również przeszukać wybierając kryteria filtrowania po lewej stronie i wprowadzanie terminy wyszukiwania w górnej.
 

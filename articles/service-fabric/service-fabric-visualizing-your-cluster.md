@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/08/2018
+ms.date: 02/02/2018
 ms.author: mikhegn
-ms.openlocfilehash: 34e00058591bc5a0a02bc408cfc3fcc11010f17c
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: dc71bf8045abf72953f678dc9295346dc9204e59
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Wizualizowanie klastra przy użyciu narzędzia Service Fabric Explorer
 
@@ -35,6 +35,9 @@ Aby pobrać Service Fabric Explorer jako aplikacja na komputerze, użyj następu
   - https://aka.ms/sfx-linux-x86
   - https://aka.ms/sfx-linux-x64
 
+- macOS
+  - https://aka.ms/sfx-macos
+
 > [!NOTE]
 > Tej wersji programu Service Fabric Explorer może mieć więcej lub mniej funkcji niż obsługi klastra. Użytkownik może wrócić do wersji Service Fabric Explorer wdrożone do klastra w celu zapewnienia zgodności wszystkich funkcji.
 >
@@ -44,7 +47,7 @@ Aby pobrać Service Fabric Explorer jako aplikacja na komputerze, użyj następu
 
 Eksploratora usługi sieć szkieletowa jest również obsługiwane w punkt końcowy zarządzania HTTP klastra sieci szkieletowej usług. Aby uruchomić SFX w przeglądarce sieci web, przejdź do punktu końcowego zarządzania HTTP klastra z dowolnej przeglądarki — na przykład https://clusterFQDN:19080.
 
-Dla deweloperów konfiguracji stacji roboczej można uruchomić Eksploratora usługi sieć szkieletowa w klastrze lokalnym, przechodząc do http://localhost: 19080/Explorer. Obejrzyj ten artykuł, aby [przygotowywanie środowiska projektowego](service-fabric-get-started.md).
+Dla deweloperów konfiguracji stacji roboczej można uruchomić Eksploratora usługi sieć szkieletowa w klastrze lokalnym, przechodząc do https://localhost:19080/Explorer. Obejrzyj ten artykuł, aby [przygotowywanie środowiska projektowego](service-fabric-get-started.md).
 
 ## <a name="connect-to-a-service-fabric-cluster"></a>Łączenie z klastrem sieci szkieletowej usług
 Aby ustanowić połączenie z klastrem usługi sieć szkieletowa, należy punkt końcowy zarządzania klastrami (IP/nazwa FQDN) i port punktu końcowego zarządzania HTTP (19080 domyślnie). For example https://mysfcluster.westus.cloudapp.azure.com:19080. Użyj pola wyboru "Połącz z hostem lokalnym" nawiązywania połączenia z lokalnym klastrem na stacji roboczej.

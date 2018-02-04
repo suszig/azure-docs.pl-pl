@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: ea0c2487e24fcb924632d3277163b7732442b414
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: HT
+ms.openlocfilehash: 3f8b5e8b8af4be85e830bde8eb0587c632a9dd1f
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/01/2018
 ---
@@ -190,43 +190,29 @@ Nie można przenieść sieć wirtualną do innej subskrypcji, jeśli sieć wirtu
 
 ## <a name="app-service-limitations"></a>Ograniczenia usługi aplikacji
 
-Podczas pracy z aplikacjami usługi App Service, nie można przenieść plan usługi aplikacji. Aby przenieść aplikacji usługi App Service, dostępne są następujące opcje:
+Ograniczenia dotyczące przenoszenia zasobów usługi aplikacji — różnią się w zależności od tego, czy są przenoszenia zasobów w ramach subskrypcji lub do nowej subskrypcji.
 
-* Przenieś plan usługi aplikacji i innych zasobów usługi aplikacji w tej grupie zasobów do nowej grupy zasobów, które jeszcze nie ma zasobów usługi aplikacji. Wymaganie to oznacza, że należy przenieść nawet zasoby usługi aplikacji, które nie są skojarzone z planu usługi aplikacji.
-* Przenieś aplikacje na innej grupie zasobów, ale zachować wszystkie plany usługi App Service w oryginalnej grupy zasobów.
+### <a name="moving-within-the-same-subscription"></a>Przenoszenie w ramach tej samej subskrypcji
 
-Plan usługi aplikacji nie musi znajdować się w tej samej grupie zasobów co aplikacja dla aplikacji do poprawnego działania.
+Podczas przenoszenia aplikacji sieci Web _w ramach tej samej subskrypcji_, nie można przenieść przekazane certyfikaty SSL. Jednak aplikacji sieci Web można przenieść do nowej grupy zasobów, bez przenoszenia jego przekazano certyfikat SSL, a funkcja SSL aplikacji nadal działa. 
 
-Na przykład, jeśli zawiera grupie zasobów:
+Jeśli chcesz przenieść certyfikatu SSL za pomocą aplikacji sieci Web, wykonaj następujące czynności:
 
-* **sieci Web a** skojarzony z **planu a**
-* **sieci Web-b** skojarzony z **plan-b**
+1.  Przekazany certyfikat należy usunąć z aplikacji sieci Web.
+2.  Przenoszenie aplikacji sieci Web.
+3.  Przekaż certyfikat do przeniesionego aplikacji sieci Web.
 
-Dostępne opcje to:
+### <a name="moving-across-subscriptions"></a>Przenoszenie między subskrypcjami
 
-* Przenieś **sieci web a**, **planu a**, **sieci web-b**, i **plan-b**
-* Przenieś **sieci web a** i **b sieci web**
-* Przenieś **w sieci web**
-* Przenieś **b sieci web**
+Podczas przenoszenia aplikacji sieci Web _w subskrypcjach_, obowiązują następujące ograniczenia:
 
-Wszystkie inne kombinacje obejmują, pozostawiając w niej typ zasobu, który nie może pozostać podczas przenoszenia planu usługi App Service (dowolny typ zasobu usługi App Service).
-
-Jeśli aplikacja sieci web znajduje się w innej grupie zasobów niż swój plan usługi aplikacji, ale chcesz przenieść zarówno do nowej grupy zasobów, należy wykonać czynności w dwóch krokach. Na przykład:
-
-* **sieci Web a** znajduje się w **grupy sieci web**
-* **Plan a** znajduje się w **planu grupy**
-* Ma **sieci web a** i **planu a** do znajdują się w **połączeniu grupy**
-
-Aby zrobić to przeniesienie, należy wykonać dwie operacje przenoszenia oddzielne w następującej kolejności:
-
-1. Przenieś **sieci web a** do **planu grupy**
-2. Przenieś **sieci web a** i **planu a** do **łączyć grupy**.
-
-Certyfikat usługi aplikacji można przenieść do nowej grupy zasobów lub subskrypcji, bez żadnych problemów. Jednak jeśli aplikacja sieci web zawiera certyfikat SSL zakupionych zewnętrznie i przekazane do aplikacji, należy usunąć certyfikatu przed przeniesieniem aplikacji sieci web. Na przykład można wykonać następujące czynności:
-
-1. Usuń przekazany certyfikat z aplikacji sieci web
-2. Przenoszenie aplikacji sieci web
-3. Przekaż certyfikat do aplikacji sieci web
+- Docelowej grupy zasobów nie może mieć żadnych istniejących zasobów usługi aplikacji. Zasoby usługi App Service obejmują:
+    - Web Apps
+    - Plany usługi App Service
+    - Przekazany lub zaimportowanych certyfikatów SSL
+    - Środowiska usługi App Service
+- Wszystkie zasoby usługi aplikacji w grupie zasobów, muszą zostać przeniesione razem.
+- Zasoby usługi aplikacji można przenieść tylko z grupy zasobów, w której zostały pierwotnie utworzone. Jeśli zasób usługi aplikacji nie jest już w jego oryginalnej grupa zasobów, go musi zostać przeniesiona z powrotem do tego oryginalnego grupy zasobów najpierw, a następnie mogą zostać przeniesione w subskrypcjach. 
 
 ## <a name="classic-deployment-limitations"></a>Wdrożenie klasyczne ograniczenia
 

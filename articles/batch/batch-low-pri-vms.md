@@ -9,22 +9,22 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 01/26/2018
+ms.date: 02/01/2018
 ms.author: markscu
-ms.openlocfilehash: 8490bd8c18930c025902a247e6c1df8a0716ed76
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 7e4f37ca6997f1770de8acbc10eeeb25ddf87deb
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Niskiego priorytetu maszyn wirtualnych za pomocą usługi partia zadań
 
-Partia zadań Azure oferuje niskiego priorytetu maszyn wirtualnych (VM) będzie zmniejszenie kosztów obciążeń partii. Maszyny wirtualne o niskim priorytecie umożliwiają nowe typy obciążeń partii, zapewniając dużo mocy obliczeniowej, który jest również ekonomiczny.
-
-Maszyny wirtualne niskiego priorytetu korzystać z nadwyżki zdolności produkcyjnych na platformie Azure. Po określeniu niskiego priorytetu maszyny wirtualne w Twojej puli partii zadań Azure automatycznie można użyć tego nadwyżka, jeśli jest dostępna.
-
-Rozwiązanie dla przy użyciu maszyn wirtualnych o niskim priorytecie jest, że tych maszyn wirtualnych może być wywłaszczony gdy nie zdolności nadwyżki nie jest dostępny w systemie Azure. Z tego powodu niskiego priorytetu maszyny wirtualne są najbardziej odpowiednie dla pewnych typów obciążeń. Użyj maszyn wirtualnych niskiego priorytetu partii i przetwarzania asynchronicznego obciążeń, których czas ukończenia zadania są elastyczne i praca będzie rozmieszczona na wiele maszyn wirtualnych.
-
+Partia zadań Azure oferuje niskiego priorytetu maszyn wirtualnych (VM) będzie zmniejszenie kosztów obciążeń partii. Maszyny wirtualne o niskim priorytecie należy nowych typów partii obciążeń możliwe przez włączenie dużej ilości mocy do zastosowania w przypadku bardzo niskich kosztów obliczeniowej.
+ 
+Maszyny wirtualne niskiego priorytetu korzystać z nadwyżki zdolności produkcyjnych na platformie Azure. Po określeniu niskiego priorytetu maszyny wirtualne w Twojej puli partii zadań Azure można użyć tego nadwyżka, jeśli jest dostępna.
+ 
+Rozwiązanie dla przy użyciu niskiego priorytetu maszyny wirtualne nie mogą nie być dostępne do alokacji tych maszyn wirtualnych lub może być wywłaszczony w dowolnym momencie, w zależności od dostępnej pojemności. Z tego powodu niskiego priorytetu maszyny wirtualne są najbardziej odpowiednie dla pewnych typów obciążeń. Użyj maszyn wirtualnych niskiego priorytetu partii i przetwarzania asynchronicznego obciążeń, których czas ukończenia zadania są elastyczne i praca będzie rozmieszczona na wiele maszyn wirtualnych.
+ 
 Maszyny wirtualne niskiego priorytetu oferowanych w znacznie obniżonej cenie w porównaniu z dedykowanych maszyn wirtualnych. Aby uzyskać szczegółowe informacje o cenach, zobacz [cennik partii](https://azure.microsoft.com/pricing/details/batch/).
 
 

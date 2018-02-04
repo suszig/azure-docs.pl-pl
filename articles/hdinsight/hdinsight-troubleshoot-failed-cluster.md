@@ -16,13 +16,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: 59382931d4b5478888238760b268af7f962a10b5
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 00c4ac0e2ac059efebbfbe0b2426b27361ad8e37
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>Rozwiązywanie problemów z powolnym działaniem lub awarie klastra usługi HDInsight
+# <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>Rozwiązywanie problemów dotyczących powolnego działania lub awarii klastra usługi HDInsight
 
 Jeśli klaster usługi HDInsight jest działa wolno lub niepowodzeniem z kodem błędu, masz kilka opcji rozwiązywania problemów. Jeśli zadaniach trwa dłużej, niż oczekiwano lub jest wyświetlany wydłużają czas odpowiedzi, ogólnie rzecz biorąc, może być błędów powyżej z klastra, takie jak usługi, na których są uruchamiane w klastrze. Najczęstszą przyczyną spowolnienia tego jest jednak niewystarczające skalowania. Podczas tworzenia nowego klastra usługi HDInsight, wybierz odpowiednie [rozmiarów maszyn wirtualnych](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters)
 
@@ -112,7 +112,7 @@ Jeśli spowolnienie występują w klastrze, należy rozważyć ponowne uruchomie
 
 Klastry HDInsight składają się z różnych typów węzłów uruchomiona na wystąpieniu maszyny wirtualnej. Można monitorować każdy węzeł do zablokowania zasobów, problemy z połączeniem sieciowym i inne problemy, które może to spowolnić klastra. Każdy klaster zawiera dwa węzły head, a większość typów klastra zawierają kombinację procesu roboczego i węzły krawędzi. 
 
-<!-- For a description of the various nodes each cluster type uses, see [HDInsight Architecture](hdinsight-architecture.md). -->
+Opis różnych węzłów używa każdy typ klastra, zobacz [Ustawianie klastrów w usłudze HDInsight Hadoop, Spark, Kafka i](hdinsight-hadoop-provision-linux-clusters.md).
 
 W poniższych sekcjach opisano sposób sprawdzania kondycji każdego węzła i ogólną klastra.
 
@@ -255,7 +255,7 @@ Zrzuty stosu zawierającego migawkę pamięci aplikacji, w tym wartości zmienny
 
 Klastry HDInsight są wstępnie skonfigurowane przy użyciu ustawień domyślnych dla powiązanych usług, takich jak Hadoop, Hive, HBase i tak dalej. W zależności od typu klastra, jego konfiguracja sprzętu, ich liczba węzłów, typy zadań używasz i danych, użytkownik pracuje z (i sposób przetwarzania danych), może być konieczne w celu zoptymalizowania konfiguracji.
 
-<!-- For detailed instructions on optimizing performance configurations for most scenarios, see [Changing configurations with Ambari](hdinsight-changing-configs-via-ambari.md). When using Spark, see [Optimizing Spark jobs for performance](spark/apache-spark-perf.md).  -->
+Aby uzyskać szczegółowe instrukcje dotyczące optymalizacji wydajności konfiguracje dla większości scenariuszy, zobacz [zoptymalizowania konfiguracji klastra z Ambari](hdinsight-changing-configs-via-ambari.md). Podczas korzystania z platformy Spark, zobacz [zadań Spark optymalizacji wydajności](spark/apache-spark-perf.md). 
 
 ## <a name="step-7-reproduce-the-failure-on-a-different-cluster"></a>Krok 7: Występuje awaria w innym klastrze
 

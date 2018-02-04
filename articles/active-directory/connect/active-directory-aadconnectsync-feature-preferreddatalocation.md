@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 01/31/2018
 ms.author: billmath
-ms.openlocfilehash: 8a36fc45334a2f1d12e6eabbfb16731ccc9998bf
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: HT
+ms.openlocfilehash: 021f009e66e57665a2252646b210f0e6dc55d33c
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-ad-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Synchronizacja programu Azure AD Connect: Skonfiguruj preferowany danych lokalizację dla zasobów usługi Office 365
-W tym temacie ma na celu przeprowadzi użytkownika przez proces konfigurowania PreferredDataLocation synchronizacji Azure AD Connect. Gdy klient korzysta z możliwości wielu geograficznie w usłudze Office 365, ten atrybut służy do wyznaczania lokalizacja geograficzna danych użytkowników usługi Office 365.
+W tym temacie ma na celu przeprowadzi użytkownika przez proces konfigurowania PreferredDataLocation synchronizacji Azure AD Connect. Gdy klient korzysta z możliwości wielu geograficznie w usłudze Office 365, ten atrybut służy do wyznaczania lokalizacja geograficzna danych użytkowników usługi Office 365. Warunki **region** i **geograficznie** służą wymienne.
 
 > [!IMPORTANT]
 > Multi-geograficzna jest obecnie w przeglądzie. Jeśli chcesz dołączyć do programu Podgląd, skontaktuj się z przedstawicielem firmy Microsoft.
@@ -29,36 +29,41 @@ W tym temacie ma na celu przeprowadzi użytkownika przez proces konfigurowania P
 >
 
 ## <a name="enable-synchronization-of-preferreddatalocation"></a>Włącz synchronizację PreferredDataLocation
-Domyślnie zasobów usługi Office 365 dla użytkowników znajdują się w tym samym regionie co dzierżawy usługi Azure AD. Na przykład jeśli dzierżawy znajduje się w Ameryce Północnej następnie skrzynek pocztowych programu Exchange użytkowników znajdują się również w Ameryce Północnej. Międzynarodowej organizacji to może nie być optymalne. Przez ustawienie preferredDataLocation atrybut można zdefiniować regionu użytkownika.
+Domyślnie zasobów usługi Office 365 dla użytkowników znajdują się w tej samej lokalizacji geograficznej jako dzierżawy usługi Azure AD. Na przykład jeśli dzierżawy znajduje się w Ameryce Północnej następnie skrzynek pocztowych programu Exchange użytkowników znajdują się również w Ameryce Północnej. Międzynarodowej organizacji to może nie być optymalne. Przez ustawienie preferredDataLocation atrybut można zdefiniować geograficznie użytkownika.
 
-Ustawienia tego atrybutu, możesz mieć użytkownika usługi Office 365 zasoby, takie jak skrzynek pocztowych i OneDrive, w tym samym regionie co użytkownik i jeszcze jeden dzierżawy dla całej organizacji.
+Ustawienia tego atrybutu, możesz mieć użytkownika usługi Office 365 zasoby, takie jak skrzynek pocztowych i OneDrive, w tej samej lokalizacji geograficznej co użytkownik i jeszcze jeden dzierżawy dla całej organizacji.
 
 > [!IMPORTANT]
 > Na kwalifikować się do wielu geograficznie, musi mieć co najmniej 5000 miejsc, w ramach subskrypcji usługi Office 365
 >
 >
 
-Dostępne są następujące regiony w usłudze Office 365 dostępne dla wielu Geo:
+Lista wszystkich obszarach geograficznych dla usługi Office 365 można znaleźć w [danych znajdujących się w przypadku](https://aka.ms/datamaps).
 
-| Region | Opis |
+Obszarach geograficznych w usłudze Office 365 dostępne dla wielu geograficznie są:
+
+| Obszar geograficzny | wartość preferredDataLocation |
 | --- | --- |
-| NAM | Ameryka Północna |
-| EUR | Europa |
-| APC | Azja i Pacyfik |
-| JPN | Japonia |
-| AUS | Australia |
-| MOŻNA | Kanada |
-| GBR | Wielka Brytania |
-| LAM | Ameryka Łacińska |
+| Azja i Pacyfik | APC |
+| Australia | AUS |
+| Kanada | MOŻNA |
+| Unii Europejskiej | EUR |
+| Indie | ZNAJDŹ |
+| Japonia | JPN |
+| Korea Południowa | KOR |
+| Wielka Brytania | GBR |
+| Stany Zjednoczone | NAM |
 
-Nie wszystkie usługi Office 365 obciążeń obsługuje ustawienia regionu użytkownika.
+* Jeśli obszar nie znajduje się w tej tabeli, na przykład Ameryka Południowa, następnie go nie może służyć do wielu Geo.
+* Indie i Korea Południowa obszarach geograficznych są dostępne tylko w przypadku klientów z rozliczeń adresy i licencji zakupionych w tych obszarach geograficznych.
+* Nie wszystkie usługi Office 365 obciążeń obsługuje ustawienia geo użytkownika.
 
 Azure AD Connect obsługuje synchronizacji **PreferredDataLocation** atrybutu dla **użytkownika** obiektów w wersji 1.1.524.0 i po. W szczególności wprowadzono następujące zmiany:
 
 * Schemat typu obiektu **użytkownika** w programie Azure AD Connector jest rozszerzona, aby uwzględnić atrybut PreferredDataLocation, który jest typu string pojedynczej wartości.
 * Schemat typu obiektu **osoby** w magazynie Metaverse jest rozszerzona, aby uwzględnić atrybut PreferredDataLocation, który jest typu string i jest pojedynczej wartości.
 
-Domyślnie atrybut PreferredDataLocation nie zostało włączone dla synchronizacji. Ta funkcja jest przeznaczony dla większych organizacji i nie wszyscy będzie korzystać z niego. Należy również określić atrybut do przechowywania region usługi Office 365 dla użytkowników, ponieważ nie ma atrybutu PreferredDataLocation w lokalnej usłudze Active Directory. Ma to być inne dla każdej organizacji.
+Domyślnie atrybut PreferredDataLocation nie zostało włączone dla synchronizacji. Ta funkcja jest przeznaczony dla większych organizacji i nie wszyscy będzie korzystać z niego. Należy również określić atrybut do przechowywania geo usługi Office 365 dla użytkowników, ponieważ nie ma atrybutu PreferredDataLocation w lokalnej usłudze Active Directory. Ma to być inne dla każdej organizacji.
 
 > [!IMPORTANT]
 > Obecnie usługi Azure AD umożliwia atrybutu PreferredDataLocation do użytkownika obiektów synchronizowanych i chmury użytkownika obiekty bezpośrednio skonfigurowany przy użyciu programu Azure AD PowerShell. Po włączeniu synchronizacji atrybutów PreferredDataLocation, musisz zatrzymać przy użyciu programu Azure AD PowerShell do konfigurowania atrybutu na **synchronizowane obiekty użytkownika** jako Azure AD Connect zostaną one zastąpione na podstawie Źródło wartości atrybutów w lokalnej usłudze Active Directory.
@@ -245,13 +250,13 @@ Ponowne włączenie harmonogramu synchronizacji wbudowany:
 ## <a name="step-8-verify-the-result"></a>Krok 8: Sprawdzenie, czy wynik
 Teraz nadszedł czas, aby sprawdzić konfigurację i włącz ją dla użytkowników.
 
-1. Dodaj obszar do wybranego atrybutu na koncie użytkownika. Lista dostępnych regionów znajdują się w [tej tabeli](#enable-synchronization-of-preferreddatalocation).  
+1. Dodaj geo do wybranego atrybutu na koncie użytkownika. Lista dostępnych geograficznie znajdują się w [tej tabeli](#enable-synchronization-of-preferreddatalocation).  
 ![Atrybut AD dodane do użytkownika](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-adattribute.png)
 2. Poczekaj, aż ten atrybut do synchronizacji usługi Azure AD.
 3. Za pomocą programu Exchange Online PowerShell, sprawdź, czy obszar skrzynki pocztowej został ustawiony prawidłowo.  
 ![Region skrzynki pocztowej Ustaw na koncie użytkownika w usłudze Exchange Online](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-mailboxregion.png)  
-Zakładając, że aby można było korzystać z tej funkcji został oznaczony dzierżawy, Skrzynka pocztowa została przeniesiona do poprawny region. Można to sprawdzić za spojrzenie na nazwę serwera, w którym znajduje się skrzynki pocztowej.
-4. Aby sprawdzić, czy to ustawienie zostało skuteczne za pośrednictwem wielu skrzynek pocztowych, użyj skryptu w [galerii Technet](https://gallery.technet.microsoft.com/office/PowerShell-Script-to-a6bbfc2e). Ten skrypt ma również lista wszystkich prefiksy serwera centrów danych usługi Office 365 i który znajduje się w regionie. Może służyć jako odwołanie w poprzednim kroku można zweryfikować lokalizacji skrzynki pocztowej.
+Zakładając, że aby można było korzystać z tej funkcji został oznaczony dzierżawy, skrzynki pocztowej jest przenoszona do poprawne geo. Można to sprawdzić za spojrzenie na nazwę serwera, w którym znajduje się skrzynki pocztowej.
+4. Aby sprawdzić, czy to ustawienie zostało skuteczne za pośrednictwem wielu skrzynek pocztowych, użyj skryptu w [galerii Technet](https://gallery.technet.microsoft.com/office/PowerShell-Script-to-a6bbfc2e). Ten skrypt ma również lista wszystkich prefiksy serwera centrów danych usługi Office 365 i który znajduje się on w geograficznie. Może służyć jako odwołanie w poprzednim kroku można zweryfikować lokalizacji skrzynki pocztowej.
 
 ## <a name="next-steps"></a>Kolejne kroki
 
