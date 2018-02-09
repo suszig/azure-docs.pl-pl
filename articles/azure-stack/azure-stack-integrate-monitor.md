@@ -12,22 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: a7f6d3691410711fcae692007b08977a93961845
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3435ada40afb9f1c6e57be64d1b9086d0cdaefd9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Integracja rozwiązania monitorowania zewnętrznych z Azure stosu
 
-*Dotyczy: Azure stosu zintegrowane systemy*
+Dla zewnętrznych monitorowania infrastruktury stosu Azure, należy monitorować oprogramowania stosu Azure, komputery fizyczne i przełączniki sieci fizycznej. Każdy z tych obszarów udostępnia metody można pobrać informacji o kondycji i alertów:
 
-Dla zewnętrznych monitorowania infrastruktury stosu Azure, należy monitorować oprogramowania stosu Azure, komputery fizyczne i przełączniki sieci fizycznej. Każdy z tych obszarów udostępnia metody można pobrać informacji o kondycji i alertów.
-
-- Oprogramowanie stosu Azure oferuje opartego na interfejsie REST interfejsu API można pobrać kondycji i alertów. (Przy użyciu zdefiniowanych przez oprogramowanie technologii, takich jak bezpośrednie miejsca do magazynowania, kondycję magazynu i alerty są częścią oprogramowania monitorowania).
+- Oprogramowanie stosu Azure oferuje opartego na interfejsie REST interfejsu API można pobrać kondycji i alertów. (Przy użyciu zdefiniowanych przez oprogramowanie technologii, takich jak bezpośrednie miejsca do magazynowania, kondycję magazynu i alerty są częścią oprogramowania monitorowania.).
 - Komputerów fizycznych można udostępnić kondycji i informacji o alertach za pomocą kontrolerów zarządzania płytą główną (BMC).
 - Fizyczne urządzenia sieciowe można udostępnić kondycji i informacji o alertach za pośrednictwem protokołu SNMP.
 
@@ -48,16 +46,16 @@ Operations Manager służy do monitorowania zewnętrznych stosu Azure. Pakiet ad
 
 Pakiet administracyjny dla stosu Azure oferuje następujące możliwości:
 
-- Możesz zarządzać wielu wdrożeń stosu Azure.
-- Brak obsługi dla usługi Azure Active Directory (Azure AD) i Active Directory Federation Services (AD FS).
-- Możesz pobrać i Zamknij alerty.
-- Brak kondycję i wydajność pulpitu nawigacyjnego.
-- Obejmuje wykrywania automatycznego trybu konserwacji dla gdy poprawek i aktualizacji (P & U) jest w toku.
-- Obejmuje zadania Wymuszanie aktualizacji do wdrożenia i regionu.
-- Możesz dodać niestandardowe informacje do regionu.
-- Obsługa powiadomień i raportowania.
+- Możesz zarządzać wielu wdrożeń Azure stosu
+- Brak obsługi dla usługi Azure Active Directory (Azure AD) i Active Directory Federation Services (AD FS)
+- Możesz pobrać i Zamknij alerty
+- Brak kondycję i wydajność pulpit nawigacyjny
+- Obejmuje wykrywania automatycznego trybu konserwacji dla gdy poprawek i aktualizacji (P & U) jest w toku
+- Obejmuje zadania Wymuszanie aktualizacji do wdrożenia i regionu
+- Możesz dodawać niestandardowe informacje w regionie
+- Obsługa powiadomień i raportowanie
 
-Możesz pobrać pakiet administracyjny programu System Center dla programu Microsoft Azure stosu i Podręcznik użytkownika skojarzony [tutaj](https://www.microsoft.com/en-us/download/details.aspx?id=55184), lub bezpośrednio z programu Operations Manager.
+Możesz pobrać pakiet administracyjny programu System Center dla programu Microsoft Azure stosu oraz skojarzonych z nimi [Podręcznik użytkownika](https://www.microsoft.com/en-us/download/details.aspx?id=55184), lub bezpośrednio z programu Operations Manager.
 
 W przypadku obsługi biletów rozwiązania można zintegrować programu Operations Manager z programem System Center Service Manager. Łącznik produktu zintegrowane umożliwia komunikację dwukierunkową, który umożliwia zamknięcie alertu w stosie Azure a programem Operations Manager po rozwiązaniu żądania obsługi w programie Service Manager.
 
@@ -243,7 +241,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 
 |Metoda    |Identyfikator URI żądania  |
 |---------|---------|
-|PUT     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts/alertid?api-version=2016-05-01"    |
+|UMIEŚĆ     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts/alertid?api-version=2016-05-01"    |
 
 **Argumenty**
 
