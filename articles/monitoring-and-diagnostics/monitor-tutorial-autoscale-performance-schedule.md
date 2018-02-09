@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: e56b637858af27f9a09f70867e455d06dd122d92
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 012183b8e6c15d62eda2534985bf73140187d7af
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Tworzenie ustawienia automatycznego skalowania dla zasobów platformy Azure na podstawie danych wydajności lub harmonogramu
 
@@ -35,11 +35,11 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-web-app-and-app-service-plan"></a>Tworzenie aplikacji internetowej i planu usługi App Service
-Kliknij opcję **Nowy** w okienku nawigacji po lewej stronie
+1. Kliknij opcję **Nowy** w okienku nawigacji po lewej stronie.
 
-Wyszukaj i wybierz element *Aplikacja internetowa*, a następnie kliknij przycisk **Utwórz**
+2. Wyszukaj i wybierz element *Aplikacja internetowa*, a następnie kliknij pozycję **Utwórz**.
 
-Wybierz nazwę aplikacji, np. *TestowaAplikacjaInternetowaSkalowania*. Utwórz nową grupę zasobów „mojaGrupaZasobów” i umieść ją w wybranej grupie zasobów.
+3. Wybierz nazwę aplikacji, np. *TestowaAplikacjaInternetowaSkalowania*. Utwórz nową grupę zasobów *myResourceGroup* i umieść ją w wybranej grupie zasobów.
 
 Twoje zasoby powinny zostać aprowizowane w ciągu kilku minut. W pozostałej części tego samouczka korzystaj z tej aplikacji internetowej i odpowiadającego jej planu usługi App Service.
 

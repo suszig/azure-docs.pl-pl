@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 85be79261d5fc214ab4b46fa5d7b4d0a5b13db27
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: d05492425381649a7893b872c4b1c49e9f241b50
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>Routing ruchu w sieci wirtualnej
 
@@ -110,7 +110,7 @@ Nazwa wyświetlana i przywoływana dla typów następnego przeskoku jest różna
 |Sieć wirtualna                 |VNetLocal                                       |VNETLocal (niedostępne w wersji 1.0 interfejsu wiersza polecenia w trybie asm)|
 |Internet                        |Internet                                        |Internet (niedostępny w wersji 1.0 interfejsu wiersza polecenia w trybie asm)|
 |Urządzenie wirtualne               |VirtualAppliance                                |VirtualAppliance|
-|Brak                            |Brak                                            |Null (niedostępne w wersji 1.0 interfejsu wiersza polecenia w trybie asm)|
+|Brak                            |None                                            |Null (niedostępne w wersji 1.0 interfejsu wiersza polecenia w trybie asm)|
 |Wirtualne sieci równorzędne         |Komunikacja równorzędna sieci wirtualnych                                    |Nie dotyczy|
 |Punkt końcowy usługi sieci wirtualnej|VirtualNetworkServiceEndpoint                   |Nie dotyczy|
 
@@ -151,7 +151,7 @@ Trasa z prefiksem adresu 0.0.0.0/0 informuje platformę Azure, jak kierować ruc
 
 Gdy zastąpisz prefiks adresu 0.0.0.0/0, oprócz ruchu wychodzącego z podsieci przepływającego przez bramę sieci wirtualnej lub urządzenie wirtualne, będą miały miejsce następujące zmiany w domyślnym routingu platformy Azure: 
 
-- Platforma Azure wysyła cały ruch do typu następnego przeskoku określonego w trasie, aby uwzględnić ruch przeznaczony dla publicznych adresów IP usług platformy Azure. Gdy typ następnego przeskoku trasy z prefiksem adresu 0.0.0.0/0 to **Internet**, wówczas ruch z podsieci przeznaczony dla publicznego adresu IP usług platformy Azure nigdy nie opuszcza sieci szkieletowej platformy Azure niezależnie od regionu platformy Azure, w którym istnieje sieć wirtualna lub zasób usługi platformy Azure. Jednak po utworzeniu trasy zdefiniowanej przez użytkownika lub protokołu BGP z typem następnego przeskoku **Brama sieci wirtualnej** lub **Urządzenie wirtualne** cały ruch, w celu uwzględnienia ruchu wysyłanego do publicznych adresów IP usług platformy Azure, dla którego nie zostały włączone [punkty końcowe usługi](virtual-network-service-endpoints-overview.md), jest wysyłany do typu następnego przeskoku określonego w trasie. Jeśli włączysz punkt końcowy usługi dla usługi, ruch do usługi nie jest kierowany do typu następnego przeskoku na trasie z prefiksem adresu 0.0.0.0/0, ponieważ prefiksy adresów dla usługi zostały określone w trasie tworzonej przez platformę Azure podczas włączania punktu końcowego usługi, zaś prefiksy adresów dla usługi są dłuższe niż 0.0.0.0/0.
+- Platforma Azure wysyła cały ruch do typu następnego przeskoku określonego w trasie, uwzględniając ruch przeznaczony dla publicznych adresów IP usług platformy Azure. Gdy typ następnego przeskoku trasy z prefiksem adresu 0.0.0.0/0 to **Internet**, wówczas ruch z podsieci przeznaczony dla publicznego adresu IP usług platformy Azure nigdy nie opuszcza sieci szkieletowej platformy Azure niezależnie od regionu platformy Azure, w którym istnieje sieć wirtualna lub zasób usługi platformy Azure. Jednak po utworzeniu trasy zdefiniowanej przez użytkownika lub protokołu BGP z typem następnego przeskoku **Brama sieci wirtualnej** lub **Urządzenie wirtualne** cały ruch, uwzględniając ruch wysyłany do publicznych adresów IP usług platformy Azure, dla którego nie zostały włączone [punkty końcowe usługi](virtual-network-service-endpoints-overview.md), jest wysyłany do typu następnego przeskoku określonego w trasie. Jeśli włączysz punkt końcowy usługi dla usługi, ruch do usługi nie jest kierowany do typu następnego przeskoku na trasie z prefiksem adresu 0.0.0.0/0, ponieważ prefiksy adresów dla usługi zostały określone w trasie tworzonej przez platformę Azure podczas włączania punktu końcowego usługi, zaś prefiksy adresów dla usługi są dłuższe niż 0.0.0.0/0.
 - Nie możesz już bezpośrednio uzyskać dostępu do zasobów w podsieci z Internetu. Możesz pośrednio uzyskać dostęp do zasobów w podsieci z Internetu, jeśli ruch przychodzący przechodzi przez urządzenia określone przez typ następnego przeskoku dla trasy z prefiksem adresu 0.0.0.0/0 przed osiągnięciem zasobu w sieci wirtualnej. Jeśli trasa zawiera następujące wartości typu następnego przeskoku:
     - **Urządzenie wirtualne**: urządzenie musi:
         - być dostępne z Internetu;
@@ -161,7 +161,7 @@ Gdy zastąpisz prefiks adresu 0.0.0.0/0, oprócz ruchu wychodzącego z podsieci 
         - mieć możliwość translacji i przekazywania dalej adresu sieciowego lub służenia jako serwer proxy ruchu do zasobu docelowego w podsieci, a następnie zwracać ruch z powrotem do Internetu. 
     - **Brama sieci wirtualnej**: w przypadku bramy będącej bramą sieci wirtualnej usługi ExpressRoute lokalne urządzenie połączone z Internetem może dokonywać translacji i przekazywania dalej adresów sieciowych lub służyć jako serwer proxy ruchu do zasobu docelowego w podsieci za pośrednictwem [prywatnej komunikacji równorzędnej](../expressroute/expressroute-circuit-peerings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-private-peering) usługi ExpressRoute. 
 
-  Zobacz [DMZ between Azure and your on-premises datacenter (Strefa DMZ między platformą Azure i lokalnym centrum danych)](/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) i [DMZ between Azure and the Internet (Strefa DMZ między platformą Azure i Internetem)](/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json), aby poznać szczegóły implementacji w przypadku używania bram sieci wirtualnej i urządzeń wirtualnych między Internetem a platformą Azure.
+  Zobacz [DMZ between Azure and your on-premises datacenter (Strefa DMZ między platformą Azure i lokalnym centrum danych)](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) i [DMZ between Azure and the Internet (Strefa DMZ między platformą Azure i Internetem)](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json), aby poznać szczegóły implementacji w przypadku używania bram sieci wirtualnej i urządzeń wirtualnych między Internetem a platformą Azure.
 
 ## <a name="routing-example"></a>Przykład routingu
 
@@ -207,8 +207,8 @@ Tabela tras dla podsieci *Subnet1* na ilustracji zawiera następujące trasy:
 |3   |Użytkownik   |Aktywne |10.0.0.0/24         |Sieć wirtualna        |                   |W ramach podsieci Subnet1|
 |4   |Domyślne|Nieprawidłowy|10.1.0.0/16         |Komunikacja równorzędna sieci wirtualnych           |                   |              |
 |5   |Domyślne|Nieprawidłowy|10.2.0.0/16         |Komunikacja równorzędna sieci wirtualnych           |                   |              |
-|6   |Użytkownik   |Aktywne |10.1.0.0/16         |Brak                   |                   |ToVNet2-1-porzuć|
-|7   |Użytkownik   |Aktywne |10.2.0.0/16         |Brak                   |                   |ToVNet2-2-porzuć|
+|6   |Użytkownik   |Aktywne |10.1.0.0/16         |None                   |                   |ToVNet2-1-porzuć|
+|7   |Użytkownik   |Aktywne |10.2.0.0/16         |None                   |                   |ToVNet2-2-porzuć|
 |8   |Domyślne|Nieprawidłowy|10.10.0.0/16        |Brama sieci wirtualnej|[X.X.X.X]          |              |
 |9   |Użytkownik   |Aktywne |10.10.0.0/16        |Urządzenie wirtualne      |10.0.100.4         |Do lokalnego    |
 |10  |Domyślne|Aktywne |[X.X.X.X]           |VirtualNetworkServiceEndpoint    |         |              |
@@ -241,8 +241,8 @@ Tabela tras dla podsieci *Subnet2* na ilustracji zawiera następujące trasy:
 |Domyślne |Aktywne |10.2.0.0/16         |Komunikacja równorzędna sieci wirtualnych              |                   |
 |Domyślne |Aktywne |10.10.0.0/16        |Brama sieci wirtualnej   |[X.X.X.X]          |
 |Domyślne |Aktywne |0.0.0.0/0           |Internet                  |                   |
-|Domyślne |Aktywne |10.0.0.0/8          |None                      |                   |
-|Domyślne |Aktywne |100.64.0.0/10       |Brak                      |                   |
+|Domyślne |Aktywne |10.0.0.0/8          |Brak                      |                   |
+|Domyślne |Aktywne |100.64.0.0/10       |None                      |                   |
 |Domyślne |Aktywne |172.16.0.0/12       |None                      |                   |
 |Domyślne |Aktywne |192.168.0.0/16      |None                      |                   |
 

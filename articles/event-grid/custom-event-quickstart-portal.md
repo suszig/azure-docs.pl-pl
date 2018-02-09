@@ -3,23 +3,23 @@ title: "Zdarzenia niestandardowe dla usługi Azure Event Grid przy użyciu witry
 description: "Za pomocą usługi Azure Event Grid i programu PowerShell można opublikować temat i subskrybować dane zdarzenie."
 services: event-grid
 keywords: 
-author: djrosanova
-ms.author: darosa
-ms.date: 10/11/2017
+author: tfitzmac
+ms.author: tomfitz
+ms.date: 01/30/2018
 ms.topic: hero-article
 ms.service: event-grid
-ms.openlocfilehash: 0fe498b7b6dcf59bc5caef8ff5a40053e0498f85
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 01472ffc7a98cd2c99793c8675efe2cefffe5558
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Tworzenie i kierowanie zdarzeń niestandardowych za pomocą witryny Azure Portal i usługi Event Grid
 
-Azure Event Grid to usługa obsługi zdarzeń dla chmury. W tym artykule omówiono tworzenie tematu niestandardowego, subskrybowanie go i wyzwalanie zdarzenia w celu wyświetlenia wyniku za pomocą witryny Azure Portal. Zazwyczaj wysyła się zdarzenia do punktu końcowego, który na nie reaguje, takiego jak element webhook lub funkcja platformy Azure. Jednak aby uprościć ten artykuł, omówimy wysłanie zdarzenia na adres URL, który tylko zbiera komunikaty. Utworzysz ten adres URL przy użyciu narzędzia open source innego producenta o nazwie [RequestBin](https://requestb.in/).
+Azure Event Grid to usługa obsługi zdarzeń dla chmury. W tym artykule omówiono tworzenie tematu niestandardowego, subskrybowanie go i wyzwalanie zdarzenia w celu wyświetlenia wyniku za pomocą witryny Azure Portal. Zazwyczaj wysyła się zdarzenia do punktu końcowego, który na nie reaguje, takiego jak element webhook lub funkcja platformy Azure. Jednak aby uprościć ten artykuł, omówimy wysłanie zdarzenia na adres URL, który tylko zbiera komunikaty. Do utworzenia tego adresu URL użyte zostaną narzędzia innych producentów: [RequestBin](https://requestb.in/) lub [Hookbin](https://hookbin.com/).
 
 >[!NOTE]
->**RequestBin** to narzędzie typu „open source”, które nie jest przeznaczone do użycia przy wysokiej przepływności. To narzędzie zostało tutaj użyte wyłącznie w celach pokazowych. W przypadku wypchnięcia więcej niż jednego zdarzenia w tym samym czasie w narzędziu mogą nie być widoczne wszystkie zdarzenia.
+>Narzędzia **RequestBin** i **Hookbin** nie są przeznaczone do używania przy wysokiej przepływności. Te narzędzia zostały tutaj użyte wyłącznie w celach pokazowych. W przypadku wypchnięcia więcej niż jednego zdarzenia w tym samym czasie w narzędziu mogą nie być widoczne wszystkie zdarzenia.
 
 Po zakończeniu przekonasz się, że dane zdarzenia zostały wysłane do punktu końcowego.
 
@@ -51,7 +51,7 @@ Temat udostępnia zdefiniowany przez użytkownika punkt końcowy, do którego wy
 
    ![Dodawanie tematu usługi Event Grid](./media/custom-event-quickstart-portal/add-topic.png)
 
-1. Podaj nazwę tematu. Nazwa tematu musi być unikatowa, ponieważ jest reprezentowana przez wpis DNS. W wersji zapoznawczej usługa Event Grid obsługuje lokalizacje **westus2** i **westcentralus**. Wybierz grupę zasobów, która została utworzona wcześniej. Wybierz pozycję **Utwórz**.
+1. Podaj nazwę tematu. Nazwa tematu musi być unikatowa, ponieważ jest reprezentowana przez wpis DNS. Wybierz jeden z [obsługiwanych regionów](overview.md). Wybierz grupę zasobów, która została utworzona wcześniej. Wybierz pozycję **Utwórz**.
 
    ![Podawanie wartości tematu usługi Event Grid](./media/custom-event-quickstart-portal/provide-topic-values.png)
 
@@ -61,7 +61,7 @@ Temat udostępnia zdefiniowany przez użytkownika punkt końcowy, do którego wy
 
 ## <a name="create-a-message-endpoint"></a>Tworzenie punktu końcowego komunikatów
 
-Przed zasubskrybowaniem tematu utwórzmy punkt końcowy dla komunikatów o zdarzeniach. Zamiast pisać kod w celu zareagowania na zdarzenie, utwórzmy punkt końcowy, który będzie zbierać komunikaty, aby można było je wyświetlić. RequestBin to narzędzie open source innego producenta, które umożliwia utworzenie punktu końcowego i wyświetlanie wysyłanych do niego żądań. Przejdź do narzędzia [RequestBin](https://requestb.in/) i kliknij pozycję **Create a RequestBin** (Utwórz pojemnik na żądania).  Skopiuj adres URL pojemnika, ponieważ będzie on potrzebny podczas subskrybowania tematu.
+Przed zasubskrybowaniem tematu utwórzmy punkt końcowy dla komunikatów o zdarzeniach. Zamiast pisać kod w celu zareagowania na zdarzenie, utwórzmy punkt końcowy, który będzie zbierać komunikaty, aby można było je wyświetlić. RequestBin i Hookbin to narzędzia innych producentów, które umożliwiają utworzenie punktu końcowego i wyświetlanie wysyłanych do niego żądań. Przejdź do narzędzia [RequestBin](https://requestb.in/) i kliknij pozycję **Create a RequestBin** (Utwórz pojemnik na żądania) lub przejdź do narzędzia [Hookbin](https://hookbin.com/) i kliknij pozycję **Create New Endpoint** (Utwórz nowy punkt końcowy).  Skopiuj adres URL pojemnika, ponieważ będzie on potrzebny podczas subskrybowania tematu.
 
 ## <a name="subscribe-to-a-topic"></a>Subskrybowanie tematu
 
@@ -75,7 +75,7 @@ Subskrybowanie tematu ma poinformować usługę Event Grid o tym, które zdarzen
 
    ![Dodawanie subskrypcji usługi Event Grid](./media/custom-event-quickstart-portal/add-subscription.png)
 
-1. Podaj unikatową nazwę dla Twojej subskrypcji zdarzeń. Jako typ tematu wybierz **Tematy usługi Event Grid**. Dla wystąpienia wybierz niestandardowy temat, który został utworzony. Podaj adres URL z narzędzia RequestBin jako punkt końcowy powiadomienia o zdarzeniu. Po zakończeniu podawania wartości wybierz pozycję **Utwórz**.
+1. Podaj unikatową nazwę dla Twojej subskrypcji zdarzeń. Jako typ tematu wybierz **Tematy usługi Event Grid**. Dla wystąpienia wybierz niestandardowy temat, który został utworzony. Podaj adres URL z narzędzia RequestBin lub Hookbin jako punkt końcowy powiadomienia o zdarzeniu. Po zakończeniu podawania wartości wybierz pozycję **Utwórz**.
 
    ![Podawanie wartości subskrypcji usługi Event Grid](./media/custom-event-quickstart-portal/provide-subscription-values.png)
 
@@ -100,13 +100,13 @@ body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-jso
 
 Użycie opcji `echo "$body"` pozwala wyświetlić pełne zdarzenie. Element `data` danych JSON to ładunek zdarzenia. W tym polu można umieścić dowolną poprawnie sformułowaną zawartość JSON. Można też używać pola tematu do zaawansowanego routingu i filtrowania.
 
-CURL to narzędzie, które wykonuje żądania HTTP. W tym artykule używamy narzędzia CURL do wysłania zdarzenia do tematu. 
+CURL to narzędzie, które wykonuje żądania HTTP. W tym artykule do wysłania zdarzenia do tematu używane jest narzędzie CURL. 
 
 ```azurecli-interactive
 curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
 ```
 
-Zdarzenie zostało wyzwolone, a usługa Event Grid wysłała komunikat do punktu końcowego skonfigurowanego podczas subskrybowania. Przejdź do adresu URL pojemnika RequestBin utworzonego wcześniej. Ewentualnie kliknij przycisk Refresh (Odśwież) w otwartej przeglądarce narzędzia RequestBin. Zobaczysz właśnie wysłane zdarzenie.
+Zdarzenie zostało wyzwolone, a usługa Event Grid wysłała komunikat do punktu końcowego skonfigurowanego podczas subskrybowania. Przejdź do adresu URL punktu końcowego utworzonego wcześniej. Ewentualnie kliknij przycisk Refresh (Odśwież) w otwartej przeglądarce. Zobaczysz właśnie wysłane zdarzenie.
 
 ```json
 [{
@@ -118,6 +118,8 @@ Zdarzenie zostało wyzwolone, a usługa Event Grid wysłała komunikat do punktu
     "make": "Ducati",
     "model": "Monster"
   },
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
   "topic": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/topics/{topic}"
 }]
 ```

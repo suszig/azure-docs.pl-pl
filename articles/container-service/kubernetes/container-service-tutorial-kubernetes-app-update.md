@@ -1,6 +1,6 @@
 ---
-title: "Samouczek usługi kontenera platformy Azure — aktualizacja aplikacji"
-description: "Samouczek usługi kontenera platformy Azure — aktualizacja aplikacji"
+title: "Samouczek usługi Azure Container Service — aktualizowanie aplikacji"
+description: "Samouczek usługi Azure Container Service — aktualizowanie aplikacji"
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,47 +9,47 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5ecaa3a79270e29ac002e91065f7df4f7e8914e7
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: MT
+ms.openlocfilehash: 34b08111863df99dc05a7b269464ce65a916a171
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="update-an-application-in-kubernetes"></a>Aktualizuj aplikację w Kubernetes
+# <a name="update-an-application-in-kubernetes"></a>Aktualizowanie aplikacji w usłudze Kubernetes
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-Po wdrożeniu aplikacji w Kubernetes, może zostać zaktualizowana, podając nowy obraz kontenera lub wersję obrazu. W takiej aktualizacji są przygotowywane tak, aby jednocześnie jest aktualizowany tylko część wdrożenia. Ta aktualizacja przemieszczanego umożliwia kontynuowanie działania podczas aktualizacji aplikacji. Udostępnia również mechanizm wycofywania, w przypadku niepowodzenia wdrożenia. 
+Po wdrożeniu aplikacji w usłudze Kubernetes można ją zmodyfikować, określając nowy obraz kontenera lub wersję obrazu. W takiej sytuacji aktualizacja jest przygotowywana tak, aby tylko część była współbieżnie aktualizowana. Ta aktualizacja etapowa umożliwia kontynuowanie działania podczas aktualizacji aplikacji. Udostępnia ona również mechanizm wycofywania w przypadku niepowodzenia wdrożenia. 
 
-W tym samouczku, część 6, 7 przykładową aplikację Azure głos jest aktualizowany. Zadania, które należy wykonać obejmują:
+W tym samouczku (część szósta z siedmiu) aktualizowana jest przykładowa aplikacja do głosowania platformy Azure. Zadania do wykonania to na przykład:
 
 > [!div class="checklist"]
 > * Aktualizowanie kodu aplikacji frontonu
-> * Tworzenie obrazu zaktualizowane kontenera
-> * Wypychanie obrazu kontenera w rejestrze kontenera platformy Azure
-> * Wdrażanie obrazu zaktualizowane kontenera
+> * Tworzenie zaktualizowanego obrazu kontenera
+> * Wypychanie obrazu kontenera do usługi Azure Container Registry
+> * Wdrażanie zaktualizowanego obrazu kontenera
 
-W kolejnych samouczkach Operations Management Suite jest skonfigurowany do monitorowania Kubernetes klastra.
+W kolejnych samouczkach pakiet Operations Management Suite zostanie skonfigurowany do monitorowania klastra usługi Kubernetes.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-W samouczkach poprzedniej aplikacji zostało umieszczone w obraz kontenera, obrazu przesłanego do rejestru kontenera Azure i utworzyć klaster Kubernetes. W klastrze Kubernetes następnie uruchomienia aplikacji. 
+W poprzednich samouczkach aplikacja została spakowana w postaci obrazu kontenera, obraz został przekazany do usługi Azure Container Registry i utworzono klaster usługi Kubernetes. Następnie uruchomiono aplikację w klastrze usługi Kubernetes. 
 
-Aplikacja również sklonowano repozytorium w tym kodu źródłowego aplikacji i utworzone wcześniej plik rozwiązania Docker Compose używany w tym samouczku. Sprawdź utworzono klonowania repozytorium i że zostały zmienione katalogów w katalogu sklonowany. Wewnątrz jest katalog o nazwie `azure-vote` i plik o nazwie `docker-compose.yml`.
+Sklonowano również repozytorium aplikacji, w tym kod źródłowy aplikacji i utworzony wcześniej plik narzędzia Docker Compose używany w tym samouczku. Sprawdź, czy został utworzony klon repozytorium oraz czy katalogi zostały zmienione na sklonowany katalog. Zawiera on katalog o nazwie `azure-vote` i plik o nazwie `docker-compose.yml`.
 
-Jeśli nie zostały wykonane następujące kroki, a aby z niego skorzystać, wróć do [samouczek 1 — Tworzenie kontenera obrazów](./container-service-tutorial-kubernetes-prepare-app.md). 
+Jeśli nie wykonano tych kroków, a chcesz kontynuować pracę, wróć do części [Samouczek 1 — tworzenie obrazów kontenera](./container-service-tutorial-kubernetes-prepare-app.md). 
 
 ## <a name="update-application"></a>Aktualizowanie aplikacji
 
-W tym samouczku zostaną zmienione do aplikacji i zaktualizowane aplikacji wdrożonych w klastrze Kubernetes. 
+W tym samouczku wprowadzana jest zmiana aplikacji, a zaktualizowana aplikacja jest wdrażana w klastrze usługi Kubernetes. 
 
-Kod źródłowy aplikacji znajduje się wewnątrz `azure-vote` katalogu. Otwórz `config_file.cfg` pliku w dowolnym edytorze kodu i tekstu. W tym przykładzie `vi` jest używany.
+Kod źródłowy aplikacji znajduje się wewnątrz katalogu `azure-vote`. Otwórz plik `config_file.cfg` w dowolnym edytorze kodu lub tekstu. W tym przykładzie używamy programu `vi`.
 
 ```bash
 vi azure-vote/azure-vote/config_file.cfg
 ```
 
-Zmień wartości `VOTE1VALUE` i `VOTE2VALUE`, a następnie zapisz plik.
+Zmień wartości elementów `VOTE1VALUE` i `VOTE2VALUE`, a następnie zapisz plik.
 
 ```bash
 # UI Configurations
@@ -61,45 +61,45 @@ SHOWHOST = 'false'
 
 Zapisz i zamknij plik.
 
-## <a name="update-container-image"></a>Aktualizacja kontenera obrazu
+## <a name="update-container-image"></a>Aktualizowanie obrazu kontenera
 
-Użyj [rozwiązania docker compose](https://docs.docker.com/compose/) odtworzenia frontonu obrazu i uruchomić aplikację zaktualizowane. `--build` Argument jest używany w celu poinstruowania rozwiązania Docker Compose ponownie utworzyć obraz aplikacji.
+Użyj narzędzia [docker-compose](https://docs.docker.com/compose/), aby ponownie utworzyć obraz frontonu i uruchomić zaktualizowaną aplikację. Argument `--build` jest używany w celu poinstruowania narzędzia Docker Compose o konieczności ponownego utworzenia obrazu aplikacji.
 
 ```bash
 docker-compose up --build -d
 ```
 
-## <a name="test-application-locally"></a>Testowanie aplikacji lokalnie
+## <a name="test-application-locally"></a>Testowanie aplikacji w środowisku lokalnym
 
-Przejdź do adresem http://localhost: 8080, aby wyświetlić zaktualizowaną aplikację.
+Przejdź do adresu http://localhost: 8080, aby wyświetlić zaktualizowaną aplikację.
 
 ![Obraz przedstawiający klaster Kubernetes na platformie Azure](media/container-service-kubernetes-tutorials/vote-app-updated.png)
 
-## <a name="tag-and-push-images"></a>Obrazy tagu i wypychania
+## <a name="tag-and-push-images"></a>Tagowanie i wypychanie obrazów
 
-Tag `azure-vote-front` obrazu o loginServer rejestru kontenera. 
+Otaguj obraz `azure-vote-front` wartością loginServer rejestru kontenerów. 
 
-Pobierz nazwę logowania serwera z [listy acr az](/cli/azure/acr#list) polecenia.
+Pobierz nazwę serwera logowania przy użyciu polecenia [az acr list](/cli/azure/acr#az_acr_list).
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Użyj [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) do tagu obrazu. Zastąp `<acrLoginServer>` z nazwą serwera logowania rejestru kontenera platformy Azure lub rejestru publicznej nazwy hosta. Również powiadomienia, który korzysta ze zaktualizowanej wersji obrazu `redis-v2`.
+Użyj polecenia [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) w celu otagowania obrazu. Zastąp element `<acrLoginServer>` nazwą serwera logowania usługi Azure Container Registry lub nazwą hosta rejestru publicznego. Zwróć również uwagę, że obraz został zaktualizowany do wersji `redis-v2`.
 
 ```bash
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v2
 ```
 
-Użyj [wypychania docker](https://docs.docker.com/engine/reference/commandline/push/) do przekazania obrazu do rejestru. Zastąp `<acrLoginServer>` z rejestru kontenera Azure nazwy logowania serwera.
+Użyj polecenia [docker push](https://docs.docker.com/engine/reference/commandline/push/) w celu przekazania obrazu do rejestru. Zastąp element `<acrLoginServer>` nazwą serwera logowania usługi Azure Container Registry.
 
 ```bash
 docker push <acrLoginServer>/azure-vote-front:redis-v2
 ```
 
-## <a name="deploy-update-application"></a>Wdrażanie aktualizacji aplikacji
+## <a name="deploy-update-application"></a>Wdrażanie zaktualizowanej aplikacji
 
-Aby zapewnić maksymalny czas działania, wiele wystąpień pod aplikacji musi być uruchomiona. Sprawdź konfigurację tego z [kubectl Pobierz pod](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) polecenia.
+Aby zapewnić maksymalny czas działania, należy uruchomić wiele wystąpień zasobnika aplikacji. Sprawdź tę konfigurację przy użyciu polecenia [kubectl get pod](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get).
 
 ```bash
 kubectl get pod
@@ -115,20 +115,20 @@ azure-vote-front-233282510-dhrtr   1/1       Running   0          10m
 azure-vote-front-233282510-pqbfk   1/1       Running   0          10m
 ```
 
-Jeśli nie masz wiele stanowiskami systemem azure głos początku obrazu, skalowanie `azure-vote-front` wdrożenia.
+Jeśli obraz azure-vote-front nie został uruchomiony w wielu zasobnikach, skaluj wdrożenie `azure-vote-front`.
 
 
 ```azurecli-interactive
 kubectl scale --replicas=3 deployment/azure-vote-front
 ```
 
-Aby zaktualizować aplikację, należy użyć [zestaw kubectl](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#set) polecenia. Aktualizacja `<acrLoginServer>` nazwą logowania serwera lub hosta rejestru kontenera.
+Aby zaktualizować aplikację, użyj polecenia [kubectl set](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#set). Zaktualizuj element `<acrLoginServer>` przy użyciu nazwy serwera logowania lub nazwy hosta rejestru kontenerów.
 
 ```azurecli-interactive
 kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:redis-v2
 ```
 
-Aby monitorować wdrożenia, należy użyć [kubectl Pobierz pod](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) polecenia. Zaktualizowano aplikacja jest wdrażana, Twoje stanowiskami są zakończone i utworzony ponownie z nowego obrazu kontenera.
+Aby monitorować wdrożenie, użyj polecenia [kubectl get pod](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get). Podczas wdrażania aplikacji działanie zasobników jest przerywane, a następnie są one ponownie tworzone przy użyciu obrazu kontenera.
 
 ```azurecli-interactive
 kubectl get pod
@@ -144,9 +144,9 @@ azure-vote-front-1297194256-tptnx   1/1       Running   0         5m
 azure-vote-front-1297194256-zktw9   1/1       Terminating   0         1m
 ```
 
-## <a name="test-updated-application"></a>Zaktualizowano test aplikacji
+## <a name="test-updated-application"></a>Testowanie zaktualizowanej aktualizacji
 
-Uzyskaj adres IP zewnętrznego `azure-vote-front` usługi.
+Pobierz zewnętrzny adres IP usługi `azure-vote-front`.
 
 ```azurecli-interactive
 kubectl get service azure-vote-front
@@ -158,15 +158,15 @@ Przejdź do adresu IP, aby wyświetlić zaktualizowaną aplikację.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku aktualizacji aplikacji i wprowadzanie tej aktualizacji do klastra Kubernetes. Zakończono następujące zadania:
+W tym samouczku zaktualizowano aplikację i wydano tę aktualizację do klastra Kubernetes. Wykonano następujące zadania:
 
 > [!div class="checklist"]
-> * Zaktualizowany kod aplikacji frontonu
-> * Utworzony obraz zaktualizowane kontenera
-> * Wypychana obrazu kontenera do rejestru kontenera platformy Azure
-> * Po wdrożeniu aplikacji zaktualizowane
+> * Zaktualizowano kod aplikacji frontonu
+> * Utworzono zaktualizowany obraz kontenera
+> * Wypchnięto obraz kontenera do usługi Azure Container Registry
+> * Wdrożono zaktualizowaną aplikację
 
-Przejdź do następnego samouczka, aby dowiedzieć się więcej o sposobie monitorowania Kubernetes w usłudze Operations Management Suite.
+Przejdź do następnego samouczka, aby dowiedzieć się, jak monitorować usługę Kubernetes przy użyciu pakietu Operations Management Suite.
 
 > [!div class="nextstepaction"]
 > [Monitorowanie rozwiązania Kubernetes za pomocą pakietu OMS](./container-service-tutorial-kubernetes-monitor.md)

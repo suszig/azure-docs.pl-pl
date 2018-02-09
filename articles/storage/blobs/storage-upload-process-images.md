@@ -1,6 +1,6 @@
 ---
-title: "Przekazywanie obrazu danych w chmurze za pomocą usługi Azure Storage | Dokumentacja firmy Microsoft"
-description: "Użyj magazynu obiektów blob platformy Azure z aplikacji sieci web do przechowywania danych aplikacji"
+title: "Przekazywanie danych obrazu do chmury za pomocą usługi Azure Storage | Microsoft Docs"
+description: "Przechowywanie danych aplikacji przy użyciu usługi Azure Blob Storage i aplikacji internetowej"
 services: storage
 documentationcenter: 
 author: georgewallace
@@ -14,35 +14,35 @@ ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: 8d187e51cbb391ee1f34fb5934c8ae1868bb6244
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.openlocfilehash: eae23bed2792e41f73c22658d238e2b03beba17b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>Przekazywanie obrazu danych w chmurze za pomocą usługi Azure Storage
+# <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>Przekazywanie danych obrazu do chmury za pomocą usługi Azure Storage
 
-W tym samouczku wchodzi w jednej serii. Ten samouczek przedstawia sposób wdrażania aplikacji sieci web, która używa biblioteki klienta magazynu Azure do przekazania na konto magazynu obrazów. Po zakończeniu, masz aplikacji sieci web, przechowywania i wyświetlanie obrazów z usługi Azure storage.
+Niniejszy samouczek jest pierwszą częścią serii. W tym samouczku pokazano, jak wdrożyć aplikację internetową, która przekazuje obrazy do konta magazynu przy użyciu biblioteki klienta usługi Azure Storage. Po zakończeniu tego samouczka będziesz mieć aplikację internetową zapisującą obrazy w usłudze Azure Storage i wyświetlającą obrazy z tej usługi.
 
-![Widok kontener obrazów](media/storage-upload-process-images/figure2.png)
+![Widok kontenera obrazów](media/storage-upload-process-images/figure2.png)
 
-W części jednej serii, możesz dowiedzieć się, jak:
+Część pierwsza serii zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie konta magazynu
-> * Utwórz kontener i ustaw uprawnienia
-> * Pobierz klucz dostępu
+> * Tworzenie kontenera i ustawianie uprawnień
+> * Pobieranie klucza dostępu
 > * Konfigurowanie ustawień aplikacji
-> * Wdrażanie aplikacji sieci Web na platformie Azure
-> * Współdziałanie z aplikacją sieci web
+> * Wdrażanie aplikacji internetowej na platformie Azure
+> * Korzystanie z aplikacji internetowej
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Jeśli wybierzesz do zainstalowania i używania interfejsu wiersza polecenia lokalnie, w tym samouczku wymaga używasz interfejsu wiersza polecenia Azure w wersji 2.0.4 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów 
 
-Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#create). Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi.
+Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#az_group_create). Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi.
  
 Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie `myResourceGroup`.
  
@@ -52,12 +52,12 @@ az group create --name myResourceGroup --location westcentralus
 
 ## <a name="create-a-storage-account"></a>Tworzenie konta magazynu
  
-Próbka przekazywać obrazy do kontenera obiektów blob na koncie magazynu Azure. Konto magazynu zapewnia unikatową przestrzeń nazw do przechowywania i udostępniania obiektów danych usługi Azure storage. Utwórz konto magazynu w utworzonej grupie zasobów przy użyciu polecenia [az storage account create](/cli/azure/storage/account#az_storage_account_create). 
+Przykład użyty w tym samouczku przekazuje obrazy do kontenera obiektów blob na koncie usługi Azure Storage. Konto magazynu zapewnia unikatową przestrzeń nazw do przechowywania i umożliwiania dostępu do obiektów danych usługi Azure Storage. Utwórz konto magazynu w utworzonej grupie zasobów przy użyciu polecenia [az storage account create](/cli/azure/storage/account#az_storage_account_create). 
 
 > [!IMPORTANT] 
-> W części 2 samouczka użyjesz subskrypcji zdarzeń dla magazynu obiektów blob. Subskrypcja zdarzeń obecnie są obsługiwane tylko w przypadku kont magazynu obiektów Blob w zachodnie centralnej nam i zachodnie stany USA 2. Z powodu tego ograniczenia należy utworzyć konta magazynu obiektów Blob, używanego przez przykładowej aplikacji do przechowywania obrazów i miniatur.   
+> W części 2 samouczka będziemy używać subskrypcji zdarzeń dla usługi Blob Storage. Subskrypcje zdarzeń obecnie są obsługiwane tylko w przypadku kont usługi Blob Storage w regionach Zachodnio-środkowe stany USA i Zachodnie stany USA 2. Z powodu tego ograniczenia należy utworzyć konto usługi Blob Storage używane przez aplikację przykładową do przechowywania obrazów i miniatur.   
 
-W poniższym poleceniu zastąp własne globalnie unikatowej nazwy dla konta magazynu obiektów Blob, w którym można zobaczyć `<blob_storage_account>` symbolu zastępczego.  
+W poniższym poleceniu w miejsce symbolu zastępczego `<blob_storage_account>` wstaw swoją własną unikatową w skali globalnej nazwę konta usługi Blob Storage.  
 
 ```azurecli-interactive 
 az storage account create --name <blob_storage_account> \
@@ -65,13 +65,13 @@ az storage account create --name <blob_storage_account> \
 --sku Standard_LRS --kind blobstorage --access-tier hot 
 ``` 
  
-## <a name="create-blob-storage-containers"></a>Utwórz kontenery magazynu obiektów blob
+## <a name="create-blob-storage-containers"></a>Tworzenie kontenerów w usłudze Blob Storage
  
-Aplikacja używa dwóch kontenery w ramach konta magazynu obiektów Blob. Kontenery są podobne do folderów i są używane do przechowywania obiektów blob. _Obrazów_ kontenera jest, gdzie aplikacja przekazuje obrazy pełnej rozdzielczości. W późniejszym częścią serii, aplikację Azure funkcja przekazuje po zmianie rozmiaru obrazów miniatur _Kciuki_ kontenera. 
+Aplikacja używa dwóch kontenerów w ramach konta usługi Blob Storage. Kontenery są podobne do folderów i służą do przechowywania obiektów blob. Z kontenerem _images_ mamy do czynienia wtedy, gdy aplikacja przekazuje obrazy w pełnej rozdzielczości. W jednej z następnych części serii aplikacja funkcji platformy Azure będzie przekazywać miniatury obrazów o zmienionym rozmiarze do kontenera _thumbs_. 
 
-Pobierz klucz konta magazynu przy użyciu [listy kluczy konta magazynu az](/cli/azure/storage/account/keys#list) polecenia. Następnie użyj tego klucza do utworzenia dwóch kontenerów przy użyciu [utworzyć kontenera magazynu az](/cli/azure/storage/container#az_storage_container_create) polecenia.  
+Pobierz klucz konta magazynu przy użyciu polecenia [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list). Następnie użyj tego klucza do utworzenia dwóch kontenerów za pomocą polecenia [az storage container create](/cli/azure/storage/container#az_storage_container_create).  
  
-W takim przypadku `<blob_storage_account>` jest nazwą utworzonego konta magazynu obiektów Blob. _Obrazów_ ustawiono dostępu publicznego kontenery `off`, _Kciuki_ ustawiono dostępu publicznego kontenery `container`. `container` Ustawienia dostępu publicznego pozwalają na miniaturę, aby być widoczny dla osób, które odwiedź stronę sieci web.
+W tym przypadku `<blob_storage_account>` jest nazwą utworzonego konta usługi Blob Storage. Dostęp publiczny do kontenera _images_ został ustawiony na wartość `off`, a do kontenera _thumbs_ — na wartość `container`. Ustawienie dostępu publicznego na wartość `container` pozwala na wyświetlanie miniatur przez osoby odwiedzające stronę internetową.
  
 ```azurecli-interactive 
 blobStorageAccount=<blob_storage_account>
@@ -89,7 +89,7 @@ echo "Make a note of your blob storage account key..."
 echo $blobStorageAccountKey 
 ``` 
 
-Zanotuj nazwę konta magazynu obiektów blob i klucza. Przykładowa aplikacja używa tych ustawień do nawiązania połączenia konta magazynu, aby przekazać obrazów. 
+Zanotuj nazwę konta usługi Blob Storage i klucz. Przykładowa aplikacja korzysta z tych ustawień, aby nawiązywać połączenie z kontem magazynu w celu przekazywania obrazów. 
 
 ## <a name="create-an-app-service-plan"></a>Tworzenie planu usługi App Service 
 
@@ -105,19 +105,19 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 ## <a name="create-a-web-app"></a>Tworzenie aplikacji sieci Web 
 
-Aplikacja sieci web miejsce na wpisanie hostingu jest wdrażany z repozytorium GitHub próbki kodu przykładowej aplikacji. Utwórz [aplikację sieci Web](../../app-service/app-service-web-overview.md) w `myAppServicePlan`planie usługi App Service za pomocą polecenia [az webapp create](/cli/azure/webapp#az_webapp_create).  
+Aplikacja internetowa zapewnia obszar hostingu dla kodu aplikacji przykładowej, który jest wdrażany z przykładowego repozytorium usługi GitHub. Utwórz [aplikację sieci Web](../../app-service/app-service-web-overview.md) w `myAppServicePlan`planie usługi App Service za pomocą polecenia [az webapp create](/cli/azure/webapp#az_webapp_create).  
  
-W poniższym poleceniu zastąp `<web_app>` o unikatowej nazwie (prawidłowe znaki to `a-z`, `0-9`, i `-`). Jeśli `<web_app>` jest nie jest unikatowy, otrzymasz komunikat o błędzie: _witryny sieci Web o podanej nazwie `<web_app>` już istnieje._ Domyślnym adresem URL aplikacji sieci Web jest `https://<web_app>.azurewebsites.net`.  
+W poniższym poleceniu zastąp ciąg `<web_app>` unikatową nazwą (prawidłowe znaki to `a-z`, `0-9` i `-`). Jeśli nazwa `<web_app>` nie jest unikatowa, zostanie wyświetlony komunikat o błędzie _Witryna internetowa o nazwie `<web_app>` już istnieje._ Domyślnym adresem URL aplikacji sieci Web jest `https://<web_app>.azurewebsites.net`.  
 
 ```azurecli-interactive 
 az webapp create --name <web_app> --resource-group myResourceGroup --plan myAppServicePlan 
 ``` 
 
-## <a name="deploy-the-sample-app-from-the-github-repository"></a>Wdrażanie przykładowej aplikacji z repozytorium GitHub 
+## <a name="deploy-the-sample-app-from-the-github-repository"></a>Wdrażanie aplikacji przykładowej z repozytorium usługi GitHub 
 
-Usługa aplikacji obsługuje kilka metod wdrażania zawartości w aplikacji sieci web. W tym samouczku, wdrażanie aplikacji sieci web z [publicznego repozytorium przykładowej GitHub](https://github.com/Azure-Samples/storage-blob-upload-from-webapp). Konfigurowanie wdrożenia GitHub w aplikacji sieci web przy użyciu [konfiguracji źródła wdrożenia aplikacji sieci Web az](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config) polecenia. Zastąp `<web_app>` o nazwie aplikacji sieci web został utworzony w poprzednim kroku.
+Usługa App Service obsługuje kilka metod wdrażania zawartości w aplikacji internetowej. W tym samouczku wdrażasz aplikację internetową z [publicznego repozytorium przykładów usługi GitHub](https://github.com/Azure-Samples/storage-blob-upload-from-webapp). Skonfiguruj wdrożenie usługi GitHub do aplikacji internetowej za pomocą polecenia [az webapp deployment source config](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config). Zastąp ciąg `<web_app>` nazwą aplikacji internetowej utworzonej w poprzednim kroku.
 
-Przykładowy projekt zawiera [ASP.NET MVC](https://www.asp.net/mvc) aplikację, która akceptuje obrazu, zapisuje go na konto magazynu i wyświetla obrazy miniatur kontenera. Aplikacja sieci web używa [Microsoft.WindowsAzure.Storage](/dotnet/api/microsoft.windowsazure.storage?view=azure-dotnet), [Microsoft.WindowsAzure.Storage.Blob](/dotnet/api/microsoft.windowsazure.storage.blob?view=azure-dotnet)i [Microsoft.WindowsAzure.Storage.Auth](/dotnet/api/microsoft.windowsazure.storage.auth?view=azure-dotnet) przestrzenie nazw z usługi Azure storage biblioteki klienta do interakcji z usługą Azure storage. 
+Przykładowy projekt zawiera aplikację [ASP.NET MVC](https://www.asp.net/mvc), która akceptuje obraz, zapisuje go na koncie magazynu i wyświetla obrazy z kontenera miniatur. Do interakcji z usługą Azure Storage aplikacja internetowa używa przestrzeni nazw [Microsoft.WindowsAzure.Storage](/dotnet/api/microsoft.windowsazure.storage?view=azure-dotnet), [Microsoft.WindowsAzure.Storage.Blob](/dotnet/api/microsoft.windowsazure.storage.blob?view=azure-dotnet) i [Microsoft.WindowsAzure.Storage.Auth](/dotnet/api/microsoft.windowsazure.storage.auth?view=azure-dotnet) z biblioteki klienta usługi Azure Storage. 
 
 ```azurecli-interactive 
 az webapp deployment source config --name <web_app> \
@@ -125,11 +125,11 @@ az webapp deployment source config --name <web_app> \
 --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
 ``` 
 
-## <a name="configure-web-app-settings"></a>Konfiguruj ustawienia aplikacji sieci web 
+## <a name="configure-web-app-settings"></a>Konfigurowanie ustawień aplikacji internetowej 
 
-Przykładowe zastosowania aplikacji sieci web [biblioteki klienta magazynu Azure](/dotnet/api/overview/azure/storage?view=azure-dotnet) do żądania tokenów dostępu, które są używane do przekazywania obrazów. Używana przez zestaw SDK magazynu poświadczeń konta magazynu są ustawiane w ustawieniach aplikacji dla aplikacji sieci web. Dodawanie ustawienia aplikacji wdrożonej aplikacji przy użyciu [az aplikacji sieci Web config appsettings zestaw](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) polecenia. 
+Przykładowa aplikacja internetowa używa [biblioteki klienta usługi Azure Storage](/dotnet/api/overview/azure/storage?view=azure-dotnet), aby żądać tokenów dostępu, które służą do przekazywania obrazów. Poświadczenia konta magazynu, używane przez zestaw SDK usługi Storage, są konfigurowane w ustawieniach aplikacji dla danej aplikacji internetowej. Dodaj ustawienia aplikacji do wdrożonej aplikacji za pomocą polecenia [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set). 
 
-W poniższym poleceniu `<blob_storage_account>` jest nazwą konta magazynu obiektów Blob i `<blob_storage_key>` jest skojarzony klucz. Zastąp `<web_app>` o nazwie aplikacji sieci web został utworzony w poprzednim kroku.     
+W poniższym poleceniu ciąg `<blob_storage_account>` jest nazwą Twojego konta usługi Blob Storage, a ciąg `<blob_storage_key>` to skojarzony klucz. Zastąp ciąg `<web_app>` nazwą aplikacji internetowej utworzonej w poprzednim kroku.     
 
 ```azurecli-interactive 
 az webapp config appsettings set --name <web_app> --resource-group myResourceGroup \
@@ -139,15 +139,15 @@ AzureStorageConfig__ThumbnailContainer=thumbs \
 AzureStorageConfig__AccountKey=<blob_storage_key>  
 ``` 
 
-Po wdrożeniu i skonfigurować aplikacji sieci web można przetestować funkcji przekazywania obrazu w aplikacji.   
+Po wdrożeniu i skonfigurowaniu aplikacji internetowej możesz przetestować funkcję przekazywania obrazów w aplikacji.   
 
 ## <a name="upload-an-image"></a>Przekazywanie obrazu 
 
-Aby przetestować aplikację sieci web, przejdź do adresu URL opublikowanej aplikacji. Domyślnym adresem URL aplikacji sieci Web jest `https://<web_app>.azurewebsites.net`. Wybierz **przekazać zdjęć** obszaru Wybierz i przekazanie pliku lub przeciągnij i upuść plik na region. Obraz znika, jeśli pomyślnie przekazany.
+Aby przetestować aplikację internetową, przejdź pod adres URL Twojej opublikowanej aplikacji. Domyślnym adresem URL aplikacji sieci Web jest `https://<web_app>.azurewebsites.net`. Wybierz region **Upload photos** (Przekazywanie zdjęć), aby wybrać i przekazać plik, lub przeciągnij i upuść plik na region. Obraz zniknie, jeśli zostanie pomyślnie przekazany.
 
-![ImageResizer aplikacji](media/storage-upload-process-images/figure1.png)
+![Aplikacja ImageResizer](media/storage-upload-process-images/figure1.png)
 
-W przykładowym kodzie `UploadFiletoStorage` zadań w `Storagehelper.cs` plik jest używany do przekazywania obrazów do `images` kontenera w przy użyciu konta magazynu [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet) metody. Poniższy przykładowy kod zawiera `UploadFiletoStorage` zadań. 
+W przykładowym kodzie zadanie `UploadFiletoStorage` w pliku `Storagehelper.cs` jest używane w celu przekazywania obrazów do kontenera `images` w obrębie konta magazynu za pomocą metody [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet). Poniższy przykładowy kod zawiera zadanie `UploadFiletoStorage`. 
 
 ```csharp
 public static async Task<bool> UploadFileToStorage(Stream fileStream, string fileName, AzureStorageConfig _storageConfig)
@@ -174,7 +174,7 @@ public static async Task<bool> UploadFileToStorage(Stream fileStream, string fil
 }
 ```
 
-Następujące klasy i metody są używane w poprzednich zadań:
+W poprzednim zadaniu użyto następujących klas i metod:
 
 |Klasa  |Metoda  |
 |---------|---------|
@@ -184,43 +184,43 @@ Następujące klasy i metody są używane w poprzednich zadań:
 |[CloudBlobContainer](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer?view=azure-dotnet)    | [GetBlockBlobReference](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.getblockblobreference?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlobContainer_GetBlockBlobReference_System_String_)        |
 |[CloudBlockBlob](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azure-dotnet)     | [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet)        |
 
-## <a name="verify-the-image-is-shown-in-the-storage-account"></a>Sprawdź, czy obraz jest wyświetlany w obszarze konta magazynu
+## <a name="verify-the-image-is-shown-in-the-storage-account"></a>Sprawdzanie, czy obraz jest wyświetlany na koncie magazynu
 
-Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz z menu po lewej stronie **kont magazynu**, następnie wybierz nazwę konta magazynu. W obszarze **omówienie**, wybierz pozycję **obrazów** kontenera.
+Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Z menu po lewej stronie wybierz pozycję **Konta magazynu**, a następnie wybierz nazwę swojego konta magazynu. W obszarze **Przegląd** wybierz kontener **images**.
 
 Sprawdź, czy obraz jest wyświetlany w kontenerze.
 
-![Widok kontener obrazów](media/storage-upload-process-images/figure13.png)
+![Widok kontenera obrazów](media/storage-upload-process-images/figure13.png)
 
-## <a name="test-thumbnail-viewing"></a>Wyświetlanie miniatur testu
+## <a name="test-thumbnail-viewing"></a>Testowanie wyświetlania miniatur
 
-Aby przetestować wyświetlania miniatur, będzie przekazywanie obrazu w kontenerze miniatur, aby upewnić się, że aplikacja może odczytywać miniatur kontenera.
+W celu przetestowania wyświetlania miniatur należy przekazać obraz do kontenera miniatur, aby zapewnić aplikacji możliwość odczytywania kontenera miniatur.
 
-Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz z menu po lewej stronie **kont magazynu**, następnie wybierz nazwę konta magazynu. Wybierz **kontenery** w obszarze **usługa Blob** i wybierz **Kciuki** kontenera. Wybierz **przekazać** otworzyć **przekazywanie obiektu blob** okienka.
+Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Z menu po lewej stronie wybierz pozycję **Konta magazynu**, a następnie wybierz nazwę swojego konta magazynu. Wybierz pozycję **Kontenery** w obszarze **Blob Service** i wybierz kontener **thumbs**. Wybierz pozycję **Przekaż**, aby otworzyć okienko **Przekazywanie obiektu blob**.
 
-Wybierz plik za pomocą selektora plików **przekazać**.
+Wybierz plik za pomocą selektora plików i wybierz pozycję **Przekaż**.
 
-Przejdź z powrotem do aplikacji w taki sposób, aby sprawdzić, czy obraz przesłany do **Kciuki** kontenera jest widoczny.
+Przejdź z powrotem do aplikacji, aby sprawdzić, czy obraz przekazany do kontenera **thumbs** jest widoczny.
 
-![Widok kontener obrazów](media/storage-upload-process-images/figure2.png)
+![Widok kontenera obrazów](media/storage-upload-process-images/figure2.png)
 
-W **Kciuki** kontenera w portalu Azure, wybierz obraz przekazany i wybierz **usunąć** można usunąć obrazu. W części dwóch serii automatyzacji tworzenia obrazów miniatur, więc ten obraz testu nie jest potrzebny.
+W kontenerze **thumbs** w witrynie Azure Portal zaznacz przekazany obraz i wybierz pozycję **Usuń**, aby usunąć obraz. W drugiej części serii zautomatyzujesz proces tworzenia miniatur obrazów, więc ten obraz testowy nie będzie potrzebny.
 
-CDN można włączyć buforowanie zawartości z kontem magazynu platformy Azure. Podczas nie opisano w tym samouczku, aby dowiedzieć się, jak włączyć CDN z kontem magazynu platformy Azure możesz odwiedzić: [integracji konta magazynu platformy Azure z usługą Azure CDN](../../cdn/cdn-create-a-storage-account-with-cdn.md).
+W celu buforowania zawartości z konta usługi Azure Storage można włączyć sieć CDN. Ponieważ nie zostało to opisane w tym samouczku, aby dowiedzieć się, jak włączyć sieć CDN dla konta usługi Azure Storage, możesz odwiedzić stronę [Integrate an Azure storage account with Azure CDN (Integrowanie konta usługi Azure Storage z siecią Azure CDN)](../../cdn/cdn-create-a-storage-account-with-cdn.md).
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
-W części jednej serii wiesz o konfigurowaniu aplikacji sieci web, interakcji z magazynem, np.:
+W pierwszej części tej serii opisano konfigurowanie aplikacji internetowej współpracującej z magazynem, co obejmuje następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie konta magazynu
-> * Utwórz kontener i ustaw uprawnienia
-> * Pobierz klucz dostępu
+> * Tworzenie kontenera i ustawianie uprawnień
+> * Pobieranie klucza dostępu
 > * Konfigurowanie ustawień aplikacji
-> * Wdrażanie aplikacji sieci Web na platformie Azure
-> * Współdziałanie z aplikacją sieci web
+> * Wdrażanie aplikacji internetowej na platformie Azure
+> * Korzystanie z aplikacji internetowej
 
-Przejdź do części dwóch serii, aby dowiedzieć się więcej o używaniu siatki zdarzeń do wyzwolenia Azure funkcji zmiany rozmiaru obrazu.
+Przejdź do drugiej części w tej serii, aby dowiedzieć się, jak wyzwolić funkcję platformy Azure umożliwiającą zmianę rozmiaru obrazu, za pomocą usługi Event Grid.
 
 > [!div class="nextstepaction"]
-> [Użyj siatki zdarzeń do wyzwolenia funkcji platformy Azure, aby zmienić rozmiar załadowanego obrazu](../../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+> [Wyzwalanie funkcji platformy Azure umożliwiającej zmianę rozmiaru obrazu przy użyciu usługi Event Grid](../../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

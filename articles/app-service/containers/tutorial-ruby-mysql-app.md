@@ -1,67 +1,67 @@
 ---
-title: "Tworzenie aplikacji sieci web Ruby i MySQL w usłudze Azure App Service w systemie Linux | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak pobrać aplikację dopisków fonetycznych, praca na platformie Azure z połączenia z bazą danych MySQL na platformie Azure."
+title: "Tworzenie aplikacji internetowej w języku Ruby i korzystającej z bazy danych MySQL w usłudze Azure App Service w systemie Linux | Microsoft Docs"
+description: "Dowiedz się, jak uruchomić aplikację języka Ruby na platformie Azure z użyciem połączenia z bazą danych MySQL na platformie Azure."
 services: app-service\web
-documentationcenter: nodejs
+documentationcenter: 
 author: cephalin
 manager: cfowler
 ms.service: app-service-web
 ms.workload: web
-ms.devlang: nodejs
+ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 12/21/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 03b2b4e8f8827a08e1414512d848bd5bed48d674
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.openlocfilehash: 951e66e47cf8fbe9d2cdf1606a8d63054bcada13
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="build-a-ruby-and-mysql-web-app-in-azure-app-service-on-linux"></a>Tworzenie aplikacji sieci web Ruby i MySQL w usłudze Azure App Service w systemie Linux
+# <a name="build-a-ruby-and-mysql-web-app-in-azure-app-service-on-linux"></a>Tworzenie aplikacji internetowej w języku Ruby i korzystającej z bazy danych MySQL w usłudze Azure App Service w systemie Linux
 
-Usługa [App Service w systemie Linux](app-service-linux-intro.md) oferuje wysoce skalowalną i samonaprawialną usługę hostingu w Internecie przy użyciu systemu operacyjnego Linux. W tym samouczku przedstawiono sposób tworzenia aplikacji sieci web dopisków fonetycznych i podłącz go do bazy danych MySQL. Po zakończeniu będziesz mieć [dopisków fonetycznych na szyny](http://rubyonrails.org/) aplikacji uruchomionej w usłudze aplikacji w systemie Linux.
+Usługa [App Service w systemie Linux](app-service-linux-intro.md) oferuje wysoce skalowalną i samonaprawialną usługę hostingu w Internecie przy użyciu systemu operacyjnego Linux. W tym samouczku pokazano, jak utworzyć aplikację internetową w języku Ruby i połączyć ją z bazą danych MySQL. Po zakończeniu będziesz mieć aplikację platformy [Ruby on Rails](http://rubyonrails.org/) uruchomioną w usłudze App Service w systemie Linux.
 
-![Ruby na szyny uruchomieniu aplikacji w usłudze Azure App Service](./media/tutorial-ruby-mysql-app/complete-checkbox-published.png)
+![Aplikacja platformy Ruby on Rails uruchomiona w usłudze Azure App Service](./media/tutorial-ruby-mysql-app/complete-checkbox-published.png)
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Utwórz bazę danych MySQL na platformie Azure
-> * Nawiązać Ruby w aplikacji szyny MySQL
+> * Tworzenie bazy danych MySQL na platformie Azure
+> * Łączenie aplikacji platformy Ruby on Rails z usługą MySQL
 > * Wdrażanie aplikacji na platformie Azure
-> * Aktualizacja modelu danych i ponownie wdrożyć aplikację
+> * Aktualizowanie modelu danych i ponowne wdrażanie aplikacji
 > * Strumieniowe przesyłanie dzienników diagnostycznych z platformy Azure
-> * Zarządzanie aplikacją w portalu Azure
+> * Zarządzanie aplikacją w witrynie Azure Portal
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 W celu ukończenia tego samouczka:
 
 * [Zainstaluj oprogramowanie Git](https://git-scm.com/)
-* [Zainstaluj Ruby 2.3](https://www.ruby-lang.org/documentation/installation/)
-* [Zainstaluj Ruby na szyny 5.1](http://guides.rubyonrails.org/v5.1/getting_started.html)
-* [Zainstaluj i uruchom MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
+* [Zainstaluj oprogramowanie Ruby 2.3](https://www.ruby-lang.org/documentation/installation/)
+* [Zainstaluj oprogramowanie Ruby on Rails 5.1](http://guides.rubyonrails.org/v5.1/getting_started.html)
+* [Zainstaluj i uruchom oprogramowanie MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+## <a name="prepare-local-mysql"></a>Przygotowywanie lokalnego środowiska MySQL
 
-## <a name="prepare-local-mysql"></a>Przygotowywanie lokalnej MySQL
+W tym kroku utworzysz bazę danych na lokalnym serwerze MySQL przeznaczoną do użytku w tym samouczku.
 
-W tym kroku utworzysz bazę danych na lokalnym serwerze MySQL do użycia w tym samouczku.
+### <a name="connect-to-local-mysql-server"></a>Nawiązywanie połączenia z lokalnym serwerem MySQL
 
-### <a name="connect-to-local-mysql-server"></a>Połączyć się z lokalnym serwerem MySQL
-
-W oknie terminalu połączenie z serwerem lokalnym MySQL. To okno terminalu służy do uruchamiania wszystkich poleceń w tym samouczku.
+W oknie terminala nawiąż połączenie z lokalnym serwerem MySQL. W tym oknie terminala możesz uruchamiać wszystkie polecenia z tego samouczka.
 
 ```bash
 mysql -u root -p
 ```
 
-Jeśli zostanie wyświetlony monit o podanie hasła, wprowadź hasło dla `root` konta. Jeśli nie pamiętasz hasła do konta głównego, zobacz [MySQL: sposób resetowania hasła głównego](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
+Jeśli zostanie wyświetlony monit o hasło, wprowadź hasło do konta `root`. Jeśli nie pamiętasz hasła do konta root, zobacz [MySQL: How to Reset the Root Password (MySQL: Jak zresetować hasło konta root)](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
 
-Jeśli polecenie zostanie wykonane pomyślnie, jest uruchomiony serwer MySQL. Jeśli nie, upewnij się, że lokalny serwer MySQL została uruchomiona, postępując [MySQL poinstalacyjne czynności](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html).
+Jeśli polecenie zostanie pomyślnie uruchomione, oznacza to, że serwer MySQL działa. Jeśli nie, upewnij się, że lokalny serwer MySQL został uruchomiony, postępując zgodnie z [procedurą poinstalacyjną MySQL](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html).
 
-Zakończyć połączenie z serwerem, wpisując `quit`.
+Zakończ połączenie z serwerem, wpisując polecenie `quit`.
 
 ```sql
 quit
@@ -69,12 +69,12 @@ quit
 
 <a name="step2"></a>
 
-## <a name="create-a-ruby-on-rails-app-locally"></a>Utwórz Ruby na szyny aplikacji lokalnie
-W tym kroku uzyskać Ruby szyny przykładowej aplikacji, skonfiguruj połączenie bazy danych i uruchom lokalnie. 
+## <a name="create-a-ruby-on-rails-app-locally"></a>Tworzenie aplikacji platformy Ruby on Rails lokalnie
+W tym kroku uzyskasz przykładową aplikację platformy Ruby on Rails, skonfigurujesz jej połączenie z bazą danych i uruchomisz ją lokalnie. 
 
-### <a name="clone-the-sample"></a>Klonowanie próbki
+### <a name="clone-the-sample"></a>Klonowanie przykładu
 
-W oknie terminalu `cd` do katalogu roboczego.
+W oknie terminalu dodaj element `cd` do katalogu roboczego.
 
 Uruchom następujące polecenie w celu sklonowania przykładowego repozytorium.
 
@@ -82,16 +82,16 @@ Uruchom następujące polecenie w celu sklonowania przykładowego repozytorium.
 git clone https://github.com/Azure-Samples/rubyrails-tasks.git
 ```
 
-`cd`sklonowany katalogu. Zainstaluj wymagane pakiety.
+Przy użyciu polecenia `cd` przejdź do sklonowanego katalogu. Zainstaluj wymagane pakiety.
 
 ```bash
 cd rubyrails-tasks
 bundle install --path vendor/bundle
 ```
 
-### <a name="configure-mysql-connection"></a>Skonfiguruj połączenie MySQL
+### <a name="configure-mysql-connection"></a>Konfigurowanie połączenia z serwerem MySQL
 
-W repozytorium, otwórz _config/database.yml_ i podaj nazwę użytkownika w lokalnym katalogu głównego MySQL i hasło (wiersz 13). Jeśli zainstalowano MySQL przy użyciu narzędzia, takiego jak [Homebrew](https://brew.sh/), poświadczenia w pliku są już ustawione na wartości domyślne, a następnie (czyli `root` i pustego hasła).
+W repozytorium otwórz plik _config/database.yml_, a następnie podaj nazwę i hasło użytkownika root lokalnego oprogramowania MySQL (wiersz 13). Jeśli oprogramowanie MySQL zainstalowano przy użyciu narzędzia takiego jak [Homebrew](https://brew.sh/), poświadczenia w pliku są już ustawione na wartości domyślne (czyli `root` i puste hasło).
 
 ```txt
 default: &default
@@ -103,9 +103,9 @@ default: &default
   socket: /tmp/mysql.sock
 ```
 
-### <a name="run-the-sample-locally"></a>Uruchom lokalnie próbki
+### <a name="run-the-sample-locally"></a>Uruchamianie przykładu lokalnie
 
-Uruchom [migracje szyny](http://guides.rubyonrails.org/active_record_migrations.html#running-migrations) do tworzenia tabel aplikacja potrzebuje. Aby zobaczyć, które tabele są tworzone w migracja, Szukaj w _db/migracji_ katalogu w repozytorium Git.
+Uruchom [migracje platformy Rails](http://guides.rubyonrails.org/active_record_migrations.html#running-migrations), aby utworzyć tabele wymagane przez aplikację. Aby zobaczyć, które tabele zostały utworzone w migracjach, zajrzyj do katalogu _db/migrate_ w repozytorium Git.
 
 ```bash
 rake db:create
@@ -118,33 +118,33 @@ Uruchom aplikację.
 rails server
 ```
 
-W przeglądarce przejdź do adresu `http://localhost:3000`. Dodaj kilka zadań na stronie.
+W przeglądarce przejdź do adresu `http://localhost:3000`. Dodaj na stronie kilka zadań.
 
-![Ruby na szyny pomyślnie łączy się z MySQL](./media/tutorial-ruby-mysql-app/mysql-connect-success.png)
+![Pomyślne połączenie platformy Ruby on Rails z serwerem MySQL](./media/tutorial-ruby-mysql-app/mysql-connect-success.png)
 
-Aby zatrzymać serwer szyny, wpisz `Ctrl + C` w terminalu.
+Aby zatrzymać serwer platformy Rails, naciśnij w terminalu klawisze `Ctrl + C`.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## <a name="create-mysql-in-azure"></a>Tworzenie MySQL na platformie Azure
+## <a name="create-mysql-in-azure"></a>Tworzenie bazy danych MySQL na platformie Azure
 
-W tym kroku utworzysz bazę danych MySQL w [bazy danych Azure dla programu MySQL (wersja zapoznawcza)](/azure/mysql). Następnie należy skonfigurować Ruby w aplikacji szyny nawiązać połączenia z tej bazy danych.
+W tym kroku utworzysz bazę danych MySQL w usłudze [Azure Database for MySQL (wersja zapoznawcza)](/azure/mysql). Następnie skonfigurujesz aplikację platformy Ruby on Rails i połączysz ją z tą bazą danych.
 
 ### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
 [!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)] 
 
-### <a name="create-a-mysql-server"></a>Utwórz serwer MySQL
+### <a name="create-a-mysql-server"></a>Tworzenie serwera MySQL
 
-Tworzenie serwera w bazie danych Azure dla programu MySQL (wersja zapoznawcza) z [utworzenie przez serwer mysql az](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create) polecenia.
+Utwórz serwer w usłudze Azure Database for MySQL (wersja zapoznawcza) przy użyciu polecenia [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create).
 
-W poniższym poleceniu zastąp nazwę serwera MySQL, w której występuje  _&lt;mysql_server_name >_ symbolu zastępczego (prawidłowe znaki to `a-z`, `0-9`, i `-`). Ta nazwa jest częścią nazwy hosta serwera MySQL (`<mysql_server_name>.mysql.database.azure.com`), musi on być globalnie unikatowe.
+W następującym poleceniu zamień tekst zastępczy _&lt;mysql_server_name>_ na nazwę swojego serwera MySQL (dozwolone znaki to `a-z`, `0-9` i `-`). Ta nazwa jest częścią nazwy hosta serwera MySQL (`<mysql_server_name>.mysql.database.azure.com`) i musi być unikatowa w skali globalnej.
 
 ```azurecli-interactive
 az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user adminuser --admin-password My5up3r$tr0ngPa$w0rd!
 ```
 
-Po utworzeniu serwer MySQL, interfejsu wiersza polecenia Azure zawiera informacje podobne do poniższego przykładu:
+Po utworzeniu serwera MySQL w interfejsie wiersza polecenia platformy Azure zostaną wyświetlone informacje podobne do następujących:
 
 ```json
 {
@@ -161,58 +161,58 @@ Po utworzeniu serwer MySQL, interfejsu wiersza polecenia Azure zawiera informacj
 
 ### <a name="configure-server-firewall"></a>Konfigurowanie zapory serwera
 
-Tworzenie reguły zapory dla serwera MySQL zezwolić na połączenia klientów przy użyciu [az mysql reguły zapory serwera — Utwórz](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az_mysql_server_firewall_rule_create) polecenia.
+Przy użyciu polecenia [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az_mysql_server_firewall_rule_create) utwórz regułę zapory dla serwera MySQL, aby zezwolić na połączenia klientów.
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name allIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
 
 > [!NOTE]
-> Bazy danych platformy Azure dla programu MySQL (wersja zapoznawcza) aktualnie nie ograniczyć połączenia tylko do usług platformy Azure. Jak adresy IP na platformie Azure są przypisywane dynamicznie, lepiej jest umożliwienie wszystkich adresów IP. Usługa jest w wersji zapoznawczej. Zaplanowano lepsze metody zabezpieczania bazy danych.
+> W usłudze Azure Database for MySQL (wersja zapoznawcza) połączenia nie są obecnie ograniczone tylko do usług platformy Azure. Ponieważ adresy IP na platformie Azure są przypisywane dynamicznie, lepiej jest włączyć wszystkie adresy IP. Usługa jest w wersji zapoznawczej. Planowane są lepsze metody zabezpieczania bazy danych.
 >
 
-### <a name="connect-to-production-mysql-server-locally"></a>Połączyć się z produkcyjnym serwerem MySQL lokalnie
+### <a name="connect-to-production-mysql-server-locally"></a>Nawiązywanie połączenia z serwerem produkcyjnym MySQL lokalnie
 
-W oknie terminalu nawiązać serwer MySQL na platformie Azure. Użyj wartości określonej wcześniej dla  _&lt;mysql_server_name >_.
+W oknie terminala nawiąż połączenie z serwerem MySQL na platformie Azure. Zamiast ciągu _&lt;mysql_server_name>_ użyj określonej wcześniej wartości.
 
 ```bash
 mysql -u adminuser@<mysql_server_name> -h <mysql_server_name>.mysql.database.azure.com -P 3306 -p
 ```
 
-Po wyświetleniu monitu o podanie hasła, użyj _My5up3r$ tr0ngPa$ w0rd!_, która została określona podczas tworzenia serwera bazy danych.
+Gdy zostanie wyświetlony monit o hasło, wpisz hasło _My5up3r$tr0ngPa$w0rd!_, które określono podczas tworzenia serwera bazy danych.
 
-### <a name="create-a-production-database"></a>Utwórz bazę danych produkcyjnych
+### <a name="create-a-production-database"></a>Tworzenie produkcyjnej bazy danych
 
-W `mysql` należy utworzyć bazę danych.
+Utwórz bazę danych w wierszu polecenia `mysql`.
 
 ```sql
 CREATE DATABASE sampledb;
 ```
 
-### <a name="create-a-user-with-permissions"></a>Utwórz użytkownika z uprawnieniami
+### <a name="create-a-user-with-permissions"></a>Tworzenie użytkownika z uprawnieniami
 
-Utwórz użytkownika bazy danych o nazwie _railsappuser_ i nadaj mu wszystkie uprawnienia `sampledb` bazy danych.
+Utwórz użytkownika bazy danych o nazwie _railsappuser_ i nadaj mu wszystkie uprawnienia w bazie danych `sampledb`.
 
 ```sql
 CREATE USER 'railsappuser' IDENTIFIED BY 'MySQLAzure2017'; 
 GRANT ALL PRIVILEGES ON sampledb.* TO 'railsappuser';
 ```
 
-Zakończyć połączenie z serwerem, wpisując `quit`.
+Zakończ połączenie z serwerem, wpisując polecenie `quit`.
 
 ```sql
 quit
 ```
 
-## <a name="connect-app-to-azure-mysql"></a>Łączenie aplikacji z platformy Azure MySQL
+## <a name="connect-app-to-azure-mysql"></a>Łączenie aplikacji z bazą danych Azure MySQL
 
-W tym kroku łączysz Ruby szyny aplikacji do bazy danych MySQL utworzonej w bazie danych Azure dla programu MySQL (wersja zapoznawcza).
+W tym kroku połączysz aplikację platformy Ruby on Rails z bazą danych MySQL utworzoną w usłudze Azure Database for MySQL (wersja zapoznawcza).
 
 <a name="devconfig"></a>
 
-### <a name="configure-the-database-connection"></a>Skonfiguruj połączenie bazy danych
+### <a name="configure-the-database-connection"></a>Konfigurowanie połączenia z bazą danych
 
-W repozytorium, otwórz _config/database.yml_. W dolnej części pliku Zastąp zmienne produkcyjnych z następującym kodem. Aby uzyskać  _&lt;mysql_server_name >_ symbolu zastępczego, użyj nazwy utworzonego serwera MySQL.
+Otwórz plik _config/database.yml_ w repozytorium. W dolnej części pliku zastąp zmienne produkcyjne następującym kodem. Zamiast tekstu zastępczego _&lt;mysql_server_name>_ użyj nazwy utworzonego serwera MySQL.
 
 ```txt
 production:
@@ -228,12 +228,12 @@ production:
 Zapisz zmiany.
 
 > [!NOTE]
-> `sslca` Zostanie dodany i punktów do istniejącej _PEM_ plik w repozytorium przykładowej. Domyślnie baza danych Azure dla programu MySQL wymusza połączenia SSL od klientów. To `.pem` certyfikat jest jak nawiązywać połączenia SSL do bazy danych Azure dla programu MySQL. Aby uzyskać więcej informacji, zobacz [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL (Konfigurowanie łączności SSL w aplikacji w celu bezpiecznego nawiązywania połączeń z usługą Azure Database for MySQL)](../../mysql/howto-configure-ssl.md).
+> Zostanie dodany element `sslca`, który wskazuje istniejący plik _pem_ w przykładowym repozytorium. Domyślnie usługa Azure Database for MySQL wymusza nawiązywanie połączeń SSL przez klientów. Certyfikat `.pem` umożliwia nawiązywanie połączeń SSL z usługą Azure Database for MySQL. Aby uzyskać więcej informacji, zobacz [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL (Konfigurowanie łączności SSL w aplikacji w celu bezpiecznego nawiązywania połączeń z usługą Azure Database for MySQL)](../../mysql/howto-configure-ssl.md).
 >
 
-### <a name="test-the-application-locally"></a>Testowanie aplikacji lokalnie
+### <a name="test-the-application-locally"></a>Testowanie aplikacji w środowisku lokalnym
 
-W terminalu lokalny ustaw następujące zmienne środowiskowe:
+W terminalu lokalnym ustaw następujące zmienne środowiskowe:
 
 ```bash
 export DB_HOST=<mysql_server_name>.mysql.database.azure.com
@@ -242,32 +242,32 @@ export DB_USERNAME=railsappuser@<mysql_server_name>
 export DB_PASSWORD=MySQLAzure2017
 ```
 
-Uruchom szyny migracji bazy danych z wartościami produkcyjnego skonfigurowanego do tworzenia tabel w bazie danych MySQL w bazie danych Azure dla programu MySQL (wersja zapoznawcza). 
+Uruchom migracje baz danych platformy Rails z właśnie skonfigurowanymi wartościami produkcyjnymi, aby utworzyć tabele w bazie danych MySQL w usłudze Azure Database for MySQL (wersja zapoznawcza). 
 
 ```bash
 rake db:migrate RAILS_ENV=production
 ```
 
-Podczas uruchamiania w środowisku produkcyjnym, aplikacja szyny musi zasoby wstępnie skompilowana. Generuj wymagane zasoby przy użyciu następującego polecenia:
+Gdy aplikacja platformy Rails jest uruchamiana w środowisku produkcyjnym, wymaga prekompilowanych zasobów. Wygeneruj wymagane zasoby przy użyciu następującego polecenia:
 
 ```bash
 rake assets:precompile
 ```
 
-Środowiska produkcyjnego szyny używa również kluczy tajnych do zarządzania zabezpieczeniami. Generowanie klucza tajnego.
+W środowisku produkcyjnym platformy Rails do zarządzania zabezpieczeniami używane są także wpisy tajne. Wygeneruj klucz tajny.
 
 ```bash
 rails secret
 ```
 
-Zapisz klucz tajny odpowiednich zmienne używane przez szyny środowiska produkcyjnego. Dla wygody można używać tego samego klucza, dla obu zmiennych.
+Zapisz ten klucz tajny w określonych zmiennych używanych przez środowisko produkcyjne platformy Rails. Dla wygody możesz używać tego samego klucza dla obu zmiennych.
 
 ```bash
 export RAILS_MASTER_KEY=<output_of_rails_secret>
 export SECRET_KEY_BASE=<output_of_rails_secret>
 ```
 
-Włącz środowiska produkcyjnego szyny do obsługi plików JavaScript i CSS.
+Włącz w środowisku produkcyjnym platformy Rails udostępnianie plików JavaScript i CSS.
 
 ```bash
 export RAILS_SERVE_STATIC_FILES=true
@@ -279,17 +279,17 @@ Uruchom przykładową aplikację w środowisku produkcyjnym.
 rails server -e production
 ```
 
-Przejdź do `http://localhost:3000`. Jeśli strona jest ładowana bez błędów, Ruby w aplikacji szyny nawiązuje połączenie z bazy danych MySQL na platformie Azure.
+Przejdź do adresu `http://localhost:3000`. Jeśli strona ładuje się bez błędów, oznacza to, że aplikacja platformy Ruby on Rails nawiązuje połączenie z bazą danych MySQL na platformie Azure.
 
-Dodaj kilka zadań na stronie.
+Dodaj na stronie kilka zadań.
 
-![Ruby na szyny pomyślnie łączy się z bazą danych Azure dla programu MySQL (wersja zapoznawcza)](./media/tutorial-ruby-mysql-app/azure-mysql-connect-success.png)
+![Pomyślne połączenie platformy Ruby on Rails z usługą Azure Database for MySQL (wersja zapoznawcza)](./media/tutorial-ruby-mysql-app/azure-mysql-connect-success.png)
 
-Aby zatrzymać serwer szyny, wpisz `Ctrl + C` w terminalu.
+Aby zatrzymać serwer platformy Rails, naciśnij w terminalu klawisze `Ctrl + C`.
 
-### <a name="commit-your-changes"></a>Zatwierdź zmiany
+### <a name="commit-your-changes"></a>Zatwierdzanie zmian
 
-Uruchom następujące polecenia Git, aby zatwierdzić zmiany:
+Aby zatwierdzić zmiany, uruchom następujące polecenia Git:
 
 ```bash
 git add .
@@ -300,7 +300,7 @@ Aplikacja jest gotowa do wdrożenia.
 
 ## <a name="deploy-to-azure"></a>Wdrażanie na platformie Azure
 
-W tym kroku możesz wdrożyć aplikację połączone MySQL szyny usłudze Azure App Service.
+W tym kroku wdrożysz aplikację platformy Rails połączoną z bazą danych MySQL w usłudze Azure App Service.
 
 ### <a name="configure-a-deployment-user"></a>Konfigurowanie użytkownika wdrożenia
 
@@ -312,9 +312,9 @@ W tym kroku możesz wdrożyć aplikację połączone MySQL szyny usłudze Azure 
 
 ### <a name="create-a-web-app"></a>Tworzenie aplikacji sieci Web
 
-Za pomocą polecenia [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) można utworzyć aplikację internetową w planie usługi App Service `myAppServicePlan` w usłudze Cloud Shell. 
+W usłudze Cloud Shell utwórz aplikację internetową w planie usługi App Service `myAppServicePlan` za pomocą polecenia [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). 
 
-W poniższym przykładzie zastąp ciąg `<app_name>` globalnie unikatową nazwą aplikacji (prawidłowe znaki to `a-z`, `0-9` i `-`). Środowisko wykonawcze ma ustawioną wartość `RUBY|2.3`, która wdraża [domyślny obraz dopisków fonetycznych](https://hub.docker.com/r/appsvc/ruby/). Aby wyświetlić wszystkie obsługiwane środowiska uruchomieniowe, uruchom polecenie [az webapp list-runtimes](/cli/azure/webapp?view=azure-cli-latest#az_webapp_list_runtimes). 
+W poniższym przykładzie zastąp ciąg `<app_name>` globalnie unikatową nazwą aplikacji (prawidłowe znaki to `a-z`, `0-9` i `-`). Środowisko uruchomieniowe jest ustawione na wartość `RUBY|2.3`, co powoduje wdrożenie [domyślnego obrazu języka Ruby](https://hub.docker.com/r/appsvc/ruby/). Aby wyświetlić wszystkie obsługiwane środowiska uruchomieniowe, uruchom polecenie [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_list_runtimes). 
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "RUBY|2.3" --deployment-local-git
@@ -344,49 +344,49 @@ Utworzona została nowa pusta aplikacja internetowa z włączonym wdrażaniem gi
 > Adres URL zdalnego repozytorium Git jest wyświetlany we właściwości `deploymentLocalGitUrl` w formacie `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Zapisz ten adres URL, ponieważ będzie on potrzebny później.
 >
 
-### <a name="configure-database-settings"></a>Konfiguruj ustawienia bazy danych
+### <a name="configure-database-settings"></a>Konfigurowanie ustawień bazy danych
 
-W usłudze App Service można ustawić zmienne środowiskowe jako _ustawień aplikacji_ za pomocą [az aplikacji sieci Web config appsettings zestaw](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) polecenie w powłoce chmury.
+W usłudze App Service zmienne środowiskowe ustawia się jako _ustawienia aplikacji_ za pomocą polecenia [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) w usłudze Cloud Shell.
 
-Następujące polecenia powłoki chmury konfiguruje ustawienia aplikacji `DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, i `DB_PASSWORD`. Zastąp symbole zastępcze  _&lt;nazwa_aplikacji >_ i  _&lt;mysql_server_name >_.
+Następujące polecenie usługi Cloud Shell konfiguruje ustawienia aplikacji `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` i `DB_PASSWORD`. Zamień teksty zastępcze _&lt;appname>_ i _&lt;mysql_server_name>_.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DB_HOST="<mysql_server_name>.mysql.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="railsappuser@<mysql_server_name>" DB_PASSWORD="MySQLAzure2017"
 ```
 
-### <a name="configure-rails-environment-variables"></a>Skonfiguruj szyny zmienne środowiskowe
+### <a name="configure-rails-environment-variables"></a>Konfigurowanie zmiennych środowiskowych platformy Rails
 
-W lokalnej terminal wygenerować nowy klucz tajny dla środowiska produkcyjnego szyny na platformie Azure.
+W terminalu lokalnym wygeneruj nowy klucz tajny dla środowiska produkcyjnego platformy Rails na platformie Azure.
 
 ```bash
 rails secret
 ```
 
-Skonfiguruj zmienne wymagane przez szyny środowiska produkcyjnego.
+Skonfiguruj zmienne wymagane przez środowisko produkcyjne platformy Rails.
 
-W poniższym poleceniu powłoki chmury, Zastąp dwa  _&lt;output_of_rails_secret >_ symbole zastępcze za pomocą nowego klucza tajnego generowane w terminalu lokalnego.
+W następującym poleceniu usługi Cloud Shell zastąp dwa teksty zastępcze _&lt;output_of_rails_secret>_ nowy kluczem tajnym wygenerowanym w terminalu lokalnym.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings RAILS_MASTER_KEY="<output_of_rails_secret>" SECRET_KEY_BASE="<output_of_rails_secret>" RAILS_SERVE_STATIC_FILES="true" ASSETS_PRECOMPILE="true"
 ```
 
-`ASSETS_PRECOMPILE="true"`Określa, że domyślnego kontenera dopisków fonetycznych wstępnej kompilacji zasobów w każdym wdrożeniu Git.
+Właściwość `ASSETS_PRECOMPILE="true"` informuje domyślny kontener języka Ruby, aby wstępnie skompilował zasoby przy każdym wdrożeniu narzędzia Git.
 
 ### <a name="push-to-azure-from-git"></a>Wypychanie z narzędzia Git na platformę Azure
 
-W terminalu lokalnego Dodaj zdalnego Azure w lokalnym repozytorium Git.
+W terminalu lokalnym dodaj zdalną platformę Azure do lokalnego repozytorium Git.
 
 ```bash
 git remote add azure <paste_copied_url_here>
 ```
 
-Wypychanie do platformy Azure zdalnego wdrażania Ruby szyny aplikacji. Zostanie wyświetlony monit o hasło, które wcześniej podane w ramach tworzenia użytkownika wdrożenia.
+Wykonaj wypchnięcie na zdalną platformę Azure w celu wdrożenia aplikacji platformy Ruby on Rails. Zostanie wyświetlony monit o podanie hasła określonego wcześniej w ramach tworzenia użytkownika wdrożenia.
 
 ```bash
 git push azure master
 ```
 
-Podczas wdrażania usługi Azure App Service komunikuje się postęp za pomocą narzędzia Git.
+Podczas wdrażania usługa Azure App Service przekaże postęp za pomocą narzędzi Git.
 
 ```bash
 Counting objects: 3, done.
@@ -403,48 +403,48 @@ remote: Running deployment command...
 < Output has been truncated for readability >
 ```
 
-### <a name="browse-to-the-azure-web-app"></a>Przejdź do aplikacji sieci web platformy Azure
+### <a name="browse-to-the-azure-web-app"></a>Przechodzenie do aplikacji internetowej platformy Azure
 
-Przejdź do `http://<app_name>.azurewebsites.net` i dodaj kilka zadań do listy.
+Przejdź do adresu `http://<app_name>.azurewebsites.net` i dodaj kilka zadań do listy.
 
-![Ruby na szyny uruchomieniu aplikacji w usłudze Azure App Service](./media/tutorial-ruby-mysql-app/ruby-mysql-in-azure.png)
+![Aplikacja platformy Ruby on Rails uruchomiona w usłudze Azure App Service](./media/tutorial-ruby-mysql-app/ruby-mysql-in-azure.png)
 
-Gratulacje, w przypadku korzystania z danymi Ruby w szyny aplikacji w usłudze Azure App Service.
+Gratulacje! Masz uruchomioną opartą na danych aplikację platformy Ruby on Rails w usłudze Azure App Service.
 
-## <a name="update-model-locally-and-redeploy"></a>Aktualizuj model lokalnie i wdrożenie
+## <a name="update-model-locally-and-redeploy"></a>Lokalne aktualizowanie modelu i ponowne wdrażanie
 
-W tym kroku zostaną wprowadzone zmiany proste do `task` modelu danych i aplikacji sieci Web, a następnie opublikować aktualizacji na platformie Azure.
+W tym kroku wprowadzisz prostą zmianę w modelu danych `task` i aplikacji internetowej, a następnie opublikujesz tę aktualizację na platformie Azure.
 
-W scenariuszu zadań modyfikowania aplikacji tak, aby oznaczyć zadanie jako ukończone.
+W scenariuszu tego zadania zmodyfikujesz aplikację tak, aby można było oznaczyć zadanie jako zakończone.
 
 ### <a name="add-a-column"></a>Dodawanie kolumny
 
 W terminalu przejdź do katalogu głównego repozytorium Git.
 
-Generowanie nowego migracji, które dodaje logiczna kolumnę o nazwie `Done` do `Tasks` tabeli:
+Wygeneruj nową migrację, która doda kolumnę logiczną o nazwie `Done` do tabeli `Tasks`:
 
 ```bash
 rails generate migration add_Done_to_Tasks Done:boolean
 ```
 
-To polecenie generuje nowy plik migracji w _db/migracji_ katalogu.
+To polecenie wygeneruje plik nowej migracji w katalogu _db/migrate_.
 
 
-W terminalu Uruchom szyny migracji bazy danych, aby wprowadzić zmiany w lokalnej bazie danych.
+W terminalu uruchom migracje baz danych platformy Rails, aby wprowadzić zmianę w lokalnej bazie danych.
 
 ```bash
 rake db:migrate
 ```
 
-### <a name="update-application-logic"></a>Aktualizowanie aplikacji logiki
+### <a name="update-application-logic"></a>Aktualizowanie logiki aplikacji
 
-Otwórz *app/controllers/tasks_controller.rb* pliku. Na końcu pliku Znajdź następujący wiersz:
+Otwórz plik *app/controllers/tasks_controller.rb*. Na końcu pliku dodaj następujący wiersz:
 
 ```rb
 params.require(:task).permit(:Description)
 ```
 
-Modyfikowanie tego wiersza, aby uwzględnić nowe `Done` parametru.
+Zmodyfikuj ten wiersz tak, aby zawierał nowy parametr `Done`.
 
 ```rb
 params.require(:task).permit(:Description, :Done)
@@ -452,9 +452,9 @@ params.require(:task).permit(:Description, :Done)
 
 ### <a name="update-the-views"></a>Aktualizowanie widoków
 
-Otwórz *app/views/tasks/_form.html.erb* pliku, który jest formularz edycji.
+Otwórz plik *app/views/tasks/_form.html.erb*, który jest formularzem edycji.
 
-Znajdź wiersz `<%=f.error_span(:Description) %>` i Wstaw następujący kod bezpośrednio poniżej:
+Znajdź wiersz `<%=f.error_span(:Description) %>` i wstaw bezpośrednio pod nim następujący kod:
 
 ```erb
 <%= f.label :Done, :class => 'control-label col-lg-2' %>
@@ -463,52 +463,52 @@ Znajdź wiersz `<%=f.error_span(:Description) %>` i Wstaw następujący kod bezp
 </div>
 ```
 
-Otwórz *app/views/tasks/show.html.erb* pliku, który jest jeden rekord strony widoku. 
+Otwórz plik *app/views/tasks/show.html.erb*, który jest stroną widoku z pojedynczym rekordem. 
 
-Znajdź wiersz `<dd><%= @task.Description %></dd>` i Wstaw następujący kod bezpośrednio poniżej:
+Znajdź wiersz `<dd><%= @task.Description %></dd>` i wstaw bezpośrednio pod nim następujący kod:
 
 ```erb
   <dt><strong><%= model_class.human_attribute_name(:Done) %>:</strong></dt>
   <dd><%= check_box "task", "Done", {:checked => @task.Done, :disabled => true}%></dd>
 ```
 
-Otwórz *app/views/tasks/index.html.erb* pliku, który jest strona indeksu dla wszystkich rekordów.
+Otwórz plik *app/views/tasks/index.html.erb*, który jest stroną indeksu dla wszystkich rekordów.
 
-Znajdź wiersz `<th><%= model_class.human_attribute_name(:Description) %></th>` i Wstaw następujący kod bezpośrednio poniżej:
+Znajdź wiersz `<th><%= model_class.human_attribute_name(:Description) %></th>` i wstaw bezpośrednio pod nim następujący kod:
 
 ```erb
 <th><%= model_class.human_attribute_name(:Done) %></th>
 ```
 
-W tym samym pliku, wyszukaj wiersz `<td><%= task.Description %></td>` i Wstaw następujący kod bezpośrednio poniżej:
+W tym samym pliku znajdź wiersz `<td><%= task.Description %></td>` i wstaw bezpośrednio pod nim następujący kod:
 
 ```erb
 <td><%= check_box "task", "Done", {:checked => task.Done, :disabled => true} %></td>
 ```
 
-### <a name="test-the-changes-locally"></a>Testowanie zmiany lokalnie
+### <a name="test-the-changes-locally"></a>Lokalne testowanie zmian
 
-W terminalu lokalnym, uruchom serwer szyny.
+W terminalu lokalnym uruchom serwer platformy Rails.
 
 ```bash
 rails server
 ```
 
-Aby wyświetlić stan zadania, zmienić, przejdź do `http://localhost:3000` i dodawanie lub edytowanie elementów.
+Aby zobaczyć zmianę stanu zadania, przejdź do adresu `http://localhost:3000` i dodaj lub edytuj elementy.
 
-![Dodano pole wyboru do zadania](./media/tutorial-ruby-mysql-app/complete-checkbox.png)
+![Dodanie pola wyboru do zadania](./media/tutorial-ruby-mysql-app/complete-checkbox.png)
 
-Aby zatrzymać serwer szyny, wpisz `Ctrl + C` w terminalu.
+Aby zatrzymać serwer platformy Rails, naciśnij w terminalu klawisze `Ctrl + C`.
 
 ### <a name="publish-changes-to-azure"></a>Publikowanie zmian na platformie Azure
 
-W terminalu Uruchom szyny migracji bazy danych w środowisku produkcyjnym wprowadzić zmiany w bazie danych Azure.
+W terminalu uruchom migracje baz danych platformy Rails dla środowiska produkcyjnego, aby wprowadzić zmianę w bazie danych platformy Azure.
 
 ```bash
 rake db:migrate RAILS_ENV=production
 ```
 
-Przekaż wszystkie zmiany w usłudze Git, a następnie Wypchnij zmiany kodu na platformie Azure.
+Zatwierdź wszystkie zmiany w narzędziu Git, a następnie wypchnij zmiany kodu na platformę Azure.
 
 ```bash
 git add .
@@ -516,11 +516,11 @@ git commit -m "added complete checkbox"
 git push azure master
 ```
 
-Raz `git push` jest zakończenie, przejdź do aplikacji sieci web platformy Azure i przetestować nową funkcję.
+Po zakończeniu wykonywania polecenia `git push` przejdź do aplikacji internetowej platformy Azure i przetestuj nowe funkcje.
 
-![Zmiany modelu i bazy danych publikowanych w systemie Azure](media/tutorial-ruby-mysql-app/complete-checkbox-published.png)
+![Zmiany w modelu i bazie danych opublikowane na platformie Azure](media/tutorial-ruby-mysql-app/complete-checkbox-published.png)
 
-Jeśli dodano żadnych zadań one zostaną zachowane w bazie danych. Aktualizacje schematu danych pozostawić istniejące dane bez zmian.
+Jeśli dodano jakiekolwiek zadania, zostaną one zachowane w bazie danych. Aktualizacje schematu danych pozostawiają dane bez zmian.
 
 ## <a name="manage-the-azure-web-app"></a>Zarządzanie aplikacją internetową platformy Azure
 
@@ -530,9 +530,9 @@ W menu po lewej stronie kliknij pozycję **App Services**, a następnie kliknij 
 
 ![Nawigacja w portalu do aplikacji sieci Web platformy Azure](./media/tutorial-php-mysql-app/access-portal.png)
 
-Zostanie wyświetlona strona Omówienie aplikacji internetowej. W tym miejscu można wykonać zadania podstawowe możliwości zarządzania, takie jak zatrzymanie, start ponownego uruchomienia, przeglądania i usuwania.
+Zostanie wyświetlona strona Omówienie aplikacji internetowej. W tym miejscu możesz wykonywać podstawowe zadania zarządzania, takie jak zatrzymywanie, uruchamianie, ponowne uruchamianie, przeglądanie i usuwanie.
 
-Menu po lewej stronie zawiera strony konfigurowania aplikacji.
+Menu po lewej stronie zawiera strony służące do konfigurowania aplikacji.
 
 ![Strona usługi App Service w witrynie Azure Portal](./media/tutorial-php-mysql-app/web-app-blade.png)
 
@@ -540,19 +540,19 @@ Menu po lewej stronie zawiera strony konfigurowania aplikacji.
 
 <a name="next"></a>
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Utwórz bazę danych MySQL na platformie Azure
-> * Nawiązać Ruby w aplikacji szyny MySQL
+> * Tworzenie bazy danych MySQL na platformie Azure
+> * Łączenie aplikacji platformy Ruby on Rails z usługą MySQL
 > * Wdrażanie aplikacji na platformie Azure
-> * Aktualizacja modelu danych i ponownie wdrożyć aplikację
+> * Aktualizowanie modelu danych i ponowne wdrażanie aplikacji
 > * Strumieniowe przesyłanie dzienników diagnostycznych z platformy Azure
-> * Zarządzanie aplikacją w portalu Azure
+> * Zarządzanie aplikacją w witrynie Azure Portal
 
-Przejdź do następnego samouczkiem, aby dowiedzieć się, jak zamapować niestandardową nazwę DNS w aplikacji sieci web.
+Przejdź do następnego samouczka, aby dowiedzieć się, jak zamapować niestandardową nazwę DNS na aplikację internetową.
 
 > [!div class="nextstepaction"]
 > [Map an existing custom DNS name to Azure Web Apps (Mapowanie istniejącej niestandardowej nazwy DNS na aplikacje internetowe platformy Azure)](../app-service-web-tutorial-custom-domain.md)

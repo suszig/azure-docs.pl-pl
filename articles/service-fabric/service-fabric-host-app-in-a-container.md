@@ -1,6 +1,6 @@
 ---
-title: "Wdrażanie aplikacji .NET w kontenerze sieci szkieletowej usług Azure | Dokumentacja firmy Microsoft"
-description: "Przedstawienie sposobu pakietu aplikacji .NET w programie Visual Studio w kontenerze Docker. Ta nowa aplikacja \"kontener\" następnie jest wdrażany klastra sieci szkieletowej usług."
+title: "Wdrażanie aplikacji .NET w kontenerze w usłudze Azure Service Fabric | Microsoft Docs"
+description: "Przedstawiono tu sposób pakowania aplikacji .NET w kontenerze platformy Docker w programie Visual Studio. Ta nowa aplikacja „kontenerowa” jest następnie wdrażana w klastrze usługi Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
@@ -9,67 +9,67 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/19/2017
 ms.author: mikhegn
-ms.openlocfilehash: 31c1cee5ddc4c8893da729af884ae7b7b8a58093
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
-ms.translationtype: MT
+ms.openlocfilehash: cd1c3b063132ae549bfbf1e059667c5056c91046
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Wdrażanie aplikacji .NET w kontenerze systemu Windows Azure sieci szkieletowej usług
+# <a name="deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Wdrażanie aplikacji .NET w kontenerze systemu Windows w usłudze Azure Service Fabric
 
-Ten samouczek przedstawia sposób wdrażania istniejącej aplikacji ASP.NET w kontenerze systemu Windows Azure.
+W tym samouczku przedstawiono sposób wdrażania istniejącej aplikacji ASP.NET w kontenerze systemu Windows na platformie Azure.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie projektu platformy Docker w programie Visual Studio
-> * Containerize istniejącej aplikacji
-> * Instalator ciągłej integracji z programu Visual Studio i VSTS
+> * Konteneryzowanie istniejącej aplikacji
+> * Konfigurowanie ciągłej integracji z programem Visual Studio i usługą VSTS
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-1. Zainstaluj [CE Docker dla systemu Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) , co umożliwia uruchamianie kontenerów w systemie Windows 10.
-2. Zapoznaj się z [Szybki Start systemu Windows 10 kontenery][link-container-quickstart].
-3. Pobierz [Fabrikam Fiber CallCenter] [ link-fabrikam-github] przykładowej aplikacji.
-4. Zainstaluj [programu Azure PowerShell][link-azure-powershell-install]
-5. Zainstaluj [rozszerzenie ciągłego dostarczania narzędzi dla programu Visual Studio 2017 r.][link-visualstudio-cd-extension]
-6. Utwórz [subskrypcji platformy Azure] [ link-azure-subscription] i [konto usługi Visual Studio Team Services][link-vsts-account]. 
+1. Zainstaluj program [Docker CE dla systemu Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description), który umożliwia uruchamianie kontenerów w systemie Windows 10.
+2. Zapoznaj się z przewodnikiem [Szybki start z kontenerami systemu Windows 10][link-container-quickstart].
+3. Pobierz aplikację przykładową [Fabrikam Fiber CallCenter][link-fabrikam-github].
+4. Zainstaluj program [Azure PowerShell][link-azure-powershell-install].
+5. Zainstaluj [rozszerzenie Continuous Delivery Tools dla programu Visual Studio 2017][link-visualstudio-cd-extension].
+6. Utwórz [subskrypcję platformy Azure][link-azure-subscription] i [konto usługi Visual Studio Team Services][link-vsts-account]. 
 7. [Tworzenie klastra na platformie Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 
 ## <a name="create-a-cluster-on-azure"></a>Tworzenie klastra na platformie Azure
-Sieć szkieletowa usług aplikacje uruchamiane w klastrze, zestaw połączonych z siecią maszyn wirtualnych lub fizycznych. [Konfiguracja klastra sieci szkieletowej usług działających na platformie Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md) przed utworzeniem i wdrożeniem aplikacji. Podczas tworzenia klastra, wybierz jednostki SKU, obsługujący uruchomionych kontenerów (np. Windows Server Datacenter 2016 z kontenerami).
+Aplikacje usługi Service Fabric działają w klastrze — połączonym z siecią zestawie maszyn wirtualnych lub fizycznych. Przed utworzeniem i wdrożeniem aplikacji [skonfiguruj klaster usługi Service Fabric działający na platformie Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md). Podczas tworzenia klastra wybierz jednostkę SKU obsługującą uruchamianie kontenerów (np. Windows Server Datacenter 2016 z kontenerami).
 
-## <a name="containerize-the-application"></a>Containerize aplikacji
+## <a name="containerize-the-application"></a>Konteneryzowanie aplikacji
 
-Teraz, gdy masz klastra sieci szkieletowej usług działających na platformie Azure możesz przystąpić do tworzenia i wdrażania konteneryzowanych aplikacji. Uruchomienia aplikacji w kontenerze, należy dodać **Obsługa Docker** do projektu programu Visual Studio. Po dodaniu **Obsługa Docker** do aplikacji, to dwa wiele problemów. Najpierw _plik Dockerfile_ zostanie dodany do projektu. Ten nowy plik opisano kontenera obraz ma zostać utworzony. Następnie po drugie, nowy _rozwiązania docker compose_ projekt zostanie dodany do rozwiązania. Nowy projekt zawiera kilka rozwiązania docker compose plików. Pliki rozwiązania docker compose może służyć do opisywania działanie kontenera.
+Teraz, gdy klaster usługi Service Fabric działa na platformie Azure, możesz przystąpić do utworzenia i wdrożenia skonteneryzowanej aplikacji. Aby nasza aplikacja zaczęła działać w kontenerze, do projektu programu Visual Studio musimy dodać **obsługę platformy Docker**. Po dodaniu **obsługi platformy Docker** do aplikacji dzieją się dwie rzeczy. Najpierw do projektu jest dodawany plik _Dockerfile_. W tym nowym pliku jest opisany sposób kompilacji obrazu kontenera. Następnie do rozwiązania jest dodawany nowy projekt _docker-compose_. Ten nowy projekt zawiera kilka plików docker-compose. Pliki docker-compose mogą być używane do opisywania sposobu uruchamiania kontenera.
 
-Więcej informacji na temat pracy z [programu Visual Studio Tools kontenera][link-visualstudio-container-tools].
+Więcej informacji na temat pracy z [narzędziami kontenerów programu Visual Studio][link-visualstudio-container-tools].
 
 >[!NOTE]
->Jeśli używasz obrazów kontenera systemu Windows na komputerze po raz pierwszy, Docker CE musi rozwiń obrazy podstawowe dla kontenerów. Obrazy używane w tym samouczku są 14 GB. Przejdź dalej i uruchom następujące polecenie terminali ściągania obrazy podstawowe:
+>Podczas pierwszego uruchomienia obrazów kontenerów systemu Windows na komputerze program Docker CE musi ściągnąć obrazy podstawowe dla kontenera. Obrazy używane w tym samouczku mają rozmiar 14 GB. Aby ściągnąć obrazy podstawowe, należy uruchomić następujące polecenie terminalu:
 >```cmd
 >docker pull microsoft/mssql-server-windows-developer
 >docker pull microsoft/aspnet:4.6.2
 >```
 
-### <a name="add-docker-support"></a>Dodawanie obsługi Docker
+### <a name="add-docker-support"></a>Dodawanie obsługi platformy Docker
 
-Otwórz [FabrikamFiber.CallCenter.sln] [ link-fabrikam-github] pliku w programie Visual Studio.
+Otwórz plik [FabrikamFiber.CallCenter.sln][link-fabrikam-github] w programie Visual Studio.
 
-Kliknij prawym przyciskiem myszy **FabrikamFiber.Web** projektu > **Dodaj** > **Obsługa Docker**.
+Kliknij prawym przyciskiem myszy projekt **FabrikamFiber.Web** i wybierz pozycję **Dodaj** > **Obsługa platformy Docker**.
 
-### <a name="add-support-for-sql"></a>Dodawanie obsługi SQL
+### <a name="add-support-for-sql"></a>Dodawanie obsługi języka SQL
 
-Ta aplikacja używa SQL jako dostawcy danych, więc programu SQL server jest wymagany do uruchomienia aplikacji. Odwołuje się obraz kontenera programu SQL Server w naszym pliku docker compose.override.yml.
+Ta aplikacja używa języka SQL jako dostawcy danych, dlatego do jej uruchomienia wymagany jest program SQL Server. Przywołaj obraz kontenera programu SQL Server w naszym pliku docker-compose.override.yml.
 
-W programie Visual Studio Otwórz **Eksploratora rozwiązań**, Znajdź **rozwiązania docker compose**i Otwórz plik **docker compose.override.yml**.
+W programie Visual Studio otwórz **Eksploratora rozwiązań**, znajdź projekt **docker-compose** i otwórz plik **docker-compose.override.yml**.
 
-Przejdź do `services:` węzła, Dodaj węzeł o nazwie `db:` definiuje wpis programu SQL Server dla kontenera.
+Przejdź do węzła `services:` i dodaj węzeł o nazwie `db:` definiujący wpis programu SQL Server dla kontenera.
 
 ```yml
   db:
@@ -86,12 +86,12 @@ Przejdź do `services:` węzła, Dodaj węzeł o nazwie `db:` definiuje wpis pro
 ```
 
 >[!NOTE]
->Można użyć dowolnego wolisz dla debugowania lokalnego programu SQL Server, tak długo, jak jest dostępny z hosta. Jednak **localdb** nie obsługuje `container -> host` komunikacji.
+>Na potrzeby lokalnego debugowania można używać dowolnego programu SQL Server, ale musi on być dostępny z hosta. Baza danych **localdb** nie obsługuje jednak komunikacji typu `container -> host`.
 
 >[!WARNING]
->Programem SQL Server w kontenerze nie obsługuje trwałych danych. Po zatrzymaniu kontenera danych jest usunięte. Nie używaj tej konfiguracji w środowisku produkcyjnym.
+>Podczas uruchamiania programu SQL Server w kontenerze utrwalanie danych nie jest obsługiwane. Po zatrzymaniu kontenera dane są usuwane. Nie należy używać tej konfiguracji w środowisku produkcyjnym.
 
-Przejdź do `fabrikamfiber.web:` węzeł i Dodaj węzeł podrzędny o nazwie `depends_on:`. Gwarantuje to, że `db` usługi (kontenera programu SQL Server), który rozpoczyna się przed naszej aplikacji sieci web (fabrikamfiber.web).
+Przejdź do węzła `fabrikamfiber.web:` i dodaj węzeł podrzędny o nazwie `depends_on:`. Zagwarantuje to, że usługa `db` (kontener programu SQL Server) uruchomi się przed naszą aplikacją internetową (fabrikamfiber.web).
 
 ```yml
   fabrikamfiber.web:
@@ -99,9 +99,9 @@ Przejdź do `fabrikamfiber.web:` węzeł i Dodaj węzeł podrzędny o nazwie `de
       - db
 ```
 
-### <a name="update-the-web-config"></a>Aktualizacja konfiguracji sieci web
+### <a name="update-the-web-config"></a>Aktualizowanie konfiguracji internetowej
 
-W **FabrikamFiber.Web** projektu, zaktualizuj parametry połączenia w **web.config** pliku, aby wskazać serwer SQL w kontenerze.
+W projekcie **FabrikamFiber.Web** zaktualizuj parametry połączenia w pliku **web.config**, aby wskazywały na program SQL Server w kontenerze.
 
 ```xml
 <add name="FabrikamFiber-Express" connectionString="Data Source=db,1433;Database=FabrikamFiber;User Id=sa;Password=Password1;MultipleActiveResultSets=True" providerName="System.Data.SqlClient" />
@@ -110,33 +110,33 @@ W **FabrikamFiber.Web** projektu, zaktualizuj parametry połączenia w **web.con
 ```
 
 >[!NOTE]
->Jeśli chcesz użyć innego programu SQL Server podczas kompilowania zlecenia tworzenie aplikacji sieci web, Dodaj inny ciąg połączenia do pliku web.release.config.
+>Jeśli podczas tworzenia kompilacji wydania aplikacji internetowej ma zostać użyty inny program SQL Server, dodaj następne parametry połączenia do pliku web.release.config.
 
-### <a name="test-your-container"></a>Twoje kontener testu
+### <a name="test-your-container"></a>Testowanie kontenera
 
-Naciśnij klawisz **F5** by przeprowadzić debugowanie aplikacji w Twojej kontenera.
+Naciśnij klawisz **F5**, aby uruchomić i zdebugować aplikację w kontenerze.
 
-Krawędź otwiera stronę zdefiniowanych uruchamiania aplikacji przy użyciu adresu IP kontenera w sieci wewnętrznej translatora adresów Sieciowych (zazwyczaj 172.x.x.x). Aby dowiedzieć się więcej na temat debugowania aplikacji w kontenerach przy użyciu programu Visual Studio 2017, zobacz [w tym artykule][link-debug-container].
+W przeglądarce Edge zostanie otwarta zdefiniowana strona uruchamiania Twojej aplikacji przy użyciu adresu IP kontenera w sieci wewnętrznej translatora adresów sieciowych (zazwyczaj 172.x.x.x). Aby dowiedzieć się więcej na temat debugowania aplikacji w kontenerach przy użyciu programu Visual Studio 2017, zobacz [ten artykuł][link-debug-container].
 
-![przykład firma fabrikam w kontenerze][image-web-preview]
+![Przykładowa aplikacja Fabrikam w kontenerze][image-web-preview]
 
-Kontener jest teraz gotowy do być zbudowany i opakowane w aplikacji sieci szkieletowej usług. Po utworzeniu kontenera obraz oparty na tym komputerze, możesz wypchnąć go do dowolnego rejestru kontenera i umieszczenie jej do dowolnego hosta do uruchomienia.
+Kontener jest teraz gotowy do skompilowania i spakowania w aplikację usługi Service Fabric. Po skompilowaniu obrazu kontenera na komputerze możesz wypchnąć go do dowolnego rejestru kontenerów, a następnie ściągnąć na dowolny host w celu uruchomienia.
 
-## <a name="get-the-application-ready-for-the-cloud"></a>Przygotowanie aplikacji dla chmury
+## <a name="get-the-application-ready-for-the-cloud"></a>Przygotowywanie aplikacji do działania w chmurze
 
-Do przygotowania aplikacji do uruchamiania w sieci szkieletowej usług platformy Azure, należy wykonać dwie czynności:
+Aby przygotować aplikację do uruchamiania w usłudze Service Fabric na platformie Azure, musimy wykonać dwie czynności:
 
-1. Udostępnianie portów, gdy chcemy mieć dostęp do aplikacji sieci web w klastrze usługi sieć szkieletowa usług.
-2. Podaj produkcji gotowy bazy danych SQL dla naszej aplikacji.
+1. Uwidocznić port, na którym ma być dostępna nasza aplikacja internetowa w klastrze usługi Service Fabric.
+2. Udostępnić bazę danych SQL gotową na środowisko produkcyjne naszej aplikacji.
 
-### <a name="expose-the-port-for-the-app"></a>Udostępnianie portów dla aplikacji
-Klaster sieci szkieletowej usług, firma Microsoft skonfigurowano ma port *80* otwarty domyślnie w usłudze równoważenia obciążenia Azure, która równoważy ruch przychodzący do klastra. Uwidaczniamy naszych kontenera na tym porcie za pośrednictwem naszego plik docker-compose.yml.
+### <a name="expose-the-port-for-the-app"></a>Uwidacznianie portu dla aplikacji
+Skonfigurowany przez nas klaster usługi Service Fabric ma domyślnie otwarty port *80* w usłudze Azure Load Balancer, która równoważy ruch przychodzący do klastra. Możemy uwidocznić nasz kontener na tym porcie za pośrednictwem pliku docker-compose.yml.
 
-W programie Visual Studio Otwórz **Eksploratora rozwiązań**, Znajdź **rozwiązania docker compose**i Otwórz plik **docker-compose.yml**.
+W programie Visual Studio otwórz **Eksploratora rozwiązań**, znajdź projekt **docker-compose** i otwórz plik **docker-compose.yml**.
 
-Modyfikowanie `fabrikamfiber.web:` węzła, Dodaj węzeł podrzędny o nazwie `ports:`.
+Zmodyfikuj węzeł `fabrikamfiber.web:` przez dodanie węzła podrzędnego o nazwie `ports:`.
 
-Dodaj wpis ciąg `- "80:80"`. Jest to, jak powinien wyglądać plik docker-compose.yml:
+Dodaj wpis ciągu `- "80:80"`. Plik docker-compose.yml powinien wyglądać następująco:
 
 ```yml
   version: '3'
@@ -151,63 +151,63 @@ Dodaj wpis ciąg `- "80:80"`. Jest to, jak powinien wyglądać plik docker-compo
         - "80:80"
 ```
 
-### <a name="use-a-production-sql-database"></a>Użyj produkcyjną bazę danych SQL
-Podczas uruchamiania w środowisku produkcyjnym, potrzebujemy nasze dane utrwalone w naszej bazie danych. Obecnie nie istnieje sposób zagwarantowanie trwałych danych w kontenerze, dlatego nie można zapisać danych produkcyjnych w programie SQL Server w kontenerze.
+### <a name="use-a-production-sql-database"></a>Korzystanie z produkcyjnej bazy danych SQL
+Kiedy aplikacja działa w środowisku produkcyjnym, chcemy, aby dane były utrwalane w naszej bazie danych. Obecnie nie ma możliwości zagwarantowania trwałości danych w kontenerze, dlatego nie można zapisywać danych produkcyjnych w programie SQL Server w kontenerze.
 
-Zaleca się korzystanie z bazy danych SQL Azure. Aby skonfigurować i uruchomić zarządzanego serwera SQL na platformie Azure, odwiedź stronę [Quickstarts bazy danych SQL Azure] [ link-azure-sql] artykułu.
+Zalecamy korzystanie z usługi Azure SQL Database. Aby uzyskać informacje na temat konfigurowania i uruchamiania zarządzanego serwera SQL na platformie Azure, zapoznaj się z [przewodnikami Szybki start usługi Azure SQL Database][link-azure-sql].
 
 >[!NOTE]
->Pamiętaj, aby zmienić parametry połączenia z programem SQL server w **web.release.config** w pliku **FabrikamFiber.Web** projektu.
+>Należy pamiętać, aby zmienić parametry połączenia z serwerem SQL w pliku **web.release.config** w projekcie **FabrikamFiber.Web**.
 >
->Ta aplikacja powiedzie się, jeśli baza danych SQL jest osiągalny. Można teraz i wdrażanie aplikacji bez serwera SQL.
+>Działanie tej aplikacji nie powiedzie się, jeśli nie będzie dostępna żadna baza danych SQL. Można kontynuować i wdrożyć aplikację bez serwera SQL.
 
-## <a name="deploy-with-visual-studio-team-services"></a>Rozmieszczanie za pomocą programu Visual Studio Team Services
+## <a name="deploy-with-visual-studio-team-services"></a>Wdrażanie w usłudze Visual Studio Team Services
 
-Aby skonfigurować wdrożenie przy użyciu programu Visual Studio Team Services, musisz zainstalować [rozszerzenie ciągłego dostarczania narzędzi dla programu Visual Studio 2017][link-visualstudio-cd-extension]. To rozszerzenie ułatwia wdrażanie na platformie Azure przez skonfigurowanie Visual Studio Team Services i uzyskiwanie wdrożone do klastra usługi sieć szkieletowa usług dla swojej aplikacji.
+Aby skonfigurować wdrożenie przy użyciu usługi Visual Studio Team Services, musisz zainstalować [rozszerzenie Continuous Delivery Tools dla programu Visual Studio 2017][link-visualstudio-cd-extension]. To rozszerzenie ułatwia wdrażanie na platformie Azure przez skonfigurowanie usługi Visual Studio Team Services i wdrożenie aplikacji w klastrze usługi Service Fabric.
 
-Aby rozpocząć, kod musi być hostowany w kontroli źródła. Pozostałej części tej sekcji założono **git** jest używany.
+Aby rozpocząć, kod musi być hostowany w kontroli kodu źródłowego. W pozostałej części tej sekcji przyjęto założenie, że używane jest repozytorium **git**.
 
 ### <a name="set-up-a-vsts-repo"></a>Konfigurowanie repozytorium VSTS
-W prawym dolnym rogu Visual Studio kliknij **Dodaj do kontroli źródła** > **Git** (lub użyć jednego z tych opcji).
+W prawym dolnym rogu ekranu programu Visual Studio kliknij opcję **Dodaj do kontroli źródła** > **Git** (lub inną wybraną opcję).
 
-![Naciśnij przycisk kontroli źródła][image-source-control]
+![Naciśnięcie przycisku kontroli źródła][image-source-control]
 
-W _Team Explorer_ okienka, naciśnij klawisz **Publikuj repozytorium Git**.
+W okienku _Team Explorer_ naciśnij przycisk **Publikuj repozytorium Git**.
 
-Wybierz nazwę repozytorium VSTS i naciśnij klawisz **repozytorium**.
+Wybierz nazwę repozytorium usługi VSTS i naciśnij przycisk **Repozytorium**.
 
-![Publikowanie programu VSTS repozytorium][image-publish-repo]
+![Publikowanie repozytorium do usługi VSTS][image-publish-repo]
 
-Teraz, gdy kod jest zsynchronizowany z repozytorium źródłowe VSTS, można skonfigurować ciągłej integracji i ciągłego dostarczania.
+Po zsynchronizowaniu kodu z repozytorium źródłowym usługi VSTS można skonfigurować ciągłą integrację i ciągłe dostarczanie.
 
-### <a name="setup-continuous-delivery"></a>Instalator ciągłego dostarczania
+### <a name="setup-continuous-delivery"></a>Konfigurowanie ciągłego dostarczania
 
-W _Eksploratora rozwiązań_, kliknij prawym przyciskiem myszy **rozwiązania** > **skonfigurować ciągłego dostarczania**.
+W _Eksploratorze rozwiązań_ kliknij prawym przyciskiem myszy **rozwiązanie** > **Konfiguruj ciągłe dostarczanie**.
 
 Wybierz subskrypcję platformy Azure.
 
-Ustaw **hosta typu** do **usługi klastra sieci szkieletowej**.
+Ustaw **Typ hosta** na wartość **Klaster usługi Service Fabric**.
 
-Ustaw **hosta docelowego** do klastra sieci szkieletowej usług został utworzony w poprzedniej sekcji.
+Ustaw **Host docelowy** na utworzony w poprzedniej sekcji klaster usługi Service Fabric.
 
-Wybierz **rejestru kontenera** kontener tak, aby opublikować.
+Wybierz **Rejestr kontenerów**, w którym ma zostać opublikowany kontener.
 
 >[!TIP]
->Użyj **Edytuj** przycisk, aby utworzyć rejestru kontenera.
+>Użyj przycisku **Edytuj**, aby utworzyć rejestr kontenerów.
 
 Naciśnij przycisk **OK**.
 
-![Instalator usługi sieci szkieletowej ciągłej integracji][image-setup-ci]
+![Konfigurowanie ciągłej integracji usługi Service Fabric][image-setup-ci]
    
-   Po zakończeniu konfiguracji sieci szkieletowej usług jest wdrażany z kontenera. Zawsze, gdy użytkownik wypychania aktualizacje repozytorium nowej kompilacji i wersji jest wykonywana.
+   Zakończenie konfiguracji oznacza wdrożenie kontenera do usługi Service Fabric. Każdorazowo po wypchnięciu aktualizacji do repozytorium wykonywana jest nowa kompilacja i wydanie.
    
    >[!NOTE]
-   >Tworzenie kontenera podjęcia obrazy około 15 minut.
-   >Pierwszym wdrożeniu klastra sieci szkieletowej usług powoduje, że podstawowa obrazy kontenera systemu Windows Server Core do pobrania. Pobieranie ma dodatkowe 5-10 minut.
+   >Kompilowanie obrazów kontenerów trwa około 15 minut.
+   >Pierwsze wdrożenie w klastrze usługi Service Fabric powoduje pobranie podstawowych obrazów kontenerów systemu Windows Server Core. Pobieranie trwa dodatkowe 5–10 minut.
 
-Przejdź do aplikacji firmy Fabrikam biurem przy użyciu adresu url klastra: na przykład *http://mycluster.westeurope.cloudapp.azure.com*
+Przejdź do aplikacji Fabrikam Call Center przy użyciu adresu URL Twojego klastra, na przykład: *http://mycluster.westeurope.cloudapp.azure.com*.
 
-Teraz, gdy masz konteneryzowanych i wdrożyć rozwiązanie biurem firmy Fabrikam, możesz otworzyć [portalu Azure] [ link-azure-portal] i aplikacja była uruchomiona w sieci szkieletowej usług. Aby wypróbować aplikacji, otwórz przeglądarkę sieci web i przejdź do adresu URL klastra usługi sieć szkieletowa usług.
+Teraz, po umieszczeniu w kontenerze i wdrożeniu rozwiązania Fabrikam Call Center, możesz otworzyć witrynę [Azure Portal][link-azure-portal] i zobaczyć aplikację uruchomioną w usłudze Service Fabric. Aby wypróbować aplikację, otwórz przeglądarkę internetową i przejdź do adresu URL Twojego klastra usługi Service Fabric.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -215,10 +215,10 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 
 > [!div class="checklist"]
 > * Tworzenie projektu platformy Docker w programie Visual Studio
-> * Containerize istniejącej aplikacji
-> * Instalator ciągłej integracji z programu Visual Studio i VSTS
+> * Konteneryzowanie istniejącej aplikacji
+> * Konfigurowanie ciągłej integracji z programem Visual Studio i usługą VSTS
 
-W następnej części samouczka, Dowiedz się, jak skonfigurować [monitorowania z kontenera](service-fabric-tutorial-monitoring-wincontainers.md).
+W następnej części tego samouczka dowiesz się, jak skonfigurować [monitorowanie kontenera](service-fabric-tutorial-monitoring-wincontainers.md).
 
 <!--   NOTE SURE WHAT WE SHOULD DO YET HERE
 

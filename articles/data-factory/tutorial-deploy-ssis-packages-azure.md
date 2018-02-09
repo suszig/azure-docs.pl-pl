@@ -13,14 +13,17 @@ ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: spelluru
-ms.openlocfilehash: 6265c6b72e37f5f25234c03080b2d5e6c5533cd1
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 37b984229a4be6c8f3ab337ea25820428922a466
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-sql-server-integration-services-packages-to-azure"></a>Wdrażanie pakietów usług SQL Server Integration Services na platformie Azure
 Ten samouczek zawiera instrukcje aprowizacji środowiska Azure SSIS Integration Runtime (IR) w usłudze Azure Data Factory. Następnie możesz użyć programu SQL Server Data Tools (SSDT) lub SQL Server Management Studio (SSMS) do wdrożenia pakietów usług SQL Server Integration Services (SSIS) w tym środowisku uruchomieniowym na platformie Azure. W tym samouczku wykonasz następujące czynności:
+
+> [!NOTE]
+> W tym artykule środowisko IR Azure SSIS jest aprowizowane za pomocą programu Azure PowerShell. Aby aprowizować środowisko IR Azure SSIS za pomocą interfejsu użytkownika usługi Data Factory, zobacz [Samouczek: Tworzenie środowiska Azure SSIS Integration Runtime](tutorial-create-azure-ssis-runtime-portal.md). 
 
 > [!div class="checklist"]
 > * Tworzenie fabryki danych.
@@ -33,6 +36,7 @@ Ten samouczek zawiera instrukcje aprowizacji środowiska Azure SSIS Integration 
 > Ten artykuł dotyczy wersji 2 usługi Data Factory, która jest obecnie dostępna w wersji zapoznawczej. Jeśli używasz dostępnej ogólnie wersji 1 usługi Data Factory, zobacz [dokumentację dotyczącą usługi Data Factory w wersji 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto. Aby uzyskać koncepcyjne informacje dotyczące środowiska Azure SSIS IR, zobacz [Omówienie środowiska Azure-SSIS Integration Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime).
+
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 - **Serwer usługi Azure SQL Database**. Jeśli nie masz jeszcze serwera bazy danych, utwórz go w witrynie Azure Portal, zanim zaczniesz. Ten serwer hostuje bazę danych katalogu usług SSIS (SSISDB). Zaleca się utworzenie serwera bazy danych w tym samym regionie platformy Azure, co środowisko Integration Runtime. Ta konfiguracja pozwala środowisku Integration Runtime zapisywać dzienniki wykonywania SSISDB bez wykraczania poza granice regionów świadczenia usług platformy Azure. 
@@ -206,7 +210,7 @@ Skrypt programu PowerShell w tej sekcji konfiguruje wystąpienie środowiska Azu
 
 > [!NOTE]
 > - Skrypt łączy się z usługą Azure SQL Database w celu przygotowania bazy danych wykazu usług SSIS (SSISDB). Skrypt konfiguruje również uprawnienia i ustawienia Twojej sieci wirtualnej, jeśli zostanie określona, i dołącza nowe wystąpienie środowiska Azure SSIS Integration Runtime do sieci wirtualnej.
-> - Podczas aprowizowania wystąpienia usługi SQL Database na potrzeby hostowania bazy danych SSISDB instalowane są również pakiety Azure Feature Pack dla usług SSIS i Access Redistributable. Te składniki zapewniają łączność z plikami programów Excel i Access oraz z różnymi źródłami danych platformy Azure (oprócz źródeł danych obsługiwanych przez wbudowane składniki). Aktualnie nie można instalować składników innych firm dla usług SSIS (w tym składników innych firm dostarczanych przez firmę Microsoft, takich jak składniki Oracle i Teradata firmy Attunity i składniki SAP BI).
+> - Podczas aprowizowania wystąpienia środowiska IR Azure SSIS instalowane są również pakiety Azure Feature Pack dla usług SSIS i Access Redistributable. Te składniki zapewniają łączność z plikami programów Excel i Access oraz z różnymi źródłami danych platformy Azure (oprócz źródeł danych obsługiwanych przez wbudowane składniki). Aktualnie nie można instalować składników innych firm dla usług SSIS (w tym składników innych firm dostarczanych przez firmę Microsoft, takich jak składniki Oracle i Teradata firmy Attunity i składniki SAP BI).
 
 
 Aby zapoznać się z listą obsługiwanych **warstw cenowych** dla usługi Azure SQL Database, zobacz [SQL Database resource limits (Limity zasobów usługi SQL Database)](../sql-database/sql-database-resource-limits.md). 

@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.date: 10/10/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: f160a3291357387fcef75d8c2257e6e37274b0e7
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: db3086724c22e485e2a9a69c36a990fc5b8016a9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-ruby-app-in-app-service-on-linux"></a>Tworzenie aplikacji Ruby w usłudze App Service w systemie Linux
 
@@ -28,12 +28,12 @@ Usługa [App Service w systemie Linux](app-service-linux-intro.md) oferuje wysoc
 
 ![Hello-world](./media/quickstart-ruby/hello-world-updated.png)
 
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Zainstaluj oprogramowanie Ruby 2.4.1 lub nowsze</a>
 * <a href="https://git-scm.com/" target="_blank">Zainstaluj oprogramowanie Git</a>
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="download-the-sample"></a>Pobierz przykład
 
@@ -90,19 +90,19 @@ Aplikacja jest teraz skonfigurowana. Przy użyciu przeglądarki internetowej prz
 
 ## <a name="create-a-ruby-web-app-on-azure"></a>Tworzenie aplikacji internetowej Ruby na platformie Azure
 
-Wymagana jest grupa zasobów, która zawiera zasoby wymagane przez aplikację internetową. Aby utworzyć grupę zasobów, użyj polecenia [az group create]().
+Wymagana jest grupa zasobów, która zawiera zasoby wymagane przez aplikację internetową. Aby utworzyć grupę zasobów, użyj polecenia [`az group create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create).
 
 ```azurecli-interactive
 az group create --location westeurope --name myResourceGroup
 ```
 
-Użyj polecenia [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create), aby utworzyć plan usługi aplikacji dla swojej aplikacji internetowej.
+Użyj polecenia [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create), aby utworzyć plan usługi App Service dla swojej aplikacji internetowej.
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --is-linux
 ```
 
-Następnie wydaj polecenie [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create), aby utworzyć aplikację internetową korzystającą z nowo utworzonego planu usługi. Zauważ, że środowisko uruchomieniowe ma ustawioną wartość `ruby|2.3`. Nie zapomnij zastąpić elementu `<app name>` unikatową nazwą aplikacji.
+Następnie wydaj polecenie [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create), aby utworzyć aplikację internetową korzystającą z nowo utworzonego planu usługi. Zauważ, że środowisko uruchomieniowe ma ustawioną wartość `ruby|2.3`. Nie zapomnij zastąpić elementu `<app name>` unikatową nazwą aplikacji.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> \
@@ -147,7 +147,7 @@ To https://<your web app name>.scm.azurewebsites.net/<your web app name>.git
 myuser@ubuntu1234:~workspace/<app name>$
 ```
 
-Po zakończeniu wdrożenia uruchom ponownie swoją aplikację internetową, aby wdrożenie weszło w życie, korzystając z polecenia [az webapp restart](/cli/azure/webapp?view=azure-cli-latest#az_webapp_restart), jak pokazano poniżej:
+Po zakończeniu wdrożenia uruchom ponownie swoją aplikację internetową, aby wdrożenie zostało zastosowane, korzystając z polecenia [`az webapp restart`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_restart), jak pokazano poniżej:
 
 ```azurecli-interactive
 az webapp restart --name <app name> --resource-group myResourceGroup

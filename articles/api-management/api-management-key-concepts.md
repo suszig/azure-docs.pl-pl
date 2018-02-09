@@ -14,11 +14,11 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 727be96828b9217f89214722f474abfc220b0b3c
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 010c4619a2a4d8ae477ebd6e66747c55cde0fc08
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="what-is-api-management"></a>Co to jest API Management?
 
@@ -30,7 +30,7 @@ Obejrzyj poniższy film przedstawiający przegląd usługi Azure API Management 
 > 
 > 
 
-Ten temat zawiera omówienie typowych scenariuszy dotyczących usługi APIM.  Omówiono w nim też krótko główne składniki systemu usługi APIM. W dalszej części tematu bardziej szczegółowo omówiono poszczególne składniki.
+Ten artykuł zawiera omówienie typowych scenariuszy dotyczących usługi APIM.  Omówiono w nim też krótko główne składniki systemu usługi APIM. W dalszej części artykułu bardziej szczegółowo omówiono poszczególne składniki.
 
 ## <a name="overview"></a>Omówienie
 
@@ -50,14 +50,14 @@ System składa się z następujących składników:
   * Przekształcanie interfejsu API na bieżąco, bez modyfikacji kodu.
   * Buforowanie odpowiedzi zaplecza w skonfigurowanym miejscu.
   * Rejestrowanie w dzienniku metadanych wywołań w celu analizy.
-* **Portal wydawcy** to interfejs administracyjny, w którym konfiguruje się program interfejsu API. Jego zastosowania to:
+* Witryna **Azure Portal** to interfejs administracyjny, w którym konfiguruje się program interfejsu API. Jego zastosowania to:
   
   * Definiowanie lub importowanie schematu interfejsu API.
   * Tworzenie pakietów interfejsów API do produktów.
   * Konfigurowanie zasad, takich jak przydziały lub przekształcenia w interfejsach API.
   * Uzyskiwanie szczegółowych informacji analitycznych.
   * Zarządzanie użytkownikami.
-* **Portal dla deweloperów** służy jako główna witryna internetowa dla deweloperów, która umożliwia im:
+* **Portal deweloperów** służy jako główna witryna internetowa dla deweloperów, która umożliwia im:
   
   * Czytanie dokumentacji interfejsu API.
   * Wypróbowanie interfejsu API za pośrednictwem interakcyjnej konsoli.
@@ -104,7 +104,7 @@ Kiedy deweloperzy subskrybują produkt, otrzymują klucz podstawowy i pomocniczy
 Aby uzyskać więcej informacji, zobacz [How to create or invite developers][How to create or invite developers] (Jak utworzyć i zaprosić deweloperów) i [How to associate groups with developers][How to associate groups with developers] (Jak skojarzyć grupy z deweloperami).
 
 ## <a name="policies"> </a> Zasady
-Zasady są zaawansowaną możliwością usługi API Management, która pozwala wydawcy zmieniać zachowanie interfejsu API za pomocą konfiguracji. Zasady to zbiór instrukcji, które są wykonywane sekwencyjnie podczas żądania lub odpowiedzi interfejsu API. Popularne instrukcje obejmują konwersję z formatu XML na format JSON i ograniczanie liczby wywołań, aby zmniejszyć liczbę wywołań przychodzących od dewelopera. Ponadto dostępnych jest wiele innych zasad.
+Zasady są zaawansowaną możliwością usługi API Management, która pozwala witrynie Azure Portal zmieniać zachowanie interfejsu API za pomocą konfiguracji. Zasady to zbiór instrukcji, które są wykonywane sekwencyjnie podczas żądania lub odpowiedzi interfejsu API. Popularne instrukcje obejmują konwersję z formatu XML na format JSON i ograniczanie liczby wywołań, aby zmniejszyć liczbę wywołań przychodzących od dewelopera. Ponadto dostępnych jest wiele innych zasad.
 
 Wyrażenia zasad mogą służyć jako wartości atrybutów lub wartości tekstowe w dowolnej z zasad usługi API Management, o ile w zasadach nie określono inaczej. Niektóre zasady, np. [Przepływ sterowania](https://msdn.microsoft.com/library/azure/dn894085.aspx#choose) i [Ustawianie zmiennej](https://msdn.microsoft.com/library/azure/dn894085.aspx#set-variable), są oparte na wyrażeniach zasad. Aby uzyskać więcej informacji, zobacz tematy [Advanced policies](https://msdn.microsoft.com/library/azure/dn894085.aspx#AdvancedPolicies) (Zaawansowane zasady) i [Policy expressions](https://msdn.microsoft.com/library/azure/dn910913.aspx) (Wyrażenia zasad).
 

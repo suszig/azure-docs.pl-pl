@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/12/2017
+ms.date: 01/31/2018
 ms.author: sethm
-ms.openlocfilehash: f095407a58e00ed9143e8f19d91a212d2167564b
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: fab765480a2f480e8c54035d903d24843490ee38
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-service-bus"></a>Azure Service Bus
 
@@ -26,9 +26,9 @@ Obojętnie, czy aplikacja lub usługa działa w chmurze, czy lokalnie, często w
 
 ## <a name="service-bus-fundamentals"></a>Podstawy usługi Service Bus
 
-Różne sytuacje wymagają różnych stylów komunikacji. Czasami najlepszym rozwiązaniem jest umożliwienie aplikacji wysyłania i odbierania komunikatów przy użyciu prostej kolejki. W innych sytuacjach zwykła kolejka nie wystarcza i lepszym rozwiązaniem jest kolejka z mechanizmem publikowania i subskrybowania. W niektórych przypadkach potrzebne jest jedynie połączenie między aplikacjami, a kolejki nie są wymagane. Usługa Service Bus oferuje wszystkie trzy opcje, umożliwiając aplikacjom interakcję na kilka różnych sposobów.
+Różne sytuacje wymagają różnych stylów komunikacji. Czasami najlepszym rozwiązaniem jest umożliwienie aplikacji wysyłania i odbierania komunikatów przy użyciu prostej kolejki. W innych sytuacjach zwykła kolejka nie wystarcza i lepszym rozwiązaniem jest kolejka z mechanizmem publikowania i subskrybowania. W niektórych przypadkach potrzebne jest jedynie połączenie między aplikacjami, a kolejki nie są wymagane. Usługa Azure Service Bus oferuje wszystkie trzy opcje, umożliwiając aplikacjom interakcję na kilka różnych sposobów.
 
-Service Bus to wielodostępna usługa w chmurze, co oznacza, że usługa jest współużytkowana przez wielu użytkowników. Każdy użytkownik, taki jak deweloper aplikacji, tworzy *przestrzeń nazw*, a następnie definiuje mechanizmy komunikacji potrzebne w ramach tej przestrzeni nazw. Rysunek 1 pokazuje jak wygląda ta architektura.
+Service Bus to wielodostępna usługa w chmurze, co oznacza, że usługa jest współużytkowana przez wielu użytkowników. Każdy użytkownik, taki jak deweloper aplikacji, tworzy *przestrzeń nazw*, a następnie definiuje mechanizmy komunikacji potrzebne w ramach tej przestrzeni nazw. Rysunek 1 pokazuje tę architekturę:
 
 ![][1]
 
@@ -48,13 +48,13 @@ Należy pamiętać, że chociaż usługa Service Bus sama działa w chmurze (to 
 
 ## <a name="queues"></a>Kolejki
 
-Załóżmy, że użytkownik łączy dwie aplikacje przy użyciu kolejki usługi Service Bus. Na Rysunku 2 przedstawiono tę sytuację.
+Załóżmy, że użytkownik łączy dwie aplikacje przy użyciu kolejki usługi Service Bus. Na Rysunku 2 przedstawiono tę sytuację:
 
 ![][2]
 
 **Rysunek 2. Kolejki usługi Service Bus zapewniają jednokierunkowe kolejkowanie asynchroniczne.**
 
-Proces jest prosty: nadawca wysyła komunikat do kolejki usługi Service Bus, a odbiornik pobiera ten komunikat w późniejszym czasie. Kolejka może zawierać tylko jeden odbiornik, jak pokazano na rysunku 2. Możliwa jest również sytuacja, gdy wiele aplikacji odczytuje dane z tej samej kolejki. W tej ostatniej sytuacji każdy komunikat jest odczytywany tylko przez jeden odbiornik. W przypadku usługi multiemisji należy zamiast kolejki użyć tematu.
+Nadawca wysyła komunikat do kolejki usługi Service Bus, a odbiornik pobiera ten komunikat w późniejszym czasie. Kolejka może zawierać tylko jeden odbiornik, jak pokazano na rysunku 2. Możliwa jest również sytuacja, gdy wiele aplikacji odczytuje dane z tej samej kolejki. W tej ostatniej sytuacji każdy komunikat jest odczytywany tylko przez jeden odbiornik. W przypadku usługi multiemisji należy zamiast kolejki użyć tematu.
 
 Każdy komunikat ma dwie części: zbiór właściwości, z których każda jest parą klucz/wartość, oraz ładunek komunikatu. Ładunkiem mogą być dane binarne, tekstowe, a nawet plik XML. Sposób ich używania zależy od tego, co aplikacja próbuje zrobić. Na przykład aplikacja wysyłająca komunikat o ostatniej sprzedaży może dołączać właściwości **Seller="Ava"** i **Amount=10000**. Treść komunikatu może zawierać zeskanowany obraz podpisanej umowy sprzedaży lub, jeśli nie istnieje, pozostać pusta.
 
@@ -72,13 +72,13 @@ Kolejki są przydatne w kilku sytuacjach. Umożliwiają one aplikacjom komunikow
 
 ## <a name="topics"></a>Tematy
 
-Pomimo swojej przydatności, kolejki nie zawsze są odpowiednim rozwiązaniem. Czasami lepsze są tematy usługi Service Bus. Rysunek 3 ilustruje tę koncepcję.
+Pomimo swojej przydatności, kolejki nie zawsze są odpowiednim rozwiązaniem. Czasami lepsze są tematy. Rysunek 3 ilustruje tę koncepcję:
 
 ![][3]
 
 **Rysunek 3. Na podstawie filtru określonego przez subskrybującą aplikację może ona odbierać niektóre lub wszystkie komunikaty wysyłane do tematu usługi Service Bus.**
 
-*Temat* jest pod wieloma względami podobny do kolejki. Nadawcy wysyłają komunikaty do tematu w taki sam sposób jak do kolejki, a komunikaty wyglądają tak samo jak w przypadku kolejek. Różnicą jest to, że tematy umożliwiają każdej aplikacji odbierającej tworzenie własnej *subskrypcji* przez zdefiniowanie *filtru*. Subskrybent będzie zatem widział tylko komunikaty zgodne z filtrem. Przykładowo, Rysunek 3 przedstawia nadawcę i temat z trzema subskrybentami, z których każdy ma własny filtr:
+*Temat* jest pod wieloma względami podobny do kolejki. Nadawcy wysyłają komunikaty do tematu w taki sam sposób jak do kolejki, a komunikaty wyglądają tak samo jak w przypadku kolejek. Różnica polega na tym, że tematy umożliwiają każdej aplikacji odbierającej utworzenie własnej *subskrypcji* i opcjonalnie zdefiniowanie *filtru*. Subskrybent będzie zatem widział tylko komunikaty zgodne z filtrem. Przykładowo, Rysunek 3 przedstawia nadawcę i temat z trzema subskrybentami, z których każdy ma własny filtr:
 
 * Subskrybent 1 odbiera tylko komunikaty, które zawierają właściwość *Seller="Ava"*.
 * Subskrybent 2 odbiera komunikaty, które zawierają właściwość *Seller="Ruby"* i/lub zawierają właściwość *Amount* o wartości większej niż 100 000. Być może Ruby jest kierownikiem ds. sprzedaży, więc chce widzieć własną sprzedaż i wszystkie duże transakcje sprzedaży niezależnie od tego, kto ich dokonuje.
@@ -88,7 +88,7 @@ Podobnie jak w przypadku kolejek, subskrybenci tematu mogą odczytywać komunika
 
 ## <a name="relays"></a>Przekaźniki
 
-Kolejki i tematy zapewniają jednokierunkową asynchroniczną komunikację za pośrednictwem brokera. Ruch przepływa tylko w jednym kierunku i nie ma bezpośredniego połączenia między nadawcami a odbiornikami. Ale co zrobić, jeśli nie potrzebujesz tego połączenia? Załóżmy, że aplikacje muszą zarówno wysyłać, jak i odbierać komunikaty, albo chcesz mieć bezpośrednie połączenie między nimi i nie potrzebujesz brokera do przechowywania komunikatów. Na potrzeby takich scenariuszy usługa Service Bus udostępnia *przekaźniki*, jak pokazano na rysunku 4.
+Kolejki i tematy zapewniają jednokierunkową asynchroniczną komunikację za pośrednictwem brokera. Ruch przepływa tylko w jednym kierunku i nie ma bezpośredniego połączenia między nadawcami a odbiornikami. Ale co zrobić, jeśli nie potrzebujesz tego połączenia? Załóżmy, że aplikacje muszą zarówno wysyłać, jak i odbierać komunikaty, albo chcesz mieć bezpośrednie połączenie między nimi i nie potrzebujesz brokera do przechowywania komunikatów. Na potrzeby takich scenariuszy usługa Service Bus udostępnia *przekaźniki*, jak pokazano na rysunku 4:
 
 ![][4]
 
@@ -96,7 +96,7 @@ Kolejki i tematy zapewniają jednokierunkową asynchroniczną komunikację za po
 
 Oczywistym pytaniem, jeśli chodzi o przekaźniki, jest: po co z nich korzystać? Nawet jeśli nie potrzebujesz kolejek, dlaczego warto udostępnić aplikacjom możliwość komunikacji za pomocą usługi w chmurze zamiast bezpośredniej interakcji? Odpowiedź brzmi: komunikacja bezpośrednia może być trudniejsza, niż się wydaje.
 
-Załóżmy, że chcesz nawiązać połączenie między dwiema lokalnymi aplikacjami, z których obie działają wewnątrz firmowych centrów danych. Każda z tych aplikacji znajduje się za zaporą, a każde centrum danych prawdopodobnie używa translatora adresów sieciowych (NAT). Zapora blokuje przychodzące dane na wszystkich, z wyjątkiem kilku, portach, a korzystanie z NAT oznacza, że maszyna, na której uruchomiona jest każda aplikacja, nie ma stałego adresu IP osiągalnego bezpośrednio spoza centrum danych. Bez dodatkowej pomocy połączenie tych aplikacji za pośrednictwem publicznego Internetu jest problematyczne.
+Załóżmy, że chcesz nawiązać połączenie między dwiema lokalnymi aplikacjami, z których obie działają wewnątrz firmowych centrów danych. Każda z tych aplikacji znajduje się za zaporą, a każde centrum danych prawdopodobnie używa translatora adresów sieciowych (NAT). Zapora blokuje dane przychodzące na wszystkich portach, z wyjątkiem kilku, a korzystanie z translatora NAT oznacza, że komputer, na którym uruchomiona jest każda aplikacja, nie ma stałego adresu IP osiągalnego bezpośrednio spoza centrum danych. Bez dodatkowej pomocy połączenie tych aplikacji za pośrednictwem publicznego Internetu jest problematyczne.
 
 Przekaźnik usługi Service Bus może w tym pomóc. Aby komunikować się dwukierunkowo przez przekaźnik, każda aplikacja ustanawia wychodzące połączenie TCP za pomocą usługi Service Bus, a następnie utrzymuje je otwarte. Cała komunikacja między dwiema aplikacjami odbywa się przez te połączenia. Ponieważ każde połączenie zostało nawiązane z wewnątrz centrum danych, zapora zezwala na ruch przychodzący do każdej aplikacji bez konieczności otwierania nowych portów. To podejście zapewnia również obejście problemu translatora adresów sieciowych, ponieważ każda aplikacja ma spójny punkt końcowy w chmurze podczas całej komunikacji. Dzięki wymianie danych za pośrednictwem przekaźnika aplikacje mogą uniknąć problemów, które w przeciwnym razie spowodowałyby trudności w komunikacji. 
 

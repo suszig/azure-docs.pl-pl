@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/28/2017
+ms.date: 01/29/2018
 ms.author: ryanwi, mikhegn
-ms.openlocfilehash: 6cfc9891af9de88dddca717711148cbb53276e84
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: a4000791afca35dca6d2e3d7a8fb6a003b17d066
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Przygotowywanie środowiska deweloperskiego w systemie Windows
 > [!div class="op_single_selector"]
@@ -63,11 +63,10 @@ Jeśli potrzebujesz tylko zestawu SDK, możesz zainstalować ten pakiet:
 * [Instalowanie zestawu SDK usługi Microsoft Azure Service Fabric][core-sdk]
 
 Bieżące wersje:
-* Zestaw SDK usługi Service Fabric w wersji 2.8.232
-* Środowisko uruchomieniowe usługi Service Fabric w wersji 6.0.232
-* Narzędzia usługi Service Fabric dla programu Visual Studio 2015 w wersji 1.8.51024.1
-* Program Visual Studio 2017 Update 3 obejmuje narzędzia usługi Service Fabric dla programu Visual Studio w wersji 1.7.20170817
-* Program Visual Studio 2017 Update 4 Preview 1 (15.4.0 Preview 1.0) obejmuje narzędzia usługi Service Fabric dla programu Visual Studio w wersji 1.7.20170721
+* Zestaw Service Fabric SDK i narzędzia w wersji 3.0.456
+* Środowisko uruchomieniowe usługi Service Fabric w wersji 6.1.456
+* Narzędzia usługi Service Fabric dla programu Visual Studio 2015 w wersji 2.0.10124.2
+* Program Visual Studio 2017 15.5.6 obejmuje narzędzia usługi Service Fabric dla programu Visual Studio w wersji 2.0.20180124.2 
 
 Listę obsługiwanych wersji można znaleźć na stronie [pomocy technicznej usługi Service Fabric](service-fabric-support.md)
 

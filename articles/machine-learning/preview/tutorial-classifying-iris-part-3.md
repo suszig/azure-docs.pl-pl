@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/29/2017
-ms.openlocfilehash: 97cd46819a4547ec743270871bcb6b4eef3eb365
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
-ms.translationtype: MT
+ms.openlocfilehash: 12cbd7d9682e70fc5bc65b2eda5b8eddf6bbb7f0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Klasyfikowanie irysów, część 3: wdrażanie modelu
 Usługi Azure Machine Learning (wersja zapoznawcza) stanowią zintegrowane, kompleksowe rozwiązanie do nauki o danych i do analiz zaawansowanych przeznaczone dla profesjonalnych analityków. Pozwala ono analitykom przygotowywać dane, opracowywać eksperymenty i wdrażać modele na skalę chmury.
@@ -146,6 +146,17 @@ _Trybu lokalnego_ można użyć do tworzenia i testowania. Aparat platformy Dock
    
    Nazwa klastra służy do identyfikowania środowiska. Lokalizacja powinna być taka sama jak lokalizacja konta Zarządzanie modelami utworzonego w witrynie Azure Portal.
 
+   Aby upewnić się, że środowisko zostało poprawie skonfigurowane, sprawdź stan za pomocą następującego polecenia:
+
+   ```azurecli
+   az ml env show -n <deployment environment name> -g <existing resource group name>
+   ```
+
+   Upewnij się, że parametr „Stan aprowizacji” ma wartość „Powodzenie” (jak pokazano poniżej), zanim ustawisz środowisko w kroku 5.
+
+   ![Stan aprowizacji](media/tutorial-classifying-iris/provisioning_state.png)
+ 
+   
 3. Utwórz konto zarządzania modelami. (Jest to jednorazowa konfiguracja).  
    ```azurecli
    az ml account modelmanagement create --location <e.g. eastus2> -n <new model management account name> -g <existing resource group name> --sku-name S1
@@ -158,7 +169,7 @@ _Trybu lokalnego_ można użyć do tworzenia i testowania. Aparat platformy Dock
 
 5. Ustaw środowisko.
 
-   Po zakończeniu konfiguracji użyj następującego polecenia, aby ustawić zmienne środowiskowe wymagane do obsługi operacji środowiska. Użyj takiej samej nazwy środowiska, który został wcześniej użyty w kroku 2. Użyj tej samej nazwy grupy zasobów, która została wyświetlona w danych wyjściowych w oknie wiersza polecenia po ukończeniu procesu instalacji.
+   Po zakończeniu konfiguracji użyj następującego polecenia, aby ustawić zmienne środowiskowe wymagane do obsługi operacji środowiska. Użyj nazwy środowiska zastosowanej wcześniej w kroku 2. Użyj tej samej nazwy grupy zasobów, która została wyświetlona w danych wyjściowych w oknie wiersza polecenia po ukończeniu procesu instalacji.
 
    ```azurecli
    az ml env set -n <deployment environment name> -g <existing resource group name>
@@ -258,8 +269,9 @@ W celu przetestowania uruchomienia usługi internetowej **irisapp** użyj rekord
 
 2. Aby przetestować usługę, uruchom zwrócone polecenie uruchamiania usługi:
 
+    
    ```azurecli
-   az ml service run realtime -i irisapp -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
+   az ml service run realtime -i <web service ID> -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
    ```
    Wynikiem jest **„2”** i jest to przewidywana klasa. (Twoje wyniki mogą się różnić). 
 
@@ -309,7 +321,7 @@ W celu przetestowania uruchomienia usługi internetowej **irisapp** użyj rekord
       ```
 
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 Po zapoznaniu się z trzecią częścią trzyczęściowej serii samouczków wiesz już, jak używać usług Azure Machine Learning w celu wykonania następujących czynności:
 > [!div class="checklist"]
 > * Lokalizowanie pliku modelu.

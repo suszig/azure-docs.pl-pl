@@ -1,88 +1,97 @@
 ---
-title: "Usługa Azure Batch umożliwia uruchamianie rozbudowanych rozwiązań przetwarzania równoległego w chmurze | Microsoft Docs"
+title: "Uruchamianie rozbudowanych zadań przetwarzania równoległego w chmurze za pomocą usługi Azure Batch | Microsoft Docs"
 description: "Opis korzystania z usługi Azure Batch na potrzeby dużych obciążeń równoległych oraz HPC"
 services: batch
 documentationcenter: 
-author: tamram
-manager: timlt
+author: mscurrell
+manager: jkabat
 editor: 
-ms.assetid: 93e37d44-7585-495e-8491-312ed584ab79
+ms.assetid: 
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 05/05/2017
-ms.author: tamram
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a99f96db0c1e8bcd0cf29c564e5badf0eb728e56
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: overview
+ms.date: 01/19/2018
+ms.author: mscurrell
+ms.custom: mvc
+ms.openlocfilehash: 93eabc0bdf4889d89f8dc3fc30f99dafa1b3a47a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="run-intrinsically-parallel-workloads-with-batch"></a>Uruchamianie wewnętrznie równoległych obciążeń przy użyciu usługi Batch
+# <a name="what-is-azure-batch"></a>Co to jest Azure Batch?
 
-Usługa Azure Batch to usługa platformy służąca do wydajnego uruchamiania w chmurze aplikacji równoległych oraz aplikacji do obliczeń o wysokiej wydajności w wielkiej skali. Usługa Azure Batch umożliwia planowanie pracy wymagającej intensywnych obliczeń do wykonania w zarządzanej kolekcji maszyn wirtualnych oraz automatyczne skalowanie zasobów obliczeniowych w celu spełnienia wymagań związanych z zadaniami.
+Usługa Azure Batch umożliwia wydajne uruchamianie równoległych zadań wsadowych oraz zadań wsadowych obliczeń o wysokiej wydajności na platformie Azure. Usługa Azure Batch tworzy pulę węzłów obliczeniowych (maszyn wirtualnych) i zarządza nią, instaluje aplikacje, które chcesz uruchamiać, i tworzy harmonogram zadań do uruchomienia na węzłach. Nie ma żadnego oprogramowania klastra lub harmonogramu zadań, które trzeba instalować i skalować oraz którym trzeba zarządzać. Zamiast tego korzysta się z [interfejsu API usługi Batch i narzędzi](batch-apis-tools.md), skryptów wiersza polecenia lub witryny Azure Portal, aby konfigurować i monitorować zadania oraz zarządzać nimi. 
 
-Za pomocą usługi Azure Batch można w łatwy sposób zdefiniować zasoby obliczeniowe platformy Azure do obsługi aplikacji działających równolegle i na dużą skalę. Nie ma potrzeby ręcznego tworzenia i konfigurowania klastra HPC, poszczególnych maszyn wirtualnych, sieci wirtualnych lub złożonej infrastruktury planowania zadań i podzadań ani zarządzania nimi. Te podzadania zostaną zautomatyzowane lub uproszczone przez usługę Azure Batch.
+Deweloperzy mogą używać usługi Batch jako usługi platformy do tworzenia aplikacji SaaS lub aplikacji klienckich, dla których wymagane jest wykonywanie na dużą skalę. Przykładowo za pomocą usługi Batch można utworzyć usługę do symulowania ryzyka metodą Monte Carlo dla firmy świadczącej usługi finansowe lub usługę do przetwarzania dużej liczby obrazów.
 
-## <a name="use-cases-for-batch"></a>Przypadki użycia usługi Batch
-Usługa Batch jest zarządzaną usługą platformy Azure, której używa się do *przetwarzania wsadowego* lub *obliczania wsadowego* — uruchamiania dużej liczby podobnych podzadań w celu uzyskania pożądanych efektów. Obliczanie wsadowe jest najczęściej używane przez organizacje, które regularnie przetwarzają, przekształcają i analizują duże ilości danych.
-
-Z usługą Batch działają dobrze aplikacje i obciążenia wewnętrznie równoległe (zwane również „zaskakująco równoległymi”). Obciążenia wewnętrznie równoległe to takie, które można łatwo podzielić na wiele podzadań, które wykonują prace na wielu komputerach równocześnie.
-
-![Podzadania równoległe][1]<br/>
-
-Przykładowe obciążenia, które zwykle są przetwarzane przy użyciu tej metody:
-
-* Modelowanie ryzyka finansowego
-* Analiza danych dotycząca klimatu i hydrologii
-* Renderowanie, analiza i przetwarzanie obrazu
-* Kodowanie i transkodowanie multimediów
-* Analiza sekwencji genetycznych
-* Analiza naprężeń konstrukcji
-* Testowanie oprogramowania
-
-W usłudze Batch można również wykonywać obliczenia równoległe, kończąc je krokiem redukcji, oraz wykonywać bardziej złożone obciążenia HPC, takie jak aplikacje [MPI (Message Passing Interface)](batch-mpi.md).
+Za korzystanie z usługi Batch nie są naliczane dodatkowe opłaty. Płaci się wyłącznie za wykorzystane zasoby bazowe, takie jak maszyny wirtualne, magazyn i zasoby sieciowe.
 
 Aby porównać usługę Batch oraz inne opcje rozwiązań HPC na platformie Azure, zobacz [Rozwiązania usługi Batch i HPC oraz dużych wystąpień obliczeniowych](../virtual-machines/linux/high-performance-computing.md).
 
-[!INCLUDE [batch-pricing-include](../../includes/batch-pricing-include.md)]
+## <a name="run-parallel-workloads"></a>Uruchamianie równoległych obciążeń
+Z usługą Batch działają dobrze obciążenia wewnętrznie równoległe (zwane również „zaskakująco równoległymi”). Obciążenia wewnętrznie równoległe to te, w przypadku których aplikacje mogą być uruchamiane równolegle i każde wystąpienie wykonuje część pracy. Aplikacje w trakcie wykonywania mogą uzyskiwać dostęp do niektórych wspólnych danych, ale nie komunikują się z innymi wystąpieniami aplikacji. Z tego względu obciążenia wewnętrznie równoległe mogą być uruchamiane na dużą skalę, zależną od ilości zasobów obliczeniowych dostępnych do jednoczesnego uruchamiania aplikacji.
 
-## <a name="scenario-scale-out-a-parallel-workload"></a>Scenariusz: skalowanie obciążenia równoległego
-Typowe rozwiązanie, w którym interfejsy API usługi Batch są używane do interakcji z usługą Batch, obejmuje skalowanie pracy wewnętrznie równoległej — np. renderowania obrazów dla scen 3D — w puli węzłów obliczeniowych. Ta pula węzłów obliczeniowych może być „farmą renderowania”, która udostępnia dziesiątki, setki lub nawet tysiące rdzeni np. do zadania renderowania.
+Oto przykłady obciążeń wewnętrznie równoległych, które można uruchamiać w usłudze Batch:
 
-Na poniższym diagramie przedstawiono typowy przepływ pracy usługi Batch, w którym aplikacja kliencka lub usługa hostowana używa usługi Batch do uruchamiania obciążenia równoległego.
+* Modelowanie ryzyka finansowego za pomocą symulacji Monte Carlo
+* Renderowanie filmowych efektów specjalnych i obrazów 3D
+* Analiza i przetwarzanie obrazów
+* Transkodowanie multimediów
+* Analiza sekwencji genetycznych
+* Optyczne rozpoznawanie znaków (OCR)
+* Pozyskiwanie i przetwarzanie danych oraz operacje ETL
+* Wykonywanie testów oprogramowania
 
-![Przepływ pracy rozwiązania usługi Batch][2]
+Usługi Batch można również używać do [uruchamiania ściśle sprzężonych obciążeń](batch-mpi.md). Są to obciążenia, w których uruchamiane aplikacje muszą komunikować się ze sobą, co jest przeciwieństwem uruchamiania niezależnego. Ściśle sprzężone aplikacje zwykle korzystają z interfejsu API o nazwie Message Passing Interface (MPI). Ściśle sprzężone obciążenia można uruchamiać w usłudze Batch za pomocą interfejsu [Microsoft MPI](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx) lub Intel MPI. Wydajność aplikacji można zwiększyć, używając specjalizowanych rozmiarów maszyn wirtualnych, przeznaczonych do obliczeń [HPC](../virtual-machines/linux/sizes-hpc.md) i [zoptymalizowanych pod kątem procesora GPU](../virtual-machines/linux/sizes-gpu.md).
 
-W tym typowym scenariuszu aplikacja lub usługa przetwarza obciążenie obliczeniowe w usłudze Azure Batch przez wykonanie następujących czynności:
+Przykłady ściśle sprzężonych obciążeń:
+* Analiza elementów skończonych
+* Dynamika cieczy
+* Wielowęzłowe szkolenie sztucznej inteligencji
 
-1. Przekazanie **plików wejściowych** i **aplikacji**która przetworzy te pliki, na konto usługi Azure Storage. Pliki wejściowe mogą zawierać dowolne dane, które aplikacja może przetworzyć, np. dane modelowania finansowego lub pliki wideo do transkodowania. Pliki aplikacji mogą pochodzić z dowolnej aplikacji do przetwarzania danych, np. aplikacji do renderowania w 3D lub transkodera multimediów.
-2. Utworzenie **puli** usługi Batch złożonej z węzłów obliczeniowych na koncie usługi Batch — są to maszyny wirtualne, które wykonają podzadania. Określenie właściwości, takich jak [rozmiar węzła](../cloud-services/cloud-services-sizes-specs.md), system operacyjny i lokalizacja w usłudze Azure Storage aplikacji, która zostanie zainstalowana, gdy węzły dołączą do puli (aplikacji przekazanej w kroku 1). Możesz również skonfigurować pulę do [automatycznego skalowania](batch-automatic-scaling.md) w odpowiedzi na obciążenie generowane przez podzadania. Skalowanie automatyczne dynamicznie dostosowuje liczbę węzłów obliczeniowych w puli.
-3. Utworzenie **zadania** usługi Batch, aby uruchomić obciążenie w puli węzłów obliczeniowych. Podczas tworzenia zadania skojarz je z pulą usługi Batch.
-4. Dodaj **podzadania** do zadania. Po dodaniu podzadań do zadania usługa Batch automatycznie planuje wykonanie podzadań w węzłach obliczeniowych w puli. Każde podzadanie używa przekazanej aplikacji w celu przetwarzania plików wejściowych.
-   
-   * 4a. Zanim podzadanie zostanie wykonane, może pobrać dane (pliki wejściowe), które ma przetworzyć, do węzła obliczeniowego, do którego zostało przypisane. Jeśli aplikacja jeszcze nie została zainstalowana w węźle (zobacz krok 2), może zostać pobrana w tym miejscu. Po zakończeniu pobierania podzadania zostaną wykonane w przypisanych do nich węzłach.
-5. Po uruchomieniu podzadań możesz przesłać zapytanie do usługi Batch w celu monitorowania postępu zadania oraz jego podzadań. Aplikacja lub usługa kliencka komunikuje się z usługą Batch za pośrednictwem protokołu HTTPS. Ponieważ monitorowane mogą być tysiące podzadań uruchomionych w ramach tysięcy węzłów obliczeniowych, upewnij się, że [zapytanie względem usługi Batch jest wydajne](batch-efficient-list-queries.md).
-6. Gdy podzadania zostaną ukończone, mogą przekazać dane wynikowe do usługi Azure Storage. Możesz również pobrać pliki bezpośrednio z systemu plików w ramach węzła obliczeniowego.
-7. Jeśli podczas monitorowania zostanie wykryte, że podzadania w zadaniu zostały ukończone, aplikacja lub usługa kliencka może pobrać dane wyjściowe do dalszego przetwarzania lub dalszej oceny.
+Wiele ściśle sprzężonych zadań można uruchamiać równolegle za pomocą usługi Batch. Można na przykład przeprowadzić wiele symulacji cieczy płynącej przez rurę przy różnych średnicach rury.
 
-Pamiętaj, że jest to tylko jeden sposób korzystania z usługi Batch, a w tym scenariuszu opisano tylko kilka jej dostępnych funkcji. Inne możliwości to np. wykonywanie [wielu podzadań równolegle](batch-parallel-node-tasks.md) na każdym węźle obliczeniowym i używanie [podzadań przygotowania i ukończenia zadania](batch-job-prep-release.md) w celu przygotowania węzłów do zadań, a następnie ich wyczyszczenia.
+## <a name="additional-batch-capabilities"></a>Dodatkowe możliwości usługi Batch
+
+Usługa Azure Batch cechuje się również możliwościami wyższego poziomu zależnymi od obciążenia:
+* Usługa Batch obsługuje [obciążenia renderowania](batch-rendering-service.md) na dużą skalę przy użyciu narzędzi do renderowania, takich jak Autodesk Maya, 3ds Max, Arnold i V-Ray. 
+* Użytkownicy języka R mogą instalować [pakiet języka R doAzureParallel](https://github.com/Azure/doAzureParallel), aby łatwo skalować w poziomie algorytmy języka R na pule usługi Batch.
+
+Zadania usługi Batch można też uruchamiać jako część większego przepływu pracy platformy Azure do przekształcania danych, który jest zarządzany przez narzędzia takie jak [Azure Data Factory](../data-factory/v1/data-factory-data-processing-using-batch.md).
+
+
+## <a name="how-it-works"></a>Jak to działa
+Typowy scenariusz korzystania z usługi Batch obejmuje skalowanie w poziomie pracy wewnętrznie równoległej — np. renderowania obrazów dla scen 3D — w puli węzłów obliczeniowych. Ta pula węzłów obliczeniowych może być „farmą renderowania”, która udostępnia dziesiątki, setki lub nawet tysiące rdzeni do zadania renderowania.
+
+Na poniższym diagramie przedstawiono kroki typowego przepływu pracy usługi Batch, w którym aplikacja kliencka lub usługa hostowana używa usługi Batch do uruchamiania obciążenia równoległego.
+
+![Przewodnik po rozwiązaniu usługi Batch](./media/batch-technical-overview/tech_overview_03.png)
+
+
+|Krok  |Opis  |
+|---------|---------|
+|1.  Przekazanie **plików wejściowych** i **aplikacji**, które przetworzą te pliki, na konto usługi Azure Storage.     |Pliki wejściowe mogą zawierać dowolne dane, które aplikacja może przetworzyć, np. dane modelowania finansowego lub pliki wideo do transkodowania. Pliki aplikacji mogą obejmować skrypty lub aplikacje przetwarzające dane, na przykład transkoder multimediów.|
+|2.  Utworzenie **puli** usługi Batch z węzłami obliczeniowymi na koncie usługi Batch, **zadania** do uruchomienia obciążenia w puli i **zadań podrzędnych** w tramach zadania.     | Węzły puli to maszyny wirtualne wykonujące zadania podrzędne. Określ właściwości, takie jak liczba i rozmiar węzłów, obraz maszyny wirtualnej z systemem Windows lub Linux oraz aplikacja do zainstalowania, gdy węzły zostaną przyłączone do puli. Zarządzaj kosztem i rozmiarem puli, używając [maszyn wirtualnych o niskim priorytecie](batch-low-pri-vms.md) lub [automatycznego skalowania](batch-automatic-scaling.md) liczby węzłów w miarę zmian obciążenia. <br/><br/>Po dodaniu zadań podrzędnych do zadania usługa Batch automatycznie planuje wykonanie zadań podrzędnych w węzłach obliczeniowych w puli. Każde zadanie podrzędne używa przekazanej aplikacji w celu przetwarzania plików wejściowych. |
+|3.  Pobieranie **plików wejściowych** i **aplikacji** do usługi Batch     |Zanim każde zadanie podrzędne zostanie wykonane, może pobrać dane wejściowe, które ma przetworzyć, do przypisanego węzła obliczeniowego. Jeśli aplikacja jeszcze nie została zainstalowana na węzłach puli, można ją pobrać w tym miejscu. Po zakończeniu operacji pobierania z usługi Azure Storage zadanie podrzędne jest wykonywane na przypisanym węźle.|
+|4.  Monitorowanie **wykonania zadań podrzędnych**     |Po uruchomieniu zadań podrzędnych wykonaj zapytanie do usługi Batch w celu monitorowania postępu zadania oraz jego zadań podrzędnych. Aplikacja lub usługa kliencka komunikuje się z usługą Batch za pośrednictwem protokołu HTTPS. Ponieważ monitorowane mogą być tysiące zadań podrzędnych uruchomionych w ramach tysięcy węzłów obliczeniowych, upewnij się, że [zapytanie względem usługi Batch jest wydajne](batch-efficient-list-queries.md).|
+|5.  Przekazywanie **danych wyjściowych zadania podrzędnego**     |Gdy zadania podrzędne zostaną ukończone, mogą przekazać dane wynikowe do usługi Azure Storage. Możesz również pobrać pliki bezpośrednio z systemu plików w ramach węzła obliczeniowego.|
+|6.  Pobieranie **plików wyjściowych**     |Jeśli podczas monitorowania zostanie wykryte, że zadania podrzędne w zadaniu zostały ukończone, aplikacja lub usługa kliencka może pobrać dane wyjściowe do dalszego przetwarzania.|
+
+
+
+
+Pamiętaj, że jest to tylko jeden sposób korzystania z usługi Batch, a w tym scenariuszu opisano tylko część jej dostępnych funkcji. Na przykład można uruchamiać [wiele zadań podrzędnych równolegle](batch-parallel-node-tasks.md) na każdym węźle obliczeniowym. Można też użyć [zadań podrzędnych przygotowywania i kończenia zadań](batch-job-prep-release.md), aby przygotować węzły dla swoich zadań, a po wszystkim je wyczyścić. 
+
+Zobacz [Omówienie usługi Batch dla deweloperów](batch-api-basics.md), aby zapoznać się z bardziej szczegółowymi informacjami o pulach, węzłach, zadaniach i zadaniach podrzędnych oraz wielu funkcjach API, których można używać podczas tworzenia aplikacji usługi Batch. 
 
 ## <a name="next-steps"></a>Następne kroki
-Po wstępnym zapoznaniu się z usługą Batch warto uzyskać więcej informacji o tej usłudze i dowiedzieć się, jak można jej używać do przetwarzania obciążeń równoległych wymagających intensywnych obliczeń.
 
-* Przeczytaj artykuł [Batch feature overview for developers](batch-api-basics.md) (Omówienie funkcji usługi Batch dla deweloperów) zawierający informacje kluczowe dla wszystkich osób przygotowujących się do korzystania z usługi Batch. Ten artykuł zawiera bardziej szczegółowe informacje o zasobach usługi Batch, takich jak pule, węzły i zadania oraz wielu funkcjach API, których można używać podczas kompilowania aplikacji usługi Batch.
-* Dowiedz się więcej o [interfejsach API i narzędziach usługi Batch](batch-apis-tools.md) umożliwiających tworzenie rozwiązań usługi Batch.
-* Przeczytaj artykuł [Get started with the Azure Batch library for .NET](batch-dotnet-get-started.md) (Wprowadzenie do biblioteki usługi Azure Batch dla platformy .NET), aby dowiedzieć się, jak używać języka C# i biblioteki usługi Batch dla środowiska .NET w celu wykonania prostego obciążenia przy użyciu popularnego przepływu pracy usługi Batch. Artykuł ten powinien być jednym z pierwszych etapów podczas nauki korzystania z usługi Batch. Istnieje również [wersja samouczka dla języka Python](batch-python-tutorial.md).
-* Pobierz [przykłady kodu w serwisie GitHub][github_samples], aby zobaczyć, jak kod C# i Python może współpracować z usługą Batch w celu planowania i przetwarzania przykładowych obciążeń.
-* Zapoznaj się ze [ścieżką szkoleniową usługi Batch][learning_path] i uzyskaj informacje na temat dostępnych zasobów pomocnych podczas uczenia się pracy z usługą Batch.
+Rozpocznij pracę z usługą Azure Batch, korzystając z jednego z tych przewodników Szybki start:
+* [Uruchamianie pierwszego zadania usługi Batch za pomocą interfejsu wiersza polecenia platformy Azure](quick-create-cli.md)
+* [Uruchamianie pierwszego zadania usługi Batch w witrynie Azure Portal](quick-create-portal.md)
+* [Uruchamianie pierwszego zadania usługi Batch za pomocą interfejsu .NET API](quick-run-dotnet.md)
+* [Uruchamianie pierwszego zadania usługi Batch za pomocą interfejsu Python API](quick-run-python.md)
 
-
-[github_samples]: https://github.com/Azure/azure-batch-samples
-[learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
-
-[1]: ./media/batch-technical-overview/tech_overview_01.png
-[2]: ./media/batch-technical-overview/tech_overview_02.png

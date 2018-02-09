@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: overview
 ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: 0bd3d7a9961e7a095684262ae1031f5a3ac0c3fb
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 393f2dfa29b930622a37b8ad90ee17b794c70aeb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="about-azure-migrate"></a>Informacje o usłudze Azure Migrate
 
@@ -42,7 +42,7 @@ Usługa Azure Migrate ułatwia wykonywanie następujących działań:
 
 ## <a name="what-do-i-need-to-pay-for"></a>Za co są pobierane opłaty?
 
-Usługa Azure Migrate jest dostępna bez dodatkowych opłat. Jednak w okresie wersji zapoznawczej będą obowiązywać dodatkowe opłaty za korzystanie z funkcji wizualizacji zależności. W celu zapewnienia obsługi [wizualizacji zależności](concepts-dependency-visualization.md) usługa Azure Migrate domyślnie tworzy obszar roboczy usługi Log Analytics. W przypadku korzystania z wizualizacji zależności lub obszaru roboczego nienależącego do usługi Azure Migrate są naliczane opłaty za używanie obszaru roboczego. [Dowiedz się więcej](https://azure.microsoft.com/en-us/pricing/details/insight-analytics/) o opłatach. Gdy usługa stanie się ogólnie dostępna, nie będzie opłaty za korzystanie z funkcji wizualizacji zależności.
+Więcej informacji o cenach usługi Azure Migrate można uzyskać [tutaj](https://azure.microsoft.com/en-in/pricing/details/azure-migrate/).
 
 
 ## <a name="whats-in-an-assessment"></a>Co obejmuje ocena?
@@ -56,7 +56,7 @@ Ocena pomaga określić, czy maszyny lokalne są odpowiednie dla platformy Azure
 **Plany cenowe** | Na wynik oceny ma wpływ rejestracja w programie Software Assurance. Można również zastosować [korzyści z używania hybrydowej platformy Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Uwzględniane są również obowiązujące oferty platformy Azure. Można też wskazać procentowe zniżki skojarzone z daną subskrypcją, stosowane do całej oferty. 
 **Warstwa cenowa** | Można wskazać [warstwę cenową (Podstawowa/Standardowa)](../virtual-machines/windows/sizes-general.md) dla maszyn wirtualnych platformy Azure. Ułatwia to migrację do odpowiedniej rodziny maszyn wirtualnych platformy Azure w zależności od używanego środowiska produkcyjnego. Domyślnie jest używana warstwa [Standardowa](../virtual-machines/windows/sizes-general.md).
 **Historia wydajności** | Domyślnie usługa Azure Migrate ocenia wydajność maszyn lokalnych na podstawie miesięcznej historii, przy wartości percentyla równej 95%. Ustawienie to można zmodyfikować.
-**Współczynnik komfortu** | Podczas oceny usługa Azure Migrate uwzględnia bufor (współczynnik komfortu). Jest on stosowany do wszystkich danych użycia maszyn wirtualnych (procesora, pamięci, dysku i sieci). Współczynnik komfortu uwzględnia kwestie, takie jak okresowe użycie, krótka historia wydajności i prawdopodobne zwiększenie użycia w przyszłości.<br/><br/> Na przykład 10-rdzeniowa maszyna wirtualna o użyciu na poziomie 20% jest w normalnych warunkach równoważna 2-rdzeniowej maszynie wirtualnej. Jednak wynik zastosowania współczynnika komfortu o wartości 2.0 daje 4-rdzeniową maszynę wirtualną. Domyślne ustawienie komfortu to 1,3.
+**Współczynnik komfortu** | Podczas oceny usługa Azure Migrate uwzględnia bufor (współczynnik komfortu). Jest on stosowany do wszystkich danych użycia maszyn wirtualnych (procesora, pamięci, dysku i sieci). Współczynnik komfortu uwzględnia kwestie, takie jak okresowe użycie, krótka historia wydajności i prawdopodobne zwiększenie użycia w przyszłości.<br/><br/> Na przykład 10-rdzeniowa maszyna wirtualna o użyciu na poziomie 20% jest w normalnych warunkach równoważna 2-rdzeniowej maszynie wirtualnej. Jednak wynik zastosowania współczynnika komfortu o wartości 2 daje 4-rdzeniową maszynę wirtualną. Domyślne ustawienie komfortu to 1,3.
 
 
 ## <a name="how-does-azure-migrate-work"></a>Jak działa usługa Azure Migrate?

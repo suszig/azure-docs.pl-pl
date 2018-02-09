@@ -114,7 +114,7 @@ W tej sekcji możesz zmodyfikować aplikację urządzenia, utworzony w [Rozpoczy
 
 ## <a name="add-queues-to-your-iot-hub-and-route-messages-to-them"></a>Dodaj do IoT hub i tras wiadomości do nich kolejek
 
-W tej sekcji tworzyć kolejki usługi Service Bus oraz konto magazynu, podłącz je do Centrum IoT i konfigurowanie Centrum IoT do wysyłania wiadomości do kolejki na podstawie obecności właściwości wiadomości i wszystkie komunikaty do konta magazynu. Aby uzyskać więcej informacji o sposobie przetwarzania komunikatów z kolejek usługi Service Bus, zobacz [Rozpoczynanie pracy z kolejkami] [ lnk-sb-queues-node] i zarządzania magazynem, zobacz [Rozpoczynanie pracy z magazynem Azure] [Magazynu azure].
+W tej sekcji tworzyć kolejki usługi Service Bus oraz konto magazynu, podłącz je do Centrum IoT i konfigurowanie Centrum IoT do wysyłania wiadomości do kolejki na podstawie obecności właściwości wiadomości i wszystkie komunikaty do konta magazynu. Aby uzyskać więcej informacji o sposobie przetwarzania komunikatów z kolejek usługi Service Bus, zobacz [Rozpoczynanie pracy z kolejkami][lnk-sb-queues-node] i zarządzania magazynem, zobacz [Rozpoczynanie pracy z magazynem Azure][usługi Azure Storage].
 
 1. Tworzenie kolejki usługi Service Bus, zgodnie z opisem w [Rozpoczynanie pracy z kolejkami][lnk-sb-queues-node]. Zanotuj nazwę przestrzeni nazw i kolejki.
 

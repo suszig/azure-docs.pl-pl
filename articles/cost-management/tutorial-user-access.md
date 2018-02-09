@@ -1,89 +1,89 @@
 ---
-title: "Przypisywanie dostępu w Azure kosztów zarządzania | Dokumentacja firmy Microsoft"
-description: "Przypisywanie dostępu do danych zarządzania z kontami użytkowników, którzy zdefiniować poziomy dostępu do jednostek."
+title: "Przypisywanie dostępu w usłudze Azure Cost Management | Microsoft Docs"
+description: "Przypisywanie dostępu do danych rozwiązania Cost Management przy użyciu kont użytkowników w celu zdefiniowania poziomów dostępu do jednostek."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 10/11/2017
+ms.date: 01/30/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: a42f3b51bf6d888d0d5602887ed317c6164391ef
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
-ms.translationtype: MT
+ms.openlocfilehash: 89639e6d9c06edf110dc8432fbefe1fbfd1298c9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="assign-access-to-cost-management-data"></a>Przypisywanie dostępu do danych zarządzania koszt
+# <a name="assign-access-to-cost-management-data"></a>Przypisywanie dostępu do danych rozwiązania Cost Management
 
-Dostęp do danych zarządzania koszt są dostarczane przez użytkownika lub zarządzania jednostki. Określ konta użytkowników Cloudyn dostęp do *jednostek* i funkcje administracyjne. Dwa typy dostępu: administratora i użytkownika. Jeśli zmodyfikowano dla poszczególnych użytkowników, dostępu z uprawnieniami administratora umożliwia użytkownika bez ograniczeń stosowania wszystkich funkcji w portalu Cloudyn łącznie: Zarządzanie użytkownikami, zarządzania listy adresatów i jednostki głównego dostępu do wszystkich danych jednostki. Dostęp użytkownika jest przeznaczony dla użytkowników końcowych do wyświetlania raportów i tworzenie raportów przy użyciu dostępu, że muszą oni danych jednostki.
+Prawa dostępu do danych rozwiązania Cost Management są przyznawane za pośrednictwem funkcji zarządzania użytkownikami lub jednostkami. Konta użytkowników platformy Cloudyn określają dostęp do *jednostek* i funkcji administracyjnych. Istnieją dwa typy dostępu: administratora i użytkownika. O ile nie zmodyfikowano ich dla poszczególnych użytkowników, prawa dostępu administratora umożliwiają użytkownikowi nieograniczone korzystanie ze wszystkich funkcji w portalu Cloudyn, w tym z funkcji, takich jak: zarządzanie użytkownikami, zarządzanie listami adresatów oraz dostęp jednostki głównej do danych wszystkich jednostek. Dostęp użytkownika jest przeznaczony dla użytkowników końcowych i umożliwia im wyświetlanie raportów oraz tworzenie raportów przy użyciu dostępu do danych jednostki.
 
-Jednostki są używane do uwzględnienia strukturę hierarchiczną organizacji biznesowych. Identyfikują one działów, działów i zespoły w Cloudyn w Twojej organizacji. Hierarchia jednostek pomaga precyzyjnie monitorować wydatków przez jednostki.
+Jednostki są używane do odzwierciedlania struktury hierarchicznej organizacji biznesowej. Identyfikują one działy, oddziały i zespoły Twojej organizacji w rozwiązaniu Cloudyn. Hierarchia jednostek pomaga dokładnie śledzić wydatki dla poszczególnych jednostek.
 
-Po zarejestrowaniu z umową Azure lub konta konta z uprawnieniami administratora został utworzony w Cloudyn, więc można wykonać wszystkie czynności w tym samouczku. Ten samouczek obejmuje dostęp do danych koszt zarządzania, m.in. Zarządzanie użytkownikami i zarządzanie jednostki. Omawiane kwestie:
+Zarejestrowanie konta lub umowy dotyczącej platformy Azure spowodowało utworzenie w rozwiązaniu Cloudyn konta z uprawnieniami administratora, więc możesz wykonać wszystkie czynności opisane w tym samouczku. Ten samouczek dotyczy dostępu do danych rozwiązania Cost Management, w tym danych zarządzania użytkownikami i zarządzania jednostkami. Omawiane kwestie:
 
 > [!div class="checklist"]
-> * Utworzyć użytkownika mającego uprawnienia administratora
-> * Utwórz użytkownika z dostępem użytkowników
-> * Utwórz jednostki
+> * Tworzenie użytkownika z prawami dostępu administratora
+> * Tworzenie użytkownika z prawami dostępu użytkownika
+> * Tworzenie jednostek
 
 
 
-## <a name="create-a-user-with-admin-access"></a>Utworzyć użytkownika mającego uprawnienia administratora
+## <a name="create-a-user-with-admin-access"></a>Tworzenie użytkownika z prawami dostępu administratora
 
-Mimo że masz już dostępu z uprawnieniami administratora, współpracowników w Twojej organizacji może również musi być dostępu z uprawnieniami administratora. W portalu Cloudyn kliknij koło zębate symbol w górnym prawym rogu i wybierz pozycję **Zarządzanie użytkownikami**. Kliknij przycisk **Dodaj nowego użytkownika** można dodać nowego użytkownika.
+Mimo że Ty masz już prawa dostępu administratora, współpracownicy z organizacji mogą również potrzebować takich praw. W portalu Cloudyn kliknij symbol koła zębatego w prawym górnym rogu i wybierz pozycję **Zarządzanie użytkownikami**. Kliknij pozycję **Dodaj nowego użytkownika**, aby dodać nowego użytkownika.
 
-Wprowadź wymagane informacje o użytkowniku. Pole hasła może pozostać puste, dzięki czemu użytkownik może ustawić nowe hasło pierwszego znaku w. Łącze o informacje logowania są wysyłane do użytkownika za pośrednictwem poczty e-mail z Cloudyn po wybraniu **użytkownika powiadamiania pocztą e-mail**. Wybierz uprawnienia, aby umożliwić zarządzanie użytkownikami, aby użytkownik można tworzyć i modyfikować innych użytkowników. Wyświetla listę Zarządzanie adresatami umożliwia użytkownikowi edytowanie listy adresatów.
+Wprowadź wymagane informacje o użytkowniku. Pole hasła może pozostać puste, dzięki czemu użytkownik będzie mógł ustawić nowe hasło podczas pierwszego logowania. Link z informacjami logowania jest wysyłany do użytkownika pocztą e-mail z platformy Cloudyn po wybraniu pozycji **Powiadom użytkownika pocztą e-mail**. Wybierz uprawnienia, aby zezwolić na zarządzanie użytkownikami, co pozwoli użytkownikowi na tworzenie i modyfikowanie innych użytkowników. Zarządzanie listami adresatów umożliwia użytkownikowi edytowanie list adresatów.
 
-W obszarze **użytkownik ma dostęp administratora**, wybrano jednostki głównego Twojej organizacji. Pozostaw zaznaczone głównego, a następnie zapisz informacje o użytkowniku. Wybranie jednostki głównego umożliwia użytkownikowi uprawnień administratora nie tylko do obiektu głównego drzewa, ale także do wszystkich jednostek, które znajdują się poniżej.  
-  ![Dodaj nowego użytkownika z uprawnienia administratora](.\media\tutorial-user-access\new-admin-access.png)
+W obszarze **Użytkownik ma dostęp administratora** wybrano jednostkę główną organizacji. Pozostaw zaznaczoną jednostkę główną i zapisz informacje o użytkowniku. Wybranie jednostki głównej pozwoli użytkownikowi na posiadanie uprawnień administratora nie tylko do jednostki głównej w drzewie, ale także do wszystkich jednostek, które znajdują się pod nią.  
+  ![dodawanie nowego użytkownika z prawami dostępu administratora](.\media\tutorial-user-access\new-admin-access.png)
 
-## <a name="create-a-user-with-user-access"></a>Utwórz użytkownika z dostępem użytkowników
-Typowy użytkowników, którzy potrzebują dostępu do danych zarządzania kosztów, takich jak pulpity nawigacyjne i raporty powinny mieć dostęp użytkownika do ich wyświetlania. Utwórz nowego użytkownika z dostępem użytkowników podobny do tego, który został utworzony przy użyciu dostępu administratora, z następującymi różnicami:
+## <a name="create-a-user-with-user-access"></a>Tworzenie użytkownika z prawami dostępu użytkownika
+Zazwyczaj użytkownicy, którzy potrzebują dostępu do danych rozwiązania Cost Management, takich jak pulpity nawigacyjne i raporty, powinni mieć prawa użytkownika do ich wyświetlania. Utwórz nowego użytkownika z dostępem użytkownika podobnego do utworzonego przy użyciu dostępu administratora, pamiętając o następujących różnicach:
 
-- Wyczyść **umożliwia zarządzanie użytkownikami**, **Zezwalaj odbiorcy wymieniono zarządzania**i Wyczyść wszystko w **użytkownik ma dostęp administratora** listy.
-- Zaznacz obiekty, że użytkownik musi mieć dostęp do w **użytkownik ma dostęp użytkownika** listy.
-- Możesz również zezwolić administratorem w celu uzyskania dostępu do konkretnych obiektów, zgodnie z potrzebami.
+- Usuń zaznaczenie pól **Zezwól na zarządzanie użytkownikami** i **Zezwól na zarządzanie listami adresatów**, a następnie usuń wszystkie pozycje z listy **Użytkownik ma dostęp administratora**.
+- Zaznacz jednostki, do których użytkownik musi mieć dostęp, na liście **Użytkownik ma dostęp użytkownika**.
+- W razie potrzeby możesz również zezwolić administratorowi na dostęp do określonych jednostek.
 
-![Dodaj nowego użytkownika z dostępem użytkowników](.\media\tutorial-user-access\new-user-access.png)
+![dodawanie nowego użytkownika z prawami dostępu użytkownika](.\media\tutorial-user-access\new-user-access.png)
 
-Aby obejrzeć film samouczka temat dodawania użytkowników, zobacz [Dodawanie użytkowników do usługi Azure Management koszt przez Cloudyn](https://youtu.be/Nzn7GLahx30).
+Aby obejrzeć film wideo z samouczkiem dotyczącym dodawania użytkowników, zobacz [Adding Users to Azure Cost Management by Cloudyn (Dodawanie użytkowników do usługi Azure Cost Management na platformie Cloudyn)](https://youtu.be/Nzn7GLahx30).
 
-## <a name="create-entities"></a>Utwórz jednostki
+## <a name="create-entities"></a>Tworzenie jednostek
 
-Podczas definiowania hierarchii kosztów, najlepszym rozwiązaniem jest określenie struktury organizacji.
+W przypadku definiowania hierarchii jednostek kosztów najlepszym rozwiązaniem jest zidentyfikowanie struktury organizacji.
 
-Podczas tworzenia drzewa, należy rozważyć sposób mają lub chcesz wyświetlać swoje koszty rozdzielonych według jednostek biznesowych, kosztów centrów, środowisk i działów sprzedaży. Drzewo jednostki w Cloudyn jest elastyczny dziedziczenia jednostki. Poszczególne subskrypcje dla kont chmurze są połączone z konkretnych obiektów. Tak jednostki są wielodostępnej. Dostęp do określonych użytkowników można przypisać do ich segment firmy przy użyciu jednostek. W ten sposób przechowuje dane samodzielnie, nawet w różnych części dużych firm, takich jak podmioty zależne. I ułatwia zarządzanie izolacji danych.  
+Podczas tworzenia drzewa zastanów się, jak musisz lub chcesz wyświetlać swoje koszty posegregowane według jednostek biznesowych, centrów kosztów, środowisk i działów sprzedaży. Drzewo jednostek w rozwiązaniu Cloudyn jest elastyczne z powodu dziedziczenia jednostek. Poszczególne subskrypcje dla kont w chmurze są połączone z określonymi jednostkami. Dlatego jednostki są wielodostępne. Dostęp poszczególnych użytkowników można przypisywać do tylko do ich segmentu firmy przy użyciu jednostek. Dzięki temu dane są izolowane, nawet w dużych częściach firm, takich jak przedstawicielstwa. Izolacja danych wspomaga także ład.  
 
-Po zarejestrowaniu z umową Azure lub konto z Cloudyn dane zasobów platformy Azure, łącznie z użycia i wydajności, rozliczeń i dane znacznika z subskrypcji został skopiowany do swojego konta Cloudyn. Jednak należy ręcznie utworzyć swoje drzewo jednostki. Jeśli została pominięta rejestracji usługi Azure Resource Manager, następnie tylko danych dotyczących rozliczeń i kilka raportów zasobów są dostępne w portalu Cloudyn.
+Po zarejestrowaniu konta lub umowy związanej z platformą Azure na platformie Cloudyn dane zasobów platformy Azure, w tym dane użycia, wydajności, rozliczeń i tagów, z subskrypcji zostały skopiowane do konta platformy Cloudyn. Drzewo jednostek trzeba jednak utworzyć ręcznie. W przypadku pominięcia rejestracji usługi Azure Resource Manager tylko dane rozliczeń i pewne raporty zasobów są dostępne w portalu Cloudyn.
 
-W portalu Cloudyn kliknij **ustawienia** w górnym prawym rogu i wybierz pozycję **kont chmury**. Rozpocznij pojedynczej jednostki (root) i kompilacji z drzewa jednostki w katalogu głównym. Oto przykład hierarchii jednostek, który może wyglądać organizacje IT po zakończeniu drzewa:
+W portalu Cloudyn kliknij pozycję **Ustawienia** w górnym prawym rogu i wybierz pozycję **Konta w chmurze**. Rozpoczynasz od pojedynczej jednostki (głównej) i tworzysz drzewo jednostek pod tą jednostką główną. Oto przykład hierarchii jednostek, która po ukończeniu drzewa może przypominać wiele organizacji IT:
 
 ![drzewo jednostki](.\media\tutorial-user-access\entity-tree.png)
 
-Obok pozycji **jednostek**, kliknij przycisk **Dodaj jednostki**. Wprowadź informacje o osobie lub działu, które chcesz dodać. **Imię i nazwisko** i **E-mail** pola, aby nie musi odpowiadać istniejących użytkowników. Jeśli chcesz wyświetlić listę poziomy dostępu, wyszukiwanie pomocy dotyczącej *Dodawanie jednostki*.
+Obok pozycji **Jednostki** kliknij pozycję **Dodaj jednostkę**. Wprowadź informacje o osobie lub dziale do dodania. Wartości pól **Imię i nazwisko** i **Adres e-mail** nie muszą być zgodne z danymi istniejących użytkowników. Jeśli chcesz wyświetlić listę poziomów dostępu, wyszukaj w pomocy zagadnienia dotyczące *dodawania jednostki*.
 
-![Dodawanie jednostki](.\media\tutorial-user-access\add-entity.png)
+![dodawanie jednostki](.\media\tutorial-user-access\add-entity.png)
 
-Gdy wszystko będzie gotowe, **zapisać** jednostki.
+Gdy wszystko będzie gotowe, **zapisz** jednostkę.
 
 
-Aby obejrzeć film samouczka tworzenie hierarchii jednostek koszt informacje, zobacz [tworzenie hierarchii jednostek kosztów w Azure koszt zarządzania, Cloudyn](https://youtu.be/dAd9G7u0FmU).
+Aby obejrzeć film wideo z samouczkiem dotyczącym tworzenia hierarchii jednostek kosztów, zobacz [Creating a Cost Entity Hierarchy in Azure Cost Management by Cloudyn (Tworzenie hierarchii jednostek kosztów w usłudze Azure Cost Management na platformie Cloudyn)](https://youtu.be/dAd9G7u0FmU).
 
-Jeśli jesteś użytkownikiem Azure Enterprise Agreement, obejrzyj film samouczka o sposobie kojarzenia konta i subskrypcji do jednostek na [łączenie usługi Azure Resource Manager z usługą Azure Management koszt przez Cloudyn](https://youtu.be/oCIwvfBB6kk).
+Jeśli jesteś użytkownikiem platformy Azure z umową Enterprise Agreement, obejrzyj film z samouczkiem dotyczącym kojarzenia kont i subskrypcji z jednostkami: [Connecting to Azure Resource Manager with Azure Cost Management by Cloudyn (Łączenie z usługą Azure Resource Manager przy użyciu usługi Azure Cost Management na platformie Cloudyn)](https://youtu.be/oCIwvfBB6kk).
 
 ## <a name="next-steps"></a>Następne kroki
 
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Utworzyć użytkownika mającego uprawnienia administratora
-> * Utwórz użytkownika z dostępem użytkowników
-> * Utwórz jednostki
+> * Tworzenie użytkownika z prawami dostępu administratora
+> * Tworzenie użytkownika z prawami dostępu użytkownika
+> * Tworzenie jednostek
 
-Przejdź do następnego samouczkiem, aby dowiedzieć się, jak i prognozowanie wydatków przy użyciu danych historycznych.
+Przejdź do następnego samouczka, aby dowiedzieć się, jak prognozować wydatki przy użyciu danych historycznych.
 
 > [!div class="nextstepaction"]
 > [Prognozowanie wydatków w przyszłości](tutorial-forecast-spending.md)

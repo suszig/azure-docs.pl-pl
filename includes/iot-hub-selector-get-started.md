@@ -3,11 +3,10 @@
 > * [Java](../articles/iot-hub/iot-hub-java-java-getstarted.md)
 > * [Node.js](../articles/iot-hub/iot-hub-node-node-getstarted.md)
 > * [Python](../articles/iot-hub/iot-hub-python-getstarted.md)
-> 
-> 
 
 ## <a name="introduction"></a>Wprowadzenie
-Azure IoT Hub to w pełni zarządzana usługa, która umożliwia bezpieczną i niezawodną komunikację dwukierunkową między milionami urządzeń Internetu rzeczy (IoT) i zapleczem rozwiązania. Jedno z największych wyzwań w projektach IoT polega na tym, jak w sposób niezawodny i bezpieczny połączyć urządzenia z zapleczem rozwiązania. Problem ten można rozwiązać, ponieważ usługa IoT Hub:
+
+Azure IoT Hub to w pełni zarządzana usługa platformy Azure. Ta usługa umożliwia bezpieczną i niezawodną komunikację dwukierunkową między milionami urządzeń Internetu rzeczy (IoT) i zapleczem rozwiązania. Jedno z największych wyzwań w projektach IoT polega na tym, jak w sposób niezawodny i bezpieczny połączyć urządzenia z zapleczem rozwiązania. Problem ten można rozwiązać, ponieważ usługa IoT Hub:
 
 * Zapewnia niezawodne przesyłanie komunikatów z urządzeń do chmury i z chmury do urządzeń w hiperskali;
 * Umożliwia bezpieczne komunikowanie się przy użyciu poświadczeń zabezpieczeń i kontroli dostępu dla poszczególnych urządzeń;

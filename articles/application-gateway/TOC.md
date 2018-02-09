@@ -42,6 +42,9 @@
 ### [Azure PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
 ## Konfigurowanie przekierowania
 ### [Azure PowerShell](application-gateway-configure-redirect-powershell.md)
+## Konfigurowanie zewnętrznego przekierowania
+### [Azure PowerShell](tutorial-external-site-redirect-cli.md)
+### [Interfejs wiersza polecenia platformy Azure](tutorial-external-site-redirect-powershell.md)
 ## Konfigurowanie aplikacji internetowych jako składowych puli zaplecza
 ### [Azure PowerShell](application-gateway-web-app-powershell.md)
 ## Konfigurowanie sond kondycji

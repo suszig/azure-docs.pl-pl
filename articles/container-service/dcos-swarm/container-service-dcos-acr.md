@@ -1,6 +1,6 @@
 ---
-title: "Przy użyciu ACR z klastrem Azure DC/OS"
-description: "Rejestru kontenera Azure za pomocą klastra DC/OS usługi kontenera platformy Azure"
+title: "Korzystanie z usługi ACR z klastrem Azure DC/OS"
+description: "Korzystanie z usługi Azure Container Registry z klastrem DC/OS w usłudze Azure Container Service"
 services: container-service
 author: julienstroheker
 manager: dcaro
@@ -9,39 +9,39 @@ ms.topic: tutorial
 ms.date: 03/23/2017
 ms.author: juliens
 ms.custom: mvc
-ms.openlocfilehash: 4a3213c28f24e9d1dfc309c6d34771ccc062dae4
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: MT
+ms.openlocfilehash: 90d449de19022b3b427e3d89d5beb18bbd36c6b4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>Użyj ACR z klastrem DC/OS, aby wdrożyć aplikację
+# <a name="use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>Wdrażanie aplikacji przy użyciu usługi ACR z klastrem DC/OS
 
-W tym artykule firma Microsoft Poznaj sposób użycia rejestru kontenera platformy Azure z klastrem DC/OS. Przy użyciu ACR umożliwia prywatnie przechowywania obrazów i zarządzanie nimi kontenera. Ten samouczek obejmuje następujące zadania:
+W tym artykule przedstawiamy sposób korzystania z usługi Azure Container Registry z klastrem DC/OS. Dzięki użyciu usługi ACR można prywatnie przechowywać obrazy kontenera i zarządzać nimi. Ten samouczek obejmuje następujące zadania:
 
 > [!div class="checklist"]
-> * Wdrażanie rejestru kontenera platformy Azure (w razie potrzeby)
-> * Skonfiguruj uwierzytelnianie ACR w klastrze DC/OS
-> * Przekazać obraz w rejestrze kontenera platformy Azure
-> * Uruchom obrazu kontenera z rejestru kontenera platformy Azure
+> * Wdrażanie usługi Azure Container Registry (w razie potrzeby)
+> * Konfigurowanie uwierzytelniania ACR w klastrze DC/OS
+> * Przekazywanie obrazu do usługi Azure Container Registry
+> * Uruchamianie obrazu z usługi Azure Container Registry
 
-Należy klastra ACS DC/OS, aby wykonać kroki opisane w tym samouczku. W razie potrzeby [w tym przykładzie skrypt](./../kubernetes/scripts/container-service-cli-deploy-dcos.md) można utworzyć.
+Do wykonania kroków opisanych w tym samouczku potrzebujesz klastra DC/OS usługi ACS. W razie potrzeby [ten przykładowy skrypt](./../kubernetes/scripts/container-service-cli-deploy-dcos.md) pomoże Ci go utworzyć.
 
 Dla tego samouczka wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## <a name="deploy-azure-container-registry"></a>Wdrażanie rejestru kontenera platformy Azure
+## <a name="deploy-azure-container-registry"></a>Wdrażanie usługi Azure Container Registry
 
-W razie potrzeby utwórz rejestru kontenera Azure [az acr utworzyć](/cli/azure/acr#create) polecenia. 
+W razie potrzeby utwórz rejestr Azure Container Registry za pomocą polecenia [az acr create](/cli/azure/acr#az_acr_create). 
 
-Poniższy przykład tworzy rejestru z losowo wygenerować nazwę. Rejestr jest również konfigurowany za pomocą konta administratora przy użyciu `--admin-enabled` argumentu.
+Poniższy przykład tworzy rejestr z losowo wygenerowaną nazwą. Rejestr jest również konfigurowany za pomocą konta administratora przy użyciu argumentu `--admin-enabled`.
 
 ```azurecli-interactive
 az acr create --resource-group myResourceGroup --name myContainerRegistry$RANDOM --sku Basic
 ```
 
-Po utworzeniu rejestru interfejsu wiersza polecenia Azure generuje danych podobny do następującego. Zwróć uwagę na `name` i `loginServer`, są one używane w kolejnych krokach.
+Po utworzeniu rejestru interfejs wiersza polecenia platformy Azure generuje dane wyjściowe podobne do poniższych. Zanotuj wartości `name` i `loginServer` — będą one używane w kolejnych krokach.
 
 ```azurecli
 {
@@ -64,59 +64,59 @@ Po utworzeniu rejestru interfejsu wiersza polecenia Azure generuje danych podobn
 }
 ```
 
-Pobierz kontener przy użyciu poświadczeń rejestru [Pokaż poświadczeń acr az](/cli/azure/acr/credential) polecenia. SUBSTITUTE `--name` z elementem zauważyć w ostatnim kroku. Zwróć uwagę jednego hasła jest potrzebna w kolejnym kroku.
+Pobierz poświadczenia rejestru kontenerów przy użyciu polecenia [az acr credential show](/cli/azure/acr/credential). Zastąp wartość `--name` wartością zapisaną w poprzednim kroku. Zapisz hasło — będzie ono potrzebne w kolejnym kroku.
 
 ```azurecli-interactive
 az acr credential show --name myContainerRegistry23489
 ```
 
-Aby uzyskać więcej informacji na rejestru kontenera platformy Azure, zobacz [wprowadzenie do prywatnego rejestrów kontenera Docker](../../container-registry/container-registry-intro.md). 
+Aby uzyskać więcej informacji na temat usługi Azure Container Registry, zobacz [Wprowadzenie do prywatnych rejestrów kontenerów platformy Docker na platformie Azure](../../container-registry/container-registry-intro.md). 
 
-## <a name="manage-acr-authentication"></a>Zarządzanie ACR uwierzytelniania
+## <a name="manage-acr-authentication"></a>Zarządzanie uwierzytelnianiem usługi ACR
 
-Konwencjonalne sposobem obrazu wypychania i ściągania z rejestru prywatnej jest najpierw uwierzytelnić się w rejestrze. Aby to zrobić, należy użyć `docker login` na klienta, który wymaga dostępu do rejestru prywatnych. Ponieważ klaster DC/OS może zawierać wiele węzłów, które mają być uwierzytelniane z ACR, warto zautomatyzować ten proces w każdym węźle. 
+Konwencjonalnym sposobem ściągania i wypychania obrazu z prywatnego rejestru jest uwierzytelnienie się najpierw przy użyciu rejestru. W tym celu należy użyć polecenia `docker login` dla dowolnego klienta, który wymaga dostępu do rejestru prywatnego. Ponieważ klaster DC/OS może zawierać wiele węzłów, które mają być uwierzytelniane przy użyciu usługi ACR, warto zautomatyzować ten proces w każdym węźle. 
 
-### <a name="create-shared-storage"></a>Utwórz magazyn udostępniony
+### <a name="create-shared-storage"></a>Tworzenie magazynu udostępnionego
 
-Ten proces wykorzystuje na udział plików na platformę Azure, który został zainstalowany w każdym węźle w klastrze. Jeśli Magazyn udostępniony nie mają już skonfigurowany, zobacz [udział plików w klastrze DC/OS](container-service-dcos-fileshare.md).
+W tym procesie jest używany udział plików platformy Azure, który został zainstalowany w każdym węźle klastra. Jeśli jeszcze nie skonfigurowano magazynu udostępnionego, zobacz [Setup a file share inside a DC/OS cluster (Konfigurowanie udziału plików w klastrze DC/OS)](container-service-dcos-fileshare.md).
 
-### <a name="configure-acr-authentication"></a>Skonfiguruj uwierzytelnianie ACR
+### <a name="configure-acr-authentication"></a>Konfigurowanie uwierzytelniania usługi ACR
 
-Najpierw uzyskać nazwę FQDN wzorca DC/OS i zapisze go w zmiennej.
+Najpierw uzyskaj nazwę FQDN wzorca DC/OS i zapisz ją w zmiennej.
 
 ```azurecli-interactive
 FQDN=$(az acs list --resource-group myResourceGroup --query "[0].masterProfile.fqdn" --output tsv)
 ```
 
-Utwórz połączenie SSH z wzorcem (lub pierwszego serwera głównego) klastra systemu DC/OS. Zaktualizuj nazwę użytkownika, jeśli wartości innych niż domyślne był używany podczas tworzenia klastra.
+Utwórz połączenie SSH przy użyciu wzorca (lub pierwszego wzorca) klastra opartego na rozwiązaniu DC/OS. Zaktualizuj nazwę użytkownika, jeśli podczas tworzenia klastra użyto wartości innej niż domyślna.
 
 ```azurecli-interactive
 ssh azureuser@$FQDN
 ```
 
-Uruchom następujące polecenie, aby zalogować się do rejestru kontenera platformy Azure. Zastąp `--username` o nazwie rejestru kontenera i `--password` jeden z dostarczonego hasła. Zastąp ostatni argument *mycontainerregistry.azurecr.io* w tym przykładzie nazwą loginServer rejestru kontenera. 
+Następnie użyj poniższego polecenia, aby zalogować się do usługi Azure Container Registry. Zastąp element `--username` nazwą rejestru kontenerów, a element `--password` — jednym z podanych haseł. Zastąp ostatni argument *mycontainerregistry.azurecr.io* w tym przykładzie nazwą loginServer rejestru kontenerów. 
 
-To polecenie zapisuje wartości uwierzytelniania lokalnie w obszarze `~/.docker` ścieżki.
+To polecenie przechowuje wartości uwierzytelniania lokalnie w ścieżce `~/.docker`.
 
 ```azurecli-interactive
 docker -H tcp://localhost:2375 login --username=myContainerRegistry23489 --password=//=ls++q/m+w+pQDb/xCi0OhD=2c/hST mycontainerregistry.azurecr.io
 ```
 
-Tworzenie pliku skompresowanego, który zawiera wartości uwierzytelniania rejestru kontenera.
+Utwórz plik skompresowany, który zawiera wartości uwierzytelniania rejestru kontenerów.
 
 ```azurecli-interactive
 tar czf docker.tar.gz .docker
 ```
 
-Skopiuj ten plik do magazynu udostępnionego klastra. Ten krok sprawia, że plik jest dostępny we wszystkich węzłach klastra DC/OS.
+Skopiuj ten plik do magazynu udostępnionego klastra. Ten krok powoduje udostępnienie pliku we wszystkich węzłach klastra DC/OS.
 
 ```azurecli-interactive
 cp docker.tar.gz /mnt/share/dcosshare
 ```
 
-## <a name="upload-image-to-acr"></a>Przekaż obraz do awaryjnego
+## <a name="upload-image-to-acr"></a>Przekazywanie obrazu do usługi ACR
 
-Teraz z komputerze deweloperskim lub inne systemy z Docker zainstalowane, tworzenie obrazu i przekaż go do rejestru kontenera platformy Azure.
+Teraz na maszynie deweloperskiej lub w innym systemie z zainstalowaną platformą Docker utwórz obraz i przekaż go do usługi Azure Container Registry.
 
 Utwórz kontener na podstawie obrazu Ubuntu.
 
@@ -124,27 +124,27 @@ Utwórz kontener na podstawie obrazu Ubuntu.
 docker run ubuntu --name base-image
 ```
 
-Teraz przechwytywania kontenera do nowego obrazu. Nazwa obrazu musi zawierać `loginServer` registrywith kontenera w formacie nazwa `loginServer/imageName`.
+Teraz przechwyć kontener do nowego obrazu. Nazwa obrazu musi zawierać nazwę `loginServer` rejestru kontenerów w następującym formacie: `loginServer/imageName`.
 
 ```azurecli-interactive
 docker -H tcp://localhost:2375 commit base-image mycontainerregistry30678.azurecr.io/dcos-demo
 ````
 
-Zaloguj się do rejestru kontenera platformy Azure. Zamień nazwę nazwę loginServer — nazwa użytkownika o nazwie rejestru kontenera i--hasła za pomocą jednego z podanych haseł.
+Zaloguj się do usługi Azure Container Registry. Zastąp nazwę nazwą loginServer, argument --username nazwą rejestru kontenerów, a argument --password jednym z podanych haseł.
 
 ```azurecli-interactive
 docker login --username=myContainerRegistry23489 --password=//=ls++q/m+w+pQDb/xCi0OhD=2c/hST mycontainerregistry2675.azurecr.io
 ```
 
-Na koniec Przekaż obraz w rejestrze ACR. W tym przykładzie przesyła obraz o nazwie dcos demonstracyjnej.
+Na koniec przekaż obraz do rejestru usługi ACR. W tym przykładzie przekazywany jest obraz o nazwie dcos-demo.
 
 ```azurecli-interactive
 docker push mycontainerregistry30678.azurecr.io/dcos-demo
 ```
 
-## <a name="run-an-image-from-acr"></a>Uruchom obrazu z ACR
+## <a name="run-an-image-from-acr"></a>Uruchamianie obrazu z poziomu usługi ACR
 
-Aby użyć obrazu z rejestru ACR, Utwórz plik nazwy *acrDemo.json* i skopiuj następujący tekst do niego. Zamień na nazwę obrazu nazwa loginServer rejestru kontenera i nazwy obrazu, na przykład `loginServer/imageName`. Zwróć uwagę na `uris` właściwości. Ta właściwość zawiera lokalizację pliku uwierzytelniania rejestru kontenera, w tym przypadku jest udział plików Azure, który jest zainstalowany na każdym węźle w klastrze DC/OS.
+Aby użyć obrazu z rejestru usługi ACR, utwórz nazwy pliku *acrDemo.json* i skopiuj do niego poniższy tekst. Zastąp nazwę obrazu nazwą loginServer rejestru kontenerów i nazwą obrazu, na przykład `loginServer/imageName`. Zanotuj wartość właściwości `uris`. W tej właściwości jest przechowywana lokalizacja pliku uwierzytelniania rejestru kontenerów. W tym przypadku jest to udział plików platformy Azure zainstalowany w każdym węźle klastra DC/OS.
 
 ```json
 {
@@ -184,7 +184,7 @@ Aby użyć obrazu z rejestru ACR, Utwórz plik nazwy *acrDemo.json* i skopiuj na
 }
 ```
 
-Wdrożenie aplikacji z poziomu interfejsu wiersza polecenia DC / ° c.
+Wdróż aplikację przy użyciu interfejsu wiersza polecenia DC/OC.
 
 ```azurecli-interactive
 dcos marathon app add acrDemo.json
@@ -192,10 +192,10 @@ dcos marathon app add acrDemo.json
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku zostały skonfiguruj DC/OS, aby użyć rejestru kontenera Azure, łącznie z następujących zadań:
+W tym samouczku skonfigurowano rozwiązanie DC/OS do korzystania z usługi Azure Container Registry, w tym wykonano następujące zadania:
 
 > [!div class="checklist"]
-> * Wdrażanie rejestru kontenera platformy Azure (w razie potrzeby)
-> * Skonfiguruj uwierzytelnianie ACR w klastrze DC/OS
-> * Przekazać obraz w rejestrze kontenera platformy Azure
-> * Uruchom obrazu kontenera z rejestru kontenera platformy Azure
+> * Wdrażanie usługi Azure Container Registry (w razie potrzeby)
+> * Konfigurowanie uwierzytelniania ACR w klastrze DC/OS
+> * Przekazywanie obrazu do usługi Azure Container Registry
+> * Uruchamianie obrazu z usługi Azure Container Registry

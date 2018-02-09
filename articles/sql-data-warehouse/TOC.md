@@ -9,6 +9,10 @@
 ## Wstrzymywanie i wznawianie obliczeń
 ### [Portal](pause-and-resume-compute-portal.md)
 ### [Program PowerShell](pause-and-resume-compute-powershell.md)
+## Skalowanie zasobów obliczeniowych
+### [Portal](quickstart-scale-compute-portal.md)
+### [Program PowerShell](quickstart-scale-compute-powershell.md)
+### [T-SQL](quickstart-scale-compute-tsql.md)
 
 
 # Samouczki
@@ -113,8 +117,6 @@
 ### [Analizowanie obciążenia](analyze-your-workload.md)
 
 ## Skalowanie w poziomie
-### [Zarządzanie obliczeniami — portal](sql-data-warehouse-manage-compute-portal.md)
-### [Zarządzanie obliczeniami — program PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 ### [Zarządzanie obliczeniami — interfejs API REST](sql-data-warehouse-manage-compute-rest-api.md)
 ### [Automatyzowanie poziomów obliczeniowych](manage-compute-with-azure-functions.md)
 

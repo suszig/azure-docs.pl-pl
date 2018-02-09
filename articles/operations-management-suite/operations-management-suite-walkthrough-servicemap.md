@@ -1,6 +1,6 @@
 ---
 title: "Samodzielnie realizowany pokaz rozwiązania mapy usługi | Microsoft Docs"
-description: "Mapa usługi jest rozwiązaniem pakietu Operations Management Suite (OMS), które automatycznie odnajduje składniki aplikacji w systemach Windows i Linux oraz mapuje komunikację między usługami.  Jest to pokaz realizowany samodzielnie, który demonstruje użycie mapy usługi do zidentyfikowania i zdiagnozowania symulowanego problemu w aplikacji sieci Web."
+description: "Usługa Service Map jest rozwiązaniem platformy Azure, które automatycznie odnajduje składniki aplikacji w systemach Windows i Linux oraz mapuje komunikację między usługami.  Jest to pokaz realizowany samodzielnie, który demonstruje użycie mapy usługi do zidentyfikowania i zdiagnozowania symulowanego problemu w aplikacji sieci Web."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: bwren
-ms.openlocfilehash: c3548d24c74f8ad865b22d6af3490d0b5cc77a84
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 35fe4e95eae8b63425abc8ed2970c0ad51073883
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="operations-management-suite-oms-self-paced-demo---service-map"></a>Samodzielnie realizowany pokaz pakietu Operations Management Suite (OMS) — mapa usługi
-Jest to pokaz realizowany samodzielnie, który demonstruje użycie [rozwiązania mapy usługi](operations-management-suite-service-map.md) w pakiecie Operations Management Suite (OMS) w celu zidentyfikowania i zdiagnozowania symulowanego problemu w aplikacji sieci Web.  Mapa usługi automatycznie odnajduje składniki aplikacji w systemach Windows i Linux oraz mapuje komunikację między usługami.  Konsoliduje ona również dane zebrane przez inne usługi pakietu OMS, aby pomóc w analizowaniu wydajności oraz identyfikowaniu problemów.  Skorzystasz także z funkcji [przeszukiwania dzienników w usłudze Log Analytics](../log-analytics/log-analytics-log-searches.md), aby przejść do szczegółów zebranych danych w celu zidentyfikowania głównego problemu.
+# <a name="self-paced-demo---service-map"></a>Pokaz realizowany samodzielnie — Service Map
+Jest to pokaz realizowany samodzielnie, który demonstruje użycie [rozwiązania Service Map](operations-management-suite-service-map.md) na platformie Azure do zidentyfikowania i zdiagnozowania symulowanego problemu w aplikacji internetowej.  Mapa usługi automatycznie odnajduje składniki aplikacji w systemach Windows i Linux oraz mapuje komunikację między usługami.  Konsoliduje ona również dane zebrane przez inne usługi i rozwiązania, aby pomóc w analizowaniu wydajności oraz identyfikowaniu problemów.  Korzystasz także z funkcji [przeszukiwania dzienników w usłudze Log Analytics](../log-analytics/log-analytics-log-searches.md), aby przejść do szczegółów zebranych danych w celu zidentyfikowania głównego problemu.
 
 
 ## <a name="scenario-description"></a>Opis scenariusza
@@ -35,7 +35,7 @@ Właśnie odebrano powiadomienie, że aplikacja ACME Customer Portal ma problemy
 ## <a name="walk-through"></a>Przewodnik
 
 ### <a name="1-connect-to-the-oms-experience-center"></a>1. Nawiąż połączenie z centrum OMS Experience Center
-Ten przewodnik korzysta z centrum [Operations Management Suite Experience Center](https://experience.mms.microsoft.com/), które zapewnia kompletne środowisko OMS z przykładowymi danymi. Rozpocznij, klikając ten link, podaj informacje, a następnie wybierz scenariusz **Insight and Analytics**.
+Ten przewodnik korzysta z centrum [Operations Management Suite Experience Center](https://experience.mms.microsoft.com/), które zapewnia kompletne środowisko usługi Log Analytics z przykładowymi danymi. Rozpocznij, klikając ten link, podaj informacje, a następnie wybierz scenariusz **Insight and Analytics**.
 
 
 ### <a name="2-start-service-map"></a>2. Uruchamianie mapy usługi
@@ -43,7 +43,7 @@ Uruchom rozwiązanie mapy usługi, klikając kafelek **Mapa usługi**.
 
 ![Kafelek Mapa usługi](media/operations-management-suite-walkthrough-servicemap/tile.png)
 
-Zostanie wyświetlona konsola mapy usługi.  W okienku po lewej stronie znajduje się lista komputerów w Twoim środowisku z zainstalowanym agentem mapy usługi.  Z tej listy wybierzesz komputer do wyświetlenia.
+Zostanie wyświetlona konsola mapy usługi.  W okienku po lewej stronie znajduje się lista komputerów w Twoim środowisku z zainstalowanym agentem mapy usługi.  Z tej listy wybierasz komputer do wyświetlenia.
 
 ![Lista komputerów](media/operations-management-suite-walkthrough-servicemap/computer-list.png)
 
@@ -80,7 +80,7 @@ Przyjrzyjmy się bliżej serwerowi **acmetomcat**.  Kliknij w prawym górnym rog
 
 
 ### <a name="7-view-change-tracking"></a>7. Wyświetl dane śledzenia zmian
-Spróbujmy dowiedzieć się, co jest przyczyną tego wysokiego wykorzystania.  Kliknij kartę **Podsumowanie**.  Zawiera ona informacje zebrane przez pakiet OMS z komputera, np. informacje o połączeniach zakończonych niepowodzeniem, alertach krytycznych i zmianach oprogramowania.  Sekcje z interesującymi aktualnymi informacjami powinny być już rozwinięte. Możesz też rozwinąć inne sekcje w celu inspekcji zawartych w nich informacji.
+Spróbujmy dowiedzieć się, co jest przyczyną tego wysokiego wykorzystania.  Kliknij kartę **Podsumowanie**.  Zawiera ona informacje zebrane przez usługę Log Analytics z komputera, np. informacje o połączeniach zakończonych niepowodzeniem, alertach krytycznych i zmianach oprogramowania.  Sekcje z odpowiednimi aktualnymi informacjami powinny być już rozwinięte. Możesz też rozwinąć inne sekcje w celu inspekcji zawartych w nich informacji.
 
 
 Jeśli sekcja **Śledzenie zmian** nie jest jeszcze otwarta, rozwiń ją.  Pokazuje ona informacje zebrane przez [rozwiązanie do śledzenia zmian](../log-analytics/log-analytics-change-tracking.md).  Wygląda na to, że w tym przedziale czasu nastąpiła zmiana oprogramowania.  Kliknij kartę **Oprogramowanie** w celu uzyskania szczegółowych informacji.  Proces tworzenia kopii zapasowej został dodany do maszyny zaraz po godzinie 4:00, więc prawdopodobnie to jest przyczyna nadmiernego korzystania z zasobów.
@@ -90,28 +90,28 @@ Jeśli sekcja **Śledzenie zmian** nie jest jeszcze otwarta, rozwiń ją.  Pokaz
 
 
 ### <a name="8-view-details-in-log-search"></a>8. Wyświetl szczegóły w funkcji przeszukiwania dzienników
-Możemy to potwierdzić, przeglądając szczegółowe informacje dotyczące wydajności zebrane w repozytorium Log Analytics.  Ponownie kliknij kartę **Alerty**, a następnie kliknij jeden z alertów **Wysokie użycie procesora CPU**.  Kliknij opcję **Pokaż podczas wyszukiwania dziennika**.  Spowoduje to otwarcie okna Przeszukiwanie dzienników, w którym można [przeszukiwać dzienniki](../log-analytics/log-analytics-log-searches.md) pod kątem danych przechowywanych w repozytorium.  Mapa usługi już wypełniła zapytanie w celu pobrania alertu, który nas interesuje.  
+Możemy to potwierdzić, przeglądając szczegółowe informacje dotyczące wydajności zebrane w obszarze roboczym usługi Log Analytics.  Ponownie kliknij kartę **Alerty**, a następnie kliknij jeden z alertów **Wysokie użycie procesora CPU**.  Kliknij opcję **Pokaż podczas wyszukiwania dziennika**.  Spowoduje to otwarcie okna Przeszukiwanie dzienników, w którym można [przeszukiwać dzienniki](../log-analytics/log-analytics-log-searches.md) pod kątem danych przechowywanych w obszarze roboczym.  Usługa Service Map już wypełniła zapytanie w celu pobrania alertu, który nas interesuje.  
 
 ![Wyszukiwanie w dzienniku](./media/operations-management-suite-walkthrough-servicemap/log-search.png)
 
 
 ### <a name="9-open-saved-search"></a>9. Otwórz zapisane wyszukiwanie
-Zobaczmy, czy uda nam się uzyskać więcej szczegółów na temat kolekcji danych wydajności, która wygenerowała ten alert, i potwierdzić nasze podejrzenie, że problemy powoduje proces tworzenia kopii zapasowej.  Zmień zakres czasu na **6 godzin**.  Następnie kliknij kartę **Ulubione** i przewiń w dół do zapisanych wyszukiwań w sekcji **Mapa usługi**.  Są to zapytania utworzone specjalnie na potrzeby tej analizy.  Kliknij zapytanie **5 procesów najbardziej obciążających procesor CPU serwera acmetomcat**.
+Zobaczmy, czy uda nam się uzyskać więcej szczegółów na temat kolekcji danych wydajności, która wygenerowała ten alert, i potwierdzić nasze podejrzenie, że problemy powoduje proces tworzenia kopii zapasowej.  Zmień zakres czasu na **6 godzin**.  Następnie kliknij kartę **Ulubione** i przewiń w dół do zapisanych wyszukiwań w sekcji **Mapa usługi**.  Utworzyliśmy te zapytania specjalnie na potrzeby tej analizy.  Kliknij zapytanie **5 procesów najbardziej obciążających procesor CPU serwera acmetomcat**.
 
 ![Zapisane wyszukiwanie](./media/operations-management-suite-walkthrough-servicemap/saved-search.png)
 
 
 To zapytanie zwraca listę 5 procesów najbardziej obciążających procesor serwera **acmetomcat**.  Możesz sprawdzić zapytanie w celu wstępnego zapoznania się z językiem zapytań używanym do przeszukiwania dzienników.  Jeśli interesują Cię procesy na innych komputerach, możesz zmodyfikować zapytanie, aby pobrać te informacje.
 
-W tym przypadku widać, że proces tworzenia kopii zapasowej stale używa około 60% procesora CPU serwera aplikacji.  Jest dość oczywiste, że ten nowy proces jest odpowiedzialny za problem z wydajnością.  Naszym rozwiązaniem byłoby usunięcie tego nowego oprogramowania do tworzenia kopii zapasowych z serwera aplikacji.  Moglibyśmy wykorzystać funkcję Desired State Configuration (DSC) zarządzaną przez usługę Azure Automation w celu zdefiniowania zasad, które zapewnią, że ten proces nigdy nie będzie uruchamiany w systemach krytycznych.
+W tym przypadku widać, że proces tworzenia kopii zapasowej stale używa około 60% procesora CPU serwera aplikacji.  Jest oczywiste, że ten nowy proces jest odpowiedzialny za problem z wydajnością.  Naszym rozwiązaniem byłoby usunięcie tego nowego oprogramowania do tworzenia kopii zapasowych z serwera aplikacji.  Moglibyśmy użyć funkcji Desired State Configuration (DSC) zarządzanej przez usługę Azure Automation w celu zdefiniowania zasad, które zapewnią, że ten proces nigdy nie będzie uruchamiany w systemach krytycznych.
 
 
 ## <a name="summary-points"></a>Punkty podsumowujące
 - [Mapa usługi](operations-management-suite-service-map.md) udostępnia widok całej aplikacji nawet wtedy, gdy nie znasz wszystkich jej serwerów i zależności.
-- Mapa usługi prezentuje dane zbierane przez inne rozwiązania pakietu OMS, aby pomóc w identyfikowaniu problemów dotyczących aplikacji i jej podstawowej infrastruktury.
-- [Przeszukiwanie dzienników](../log-analytics/log-analytics-log-searches.md) pozwala na przechodzenie do szczegółów określonych danych zebranych w repozytorium Log Analytics.    
+- Usługa Service Map prezentuje dane zbierane przez inne rozwiązania do zarządzania, aby pomóc w identyfikowaniu problemów dotyczących aplikacji i jej podstawowej infrastruktury.
+- [Przeszukiwanie dzienników](../log-analytics/log-analytics-log-searches.md) pozwala na przechodzenie do szczegółów określonych danych zebranych w obszarze usługi Log Analytics.    
 
 ## <a name="next-steps"></a>Następne kroki
 - Dowiedz się więcej o [mapie usługi](operations-management-suite-service-map.md).
 - [Wdróż i skonfiguruj](operations-management-suite-service-map-configure.md) mapę usługi.
-- Dowiedz się więcej o usłudze [Log Analytics](../log-analytics/log-analytics-overview.md), która jest wymagana, aby korzystać z mapy usługi, i zawiera dane operacyjne przechowywane przez agentów.
+- Dowiedz się więcej o usłudze [Log Analytics](../log-analytics/log-analytics-overview.md), która jest wymagana, aby korzystać z usługi Service Map, i zawiera dane operacyjne przechowywane przez agentów.
