@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: bdabdbbb3037f3325c107a4e6148873a923b4ded
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 2ecb8f8068043936d00f2c9752666490137414e3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>Tworzenie pierwszej aplikacji niezawodnych usług stanowych w usłudze Service Fabric w języku C#
 
@@ -81,6 +81,17 @@ Gdy klaster jest gotowy, z aplikacji znajdującej się w zestawie SDK otrzymasz 
 Po uruchomieniu aplikacji program Visual Studio automatycznie wyświetla okno **podglądu zdarzeń diagnostycznych**, w którym można zobaczyć wyniki śledzenia usług.
    
 ![Podgląd zdarzeń diagnostycznych][5]
+
+>[!NOTE]
+>Zdarzenia powinny automatycznie rozpocząć śledzenie w Podglądzie zdarzeń diagnostycznych, ale jeśli konieczne się okaże ich ręczne skonfigurowanie, najpierw otwórz plik `ServiceEventSource.cs` znajdujący się w projekcie **MyStatefulService**. Skopiuj wartość atrybutu `EventSource` u góry klasy `ServiceEventSource`. W przykładzie poniżej źródło zdarzenia ma nazwę `"MyCompany-MyApplication-MyStatefulService"` (u Ciebie może ona być inna).
+>
+>![Lokalizowanie nazwy źródła zdarzeń usługi][service-event-source-name]
+>
+>Następnie kliknij ikonę koła zębatego zlokalizowaną na karcie Podgląd zdarzeń diagnostycznych w celu otworzenia okna dialogowego **Dostawcy ETW**. Wklej nazwę właśnie skopiowanego źródła zdarzeń do pola wejściowego **Dostawcy ETW**. Następnie kliknij przycisk **Zastosuj**. To spowoduje automatyczne rozpoczęcie śledzenia zdarzeń.
+>
+>![Ustawianie nazwy źródła zdarzeń diagnostycznych][setting-event-source-name]
+>
+>W oknie Zdarzenia diagnostyczne powinny się teraz zacząć pojawiać zdarzenia.
 
 Używany szablon usługi stanowej przedstawia wartość licznika, która zwiększa się w metodzie `RunAsync` w pliku **MyStatefulService.cs**.
 
@@ -146,3 +157,5 @@ Dowiedz się więcej o [niezawodnych usługach](service-fabric-reliable-services
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 [switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png
 [cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
+[service-event-source-name]: ./media/service-fabric-create-your-first-application-in-visual-studio/event-source-attribute-value.png
+[setting-event-source-name]: ./media/service-fabric-create-your-first-application-in-visual-studio/setting-event-source-name.png

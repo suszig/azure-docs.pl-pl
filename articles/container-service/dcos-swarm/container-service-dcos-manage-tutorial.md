@@ -1,6 +1,6 @@
 ---
-title: "Samouczek usługi kontenera platformy Azure — Zarządzanie DC/OS"
-description: "Samouczek usługi kontenera platformy Azure — Zarządzanie DC/OS"
+title: "Samouczek usługi Azure Container Service — zarządzanie systemem DC/OS"
+description: "Samouczek usługi Azure Container Service — zarządzanie systemem DC/OS"
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,31 +9,31 @@ ms.topic: tutorial
 ms.date: 07/17/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 0c58bd764cf0fdacd55675f8343c6e7481a11823
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: MT
+ms.openlocfilehash: 04b5d158c636668a726e046e4f471b452e31ff0d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="azure-container-service-tutorial---manage-dcos"></a>Samouczek usługi kontenera platformy Azure — Zarządzanie DC/OS
+# <a name="azure-container-service-tutorial---manage-dcos"></a>Samouczek usługi Azure Container Service — zarządzanie systemem DC/OS
 
-DC/OS przewiduje uruchamianie nowoczesnych i konteneryzowanych aplikacji rozproszonej platformy. Z usługi kontenera platformy Azure inicjowania obsługi klastra DC/OS gotowy produkcji jest proste i szybkie. Szczegóły tego szybki start, podstawowe kroki potrzebne do wdrożenia klastra DC/OS i wykonywania podstawowych obciążenia.
+System DC/OS zapewnia rozproszoną platformę dla nowoczesnych, konteneryzowanych aplikacji. Usługa Azure Container Service umożliwia łatwe i szybkie inicjowanie obsługi produkcyjnego klastra DC/OS. W tym przewodniku Szybki start przedstawiono szczegółowo podstawowe kroki wdrażania klastra DC/OS oraz uruchamiania podstawowego obciążenia.
 
 > [!div class="checklist"]
-> * Tworzenie klastra usługi ACS DC/OS
+> * Tworzenie klastra DC/OS usługi ACS
 > * Łączenie z klastrem
 > * Instalowanie interfejsu wiersza polecenia DC/OS
-> * Wdrażanie aplikacji do klastra
+> * Wdrażanie aplikacji w klastrze
 > * Skalowanie aplikacji w klastrze
 > * Skalowanie węzłów klastra DC/OS
-> * Podstawowe możliwości zarządzania DC/OS
-> * Usuń klaster DC/OS
+> * Zarządzanie podstawowe systemem DC/OS
+> * Usuwanie klastra DC/OS
 
 Dla tego samouczka wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-dcos-cluster"></a>Tworzenie klastra DC/OS
 
-Najpierw utwórz nową grupę zasobów o [Tworzenie grupy az](/cli/azure/group#create) polecenia. Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. 
+Najpierw utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#az_group_create). Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. 
 
 Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myResourceGroup* w lokalizacji *westeurope*.
 
@@ -41,9 +41,9 @@ Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myResourceGroup*
 az group create --name myResourceGroup --location westeurope
 ```
 
-Następnie Utwórz klaster DC/OS z [az acs utworzyć](/cli/azure/acs#create) polecenia.
+Aby następnie utworzyć klaster DC/OS, użyj polecenia [az acs create](/cli/azure/acs#az_acs_create).
 
-Poniższy przykład tworzy klaster DC/OS o nazwie *myDCOSCluster* i tworzy kluczy SSH, jeśli jeszcze nie istnieje. Aby użyć określonego zestawu kluczy, użyj opcji `--ssh-key-value`.  
+Następujący przykład umożliwia utworzenie klastra DC/OS o nazwie *myDCOSCluster* oraz kluczy SSH, jeśli jeszcze nie istnieją. Aby użyć określonego zestawu kluczy, użyj opcji `--ssh-key-value`.  
 
 ```azurecli
 az acs create \
@@ -53,17 +53,17 @@ az acs create \
   --generate-ssh-keys
 ```
 
-Po kilku minutach polecenie zakończeniu i zwraca informacje o wdrożeniu.
+Po kilku minutach wykonywanie polecenia zostanie zakończone i zwrócone zostaną informacje o wdrożeniu.
 
-## <a name="connect-to-dcos-cluster"></a>Łączenie z klastrem DC/OS
+## <a name="connect-to-dcos-cluster"></a>Nawiązywanie połączenia z klastrem DC/OS
 
-Po utworzeniu klastra DC/OS, może być dostęp za pośrednictwem tunelu SSH. Uruchom następujące polecenie, aby zwrócić publiczny adres IP wzorca DC/OS. Ten adres IP jest przechowywana w zmiennej i używane w następnym kroku.
+Po utworzeniu klastra DC/OS można uzyskać do niego dostęp za pośrednictwem tunelu SSH. Uruchom następujące polecenie, aby zwrócić publiczny adres klastra DC/OS. Adres IP jest przechowywany w zmiennej i zostanie użyty w kolejnym kroku.
 
 ```azurecli
 ip=$(az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-master')].[ipAddress]" -o tsv)
 ```
 
-Do tworzenia tunelu SSH, uruchom następujące polecenie, a następnie postępuj zgodnie z wyświetlanymi instrukcjami. Jeśli port 80 jest już w użyciu, polecenie nie powiedzie się. Aktualizacji portu tunelowane do jednego nie korzystać, takich jak `85:localhost:80`. 
+Aby utworzyć tunel SSH, uruchom następujące polecenie, po czym postępuj zgodnie z instrukcjami na ekranie. Jeśli port 80 jest już używany, wykonanie polecenia nie powiedzie się. Zmień port tunelu na port, który nie jest używany, na przykład `85:localhost:80`. 
 
 ```azurecli
 sudo ssh -i ~/.ssh/id_rsa -fNL 80:localhost:80 -p 2200 azureuser@$ip
@@ -71,13 +71,13 @@ sudo ssh -i ~/.ssh/id_rsa -fNL 80:localhost:80 -p 2200 azureuser@$ip
 
 ## <a name="install-dcos-cli"></a>Instalowanie interfejsu wiersza polecenia DC/OS
 
-Instalowanie przy użyciu interfejsu wiersza polecenia DC/OS [az dcos acs install-cli](/azure/acs/dcos#install-cli) polecenia. Jeśli używasz Azure CloudShell, interfejsu wiersza polecenia DC/OS jest już zainstalowana. Jeśli używasz interfejsu wiersza polecenia Azure macOS lub Linux, może być konieczne uruchomienie polecenia z sudo.
+Zainstaluj interfejs wiersza polecenia DC/OS, używając polecenia [az acs dcos install-cli](/azure/acs/dcos#install-cli). Jeśli korzystasz z usługi Azure CloudShell, interfejs wiersza polecenia DC/OS jest już zainstalowany. Jeśli używasz interfejsu wiersza polecenia platformy Azure w systemie macOS lub Linux, konieczne może być uruchomienie polecenia za pomocą programu sudo.
 
 ```azurecli
 az acs dcos install-cli
 ```
 
-Interfejsu wiersza polecenia można było korzystać z klastrem, musi być skonfigurowana do używania tunelu SSH. Aby to zrobić, uruchom następujące polecenie, dostosowywania port, jeśli to konieczne.
+Aby można było użyć interfejsu wiersza polecenia z klastrem, należy skonfigurować go tak, aby korzystał z tunelu SSH. W tym celu uruchom następujące polecenie, w razie potrzeby dostosowując port.
 
 ```azurecli
 dcos config set core.dcos_url http://localhost
@@ -85,7 +85,7 @@ dcos config set core.dcos_url http://localhost
 
 ## <a name="run-an-application"></a>Uruchamianie aplikacji
 
-Domyślnie planowania mechanizm dla klastra usługi ACS DC/OS jest Marathon. Platformy Marathon umożliwia uruchamianie aplikacji i zarządzanie stanem aplikacji w klastrze DC/OS. Aby zaplanować aplikacji za pośrednictwem platformy Marathon, Utwórz plik o nazwie **marathon app.json**i skopiuj do niego następującą zawartość. 
+Domyślny mechanizm planowania w przypadku klastra DC/OS w usłudze ACS to Marathon. Platforma Marathon jest używana w celu uruchomienia aplikacji i zarządzania jej stanem w klastrze DC/OS. Aby zaplanować uruchomienie aplikacji za pośrednictwem platformy Marathon, utwórz plik o nazwie **marathon-app.json** i skopiuj do niego następującą zawartość. 
 
 ```json
 {
@@ -113,19 +113,19 @@ Domyślnie planowania mechanizm dla klastra usługi ACS DC/OS jest Marathon. Pla
 }
 ```
 
-Uruchom następujące polecenie, aby zaplanować aplikacji do uruchamiania w klastrze DC/OS.
+Uruchom następujące polecenie, aby zaplanować uruchomienie aplikacji w klastrze DC/OS.
 
 ```azurecli
 dcos marathon app add marathon-app.json
 ```
 
-Aby wyświetlić stan wdrożenia dla aplikacji, uruchom następujące polecenie.
+Aby wyświetlić stan wdrożenia aplikacji, uruchom następujące polecenie.
 
 ```azurecli
 dcos marathon app list
 ```
 
-Gdy **zadania** zmienia wartość kolumny z *0/1* do *1/1*, wdrażanie aplikacji zostało zakończone.
+Zmiana wartości w kolumnie **ZADANIA** z *0/1* na *1/1* oznacza, że wdrażanie aplikacji zostało zakończone.
 
 ```azurecli
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
@@ -134,7 +134,7 @@ ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD
 
 ## <a name="scale-marathon-application"></a>Skalowanie aplikacji platformy Marathon
 
-W poprzednim przykładzie została utworzona aplikacja pojedynczego wystąpienia. Aby zaktualizować tego wdrożenia, dzięki czemu są dostępne trzy wystąpienia aplikacji, otwarcie **marathon app.json** pliku, a następnie zaktualizuj właściwości wystąpienia 3.
+W poprzednim przykładzie została utworzona aplikacja pojedynczego wystąpienia. Aby zaktualizować to wdrożenie w celu udostępnienia trzech wystąpień aplikacji,otwórz plik **marathon-app.json**, a następnie zaktualizuj właściwość wystąpienia do wartości 3.
 
 ```json
 {
@@ -162,32 +162,32 @@ W poprzednim przykładzie została utworzona aplikacja pojedynczego wystąpienia
 }
 ```
 
-Aktualizowanie aplikacji przy użyciu `dcos marathon app update` polecenia.
+Zaktualizuj aplikację przy użyciu polecenia `dcos marathon app update`.
 
 ```azurecli
 dcos marathon app update demo-app-private < marathon-app.json
 ```
 
-Aby wyświetlić stan wdrożenia dla aplikacji, uruchom następujące polecenie.
+Aby wyświetlić stan wdrożenia aplikacji, uruchom następujące polecenie.
 
 ```azurecli
 dcos marathon app list
 ```
 
-Gdy **zadania** zmienia wartość kolumny z *1/3* do *3/1*, wdrażanie aplikacji zostało zakończone.
+Zmiana wartości w kolumnie **ZADANIA** z *1/3* na *3/1* oznacza, że wdrażanie aplikacji zostało zakończone.
 
 ```azurecli
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
 /test   32   1     1/3    ---       ---      False      DOCKER   None
 ```
 
-## <a name="run-internet-accessible-app"></a>Uruchamianie aplikacji dostępny z Internetu
+## <a name="run-internet-accessible-app"></a>Uruchamianie aplikacji dostępnej z Internetu
 
-Klaster ACS DC/OS składa się z dwóch zestawów węzła, jeden publiczny, który jest dostępny w Internecie i prywatnego, który nie jest dostępny w Internecie. Domyślny zestaw jest prywatny węzły użytego w ostatnim przykładzie.
+Klaster DC/OS usługi ACS składa się z dwóch zestawów węzłów: publicznego, który jest dostępny przez Internet, i prywatnego, który nie jest dostępny przez Internet. Domyślny jest zestaw węzłów prywatnych, którego użyto w ostatnim przykładzie.
 
-Aby aplikacja była dostępna w Internecie, należy je wdrożyć na zestaw węzłów publicznych. Aby to zrobić, należy podać `acceptedResourceRoles` obiekt wartość `slave_public`.
+Aby aplikacja była dostępna przez Internet, należy ją wdrożyć w zestawie węzłów publicznych. Aby to zrobić, nadaj obiektowi `acceptedResourceRoles` wartość `slave_public`.
 
-Utwórz plik o nazwie **nginx public.json** i skopiuj do niego następującą zawartość.
+Utwórz plik o nazwie **nginx-public.json** i skopiuj do niego poniższą zawartość.
 
 ```json
 {
@@ -219,41 +219,41 @@ Utwórz plik o nazwie **nginx public.json** i skopiuj do niego następującą za
 }
 ```
 
-Uruchom następujące polecenie, aby zaplanować aplikacji do uruchamiania w klastrze DC/OS.
+Uruchom następujące polecenie, aby zaplanować uruchomienie aplikacji w klastrze DC/OS.
 
 ```azurecli 
 dcos marathon app add nginx-public.json
 ```
 
-Pobierz publiczny adres IP agentów publicznych klastra DC/OS.
+Uzyskaj publiczny adres IP agentów klastra publicznego DC/OS.
 
 ```azurecli 
 az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-agent')].[ipAddress]" -o tsv
 ```
 
-Przeglądanie pod tym adresem zwraca domyślnej witryny NGINX.
+Po przejściu do tego adresu zostanie zwrócona domyślna witryna serwera NGINX.
 
 ![NGINX](./media/container-service-dcos-manage-tutorial/nginx.png)
 
 ## <a name="scale-dcos-cluster"></a>Skalowanie klastra DC/OS
 
-W poprzednich przykładach aplikacja została przeskalować do wielu wystąpień. Infrastruktura DC/OS można skalować w taki sposób, aby zapewnić bardziej lub mniej wydajności obliczeniowej. Jest to zrobić za pomocą [skalować acs az]() polecenia. 
+W poprzednim przykładzie aplikacja została przeskalowana do wielu wystąpień. Infrastrukturę DC/OS można też skalować w taki sposób, aby zapewnić więcej lub mniej pojemności obliczeniowej. Służy do tego polecenie [az acs scale](). 
 
-Aby wyświetlić bieżące liczba agentów DC/OS, użyj [Pokaż acs az](/cli/azure/acs#show) polecenia.
+Aby wyświetlić bieżącą liczbę agentów DC/OS, użyj polecenia [az acs show](/cli/azure/acs#az_acs_show).
 
 ```azurecli
 az acs show --resource-group myResourceGroup --name myDCOSCluster --query "agentPoolProfiles[0].count"
 ```
 
-Aby zwiększyć liczbę 5, należy użyć [skalować acs az](/cli/azure/acs#scale) polecenia. 
+Aby zwiększyć tę liczbę do 5, użyj polecenia [az acs scale](/cli/azure/acs#az_acs_scale). 
 
 ```azurecli
 az acs scale --resource-group myResourceGroup --name myDCOSCluster --new-agent-count 5
 ```
 
-## <a name="delete-dcos-cluster"></a>Usuń klaster DC/OS
+## <a name="delete-dcos-cluster"></a>Usuwanie klastra DC/OS
 
-Gdy nie są już potrzebne, można użyć [usunięcie grupy az](/cli/azure/group#delete) polecenia, aby usunąć grupę zasobów, klaster DC/OS i wszystkie powiązane zasoby.
+Gdy klaster nie będzie już potrzebny, można użyć polecenia [az group delete](/cli/azure/group#az_group_delete), aby usunąć grupę zasobów, klaster DC/OS oraz wszystkie pokrewne zasoby.
 
 ```azurecli 
 az group delete --name myResourceGroup --no-wait
@@ -261,18 +261,18 @@ az group delete --name myResourceGroup --no-wait
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku uzyskanych o podstawowe zadania zarządzania DC/OS, m.in. 
+W tym samouczku przedstawiono podstawowe zadania zarządzania systemem DC/OS, w tym poniższe. 
 
 > [!div class="checklist"]
-> * Tworzenie klastra usługi ACS DC/OS
+> * Tworzenie klastra DC/OS usługi ACS
 > * Łączenie z klastrem
 > * Instalowanie interfejsu wiersza polecenia DC/OS
-> * Wdrażanie aplikacji do klastra
+> * Wdrażanie aplikacji w klastrze
 > * Skalowanie aplikacji w klastrze
 > * Skalowanie węzłów klastra DC/OS
-> * Usuń klaster DC/OS
+> * Usuwanie klastra DC/OS
 
-Przejdź do następnego samouczek, aby dowiedzieć się więcej na temat aplikacji w DC/OS na platformie Azure równoważenia obciążenia. 
+Przejdź do kolejnego samouczka, aby uzyskać więcej informacji o aplikacji równoważenia obciążenia w systemie DC/OS na platformie Azure. 
 
 > [!div class="nextstepaction"]
 > [Równoważenie obciążenia aplikacji](container-service-load-balancing.md)

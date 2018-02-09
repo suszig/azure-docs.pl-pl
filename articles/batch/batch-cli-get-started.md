@@ -3,8 +3,8 @@ title: "Wprowadzenie do interfejsu wiersza polecenia platformy Azure dla usługi
 description: "Skorzystaj z szybkiego wprowadzenia do poleceń usługi Batch w interfejsie wiersza polecenia platformy Azure, aby zarządzać zasobami usługi Azure Batch"
 services: batch
 documentationcenter: 
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 editor: 
 ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
 ms.service: batch
@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 09/28/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 763a8884b65f64b4807cd42c937f43b2f5517ed5
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 11fad18c7b51625a29c58058aebd412cbf8cffdd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Zarządzanie zasobami usługi Batch przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -69,7 +69,7 @@ Istnieje kilka różnych sposobów logowania się na platformie Azure. Opisano j
 1. [Logowanie interakcyjne](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_interactive_log_in). Zaloguj się interakcyjnie, gdy samodzielnie uruchamiasz polecenia interfejsu wiersza polecenia platformy Azure w wierszu polecenia.
 2. [Logowanie za pomocą jednostki usługi](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_logging_in_with_a_service_principal). Zaloguj się za pomocą jednostki usługi, gdy uruchamiasz polecenia interfejsu wiersza polecenia platformy Azure za pomocą skryptu lub aplikacji.
 
-Na potrzeby tego artykułu wyjaśnimy, jak zalogować się interakcyjnie. W wierszu polecenia wpisz [az login](https://docs.microsoft.com/cli/azure/#login):
+Na potrzeby tego artykułu wyjaśnimy, jak zalogować się interakcyjnie. W wierszu polecenia wpisz [az login](https://docs.microsoft.com/cli/azure/#az_login):
 
 ```azurecli
 # Log in to Azure and authenticate interactively.
@@ -120,16 +120,9 @@ W przykładach wymienionych w sekcji [Przykładowe skrypty powłoki](#sample-she
 
 Interfejsu wiersza polecenia platformy Azure można używać do kompleksowej obsługi zadań usługi Batch bez konieczności pisania kodu. Pliki szablonów usługi Batch obsługują tworzenie pul, zadań i zadań podrzędnych przy użyciu interfejsu wiersza polecenia platformy Azure. Interfejs wiersza polecenia platformy Azure umożliwia także przekazywanie plików wejściowych zadania do konta usługi Azure Storage skojarzonego z kontem usługi Batch oraz pobieranie z niego plików wyjściowych zadania. Więcej informacji można znaleźć w temacie [Use Azure Batch CLI Templates and File Transfer (Preview) (Korzystanie z szablonów interfejsu wiersza polecenia usługi Azure Batch i transferu plików (wersja zapoznawcza))](batch-cli-templates.md).
 
-## <a name="sample-shell-scripts"></a>Przykładowe skrypty powłoki
+## <a name="script-examples"></a>Przykłady skryptów
 
-W przykładowych skryptach wymienionych w poniższej tabeli pokazano, jak za pomocą poleceń interfejsu wiersza polecenia platformy Azure z usługami Batch i Batch Management wykonywać typowe zadania. Te przykładowe skrypty obejmują wiele poleceń dostępnych w interfejsie wiersza polecenia platformy Azure dla usługi Batch. 
-
-| Skrypt | Uwagi |
-|---|---|
-| [Tworzenie konta usługi Batch](./scripts/batch-cli-sample-create-account.md) | Tworzy konto usługi Batch i kojarzy je z kontem magazynu. |
-| [Dodawanie aplikacji](./scripts/batch-cli-sample-add-application.md) | Dodaje aplikację i przekazuje spakowane dane binarne.|
-| [Zarządzanie pulami usługi Batch](./scripts/batch-cli-sample-manage-pool.md) | Ilustruje tworzenie pul, zmienianie ich rozmiarów i zarządzanie nimi. |
-| [Uruchamianie zadań i zadań podrzędnych za pomocą usługi Batch](./scripts/batch-cli-sample-run-job.md) | Ilustruje uruchamianie zadania i dodawanie zadania podrzędnego. |
+Zobacz [przykłady skryptów interfejsów wiersza polecenia](cli-samples.md) dla usługi Batch, aby wykonać typowe zadania. Te przykłady obejmują wiele poleceń dostępnych w interfejsie wiersza polecenia platformy Azure dla usługi Batch do tworzenia kont, pul, zadań i zadań podrzędnych oraz zarządzania nimi. 
 
 ## <a name="json-files-for-resource-creation"></a>Pliki JSON do tworzenia zasobów
 

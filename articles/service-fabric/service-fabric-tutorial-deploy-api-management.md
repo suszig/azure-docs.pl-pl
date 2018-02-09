@@ -1,6 +1,6 @@
 ---
-title: "Integrowanie usługi Azure Service Fabric z interfejsu API zarządzania | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak szybko rozpocząć pracę z usługi Azure API Management i sieci szkieletowej usług."
+title: "Integrowanie usługi Azure Service Fabric z usługą API Management | Microsoft Docs"
+description: "Dowiedz się, jak szybko rozpocząć pracę z usługami Azure API Management i Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,51 +12,51 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/10/2017
+ms.date: 01/26/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: c685e5250943098f43f232b2b09d3ae55c0380d0
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: 6b0d523dd4c3a03daef0a713c4d57e5ca868af2a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="deploy-api-management-with-service-fabric"></a>Wdrażanie interfejsu API zarządzania za pomocą sieci szkieletowej usług
-W tym samouczku jest częścią czterech serii.  Wdrażanie usługi Azure API Management z sieci szkieletowej usług jest zaawansowanym scenariuszu.  Zarządzanie interfejsami API jest przydatne, gdy należy opublikować interfejsy API z bogaty zestaw reguły routingu dla usług sieci szkieletowej usług zaplecza. Aplikacje w chmurze muszą zwykle frontonu bramy do zapewnienia pojedynczy punkt wejściowych użytkowników, urządzeń lub innych aplikacji. W sieci szkieletowej usług Brama może być dowolnej usługi bezstanowej przeznaczone dla ruchu transfer danych przychodzących przykład aplikacji platformy ASP.NET Core, Event Hubs, Centrum IoT lub usługi Azure API Management. 
+# <a name="deploy-api-management-with-service-fabric"></a>Wdrażanie usługi API Management z usługą Service Fabric
+Niniejszy samouczek jest czwartą częścią serii.  Wdrażanie usługi Azure API Management z usługą Service Fabric odbywa się w ramach zaawansowanego scenariusza.  Usługa API Management jest przydatna, gdy trzeba opublikować interfejsy API z obszernym zestawem reguł rozsyłania dla usług zaplecza Service Fabric. Aplikacje w chmurze zwykle potrzebują bramy frontonu, aby udostępniać pojedynczy punkt danych przychodzących dla użytkowników, urządzeń lub innych aplikacji. W usłudze Service Fabric bramą może być dowolna usługa bezstanowa przeznaczona dla ruchu przychodzącego, na przykład aplikacja ASP.NET Core albo usługa Event Hubs, IoT Hub lub Azure API Management. 
 
-W tym samouczku przedstawiono sposób konfigurowania [Azure API Management](../api-management/api-management-key-concepts.md) z sieci szkieletowej usług można kierować ruchem do usługi zaplecza w sieci szkieletowej usług.  Po zakończeniu ma wdrożyć zarządzanie interfejsami API w sieci Wirtualnej, skonfigurowane do wysyłania ruchu do zaplecza usługi bezstanowej operacji interfejsu API. Aby dowiedzieć się więcej o scenariuszach usługi Azure API Management z sieci szkieletowej usług, zobacz [omówienie](service-fabric-api-management-overview.md) artykułu.
+W tym samouczku przedstawiono sposób konfigurowania usługi [Azure API Management](../api-management/api-management-key-concepts.md) z usługą Service Fabric pod kątem kierowania ruchu do usługi zaplecza w usłudze Service Fabric.  Wykonanie podanych instrukcji pozwoli wdrożyć usługę API Management w sieci wirtualnej i skonfigurować kierowanie ruchu do bezstanowych usług zaplecza za pomocą operacji interfejsu API. Aby dowiedzieć się więcej o scenariuszach użycia usługi Azure API Management z usługą Service Fabric, zobacz artykuł z [omówieniem](service-fabric-api-management-overview.md).
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Wdrażanie usługi API Management
-> * Skonfiguruj zarządzanie interfejsami API
+> * Konfigurowanie usługi API Management
 > * Tworzenie operacji interfejsu API
-> * Skonfiguruj zasady wewnętrznej bazy danych
+> * Konfigurowanie zasad zaplecza
 > * Dodawanie interfejsu API do produktu
 
-W tym samouczku dowiesz się, jak:
+Ta seria samouczków zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
-> * Tworzenie bezpiecznej [klastra systemu Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) lub [klaster systemu Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) na platformie Azure przy użyciu szablonu
-> * [Skalowanie klastra przychodzący lub wychodzący](/service-fabric-tutorial-scale-cluster.md)
-> * [Uaktualnienie środowiska uruchomieniowego klastra](service-fabric-tutorial-upgrade-cluster.md)
-> * Wdrażanie interfejsu API zarządzania za pomocą sieci szkieletowej usług
+> * Tworzenie bezpiecznego [klastra systemu Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) lub [klastra systemu Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) na platformie Azure przy użyciu szablonu
+> * [Skalowanie klastra na zewnątrz lub do wewnątrz](/service-fabric-tutorial-scale-cluster.md)
+> * [Uaktualnianie środowiska uruchomieniowego klastra](service-fabric-tutorial-upgrade-cluster.md)
+> * Wdrażanie usługi API Management z usługą Service Fabric
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Przed rozpoczęciem tego samouczka:
-- Jeśli nie masz subskrypcji platformy Azure, Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- Zainstaluj [programu Azure Powershell w wersji modułu 4.1 lub wyższej](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) lub [Azure CLI 2.0](/cli/azure/install-azure-cli).
-- Tworzenie bezpiecznej [klastra systemu Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) lub [klaster systemu Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) na platformie Azure
-- W przypadku wdrażania klastra systemu Windows, konfigurowanie środowiska projektowego systemu Windows. Zainstaluj [programu Visual Studio 2017](http://www.visualstudio.com) i **Azure programowanie**, **ASP.NET i sieć web development**, i **aplikacji dla wielu platform .NET Core**obciążeń.  Następnie skonfiguruj [środowiska programowania .NET](service-fabric-get-started.md).
-- Jeśli w przypadku wdrażania klastra Linux należy skonfigurować środowisko projektowe Java na [Linux](service-fabric-get-started-linux.md) lub [MacOS](service-fabric-get-started-mac.md).  Zainstaluj [usługi sieci szkieletowej interfejsu wiersza polecenia](service-fabric-cli.md). 
+- Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Zainstaluj [moduł Azure PowerShell w wersji 4.1 lub nowszej](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) albo [interfejs wiersza polecenia platformy Azure 2.0](/cli/azure/install-azure-cli).
+- Utwórz bezpieczny [klaster systemu Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) lub [klaster systemu Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) na platformie Azure.
+- W przypadku wdrażania klastra systemu Windows skonfiguruj środowisko deweloperskie w systemie Windows. Zainstaluj program [Visual Studio 2017](http://www.visualstudio.com), a następnie zainstaluj obciążenia **Programowanie na platformie Azure**, **Tworzenie aplikacji na platformie ASP.NET i aplikacji internetowych** oraz **Programowanie dla wielu platform w środowisku .NET Core**.  Następnie skonfiguruj [środowisko deweloperskie platformy .NET](service-fabric-get-started.md).
+- W przypadku wdrażania klastra systemu Linux skonfiguruj środowisko projektowe Java w systemie [Linux](service-fabric-get-started-linux.md) lub [MacOS](service-fabric-get-started-mac.md).  Zainstaluj [interfejs wiersza polecenia usługi Service Fabric](service-fabric-cli.md). 
 
 ## <a name="network-topology"></a>Topologia sieci
-Teraz, gdy masz bezpiecznej [klastra systemu Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) lub [klaster systemu Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) na platformie Azure, wdrożenia interfejs API zarządzania siecią wirtualną (VNET) w podsieci i NSG przeznaczone dla interfejsu API zarządzania. W tym samouczku jest wstępnie skonfigurowana do używania nazwy sieci Wirtualnej, podsieci i NSG, skonfigurowanym w poprzednim szablonu usługi Resource Manager Management API [samouczek klastra systemu Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) lub [samouczka klaster systemu Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md). W tym samouczku wdraża następujących topologii na platformie Azure, w którym interfejs API zarządzania i sieci szkieletowej usług znajdują się w podsieci w tej samej sieci wirtualnej:
+Gdy już masz bezpieczny [klaster systemu Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) lub [klaster systemu Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) na platformie Azure, wdróż usługę API Management w sieci wirtualnej (VNET) należącej do podsieci oraz sieciową grupę zabezpieczeń przeznaczoną dla usługi API Management. Wstępna konfiguracja szablonu usługi Resource Manager dla usługi API Management używanego w tym samouczku obejmuje użycie nazw sieci wirtualnej, podsieci i sieciowej grupy zabezpieczeń, które skonfigurowano w poprzednim [samouczku dotyczącym klastra systemu Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) lub [samouczku dotyczącym klastra systemu Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md). W tym samouczku na platformie Azure zostanie wdrożona następująca topologia. Na ilustracji widać, że usługi API Management i Service Fabric znajdują się w podsieciach tej samej sieci wirtualnej:
 
- ![Podpis obrazu][sf-apim-topology-overview]
+ ![Podpis pod obrazem][sf-apim-topology-overview]
 
-## <a name="sign-in-to-azure-and-select-your-subscription"></a>Logowanie do platformy Azure i wyboru subskrypcji
-Zaloguj się na konto Azure Wybierz subskrypcję, przed wykonaniem polecenia platformy Azure.
+## <a name="sign-in-to-azure-and-select-your-subscription"></a>Logowanie do platformy Azure i wybieranie subskrypcji
+Przed wykonaniem poleceń platformy Azure zaloguj się na konto platformy Azure i wybierz subskrypcję.
 
 ```powershell
 Login-AzureRmAccount
@@ -69,21 +69,21 @@ az login
 az account set --subscription <guid>
 ```
 
-## <a name="deploy-a-service-fabric-back-end-service"></a>Wdrażanie usługi zaplecza sieci szkieletowej usług
+## <a name="deploy-a-service-fabric-back-end-service"></a>Wdrażanie usługi zaplecza Service Fabric
 
-Przed skonfigurowaniem API Management do kierowania ruchem do usługi zaplecza usługi Service Fabric, należy najpierw uruchomionej usługi do akceptowania żądań.  Jeśli wcześniej została utworzona [klastra systemu Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md), wdrożenie usługi sieć szkieletowa usług .NET.  Jeśli wcześniej została utworzona [klaster systemu Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md), wdrożenie usługi sieć szkieletowa usług Java.
+Do skonfigurowania usługi API Management pod kątem kierowania ruchu do usługi zaplecza Service Fabric potrzebna jest uruchomiona usługa, umożliwiająca akceptowanie żądań.  Jeśli wcześniej utworzono [klaster systemu Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md), wdróż usługę Service Fabric platformy .NET.  Jeśli wcześniej utworzono [klaster systemu Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md), wdróż usługę Service Fabric platformy Java.
 
-### <a name="deploy-a-net-service-fabric-service"></a>Wdrażanie usługi sieci szkieletowej usług .NET
+### <a name="deploy-a-net-service-fabric-service"></a>Wdrażanie usługi Service Fabric platformy .NET
 
-W tym samouczku Utwórz podstawowe bezstanowej platformy ASP.NET Core niezawodnej usługi przy użyciu domyślnego szablonu projektu interfejsu API sieci Web. Spowoduje to utworzenie punktu końcowego HTTP dla usługi, które należy udostępnić za pośrednictwem usługi Azure API Management.
+W tym samouczku zostanie utworzona podstawowa niezawodna usługa bezstanowa ASP.NET Core przy użyciu szablonu projektu domyślnego internetowego interfejsu API. Spowoduje to utworzenie punktu końcowego HTTP dla usługi, który należy udostępnić za pośrednictwem usługi Azure API Management.
 
-Uruchom program Visual Studio jako Administrator i Utwórz usługę platformy ASP.NET Core:
+Uruchom program Visual Studio jako administrator i utwórz usługę ASP.NET Core:
 
- 1. W programie Visual Studio wybierz Plik -> Nowy projekt.
- 2. Wybierz szablon aplikacji sieci szkieletowej usług w chmurze i nadaj mu nazwę **"ApiApplication"**.
- 3. Wybierz szablon usługi podstawowej platformy ASP.NET i nazwij projekt **"WebApiService"**.
- 4. Wybierz szablon projektu sieci Web API platformy ASP.NET Core 1.1.
- 5. Po utworzeniu projektu otwórz `PackageRoot\ServiceManifest.xml` i Usuń `Port` atrybut z konfiguracji zasobu punktu końcowego:
+ 1. W programie Visual Studio wybierz pozycję Plik -> Nowy projekt.
+ 2. W obszarze Chmura wybierz szablon aplikacji Service Fabric i nadaj mu nazwę **„ApiApplication”**.
+ 3. Wybierz szablon bezstanowej usługi ASP.NET Core i nazwij projekt **„WebApiService”**.
+ 4. Wybierz szablon projektu Web API ASP.NET Core 2.0.
+ 5. Po utworzeniu projektu otwórz plik `PackageRoot\ServiceManifest.xml` i usuń atrybut `Port` z konfiguracji zasobu punktu końcowego:
  
     ```xml
     <Resources>
@@ -93,46 +93,46 @@ Uruchom program Visual Studio jako Administrator i Utwórz usługę platformy AS
     </Resources>
     ```
 
-    Usuwanie portu umożliwia sieci szkieletowej usług w celu wskazania portu dynamicznie z zakresu portów aplikacji, otworzyć za pomocą grupy zabezpieczeń sieci w szablonie usługi Resource Manager klastra, dzięki czemu przepływ ruchu do niego z interfejsu API zarządzania.
+    Usuwanie portu pozwala usłudze Service Fabric dynamicznie wskazać port z zakresu portów aplikacji, otwartego za pomocą sieciowej grupy zabezpieczeń sieci w szablonie usługi Resource Manager klastra, co umożliwia przepływ ruchu z usługi API Management do tego portu.
  
- 6. Naciśnij klawisz F5 w programie Visual Studio, aby sprawdzić interfejsu API sieci web jest dostępna lokalnie. 
+ 6. W programie Visual Studio naciśnij klawisz F5, aby sprawdzić, czy internetowy interfejs API jest dostępny lokalnie. 
 
-    Otwórz Eksploratora usługi sieć szkieletowa i przejdź do określonego wystąpienia usługi platformy ASP.NET Core szczegółów, aby wyświetlić adres podstawowy usługi nasłuchuje. Dodaj `/api/values` podstawy adresów, a następnie otwórz go w przeglądarce, która wywołuje metodę Get na ValuesController w szablonie interfejsu API sieci Web. Zwraca domyślny zapewnianej przez szablon, tablicy JSON, który zawiera dwa ciągi:
+    Otwórz narzędzie Service Fabric Explorer i przejdź do konkretnego wystąpienia usługi ASP.NET Core, aby wyświetlić podstawowy adres, na jakim nasłuchuje ta usługa. Dodaj ciąg `/api/values` do podstawowego adresu, a następnie otwórz ten adres w przeglądarce. Spowoduje to wywołanie metody Get klasy ValuesController w szablonie internetowego interfejsu API. Szablon zwróci domyślną odpowiedź — tablicę JSON, zawierającą dwa ciągi:
 
     ```json
     ["value1", "value2"]`
     ```
 
-    To jest punkt końcowy, który ujawnia za pośrednictwem interfejsu API zarządzania na platformie Azure.
+    Jest to punkt końcowy, który należy udostępnić za pomocą usługi API Management na platformie Azure.
 
- 7. Ponadto można wdrożyć aplikacji do klastra w systemie Azure. W programie Visual Studio, kliknij prawym przyciskiem myszy projekt aplikacji, a następnie wybierz **publikowania**. Podaj punkt końcowy klastra (na przykład `mycluster.southcentralus.cloudapp.azure.com:19000`) do wdrożenia aplikacji do klastra usługi sieć szkieletowa na platformie Azure.
+ 7. Teraz wdróż aplikację w klastrze na platformie Azure. W programie Visual Studio kliknij prawym przyciskiem myszy projekt aplikacji, a następnie wybierz polecenie **Opublikuj**. Podaj punkt końcowy klastra (na przykład `mycluster.southcentralus.cloudapp.azure.com:19000`), aby wdrożyć aplikację w klastrze usługi Service Fabric na platformie Azure.
 
-Usługi bezstanowej platformy ASP.NET Core o nazwie `fabric:/ApiApplication/WebApiService` teraz powinna być uruchomiona w klastrze usługi sieć szkieletowa na platformie Azure.
+W klastrze powinna teraz być uruchomiona bezstanowa usługa ASP.NET Core o nazwie `fabric:/ApiApplication/WebApiService`.
 
-### <a name="create-a-java-service-fabric-service"></a>Tworzenie usługi sieć szkieletowa usług Java
-Dla tego samouczka wdrożyć serwer sieci web podstawowa, która zwraca komunikaty z powrotem do użytkownika. Echo serwer przykładowej aplikacji zawiera punkt końcowy HTTP dla usługi, które należy udostępnić za pośrednictwem usługi Azure API Management.
+### <a name="create-a-java-service-fabric-service"></a>Tworzenie usługi Service Fabric platformy Java
+W tym samouczku zostanie wdrożony podstawowy serwer sieci Web, która powtarza komunikaty, kierując je z powrotem do użytkownika. Przykładowa aplikacja serwera zawiera punkt końcowy HTTP dla usługi, który należy udostępnić za pośrednictwem usługi Azure API Management.
 
-1. Klonowanie pobierania próbek uruchomiono Java.
+1. Sklonuj przykłady umożliwiające rozpoczęcie pracy z językiem Java.
 
    ```bash
    git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
    cd service-fabric-java-getting-started
    ```
 
-2. Edytuj *Services/EchoServer/EchoServer1.0/EchoServerApplication/EchoServerPkg/ServiceManifest.xml*. Dzięki usłudze nasłuchuje na porcie 8081, należy zaktualizować punktu końcowego.
+2. Zmodyfikuj plik *Services/EchoServer/EchoServer1.0/EchoServerApplication/EchoServerPkg/ServiceManifest.xml*. Zaktualizuj punkt końcowy, tak aby usługa nasłuchiwała na porcie 8081.
 
    ```xml
    <Endpoint Name="WebEndpoint" Protocol="http" Port="8081" />
    ```
 
-3. Zapisz *ServiceManifest.xml*, późniejszego kompilowania aplikacji EchoServer1.0.
+3. Zapisz plik *ServiceManifest.xml*, a następnie skompiluj aplikację EchoServer 1.0.
 
    ```bash
    cd Services/EchoServer/EchoServer1.0/
    gradle
    ```
 
-4. Wdrażanie aplikacji do klastra.
+4. Wdróż aplikację w klastrze.
 
    ```bash
    cd Scripts
@@ -140,65 +140,69 @@ Dla tego samouczka wdrożyć serwer sieci web podstawowa, która zwraca komunika
    ./install.sh
    ```
 
-   Usługi bezstanowej Java o nazwie `fabric:/EchoServerApplication/EchoServerService` teraz powinna być uruchomiona w klastrze usługi sieć szkieletowa na platformie Azure.
+   W klastrze powinna teraz być uruchomiona bezstanowa usługa Java o nazwie `fabric:/EchoServerApplication/EchoServerService`.
 
-5. Otwórz przeglądarkę i typ w http://mycluster.southcentralus.cloudapp.azure.com:8081/getMessage powinna zostać wyświetlona "[wersja 1.0] Hello World!" wyświetlane.
+5. Otwórz przeglądarkę i wpisz ciąg http://mycluster.southcentralus.cloudapp.azure.com:8081/getMessage. Powinien pojawić się komunikat „[version 1.0]Hello World!!!”
 
-## <a name="download-and-understand-the-resource-manager-template"></a>Pobierz i zrozumieć szablonu usługi Resource Manager
-Pobierz i Zapisz następujące Menedżera zasobów plików szablonu i parametry:
+## <a name="download-and-understand-the-resource-manager-templates"></a>Pobieranie szablonów usługi Resource Manager i zapoznawanie się z nimi
+Pobierz i zapisz plik parametrów oraz następujące szablony usługi Resource Manager:
  
-- [APIM.JSON][apim-arm]
-- [APIM.parameters.JSON][apim-parameters-arm]
+- [network-apim.json][network-arm]
+- [network-apim.parameters.json][network-parameters-arm]
+- [apim.json][apim-arm]
+- [apim.parameters.json][apim-parameters-arm]
 
-W poniższych sekcjach opisano zasobów definiowanego przez *apim.json* szablonu. Aby uzyskać więcej informacji skorzystaj z łączy się z dokumentacją odwołanie szablonu w każdej sekcji. Można skonfigurować parametrów zdefiniowanych w *apim.parameters.json* pliku parametrów są ustawione w dalszej części tego artykułu.
+Szablon *network-apim.json* umożliwia wdrożenie nowej podsieci i sieciowej grupy zabezpieczeń w sieci wirtualnej, w której wdrożono klaster usługi Service Fabric.
+
+W poniższych sekcjach opisano zasoby definiowane za pomocą szablonu *apim.json*. Poszczególne sekcje zawierają linki do dokumentacji szablonów, umożliwiające uzyskanie dodatkowych informacji. Konfigurowalne parametry, zdefiniowane w pliku *apim.parameters.json*, zostaną ustawione w dalszej części tego artykułu.
 
 ### <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
-[Microsoft.ApiManagement/service](/azure/templates/microsoft.apimanagement/service) opisuje wystąpienie usługi Zarządzanie interfejsami API: nazwa, jednostki SKU lub warstwy lokalizacja grupy zasobów, informacje o wydawcy i sieci wirtualnej.
+Szablon [Microsoft.ApiManagement/service](/azure/templates/microsoft.apimanagement/service) opisuje wystąpienie usługi API Management i zawiera następujące informacje: nazwę, jednostkę SKU lub warstwę, lokalizację grupy zasobów oraz informacje o wydawcy i sieci wirtualnej.
 
 ### <a name="microsoftapimanagementservicecertificates"></a>Microsoft.ApiManagement/service/certificates
-[Microsoft.ApiManagement/service/certificates](/azure/templates/microsoft.apimanagement/service/certificates) konfiguruje zabezpieczeń interfejsu API zarządzania. Zarządzanie interfejsami API musi uwierzytelniać się z klastrem usługi sieć szkieletowa usług dla potrzeb odnajdywania usług przy użyciu certyfikatu klienta, który ma dostęp do klastra. Ten samouczek używa tego samego certyfikatu, określony wcześniej podczas tworzenia [klastra systemu Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md#createvaultandcert_anchor) lub [klaster systemu Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md#createvaultandcert_anchor), które domyślnie mogą służyć do klastra. 
+Szablon [Microsoft.ApiManagement/service/certificates](/azure/templates/microsoft.apimanagement/service/certificates) umożliwia konfigurowanie zabezpieczeń usługi API Management. W ramach odnajdywania usługi usługa API Management musi zostać uwierzytelniona w klastrze usługi Service Fabric przy użyciu certyfikatu klienta, który ma dostęp do klastra. W tym samouczku jest używany certyfikat określony wcześniej podczas tworzenia [klastra systemu Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md#createvaultandcert_anchor) lub [klastra systemu Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md#createvaultandcert_anchor) — domyślnie można go użyć w celu uzyskania dostępu do klastra. 
 
-W tym samouczku używa tego samego certyfikatu uwierzytelniania klienta i zabezpieczenia węzła do węzła klastra. Certyfikat klienta w osobnym może używać, jeśli jest skonfigurowane do korzystania z klastra usługi sieć szkieletowa usług. Podaj **nazwa**, **hasło**, i **danych** (ciąg algorytmem base-64) z pliku klucza prywatnego (pfx) certyfikatu klastra, który można określić podczas tworzenia użytkownika Klaster sieci szkieletowej usług.
+Ten sam certyfikat służy do uwierzytelniania klienta i zapewnienia zabezpieczeń między węzłami klastra. Jeśli masz skonfigurowany osobny certyfikat klienta, możesz go używać do korzystania z klastra usługi Service Fabric. Podaj **nazwę**, **hasło** i **dane** (szyfrowany ciąg base64) dotyczące pliku klucza prywatnego (pfx) certyfikatu klastra, który został określony podczas tworzenia klastra usługi Service Fabric.
 
 ### <a name="microsoftapimanagementservicebackends"></a>Microsoft.ApiManagement/service/backends
-[Microsoft.ApiManagement/service/backends](/azure/templates/microsoft.apimanagement/service/backends) zawiera opis usługi wewnętrznej bazy danych, który ruch jest kierowany do. 
+Szablon [Microsoft.ApiManagement/service/backends](/azure/templates/microsoft.apimanagement/service/backends) opisuje usługę zaplecza, do której jest przekazywany ruch. 
 
-W przypadku zapleczy sieci szkieletowej usług klastra usługi sieć szkieletowa jest wewnętrznej bazy danych zamiast określonej usługi sieć szkieletowa usług. Dzięki temu jednych zasad można kierować do więcej niż jedną usługę w klastrze. **Adres url** pola w tym miejscu jest nazwą FQDN usługi usługi w klastrze, że wszystkie żądania są kierowane do domyślnie, jeśli nazwa usługi, nie jest określona w zasadzie wewnętrznej bazy danych. Może używać nazw fałszywych usług, takich jak "fabric: / fałszywych/usługi" Jeśli chcesz, aby usługę rezerwowy. **resourceId** określa punkt końcowy zarządzania klastrem.  **clientCertificateThumbprint** i **serverCertificateThumbprints** zidentyfikować certyfikaty używane do uwierzytelniania w klastrze.
+W przypadku usługi Service Fabric zapleczem jest klaster usługi Service Fabric, a nie określona usługa Service Fabric. Dzięki temu za pomocą jednej zasady można kierować ruch do więcej niż jednej usługi w klastrze. Pole **url** zawiera w pełni kwalifikowaną nazwę usługi w klastrze, do której są domyślnie kierowane wszystkie żądania, jeśli w zasadach zaplecza nie podano nazwy usługi. Jeśli nie potrzebujesz usługi rezerwowej, możesz użyć wymyślonej nazwy, takiej jak „fabric:/fake/service”. Pole **resourceId** określa punkt końcowy zarządzania klastrem.  Pola **clientCertificateThumbprint** i **serverCertificateThumbprints** identyfikują certyfikaty używane do uwierzytelniania w klastrze.
 
 ### <a name="microsoftapimanagementserviceproducts"></a>Microsoft.ApiManagement/service/products
-[Microsoft.ApiManagement/service/products](/azure/templates/microsoft.apimanagement/service/products) tworzy produktu. W systemie Azure API Management produkt zawiera jeden lub więcej interfejsów API, a także przydział użycia i warunki użytkowania. Po opublikowaniu produktu deweloperzy mogą subskrybować produktu i rozpocząć przy użyciu interfejsów API produktu. 
+Szablon [Microsoft.ApiManagement/service/products](/azure/templates/microsoft.apimanagement/service/products) umożliwia utworzenie produktu. W usłudze Azure API Management produkt zawiera co najmniej jeden interfejs API oraz limit przydziału użycia i warunki użytkowania. Po opublikowaniu produktu deweloperzy mogą go zasubskrybować i zacząć korzystać z jego interfejsów API. 
 
-Wpisz opisową nazwę **displayName** i **opis** dla produktu. W tym samouczku wymagana jest subskrypcja, ale subskrypcji zatwierdzenia przez administratora nie jest.  Ten produkt **stanu** "opublikowaniu" która jest widoczna dla subskrybentów. 
+W polu **displayName** wpisz opisową nazwę produktu, a w polu **description** — opis. W tym samouczku wymagana jest subskrypcja, ale administrator nie musi jej zatwierdzać.  **Stan** tego produktu ma wartość „opublikowany” i jest widoczny dla subskrybentów. 
 
 ### <a name="microsoftapimanagementserviceapis"></a>Microsoft.ApiManagement/service/apis
-[Microsoft.ApiManagement/service/apis](/azure/templates/microsoft.apimanagement/service/apis) tworzy interfejs API. Interfejs API w usłudze API Management reprezentuje zestaw operacji, które może być wywoływany przez aplikacje klienckie. Po dodaniu działania, interfejsu API jest dodawany do produktu i mogą być publikowane. Po opublikowaniu interfejsu API można zasubskrybować i używane przez programistów.
+Szablon [Microsoft.ApiManagement/service/apis](/azure/templates/microsoft.apimanagement/service/apis) umożliwia utworzenie interfejsu API. Interfejs API usługi API Management reprezentuje zestaw operacji, które mogą być wywoływane przez aplikacje klienckie. Po dodaniu operacji do produktu jest dodawany interfejs API, który można opublikować. Opublikowany interfejs API można zasubskrybować, a deweloperzy mogą go używać.
 
-- **Nazwa wyświetlana** może być dowolną nazwą dla interfejsu API. W tym samouczku Użyj "Aplikacja sieci szkieletowej usług".
-- **Nazwa** to unikatowa i opisowa nazwa interfejsu API, takich jak "Usługa sieci szkieletowej — aplikacji". Jest on wyświetlany w portalach deweloperów i wydawcy. 
-- **serviceUrl** odwołuje się do usługi HTTP implementacja interfejsu API. Zarządzanie interfejsami API przekazuje żądania do tego adresu. Ta wartość adresu URL nie jest używana do zapleczy sieci szkieletowej usług. Tutaj możesz umieścić żadnej wartości. W tym samouczku, na przykład "http://servicefabric". 
-- **ścieżka** jest dołączany do podstawowego adresu URL dla interfejsu API usługi zarządzania. Element podstawowy adres URL jest wspólne dla wszystkich interfejsów API hostowanych przez wystąpienie usługi Zarządzanie interfejsami API. Zarządzanie interfejsami API odróżnia interfejsy API według ich sufiks i w związku z tym sufiks muszą być unikatowe dla każdego interfejsu API dla danego wydawcy. 
-- **protokoły** ustalić, które protokoły umożliwia dostęp do interfejsu API. W tym samouczku listy **http** i **https**.
-- **ścieżka** jest sufiksem dla interfejsu API. W tym samouczku Użyj "myapp".
+- Pole **displayName** może zawierać dowolną nazwę interfejsu API. W tym samouczku jest używana nazwa „Service Fabric App”.
+- Pole **name** zawiera unikatową i opisową nazwę interfejsu API, taką jak „service-fabric-app”. Jest ona wyświetlana w portalach dewelopera i wydawcy. 
+- Pole **serviceUrl** zawiera odwołanie do usługi HTTP implementującej interfejs API. Usługa API Management przekazuje żądania na ten adres. W przypadku zapleczy usługi Service Fabric ta wartość adresu URL nie jest używana. Można tu wpisać dowolną wartość. Na przykład w tym samouczku jest to „http://servicefabric”. 
+- Wartość pola **path** jest dołączana do podstawowego adresu URL usługi API Management. Podstawowy adres URL jest wspólny dla wszystkich interfejsów API hostowanych przez wystąpienie usługi API Management. W usłudze API Management interfejsy API są rozróżniane na podstawie sufiksów, dlatego sufiksy poszczególnych interfejsów API dla danego wydawcy muszą być unikatowe. 
+- Pole **protocols** określa, których protokołów można używać w celu uzyskania dostępu do interfejsu API. W tym samouczku lista ta ma zawierać pozycje **http** i **https**.
+- Pole **path** jest sufiksem interfejsu API. W tym samouczku należy użyć wartości „myapp”.
 
 ### <a name="microsoftapimanagementserviceapisoperations"></a>Microsoft.ApiManagement/service/apis/operations
-[Microsoft.ApiManagement/service/apis/operations](/azure/templates/microsoft.apimanagement/service/apis/operations) przed interfejsu API w usłudze API Management może być używany, operacji musi zostać dodany do interfejsu API.  Za pomocą operacji klientów zewnętrznych komunikować się z usługą bezstanowych platformy ASP.NET Core uruchamianych w klastrze usługi sieć szkieletowa usług.
+[Microsoft.ApiManagement/service/apis/operations](/azure/templates/microsoft.apimanagement/service/apis/operations) Przed użyciem interfejsu API usługi API Management należy dodać do niego operacje.  Klienci zewnętrzni używają operacji do komunikowania się z bezstanową usługą ASP.NET Core uruchomioną w klastrze usługi Service Fabric.
 
-Aby dodać frontonu operacji interfejsu API, wprowadź wartości:
+Aby dodać operację interfejsu API frontonu, podaj następujące wartości:
 
-- **Nazwa wyświetlana** i **opis** opisano wykonać operację. W tym samouczku Użyj "Wartości".
-- **Metoda** określa zlecenie HTTP.  W tym samouczku, określ **UZYSKAĆ**.
-- **urlTemplate** jest dołączona do podstawowego adresu URL interfejsu API i identyfikuje jednej operacji HTTP.  W tym samouczku, użyj `/api/values` Jeśli został dodany do usługi zaplecza .NET lub `getMessage` Jeśli został dodany do usługi zaplecza Java.  Domyślnie ścieżkę adresu URL określone w tym miejscu są wysyłane ścieżkę adresu URL do zaplecza usługi sieć szkieletowa usług. Jeśli używasz tego samego adresu URL ścieżkę tutaj używanego z usługą, takie jak "/ api/values", operacja działa bez dalszej modyfikacji. Może również określić ścieżki adresu URL w tym miejscu, który różni się od ścieżki adresu URL z wewnętrzną bazą danych usługi Service Fabric, w którym to przypadku należy również określić Edycja ścieżki w zasadach operację później.
+- Pola **displayName** i **description** opisują operację. W tym samouczku użyj ciągu „Values”.
+- Pole **method** określa polecenie HTTP.  W tym samouczku podaj polecenie **GET**.
+- Wartość pola **urlTemplate** jest dołączana do podstawowego adresu URL interfejsu API i określa pojedynczą operację HTTP.  Użyj wartości `/api/values`, jeśli dodano usługę zaplecza platformy .NET, lub wartości `getMessage`, jeśli dodano usługę zaplecza platformy Java.  Określona tutaj ścieżka URL jest domyślnie wysyłana do usługi Service Fabric zaplecza. W przypadku podania ścieżki URL używanej przez usługę, takiej jak „/api/values”, operacja działa bez dodatkowych modyfikacji. Można również podać ścieżkę URL, która różni się od ścieżki URL używanej przez usługę Service Fabric zaplecza. W takim przypadku należy później określić nadpisanie ścieżki w zasadach operacji.
 
 ### <a name="microsoftapimanagementserviceapispolicies"></a>Microsoft.ApiManagement/service/apis/policies
-[Microsoft.ApiManagement/service/apis/policies](/azure/templates/microsoft.apimanagement/service/apis/policies) tworzy zasady wewnętrznej bazy danych, które wszystko, co wiąże ze sobą. Jest to, którym można skonfigurować usługi sieci szkieletowej usług zaplecza, do którego są przesyłane żądania. Te zasady można stosować do żadnej operacji interfejsu API.  Aby uzyskać więcej informacji, zobacz [Omówienie zasad](/azure/api-management/api-management-howto-policies). 
+Szablon [Microsoft.ApiManagement/service/apis/policies](/azure/templates/microsoft.apimanagement/service/apis/policies) umożliwia utworzenie zasad zaplecza, które pozwalają zintegrować wszystkie elementy. Zasady te umożliwiają skonfigurowanie usługi Service Fabric zaplecza, do której są kierowane żądania. Zasady można zastosować do dowolnej operacji interfejsu API.  Aby uzyskać więcej informacji, zobacz [Omówienie zasad](/azure/api-management/api-management-howto-policies). 
 
-[Wewnętrznej bazy danych konfiguracji dla usługi Service Fabric](/azure/api-management/api-management-transformation-policies#SetBackendService) zawiera następujące żądania routingu kontrolki: 
- - Usługa Wybór wystąpienia, określając nazwę wystąpienia usługi Service Fabric, albo zapisane na stałe (na przykład `"fabric:/myapp/myservice"`) lub generowane na podstawie żądania HTTP (na przykład `"fabric:/myapp/users/" + context.Request.MatchedParameters["name"]`).
- - Rozdzielczość partycji przez generowanie klucza partycji przy użyciu dowolnego schemat partycjonowania sieci szkieletowej usług.
- - Wybór repliki dla stanowych usług.
- - Rozdzielczość ponownych prób warunki, które umożliwiają określenie warunków ponowne rozpoznanie lokalizację usługi i wysłać żądanie.
+[Konfiguracja zaplecza dla usługi Service Fabric](/azure/api-management/api-management-transformation-policies#SetBackendService) udostępnia następujące możliwości sterowania routingiem żądań: 
+ - Wybieranie wystąpienia usługi przez podanie nazwy wystąpienia usługi Service Fabric — zakodowanej (na przykład `"fabric:/myapp/myservice"`) lub wygenerowanej na podstawie żądania HTTP (na przykład `"fabric:/myapp/users/" + context.Request.MatchedParameters["name"]`).
+ - Rozpoznawanie partycji przez wygenerowanie klucza partycji przy użyciu dowolnego schematu partycjonowania usługi Service Fabric.
+ - Wybieranie repliki dla usług stanowych.
+ - Warunki ponownego rozpoznawania, które umożliwiają określenie warunków ponownego rozpoznawania lokalizacji usługi i wysyłania żądania.
 
-**policyContent** jest Json wpisywany zawartość XML zasady.  W tym samouczku Utwórz zasady żądań trasę bezpośrednio do usługi bezstanowej .NET lub Java wdrożonej wcześniej wewnętrznej bazy danych. Dodaj `set-backend-service` zasad w obszarze zasady ruchu przychodzącego.  Zamień "Nazwa usługi" `fabric:/ApiApplication/WebApiService` Jeśli wdrożono usługę zaplecza .NET lub `fabric:/EchoServerApplication/EchoServerService` Jeśli wdrożono usługę Java.
+**policyContent** to zawartość XML zasad, ujęta w znaki Json zmieniające znaczenie.  W tym samouczku utwórz zasady zaplecza kierujące żądania bezpośrednio do wcześniej wdrożonej usługi bezstanowej .NET lub Java. Dodaj zasady `set-backend-service` w obszarze zasad ruchu przychodzącego.  Wartość *sf-service-instance-name* zastąp ciągiem `fabric:/ApiApplication/WebApiService`, jeśli wcześniej wdrożono usługę zaplecza platformy .NET, lub ciągiem `fabric:/EchoServerApplication/EchoServerService`, jeśli wdrożono usługę platformy Java.  Pole *backend-id* zawiera odwołanie do zasobu zaplecza, w tym przypadku zasobu `Microsoft.ApiManagement/service/backends` zdefiniowanego w szablonie *apim.json*. Pole *backend-id* może także odwoływać się do innego zasobu zaplecza, utworzonego za pomocą interfejsów API usługi API Management. W tym samouczku ustaw pole *backend-id* na wartość parametru *service_fabric_backend_name*.
     
 ```xml
 <policies>
@@ -218,27 +222,27 @@ Aby dodać frontonu operacji interfejsu API, wprowadź wartości:
 </policies>
 ```
 
-Pełny zestaw atrybutów wewnętrznych zasad sieci szkieletowej usług można znaleźć w temacie [dokumentacji zaplecza interfejsu API zarządzania](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#SetBackendService)
+Aby uzyskać pełny zestaw atrybutów zasad zaplecza usługi Service Fabric, zobacz[API Management back-end documentation (Dokumentacja zaplecza usługi API Management)](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#SetBackendService).
 
-## <a name="set-parameters-and-deploy-api-management"></a>Ustaw parametry i wdrażać zarządzanie interfejsami API
-Wypełnij następujące parametry pusta w *apim.parameters.json* dla danego wdrożenia. 
+## <a name="set-parameters-and-deploy-api-management"></a>Ustawianie parametrów i wdrażanie usługi API Management
+Wypełnij następujące puste parametry szablonu *apim.parameters.json* dla danego wdrożenia. 
 
 |Parametr|Wartość|
 |---|---|
-|apimInstanceName|apim rz|
+|apimInstanceName|sf-apim|
 |apimPublisherEmail|myemail@contosos.com|
 |apimSku|Developer|
 |serviceFabricCertificateName|sfclustertutorialgroup320171031144217|
-|CertificatePassword|q6D7nN %6ck@6| 
+|certificatePassword|q6D7nN%6ck@6| 
 |serviceFabricCertificateThumbprint|C4C1E541AD512B8065280292A8BA6079C3F26F10 |
-|serviceFabricCertificate|&lt;ciąg kodowany w formacie Base-64&gt;|
-|url_path|/ api/wartości|
-|clusterHttpManagementEndpoint|https://mysfcluster.southcentralus.cloudapp.Azure.com:19080|
+|serviceFabricCertificate|&lt;ciąg zakodowany w formacie Base-64&gt;|
+|url_path|/api/values|
+|clusterHttpManagementEndpoint|https://mysfcluster.southcentralus.cloudapp.azure.com:19080|
 |inbound_policy|&lt;Ciąg XML&gt;|
 
-*certificatePassword* i *serviceFabricCertificateThumbprint* musi być zgodna z certyfikatu klastra używana do konfigurowania klastra.  
+Parametry *certificatePassword* i *serviceFabricCertificateThumbprint* muszą być zgodne z certyfikatem klastra użytym podczas konfigurowania klastra.  
 
-*serviceFabricCertificate* jest certyfikat jako ciąg zakodowany base-64, który można wygenerować za pomocą następującego skryptu:
+Parametr *serviceFabricCertificate* zawiera certyfikat w postaci ciągu zakodowanego w formacie Base-64, który można wygenerować za pomocą następującego skryptu:
 
 ```powershell
 $bytes = [System.IO.File]::ReadAllBytes("C:\mycertificates\sfclustertutorialgroup220171109113527.pfx");
@@ -246,7 +250,7 @@ $b64 = [System.Convert]::ToBase64String($bytes);
 [System.Io.File]::WriteAllText("C:\mycertificates\sfclustertutorialgroup220171109113527.txt", $b64);
 ```
 
-W *inbound_policy*, zastąp "Nazwa usługi" `fabric:/ApiApplication/WebApiService` Jeśli wdrożono usługę zaplecza .NET lub `fabric:/EchoServerApplication/EchoServerService` Jeśli wdrożono usługę Java.
+W parametrze *inbound_policy* wartość *sf-service-instance-name* zastąp ciągiem `fabric:/ApiApplication/WebApiService`, jeśli wcześniej wdrożono usługę zaplecza platformy .NET, lub ciągiem `fabric:/EchoServerApplication/EchoServerService`, jeśli wdrożono usługę platformy Java. Pole *backend-id* zawiera odwołanie do zasobu zaplecza, w tym przypadku zasobu `Microsoft.ApiManagement/service/backends` zdefiniowanego w szablonie *apim.json*. Pole *backend-id* może także odwoływać się do innego zasobu zaplecza, utworzonego za pomocą interfejsów API usługi API Management. W tym samouczku ustaw pole *backend-id* na wartość parametru *service_fabric_backend_name*.
 
 ```xml
 <policies>
@@ -266,25 +270,32 @@ W *inbound_policy*, zastąp "Nazwa usługi" `fabric:/ApiApplication/WebApiServic
 </policies>
 ```
 
-Użyj następującego skryptu wdrażania Menedżera zasobów plików szablonu i parametr dla interfejsu API zarządzania:
+Następujący skrypt umożliwia wdrożenie szablonu i plików parametrów usługi Resource Manager dla usługi API Management:
 
 ```powershell
-$ResourceGroupName = "sfclustertutorialgroup"
-New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile .\apim.json -TemplateParameterFile .\apim.parameters.json -Verbose
+$groupname = "sfclustertutorialgroup"
+$clusterloc="southcentralus"
+$templatepath="C:\clustertemplates"
+
+New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateFile "$templatepath\network-apim.json" -TemplateParameterFile "$templatepath\network-apim.parameters.json" -Verbose
+
+New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateFile "$templatepath\apim.json" -TemplateParameterFile "$templatepath\apim.parameters.json" -Verbose
 ```
 
 ```azurecli
 ResourceGroupName="sfclustertutorialgroup"
+az group deployment create --name ApiMgmtNetworkDeployment --resource-group $ResourceGroupName --template-file network-apim.json --parameters @network-apim.parameters.json
+
 az group deployment create --name ApiMgmtDeployment --resource-group $ResourceGroupName --template-file apim.json --parameters @apim.parameters.json 
 ```
 
-## <a name="test-it"></a>należy przeprowadzić test
+## <a name="test-it"></a>Testowanie
 
-Teraz możesz wysyłania żądania do usługi zaplecza w sieci szkieletowej usług za pośrednictwem interfejsu API zarządzania bezpośrednio z [portalu Azure](https://portal.azure.com).
+Teraz możesz wysłać żądanie do usługi zaplecza Service Fabric za pośrednictwem usługi API Management bezpośrednio z witryny [Azure Portal](https://portal.azure.com).
 
- 1. W usłudze API Management wybierz **interfejsu API**.
- 2. W **usługi App Service Fabric** interfejsu API utworzone w poprzednich krokach, wybierz opcję **testu** kartę, a następnie **wartości** operacji.
- 3. Kliknij przycisk **wysyłania** przycisk, aby wysłać żądania testu do usługi zaplecza.  Powinna zostać wyświetlona odpowiedź HTTP podobny do:
+ 1. W usłudze API Management wybierz pozycję **Interfejs API**.
+ 2. W interfejsie API **aplikacji usługi Service Fabric** utworzonym w poprzednich krokach wybierz kartę **Test**, a następnie operację **Values**.
+ 3. Kliknij przycisk **Wyślij**, aby wysłać żądanie testowe do usługi zaplecza.  Powinna zostać wyświetlona mniej więcej taka odpowiedź HTTP:
 
     ```http
     HTTP/1.1 200 OK
@@ -295,28 +306,19 @@ Teraz możesz wysyłania żądania do usługi zaplecza w sieci szkieletowej usł
 
     Vary: Origin
 
-    Access-Control-Allow-Origin: https://apimanagement.hosting.portal.azure.net
+    Ocp-Apim-Trace-Location: https://apimgmtstodhwklpry2xgkdj.blob.core.windows.net/apiinspectorcontainer/PWSQOq_FCDjGcaI1rdMn8w2-2?sv=2015-07-08&sr=b&sig=MhQhzk%2FEKzE5odlLXRjyVsgzltWGF8OkNzAKaf0B1P0%3D&se=2018-01-28T01%3A04%3A44Z&sp=r&traceId=9f8f1892121e445ea1ae4d2bc8449ce4
 
-    Access-Control-Allow-Credentials: true
+    Date: Sat, 27 Jan 2018 01:04:44 GMT
 
-    Access-Control-Expose-Headers: Transfer-Encoding,Date,Server,Vary,Ocp-Apim-Trace-Location
-
-    Ocp-Apim-Trace-Location: https://apimgmtstuvyx3wa3oqhdbwy.blob.core.windows.net/apiinspectorcontainer/RaVVuJBQ9yxtdyH55BAsjQ2-1?sv=2015-07-08&sr=b&sig=Ab6dPyLpTGAU6TdmlEVu32DMfdCXTiKAASUlwSq3jcY%3D&se=2017-09-15T05%3A49%3A53Z&sp=r&traceId=ed9f1f4332e34883a774c34aa899b832
-
-    Date: Thu, 14 Sep 2017 05:49:56 GMT
-
-
-    [
-    "value1",
-    "value2"
-    ]
+    
+    ["value1", "value2"]
     ```
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Klaster składa się z innych zasobów platformy Azure poza samym zasobem klastra. Najprostszym sposobem na usunięcie klastra i wszystkich wykorzystywanych przez niego zasobów jest usunięcie grupy zasobów.
 
-Logowanie do platformy Azure i wybierz identyfikator subskrypcji, z którą chcesz usunąć klaster.  Identyfikator subskrypcji można znaleźć po zalogowaniu się do [portalu Azure](http://portal.azure.com). Usuń grupę zasobów i zasobów klastra przy użyciu [polecenia cmdlet Remove-AzureRMResourceGroup](/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup).
+Zaloguj się do platformy Azure i wybierz identyfikator subskrypcji, za pomocą którego chcesz usunąć klaster.  Identyfikator subskrypcji można uzyskać po zalogowaniu się do [witryny Azure Portal](http://portal.azure.com). Usuń grupę zasobów i wszystkie zasoby klastra, korzystając z polecenia cmdlet [Remove-AzureRMResourceGroup](/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup).
 
 ```powershell
 $ResourceGroupName = "sfclustertutorialgroup"
@@ -328,26 +330,23 @@ ResourceGroupName="sfclustertutorialgroup"
 az group delete --name $ResourceGroupName
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Wdrażanie usługi API Management
-> * Skonfiguruj zarządzanie interfejsami API
+> * Konfigurowanie usługi API Management
 > * Tworzenie operacji interfejsu API
-> * Skonfiguruj zasady wewnętrznej bazy danych
+> * Konfigurowanie zasad zaplecza
 > * Dodawanie interfejsu API do produktu
 
 [azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 
-[apim-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/apim.json
-[apim-parameters-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/apim.parameters.json
+[apim-arm]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/service-integration/apim.json
+[apim-parameters-arm]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/service-integration/apim.parameters.json
 
-[network-arm]: https://github.com/Azure-Samples/service-fabric-api-management/blob/master/network.json
-[network-parameters-arm]: https://github.com/Azure-Samples/service-fabric-api-management/blob/master/network.parameters.json
-
-[cluster-arm]: https://github.com/Azure-Samples/service-fabric-api-management/blob/master/cluster.json
-[cluster-parameters-arm]: https://github.com/Azure-Samples/service-fabric-api-management/blob/master/cluster.parameters.json
+[network-arm]: https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/service-integration/network-apim.json
+[network-parameters-arm]: https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/service-integration/network-apim.parameters.json
 
 <!-- pics -->
 [sf-apim-topology-overview]: ./media/service-fabric-tutorial-deploy-api-management/sf-apim-topology-overview.png

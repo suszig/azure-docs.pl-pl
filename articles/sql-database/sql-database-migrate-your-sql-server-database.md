@@ -1,6 +1,6 @@
 ---
-title: Migrowanie serwera SQL bazy danych do bazy danych Azure SQL | Dokumentacja firmy Microsoft
-description: "Dowiedz się przeprowadzić migrację bazy danych SQL Server z bazą danych SQL Azure."
+title: "Migracja bazy danych SQL Server do usługi Azure SQL Database | Microsoft Docs"
+description: "Dowiedz się, jak przeprowadzić migrację bazy danych SQL Server do usługi Azure SQL Database."
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -14,49 +14,49 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 09/01/2017
+ms.date: 01/29/2018
 ms.author: carlrab
-ms.openlocfilehash: 526222944974c08f92aec2a8418e9b42401bc4d3
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: MT
+ms.openlocfilehash: 0b45661bbfc3d86542bd7424329e504d1d9c91e4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="migrate-your-sql-server-database-to-azure-sql-database"></a>Migrowanie bazy danych SQL Server do bazy danych SQL Azure
+# <a name="migrate-your-sql-server-database-to-azure-sql-database"></a>Migracja bazy danych SQL Server do usługi Azure SQL Database
 
-Przenoszenie programu SQL Server bazy danych do bazy danych SQL Azure jest tak proste, jak tworząc pustej bazy danych SQL Azure, a następnie za pomocą [Asystenta migracji danych](https://www.microsoft.com/download/details.aspx?id=53595) (DMA), aby zaimportować bazę danych na platformie Azure. Z tego samouczka dowiesz się, aby:
+Przeniesienie bazy danych SQL Server do usługi Azure SQL Database jest proste i polega na utworzeniu pustej bazy danych SQL na platformie Azure, a następnie zaimportowaniu odpowiedniej bazy danych do platformy Azure przy użyciu programu [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA). Z tego samouczka dowiesz się, jak wykonać następujące czynności:
 
 > [!div class="checklist"]
-> * Utwórz pustą bazę danych Azure SQL w portalu Azure (przy użyciu nowego lub istniejącego serwera Azure SQL Database)
-> * Utworzenie zapory poziomu serwera w portalu Azure (jeśli wcześniej utworzone)
-> * Użyj [Asystenta migracji danych](https://www.microsoft.com/download/details.aspx?id=53595) (DMA), aby zaimportować bazę danych programu SQL Server do pustej bazy danych Azure SQL 
-> * Użyj [programu SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS), aby zmienić właściwości bazy danych.
+> * Tworzenie pustej bazy danych usługi Azure SQL Database w witrynie Azure Portal (przy użyciu nowego lub istniejącego serwera usługi Azure SQL Database)
+> * Tworzenie reguły zapory na poziomie serwera w witrynie Azure Portal (jeśli nie została utworzona wcześniej)
+> * Importowanie bazy danych programu SQL Server do pustej bazy danych usługi Azure SQL Database za pomocą programu [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) 
+> * Zmienianie właściwości bazy danych za pomocą programu [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
-Jeśli nie masz subskrypcji platformy Azure, [utworzyć bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Do wykonania zadań opisanych w tym samouczku niezbędne jest spełnienie następujących wymagań wstępnych:
 
-- Zainstalowana najnowsza wersja [programu SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).  
-- Zainstalowana najnowsza wersja [Asystenta migracji danych](https://www.microsoft.com/download/details.aspx?id=53595) (DMA).
-- Zidentyfikowano i mają dostęp do bazy danych do migracji. W tym samouczku używana [programu SQL Server 2008 R2 bazy danych AdventureWorks OLTP](https://msftdbprodsamples.codeplex.com/releases/view/59211) w wystąpieniu programu SQL Server 2008 R2 lub nowszej, ale możesz użyć dowolnej bazy danych wybrane. Aby rozwiązać problemy ze zgodnością, należy użyć [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)
+- Zainstalowanie najnowszej wersji programu [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).  
+- Zainstalowanie najnowszej wersji programu [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA).
+- Określenie i uzyskanie dostępu do bazy danych, która ma zostać zmigrowana. W tym samouczku używana jest [baza danych SQL Server 2008R2 AdventureWorks OLTP](https://msftdbprodsamples.codeplex.com/releases/view/59211) w wystąpieniu programu SQL Server 2008R2 lub nowszego, ale można użyć dowolnej bazy danych. Aby rozwiązać problemy ze zgodnością, użyj narzędzi [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)
 
 ## <a name="log-in-to-the-azure-portal"></a>Logowanie do witryny Azure Portal
 
 Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 
-## <a name="create-a-blank-sql-database"></a>Utwórz pustą bazę danych SQL
+## <a name="create-a-blank-sql-database"></a>Tworzenie pustej bazy danych SQL
 
 Baza danych Azure SQL jest tworzona ze zdefiniowanym zestawem [zasobów obliczeniowych i przechowywania](sql-database-service-tiers.md). Baza danych jest tworzona w [grupie zasobów platformy Azure](../azure-resource-manager/resource-group-overview.md) oraz na [serwerze logicznym bazy danych Azure SQL Database](sql-database-features.md). 
 
-Wykonaj następujące kroki, aby utworzyć pustą bazę danych SQL. 
+Wykonaj poniższe czynności, aby utworzyć pustą bazę danych SQL. 
 
 1. Kliknij przycisk **Nowy** znajdujący się w lewym górnym rogu witryny Azure Portal.
 
 2. Na stronie **Nowy** wybierz pozycję **Bazy danych**, a następnie na stronie **Nowy** w obszarze **SQL Database** wybierz pozycję **Utwórz**.
 
-   ![Tworzenie bazy danych puste](./media/sql-database-design-first-database/create-empty-database.png)
+   ![tworzenie pustej bazy danych](./media/sql-database-design-first-database/create-empty-database.png)
 
 3. Wypełnij formularz Baza danych SQL w sposób pokazany na wcześniejszej ilustracji, używając następujących informacji:   
 
@@ -65,24 +65,24 @@ Wykonaj następujące kroki, aby utworzyć pustą bazę danych SQL.
    | **Nazwa bazy danych** | mySampleDatabase | Prawidłowe nazwy baz danych opisano w artykule [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identyfikatory baz danych). | 
    | **Subskrypcja** | Twoja subskrypcja  | Aby uzyskać szczegółowe informacje o subskrypcjach, zobacz [Subskrypcje](https://account.windowsazure.com/Subscriptions). |
    | **Grupa zasobów** | myResourceGroup | Prawidłowe nazwy grup zasobów opisano w artykule [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Reguły i ograniczenia nazewnictwa). |
-   | **Wybierz źródło** | Pusta baza danych | Określa, czy można utworzyć pustej bazy danych. |
+   | **Wybierz źródło** | Pusta baza danych | Określa, że ma zostać utworzona pusta baza danych. |
 
-4. Kliknij pozycję **Serwer**, aby utworzyć i skonfigurować nowy serwer dla nowej bazy danych. Wypełnianie **nowy formularz serwera** z następującymi informacjami: 
+4. Kliknij pozycję **Serwer**, aby utworzyć i skonfigurować nowy serwer dla nowej bazy danych. Wypełnij **formularz nowego serwera**, używając następujących informacji: 
 
    | Ustawienie       | Sugerowana wartość | Opis | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Nazwa serwera** | Dowolna nazwa unikatowa w skali globalnej | Prawidłowe nazwy serwera opisano w artykule [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Reguły i ograniczenia nazewnictwa). | 
    | **Identyfikator logowania administratora serwera** | Dowolna prawidłowa nazwa | Prawidłowe nazwy identyfikatorów logowania opisano w artykule [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identyfikatory baz danych).|
-   | **Hasło** | Dowolne prawidłowe hasło | Hasło musi mieć co najmniej ośmiu znaków i musi zawierać znaki z trzech z następujących kategorii: wielkich liter, małych liter, cyfr i znaków innych niż alfanumeryczne. |
+   | **Hasło** | Dowolne prawidłowe hasło | Hasło musi mieć co najmniej osiem znaków i musi zawierać znaki z trzech z następujących kategorii: wielkie litery, małe litery, cyfry i znaki inne niż alfanumeryczne. |
    | **Lokalizacja** | Dowolna prawidłowa lokalizacja | Aby uzyskać informacje na temat regionów, zobacz temat [Regiony systemu Azure](https://azure.microsoft.com/regions/). |
 
    ![tworzenie serwera bazy danych](./media/sql-database-design-first-database/create-database-server.png)
 
 5. Kliknij pozycję **Wybierz**.
 
-6. Kliknij pozycję **Warstwa cenowa**, aby określić warstwę usługi, liczbę jednostek DTU i ilość miejsca do magazynowania. Zapoznaj się z opcjami liczby jednostek Dtu i Magazyn, które są dostępne dla każdej warstwy usług. 
+6. Kliknij pozycję **Warstwa cenowa**, aby określić warstwę usługi, liczbę jednostek DTU i ilość miejsca do magazynowania. Przejrzyj opcje liczby jednostek DTU i miejsca do magazynowania dostępne dla poszczególnych warstw usługi. 
 
-7. W tym samouczku, wybierz **standardowe** warstwę usługi, a następnie wybierz za pomocą suwaka **100 Dtu (S3)** i **400** GB miejsca do magazynowania.
+7. Na potrzeby tego samouczka wybierz warstwę usługi **Standardowa**, a następnie wybierz za pomocą suwaka **100 jednostek DTU (S3)** i **400** GB miejsca do magazynowania.
 
    ![tworzenie bazy danych s1](./media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
 
@@ -91,12 +91,12 @@ Wykonaj następujące kroki, aby utworzyć pustą bazę danych SQL.
    > [!IMPORTANT]
    > \* Magazyn o rozmiarze większym niż ilość miejsca do magazynowania są dostępne w wersji zapoznawczej dodatkowych kosztów za dodatkową opłatą. Szczegóły można znaleźć w [cenniku usługi SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). 
    >
-   >\* W warstwie Premium magazyn o rozmiarze ponad 1 TB jest obecnie dostępny w następujących regionach: Wschodnie stany USA 2, Zachodnie stany USA, Administracja USA — Wirginia, Europa Zachodnia, Niemcy Środkowe, Azja Południowo-Wschodnia, Japonia Wschodnia, Australia Wschodnia, Kanada Środkowa i Kanada Wschodnia. Więcej informacji można znaleźć na stronie [bieżących ograniczeń poziomów P11–P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   >\* W warstwie Premium ponad 1 TB miejsca do magazynowania jest obecnie dostępny w następujących regionach: Australia Wschodnia, Australia Południowo-Wschodnia, Brazylia Południowa, Kanada Środkowa, Kanada Wschodnia, Środkowe stany USA, Francja Środkowa, Niemcy Środkowe, Japonia Wschodnia, Japonia Zachodnia, Korea Środkowa, Północno-środkowe stany USA, Europa Północna, Południowo-środkowe stany USA, Azja Południowo-Wschodnia, Południowe Zjednoczone Królestwo, Zachodnie Zjednoczone Królestwo, Wschodnie stany USA 2, Zachodnie stany USA, Administracja USA — Wirginia i Europa Zachodnia. Więcej informacji można znaleźć na stronie [bieżących ograniczeń poziomów P11–P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
 9. Po wybraniu warstwy serwera, liczby jednostek DTU i ilości miejsca do magazynowania kliknij przycisk **Zastosuj**.  
 
-10. Wybierz **sortowania** dla pustą bazę danych (w tym samouczku, użyj wartości domyślnej). Aby uzyskać więcej informacji na temat sortowań zobacz [sortowania](https://docs.microsoft.com/sql/t-sql/statements/collations)
+10. Wybierz **sortowanie** dla pustej bazy danych (na potrzeby tego samouczka użyj wartości domyślnej). Aby uzyskać więcej informacji na temat sortowań, zobacz [Sortowania](https://docs.microsoft.com/sql/t-sql/statements/collations)
 
 11. Teraz po uzupełnieniu formularza SQL Database kliknij przycisk **Utwórz**, aby aprowizować bazę danych. Aprowizacja zajmuje kilka minut. 
 
@@ -118,7 +118,7 @@ Usługa SQL Database tworzy zaporę na poziomie serwera, która uniemożliwia ze
 
    ![nazwa serwera](./media/sql-database-get-started-portal/server-name.png) 
 
-3. Kliknij przycisk **ustawić Zapora serwera** na pasku narzędzi. Zostanie otwarta strona **Ustawienia zapory** dla serwera SQL Database. 
+3. Kliknij pozycję **Ustaw zaporę serwera** na pasku narzędzi. Zostanie otwarta strona **Ustawienia zapory** dla serwera SQL Database. 
 
    ![reguła zapory serwera](./media/sql-database-get-started-portal/server-firewall-rule.png) 
 
@@ -128,14 +128,14 @@ Usługa SQL Database tworzy zaporę na poziomie serwera, która uniemożliwia ze
 
 6. Kliknij przycisk **OK**, a następnie zamknij stronę **Ustawienia zapory**.
 
-Teraz można podłączyć do serwera bazy danych SQL i jego bazy danych przy użyciu programu SQL Server Management Studio, asystenta migracji danych lub inne narzędzie do dowolnego z tego adresu IP przy użyciu konta administratora serwera utworzony w poprzedniej procedurze.
+Teraz możesz nawiązać połączenie z serwerem usługi SQL Database i jego bazami danych, korzystając z programu SQL Server Management Studio, Data Migration Assistant lub innego wybranego narzędzia, z tego adresu IP za pomocą konta administratora serwera utworzonego w poprzedniej procedurze.
 
 > [!IMPORTANT]
 > Domyślnie dostęp za pośrednictwem zapory usługi SQL Database jest włączony dla wszystkich usług platformy Azure. Kliknij przycisk **WYŁ.** na tej stronie, aby wyłączyć tę opcję dla wszystkich usług platformy Azure.
 
 ## <a name="sql-server-connection-information"></a>Informacje o połączeniu z serwerem SQL
 
-Pobierz w pełni kwalifikowaną nazwę serwera dla serwera Azure SQL Database w witrynie Azure Portal. Nazwa FQDN serwera umożliwia łączenie się z serwerem Azure SQL za pomocą narzędzi klienta, w tym pomocy migracji danych i SQL Server Management Studio.
+Pobierz w pełni kwalifikowaną nazwę serwera dla serwera Azure SQL Database w witrynie Azure Portal. W pełni kwalifikowana nazwa serwera służy do nawiązywania połączenia z serwerem usługi Azure SQL Database przy użyciu narzędzi klienckich, takich jak program Data Migration Assistant lub SQL Server Management Studio.
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 2. Wybierz opcję **Bazy danych SQL** z menu po lewej stronie, a następnie kliknij bazę danych na stronie **Bazy danych SQL**. 
@@ -145,84 +145,84 @@ Pobierz w pełni kwalifikowaną nazwę serwera dla serwera Azure SQL Database w 
 
 ## <a name="migrate-your-database"></a>Migrowanie bazy danych
 
-Wykonaj następujące kroki, aby użyć  **[Asystenta migracji danych](https://www.microsoft.com/download/details.aspx?id=53595)**  oceny gotowości bazy danych do migracji do usługi Azure SQL Database i do przeprowadzenia migracji.
+Wykonaj następujące kroki, aby za pomocą programu **[Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595)** ocenić gotowość swojej bazy danych do migracji do usługi Azure SQL Database i przeprowadzić migrację.
 
-1. Otwórz **Asystenta migracji danych**. DMA można uruchomić na dowolnym komputerze z połączenia z wystąpieniem programu SQL Server zawierającego bazę danych, które mają zostać poddane migracji i łączność z Internetem. Nie należy go zainstalować na komputerze obsługującym wystąpienie programu SQL Server, które ma być migrowane. Reguły zapory, który został utworzony w poprzedniej procedurze, musi być dla komputera, na którym są uruchomione Asystenta migracji danych.
+1. Otwórz program **Data Migration Assistant**. Program Data Migration Assistant można uruchomić na dowolnym komputerze połączonym z wystąpieniem programu SQL Server zawierającym bazę danych, która ma zostać zmigrowana, i połączonym z Internetem. Nie trzeba go instalować na komputerze hostującym wystąpienie programu SQL Server, które ma być migrowane. Reguła zapory utworzona w poprzedniej procedurze musi obowiązywać na komputerze, na którym jest uruchamiany program Data Migration Assistant.
 
-     ![Otwórz Asystenta migracji danych](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-open.png)
+     ![otwieranie programu Data Migration Assistant](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-open.png)
 
-2. W menu po lewej stronie kliknij **+ nowy** utworzyć **oceny** projektu. Wypełnij wymagane wartości, a następnie kliknij przycisk **Utwórz**:
+2. W menu po lewej stronie kliknij pozycję **+ New** (+ Nowy), aby utworzyć projekt **Assessment** (Ocena). Wypełnij wymagane wartości, a następnie kliknij pozycję **Create** (Utwórz):
 
    | Ustawienie      | Sugerowana wartość | Opis | 
    | ------------ | ------------------ | ------------------------------------------------- | 
-   | Typ projektu | Migracja | Oceny bazy danych do migracji lub wybrać do oceny i migracja w ramach tego samego przepływu pracy |
-   |Nazwa projektu|Samouczek migracji| Nazwę opisową |
-   |Typ serwera źródłowego| Oprogramowanie SQL Server | Jest to jedyne źródło, które są obecnie obsługiwane |
-   |Typ serwera docelowego| Usługa Azure SQL Database| Można wybierać: baza danych SQL Azure, programu SQL Server, SQL Server na maszynach wirtualnych Azure |
-   |Zakres migracji| Schemat i dane| Można wybierać: tylko dane schemat i dane, tylko schematu |
+   | Project type (Typ projektu) | Migracja | Wybierz ocenę bazy danych pod kątem migracji lub ocenę i migrację w ramach tego samego przepływu pracy |
+   |Project name (Nazwa projektu)|Migration tutorial (Samouczek migracji)| Nazwa opisowa |
+   |Source server type (Typ serwera źródłowego)| Oprogramowanie SQL Server | Jest to jedyne obecnie obsługiwane źródło |
+   |Target server type (Typ serwera docelowego)| Azure SQL Database| Dostępne są następujące opcje do wyboru: Azure SQL Database, SQL Server, SQL Server on Azure virtual machines (Program SQL Server na maszynach wirtualnych platformy Azure) |
+   |Migration Scope (Zakres migracji)| Schema and data (Schemat i dane)| Dostępne są następujące opcje do wyboru: Schema and data (Schemat i dane), Schema only (Tylko schemat), Data only (Tylko dane) |
    
-   ![Nowy projekt Asystenta migracji danych](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-new-project.png)
+   ![nowy projekt programu Data Migration Assistant](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-new-project.png)
 
-3.  Na **wybierz źródło** , wypełnij żądanej wartości, a następnie kliknij przycisk **Connect**:
+3.  Na stronie **Select source** (Wybieranie źródła) wypełnij wymagane wartości, a następnie kliknij przycisk **Connect** (Połącz):
 
     | Ustawienie      | Sugerowana wartość | Opis | 
     | ------------ | ------------------ | ------------------------------------------------- | 
     | Nazwa serwera | Nazwa serwera lub adres IP | Nazwa serwera lub adres IP |
-    | Typ uwierzytelniania | Typ uwierzytelniania preferowaną| Wybór: Active Directory systemu Windows uwierzytelniania, uwierzytelnianie programu SQL Server, zintegrowane uwierzytelnianie, uwierzytelnianie hasłem usługi Active Directory |
-    | Nazwa użytkownika | Nazwy logowania | Logowanie musi mieć **serwera kontroli** uprawnień |
-    | Hasło| hasło | hasło |
-    | Właściwości połączenia| Wybierz **połączenie szyfrowane** i **zaufania certyfikatów serwera** jako odpowiednie dla danego środowiska. | Wybierz polecenie Właściwości, które są odpowiednie dla danego połączenia z serwerem |
+    | Typ uwierzytelniania | Preferowany typ uwierzytelniania| Opcje do wyboru: Windows Authentication (Uwierzytelnianie systemu Windows), SQL Server Authentication (Uwierzytelnianie programu SQL Server), Active Directory Integrated Authentication (Zintegrowane uwierzytelnianie usługi Active Directory), Active Directory Password Authentication (Uwierzytelnianie hasłem usługi Active Directory) |
+    | Nazwa użytkownika | Twoja nazwa logowania | Nazwa logowania musi mieć uprawnienia **CONTROL SERVER** (KONTROLA SERWERA) |
+    | Hasło| Twoje hasło | Twoje hasło |
+    | Connection properties (Właściwości połączenia)| Wybierz pozycje **Encrypt connection** (Szyfruj połączenie) i **Trust server certificate** (Certyfikat serwera zaufania) odpowiednie dla danego środowiska. | Wybierz właściwości odpowiednie dla połączenia z danym serwerem |
 
-    ![nowe źródło wybierz migracji danych](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-source.png)
+    ![wybieranie źródła nowej migracji danych](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-source.png)
 
-5. Wybierz pojedynczą bazę danych z serwera źródłowego, aby przeprowadzić migrację do bazy danych SQL Azure, a następnie kliknij przycisk **dalej**. W tym samouczku jest tylko jednej bazy danych.
+5. Wybierz jedną bazę danych z serwera źródłowego, aby przeprowadzić jej migrację do usługi Azure SQL Database, a następnie kliknij przycisk **Next** (Dalej). W tym samouczku jest używana tylko jedna baza danych.
 
-6. Na **wybierz docelowy** , wypełnij żądanej wartości, a następnie kliknij przycisk **Connect**:
+6. Na stronie **Select target** (Wybieranie celu) wypełnij wymagane wartości, a następnie kliknij przycisk **Connect** (Połącz):
 
     | Ustawienie      | Sugerowana wartość | Opis | 
     | ------------ | ------------------ | ------------------------------------------------- | 
-    | Nazwa serwera | Pełna nazwa serwera bazy danych Azure | Pełna nazwa serwera bazy danych Azure z poprzedniej procedury |
-    | Typ uwierzytelniania | Uwierzytelnianie programu SQL Server | Uwierzytelnianie programu SQL Server jest jedyną opcją są zapisywane w tym samouczku, ale zintegrowane uwierzytelnianie usługi Active Directory i uwierzytelniania hasła w usłudze Active Directory są również obsługiwane przez bazę danych SQL Azure |
-    | Nazwa użytkownika | Nazwy logowania | Logowanie musi mieć **bazy danych kontroli** uprawnień do źródłowej bazy danych |
-    | Hasło| hasło | hasło |
-    | Właściwości połączenia| Wybierz **połączenie szyfrowane** i **zaufania certyfikatów serwera** jako odpowiednie dla danego środowiska. | Wybierz polecenie Właściwości, które są odpowiednie dla danego połączenia z serwerem |
+    | Nazwa serwera | W pełni kwalifikowana nazwa serwera usługi Azure Database | W pełni kwalifikowana nazwa serwera usługi Azure Database z poprzedniej procedury |
+    | Typ uwierzytelniania | Uwierzytelnianie programu SQL Server | W chwili pisania tego samouczka jedyną dostępna opcją jest uwierzytelnianie programu SQL Server, ale usługa Azure SQL Database obsługuje także zintegrowane uwierzytelnianie usługi Active Directory i uwierzytelnianie hasłem usługi Active Directory |
+    | Nazwa użytkownika | Twoja nazwa logowania | Nazwa logowania musi mieć uprawnienia **CONTROL DATABASE** (KONTROLA BAZY DANYCH) do źródłowej bazy danych |
+    | Hasło| Twoje hasło | Twoje hasło |
+    | Connection properties (Właściwości połączenia)| Wybierz pozycje **Encrypt connection** (Szyfruj połączenie) i **Trust server certificate** (Certyfikat serwera zaufania) odpowiednie dla danego środowiska. | Wybierz właściwości odpowiednie dla połączenia z danym serwerem |
 
-    ![nowy cel wybierz migracji danych](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-target.png)
+    ![wybieranie lokalizacji docelowej dla nowej migracji danych](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-target.png)
 
-7. Wybierz bazę danych z serwera docelowego, który został utworzony w poprzedniej procedurze, a następnie kliknij przycisk **dalej** aby rozpocząć proces oceny źródła schematu bazy danych. W tym samouczku jest tylko jednej bazy danych. Należy zauważyć, że poziom zgodności dla tej bazy danych ustawiono 140, która jest domyślny poziom zgodności dla wszystkich nowych baz danych w bazie danych SQL Azure.
+7. Wybierz bazę danych z serwera docelowego utworzonego w poprzedniej procedurze, a następnie kliknij przycisk **Next** (Dalej), aby rozpocząć proces oceny schematu źródłowej bazy danych. W tym samouczku jest używana tylko jedna baza danych. Zwróć uwagę, że poziom zgodności dla tej bazy danych ustawiono na wartość 140. Jest to domyślny poziom zgodności dla wszystkich nowych baz danych w usłudze Azure SQL Database.
 
    > [!IMPORTANT] 
-   > Po przeprowadzeniu migracji bazy danych do bazy danych SQL Azure, są dostępne do obsługi bazy danych na poziomie zgodności określonego dla celów zgodności z poprzednimi wersjami. Aby uzyskać więcej informacji na wpływ i opcje dla działania bazy danych na poziomie zgodności określonego, zobacz [zmienić poziom zgodności bazy danych](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level). Zobacz też [ALTER DATABASE CONFIGURATION zakres](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) informacji o dodatkowe ustawienia bazy danych na poziomie związane z poziomy zgodności.
+   > Po przeprowadzeniu migracji bazy danych do usługi Azure SQL Database możesz korzystać z tej bazy danych na określonym poziomie zgodności w celu zapewnienia zgodności z poprzednimi wersjami. Aby uzyskać więcej informacji o implikacjach i opcjach związanych z używaniem bazy danych na określonym poziomie zgodności, zobacz [ALTER DATABASE Compatibility Level](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level) (Instrukcja ALTER DATABASE — poziom zgodności). Zapoznaj się też z tematem [ALTER DATABASE SCOPED CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql), aby uzyskać informacje o dodatkowych ustawieniach na poziomie bazy danych związanych z poziomem zgodności.
    >
 
-8. Na **wybierz obiekty** zakończeniu strony, po źródłowej bazy danych procesu oceny schematu, przejrzyj obiekty wybrana do migracji i przejrzyj obiektów zawierających problemy. Na przykład Przejrzyj **dbo.uspSearchCandidateResumes** obiekt do **SERVERPROPERTY('LCID')** zmiany zachowania i **HumanResourcesJobCandidate** obiekt do Zmiany wyszukiwania pełnotekstowego. 
+8. Na stronie **Select objects** (Wybieranie obiektów), po zakończeniu procesu oceny schematu źródłowej bazy danych, przejrzyj obiekty wybrane do migracji i przejrzyj obiekty zawierające problemy. Na przykład przyjrzyj się obiektowi **dbo.uspSearchCandidateResumes** pod kątem zmian zachowania **SERVERPROPERTY('LCID')** oraz obiektowi **HumanResourcesJobCandidate** pod kątem zmian wyszukiwania pełnotekstowego. 
 
    > [!IMPORTANT] 
-   > W zależności od projektu bazy danych i projektowania aplikacji, podczas migracji źródłowej bazy danych, konieczne może być albo zmodyfikować lub zarówno bazy danych lub aplikacji po migracji (i w niektórych przypadkach przed migracją). Informacje o różnice języka Transact-SQL, które mogą dotyczyć migracji znajdują się w temacie [różnice języka Transact-SQL rozpoznawania podczas migracji do usługi SQL Database](sql-database-transact-sql-information.md).
+   > W zależności od projektu bazy danych i projektu aplikacji w przypadku migrowania źródłowej bazy danych może być konieczne zmodyfikowanie bazy danych lub aplikacji bądź obydwu tych elementów po migracji (a w niektórych przypadkach przed migracją). Informacje o różnicach języka Transact-SQL, które mogą mieć wpływ na migrację, można znaleźć w temacie [Rozwiązywanie różnic w języku Transact-SQL podczas migracji do usługi SQL Database](sql-database-transact-sql-information.md).
 
-     ![dane migracji do oceny i obiekt wyboru nowego](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-assessment-results.png)
+     ![wybieranie obiektów i ocena nowej migracji danych](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-assessment-results.png)
 
-9. Kliknij przycisk **skryptu SQL Generowanie** do skryptów obiektów schematu w źródłowej bazy danych. 
-10. Przejrzyj wygenerowany skrypt, a następnie kliknij przycisk **obok wystawiać** zgodnie z potrzebami, aby przejrzeć problemy zidentyfikowane oceny i zalecenia. Na przykład dla wyszukiwania pełnotekstowego, podczas uaktualniania zaleca testowania aplikacji korzystania z funkcji pełnego tekstu. Można zapisać lub skopiuj skrypt, w razie potrzeby.
+9. Kliknij pozycję **Generate SQL script** (Generuj skrypt SQL), aby utworzyć skrypt obiektów schematu w źródłowej bazie danych. 
+10. Przejrzyj wygenerowany skrypt, a następnie kliknij pozycję **Next issue** (Następny problem), jeśli będzie taka potrzeba, aby zapoznać się z wykrytymi problemami dotyczącymi oceny oraz z zaleceniami. Na przykład w przypadku wyszukiwania pełnotekstowego podczas uaktualniania zalecane jest przetestowanie aplikacji z wykorzystaniem funkcji pełnego tekstu. Jeśli chcesz, możesz zapisać lub skopiować skrypt.
 
-     ![nowego skryptu migracji wygenerowanych danych](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-generated-script.png)
+     ![skrypt wygenerowany dla nowej migracji danych](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-generated-script.png)
 
-11. Kliknij przycisk **schema wdrażania** i obejrzyj schematu procesu migracji.
+11. Kliknij przycisk **Deploy schema** (Wdróż schemat) i obserwuj proces migracji schematu.
 
-     ![nowe migracji schematu migracji danych](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-schema-migration.png)
+     ![migracja schematu nowej migracji danych](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-schema-migration.png)
 
-12. Po zakończeniu migracji schematu, przejrzyj wyniki błędy, a następnie zakładając, że nie ma żadnych, kliknij **migracji danych**.
-13. Na **wybierz tabele** strony, przejrzyj tabele wybrana do migracji, a następnie kliknij przycisk **rozpocząć migrację danych**.
+12. Po zakończeniu migracji schematu przejrzyj wyniki w poszukiwaniu błędów, a następnie, przy założeniu, że błędów nie ma, kliknij przycisk **Migrate data** (Przeprowadź migrację danych).
+13. Na stronie **Select tables** (Wybieranie tabel) przejrzyj tabele wybrane do migracji, a następnie kliknij pozycję **Start data migration** (Rozpocznij migrację danych).
 
-     ![nowe dane migracji danych migracji](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-data-migration.png)
+     ![migracja danych nowej migracji danych](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-data-migration.png)
 
-14. Obejrzyj procesu migracji.
+14. Obserwuj proces migracji.
 
-     ![nowy proces migracji danych migracji danych](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-data-migration-process.png)
+     ![proces migracji danych nowej migracji danych](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-data-migration-process.png)
 
-## <a name="connect-to-the-database-with-ssms"></a>Połączenie z bazą danych z narzędzia SSMS
+## <a name="connect-to-the-database-with-ssms"></a>Nawiązywanie połączenia z bazą danych za pomocą programu SSMS
 
-Użyj [programu SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) nawiązać połączenia z serwerem bazy danych SQL Azure.
+Nawiąż połączenie z serwerem Azure SQL Database za pomocą programu [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms).
 
 1. Otwórz program SQL Server Management Studio.
 
@@ -231,7 +231,7 @@ Użyj [programu SQL Server Management Studio](https://docs.microsoft.com/sql/ssm
    | Ustawienie       | Sugerowana wartość | Opis | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | Typ serwera | Aparat bazy danych | Ta wartość jest wymagana |
-   | Nazwa serwera | W pełni kwalifikowana nazwa serwera | Nazwa powinna być podobny do następującego: **mynewserver20170824.database.windows.net**. |
+   | Nazwa serwera | W pełni kwalifikowana nazwa serwera | Nazwa może mieć taką formę: **mynewserver20170824.database.windows.net**. |
    | Authentication | Uwierzytelnianie programu SQL Server | Uwierzytelnianie SQL to jedyny typ uwierzytelniania skonfigurowany w tym samouczku. |
    | Login | Konto administratora serwera | To konto określono podczas tworzenia serwera. |
    | Hasło | Hasło konta administratora serwera | To hasło określono podczas tworzenia serwera. |
@@ -246,15 +246,15 @@ Użyj [programu SQL Server Management Studio](https://docs.microsoft.com/sql/ssm
 
 5. W Eksploratorze obiektów rozwiń pozycję **Bazy danych**, a następnie rozwiń pozycję **mySampleDatabase**, aby wyświetlić obiekty w przykładowej bazie danych.
 
-   ![Obiekty bazy danych](./media/sql-database-connect-query-ssms/connected.png)  
+   ![obiekty bazy danych](./media/sql-database-connect-query-ssms/connected.png)  
 
-## <a name="change-database-properties"></a>Zmień właściwości bazy danych
+## <a name="change-database-properties"></a>Zmienianie właściwości bazy danych
 
-Można zmienić warstwy usług, poziom wydajności i poziom zgodności przy użyciu programu SQL Server Management Studio. Podczas fazy importu zalecamy importowania do wyższych bazy danych warstwy wydajności, aby uzyskać najlepszą wydajność, ale skalowanie w dół po zakończeniu importowania zaoszczędzić, dopóki nie będą gotowe do użycia aktywnie importowanych bazy danych. Zmiana poziomu zgodności może spowodować lepszą wydajność i dostęp do najnowszych funkcji usługi baza danych SQL Azure. Podczas migracji starszej bazy danych, jej poziom zgodności bazy danych utrzymywana jest najniższa obsługiwany poziom jest zgodny z bazy danych zostały zaimportowane. Aby uzyskać więcej informacji, zobacz [zwiększona wydajność zapytań ze zgodnością 130 poziom w bazie danych SQL Azure](sql-database-compatibility-level-query-performance-130.md).
+Warstwę usługi, poziom wydajności i poziom zgodności można zmienić przy użyciu programu SQL Server Management Studio. Podczas fazy importu zalecamy importowanie do bazy danych na wyższej warstwie wydajności, co pozwoli uzyskać najlepszą wydajność, a po zakończeniu importowania zalecamy przeprowadzenie skalowania w dół w celu zaoszczędzenia pieniędzy, dopóki wszystko nie będzie gotowe do aktywnego używania zaimportowanej bazy danych. Zmiana poziomu zgodności może dać w wyniku lepszą wydajność i dostęp do najnowszych funkcji usługi Azure SQL Database. Podczas migracji starszej bazy danych jej poziom zgodności jest utrzymywany na najniższym obsługiwanym poziomie, który jest zgodny z importowaną bazą danych. Aby uzyskać więcej informacji, zobacz [Improved query performance with compatibility Level 130 in Azure SQL Database](sql-database-compatibility-level-query-performance-130.md) (Zwiększenie wydajności zapytań za pomocą poziomu zgodności 130 w usłudze Azure SQL Database).
 
-1. W Eksploratorze obiektów kliknij prawym przyciskiem myszy **mySampleDatabase** , a następnie kliknij przycisk **nowe zapytanie**. Zostanie otwarte okno zapytania połączenie z bazą danych.
+1. W Eksploratorze obiektów kliknij prawym przyciskiem myszy pozycję **mySampleDatabase**, a następnie kliknij polecenie **Nowe zapytanie**. Zostanie otwarte okno zapytania połączone z Twoją bazą danych.
 
-2. Uruchom następujące polecenie, aby ustawić warstwy usług **standardowe** i poziomu wydajności do **S1**.
+2. Wykonaj następujące polecenie, aby ustawić warstwę usług **Standardowa** i poziom wydajności **S1**.
 
     ```sql
     ALTER DATABASE mySampleDatabase 
@@ -267,16 +267,16 @@ Można zmienić warstwy usług, poziom wydajności i poziom zgodności przy uży
     ```
 
 ## <a name="next-steps"></a>Następne kroki 
-W tym samouczku przedstawiono do:
+W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
-> * Utwórz pustą bazę danych Azure SQL w portalu Azure 
-> * Utworzenie zapory poziomu serwera w portalu Azure 
-> * Użyj [Asystenta migracji danych](https://www.microsoft.com/download/details.aspx?id=53595) (DMA), aby zaimportować bazę danych programu SQL Server do pustej bazy danych Azure SQL 
-> * Użyj [programu SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS), aby zmienić właściwości bazy danych.
+> * Tworzenie pustej bazy danych usługi Azure SQL Database w witrynie Azure Portal 
+> * Tworzenie zapory na poziomie serwera w witrynie Azure Portal 
+> * Importowanie bazy danych programu SQL Server do pustej bazy danych usługi Azure SQL Database za pomocą programu [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) 
+> * Zmienianie właściwości bazy danych za pomocą programu [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
-Przejdź do następnego samouczkiem, aby dowiedzieć się, jak zabezpieczenia bazy danych.
+Przejdź do następnego samouczka, aby dowiedzieć się, jak zabezpieczyć bazę danych.
 
 > [!div class="nextstepaction"]
-> [Zabezpieczenia bazy danych Azure SQL](sql-database-security-tutorial.md).
+> [Zabezpieczanie usługi Azure SQL Database](sql-database-security-tutorial.md).
 
 

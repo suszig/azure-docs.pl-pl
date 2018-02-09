@@ -12,11 +12,11 @@ ms.devlang: rest-api
 ms.topic: get-started-article
 ms.workload: big-data
 ms.date: 11/21/2017
-ms.openlocfilehash: b7c58697323ec12ac08575916cb3ac5b38cc39c1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: ffa8e96ab9a5344c924400fe55b4d1e6aee95f06
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Udostępnianie widoku niestandardowego przy użyciu sparametryzowanego adresu URL
 
@@ -63,14 +63,16 @@ Akceptowane wartości odpowiadają wartościom w **szybkim menu czasu** eksplora
 
 Parametr `timeSeriesDefinitions=<collection of term objects>` określa terminy widoku usługi Time Series Insights, gdzie:
 
-- `name=<string>`
+- "name":"<string>"
   - Nazwa *terminu*.
-- `splitBy=<string>`
+- "splitBy":"<string>"
   - Nazwa kolumny, według której ma zostać wykonany *podział*.
-- `measureName=<string>`
+- "measureName":"<string>"
   - Nazwa kolumny *miary*.
-- `predicate=<string>`
+- "predicate":"<string>"
   - Klauzula *where* na potrzeby filtrowania po stronie serwera.
+-  "useSum":"true"
+  - Jest to opcjonalny parametr określający użycie sumy dla miary.  Uwaga: Jeśli wybrana miara to „Events”, domyślnie jest zaznaczona liczba.  Jeśli miara „Events” nie jest zaznaczona, domyślnie jest zaznaczona średnia.  
 
 Parametr „multiChartStack=<true/false>” umożliwia umieszczanie na stosie na wykresie, a parametr „multiChartSameScale=<true/false>” dopuszcza tę samą skalę osi Y dla warunków w ramach parametru opcjonalnego.  
 

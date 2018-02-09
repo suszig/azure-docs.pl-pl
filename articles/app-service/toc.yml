@@ -75,6 +75,8 @@
       href: app-service-local-cache-overview.md
     - name: Diagnostyka
       href: app-service-diagnostics.md
+    - name: Stosowanie poprawek systemu operacyjnego i środowiska uruchomieniowego
+      href: app-service-patch-os-runtime.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Konfigurowanie aplikacji

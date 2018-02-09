@@ -1,115 +1,115 @@
 ---
-title: "Zarządzanie kosztami przy użyciu usługi Azure Management koszt | Dokumentacja firmy Microsoft"
-description: "Zarządzanie kosztami przy użyciu koszt alokacji i ogólnej analizy kosztów i raportów obciążenia zwrotnego."
+title: "Zarządzanie kosztami przy użyciu usługi Azure Cost Management | Microsoft Docs"
+description: "Zarządzaj kosztami przy użyciu przydzielania kosztów oraz raportów przewidywanych kosztów i obciążeń zwrotnych."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/21/2017
+ms.date: 01/30/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: bfbcded98814500a03b2b79b0248c84f8f043dc0
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
-ms.translationtype: MT
+ms.openlocfilehash: 804b50d6ba054bbb0eb60b659c98f161ea5272ee
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="manage-costs-by-using-azure-cost-management"></a>Zarządzanie kosztami przy użyciu usługi Azure Management koszt
+# <a name="manage-costs-by-using-azure-cost-management"></a>Zarządzanie kosztami przy użyciu usługi Azure Cost Management
 
-Zarządzanie kosztami i tworzenia raportów ogólnej analizy kosztów w Azure kosztów zarządzania przez Cloudyn Przydzielając koszty tagów. Proces alokacji kosztów przypisuje kosztów zasobów w chmurze wykorzystane. Koszty pełni są przydzielane, gdy wszystkie zasoby są podzielone przy użyciu tagów. Po koszty są przydzielone, można udostępnić ogólnej analizy kosztów lub obciążenia zwrotnego użytkownikom pulpity nawigacyjne i raporty. Jednak wiele zasobów może być nieoznakowanego lub untaggable użyciem kosztów zarządzania.
+Usługa Azure Cost Management firmy Cloudyn umożliwia zarządzanie kosztami i tworzenie raportów przewidywanych kosztów przez przydzielanie kosztów na podstawie tagów. W procesie przydzielania kosztów do wykorzystywanych zasobów w chmurze przypisywane są koszty. Koszty są w pełni przydzielone, gdy wszystkie zasoby są skategoryzowane przy użyciu tagów. Po przydzieleniu kosztów można udostępnić użytkownikom analizę przewidywanych kosztów i obciążeń zwrotnych za pomocą pulpitów nawigacyjnych i raportów. Jednak na początku korzystania z usługi Cost Management wiele zasobów może nie mieć przypisanych tagów lub przypisanie im tagów może być niemożliwe.
 
-Na przykład możesz pobrać zwracane engineering kosztów. Musisz mieć możliwość Pokaż zespołu inżynieryjnego wymagającym określoną kwotę, na podstawie kosztów zasobów. Można je wyświetlić raport dla wszystkich zasobów wykorzystanych, które są oznaczone *engineering*.
+Na przykład może być konieczne uzyskanie zwrotu kosztów inżynieryjnych. Potrzebna jest możliwość przedstawienia zespołowi inżynierów tego, że wymagane jest określona kwota — na podstawie kosztów zasobów. Można pokazać im raport dotyczący wszystkich wykorzystanych zasobów z tagiem *inżynieria*.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Skorzystaj z znaczniki niestandardowe, aby przydzielić kosztów.
-> * Tworzenie raportów ogólnej analizy kosztów i obciążeń zwrotnych.
+> * Przydzielanie kosztów za pomocą tagów niestandardowych.
+> * Tworzenie raportów przewidywanych kosztów i obciążeń zwrotnych.
 
-## <a name="use-custom-tags-to-allocate-costs"></a>Użyj niestandardowe znaczniki, aby przydzielić koszty
+## <a name="use-custom-tags-to-allocate-costs"></a>Przydzielanie kosztów za pomocą tagów niestandardowych
 
-Po uruchomieniu alokacji kosztów w pierwszej kolejności należy wykonać jest zdefiniować zakres przy użyciu modelu kosztów. Model koszt nie zmienia kosztów, rozpowszechnia je. Podczas tworzenia modelu koszt jest segmentu danych koszt jednostki, konta lub subskrypcji, a także wiele tagów. Typowe przykład tagi mogą zawierać kod rozliczeń, Centrum kosztu lub nazwa grupy. Tagi też pomóc Ci wykonać ogólne analizy kosztów lub obciążenia zwrotnego do innych części organizacji.
+Podczas przydzielania kosztów w pierwszej kolejności należy zdefiniować zakres przy użyciu modelu kosztów. Model kosztów nie zmienia kosztów, lecz je dystrybuuje. Tworzenie modelu kosztów polega na segmentacji danych według jednostek kosztów, kont lub subskrypcji, a także według wielu tagów. Przykłady typowych tagów to kod rozliczeń, centrum kosztu lub nazwa grupy. Tagi ułatwiają też analizę przewidywanych kosztów i obciążeń zwrotnych do innych części organizacji.
 
-Aby utworzyć niestandardowy koszt modelu alokacji, wybierz **koszt** &gt; **kosztów zarządzania** &gt; **alokacji kosztów 360°** menu raportu.
+Aby utworzyć niestandardowy model przydzielania kosztów, wybierz pozycję **Cost** (Koszty) &gt; **Cost Management** (Zarządzanie kosztami) &gt; **Cost Allocation 360°** (Alokacja kosztu 360°) w menu raportu.
 
-![Wybór 360 alokacji kosztu](./media/tutorial-manage-costs/cost-allocation-360.png)
+![Wybieranie pozycji Cost Allocation 360 (Alokacja kosztu 360)](./media/tutorial-manage-costs/cost-allocation-360.png)
 
-Na **360 alokacji koszt** wybierz pozycję **Dodaj** , a następnie wprowadź nazwę i opis dla modelu kosztów. Wybierz wszystkie konta lub indywidualnych kont. Jeśli chcesz użyć indywidualnych kont, można wybrać wiele kont od wielu dostawców usługi w chmurze. Następnie kliknij przycisk **kategoryzacji** wybrać odnalezionych tagi, które kategoryzowanie danych kosztów. Wybierz tagi (kategorie), które chcesz dołączyć do modelu. W poniższym przykładzie **jednostki** znacznik jest zaznaczony.
+Na stronie **Cost Allocation 360** (Alokacja kosztu 360) wybierz pozycję **Add** (Dodaj), a następnie wprowadź nazwę i opis tworzonego modelu kosztów. Wybierz albo wszystkie konta, albo poszczególne konta. Jeśli chcesz użyć poszczególnych kont, możesz wybrać wiele kont od wielu dostawców usług w chmurze. Następnie kliknij pozycję **Categorization** (Kategoryzacja), aby wybrać odnalezione tagi kategoryzujące dane kosztów. Wybierz tagi (kategorie), które chcesz dołączyć do modelu. W poniższym przykładzie wybrany jest tag **Unit** (Jednostka).
 
-![Przykład koszt modelu kategoryzacji](./media/tutorial-manage-costs/cost-model01.png)
-
-
-
-W przykładzie pokazano, że 14,444 $ jest bez kategorii (bez tagów).
-
-Następnie wybierz pozycję **bez kategorii zasobów** i wybierz usługi, które miał nieprzydzielone kosztów. Następnie należy zdefiniować reguły można przydzielić koszty.
-
-Na przykład możesz pobrać koszty magazynu Azure i dystrybuować koszty jednakowo na maszynach wirtualnych platformy Azure (VM). Aby to zrobić, wybierz **magazynowania Azure** usługi, wybierz opcję **proporcjonalny do według kategorii**, a następnie wybierz **maszyny Wirtualnej i Azure**. Następnie wybierz opcję **Utwórz**.
-
-![Reguła alokacji modelu przykład kosztów, rozkładając](./media/tutorial-manage-costs/cost-model02.png)
+![Przykład kategoryzacji modelu kosztów](./media/tutorial-manage-costs/cost-model01.png)
 
 
 
-W przykładzie różnych możesz przydzielić koszty sieci platformy Azure do określonej jednostki biznesowej w organizacji. Aby to zrobić, wybierz **Azure i sieci** usługi, a następnie wybierz **rozkładu jawną**. Następnie ustaw procent dystrybucji do 100 i wybierz jednostki biznesowej —**G&amp;A** na poniższej ilustracji:
+W przykładzie pokazano, że kwota 14 444 USD nie jest skategoryzowana (nie ma tagów).
 
-![Przykład koszt modelu alokacji reguły dla określonej jednostki biznesowej](./media/tutorial-manage-costs/cost-model03.png)
+Następnie wybierz pozycję **Uncategorized Resources** (Zasoby nieskategoryzowane) i wybierz usługi, które zawierają nieprzydzielone koszty. Potem zdefiniuj reguły przydzielania kosztów.
+
+Na przykład koszty magazynu platformy Azure możesz dystrybuować równomiernie między maszynami wirtualnymi platformy Azure. Aby to zrobić, wybierz usługę **Azure/Storage**, pozycję **Proportional to Categorized** (Proporcjonalnie do skategoryzowanych), a następnie pozycję **Azure/VM**. Następnie wybierz przycisk **Create** (Utwórz).
+
+![Przykładowa reguła przydzielania w modelu kosztów zapewniająca równomierną dystrybucję](./media/tutorial-manage-costs/cost-model02.png)
 
 
 
-Dla wszystkich pozostałych zasobów bez kategorii należy utworzyć dodatkowe reguły.
+Inny przykład: możesz chcieć przydzielić wszystkie koszty sieci platformy Azure do określonej jednostki biznesowej w organizacji. Aby to zrobić, wybierz pozycję **Azure/Network**, a następnie pozycję **Explicit Distribution** (Dystrybucja jawna). Następnie ustaw dla procentu dystrybucji wartość 100 i wybierz jednostkę biznesową — na poniższej ilustracji jest to jednostka **G&amp;A**:
 
-Jeśli masz wystąpienia nieprzydzielonego zastrzeżone Amazon Web usługi (AWS), można przypisać je do oznakowanych kategorii z **zastrzeżone wystąpień**.
+![Przykładowa reguła przydzielania do określonej jednostki biznesowej w modelu kosztów](./media/tutorial-manage-costs/cost-model03.png)
 
-Aby wyświetlić informacje o dostępnych opcjach, wprowadzone do przydzielenia kosztów, wybierz **Podsumowanie**. Aby zapisać informacje i kontynuować pracę na dodatkowe reguły później, wybierz **Zapisz jako projekt**. Lub, aby zapisać informacje i Cloudyn rozpoczyna przetwarzanie modelu alokacji kosztów, wybierz **Zapisz i aktywować**.
 
-Na liście modeli koszt przedstawiono nowego modelu koszt za pomocą **przetwarzania stanu**. Może upłynąć pewien czas, zanim aktualizacji bazy danych Cloudyn modelu kosztów. Po zakończeniu przetwarzania stan zostanie zaktualizowany do **Ukończono**. Można wyświetlić danych z modelu koszt raportu analizy kosztów w obszarze **rozszerzone filtry** &gt; **modelu koszt**.
 
-### <a name="category-manager"></a>Menedżer kategorii
+Dla wszystkich pozostałych nieskategoryzowanych zasobów utwórz dodatkowe reguły przydzielania.
 
-Menedżer kategorii jest narzędzie czyszczenia danych, które pomaga scalić wartości wiele kategorii (tagów), aby utworzyć nowe. Jest proste narzędzie opartego na regułach gdzie wybierz kategorię i tworzenie reguł do scalenia istniejące wartości. Na przykład może być istniejące kategorie **R&amp;D** i **deweloperów** którym reprezentują zarówno grupy deweloperskiej.
+Jeśli masz nieprzydzielone wystąpienia zarezerwowane usługi Amazon Web Services (AWS), możesz przypisać je do otagowanych kategorii za pomocą pozycji **Reserved Instances** (Wystąpienia zarezerwowane).
 
-W portalu Cloudyn kliknij koło zębate symbol w górnym prawym rogu i wybierz pozycję **menedżera kategorii**. Aby utworzyć nową kategorię, wybierz znak plus (**+**). Wprowadź nazwę dla kategorii, a następnie w obszarze **klucze**, wprowadź klucze kategorii, które mają zostać uwzględnione w nowej kategorii.
+Aby wyświetlić informacje o wybranych opcjach przydzielania kosztów, wybierz pozycję **Summary** (Podsumowanie). Aby zapisać informacje i kontynuować pracę nad dodatkowymi regułami później, wybierz pozycję **Save As Draft** (Zapisz jako wersję roboczą). Ewentualnie aby zapisać informacje i rozpocząć przetwarzanie przez usługę Cloudyn modelu przydzielania kosztów, wybierz pozycję **Save and Activate** (Zapisz i aktywuj).
 
-Podczas definiowania regułę można dodać wiele wartości z warunkiem lub. Można również wykonać pewne podstawowe operacje na ciągach. Dla obu przypadkach kliknij symbol wielokropka (**...** ) z prawej strony **reguły**.
+Na liście modeli kosztów nowy model kosztów będzie wyświetlany ze stanem **Processing** (Przetwarzanie). Może upłynąć pewien czas, zanim baza danych Cloudyn zostanie aktualizowana o ten model kosztów. Po zakończeniu przetwarzania stan zostanie zaktualizowany do **Completed** (Ukończono). Dane z modelu kosztów będzie wtedy można wyświetlić w raporcie analizy kosztów w obszarze **Extended Filters** (Rozszerzone filtry) &gt; **Cost Model** (Modelu kosztów).
 
-Aby zdefiniować nową regułę w **reguły** obszaru, Utwórz nową regułę. Na przykład wprowadź **deweloperów** w obszarze **reguły** , a następnie wprowadź **R&amp;D** w obszarze **akcje**. Gdy wszystko będzie gotowe, Zapisz nową kategorię.
+### <a name="category-manager"></a>Narzędzie Category Manager
 
-Na poniższej ilustracji przedstawiono przykład reguł utworzonych dla nową kategorię o nazwie **obciążenia pracą**:
+Category Manager to narzędzie do czyszczenia danych, które pomaga scalić wartości wielu kategorii (tagi), aby utworzyć nowe. Jest to proste narzędzie oparte na regułach, które umożliwia wybranie kategorii i utworzenie reguł w celu scalenia istniejących wartości. Mogą na przykład istnieć kategorie **R&amp;D** oraz **dev** — obie reprezentujące grupy deweloperskie.
+
+W portalu Cloudyn kliknij symbol koła zębatego w prawym górnym rogu i wybierz pozycję **Category Manager** (Menedżer kategorii). Aby utworzyć nową kategorię, wybierz znak plus (**+**). Wprowadź nazwę dla kategorii, a następnie w obszarze **Keys** (Klucze) wprowadź klucze kategorii, które mają zostać uwzględnione w nowej kategorii.
+
+Podczas definiowania reguły można dodać wiele wartości z warunkiem LUB. Można również wykonywać pewne podstawowe operacje na ciągach. Obie opcje wymagają kliknięcia symbolu wielokropka (**...**) z prawej strony pozycji **Rule** (Reguła).
+
+Aby zdefiniować nową regułę, w obszarze **Rules** (Reguły) utwórz nową regułę. Na przykład wprowadź tekst **dev** w obszarze **Rules** (Reguły), a następnie tekst **R&amp;D** w obszarze **Actions** (Akcje). Gdy wszystko będzie gotowe, zapisz nową kategorię.
+
+Na poniższej ilustracji przedstawiono przykład reguł utworzonych dla nowej kategorii o nazwie **Work-Load**:
 
 ![Przykład kategorii](./media/tutorial-manage-costs/category01.png)
 
-### <a name="tag-sources-and-reports"></a>Tag źródeł i raporty
+### <a name="tag-sources-and-reports"></a>Tagowanie źródeł i raportów
 
-Tag widoczne w raportach Cloudyn pochodzą dane w trzech miejscach:
+Dane tagów widoczne w raportach usługi Cloudyn pochodzą z trzech miejsc:
 
-- Dostawca zasobów interfejsów API w chmurze
-- Rozliczeń interfejsy API dostawcy usług w chmurze
-- Znaczniki utworzone ręcznie z następujących źródeł:
-    - Tagi jednostek Cloudyn - meta danych użytkownika dotyczą Cloudyn jednostek
-    - Kategoria Manager — narzędzie, które tworzy nowe tagi na podstawie reguł, które są stosowane do znaczników czyszczenia danych
+- Interfejsy API zasobów dostawców chmury
+- Interfejsy API rozliczeń dostawców chmury
+- Tagi utworzone ręcznie z następujących źródeł:
+    - Tagi jednostek Cloudyn — metadane zdefiniowane przez użytkownika zastosowane do jednostek Cloudyn
+    - Category Manager — narzędzie do czyszczenia danych, które tworzy nowe tagi na podstawie reguł zastosowanych do istniejących tagów
 
-Do wyświetlenia w raportach koszt Cloudyn tagi dostawcy chmury musi utworzyć model alokacji niestandardowy koszt, przy użyciu 360 alokacji kosztów. Aby to zrobić, przejdź do **koszt** > **kosztów zarządzania** > **360 alokacji kosztów**, wybierz odpowiednie tagi, a następnie zdefiniuj reguły obsługi nieoznakowanego koszty. Następnie utwórz nowy model kosztów. Potem można wyświetlić raporty w analizy kosztów alokacji do widoku, filtrować i sortować na tagów zasobów platformy Azure.
+Aby wyświetlać w raportach kosztów Cloudyn tagi dostawców chmury, należy utworzyć niestandardowy model przydzielania kosztów przy użyciu funkcji Cost Allocation 360. Aby to zrobić, przejdź do pozycji **Cost** (Koszty) > **Cost Management** (Zarządzanie kosztami) > **Cost Allocation 360°** (Alokacja kosztu 360°), wybierz odpowiednie tagi, a następnie zdefiniuj reguły obsługi nieotagowanych kosztów. Następnie utwórz nowy model kosztów. Następnie możesz przeglądać raporty w analizie przydzielania kosztów (Cost Allocation Analysis) w celu wyświetlania, filtrowania i sortowania tagów zasobów platformy Azure.
 
-Tagi zasobów platformy Azure są wyświetlane tylko w **analizy kosztów alokacji** raportów.
+Tagi zasobów platformy Azure są wyświetlane tylko w raportach **Cost Allocation Analysis** (Analiza przydzielania kosztów).
 
-Tagi rozliczeń dostawcy chmury pojawiają się w raportach koszt wszystkich.
+Tagi rozliczeń dostawców chmury są widoczne we wszystkich raportach kosztów.
 
-Tagi jednostek Cloudyn i tagi, które zostały ręcznie utworzone są wyświetlane w raportach koszt wszystkich.
+Tagi jednostek Cloudyn i tagi utworzone ręcznie są widoczne we wszystkich raportach kosztów.
 
 
-## <a name="create-showback-and-chargeback-reports"></a>Tworzenie raportów ogólnej analizy kosztów i obciążeń zwrotnych
+## <a name="create-showback-and-chargeback-reports"></a>Tworzenie raportów przewidywanych kosztów i obciążeń zwrotnych
 
-Metoda, która organizacji używać do wykonywania ogólnej analizy kosztów i obciążeń zwrotnych zależy w dużej mierze. Jednak służy pulpity nawigacyjne i raporty w portalu Cloudyn jako podstawa albo celu. Można zapewnić dostęp użytkownika innym osobom w organizacji, tak aby mogli wyświetlać pulpity nawigacyjne i raporty na żądanie. Wszystkie koszty analizy raporty obsługują ogólnej analizy kosztów, ponieważ pokazywały użytkowników zasobów, które są używane. I ich użytkownicy mogą przejść do szczegółów w koszt lub użycia dane, które są specyficzne dla ich grupy w organizacji.
+Stosowane przez organizacje metody tworzenia analizy przewidywanych kosztów i obciążeń zwrotnych są bardzo zróżnicowane. Jednak do dowolnego z tych celów można użyć pulpitów nawigacyjnych i raportów w portalu Cloudyn. Dowolnym osobom w organizacji można zapewnić dostęp użytkownika, tak aby mogły wyświetlać pulpity nawigacyjne i raporty na żądanie. Wszystkie raporty analizy kosztów obsługują analizę przewidywanych kosztów, ponieważ użytkownicy dowiadują się z nich, jakie zasoby wykorzystali. Pozwalają też użytkownikom przejść do szczegółów w danych kosztów lub użycia specyficznych dla ich grupy w organizacji.
 
-Aby wyświetlić wyniki alokacji kosztów, otwórz raport analizy kosztów i wybierz utworzonego modelu kosztów. Następnie należy dodać grupę przez jedną lub więcej tagów wybrane w modelu kosztów.
+Aby wyświetlić wyniki przydzielania kosztów, otwórz raport analizy kosztów i wybierz utworzony przez siebie model kosztów. Następnie dodaj zgrupowanie według jednego lub większej liczby tagów wybranych w modelu kosztów.
 
 ![Raport analizy kosztów](./media/tutorial-manage-costs/cost-analysis.png)
 
-Można łatwo tworzyć i zapisywać raporty skupiających się na określonych usług używane przez określonych grup. Na przykład może być działu, który często używa maszynach wirtualnych platformy Azure. Można utworzyć raport, który jest filtrowana na maszynach wirtualnych Azure, aby pokazać zużycia i kosztów.
+Łatwo można tworzyć i zapisywać raporty skupione na określonych usługach używanych przez określone grupy. Na przykład: w pewnym dziale intensywnie korzysta się z maszyn wirtualnych platformy Azure. Można utworzyć raport filtrowany według maszyn wirtualnych platformy Azure, aby pokazać wykorzystanie i koszty.
 
-Należy podać dane migawki do innych zespołów po wyeksportowaniu wszystkich raportów w formacie PDF lub CSV.
+Jeśli trzeba przekazać dane migawki innym zespołom, można wyeksportować dowolny raport w formacie PDF lub CSV.
 
 
 ## <a name="next-steps"></a>Następne kroki
@@ -117,12 +117,12 @@ Należy podać dane migawki do innych zespołów po wyeksportowaniu wszystkich r
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Skorzystaj z znaczniki niestandardowe, aby przydzielić kosztów.
-> * Tworzenie raportów ogólnej analizy kosztów i obciążeń zwrotnych.
+> * Przydzielanie kosztów za pomocą tagów niestandardowych.
+> * Tworzenie raportów przewidywanych kosztów i obciążeń zwrotnych.
 
 
 
-Aby dowiedzieć się więcej na temat rozpoczynania pracy z Cloudyn i używania funkcji, przejdź do dokumentacji Cloudyn.
+Aby dowiedzieć się więcej na temat rozpoczynania pracy z usługą Cloudyn i używania jej funkcji, przejdź do dokumentacji usługi Cloudyn.
 
 > [!div class="nextstepaction"]
-> [Dokumentacja Cloudyn](https://support.cloudyn.com/hc/)
+> [Dokumentacja usługi Cloudyn](https://support.cloudyn.com/hc/)

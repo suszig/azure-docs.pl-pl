@@ -1,36 +1,36 @@
 ---
-title: "Projektowanie pierwszej bazy danych Azure, aby baza danych MySQL — wiersza polecenia platformy Azure | Dokumentacja firmy Microsoft"
-description: "W tym samouczku opisano sposób tworzenia i zarządzania nimi Azure bazy danych MySQL serwer i bazę danych, korzystając z wiersza polecenia Azure CLI 2.0."
+title: "Projektowanie pierwszej bazy danych usługi Azure Database for MySQL — interfejs wiersza polecenia platformy Azure | Microsoft Docs"
+description: "W tym samouczku wyjaśniono, jak utworzyć serwer oraz bazę danych usługi Azure Database for MySQL i zarządzać nimi przy użyciu interfejsu wiersza polecenia platformy Azure w wersji 2.0."
 services: mysql
 author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
 editor: jasonwhowell
-ms.service: mysql
+ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: tutorial
 ms.date: 11/28/2017
 ms.custom: mvc
-ms.openlocfilehash: 2d23c37688ab7f19beba920f7ddd4043cd117503
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 5f323086ce66a504188c1834d20873a52a990311
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="design-your-first-azure-database-for-mysql-database"></a>Projektowanie pierwszej bazy danych Azure, aby baza danych MySQL
+# <a name="design-your-first-azure-database-for-mysql-database"></a>Projektowanie pierwszej bazy danych usługi Azure Database for MySQL
 
-Bazy danych platformy Azure dla programu MySQL jest usługą relacyjnych baz danych w chmurze firmy Microsoft, oparte na aparacie bazy danych MySQL Community Edition. W tym samouczku używasz interfejsu wiersza polecenia Azure (interfejsu wiersza polecenia) i inne narzędzia Aby dowiedzieć się, jak:
+Usługa Azure Database for MySQL jest usługą relacyjnej bazy danych w chmurze firmy Microsoft opartą na aparacie bazy danych MySQL Community Edition. W tym samouczku dowiesz się, jak wykonywać następujące czynności, używając interfejsu wiersza polecenia platformy Azure:
 
 > [!div class="checklist"]
-> * Utwórz bazę danych systemu Azure dla programu MySQL
+> * Tworzenie usługi Azure Database for MySQL
 > * Konfigurowanie zapory serwera
-> * Użyj [narzędzia wiersza polecenia mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) tworzenia bazy danych
-> * Ładuj dane przykładowe
+> * Tworzenie bazy danych za pomocą [narzędzia wiersza polecenia mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html)
+> * Ładowanie przykładowych danych
 > * Zapytania o dane
 > * Aktualizowanie danych
 > * Przywracanie danych
 
-Można użyć powłoki chmury Azure w przeglądarce lub [zainstalować Azure CLI 2.0]( /cli/azure/install-azure-cli) na komputerze do uruchomienia bloki kodu w tym samouczku.
+Aby uruchamiać bloki kodu z tego samouczka, możesz użyć usługi Azure Cloud Shell w przeglądarce lub [zainstalować interfejs wiersza polecenia platformy Azure w wersji 2.0]( /cli/azure/install-azure-cli) na swoim komputerze.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
@@ -42,7 +42,7 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
-Utwórz [grupy zasobów platformy Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) z [Tworzenie grupy az](https://docs.microsoft.com/cli/azure/group#az_group_create) polecenia. Grupa zasobów to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi w formie grupy.
+[Grupę zasobów platformy Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) można utworzyć za pomocą polecenia [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create). Grupa zasobów to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi w formie grupy.
 
 Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie `mycliresource` w lokalizacji `westus`.
 
@@ -51,7 +51,7 @@ az group create --name mycliresource --location westus
 ```
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>Tworzenie serwera usługi Azure Database for MySQL
-Utwórz bazę danych Azure, MySQL serwera z serwerem mysql az Utwórz polecenie. Serwer umożliwia zarządzanie wieloma bazami danych. Zwykle dla każdego projektu lub użytkownika używana jest oddzielna baza danych.
+Serwer usługi Azure Database for MySQL można utworzyć za pomocą polecenia az mysql server create. Serwer umożliwia zarządzanie wieloma bazami danych. Zwykle dla każdego projektu lub użytkownika używana jest oddzielna baza danych.
 
 W poniższym przykładzie w regionie `westus` w grupie zasobów `mycliresource` jest tworzony serwer usługi Azure Database for MySQL o nazwie `mycliserver`. Serwer ma identyfikator logowania administratora o nazwie `myadmin` i hasło `Password01!`. Serwer jest tworzony w ramach warstwy wydajności **Podstawowa** i z użyciem **50** jednostek obliczeniowych współdzielonych między wszystkimi bazami danych na tym serwerze. Możesz skalować zasoby obliczeniowe i magazyn w górę lub w dół w zależności od potrzeb aplikacji.
 
@@ -60,9 +60,9 @@ az mysql server create --resource-group mycliresource --name mycliserver --locat
 ```
 
 ## <a name="configure-firewall-rule"></a>Konfigurowanie reguły zapory
-Utwórz bazę danych Azure, aby utworzyć regułę zapory poziomu serwera MySQL z az mysql reguły zapory serwera — polecenie. Reguły zapory poziomu serwera umożliwia aplikacji zewnętrznych, takich jak **mysql** narzędzia wiersza polecenia lub MySQL Workbench, aby nawiązać połączenie z serwerem za pośrednictwem zapory usługi MySQL na platformie Azure. 
+Utwórz regułę zapory na poziomie serwera usługi Azure Database for MySQL za pomocą polecenia az mysql server firewall-rule create. Reguła zapory na poziomie serwera pozwala aplikacji zewnętrznej, takiej jak narzędzie wiersza polecenia **mysql** lub program MySQL Workbench, na nawiązywanie połączeń z Twoim serwerem przez zaporę usługi Azure MySQL. 
 
-Poniższy przykład powoduje utworzenie reguły zapory dla zakresu adresów wstępnie zdefiniowane. Ten przykład przedstawia całą możliwe zakres adresów IP.
+Poniższy przykład obejmuje tworzenie reguły zapory dla wstępnie zdefiniowanego zakresu adresów. W tym przykładzie przedstawiono cały możliwy zakres adresów IP.
 
 ```azurecli-interactive
 az mysql server firewall-rule create --resource-group mycliresource --server mycliserver --name AllowYourIP --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
@@ -100,27 +100,27 @@ Wynik jest w formacie JSON. Zanotuj wartości **fullyQualifiedDomainName** i **a
 }
 ```
 
-## <a name="connect-to-the-server-using-mysql"></a>Połącz z serwerem przy użyciu mysql
-Użyj [narzędzia wiersza polecenia mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) nawiązanie połączenia do bazy danych Azure, serwer MySQL. W tym przykładzie to polecenie:
+## <a name="connect-to-the-server-using-mysql"></a>Nawiązywanie połączenia z serwerem za pomocą narzędzia wiersza polecenia mysql
+Nawiąż połączenie z serwerem usługi Azure Database for MySQL za pomocą [narzędzia wiersza polecenia mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html). W tym przykładzie polecenie to:
 ```cmd
 mysql -h mycliserver.database.windows.net -u myadmin@mycliserver -p
 ```
 
 ## <a name="create-a-blank-database"></a>Tworzenie pustej bazy danych
-Po nawiązaniu połączenia z serwerem, należy utworzyć pustą bazę danych.
+Po nawiązaniu połączenia z serwerem utwórz pustą bazę danych.
 ```sql
 mysql> CREATE DATABASE mysampledb;
 ```
 
-W wierszu polecenia Uruchom następujące polecenie, aby przełączyć połączenia do nowo utworzonej bazy danych:
+W wierszu polecenia uruchom poniższe polecenie, aby przełączyć połączenie na tę nowo utworzoną bazę danych:
 ```sql
 mysql> USE mysampledb;
 ```
 
 ## <a name="create-tables-in-the-database"></a>Tworzenie tabel w bazie danych
-Teraz, Znając sposób nawiązywania połączenia z bazą danych Azure dla bazy danych MySQL, należy wykonać kilka podstawowych zadań:
+Teraz, gdy wiesz, jak nawiązać połączenie z bazą danych usługi Azure Database for MySQL, wykonaj niektóre podstawowe zadania:
 
-Najpierw utwórz tabelę i załaduj go z niektórych danych. Teraz utworzyć tabelę, która przechowuje informacje dotyczące spisu.
+Najpierw utwórz tabelę i załaduj do niej dane. Utwórz tabelę z informacjami o spisie.
 ```sql
 CREATE TABLE inventory (
     id serial PRIMARY KEY, 
@@ -130,56 +130,56 @@ CREATE TABLE inventory (
 ```
 
 ## <a name="load-data-into-the-tables"></a>Ładowanie danych do tabel
-Teraz, gdy masz tabeli wstawić dane do niego. W oknie Otwórz okno wiersza polecenia Uruchom następujące zapytanie, aby wstawić niektórych wierszy danych.
+Teraz, gdy masz tabelę, wstaw do niej dane. W otwartym oknie wiersza polecenia uruchom następujące zapytanie, aby wstawić wiersze danych.
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);
 ```
 
-Masz teraz dwa wiersze przykładowych danych do tabeli utworzony wcześniej.
+W utworzonej wcześniej tabeli masz teraz dwa wiersze przykładowych danych.
 
-## <a name="query-and-update-the-data-in-the-tables"></a>Zapytania i zaktualizować dane w tabelach
+## <a name="query-and-update-the-data-in-the-tables"></a>Wykonywanie zapytania względem danych w tabelach i aktualizowanie tych danych
 Wykonaj następujące zapytanie, aby pobrać informacje z tabeli bazy danych.
 ```sql
 SELECT * FROM inventory;
 ```
 
-Należy również zaktualizować dane w tabelach.
+Możesz także zaktualizować dane w tabelach.
 ```sql
 UPDATE inventory SET quantity = 200 WHERE name = 'banana';
 ```
 
-Wiersz jest odpowiednio aktualizowany podczas pobierania danych.
+Wiersz jest aktualizowany podczas pobierania danych.
 ```sql
 SELECT * FROM inventory;
 ```
 
 ## <a name="restore-a-database-to-a-previous-point-in-time"></a>Przywracanie bazy danych do określonego punktu w czasie
-Załóżmy, że zostanie przypadkowo usunięte w tej tabeli. Jest to coś, co nie można łatwo odzyskać z. Bazy danych platformy Azure dla programu MySQL umożliwia wróć do dowolnego punktu w czasie w górę ostatnich 35 dni i przywrócić ten punkt w czasie na nowy serwer. Możesz użyć tego nowego serwera, aby odzyskać usunięte dane. Poniższe kroki należy przywrócić działanie serwera próbki do punktu przed tabeli został dodany.
+Załóżmy, że ta tabela została przypadkowo usunięta. W takiej sytuacji niełatwo jest odzyskać dane. Usługa Azure Database for MySQL umożliwia powrót do dowolnego punktu w czasie w ciągu maksymalnie 35 ostatnich dni i przywrócenie tego punktu w czasie do nowego serwera. Przy użyciu tego nowego serwera można odzyskać usunięte dane. Poniższa procedura opisuje przywrócenie przykładowego serwera do punktu przed dodaniem tabeli.
 
-Do przywrócenia potrzebne są następujące informacje:
+Do wykonania przywrócenia potrzebne będą następujące informacje:
 
-- Punkt przywracania: Wybierz w momencie po serwer został zmieniony. Musi być większa niż lub równa wartości kopii zapasowej najstarsze źródłowej bazy danych.
-- Serwer docelowy: Podaj nową nazwę serwera mają zostać przywrócone
-- Serwer źródłowy: Podaj nazwę serwera, aby przywrócić z
-- Lokalizacja: Nie można wybrać region, domyślnie jest taki sam jak serwer źródłowy
+- Punkt przywracania: wybierz punkt w czasie przed zmianą serwera. Musi mieć wartość większą od lub równą wartości Najstarsza kopia zapasowa źródłowej bazy danych.
+- Serwer docelowy: podaj nazwę nowego serwera, do którego chcesz wykonać przywrócenie
+- Serwer źródłowy: podaj nazwę serwera, z którego chcesz wykonać przywrócenie
+- Lokalizacja: nie można wybrać regionu; domyślnie wartość jest taka sama jak w przypadku serwera źródłowego
 
 ```azurecli-interactive
 az mysql server restore --resource-group mycliresource --name mycliserver-restored --restore-point-in-time "2017-05-4 03:10" --source-server-name mycliserver
 ```
 
-Aby przywrócić serwer i [Przywracanie do punktu w czasie](./howto-restore-server-portal.md) przed tabeli został usunięty. Przywracanie serwera do innego punktu w czasie tworzy zduplikowane nowy serwer jako oryginalnego serwera, począwszy od punktu w czasie, możesz określić, pod warunkiem, że w okresie przechowywania dla Twojego [warstwy usług](./concepts-service-tiers.md).
+Przywróć serwer do [punktu w czasie](./howto-restore-server-portal.md) przed usunięciem tabeli. Przywrócenie serwera do innego punktu w czasie spowoduje utworzenie duplikatu nowego serwera jako oryginalnego serwera od określonego przez Ciebie punkcie w czasie, o ile zawiera się on w okresie przechowywania dla Twojej [warstwy usług](./concepts-service-tiers.md).
 
 ## <a name="next-steps"></a>Następne kroki
-W tym samouczku przedstawiono do:
+W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
-> * Utwórz bazę danych systemu Azure dla programu MySQL
+> * Tworzenie usługi Azure Database for MySQL
 > * Konfigurowanie zapory serwera
-> * Użyj [narzędzia wiersza polecenia mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) tworzenia bazy danych
-> * Ładuj dane przykładowe
+> * Tworzenie bazy danych za pomocą [narzędzia wiersza polecenia mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html)
+> * Ładowanie przykładowych danych
 > * Zapytania o dane
 > * Aktualizowanie danych
 > * Przywracanie danych
 
 > [!div class="nextstepaction"]
-> [Bazy danych platformy Azure dla programu MySQL — przykłady wiersza polecenia platformy Azure](./sample-scripts-azure-cli.md)
+> [Usługa Azure Database for MySQL — przykłady interfejsu wiersza polecenia platformy Azure](./sample-scripts-azure-cli.md)

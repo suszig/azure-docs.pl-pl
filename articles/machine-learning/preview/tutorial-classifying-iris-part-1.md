@@ -64,7 +64,7 @@ Możesz postępować zgodnie z instrukcjami przewodnika Szybki start [Instalowan
 
    ![Widok danych](media/tutorial-classifying-iris/data_view.png)
 
-3. Wybierz pozycję **Pliki tekstowe (*.csv, *.json, *.txt, ...)** i kliknij przycisk **Dalej**.
+3. Wybierz pozycję **Pliki tekstowe(*.csv, .json, .txt, ...)** i kliknij przycisk **Dalej**.
    ![Źródło danych](media/tutorial-classifying-iris/data-source.png)
    
 

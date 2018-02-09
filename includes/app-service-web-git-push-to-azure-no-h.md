@@ -1,4 +1,4 @@
-W lokalnym oknie terminala dodaj zdalną platformę Azure do lokalnego repozytorium Git. To Azure zdalnego został utworzony w [utworzenia aplikacji sieci web](#create-a-web-app).
+W lokalnym oknie terminala dodaj zdalną platformę Azure do lokalnego repozytorium Git. Zastąp ciąg _&lt;paste\_copied\_url\_here>_ adresem URL zdalnego serwisu Git zapisanego w sekcji [Tworzenie aplikacji internetowej](#create).
 
 ```bash
 git remote add azure <deploymentLocalGitUrl-from-create-step>
@@ -10,4 +10,4 @@ Wypchnij na zdalną platformę Azure w celu wdrożenia aplikacji za pomocą nast
 git push azure master
 ```
 
-Polecenie to może potrwać kilka minut. Po uruchomieniu wyświetla informacje podobne do poniższego przykładu:
+Wykonanie tego polecenia może potrwać kilka minut. Podczas wykonywania polecenie wyświetli informacje podobne do następującego przykładu:

@@ -1,91 +1,91 @@
 ---
-title: "Przejrzyj użycia i kosztów zarządzania koszt Azure | Dokumentacja firmy Microsoft"
-description: "Przejrzyj użycia i kosztów w celu śledzenia trendów, wykrywania wydajność i tworzyć alerty."
+title: "Przeglądanie użycia i kosztów w usłudze Azure Cost Management | Microsoft Docs"
+description: "Przeglądaj użycie i koszty w celu śledzenia trendów, wykrywania niewydajności i tworzenia alertów."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 10/11/2017
+ms.date: 01/30/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 363a7e8a5b5be2175cb2f6d3539878673a2b469a
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.openlocfilehash: 72c5c9ff13577e7b4008c42133742d8de4904ae0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="review-usage-and-costs"></a>Przejrzyj użycia i kosztów
+# <a name="review-usage-and-costs"></a>Przeglądanie użycia i kosztów
 
-Azure kosztów zarządzania Cloudyn pokazuje użycie i kosztów, dzięki czemu można śledzić trendy, wykrywanie wydajność i tworzyć alerty. Wszystkie dane użycia i koszty są wyświetlane w Cloudyn pulpity nawigacyjne i raporty. Przykłady w tym samouczku opisano, chociaż użycia i kosztów za pomocą pulpitów nawigacyjnych i raportów. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Usługa Azure Cost Management firmy Cloudyn umożliwia przeglądanie użycia i kosztów w celu śledzenia trendów, wykrywania niewydajności i tworzenia alertów. Wszystkie dane użycia i kosztów są wyświetlane na pulpitach nawigacyjnych i w raportach usługi Cloudyn. Przykłady w tym samouczku ilustrują przeglądanie użycia i kosztów za pomocą pulpitów nawigacyjnych i raportów. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Śledź trendy użycia i kosztów
-> * Wykryj wydajność użycia
-> * Tworzenie alertów dotyczących nietypowych wydatków lub przekroczenia wydatków
+> * Śledzenie trendów użycia i kosztów
+> * Wykrywanie przypadków niewydajnego użycia
+> * Tworzenie alertów dotyczących nietypowych wydatków i przekraczania wydatków
 
 
 
-## <a name="open-the-cloudyn-portal"></a>Otwórz Cloudyn portal
+## <a name="open-the-cloudyn-portal"></a>Otwieranie portalu Cloudyn
 
-Należy przejrzeć wszystkie użycia i kosztów w portalu Cloudyn. Otwórz Cloudyn portal z portalu Azure lub przejdź do https://azure.cloudyn.com i logowania.
+Wszystkie informacje o użyciu i kosztach można przeglądać w portalu Cloudyn. Otwórz portal Cloudyn z poziomu witryny Azure Portal lub przejdź na stronę https://azure.cloudyn.com i zaloguj się.
 
-## <a name="track-usage-and-cost-trends"></a>Śledź trendy użycia i kosztów
+## <a name="track-usage-and-cost-trends"></a>Śledzenie trendów użycia i kosztów
 
-Możesz śledzić rzeczywiste pieniędzy przeznaczony do użycia i kosztów raporty w miarę upływu czasu, aby zidentyfikować trendy. Aby rozpocząć wyszukiwanie informacji trendy, raport rzeczywisty koszt w miarę upływu czasu. W menu Raporty w górnej części portalu kliknij **koszt** > **analizy kosztów** > **rzeczywisty koszt w miarę upływu czasu**. Przy pierwszym otwarciu raportu, żadnym grupom ani filtry są stosowane do niego.
+Możesz śledzić rzeczywiste pieniądze wydawane na użycie i koszty za pomocą raportów Over Time (Na przestrzeni czasu), aby identyfikować trendy. Aby rozpocząć przyglądanie się trendom, skorzystaj z raportu Actual Cost Over Time (Koszt rzeczywisty na przestrzeni czasu). W menu raportów w górnej części portalu kliknij pozycję **Cost** (Koszty) > **Cost Analysis** (Analiza kosztów) > **Actual Cost Over Time** (Koszt rzeczywisty na przestrzeni czasu). Przy pierwszym otwarciu raportu nie są do niego zastosowane żadne grupy ani filtry.
 
-Poniżej przedstawiono przykładowy raport:
+Oto przykład raportu:
 
 ![przykładowy raport](./media/tutorial-review-usage/actual-cost01.png)
 
-Raport zawiera wszystkie wydatków w ciągu ostatnich 30 dni. Aby wyświetlić tylko wydatków dla usług Azure, zastosowanie grupy usług, a następnie przeprowadź filtrowanie dla wszystkich usług platformy Azure. Na poniższej ilustracji przedstawiono usług filtrowane.
+W tym raporcie przedstawione są wszystkie wydatki w ciągu ostatnich 30 dni. Aby wyświetlić tylko wydatki na usługi platformy Azure, zastosuj grupę Service (Usługi), a następnie przefiltruj pod kątem wszystkich usług platformy Azure. Na poniższej ilustracji przedstawiono przefiltrowane usługi.
 
-![filtrowane usług](./media/tutorial-review-usage/actual-cost02.png)
+![przefiltrowane usługi](./media/tutorial-review-usage/actual-cost02.png)
 
-W powyższym przykładzie niższą cenę był poświęcony na uruchamianie na 2017-08-31 niż przed. Trend ten koszt składa się z różnych usług o dziewięć dni. Następnie dodatkowe wydatków kontynuuje jak poprzednio. Jednak za dużo kolumn mogą przesłaniać trend oczywiste. Do wiersza lub obszaru wykresu, aby wyświetlić dane zawarte w innych widokach, można zmienić widoku raportu. Na poniższej ilustracji przedstawiono sposób trendu.
+W poprzednim przykładzie od dnia 2017-08-31 wydano mniej pieniędzy niż wcześniej. Ten trend kosztów jest kontynuowany dla różnych usług przez około dziewięć dni. Następnie ponownie pojawiają się dodatkowe wydatki. Jednak zbyt wiele kolumn może przesłonić oczywisty trend. Widok raportu można zmienić na wykres liniowy lub powierzchniowy, aby wyświetlić dane w innych widokach. Na poniższej ilustracji przedstawiono ten trend wyraźniej.
 
-![Trend w raporcie](./media/tutorial-review-usage/actual-cost03.png)
+![trend w raporcie](./media/tutorial-review-usage/actual-cost03.png)
 
-W tym przykładzie wyraźnie pojawić czy Magazyn Azure koszt porzuconych uruchamianie na 2017-08-31, podczas gdy wydatków związanych z innymi usługami Azure pozostała poziom. Tak co spowodowało redukcja w wydatków? W tym przykładzie niektórzy pracownicy na urlopie od pracy i nie używa usługi magazynu.
+W tym przykładzie wyraźnie widać, że koszty usługi Azure Storage spadły od dnia 2017-08-31, podczas gdy wydatki związane z innymi usługami platformy Azure pozostały na tym samym poziomie. Co więc spowodowało obniżenie wydatków? W tym przykładzie niektórzy pracownicy byli na urlopie i nie używali usługi Storage.
 
-Aby obejrzeć film samouczka śledzenie trendów użycia i kosztów informacje, zobacz [analizowanie chmury rozliczeń danych, a czas z usługą Azure Management koszt przez Cloudyn](https://youtu.be/7LsVPHglM0g).
+Aby obejrzeć samouczek wideo dotyczący śledzenia trendów użycia i kosztów, zobacz [Analyzing your cloud billing data vs. time with Azure Cost Management by Cloudyn](https://youtu.be/7LsVPHglM0g) (Analizowanie danych rozliczeń dla chmury na przestrzeni czasu przy użyciu usługi Azure Cost Management firmy Cloudyn).
 
-## <a name="detect-usage-inefficiencies"></a>Wykryj wydajność użycia
+## <a name="detect-usage-inefficiencies"></a>Wykrywanie przypadków niewydajnego użycia
 
-Raporty Optymalizator zwiększyć wydajność, optymalizować wykorzystanie i identyfikację metod zapisywania wydatków na zasobów w chmurze. Są one szczególnie przydatne wraz z zaleceniami ekonomicznego rozmiaru mają pomóc w zmniejszeniu bezczynności lub kosztowne maszyn wirtualnych.
+Raporty optymalizatora pozwalają zwiększyć wydajność, zoptymalizować użycie i zidentyfikować metody oszczędzania wydatków na zasoby w chmurze. Są one szczególnie przydatne w przypadku zaleceń dotyczących ekonomicznych rozmiarów mających pomóc w ograniczeniu używania bezczynnych lub kosztownych maszyn wirtualnych.
 
-To powszechny problem, która wpływa na organizacje łączącymi się początkowo zasobów chmurze jest ich strategii wirtualizacji. Często używane podejście podobny do używanego do tworzenia maszyn wirtualnych w środowisku wirtualizacji lokalnymi. I założono, że koszty zostały zredukowane przez przeniesienie ich lokalnych maszyn wirtualnych w chmurze jako — jest. Takie podejście nie jest jednak może zmniejszyć koszty.
+Powszechnym problemem, który wpływa na organizacje wstępnie przenoszące zasoby do chmury, jest ich strategia wirtualizacji. Często stosują one podejście podobne do tego, którego używały do tworzenia maszyn wirtualnych w lokalnych środowiskach wirtualizacji. Zakładają też, że koszty zostają obniżone przez przeniesienie lokalnych maszyn wirtualnych do chmury w postaci takiej, w jakiej są. Jednak takie podejście raczej nie zmniejsza kosztów.
 
-Problem polega na tym, że istniejącej infrastruktury została już uregulowaniu płatności. Użytkownicy mogą tworzyć i zachować dużą maszyny wirtualne uruchomione, jeśli są zbędne — bezczynności lub nie, jak i z niewielkim konsekwencji. Przenoszenie dużych lub bezczynnych maszyn wirtualnych do chmury prawdopodobnie *zwiększyć* kosztów. Po wprowadzeniu umów z dostawcy usług w chmurze, ważne jest koszt alokacji zasobów. Należy opłacać zatwierdzić czy używać zasób całości lub nie.
+Problem polega na tym, że za istniejącą infrastrukturę już zapłacono. Użytkownicy mogli, jeśli chcieli, tworzyć i pozostawiać uruchomione duże maszyny wirtualne — bezczynne lub nie — z niewielkimi negatywnymi konsekwencjami. Przeniesienie dużych lub bezczynnych maszyn wirtualnych do chmury prawdopodobnie *zwiększy* koszty. Przydzielanie kosztów dla zasobów jest ważne w przypadku zawierania umów z dostawcami usług w chmurze. Trzeba zapłacić za zatwierdzone zasoby niezależnie od tego, czy się je w pełni wykorzystało.
 
-Raport koszt wprowadzenia zmiany rozmiaru zalecenia identyfikuje potencjalne oszczędności roczne porównując pojemności typu wystąpienia maszyny Wirtualnej do ich historycznych procesora CPU i dane użycia pamięci.  
+Raport Cost Effective Sizing Recommendations (Zalecenia dotyczące ekonomicznych rozmiarów) pozwala zidentyfikować potencjalne oszczędności roczne przez porównanie pojemności typów wystąpień maszyn wirtualnych z ich danymi historycznymi dotyczącymi użycia pamięci i procesorów.  
 
-W menu Raporty w górnej części portalu kliknij **Optymalizator** > **cennik optymalizacji** > **zalecenia dotyczące rozmiaru obowiązującej koszt**. Filtr dostawcy na platformie Azure, aby przyjrzeć się tylko maszyn wirtualnych platformy Azure. Oto przykład obrazu.
+W menu raportów w górnej części portalu kliknij pozycję **Optimizer** (Optymalizator) > **Pricing Optimization** (Optymalizacja cen) > **Cost Effective Sizing Recommendations** (Zalecenia dotyczące ekonomicznych rozmiarów). Odfiltruj dostawcę Azure, aby przejrzeć tylko maszyny wirtualne platformy Azure. Oto przykładowa ilustracja.
 
 ![Maszyny wirtualne platformy Azure](./media/tutorial-review-usage/sizing01.png)
 
-W tym przykładzie $3,114 może być zapisany, wykonując zalecenia, aby zmienić typy wystąpienia maszyny Wirtualnej. Kliknij znak plus (+) w obszarze **szczegóły** dla pierwszego zalecenia. Poniżej przedstawiono szczegółowe informacje dotyczące pierwszego zalecenia.
+W tym przykładzie można zaoszczędzić 3 114 USD, stosując się do zaleceń zmiany typów wystąpień maszyn wirtualnych. Kliknij symbol znaku plus (+) w obszarze **Details** (Szczegóły) dotyczący pierwszego zalecenia. Oto szczegółowe informacje dotyczące pierwszego zalecenia.
 
-![Szczegóły zalecenia](./media/tutorial-review-usage/sizing02.png)
+![szczegóły zalecenia](./media/tutorial-review-usage/sizing02.png)
 
-Wyświetl identyfikatory wystąpienie maszyny Wirtualnej, klikając znak plus obok **listy kandydatów**.
+Wyświetl identyfikatory wystąpień maszyn wirtualnych, klikając symbol znaku plus obok pozycji **List of Candidates** (Lista kandydatów).
 
-![Listy kandydatów](./media/tutorial-review-usage/sizing03.png)
+![Lista kandydatów](./media/tutorial-review-usage/sizing03.png)
 
-Aby obejrzeć film samouczka o wykrywaniu wydajność użycia, zobacz [optymalizacji rozmiaru maszyny Wirtualnej Azure kosztów zarządzania przez Cloudyn](https://youtu.be/1xaZBNmV704).
+Aby obejrzeć samouczek wideo dotyczące wykrywania przypadków niewydajnego użycia, zobacz [Optimizing VM Size in Azure Cost Management by Cloudyn](https://youtu.be/1xaZBNmV704) (Optymalizowanie rozmiarów maszyn wirtualnych w usłudze Azure Cost Management firmy Cloudyn).
 
 ## <a name="create-alerts-for-unusual-spending"></a>Tworzenie alertów dotyczących nietypowych wydatków
 
-Może generować alerty uczestników automatycznie dla anomalii wydatków i ryzyka przekroczenie wydatków. Możesz szybko i łatwo utworzyć za pomocą raportów, które Obsługa alerty oparte na budżet oraz koszt progi alertów.
+Alerty automatycznie powiadamiają uczestników projektu o anomaliach wydatków i ryzykach związanych z nadmiarowymi wydatkami. Alerty można szybko i łatwo tworzyć za pomocą raportów obsługujących alerty oparte na budżecie i progach kosztów.
 
-Możesz tworzyć alert dla dowolnej wydatków żadnych raportów koszt za pomocą. W tym przykładzie wybierz raport rzeczywisty koszt w miarę upływu czasu i powiadamianie wydatków maszyny Wirtualnej platformy Azure będzie bliski całkowita budżetu. W menu Raporty w górnej części portalu kliknij **koszt** > **analizy kosztów** > **rzeczywisty koszt w miarę upływu czasu**. Ustaw **grup** do **usługi** i ustaw **filtru w usłudze** do **maszyny Wirtualnej i Azure**. W górnym rogu raportu, kliknij przycisk **akcje** , a następnie wybierz **zaplanować raport**.
+Alert dotyczący dowolnego wydatku można utworzyć za pomocą dowolnego raportu kosztów. W tym przykładzie skorzystasz z raportu Actual Cost Over Time (Koszt rzeczywisty na przestrzeni czasu), aby uzyskać powiadomienie, gdy wydatki na maszyny wirtualne platformy Azure zbliżą się do poziomu budżetu całkowitego. W menu raportów w górnej części portalu kliknij pozycję **Cost** (Koszty) > **Cost Analysis** (Analiza kosztów) > **Actual Cost Over Time** (Koszt rzeczywisty na przestrzeni czasu). Ustaw pozycję **Groups** (Grupy) na **Service** (Usługa), a pozycję **Filter on the service** (Filtruj usługę) na **Azure/VM**. W prawym górnym rogu raportu kliknij pozycję **Actions** (Akcje), a następnie wybierz pozycję **Schedule report** (Zaplanuj raport).
 
-Użyj **Planowanie** kartę, aby wysłać do siebie wiadomość e-mail przy użyciu częstotliwości, który ma raportu. Wszystkie tagi, grupowanie i filtrowanie użyte znajdują się w pocztę e-mail raport. Kliknij przycisk **próg** wybierz kartę i wybierz **rzeczywisty koszt vs. Próg**. Jeśli znajdował się całkowity budżet $ 500 000 i chcesz, aby powiadomienia, gdy koszty pobliżu w połowie, Utwórz **czerwonym kolorem** na 250 000 $ i **żółta ikona alertu** na 240,000 $. Następnie wybierz liczbę kolejnych alertów. Po wyświetleniu łączną liczbę alertów, które można określić dodatkowe alerty są wysyłane. Zapisz raport według harmonogramu.
+Skorzystaj z karty **Scheduling** (Planowanie), aby wysyłać do siebie informacje z raportu w wiadomości e-mail z wybraną częstotliwością. Wszystkie użyte tagi, grupowania i filtrowania będą uwzględnione w raporcie wysłanym w wiadomości e-mail. Kliknij kartę **Threshold** (Próg) i wybierz pozycję **Actual Cost vs. Threshold** (Koszt rzeczywisty a próg). Jeśli budżet całkowity wynosi 500 000 USD i chcesz, aby powiadomienie zostało wysłane, gdy koszty zbliżą się do jego połowy, utwórz alert **Red alert** (Czerwony alert) o wartości 250 000 USD i **Yellow alert** (Żółty alert) o wartości 240 000 USD. Następnie wybierz liczbę kolejnych alertów. Po wysłaniu określonej całkowitej liczby alertów dodatkowe alerty nie są już wysyłane. Zapisz zaplanowany raport.
 
 ![przykładowy raport](./media/tutorial-review-usage/schedule-alert01.png)
 
-Możesz również vs procent kosztów. Metryka próg budżetu tworzyć alerty. Za pomocą tej metryki, można użyć wartości procentowych budget zamiast wartości waluty.
+Możesz również wybrać metrykę Cost Percentage vs. Budget threshold (Procent kosztów a próg budżetu), aby utworzyć alerty. W przypadku tej metryki można używać wartości procentowych zamiast walutowych budżetu.
 
 
 ## <a name="next-steps"></a>Następne kroki
@@ -93,9 +93,9 @@ Możesz również vs procent kosztów. Metryka próg budżetu tworzyć alerty. Z
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Śledź trendy użycia i kosztów
-> * Wykryj wydajność użycia
-> * Tworzenie alertów dotyczących nietypowych wydatków lub przekroczenia wydatków
+> * Śledzenie trendów użycia i kosztów
+> * Wykrywanie przypadków niewydajnego użycia
+> * Tworzenie alertów dotyczących nietypowych wydatków i przekraczania wydatków
 
 
 Przejdź do następnego samouczka, aby dowiedzieć się więcej na temat kontrolowania dostępu do danych.

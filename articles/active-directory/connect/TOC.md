@@ -9,7 +9,7 @@
 ## [Co to jest program Azure AD Connect i Federation?](active-directory-aadconnectfed-whatis.md)
 
 
-# Rozpoczynanie pracy
+# Rozpoczęcie pracy
 ## [Wymagania wstępne](active-directory-aadconnect-prerequisites.md)
 ## [Instalowanie programu Azure AD Connect](active-directory-aadconnect-select-installation.md)
 ### [Ustawienia ekspresowe](active-directory-aadconnect-get-started-express.md)
@@ -55,6 +55,7 @@
 ### [Synchronizacja haseł](active-directory-aadconnectsync-implement-password-synchronization.md)
 ### [Konto usługi Azure AD](active-directory-aadconnectsync-howto-azureadaccount.md)
 ### [Kreator instalacji](active-directory-aadconnectsync-installation-wizard.md)
+### [Sposób wypełniania nazwy UserPrincipalName](active-directory-aadconnect-userprincipalname.md)
 ### [Zmienianie konfiguracji domyślnej](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
 ### [Konfigurowanie filtrowania](active-directory-aadconnectsync-configure-filtering.md)
 ### [Scheduler](active-directory-aadconnectsync-feature-scheduler.md)

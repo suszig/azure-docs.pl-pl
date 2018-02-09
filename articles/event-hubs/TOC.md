@@ -3,16 +3,14 @@
 ## [Funkcje usługi Event Hubs](event-hubs-features.md)
 ## [Często zadawane pytania](event-hubs-faq.md)
 
-# Wprowadzenie
+# Rozpoczęcie pracy
 ## [Tworzenie centrum zdarzeń](event-hubs-create.md)
 ## Wysyłanie zdarzeń
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
-### [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
 ### [Java](event-hubs-java-get-started-send.md)
 ### [C](event-hubs-c-getstarted-send.md)
 ## Odbieranie zdarzeń
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md)
-### [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 ### [Java](event-hubs-java-get-started-receive-eph.md)
 ### [Apache Storm](event-hubs-storm-getstarted-receive.md)
 ## Przechwytywanie zdarzeń
@@ -30,6 +28,8 @@
 ### [Dostępność i spójność](event-hubs-availability-and-consistency.md)
 ### [Automatyczne skalowanie jednostek przepływności](event-hubs-auto-inflate.md)
 ## Programowanie
+### [Wysyłanie zdarzeń za pomocą programu .NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
+### [Odbieranie zdarzeń za pomocą programu .NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 ### [Dostępne interfejsy API](event-hubs-api-overview.md)
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
 #### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)

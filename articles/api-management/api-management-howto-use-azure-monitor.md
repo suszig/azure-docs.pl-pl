@@ -1,6 +1,6 @@
 ---
-title: "Monitor opublikowane interfejsów API w usłudze Azure API Management | Dokumentacja firmy Microsoft"
-description: "Wykonaj kroki tego samouczka, aby dowiedzieć się, jak monitorować interfejs API usługi Azure API Management."
+title: "Monitorowanie opublikowanych interfejsów API w usłudze Azure API Management | Microsoft Docs"
+description: "Wykonaj kroki tego samouczka, aby dowiedzieć się, jak monitorować interfejs API w usłudze Azure API Management."
 services: api-management
 documentationcenter: 
 author: juliako
@@ -14,25 +14,25 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: bdca9d4968e9e68314f350787907f15e417821f7
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: MT
+ms.openlocfilehash: db1ed08c4d4c9e9abd525ec13f5511da82ee1fe4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="monitor-published-apis"></a>Monitor opublikowane interfejsów API
+# <a name="monitor-published-apis"></a>Monitorowanie opublikowanych interfejsów API
 
-Azure Monitor jest usługą platformy Azure, który udostępnia jedno źródło do monitorowania wszystkich zasobów na platformie Azure. Z monitorem Azure można zwizualizować, zapytania, trasy, archiwum i podejmuj działania na metryki i dzienników pochodzących z zasobów platformy Azure, takich jak zarządzanie interfejsami API. 
+Azure Monitor to usługa platformy Azure, która zapewnia jedno źródło monitorowania zasobów platformy Azure. Dzięki usłudze Azure Monitor możesz wykonywać wizualizacje i zapytania, ustalać trasy, archiwizować oraz podejmować akcje dotyczące metryk i dzienników pochodzących z zasobów platformy Azure, takich jak usługa API Management. 
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Wyświetlanie dzienników aktywności
 > * Wyświetlanie dzienników diagnostycznych
-> * Wyświetlaj metryki interfejsu API 
-> * Skonfigurować regułę alertu, gdy interfejs API pobiera nieautoryzowane wywołania
+> * Wyświetlanie metryk interfejsu API 
+> * Konfigurowanie reguły alertu, gdy interfejs API odbiera nieautoryzowane wywołania
 
-Poniższe wideo pokazuje, jak monitorować zarządzanie interfejsami API Azure monitora. 
+W poniższym filmie wideo pokazano, jak monitorować usługę API Management przy użyciu usługi Azure Monitor. 
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Monitor-API-Management-with-Azure-Monitor/player]
 >
@@ -40,73 +40,75 @@ Poniższe wideo pokazuje, jak monitorować zarządzanie interfejsami API Azure m
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-+ Ukończenie następujących Szybki Start: [utworzenia wystąpienia usługi Azure API Management](get-started-create-service-instance.md).
-+ Ponadto Ukończ samouczek następujących: [Import i opublikować swój pierwszy interfejs API](import-and-publish.md).
++ Wykonaj procedury przedstawione w następującym przewodniku Szybki start: [Tworzenie wystąpienia usługi Azure API Management](get-started-create-service-instance.md).
++ Ponadto wykonaj zadania z następującego samouczka: [Importowanie i publikowanie pierwszego interfejsu API](import-and-publish.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="diagnostic-logs"></a>Wyświetl dzienniki aktywności
+## <a name="diagnostic-logs"></a>Wyświetlanie dzienników aktywności
 
-Dzienniki aktywności zapewniają wgląd w operacje wykonywane na usługi Zarządzanie interfejsami API. Korzystając z Dzienniki aktywności, można określić ", co, która i kiedy" dla żadnego zapisu (PUT, POST, DELETE) podejmowaną w odniesieniu do usług interfejsu API zarządzania. 
+Dzienniki aktywności udostępniają szczegółowe dane operacji wykonywanych w stosunku do usług API Management. Korzystając z tych dzienników, można określić rodzaj, użytkownika i czas każdej operacji zapisu (PUT, POST, DELETE) wykonanej względem usług API Management. 
 
 > [!NOTE]
-> Dzienniki aktywności nie obejmują operacji odczytu (GET) lub operacje wykonywane w klasycznym portalu wydawcy lub przy użyciu oryginalnego interfejsów API zarządzania.
+> Dzienniki aktywności nie obejmują operacji odczytu (GET) ani operacji wykonywanych w klasycznym portalu wydawcy albo przy użyciu oryginalnych interfejsów API zarządzania.
 
-Dostęp do dzienników aktywności w usłudze API Management lub uzyskać dostępu do dzienników wszystkich zasobów platformy Azure w monitorze Azure. 
+Dostęp do dzienników aktywności można uzyskać w usłudze API Management, a dostęp do wszystkich zasobów platformy Azure — w usłudze Azure Monitor. 
 
 Aby wyświetlić dzienniki aktywności:
 
-1. Z sieci **zarządzanie interfejsami API** wystąpienie, kliknij przycisk **dziennik aktywności**.
+1. Wybierz wystąpienie usługi APIM.
+2. Kliknij pozycję **Dziennik aktywności**.
 
 ## <a name="view-diagnostic-logs"></a>Wyświetlanie dzienników diagnostycznych
 
-Dzienniki diagnostyczne zawierają zaawansowane informacje o operacje i błędy, które są ważne w przypadku inspekcji, a także rozwiązywania problemów. Dzienniki diagnostyczne różnią się od Dzienniki aktywności. Dzienniki aktywności wgląd w operacje wykonywane na zasobów platformy Azure. Dzienniki diagnostyczne zapewniają wgląd w operacje, w zasobie wykonanie samego.
+Dzienniki diagnostyczne zawierają bogate informacje o operacjach i błędach, które są ważne w przypadku inspekcji, a także pomagają rozwiązywać problemy. Dzienniki diagnostyczne różnią się od dzienników aktywności. Dzienniki aktywności udostępniają szczegółowe dane operacji wykonywanych w stosunku do zasobów platformy Azure. Dzienniki diagnostyczne udostępniają szczegółowe dane operacji wykonanych przez sam zasób.
 
-Dostęp do dzienników diagnostycznych:
+Aby uzyskać do dzienników diagnostycznych:
 
-1. Z sieci **zarządzanie interfejsami API** wystąpienie, kliknij przycisk **dziennik diagnostyczny**.
+1. Wybierz wystąpienie usługi APIM.
+2. Kliknij pozycję **Dzienniki diagnostyczne**.
 
-## <a name="view-metrics-of-your-apis"></a>Wyświetlaj metryki swoje interfejsy API
+## <a name="view-metrics-of-your-apis"></a>Wyświetlanie metryk interfejsów API
 
-Zarządzanie interfejsami API emituje metryki co minutę, umożliwiając niemal w czasie rzeczywistym wgląd w stan i kondycję swoje interfejsy API. Poniżej znajduje się podsumowanie niektórych dostępne metryki:
+Usługa API Management emituje metryki co minutę, oferując wgląd w stan i kondycję interfejsów API w czasie zbliżonym do rzeczywistego. Poniżej znajduje się podsumowanie niektórych dostępnych metryk:
 
-* Wydajność (wersja zapoznawcza): ułatwia podjęcie decyzji dotyczących uaktualniania/zmiany na starszą wersję usługi APIM. Metryka jest emitowany na minutę i odzwierciedla pojemność bramy w trakcie raportowania. Metryka w zakresie od 0 do 100 i jest obliczane w zależności od zastosowanych środkach bramy, takie jak użycie procesora CPU i pamięci.
-* Całkowita liczba żądań bramy: liczba interfejsu API żądań w okresie. 
-* Liczba pomyślnych żądań bramy: liczba żądań interfejsu API, które otrzymały pomyślne kody odpowiedzi HTTP, w tym 304 307 i mniejszego niż 301 (na przykład 200). 
-* Żądań zakończonych niepowodzeniem bramy: liczba żądań interfejsu API, które odebrano błędną kody odpowiedzi HTTP, w tym 400 i niczego większych niż 500.
-* Nieautoryzowanych żądań bramy: liczba żądań interfejsu API, które otrzymały kody odpowiedzi HTTP 401, 403 i 429 w tym. 
-* Inne żądania bramy: liczba żądań interfejsu API, które otrzymały kody odpowiedzi HTTP, które nie należą do żadnej z powyższych kategorii (na przykład 418).
+* Wydajność (wersja zapoznawcza): ułatwia podejmowanie decyzji dotyczących uaktualniania usług APIM lub ich zmiany na starszą wersję. Metryka jest emitowana co minutę i odzwierciedla pojemność bramy w momencie raportowania. Wartość metryki należy do zakresu od 0 do 100 i jest obliczana w oparciu o zasoby bramy, takie jak wykorzystanie procesora i pamięci.
+* Całkowita liczba żądań bramy: liczba żądań interfejsu API w danym okresie. 
+* Żądania bramy zakończone powodzeniem: liczba żądań interfejsu API, które otrzymały kody odpowiedzi HTTP informujące o powodzeniu, w tym 304, 307 i mniejsze niż 301 (na przykład 200). 
+* Żądania bramy zakończone niepowodzeniem: liczba żądań interfejsu API, które otrzymały kody odpowiedzi HTTP informujące o błędzie, w tym 400 i większe niż 500.
+* Nieautoryzowane żądania bramy: liczba żądań interfejsu API, które otrzymały kody odpowiedzi HTTP, w tym 401, 403 i 429. 
+* Inne żądania bramy: liczba żądań interfejsu API, które otrzymały kody odpowiedzi HTTP nienależące do żadnej z powyższych kategorii (na przykład 418).
 
 Aby uzyskać dostęp do metryk:
 
-1. Wybierz **metryki** z menu w dolnej części strony.
-2. Z listy rozwijanej wybierz metryki myślisz (można dodać wiele metryk). 
+1. Wybierz pozycję **Metryki** w menu w dolnej części strony.
+2. Z listy rozwijanej wybierz interesujące Cię metryki (można dodać wiele metryk). 
     
-    Na przykład wybierz **całkowita liczba żądań bramy** i **nieudanych żądań bramy** z listy dostępnych metryk.
-3. Wykres przedstawia łączna liczba wywołań interfejsu API. Ponadto liczba wywołań interfejsu API, których nie powiodła się. 
+    Na przykład wybierz pozycje **Całkowita liczba żądań bramy** i **Żądania bramy zakończone niepowodzeniem**  z listy dostępnych metryk.
+3. Wykres przedstawia łączną liczbę wywołań interfejsu API. Pokazuje również liczbę wywołań interfejsu API zakończonych niepowodzeniem. 
 
-## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>Ustaw regułę alertu dla nieautoryzowanego żądania
+## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>Konfigurowanie reguły alertu na potrzeby nieautoryzowanego żądania
 
-Można skonfigurować do odbierania alertów w oparciu metryki i działania dzienników. Azure Monitor umożliwia skonfigurowanie alert o konieczności wyzwala, wykonaj następujące czynności:
+Można skonfigurować odbieranie alertów w oparciu o metryki i dzienniki aktywności. Usługa Azure Monitor umożliwia skonfigurowanie alertu powodującego wykonywanie następujących czynności po jego wyzwoleniu:
 
-* Wyślij wiadomość e-mail z powiadomieniem
+* Wysłanie powiadomienia e-mail
 * Wywołanie elementu webhook
 * Wywołanie aplikacji logiki platformy Azure
 
 Aby skonfigurować alerty:
 
-1. Wybierz **reguły alertów** na pasku menu u dołu strony.
-2. Wybierz **Dodaj alert metryki**.
-3. Wprowadź **nazwa** dla tego alertu.
-4. Wybierz **nieautoryzowanych żądań bramy** jako metrykę do monitorowania.
-5. Wybierz **E-mail właściciele, współautorzy i czytelnicy**.
+1. Wybierz pozycję **Reguły alertów** w menu w dolnej części strony.
+2. Wybierz pozycję **Dodaj alert dotyczący metryki**.
+3. Wprowadź **nazwę** tego alertu.
+4. Wybierz pozycję **Nieautoryzowane żądania bramy** jako metrykę do monitorowania.
+5. Wybierz pozycję **Właściciele, współautorzy i czytelnicy poczty e-mail**.
 6. Naciśnij przycisk **OK**.
-7. Spróbuj interfejsach API konferencji bez klucza interfejsu API. Jako właściciel tej usługi Zarządzanie interfejsami API otrzymasz alert e-mail. 
+7. Spróbuj wywołać nasz interfejs API konferencji bez klucza API. Jako właściciel tej usługi API Management otrzymasz alert e-mail. 
 
     > [!TIP]
-    > Reguły alertów można również wywołać haku sieci Web lub aplikacji logiki platformy Azure, gdy zostaje wyzwolony.
+    > Wyzwolenie reguły alertu może również spowodować wywołanie elementu webhook lub aplikacji logiki platformy Azure.
 
-    ![set konta alertu](./media/api-management-azure-monitor/set-up-alert.png)
+    ![set-up-alert](./media/api-management-azure-monitor/set-up-alert.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -115,10 +117,10 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 > [!div class="checklist"]
 > * Wyświetlanie dzienników aktywności
 > * Wyświetlanie dzienników diagnostycznych
-> * Wyświetlaj metryki interfejsu API 
-> * Skonfigurować regułę alertu, gdy interfejs API pobiera nieautoryzowane wywołania
+> * Wyświetlanie metryk interfejsu API 
+> * Konfigurowanie reguły alertu, gdy interfejs API odbiera nieautoryzowane wywołania
 
-Przejdź do następnego samouczek:
+Przejdź do następnego samouczka:
 
 > [!div class="nextstepaction"]
 > [Śledzenie wywołań](api-management-howto-api-inspector.md)

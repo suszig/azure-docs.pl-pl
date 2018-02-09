@@ -286,6 +286,9 @@
             - name: Używanie interfejsu API REST systemu Ambari
               href: ../hdinsight-hadoop-manage-ambari-rest-api.md
               maintainContext: true
+        - name: Skalowanie klastra usługi HDInsight
+          href: ../hdinsight-scaling-best-practices.md
+          maintainContext: true
         - name: Zarządzanie dziennikami klastra usługi HDInsight
           href: ../hdinsight-log-management.md
           maintainContext: true

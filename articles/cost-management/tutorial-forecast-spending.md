@@ -1,53 +1,53 @@
 ---
-title: "Prognozowanie wydatków z usługą Azure Management koszt | Dokumentacja firmy Microsoft"
-description: "Prognozy wydatków za pomocą historycznych danych użycia i wydatków danych."
+title: "Prognozowanie wydatków przy użyciu usługi Azure Cost Management | Microsoft Docs"
+description: "Możesz prognozować wydatki na podstawie historycznych danych o użyciu usług i wydatkach."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 10/11/2017
+ms.date: 01/30/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: d8b0cd2a3e5f9829f0844783aad22d375eb9d7a8
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
-ms.translationtype: MT
+ms.openlocfilehash: 03624efc419efe46aef472007b438442ce22eb9c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="forecast-future-spending"></a>Prognozowanie wydatków w przyszłości
 
-Azure kosztów zarządzania Cloudyn pomaga przewidywania przyszłych wydatków za pomocą historycznych danych użycia i wydatków danych. Raporty Cloudyn służą do wyświetlania wszystkich danych projekcji kosztów. Przykłady w tym samouczku przeprowadzenie recenzowania projekcje kosztów korzystania z raportów. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Usługa Azure Cost Management firmy Cloudyn umożliwia prognozowanie wydatków w przyszłości na podstawie historycznych danych o użyciu usług i wydatkach. Raporty usługi Cloudyn zawierają wszystkie dane dotyczące przewidywanych kosztów. Korzystając z przykładów w tym samouczku, zapoznasz się z przewidywanymi kosztami przy użyciu tych raportów. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Prognozowanie wydatków w przyszłości
 
 ## <a name="forecast-future-spending"></a>Prognozowanie wydatków w przyszłości
 
-Cloudyn zawiera koszt projekcji raportów ułatwiających Prognozowanie wydatków na podstawie użycia w czasie. Ich podstawowy ma na celu pomóc zapewnić, że Twoje trendów kosztów przekracza oczekiwań organizacji. Raporty, których używasz są bieżącego miesiąca planowany koszt i roczne koszt zaprojektowana. Zarówno Pokaż planowanego wydatków w przyszłości w przypadku użycie pozostaje względnie zgodne z ostatnich 30 dni użycia.
+Usługa Cloudyn oferuje raporty dotyczące przewidywanych kosztów, ułatwiające prognozowanie kosztów na podstawie użycia usług w czasie. Przede wszystkim ułatwiają one sprawdzenie, czy trendy związane z kosztami nie spowodują przekroczenia planowanych wydatków w organizacji. Możesz używać raportów Przewidywany koszt dla bieżącego miesiąca oraz Przewidywany koszt roczny. Oba raporty przedstawiają prognozę wydatków w przyszłości, o ile użycie usług przez ostatnie 30 dni pozostawało na relatywnie stabilnym poziomie.
 
-Bieżący miesiąc planowany koszt przedstawia koszty usługi. Aby wyświetlić szacowany koszt używa kosztów od początku miesiąca i poprzedniego miesiąca. W menu Raporty w górnej części portalu kliknij **koszt** > **projekcji i budżetu** > **bieżącego miesiąca przewidywane koszt**. Na poniższej ilustracji przedstawiono przykład.
+Raport Przewidywany koszt dla bieżącego miesiąca przedstawia koszty usług. Przewidywany koszt jest określany na podstawie kosztów z początku bieżącego miesiąca oraz z poprzedniego miesiąca. W menu Raporty w górnej części portalu kliknij pozycję **Koszty** > **Prognoza i budżet** > **Przewidywany koszt dla bieżącego miesiąca**. Na poniższej ilustracji przedstawiono przykładowy raport.
 
-![Koszt planowany bieżącego miesiąca](./media/tutorial-forecast-spending/project-month01.png)
+![Przewidywany koszt dla bieżącego miesiąca](./media/tutorial-forecast-spending/project-month01.png)
 
-W tym przykładzie widać, usług, które najbardziej poświęconego. Azure koszty były niższe niż koszty usług AWS. Jeśli chcesz wyświetlić szczegóły projekcji koszt dla maszyn wirtualnych platformy Azure, w **filtru** listy, wybierz **maszyny Wirtualnej i Azure**.
+Na przykładzie widać, które usługi wiązały się z największymi wydatkami. Koszty usług Azure były niższe niż koszty usług AWS. Jeśli chcesz wyświetlić szczegółową prognozę kosztów maszyn wirtualnych platformy Azure, na liście **Filtr** zaznacz pozycję **Azure/VM**.
 
-![Maszyna wirtualna platformy Azure koszt planowany bieżącego miesiąca](./media/tutorial-forecast-spending/project-month02.png)
+![Przewidywany koszt maszyn wirtualnych platformy Azure dla bieżącego miesiąca](./media/tutorial-forecast-spending/project-month02.png)
 
-Wykonaj te same podstawowe czynności poprzedniego aby przyjrzeć się miesięczny koszt projekcje dla innych usług, które interesują Cię.
+Tak samo możesz wykonać powyższe czynności, aby wyświetlić prognozę miesięcznych kosztów innych interesujących Cię usług.
 
-Roczne planowany koszt przedstawia ekstrapolowanej koszt usług w ciągu najbliższych 12 miesięcy.
+Raport Przewidywany koszt roczny przedstawia ekstrapolację kosztów usług na najbliższych 12 miesięcy.
 
-W menu Raporty w górnej części portalu kliknij **koszt** > **projekcji i budżetu** > **roczne planowany koszt**. Na poniższej ilustracji przedstawiono przykład.
+W menu Raporty w górnej części portalu kliknij pozycję **Koszty** > **Prognoza i budżet** > **Przewidywany koszt roczny**. Na poniższej ilustracji przedstawiono przykładowy raport.
 
-![Raport koszt planowany roczne](./media/tutorial-forecast-spending/project-annual01.png)
+![Raport Przewidywany koszt roczny](./media/tutorial-forecast-spending/project-annual01.png)
 
-W tym przykładzie widać, usług, które najbardziej poświęconego. Tak jak w przykładzie miesięczne Azure koszty były niższe niż koszty usług AWS. Jeśli chcesz wyświetlić szczegóły projekcji koszt dla maszyn wirtualnych platformy Azure, w **filtru** listy, wybierz **maszyny Wirtualnej i Azure**.
+Na przykładzie widać, które usługi wiązały się z największymi wydatkami. Tak jak w przykładzie raportu miesięcznego, koszty usług Azure były niższe niż koszty usług AWS. Jeśli chcesz wyświetlić szczegółową prognozę kosztów maszyn wirtualnych platformy Azure, na liście **Filtr** zaznacz pozycję **Azure/VM**.
 
-![Szacowany koszt roczne maszyn wirtualnych](./media/tutorial-forecast-spending/project-annual02.png)
+![Przewidywane roczne koszty maszyn wirtualnych](./media/tutorial-forecast-spending/project-annual02.png)
 
-Na ilustracji powyżej roczne szacowany koszt maszyn wirtualnych Azure jest 28,374 $.
+Na powyższej ilustracji przewidywany roczny koszt maszyn wirtualnych platformy Azure wynosi 28 374 USD.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -57,7 +57,7 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 > * Prognozowanie wydatków w przyszłości
 
 
-Przejdź do następnego samouczkiem, aby dowiedzieć się, jak zarządzać kosztami z raportami przydziału i ogólnej analizy kosztów koszt.
+Przejdź do następnego samouczka, aby dowiedzieć się, jak zarządzać kosztami za pomocą alokacji kosztów i raportów przewidywanych kosztów.
 
 > [!div class="nextstepaction"]
-> [Zarządzanie kosztami z raportami przydziału i ogólnej analizy kosztów koszt](tutorial-manage-costs.md)
+> [Zarządzanie kosztami przy użyciu alokacji kosztów oraz raportów przewidywanych kosztów](tutorial-manage-costs.md)

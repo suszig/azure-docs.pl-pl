@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: 9af4bfd5b5ae46a856b25a94cdbe55e098ea940e
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 088a58bf5bfe3736a158d2384c69cb5928b53556
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Wprowadzenie do usługi Microsoft Azure Storage
 
@@ -131,21 +131,21 @@ Usługa Blob umożliwia zapewnienie publicznego dostępu do kontenera i jego obi
 
 ## <a name="encryption"></a>Szyfrowanie
 
-W przypadku usług Storage dostępnych jest kilka podstawowych rodzajów szyfrowania.
+W przypadku usług Storage dostępne są dwa podstawowe rodzaje szyfrowania. Aby uzyskać więcej informacji na temat bezpieczeństwa i szyfrowania, zobacz [Azure Storage security guide (Przewodnik po zabezpieczeniach usługi Azure Storage)](storage-security-guide.md).
 
 ### <a name="encryption-at-rest"></a>Szyfrowanie w spoczynku
 
-W usłudze Files (wersja zapoznawcza) lub usłudze Blob dla konta usługi Azure Storage możesz włączyć szyfrowanie usługi Storage. Jeśli szyfrowanie zostanie włączone, wszystkie dane zapisane w określonej usłudze będą szyfrowane przed zapisaniem. Podczas odczytywania dane są odszyfrowywane, a następnie zwracane.
+Szyfrowanie usługi Azure Storage w spoczynku pomaga chronić dane zgodnie z wymaganiami organizacji w zakresie zabezpieczeń i zgodności. Przy użyciu tej funkcji usługa Azure Storage automatycznie szyfruje dane przed trwałym wprowadzeniem ich do magazynu i odszyfrowuje je przed pobraniem. Szyfrowanie, odszyfrowywanie i zarządzanie kluczami jest całkowicie przezroczyste dla użytkowników.
+
+Szyfrowanie usługi Storage można włączyć dla usługi Blob Storage lub dla usługi Azure Files (wersja zapoznawcza). Jeśli szyfrowanie zostanie włączone, wszystkie dane zapisane w określonej usłudze będą szyfrowane przed zapisaniem. Podczas odczytywania dane są odszyfrowywane, a następnie zwracane.
+
+Aby uzyskać więcej informacji o szyfrowaniu usługi Storage w spoczynku, zobacz [Szyfrowanie usługi Azure Storage dla danych magazynowanych](storage-service-encryption.md).
 
 ### <a name="client-side-encryption"></a>Szyfrowania po stronie klienta
 
 Biblioteki klienta magazynu posiadają metody, które możesz wywołać, aby programowo szyfrować dane przed wysłaniem ich z klienta do platformy Azure. Przechowywane dane są zaszyfrowane, co oznacza, że w stanie spoczynku również są zaszyfrowane. Podczas odczytywania informacji są one odszyfrowywane po ich otrzymaniu.
 
-### <a name="encryption-in-transit-with-azure-file-shares"></a>Szyfrowanie podczas transferu przy użyciu udziałów plików platformy Azure
-
-Zobacz [Using Shared Access Signatures (SAS)](../storage-dotnet-shared-access-signature-part-1.md) (Używanie sygnatur dostępu współdzielonego), aby uzyskać więcej informacji o sygnaturach dostępu współdzielonego. Aby uzyskać więcej informacji na temat bezpiecznego dostępu do konta magazynu, zobacz [Manage anonymous read access to containers and blobs](../blobs/storage-manage-access-to-resources.md) (Zarządzanie anonimowym dostępem do odczytu do kontenerów i obiektów blob) i [Authentication for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179428.aspx) (Uwierzytelnianie dla usług Azure Storage).
-
-Aby uzyskać więcej informacji na temat zabezpieczania konta magazynu i szyfrowania, zobacz [Azure Storage security guide](storage-security-guide.md) (Przewodnik po zabezpieczeniach usługi Azure Storage).
+Aby uzyskać więcej informacji o szyfrowaniu po stronie klienta, zobacz [Client-Side Encryption with .NET for Microsoft Azure Storage (Szyfrowanie po stronie klienta przy użyciu programu .NET dla usługi Microsoft Azure Storage)](storage-client-side-encryption.md).
 
 ## <a name="replication"></a>Replikacja
 

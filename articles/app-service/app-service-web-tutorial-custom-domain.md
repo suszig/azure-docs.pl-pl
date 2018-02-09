@@ -1,7 +1,7 @@
 ---
-title: "Mapowanie istniejących niestandardową nazwę DNS do aplikacji sieci Web platformy Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak dodać istniejącą nazwę domeny DNS niestandardowe (niestandardowych domeny) do aplikacji sieci web, zaplecza aplikacji mobilnej lub aplikacji interfejsu API w usłudze Azure App Service."
-keywords: "usługi aplikacji, usługi aplikacji azure, mapowanie domeny, nazwę domeny, istniejącej domeny, nazwa hosta"
+title: "Mapowanie istniejącej niestandardowej nazwy DNS na aplikacje internetowe platformy Azure | Microsoft Docs"
+description: "Dowiedz się, jak dodać istniejącą niestandardową nazwę domeny DNS (domenę niestandardową) do aplikacji internetowej, zaplecza aplikacji mobilnej lub aplikacji interfejsu API w usłudze Azure App Service."
+keywords: "app service, azure app service, mapowanie domeny, nazwa domeny, istniejąca domena, nazwa hosta"
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -16,291 +16,291 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 9b35572b3275b5a2c5e89adf4890a2659d09626e
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
-ms.translationtype: MT
+ms.openlocfilehash: 9867cc2f8a8d484ca4bfb160c20a07df38790f4d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>Mapowanie istniejących niestandardową nazwę DNS do aplikacji sieci Web Azure
+# <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>Mapowanie istniejącej niestandardowej nazwy DNS na aplikacje internetowe platformy Azure
 
-Usługa [Azure Web Apps](app-service-web-overview.md) oferuje wysoce skalowalną i samonaprawialną usługę hostowaną w Internecie. W tym samouczku przedstawiono sposób odwzorowywania istniejącej nazwy DNS niestandardowej aplikacji sieci Web Azure.
+Usługa [Azure Web Apps](app-service-web-overview.md) oferuje wysoce skalowalną i samonaprawialną usługę hostowaną w Internecie. W tym samouczku przedstawiono, w jaki sposób można zmapować istniejącą niestandardową nazwę DNS na aplikacje internetowe platformy Azure.
 
-![Nawigacji w portalu do aplikacji Azure](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
+![Nawigacja w portalu do aplikacji platformy Azure](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Mapowanie poddomeny (na przykład `www.contoso.com`) przy użyciu rekordu CNAME
-> * Mapowanie domeny katalogu głównego (na przykład `contoso.com`) przy użyciu rekord a.
-> * Zamapować domenę symboli wieloznacznych (na przykład `*.contoso.com`) przy użyciu rekordu CNAME
-> * Mapowanie domeny przy użyciu skryptów automatyzacji
+> * Mapowanie domeny katalogu głównego (na przykład `contoso.com`) przy użyciu rekordu A
+> * Mapowanie domeny z symbolami wieloznacznymi (na przykład `*.contoso.com`) przy użyciu rekordu CNAME
+> * Automatyzacja mapowania domen przy użyciu skryptów
 
-Możesz użyć dowolnej **rekord CNAME** lub **rekordu** do mapowania niestandardową nazwę DNS usługi aplikacji. 
+Do mapowania niestandardowej nazwy DNS na usługę App Service możesz użyć **rekordu CNAME** lub **rekordu A**. 
 
 > [!NOTE]
-> Zalecane jest użycie rekord CNAME dla wszystkich niestandardowych nazw DNS z wyjątkiem domeny katalogu głównego (na przykład `contoso.com`).
+> Zalecane jest użycie rekordu CNAME dla wszystkich niestandardowych nazw DNS z wyjątkiem domeny katalogu głównego (na przykład `contoso.com`).
 
-Aby przeprowadzić migrację na żywo lokacji i nazwy domeny DNS do usługi App Service, zobacz [migracji active nazwy DNS w usłudze Azure App Service](app-service-custom-domain-name-migrate.md).
+Aby przeprowadzić migrację aktywnej witryny oraz jej nazwy domeny DNS do usługi App Service, zobacz [Migrate an active DNS name to Azure App Service](app-service-custom-domain-name-migrate.md) (Migrowanie aktywnej nazwy DNS do usługi Azure App Service).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 W celu ukończenia tego samouczka:
 
-* [Utwórz aplikację usługi aplikacji](/azure/app-service/), lub użyć utworzonego w samouczku innej aplikacji.
-* Kup nazwę domeny i upewnij się, że masz dostęp do rejestru DNS dla domeny dostawcy (takie jak GoDaddy).
+* [Utwórz aplikację usługi App Service](/azure/app-service/) lub użyj aplikacji utworzonej w innym samouczku.
+* Kup nazwę domeny i upewnij się, że masz dostęp do rejestru DNS u swojego dostawcy domeny (na przykład GoDaddy).
 
-  Na przykład, aby dodać wpisów DNS dla `contoso.com` i `www.contoso.com`, użytkownik musi mieć możliwość skonfigurowania ustawień DNS dla `contoso.com` domeny głównej.
+  Aby na przykład dodać wpisy DNS dla domen `contoso.com` i `www.contoso.com`, musisz mieć możliwość skonfigurowania ustawień DNS dla domeny katalogu głównego `contoso.com`.
 
   > [!NOTE]
-  > Jeśli nie masz istniejącej domeny nazwa, należy wziąć pod uwagę [zakupu domeny przy użyciu portalu Azure](custom-dns-web-site-buydomains-web-app.md). 
+  > Jeśli nie masz istniejącej nazwy domeny, możesz [zakupić domenę za pośrednictwem witryny Azure Portal](custom-dns-web-site-buydomains-web-app.md). 
 
 ## <a name="prepare-the-app"></a>Przygotowywanie aplikacji
 
-Aby zamapować niestandardową nazwę DNS w aplikacji sieci web, aplikacji sieci web firmy [planu usługi aplikacji](https://azure.microsoft.com/pricing/details/app-service/) musi być płatną warstwy (**Shared**, **podstawowe**, **standardowe**, lub  **Premium**). W tym kroku należy upewnić się, że aplikacja usługi aplikacji jest w obsługiwanym warstwy cenowej.
+Aby zamapować niestandardową nazwę DNS na aplikację internetową, dla tej aplikacji internetowej musisz mieć płatną warstwę [planu usługi App Service](https://azure.microsoft.com/pricing/details/app-service/) (**Współdzielona**, **Podstawowa**, **Standardowa** lub  **Premium**). W tym kroku musisz się upewnić, że Twoja aplikacja usługi App Service jest w obsługiwanej warstwie cenowej.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 ### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
-Otwórz [portalu Azure](https://portal.azure.com) i zaloguj się przy użyciu konta platformy Azure.
+Otwórz witrynę [Azure Portal](https://portal.azure.com) i zaloguj się przy użyciu konta platformy Azure.
 
-### <a name="navigate-to-the-app-in-the-azure-portal"></a>Przejdź do aplikacji w portalu Azure
+### <a name="navigate-to-the-app-in-the-azure-portal"></a>Nawigowanie do aplikacji w witrynie Azure Portal
 
-Wybierz z menu po lewej stronie **usługi aplikacji**, a następnie wybierz nazwę aplikacji.
+W lewym menu wybierz pozycję **App Services**, a następnie wybierz nazwę swojej aplikacji.
 
-![Nawigacji w portalu do aplikacji Azure](./media/app-service-web-tutorial-custom-domain/select-app.png)
+![Nawigacja w portalu do aplikacji platformy Azure](./media/app-service-web-tutorial-custom-domain/select-app.png)
 
-Zostanie wyświetlona strona zarządzania aplikacji usługi aplikacji.  
+Zostanie wyświetlona strona zarządzania aplikacji usługi App Service.  
 
 <a name="checkpricing"></a>
 
-### <a name="check-the-pricing-tier"></a>Sprawdź warstwę cenową
+### <a name="check-the-pricing-tier"></a>Sprawdzanie warstwy cenowej
 
-W lewym obszarze nawigacji strony aplikacji, przewiń **ustawienia** a następnie wybierz opcję **skalowanie w górę (plan usługi App Service)**.
+W lewym obszarze nawigacji na stronie aplikacji przewiń do sekcji **Ustawienia** i wybierz pozycję **Skaluj w górę (plan usługi App Service)**.
 
-![Skalowanie w pionie menu](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
+![Menu skalowania w górę](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
-Warstwa bieżąca aplikacja zostanie wyróżniona niebieskim obramowaniem. Upewnij się, że aplikacja nie znajduje się w **wolne** warstwy. Niestandardowe DNS nie jest obsługiwany w **wolne** warstwy. 
+Bieżąca warstwa aplikacji jest wyróżniona niebieskim obramowaniem. Upewnij się, że aplikacja nie znajduje się w warstwie **Bezpłatna**. Niestandardowe nazwy DNS nie są obsługiwane w warstwie **Bezpłatna**. 
 
-![Sprawdź warstwę cenową](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
+![Sprawdzanie warstwy cenowej](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
-Jeśli plan usługi aplikacji nie jest **wolne**, Zamknij **wybierz warstwę cenową** strony i przejść [mapy rekord CNAME](#cname).
+Jeśli plan usługi App Service jest inny niż **Bezpłatna**, zamknij stronę **Wybieranie warstwy cenowej** i przejdź od razu do sekcji [Mapowanie rekordu CNAME](#cname).
 
 <a name="scaleup"></a>
 
-### <a name="scale-up-the-app-service-plan"></a>Skalowanie w górę plan usługi aplikacji
+### <a name="scale-up-the-app-service-plan"></a>Skalowanie w górę planu usługi App Service
 
-Wybierz jedno z systemem innym niż bez warstw (**Shared**, **podstawowe**, **standardowe**, lub **Premium**). 
+Wybierz jedną z płatnych warstw (**Współdzielona**, **Podstawowa**, **Standardowa** lub **Premium**). 
 
 Kliknij pozycję **Wybierz**.
 
-![Sprawdź warstwę cenową](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
+![Sprawdzanie warstwy cenowej](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 
-Gdy zostanie wyświetlone następujące powiadomienie, zakończeniu operacji skalowania.
+Wyświetlenie następującego powiadomienia oznacza zakończenie operacji skalowania.
 
 ![Potwierdzenie operacji skalowania](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
 
 <a name="cname"></a>
 
-## <a name="map-a-cname-record"></a>Mapa rekord CNAME
+## <a name="map-a-cname-record"></a>Mapowanie rekordu CNAME
 
-W przykładzie samouczek, Dodaj rekord CNAME dla `www` domeny podrzędnej (na przykład `www.contoso.com`).
+W przykładzie znajdującym się w tym samouczku dodasz rekord CNAME dla poddomeny `www` (na przykład `www.contoso.com`).
 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
 
-### <a name="create-the-cname-record"></a>Utwórz rekord CNAME
+### <a name="create-the-cname-record"></a>Tworzenie rekordu CNAME
 
-Dodaj rekord CNAME do mapowania poddomeny hostname domyślnej aplikacji (`<app_name>.azurewebsites.net`, gdzie `<app_name>` to nazwa aplikacji).
+Dodaj rekord CNAME, aby zmapować poddomenę na domyślną nazwę hosta aplikacji (`<app_name>.azurewebsites.net`, gdzie `<app_name>` to nazwa aplikacji).
 
-Aby uzyskać `www.contoso.com` przykład domeny, Dodaj rekord CNAME, który mapuje nazwę `www` do `<app_name>.azurewebsites.net`.
+W przypadku przykładowej domeny `www.contoso.com` dodaj rekord CNAME, który zmapuje nazwę `www` na `<app_name>.azurewebsites.net`.
 
-Po dodaniu CNAME stronie rekordy DNS wygląda jak w następującym przykładzie:
+Po dodaniu tego rekordu CNAME strona rekordów DNS wygląda podobnie jak w następującym przykładzie:
 
-![Nawigacji w portalu do aplikacji Azure](./media/app-service-web-tutorial-custom-domain/cname-record.png)
+![Nawigacja w portalu do aplikacji platformy Azure](./media/app-service-web-tutorial-custom-domain/cname-record.png)
 
-### <a name="enable-the-cname-record-mapping-in-azure"></a>Włącz mapowania rekord CNAME w systemie Azure
+### <a name="enable-the-cname-record-mapping-in-azure"></a>Włączanie mapowania rekordów CNAME na platformie Azure
 
-W lewym obszarze nawigacji strony aplikacji w portalu Azure, wybierz **domen niestandardowych**. 
+W lewym obszarze nawigacji na stronie aplikacji w witrynie Azure Portal wybierz pozycję **Domeny niestandardowe**. 
 
-![Menu domeny niestandardowej](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
+![Menu domen niestandardowych](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-W **domen niestandardowych** strony aplikacji, należy dodać w pełni kwalifikowana nazwa DNS niestandardowe (`www.contoso.com`) do listy.
+Na stronie **Domeny niestandardowe** aplikacji dodaj do listy w pełni kwalifikowaną niestandardową nazwę DNS (`www.contoso.com`).
 
-Wybierz  **+**  obok opcji **dodać nazwę hosta**.
+Wybierz ikonę **+** obok pozycji **Dodaj nazwę hosta**.
 
-![Dodaj nazwy hosta](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
+![Dodawanie nazwy hosta](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-Wpisz w pełni kwalifikowaną nazwę domeny dodaje rekord CNAME, takich jak `www.contoso.com`. 
+Wpisz w pełni kwalifikowaną nazwę domeny, dla której dodano rekord CNAME, na przykład `www.contoso.com`. 
 
-Wybierz **zweryfikować**.
+Wybierz przycisk **Weryfikuj**.
 
-**Dodać nazwę hosta** przycisk jest aktywny. 
+Zostanie aktywowany przycisk **Dodaj nazwę hosta**. 
 
-Upewnij się, że **typu rekordu Hostname** ustawiono **CNAME (www.example.com lub wszystkie poddomeny)**.
+Upewnij się, że opcja **Typ rekordu nazwy hosta** jest ustawiona na wartość **CNAME (www.example.com lub dowolna poddomena)**.
 
-Wybierz **dodać nazwę hosta**.
+Wybierz przycisk **Dodaj nazwę hosta**.
 
-![Dodaj nazwę DNS do aplikacji](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
+![Dodawanie nazwy DNS do aplikacji](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
 
-Może upłynąć trochę czasu, zanim nowej nazwy hosta zostaną odzwierciedlone w aplikacji **domen niestandardowych** strony. Spróbuj odświeżyć przeglądarkę, aby zaktualizować dane.
+Może upłynąć trochę czasu, zanim nowa nazwa hosta zostanie odzwierciedlona na stronie **Domeny niestandardowe** aplikacji. Spróbuj odświeżyć przeglądarkę, aby zaktualizować dane.
 
-![Dodaje rekord CNAME](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
+![Dodany rekord CNAME](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
-Możesz pominąć krok lub wkradła się Literówka gdzieś wcześniej, zostanie wyświetlony błąd weryfikacji, w dolnej części strony.
+Jeśli pominięto jakiś krok lub popełniono gdzieś błąd w pisowni, w dolnej części strony zostanie wyświetlony komunikat o błędzie weryfikacji.
 
 ![Błąd weryfikacji](./media/app-service-web-tutorial-custom-domain/verification-error-cname.png)
 
 <a name="a"></a>
 
-## <a name="map-an-a-record"></a>Mapa rekord a.
+## <a name="map-an-a-record"></a>Mapowanie rekordu A
 
-W przykładzie samouczek dodaniu rekordu A dla domeny katalogu głównego (na przykład `contoso.com`). 
+W przykładzie znajdującym się w tym samouczku dodasz rekord A dla domeny katalogu głównego (na przykład `contoso.com`). 
 
 <a name="info"></a>
 
-### <a name="copy-the-apps-ip-address"></a>Skopiuj adres IP aplikacji
+### <a name="copy-the-apps-ip-address"></a>Kopiowanie adresu IP aplikacji
 
-Aby zamapować rekord A, należy aplikacji zewnętrzny adres IP. Ten adres IP można znaleźć w aplikacji **domen niestandardowych** strony w portalu Azure.
+Aby móc zamapować rekord A, musisz znać zewnętrzny adres IP aplikacji. Ten adres IP można znaleźć na stronie **Domeny niestandardowe** aplikacji w witrynie Azure Portal.
 
-W lewym obszarze nawigacji strony aplikacji w portalu Azure, wybierz **domen niestandardowych**. 
+W lewym obszarze nawigacji na stronie aplikacji w witrynie Azure Portal wybierz pozycję **Domeny niestandardowe**. 
 
-![Menu domeny niestandardowej](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
+![Menu domen niestandardowych](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-W **domen niestandardowych** strony, skopiuj adres IP aplikacji.
+Na stronie **Domeny niestandardowe** skopiuj adres IP aplikacji.
 
-![Nawigacji w portalu do aplikacji Azure](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
+![Nawigacja w portalu do aplikacji platformy Azure](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
 
-### <a name="create-the-a-record"></a>Utwórz rekord a.
+### <a name="create-the-a-record"></a>Tworzenie rekordu A
 
-Aby mapować rekordu A dla aplikacji, usługa aplikacji wymaga **dwóch** rekordy DNS:
+Aby móc zmapować rekord A na aplikację, usługa App Service wymaga **dwóch** rekordów DNS:
 
-- **A** rekordu mapowane na adres IP aplikacji.
-- A **TXT** rekordu do mapowania nazwy hosta domyślnego aplikacji `<app_name>.azurewebsites.net`. Usługa aplikacji używa tego rekordu tylko podczas konfiguracji, aby sprawdzić, czy jesteś właścicielem domeny niestandardowej. Po domeny niestandardowej jest weryfikowane i skonfigurowaniu w usłudze App Service, można usunąć tego rekordu TXT. 
+- Rekord **A** do zmapowania adresu IP aplikacji.
+- Rekord **TXT** do zmapowania domyślnej nazwy hosta aplikacji `<app_name>.azurewebsites.net`. Usługa App Service używa tego rekordu tylko podczas konfiguracji, aby sprawdzić, czy jesteś właścicielem domeny niestandardowej. Po zweryfikowaniu i skonfigurowaniu domeny niestandardowej w usłudze App Service możesz usunąć ten rekord TXT. 
 
-Dla `contoso.com` przykład domeny utworzyć rekordy A i TXT, zgodnie z poniższą tabelą (`@` zazwyczaj reprezentuje domeny głównej). 
+Dla przykładowej domeny `contoso.com` utwórz rekordy A i TXT zgodnie z wartościami z poniższej tabeli (`@` zazwyczaj reprezentuje domenę katalogu głównego). 
 
 | Typ rekordu | Host | Wartość |
 | - | - | - |
-| A | `@` | Adres IP z [skopiuj adres IP aplikacji](#info) |
+| A | `@` | Adres IP z sekcji [Kopiowanie adresu IP aplikacji](#info) |
 | TXT | `@` | `<app_name>.azurewebsites.net` |
 
-Rekordy są dodawane, stronie rekordy DNS wygląda następująco:
+Po dodaniu tych rekordów strona rekordów DNS wygląda podobnie jak w następującym przykładzie:
 
 ![Strona rekordów DNS](./media/app-service-web-tutorial-custom-domain/a-record.png)
 
 <a name="enable-a"></a>
 
-### <a name="enable-the-a-record-mapping-in-the-app"></a>Włącz mapowanie rekord A w aplikacji
+### <a name="enable-the-a-record-mapping-in-the-app"></a>Włączanie mapowania rekordu A w aplikacji
 
-W aplikacji **domen niestandardowych** w portalu Azure, należy dodać w pełni kwalifikowana nazwa DNS niestandardowe (na przykład `contoso.com`) do listy.
+Ponownie na stronie **Domeny niestandardowe** aplikacji w witrynie Azure Portal dodaj do listy w pełni kwalifikowaną niestandardową nazwę DNS (na przykład `contoso.com`).
 
-Wybierz  **+**  obok opcji **dodać nazwę hosta**.
+Wybierz ikonę **+** obok pozycji **Dodaj nazwę hosta**.
 
-![Dodaj nazwy hosta](./media/app-service-web-tutorial-custom-domain/add-host-name.png)
+![Dodawanie nazwy hosta](./media/app-service-web-tutorial-custom-domain/add-host-name.png)
 
-Wpisz w pełni kwalifikowaną nazwę domeny skonfigurować rekord A, takich jak `contoso.com`.
+Wpisz w pełni kwalifikowaną nazwę domeny, dla której skonfigurowano rekord A, na przykład `contoso.com`.
 
-Wybierz **zweryfikować**.
+Wybierz przycisk **Weryfikuj**.
 
-**Dodać nazwę hosta** przycisk jest aktywny. 
+Zostanie aktywowany przycisk **Dodaj nazwę hosta**. 
 
-Upewnij się, że **typu rekordu Hostname** ustawiono **rekordu (example.com)**.
+Upewnij się, że opcja **Typ rekordu nazwy hosta** jest ustawiona na wartość **Rekord A (example.com)**.
 
-Wybierz **dodać nazwę hosta**.
+Wybierz przycisk **Dodaj nazwę hosta**.
 
-![Dodaj nazwę DNS do aplikacji](./media/app-service-web-tutorial-custom-domain/validate-domain-name.png)
+![Dodawanie nazwy DNS do aplikacji](./media/app-service-web-tutorial-custom-domain/validate-domain-name.png)
 
-Może upłynąć trochę czasu, zanim nowej nazwy hosta zostaną odzwierciedlone w aplikacji **domen niestandardowych** strony. Spróbuj odświeżyć przeglądarkę, aby zaktualizować dane.
+Może upłynąć trochę czasu, zanim nowa nazwa hosta zostanie odzwierciedlona na stronie **Domeny niestandardowe** aplikacji. Spróbuj odświeżyć przeglądarkę, aby zaktualizować dane.
 
-![Dodaje rekord](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
+![Dodany rekord A](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
-Możesz pominąć krok lub wkradła się Literówka gdzieś wcześniej, zostanie wyświetlony błąd weryfikacji, w dolnej części strony.
+Jeśli pominięto jakiś krok lub popełniono gdzieś błąd w pisowni, w dolnej części strony zostanie wyświetlony komunikat o błędzie weryfikacji.
 
 ![Błąd weryfikacji](./media/app-service-web-tutorial-custom-domain/verification-error.png)
 
 <a name="wildcard"></a>
 
-## <a name="map-a-wildcard-domain"></a>Zamapować domenę symboli wieloznacznych
+## <a name="map-a-wildcard-domain"></a>Mapowanie domeny z symbolami wieloznacznymi
 
-W tym przykładzie samouczek mapy [nazwa DNS z symbolem wieloznacznym](https://en.wikipedia.org/wiki/Wildcard_DNS_record) (na przykład `*.contoso.com`) do aplikacji usługi app Service przez dodanie rekordu CNAME. 
+W przykładzie znajdującym się w tym samouczku zmapujesz [wieloznaczną nazwę DNS](https://en.wikipedia.org/wiki/Wildcard_DNS_record) (na przykład `*.contoso.com`) na aplikację usługi App Service przez dodanie rekordu CNAME. 
 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
 
-### <a name="create-the-cname-record"></a>Utwórz rekord CNAME
+### <a name="create-the-cname-record"></a>Tworzenie rekordu CNAME
 
-Dodaj rekord CNAME do mapowania nazwy symbolu wieloznacznego hostname domyślnej aplikacji (`<app_name>.azurewebsites.net`).
+Dodaj rekord CNAME, aby zmapować wieloznaczną nazwę na domyślną nazwę hosta aplikacji (`<app_name>.azurewebsites.net`).
 
-Dla `*.contoso.com` przykład domeny rekord CNAME przypisze nazwę `*` do `<app_name>.azurewebsites.net`.
+Dla przykładowej domeny `*.contoso.com` rekord CNAME zmapuje nazwę `*` na nazwę `<app_name>.azurewebsites.net`.
 
-Po dodaniu CNAME stronie rekordy DNS wygląda jak w następującym przykładzie:
+Po dodaniu tego rekordu CNAME strona rekordów DNS wygląda podobnie jak w następującym przykładzie:
 
-![Nawigacji w portalu do aplikacji Azure](./media/app-service-web-tutorial-custom-domain/cname-record-wildcard.png)
+![Nawigacja w portalu do aplikacji platformy Azure](./media/app-service-web-tutorial-custom-domain/cname-record-wildcard.png)
 
-### <a name="enable-the-cname-record-mapping-in-the-app"></a>Włącz mapowanie rekord CNAME w aplikacji
+### <a name="enable-the-cname-record-mapping-in-the-app"></a>Włączanie mapowania rekordów CNAME w aplikacji
 
-Można teraz dodawać żadnych poddomeny zgodnej z nazwą symbolu wieloznacznego w aplikacji (na przykład `sub1.contoso.com` i `sub2.contoso.com` odpowiada `*.contoso.com`). 
+Teraz możesz do aplikacji dodać dowolną poddomenę zgodną z wieloznaczną nazwą (na przykład nazwy `sub1.contoso.com` i `sub2.contoso.com` są zgodne z nazwą `*.contoso.com`). 
 
-W lewym obszarze nawigacji strony aplikacji w portalu Azure, wybierz **domen niestandardowych**. 
+W lewym obszarze nawigacji na stronie aplikacji w witrynie Azure Portal wybierz pozycję **Domeny niestandardowe**. 
 
-![Menu domeny niestandardowej](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
+![Menu domen niestandardowych](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-Wybierz  **+**  obok opcji **dodać nazwę hosta**.
+Wybierz ikonę **+** obok pozycji **Dodaj nazwę hosta**.
 
-![Dodaj nazwy hosta](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
+![Dodawanie nazwy hosta](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-Wpisz nazwę FQDN, która pasuje do domeny symbolu wieloznacznego (na przykład `sub1.contoso.com`), a następnie wybierz **weryfikacji**.
+Wpisz w pełni kwalifikowany nazwę domeny, która pasuje do domeny z symbolami wieloznacznymi (na przykład `sub1.contoso.com`), a następnie wybierz przycisk **Weryfikuj**.
 
-**Dodać nazwę hosta** przycisk jest aktywny. 
+Zostanie aktywowany przycisk **Dodaj nazwę hosta**. 
 
-Upewnij się, że **typu rekordu Hostname** ustawiono **rekord CNAME (www.example.com lub wszystkie poddomeny)**.
+Upewnij się, że opcja **Typ rekordu nazwy hosta** jest ustawiona na wartość **CNAME (www.example.com lub dowolna poddomena)**.
 
-Wybierz **dodać nazwę hosta**.
+Wybierz przycisk **Dodaj nazwę hosta**.
 
-![Dodaj nazwę DNS do aplikacji](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname-wildcard.png)
+![Dodawanie nazwy DNS do aplikacji](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname-wildcard.png)
 
-Może upłynąć trochę czasu, zanim nowej nazwy hosta zostaną odzwierciedlone w aplikacji **domen niestandardowych** strony. Spróbuj odświeżyć przeglądarkę, aby zaktualizować dane.
+Może upłynąć trochę czasu, zanim nowa nazwa hosta zostanie odzwierciedlona na stronie **Domeny niestandardowe** aplikacji. Spróbuj odświeżyć przeglądarkę, aby zaktualizować dane.
 
-Wybierz  **+**  ikonę ponownie, aby dodać inną nazwę hosta odpowiadający domenie symboli wieloznacznych. Na przykład dodać `sub2.contoso.com`.
+Wybierz ponownie ikonę **+**, aby dodać inną nazwę hosta zgodną z domeną z symbolami wieloznacznymi. Na przykład dodaj nazwę `sub2.contoso.com`.
 
-![Dodaje rekord CNAME](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
+![Dodany rekord CNAME](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
 
 ## <a name="test-in-browser"></a>Testowanie w przeglądarce
 
-Przejdź do nazwy DNS, który został wcześniej skonfigurowany (na przykład `contoso.com`, `www.contoso.com`, `sub1.contoso.com`, i `sub2.contoso.com`).
+Przejdź do nazw DNS, które zostały wcześniej skonfigurowane (na przykład `contoso.com`, `www.contoso.com`, `sub1.contoso.com` lub `sub2.contoso.com`).
 
-![Nawigacji w portalu do aplikacji Azure](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
+![Nawigacja w portalu do aplikacji platformy Azure](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
-## <a name="resolve-404-error-web-site-not-found"></a>Rozwiąż błąd 404 "Nie można odnaleźć witryny sieci Web"
+## <a name="resolve-404-error-web-site-not-found"></a>Naprawianie błędu 404 „Nie można odnaleźć witryny internetowej”
 
-Jeśli wystąpi błąd 404 protokołu HTTP (nie znaleziono) podczas przeglądania do adresu URL domeny niestandardowej, upewnij się, że domenę jest rozpoznawana jako adres IP Twojej aplikacji w usłudze <a href="https://www.whatsmydns.net/" target="_blank">WhatsmyDNS.net</a>. Jeśli nie, może to być spowodowane jedną z następujących powodów:
+Jeśli podczas przechodzenia do adresu URL domeny niestandardowej występuje błąd HTTP 404 (Nie znaleziono), sprawdź, czy domena jest rozstrzygana na adres IP aplikacji, korzystając z witryny <a href="https://www.whatsmydns.net/" target="_blank">WhatsmyDNS.net</a>. Jeśli nie, może to być spowodowane jedną z następujących przyczyn:
 
-- Brak domeny niestandardowej, skonfigurować rekord A i/lub rekord CNAME.
-- Stary adres IP domeny ma w pamięci podręcznej klienta przeglądarki. Wyczyść pamięć podręczną i testowania rozpoznawanie nazw DNS ponownie. Na komputerze z systemem Windows, należy wyczyścić pamięć podręczną z `ipconfig /flushdns`.
+- W skonfigurowanej domenie niestandardowej brakuje rekordu A i/lub rekordu CNAME.
+- Klient przeglądarki umieścił w pamięci podręcznej stary adres IP Twojej domeny. Wyczyść pamięć podręczną i ponownie przetestuj rozpoznawanie nazwy DNS. Do czyszczenia pamięci podręcznej na komputerze z systemem Windows należy użyć polecenia `ipconfig /flushdns`.
 
 <a name="virtualdir"></a>
 
-## <a name="direct-default-url-to-a-custom-directory"></a>Bezpośrednie domyślny adres URL katalog niestandardowych
+## <a name="direct-default-url-to-a-custom-directory"></a>Kierowanie domyślnego adresu URL do katalogu niestandardowego
 
-Domyślnie usługi aplikacji kieruje żądania sieci web do katalogu głównego w kodzie aplikacji. Jednak niektóre platformy sieci web nie należy uruchamiać w katalogu głównym. Na przykład [Laravel](https://laravel.com/) rozpoczyna się `public` podkatalogu. Aby kontynuować `contoso.com` przykład DNS takich aplikacji będą dostępne w `http://contoso.com/public`, ale czy na pewno chcesz bezpośrednie `http://contoso.com` do `public` katalogu zamiast tego. Ten krok nie wymaga rozpoznawania nazw DNS, ale Dostosowywanie katalogu wirtualnego.
+Domyślnie usługa App Service kieruje żądania internetowe do katalogu głównego w kodzie aplikacji. Jednak niektóre platformy internetowe nie uruchamiają się z poziomu katalogu głównego. Na przykład platforma [Laravel](https://laravel.com/) uruchamia się w podkatalogu `public`. W przypadku używanej tu przykładowej nazwy DNS `contoso.com` taka aplikacja byłaby dostępna w katalogu `http://contoso.com/public`, ale zamiast tego lepiej byłoby przekierować nazwę `http://contoso.com` do katalogu `public`. W tym kroku nie opisano rozpoznawania nazw DNS tylko dostosowywanie katalogu wirtualnego.
 
-Aby to zrobić, wybierz **ustawienia aplikacji** w obszarze nawigacji po lewej stronie strony aplikacji sieci web. 
+W tym celu na stronie aplikacji internetowej wybierz pozycję **Ustawienia aplikacji** w obszarze nawigacji po lewej stronie. 
 
-W dolnej części strony, na główny katalog wirtualny `/` wskazuje `site\wwwroot` domyślnie, który jest katalogiem głównym kodu aplikacji. Zmień, aby wskazać `site\wwwroot\public` , na przykład i Zapisz zmiany. 
+W dolnej części strony widać, że główny katalog wirtualny `/` domyślnie wskazuje na katalog `site\wwwroot`, który jest katalogiem głównym kodu aplikacji. Zmień to ustawienie, aby główny katalog wirtualny wskazywał na przykład na katalog `site\wwwroot\public`, i zapisz zmiany. 
 
 ![Dostosowywanie katalogu wirtualnego](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
 
-Po zakończeniu operacji aplikacji powinien zwrócić prawej strony w ścieżce katalogu głównego (na przykład http://contoso.com).
+Po zakończeniu tej operacji aplikacja powinna zwracać odpowiednią stronę w ścieżce głównej (na przykład http://contoso.com).
 
-## <a name="automate-with-scripts"></a>Zautomatyzować za pomocą skryptów
+## <a name="automate-with-scripts"></a>Automatyzowanie przy użyciu skryptów
 
-Można zautomatyzować zarządzanie domenami niestandardowymi za pomocą skryptów, za pomocą [interfejsu wiersza polecenia Azure](/cli/azure/install-azure-cli) lub [programu Azure PowerShell](/powershell/azure/overview). 
+Zarządzanie domenami niestandardowymi można zautomatyzować za pomocą skryptów [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) lub [programu Azure PowerShell](/powershell/azure/overview). 
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure 
 
-Polecenie dodaje skonfigurowanej niestandardowe nazwy DNS do aplikacji usługi app Service. 
+Następujące polecenie dodaje skonfigurowaną niestandardową nazwę DNS do aplikacji usługi App Service. 
 
 ```bash 
 az webapp config hostname add \
@@ -309,11 +309,11 @@ az webapp config hostname add \
     --hostname <fully_qualified_domain_name> 
 ``` 
 
-Aby uzyskać więcej informacji, zobacz [zamapować niestandardową domenę do aplikacji sieci web](scripts/app-service-cli-configure-custom-domain.md). 
+Aby uzyskać więcej informacji, zobacz [Map a custom domain to a web app](scripts/app-service-cli-configure-custom-domain.md) (Mapowanie domeny niestandardowej na aplikację internetową). 
 
 ### <a name="azure-powershell"></a>Azure PowerShell 
 
-Polecenie dodaje skonfigurowanej niestandardowe nazwy DNS do aplikacji usługi app Service. 
+Następujące polecenie dodaje skonfigurowaną niestandardową nazwę DNS do aplikacji usługi App Service. 
 
 ```PowerShell  
 Set-AzureRmWebApp `
@@ -322,19 +322,19 @@ Set-AzureRmWebApp `
     -HostNames @("<fully_qualified_domain_name>","<app_name>.azurewebsites.net") 
 ```
 
-Aby uzyskać więcej informacji, zobacz [przypisać niestandardową domenę do aplikacji sieci web](scripts/app-service-powershell-configure-custom-domain.md).
+Aby uzyskać więcej informacji, zobacz [Assign a custom domain to a web app](scripts/app-service-powershell-configure-custom-domain.md) (Przypisywanie domeny niestandardowej do aplikacji internetowej).
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Mapa poddomeny przy użyciu rekordu CNAME
-> * Mapa domeny głównej, przy użyciu rekord a.
-> * Zamapować domenę symboli wieloznacznych przy użyciu rekordu CNAME
-> * Mapowanie domeny przy użyciu skryptów automatyzacji
+> * Mapowanie poddomeny przy użyciu rekordu CNAME
+> * Mapowanie domeny katalogu głównego przy użyciu rekordu A
+> * Mapowanie domeny z symbolami wieloznacznymi przy użyciu rekordu CNAME
+> * Automatyzacja mapowania domen przy użyciu skryptów
 
-Przejdź do następnego samouczek informacje na temat wiązania niestandardowego certyfikatu SSL w aplikacji sieci web.
+Przejdź do następnego samouczka, aby dowiedzieć się, jak powiązać niestandardowy certyfikat SSL z aplikacją internetową.
 
 > [!div class="nextstepaction"]
-> [Powiąż istniejący certyfikat SSL niestandardowych do aplikacji sieci Web Azure](app-service-web-tutorial-custom-ssl.md)
+> [Wiązanie istniejącego niestandardowego certyfikatu SSL z usługą Azure Web Apps](app-service-web-tutorial-custom-ssl.md)

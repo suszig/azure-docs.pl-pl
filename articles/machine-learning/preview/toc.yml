@@ -92,7 +92,7 @@
           href: deployment-setup-configuration.md
         - name: Skalowanie klastrów i usług
           href: how-to-scale-clusters.md
-        - name: Konfigurowanie protokołu SSL na klastrze MLC
+        - name: Włączanie protokołu SSL na klastrze MLC
           href: how-to-setup-ssl-on-mlc.md
         - name: Wdrażanie usługi internetowej
           href: model-management-service-deploy.md

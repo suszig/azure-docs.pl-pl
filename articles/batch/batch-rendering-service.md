@@ -2,17 +2,17 @@
 title: "Usługa Azure Batch Rendering — renderowanie w skali chmury | Microsoft Docs"
 description: "Renderuj zadania na maszynach wirtualnych platformy Azure bezpośrednio z programu Maya z opłatami za użycie."
 services: batch
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 ms.service: batch
 ms.topic: hero-article
 ms.date: 09/14/2017
 ms.author: danlep
-ms.openlocfilehash: aab68b4275edc48e1726b26a7400bbfdd8d40d6f
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: f1aa8de26afd8b54746c706047a6b6b21cbf311c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="get-started-with-the-batch-rendering-service"></a>Wprowadzenie do usługi Batch Rendering
 
@@ -25,12 +25,8 @@ Za pomocą programów Maya i 3ds Max możesz uruchamiać zadania przy użyciu ap
 
 Usługa Batch Rendering obecnie obsługuje następujące aplikacje:
 
-- Autodesk Maya
-- Autodesk 3ds Max
-- Autodesk Arnold for Maya
-- Autodesk Arnold for 3ds Max
-- Chaos Group V-Ray for Maya
-- Chaos Group V-Ray for 3ds Max
+•   Autodesk Maya I/O 2017 Update 4 (wersja 17.4.5459) •   Autodesk 3ds Max I/O 2018 Update 1 (wersja 20.1.0.238) •   Autodesk Arnold for Maya (wersja 5.0.1.1) •   Autodesk Arnold for 3ds Max (wersja 1.0.836) •   Chaos Group V-Ray for Maya (wersja 3.52.03) •   Chaos Group V-Ray for 3ds Max (wersja 3.60.02)
+
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

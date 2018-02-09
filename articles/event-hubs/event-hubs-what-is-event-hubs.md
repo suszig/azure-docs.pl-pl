@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2017
-ms.author: sethm; babanisa
-ms.openlocfilehash: 236d49b7d8104b410e2a4c768820c3c9ebcdce96
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/30/2018
+ms.author: sethm
+ms.openlocfilehash: 9b7be70d726edfa9dbda3719d431e532106724b6
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="what-is-event-hubs"></a>Co to jest usługa Event Hubs?
 
@@ -38,7 +38,7 @@ Usługa Event Hubs umożliwia na przykład śledzenie zachowania w aplikacjach m
 
 Typową rolą pełnioną przez usługę Event Hubs w architekturze rozwiązań są „drzwi wejściowe” dla potoku zdarzeń. Jest ona często nazywana *systemem zbierania zdarzeń*. System zbierania zdarzeń to składnik lub usługa, która znajduje się między wydawcami zdarzeń, a ich odbiorcami. Jego rolą jest oddzielenie procesu tworzenia strumienia zdarzeń od użycia tych zdarzeń. Tę architekturę przedstawiono na poniższym rysunku:
 
-![Usługa Event Hubs](./media/event-hubs-what-is-event-hubs/event_hubs_full_pipeline.png)
+![Event Hubs](./media/event-hubs-what-is-event-hubs/event_hubs_full_pipeline.png)
 
 Usługa Event Hubs umożliwia obsługę strumienia komunikatów, ale jej właściwości różnią się od tradycyjnych metod przesyłania komunikatów w przedsiębiorstwie. Możliwości usługi Event Hubs są zbudowane wokół scenariuszy wysokiej przepływności i przetwarzania zdarzeń. Z tego względu działanie usługi Event Hubs różni się od obsługi komunikatów w usłudze [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) — nie są implementowane niektóre funkcje dostępne w przypadku jednostek [obsługi komunikatów usługi Service Bus](/azure/service-bus-messaging/), takie jak tematy.
 

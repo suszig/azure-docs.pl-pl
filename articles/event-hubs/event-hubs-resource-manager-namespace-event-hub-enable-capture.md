@@ -12,17 +12,17 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 12/20/2017
+ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: cb4df0495420776ba2ff7b471c44c4ca3aa1dcff
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 09345b32e80008d4afe61078bd4d272fafe631d2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Tworzenie przestrzeni nazw w centrum zdarzeń i włączanie przechwytywania przy użyciu szablonu
 
-W tym artykule przedstawiono sposób używania szablonu usługi Azure Resource Manager umożliwiającego utworzenie przestrzeni nazw usługi Event Hubs z jednym wystąpieniem centrum zdarzeń oraz włączenie [funkcji przechwytywania](event-hubs-capture-overview.md) w tym centrum zdarzeń. W tym artykule opisano, jak wskazać wdrażane zasoby oraz jak podać parametry realizacji wdrożenia. Można użyć tego szablonu na potrzeby własnych wdrożeń lub dostosować go do konkretnych potrzeb.
+W tym artykule przedstawiono sposób używania szablonu usługi Azure Resource Manager umożliwiającego utworzenie przestrzeni nazw usługi [Event Hubs](event-hubs-what-is-event-hubs.md) z jednym wystąpieniem centrum zdarzeń oraz włączenie [funkcji przechwytywania](event-hubs-capture-overview.md) w tym centrum zdarzeń. W tym artykule opisano, jak wskazać wdrażane zasoby oraz jak podać parametry realizacji wdrożenia. Można użyć tego szablonu na potrzeby własnych wdrożeń lub dostosować go do konkretnych potrzeb.
 
 W tym artykule pokazano też, jak przechwytywać zdarzenia w obiektach Azure Storage Blob lub w magazynie Azure Data Lake Store zależnie od wybranej lokalizacji docelowej.
 
@@ -42,11 +42,7 @@ Aby uzyskać pełne szablony, kliknij poniższe linki witryny GitHub:
 
 ## <a name="what-will-you-deploy"></a>Co chcesz wdrożyć?
 
-Ten szablon umożliwia wdrożenie przestrzeni nazw usługi Event Hubs z centrum zdarzeń oraz włączenie [funkcji przechwytywania usługi Event Hubs](event-hubs-capture-overview.md).
-
-[Event Hubs](event-hubs-what-is-event-hubs.md) to usługa służąca do przetwarzania zdarzeń, która dostarcza zdarzenia i dane telemetryczne do platformy Azure w bardzo dużej skali, z małymi opóźnieniami i wysoką niezawodnością. Funkcja przechwytywania usługi Event Hubs pozwala automatycznie dostarczać strumień danych usługi Event Hubs do usługi Azure Blob Storage lub Azure Data Lake Store w wyznaczonym okresie lub przy określonym interwale rozmiaru.
-
-Kliknij poniższy przycisk, aby włączyć funkcję przechwytywania usługi Event Hubs w usłudze Azure Storage:
+Ten szablon umożliwia wdrożenie przestrzeni nazw usługi Event Hubs z centrum zdarzeń oraz włączenie [funkcji przechwytywania usługi Event Hubs](event-hubs-capture-overview.md). Funkcja przechwytywania usługi Event Hubs pozwala automatycznie dostarczać strumień danych usługi Event Hubs do usługi Azure Blob Storage lub Azure Data Lake Store w wyznaczonym okresie lub przy określonym interwale rozmiaru. Kliknij poniższy przycisk, aby włączyć funkcję przechwytywania usługi Event Hubs w usłudze Azure Storage:
 
 [![Wdrażanie na platformie Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-eventhubs-create-namespace-and-enable-capture%2Fazuredeploy.json)
 
@@ -62,7 +58,7 @@ Szablon zawiera definicje następujących parametrów.
 
 ### <a name="eventhubnamespacename"></a>eventHubNamespaceName
 
-Nazwa tworzonej [przestrzeni nazw usługi Event Hubs](event-hubs-create.md).
+Nazwa tworzonej przestrzeni nazw usługi Event Hubs.
 
 ```json
 "eventHubNamespaceName":{  
@@ -75,7 +71,7 @@ Nazwa tworzonej [przestrzeni nazw usługi Event Hubs](event-hubs-create.md).
 
 ### <a name="eventhubname"></a>eventHubName
 
-Nazwa centrum zdarzeń utworzonego w [przestrzeni nazw usługi Event Hubs](event-hubs-create.md).
+Nazwa centrum zdarzeń utworzonego w przestrzeni nazw usługi Event Hubs.
 
 ```json
 "eventHubName":{  

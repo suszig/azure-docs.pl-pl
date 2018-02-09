@@ -1,6 +1,6 @@
 ---
-title: "Samouczek usługi kontenera platformy Azure — skalowania aplikacji"
-description: "Samouczek usługi kontenera platformy Azure — skalowania aplikacji"
+title: "Samouczek usługi Azure Container Service — skalowanie aplikacji"
+description: "Samouczek usługi Azure Container Service — skalowanie aplikacji"
 services: container-service
 author: dlepow
 manager: timlt
@@ -9,36 +9,36 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: a748e15abbc01f260349fba2678c03a40c4d7713
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: MT
+ms.openlocfilehash: 36c5586f79cf127ec069fd3c6ef95dd073fdbdb6
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="scale-kubernetes-pods-and-kubernetes-infrastructure"></a>Infrastruktura Kubernetes i stanowiskami Kubernetes skali
+# <a name="scale-kubernetes-pods-and-kubernetes-infrastructure"></a>Skalowanie zasobników i infrastruktury rozwiązania Kubernetes
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-Jeśli została już po samouczków, masz działające Kubernetes klastra usługi kontenera platformy Azure i głosowania Azure aplikacja została wdrożona. 
+Jeśli wykonujesz kolejno zadania z samouczków, masz już działający klaster Kubernetes w usłudze Azure Container Service z wdrożoną aplikacją do głosowania platformy Azure. 
 
-W tym samouczku, część 5, 7 skalowanie w poziomie stanowiskami w aplikacji i spróbuj pod Skalowanie automatyczne. Możesz również sposób skalowania liczby węzłów agenta maszyny Wirtualnej platformy Azure do zmiany wydajności obsługi obciążeń klastra. Zadania ukończone obejmują:
+Ta część samouczka, piąta z siedmiu, obejmuje skalowanie w poziomie zasobników w tej aplikacji oraz skalowanie automatyczne. Dowiesz się również, jak, skalując liczbę węzłów agenta maszyny wirtualnej platformy Azure, zmieniać możliwości hostowania obciążeń w klastrze. Wykonasz następujące zadania:
 
 > [!div class="checklist"]
-> * Ręcznie skalowanie stanowiskami Kubernetes
-> * Konfigurowanie stanowiskami skalowania automatycznego uruchamiania fronton aplikacji
-> * Skalowanie węzłów agenta Kubernetes Azure
+> * Ręczne skalowanie zasobników Kubernetes
+> * Konfigurowanie skalowania automatycznego zasobników obsługujących fronton aplikacji
+> * Skalowanie węzłów agentów platformy Azure dla rozwiązania Kubernetes
 
-W kolejnych samouczkach aplikacji Azure głos jest aktualizowany, a usługi Operations Management Suite jest skonfigurowana do monitorowania Kubernetes klastra.
+W kolejnych samouczkach aplikacja do głosowania platformy Azure zostanie zaktualizowana, a pakiet Operations Management Suite zostanie skonfigurowany do monitorowania klastra Kubernetes.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-W samouczkach poprzedniej aplikacji zostało umieszczone w obraz kontenera, ten obraz przekazany do rejestru kontenera Azure i utworzyć klaster Kubernetes. W klastrze Kubernetes następnie uruchomienia aplikacji. 
+W poprzednich samouczkach aplikacja została spakowana w postaci obrazu kontenera, obraz został przekazany do usługi Azure Container Registry i utworzono klaster Kubernetes. Następnie uruchomiono aplikację w klastrze usługi Kubernetes. 
 
-Jeśli nie zostało wykonane następujące kroki, a następnie zostać z niego skorzystać, wróć do [samouczek 1 — Tworzenie kontenera obrazów](./container-service-tutorial-kubernetes-prepare-app.md). 
+Jeśli te kroki nie zostały wykonane, a chcesz skorzystać z tej części samouczka, wróć do części [Samouczek 1 — tworzenie obrazów kontenera](./container-service-tutorial-kubernetes-prepare-app.md). 
 
-## <a name="manually-scale-pods"></a>Ręcznie skalować stanowiskami
+## <a name="manually-scale-pods"></a>Ręczne skalowanie zasobników
 
-W związku z tym daleko głos Azure frontonu i wystąpienia pamięci podręcznej Redis zostały wdrożone, każda z pojedynczą replikę. Aby sprawdzić, uruchom [kubectl uzyskać](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) polecenia.
+Poprzednio wdrożono fronton aplikacji do głosowania platformy Azure oraz wystąpienie pamięci podręcznej Redis — każdy z tych elementów został wdrożony z jedną repliką. Aby to zweryfikować, uruchom polecenie [kubectl get](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get).
 
 ```azurecli-interactive
 kubectl get pods
@@ -52,13 +52,13 @@ azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
 ```
 
-Ręcznie zmień liczbę stanowiskami w `azure-vote-front` wdrożenia przy użyciu [skali kubectl](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#scale) polecenia. W tym przykładzie zwiększa liczbę do 5.
+Ręcznie zmień liczbę zasobników we wdrożeniu aplikacji `azure-vote-front`, używając polecenia [kubectl scale](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#scale). W tym przykładzie liczba ta zostanie zwiększona do 5.
 
 ```azurecli-interactive
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
-Uruchom [kubectl uzyskać stanowiskami](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) Aby sprawdzić, czy Kubernetes tworzy stanowiskami. Po minucie lub tak system stanowiskami dodatkowe:
+Uruchom polecenie [kubectl get pods](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get), aby zweryfikować utworzenie zasobników przez rozwiązanie Kubernetes. Po upływie około minuty dodatkowe zasobniki zaczną działać:
 
 ```azurecli-interactive
 kubectl get pods
@@ -76,11 +76,11 @@ azure-vote-front-3309479140-hrbf2   1/1       Running   0          15m
 azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
 ```
 
-## <a name="autoscale-pods"></a>Stanowiskami skalowania automatycznego
+## <a name="autoscale-pods"></a>Automatyczne skalowanie zasobników
 
-Obsługuje Kubernetes [Skalowanie automatyczne poziome pod](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) Aby dostosować liczbę stanowiskami we wdrożeniu w zależności od użycia procesora CPU lub innych wybrać metryki. 
+Rozwiązanie Kubernetes obsługuje [automatyczne skalowanie zasobników w poziomie](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/), umożliwiające dostosowywanie liczby zasobników we wdrożeniu do użycia procesora CPU lub innych wybranych metryk. 
 
-Aby użyć autoscaler, Twoje stanowiskami musi mieć żądań procesora CPU i zdefiniowano limitów. W `azure-vote-front` wdrożenia, frontonu kontenera żądań 0,25 procesora CPU, limit 0,5 procesora CPU. Ustawienia następującą postać:
+Aby móc korzystać ze skalowania automatycznego, należy zdefiniować wymagania i limity użycia procesora CPU dla zasobników. We wdrożeniu aplikacji `azure-vote-front` kontener frontonu wymaga 0,25 CPU, a limit wynosi 0,5 CPU. Ustawienia są następujące:
 
 ```YAML
 resources:
@@ -90,14 +90,14 @@ resources:
      cpu: 500m
 ```
 
-W poniższym przykładzie użyto [skalowania automatycznego kubectl](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#autoscale) polecenia automatycznego skalowania liczby stanowiskami w `azure-vote-front` wdrożenia. W tym miejscu Jeśli wykorzystanie procesora CPU przekracza 50%, autoscaler zwiększa stanowiskami maksymalnie 10.
+W poniższym przykładzie użyto polecenia [kubectl autoscale](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#autoscale) w celu automatycznego skalowania liczby zasobników we wdrożeniu aplikacji `azure-vote-front`. Jeśli użycie procesora CPU przekroczy 50%, skalowanie automatyczne spowoduje zwiększenie liczby zasobników, maksymalnie do 10.
 
 
 ```azurecli-interactive
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
 ```
 
-Aby wyświetlić stan autoscaler, uruchom następujące polecenie:
+Aby wyświetlić stan skalowania automatycznego, uruchom następujące polecenie:
 
 ```azurecli-interactive
 kubectl get hpa
@@ -110,19 +110,19 @@ NAME               REFERENCE                     TARGETS    MINPODS   MAXPODS   
 azure-vote-front   Deployment/azure-vote-front   0% / 50%   3         10        3          2m
 ```
 
-Po upływie kilku minut przy minimalnym obciążeniu aplikacji Azure głos liczba replik pod zmniejsza się automatycznie do 3.
+Po upływie kilku minut, przy minimalnym obciążeniu aplikacji do głosowania platformy Azure, liczba replik zasobników zostanie automatycznie zmniejszona do 3.
 
 ## <a name="scale-the-agents"></a>Skalowanie agentów
 
-Jeśli utworzony klaster Kubernetes przy użyciu polecenia domyślne w poprzednich instrukcji ma trzy węzły agenta. Liczba agentów można dostosować ręcznie, jeśli planujesz więcej lub mniej obciążeń kontenera w klastrze. Użyj [skalować acs az](/cli/azure/acs#scale) polecenia, a następnie określ liczbę agentów z `--new-agent-count` parametru.
+Jeśli utworzono klaster Kubernetes przy użyciu domyślnych poleceń z poprzedniego samouczka, zawiera on trzy węzły agentów. Jeśli planujesz zwiększenie lub zmniejszenie liczby obciążeń kontenerów w klastrze, możesz ręcznie dostosować liczbę agentów. Użyj polecenia [az acs scale](/cli/azure/acs#az_acs_scale), określając liczbę agentów za pomocą parametru `--new-agent-count`.
 
-Poniższy przykład zwiększa liczbę węzłów agenta do 4 w klastrze Kubernetes o nazwie *myK8sCluster*. Polecenie zajmuje kilka minut.
+W poniższym przykładzie liczba węzłów agentów w klastrze Kubernetes o nazwie *myK8scluster* zostanie zwiększona do 4. Wykonanie tego polecenia może zająć kilka minut.
 
 ```azurecli-interactive
 az acs scale --resource-group=myResourceGroup --name=myK8SCluster --new-agent-count 4
 ```
 
-Dane wyjściowe polecenia pokazuje liczbę agenta węzłów w wartości `agentPoolProfiles:count`:
+Wartość parametru `agentPoolProfiles:count` w danych wyjściowych polecenia wskazuje liczbę węzłów agentów:
 
 ```azurecli
 {
@@ -141,15 +141,15 @@ Dane wyjściowe polecenia pokazuje liczbę agenta węzłów w wartości `agentPo
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku użyto różnych funkcji skalowania w klastrze Kubernetes. Uwzględnione objętych zadań:
+W tym samouczku użyto różnych funkcji skalowania w klastrze Kubernetes. Wykonano następujące zadania:
 
 > [!div class="checklist"]
-> * Ręcznie skalowanie stanowiskami Kubernetes
-> * Konfigurowanie stanowiskami skalowania automatycznego uruchamiania fronton aplikacji
-> * Skalowanie węzłów agenta Kubernetes Azure
+> * Ręczne skalowanie zasobników Kubernetes
+> * Konfigurowanie skalowania automatycznego zasobników obsługujących fronton aplikacji
+> * Skalowanie węzłów agentów platformy Azure dla rozwiązania Kubernetes
 
-Przejdź do następnego samouczka, aby dowiedzieć się więcej na temat aktualizowania aplikacji w Kubernetes.
+Przejdź do następnego samouczka, aby dowiedzieć się, jak zaktualizować aplikację w usłudze Kubernetes.
 
 > [!div class="nextstepaction"]
-> [Aktualizuj aplikację w Kubernetes](./container-service-tutorial-kubernetes-app-update.md)
+> [Aktualizowanie aplikacji w usłudze Kubernetes](./container-service-tutorial-kubernetes-app-update.md)
 
