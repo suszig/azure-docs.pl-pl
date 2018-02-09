@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
-ms.openlocfilehash: 498d0cdc3eac25b8efc7339e48381a4d167c0c7b
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 13155349775e71e777e868b6cd311d2e8683706d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure stos obsługi zasad
 
@@ -53,17 +53,16 @@ W poniższej tabeli przedstawiono przykład aktualizacji pakietu wersji, ich wym
 
 | Najnowszy pakiet aktualizacji (*przykład*) | Wymagania wstępne | Minimalna obsługiwana wersja |
 | -- | -- | -- |
-| 1709 | Kompilacja 1708 | Nie dotyczy |
-| 1710 | 1709 | Nie dotyczy |
-| 1711 | 1710 | Nie dotyczy |
-| 1712 | 1711 | 1709 |
-| 1801 | 1712 | 1710 |
-| 1802 | 1801 | 1711 |
-| 1803 | 1802 | 1712 |
-| 1804 | 1803 | 1801 |
+| 1710 | 1709 | ND |
+| 1711 | 1710 | 1709 |
+| 1712 | 1711 | 1710 |
+| 1802 | 1801 | 1712 |
+| 1803 | 1802 | 1801 |
+| 1804 | 1803 | 1802 |
+| 1805 | 1804 | 1803 |
 | | | 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Zarządzanie aktualizacjami w stosie Azure](azure-stack-updates.md)
 

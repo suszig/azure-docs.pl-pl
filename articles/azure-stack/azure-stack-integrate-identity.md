@@ -5,22 +5,22 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: 
-ms.openlocfilehash: 2f15e130859272a729fb0ad6e0b718d4724f2103
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 03dc26ba3fcf10b52f6d6b77445de3f6770c4162
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integracja Azure datacenter stosu - tożsamości
 Stos Azure za pomocą usługi Azure Active Directory (Azure AD) lub usługi Active Directory Federation Services (AD FS) można wdrożyć jako dostawcy tożsamości. Wybór należy przed wdrożeniem stosu Azure. Wdrożenia przy użyciu usług AD FS jest również nazywany wdrażanie stosu Azure w trybie rozłączonym.
 
 W poniższej tabeli przedstawiono różnice między tożsamości dwóch opcji:
 
-||Fizycznie rozłączone|Fizycznie połączone|
+||Połączenia z Internetem|Połączenie z Internetem|
 |---------|---------|---------|
 |Rozliczenia|Musi być pojemności<br> Tylko Enterprise Agreement (EA)|Pojemności lub płatności jako — użytkownik użycia<br>Umowa EA lub dostawca rozwiązań w chmurze (CSP)|
 |Tożsamość|Musi być usług AD FS|Azure AD lub AD FS|
@@ -55,7 +55,7 @@ Wymagania:
 |Składnik|Wymaganie|
 |---------|---------|
 |Graph|Microsoft Active Directory 2012/2012 R2/2016|
-|ADFS|Windows Server 2012/2012 R2/2016|
+|AD FS|Windows Server 2012/2012 R2/2016|
 
 ## <a name="setting-up-graph-integration"></a>Konfigurowanie integracji wykresu
 

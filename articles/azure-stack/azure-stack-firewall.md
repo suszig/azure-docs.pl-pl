@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: f7b621312677c0b250e267770ae0c445ee9f083f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 919618c0779d47f0add02d5e7d3ab9ab4b5bdd10
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-stack-firewall-integration"></a>Integracja z zaporą Azure stosu
 Używanie urządzenia zapory ułatwiające bezpieczne stosu Azure jest zalecane. Mimo że zapory można ułatwić rozproszonej typu "odmowa usługi" (DDOS) ataków, wykrywania nieautoryzowanego dostępu i inspekcji zawartości, może również zostać wąskie gardło przepływności dla usług magazynu Azure, takich jak obiekty BLOB, tabel i kolejek.
@@ -41,7 +41,7 @@ Downsides użycia translatora adresów Sieciowych dla publicznych adresów VIP, 
 - W scenariuszach chmur hybrydowych przy użyciu platformy Azure należy wziąć pod uwagę Azure nie obsługuje konfigurowania tunel sieci VPN do punktu końcowego przy użyciu translatora adresów sieciowych.
 
 ### <a name="ssl-decryption"></a>Odszyfrowywania SSL
-Obecnie zalecamy podczas odszyfrowywania SSL ma go wyłączyć dla całego ruchu Azure stosu, w przyszłości możemy zawierają wskazówki dotyczące włączania odszyfrowywania SSL stosu Azure.
+Zalecane jest obecnie wyłączone odszyfrowywania SSL na cały ruch stosu Azure. Jeśli jest obsługiwany w przyszłej aktualizacji, będzie można wskazówki o sposobie włączania odszyfrowywania SSL stosu Azure.
 
 ## <a name="edge-firewall-scenario"></a>Scenariusz zapory krawędzi
 We wdrożeniu krawędzi stosu Azure jest wdrażany bezpośrednio za router brzegowy lub zaporą. W tych scenariuszach jest obsługiwane dla zapory, znajdować się nad obramowania lub działający jako urządzenie obramowania, jeśli obsługuje ona równa koszt Multi ścieżki ECMP () przy użyciu protokołu BGP lub routing statyczny.

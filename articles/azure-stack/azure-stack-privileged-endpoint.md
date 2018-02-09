@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: mabrigg
-ms.openlocfilehash: 7f95014ac9186815d8ea0c7d271e5c6e19252d73
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 34ad4d7038202bd5efa2b3c210571268a39bf278
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Przy użyciu punktu końcowego uprzywilejowanych w stosie Azure
 
@@ -78,8 +78,6 @@ Zaleca się, że należy połączyć program ten tylko od sprzętu hosta cyklu �
       - **Hasło**: wprowadź to samo hasło, które zostało podane podczas instalacji dla konta administratora domeny AzureStackAdmin.
     
 3.  Po nawiązaniu połączenia wiersza zmieni się na **[*nazwa adresu IP lub wirtualna ERCS*]: PS >** lub **[azs ercs01]: PS >**, w zależności od środowiska. W tym miejscu, należy uruchomić `Get-Command` Aby wyświetlić listę dostępnych poleceń cmdlet.
-
-    ![Dane wyjściowe polecenia cmdlet Get-Command przedstawiający listę dostępnych poleceń](media/azure-stack-privileged-endpoint/getcommandoutput.png)
 
     Wiele z tych poleceń cmdlet są przeznaczone tylko dla środowisk zintegrowany system (takich jak polecenia cmdlet związane z integracji centrum danych). W ASDK zostały zatwierdzone następujące polecenia cmdlet:
 

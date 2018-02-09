@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/06/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 2c013c11dea5217d564ac15a13a8d11614989057
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f93fc95d6bed517cae3adb706f690941f97c366e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Zagadnienia dotyczące integracji centrum danych Azure stosu zintegrowane systemy
 Jeśli interesuje Cię systemu Azure stosu zintegrowane, należy poznać niektóre z najważniejszych kwestii dotyczących planowania wdrożenia i jak system dopasowuje się do centrum danych. Ten artykuł zawiera omówienie te zagadnienia dotyczące ułatwiającym podejmowanie decyzji ważne infrastruktury systemu Azure stosu wieloma węzłami. Opis tych zagadnień pomaga podczas pracy z dostawcą sprzętu OEM zgodnie z wdrożeniem Azure stosu w centrum danych.  
@@ -45,7 +45,7 @@ Należy wziąć pod uwagę dostawcy tożsamości, którego chcesz użyć dla wdr
 
 Wybór dostawcy tożsamości nie ma wpływu na maszyny wirtualne dzierżawców, system obsługi tożsamości i kont, których używają, czy ich może dołączyć do domeny usługi Active Directory itp. To jest oddzielony.
 
-Dowiedz się więcej na temat wybierania dostawcy tożsamości w [decyzji dotyczących wdrożenia stosu Azure zintegrowanych systemów artykułu](.\azure-stack-deployment-decisions.md).
+Dowiedz się więcej na temat wybierania dostawcy tożsamości w [stosu Azure zintegrowanych systemów połączenia modeli artykułu](.\azure-stack-connection-models.md).
 
 ### <a name="ad-fs-and-graph-integration"></a>Integracja usług AD FS i wykres
 Jeśli wybierzesz do wdrożenia stosu Azure za pomocą usług AD FS jako dostawca tożsamości, można zintegrować wystąpienia usług AD FS na stosie Azure z istniejącym wystąpieniem usług AD FS za pomocą zaufania federacyjnego. Dzięki temu tożsamości w istniejącym lesie usługi Active Directory do uwierzytelniania z zasobami w stosie Azure.
@@ -53,18 +53,25 @@ Jeśli wybierzesz do wdrożenia stosu Azure za pomocą usług AD FS jako dostawc
 Można również zintegrować usługę wykresu w stosie Azure z istniejącej usługi Active Directory. Pozwala na zarządzanie oparte na rolach kontroli dostępu (RBAC) w stosie Azure. Po oddelegowaniu dostęp do zasobu składnika Wykres wyszukuje konta użytkownika w istniejącym lesie usługi Active Directory przy użyciu protokołu LDAP.
 
 Na poniższym diagramie przedstawiono zintegrowane przepływu ruchu usługi AD FS i Graph.
-![Diagram przedstawiający przepływ ruchu wykres i usług AD FS](media/azure-stack-deployment-planning/ADFSIntegration.PNG)
+![Diagram przedstawiający przepływ ruchu wykres i usług AD FS](media/azure-stack-datacenter-integration/ADFSIntegration.PNG)
 
 ## <a name="licensing-model"></a>Model licencjonowania
+Należy określić model licencjonowania, który ma być używany. Dostępne opcje zależą od tego, czy wdrożyć stosu Azure połączony z Internetem:
+- Dla [połączone wdrożenia](azure-stack-connected-deployment.md), możesz wybrać płatności jako — użytkownik użycia lub na podstawie zdolności licencjonowania. Płatności — jako — możesz — użycie wymaga połączenia z platformą Azure raportowania użycia, następnie jest on rozliczany za pośrednictwem commerce platformy Azure. 
+- Licencjonowanie tylko na podstawie zdolności produkcyjnych jest obsługiwane, jeśli można [wdrażanie odłączony](azure-stack-disconnected-deployment.md) z Internetu. 
 
-Należy określić model licencjonowania, który ma być używany. W przypadku połączonych wdrożenia można płatności jako — użytkownik użycia lub na podstawie zdolności licencjonowania. Płatności — jako — możesz — użycie wymaga połączenia z platformą Azure raportowania użycia, następnie jest on rozliczany za pośrednictwem commerce platformy Azure. Tylko pojemności na podstawie licencji jest obsługiwana w przypadku wdrożenia odłączony od Internetu. Aby uzyskać więcej informacji na temat modeli licencjonowania, zobacz [Microsoft Azure stosu pakowania i cenach](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf).
+Aby uzyskać więcej informacji na temat modeli licencjonowania, zobacz [Microsoft Azure stosu pakowania i cenach](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf).
+
 
 ## <a name="naming-decisions"></a>Decyzje dotyczące nazewnictwa
 
-Należy się zastanowić, jak chcesz zaplanować nazw Azure stosu, szczególnie nazwa regionu i nazwy domeny zewnętrznej. Kombinacja tych dwóch nazw jest w pełni kwalifikowaną nazwę (FQDN) wdrożenia stosu Azure dla publicznych punktów końcowych &lt; *region*&gt;&lt;*external_FQDN*  &gt;, na przykład *east.cloud.fabrikam.com*. W tym przykładzie portali stosu Azure będzie dostępna w następujących adresów URL:
+Należy się zastanowić, jak chcesz zaplanować nazw Azure stosu, szczególnie nazwa regionu i nazwy domeny zewnętrznej. Zewnętrzne pełną nazwę domeny (FQDN) dla publicznych punktów końcowych wdrożenia stosu Azure jest kombinacją te dwie nazwy: &lt; *region*&gt;.&lt; *fqdn*&gt;. For example, *east.cloud.fabrikam.com*. W tym przykładzie portali stosu Azure będzie dostępna w następujących adresów URL:
 
 - https://portal.east.cloud.fabrikam.com
 - https://adminportal.east.cloud.fabrikam.com
+
+> [!IMPORTANT]
+> Nazwa regionu wybrane do wdrożenia usługi Azure stos musi być unikatowa i będą wyświetlane w portalu adresów. 
 
 W poniższej tabeli przedstawiono te decyzje nazewnictwa domeny.
 
@@ -128,14 +135,14 @@ Możesz połączyć stosu Azure na platformie Azure za pośrednictwem [ExpressRo
 
 Na poniższym diagramie przedstawiono ExpressRoute dla scenariusza pojedynczej dzierżawy (gdzie "Połączenie klienta" jest obwodu ExpressRoute).
 
-![Diagram przedstawiający pojedynczej dzierżawy usługi ExpressRoute scenariusza](media/azure-stack-deployment-planning/ExpressRouteSingleTenant.PNG)
+![Diagram przedstawiający pojedynczej dzierżawy usługi ExpressRoute scenariusza](media/azure-stack-datacenter-integration/ExpressRouteSingleTenant.PNG)
 
 Na poniższym diagramie przedstawiono ExpressRoute dla scenariusza wielodostępnej.
 
-![Diagram przedstawiający wielodostępne ExpressRoute scenariusza](media/azure-stack-deployment-planning/ExpressRouteMultiTenant.PNG)
+![Diagram przedstawiający wielodostępne ExpressRoute scenariusza](media/azure-stack-datacenter-integration/ExpressRouteMultiTenant.PNG)
 
 ## <a name="external-monitoring"></a>Monitorowania zewnętrznych
-Uzyskanie pojedynczego widoku wszystkie alerty z urządzeń i wdrożenia stosu Azure i integrowania alerty istniejących IT usługi przepływu pracy zarządzania dla biletów stosu Azure można zintegrować z zewnętrznego datacenter monitorowanie rozwiązań.
+Aby uzyskać pojedynczego widoku wszystkie alerty z urządzeń i wdrożenia stosu Azure i integrowania alerty istniejących IT usługi przepływu pracy zarządzania dla biletów, można [integracji stosu Azure z zewnętrznego datacenter monitorowanie rozwiązań](azure-stack-integrate-monitor.md).
 
 Dołączone do rozwiązania Azure stosu, host cyklu życia sprzętu jest komputera znajdującego się poza stosu Azure, który uruchamia narzędzia do zarządzania dostarczonym przez producenta OEM dla sprzętu. Można użyć tych narzędzi lub innych rozwiązań, które bezpośrednio zintegrować z istniejącymi rozwiązaniami monitorowania w centrum danych.
 
@@ -143,15 +150,15 @@ W poniższej tabeli przedstawiono listę dostępnych opcji.
 
 | Obszar | Rozwiązanie monitorowania zewnętrznych |
 | -- | -- |
-| Azure stos oprogramowania | - [Pakiet administracyjny stosu Azure dla programu Operations Manager](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>- [Wtyczka Nagios](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>-Opartego na interfejsie REST wywołań interfejsu API | 
-| Serwery fizyczne (bmc za pomocą interfejsu IPMI) | -Pakiet administracyjny programu operations Manager dostawcy<br>-Rozwiązanie dostarczonym sprzętowe przez producenta OEM<br>-Dostawca sprzętu wtyczek Nagios | Obsługiwany przez producentów OEM partnera — monitorowanie rozwiązania (włączone) | 
-| Urządzenia sieciowe (SNMP) | -Odnajdywania urządzeń sieciowych programu operations Manager<br>-Rozwiązanie dostarczonym sprzętowe przez producenta OEM<br>-Przełącznika Nagios wtyczki |
-| Monitorowanie kondycji subskrypcji dzierżawcy | - [Pakiet administracyjny programu System Center dla systemu Windows Azure](https://www.microsoft.com/download/details.aspx?id=50013) | 
+| Azure stos oprogramowania | [Pakiet administracyjny stosu Azure dla programu Operations Manager](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>[Wtyczka Nagios](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>Wywołania API opartego na interfejsie REST | 
+| Serwery fizyczne (bmc za pomocą interfejsu IPMI) | Sprzęt OEM — pakiet administracyjny programu Operations Manager dostawcy<br>Rozwiązanie dostarczonym sprzętowe przez producenta OEM<br>Dostawca sprzętu wtyczek Nagios | Obsługiwany przez producentów OEM partnera — monitorowanie rozwiązania (włączone) | 
+| Urządzenia sieciowe (SNMP) | Odnajdywanie urządzeń sieciowych programu Operations Manager<br>Rozwiązanie dostarczonym sprzętowe przez producenta OEM<br>Wtyczka przełącznika Nagios |
+| Monitorowanie kondycji subskrypcji dzierżawcy | [Pakiet administracyjny programu System Center dla systemu Windows Azure](https://www.microsoft.com/download/details.aspx?id=50013) | 
 |  |  | 
 
 Należy uwzględnić następujące wymagania:
 - Rozwiązanie, którego używasz, musi być bez wykorzystania agentów. Nie można zainstalować agentów innych firm wewnątrz składniki stosu Azure. 
-- Jeśli chcesz użyć programu System Center Operations Manager wymaga programu Operations Manager 2012 R2 lub Operations Manager 2016.
+- Jeśli chcesz użyć programu System Center Operations Manager, Operations Manager 2012 R2 lub Operations Manager 2016 jest wymagany.
 
 ## <a name="backup-and-disaster-recovery"></a>Kopia zapasowa i odzyskiwanie po awarii
 
@@ -159,7 +166,7 @@ Planowanie tworzenia kopii zapasowej i odzyskiwanie po awarii obejmuje planowani
 
 ### <a name="protect-infrastructure-components"></a>Ochrona składników infrastruktury
 
-Stos Azure wykonuje kopię zapasową składników infrastruktury do udziału, który określisz.
+Możesz [kopia zapasowa Azure stosu](azure-stack-backup-back-up-azure-stack.md) składników infrastruktury dla protokołu SMB udziału można określić:
 
 - Będziesz potrzebować zewnętrznych udziału plików SMB na istniejącym serwerze plików z systemem Windows lub urządzenia innych firm.
 - Należy używać tego samego udziału kopii zapasowych przełączników sieciowych i sprzętowych host cyklu życia. Dostawca sprzętu OEM pomoże zawierają wskazówki dotyczące tworzenia kopii zapasowej i przywracania tych składników, są one zewnętrznego stosu Azure. Możesz teraz odpowiada za uruchamianie tworzenia kopii zapasowej przepływy pracy na podstawie zalecenia producenta OEM.

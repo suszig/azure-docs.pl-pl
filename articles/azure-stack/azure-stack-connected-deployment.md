@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/06/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: a2d4efc3a3e1480de71528144ae3f025f4879f07
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: def9d5381144026b5ad0e8a076edd3c0692a08f4
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Połączone wdrożenia usługi Azure planowania decyzje dotyczące stosu Azure zintegrowanych systemów
-Po ustaleniu [jak zintegruje stosu Azure do środowiska chmury hybrydowej](azure-stack-deployment-decisions.md), można następnie zakończyć swoje decyzje dotyczące wdrażania usługi Azure stosu.
+Po ustaleniu [jak zintegruje stosu Azure do środowiska chmury hybrydowej](azure-stack-connection-models.md), można następnie zakończyć swoje decyzje dotyczące wdrażania usługi Azure stosu.
 
 Wdrażanie stosu Azure połączony Azure oznacza, że dla magazynu tożsamości może mieć usługi Azure Active Directory (Azure AD) lub usługi Active Directory Federation Services (AD FS). Możesz również z obu modelu rozliczeń: płatności jako — użytkownik użytku lub na podstawie pojemności. Połączone wdrożenia jest domyślną opcją, ponieważ pozwala uzyskać największą wartość spoza stosu Azure, szczególnie w scenariuszach chmur hybrydowych, obejmujących zarówno Azure i stosu Azure. 
 
@@ -45,7 +45,7 @@ Jeśli używasz usługi Azure AD Twojego magazynu tożsamości wymaga dwóch kon
 Wybierz tę opcję, jeśli chcesz użyć własnych magazynu tożsamości, takie jak sieci firmowej usługi Active Directory, dla kont administratora usługi.  
 
 ## <a name="choose-a-billing-model"></a>Wybierz modelu rozliczeń
-Można wybrać **płatności jako — użytkownik użycia** lub **pojemności** modelu rozliczeń. Płatności jako — użytkownik użycia rozliczeń modelu wdrożenia musi mieć możliwość użycia raportów za pośrednictwem połączenia z platformą Azure co najmniej raz na 30 dni, w związku z tym, jeśli połączenie zostanie nie jest dostępna, modelu rozliczeń pojemności jest jedyną opcją. 
+Można wybrać **płatności jako — użytkownik użycia** lub **pojemności** modelu rozliczeń. Płatności jako — użytkownik użycia rozliczeń modelu wdrożenia musi mieć możliwość użycia raportów za pośrednictwem połączenia z platformą Azure co najmniej raz na 30 dni. W związku z tym modelu rozliczeń płatności jako — użytkownik użycia jest dostępna tylko dla podłączonego wdrożeń.  
 
 ### <a name="pay-as-you-use"></a>Płatności jako — użytkownik użycia
 Z modelu rozliczeń płatności jako — użytkownik użycia użycia jest pobierana z subskrypcją platformy Azure. Płacisz tylko podczas korzystania z usług Azure stosu. Jeśli zdecydujesz się na modelu, będziesz potrzebować subskrypcji platformy Azure i Identyfikatora konta skojarzone z danej subskrypcji (na przykład serviceadmin@contoso.onmicrosoft.com). Umowa EA, dostawca usług Kryptograficznych i CSL subskrypcje są obsługiwane. Raportowanie użycia jest ustawiany podczas [rejestracji stosu Azure](azure-stack-registration.md).

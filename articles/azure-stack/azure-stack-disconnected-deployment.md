@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/06/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: afea4b23aca322321b4096cdfdc9d30b087a2f30
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e697dec0f3d104af073fd61bac81a00e182524e1
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Rozłączona wdrożenia usługi Azure planowania decyzje dotyczące stosu Azure zintegrowanych systemów
-Po ustaleniu [jak zintegruje stosu Azure do środowiska chmury hybrydowej](azure-stack-deployment-decisions.md), można następnie zakończyć swoje decyzje dotyczące wdrażania usługi Azure stosu.
+Po ustaleniu [jak zintegruje stosu Azure do środowiska chmury hybrydowej](azure-stack-connection-models.md), można następnie zakończyć swoje decyzje dotyczące wdrażania usługi Azure stosu.
 
 Z odłączone od opcji wdrożenia usługi Azure może wdrażanie i użytkowanie stosu Azure bez połączenia z Internetem. Jednak odłączonego wdrożenia jest ograniczona do magazynu tożsamości usługi AD FS i wydajności na podstawie modelu rozliczeń. 
 
@@ -34,7 +34,7 @@ Wybierz tę opcję, jeśli użytkownik:
 > [!TIP]
 > Czasami środowisku tego typu jest również nazywany "podmorski scenariusza".
 
-Odłączonego wdrożenia nie ściśle oznacza, że w scenariuszach maszyny Wirtualnej dzierżawcy hybrydowych nie może połączyć później wystąpienia stosu Azure na platformie Azure. Oznacza to, że masz łączność z Azure podczas wdrażania lub nie chcesz używać usługi Azure Active Directory jako magazyn tożsamości. Jednak jeśli chcesz mieć łączność z platformy Azure po wdrożeniu, niezależnie od tego, co ma być używany jako magazyn tożsamości, należy wybrać Połącz z opcji wdrożenia usługi Azure. 
+Odłączonego wdrożenia nie ściśle oznacza, że w scenariuszach maszyny Wirtualnej dzierżawcy hybrydowych nie może połączyć później wystąpienia stosu Azure na platformie Azure. Oznacza to, że masz łączność z Azure podczas wdrażania lub nie chcesz używać usługi Azure Active Directory jako magazyn tożsamości.
 
 ## <a name="features-that-are-impaired-or-unavailable-in-disconnected-deployments"></a>Funkcje, które są ograniczony lub jest niedostępna w odłączonych wdrożenia 
 Stos Azure została zaprojektowana by najlepiej pracować po podłączeniu do platformy Azure, dlatego należy pamiętać, że istnieją pewne funkcje i możliwości, utrata lub całkowicie niedostępne w trybie rozłączonym. 
