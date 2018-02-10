@@ -3,7 +3,7 @@
 ## [Funkcje usługi Event Hubs](event-hubs-features.md)
 ## [Często zadawane pytania](event-hubs-faq.md)
 
-# Rozpoczęcie pracy
+# Przewodniki Szybki start
 ## [Tworzenie centrum zdarzeń](event-hubs-create.md)
 ## Wysyłanie zdarzeń
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)

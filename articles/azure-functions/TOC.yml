@@ -133,6 +133,8 @@
           href: functions-run-local.md
         - name: Opracowywanie zawartości w programie Visual Studio
           href: functions-develop-vs.md
+        - name: Obsługa błędów
+          href: functions-bindings-error-pages.md
     - name: Wdrażanie
       items:
         - name: Ciągłe wdrażanie

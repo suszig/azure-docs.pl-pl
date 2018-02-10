@@ -4,7 +4,7 @@
 ## [Architektura usługi Service Bus](service-bus-architecture.md)
 ## [Często zadawane pytania](service-bus-faq.md)
 
-# Rozpoczęcie pracy
+# Przewodniki Szybki start
 ## [Tworzenie przestrzeni nazw](service-bus-create-namespace-portal.md)
 ## Korzystanie z kolejek
 ### [.NET](service-bus-dotnet-get-started-with-queues.md)

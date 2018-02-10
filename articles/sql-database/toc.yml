@@ -359,6 +359,8 @@
           items:
             - name: Wdrażanie aplikacji przykładowej
               href: saas-standaloneapp-get-started-deploy.md
+            - name: Aprowizowanie dzierżaw
+              href: saas-standaloneapp-provision-and-catalog.md
         - name: Baza danych dla każdego dzierżawcy
           href: saas-dbpertenant-wingtip-app-overview.md
           items:
