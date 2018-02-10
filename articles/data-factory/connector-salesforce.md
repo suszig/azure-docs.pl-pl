@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 4a6138f0927f9761677d6da1ae05546286ad3898
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4b2561aa338707567b44237e668e9d6d1a01bfea
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Kopiowanie danych z i do usług Salesforce przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,8 +66,8 @@ Następujące właściwości są obsługiwane dla usługi Salesforce połączone
 | type |Właściwość type musi mieć ustawioną **Salesforce**. |Yes |
 | environmentUrl | Określ adres URL wystąpienia usług Salesforce. <br> -Domyślna to `"https://login.salesforce.com"`. <br> -Aby skopiować dane z piaskownicy, określ `"https://test.salesforce.com"`. <br> -Aby skopiować dane z domeny niestandardowej, na przykład określić, `"https://[domain].my.salesforce.com"`. |Nie |
 | nazwa użytkownika |Określ nazwę użytkownika dla konta użytkownika. |Yes |
-| hasło |Określ hasło dla konta użytkownika.<br/><br/>W tym polu można oznaczyć jako SecureString Zapisz w bezpiecznej lokalizacji w fabryce danych. Możesz również przechowywania hasła w usłudze Azure Key Vault i umożliwić ściągania działania kopiowania stamtąd podczas wykonywania kopii danych. Aby dowiedzieć się więcej, zobacz [przechowywania poświadczeń w magazynie kluczy](store-credentials-in-key-vault.md). |Yes |
-| securityToken |Określ tokenu zabezpieczającego dla konta użytkownika. Aby uzyskać instrukcje na temat resetowania i pobrać tokenu zabezpieczeń, zobacz [uzyskać token zabezpieczeń](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Aby dowiedzieć się więcej o tokeny zabezpieczające ogólnie rzecz biorąc, zobacz [zabezpieczeń i interfejsu API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/><br/>W tym polu można oznaczyć jako SecureString Zapisz w bezpiecznej lokalizacji w fabryce danych. Również można przechowywać tokenu zabezpieczającego w magazynie kluczy i umożliwić ściągania działania kopiowania stamtąd podczas wykonywania kopii danych. Aby dowiedzieć się więcej, zobacz [przechowywania poświadczeń w magazynie kluczy](store-credentials-in-key-vault.md). |Yes |
+| hasło |Określ hasło dla konta użytkownika.<br/><br/>Zaznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w fabryce danych lub [odwołania klucz tajny przechowywane w usłudze Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
+| securityToken |Określ tokenu zabezpieczającego dla konta użytkownika. Aby uzyskać instrukcje na temat resetowania i pobrać tokenu zabezpieczeń, zobacz [uzyskać token zabezpieczeń](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Aby dowiedzieć się więcej o tokeny zabezpieczające ogólnie rzecz biorąc, zobacz [zabezpieczeń i interfejsu API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/><br/>Zaznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w fabryce danych lub [odwołania klucz tajny przechowywane w usłudze Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. | Nie źródła, tak dla obiekt sink Jeśli źródło połączona usługa nie ma środowiska uruchomieniowego integracji |
 
 >[!IMPORTANT]

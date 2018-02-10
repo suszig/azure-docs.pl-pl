@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: ca828dab7bdb47e41596be2717598cfe828953ca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f13ca506197ff8b9b86cf1f69300fd974b9ddd5a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="kubernetes-dashboard-with-azure-container-service-aks"></a>Pulpit nawigacyjny Kubernetes z usługi kontenera platformy Azure (AKS)
 
@@ -23,14 +23,14 @@ Wiersza polecenia platformy Azure mogą być używane do uruchamiania Kubernetes
 
 W krokach szczegółowo opisanych w tym dokumencie założono, że klaster usługi AKS został utworzony i że zostało nawiązane połączenie kubectl z klastrem. Jeśli potrzebujesz tych elementów Zobacz, [szybkiego startu AKS][aks-quickstart].
 
-Musisz również mieć zainstalowany i skonfigurowany interfejs wiersza polecenia platformy Azure w wersji 2.0.21 lub nowszej. Aby odnaleźć wersję, uruchom polecenie az --version. Jeśli musisz zainstalować lub uaktualnić, zobacz [instalowanie interfejsu wiersza polecenia Azure][install-azure-cli].
+Musisz również mieć zainstalowany i skonfigurowany interfejs wiersza polecenia platformy Azure w wersji 2.0.21 lub nowszej. Aby odnaleźć wersję, uruchom polecenie az --version. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][install-azure-cli].
 
 ## <a name="start-kubernetes-dashboard"></a>Pulpit nawigacyjny Kubernetes Start
 
 Użyj `az aks browse` polecenie, aby uruchomić Kubernetes pulpitu nawigacyjnego. Po uruchomieniu tego polecenia Zastąp nazwę grupy i klaster zasobów.
 
 ```azurecli
-az aks browse --resource-group myResourceGroup --name myK8SCluster
+az aks browse --resource-group myResourceGroup --name myAKSCluster
 ```
 
 To polecenie tworzy serwer proxy między systemu dla deweloperów i Kubernetes interfejsu API i otworzy w przeglądarce sieci web do pulpitu nawigacyjnego Kubernetes.
@@ -71,7 +71,7 @@ Wybierz **aktualizacji** gdy będzie gotowe.
 
 ![Edytuj Kubernetes](./media/container-service-kubernetes-ui/edit-deployment.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby uzyskać więcej informacji o pulpicie nawigacyjnym Kubernetes zobacz dokumentację Kubernetes.
 

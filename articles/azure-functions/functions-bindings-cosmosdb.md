@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: ab55281b6adcc8867f207e6887c88a26c1a8616b
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: e1cf4da324d082e0ee09feb3344cd2340ab59af7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>Azure DB rozwiązania Cosmos powiązania dla usługi Azure Functions
 
@@ -745,6 +745,12 @@ Domyślnie podczas zapisywania do parametru wyjściowego w funkcji, dokument jes
 
 > [!Note]  
 > Po określeniu Identyfikatora istniejącego dokumentu pobiera zastąpione przez nowy dokument danych wyjściowych. 
+
+## <a name="exceptions-and-return-codes"></a>Wyjątki i kody powrotne
+
+| Powiązanie | Informacje ogólne |
+|---|---|
+| DocumentDB | [Kody błędów usługi DocumentDB](https://docs.microsoft.com/en-us/rest/api/documentdb/http-status-codes-for-documentdb) |
 
 ## <a name="next-steps"></a>Kolejne kroki
 

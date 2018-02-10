@@ -3,7 +3,7 @@ title: "Wstępne ładowanie zasobów dla punktu końcowego usługi Azure CDN | D
 description: "Dowiedz się, jak wstępne ładowanie pamięci podręcznej zawartości dla punktu końcowego usługi Azure CDN."
 services: cdn
 documentationcenter: 
-author: smcevoy
+author: dksimpson
 manager: erikre
 editor: 
 ms.assetid: 5ea3eba5-1335-413e-9af3-3918ce608a83
@@ -12,18 +12,18 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/02/2018
 ms.author: mazha
-ms.openlocfilehash: 1f2dcd9a91bb6e883cbef06373c1acd98bf8d45f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: acd6eae12ff338c64cc8879aa8c27b226e3d2f84
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Wstępne ładowanie zasobów w punkcie końcowym usługi Azure CDN
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
-Domyślnie zasoby najpierw są buforowane, ponieważ są one wymagane. Oznacza to, że pierwsze żądanie z każdego regionu może trwać dłużej, ponieważ serwery krawędzi nie będą mieć zawartość w pamięci podręcznej i będzie musiał przesyła żądanie do serwera pochodzenia. Wstępnego ładowania zawartości pozwala uniknąć ten pierwszy opóźnienia trafień.
+Domyślnie zasoby są buforowane tylko wtedy, gdy są one wymagane. W związku z tym pierwsze żądanie z każdego regionu może trwać dłużej niż kolejnych żądań. Dzieje się tak, ponieważ serwery krawędzi zawartość nie jest jeszcze buforowane i trzeba przesyła żądanie do serwera pochodzenia. Wstępnego ładowania zawartości, można uniknąć tego opóźnienia pierwszy trafień.
 
 Oprócz zapewnienia lepszej obsługi klienta, wstępne ładowanie pamięci podręcznej zasobów można również zmniejszenie ruchu w sieci na serwerze źródłowym.
 
@@ -34,40 +34,41 @@ Oprócz zapewnienia lepszej obsługi klienta, wstępne ładowanie pamięci podr�
 
 W tym samouczku przedstawiono wstępnego ładowania zawartości w pamięci podręcznej na wszystkich węzłach krawędzi Azure CDN.
 
-## <a name="walkthrough"></a>Przewodnik
-1. W [Azure Portal](https://portal.azure.com), przejdź do profilu CDN zawierający punkt końcowy do wstępnego załadowania.  Zostanie otwarty blok profilu.
-2. Kliknij punkt końcowy na liście.  Zostanie otwarty blok końcowy.
-3. W bloku punktu końcowego usługi CDN kliknij przycisk obciążenia.
+## <a name="to-pre-load-assets"></a>Aby wstępne ładowanie zasobów
+1. W [portalu Azure](https://portal.azure.com), przejdź do profilu CDN zawierający punkt końcowy do wstępnego załadowania. Zostanie otwarte okienko profilu.
+    
+2. Kliknij punkt końcowy na liście. Zostanie otwarte okienko punktu końcowego.
+3. Wybierz z okienka punktu końcowego CDN **obciążenia**.
    
-    ![Blok punktu końcowego CDN](./media/cdn-preload-endpoint/cdn-endpoint-blade.png)
+    ![Okienko punktu końcowego CDN](./media/cdn-preload-endpoint/cdn-endpoint-blade.png)
    
-    Zostanie otwarty blok obciążenia.
+    **Obciążenia** zostanie otwarte okienko.
    
-    ![Blok obciążenia CDN](./media/cdn-preload-endpoint/cdn-load-blade.png)
-4. Wprowadź pełną ścieżkę każdego zasobu do załadowania (np. `/pictures/kitten.png`) w **ścieżki** pola tekstowego.
+    ![Okienko obciążenia sieci CDN](./media/cdn-preload-endpoint/cdn-load-blade.png)
+4. Aby uzyskać **ścieżki zawartości**, wprowadź pełną ścieżkę każdego zasobu do załadowania (na przykład `/pictures/kitten.png`).
    
    > [!TIP]
-   > Więcej **ścieżki** pola tekstowe pojawią się po wprowadź tekst, który pozwala na utworzenie listy wiele zasobów.  Zasoby można usunąć z listy, klikając przycisk wielokropka (...).
+   > Więcej **ścieżki zawartości** pola tekstowe pojawią się po rozpoczęciu wprowadzania tekstu, co pozwala na utworzenie listy wiele zasobów. Aby usunąć zasoby z listy, kliknij przycisk wielokropka (...), a następnie wybierz **usunąć**.
    > 
-   > Ścieżki musi być względnym adresem URL, który pasuje do następujących [wyrażenia regularnego](https://msdn.microsoft.com/library/az24scfc.aspx):  
-   > >Załadować ścieżki pojedynczy plik `@"^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$"`;  
-   > >Załaduj pojedynczy plik z ciągu zapytania`@"^(?:\?[-_a-zA-Z0-9\/%:;=!,.\+'&\u0020]*)?$";`  
+   > Każda ścieżka zawartości musi być względnym adresem URL, który pasuje do następujących [wyrażeń regularnych](https://msdn.microsoft.com/library/az24scfc.aspx):  
+   > - Załadować ścieżki pojedynczy plik: `@"^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$"`;  
+   > - Załaduj pojedynczy plik z ciągu zapytania:`@"^(?:\?[-_a-zA-Z0-9\/%:;=!,.\+'&\u0020]*)?$";` 
    > 
-   > Każdego zasobu musi mieć własny ścieżkę.  Nie ma żadnych funkcji symboli wieloznacznych dla wstępnego ładowania zasobów.
+   > Każdego zasobu musi mieć własny ścieżkę. Nie ma żadnych funkcji symboli wieloznacznych dla wstępnego ładowania zasobów.
    > 
    > 
    
     ![Przycisk obciążenia](./media/cdn-preload-endpoint/cdn-load-paths.png)
-5. Kliknij przycisk **obciążenia** przycisku.
+5. Po zakończeniu wprowadzania ścieżek zawartości wybierz **obciążenia**.
    
-    ![Przycisk obciążenia](./media/cdn-preload-endpoint/cdn-load-button.png)
 
 > [!NOTE]
-> Istnieje ograniczenie 10 obciążenia żądań na minutę na profilu CDN. 50 ścieżek są dozwolone na żądanie. Każda ścieżka ma limit długość ścieżki 1024 znaków.
+> Istnieje ograniczenie 10 obciążenia żądań na minutę na profilu CDN. 50 ścieżek równoczesnych mogą być przetwarzane w tym samym czasie. Każda ścieżka ma limit długość ścieżki 1024 znaków.
 > 
 > 
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Przeczyszczanie punktu końcowego usługi Azure CDN](cdn-purge-endpoint.md)
-* [Azure dokumentacji interfejsu API REST usługi CDN - przeczyścić lub wstępnie załadować punktu końcowego](https://msdn.microsoft.com/library/mt634451.aspx)
+* [Azure dokumentacji interfejsu API REST usługi CDN: wstępnie załadować zawartość dla punktu końcowego](https://docs.microsoft.com/en-us/rest/api/cdn/endpoints/loadcontent)
+* [Azure dokumentacji interfejsu API REST usługi CDN: przeczyścić zawartości z punktu końcowego](https://docs.microsoft.com/en-us/rest/api/cdn/endpoints/purgecontent)
 

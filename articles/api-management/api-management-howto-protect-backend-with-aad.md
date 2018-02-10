@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 603a22059dcf07c68f4c6576ea1df97d810eacf3
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 1ba7a415a56f5147e73faa48fcd51151c3c818a8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Jak zabezpieczyć interfejs API sieci Web wewnętrznej bazy danych z usługi Azure Active Directory i zarządzanie interfejsami API
 Poniższe wideo przedstawia sposób tworzenia zaplecza interfejsu API sieci Web i chronić go przy użyciu protokołu OAuth 2.0 z usługą Azure Active Directory i zarządzanie interfejsami API.  Ten artykuł zawiera omówienie i dodatkowe informacje dotyczące czynności w wideo. To 24 minutę wideo pokazuje, jak do:
@@ -33,7 +33,7 @@ Poniższe wideo przedstawia sposób tworzenia zaplecza interfejsu API sieci Web 
 > 
 
 ## <a name="create-an-azure-ad-directory"></a>Utwórz katalog usługi Azure AD
-Aby zabezpieczyć interfejs API sieci Web kopii przy użyciu usługi Azure Active Directory, musisz najpierw mieć dzierżawę usługi AAD. W tym wideo dzierżawa o nazwie **APIMDemo** jest używany. Aby utworzyć dzierżawę usługi AAD, zaloguj się do [klasycznego portalu Azure](https://manage.windowsazure.com) i kliknij przycisk **nowy**->**usługi aplikacji**->**usługi Active Directory**->**katalogu**->**Utwórz niestandardowy**. 
+Do zabezpieczania serwera interfejsu API sieci Web przy użyciu usługi Azure Active Directory, musisz najpierw mieć dzierżawę usługi AAD. W tym wideo dzierżawa o nazwie **APIMDemo** jest używany. Aby utworzyć dzierżawę usługi AAD, zaloguj się do [klasycznego portalu Azure](https://manage.windowsazure.com) i kliknij przycisk **nowy**->**usługi aplikacji**->**usługi Active Directory**->**katalogu**->**Utwórz niestandardowy**. 
 
 ![Usługa Azure Active Directory][api-management-create-aad-menu]
 
@@ -192,7 +192,7 @@ Interfejsy API są skonfigurowane z portalu wydawcy interfejsu API, który jest 
 
 Operacje mogą być [ręcznie dodawać do interfejsów API](api-management-howto-add-operations.md), lub mogą być importowane. W tym wideo operacje są importowane w formacie struktury Swagger, zaczynając od 6:40.
 
-Utwórz plik o nazwie `calcapi.json` z następującą zawartość, a następnie zapisz go na komputerze. Upewnij się, że `host` atrybutu punktów z wewnętrzną bazą danych interfejsu API sieci Web. W tym przykładzie `"host": "apimaaddemo.azurewebsites.net"` jest używany.
+Utwórz plik o nazwie `calcapi.json` z następującą zawartość, a następnie zapisz go na komputerze. Upewnij się, że `host` atrybutu punktów z wewnętrzną bazą danych interfejsu API sieci Web. W tym przykładzie używamy programu `"host": "apimaaddemo.azurewebsites.net"`.
 
 ```json
 {
@@ -387,7 +387,7 @@ Wybierz **sieci Web, aplikacji i/lub interfejs API sieci Web**, wprowadź nazwę
 
 ![Nowa aplikacja][api-management-aad-new-application-devportal-1]
 
-Aby uzyskać **adres URL logowania** wprowadź adres URL usługi API Management i Dołącz `/signin`. W tym przykładzie `https://contoso5.portal.azure-api.net/signin` jest używany.
+Aby uzyskać **adres URL logowania** wprowadź adres URL usługi API Management i Dołącz `/signin`. W tym przykładzie używamy programu `https://contoso5.portal.azure-api.net/signin`.
 
 Aby uzyskać **adres URL identyfikatora aplikacji** wprowadź adres URL usługi API Management i Dołącz niektóre unikatowe znaki. Mogą to być wszystkie odpowiednie znaki w tym przykładzie `https://contoso5.portal.azure-api.net/dp` jest używany. Gdy żądane **właściwości aplikacji** są skonfigurowane, kliknij znacznik wyboru, aby utworzyć aplikację.
 

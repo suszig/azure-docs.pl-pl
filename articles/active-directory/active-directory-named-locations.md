@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 231255d9a119c404c0c947c00414572aaab82719
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b6f80cde24edcbec68309ba033d4da16ee97b731
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="named-locations-in-azure-active-directory"></a>Nazwane lokalizacje w usłudze Azure Active Directory
 
@@ -26,7 +26,7 @@ Nazwane lokalizacje można opisać zaufanych zakresów adresów IP w Twojej orga
 
 - Wykrywanie [ryzyka zdarzenia](active-directory-reporting-risk-events.md) Aby zmniejszyć liczbę zgłoszonych fałszywych alarmów.  
 
-- [Na podstawie lokalizacji dostępu warunkowego](active-directory-conditional-access-azure-portal.md#locations).
+- [Na podstawie lokalizacji dostępu warunkowego](active-directory-conditional-access-locations.md).
 
 
 W tym artykule opisano, jak konfigurować o nazwie lokalizacji w danym środowisku.
@@ -99,7 +99,7 @@ Można dostęp do strony konfiguracji nazwanych lokalizacji w **zabezpieczeń** 
 **Ograniczenia**: można określić maksymalnie 60 nazwane lokalizacje, z jeden zakres adresów IP przypisanych do każdego z nich. Jeśli masz tylko jedną lokalizację o nazwie skonfigurowane do 500 zakresów adresów IP można zdefiniować dla niego.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby dowiedzieć się więcej o:
 

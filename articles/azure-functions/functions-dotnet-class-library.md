@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 3de1e9b042a7a356c3c88e604e1e26c256d85657
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 8a098d2ecc004b1593310579c47c53778858e799
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure dokumentacja dla deweloperów funkcje C#
 
@@ -40,6 +40,9 @@ W programie Visual Studio **usługi Azure Functions** szablonu projektu tworzy C
 
 * [Host.JSON](functions-host-json.md) -przechowuje ustawienia konfiguracji, które mają wpływ na wszystkie funkcje w projekcie uruchomionej lokalnie lub na platformie Azure.
 * [Local.Settings.JSON](functions-run-local.md#local-settings-file) -przechowuje ustawienia aplikacji i parametry połączenia, które są używane podczas uruchamiania lokalnego.
+
+> [!IMPORTANT]
+> Proces kompilacji tworzy *function.json* plik dla każdej funkcji. To *function.json* plik nie jest przeznaczony do edycji bezpośrednio. Nie można zmienić konfiguracji powiązania lub wyłączenie tej funkcji, edytując ten plik. Aby wyłączyć funkcję, użyj [wyłączyć](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/DisableAttribute.cs) atrybutu. Na przykład dodać aplikację logiczną ustawienie MY_TIMER_DISABLED i zastosować `[Disable("MY_TIMER_DISABLED")]` do funkcji. Następnie można włączyć i wyłączyć, zmieniając ustawienia aplikacji.
 
 ### <a name="functionname-and-trigger-attributes"></a>Atrybuty FunctionName i wyzwalacza
 
@@ -83,7 +86,7 @@ public static class SimpleExampleWithOutput
 
 ### <a name="conversion-to-functionjson"></a>Konwersja do function.json
 
-Proces kompilacji tworzy *function.json* pliku w folderze funkcji w folderze kompilacji. Ten plik nie jest przeznaczona do można edytować bezpośrednio. Nie można zmienić konfiguracji powiązania lub wyłączenie tej funkcji, edytując ten plik. 
+Proces kompilacji tworzy *function.json* pliku w folderze funkcji w folderze kompilacji. Jak wspomniano wcześniej, ten plik nie jest przeznaczona do można edytować bezpośrednio. Nie można zmienić konfiguracji powiązania lub wyłączenie tej funkcji, edytując ten plik. 
 
 Ten plik ma na celu zawierają informacje, które kontroler skalowania dla [skalowanie decyzji w planie zużycie](functions-scale.md#how-the-consumption-plan-works). Z tego powodu plik zawiera tylko informacje wyzwalacza, nie wejściowych lub wyjściowych powiązania.
 

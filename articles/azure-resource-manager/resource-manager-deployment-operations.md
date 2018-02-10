@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
 ms.date: 01/13/2017
 ms.author: tomfitz
-ms.openlocfilehash: fb6b3b357fd1f66184e480115a9c863ba31ac193
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 197f890690ff68236cba221988ead9b9abd8c04e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>Operacje wdrażania widoku z usługi Azure Resource Manager
 
 
 Można wyświetlić operacje wdrożenia za pośrednictwem portalu Azure. Może być najbardziej interesujące wyświetlanie operacje, gdy otrzymano wystąpił błąd podczas wdrażania, ten artykuł skupia się na wyświetlanie operacje, które nie powiodły. Portal zawiera interfejs, który umożliwia łatwe znajdowanie błędów i ustalić potencjalne rozwiązania.
 
-[!INCLUDE [resource-manager-troubleshoot-introduction](../../includes/resource-manager-troubleshoot-introduction.md)]
+Wdrożenia można rozwiązać, analizując dzienniki inspekcji lub operacje wdrażania. W tym temacie przedstawiono obie metody. Aby uzyskać pomoc przy rozwiązywaniu problemów z błędami konkretnego wdrożenia, zobacz [Rozwiąż typowe błędy podczas wdrażania zasobów na platformie Azure za pomocą Menedżera zasobów Azure](resource-manager-common-deployment-errors.md).
 
 ## <a name="portal"></a>Portal
 Aby wyświetlić operacje wdrażania, użyj następujących kroków:
@@ -42,7 +42,7 @@ Aby wyświetlić operacje wdrażania, użyj następujących kroków:
     ![Wyświetl wdrożenia nie powiodło się](./media/resource-manager-deployment-operations/view-error.png)
    
     Ten komunikat o błędzie powinny wystarczyć można zacząć Rozwiązywanie problemów. Jeśli potrzebujesz więcej szczegółowych informacji o zadania, które zostały ukończone, można wyświetlić operacje, jak pokazano w poniższych krokach.
-4. Można wyświetlić wszystkie operacje wdrażania w **wdrożenia** bloku. Wybierz żadnej operacji, aby zobaczyć więcej szczegółów.
+4. Można wyświetlić wszystkie operacje wdrażania. Wybierz żadnej operacji, aby zobaczyć więcej szczegółów.
    
     ![Wyświetlanie operacji](./media/resource-manager-deployment-operations/view-operations.png)
    
@@ -50,7 +50,7 @@ Aby wyświetlić operacje wdrażania, użyj następujących kroków:
 5. Można wyświetlać zdarzenia dla wdrożenia, wybierając **zdarzenia**.
    
     ![Wyświetl zdarzenia](./media/resource-manager-deployment-operations/view-events.png)
-6. Zobacz wszystkie zdarzenia dla wdrożenia i zaznacz jeden więcej szczegółów. Zwróć uwagę, zbyt identyfikatorów korelacji. Ta wartość może być przydatne podczas pracy z pomocą techniczną w celu wdrożenia rozwiązania.
+6. Zobacz wszystkie zdarzenia dla wdrożenia i zaznacz jeden więcej szczegółów. Zwróć uwagę identyfikatorów korelacji. Ta wartość może być przydatne podczas pracy z pomocą techniczną w celu wdrożenia rozwiązania.
    
     ![Zobacz zdarzenia](./media/resource-manager-deployment-operations/see-all-events.png)
 
@@ -121,7 +121,7 @@ Aby wyświetlić operacje wdrażania, użyj następujących kroków:
   ----           -------                                                                        -------
   DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
   ```
-4. Każda operacja wdrażania na platformie Azure jest przechowywana zawartość żądania i odpowiedzi. Zawartość żądania jest co wysłanych do usługi Azure podczas wdrażania (na przykład utworzyć Maszynę wirtualną, dysk systemu operacyjnego i innych zasobów). Treść odpowiedzi jest Azure wysyłane z żądania wdrożenia. Podczas wdrażania można używać **DeploymentDebugLogLevel** paramenter, aby określić, czy żądania i/lub odpowiedzi są przechowywane w dzienniku. 
+4. Każda operacja wdrażania na platformie Azure jest przechowywana zawartość żądania i odpowiedzi. Zawartość żądania jest co wysłanych do usługi Azure podczas wdrażania (na przykład utworzyć Maszynę wirtualną, dysk systemu operacyjnego i innych zasobów). Treść odpowiedzi jest Azure wysyłane z żądania wdrożenia. Podczas wdrażania można używać **DeploymentDebugLogLevel** parametr, aby określić, czy żądania i/lub odpowiedzi są przechowywane w dzienniku. 
 
   Uzyskiwanie informacji z dziennika i zapisać go lokalnie, używając następujących poleceń programu PowerShell:
 
@@ -178,7 +178,7 @@ Aby wyświetlić operacje wdrażania, użyj następujących kroków:
   }
   ```
 
-2. Pobierz informacje o operacji wdrażania z [listy wszystkich operacji wdrożenia szablonu](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_List) operacji. 
+2. Uzyskiwanie informacji o wdrożeniach z [listy wszystkich operacji wdrożenia szablonu](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_List). 
 
   ```http
   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}
@@ -212,7 +212,7 @@ Aby wyświetlić operacje wdrażania, użyj następujących kroków:
   ```
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Aby uzyskać pomoc przy rozwiązywaniu problemów z błędami konkretnego wdrożenia, zobacz [Rozwiąż typowe błędy podczas wdrażania zasobów na platformie Azure za pomocą Menedżera zasobów Azure](resource-manager-common-deployment-errors.md).
 * Aby dowiedzieć się więcej o używaniu Dzienniki aktywności do monitorowania innych typów działań, zobacz [wyświetlać dzienniki aktywności do zarządzania zasobami Azure](resource-group-audit.md).
 * Aby sprawdzić poprawność wdrożenia przed jego wykonaniem, zobacz [wdrażanie grupy zasobów za pomocą szablonu usługi Azure Resource Manager](resource-group-template-deploy.md).

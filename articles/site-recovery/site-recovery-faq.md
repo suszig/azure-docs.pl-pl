@@ -2,23 +2,17 @@
 title: "Usługa Azure Site Recovery: Często zadawane pytania | Dokumentacja firmy Microsoft"
 description: "W tym artykule omówiono popularnych pytania dotyczące usługi Azure Site Recovery."
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
 manager: carmonm
-editor: 
-ms.assetid: 5cdc4bcd-b4fe-48c7-8be1-1db39bd9c078
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 10/19/2017
+ms.date: 02/07/2018
 ms.author: raynew
-ms.openlocfilehash: 82cec6df5d5d6ecf1147cac29b8fc46966ea57de
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 578ce5d4e661e74003440836304f16579d292d06
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: często zadawane pytania (FAQ)
 Ten artykuł zawiera często zadawane pytania dotyczące usługi Azure Site Recovery. Jeśli masz pytania po przeczytaniu tego artykułu, opublikuj je na [Forum usług odzyskiwania Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -166,10 +160,10 @@ Można zautomatyzować można użyć lokalnego narzędzia Orchestrator lub progr
 * [Dowiedz się więcej](site-recovery-failback-azure-to-vmware.md) o niepowodzeniu kopię maszyn wirtualnych VMware oraz serwerach fizycznych
 
 ### <a name="if-my-on-premises-host-is-not-responding-or-crashed-can-i-failover-back-to-a-different-host"></a>Jeśli host Moje lokalnymi nie jest nieodpowiadający lub awaria, czy można trybu failover do innego hosta?
-Tak, można użyć odzyskiwanie do lokalizacji alternatywnej do powrotu po awarii do innego hosta z platformy Azure. Dowiedz się więcej o opcjach dostępnych w poniższych łączy dla maszyn wirtualnych VMware i funkcji Hyper-v.
+Tak, można użyć odzyskiwanie do lokalizacji alternatywnej do powrotu po awarii do innego hosta z platformy Azure. Dowiedz się więcej o opcjach dostępnych w poniższych łączy dla maszyn wirtualnych VMware i funkcji Hyper-V.
 
-* [W przypadku maszyn wirtualnych VMware](site-recovery-how-to-failback-azure-to-vmware.md#fail-back-to-the-original-or-alternate-location)
-* [W przypadku maszyn wirtualnych funkcji Hyper-v](site-recovery-failback-from-azure-to-hyper-v.md#failback-to-an-alternate-location)
+* [W przypadku maszyn wirtualnych VMware](concepts-types-of-failback.md#alternate-location-recovery-alr)
+* [W przypadku maszyn wirtualnych funkcji Hyper-V](site-recovery-failback-from-azure-to-hyper-v.md#perform-failback)
 
 ## <a name="service-providers"></a>Dostawcy usług
 ### <a name="im-a-service-provider-does-site-recovery-work-for-dedicated-and-shared-infrastructure-models"></a>Jestem dostawcą usług. Usługa Site Recovery działa dla modeli opartych na infrastrukturze dedykowanej i współdzielonej?
@@ -198,6 +192,6 @@ Firma Microsoft obsługuje pakietu Azure Pack, systemie Cloud Platform System i 
 ### <a name="do-you-support-single-azure-pack-and-single-vmm-server-deployments"></a>Czy są obsługiwane wdrożenia oparte na jednym pakiecie Azure Pack i jednym serwerze VMM?
 Tak, można replikować maszyny wirtualne funkcji Hyper-V do platformy Azure lub między lokacjami dostawcy usług.  Należy pamiętać, że Jeśli replikujesz między lokacjami dostawcy usług integracji elementów runbook platformy Azure jest niedostępna.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Zapoznaj się z [omówieniem usługi Site Recovery](site-recovery-overview.md)
 * Dowiedz się więcej o [architekturze usługi Site Recovery](site-recovery-components.md)  

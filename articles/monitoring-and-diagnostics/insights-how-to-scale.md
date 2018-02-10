@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: ancav
-ms.openlocfilehash: 7e16926b5a1c28c0c8c80ee8c17e8c2fdb9e55a7
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 9ff52bd29644c7c585d2a85fcbe49e8800f6a035
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="scale-instance-count-manually-or-automatically"></a>Skalowanie liczby wystąpień ręcznie lub automatycznie
 W [Azure Portal](https://portal.azure.com/), możesz ręcznie ustawić liczbę wystąpień usługi lub można ustawić parametry, aby go automatycznie na podstawie zapotrzebowania skali. To jest zwykle nazywany *skalowanie* lub *skalować w*.
@@ -30,7 +30,7 @@ Możesz skalować w portalu i umożliwia także [interfejsu API REST](https://ms
 ## <a name="scaling-manually"></a>Skalowanie ręcznie
 1. W [Azure Portal](https://portal.azure.com/), kliknij przycisk **Przeglądaj**, a następnie przejdź do zasobu, aby skalować, takich jak **planu usługi aplikacji**.
 2. Kliknij przycisk **Ustawienia > skalowania w poziomie (plan usługi App Service).**
-3. W górnej części **skali** bloku widać historii akcji skalowania automatycznego usługi.
+3. W górnej części **skali** bloku, w **Historia uruchomień** są widoczne historii akcji skalowania automatycznego usługi.
    
     ![Blok skali](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
    
@@ -38,7 +38,7 @@ Możesz skalować w portalu i umożliwia także [interfejsu API REST](https://ms
    > Tylko akcje, które są wykonywane przez skalowania automatycznego będą widoczne na tym wykresie. Jeśli ręcznie dopasować liczba wystąpień, zmiany nie zostaną odzwierciedlone na tym wykresie.
    > 
    > 
-4. Można ręcznie Dostosuj liczbę **wystąpień** z suwaka.
+4. Można ręcznie Dostosuj liczbę **wystąpień** w **Konfiguruj** kartę.
 5. Kliknij przycisk **zapisać** polecenia i będzie można przeskalować do podanej liczby wystąpień niemal natychmiast.
 
 ## <a name="scaling-based-on-a-pre-set-metric"></a>Skalowanie w oparciu metryki wstępnie ustawiona
@@ -115,7 +115,7 @@ Można jednak mieć bardziej agresywną skalowanie w ciągu dnia lub tygodnia, n
 11. Pamiętaj utworzyć obie reguły do skalowania w poziomie i skali w lub w profilu liczba wystąpień tylko będzie rosnąć (lub zmniejszyć).
 12. Na koniec kliknij **zapisać**.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Monitorowanie metryk usługi](insights-how-to-customize-monitoring.md) się upewnić, że usługa jest dostępna i elastyczny.
 * [Włączanie monitorowania i diagnostyki](insights-how-to-use-diagnostics.md) zbierania szczegółowych o dużej częstotliwości metryk usługi.
 * [Odbieraj powiadomienia o alertach](insights-receive-alert-notifications.md) zawsze, gdy wystąpią zdarzenia operacyjne lub metryki przekroczą próg.

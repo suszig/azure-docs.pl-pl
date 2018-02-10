@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 0a0dd38fda35b1eee1fdce196a3ed15f6e73dde6
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: a90fe2c919e0c5452072c4129dcb7a1135d9ec25
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-google-apps-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie usługi Google Apps dla użytkownika automatycznego inicjowania obsługi administracyjnej.
 
@@ -79,7 +79,7 @@ Ta sekcja umożliwia łączenie usługi Azure AD z konta użytkownika, inicjowan
 
      ![Dodawanie domeny](./media/active-directory-saas-google-apps-provisioning-tutorial/domain_2.png)
 
-    d. Wpisz nazwę domeny do **nazwy domeny** pola. Ta nazwa domeny powinien być tej samej nazwy domeny, która ma być używana dla konta Google Apps. Następnie wybierz **Dodawanie domeny** przycisku.
+    c. Wpisz nazwę domeny do **nazwy domeny** pola. Ta nazwa domeny powinien być tej samej nazwy domeny, która ma być używana dla konta Google Apps. Następnie wybierz **Dodawanie domeny** przycisku.
      
      ![Nazwa domeny](./media/active-directory-saas-google-apps-provisioning-tutorial/domain_3.png)
 
@@ -105,7 +105,7 @@ Ta sekcja umożliwia łączenie usługi Azure AD z konta użytkownika, inicjowan
      
      ![Dodaj nową domenę][21]
 
-    d. Wybierz **Dodaj inną domenę**, a następnie wpisz nazwę domeny, który chcesz dodać.
+    c. Wybierz **Dodaj inną domenę**, a następnie wpisz nazwę domeny, który chcesz dodać.
      
      ![Wpisz nazwę domeny][22]
 
@@ -157,9 +157,9 @@ Ta sekcja umożliwia łączenie usługi Azure AD z konta użytkownika, inicjowan
 
 20. Wybierz pozycję **Zapisz**.
 
-Ten proces jest uruchamiany wstępna synchronizacja jakichkolwiek użytkowników lub grup, które są przypisane do usługi Google Apps w sekcji Użytkownicy i grupy. Synchronizacji początkowej zajmuje więcej czasu wykonywania niż kolejne synchronizacje, które są wykonywane co około 20 minut, gdy usługa jest uruchomiona. 
+Ten proces jest uruchamiany wstępna synchronizacja jakichkolwiek użytkowników lub grup, które są przypisane do usługi Google Apps w sekcji Użytkownicy i grupy. Synchronizacji początkowej zajmuje więcej czasu wykonywania niż kolejne synchronizacje, które są wykonywane co około 40 minut, gdy usługa jest uruchomiona. Można użyć **szczegóły synchronizacji** sekcji, aby monitorować postęp i skorzystaj z linków do inicjowania obsługi administracyjnej Dzienniki aktywności. Te dzienniki opisano wszystkie akcje, które są wykonywane przez usługę inicjowania obsługi administracyjnej na aplikację usługi Google Apps.
 
-Można użyć **szczegóły synchronizacji** sekcji, aby monitorować postęp i skorzystaj z linków do inicjowania obsługi administracyjnej raporty aktywności. Te raporty opisano wszystkie akcje, które są wykonywane przez usługę inicjowania obsługi administracyjnej na aplikację usługi Google Apps.
+Aby uzyskać więcej informacji na temat usługi Azure AD, inicjowanie obsługi dzienników do odczytu, zobacz [raportowania na użytkownika automatyczne Inicjowanie obsługi konta](active-directory-saas-provisioning-reporting.md).
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 

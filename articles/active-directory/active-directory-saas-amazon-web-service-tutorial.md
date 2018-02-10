@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 8d77215fd2923e22a9cc87e469cb135d035d22d9
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 0ff14365323d66a101e5847d7959045c3f20dea2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Samouczek: Integracji Azure Active Directory z usług sieci Web firmy Amazon (AWS)
 
@@ -27,10 +27,10 @@ Z tego samouczka dowiesz się integrowanie Amazon Web Services (AWS) z usługi A
 Integrowanie usługi Amazon Web Services (AWS) z usługą Azure AD zapewnia następujące korzyści:
 
 - Można kontrolować w usłudze Azure AD, który ma dostęp do usług sieci Web firmy Amazon (AWS).
-- Umożliwia użytkownikom automatycznie pobrać zalogowane do Amazon Web Services (AWS) (logowanie jednokrotne) z konta usługi Azure AD.
-- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure.
+- Można umożliwić użytkownikom automatycznie pobrać zalogowany do usługi sieci Web firmy Amazon (AWS) przy użyciu ich kont usługi Azure AD.
+- Możesz zarządzać kont w jednej centralnej lokalizacji--portalu Azure.
 
-Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Aby uzyskać więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -40,12 +40,12 @@ Aby skonfigurować integrację usługi Azure AD z Amazon Web Services (AWS), pot
 - Amazon Web Services (AWS) logowanie jednokrotne włączone subskrypcji
 
 > [!NOTE]
-> Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
+> Nie zaleca się używanie środowiska produkcyjnego do testowania czynności w tym samouczku.
 
-Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
+Aby przetestować kroki opisane w tym samouczku, wykonaj te zalecenia:
 
 - Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.
-- Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz [uzyskać miesięczna wersja próbna](https://azure.microsoft.com/pricing/free-trial/).
+- Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz [Pobierz bezpłatną wersję próbną miesięcznego](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
 W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
@@ -53,12 +53,12 @@ W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej 
 1. Dodawanie Amazon Web Services (AWS) z galerii
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
-## <a name="adding-amazon-web-services-aws-from-the-gallery"></a>Dodawanie Amazon Web Services (AWS) z galerii
+## <a name="add-amazon-web-services-aws-from-the-gallery"></a>Dodaj Amazon Web Services (AWS) z galerii
 Aby skonfigurować integrację z usługami sieci Web Amazon (AWS) do usługi Azure AD, należy dodać Amazon Web Services (AWS) z galerii do listy zarządzanych aplikacji SaaS.
 
-**Aby dodać Amazon Web Services (AWS) z galerii, wykonaj następujące czynności:**
+**Aby dodać Amazon Web Services (AWS) z galerii, należy wykonać następujące czynności:**
 
-1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
+1. W  **[portalu Azure](https://portal.azure.com)**, w lewym okienku nawigacji, wybierz **usługi Azure Active Directory** ikony. 
 
     ![Przycisk usługi Azure Active Directory][1]
 
@@ -66,53 +66,53 @@ Aby skonfigurować integrację z usługami sieci Web Amazon (AWS) do usługi Azu
 
     ![Blok aplikacje przedsiębiorstwa][2]
     
-3. Aby dodać nową aplikację, kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.
+3. Aby dodać nową aplikację, zaznacz **nowej aplikacji** przycisk w górnej części okna dialogowego.
 
     ![Nowy przycisk aplikacji][3]
 
-4. W polu wyszukiwania wpisz **Amazon Web Services (AWS)**, wybierz pozycję **Amazon Web Services (AWS)** z panelu wyników kliknięcie **Dodaj** przycisk, aby dodać aplikację.
+4. W polu wyszukiwania wpisz **Amazon Web Services (AWS)**. Wybierz **Amazon Web Services (AWS)** z panelu wyniki, a następnie wybierz **Dodaj** przycisk, aby dodać aplikację.
 
     ![Amazon Web Services (AWS) na liście wyników](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfiguracja i testowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Amazon Web usługi (AWS) w oparciu o nazwie "Britta Simona" użytkownika testowego.
+W tej sekcji możesz skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Amazon Web usługi (AWS) na podstawie użytkownika testowego, nazywany "Britta Simona".
 
-Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w Amazon Web Services (AWS) jest dla użytkownika, w usłudze Azure AD. Innymi słowy musi można ustanowić łącze relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w Amazon Web Services (AWS).
+Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, będący odpowiednikiem użytkownika w portalu Amazon usług sieci Web (AWS) do użytkownika w usłudze Azure AD. Innymi słowy należy ustanowić powiązanie użytkownika usługi Azure AD i powiązanych użytkowników w portalu Amazon usług sieci Web (AWS).
 
-W Amazon Web Services (usług AWS), przypisz wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** do ustanawiania relacji łącza.
+Aby ustanowić łącze w Amazon Web Services (AWS), należy podać wartość **Username** tę samą wartość jak **nazwy użytkownika** w usłudze Azure AD. 
 
-Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Amazon Web Services (AWS), należy wykonać poniższe bloki konstrukcyjne:
+Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Amazon Web Services (AWS), wykonaj poniższe bloki konstrukcyjne:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configure-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego Amazon Web Services (AWS)](#create-an-amazon-web-services-aws-test-user)**  — aby odpowiednikiem Simona Britta w Amazon usług sieci Web (AWS) połączonej z usługi Azure AD reprezentację użytkownika.
-4. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
-5. **[Test rejestracji jednokrotnej](#test-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
+1. [Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configure-azure-ad-single-sign-on) umożliwienie użytkownikom korzystać z tej funkcji.
+2. [Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user) do testowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. [Tworzenie użytkownika testowego Amazon Web Services (AWS)](#create-an-amazon-web-services-aws-test-user) mają odpowiednikiem Simona Britta w Amazon usług sieci Web (AWS) połączonej z usługi Azure AD reprezentację użytkownika.
+4. [Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user) umożliwiające Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
+5. [Test rejestracji jednokrotnej](#test-single-sign-on) Aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
 W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w aplikacji usługi sieci Web firmy Amazon (AWS).
 
-**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z Amazon Web Services (AWS), wykonaj następujące czynności:**
+**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z Amazon Web Services (AWS), należy wykonać następujące czynności:**
 
-1. W portalu Azure na **Amazon Web Services (AWS)** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
+1. W portalu Azure na **Amazon Web Services (AWS)** strona integracji aplikacji, wybierz opcję **logowanie jednokrotne**.
 
     ![Skonfigurować łącze rejestracji jednokrotnej][4]
 
-2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
+2. Aby włączyć logowanie jednokrotne, w **logowanie jednokrotne** okna dialogowego, **tryb** listy rozwijanej wybierz **na języku SAML logowania jednokrotnego**.
  
     ![Okno dialogowe rejestracji jednokrotnej](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_samlbase.png)
 
-3. Na **Amazon Web Services (AWS) domeny i adres URL** sekcji, użytkownik nie trzeba wykonywać żadnych czynności, jak aplikacja już jest wstępna Integracja z usługą Azure.
+3. W **Amazon Web Services (AWS) domeny i adres URL** sekcji, użytkownik nie ma żadnych czynności, ponieważ aplikacja już jest wstępna Integracja z usługą Azure.
 
     ![Domena Amazon Web Services (AWS) i adresy URL pojedynczy informacje logowania jednokrotnego](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_url.png)
 
-4. Aplikacji Amazon Web Services (AWS) oczekuje potwierdzenia języka SAML w określonym formacie. Skonfiguruj następujące oświadczeń dla tej aplikacji. Możesz zarządzać wartości tych atrybutów z "**atrybuty użytkownika**" sekcji na stronie integracji aplikacji. Poniższy zrzut ekranu przedstawia przykład tego.
+4. Aplikacja oprogramowania Amazon Web Services (AWS) oczekuje potwierdzenia języka SAML w określonym formacie. Skonfiguruj następujące oświadczeń dla tej aplikacji. Możesz zarządzać wartości tych atrybutów z **atrybuty użytkownika** na stronie integracji aplikacji. Poniższy zrzut ekranu przedstawia przykład:
 
-    ![Konfigurowanie rejestracji jednokrotnej attb](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_attribute.png)   
+    ![Konfigurowanie atrybutów rejestracji jednokrotnej](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_attribute.png)  
 
-5. W **atrybuty użytkownika** sekcji na **logowanie jednokrotne** okna dialogowego, skonfiguruj atrybut tokenu SAML, jak pokazano na ilustracji powyżej i wykonaj następujące czynności:
+5. W **atrybuty użytkownika** sekcji **logowanie jednokrotne** skonfiguruj atrybut tokenu SAML, jak pokazano na poprzedniej ilustracji i wykonaj następujące czynności:
     
     | Nazwa atrybutu  | Wartość atrybutu | Przestrzeń nazw |
     | --------------- | --------------- | --------------- |
@@ -120,73 +120,73 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
     | Rola            | User.assignedroles |  https://aws.amazon.com/SAML/Attributes |
     
     >[!TIP]
-    >Należy skonfigurować Inicjowanie obsługi użytkowników w usłudze Azure AD można pobrać za pomocą konsoli usług AWS wszystkich ról. Zobacz poniższe kroki inicjowania obsługi administracyjnej.
+    >Konfigurowanie udostępniania użytkownika w usłudze Azure AD można pobrać wszystkich ról z poziomu konsoli usługi Amazon Web Services (AWS). Zapoznaj się z następujących kroków inicjowania obsługi administracyjnej.
 
-    a. Kliknij przycisk **Dodaj atrybut** otworzyć **Dodawanie atrybutu** okna dialogowego.
+    a. Aby otworzyć **Dodawanie atrybutu** okno dialogowe, wybierz opcję **Dodaj atrybut**.
 
-    ![Konfigurowanie rejestracji jednokrotnej Dodaj](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_attribute_04.png)
+    ![Konfigurowanie atrybutów rejestracji jednokrotnej](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_attribute_04.png)
 
-    ![Konfigurowanie rejestracji jednokrotnej addattb](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_attribute_05.png)
+    ![Konfigurowanie atrybutów rejestracji jednokrotnej](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_attribute_05.png)
 
-    b. W **nazwa** tekstowym, wpisz nazwę atrybut wyświetlany dla danego wiersza.
+    b. W **nazwa** wpisz nazwę atrybutu, który jest wyświetlany dla danego wiersza.
 
-    d. Z **wartość** listy, wpisz wartość atrybutu wyświetlany dla danego wiersza.
+    c. Z **wartość** listy, wpisz wartość atrybutu, który jest wyświetlany dla danego wiersza.
 
-    d. W **Namespace** tekstowym, wpisz wartość przestrzeni nazw wyświetlany dla danego wiersza.
+    d. W **Namespace** wpisz wartość przestrzeni nazw, który jest wyświetlany dla danego wiersza.
     
-    d. Kliknij przycisk **OK**.
+    d. Wybierz **Ok**.
 
-6. Na **certyfikat podpisywania SAML** kliknij **XML metadanych** , a następnie zapisz plik metadanych na tym komputerze.
+6. W **certyfikat podpisywania SAML** zaznacz **XML metadanych**. Następnie zapisz plik metadanych na tym komputerze.
 
     ![Łącze pobierania certyfikatu](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_certificate.png) 
 
-7. Kliknij przycisk **zapisać** przycisku.
+7. Wybierz pozycję **Zapisz**.
 
-    ![Skonfiguruj przycisk pojedynczego logowania jednokrotnego Zapisz](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_general_400.png)
+    ![Konfigurowanie rejestracji jednokrotnej przycisk zapisywania](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_general_400.png)
 
-8. W oknie innej przeglądarki logowania do witryny firmy Amazon Web Services (AWS) jako administrator.
+8. W oknie innej przeglądarki należy zalogować się jako administrator do witryny firmy Amazon Web Services (AWS).
 
-9. Kliknij przycisk **konsoli głównej**.
+9. Wybierz **konsoli głównej**.
    
-    ![Konfigurowanie rejestracji jednokrotnej głównej][11]
+    ![Skonfiguruj główną rejestracji jednokrotnej][11]
 
-10. Kliknij przycisk **Zarządzanie tożsamościami i dostępem**. 
+10. Wybierz **Zarządzanie tożsamościami i dostępem**. 
    
     ![Konfigurowanie tożsamości rejestracji jednokrotnej][12]
 
-11. Kliknij przycisk **dostawców tożsamości**, a następnie kliknij przycisk **Tworzenie dostawcy**. 
+11. Wybierz **dostawców tożsamości**. Następnie wybierz **Tworzenie dostawcy**. 
    
     ![Konfigurowanie dostawcy rejestracji jednokrotnej][13]
 
-12. Na **Konfigurowanie dostawcy** okna dialogowego strony, należy wykonać następujące czynności: 
+12. W **Konfigurowanie dostawcy** okna dialogowego należy wykonać następujące czynności: 
    
-    ![Konfigurowanie rejestracji jednokrotnej okna dialogowego][14]
+    ![Skonfiguruj jeden znak n okna dialogowego][14]
  
-    a. Jako **typ dostawcy**, wybierz pozycję **SAML**.
+    a. Aby uzyskać **typ dostawcy**, wybierz pozycję **SAML**.
 
-    b. W **Nazwa dostawcy** tekstowym, wpisz nazwę dostawcy (na przykład: *drewna*).
+    b. W **Nazwa dostawcy** wpisz nazwę dostawcy (na przykład: *drewna*).
 
-    d. Aby przekazać z pobranego **pliku metadanych** z portalu Azure, kliknij przycisk **wybierz plik**.
+    c. Aby przekazać z pobranego **pliku metadanych** z portalu Azure wybierz **wybierz plik**.
 
-    d. Kliknij przycisk **następny krok**.
+    d. Wybierz **następny krok**.
 
-13. Na **Sprawdź informacje o dostawcy** strony okna dialogowego, kliknij przycisk **Utwórz**. 
+13. W **Sprawdź informacje o dostawcy** okno dialogowe, wybierz opcję **Utwórz**. 
     
-    ![Konfigurowanie rejestracji jednokrotnej Sprawdź][15]
+    ![Skonfiguruj weryfikacji rejestracji jednokrotnej][15]
 
-14. Kliknij przycisk **ról**, a następnie kliknij przycisk **Utwórz nową rolę**. 
+14. Wybierz **ról**. Następnie wybierz **Utwórz nową rolę**. 
     
     ![Konfigurowanie ról rejestracji jednokrotnej][16]
 
-15. Na **Ustaw nazwę roli** okna dialogowego, wykonaj następujące czynności: 
+15. W **Ustaw nazwę roli** okna dialogowego należy wykonać następujące czynności: 
     
     ![Konfigurowanie jednej nazwy logowania jednokrotnego][17] 
 
-    a. W **nazwy roli** tekstowym, wpisz nazwę roli (na przykład: *TestUser*). 
+    a. W **nazwy roli** wpisz nazwę roli (na przykład *TestUser*). 
 
-    b. Kliknij przycisk **następny krok**.
+    b. Wybierz **następny krok**.
 
-16. Na **wybierz typ roli** okna dialogowego, wykonaj następujące czynności: 
+16. W **wybierz typ roli** okna dialogowego należy wykonać następujące czynności: 
     
     ![Skonfiguruj typ roli rejestracji jednokrotnej][18] 
 
@@ -194,51 +194,51 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     b. W **Grant sieci Web rejestracji jednokrotnej (WebSSO) dostępu do dostawcy SAML** kliknij **wybierz**.
 
-17. Na **ustanowić zaufanie** okna dialogowego, wykonaj następujące czynności:  
+17. W **ustanowić zaufanie** okna dialogowego należy wykonać następujące czynności:  
     
     ![Skonfigurować zaufanie rejestracji jednokrotnej][19] 
 
-    a. Jako dostawca SAML, należy wybrać dostawcę SAML utworzonym wcześniej (na przykład: *drewna*) 
+    a. Wybierz dostawcę SAML wcześniej utworzony (na przykład: *drewna*). 
   
-    b. Kliknij przycisk **następny krok**.
+    b. Wybierz **następny krok**.
 
-18. Na **Sprawdź zaufania roli** okna dialogowego, kliknij przycisk **następnego kroku**. 
+18. W **Sprawdź zaufania roli** okno dialogowe, wybierz opcję **następnego kroku**. 
     
     ![Skonfiguruj relację zaufania roli rejestracji jednokrotnej][32]
 
-19. Na **Dołącz zasady** okna dialogowego, kliknij przycisk **następnego kroku**.  
+19. W **Dołącz zasady** okno dialogowe, wybierz opcję **następnego kroku**.  
     
     ![Konfigurowanie zasad rejestracji jednokrotnej][33]
 
-20. Na **przeglądu** okna dialogowego, wykonaj następujące czynności:   
+20. W **przeglądu** okna dialogowego należy wykonać następujące czynności:   
     
     ![Skonfiguruj przeglądu rejestracji jednokrotnej][34] 
 
-    a. Kliknij przycisk **utworzyć rolę**.
+    a. Wybierz **utworzyć rolę**.
 
-    b. Tworzenie ról tyle zgodnie z potrzebami i zamapowania ich na dostawcy tożsamości.
+    b. Utwórz tyle ról w razie potrzeby, a następnie mapować je do dostawcy tożsamości.
 
-21. Użyj poświadczeń konta usługi usług AWS pobierania ról z konta usług AWS w inicjowania obsługi usługi Azure AD użytkownika. W tym celu otwórz konsolę usług AWS macierzystego.
+21. Użyj poświadczeń konta usługi Amazon Web Services (AWS) używany do pobierania ról z konta Amazon Web Services (AWS) w Inicjowanie obsługi użytkowników usługi Azure AD. Aby uruchomić to zadanie, otwórz konsolę usługi Amazon Web Services (AWS) macierzystego.
 
-22. Polecenie **usług** -> **zabezpieczeń, tożsamości i zgodności** -> **IAM**.
+22. Wybierz **usług** > **zabezpieczeń, tożsamości i zgodności** > **IAM**.
 
-    ![Pobieranie role z konta usług AWS](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole1.png)
+    ![Pobieranie role z konta Amazon Web Services (AWS)](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole1.png)
 
-23. Wybierz **zasady** kartę w sekcji IAM.
+23. W sekcji IAM wybierz **zasady** kartę.
 
-    ![Pobieranie role z konta usług AWS](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole2.png)
+    ![Pobieranie role z konta Amazon Web Services (AWS)](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole2.png)
 
-24. Utwórz nowe zasady, klikając **Tworzenie zasad**.
+24. Aby utworzyć nowe zasady, wybierz **Tworzenie zasad**.
 
     ![Tworzenie nowych zasad](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole3.png)
  
-25. Tworzenie własnych zasad można pobrać wszystkich ról z kont usług AWS, wykonując następujące czynności:
+25. Aby utworzyć własne zasady, aby pobrać wszystkie role z konta Amazon Web Services (AWS), wykonaj następujące czynności:
 
     ![Tworzenie nowych zasad](./media/active-directory-saas-amazon-web-service-tutorial/policy1.png)
 
-    a. W **"Utwórz zasady"** kliknij sekcję **"JSON"** kartę.
+    a. W **Tworzenie zasad** zaznacz **JSON** kartę.
 
-    b. W dokumencie zasady dodawania poniżej JSON.
+    b. W dokumencie zasady Dodaj następujący kod JSON:
     
     ```
     
@@ -268,7 +268,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
     
     ```
 
-    d. Polecenie **przycisk przeglądu zasad** do sprawdzania poprawności zasad.
+    c. Aby sprawdzić zasady, wybierz **przycisk przeglądu zasad**.
 
     ![Definiowanie nowych zasad](./media/active-directory-saas-amazon-web-service-tutorial/policy5.png)
 
@@ -278,59 +278,59 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     a. Podaj **Nazwa zasady** jako **AzureAD_SSOUserRole_Policy**.
 
-    b. Możesz podać **opis** do zasad jako **umożliwi tej zasady można pobrać ról z kont usług AWS**.
+    b. Możesz podać następujące **opis** zasad: **ta zasada umożliwia pobranie role z kont usług AWS**.
     
-    d. Polecenie **"Utwórz zasady"** przycisku.
+    c. Wybierz **Utwórz zasady** przycisku.
         
-27. Utwórz nowe konto użytkownika w usłudze IAM usług AWS, wykonując następujące czynności:
+27. Aby utworzyć nowe konto użytkownika w usłudze IAM Amazon Web Services (AWS), należy wykonać następujące czynności:
 
-    a. Polecenie **użytkowników** nawigacji w konsoli usług AWS IAM.
+    a. Wybierz **użytkowników** w konsoli IAM Amazon Web Services (AWS).
 
     ![Definiowanie nowych zasad](./media/active-directory-saas-amazon-web-service-tutorial/policy3.png)
     
-    b. Polecenie **Dodaj użytkownika** przycisk, aby utworzyć nowego użytkownika.
+    b.To utworzenie nowego użytkownika, wybierz opcję **Dodaj użytkownika** przycisku.
 
     ![Dodawanie użytkownika](./media/active-directory-saas-amazon-web-service-tutorial/policy4.png)
 
-    d. W **Dodaj użytkownika** sekcji, wykonaj następujące czynności:
+    c. W **Dodaj użytkownika** sekcji, wykonaj następujące czynności:
     
     ![Dodawanie użytkownika](./media/active-directory-saas-amazon-web-service-tutorial/adduser1.png)
     
-    * Wprowadź nazwę użytkownika jako **AzureADRoleManager**.
+    * Wprowadź **AzureADRoleManager** w polu Nazwa użytkownika.
     
-    * Wybierz typ dostępu **dostęp programistyczny** opcji. Dzięki temu użytkownik możesz wywoływać interfejsy API i pobrać role z konta usług AWS.
+    * Wybierz typ dostępu **dostęp programistyczny** opcji. Dzięki temu użytkownik możesz wywoływać interfejsy API i pobrać role z konta Amazon Web Services (AWS).
     
-    * Polecenie **dalej uprawnienia** przycisk w prawym dolnym rogu.
+    * Wybierz **dalej uprawnienia** przycisk w prawym dolnym rogu.
 
-28. Teraz należy utworzyć nowe zasady dla tego użytkownika, wykonując następujące czynności:
+28. Utwórz nowe zasady dla tego użytkownika, wykonując następujące czynności:
 
     ![Dodawanie użytkownika](./media/active-directory-saas-amazon-web-service-tutorial/adduser2.png)
     
-    a. Polecenie **dołączyć istniejących zasad bezpośrednio** przycisku.
+    a. Wybierz **dołączyć istniejących zasad bezpośrednio** przycisku.
 
     b. Wyszukaj zasady nowo utworzony w sekcji Filtr **AzureAD_SSOUserRole_Policy**.
     
-    d. Wybierz **zasad** , a następnie kliknij polecenie **dalej: Przejrzyj** przycisku.
+    c. Wybierz **zasad**. Następnie wybierz **dalej: Przejrzyj** przycisku.
 
-29. Przejrzyj zasady użytkownika, wykonując następujące kroki:
+29. Przejrzyj zasady dla użytkownika, wykonując następujące czynności:
 
     ![Dodawanie użytkownika](./media/active-directory-saas-amazon-web-service-tutorial/adduser3.png)
     
-    a. Sprawdź nazwę użytkownika, typ dostępu i zasad zamapowany na użytkownika.
+    a. Sprawdź nazwę użytkownika, typ dostępu i zasad, które są mapowane do użytkownika.
     
-    b. Polecenie **tworzenia użytkownika** przycisk w prawym dolnym rogu do utworzenia użytkownika.
+    b. Aby utworzyć użytkownika, wybierz **tworzenia użytkownika** przycisk w prawym dolnym rogu, aby utworzyć użytkownika.
 
-30. Pobieranie poświadczeń użytkownika, wykonując następujące kroki:
+30. Pobieranie poświadczeń użytkownika, wykonując następujące czynności:
 
     ![Dodawanie użytkownika](./media/active-directory-saas-amazon-web-service-tutorial/adduser4.png)
     
     a. Skopiuj użytkownika **dostępu Identyfikatora klucza** i **klucza tajnego dostępu**.
     
-    b. Wprowadź te poświadczenia do usługi Azure AD aprowizacji użytkowników sekcji można pobrać ról za pomocą konsoli usług AWS.
+    b. Wprowadź te poświadczenia do użytkownika usługi Azure AD inicjowania obsługi sekcji można pobrać ról z poziomu konsoli usługi Amazon Web Services (AWS).
     
-    d. Polecenie **Zamknij** znajdujący się u dołu.
+    c. Wybierz **Zamknij** przycisk w prawym dolnym rogu.
 
-31. Przejdź do **Inicjowanie obsługi użytkowników** części aplikacji usług Amazon Web Services w portalu zarządzania usługi Azure AD.
+31. Przejdź do **Inicjowanie obsługi użytkowników** części aplikacji Amazon Web Services (AWS) w portalu zarządzania usługi Azure AD.
 
     ![Dodawanie użytkownika](./media/active-directory-saas-amazon-web-service-tutorial/provisioning.png)
 
@@ -338,20 +338,20 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Dodawanie użytkownika](./media/active-directory-saas-amazon-web-service-tutorial/provisioning1.png)
     
-    a. Wprowadź klucz dostępu użytkownika usług AWS w **clientsecret** pola.
+    a. Wprowadź klucz dostępu użytkownika Amazon Web Services (AWS) w **clientsecret** pola.
     
-    b. Wprowadź hasło użytkownika usług AWS w **klucz tajny tokenu** pola.
+    b. Wprowadź hasło użytkownika usługi Amazon Web Services (AWS) w **klucz tajny tokenu** pola.
     
-    d. Polecenie **Testuj połączenie** button powinien mógł pomyślnie przetestować tego połączenia.
+    c. Wybierz **Testuj połączenie** przycisku. Należy mógł pomyślnie przetestować tego połączenia.
 
-    d. Zapisz ustawienia, klikając **zapisać** na górze.
+    d. Zapisz ustawienia, wybierając **zapisać** na górze.
  
-33. Teraz upewnij się, że włączyć stan inicjowania obsługi administracyjnej **na** w sekcji Ustawienia wprowadzanie na przełącznik, a następnie klikając pozycję na **zapisać** na górze.
+33. Upewnij się, że włączenie stan inicjowania obsługi administracyjnej **na** w **ustawienia**. Aby to zrobić, wybierając **na**, a następnie wybierając **zapisać** na górze.
 
     ![Dodawanie użytkownika](./media/active-directory-saas-amazon-web-service-tutorial/provisioning2.png)
 
 > [!TIP]
-> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com) podczas konfigurowania aplikacji. Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** zaznacz **rejestracji jednokrotnej** kartę. Dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Możesz przeczytać dodatkowe informacje o funkcji dokumentacji osadzony w [usługi Azure AD osadzonych dokumentacji]( https://go.microsoft.com/fwlink/?linkid=845985).
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
@@ -360,21 +360,21 @@ Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie 
 
    ![Tworzenie użytkownika testowego usługi Azure AD][100]
 
-**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
+**Aby utworzyć użytkownika testowego w usłudze Azure AD, należy wykonać następujące czynności:**
 
-1. W portalu Azure, w okienku po lewej stronie kliknij **usługi Azure Active Directory** przycisku.
+1. W portalu Azure, w lewym okienku wybierz **usługi Azure Active Directory** przycisku.
 
     ![Przycisk usługi Azure Active Directory](./media/active-directory-saas-amazon-web-service-tutorial/create_aaduser_01.png)
 
-2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup**, a następnie kliknij przycisk **wszyscy użytkownicy**.
+2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup**. Następnie wybierz **wszyscy użytkownicy**.
 
     !["Użytkownicy i grupy" i "Wszyscy użytkownicy" łącza](./media/active-directory-saas-amazon-web-service-tutorial/create_aaduser_02.png)
 
-3. Aby otworzyć **użytkownika** okno dialogowe, kliknij przycisk **Dodaj** w górnej części **wszyscy użytkownicy** okno dialogowe.
+3. Aby otworzyć **użytkownika** okno dialogowe, wybierz opcję **Dodaj** w górnej części **wszyscy użytkownicy** okno dialogowe.
 
     ![Przycisk Dodaj](./media/active-directory-saas-amazon-web-service-tutorial/create_aaduser_03.png)
 
-4. W **użytkownika** okna dialogowego wykonaj następujące czynności:
+4. W **użytkownika** okna dialogowego należy wykonać następujące czynności:
 
     ![Okno dialogowe użytkownika](./media/active-directory-saas-amazon-web-service-tutorial/create_aaduser_04.png)
 
@@ -382,54 +382,53 @@ Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie 
 
     b. W **nazwy użytkownika** wpisz adres e-mail użytkownika Simona Britta.
 
-    d. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartość, która jest wyświetlana w **hasło** pole.
+    c. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartość, która jest wyświetlana w **hasło** pole.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Wybierz pozycję **Utwórz**.
  
 ### <a name="create-an-amazon-web-services-aws-test-user"></a>Tworzenie użytkownika testowego Amazon Web Services (AWS)
 
-Celem tej sekcji jest utworzenie użytkownika o nazwie Simona Britta w Amazon Web Services (AWS). Amazon Web Services (AWS) nie wymaga od użytkownika mogą być tworzone w systemie dla logowania jednokrotnego, więc nie trzeba wykonywać żadnych czynności w tym miejscu.
+Celem tej sekcji jest utworzenie użytkownika o nazwie Simona Britta w Amazon Web Services (AWS). Amazon Web Services (AWS) nie musi użytkownika mogą być tworzone w swoim systemie single-sign-on, więc nie trzeba wykonywać żadnych czynności w tym miejscu.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisz użytkownika testowego usługi Azure AD
 
-W tej sekcji musisz włączyć Simona Britta do użycia usługi Azure logowania jednokrotnego za udzielanie dostępu do usług sieci Web firmy Amazon (AWS).
+W tej sekcji można włączyć Simona Britta do przyznania im dostępu do usług sieci Web firmy Amazon (AWS) za pomocą usługi Azure rejestracji jednokrotnej.
 
 ![Przypisanie roli użytkownika][200] 
 
-**Aby przypisać Simona Britta do Amazon Web Services (AWS), wykonaj następujące czynności:**
+**Aby przypisać Simona Britta do Amazon Web Services (AWS), należy wykonać następujące czynności:**
 
-1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
+1. W portalu Azure Otwórz widok aplikacji. Następnie przejdź do widoku katalogu i wybierz **aplikacje dla przedsiębiorstw**. Następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Przypisz użytkownika][201] 
 
-2. Na liście aplikacji zaznacz **Amazon Web Services (AWS)**.
+2. Na liście aplikacji zaznacz **usług Amazon Web Services (usługi Amazon Web Services (AWS)**.
 
     ![Łącze Amazon Web Services (AWS) na liście aplikacji](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_app.png)  
 
-3. W menu po lewej stronie kliknij **użytkowników i grup**.
+3. W menu po lewej stronie wybierz **użytkowników i grup**.
 
     ![Łącze "Użytkownicy i grupy"][202]
 
-4. Kliknij przycisk **Dodaj** przycisku. Następnie wybierz **użytkowników i grup** na **Dodaj przydziału** okna dialogowego.
+4. Wybierz **Dodaj** przycisku. Następnie w **Dodaj przydziału** okno dialogowe, wybierz opcję **użytkowników i grup**.
 
     ![W okienku Dodaj przydziału][203]
 
-5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
+5. W **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
 
-6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
+6. W **użytkowników i grup** okno dialogowe, kliknij przycisk **wybierz** przycisku. 
 
-7. Kliknij przycisk **przypisać** znajdującego się na **Dodaj przydziału** okna dialogowego.
+7. W **Dodaj przydziału** okno dialogowe, wybierz opcję **przypisać** przycisku.
     
 ### <a name="test-single-sign-on"></a>Test rejestracji jednokrotnej
 
 W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.
 
-Po kliknięciu kafelka Amazon Web Services (AWS) w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do aplikacji usługi sieci Web firmy Amazon (AWS).
-Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md). 
+Po wybraniu kafelka Amazon Web Services (AWS) w panelu dostępu należy należy pobrać automatycznie zalogowany do aplikacji usługi sieci Web firmy Amazon (AWS). Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
-* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

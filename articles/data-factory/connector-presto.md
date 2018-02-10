@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2017
 ms.author: jingwang
-ms.openlocfilehash: 440a644e0b43fd42a446ec3e1a6a8d32a0b247cd
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 713826f890f6fb37a1e231d84e7e3c3b149dd58a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-presto-using-azure-data-factory-beta"></a>Kopiowanie danych z Presto przy użyciu fabryki danych Azure (wersja Beta)
 
@@ -54,7 +54,7 @@ Obsługiwane są następujące właściwości dla Presto połączonej usługi:
 | port | Port TCP używany przez serwer Presto nasłuchiwanie dla połączeń klienta. Wartość domyślna to 8080.  | Nie |
 | authenticationType | Mechanizm uwierzytelniania używany do łączenia się z serwerem Presto. <br/>Dozwolone wartości to: **anonimowe**, **LDAP** | Yes |
 | nazwa użytkownika | Nazwa użytkownika używana do łączenia się z serwerem Presto.  | Nie |
-| hasło | Hasło odpowiadający nazwie użytkownika. Można wybrać opcję Oznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w ADF lub przechowywania haseł w usłudze Azure Key Vault i umożliwić działanie kopiowania ściągnięcia stamtąd podczas wykonywania kopii danych — Dowiedz się więcej o [przechowywania poświadczeń w magazynie kluczy](store-credentials-in-key-vault.md). | Nie |
+| hasło | Hasło odpowiadający nazwie użytkownika. Zaznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w fabryce danych lub [odwołania klucz tajny przechowywane w usłudze Azure Key Vault](store-credentials-in-key-vault.md). | Nie |
 | enableSsl | Określa, czy połączenia z serwerem są szyfrowane przy użyciu protokołu SSL. Wartość domyślna to false.  | Nie |
 | trustedCertPath | Pełna ścieżka pliku PEM, zawierająca zaufane certyfikaty urzędu certyfikacji do weryfikowania serwera podczas nawiązywania połączenia za pośrednictwem protokołu SSL. Tej właściwości można ustawić tylko w przypadku korzystania z protokołu SSL na siebie IR. Wartość domyślna to plik cacerts.pem zainstalowane z IR.  | Nie |
 | useSystemTrustStore | Określa, czy ma być używany certyfikat urzędu certyfikacji z magazynu zaufania systemu lub z określonego pliku PEM. Wartość domyślna to false.  | Nie |

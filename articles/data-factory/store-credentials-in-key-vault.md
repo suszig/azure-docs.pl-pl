@@ -10,19 +10,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 02/07/2017
 ms.author: jingwang
-ms.openlocfilehash: 145c2bc0556010389e78e523fde6fd4b9063f930
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 42643c73368597d1caea4aba12bc7b64b7440970
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Przechowywania poświadczeń w usłudze Azure Key Vault
 
 Można zapisać poświadczeń magazyny danych w [usługi Azure Key Vault](../key-vault/key-vault-whatis.md). Fabryka danych Azure pobiera poświadczeń podczas wykonywania działania, który używa magazynu danych.
 
-Obecnie [łącznika Dynamics](connector-dynamics-crm-office-365.md), [łącznika usług Salesforce](connector-salesforce.md) i kilka nowo włączyć obsługę łączniki tej funkcji. Oczekiwany więcej przesyłanych później. Możesz sprawdzić każdego tematu łącznika na szczegóły. Dla pola tajne, które obsługują tę funkcję, zobaczysz notatki w zawierający opis komunikat "*można Oznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w ADF, lub przechowywanie haseł w usługa Azure Key Vault oraz umożliwić ściągania działaniach kopiowania z tego miejsca Podczas wykonywania kopii danych — Dowiedz się więcej z magazynu poświadczeń w magazynie kluczy.* "
+Działanie kopiowania ze wszystkimi typami łączników obsługuje obecnie, ta funkcja — Sprawdź sekcję "połączone właściwości usługi" w [każdego tematu łącznika](copy-activity-overview.md#supported-data-stores-and-formats) szczegółowe informacje. Obsługę innych typów działań i obliczeniowe połączonej usługi będą później.
 
 > [!NOTE]
 > Ten artykuł dotyczy wersji 2 usługi Data Factory, która jest obecnie dostępna w wersji zapoznawczej. Jeśli używasz wersji 1 usługi fabryka danych, która jest ogólnie dostępna (GA), zobacz [dokumentacji dla fabryki danych version1](v1/data-factory-introduction.md).
@@ -35,10 +35,10 @@ Ta funkcja opiera się na tożsamości usługi fabryka danych. Dowiedz się, jak
 
 Aby odwołać poświadczenia przechowywane w usłudze Azure Key Vault, musisz:
 
-1. [Pobieranie tożsamości usługi fabryka danych](data-factory-service-identity.md#retrieve-service-identity) przez skopiowanie wartości "Usługa tożsamości aplikacji Identyfikatora" generowane wraz z fabryką.
-2. Udzielać dostępu tożsamości usługi Magazyn kluczy Azure. W magazynie kluczy, -> dostępu sterowania -> Dodaj -> wyszukiwania IDENTYFIKATORA aplikacji tożsamości usługi do dodania co najmniej **czytnika** uprawnienia. Umożliwia to wyznaczonych fabryki klucza tajnego w magazynie kluczy dostępu do.
-3. Tworzenie połączonej usługi wskazujący magazyn kluczy Azure. Zapoznaj się [usługi Azure Key Vault połączona usługa](#azure-key-vault-linked-service).
-4. Tworzenie usługi magazynu połączone danych, w których odwołanie magazynu odpowiadający mu klucz tajny przechowywanych w. Zapoznaj się [odwołania poświadczeń przechowywanych w magazynie kluczy](#reference-credential-stored-in-key-vault).
+1. **[Pobieranie tożsamości usługi fabryka danych](data-factory-service-identity.md#retrieve-service-identity)**  przez skopiowanie wartości "Usługa tożsamości aplikacji Identyfikatora" generowane wraz z fabryką.
+2. **Udzielać dostępu tożsamości usługi Magazyn kluczy Azure.** W magazynie kluczy, -> zasady -> dostępu Dodaj nowy -> wyszukiwania IDENTYFIKATORA aplikacji tożsamości usługi przyznania **uzyskać** uprawnień w listy rozwijanej tajny uprawnienia. Umożliwia to wyznaczonych fabryki klucza tajnego w magazynie kluczy dostępu do.
+3. **Tworzenie połączonej usługi wskazujący magazyn kluczy Azure.** Zapoznaj się [usługi Azure Key Vault połączona usługa](#azure-key-vault-linked-service).
+4. **Tworzenie usługi magazynu połączone danych, w których odwołanie magazynu odpowiadający mu klucz tajny przechowywanych w.** Zapoznaj się [odwołanie klucza tajnego przechowywane w magazynie kluczy](#reference-secret-stored-in-key-vault).
 
 ## <a name="azure-key-vault-linked-service"></a>Usługa Azure Key Vault połączone
 
@@ -46,8 +46,8 @@ Obsługiwane są następujące właściwości dla usługi Azure Key Vault połą
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość type musi mieć ustawioną: **AzureKeyVault**. | Tak |
-| BaseUrl | Podaj adres URL magazynu kluczy Azure. | Tak |
+| type | Właściwość type musi mieć ustawioną: **AzureKeyVault**. | Yes |
+| baseUrl | Podaj adres URL magazynu kluczy Azure. | Yes |
 
 **Przykład:**
 
@@ -63,16 +63,16 @@ Obsługiwane są następujące właściwości dla usługi Azure Key Vault połą
 }
 ```
 
-## <a name="reference-credential-stored-in-key-vault"></a>Odwołanie poświadczeń przechowywanych w magazynie kluczy
+## <a name="reference-secret-stored-in-key-vault"></a>Klucz tajny odwołanie przechowywane w magazynie kluczy
 
 Po skonfigurowaniu pola w połączonej usłudze odwołujące się do magazynu kluczy klucz tajny, obsługiwane są następujące właściwości:
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość Typ pola: **AzureKeyVaultSecret**. | Tak |
-| secretName | Nazwa klucza tajnego w magazynie kluczy azure. | Tak |
+| type | Musi mieć ustawioną właściwość Typ pola: **AzureKeyVaultSecret**. | Yes |
+| secretName | Nazwa klucza tajnego w magazynie kluczy azure. | Yes |
 | secretVersion | Wersja klucza tajnego w magazynie kluczy azure.<br/>Jeśli nie zostanie określony, zawsze używa najnowszą wersję klucza tajnego.<br/>Jeśli zostanie określona, następnie go systemu danej wersji.| Nie |
-| sklep | Odwołuje się do usługi Azure Key Vault połączone, które służy do przechowywania poświadczeń. | Tak |
+| sklep | Odwołuje się do usługi Azure Key Vault połączone, które służy do przechowywania poświadczeń. | Yes |
 
 **Przykład: (zobacz sekcję "password")**
 
@@ -99,5 +99,5 @@ Po skonfigurowaniu pola w połączonej usłudze odwołujące się do magazynu kl
 }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Lista magazynów danych obsługiwane jako źródła i wychwytywanie przez działanie kopiowania w fabryce danych Azure, zobacz [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -52,7 +52,7 @@ Następujące limity mają zastosowanie tylko w przypadku zasobów sieciowych za
 | Zasady dla zasobów, Basic | 150 | 250 |
 | Reguły w poszczególnych zasobów i Standard | 1250 | 1500 |
 | Zasady na konfigurację adresu IP | 299 |299 |
-| Konfiguracje adresów IP frontonu, Basic | 10 | kontakt z pomocą techniczną |
+| Konfiguracje adresów IP frontonu, Basic | 10 | 200 |
 | Konfiguracje adresów IP frontonu, Standard | 10 | 600 |
 | Puli zaplecza, Basic | 100, pojedynczy zestaw dostępności | - |
 | Puli zaplecza, Standard | 1000, pojedynczy sieci wirtualnej | - |

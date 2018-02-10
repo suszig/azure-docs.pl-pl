@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: f9872ee033d8c0bed215f8b37d64395e5dcd534c
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: ed06b869f1c8fb98d8b70693723b1a0fee3605fc
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="api-management-access-restriction-policies"></a>Zasady ograniczeń dostępu do interfejsu API zarządzania
 W tym temacie znajdują się informacje na następujące zasady usługi API Management. Aby uzyskać informacje dotyczące dodawania i konfigurowania zasad, zobacz [zasad w usłudze API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -55,19 +55,19 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
   
 ### <a name="elements"></a>Elementy  
   
-|Nazwa|Opis|Wymagane|  
+|Name (Nazwa)|Opis|Wymagane|  
 |----------|-----------------|--------------|  
-|Sprawdź — nagłówek|Element główny.|Tak|  
+|check-header|Element główny.|Yes|  
 |wartość|Dozwolone wartości nagłówka HTTP. Jeśli wiele elementów wartości są określone, sprawdzania jest uznawany sukcesu, jeśli jedna z wartości jest dopasowanie.|Nie|  
   
 ### <a name="attributes"></a>Atrybuty  
   
-|Nazwa|Opis|Wymagane|Domyślne|  
+|Name (Nazwa)|Opis|Wymagane|Domyślne|  
 |----------|-----------------|--------------|-------------|  
-|nie powiodło się wyboru komunikatów o błędach|Komunikat o błędzie zwracany w treści odpowiedzi HTTP, jeśli nagłówek nie istnieje lub ma nieprawidłową wartość. Ta wiadomość musi mieć żadnych znaków specjalnych prawidłowo wpisywany.|Tak|Nie dotyczy|  
-|nie powiodło się wyboru httpcode|Kod stanu HTTP do zwrócenia, jeśli nagłówek nie istnieje lub ma nieprawidłową wartość.|Tak|Nie dotyczy|  
-|Nazwa nagłówka|Nazwa nagłówka HTTP do sprawdzenia.|Tak|Nie dotyczy|  
-|Ignoruj case|Można ustawić na wartość True lub False. Jeśli jest ustawiona na True przypadek jest ignorowane w przypadku wartość nagłówka jest porównywana zbiór dopuszczalnych wartości.|Tak|Nie dotyczy|  
+|nie powiodło się wyboru komunikatów o błędach|Komunikat o błędzie zwracany w treści odpowiedzi HTTP, jeśli nagłówek nie istnieje lub ma nieprawidłową wartość. Ta wiadomość musi mieć żadnych znaków specjalnych prawidłowo wpisywany.|Yes|ND|  
+|nie powiodło się wyboru httpcode|Kod stanu HTTP do zwrócenia, jeśli nagłówek nie istnieje lub ma nieprawidłową wartość.|Yes|ND|  
+|header-name|Nazwa nagłówka HTTP do sprawdzenia.|Yes|ND|  
+|Ignoruj case|Można ustawić na wartość True lub False. Jeśli jest ustawiona na True przypadek jest ignorowane w przypadku wartość nagłówka jest porównywana zbiór dopuszczalnych wartości.|Yes|ND|  
   
 ### <a name="usage"></a>Sposób użycia  
  Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -110,19 +110,19 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
   
 ### <a name="elements"></a>Elementy  
   
-|Nazwa|Opis|Wymagane|  
+|Name (Nazwa)|Opis|Wymagane|  
 |----------|-----------------|--------------|  
-|Ustaw limit|Element główny.|Tak|  
+|set-limit|Element główny.|Yes|  
 |api|Dodaj co najmniej jeden z tych elementów do narzuca ograniczenia szybkości wywołania interfejsów API w obrębie produktu. Produktu i interfejsu API wywołać szybkość, z jaką ograniczenia są stosowane niezależnie.|Nie|  
 |Operacja|Dodaj co najmniej jeden z tych elementów do narzuca ograniczenia szybkości wywołania operacji w obrębie interfejsu API. Produkt, interfejsu API i operacji należy wywołać szybkość, z jaką ograniczenia są stosowane niezależnie.|Nie|  
   
 ### <a name="attributes"></a>Atrybuty  
   
-|Nazwa|Opis|Wymagane|Domyślne|  
+|Name (Nazwa)|Opis|Wymagane|Domyślne|  
 |----------|-----------------|--------------|-------------|  
-|name|Nazwa interfejsu API, do których chcesz zastosować limit szybkości.|Tak|Nie dotyczy|  
-|wywołania|Maksymalna liczba połączeń dozwolona określona w interwale `renewal-period`.|Tak|Nie dotyczy|  
-|okres odnawiania|Okres czasu w sekundach, po których resetuje limit przydziału.|Tak|Nie dotyczy|  
+|name|Nazwa interfejsu API, do których chcesz zastosować limit szybkości.|Yes|ND|  
+|wywołania|Maksymalna liczba połączeń dozwolona określona w interwale `renewal-period`.|Yes|ND|  
+|okres odnawiania|Okres czasu w sekundach, po których resetuje limit przydziału.|Yes|ND|  
   
 ### <a name="usage"></a>Sposób użycia  
  Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -169,18 +169,18 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
   
 ### <a name="elements"></a>Elementy  
   
-|Nazwa|Opis|Wymagane|  
+|Name (Nazwa)|Opis|Wymagane|  
 |----------|-----------------|--------------|  
-|Ustaw limit|Element główny.|Tak|  
+|set-limit|Element główny.|Yes|  
   
 ### <a name="attributes"></a>Atrybuty  
   
-|Nazwa|Opis|Wymagane|Domyślne|  
+|Name (Nazwa)|Opis|Wymagane|Domyślne|  
 |----------|-----------------|--------------|-------------|  
-|wywołania|Maksymalna liczba połączeń dozwolona określona w interwale `renewal-period`.|Tak|Nie dotyczy|  
-|klucz liczników|Klucz do użycia zasad limitu szybkości.|Tak|Nie dotyczy|  
-|Stan przyrostowy|Wyrażenie warunkowe określenie, czy żądanie powinno być liczone kierunku przydział (`true`).|Nie|Nie dotyczy|  
-|okres odnawiania|Okres czasu w sekundach, po których resetuje limit przydziału.|Tak|Nie dotyczy|  
+|wywołania|Maksymalna liczba połączeń dozwolona określona w interwale `renewal-period`.|Yes|ND|  
+|klucz liczników|Klucz do użycia zasad limitu szybkości.|Yes|ND|  
+|Stan przyrostowy|Wyrażenie warunkowe określenie, czy żądanie powinno być liczone kierunku przydział (`true`).|Nie|ND|  
+|okres odnawiania|Okres czasu w sekundach, po których resetuje limit przydziału.|Yes|ND|  
   
 ### <a name="usage"></a>Sposób użycia  
  Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -212,18 +212,18 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
   
 ### <a name="elements"></a>Elementy  
   
-|Nazwa|Opis|Wymagane|  
+|Name (Nazwa)|Opis|Wymagane|  
 |----------|-----------------|--------------|  
-|Filtr IP|Element główny.|Tak|  
+|ip-filter|Element główny.|Yes|  
 |Adres|Określa pojedynczy adres IP, na których chcesz filtrować.|Co najmniej jeden `address` lub `address-range` element jest wymagany.|  
 |zakres adresów z = "address" Aby = "address"|Określa adres zakresu adresów IP, na których chcesz filtrować.|Co najmniej jeden `address` lub `address-range` element jest wymagany.|  
   
 ### <a name="attributes"></a>Atrybuty  
   
-|Nazwa|Opis|Wymagane|Domyślne|  
+|Name (Nazwa)|Opis|Wymagane|Domyślne|  
 |----------|-----------------|--------------|-------------|  
-|zakres adresów z = "address" Aby = "address"|Zakres adresów IP, aby zezwolić lub odmówić dostępu.|Wymagany, gdy `address-range` element jest używany.|Nie dotyczy|  
-|Filtr IP akcji = "Zezwalaj na &#124; zabraniać"|Określa, czy powinno być dozwolone wywołania nie dla określonych adresów IP i zakresów.|Tak|Nie dotyczy|  
+|zakres adresów z = "address" Aby = "address"|Zakres adresów IP, aby zezwolić lub odmówić dostępu.|Wymagany, gdy `address-range` element jest używany.|ND|  
+|Filtr IP akcji = "Zezwalaj na &#124; zabraniać"|Określa, czy powinno być dozwolone wywołania nie dla określonych adresów IP i zakresów.|Yes|ND|  
   
 ### <a name="usage"></a>Sposób użycia  
  Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -265,20 +265,20 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
   
 ### <a name="elements"></a>Elementy  
   
-|Nazwa|Opis|Wymagane|  
+|Name (Nazwa)|Opis|Wymagane|  
 |----------|-----------------|--------------|  
-|limit przydziału|Element główny.|Tak|  
+|quota|Element główny.|Yes|  
 |api|Dodaj co najmniej jeden z tych elementów do nakładają limit przydziału na interfejsy API w obrębie produktu. Przydziały produktu i interfejsu API są stosowane niezależnie.|Nie|  
 |Operacja|Dodaj co najmniej jeden z tych elementów do nakładają limit przydziału na operacje w interfejsie API. Przydziały produktu, interfejsu API i operacji są stosowane niezależnie.|Nie|  
   
 ### <a name="attributes"></a>Atrybuty  
   
-|Nazwa|Opis|Wymagane|Domyślne|  
+|Name (Nazwa)|Opis|Wymagane|Domyślne|  
 |----------|-----------------|--------------|-------------|  
-|name|Nazwa interfejsu API lub operacji, którego dotyczy limitu przydziału.|Tak|Nie dotyczy|  
-|Przepustowość|Maksymalna liczba kilobajtów dozwolone określona w interwale `renewal-period`.|Albo `calls`, `bandwidth`, lub razem muszą być jednocześnie określone.|Nie dotyczy|  
-|wywołania|Maksymalna liczba połączeń dozwolona określona w interwale `renewal-period`.|Albo `calls`, `bandwidth`, lub razem muszą być jednocześnie określone.|Nie dotyczy|  
-|okres odnawiania|Okres czasu w sekundach, po których resetuje limit przydziału.|Tak|Nie dotyczy|  
+|name|Nazwa interfejsu API lub operacji, którego dotyczy limitu przydziału.|Yes|ND|  
+|bandwidth|Maksymalna liczba kilobajtów dozwolone określona w interwale `renewal-period`.|Albo `calls`, `bandwidth`, lub razem muszą być jednocześnie określone.|ND|  
+|wywołania|Maksymalna liczba połączeń dozwolona określona w interwale `renewal-period`.|Albo `calls`, `bandwidth`, lub razem muszą być jednocześnie określone.|ND|  
+|okres odnawiania|Okres czasu w sekundach, po których resetuje limit przydziału.|Yes|ND|  
   
 ### <a name="usage"></a>Sposób użycia  
  Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -326,19 +326,19 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
   
 ### <a name="elements"></a>Elementy  
   
-|Nazwa|Opis|Wymagane|  
+|Name (Nazwa)|Opis|Wymagane|  
 |----------|-----------------|--------------|  
-|limit przydziału|Element główny.|Tak|  
+|quota|Element główny.|Yes|  
   
 ### <a name="attributes"></a>Atrybuty  
   
-|Nazwa|Opis|Wymagane|Domyślne|  
+|Name (Nazwa)|Opis|Wymagane|Domyślne|  
 |----------|-----------------|--------------|-------------|  
-|Przepustowość|Maksymalna liczba kilobajtów dozwolone określona w interwale `renewal-period`.|Albo `calls`, `bandwidth`, lub razem muszą być jednocześnie określone.|Nie dotyczy|  
-|wywołania|Maksymalna liczba połączeń dozwolona określona w interwale `renewal-period`.|Albo `calls`, `bandwidth`, lub razem muszą być jednocześnie określone.|Nie dotyczy|  
-|klucz liczników|Klucz do użycia zasad przydziału.|Tak|Nie dotyczy|  
-|Stan przyrostowy|Wyrażenie warunkowe określenie, czy żądanie powinno być liczone kierunku przydział (`true`)|Nie|Nie dotyczy|  
-|okres odnawiania|Okres czasu w sekundach, po których resetuje limit przydziału.|Tak|Nie dotyczy|  
+|bandwidth|Maksymalna liczba kilobajtów dozwolone określona w interwale `renewal-period`.|Albo `calls`, `bandwidth`, lub razem muszą być jednocześnie określone.|ND|  
+|wywołania|Maksymalna liczba połączeń dozwolona określona w interwale `renewal-period`.|Albo `calls`, `bandwidth`, lub razem muszą być jednocześnie określone.|ND|  
+|klucz liczników|Klucz do użycia zasad przydziału.|Yes|ND|  
+|Stan przyrostowy|Wyrażenie warunkowe określenie, czy żądanie powinno być liczone kierunku przydział (`true`)|Nie|ND|  
+|okres odnawiania|Okres czasu w sekundach, po których resetuje limit przydziału.|Yes|ND|  
   
 ### <a name="usage"></a>Sposób użycia  
  Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -485,30 +485,30 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
   
 |Element|Opis|Wymagane|  
 |-------------|-----------------|--------------|  
-|Sprawdź poprawność jwt|Element główny.|Tak|  
+|validate-jwt|Element główny.|Yes|  
 |grupy odbiorców|Zawiera listę oświadczeń dopuszczalne odbiorców, które mogą być obecne w tokenie. Jeśli wiele wartości odbiorców są obecne, a następnie sprawdzane są poszczególne wartości do momentu wszystkie wyczerpania (w takim przypadku niepowodzenia weryfikacji) lub aż do znalezienia właściwego konta. Należy określić co najmniej jednego odbiorcy.|Nie|  
 |podpisywania klucze wystawcy|Lista kluczy algorytmem Base64 zabezpieczeń używany do weryfikowania podpisanych tokenów. Jeśli wiele kluczy zabezpieczeń są obecne, a następnie sprawdzane są poszczególne klucze do momentu wszystkie wyczerpania (w takim przypadku niepowodzenia weryfikacji) lub do chwili pomyślnego jedną (przydatne w przypadku przerzucania token). Kluczowe elementy mają opcjonalny `id` atrybut używany do dopasowywania `kid` oświadczeń.|Nie|  
 |wystawcy|Lista dopuszczalne podmiotów zabezpieczeń, które wystawiony token. Jeśli występują wiele wartości wystawcy, a następnie sprawdzane są poszczególne wartości do momentu wszystkie wyczerpania (w takim przypadku niepowodzenia weryfikacji) lub aż do znalezienia właściwego konta.|Nie|  
-|Konfiguracja protokołu openid|Element używany do określania zgodne endpoint konfiguracji Open ID, z którego podpisywania kluczy i wystawcy można uzyskać.|Nie|  
+|openid-config|Element używany do określania zgodne endpoint konfiguracji Open ID, z którego podpisywania kluczy i wystawcy można uzyskać.|Nie|  
 |wymagane oświadczenia|Zawiera listę oświadczeń powinien znajdować się na token, aby były uważane za prawidłowe. Gdy `match` atrybut ma ustawioną `all` każdej wartości oświadczeń w zasadzie musi znajdować się w tokenem Weryfikacja powiodła się. Gdy `match` atrybut ma ustawioną `any` co najmniej jedno oświadczenie musi być obecny w tokenie Weryfikacja powiodła się.|Nie|  
 |zumo głównego klucza|Klucz główny dla tokenów wystawionych przez usługi Azure Mobile Services|Nie|  
   
 ### <a name="attributes"></a>Atrybuty  
   
-|Nazwa|Opis|Wymagane|Domyślne|  
+|Name (Nazwa)|Opis|Wymagane|Domyślne|  
 |----------|-----------------|--------------|-------------|  
-|niedokładność zegara|Zakres czasu. Zawiera niektóre małych swobodę w przypadku oświadczeń wygaśnięcia tokenu jest obecny w tokenie i jest poza bieżącą datę / godzinę.|Nie|0 sekund|  
+|niedokładność zegara|Zakres czasu. Umożliwia określenie maksymalna oczekiwana różnica czasu między zegarami systemowymi wystawcy tokenów i wystąpienia interfejsu API zarządzania.|Nie|0 sekund|  
 |nie powiodło się weryfikacji komunikatów o błędach|Komunikat o błędzie do zwrócenia w treści odpowiedzi HTTP, jeśli token JWT nie przeszedł pomyślnie weryfikacji. Ta wiadomość musi mieć żadnych znaków specjalnych prawidłowo wpisywany.|Nie|Domyślnego komunikatu o błędzie jest zależny od weryfikacji problem, na przykład "token JWT nie istnieje."|  
 |nie powiodło się weryfikacji httpcode|Kod stanu HTTP do zwrócenia, jeśli token JWT nie przeszedł pomyślnie weryfikacji.|Nie|401|  
-|Nazwa nagłówka|Nazwa nagłówka HTTP zawierający token.|Albo `header-name` lub `query-paremeter-name` musi być określony; ale nie oba.|Nie dotyczy|  
-|id|`id` Atrybutu `key` element umożliwia określenie ciąg, który będzie dopasowywane `kid` oświadczenia w tokenie (jeśli istnieje) dowiedzieć się, odpowiedni klucz do użycia w celu weryfikacji podpisu.|Nie|Nie dotyczy|  
+|header-name|Nazwa nagłówka HTTP zawierający token.|Albo `header-name` lub `query-paremeter-name` musi być określony; ale nie oba.|ND|  
+|id|`id` Atrybutu `key` element umożliwia określenie ciąg, który będzie dopasowywane `kid` oświadczenia w tokenie (jeśli istnieje) dowiedzieć się, odpowiedni klucz do użycia w celu weryfikacji podpisu.|Nie|ND|  
 |dopasowanie|`match` Atrybutu `claim` element określa, czy każda wartość oświadczenia w zasadach musi być obecny w tokenie Weryfikacja powiodła się. Możliwe wartości:<br /><br /> -                          `all`-każdej wartości oświadczeń w zasadzie musi znajdować się w tokenem Weryfikacja powiodła się.<br /><br /> -                          `any`— wartość co najmniej jedno oświadczenie musi być obecny w tokenie Weryfikacja powiodła się.|Nie|all|  
-|Nazwa zapytania — paremeter|Nazwa parametru zapytania zawierający token.|Albo `header-name` lub `query-paremeter-name` musi być określony; ale nie oba.|Nie dotyczy|  
-|Wymagaj — wygasa|Wartość logiczna. Określa, czy oświadczenie wygaśnięcia jest wymagany w tokenie.|Nie|prawda|
-|Wymagaj schematu|Nazwa tokenu schemat, np. "Bearer". Gdy tego atrybutu jest ustawiona, zasady zapewni określony schemat jest obecny w wartość nagłówka uwierzytelnienia.|Nie|Nie dotyczy|
-|Wymagaj podpisany — tokeny|Wartość logiczna. Określa, czy token jest wymagany do podpisania.|Nie|prawda|  
-|Separator|Ciąg. Określa separatora (np. ",") do zastosowania w przypadku wyodrębniania zestawu wartości z oświadczeń wielowartościowych.|Nie|Nie dotyczy| 
-|adres url|Otwórz adres URL punktu końcowego konfiguracji identyfikator, z której można uzyskać metadanych konfiguracji Open ID. Dla usługi Azure Active Directory, użyj następującego adresu URL: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` podstawiając nazwa dzierżawy katalogu, np. `contoso.onmicrosoft.com`.|Tak|Nie dotyczy|  
+|Nazwa zapytania — paremeter|Nazwa parametru zapytania zawierający token.|Albo `header-name` lub `query-paremeter-name` musi być określony; ale nie oba.|ND|  
+|Wymagaj — wygasa|Boolean. Określa, czy oświadczenie wygaśnięcia jest wymagany w tokenie.|Nie|prawda|
+|Wymagaj schematu|Nazwa tokenu schemat, np. "Bearer". Gdy tego atrybutu jest ustawiona, zasady zapewni określony schemat jest obecny w wartość nagłówka uwierzytelnienia.|Nie|ND|
+|Wymagaj podpisany — tokeny|Boolean. Określa, czy token jest wymagany do podpisania.|Nie|prawda|  
+|Separator|Ciąg. Określa separatora (np. ",") do zastosowania w przypadku wyodrębniania zestawu wartości z oświadczeń wielowartościowych.|Nie|ND| 
+|adres url|Otwórz adres URL punktu końcowego konfiguracji identyfikator, z której można uzyskać metadanych konfiguracji Open ID. Dla usługi Azure Active Directory, użyj następującego adresu URL: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` podstawiając nazwa dzierżawy katalogu, np. `contoso.onmicrosoft.com`.|Yes|ND|  
   
 ### <a name="usage"></a>Sposób użycia  
  Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -516,7 +516,7 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
 -   **Sekcje zasad:** dla ruchu przychodzącego  
 -   **Zakresy zasad:** globalnych produktu interfejsu API, operacji  
   
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby uzyskać więcej informacji, Praca z zasad Zobacz:
 

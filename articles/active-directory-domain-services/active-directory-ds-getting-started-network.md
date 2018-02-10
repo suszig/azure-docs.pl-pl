@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 02/05/2018
 ms.author: maheshu
-ms.openlocfilehash: 680ffc41ab96d69153ef7039698bf9285ed6ce16
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7c84ac3318bbd63129b04711c62dc441b9d35285
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Włączanie usługi Azure Active Directory Domain Services przy użyciu portalu Azure
 
@@ -46,6 +46,9 @@ Następne zadanie konfiguracji to aby utworzyć sieć wirtualną platformy Azure
 
     ![Wybierz sieć wirtualną](./media/getting-started/domain-services-blade-network-pick-vnet.png)
 
+  > [!WARNING]
+  > Upewnij się, że wybierz przestrzeń adresów, która znajduje się w prywatnej przestrzeń adresów IP. Adresy IP, które nie ma, które znajdują się w przestrzeni adresów publicznych powodować błędy w ramach usług domenowych Azure AD.
+
 5. **Istniejącej sieci wirtualnej:** Jeśli planowane jest pobranie istniejącej sieci wirtualnej, [Utwórz dedykowane podsieć przy użyciu rozszerzenia sieci wirtualnych](../virtual-network/virtual-networks-create-vnet-arm-pportal.md), a następnie wybierz tej podsieci. Kliknij przycisk **sieci wirtualnej** do wybrania istniejącej sieci wirtualnej. Kliknij przycisk **podsieci** pobrania dedykowanych podsieci w istniejącej sieci wirtualnej, w którym można włączyć nowe domeny zarządzanej. Kliknij przycisk **OK** po zakończeniu.
 
     ![Wybierz podsieć w sieci wirtualnej](./media/getting-started/domain-services-blade-network-pick-subnet.png)
@@ -54,7 +57,7 @@ Następne zadanie konfiguracji to aby utworzyć sieć wirtualną platformy Azure
   > **Wskazówki dotyczące wybierania podsieci**
   > 1. Użyj dedykowanych podsieci dla usług domenowych Azure AD. Nie należy wdrażać innych maszyn wirtualnych do tej podsieci. Ta konfiguracja umożliwia konfigurowanie grup zabezpieczeń sieci (NSG) dla maszyn wirtualnych/obciążeń bez przerywania Twojej domeny zarządzanej. Aby uzyskać więcej informacji, zobacz [sieci zagadnienia dotyczące usługi Azure Active Directory Domain Services](active-directory-ds-networking.md).
   2. Nie zaznaczaj podsieci bramy do wdrażania usług domenowych Azure AD, ponieważ nie jest obsługiwana konfiguracja.
-  3. Upewnij się, że wybrane podsieci ma wystarczającą ilość miejsca dostępnego adresu — co najmniej 3 – 5 dostępnych adresów IP.
+  3. Upewnij się, czy wybrane podsieci ma wystarczającą ilość miejsca dostępnego adresu — przynajmniej 3 – 5 dostępnych adresów IP i istnieje w obszarze prywatnych adresów IP.
   >
 
 6. Gdy wszystko będzie gotowe, kliknij przycisk **OK** do przejścia do **grupy administratorów** stronie kreatora.

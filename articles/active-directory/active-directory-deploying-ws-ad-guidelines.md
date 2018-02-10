@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/26/2017
 ms.author: femila
-ms.openlocfilehash: 2c9b072551b467785dbb4aae02492ffae6cdb787
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2a6ac8d9c2f3694cf08357d6ccec874f7e076514
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="guidelines-for-deploying-windows-server-active-directory-on-azure-virtual-machines"></a>Wskazówki dotyczące wdrażania usługi Active Directory systemu Windows Server na maszynach wirtualnych Azure
 W tym artykule opisano istotne różnice między wdrażanie systemu Windows serwera usług domenowych Active Directory (AD DS) i Active Directory Federation Services (AD FS) lokalnie i wdrażania ich na maszynach wirtualnych Microsoft Azure.
@@ -433,7 +433,7 @@ Nie należy używać narzędzia SYSPREP do wdrożenia lub w klonowania kontroler
 Wybierz gdzie umieścić bazę danych systemu Windows Server AD DS, dzienników i folderu SYSVOL. Muszą one wdrożone na dyskach danych Azure.
 
 > [!NOTE]
-> Azure dyski danych są ograniczone do 1 TB.
+> Azure dyski danych są ograniczone do 4 TB.
 > 
 > 
 

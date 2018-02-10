@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/12/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 1ce1fc4c03130dfea4e79c89c25cf5a9004e4dc8
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: fd82d77e79f05a67f8e818095753b8dc22ccf314
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Informacje dotyczące ustawień dostępu warunkowego w usłudze Azure Active Directory
 
@@ -39,7 +39,7 @@ Jeśli nie jest to informacje, które użytkownik chce się dowiedzieć, zostaw 
 
 ## <a name="cloud-apps-assignments"></a>Przydziały aplikacji w chmurze
 
-Za pomocą zasad dostępu warunkowego, można kontrolować, jak użytkownicy uzyskują dostęp do Twojego [aplikacji w chmurze](active-directory-conditional-access-azure-portal.md#who). Po skonfigurowaniu zasad dostępu warunkowego, musisz wybrać co najmniej jednej aplikacji w chmurze. 
+Za pomocą zasad dostępu warunkowego, można kontrolować, jak użytkownicy uzyskują dostęp do Twojego [aplikacji w chmurze](active-directory-conditional-access-conditions.md#cloud-apps). Po skonfigurowaniu zasad dostępu warunkowego, musisz wybrać co najmniej jednej aplikacji w chmurze. 
 
 ![Wybierz zasady aplikacji w chmurze](./media/active-directory-conditional-access-technical-reference/09.png)
 
@@ -56,7 +56,7 @@ Zasady dostępu warunkowego można przypisać do następujących aplikacji w chm
 
 - Yammer pakietu Microsoft Office 365
 
-- Microsoft Office 365 usługi Exchange Online
+- Microsoft Office 365 Exchange Online
 
 - Microsoft Office 365 SharePoint Online (w tym usługi OneDrive dla firm i Project Online)
 
@@ -105,7 +105,7 @@ W zasadach dostępu warunkowego można skonfigurować warunek platformy urządze
 
 ## <a name="client-apps-condition"></a>Stan aplikacji klienta 
 
-W zasadach dostępu warunkowego, można skonfigurować [aplikacjach klienckich](active-directory-conditional-access-azure-portal.md#client-apps) warunku powiązać zasady aplikacji klienta, który zainicjował próba dostępu. Ustaw klienta warunku aplikacji, aby przydzielić lub blokowanie dostępu, gdy podejmowana jest próba dostępu z następujących typów aplikacji klienta:
+W zasadach dostępu warunkowego, można skonfigurować [aplikacjach klienckich](active-directory-conditional-access-conditions.md#client-apps) warunku powiązać zasady aplikacji klienta, który zainicjował próba dostępu. Ustaw klienta warunku aplikacji, aby przydzielić lub blokowanie dostępu, gdy podejmowana jest próba dostępu z następujących typów aplikacji klienta:
 
 - Przeglądarka
 - Aplikacje mobilne i aplikacje komputerowe
@@ -123,7 +123,7 @@ To ustawienie działa z przeglądarki. Jednak do zaspokojenia zasad urządzenia,
 
 | System operacyjny                     | Przeglądarki                            | Pomoc techniczna     |
 | :--                    | :--                                 | :-:         |
-| Windows 10             | Internet Explorer, krawędzi, Chrome     | ![Zaznacz][1] |
+| Windows 10             | Internet Explorer, Edge, Chrome     | ![Zaznacz][1] |
 | Windows 8 / 8.1        | Program Internet Explorer, Chrome           | ![Zaznacz][1] |
 | Windows 7              | Program Internet Explorer, Chrome           | ![Zaznacz][1] |
 | iOS                    | Safari, Intune Managed Browser      | ![Zaznacz][1] |
@@ -165,14 +165,13 @@ To ustawienie ma wpływ na prób dostępu z następujących aplikacji mobilnych 
 |Aplikacje pakietu Office 2016, Office uniwersalnych aplikacji, Office 2013 (z nowoczesnego uwierzytelniania), klient synchronizacji usługi OneDrive (zobacz [uwagi](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), obsługa grupy Office jest planowane w przyszłości, obsługi aplikacji programu SharePoint jest planowane w przyszłości|Usługi Office 365 SharePoint Online|Windows 10|
 |Pakiet Office 2016 dla macOS (Word, Excel, PowerPoint, tylko w programie OneNote). OneDrive dla firm Obsługa planowanych w przyszłości|Usługi Office 365 SharePoint Online|Mac OS X|
 |Aplikacje mobilne pakietu Office|Usługi Office 365 SharePoint Online|Android, iOS|
-|Aplikacja usługi Yammer pakietu Office|Yammer usługi Office 365|Windows 10, iOS, Android|
+|Aplikacja usługi Yammer pakietu Office|Office 365 Yammer|Windows 10, iOS, Android|
 |Outlook 2016 (Urząd macOS)|Office 365 Exchange Online|Mac OS X|
 |Outlook 2016, Outlook 2013 (z nowoczesnego uwierzytelniania), usługi Skype dla firm (z nowoczesnego uwierzytelniania)|Office 365 Exchange Online|Windows 8.1, Windows 7|
 |Outlook aplikacji mobilnej|Office 365 Exchange Online|Android, iOS|
-|Aplikacja usługi Power BI. Aplikacja usługi Power BI dla systemu Android nie obsługuje obecnie dostępu warunkowego opartego na urządzeniu.|Usługa Power BI|Windows 10, Windows 8.1, Windows 7 i iOS|
-|Skype dla firm|Office 365 Exchange Online|Android i IOS |
+|Aplikacji Power BI|Usługa Power BI|Windows 10, Windows 8.1, Windows 7 i iOS|
+|Skype dla firm|Office 365 Exchange Online|Android, IOS |
 |Visual Studio Team Services aplikacji|Visual Studio Team Services|Windows 10, Windows 8.1, Windows 7, iOS i Android|
-
 
 
 ## <a name="approved-client-app-requirement"></a>Wymagania aplikacji zatwierdzonych klienta 
@@ -186,16 +185,18 @@ To ustawienie dotyczy następujących aplikacji klienta:
 
 - Microsoft Azure Information Protection
 - Microsoft Excel
+- Microsoft Kaizala 
 - Microsoft OneDrive
 - Microsoft OneNote
-- Program Microsoft Outlook
-- Planowanie firmy Microsoft
-- Program Microsoft PowerPoint
+- Microsoft Outlook
+- Microsoft Planner
+- Microsoft PowerPoint
 - Microsoft SharePoint
 - Microsoft Skype dla firm
+- Microsoft StaffHub
 - Microsoft Teams
-- Program Microsoft Visio
-- Program Microsoft Word
+- Microsoft Visio
+- Microsoft Word
 
 
 

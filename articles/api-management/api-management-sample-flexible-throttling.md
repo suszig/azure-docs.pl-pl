@@ -12,19 +12,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2016
+ms.date: 02/03/2018
 ms.author: apimpm
-ms.openlocfilehash: 356f98aec072a1295915ae0701a3e3cd793aba07
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 427660be92d3caf4c381cec65f49adce9808e50a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Zaawansowane żądanie ograniczania z usługą Azure API Management
 Możliwość ograniczania żądań przychodzących jest kluczową rolę usługi Azure API Management. Albo kontrolując współczynnika żądań lub całkowita liczba żądań/transferu danych, zarządzanie interfejsami API umożliwia dostawcom usług interfejsu API ochrony ich interfejsów API z nadużyć i utworzyć wartości dla różnych warstw produktu interfejsu API.
 
 ## <a name="product-based-throttling"></a>Ograniczanie produktu w oparciu
-Data, szybkość ograniczenie możliwości zostały ograniczone do ograniczone do określonej subskrypcji produktu (zasadniczo klucza), zdefiniowane w portalu zarządzania interfejsu API wydawcy. Jest to przydatne w przypadku dostawcy interfejsu API w celu zastosowania ograniczeń na deweloperów, którzy utworzyli konto do użycia interfejsu API, jednak nie pomaga, na przykład w ograniczania indywidualnych użytkowników końcowych interfejsu API. Jest to możliwe, że dla pojedynczego użytkownika dewelopera aplikacji, aby korzystać z całego przydziału, a następnie uniemożliwić dewelopera innych klientów do korzystania z aplikacji. Ponadto wielu klientów, którzy mogą generować dużą liczbę żądań może ograniczyć dostęp do okazjonalne użytkowników.
+Data, szybkość ograniczenie możliwości zostały ograniczone do ograniczone do określonej subskrypcji produktu (zasadniczo klucza), zdefiniowane w portalu Azure. Jest to przydatne w przypadku dostawcy interfejsu API w celu zastosowania ograniczeń na deweloperów, którzy utworzyli konto do użycia interfejsu API, jednak nie pomaga, na przykład w ograniczania indywidualnych użytkowników końcowych interfejsu API. Jest to możliwe, że dla pojedynczego użytkownika dewelopera aplikacji, aby korzystać z całego przydziału, a następnie uniemożliwić dewelopera innych klientów do korzystania z aplikacji. Ponadto wielu klientów, którzy mogą generować dużą liczbę żądań może ograniczyć dostęp do okazjonalne użytkowników.
 
 ## <a name="custom-key-based-throttling"></a>Klucz niestandardowy na podstawie ograniczania przepustowości
 Nowy [szybkość limit przez klucz](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) i [limitu przydziału przez klucz](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) udostępniają znacznie bardziej elastyczne rozwiązania do kontroli ruchu. Te nowe zasady umożliwiają definiowanie wyrażenia, aby zidentyfikować klucze, które będą używane do śledzenia użycia ruchu. To działania easiest przedstawiono przykład. 
@@ -73,7 +73,7 @@ Dzięki temu aplikacja kliencka dewelopera wybierz, jak chcą, aby utworzyć szy
 ## <a name="summary"></a>Podsumowanie
 Zarządzanie interfejsami API Azure zapewnia szybkość i oferty ograniczania do ochrony i Dodaj wartość do usług interfejsu API. Nowe zasady ograniczania przepustowości przy użyciu niestandardowych reguł zakresu pozwalają skuteczniejszą kontrolę nad tych zasad, aby umożliwić klientom tworzenie jeszcze bardziej poprawić jakość aplikacji. Przykłady w tym artykule przedstawiają sposób używania tych nowych zasad przez współczynnik produkcyjnym ograniczanie klucze z adresów IP klientów, tożsamość użytkownika i wartości klientów wygenerowany. Istnieją jednak wiele innych części komunikat, który może zostać użyty, takich jak agent użytkownika, adres URL ścieżki fragmenty, rozmiar wiadomości.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Daj nam swoją opinię w wątku usługi Disqus dla tego tematu. Jest bardzo otrzymywać informacje o innych potencjalnych wartości kluczy, które zostały logicznej wybór w swoim scenariuszu.
 
 ## <a name="watch-a-video-overview-of-these-policies"></a>Obejrzyj film poglądowy dotyczący tych zasad

@@ -81,7 +81,7 @@ ACU: 180–240
 
 <sup>1</sup> przepustowość maksymalna liczba dyskowych operacji to (IOPS lub MB/s) możliwe z serii GS maszyny Wirtualnej może być ograniczony przez kod, rozmiar i rozkładanie dołączone dyski. Aby uzyskać szczegółowe informacje, zobacz [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/virtual-machines/windows/premium-storage.md) (Premium Storage: magazyn o wysokiej wydajności dla obciążeń maszyn wirtualnych platformy Azure). 
 
-<sup>2</sup> wystąpienia jest izolowana sprzętu przeznaczonego do jednego odbiorcy.
+<sup>2</sup> wystąpienia jest izolowana sprzętu przeznaczonego do jednego odbiorcy. 
 
 <sup>3</sup> ograniczone dostępne rozmiary core 
 
@@ -117,7 +117,7 @@ ACU: 210–250
 
 <sup>1</sup> przepustowość maksymalna liczba dyskowych operacji to (IOPS lub MB/s) możliwe z serii DSv2 maszyny Wirtualnej może być ograniczony przez kod, rozmiar i rozkładanie dołączone dyski.  Aby uzyskać szczegółowe informacje, zobacz [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/virtual-machines/windows/premium-storage.md) (Premium Storage: magazyn o wysokiej wydajności dla obciążeń maszyn wirtualnych platformy Azure).
 
-<sup>2</sup> wystąpienie jest izolowane węzła, który gwarantuje, że maszyna wirtualna jest tylko maszynę Wirtualną na węźle naszych Intel Haswell.
+<sup>2</sup> wystąpienia jest izolowana sprzętu przeznaczonego do jednego odbiorcy. 
 
 <sup>3</sup> 25000 MB/s z przyspieszonego w sieci.
 
@@ -132,10 +132,10 @@ ACU: 210–250
 | Standardowa_D11_v2   | 2         | 14          | 100            | 6000 / 93 / 46                                           | 8 / 8 x 500                         | 2 / 1500                     |
 | Standardowa_D12_v2   | 4         | 28          | 200            | 12000 / 187 / 93                                         | 16 / 16 x 500                         | 4 / 3000                     |
 | Standardowa_D13_v2   | 8         | 56          | 400            | 24000 / 375 / 187                                        | 32 / 32 x 500                       | 8 / 6000                     |
-| Standardowa_D14_v2   | 16        | 112         | 800            | 48000 / 750 / 375                                        | 64 / 64 x 500                       | 8 / 12000          |
-| Standard_D15_v2 <sup>1</sup> | 20        | 140         | 1000          | 60000 / 937 / 468                                        | 64 / 64 x 500                       | 8 / 25000 <sup>2</sup> |
+| Standardowa_D14_v2   | 16        | 112         | 800            | 48000 / 750 / 375                                        | 64 / 64x500                       | 8 / 12000          |
+| Standard_D15_v2 <sup>1</sup> | 20        | 140         | 1000          | 60000 / 937 / 468                                        | 64 / 64x500                       | 8 / 25000 <sup>2</sup> |
 
-<sup>1</sup> wystąpienie jest izolowane węzła, który gwarantuje, że maszyna wirtualna jest tylko maszynę Wirtualną na węźle naszych Intel Haswell.
+<sup>1</sup> wystąpienia jest izolowana sprzętu przeznaczonego do jednego odbiorcy. 
 
 <sup>2</sup> 25000 MB/s z przyspieszonego w sieci.
 
@@ -164,7 +164,7 @@ ACU: 160
 | Standardowa_D11 | 2         | 14          | 100            | 6000 / 93 / 46                                           | 8 / 8 x 500                         | 2 / 1000                     |
 | Standardowa_D12 | 4         | 28          | 200            | 12000 / 187 / 93                                         | 16 / 16 x 500                         | 4 / 2000                     |
 | Standardowa_D13 | 8         | 56          | 400            | 24000 / 375 / 187                                        | 32 / 32 x 500                       | 8 / 4000                     |
-| Standardowa_D14 | 16        | 112         | 800            | 48000 / 750 / 375                                        | 64 / 64 x 500                       | 8 / 8000                |
+| Standardowa_D14 | 16        | 112         | 800            | 48000 / 750 / 375                                        | 64 / 64x500                       | 8 / 8000                |
 
 <br>
 

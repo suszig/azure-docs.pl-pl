@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: support-article
 ms.date: 09/13/2017
 ms.author: tomfitz
-ms.openlocfilehash: e58c10cfb4cdd4ba49945e6c19845cbc957d6326
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 87bc6e4def624785c5052a9a25f579b022c940ec
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Rozwiązywanie błędów dla szablonu jest nieprawidłowa
 
@@ -131,6 +131,10 @@ part of the allowed values
 
 Dokładnie sprawdź dozwolone wartości w szablonie i podaj podczas wdrażania.
 
-### <a name="solution-4---circular-dependency-detected"></a>Wykryto rozwiązanie 4 - zależność cykliczną
+### <a name="solution-4---too-many-target-resource-groups"></a>Rozwiązanie 4 - zbyt wiele grup zasobów obiektu docelowego
+
+Jeśli określono więcej niż pięć grup zasobów obiektu docelowego w jednym wdrożeniu, ten błąd jest wyświetlany. Należy wziąć pod uwagę konsolidowanie liczbę grup zasobów w danym wdrożeniu albo wdrażanie niektóre szablony jako oddzielnych wdrożeń. Aby uzyskać więcej informacji, zobacz [zasobów Azure wdrożyć więcej niż jedną subskrypcję lub grupy zasobów](resource-manager-cross-resource-group-deployment.md).
+
+### <a name="solution-5---circular-dependency-detected"></a>Wykryto rozwiązania 5 - zależność cykliczną
 
 Ten błąd jest wyświetlany, gdy zasoby są zależne od siebie nawzajem w sposób uniemożliwiający wdrożenia uruchamianiu. Kombinacja zależnościami sprawia, że dwa lub więcej zasobów, poczekaj, aż inne zasoby, które są również oczekiwania. Na przykład zasób1 zależy od resource3 zasób2 zależy od zasób1 i resource3 zależy od zasób2. Zazwyczaj można rozwiązać ten problem, usuwając zbędne zależności.

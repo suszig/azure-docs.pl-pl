@@ -9,11 +9,11 @@ W poniższej tabeli wymieniono limity, które są stosowane do inicjowania obsł
 | Maksymalna liczba urzędów certyfikacji | 10 |
 
 > [!NOTE]
-> Te granice są publicznej wersji zapoznawczej. Gdy usługa jest ogólnie dostępna, możesz skontaktować się [Microsoft Support](https://azure.microsoft.com/support/options/) zwiększenie liczby wystąpień w ramach subskrypcji.
+> Możesz skontaktować się [Microsoft Support](https://azure.microsoft.com/support/options/) zwiększenie liczby wystąpień w ramach subskrypcji.
 
 Usługa inicjowania obsługi urządzeń ogranicza żądania, gdy zostaną przekroczone następujące limity przydziału:
 
 | Ograniczenie | Wartość usługi |
 | --- | --- |
-| Operacje | 100 na minutę |
-| Rejestracji urządzenia | 100 na minutę |
+| Operacje | 100/min |
+| Rejestracji urządzenia | 100/min |

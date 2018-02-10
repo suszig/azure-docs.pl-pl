@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: banders
-ms.openlocfilehash: d910339cc35e09705e543706b40dfe8e0ea9dd42
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 6662fee875d44f88781be51443d48e86c1bf2d46
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Wyświetl dane analityczne metryki różnych zasobów aplikacji sieci Web Azure
 
@@ -48,7 +48,7 @@ W przeciwieństwie do większości innych rozwiązań analizy dzienników danych
 
 - Aby uzyskać dostęp do aplikacji sieci Web Azure informacje dotyczące pomiaru zasobów, musi mieć subskrypcję platformy Azure.
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 Wykonaj poniższe kroki, aby skonfigurować rozwiązanie Analytics aplikacji sieci Web platformy Azure dla obszarów roboczych.
 
@@ -69,7 +69,7 @@ Rozwiązania Azure Web Apps Analytics zbiera dwóch zestawów metryki z platform
   - Odebrano wysłane bajty
   - Procent użycia procesora CPU
   - Długość kolejki dysku
-  - Długość kolejki http
+  - Długość kolejki HTTP
   - Procent pamięci
 
 Metryki planu usługi aplikacji są zbierane tylko, jeśli używasz planu dedykowanych usługi. To nie ma zastosowania do planów usługi aplikacji — warstwa bezpłatna lub udostępnionego.
@@ -90,11 +90,11 @@ Po dodaniu rozwiązania analizy aplikacji sieci Web platformy Azure do swojego o
 
 Kliknij przycisk **Analytics aplikacji sieci Web Azure** Kafelek, aby otworzyć **Analytics aplikacji sieci Web Azure** pulpitu nawigacyjnego. Pulpit nawigacyjny zawiera bloki w poniższej tabeli. Każdy blok zawiera listę elementów do dziesięciu spełniających kryteria tego bloku dla określonego zakresu i zakres czasu. Można uruchomić wyszukiwania dziennika, który zwraca wszystkie rekordy, klikając **zobaczyć wszystkie** w dolnej części bloku lub przez kliknięcie nagłówka bloku.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 | Kolumna | Opis |
 | --- | --- |
-| Używanie usługi Azure |   |
+| Azure Webapps |   |
 | Trendy żądania aplikacji sieci Web | Przedstawia wykres liniowy trendu żądania aplikacji sieci Web wybranego zakresu i pokazuje listę żądań top dziesięć sieci web. Kliknij wykres liniowy, aby uruchomić wyszukiwanie dziennika<code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"* (MetricName=Requests OR MetricName=Http*) &#124; measure avg(Average) by MetricName interval 1HOUR</code> <br>Kliknij element żądania sieci web, aby uruchomić wyszukiwanie dziennika trendu metryki żądania sieci web, które żądania. |
 | Czas odpowiedzi aplikacji sieci Web | Przedstawia wykres liniowy, czas odpowiedzi aplikacji sieci Web wybranego zakresu. Również pokazuje listę listę górnej dziesięć Web Apps odpowiedzi czasu. Kliknij na wykresie, aby uruchomić wyszukiwanie dziennika<code>Type:AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"* MetricName="AverageResponseTime" &#124; measure avg(Average) by Resource interval 1HOUR</code><br> Kliknij aplikację sieci Web, aby uruchomić wyszukiwanie dziennika zwracanie czasy odpowiedzi dla aplikacji sieci Web. |
 | Ruch w aplikacji sieci Web | Przedstawia wykres liniowy dla ruchu aplikacje sieci Web w MB i list górnej ruchu aplikacji sieci Web. Kliknij na wykresie, aby uruchomić wyszukiwanie dziennika<code>Type:AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"*  MetricName=BytesSent OR BytesReceived &#124; measure sum(Average) by Resource interval 1HOUR</code><br> Wszystkie aplikacje sieci Web z ruchem będzie wyświetlana w ciągu ostatniej minuty. Kliknij aplikację sieci Web, aby uruchomić wyszukiwanie dziennika przedstawiający bajtów odebranych i wysłanych do aplikacji sieci Web. |
@@ -138,7 +138,7 @@ Jeśli korzystasz z dedykowanym plany usługi, może również zbierać metryki 
 
 Przy użyciu dowolnego zapytania wyszukiwania dziennika jako punkt początkowy, możesz łatwo utworzyć alertu. Na przykład można utworzyć alertu, gdy metryki Średni czas odpowiedzi jest większy niż co 1 s.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Utwórz [alert](log-analytics-alerts-creating.md) dla określonej metryki.
 - Użyj [wyszukiwania dziennika](log-analytics-log-searches.md) do wyświetlenia szczegółowych informacji z dzienników działania.

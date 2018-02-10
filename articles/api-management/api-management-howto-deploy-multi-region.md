@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: e126e34bc9fce21243b0ef79f5ab661aec3a2de6
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 6f84c1b2092f71eaeba0005a36018390242869ea
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Jak wdrożyć wystąpienia usługi Azure API Management na wiele regionów platformy Azure
 Zarządzanie interfejsami API obsługuje wdrażanie w przypadku, dzięki czemu wydawcy interfejsu API rozpowszechniają jednej usługi interfejsu API zarządzania dowolną liczbę żądaną regiony platformy Azure. Pozwala to zmniejszyć żądania opóźnienia postrzegane przez rozproszone geograficznie konsumentów interfejsu API i zwiększa również dostępność usługi, jeśli jeden region przejdzie do trybu offline. 
@@ -52,13 +52,12 @@ Kliknij przycisk **Dodaj** można umieścić w tabeli Lokalizacje wybór.
 Powtórz ten proces, dopóki nie uzyskasz wszystkich skonfigurowanych lokalizacji, a następnie kliknij przycisk **zapisać** z paska narzędzi do rozpoczęcia procesu wdrażania.
 
 ## <a name="remove-region"></a>Usunąć wystąpienie usługi API Management z lokalizacji
+
 W portalu Azure przejdź do **skali i cenach** strony wystąpienia usługi Zarządzanie interfejsami API. 
 
 ![Kartę Skala][api-management-scale-service]
 
 Dla lokalizacji, które chcesz usunąć Otwórz za pomocą menu kontekstowego **...**  przycisk na prawym końcu tabeli. Wybierz **usunąć** opcji.
-
-![Usuń region][api-management-remove-region]
 
 Potwierdzenie usunięcia, a następnie kliknij przycisk **zapisać** Aby zastosować zmiany.
 

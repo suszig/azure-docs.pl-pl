@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 70c43b25aea364d7254137b46af31f851dcf8bc6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e1beb06301807c35a1b070989a0f80f4c8097762
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-external-app-service-environment"></a>Tworzenie środowiska usługi aplikacji zewnętrznych #
 
-Środowiska usługi aplikacji Azure to wdrożenie usługi Azure App Service w podsieci sieci wirtualnej platformy Azure (VNet). Istnieją dwa sposoby wdrożenia środowiska usługi App Service (ASE):
+Środowisko Azure App Service Environment to wdrożenie usługi Azure App Service w podsieci sieci wirtualnej platformy Azure (VNet). Istnieją dwa sposoby wdrażania środowiska App Service Environment (ASE):
 
-- Z adresów VIP na zewnętrzny adres IP często nazywane ASE zewnętrznych.
+- Z wirtualnym adresem IP będącym zewnętrznym adresem IP — jest to często nazywane zewnętrznym środowiskiem ASE.
 - Przy użyciu adresu VIP wewnętrznego adresu IP często nazywane ASE ILB, ponieważ wewnętrzny punkt końcowy jest wewnętrzny moduł równoważenia obciążenia (ILB).
 
 W tym artykule przedstawiono sposób tworzenia ASE zewnętrznych. Aby zapoznać się z omówieniem ASE, zobacz [wprowadzenie do środowiska usługi aplikacji][Intro]. Aby uzyskać informacje na temat tworzenia ASE ILB, zobacz [tworzenie i używanie ASE ILB][MakeILBASE].
@@ -69,7 +69,7 @@ Aby utworzyć ASE podczas tworzenia planu usługi aplikacji:
 
 4. Wybierz plan usługi aplikacji, a następnie wybierz **Utwórz nowy**.
 
-    ![Nowy plan usługi aplikacji][2]
+    ![Nowy plan usługi App Service][2]
 
 5. W **lokalizacji** listy rozwijanej wybierz region, w którym chcesz utworzyć ASE. W przypadku wybrania istniejącego ASE nowe ASE nie jest tworzone. Plan usługi aplikacji jest tworzony w ASE wybrany. 
 
@@ -87,7 +87,7 @@ Aby utworzyć ASE podczas tworzenia planu usługi aplikacji:
 
     b. Wprowadź nazwę nowej podsieci.
 
-    c. Wybierz rozmiar podsieci. *Pamiętaj, aby wybrać rozmiar wystarczająco duża, aby uwzględnić przyszły wzrost Twojej ASE.* Firma Microsoft zaleca `/25`, który 128 adresów i może obsłużyć ASE rozmiar maksymalny. Nie zaleca się `/28`, na przykład tylko 16 adresów nie są dostępne. Infrastruktura używa co najmniej pięć adresów. W `/28` podsieci, w przypadku pozostałych z maksymalną skalowanie 11 wystąpień.
+    c. Wybierz rozmiar podsieci. *Pamiętaj, aby wybrać rozmiar wystarczająco duża, aby uwzględnić przyszły wzrost Twojej ASE.* Firma Microsoft zaleca `/25`, który 128 adresów i może obsłużyć ASE rozmiar maksymalny. Nie zaleca się `/28`, na przykład tylko 16 adresów nie są dostępne. Infrastruktura używa adresów co najmniej siedmiu i Azure Networking używa innego 5. W `/28` podsieci, w przypadku pozostałych składającą się maksymalnie z 4 wystąpieniach planu usługi aplikacji — dla zewnętrznych ASE skalowania i tylko 3 wystąpienia planu usług aplikacji dla ASE ILB.
 
     d. Wybierz zakres adresów IP podsieci.
 

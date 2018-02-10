@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 232b9bed1ea719dfb76d639bc8d5274551cdab6f
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 888b75ad16a3835ca988dd9aa6a146cc26e6370a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>Kopiowanie danych z punktu końcowego HTTP przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,7 +66,7 @@ Ustaw dla właściwości "authenticationType" **podstawowe**, **szyfrowanego**, 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | userName | Nazwa użytkownika do uzyskania dostępu punkt końcowy HTTP. | Yes |
-| hasło | Hasło dla użytkownika (userName). Zaznacz to pole jako SecureString. | Yes |
+| hasło | Hasło dla użytkownika (userName). Zaznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w fabryce danych lub [odwołania klucz tajny przechowywane w usłudze Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 
 **Przykład**
 
@@ -100,7 +100,7 @@ Aby uwierzytelnianie ClientCertificate, ustaw właściwość "authenticationType
 |:--- |:--- |:--- |
 | embeddedCertData | Dane certyfikatu kodowany w standardzie Base64. | Określ `embeddedCertData` lub `certThumbprint`. |
 | certThumbprint | Odcisk palca certyfikatu, który jest zainstalowany na komputerze środowiska uruchomieniowego integracji Self-hosted magazynu certyfikatów. Ma zastosowanie tylko wtedy, gdy określono siebie typu środowiska uruchomieniowego integracji w connectVia. | Określ `embeddedCertData` lub `certThumbprint`. |
-| hasło | Hasło skojarzone z certyfikatem. Zaznacz to pole jako SecureString. | Nie |
+| hasło | Hasło skojarzone z certyfikatem. Zaznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w fabryce danych lub [odwołania klucz tajny przechowywane w usłudze Azure Key Vault](store-credentials-in-key-vault.md). | Nie |
 
 Jeśli certyfikat został zainstalowany w magazynie osobistym komputera lokalnego "certThumbprint" jest używany do uwierzytelniania, należy udzielić uprawnień do odczytu do środowiska uruchomieniowego integracji Self-hosted:
 

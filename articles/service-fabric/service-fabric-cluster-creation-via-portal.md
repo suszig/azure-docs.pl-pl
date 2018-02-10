@@ -12,25 +12,24 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/21/2017
+ms.date: 02/01/2018
 ms.author: chackdan
-ms.openlocfilehash: be880efdcf1276252c76f27c2f2fd99edd606caa
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 7537d7015ee8739be4b9ba08846866d4cfbe38be
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Tworzenie klastra sieci szkieletowej usług na platformie Azure przy użyciu portalu Azure
 > [!div class="op_single_selector"]
 > * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-> * [Witryna Azure Portal](service-fabric-cluster-creation-via-portal.md)
+> * [Azure portal](service-fabric-cluster-creation-via-portal.md)
 > 
 > 
 
-Jest to przewodnik krok po kroku, który przeprowadzi Cię przez kolejne kroki konfigurowania klastra sieci szkieletowej usług bezpiecznej platformie Azure przy użyciu portalu Azure. Ten przewodnik przeprowadzi Cię przez następujące kroki:
+Jest to przewodnik krok po kroku, który przeprowadzi Cię przez kolejne kroki konfigurowania klastra sieci szkieletowej usług (Linux lub Windows) na platformie Azure przy użyciu portalu Azure. Ten przewodnik przeprowadzi Cię przez następujące kroki:
 
-* Konfigurowanie magazynu kluczy do zarządzania kluczami zabezpieczeń klastra.
-* Tworzenie klastra zabezpieczonych na platformie Azure za pośrednictwem portalu Azure.
+* Utwórz klaster na platformie Azure za pośrednictwem portalu Azure.
 * Uwierzytelnianie za pomocą certyfikatów Administratorzy.
 
 > [!NOTE]
@@ -38,103 +37,10 @@ Jest to przewodnik krok po kroku, który przeprowadzi Cię przez kolejne kroki k
 > 
 > 
 
-Bezpieczne klaster jest klastrem, który uniemożliwia nieautoryzowany dostęp do operacji zarządzania, w tym wdrażanie, uaktualnianie i usuwanie aplikacji, usług i danych, które zawierają. Niezabezpieczone klastra oznacza, że każdy użytkownik w dowolnym momencie połączyć się i wykonywać operacje zarządzania. Chociaż można utworzyć klaster niezabezpieczone, jest **zdecydowanie zaleca się utworzenie klastra bezpiecznego**. Niezabezpieczone klastra **nie można zabezpieczyć później** — należy utworzyć nowy klaster.
-
-Pojęcia są takie same dla tworzenia bezpiecznych klastrów, czy są klastry z systemem Windows lub Linux klastry. Aby uzyskać więcej informacji i pomocnika skryptów tworzenia bezpiecznych klastrów systemu Linux, zobacz [tworzenia bezpiecznych klastrów](service-fabric-cluster-creation-via-arm.md). Parametry uzyskany przez pomocnika skryptów można wprowadzić bezpośrednio w portalu, zgodnie z opisem w sekcji [tworzenia klastra w portalu Azure](#create-cluster-portal).
-
-## <a name="configure-key-vault"></a>Konfiguruj usługę Key Vault 
-### <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
-Ten przewodnik po używa [programu Azure PowerShell][azure-powershell]. Przy uruchamianiu nowej sesji programu PowerShell, zaloguj się do konta platformy Azure i wyboru subskrypcji przed wykonaniem polecenia platformy Azure.
-
-Zaloguj się do konta platformy azure:
-
-```powershell
-Login-AzureRmAccount
-```
-
-Wybierz subskrypcję:
-
-```powershell
-Get-AzureRmSubscription
-Set-AzureRmContext -SubscriptionId <guid>
-```
-
-### <a name="set-up-key-vault"></a>Konfigurowanie usługi Key Vault
-Ta część przewodnika przeprowadzi Cię przez proces tworzenia magazyn kluczy klastra sieci szkieletowej usług platformy Azure i dla aplikacji sieci szkieletowej usług. Aby uzyskać pełne informacje na Key Vault, zobacz [Key Vault Wprowadzenie — przewodnik][key-vault-get-started].
-
-Sieć szkieletowa usług używa certyfikatów X.509 do zabezpieczenia klastra. Usługa Azure Key Vault służy do zarządzania certyfikatami dla klastrów sieci szkieletowej usług platformy Azure. Po wdrożeniu klastra na platformie Azure, odpowiedzialną za tworzenie klastrów sieci szkieletowej usług dostawcy zasobów platformy Azure pobiera certyfikaty z magazynu kluczy i instaluje je w klastrze maszyn wirtualnych.
-
-Na poniższym diagramie przedstawiono relację między magazyn kluczy klastra sieci szkieletowej usług i dostawcy zasobów platformy Azure, który wykorzystuje certyfikaty przechowywane w magazynie kluczy, podczas tworzenia klastra:
-
-![Instalacja certyfikatu][cluster-security-cert-installation]
-
-#### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
-Pierwszym krokiem jest aby utworzyć nową grupę zasobów dla usługi Key Vault. Wprowadzenie klucza magazynu do własnego grupy zasobów jest zalecane, dzięki czemu można usunąć grup zasobów obliczeniowych i przestrzeni dyskowej — takich jak grupy zasobów o klastra usługi sieć szkieletowa — bez utraty z kluczy i kluczy tajnych. Grupy zasobów, która ma magazyn kluczy musi być w tym samym regionie co klaster, który go używa.
-
-```powershell
-
-    PS C:\Users\vturecek> New-AzureRmResourceGroup -Name mycluster-keyvault -Location 'West US'
-    WARNING: The output object type of this cmdlet will be modified in a future release.
-
-    ResourceGroupName : mycluster-keyvault
-    Location          : westus
-    ProvisioningState : Succeeded
-    Tags              :
-    ResourceId        : /subscriptions/<guid>/resourceGroups/mycluster-keyvault
-
-```
-
-#### <a name="create-key-vault"></a>Tworzenie usługi Key Vault
-Utwórz magazyn kluczy w nowej grupy zasobów. Magazyn kluczy **musi być włączona dla wdrożenia** umożliwia dostawcy zasobów usługi sieć szkieletowa uzyskanie certyfikatów i zainstalować na węzłach klastra:
-
-```powershell
-
-    PS C:\Users\vturecek> New-AzureRmKeyVault -VaultName 'myvault' -ResourceGroupName 'mycluster-keyvault' -Location 'West US' -EnabledForDeployment
-
-
-    Vault Name                       : myvault
-    Resource Group Name              : mycluster-keyvault
-    Location                         : West US
-    Resource ID                      : /subscriptions/<guid>/resourceGroups/mycluster-keyvault/providers/Microsoft.KeyVault/vaults/myvault
-    Vault URI                        : https://myvault.vault.azure.net
-    Tenant ID                        : <guid>
-    SKU                              : Standard
-    Enabled For Deployment?          : False
-    Enabled For Template Deployment? : False
-    Enabled For Disk Encryption?     : False
-    Access Policies                  :
-                                       Tenant ID                :    <guid>
-                                       Object ID                :    <guid>
-                                       Application ID           :
-                                       Display Name             :    
-                                       Permissions to Keys      :    get, create, delete, list, update, import, backup, restore
-                                       Permissions to Secrets   :    all
-
-
-    Tags                             :
-```
-
-Jeśli masz istniejący magazyn kluczy, możesz je włączyć, dla wdrożenia przy użyciu jednej z następujących sposobów:
-
-##### <a name="azure-powershell"></a>Azure PowerShell
-
-```powershell
-PS C:\Users\vturecek> Set-AzureRmKeyVaultAccessPolicy -VaultName 'myvault' -EnabledForDeployment
-```
-
-##### <a name="azure-cli"></a>Azure CLI:
-
-```cli
-> azure login
-> azure account set "your account"
-> azure config mode arm 
-> azure keyvault list
-> azure keyvault set-policy --vault-name "your vault name" --enabled-for-deployment true
-```
-
-
-### <a name="add-certificates-to-key-vault"></a>Dodaj certyfikaty do magazynu kluczy
+## <a name="cluster-security"></a>Zabezpieczenia klastra 
 W usłudze Service Fabric używa się certyfikatów, aby zapewniać uwierzytelnianie i szyfrowanie w celu zabezpieczania różnych aspektów klastra i jego aplikacji. Aby uzyskać więcej informacji dotyczących używania certyfikatów w sieci szkieletowej usług, zobacz [scenariusze zabezpieczeń klastra sieci szkieletowej usług][service-fabric-cluster-security].
+
+Jeśli po raz pierwszy tworzysz klastra sieci szkieletowej usług lub wdrażania klastra dla testu obciążenia, możesz przejść do następnej sekcji (**Utwórz klaster w portalu Azure**) i system generował niezbędne certyfikaty klastrów z systemem testu obciążenia. Jeśli konfigurujesz usługę klastra dla obciążeń produkcyjnych, kontynuuj odczytu.
 
 #### <a name="cluster-and-server-certificate-required"></a>Klaster a serwera certyfikatów (wymagane)
 Ten certyfikat jest wymagany do zabezpieczania klastra i uniemożliwić nieautoryzowany dostęp do niego. Udostępnia ona zabezpieczeń klastra na kilka sposobów:
@@ -146,7 +52,7 @@ Do obsługi tych celów, certyfikat musi spełniać następujące wymagania:
 
 * Certyfikat musi zawierać klucz prywatny.
 * Certyfikat musi zostać utworzony dla wymiany kluczy, można eksportować do pliku wymiany informacji osobistych (pfx).
-* Nazwa podmiotu certyfikatu musi odpowiadać domeny używane do dostępu do klastra usługi sieć szkieletowa usług. Jest to wymagane jest podanie protokołu SSL dla punktów końcowych HTTPS zarządzania i Service Fabric Explorer klastra. Nie można uzyskać certyfikat od urzędu certyfikacji (CA) dla `.cloudapp.azure.com` domeny. Możliwość nabycia niestandardowej nazwy domeny dla klastra. Gdy żądanie certyfikatu od urzędu certyfikacji nazwa podmiotu certyfikatu musi odpowiadać nazwie domeny niestandardowej, używane dla klastra.
+* Certyfikat **nazwa podmiotu musi być zgodny z domeną** umożliwiają dostęp do klastra usługi sieć szkieletowa usług. Jest to wymagane jest podanie protokołu SSL dla punktów końcowych HTTPS zarządzania i Service Fabric Explorer klastra. Nie można uzyskać certyfikat od urzędu certyfikacji (CA) dla `.cloudapp.azure.com` domeny. Możliwość nabycia niestandardowej nazwy domeny dla klastra. Gdy żądanie certyfikatu od urzędu certyfikacji nazwa podmiotu certyfikatu musi odpowiadać nazwie domeny niestandardowej, używane dla klastra.
 
 #### <a name="client-authentication-certificates"></a>Certyfikaty uwierzytelniania klienta
 Certyfikaty klienta dodatkowe uwierzytelnianie Administratorzy dla zadań zarządzania w klastrze. Sieć szkieletowa usług ma dwa poziomy dostępu: **admin** i **użytkownika tylko do odczytu**. Co najmniej jeden certyfikat dla dostępu administracyjnego należy używać. Dodatkowe dostępu na poziomie użytkownika należy podać oddzielny certyfikat. Aby uzyskać więcej informacji na dostęp do ról, zobacz [kontroli dostępu opartej na rolach dla klientów usługi sieć szkieletowa][service-fabric-cluster-security-roles].
@@ -166,51 +72,12 @@ Dowolna liczba dodatkowych certyfikatów można zainstalować w klastrze dla apl
 
 Nie można skonfigurować certyfikaty aplikacji, podczas tworzenia klastra za pośrednictwem portalu Azure. Aby skonfigurować certyfikaty aplikacji podczas konfiguracji klastra, należy najpierw [Tworzenie klastra przy użyciu usługi Azure Resource Manager][create-cluster-arm]. Można również dodać certyfikatów aplikacji do klastra, po jego utworzeniu.
 
-#### <a name="formatting-certificates-for-azure-resource-provider-use"></a>Formatowanie certyfikatów do użytku dostawcy zasobów platformy Azure
-Pliki klucza prywatnego (pfx) można dodany i używany bezpośrednio za pomocą usługi Key Vault. Dostawcy zasobów platformy Azure wymaga jednak przechowywać w formacie JSON specjalny, który zawiera PFX jako base-64 kluczy zakodowany ciąg i hasło klucza prywatnego. Aby uwzględnić te wymagania, klucze musi być umieszczona w ciągu JSON i następnie przechowywane jako *kluczy tajnych* w magazynie kluczy.
-
-Aby ułatwić ten proces, moduł programu PowerShell jest [dostępne w witrynie GitHub][service-fabric-rp-helpers]. Wykonaj następujące kroki, aby użyć modułu programu:
-
-1. Pobierz całą zawartość repozytorium do katalogu lokalnego. 
-2. Zaimportuj moduł w oknie programu PowerShell:
-
-```powershell
-  PS C:\Users\vturecek> Import-Module "C:\users\vturecek\Documents\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
-```
-
-`Invoke-AddCertToKeyVault` Polecenia w tym module środowiska PowerShell automatycznie formatuje klucz prywatny certyfikatu do ciągu JSON i przekazuje go do magazynu kluczy. Umożliwia on Dodawanie certyfikatu klastra i wszelkich certyfikatów dodatkową aplikację do magazynu kluczy. Powtórz ten krok dla dodatkowych certyfikatów, które chcesz zainstalować w klastrze.
-
-```powershell
-PS C:\Users\vturecek> Invoke-AddCertToKeyVault -SubscriptionId <guid> -ResourceGroupName mycluster-keyvault -Location "West US" -VaultName myvault -CertificateName mycert -Password "<password>" -UseExistingCertificate -ExistingPfxFilePath "C:\path\to\mycertkey.pfx"
-
-    Switching context to SubscriptionId <guid>
-    Ensuring ResourceGroup mycluster-keyvault in West US
-    WARNING: The output object type of this cmdlet will be modified in a future release.
-    Using existing valut myvault in West US
-    Reading pfx file from C:\path\to\key.pfx
-    Writing secret to myvault in vault myvault
-
-
-Name  : CertificateThumbprint
-Value : <value>
-
-Name  : SourceVault
-Value : /subscriptions/<guid>/resourceGroups/mycluster-keyvault/providers/Microsoft.KeyVault/vaults/myvault
-
-Name  : CertificateURL
-Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0978cb100e47
-
-```
-
-Są to wszystkie usługi Key Vault wymaganiach wstępnych konfigurowania szablonu usługi Resource Manager klastra sieci szkieletowej usług, który instaluje certyfikatów dla uwierzytelniania węzła, zarządzania punktu końcowego zabezpieczeń i uwierzytelniania oraz wszelkie dodatkowe zabezpieczenia aplikacji Funkcje, które korzystają z certyfikatów X.509. W tym momencie teraz powinny mieć następujące ustawienia na platformie Azure:
-
-* Grupa zasobów magazynu kluczy
-  * Usługa Key Vault
-    * Certyfikat uwierzytelniania serwera klastra
-
 < /a "Tworzenie klastra portal" ></a>
 
 ## <a name="create-cluster-in-the-azure-portal"></a>Tworzenie klastra w portalu Azure
+
+Tworzenia klastra produkcyjnego dostosowane do potrzeb aplikacji obejmuje niektóre planowania ułatwiające ze specyfikacją, zdecydowanie zaleca się przeczytać i zrozumieć [klastra sieci szkieletowej usług zagadnienia związane z planowaniem] [ service-fabric-cluster-capacity] dokumentu. 
+
 ### <a name="search-for-the-service-fabric-cluster-resource"></a>Wyszukaj zasobu klastra usługi sieć szkieletowa
 ![Wyszukiwanie szablonu klastra sieci szkieletowej usług w portalu Azure.][SearchforServiceFabricClusterTemplate]
 
@@ -218,12 +85,12 @@ Są to wszystkie usługi Key Vault wymaganiach wstępnych konfigurowania szablon
 2. Kliknij przycisk **nowy** można dodać nowego szablonu zasobów. Wyszukaj szablonu klastra sieci szkieletowej usług w **Marketplace** w obszarze **wszystko**.
 3. Wybierz **klastra sieci szkieletowej usług** z listy.
 4. Przejdź do **klastra sieci szkieletowej usług** bloku, kliknij przycisk **Utwórz**,
-5. **Klastra tworzenia sieci szkieletowej usług** bloku obejmuje następujące cztery kroki.
+5. **Klastra tworzenia sieci szkieletowej usług** bloku obejmuje następujące cztery kroki:
 
 #### <a name="1-basics"></a>1. Podstawy
 ![Zrzut ekranu przedstawiający tworzenie nowej grupy zasobów.][CreateRG]
 
-W bloku podstawowe służące musisz podać podstawowe szczegóły dotyczące klastra.
+W bloku podstawowe należy podać podstawowe szczegóły dla klastra.
 
 1. Wprowadź nazwę klastra.
 2. Wprowadź **nazwy użytkownika** i **hasło** dla pulpitu zdalnego dla maszyn wirtualnych.
@@ -231,10 +98,10 @@ W bloku podstawowe służące musisz podać podstawowe szczegóły dotyczące kl
 4. Utwórz **nową grupę zasobów**. Zaleca się nadać mu taką samą nazwę jak klastra, ponieważ pomaga w znajdowaniu je później, szczególnie w przypadku, gdy chcesz wprowadzić zmiany do wdrożenia lub usunąć klaster.
    
    > [!NOTE]
-   > Mimo że można użyć istniejącej grupy zasobów, jest dobrym rozwiązaniem, aby utworzyć nową grupę zasobów. Ułatwia to usuwać klastry, które nie ma potrzeby.
+   > Mimo że można użyć istniejącej grupy zasobów, jest dobrym rozwiązaniem, aby utworzyć nową grupę zasobów. Dzięki temu można łatwo usunąć klastrów i wszystkich zasobów, które są używane.
    > 
    > 
-5. Wybierz **region** , w której chcesz utworzyć klaster. Należy użyć tego samego regionu, który jest magazyn kluczy.
+5. Wybierz **region** , w której chcesz utworzyć klaster. Jeśli planujesz użyć istniejącego certyfikatu, które już zostały przekazane do magazynu kluczy, należy użyć tego samego regionu, który jest magazyn kluczy. 
 
 #### <a name="2-cluster-configuration"></a>2. Konfiguracja klastra
 ![Tworzenie typu węzła][CreateNodeType]
@@ -242,49 +109,86 @@ W bloku podstawowe służące musisz podać podstawowe szczegóły dotyczące kl
 Skonfiguruj węzły klastra. Typy węzłów zdefiniować rozmiary maszyn wirtualnych, liczbę maszyn wirtualnych i ich właściwości. Klaster może mieć więcej niż jeden typ węzła, ale typ węzła podstawowego (pierwszego zdefiniowanego w portalu) musi mieć co najmniej pięć maszyn wirtualnych, jak jest to typ węzła rozmieszczenia usługi sieć szkieletowa usług systemowych. Nie należy konfigurować **właściwości umieszczania** ponieważ domyślna właściwość umieszczania "NodeTypeName" są dodawane automatycznie.
 
 > [!NOTE]
-> Typowy scenariusz dla wielu typów węzła jest aplikacja, która zawiera usługi frontonu i zaplecza. Chcesz umieścić usługi frontonu w mniejszych maszyn wirtualnych (na przykład D2 rozmiarów maszyn wirtualnych) z otwartych portów do Internetu, ale mają być umieszczone na maszynach wirtualnych większych (z rozmiarów maszyn wirtualnych, takie jak D4, D6 D15 i tak dalej) z żadnych portów skierowane do Internetu Otwórz usługi zaplecza.
+> Typowy scenariusz dla wielu typów węzła jest aplikacja, która zawiera usługi frontonu i zaplecza. Chcesz umieścić usługi frontonu na mniejsze maszyn wirtualnych (takie jak D2_V2 rozmiarów maszyn wirtualnych) z otwartych portów z Internetem, a usługi zaplecza na maszynach wirtualnych większych (z rozmiarów maszyn wirtualnych, takie jak D3_V2, D6_V2 D15_V2 i tak dalej) z żadnych portów skierowane do Internetu Otwórz.
 > 
 > 
 
 1. Wybierz nazwę dla danego typu węzła (od 1 do 12 znaków zawierających tylko litery i cyfry).
-2. Minimalna **rozmiar** maszyn wirtualnych dla węzła podstawowego typu jest wymuszany przez **trwałości** warstwy wybierz dla klastra. Wartość domyślna warstwa trwałości to brązowa. Aby uzyskać więcej informacji o trwałości, zobacz [Wybieranie niezawodność klastra sieci szkieletowej usług i trwałość][service-fabric-cluster-capacity].
-3. Wybierz rozmiar maszyny Wirtualnej i warstwę cenową. Maszyny wirtualne D-series mają dyski SSD i zaleca aplikacji stanowych. Użyj dowolnej jednostki SKU maszyny Wirtualnej z częściowa rdzeni lub nie mają mniej niż 7 GB pojemności dysku. 
-4. Minimalna **numer** maszyn wirtualnych dla węzła podstawowego typu jest wymuszany przez **niezawodności** wybrania warstwy. Wartość domyślna warstwa niezawodności to Silver. Aby uzyskać więcej informacji o niezawodności, zobacz [Wybieranie niezawodność klastra sieci szkieletowej usług i trwałość][service-fabric-cluster-capacity].
-5. Wybierz liczbę maszyn wirtualnych dla typu węzła. Możesz skalować w górę lub w dół liczbę maszyn wirtualnych w typ węzła później, ale dla typu węzła podstawowego minimum wynikają z wybranego poziomu niezawodności. Inne typy węzłów może mieć co najmniej 1 maszyny wirtualnej.
+2. Minimalna **rozmiar** maszyn wirtualnych dla węzła podstawowego typu jest wymuszany przez **trwałości** warstwy wybierz dla klastra. Wartość domyślna warstwa trwałości to brązowa. Aby uzyskać więcej informacji o trwałości, zobacz [Wybieranie trwałości klastra usługi sieć szkieletowa][service-fabric-cluster-durability].
+3. Wybierz rozmiar maszyny Wirtualnej. Maszyny wirtualne D-series mają dyski SSD i zaleca aplikacji stanowych. Użyj dowolnej jednostki SKU maszyny Wirtualnej z częściowa rdzeni lub nie mają mniej niż 10 GB pojemności dysku. Zapoznaj się [klastra sieci szkieletowej usług planowania dokumentu brany pod uwagę] [ service-fabric-cluster-capacity] Aby uzyskać pomoc przy wyborze rozmiar maszyny Wirtualnej.
+4. Wybierz liczbę maszyn wirtualnych dla typu węzła. Możesz skalować w górę lub w dół liczbę maszyn wirtualnych w typ węzła później, ale dla typu węzła podstawowego minimum jest pięć dla obciążeń produkcyjnych. Inne typy węzłów może mieć co najmniej jedną maszynę Wirtualną. Minimalna **numer** maszyn wirtualnych dla dysków typu węzła podstawowego **niezawodności** klastra.  
+5. **Pojedynczy węzeł klastra i trzy klastry węzłów** — te są przeznaczone tylko dla testu. Nie są obsługiwane dla dowolnego uruchomionych obciążeń produkcyjnych.
 6. Skonfiguruj niestandardowe punkty końcowe. To pole umożliwia wprowadź rozdzielaną przecinkami listę portów, które chcesz udostępnić za pośrednictwem usługi równoważenia obciążenia Azure do publicznego Internetu dla aplikacji. Na przykład jeśli planujesz wdrożyć aplikację sieci web do klastra, wprowadź "80" w tym miejscu zezwalająca na ruch na porcie 80 do klastra. Aby uzyskać więcej informacji dotyczących punktów końcowych, zobacz [komunikacji z aplikacjami][service-fabric-connect-and-communicate-with-services]
-7. Konfigurowanie klastra **diagnostyki**. Domyślnie diagnostyki są włączone w klastrze celu ułatwienia rozwiązywania problemów. Jeśli chcesz wyłączyć zmiany diagnostyki **stan** Przełącz, aby **poza**. Wyłączenie diagnostyki jest **nie** zalecane.
-8. Wybierz tryb uaktualniania sieci szkieletowej ma ustawioną wartość klastra. Wybierz **automatyczne**, jeśli system ma automatycznie Podnieś najnowszej dostępnej wersji i spróbuj uaktualnić klaster do niego. Ustaw tryb **ręcznego**, jeśli chcesz wybrać obsługiwanej wersji.
+7. Konfigurowanie klastra **diagnostyki**. Domyślnie diagnostyki są włączone w klastrze celu ułatwienia rozwiązywania problemów. Jeśli chcesz wyłączyć zmiany diagnostyki **stan** Przełącz, aby **poza**. Wyłączenie diagnostyki jest **nie** zalecane. Jeśli masz już utworzonego projektu usługi Application Insights, następnie podaj jego klucza, aby śladów aplikacji są kierowane do niego.
+8. Wybierz tryb uaktualniania sieci szkieletowej ma ustawioną wartość klastra. Wybierz **automatyczne**, jeśli system ma automatycznie Podnieś najnowszej dostępnej wersji i spróbuj uaktualnić klaster do niego. Ustaw tryb **ręcznego**, jeśli chcesz wybrać obsługiwanej wersji. Więcej informacji na temat sieci szkieletowej uaktualnić tryb zobacz [dokumentu usługi sieci szkieletowej klastra uaktualnienia.][service-fabric-cluster-upgrade]
 
 > [!NOTE]
-> Firma Microsoft obsługuje tylko klastry, które są z obsługiwanymi wersjami usługi sieci szkieletowej. Wybierając **ręcznego** trybie podjęcia na odpowiedzialność do uaktualnienia klastra do obsługiwanej wersji. Więcej informacji na temat sieci szkieletowej uaktualnić tryb zobacz [dokumentu usługi sieci szkieletowej klastra uaktualnienia.][service-fabric-cluster-upgrade]
-> 
+> Firma Microsoft obsługuje tylko klastry, które są z obsługiwanymi wersjami usługi sieci szkieletowej. Wybierając **ręcznego** trybie podjęcia na odpowiedzialność do uaktualnienia klastra do obsługiwanej wersji. > 
 > 
 
 #### <a name="3-security"></a>3. Bezpieczeństwo
-![Zrzut ekranu przedstawiający konfiguracjach zabezpieczeń w portalu Azure.][SecurityConfigs]
+![Zrzut ekranu przedstawiający konfiguracjach zabezpieczeń w portalu Azure.][BasicSecurityConfigs]
 
-Ostatnim krokiem jest zapewnienie informacji o certyfikacie do zabezpieczania klastra przy użyciu magazynu kluczy i certyfikatów informacji utworzony wcześniej.
+Aby ułatwić skonfigurowanie klastra bezpiecznego testu dla Ciebie, firma Microsoft umieściła **podstawowe** opcji. Jeśli możesz już ma certyfikat i przekazać go do Twojego keyvault (i włączone magazynu kluczy dla wdrożenia), użyj **niestandardowy** opcji
 
-* Wypełniania pól podstawowego certyfikatu z danych wyjściowych uzyskane z przekazywania **certyfikatu klastra** przy użyciu usługi Key Vault `Invoke-AddCertToKeyVault` polecenia programu PowerShell.
+#####<a name="basic-option"></a>Opcja podstawowe
+Wykonaj ekranów w celu dodania lub ponowne użycie istniejących keyvault i dodawanie certyfikatu. Dodawanie certyfikatu jest procesem synchroniczne i dlatego trzeba będzie czekać na certyfikat, który ma zostać utworzony.
 
-```powershell
-Name  : CertificateThumbprint
-Value : <value>
+Oprzeć możliwość przesłania nawigacji po ekranie, aż do zakończenia poprzedniego procesu.
 
-Name  : SourceVault
-Value : /subscriptions/<guid>/resourceGroups/mycluster-keyvault/providers/Microsoft.KeyVault/vaults/myvault
+![CreateKeyVault]
 
-Name  : CertificateURL
-Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0978cb100e47
-```
+Teraz, certyfikatu zostanie dodany do Twojej keyvault, może zostać wyświetlony następujący ekran monitowania użytkownika można edytować zasady dostępu dla użytkownika Keyvault. polecenie **edycji zasad dostępu.** Dodaj...
 
-* Sprawdź **Skonfiguruj ustawienia zaawansowane** pole służące do wprowadzania certyfikaty klientów dla **klienta administrator** i **klienta tylko do odczytu**. W tych polach wprowadź odcisk palca certyfikatu klienta administratora i odcisk palca certyfikatu klienta użytkownika tylko do odczytu, jeśli ma to zastosowanie. Gdy administratorzy próbować połączyć się z klastrem, otrzymali dostępu tylko wtedy, gdy mają certyfikat z odciskiem palca, który odpowiada wartości odcisku palca wprowadzanym w tym miejscu.  
+![CreateKeyVault2]
+
+Kliknij zasady dostępu zaawansowane i włączyć dostęp do maszyn wirtualnych do wdrożenia. Zaleca się włączenie również wdrażania szablonu.
+
+![CreateKeyVault3]
+
+Teraz można przystąpić do przejścia do pozostałej części procesu tworzenia klastra.
+
+![CreateKeyVault4]
+
+#####<a name="custom-option"></a>Opcja Niestandardowa
+Pomiń tę sekcję, jeśli wykonano już kroki opisane w **podstawowe** opcji.
+
+![SecurityCustomOption]
+
+Należy CertificateThumbprint, SourceVault i informacje CertificateURL, aby ukończyć strony zabezpieczeń. Jeśli nie ma on przydatny, otworzyć inne okno przeglądarki i wykonaj następujące czynności
+
+
+1. Przejdź do Twojej keyvault, wybrać certyfikat. 
+2. Wybierz kartę "właściwości" i skopiuj identyfikator ZASOBU do "Magazyn kluczy źródło" w oknie przeglądarki 
+
+    ![CertInfo0]
+
+3. Teraz wybierz kartę "Certyfikaty".
+4. Polecenie odcisk palca certyfikatu, który prowadzi do strony wersji.
+5. Polecenie identyfikatory GUID wyświetlony w bieżącej wersji.
+
+    ![CertInfo1]
+
+6. Teraz należy na ekranie, podobnie jak poniżej. Skopiuj odcisk palca do "Odcisk palca certyfikatu" w oknie przeglądarki
+7. Skopiuj informacje "Klucz tajny identyfikator" do "adres URL certyfikatu" w innym oknie przeglądarki.
+
+
+![CertInfo2]
+
+
+Sprawdź **Skonfiguruj ustawienia zaawansowane** pole służące do wprowadzania certyfikaty klientów dla **klienta administrator** i **klienta tylko do odczytu**. W tych polach wprowadź odcisk palca certyfikatu klienta administratora i odcisk palca certyfikatu klienta użytkownika tylko do odczytu, jeśli ma to zastosowanie. Gdy administratorzy próbować połączyć się z klastrem, otrzymali dostępu tylko wtedy, gdy mają certyfikat z odciskiem palca, który odpowiada wartości odcisku palca wprowadzanym w tym miejscu.  
 
 #### <a name="4-summary"></a>4. Podsumowanie
 
-Aby zakończyć tworzenie klastra, kliknij przycisk **Podsumowanie** Zobacz konfiguracji, które zostały podane lub pobrać szablonu usługi Azure Resource Manager, który używany do wdrażania klastra. Po dostarczeniu ustawienia obowiązkowe **OK** przycisk staje się zielony i procesu tworzenia klastra można uruchomić, klikając go.
+Teraz można przystąpić do wdrażania klastra. Przed tym, Pobierz certyfikat, poszukać wewnątrz dużych niebieski pola informacyjny dla łącza. Upewnij się zachować certyfikat w bezpiecznym miejscu. należy go do nawiązania połączenia z klastrem. Ponieważ certyfikat, który został pobrany nie ma hasła, zalecane jest dodanie jednego.
 
-Możesz zobaczyć postępy tworzenia w powiadomieniach. (Kliknij ikonę „Dzwonka” w pobliżu paska stanu w prawym górnym rogu ekranu). Jeśli kliknięto **Przypnij do tablicy startowej** podczas tworzenia klastra, zobaczysz **wdrażanie klastra sieci szkieletowej usług** przypięty do **Start** tablicy.
+Aby zakończyć tworzenie klastra, kliknij przycisk **Utwórz**. Opcjonalnie można pobrać szablonu. 
+
+![Podsumowanie]
+
+Możesz zobaczyć postępy tworzenia w powiadomieniach. (Kliknij ikonę „Dzwonka” w pobliżu paska stanu w prawym górnym rogu ekranu). Jeśli kliknięto opcję **Przypnij do tablicy startowej** podczas tworzenia klastra, zobaczysz pozycję **Wdrażanie klastra usługi Service Fabric** przypiętą do tablicy **Start**.
+
+Aby wykonywać operacje zarządzania w klastrze za pomocą programu Powershell lub interfejsu wiersza polecenia, należy połączyć się z klastrem, Dowiedz się więcej na temat sposobu na [nawiązywania połączenia z klastrem](service-fabric-connect-to-secure-cluster.md).
 
 ### <a name="view-your-cluster-status"></a>Wyświetl stan sieci klastra
 ![Zrzut ekranu przedstawiający szczegółów klastra na pulpicie nawigacyjnym.][ClusterDashboard]
@@ -305,7 +209,7 @@ Po utworzeniu klastra można sprawdzić w portalu klastra:
 ## <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Zdalnego łączenia się z wystąpieniem zestawu skalowania maszyn wirtualnych lub węzła klastra
 Każdy z elementów NodeType, określ w wynikach klastra w zestawu skalowania maszyn wirtualnych pobieranie konfiguracji. <!--See [Remote connect to a Virtual Machine Scale Set instance][remote-connect-to-a-vm-scale-set] for details. -->
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 W tym momencie masz bezpiecznego klastra przy użyciu certyfikatów dla uwierzytelniania zarządzania. Następnie [połączyć się z klastrem](service-fabric-connect-to-secure-cluster.md) i Dowiedz się, jak [Zarządzanie klucze tajne aplikacji](service-fabric-application-secret-management.md).  Zapoznaj się z [opcje pomocy technicznej usługi sieć szkieletowa](service-fabric-support.md).
 
 <!-- Links -->
@@ -317,6 +221,7 @@ W tym momencie masz bezpiecznego klastra przy użyciu certyfikatów dla uwierzyt
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [service-fabric-cluster-security-roles]: service-fabric-cluster-security-roles.md
 [service-fabric-cluster-capacity]: service-fabric-cluster-capacity.md
+[service-fabric-cluster-durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
 [service-fabric-connect-and-communicate-with-services]: service-fabric-connect-and-communicate-with-services.md
 [service-fabric-health-introduction]: service-fabric-health-introduction.md
 [service-fabric-reliable-services-backup-restore]: service-fabric-reliable-services-backup-restore.md
@@ -328,6 +233,17 @@ W tym momencie masz bezpiecznego klastra przy użyciu certyfikatów dla uwierzyt
 [SearchforServiceFabricClusterTemplate]: ./media/service-fabric-cluster-creation-via-portal/SearchforServiceFabricClusterTemplate.png
 [CreateRG]: ./media/service-fabric-cluster-creation-via-portal/CreateRG.png
 [CreateNodeType]: ./media/service-fabric-cluster-creation-via-portal/NodeType.png
+[BasicSecurityConfigs]: ./media/service-fabric-cluster-creation-via-portal/BasicSecurityConfigs.PNG
+[CreateKeyVault]: ./media/service-fabric-cluster-creation-via-portal/CreateKeyVault.PNG
+[CreateKeyVault2]: ./media/service-fabric-cluster-creation-via-portal/CreateKeyVault2.PNG
+[CreateKeyVault3]: ./media/service-fabric-cluster-creation-via-portal/CreateKeyVault3.PNG
+[CreateKeyVault4]: ./media/service-fabric-cluster-creation-via-portal/CreateKeyVault4.PNG
+[CertInfo0]: ./media/service-fabric-cluster-creation-via-portal/CertInfo0.PNG
+[CertInfo1]: ./media/service-fabric-cluster-creation-via-portal/CertInfo1.PNG
+[CertInfo2]: ./media/service-fabric-cluster-creation-via-portal/CertInfo2.PNG
+[SecurityCustomOption]: ./media/service-fabric-cluster-creation-via-portal/SecurityCustomOption.PNG
+[DownloadCert]: ./media/service-fabric-cluster-creation-via-portal/DownloadCert.PNG
+[Podsumowanie]: ./media/service-fabric-cluster-creation-via-portal/Summary.PNG
 [SecurityConfigs]: ./media/service-fabric-cluster-creation-via-portal/SecurityConfigs.png
 [Notifications]: ./media/service-fabric-cluster-creation-via-portal/notifications.png
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png

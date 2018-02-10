@@ -1,26 +1,20 @@
 ---
-title: "Konfigurowanie odzyskiwania po awarii dla maszyn wirtualnych funkcji Hyper-V między oddziałami lokalnych z usługą Azure Site Recovery | Dokumentacja firmy Microsoft"
+title: "Konfigurowanie odzyskiwania po awarii dla maszyn wirtualnych funkcji Hyper-V między lokacjami lokalnymi z usługi Azure Site Recovery | Dokumentacja firmy Microsoft"
 description: "Dowiedz się, jak skonfigurować odzyskiwania po awarii dla maszyn wirtualnych funkcji Hyper-V między oddziałami lokalnych z usługą Azure Site Recovery."
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
 manager: carmonm
-editor: 
-ms.assetid: 65eda71c-3ca3-41bc-b02d-00fecc1557d7
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2017
+ms.date: 02/07/2018
 ms.author: raynew
-ms.openlocfilehash: 1647e9d69da3e991bec4e00b3a1083a254fa9550
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 90c0d8c4f03fab3c3932723eeed0a37cd5112615
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="set-up-disaster-recovery-for-hyper-v-vms-to-your-secondary-on-premises-site"></a>Konfigurowanie odzyskiwania po awarii dla maszyn wirtualnych funkcji Hyper-V do lokacji dodatkowej lokalnymi
+# <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Konfigurowanie odzyskiwania po awarii dla maszyn wirtualnych funkcji Hyper-V do lokacji dodatkowej lokalnymi
 
 [Usługi Azure Site Recovery](site-recovery-overview.md) usługi przyczynia się do strategii odzyskiwania po awarii poprzez organizowanie replikacji, trybu failover i powrotu po awarii maszyn lokalnych i Azure maszynach wirtualnych (VM) i zarządzanie nimi.
 
@@ -121,7 +115,7 @@ Wybierz docelowy serwer programu VMM oraz chmury:
 1. Kliknij przycisk **przygotowanie infrastruktury** > **docelowego**i wybierz docelowy serwer programu VMM.
 2. Chmur programu VMM, które są synchronizowane z usługą Site Recovery są wyświetlane. Wybierz chmurę docelową.
 
-   ![docelowy](./media/tutorial-vmm-to-vmm/target-vmm.png)
+   ![Obiekt docelowy](./media/tutorial-vmm-to-vmm/target-vmm.png)
 
 
 ## <a name="set-up-a-replication-policy"></a>Konfigurowanie zasad replikacji
@@ -159,6 +153,6 @@ Przed rozpoczęciem upewnij się, że wszystkie hosty przy użyciu zasad mają t
 
 Możesz śledzić postęp **Włącz ochronę** akcji w **zadania** > **zadania usługi Site Recovery**. Po **zakończenia ochrony** zadanie zostało ukończone, Replikacja początkowa została zakończona i maszyna wirtualna jest gotowa do pracy awaryjnej.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Uruchamianie próbnego odzyskiwania po awarii](tutorial-dr-drill-secondary.md)

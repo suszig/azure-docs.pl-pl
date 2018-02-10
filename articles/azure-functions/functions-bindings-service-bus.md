@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
 ms.author: tdykstra
-ms.openlocfilehash: 2df003d47291570b31e1091f34994e4023000981
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: ed26abdb76083b9a18f79276ebf4294b4b6967b1
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure powiązania usługi Service Bus dla usługi Azure Functions
 
@@ -468,6 +468,13 @@ W języku C# i skryptu C#, dostęp za pomocą parametru metody, takie jak kolejk
 W przypadku tworzenia wielu wiadomości w języku C# lub funkcji skryptu C#, można użyć `ICollector<T>` lub `IAsyncCollector<T>`. Komunikat jest tworzony podczas wywoływania `Add` metody.
 
 W języku JavaScript, dostęp do kolejki lub temat przy użyciu `context.bindings.<name>`. `<name>`wartość jest określona w `name` właściwość *function.json*. Ciąg, tablica bajtów lub obiektu Javascript (deserializacji do postaci JSON) można przypisać do `context.binding.<name>`.
+
+## <a name="exceptions-and-return-codes"></a>Wyjątki i kody powrotne
+
+| Powiązanie | Informacje ogólne |
+|---|---|
+| Service Bus | [Kody błędów usługi Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-exceptions) |
+| Service Bus | [Limity usługi Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas) |
 
 ## <a name="next-steps"></a>Kolejne kroki
 

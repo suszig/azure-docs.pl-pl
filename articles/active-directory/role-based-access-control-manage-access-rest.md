@@ -3,7 +3,7 @@ title: "Kontrola dostępu oparta na rolach przy użyciu REST - usługi Azure AD 
 description: "Zarządzanie kontrolą dostępu opartej na rolach przy użyciu interfejsu API REST"
 services: active-directory
 documentationcenter: na
-author: andredm7
+author: rolyon
 manager: mtillman
 editor: 
 ms.assetid: 1f90228a-7aac-4ea7-ad82-b57d222ab128
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
-ms.author: andredm
-ms.openlocfilehash: 9ec64dc3ce95de9c29331699ad2140e5a3c25673
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: rolyon
+ms.openlocfilehash: d449b53d348471275cea3c7129245569e2151864
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-role-based-access-control-with-the-rest-api"></a>Zarządzanie kontrolą dostępu opartej na rolach przy użyciu interfejsu API REST
 > [!div class="op_single_selector"]
@@ -234,7 +234,7 @@ W identyfikatorze URI wprowadź następujące elementy zastępcze, aby dostosowa
 
    * Subskrypcja: /subscriptions/ {identyfikator subskrypcji}  
    * Grupa zasobów: /subscriptions/ {identyfikator subskrypcji} / resourceGroups/myresourcegroup1  
-   * /Subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1 zasobów  
+   * Resource /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Zastąp *{wersja interfejsu api}* z 2015-07-01.
 3. Zastąp *{filtru}* warunek, który chcesz zastosować, aby filtrować listę ról:
 
@@ -440,9 +440,9 @@ Treść żądania Podaj wartości w następującym formacie:
 | properties.roleName |Yes |Ciąg |Tworzona rola niestandardowa nazwa wyświetlana. Maksymalny rozmiar 128 znaków. |
 | Properties.Description |Nie |Ciąg |Opis roli niestandardowej. Maksymalny rozmiar 1024 znaki. |
 | Properties.Type |Yes |Ciąg |Wartość "CustomRole." |
-| Properties.permissions.Actions |Yes |ciąg] |Tablica ciągów akcji określenie operacji przyznanych przez rolę niestandardowych. |
-| properties.permissions.notActions |Nie |ciąg] |Tablica ciągów akcji określenie operacji do wykluczenia z operacji przyznanych przez rolę niestandardowych. |
-| properties.assignableScopes |Yes |ciąg] |Tablica zakresów, w których można użyć niestandardowej roli. |
+| Properties.permissions.Actions |Yes |String[] |Tablica ciągów akcji określenie operacji przyznanych przez rolę niestandardowych. |
+| properties.permissions.notActions |Nie |String[] |Tablica ciągów akcji określenie operacji do wykluczenia z operacji przyznanych przez rolę niestandardowych. |
+| properties.assignableScopes |Yes |String[] |Tablica zakresów, w których można użyć niestandardowej roli. |
 
 ### <a name="response"></a>Odpowiedź
 Kod stanu: 201
@@ -543,9 +543,9 @@ Treść żądania Podaj wartości w następującym formacie:
 | properties.roleName |Yes |Ciąg |Nazwa wyświetlana zaktualizowane rola niestandardowa. |
 | Properties.Description |Nie |Ciąg |Opis roli niestandardowej zaktualizowane. |
 | Properties.Type |Yes |Ciąg |Wartość "CustomRole." |
-| Properties.permissions.Actions |Yes |ciąg] |Tablica ciągów akcji Określanie operacje, do których tworzona rola niestandardowa zaktualizowane udziela dostępu. |
-| properties.permissions.notActions |Nie |ciąg] |Tablica ciągów akcji określenie operacji do wykluczenia z działań, które zaktualizowane niestandardowe rola przyznaje. |
-| properties.assignableScopes |Yes |ciąg] |Tablica zakresów, w których można użyć roli zaktualizowane niestandardowe. |
+| Properties.permissions.Actions |Yes |String[] |Tablica ciągów akcji Określanie operacje, do których tworzona rola niestandardowa zaktualizowane udziela dostępu. |
+| properties.permissions.notActions |Nie |String[] |Tablica ciągów akcji określenie operacji do wykluczenia z działań, które zaktualizowane niestandardowe rola przyznaje. |
+| properties.assignableScopes |Yes |String[] |Tablica zakresów, w których można użyć roli zaktualizowane niestandardowe. |
 
 ### <a name="response"></a>Odpowiedź
 Kod stanu: 201

@@ -15,15 +15,18 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 0735dd186e53a72c29040fcde51ceb70024784e4
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 1f83b3568cf5c6ad0650f2289263d855ab395772
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="data-management-gateway"></a>Brama zarządzania danymi
 > [!NOTE]
 > Ten artykuł dotyczy wersji 1 usługi Data Factory, która jest ogólnie dostępna (GA). Jeśli używasz wersji 2 usługi fabryka danych, która jest w wersji zapoznawczej, zobacz [hosta samodzielnego środowiska uruchomieniowego integracji w wersji 2](../create-self-hosted-integration-runtime.md). 
+
+> [!NOTE]
+> Brama zarządzania danymi ma teraz zostały rebranded jako Self-hosted integracji w czasie wykonywania.  
 
 Brama zarządzania danymi jest agent klienta, które muszą być zainstalowane w środowisku lokalnym można skopiować dane między chmury i lokalnych magazynów danych. Dane lokalne magazyny obsługiwane przez fabrykę danych są wymienione w [obsługiwanych źródeł danych](data-factory-data-movement-activities.md#supported-data-stores-and-formats) sekcji.
 
@@ -188,7 +191,7 @@ Usługa hosta bramy zarządzania danymi do automatycznego uruchomienia po zapisa
 Po brama została pomyślnie zarejestrowana, jeśli chcesz wyświetlić lub zaktualizować ustawienia serwera proxy, należy użyć Menedżera konfiguracji bramy zarządzania danymi.
 
 1. Uruchom **Menedżera konfiguracji bramy zarządzania danymi**.
-2. Przełącz się do **ustawienia** kartę.
+2. Przejdź do karty **Ustawienia**.
 3. Kliknij przycisk **zmiany** łącze w **serwer HTTP Proxy** sekcji, aby uruchomić **ustawiony serwer Proxy HTTP** okna dialogowego.  
 4. Po kliknięciu **dalej** przycisku, zobacz okno dialogowe ostrzeżenia pytania o uprawnienia zapisać ustawienie serwera proxy i ponownie uruchom usługę hosta bramy.
 

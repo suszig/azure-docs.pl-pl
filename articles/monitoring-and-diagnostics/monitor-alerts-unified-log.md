@@ -12,20 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 02/02/2018
 ms.author: vinagara
-ms.openlocfilehash: 99d222102ab0245c7c4dc8603eaedcfc88ae7a66
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: f6072e4e8a9ab72f677c35e498e31b5218579f1b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="log-alerts-in-azure-monitor---alerts-preview"></a>Dziennik alerty w programie Azure Monitor — alerty (wersja zapoznawcza)
 Ten artykuł zawiera szczegółowe informacje, jak alertu reguł w pracach zapytania analityka w alertach Azure (wersja zapoznawcza) i opisano różnice między różnych typów reguł alertów dziennika.
-Obecnie alerty Azure (wersja zapoznawcza) obsługuje tylko rejestrowania alertów dla zapytań z [Analiza dzienników Azure](../log-analytics/log-analytics-tutorial-viewdata.md) napisana [języka zapytań nowe analizy dzienników](../log-analytics/log-analytics-log-search-upgrade.md)
+
+Obecnie alerty Azure (wersja zapoznawcza), obsługuje rejestrowania alertów dla zapytań z [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) i [usługi Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events).
 
 > [!WARNING]
-> Obecnie alerty Azure (wersja zapoznawcza) — alerty dziennika nie obsługuje zapytań między roboczym lub wielu aplikacji. 
+
+> Obecnie alerty dziennika w alertach Azure (wersja zapoznawcza) nie obsługuje zapytań między roboczym lub wielu aplikacji.
 
 ## <a name="log-alert-rules"></a>Reguły alertów dziennika
 
@@ -70,7 +72,16 @@ W niektórych przypadkach warto utworzyć alert w przypadku braku zdarzeń.  Na 
 
 **Funkcję agregacji**: Określa obliczeń, który jest wykonywane i potencjalnie liczbową pole do zagregowania.  Na przykład **count()** zwraca liczbę rekordów w zapytaniu, **avg(CounterValue)** zwraca średnią pole równowartości dla interwału.
 
+> [!NOTE]
+
+> Funkcji agregującej w zapytaniu muszą być o nazwie wywołuje: AggregatedValue i podaj wartość liczbową.
+
+
 **Pole grupy**: zostaje utworzony rekord z zagregowane wartości dla poszczególnych wystąpień tego pola, a alert jest generowany dla każdego.  Na przykład, jeśli chcesz generować alert dla każdego komputera, możesz użyć **przez komputer**   
+
+> [!NOTE]
+
+> Dla metryki pomiaru reguły alertów, które są oparte na usługi Application Insights można określić pole do grupowania danych. Aby to zrobić, użyj **agregacji na** opcja w definicji reguły.   
 
 **Interwał**: Określa przedział czasu, w którym są agregowane.  Na przykład, jeśli określono **pięć minut**, może zostać utworzony rekord dla każdego wystąpienia pola grupy przez przedział czasu określony dla alertu agregowana co 5 minut.
 
@@ -93,6 +104,6 @@ W tym przykładzie oddzielne alerty zostałyby utworzone dla srv02 i srv03, poni
 
 
 ## <a name="next-steps"></a>Kolejne kroki
-* [Zapoznaj się z omówieniem alerty Azure (wersja zapoznawcza)](monitoring-overview-unified-alerts.md) 
+* [Zapoznaj się z omówieniem alerty Azure (wersja zapoznawcza)](monitoring-overview-unified-alerts.md)
 * Dowiedz się więcej o [za pomocą alertów Azure (wersja zapoznawcza)](monitor-alerts-unified-usage.md)
 * Dowiedz się więcej o [analizy dzienników](../log-analytics/log-analytics-overview.md).    

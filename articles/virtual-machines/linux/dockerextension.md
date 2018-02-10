@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: ce44a5e4db080822aaec0b50a265b863059bd45a
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 2fd7be23c4146051197c4b6d7db6deb06dfa416d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension"></a>Tworzenie środowiska Docker na platformie Azure przy użyciu rozszerzenia maszyny Wirtualnej platformy Docker
 Docker jest popularnych kontenera zarządzania i tworzenia obrazu platformy, która pozwala na szybkie pracować z kontenerami w systemie Linux. Na platformie Azure istnieją różne sposoby Docker można wdrożyć zgodnie z potrzebami. Ten artykuł dotyczy przy użyciu rozszerzenia maszyny Wirtualnej platformy Docker i szablony usługi Azure Resource Manager 2.0 interfejsu wiersza polecenia platformy Azure. Czynności te można również wykonać przy użyciu [interfejsu wiersza polecenia platformy Azure w wersji 1.0](dockerextension-nodejs.md).
@@ -33,15 +33,15 @@ Aby uzyskać więcej informacji o różnych metodach wdrażania, tym przy użyci
 
 
 ## <a name="deploy-a-template-with-the-azure-docker-vm-extension"></a>Wdrażanie szablonu z rozszerzeniem maszyny Wirtualnej Azure Docker
-Użyjmy istniejący szablon szybkiego startu można utworzyć maszyny Wirtualnej systemu Ubuntu używa rozszerzenia maszyny Wirtualnej Azure Docker do instalowania i konfigurowania hosta Docker. Możesz wyświetlić szablon, w tym miejscu: [proste wdrożenie maszyny Wirtualnej systemu Ubuntu z rozwiązaniem Docker z](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Należy najnowszej [Azure CLI 2.0](/cli/azure/install-az-cli2) zainstalowane i zalogowany do konta platformy Azure przy użyciu [logowania az](/cli/azure/#login).
+Użyjmy istniejący szablon szybkiego startu można utworzyć maszyny Wirtualnej systemu Ubuntu używa rozszerzenia maszyny Wirtualnej Azure Docker do instalowania i konfigurowania hosta Docker. Możesz wyświetlić szablon, w tym miejscu: [proste wdrożenie maszyny Wirtualnej systemu Ubuntu z rozwiązaniem Docker z](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Należy najnowszej [Azure CLI 2.0](/cli/azure/install-az-cli2) zainstalowane i zalogowany do konta platformy Azure przy użyciu [logowania az](/cli/azure/#az_login).
 
-Najpierw utwórz nową grupę zasobów o [Tworzenie grupy az](/cli/azure/group#create). Poniższy przykład tworzy grupę zasobów o nazwie *myResourceGroup* w *eastus* lokalizacji:
+Najpierw utwórz nową grupę zasobów o [Tworzenie grupy az](/cli/azure/group#az_group_create). W poniższym przykładzie pokazano tworzenie grupy zasobów o nazwie *myResourceGroup* w lokalizacji *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Następnie należy wdrożyć maszynę Wirtualną z [Utwórz wdrożenie grupy az](/cli/azure/group/deployment#create) zawierającej rozszerzenie Azure Docker VM z [tego szablonu usługi Azure Resource Manager w witrynie GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Po wyświetleniu monitu podaj unikatowe wartości dla *newStorageAccountName*, *adminUsername*, *adminPassword*, i *dnsNameForPublicIP*:
+Następnie należy wdrożyć maszynę Wirtualną z [Utwórz wdrożenie grupy az](/cli/azure/group/deployment#az_group_deployment_create) zawierającej rozszerzenie Azure Docker VM z [tego szablonu usługi Azure Resource Manager w witrynie GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Po wyświetleniu monitu podaj unikatowe wartości dla *newStorageAccountName*, *adminUsername*, *adminPassword*, i *dnsNameForPublicIP*:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -52,7 +52,7 @@ Trwa kilka minut dla wdrożenia, aby zakończyć.
 
 
 ## <a name="deploy-your-first-nginx-container"></a>Wdrażanie Twojego pierwszego kontener NGINX
-Aby wyświetlić szczegóły maszyny Wirtualnej, łącznie z nazwą DNS, należy użyć [az maszyny wirtualnej pokazu](/cli/azure/vm#show):
+Aby wyświetlić szczegóły maszyny Wirtualnej, łącznie z nazwą DNS, należy użyć [az maszyny wirtualnej pokazu](/cli/azure/vm#az_vm_show):
 
 ```azurecli
 az vm show \

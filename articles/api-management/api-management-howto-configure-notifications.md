@@ -11,59 +11,47 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: ec560bbab3caf4cde090ed3c9a47ccc0afcb2492
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 228cbb103e13c478bea460bb04de43d6480bc60e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>How to configure notifications and email templates in Azure API Management
-Zarządzanie interfejsami API pozwala, aby skonfigurować powiadomienia dla określonych zdarzeń i konfigurowania szablonów wiadomości e-mail, które są używane do komunikacji z Administratorzy i deweloperzy wystąpienia interfejsu API zarządzania. W tym temacie pokazano, jak skonfigurować powiadomienia o zdarzeniach dostępny i zawiera omówienie konfigurowania szablonów wiadomości e-mail używany dla tych zdarzeń.
+Zarządzanie interfejsami API pozwala, aby skonfigurować powiadomienia dla określonych zdarzeń i konfigurowania szablonów wiadomości e-mail, które są używane do komunikacji z Administratorzy i deweloperzy wystąpienia interfejsu API zarządzania. W tym artykule pokazano, jak skonfigurować powiadomienia o zdarzeniach dostępny i zawiera omówienie konfigurowania szablonów wiadomości e-mail używany dla tych zdarzeń.
 
-## <a name="publisher-notifications"></a>Skonfigurować powiadomienia o wydawcy
-Kliknij, aby skonfigurować powiadomienia **portal wydawcy** w portalu Azure usługi Zarządzanie interfejsami API. Spowoduje to przejście do portalu wydawcy usługi API Management.
+## <a name="prerequisites"></a>Wymagania wstępne
 
-![Portal wydawcy][api-management-management-console]
+Nie masz wystąpienie usługi API Management, należy wykonać następujące procedury szybkiego startu: [utworzenia wystąpienia usługi Azure API Management](get-started-create-service-instance.md).
 
-> [!NOTE] 
-> Jeśli jeszcze nie utworzono wystąpienie usługi API Management, zobacz [Utwórz wystąpienie usługi Zarządzanie interfejsami API][Create an API Management service instance].
+## <a name="publisher-notifications"></a>Skonfigurować powiadomienia
 
-Kliknij przycisk **powiadomienia** z **zarządzanie interfejsami API** menu po lewej stronie, aby wyświetlić dostępnych powiadomień.
+1. Wybierz użytkownika **zarządzanie interfejsami API** wystąpienia.
+2. Kliknij przycisk **powiadomienia** do wyświetlania dostępnych powiadomień.
 
-![Wydawcy powiadomień][api-management-publisher-notifications]
+    ![Wydawcy powiadomień][api-management-publisher-notifications]
 
-Poniższa lista zdarzeń można skonfigurować dla powiadomienia.
+    Poniższa lista zdarzeń można skonfigurować dla powiadomienia.
 
-* **Żądania subskrypcji (wymaganie zatwierdzenia)** -adresatów wiadomości e-mail określonego i użytkowników będzie otrzymywał powiadomienia e-mail o żądaniach subskrypcji dla produktów interfejsu API, wymaganie zatwierdzenia.
-* **Nowe subskrypcje** -adresatów wiadomości e-mail określonego i użytkowników będzie otrzymywał powiadomienia e-mail o nowe subskrypcje produktu interfejsu API.
-* **Żądania galerii aplikacji** -adresatów wiadomości e-mail określonego i użytkowników będzie otrzymywał powiadomienia e-mail, gdy nowe aplikacje są przesyłane do galerii aplikacji.
-* **UDW** -adresatów wiadomości e-mail określonego i użytkownicy otrzymają wiadomość e-mail kopie wszystkich wiadomości e-mail wysyłanych do deweloperów.
-* **Nowy problem lub komentarz** — adresatów wiadomości e-mail określonego i użytkownicy będą otrzymywać powiadomienia e-mail, gdy nowy problem lub komentarz jest przesyłany w portalu dla deweloperów.
-* **Komunikat zamknięcia konta** -adresatów wiadomości e-mail określony i użytkownicy będą otrzymywać powiadomienia e-mail, po zamknięciu konta.
-* **Limit przydziału subskrypcji o** -następujących adresatów wiadomości e-mail i użytkowników będzie otrzymywał powiadomienia e-mail, gdy użycie subskrypcji pobiera możliwości wykorzystania przydziału użycia.
+    * **Żądania subskrypcji (wymaganie zatwierdzenia)** -adresatów wiadomości e-mail określonego i użytkowników będzie otrzymywał powiadomienia e-mail o żądaniach subskrypcji dla produktów interfejsu API, wymaganie zatwierdzenia.
+    * **Nowe subskrypcje** -adresatów wiadomości e-mail określonego i użytkowników będzie otrzymywał powiadomienia e-mail o nowe subskrypcje produktu interfejsu API.
+    * **Żądania galerii aplikacji** -adresatów wiadomości e-mail określonego i użytkowników będzie otrzymywał powiadomienia e-mail, gdy nowe aplikacje są przesyłane do galerii aplikacji.
+    * **UDW** -adresatów wiadomości e-mail określonego i użytkownicy otrzymają wiadomość e-mail kopie wszystkich wiadomości e-mail wysyłanych do deweloperów.
+    * **Nowy problem lub komentarz** — adresatów wiadomości e-mail określonego i użytkownicy będą otrzymywać powiadomienia e-mail, gdy nowy problem lub komentarz jest przesyłany w portalu dla deweloperów.
+    * **Komunikat zamknięcia konta** -adresatów wiadomości e-mail określony i użytkownicy będą otrzymywać powiadomienia e-mail, po zamknięciu konta.
+    * **Limit przydziału subskrypcji o** -następujących adresatów wiadomości e-mail i użytkowników będzie otrzymywał powiadomienia e-mail, gdy użycie subskrypcji pobiera możliwości wykorzystania przydziału użycia.
 
-Dla każdego zdarzenia można określić adresatów wiadomości e-mail w polu tekstowym adres e-mail lub użytkownicy mogą wybrać z listy.
+    Dla każdego zdarzenia można określić adresatów wiadomości e-mail w polu tekstowym adres e-mail lub użytkownicy mogą wybrać z listy.
 
-Aby określić adresy e-mail, aby otrzymywać powiadomienia, wprowadź je w polu tekstowym adres e-mail. Jeśli masz wiele adresów e-mail, oddzielając je przecinkami.
+3. Aby określić adresy e-mail, aby otrzymywać powiadomienia, wprowadź je w polu tekstowym adres e-mail. Jeśli masz wiele adresów e-mail, oddzielając je przecinkami.
 
-![Adresatów powiadomień][api-management-email-addresses]
+    ![Adresatów powiadomień][api-management-email-addresses]
+4. Kliknij przycisk **Dodaj**.
 
-Aby określić należy powiadomić użytkowników, kliknij przycisk **Dodaj adresata**, zaznacz pole obok użytkowników, aby otrzymywać powiadomienia, a następnie kliknij przycisk **OK**.
-
-> [!NOTE] 
-> Tylko administratorzy są wyświetlane na liście.
-
-
-Po skonfigurowaniu odbiorców powiadomień, kliknij przycisk **zapisać** dotyczyć odbiorców powiadomień zaktualizowane.
-
-> [!NOTE] 
-> Jeśli oddalisz się od **wydawcy powiadomień** kartę portalu wydawcy generuje alert, jeśli istnieją niezapisane zmiany.
-
-
-## <a name="email-templates"></a>Konfigurowanie szablonów wiadomości e-mail
-Zarządzanie interfejsami API udostępnia szablony wiadomości e-mail dla wiadomości e-mail, które są wysyłane w ramach zarządzania i korzystania z usługi. Znajdują się następujące szablony wiadomości e-mail.
+## <a name="email-templates"></a>Konfigurowanie szablonów powiadomień
+Zarządzanie interfejsami API udostępnia szablony powiadomień dla wiadomości e-mail, które są wysyłane w ramach zarządzania i korzystania z usługi. Znajdują się następujące szablony wiadomości e-mail.
 
 * Zatwierdzone przesyłanie galerii aplikacji
 * Litera farewell Developer
@@ -78,13 +66,9 @@ Zarządzanie interfejsami API udostępnia szablony wiadomości e-mail dla wiadom
 
 Te szablony mogą być modyfikowane pożądane.
 
-Kliknij, aby wyświetlić i skonfigurować szablony wiadomości e-mail dla swojego wystąpienia usługi API Management **powiadomienia** z **zarządzanie interfejsami API** menu po lewej stronie, a następnie wybierz **szablony wiadomości E-mail**kartę.
+Kliknij, aby wyświetlić i skonfigurować szablony wiadomości e-mail dla swojego wystąpienia usługi API Management **szablonów powiadomień**.
 
 ![Szablony wiadomości e-mail][api-management-email-templates]
-
-Aby wyświetlić lub zmodyfikować szablon, wybierz go z **szablony** listy rozwijanej.
-
-![Lista szablonów wiadomości e-mail][api-management-email-templates-list]
 
 Każdy szablon wiadomości e-mail ma podmiotu w postaci zwykłego tekstu i definicji treści w formacie HTML. Każdy element można dostosować pożądane.
 
@@ -92,12 +76,10 @@ Każdy szablon wiadomości e-mail ma podmiotu w postaci zwykłego tekstu i defin
 
 **Parametry** lista zawiera listę parametrów, służący wstawione do tematu lub treści, zostanie zastąpiony wyznaczonej wartości, po wysłaniu wiadomości e-mail. Aby wstawić parametru, umieść kursor, który mają parametr, aby przejść, a następnie kliknij przycisk strzałki w lewo nazwę parametru.
 
-Kliknij przycisk **Podgląd** lub **wysłać teście** aby zobaczyć, jak wiadomości e-mail będą wyglądać lub Wyślij testową wiadomość e-mail.
-
 > [!NOTE] 
 > Parametry nie są zastępowane rzeczywistymi wartościami podczas przeglądania lub wysyłanie testu.
 
-Aby zapisać zmiany szablonu wiadomości e-mail, kliknij polecenie **zapisać**, lub Anuluj zmiany kliknij **anulować**.
+Aby zapisać zmiany szablonu wiadomości e-mail, kliknij polecenie **zapisać**, lub Anuluj zmiany kliknij **odrzucić**.
  
 
 [api-management-management-console]: ./media/api-management-howto-configure-notifications/api-management-management-console.png

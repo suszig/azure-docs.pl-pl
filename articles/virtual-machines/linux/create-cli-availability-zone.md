@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: danlep
 ms.custom: 
-ms.openlocfilehash: 5e742187295d0bd6dbc0767ee164335fc0cf9f02
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 280c31d00acc074653b6594235f78e4d569464b4
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Utwórz maszynę wirtualną systemu Linux w strefie dostępności z wiersza polecenia platformy Azure
 
@@ -28,19 +28,19 @@ Ta procedura artykułu przy użyciu wiersza polecenia platformy Azure, aby utwor
 
 [!INCLUDE [availability-zones-preview-statement.md](../../../includes/availability-zones-preview-statement.md)]
 
-Upewnij się, że zainstalowano najnowszą [Azure CLI 2.0](/cli/azure/install-az-cli2) i zalogowany do konta platformy Azure z [logowania az](/cli/azure/#login).
+Upewnij się, że zainstalowano najnowszą [Azure CLI 2.0](/cli/azure/install-az-cli2) i zalogowany do konta platformy Azure z [logowania az](/cli/azure/#az_login).
 
 
-## <a name="check-vm-sku-availability"></a>Sprawdź dostępność SKU maszyny Wirtualnej
-Dostępność rozmiarów maszyn wirtualnych lub jednostki SKU, może się różnić od regionu i strefy. Aby zaplanować użycie stref dostępności, można wyświetlić dostępne jednostki SKU maszyny Wirtualnej w regionie platformy Azure i strefy. Ta możliwość upewnia się, wybierz odpowiedni rozmiar maszyny Wirtualnej i uzyskać odpowiednią odporności różnych strefach. Aby uzyskać więcej informacji o różnych typach maszyn wirtualnych i rozmiary, zobacz [rozmiarów maszyn wirtualnych — omówienie](sizes.md).
+## <a name="check-vm-sku-availability"></a>Sprawdzanie dostępności jednostki SKU maszyny wirtualnej
+Dostępność rozmiarów maszyn wirtualnych lub jednostek SKU może różnić się w zależności od regionu i strefy. Aby uzyskać pomoc w planowaniu użycia stref dostępności, możesz wyświetlić listę dostępnych jednostek SKU maszyn wirtualnych według regionu i strefy świadczenia usługi Azure. Ta możliwość gwarantuje wybranie odpowiedniego rozmiaru maszyny wirtualnej oraz uzyskanie żądanej odporności w różnych strefach. Aby uzyskać więcej informacji o różnych typach i rozmiarach maszyn wirtualnych, zobacz [Omówienie rozmiarów maszyn wirtualnych](sizes.md).
 
-Możesz wyświetlić dostępne jednostki SKU maszyny Wirtualnej z [wirtualna az listy SKU](/cli/azure/vm#az_vm_list_skus) polecenia. Poniższy przykład zawiera listę dostępnych SKU maszyny Wirtualnej w *eastus2* regionu:
+Możesz wyświetlić dostępne jednostki SKU maszyny Wirtualnej z [wirtualna az listy SKU](/cli/azure/vm#az_vm_list_skus) polecenia. Następujący przykład zawiera listę dostępnych jednostek SKU maszyn wirtualnych w regionie *eastus2*:
 
 ```azurecli
 az vm list-skus --location eastus2 --output table
 ```
 
-Wynik jest podobny do poniższego przykładu skrócone pokazuje stref dostępności, w których każdy rozmiar maszyny Wirtualnej są dostępne:
+Rezultat jest podobny do poniższego, skróconego przykładu, który pokazuje strefy dostępności, w których dostępne są poszczególne rozmiary maszyn wirtualnych:
 
 ```azurecli
 ResourceType      Locations  Name               Tier       Size     Zones

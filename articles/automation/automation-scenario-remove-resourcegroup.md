@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: magoedte
-ms.openlocfilehash: e1734bdd22ecfc4e54074f02582f5a8eca7d4f59
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: cb7183cbec1c3efafe58f4508042d329be5dcecf
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-automation-scenario---automate-removal-of-resource-groups"></a>Scenariusz użycia usługi Azure Automation — automatyczne usuwanie grup zasobów
 Wielu klientów tworzy więcej niż jedną grupę zasobów. Niektóre grupy mogą służyć do zarządzania aplikacjami produkcyjnymi, a inne mogą być używane jako środowiska rozwojowe, testowe lub przejściowe. Automatyzacja wdrażania tych zasobów to jedno, ale wymagane jest również zapewnienie możliwości łatwej likwidacji grupy zasobów. To typowe zadanie zarządzania można uprościć przy użyciu usługi Azure Automation. Przydaje się to w przypadku korzystania z subskrypcji platformy Azure z limitem wydatków w ramach takich ofert jak MSDN lub program Microsoft Partner Network Cloud Essentials.
@@ -37,7 +37,7 @@ Dla tego elementu Runbook zdefiniowano następujące parametry wejściowe:
 
 | Parametr | Opis |
 | --- | --- |
-| NameFilter (Filtr nazw) (wymagany) |Określa filtr nazw w celu ograniczenia grup zasobów, które mają zostać usunięte. Można przekazać wiele wartości za pomocą listy rozdzielanej przecinkami.<br>Filtr nie uwzględnia wielkości liter i pokaże wszystkie grupy zasobów zawierające dany ciąg. |
+| NameFilter (Filtr nazw) (wymagany) |Określa filtr nazw w celu ograniczenia grup zasobów, które mają zostać usunięte. Można przekazać wiele wartości za pomocą listy rozdzielanej przecinkami.<br>Filtr nie jest rozróżniana wielkość liter i dopasowuje dowolną grupę zasobów, który zawiera ciąg. |
 | PreviewMode (Tryb podglądu) (opcjonalny) |Umożliwia uruchomienie elementu Runbook w celu sprawdzenia, które grupy zasobów zostaną usunięte, ale bez podejmowania żadnych działań.<br>Wartość domyślna równa **true** (prawda) pozwala zapobiec przypadkowemu usunięciu jednej lub większej liczby grup zasobów przekazanych do elementu Runbook. |
 
 ## <a name="install-and-configure-this-scenario"></a>Instalowanie i konfigurowanie tego scenariusza
@@ -48,19 +48,19 @@ Uwierzytelnianie elementu Runbook odbywa się przy użyciu [konta Uruchom jako p
 Po pobraniu elementu Runbook można go zaimportować za pomocą [procedury importowania elementów Runbook](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation). Po pomyślnym zaimportowaniu elementu Runbook do konta usługi Automation należy go opublikować.
 
 ## <a name="using-the-runbook"></a>Używanie elementu Runbook
-Poniższe instrukcje umożliwiają uruchomienie tego elementu Runbook i zapoznanie się z jego działaniem. Ten przykład obejmuje tylko testowanie elementu Runbook bez faktycznego usuwania grupy zasobów.  
+W poniższych krokach objaśniono przez wykonanie tego elementu runbook i pomocy należy zapoznać się z jej działania. Podczas testowania elementu runbook w tym przykładzie rzeczywiście usunięcie grupy zasobów.  
 
 1. W witrynie Azure Portal otwórz konto usługi Automation i kliknij kafelek **Elementy Runbook**.
 2. Wybierz element Runbook **Remove-ResourceGroup** i kliknij pozycję **Uruchom**.
-3. Uruchomienie elementu Runbook powoduje otwarcie bloku **Uruchom element Runbook**, w którym można skonfigurować parametry. Wprowadź nazwy grup zasobów w subskrypcji, której możesz użyć do testów bez powodowania żadnych szkód w razie przypadkowego usunięcia.<br> ![Parametry elementu Runbook Remove-ResouceGroup](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-input-parameters.png)
+3. Po uruchomieniu elementu runbook, **Uruchom element Runbook** zostanie otwarta strona i można skonfigurować parametrów. Wprowadź nazwy grup zasobów w ramach subskrypcji, można użyć do testowania, powoduje żadnych problemów, jeśli przypadkowo usunięte.
 
    > [!NOTE]
-   > Aby uniknąć usunięcia wybranych grup zasobów, upewnij się, że parametr **Previewmode** (Tryb podglądu) ma wartość **true** (prawda).  **Pamiętaj**, że element Runbook nie usunie grupy zasobów zawierającej konto usługi Automation, na którym jest uruchomiony ten element Runbook.  
+   > Aby uniknąć usunięcia wybranych grup zasobów, upewnij się, że parametr **Previewmode** (Tryb podglądu) ma wartość **true** (prawda). Ten element runbook nie powoduje usunięcia grupy zasobów, która zawiera konta automatyzacji, który jest uruchomiony ten element runbook.  
    >
    >
-4. Po skonfigurowaniu wszystkich wartości parametrów kliknij przycisk **OK**. Element Runbook zostanie umieszczony w kolejce do wykonania.  
+1. Po skonfigurowaniu wszystkich wartości parametrów kliknij przycisk **OK**. Element Runbook zostanie umieszczony w kolejce do wykonania.  
 
-Aby wyświetlić szczegóły zadania elementu Runbook **Remove-ResourceGroup** w witrynie Azure Portal, kliknij kafelek **Zadania** w elemencie Runbook. W podsumowaniu zadania są wyświetlane parametry wejściowe i dane ze strumienia wyjściowego oraz ogólne informacje o zadaniu wraz z wygenerowanymi wyjątkami.<br> ![Stan zadania elementu Runbook Remove-ResourceGroup](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-status.png).
+Aby wyświetlić szczegóły **ResourceGroup Usuń** runbook zadania w portalu Azure w obszarze **zasobów**, wybierz pozycję **zadania** w elemencie runbook. Wybierz zadania, które chcesz wyświetlić. W podsumowaniu zadania są wyświetlane parametry wejściowe i dane ze strumienia wyjściowego oraz ogólne informacje o zadaniu wraz z wygenerowanymi wyjątkami.<br> ![Stan zadania elementu Runbook Remove-ResourceGroup](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-status.png).
 
 W obszarze **Podsumowanie zadania** są widoczne ostrzeżenia i komunikaty o błędach oraz dane ze strumienia wyjściowego. Kliknij kafelek **Dane wyjściowe**, aby wyświetlić szczegółowe wyniki wykonania elementu Runbook.<br> ![Dane wyjściowe elementu Runbook Remove-ResourceGroup](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-output.png)
 

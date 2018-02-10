@@ -14,17 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/06/2017
 ms.author: parakhj
-ms.openlocfilehash: dde17c89c49223c75842f328f455c6637aa1915b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4dbc70d866a728a63102bd169a124bd26990aeb2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-twitter-accounts"></a>Azure Active Directory B2C: Umożliwiają tworzenie kont i logowania użytkowników z kontami usługi Twitter
-
-> [!NOTE]
-> Ta funkcja jest dostępna w wersji zapoznawczej.
-> 
 
 ## <a name="create-a-twitter-application"></a>Utwórz aplikację usługi Twitter
 Aby użyć usługi Twitter jako dostawca tożsamości w usłudze Azure Active Directory (Azure AD) B2C, należy utworzyć aplikację usługi Twitter i dostarczyć prawo parametrów. Musisz mieć konto dewelopera usługi Twitter, w tym celu. Jeśli nie masz, możesz pobrać go w [https://dev.twitter.com/](https://dev.twitter.com/).
@@ -46,3 +42,6 @@ Aby użyć usługi Twitter jako dostawca tożsamości w usłudze Azure Active Di
 6. Kliknij przycisk **skonfigurować ten dostawca tożsamości** , a następnie wprowadź Twitter **konsumenta** dla **identyfikator klienta** i Twitter **klucz tajny klienta** dla **klucz tajny klienta**.
 7. Kliknij przycisk **OK**, a następnie kliknij przycisk **Utwórz** Aby zapisać konfigurację usługi Twitter.
 
+## <a name="next-steps"></a>Kolejne kroki
+
+Utwórz lub Edytuj [wbudowanych zasad](active-directory-b2c-reference-policies.md) i dodać funkcję dostawcy tożsamości usługi Twitter.

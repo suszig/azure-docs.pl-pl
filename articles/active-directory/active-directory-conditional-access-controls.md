@@ -13,28 +13,32 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/29/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 533229ae90828a0aeba9f10cbdfdb70afa21e1c5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 24db2d29684f7ce5822c77c71f944327476b7196
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="controls-in-azure-active-directory-conditional-access"></a>Formanty w usłudze Azure Active Directory dostępu warunkowego 
 
-Z [dostępu warunkowego w usłudze Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md), można kontrolować sposób autoryzowanym użytkownikom dostępu aplikacji w chmurze. W zasad dostępu warunkowego można zdefiniować odpowiedzi ("tym") określony warunek, ("w takim przypadku"). W kontekście dostępu warunkowego 
+Z [dostępu warunkowego w usłudze Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md), można kontrolować sposób autoryzowanym użytkownikom dostępu aplikacji w chmurze. W zasadach dostępu warunkowego zdefiniowanego odpowiedzi ("tym") Przyczyna służącą do wyzwalania zasad ("w takim przypadku"). 
 
-- "**w takim przypadku**" jest wywoływana **warunku — instrukcja**
+![Kontrola](./media/active-directory-conditional-access-controls/10.png)
 
-- "**To zrobić**" jest wywoływana **formantów**
 
-![Kontrola](./media/active-directory-conditional-access-controls/11.png)
+W kontekście dostępu warunkowego 
+
+- "**w takim przypadku**" jest wywoływana **warunków**
+
+- "**To zrobić**" jest wywoływana **dostęp do formantów**
+
 
 Kombinacja instrukcji warunku z formantów reprezentuje zasady dostępu warunkowego.
 
-![Kontrola](./media/active-directory-conditional-access-controls/12.png)
+![Kontrola](./media/active-directory-conditional-access-controls/61.png)
 
 Każdej kontrolki jest wymagania, które muszą być spełnione przez osobę lub system logowania lub ograniczenie użytkownika można zrobić po zalogowaniu się. 
 

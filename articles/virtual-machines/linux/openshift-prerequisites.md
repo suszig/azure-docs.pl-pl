@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: haroldw
-ms.openlocfilehash: 5e287cd29fb305e78fe6338782838929007b17fc
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 467428462260596f21ba59f49e3c48b5fc2526b6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Typowe wymagania wstępne dotyczące wdrażania OpenShift na platformie Azure
 
@@ -52,14 +52,14 @@ Ten przewodnik zawiera opis sposobu tworzenia artefaktów związanych z wymagań
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure 
-Zaloguj się do Twojej subskrypcji platformy Azure z [logowania az](/cli/azure/#login) polecenia i wykonaj na ekranie wskazówek, lub kliknij przycisk **wypróbuj** użycia chmury powłoki.
+Zaloguj się do Twojej subskrypcji platformy Azure z [logowania az](/cli/azure/#az_login) polecenia i wykonaj na ekranie wskazówek, lub kliknij przycisk **wypróbuj** użycia chmury powłoki.
 
 ```azurecli 
 az login
 ```
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#create). Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Grupa zasobów dedykowanych służy do obsługi magazynu kluczy. Ta grupa jest oddzielony od grupy zasobów, do którego wdrażanie OpenShift zasobów klastra. 
+Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#az_group_create). Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Grupa zasobów dedykowanych służy do obsługi magazynu kluczy. Ta grupa jest oddzielony od grupy zasobów, do którego wdrażanie OpenShift zasobów klastra. 
 
 Poniższy przykład tworzy grupę zasobów o nazwie *keyvaultrg* w *eastus* lokalizacji:
 
@@ -68,7 +68,7 @@ az group create --name keyvaultrg --location eastus
 ```
 
 ## <a name="create-a-key-vault"></a>Tworzenie magazynu kluczy
-Tworzenie magazynu kluczy w celu przechowywania kluczy SSH dla klastra z [az keyvault utworzyć](/cli/azure/keyvault#create) polecenia. Nazwa magazynu kluczy musi być globalnie unikatowa.
+Tworzenie magazynu kluczy w celu przechowywania kluczy SSH dla klastra z [az keyvault utworzyć](/cli/azure/keyvault#az_keyvault_create) polecenia. Nazwa magazynu kluczy musi być globalnie unikatowa.
 
 Poniższy przykład tworzy magazyn kluczy o nazwie *keyvault* w *keyvaultrg* grupy zasobów:
 
@@ -100,7 +100,7 @@ az keyvault secret set --vault-name keyvault --name keysecret --file ~/.ssh/open
 ## <a name="create-a-service-principal"></a>Tworzenie nazwy głównej usługi 
 OpenShift komunikuje się z platformą Azure za pomocą nazwy użytkownika i hasła lub nazwy głównej usługi. Podmiot zabezpieczeń usługi Azure jest tożsamość zabezpieczeń korzystających z aplikacji, usługami i automatyzacja takich narzędzi jak OpenShift. Kontrolowanie i definiowanie uprawnień, aby operacje nazwy głównej usługi można wykonać na platformie Azure. Aby poprawić bezpieczeństwo poza tylko podanie nazwy użytkownika i hasła, w tym przykładzie tworzy podstawowej usługi podmiotu zabezpieczeń.
 
-Utwórz usługę podmiotu zabezpieczeń z [az ad sp utworzyć do rbac](/cli/azure/ad/sp#create-for-rbac) i poświadczenia, które wymaga OpenShift output.
+Utwórz usługę podmiotu zabezpieczeń z [az ad sp utworzyć do rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) i poświadczenia, które wymaga OpenShift output.
 
 Poniższy przykład tworzy usługę podmiotu zabezpieczeń i przypisuje go uprawnienia współautora do grupy zasobów o nazwie myResourceGroup. Jeśli używasz systemu Windows, należy wykonać ```az group show --name myResourceGroup --query id``` oddzielnie i użyć danych wyjściowych ze źródłem opcja zakresów.
 

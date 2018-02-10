@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 9a6e629582b6966d270a2378e585572efe133f3e
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 69750db615460b3ac69ba9ffe707a970ca8e2e11
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>Agregacja zdarzeń i kolekcji przy użyciu EventFlow
 
@@ -43,6 +43,9 @@ Po zainstalowaniu wszystkich pakietów, następnym krokiem jest skonfigurować i
 
 ## <a name="configure-and-enable-log-collection"></a>Skonfiguruj i Włącz zbierania dzienników
 Potok EventFlow odpowiedzialny za wysyłanie dzienników jest tworzona na podstawie specyfikacji przechowywane w pliku konfiguracji. `Microsoft.Diagnostics.EventFlow.ServiceFabric` Pakiet instaluje plik początkowej konfiguracji EventFlow pod `PackageRoot\Config` folder rozwiązania o nazwie `eventFlowConfig.json`. Ten plik konfiguracyjny musi zostać zmodyfikowane w celu przechwycenia danych z usługi domyślne `EventSource` klasy i inne dane wejściowe chcesz skonfigurować, a następnie wysyłać dane w odpowiednie miejsce.
+
+>[!NOTE]
+>Jeśli plik projektu ma format Visual Studio 2017 `eventFlowConfig.json` pliku nie zostanie automatycznie dodany. Aby rozwiązać, to utworzyć plik w `Config` folderu i ustawić akcji kompilacji `Copy if newer`. 
 
 Poniżej przedstawiono przykładowe *eventFlowConfig.json* oparte na pakietów NuGet wymienionych powyżej:
 ```json
@@ -150,7 +153,7 @@ servicefabric:/<section-name>/<setting-name>
 
 Uruchomić usługę i sprawdź debugowania okno dane wyjściowe w programie Visual Studio. Po uruchomieniu usługi powinny zacząć się wyświetlać dowód, że usługa wysyła rekordów danych wyjściowych, który został skonfigurowany. Przejdź do zdarzeń platformy analizy i wizualizacji i upewnij się, że dzienniki zaczęły Pokaż up (może to potrwać kilka minut).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Analiza zdarzeń i wizualizacji z usługą Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
 * [Analiza zdarzeń i wizualizacji z OMS](service-fabric-diagnostics-event-analysis-oms.md)

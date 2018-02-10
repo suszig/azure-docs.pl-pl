@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: ancav
-ms.openlocfilehash: 05775415e210333cf63565e7b5b554d014f6ba23
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 9f7f9dcc473e6925000ebe76a6592779c228a9af
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Utwórz i Zarządzaj grupami akcji w portalu Azure
 ## <a name="overview"></a>Przegląd ##
@@ -58,10 +58,10 @@ Aby uzyskać informacje na temat sposobu konfigurowania grup akcji za pomocą sz
 
     b. **Typ akcji**: Wybierz programu SMS, wiadomości e-mail, webhook, aplikację usługi Azure, zarządzanie usługami IT — lub elementu Runbook automatyzacji.
 
-    d. **Szczegóły**: oparte na typ akcji, wprowadź numer telefonu, adres e-mail, identyfikator URI elementu webhook, aplikację usługi Azure, zarządzanie usługami IT — połączenie lub elementu runbook automatyzacji. Zarządzanie usługami IT — akcji, należy również określić **elementu roboczego** i wymaga narzędzie Zarządzanie usługami IT — innych pól. 
+    c. **Szczegóły**: oparte na typ akcji, wprowadź numer telefonu, adres e-mail, identyfikator URI elementu webhook, aplikację usługi Azure, zarządzanie usługami IT — połączenie lub elementu runbook automatyzacji. Zarządzanie usługami IT — akcji, należy również określić **elementu roboczego** i wymaga narzędzie Zarządzanie usługami IT — innych pól.
 
    > [!NOTE]
-   > Zarządzanie usługami IT — akcja wymaga połączenia Zarządzanie usługami IT —. Dowiedz się, jak utworzyć [połączenia Zarządzanie usługami IT —](../log-analytics/log-analytics-itsmc-overview.md). Zarządzanie usługami IT — akcji jest obecnie obsługiwane tylko w przypadku alertów dotyczących działań w dzienniku. Inne typy alertów ta akcja jest obecnie pusta.
+   > Zarządzanie usługami IT — akcja wymaga połączenia Zarządzanie usługami IT —. Dowiedz się, jak utworzyć [połączenia Zarządzanie usługami IT —](../log-analytics/log-analytics-itsmc-overview.md). 
 
 8. Wybierz **OK** można utworzyć grupy działań.
 
@@ -75,6 +75,6 @@ Po utworzeniu grupy akcji jest widoczna w **grupy akcji** sekcji **Monitor** blo
 * Dowiedz się więcej o [SMS alertów zachowanie](monitoring-sms-alert-behavior.md).  
 * Uzyskaj [zrozumienia schemat alertu elementu webhook dziennika aktywności](monitoring-activity-log-alerts-webhook.md).  
 * Dowiedz się więcej o [Zarządzanie usługami IT — łącznika](../log-analytics/log-analytics-itsmc-overview.md)
-* Dowiedz się więcej o [limitów szybkości](monitoring-alerts-rate-limiting.md) alertów. 
+* Dowiedz się więcej o [limitów szybkości](monitoring-alerts-rate-limiting.md) alertów.
 * Pobierz [Przegląd alertów dotyczących działań w dzienniku](monitoring-overview-alerts.md)i dowiedzieć się, jak otrzymywać alerty.  
 * Dowiedz się, jak [skonfigurować alerty, gdy powiadomienie usługi kondycji jest przesyłana](monitoring-activity-log-alerts-on-service-notifications.md).

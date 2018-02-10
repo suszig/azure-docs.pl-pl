@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: robb,bwren
-ms.openlocfilehash: 3ab7d2d5c3b95d215f3ee9eb9346e8a7895e734c
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 505e92b5fc63f570bc4d0f8899ae977b93850356
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>Monitorowanie aplikacji platformy Azure i zasobów
 
@@ -57,8 +57,11 @@ Następujących usług platformy Azure zapewniają bogate możliwości do zbiera
 [Mapa usług](../operations-management-suite/operations-management-suite-service-map.md) zapewnia wgląd w środowisku IaaS, analizując maszyny wirtualne z różnych procesów i zależności na innych komputerach i procesów zewnętrznych.  Integruje zdarzenia, dane dotyczące wydajności i rozwiązań do zarządzania w analizy dzienników, dzięki czemu można wyświetlić te dane w kontekście każdego komputera, a jego powiązanie z resztą środowiska.  Mapa usługi jest podobny do [mapowanie aplikacji w usłudze Application Insights](../application-insights/app-insights-app-map.md) , ale koncentruje się na składników infrastruktury obsługi aplikacji.
 
 ### <a name="network-watcher"></a>Network Watcher
-[Monitor sieci](../network-watcher/network-watcher-monitoring-overview.md) udostępnia oparta na scenariuszu monitorowania i diagnostyki dla różnych scenariuszach sieciowych na platformie Azure.  Przechowuje dane na platformie Azure metryki i informacji diagnostycznych do dalszej analizy i współdziała z [rozwiązań do zarządzania w analizy dzienników](../log-analytics/log-analytics-azure-networking-analytics.md) pełną monitorowania zasobów sieciowych.
-
+[Monitor sieci](../network-watcher/network-watcher-monitoring-overview.md) udostępnia oparta na scenariuszu monitorowania i diagnostyki dla różnych scenariuszach sieciowych na platformie Azure.  Przechowuje dane w Azure metryki i informacji diagnostycznych do analiz i działa z następującej sieci monitorowanie rozwiązań monitorowania różnych aspektów sieci:
+* [Sieci monitora wydajności (NPM)](https://blogs.msdn.microsoft.com/azuregov/2017/09/05/network-performance-monitor-general-availability/) — sieci oparte na chmurze rozwiązanie monitorujące, które monitoruje łączność między chmur publicznych, centrów danych i środowiskami lokalnymi
+* [Monitor usługi ExpressRoute](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/) -możliwości NPM, który monitoruje łączność end-to-end i wydajności za pośrednictwem obwody usługi ExpressRoute.
+* Analiza ruchu — rozwiązania opartego na chmurze, która zapewnia wgląd w działania użytkowników i aplikacji w sieci w chmurze.
+* [Analiza DNS](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-dns) — zapewnia bezpieczeństwa, wydajności i operacji powiązanych szczegółowe informacje, na podstawie serwerów DNS.
 
 ### <a name="management-solutions"></a>Rozwiązania do zarządzania
 [Rozwiązania do zarządzania](../log-analytics/log-analytics-add-solutions.md) są utworzone zestawy logiki zawierające szczegółowe informacje dla określonej aplikacji lub usługi.  Opierają się na analizy dzienników do przechowywania i analizowania danych monitorowania, które pobierają.  Rozwiązania do zarządzania są dostępne z firmy Microsoft i partnerów, które zapewniają monitorowanie różnych usług platformy Azure i innych firm. Obejmują na przykład monitorowanie rozwiązań [monitorowania kontenera](../log-analytics/log-analytics-containers.md) umożliwiająca wyświetlanie i zarządzanie nimi hosty kontenera i [analiza SQL Azure](../log-analytics/log-analytics-azure-sql.md) który zbiera i wizualizuje metryki wydajności dla bazy danych SQL Bazy danych Azure.

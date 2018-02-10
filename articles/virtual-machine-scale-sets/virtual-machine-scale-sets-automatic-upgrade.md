@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: negat
-ms.openlocfilehash: 145f4ec92b142a1585ba17bf6e49c7824cc32529
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 59dad832977c4afc39db3773edf9789cd1a704e7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-upgrades"></a>Automatycznych uaktualnień systemu operacyjnego zestawu skalowania maszyny wirtualnej platformy Azure
 
@@ -40,9 +40,7 @@ Automatyczne uaktualnienie systemu operacyjnego ma następującą charakterystyk
 W wersji zapoznawczej, stosuje się następujące ograniczenia i ograniczenia:
 
 - Automatyczne OS uaktualnia obsługują tylko [cztery jednostki magazynowe systemu operacyjnego](#supported-os-images). Brak umowy dotyczącej poziomu usług i gwarancji. Firma Microsoft zaleca się, że nie używasz automatycznych uaktualnień na krytycznych obciążeń produkcyjnych wersji zapoznawczej.
-- Obsługa zestawy skalowania w klastrach usługi sieć szkieletowa będzie dostępna wkrótce.
 - Szyfrowanie dysków Azure (obecnie w wersji zapoznawczej) jest **nie** można obecnie używać z maszyny wirtualnej skali zestaw automatycznego uaktualnienia systemu operacyjnego.
-- Środowisko portalu będzie dostępna wkrótce.
 
 
 ## <a name="register-to-use-automatic-os-upgrade"></a>Zarejestruj, aby użyć automatyczne uaktualnienie systemu operacyjnego
@@ -58,17 +56,23 @@ Trwa około 10 minut, aż stan rejestracji raportu, ponieważ *zarejestrowanej*.
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
-Firma Microsoft zaleca, aby aplikacji używać sondy kondycji. Aby zarejestrować funkcję dostawcy dla sondy kondycji, należy użyć [AzureRmProviderFeature rejestru](/powershell/module/azurerm.resources/register-azurermproviderfeature) w następujący sposób:
+> [!NOTE]
+> Klastrów sieci szkieletowej usług mają swoje własne pojęcie kondycji aplikacji, ale zestawy skalowania bez sieci szkieletowej usług używać sondy kondycji modułu równoważenia obciążenia do monitorowania kondycji aplikacji. Aby zarejestrować funkcję dostawcy dla sondy kondycji, należy użyć [AzureRmProviderFeature rejestru](/powershell/module/azurerm.resources/register-azurermproviderfeature) w następujący sposób:
+>
+> ```powershell
+> Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVmssHealthProbe
+> ```
+>
+> Ponownie, do raportu, ponieważ trwa około 10 minut, aż stan rejestracji *zarejestrowanej*. Można sprawdzić bieżącego stanu rejestracji z [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature). Raz zarejestrowany upewnij się, że *Microsoft.Network* dostawca został zarejestrowany z [AzureRmResourceProvider rejestru](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider) w następujący sposób:
+>
+> ```powershell
+> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+> ```
 
-```powershell
-Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVmssHealthProbe
-```
+## <a name="portal-experience"></a>Środowisko portalu
+Po wykonaniu powyższych kroków rejestracji można przejść do [portalu Azure](https://aka.ms/managed-compute) można włączyć automatycznych uaktualnień systemu operacyjnego z zestawów skali i wyświetlany jest postęp uaktualnienia:
 
-Ponownie, do raportu, ponieważ trwa około 10 minut, aż stan rejestracji *zarejestrowanej*. Można sprawdzić bieżącego stanu rejestracji z [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature). Raz zarejestrowany upewnij się, że *Microsoft.Network* dostawca został zarejestrowany z [AzureRmResourceProvider rejestru](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider) w następujący sposób:
-
-```powershell
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-```
+![](./media/virtual-machine-scale-sets-automatic-upgrade/automatic-upgrade-portal.png)
 
 
 ## <a name="supported-os-images"></a>Obsługiwane obrazów systemu operacyjnego
@@ -81,11 +85,14 @@ Obecnie obsługiwane są następujące wersje produktu (więcej zostanie dodany)
 | Canonical               | UbuntuServer  | 16.04 LTS          | najnowsza   |
 | MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter | najnowsza   |
 | MicrosoftWindowsServer  | WindowsServer | Centrum danych 2016    | najnowsza   |
-| MicrosoftWindowsServer  | WindowsServer | Smalldisk-2016-centrum danych | najnowsza   |
+| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-Smalldisk | najnowsza   |
 
 
 
-## <a name="application-health"></a>Kondycja aplikacji
+## <a name="application-health-without-service-fabric"></a>Kondycja aplikacji bez sieci szkieletowej usług
+> [!NOTE]
+> Ta sekcja dotyczy tylko zestawy skalowania bez sieci szkieletowej usług. Sieć szkieletowa usług ma własną pojęcie kondycji aplikacji. Podczas korzystania z automatycznych uaktualnień systemu operacyjnego z sieci szkieletowej usług, jest wprowadzanie nowego obrazu systemu operacyjnego domeny aktualizacji przez aktualizację domeny do obsługi wysokiej dostępności usługi działające w sieci szkieletowej usług. Aby uzyskać więcej informacji na temat właściwości trwałości klastrów sieci szkieletowej usług, zobacz [tej dokumentacji](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
+
 Podczas uaktualniania systemu operacyjnego są uaktualniane wystąpień maszyny Wirtualnej w zestawie skalowania jedno zadanie wsadowe w czasie. Uaktualnianie powinno być kontynuowane tylko jeśli aplikacja klienta jest w dobrej kondycji na uaktualnionym wystąpień maszyn wirtualnych. Firma Microsoft zaleca, czy aplikacja udostępnia sygnały kondycji do aparatu uaktualnienia systemu operacyjnego zestaw skali. Domyślnie podczas uaktualniania systemu operacyjnego platformy uwzględnia stan zasilania maszyny Wirtualnej i rozszerzenie obsługi stanu w celu ustalenia, czy wystąpienie maszyny Wirtualnej jest w dobrej kondycji po uaktualnieniu. Podczas uaktualniania systemu operacyjnego wystąpienia maszyny Wirtualnej dysk systemu operacyjnego w wystąpieniu maszyny Wirtualnej jest zastępowany nowy dysk, na podstawie najnowszej wersji obrazu. Po zakończeniu uaktualnienia systemu operacyjnego skonfigurowanych rozszerzeń są uruchamiane na tych maszynach wirtualnych. Tylko wtedy, gdy wszystkie rozszerzenia na maszynie Wirtualnej są pomyślnie zainicjowano obsługę administracyjną, aplikacja uważa dobrej kondycji. 
 
 Opcjonalnie można skonfigurować zestaw skalowania za pomocą aplikacji sondy kondycji zapewnienie platformy dokładnych informacji o bieżących stan aplikacji. Sondy kondycji aplikacji są niestandardowe obciążenia równoważenia sondy używany jako sygnał kondycji. Aplikacja była uruchomiona na wystąpieniu maszyny Wirtualnej zestawu skali może odpowiadać na zewnętrzne żądania HTTP lub TCP wskazującą, czy jest w dobrej kondycji. Aby uzyskać więcej informacji na temat działania niestandardowe załadować sondy modułu równoważenia, zobacz Aby [sondy modułu równoważenia obciążenia omówienie](../load-balancer/load-balancer-custom-probe-overview.md). Sondy kondycji aplikacji nie jest wymagane dla automatycznych uaktualnień systemu operacyjnego, ale jest zalecane.

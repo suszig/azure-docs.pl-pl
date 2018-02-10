@@ -1,6 +1,7 @@
 1. Skopiuj Instalatora na folder lokalny (na przykład /tmp) na serwerze, który chcesz chronić. W terminalu uruchom następujące polecenia:
   ```
-  cd /tmp
+  cd /tmp ;
+
   tar -xvzf Microsoft-ASR_UA*release.tar.gz
   ```
 2. Aby zainstalować usługi mobilności, uruchom następujące polecenie:
@@ -14,7 +15,7 @@
   /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <CSIP> -P /var/passphrase.txt
   ```
 
-#### <a name="mobility-service-installer-command-line"></a>Instalator usługi mobilności wiersza polecenia
+#### <a name="mobility-service-installer-command-line"></a>Wiersz polecenia Instalatora usługi mobilności
 
 ```
 Usage:
@@ -25,11 +26,11 @@ Usage:
 |-|-|-|-|
 |-r |Obowiązkowy|Określa, czy należy zainstalować usługi mobilności (MS) lub MasterTarget(MT) powinna zostać zainstalowana.|MS </br> MT|
 |-d |Optional (Opcjonalność)|Lokalizacja, w którym zostanie zainstalowana usługa mobilności|/usr/local/ASR|
-|-v|Obowiązkowy|Określa platformę, na którym zainstalowano pobierania usługi mobilności </br> </br>- **VMware** : Użyj tej wartości, jeśli instalujesz usługi mobilności na maszynie Wirtualnej uruchomionych na *VMware vSphere hostach ESXi*, *hosty funkcji Hyper-V* i *Phsyical serwerów* </br> - **Azure** : Użyj tej wartości, jeśli instalujesz agenta na maszynie Wirtualnej Azure IaaS| VMware </br> Azure|
-|-q|Optional (Opcjonalność)|Określa, aby uruchomić Instalatora w trybie dyskretnym| Nie dotyczy|
+|-v|Obowiązkowy|Określa platformę, na którym zainstalowano pobierania usługi mobilności </br> </br>-** VMware: używają tej wartości w przypadku instalowania usługi mobilności na maszynie Wirtualnej uruchomionych na *VMware vSphere hostach ESXi*, * hosty funkcji Hyper-V i *serwerów fizycznych* </br> -** Azure: Użyj tej wartości, jeśli instalujesz agenta na maszynie Wirtualnej platformy Azure IaaS| VMware </br> Azure|
+|-q|Optional (Opcjonalność)|Określa, aby uruchomić Instalatora w trybie dyskretnym| ND|
 
 
-#### <a name="mobility-service-configuration-command-line"></a>Konfiguracja usługi mobilności wiersza polecenia
+#### <a name="mobility-service-configuration-command-line"></a>Wiersz polecenia w konfiguracji usługi mobilności
 
 ```
 Usage:
