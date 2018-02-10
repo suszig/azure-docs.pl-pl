@@ -1,5 +1,5 @@
 ---
-title: "Rozwiązanie do zarządzania aktualizacjami w usłudze OMS | Dokumentacja firmy Microsoft"
+title: "Aktualizowanie rozwiązania do zarządzania na platformie Azure | Dokumentacja firmy Microsoft"
 description: "Ten artykuł pomaga zrozumieć, jak używać tego rozwiązania do zarządzania aktualizacjami komputerów z systemami Windows i Linux."
 services: operations-management-suite
 documentationcenter: 
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: 71322c650b2ee464bab91bf8d4b176f3b2d93949
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 5156beb82e1ca8aeb9817badc4fcb38971143d4f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="update-management-solution-in-oms"></a>Rozwiązanie do zarządzania aktualizacjami w usłudze OMS
+# <a name="update-management-solution-in-azure"></a>Aktualizacja rozwiązania do zarządzania na platformie Azure
 
 ![Symbol Zarządzanie aktualizacjami](./media/oms-solution-update-management/update-management-symbol.png)
 
-Rozwiązanie Update Management w usłudze OMS umożliwia zarządzanie aktualizacjami zabezpieczeń systemu operacyjnego na komputerach z systemami Windows i Linux wdrożonych na platformie Azure, w środowiskach lokalnych lub w środowiskach chmury innych dostawców.  Umożliwia ono szybką ocenę stanu dostępnych aktualizacji na wszystkich komputerach agentów oraz zarządzanie procesem instalacji wymaganych aktualizacji serwerów.
+Rozwiązania zarządzania aktualizacjami na platformie Azure umożliwia zarządzanie aktualizacjami zabezpieczeń systemu operacyjnego dla komputerów z systemem Windows i Linux wdrożonych w Azure, środowiskach lokalnych lub innych dostawców chmury.  Umożliwia ono szybką ocenę stanu dostępnych aktualizacji na wszystkich komputerach agentów oraz zarządzanie procesem instalacji wymaganych aktualizacji serwerów.
 
 ## <a name="update-management-in-azure-automation"></a>Zarządzanie aktualizacjami w usłudze Azure Automation
 
@@ -48,13 +48,13 @@ Na poniższych diagramach przedstawiono koncepcyjny widok działania i przepływ
 #### <a name="linux"></a>Linux
 ![Przepływ procesu zarządzania aktualizacjami dla systemu Linux](media/oms-solution-update-management/update-mgmt-linux-updateworkflow.png)
 
-Gdy komputer przeprowadzi skanowanie pod kątem zgodności aktualizacji, agent usługi OMS przekazuje zbiorczo informacje do usługi OMS. Na komputerze z systemem Windows skanowanie pod kątem zgodności jest domyślnie przeprowadzane co 12 godzin.  Skanowanie pod kątem zgodności aktualizacji, oprócz tego, że jest przeprowadzane zgodnie z harmonogramem, jest także inicjowane w ciągu 15 minut po ponownym uruchomieniu programu Microsoft Monitoring Agent (MMA), przed instalacją aktualizacji i po zainstalowaniu aktualizacji.  Na komputerze z systemem Linux skanowanie pod kątem zgodności jest domyślnie przeprowadzane co 3 godziny, a także inicjowane w ciągu 15 minut po ponownym uruchomieniu agenta programu MMA.  
+Po komputer przeprowadzi skanowanie zgodności aktualizacji, agent pakietu OMS przekazuje informacje zbiorcze z analizą dzienników. Na komputerze z systemem Windows skanowanie pod kątem zgodności jest domyślnie przeprowadzane co 12 godzin.  Skanowanie pod kątem zgodności aktualizacji, oprócz tego, że jest przeprowadzane zgodnie z harmonogramem, jest także inicjowane w ciągu 15 minut po ponownym uruchomieniu programu Microsoft Monitoring Agent (MMA), przed instalacją aktualizacji i po zainstalowaniu aktualizacji.  Na komputerze z systemem Linux skanowanie pod kątem zgodności jest domyślnie przeprowadzane co 3 godziny, a także inicjowane w ciągu 15 minut po ponownym uruchomieniu agenta programu MMA.  
 
 Informacje o zgodności są następnie przetwarzane i podsumowywane na pulpitach nawigacyjnych zawartych w rozwiązaniu oraz można je przeszukiwać za pomocą zapytań zdefiniowanych wstępnie lub przez użytkownika.  Rozwiązanie informuje, jak aktualne jest oprogramowanie na komputerze, bazując na źródle skonfigurowanym na potrzeby synchronizacji.  Jeśli komputer z systemem Windows jest skonfigurowany do raportowania do usługi WSUS, to w zależności od tego, kiedy usługa WSUS była ostatnio synchronizowana z usługą Microsoft Update, wyniki mogą się różnić od tych pokazywanych przez usługę Microsoft Updates.  To samo dotyczy komputerów z systemem Linux skonfigurowanych do raportowania do repozytorium lokalnego i repozytorium publicznego.   
 
 Aktualizacje oprogramowania można wdrożyć i zainstalować na komputerach, które ich wymagają, tworząc zaplanowane wdrożenie.  Aktualizacje sklasyfikowane jako *Opcjonalne* są poza zakresem wdrożenia dla komputerów z systemem Windows. W zakresie tym są tylko aktualizacje wymagane.  Zaplanowane wdrożenie definiuje, które komputery docelowe otrzymają odpowiednie aktualizacje. Odbędzie się to jawnie, przez określenie komputerów, albo wybranie [grupy komputerów](../log-analytics/log-analytics-computer-groups.md) opartej na przeszukiwaniu dzienników w określonej grupie komputerów.  Można również określić harmonogram zatwierdzania i wyznaczyć okres, w którym można instalować aktualizacje.  Aktualizacje są instalowane przez elementy runbook w usłudze Azure Automation.  Nie można wyświetlić tych elementów runbook i nie wymagają one żadnej konfiguracji.  Utworzenie wdrożenia aktualizacji powoduje utworzenie harmonogramu, który uruchamia główny element runbook aktualizacji w określonym czasie na uwzględnionych komputerach.  Ten główny element runbook uruchamia podrzędny element runbook na każdym agencie, który przeprowadza instalację wymaganych aktualizacji.       
 
-W dniu i o godzinie określonych we wdrożeniu aktualizacji komputery docelowe wykonują równolegle wdrożenie.  Najpierw jest wykonywane skanowanie, aby sprawdzić, czy aktualizacje są ciągle wymagane. Dopiero wtedy są one instalowane.  Należy zauważyć, że w przypadku komputerów klienckich usługi WSUS wdrażanie aktualizacji niezatwierdzonych w usłudze WSUS nie powiedzie się.  Wyniki zastosowania aktualizacji są przekazywane do usługi OMS do przetworzenia i podsumowania na pulpitach nawigacyjnych lub przez wyszukiwanie zdarzeń.     
+W dniu i o godzinie określonych we wdrożeniu aktualizacji komputery docelowe wykonują równolegle wdrożenie.  Najpierw jest wykonywane skanowanie, aby sprawdzić, czy aktualizacje są ciągle wymagane. Dopiero wtedy są one instalowane.  Należy zauważyć, że w przypadku komputerów klienckich usługi WSUS wdrażanie aktualizacji niezatwierdzonych w usłudze WSUS nie powiedzie się.  Wyniki zastosowane aktualizacje są przekazywane do analizy dzienników do przetwarzania i podsumowane w pulpity nawigacyjne lub przez przeszukiwanie zdarzenia.     
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * Rozwiązanie obsługuje przeprowadzanie ocen aktualizacji dla systemu Windows Server 2008 lub nowszych i wdrożeń aktualizacji systemu Windows Server 2008 R2 SP1 lub nowszych.  System Nano Server nie jest obsługiwany.
@@ -78,7 +78,7 @@ W dniu i o godzinie określonych we wdrożeniu aktualizacji komputery docelowe w
 * Agenci dla systemu Linux muszą mieć dostęp do repozytorium aktualizacji.  
 
     > [!NOTE]
-    > Agent usługi OMS dla systemu Linux skonfigurowany pod kątem raportowania do wielu obszarów roboczych usługi OMS nie jest obsługiwany przez to rozwiązanie.  
+    > Agent pakietu OMS Linux skonfigurowany pod kątem raportowania do wielu obszarów roboczych Log Analytics nie jest obsługiwany w tym rozwiązaniu.  
     >
 
 Aby uzyskać dodatkowe informacje na temat instalowania agenta usługi OMS dla systemu Linux i pobierania najnowszej wersji, zapoznaj się z tematem [Operations Management Suite Agent for Linux](https://github.com/microsoft/oms-agent-for-linux) (Agent usługi Operations Management Suite dla systemu Linux).  Aby uzyskać informacje na temat sposobu instalowania agenta usługi OMS dla systemu Windows, przejrzyj temat [Operations Management Suite Agent for Windows](../log-analytics/log-analytics-windows-agent.md) (Agent usługi Operations Management Suite dla systemu Windows).  
@@ -90,7 +90,7 @@ Aby tworzyć wdrożenia aktualizacji, musisz mieć nadaną rolę współautora z
 To rozwiązanie składa się z następujących zasobów, które są dodawane do Twojego konta usługi Automation, i bezpośrednio połączonych agentów lub grupy zarządzania połączonej z programem Operations Manager.
 
 ### <a name="management-packs"></a>Pakiety administracyjne
-Jeśli grupa zarządzania programu System Center Operations Manager jest połączona z obszarem roboczym usługi OMS, to następujące pakiety administracyjne są instalowane w programie Operations Manager.  Te pakiety administracyjne są również instalowane na bezpośrednio połączonych komputerach z systemem Windows po dodaniu tego rozwiązania. W przypadku tych pakietów administracyjnych nie trzeba niczego konfigurować ani niczym zarządzać.
+Jeśli grupa zarządzania programu System Center Operations Manager jest podłączony do obszaru roboczego analizy dzienników, następujące pakiety administracyjne są zainstalowane w programie Operations Manager.  Te pakiety administracyjne są również instalowane na bezpośrednio połączonych komputerach z systemem Windows po dodaniu tego rozwiązania. W przypadku tych pakietów administracyjnych nie trzeba niczego konfigurować ani niczym zarządzać.
 
 * Microsoft System Center Advisor Update Assessment Intelligence Pack (Microsoft.IntelligencePacks.UpdateAssessment)
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
@@ -99,34 +99,31 @@ Jeśli grupa zarządzania programu System Center Operations Manager jest połąc
 Aby uzyskać więcej informacji na temat aktualizowania pakietów administracyjnych rozwiązania, zobacz artykuł [Connect Operations Manager to Log Analytics](../log-analytics/log-analytics-om-agents.md) (Połączenie programu Operations Manager z usługą Log Analytics).
 
 ### <a name="hybrid-worker-groups"></a>Grupy hybrydowych procesów roboczych
-Włączenie tego rozwiązania powoduje automatyczne skonfigurowanie każdego komputera z systemem Windows połączonego z obszarem roboczym usługi OMS jako hybrydowego procesu roboczego elementu runbook w celu obsługi elementów runbook należących do tego rozwiązania.  Każdy komputer z systemem Windows zarządzany przez to rozwiązanie będzie wyświetlany w bloku Grupy hybrydowych procesów roboczych elementu runbook konta usługi Automation. Konwencja nazw będzie następująca: *Nazwa_hosta FQDN_GUID*.  Te grupy nie mogą być celami dla elementów runbook na Twoim koncie, w przeciwnym razie działanie tych elementów zakończy się niepowodzeniem. Te grupy są przeznaczone wyłącznie do obsługi rozwiązania do zarządzania.   
+Po włączeniu tego rozwiązania dowolnego komputera z systemem Windows, podłączonych bezpośrednio do obszaru roboczego analizy dzienników jest automatycznie konfigurowany jako hybrydowy proces roboczy elementu Runbook do obsługi elementy runbook zawarte w tym rozwiązaniu.  Każdy komputer z systemem Windows zarządzany przez to rozwiązanie będzie wyświetlany w bloku Grupy hybrydowych procesów roboczych elementu runbook konta usługi Automation. Konwencja nazw będzie następująca: *Nazwa_hosta FQDN_GUID*.  Te grupy nie mogą być celami dla elementów runbook na Twoim koncie, w przeciwnym razie działanie tych elementów zakończy się niepowodzeniem. Te grupy są przeznaczone wyłącznie do obsługi rozwiązania do zarządzania.   
 
 Możesz jednak dodać komputery z systemem Windows do grupy hybrydowych procesów roboczych elementów runbook na Twoim koncie usługi Automation w celu obsługi elementów runbook usługi Automation, o ile używasz tego samego konta zarówno dla tego rozwiązania, jak i dla członkostwa w grupie hybrydowych procesów roboczych elementów runbook.  Ta funkcjonalność została dodana do wersji 7.2.12024.0 hybrydowego procesu roboczego elementu Runbook.  
 
 ## <a name="configuration"></a>Konfigurowanie
-Wykonaj poniższe kroki, aby dodać rozwiązanie do zarządzania aktualizacjami do swojego obszaru roboczego usługi OMS, a także potwierdzić, że agenci wykonują raportowanie. Agenci systemu Windows, którzy są już połączeni z obszarem roboczym, są dodawani automatycznie bez dodatkowej konfiguracji.
+Wykonaj poniższe kroki, aby dodać rozwiązanie do zarządzania aktualizacji do swojego obszaru roboczego analizy dzienników i upewnij się, że agenci są raportowania. Agenci systemu Windows, którzy są już połączeni z obszarem roboczym, są dodawani automatycznie bez dodatkowej konfiguracji.
 
-Możesz wdrożyć rozwiązanie za pomocą następujących metod:
+Wybierając Automatyzacja i kontrola oferty lub rozwiązania do zarządzania aktualizacjami można wdrożyć rozwiązania z portalu Azure Marketplace w portalu Azure
 
-* W witrynie Azure Marketplace w witrynie Azure Portal przez wybranie oferty Automation & Control lub rozwiązania do zarządzania aktualizacjami
-* W galerii rozwiązań pakietu OMS w obszarze roboczym pakietu OMS
+Jeśli masz już konto automatyzacji i połączone w tej samej grupie zasobów i region obszaru roboczego analizy dzienników, wybierając automatyzacji & formantu zostanie Sprawdź konfigurację i tylko zainstalować rozwiązania i ją skonfigurować w obu usług.  Wybranie rozwiązania Zarządzanie aktualizacjami z witryny Azure Marketplace ma taki sam skutek.  Jeśli którejś z usług nie masz wdrożonej w swojej subskrypcji, wykonaj kroki w bloku **Tworzenie nowego rozwiązania** i potwierdź, że chcesz zainstalować inne wstępnie wybrane, zalecane rozwiązania.  Opcjonalnie można dodać rozwiązanie do zarządzania aktualizacji do swojego obszaru roboczego analizy dzienników, korzystając z procedury opisanej w [rozwiązań dodać OMS](../log-analytics/log-analytics-add-solutions.md).  
 
-Jeśli masz już konto usługi Automation i obszar roboczy usługi OMS połączone ze sobą w tej samej grupie zasobów i w tym samym regionie, wybranie pozycji Automation & Control spowoduje sprawdzenie Twojej konfiguracji i zainstalowanie samego rozwiązania oraz skonfigurowanie go w obu usługach.  Wybranie rozwiązania Zarządzanie aktualizacjami z witryny Azure Marketplace ma taki sam skutek.  Jeśli którejś z usług nie masz wdrożonej w swojej subskrypcji, wykonaj kroki w bloku **Tworzenie nowego rozwiązania** i potwierdź, że chcesz zainstalować inne wstępnie wybrane, zalecane rozwiązania.  Opcjonalnie możesz dodać rozwiązanie Zarządzanie aktualizacjami do swojego obszaru roboczego usługi OMS przy użyciu kroków opisanych w artykule [Add OMS solutions](../log-analytics/log-analytics-add-solutions.md) (Dodawanie rozwiązań usługi OMS) z galerii rozwiązań.  
+### <a name="confirm-oms-agents-and-operations-manager-management-group-connected-to-log-analytics"></a>Potwierdź OMS agentów a grupą zarządzania programu Operations Manager podłączone do analizy dzienników
 
-### <a name="confirm-oms-agents-and-operations-manager-management-group-connected-to-oms"></a>Potwierdzanie, że agenci usługi OMS i grupa zarządzania programu Operations Manager są połączone z usługą OMS
-
-Aby potwierdzić, że bezpośrednio połączeni agenci usługi OMS dla systemów Linux i Windows komunikują się z usługą OMS, po kilku minutach możesz uruchomić następujące wyszukiwanie w dzienniku:
+Aby potwierdzić bezpośrednio połączony Agent pakietu OMS dla systemu Linux i Windows komunikują się z analizy dzienników po kilku minutach można uruchomić następujące wyszukiwania dziennika:
 
 * Linux — `Type=Heartbeat OSType=Linux | top 500000 | dedup SourceComputerId | Sort Computer | display Table`.  
 
 * Windows — `Type=Heartbeat OSType=Windows | top 500000 | dedup SourceComputerId | Sort Computer | display Table`
 
-Na komputerze z systemem Windows możesz przejrzeć następujące informacje, aby sprawdzić połączenie agenta z usługą OMS:
+Na komputerze z systemem Windows możesz przejrzeć następujące polecenie, aby sprawdzić połączenie agenta z analizy dzienników:
 
 1.  Otwórz program Microsoft Monitoring Agent w Panelu sterowania. Na karcie **Azure Log Analytics (OMS)** agent wyświetla komunikat z następującą informacją: **Program Microsoft Monitoring Agent pomyślnie połączył się z usługą Microsoft Operations Management Suite**.   
-2.  Otwórz Dziennik zdarzeń systemu Windows, przejdź do pozycji **Dzienniki aplikacji i usług\Operacje** i wyszukaj identyfikatory zdarzeń 3000 i 5002 ze źródła Service Connector.  Te zdarzenia wskazują, że komputer został zarejestrowany w obszarze roboczym usługi OMS i odbiera konfigurację.  
+2.  Otwórz Dziennik zdarzeń systemu Windows, przejdź do pozycji **Dzienniki aplikacji i usług\Operacje** i wyszukaj identyfikatory zdarzeń 3000 i 5002 ze źródła Service Connector.  Te zdarzenia wskazują komputer został zarejestrowany za pomocą obszaru roboczego analizy dzienników i odbiera konfiguracji.  
 
-Jeśli agent nie może komunikować się z usługą OMS i jest skonfigurowany do komunikacji z Internetem przez zaporę lub serwer proxy, potwierdź, że zapora lub serwer proxy ma prawidłową konfigurację, przeglądając artykuł [Network configuration for Windows agent (Konfiguracja sieci dla agenta systemu Windows)](../log-analytics/log-analytics-windows-agent.md) lub [Network configuration for Linux agent (Konfiguracja sieci dla agenta systemu Linux)](../log-analytics/log-analytics-agent-linux.md).
+Jeśli agent nie jest w stanie nawiązać połączenia z analizy dzienników i został on skonfigurowany do komunikowania się z Internetem za pośrednictwem zapory lub serwera proxy, upewnij się, serwer zapory lub serwera proxy jest poprawnie skonfigurowany, przeglądając [konfiguracji sieci Windows agent](../log-analytics/log-analytics-windows-agent.md) lub [konfigurację sieci dla agenta systemu Linux](../log-analytics/log-analytics-agent-linux.md).
 
 > [!NOTE]
 > Jeśli Twoje systemy Linux są skonfigurowane do komunikowania się z serwerem proxy lub bramą usługi OMS i dołączasz to rozwiązanie, zaktualizuj uprawnienia *proxy.conf* tak, aby przyznać grupie omiuser uprawnienie do odczytu pliku, uruchamiając następujące polecenia:  
@@ -136,7 +133,7 @@ Jeśli agent nie może komunikować się z usługą OMS i jest skonfigurowany do
 
 Po przeprowadzeniu oceny nowo dodani agenci systemu Linux będą mieć stan **Zaktualizowane**.  Ten proces może potrwać do 6 godzin.
 
-Aby potwierdzić, że grupa zarządzania programu Operations Manager komunikuje się z usługą OMS, zobacz [Validate Operations Manager Integration with OMS](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms) (Weryfikowanie integracji programu Operations Manager z usługą OMS).
+Aby potwierdzić, grupy zarządzania programu Operations Manager komunikuje się z analizy dzienników, zobacz [zweryfikować integracji programu Operations Manager z usługą OMS](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms).
 
 ## <a name="data-collection"></a>Zbieranie danych
 ### <a name="supported-agents"></a>Obsługiwani agenci
@@ -146,7 +143,7 @@ W poniższej tabeli opisano połączone źródła, które obsługuje to rozwiąz
 | --- | --- | --- |
 | Agenci dla systemu Windows |Yes |Rozwiązanie zbiera informacje o aktualizacjach systemu z agentów dla systemu Windows i inicjuje instalowanie wymaganych aktualizacji. |
 | Agenci dla systemu Linux |Yes |Rozwiązanie zbiera informacje o aktualizacjach systemu z agentów dla systemu Linux i inicjuje instalowanie wymaganych aktualizacji w obsługiwanych dystrybucjach. |
-| Grupa zarządzania programu Operations Manager |Yes |Rozwiązanie zbiera informacje o aktualizacjach systemu z agentów w połączonej grupie zarządzania.<br>Bezpośrednie połączenie agenta programu Operations Manager z usługą Log Analytics nie jest wymagane. Dane są przekazywane z grupy zarządzania do repozytorium usługi OMS. |
+| Grupa zarządzania programu Operations Manager |Yes |Rozwiązanie zbiera informacje o aktualizacjach systemu z agentów w połączonej grupie zarządzania.<br>Bezpośrednie połączenie agenta programu Operations Manager z usługą Log Analytics nie jest wymagane. Dane są przesyłane dalej z grupy zarządzania do obszaru roboczego analizy dzienników. |
 | Konto magazynu Azure |Nie |Magazyn Azure nie zawiera informacji o aktualizacjach systemu. |
 
 ### <a name="collection-frequency"></a>Częstotliwość zbierania
@@ -155,7 +152,7 @@ Skanowanie każdego zarządzanego komputera z systemem Windows odbywa się dwa r
 Wyświetlenie zaktualizowanych danych z zarządzanych komputerów na pulpicie nawigacyjnym może potrwać od 30 minut do 6 godzin.   
 
 ## <a name="using-the-solution"></a>Użycie rozwiązania
-Po dodaniu do obszaru roboczego OMS rozwiązania do zarządzania aktualizacjami na pulpicie nawigacyjnym usługi OMS pojawi się kafelek **Zarządzanie aktualizacjami**. Ten kafelek zawiera liczbę oraz graficzną reprezentację liczby komputerów w środowisku wraz z informacjami o ich zgodności aktualizacji.<br><br>
+Po dodaniu rozwiązania do zarządzania aktualizacji do obszaru roboczego analizy dzienników **zarządzania aktualizacjami** kafelka zostaną dodane do pulpitu nawigacyjnego Analytics dziennika. Ten kafelek zawiera liczbę oraz graficzną reprezentację liczby komputerów w środowisku wraz z informacjami o ich zgodności aktualizacji.<br><br>
 ![Kafelek podsumowujący zarządzanie aktualizacjami](media/oms-solution-update-management/update-management-summary-tile.png)  
 
 
@@ -220,7 +217,7 @@ Domyślnie zakres danych przeanalizowanych w rozwiązaniu do zarządzania aktual
 Aby zmienić okres danych, wybierz pozycję **Dane oparte na** u góry pulpitu nawigacyjnego. Możesz wybrać rekordy utworzone lub zaktualizowane w ciągu ostatnich 7 dni, 1 dnia lub 6 godzin. Możesz też wybrać opcję **Niestandardowy** i określić niestandardowy zakres dat.
 
 ## <a name="log-analytics-records"></a>Rekordy usługi Log Analytics
-Rozwiązanie do zarządzania aktualizacjami tworzy dwa typy rekordów w repozytorium OMS.
+Rozwiązanie do zarządzania aktualizacjami tworzy dwa typy rekordów w obszarze roboczym analizy dzienników.
 
 ### <a name="update-records"></a>Rekordy Update (Aktualizacja)
 Rekord o typie **Update** (Aktualizacja) jest tworzony dla każdej aktualizacji, która jest zainstalowana lub wymagana na poszczególnych komputerach. Rekordy Update (Aktualizacja) mają właściwości podane w poniższej tabeli.
@@ -317,7 +314,7 @@ Poniższa tabela zawiera przykładowe wyszukiwania w dzienniku dotyczące rekord
 
 Klienci, którzy zainwestowali w program System Center Configuration Manager do zarządzania komputerami, serwerami i urządzeniami przenośnymi, polegają również na jego sile i dojrzałości w zarządzania aktualizacjami oprogramowania w ramach cyklu zarządzania aktualizacjami oprogramowania (SUM).
 
-Aby dowiedzieć się, jak zintegrować rozwiązanie do zarządzania aktualizacjami pakietu OMS z programem System Center Configuration Manager, zobacz [Integracja programu System Center Configuration Manager z zarządzaniem aktualizacjami pakietu OMS](../automation/oms-solution-updatemgmt-sccmintegration.md).
+Aby dowiedzieć się, jak zintegrować rozwiązania zarządzania aktualizacjami pakietu OMS z System Center Configuration Manager, zobacz [integracji System Center Configuration Manager z zarządzania aktualizacjami pakietu OMS](../automation/oms-solution-updatemgmt-sccmintegration.md).
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
@@ -335,7 +332,7 @@ Jeśli wystąpią problemy podczas próby dołączenia rozwiązania lub maszyny 
 | Nie można zarejestrować maszyny na potrzeby zarządzania poprawkami,<br>rejestracja nie powiodła się z powodu wyjątku<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>Nie można utworzyć certyfikatu z podpisem własnym. ---><br>System.UnauthorizedAccessException: Odmowa dostępu. | Niepowodzenie generowania certyfikatu z podpisem własnym | Sprawdź, czy konto systemowe ma<br>dostęp do odczytu do folderu:<br>**C:\ProgramData\Microsoft\**<br>**Crypto\RSA**|  
 
 ### <a name="how-do-i-troubleshoot-update-deployments"></a>Jak rozwiązywać problemy z wdrożeniami aktualizacji?
-Wyniki elementu runbook odpowiedzialnego za wdrożenie aktualizacji zawartych w zaplanowanym wdrożeniu aktualizacji możesz obejrzeć w bloku Zadania swojego konta usługi Automation, które jest połączone z obszarem roboczym usługi OMS obsługującym to rozwiązanie.  Element runbook **Patch-MicrosoftOMSComputer** to podrzędny element runbook, który jest nakierowany na konkretny komputer zarządzany. Przejrzenie pełnych informacji ze strumienia pozwala uzyskać szczegółowe informacje o tym wdrożeniu.  W danych wyjściowych będzie widać, które wymagane aktualizacje mają zastosowanie, jaki jest ich stan pobierania i instalacji, a także inne informacje.<br><br> ![Stan zadania wdrożenia aktualizacji](media/oms-solution-update-management/update-la-patchrunbook-outputstream.png)<br>
+Można wyświetlić wyniki runbook odpowiedzialnych za wdrażanie aktualizacji uwzględnione we wdrożeniu zaplanowanych aktualizacji w bloku zadania konta automatyzacji, która jest połączona z obszaru roboczego analizy dzienników obsługi tego rozwiązania.  Element runbook **Patch-MicrosoftOMSComputer** to podrzędny element runbook, który jest nakierowany na konkretny komputer zarządzany. Przejrzenie pełnych informacji ze strumienia pozwala uzyskać szczegółowe informacje o tym wdrożeniu.  W danych wyjściowych będzie widać, które wymagane aktualizacje mają zastosowanie, jaki jest ich stan pobierania i instalacji, a także inne informacje.<br><br> ![Stan zadania wdrożenia aktualizacji](media/oms-solution-update-management/update-la-patchrunbook-outputstream.png)<br>
 
 Aby uzyskać więcej informacji, zobacz [Automation runbook output and messages](../automation/automation-runbook-output-and-messages.md) (Dane wyjściowe i komunikaty elementu runbook usługi Automation).   
 

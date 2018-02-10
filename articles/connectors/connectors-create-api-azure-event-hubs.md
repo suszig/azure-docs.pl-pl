@@ -1,6 +1,6 @@
 ---
-title: "Konfigurowanie Monitora zdarzeń w usłudze Azure Event Hubs dla usługi Azure Logic Apps | Dokumentacja firmy Microsoft"
-description: "Monitorowanie strumieni danych w celu odbierania zdarzeń i wysyłania zdarzeń dla usługi Azure Logic Apps w usłudze Azure Event Hubs"
+title: "Konfigurowanie monitorowania zdarzeń z usługi Azure Event Hubs Azure Logic Apps | Dokumentacja firmy Microsoft"
+description: "Monitorowanie strumieni danych w celu odbierania zdarzeń i wysyłania zdarzeń z aplikacji logiki przy użyciu usługi Azure Event Hubs"
 services: logic-apps
 keywords: "strumień danych, monitor zdarzeń, usługa event hubs"
 author: ecfan
@@ -14,123 +14,104 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/31/2017
+ms.date: 02/06/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: a7f31c2c17d326d58ede0bb00cdc0f701069ea14
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 076f7dd11ca8c153046727861ecb755e88f32b01
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="monitor-receive-and-send-events-with-the-event-hubs-connector"></a>Monitorowanie, odbierania i wysyłania zdarzeń z łącznikiem usługi Event Hubs
 
-Aby skonfigurować monitor zdarzeń, aby aplikację logiki można wykrywać zdarzenia, zdarzenia są rejestrowane i wysyłać zdarzenia, połącz się z [Azure Event Hub](https://azure.microsoft.com/services/event-hubs) z aplikacji logiki. Dowiedz się więcej o [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md).
+Aby skonfigurować monitor zdarzeń, aby aplikację logiki można wykrywać zdarzenia, zdarzenia są rejestrowane i wysyłać zdarzenia, połącz się z [Azure Event Hub](https://azure.microsoft.com/services/event-hubs) z aplikacji logiki. Dowiedz się więcej o [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) i [cennik działania łączników aplikacji logiki](../logic-apps/logic-apps-pricing.md).
 
-## <a name="requirements"></a>Wymagania
+## <a name="prerequisites"></a>Wymagania wstępne
 
-* Musisz mieć [centra zdarzeń w przestrzeni nazw i Centrum zdarzeń](../event-hubs/event-hubs-create.md) na platformie Azure. Dowiedz się [sposobu tworzenia centra zdarzeń w przestrzeni nazw i Centrum zdarzeń](../event-hubs/event-hubs-create.md). 
+Zanim będzie możliwe użycie łącznika usługi Event Hubs, musi mieć następujące elementy:
 
-* Aby użyć [każdy łącznik](https://docs.microsoft.com/azure/connectors/apis-list) w aplikacji logiki, należy najpierw utworzyć aplikację logiki. Dowiedz się [sposób tworzenia aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* [Przestrzeni nazw usługi Azure Event Hubs i Centrum zdarzeń](../event-hubs/event-hubs-create.md)
+* A [aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 <a name="permissions-connection-string"></a>
-## <a name="check-event-hubs-namespace-permissions-and-find-the-connection-string"></a>Sprawdź uprawnienia przestrzeni nazw usługi Event Hubs i Znajdź parametry połączenia
 
-Aplikację logiki, dostęp do dowolnej usługi, należy utworzyć [ *połączenia* ](./connectors-overview.md) między aplikację logiki i usługi, jeśli nie jest jeszcze. To połączenie autoryzuje aplikację logiki, aby uzyskać dostęp do danych.
-Centrum zdarzeń dostępu do aplikacji logiki, musisz mieć **Zarządzaj** uprawnienia i parametry połączenia dla przestrzeni nazw usługi Event Hubs.
+## <a name="connect-to-azure-event-hubs"></a>Połączenie do usługi Azure Event Hubs
 
-Sprawdź swoje uprawnienia i pobrać ciągu połączenia, wykonaj następujące kroki.
+Zanim aplikację logiki można uzyskać dostęp do dowolnej usługi, należy utworzyć [ *połączenia* ](./connectors-overview.md) między aplikację logiki i usługi, jeśli nie jest jeszcze. To połączenie autoryzuje aplikację logiki, aby uzyskać dostęp do danych. Dla aplikacji logiki do Centrum zdarzeń sprawdź swoje uprawnienia i pobrać ciągu połączenia dla przestrzeni nazw usługi Event Hubs.
 
 1.  Zaloguj się w witrynie [Azure Portal](https://portal.azure.com "Azure Portal"). 
 
-2.  Przejdź do centrów zdarzeń *przestrzeni nazw*, nie określonym Centrum zdarzeń. W bloku przestrzeni nazw w obszarze **ustawienia**, wybierz **zasady dostępu współużytkowanego**. W obszarze **oświadczeń**, sprawdź, czy masz **Zarządzaj** uprawnienia dla tej przestrzeni nazw.
+2.  Przejdź do centrów zdarzeń *przestrzeni nazw*, nie określonym Centrum zdarzeń. Na stronie przestrzeni nazw w obszarze **ustawienia**, wybierz **zasady dostępu współużytkowanego**. W obszarze **oświadczeń**, sprawdź, czy masz **Zarządzaj** uprawnienia dla tej przestrzeni nazw.
 
     ![Zarządzaj uprawnieniami dla przestrzeni nazw Centrum zdarzeń](./media/connectors-create-api-azure-event-hubs/event-hubs-namespace.png)
 
-3.  Aby skopiować parametry połączenia dla przestrzeni nazw usługi Event Hubs, wybierz opcję **RootManageSharedAccessKey**. Obok ciągu połączenia klucza podstawowego kliknij przycisk Kopiuj.
+3. Jeśli chcesz później ręcznie wprowadzić informacje o połączeniu, należy pobrać ciągu połączenia dla przestrzeni nazw usługi Event Hubs. Wybierz **RootManageSharedAccessKey**. Obok ciągu połączenia klucza podstawowego kliknij przycisk Kopiuj. Zapisz parametry połączenia do późniejszego użycia.
 
     ![Skopiuj parametry połączenia w przestrzeni nazw usługi Event Hubs](media/connectors-create-api-azure-event-hubs/find-event-hub-namespace-connection-string.png)
 
     > [!TIP]
-    > Aby sprawdzić, czy ciąg połączenia jest skojarzony z przestrzeni nazw usługi Event Hubs lub z określonym Centrum zdarzeń, sprawdź ciąg połączenia dla `EntityPath` parametru. Możesz znaleźć tego parametru, ciąg połączenia jest przeznaczony dla określonego Centrum zdarzeń "entity" i nie jest poprawny ciąg do korzystania z aplikacji logiki.
+    > Aby sprawdzić, czy ciąg połączenia jest skojarzony z przestrzeni nazw usługi Event Hubs lub przy użyciu koncentratora określonego zdarzenia, sprawdź ciąg połączenia dla `EntityPath` parametru. Możesz znaleźć tego parametru, ciąg połączenia jest przeznaczony dla określonego Centrum zdarzeń "entity" i nie jest poprawny ciąg do korzystania z aplikacji logiki.
 
-4.  Teraz po wyświetleniu monitu o poświadczenia, po dodaniu usługi Event Hubs wyzwalacza lub akcji do aplikacji logiki, możesz nawiązać przestrzeni nazw usługi Event Hubs. Nadaj nazwę połączenia, wprowadź parametry połączenia, który został skopiowany, a wybierz **Utwórz**.
-
-    ![Wprowadź parametry połączenia dla przestrzeni nazw usługi Event Hubs](./media/connectors-create-api-azure-event-hubs/event-hubs-connection.png)
-
-    Po utworzeniu połączenia, nazwa połączenia powinny być wyświetlane w zdarzeniu koncentratory wyzwalacza lub akcji. 
-    Następnie możesz nadal z pozostałe kroki w aplikacji logiki.
-
-    ![Połączenia nazw centra zdarzeń utworzony](./media/connectors-create-api-azure-event-hubs/event-hubs-connection-created.png)
-
-## <a name="start-workflow-when-your-event-hub-receives-new-events"></a>Uruchamianie przepływu pracy w Centrum zdarzeń odebrania nowych zdarzeń
+## <a name="trigger-workflow-when-your-event-hub-gets-new-events"></a>Wyzwalające przepływ pracy, gdy Centrum zdarzeń pobiera nowe zdarzenia
 
 A [ *wyzwalacza* ](../logic-apps/logic-apps-overview.md#logic-app-concepts) jest zdarzeniem, która uruchamia przepływ pracy w aplikacji logiki. Aby uruchomić przepływ pracy, gdy nowe zdarzenia są wysyłane do Centrum zdarzeń, wykonaj następujące kroki dodawania wyzwalacz, który wykryje to zdarzenie.
 
-1.  W [portalu Azure](https://portal.azure.com "portalu Azure"), przejdź do istniejących aplikacji logiki lub tworzenie aplikacji logiki puste.
+1. W [portalu Azure](https://portal.azure.com "portalu Azure"), przejdź do istniejących aplikacji logiki lub tworzenie aplikacji logiki puste.
 
-2.  W polu wyszukiwania dla projektanta aplikacji logiki, wprowadź `event hubs` filtru. Wybierz ten wyzwalacz: **podczas zdarzenia są dostępne w Centrum zdarzeń**
+2. W Projektancie aplikacji logiki wprowadź "event hubs" w polu wyszukiwania jako filtr. Wybierz ten wyzwalacz: **podczas zdarzenia są dostępne w Centrum zdarzeń**
 
-    ![Wybierz wyzwalacz po odbiera nowych zdarzeń w Centrum zdarzeń](./media/connectors-create-api-azure-event-hubs/find-event-hubs-trigger.png)
+   ![Wybierz wyzwalacz po odbiera nowych zdarzeń w Centrum zdarzeń](./media/connectors-create-api-azure-event-hubs/find-event-hubs-trigger.png)
 
-    Jeśli masz już połączenie do obszaru nazw usługi Event Hubs, zostanie wyświetlony monit o utworzyć teraz tego połączenia. Nadaj nazwę połączenia, a następnie wprowadź parametry połączenia dla przestrzeni nazw usługi Event Hubs. 
-    Dowiedz się, jeśli to konieczne, [jak znaleźć parametrów połączenia](#permissions-connection-string).
+   1. Jeśli masz już połączenie do obszaru nazw usługi Event Hubs, zostanie wyświetlony monit o utworzyć teraz tego połączenia. Nadaj nazwę połączenia, a następnie wybierz obszar nazw usługi Event Hubs, który ma być używany.
 
-    ![Wprowadź parametry połączenia dla przestrzeni nazw usługi Event Hubs](./media/connectors-create-api-azure-event-hubs/event-hubs-connection.png)
+      ![Utwórz połączenie z Centrum zdarzeń](./media/connectors-create-api-azure-event-hubs/create-event-hubs-connection-1.png)
 
-    Po utworzeniu połączenia, ustawienia **podczas zdarzenia w dostępnych w Centrum zdarzeń** wyzwalacza są wyświetlane.
+      Lub, aby ręcznie wprowadzić parametry połączenia, wybierz **ręcznie wprowadzić informacje o połączeniu**. 
+      Dowiedz się [jak znaleźć parametrów połączenia](#permissions-connection-string).
 
-    ![Ustawienia wyzwalacza po odbiera nowych zdarzeń w Centrum zdarzeń](./media/connectors-create-api-azure-event-hubs/event-hubs-trigger.png)
+   2. Teraz wybierz zasady usługi Event Hubs, a następnie wybierz **Utwórz**.
 
-3.  Wprowadź lub wybierz nazwę Centrum zdarzeń, które chcesz monitorować. Wybierz częstotliwość i interwał, jak często chcesz sprawdzić Centrum zdarzeń.
+      ![Utwórz połączenie z Centrum zdarzeń, część 2](./media/connectors-create-api-azure-event-hubs/create-event-hubs-connection-2.png)
+
+3. Wybierz Centrum zdarzeń, aby monitorować i skonfigurować interwał i częstotliwość czas wyszukiwania Centrum zdarzeń.
+
+    ![Określ Centrum zdarzeń lub grupy odbiorców](./media/connectors-create-api-azure-event-hubs/select-event-hub.png)
 
     > [!TIP]
-    > Opcjonalnie można wybrać grupy odbiorców do odczytywania zdarzeń, wybierz **Pokaż zaawansowane opcje**. 
+    > Opcjonalnie można wybrać grupy odbiorców do odczytywania zdarzeń, wybierz **Pokaż zaawansowane opcje**.
 
-    ![Określ Centrum zdarzeń lub grupy odbiorców](./media/connectors-create-api-azure-event-hubs/event-hubs-trigger-details.png)
+4. Zapisz aplikację logiki. Na pasku narzędzi projektanta wybierz pozycję **Zapisz**.
 
-    Wyzwalacz zostało teraz skonfigurowane do uruchomienia przepływu pracy aplikacji logiki. 
-    Aplikację logiki sprawdza określonym Centrum zdarzeń na podstawie harmonogramu, który zostanie ustawiona. 
-    Jeśli aplikacja znajdzie nowe zdarzenia zdarzeń koncentratora, wyzwalacz uruchamia inne akcje lub wyzwala w aplikacji logiki.
+Teraz po aplikację logiki sprawdza wybranego Centrum zdarzeń i wyszukuje nowe zdarzenie, wyzwalacz działa akcje w aplikacji logiki znaleziono zdarzenia.
 
 ## <a name="send-events-to-your-event-hub-from-your-logic-app"></a>Wysyłanie zdarzeń do Centrum zdarzeń z aplikacji logiki
 
 [*Akcja*](../logic-apps/logic-apps-overview.md#logic-app-concepts) to zadanie wykonywane przez przepływ pracy aplikacji logiki. Po dodaniu wyzwalacza do aplikacji logiki możesz dodać akcję, aby wykonywać operacje na danych generowanych przez ten wyzwalacz. Aby wysłać zdarzenia do Centrum zdarzeń z aplikacji logiki, wykonaj następujące kroki.
 
-1.  W Projektancie aplikacji logiki, zgodnie z wyzwalaczem aplikacji logiki, wybierz **nowy krok** > **Dodaj akcję**.
+1. W Projektancie aplikacji logiki, w obszarze wyzwalacz, wybierz **nowy krok** > **Dodaj akcję**.
 
-    ![Wybierz pozycję "Nowy krok", następnie "Dodaj akcję"](./media/connectors-create-api-azure-event-hubs/add-action.png)
+2. W polu wyszukiwania wprowadź "event hubs" jako filtr.
+Wybierz tę akcję: **usługi Event Hubs — wysyłanie zdarzeń**
 
-    Teraz można znaleźć i wybierz akcję do wykonania. 
-    Chociaż można wybrać żadnych akcji, na przykład chcemy akcji usługi Event Hubs wysyłać zdarzenia.
+   ![Wybierz opcję "Event Hubs — wysyłanie zdarzeń"](./media/connectors-create-api-azure-event-hubs/select-event-hubs-send-event-action.png)
 
-2.  W polu wyszukiwania wprowadź `event hubs` filtru.
-Wybierz tę akcję: **wysyłania zdarzeń**
+3. Wybierz Centrum zdarzeń, w których można wysłać zdarzenia. Następnie wprowadź zawartości zdarzeń i inne szczegóły.
 
-    ![Wybierz opcję "Event Hubs — wysyłanie zdarzeń" akcji](./media/connectors-create-api-azure-event-hubs/find-event-hubs-action.png)
+   ![Wybierz nazwę Centrum zdarzeń i dostarczanie zawartości zdarzeń](./media/connectors-create-api-azure-event-hubs/event-hubs-send-event-action.png)
 
-3.  Wprowadź wymagane szczegóły zdarzenia, takie jak nazwa dla Centrum zdarzeń, które chcesz wysłać zdarzenia. Wprowadź inne opcjonalne szczegóły dotyczące zdarzenia, takie jak zawartość dla tego zdarzenia.
+4. Zapisz aplikację logiki.
 
-    > [!TIP]
-    > Aby określić partycji Centrum zdarzeń opcjonalnie, gdzie można wysłać zdarzenia, wybierz **Pokaż zaawansowane opcje**. 
-
-    ![Wprowadź nazwę Centrum zdarzeń i szczegóły zdarzenia opcjonalne](./media/connectors-create-api-azure-event-hubs/event-hubs-send-event-action.png)
-
-6.  Zapisz zmiany.
-
-    ![Zapisywanie aplikacji logiki](./media/connectors-create-api-azure-event-hubs/save-logic-app.png)
-
-    Akcja zostało teraz skonfigurowane do wysłania zdarzeń z aplikacji logiki. 
+Teraz ustawiono akcję, która wysyła zdarzenia z aplikacji logiki. 
 
 ## <a name="connector-specific-details"></a>Szczegóły dotyczące łącznika
 
-Wyświetl wszystkie wyzwalacze i akcje zdefiniowane w swagger i zobacz też żadnych limitów w [szczegóły łącznika](/connectors/eventhubs/). 
+Aby dowiedzieć się więcej o wyzwalacze i akcje zdefiniowane w pliku programu Swagger oraz żadnych limitów, przejrzyj [szczegóły łącznika](/connectors/eventhubs/).
 
-## <a name="get-help"></a>Uzyskiwanie pomocy
+## <a name="get-support"></a>Uzyskiwanie pomocy technicznej
 
-Aby zadawać pytania, odpowiadać na nie i patrzeć, co robią inni użytkownicy usługi Azure Logic Apps, odwiedź [forum usługi Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-
-Aby pomóc w ulepszaniu usługi Logic Apps, przesyłaj pomysły lub głosuj na nie w [witrynie opinii użytkowników usługi Logic Apps](http://aka.ms/logicapps-wish).
+* Jeśli masz pytania, odwiedź [forum usługi Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Aby przesłać pomysły dotyczące funkcji lub zagłosować na nie, odwiedź [witrynę opinii użytkowników usługi Logic Apps](http://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Kolejne kroki
 
-*  [Znajdź inne łączniki dla usługi Azure Logic apps](./apis-list.md)
+* Dowiedz się więcej o [inne łączniki dla usługi Azure Logic apps](../connectors/apis-list.md)

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 659a791124eab002290ac0b7f0898cf1c06c2951
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 72ed9ecd7a4c8e846818f7a19ad25c566fa57f64
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-virtual-network-using-the-azure-cli"></a>Utwórz sieć wirtualną przy użyciu wiersza polecenia platformy Azure
 
@@ -45,9 +45,9 @@ Można również utworzyć sieć wirtualną za pomocą Menedżera zasobów przy 
 
 Aby utworzyć sieć wirtualną przy użyciu wiersza polecenia platformy Azure, wykonaj następujące kroki:
 
-1. Instalowanie i Konfigurowanie r [Azure CLI 2.0](/cli/azure/install-az-cli2) i zaloguj się do platformy Azure konta przy użyciu [logowania az](/cli/azure/#login).
+1. Instalowanie i Konfigurowanie r [Azure CLI 2.0](/cli/azure/install-az-cli2) i zaloguj się do platformy Azure konta przy użyciu [logowania az](/cli/azure/#az_login).
 
-2. Utwórz grupę zasobów do sieci wirtualnej przy użyciu [Tworzenie grupy az](/cli/azure/group#create) z `--name` i `--location` argumentów:
+2. Utwórz grupę zasobów do sieci wirtualnej przy użyciu [Tworzenie grupy az](/cli/azure/group#az_group_create) z `--name` i `--location` argumentów:
 
     ```azurecli
     az group create --name TestRG --location centralus

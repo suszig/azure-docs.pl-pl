@@ -5,13 +5,13 @@ services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/15/2017
+ms.date: 02/04/2018
 ms.author: anoopkv
-ms.openlocfilehash: e9e4bfc86df2cae1facac62472c915d91fb8c84c
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 9cdabfb4e24423d76e4f247f184ac4156c3b257b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-the-configuration-server"></a>Zarządzanie serwerem konfiguracji
 
@@ -72,6 +72,22 @@ Jeśli potrzebujesz można ponownie zarejestrować serwer konfiguracji, w tym sa
       net stop obengine
       net start obengine
       ```
+## <a name="upgrade-the-configuration-server"></a>Uaktualnij serwer konfiguracji
+
+Możesz uruchomić pakiety zbiorcze aktualizacji, aby zaktualizować serwer konfiguracji. Aktualizacje mogą być stosowane dla maksymalnie N-4 wersji. Na przykład:
+
+- Jeśli używasz 9.7, 9,8, 9.9 lub 9.10 — można uaktualnić bezpośrednio do 9.11.
+- Jeśli używasz 9.6 lub starszym, i chcesz uaktualnić do 9.11, należy najpierw uaktualnić do wersji 9.7. przed 9.11.
+
+Łącza do pakiety zbiorcze aktualizacji dla uaktualnienia wszystkich wersji serwera konfiguracji są dostępne w [strona typu wiki aktualizacji](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
+
+Uaktualnij serwer w następujący sposób:
+
+1. Pobierz plik Instalatora aktualizacji na serwerze konfiguracji.
+2. Kliknij dwukrotnie, aby uruchomić Instalatora.
+3. Instalator wykrywa bieżącą wersję uruchomionych na komputerze.
+4. Kliknij przycisk **OK** do potwierdzenia, a następnie uruchom uaktualnianie. 
+
 
 ## <a name="delete-or-unregister-a-configuration-server"></a>Usuń lub Wyrejestruj serwer konfiguracji
 
@@ -132,6 +148,6 @@ Dla wdrożenia serwera konfiguracji przed maj 2016 okresu ważności certyfikatu
 3. Kliknij przycisk **odnawiania certyfikatów**. 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Przejrzyj samouczki dotyczące konfigurowania odzyskiwania po awarii [maszyn wirtualnych VMware](tutorial-vmware-to-azure.md) i servers(tutorial-physical-to-azure.md) fizycznych do platformy Azure.

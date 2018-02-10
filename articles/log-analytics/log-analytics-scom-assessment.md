@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/27/2017
 ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3a66cc13d05c81de571e2710519ad9474304d656
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 5709de72032de9e3f7342be43260d3468b9cee66
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optymalizuj środowisko z rozwiązań System Center Operations Manager sprawdzanie kondycji (wersja zapoznawcza)
 
@@ -62,7 +62,7 @@ Skorzystaj z poniższych informacji, aby zainstalować i skonfigurować rozwiąz
 
 Ocena programu System Center Operations Manager zbiera dane z następujących źródeł: 
 
-* Rejestru
+* Rejestr
 * Instrumentacja zarządzania Windows (WMI)
 * Dziennik zdarzeń
 * Plik danych
@@ -216,8 +216,8 @@ Zanim użyjesz funkcję sprawdzania kondycji w analizy dzienników, musi mieć z
 Wyświetl oceny zgodności podsumowania dla Twojej infrastruktury, a następnie wejdź do zalecenia.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Aby wyświetlić zalecenia dla obszaru fokus i podjąć działania naprawcze
-1. Zaloguj się do portalu Azure pod adresem [https://portal.azure.com](https://portal.azure.com). 
-2. W portalu Azure kliknij **więcej usług** znaleziono w lewym dolnym rogu. Na liście zasobów wpisz **Log Analytics**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Wybierz **dziennika analizy**.
+1. Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com). 
+2. W witrynie Azure Portal kliknij pozycję **Więcej usług** w lewym dolnym rogu. Na liście zasobów wpisz **Log Analytics**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Wybierz pozycję **Log Analytics**.
 3. W okienku subskrypcje analizy dzienników, wybierz obszar roboczy, a następnie kliknij przycisk **portalu OMS** kafelka.  
 4. Na **omówienie** kliknij przycisk **Sprawdź System Center Operations Manager kondycji** kafelka.
 5. Na **Sprawdź System Center Operations Manager kondycji** strony, sprawdź informacje w jednym z bloków obszaru fokus, a następnie kliknij przycisk jedna, aby wyświetlić zalecenia dla tego obszaru fokus.
@@ -228,7 +228,7 @@ Wyświetl oceny zgodności podsumowania dla Twojej infrastruktury, a następnie 
 
 Jeśli masz zaleceń, które chcesz zignorować, można utworzyć pliku tekstowego, który używa analizy dzienników zapobiegające zaleceń znajdujących się w wynikach oceny.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-want-to-ignore"></a>Aby zidentyfikować zaleceń, które chcesz zignorować
 1. W portalu Azure na stronie obszaru roboczego analizy dzienników dla Twojego wybranego obszaru roboczego kliknij **wyszukiwania dziennika** kafelka.
@@ -303,6 +303,6 @@ Jeśli masz zaleceń, które chcesz zignorować, można utworzyć pliku tekstowe
 *Czy istnieje sposób, aby zignorować zalecenie?* Tak, zobacz [zignorowanie zalecenia](#Ignore-recommendations).
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Wyszukaj dzienniki](log-analytics-log-searches.md) informacje na temat analizowania szczegółowych danych sprawdź System Center Operations Manager kondycji i zaleceń.

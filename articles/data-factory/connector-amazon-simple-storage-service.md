@@ -8,13 +8,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 6df7d74d572a59c83105905fbe0a9e218aadc28f
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: b5dbf4b7ae0fc1f8871fbf6df1a29f0f7324d83a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Kopiowanie danych z usługi Amazon proste usługi magazynu przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -37,9 +37,9 @@ W szczególności ten łącznik Amazon S3 obsługuje kopiowanie plików jako —
 Aby skopiować dane z usługi Amazon S3, upewnij się, że przyznano następujące uprawnienia:
 
 - `s3:GetObject`i `s3:GetObjectVersion` Amazon S3 obiektu operacji.
-- `s3:ListBucket`operacjach Amazon S3 zasobnika. Jeśli używasz kreatora kopiowania fabryki danych `s3:ListAllMyBuckets` jest również wymagany.
+- `s3:ListBucket`lub `s3:GetBucketLocation` Amazon S3 zasobnika operacji. Jeśli używasz kreatora kopiowania fabryki danych `s3:ListAllMyBuckets` jest również wymagany.
 
-Aby uzyskać więcej informacji o pełną listę uprawnień Amazon S3, zobacz [określanie uprawnień w zasadach](http://docs.aws.amazon.com/amazons3/latest/dev/using-with-s3-actions.html).
+Aby uzyskać więcej informacji o pełną listę uprawnień Amazon S3, zobacz [określanie uprawnień w zasadach](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
 
 ## <a name="getting-started"></a>Wprowadzenie
 
@@ -55,7 +55,7 @@ Obsługiwane są następujące właściwości usługi Amazon S3 połączone:
 |:--- |:--- |:--- |
 | type | Właściwość type musi mieć ustawioną **AmazonS3**. | Yes |
 | accessKeyId | Identyfikator klucza tajnego dostępu. |Yes |
-| secretAccessKey | Samego klucza tajnego dostępu. Zaznacz to pole jako SecureString. |Yes |
+| secretAccessKey | Samego klucza tajnego dostępu. Zaznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w fabryce danych lub [odwołania klucz tajny przechowywane w usłudze Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. (Jeśli w magazynie danych znajduje się w sieci prywatnej), można użyć środowiska uruchomieniowego integracji Azure lub Self-hosted integracji w czasie wykonywania. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. |Nie |
 
 >[!NOTE]

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/13/2017
+ms.date: 02/07/2018
 ms.author: larryfr
-ms.openlocfilehash: a55180b5d65b268d7c9b51307581a5fe777a26fe
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 70bb69c78a23c9ffe012c0b775c98355da7cbce6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>Porty używane przez usługi Hadoop w usłudze HDInsight
 
@@ -43,14 +43,14 @@ Wszystkie węzły w klastrze HDInsight znajdują się w sieci wirtualnej platfor
 
 | Usługa | Port | Protokół | Opis |
 | --- | --- | --- | --- | --- |
-| sshd |22 |SSH |Łączy się sshd na głównej headnode z klientów. Aby uzyskać więcej informacji, zobacz [Używanie protokołu SSH w usłudze HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
-| sshd |22 |SSH |Łączy klientów sshd węzła krawędzi. Aby uzyskać więcej informacji, zobacz [Używanie protokołu SSH w usłudze HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
-| sshd |23 |SSH |Łączy się sshd na dodatkowej headnode z klientów. Aby uzyskać więcej informacji, zobacz [Używanie protokołu SSH w usłudze HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
+| sshd |22 |Protokół SSH |Łączy się sshd na głównej headnode z klientów. Aby uzyskać więcej informacji, zobacz [Używanie protokołu SSH w usłudze HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
+| sshd |22 |Protokół SSH |Łączy klientów sshd węzła krawędzi. Aby uzyskać więcej informacji, zobacz [Używanie protokołu SSH w usłudze HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
+| sshd |23 |Protokół SSH |Łączy się sshd na dodatkowej headnode z klientów. Aby uzyskać więcej informacji, zobacz [Używanie protokołu SSH w usłudze HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
 | Ambari |443 |HTTPS |Ambari web UI. Zobacz [HDInsight zarządzać za pomocą interfejsu użytkownika sieci Web Ambari](hdinsight-hadoop-manage-ambari.md) |
 | Ambari |443 |HTTPS |Interfejs API REST Ambari. Zobacz [Zarządzanie HDInsight przy użyciu interfejsu API REST Ambari](hdinsight-hadoop-manage-ambari-rest-api.md) |
-| Usługi WebHCat |443 |HTTPS |HCatalog interfejsu API REST. Zobacz [korzystanie z programu Hive z Curl](hadoop/apache-hadoop-use-pig-curl.md), [korzystanie z języka Pig z Curl](hadoop/apache-hadoop-use-pig-curl.md), [korzystać z usługi MapReduce z Curl](hadoop/apache-hadoop-use-mapreduce-curl.md) |
-| Serwera HiveServer2 |443 |ODBC |Nawiązanie połączenia Hive za pośrednictwem sterownika ODBC. Zobacz [łączenie programu Excel do usługi HDInsight za pomocą sterownika Microsoft ODBC](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md). |
-| Serwera HiveServer2 |443 |JDBC |Nawiązanie połączenia przy użyciu JDBC Hive. Zobacz [Połącz z Hive w usłudze HDInsight przy użyciu sterownik Hive JDBC](hadoop/apache-hadoop-connect-hive-jdbc-driver.md) |
+| WebHCat |443 |HTTPS |HCatalog interfejsu API REST. Zobacz [korzystanie z programu Hive z Curl](hadoop/apache-hadoop-use-pig-curl.md), [korzystanie z języka Pig z Curl](hadoop/apache-hadoop-use-pig-curl.md), [korzystać z usługi MapReduce z Curl](hadoop/apache-hadoop-use-mapreduce-curl.md) |
+| HiveServer2 |443 |ODBC |Nawiązanie połączenia Hive za pośrednictwem sterownika ODBC. Zobacz [łączenie programu Excel do usługi HDInsight za pomocą sterownika Microsoft ODBC](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md). |
+| HiveServer2 |443 |JDBC |Nawiązanie połączenia przy użyciu JDBC Hive. Zobacz [Połącz z Hive w usłudze HDInsight przy użyciu sterownik Hive JDBC](hadoop/apache-hadoop-connect-hive-jdbc-driver.md) |
 
 Poniżej przedstawiono dostępne dla określonego klastra typów:
 
@@ -75,7 +75,7 @@ Wszystkie usługi udostępniane publicznie w Internecie, musi zostać uwierzytel
 > Niektóre usługi są dostępne tylko dla typów konkretnego klastra. Na przykład baza danych HBase jest dostępna tylko na typy klastrów HBase.
 
 > [!IMPORTANT]
-> Niektóre usługi uruchomić tylko jedną headnode naraz. Jeśli próbujesz połączyć się z usługą w głównej headnode i wystąpi błąd 404, spróbuj ponownie, używając headnode dodatkowej.
+> Niektóre usługi uruchomić tylko jedną headnode naraz. Jeśli próbujesz połączyć się z usługą w głównej headnode i wystąpi błąd, spróbuj ponownie, używając headnode dodatkowej.
 
 ### <a name="ambari"></a>Ambari
 
@@ -117,7 +117,7 @@ Przykłady:
 
 | Usługa | Węzły | Port | Protokół | Opis |
 | --- | --- | --- | --- | --- |
-| Serwera HiveServer2 |HEAD węzłów |10001 |Thrift |Usługi w celu nawiązania gałąź (Thrift/JDBC) |
+| HiveServer2 |HEAD węzłów |10001 |Thrift |Usługi w celu nawiązania gałąź (Thrift/JDBC) |
 | Potrzeby magazynu metadanych hive |HEAD węzłów |9083 |Thrift |Usługi w celu nawiązania metadanych Hive (Thrift/JDBC) |
 
 ### <a name="webhcat-ports"></a>Porty WebHCat
@@ -161,7 +161,7 @@ Przykłady:
 
 | Usługa | Węzły | Port | Protokół | Opis |
 | --- | --- | --- | --- | --- |
-| Broker |Węzłów procesu roboczego |9092 |[Protokół Kafka](http://kafka.apache.org/protocol.html) |Używany do komunikacji z klientem |
+| Broker |Węzłów procesu roboczego |9092 |[Kafka Wire Protocol](http://kafka.apache.org/protocol.html) |Używany do komunikacji z klientem |
 | &nbsp; |Węzły dozorcy |2181 |&nbsp; |Portu używanego przez klientów do nawiązania połączenia dozorcy |
 
 ### <a name="spark-ports"></a>Porty Spark
@@ -170,6 +170,7 @@ Przykłady:
 | --- | --- | --- | --- | --- | --- |
 | Serwery Spark Thrift |HEAD węzłów |10002 |Thrift | &nbsp; | Usługi w celu nawiązania Spark SQL (Thrift/JDBC) |
 | Serwer programu Livy | HEAD węzłów | 8998 | HTTP | &nbsp; | Usługa uruchamiania instrukcje, zadania i aplikacji |
+| Notesu Jupyter | HEAD węzłów | 8001 | HTTP | &nbsp; | Witryny sieci Web notesu Jupyter |
 
 Przykłady:
 

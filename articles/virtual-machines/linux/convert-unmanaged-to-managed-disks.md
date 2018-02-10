@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: 533d4ddfc645843ed8feb8652021f47d93ed2ac1
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 75031b6189710286625406246e6dcde6f1c2b938
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Konwertuj maszyny wirtualnej systemu Linux z dysków niezarządzanych do zarządzanych dysków
 
@@ -36,19 +36,19 @@ W tym artykule przedstawiono sposób konwertowania maszyn wirtualnych przy użyc
 ## <a name="convert-single-instance-vms"></a>Konwertuj maszyn wirtualnych z jednego wystąpienia
 W tej sekcji omówiono sposób konwertowania maszyn wirtualnych Azure jednym wystąpieniu z dysków niezarządzanych do zarządzanych dysków. (W przypadku maszyn wirtualnych w zestawie dostępności, zobacz następną sekcję). Ten proces można użyć do konwersji maszyn wirtualnych z dyski dysków do dysków zarządzanych w warstwie premium lub standard (HDD) niezarządzanych premium (SSD) niezarządzanych do zarządzanych dyski standardowe.
 
-1. Cofnięcie przydziału maszyny Wirtualnej za pomocą [deallocate wirtualna az](/cli/azure/vm#deallocate). Poniższy przykład cofa alokację maszyny Wirtualnej o nazwie `myVM` w grupie zasobów o nazwie `myResourceGroup`:
+1. Cofnięcie przydziału maszyny Wirtualnej za pomocą [deallocate wirtualna az](/cli/azure/vm#az_vm_deallocate). Poniższy przykład cofa alokację maszyny Wirtualnej o nazwie `myVM` w grupie zasobów o nazwie `myResourceGroup`:
 
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
     ```
 
-2. Konwertuj maszynę Wirtualną do zarządzanych dysków za pomocą [konwersji maszyny wirtualnej az](/cli/azure/vm#convert). Następujący proces konwersji maszyny Wirtualnej o nazwie `myVM`, w tym dysku systemu operacyjnego i dysków z danymi:
+2. Konwertuj maszynę Wirtualną do zarządzanych dysków za pomocą [konwersji maszyny wirtualnej az](/cli/azure/vm#az_vm_convert). Następujący proces konwersji maszyny Wirtualnej o nazwie `myVM`, w tym dysku systemu operacyjnego i dysków z danymi:
 
     ```azurecli
     az vm convert --resource-group myResourceGroup --name myVM
     ```
 
-3. Uruchom maszynę Wirtualną po konwersji do dysków zarządzanych za pomocą [uruchomienia maszyny wirtualnej az](/cli/azure/vm#start). W następującym przykładzie uruchomiono maszyny Wirtualnej o nazwie `myVM` w grupie zasobów o nazwie `myResourceGroup`.
+3. Uruchom maszynę Wirtualną po konwersji do dysków zarządzanych za pomocą [uruchomienia maszyny wirtualnej az](/cli/azure/vm#az_vm_start). W następującym przykładzie uruchomiono maszyny Wirtualnej o nazwie `myVM` w grupie zasobów o nazwie `myResourceGroup`.
 
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM
@@ -60,7 +60,7 @@ Jeśli maszyny wirtualne, które ma zostać przekonwertowany na zarządzany dysk
 
 Wszystkie maszyny wirtualne w zestawie dostępności muszą przydzielenia przed dokonaniem konwersji zestawu dostępności. Planowanie można skonwertować wszystkich maszyn wirtualnych do zarządzanych dysków po sam zestaw dostępności został przekonwertowany na zestaw dostępności zarządzanego. Następnie uruchom wszystkie maszyny wirtualne i kontynuowania działania normalnego.
 
-1. Wyświetl listę wszystkich maszyn wirtualnych w zestawie przy użyciu dostępności [listy zestawu dostępności maszyny wirtualnej az](/cli/azure/vm/availability-set#list). Poniższy przykład zawiera listę wszystkich maszyn wirtualnych w zestawie o nazwie dostępności `myAvailabilitySet` w grupie zasobów o nazwie `myResourceGroup`:
+1. Wyświetl listę wszystkich maszyn wirtualnych w zestawie przy użyciu dostępności [listy zestawu dostępności maszyny wirtualnej az](/cli/azure/vm/availability-set#az_vm_availability_set_list). Poniższy przykład zawiera listę wszystkich maszyn wirtualnych w zestawie o nazwie dostępności `myAvailabilitySet` w grupie zasobów o nazwie `myResourceGroup`:
 
     ```azurecli
     az vm availability-set show \
@@ -70,13 +70,13 @@ Wszystkie maszyny wirtualne w zestawie dostępności muszą przydzielenia przed 
         --output table
     ```
 
-2. Cofnięcie przydziału wszystkich maszyn wirtualnych za pomocą [deallocate wirtualna az](/cli/azure/vm#deallocate). Poniższy przykład cofa alokację maszyny Wirtualnej o nazwie `myVM` w grupie zasobów o nazwie `myResourceGroup`:
+2. Cofnięcie przydziału wszystkich maszyn wirtualnych za pomocą [deallocate wirtualna az](/cli/azure/vm#az_vm_deallocate). Poniższy przykład cofa alokację maszyny Wirtualnej o nazwie `myVM` w grupie zasobów o nazwie `myResourceGroup`:
 
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
     ```
 
-3. Konwertuj zestawu za pomocą dostępności [przekonwertować zestawu dostępności maszyny wirtualnej az](/cli/azure/vm/availability-set#convert). Poniższy przykład konwertuje zestaw o nazwie dostępności `myAvailabilitySet` w grupie zasobów o nazwie `myResourceGroup`:
+3. Konwertuj zestawu za pomocą dostępności [przekonwertować zestawu dostępności maszyny wirtualnej az](/cli/azure/vm/availability-set#az_vm_availability_set_convert). Poniższy przykład konwertuje zestaw o nazwie dostępności `myAvailabilitySet` w grupie zasobów o nazwie `myResourceGroup`:
 
     ```azurecli
     az vm availability-set convert \
@@ -84,17 +84,17 @@ Wszystkie maszyny wirtualne w zestawie dostępności muszą przydzielenia przed 
         --name myAvailabilitySet
     ```
 
-4. Konwertuj wszystkich maszyn wirtualnych do zarządzanych dysków za pomocą [konwersji maszyny wirtualnej az](/cli/azure/vm#convert). Następujący proces konwersji maszyny Wirtualnej o nazwie `myVM`, w tym dysku systemu operacyjnego i dysków z danymi:
+4. Konwertuj wszystkich maszyn wirtualnych do zarządzanych dysków za pomocą [konwersji maszyny wirtualnej az](/cli/azure/vm#az_vm_convert). Następujący proces konwersji maszyny Wirtualnej o nazwie `myVM`, w tym dysku systemu operacyjnego i dysków z danymi:
 
     ```azurecli
     az vm convert --resource-group myResourceGroup --name myVM
     ```
 
-5. Uruchom wszystkie maszyny wirtualne po konwersji do dysków zarządzanych przy użyciu [uruchomienia maszyny wirtualnej az](/cli/azure/vm#start). W następującym przykładzie uruchomiono maszyny Wirtualnej o nazwie `myVM` w grupie zasobów o nazwie `myResourceGroup`:
+5. Uruchom wszystkie maszyny wirtualne po konwersji do dysków zarządzanych przy użyciu [uruchomienia maszyny wirtualnej az](/cli/azure/vm#az_vm_start). W następującym przykładzie uruchomiono maszyny Wirtualnej o nazwie `myVM` w grupie zasobów o nazwie `myResourceGroup`:
 
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM
     ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby uzyskać więcej informacji na temat opcji magazynu, zobacz [omówienie dysków zarządzanych Azure](../windows/managed-disks-overview.md).

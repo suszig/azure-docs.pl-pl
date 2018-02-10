@@ -14,22 +14,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: a06becda42541b22d3e090087dd96cd08c980f44
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: e60bf5c82e68d49abaa44d80ac9fafba2d8265da
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="how-to-manage-cloud-services"></a>Jak zarządzać usługi w chmurze
-W **usługi w chmurze** obszaru Azure portalu, można zaktualizować roli usługi lub wdrożenie, podwyższyć poziom wdrożenia etapowego do środowiska produkcyjnego, połączyć zasoby z usługi w chmurze, tak aby widoczne zależności między zasobami i skali zasoby razem i delete chmury usługi lub wdrożenia.
+# <a name="manage-cloud-services-in-the-azure-portal"></a>Zarządzaj usługi w chmurze w portalu Azure
+W **usługi w chmurze** obszaru portalu Azure, można wykonywać następujące czynności:
 
-Więcej informacji na temat skalowania usługi w chmurze [tutaj](cloud-services-how-to-scale-portal.md).
+* Aktualizacja roli usługi lub wdrożenia.
+* Podwyższ poziom wdrożenia etapowego do środowiska produkcyjnego.
+* Połączyć zasoby z usługi w chmurze, tak aby mogli widzieć zależności zasobów i zasoby są skalowane razem.
+* Usuwanie usługi w chmurze lub wdrożenia.
 
-## <a name="how-to-update-a-cloud-service-role-or-deployment"></a>Porady: aktualizowanie roli usługi w chmurze lub wdrożenia
+Aby uzyskać więcej informacji na temat skalowania usługi w chmurze, zobacz [skonfigurować automatyczne skalowanie dla usługi w chmurze w portalu](cloud-services-how-to-scale-portal.md).
+
+## <a name="update-a-cloud-service-role-or-deployment"></a>Aktualizacja roli usługi w chmurze lub wdrożenia
 Jeśli musisz zaktualizować kod aplikacji dla usługi w chmurze, użyj **aktualizacji** w bloku usługi w chmurze. Można aktualizować jedną rolę lub wszystkich ról. Aby zaktualizować, możesz przekazać pakiet usługi lub pliku konfiguracji usługi.
 
 1. W [portalu Azure][Azure portal], wybierz usługę w chmurze do zaktualizowania. Ten krok powoduje otwarcie bloku wystąpienia usługi w chmurze.
-2. W bloku, kliknij **aktualizacji** przycisku.
+
+2. W bloku, wybierz **aktualizacji**.
 
     ![Przycisk Aktualizuj](./media/cloud-services-how-to-manage-portal/update-button.png)
 
@@ -37,29 +43,32 @@ Jeśli musisz zaktualizować kod aplikacji dla usługi w chmurze, użyj **aktual
 
     ![UpdateDeployment](./media/cloud-services-how-to-manage-portal/update-blade.png)
 
-4. **Opcjonalnie** zaktualizować etykietę wdrożenia i konto magazynu.
-5. Jeśli żadnych ról z tylko jednego wystąpienia roli, wybierz **Wdróż, nawet jeśli co najmniej jedna rola zawiera pojedyncze wystąpienie** aktualizację kontynuować.
+4. Opcjonalnie zaktualizuj konto magazynu i etykietę wdrożenia.
 
-    Każda rola ma co najmniej dwa wystąpienia roli (maszyny wirtualne) Azure tylko można gwarantuje dostępność usługi 99,95% podczas aktualizacji usługi chmury. Dwa wystąpienia roli jednej maszyny wirtualnej przetwarza żądania klientów podczas innych aktualizacji.
+5. Jeśli żadnych ról z tylko jednego wystąpienia roli, wybierz **Wdróż, nawet jeśli co najmniej jedna rola zawiera pojedyncze wystąpienie** pole wyboru, aby włączyć uaktualnienia kontynuować.
 
-6. Sprawdź **rozpocząć wdrażanie** mają zastosowane po zakończeniu przekazywania pakietu aktualizacji.
-7. Kliknij przycisk **OK** zacząć aktualizacji usługi.
+    Azure może zagwarantować tylko 99,95% dostępności usługi podczas aktualizacji usługi chmury, jeśli każda rola ma co najmniej dwa wystąpienia roli (maszyny wirtualne). Dwa wystąpienia roli jednej maszyny wirtualnej przetwarza żądania klientów podczas innych aktualizacji.
 
-## <a name="how-to-swap-deployments-to-promote-a-staged-deployment-to-production"></a>Porady: Zamień wdrożeń, aby promować przemieszczanego wdrożenia do produkcji
+6. Wybierz **rozpocząć wdrażanie** pole wyboru, aby zastosować aktualizację, po zakończeniu przekazywania pakietu.
+
+7. Wybierz **OK** zacząć aktualizacji usługi.
+
+## <a name="swap-deployments-to-promote-a-staged-deployment-to-production"></a>Zamień wdrożeń, aby promować przemieszczanego wdrożenia do produkcji
 Jeśli zdecydujesz się wdrożyć nową wersję usługi w chmurze, etap i przetestować w środowisku przemieszczania usługi chmury z nową wersją. Użyj **wymiany** przełączyć adresów URL, które są opisane dwa wdrożenia i wspierania nową wersję w środowisku produkcyjnym.
 
 Można wymienić wdrożenia od **usługi w chmurze** strony lub pulpitu nawigacyjnego.
 
 1. W [portalu Azure][Azure portal], wybierz usługę w chmurze do zaktualizowania. Ten krok powoduje otwarcie bloku wystąpienia usługi w chmurze.
-2. W bloku, kliknij **wymiany** przycisku.
 
-    ![Wymiany usługi w chmurze](./media/cloud-services-how-to-manage-portal/swap-button.png)
+2. W bloku, wybierz **wymiany**.
 
-3. Otwiera następujące monit o potwierdzenie.
+    ![Przycisk wymiany usługi w chmurze](./media/cloud-services-how-to-manage-portal/swap-button.png)
+
+3. Otwiera następujący komunikat potwierdzenia:
 
     ![Wymiany usługi w chmurze](./media/cloud-services-how-to-manage-portal/swap-prompt.png)
 
-4. Po sprawdzeniu informacji wdrożenia, kliknij przycisk **OK** można zamienić wdrożenia.
+4. Po sprawdzeniu informacji o wdrożeniu, zaznacz **OK** można zamienić wdrożenia.
 
     Wymiany wdrożenia odbywa się szybko ponieważ jedynym elementem, który zmienia się wirtualne adresy IP (VIP) dla wdrożenia.
 
@@ -73,15 +82,15 @@ Istnieją dwa kluczowe wymagania wstępne dotyczące wymiany pomyślne wdrożeni
 
 - Jeśli chcesz użyć statycznego adresu IP dla Twojego miejsca produkcji, należy zarezerwować jeden dla miejsca przemieszczania również. W przeciwnym razie wymiany nie powiedzie się.
 
-- Wszystkie wystąpienia ról musi być uruchomiona, zanim będzie można wykonać wymiany. Można sprawdzić stan swoich wystąpień, w bloku omówienie portalu Azure. Alternatywnie można użyć [Get-AzureRole](/powershell/module/azure/get-azurerole?view=azuresmps-3.7.0) polecenia w programie Windows PowerShell.
+- Wszystkie wystąpienia ról musi być uruchomiona, zanim będzie można wykonać wymiany. Można sprawdzić stan swoich wystąpień **omówienie** bloku portalu Azure. Alternatywnie można użyć [Get-AzureRole](/powershell/module/azure/get-azurerole?view=azuresmps-3.7.0) polecenia w programie Windows PowerShell.
 
-Należy pamiętać, że aktualizacje systemu operacyjnego gościa i naprawianie operacji usługi również może spowodować zamiany wdrażania zakończyć się niepowodzeniem. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów z wdrażaniem usługi chmury](cloud-services-troubleshoot-deployment-problems.md).
+Należy pamiętać, że aktualizacje systemu operacyjnego gościa i usługi również naprawianie operacji może spowodować zamiany wdrożenia niepowodzenie. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów z wdrażaniem usługi chmury](cloud-services-troubleshoot-deployment-problems.md).
 
 **Zamiana wpływa negatywnie przestojów w przypadku mojej aplikacji? Jak należy ją obsługuje?**
 
-Zgodnie z opisem w ostatniej sekcji, wymiany wdrożenia jest zazwyczaj szybkie, ponieważ jest on tylko zmiany konfiguracji usługi równoważenia obciążenia Azure. W niektórych przypadkach jednak może potrwać co najmniej 10 sekund i powodować błędy połączeń przejściowej. Aby ograniczyć wpływ na klientów, rozważ zaimplementowanie [Logika ponawiania klienta](../best-practices-retry-general.md).
+Zgodnie z opisem w poprzedniej sekcji, wymiany wdrożenia jest zazwyczaj szybkie, ponieważ jest tylko zmianę konfiguracji usługi równoważenia obciążenia Azure. W niektórych przypadkach może potrwać 10 lub więcej sekund i wyników w przypadku błędów przejściowych połączenia. Aby ograniczyć wpływ na klientów, rozważ zaimplementowanie [Logika ponawiania klienta](../best-practices-retry-general.md).
 
-## <a name="how-to-delete-deployments-and-a-cloud-service"></a>Porady: usuwanie wdrożeń i usługi w chmurze
+## <a name="delete-deployments-and-a-cloud-service"></a>Usuwanie wdrożenia i usługi w chmurze
 Aby można było usunąć usługi w chmurze, należy usunąć poszczególnych istniejącego wdrożenia.
 
 W celu ograniczenia kosztów obliczeń, można usunąć tymczasowej wdrożenia po sprawdzeniu, czy wdrożenia produkcyjnego działa zgodnie z oczekiwaniami. Rozliczenie jest kosztów obliczeniowe dla wystąpień roli wdrożone, które zostały zatrzymane.
@@ -89,32 +98,34 @@ W celu ograniczenia kosztów obliczeń, można usunąć tymczasowej wdrożenia p
 Użyj poniższej procedury można usunąć wdrożenia lub usługi w chmurze.
 
 1. W [portalu Azure][Azure portal], wybierz usługę w chmurze do usunięcia. Ten krok powoduje otwarcie bloku wystąpienia usługi w chmurze.
-2. W bloku, kliknij **usunąć** przycisku.
 
-    ![Wymiany usługi w chmurze](./media/cloud-services-how-to-manage-portal/delete-button.png)
+2. W bloku, wybierz **usunąć**.
 
-3. Można usunąć usługi w chmurze całego sprawdzając **Cloud service i jej wdrożenia** lub wybrać opcję **wdrożenia produkcyjnego** lub **przemieszczania — wdrażanie**.
+    ![Przycisk Usuń usługi w chmurze](./media/cloud-services-how-to-manage-portal/delete-button.png)
 
-    ![Wymiany usługi w chmurze](./media/cloud-services-how-to-manage-portal/delete-blade.png)
+3. Aby usunąć usługi w chmurze całego, wybierz **Cloud service i jej wdrożenia** pole wyboru. Można albo **wdrożenia produkcyjnego** lub **przemieszczania — wdrażanie** pole wyboru.
 
-4. Kliknij przycisk **usunąć** znajdujący się u dołu.
-5. Aby usunąć usługi w chmurze, kliknij przycisk **usługi w chmurze Delete**. Następnie w oknie monitu o potwierdzenie kliknij przycisk **tak**.
+    ![Usuń usługi w chmurze](./media/cloud-services-how-to-manage-portal/delete-blade.png)
+
+4. Wybierz **usunąć** u dołu.
+
+5. Aby usunąć usługi w chmurze, wybierz **usługi w chmurze Delete**. W oknie monitu o potwierdzenie wybierz **tak**.
 
 > [!NOTE]
-> Po usunięciu usługi w chmurze, a pełne monitorowania jest skonfigurowana, danych trzeba usunąć ręcznie z konta magazynu. Aby uzyskać informacje o tym, gdzie można znaleźć w tabelach metryki, zobacz [to](cloud-services-how-to-monitor.md) artykułu.
+> Po usunięciu usługi w chmurze i pełne monitorowania jest skonfigurowany, należy usunąć dane ręcznie z konta magazynu. Aby uzyskać informacje o tym, gdzie można znaleźć w tabelach metryki, zobacz [wprowadzenie do monitorowania usługi w chmurze](cloud-services-how-to-monitor.md).
 
 
-## <a name="how-to-find-more-information-about-failed-deployments"></a>Porady: więcej informacji o wdrożeniach nie powiodło się
-**Omówienie** bloku ma pasek stanu u góry. Po kliknięciu przycisku paska otwiera nowy blok i wyświetla informacje o błędzie. Jeśli wdrożenie nie zawiera żadnych błędów, blok informacji jest pusta.
+## <a name="find-more-information-about-failed-deployments"></a>Więcej informacji o wdrożeniach nie powiodło się
+**Omówienie** bloku ma pasek stanu u góry. Po wybraniu pasku nowy blok otwiera i wyświetla informacje o błędzie. Jeśli wdrożenie nie zawiera żadnych błędów, blok informacji jest pusta.
 
-![Wymiany usługi w chmurze](./media/cloud-services-how-to-manage-portal/status-info.png)
+![Omówienie usług w chmurze](./media/cloud-services-how-to-manage-portal/status-info.png)
 
 
 
 [Azure portal]: https://portal.azure.com
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Konfiguracja ogólna usługi w chmurze](cloud-services-how-to-configure-portal.md).
 * Dowiedz się, jak [wdrażania usługi w chmurze](cloud-services-how-to-create-deploy-portal.md).
 * Skonfiguruj [niestandardowej nazwy domeny](cloud-services-custom-domain-name-portal.md).
-* Skonfiguruj [certyfikaty ssl](cloud-services-configure-ssl-certificate-portal.md).
+* Skonfiguruj [certyfikaty SSL](cloud-services-configure-ssl-certificate-portal.md).

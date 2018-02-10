@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2017
+ms.date: 02/04/2018
 ms.author: kumud
-ms.openlocfilehash: ddcbe895bdaa6eaa49e8ed129fe92b415f2600ef
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: cf7be370ab0d79be9068534f0c43b88f454bc024
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Omówienie usługi Azure Standard modułu równoważenia obciążenia (wersja zapoznawcza)
 
 Standardowy SKU usługi równoważenia obciążenia Azure i publicznego adresu IP standardowy SKU razem umożliwiają tworzenie architektur wysoce skalowalne i niezawodne. Aplikacji używających standardowego modułu równoważenia obciążenia można korzystać z nowych funkcji. Małe opóźnienia, wysokiej wydajności i skalowania są dostępne dla miliony przepływów dla wszystkich aplikacji TCP i UDP.
 
 >[!NOTE]
-> Standardowy SKU usługi równoważenia obciążenia jest obecnie w przeglądzie. Podczas udostępniania wersji zapoznawczej funkcja może nie mieć taki sam poziom dostępności i niezawodności jako funkcje, które są zwykle dostępności wersji. Aby uzyskać więcej informacji, zobacz [Dodatkowe warunki użytkowania dotyczące wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Użyj ogólnie dostępna [podstawowy SKU usługi równoważenia obciążenia](load-balancer-overview.md) dla usług produkcji. Funkcje, które są skojarzone z tym podglądzie [stref dostępności](https://aka.ms/availabilityzones), i [HA porty](https://aka.ms/haports), wymagają oddzielnego zapisywania w tej chwili. Postępuj zgodnie z instrukcjami odpowiednimi dla rejestracji w przypadku tych funkcji, oprócz skorzystania z usługi równoważenia obciążenia [standardowe Podgląd](#preview-sign-up).
+> Standardowy SKU usługi równoważenia obciążenia jest obecnie w przeglądzie. Podczas udostępniania wersji zapoznawczej funkcja może nie mieć taki sam poziom dostępności i niezawodności jako funkcje, które są zwykle dostępności wersji. Aby uzyskać więcej informacji, zobacz [Dodatkowe warunki użytkowania dotyczące wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Użyj ogólnie dostępna [podstawowy SKU usługi równoważenia obciążenia](load-balancer-overview.md) dla usług produkcji. Do użycia [Podgląd stref dostępności](https://aka.ms/availabilityzones) w tej wersji zapoznawczej wymaga [oddzielne rejestracji](https://aka.ms/availabilityzones), oprócz skorzystania z usługi równoważenia obciążenia [standardowe Podgląd](#preview-sign-up).
 
 ## <a name="why-use-load-balancer-standard"></a>Dlaczego warto używać standardowego modułu równoważenia obciążenia?
 
@@ -325,13 +325,11 @@ Jednostki SKU nie jest modyfikowalna. Wykonaj kroki opisane w tej sekcji, aby pr
 
 ## <a name="region-availability"></a>Dostępność w danym regionie
 
-Standardowe usługi równoważenia obciążenia jest obecnie dostępny w tych obszarach:
-- Wschodnie stany USA 2
-- Środkowe stany USA
-- Europa Północna
-- Środkowo-zachodnie stany USA
-- Europa Zachodnia
-- Azja Południowo-Wschodnia
+Standardowe usługi równoważenia obciążenia jest obecnie dostępny we wszystkich regionach chmury publicznej.
+
+>[!IMPORTANT]
+> Dla krótkim czasie dostępu do regionów poza początkowej uruchamiania regionów (wschodnie stany USA 2, środkowe stany USA, Europa Północna, zachodnie centralnej nam, Europa Zachodnia, Azja południowo-wschodnia) wymaga rejestracji subskrypcji dodatkowe funkcje (AllowLBPreviewWave2 i AllowLBPreviewWave3).  [Wykonaj poniższe czynności](#additionalpreviewregions). Wykonaj wszystkie z nich nawet wtedy, gdy zostało wcześniej zarejestrowane w do AllowLBPreview już.
+> To wymaganie zostanie usunięta w najbliższych tygodniach.
 
 ## <a name="sku-service-limits-and-abilities"></a>Ograniczenia usługi jednostki SKU i możliwości
 
@@ -369,7 +367,12 @@ W poniższej tabeli porównano limity i możliwości publicznego adresu IP podst
 Aby uczestniczyć w wersji Standard usługi równoważenia obciążenia i pomocnika standardowy SKU publicznego adresu IP w wersji zapoznawczej, zarejestruj subskrypcję.  Rejestracja umożliwia Twojej subskrypcji dostęp z programu PowerShell lub 2.0 interfejsu wiersza polecenia platformy Azure. Aby zarejestrować, wykonaj następujące czynności:
 
 >[!NOTE]
->Rejestracji funkcji standardowego modułu równoważenia obciążenia może potrwać do godziny do zaczynają obowiązywać globalnie. Jeśli chcesz użyć obciążenia równoważenia standardowe z [stref dostępności](https://aka.ms/availabilityzones) i [HA porty](https://aka.ms/haports), oddzielnej rejestracji jest wymagana dla tych podglądów. Postępuj zgodnie z instrukcjami odpowiednimi dla rejestracji dla tych funkcji.
+>Rejestracji funkcji standardowego modułu równoważenia obciążenia może potrwać do godziny do zaczynają obowiązywać globalnie. Jeśli chcesz użyć obciążenia równoważenia standardowe z [stref dostępności](https://aka.ms/availabilityzones), [oddzielne rejestracji](https://aka.ms/availabilityzones) jest wymagany dla podglądu AZ.
+
+<a name="additionalpreviewregions"></a>
+>[!IMPORTANT]
+> Dla krótkim czasie dostępu do regionów poza początkowej uruchamiania regionów (wschodnie stany USA 2, środkowe stany USA, Europa Północna, zachodnie centralnej nam, Europa Zachodnia, Azja południowo-wschodnia) wymagają rejestracji subskrypcji dodatkowe funkcje (AllowLBPreviewWave2 i AllowLBPreviewWave3).  Poniższe kroki został zmodyfikowany w celu włączenia funkcji dodatkowych subskrypcji. Wykonaj wszystkie z nich nawet wtedy, gdy zostało wcześniej zarejestrowane w do AllowLBPreview już. To wymaganie zostanie usunięta w najbliższych tygodniach.
+
 
 ### <a name="sign-up-by-using-azure-cli-20"></a>Zaloguj przy użyciu interfejsu wiersza polecenia platformy Azure w wersji 2.0
 
@@ -377,15 +380,19 @@ Aby uczestniczyć w wersji Standard usługi równoważenia obciążenia i pomocn
 
     ```cli
     az feature register --name AllowLBPreview --namespace Microsoft.Network
+    az feature register --name AllowLBPreviewWave2 --namespace Microsoft.Network
+    az feature register --name AllowLBPreviewWave3 --namespace Microsoft.Network
     ```
     
 2. Operacja może potrwać do 10 minut. Można sprawdzić stan operacji za pomocą następującego polecenia:
 
     ```cli
-    az feature show --name AllowLBPreview --namespace Microsoft.Network
+    az feature list --query "[?name=='Microsoft.Network/AllowLBPreview']" --output json
+    az feature list --query "[?name=='Microsoft.Network/AllowLBPreviewWave2']" --output json
+    az feature list --query "[?name=='Microsoft.Network/AllowLBPreviewWave3']" --output json
     ```
     
-    Przejdź do następnego kroku "Zarejestrowanej" zwrócona stanu funkcji rejestracji:
+    Gdy stan rejestracji funkcji zwraca "Zarejestrowanej" dla każdego z powyższych funkcji subskrypcji, należy przejść do następnego kroku. Przykład:
    
     ```json
     {
@@ -398,28 +405,33 @@ Aby uczestniczyć w wersji Standard usługi równoważenia obciążenia i pomocn
     }
     ```
     
-3. Ukończenie rejestracji Podgląd rejestrując ponownie subskrypcji u dostawcy zasobów:
+4. Ukończenie rejestracji Podgląd rejestrując ponownie subskrypcji u dostawcy zasobów:
 
     ```cli
     az provider register --namespace Microsoft.Network
     ```
     
+
 ### <a name="sign-up-by-using-powershell"></a>Zaloguj przy użyciu programu PowerShell
 
 1. Zarejestruj tę funkcję z dostawcą:
 
     ```powershell
     Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
+    Register-AzureRmProviderFeature -FeatureName AllowLBPreviewWave2 -ProviderNamespace Microsoft.Network
+    Register-AzureRmProviderFeature -FeatureName AllowLBPreviewWave3 -ProviderNamespace Microsoft.Network
     ```
     
 2. Operacja może potrwać do 10 minut. Można sprawdzić stan operacji za pomocą następującego polecenia:
 
     ```powershell
     Get-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
+    Get-AzureRmProviderFeature -FeatureName AllowLBPreviewWave2 -ProviderNamespace Microsoft.Network
+    Get-AzureRmProviderFeature -FeatureName AllowLBPreviewWave3 -ProviderNamespace Microsoft.Network
     ```
 
-    Przejdź do następnego kroku "Zarejestrowanej" zwrócona stanu funkcji rejestracji:
-   
+  Gdy stan rejestracji funkcji zwraca "Zarejestrowanej" dla każdego z powyższych funkcji subskrypcji, należy przejść do następnego kroku. Przykład:
+
     ```
     FeatureName      ProviderName        RegistrationState
     -----------      ------------        -----------------
@@ -450,11 +462,14 @@ Następujące ograniczenia obowiązują w czasie Podgląd i mogą ulec zmianie:
 - Protokół IPv6 nie jest obsługiwany.
 - W kontekście dostępności stref frontonu nie jest modyfikowalna z zonal do strefowo nadmiarowy lub na odwrót. Po fronton jest tworzony jako strefowo nadmiarowy, pozostaje strefowo nadmiarowy. Po fronton jest tworzony jako zonal, pozostaje zonal.
 - W kontekście dostępności stref zonal adres publiczny adres IP nie można przenieść z jedną strefę na inny.
+- [Alerty monitora Azure](../monitoring-and-diagnostics/monitoring-overview-alerts.md) nie są obsługiwane w tej chwili.
+- Portal nie obsługuje jeszcze szerokim testowaniu regionów.  Użyj narzędzia klienta, takie jak szablony, Azure CLI w wersji 2.0 lub programu PowerShell, aby uniknąć tego problemu.
 
 
 ## <a name="next-steps"></a>Kolejne kroki
 
 - Dowiedz się więcej o [podstawowe usługi równoważenia obciążenia](load-balancer-overview.md).
 - Dowiedz się więcej o [stref dostępności](../availability-zones/az-overview.md).
+- Dowiedz się więcej o [grup zabezpieczeń sieci](../virtual-network/virtual-networks-nsg.md).
 - Dowiedz się więcej o niektóre inne kluczowe [możliwości w zakresie obsługi](../networking/networking-overview.md) na platformie Azure.
-
+- Dowiedz się więcej o [metryki widoczne](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers) w [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).

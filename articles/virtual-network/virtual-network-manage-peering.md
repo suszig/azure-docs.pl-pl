@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: dcc3da77d18a4488dcb4b74d78198f806cf3d64e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e4f1d24da2a775007bf9172bc9267952d0a9bf48
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Tworzenie, zmienianie lub usunąć sieci wirtualnej komunikacji równorzędnej
 
@@ -110,7 +110,7 @@ Równorzędne sieci wirtualne tworzy się między sieciami wirtualnymi utworzony
 
 |Narzędzie|Polecenie|
 |---|---|
-|Interfejs wiersza polecenia|[AZ sieci wirtualnej komunikacji równorzędnej listy](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#list) do komunikacji równorzędnych listy sieci wirtualnej [az sieci vnet show komunikacji równorzędnej](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#show) do wyświetlenia określonej komunikacji równorzędnej, ustawienia i [az sieci wirtualnej komunikacji równorzędnej aktualizacji](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#update) zmiany ustawienia komunikacji równorzędnej.|
+|Interfejs wiersza polecenia|[AZ sieci wirtualnej komunikacji równorzędnej listy](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_peering_list) do komunikacji równorzędnych listy sieci wirtualnej [az sieci vnet show komunikacji równorzędnej](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_peering_show) do wyświetlenia określonej komunikacji równorzędnej, ustawienia i [az sieci wirtualnej komunikacji równorzędnej aktualizacji](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_peering_update) zmiany ustawienia komunikacji równorzędnej.|
 |PowerShell|[Get-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/get-azurermvirtualnetworkpeering?toc=%2fazure%2fvirtual-network%2ftoc.json) można pobrać ustawień komunikacji równorzędnej widoku i [AzureRmVirtualNetworkPeering zestaw](/powershell/module/azurerm.network/set-azurermvirtualnetworkpeering?toc=%2fazure%2fvirtual-network%2ftoc.json) Aby zmienić ustawienia.|
 
 ## <a name="delete-a-peering"></a>Usuń element równorzędny
@@ -129,7 +129,7 @@ Jeśli chcesz sieci wirtualne do komunikowania się czasami, ale nie zawsze, zam
 
 |Narzędzie|Polecenie|
 |---|---|
-|Interfejs wiersza polecenia|[AZ sieci wirtualnej komunikacji równorzędnej usunięcie](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
+|Interfejs wiersza polecenia|[AZ sieci wirtualnej komunikacji równorzędnej usunięcie](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_peering_delete)|
 |PowerShell|[Remove-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/remove-azurermvirtualnetworkpeering?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="requirements-and-constraints"></a>Wymagania i ograniczenia 

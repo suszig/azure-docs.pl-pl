@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: danlep
-ms.openlocfilehash: 3596b50b68cabf212218825566c0f8313f054f65
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5fb3941e0b55f8b5d79c9fc794ec984e074caafe
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>Zarządzanie użytkownikami administracyjnymi oraz SSH i wyboru lub napraw dyski na maszynach wirtualnych systemu Linux przy użyciu rozszerzenia VMAccess 2.0 interfejsu wiersza polecenia platformy Azure
 Dysk na maszynie Wirtualnej systemu Linux są pokazywane błędy. Jakiś sposób resetowania hasła głównego dla maszyny Wirtualnej systemu Linux lub przypadkowo usunięty klucz prywatny SSH. Jeśli które miały miejsce w ciągu dni centrum danych, konieczne będzie dysk istnieje, a następnie otwórz KVM można uzyskać za pomocą konsoli serwera. Rozszerzenia Azure VMAccess można traktować jako przełącznika KVM, które umożliwia dostęp do konsoli zresetować dostępu do systemu Linux lub przeprowadź obsługę poziomu dysku.
@@ -33,7 +33,7 @@ Istnieją dwa sposoby, że można użyć rozszerzenia VMAccess na maszyny wirtua
 * Użyj interfejsu wiersza polecenia platformy Azure w wersji 2.0 i wymaganych parametrów.
 * [Użyj nieprzetworzone pliki w formacie JSON, które przetwarzają rozszerzenia VMAccess](#use-json-files-and-the-vmaccess-extension) i działa na.
 
-W poniższych przykładach użyto [użytkownika maszyny wirtualnej az](/cli/azure/vm/user) poleceń. Aby wykonać te kroki, należy najnowszej [Azure CLI 2.0](/cli/azure/install-az-cli2) zainstalowane i zalogowany do konta platformy Azure przy użyciu [logowania az](/cli/azure/#login).
+W poniższych przykładach użyto [użytkownika maszyny wirtualnej az](/cli/azure/vm/user) poleceń. Aby wykonać te kroki, należy najnowszej [Azure CLI 2.0](/cli/azure/install-az-cli2) zainstalowane i zalogowany do konta platformy Azure przy użyciu [logowania az](/cli/azure/#az_login).
 
 ## <a name="reset-ssh-key"></a>Resetuj klucz SSH
 Poniższy przykład resetuje klucza SSH dla użytkownika `azureuser` na Maszynie wirtualnej o nazwie `myVM`:
@@ -91,7 +91,7 @@ az vm user delete \
 
 
 ## <a name="use-json-files-and-the-vmaccess-extension"></a>Pliki w formacie JSON i rozszerzenia VMAccess
-W poniższych przykładach użyto nieprzetworzone pliki w formacie JSON. Użyj [zestaw rozszerzenia maszyny wirtualnej az](/cli/azure/vm/extension#set) następnie wywołać pliki w formacie JSON. Te pliki w formacie JSON również może być wywołana z szablonów platformy Azure. 
+W poniższych przykładach użyto nieprzetworzone pliki w formacie JSON. Użyj [zestaw rozszerzenia maszyny wirtualnej az](/cli/azure/vm/extension#az_vm_extension_set) następnie wywołać pliki w formacie JSON. Te pliki w formacie JSON również może być wywołana z szablonów platformy Azure. 
 
 ### <a name="reset-user-access"></a>Zresetuj dostęp użytkownika
 W przypadku utraty dostępu do katalogu głównego na maszynie Wirtualnej systemu Linux, możesz uruchomić skrypt rozszerzenia VMAccess do zresetowania hasła lub klucza SSH użytkownika.
@@ -227,7 +227,7 @@ az vm extension set \
   --protected-settings disk_check_repair.json
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aktualizowanie systemu Linux przy użyciu rozszerzenia VMAccess Azure jest jedną metodę, aby wprowadzić zmiany w uruchomionej maszyny Wirtualnej systemu Linux. Aby zmodyfikować maszyny Wirtualnej systemu Linux na rozruch umożliwia także narzędzia, takie jak szablony usługi Azure Resource Manager i init chmury.
 
 [Rozszerzenia maszyn wirtualnych i funkcji w systemie Linux](extensions-features.md)

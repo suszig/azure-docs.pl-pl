@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: b3f093f84758fe8622f09212b6a11a2c5f3795aa
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 772af3bce6947a92fa62a93a84ee84ee34093d82
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Kopiowanie danych z lub do magazynu plików Azure przy użyciu fabryki danych Azure
 
@@ -47,7 +47,7 @@ Obsługiwane są następujące właściwości dla pliku połączoną usługą ma
 | type | Właściwość type musi mieć ustawioną: **plików**. | Yes |
 | host | Określa punkt końcowy magazyn plików Azure jako `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`. | Yes |
 | Nazwa użytkownika | Określ użytkownika, dostęp do magazynu plików Azure jako `"userid": "AZURE\\<storage name>"`. | Yes |
-| hasło | Określ klucz dostępu do magazynu. Zaznacz to pole jako SecureString.<br/> | Yes |
+| hasło | Określ klucz dostępu do magazynu. Zaznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w fabryce danych lub [odwołania klucz tajny przechowywane w usłudze Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. (Jeśli w magazynie danych znajduje się w sieci prywatnej), można użyć środowiska uruchomieniowego integracji Azure lub Self-hosted integracji w czasie wykonywania. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. |Brak źródła tak dla obiekt sink |
 
 >[!IMPORTANT]

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
-ms.openlocfilehash: 0d3f4a83b654315a5ff9344594323c5dcb801e77
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6a4a4d29cbfa8a695ed1ad3f007e6ff3e859bda4
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Tworzenie, zmienianie lub usuwanie sieci wirtualnej
 
@@ -81,7 +81,7 @@ Aby utworzyć sieć wirtualną:
 
 |Narzędzie|Polecenie|
 |---|---|
-|Interfejs wiersza polecenia platformy Azure|[Tworzenie sieci wirtualnej sieci az](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
+|Interfejs wiersza polecenia platformy Azure|[Tworzenie sieci wirtualnej sieci az](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_create)|
 |PowerShell|[New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name = "view-vnet"></a>Widok sieci wirtualnych i ustawień
@@ -115,7 +115,7 @@ Aby wyświetlić ustawienia i sieci wirtualnych:
 
 |Narzędzie|Polecenie|
 |---|---|
-|Interfejs wiersza polecenia platformy Azure|[Pokaż sieci wirtualnej sieci az](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#show)|
+|Interfejs wiersza polecenia platformy Azure|[Pokaż sieci wirtualnej sieci az](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_show)|
 |PowerShell|[Get-AzureRmVirtualNetwork](/powershell/module/azurerm.network/get-azurermvirtualnetwork/?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 
@@ -144,7 +144,7 @@ Aby dodać lub usunąć przestrzeń adresową:
 
 |Narzędzie|Polecenie|
 |---|---|
-|Interfejs wiersza polecenia platformy Azure|Resource Manager|[Aktualizacja sieci wirtualnej sieci az](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
+|Interfejs wiersza polecenia platformy Azure|Resource Manager|[Aktualizacja sieci wirtualnej sieci az](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_update)|
 |PowerShell|[Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="dns-servers"></a>Dodawanie, zmienianie lub usuwanie serwera DNS
@@ -169,7 +169,7 @@ Wszystkie maszyny wirtualne, które są podłączone do sieci wirtualnej rejestr
 
 |Narzędzie|Polecenie|
 |---|---|
-|Interfejs wiersza polecenia platformy Azure|[Aktualizacja sieci wirtualnej sieci az](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
+|Interfejs wiersza polecenia platformy Azure|[Aktualizacja sieci wirtualnej sieci az](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_update)|
 |PowerShell|[Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="delete-vnet"></a>Usunąć sieci wirtualnej
@@ -188,7 +188,7 @@ Tylko wtedy, gdy nie ma żadnych zasobów dołączone do niego, można usunąć 
 
 |Narzędzie|Polecenie|
 |---|---|
-|Interfejs wiersza polecenia platformy Azure|[Usuń sieć wirtualną sieć platformy Azure](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
+|Interfejs wiersza polecenia platformy Azure|[Usuń sieć wirtualną sieć platformy Azure](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_delete)|
 |PowerShell|[Remove-AzureRmVirtualNetwork](/powershell/module/azurerm.network/remove-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 

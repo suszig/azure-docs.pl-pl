@@ -2,36 +2,30 @@
 title: "Tryb failover, a kończyć się niepowodzeniem z powrotem maszyn wirtualnych funkcji Hyper-V replikowany do centrum danych w dodatkowej z usługą Site Recovery | Dokumentacja firmy Microsoft"
 description: "Dowiedz się, jak działają maszyny wirtualne funkcji Hyper-V do lokacji dodatkowej lokalnymi i powrót po awarii do lokacji głównej, z usługą Azure Site Recovery"
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
 manager: carmonm
-editor: 
-ms.assetid: 44a662fa-2e7a-4996-86df-fdd6d6f5dedf
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 09/16/2017
+ms.date: 02/07/2018
 ms.author: raynew
-ms.openlocfilehash: 8f139070de99c4249207d048d445e86dd41e9060
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cb282a18efe2e3c7435377e02fa8c4d97a85ac63
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Tryb failover, a kończyć się niepowodzeniem z powrotem maszyn wirtualnych funkcji Hyper-V replikowany do lokacji dodatkowej lokalnymi
 
 [Usługi Azure Site Recovery](site-recovery-overview.md) usługi zarządza i organizuje replikację, tryb failover i powrotu po awarii maszyn lokalnych i Azure maszynach wirtualnych (VM).
 
-W tym samouczku opisano w tryb failover maszyny Wirtualnej funkcji Hyper-V zarządzane w chmurze programu System Center Virtual Machine Manager (VMM), do dodatkowej lokacji programu VMM. Po przez Ciebie nie powiodła się, możesz powrót po awarii do lokacji sieci lokalnej, gdy jest ona dostępna. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+W tym artykule opisano sposób w tryb failover maszyny Wirtualnej funkcji Hyper-V zarządzane w chmurze programu System Center Virtual Machine Manager (VMM), do dodatkowej lokacji programu VMM. Po przez Ciebie nie powiodła się, możesz powrót po awarii do lokacji sieci lokalnej, gdy jest ona dostępna. W tym artykule dowiesz się, jak:
 
 > [!div class="checklist"]
 > * Tryb failover maszyny Wirtualnej funkcji Hyper-V z głównej chmury VMM do dodatkowej chmury VMM
 > * Włącz ponownie ochronę z lokacji dodatkowej do podstawowych i wykonaj powrót po awarii
 > * Opcjonalnie rozpocząć replikację z podstawowej do dodatkowej ponownie
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 Tryb failover i powrotu po awarii ma trzy etapy:
 

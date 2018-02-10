@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 8c8edc6e3d3c8330824c767f1bb02668a44e670e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: ff8fb061a5a5108e574860fa26d0d983ef5ffe99
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>Kopiowanie danych z systemu plików lub przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,7 +58,7 @@ Usługa połączony system plików obsługuje następujące właściwości:
 | type | Właściwość type musi mieć ustawioną: **plików**. | Yes |
 | host | Określa ścieżkę katalogu głównego folderu, który chcesz skopiować. Użyj znaku ucieczki "\" dla znaków specjalnych w ciągu. Zobacz [próbki połączone definicje usługi i zestawu danych](#sample-linked-service-and-dataset-definitions) przykłady. | Yes |
 | Nazwa użytkownika | Określ identyfikator użytkownika, który ma dostęp do serwera. | Yes |
-| hasło | Określ hasło dla użytkownika (nazwa użytkownika). Zaznacz to pole jako SecureString. | Yes |
+| hasło | Określ hasło dla użytkownika (nazwa użytkownika). Zaznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w fabryce danych lub [odwołania klucz tajny przechowywane w usłudze Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. (Jeśli w magazynie danych jest dostępny publicznie) można użyć środowiska uruchomieniowego integracji Self-hosted lub środowiska uruchomieniowego integracji Azure. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. |Nie |
 
 ### <a name="sample-linked-service-and-dataset-definitions"></a>Przykładowe połączonej usługi i definicji zestawu danych

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: davidmu
-ms.openlocfilehash: 3eb88478b43f8e3a36ae04bf3703f238e8cb1f3e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 03a29faeed71334253f9aa5bc88653fd689cc55b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Pobierz dysku VHD systemu Linux na platformie Azure
 
@@ -43,7 +43,7 @@ Aby użyć wirtualnego dysku twardego jako obraz do tworzenia innych maszyn wirt
     exit 
     ```
 
-2. Zaloguj się do konta platformy Azure z [logowania az](https://docs.microsoft.com/cli/azure/#login).
+2. Zaloguj się do konta platformy Azure z [logowania az](https://docs.microsoft.com/cli/azure/#az_login).
 3. Zatrzymaj i cofnięcia przydzielenia Maszynie wirtualnej.
 
     ```azurecli
@@ -85,7 +85,7 @@ Aby pobrać plik wirtualnego dysku twardego, należy wygenerować [sygnatury dos
 
     ![Kliknij przycisk Zapisz w przeglądarce](./media/download-vhd/export-save.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Dowiedz się, jak [przekazywanie i Utwórz Maszynę wirtualną systemu Linux na podstawie niestandardowych dysku 2.0 interfejsu wiersza polecenia Azure](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 - [Zarządzanie dyskami Azure, Azure CLI](tutorial-manage-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

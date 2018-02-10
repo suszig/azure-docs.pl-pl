@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: 4087cb787e43c3d1b40ad082e84534b34918c9e9
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: a4b2407f392ed35968c9a6c8eeeb49c0c3cfe10e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Kontener rozwiązania monitorowanie analizy dzienników
 
@@ -51,7 +51,7 @@ W poniższej tabeli przedstawiono aranżacji Docker i monitorowania obsługę ko
 | Kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
 | Docker<br>Swarm | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
-| Usługa<br>Sieć szkieletowa | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
+| Usługa<br>Fabric | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Red Hat Otwórz<br>Shift | | &#8226; | | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; | | &#8226; |
 | Windows Server<br>(autonomiczna) | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 | Serwer systemu Linux<br>(autonomiczna) | | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
@@ -546,18 +546,18 @@ W poniższej tabeli przedstawiono przykłady rekordów zebrane przez rozwiązani
 | --- | --- | --- |
 | Wydajność dla hostów i kontenerów | `Type=Perf` | Komputer, nazwa obiektu, CounterName &#40; czas procesora (%), dysk odczytuje MB, dysku zapisuje MB, użycie pamięć (MB), sieci odbieranie bajtów, sieci wysyłania w bajtach, procesor s użycia sieci &#41; równowartości, TimeGenerated, Ścieżka_licznika, SourceSystem |
 | Kontener magazynu | `Type=ContainerInventory` | TimeGenerated, komputera, nazwę kontenera, ContainerHostname, obraz, ImageTag, ContainerState, ExitCode, EnvironmentVar, polecenia, CreatedTime, StartedTime, FinishedTime, SourceSystem, identyfikatora kontenera, ImageID |
-| Kontener magazynu obrazu | `Type=ContainerImageInventory` | TimeGenerated, komputer, obraz, ImageTag, ImageSize, VirtualSize, działa wstrzymana, zatrzymana, nie powiodło się, SourceSystem, ImageID, TotalContainer |
+| Kontener magazynu obrazu | `Type=ContainerImageInventory` | TimeGenerated, Computer, Image, ImageTag, ImageSize, VirtualSize, Running, Paused, Stopped, Failed, SourceSystem, ImageID, TotalContainer |
 | Kontener dziennika | `Type=ContainerLog` | TimeGenerated, komputer, identyfikator obrazu, nazwy kontenera, LogEntrySource, LogEntry, SourceSystem, identyfikatora kontenera |
-| Dziennik usługi kontenera | `Type=ContainerServiceLog`  | TimeGenerated, komputer, TimeOfCommand, obraz, polecenia, SourceSystem, identyfikatora kontenera |
-| Kontener węzła magazynu | `Type=ContainerNodeInventory_CL`| TimeGenerated, komputer, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
-| Kubernetes spisu | `Type=KubePodInventory_CL` | TimeGenerated, komputer, PodLabel_deployment_s, PodLabel_deploymentconfig_s, PodLabel_docker_registry_s, Name_s, Namespace_s, PodStatus_s, PodIp_s, PodUid_g, PodCreationTimeStamp_t, SourceSystem |
-| Proces kontenera | `Type=ContainerProcess_CL` | TimeGenerated, komputer, Pod_s, Namespace_s, ClassName_s, InstanceID_s, Uid_s, PID_s, PPID_s, C_s, STIME_s, Tty_s, TIME_s, Cmd_s, Id_s, Name_s, SourceSystem |
-| Zdarzenia Kubernetes | `Type=KubeEvents_CL` | TimeGenerated, komputer, Name_s, ObjectKind_s, Namespace_s, Reason_s, Type_s, SourceComponent_s, SourceSystem, komunikatów |
+| Dziennik usługi kontenera | `Type=ContainerServiceLog`  | TimeGenerated, Computer, TimeOfCommand, Image, Command, SourceSystem, ContainerID |
+| Kontener węzła magazynu | `Type=ContainerNodeInventory_CL`| TimeGenerated, Computer, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
+| Kubernetes spisu | `Type=KubePodInventory_CL` | TimeGenerated, Computer, PodLabel_deployment_s, PodLabel_deploymentconfig_s, PodLabel_docker_registry_s, Name_s, Namespace_s, PodStatus_s, PodIp_s, PodUid_g, PodCreationTimeStamp_t, SourceSystem |
+| Proces kontenera | `Type=ContainerProcess_CL` | TimeGenerated, Computer, Pod_s, Namespace_s, ClassName_s, InstanceID_s, Uid_s, PID_s, PPID_s, C_s, STIME_s, Tty_s, TIME_s, Cmd_s, Id_s, Name_s, SourceSystem |
+| Zdarzenia Kubernetes | `Type=KubeEvents_CL` | TimeGenerated, Computer, Name_s, ObjectKind_s, Namespace_s, Reason_s, Type_s, SourceComponent_s, SourceSystem, Message |
 
 Etykiety dołączany do *PodLabel* typy danych są etykiet niestandardowych. Dołączany etykiety PodLabel przedstawione w tabeli przedstawiono przykłady. Tak `PodLabel_deployment_s`, `PodLabel_deploymentconfig_s`, `PodLabel_docker_registry_s` różnią się w zestawie danych w danym środowisku, a objęty przypominać `PodLabel_yourlabel_s`.
 
 
-## <a name="monitor-containers"></a>Kontenery monitora
+## <a name="monitor-containers"></a>Monitorowanie kontenerów
 Po rozwiązaniu włączone w portalu OMS **kontenery** kafelka zawiera podsumowanie informacji o hostach kontenera i kontenery uruchomione na hostach.
 
 ![Kontenery kafelka](./media/log-analytics-containers/containers-title.png)
@@ -653,7 +653,7 @@ Które z listą metryki wydajności, które są zbierane dla poszczególnych kon
 ## <a name="example-log-search-queries"></a>Przykładowe zapytania wyszukiwania dziennika
 Często jest przydatne do tworzenia zapytań w programie przykład lub dwóch, a następnie modyfikując je do środowiska. Jako punkt początkowy, możesz eksperymentować z **przykładowe zapytania** obszaru do tworzenia bardziej zaawansowanych zapytań.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Kontenery zapytań](./media/log-analytics-containers/containers-queries.png)
 
@@ -663,5 +663,5 @@ Zapisywanie zapytań jest standardowa funkcja Log Analytics. Zapisując je, nale
 
 Po utworzeniu kwerendę, która jest użyteczna, zapisz go, klikając **ulubione** w górnej części strony wyszukiwania dziennika. Następnie możesz z łatwością później z **Mój pulpit nawigacyjny** strony.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Wyszukaj dzienniki](log-analytics-log-searches.md) Aby wyświetlić szczegółowe kontenera rekordów danych.

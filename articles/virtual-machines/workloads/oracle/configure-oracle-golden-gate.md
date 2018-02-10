@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: rclaus
-ms.openlocfilehash: a05711357d345267647c02e42336fd37c09e1bff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c0011da9d7c57a532589b4b8ae19643ab554c35
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementowanie Oracle Golden bramy na Azure maszyny Wirtualnej systemu Linux 
 
@@ -44,13 +44,13 @@ Poniżej znajduje się podsumowanie konfiguracji środowiska:
 > | **System operacyjny** |Oracle Linux 6.x |Oracle Linux 6.x |
 > | **Oracle identyfikatora SID** |CDB1 |CDB1 |
 > | **Schemat replikacji** |TEST|TEST |
-> | **Brama Golden właściciela/replikacja** |C ##GGADMIN |REPUSER |
+> | **Brama Golden właściciela/replikacja** |C##GGADMIN |REPUSER |
 > | **Proces Golden bramy** |EXTORA |REPORA|
 
 
 ### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure 
 
-Zaloguj się do Twojej subskrypcji platformy Azure z [logowania az](/cli/azure/#login) polecenia. Następnie postępuj zgodnie z wyświetlanymi instrukcjami.
+Zaloguj się do Twojej subskrypcji platformy Azure z [logowania az](/cli/azure/#az_login) polecenia. Następnie postępuj zgodnie z wyświetlanymi instrukcjami.
 
 ```azurecli
 az login
@@ -58,7 +58,7 @@ az login
 
 ### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#create). Grupy zasobów platformy Azure jest kontenerem logicznym do zasobów platformy Azure, do których są wdrażane i z którego będą one zarządzane. 
+Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#az_group_create). Grupy zasobów platformy Azure jest kontenerem logicznym do zasobów platformy Azure, do których są wdrażane i z którego będą one zarządzane. 
 
 Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie `myResourceGroup` w lokalizacji `westus`.
 
@@ -80,7 +80,7 @@ az vm availability-set create \
 
 ### <a name="create-a-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
-Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm#create). 
+Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm#az_vm_create). 
 
 Poniższy przykład tworzy dwie maszyny wirtualne o nazwach `myVM1` i `myVM2`. Tworzenie kluczy SSH, jeśli nie już istnieją w domyślnej lokalizacji klucza. Aby użyć określonego zestawu kluczy, użyj opcji `--ssh-key-value`.
 
@@ -436,7 +436,7 @@ Aby zainstalować bramę Golden Oracle, wykonaj następujące czynności:
 
   ![Zrzut ekranu przedstawiający stronę Wybieranie instalacji Instalatora](./media/oracle-golden-gate/golden_gate_install_01.png)
 
-3. Zmienianie lokalizacji oprogramowania. Następnie wybierz **Uruchom Menedżera** i wpisz lokalizację bazy danych. Wybierz **dalej** aby kontynuować.
+3. Zmienianie lokalizacji oprogramowania. Następnie wybierz **Uruchom Menedżera** i wpisz lokalizację bazy danych. Kliknij przycisk **Dalej**, aby kontynuować.
 
   ![Zrzut ekranu przedstawiający stronę Wybieranie instalacji](./media/oracle-golden-gate/golden_gate_install_02.png)
 
@@ -803,7 +803,7 @@ Nie jest już potrzebne, następujące polecenia można usunąć grupy zasobów,
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Samouczek dotyczący tworzenia maszyn wirtualnych o wysokiej dostępności](../../linux/create-cli-complete.md)
 

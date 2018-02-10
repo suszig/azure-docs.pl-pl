@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: af185725433b0eacc5d57b90fb2e75edd143a59a
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 02850243caaa66a354f06b650a5505a79d7aee54
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-redis-cache-faq"></a>Azure Redis Cache — często zadawane pytania
 Dowiedz się odpowiedzi na często zadawane pytania, wzorców i najlepszych rozwiązań dla pamięci podręcznej Redis Azure.
@@ -119,36 +119,36 @@ Poniżej przedstawiono informacje dotyczące wybierania oferty pamięci podręcz
 <a name="cache-performance"></a>
 
 ### <a name="azure-redis-cache-performance"></a>Wydajność pamięci podręcznej Redis Azure
-W poniższej tabeli przedstawiono wartości maksymalnej przepustowości obserwowanych podczas badania różnych rozmiarach Standard i Premium buforuje przy użyciu `redis-benchmark.exe` z maszyn wirtualnych Iaas względem punktu końcowego pamięci podręcznej Redis Azure. 
+W poniższej tabeli przedstawiono wartości maksymalnej przepustowości obserwowanych podczas badania różnych rozmiarach Standard i Premium buforuje przy użyciu `redis-benchmark.exe` z maszyn wirtualnych Iaas względem punktu końcowego pamięci podręcznej Redis Azure. Przepływność SSL testu porównawczego redis jest używany z stunnel nawiązać połączenia z punktem końcowym usługi pamięć podręczna Redis Azure.
 
 >[!NOTE] 
 >Te wartości nie ma gwarancji i ma nie umowy SLA dla tych numerów, ale powinien być typowych. Powinny zostać załadowane przetestować aplikację do określenia rozmiaru pamięci podręcznej prawo aplikacji.
->
+>Te liczby może ulec zmianie, okresowo ogłoszeniem nowszych wyników.
 >
 
 Z tej tabeli firma Microsoft może wykonywać Rysowanie następujących wniosków:
 
-* Przepływność dla buforów, które mają taki sam rozmiar jest większa w warstwie Premium w porównaniu do warstwy standardowa. Na przykład o 6 GB pamięci podręcznej, przepływność P1 wynosi 180 000 RPS porównaniu 49,000 dla C3.
+* Przepływność dla buforów, które mają taki sam rozmiar jest większa w warstwie Premium w porównaniu do warstwy standardowa. Na przykład o 6 GB pamięci podręcznej, przepływność P1 wynosi 180 000 RPS w porównaniu do 100 000 dla C3.
 * Z pamięci podręcznej Redis klaster przepływności zwiększa liniowo zwiększyć liczbę fragmentów (węzłów) w klastrze. Na przykład po utworzeniu klastra P4 10 odłamków następnie dostępne przepływność wynosi 400 000 * 10 = 4 miliony RPS.
 * Przepływność o większych rozmiarach klucza jest większa w warstwie Premium w porównaniu do warstwy standardowa.
 
-| Warstwa cenowa | Rozmiar | Rdzenie procesora CPU | Dostępna przepustowość | Rozmiar wartości 1 KB |
-| --- | --- | --- | --- | --- |
-| **Rozmiary standardowe pamięci podręcznej** | | |**Megabity na sekundę (Mb/s) / MB na sekundę (MB/s)** |**Liczba żądań na sekundę (RPS)** |
-| C0 |250 MB |Udostępniona |5 / 0.625 |600 |
-| C1 |1 GB |1 |100 / 12.5 |12,200 |
-| C2 |2,5 GB |2 |200 / 25 |24,000 |
-| C3 |6 GB |4 |400 / 50 |49,000 |
-| C4 |13 GB |2 |500 / 62.5 |61,000 |
-| C5 |26 GB |4 |1,000 / 125 |115,000 |
-| C6 |53 GB |8 |2,000 / 250 |150,000 |
-| **Rozmiar pamięci podręcznej — wersja Premium** | |**Rdzenie procesora CPU na niezależnego fragmentu** | **Megabity na sekundę (Mb/s) / MB na sekundę (MB/s)** |**Liczba żądań na sekundę (RPS) na niezależnego fragmentu** |
-| P1 |6 GB |2 |1,500 / 187.5 |180,000 |
-| P2 |13 GB |4 |3,000 / 375 |360,000 |
-| P3 |26 GB |4 |3,000 / 375 |360,000 |
-| P4 |53 GB |8 |6,000 / 750 |400 000 |
+| Warstwa cenowa | Rozmiar | Rdzenie procesora CPU | Dostępna przepustowość | Rozmiar wartości 1 KB | Rozmiar wartości 1 KB |
+| --- | --- | --- | --- | --- | --- |
+| **Rozmiary standardowe pamięci podręcznej** | | |**Megabity na sekundę (Mb/s) / MB na sekundę (MB/s)** |**Liczba żądań na drugim (RPS) bez protokołu SSL** |**Liczba żądań na drugi SSL (RPS)** |
+| C0 |250 MB |Udostępniona |100 / 12.5 |15,000 |7,500 |
+| C1 |1 GB |1 |500 / 62.5 |38,000 |20,720 |
+| C2 |2,5 GB |2 |500 / 62.5 |41,000 |37,000 |
+| C3 |6 GB |4 |1000 / 125 |100,000 |90,000 |
+| C4 |13 GB |2 |500 / 62.5 |60,000 |55,000 |
+| C5 |26 GB |4 |1,000 / 125 |102,000 |93,000 |
+| C6 |53 GB |8 |2,000 / 250 |126,000 |120,000 |
+| **Rozmiar pamięci podręcznej — wersja Premium** | |**Rdzenie procesora CPU na niezależnego fragmentu** | **Megabity na sekundę (Mb/s) / MB na sekundę (MB/s)** |**Liczba żądań na drugim (RPS) bez protokołu SSL, na niezależnego fragmentu** |**Liczba żądań na drugi SSL (RPS), na niezależnego fragmentu** |
+| P1 |6 GB |2 |1,500 / 187.5 |180,000 |172,000 |
+| P2 |13 GB |4 |3,000 / 375 |350,000 |341,000 |
+| P3 |26 GB |4 |3,000 / 375 |350,000 |341,000 |
+| P4 |53 GB |8 |6,000 / 750 |400 000 |373,000 |
 
-Aby uzyskać instrukcje dotyczące pobierania narzędzia Redis, takich jak `redis-benchmark.exe`, zobacz [jak uruchomić polecenia Redis?](#cache-commands) sekcji.
+Aby uzyskać instrukcje dotyczące konfigurowania stunnel lub takie jak pobieranie narzędzi Redis `redis-benchmark.exe`, zobacz [jak uruchomić polecenia Redis?](#cache-commands) sekcji.
 
 <a name="cache-region"></a>
 

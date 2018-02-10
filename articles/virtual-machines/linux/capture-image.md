@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 19b573f77f2ee84600955d00d30bdb16c84e3623
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3cbc25099b99499a6186e57c155d195e75bd61bf
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Jak utworzyć obraz maszyny wirtualnej lub wirtualnego dysku twardego
 
@@ -37,7 +37,7 @@ Upewnij się, że zostały spełnione następujące wymagania wstępne:
 
 * Należy maszyny Wirtualnej platformy Azure utworzonych w modelu wdrażania usługi Resource Manager za pomocą dysków zarządzanych. Jeśli nie utworzono Maszynę wirtualną systemu Linux, możesz użyć [portal](quick-create-portal.md), [interfejsu wiersza polecenia Azure](quick-create-cli.md), lub [szablonów Resource Manager](create-ssh-secured-vm-from-template.md). Konfigurowanie maszyny Wirtualnej, zgodnie z potrzebami. Na przykład [Dodaj dyski danych](add-disk.md), stosowania aktualizacji i zainstalować aplikacje. 
 
-* Musisz również mieć najnowszej [Azure CLI 2.0](/cli/azure/install-az-cli2) zainstalowane i zalogować się do konta platformy Azure przy użyciu [logowania az](/cli/azure/#login).
+* Musisz również mieć najnowszej [Azure CLI 2.0](/cli/azure/install-az-cli2) zainstalowane i zalogować się do konta platformy Azure przy użyciu [logowania az](/cli/azure/#az_login).
 
 ## <a name="quick-commands"></a>Szybkie polecenia
 
@@ -79,7 +79,7 @@ Azure CLI 2.0 umożliwia zostać oznaczone jako uogólniona maszyna wirtualna i 
       --name myVM
     ```
 
-3. Teraz utworzyć obraz zasobu maszyny Wirtualnej z [tworzenia obrazu az](/cli//azure/image#create). Poniższy przykład tworzy obraz o nazwie *myImage* w grupie zasobów o nazwie *myResourceGroup* przy użyciu zasobu maszyny Wirtualnej o nazwie *myVM*:
+3. Teraz utworzyć obraz zasobu maszyny Wirtualnej z [tworzenia obrazu az](/cli/azure/image#az_image_create). Poniższy przykład tworzy obraz o nazwie *myImage* w grupie zasobów o nazwie *myResourceGroup* przy użyciu zasobu maszyny Wirtualnej o nazwie *myVM*:
    
     ```azurecli
     az image create \
@@ -91,7 +91,7 @@ Azure CLI 2.0 umożliwia zostać oznaczone jako uogólniona maszyna wirtualna i 
    > Obraz jest tworzony w tej samej grupie zasobów jako źródło maszyny Wirtualnej. Maszyny wirtualne można tworzyć w dowolnej grupie zasobów w ramach subskrypcji z tego obrazu. Z punktu widzenia zarządzania możesz utworzyć grupę zasobów dla określonych zasobów maszyny Wirtualnej i obrazów.
 
 ## <a name="step-3-create-a-vm-from-the-captured-image"></a>Krok 3: Tworzenie maszyny Wirtualnej z przechwyconego obrazu
-Utwórz maszynę Wirtualną przy użyciu obrazu zostały utworzone z [tworzenia maszyny wirtualnej az](/cli/azure/vm#create). Poniższy przykład tworzy Maszynę wirtualną o nazwie *myVMDeployed* z obrazu o nazwie *myImage*:
+Utwórz maszynę Wirtualną przy użyciu obrazu zostały utworzone z [tworzenia maszyny wirtualnej az](/cli/azure/vm#az_vm_create). Poniższy przykład tworzy Maszynę wirtualną o nazwie *myVMDeployed* z obrazu o nazwie *myImage*:
 
 ```azurecli
 az vm create \
@@ -104,7 +104,7 @@ az vm create \
 
 ### <a name="creating-the-vm-in-another-resource-group"></a>Tworzenie maszyny Wirtualnej w innej grupie zasobów 
 
-Maszyny wirtualne można utworzyć na podstawie obrazu w dowolnej grupie zasobów w ramach subskrypcji. Aby utworzyć Maszynę wirtualną w innej grupie zasobów niż obraz, określ pełny identyfikator zasobu obrazu. Użyj [listy obrazów az](/cli/azure/image#list) w celu wyświetlenia listy obrazów. Dane wyjściowe są podobne do poniższego przykładu:
+Maszyny wirtualne można utworzyć na podstawie obrazu w dowolnej grupie zasobów w ramach subskrypcji. Aby utworzyć Maszynę wirtualną w innej grupie zasobów niż obraz, określ pełny identyfikator zasobu obrazu. Użyj [listy obrazów az](/cli/azure/image#az_image_list) w celu wyświetlenia listy obrazów. Dane wyjściowe są podobne do poniższego przykładu:
 
 ```json
 "id": "/subscriptions/guid/resourceGroups/MYRESOURCEGROUP/providers/Microsoft.Compute/images/myImage",
@@ -112,7 +112,7 @@ Maszyny wirtualne można utworzyć na podstawie obrazu w dowolnej grupie zasobó
    "name": "myImage",
 ```
 
-W poniższym przykładzie użyto [tworzenia maszyny wirtualnej az](/cli/azure/vm#create) Aby utworzyć Maszynę wirtualną w innej grupie zasobów niż obraz źródłowy, określając identyfikator zasobu obrazu:
+W poniższym przykładzie użyto [tworzenia maszyny wirtualnej az](/cli/azure/vm#az_vm_create) Aby utworzyć Maszynę wirtualną w innej grupie zasobów niż obraz źródłowy, określając identyfikator zasobu obrazu:
 
 ```azurecli
 az vm create \
@@ -126,7 +126,7 @@ az vm create \
 
 ## <a name="step-4-verify-the-deployment"></a>Krok 4: Weryfikowanie wdrażania
 
-Teraz SSH dla maszyny wirtualnej utworzonej do weryfikowania wdrożenia i rozpocząć korzystanie z nowej maszyny Wirtualnej. Aby połączyć się za pośrednictwem protokołu SSH, znaleźć adres IP lub nazwa FQDN maszyny wirtualnej z [az maszyny wirtualnej pokazu](/cli/azure/vm#show):
+Teraz SSH dla maszyny wirtualnej utworzonej do weryfikowania wdrożenia i rozpocząć korzystanie z nowej maszyny Wirtualnej. Aby połączyć się za pośrednictwem protokołu SSH, znaleźć adres IP lub nazwa FQDN maszyny wirtualnej z [az maszyny wirtualnej pokazu](/cli/azure/vm#az_vm_show):
 
 ```azurecli
 az vm show \
@@ -135,7 +135,7 @@ az vm show \
    --show-details
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Możesz utworzyć wiele maszyn wirtualnych z obrazu maszyny Wirtualnej źródłowego. Jeśli chcesz dokonać zmian obrazu: 
 
 - Utwórz maszynę Wirtualną z obrazu.

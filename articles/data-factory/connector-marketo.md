@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: dc4e8b8682e686abc77f43427615c7069585f327
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 58ae292514a1f5c98218d7a879beb9c15cb25f60
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-beta"></a>Kopiowanie danych z programu Marketo przy użyciu fabryki danych Azure (wersja Beta)
 
@@ -50,7 +50,7 @@ Obsługiwane są następujące właściwości usługi Marketo połączone:
 | type | Właściwość type musi mieć ustawioną: **Marketo** | Yes |
 | endpoint | Punkt końcowy serwera usługi Marketo. (i.e. 123-ABC-321.mktorest.com)  | Yes |
 | clientId | Identyfikator usługi Marketo klienta.  | Yes |
-| clientSecret | Klucz tajny klienta usługi Marketo. Istnieje możliwość Oznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w ADF lub przechowywania haseł w usłudze Azure Key Vault i pozwól ADF skopiuj ściągania działaniach stamtąd podczas wykonywania kopii danych — Dowiedz się więcej o [przechowywania poświadczeń w magazynie kluczy](store-credentials-in-key-vault.md). | Yes |
+| clientSecret | Klucz tajny klienta usługi Marketo. Zaznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w fabryce danych lub [odwołania klucz tajny przechowywane w usłudze Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | useEncryptedEndpoints | Określa, czy punkty końcowe źródła danych są szyfrowane przy użyciu protokołu HTTPS. Wartość domyślna to true.  | Nie |
 | useHostVerification | Określa, czy nazwa hosta w certyfikacie serwera, aby dopasować nazwę hosta serwera podczas nawiązywania połączenia za pośrednictwem protokołu SSL. Wartość domyślna to true.  | Nie |
 | usePeerVerification | Określa, czy można zweryfikować tożsamości serwera podczas nawiązywania połączenia za pośrednictwem protokołu SSL. Wartość domyślna to true.  | Nie |

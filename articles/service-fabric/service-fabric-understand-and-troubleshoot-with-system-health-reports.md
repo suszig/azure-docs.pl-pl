@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/11/2017
 ms.author: oanapl
-ms.openlocfilehash: cd9a144baf06422b425a0bc6c516600d6fcd4b97
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: f2a07d58938ae77701d8df8099ec0aedf1524d6b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Używanie raportów kondycji systemu do rozwiązywania problemów
 Składniki sieci szkieletowej usług Azure udostępnia raporty kondycji systemu na wszystkich jednostek w klastrze dodatkowych zabiegów. [Magazynu kondycji](service-fabric-health-introduction.md#health-store) tworzy i usuwa jednostki na podstawie raportów systemu. Również organizuje ona je w hierarchii, która przechwytuje interakcje jednostki.
@@ -404,7 +404,7 @@ HealthEvents          :
                         Transitions           : Error->Ok = 7/14/2017 4:55:13 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="replicaopenstatus-replicaclosestatus-replicachangerolestatus"></a>ReplicaChangeRoleStatus ReplicaOpenStatus, ReplicaCloseStatus,
+### <a name="replicaopenstatus-replicaclosestatus-replicachangerolestatus"></a>ReplicaOpenStatus, ReplicaCloseStatus, ReplicaChangeRoleStatus
 Ta właściwość służy do wskazania ostrzeżenia i błędy podczas próby otwarcia repliki, zamknij repliki lub przejście repliki z jednej roli do innego. Aby uzyskać więcej informacji, zobacz [cyklu życia repliki](service-fabric-concepts-replica-lifecycle.md). Błędy mogą być wyjątków zgłaszanych przez wywołania interfejsu API lub awarie procesu hosta usługi, w tym czasie. Na wypadek awarii ze względu na wywołania interfejsu API z kodu C# usługi Service Fabric dodaje do raport o kondycji wyjątku i ślad stosu.
 
 Tych ostrzeżeń są wywoływane po ponowieniu próby akcji lokalnie pewną liczbę razy (w zależności od zasad). Sieć szkieletowa usług ponowi próbę akcji do maksymalnej wartości progowej. Po osiągnięciu progu maksymalny, spróbuj do działania, aby naprawić tę sytuację. Ta próba może spowodować błąd tych ostrzeżeń, które zostanie wyczyszczony, ponieważ zrezygnuje akcji w tym węźle. Na przykład jeśli replika nie powiodło się otwarcie w węźle, usługi sieć szkieletowa zgłasza ostrzeżenie kondycji. Jeśli replika nadal nie można otworzyć, Service Fabric działa własnym naprawić. Ta akcja może obejmować w trakcie tej samej operacji w innym węźle. Powoduje to ostrzeżenie wywoływane dla tej repliki do wyczyszczenia. 
@@ -494,7 +494,7 @@ HealthEvents          :
                         Transitions           : Error->Warning = 8/28/2017 1:16:03 AM, LastOk = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="reconfiguration"></a>Ponowna konfiguracja
+### <a name="reconfiguration"></a>Ponowne konfigurowanie
 Ta właściwość służy do wskazania podczas wykonywania repliki [ponowna konfiguracja](service-fabric-concepts-reconfiguration.md) wykryje, że ponownej konfiguracji jest zablokowany lub zablokowany. Raport o kondycji, może być repliki, w których bieżąca rola jest podstawowy, z wyjątkiem przypadków wymiany rekonfiguracji podstawowego, gdy jest na obniżenia z podstawowego na aktywny pomocniczej replice.
 
 Ponownej konfiguracji może zostać zatrzymane dla jednego z następujących powodów:
@@ -638,6 +638,21 @@ Inne wywołania interfejsu API, które mogą zostać zablokowane znajdują się 
 
 - **IReplicator.BuildReplica (<Remote ReplicaId>)**: ostrzeżenie wskazuje na problem w procesie kompilacji. Aby uzyskać więcej informacji, zobacz [cyklu życia repliki](service-fabric-concepts-replica-lifecycle.md). Może to wynikać z konfiguracji adresów replikatora. Aby uzyskać więcej informacji, zobacz [skonfigurować niezawodne usługi stanowej](service-fabric-reliable-services-configuration.md) i [określić zasobów w manifeście usługi](service-fabric-service-manifest-resources.md). Może to być również problem w węźle zdalnym.
 
+### <a name="replicator-system-health-reports"></a>Replikator systemowych raportów kondycji
+**Kolejka replikacji jest pełny:**
+**System.Replicator** zgłosi ostrzeżenie, gdy kolejka replikacji jest pełna. Na serwerze podstawowym kolejki replikacji zazwyczaj zapełni, ponieważ co najmniej jeden replikach pomocniczych są przetwarzane wolno potwierdzić operacji. Na serwerze pomocniczym zwykle dzieje się tak, gdy usługa jest powolne zastosować operacji. To ostrzeżenie zostanie wyczyszczona po kolejki nie jest już pełna.
+
+* **SourceId**: System.Replicator
+* **Właściwość**: **PrimaryReplicationQueueStatus** lub **SecondaryReplicationQueueStatus**w zależności od roli repliki.
+* **Następne kroki**: w przypadku raportu na serwerze podstawowym, sprawdź połączenie między węzłami w klastrze. Jeżeli wszystkie połączenia są w dobrej kondycji, może to być co najmniej jednej pomocniczej powolne z opóźnieniem dysku, aby zastosować operacji. W przypadku raportu na serwerze pomocniczym, sprawdź wykorzystanie dysku i wydajność w węźle najpierw, a następnie wychodzące połączenie z powolne węzła do serwera podstawowego.
+
+**RemoteReplicatorConnectionStatus:**
+**System.Replicator** w replice podstawowej zgłosi ostrzeżenie, gdy połączenie dodatkowej replikatora (zdalnego) nie jest w dobrej kondycji. Adres zdalnego replikatora jest widoczny w komunikacie raportu, dzięki czemu wygodniejsze do wykrywania, czy przekazano zły konfiguracji lub występują problemy z siecią między replikatorów.
+
+* **SourceId**: System.Replicator
+* **Właściwość**: **RemoteReplicatorConnectionStatus**
+* **Następne kroki**: Sprawdź komunikat o błędzie i upewnij się, że jest poprawnie skonfigurowany adres zdalny replikatora (na przykład, jeśli replikatora zdalnego jest otwarty adres nasłuchiwania "localhost", nie jest dostępny z zewnątrz). Jeśli adres wygląda poprawnie, sprawdź połączenie między węzła podstawowego i adres zdalny można znaleźć potencjalnych problemów z siecią.
+
 ### <a name="replication-queue-full"></a>Kolejka replikacji jest pełna
 **System.Replicator** zgłosi ostrzeżenie, gdy kolejka replikacji jest pełna. Na serwerze podstawowym kolejki replikacji zazwyczaj zapełni, ponieważ co najmniej jeden replikach pomocniczych są przetwarzane wolno potwierdzić operacji. Na serwerze pomocniczym zwykle dzieje się tak, gdy usługa jest powolne zastosować operacji. To ostrzeżenie zostanie wyczyszczona po kolejki nie jest już pełna.
 
@@ -747,7 +762,7 @@ HealthEvents                       :
 System.Hosting zgłasza błąd, jeśli pobieranie pakietu aplikacji nie powiedzie się.
 
 * **SourceId**: System.Hosting
-* **Właściwość**: **pobrać:***RolloutVersion*.
+* **Właściwość**: **pobrać: *** RolloutVersion*.
 * **Następne kroki**: Sprawdź, dlaczego pobieranie nie powiodło się w węźle.
 
 ## <a name="deployedservicepackage-system-health-reports"></a>DeployedServicePackage systemowych raportów kondycji
@@ -764,7 +779,7 @@ System.Hosting raporty jako OK, jeżeli usługa aktywacji pakietu w węźle zako
 System.Hosting raporty jako OK dla każdego pakietu kodu Jeśli aktywacja zakończy się pomyślnie. W przypadku niepowodzenia aktywacji zgłosi ostrzeżenie zgodnie z konfiguracją. Jeśli **elementu CodePackage** nie może aktywować lub kończy się z powodu błędu większy niż skonfigurowany **CodePackageHealthErrorThreshold**, hosting zgłasza błąd. Jeśli pakiet usługi zawiera wiele pakietów kodu, aktywacji raport jest generowany dla każdego z nich.
 
 * **SourceId**: System.Hosting
-* **Właściwość**: używa prefiksu **CodePackageActivation** i zawiera nazwę pakietu kodu i punktu wejścia jako **CodePackageActivation:***CodePackageName* :*SetupEntryPoint/EntryPoint*. Na przykład **CodePackageActivation:Code:SetupEntryPoint**.
+* **Właściwość**: używa prefiksu **CodePackageActivation** i zawiera nazwę pakietu kodu i punktu wejścia jako **CodePackageActivation: *** CodePackageName*: *Element SetupEntryPoint/EntryPoint*. Na przykład **CodePackageActivation:Code:SetupEntryPoint**.
 
 ### <a name="service-type-registration"></a>Rejestracja typu usługi
 Jako OK System.Hosting raportów, jeśli typ usługi został pomyślnie zarejestrowany. Zgłasza błąd, jeśli nie przeprowadzono rejestracji w czasie, zgodnie z konfiguracją przy użyciu **ServiceTypeRegistrationTimeout**. Jeśli środowisko uruchomieniowe jest zamknięty, typ usługi jest zarejestrowany z węzła i hosting zgłosi ostrzeżenie.
@@ -825,7 +840,7 @@ HealthEvents               :
 System.Hosting zgłasza błąd, jeśli pobieranie pakietu usługi nie powiedzie się.
 
 * **SourceId**: System.Hosting
-* **Właściwość**: **pobrać:***RolloutVersion*.
+* **Właściwość**: **pobrać: *** RolloutVersion*.
 * **Następne kroki**: Sprawdź, dlaczego pobieranie nie powiodło się w węźle.
 
 ### <a name="upgrade-validation"></a>Weryfikacja uaktualnienia

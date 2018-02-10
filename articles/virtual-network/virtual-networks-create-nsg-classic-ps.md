@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
-ms.openlocfilehash: e3f84e4757e3854fc63e3069e179446174f0c0bd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 72f962fdc3b5d1b26dc0a08916a21694ddf7afe7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-create-nsgs-classic-in-powershell"></a>Tworzenie grup NSG (klasyczne) w programie PowerShell
 [!INCLUDE [virtual-networks-create-nsg-selectors-classic-include](../../includes/virtual-networks-create-nsg-selectors-classic-include.md)]
@@ -35,7 +35,7 @@ W tym artykule opisano klasyczny model wdrażania. Możesz również [tworzenia 
 W powyższym scenariuszu na podstawie próbek PowerShell poniższe polecenia oczekiwać środowisku niezłożonym już utworzone. Do uruchomienia poleceń wyświetlaną w tym dokumencie, najpierw utworzyć środowisko testowe przez [tworzenia sieci wirtualnej](virtual-networks-create-vnet-classic-netcfg-ps.md).
 
 ## <a name="how-to-create-the-nsg-for-the-front-end-subnet"></a>Jak utworzyć grupę NSG dla podsieci frontonu
-Aby utworzyć grupy NSG o nazwie o nazwie **frontonu NSG** oparte na powyższym scenariuszu, wykonaj następujące czynności:
+Aby utworzyć grupy NSG o nazwie **frontonu NSG** oparte na powyższym scenariuszu, wykonaj następujące czynności:
 
 1. Jeśli nie znasz programu Azure PowerShell, zapoznaj się z artykułem [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview) i postępuj zgodnie z instrukcjami aż do momentu logowania się w programie Azure i wyboru subskrypcji.
 2. Utwórz grupę zabezpieczeń sieci o nazwie **frontonu NSG**.

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2017
 ms.author: robb
-ms.openlocfilehash: 0c6e4d9d2a3744f607b72364f3944c700acd070c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fbeacd2acfd2fba9d26e7cbc94d8660d15c75642
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="what-is-azure-diagnostics"></a>Co to jest Azure Diagnostics
 Diagnostyka Azure jest możliwość w ramach platformy Azure, która umożliwia zbieranie danych diagnostycznych na wdrożonej aplikacji. Można użyć rozszerzenia diagnostyki z wielu różnych źródeł. Obecnie obsługiwane są Azure Cloud Service w sieci Web i proces roboczy, maszynach wirtualnych platformy Azure z systemem Microsoft Windows i sieci szkieletowej usług. Innymi usługami Azure mają własne oddzielne diagnostyki.
@@ -43,7 +43,7 @@ Rozszerzenia diagnostyki Azure można transferu tych danych do konta magazynu Az
 ## <a name="versioning"></a>Obsługa wersji
 Zobacz [historii Wersjonowania diagnostyki Azure](azure-diagnostics-versioning-history.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Wybierz usługi, które próbujesz na zbieranie danych diagnostycznych i skorzystaj z poniższych artykułów, aby rozpocząć pracę. Użyj łączy ogólne diagnostyki Azure dla odwołania do wykonywania określonych zadań.
 
 ## <a name="web-apps"></a>Web Apps
@@ -75,6 +75,6 @@ Rozpoczynanie pracy w [monitorowanie aplikacji sieci szkieletowej usług](../ser
 ## <a name="general-azure-diagnostics-articles"></a>Artykuły diagnostyki Azure ogólne
 * [Konfiguracja schematu diagnostyki Azure](https://msdn.microsoft.com/library/azure/mt634524.aspx) -Zmienianie pliku schematu i gromadzone dane diagnostyczne. Należy pamiętać, można również użyć programu Visual Studio do zmiany pliku schematu.
 * [Sposób przechowywania danych diagnostyki Azure w usłudze Azure Storage](../cloud-services/cloud-services-dotnet-diagnostics-storage.md) -znać nazwy tabel i obiektów blob, w którym zapisywana jest danych diagnostycznych.
-* Dowiedz się, jak [użyć liczników wydajności w diagnostyce Azure](../cloud-services/cloud-services-dotnet-diagnostics-performance-counters.md).
+* Dowiedz się, jak [użyć liczników wydajności w diagnostyce Azure](../cloud-services/diagnostics-performance-counters.md).
 * Dowiedz się, jak [Azure trasy informacje diagnostyczne do usługi Application Insights](azure-diagnostics-configure-application-insights.md)
 * Jeśli masz problem z uruchomieniem diagnostyki lub wyszukiwanie danych w tabelach usługi Azure Storage, zobacz [rozwiązywania problemów Diagnostyka Azure](azure-diagnostics-troubleshooting.md)

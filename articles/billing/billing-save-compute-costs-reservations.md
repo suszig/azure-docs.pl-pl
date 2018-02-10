@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2017
 ms.author: vikdesai
-ms.openlocfilehash: 96e9cf2fed0b22fd7aa7b9ffeab0e94738ce510d
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 799abddc4894bc090d860e7fe100ee65d4d085ab
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="save-money-on-virtual-machines-with-reserved-virtual-machine-instances"></a>Zaoszczędzić na maszynach wirtualnych z zarezerwowanych wystąpień maszyn wirtualnych 
 Zarezerwowane wystąpień maszyn wirtualnych umożliwiają wstępnie opłacać jednego roku lub trzech lat wydajności obliczeniowej, aby uzyskać rabat na maszyny wirtualne, których używasz. Znacznie zmniejsza koszty maszyny wirtualnej — do 72 procent płatności obejmujące cen — z jednego roku lub trzech lat góry zobowiązań. Zarezerwowane wystąpień maszyn wirtualnych jest rabat rozliczeń i nie ma wpływu na stan czasu wykonywania maszyn wirtualnych.
@@ -58,7 +58,16 @@ Zastrzeżenia są dostępne dla większości rozmiarów maszyn wirtualnych z pew
 - Przydział jest niewystarczający — zastrzeżone wirtualna wystąpienie które są ograniczone do jednego subskrypcji musi być dostępne w ramach subskrypcji dla nowych RI przydziału vCPU. Na przykład jeśli subskrypcja docelowa ma limit przydziału równy 10 Vcpu dla rodziny D-Series, następnie nie kupisz zastrzeżone wystąpienia maszyny Wirtualnej dla wystąpień Standard_D1 11. Sprawdzanie przydziału zastrzeżenia obejmuje maszyn wirtualnych już wdrożona w subskrypcji. Na przykład, jeśli subskrypcja ma limit przydziału wynoszący 10 Vcpu D-Series rodziny. Ta subskrypcja ma dwa wystąpienia standard_D1 wdrożone, można kupić wystąpienia zastrzeżone maszyny Wirtualnej do 10 wystąpień standard_D1 w ramach tej subskrypcji. 
 - Ograniczenia pojemności — w rzadkich przypadkach, limity Azure zakupu nowego zastrzeżenia dla podzbioru rozmiarów maszyn wirtualnych z powodu niskiej wydajności w regionie.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Początek zapisywania na maszynach wirtualnych przez zakup [zastrzeżone wystąpienie maszyny wirtualnej](https://go.microsoft.com/fwlink/?linkid=861721). 
+
+Aby dowiedzieć się więcej o zastrzeżonych wystąpień maszyn wirtualnych, zobacz następujące artykuły.
+
+- [Przedpłaty dla maszyn wirtualnych z wystąpień zastrzeżone maszyny Wirtualnej](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Zarządzanie wystąpieniami zastrzeżonej maszyny wirtualnej](billing-manage-reserved-vm-instance.md)
+- [Zrozumienie, jak stosowany jest rabat zastrzeżone wystąpienie maszyny wirtualnej](billing-understand-vm-reservation-charges.md)
+- [Określić sposób użycia wystąpienia zarezerwowane dla Twojej subskrypcji z](billing-understand-reserved-instance-usage.md)
+- [Określić sposób użycia wystąpienia zarezerwowane dla rejestracji w przedsiębiorstwie](billing-understand-reserved-instance-usage-ea.md)
+- [Koszty oprogramowania systemu Windows nie jest dołączony do wystąpienia zastrzeżone](billing-reserved-instance-windows-software-costs.md)
 
 Jeśli potrzebujesz pomocy, [się z pomocą techniczną](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) uzyskać szybkie rozwiązanie problemu.

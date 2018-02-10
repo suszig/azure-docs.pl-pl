@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: spelluru
-ms.openlocfilehash: 2131aa75dcfb975f11cff9800087c3e4e7170378
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 72b0965e1fda733651baa04997da1242a73320f1
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Dołącz do środowiska uruchomieniowego integracji usług SSIS Azure do sieci wirtualnej
 Dołącz do programu Azure SSIS integracji runtime (IR) do sieci wirtualnej platformy Azure (VNet) w następujących scenariuszach: 
@@ -31,7 +31,13 @@ Dołącz do programu Azure SSIS integracji runtime (IR) do sieci wirtualnej plat
 > Ten artykuł dotyczy wersji 2 usługi Data Factory, która jest obecnie dostępna w wersji zapoznawczej. Jeśli używasz dostępnej ogólnie wersji 1 usługi Data Factory, zobacz [Data Factory version 1 documentation (Dokumentacja usługi Data Factory w wersji 1)](v1/data-factory-introduction.md).
 
 ## <a name="access-on-premises-data-stores"></a>Dostęp do lokalnych magazynów danych
-Pakiety usług SSIS dostęp do chmury publicznej tylko magazynów danych, nie trzeba Dołącz IR Azure SSIS do sieci wirtualnej. Jeśli pakiety usług SSIS uzyskać dostęp do lokalnych magazynów danych, IR Azure SSIS należy dołączyć do sieci wirtualnej, która jest połączona z siecią lokalną. Katalog usług SSIS znajduje się w bazie danych SQL Azure, która nie znajduje się w sieci wirtualnej, należy otworzyć odpowiednie porty. Jeżeli katalog SSIS znajduje się w Azure zarządzane wystąpienia SQL w sieć wirtualną platformy Azure Resource Manager lub klasycznej sieci wirtualnej, IR Azure SSIS można dołączyć do tej samej sieci wirtualnej (lub) różnych sieci wirtualnej, który jest podłączony do wirtualnymi z jedną, która znajduje się wystąpienie zarządzane SQL Azure. Więcej informacji można znaleźć w poniższych sekcjach.
+Pakiety usług SSIS dostęp do chmury publicznej tylko magazynów danych, nie trzeba Dołącz IR Azure SSIS do sieci wirtualnej. Jeśli pakiety usług SSIS uzyskać dostęp do lokalnych magazynów danych, IR Azure SSIS należy dołączyć do sieci wirtualnej, która jest połączona z siecią lokalną. 
+
+Katalog usług SSIS znajduje się w bazie danych SQL Azure, która nie znajduje się w sieci wirtualnej, należy otworzyć odpowiednie porty. 
+
+Jeśli katalog SSIS jest obsługiwany w Azure SQL zarządzane wystąpienia (MI) w sieci wirtualnej, IR Azure SSIS można dołączyć do tej samej sieci wirtualnej (lub) różnych sieci wirtualnej, który jest podłączony do wirtualnymi z jedną, która znajduje się wystąpienie zarządzane SQL Azure. Sieć wirtualna może być klasycznej sieci wirtualnej lub sieć wirtualną platformy Azure Resource Management. Jeśli planujesz przyłączyć IR Azure SSIS **tej samej sieci wirtualnej** zawierającego SQL MI, upewnij się, że IR Azure SSIS znajduje się w **innej podsieci** z jedną, która ma SQL MI.   
+
+Więcej informacji można znaleźć w poniższych sekcjach.
 
 Oto kilka ważnych kwestii, które należy pamiętać: 
 
@@ -58,10 +64,11 @@ W tej sekcji przedstawiono sposób dołączania istniejącego środowiska urucho
 ### <a name="use-portal-to-configure-a-classic-vnet"></a>Aby skonfigurować klasycznej sieci wirtualnej za pomocą portalu
 Najpierw należy skonfigurować sieć wirtualną przed IR Azure SSIS można dołączyć do sieci wirtualnej.
 
-1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com).
-2. Kliknij przycisk **więcej usług**. Filtruj i wybierz **sieci wirtualnych (klasyczne)**.
-3. Filtruj i wybierz z **sieci wirtualnej** na liście. 
-4. Na stronie (klasyczne) sieci wirtualnej, wybierz **właściwości**. 
+1. Uruchom **Microsoft Edge** lub **Google Chrome** przeglądarki sieci web. Obecnie interfejsu użytkownika z fabryki danych jest obsługiwane wyłącznie w przeglądarkach sieci web Microsoft Edge i przeglądarki Google Chrome.
+2. Zaloguj się do witryny [Azure Portal](https://portal.azure.com).
+3. Kliknij przycisk **więcej usług**. Filtruj i wybierz **sieci wirtualnych (klasyczne)**.
+4. Filtruj i wybierz z **sieci wirtualnej** na liście. 
+5. Na stronie (klasyczne) sieci wirtualnej, wybierz **właściwości**. 
 
     ![Identyfikator zasobu sieci wirtualnej klasycznego](media/join-azure-ssis-integration-runtime-virtual-network/classic-vnet-resource-id.png)
 5. Kliknij przycisk Kopiuj **identyfikator ZASOBU** można skopiować identyfikator zasobu sieci klasycznego do Schowka. Zapisz identyfikator ze Schowka w programie OneNote lub pliku.
@@ -93,13 +100,14 @@ Najpierw należy skonfigurować sieć wirtualną przed IR Azure SSIS można doł
 ### <a name="use-portal-to-configure-an-azure-resource-manager-vnet"></a>Aby skonfigurować sieć wirtualną platformy Azure Resource Manager za pomocą portalu
 Najpierw należy skonfigurować sieć wirtualną przed IR Azure SSIS można dołączyć do sieci wirtualnej.
 
-1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com).
-2. Kliknij przycisk **więcej usług**. Filtruj i wybierz **sieci wirtualnych**.
-3. Filtruj i wybierz z **sieci wirtualnej** na liście. 
-4. Na stronie sieci wirtualnej, wybierz **właściwości**. 
-5. Kliknij przycisk Kopiuj **identyfikator ZASOBU** można skopiować do Schowka identyfikator zasobu dla sieci wirtualnej. Zapisz identyfikator ze Schowka w programie OneNote lub pliku.
-6. Kliknij przycisk **podsieci** w menu po lewej stronie i upewnij się, że liczba **dostępnych adresów** jest większa niż w węzłach programu runtime integracji usług SSIS Azure.
-5. Sprawdź, czy dostawca tej partii zadań Azure jest zarejestrowany w subskrypcji platformy Azure, która ma sieci wirtualnej lub zarejestruj dostawcę w partii zadań Azure. Jeśli masz już konto partii zadań Azure w ramach subskrypcji, subskrypcja jest zarejestrowana dla partii zadań Azure.
+1. Uruchom **Microsoft Edge** lub **Google Chrome** przeglądarki sieci web. Obecnie interfejsu użytkownika z fabryki danych jest obsługiwane wyłącznie w przeglądarkach sieci web Microsoft Edge i przeglądarki Google Chrome.
+2. Zaloguj się do witryny [Azure Portal](https://portal.azure.com).
+3. Kliknij przycisk **więcej usług**. Filtruj i wybierz **sieci wirtualnych**.
+4. Filtruj i wybierz z **sieci wirtualnej** na liście. 
+5. Na stronie sieci wirtualnej, wybierz **właściwości**. 
+6. Kliknij przycisk Kopiuj **identyfikator ZASOBU** można skopiować do Schowka identyfikator zasobu dla sieci wirtualnej. Zapisz identyfikator ze Schowka w programie OneNote lub pliku.
+7. Kliknij przycisk **podsieci** w menu po lewej stronie i upewnij się, że liczba **dostępnych adresów** jest większa niż w węzłach programu runtime integracji usług SSIS Azure.
+8. Sprawdź, czy dostawca tej partii zadań Azure jest zarejestrowany w subskrypcji platformy Azure, która ma sieci wirtualnej lub zarejestruj dostawcę w partii zadań Azure. Jeśli masz już konto partii zadań Azure w ramach subskrypcji, subskrypcja jest zarejestrowana dla partii zadań Azure.
     1. W portalu Azure kliknij **subskrypcje** w menu po lewej stronie. 
     2. Wybierz użytkownika **subskrypcji**. 
     3. Kliknij przycisk **dostawców zasobów** po lewej stronie i upewnij się, że `Microsoft.Batch` zarejestrowanego dostawcy. 
@@ -111,7 +119,8 @@ Najpierw należy skonfigurować sieć wirtualną przed IR Azure SSIS można doł
 ### <a name="join-the-azure-ssis-ir-to-a-vnet"></a>Dołącz IR Azure SSIS do sieci wirtualnej
 
 
-1. W [portalu Azure](https://portal.azure.com), wybierz pozycję **fabryki danych** w menu po lewej stronie. Jeśli nie widzisz **fabryki danych** menu, wybierz **więcej usług**, wybierz pozycję **fabryki danych** w **analizy i analiza** sekcja. 
+1. Uruchom **Microsoft Edge** lub **Google Chrome** przeglądarki sieci web. Obecnie interfejsu użytkownika z fabryki danych jest obsługiwane wyłącznie w przeglądarkach sieci web Microsoft Edge i przeglądarki Google Chrome.
+2. W [portalu Azure](https://portal.azure.com), wybierz pozycję **fabryki danych** w menu po lewej stronie. Jeśli nie widzisz **fabryki danych** menu, wybierz **więcej usług**, wybierz pozycję **fabryki danych** w **analizy i analiza** sekcja. 
     
     ![Lista fabryk danych](media/join-azure-ssis-integration-runtime-virtual-network/data-factories-list.png)
 2. Wybierz fabrykę danych ze środowiskiem uruchomieniowym integracji Azure SSIS na liście. Zostanie wyświetlona strona główna z fabryki danych. Wybierz **tworzenie i wdrażanie** kafelka. Zostanie wyświetlony fabryki danych interfejsu użytkownika (UI) w osobnej karcie. 

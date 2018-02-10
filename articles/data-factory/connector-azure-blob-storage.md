@@ -7,13 +7,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 199f3f98f71dcc9eb5f7f3338547870f215d3d64
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: d492147b8855d8f1ef64d3421c62e11a1951eadd
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Kopiowanie danych do i z magazynu obiektów Blob platformy Azure przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,7 +52,7 @@ Połączoną usługą magazynu można utworzyć przy użyciu klucza konta. Zapew
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | type | Właściwość type musi mieć ustawioną **AzureStorage**. |Yes |
-| Parametry połączenia | Określ informacje wymagane do połączenia z magazynem dla właściwości connectionString. Zaznacz to pole jako SecureString. |Yes |
+| Parametry połączenia | Określ informacje wymagane do połączenia z magazynem dla właściwości connectionString. Zaznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w fabryce danych lub [odwołania klucz tajny przechowywane w usłudze Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. (Jeśli w magazynie danych w sieci prywatnej) można użyć środowiska uruchomieniowego integracji Azure lub Self-hosted integracji w czasie wykonywania. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. |Nie |
 
 **Przykład:**
@@ -95,7 +95,7 @@ Aby użyć uwierzytelniania sygnatury dostępu współdzielonego usługi, są ob
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | type | Właściwość type musi mieć ustawioną **AzureStorage**. |Yes |
-| sasUri | Określ sygnatury dostępu współdzielonego identyfikator URI do zasobów magazynu obiektów blob, kontenera lub tabeli. Zaznacz to pole jako SecureString. |Yes |
+| sasUri | Określ sygnatury dostępu współdzielonego identyfikator URI do zasobów magazynu obiektów blob, kontenera lub tabeli. Zaznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w fabryce danych lub [odwołania klucz tajny przechowywane w usłudze Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. Używając środowiska uruchomieniowego integracji Azure lub środowiska uruchomieniowego integracji Self-hosted (Jeśli w magazynie danych znajduje się w sieci prywatnej). Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. |Nie |
 
 **Przykład:**

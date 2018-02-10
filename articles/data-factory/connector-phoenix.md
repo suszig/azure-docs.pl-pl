@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2017
 ms.author: jingwang
-ms.openlocfilehash: b3e9597c52a402240d759abb0a96ffc007bcc9dd
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 46efa4c3ce43af04485f383a3e88066aec79acfb
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-phoenix-using-azure-data-factory"></a>Kopiowanie danych z Phoenix przy użyciu fabryki danych Azure 
 
@@ -50,7 +50,7 @@ Phoenix połączone usługi, obsługiwane są następujące właściwości:
 | httpPath | Częściowe adres URL, odpowiadający Phoenix serwera. (to znaczy /gateway/sandbox/phoenix/version). Wartość domyślna to `hbasephoenix` używania WindowsAzureHDInsightService.  | Nie |
 | authenticationType | Mechanizm uwierzytelniania używany do łączenia się z serwerem Phoenix. <br/>Dozwolone wartości to: **anonimowe**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Yes |
 | nazwa użytkownika | Nazwa użytkownika używana do łączenia się z serwerem Phoenix.  | Nie |
-| hasło | Hasło odpowiadający nazwie użytkownika. Można wybrać opcję Oznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w ADF lub przechowywania haseł w usłudze Azure Key Vault i umożliwić działanie kopiowania ściągnięcia stamtąd podczas wykonywania kopii danych — Dowiedz się więcej o [przechowywania poświadczeń w magazynie kluczy](store-credentials-in-key-vault.md). | Nie |
+| hasło | Hasło odpowiadający nazwie użytkownika. Zaznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w fabryce danych lub [odwołania klucz tajny przechowywane w usłudze Azure Key Vault](store-credentials-in-key-vault.md). | Nie |
 | enableSsl | Określa, czy połączenia z serwerem są szyfrowane przy użyciu protokołu SSL. Wartość domyślna to false.  | Nie |
 | trustedCertPath | Pełna ścieżka pliku PEM, zawierająca zaufane certyfikaty urzędu certyfikacji do weryfikowania serwera podczas nawiązywania połączenia za pośrednictwem protokołu SSL. Tej właściwości można ustawić tylko w przypadku korzystania z protokołu SSL na siebie IR. Wartość domyślna to plik cacerts.pem zainstalowane z IR.  | Nie |
 | useSystemTrustStore | Określa, czy ma być używany certyfikat urzędu certyfikacji z magazynu zaufania systemu lub z określonego pliku PEM. Wartość domyślna to false.  | Nie |

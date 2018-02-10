@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 908d81c363a556917d211e0bcc92188f849fb690
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: c051fec3369ef0d309ecf6c68b17272bb396eeec
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Utwórz maszynę wirtualną systemu Linux za pomocą przyspieszony sieci
 
@@ -68,9 +68,9 @@ Podczas przy użyciu tej możliwości istnieją następujące ograniczenia:
 
 ## <a name="create-a-virtual-network"></a>Tworzenie sieci wirtualnej
 
-Zainstaluj najnowszą [Azure CLI 2.0](/cli/azure/install-az-cli2) i zaloguj się do platformy Azure konta przy użyciu [logowania az](/cli/azure/#login). W poniższych przykładach Zastąp przykładowe nazwy parametrów własne wartości. Przykład nazwy parametrów uwzględnione *myResourceGroup*, *myNic*, i *myVm*.
+Zainstaluj najnowszą [Azure CLI 2.0](/cli/azure/install-az-cli2) i zaloguj się do platformy Azure konta przy użyciu [logowania az](/cli/azure/#az_login). W poniższych przykładach Zastąp przykładowe nazwy parametrów własne wartości. Przykład nazwy parametrów uwzględnione *myResourceGroup*, *myNic*, i *myVm*.
 
-Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#create). Poniższy przykład tworzy grupę zasobów o nazwie *myResourceGroup* w *centralus* lokalizacji:
+Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#az_group_create). Poniższy przykład tworzy grupę zasobów o nazwie *myResourceGroup* w *centralus* lokalizacji:
 
 ```azurecli
 az group create --name myResourceGroup --location centralus
@@ -78,7 +78,7 @@ az group create --name myResourceGroup --location centralus
 
 Musisz wybrać obsługiwanym regionie systemu Linux na liście [Linux przyspieszony sieci](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview).
 
-Tworzenie sieci wirtualnej z [tworzenie sieci wirtualnej sieci az](/cli/azure/network/vnet#create). Poniższy przykład tworzy sieć wirtualną o nazwie *myVnet* z jedną podsiecią:
+Tworzenie sieci wirtualnej z [tworzenie sieci wirtualnej sieci az](/cli/azure/network/vnet#az_network_vnet_create). Poniższy przykład tworzy sieć wirtualną o nazwie *myVnet* z jedną podsiecią:
 
 ```azurecli
 az network vnet create \
@@ -90,7 +90,7 @@ az network vnet create \
 ```
 
 ## <a name="create-a-network-security-group"></a>Tworzenie sieciowej grupy zabezpieczeń
-Utwórz grupę zabezpieczeń sieci z [utworzyć nsg sieci az](/cli/azure/network/nsg#create). Poniższy przykład tworzy sieciową grupę zabezpieczeń o nazwie *myNetworkSecurityGroup*:
+Utwórz grupę zabezpieczeń sieci z [utworzyć nsg sieci az](/cli/azure/network/nsg#az_network_nsg_create). Poniższy przykład tworzy sieciową grupę zabezpieczeń o nazwie *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nsg create \
@@ -125,7 +125,7 @@ az network public-ip create \
     --resource-group myResourceGroup
 ```
 
-Tworzenie interfejsu sieciowego z [tworzenie kart interfejsu sieciowego az](/cli/azure/network/nic#create) z włączoną obsługą przyspieszonego sieci. Poniższy przykład tworzy interfejs sieciowy o nazwie *myNic* w *mySubnet* podsieć *myVnet* sieć wirtualną i skojarzy  *myNetworkSecurityGroup* sieciową grupę zabezpieczeń do interfejsu sieciowego:
+Tworzenie interfejsu sieciowego z [tworzenie kart interfejsu sieciowego az](/cli/azure/network/nic#az_network_nic_create) z włączoną obsługą przyspieszonego sieci. Poniższy przykład tworzy interfejs sieciowy o nazwie *myNic* w *mySubnet* podsieć *myVnet* sieć wirtualną i skojarzy  *myNetworkSecurityGroup* sieciową grupę zabezpieczeń do interfejsu sieciowego:
 
 ```azurecli
 az network nic create \
@@ -141,7 +141,7 @@ az network nic create \
 ## <a name="create-a-vm-and-attach-the-nic"></a>Utwórz Maszynę wirtualną i Dołącz kartę Sieciową
 Podczas tworzenia maszyny Wirtualnej, określ karty interfejsu Sieciowego zostały utworzone z `--nics`. Należy wybrać odpowiedni rozmiar i dystrybucji na liście [Linux przyspieszony sieci](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). 
 
-Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm#create). Poniższy przykład tworzy Maszynę wirtualną o nazwie *myVM* z obrazu UbuntuLTS i rozmiar, który obsługuje przyspieszony Networking (*Standard_DS4_v2*):
+Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm#az_vm_create). Poniższy przykład tworzy Maszynę wirtualną o nazwie *myVM* z obrazu UbuntuLTS i rozmiar, który obsługuje przyspieszony Networking (*Standard_DS4_v2*):
 
 ```azurecli
 az vm create \

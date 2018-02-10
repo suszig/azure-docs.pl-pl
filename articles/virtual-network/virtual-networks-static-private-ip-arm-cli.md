@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d9925b29a60fc46e9ecc775ca132bd2365f64b15
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: c936518c3cc431bb74dcdfe7f967687d3dc71e42
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>Konfigurowanie prywatnych adresów IP dla maszyny wirtualnej przy użyciu wiersza polecenia platformy Azure
 
@@ -41,9 +41,9 @@ W tym artykule opisano model wdrażania usługi Resource Manager. Możesz równi
 
 Aby utworzyć Maszynę wirtualną o nazwie *DNS01* w *frontonu* podsieci sieci wirtualnej o nazwie *TestVNet* z statycznego prywatnego adresu IP z *192.168.1.101*pełne następujące kroki:
 
-1. Jeśli nie zostało jeszcze, instalowania i konfigurowania najnowszej [Azure CLI 2.0](/cli/azure/install-az-cli2) i zaloguj się do platformy Azure konta przy użyciu [logowania az](/cli/azure/#login). 
+1. Jeśli nie zostało jeszcze, instalowania i konfigurowania najnowszej [Azure CLI 2.0](/cli/azure/install-az-cli2) i zaloguj się do platformy Azure konta przy użyciu [logowania az](/cli/azure/#az_login). 
 
-2. Tworzenie publicznego adresu IP dla maszyny Wirtualnej z [utworzyć az sieci publicznej ip](/cli/azure/network/public-ip#create) polecenia. Lista wyświetlana po danych wyjściowych zawiera opis używanych parametrów.
+2. Tworzenie publicznego adresu IP dla maszyny Wirtualnej z [utworzyć az sieci publicznej ip](/cli/azure/network/public-ip#az_network_public_ip_create) polecenia. Lista wyświetlana po danych wyjściowych zawiera opis używanych parametrów.
 
     > [!NOTE]
     > Może być lub muszą używać różnych wartości argumentów w tej i kolejnych krokach, w zależności od środowiska.
@@ -74,7 +74,7 @@ Aby utworzyć Maszynę wirtualną o nazwie *DNS01* w *frontonu* podsieci sieci w
    * `--name`: Nazwa publicznego adresu IP.
    * `--location`: Region platformy azure, w której chcesz utworzyć publiczny adres IP.
 
-3. Uruchom [tworzenie kart interfejsu sieciowego az](/cli/azure/network/nic#create) polecenie, aby utworzyć z kartą Sieciową za pomocą statycznego prywatnego adresu IP. Lista wyświetlana po danych wyjściowych zawiera opis używanych parametrów. 
+3. Uruchom [tworzenie kart interfejsu sieciowego az](/cli/azure/network/nic#az_network_nic_create) polecenie, aby utworzyć z kartą Sieciową za pomocą statycznego prywatnego adresu IP. Lista wyświetlana po danych wyjściowych zawiera opis używanych parametrów. 
    
     ```azurecli
     az network nic create \
@@ -126,7 +126,7 @@ Aby utworzyć Maszynę wirtualną o nazwie *DNS01* w *frontonu* podsieci sieci w
     * `--vnet-name`: Nazwa sieci wirtualnej, w której chcesz utworzyć karty sieciowej.
     * `--subnet`: Nazwa podsieci, w której chcesz utworzyć karty sieciowej.
 
-4. Uruchom [tworzenia maszyny wirtualnej azure](/cli/azure/vm/nic#create) polecenie, aby utworzyć maszynę Wirtualną za pomocą publicznego adresu IP i NIC utworzone wcześniej. Lista wyświetlana po danych wyjściowych zawiera opis używanych parametrów.
+4. Uruchom [tworzenia maszyny wirtualnej azure](/cli/azure/vm/nic#az_vm_nic_create) polecenie, aby utworzyć maszynę Wirtualną za pomocą publicznego adresu IP i NIC utworzone wcześniej. Lista wyświetlana po danych wyjściowych zawiera opis używanych parametrów.
    
     ```azurecli
     az vm create \
@@ -154,7 +154,7 @@ Aby utworzyć Maszynę wirtualną o nazwie *DNS01* w *frontonu* podsieci sieci w
     }
     ```
    
-   Parametrów innych niż podstawowe [tworzenia maszyny wirtualnej az](/cli/azure/vm#create) parametrów.
+   Parametrów innych niż podstawowe [tworzenia maszyny wirtualnej az](/cli/azure/vm#az_vm_create) parametrów.
 
    * `--nics`: Nazwa karty Sieciowej, do której jest dołączona maszyna wirtualna.
    
@@ -268,7 +268,7 @@ Aby zmienić karty Sieciowej dla maszyny Wirtualnej, używany w powyższych pole
     > [!NOTE]
     > Jeśli maszyna wirtualna jest wystarczająco duży, aby mieć więcej niż jedną kartę Sieciową, uruchom **usunąć kart interfejsu sieciowego azure** polecenie, aby usunąć stare karty sieciowej.
    
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Dowiedz się więcej o [zastrzeżone publicznego adresu IP](virtual-networks-reserved-public-ip.md) adresów.
 * Dowiedz się więcej o [poziomie wystąpienia publicznego adresu IP (ILPIP)](virtual-networks-instance-level-public-ip.md) adresów.
 * Zapoznaj się [zastrzeżone interfejsów API REST IP](https://msdn.microsoft.com/library/azure/dn722420.aspx).

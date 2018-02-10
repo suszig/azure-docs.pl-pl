@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: a7c346b259f6635589f80a9c52c748fc0c05eef1
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 26e54efc32aa316e1da93598cc861003aefff182
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-docker-machine-to-create-hosts-in-azure"></a>Tworzenie hostów na platformie Azure przy użyciu rozwiązania Docker maszyny
 W tym artykule szczegółowo sposób użycia [maszyny Docker](https://docs.docker.com/machine/) utworzyć hostów na platformie Azure. `docker-machine` Polecenie tworzy maszynę wirtualną systemu Linux (VM) na platformie Azure, a następnie instaluje Docker. Następnie można zarządzać hostach Docker na platformie Azure przy użyciu tych samych narzędzi lokalnych i przepływów pracy. Aby użyć docker komputera w systemie Windows 10, należy użyć bash systemu Linux.
 
 ## <a name="create-vms-with-docker-machine"></a>Tworzenie maszyn wirtualnych z maszyną Docker
-Najpierw uzyskać identyfikator subskrypcji platformy Azure z [Pokaż konto az](/cli/azure/account#show) w następujący sposób:
+Najpierw uzyskać identyfikator subskrypcji platformy Azure z [Pokaż konto az](/cli/azure/account#az_account_show) w następujący sposób:
 
 ```azurecli
 sub=$(az account show --query "id" -o tsv)
@@ -135,5 +135,5 @@ Aby wyświetlić kontenera w akcji, otwórz przeglądarkę sieci web i wprowadź
 
 ![Kontener ngnix uruchomione](./media/docker-machine/nginx.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Można również utworzyć hostów z [rozszerzenia maszyny Wirtualnej platformy Docker](dockerextension.md). Przykłady przy użyciu rozwiązania Docker Compose można znaleźć [wprowadzenie Docker i redagowanie na platformie Azure](docker-compose-quickstart.md).

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: larryfr
-ms.openlocfilehash: 1ea20eceb28fead003c7279632b1e75ae1fd3553
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: be6ed6d4c0c3a5fa55166b84b128881d434c4ab2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="apache-kafka-streams-api"></a>Strumienie Apache Kafka interfejsu API
 
@@ -100,6 +100,12 @@ Tworzenie i wdrażanie projektu sieci Kafka w klastrze usługi HDInsight, wykona
     * Uruchom producenta, która zapisuje `test` tematu.
     * Uruchom konsumenta, dzięki czemu można zobaczyć dane wyjściowe zapisane `wordcounts` tematu
 
+    > [!NOTE]
+    > Należy sprawdzić, czy `auto.create.topics.enable` ma ustawioną wartość właściwości `true` w pliku konfiguracyjnym Kafka brokera. Tej właściwości można wyświetlać i modyfikować w pliku zaawansowane konfiguracji brokera Kafka przy użyciu interfejsu użytkownika sieci Web Ambari. W przeciwnym razie należy utworzyć temat pośredniego `RekeyedIntermediateTopic` ręcznie, przed uruchomieniem w tym przykładzie przy użyciu następującego polecenia:
+    ```bash
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic RekeyedIntermediateTopic  --zookeeper $KAFKAZKHOSTS
+    ```
+    
     Te operacje można wykonywać, otwierając trzy sesji SSH. Następnie trzeba ustawić, ale `$KAFKABROKERS` i `$KAFKAZKHOSTS` dla każdego uruchamiając kroku 4 z sekcji w każdej sesji SSH. Łatwiejsze rozwiązaniem jest użycie `tmux` narzędzia, które można podzielić bieżącego ekranu SSH w wielu sekcjach. Można uruchomić strumienia, producent i konsumentów przy użyciu `tmux`, użyj następującego polecenia:
 
     ```bash
@@ -143,9 +149,9 @@ W tym dokumencie przedstawiono sposób za pomocą interfejsu API strumienie Kafk
 
 * [Analizowanie dzienników Kafka](apache-kafka-log-analytics-operations-management.md)
 * [Replicate data between Kafka clusters (Replikowanie danych między klastrami Kafka)](apache-kafka-mirroring.md)
-* [Producent Kafka i klienta interfejsu API z usługą HDInsight](apache-kafka-producer-consumer-api.md)
+* [Kafka Producer and Consumer API with HDInsight](apache-kafka-producer-consumer-api.md) (Interfejs API producenta i odbiorcy platformy Kafka w usłudze HDInsight).
 * [Use Apache Spark streaming (DStream) with Kafka on HDInsight (Używanie strumieni (DStream) platformy Apache Spark z platformą Kafka w usłudze HDInsight)](../hdinsight-apache-spark-with-kafka.md)
 * [Use Apache Spark Structured Streaming with Kafka on HDInsight (Używanie strumieni ze strukturą platformy Apache Spark z platformą Kafka w usłudze HDInsight)](../hdinsight-apache-kafka-spark-structured-streaming.md)
-* [Użyj Apache Spark strukturalnych przesyłania strumieniowego do przenoszenia danych z Kafka w usłudze HDInsight do rozwiązania Cosmos bazy danych.](../apache-kafka-spark-structured-streaming-cosmosdb.md)
+* [Use Apache Spark Structured Streaming to move data from Kafka on HDInsight to Cosmos DB](../apache-kafka-spark-structured-streaming-cosmosdb.md) (Korzystanie z przesyłania strumieniowego ze strukturą w systemie Apache Spark w celu przenoszenia danych z platformy Kafka w usłudze HDInsight do usługi Cosmos DB)
 * [Używanie systemu Apache Storm z platformą Kafka w usłudze HDInsight](../hdinsight-apache-storm-with-kafka.md)
 * [Nawiązywanie połączenia z platformą Kafka za pośrednictwem sieci wirtualnej platformy Azure](apache-kafka-connect-vpn-gateway.md)

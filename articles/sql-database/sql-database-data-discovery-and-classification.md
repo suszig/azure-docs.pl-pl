@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: giladm
-ms.openlocfilehash: 4538ad9c048a3e84bbe793572f569dd7126803da
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e6b9b5e497258f37037e0dc3f8efe656d5206af3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Dane z bazy danych Azure SQL odnajdywania i klasyfikacji
-Dane odnajdywania & klasyfikacji (obecnie w wersji zapoznawczej) zapewnia zaawansowane funkcje wbudowane w bazie danych SQL Azure dla odnajdywania, klasyfikowania, etykietowania i ochrony poufnych danych w bazach danych.
+Dane odnajdywania & klasyfikacji (obecnie w wersji zapoznawczej) zapewnia zaawansowane możliwości, wbudowane w bazie danych SQL Azure dla **odnajdywania**, **klasyfikacji**, **etykietowania**  &  **ochrony** poufnych danych w bazach danych.
 Wykrywanie i klasyfikowania największe poufne dane (biznesowe i finansowe, opieki zdrowotnej, dane osobowe, itp.) mogą odgrywać istotną rolę w Twojej organizacji stature ochrony informacji. Może służyć jako infrastruktury:
 * Różne scenariusze zabezpieczeń, takich jak monitorowanie (inspekcji) i alarmując o nietypowych dostęp do poufnych danych.
 * Kontrolowanie dostępu do i wzmacniania ochrony baz danych zawierających wysoce poufnych danych.
@@ -93,7 +93,7 @@ Klasyfikacja zawiera dwa atrybuty metadanych:
 
 ## <a id="subheading-3"></a>Inspekcja dostępu do danych poufnych
 
-[Usługa Azure SQL Database Auditing](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing) zostało rozszerzone, aby uwzględnić nowe pole w dzienniku inspekcji o nazwie *data_sensitivity_information*, która rejestruje klasyfikacji czułość (etykiety) rzeczywistych danych, który został zwrócony przez Zapytanie.
+Ważnym aspektem modelu ochrona informacji jest możliwość monitorowania dostęp do poufnych danych. [Usługa Azure SQL Database Auditing](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing) zostało rozszerzone, aby uwzględnić nowe pole w dzienniku inspekcji o nazwie *data_sensitivity_information*, która rejestruje klasyfikacji czułość (etykiety) rzeczywistych danych, który został zwrócony przez Zapytanie.
 
 ![Okienko nawigacji][11]
 

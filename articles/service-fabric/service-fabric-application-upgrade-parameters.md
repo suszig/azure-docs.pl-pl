@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: f09dad590f32c10f75484bba9afb7ea60f29d81e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c12c4fc6cabd695101abf922eba77b9cd3ee00fa
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="application-upgrade-parameters"></a>Parametry uaktualniania aplikacji
 W tym artykule opisano różne parametry, które są stosowane podczas uaktualniania aplikacji sieci szkieletowej usług Azure. Parametry zawierają nazwę i wersję aplikacji. Są one pokrętła określające limity czasu i kontroli kondycji, które są stosowane podczas uaktualniania, a określają zasady, które należy zastosować w przypadku niepowodzenia uaktualnienia.
@@ -52,14 +52,14 @@ Kryteria oceny kondycji są opcjonalne. Jeśli po uruchomieniu uaktualniania nie
 | MaxPercentUnhealthyServices |Domyślną i zalecaną wartością jest 0. Określ maksymalną liczbę usług w wystąpienia aplikacji, które mogą być zła, zanim aplikacja jest określana jako zła i niepowodzenia uaktualnienia. |
 | MaxPercentUnhealthyPartitionsPerService |Domyślną i zalecaną wartością jest 0. Określ maksymalną liczbę partycji usługi, który może być nieprawidłowy, zanim usługa jest określana jako zła. |
 | MaxPercentUnhealthyReplicasPerPartition |Domyślną i zalecaną wartością jest 0. Określ maksymalną liczbę replik partycji, który może być nieprawidłowy, zanim partycji jest określana jako zła. |
-| UpgradeReplicaSetCheckTimeout |**Usługi bezstanowej**— w ramach pojedynczej domeny uaktualnienia, próbuje upewnij się, że dostępne są dodatkowe wystąpienia usługi sieć szkieletowa usług. Jeśli liczba wystąpień docelowych jest więcej niż jeden, Service Fabric czeka na więcej niż jedno wystąpienie, które mają być dostępne do wartości maksymalnej limitu czasu. Ten limit czasu został określony przy użyciu właściwości UpgradeReplicaSetCheckTimeout. Po przekroczeniu limitu czasu, usługa sieć szkieletowa kontynuuje uaktualnienia, niezależnie od liczby wystąpień usługi. Jeśli liczba wystąpień docelowych, usługi Service Fabric nie oczekuje i natychmiast będzie kontynuowana po uaktualnieniu. **Usługi stanowej**— w ramach pojedynczej domeny uaktualnienia sieci szkieletowej usług próbuje upewnij się, że zestawu replik ma kworum. Sieć szkieletowa usług czeka kworum mają być dostępne do wartości maksymalnej limitu czasu (określoną przez właściwość UpgradeReplicaSetCheckTimeout). Po przekroczeniu limitu czasu, usługa sieć szkieletowa kontynuuje uaktualnienia, niezależnie od kworum. To ustawienie jest zestaw jak nigdy (infinite) stopniowych do przodu i 900 sekund po wycofanie. |
+| UpgradeReplicaSetCheckTimeout |<p>**Usługi bezstanowej**— w ramach pojedynczej domeny uaktualnienia, próbuje upewnij się, że dostępne są dodatkowe wystąpienia usługi sieć szkieletowa usług. Jeśli liczba wystąpień docelowych jest więcej niż jeden, Service Fabric czeka na więcej niż jedno wystąpienie, które mają być dostępne do wartości maksymalnej limitu czasu. Ten limit czasu został określony przy użyciu właściwości UpgradeReplicaSetCheckTimeout. Po przekroczeniu limitu czasu, usługa sieć szkieletowa kontynuuje uaktualnienia, niezależnie od liczby wystąpień usługi. Jeśli liczba wystąpień docelowych, usługi Service Fabric nie oczekuje i natychmiast będzie kontynuowana po uaktualnieniu.</p><p>**Usługi stanowej**— w ramach pojedynczej domeny uaktualnienia sieci szkieletowej usług próbuje upewnij się, że zestawu replik ma kworum. Sieć szkieletowa usług czeka kworum mają być dostępne do wartości maksymalnej limitu czasu (określoną przez właściwość UpgradeReplicaSetCheckTimeout). Po przekroczeniu limitu czasu, usługa sieć szkieletowa kontynuuje uaktualnienia, niezależnie od kworum. To ustawienie jest zestaw jak nigdy (infinite) stopniowych do przodu i 1200 sekund po wycofanie.</p> |
 | ForceRestart |Po aktualizacji konfiguracji lub danych pakietu bez aktualizowania kodu usługi ponownym uruchomieniu usługi tylko wtedy, gdy właściwość ForceRestart jest ustawiona na true. Po ukończeniu aktualizacji sieci szkieletowej usług powiadamia usługę pakiet konfiguracji lub pakiet danych jest dostępna. Usługa jest odpowiedzialna za zastosowania zmian. Jeśli to konieczne, usługi można ponownie uruchomić się. |
 
 <br>
 <br>
 Kryteria MaxPercentUnhealthyServices, MaxPercentUnhealthyPartitionsPerService i MaxPercentUnhealthyReplicasPerPartition może być określona dla typu usługi dla wystąpienia aplikacji. Umożliwia ustawienie tych parametrów dla usługi do zawiera typy różnych usług z różnych wersji ewaluacyjnej zasadami aplikacji. Na przykład typ usługi bezstanowej bramy może mieć MaxPercentUnhealthyPartitionsPerService, który jest inny niż typ usługi stanowej aparat wystąpienie aplikacji.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Uaktualnianie aplikacji za pomocą Visual Studio](service-fabric-application-upgrade-tutorial.md) przeprowadzi Cię przez proces uaktualnienia aplikacji przy użyciu programu Visual Studio.
 
 [Uaktualnienie z aplikacji przy użyciu programu Powershell](service-fabric-application-upgrade-tutorial-powershell.md) przeprowadzi Cię przez proces uaktualnienia aplikacji przy użyciu programu PowerShell.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 9f1cf113f75bc5a96af8c33d4b83d1bd0f5c6efd
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: da29ecaaa0f694be3e96baebfd80c09069d7c4a8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Tworzenie, zmienianie lub usuwanie interfejsu sieciowego
 
@@ -68,8 +68,8 @@ Portalu nie zapewnia możliwość przypisania publicznego adresu IP do interfejs
 
 |Narzędzie|Polecenie|
 |---|---|
-|Interfejs wiersza polecenia|[Utwórz az kart interfejsu sieciowego](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
-|PowerShell|[Nowe AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
+|Interfejs wiersza polecenia|[Utwórz az kart interfejsu sieciowego](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_create)|
+|PowerShell|[New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
 
 ## <a name="view-network-interface-settings"></a>Wyświetl ustawienia interfejsu sieciowego
 
@@ -94,7 +94,7 @@ Jeśli adres IPv6 jest przypisany do interfejsu sieciowego, dane wyjściowe prog
 
 |Narzędzie|Polecenie|
 |---|---|
-|Interfejs wiersza polecenia|[Lista kart sieci az](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#list) Aby wyświetlić interfejsów sieciowych w subskrypcji; [Pokaż kart sieciowych az](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#show) Aby wyświetlić ustawienia interfejsu sieciowego|
+|Interfejs wiersza polecenia|[Lista kart sieci az](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_list) Aby wyświetlić interfejsów sieciowych w subskrypcji; [Pokaż kart sieciowych az](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_show) Aby wyświetlić ustawienia interfejsu sieciowego|
 |PowerShell|[Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) Aby wyświetlić interfejsów sieciowych w subskrypcji lub Wyświetl ustawienia interfejsu sieciowego|
 
 ## <a name="change-dns-servers"></a>Zmień serwerów DNS
@@ -114,8 +114,8 @@ Serwer DNS jest przypisany przez serwer Azure DHCP do interfejsu sieciowego w sy
 
 |Narzędzie|Polecenie|
 |---|---|
-|Interfejs wiersza polecenia|[Aktualizacja kart sieciowych az](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
-|PowerShell|[Zestaw AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|Interfejs wiersza polecenia|[Aktualizacja kart sieciowych az](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_update)|
+|PowerShell|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="enable-or-disable-ip-forwarding"></a>Włączać lub wyłączać przesyłanie dalej IP
 
@@ -136,8 +136,8 @@ Ustawienie musi być włączony dla każdego interfejsu sieciowego, który jest 
 
 |Narzędzie|Polecenie|
 |---|---|
-|Interfejs wiersza polecenia|[Aktualizacja kart sieciowych az](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
-|PowerShell|[Zestaw AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|Interfejs wiersza polecenia|[Aktualizacja kart sieciowych az](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_update)|
+|PowerShell|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="change-subnet-assignment"></a>Zmień przypisanie podsieci
 
@@ -157,8 +157,8 @@ Można zmienić podsieci, ale nie sieci wirtualnej, przypisane do karty sieciowe
 
 |Narzędzie|Polecenie|
 |---|---|
-|Interfejs wiersza polecenia|[Aktualizacja konfiguracji adresu ip karty sieciowej sieci az](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
-|PowerShell|[Zestaw AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|Interfejs wiersza polecenia|[Aktualizacja konfiguracji adresu ip karty sieciowej sieci az](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_ip_config_update)|
+|PowerShell|[Set-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 
 ## <a name="delete-a-network-interface"></a>Usunąć interfejsu sieciowego
@@ -176,8 +176,8 @@ Po usunięciu interfejsu sieciowego są wydawane adresy MAC lub adres IP przypis
 
 |Narzędzie|Polecenie|
 |---|---|
-|Interfejs wiersza polecenia|[Usuń kartę sieciową sieci az](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
-|PowerShell|[Usuń AzureRmNetworkInterface](/powershell/module/azurerm.network/remove-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|Interfejs wiersza polecenia|[Usuń kartę sieciową sieci az](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_delete)|
+|PowerShell|[Remove-AzureRmNetworkInterface](/powershell/module/azurerm.network/remove-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="next-steps"></a>Kolejne kroki
 Aby utworzyć maszynę wirtualną z sieci wielu interfejsów lub adresy IP, przeczytaj następujące artykuły:

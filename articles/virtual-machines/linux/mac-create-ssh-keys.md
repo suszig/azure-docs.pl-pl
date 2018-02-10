@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 4b677a4063ebef84dbd2fa476b5f633b859f90ed
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: a37bfa01343527a60193d893c7913e4e9c50d210
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-create-and-use-an-ssh-public-and-private-key-pair-for-linux-vms-in-azure"></a>Jak utworzyć parę publicznych i prywatnych kluczy SSH dla maszyn wirtualnych z systemem Linux i używać ich
 Para kluczy Secure Shell (SSH) umożliwia tworzenie na platformie Azure maszyn wirtualnych, które używają kluczy SSH do uwierzytelniania, eliminując konieczność logowania przy użyciu haseł. W tym artykule przedstawiono sposób szybkiego generowania i używania pary plików prywatnych i publicznych kluczy RSA protokołu SSH w wersji 2 dla maszyn wirtualnych z systemem Linux. Można wykonać te czynności przy użyciu usługi Azure Cloud Shell, hosta z systemem macOS lub Linux albo podsystemu Windows dla systemu Linux. Aby uzyskać bardziej szczegółowe instrukcje i dodatkowe przykłady, zobacz [szczegółowe instrukcje dotyczące tworzenia par kluczy SSH i certyfikatów](create-ssh-keys-detailed.md).
@@ -32,7 +32,7 @@ ssh-keygen -t rsa -b 2048
 ```
 
 ## <a name="use-the-ssh-key-pair"></a>Używanie pary kluczy SSH
-Klucz publiczny umieszczony na maszynie wirtualnej z systemem Linux na platformie Azure jest domyślnie przechowywany w katalogu `~/.ssh/id_rsa.pub`, chyba że podczas tworzenia klucza zmieniono tę lokalizację. Jeśli tworzysz maszynę wirtualną za pomocą [interfejsu wiersza polecenia platformy Azure 2.0](/cli/azure), określ lokalizację tego klucza publicznego, używając polecenia [az vm create](/cli/azure/vm#create) z opcją `--ssh-key-path`. Pamiętaj, aby podczas kopiowania i wklejania zawartości klucza publicznego do użycia w witrynie Azure Portal lub szablonie usługi Resource Manager nie kopiować dodatkowych spacji. Jeśli na przykład używasz systemu operacyjnego OS X, możesz potokować plik klucza publicznego (domyślnie **~/.ssh/id_rsa.pub**) do programu **pbcopy**, aby skopiować jego zawartość (dostępne są inne programy dla systemu Linux, które robią to samo, na przykład `xclip`).
+Klucz publiczny umieszczony na maszynie wirtualnej z systemem Linux na platformie Azure jest domyślnie przechowywany w katalogu `~/.ssh/id_rsa.pub`, chyba że podczas tworzenia klucza zmieniono tę lokalizację. Jeśli tworzysz maszynę wirtualną za pomocą [interfejsu wiersza polecenia platformy Azure 2.0](/cli/azure), określ lokalizację tego klucza publicznego, używając polecenia [az vm create](/cli/azure/vm#az_vm_create) z opcją `--ssh-key-path`. Pamiętaj, aby podczas kopiowania i wklejania zawartości klucza publicznego do użycia w witrynie Azure Portal lub szablonie usługi Resource Manager nie kopiować dodatkowych spacji. Jeśli na przykład używasz systemu operacyjnego OS X, możesz potokować plik klucza publicznego (domyślnie **~/.ssh/id_rsa.pub**) do programu **pbcopy**, aby skopiować jego zawartość (dostępne są inne programy dla systemu Linux, które robią to samo, na przykład `xclip`).
 
 Jeśli nie znasz kluczy publicznych SSH, możesz wyświetlić swój klucz publiczny, uruchamiając polecenie `cat` w następujący sposób i zastępując ścieżkę `~/.ssh/id_rsa.pub` lokalizacją własnego pliku klucza publicznego:
 

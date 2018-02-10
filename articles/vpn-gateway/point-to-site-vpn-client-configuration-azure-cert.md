@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/29/2018
+ms.date: 02/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: efe5d3db16db83568bb844894198b59a6b39f626
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8c27cbaa27dbafbba4a6124680c3e6e83cbcbab8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Utwórz i zainstaluj pliki konfiguracji klienta sieci VPN w przypadku konfiguracji uwierzytelniania P2S natywnego certyfikatu Azure
 
@@ -72,8 +72,9 @@ Aby skonfigurować natywny klient VPN systemu Windows do uwierzytelniania certyf
 1. Wybierz pliki konfiguracyjne klienta sieci VPN, które odpowiadają architektura komputera z systemem Windows. W przypadku 64-bitowy procesor wybierz pakiet Instalatora "VpnClientSetupAmd64". W przypadku 32-bitowy procesor wybierz pakiet Instalatora "VpnClientSetupX86". 
 2. Kliknij dwukrotnie pakiet, aby go zainstalować. Jeśli zostanie wyświetlone okno podręczne SmartScreen, kliknij pozycję **Więcej informacji**, a następnie pozycję **Uruchom mimo to**.
 3. Na komputerze klienckim przejdź do obszaru **Ustawienia sieci** i kliknij pozycję **Sieć VPN**. Połączenie z siecią VPN zawiera nazwę sieci wirtualnej, z którą jest nawiązywane połączenie. 
+4. Przed podjęciem próby połączenia, sprawdź, czy zainstalowano certyfikat klienta na komputerze klienckim. Certyfikat klienta jest wymagany do uwierzytelniania, korzystając z natywnego certyfikatu Azure typ uwierzytelniania. Aby uzyskać więcej informacji na temat generowania certyfikatów, zobacz [wygenerować certyfikaty](vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert). Aby uzyskać informacje o sposobie instalowania certyfikatu klienta, zobacz [zainstalować certyfikat klienta](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
-## <a name="installmac"></a>Konfiguracja klienta sieci VPN na komputerach Mac. (OS x)
+## <a name="installmac"></a>Konfiguracja klienta sieci VPN na komputerach Mac. (OS X)
 
 Azure nie zawiera pliku mobileconfig natywnego Azure certyfikat uwierzytelniania. Należy ręcznie skonfigurować natywny klient IKEv2 VPN na każdy Mac, w którym będą łączyć się Azure. **Ogólnego** znajduje się w nim wszystkie informacje, należy skonfigurować go. Jeśli nie widzisz folderze ogólnym w pobieranie jest prawdopodobne, że protokół IKEv2 nie został wybrany jako typ tunelu. Po wybraniu IKEv2 Generowanie pliku zip ponownie, aby pobrać folderze ogólnym. Ogólny folder zawiera następujące pliki:
 
@@ -90,27 +91,28 @@ Kliknij przycisk **Dodaj** do zaimportowania.
     >[!NOTE]
     >Dwukrotne kliknięcie certyfikatu nie może być wyświetlany **Dodaj** okna dialogowego, ale certyfikat jest zainstalowany w poprawnym magazynie. Można sprawdzić certyfikatu w łańcuchu kluczy logowania z kategorii certyfikatów.
   
-2. Otwórz **sieci** , okno dialogowe **preferencji sieci** i kliknij przycisk **"+"** Aby utworzyć nowy profil połączenia klienta sieci VPN dla połączenia P2S do sieci wirtualnej platformy Azure.
+2. Sprawdź, czy certyfikat klienta, który wystawił certyfikat główny, który został przekazany do platformy Azure zostanie skonfigurowane ustawienia P2S zostały zainstalowane. To jest inna niż VPNServerRoot, który został zainstalowany w poprzednim kroku. Certyfikat klienta jest używany do uwierzytelniania i jest wymagana. Aby uzyskać więcej informacji na temat generowania certyfikatów, zobacz [wygenerować certyfikaty](vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert). Aby uzyskać informacje o sposobie instalowania certyfikatu klienta, zobacz [zainstalować certyfikat klienta](point-to-site-how-to-vpn-client-install-azure-cert.md).
+3. Otwórz **sieci** , okno dialogowe **preferencji sieci** i kliknij przycisk **"+"** Aby utworzyć nowy profil połączenia klienta sieci VPN dla połączenia P2S do sieci wirtualnej platformy Azure.
 
   **Interfejsu** wartość to "VPN" i **typ sieci VPN** wartość to "IKEv2". Określ nazwę profilu w **nazwa usługi** pola, a następnie kliknij przycisk **Utwórz** do tworzenia profilu połączenia VPN klienta.
 
   ![Sieci](./media/point-to-site-vpn-client-configuration-azure-cert/network.png)
-3. W **ogólnego** folder, z **VpnSettings.xml** pliku, skopiuj **VpnServer** wartość tagu. Wklej tę wartość w **adres serwera** i **Identyfikator zdalny** pola profilu.
+4. W **ogólnego** folder, z **VpnSettings.xml** pliku, skopiuj **VpnServer** wartość tagu. Wklej tę wartość w **adres serwera** i **Identyfikator zdalny** pola profilu.
 
   ![informacje o serwerze](./media/point-to-site-vpn-client-configuration-azure-cert/server.png)
-4. Kliknij przycisk **ustawienia uwierzytelniania** i wybierz **certyfikatu**. 
+5. Kliknij przycisk **ustawienia uwierzytelniania** i wybierz **certyfikatu**. 
 
   ![ustawienia uwierzytelniania](./media/point-to-site-vpn-client-configuration-azure-cert/authsettings.png)
-5. Kliknij przycisk **wybierz...** Wybierz certyfikat klienta, który ma być używany do uwierzytelniania. Certyfikat klienta powinien być zainstalowany na komputerze (zobacz krok #2 w **przepływu pracy P2S** powyższej sekcji).
+6. Kliknij przycisk **wybierz...** Wybierz certyfikat klienta, który ma być używany do uwierzytelniania. Jest to certyfikat, który został zainstalowany w kroku 2.
 
   ![certyfikat](./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png)
-6. **Wybierz tożsamość** zostanie wyświetlona lista certyfikatów dla można wybrać. Wybierz odpowiedni certyfikat, a następnie kliknij przycisk **Kontynuuj**.
+7. **Wybierz tożsamość** zostanie wyświetlona lista certyfikatów dla można wybrać. Wybierz odpowiedni certyfikat, a następnie kliknij przycisk **Kontynuuj**.
 
   ![identity](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
-7. W **identyfikator lokalny** Określ nazwę certyfikatu (z kroku 6). W tym przykładzie jest "ikev2Client.com". Następnie kliknij przycisk **Zastosuj** przycisk, aby zapisać zmiany.
+8. W **identyfikator lokalny** Określ nazwę certyfikatu (z kroku 6). W tym przykładzie jest "ikev2Client.com". Następnie kliknij przycisk **Zastosuj** przycisk, aby zapisać zmiany.
 
   ![zastosuj](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
-8. Na **sieci** okna dialogowego, kliknij przycisk **Zastosuj** można zapisać wszystkich zmian. Następnie kliknij przycisk **Connect** nawiązaniu połączenia P2S do sieci wirtualnej platformy Azure.
+9. Na **sieci** okna dialogowego, kliknij przycisk **Zastosuj** można zapisać wszystkich zmian. Następnie kliknij przycisk **Connect** nawiązaniu połączenia P2S do sieci wirtualnej platformy Azure.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: bprakash
-ms.openlocfilehash: 009b909f9d92c6a21babffae3984be36a7682476
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 35ded349e9ced6463ece876ca1fd92423d20c625
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Jakie są składniki platformy Hadoop i wersje dostępne w usłudze HDInsight?
 
@@ -37,7 +37,7 @@ Wersje składników skojarzone z wersji klastra usługi HDInsight są wymienione
 > [!NOTE]
 > Wersja domyślna dla usługi HDInsight mogą ulec zmianie bez uprzedzenia. Jeśli masz zależność wersji wersji usługi HDInsight można określić podczas tworzenia klastrów przy użyciu zestawu .NET SDK z programu Azure PowerShell i interfejsu wiersza polecenia Azure.
 
-| Składnik | HDInsight 3,6 (ustawienie domyślne) | HDInsight 3.5 | HDInsight w wersji 3.4 | HDInsight 3.3 | HDInsight 3.2 | HDInsight w wersji 3.1 | HDInsight 3.0 |
+| Składnik | HDInsight 3,6 (ustawienie domyślne) | HDInsight 3.5 | HDInsight 3.4 | HDInsight 3.3 | HDInsight 3.2 | HDInsight 3.1 | HDInsight 3.0 |
 | --- | --- | --- | --- | --- | --- | --- |--- |
 | Hortonworks Data Platform |2.6 |2.5 |2.4 |2.3 |2.2 |2.1.7 |2.0 |
 | Apache Hadoop i YARN |2.7.3 |2.7.3 |2.7.1 |2.7.1 |2.6.0 |2.4.0 |2.2.0 |
@@ -78,9 +78,9 @@ W poniższej tabeli wymieniono wersje usługi HDInsight. Wersje HDP, które odpo
 
 ### <a name="available-versions"></a>Dostępne wersje
 
-W poniższej tabeli wymieniono wersje HDInsight, które są dostępne w portalu Azure, a także innych metod deployement, takich jak środowiska PowerShell i .NET SDK.
+W poniższej tabeli wymieniono wersje HDInsight, które są dostępne w portalu Azure, a także innych metod wdrażania, takie jak środowiska PowerShell i .NET SDK.
 
-| Wersja usługi HDInsight | Wersja HDP | SYSTEM OPERACYJNY MASZYNY WIRTUALNEJ | Data wydania | Data wygaśnięcia pomocy technicznej | Dacie wycofania | Wysoka dostępność |  Dostępność w portalu Azure | 
+| Wersja usługi HDInsight | Wersja HDP | VM OS | Data wydania | Data wygaśnięcia pomocy technicznej | Dacie wycofania | Wysoka dostępność |  Dostępność w portalu Azure | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 3,6 |HDP 2.6 |Ubuntu 16.0.4 LTS |4 kwietnia 2017 r. | | |Yes |Yes |
 | HDInsight 3.5 |HDP 2.5 |Ubuntu 16.0.4 LTS |30 września 2016 roku. |5 września 2017 r. |31 maja 2018 |Yes |Yes |
@@ -94,12 +94,12 @@ W poniższej tabeli wymieniono wersje HDInsight, które są dostępne w portalu 
 
 W poniższej tabeli wymieniono wersje programu HDInsight są **nie** dostępne w portalu Azure.
 
-| Wersja usługi HDInsight | Wersja HDP | SYSTEM OPERACYJNY MASZYNY WIRTUALNEJ | Data wydania | Data wygaśnięcia pomocy technicznej | Dacie wycofania | Wysoka dostępność |  Dostępność w portalu Azure | 
+| Wersja usługi HDInsight | Wersja HDP | VM OS | Data wydania | Data wygaśnięcia pomocy technicznej | Dacie wycofania | Wysoka dostępność |  Dostępność w portalu Azure | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight w wersji 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |29 marca 2016 r. |29 grudnia 2016 r. |9 stycznia 2018 |Yes |Nie |
+| HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |29 marca 2016 r. |29 grudnia 2016 r. |9 stycznia 2018 |Yes |Nie |
 | HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |2 grudnia 2015 r. |27 czerwca 2016 r. |31 lipca 2017 r. |Yes |Nie |
 | HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS lub Windows Server 2012 R2 |18 lutego 2015 |1 marca 2016 r. |1 kwietnia 2017 r. |Yes |Nie |
-| HDInsight w wersji 3.1 |HDP 2.1 |Windows Server 2012 R2 |24 czerwca 2014 r. |18 maja 2015 r. |30 czerwca 2016 r. |Yes |Nie |
+| HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |24 czerwca 2014 r. |18 maja 2015 r. |30 czerwca 2016 r. |Yes |Nie |
 | HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |11 lutego 2014 r. |17 września 2014 r. |30 czerwca 2015 |Yes |Nie |
 | HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |28 października 2013 |12 maja 2014 r. |31 maja 2015 r. |Yes |Nie |
 | HDInsight w wersji 1.6 |HDP 1.1 | |28 października 2013 |26 kwietnia 2014 r. |31 maja 2015 r. |Nie |Nie |
@@ -237,11 +237,11 @@ W poniższych tabelach przedstawiono domyślne rozmiary maszyny wirtualnej (VM) 
   | Typ klastra | Hadoop | HBase | Zapytanie interakcyjne | Storm | platforma Spark | R Server |
   | --- | --- | --- | --- | --- | --- | --- |
   | HEAD: domyślny rozmiar maszyny Wirtualnej |D3 v2 |D3 v2 | D13, D14 |A3 |D12 v2 |D12 v2 |
-  | HEAD: zalecane rozmiary maszyn wirtualnych |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |A3 I A4, A5 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
+  | HEAD: zalecane rozmiary maszyn wirtualnych |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |A3, A4, A5 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
   | Pracownik: domyślny rozmiar maszyny Wirtualnej |D3 v2 |D3 v2  | D13, D14 |D3 v2 |System Windows: D12 v2; Systemu Linux: V2 D4 |System Windows: D12 v2; Systemu Linux: V2 D4 |
   | Pracownik: zalecane rozmiary maszyn wirtualnych |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |D3 v2, D4 v2, D12 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
   | Dozorcy: domyślny rozmiar maszyny Wirtualnej | |A3 | |A2 | | |
-  | Dozorcy: zalecane rozmiary maszyn wirtualnych | |A3 I A4, A5 | | A2 DO A3, A4 | | |
+  | Dozorcy: zalecane rozmiary maszyn wirtualnych | |A3, A4, A5 | | A2, A3, A4 | | |
   | Krawędź: domyślny rozmiar maszyny Wirtualnej | | | | | |System Windows: D12 v2; Systemu Linux: V2 D4 |
   | Krawędź: zalecany rozmiar maszyny Wirtualnej | | | | | |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
 * Brazylia Południowa i Japonii tylko zachodnie (nie rozmiary v2):
@@ -249,12 +249,12 @@ W poniższych tabelach przedstawiono domyślne rozmiary maszyny wirtualnej (VM) 
   | Typ klastra | Hadoop | HBase | Zapytanie interakcyjne |Storm | platforma Spark | R Server |
   | --- | --- | --- | --- | --- | --- | --- |
   | HEAD: domyślny rozmiar maszyny Wirtualnej |D3 |D3  | D13, D14 |A3 |D12 |D12 |
-  | HEAD: zalecane rozmiary maszyn wirtualnych |D12 D3, D4, |D12 D3, D4,  | D13, D14 |A3 I A4, A5 |D14 D12, D13, |D14 D12, D13, |
-  | Pracownik: domyślny rozmiar maszyny Wirtualnej |D3 |D3  | D13, D14 |D3 |System Windows: D12; Linux: D4 |System Windows: D12; Linux: D4 |
-  | Pracownik: zalecane rozmiary maszyn wirtualnych |D12 D3, D4, |D12 D3, D4,  | D13, D14 |D12 D3, D4, |System Windows: D12, D13, D14; Linux: D4, D14 D12, D13, |System Windows: D12, D13, D14; Linux: D4, D14 D12, D13, |
+  | HEAD: zalecane rozmiary maszyn wirtualnych |D3, D4, D12 |D3, D4, D12  | D13, D14 |A3, A4, A5 |D12, D13, D14 |D12, D13, D14 |
+  | Pracownik: domyślny rozmiar maszyny Wirtualnej |D3 |D3  | D13, D14 |D3 |Windows: D12; Linux: D4 |Windows: D12; Linux: D4 |
+  | Pracownik: zalecane rozmiary maszyn wirtualnych |D3, D4, D12 |D3, D4, D12  | D13, D14 |D3, D4, D12 |System Windows: D12, D13, D14; Linux: D4, D14 D12, D13, |System Windows: D12, D13, D14; Linux: D4, D14 D12, D13, |
   | Dozorcy: domyślny rozmiar maszyny Wirtualnej | |A2 | | A2 | | |
-  | Dozorcy: zalecane rozmiary maszyn wirtualnych | |A2 DO A3, A4 | |A2 DO A3, A4 | | |
-  | Krawędź: rozmiary maszyny Wirtualnej domyślne | | | | | |System Windows: D12; Linux: D4 |
+  | Dozorcy: zalecane rozmiary maszyn wirtualnych | |A2, A3, A4 | |A2, A3, A4 | | |
+  | Krawędź: rozmiary maszyny Wirtualnej domyślne | | | | | |Windows: D12; Linux: D4 |
   | Krawędź: zalecane rozmiary maszyn wirtualnych | | | | | |System Windows: D12, D13, D14; Linux: D4, D14 D12, D13, |
 
 > [!NOTE]

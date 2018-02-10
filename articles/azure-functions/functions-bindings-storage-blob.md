@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: glenga
-ms.openlocfilehash: 6985d631bdac7114a72f105716c9483d0c5733ba
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 120a65a271291b75661d7d070cbd4a7222edd18a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure powiązania magazynu obiektów Blob dla usługi Azure Functions
 
@@ -306,8 +306,8 @@ Jeśli nie wszystkie próby 5, usługi Azure Functions dodaje komunikat do kolej
 
 * FunctionId (w formacie  *&lt;funkcja Nazwa aplikacji >*. Funkcje.  *&lt;nazwy funkcji >*)
 * BlobType ("BlockBlob" lub "PageBlob")
-* Właściwość ContainerName
-* Element BlobName
+* ContainerName
+* BlobName
 * Element ETag (identyfikator wersji obiektów blob, na przykład: "0x8D1DC6E70A277EF")
 
 ## <a name="trigger---polling-for-large-containers"></a>Wyzwalacz - sondowanie dużych kontenerów
@@ -720,6 +720,14 @@ Jak wspomniano, niektóre z tych typów wymagają `inout` powiązanie kierunek *
 Podczas czytania tekstu obiekty BLOB można powiązać `string` typu. Ten typ jest zalecane tylko w przypadku, gdy zawartość całego obiektu blob są ładowane do pamięci jest mała, rozmiar obiektu blob. Ogólnie rzecz biorąc, zaleca się używania `Stream` lub `CloudBlockBlob` typu.
 
 W języku JavaScript, uzyskiwać dostęp za pomocą danych obiektów blob `context.bindings.<name>`.
+
+## <a name="exceptions-and-return-codes"></a>Wyjątki i kody powrotne
+
+| Powiązanie |  Informacje ogólne |
+|---|---|
+| Obiekt blob | [Kody błędów obiektów blob](https://docs.microsoft.com/rest/api/storageservices/fileservices/blob-service-error-codes) |
+| Obiekt blob, tabeli, kolejki |  [Kody błędów magazynu](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
+| Obiekt blob, tabeli, kolejki |  [Rozwiązywanie problemów](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
 ## <a name="next-steps"></a>Kolejne kroki
 

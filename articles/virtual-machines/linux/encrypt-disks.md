@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 2489d4bfda5d9a08b35e8d80b6cc9d00bf69117b
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 4a10df360249b4b0b28ecbe4762bbb165ef9bb8d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-encrypt-virtual-disks-on-a-linux-vm"></a>Jak zaszyfrować dyski wirtualne na maszynie Wirtualnej systemu Linux
 Rozszerzone maszyny wirtualnej (VM) zabezpieczeń i zgodności mogą być szyfrowane dyski wirtualne i samej maszyny Wirtualnej. Maszyny wirtualne są szyfrowane za pomocą kluczy kryptograficznych, które są już zabezpieczone w usłudze Azure Key Vault. Kontrolowanie tych kluczy kryptograficznych i przeprowadzić inspekcję ich używania. Ten artykuł zawiera szczegóły dotyczące sposobu szyfrowania dysków wirtualnych na Maszynę wirtualną systemu Linux przy użyciu 2.0 interfejsu wiersza polecenia platformy Azure. Czynności te można również wykonać przy użyciu [interfejsu wiersza polecenia platformy Azure w wersji 1.0](encrypt-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -27,16 +27,16 @@ Rozszerzone maszyny wirtualnej (VM) zabezpieczeń i zgodności mogą być szyfro
 ## <a name="quick-commands"></a>Szybkie polecenia
 Jeśli chcesz szybko wykonać zadanie, następujące szczegóły sekcji bazie polecenia do szyfrowania dysków wirtualnych w maszynie Wirtualnej. Bardziej szczegółowe informacje i kontekst dla każdego kroku można znaleźć pozostałej części dokumentu, [uruchamiania tutaj](#overview-of-disk-encryption).
 
-Należy najnowszej [Azure CLI 2.0](/cli/azure/install-az-cli2) zainstalowane i zalogowany do konta platformy Azure przy użyciu [logowania az](/cli/azure/#login). W poniższych przykładach Zastąp przykładowe nazwy parametrów własne wartości. Przykład nazwy parametru zawierają *myResourceGroup*, *klucze*, i *myVM*.
+Należy najnowszej [Azure CLI 2.0](/cli/azure/install-az-cli2) zainstalowane i zalogowany do konta platformy Azure przy użyciu [logowania az](/cli/azure/#az_login). W poniższych przykładach Zastąp przykładowe nazwy parametrów własne wartości. Przykład nazwy parametru zawierają *myResourceGroup*, *klucze*, i *myVM*.
 
-Najpierw włączyć dostawcy usługi Azure Key Vault w ramach Twojej subskrypcji platformy Azure z [az dostawcy rejestru](/cli/azure/provider#register) i utworzyć nową grupę zasobów o [Tworzenie grupy az](/cli/azure/group#create). Poniższy przykład tworzy nazwę grupy zasobów *myResourceGroup* w *eastus* lokalizacji:
+Najpierw włączyć dostawcy usługi Azure Key Vault w ramach Twojej subskrypcji platformy Azure z [az dostawcy rejestru](/cli/azure/provider#az_provider_register) i utworzyć nową grupę zasobów o [Tworzenie grupy az](/cli/azure/group#az_group_create). Poniższy przykład tworzy nazwę grupy zasobów *myResourceGroup* w *eastus* lokalizacji:
 
 ```azurecli
 az provider register -n Microsoft.KeyVault
 az group create --name myResourceGroup --location eastus
 ```
 
-Tworzenie usługi Azure Key Vault z [az keyvault utworzyć](/cli/azure/keyvault#create) i włączyć usługi Key Vault służących do szyfrowania dysku. Określ unikatową nazwę usługi Key Vault *keyvault_name* w następujący sposób:
+Tworzenie usługi Azure Key Vault z [az keyvault utworzyć](/cli/azure/keyvault#az_keyvault_create) i włączyć usługi Key Vault służących do szyfrowania dysku. Określ unikatową nazwę usługi Key Vault *keyvault_name* w następujący sposób:
 
 ```azurecli
 keyvault_name=myuniquekeyvaultname
@@ -47,21 +47,21 @@ az keyvault create \
     --enabled-for-disk-encryption True
 ```
 
-Tworzenie klucza kryptograficznego w magazyn kluczy o [Utwórz klucz keyvault az](/cli/azure/keyvault/key#create). W poniższym przykładzie jest tworzony klucz o nazwie *klucze*:
+Tworzenie klucza kryptograficznego w magazyn kluczy o [Utwórz klucz keyvault az](/cli/azure/keyvault/key#az_keyvault_key_create). W poniższym przykładzie jest tworzony klucz o nazwie *klucze*:
 
 ```azurecli
 az keyvault key create --vault-name $keyvault_name --name myKey --protection software
 ```
 
-Tworzenie nazwy głównej usługi za pomocą usługi Azure Active Directory z [az ad sp utworzyć do rbac](/cli/azure/ad/sp#create-for-rbac). Nazwy głównej usługi obsługuje uwierzytelnianie i wymiany kluczy kryptograficznych z magazynu kluczy. Poniższy przykład odczytuje wartości Identyfikatora podmiotu zabezpieczeń usługi i hasło do użycia w późniejszym polecenia:
+Tworzenie nazwy głównej usługi za pomocą usługi Azure Active Directory z [az ad sp utworzyć do rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac). Nazwy głównej usługi obsługuje uwierzytelnianie i wymiany kluczy kryptograficznych z magazynu kluczy. Poniższy przykład odczytuje wartości Identyfikatora podmiotu zabezpieczeń usługi i hasło do użycia w późniejszym polecenia:
 
 ```azurecli
 read sp_id sp_password <<< $(az ad sp create-for-rbac --query [appId,password] -o tsv)
 ```
 
-Hasło jest tylko dane wyjściowe w przypadku tworzenia nazwy głównej usługi. W razie potrzeby można wyświetlać i Zapisz hasło (`echo $sp_password`). Możesz wyświetlić listę Twojej nazwy główne usług z [listy sp ad az](/cli/azure/ad/sp#list) i wyświetlić dodatkowe informacje o określonej usługi głównej z [az ad sp Pokaż](/cli/azure/ad/sp#show).
+Hasło jest tylko dane wyjściowe w przypadku tworzenia nazwy głównej usługi. W razie potrzeby można wyświetlać i Zapisz hasło (`echo $sp_password`). Możesz wyświetlić listę Twojej nazwy główne usług z [listy sp ad az](/cli/azure/ad/sp#az_ad_sp_list) i wyświetlić dodatkowe informacje o określonej usługi głównej z [az ad sp Pokaż](/cli/azure/ad/sp#az_ad_sp_show).
 
-Ustaw uprawnienia na magazyn kluczy o [keyvault az set-policy](/cli/azure/keyvault#set-policy). W poniższym przykładzie identyfikator podmiotu zabezpieczeń usługi jest dostarczana przez poprzednie polecenie:
+Ustaw uprawnienia na magazyn kluczy o [keyvault az set-policy](/cli/azure/keyvault#az_keyvault_set_policy). W poniższym przykładzie identyfikator podmiotu zabezpieczeń usługi jest dostarczana przez poprzednie polecenie:
 
 ```azurecli
 az keyvault set-policy --name $keyvault_name --spn $sp_id \
@@ -69,7 +69,7 @@ az keyvault set-policy --name $keyvault_name --spn $sp_id \
     --secret-permissions set
 ```
 
-Utwórz maszynę Wirtualną z [tworzenia maszyny wirtualnej az](/cli/azure/vm#create) i dołączenie dysku danych 5 Gb. Niektóre obrazy marketplace obsługuje szyfrowanie dysków. Poniższy przykład tworzy Maszynę wirtualną o nazwie *myVM* przy użyciu *CentOS 7.2n* obrazu:
+Utwórz maszynę Wirtualną z [tworzenia maszyny wirtualnej az](/cli/azure/vm#az_vm_create) i dołączenie dysku danych 5 Gb. Niektóre obrazy marketplace obsługuje szyfrowanie dysków. Poniższy przykład tworzy Maszynę wirtualną o nazwie *myVM* przy użyciu *CentOS 7.2n* obrazu:
 
 ```azurecli
 az vm create \
@@ -83,7 +83,7 @@ az vm create \
 
 SSH przy użyciu maszyny Wirtualnej *publicznego adresu IP* wyświetlany w danych wyjściowych poprzednie polecenie. Tworzenie partycji i systemu plików, a następnie zainstalować dysk z danymi. Aby uzyskać więcej informacji, zobacz [Połącz z maszyny Wirtualnej systemu Linux, aby zainstalować nowy dysk](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk). Zamknij sesję SSH.
 
-Szyfrowanie maszyny Wirtualnej z [włączyć szyfrowanie maszyny wirtualnej az](/cli/azure/vm/encryption#enable). W poniższym przykładzie użyto *$sp_id* i *$sp_password* zmienne z poprzednim `ad sp create-for-rbac` polecenie:
+Szyfrowanie maszyny Wirtualnej z [włączyć szyfrowanie maszyny wirtualnej az](/cli/azure/vm/encryption#az_vm_encryption_enable). W poniższym przykładzie użyto *$sp_id* i *$sp_password* zmienne z poprzednim `ad sp create-for-rbac` polecenie:
 
 ```azurecli
 az vm encryption enable \
@@ -96,19 +96,19 @@ az vm encryption enable \
     --volume-type all
 ```
 
-Trwa pewien czas na ukończenie procesu szyfrowania dysku. Monitorowanie stanu procesu z [Pokaż szyfrowania maszyny wirtualnej az](/cli/azure/vm/encryption#show):
+Trwa pewien czas na ukończenie procesu szyfrowania dysku. Monitorowanie stanu procesu z [Pokaż szyfrowania maszyny wirtualnej az](/cli/azure/vm/encryption#az_vm_encryption_show):
 
 ```azurecli
 az vm encryption show --resource-group myResourceGroup --name myVM
 ```
 
-Pokazuje stan **EncryptionInProgress**. Poczekaj, aż stan systemu operacyjnego na dysku raporty **VMRestartPending**, ponowne uruchomienie maszyny Wirtualnej z [ponownego uruchomienia maszyny wirtualnej az](/cli/azure/vm#restart):
+Pokazuje stan **EncryptionInProgress**. Poczekaj, aż stan systemu operacyjnego na dysku raporty **VMRestartPending**, ponowne uruchomienie maszyny Wirtualnej z [ponownego uruchomienia maszyny wirtualnej az](/cli/azure/vm#az_vm_restart):
 
 ```azurecli
 az vm restart --resource-group myResourceGroup --name myVM
 ```
 
-Proces szyfrowania dysku zostanie sfinalizowana podczas rozruchu, więc odczekaj kilka minut przed sprawdzeniem stanu szyfrowania ponownie, podając [Pokaż szyfrowania maszyny wirtualnej az](/cli/azure/vm/encryption#show):
+Proces szyfrowania dysku zostanie sfinalizowana podczas rozruchu, więc odczekaj kilka minut przed sprawdzeniem stanu szyfrowania ponownie, podając [Pokaż szyfrowania maszyny wirtualnej az](/cli/azure/vm/encryption#az_vm_encryption_show):
 
 ```azurecli
 az vm encryption show --resource-group myResourceGroup --name myVM
@@ -144,7 +144,7 @@ Obsługiwane scenariusze i wymagania dotyczące szyfrowania dysków:
 
 * Następujący serwer z systemem Linux jednostki SKU - Ubuntu, CentOS, SUSE i SUSE Linux Enterprise Server (SLES) i Red Hat Enterprise Linux.
 * Wszystkie zasoby (na przykład usługi Key Vault, konta magazynu i maszyny Wirtualnej) muszą być w tym samym regionie Azure i subskrypcji.
-* Standardowa A, D, DS, G, GS, itp., serii maszyn wirtualnych.
+* Standard A, D, DS, G, GS, etc., series VMs.
 * Aktualizowanie kluczy kryptograficznych w już zaszyfrowany maszyny Wirtualnej systemu Linux.
 
 Szyfrowanie dysku nie jest obecnie obsługiwane w następujących scenariuszach:
@@ -158,18 +158,18 @@ Aby uzyskać więcej informacji o obsługiwanych scenariuszach i ograniczeniach,
 
 
 ## <a name="create-azure-key-vault-and-keys"></a>Tworzenie usługi Azure Key Vault i kluczy
-Należy najnowszej [Azure CLI 2.0](/cli/azure/install-az-cli2) zainstalowane i zalogowany do konta platformy Azure przy użyciu [logowania az](/cli/azure/#login). W poniższych przykładach Zastąp przykładowe nazwy parametrów własne wartości. Przykład nazwy parametru zawierają *myResourceGroup*, *klucze*, i *myVM*.
+Należy najnowszej [Azure CLI 2.0](/cli/azure/install-az-cli2) zainstalowane i zalogowany do konta platformy Azure przy użyciu [logowania az](/cli/azure/#az_login). W poniższych przykładach Zastąp przykładowe nazwy parametrów własne wartości. Przykład nazwy parametru zawierają *myResourceGroup*, *klucze*, i *myVM*.
 
 Pierwszym krokiem jest do utworzenia magazynu kluczy Azure do przechowywania kluczy kryptograficznych. Usługa Azure Key Vault można przechowywać kluczy, kluczy tajnych lub haseł, które umożliwiają bezpieczne wdrożenie ich w aplikacji i usług. Szyfrowanie dysków wirtualnych Key Vault służy do przechowywania klucza kryptograficznego używanego do szyfrowania lub odszyfrowywania dysków wirtualnych.
 
-Włącz dostawcy usługi Azure Key Vault w ramach Twojej subskrypcji platformy Azure z [az dostawcy rejestru](/cli/azure/provider#register) i utworzyć nową grupę zasobów o [Tworzenie grupy az](/cli/azure/group#create). Poniższy przykład tworzy nazwę grupy zasobów *myResourceGroup* w `eastus` lokalizacji:
+Włącz dostawcy usługi Azure Key Vault w ramach Twojej subskrypcji platformy Azure z [az dostawcy rejestru](/cli/azure/provider#az_provider_register) i utworzyć nową grupę zasobów o [Tworzenie grupy az](/cli/azure/group#az_group_create). Poniższy przykład tworzy nazwę grupy zasobów *myResourceGroup* w `eastus` lokalizacji:
 
 ```azurecli
 az provider register -n Microsoft.KeyVault
 az group create --name myResourceGroup --location eastus
 ```
 
-Usługa Azure Key Vault zawierający klucze kryptograficzne i zasoby obliczeniowe skojarzone, takie jak magazyn i samej maszyny Wirtualnej musi znajdować się w tym samym regionie. Tworzenie usługi Azure Key Vault z [az keyvault utworzyć](/cli/azure/keyvault#create) i włączyć usługi Key Vault służących do szyfrowania dysku. Określ unikatową nazwę usługi Key Vault *keyvault_name* w następujący sposób:
+Usługa Azure Key Vault zawierający klucze kryptograficzne i zasoby obliczeniowe skojarzone, takie jak magazyn i samej maszyny Wirtualnej musi znajdować się w tym samym regionie. Tworzenie usługi Azure Key Vault z [az keyvault utworzyć](/cli/azure/keyvault#az_keyvault_create) i włączyć usługi Key Vault służących do szyfrowania dysku. Określ unikatową nazwę usługi Key Vault *keyvault_name* w następujący sposób:
 
 ```azurecli
 keyvault_name=myuniquekeyvaultname
@@ -182,7 +182,7 @@ az keyvault create \
 
 Mogą być przechowywane przy użyciu oprogramowania lub sprzętu modelu zabezpieczeń (HSM) ochronę kluczy kryptograficznych. Użycie modułów HSM wymaga premium magazynu kluczy. Brak dodatkowych kosztów tworzenia premium magazynu kluczy, a nie standardowy magazyn kluczy, którego przechowuje klucze chronione przez oprogramowanie. Aby utworzyć premium magazynu kluczy, w poprzednim kroku Dodaj `--sku Premium` do polecenia. W poniższym przykładzie użyto klucze chronione przez oprogramowanie, od momentu utworzenia standardowy magazyn kluczy.
 
-W przypadku obu modeli ochrony platformy Azure musi otrzymać dostęp do żądania kluczy kryptograficznych, podczas rozruchu maszyny Wirtualnej do odszyfrowania dysków wirtualnych. Tworzenie klucza kryptograficznego w magazyn kluczy o [Utwórz klucz keyvault az](/cli/azure/keyvault/key#create). W poniższym przykładzie jest tworzony klucz o nazwie *klucze*:
+W przypadku obu modeli ochrony platformy Azure musi otrzymać dostęp do żądania kluczy kryptograficznych, podczas rozruchu maszyny Wirtualnej do odszyfrowania dysków wirtualnych. Tworzenie klucza kryptograficznego w magazyn kluczy o [Utwórz klucz keyvault az](/cli/azure/keyvault/key#az_keyvault_key_create). W poniższym przykładzie jest tworzony klucz o nazwie *klucze*:
 
 ```azurecli
 az keyvault key create --vault-name $keyvault_name --name myKey --protection software
@@ -192,15 +192,15 @@ az keyvault key create --vault-name $keyvault_name --name myKey --protection sof
 ## <a name="create-the-azure-active-directory-service-principal"></a>Tworzenie nazwy głównej usługi Azure Active Directory
 Podczas dyski wirtualne są zaszyfrowanie lub odszyfrowanie, należy określić konto w celu obsługi uwierzytelniania i wymiany kluczy kryptograficznych z magazynu kluczy. To konto, nazwy głównej usługi Azure Active Directory umożliwia platformy Azure zażądać odpowiednich kluczy kryptograficznych w imieniu maszyny Wirtualnej. Domyślne wystąpienie usługi Azure Active Directory jest dostępne w Twojej subskrypcji, chociaż w wielu organizacjach są wyposażone w dedykowane katalogów usługi Azure Active Directory.
 
-Tworzenie nazwy głównej usługi za pomocą usługi Azure Active Directory z [az ad sp utworzyć do rbac](/cli/azure/ad/sp#create-for-rbac). Poniższy przykład odczytuje wartości dla nazwy głównej usługi Id i hasło do wykorzystania w późniejszym polecenia:
+Tworzenie nazwy głównej usługi za pomocą usługi Azure Active Directory z [az ad sp utworzyć do rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac). Poniższy przykład odczytuje wartości dla nazwy głównej usługi Id i hasło do wykorzystania w późniejszym polecenia:
 
 ```azurecli
 read sp_id sp_password <<< $(az ad sp create-for-rbac --query [appId,password] -o tsv)
 ```
 
-Hasło jest wyświetlane tylko, tworząc usługę podmiotu zabezpieczeń. W razie potrzeby można wyświetlać i Zapisz hasło (`echo $sp_password`). Możesz wyświetlić listę Twojej nazwy główne usług z [listy sp ad az](/cli/azure/ad/sp#list) i wyświetlić dodatkowe informacje o określonej usługi głównej z [az ad sp Pokaż](/cli/azure/ad/sp#show).
+Hasło jest wyświetlane tylko, tworząc usługę podmiotu zabezpieczeń. W razie potrzeby można wyświetlać i Zapisz hasło (`echo $sp_password`). Możesz wyświetlić listę Twojej nazwy główne usług z [listy sp ad az](/cli/azure/ad/sp#az_ad_sp_list) i wyświetlić dodatkowe informacje o określonej usługi głównej z [az ad sp Pokaż](/cli/azure/ad/sp#az_ad_sp_show).
 
-Pomyślnie szyfrowania lub odszyfrowywania dysków wirtualnych, uprawnienia do klucza kryptograficznego, przechowywane w magazynie klucz musi mieć ustawioną zezwolenie na nazwę główną usługi Azure Active Directory do odczytu kluczy. Ustaw uprawnienia na magazyn kluczy o [keyvault az set-policy](/cli/azure/keyvault#set-policy). W poniższym przykładzie identyfikator podmiotu zabezpieczeń usługi jest dostarczana przez poprzednie polecenie:
+Pomyślnie szyfrowania lub odszyfrowywania dysków wirtualnych, uprawnienia do klucza kryptograficznego, przechowywane w magazynie klucz musi mieć ustawioną zezwolenie na nazwę główną usługi Azure Active Directory do odczytu kluczy. Ustaw uprawnienia na magazyn kluczy o [keyvault az set-policy](/cli/azure/keyvault#az_keyvault_set_policy). W poniższym przykładzie identyfikator podmiotu zabezpieczeń usługi jest dostarczana przez poprzednie polecenie:
 
 ```azurecli
 az keyvault set-policy --name $keyvault_name --spn $sp_id \
@@ -210,7 +210,7 @@ az keyvault set-policy --name $keyvault_name --spn $sp_id \
 
 
 ## <a name="create-virtual-machine"></a>Tworzenie maszyny wirtualnej
-Utwórz maszynę Wirtualną do szyfrowania z [tworzenia maszyny wirtualnej az](/cli/azure/vm#create) i dołączenie dysku danych 5 Gb. Niektóre obrazy marketplace obsługuje szyfrowanie dysków. Poniższy przykład tworzy Maszynę wirtualną o nazwie *myVM* przy użyciu *CentOS 7.2n* obrazu:
+Utwórz maszynę Wirtualną do szyfrowania z [tworzenia maszyny wirtualnej az](/cli/azure/vm#az_vm_create) i dołączenie dysku danych 5 Gb. Niektóre obrazy marketplace obsługuje szyfrowanie dysków. Poniższy przykład tworzy Maszynę wirtualną o nazwie *myVM* przy użyciu *CentOS 7.2n* obrazu:
 
 ```azurecli
 az vm create \
@@ -233,7 +233,7 @@ Do szyfrowania dysków wirtualnych, można przenosić ze sobą wszystkie poprzed
 3. Określ klucze kryptograficzne służące do rzeczywistego szyfrowania i odszyfrowywania.
 4. Określ, czy chcesz zaszyfrować dysk systemu operacyjnego, dyski danych lub all.
 
-Szyfrowanie maszyny Wirtualnej z [włączyć szyfrowanie maszyny wirtualnej az](/cli/azure/vm/encryption#enable). W poniższym przykładzie użyto *$sp_id* i *$sp_password* zmienne z poprzednim [az ad sp utworzyć do rbac](/cli/azure/ad/sp#create-for-rbac) polecenia:
+Szyfrowanie maszyny Wirtualnej z [włączyć szyfrowanie maszyny wirtualnej az](/cli/azure/vm/encryption#az_vm_encryption_enable). W poniższym przykładzie użyto *$sp_id* i *$sp_password* zmienne z poprzednim [az ad sp utworzyć do rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) polecenia:
 
 ```azurecli
 az vm encryption enable \
@@ -246,7 +246,7 @@ az vm encryption enable \
     --volume-type all
 ```
 
-Trwa pewien czas na ukończenie procesu szyfrowania dysku. Monitorowanie stanu procesu z [Pokaż szyfrowania maszyny wirtualnej az](/cli/azure/vm/encryption#show):
+Trwa pewien czas na ukończenie procesu szyfrowania dysku. Monitorowanie stanu procesu z [Pokaż szyfrowania maszyny wirtualnej az](/cli/azure/vm/encryption#az_vm_encryption_show):
 
 ```azurecli
 az vm encryption show --resource-group myResourceGroup --name myVM
@@ -261,7 +261,7 @@ Wynik jest podobny do poniższego przykładu skrócona:
 ]
 ```
 
-Poczekaj, aż stan systemu operacyjnego na dysku raporty **VMRestartPending**, ponowne uruchomienie maszyny Wirtualnej z [ponownego uruchomienia maszyny wirtualnej az](/cli/azure/vm#restart):
+Poczekaj, aż stan systemu operacyjnego na dysku raporty **VMRestartPending**, ponowne uruchomienie maszyny Wirtualnej z [ponownego uruchomienia maszyny wirtualnej az](/cli/azure/vm#az_vm_restart):
 
 ```azurecli
 az vm restart --resource-group myResourceGroup --name myVM
@@ -297,6 +297,6 @@ az vm encryption enable \
 ```
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Aby uzyskać więcej informacji na temat zarządzania usługą Azure Key Vault, łącznie z usunięciem kluczy kryptograficznych i magazyny, zobacz [Zarządzanie Key Vault przy użyciu interfejsu wiersza polecenia](../../key-vault/key-vault-manage-with-cli2.md).
 * Aby uzyskać więcej informacji o szyfrowaniu dysków, takich jak przygotowywanie zaszyfrowanego niestandardowego maszyny Wirtualnej do przekazania do platformy Azure, zobacz [szyfrowania dysków Azure](../../security/azure-security-disk-encryption.md).

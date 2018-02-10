@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: e580c3f36ce19679d3edcf7a8861e4e492dfa9c5
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 4d7df73bec7306b135f5a559c2bc66ac88d88809
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Kopiowanie danych z chmury SAP dla klienta (C4C) przy użyciu fabryki danych Azure
 
@@ -47,7 +47,7 @@ Chmury SAP obsługi klientów połączonych obsługiwane są następujące wła�
 | type | Właściwość type musi mieć ustawioną: **SapCloudForCustomer**. | Yes |
 | adres url | Adres URL usługi SAP C4C OData. | Yes |
 | nazwa użytkownika | Określ nazwę użytkownika, aby nawiązać połączenie SAP C4C. | Yes |
-| hasło | Podaj hasło dla konta użytkownika, określone nazwy użytkownika. Zaznacz to pole jako SecureString. | Yes |
+| hasło | Podaj hasło dla konta użytkownika, określone nazwy użytkownika. Zaznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w fabryce danych lub [odwołania klucz tajny przechowywane w usłudze Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. | Brak źródła tak dla obiekt sink |
 
 >[!IMPORTANT]
@@ -159,7 +159,7 @@ Kopiowania danych do chmury SAP dla klienta, należy ustawić typ ujścia w dzia
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | type | Właściwość type musi mieć ustawioną: **SapCloudForCustomerSink**  | Yes |
-| WriteBehavior | Zachowanie zapisu operacji. Może to być "Insert", "Update". | Nie. Domyślna "Insert". |
+| writeBehavior | Zachowanie zapisu operacji. Może to być "Insert", "Update". | Nie. Domyślna "Insert". |
 | writeBatchSize | Rozmiar partii operacji zapisu. Rozmiar partii, aby uzyskać najlepszą wydajność może się różnić dla innej tabeli lub tego serwera. | Nie. Domyślnie 10. |
 
 **Przykład:**
@@ -207,12 +207,12 @@ Podczas kopiowania danych z chmury SAP dla odbiorcy, następujące mapowania są
 
 | Typ danych OData C4C SAP | Typ danych tymczasowych fabryki danych |
 |:--- |:--- |
-| Edm.Binary | Byte] |
-| Edm.Boolean | wartość logiczna |
-| Edm.Byte | Byte] |
+| Edm.Binary | Byte[] |
+| Edm.Boolean | Wartość logiczna |
+| Edm.Byte | Byte[] |
 | Edm.DateTime | Data/godzina |
 | Edm.Decimal | Decimal |
-| Edm.Double | O podwójnej precyzji |
+| Edm.Double | Podwójnej precyzji |
 | Edm.Single | Kawaler/panna |
 | Edm.Guid | Identyfikator GUID |
 | Edm.Int16 | Int16 |
@@ -220,7 +220,7 @@ Podczas kopiowania danych z chmury SAP dla odbiorcy, następujące mapowania są
 | Edm.Int64 | Int64 |
 | Edm.SByte | Int16 |
 | Edm.String | Ciąg |
-| Edm.Time | Zakres czasu |
+| Edm.Time | TimeSpan |
 | Edm.DateTimeOffset | DateTimeOffset |
 
 
