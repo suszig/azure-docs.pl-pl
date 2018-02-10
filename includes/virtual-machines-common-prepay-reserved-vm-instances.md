@@ -30,8 +30,15 @@ Zarezerwowane wystąpień maszyn wirtualnych można kupić [portalu Azure](https
 
     ![Zrzut ekranu przed przesłaniem rezerwacji zakupu](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvmInstance-submit.png)
 
-## <a name="next-steps-after-buying-a-reservation"></a>Następne kroki po kupowanie zastrzeżenia
+## <a name="next-steps"></a>Kolejne kroki 
 Zniżki rezerwacji jest stosowana automatycznie do liczba uruchomionych maszyn wirtualnych, które pasują do zakresu zastrzeżenia i atrybutów. Można zaktualizować zakresu zastrzeżenia za pośrednictwem [portalu Azure](https://portal.azure.com), programu PowerShell, interfejsu wiersza polecenia lub za pośrednictwem interfejsu API. 
 
 Aby dowiedzieć się, jak zarządzać zastrzeżenie, zobacz [zarządzania Azure zastrzeżone wystąpień maszyn wirtualnych](../articles/billing/billing-manage-reserved-vm-instance.md).
 
+Aby dowiedzieć się więcej o zastrzeżonych wystąpień maszyn wirtualnych, zobacz następujące artykuły.
+
+- [Zaoszczędzić na maszynach wirtualnych z zarezerwowanych wystąpień maszyn wirtualnych](../articles/billing/billing-save-compute-costs-reservations.md)
+- [Zrozumienie, jak stosowany jest rabat zastrzeżone wystąpienie maszyny wirtualnej](../articles/billing/billing-understand-vm-reservation-charges.md)
+- [Określić sposób użycia wystąpienia zarezerwowane dla Twojej subskrypcji z](../articles/billing/billing-understand-reserved-instance-usage.md)
+- [Określić sposób użycia wystąpienia zarezerwowane dla rejestracji w przedsiębiorstwie](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
+- [Koszty oprogramowania systemu Windows nie jest dołączony do wystąpienia zastrzeżone](../articles/billing/billing-reserved-instance-windows-software-costs.md)

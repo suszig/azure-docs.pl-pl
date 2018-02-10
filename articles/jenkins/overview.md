@@ -11,11 +11,11 @@ ms.workload: na
 ms.date: 08/22/2017
 ms.author: routlaw
 ms.custom: mvc
-ms.openlocfilehash: daa202ddf0dc934c491ead3951ddc4fdc3dd819c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 69bb79a1f02e601b9ed0104dde00211612473adc
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-and-jenkins"></a>Azure i Wpięć
 
@@ -29,7 +29,7 @@ Wpięć hosta na platformie Azure do centralizacji automatyzacji programu kompil
  
 - [Szablon rozwiązania Wpięć](install-jenkins-solution-template.md) w portalu Azure Marketplace.
 - [Maszyny wirtualne platformy Azure](/azure/virtual-machines/linux/overview). Zobacz nasze [samouczek](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd) można utworzyć wystąpienia elementu Wpięć na maszynie Wirtualnej.
-- Na Kubernetes klastra z systemem [usługi kontenera platformy Azure](/azure/container-service/kubernetes/container-service-kubernetes-walkthrough), zobacz nasze [porad](/azure/container-service/kubernetes/container-service-kubernetes-jenkin).
+- Na Kubernetes klastra z systemem [usługi kontenera platformy Azure](/azure/container-service/kubernetes/container-service-kubernetes-walkthrough), zobacz nasze [porad](/azure/container-service/kubernetes/container-service-kubernetes-jenkins).
 
 Monitorowanie i zarządzanie nimi z Wpięć Azure wdrożenia przy użyciu [analizy dzienników](/azure/log-analytics/log-analytics-overview), [Operations Management Suite](/azure/operations-management-suite/operations-management-suite-overview), a [Azure CLI] (/ Przegląd-interfejsu wiersza polecenia/azure).
 

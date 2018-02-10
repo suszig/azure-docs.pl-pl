@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: c388fe0cfe85ec2bf2b752f74d39eb2ebe38ceb1
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: e8326cedfbf22b5ddf19626642b63312babe5fb6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>Kopiowanie danych do i z usługi Azure Data Lake Store przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -71,15 +71,15 @@ Aby używać uwierzytelniania głównej usługi, Zarejestruj podmiot aplikacji w
 
 >[!IMPORTANT]
 > Upewnij się, że można przydzielić usługi głównej odpowiednie uprawnienia w usłudze Azure Data Lake Store:
->- **Jako źródło**, przyznaj co najmniej **Odczyt i wykonywanie** uprawnienia do listy, a następnie skopiuj zawartość folderu, dostępu do danych lub **odczytu** uprawnień do kopiowania pojedynczy plik. Nie jest wymagany na kontroli dostępu na poziomie konta (IAM).
->- **Jako obiekt sink**, przyznaj co najmniej **zapisu i wykonywania** uprawnienia do tworzenia elementów podrzędnych w folderze dostępu do danych. I jeśli Azure IR służy do kopiowania (źródłowy i odbiorczy znajdują się w chmurze), aby umożliwić wykryć Data Lake Store regionu fabryki danych, co najmniej przyznać **czytnika** roli w kontroli dostępu do konta (IAM). Aby uniknąć tej roli IAM jawnie [utworzyć IR Azure](create-azure-integration-runtime.md#create-azure-ir) z lokalizacją Twojej usługi Data Lake Store i skojarz w usłudze Data Lake Store połączonej usługi, jak w poniższym przykładzie:
+>- **Jako źródło**, w Eksploratorze danych -> dostępu, co najmniej przyznać **Odczyt i wykonywanie** uprawnienia do listy i skopiuj pliki w folderze/podfolderów lub **odczytu** uprawnień do kopiowania pojedynczy plik; i Wybierz polecenie do dodania jako **uprawnień dostępu i wpis uprawnienia domyślne**. Nie jest wymagany na kontroli dostępu na poziomie konta (IAM).
+>- **Jako obiekt sink**, w Eksploratorze danych -> dostępu, co najmniej przyznać **zapisu i wykonywania** uprawnienia do tworzenia elementów podrzędnych w folderze i wybierz polecenie do dodania jako **uprawnień dostępu i wpis uprawnienia domyślne**. Jeśli używasz Azure IR do skopiowania (źródłowy i odbiorczy znajdują się w chmurze), w kontroli dostępu (IAM), co najmniej udzielić **czytnika** roli, aby umożliwić wykryć Data Lake Store regionu fabryki danych. Aby uniknąć tej roli IAM jawnie [utworzyć IR Azure](create-azure-integration-runtime.md#create-azure-ir) z lokalizacją Twojej usługi Data Lake Store i skojarz w usłudze Data Lake Store połączonej usługi, jak w poniższym przykładzie.
 
 Obsługiwane są następujące właściwości:
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | servicePrincipalId | Określ identyfikator aplikacji klienta. | Yes |
-| servicePrincipalKey | Określ klucz aplikacji. Zaznacz to pole jako SecureString. | Yes |
+| servicePrincipalKey | Określ klucz aplikacji. Zaznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w fabryce danych lub [odwołania klucz tajny przechowywane w usłudze Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 
 **Przykład:**
 
@@ -114,12 +114,12 @@ Fabryka danych może być skojarzony z [tożsamość usługi zarządzanej](data-
 Aby używać uwierzytelniania tożsamości (MSI) zarządzanych usług:
 
 1. [Pobieranie tożsamości usługi fabryka danych](data-factory-service-identity.md#retrieve-service-identity) przez skopiowanie wartości "Usługa tożsamości aplikacji Identyfikatora" generowane wraz z fabryką.
-2. Udziel dostępu do tożsamości usługi Data Lake Store w taki sam sposób jak w przypadku nazwy głównej usługi. Aby uzyskać szczegółowe instrukcje, zobacz [do usługi uwierzytelniania, aplikacji Przypisz usługi Azure AD do usługi Azure Data Lake Store konta pliku lub folderu](../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-store-account-file-or-folder).
+2. Taki sam sposób jak w przypadku usługi następujące główne poniżej uwagi udzielać dostępu tożsamości usługi Data Lake Store.
 
 >[!IMPORTANT]
 > Upewnij się, że można przydzielić danych fabryki usługi tożsamości odpowiednie uprawnienia w usłudze Azure Data Lake Store:
->- **Jako źródło**, przyznaj co najmniej **Odczyt i wykonywanie** uprawnienia do listy, a następnie skopiuj zawartość folderu, dostępu do danych lub **odczytu** uprawnień do kopiowania pojedynczy plik. Nie jest wymagany na kontroli dostępu na poziomie konta (IAM).
->- **Jako obiekt sink**, przyznaj co najmniej **zapisu i wykonywania** uprawnienia do tworzenia elementów podrzędnych w folderze dostępu do danych. I jeśli Azure IR służy do kopiowania (źródłowy i odbiorczy znajdują się w chmurze), aby umożliwić wykryć Data Lake Store regionu fabryki danych, co najmniej przyznać **czytnika** roli w kontroli dostępu do konta (IAM). Aby uniknąć tej roli IAM jawnie [utworzyć IR Azure](create-azure-integration-runtime.md#create-azure-ir) z lokalizacją Twojej usługi Data Lake Store i skojarz w usłudze Data Lake Store połączonej usługi, jak w poniższym przykładzie:
+>- **Jako źródło**, w Eksploratorze danych -> dostępu, co najmniej przyznać **Odczyt i wykonywanie** uprawnienia do listy i skopiuj pliki w folderze/podfolderów lub **odczytu** uprawnień do kopiowania pojedynczy plik; i Wybierz polecenie do dodania jako **uprawnień dostępu i wpis uprawnienia domyślne**. Nie jest wymagany na kontroli dostępu na poziomie konta (IAM).
+>- **Jako obiekt sink**, w Eksploratorze danych -> dostępu, co najmniej przyznać **zapisu i wykonywania** uprawnienia do tworzenia elementów podrzędnych w folderze i wybierz polecenie do dodania jako **uprawnień dostępu i wpis uprawnienia domyślne**. Jeśli używasz Azure IR do skopiowania (źródłowy i odbiorczy znajdują się w chmurze), w kontroli dostępu (IAM), co najmniej udzielić **czytnika** roli, aby umożliwić wykryć Data Lake Store regionu fabryki danych. Aby uniknąć tej roli IAM jawnie [utworzyć IR Azure](create-azure-integration-runtime.md#create-azure-ir) z lokalizacją Twojej usługi Data Lake Store i skojarz w usłudze Data Lake Store połączonej usługi, jak w poniższym przykładzie.
 
 W fabryce danych Azure nie trzeba określić wszelkie właściwości poza ogólne informacje o usłudze Data Lake Store w połączonej usłudze.
 

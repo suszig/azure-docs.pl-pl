@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
 ms.author: glenga
-ms.openlocfilehash: 2ca511bf0c145878cc80bdbae694f581fd487820
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: ce28b6eea9843ce423b57e539a844b4dacb552aa
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure kolejki magazynu powiązania dla usługi Azure Functions
 
@@ -458,6 +458,15 @@ W języku C# i skryptu C# zapisu wielu komunikatów z kolejki przy użyciu jedne
 * [CloudQueue](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue)
 
 W funkcji JavaScript, za pomocą `context.bindings.<name>` dostępu do danych wyjściowych kolejki wiadomości. Ciąg lub obiekt możliwy do serializacji JSON można użyć do ładunku elementu kolejki.
+
+
+## <a name="exceptions-and-return-codes"></a>Wyjątki i kody powrotne
+
+| Powiązanie |  Informacje ogólne |
+|---|---|
+| Kolejka | [Kody błędów kolejki](https://docs.microsoft.com/rest/api/storageservices/fileservices/table-service-error-codes) |
+| Obiekt blob, tabeli, kolejki | [Kody błędów magazynu](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
+| Obiekt blob, tabeli, kolejki |  [Rozwiązywanie problemów](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
 ## <a name="next-steps"></a>Kolejne kroki
 

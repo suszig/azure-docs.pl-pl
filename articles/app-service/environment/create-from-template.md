@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: b3829f0e1b87451bf0706edc268359be5c4480bc
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 015bf031aea6b79fcca0a416253e9aa47bb245b6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Utwórz ASE za pomocą szablonu usługi Azure Resource Manager
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Środowiska usługi aplikacji Azure (ASEs) mogą być tworzone z Internetu dostępnym punkcie końcowym lub punkt końcowy wewnętrznego adresu w sieci wirtualnej platformy Azure (VNet). Podczas tworzenia z wewnętrzny punkt końcowy tego punktu końcowego jest udostępniane przez platformę Azure składnika o nazwie wewnętrznego modułu równoważenia obciążenia (ILB). ASE na wewnętrzny adres IP jest nazywany ASE ILB. ASE z publiczny punkt końcowy jest nazywany ASE zewnętrznych. 
 
 ASE mogą być tworzone przy użyciu portalu Azure lub szablonu usługi Azure Resource Manager. W tym artykule przedstawiono kroki i składni konieczne utworzenie ASE zewnętrznych lub ILB ASE z szablonami usługi Resource Manager. Aby dowiedzieć się, jak utworzyć ASE w portalu Azure, zobacz [wprowadzić zewnętrznego ASE] [ MakeExternalASE] lub [upewnij ASE ILB][MakeILBASE].
@@ -40,7 +40,7 @@ Aby zautomatyzować tworzenie użytkownika ASE:
 
 2. Po utworzeniu sieci ASE ILB przekazaniu pasujący domenę ILB ASE certyfikat SSL.
 
-3. Przekazany certyfikat SSL jest przypisany do ILB ASE jako swojego certyfikatu SSL "domyślny".  Ten certyfikat jest używany dla ruchu protokołu SSL do aplikacji w ILB ASE, jeśli korzystają z typowych domeny głównej, przypisane do ASE (na przykład https://someapp.mycustomrootcomain.com).
+3. Przekazany certyfikat SSL jest przypisany do ILB ASE jako swojego certyfikatu SSL "domyślny".  Ten certyfikat jest używany dla ruchu protokołu SSL do aplikacji w ILB ASE, jeśli korzystają z typowych domeny głównej, przypisane do ASE (na przykład https://someapp.mycustomrootdomain.com).
 
 
 ## <a name="create-the-ase"></a>Utwórz ASE
@@ -69,7 +69,7 @@ Uzyskaj prawidłowy certyfikat SSL przy użyciu certyfikatu wewnętrznego urzęd
 * **Temat**: ten atrybut musi być równa **.your głównego domeny here.com*.
 * **Alternatywna nazwa podmiotu**: ten atrybut musi zawierać zarówno **.your głównego domeny here.com* i **.scm.your-głównego-domeny-here.com*. Połączenia SSL do witryny SCM/Kudu skojarzone z każdej aplikacji używać adresu w postaci *your-app-name.scm.your-root-domain-here.com*.
 
-Przy użyciu prawidłowego certyfikatu SSL w ręcznie potrzebne są dwa dodatkowe czynności przygotowawczych. Konwertuj/Zapisz certyfikat jako plik pfx. Pamiętać, że plik PFX musi zawierać wszystkie pośrednie i certyfikaty główne. Zabezpiecz ją przy użyciu hasła.
+Przy użyciu prawidłowego certyfikatu SSL w ręcznie potrzebne są dwa dodatkowe czynności przygotowawczych. Przekonwertuj lub zapisz certyfikat SSL jako plik pfx. Pamiętać, że plik PFX musi zawierać wszystkie pośrednie i certyfikaty główne. Zabezpiecz go przy użyciu hasła.
 
 Plik PFX wymaga do przekonwertowania na ciąg w formacie base64, ponieważ certyfikat SSL jest przekazywany za pomocą szablonu usługi Resource Manager. Ponieważ szablonów Resource Manager są plikami tekstowymi, należy przekonwertować plik PFX do ciąg w formacie base64. W ten sposób może zostać dołączony jako parametr szablonu.
 
@@ -146,11 +146,11 @@ Po zakończeniu szablonu aplikacji w ILB ASE są dostępne za pośrednictwem pro
 Jednak podobnie jak aplikacji uruchamianych w publicznej usługi wielodostępnym, deweloperzy mogą konfigurować nazwy hosta niestandardowego dla poszczególnych aplikacji. Może również skonfigurować unikatowe powiązania certyfikatu SNI SSL dla poszczególnych aplikacji.
 
 ## <a name="app-service-environment-v1"></a>Środowisko usługi App Service — wersja 1 ##
-Środowiska usługi aplikacji ma dwie wersje: ASEv1 i ASEv2. Oparto na ASEv2 powyższych informacji. W tej sekcji przedstawiono różnice między ASEv1 i ASEv2.
+Środowisko App Service Environment występuje w dwóch wersjach: ASEv1 i ASEv2. Podane wcześniej informacje dotyczyły wersji 2 — ASEv2. W tej sekcji przedstawiono różnice między środowiskami ASEv1 i ASEv2.
 
-ASEv1 zarządzania wszystkie zasoby ręcznie. Zawierającej interfejsy, pracowników i adresy IP używane dla opartych na protokole SSL. Zanim można skalować w poziomie planu usługi aplikacji, musisz skalowanie puli procesów roboczych, który chcesz udostępnić go.
+ASEv1 zarządzania wszystkie zasoby ręcznie. Obejmuje to frontony, procesy robocze oraz adresy IP używane do obsługi połączeń SSL opartych na protokole IP. Zanim można skalować w poziomie planu usługi aplikacji, musisz skalowanie puli procesów roboczych, który chcesz udostępnić go.
 
-ASEv1 używa innego modelu cenowego z ASEv2. W ASEv1 płacisz za każdym vCPU przydzielone. Zawierającą Vcpu, używane w przypadku interfejsy lub pracowników, którzy nie są hosting dowolnych zadań. W ASEv1 domyślny rozmiar maksymalny skali ASE jest 55 hosty łącznie. Zawierającej pracowników i interfejsy. Jedną z zalet ASEv1 jest, że może on zostać wdrożony w klasycznej sieci wirtualnej i sieci wirtualnych Menedżera zasobów. Aby dowiedzieć się więcej na temat ASEv1, zobacz [wprowadzenie v1 środowiska usługi aplikacji][ASEv1Intro].
+W przypadku środowiska ASEv1 używany jest inny model cenowy niż w przypadku środowiska ASEv2. W przypadku środowiska ASEv1 płacisz za każdy przydzielony procesor vCPU. Zawierającą Vcpu, używane w przypadku interfejsy lub pracowników, którzy nie są hosting dowolnych zadań. W przypadku środowiska ASEv1 domyślny rozmiar w skali maksymalnej środowiska ASE to 55 hostów łącznie. Obejmuje to frontony i procesy robocze. Jedną z zalet środowiska ASEv1 jest to, że można je wdrożyć w klasycznej sieci wirtualnej oraz w sieci wirtualnej usługi Resource Manager. Aby dowiedzieć się więcej na temat środowiska ASEv1, zobacz [App Service Environment v1 introduction][ASEv1Intro] (Wprowadzenie do środowiska App Service Environment w wersji 1).
 
 Aby utworzyć ASEv1 przy użyciu szablonu usługi Resource Manager, zobacz [utworzyć przy użyciu szablonu usługi Resource Manager v1 ILB ASE][ILBASEv1Template].
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: e2176a41a115d77a60a8348d2d1b5928109dd65b
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 2a363f663677eb7078b7ae06fde374cdbe083fd5
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Monitorowanie bazy danych SQL Azure przy użyciu analiza SQL Azure (wersja zapoznawcza) w analizy dzienników
 
@@ -142,7 +142,7 @@ Za pomocą perspektywy czeka zapytania i czas trwania kwerendy można skorelowa�
 
 Można łatwo tworzyć alerty o dane pochodzące z zasobów bazy danych SQL Azure. Poniżej przedstawiono kilka przydatne [wyszukiwania dziennika](log-analytics-log-searches.md) zapytań, które służy do tworzenia alertu:
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 
 *Wysoka DTU na bazę danych Azure SQL*

@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: 67661e03e65cde3ec2f1aafd5ef755899cf0c77b
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 2e17d30dcc95677053fd6c8c1ee75fd3cc0afb5b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Odnajdywanie i ocenić dużych środowiska VMware
 
@@ -27,7 +27,7 @@ W tym artykule opisano sposób oceny dużej liczby lokalnych maszyn wirtualnych 
 
 Zaplanuj odnajdywania i oceny na podstawie limitów następujące:
 
-| **Jednostki** | **Limit komputera** |
+| **Entity** | **Limit komputera** |
 | ---------- | ----------------- |
 | Project    | 1,500              | 
 | Odnajdowanie  | 1000              |
@@ -38,7 +38,7 @@ Zaplanuj odnajdywania i oceny na podstawie limitów następujące:
 - Jeśli masz maszyny 1,001 do 1500 należy pojedynczego projektu z dwóch odnajdywania w nim.
 - Jeśli masz ponad 1500 urządzeń, należy utworzyć wiele projektów i wykonywać wiele operacje odnajdywania, zgodnie z wymaganiami. Na przykład:
     - Jeśli masz maszyny 3000, można skonfigurować dwa projekty z odnajdywania dwie lub trzy projekty z jednym odnajdywania.
-    - Jeśli masz maszyny 5000, można skonfigurować cztery projekty: dwie o odnajdywania 1500 maszyn i jeden z odnajdywaniem 500 maszyn. Alternatywnie można skonfigurować pięć projektów z jednym odnajdywania w każdej z nich. 
+    - Jeśli masz maszyny 5000, można skonfigurować cztery projekty: trzy z odnajdywania 1500 maszyn i jeden z odnajdywaniem 500 maszyn. Alternatywnie można skonfigurować pięć projektów z jednym odnajdywania w każdej z nich. 
 
 ## <a name="plan-multiple-discoveries"></a>Planowanie wielu odnajdywania
 
@@ -49,7 +49,7 @@ Można użyć tego samego modułu zbierającego migracji Azure celu odkrycia wie
 - Firma Microsoft zaleca do celów oceny maszyn z zależnościami, w tym samym projekcie i oceny. W programie vCenter Server upewnij się, że zależnych maszyny są w tym samym folderze, datacenter lub klastra na potrzeby oceny.
 
 
-## <a name="create-a-project"></a>Utwórz projekt
+## <a name="create-a-project"></a>Tworzenie projektu
 
 Tworzenie projektu migracji Azure zgodnie z wymaganiami:
 
@@ -88,9 +88,9 @@ Sprawdź, czy plik komórek jajowych jest bezpieczne, przed przystąpieniem do w
 
     **Algorytm** | **Wartość skrótu**
     --- | ---
-    MD5 | 8779eea842a1ac465942295c988ac0c7
-    SHA1 | c136c52a0f785e1fd98865e16479dd103704887d
-    SHA256 | 5143b1144836f01dd4eaf84ff94bc1d2c53f51ad04b1ca43ade0d14a527ac3f9
+    MD5 | cefd96394198b92870d650c975dbf3b8
+    SHA1 | 4367a1801cf79104b8cd801e4d17b70596481d6f
+    SHA256 | fda59f076f1d7bd3ebf53c53d1691cc140c7ed54261d0dc4ed0b14d7efef0ed9
 
     W wersji komórek jajowych 1.0.8.40:
 
@@ -133,14 +133,14 @@ W poniższej tabeli wymieniono także wyniki oceny, które zostaną zmienione, j
 
 |Licznik                                  |Poziom    |Poziom na urządzenie  |Ocena wpływu                               |
 |-----------------------------------------|---------|------------------|------------------------------------------------|
-|CPU.Usage.AVERAGE                        | 1       |Nie dotyczy                |Zalecany rozmiar maszyny Wirtualnej i kosztów                    |
-|mem.Usage.AVERAGE                        | 1       |Nie dotyczy                |Zalecany rozmiar maszyny Wirtualnej i kosztów                    |
+|cpu.usage.average                        | 1       |Nie dotyczy                |Zalecany rozmiar maszyny Wirtualnej i kosztów                    |
+|mem.usage.average                        | 1       |Nie dotyczy                |Zalecany rozmiar maszyny Wirtualnej i kosztów                    |
 |virtualDisk.read.average                 | 2       |2                 |Rozmiar dysku, kosztem magazynowania i rozmiar maszyny Wirtualnej         |
 |virtualDisk.write.average                | 2       |2                 |Rozmiar dysku, kosztem magazynowania i rozmiar maszyny Wirtualnej         |
 |virtualDisk.numberReadAveraged.average   | 1       |3                 |Rozmiar dysku, kosztem magazynowania i rozmiar maszyny Wirtualnej         |
 |virtualDisk.numberWriteAveraged.average  | 1       |3                 |Rozmiar dysku, kosztem magazynowania i rozmiar maszyny Wirtualnej         |
-|NET.RECEIVED.AVERAGE                     | 2       |3                 |Koszt rozmiar i sieci maszyny Wirtualnej                        |
-|NET.Transmitted.AVERAGE                  | 2       |3                 |Koszt rozmiar i sieci maszyny Wirtualnej                        |
+|net.received.average                     | 2       |3                 |Koszt rozmiar i sieci maszyny Wirtualnej                        |
+|net.transmitted.average                  | 2       |3                 |Koszt rozmiar i sieci maszyny Wirtualnej                        |
 
 > [!WARNING]
 > Jeśli właśnie ustawione na wyższy poziom statystyki potrwa na dzień do generowania liczników wydajności. Tak firma Microsoft zaleca uruchomienia odnajdywania po jednym dniu.
@@ -162,7 +162,7 @@ Dla każdego odnajdowania, które należy wykonać możesz uruchomić moduł zbi
 
    Moduł zbierający sprawdza, czy działa usługa modułu zbierającego. Usługa jest instalowany domyślnie w module zbierającym maszyny Wirtualnej.
 
-   d. Pobierz i zainstaluj VMware PowerCLI.
+   c. Pobierz i zainstaluj VMware PowerCLI.
 
 5. W **Określ szczegóły serwera vCenter**, wykonaj następujące czynności:
     - Określ nazwę (FQDN) lub adres IP serwera vCenter.

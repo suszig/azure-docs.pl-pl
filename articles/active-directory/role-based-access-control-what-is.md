@@ -3,7 +3,7 @@ title: "Zarządzaj dostępem i uprawnieniami RBAC - Azure RBAC | Dokumentacja fi
 description: "Rozpocznij zarządzanie dostępem przy użyciu kontroli dostępu opartej na rolach na platformie Azure w portalu Azure. Przypisz uprawnienia w katalogu za pomocą przypisań ról."
 services: active-directory
 documentationcenter: 
-author: curtand
+author: rolyon
 manager: mtillman
 ms.assetid: 8f8aadeb-45c9-4d0e-af87-f1f79373e039
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/02/2018
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: rqureshi
-ms.openlocfilehash: ce9a9c95664a818919df756917180e102a5f1e0a
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: aa0f5be837daf70c8d9ede38b3fd9b4230f4e1c9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="get-started-with-role-based-access-control-in-the-azure-portal"></a>Rozpoczynanie pracy z opartej na rolach kontroli dostępu w portalu Azure
 Nastawionych zabezpieczeń należy skoncentrować się na zapewniając pracownikom dokładne uprawnienia potrzebne. Za dużo uprawnienia mogą uwidaczniać konta na ataki. Za mało uprawnienia oznacza, że pracownicy nie można pobrać ich pracować wydajnie. Azure opartej na rolach kontroli dostępu (RBAC) pomaga rozwiązać ten problem, oferując precyzyjne zarządzanie dostępem dla platformy Azure.

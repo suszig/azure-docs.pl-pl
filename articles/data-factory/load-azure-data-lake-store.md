@@ -11,125 +11,124 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 3f73cd65b0ceb3148ce8ceb83d7b4e1be1280077
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 4446f83563293d0834f241dcca382ccf6ea99403
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="load-data-into-azure-data-lake-store-using-azure-data-factory"></a>Ładowanie danych do usługi Azure Data Lake Store przy użyciu fabryki danych Azure
+# <a name="load-data-into-azure-data-lake-store-by-using-azure-data-factory"></a>Ładowanie danych do usługi Azure Data Lake Store przy użyciu fabryki danych Azure
 
-[Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) jest całego przedsiębiorstwa hiperskali repozytorium na potrzeby obciążeń analizy dużych danych big data. Usługa Azure Data Lake umożliwia przechwytywanie danych dowolnego typu, o dowolnym rozmiarze i szybkości wprowadzania oraz przechowywanie ich w jednym miejscu na potrzeby analiz operacyjnych i poznawczych.
+[Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) jest całego przedsiębiorstwa hiperskali repozytorium na potrzeby obciążeń analizy dużych danych big data. Usługa Azure Data Lake umożliwia przechwytywanie danych dowolnego rozmiar, typ i szybkość wprowadzanie. Dane są przechwytywane w jednym miejscu na potrzeby analiz operacyjnych i poznawczych.
 
-Fabryka danych Azure to usługa integracji pełni zarządzanych danych oparte na chmurze, używany do wypełniania lake przy użyciu danych z istniejącego systemu i zapisywanie cenny czas podczas tworzenia rozwiązań analizy. Poniżej przedstawiono najważniejsze zalety ładowania danych do usługi Azure Data Lake Store przy użyciu fabryki danych Azure:
+Fabryka danych Azure to usługa integracji pełni zarządzanych danych oparte na chmurze. Usługa służy do wypełniania lake z danych z istniejącego systemu i zaoszczędzić czas podczas tworzenia rozwiązań analizy.
 
-* **Można skonfigurować**: Kreator intuicyjne krok 5 z bez skryptu wymagane.
-* **Obsługa magazynu danych sformatowanego**: wbudowaną obsługę bogaty zestaw lokalnymi i magazyny danych oparte na chmurze, zobacz szczegółową listę w [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats) tabeli.
-* **Bezpieczne i zgodne**: dane są przesyłane za pośrednictwem protokołu HTTPS lub ExpressRoute i zapewnia obecności usługi globalne dane nigdy nie przekracza granic geograficznych
-* **Wysoka wydajność**: maksymalnie 1 GB/s danych ładowania szybkości do usługi Azure Data Lake Store. Dowiedz się więcej szczegółów z [wydajności działania kopiowania](copy-activity-performance.md).
+Fabryka danych Azure oferuje następujące korzyści dla ładowania danych do usługi Azure Data Lake Store:
 
-W tym artykule przedstawiono sposób użycia narzędzia kopii fabryki danych do **ładowanie danych z usługi Amazon S3 do usługi Azure Data Lake Store**. Można wykonać podobne kroki można skopiować danych z innych typów magazynów danych.
+* **Można skonfigurować**: bez skryptu wymagane intuicyjne kreatora krok 5.
+* **Obsługa magazynu danych sformatowanego**: wbudowaną obsługę bogaty zestaw lokalnymi i magazyny danych oparte na chmurze. Aby uzyskać szczegółową listę, zobacz tabelę [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats).
+* **Bezpieczne i zgodne**: dane są przesyłane za pośrednictwem protokołu HTTPS lub ExpressRoute. Obecność usługi global service zapewnia, że dane nigdy nie przekracza granic geograficznych.
+* **Wysoka wydajność**: maksymalnie 1-GB/s danych ładowania szybkości do usługi Azure Data Lake Store. Aby uzyskać więcej informacji, zobacz [wydajności działania kopiowania](copy-activity-performance.md).
+
+W tym artykule przedstawiono sposób użycia narzędzia kopii fabryki danych do _ładowanie danych z usługi Amazon S3 do usługi Azure Data Lake Store_. Można wykonać podobne kroki można skopiować danych z innych typów magazynów danych.
 
 > [!NOTE]
->  Aby uzyskać ogólne informacje o możliwościach fabryki danych podczas kopiowania danych do/z usługi Azure Data Lake Store, zobacz [kopiowanie danych do i z usługi Azure Data Lake Store przy użyciu fabryki danych Azure](connector-azure-data-lake-store.md) artykułu.
+> Aby uzyskać więcej informacji, zobacz [kopiowanie danych do i z usługi Azure Data Lake Store przy użyciu fabryki danych Azure](connector-azure-data-lake-store.md).
 >
-> Ten artykuł dotyczy wersji 2 usługi Data Factory, która jest obecnie dostępna w wersji zapoznawczej. Jeśli używasz wersji 1 usługi fabryka danych, która jest ogólnie dostępna (GA), zobacz [działanie kopiowania w wersji 1](v1/data-factory-data-movement-activities.md).
+> Ten artykuł dotyczy wersji 2 usługi Azure Data Factory, która jest obecnie dostępna w wersji zapoznawczej. Jeśli używasz wersji 1 usługi fabryka danych, która jest ogólnie dostępna (GA), zobacz [działanie kopiowania w fabryce danych Azure w wersji 1](v1/data-factory-data-movement-activities.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* **Subskrypcja platformy Azure**. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
-* **Azure Data Lake Store**. Jeśli nie masz konta usługi Data Lake Store, zobacz [Utwórz konto usługi Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md#create-an-azure-data-lake-store-account) artykułu kroki go utworzyć.
-* **Amazon S3**. W tym artykule pokazano, jak skopiować dane z usługi Amazon S3. Wykonując kroki podobne, można użyć innych magazynów danych.
+* Subskrypcja platformy Azure: Jeśli nie masz subskrypcji platformy Azure, Utwórz [bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+* Azure Data Lake Store: Jeśli nie masz konta usługi Data Lake Store, zobacz instrukcje w [Utwórz konto usługi Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md#create-an-azure-data-lake-store-account).
+* Amazon S3: W tym artykule pokazano, jak skopiować dane z usługi Amazon S3. Wykonując kroki podobne, można użyć innych magazynów danych.
 
 ## <a name="create-a-data-factory"></a>Tworzenie fabryki danych
 
-1. Kliknij przycisk **NOWY** w lewym menu, kliknij pozycję **Dane + analiza**, a następnie kliknij przycisk **Data Factory**. 
+1. W menu po lewej stronie wybierz **nowy** > **dane i analiza** > **fabryki danych**:
    
-   ![Nowy-> Fabryka danych](./media/load-data-into-azure-data-lake-store/new-azure-data-factory-menu.png)
-2. W **nowa fabryka danych** Podaj wartości, jak pokazano na poniższym zrzucie ekranu: 
+   ![Tworzenie nowego fabryki danych](./media/load-data-into-azure-data-lake-store/new-azure-data-factory-menu.png)
+2. W **nowa fabryka danych** Podaj wartości dla pól, które są wyświetlane na poniższej ilustracji: 
       
-     ![Nowa strona fabryki danych](./media/load-data-into-azure-data-lake-store//new-azure-data-factory.png)
+   ![Strona Nowa fabryka danych](./media/load-data-into-azure-data-lake-store//new-azure-data-factory.png)
  
-   * **Nazwa.** Wprowadź unikatową nazwę globalne dla fabryki danych. Jeśli wystąpi poniższy błąd, zmień nazwę fabryki danych (np. twojanazwaADFTutorialDataFactory) i spróbuj utworzyć ją ponownie. Zobacz [fabryki danych - reguły nazewnictwa](naming-rules.md) artykułu dla reguł nazewnictwa artefakty fabryki danych.
-  
-            `Data factory name "LoadADLSDemo" is not available`
+    * **Nazwa**: Wprowadź globalnie unikatowej nazwy dla fabryką danych Azure. Jeśli zostanie wyświetlony błąd "Nazwa fabryki danych \"LoadADLSDemo\" jest niedostępny," Wprowadź inną nazwę dla fabryki danych. Na przykład można użyć nazwy  _**twojanazwa**_**ADFTutorialDataFactory**. Spróbuj ponownie utworzyć fabryki danych. Zasady nazewnictwa artefaktów fabryki danych, zobacz [regułami nazywania dla fabryki danych](naming-rules.md).
+    * **Subskrypcja**: Wybierz subskrypcję platformy Azure, w którym można utworzyć fabryki danych. 
+    * **Grupa zasobów**: Wybierz istniejącą grupę zasobów z listy rozwijanej lub wybierz **Utwórz nowy** opcję i wprowadź nazwę grupy zasobów. Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md) (Używanie grup zasobów do zarządzania zasobami platformy Azure).  
+    * **Wersja**: Wybierz **V2 (wersja zapoznawcza)**.
+    * **Lokalizacja**: Wybierz lokalizację dla fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych, które są używane przez fabrykę danych może być w innych lokalizacjach i regionach. Te magazyny danych obejmują usługi Azure Data Lake Store, usługi Azure Storage, baza danych SQL Azure i tak dalej.
 
-    * **Subskrypcja.** Wybierz **subskrypcję** Azure, w której chcesz utworzyć fabrykę danych. 
-    * **Grupy zasobów.** Wybierz istniejącą grupę zasobów z listy rozwijanej lub wybierz **Utwórz nowy** opcję i wprowadź nazwę grupy zasobów. Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md) (Używanie grup zasobów do zarządzania zasobami platformy Azure).  
-    * **Wersja.** Wybierz **V2 (wersja zapoznawcza)**.
-    * **Lokalizacja.** Wybierz lokalizację dla fabryki danych. Tylko obsługiwane lokalizacje są wyświetlane na liście rozwijanej. Magazyny danych (Azure Data Lake Store, usługi Azure Storage, baza danych SQL Azure itp.) używany przez fabryki danych może być w innych lokalizacjach lub regionach.
-
-3. Kliknij przycisk **Utwórz**.
-4. Po utworzeniu pełnej, przejdź do pozycji z fabryką danych i zostanie wyświetlony **fabryki danych** strony, jak pokazano w obrazie. Kliknij przycisk **autora & Monitor** Kafelek, aby uruchomić aplikację integracji danych w osobnej karcie. 
+3. Wybierz pozycję **Utwórz**.
+4. Po zakończeniu tworzenia go z fabryką danych. Zostanie wyświetlony **fabryki danych** strony głównej, jak pokazano na poniższej ilustracji: 
    
    ![Strona główna fabryki danych](./media/load-data-into-azure-data-lake-store/data-factory-home-page.png)
 
+   Wybierz **autora & Monitor** Kafelek, aby uruchomić aplikację integracji danych w osobnej karcie.
+
 ## <a name="load-data-into-azure-data-lake-store"></a>Ładowanie danych do usługi Azure Data Lake Store
 
-1. W strony wprowadzenie, kliknij przycisk **kopiowania danych** Kafelek, aby uruchomić narzędzie Kopia danych. 
+1. W **wprowadzenie** wybierz pozycję **kopiowania danych** Kafelek, aby uruchomić narzędzie kopii danych: 
 
-   ![Kopiowanie danych narzędzie kafelka](./media/load-data-into-azure-data-lake-store/copy-data-tool-tile.png)
-2. W **właściwości** strony narzędzia kopii danych, określ **CopyFromAmazonS3ToADLS** dla **Nazwa zadania**i kliknij przycisk **dalej**. 
+   ![Kafelek narzędzia do kopiowania danych](./media/load-data-into-azure-data-lake-store/copy-data-tool-tile.png)
+2. W **właściwości** określ **CopyFromAmazonS3ToADLS** dla **Nazwa zadania** pola i wybierz pozycję **dalej**:
 
-    ![Kopiowanie danych strony właściwości narzędzia](./media/load-data-into-azure-data-lake-store/copy-data-tool-properties-page.png)
-3. W **magazynu danych źródła** wybierz pozycję **Amazon S3**i kliknij przycisk **dalej**.
+    ![Strona właściwości](./media/load-data-into-azure-data-lake-store/copy-data-tool-properties-page.png)
+3. W **magazynu danych źródła** wybierz pozycję **Amazon S3**i wybierz **dalej**:
 
-    ![Strona magazynu danych źródła](./media/load-data-into-azure-data-lake-store/source-data-store-page.png)
+    ![Strona Źródłowy magazyn danych](./media/load-data-into-azure-data-lake-store/source-data-store-page.png)
 4. W **połączenia Określ Amazon S3** wykonaj następujące czynności: 
-    1. Określ **uzyskać dostęp do Identyfikatora klucza**.
-    2. Określ **klucza tajnego dostępu**.
-    3. Kliknij przycisk **Dalej**. 
+   1. Określ **identyfikator klucza dostępu** wartość.
+   2. Określ **klucz tajny klucz dostępu** wartość.
+   3. Wybierz opcję **Dalej**.
+   
+   ![Określ konto Amazon S3](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account.png)
+5. W **wybierz wejściowy plik lub folder** strony, przejdź do folderu i pliku, który chcesz skopiować. Wybierz folderów i plików, wybierz pozycję **wybierz**, a następnie wybierz **dalej**:
 
-        ![Określ konto Amazon S3](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account.png)
-5. W **wybierz wejściowy plik lub folder** , przejdź do folderu pliku chcesz kopiować, wybierz i kliknij przycisk **wybierz**, następnie kliknij przycisk **dalej**. 
+    ![Wybieranie pliku lub folderu wejściowego](./media/load-data-into-azure-data-lake-store/choose-input-folder.png)
 
-    ![Wybierz wejściowy plik lub folder](./media/load-data-into-azure-data-lake-store/choose-input-folder.png)
+6. W **magazyn danych docelowy** wybierz pozycję **Azure Data Lake Store**i wybierz **dalej**:
 
-6. W **magazyn danych docelowy** wybierz pozycję **Azure Data Lake Store**i kliknij przycisk **dalej**. 
+    ![Strona Docelowy magazyn danych](./media/load-data-into-azure-data-lake-store/destination-data-storage-page.png)
 
-    ![Docelowa strona magazynu danych](./media/load-data-into-azure-data-lake-store/destination-data-storage-page.png)
-
-7. Na tej stronie wybierz zachowanie kopii, sprawdzając **kopiowania plików rekursywnie** i **binarne kopiowania** (kopiowanie plików jako — jest) opcje. Kliknij przycisk **Dalej**.
+7. Wybierz zachowanie kopiowania, wybierając **kopiowania plików rekursywnie** i **binarne kopiowania** (kopiowanie plików jako — jest) opcje. Wybierz **dalej**:
 
     ![Określ folder wyjściowy](./media/load-data-into-azure-data-lake-store/specify-binary-copy.png)
 
 8. W **połączenia Określ Data Lake Store** wykonaj następujące czynności: 
 
-    1. Wybierz usługi Data Lake Store dla **nazwa konta usługi Data Lake Store**.
-    2. Określ usługę podmiotu zabezpieczeń informacje w tym **dzierżawy**, **usługi identyfikator podmiotu zabezpieczeń**, i **klucz główny usługi**.
-    3. Kliknij przycisk **Dalej**. 
-
-    > [!IMPORTANT]
-    > W tym przewodniku, należy użyć **nazwy głównej usługi** do uwierzytelniania usługi data lake store. Postępuj zgodnie z instrukcjami [tutaj](connector-azure-data-lake-store.md#using-service-principal-authentication) i upewnij się, że można przydzielić usługi głównej odpowiednie uprawnienia w usłudze Azure Data Lake Store.
-
-    ![Określ konto usługi Azure Data Lake Store](./media/load-data-into-azure-data-lake-store/specify-adls.png)
-
-9. W **wybierz dane wyjściowe pliku lub folderu** określ **copyfroms3**, następnie kliknij przycisk **dalej**. 
+   1. Wybierz usługi Data Lake Store dla **nazwa konta usługi Data Lake Store**.
+   2. Określ informacje o głównych usługi: **dzierżawy**, **usługi identyfikator podmiotu zabezpieczeń**, i **klucz główny usługi**.
+   3. Wybierz opcję **Dalej**.
+   
+   > [!IMPORTANT]
+   > W tym przewodniku, należy użyć _nazwy głównej usługi_ do uwierzytelniania usługi Data Lake Store. Pamiętaj umożliwić nazwy głównej usługi odpowiednie uprawnienia w usłudze Azure Data Lake Store, wykonując następujące [tych instrukcji](connector-azure-data-lake-store.md#using-service-principal-authentication).
+   
+   ![Określ konto usługi Azure Data Lake Store](./media/load-data-into-azure-data-lake-store/specify-adls.png)
+9. W **wybierz dane wyjściowe pliku lub folderu** wprowadź **copyfroms3** jako nazwa folderu wyjściowego, a następnie wybierz **dalej**: 
 
     ![Określ folder wyjściowy](./media/load-data-into-azure-data-lake-store/specify-adls-path.png)
 
+10. W **ustawienia** wybierz pozycję **dalej**:
 
-10. W **ustawienia** kliknij przycisk **dalej**. 
-
-    ![Ustawienia strony](./media/load-data-into-azure-data-lake-store/copy-settings.png)
-11. W **Podsumowanie** strony, przejrzyj ustawienia i kliknij przycisk **dalej**.
+    ![Strona Ustawienia](./media/load-data-into-azure-data-lake-store/copy-settings.png)
+11. W **Podsumowanie** strony, przejrzyj ustawienia, a następnie wybierz **dalej**:
 
     ![Strona podsumowania](./media/load-data-into-azure-data-lake-store/copy-summary.png)
-12. W **stronę wdrożenia**, kliknij przycisk **monitora** do monitorowania procesu (zadania).
+12. W **stronę wdrożenia**, wybierz pozycję **monitora** do monitorowania procesu (zadania):
 
-    ![Strona wdrożenia](./media/load-data-into-azure-data-lake-store/deployment-page.png)
-13. Zwróć uwagę, że **Monitor** wybierana jest karta po lewej stronie. Zobacz łącza, aby wyświetlić szczegóły uruchomienia działania i ponowne uruchomienie procesu w **akcje** kolumny. 
+    ![Strona Wdrażanie](./media/load-data-into-azure-data-lake-store/deployment-page.png)
+13. Zwróć uwagę, że karta **Monitor** po lewej stronie jest automatycznie wybrana. **Akcje** kolumna zawiera łącza, aby wyświetlić szczegóły uruchomienia działania i ponownie uruchomić potoku:
 
-    ![Uruchamia Monitor potoku](./media/load-data-into-azure-data-lake-store/monitor-pipeline-runs.png)
-14. Aby wyświetlić skojarzone z potoku Uruchom uruchomień działania, kliknij przycisk **odbywa się działanie widoku** łącze w **akcje** kolumny. Potoku, jest tylko jedno działanie (działanie kopiowania), tak aby widoczne tylko jeden wpis. Aby powrócić do potoku uruchamia widok, kliknij przycisk **potoki** łącze u góry. Kliknij przycisk **Odśwież** Aby odświeżyć listę. 
+    ![Monitorowanie uruchomień potoku](./media/load-data-into-azure-data-lake-store/monitor-pipeline-runs.png)
+14. Zaznacz, aby wyświetlić uruchomień działania, które są skojarzone z potoku Uruchom **odbywa się działanie widoku** łącze w **akcje** kolumny. Potoku, jest tylko jedno działanie (działanie kopiowania), tak aby widoczne tylko jeden wpis. Wybierz, aby wrócić do potoku uruchamia widok **potoki** łącze u góry. Wybierz pozycję **Odśwież**, aby odświeżyć listę. 
 
-    ![Monitor uruchomień działania](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
+    ![Monitorowanie uruchomień działania](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 
-15. Dodatkowo można monitorować szczegóły wykonywania każde działanie kopiowania, klikając **szczegóły** łącze w obszarze **akcje** w działaniu widok monitorowania. Przedstawia on informacje o tym ilość danych skopiowana ze źródła do zbiornika, przepływności, kroki przechodzi przez o odpowiedni czas trwania i użyć konfiguracji.
+15. Aby monitorować szczegóły wykonywania dla każdego działania kopiowania, wybierz **szczegóły** łącze w obszarze **akcje** w działaniu widok monitorowania. Możliwość monitorowania szczegółów, takich jak ilość danych skopiowana ze źródła do zbiornika, przepływność danych, wykonywanie czynności z odpowiedni czas trwania używane konfiguracje:
 
     ![Monitorowanie aktywności szczegóły uruchomienia](./media/load-data-into-azure-data-lake-store/monitor-activity-run-details.png)
 
-16. Upewnij się, że dane są kopiowane do usługi Azure Data Lake Store. 
+16. Sprawdź, czy dane są kopiowane do usługi Azure Data Lake Store: 
 
     ![Sprawdź dane wyjściowe usługi Data Lake Store](./media/load-data-into-azure-data-lake-store/adls-copy-result.png)
 

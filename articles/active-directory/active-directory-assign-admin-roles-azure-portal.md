@@ -16,11 +16,11 @@ ms.date: 01/23/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro;
-ms.openlocfilehash: 918e1c535ea8779a8aff3d94c6f1ef2cb2a17fd5
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: de26452dfb32438ef56fa0c9a31a24b05987b48c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Przypisywanie ról administratorów w usłudze Azure Active Directory
 
@@ -64,7 +64,7 @@ Dostępne są następujące role administratora:
 
 * **Gość zapraszającej**: użytkownicy w tej roli mogą zarządzać użytkownika zaproszeń do skorzystania z usługi Azure Active Directory B2B gościa, gdy ustawienia użytkownika "Zaprosić elementy członkowskie" jest ustawiona na nie. Więcej informacji na temat współpracy B2B w [dotyczące usługi Azure AD B2B współpracy między firmami](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Nie ma inne uprawnienia.
 
-* **Administrator ochrony informacji**: użytkownicy z tą rolą mogą uzyskiwać dostęp do usługi Azure Information Protection w portalu Azure. Ich konfigurowanie etykiety dla zasad usługi Azure Information Protection, Zarządzanie szablonami ochrony i aktywować ochrony.
+<!-- * **Information Protection Administrator**: Users with this role can access Azure Information Protection in the Azure portal. They can configure labels for the Azure Information Protection policy, manage protection templates, and activate protection.-->
 
 * **Administrator usługi Intune**: użytkownicy z tą rolą uprawnień globalnych w ramach programu Microsoft Intune Online, gdy usługa jest obecny. Ponadto ta rola zawiera zdolność do zarządzania użytkownikami i urządzeniami, aby skojarzyć zasady, oraz tworzenie grup i zarządzanie nimi.
 
@@ -128,11 +128,11 @@ Dostępne są następujące role administratora:
 | --- | --- |
 | <p>Wyświetlanie informacji o firmy i użytkownika</p><p>Zarządzanie biletami pomocy technicznej pakietu Office</p><p>Zmienianie haseł dla użytkowników i innych administratorów pomocy technicznej</p>|<p>Wykonywanie operacji rozliczeń i zakupów dla produktów pakietu Office</p><p>Tworzenie i zarządzanie widokami użytkownika</p><p>Tworzenie, edycję, usuwanie użytkowników i grup i zarządzanie licencjami użytkowników</p><p>Zarządzanie domenami</p><p>Zarządzanie informacjami o firmy</p><p>Delegowanie ról administracyjnych do innych użytkowników</p><p>Używanie synchronizacji katalogów</p><p>Wyświetlanie raportów</p>|
 
-### <a name="information-protection-administrator"></a>Administrator ochrona informacji 
-W | Możliwość
+<!--### Information Protection Administrator 
+In | Can do
 -------- | ---------
-Azure Information Protection | * Skonfigurować zasady globalnego, zakresami i etykiety<br>* Zarządzać, konfigurowanie, aktualizacji ochrony szablonów<br>* Włącz ochronę aktywacji do użycia 
-Privileged Identity Management | * Uprawnienia do odczytu<br>* Nie można zarządzać członkostwa w roli usługi Azure AD lub ustawienia.
+Azure Information Protection | * Configure global, scoped policies and labels<br>* Manage, configure, update protection templates<br>* Enable protection activation for use 
+Privileged Identity Management | * Read permissions<br>* Cannot manage Azure AD role memberships or settings. --->
  
 ### <a name="reports-reader"></a>Czytnik raportów 
 Możliwość | Nie można wykonać

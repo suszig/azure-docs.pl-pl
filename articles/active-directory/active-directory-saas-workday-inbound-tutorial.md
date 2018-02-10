@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: ed35a703774fdb2f2896414b6022b6f13fb7a307
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 2db9e60fe2807b1aa8ed7cab7eed6f7db8059a89
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie produktu Workday do inicjowania obsługi użytkowników
 
@@ -297,7 +297,7 @@ W tej sekcji skonfigurujesz, jak dane użytkownika wypływających z produktu Wo
 
          * **Wyrażenie** — umożliwia pisanie niestandardowej wartości atrybutu AD na podstawie co najmniej jeden dzień roboczy atrybutów. [Aby uzyskać więcej informacji, zobacz ten artykuł wyrażeń](active-directory-saas-writing-expressions-for-attribute-mappings.md).
 
-      * **Atrybut źródłowy** — atrybut użytkownika z produktu Workday.
+      * **Atrybut źródłowy** — atrybut użytkownika z produktu Workday. Jeśli nie ma atrybutu, którego szukasz, zobacz [Dostosowywanie listę atrybutów użytkowników produktu Workday](#customizing-the-list-of-workday-user-attributes).
 
       * **Wartość domyślna** — jest to opcjonalne. Jeśli atrybut źródłowy ma wartość pustą, mapowanie zapisu wtedy tę wartość.
             Najbardziej typowych konfiguracji jest to pole pozostanie puste.
@@ -549,7 +549,7 @@ W tej sekcji skonfigurujesz, jak dane użytkownika wypływających z produktu Wo
 
       * **Wyrażenie** — umożliwia pisanie niestandardowej wartości atrybutu AD na podstawie co najmniej jeden dzień roboczy atrybutów. [Aby uzyskać więcej informacji, zobacz ten artykuł wyrażeń](active-directory-saas-writing-expressions-for-attribute-mappings.md).
 
-   * **Atrybut źródłowy** — atrybut użytkownika z produktu Workday.
+   * **Atrybut źródłowy** — atrybut użytkownika z produktu Workday. Jeśli nie ma atrybutu, którego szukasz, zobacz [Dostosowywanie listę atrybutów użytkowników produktu Workday](#customizing-the-list-of-workday-user-attributes).
 
    * **Wartość domyślna** — jest to opcjonalne. Jeśli atrybut źródłowy ma wartość pustą, mapowanie zapisu wtedy tę wartość.
             Najbardziej typowych konfiguracji jest to pole pozostanie puste.
@@ -646,7 +646,7 @@ Po zakończeniu części 1 i 2, można uruchomić usługę inicjowania obsługi 
 ## <a name="customizing-the-list-of-workday-user-attributes"></a>Dostosowywanie listę atrybutów użytkowników produktu Workday
 Udostępnianie aplikacji dla usługi Active Directory i Azure AD obejmują domyślną listę atrybutów użytkowników z produktu Workday pracy można wybrać z. Jednak te listy nie są wyczerpujące. Dzień roboczy obsługuje wiele setki użytkowników możliwe atrybuty, które mogą być standardowe lub unikatowym dla Twojej dzierżawy produktu Workday. 
 
-Azure AD, świadczenie usługi obsługuje możliwość dostosowania listy lub atrybut produktu Workday do zawiera wszystkie atrybuty w [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v29.2/Get_Workers.html) operacji interfejsu API zasobów ludzkich.
+Azure AD, świadczenie usługi obsługuje możliwość dostosowania listy lub atrybut produktu Workday do zawiera wszystkie atrybuty w [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) operacji interfejsu API zasobów ludzkich.
 
 Aby to zrobić, należy użyć [Studio produktu Workday](https://community.workday.com/studio-download) wyodrębnić wyrażenia XPath, które reprezentują wartości atrybutów, które chcesz użyć, a następnie dodaj je do inicjowania obsługi administracyjnej konfiguracji za pomocą edytora zaawansowane atrybutu w portalu Azure.
 
@@ -654,7 +654,7 @@ Aby to zrobić, należy użyć [Studio produktu Workday](https://community.workd
 
 1. Pobierz i zainstaluj [Studio produktu Workday](https://community.workday.com/studio-download). Konieczne będzie konto społeczności produktu Workday do Instalatora.
 
-2. Pobierz plik WDSL Human_Resources produktu Workday z tego adresu URL: https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v29.2/Human_Resources.wsdl
+2. Pobierz plik WDSL Human_Resources produktu Workday z tego adresu URL: https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Human_Resources.wsdl
 
 3. Uruchom Workday Studio.
 
@@ -680,12 +680,23 @@ Aby to zrobić, należy użyć [Studio produktu Workday](https://community.workd
     <?xml version="1.0" encoding="UTF-8"?>
     <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
       <env:Body>
-        <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v28.0">
+        <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v21.1">
           <wd:Request_References wd:Skip_Non_Existing_Instances="true">
             <wd:Worker_Reference>
               <wd:ID wd:type="Employee_ID">21008</wd:ID>
             </wd:Worker_Reference>
           </wd:Request_References>
+          <wd:Response_Group>
+            <wd:Include_Reference>true</wd:Include_Reference>
+            <wd:Include_Personal_Information>true</wd:Include_Personal_Information>
+            <wd:Include_Employment_Information>true</wd:Include_Employment_Information>
+            <wd:Include_Management_Chain_Data>true</wd:Include_Management_Chain_Data>
+            <wd:Include_Organizations>true</wd:Include_Organizations>
+            <wd:Include_Reference>true</wd:Include_Reference>
+            <wd:Include_Transaction_Log_Data>true</wd:Include_Transaction_Log_Data>
+            <wd:Include_Photo>true</wd:Include_Photo>
+            <wd:Include_User_Account>true</wd:Include_User_Account>
+          </wd:Response_Group>
         </wd:Get_Workers_Request>
       </env:Body>
     </env:Envelope>

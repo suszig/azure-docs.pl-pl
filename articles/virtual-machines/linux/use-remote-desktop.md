@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: cdd8c5e932815c5741b1091a743d235de882c5b1
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 33b9c36d4600646c36a519e647bd8cc8b6d68666
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Instalowanie i konfigurowanie pulpitu zdalnego, aby nawiązać połączenie Maszynę wirtualną systemu Linux na platformie Azure
 Maszyny wirtualne systemu Linux (VM) na platformie Azure zwykle są zarządzane z poziomu wiersza polecenia przy użyciu połączenia bezpiecznej powłoki (SSH). Gdy nowy, Linux lub szybkiego scenariuszach rozwiązywania problemów, użyj pulpitu zdalnego może być łatwiejsze. W tym artykule szczegółowo przedstawiają, jak zainstalować i skonfigurować środowisko pulpitu ([xfce](https://www.xfce.org)) i pulpitu zdalnego ([xrdp](http://www.xrdp.org)) dla maszyny Wirtualnej systemu Linux przy użyciu modelu wdrażania Menedżera zasobów.
@@ -85,7 +85,7 @@ sudo passwd azureuser
 ## <a name="create-a-network-security-group-rule-for-remote-desktop-traffic"></a>Tworzenie reguły grupy zabezpieczeń sieci dla ruchu pulpitu zdalnego
 Aby zezwolić na ruch pulpitu zdalnego do maszyny Wirtualnej systemu Linux, zabezpieczenia sieci grupy reguł musi być utworzony umożliwia ruch TCP na porcie 3389 nawiązać połączenie z maszyną Wirtualną. Aby uzyskać więcej informacji dotyczących zasad grupy zabezpieczeń sieci, zobacz [co to jest grupa zabezpieczeń sieci?](../../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Możesz również [Użyj portalu Azure, aby utworzyć regułę grupy zabezpieczeń sieci](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-W poniższym przykładzie jest tworzona reguła grupy zabezpieczeń sieci o [port Otwórz az maszyny wirtualnej](/cli/azure/vm#open-port) na porcie *3389*.
+W poniższym przykładzie jest tworzona reguła grupy zabezpieczeń sieci o [port Otwórz az maszyny wirtualnej](/cli/azure/vm#az_vm_open_port) na porcie *3389*.
 
 ```azurecli
 az vm open-port --resource-group myResourceGroup --name myVM --port 3389
@@ -133,7 +133,7 @@ Inne dystrybucje systemu Linux, takie jak Red Hat Enterprise Linux i SUSE mogą 
 Jeśli nie mają żadnych odpowiedzi na kliencie usług pulpitu zdalnego i nie ma żadnych zdarzeń w dzienniku systemowym, to zachowanie wskazuje, czy ruch pulpitu zdalnego nie może połączyć maszyny Wirtualnej. Przejrzyj reguły grupy zabezpieczeń sieci, tak aby upewnić się, że masz regułę zezwalającą na ruch TCP na porcie 3389. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów z łącznością aplikacji](../windows/troubleshoot-app-connection.md).
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby uzyskać więcej informacji na temat tworzenia i używania kluczy SSH z maszyn wirtualnych systemu Linux, zobacz [utworzyć SSH kluczy dla maszyn wirtualnych systemu Linux na platformie Azure](mac-create-ssh-keys.md).
 
 Aby uzyskać informacji o korzystaniu z protokołu SSH z systemu Windows, zobacz [kluczy sposobu korzystania z protokołu SSH z systemem Windows](ssh-from-windows.md).

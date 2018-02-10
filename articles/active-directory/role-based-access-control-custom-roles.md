@@ -3,7 +3,7 @@ title: "Tworzenie niestandardowych ról dla Azure RBAC | Dokumentacja firmy Micr
 description: "Dowiedz się, jak zdefiniować role niestandardowe z kontroli dostępu dla bardziej precyzyjne zarządzanie tożsamościami w ramach subskrypcji platformy Azure."
 services: active-directory
 documentationcenter: 
-author: andredm7
+author: rolyon
 manager: mtillman
 ms.assetid: e4206ea9-52c3-47ee-af29-f6eef7566fa5
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/11/2017
-ms.author: andredm
+ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 53c8060413f5625273360d9bf23cf27b3f56fb32
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2871ff5eea8fb99040dfab2593d1640d79f51092
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-custom-roles-for-azure-role-based-access-control"></a>Tworzenie niestandardowych ról dla kontroli dostępu
 Utwórz niestandardową rolę based kontroli dostępu (RBAC), jeśli żadna wbudowanych ról nie spełnia Twoje potrzeby określonym dostępu. Role niestandardowe można tworzyć przy użyciu [programu Azure PowerShell](role-based-access-control-manage-access-powershell.md), [interfejsu wiersza polecenia platformy Azure](role-based-access-control-manage-access-azure-cli.md) (CLI) i [interfejsu API REST](role-based-access-control-manage-access-rest.md). Podobnie jak wbudowane role role niestandardowe można przypisać do użytkowników, grup i aplikacji w subskrypcji, grupy zasobów i zakresy zasobów. Role niestandardowe są przechowywane w dzierżawie usługi Azure AD i mogą być udostępniane między subskrypcjami.
@@ -116,11 +116,11 @@ Prawidłowe zakresy można przypisać należą:
 * Kto może wyświetlać role niestandardowe?
     Wszystkie role wbudowane w Azure RBAC umożliwiają wyświetlanie ról, które są dostępne do przypisania. Użytkownicy, którzy mogą wykonywać `Microsoft.Authorization/roleDefinition/read` operacji w zakresie mogą wyświetlać role RBAC, które są dostępne do przypisania w tym zakresie.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Kontroli dostępu opartej na rolach](role-based-access-control-configure.md): rozpoczynanie pracy z RBAC w portalu Azure.
 * Aby uzyskać listę dostępnych operacji, zobacz [operacji dostawcy zasobów usługi Azure Resource Manager](role-based-access-control-resource-provider-operations.md).
 * Dowiedz się, jak Zarządzaj dostępem za pomocą:
-  * [PowerShell](role-based-access-control-manage-access-powershell.md)
+  * [Program PowerShell](role-based-access-control-manage-access-powershell.md)
   * [Interfejs wiersza polecenia platformy Azure](role-based-access-control-manage-access-azure-cli.md)
   * [Interfejs API REST](role-based-access-control-manage-access-rest.md)
 * [Wbudowane role](role-based-access-built-in-roles.md): uzyskiwanie szczegółowych informacji dotyczących ról, które standardowo w RBAC.

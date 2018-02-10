@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 67bbf48c0ce67b0fef5cc2b1c61e3612e0201534
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 4190b1cbc7e32b1471795e29a211f7a7e5831648
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-jive-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Jive dla użytkownika automatycznego inicjowania obsługi administracyjnej.
 
@@ -73,7 +73,7 @@ W ramach tej procedury możesz są wymagane do potrzebnych do żądania od Jive.
    
     b. W **hasło administratora Jive** tekstowym, wpisz hasło dla tego konta.
    
-    d. W **adres URL dzierżawy Jive** tekstowym, wpisz adres URL dzierżawy Jive.
+    c. W **adres URL dzierżawy Jive** tekstowym, wpisz adres URL dzierżawy Jive.
       
       > [!NOTE]
       > Adres URL dzierżawy Jive jest adres URL, który jest używany przez organizację do logowania do Jive.  
@@ -93,9 +93,9 @@ W ramach tej procedury możesz są wymagane do potrzebnych do żądania od Jive.
 
 12. Kliknij przycisk **zapisać.**
 
-Rozpoczyna się wstępnej synchronizacji użytkowników i/lub grupy przypisane do Jive w sekcji Użytkownicy i grupy. Synchronizacji początkowej zajmuje więcej czasu wykonywania niż kolejne synchronizacje, występujące co około 20 minut, tak długo, jak usługa jest uruchomiona. Można użyć **szczegóły synchronizacji** sekcji, aby monitorować postęp i skorzystaj z linków do inicjowania obsługi administracyjnej raporty działania, które opisują wszystkie akcje wykonywane przez usługę inicjowania obsługi administracyjnej na Jive aplikacji.
+Rozpoczyna się wstępnej synchronizacji użytkowników i/lub grupy przypisane do Jive w sekcji Użytkownicy i grupy. Synchronizacji początkowej zajmuje więcej czasu wykonywania niż kolejne synchronizacje, występujące co około 40 minut tak długo, jak usługa jest uruchomiona. Można użyć **szczegóły synchronizacji** sekcji, aby monitorować postęp i skorzystaj z linków do inicjowania obsługi administracyjnej Dzienniki aktywności, które opisują wszystkie akcje wykonywane przez usługę inicjowania obsługi administracyjnej na Jive aplikacji.
 
-Można teraz utworzyć konta testowego. Aby sprawdzić, czy konto zostało zsynchronizowane z Jive poczekaj maksymalnie 20 minut.
+Aby uzyskać więcej informacji na temat usługi Azure AD, inicjowanie obsługi dzienników do odczytu, zobacz [raportowania na użytkownika automatyczne Inicjowanie obsługi konta](active-directory-saas-provisioning-reporting.md).
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 34f14f42150e46edae2d1352827f96a411117a62
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 479e486dca432020d5fcbaf98971a9803888bf98
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Analiza zdarzeń i wizualizacji z usługą Application Insights
 
@@ -96,11 +96,11 @@ Jeśli używasz EventFlow celu agregowania zdarzeń, upewnij się, że importowa
 
 Upewnij się wprowadzić wymagane zmiany w filtry, a także zawierać innych danych wejściowych (wraz z ich odpowiednich pakietów NuGet).
 
-## <a name="aisdk"></a>AI. ZESTAW SDK
+## <a name="aisdk"></a>AI.SDK
 
 Ogólnie zaleca się użyć EventFlow i WAD jako rozwiązania agregacji, ponieważ umożliwiają one dla bardziej podejściu Diagnostyka i monitorowanie, tj. Jeśli chcesz zmienić Twoje dane wyjściowe z EventFlow wymaga nie zmieniono Twojego rzeczywiste Instrumentacji tylko proste modyfikację do pliku konfiguracji. Jeśli jednak podjąć decyzję o inwestycji w za pomocą usługi Application Insights i prawdopodobnie nie można zmienić na innej platformie, należy rozważyć w celu agregowania zdarzeń i wysyłania ich do AI przy użyciu jego AI nowego zestawu SDK. Oznacza to, przestaną być skonfigurować EventFlow do wysyłania danych do AI, ale zamiast tego zostanie zainstalowany pakiet NuGet usługi Service Fabric ApplicationInsight. Szczegółowe informacje dotyczące pakietu można znaleźć [tutaj](https://github.com/Microsoft/ApplicationInsights-ServiceFabric).
 
-[Obsługa usługi Application Insights Mikrousług i kontenery](https://azure.microsoft.com/app-insights-microservices/) przedstawiono niektóre nowe funkcje działające na (nadal obecnie w wersji beta), które umożliwiają są bardziej rozbudowane możliwości monitorowania poza pole z AI. Obejmują one śledzenia zależności (używanego podczas konstruowania AppMap wszystkich usług i aplikacji w klastrze i komunikację między nimi) oraz lepsze korelacji śladów pochodzących z Twoimi usługami (pomaga w lepiej trafić problemu w przepływie pracy programu aplikacji lub usługi).
+[Obsługa usługi Application Insights Mikrousług i kontenery](https://azure.microsoft.com/en-us/blog/app-insights-microservices/) przedstawiono niektóre nowe funkcje działające na (nadal obecnie w wersji beta), które umożliwiają są bardziej rozbudowane możliwości monitorowania poza pole z AI. Obejmują one śledzenia zależności (używanego podczas konstruowania AppMap wszystkich usług i aplikacji w klastrze i komunikację między nimi) oraz lepsze korelacji śladów pochodzących z Twoimi usługami (pomaga w lepiej trafić problemu w przepływie pracy programu aplikacji lub usługi).
 
 Jeśli opracowujesz w .NET i zostanie przy użyciu niektóre usługi sieć szkieletowa programowania modeli i czy chce używać AI jako platformy do wizualizacji i analizowania danych zdarzeń i dzienników, następnie zaleca się możesz przejść za pomocą trasy AI SDK jako monitorowania i diagnos e przepływ pracy. Odczyt [to](../application-insights/app-insights-asp-net-more.md) i [to](../application-insights/app-insights-asp-net-trace-logs.md) wprowadzenie gromadzenie i wyświetlanie dzienników przy użyciu AI.
 
@@ -112,7 +112,7 @@ Po skonfigurowaniu AI jako dane wyjściowe dla zdarzeń i dzienniki informacji n
 
 Kliknięcie przycisku **Analytics** spowoduje przejście do portalu Application Insights Analytics, gdzie można zbadać zdarzenia i dane śledzenia z większą zakresu i opcjonalność. Dowiedz się więcej o tym w [analizy w usłudze Application Insights](../application-insights/app-insights-analytics.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Konfigurowanie alertów w AI](../application-insights/app-insights-alerts.md) Aby otrzymywać powiadomienia o zmianach wprowadzonych w wydajności i użycia
 * [Inteligentne wykrywania w usłudze Application Insights](../application-insights/app-insights-proactive-diagnostics.md) wykonuje aktywnego analizy telemetrii są wysyłane do AI, aby ostrzec użytkownika o potencjalnych problemów z wydajnością

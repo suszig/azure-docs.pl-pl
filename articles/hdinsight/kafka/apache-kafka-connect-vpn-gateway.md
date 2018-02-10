@@ -13,13 +13,13 @@ ms.custom: hdinsightactive
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/07/2017
+ms.date: 02/05/2018
 ms.author: larryfr
-ms.openlocfilehash: 2b55de4de6bb94be78649112161211346090b23a
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c82629c0f3d3b32314d22467164a06a4c7bcabfe
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="connect-to-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Nawiązać Kafka w usłudze HDInsight przy użyciu sieci wirtualnej platformy Azure
 
@@ -47,7 +47,7 @@ HDInsight nie zezwala na bezpośrednie połączenie Kafka za pośrednictwem publ
 * Połączenie poszczególnych maszyn z sieci wirtualnej przy użyciu bramy sieci VPN i klienta sieci VPN. Aby włączyć tę konfigurację, wykonaj następujące czynności:
 
     1. Utwórz sieć wirtualną.
-    2. Tworzenie bramy sieci VPN, która używa konfiguracji punkt lokacja. Ta konfiguracja zapewnia klienta sieci VPN, który może zostać zainstalowany na komputerach klienckich z systemem Windows.
+    2. Tworzenie bramy sieci VPN, która używa konfiguracji punkt lokacja. Ta konfiguracja może służyć z systemami Windows i MacOS klientów.
     3. Zainstaluj Kafka w usłudze HDInsight w sieci wirtualnej.
     4. Skonfiguruj Kafka IP reklamy. Ta konfiguracja umożliwia klientowi łączyć się przy użyciu adresów IP zamiast nazwy domeny.
     5. Pobranie i użycie klienta sieci VPN w systemie deweloperskim.
@@ -57,7 +57,7 @@ HDInsight nie zezwala na bezpośrednie połączenie Kafka za pośrednictwem publ
     > [!WARNING]
     > Ta konfiguracja jest zalecana tylko do celów programistycznych, ze względu na następujące ograniczenia:
     >
-    > * Każdy klient musi połączyć za pomocą oprogramowania klienta sieci VPN. Platforma Azure udostępnia tylko klient z systemem Windows.
+    > * Każdy klient musi połączyć za pomocą oprogramowania klienta sieci VPN.
     > * Klient sieci VPN nie zostały spełnione żądań rozpoznawania nazw do sieci wirtualnej, należy użyć do komunikacji z Kafka o adresowaniu IP. Komunikacja IP wymaga dodatkowej konfiguracji klastra Kafka.
 
 Aby uzyskać więcej informacji na temat używania usługi HDInsight w sieci wirtualnej, zobacz [rozszerzyć HDInsight przy użyciu sieci wirtualnych Azure](../hdinsight-extend-hadoop-virtual-network.md).
@@ -232,22 +232,13 @@ Wykonaj kroki w tej sekcji, aby utworzyć następującej konfiguracji:
         -DefaultStorageAccountName "$storageName.blob.core.windows.net" `
         -DefaultStorageAccountKey $defaultStorageKey `
         -DefaultStorageContainer $defaultContainerName `
+        -DisksPerWorkerNode 2 `
         -VirtualNetworkId $network.Id `
         -SubnetName $defaultSubnet.Id
     ```
 
   > [!WARNING]
   > Ten proces trwa około 15 minut do wykonania.
-
-8. Aby pobrać adres URL dla klienta VPN systemu Windows dla sieci wirtualnej, użyj następującego polecenia cmdlet:
-
-    ```powershell
-    Get-AzureRmVpnClientPackage -ResourceGroupName $resourceGroupName `
-        -VirtualNetworkGatewayName $vpnName `
-        -ProcessorArchitecture Amd64
-    ```
-
-    Aby pobrać klienta VPN systemu Windows, należy użyć zwracane identyfikatora URI w przeglądarce sieci web.
 
 ### <a name="configure-kafka-for-ip-advertising"></a>Skonfiguruj Kafka do celów reklamowych IP
 
@@ -299,7 +290,7 @@ Domyślnie dozorcy zwraca nazwę domeny brokerzy Kafka do klientów. Ta konfigur
 
 ### <a name="connect-to-the-vpn-gateway"></a>Łączenie się z bramą sieci VPN
 
-Aby połączyć się z bramą sieci VPN z __klienta systemu Windows__, użyj __nawiązywanie połączenia z usługi Azure__ sekcji [skonfigurować połączenie punkt-lokacja](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#clientcertificate) dokumentu.
+Aby połączyć się z bramą sieci VPN, należy użyć __Connect Azure__ sekcji [skonfigurować połączenie punkt-lokacja](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#connect) dokumentu.
 
 ## <a id="python-client"></a>Przykład: Python klienta
 
@@ -375,7 +366,7 @@ Do sprawdzania poprawności łączności Kafka, należy użyć do tworzenia i ur
 
     * Jeśli masz __włączone rozpoznawanie nazw za pomocą niestandardowy serwer DNS__, Zastąp `kafka_broker` wpisów z nazwą FQDN węzłów procesu roboczego.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby uzyskać więcej informacji o korzystaniu z usługi HDInsight z sieci wirtualnej, zobacz [rozszerzenie Azure HDInsight przy użyciu sieci wirtualnej platformy Azure](../hdinsight-extend-hadoop-virtual-network.md) dokumentu.
 

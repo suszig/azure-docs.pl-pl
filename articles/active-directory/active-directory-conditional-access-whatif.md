@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/21/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: de6b3dcd77132154e583d7333983d6745c4aa3bd
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 19ebb30164eee8e03a3cd8f18b6d575c6eee5438
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-active-directory-conditional-access-what-if-tool---preview"></a>Azure Active Directory dostępu warunkowego co zrobić, jeśli narzędzie - preview
 
@@ -78,14 +78,14 @@ Wartość domyślna to ustawienie to **wszystkich aplikacji w chmurze**. Ustawie
 
 ### <a name="ip-address"></a>Adres IP
 
-Adres IP jest jeden adres IPv4, aby naśladował [warunku lokalizacji](active-directory-conditional-access-azure-portal.md#locations). Adres reprezentuje internetowy adres urządzenia używane przez użytkownika do logowania. Możesz sprawdzić adres IP urządzenia, na przykład, przechodząc do [co to jest adresu IP](https://whatismyipaddress.com).    
+Adres IP jest jeden adres IPv4, aby naśladował [warunku lokalizacji](active-directory-conditional-access-locations.md). Adres reprezentuje internetowy adres urządzenia używane przez użytkownika do logowania. Możesz sprawdzić adres IP urządzenia, na przykład, przechodząc do [co to jest adresu IP](https://whatismyipaddress.com).    
 
 ### <a name="device-platforms"></a>Platformy urządzeń
 
-To ustawienie, którego [warunku platformy urządzenia](active-directory-conditional-access-azure-portal.md#device-platforms) i stanowi odpowiednik **wszystkich platform (nieobsługiwane w tym)**. 
+To ustawienie, którego [warunku platformy urządzenia](active-directory-conditional-access-conditions.md#device-platforms) i stanowi odpowiednik **wszystkich platform (nieobsługiwane w tym)**. 
 ### <a name="client-apps"></a>Aplikacje klienckie
 
-To ustawienie, którego [warunku aplikacje klienckie](active-directory-conditional-access-azure-portal.md#client-apps).
+To ustawienie, którego [warunku aplikacje klienckie](active-directory-conditional-access-conditions.md#client-apps).
 Domyślnie to ustawienie powoduje, że oceny wszystkich zasad o **przeglądarki** lub **aplikacji mobilnych i klasycznych klientów** albo indywidualnie lub oba wybrane. Ta funkcja wykrywa także zasady, które wymuszają **programu Exchange ActiveSync (EAS)**. To ustawienie można zawęzić, wybierając:
 
 - **Przeglądarka** do oceny wszystkich zasad o co najmniej **przeglądarki** wybrane. 
@@ -95,7 +95,7 @@ Domyślnie to ustawienie powoduje, że oceny wszystkich zasad o **przeglądarki*
 
 ### <a name="sign-in-risk"></a>Ryzyko związane z logowaniem
 
-To ustawienie, którego [warunku logowania ryzyka](active-directory-conditional-access-azure-portal.md#sign-in-risk).   
+To ustawienie, którego [warunku logowania ryzyka](active-directory-conditional-access-conditions.md#sign-in-risk).   
 
 
 ## <a name="evaluation"></a>Ocena 

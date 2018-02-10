@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/13/2017
 ms.author: v-livech
-ms.openlocfilehash: 9eae17b304f8a987b44ebed8906dabd8ff3a36a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4566e9b236049c336858e9149cca80066b029775
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Magazyn plików Azure instalacji na maszynach wirtualnych systemu Linux za pomocą protokołu SMB
 
@@ -36,7 +36,7 @@ W tym artykule przedstawiono sposób korzystać z usługą Magazyn plików Azure
 * Konto magazynu platformy Azure
 * Klucze konta magazynu platformy Azure
 * Udział magazynu plików Azure
-* Maszynę wirtualną systemu Linux
+* A Linux VM
 
 Przykładami należy zastąpić własnymi ustawieniami.
 
@@ -67,7 +67,7 @@ Przenoszenie plików z maszyny Wirtualnej do instalacji SMB, który znajduje si�
 
 W ramach tego przewodnika szczegółowe możemy utworzyć wymagania wstępne niezbędne do utworzenia udziału plików magazynu i zainstalować go za pośrednictwem protokołu SMB na maszynie Wirtualnej systemu Linux.
 
-1. Utwórz nową grupę zasobów o [Tworzenie grupy az](/cli/azure/group#create) do przechowywania udziału plików.
+1. Utwórz nową grupę zasobów o [Tworzenie grupy az](/cli/azure/group#az_group_create) do przechowywania udziału plików.
 
     Aby utworzyć grupę zasobów o nazwie `myResourceGroup` w lokalizacji "Zachodnie stany USA", skorzystaj z następującego przykładu:
 
@@ -75,7 +75,7 @@ W ramach tego przewodnika szczegółowe możemy utworzyć wymagania wstępne nie
     az group create --name myResourceGroup --location westus
     ```
 
-2. Utwórz konto magazynu platformy Azure z [Tworzenie konta magazynu az](/cli/azure/storage/account#create) do przechowywania plików rzeczywistych.
+2. Utwórz konto magazynu platformy Azure z [Tworzenie konta magazynu az](/cli/azure/storage/account#az_storage_account_create) do przechowywania plików rzeczywistych.
 
     Aby utworzyć konto magazynu o nazwie mojekontomagazynu przy użyciu magazynu Standard_LRS jednostka SKU, skorzystaj z następującego przykładu:
 
@@ -90,7 +90,7 @@ W ramach tego przewodnika szczegółowe możemy utworzyć wymagania wstępne nie
 
     Podczas tworzenia konta magazynu, klucze konta są tworzone w pary, dzięki czemu można obracać bez przerw w działaniu usługi. Po przełączeniu do drugi klucz w parze, możesz utworzyć nową parę kluczy. Nowe klucze konta magazynu zawsze są tworzone w parach, sprawdzając, czy zawsze jest co najmniej jeden klucz konta magazynu nieużywane gotowe przełączyć się do.
 
-    Wyświetl klucze konta magazynu z [listy kluczy konta magazynu az](/cli/azure/storage/account/keys#list). Konto magazynu kluczy dla nazwanego `mystorageaccount` przedstawiono w poniższym przykładzie:
+    Wyświetl klucze konta magazynu z [listy kluczy konta magazynu az](/cli/azure/storage/account/keys#az_storage_account_keys_list). Konto magazynu kluczy dla nazwanego `mystorageaccount` przedstawiono w poniższym przykładzie:
 
     ```azurecli
     az storage account keys list --resource-group myResourceGroup \
@@ -107,7 +107,7 @@ W ramach tego przewodnika szczegółowe możemy utworzyć wymagania wstępne nie
 
 4. Utwórz udział magazynu plików.
 
-    Udział magazynu plików zawiera udział SMB na [utworzyć udział magazynu az](/cli/azure/storage/share#create). Limit przydziału zawsze jest wyrażona w gigabajtów (GB). Przebiegu w jeden z kluczy z poprzednim `az storage account keys list` polecenia. Utwórz udział o nazwie mystorageshare z przydziału 10 GB, za pomocą w poniższym przykładzie:
+    Udział magazynu plików zawiera udział SMB na [utworzyć udział magazynu az](/cli/azure/storage/share#az_storage_share_create). Limit przydziału zawsze jest wyrażona w gigabajtów (GB). Przebiegu w jeden z kluczy z poprzednim `az storage account keys list` polecenia. Utwórz udział o nazwie mystorageshare z przydziału 10 GB, za pomocą w poniższym przykładzie:
 
     ```azurecli
     az storage share create --name mystorageshare \
@@ -137,10 +137,10 @@ W ramach tego przewodnika szczegółowe możemy utworzyć wymagania wstępne nie
     Po ponownym uruchomieniu maszyny Wirtualnej systemu Linux, podczas zamykania odinstalowane jest zainstalowany udział SMB. Ponownie zainstalować udziale SMB podczas rozruchu, należy dodać wiersz do /etc/fstab systemu Linux. Linux używa pliku fstab pojawi się lista systemów plików, które należy zainstalować podczas uruchamiania. Dodawanie udziału SMB zapewnia, że udział magazynu plików jest trwale zainstalowany system plików dla maszyny Wirtualnej systemu Linux. Dodawanie magazynu plików udziału SMB do nowej maszyny Wirtualnej jest możliwe, gdy używasz init chmury.
 
     ```bash
-    //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+    //myaccountname.file.core.windows.net/mystorageshare /mnt/mymountdirectory cifs vers=3.0,username=mystorageaccount,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
     ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Dostosowywanie maszyny Wirtualnej systemu Linux podczas tworzenia za pomocą init chmury](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Dodawanie dysku do maszyny wirtualnej z systemem Linux](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

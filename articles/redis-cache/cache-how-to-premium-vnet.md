@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: wesmc
-ms.openlocfilehash: 74ec104bebec2004a8b7116865c2394c02b12638
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 5ed5af627fa8ec8007f095face2cbf115ead4b27
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-redis-cache"></a>Jak skonfigurować obsługę sieci wirtualnych dla podręczna Redis Azure Premium
 Pamięć podręczna Redis Azure ma inną pamięci podręcznej oferty, które zapewniają elastyczność w wyborze rozmiar pamięci podręcznej i funkcji, łącznie z funkcji warstwy Premium, takich jak klastrowanie, trwałości i obsługi sieci wirtualnej. Sieci wirtualnej jest ona prywatną siecią w chmurze. Po skonfigurowaniu wystąpienia pamięci podręcznej Redis Azure z sieci wirtualnej nie jest publicznie adresowana i jest możliwy tylko z maszyn wirtualnych i aplikacji w sieci wirtualnej. W tym artykule opisano sposób konfigurowania obsługi sieci wirtualnej dla wystąpienia pamięci podręcznej Redis Azure premium.
@@ -117,6 +117,7 @@ Istnieje siedem wymagań dotyczących portu wychodzącego.
 | 20226 |Wychodzący |TCP |Wewnętrzny komunikację z usługą Redis | (Redis podsieci) |(Redis podsieci) |
 | 13000-13999 |Wychodzący |TCP |Wewnętrzny komunikację z usługą Redis | (Redis podsieci) |(Redis podsieci) |
 | 15000-15999 |Wychodzący |TCP |Wewnętrzny komunikację z usługą Redis | (Redis podsieci) |(Redis podsieci) |
+| 6379-6380 |Wychodzący |TCP |Wewnętrzny komunikację z usługą Redis | (Redis podsieci) |(Redis podsieci) |
 
 
 ### <a name="inbound-port-requirements"></a>Wymagania dotyczące portów dla ruchu przychodzącego
@@ -125,7 +126,7 @@ Ma osiem wymagań zakresu portów przychodzących. Żądania przychodzące w tyc
 
 | Porty | Kierunek | Protokół transportu | Przeznaczenie | Lokalny adres IP | Zdalny adres IP |
 | --- | --- | --- | --- | --- | --- |
-| 6379, 6380 |Przychodzący |TCP |Komunikacja klienta do serwera Redis, równoważenia obciążenia Azure | (Redis podsieci) |Sieć wirtualna Azure Load Balancer |
+| 6379, 6380 |Przychodzący |TCP |Komunikacja klienta do serwera Redis, równoważenia obciążenia Azure | (Redis podsieci) | (Redis podsieć), sieci wirtualnej, usługi równoważenia obciążenia Azure |
 | 8443 |Przychodzący |TCP |Wewnętrzny komunikację z usługą Redis | (Redis podsieci) |(Redis podsieci) |
 | 8500 |Przychodzący |TCP/UDP |Równoważenia obciążenia Azure | (Redis podsieci) |Azure Load Balancer |
 | 10221-10231 |Przychodzący |TCP |Wewnętrzny komunikację z usługą Redis | (Redis podsieci) |(Redis podsieć), usługi równoważenia obciążenia Azure |
@@ -146,7 +147,7 @@ Istnieją wymagania dotyczące łączności sieciowej pamięci podręcznej Redis
 ### <a name="how-can-i-verify-that-my-cache-is-working-in-a-vnet"></a>Jak sprawdzić, czy Moje pamięci podręcznej działa w sieci Wirtualnej?
 
 >[!IMPORTANT]
->Podczas nawiązywania połączenia z wystąpieniem usługi pamięć podręczna Redis Azure, który znajduje się w sieci Wirtualnej, klienci pamięci podręcznej musi być w tej samej sieci Wirtualnej, w tym testowanie aplikacji ani badanie narzędzia diagnostyczne.
+>Podczas nawiązywania połączenia z wystąpieniem usługi pamięć podręczna Redis Azure, który znajduje się w sieci Wirtualnej, klienci pamięci podręcznej musi być w tej samej sieci Wirtualnej lub w sieci Wirtualnej z sieci Wirtualnej komunikacji równorzędnej włączone. W tym testowanie aplikacji ani badanie narzędzia diagnostyczne. Niezależnie od tego, gdzie jest hostowana aplikacja kliencka grup zabezpieczeń sieci musi być skonfigurowany w taki sposób, że ruch sieciowy klienta może dotrzeć do wystąpienia pamięci podręcznej Redis.
 >
 >
 

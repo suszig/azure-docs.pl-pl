@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 08/24/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e0c27a7ee9e9a7ab1a3b004e070fa556b56a36a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 79eb69b83e4ffc0a4ad7c2631ce4d1306a1e335c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Jak znaleźć maszyny Wirtualnej systemu Linux obrazów w portalu Azure Marketplace z wiersza polecenia platformy Azure
 W tym temacie opisano sposób użycia 2.0 interfejsu wiersza polecenia platformy Azure można znaleźć obrazów maszyn wirtualnych w portalu Azure Marketplace. Dzięki tym informacjom można określić obrazu z witryny Marketplace, podczas tworzenia maszyny Wirtualnej systemu Linux.
@@ -41,7 +41,7 @@ Aby określić obrazu z witryny Marketplace, zwykle użyć obrazu *URN*. Nazwy U
 
 ## <a name="list-popular-images"></a>Listy obrazów popularnych
 
-Uruchom [listy obrazów maszyny wirtualnej az](/cli/azure/vm/image#list) polecenia bez `--all` opcję, aby wyświetlić listę popularnych obrazów maszyn wirtualnych w portalu Azure Marketplace. Na przykład uruchom następujące polecenie, aby wyświetlić listę buforowanych popularnych obrazów w formacie tabeli:
+Uruchom [listy obrazów maszyny wirtualnej az](/cli/azure/vm/image#az_vm_image_list) polecenia bez `--all` opcję, aby wyświetlić listę popularnych obrazów maszyn wirtualnych w portalu Azure Marketplace. Na przykład uruchom następujące polecenie, aby wyświetlić listę buforowanych popularnych obrazów w formacie tabeli:
 
 ```azurecli
 az vm image list --output table
@@ -134,7 +134,7 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201706210        
 ```
 
 ## <a name="navigate-the-images"></a>Przejdź obrazów 
-Innym sposobem znajdowania obrazu w lokalizacji jest uruchomienie [obrazu maszyny wirtualnej az listy wydawców](/cli/azure/vm/image#list-publishers), [obrazu maszyny wirtualnej az listy oferty](/cli/azure/vm/image#list-offers), i [obrazu maszyny wirtualnej az listy SKU](/cli/azure/vm/image#list-skus) polecenia w sekwencji. Przy użyciu następujących poleceń można określić te wartości:
+Innym sposobem znajdowania obrazu w lokalizacji jest uruchomienie [obrazu maszyny wirtualnej az listy wydawców](/cli/azure/vm/image#az_vm_image_list_publishers), [obrazu maszyny wirtualnej az listy oferty](/cli/azure/vm/image#az_vm_image_list_offers), i [obrazu maszyny wirtualnej az listy SKU](/cli/azure/vm/image#az_vm_image_list_skus) polecenia w sekwencji. Przy użyciu następujących poleceń można określić te wartości:
 
 1. Wyświetl listę wydawców obrazów.
 2. Dla danego wydawcy wyświetl listę ofert.
@@ -256,5 +256,5 @@ UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201
 UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201708110  16.04.201708110
 UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201708151  16.04.201708151
 ```
-## <a name="next-steps"></a>Następne kroki
-Teraz można precyzyjnie obraz, który ma być używany przez biorąc pod uwagę wartość URN. Przekaż tę wartość z `--image` parametru podczas tworzenia maszyny Wirtualnej z [tworzenia maszyny wirtualnej az](/cli/azure/vm#create) polecenia. Należy pamiętać, że można opcjonalnie zastąpić numeru wersji w nazwy URN "r". Ta wersja jest zawsze najnowszą wersję dystrybucji. Aby szybko utworzyć maszynę wirtualną, korzystając z informacji URN, zobacz [tworzenie i zarządzanie maszyn wirtualnych systemu Linux z wiersza polecenia platformy Azure](tutorial-manage-vm.md).
+## <a name="next-steps"></a>Kolejne kroki
+Teraz można precyzyjnie obraz, który ma być używany przez biorąc pod uwagę wartość URN. Przekaż tę wartość z `--image` parametru podczas tworzenia maszyny Wirtualnej z [tworzenia maszyny wirtualnej az](/cli/azure/vm#az_vm_create) polecenia. Należy pamiętać, że można opcjonalnie zastąpić numeru wersji w nazwy URN "r". Ta wersja jest zawsze najnowszą wersję dystrybucji. Aby szybko utworzyć maszynę wirtualną, korzystając z informacji URN, zobacz [tworzenie i zarządzanie maszyn wirtualnych systemu Linux z wiersza polecenia platformy Azure](tutorial-manage-vm.md).

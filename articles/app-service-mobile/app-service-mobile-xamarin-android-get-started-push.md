@@ -14,22 +14,22 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
-ms.openlocfilehash: c7d2b68d2b523a04c38881d53747adfbb8b295cc
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: a6cdff68d63859c6a6612b606664d3e1fbaae375
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="add-push-notifications-to-your-xamarinandroid-app"></a>Dodawanie powiadomień wypychanych do aplikacji platformy Xamarin.Android
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 ## <a name="overview"></a>Przegląd
-W tym samouczku, dodawanie powiadomień wypychanych do [Xamarin.Android szybki start](app-service-mobile-windows-store-dotnet-get-started.md) projektu, aby powiadomienia wypychane są wysyłane do urządzenia, za każdym razem, gdy wstawieniu rekordu.
+W tym samouczku, dodawanie powiadomień wypychanych do [szybkiego startu Xamarin.Android](app-service-mobile-windows-store-dotnet-get-started.md) projektu, aby powiadomienia wypychane są wysyłane do urządzenia, za każdym razem, gdy wstawieniu rekordu.
 
-Jeśli nie używasz Projekt serwera pobrany szybki start, konieczne będzie pakiet rozszerzenia powiadomień wypychanych. Zobacz [pracować z serwera wewnętrznej bazy danych .NET SDK usługi Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) Aby uzyskać więcej informacji.
+Pobrany projekt szybkiego startu serwera nie jest używany, należy najpierw pakiet rozszerzenia powiadomień wypychanych. Aby uzyskać więcej informacji, zobacz [pracować z serwera wewnętrznej bazy danych .NET SDK usługi Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) przewodnik.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Dla tego samouczka wymagane są następujące elementy:
+Ten samouczek wymaga instalacji:
 
 * Aktywne konto Google. Można założyć konto Google na [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302).
 * [Usługa Google Cloud Messaging składnik klienta](http://components.xamarin.com/view/GCMClient/).
@@ -55,7 +55,7 @@ Dla tego samouczka wymagane są następujące elementy:
 ## <a name="test"></a>Testowych powiadomień wypychanych w aplikacji
 Aby przetestować aplikację, należy w emulatorze za pomocą urządzenia wirtualnego. Brak dodatkowych czynności konfiguracyjnych wymaganych podczas uruchamiania emulatora.
 
-1. Upewnij się, czy wdrożenie lub debugowanie na urządzeniu wirtualnym, który ma ustawioną jako docelową, interfejsy API Google, jak pokazano poniżej, w programie Android Virtual Device (AVD) manager.
+1. Urządzenie wirtualne, musi mieć ustawioną jako docelową w programie Android Virtual Device (AVD) manager interfejsy API Google.
    
     ![](./media/app-service-mobile-xamarin-android-get-started-push/google-apis-avd-settings.png)
 2. Dodaj konto Google na urządzeniu z systemem Android, klikając **aplikacje** > **ustawienia** > **Dodaj konto**, postępuj zgodnie z monitami.

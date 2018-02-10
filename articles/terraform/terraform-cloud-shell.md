@@ -7,11 +7,11 @@ author: dcaro
 ms.author: dcaro
 ms.date: 10/19/2017
 ms.topic: article
-ms.openlocfilehash: 253e5d341f93e61d851893eb05832fbf35707cfc
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 5157066086f1bdfa580c1946942bda4505e48935
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="terraform-cloud-shell-development"></a>Programowanie Terraform chmury powłoki 
 
@@ -36,7 +36,7 @@ provider "azurerm" {
 }
 ```
 
-Powłoka chmury przekazuje wymagane wartości `azurerm` dostawcy, aby za pomocą zmiennych środowiskowych przy użyciu dowolnej z `terraform` polecenia interfejsu wiersza polecenia.
+Powłoka chmury przekazuje wymagane wartości `azurerm` dostawcy za pomocą zmiennych środowiskowych przy użyciu dowolnej z `terraform` polecenia interfejsu wiersza polecenia.
 
 ## <a name="other-cloud-shell-developer-tools"></a>Inne narzędzia deweloperskie powłoki chmury
 
@@ -45,7 +45,7 @@ Pliki i stanów powłoki zachować w usłudze Azure Storage między sesjami pow�
 2.0 interfejsu wiersza polecenia platformy Azure jest dostępna w chmurze powłoki i to doskonałe narzędzie do testowania konfiguracji i sprawdzanie pracę po `terraform apply` lub `terraform destroy` zakończeniu.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Tworzenie małych klastra maszyny Wirtualnej za pomocą rejestru moduł](terraform-create-vm-cluster-module.md)
 [tworzenie małych klastra maszyny Wirtualnej przy użyciu niestandardowych HCL](terraform-create-vm-cluster-with-infrastructure.md)

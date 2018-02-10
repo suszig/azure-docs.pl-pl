@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/07/2017
+ms.date: 02/05/2018
 ms.author: sethm
-ms.openlocfilehash: 83b4f76a171cd8a860e7ab43462c976bf4df941a
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 9ac9a2968adfdd8e1fb229ad744bc99914cdcd08
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="sqlruleaction-syntax"></a>Składnia SQLRuleAction
 
@@ -70,7 +70,7 @@ Ten artykuł zawiera szczegółowe informacje o gramatyki akcji reguły SQL.
 
 Próba dostępu do właściwości systemu nieistniejącą jest wystąpił błąd podczas próby dostępu do właściwości nie istnieje użytkownik nie jest błąd. Zamiast tego właściwości użytkownika nieistniejącą wewnętrznie jest szacowana jako nieznaną wartość. Nieznana wartość jest traktowana specjalnie podczas obliczania operatora.  
   
-## <a name="propertyname"></a>Property_Name  
+## <a name="propertyname"></a>property_name  
   
 ```  
 <property_name> ::=  
@@ -196,7 +196,7 @@ Stałe typu logicznego są reprezentowane przez słowa kluczowe `TRUE` lub `FALS
   
 Stałe typu String są ujęte w apostrofy i zawierać żadnych prawidłowych znaków Unicode. Znak pojedynczego cudzysłowu osadzone w stałą typu string jest przedstawiona w postaci dwóch pojedynczy znaki cudzysłowu.  
   
-## <a name="function"></a>Funkcja  
+## <a name="function"></a>funkcja  
   
 ```  
 <function> :=  
@@ -219,7 +219,7 @@ Stałe typu String są ujęte w apostrofy i zawierać żadnych prawidłowych zna
 - Akcja się niepowodzeniem, jeśli zostały odwołań do właściwości użytkownika nie istnieje.
 - Właściwość nieistniejącą użytkownika jest szacowana jako "Nieznana" wewnętrznie, po tej samej semantyki jako [SQLFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) podczas obliczania operatorów.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Klasa SQLRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
 - [Klasa SQLFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)

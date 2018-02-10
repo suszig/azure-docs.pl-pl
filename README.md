@@ -38,7 +38,7 @@ Możliwe jest tworzenie sekcji zawartości wielokrotnego użytku, które zostan�
 We wszystkich artykułach w tym repozytorium jest używany język znaczników markdown specyficzny dla serwisu GitHub (GitHub flavored markdown).  Poniżej znajduje się lista zasobów.
 
 * [Podstawy języka znaczników markdown](https://help.github.com/articles/markdown-basics/)
-* [Ściągawka dotycząca języka znaczników markdown do druku](./contributor-guide/media/documents/markdown-cheatsheet.pdf?raw=true)
+* [Ściągawka dotycząca języka znaczników markdown do druku](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf)
 
 
 ## <a name="labels"></a>Etykiety

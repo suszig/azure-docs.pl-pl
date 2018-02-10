@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 02/05/2018
 ms.author: ergreenl
-ms.openlocfilehash: b2e0edf3588f3b1db5f4b6641019be1ded9cb50e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 8a0b30e6c975bd8f3bfbe70a64c085b729115f24
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Usługi domenowe Azure AD — rozwiązywanie alertów
 Ten artykuł zawiera przewodniki dotyczące rozwiązywania problemów w ramach wszystkich alertów, które mogą występować w domenie zarządzanej.
@@ -75,6 +75,11 @@ Aby przywrócić usługę, wykonaj następujące kroki:
 
 Przed rozpoczęciem przeczytaj **prywatnej przestrzeń adresową v4** sekcji [w tym artykule](https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces).
 
+W sieci wirtualnej maszyny mogą wprowadzać żądania zasobów platformy Azure, które są w tym samym zakresie adresów IP, jak porty skonfigurowane dla podsieci. Jednak ponieważ sieci wirtualnej jest skonfigurowana dla tego zakresu, te żądania zostaną przesłane w sieci wirtualnej i nie osiągnie zasobów zamierzonej sieci web. Może to prowadzić do nieprzewidywalnych problemów z usług domenowych Azure AD.
+
+**Jeśli jesteś właścicielem zakres adresów IP w Internecie, które skonfigurowano w Twojej sieci wirtualnej, można zignorować ten alert. Jednak usługi domenowe Azure AD nie można przekazać do [SLA](https://azure.microsoft.com/support/legal/sla/active-directory-ds/v1_0/)] w tej konfiguracji, ponieważ może to prowadzić do nieprzewidywalnych błędów.**
+
+
 1. [Usuwanie domeny zarządzanej](active-directory-ds-disable-aadds.md) z katalogu.
 2. Usuń zakres adresów IP podsieci
   1. Przejdź do [strony sieci wirtualnych w portalu Azure](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
@@ -86,7 +91,7 @@ Przed rozpoczęciem przeczytaj **prywatnej przestrzeń adresową v4** sekcji [w 
   7. Zaktualizuj zakres adresów, a następnie zapisz zmiany.
 3. Postępuj zgodnie z [przewodnik wprowadzenie uruchomiony przy użyciu usług domenowych Azure AD](active-directory-ds-getting-started.md) Aby odtworzyć domeny zarządzanej. Upewnij się, że możesz wybrać sieć wirtualną z zakresu prywatnych adresów IP.
 4. Aby przyłączenie do domeny maszyn wirtualnych do nowej domeny, wykonaj [w tym przewodniku](active-directory-ds-admin-guide-join-windows-vm-portal.md).
-8. Sprawdź kondycję Twojej domeny w dwóch godzin, aby upewnić się, że kroki zostały wykonane prawidłowo.
+8. Aby upewnić się, że alert nie zostanie rozwiązany, Sprawdź kondycję Twojej domeny w dwóch godzin.
 
 
 ## <a name="contact-us"></a>Skontaktuj się z nami

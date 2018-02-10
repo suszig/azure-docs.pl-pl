@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/10/2017
+ms.date: 02/05/2018
 ms.author: motanv
-ms.openlocfilehash: 9475774b99ee6bc01fb43ffc6fcddea025779c05
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 81206257cb2c7157bbb1ffcf3a79ced7c896ef80
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Wywołać kontrolowane Chaos w klastrach sieci szkieletowej usług
 Dużych systemów rozproszonych jak infrastruktury chmury jest z założenia gwarantowane. Sieć szkieletowa usług Azure umożliwia deweloperom zapisu niezawodnej usługi rozproszone zawodnych infrastrukturze. Można zapisać niezawodne usługi rozproszone zawodnych infrastrukturze, deweloperzy muszą być możliwe przetestowanie stabilność swoich usług, podczas gdy podstawowej infrastruktury zawodnych przechodzi przez przejść skomplikowane stanu z powodu błędów.
@@ -33,7 +33,7 @@ Po skonfigurowaniu Chaos częstotliwość i rodzaju błędów, można uruchomić
 > W postaci bieżącego Chaos wywołuje tylko bezpiecznych błędy, co oznacza, że w przypadku braku błędów zewnętrznych utrata kworum, lub utraty danych nigdy nie występuje.
 >
 
-Po uruchomieniu Chaos tworzy różnych zdarzeń, których przechwycony stan w momencie uruchomienia. Na przykład ExecutingFaultsEvent zawiera wszystkie błędy, które Chaos podjęto decyzję o wykonanie w tym iteracji. ValidationFailedEvent zawiera szczegóły niepowodzenia weryfikacji (problemów kondycji lub stabilności) został znaleziony podczas sprawdzania poprawności klastra. Można wywołać GetChaosReport interfejsu API (C#, programu Powershell lub REST) w celu uzyskania raportu Chaos działa. Te zdarzenia uzyskać utrwalone w [niezawodnej słownika](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-reliable-collections), której obowiązują zasady obcięcie ustawieniem dwie konfiguracje: **MaxStoredChaosEventCount** (wartość domyślna to 25000) i **StoredActionCleanupIntervalInSeconds** (wartość domyślna to 3600). Co *StoredActionCleanupIntervalInSeconds* Chaos kontroli i wszystkie, ale najnowszej *MaxStoredChaosEventCount* zdarzenia, zostaną usunięte ze słownika wiarygodne.
+Po uruchomieniu Chaos tworzy różnych zdarzeń, których przechwycony stan w momencie uruchomienia. Na przykład ExecutingFaultsEvent zawiera wszystkie błędy, które Chaos podjęto decyzję o wykonanie w tym iteracji. ValidationFailedEvent zawiera szczegóły niepowodzenia weryfikacji (problemów kondycji lub stabilności) został znaleziony podczas sprawdzania poprawności klastra. Można wywołać GetChaosReport interfejsu API (C#, programu Powershell lub REST) w celu uzyskania raportu Chaos działa. Te zdarzenia uzyskać utrwalone w [niezawodnej słownika](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-reliable-services-reliable-collections), której obowiązują zasady obcięcie ustawieniem dwie konfiguracje: **MaxStoredChaosEventCount** (wartość domyślna to 25000) i **StoredActionCleanupIntervalInSeconds** (wartość domyślna to 3600). Co *StoredActionCleanupIntervalInSeconds* Chaos kontroli i wszystkie, ale najnowszej *MaxStoredChaosEventCount* zdarzenia, zostaną usunięte ze słownika wiarygodne.
 
 ## <a name="faults-induced-in-chaos"></a>Błędy powstaniu w Chaos
 Chaos generuje błędy w ramach całego klastra sieci szkieletowej usług i kompresuje błędów, które są widoczne w miesięcy lub lat do kilku godzin. Kombinacja przeplotem błędów ze wskaźnikiem wysoką odporność znajduje sytuacjach wyjątkowych, które w przeciwnym razie mogą zostać pominięci. Tego ćwiczenia Chaos prowadzi do znacznej poprawy jakości kodu usługi.
@@ -65,11 +65,14 @@ Można pobrać błędów, które powstaniu Chaos, można użyć API GetChaosRepo
 > Niezależnie od tego jak wysoka wartość *MaxConcurrentFaults* ma Chaos gwarantuje — w przypadku braku błędów zewnętrznych — nie utraty kworum lub utraty danych.
 >
 
-* **EnableMoveReplicaFaults**: Włącza lub wyłącza błędów, które powodują repliki podstawowej lub pomocniczej, aby przenieść. Te błędy są domyślnie wyłączone.
+* **EnableMoveReplicaFaults**: Włącza lub wyłącza błędów, które powodują repliki podstawowej lub pomocniczej, aby przenieść. Te błędy są domyślnie włączone.
 * **WaitTimeBetweenIterations**: ilość czasu między iteracji. Oznacza to, że czas Chaos zatrzyma się po wykonaniu round usterek i o zakończeniu odpowiednich sprawdzania poprawności kondycji klastra. Im wyższa wartość dolnej jest wskaźnikiem iniekcji średnią usterek.
 * **WaitTimeBetweenFaults**: ilość czasu między dwa kolejne błędy w jednym iteracji. Im większa wartość, tym mniejszy współbieżności (lub nakładanie się między) błędów.
 * **ClusterHealthPolicy**: zasad dotyczących kondycji klastra jest używany do sprawdzania poprawności kondycji klastra Between Chaos iteracji. Jeśli stan klastra jest wynikiem błędu lub sytuacji wystąpił nieoczekiwany wyjątek podczas wykonywania błąd Chaos będzie czekać przez 30 minut przed dalej — sprawdzenie kondycji - zapewnienie klastra recuperate trochę czasu.
 * **Kontekst**: pary klucz wartość typu kolekcji (ciąg). Mapy może służyć do rejestrowania informacji o przebiegu Chaos. Nie może być więcej niż 100 takie pary, a każdy ciąg (klucz lub wartość) może mieć maksymalnie 4095 znaków. Ta mapa jest ustawiana przez starter milczenia Uruchom na przechowywanie w kontekście o określonym przebiegu.
+* **ChaosTargetFilter**: ten filtr może służyć do docelowego Chaos błędów tylko dla określonych typów węzła lub tylko do niektórych wystąpień aplikacji. Jeśli ChaosTargetFilter nie jest używany, Chaos błędów wszystkich jednostek klastra. Użycie ChaosTargetFilter Chaos błędów jednostek spełniających specyfikację ChaosTargetFilter. NodeTypeInclusionList i ApplicationInclusionList umożliwiają tylko Unii semantyki. Innymi słowy nie jest możliwe określenie przecięcia NodeTypeInclusionList i ApplicationInclusionList. Na przykład nie jest możliwe określenie "fault tej aplikacji, tylko wtedy, gdy jest tego typu węzła". Gdy podmiot jest uwzględniony w NodeTypeInclusionList lub ApplicationInclusionList, tej jednostki nie można wykluczyć przy użyciu ChaosTargetFilter. Nawet wtedy, gdy nie ma applicationX ApplicationInclusionList, w niektórych iteracji Chaos applicationX może być uszkodzona ponieważ zdarza się w węźle nodeTypeY, który znajduje się w NodeTypeInclusionList. Jeśli zarówno NodeTypeInclusionList i ApplicationInclusionList jest zerowa lub pusta, zostanie zgłoszony ArgumentException.
+    * **NodeTypeInclusionList**: listy typów węzłów do uwzględnienia w Chaos błędów. Wszystkie typy błędów (ponownie uruchomić węzeł, uruchom ponownie elementu codepackage usunąć replikę, uruchom ponownie repliki, Przenieś podstawowego i Przenieś dodatkowej) są włączone dla węzłów typu węzła. Jeśli nodetype (powiedzieć NodeTypeX) nie ma NodeTypeInclusionList, a następnie błędów poziomu węzła (na przykład NodeRestart) nigdy nie zostanie włączona dla węzłów NodeTypeX, ale błędów kodu pakietu i repliki nadal mogą być włączone dla NodeTypeX, jeśli aplikacja programu ApplicationInclusionList odbywa się w węźle NodeTypeX. Co najwyżej 100 nazwy typu węzła można dołączyć do tej listy, aby zwiększyć ten numer, konfiguracja MaxNumberOfNodeTypesInChaosTargetFilter wymagany jest uaktualnienie konfiguracji.
+    * **ApplicationInclusionList**: wykaz aplikacji identyfikatorów URI do uwzględnienia w Chaos błędów. Wszystkie repliki należące do usługi te aplikacje są nadającymi się do repliki usterek (repliki ponownego uruchomienia, Usuń replikę, Przenieś podstawowe i pomocnicze przenoszenia) przez Chaos. Chaos może ponownie uruchomić pakietu kodu tylko wtedy, gdy pakiet kodu hostem repliki tylko te aplikacje. Jeśli aplikacja nie ma na liście, go może nadal być umieszczone w niektórych iteracji Chaos Jeśli kończenia aplikacji w węźle typu węzła, który jest incuded w NodeTypeInclusionList. Jednak jeśli applicationX jest związany z nodeTypeY za pośrednictwem ograniczenia umieszczania i applicationX jest nieobecny z ApplicationInclusionList i nodeTypeY jest nieobecny z NodeTypeInclusionList, następnie applicationX nigdy nie wystąpi błąd. Maksymalnie 1000 nazwy aplikacji można dołączyć do tej listy, aby zwiększyć ten numer, uaktualnienia konfiguracji jest wymagany dla konfiguracji MaxNumberOfApplicationsInChaosTargetFilter.
 
 ## <a name="how-to-run-chaos"></a>Jak uruchomić Chaos
 
@@ -136,7 +139,23 @@ class Program
                 MaxPercentUnhealthyApplications = 100,
                 MaxPercentUnhealthyNodes = 100
             };
-            
+
+            // All types of faults, restart node, restart code package, restart replica, move primary replica, and move secondary replica will happen
+            // for nodes of type 'FrontEndType'
+            var nodetypeInclusionList = new List<string> { "FrontEndType"};
+
+            // In addition to the faults included by nodetypeInclusionList, 
+            // restart code package, restart replica, move primary replica, move secondary replica faults will happen for 'fabric:/TestApp2'
+            // even if a replica or code package from 'fabric:/TestApp2' is residing on a node which is not of type included in nodeypeInclusionList.
+            var applicationInclusionList = new List<string> { "fabric:/TestApp2" };
+
+            // List of cluster entities to target for Chaos faults.
+            var chaosTargetFilter = new ChaosTargetFilter
+            {
+                NodeTypeInclusionList = nodetypeInclusionList,
+                ApplicationInclusionList = applicationInclusionList
+            };
+
             var parameters = new ChaosParameters(
                 maxClusterStabilizationTimeout,
                 maxConcurrentFaults,
@@ -145,7 +164,7 @@ class Program
                 startContext,
                 waitTimeBetweenIterations,
                 waitTimeBetweenFaults,
-                clusterHealthPolicy);
+                clusterHealthPolicy) {ChaosTargetFilter = chaosTargetFilter};
 
             try
             {
@@ -250,12 +269,26 @@ $clusterHealthPolicy.ConsiderWarningAsError = $False
 # This map is set by the starter of the Chaos run to optionally store the context about the specific run.
 $context = @{"ReasonForStart" = "Testing"}
 
+#List of cluster entities to target for Chaos faults.
+$chaosTargetFilter = new-object -TypeName System.Fabric.Chaos.DataStructures.ChaosTargetFilter
+$chaosTargetFilter.NodeTypeInclusionList = new-object -TypeName "System.Collections.Generic.List[String]"
+
+# All types of faults, restart node, restart code package, restart replica, move primary replica, and move secondary replica will happen
+# for nodes of type 'FrontEndType'
+$chaosTargetFilter.NodeTypeInclusionList.AddRange( [string[]]@("FrontEndType") )
+$chaosTargetFilter.ApplicationInclusionList = new-object -TypeName "System.Collections.Generic.List[String]"
+
+# In addition to the faults included by nodetypeInclusionList, 
+# restart code package, restart replica, move primary replica, move secondary replica faults will happen for 'fabric:/TestApp2'
+# even if a replica or code package from 'fabric:/TestApp2' is residing on a node which is not of type included in nodeypeInclusionList.
+$chaosTargetFilter.ApplicationInclusionList.Add("fabric:/TestApp2")
+
 Connect-ServiceFabricCluster $clusterConnectionString
 
 $events = @{}
 $now = [System.DateTime]::UtcNow
 
-Start-ServiceFabricChaos -TimeToRunMinute $timeToRunMinute -MaxConcurrentFaults $maxConcurrentFaults -MaxClusterStabilizationTimeoutSec $maxClusterStabilizationTimeSecs -EnableMoveReplicaFaults -WaitTimeBetweenIterationsSec $waitTimeBetweenIterationsSec -WaitTimeBetweenFaultsSec $waitTimeBetweenFaultsSec -ClusterHealthPolicy $clusterHealthPolicy
+Start-ServiceFabricChaos -TimeToRunMinute $timeToRunMinute -MaxConcurrentFaults $maxConcurrentFaults -MaxClusterStabilizationTimeoutSec $maxClusterStabilizationTimeSecs -EnableMoveReplicaFaults -WaitTimeBetweenIterationsSec $waitTimeBetweenIterationsSec -WaitTimeBetweenFaultsSec $waitTimeBetweenFaultsSec -ClusterHealthPolicy $clusterHealthPolicy -ChaosTargetFilter $chaosTargetFilter
 
 while($true)
 {
@@ -286,5 +319,4 @@ while($true)
 
     Start-Sleep -Seconds 1
 }
-
 ```

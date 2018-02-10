@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: de6bddeedbff5fded716db31b1a528466df1d396
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 50d5ecd0542d236d4d68656af7808c329728aa39
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>Samouczek: Konfigurowanie usługi ServiceNow dla użytkownika automatycznego inicjowania obsługi administracyjnej z usługą Azure Active Directory
 
@@ -68,7 +68,7 @@ Ta sekcja przeprowadzi Cię przez łączenie usługi Azure AD z konta użytkowni
 
     b. W **nazwa użytkownika administratora usługi ServiceNow** tekstowym, wpisz nazwę użytkownika administratora.
 
-    d. W **hasło administratora usługi ServiceNow** pole tekstowe, hasło administratora.
+    c. W **hasło administratora usługi ServiceNow** pole tekstowe, hasło administratora.
 
 6. W portalu Azure kliknij **Testuj połączenie** zapewniające usługi Azure AD mogą łączyć się z aplikacji usługi ServiceNow. Jeśli połączenie nie powiedzie się, upewnij się, Twoje konto usługi ServiceNow ma uprawnienia administratora zespołu i spróbuj **"Poświadczeń administratora"** krok ponownie.
 
@@ -84,7 +84,9 @@ Ta sekcja przeprowadzi Cię przez łączenie usługi Azure AD z konta użytkowni
 
 12. Kliknij przycisk **zapisać.**
 
-Rozpoczyna się wstępnej synchronizacji użytkowników i/lub grupy przypisane do usługi ServiceNow w sekcji Użytkownicy i grupy. Synchronizacji początkowej zajmuje więcej czasu wykonywania niż kolejne synchronizacje, występujące co około 20 minut, tak długo, jak usługa jest uruchomiona. Można użyć **szczegóły synchronizacji** sekcji, aby monitorować postęp i skorzystaj z linków do inicjowania obsługi administracyjnej raporty działania, które opisują wszystkie akcje wykonywane przez usługę inicjowania obsługi administracyjnej na aplikację usługi ServiceNow.
+Rozpoczyna się wstępnej synchronizacji użytkowników i/lub grupy przypisane do usługi ServiceNow w sekcji Użytkownicy i grupy. Synchronizacji początkowej zajmuje więcej czasu wykonywania niż kolejne synchronizacje, występujące co około 40 minut tak długo, jak usługa jest uruchomiona. Można użyć **szczegóły synchronizacji** sekcji, aby monitorować postęp i skorzystaj z linków do inicjowania obsługi administracyjnej Dzienniki aktywności, które opisują wszystkie akcje wykonywane przez usługę inicjowania obsługi administracyjnej na aplikację usługi ServiceNow.
+
+Aby uzyskać więcej informacji na temat usługi Azure AD, inicjowanie obsługi dzienników do odczytu, zobacz [raportowania na użytkownika automatyczne Inicjowanie obsługi konta](active-directory-saas-provisioning-reporting.md).
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 8a2211e76150a90e4e10d79fd527decd3cbcc220
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 2bdb8c30ffa630f85d666f3a16ce2b9dcdab6492
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Dostosowywanie portalu dla deweloperów usługi Azure API Management za pomocą szablonów
 
@@ -28,16 +28,10 @@ Istnieją trzy podstawowe sposoby dostosowywania portalu deweloperów w usłudze
 * [Aktualizacja stylów używanych dla elementów strony w portalu deweloperów][customize-styles]
 * [Modyfikowanie szablonów używany dla stron wygenerowanych przez portal] [ portal-templates] (co omówiono w tym przewodniku)
 
-Szablony umożliwiają dostosować zawartość strony portalu deweloperów generowanych przez system (Dokumentacja interfejsu API, produktów, uwierzytelnianie użytkowników, itp.). Przy użyciu [DotLiquid](http://dotliquidmarkup.org/) składni i podany zestaw zasobów zlokalizowanego ciągu, ikony i formantów strony ma dużą elastyczność konfigurowania zawartości stron, zgodnie z własnymi potrzebami.
+Szablony umożliwiają dostosować zawartość strony portalu deweloperów generowanych przez system (na przykład dokumentacja interfejsu API, produktów, uwierzytelnianie użytkowników, itp.). Przy użyciu [DotLiquid](http://dotliquidmarkup.org/) składni i podany zestaw zasobów zlokalizowanego ciągu, ikony i formantów strony ma dużą elastyczność konfigurowania zawartości stron, zgodnie z własnymi potrzebami.
 
 ## <a name="developer-portal-templates-overview"></a>Przegląd szablonów portalu deweloperów
-Edytowanie szablonów jest wykonywane od **portalu dla deweloperów** podczas jest zalogowany jako administrator. Do uzyskania najpierw otwórz Azure Portal, a następnie kliknij przycisk **portal wydawcy** na pasku narzędzi usługi Zarządzanie interfejsami API wystąpienia.
-
-![Portal wydawcy][api-management-management-console]
-
-Następnie kliknij polecenie **Portal deweloperów** w prawym górnym rogu. 
-
-![Menu portalu dla deweloperów][api-management-developer-portal-menu]
+Edytowanie szablonów jest wykonywane od **portalu dla deweloperów** podczas jest zalogowany jako administrator. Do uzyskania najpierw otwórz Azure Portal, a następnie kliknij przycisk **portalu dla deweloperów** na pasku narzędzi usługi Zarządzanie interfejsami API wystąpienia.
 
 Aby uzyskać dostęp do szablonów portalu deweloperów, kliknij ikonę Dostosuj lewej strony, aby wyświetlić menu dostosowania, a następnie kliknij przycisk **szablony**.
 
@@ -65,7 +59,7 @@ Szablon edycji okienko zawiera kod znaczników, który określa wygląd i zachow
 
 ![Model danych szablonu][api-management-template-data]
 
-W poprzednim przykładzie są wyświetlane w portalu dla deweloperów dwóch produktów, które zostały pobrane z danych wyświetlanych w **dane szablonu** okienka, jak pokazano w poniższym przykładzie.
+W poprzednim przykładzie są wyświetlane w portalu dla deweloperów dwóch produktów, które zostały pobrane z danych wyświetlanych w **dane szablonu** okienka, jak pokazano w poniższym przykładzie:
 
 ```json
 {
@@ -164,7 +158,7 @@ Aby przywrócić szablonu do poprzednich wersji opublikowanej, kliknij przycisk 
 
 Kliknij przycisk **Tak**, aby potwierdzić.
 
-![Upewnij się][api-management-revert-template-confirm]
+![Potwierdź][api-management-revert-template-confirm]
 
 Poprzednio opublikowanej wersji szablonu jest na żywo w portalu dla deweloperów, po zakończeniu operacji przywracania.
 
@@ -177,7 +171,7 @@ Aby przywrócić jednego szablonu do domyślnej wersji, kliknij przycisk Przywr�
 
 Kliknij przycisk **Tak**, aby potwierdzić.
 
-![Upewnij się][api-management-reset-template-confirm]
+![Potwierdź][api-management-reset-template-confirm]
 
 Aby przywrócić wszystkie szablony ich wersje domyślny, kliknij przycisk **Przywróć domyślne szablony** na liście szablonów.
 
@@ -185,7 +179,7 @@ Aby przywrócić wszystkie szablony ich wersje domyślny, kliknij przycisk **Prz
 
 Szablonach przywróconą następnie należy opublikować pojedynczo lub w całości, wykonując kroki opisane w [publikowania szablonu](#to-publish-a-template).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby uzyskać informacje referencyjne dotyczące szablonów portalu dla deweloperów, zasoby ciągów, ikony i formantów strony, zobacz [szablony portalu dewelopera zarządzanie interfejsami API](api-management-developer-portal-templates-reference.md).
 
 [modify-content-layout]: api-management-modify-content-layout.md

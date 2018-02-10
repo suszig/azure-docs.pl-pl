@@ -10,11 +10,11 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: e5c76ff84fc6409975ce6df076bfe220a092eeec
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 70973684445416d715c5b26d06613b31e0001395
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-azure-powershell"></a>Utwórz bramę aplikacji z adresu URL na podstawie ścieżki reguły routingu przy użyciu programu Azure PowerShell
 
@@ -352,7 +352,7 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublic
 
 ![Podstawowy adres URL testu bramy aplikacji](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest.png)
 
-Zmień adres URL do http://<ip-address>:8080/video/test.htm na końcu podstawowy adres URL i powinny zostać wyświetlone informacje, jak w następującym przykładzie:
+Zmień adres URL do http://<ip-address>:8080/video/test.htm, zastępując adresu IP < adres ip >, a powinien zostać wyświetlony ekran podobny do następującego:
 
 ![Adres URL obrazów testu w bramy aplikacji](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest-images.png)
 

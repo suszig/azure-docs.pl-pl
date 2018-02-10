@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
+ms.date: 02/05/2018
 ms.author: sethm
-ms.openlocfilehash: fcc7e1cbacc7889c9525207b238162e6caa6b00b
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 20115897bb5ae2638588e79d80700fa8ece06104
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Azure Service Bus metryki w monitorze Azure (wersja zapoznawcza)
 
@@ -28,7 +28,7 @@ Azure Monitor udostępnia interfejsy użytkownika ujednoliconego do monitorowani
 
 ## <a name="access-metrics"></a>Metryki dostępu
 
-Azure Monitor oferuje wiele sposobów metryki dostępu. Można albo metryki dostęp za pośrednictwem [portalu Azure](https://portal.azure.com), lub użyj interfejsów API usługi Azure monitora (REST i .NET) i rozwiązań analitycznych, takie jak operacji Management Suite i usługi Event Hubs. Aby uzyskać więcej informacji, zobacz [metryki Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api).
+Azure Monitor oferuje wiele sposobów metryki dostępu. Można albo metryki dostęp za pośrednictwem [portalu Azure](https://portal.azure.com), lub użyj interfejsów API usługi Azure monitora (REST i .NET) i rozwiązań analitycznych, takie jak operacji Management Suite (OMS) i usługi Event Hubs. Aby uzyskać więcej informacji, zobacz [metryki Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api).
 
 Metryki są domyślnie włączone i są dostępne najnowsze w ciągu 30 dni od danych. Jeśli chcesz zachować dane przez dłuższy okres czasu, można archiwizować dane metryk do konta usługi Azure Storage. Te ustawienia zostaną skonfigurowane w [ustawień diagnostycznych](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) w monitorze Azure.
 
@@ -46,7 +46,7 @@ Dla metryki pomocnicze, wymiary możesz filtrować z żądaną wartością.
 
 ## <a name="billing"></a>Rozliczenia
 
-Przy użyciu metryk w monitorze Azure jest obecnie bezpłatna podczas w wersji zapoznawczej. Jednak użycie dodatkowe rozwiązania, które pozyskiwania danych metryki, użytkownik może zostać użyta przez te rozwiązania. Na przykład możesz są rozliczane przez usługi Azure Storage archiwizacji danych metryk do konta usługi Azure Storage. Również są rozliczane przez operację Management Suite (OMS), jeśli strumienia danych metryki z usługą OMS dla zaawansowanej analizy.
+Przy użyciu metryk w monitorze Azure jest bezpłatna podczas w wersji zapoznawczej. Jednak użycie dodatkowe rozwiązania, które pozyskiwania danych metryki, użytkownik może zostać użyta przez te rozwiązania. Na przykład możesz są rozliczane przez usługi Azure Storage archiwizacji danych metryk do konta usługi Azure Storage. Również są rozliczane przez operację Management Suite (OMS), jeśli strumienia danych metryki z usługą OMS dla zaawansowanej analizy.
 
 Następujące metryki zawiera przegląd kondycji usługi. 
 
@@ -61,33 +61,33 @@ Zlicza żądania operacji danych i zarządzania.
 
 | Nazwa metryki | Opis |
 | ------------------- | ----------------- |
-| Przychodzące żądania (wersja zapoznawcza) | Liczba żądań wysyłanych do usługi Service Bus w określonym czasie. <br/><br/> Jednostka: liczba <br/> Typ agregacji: Całkowita liczba <br/> Wymiar: Nazwa jednostki|
-|Liczba pomyślnych żądań (wersja zapoznawcza)|Liczba pomyślnych żądań wprowadzone w usłudze Service Bus w określonym czasie.<br/><br/> Jednostka: liczba <br/> Typ agregacji: Całkowita liczba <br/> Wymiar: Nazwa jednostki|
-|Błędy serwera (wersja zapoznawcza)|Liczba żądań przetworzonych nie z powodu błędu usługi Service Bus w określonym czasie.<br/><br/> Jednostka: liczba <br/> Typ agregacji: Całkowita liczba <br/> Wymiar: Nazwa jednostki|
-|Błędy użytkownika (wersja zapoznawcza)|Liczba żądań przetworzonych nie ze względu na błędy użytkowników w określonym czasie.<br/><br/> Jednostka: liczba <br/> Typ agregacji: Całkowita liczba <br/> Wymiar: Nazwa jednostki|
-|Ograniczeniem przepustowości żądań (wersja zapoznawcza)|Liczba żądań, które zostały ograniczenie, ponieważ przekroczono użycia.<br/><br/> Jednostka: liczba <br/> Typ agregacji: Całkowita liczba <br/> Wymiar: Nazwa jednostki|
+| Przychodzące żądania (wersja zapoznawcza) | Liczba żądań wysyłanych do usługi Service Bus w określonym czasie. <br/><br/> Jednostka: liczba <br/> Typ agregacji: Całkowita liczba <br/> Dimension: EntityName|
+|Liczba pomyślnych żądań (wersja zapoznawcza)|Liczba pomyślnych żądań wprowadzone w usłudze Service Bus w określonym czasie.<br/><br/> Jednostka: liczba <br/> Typ agregacji: Całkowita liczba <br/> Dimension: EntityName|
+|Błędy serwera (wersja zapoznawcza)|Liczba żądań przetworzonych nie z powodu błędu usługi Service Bus w określonym czasie.<br/><br/> Jednostka: liczba <br/> Typ agregacji: Całkowita liczba <br/> Dimension: EntityName|
+|Błędy użytkownika (wersja zapoznawcza)|Liczba żądań przetworzonych nie ze względu na błędy użytkowników w określonym czasie.<br/><br/> Jednostka: liczba <br/> Typ agregacji: Całkowita liczba <br/> Dimension: EntityName|
+|Ograniczeniem przepustowości żądań (wersja zapoznawcza)|Liczba żądań, które zostały ograniczenie, ponieważ przekroczono użycia.<br/><br/> Jednostka: liczba <br/> Typ agregacji: Całkowita liczba <br/> Dimension: EntityName|
 
 ## <a name="message-metrics"></a>Metryki wiadomości
 
 | Nazwa metryki | Opis |
 | ------------------- | ----------------- |
-|Komunikaty przychodzące (wersja zapoznawcza)|Liczba zdarzeń lub wiadomości wysyłanych do usługi Service Bus w określonym czasie.<br/><br/> Jednostka: liczba <br/> Typ agregacji: Całkowita liczba <br/> Wymiar: Nazwa jednostki|
-|Wysyła komunikaty wychodzące (wersja zapoznawcza)|Liczba zdarzeń lub komunikatów odebranych z usługi Service Bus w określonym czasie.<br/><br/> Jednostka: liczba <br/> Typ agregacji: Całkowita liczba <br/> Wymiar: Nazwa jednostki|
+|Komunikaty przychodzące (wersja zapoznawcza)|Liczba zdarzeń lub wiadomości wysyłanych do usługi Service Bus w określonym czasie.<br/><br/> Jednostka: liczba <br/> Typ agregacji: Całkowita liczba <br/> Dimension: EntityName|
+|Wysyła komunikaty wychodzące (wersja zapoznawcza)|Liczba zdarzeń lub komunikatów odebranych z usługi Service Bus w określonym czasie.<br/><br/> Jednostka: liczba <br/> Typ agregacji: Całkowita liczba <br/> Dimension: EntityName|
 
 ## <a name="connection-metrics"></a>Metryki połączenia
 
 | Nazwa metryki | Opis |
 | ------------------- | ----------------- |
-|ActiveConnections (wersja zapoznawcza)|Liczba aktywnych połączeń przestrzeni nazw, a także jednostki.<br/><br/> Jednostka: liczba <br/> Typ agregacji: Całkowita liczba <br/> Wymiar: Nazwa jednostki|
-|Otwartego połączenia (wersja zapoznawcza)|Liczba otwartych połączeń.<br/><br/> Jednostka: liczba <br/> Typ agregacji: Całkowita liczba <br/> Wymiar: Nazwa jednostki|
-|Zamknięte połączenia (wersja zapoznawcza)|Liczba połączeń zamknięte.<br/><br/> Jednostka: liczba <br/> Typ agregacji: Całkowita liczba <br/> Wymiar: Nazwa jednostki |
+|ActiveConnections (wersja zapoznawcza)|Liczba aktywnych połączeń przestrzeni nazw, a także jednostki.<br/><br/> Jednostka: liczba <br/> Typ agregacji: Całkowita liczba <br/> Dimension: EntityName|
+|Otwartego połączenia (wersja zapoznawcza)|Liczba otwartych połączeń.<br/><br/> Jednostka: liczba <br/> Typ agregacji: Całkowita liczba <br/> Dimension: EntityName|
+|Zamknięte połączenia (wersja zapoznawcza)|Liczba połączeń zamknięte.<br/><br/> Jednostka: liczba <br/> Typ agregacji: Całkowita liczba <br/> Dimension: EntityName |
 
 ## <a name="resource-usage-metrics"></a>Metryki użycia zasobów
 
 | Nazwa metryki | Opis |
 | ------------------- | ----------------- |
-|Użycie procesora CPU na przestrzeń nazw (wersja zapoznawcza)|Procent użycia procesora CPU przestrzeni nazw.<br/><br/> Jednostka: procent <br/> Typ agregacji: maksymalna <br/> Wymiar: Nazwa jednostki|
-|Użycie rozmiar pamięci na przestrzeń nazw (wersja zapoznawcza)|Procent wykorzystania pamięci przestrzeni nazw.<br/><br/> Jednostka: procent <br/> Typ agregacji: maksymalna <br/> Wymiar: Nazwa jednostki|
+|Użycie procesora CPU na przestrzeń nazw (wersja zapoznawcza)|Procent użycia procesora CPU przestrzeni nazw.<br/><br/> Jednostka: procent <br/> Typ agregacji: maksymalna <br/> Dimension: EntityName|
+|Użycie rozmiar pamięci na przestrzeń nazw (wersja zapoznawcza)|Procent wykorzystania pamięci przestrzeni nazw.<br/><br/> Jednostka: procent <br/> Typ agregacji: maksymalna <br/> Dimension: EntityName|
 
 ## <a name="metrics-dimensions"></a>Wymiary metryk
 
@@ -95,9 +95,9 @@ Usługa Azure Service Bus obsługuje następujące wymiary metryki w monitorze A
 
 |Nazwa wymiaru|Opis|
 | ------------------- | ----------------- |
-|Nazwa jednostki| Usługa Service Bus obsługuje jednostek obsługi komunikatów w przestrzeni nazw.|
+|EntityName| Usługa Service Bus obsługuje jednostek obsługi komunikatów w przestrzeni nazw.|
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Zobacz [Azure monitorowanie — Przegląd](../monitoring-and-diagnostics/monitoring-overview.md).
 

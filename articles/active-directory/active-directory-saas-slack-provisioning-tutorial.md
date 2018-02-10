@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.reviewer: asmalser
-ms.openlocfilehash: 4f4160a3f4005c2449da2b45a171766963febb4d
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: b0bbc310edddcc461633e57340950a0f4050f66a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie zapas czasu dla użytkownika automatycznego inicjowania obsługi administracyjnej.
 
@@ -107,7 +107,9 @@ Opcjonalnie można włączyć udostępnianie obiektów grupy z usługi Azure AD 
 
 4) Kliknij pozycję **Zapisz**.
 
-Ten wynik w żadnych obiektów grupy przypisane do zapas czasu w **użytkowników i grup** sekcji pełni synchronizowane z usługi Azure AD do zapas czasu. Można użyć **szczegóły synchronizacji** sekcji, aby monitorować postęp i skorzystaj z linków do inicjowania obsługi administracyjnej raporty działania, które opisują wszystkie akcje wykonywane przez usługę inicjowania obsługi administracyjnej na Slack aplikacji.
+Ten wynik w żadnych obiektów grupy przypisane do zapas czasu w **użytkowników i grup** sekcji pełni synchronizowane z usługi Azure AD do zapas czasu. Można użyć **szczegóły synchronizacji** sekcji, aby monitorować postęp i skorzystaj z linków do inicjowania obsługi administracyjnej Dzienniki aktywności, które opisują wszystkie akcje wykonywane przez usługę inicjowania obsługi administracyjnej na Slack aplikacji.
+
+Aby uzyskać więcej informacji na temat usługi Azure AD, inicjowanie obsługi dzienników do odczytu, zobacz [raportowania na użytkownika automatyczne Inicjowanie obsługi konta](active-directory-saas-provisioning-reporting.md).
 
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby

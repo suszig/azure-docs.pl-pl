@@ -1,6 +1,6 @@
 ---
-title: "Wizualnie tworzyć fabryki danych Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak wizualnie tworzyć fabryki danych Azure"
+title: Tworzenie Visual w fabryce danych Azure | Dokumentacja firmy Microsoft
+description: "Dowiedz się, jak używać visual tworzenia w fabryce danych Azure"
 services: data-factory
 documentationcenter: 
 author: sharonlo101
@@ -13,98 +13,101 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/9/2018
 ms.author: shlo
-ms.openlocfilehash: 3e67665facba78c4ca8e2317f0323b4c5c02a49c
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 81b97bb6b6abb5431bedd4efec5f807fa577c4e4
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="visually-author-data-factories"></a>Wizualne tworzenie fabryki danych
-Z doświadczenia UX fabryki danych Azure użytkownicy mogą wizualnie tworzyć i wdrożenie zasobów z ich fabryki danych bez konieczności napisania jakiegokolwiek wiersza kodu. Ten interfejs niekorzystające z kodu umożliwia przeciągnij i upuść działania na kanwie potoku, wykonywania uruchomień testów, wielokrotnie powtarzane, debugowanie i wdrażanie i monitorowanie sekwencji potoku. Można użyć narzędzia ADF UX na dwa sposoby:
+# <a name="visual-authoring-in-azure-data-factory"></a>Tworzenie Visual w fabryce danych Azure
+Fabryka danych Azure użytkownika interfejsu środowisko (UX) pozwala wizualnie tworzyć i wdrażać zasobów dla fabrykę danych bez konieczności pisania kodu. Można przeciągnij działania kanwy potoku, wykonaj uruchomień testów, wielokrotnie powtarzane, debugowanie i wdrażanie i monitorowanie sekwencji potoku. Istnieją dwa podejścia do wykonywania visual tworzenia przy użyciu środowiska użytkownika:
 
-1. Praca bezpośrednio w usłudze fabryka danych
-2. Konfigurowanie integracji Git VSTS współpracy, kontroli źródła lub wersji
+- Autor bezpośrednio w usłudze fabryki danych.
+- Autor z integracji programu Visual Studio Team Services (VSTS) Git dla współpracy, kontroli wersji lub wersji.
 
-## <a name="authoring-with-data-factory"></a>Tworzenie przy użyciu fabryki danych
-Pierwsza opcja tworzenia jest bezpośrednio z trybem fabryki danych. Ta metoda różni się od tworzenia za pomocą programu VSTS repozytorium kodu w że nie istnieje żadne repozytorium przechowywania obiektów JSON zmiany nie jest zoptymalizowana dla kontroli wersji lub współpracy.
+## <a name="author-directly-with-the-data-factory-service"></a>Autor bezpośrednio w usłudze fabryka danych
+Visual tworzenia w usłudze fabryka danych różni się od tworzenia visual z programu VSTS na dwa sposoby:
 
-![Konfigurowanie usługi fabryka danych](media/author-visually/configure-data-factory.png)
+- Usługi fabryka danych nie zawiera repozytorium do przechowywania obiektów JSON zmiany.
+- Usługi fabryka danych nie jest zoptymalizowana pod kątem współpracy lub kontroli wersji.
 
-W trybie fabryki danych jest tylko tryb "Publikuj". Wszystkie wprowadzone zmiany są publikowane bezpośrednio do usługi fabryki danych.
+![Konfigurowanie usługi fabryka danych ](media/author-visually/configure-data-factory.png)
 
-![Publikowanie fabryki danych](media/author-visually/data-factory-publish.png)
+Jeśli używasz środowiska użytkownika **tworzenia obszaru roboczego** można tworzyć bezpośrednio w usłudze fabryka danych, tylko **publikowania** tryb jest dostępny. Zmiany wprowadzane są publikowane bezpośrednio do usługi fabryki danych.
 
-## <a name="authoring-with-vsts-git-integration"></a>Tworzenie z programu VSTS Integracja z usługą Git
-Tworzenie z integracji programu VSTS Git umożliwia kontroli źródła i współpracy podczas tworzenia Twojej potoki fabryki danych. Użytkownicy mają możliwość skojarzenia fabryka danych z konta Git VSTS repozytorium kontroli źródła, współpracy i przechowywanie wersji itp. Jednego konta usługi VSTS GIT może mieć wielu repozytoriów. Jednak repozytorium Git programu VSTS może być skojarzony tylko z fabryką danych. Jeśli jeszcze nie masz konta usługi VSTS i repozytorium, utworzyć [tutaj](https://docs.microsoft.com/en-us/vsts/accounts/create-account-msa-or-work-student).
+![Tryb publikowania](media/author-visually/data-factory-publish.png)
 
-### <a name="configure-vsts-git-repo-with-azure-data-factory"></a>Konfigurowanie repozytorium Git programu VSTS z fabryką danych Azure
-Użytkownicy mogą konfigurować repozytorium GIT programu VSTS z fabryką danych za pomocą dwóch metod.
+## <a name="author-with-vsts-git-integration"></a>Autor z integracji programu VSTS Git
+Tworzenie Visual z integracji programu VSTS Git obsługuje kontroli źródła i współpracy pracy z potoków fabryki danych. Fabryka danych można skojarzyć z repozytorium Git programu VSTS konta dla kontroli źródła, współpracy, przechowywanie wersji i tak dalej. Jednego konta usługi VSTS Git może mieć wielu repozytoriów, ale repozytorium Git programu VSTS może być skojarzona z fabryką danych tylko jeden. Jeśli nie masz konta usługi VSTS lub repozytorium, wykonaj [tych instrukcji](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student) można utworzyć zasoby.
 
-#### <a name="method-1-lets-get-started-page"></a>Metoda 1: "Rozpocznijmy" strony
+### <a name="configure-a-vsts-git-repository-with-azure-data-factory"></a>Konfigurowanie repozytorium Git programu VSTS z fabryką danych Azure
+Repozytorium GIT programu VSTS z fabryką danych można skonfigurować za pomocą dwóch metod.
 
-Przejdź do strony "Rozpocznijmy", a następnie kliknij przycisk 'Konfiguruj repozytorium kodu'
+<a name="method1"></a>
+#### <a name="configuration-method-1-lets-get-started-page"></a>Metoda konfiguracji 1: Załóż strony wprowadzenie
+W fabryce danych Azure, przejdź do **Rozpocznijmy** strony. Wybierz **skonfigurować repozytorium kodu**:
 
-![Konfigurowanie repozytorium kodu](media/author-visually/configure-repo.png)
+![Konfigurowanie programu VSTS repozytorium kodu](media/author-visually/configure-repo.png)
 
-Z tego miejsca do konfigurowania ustawień repozytorium pojawia się po stronie okno.
+**Ustawienia repozytorium** pojawi się okienko konfiguracji:
 
-![Skonfiguruj ustawienia repozytorium](media/author-visually/repo-settings.png)
-* **Typ repozytorium**: Visual Studio Team Services Git (obecnie Github nie jest obsługiwana.)
-* **Visual Studio Team Services konta**: Nazwa konta można znaleźć na podstawie nazwy https://{account}. visualstudio.com. Zaloguj się do konta usługi VSTS [tutaj](https://www.visualstudio.com/team-services/git/) i dostępu do profilu programu Visual Studio, aby zobaczyć projektów i repozytoriów
-* **ProjectName:** Nazwa projektu można znaleźć na podstawie nazwy name}.visualstudio.com/{project https://{account}
-* **RepositoryName:** nazwę repozytorium. Projekty programu VSTS zawierają repozytoriów narzędzia Git, aby zarządzać kodu źródłowego w miarę rozwoju projektu. Utwórz nowe repozytorium albo korzystania z repozytorium istniejące już w projekcie.
-* **Importowanie istniejących zasobów fabryki danych do repozytorium**: Zaznaczenie tego pola, można zaimportować bieżącego zasobów w fabryce danych utworzone na kanwie UX skojarzone repozytorium GIT programu VSTS w formacie JSON. Ta akcja Eksportuje każdy z zasobów pojedynczo (to znaczy połączonych usług i zestawów danych są eksportowane do oddzielnych JSONs).    Jeśli wyczyścisz to pole wyboru istniejących zasobów nie są importowane do repozytorium Git.
+![Skonfiguruj ustawienia repozytorium kodu](media/author-visually/repo-settings.png)
 
-#### <a name="method-2-from-authoring-canvas"></a>Metoda 2: Z tworzenia obszaru roboczego
+W okienku wyświetlana następujący kod programu VSTS ustawienia repozytorium:
 
-"Tworzenie kanwie" kliknij menu rozwijane "Fabryki danych" pod nazwą fabryki danych. Następnie kliknij przycisk "Konfiguruj kodu repozytorium." Podobnie jak **metody 1**, panelu po stronie pojawia się do konfigurowania ustawień repozytorium. Zobacz poprzednich sekcjach, aby uzyskać informacje o ustawieniach.
+| Ustawienie | Opis | Wartość |
+|:--- |:--- |:--- |
+| **Typ repozytorium** | Typ repozytorium kodu usługi VSTS.<br/>**Uwaga**: GitHub nie jest obecnie obsługiwany. | Visual Studio Team Services Git |
+| **Visual Studio Team Services Account** | Nazwa konta usługi VSTS. Możesz znaleźć nazwę konta usługi VSTS na `https://{account name}.visualstudio.com`. Możesz [Zaloguj się do konta usługi VSTS](https://www.visualstudio.com/team-services/git/) dostępu do profilu programu Visual Studio i zobacz, projektów i repozytoriów. | \<Nazwa konta > |
+| **ProjectName** | VSTS nazwę projektu. Można znaleźć programu VSTS nazwę projektu w `https://{account name}.visualstudio.com/{project name}`. | \<Nazwa projektu programu VSTS > |
+| **RepositoryName** | Nazwę repozytorium kodu usługi VSTS. Projekty programu VSTS zawierają repozytoriów narzędzia Git, aby zarządzać kodu źródłowego w miarę rozwoju projektu. Możesz utworzyć nowe repozytorium lub użyj istniejącego repozytorium, który jest już w projekcie. | \<nazwę repozytorium kodu programu VSTS > |
+| **Importowanie istniejących zasobów fabryki danych do repozytorium** | Określa, czy importowanie istniejących zasobów fabryka danych z środowiska użytkownika **tworzenia obszaru roboczego** do repozytorium Git programu VSTS. Wybierz pole, aby zaimportować zasoby fabryki danych do repozytorium Git skojarzonego w formacie JSON. Ta akcja Eksportuje każdy z zasobów pojedynczo (oznacza to połączone usługi i zestawy danych zostaną wyeksportowane do oddzielnych JSONs). Gdy to pole nie jest zaznaczone, nie są importowane istniejących zasobów. | Wybrany (ustawienie domyślne) |
 
-![Konfigurowanie repozytorium kodu 2](media/author-visually/configure-repo-2.png)
+#### <a name="configuration-method-2-ux-authoring-canvas"></a>Metoda konfiguracji 2: UX tworzenia obszaru roboczego
+W UX fabryki danych Azure **tworzenia obszaru roboczego**, zlokalizuj fabryką danych. Wybierz **fabryki danych** menu rozwijanego, a następnie wybierz **Konfigurowanie repozytorium kodu**.
 
-### <a name="version-control"></a>Kontrola wersji
-Kontrola wersji, nazywana także do jako kontroli źródła, systemów umożliwiają deweloperom współpracować nad kodu i śledzenia zmian w kodzie podstawowej. Kontrola źródła jest niezbędne narzędzia dla deweloperów wielu projektów.
+Zostanie wyświetlone okienko konfiguracji. Aby uzyskać więcej informacji o ustawieniach konfiguracji, opis znajduje się w <a href="#method1">metody konfiguracji 1</a>.
 
-Każdego repozytorium Git programu VSTS po skojarzeniu z fabryką danych ma gałęzi głównej. Z tego miejsca, każdy użytkownik, który ma dostęp do repozytorium Git programu VSTS ma dwie opcje podczas wprowadzania zmian: synchronizacja i publikowania.
+![Skonfiguruj ustawienia repozytorium kodu do tworzenia środowiska użytkownika](media/author-visually/configure-repo-2.png)
 
-![Publikowanie synchronizacji](media/author-visually/sync-publish.png)
+### <a name="use-version-control"></a>Korzystanie z kontroli wersji
+Systemów kontroli wersji (znanej także jako _kontroli źródła_) zezwala deweloperzy współpracować nad kodu i śledzenia zmian wprowadzonych w kodzie podstawowej. Kontrola źródła jest niezbędne narzędzia dla deweloperów wielu projektów.
 
-#### <a name="sync"></a>Sync
+Każdy repozytorium Git programu VSTS, który został skojarzony z fabryką danych ma gałęzi głównej. Jeśli masz dostęp do repozytorium Git programu VSTS kod można zmienić, wybierając **synchronizacji** lub **publikowania**:
 
-Po kliknięciu przycisku "sync", można kopiować zmiany z gałęzi głównej do swojej lokalnej gałęzi lub Wypchnij zmiany z lokalnych gałęzi do gałęzi głównej.
+![Zmiana kodu synchronizowanie lub publikowania](media/author-visually/sync-publish.png)
 
-![Trwa synchronizowanie zmian](media/author-visually/sync-change.png)
+#### <a name="sync-code-changes"></a>Synchronizacja zmian kodu
+Po wybraniu **synchronizacji**, można ściągnąć zmian z gałęzi głównej gałęzi lokalnej lub zmiany z lokalnych gałęzi do gałęzi głównej.
 
-#### <a name="publish"></a>Publikowanie
- Opublikuj zmiany w głównej gałęzi do usługi fabryki danych.
+![Synchronizacja zmian kodu](media/author-visually/sync-change.png)
 
-> [!NOTE]
-> **Głównej gałęzi nie jest to, co jest wdrożony w usłudze fabryki danych.** Gałęzi głównej *musi* opublikować ręcznie do usługi fabryki danych.
+#### <a name="publish-code-changes"></a>Opublikuj zmiany kodu
+Wybierz **publikowania** ręcznie opublikować zmian kodu w głównej gałęzi do usługi fabryki danych.
 
+> [!IMPORTANT]
+> Gałęzi głównej nie jest to, co jest wdrożony w usłudze fabryki danych. Gałęzi głównej *musi* opublikować ręcznie do usługi fabryki danych.
 
+## <a name="use-the-expression-language"></a>Użyj wyrażenia języka
+Wyrażenia wartości właściwości można określić przy użyciu języka wyrażenia, który jest obsługiwany przez usługi fabryka danych Azure. Informacji o obsługiwanych wyrażeń znajduje się w temacie [wyrażeń i funkcji w fabryce danych Azure](control-flow-expression-language-functions.md).
 
+Określa wyrażenie wartości właściwości przy użyciu środowiska użytkownika **tworzenia obszaru roboczego**:
 
-## <a name="expression-language"></a>Język wyrażeń
+![Użyj wyrażenia języka](media/author-visually/expression-language.png)
 
-Użytkownicy mogą określić wyrażeń podczas definiowania wartości właściwości przy użyciu wyrażenia języka obsługiwanego przez usługi fabryka danych Azure. Zobacz [wyrażeń i funkcji w fabryce danych Azure](control-flow-expression-language-functions.md) dla więcej o tym, które wyrażenia są obsługiwane.
+## <a name="specify-parameters"></a>Określ parametry
+Można określić parametrów dla potoków i zestawy danych w fabryce danych Azure **parametry** kartę. W oknie właściwości można łatwo używać parametrów, wybierając **Dodawanie zawartości dynamicznej**:
 
-Określa wyrażenie w wartości właściwości środowiska użytkownika w następujący sposób.
+![Dodawanie zawartości dynamicznej](media/author-visually/dynamic-content.png)
 
-![Język wyrażeń](media/author-visually/expression-language.png)
+Możesz użyć istniejących parametrów lub określić parametry nowej wartości właściwości:
 
-## <a name="parameters"></a>Parametry
-Użytkownicy mogą określić parametry dla potoków i zestawów danych, na karcie "Parameters". Dodatkowo wykorzystywać parametry we właściwościach łatwo przez naciśnięcie przycisku "Dodaj zawartość dynamiczną."
+![Określ parametry dla wartości właściwości](media/author-visually/parameters.png)
 
-![Zawartość dynamiczna](media/author-visually/dynamic-content.png)
-
-Z tego miejsca możesz korzystać z parametrem istniejących lub określ nowy parametr w wartości z właściwości.
-
-![Parametry](media/author-visually/parameters.png)
-
-## <a name="feedback"></a>Opinia
-Kliknij ikonę "Opinie", aby wysłać nam swoją opinię (Microsoft) w różnych funkcji lub problemy, które może być zwrócone.
+## <a name="provide-feedback"></a>Przekazywanie opinii
+Wybierz **opinii** komentarz na temat funkcji lub bezzwłocznego powiadamiania firmy Microsoft dotyczące problemów z narzędziem:
 
 ![Opinia](media/monitor-visually/feedback.png)
 
 ## <a name="next-steps"></a>Kolejne kroki
-
-Aby dowiedzieć się więcej o monitorowaniu i zarządzaniu nimi potoków, zobacz [monitora i programowe zarządzanie potoki](monitor-programmatically.md) artykułu
+Aby dowiedzieć się więcej o monitorowaniu i zarządzaniu nimi potoków, zobacz [monitora i programowe zarządzanie potoki](monitor-programmatically.md).

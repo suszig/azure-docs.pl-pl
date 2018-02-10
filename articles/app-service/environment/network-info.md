@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: ccompy
-ms.openlocfilehash: 3ac630982b47f7105feb034982eae070faa72d9e
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: c4779ada60fab2db5249a107abfc7ca6f80cb16f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Zagadnienia dotyczące sieci dla środowiska usługi aplikacji #
 
-## <a name="overview"></a>Omówienie ##
+## <a name="overview"></a>Przegląd ##
 
  Azure [środowiska usługi aplikacji] [ Intro] wdrożenie usługi Azure App Service w podsieci sieci wirtualnej platformy Azure (VNet). Istnieją dwa typy wdrażania dla środowiska usługi App Service (ASE):
 
@@ -36,7 +36,7 @@ Wywołania z ASE, które pobierana przez internet pozostaw sieci wirtualnej za p
 
 Jeśli masz zewnętrznych ASE publicznego adresu VIP jest również punktu końcowego, który aplikacji ASE rozpoznać dla:
 
-* HTTP/S 
+* HTTP/S. 
 * FTP/S. 
 * Wdrażanie sieci Web.
 * Debugowanie zdalne.
@@ -49,11 +49,18 @@ Porty dostępu normalne aplikacji są:
 
 | Użycie | Od | Do |
 |----------|---------|-------------|
-|  HTTP/HTTPS.  | Konfigurowane przez użytkownika |  80, 443 |
+|  HTTP/HTTPS  | Konfigurowane przez użytkownika |  80, 443 |
 |  FTP/FTPS    | Konfigurowane przez użytkownika |  21, 990, 10001-10020 |
 |  Visual Studio debugowanie zdalne  |  Konfigurowane przez użytkownika |  4016, 4018, 4020, 4022 |
 
 Jest to wartość true, jeśli jesteś w elemencie ASE zewnętrznych lub w elemencie ASE ILB. Jeśli używasz zewnętrznego ASE naciśniesz tych portów na publiczny adres VIP. Jeśli jesteś w elemencie ASE ILB naciśniesz tych portów na ILB. Jeśli Zablokowanie portu 443, może być wpływ na niektóre funkcje widoczne w portalu. Aby uzyskać więcej informacji, zobacz [zależności Portal](#portaldep).
+
+## <a name="ase-subnet-size"></a>Rozmiar podsieci ASE ##
+
+Nie można zmienić rozmiar podsieci, używany do obsługi ASE, po wdrożeniu ASE.  ASE używa adresu dla każdej infrastruktury roli oraz jak w przypadku każdego wystąpienia planu usługi aplikacji izolowanych.  Ponadto istnieją adresy 5 używany przez sieć platformy Azure dla każdej podsieci, która jest tworzona.  ASE z nie planów usługi aplikacji na wszystkich użyje 12 adresów przed utworzeniem aplikacji.  Jeśli jest ASE ILB następnie użyje 13 adresów przed utworzeniem aplikacji w tym ASE. Ponieważ skalowanie planów usługi aplikacji będą musiały dodatkowych adresów dla każdej fronton, który zostanie dodany.  Domyślnie co 15 całkowita liczba wystąpień planu dla usług aplikacji zostaną dodane serwery frontonu. 
+
+   > [!NOTE]
+   > Nic może być w tej podsieci, ale ASE. Należy wybrać przestrzeń adresową, która umożliwia rozwój w przyszłości. Nie można zmienić tego ustawienia później. Firma Microsoft zaleca rozmiar `/25` z adresami 128.
 
 ## <a name="ase-dependencies"></a>Zależności ASE ##
 
@@ -61,9 +68,9 @@ ASE zależność dostępu ruchu przychodzącego jest:
 
 | Użycie | Od | Do |
 |-----|------|----|
-| Zarządzanie | Adresy zarządzania usługi aplikacji | Podsieci ASE: 454, 455 |
+| Zarządzanie | Adresy zarządzania usługi aplikacji | ASE subnet: 454, 455 |
 |  Wewnętrznej komunikacji ASE | Podsieci ASE: wszystkie porty | Podsieci ASE: wszystkie porty
-|  Zezwalaj na usługi równoważenia obciążenia Azure dla ruchu przychodzącego | Moduł równoważenia obciążenia Azure | Podsieci ASE: wszystkie porty
+|  Zezwalaj na usługi równoważenia obciążenia Azure dla ruchu przychodzącego | Moduł równoważenia obciążenia platformy Azure | Podsieci ASE: wszystkie porty
 |  Aplikacji przypisanych adresów IP | Adresy przypisywane aplikacji | Podsieci ASE: wszystkie porty
 
 Ruch przychodzący zawiera polecenia i kontroli ASE Oprócz monitorowania systemu. Źródło adresów IP dla tego rodzaju ruch, są wymienione w [dotyczy zarządzania ASE] [ ASEManagement] dokumentu. Konfiguracja zabezpieczeń sieci należy zezwolić na dostęp z wszystkich adresów IP w portach 454 i 455.
@@ -79,9 +86,9 @@ Dla ruchu wychodzącego dostępu ASE zależy od wielu systemami zewnętrznymi. T
 | Użycie | Od | Do |
 |-----|------|----|
 | Azure Storage | Podsieci ASE | TABLE.Core.Windows.NET, blob.core.windows.net, queue.core.windows.net, file.core.windows.net: 80, 443, 445 (445 jest potrzebna tylko dla ASEv1.) |
-| Usługa Azure SQL Database | Podsieci ASE | Database.Windows.NET: 1433, 11000 11999, 14000 14999 (Aby uzyskać więcej informacji, zobacz [użycia portu bazy danych SQL V12](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md).)|
-| Zarządzania platformy Azure | Podsieci ASE | Management.Core.Windows.NET, management.azure.com: 443 
-| Weryfikacja certyfikatu SSL |  Podsieci ASE            |  OCSP.msocsp.com, mscrl.microsoft.com, crl.microsoft.com: 443
+| Azure SQL Database | Podsieci ASE | Database.Windows.NET: 1433, 11000 11999, 14000 14999 (Aby uzyskać więcej informacji, zobacz [użycia portu bazy danych SQL V12](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md).)|
+| Azure management | Podsieci ASE | management.core.windows.net, management.azure.com: 443 
+| Weryfikacja certyfikatu SSL |  Podsieci ASE            |  ocsp.msocsp.com, mscrl.microsoft.com, crl.microsoft.com: 443
 | Usługa Azure Active Directory        | Podsieci ASE            |  Internet: 443
 | Zarządzanie usługami aplikacji        | Podsieci ASE            |  Internet: 443
 | System DNS platformy Azure                     | Podsieci ASE            |  Internet: 53
@@ -125,7 +132,7 @@ Zarówno funkcje, jak i sieci Web zadania są zależne od lokacji SCM, ale możn
 
 ## <a name="ase-ip-addresses"></a>Adresy ASE IP ##
 
-ASE ma kilka adresów IP, należy pamiętać o. Są to:
+ASE ma kilka adresów IP, należy pamiętać o. Oto one:
 
 - **Publiczny adres IP dla ruchu przychodzącego**: używany do ruchu aplikacji w elemencie ASE zewnętrznych i ruch związany z zarządzaniem w elemencie ASE zewnętrznych i ASE ILB.
 - **Wychodzące publicznego adresu IP**: używany jako adres IP "od" dla połączenia wychodzące z ASE pozostaw sieci wirtualnej, które nie są przesyłane w dół sieci VPN.
@@ -150,7 +157,7 @@ W elemencie ASE nie masz dostępu do maszyn wirtualnych, używany do obsługi AS
 
 Grupy NSG można skonfigurować za pomocą portalu Azure lub za pomocą programu PowerShell. Informacje w tym miejscu przedstawiono portalu Azure. Utwórz i Zarządzaj grup NSG w portalu jako zasób najwyższego poziomu w obszarze **sieci**.
 
-Gdy wymagania dla ruchu przychodzącego i wychodzącego są brane pod uwagę, grup NSG powinien wyglądać podobnie do grup NSG, w poniższym przykładzie. Zakres adresów sieci wirtualnej jest _192.168.250.0/16_, i podsieci, która jest ASE _192.168.251.128/25_.
+Gdy wymagania dla ruchu przychodzącego i wychodzącego są brane pod uwagę, grup NSG powinien wyglądać podobnie do grup NSG, w poniższym przykładzie. Zakres adresów sieci wirtualnej jest _192.168.250.0/23_, i podsieci, która jest ASE _192.168.251.128/25_.
 
 Pierwsze dwa wymagania dla ruchu przychodzącego ASE funkcji są wyświetlane na początku listy, w tym przykładzie. Włącz zarządzanie ASE, a Zezwalaj ASE do komunikowania się z nim samym. Inne pozycje są wszystkie konfigurowalne dzierżawy i można kontrolować dostępu do sieci dla aplikacji hostowanej ASE. 
 
@@ -168,13 +175,13 @@ Po zdefiniowaniu grup NSG, należy je przypisać do podsieci, która jest Twoje 
 
 ## <a name="routes"></a>Trasy ##
 
-Trasy stanie najczęściej powodować problemy podczas konfigurowania sieci wirtualnej z platformy Azure ExpressRoute. Istnieją trzy typy tras w sieci wirtualnej:
+Trasy mają kluczowe znaczenie dla wymuszonego tunelowania i sposobu jego obsługi. W sieci wirtualnej platformy Azure routing odbywa się na podstawie najdłuższego dopasowania prefiksu (LPM, Longest Prefix Match). Jeśli istnieje więcej niż jedna trasa z tym samym dopasowaniem LPM, wybór trasy odbywa się według następującej kolejności:
 
--   Trasy systemowe
--   Trasy protokołu BGP
--   Trasy zdefiniowane przez użytkownika (Udr)
+- Trasa zdefiniowana przez użytkownika
+- Trasa protokołu BGP (jeśli używane są połączenia ExpressRoute)
+- Trasa systemowa
 
-Trasy protokołu BGP musi zostać zastąpiona tras systemowych. Udr zastąpić trasy protokołu BGP. Aby uzyskać więcej informacji dotyczących tras w sieci wirtualnych platformy Azure, zobacz [trasy zdefiniowane przez użytkownika — omówienie][UDRs].
+Aby dowiedzieć się więcej na temat routingu w sieci wirtualnej, przeczytaj [User-defined routes and IP forwarding][UDRs] (Trasy zdefiniowane przez użytkownika i przesyłanie pakietów IP dalej).
 
 Baza danych Azure SQL, która ASE używa do zarządzania systemem ma zapory. Wymaga to pochodzą z publicznych adresów VIP ASE komunikacji. Połączenia z bazą danych SQL z ASE będą odrzucane, jeśli są one wysyłane połączenie ExpressRoute i innego adresu IP.
 
@@ -182,15 +189,15 @@ Jeśli odpowiedzi na przychodzące żądania zarządzania są wysyłane w dół 
 
 Dla Twojego ASE pracę podczas sieci wirtualnej jest skonfigurowana z ExpressRoute najłatwiejszym jest:
 
--   Konfigurowanie usługi ExpressRoute anonsowanie _0.0.0.0/0_. Domyślnie go wymusić tuneli wszystkie wychodzący ruch lokalnymi.
--   Utwórz przez. Dotyczą podsieci, która zawiera ASE z prefiksem adresu o _0.0.0.0/0_ i następnego przeskoku typu _Internet_.
+-   Konfigurowanie usługi ExpressRoute anonsowanie _0.0.0.0/0_. Domyślnie powoduje to wymuszenie tunelowania całego ruchu wychodzącego do środowiska lokalnego.
+-   Utwórz trasę zdefiniowaną przez użytkownika. Dotyczą podsieci, która zawiera ASE z prefiksem adresu o _0.0.0.0/0_ i następnego przeskoku typu _Internet_.
 
 Jeśli te dwie zmiany, ruch kierowany przez internet pochodzący z podsieci ASE nie jest wymuszone usługi ExpressRoute i ASE działa. 
 
 > [!IMPORTANT]
-> Trasy zdefiniowane w przez musi być wystarczająco konkretny, aby mają pierwszeństwo względem dowolnego trasy anonsowane przez konfiguracji usługi ExpressRoute. W poprzednim przykładzie użyto 0.0.0.0/0 szerokiego zakresu adresów. Go może potencjalnie być przypadkowo zastąpione anonsów tras, korzystających z bardziej szczegółowych zakresów adresów.
+> Trasy zdefiniowane przez użytkownika muszą być wystarczająco szczegółowe, aby miały pierwszeństwo względem wszelkich tras anonsowanych przez konfigurację usługi ExpressRoute. W poprzednim przykładzie użyto szerokiego zakresu adresów 0.0.0.0/0. Może to zostać przypadkowo zastąpione przez anonsy tras z bardziej szczegółowymi zakresami adresów.
 >
-> ASEs nie są obsługiwane w przypadku konfiguracji usługi ExpressRoute, które między anonsować tras z publicznej komunikacji równorzędnej ścieżki do ścieżki prywatnej komunikacji równorzędnej. Konfiguracji usługi ExpressRoute z publicznej komunikacji równorzędnej skonfigurowane otrzymywać anonsów tras od firmy Microsoft. Anonse zawiera zbiór duże zakresy adresów IP firmy Microsoft Azure. W przypadku zakresów adresów między anonsowany w ścieżce prywatnej komunikacji równorzędnej, wszystkie pakiety wychodzącego z podsieci ASE są życie tunel do infrastruktury sieci lokalnej klienta. Ten przepływ sieci nie jest obecnie obsługiwane z ASEs. Jedno rozwiązanie tego problemu jest zatrzymanie tras między reklamy ze ścieżki publicznej komunikacji równorzędnej do ścieżki prywatnej komunikacji równorzędnej.
+> ASEs nie są obsługiwane w przypadku konfiguracji usługi ExpressRoute, które między anonsować tras z publicznej komunikacji równorzędnej ścieżki do ścieżki prywatnej komunikacji równorzędnej. Konfiguracje usługi ExpressRoute ze skonfigurowaną publiczną komunikacją równorzędną otrzymują anonsy tras od firmy Microsoft. Te anonse zawierają duży zestaw zakresów adresów IP platformy Microsoft Azure. W przypadku zakresów adresów między anonsowany w ścieżce prywatnej komunikacji równorzędnej, wszystkie pakiety wychodzącego z podsieci ASE są życie tunel do infrastruktury sieci lokalnej klienta. Ten przepływ sieci nie jest obecnie obsługiwane z ASEs. Jednym z rozwiązań tego problemu jest zatrzymanie anonsowania krzyżowego tras ze ścieżki publicznej komunikacji równorzędnej do ścieżki prywatnej komunikacji równorzędnej.
 
 Aby utworzyć przez, wykonaj następujące kroki:
 

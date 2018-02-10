@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 9360c0ee90f9a4ffdffd7649505699f656833bbe
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: dc11ac2ce92fe2b7d3cb51bf60c6b4bd9a5be18d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiowanie danych do i z usługi Azure SQL Data Warehouse przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,7 +52,7 @@ Obsługiwane są następujące właściwości dla usługi Azure SQL Data Warehou
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | type | Właściwość type musi mieć ustawioną: **AzureSqlDW** | Yes |
-| Parametry połączenia |Podaj informacje wymagane do połączenia z wystąpieniem usługi Azure SQL Data Warehouse właściwości connectionString. Obsługiwane jest tylko uwierzytelnianie podstawowe. Zaznacz to pole jako SecureString. |Yes |
+| Parametry połączenia |Podaj informacje wymagane do połączenia z wystąpieniem usługi Azure SQL Data Warehouse właściwości connectionString. Obsługiwane jest tylko uwierzytelnianie podstawowe. Zaznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w fabryce danych lub [odwołania klucz tajny przechowywane w usłudze Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. (Jeśli w magazynie danych znajduje się w sieci prywatnej), można użyć środowiska uruchomieniowego integracji Azure lub Self-hosted integracji w czasie wykonywania. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. |Nie |
 
 
@@ -226,7 +226,7 @@ Aby skopiować dane do usługi Azure SQL Data Warehouse, należy ustawić typ uj
 |:--- |:--- |:--- |
 | type | Musi mieć ustawioną właściwość typu sink działania kopiowania: **SqlDWSink** | Yes |
 | allowPolyBase |Wskazuje, czy do użycia zamiast mechanizmu BULKINSERT PolyBase (jeśli jest to wymagane). <br/><br/> **Przy użyciu programu PolyBase jest zalecanym sposobem ładowanie danych do usługi SQL Data Warehouse.** Zobacz [Użyj programu PolyBase, aby załadować dane do usługi Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) sekcji dla ograniczenia i szczegółów.<br/><br/>Dozwolone wartości to: **True** (ustawienie domyślne) i **False**.  |Nie |
-| Usługi |Grupy właściwości, które można określić, kiedy **allowPolybase** właściwość jest ustawiona na **true**. |Nie |
+| polyBaseSettings |Grupy właściwości, które można określić, kiedy **allowPolybase** właściwość jest ustawiona na **true**. |Nie |
 | rejectValue |Określa liczbę lub odsetek wierszy, które można odrzucić przed zapytanie nie powiedzie się.<br/><br/>Dowiedz się więcej o opcjach Odrzuć PolyBase **argumenty** sekcji [Tworzenie tabeli zewnętrznej (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) tematu. <br/><br/>Dozwolone wartości to: 0 (domyślnie), 1, 2,... |Nie |
 | dla właściwości rejectType |Określa, czy opcja rejectValue jest określona jako wartość literału lub wartość procentowa.<br/><br/>Dozwolone wartości to: **wartość** (ustawienie domyślne) i **procent**. |Nie |
 | rejectSampleValue |Określa liczbę wierszy do pobrania przed PolyBase ponownie oblicza procent odrzuconych wierszy.<br/><br/>Dozwolone wartości to: 1, 2,... |Tak, jeśli **dla właściwości rejectType** jest **procent** |
@@ -395,9 +395,9 @@ Poniższa tabela zawiera przykłady dotyczące sposobu określania **tableName**
 
 | Schemat bazy danych | Nazwa tabeli | Właściwość tableName JSON |
 | --- | --- | --- |
-| właściciel bazy danych |MyTable |MyTable lub dbo. MyTable lub [dbo]. [MyTable] |
+| dbo |MyTable |MyTable lub dbo. MyTable lub [dbo]. [MyTable] |
 | dbo1 |MyTable |dbo1. MyTable lub [dbo1]. [MyTable] |
-| właściciel bazy danych |My.Table |[My.Table] lub [dbo]. [My.Table] |
+| dbo |My.Table |[My.Table] lub [dbo]. [My.Table] |
 | dbo1 |My.Table |[dbo1]. [My.Table] |
 
 Jeśli zostanie wyświetlony następujący błąd, może to być problem z wartość określona dla właściwości tableName. Poniższa tabela dla poprawne sposobu na określenie wartości dla właściwości tableName JSON.
@@ -423,7 +423,7 @@ Podczas kopiowania danych z/na magazyn danych SQL Azure, z typów danych Azure S
 | Typ danych w usłudze Azure SQL Data Warehouse | Typ danych tymczasowych fabryki danych |
 |:--- |:--- |
 | bigint |Int64 |
-| Binarne |Byte] |
+| Binarne |Byte[] |
 | bitowe |Wartość logiczna |
 | char |Ciąg, Char] |
 | data |Data/godzina |
@@ -431,9 +431,9 @@ Podczas kopiowania danych z/na magazyn danych SQL Azure, z typów danych Azure S
 | datetime2 |Data/godzina |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
-| Atrybut FILESTREAM (varbinary(max)) |Byte] |
-| Float |O podwójnej precyzji |
-| Obraz |Byte] |
+| Atrybut FILESTREAM (varbinary(max)) |Byte[] |
+| Float |Podwójnej precyzji |
+| Obraz |Byte[] |
 | int |Int32 |
 | oszczędność pieniędzy |Decimal |
 | nchar |Ciąg, Char] |
@@ -441,19 +441,19 @@ Podczas kopiowania danych z/na magazyn danych SQL Azure, z typów danych Azure S
 | numeryczne |Decimal |
 | nvarchar |Ciąg, Char] |
 | rzeczywiste |Kawaler/panna |
-| ROWVERSION |Byte] |
+| ROWVERSION |Byte[] |
 | smalldatetime |Data/godzina |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Obiekt * |
 | Tekst |Ciąg, Char] |
-| time |Zakres czasu |
-| sygnatura czasowa |Byte] |
+| time |TimeSpan |
+| sygnatura czasowa |Byte[] |
 | tinyint |Bajtów |
-| Unikatowy identyfikator |Identyfikator GUID |
-| varbinary |Byte] |
+| uniqueidentifier |Identyfikator GUID |
+| varbinary |Byte[] |
 | varchar |Ciąg, Char] |
-| xml |XML |
+| xml |Xml |
 
 ## <a name="next-steps"></a>Kolejne kroki
 Lista magazynów danych obsługiwane jako źródła i wychwytywanie przez działanie kopiowania w fabryce danych Azure, zobacz [obsługiwane magazyny danych](copy-activity-overview.md##supported-data-stores-and-formats).

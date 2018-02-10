@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 02/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: adda6335b702470cd491f07d750236c368325a9e
-ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
+ms.openlocfilehash: 5f324051a2eeedd35a22f77c771793af9c90c434
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="analytics-in-application-insights"></a>Analityka w usłudze Application Insights
 Analiza jest zaawansowanym narzędziem wyszukiwania i zapytania, z [usługi Application Insights](app-insights-overview.md). Analytics to narzędzie sieci web, konfiguracja nie jest wymagana. Jeśli już skonfigurowano usługi Application Insights dla jednej z aplikacji, można analizować dane aplikacji, otwierając Analytics z aplikacji [bloku omówienie](app-insights-dashboards.md).
@@ -47,15 +47,15 @@ Następnie możemy liczba Liczba rekordów na kraju (odnaleziono danych w kolumn
 
 Język ma wiele atrakcyjne funkcje:
 
-* [Filtr](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html) telemetrii raw aplikacji przez wszystkie pola, w tym właściwości niestandardowych i metryki.
-* [Dołącz](https://docs.loganalytics.io/queryLanguage/query_language_joinoperator.html) wielu tabel — korelując żądania z wyświetleń strony, wywołania zależności, wyjątków i ślady dziennika.
-* Zaawansowane statystyczne [agregacji](https://docs.loganalytics.io/docs/Learn/Tutorials/Aggregation-functions).
+* [Filtr](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator) telemetrii raw aplikacji przez wszystkie pola, w tym właściwości niestandardowych i metryki.
+* [Dołącz](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/join-operator) wielu tabel — korelując żądania z wyświetleń strony, wywołania zależności, wyjątków i ślady dziennika.
+* Zaawansowane statystyczne [agregacji](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions).
 * Natychmiastowe i zaawansowane wizualizacje.
 * [Interfejs API REST](https://dev.applicationinsights.io/) czy służy do wykonywania kwerend programowo, na przykład z programu PowerShell.
 
 [Pełna dokumentacja języka](https://go.microsoft.com/fwlink/?linkid=856079) szczegóły każdego polecenia obsługiwane i regularnie aktualizowana.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Rozpoczynanie pracy z [portal analityka](https://go.microsoft.com/fwlink/?linkid=856587)
 * Rozpoczynanie pracy [Pisanie zapytań](https://go.microsoft.com/fwlink/?linkid=856078)
 * Przegląd [SQL użytkowników ściągawka](https://aka.ms/sql-analytics) do tłumaczenia idioms najczęściej.

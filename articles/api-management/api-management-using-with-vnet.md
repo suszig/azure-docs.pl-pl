@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 4e3c17a86281176726be64008fa9e59e08e026f0
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: fe5e26a957d18f1f7f5ed360a27bb1f9c9826718
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Jak używać usługi Azure API Management z sieciami wirtualnymi
 Sieci wirtualnych platformy Azure (sieci wirtualne) umożliwiają umieszczać zasobów platformy Azure w kontroli dostępu do sieci routeable z systemem innym niż internet. Te sieci następnie mogą być połączone z sieciami lokalnymi przy użyciu różnych technologii sieci VPN. Aby dowiedzieć się więcej o sieciach wirtualnych platformy Azure Uruchom z informacjami w tym miejscu: [omówienie sieci wirtualnych Azure](../virtual-network/virtual-networks-overview.md).
@@ -61,7 +61,7 @@ Aby wykonać kroki opisane w tym artykule, musi mieć:
     Teraz zostanie wyświetlona lista wszystkich regionów, których obsługa została zainicjowana usługi Zarządzanie interfejsami API. Wybierz sieć Wirtualną i podsieć dla każdego regionu. Lista zostanie wypełniona z klasycznym i dostępne w Twojej subskrypcji platformy Azure, które są skonfigurowane w regionie, który jest konfigurowany sieci wirtualnych Menedżera zasobów.
     
     > [!NOTE]
-    > **Punkt końcowy usługi** na powyższym diagramie obejmuje bramy/serwera Proxy, Portal wydawcy portalu dla deweloperów, GIT i bezpośredniego zarządzania punktu końcowego.
+    > **Punkt końcowy usługi** na powyższym diagramie obejmuje bramy/serwera Proxy, portalu Azure, portalu dla deweloperów, usługi GIT i bezpośredniego zarządzania punktu końcowego.
     > **Punkt końcowy zarządzania** na powyższym diagramie jest punktem końcowym hostowanych w usłudze, aby zarządzać konfiguracją za pośrednictwem portalu Azure i programu Powershell.
     > Należy również zauważyć, że mimo, że na diagramie przedstawiono adresów IP dla swoich różnych punktów końcowych usługi Zarządzanie interfejsami API **tylko** reaguje na jego skonfigurowanych nazwy hostów.
     

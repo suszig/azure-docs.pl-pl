@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: df2ebb6ee8b1f108c751226188556ced907314e1
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: cf062cfcbbb2454adf20a06c31c81a60f6f5719f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Przy użyciu usługi Azure API Management z wewnętrznej sieci wirtualnej
 Sieci wirtualne platformy Azure Azure API Management umożliwiają zarządzanie interfejsów API nie jest dostępny w Internecie. Liczba technologii sieci VPN są dostępne do nawiązania połączenia. Zarządzanie interfejsami API można wdrożyć w dwóch trybach głównego w sieci wirtualnej:
 * Zewnętrzne
-* Wewnętrzna
+* Wewnętrzny
 
 
-Gdy wdraża interfejsu API zarządzania w trybie wewnętrzna sieć wirtualna, wszystkie punkty końcowe usługi (bramy, portalu dla deweloperów, portal wydawcy, bezpośrednie zarządzanie i Git) są widoczne tylko w sieci wirtualnej, która umożliwia kontrolę dostępu do. Żaden z punktów końcowych usługi nie jest zarejestrowany na publicznym serwerze DNS.
+Gdy wdraża interfejsu API zarządzania w trybie wewnętrzna sieć wirtualna, wszystkie punkty końcowe usługi (bramy, portalu dla deweloperów, portalu Azure, bezpośrednie zarządzanie i Git) są widoczne tylko w sieci wirtualnej, która umożliwia kontrolę dostępu do. Żaden z punktów końcowych usługi nie jest zarejestrowany na publicznym serwerze DNS.
 
 Za pomocą interfejsu API zarządzania w trybie wewnętrzny można osiągnąć następujące scenariusze:
 * Należy interfejsów API hostowanych w centrum danych prywatnych bezpieczny dostęp przez osoby trzecie poza programem przy użyciu lokacja lokacja i połączeń sieci VPN platformy Azure ExpressRoute.
@@ -72,14 +72,14 @@ Można również włączyć łączność w sieci wirtualnej przy użyciu polece�
 W przypadku interfejsu API zarządzania w trybie zewnętrzną sieć wirtualną, DNS jest zarządzana przez Azure. Dla trybu wewnętrznej sieci wirtualnej trzeba zarządzać własną routingu.
 
 > [!NOTE]
-> Zarządzanie interfejsami API usługi nie nasłuchuje na żądania pochodzące z adresów IP. Tylko odpowiadały na żądania na nazwę hosta skonfigurowane na jego punktów końcowych usługi. Te punkty końcowe obejmują bramy, portalu dla deweloperów, portal wydawcy, bezpośrednie zarządzanie punktu końcowego i Git.
+> Zarządzanie interfejsami API usługi nie nasłuchuje na żądania pochodzące z adresów IP. Tylko odpowiadały na żądania na nazwę hosta skonfigurowane na jego punktów końcowych usługi. Te punkty końcowe obejmują bramy, portalu dla deweloperów, Azurethe portalu, bezpośrednie zarządzanie punktu końcowego i Git.
 
 ### <a name="access-on-default-host-names"></a>Dostęp do domyślnej nazwy hosta
 Podczas tworzenia usługi Zarządzanie interfejsami API o nazwie "contoso", na przykład następujące punkty końcowe usługi są domyślnie skonfigurowane:
 
    * Brama lub serwer proxy: contoso.azure api.net
 
-   * Portal wydawcy i portalu dla deweloperów: contoso.portal.azure api.net
+   * portalu Azure i portalu dla deweloperów: contoso.portal.azure api.net
 
    * Zarządzanie bezpośrednie punktu końcowego: contoso.management.azure api.net
 

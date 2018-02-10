@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2017
-ms.openlocfilehash: 01f9c01c9e04e02dbb548b68cf99684ba6ddd57e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5afccc4aa7b751958952d1401182f93109cff358
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-automation-scenario---automation-source-control-integration-with-visual-studio-team-services"></a>Scenariusz automatyzacji Azure - automatyzacji integracji kontroli źródła z Visual Studio Team Services
 
@@ -33,17 +33,17 @@ W tym scenariuszu składa się z dwóch elementów runbook programu PowerShell, 
 
 Element Runbook | Opis| 
 --------|------------|
-VSTS synchronizacji | Importowanie elementów runbook lub konfiguracje z kontroli źródła programu VSTS podczas ewidencjonowania. Jeśli ręcznie uruchom zaimportuje i opublikować wszystkie elementy runbook lub konfiguracje do konta automatyzacji.| 
-VSTSGit synchronizacji | Importowanie elementów runbook lub konfiguracji z programu VSTS pod kontrolą źródła Git podczas ewidencjonowania. Jeśli ręcznie uruchom zaimportuje i opublikować wszystkie elementy runbook lub konfiguracje do konta automatyzacji.|
+Sync-VSTS | Importowanie elementów runbook lub konfiguracje z kontroli źródła programu VSTS podczas ewidencjonowania. Jeśli ręcznie uruchom importuje i publikuje wszystkich elementów runbook lub konfiguracje do konta automatyzacji.| 
+Sync-VSTSGit | Importowanie elementów runbook lub konfiguracji z programu VSTS pod kontrolą źródła Git podczas ewidencjonowania. Jeśli ręcznie uruchom importuje i publikuje wszystkich elementów runbook lub konfiguracje do konta automatyzacji.|
 
 ### <a name="variables"></a>Zmienne
 
 Zmienna | Opis|
 -----------|------------|
-VSToken | Bezpieczne zasób zmiennej utworzysz zawierający VSTS osobisty token dostępu. Znajdują się informacje dotyczące tworzenia VSTS osobisty token dostępu na [strony uwierzytelniania programu VSTS](https://www.visualstudio.com/en-us/docs/integrate/get-started/auth/overview). 
+VSToken | Zabezpiecz zasób zmiennej, którą utworzysz zawierający VSTS osobisty token dostępu. Znajdują się informacje dotyczące tworzenia VSTS osobisty token dostępu na [strony uwierzytelniania programu VSTS](/vsts/accounts/use-personal-access-tokens-to-authenticate).
 ## <a name="installing-and-configuring-this-scenario"></a>Instalowanie i konfigurowanie scenariusza
 
-Utwórz [osobisty token dostępu](https://www.visualstudio.com/en-us/docs/integrate/get-started/auth/overview) w VSTS, który będzie używany do synchronizacji elementów runbook lub konfiguracje na koncie automatyzacji.
+Utwórz [osobisty token dostępu](/vsts/accounts/use-personal-access-tokens-to-authenticate) w VSTS, którego używasz do synchronizacji elementów runbook lub konfiguracje na koncie automatyzacji.
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSPersonalToken.png) 
 
@@ -51,23 +51,23 @@ Utwórz [bezpiecznego zmiennej](automation-variables.md) na Twoim koncie automat
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSTokenVariable.png)
 
-Zaimportuj element runbook, która zsynchronizuje się z elementów runbook lub konfiguracje do konta automatyzacji. Można użyć [VSTS przykładowego elementu runbook](https://www.powershellgallery.com/packages/Sync-VSTS/1.0/DisplayScript) lub [programu VSTS z Git przykładowego elementu runbook] (https://www.powershellgallery.com/packages/Sync-VSTSGit/1.0/DisplayScript) z PowerShellGallery.com w zależności od tego, jeśli do kontroli źródła programu VSTS lub VSTS za pomocą narzędzia Git i wdrożyć na koncie automatyzacji.
+Zaimportuj element runbook, który przeprowadza synchronizację z elementów runbook lub konfiguracje do konta automatyzacji. Można użyć [VSTS przykładowego elementu runbook](https://www.powershellgallery.com/packages/Sync-VSTS/1.0/DisplayScript) lub [programu VSTS z Git przykładowego elementu runbook] (https://www.powershellgallery.com/packages/Sync-VSTSGit/1.0/DisplayScript) z PowerShellGallery.com w zależności od tego, jeśli do kontroli źródła programu VSTS lub VSTS za pomocą narzędzia Git i wdrożyć na koncie automatyzacji.
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSPowerShellGallery.png)
 
 Możesz teraz [publikowania](automation-creating-importing-runbook.md#publishing-a-runbook) ten element runbook, dzięki czemu można tworzyć elementu webhook. 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSPublishRunbook.png)
 
-Utwórz [webhook](automation-webhooks.md) dla tego elementu runbook programu VSTS synchronizacji i wypełnij parametrów, jak pokazano poniżej. Upewnij się, że skopiuj adres url elementu webhook, ponieważ będzie potrzebny dla usługi haka w VSTS. VSAccessTokenVariableName jest nazwą (VSToken) bezpiecznego zmiennej utworzoną wcześniej do przechowywania osobisty token dostępu. 
+Utwórz [webhook](automation-webhooks.md) dla tego elementu runbook programu VSTS synchronizacji i wypełnij parametrów, jak pokazano poniżej. Upewnij się, że skopiuj adres url elementu webhook potrzebną dla usługi haka w VSTS. VSAccessTokenVariableName jest nazwą (VSToken) bezpiecznego zmiennej utworzoną wcześniej do przechowywania osobisty token dostępu. 
 
-Integrowanie z programu VSTS (synchronizacji VSTS.ps1) potrwa następujące parametry.
+Integrowanie z programu VSTS (synchronizacji VSTS.ps1) przyjmuje następujące parametry:
 ### <a name="sync-vsts-parameters"></a>Parametry programu VSTS synchronizacji
 
 Parametr | Opis| 
 --------|------------|
-WebhookData | To będzie zawierać informacje zaewidencjonowania wysyłane z haku usługi VSTS. Ten parametr należy pozostawić pusty.| 
+WebhookData | Zawiera informacje zaewidencjonowania wysyłane z haku usługi VSTS. Ten parametr należy pozostawić pusty.| 
 ResourceGroup | Jest to nazwa grupy zasobów jest konta automatyzacji.|
-AutomationAccountName | Nazwa konta automatyzacji, która zsynchronizuje się z usługi VSTS.|
+AutomationAccountName | Nazwa konta automatyzacji, który przeprowadza synchronizację z usługi VSTS.|
 VSFolder | Nazwa folderu w VSTS, jeśli istnieją elementy runbook i konfiguracji.|
 VSAccount | Nazwa konta usługi Visual Studio Team Services.| 
 VSAccessTokenVariableName | Nazwa zmiennej bezpiecznego (VSToken), która przechowuje VSTS osobisty token dostępu.| 
@@ -80,7 +80,7 @@ Jeśli używasz programu VSTS z usługą GIT (synchronizacji VSTSGit.ps1) potrwa
 Parametr | Opis|
 --------|------------|
 WebhookData | To będzie zawierać informacje zaewidencjonowania wysyłane z haku usługi VSTS. Ten parametr należy pozostawić pusty.| ResourceGroup | Ta nazwa grupy zasobów jest konto automatyzacji.|
-AutomationAccountName | Nazwa konta automatyzacji, która zsynchronizuje się z usługi VSTS.|
+AutomationAccountName | Nazwa konta automatyzacji, który przeprowadza synchronizację z usługi VSTS.|
 VSAccount | Nazwa konta usługi Visual Studio Team Services.|
 VSProject | Nazwa projektu w VSTS, jeśli istnieją elementy runbook i konfiguracji.|
 GitRepo | Nazwa repozytorium Git.|
@@ -90,13 +90,13 @@ VSAccessTokenVariableName | Nazwa zmiennej bezpiecznego (VSToken), która przech
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSGitWebhook.png)
 
-Utworzyć haka usługi w VSTS do zaewidencjonowania do folderu, który wyzwala ten element webhook na ewidencjonowania kodu. Wybierz techniki Web Hooks jako usługa integracji z podczas tworzenia nowej subskrypcji. Możesz dowiedzieć się więcej o punktach wpięcia usług na [punkty zaczepienia usługi VSTS dokumentacji](https://www.visualstudio.com/en-us/docs/marketplace/integrate/service-hooks/get-started).
+Utworzyć haka usługi w VSTS do zaewidencjonowania do folderu, który wyzwala ten element webhook na ewidencjonowania kodu. Wybierz **techniki Web Hooks** jako usługa integracji z podczas tworzenia nowej subskrypcji. Możesz dowiedzieć się więcej o punktach wpięcia usług na [punkty zaczepienia usługi VSTS dokumentacji](https://www.visualstudio.com/en-us/docs/marketplace/integrate/service-hooks/get-started).
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSServiceHook.png)
 
-Teraz powinno być możliwe zaewidencjonowania wszystkich elementów runbook i konfiguracji do programu VSTS i są automatycznie d synchronizacji na koncie automatyzacji.
+Teraz można przeprowadzić zaewidencjonowania wszystkich elementów runbook i konfiguracji do programu VSTS i mają te automatycznie synched na koncie automatyzacji.
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSSyncRunbookOutput.png)
 
-Jeśli ten element runbook zostanie uruchomiony ręcznie bez inicjowane przez VSTS, można pozostawić pusty parametr webhookdata i wykona pełną synchronizację z folderu programu VSTS określony.
+Jeśli ten element runbook zostanie uruchomiony ręcznie bez inicjowane przez VSTS, można pozostawić pusty parametr webhookdata oraz operacje pełną synchronizację z folderu programu VSTS określony.
 
 Jeśli chcesz odinstalować scenariusz, Usuń haku usługi z programu VSTS, Usuń element runbook, a zmienna VSToken.

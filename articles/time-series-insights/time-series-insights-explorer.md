@@ -12,16 +12,16 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/30/2017
-ms.openlocfilehash: 04e5465a56b8da9f2a078e513d5176f134fd011d
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: d09292cce1414a1b89e4b75df27d0a689738b4d6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Eksplorator Insights serii czasu
 Ten artykuł opisuje różne funkcje i opcje dostępne w aplikacji sieci web explorer Insights serii czasu. Umożliwia explorer czasu serii wgląd w przeglądarce sieci web tworzenie wizualizacji danych.
  
-Azure Time Series Insights to w pełni zarządzana usługa związana z analizą, przechowywaniem i wizualizacją, dzięki której z łatwością można badać i analizować w tym samym momencie miliardy zdarzeń IoT. Udostępnia globalny widok danych, które umożliwia szybkie sprawdzenie rozwiązania IoT i uniknąć kosztownych przestojów urządzeniom krytycznym. Można odnaleźć ukryte trendy, dodatkowych anomalii i przeprowadzania analizy głównej przyczyny problemu w najbliższym czasie rzeczywistym. Eksplorator czasu serii Insights jest aktualnie w publicznej wersji zapoznawczej.
+Azure Time Series Insights to w pełni zarządzana usługa związana z analizą, przechowywaniem i wizualizacją, dzięki której z łatwością można badać i analizować miliardy zdarzeń IoT jednocześnie. Udostępnia globalny widok danych, które umożliwia szybkie sprawdzenie rozwiązania IoT i uniknąć kosztownych przestojów urządzeniom krytycznym. Można odnaleźć ukryte trendy, dodatkowych anomalii i przeprowadzania analizy głównej przyczyny problemu w najbliższym czasie rzeczywistym. Eksplorator czasu serii Insights jest aktualnie w publicznej wersji zapoznawczej.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -37,11 +37,11 @@ W ciągu minut połączenia źródła zdarzeń w danym środowisku czasu serii I
 
 2. Po wybraniu środowisku, albo użyć **FROM** i **do** konfiguracje u góry, lub kliknij i przeciągnij za pośrednictwem sieci zakres żądany czas.  Kliknij przycisk Lupa u góry po prawej, lub kliknij prawym przyciskiem myszy na wybrany zakres czasu i wybierz polecenie **wyszukiwania**.  
 
-3. Można również odświeżyć dostępności automatycznie co minutę, wybierając **automatycznie na** przycisku.
+3. Można również odświeżyć dostępności automatycznie co minutę, wybierając **automatycznie na** przycisku.  Zauważ, że przycisk "Auto-na" dotyczy tylko na wykresie dostępności nie zawartość głównego wizualizacji.
 
 4. Zwróć uwagę, ikona chmury Azure umożliwia przejście do środowiska w portalu Azure.
 
-   ![Środowisko wykonawcze Insights serii](media/time-series-insights-explorer/explorer1.png)
+   ![Środowisko usługi Time Series Insights](media/time-series-insights-explorer/explorer1.png)
 
 5. Następnie zostanie wyświetlony wykres pokazuje liczbę wszystkich zdarzeń podczas wybrany zakres czasu.  W tym miejscu masz wiele formantów:
 
@@ -58,8 +58,8 @@ W ciągu minut połączenia źródła zdarzeń w danym środowisku czasu serii I
          |Operacja  |Obsługiwane typy  |Uwagi  |
          |---------|---------|---------|
          |<, >, <=, >=     |  Double, DateTime, TimeSpan       |         |
-         |=, !=, <>     | String, Bool, Double, DateTime, TimeSpan, wartość NULL        |         |
-         |W     | String, Bool, Double, DateTime, TimeSpan, wartość NULL        |  Wszystkie argumenty powinny być tego samego typu lub być stała NULL.        |
+         |=, !=, <>     | String, Bool, Double, DateTime, TimeSpan, NULL        |         |
+         |W     | String, Bool, Double, DateTime, TimeSpan, NULL        |  Wszystkie argumenty powinny być tego samego typu lub być stała NULL.        |
          |MA     | Ciąg        |  Tylko Literały ciągu stałych mogą się po prawej stronie. Pusty ciąg i NULL są niedozwolone.       |
 
       - **Przykłady zapytań**
@@ -102,10 +102,10 @@ W ciągu minut połączenia źródła zdarzeń w danym środowisku czasu serii I
 
    - **Statystyka kolumny**: Podaj Statystyka kolumn wykresów i tabel, które podziału danych z każdej kolumny serii wybranych danych w wybranym okresie.  
  
-      ![STATYSTYKA](media/time-series-insights-explorer/explorer8.png) 
+      ![STATYSTYKI](media/time-series-insights-explorer/explorer8.png) 
 
 Teraz już wspomniano różnych funkcji i opcji dostępnych w aplikacji sieci web explorer Insights serii czasu. 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 > [!div class="nextstepaction"]
 >[Diagnozowanie i rozwiązywanie problemów w środowisku Insights serii czasu](time-series-insights-diagnose-and-solve-problems.md)

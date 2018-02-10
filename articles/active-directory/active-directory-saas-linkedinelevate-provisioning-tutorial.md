@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/28/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: 7694c28dd41b75438bfa4ffc8d032f439173122b
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: af922aaae21ab87c7e8d9354bcbae64fc97c6f02
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie LinkedIn podniesienia uprawnień dla użytkownika automatycznego inicjowania obsługi administracyjnej.
 
@@ -116,7 +116,9 @@ Pierwszym krokiem jest można pobrać tokenu dostępu LinkedIn. Jeśli jesteś a
 
 16) Kliknij pozycję **Zapisz**. 
 
-Spowoduje to uruchomienie synchronizacji początkowej użytkowników i/lub grupy przypisane do LinkedIn podniesienia uprawnień w sekcji Użytkownicy i grupy. Należy pamiętać, że synchronizacji początkowej będzie trwać dłużej wykonać niż kolejne synchronizacje, występujące co około 20 minut, tak długo, jak usługa jest uruchomiona. Można użyć **szczegóły synchronizacji** sekcji, aby monitorować postęp i skorzystaj z linków do inicjowania obsługi administracyjnej raporty działania, które opisują wszystkie akcje wykonywane przez usługę inicjowania obsługi administracyjnej w aplikacji LinkedIn podniesienia uprawnień.
+Spowoduje to uruchomienie synchronizacji początkowej użytkowników i/lub grupy przypisane do LinkedIn podniesienia uprawnień w sekcji Użytkownicy i grupy. Należy pamiętać, że synchronizacji początkowej będzie trwać dłużej wykonać niż kolejne synchronizacje, występujące co około 40 minut tak długo, jak usługa jest uruchomiona. Można użyć **szczegóły synchronizacji** sekcji, aby monitorować postęp i skorzystaj z linków do inicjowania obsługi administracyjnej Dzienniki aktywności, które opisują wszystkie akcje wykonywane przez usługę inicjowania obsługi administracyjnej w aplikacji LinkedIn podniesienia uprawnień.
+
+Aby uzyskać więcej informacji na temat usługi Azure AD, inicjowanie obsługi dzienników do odczytu, zobacz [raportowania na użytkownika automatyczne Inicjowanie obsługi konta](active-directory-saas-provisioning-reporting.md).
 
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby

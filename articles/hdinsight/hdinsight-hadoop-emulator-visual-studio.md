@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/09/2017
+ms.date: 02/07/2018
 ms.author: larryfr
-ms.openlocfilehash: 904bbfcd02984b301d9eb9faaa6203f16139eba5
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 7c79e66c6ee4d5aa3ffd052306f57666df866313
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Użyj usługi Azure Data Lake tools dla programu Visual Studio z piaskownicy Hortonworks
 
@@ -53,13 +53,13 @@ Upewnij się, że piaskownicy Hortonworks jest uruchomiona. Następnie postępuj
 
     ![Zrzut ekranu przedstawiający okno dialogowe z wyróżnioną pozycją pole tekstowe hasła](./media/hdinsight-hadoop-emulator-visual-studio/enter-ambari-password.png)
 
-    Wybierz **dalej** aby kontynuować.
+    Kliknij przycisk **Dalej**, aby kontynuować.
 
 4. Użyj **hasło** pole hasło skonfigurowane dla `root` konta. Pozostaw pola wartość domyślną.
 
     ![Zrzut ekranu przedstawiający okno dialogowe z wyróżnioną pozycją pole tekstowe hasła](./media/hdinsight-hadoop-emulator-visual-studio/enter-root-password.png)
 
-    Wybierz **dalej** aby kontynuować.
+    Kliknij przycisk **Dalej**, aby kontynuować.
 
 5. Poczekaj, aż weryfikacji usług, aby zakończyć. W niektórych przypadkach sprawdzanie poprawności może zakończyć się niepowodzeniem i monit o zaktualizowanie konfiguracji. Jeśli weryfikacja zakończy się niepowodzeniem, wybierz **aktualizacji**i zaczekaj, aż konfiguracji i weryfikacji dla usługi zakończyć.
 
@@ -84,7 +84,7 @@ Gałąź zapewnia języka przypominającego SQL kwerendy (HiveQL) do pracy z dan
 
     ![Zrzut ekranu z Eksploratora serwera zapisu wyróżnione zapytanie Hive](./media/hdinsight-hadoop-emulator-visual-studio/write-hive-query.png)
 
-    Pojawi się okno nowego zapytania. W tym miejscu można szybko zapisu i przesłać zapytanie z lokalnym klastrem.
+    Zostanie otwarte okno nowego zapytania. W tym miejscu można szybko zapisu i przesłać zapytanie z lokalnym klastrem.
 
 2. W nowym oknie zapytania wprowadź następujące polecenie:
 
@@ -203,7 +203,7 @@ Następnie można utworzyć tabeli za pomocą formularza. Na dole Poniższy zrzu
 
 ![Zrzut ekranu przedstawiający formularz używany do tworzenia tabeli](./media/hdinsight-hadoop-emulator-visual-studio/create-table-form.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Learning liny piaskownicy Hortonworks](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
 * [Samouczek Hadoop — wprowadzenie HDP](http://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)

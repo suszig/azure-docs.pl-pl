@@ -6,25 +6,22 @@ documentationcenter:
 author: vladvino
 manager: erikre
 editor: mattfarm
-ms.assetid: 364cd53e-88fb-4301-a093-f132fa1f88f5
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: 0abf2635e08bfc3113e9dec1947b9bb162cd3952
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 57d14b6aa6caca0cc9b075723d4c350b0a50c9f8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Zapisz i konfigurowaniu konfiguracji usługi Zarządzanie interfejsami API przy użyciu narzędzia Git
-> 
-> 
 
-Każde wystąpienie usługi Zarządzanie interfejsami API utrzymuje bazę danych konfiguracji, który zawiera informacje o konfiguracji i metadanych dla wystąpienia usługi. Można zmodyfikować wystąpienie usługi przez zmianę ustawień w portalu wydawcy, za pomocą polecenia cmdlet programu PowerShell lub wywołania interfejsu API REST. Oprócz tych metod można również zarządzać konfiguracji wystąpienia usługi przy użyciu narzędzia Git, takie jak włączanie scenariusze zarządzania usługi:
+Każde wystąpienie usługi Zarządzanie interfejsami API utrzymuje bazę danych konfiguracji, który zawiera informacje o konfiguracji i metadanych dla wystąpienia usługi. Zmiany mogą być wprowadzane do wystąpienia usługi zmiana ustawienia w portalu Azure, korzystając z polecenia cmdlet programu PowerShell lub wywołania interfejsu API REST. Oprócz tych metod można również zarządzać konfiguracji wystąpienia usługi przy użyciu narzędzia Git, takie jak włączanie scenariusze zarządzania usługi:
 
 * Przechowywanie wersji konfiguracji — Pobierz i przechowywać różne wersje konfiguracji usługi
 * Zbiorcze zmiany konfiguracji — wprowadzić zmiany w wielu części konfiguracji usługi w lokalnym repozytorium i integracji zmian z powrotem na serwer z jednej operacji
@@ -34,7 +31,7 @@ Na poniższym diagramie przedstawiono przegląd różnych sposobów, aby skonfig
 
 ![Skonfiguruj Git][api-management-git-configure]
 
-Po wprowadzeniu zmian w usłudze przy użyciu portalu wydawcy, poleceń cmdlet programu PowerShell lub interfejsu API REST zarządzania z usługi konfiguracji bazy danych przy użyciu `https://{name}.management.azure-api.net` punktu końcowego, jak pokazano po prawej stronie diagramu. W lewej części diagram ilustruje, jak można zarządzać przy użyciu narzędzia Git konfiguracji usługi i repozytorium Git dla usługi znajduje się w `https://{name}.scm.azure-api.net`.
+Po wprowadzeniu zmian w usłudze przy użyciu portalu Azure, poleceń cmdlet programu PowerShell lub interfejsu API REST zarządzania z usługi konfiguracji bazy danych przy użyciu `https://{name}.management.azure-api.net` punktu końcowego, jak pokazano po prawej stronie diagramu. W lewej części diagram ilustruje, jak można zarządzać przy użyciu narzędzia Git konfiguracji usługi i repozytorium Git dla usługi znajduje się w `https://{name}.scm.azure-api.net`.
 
 Poniższe kroki zawierają omówienie zarządzania wystąpienia usługi Zarządzanie interfejsami API przy użyciu narzędzia Git.
 
@@ -47,11 +44,8 @@ Poniższe kroki zawierają omówienie zarządzania wystąpienia usługi Zarządz
 W tym artykule opisano, jak włączyć i umożliwia zarządzanie konfiguracji usługi Git i zawiera odwołanie do plików i folderów w repozytorium Git.
 
 ## <a name="access-git-configuration-in-your-service"></a>Konfiguracja Git dostępu w usłudze
-Można szybko wyświetlić stan konfiguracji Git, wyświetlając Git ikonę w prawym górnym rogu portalu wydawcy. W tym przykładzie komunikatu o stanie wskazuje, że że istnieją niezapisane zmiany do repozytorium. Jest to spowodowane bazy danych konfiguracji usługi API Management nie został jeszcze zapisany do repozytorium.
 
-![Stan Git][api-management-git-icon-enable]
-
-Aby wyświetlić i skonfigurować ustawienia konfiguracji Git, możesz kliknąć ikonę Git, lub kliknij przycisk **zabezpieczeń** menu i przejdź do **repozytorium konfiguracji** kartę.
+Aby wyświetlić i skonfigurować ustawienia konfiguracji Git, możesz kliknąć **zabezpieczeń** menu i przejdź do **repozytorium konfiguracji** kartę.
 
 ![Włącz GIT][api-management-enable-git]
 
@@ -63,43 +57,30 @@ Aby wyświetlić i skonfigurować ustawienia konfiguracji Git, możesz kliknąć
 Aby uzyskać informacje na włączanie lub wyłączanie dostępu Git przy użyciu interfejsu API REST, zobacz [Włączanie lub wyłączanie dostępu Git przy użyciu interfejsu API REST](https://msdn.microsoft.com/library/dn781420.aspx#EnableGit).
 
 ## <a name="to-save-the-service-configuration-to-the-git-repository"></a>Aby zapisać konfigurację usługi do repozytorium Git
-Pierwszym krokiem przed klonowanie repozytorium jest zapisanie bieżącego stanu konfiguracji usługi do repozytorium. Kliknij przycisk **Zapisz konfigurację do repozytorium**.
 
-![Zapisywanie konfiguracji][api-management-save-configuration]
+Pierwszym krokiem przed klonowanie repozytorium jest zapisanie bieżącego stanu konfiguracji usługi do repozytorium. Kliknij przycisk **zapisać repozytorium**.
 
 Wprowadź żądane zmiany na ekranie potwierdzenia i kliknij przycisk **Ok** do zapisania.
 
-![Zapisywanie konfiguracji][api-management-save-configuration-confirm]
-
 Po kilku chwilach konfiguracji jest zapisywana i wyświetlany jest stan konfiguracji repozytorium, w tym datę i godzinę ostatniej zmiany konfiguracji i ostatniej synchronizacji konfiguracji usługi i repozytorium.
-
-![Stan konfiguracji][api-management-configuration-status]
 
 Po zapisaniu konfiguracji do repozytorium można sklonować.
 
 Aby uzyskać informacje na wykonanie tej operacji przy użyciu interfejsu API REST, zobacz [migawki za pomocą interfejsu API REST konfiguracji zatwierdzania](https://msdn.microsoft.com/library/dn781420.aspx#CommitSnapshot).
 
 ## <a name="to-clone-the-repository-to-your-local-machine"></a>Klonowanie repozytorium na komputerze lokalnym
-Klonowanie repozytorium, musisz adres URL repozytorium, nazwę użytkownika i hasła. Nazwa użytkownika i adres URL są wyświetlane w górnej części **repozytorium konfiguracji** kartę.
 
-![Klonowania Git][api-management-configuration-git-clone]
-
-Hasło jest generowane w dolnej części **repozytorium konfiguracji** kartę.
-
-![Generowanie hasła][api-management-generate-password]
-
-Aby wygenerować hasła, najpierw upewnij się, że **wygaśnięcia** jest ustawiona na odpowiednią datę i godzinę wygaśnięcia, a następnie kliknij przycisk **Generuj Token**.
-
-![Hasło][api-management-password]
+Klonowanie repozytorium, musisz adres URL repozytorium, nazwę użytkownika i hasła. Aby uzyskać nazwę użytkownika i inne poświadczenia, kliknij polecenie **dostęp do poświadczeń** górnej części strony.  
+ 
+Aby wygenerować hasła, najpierw upewnij się, że **wygaśnięcia** jest ustawiona na odpowiednią datę i godzinę wygaśnięcia, a następnie kliknij przycisk **Generuj**.
 
 > [!IMPORTANT]
 > Zanotuj to hasło. Gdy opuścisz tę stronę hasło nie zostanie ponownie wyświetlone.
 > 
-> 
 
 W poniższych przykładach użyto narzędzia Git Bash z [Git dla systemu Windows](http://www.git-scm.com/downloads) , ale można użyć dowolnego narzędzia Git, które znasz.
 
-Otwórz narzędzie Git w odpowiedni folder i uruchom następujące polecenie, aby Klonuj repozytorium git na komputerze lokalnym za pomocą polecenia udostępnionych przez portal wydawcy.
+Otwórz narzędzie Git w odpowiedni folder i uruchom następujące polecenie, aby Klonuj repozytorium git na komputerze lokalnym za pomocą polecenia udostępnionych przez Azure portal.
 
 ```
 git clone https://bugbashdev4.scm.azure-api.net/
@@ -116,7 +97,7 @@ git clone https://username:password@bugbashdev4.scm.azure-api.net/
 Jeśli to zawiera błąd, spróbuj kodowania hasła część polecenia URL. To jeden szybko, w tym celu otwórz program Visual Studio i wydać następujące polecenie w **oknie bezpośrednim**. Aby otworzyć **oknie bezpośrednim**, otwórz dowolnego rozwiązania lub projektu w programie Visual Studio (lub Utwórz nową aplikację konsoli puste) i wybierz polecenie **Windows**, **Immediate** z **Debugowania** menu.
 
 ```
-?System.NetWebUtility.UrlEncode("password from publisher portal")
+?System.NetWebUtility.UrlEncode("password from the Azure portal")
 ```
 
 Użyj zaszyfrowanych haseł wraz z lokalizacji nazwy i repozytorium użytkownika do skonstruowania polecenia git.
@@ -128,7 +109,8 @@ git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
 Gdy jest sklonować repozytorium można przeglądać i pracę z nią w lokalnym systemie plików. Aby uzyskać więcej informacji, zobacz [plików i folderów odniesienia lokalnego repozytorium Git struktury](#file-and-folder-structure-reference-of-local-git-repository).
 
 ## <a name="to-update-your-local-repository-with-the-most-current-service-instance-configuration"></a>Aby zaktualizować lokalnym repozytorium z najnowszą konfiguracją wystąpienia usługi
-Jeśli wprowadzasz zmiany do Twojego wystąpienia usługi Zarządzanie interfejsami API w portalu wydawcy lub przy użyciu interfejsu API REST, należy zapisać te zmiany do repozytorium przed zaktualizowaniem lokalnym repozytorium o najnowsze zmiany. Aby to zrobić, kliknij przycisk **Zapisz konfigurację do repozytorium** na **repozytorium konfiguracji** karcie w portalu wydawcy, a następnie należy wydać następujące polecenie w lokalnym repozytorium.
+
+Wprowadzenie zmian do Twojego wystąpienia usługi Zarządzanie interfejsami API w portalu Azure lub przy użyciu interfejsu API REST, należy zapisać te zmiany do repozytorium przed zaktualizowaniem lokalnym repozytorium o najnowsze zmiany. Aby to zrobić, kliknij przycisk **Zapisz konfigurację do repozytorium** na **repozytorium konfiguracji** karcie w portalu Azure, a następnie należy wydać następujące polecenie w lokalnym repozytorium.
 
 ```
 git pull
@@ -155,13 +137,13 @@ git push
 ```
 
 ## <a name="to-deploy-any-service-configuration-changes-to-the-api-management-service-instance"></a>Aby wdrożyć zmian konfiguracji usługi do wystąpienia usługi Zarządzanie interfejsami API
-Po lokalne zmiany są zatwierdzone i do repozytorium serwera, można je wdrożyć do Twojego wystąpienia usługi Zarządzanie interfejsami API.
 
-![Wdrażanie][api-management-configuration-deploy]
+Po lokalne zmiany są zatwierdzone i do repozytorium serwera, można je wdrożyć do Twojego wystąpienia usługi Zarządzanie interfejsami API.
 
 Aby uzyskać informacje na wykonanie tej operacji przy użyciu interfejsu API REST, zobacz [wdrażanie Git zmiany w konfiguracji bazy danych przy użyciu interfejsu API REST](https://docs.microsoft.com/rest/api/apimanagement/tenantconfiguration).
 
 ## <a name="file-and-folder-structure-reference-of-local-git-repository"></a>Odwołanie struktury plików i folderów z lokalnego repozytorium Git
+
 Pliki i foldery w repozytorium git lokalne zawierają informacje o konfiguracji dotyczące wystąpienia usługi.
 
 | Element | Opis |
@@ -179,7 +161,7 @@ Każdego folderu może zawierać jeden lub więcej plików, a w niektórych przy
 | Typ pliku | Przeznaczenie |
 | --- | --- |
 | JSON |Informacje o konfiguracji dotyczące odpowiednich jednostek |
-| HTML |Opisy jednostek, często są wyświetlane w portalu dla deweloperów |
+| html |Opisy jednostek, często są wyświetlane w portalu dla deweloperów |
 | xml |Instrukcje zasad |
 | CSS |Arkusze stylów do dostosowania portalu dla deweloperów |
 
@@ -192,7 +174,6 @@ Te pliki można tworzyć, usunąć, edytować i zarządzane w lokalnym systemie 
 > * Subskrypcje
 > * Właściwości
 > * Jednostek portalu deweloperów innych niż style
-> 
 > 
 
 ### <a name="root-api-management-folder"></a>Folder główny zarządzanie interfejsami api
@@ -223,8 +204,6 @@ Pierwsze cztery ustawienia (`RegistrationEnabled`, `UserRegistrationTerms`, `Use
 | UserRegistrationTermsEnabled |**Pokaż warunki użytkowania na stronie rejestracja** wyboru |
 | UserRegistrationTermsConsentRequired |**Wymagaj zgody** wyboru |
 
-![Ustawienia tożsamości][api-management-identity-settings]
-
 Następnie czterech ustawień (`DelegationEnabled`, `DelegationUrl`, `DelegatedSubscriptionEnabled`, i `DelegationValidationKey`) mapowania na następujące ustawienia na **delegowania** karcie **zabezpieczeń** sekcji.
 
 | Ustawienie delegowania | Mapuje |
@@ -233,8 +212,6 @@ Następnie czterech ustawień (`DelegationEnabled`, `DelegationUrl`, `DelegatedS
 | DelegationUrl |**Adres URL punktu końcowego delegowania** pole tekstowe |
 | DelegatedSubscriptionEnabled |**Delegowanie subskrypcji produktu** wyboru |
 | DelegationValidationKey |**Delegowanie klucz sprawdzania poprawności** pole tekstowe |
-
-![Ustawienia delegowania][api-management-delegation-settings]
 
 Ustawienie ostatecznego `$ref-policy`, mapy do pliku instrukcje globalne zasady dla wystąpienia usługi.
 
@@ -271,27 +248,21 @@ Ustawienie ostatecznego `$ref-policy`, mapy do pliku instrukcje globalne zasady 
 * `products\<product name>\configuration.json`— jest to konfiguracja produktu. Jest to te same informacje, który będzie zwracany w przypadku wywołania [pobrania określonego produktu](https://msdn.microsoft.com/library/azure/dn776336.aspx#GetProduct) operacji.
 * `products\<product name>\product.description.html`-to jest opis produktu i odpowiada `description` właściwość [jednostki produktu](https://msdn.microsoft.com/library/azure/dn776336.aspx#Product) w interfejsie API REST.
 
-### <a name="templates"></a>szablonów
+### <a name="templates"></a>templates
 `templates` Folder zawiera konfigurację [szablonów wiadomości e-mail](api-management-howto-configure-notifications.md) wystąpienia usługi.
 
 * `<template name>\configuration.json`-to jest konfiguracja dla szablonu wiadomości e-mail.
 * `<template name>\body.html`-to jest treść szablon wiadomości e-mail.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby uzyskać informacje na inne sposoby zarządzania wystąpienia usługi zobacz:
 
 * Zarządzanie wystąpienia usługi za pomocą następujących poleceń cmdlet programu PowerShell
   * [Wdrożenie usługi dokumentacji poleceń cmdlet programu PowerShell](https://msdn.microsoft.com/library/azure/mt619282.aspx)
   * [Zarządzanie usługami dokumentacji poleceń cmdlet programu PowerShell](https://msdn.microsoft.com/library/azure/mt613507.aspx)
-* Zarządzaj w portalu wydawcy wystąpienia usługi
-  * [Zarządzanie pierwszym interfejsem API](import-and-publish.md)
 * Zarządzanie za pomocą interfejsu API REST wystąpienia usługi
   * [Dokumentacja interfejsu API REST zarządzania interfejsu API](https://msdn.microsoft.com/library/azure/dn776326.aspx)
 
-## <a name="watch-a-video-overview"></a>Obejrzyj film wideo
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Configuration-over-Git/player]
-> 
-> 
 
 [api-management-enable-git]: ./media/api-management-configuration-repository-git/api-management-enable-git.png
 [api-management-git-enabled]: ./media/api-management-configuration-repository-git/api-management-git-enabled.png

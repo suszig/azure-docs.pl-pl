@@ -8,6 +8,9 @@ Podczas tworzenia nowej maszyny wirtualnej (VM) w grupie zasobów przez wdrożen
 > Platforma Azure oferuje dwa różne modele wdrażania związane z tworzeniem zasobów i pracą z nimi: model wdrażania przy użyciu usługi Resource Manager i model klasyczny. W tym artykule opisano używanie modelu usługi Resource Manager. Firma Microsoft zaleca, aby w przypadku większości nowych wdrożeń korzystać z modelu opartego na programie Resource Manager.
 > 
 > 
+> [!WARNING]
+> Zmiana rozmiaru dysku systemu operacyjnego dla maszyny wirtualnej platformy Azure spowoduje ponowne uruchomienie.
+>
 
 ## <a name="resize-the-os-drive"></a>Zmiana rozmiaru dysku systemu operacyjnego
 W tym artykule opisano zadanie zmiany rozmiaru dysku systemu operacyjnego przy użyciu modułów usługi Resource Manager programu [Azure Powershell](/powershell/azureps-cmdlets-docs). Pokazano zmiana rozmiaru dysku systemu operacyjnego dla dysków zarówno Unamanged i kod zarządzany, ponieważ podejście do zmiany rozmiaru dysków różni się od obu typów dysków.

@@ -14,18 +14,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 02/05/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 34826332db2e63d442d47ada74fcbad4cad600ae
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: ccee4fd0359ab9fe8bd025ead9a2d0993bb718f2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Nowości w usłudze Azure Active Directory
-
-
 
 
 > Bądź na bieżąco z nowości w usłudze Azure Active Directory (Azure AD) Subskrybuj [ ![RSS](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [źródła danych](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us).
@@ -125,7 +123,7 @@ Począwszy od 8 stycznia 2018, administracja programu Azure AD czynności w klas
  
 ---
 
-### <a name="azure-ad-administration-experience-in-azure-classic-portal-has-been-retired"></a>Administrowanie usługami Azure AD czynności w klasycznym portalu Azure została wycofana.
+### <a name="the-phonefactor-web-portal-has-been-retired"></a>Portal sieci web PhoneFactor została wycofana.
 
 **Typ:** przestarzałe  
 **Kategoria usług:** usługi Azure AD  
@@ -249,7 +247,7 @@ Aby uzyskać więcej informacji, zobacz [co to jest usługa Azure AD Privileged 
 
 **Typ:** nowej funkcji  
 **Kategoria usług:** aplikacje przedsiębiorstwa  
-**Możliwości produktu:** integracji innych firm
+**Możliwości produktu:** 3 integracji strony
  
 W 2017 grudnia następujących nowych aplikacji z obsługą federacji zostały dodane w galerii aplikacji:
 

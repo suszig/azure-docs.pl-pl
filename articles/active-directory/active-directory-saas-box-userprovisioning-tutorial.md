@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 8ac0c78c09b30c1a9cc698f5e78166a2b64240d7
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: d1bbafdb8bbd5ea7bfa193832992d56016b6ee5e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie pole dla użytkownika automatycznego inicjowania obsługi administracyjnej.
 
@@ -108,9 +108,9 @@ Celem tej sekcji jest przedstawiają sposób włączania obsługi kont użytkown
 
 14. Kliknij przycisk **zapisać.**
 
-Zaczynającym się wstępnej synchronizacji użytkowników i/lub grupy przypisane do użytkowników i grup sekcji. Synchronizacji początkowej zajmuje więcej czasu wykonywania niż kolejne synchronizacje, występujące co około 20 minut, tak długo, jak usługa jest uruchomiona. Można użyć **szczegóły synchronizacji** sekcji, aby monitorować postęp i skorzystaj z linków do inicjowania obsługi administracyjnej raporty działania, które opisują wszystkie akcje wykonywane przez usługę inicjowania obsługi administracyjnej, w polu aplikacji.
+Zaczynającym się wstępnej synchronizacji użytkowników i/lub grupy przypisane do użytkowników i grup sekcji. Synchronizacji początkowej zajmuje więcej czasu wykonywania niż kolejne synchronizacje, występujące co około 40 minut tak długo, jak usługa jest uruchomiona. Można użyć **szczegóły synchronizacji** sekcji, aby monitorować postęp i skorzystaj z linków do inicjowania obsługi administracyjnej Dzienniki aktywności, które opisują wszystkie akcje wykonywane przez usługę inicjowania obsługi administracyjnej, w polu aplikacji.
 
-Można teraz utworzyć konta testowego. Poczekaj, aż do 20 minut, aby sprawdzić, czy konto zostało zsynchronizowane do pola.
+Aby uzyskać więcej informacji na temat usługi Azure AD, inicjowanie obsługi dzienników do odczytu, zobacz [raportowania na użytkownika automatyczne Inicjowanie obsługi konta](active-directory-saas-provisioning-reporting.md).
 
 W tej dzierżawie pole zsynchronizowanych użytkowników są wyświetlane w obszarze **użytkowników zarządzanych** w **konsoli administracyjnej**.
 

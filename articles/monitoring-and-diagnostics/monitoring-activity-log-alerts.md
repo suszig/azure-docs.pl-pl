@@ -14,16 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: johnkem
-ms.openlocfilehash: 3885469ec0e1fcc31386dd0ad7fe6cb5d03ab28e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c8a2ce3ca90895262e77c3895867d29c9d3530a2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-activity-log-alerts"></a>Utwórz działanie alertów dziennika
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Alerty dziennika aktywności są alerty, które aktywować po wystąpieniu nowe zdarzenie dziennika aktywności, która spełnia warunki określone w alercie. Są one zasobów platformy Azure, dlatego mogą być tworzone za pomocą szablonu usługi Azure Resource Manager. One również może być utworzone, zaktualizowane lub usunięte w portalu Azure. W tym artykule przedstawiono pojęć dotyczących alertów dotyczących działań w dzienniku. Go następnie przedstawiono sposób ustawiania alertu na zdarzenia dziennika aktywności za pomocą portalu Azure.
+
+> [!NOTE]
+
+>  [Alerty (wersja zapoznawcza)](monitoring-overview-unified-alerts.md) obecnie udostępnia udoskonalone środowisko podczas tworzenia i zarządzania dziennikami działania.  [Dowiedz się więcej](monitoring-activity-log-alerts-new-experience.md).
 
 Zazwyczaj w celu utworzenia działania alerty dziennika, aby otrzymywać powiadomienia po:
 
@@ -43,15 +47,13 @@ Możesz skonfigurować alert dziennika działania na podstawie żadnych najwyżs
 - **Stan**: stan zdarzeń, zwykle uruchomiona, nie powiodło się lub zakończyło się pomyślnie.
 - **Zdarzenie inicjowane przez**: nazywane również "wywołującego." Adres e-mail lub identyfikator użytkownika, który wykonał działanie usługi Azure Active Directory.
 
->[!NOTE]
->Należy określić co najmniej dwa powyższe kryteria w alertu o jeden kategorii. Nie można utworzyć alertu, który uaktywnia za każdym razem, gdy zdarzenie jest tworzone w dziennikach działania.
->
->
+> [!NOTE]
+> Jeśli kategoria "administracyjne", należy określić co najmniej jednego z poprzednich kryteriów w alertu. Nie można utworzyć alertu, który uaktywnia za każdym razem, gdy zdarzenie jest tworzone w dziennikach działania.
 
 Po aktywowaniu alert dziennika aktywności używa grupy akcji do wygenerowania akcje lub powiadomienia. Grupy akcji jest zestawem wielokrotnego użytku odbiorców powiadomień, takie jak adresy e-mail, numerów telefonów adresy URL elementu webhook lub wiadomości SMS. Odbiorcy mogą być przywoływane z wielu alertów scentralizować i grupach kanałów powiadomień. Podczas definiowania alertu dziennika aktywności, dostępne są dwie opcje. Możesz:
 
-* Użyj istniejącej grupy działań w alertu dziennika aktywności. 
-* Utwórz nową grupę akcji. 
+* Użyj istniejącej grupy działań w alertu dziennika aktywności.
+* Utwórz nową grupę akcji.
 
 Aby dowiedzieć się więcej o grupach akcji, zobacz [tworzenia grup działań w portalu Azure i zarządzanie nimi](monitoring-action-groups.md).
 
@@ -121,7 +123,7 @@ Po utworzeniu alertu jest widoczna w sekcji Alerty bloku monitora. Wybierz alert
 * Usuń go.
 * Wyłącz lub włącz go, jeśli chcesz tymczasowo zatrzymać lub wznowić odbieranie powiadomień o alercie.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - Pobierz [Przegląd alertów](monitoring-overview-alerts.md).
 - Dowiedz się więcej o [limitów szybkości powiadomień](monitoring-alerts-rate-limiting.md).
 - Przegląd [schemat alertu elementu webhook dziennika aktywności](monitoring-activity-log-alerts-webhook.md).

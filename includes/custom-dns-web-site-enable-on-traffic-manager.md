@@ -26,5 +26,5 @@ Jeśli aplikacja sieci web nie ma jeszcze dodany jako punkt końcowy Menedżera 
    
    Po zakończeniu konfiguracji niestandardowej nazwy domeny będzie wyświetlane w **nazwy domen** części aplikacji sieci web.
 
-W tym momencie można wprowadzić nazwę nazwy domeny usługi Traffic Manager w przeglądarce i zobaczyć, czy go pomyślnie przejście do aplikacji sieci web.
+W tym momencie można wprowadzić nazwę domeny usługi Traffic Manager w przeglądarce i zobaczyć, czy go pomyślnie przejście do aplikacji sieci web.
 

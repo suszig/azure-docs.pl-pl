@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: tomfitz
-ms.openlocfilehash: ecfb7f726d5447710948405b2dd83fcd1db3dff2
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: fb6fb3f7172673be70b1a6dcfd77e42cd982e248
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Wyświetl dzienniki aktywności inspekcji akcje zasobów
 Za pomocą działania dzienniki można określić:
@@ -29,7 +29,11 @@ Za pomocą działania dzienniki można określić:
 * Stan operacji
 * Wartości innych właściwości, które mogą ułatwić badania operacji
 
-[!INCLUDE [resource-manager-audit-limitations](../../includes/resource-manager-audit-limitations.md)]
+Dziennik zawiera wszystkie operacje zapisu (PUT, POST, DELETE) w Twoich zasobów. Nie ma operacji odczytu (GET). Lista zasobów akcji, zobacz [operacji dostawcy zasobów usługi Azure Resource Manager](../active-directory/role-based-access-control-resource-provider-operations.md). Dzienniki inspekcji można użyć do znalezienia błędu podczas rozwiązywania problemów z lub do monitorowania, jak użytkownik w organizacji zmienić zasobu.
+
+Dzienniki aktywności są przechowywane przez 90 dni. Mogą wykonywać kwerendę o dowolnym zakres dat, tak długo, jak Data początkowa nie jest więcej niż 90 dni w przeszłości.
+
+
 
 Mogą pobierać informacje z Dzienniki aktywności za pośrednictwem portalu programu PowerShell, interfejsu wiersza polecenia Azure, interfejsu API REST szczegółowych informacji, lub [biblioteki .NET Insights](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
 
@@ -142,7 +146,7 @@ Mogą pobierać informacje z Dzienniki aktywności za pośrednictwem portalu pro
 ## <a name="rest-api"></a>Interfejs API REST
 Operacje REST do pracy z dziennika aktywności są częścią [interfejsu API REST usługi Insights](https://msdn.microsoft.com/library/azure/dn931943.aspx). Aby pobrać zdarzenia dziennika aktywności, zobacz [listy zdarzeń zarządzania w ramach subskrypcji](https://msdn.microsoft.com/library/azure/dn931934.aspx).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Dzienniki aktywności platformy Azure może służyć przy użyciu usługi Power BI, aby uzyskać bardziej szczegółowe analizy o akcjach w ramach subskrypcji. Zobacz [widoku i analizować Dzienniki aktywności platformy Azure w usłudze Power BI i nie tylko](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
 * Aby dowiedzieć się więcej na temat ustawiania zasad zabezpieczeń, zobacz [kontroli dostępu opartej na roli Azure](../active-directory/role-based-access-control-configure.md).
 * Informacje na temat polecenia do wyświetlania operacji wdrażania, zobacz [wyświetlić operacje wdrażania](resource-manager-deployment-operations.md).

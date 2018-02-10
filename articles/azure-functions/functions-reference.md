@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: 53ba5eaf3272746bd107efbcbae4b5d5889a197f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 461557b415ec816860acb5308e7aeba34468f4ae
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-functions-developers-guide"></a>Przewodnik dla deweloperów funkcji platformy Azure
 W środowisku Azure Functions określonych funkcji udostępniania kilka podstawowe koncepcje techniczne i składników, niezależnie od języka i powiązanie, którego używasz. Przed możesz przejść do uczenia szczegóły specyficzne dla danego języka lub powiązanie, należy koniecznie zapoznaj się z artykułem ten przegląd, która ma zastosowanie do wszystkich z nich.
@@ -117,6 +117,8 @@ Kod dla usługi Azure Functions to typu open source i przechowywane w repozytori
 W tym miejscu znajduje się tabela wszystkie obsługiwane powiązania.
 
 [!INCLUDE [dynamic compute](../../includes/functions-bindings.md)]
+
+Masz problemy z błędami pochodzące z powiązania? Przegląd [kody błędów powiązanie funkcji Azure](functions-bindings-error-pages.md) dokumentacji.
 
 ## <a name="reporting-issues"></a>Zgłaszanie problemów
 [!INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)]

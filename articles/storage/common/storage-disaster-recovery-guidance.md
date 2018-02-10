@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 1/19/2017
 ms.author: tamram
-ms.openlocfilehash: c768bdbb8e1ce2aae3eb5b6db0e48977366c83fb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 327816874fb2f2d43192e02410bd31c168e574f7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Co zrobić po wystąpieniu awarii usługi Azure Storage
 Firma Microsoft pracujemy nad twardego upewnij się, że naszych usług są zawsze dostępne. Czasami wymusza poza naszych wpływ kontroli nam w sposób, aby spowodować usługi nieplanowanych przestojów w jednym lub więcej regionów. Aby ułatwić obsługę tych zdarzeń w rzadkich, udostępniamy wysokiego poziomu dotyczące usługi Azure Storage.
@@ -26,10 +26,10 @@ Firma Microsoft pracujemy nad twardego upewnij się, że naszych usług są zaws
 ## <a name="how-to-prepare"></a>Jak przygotować
 Jest to bardzo ważne, aby każdy klient przygotował własny plan odzyskiwania po awarii. Starań, aby dokonać odzyskiwania po awarii magazynu zwykle obejmuje zarówno personel, jak i zautomatyzowane procedury, aby ponownie uaktywnić aplikacji w działającym stanie. Zapoznaj się z dokumentacją Azure poniżej, aby utworzyć własnego planu odzyskiwania po awarii:
 
-* [Odzyskiwanie aplikacji platformy Azure po awarii i ich wysoka dostępność](/azure/architecture/resiliency/disaster-recovery-high-availability-azure-applications.md)
-* [Odporność platformy Azure — wskazówki techniczne](/azure/architecture/resiliency.md)
+* [Lista kontrolna dotycząca dostępności](https://docs.microsoft.com/azure/architecture/checklist/availability)
+* [Projektowanie aplikacji odpornych na błędy dla platformy Azure](/azure/architecture/resiliency)
 * [Usługa Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/)
-* [Replikacja usługi Azure Storage](storage-redundancy.md)
+* [Replikacja usługi Azure Storage](storage-redundancy)
 * [Usługa Kopia zapasowa Azure](https://azure.microsoft.com/services/backup/)
 
 ## <a name="how-to-detect"></a>Jak wykryć

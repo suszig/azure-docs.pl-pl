@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: fb646a56b51960d5b076027d942dabe8f2afbe97
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2354a8bf81189f70bb8d0d63c3df3236403c11fc
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="configure-azure-active-directory-device-based-conditional-access-policies"></a>Konfigurowanie zasad dostępu warunkowego opartego na urządzenia usługi Azure Active Directory
 
@@ -37,15 +37,15 @@ Ties dostępu warunkowego opartego na urządzeniu **dostępu warunkowego dla us�
 - **[Wprowadzenie do zarządzania urządzeniami w usłudze Azure Active Directory](device-management-introduction.md)**  — ten temat zawiera omówienie różnych opcji, należy podłączyć urządzenia z usługą Azure AD. 
 
 
-## <a name="trusted-devices"></a>Zaufanych urządzeń
+## <a name="trusted-devices"></a>Zaufane urządzenia
 
 W świecie pierwszy mobile, najpierw chmury Azure Active Directory umożliwia logowanie jednokrotne do urządzeń, aplikacji i usług z dowolnego miejsca. Dla niektórych zasobów w danym środowisku, udzielanie dostępu do odpowiednich użytkowników może nie być wystarczająca. Oprócz odpowiednich użytkowników może również wymagać zaufanego urządzenia ma być używany do uzyskania dostępu do zasobu. W danym środowisku, można zdefiniować zaufanego urządzenia oparte na następujących składników:
 
-- [Platform urządzeń](active-directory-conditional-access-azure-portal.md#device-platforms) na urządzeniu
+- [Platform urządzeń](active-directory-conditional-access-conditions.md#device-platforms) na urządzeniu
 - Określa, czy urządzenie jest zgodne
 - Określa, czy urządzenie jest przyłączony do domeny 
 
-[Platform urządzeń](active-directory-conditional-access-azure-portal.md#device-platforms) charakteryzuje się systemu operacyjnego, który działa na urządzeniu. W zasadach dostępu warunkowego opartego na urządzeniu można ograniczyć dostęp do niektórych zasobów do konkretnych platform sprzętowych.
+[Platform urządzeń](active-directory-conditional-access-conditions.md#device-platforms) charakteryzuje się systemu operacyjnego, który działa na urządzeniu. W zasadach dostępu warunkowego opartego na urządzeniu można ograniczyć dostęp do niektórych zasobów do konkretnych platform sprzętowych.
 
 
 
@@ -55,7 +55,7 @@ W zasadach dostępu warunkowego opartego na urządzeniu można wymagać zaufanyc
 
 Urządzenia może być oznaczony jako zgodne w katalogu przez:
 
-- Intune 
+- Usługa Intune 
 - Urządzeniami przenośnymi innej firmy zarządzanych systemu, która zarządza urządzeniami z systemem Windows 10 za pomocą integracji z usługą Azure AD 
  
   
@@ -63,7 +63,7 @@ Urządzenia może być oznaczony jako zgodne w katalogu przez:
 Tylko urządzenia, które są połączone z usługą Azure AD może być oznaczony jako zgodne. Podłącz urządzenie do usługi Azure Active Directory, masz następujące opcje: 
 
 - Azure AD w zarejestrowany
-- Azure AD dołączony
+- Azure AD joined
 - Hybrydowe przyłączonych do usługi Azure AD
 
     ![Aplikacje w chmurze](./media/active-directory-conditional-access-policy-connected-applications/26.png)
@@ -73,7 +73,7 @@ Jeśli masz nakłady zasobów lokalnej usługi Active Directory (AD), można roz
 ![Aplikacje w chmurze](./media/active-directory-conditional-access-policy-connected-applications/25.png)
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Przed skonfigurowaniem zasad dostępu warunkowego opartego na urządzeniu w danym środowisku, należy podjąć przyjrzeć się [najlepszych rozwiązań dotyczących dostępu warunkowego w usłudze Azure Active Directory](active-directory-conditional-access-best-practices.md).
 

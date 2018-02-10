@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 06b60968931d18e7c7219d83801a5433631ed470
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e1f745fc70395f06d2eb3d98644d54c314a0ef26
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-impala-by-using-azure-data-factory-beta"></a>Kopiowanie danych z Impala przy użyciu fabryki danych Azure (wersja beta)
 
@@ -52,7 +52,7 @@ Następujące właściwości są obsługiwane przez Impala połączonej usługi.
 | port | Port TCP używany przez serwer Impala nasłuchiwanie dla połączeń klienta. Wartość domyślna to 21050.  | Nie |
 | authenticationType | Typ uwierzytelniania do użycia. <br/>Dozwolone wartości to **anonimowe**, **SASLUsername**, i **UsernameAndPassword**. | Yes |
 | nazwa użytkownika | Nazwa użytkownika używana do uzyskiwania dostępu do serwera Impala. Wartość domyślna to anonimowe, korzystając z SASLUsername.  | Nie |
-| hasło | Hasło, które odpowiada nazwie użytkownika, gdy używasz UsernameAndPassword. W tym polu można oznaczyć jako SecureString Zapisz w bezpiecznej lokalizacji w fabryce danych. Możesz również przechowywania hasła w usłudze Azure Key Vault i umożliwić ściągania działania kopiowania stamtąd podczas wykonywania kopii danych. Aby dowiedzieć się więcej, zobacz [przechowywania poświadczeń w magazynie kluczy](store-credentials-in-key-vault.md). | Nie |
+| hasło | Hasło, które odpowiada nazwie użytkownika, gdy używasz UsernameAndPassword. Zaznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w fabryce danych lub [odwołania klucz tajny przechowywane w usłudze Azure Key Vault](store-credentials-in-key-vault.md). | Nie |
 | enableSsl | Określa, czy połączenia z serwerem są szyfrowane przy użyciu protokołu SSL. Wartość domyślna to **false**.  | Nie |
 | trustedCertPath | Pełna ścieżka pliku PEM, który zawiera zaufane certyfikaty urzędu certyfikacji służącego do weryfikowania serwer podczas nawiązywania połączenia za pośrednictwem protokołu SSL. Tej właściwości można ustawić tylko wtedy, gdy na środowiska uruchomieniowego integracji Self-hosted za pomocą protokołu SSL. Wartość domyślna to plik cacerts.pem zainstalowane ze środowiskiem uruchomieniowym integracji.  | Nie |
 | useSystemTrustStore | Określa, czy ma być używany certyfikat urzędu certyfikacji z magazynu zaufania systemu lub z określonego pliku PEM. Wartość domyślna to **false**.  | Nie |

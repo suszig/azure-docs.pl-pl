@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: 88e1f17184be07ec8499ad3049f7210b56fdfc15
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: d5e3f3db4726bfb16cbb389cf99b9bf7c511da97
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-complete-linux-virtual-machine-environment-in-azure-with-ansible"></a>Utwórz pełną środowiska maszyny wirtualnej systemu Linux na platformie Azure z Ansible
 Ansible umożliwia automatyzację wdrożenia i konfiguracji zasobów w danym środowisku. Ansible służy do zarządzania maszyn wirtualnych (VM) na platformie Azure, takie same jak w przypadku innych zasobów. W tym artykule przedstawiono sposób tworzenia kompletne środowisko systemu Linux i pomocnicze zasoby z Ansible. Możesz też dowiedzieć się, jak [Tworzenie podstawowej maszyny Wirtualnej z Ansible](ansible-create-vm.md).
@@ -187,7 +187,7 @@ Zebranie tych sekcji, Utwórz podręcznikowym Ansible o nazwie *azure_create_com
         version: latest
 ```
 
-Ansible musi mieć grupę zasobów do wszystkich zasobów do wdrożenia. Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/vm#create). Poniższy przykład tworzy grupę zasobów o nazwie *myResourceGroup* w *eastus* lokalizacji:
+Ansible musi mieć grupę zasobów do wszystkich zasobów do wdrożenia. Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/vm#az_vm_create). W poniższym przykładzie pokazano tworzenie grupy zasobów o nazwie *myResourceGroup* w lokalizacji *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus

@@ -1,6 +1,6 @@
 ---
 title: "Azure koszty oprogramowania Windows wystąpień maszyny Wirtualnej rezerwy | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, które liczniki są używane oprogramowania systemu Windows dla maszyny Wirtualnej systemu Windows, które kwalifikują się do wystąpienia zastrzeżone."
+description: "Dowiedz się, które liczników oprogramowania systemu Windows nie są uwzględniane w koszty zastrzeżone wystąpienie maszyny wirtualnej."
 services: billing
 documentationcenter: 
 author: manish-shukla01
@@ -14,17 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: manshuk
-ms.openlocfilehash: b985e6e9575ffeedcac5bcb3f94a43d23fdbb85e
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: a0bb559369877e1cc5333394102bfb85d3f0bb11
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="windows-software-costs-not-included-with-reserved-instances"></a>Koszty oprogramowania systemu Windows nie jest dołączony do wystąpienia zastrzeżone
 
-Jeśli nie masz korzyści Użyj hybrydowe platformy Azure na maszynie Wirtualnej zarezerwowana wystąpienia są naliczane dla liczników oprogramowania systemu Windows wymienionych w poniższej tabeli:
+Jeśli nie masz korzyści Użyj hybrydowe platformy Azure na maszynach wirtualnych zastrzeżone wystąpienia są naliczane dla liczników oprogramowania systemu Windows wymienionych w poniższej sekcji.
 
-| meterId | MeterName w pliku użycia | Używane przez maszynę Wirtualną |
+## <a name="windows-software-meters-not-included-in-reserved-instance-cost"></a>Nie są objęte koszt zastrzeżone wystąpienia liczników oprogramowania systemu Windows
+
+| Identyfikator miernika | MeterName w pliku użycia | Używane przez maszynę Wirtualną |
 | ------- | ------------------------| --- |
 | e7e152ac-f29c-4cce-ad6e-026192c01ef2 | Windows rezerwacji Svr serii (1 rdzeń) | Seria B |
 | cac255a2-9f0f-4c62-8bd6-f0fa449c5f76 | Windows rezerwacji Svr serii (2 rdzenie) | Seria B |
@@ -48,3 +50,13 @@ Jeśli nie masz korzyści Użyj hybrydowe platformy Azure na maszynie Wirtualnej
 | 6fdab81b-4284-4df9-8939-c237cc7462fe | Windows rezerwacji Svr (96 rdzeni) | Wszystkie z wyjątkiem serii B |
 
 Koszt każdej z tych liczników można uzyskać za pośrednictwem interfejsu API RateCard Azure. Aby uzyskać informacje dotyczące sposobu uzyskania stawki miernika azure, zobacz [uzyskiwanie informacji o cenach i metadanych dla zasobów używanych w subskrypcji platformy Azure](https://msdn.microsoft.com/library/azure/mt219004).
+
+## <a name="next-steps"></a>Kolejne kroki
+Aby dowiedzieć się więcej o zastrzeżonych wystąpień maszyn wirtualnych, zobacz następujące artykuły.
+
+- [Przedpłaty dla maszyn wirtualnych z wystąpień zastrzeżone maszyny Wirtualnej](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Zarządzanie wystąpieniami zastrzeżonej maszyny wirtualnej](billing-manage-reserved-vm-instance.md)
+- [Zaoszczędzić na maszynach wirtualnych z zarezerwowanych wystąpień maszyn wirtualnych](billing-save-compute-costs-reservations.md)
+- [Zrozumienie, jak stosowany jest rabat zastrzeżone wystąpienie maszyny wirtualnej](billing-understand-vm-reservation-charges.md)
+- [Określić sposób użycia wystąpienia zarezerwowane dla Twojej subskrypcji z](billing-understand-reserved-instance-usage.md)
+- [Określić sposób użycia wystąpienia zarezerwowane dla rejestracji w przedsiębiorstwie](billing-understand-reserved-instance-usage-ea.md)
