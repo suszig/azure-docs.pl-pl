@@ -14,18 +14,18 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.openlocfilehash: e52f38d5fb3c100e4275032f9a2a1234961c672b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52f1f1543fe0ef15cf71d2cf1f9a8bfeaae8933f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-blob-storage-from-nodejs"></a>Jak używać Magazynu obiektów Blob w oprogramowaniu Node.js
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
 
 [!INCLUDE [storage-check-out-samples-all](../../../includes/storage-check-out-samples-all.md)]
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 W tym artykule przedstawiono sposób wykonywania typowych scenariuszy przy użyciu magazynu obiektów Blob. Przykłady są napisane przy użyciu interfejsu API środowiska Node.js. Omówione scenariusze obejmują jak przekazywanie, listy, pobieranie i usuwanie obiektów blob.
 
 [!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
@@ -33,7 +33,7 @@ W tym artykule przedstawiono sposób wykonywania typowych scenariuszy przy użyc
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-nodejs-application"></a>Tworzenie aplikacji w języku Node.js
-Aby uzyskać instrukcje dotyczące tworzenia aplikacji Node.js, zobacz [tworzenie aplikacji sieci web Node.js w usłudze Azure App Service], [tworzenia i wdrażania aplikacji Node.js do usługi w chmurze platformy Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) — za pomocą środowiska Windows PowerShell lub [tworzenie i wdrażanie aplikacji sieci web Node.js na platformie Azure przy użyciu Web Matrix](https://www.microsoft.com/web/webmatrix/).
+Aby uzyskać instrukcje dotyczące tworzenia aplikacji Node.js, zobacz [tworzenie aplikacji sieci web Node.js w usłudze Azure App Service](../../app-service/app-service-web-get-started-nodejs.md), [tworzenia i wdrażania aplikacji Node.js do usługi w chmurze platformy Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) — za pomocą środowiska Windows PowerShell lub [tworzenie i wdrażanie aplikacji sieci web Node.js na platformie Azure przy użyciu Web Matrix](https://www.microsoft.com/web/webmatrix/).
 
 ## <a name="configure-your-application-to-access-storage"></a>Konfigurowanie aplikacji dostęp do magazynu
 Korzystanie z usługi Azure storage, wymaga zestawu SDK usługi Magazyn Azure dla środowiska Node.js, w tym zestaw wygody bibliotek, które komunikują się z magazynu usługi REST.
@@ -90,7 +90,7 @@ blobSvc.createContainerIfNotExists('mycontainer', function(error, result, respon
 
 Jeśli kontener jest nowo utworzony, `result.created` ma wartość true. Jeśli kontener już istnieje, `result.created` ma wartość false. `response`zawiera informacje na temat operacji, w tym informacje o ETag kontenera.
 
-### <a name="container-security"></a>Kontener zabezpieczeń
+### <a name="container-security"></a>Zabezpieczenia kontenerów
 Domyślnie nowe kontenery są prywatne i nie można uzyskać dostępu do anonimowo. Aby udostępnić kontenera, dzięki czemu można do niego dostęp anonimowo, można ustawić dostępu do kontenera poziom **obiektu blob** lub **kontenera**.
 
 * **Obiekt blob** — umożliwia anonimowy dostęp do odczytu do zawartości obiektu blob i metadanych, w tym kontenerze, ale nie do kontenera metadane, takie jak wyświetlanie listy wszystkich obiektów blob w kontenerze
@@ -282,7 +282,7 @@ Aby obsługiwać równoczesny dostęp do obiektu blob z wielu klientów lub wiel
 * **Element etag** — pozwala wykryć, że obiekt blob lub kontener został zmodyfikowany przez inny proces
 * **Dzierżawy** — pozwala uzyskać wyłącznej, odnawialnymi, zapisu albo usuwania dostępu do obiektu blob w danym okresie czasu
 
-### <a name="etag"></a>Element ETag
+### <a name="etag"></a>ETag
 Elementy etag Użyj, jeśli konieczne jest zezwolenie na wielu klientów lub wystąpień do zapisu blokowych obiektów Blob lub strony Blob jednocześnie. Element ETag pozwala określić, czy kontener lub obiekt blob był modyfikowany od początku odczytu lub utworzone, dzięki czemu można uniknąć zastępowania zmian dokonanych przez innego klienta lub inny proces.
 
 Można ustawić warunki ETag przy użyciu opcjonalnego `options.accessConditions` parametru. Poniższy kod przykładowy tylko przekazywanie **test.txt** pliku, jeśli obiekt blob już istnieje i ma wartość ETag zawarty w `etagToMatch`.
@@ -409,7 +409,7 @@ Po ustawieniu listy ACL, następnie można utworzyć na podstawie Identyfikatora
 blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', { Id: 'user2' });
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby uzyskać więcej informacji zobacz następujące zasoby.
 
 * [Magazynu azure SDK dla węzła dokumentacja interfejsu API] [Magazynu azure SDK dla węzła dokumentacja interfejsu API]  
