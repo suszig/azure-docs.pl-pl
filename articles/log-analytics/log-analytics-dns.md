@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
-ms.openlocfilehash: 8f83d019c0168aa5abbf3211b4a599f631e9f426
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 2cc40388c77dec68966a8914197d072db38f6eb0
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Zbieranie informacji na temat infrastruktury DNS z rozwiązaniem Podgląd Analytics DNS
 
@@ -42,16 +42,16 @@ W poniższej tabeli opisano połączonych źródeł, które są obsługiwane prz
 
 | **Źródło połączenia** | **Pomoc techniczna** | **Opis** |
 | --- | --- | --- |
-| [Agenci dla systemu Windows](log-analytics-windows-agent.md) | Tak | Rozwiązanie zbiera informacje DNS z agentów systemu Windows. |
+| [Agenci dla systemu Windows](log-analytics-windows-agent.md) | Yes | Rozwiązanie zbiera informacje DNS z agentów systemu Windows. |
 | [Agenci dla systemu Linux](log-analytics-linux-agents.md) | Nie | Rozwiązanie nie zbiera informacje DNS z bezpośredniego agentów systemu Linux. |
-| [Grupa zarządzania programu System Center Operations Manager](log-analytics-om-agents.md) | Tak | Rozwiązanie zbiera informacje DNS z agentów w podłączonej grupy zarządzania programu Operations Manager. Połączenie bezpośrednie z agenta programu Operations Manager do usługi Operations Management Suite nie jest wymagane. Dane są przesyłane dalej z grupy zarządzania do repozytorium usługi Operations Management Suite. |
+| [Grupa zarządzania programu System Center Operations Manager](log-analytics-om-agents.md) | Yes | Rozwiązanie zbiera informacje DNS z agentów w podłączonej grupy zarządzania programu Operations Manager. Połączenie bezpośrednie z agenta programu Operations Manager do usługi Operations Management Suite nie jest wymagane. Dane są przesyłane dalej z grupy zarządzania do repozytorium usługi Operations Management Suite. |
 | [Konto usługi Azure Storage](log-analytics-azure-storage.md) | Nie | Magazyn Azure nie jest używany przez rozwiązanie. |
 
 ### <a name="data-collection-details"></a>Szczegóły danych kolekcji
 
 Rozwiązanie zbiera DNS zapasów i dane dotyczące zdarzeń DNS z serwerów DNS z zainstalowanym agentem analizy dzienników. Dane te są następnie przekazywane do analizy dzienników i wyświetlane na pulpicie nawigacyjnym rozwiązania. Dane dotyczące zapasów, takie jak liczba serwerów DNS, strefy i rekordy zasobów są zbierane przez uruchomienie polecenia cmdlet programu DNS PowerShell. Dane są aktualizowane raz na dwa dni. Zbierane są dane dotyczące zdarzeń niemal w czasie rzeczywistym z [analityczne i dzienniki inspekcji](https://technet.microsoft.com/library/dn800669.aspx#enhanc) zapewniane przez udoskonalone rejestrowanie DNS i Diagnostyka systemu Windows Server 2012 R2.
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 Poniższe informacje umożliwiają skonfigurowanie rozwiązania:
 
@@ -145,7 +145,7 @@ Informacje ułatwiające identyfikację:
 
 **Przykładowe zapytania analityczne Interfejsu**. Zawiera listę typowych zapytania wyszukiwania, które pobierają dane pierwotne analytics bezpośrednio.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Przykładowe zapytania](./media/log-analytics-dns/queries.png)
 
@@ -187,6 +187,6 @@ Istnieją dwa sposoby, które można przesłać opinię:
 - **UserVoice**. Po pomysły dotyczące funkcji DNS Analytics na. Odwiedź stronę [strony Operations Management Suite UserVoice](https://aka.ms/dnsanalyticsuservoice).
 - **Dołącz do naszych kohorty**. Zawsze możemy interesują Cię o nowych klientów, Dołącz do naszych stado uzyskać wczesny dostęp do nowych funkcji i pomóc nam w ulepszaniu DNS Analytics. Jeśli interesuje Cię w dołączenie naszych stado, wypełnij [szybkie badanie](https://aka.ms/dnsanalyticssurvey).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Wyszukaj dzienniki](log-analytics-log-searches.md) Aby wyświetlić szczegółowe rekordy dziennika DNS.

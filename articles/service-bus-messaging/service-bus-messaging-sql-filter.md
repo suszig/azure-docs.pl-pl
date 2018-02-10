@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/16/2017
+ms.date: 02/05/2018
 ms.author: sethm
-ms.openlocfilehash: 159bb0500dd98a428d60d6aeb78767a3460b40dc
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: ec9d728eb31eb979e82bfb53cf619f823750e65c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="sqlfilter-syntax"></a>Składnia SQLFilter
 
@@ -65,7 +65,7 @@ A *SqlFilter* obiektu jest wystąpieniem [klasy SqlFilter](/dotnet/api/microsoft
 
 Próba dostępu do właściwości systemu nieistniejącą jest wystąpił błąd podczas próby dostępu do właściwości nie istnieje użytkownik nie jest błąd. Zamiast tego właściwości użytkownika nieistniejącą wewnętrznie jest szacowana jako nieznaną wartość. Nieznana wartość jest traktowana specjalnie podczas obliczania operatora.  
   
-## <a name="propertyname"></a>Property_Name  
+## <a name="propertyname"></a>property_name  
   
 ```  
 <property_name> ::=  
@@ -192,7 +192,7 @@ Stałe typu logicznego są reprezentowane przez słowa kluczowe **TRUE** lub **F
 
 Stałe typu String są ujęte w apostrofy i zawierać żadnych prawidłowych znaków Unicode. Znak pojedynczego cudzysłowu osadzone w stałą typu string jest przedstawiona w postaci dwóch pojedynczy znaki cudzysłowu.  
   
-## <a name="function"></a>Funkcja  
+## <a name="function"></a>funkcja  
   
 ```  
 <function> :=  
@@ -278,7 +278,7 @@ Należy rozważyć [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfil
   
 -   Operatory arytmetyczne, takie jak `+`, `-`, `*`, `/`, i `%` postępuj zgodnie z tej samej semantyki jako operator C# powiązanie w promocji typu danych i niejawne konwersje.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Klasa SQLFilter (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
 - [Klasa SQLFilter (.NET Standard)](/dotnet/api/microsoft.azure.servicebus.filters.sqlfilter)

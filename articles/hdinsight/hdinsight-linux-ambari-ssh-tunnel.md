@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/10/2017
+ms.date: 02/07/2018
 ms.author: larryfr
-ms.openlocfilehash: 7f55abc84a8afea398cf0e95761d922b77e1c248
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: a6604cca4056acf3ce759eaf56bb9130ef672bc7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>Użyj tunelowania SSH, aby uzyskać dostęp do interfejsu użytkownika sieci web Ambari, JobHistory, NameNode, Oozie i innych sieci web UI
 
@@ -55,8 +55,8 @@ Jeśli akcji skryptu można użyć do dostosowania z klastrem, usługi lub narz�
     > [!WARNING]
     > Obsługa serwera proxy SOCKS wbudowanych w system Windows nie obsługuje SOCKS5 i nie działa z kroki opisane w tym dokumencie. Następujące przeglądarki zależą od ustawień serwera proxy systemu Windows i obecnie nie współpracujesz z kroki opisane w tym dokumencie:
     >
-    > * Przeglądarka Microsoft Edge
-    > * Program Microsoft Internet Explorer
+    > * Microsoft Edge
+    > * Microsoft Internet Explorer
     >
     > Google Chrome również korzysta z ustawień serwera proxy systemu Windows. Można jednak zainstalować rozszerzenia, które obsługują SOCKS5. Firma Microsoft zaleca [FoxyProxy Standard](https://chrome.google.com/webstore/detail/foxyproxy-standard/gcknhkkoolaabfmlnjonogaaifnjlfnp).
 
@@ -146,7 +146,7 @@ Po ustanowieniu klastra, wykonaj następujące kroki, aby sprawdzić, czy są do
    > [!NOTE]
    > Zwróć uwagę, adres URL dla tej strony; powinna być podobna do **http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/klaster**. Ten identyfikator URI węzła przy użyciu wewnętrznego pełną nazwę domeny (FQDN) i jest dostępny tylko przy użyciu tunelu SSH.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Teraz, kiedy znasz sposobu tworzenia i używania tunelu SSH, można znaleźć w dokumencie następujące inne sposoby używania narzędzia Ambari:
 

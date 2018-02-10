@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/09/2017
-ms.openlocfilehash: 9d8a9f1c32578abff1d98e093469e1a780f6cd80
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 4a8681bfdfe6b387d5790446d8b6dce04aaec580
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-jupyter-notebook-in-azure-machine-learning-workbench"></a>Jak używać notesu Jupyter w konsoli usługi Azure Machine Learning Workbench
 
@@ -42,15 +42,15 @@ Obliczeniowe elementy docelowe w i dostępne wiele różnych jądra w konsoli us
 >Przegląd [skonfigurować wykonywania](experimentation-service-configuration.md) więcej informacji na temat uruchamiania konfiguracji i obliczeniowe elementy docelowe.
 
 ### <a name="kernel-naming-convention"></a>Konwencja nazewnictwa jądra
-Jądra nazwy w formacie "\<Nazwa projektu > \<Uruchom Nazwa konfiguracji >". Na przykład, jeśli masz konfigurację uruchomieniową o nazwie _docker python_ w projekcie o nazwie _myIris_, można znaleźć jądra o nazwie "myIris docker-python" na liście jądra po otwarciu notesu Jupyter.
-
+Azure ML Workbench generuje niestandardowych jądra Jupyter.  Są one nazywane "\<Nazwa projektu > \<Uruchom Nazwa konfiguracji >". Na przykład, jeśli masz konfigurację uruchomieniową o nazwie _docker python_ w projekcie o nazwie _myIris_, uczenie Maszynowe Azure udostępnia jądra o nazwie "myIris docker-python".  Ustaw jądra uruchomionej w notesu Jupyter "Jądra" menu w podmenu "Zmiany jądra". Nazwa uruchomionych jądra pojawia się po prawej stronie paska menu.
+ 
 Obecnie Workbench obsługuje następujące typy jądra.
 
-### <a name="local-python-kernel"></a>Lokalne jądra Python
+### <a name="local-python-kernel"></a>Local Python kernel
 Ta jądra Python obsługuje wykonywanie na komputerze lokalnym. Jest zintegrowany z obsługą historii uruchamiania usługi Azure Machine Learning. Nazwa jądra jest zwykle "my_project_name lokalny".
 
 >[!NOTE]
->Nie należy używać jądra "Python 3". Jest domyślnie dostępne przez Jupyter jądra autonomicznej. Nie jest zintegrowany z możliwości usługi Azure Machine Learning.
+>Nie należy używać jądra "Python 3". Jest domyślnie dostępne przez Jupyter jądra autonomicznej. Nie jest zintegrowany z możliwości usługi Azure Machine Learning. Na przykład _% uczenie maszynowe Azure_ Jupyter magic zwracają błędy "nie została odnaleziona". 
 
 ### <a name="python-kernel-in-docker-local-or-remote"></a>Python jądra w Docker (lokalne i zdalne)
 Ta jądra Python działa w kontenerze Docker na komputerze lokalnym lub zdalnym maszyny Wirtualnej systemu Linux. Nazwa jądra jest zwykle "my_project docker". Skojarzony `docker.runconfig` plik ma `Framework` pole `Python`.

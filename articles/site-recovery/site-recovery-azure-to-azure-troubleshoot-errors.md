@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/21/2017
+ms.date: 02/05/2017
 ms.author: sujayt
-ms.openlocfilehash: 9e5719cd81408f6732826c90505a3ce8aa10f8ed
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 8f9ff8332f33972489721e0d16717d1d6fe15fcd
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Rozwiązywanie problemów z replikacją maszyn wirtualnych Azure do platformy Azure
 
@@ -61,34 +61,93 @@ Ponieważ SuSE Linux używa łączy symbolicznych, aby zachować lista certyfika
 
 1.  Zaloguj się jako użytkownik root.
 
-2.  Uruchom następujące polecenie:
+2.  Uruchom to polecenie, aby zmienić katalog.
 
       ``# cd /etc/ssl/certs``
 
-3.  Aby sprawdzić, czy certyfikat firmy Symantec głównego urzędu certyfikacji znajduje się, uruchom następujące polecenie:
+3. Sprawdź, czy certyfikat firmy Symantec głównego urzędu certyfikacji jest obecny.
 
       ``# ls VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-4.  Jeśli plik nie zostanie odnaleziony, uruchom następujące polecenia:
+4. Jeśli certyfikat firmy Symantec głównego urzędu certyfikacji nie zostanie znaleziony, uruchom następujące polecenie, aby pobrać plik. Sprawdź błędy i wykonaj akcję zalecaną dla awarie sieci.
 
       ``# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem -O VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-      ``# c_rehash``
+5. Sprawdź, czy certyfikat urzędu certyfikacji głównego Baltimore jest obecny.
 
-5.  Aby utworzyć łącza symbolicznego z b204d74a.0 -> VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem, uruchom to polecenie:
+      ``# ls Baltimore_CyberTrust_Root.pem``
 
-      ``# ln -s  VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem b204d74a.0``
+6. Jeśli nie znaleziono certyfikatu głównego urzędu certyfikacji Baltimore, Pobierz certyfikat.  
 
-6.  Sprawdź, czy następujące dane wyjściowe tego polecenia. Jeśli nie, należy utworzyć łącza symbolicznego:
+    ``# wget http://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root.pem``
 
-      ``# ls -l | grep Baltimore
-      -rw-r--r-- 1 root root   1303 Apr  7  2016 Baltimore_CyberTrust_Root.pem
-      lrwxrwxrwx 1 root root     29 May 30 04:47 3ad48a91.0 -> Baltimore_CyberTrust_Root.pem
-      lrwxrwxrwx 1 root root     29 May 30 05:01 653b494a.0 -> Baltimore_CyberTrust_Root.pem``
+7. Sprawdź, czy certyfikat DigiCert_Global_Root_CA jest obecny.
 
-7. Jeśli 653b494a.0 łącza symbolicznego nie jest obecny, użyj tego polecenia, aby utworzyć łącza symbolicznego:
+    ``# ls DigiCert_Global_Root_CA.pem``
 
-      ``# ln -s Baltimore_CyberTrust_Root.pem 653b494a.0``
+8. Jeśli DigiCert_Global_Root_CA nie zostanie znaleziony, uruchom następujące polecenia, aby pobrać certyfikat.
+
+    ``# wget http://www.digicert.com/CACerts/DigiCertGlobalRootCA.crt``
+
+    ``# openssl x509 -in DigiCertGlobalRootCA.crt -inform der -outform pem -out DigiCert_Global_Root_CA.pem``
+
+9. Uruchom rehash skrypt, aby zaktualizować certyfikat podmiotu skrótów dla nowo pobranej certyfikatów.
+
+    ``# c_rehash``
+
+10. Sprawdź, czy podmiot skróty w miarę tworzenia łączy symbolicznych dla certyfikatów.
+
+    - Polecenie
+
+      ``# ls -l | grep Baltimore``
+
+    - Dane wyjściowe
+
+      ``lrwxrwxrwx 1 root root   29 Jan  8 09:48 3ad48a91.0 -> Baltimore_CyberTrust_Root.pem
+      -rw-r--r-- 1 root root 1303 Jun  5  2014 Baltimore_CyberTrust_Root.pem``
+
+    - Polecenie
+
+      ``# ls -l | grep VeriSign_Class_3_Public_Primary_Certification_Authority_G5``
+
+    - Dane wyjściowe
+
+      ``-rw-r--r-- 1 root root 1774 Jun  5  2014 VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem
+      lrwxrwxrwx 1 root root   62 Jan  8 09:48 facacbc6.0 -> VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
+
+    - Polecenie
+
+      ``# ls -l | grep DigiCert_Global_Root``
+
+    - Dane wyjściowe
+
+      ``lrwxrwxrwx 1 root root   27 Jan  8 09:48 399e7759.0 -> DigiCert_Global_Root_CA.pem
+      -rw-r--r-- 1 root root 1380 Jun  5  2014 DigiCert_Global_Root_CA.pem``
+
+11. Utwórz kopię pliku VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem z filename b204d74a.0
+
+    ``# cp VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem b204d74a.0``
+
+12. Utwórz kopię pliku Baltimore_CyberTrust_Root.pem z filename 653b494a.0
+
+    ``# cp Baltimore_CyberTrust_Root.pem 653b494a.0``
+
+13. Utwórz kopię pliku DigiCert_Global_Root_CA.pem z filename 3513523f.0
+
+    ``# cp DigiCert_Global_Root_CA.pem 3513523f.0``  
+
+
+14. Sprawdź, czy pliki są obecne.  
+
+    - Polecenie
+
+      ``# ls -l 653b494a.0 b204d74a.0 3513523f.0``
+
+    - Dane wyjściowe
+
+      ``-rw-r--r-- 1 root root 1774 Jan  8 09:52 3513523f.0
+      -rw-r--r-- 1 root root 1303 Jan  8 09:52 653b494a.0
+      -rw-r--r-- 1 root root 1774 Jan  8 09:52 b204d74a.0``
 
 
 ## <a name="outbound-connectivity-for-site-recovery-urls-or-ip-ranges-error-code-151037-or-151072"></a>Łączność wychodząca dla zakresów adresów URL odzyskiwania lokacji lub adres IP (kod błędu 151037 lub 151072)
@@ -131,6 +190,20 @@ Maszyna wirtualna platformy Azure do wyboru w może nie być wyświetlana [włą
 
 Można użyć [Usuń stare skryptu konfiguracji ASR](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) i usuwanie starych konfiguracji usługi Site Recovery na maszynie Wirtualnej Azure. Powinny pojawić się maszyny Wirtualnej w ramach [włączyć replikację: krok 2](./site-recovery-azure-to-azure.md#step-2-select-virtual-machines) po usunięciu przestarzałą konfigurację.
 
+## <a name="vms-provisioning-state-is-not-valid-error-code-150019"></a>Stan inicjowania obsługi administracyjnej maszyny Wirtualnej jest nieprawidłowy (kod błędu 150019)
+
+Aby włączyć replikację na maszynie Wirtualnej, stan inicjowania powinien być **zakończyło się pomyślnie**. Można sprawdzić stan maszyny Wirtualnej, wykonując poniższe kroki.
+
+1.  Wybierz **Eksploratora zasobów** z **wszystkie usługi** w portalu Azure.
+2.  Rozwiń węzeł **subskrypcje** listę i wybierz subskrypcję.
+3.  Rozwiń węzeł **ResourceGroups** listę i wybierz grupę zasobów maszyny wirtualnej.
+4.  Rozwiń węzeł **zasobów** listę i wybierz maszynę wirtualną
+5.  Sprawdź **provisioningState** w widoku wystąpienia po prawej stronie.
+
+### <a name="fix-the-problem"></a>Rozwiąż problem
+
+- Jeśli **provisioningState** jest, skontaktuj się z pomocą techniczną, podając szczegóły, aby rozwiązać.
+- Jeśli **provisioningState** jest **aktualizacji**, inne rozszerzenie mogą być pobieranie wdrożone. Sprawdź, czy są wszystkie trwających operacji na maszynie Wirtualnej, poczekaj na ich zakończenie i ponów próbę odzyskania lokacji nie powiodło się **włączyć replikację** zadania.
 
 ## <a name="next-steps"></a>Kolejne kroki
 [Replikowanie maszyn wirtualnych platformy Azure](site-recovery-replicate-azure-to-azure.md)

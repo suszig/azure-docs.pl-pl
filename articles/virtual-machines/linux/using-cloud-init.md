@@ -15,17 +15,17 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 88133aff36aaef544d555cb121e23ff23fcc3367
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 2d110705a86fa8bc05859bd8bfde34b0b5b11575
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Obsługa inicjowania chmury maszyn wirtualnych na platformie Azure
 W tym artykule opisano obsługę, czy istnieje dla [init chmury](https://cloudinit.readthedocs.io) do skonfigurowania maszyny wirtualnej (VM) lub maszyny wirtualnej zestawach skali (VMSS) na inicjowanie obsługi administracyjnej czas na platformie Azure. Skrypty te init chmury są uruchamiane po pierwszym uruchomieniu komputera po zasoby zostały udostępnione przez platformę Azure.  
 
 ## <a name="cloud-init-overview"></a>Omówienie pakietu cloud-init
-[Init chmury](https://cloudinit.readthedocs.io) jest powszechnie używaną podejście, aby dostosować Maszynę wirtualną systemu Linux, ponieważ jest on uruchamiany po raz pierwszy. Init chmury można użyć, aby zainstalować pakiety i zapisywać pliki, lub aby skonfigurować użytkowników i zabezpieczeń. Ponieważ init chmury jest wywoływana podczas początkowego procesu rozruchu, nie są żadne dodatkowe kroki lub agentów wymaganych do zastosowania konfiguracji.  Aby uzyskać więcej informacji na temat sposobu poprawnie sformatowana Twojej `#cloud-config` plików, zobacz [witryna dokumentacji usługi chmury init](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`pliki są plikami tekstowymi zakodowane w formacie base64.
+[Cloud-init](https://cloudinit.readthedocs.io) to powszechnie używana metoda dostosowywania maszyny wirtualnej z systemem Linux podczas jej pierwszego rozruchu. Za pomocą pakietu cloud-init można instalować pakiety i zapisywać pliki lub konfigurować użytkowników i zabezpieczenia. Ponieważ init chmury jest wywoływana podczas początkowego procesu rozruchu, nie są żadne dodatkowe kroki lub agentów wymaganych do zastosowania konfiguracji.  Aby uzyskać więcej informacji na temat sposobu poprawnie sformatowana Twojej `#cloud-config` plików, zobacz [witryna dokumentacji usługi chmury init](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`pliki są plikami tekstowymi zakodowane w formacie base64.
 
 Init chmury działa także w dystrybucji. Na przykład nie używaj **instalacji stanie get** lub **yum zainstalować** do zainstalowania pakietu. Zamiast tego można zdefiniować listę pakietów do zainstalowania. Init chmury automatycznie używa narzędzia do zarządzania natywnego pakietu dla distro, którą wybierzesz.
 
@@ -36,8 +36,10 @@ Init chmury działa także w dystrybucji. Na przykład nie używaj **instalacji 
 |Canonical |UbuntuServer |16.04 LTS |najnowsza |tak | 
 |Canonical |UbuntuServer |14.04.5-LTS |najnowsza |tak |
 |CoreOS |CoreOS |Stable |najnowsza |tak |
-|OpenLogic |CentOS |7-CI |najnowsza |okresie zapoznawczym |
-|RedHat |RHEL |7-RAW-CI |najnowsza |okresie zapoznawczym |
+|OpenLogic |CentOS |7-CI |najnowsza |wersja zapoznawcza |
+|RedHat |RHEL |7-RAW-CI |najnowsza |wersja zapoznawcza |
+
+Podczas udostępniania wersji zapoznawczej stosu Azure nie obsługuje udostępniania RHEL 7.4 i CentOS 7.4 przy użyciu inicjowania chmury.
 
 ## <a name="what-is-the-difference-between-cloud-init-and-the-linux-agent-wala"></a>Jaka jest różnica między init chmury i agenta systemu Linux (WALA)?
 WALA jest używany do obsługi administracyjnej i skonfigurować maszyny wirtualne i obsługi rozszerzeń Azure agenta specyficzne dla platformy Azure. Firma Microsoft są udoskonalanie zadanie konfigurowania maszyn wirtualnych do korzystania z chmury init zamiast agenta systemu Linux w celu umożliwienia istniejących klientów init chmury za pomocą ich bieżący skryptów init chmury.  Jeśli dokonano już inwestycji w chmurze init skrypty do konfigurowania serwerów z systemem Linux są **są wymagane nie dodatkowe ustawienia** je włączyć. 
@@ -49,14 +51,14 @@ Konfiguracje WALA maszyn wirtualnych są ograniczone na czas do pracy z maksymal
 ## <a name="deploying-a-cloud-init-enabled-virtual-machine"></a>Wdrażanie inicjowania chmury włączone maszyny wirtualnej
 Wdrażanie włączone inicjowania chmury maszyny wirtualnej jest tak proste, jak odwołujące się do dystrybucji chmury inicjowaniem włączona podczas wdrażania.  Maintainers dystrybucji systemu Linux musiał wybrać włączyć i integrowanie init chmury podstawowej Azure obrazów opublikowanych. Po potwierdzeniu chmury inicjowaniem włączone jest obraz, który chcesz wdrożyć, można użyć wiersza polecenia platformy Azure do wdrożenia obrazu. 
 
-Pierwszym etapem wdrożenia tego obrazu jest utworzenie grupy zasobów z [Tworzenie grupy az](/cli/azure/group#create) polecenia. Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. 
+Pierwszym etapem wdrożenia tego obrazu jest utworzenie grupy zasobów z [Tworzenie grupy az](/cli/azure/group#az_group_create) polecenia. Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. 
 
 Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myResourceGroup* w lokalizacji *eastus*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
-Następnym krokiem jest utworzenie pliku w bieżącym powłoki, o nazwie *init.txt chmury* i wklej następującą konfigurację. Na przykład można utworzyć pliku w powłoce chmury nie na komputerze lokalnym. Można użyć dowolnego edytora, którego chcesz. Wprowadź `sensible-editor cloud-init.txt` do tworzenia pliku i wyświetlić listę dostępnych edytory. Wybierz #1, aby użyć **nano** edytora. Upewnij się, że poprawnie skopiować pliku całego init chmury szczególnie pierwszy wiersz:
+Następnym krokiem jest utworzenie pliku w bieżącym powłoki, o nazwie *init.txt chmury* i wklej następującą konfigurację. Na przykład można utworzyć pliku w powłoce chmury nie na komputerze lokalnym. Można użyć dowolnego edytora, którego chcesz. Wprowadź `sensible-editor cloud-init.txt`, aby utworzyć plik i wyświetlić listę dostępnych edytorów. Wybierz #1, aby użyć **nano** edytora. Upewnij się, że skopiowano cały plik cloud-init chmury, a szczególnie pierwszy wiersz:
 
 ```yaml
 #cloud-config
@@ -68,7 +70,7 @@ Naciśnij klawisz `ctrl-X` aby wyjść z pliku, wpisz `y` zapisać plik i naciś
 
 Ostatnim krokiem jest utworzenie maszyny Wirtualnej z [tworzenia maszyny wirtualnej az](/cli/azure/vm#az_vm_create) polecenia. 
 
-Poniższy przykład tworzy Maszynę wirtualną o nazwie *centos74* i tworzy kluczy SSH, jeśli nie już istnieją w domyślnej lokalizacji klucza. Aby użyć określonego zestawu kluczy, użyj opcji `--ssh-key-value`.  Użyj `--custom-data` parametr do przekazania w pliku config init chmury. Podaj pełną ścieżkę do *init.txt chmury* konfiguracji, jeśli plik został zapisany poza istnieje katalog roboczy. Poniższy przykład tworzy Maszynę wirtualną o nazwie *centos74*:
+Poniższy przykład tworzy Maszynę wirtualną o nazwie *centos74* i tworzy kluczy SSH, jeśli nie już istnieją w domyślnej lokalizacji klucza. Aby użyć określonego zestawu kluczy, użyj opcji `--ssh-key-value`.  Użyj parametru `--custom-data` do przekazania w pliku konfiguracji cloud-init. Podaj pełną ścieżkę do *init.txt chmury* konfiguracji, jeśli plik został zapisany poza istnieje katalog roboczy. Poniższy przykład tworzy Maszynę wirtualną o nazwie *centos74*:
 
 ```azurecli-interactive 
 az vm create \

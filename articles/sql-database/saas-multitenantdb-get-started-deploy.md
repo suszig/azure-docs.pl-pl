@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: genemi
-ms.openlocfilehash: a7e6e319fb2fa8fee762055b625427403d14d679
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: dc652b1d0357a815b14820fc837d7a287e5d4ba0
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Wdrażanie i Eksploruj podzielonej aplikacji wielodostępnych, która używa bazy danych SQL Azure
 
-W tym samouczku wdrażanie i Eksploruj przykładowej aplikacji bazy danych z wieloma dzierżawcami SaaS o nazwie Wingtip biletów. Aplikacja Wingtip zaprojektowano w celu pokazują funkcje bazy danych SQL Azure, które upraszczająca implementację scenariusze SaaS.
+W tym samouczku wdrażanie i Eksploruj przykładowej aplikacji SaaS wielu dzierżawców o nazwie Wingtip biletów. Aplikacja biletów Wingtip zaprojektowano w celu pokazują funkcje bazy danych SQL Azure, które upraszczająca implementację scenariusze SaaS.
 
-Ta implementacja Wingtips korzysta ze wzorca podzielonej wielodostępne bazy danych. Dzielenia na fragmenty jest identyfikator dzierżawcy. Dane dzierżawy jest wysyłana do określonej bazy danych zgodnie z wartościami dla identyfikatora dzierżawcy. Niezależnie od tego, jak wiele dzierżaw zawiera wszystkie danego bazy danych wszystkie bazy danych są wielodostępne w tym sensie, że schematy tabeli obejmuje identyfikatora dzierżawcy. 
+Ta implementacja aplikacji biletów Wingtip korzysta ze wzorca podzielonej wielodostępne bazy danych. Dzielenia na fragmenty jest identyfikator dzierżawcy. Dane dzierżawy jest wysyłana do określonej bazy danych zgodnie z wartościami dla identyfikatora dzierżawcy. 
 
 Ten wzorzec bazy danych pozwala przechowywać co najmniej jednego dzierżawcy w każdym niezależnego fragmentu lub bazy danych. Można zoptymalizować dla najniższy koszt o każdej być współużytkowane przez wiele dzierżaw w bazie danych. Lub aby zoptymalizować izolacji przez każdą bazę danych przechowywane tylko jednego dzierżawcy. Wybór optymalizacji mogą być dokonywane niezależnie dla każdego określonego dzierżawcy. Wybór można wprowadzić, gdy dzierżawa najpierw jest przechowywany lub później zmieni zdanie. Aplikacja jest przeznaczona do pracy oraz w obu przypadkach.
 
 #### <a name="app-deploys-quickly"></a>Aplikacja szybko wdraża
 
-Poniższa sekcja wdrożenia zawiera niebieski **wdrażanie na platformie Azure** przycisku. Po naciśnięciu przycisku Wingtip pełni wdrożeniu aplikacji później pięć minut. Wingtip aplikacji w chmurze Azure, korzysta z bazy danych SQL Azure. Wingtip jest wdrażana na Twojej subskrypcji platformy Azure. Masz pełny dostęp do pracy z poszczególnych składników aplikacji.
+Aplikacja działa w chmurze platformy Azure i korzysta z bazy danych SQL Azure. Poniższa sekcja wdrożenia zawiera niebieski **wdrażanie na platformie Azure** przycisku. Po naciśnięciu przycisku pełni wdrożeniu aplikacji do subskrypcji platformy Azure w ciągu pięciu minut. Masz pełny dostęp do pracy z poszczególnych składników aplikacji.
 
 Aplikacja jest wdrażana z danymi dla trzech dzierżawców próbki. Dzierżawcy są przechowywane razem w jednym wielodostępnej bazie danych.
 
@@ -40,7 +40,7 @@ Każda osoba, która można pobrać kodu źródłowego C# i programu PowerShell 
 #### <a name="learn-in-this-tutorial"></a>Dowiedz się, w tym samouczku
 
 > [!div class="checklist"]
-> - Jak wdrożyć aplikację Wingtip SaaS.
+> - Jak wdrożyć aplikację Wingtip biletów SaaS.
 > - Gdzie można pobrać kodu źródłowego aplikacji i skrypty zarządzania.
 > - Temat serwerów i baz danych, które tworzą aplikacji.
 > - Jak dzierżawcy są mapowane do swoich danych z *katalogu*.
@@ -139,7 +139,7 @@ Centralnego **Centrum zdarzeń** strony sieci Web zawiera listę łącza do dzie
 
 Aby kontrolować dystrybucję żądań przychodzących, używa aplikacji Wingtip [usługi Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Strona zdarzenia dla każdego dzierżawcy zawiera nazwę dzierżawy w jego adres URL. Każdy adres URL zawiera także wartość określonego użytkownika. Każdy adres URL przestrzega format wyświetlane przy użyciu następujących kroków:
 
-- http://events.Wingtip. &lt;Użytkownika&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.wingtip.&lt;USER&gt;.trafficmanager.net/*fabrikamjazzclub*
 
 1. Aplikacja zdarzenia analizuje nazwę dzierżawcy z adresu URL. Nazwa dzierżawy to *fabrikamjazzclub* w poprzednim przykładzie adres URL.
 2. Aplikacja następnie skróty nazwę dzierżawcy, aby utworzyć klucz, aby uzyskiwać dostęp za pomocą wykazu [zarządzania mapy niezależnego fragmentu](sql-database-elastic-scale-shard-map-management.md).

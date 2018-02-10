@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: fde85936760a167f1da2289ac1d18e97df7c9c04
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 41e2117e14f336d33f5d6f4e1f446e32a6886079
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Kopiowanie danych do i z magazynem tabel Azure przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,7 +50,7 @@ Połączoną usługą magazynu Azure można utworzyć przy użyciu klucza konta.
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | type | Właściwość type musi mieć ustawioną **AzureStorage**. |Yes |
-| Parametry połączenia | Określ informacje wymagane do połączenia z magazynem dla właściwości connectionString. Zaznacz to pole jako SecureString. |Yes |
+| Parametry połączenia | Określ informacje wymagane do połączenia z magazynem dla właściwości connectionString. Zaznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w fabryce danych lub [odwołania klucz tajny przechowywane w usłudze Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. (Jeśli w magazynie danych znajduje się w sieci prywatnej), można użyć środowiska uruchomieniowego integracji Azure lub Self-hosted integracji w czasie wykonywania. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. |Nie |
 
 **Przykład:**
@@ -93,7 +93,7 @@ Aby użyć uwierzytelniania sygnatury dostępu współdzielonego usługi, są ob
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | type | Właściwość type musi mieć ustawioną **AzureStorage**. |Yes |
-| sasUri | Określ sygnatury dostępu współdzielonego identyfikator URI do zasobów magazynu obiektów blob, kontenera lub tabeli. Zaznacz to pole jako SecureString. |Yes |
+| sasUri | Określ sygnatury dostępu współdzielonego identyfikator URI do zasobów magazynu obiektów blob, kontenera lub tabeli. Zaznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w fabryce danych lub [odwołania klucz tajny przechowywane w usłudze Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. Używając środowiska uruchomieniowego integracji Azure lub środowiska uruchomieniowego integracji Self-hosted (Jeśli w magazynie danych znajduje się w sieci prywatnej). Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. |Nie |
 
 **Przykład:**
@@ -272,7 +272,7 @@ Podczas przenoszenia danych do i z tabel Azure, następujące [mapowania zdefini
 | Edm.Binary |byte[] |Tablica bajtów do 64 KB. |
 | Edm.Boolean |bool |Wartość logiczna. |
 | Edm.DateTime |Data/godzina |Wartość 64-bitowa, wyrażone jako uniwersalny czas koordynowany (UTC). Północy, 1 stycznia, 1601 r. N.E. rozpoczyna się obsługiwanym zakresem daty i godziny (C.E.), UTC. Zakres kończy się 31 grudnia 9999 r. |
-| Edm.Double |liczba podwójnej precyzji |64-bitowej zmiennej punktu wartości. |
+| Edm.Double |O podwójnej precyzji |64-bitowej zmiennej punktu wartości. |
 | Edm.Guid |Identyfikator GUID |Globalnie unikatowy identyfikator 128-bitowego. |
 | Edm.Int32 |Int32 |32-bitową liczbę całkowitą. |
 | Edm.Int64 |Int64 |64-bitową liczbę całkowitą. |

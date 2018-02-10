@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/19/2017
 ms.author: rclaus
-ms.openlocfilehash: 117212a2e7e3da7c3e249798eec804a652e0ef58
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0e34a188271a5ac2fb6cb34a088ec3f650be6cab
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Konfigurowanie funkcji ASM Oracle na maszynie wirtualnej platformy Azure w systemie Linux  
 
@@ -35,13 +35,13 @@ Maszyny wirtualne platformy Azure zawierają w pełni konfigurowalne i elastyczn
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-Jeśli wybierzesz do zainstalowania i używania interfejsu wiersza polecenia lokalnie, w tym samouczku wymaga używasz interfejsu wiersza polecenia Azure w wersji 2.0.4 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="prepare-the-environment"></a>Przygotowywanie środowiska
 
 ### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Aby utworzyć grupę zasobów, użyj [Tworzenie grupy az](/cli/azure/group#create) polecenia. Grupy zasobów platformy Azure jest kontenerem logicznym, w której maszyny wirtualne Azure są wdrożone i zarządzane zasoby. W tym przykładzie grupy zasobów o nazwie *myResourceGroup* w *eastus* regionu.
+Aby utworzyć grupę zasobów, użyj polecenia [az group create](/cli/azure/group#az_group_create). Grupy zasobów platformy Azure jest kontenerem logicznym, w której maszyny wirtualne Azure są wdrożone i zarządzane zasoby. W tym przykładzie grupy zasobów o nazwie *myResourceGroup* w *eastus* regionu.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -49,7 +49,7 @@ az group create --name myResourceGroup --location eastus
 
 ### <a name="create-a-vm"></a>Tworzenie maszyny wirtualnej
 
-Aby utworzyć maszynę wirtualną na podstawie obrazu bazą danych Oracle i skonfigurować go do używania funkcji ASM Oracle, użyj [tworzenia maszyny wirtualnej az](/cli/azure/vm#create) polecenia. 
+Aby utworzyć maszynę wirtualną na podstawie obrazu bazą danych Oracle i skonfigurować go do używania funkcji ASM Oracle, użyj [tworzenia maszyny wirtualnej az](/cli/azure/vm#az_vm_create) polecenia. 
 
 Poniższy przykład tworzy Maszynę wirtualną o nazwie myVM, który ma rozmiar Standard_DS2_v2 z czterech dysków dołączonych danych 50 GB. Jeśli są one jeszcze nie istnieją w domyślnej lokalizacji klucza, tworzy również kluczy SSH.  Aby użyć określonego zestawu kluczy, użyj opcji `--ssh-key-value`.  
 
@@ -580,7 +580,7 @@ Pomyślnie skonfigurowano Oracle automatyczne zarządzanie pamięcią masową na
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Samouczek: Konfigurowanie Oracle DataGuard](configure-oracle-dataguard.md)
 

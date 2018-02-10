@@ -16,21 +16,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: genemi
-ms.openlocfilehash: d38cd108821bce05824732bbdbdd322ae8563bde
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 2daf05513127c2d1ab8e4b0196b578e18b6e03e7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Wdrażanie i Eksploruj aplikacja pojedynczej dzierżawy autonomiczna, która używa bazy danych SQL Azure
 
-W tym samouczku wdrażanie i Eksploruj aplikacja autonomiczna Wingtip biletów SaaS. Aplikacja jest przeznaczona do pokazują funkcje bazy danych SQL Azure, upraszczające włączania scenariusze SaaS.
+W tym samouczku wdrażanie i Eksploruj przykładowej aplikacji SaaS biletów Wingtip utworzony przy użyciu wzorca aplikacja autonomiczna lub aplikacji na dzierżawy.  Aplikacja jest przeznaczona do uwzględnienia funkcji bazy danych SQL Azure upraszczające włączania scenariusze SaaS wielodostępnej.
 
-Wzorzec aplikacja autonomiczna wdraża grupy zasobów platformy Azure zawierającą aplikacji pojedynczej dzierżawy i pojedynczej dzierżawy bazy danych dla każdego dzierżawcy.  Aby zapewnić rozwiązanie dla wielu dzierżawców można zainicjować obsługi administracyjnej wiele wystąpień aplikacji.
+Aplikacja autonomiczna lub wzorca aplikacji na dzierżawy wdraża wystąpienia aplikacji dla każdego dzierżawcy.  Każda aplikacja skonfigurowanym dla określonych dzierżawcy i wdrożenia w grupie oddzielnych zasobów platformy Azure. Aby zapewnić rozwiązanie dla wielu dzierżawców za wiele wystąpień aplikacji. Ten wzorzec jest najlepiej nadaje się do mniejsze liczby dzierżawców, gdzie izolacji dzierżawy ma najwyższy priorytet. Platforma Azure ma partnera programy, które umożliwia zasobów wdrażanych w subskrypcji dzierżawcy i zarządzane przez dostawcę usług w imieniu dzierżawcy. 
 
-W tym samouczku wdrażania grup zasobów dla wielu dzierżawców w ramach subskrypcji platformy Azure.  Ten wzorzec umożliwia grup zasobów do wdrożenia w subskrypcji platformy Azure dzierżawcy. Platforma Azure ma programy partnera, zezwalających na te grupy zasobów, mają być zarządzane przez dostawcę usług w imieniu dzierżawcy. Dostawca usług to administrator w subskrypcji dzierżawcy.
-
-W dalszej części artykułu wdrożenia, istnieją trzy niebieski **wdrażanie na platformie Azure** przycisków. Każdy przycisk wdraża inne wystąpienie aplikacji. Każde wystąpienie jest dostosowany do określonych dzierżawy. Po naciśnięciu przycisku odpowiednią aplikację pełni jest wdrażana w ciągu pięciu minut.  Aplikacje są wdrażane w ramach subskrypcji platformy Azure.  Masz pełny dostęp do eksplorowania i pracować z poszczególnych składników aplikacji.
+W tym samouczku zostanie wdrożona trzy aplikacje autonomiczne dla trzech dzierżawców w ramach subskrypcji platformy Azure.  Masz pełny dostęp do eksplorowania i pracować z poszczególnych składników aplikacji.
 
 Skrypty zarządzania i kodu źródłowego aplikacji są dostępne w [WingtipTicketsSaaS StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) repozytorium GitHub.
 
@@ -53,7 +51,7 @@ Wdrażanie aplikacji dla trzech dzierżaw podana:
 <br><br>
     <a href="http://aka.ms/deploywingtipsa-dogwood" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a>&nbsp; **Dojo dereń**
 <br><br>
-    <a href="http://aka.ms/deploywingtipsa-fabrikam" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a>&nbsp; **Klub Fabrikam Jazz**
+    <a href="http://aka.ms/deploywingtipsa-fabrikam" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Fabrikam Jazz Club**
 
 2. Wprowadź wartości wymaganego parametru dla każdego wdrożenia.
 
@@ -61,11 +59,10 @@ Wdrażanie aplikacji dla trzech dzierżaw podana:
     > Niektóre zapory uwierzytelniania i serwera są celowo niezabezpieczona w celach demonstracyjnych. **Utwórz nową grupę zasobów** dla każdego wdrożenia aplikacji.  Nie należy używać istniejącej grupy zasobów. Nie należy używać tej aplikacji lub wszystkie zasoby, które tworzy, w środowisku produkcyjnym. Po zakończeniu pracy z aplikacjami, aby zatrzymać rozliczeń powiązanego, należy usunąć wszystkie grupy zasobów.
 
     Najlepiej użyć tylko małe litery, cyfry i łączniki w nazwach zasobów.
-    * Dla **grupy zasobów** — wybierz tę opcję **Utwórz nowy**, a następnie podaj jedną małą literę **nazwa** dla grupy zasobów.
-        * Firma Microsoft zaleca dołączanie kreska, następuje inicjały, a następnie cyfrę: na przykład *wingtip-sa-af1*.
-        * Wybierz **lokalizacji** z listy rozwijanej.
+    * Aby uzyskać **grupy zasobów**, wybierz opcję Utwórz nowy, a następnie podaj nazwę małe dla grupy zasobów. **Wingtip-sa -\<venueName\>-\<użytkownika\>**  jest zalecane wzorca.  Aby uzyskać \<venueName\>, zastąp nazwę miejscową nie może zawierać spacji. Aby uzyskać \<użytkownika\>, zastąp wartość użytkownika poniżej.  Z tego wzorca nazwy grup zasobów mogą być *wingtip-sa-contosoconcerthall-af1*, *wingtip-sa-dogwooddojo-af1*, *wingtip-sa-fabrikamjazzclub-af1*.
+    * Wybierz **lokalizacji** z listy rozwijanej.
 
-    * Dla **użytkownika** -firma Microsoft zaleca, wybierz wartość krótkich użytkownika, takie jak inicjały plus cyfrę: na przykład *af1*.
+    * Dla **użytkownika** — zaleca się wartość krótkich użytkownika, na przykład z Twoimi inicjałami plus cyfrę: na przykład *af1*.
 
 
 3. **Wdróż aplikację**.
@@ -73,25 +70,25 @@ Wdrażanie aplikacji dla trzech dzierżaw podana:
     * Kliknij, aby zaakceptować warunki i postanowienia.
     * Kliknij pozycję **Kup**.
 
-4. Monitorować stan wdrożenia wszystkich wdrożeń trzy klikając **powiadomienia** (ikonę dzwonka z prawej strony pola wyszukiwania). Wdrażanie aplikacji trwa pięć minut.
+4. Monitorowanie stanu wszystkich trzech wdrożeń, klikając **powiadomienia** (ikonę dzwonka z prawej strony pola wyszukiwania). Wdrażanie aplikacji trwa około pięciu minut.
 
 
-## <a name="run-the-application"></a>Uruchamianie aplikacji
+## <a name="run-the-applications"></a>Uruchamianie aplikacji
 
-Miejsc, które hostują zdarzeń aplikacji, których są wyświetlane. Właściwość typy koncertowe, jazz klubów i sportowych. Miejsc są klientami aplikacji Wingtip biletów. W biletów Wingtip miejsc są rejestrowane jako *dzierżawców*. Trwa dzierżawcy udostępnia miejsce łatwy sposób listy zdarzeń i sprzedawać bilety klientom. Każda właściwość pobiera spersonalizowane witryny sieci web, aby wyświetlić ich zdarzenia i sprzedawać bilety. Każdy dzierżawca jest odizolowany od pozostałych dzierżawców i jest niezależna od nich. W obszarze obejmuje każdego dzierżawcy pobiera wystąpienie innej aplikacji z własnych autonomiczna baza danych SQL.
+Miejsc, które hostują zdarzeń aplikacji, których są wyświetlane.  Miejsc są dzierżawcami tej aplikacji. Każda właściwość pobiera spersonalizowane witryny sieci web, aby wyświetlić ich zdarzenia i sprzedawać bilety. Właściwość typy koncertowe, jazz klubów i sportowych. W przykładzie typ miejscową określa fotografii tła wyświetlany w witrynie sieci web miejsce.   W modelu aplikacji autonomicznej każda właściwość ma oddzielne aplikację z własną autonomiczna baza danych SQL.
 
 1. Otwórz stronę zdarzeń dla każdego z trzech dzierżaw w osobnych kartach przeglądarki.
 
-    - http://events.contosoconcerthall. &lt;Użytkownika&gt;. trafficmanager.net
-    - http://events.dogwooddojo. &lt;Użytkownika&gt;. trafficmanager.net
-    - http://events.fabrikamjazzclub. &lt;Użytkownika&gt;. trafficmanager.net
+    - http://events.contosoconcerthall.&lt;user&gt;.trafficmanager.net
+    - http://events.dogwooddojo.&lt;user&gt;.trafficmanager.net
+    - http://events.fabrikamjazzclub.&lt;user&gt;.trafficmanager.net
 
     (W przypadku każdego adresu URL, Zastąp &lt;użytkownika&gt; o wartości użytkownika w danym wdrożeniu.)
 
    ![Zdarzenia](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
 
 Aby kontrolować dystrybucję żądań przychodzących, aplikacja używa [ *usługi Azure Traffic Manager*](../traffic-manager/traffic-manager-overview.md). Każde wystąpienie aplikacji specyficznego dla dzierżawy zawiera nazwę dzierżawy jako część nazwy domeny w adresie URL. Wszystkie dzierżawy adresów URL obejmują konkretnej **użytkownika** wartość. Adresy URL wykonaj następujący format:
-- http://events. &lt;venuename&gt;.&lt; Użytkownik&gt;. trafficmanager.net
+- http://events.&lt;venuename&gt;.&lt;user&gt;.trafficmanager.net
 
 Bazy danych z każdej dzierżawy **lokalizacji** znajduje się w ustawieniach aplikacji w odpowiednich wdrożonej aplikacji.
 
@@ -110,7 +107,7 @@ Oto niektóre zasoby, które zostały wdrożone:
 
 Każda baza danych dzierżawy jest 50 DTU *autonomiczny* bazy danych.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 <!--
 * Additional [tutorials that build on the Wingtip SaaS application](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
@@ -120,8 +117,12 @@ Każda baza danych dzierżawy jest 50 DTU *autonomiczny* bazy danych.
 
 - Aby dowiedzieć się więcej na temat wielodostępnych aplikacji SaaS, zobacz [wzorce dla aplikacji SaaS wielodostępne projektowe](saas-tenancy-app-design-patterns.md).
 
+ 
+## <a name="delete-resource-groups-to-stop-billing"></a>Usuwanie grup zasobów, aby zatrzymać rozliczeń ##
 
-## <a name="next-steps"></a>Następne kroki
+Po zakończeniu użycia przykładowej należy usunąć wszystkie grupy zasobów został utworzony w celu zatrzymania skojarzone rozliczeń.
+
+## <a name="next-steps"></a>Kolejne kroki
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -129,4 +130,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Jak wdrożyć aplikacji autonomicznej Wingtip biletów SaaS.
 > * Temat serwerów i baz danych, które tworzą aplikacji.
 > * Jak usunąć przykładowych zasobów, aby zatrzymać rozliczeń powiązanego.
+
+Następnie spróbuj [udostępniania i wykaz](saas-standaloneapp-provision-and-catalog.md) samouczka.
+ 
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: ancav
-ms.openlocfilehash: 2bfeba27b6de9e5db623eba1526bd2d2ff1b7211
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b30912c44bd66f8c6fca548dc905f750e05c8621
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-activity-log-alert-with-a-resource-manager-template"></a>Utwórz alert dziennika aktywności za pomocą szablonu usługi Resource Manager
 W tym artykule przedstawiono sposób użycia [szablonu usługi Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) Konfigurowanie alertów dziennika aktywności. Przy użyciu szablonów, można łatwo skonfigurować wiele alertów, które aktywacji na podstawie określonego działania dziennika zdarzeń warunków w ramach procesu wdrażania automatycznego.
@@ -82,10 +82,10 @@ Aby utworzyć alert dziennika aktywności za pomocą szablonu usługi Resource M
               "field": "resourceType",
               "equals": "Microsoft.Resources/deployments"
             }
-          ] 
+          ]
         },
         "actions": {
-          "actionGroups": 
+          "actionGroups":
           [
             {
               "actionGroupId": "[parameters('actionGroupResourceId')]"
@@ -100,7 +100,11 @@ Aby utworzyć alert dziennika aktywności za pomocą szablonu usługi Resource M
 
 Można znaleźć w naszych [galerii Szybki Start Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Insights) niektóre przykłady szablonów alertu dziennika działań.
 
-## <a name="next-steps"></a>Następne kroki
+> [!NOTE]
+
+> Można również utworzyć działanie reguły alertów dziennika przy użyciu funkcji użytkownika w monitorze > [alertów (wersja zapoznawcza)](monitoring-overview-unified-alerts.md). Aby uzyskać więcej informacji na temat sposobu tworzenia tych zobacz [w tym artykule](monitoring-activity-log-alerts-new-experience.md).
+
+## <a name="next-steps"></a>Kolejne kroki
 - Dowiedz się więcej o [alerty](monitoring-overview-alerts.md).
 - Dowiedz się, jak dodać [grupy akcji przy użyciu szablonu usługi Resource Manager](monitoring-create-action-group-with-resource-manager-template.md).
 - Dowiedz się, jak [Utwórz alert dziennika działania, aby monitorować wszystkie operacje aparat skalowania automatycznego na subskrypcję](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert).

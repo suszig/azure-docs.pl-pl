@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 5e3147cbc9fce6737cfb9b2e93e8bf1662163f3c
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 8de3cc6665fc3861aedcf4f36cdce4a4a776e80d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Ograniczenia aplikacji logiki i konfiguracji
 
-W tym temacie opisano limity bieżący oraz szczegóły dotyczące konfiguracji dla usługi Azure Logic Apps.
+W tym artykule opisano limity bieżący oraz szczegóły dotyczące konfiguracji dla usługi Azure Logic Apps.
 
 ## <a name="limits"></a>Limity
 
@@ -66,7 +66,7 @@ Te limity mają zastosowanie do aplikacji logiki pojedynczego uruchomienia.
 | Maksymalny interwał cyklu | 500 dni | 
 ||| 
 
-Przekroczenie limitu czas trwania testu lub przechowywania magazynu z przepływu normalnego przetwarzania [skontaktuj się z nami](mailto://logicappsemail@microsoft.com) , dzięki czemu możemy pomóc z wymaganiami.
+Przekroczenie limitu czas trwania testu lub przechowywania magazynu z przepływu normalnego przetwarzania [skontaktuj się z zespołem produktu](mailto://logicappsemail@microsoft.com) uzyskiwania pomocy z wymaganiami.
 
 ### <a name="looping-and-debatching-limits"></a>Powtarzanie i debatching limity
 
@@ -82,18 +82,18 @@ Te limity mają zastosowanie do aplikacji logiki pojedynczego uruchomienia.
 
 ### <a name="throughput-limits"></a>Limity przepustowości
 
-Te limity mają zastosowanie do aplikacji logiki pojedynczego wystąpienia.
+Te limity mają zastosowanie do aplikacji logiki pojedynczego zasobu.
 
 | Name (Nazwa) | Limit | Uwagi | 
 | ----- | ----- | ----- | 
-| Wykonania akcji na 5 minut | 100,000 |<p>Maksymalnie 300 000 można zwiększyć limit, uruchamiając aplikację logiki `High Througput` tryb i to zrobić przez ustawienie `operationOptions` właściwości w`runtimeConfiguration` zasobu przepływu pracy, aby `OptimizedForHighThroughput`. <p>Należy pamiętać, że w trybie wysokiej przepływności jest w wersji zapoznawczej. Także obciążenia mogą być rozproszone na wielu aplikacji, zgodnie z potrzebami. | 
+| Wykonania akcji na 5 minut | 100,000 |<p>Można zwiększyć limit do 300 000, uruchamiając aplikację logiki `High Througput` tryb. Tryb wysokiej przepływności można skonfigurować przez ustawienie `operationOptions` właściwości w`runtimeConfiguration` zasobu przepływu pracy, aby `OptimizedForHighThroughput`. <p>Należy pamiętać, że w trybie wysokiej przepływności jest w wersji zapoznawczej. Także obciążenia mogą być rozproszone na wielu aplikacji, zgodnie z potrzebami. | 
 | Akcje równoczesnych połączeń wychodzących | ~2,500 | Można zmniejszyć liczbę jednoczesnych żądań lub skrócić czas trwania, zgodnie z potrzebami. | 
 | Punkt końcowy środowiska wykonawczego: równoczesnych połączeń przychodzących |~1,000 | Można zmniejszyć liczbę jednoczesnych żądań lub skrócić czas trwania, zgodnie z potrzebami. | 
 | Środowisko uruchomieniowe punkt końcowy: wywołania na 5 minut do odczytu  | 60,000 | Można rozpowszechniać obciążenia pracą wielu aplikacjom zgodnie z potrzebami. | 
 | Środowisko uruchomieniowe punkt końcowy: wywołania wywołań na 5 minut| 45,000 |Można rozpowszechniać obciążenia pracą wielu aplikacjom zgodnie z potrzebami. | 
 |||| 
 
-Przekroczenie tych ograniczeń normalnego przetwarzania lub obciążenia wykonywania testów, które może przekroczyć te limity [skontaktuj się z nami](mailto://logicappsemail@microsoft.com) , dzięki czemu możemy pomóc z wymaganiami.
+Przekroczenie tych ograniczeń normalnego przetwarzania lub obciążenia wykonywania testów, które może przekroczyć te limity [skontaktuj się z zespołem produktu](mailto://logicappsemail@microsoft.com) uzyskiwania pomocy z wymaganiami.
 
 ### <a name="logic-app-definition-limits"></a>Limity definicji aplikacji logiki
 

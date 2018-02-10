@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 046172d8c4cff880c8e5d59834f5753927fb90c2
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 1d90bafebcd942454b31d0f62b0daf3f01ad6926
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-sftp-server-using-azure-data-factory"></a>Kopiowanie danych z serwera SFTP przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,7 +65,7 @@ Aby uwierzytelnianie podstawowe, ustaw właściwość "authenticationType" **pod
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | userName | Użytkownik, który ma dostęp do serwera SFTP. |Yes |
-| hasło | Hasło dla użytkownika (userName). Zaznacz to pole jako SecureString. | Yes |
+| hasło | Hasło dla użytkownika (userName). Zaznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w fabryce danych lub [odwołania klucz tajny przechowywane w usłudze Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 
 **Przykład:**
 
@@ -104,8 +104,8 @@ Aby używać uwierzytelniania klucza publicznego SSH, ustaw właściwość "auth
 |:--- |:--- |:--- |
 | userName | Użytkownik, który ma dostęp do serwera SFTP |Yes |
 | privateKeyPath | Określ ścieżkę bezwzględną do pliku klucza prywatnego środowiska uruchomieniowego integracji może uzyskać dostęp. Ma zastosowanie tylko wtedy, gdy określono siebie typu środowiska uruchomieniowego integracji w "connectVia". | Określ `privateKeyPath` lub `privateKeyContent`.  |
-| privateKeyContent | Treści klucza prywatnego SSH w formacie Base64. Klucz prywatny SSH powinna być w formacie OpenSSH. Zaznacz to pole jako SecureString. | Określ `privateKeyPath` lub `privateKeyContent`. |
-| passPhrase | Określ przebiegu frazy/hasło do odszyfrowania klucza prywatnego, jeśli plik klucza jest chroniony przez hasło. Zaznacz to pole jako SecureString. | Tak, jeśli hasło jest chroniony plik klucza prywatnego. |
+| privateKeyContent | Treści klucza prywatnego SSH w formacie Base64. Klucz prywatny SSH powinna być w formacie OpenSSH. Zaznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w fabryce danych lub [odwołania klucz tajny przechowywane w usłudze Azure Key Vault](store-credentials-in-key-vault.md). | Określ `privateKeyPath` lub `privateKeyContent`. |
+| passPhrase | Określ przebiegu frazy/hasło do odszyfrowania klucza prywatnego, jeśli plik klucza jest chroniony przez hasło. Zaznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w fabryce danych lub [odwołania klucz tajny przechowywane w usłudze Azure Key Vault](store-credentials-in-key-vault.md). | Tak, jeśli hasło jest chroniony plik klucza prywatnego. |
 
 > [!NOTE]
 > Łącznik SFTP obsługuje tylko klucz OpenSSH. Upewnij się, że plik klucza jest w nieprawidłowym formacie. Narzędzie Putty umożliwia konwertowanie ppk na OpenSSH format.

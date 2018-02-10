@@ -16,10 +16,10 @@ ms.date: 08/29/2017
 ms.author: barclayn
 ms.custom: azlog
 ms.openlocfilehash: 9acce21d544a43adcd0c0983771c02c6bb39caec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-get-your-security-center-alerts-in-azure-log-integration"></a>Jak uzyskać alerty Centrum zabezpieczeń Azure dziennika integracji
 
@@ -49,7 +49,7 @@ Poniższe kroki będzie utworzyć wymagane usługi Azure Active Directory nazwy 
 
 Jeśli wystąpiły problemy podczas instalacji i konfiguracji, otwórz [żądania obsługi](/azure-supportability/how-to-create-azure-support-request.md), wybierz pozycję **integracji dziennika** jako usługa żądania pomocy technicznej.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby dowiedzieć się więcej na temat integracji dziennika Azure, można znaleźć w następujących dokumentach:
 
 * [Microsoft Azure dziennika integracji Azure dzienników](https://www.microsoft.com/download/details.aspx?id=53324) — Centrum pobierania, aby uzyskać szczegółowe informacje, wymagania systemowe i zainstalować instrukcje dotyczące integracji dzienników Azure.

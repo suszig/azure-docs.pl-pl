@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: jdial
-ms.openlocfilehash: abe6abb942d206330e809f3aef388b846d7d7c7f
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 225dd64c46bf9af3e058bbe3cfacf8f8a693b565
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Dodawanie interfejsów sieciowych lub usuwanie interfejsów sieciowych z maszyn wirtualnych
 
@@ -43,12 +43,12 @@ Podczas tworzenia maszyny Wirtualnej za pośrednictwem portalu portal tworzy int
 
 |Narzędzie|Polecenie|
 |---|---|
-|Interfejs wiersza polecenia|[Tworzenie maszyny wirtualnej az](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
-|PowerShell|[Nowe AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|Interfejs wiersza polecenia|[Tworzenie maszyny wirtualnej az](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json#az_vm_create)|
+|PowerShell|[New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="vm-add-nic"></a>Dodaj do istniejącej maszyny Wirtualnej karty sieciowej
 
-1. Zaloguj się do portalu Azure.
+1. Zaloguj się w witrynie Azure Portal.
 2. W polu wyszukiwania w górnej części portalu, wyszukaj nazwę maszyny wirtualnej, które chcesz dodać do interfejsu sieciowego, lub Wyszukaj maszynę Wirtualną, klikając **wszystkie usługi**, następnie **maszyn wirtualnych**. Po znalezieniu maszyny Wirtualnej, kliknij go. Maszyna wirtualna ma zostać dodany do interfejsu sieciowego musi obsługiwać liczba interfejsów sieciowych, który chcesz dodać. Aby dowiedzieć się, każdy obsługuje rozmiar maszyny Wirtualnej, przeczytaj interfejsy sieciowe ile [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) lub [Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) artykuły rozmiary maszyny Wirtualnej.  
 3. Kliknij przycisk **omówienie**w obszarze **ustawienia**. Kliknij przycisk **zatrzymać**i zaczekaj, aż do **stan** maszyny wirtualnej zmienia się na *zatrzymane (cofnięciu przydziału)*. 
 4. Kliknij przycisk **sieci**w obszarze **ustawienia**.
@@ -59,7 +59,7 @@ Podczas tworzenia maszyny Wirtualnej za pośrednictwem portalu portal tworzy int
 
 |Narzędzie|Polecenie|
 |---|---|
-|Interfejs wiersza polecenia|[Dodaj kartę sieciową maszyny wirtualnej az](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#add) (odwołanie) lub [szczegółowe kroki](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-a-vm)|
+|Interfejs wiersza polecenia|[Dodaj kartę sieciową maszyny wirtualnej az](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_vm_nic_add) (odwołanie) lub [szczegółowe kroki](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-a-vm)|
 |PowerShell|[Dodaj AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (odwołanie) lub [szczegółowe kroki](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-an-existing-vm)|
 
 ## <a name="vm-view-nic"></a>Wyświetlanie interfejsów sieciowych do maszyny Wirtualnej
@@ -75,12 +75,12 @@ Można wyświetlić interfejsów sieciowych podłączonych do maszyn wirtualnych
 
 |Narzędzie|Polecenie|
 |---|---|
-|Interfejs wiersza polecenia|[Pokaż wirtualna az](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json#show)|
+|Interfejs wiersza polecenia|[Pokaż wirtualna az](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json#az_vm_show)|
 |PowerShell|[Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="vm-remove-nic"></a>Usunąć interfejsu sieciowego z maszyny Wirtualnej
 
-1. Zaloguj się do portalu Azure.
+1. Zaloguj się w witrynie Azure Portal.
 2. W polu wyszukiwania w górnej części portalu, wyszukaj nazwę maszyny wirtualnej do usunięcia (odłączyć) interfejsu sieciowego lub Wyszukaj maszynę Wirtualną, klikając **wszystkie usługi**, następnie **maszyn wirtualnych**. Po znalezieniu maszyny Wirtualnej, kliknij go.
 3. Kliknij przycisk **omówienie**w obszarze **ustawienia**. Kliknij przycisk **zatrzymać**i zaczekaj, aż do **stan** maszyny wirtualnej zmienia się na *zatrzymane (cofnięciu przydziału)*. 
 4. Kliknij przycisk **sieci**w obszarze **ustawienia**.
@@ -91,7 +91,7 @@ Można wyświetlić interfejsów sieciowych podłączonych do maszyn wirtualnych
 
 |Narzędzie|Polecenie|
 |---|---|
-|Interfejs wiersza polecenia|[Usuń kartę sieciową maszyny wirtualnej az](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#remove) (odwołanie) lub [szczegółowe kroki](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-a-vm)|
+|Interfejs wiersza polecenia|[Usuń kartę sieciową maszyny wirtualnej az](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_vm_nic_remove) (odwołanie) lub [szczegółowe kroki](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-a-vm)|
 |PowerShell|[Usuń AzureRMVMNetworkInterface](/powershell/module/azurerm.compute/remove-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (odwołanie) lub [szczegółowe kroki](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-an-existing-vm)|
 
 ## <a name="next-steps"></a>Następne kroki

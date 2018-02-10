@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.openlocfilehash: 22032aef0cc8b7b015503043028873e70c21ee85
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fee9f8d2204869cbe5cac7f446e8011305e92bfa
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>Analiza multimediów za pomocą witryny Azure Portal
 > [!NOTE]
-> Do ukończenia tego samouczka jest potrzebne konto platformy Azure. Aby uzyskać szczegółowe informacje, zobacz temat [Bezpłatna wersja próbna systemu Azure](https://azure.microsoft.com/pricing/free-trial/). 
+> Do ukończenia tego samouczka jest potrzebne konto platformy Azure. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/). 
 > 
 > 
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Azure Media Services Analytics to kolekcja składników mowy i obrazu (w skali przedsiębiorstwa, zgodności i zabezpieczeń globalne), które ułatwiają organizacjom i przedsiębiorstwom uzyskiwanie przydatnych wyników analiz na podstawie posiadanych plików wideo. Aby uzyskać bardziej szczegółowe omówienie usługi Azure Media Services Analytics zobacz [to](media-services-analytics-overview.md) tematu. 
 
-W tym temacie omówiono sposób przetwarzania multimediów procesory multimediów usługi analiza multimediów (MP) przy użyciu portalu Azure. Pakiety MP analizy multimediów tworzą pliki MP4 lub pliki w formacie JSON. Plik MP4 utworzony przez procesor multimediów można pobrać progresywnie. Plik JSON utworzony przez procesor multimediów można pobrać z magazynu Azure Blob Storage. 
+W tym temacie omówiono sposób przetwarzania multimediów procesory multimediów usługi analiza multimediów (MP) przy użyciu portalu Azure. Pakiety MP analizy multimediów tworzą pliki MP4 lub pliki w formacie JSON. Jeśli plik MP4 utworzony przez procesor multimediów można pobrać progresywnie. Plik JSON utworzony przez procesor multimediów można pobrać z magazynu obiektów blob platformy Azure. 
 
 ## <a name="choose-an-asset-that-you-want-to-analyze"></a>Wybierz zasób, który chcesz przeanalizować
 1. W witrynie [Azure Portal](https://portal.azure.com/) wybierz swoje konto usługi Azure Media Services.
@@ -45,7 +45,7 @@ W tym temacie omówiono sposób przetwarzania multimediów procesory multimedió
 5. Naciśnij klawisz **Utwórz** można uruchomić zadania.
 
 ## <a name="azure-media-indexer"></a>Azure Media Indexer
-**Azure Media indeksatora** procesor multimediów pozwala na udostępnianie plików multimedialnych i treści wyszukiwanie, a także wygenerować zamkniętego śledzi podpisów. Tej sekcji szczegółowo opisano niektóre opcje, które można określić dla tego pakietu administracyjnego.
+**Azure Media indeksatora** procesor multimediów pozwala na udostępnianie plików multimedialnych i treści wyszukiwanie, a także wygenerować zamkniętego śledzi podpisów. W tej sekcji przedstawiono niektóre szczegóły na temat opcji, które można określić dla tego pakietu administracyjnego.
 
 ![Analizowanie plików wideo](./media/media-services-portal-analyze/media-services-portal-analyze003.png)
 
@@ -74,7 +74,7 @@ Przyjazna nazwa, które pozwala zidentyfikować zadanie. [To](media-services-por
 Przyjazna nazwa umożliwia identyfikowanie zawartości danych wyjściowych. 
 
 ## <a name="azure-media-hyperlapse"></a>Azure Media Hyperlapse
-Azure Media Hyperlapse jest MP tworzącą smooth czas, jaki upłynął wideo z pierwszą osobą lub akcji aparatu zawartości.  Aby uzyskać więcej informacji, zobacz [ten](media-services-hyperlapse-content.md) temat. Tej sekcji szczegółowo opisano niektóre opcje, które można określić dla tego pakietu administracyjnego.
+Azure Media Hyperlapse jest MP tworzącą smooth czas, jaki upłynął wideo z pierwszą osobą lub akcji aparatu zawartości.  Aby uzyskać więcej informacji, zobacz [ten](media-services-hyperlapse-content.md) temat. W tej sekcji przedstawiono niektóre szczegóły na temat opcji, które można określić dla tego pakietu administracyjnego.
 
 ![Analizowanie plików wideo](./media/media-services-portal-analyze/media-services-portal-analyze004.png)
 
@@ -135,11 +135,21 @@ Przyjazna nazwa, które pozwala zidentyfikować zadanie. [To](media-services-por
 ### <a name="output-file"></a>Plik wyjściowy
 Przyjazna nazwa umożliwia identyfikowanie zawartości danych wyjściowych. 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="azure-media-content-moderator"></a>Azure Media moderatora zawartości
+Tego procesora ułatwia wykrywanie potencjalnych zawartość dla dorosłych i luksusowych w wideo. Procesor automatycznie wykrywa zrzuty i kluczowych wideo. Wyników klatek kluczowych możliwości zawartości dla dorosłych lub luksusowych i sugeruje przeglądami na podstawie progów domyślne. Aby uzyskać szczegółowe informacje i przykłady, zobacz [użycia usługi Azure Media zawartości moderatora na średni wideo](media-services-content-moderation.md)
+
+![Umiarkowany wideo](./media/media-services-portal-analyze/media-services-portal-analyze-content-moderator.PNG)
+
+### <a name="version"></a>Wersja 
+Użyj "2.0".
+
+### <a name="mode"></a>Tryb
+Ignoruj wersja 2.0 `Mode` ustawienie.
+
+## <a name="next-steps"></a>Kolejne kroki
 Ścieżki szkoleniowe dotyczące usługi Media widoku.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-

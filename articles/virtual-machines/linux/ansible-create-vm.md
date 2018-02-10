@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: 184a30c91de0d4141d6bd8a8b9db93c539e083b5
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 80406994402b488f4172069b13dca593c470efe4
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-basic-virtual-machine-in-azure-with-ansible"></a>Tworzenie podstawowej maszyny wirtualnej na platformie Azure z Ansible
 Ansible umożliwia automatyzację wdrożenia i konfiguracji zasobów w danym środowisku. Ansible służy do zarządzania maszyn wirtualnych (VM) na platformie Azure, takie same jak w przypadku innych zasobów. W tym artykule przedstawiono sposób tworzenia podstawowej maszyny Wirtualnej z Ansible. Możesz też dowiedzieć się, jak [utworzyć pełne środowisko maszyny Wirtualnej z Ansible](ansible-create-complete-vm.md).
@@ -37,13 +37,13 @@ Do zarządzania zasobami Azure z Ansible, potrzebne są następujące elementy:
 
 
 ## <a name="create-supporting-azure-resources"></a>Tworzenie obsługi zasobów platformy Azure
-W tym przykładzie utworzysz element runbook, który wdraża maszynę Wirtualną do istniejącej infrastruktury. Najpierw należy utworzyć grupy zasobów z [Tworzenie grupy az](/cli/azure/vm#create). Poniższy przykład tworzy grupę zasobów o nazwie *myResourceGroup* w *eastus* lokalizacji:
+W tym przykładzie utworzysz element runbook, który wdraża maszynę Wirtualną do istniejącej infrastruktury. Najpierw należy utworzyć grupy zasobów z [Tworzenie grupy az](/cli/azure/vm#az_vm_create). W poniższym przykładzie pokazano tworzenie grupy zasobów o nazwie *myResourceGroup* w lokalizacji *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Tworzenie sieci wirtualnej dla maszyny Wirtualnej z [tworzenie sieci wirtualnej sieci az](/cli/azure/network/vnet#create). Poniższy przykład tworzy sieć wirtualną o nazwie *myVnet* i podsieć o nazwie *mySubnet*:
+Tworzenie sieci wirtualnej dla maszyny Wirtualnej z [tworzenie sieci wirtualnej sieci az](/cli/azure/network/vnet#az_network_vnet_create). Poniższy przykład tworzy sieć wirtualną o nazwie *myVnet* i podsieć o nazwie *mySubnet*:
 
 ```azurecli
 az network vnet create \

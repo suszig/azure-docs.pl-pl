@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 02/06/2018
 ms.author: shlo
-ms.openlocfilehash: 97a8fa1779cd11830781528527ddfe998e0548b6
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 60d7897caebcb138180d99358ec754c1b9594fe5
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Wizualne monitorować fabryki danych Azure
 Azure Data Factory to oparta na chmurze usługa integracji danych, za pomocą której możesz tworzyć oparte na danych przepływy pracy w chmurze służące do organizowania oraz automatyzowania przenoszenia i przekształcania danych. Za pomocą usługi Azure Data Factory można tworzyć oparte na danych przepływy pracy (nazywane potokami) i ustalać ich harmonogram. Te przepływy mogą pozyskiwać dane z różnych magazynów danych, przetwarzać/przekształcać je za pomocą usług obliczeniowych, takich jak Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics i Azure Machine Learning, a następnie publikować dane wyjściowe w magazynach danych, np. Azure SQL Data Warehouse, do użycia przez aplikacje analizy biznesowej.
@@ -29,15 +29,16 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 ## <a name="monitor-data-factory-v2-pipelines"></a>Monitorowanie potoki v2 fabryki danych
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com/).
-2. Przejdź do bloku fabryki danych utworzonych w portalu Azure, a następnie kliknij Kafelek 'Monitor i Zarządzaj'. Spowoduje to uruchomienie ADF v2 visual funkcji monitorowania.
+1. Uruchom **Microsoft Edge** lub **Google Chrome** przeglądarki sieci web. Obecnie interfejsu użytkownika z fabryki danych jest obsługiwane wyłącznie w przeglądarkach sieci web Microsoft Edge i przeglądarki Google Chrome.
+2. Zaloguj się do [portalu Azure](https://portal.azure.com/).
+3. Przejdź do bloku fabryki danych utworzonych w portalu Azure, a następnie kliknij Kafelek 'Monitor i Zarządzaj'. Spowoduje to uruchomienie ADF v2 visual funkcji monitorowania.
 
 ## <a name="list-view-monitoring"></a>Monitorowanie widok listy
 
-Monitor potoku i działania jest uruchamiany z interfejsem widoku prostej listy. Wszystkie elementy są wyświetlane w przeglądarce lokalnej strefie czasowej. Możesz zmienić strefę czasową i wszystkie pola dat czasu spowoduje przyciąganie do wybranej strefie czasowej.  
+Monitor potoku i działania jest uruchamiany z interfejsem widoku prostej listy. Wszystkie uruchomienia są wyświetlane z uwzględnieniem lokalnej strefy czasowej przeglądarki. Strefę czasową można zmienić, a wszystkie pola daty i godziny zostaną odpowiednio dostosowane.  
 
 #### <a name="monitoring-pipeline-runs"></a>Monitorowanie uruchamia potoku
-Widok listy pokazujące każdego potoku uruchamiania dla Twojego potoków v2 fabryki danych. Uwzględnionych kolumn:
+Widok listy z poszczególnymi uruchomieniami potoków fabryki danych w wersji 2. Uwzględnionych kolumn:
 
 | **Nazwa kolumny** | **Opis** |
 | --- | --- |
@@ -54,7 +55,7 @@ Widok listy pokazujące każdego potoku uruchamiania dla Twojego potoków v2 fab
 ![Monitorowanie uruchomień potoku](media/monitor-visually/pipeline-runs.png)
 
 #### <a name="monitoring-activity-runs"></a>Monitorowanie uruchomień działania
-Widok listy pokazujące uruchomień działania odpowiadający każdej potoku uruchamiania. Kliknij przycisk **"Odbywa się działanie"** ikonę w obszarze **"Działania"** kolumnę do wyświetlenia działania jest uruchamiana dla każdego procesu uruchamiania. Uwzględnionych kolumn:
+Widok listy z uruchomieniami działań odpowiadającymi poszczególnym uruchomieniom potoków. Kliknij przycisk **"Odbywa się działanie"** ikonę w obszarze **"Działania"** kolumnę do wyświetlenia działania jest uruchamiana dla każdego procesu uruchamiania. Uwzględnionych kolumn:
 
 | **Nazwa kolumny** | **Opis** |
 | --- | --- |
@@ -77,7 +78,7 @@ Widok listy pokazujące uruchomień działania odpowiadający każdej potoku uru
 
 ## <a name="features"></a>Funkcje
 
-#### <a name="rich-ordering-and-filtering"></a>Kolejność bogaty i filtrowania
+#### <a name="rich-ordering-and-filtering"></a>Rozbudowane porządkowanie i filtrowanie
 
 Kolejność potoku jest uruchamiany w desc/asc przez uruchomienie Start i potoku filtru uruchamia przez następujące kolumny:
 
@@ -89,7 +90,7 @@ Kolejność potoku jest uruchamiany w desc/asc przez uruchomienie Start i potoku
 
 ![Filtr](media/monitor-visually/filter.png)
 
-#### <a name="addremove-columns-to-list-view"></a>Dodaj/Usuń kolumny do widoku listy
+#### <a name="addremove-columns-to-list-view"></a>Dodawanie/usuwanie kolumn w widoku listy
 Kliknij prawym przyciskiem myszy nagłówka widoku listy, a następnie wybierz kolumny, które mają być wyświetlane w widoku listy
 
 ![Kolumny](media/monitor-visually/columns.png)

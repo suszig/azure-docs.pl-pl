@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2018
 ms.author: mimig
-ms.openlocfilehash: 0f7998ca4000a4ccfd77b173cb3dd9756b4777ae
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: ac0088478701a1796380daa74602569800c1522e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>Często zadawane pytania dotyczące usługi Azure rozwiązania Cosmos bazy danych
 ## <a name="azure-cosmos-db-fundamentals"></a>Podstawowe informacje na temat usługi Azure DB rozwiązania Cosmos
 ### <a name="what-is-azure-cosmos-db"></a>Co to jest Azure DB rozwiązania Cosmos?
-Azure DB rozwiązania Cosmos jest usługą bazy danych replikowany globalnie, wiele modeli, ułatwiająca oferująca zaawansowaną obsługę zapytań dane bez schematu oraz konfigurowalną i niezawodną wydajności i umożliwia szybkie opracowywanie. Jego wszystkich odbywa się za pośrednictwem zarządzana platforma, która nie jest obsługiwana przez możliwości i zasięg Microsoft Azure. 
+Azure DB rozwiązania Cosmos jest usługą replikowany globalnie, wielu modelu bazy danych, która zaawansowaną obsługę zapytań dane bez schematu, pomaga zapewnić oraz konfigurowalną i niezawodną wydajność i umożliwia szybkie opracowywanie. Jego wszystkich odbywa się za pośrednictwem zarządzana platforma, która nie jest obsługiwana przez możliwości i zasięg Microsoft Azure. 
 
 Azure DB rozwiązania Cosmos jest odpowiednie rozwiązanie dla aplikacji sieci web, mobilnych, gier, i aplikacji IoT przewidywalnej przepływności, wysoką dostępność, małych opóźnień i model danych bez schematu są wymagania dotyczące klucza. Zapewnia elastyczność schematu i rozbudowane indeksowanie i zawiera obsługę transakcyjną wielu dokumentów dzięki zintegrowanemu środowisku JavaScript. 
 

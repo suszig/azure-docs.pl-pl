@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/4/2018
+ms.date: 2/4/2018
 ms.author: raiye
-ms.openlocfilehash: 675a304e2ca913c8b9cd18fb2f2a41abfd8f28d4
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 7e6b16465be1e032bd5e5fe94c95e6b2259a6704
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-guest-os"></a>System operacyjny gościa Azure
 Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpowiedzi Center (MSRC) stosowany do systemu operacyjnego gościa Azure. Wyszukaj ten artykuł, aby ustalić, czy dana aktualizacja dotyczą systemu operacyjnego gościa w przypadku korzystania. Aktualizacje zawsze przeniesieniu dla konkretnej [rodziny] [ family-explain] zostały wprowadzone w.
@@ -26,8 +26,14 @@ Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpow
 ## <a name="january-guest-os"></a>Stycznia systemu operacyjnego gościa
 | Kategoria produktów | Artykułem nadrzędnym KB | Opis luki w zabezpieczeniach | System operacyjny gościa | Wprowadzona data |
 | --- | --- | --- | --- | --- |
-| ND | [4056898] |Tylko zabezpieczenia systemu Windows |4.50 |3 stycznia 2018 |
-| ND | [4056890] |Tylko zabezpieczenia systemu Windows |5.15 |3 stycznia 2018 |
+| ReL 18-01 | [4056898], [4056897], [4056899] |Tylko zabezpieczenia systemu Windows |2.70, 3.57, 4.50 |3 stycznia 2018 |
+| ReL 18-01 | [4056890], [4056892] |Tylko zabezpieczenia systemu Windows |5.15 |3 stycznia 2018 |
+| ND | [4054518] |Zbiorcze informacje z systemem innym niż zabezpieczeniach grudnia |2.70 |12 grudnia 2017 r. |
+| ND | [4054520] |Zbiorcze informacje z systemem innym niż zabezpieczeniach grudnia |3.57 |12 grudnia 2017 r. |
+| ND | [4054519] |Zbiorcze informacje z systemem innym niż zabezpieczeniach grudnia |4.50 |12 grudnia 2017 r. |
+| ND | [4051956] |Stycznia aktualizacji strefy czasowej |2.70, 3.57, 4.50 |12 grudnia 2017 r. |
+
+
 
 ## <a name="december-guest-os"></a>Grudnia systemu operacyjnego gościa
 | Kategoria produktów | Artykułem nadrzędnym KB | Opis luki w zabezpieczeniach | System operacyjny gościa | Wprowadzona data |
@@ -36,7 +42,7 @@ Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpow
 | ReL 17 12 | [4054521], [4054522], [4054523] |Tylko zabezpieczenia systemu Windows |2.69, 3.56, 4.49 |12 grudnia 2017 r. |
 | ReL 17 12 | [4052978] |Internet Explorer |2.69, 3.56, 4.49 |12 grudnia 2017 r. |
 | ReL 17 12 | [4052978] |Flash |3.56, 4.49, 5.14 |12 grudnia 2017 r. |
-| ND | [4048957] |Zbiorcze informacje z systemem innym niż zabezpieczeniach listopada |2.67 |14 listopada 2017 r. |
+| ND | [4048957] |Zbiorcze informacje z systemem innym niż zabezpieczeniach listopada |2,69 |14 listopada 2017 r. |
 | ND | [4048959] |Zbiorcze informacje z systemem innym niż zabezpieczeniach listopada |3.56 |14 listopada 2017 r. |
 | ND | [4048958] |Zbiorcze informacje z systemem innym niż zabezpieczeniach listopada |4.49 |14 listopada 2017 r. |
 | ND | [4049068] |Strefa czasowa grudnia aktualizacji |2.69, 3.56, 4.49 |12 grudnia 2017 r. |
@@ -48,7 +54,7 @@ Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpow
 | ReL 17-11 | [4048960], [4048962], [4048961] |Tylko zabezpieczenia systemu Windows |2.68, 3.55, 4.48 |14 listopada 2017 r. |
 | ReL 17-11 | [4047206] |Internet Explorer |2.68, 3.55, 4.48 |14 listopada 2017 r. |
 | ReL 17-11 | [4048951] |Flash |3.55, 4.48, 5.13 |14 listopada 2017 r. |
-| ND | [4041681] |Zbiorcze informacje z systemem innym niż zabezpieczeniach października |2.67 |10 października 2017 r. |
+| ND | [4041681] |Zbiorcze informacje z systemem innym niż zabezpieczeniach października |2.68 |10 października 2017 r. |
 | ND | [4041690] |Zbiorcze informacje z systemem innym niż zabezpieczeniach października |3.55 |10 października 2017 r. |
 | ND | [4041693] |Zbiorcze informacje z systemem innym niż zabezpieczeniach października |4.48 |10 października 2017 r. |
 | ND | [3191566] |Aktualizacja dla systemu Windows Management Framework 5.1  |2.68 |14 listopada 2017 r. |
@@ -507,32 +513,32 @@ Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpow
 | MS15 032 |[3038314] |Zbiorcza aktualizacja zabezpieczeń dla programu Internet Explorer |4.20, 3.27, 2.39 |17 kwietnia 2015 r. |
 | MS15 035 |[3046306] |Luka w zabezpieczeniach w składniku Microsoft Graphics umożliwia zdalne wykonywanie kodu |4.20, 3.27, 2.39 |17 kwietnia 2015 r. |
 | MS15-037 |[3046269] |Luki w zabezpieczeniach w harmonogramu zadań systemu Windows może spowodować podniesienie uprawnień |4.20, 3.27, 2.39 |17 kwietnia 2015 r. |
-| MS15 038 |[3049576] |Luki w zabezpieczeniach w systemie Microsoft Windows umożliwiają podniesienie uprawnień ważne |4.20, 3.27, 2.39 |17 kwietnia 2015 r. |
-| MS15 039 |[3046482] |Usterka XML Core Services umożliwia obejście funkcji zabezpieczeń |4.20, 3.27, 2.39 |17 kwietnia 2015 r. |
-| MS15 040 |[3045711] |Luki w zabezpieczeniach w usługach AD FS może spowodować ujawnienie informacji |4.20, 3.27, 2.39 |17 kwietnia 2015 r. |
-| MS15 041 |[3048010] |Usterki w programie .NET Framework może spowodować ujawnienie informacji |4.20, 3.27, 2.39 |17 kwietnia 2015 r. |
-| MS15 042 |[3047234] |Luka w funkcji Hyper-V systemu Windows umożliwia odmowa usługi |4.20, 3.27, 2.39 |17 kwietnia 2015 r. |
+| MS15-038 |[3049576] |Luki w zabezpieczeniach w systemie Microsoft Windows umożliwiają podniesienie uprawnień ważne |4.20, 3.27, 2.39 |17 kwietnia 2015 r. |
+| MS15-039 |[3046482] |Usterka XML Core Services umożliwia obejście funkcji zabezpieczeń |4.20, 3.27, 2.39 |17 kwietnia 2015 r. |
+| MS15-040 |[3045711] |Luki w zabezpieczeniach w usługach AD FS może spowodować ujawnienie informacji |4.20, 3.27, 2.39 |17 kwietnia 2015 r. |
+| MS15-041 |[3048010] |Usterki w programie .NET Framework może spowodować ujawnienie informacji |4.20, 3.27, 2.39 |17 kwietnia 2015 r. |
+| MS15-042 |[3047234] |Luka w funkcji Hyper-V systemu Windows umożliwia odmowa usługi |4.20, 3.27, 2.39 |17 kwietnia 2015 r. |
 | Nie dotyczy |[3045755] |Aktualizację, aby poprawić uwierzytelniania protokołu PKU2U |4.20, 3.27, 2.39 |17 kwietnia 2015 r. |
 
 ## <a name="april-guest-os"></a>System operacyjny gościa kwietnia
 | Identyfikator biuletynu | Artykułem nadrzędnym KB | Opis luki w zabezpieczeniach | System operacyjny gościa | Wprowadzona data |
 | --- | --- | --- | --- | --- |
-| [MS15 034] |[3042553] |Luka w sterowniku HTTP.sys umożliwia zdalne wykonywanie kodu |4.19, 3.26, 2.38 |17 kwietnia 2015 r. |
+| [MS15-034] |[3042553] |Luka w sterowniku HTTP.sys umożliwia zdalne wykonywanie kodu |4.19, 3.26, 2.38 |17 kwietnia 2015 r. |
 
 ## <a name="march-guest-os"></a>Marzec systemu operacyjnego gościa
 | Identyfikator biuletynu | Artykułem nadrzędnym KB | Opis luki w zabezpieczeniach | System operacyjny gościa | Wprowadzona data |
 | --- | --- | --- | --- | --- |
-| MS15 018 |[3032359] |Zbiorcza aktualizacja zabezpieczeń dla programu Internet Explorer |4.18, 3.25, 2.37 |ND |
-| MS15 019 |[3040297] |Luka w zabezpieczeniach w języku VBScript aparat skryptów umożliwia zdalne wykonywanie kodu |4.18, 3.25, 2.37 |ND |
+| MS15-018 |[3032359] |Zbiorcza aktualizacja zabezpieczeń dla programu Internet Explorer |4.18, 3.25, 2.37 |ND |
+| MS15-019 |[3040297] |Luka w zabezpieczeniach w języku VBScript aparat skryptów umożliwia zdalne wykonywanie kodu |4.18, 3.25, 2.37 |ND |
 | MS15-020 |[3041836] |Luki w zabezpieczeniach systemu Windows umożliwiają zdalne wykonywanie kodu |4.18, 3.25, 2.37 |ND |
-| MS15 021 |[3032323] |Sterownik czcionki Adobe luk w zabezpieczeniach umożliwia zdalne wykonywanie kodu |4.18, 3.25, 2.37 |ND |
-| MS15 023 |[3034344] |Luki w zabezpieczeniach w sterownik trybu jądra może spowodować podniesienie uprawnień |4.18, 3.25, 2.37 |ND |
-| MS15 024 |[3035132] |Luki w zabezpieczeniach w przetwarzaniu PNG może spowodować ujawnienie informacji |4.18, 3.25, 2.37 |ND |
-| MS15 025 |[3038680] |Usterki jądra systemu Windows może spowodować podniesienie uprawnień |4.18, 3.25, 2.37 |ND |
-| MS15 027 |[3002657] |Usterka NETLOGON może pozwolić fałszowania |4.18, 3.25, 2.37 |ND |
-| MS15 028 |[3030377] |Usterka harmonogramu zadań systemu Windows umożliwia obejście funkcji zabezpieczeń |4.18, 3.25, 2.37 |ND |
-| MS15 029 |[3035126] |Luki w zabezpieczeniach w składniku dekodera fotografii systemu Windows może spowodować ujawnienie informacji |4.18, 3.25, 2.37 |ND |
-| MS15 030 |[3039976] |Usterka protokołu Remote Desktop Protocol umożliwia odmowa usługi |4.18, 3.25, 2.37 |ND |
+| MS15-021 |[3032323] |Sterownik czcionki Adobe luk w zabezpieczeniach umożliwia zdalne wykonywanie kodu |4.18, 3.25, 2.37 |ND |
+| MS15-023 |[3034344] |Luki w zabezpieczeniach w sterownik trybu jądra może spowodować podniesienie uprawnień |4.18, 3.25, 2.37 |ND |
+| MS15-024 |[3035132] |Luki w zabezpieczeniach w przetwarzaniu PNG może spowodować ujawnienie informacji |4.18, 3.25, 2.37 |ND |
+| MS15-025 |[3038680] |Usterki jądra systemu Windows może spowodować podniesienie uprawnień |4.18, 3.25, 2.37 |ND |
+| MS15-027 |[3002657] |Usterka NETLOGON może pozwolić fałszowania |4.18, 3.25, 2.37 |ND |
+| MS15-028 |[3030377] |Usterka harmonogramu zadań systemu Windows umożliwia obejście funkcji zabezpieczeń |4.18, 3.25, 2.37 |ND |
+| MS15-029 |[3035126] |Luki w zabezpieczeniach w składniku dekodera fotografii systemu Windows może spowodować ujawnienie informacji |4.18, 3.25, 2.37 |ND |
+| MS15-030 |[3039976] |Usterka protokołu Remote Desktop Protocol umożliwia odmowa usługi |4.18, 3.25, 2.37 |ND |
 
 > [!NOTE]
 > Biuletyn MS15-031 może pojawić się, jak odinstalować. Jednak natomiast nie odnoszą się do tej wersji systemu operacyjnego gościa.
@@ -542,28 +548,28 @@ Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpow
 ## <a name="february-guest-os"></a>Lutego systemu operacyjnego gościa
 | Identyfikator biuletynu | Artykułem nadrzędnym KB | Opis luki w zabezpieczeniach | System operacyjny gościa | Wprowadzona data |
 | --- | --- | --- | --- | --- |
-| MS15 009 |[3034682] |Aktualizacja zabezpieczeń programu Internet Explorer |4.17, 3.24, 2.36 |ND |
-| MS15 010 |[3036220] |Luki w zabezpieczeniach w sterowniki trybu jądra systemu Windows umożliwiają zdalne wykonywanie kodu |4.17, 3.24, 2.36 |ND |
-| MS15 011 |[3000483] |Luka w zasadach grupy umożliwia zdalne wykonywanie kodu |4.17, 3.24, 2.36 |ND |
-| MS15 014 |[3004361] |Luka w protokole SMB umożliwia obejście funkcji zabezpieczeń |4.17, 3.24, 2.36 |ND |
-| MS15 015 |[3031432] |Luki w zabezpieczeniach w systemie Microsoft Windows może spowodować podniesienie uprawnień |4.17, 3.24, 2.36 |ND |
-| MS15 016 |[3029944] |Luki w zabezpieczeniach w składniku Microsoft Graphics może spowodować ujawnienie informacji |4.17, 3.24, 2.36 |ND |
+| MS15-009 |[3034682] |Aktualizacja zabezpieczeń programu Internet Explorer |4.17, 3.24, 2.36 |ND |
+| MS15-010 |[3036220] |Luki w zabezpieczeniach w sterowniki trybu jądra systemu Windows umożliwiają zdalne wykonywanie kodu |4.17, 3.24, 2.36 |ND |
+| MS15-011 |[3000483] |Luka w zasadach grupy umożliwia zdalne wykonywanie kodu |4.17, 3.24, 2.36 |ND |
+| MS15-014 |[3004361] |Luka w protokole SMB umożliwia obejście funkcji zabezpieczeń |4.17, 3.24, 2.36 |ND |
+| MS15-015 |[3031432] |Luki w zabezpieczeniach w systemie Microsoft Windows może spowodować podniesienie uprawnień |4.17, 3.24, 2.36 |ND |
+| MS15-016 |[3029944] |Luki w zabezpieczeniach w składniku Microsoft Graphics może spowodować ujawnienie informacji |4.17, 3.24, 2.36 |ND |
 | ND |[3004375] |Polecenie aktualizację, aby poprawić Windows inspekcji wiersza<p/>**Uwaga**: to jest zainstalowany, ale klucz rejestru, aby ją włączyć jest wyłączona. |4.17, 3.24, 2.36 |ND |
 
 ## <a name="january-guest-os"></a>Stycznia systemu operacyjnego gościa
 | Identyfikator biuletynu | Artykułem nadrzędnym KB | Opis luki w zabezpieczeniach | System operacyjny gościa | Wprowadzona data |
 | --- | --- | --- | --- | --- |
-| MS15 001 |[3023266] |Usterka AppCompatCache systemu Windows umożliwia podniesienie uprawnień |4.16, 3.23, 2.35 |2015 19 stycznia |
-| MS15 002 |[3020393] |Luki w zabezpieczeniach systemu Windows usługi Telnet może spowodować zdalne wykonywanie kodu |4.16, 3.23, 2.35 |2015 19 stycznia |
-| MS15 003 |[3021674] |Luka w zabezpieczeniach usługi profilu użytkownika systemu Windows może spowodować podniesienie uprawnień |4.16, 3.23, 2.35 |2015 19 stycznia |
-| MS15 004 |[3019978] |Luki w zabezpieczeniach w składnikach systemu Windows może spowodować podniesienie uprawnień |4.16, 3.23, 2.35 |2015 19 stycznia |
-| MS15 005 |[3022777] |Usterka NLA umożliwia obejście funkcji zabezpieczeń |4.16, 3.23, 2.35 |2015 19 stycznia |
-| MS15 006 |[3004365] |Luki w zabezpieczeniach w raportowaniu błędów systemu Windows może umożliwić obejścia funkcji zabezpieczeń |4.16, 3.23, 2.35 |2015 19 stycznia |
-| MS15 007 |[3014029] |Luka w serwera zasad sieciowych RADIUS można spowodować odmowę usługi |4.16, 3.23, 2.35 |2015 19 stycznia |
-| MS15 008 |[3019215] |Luki w zabezpieczeniach w sterownik trybu jądra systemu Windows może spowodować podniesienie uprawnień |4.16, 3.23, 2.35 |2015 19 stycznia |
-| MS14 080 |[3008923] |Zbiorcza aktualizacja zabezpieczeń dla programu Internet Explorer |4.16, 3.23, 2.35 |2015 19 stycznia |
-| MS15 002 |[3020393] |Luki w zabezpieczeniach systemu Windows usługi Telnet może spowodować zdalne wykonywanie kodu |4.16, 3.23, 2.35 |2015 19 stycznia |
-| MS15 002 |[3020393] |Luki w zabezpieczeniach systemu Windows usługi Telnet może spowodować zdalne wykonywanie kodu |4.16, 3.23, 2.35 |2015 19 stycznia |
+| MS15-001 |[3023266] |Usterka AppCompatCache systemu Windows umożliwia podniesienie uprawnień |4.16, 3.23, 2.35 |2015 19 stycznia |
+| MS15-002 |[3020393] |Luki w zabezpieczeniach systemu Windows usługi Telnet może spowodować zdalne wykonywanie kodu |4.16, 3.23, 2.35 |2015 19 stycznia |
+| MS15-003 |[3021674] |Luka w zabezpieczeniach usługi profilu użytkownika systemu Windows może spowodować podniesienie uprawnień |4.16, 3.23, 2.35 |2015 19 stycznia |
+| MS15-004 |[3019978] |Luki w zabezpieczeniach w składnikach systemu Windows może spowodować podniesienie uprawnień |4.16, 3.23, 2.35 |2015 19 stycznia |
+| MS15-005 |[3022777] |Usterka NLA umożliwia obejście funkcji zabezpieczeń |4.16, 3.23, 2.35 |2015 19 stycznia |
+| MS15-006 |[3004365] |Luki w zabezpieczeniach w raportowaniu błędów systemu Windows może umożliwić obejścia funkcji zabezpieczeń |4.16, 3.23, 2.35 |2015 19 stycznia |
+| MS15-007 |[3014029] |Luka w serwera zasad sieciowych RADIUS można spowodować odmowę usługi |4.16, 3.23, 2.35 |2015 19 stycznia |
+| MS15-008 |[3019215] |Luki w zabezpieczeniach w sterownik trybu jądra systemu Windows może spowodować podniesienie uprawnień |4.16, 3.23, 2.35 |2015 19 stycznia |
+| MS14-080 |[3008923] |Zbiorcza aktualizacja zabezpieczeń dla programu Internet Explorer |4.16, 3.23, 2.35 |2015 19 stycznia |
+| MS15-002 |[3020393] |Luki w zabezpieczeniach systemu Windows usługi Telnet może spowodować zdalne wykonywanie kodu |4.16, 3.23, 2.35 |2015 19 stycznia |
+| MS15-002 |[3020393] |Luki w zabezpieczeniach systemu Windows usługi Telnet może spowodować zdalne wykonywanie kodu |4.16, 3.23, 2.35 |2015 19 stycznia |
 
 
 ## <a name="december-guest-os"></a>Grudnia systemu operacyjnego gościa
@@ -582,7 +588,14 @@ Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpow
 | ND |[2896881] |Długi czas logowania, jeśli używasz polecenia AddPrinterConnection VBScript mapować drukarki dla użytkowników podczas procesu logowania w systemie Windows |4.15, 3.22, 2.34 |2015 13 stycznia |
 
 [4056898]: http://support.microsoft.com/kb/4056898
+[4056897]: http://support.microsoft.com/kb/4056897
+[4056899]: http://support.microsoft.com/kb/4056899
 [4056890]: http://support.microsoft.com/kb/4056890 
+[4056892]: http://support.microsoft.com/kb/4056892
+[4054518]: http://support.microsoft.com/kb/4054518
+[4054520]: http://support.microsoft.com/kb/4054520
+[4054519]: http://support.microsoft.com/kb/4054519
+[4051956]: http://support.microsoft.com/kb/4051956
 
 [4053579]: http://support.microsoft.com/kb/4053579
 [4054517]: http://support.microsoft.com/kb/4054517 
@@ -994,7 +1007,7 @@ Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpow
 [3077657]: http://support.microsoft.com/kb/3077657
 [3057154]: http://support.microsoft.com/kb/3057154
 
-[MS15 034]: https://technet.microsoft.com/library/security/MS15-034
+[MS15-034]: https://technet.microsoft.com/library/security/MS15-034
 
 [3042553]: https://support.microsoft.com/en-us/kb/3042553/
 

@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
+ms.date: 02/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 17a43de3faaa3a146fa9d8f43d36545d6d82b274
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: c336966f9a785707e76bc6a10c4a9283d797d064
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>Włącz ponownie ochronę z platformy Azure do lokacji lokalnej
 
 
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 W tym artykule opisano, jak i włącz ponownie ochronę maszyn wirtualnych platformy Azure z platformy Azure do lokacji lokalnej. Wykonaj instrukcje w tym artykule, kiedy zechcesz się nie powieść z powrotem z maszyn wirtualnych VMware lub systemem Windows lub Linux, serwerów fizycznych, po zostały one przejścia w tryb failover z lokalnej lokacji do platformy Azure (zgodnie z opisem w [VMware replikować maszyny wirtualne i serwerów fizycznych do platformy Azure z usługą Azure Site Recovery](site-recovery-failover.md)).
 
 > [!WARNING]
@@ -221,13 +221,7 @@ Można również Obejmij ochroną na poziomie planu odzyskiwania. Grupa replikac
 
 Po przełączonej zakończy się powodzeniem, maszyny wirtualnej przechodzą w stan chronionych.
 
-## <a name="next-steps"></a>Następne kroki
-
-Po wprowadzeniu chronionych stan maszyny wirtualnej można [zainicjować powrotu po awarii](site-recovery-how-to-failback-azure-to-vmware.md#steps-to-fail-back). 
-
-Powrót po awarii Zamknij maszynę wirtualną na platformie Azure, a następnie uruchomić na lokalnej maszynie wirtualnej. Oczekiwane przestój dla aplikacji. Wybierz czas powrotu po awarii, gdy aplikacja może tolerować przestoju.
-
-## <a name="common-problems"></a>Typowe problemy
+## <a name="common-issues"></a>Typowe problemy
 
 * Jeśli szablon jest używany do tworzenia maszyn wirtualnych, upewnij się, że każda maszyna wirtualna ma własny identyfikator UUID dysków. Identyfikator UUID na lokalnej maszynie wirtualnej powoduje konflikt z z głównego celu, ponieważ zarówno utworzone przy użyciu tego samego szablonu, ponowne włączenie ochrony kończy się niepowodzeniem. Wdróż innego główny cel, który nie został utworzony z tego samego szablonu.
 
@@ -245,38 +239,9 @@ Powrót po awarii Zamknij maszynę wirtualną na platformie Azure, a następnie 
 
 * Serwer systemu Windows Server 2008 R2 z dodatkiem SP1, który jest chroniony jako serwer fizyczny lokalnymi nie nieudane platformy Azure z lokacjami lokalnymi.
 
-### <a name="common-error-codes"></a>Typowe kody błędów
 
-#### <a name="error-code-95226"></a>Kod błędu 95226
+## <a name="next-steps"></a>Kolejne kroki
 
-*Ponownej ochrony nie powiodła się, ponieważ maszyny wirtualnej platformy Azure nie mógł uzyskać dostęp do lokalnego serwera konfiguracji.*
+Po wprowadzeniu chronionych stan maszyny wirtualnej można [zainicjować powrotu po awarii](site-recovery-how-to-failback-azure-to-vmware.md#steps-to-fail-back). 
 
-Dzieje się tak podczas 
-1. Maszyny wirtualnej platformy Azure nie może skontaktować się z lokalnego serwera konfiguracji i dlatego nie można być wykryte i zarejestrowany na serwerze konfiguracji. 
-2. Usługa InMage Scout aplikacji na maszynie wirtualnej Azure, która musi działać do komunikowania się do lokalnego serwera konfiguracji może nie działać po pracy awaryjnej.
-
-Aby rozwiązać ten problem
-1. Należy się upewnić, że sieć maszyny wirtualnej platformy Azure jest skonfigurowany w taki sposób, że maszyna wirtualna może się komunikować z lokalnego serwera konfiguracji. W tym celu należy skonfigurować sieci VPN między lokacjami do lokalnego centrum danych lub skonfiguruj połączenie ExpressRoute z prywatnej komunikacji równorzędnej w sieci wirtualnej platformy Azure maszyny wirtualnej. 
-2. Jeśli masz już skonfigurowane w taki sposób, że maszyny wirtualne Azure mogą komunikować się z lokalnego serwera konfiguracji sieci, następnie zaloguj się do maszyny wirtualnej i sprawdź "Usługa aplikacji InMage Scout". Jeśli zauważysz, że nie jest uruchomiona usługa aplikacji InMage Scout ręcznie uruchom usługę i sprawdź, czy typ uruchamiania usługi jest ustawiony na automatyczny.
-
-### <a name="error-code-78052"></a>Kod błędu 78052
-Ponownej ochrony kończy się niepowodzeniem z komunikatem o błędzie: *maszyny wirtualnej nie można ukończyć włączania ochrony.*
-
-Może to nastąpić z dwóch przyczyn
-1. Maszyny wirtualnej, które są ponownej ochrony jest Windows Server 2016. Aktualnie ten system operacyjny nie jest obsługiwana w przypadku powrotu po awarii, ale będzie wkrótce obsługiwany.
-2. Istnieje już maszyny wirtualnej o tej samej nazwie na głównym serwerze docelowym kończy się niepowodzeniem do.
-
-Aby rozwiązać ten problem można wybrać innego głównego serwera docelowego na innego hosta, dzięki czemu ponownej ochrony utworzy komputera na inny host, gdzie nie powodują konfliktu nazw. Można również vMotion główny cel do innego hosta, na którym nie nastąpi kolizję nazw. Jeśli istniejącej maszyny wirtualnej jest stray maszyny, można po prostu ją zmienić tak, aby na tym samym hoście ESXi można utworzyć nowej maszyny wirtualnej.
-
-### <a name="error-code-78093"></a>Kod błędu 78093
-
-*Maszyna wirtualna nie jest uruchomiona, zawiesić lub jest niedostępny.*
-
-Włącz ponownie ochronę nieudanej przez maszynę wirtualną do lokalnej, należy uruchamiania maszyny wirtualnej platformy Azure. Jest to, aby usługa mobilności rejestruje z serwerem konfiguracji lokalnych i rozpocząć replikację komunikując się z serwerem przetwarzania. Jeśli komputer jest niepoprawna sieci lub nie działa (zawiesić lub zamknięcie), serwer konfiguracji nie można osiągnąć usługi mobilności na maszynie wirtualnej, aby rozpocząć ponownej ochrony. Można ponownie uruchomić maszynę wirtualną tak, aby umożliwić komunikację wstecz lokalnymi. Uruchom ponownie zadanie ponownej ochrony po uruchomieniu maszyny wirtualnej platformy Azure
-
-### <a name="error-code-8061"></a>Kod błędu 8061
-
-*Magazyn danych jest niedostępny z hosta ESXi.*
-
-Zapoznaj się [wzorca wstępne docelowej](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server) i [obsługuje datastores](site-recovery-how-to-reprotect.md#what-datastore-types-are-supported-on-the-on-premises-esxi-host-during-failback) powrotu po awarii
-
+Powrót po awarii Zamknij maszynę wirtualną na platformie Azure, a następnie uruchomić na lokalnej maszynie wirtualnej. Oczekiwane przestój dla aplikacji. Wybierz czas powrotu po awarii, gdy aplikacja może tolerować przestoju.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: abnarain
-ms.openlocfilehash: 4ae54bfda21d06d3d6ec963aaa17eba2b6e04de3
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a2cf2ac8ac099a92e1534c72d80be6c9647bec59
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Przekształcanie danych za pomocą skryptów U-SQL w usłudze Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -47,9 +47,12 @@ Poniższa tabela zawiera opisy ogólne właściwości używane w definicji JSON.
 
 ### <a name="service-principal-authentication"></a>Uwierzytelnianie jednostki usługi
 Usługa Azure Data Lake Analytics połączone wymaga uwierzytelniania głównej usługi, aby połączyć się z usługą Azure Data Lake Analytics. Aby używać uwierzytelniania głównej usługi, Zarejestruj podmiot aplikacji w usłudze Azure Active Directory (Azure AD) i przyznać jej dostęp do usługi Data Lake Analytics i Data Lake Store używa. Aby uzyskać szczegółowe instrukcje, zobacz [do usługi uwierzytelniania](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Zwróć uwagę na następujące wartości, które służą do definiowania połączonej usługi:
+
 * Identyfikator aplikacji
 * Klucz aplikacji 
 * Identyfikator dzierżawy
+
+Udziel uprawnienia głównego usługi przy użyciu usługi Azure Data Lake Anatlyics [Kreatora dodawania użytkownika](../data-lake-analytics/data-lake-analytics-manage-use-portal.md#add-a-new-user).
 
 Uwierzytelnianie usługi głównej przez określenie następujących właściwości:
 

@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/25/2018
-ms.openlocfilehash: 87bd27147d20fec8c5839b744d70f215e2c1ec47
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 3c1c259cc58eb1adab39d9c0ca376726b798186e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>Często zadawane pytania dotyczące korzystania z usługi migracji bazy danych Azure
 W tym artykule wymieniono często zadawane pytania dotyczące korzystania z usługi migracji bazy danych Azure oraz powiązanych odpowiedzi.
@@ -81,6 +81,9 @@ Możesz wykonać kilka rzeczy w celu przyspieszenia migracji bazy danych przy u�
 
 ### <a name="q-how-do-i-set-up-an-azure-virtual-network"></a>Q. Sposób konfigurowania sieci wirtualnej platformy Azure
 Podczas wielu samouczki firmy Microsoft, które prowadzi użytkownika przez proces konfigurowania sieć Wirtualną platformy Azure, oficjalnej dokumentacji pojawia się w artykule [sieci wirtualnej Azure](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview).
+
+### <a name="q-why-is-my-azure-database-migration-service-unavailable-or-stopped"></a>Q. Dlaczego jest Moja usługa migracji bazy danych Azure niedostępna lub zatrzymana?
+Jeśli użytkownik jawnie zatrzymuje usługę migracji bazy danych Azure (DMS) lub jeśli usługa jest nieaktywna dla okresu 24 godzin, usługi będą znajdować się w zatrzymana lub auto stan wstrzymania. W każdym przypadku usługa będzie niedostępny i w stan zatrzymania.  Aby wznowić active migracji, należy ponownie uruchomić usługę.
 
 ### <a name="q-where-can-i-leave-feedback-about-the-azure-database-migration-service"></a>Q. Gdzie można pozostawić swoją opinię na temat usługi Azure bazy danych migracji
 Chcemy poznać Twoją opinię. Wyślij opinię i / pomysły mają o usłudze Azure bazy danych migracji za pomocą User Voice [tutaj](https://feedback.azure.com/forums/906100-azure-database-migration-service).

@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: raynew
-ms.openlocfilehash: ead133318d8660e8b8f4b3e9c5dddb6d75878b19
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 837d53c4a70353c92de2475bb355051fdb2fcbb2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Tabela wsparcia dla VMware i replikacja serwerów fizycznych do platformy Azure
 
@@ -130,10 +130,14 @@ Gość i serwerem RDM | Yes<br/><br/> Brak serwerów fizycznych
 Gość i serwerem dysku > 1 TB | Yes<br/><br/>Do 4095 GB 
 Gość i serwerem dysku o rozmiarze sektora fizycznego logicznych i 4 k 4K | Yes
 Dysk serwera gościa z logicznych 4K i rozmiar sektora fizycznego 512 bajtów | Yes 
-Wolumin serwera gościa z dysku rozłożone > 1 TB<br/><br/> Logiczne LVM woluminu gościa/serwer zarządzania — miejsca do magazynowania | Dysku dodawania i usuwania gorących gościa i serwerem | Gość/server - wykluczyć dysku | Tak wielościeżkowe gościa i serwerem (MPIO) | N/D
+Wolumin serwera gościa z dysku rozłożone > 4 TB <br><br/>Zarządzanie woluminami LVM logiczne | Yes
+Gość/server - miejsca do magazynowania | Nie 
+Gość i serwerem dodawania i usuwania gorących dysku | Nie 
+Gość/server — Wyklucz dysku | Yes 
+Gość i serwerem wiele ścieżek (MPIO) | ND
 
 > [!NOTE]
-> ** UEFI rozruchu maszyn wirtualnych VMware lub serwerów fizycznych z systemem Windows Server 2012 lub nowszym można poddać migracji do usługi Azure. Obowiązują następujące ograniczenia.
+> ** UEFI ** rozruchu maszyn wirtualnych VMware lub serwerów fizycznych z systemem Windows Server 2012 lub nowszym można poddać migracji do usługi Azure. Obowiązują następujące ograniczenia.
 > - Tylko migracja do systemu Azure jest obsługiwana. Powrót po awarii do lokalnej lokacji oprogramowania VMware nie jest obsługiwane.
 > - Serwer nie powinna mieć więcej niż 4 partycji na dysku systemu operacyjnego.
 > - Wymagana wersja usługi mobilności odzyskiwania lokacji Azure 9.13 lub nowszej.

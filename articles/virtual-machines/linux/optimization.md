@@ -16,17 +16,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
-ms.openlocfilehash: e63b50e06ae280819aea88f61bf9f25b6e44eac7
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 5484f0422e67c75320cc76ffcf08a2b8d6cc6108
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Optymalizowanie maszyny wirtualnej systemu Linux na platformie Azure
 Tworzenie maszyny wirtualnej systemu Linux (VM) to łatwo zrobić z wiersza polecenia lub w portalu. W tym samouczku przedstawiono sposób zapewnienia skonfigurowaniu go w celu zoptymalizowania wydajności jej na platformie Microsoft Azure. W tym temacie korzysta z maszyny Wirtualnej systemu Ubuntu Server, ale można również utworzyć maszynę wirtualną systemu Linux przy użyciu [obrazów jako szablon](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-W tym temacie założono, masz już działający subskrypcji platformy Azure ([zakładania wersji próbnej](https://azure.microsoft.com/pricing/free-trial/)) i ma już skonfigurowanymi przez Maszynę wirtualną do Twojej subskrypcji platformy Azure. Upewnij się, że masz najnowszą [Azure CLI 2.0](/cli/azure/install-az-cli2) zainstalowane i zalogowany do subskrypcji platformy Azure z [logowania az](/cli/azure/#login) przed [tworzenie maszyny Wirtualnej](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+W tym temacie założono, masz już działający subskrypcji platformy Azure ([zakładania wersji próbnej](https://azure.microsoft.com/pricing/free-trial/)) i ma już skonfigurowanymi przez Maszynę wirtualną do Twojej subskrypcji platformy Azure. Upewnij się, że masz najnowszą [Azure CLI 2.0](/cli/azure/install-az-cli2) zainstalowane i zalogowany do subskrypcji platformy Azure z [logowania az](/cli/azure/#az_login) przed [tworzenie maszyny Wirtualnej](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="azure-os-disk"></a>Azure dysku systemu operacyjnego
 Po utworzeniu maszyny Wirtualnej systemu Linux na platformie Azure ma dwa dyski skojarzonych z nim. **/ dev/sda** dysku systemu operacyjnego jest **/dev/sdb** jest tymczasowy dysku.  Nie używaj głównego dysku systemu operacyjnego (**/dev/sda**) dla wszystkich elementów, z wyjątkiem systemu operacyjnego jest zoptymalizowana pod kątem szybkiego czasu rozruchu maszyny Wirtualnej i nie zapewniają dobrą wydajność dla obciążeń. Chcesz dołączyć jeden lub więcej dysków do maszyny Wirtualnej można pobrać trwałe i zoptymalizowane magazynu danych. 

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: aa81f9d163da8d9236470c0b797f5430163ed39d
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 1c2cd0cc648269c4e07d0f0fcd04a10cf7092432
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory-beta"></a>Kopiowanie danych z Xero przy użyciu fabryki danych Azure (wersja Beta)
 
@@ -32,6 +32,8 @@ W tym artykule omówiono sposób użycia działanie kopiowania w fabryce danych 
 ## <a name="supported-capabilities"></a>Obsługiwane możliwości
 
 Możesz skopiować dane z Xero żadnych obsługiwanych ujścia magazynu danych. Lista magazynów danych, które są obsługiwane jako źródła/wychwytywanie przez działanie kopiowania, zobacz [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats) tabeli.
+
+Wszystkie tabele Xero (punkty końcowe interfejsu API) są obsługiwane z wyjątkiem "Raporty". Tabele z złożonych elementów zostaną podzielone na wiele tabel. Na przykład transakcji bankowych ma to struktura danych złożonych "LineItems", więc danych bank transakcji jest mapowany na tabelę Bank_Transaction i Bank_Transaction_Line_Items z Bank_Transaction_ID jako klucz obcy do nawiązania połączenia ze sobą.
 
 Fabryka danych Azure oferuje wbudowane sterowników, aby umożliwić łączność, w związku z tym nie trzeba ręcznie zainstalowania sterownika korzystania z tego łącznika.
 
@@ -48,8 +50,8 @@ Xero połączone usługi, obsługiwane są następujące właściwości:
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | type | Właściwość type musi mieć ustawioną: **Xero** | Yes |
-| host | Punkt końcowy serwera Xero. (to znaczy api.xero.com)  | Yes |
-| consumerKey | Klucz klienta skojarzone z aplikacją Xero. Można wybrać opcję Oznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w fabryce danych lub przechowywania haseł w usłudze Azure Key Vault i umożliwić działanie kopiowania ściągnięcia stamtąd podczas wykonywania kopii danych — Dowiedz się więcej o [przechowywania poświadczeń w magazynie kluczy](store-credentials-in-key-vault.md). | Yes |
+| host | Punkt końcowy serwera Xero (`api.xero.com`).  | Yes |
+| consumerKey | Klucz klienta skojarzone z aplikacją Xero. Zaznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w fabryce danych lub [odwołania klucz tajny przechowywane w usłudze Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | privateKey | Klucz prywatny z pliku PEM został wygenerowany dla aplikacji Xero prywatnych. Obejmować cały tekst z pliku PEM, w tym endings(\n) wiersza systemu Unix. Można wybrać opcję Oznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w fabryce danych lub przechowywania haseł w usłudze Azure Key Vault i umożliwić działanie kopiowania ściągnięcia stamtąd podczas wykonywania kopii danych — Dowiedz się więcej o [przechowywania poświadczeń w magazynie kluczy](store-credentials-in-key-vault.md). | Yes |
 | useEncryptedEndpoints | Określa, czy punkty końcowe źródła danych są szyfrowane przy użyciu protokołu HTTPS. Wartość domyślna to true.  | Nie |
 | useHostVerification | Określa, czy nazwa hosta jest wymagany w certyfikacie serwera do dopasowania nazwy hosta serwera podczas nawiązywania połączenia za pośrednictwem protokołu SSL. Wartość domyślna to true.  | Nie |

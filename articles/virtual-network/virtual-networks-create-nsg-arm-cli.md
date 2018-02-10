@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/17/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ecc50a54feca6c3e9304821e0a5bdbb50708bd11
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: cb99f121a1ddf079008ed97edde71b067d6b5edb
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-network-security-groups-using-the-azure-cli"></a>Tworzenie grup zabezpieczeń przy użyciu wiersza polecenia platformy Azure w sieci
 
@@ -36,9 +36,9 @@ Następujące przykładowe polecenia interfejsu wiersza polecenia Azure oczekiwa
 
 Aby utworzyć grupy NSG o nazwie *frontonu NSG* oparte na poprzednim scenariuszu, wykonaj następujące kroki.
 
-1. Jeśli nie zostało jeszcze, instalowania i konfigurowania najnowszej [Azure CLI 2.0](/cli/azure/install-az-cli2) i zaloguj się do platformy Azure konta przy użyciu [logowania az](/cli/azure/#login). 
+1. Jeśli nie zostało jeszcze, instalowania i konfigurowania najnowszej [Azure CLI 2.0](/cli/azure/install-az-cli2) i zaloguj się do platformy Azure konta przy użyciu [logowania az](/cli/azure/#az_login). 
 
-2. Tworzenie grupy NSG przy użyciu [utworzyć nsg sieci az](/cli/azure/network/nsg#create) polecenia. 
+2. Tworzenie grupy NSG przy użyciu [utworzyć nsg sieci az](/cli/azure/network/nsg#az_network_nsg_create) polecenia. 
 
     ```azurecli
     az network nsg create \
@@ -76,7 +76,7 @@ Aby utworzyć grupy NSG o nazwie *frontonu NSG* oparte na poprzednim scenariuszu
 
 
 
-3. Utworzyć regułę, która umożliwia uzyskanie dostępu do portu 3389 (RDP) z Internetu z [Tworzenie reguły nsg sieci az](/cli/azure/network/nsg/rule#create) polecenia.
+3. Utworzyć regułę, która umożliwia uzyskanie dostępu do portu 3389 (RDP) z Internetu z [Tworzenie reguły nsg sieci az](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) polecenia.
 
     > [!NOTE]
     > W zależności od powłoki używasz, może być konieczne zmodyfikować `*` znak w argumentach po w celu rozwiń argument przed realizacją.
@@ -171,7 +171,7 @@ Aby utworzyć grupy NSG o nazwie *frontonu NSG* oparte na poprzednim scenariuszu
     }
     ```
 
-5. Powiązanie grupy NSG z **frontonu** podsieć o [zaktualizować podsieci sieci wirtualnej sieci az](/cli/azure/network/vnet/subnet#update) polecenia.
+5. Powiązanie grupy NSG z **frontonu** podsieć o [zaktualizować podsieci sieci wirtualnej sieci az](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) polecenia.
         
     ```azurecli
     az network vnet subnet update \

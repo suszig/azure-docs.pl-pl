@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: d2b93eec9d3ac575e771bceb0ac45823254c142d
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 7f86c5abb47cdd69cf07410570b02ba0076d1c18
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Wprowadzenie do programu Storage Explorer (wersja zapoznawcza)
 ## <a name="overview"></a>Przegląd
@@ -239,6 +239,20 @@ Oprócz zarządzania kontami bazy danych rozwiązania Cosmos Azure przy użyciu 
 
     ![connection-string][22]
 
+ ## <a name="connect-to-azure-data-lake-store-by-uri"></a>Połączenie do usługi Azure Data Lake Store przez identyfikator URI
+Jeśli chcesz uzyskać dostęp do zasobów, które nie istnieją w Twojej subskrypcji. Jednak inne przyznać Pobierz identyfikator Uri dla zasobów. W takim przypadku można połączyć do usługi Data Lake Store za pomocą identyfikatora Uri, po zalogowaniu się. Zapoznaj się następujące kroki.
+1. Otwórz Eksploratora usługi Storage (wersja zapoznawcza).
+2. W okienku po lewej stronie rozwiń **lokalnej i dołączonego**.
+3. Kliknij prawym przyciskiem myszy **usługi Data Lake Store**i z menu kontekstowego — wybierz pozycję **nawiązywanie połączenia z usługą Data Lake Store...** .
+
+    ![nawiązać połączenia z menu kontekstowego usługi Data Lake Store](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach.png)
+
+4. Wprowadź identyfikator Uri, a następnie narzędzie powoduje przejście do lokalizacji podanej adresu URL.
+
+    ![Połącz do okna dialogowego kontekstu usługi Data Lake Store](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach-dialog.png)
+
+    ![Połącz do wyniku usługi Data Lake Store](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-attach-finish.png)
+
 ## <a name="search-for-storage-accounts"></a>Wyszukiwanie kont magazynu
 Jeśli chcesz znaleźć zasobu magazynu i nie wiadomo, gdzie jest, można użyć pola wyszukiwania w górnej części okienka po lewej stronie do wyszukiwania dla zasobu.
 
@@ -254,6 +268,7 @@ Podczas wpisywania tekstu w polu wyszukiwania, w lewym okienku wyświetlane są 
 ## <a name="next-steps"></a>Kolejne kroki
 * [Zarządzanie zasobami usługi Azure Blob Storage przy użyciu programu Storage Explorer (wersja zapoznawcza)](vs-azure-tools-storage-explorer-blobs.md)
 * [Zarządzanie Azure rozwiązania Cosmos bazy danych w Eksploratorze usługi Azure Storage (wersja zapoznawcza)](./cosmos-db/storage-explorer.md)
+* [Zarządzanie zasobami Azure Data Lake Store za pomocą Eksploratora usługi Storage (wersja zapoznawcza)](./data-lake-store/data-lake-store-in-storage-explorer.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Overview.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageAccounts.png

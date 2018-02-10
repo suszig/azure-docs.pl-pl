@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 2674b431ba610bccb92f6b209970af1fab110f48
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: ad829fc771bf67953315f3f42abd66eaa2628c13
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Korzystanie z działań niestandardowych w potoku usługi Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -32,13 +32,13 @@ Istnieją dwa typy działań, które można używać w potoku fabryki danych Azu
 Aby przenieść czy fabryki danych nie obsługuje lub aby proces/transformacji danych w taki sposób, który nie jest obsługiwany przez fabrykę danych, można utworzyć magazynu danych do/z danych **działania niestandardowe** z własnych przenoszenia danych lub logiki transformacji i użyj działania w potoku. Niestandardowe działanie jest uruchomione logiki niestandardowy kod **partii zadań Azure** puli maszyn wirtualnych.
 
 > [!NOTE]
-> Ten artykuł dotyczy wersji 2 usługi Data Factory, która jest obecnie dostępna w wersji zapoznawczej. Jeśli używasz wersji 1 usługi fabryka danych, która jest ogólnie dostępna (GA), zobacz [działania DotNet (niestandardowy) w wersji 1](v1/data-factory-use-custom-activities.md).
+> Ten artykuł dotyczy wersji 2 usługi Data Factory, która jest obecnie dostępna w wersji zapoznawczej. Jeśli używasz wersji 1 usługi fabryka danych, która jest ogólnie dostępna (GA), zobacz [działania DotNet (niestandardowy) w wersji 1 usługi fabryka danych](v1/data-factory-use-custom-activities.md).
  
 
-Zobacz następujące tematy, jeśli jesteś nowym użytkownikiem usługi partia zadań Azure:
+Zobacz następujące artykuły, jeśli jesteś nowym użytkownikiem usługi partia zadań Azure:
 
 * [Podstawy usługi partia zadań Azure](../batch/batch-technical-overview.md) Omówienie usługi partia zadań Azure.
-* [Nowy AzureRmBatchAccount](/powershell/module/azurerm.batch/New-AzureRmBatchAccount?view=azurermps-4.3.1) polecenia cmdlet, aby utworzyć konto partii zadań Azure (lub) [portalu Azure](../batch/batch-account-create-portal.md) Aby utworzyć konto partii zadań Azure za pomocą portalu Azure. Zobacz [przy użyciu programu PowerShell do zarządzania konta usługi partia zadań Azure](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) tematu, aby uzyskać szczegółowe instrukcje na temat używania polecenia cmdlet.
+* [Nowy AzureRmBatchAccount](/powershell/module/azurerm.batch/New-AzureRmBatchAccount?view=azurermps-4.3.1) polecenia cmdlet, aby utworzyć konto partii zadań Azure (lub) [portalu Azure](../batch/batch-account-create-portal.md) Aby utworzyć konto partii zadań Azure za pomocą portalu Azure. Zobacz [przy użyciu programu PowerShell do zarządzania konta usługi partia zadań Azure](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) artykuł, aby uzyskać szczegółowe instrukcje na temat używania polecenia cmdlet.
 * [Nowy AzureBatchPool](/powershell/module/azurerm.batch/New-AzureBatchPool?view=azurermps-4.3.1) polecenia cmdlet, aby utworzyć pulę partii zadań Azure.
 
 ## <a name="azure-batch-linked-service"></a>Usługa Azure partii połączone 
@@ -119,7 +119,7 @@ W poniższej tabeli opisano nazwy i opisy właściwości, które są specyficzne
 
 ## <a name="executing-commands"></a>Wykonywanie polecenia
 
-Polecenie za pomocą działania niestandardowego można wykonać bezpośrednio. W poniższym przykładzie mamy Uruchom polecenie "echo hello world" w puli partii Azure węzły docelowe i wyświetla dane wyjściowe do strumienia wyjściowego stdout. 
+Polecenie za pomocą działania niestandardowego można wykonać bezpośrednio. Uruchamia polecenie "echo hello world" w puli partii Azure węzły docelowe, wyświetla dane wyjściowe do strumienia wyjściowego stdout w następującym przykładzie. 
 
   ```json
   {
@@ -295,12 +295,12 @@ namespace SampleApp
 Jeśli chcesz korzystać z zawartości stdout.txt działania podrzędne, można uzyskać ścieżki do pliku stdout.txt w wyrażeniu "@activity.output.outputs (MyCustomActivity) [0]". 
 
   > [!IMPORTANT]
-  > - Activity.json linkedServices.json i datasets.json są przechowywane w folderze czasu wykonywania zadania łaźni. Na przykład activity.json, linkedServices.json i datasets.json są przechowywane w "https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/" ścieżki. Jeśli to konieczne, należy wyczyścić oddzielnie. 
+  > - Activity.json linkedServices.json i datasets.json są przechowywane w folderze czasu wykonywania zadania wsadowego. Na przykład activity.json, linkedServices.json i datasets.json są przechowywane w "https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/" ścieżki. Jeśli to konieczne, należy wyczyścić oddzielnie. 
   > - Do celów połączone usługi, środowiska uruchomieniowego integracji Self-Hosted, poufne informacje, takie jak klucze lub haseł, są szyfrowane przez środowisko uruchomieniowe integracji Self-Hosted do zapewnienia poświadczeń pozostaje klientów zdefiniowane prywatnego środowiska sieciowego. Gdy odwołuje się kod aplikacji niestandardowej w ten sposób można brakuje niektórych pól. W właściwości rozszerzone zamiast odwołanie do połączonej usługi, jeśli to konieczne, należy użyć elementu SecureString. 
 
-## <a name="difference-between-custom-activity-in-azure-data-factory-v2-and-custom-dotnet-activity-in-azure-data-factory-v1"></a>Różnica między działań niestandardowych w fabryki danych Azure w wersji 2 i działania DotNet (niestandardowy) w wersji 1 z fabryki danych Azure 
+## <a name="difference-between-custom-activity-in-azure-data-factory-version-2-and-custom-dotnet-activity-in-azure-data-factory-version-1"></a>Różnica między działania niestandardowe w fabryce danych Azure w wersji 2 i działania DotNet (niestandardowy) w wersji 1 usługi fabryka danych Azure
 
-  W wersji 1 fabryki danych Azure, zaimplementować kod działania DotNet (niestandardowy) przez utworzenie .net projektu biblioteki klas z klasy, która implementuje metody Execute interfejsu IDotNetActivity. Połączone usługi, zestawy danych i właściwości rozszerzone w ładunku JSON działania DotNet (niestandardowy) są przekazywane do metody wykonywania jako silne obiektów określonego typu. Aby uzyskać więcej informacji, zapoznaj się [DotNet (niestandardowy) w wersji 1](v1/data-factory-use-custom-activities.md). Z tego powodu, niestandardowy kod musi być napisana w .net Framework 4.5.2 i można wykonać na węzłach opartych na systemie Windows Azure puli partii. 
+  W fabryce danych Azure w wersji 1, kod działania DotNet (niestandardowy) wdrożenia, tworząc .net projektu biblioteki klas z klasy, która implementuje metody Execute interfejsu IDotNetActivity. Połączone usługi, zestawy danych i właściwości rozszerzone w ładunku JSON działania DotNet (niestandardowy) są przekazywane do metody wykonywania jako silne obiektów określonego typu. Aby uzyskać więcej informacji, zapoznaj się [DotNet (niestandardowy) w wersji 1](v1/data-factory-use-custom-activities.md). Z tego powodu, niestandardowy kod musi być napisana w .net Framework 4.5.2 i można wykonać na węzłach opartych na systemie Windows Azure puli partii. 
 
   W danych fabryki V2 niestandardowe działanie usługi Azure nie należy do implementacji interfejsu .net. Można teraz bezpośrednio uruchamianie poleceń i skryptów i uruchomić własny kod spełnione jako pliku wykonywalnego. To osiągnąć, określając właściwość polecenia razem z właściwością folderPath. Niestandardowe działania przekazuje plik wykonywalny i zależności w folderpath i wykonuje polecenie. 
 
@@ -308,30 +308,30 @@ Jeśli chcesz korzystać z zawartości stdout.txt działania podrzędne, można 
 
   Zmiany wprowadzone w działania niestandardowego V2 fabryki danych Azure są należy zająć się zapisanie logiki niestandardowego kodu w języku preferowanym i wykonać ich w systemach Windows i systemy operacyjne Linux obsługiwane przez partii zadań Azure. 
 
-  W poniższej tabeli opisano różnice między działania niestandardowe V2 fabryki danych i V1 fabryki danych (niestandardowy) DotNet działania: 
+  W poniższej tabeli opisano różnice między działania niestandardowe V2 fabryki danych i fabryki danych w wersji 1 (niestandardowy) DotNet działania: 
 
 
-|Różnice      |ADFv2 niestandardowego działania      |ADFv1 działania DotNet (niestandardowy)      |
+|Różnice      |w wersji 2 działania niestandardowe      | Wersja 1 (niestandardowy) działania DotNet      |
 | ---- | ---- | ---- |
 |Jak zdefiniowano niestandardowej logiki      |Uruchamiając każdego pliku wykonywalnego (istniejące lub wdrażanie własnego pliku wykonywalnego)      |Zaimplementowanie .net biblioteki DLL      |
-|Enviornment wykonania niestandardowej logiki      |Systemu Windows lub Linux      |Systemu Windows (.Net Framework 4.5.2)      |
+|Środowiska wykonania niestandardowej logiki      |Systemu Windows lub Linux      |Systemu Windows (.Net Framework 4.5.2)      |
 |Wykonywanie skryptów      |Obsługuje bezpośrednio wykonywanie skryptów (na przykład "cmd /c echo hello world" na maszynie Wirtualnej z systemem Windows)      |Wymaga wdrożenia w środowisku .net biblioteki DLL      |
 |Zestaw danych jest wymagane      |Optional (Opcjonalność)      |Wymagane do łańcucha działań i przekazywania informacji      |
 |Przekazywania informacji z działania do niestandardowej logiki      |Za pomocą ReferenceObjects (LinkedServices i zbiory danych) i właściwości rozszerzone (właściwości niestandardowych) i      |Za pomocą właściwości rozszerzone (właściwości niestandardowych), dane wejściowe i wyjściowe zestawy danych      |
 |Pobieranie informacji w niestandardowej logiki      |Przeanalizować activity.json, linkedServices.json i datasets.json przechowywane w folderze tego samego pliku wykonywalnego      |Za pomocą .net SDK (ramki 4.5.2 .net)      |
-|Rejestrowanie      |Zapisuje dane bezpośrednio na STDOUT      |Rejestrator Implemeting w .net biblioteki DLL      |
+|Rejestrowanie      |Zapisuje dane bezpośrednio na STDOUT      |Implementowanie rejestratora w .net biblioteki DLL      |
 
 
-  Jeśli masz istniejący kod .net napisane dla V1 działania DotNet (niestandardowy), należy zmodyfikować kod ich do pracy z V2 niestandardowe działanie z następującymi wytycznymi wysokiego poziomu:  
+  Jeśli masz napisane dla wersji 1 (niestandardowy) DotNet działania istniejącego kodu platformy .net, należy zmodyfikować kod na ich działania w wersji 2 niestandardowe działanie z następującymi wytycznymi wysokiego poziomu:  
 
    - Zmień projekt z .net biblioteki klas w aplikacji konsoli. 
    - Uruchom aplikację za pomocą metody Main, metody Execute interfejsu IDotNetActivity nie jest już wymagane. 
    - Przeczytaj i analizy połączone usługi, zestawy danych i działania z serializator JSON, a nie jako silne obiektów określonego typu, a przekazania wartości właściwości wymaganych do logiki główny kodu niestandardowego. Zapoznaj się z powyższymi kodu SampleApp.exe jako próbka. 
-   - Obiekt rejestratora nie jest już obsługiwana, executeable wyniki mogą być wydruku do konsoli i jest zapisywany w stdout.txt. 
+   - Obiekt rejestratora nie jest już obsługiwana, pliku wykonywalnego wyniki mogą być wydruku do konsoli i są zapisywane stdout.txt. 
    - Pakiet Microsoft.Azure.Management.DataFactories NuGet nie jest już wymagane. 
    - Kompilowanie kodu, Przekaż plik wykonywalny i zależności do magazynu Azure i określenia ścieżki we właściwości folderPath. 
 
-Dla kompletnego przykładu sposób pełnego biblioteki DLL i potoku próbka opisanych w dokumencie V1 fabryki danych [skorzystać z działań niestandardowych w potoku fabryki danych Azure](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) można zmodyfikować w stylu działania niestandardowego V2 fabryki danych. Zapoznaj się [działania niestandardowe V2 fabryki danych przykładowych](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample). 
+Dla kompletnego przykładu kompleksowe biblioteki DLL i potoku próbka opisu w fabryce danych wersji 1 dokumentu [skorzystać z działań niestandardowych w potoku fabryki danych Azure](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) może być przepisywania w stylu działań niestandardowych w wersji 2 fabryki danych. Zapoznaj się [fabryki danych w wersji 2 działania niestandardowe próbki](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample). 
 
 ## <a name="auto-scaling-of-azure-batch"></a>Automatyczne skalowanie partii zadań Azure
 Można również utworzyć puli partii zadań Azure z **skalowania automatycznego** funkcji. Na przykład można utworzyć puli partii zadań azure 0 dedykowanych maszyn wirtualnych i formuły skalowania automatycznego na podstawie liczby oczekujących zadań. 

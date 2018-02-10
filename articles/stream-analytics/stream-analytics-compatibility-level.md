@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 01/03/2018
 ms.author: sngun
-ms.openlocfilehash: 0d89259d54fba0bd57881ec69cb61b5af6d603b5
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: f354c39fc3b366795fe4ed8dbeeb961bb11d5420
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Poziom zgodności dla zadania usługi analiza strumienia Azure
  
@@ -57,7 +57,10 @@ W poziom zgodności 1.1 wprowadzono następujące istotne zmiany:
   * **poprzednie wersje:** nazwy pola zostały zmienione na małe litery, gdy przetwarzane przez aparat Azure Stream Analytics. 
 
   * **Bieżąca wersja:** uwzględnianie wielkości liter jest trwały dla nazw pól, gdy są przetwarzane przez aparat Azure Stream Analytics. 
- 
+
+  > [!NOTE] 
+  > Utrwalanie uwzględnianie wielkości liter nie jest jeszcze dostępne dla analitycznego strumienia zadań hostowany przy użyciu środowiska krawędzi. W związku z tym wszystkie nazwy pól są konwertowane na małe litery, jeśli zadanie znajduje się na krawędzi. 
+
 * **FloatNaNDeserializationDisabled**  
 
   * **poprzednie wersje:** polecenia CREATE TABLE nie filtrowanie zdarzeń z wartością typu NaN (Not a Number. Na przykład w nieskończoność, - Infinity) w kolumnie liczb ZMIENNOPRZECINKOWYCH typu, ponieważ znajdują się poza zakresem udokumentowane dla tych numerów.

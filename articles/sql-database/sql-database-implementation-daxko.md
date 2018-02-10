@@ -15,14 +15,14 @@ ms.tgt_pltfrm: NA
 ms.workload: Inactive
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.openlocfilehash: 7a05836be4a0879fa7103d070c683f45c06cd741
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 4ecef0526bcdc61d29ae0ee0ac0d55c5651a1b2b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="daxkocsi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services-and-performance"></a>Daxko/CSI używane Azure w celu przyspieszenia cyklu programowanie i zwiększyć jej działu pomocy technicznej i wydajność
-![Logo Daxko/CSI](./media/sql-database-implementation-daxko/csidaxkologo25.png)
+![Daxko/CSI Logo](./media/sql-database-implementation-daxko/csidaxkologo25.png)
 
 Daxko/CSI oprogramowania, które muszą ponieść żądanie: jej klientów centrów przydatności i odtwarzania został rośnie szybko, dzięki użyciu Powodzenie rozwiązanie kompleksowe oprogramowania korporacyjnego, ale zatrzymując dla tego klienta rosnących potrzeb infrastruktury IT podstawowy został testowania firmy personel działu informatycznego. Firma została coraz bardziej ograniczone przez wzrost obciążenia operacji, szczególnie w przypadku zarządzania wzrostu bazy danych. Gorsze obciążenie tej operacji została Wycinanie do zasoby projektowe dla nowych inicjatyw, takie jak nowe funkcje mobilności oprogramowania firmy.
 
@@ -91,7 +91,6 @@ Baza danych SQL Azure nie jest po prostu zwiększa SpectrumNG klientom, którzy 
 * Aby dowiedzieć się więcej na temat narzędzia bazy danych i elastyczne skalowanie, zobacz [narzędzi elastycznej bazy danych i elastyczne skalowanie](sql-database-elastic-scale-get-started.md).
 * Aby dowiedzieć się więcej na temat migracji bazy danych programu SQL Server, zobacz zobacz [Migrowanie bazy danych programu SQL Server na platformie Azure](sql-database-cloud-migrate.md).
 * Aby dowiedzieć się więcej na temat aktywna replikacja geograficzna, zobacz [aktywna replikacja geograficzna](sql-database-geo-replication-overview.md).
-* Aby dowiedzieć się więcej na temat ról sieci Web i proces roboczy, zobacz [roli proces roboczy](../fundamentals-introduction-to-azure.md#compute).    
 * Aby dowiedzieć się więcej na temat usługi Azure Service Bus, zobacz [Azure Service Bus](https://azure.microsoft.com/services/service-bus/).
 * Aby dowiedzieć się więcej na temat automatycznego skalowania, zobacz [skalowania usługi w chmurze](../cloud-services/cloud-services-how-to-scale-portal.md).
 

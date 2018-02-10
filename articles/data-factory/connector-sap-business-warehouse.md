@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 7f494cff1e8dc57a41467cd722fdf224e10c9dec
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: c05d94c8dce51d922be3782380d4a883717bf032
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Kopiowanie danych z programu SAP Business Warehouse przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,7 +66,7 @@ Obsługiwane są następujące właściwości dla programu SAP Business magazynu
 | systemNumber | Numer systemu systemu SAP BW.<br/>Dozwolone wartości: dwucyfrowe liczbę dziesiętną reprezentowany jako ciąg. | Yes |
 | clientId | Identyfikator klienta w systemie SAP W klienta.<br/>Dozwolone wartości: trzycyfrowa liczba dziesiętna reprezentowany jako ciąg. | Yes |
 | userName | Nazwa użytkownika, który ma dostęp do serwera SAP. | Yes |
-| hasło | Hasło dla użytkownika. Zaznacz to pole jako SecureString. | Yes |
+| hasło | Hasło dla użytkownika. Zaznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w fabryce danych lub [odwołania klucz tajny przechowywane w usłudze Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. Środowisko uruchomieniowe integracji Self-hosted jest wymagana, jak wspomniano w [wymagania wstępne](#prerequisites). |Yes |
 
 **Przykład:**

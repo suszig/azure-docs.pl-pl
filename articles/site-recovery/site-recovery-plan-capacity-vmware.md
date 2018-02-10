@@ -2,23 +2,17 @@
 title: "Planowanie wydajności i skalowania dla replikacji maszyn wirtualnych VMware do platformy Azure z usługą Azure Site Recovery | Dokumentacja firmy Microsoft"
 description: "Użyj w tym artykule Planowanie wydajności i skalowania podczas replikowania maszyn wirtualnych VMware do platformy Azure z usługą Azure Site Recovery"
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: jwhit
-editor: 
-ms.assetid: 0a1cd8eb-a8f7-4228-ab84-9449e0b2887b
+manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 02/07/2018
 ms.author: rayne
-ms.openlocfilehash: 0f4d82d450a6ca2e73c68452a409f300841dbf32
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 02f5a7270b5d8b7657a585fce99946cff8ed8d67
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>Planowanie wydajności i skalowania w przypadku replikacji maszyn wirtualnych VMware z usługą Azure Site Recovery
 
@@ -38,7 +32,7 @@ Zbierz informacje o środowisku replikacji, uruchamiając [Azure lokacji odzyski
 
 ## <a name="size-recommendations-for-the-configuration-server"></a>Rozmiar zalecenia dotyczące serwera konfiguracji
 
-**PROCESOR CPU** | **Pamięci** | **Rozmiar pamięci podręcznej dysku** | **Częstotliwość zmian danych** | **Chronione maszyny**
+**CPU** | **Pamięci** | **Rozmiar pamięci podręcznej dysku** | **Częstotliwość zmian danych** | **Chronione maszyny**
 --- | --- | --- | --- | ---
 8 Vcpu (2 sockets * 4 rdzenie @ 2,5 GHz [GHz]) | 16 GB | 300 GB | 500 GB lub mniej | Replikowanie maszyn mniej niż 100.
 12 Vcpu (2 sockets * 6 rdzeni @ 2,5 GHz) | 18 GB | 600 GB | 500 GB do 1 TB | Replikują między 100 150 maszyn.
@@ -140,6 +134,6 @@ Jeśli masz skalowania mieszczą się w danym wdrożeniu ponad 200 maszyn źród
 3. W **wybierz docelowy serwer przetwarzania**, wybierz nowego serwera przetwarzania, którego chcesz użyć, a następnie wybierz maszyny wirtualne, które będzie obsługiwać serwer. Kliknij ikonę informacji, aby uzyskać informacje o serwerze. Pomaga załadować decyzji, zostanie wyświetlony średni ilości miejsca, która jest potrzebna do replikowania każdego wybraną maszynę wirtualną do nowego serwera przetwarzania. Kliknij znacznik wyboru, aby rozpocząć replikację do nowego serwera przetwarzania.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Pobierz i uruchom [Azure lokacji odzyskiwania wdrożenia Planistę](https://aka.ms/asr-deployment-planner)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: v-donglo
-ms.openlocfilehash: 7f7498c63db89a77121d33afc9d48a4132b1a51d
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.author: raymondl
+ms.openlocfilehash: 4a4c5e6bf44fb4774d9ba501479383d6c7d3b128
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-batch-service-for-machine-learning-jobs"></a>Azure usługa partia zadań dla zadania uczenia maszynowego
 
@@ -46,7 +46,7 @@ Aby uzyskać więcej informacji na temat tworzenia usług sieci web, zobacz [wdr
 
 Po utworzeniu puli można przesłać zadania usługi BES, usługi sieci web przy użyciu adresu URL żądania wsadowego. Można przesłać je do puli lub przetwarzania wsadowego klasycznego. Aby przesłać zadanie do puli partii przetwarzania, należy dodać następujący parametr treści żądania przesłania zadania:
 
-"AzureBatchPoolId": "&lt;puli identyfikator&gt;"
+"AzureBatchPoolId":"&lt;pool ID&gt;"
 
 Jeśli parametr nie zostanie dodany, zadanie jest uruchamiane w środowisku procesu wsadowego klasycznego. Jeśli pula zawiera dostępnych zasobów, zadanie uruchamiania natychmiast. Pula nie ma wolnego zasobów, zadanie jest w kolejce do momentu zasób jest dostępny.
 
@@ -54,7 +54,7 @@ Jeśli okaże się regularnie osiągnąć pojemności z pulami, czy należy zwi�
 
 Przykładowe żądanie:
 
-https://ussouthcentral.Services.azureml.NET/Subscriptions/80c77c7674ba4c8c82294c3b2957990c/Services/9fe659022c9747e3b9b7b923c3830623/Jobs?API-Version=2.0
+https://ussouthcentral.services.azureml.net/subscriptions/80c77c7674ba4c8c82294c3b2957990c/services/9fe659022c9747e3b9b7b923c3830623/jobs?api-version=2.0
 
 ```json
 {
@@ -110,4 +110,4 @@ Zaleca się, że sondowania stan zadania, aby określić, po zakończeniu zadani
 
 | **Korzystanie z puli partii podczas przetwarzania**    | **Użyj klasycznego partii podczas przetwarzania**  |
 |---|---|
-|Musisz uruchomić dużej liczby zadań<br>Lub<br/>Musisz wiedzieć, że Twoje zadania będą uruchamiane natychmiast<br/>Lub<br/>Należy gwarantowanej przepustowości. Na przykład trzeba uruchomić liczba zadań w określonym przedziale czasu i chcesz skalować w poziomie zasoby obliczeniowe do własnych potrzeb.    | Użytkownicy korzystający z kilku zadań<br/>And<br/> Nie ma potrzeby zadania, aby natychmiast uruchomić |
+|Musisz uruchomić dużej liczby zadań<br>Lub<br/>Musisz wiedzieć, że Twoje zadania będą uruchamiane natychmiast<br/>Lub<br/>Należy gwarantowanej przepustowości. Na przykład trzeba uruchomić liczba zadań w określonym przedziale czasu i chcesz skalować w poziomie zasoby obliczeniowe do własnych potrzeb.    | Użytkownicy korzystający z kilku zadań<br/>I<br/> Nie ma potrzeby zadania, aby natychmiast uruchomić |

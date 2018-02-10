@@ -11,26 +11,30 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/31/2017
+ms.date: 02/01/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 09aa98a35fa8286828a99c49a33a80d5938afe3a
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: b61b7c3778ce3ada7e2130d2e0695c0a7a4b466d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>SAP HANA dużych wystąpień wysokiej dostępności i odzyskiwania po awarii na platformie Azure 
+
+>[!IMPORTANT]
+>Ta dokumentacja nie zastępuje nie SAP HANA administracyjnej dokumentacji lub notatki SAP. Oczekuje się, że czytelnik ma pełny opis i doświadczenia z operacji i administracji SAP HANA. Szczególnie wokół tematy kopii zapasowych, przywracania i wysokiej dostępności i odzyskiwania po awarii. W tej dokumentacji zrzuty ekranu z SAP HANA Studio są wyświetlane. Zawartość, struktury i charakteru ekranów narzędzia do administrowania SAP i narzędzi może się zmienić z SAP HANA wersji do wersji. W związku z tym należy korzystać z kroki i procesy podjęte w danym środowisku i HANA wersjach i wydaniach. Niektóre procesy opisane w tej dokumentacji są uproszczone lepsze zrozumienie ogólnych i nie są przeznaczone do użycia dla operacji ostatecznego podręczników jako szczegółowy opis kroków. Jeśli chcesz utworzyć podręczników operacji dla konkretnej konfiguracji, należy przetestować i wykonywania procesów i zarządzania dokumentami tych procesów związanych z określonej konfiguracji. 
+
 
 Wysokiej dostępności i odzyskiwania awaryjnego (DR) są ważne kwestie związane z uruchomionych z kluczowych SAP HANA na serwerze Azure (wystąpienia duże). Jest ważne pracować z SAP, system integrator lub Microsoft prawidłowo projektowania i implementacji prawo wysokiej dostępności i strategii odzyskiwania po awarii. Należy również wziąć pod uwagę cel punktu odzyskiwania (RPO) i celu czasu odzyskiwania, które są specyficzne dla danego środowiska.
 
 Firma Microsoft obsługuje niektóre funkcje wysokiej dostępności SAP HANA wystąpieniami dużych HANA. Te możliwości to m.in.:
 
-- **Replikacja magazynu**: możliwość systemu magazynu replikacji wszystkich danych do innego wystąpienia dużych HANA sygnatury w innym regionie Azure. SAP HANA działa niezależnie od tej metody.
-- **Replikacji systemu HANA**: replikacji wszystkich danych w SAP HANA do oddzielnego systemu SAP HANA. W celu czasu odzyskiwania jest zminimalizowany do replikacji danych w regularnych odstępach czasu. SAP HANA obsługuje asynchroniczne, synchronicznej tryby w pamięci i synchroniczne. Trybie synchronicznym jest zalecane tylko dla systemów SAP HANA, które znajdują się w tym samym centrum danych lub mniej niż 100 km od siebie. W bieżącym projekcie HANA dużych wystąpienia sygnatury HANA replikacji systemu może służyć tylko wysokiej dostępności. Obecnie replikacji systemu HANA wymaga składnika wstecznego serwera proxy innych firm dla konfiguracji odzyskiwania po awarii w innym regionie Azure. 
+- **Replikacja magazynu**: możliwość systemu magazynu replikacji wszystkich danych do innego wystąpienia dużych HANA sygnatury w innym regionie Azure. SAP HANA działa niezależnie od tej metody. Ta funkcja jest dostępna w przypadku dużych wystąpień HANA domyślnego mechanizmu odzyskiwania po awarii.
+- **Replikacji systemu HANA**: [replikacji wszystkich danych SAP HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html) do oddzielnego systemu SAP HANA. W celu czasu odzyskiwania jest zminimalizowany do replikacji danych w regularnych odstępach czasu. SAP HANA obsługuje asynchroniczne, synchronicznej tryby w pamięci i synchroniczne. Trybie synchronicznym jest zalecane tylko dla systemów SAP HANA, które znajdują się w tym samym centrum danych lub mniej niż 100 km od siebie. W bieżącym projekcie HANA dużych wystąpienia sygnatury można replikacji systemu HANA wysokiej dostępności w ramach tylko jeden region. Obecnie HANA replikacji systemu wymaga innej firmy wstecznego serwera proxy lub składnik routingu dla konfiguracji odzyskiwania po awarii w innym regionie Azure. 
 - **Host pracy awaryjnej automatycznie**: rozwiązania lokalnego odzyskiwania błędów dla SAP HANA ma być używana jako alternatywę dla replikacji systemu HANA. Jeśli węzeł główny jest niedostępny, skonfiguruj co najmniej jeden węzeł SAP HANA rezerwy w trybie skalowalnego w poziomie i SAP HANA automatycznie przełącza się do wstrzymania węzła.
 
-SAP HANA na platformie Azure (wystąpienia duże) jest oferowana w dwóch regionach platformy Azure, które obejmują trzech różnych regionach geograficznymi (USA, Australia i Europy). Czy sygnatury HANA dużych wystąpienia hosta są połączone z obwodów oddzielne dedykowanej sieci, które służą replikowania magazynu migawek podania metod odzyskiwania po awarii dwóch różnych regionach. Replikacja nie zostanie nawiązane domyślnie. — Konfiguracja dla klientów, uporządkowanych funkcji odzyskiwania po awarii. Replikacja magazynu jest zależna od użycia magazynu migawek dla wystąpień dużych HANA. Nie jest możliwe jako region odzyskiwania po awarii, który znajduje się w różnych obszarze geograficznymi wybrać region platformy Azure. 
+SAP HANA na platformie Azure (wystąpienia duże) jest oferowana w dwóch regionach platformy Azure w trzech różnych obszarach geograficznymi (USA, Australia i Europy). Z obszaru geograficznymi Japonii wkrótce dostępne w trybie online. Dwóch różnych regionów, w obszarze geograficznymi, że sygnatury HANA dużych wystąpienie hosta są połączone z obwodów oddzielne dedykowanej sieci, które służą replikowania magazynu migawek podania metod odzyskiwania po awarii. Replikacja nie zostanie nawiązane domyślnie. — Konfiguracja dla klientów, uporządkowanych funkcji odzyskiwania po awarii. Replikacja magazynu jest zależna od użycia magazynu migawek dla wystąpień dużych HANA. Nie jest możliwe jako region odzyskiwania po awarii, który znajduje się w różnych obszarze geograficznymi wybrać region platformy Azure. 
 
 W poniższej tabeli przedstawiono kombinacje i obecnie obsługiwane metody wysokiej dostępności i odzyskiwania po awarii:
 
@@ -40,7 +44,10 @@ W poniższej tabeli przedstawiono kombinacje i obecnie obsługiwane metody wysok
 | Host trybu failover automatycznego: N + m<br /> w tym 1 + 1 | Możliwe ze stanem gotowości, biorąc aktywnej roli.<br /> HANA steruje przełącznika roli. | Dedykowany Instalator odzyskiwania po awarii.<br /> Instalator odzyskiwania po awarii Multipurpose.<br /> Synchronizacja DR przy użyciu replikacji magazynu. | Zestawy HANA są dołączone do wszystkich węzłów (n + m).<br /> Lokacja DR musi mieć taką samą liczbę węzłów. |
 | Replikacji systemu HANA | Możliwe z ustawienia podstawowy lub pomocniczy.<br /> Pomocniczy przenosi podstawową rolą w przypadku trybu failover.<br /> Replikacji systemu HANA i systemu operacyjnego kontroli trybu failover. | Dedykowany Instalator odzyskiwania po awarii.<br /> Instalator odzyskiwania po awarii Multipurpose.<br /> Synchronizacja DR przy użyciu replikacji magazynu.<br /> DR za pomocą replikacji systemu HANA nie jest jeszcze możliwe bez składników innych firm. | Osobny zestaw woluminów dysków dołączonych do każdego węzła.<br /> Replikowane tylko dysku woluminy repliki pomocniczej w lokacji produkcyjnej do lokalizacji odzyskiwania po awarii.<br /> Jeden zestaw woluminów jest wymagany w lokacji odzyskiwania po awarii. | 
 
-Dedykowany Instalator odzyskiwania po awarii jest których HANA dużych wystąpienia jednostki w lokacji odzyskiwania po awarii nie jest używany do uruchamiania innych obciążeń lub system nieprodukcyjnych. Jednostka jest w stanie pasywnym i jest wdrożona tylko wtedy, gdy jest wykonywana po awarii trybu failover. Jednak to nie jest preferowanym rozwiązaniem dla wielu klientów.
+Dedykowany Instalator odzyskiwania po awarii jest których HANA dużych wystąpienia jednostki w lokacji odzyskiwania po awarii nie jest używany do uruchamiania innych obciążeń lub system nieprodukcyjnych. Jednostka jest w stanie pasywnym i jest wdrożona tylko wtedy, gdy jest wykonywana po awarii trybu failover. Jednak ta konfiguracja nie jest preferowany wybór dla wielu klientów.
+
+> [!NOTE]
+> [Wdrożenia SAP HANA MCOD](https://launchpad.support.sap.com/#/notes/1681092) (wielu wystąpień HANA na jedną jednostkę) nakładanie pracy scenariuszy wysokiej dostępności i odzyskiwania po awarii metody wymienione w tabeli. Wyjątkiem jest użycie replikacji systemu HANA klastra automatycznej pracy awaryjnej rozrusznik w oparciu o. Wówczas obsługuje tylko jedno wystąpienie HANA na jednostkę. Natomiast dla [SAP HANA MDC](https://launchpad.support.sap.com/#/notes/2096000) wdrożeń, tylko z systemem innym niż magazynu wysokiej dostępności, jak i metody DR działają w przypadku wdrażania więcej niż jednej dzierżawy. Z jednej dzierżawy wdrożone wszystkie metody na liście, są prawidłowe.  
 
 Uniwersalne Instalator odzyskiwania po awarii jest jednostka HANA dużych wystąpienia w lokacji odzyskiwania po awarii, w którym odbywa się obciążenie nieprodukcyjnych. W przypadku awarii Zamknij system nieprodukcyjnych, zainstaluj zestawy replikowany magazyn woluminów (dodatkowe) i zacznij wystąpienia HANA produkcji. Większość klientów korzystających z funkcji odzyskiwania po awarii HANA dużych wystąpienia, użyj tej konfiguracji. 
 
@@ -60,7 +67,7 @@ Aby móc korzystać z funkcji odzyskiwania po awarii HANA dużych wystąpień, n
 
 Jako druga Metryka używana możesz połączyć wszystkie sieci wirtualne Azure łączący się SAP HANA na platformie Azure (duże wystąpień) w regionów z obwodem usługi ExpressRoute łączącego HANA dużych wystąpień w innym regionie. Z tym *między połączyć*, usługi działające w sieci wirtualnej platformy Azure w regionie nr 1, może nawiązać połączenie HANA dużych wystąpienia jednostek w regionie #2 i odwrotnie. To jest miara dotyczy przypadku, gdy tylko jeden z lokalizacji MSEE łączący się do lokalizacji lokalnej z platformy Azure, przejdzie do trybu offline.
 
-Poniższa ilustracja przedstawia odporność konfiguracji odzyskiwania po awarii:
+Poniższa ilustracja przedstawia konfigurację odporne w przypadku odzyskiwania po awarii:
 
 ![Konfiguracją optymalną dla odzyskiwania po awarii](./media/hana-overview-high-availability-disaster-recovery/image1-optimal-configuration.png)
 
@@ -70,8 +77,9 @@ Poniższa ilustracja przedstawia odporność konfiguracji odzyskiwania po awarii
 
 Dodatkowe wymagania dotyczące konfiguracji odzyskiwania po awarii, wystąpieniami dużych HANA są:
 
-- Należy zamówić SAP HANA na Azure (wystąpienia duże) jednostki SKU w taki sam rozmiar jak produkcyjnego jednostki SKU i wdrażać je w regionie odzyskiwania po awarii. W bieżącym wdrożenia klienta te wystąpienia są używane do uruchomienia wystąpień HANA nieprodukcyjnych. Firma Microsoft odwołują się do nich jako *multipurpose konfiguracje DR*.   
+- Należy zamówić SAP HANA na Azure (wystąpienia duże) jednostki SKU w taki sam rozmiar jak produkcyjnego jednostki SKU i wdrażać je w regionie odzyskiwania po awarii. W bieżącym wdrożenia klienta te wystąpienia są używane do uruchomienia wystąpień HANA nieprodukcyjnych. Te konfiguracje są określane jako *multipurpose konfiguracje DR*.   
 - Dodatkowy magazyn w lokacji odzyskiwania po awarii należy zamówić dla każdego z programu SAP HANA na Azure jednostki SKU (duże wystąpienia), które mają zostać odzyskane w lokacji odzyskiwania po awarii. Kupowanie dodatkowego miejsca do magazynowania pozwala przydzielić woluminów magazynu. Można alokować woluminy, które są elementem docelowym replikacji magazynu z produkcyjnego region platformy Azure do odzyskiwania po awarii region platformy Azure.
+
  
 
 ## <a name="backup-and-restore"></a>Tworzenie kopii zapasowej i przywracanie
@@ -112,9 +120,9 @@ Infrastruktury magazynu bazowy SAP HANA na platformie Azure (wystąpienia duże)
 
 Można wykonać migawki magazynu przeznaczonych dla trzech różnych klas woluminów:
 
-- Migawki połączonych za pośrednictwem/hana/danych i /hana/shared (w tym/usr/sap). Ta migawka wymaga utworzenia migawki SAP HANA jako przygotowanie do przechowywania migawki. Migawki SAP HANA będzie upewnij się, że baza danych jest spójna z punktu widzenia magazynu.
+- Migawki połączonych za pośrednictwem/hana/danych i /hana/shared (w tym/usr/sap). Ta migawka wymaga utworzenia migawki SAP HANA jako przygotowanie do przechowywania migawki. Migawki SAP HANA upewnia się, że baza danych jest spójna z punktu widzenia magazynu. I że dla przywracania przetwarzania czyli punktu można ustawić w górę na.
 - Oddzielne migawkę za pośrednictwem/hana/logbackups.
-- Partycja systemu operacyjnego (tylko w przypadku typu I wystąpień dużych HANA).
+- Partycja systemu operacyjnego.
 
 
 ### <a name="storage-snapshot-considerations"></a>Zagadnienia dotyczące magazynu migawki
@@ -134,7 +142,7 @@ SAP HANA na platformie Azure (wystąpienia duże) jest dostarczany z stałym roz
 
 Poniższe sekcje zawierają informacje dotyczące wykonywania migawek, w tym ogólne zalecenia:
 
-- Chociaż sprzętu może wytrzymać 255 migawek dla każdego woluminu, zdecydowanie zaleca się to zapewnić, że również pod ten numer.
+- Chociaż sprzętu może wytrzymać 255 migawek dla każdego woluminu, zdecydowanie zalecane jest pozostanie również pod ten numer.
 - Przed wykonaniem migawki pamięci masowej, monitorować i śledzić ilość wolnego miejsca.
 - Zmniejszyć liczbę migawek magazynu oparte na wolnego miejsca. Można zmniejszyć liczbę migawek, które są stale lub można rozszerzyć woluminy. Dodatkowe miejsce do magazynowania można zamówić w jednostkach terabajt 1.
 - Podczas działania, takie jak przenoszenie danych do programu SAP HANA z narzędzi migracji platform SAP (R3load) lub przywracanie z kopii zapasowej bazy danych SAP HANA Wyłącz migawek magazynu w woluminie /hana/data. 
@@ -152,9 +160,17 @@ Kroki, aby skonfigurować Magazyn migawek wystąpieniami dużych HANA są nastę
 6. Skopiuj skryptów i pliku konfiguracji z [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts) do lokalizacji **hdbsql** w instalacji programu SAP HANA.
 7. Zmodyfikuj HANABackupDetails.txt zgodnie z potrzebami dla specyfikacji odpowiedniego klienta.
 
+### <a name="consideration-for-mcod-scenarios"></a>Brany pod uwagę w przypadku scenariuszy MCOD
+Jeśli używasz [scenariusza MCOD](https://launchpad.support.sap.com/#/notes/1681092) z wielu wystąpień SAP HANA na jedną jednostkę HANA dużych wystąpienia, masz woluminów magazynu oddzielne udostępniane dla każdej z nich dotyczące różnych wystąpień SAP HANA. W bieżącej wersji automatyzacji samoobsługi migawki nie można zainicjować oddzielne migawek na każdy identyfikator SID. Funkcje dostarczane sprawdza, czy zarejestrowanych wystąpień SAP HANA serwera w pliku konfiguracji (patrz później) i wykonuje migawkę jednoczesnych woluminów wszystkich wystąpień, które są zarejestrowane w jednostce.
+ 
+
 ### <a name="step-1-install-the-sap-hana-hdb-client"></a>Krok 1: Instalacja klienta SAP HANA HDB
 
-System operacyjny Linux systemie SAP HANA na platformie Azure (wystąpienia duże) zawiera foldery i skrypty wymagane do wykonania SAP HANA magazynu migawek dla celów tworzenia kopii zapasowych i odzyskiwania po awarii. Sprawdź, czy nowsze wersje w [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts). Najnowszych wersji skryptów jest 2.1.
+System operacyjny Linux systemie SAP HANA na platformie Azure (wystąpienia duże) zawiera foldery i skrypty wymagane do wykonania SAP HANA magazynu migawek dla celów tworzenia kopii zapasowych i odzyskiwania po awarii. Sprawdź, czy nowsze wersje w [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts). Najnowszych wersji skryptów to 3.0.
+
+>[!IMPORTANT]
+>Przenoszenie z wersji 2.1 skryptów do 3.0 skrypty, struktura pliku konfiguracji i niektóre składni skryptów zmienione. Zobacz wywołanie informacje w określonej sekcji. 
+
 Jest jednak obowiązek zainstalować klienta SAP HANA HDB w jednostkach wystąpienia dużych HANA podczas instalowania SAP HANA. (Microsoft nie instaluje klienta HDB lub SAP HANA.)
 
 ### <a name="step-2-change-the-etcsshsshconfig"></a>Krok 2: Zmień/etc/ssh/ssh\_konfiguracji
@@ -211,6 +227,8 @@ Aby zainicjować tworzenie migawek SAP HANA, musisz utworzyć konto użytkownika
 
 ![Tworzenie użytkownika w HANA Studio](./media/hana-overview-high-availability-disaster-recovery/image3-creating-user.png)
 
+W przypadku wdrożeń MCOD z wielu wystąpień SAP HANA na jedną jednostkę ten krok wymaga należy powtórzyć dla każdego wystąpienia SAP HANA.
+
 ### <a name="step-5-authorize-the-sap-hana-user-account"></a>Krok 5: Autoryzowanie SAP HANA konta użytkownika
 
 W tym kroku autoryzować SAP HANA konta użytkownika, które zostały utworzone, dzięki czemu nie trzeba przesyłanie haseł w czasie wykonywania skryptów. Polecenie SAP HANA `hdbuserstore` umożliwia tworzenie SAP HANA klucza użytkownika, który jest przechowywany na co najmniej jeden węzeł SAP HANA. Klucz użytkownika umożliwia użytkownikowi dostęp SAP HANA bez konieczności zarządzania hasłami od w ramach procesu skryptów. Proces skryptów omówiono później.
@@ -234,6 +252,8 @@ W poniższym przykładzie użytkownik jest **SCADMIN01**, nazwa hosta jest **lha
 ```
 hdbuserstore set SCADMIN01 lhanad01:30115 <backup username> <password>
 ```
+Jeśli używasz wdrożenia HANA MCOD z wielu wystąpień SAP HANA na jedną jednostkę kroku musi należy powtórzyć dla każdego wystąpienia SAP HANA oraz skojarzonego użytkownika kopii zapasowej w jednostce.
+
 Jeśli masz SAP HANA skalowania konfiguracji, możesz zarządzać wszystkie skrypty z jednego serwera. W tym przykładzie klucza SAP HANA **SCADMIN01** musi być zmieniony dla każdego hosta w taki sposób, który odzwierciedla hosta, który jest powiązany z klucza. Zmiana konta kopii zapasowej SAP HANA z liczby wystąpień DB HANA. Klucz musi mieć uprawnienia administracyjne na hoście, który jest przypisany do, a użytkownik kopii zapasowej dla skalowalnego w poziomie konfiguracji musi mieć prawa dostępu do wszystkich wystąpień SAP HANA. Zakładając, że trzy węzły skalowalnego w poziomie mają nazwy **lhanad01**, **lhanad02**, i **lhanad03**, sekwencja poleceń wygląda następująco:
 
 ```
@@ -252,14 +272,16 @@ azure_hana_snapshot_details.pl
 azure_hana_snapshot_delete.pl 
 testHANAConnection.pl 
 testStorageSnapshotConnection.pl 
-removeTestStorageSnapshot.pl 
+removeTestStorageSnapshot.pl
+azure_hana_dr_failover.pl
+azure_hana_dr_failover.pl 
 HANABackupCustomerDetails.txt 
 ``` 
 
 
-W tym miejscu jest celem różnych skryptów i plików:
+Celem różnych skryptów i plików jest:
 
-- **Azure\_hana\_backup.pl**: Planowanie ten skrypt z cron do wykonania migawki pamięci masowej na HANA danych/dziennika/udostępnione woluminy, / hana/logbackups woluminu lub systemu operacyjnego (na typu I wersji produktu z HANA dużych wystąpień).
+- **Azure\_hana\_backup.pl**: Planowanie ten skrypt z cron do wykonania migawki pamięci masowej na HANA danych/dziennika/udostępnione woluminy, / hana/logbackups woluminu lub systemu operacyjnego.
 - **Azure\_hana\_replikacji\_status.pl**: ten skrypt zawiera podstawowe szczegóły dotyczące stanu replikacji z lokacji produkcyjnej do odzyskiwania po awarii lokacji. Monitory skryptu, aby upewnić się, że replikacja odbywa się i zawiera rozmiar elementów które są replikowane. Zawiera również wskazówki, jeśli replikacji trwa zbyt długo lub łącze jest wyłączony.
 - **Azure\_hana\_migawki\_details.pl**: ten skrypt zawiera listę podstawowe szczegóły dotyczące wszystkie migawki, na każdym woluminie, które istnieją w danym środowisku. Ten skrypt może działać na podstawowym serwerze lub na jednostkę server w lokalizacji odzyskiwania po awarii. Skrypt zawiera następujące informacje podziale na każdy wolumin, który zawiera migawki:
    * Rozmiar całkowitą migawek woluminu
@@ -272,31 +294,36 @@ W tym miejscu jest celem różnych skryptów i plików:
 - **Azure\_hana\_migawki\_delete.pl**: ten skrypt usuwa migawkę magazynu lub zestawu migawek. Można użyć Identyfikatora kopii zapasowej SAP HANA, tak jak w HANA Studio lub nazwy migawki magazynu. Obecnie identyfikator kopii zapasowej jest tylko powiązane migawek utworzonych dla HANA danych/dziennika/udostępnione woluminy. W przeciwnym razie jeśli wprowadzono identyfikator migawki, zmierza wszystkie migawki zgodne identyfikator wprowadzone migawki.  
 - **testHANAConnection.pl**: ten skrypt testuje połączenie z wystąpieniem SAP HANA i jest wymagany do ustawienia magazynu migawek.
 - **testStorageSnapshotConnection.pl**: ten skrypt ma dwa cele. Najpierw gwarantuje, że jednostki HANA dużych wystąpienia, która uruchamia skrypty ma dostęp do maszyny wirtualnej przypisanej magazynu oraz interfejs migawki magazynu wystąpień dużych HANA. Drugi służy do utworzenia migawki tymczasowego wystąpienia HANA, które są testowania. Ten skrypt powinien być uruchamiany dla każdego wystąpienia HANA na serwerze, aby upewnić się, że skrypty kopii zapasowych działać zgodnie z oczekiwaniami.
-- **removeTestStorageSnapshot.pl**: ten skrypt usuwa testu migawki utworzonym przy użyciu skryptu **testStorageSnapshotConnection.pl**. 
-- **HANABackupCustomerDetails.txt**: ten plik jest plikiem konfiguracji można modyfikować, który należy zmodyfikować dostosowanie konfiguracji SAP HANA.
+- **removeTestStorageSnapshot.pl**: ten skrypt usuwa testu migawki utworzonym przy użyciu skryptu **testStorageSnapshotConnection.pl**.
+- **Azure\_hana\_dr\_failover.pl**: skrypt, aby zainicjować DR trybu failover w innym regionie. Skrypt musi być wykonywane w jednostce HANA dużych wystąpienia w regionie odzyskiwania po awarii. Lub jednostki, który chcesz przełączyć się. Ten skrypt zatrzymuje replikacji magazynu ze strony głównej na stronie dodatkowej, przywraca najnowszą migawkę na woluminach DR oraz zapewnia punkty instalacji DR woluminów  
+- **Azure\_hana\_test\_dr\_failover.pl**: skrypt umożliwiający przeprowadzenie testowego trybu failover w lokacji odzyskiwania po awarii. Wykonanie tego sprzecznie skryptu azure_hana_dr_failover.pl nie przerywa replikacji magazynu z podstawowej do dodatkowej. Zamiast tego utworzyć klony woluminów replikowanego magazynu po stronie odzyskiwania po awarii i znajdują się punkty instalacji woluminu sklonowany. 
+- **HANABackupCustomerDetails.txt**: ten plik jest plikiem konfiguracji można modyfikować, który należy zmodyfikować dostosowanie konfiguracji SAP HANA. Plik HANABackupCustomerDetails.txt jest plikiem konfiguracji i kontroli do skryptu uruchamianego migawek magazynu. Dostosuj plik dla celów i konfiguracji. Powinna zostać odebrana **nazwę magazynu kopii zapasowej** i **adres IP magazynu** z SAP HANA na zarządzanie usługami Azure, gdy wdrożono swoich wystąpień. Sekwencja, nie można zmodyfikować kolejność lub odstępy tych zmiennych w tym pliku. W przeciwnym razie skryptów nie będą działać poprawnie. Ponadto uzyskano adres IP węzła skalowanie w pionie lub węzła głównego (jeśli skalowalnego w poziomie) z SAP HANA na zarządzanie usługami Azure. Znasz także liczby wystąpień HANA, który wystąpił podczas instalacji programu SAP HANA. Teraz należy dodać nazwę kopii zapasowej do pliku konfiguracji.
 
- 
-Plik HANABackupCustomerDetails.txt jest plikiem konfiguracji i kontroli do skryptu uruchamianego migawek magazynu. Dostosuj plik dla celów i konfiguracji. Powinna zostać odebrana **nazwę magazynu kopii zapasowej** i **adres IP magazynu** z SAP HANA na zarządzanie usługami Azure, gdy wdrożono swoich wystąpień. Sekwencja, nie można zmodyfikować kolejność lub odstępy tych zmiennych w tym pliku. W przeciwnym razie skryptów nie będą działać poprawnie. Ponadto uzyskano adres IP węzła skalowanie w pionie lub węzła głównego (jeśli skalowalnego w poziomie) z SAP HANA na zarządzanie usługami Azure. Znasz także liczby wystąpień HANA, który wystąpił podczas instalacji programu SAP HANA. Teraz należy dodać nazwę kopii zapasowej do pliku konfiguracji.
+W przypadku wdrożenia skalowania w górę i skalowania w poziomie pliku konfiguracyjnego będzie wyglądać jak w następującym przykładzie po wypełnieniu nazwę serwera HANA dużych wystąpienie jednostki oraz adres IP serwera. W przypadku replikacji systemu SAP HANA używać wirtualnego adresu IP w konfiguracji replikacji systemu HANA. Wypełnij wszystkie wymagane pola dla identyfikatora SID każdego SAP HANA chcesz utworzyć kopii zapasowej lub odzyskiwania. Może również komentarz wierszy wystąpień, których nie chcesz, aby kopii zapasowej w danym okresie czasu, przez dodanie "#" przed polem wymaganym. Nie należy wprowadzać SAP HANA wszystkich wystąpień, które znajdują się na serwerze, jeśli nie istnieje potrzeba kopii zapasowej lub odzyskiwania tego konkretnego wystąpienia. Format musi być przechowywany we wszystkich polach inaczej, wszystkie skrypty przedstawia komunikat o błędzie i kończy skryptu. Można jednak usunąć dodatkowe wiersze wymagane wszystkie informacje dotyczące identyfikatora SID nie jest używany po ostatnim używane wystąpienie SAP HANA.  Wszystkie wiersze muszą być wypełnione, oznaczone jako komentarz albo usunąć.
 
-W przypadku wdrożenia skalowania w górę i skalowania w poziomie pliku konfiguracyjnego będzie wyglądać jak w następującym przykładzie po wypełnieniu nazwę magazynu kopii zapasowej i przechowywania adresu IP. Należy również podać następujące dane w pliku konfiguracji:
-- Pojedynczy węzeł lub adres IP węzła głównego
-- HANA liczby wystąpień
-- Nazwa kopii zapasowej 
+>[!IMPORTANT]
+>Struktura pliku została zmieniona wraz z przejściem z wersji 2.1 do wersji 3.0 lub nowszej. Jeśli chcesz użyć skryptów w wersji 3.0, należy dostosowania struktura pliku konfiguracji. 
+
+
+```
+HANA Server Name: testing01
+HANA Server IP Address: 172.18.18.50
+```
+
+Dla każdego wystąpienia skonfigurowanego w jednostce HANA wystąpienia dużych lub do skalowania konfiguracji należy zdefiniować dane w następujący sposób
+
     
 ```
-#Provided by Microsoft Service Management
-Storage Backup Name: client1hm3backup
-Storage IP Address: 10.240.20.31
-#Node IP addresses, instance numbers, and HANA backup name
-#provided by customer.  HANA backup name created using
-#hdbuserstore utility.
-Node 1 IP Address: 
-Node 1 HANA instance number:
-Node 1 HANA userstore Name:
+######***SID #1 Information***#####
+SID1: h01
+###Provided by Microsoft Operations###
+SID1 Storage Backup Name: cl22h01backup
+SID1 Storage IP Address: 172.18.18.11
+######     Customer Provided    ######
+SID1 HANA instance number: 00
+SID1 HANA HDBuserstore Name: SCADMINH01
 ```
-
->[!NOTE]
->Obecnie tylko szczegóły dotyczące węzła 1 są używane w skrypcie migawki magazynu rzeczywista HANA. Zaleca się przetestowanie dostęp do i z dowolnych węzłów HANA tak, aby w przypadku zmiany kiedykolwiek węzła głównego kopii zapasowej, już zapewnieniu innym węźle może zająć jego miejsce, modyfikując szczegółowe informacje w węźle 1.
+Skalowalnego w poziomie i konfiguracji replikacji systemu HANA zaleca się powtarzania tej konfiguracji na każdym z węzłów. Dzięki temu się upewnić, że w przypadkach niepowodzenia, kopie zapasowe i ostatecznego magazynu replikacji nadal można kontynuować pracę.   
 
 Po wprowadzeniu wszystkich danych konfiguracji w pliku HANABackupCustomerDetails.txt, należy sprawdzić, czy konfiguracje są poprawne, dotyczące HANA dane wystąpienia. Użyj skryptu `testHANAConnection.pl`. Ten skrypt jest niezależna od konfiguracji skalowania w górę i skalowania w poziomie SAP HANA.
 
@@ -331,7 +358,7 @@ Następnie skrypt próbuje zalogować się do magazynu przy użyciu klucza publi
 Storage Access successful!!!!!!!!!!!!!!
 ```
 
-W przypadku połączenia konsoli magazynu wystąpią problemy, dane wyjściowe wygląda następująco:
+W przypadku połączenia konsoli magazynu wystąpią problemy, dane wyjściowe wyglądają następująco:
 
 ```
 **********************Checking access to Storage**********************
@@ -380,35 +407,41 @@ Migawki testowego zostało wykonane pomyślnie ze skryptem, może kontynuować k
 
 ### <a name="step-7-perform-snapshots"></a>Krok 7: Wykonaj migawki
 
-Wszystkie kroki przygotowania są gotowe, można uruchomić konfigurację migawki rzeczywistego magazynu. Skrypt do zaplanowania współpracuje z konfiguracji skalowania w górę i skalowania w poziomie SAP HANA. Należy zaplanować wykonywania skryptów za pomocą usługi cron. 
+Wszystkie kroki przygotowania są gotowe, można uruchomić konfigurację migawki rzeczywistego magazynu. Skrypt do zaplanowania współpracuje z konfiguracji skalowania w górę i skalowania w poziomie SAP HANA. Okresowe i regularnego wykonywania skryptu kopii zapasowej należy zaplanować skryptu za pomocą usługi cron. 
 
 Można tworzyć trzy typy kopii zapasowych migawki:
 - **HANA**: łączyć kopii zapasowej migawki, w którym woluminów, które zawierają dane/hana/i/hana/udostępnione (zawierającej również /usr/sap) są objęte skoordynowanego migawki. Przywracanie pojedynczego pliku jest możliwe z tej migawki.
-- **Dzienniki**: kopii zapasowej migawki woluminu logbackups/hana /. Nie migawki HANA zostanie wywołany do wykonania tej migawki magazynu. Ten wolumin magazynu jest woluminu, która miała zawierać kopie zapasowe dziennika transakcji SAP HANA. Kopie zapasowe dziennika transakcji SAP HANA odbywa się częściej ograniczenie dziennika wzrostu i zapobiegania utracie danych. Przywracanie pojedynczego pliku jest możliwe z tej migawki. Nie należy zmniejszyć częstotliwość w obszarze pięć minut.
-- **Rozruch**: migawki woluminu, który zawiera rozruchu numer jednostki logicznej (LUN) wystąpienia dużych HANA. Ta kopia zapasowa migawki jest możliwe tylko w przypadku typu I wersji produktu z HANA dużych wystąpienia. Nie można wykonać pojedynczy plik przywracania z migawki woluminu, który zawiera rozruchu jednostki LUN. Typu II jednostki SKU z HANA dużych wystąpień utworzenia kopii zapasowej do poziomu systemu operacyjnego i przywracania oraz poszczególnych plików. Można znaleźć w dokumencie "[sposobu wykonywania kopii zapasowej systemu operacyjnego dla jednostki SKU II typu](os-backup-type-ii-skus.md)" Aby uzyskać więcej informacji.
+- **Dzienniki**: kopii zapasowej migawki woluminu logbackups/hana /. Nie migawki HANA zostanie wywołany do wykonania tej migawki magazynu. Ten wolumin magazynu jest woluminu, która miała zawierać kopie zapasowe dziennika transakcji SAP HANA. Kopie zapasowe dziennika transakcji SAP HANA odbywa się częściej ograniczenie dziennika wzrostu i zapobiegania utracie danych. Przywracanie pojedynczego pliku jest możliwe z tej migawki. Nie należy zmniejszyć częstotliwość w obszarze trzy minuty.
+- **Rozruch**: migawki woluminu, który zawiera rozruchu numer jednostki logicznej (LUN) wystąpienia dużych HANA. Ta kopia zapasowa migawki jest możliwe tylko w przypadku typu I wersji produktu z HANA dużych wystąpienia. Nie można wykonać pojedynczy plik przywracania z migawki woluminu, który zawiera rozruchu jednostki LUN.
 
 
-Składnia wywołania te trzy różne typy migawek wygląda następująco:
+>[!NOTE]
+> Składnia wywołania te trzy różne typy migawek zmienić wraz z przejściem do wersji 3.0 skrypty, które obsługują wdrożeń MCOD. Jest niepotrzebna, aby określić identyfikator SID HANA wystąpienia już. Należy się upewnić, że wystąpienia SAP HANA jednostki są skonfigurowane w pliku konfiguracyjnym **HANABackupCustomerDetails.txt**.
+
+
+Nowej składni wywołanie dla migawki magazynu ze skryptem wykonywania **azure_hana_backup.pl** wygląda jak:
+
 ```
 HANA backup covering /hana/data and /hana/shared (includes/usr/sap)
-./azure_hana_backup.pl hana <HANA SID> manual 30
+./azure_hana_backup.pl hana <snapshot_prefix> <snapshot_frequency> <number of snapshots retained>
 
 For /hana/logbackups snapshot
-./azure_hana_backup.pl logs <HANA SID> manual 30
+./azure_hana_backup.pl logs <snapshot_prefix> <snapshot_frequency> <number of snapshots retained>
 
 For snapshot of the volume storing the boot LUN
-./azure_hana_backup.pl boot none manual 30
+./azure_hana_backup.pl boot <HANA Large Instance Type> <snapshot_prefix> <snapshot_frequency> <number of snapshots retained>
 
 ```
 
-Następujące parametry muszą być określone:
+Należy określić następujące parametry: 
 
 - Pierwszy parametr charakteryzuje typ kopii zapasowej migawki. Dozwolone wartości to **hana**, **dzienniki**, i **rozruchu**. 
-- Drugi parametr jest **HANA SID** (takich jak HM3) lub **Brak**. W przypadku pierwszej wartości parametrów jest **hana** lub **dzienniki**, wartość tego parametru jest **HANA SID** (na przykład HM3) else kopii zapasowej woluminu rozruchowego, wartość jest **Brak**. 
-- Trzeci parametr jest migawka lub etykieta kopii zapasowej dla typu migawka. Ma dwa cele. Jeden dla Ciebie ma na celu nadaj mu nazwę, tak aby było wiadomo, że te migawki są informacje. Drugi cel to Azure skryptu\_hana\_backup.pl w celu określenia liczby migawek magazynu, które są przechowywane w tym określoną etykietą. Przypadku zaplanowania dwóch kopii zapasowych migawki magazynu tego samego typu (takich jak **hana**), z dwie etykiety i definiować czy 30 migawki powinny być utrzymywane dla każdego, mają być na końcu 60 magazynu migawek woluminów, których to dotyczy. 
-- Czwartego parametru definiuje przechowywania migawki pośrednio, definiując liczbę migawek o identycznym prefiksie migawki (etykieta) mają być przechowywane. Ten parametr jest ważne w przypadku zaplanowane wykonanie za pomocą usługi cron. 
+- Parametr  **<HANA Large Instance Type>**  jest niezbędne w przypadku rozruchu kopie zapasowe woluminów tylko. Dwa prawidłowe wartości "TypeI" lub "TypeII" są zależne od HANA dużych wystąpienia jednostki. Aby dowiedzieć się, jakie "Type" urządzenia przeczytaj [dokumentacji](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).  
+- Parametr **< snapshot_prefix >** jest migawką lub etykieta kopii zapasowej dla typu migawka. Ma dwa cele. Jeden dla Ciebie ma na celu nadaj mu nazwę, tak aby było wiadomo, że te migawki są informacje. Drugi cel to Azure skryptu\_hana\_backup.pl w celu określenia liczby migawek magazynu, które są przechowywane w tym określoną etykietą. Przypadku zaplanowania dwóch kopii zapasowych migawki magazynu tego samego typu (takich jak **hana**), z dwie etykiety i definiować czy 30 migawki powinny być utrzymywane dla każdego, mają być na końcu 60 magazynu migawek woluminów, których to dotyczy. 
+- Parametr **< snapshot_frequency >** jest zarezerwowane dla przyszłego rozwoju i nie ma żadnego wpływu. Firma Microsoft zaleca ustawienie teraz "3min" podczas wykonywania kopii zapasowych dziennika typu i "15min", podczas wykonywania kopii zapasowej innych typów
+- Parametr  **<number of snapshots retained>**  definiuje przechowywania migawki pośrednio, definiując liczbę migawek o identycznym prefiksie migawki (etykieta) mają być przechowywane. Ten parametr jest ważne w przypadku zaplanowane wykonanie za pomocą usługi cron. Liczba migawek z tej samej snapshot_prefix przekroczyłaby podanemu ten parametr, to będzie można usunąć przed wykonaniem nową migawkę magazynu najstarsza migawka.
 
-W przypadku skalowanie w poziomie ten skrypt wykonuje, niektóre dodatkowe sprawdzenie w celu zapewnienia, że można uzyskać dostępu do wszystkich serwerów HANA. Skrypt sprawdza również, że wszystkie wystąpienia HANA zwracać odpowiedni stan wystąpień, zanim tworzy migawkę SAP HANA. Migawki SAP HANA następuje migawki magazynu.
+W przypadku skalowanie w poziomie ten skrypt wykonuje, niektóre dodatkowe sprawdzenie w celu zapewnienia, że można uzyskać dostępu do wszystkich serwerów HANA. Skrypt sprawdza również, że wszystkie wystąpienia HANA zwracać odpowiedni stan wystąpienia przed tworzy migawkę SAP HANA. Migawki SAP HANA następuje migawki magazynu.
 
 Wykonanie skryptu `azure_hana_backup.pl` tworzy magazynu migawek następujące trzy różne fazy:
 
@@ -418,15 +451,15 @@ Wykonanie skryptu `azure_hana_backup.pl` tworzy magazynu migawek następujące t
 
 Można wykonać skryptu, wywoływana z HDB folderu pliku wykonywalnego, który został skopiowany do. 
 
-Okres przechowywania jest podawana przy użyciu liczby migawek, które są przesyłane jako parametr podczas wykonywania skryptu (takich jak **30**, pokazano wcześniej). Tak, czas objętych migawek magazynu jest funkcją dwie czynności: okres wykonywania i liczby migawek przekazany jako parametr podczas wykonywania skryptu. Jeśli liczby migawek, które są zachowane przekracza liczbę, które są nazywane jako parametr w wywołaniu skryptu, najstarsza migawka magazynu w tej samej etykiety (w tym przypadku poprzednich **ręczne**) jest usunięty przed wykonaniem nową migawkę. Liczba nadaj jako ostatni parametr wywołania jest liczba służy do kontrolowania liczby migawek, które są zachowane. Z tym numerem można też kontrolować, pośrednio, miejsca na dysku używanego dla migawek. 
+Okres przechowywania jest podawana przy użyciu liczby migawek, które są przesyłane jako parametr podczas wykonywania skryptu. Ilość czasu, objętych migawek magazynu jest funkcją dwie czynności: okres wykonywania i liczby migawek przekazany jako parametr podczas wykonywania skryptu. W przypadku liczby migawek, które są zachowane przekracza liczbę, które są nazywane jako parametr w wywołaniu skryptu, najstarsza migawka magazynu w tej samej etykiety zostaną usunięte przed wykonaniem nową migawkę. Liczba nadaj jako ostatni parametr wywołania jest liczba służy do kontrolowania liczby migawek, które są zachowane. Z tym numerem można też kontrolować, pośrednio, miejsca na dysku używanego dla migawek. 
 
 > [!NOTE]
->Jak zmienić etykietę, liczenie zostanie uruchomiony ponownie. Oznacza to, że użytkownik musi być ściśle w etykietowanie, więc nie zostaną przypadkowo usunięte z migawki.
+>Jak zmienić etykietę, liczenie zostanie uruchomiony ponownie. Oznacza to, że użytkownik musi być strict w etykietowanie, więc nie zostaną przypadkowo usunięte z migawki.
 
 ### <a name="snapshot-strategies"></a>Strategie migawki
 Częstotliwość migawek dla różnych typów zależy od tego, czy używać funkcji odzyskiwania po awarii HANA dużych wystąpienia lub nie. Funkcje odzyskiwania po awarii wystąpień dużych HANA zależy od magazynu migawek. Zależne magazynu migawek może wymagać specjalnych kilka zaleceń, które są dostępne pod względem okresów częstotliwości i wykonywania migawek magazynu. 
 
-Zagadnienia i zalecenia, które należy wykonać, przyjęto założenie, że należy wykonać *nie* oferuje duże wystąpień HANA funkcja odzyskiwania po awarii. W zamian użyj magazynu migawek, sposób tworzenia kopii zapasowych i mieć możliwość zapewnienia punktu w czasie odzyskiwania w ciągu ostatnich 30 dni. Podane ograniczenia liczby migawek i miejsca, klienci mają za następujące wymagania:
+W zagadnienia i zalecenia, które należy wykonać, jest założenie, że wykonać *nie* oferuje duże wystąpień HANA funkcja odzyskiwania po awarii. W zamian użyj magazynu migawek kopii zapasowych i mieć możliwość zapewnienia punktu w czasie odzyskiwania w ciągu ostatnich 30 dni. Podane ograniczenia liczby migawek i miejsca, klienci mają za następujące wymagania:
 
 - Podczas odzyskiwania do punktu w czasie odzyskiwania.
 - Miejsce.
@@ -435,27 +468,27 @@ Zagadnienia i zalecenia, które należy wykonać, przyjęto założenie, że nal
 - Liczby migawek dla każdego woluminu jest ograniczona do 255.
 
 
-Dla klientów, którzy nie korzystać z funkcji odzyskiwania po awarii HANA dużych wystąpień okres migawki jest rzadziej. W takich przypadkach widzimy klientów wykonywania migawki połączonych /hana/data i /hana/shared (w tym /usr/sap) w okresach 12-godzinnym lub 24-godzinnym, a ich zapewnić migawek, aby pokrywał cały miesiąc. To samo dotyczy z migawki woluminu kopii zapasowej dziennika. Jednak wykonywania kopii zapasowych dziennika transakcji SAP HANA na woluminie kopii zapasowej dziennika odbywa się w 5-minutowy okresów 15 minut.
+Dla klientów, którzy nie korzystać z funkcji odzyskiwania po awarii HANA dużych wystąpień okres migawki jest rzadziej. W takich przypadkach klienci wykonywania migawki połączonych na /hana/data i /hana/shared (w tym /usr/sap) w okresach 12-godzinnym lub 24-godzinnym, a prowadzą migawek, aby pokrywał cały miesiąc. To samo dotyczy z migawki woluminu kopii zapasowej dziennika. Jednak wykonywania kopii zapasowych dziennika transakcji SAP HANA na woluminie kopii zapasowej dziennika odbywa się w 5-minutowy okresów 15 minut.
 
-Firma Microsoft zachęca do wykonywania zaplanowanych pamięci masowej migawki za pomocą usługi cron. Zaleca się również, że używasz tego samego skryptu wszystkich kopii zapasowych i odzyskiwania po awarii musi. Należy zmodyfikować skrypt danych wejściowych w celu dopasowania do różnych żądany czas tworzenia kopii zapasowej. Te migawki są wszystkie zaplanowane inaczej w cron w zależności od ich czas wykonywania: co godzinę, 12-godzinnym, codziennie lub co tydzień. 
+Zaleca się przeprowadzania zaplanowanych pamięci masowej migawki za pomocą usługi cron. Zalecane jest również, przy użyciu tego samego skryptu wszystkich kopii zapasowych i odzyskiwania po awarii wymaga. Zmodyfikuj skrypt danych wejściowych w celu dopasowania do różnych żądany czas tworzenia kopii zapasowej. Te migawki są wszystkie zaplanowane inaczej w cron w zależności od ich czas wykonywania: co godzinę, 12-godzinnym, codziennie lub co tydzień. 
 
-Przykład harmonogramu cron w /etc/crontab może wyglądać następująco:
+Przykład harmonogramu cron w /etc/crontab może wyglądać tak:
 ```
-00 1-23 * * * ./azure_hana_backup.pl hana HM3 hourlyhana 46
-10 00 * * *  ./azure_hana_backup.pl hana HM3 dailyhana 28
+00 1-23 * * * ./azure_hana_backup.pl hana hourlyhana 15min 46
+10 00 * * *  ./azure_hana_backup.pl hana dailyhana 15min 28
 00,05,10,15,20,25,30,35,40,45,50,55 * * * *  Perform SAP HANA transaction log backup
-22 12 * * *  ./azure_hana_backup.pl log HM3 dailylogback 28
-30 00 * * *  ./azure_hana_backup.pl boot dailyboot 28
+22 12 * * *  ./azure_hana_backup.pl log dailylogback 3min 28
+30 00 * * *  ./azure_hana_backup.pl boot TypeI dailyboot 15min 28
 ```
 W poprzednim przykładzie jest godzinowe Scalonej migawki, która obejmuje woluminów, które zawierają dane/hana/i /hana/shared (w tym/usr/sap) lokalizacji. Tego rodzaju migawki będzie służyć do szybciej w momencie odzyskiwania w ciągu ostatnich dwóch dni. Ponadto istnieje codziennych migawek na tych woluminach. Tak masz dwa dni obowiązywania przez co godzinę migawki, a także cztery tygodnie pokrycia o codziennych migawek. Ponadto wolumin kopii zapasowej dziennika transakcji kopia zapasowa jest tworzona raz każdego dnia. Te kopie zapasowe są przechowywane również cztery tygodnie. Jak widać w trzeci wiersz crontab kopii zapasowej dziennika transakcji HANA jest zaplanowane wykonanie co pięć minut. Minuty rozpoczęcia zadania różnych cron, które wykonać migawki magazynu są rozłożone, dzięki czemu te migawki nie są wykonywane jednocześnie w określonym punkcie w czasie. 
 
 W poniższym przykładzie możesz wykonać Scalonej migawki, która obejmuje woluminów, które zawierają/hana/danych i/hana/udostępnione (takie jak/usr/sap) lokalizacje co godzinę. Należy dysponować migawek dla dwóch dni. Migawki woluminów kopii zapasowej dziennika transakcji są wykonywane na podstawie 5 minutową i są przechowywane przez cztery godziny. Jako przed, kopia zapasowa pliku dziennika transakcji HANA jest zaplanowane wykonanie co pięć minut. Migawki woluminu kopii zapasowej dziennika transakcji jest wykonywane z opóźnieniem dwie minuty, po rozpoczęciu tworzenia kopii zapasowej dziennika transakcji. W ramach tych dwóch minut kopii zapasowej dziennika transakcji SAP HANA powinna zakończyć się w normalnych okolicznościach. Jako przed, woluminu rozruchowego jednostka LUN jest kopii zapasowej raz dziennie przez migawkę magazynu i jest przechowywany przez cztery tygodnie.
 
 ```
-10 0-23 * * * ./azure_hana_backup.pl hana HM3 hourlyhana 48
+10 0-23 * * * ./azure_hana_backup.pl hana hourlyhana 15min 48
 0,5,10,15,20,25,30,35,40,45,50,55 * * * *  Perform SAP HANA transaction log backup
-2,7,12,17,22,27,32,37,42,47,52,57 * * * *  ./azure_hana_backup.pl log HM3 logback 48
-30 00 * * *  ./azure_hana_backup.pl boot dailyboot 28
+2,7,12,17,22,27,32,37,42,47,52,57 * * * *  ./azure_hana_backup.pl log logback 3min 48
+30 00 * * *  ./azure_hana_backup.pl boot TypeII dailyboot 15min 28
 ```
 
 Poniższa ilustracja przedstawia sekwencji poprzedni przykład, z wyłączeniem rozruchu LUN:
@@ -463,6 +496,9 @@ Poniższa ilustracja przedstawia sekwencji poprzedni przykład, z wyłączeniem 
 ![Relacja między migawki i kopii zapasowych](./media/hana-overview-high-availability-disaster-recovery/backup_snapshot_updated0921.PNG)
 
 SAP HANA wykonuje regularne zapisu woluminu /hana/log dokumentów zatwierdzić zmiany w bazie danych. Regularnie SAP HANA zapisuje punktu zapisu w woluminie /hana/data. Określone w crontab kopii zapasowej dziennika transakcji SAP HANA jest wykonywana co pięć minut. Możesz również sprawdzić, czy SAP HANA migawki jest wykonywane co godzinę wyniku wyzwalania migawki magazynu połączone za pośrednictwem /hana/data i /hana/shared woluminów. Po pomyślnym zainicjowaniu migawki HANA, migawki połączonych magazynów jest wykonywana. Zgodnie z instrukcją w crontab, migawki magazynu w woluminie /hana/logbackup jest wykonywana co 5 minut, po utworzeniu kopii zapasowej dziennika transakcji HANA około dwie minuty.
+
+> [!NOTE]
+>Planowanie magazynu kopii zapasowych migawki na dwa węzły ustawień replikacji systemu HANA, musisz upewnij się, że wykonywanie kopii zapasowych migawki nie nakładają się. SAP HANA ma ograniczenie na wypadek naraz tylko jedna migawka HANA. Ponieważ migawki HANA jest podstawowych składników pomyślne magazynu kopii zapasowej migawki, należy się upewnić, że migawki magazynowania na węzeł podstawowych i pomocniczych i ostatecznego węzeł trzeci są odpowiednim od siebie od siebie.
 
 
 >[!IMPORTANT]
@@ -473,11 +509,11 @@ Jeśli ustawiono zaangażowanie użytkowników w momencie odzyskiwania 30 dni, w
 - W ekstremalnych przypadkach potrzebna jest możliwość dostępu do magazynu połączone przez/hana/dane migawki i /hana/shared czyli 30 dni.
 - Mieć kopie zapasowe dziennika transakcji ciągły, które obejmuje czas od żadnego migawki połączonych magazynu. Tak najstarsze migawki woluminu kopii zapasowej dziennika transakcji musi być 30 dni. Nie jest to, czy kopie zapasowe dziennika transakcji należy skopiować do innego udziału NFS, który znajduje się w magazynie Azure. W takim przypadku może pobierać starych kopii zapasowej dziennika transakcji tego udziału NFS.
 
-Aby korzystać z magazynu migawek i replikacji ostatecznego magazynu kopii zapasowych dziennika transakcji, musisz zmienić SAP HANA zapisuje kopie zapasowe dziennika transakcji do lokalizacji. Można to zrobić w HANA Studio. Chociaż SAP HANA tworzy kopię zapasową dziennika pełne segmenty automatycznie, należy określić interwał kopii zapasowej dziennika, aby być deterministyczny. To jest szczególnie ważne podczas używania opcji odzyskiwania po awarii, ponieważ ma wykonać kopie zapasowe dziennika z okresem deterministyczna. W przypadku następujących Wybraliśmy 15 minut jako interwał kopii zapasowej dziennika.
+Aby korzystać z magazynu migawek i replikacji ostatecznego magazynu kopii zapasowych dziennika transakcji, musisz zmienić SAP HANA zapisuje kopie zapasowe dziennika transakcji do lokalizacji. Można to zrobić w HANA Studio. Chociaż SAP HANA tworzy kopię zapasową dziennika pełne segmenty automatycznie, należy określić interwał kopii zapasowej dziennika, aby być deterministyczny. To jest szczególnie ważne podczas używania opcji odzyskiwania po awarii, ponieważ ma wykonać kopie zapasowe dziennika z okresem deterministyczna. W przypadku następujących 15 minut są ustawione jako interwał kopii zapasowej dziennika.
 
 ![Planowanie tworzenia kopii zapasowych dzienników SAP HANA w SAP HANA Studio](./media/hana-overview-high-availability-disaster-recovery/image5-schedule-backup.png)
 
-Możesz wybrać tworzenie kopii zapasowych, które są częściej niż co 15 minut. Często jest to realizowane w połączeniu z opcją odzyskiwania po awarii. Niektórzy klienci kopie zapasowe dziennika transakcji, co pięć minut.  
+Możesz wybrać tworzenie kopii zapasowych, które są częściej niż co 15 minut. Niższe ustawienie jest często używane w połączeniu z funkcją odzyskiwanie po awarii HANA dużych wystąpień. Niektórzy klienci kopie zapasowe dziennika transakcji, co pięć minut.  
 
 Jeśli bazy danych nigdy nie wykonano kopię zapasową, ostatnim krokiem jest wykonanie kopii zapasowej na podstawie pliku bazy danych do utworzenia jednego wpisu kopii zapasowej, który musi istnieć w katalogu kopii zapasowej. W przeciwnym razie SAP HANA nie można zainicjować kopii zapasowych określony dziennik.
 
@@ -518,7 +554,7 @@ Składnia wykonywania skryptu wygląda następująco:
 ./azure_hana_snapshot_details.pl 
 ```
 
-Ponieważ skrypt próbuje pobrać identyfikator HANA kopii zapasowej, należy połączyć się z wystąpieniem SAP HANA. To połączenie wymaga pliku konfiguracji HANABackupCustomerDetails.txt określone poprawnie. Dane wyjściowe z dwiema migawkami na woluminie może wyglądać następująco:
+Ponieważ skrypt próbuje pobrać identyfikator HANA kopii zapasowej, należy połączyć się z wystąpieniem SAP HANA. To połączenie wymaga pliku konfiguracji HANABackupCustomerDetails.txt określone poprawnie. Dane wyjściowe z dwiema migawkami na woluminie może wyglądać tak:
 
 ```
 **********************************************************
@@ -544,7 +580,7 @@ HANA Backup ID:
 Hana typy migawki i dzienników, jest możliwość dostęp do migawek bezpośrednio na woluminach w **.snapshot** katalogu. Brak podkatalogu dla każdego z migawki. Można będzie o skopiowaniu wszystkich plików objętych migawki w stanie, w jakim znajdował się w punkcie migawki z tego podkatalogu do struktury katalogowych.
 
 >[!NOTE]
->Pojedynczy plik przywracania nie działa w przypadku migawki rozruchu jednostki LUN. **.Snapshot** katalogu nie jest widoczna w rozruchu jednostki LUN. 
+>Pojedynczy plik przywracania nie działa w przypadku migawki rozruchu niezależnie od typu HANA dużych wystąpienia jednostki LUN. **.Snapshot** katalogu nie jest widoczna w rozruchu jednostki LUN. 
 
 
 ### <a name="reducing-the-number-of-snapshots-on-a-server"></a>Zmniejszenie liczby migawek na serwerze
@@ -552,13 +588,13 @@ Hana typy migawki i dzienników, jest możliwość dostęp do migawek bezpośred
 Jak opisano wcześniej, można zmniejszyć liczbę niektórych etykiety migawek, które są przechowywane. Ostatnie dwa parametry polecenie, aby zainicjować migawki są etykiety i liczby migawek, które chcesz zachować.
 
 ```
-./azure_hana_backup.pl hana HM3 hanadaily 30
+./azure_hana_backup.pl hana dailyhana 15min 28
 ```
 
-W poprzednim przykładzie etykieta migawki jest **klienta** migawek oznaczone tą etykietą mają być zachowywane są **30**. Jak odpowiedzieć użycie miejsca na dysku, można zmniejszyć liczbę migawek przechowywanych. Jest łatwy sposób, aby zmniejszyć liczbę migawek do 15, na przykład do uruchomienia skryptu z ostatniego parametru ustawioną **15**:
+W poprzednim przykładzie etykieta migawki jest **dailyhana** migawek oznaczone tą etykietą mają być zachowywane są **28**. Jak odpowiedzieć użycie miejsca na dysku, można zmniejszyć liczbę migawek przechowywanych. Jest łatwy sposób, aby zmniejszyć liczbę migawek do 15, na przykład do uruchomienia skryptu z ostatniego parametru ustawioną **15**:
 
 ```
-./azure_hana_backup.pl hana HM3 hanadaily 15
+./azure_hana_backup.pl hana dailyhana 15min 15
 ```
 
 Jeśli to ustawienie należy uruchomić skrypt, liczby migawek, w tym nową migawkę magazynu to 15. 15 najnowszych migawki są przechowywane, natomiast 15 migawki starsze są usuwane.
@@ -566,7 +602,7 @@ Jeśli to ustawienie należy uruchomić skrypt, liczby migawek, w tym nową miga
  >[!NOTE]
  > Ten skrypt powoduje zmniejszenie liczby migawek tylko wtedy, gdy istnieją migawek, które są więcej niż jedną godzinę. Skrypt nie powoduje usunięcia migawki, które są mniej niż jedną godzinę. Ograniczenia te są związane z funkcje opcjonalne odzyskiwania po awarii.
 
-Jeśli nie chcesz przechowywać zestawu migawek z określoną etykietą kopii zapasowej **hanadaily** w przykładach składni można wykonać skryptu za pomocą **0** jako numer przechowywania. Spowoduje to usunięcie wszystkich migawek dopasowania tej etykiecie. Jednak usunięcie wszystkich migawek może mieć wpływ na możliwości odzyskiwania po awarii.
+Jeśli nie chcesz przechowywać zestawu migawek z określoną etykietą kopii zapasowej **hanadaily** w przykładach składni można wykonać skryptu za pomocą **0** jako numer przechowywania. Spowoduje to usunięcie wszystkich migawek dopasowania tej etykiecie. Jednak usunięcie wszystkich migawek może mieć wpływ na możliwości wystąpienia dużych HANA funkcji odzyskiwania po awarii.
 
 Druga możliwość, aby usunąć migawki określonej jest użycie skryptu `azure_hana_snapshot_delete.pl`. Ten skrypt zaprojektowano w celu usunięcia migawki lub zestawu migawek albo za pomocą Identyfikatora kopii zapasowej HANA tak jak w HANA Studio lub za pośrednictwem nazwa migawki. Obecnie identyfikator kopii zapasowej jest tylko powiązane migawek utworzonych dla **hana** migawki typu. Migawki kopii zapasowych typu **dzienniki** i **rozruchu** nie wykonuj migawki SAP HANA. Dlatego nie jest brak Identyfikatora kopii zapasowej do znalezienia tych migawek. W przypadku wprowadzenia nazwy migawki jest szuka wszystkie migawki na różnych woluminach pasujących do nazwy wprowadzone migawki. Składnia wywołanie skryptu jest następująca:
 
@@ -577,7 +613,7 @@ Druga możliwość, aby usunąć migawki określonej jest użycie skryptu `azure
 
 Uruchom skrypt jako użytkownik **głównego**.
 
-W przypadku wybrania migawki, masz możliwość usunięcia każdej migawki pojedynczo. Najpierw podaj wolumin zawierający migawkę, a następnie podaj nazwę migawki. Jeśli istnieje w tym woluminie migawki jest więcej niż jedną godzinę, jest usunięta. Można znaleźć migawki nazwy i nazwy woluminu, wykonując `azure_hana_snapshot_details` skryptu. 
+W przypadku wybrania migawkę każdej migawki można usunąć pojedynczo. Najpierw podaj wolumin zawierający migawkę, a następnie podaj nazwę migawki. Jeśli istnieje w tym woluminie migawki jest więcej niż jedną godzinę, jest usunięta. Można znaleźć migawki nazwy i nazwy woluminu, wykonując `azure_hana_snapshot_details` skryptu. 
 
 >[!IMPORTANT]
 >W przypadku danych, który istnieje tylko w migawce, który usuwasz, następnie Jeśli wykonanie usuwania, dane zostaną utracone nieskończona.
@@ -710,9 +746,9 @@ W tym przykładzie widać, jak skrypt rekordy Tworzenie migawki HANA. W przypadk
 
 
 ## <a name="disaster-recovery-principles"></a>Zasady odzyskiwania po awarii
-Wystąpieniami dużych HANA firma Microsoft oferuje funkcje odzyskiwania po awarii, między sygnatury HANA dużych wystąpienia w różnych regionach platformy Azure. Na przykład w przypadku wdrożenia HANA dużych wystąpienia jednostki w regionu zachodnie nam Azure, służy HANA dużych wystąpienia jednostki w regionie nam wschodnie jako jednostki odzyskiwania po awarii. Jak wspomniano wcześniej, odzyskiwania po awarii nie skonfigurowano automatycznie, ponieważ wymaga ona płatności dla innej jednostki HANA dużych wystąpienia w regionie odzyskiwania po awarii. Instalator odzyskiwania po awarii działa dla ustawień skalowania w górę, a także skalowalnego w poziomie. 
+Duże wystąpień HANA oferują funkcje odzyskiwania po awarii, między sygnatury HANA dużych wystąpienia w różnych regionach platformy Azure. Na przykład w przypadku wdrożenia HANA dużych wystąpienia jednostki w regionu zachodnie nam Azure, służy HANA dużych wystąpienia jednostki w regionie nam wschodnie jako jednostki odzyskiwania po awarii. Jak wspomniano wcześniej, odzyskiwania po awarii nie skonfigurowano automatycznie, ponieważ wymaga ona płatności dla innej jednostki HANA dużych wystąpienia w regionie odzyskiwania po awarii. Instalator odzyskiwania po awarii działa dla ustawień skalowania w górę, a także skalowalnego w poziomie. 
 
-W scenariuszach wdrożone do tej pory klientów umożliwia jednostki w regionie DR systemami nieprodukcyjnych używających zainstalowane wystąpienie HANA. Jednostka wystąpienia dużych HANA musi mieć tej samej jednostki SKU jako jednostka SKU wykorzystywane do celów produkcyjnych. Konfiguracja dysku od jednostki serwera w regionie Azure środowiska produkcyjnego i region odzyskiwania po awarii wygląda następująco:
+W scenariuszach wdrożone do tej pory klientów umożliwia jednostce w regionie DR systemami nieprodukcyjnych używających zainstalowane wystąpienie HANA. Jednostka wystąpienia dużych HANA musi mieć tej samej jednostki SKU jako jednostka SKU wykorzystywane do celów produkcyjnych. Konfiguracja dysku od jednostki serwera w regionie Azure środowiska produkcyjnego i region odzyskiwania wygląda następująco:
 
 ![W konfiguracji odzyskiwania po awarii z punktu widzenia dysku](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_setup.PNG)
 
@@ -728,10 +764,13 @@ Podstawy funkcji odzyskiwania po awarii oferowana jest oferowany funkcji replika
 
 Pierwszy transfer pełnych danych woluminu powinien być przed ilość danych staje się mniejszy niż delty między migawki. W związku z tym woluminy w lokacji odzyskiwania po awarii zawierają każdego jeden migawek woluminu w lokacji produkcyjnej. Ten fakt umożliwia ostatecznie wykorzystać ten system odzyskiwania po awarii na uzyskanie dostępu do starszych stan aby odzyskać utracone dane bez konieczności wycofywanie systemu produkcji.
 
+W przypadku wdrożeń MCOD z wielu niezależnych wystąpień SAP HANA na jedną jednostkę HANA dużych wystąpienia oczekuje się, wszystkie wystąpienia SAP HANA uzyskiwania magazynu replikowane do strony odzyskiwania po awarii.
+
 W przypadkach, w których HANA replikacji systemu są używane jako funkcji wysokiej dostępności w swojej witrynie produkcji są replikowane tylko woluminy wystąpienia warstwy 2 (lub replice). Ta konfiguracja może prowadzić do opóźnienia w replikacji magazynu do odzyskiwania po awarii lokacji, jeśli obsługa lub wyłączyć jednostki serwera repliki pomocniczej (poziom 2) lub wystąpieniem SAP HANA w tej jednostce. 
 
+
 >[!IMPORTANT]
->Podobnie jak w przypadku replikacji systemu HANA wielowarstwowej, wyłączania warstwy 2 HANA wystąpienia lub serwera jednostki blokuje replikacji do lokacji odzyskiwania po awarii podczas korzystania z funkcji odzyskiwania po awarii HANA dużych wystąpienia.
+>Podobnie jak w przypadku replikacji systemu HANA wielowarstwowych, wyłączania warstwy 2 HANA wystąpienia lub serwera jednostki blokuje replikacji do lokacji odzyskiwania po awarii podczas korzystania z funkcji odzyskiwania po awarii HANA dużych wystąpienia.
 
 
 >[!NOTE]
@@ -740,21 +779,25 @@ W przypadkach, w których HANA replikacji systemu są używane jako funkcji wyso
 
 
 ## <a name="preparation-of-the-disaster-recovery-scenario"></a>Przygotowywanie scenariusza odzyskiwania po awarii
-Przyjęto założenie, że masz system produkcji systemem HANA dużych wystąpień w środowisku produkcyjnym region platformy Azure. Dla następujących dokumentacji Załóżmy, że identyfikator SID tego systemu HANA to "PRD." Przyjęto założenie, że masz nieprodukcyjnych systemami na HANA duża liczba wystąpień w odzyskiwania po awarii region platformy Azure. Dokumentacja przyjęto założenie, że jej identyfikator SID to "TST." Dlatego konfiguracja wygląda następująco:
+Zakłada się, że masz system produkcji systemem HANA dużych wystąpień w środowisku produkcyjnym region platformy Azure. Dla następujących dokumentacji Załóżmy, że identyfikator SID tego systemu HANA to "PRD." Przyjęto założenie, że masz nieprodukcyjnych systemami na HANA duża liczba wystąpień w regionie Azure odzyskiwania po awarii. Dokumentacja zakłada się, że jej identyfikator SID to "TST." Dlatego konfiguracja wygląda następująco:
 
 ![Początek Instalator odzyskiwania po awarii](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_start1.PNG)
 
-Jeśli wystąpienie serwera nie został już uporządkowane przy użyciu zestawu woluminu dodatkowego miejsca do magazynowania, SAP HANA na zarządzania usługą Azure będzie dołączać dodatkowe zestaw woluminów jako element docelowy dla repliki produkcji jednostki wystąpienia dużych HANA działają TST Wystąpienie HANA na. W tym celu należy podać identyfikator SID wystąpienia HANA produkcji. Po SAP HANA na zarządzania usługą Azure potwierdza załącznik tych woluminów, należy zainstalować te woluminów HANA dużych wystąpienia jednostki.
+Jeśli wystąpienie serwera nie ma uporządkowanych już przy użyciu zestawu woluminu dodatkowego magazynu SAP HANA na zarządzania usługą Azure ma dołączyć ten dodatkowy zestaw woluminów jako element docelowy dla repliki produkcji do jednostce HANA dużych wystąpienia, które są uruchomione wystąpienie TST HANA na. W tym celu należy podać identyfikator SID wystąpienia HANA produkcji. Po SAP HANA na zarządzania usługą Azure potwierdza załącznik tych woluminów, należy zainstalować te woluminów HANA dużych wystąpienia jednostki.
 
 ![Następnym krokiem Instalator odzyskiwania po awarii](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_start2.PNG)
 
-Następnym krokiem dla należy jest zainstalować drugie wystąpienie SAP HANA na jednostce wystąpienia dużych HANA odzyskiwania po awarii regionu Azure, gdzie uruchomić TST HANA wystąpienia. Nowo zainstalowanym wystąpieniem SAP HANA musi mieć ten sam identyfikator SID. Użytkownicy utworzeni musi być taką samą UID i identyfikator grupy, który ma wystąpienie produkcji. Jeśli instalacja zakończyła się pomyślnie, należy:
-- Zatrzymaj nowo zainstalowanym wystąpieniem SAP HANA na HANA dużych wystąpienia jednostki, w regionie Azure odzyskiwania po awarii.
+Następnym krokiem dla należy jest zainstalować drugie wystąpienie SAP HANA w jednostce HANA dużych wystąpienia w regionie Azure odzyskiwania po awarii, gdzie uruchomić TST HANA wystąpienia. Nowo zainstalowanym wystąpieniem SAP HANA musi mieć ten sam identyfikator SID. Użytkownicy utworzeni musi być taką samą UID i identyfikator grupy, który ma wystąpienie produkcji. Jeśli instalacja zakończyła się pomyślnie, należy:
+
+- Wykonaj krok #2 przygotowanie migawki magazynu we wcześniejszej części dokumentu
+- Jeśli użytkownik nie wykonał tego kroku przed, tworzenia klucza publicznego dla jednostki DR HANA dużych wystąpienia jednostki. Procedura znajduje się w kroku #3 Przygotowanie migawki magazynu we wcześniejszej części dokumentu
+- Obsługa **HANABackupCustomerDetails.txt** z nowego wystąpienia HANA i testowania czy łączność w magazynie działa prawidłowo.  
+- Zatrzymaj nowo zainstalowanym wystąpieniem SAP HANA na HANA dużych wystąpienia jednostki w regionie Azure odzyskiwania po awarii.
 - Odinstaluj woluminy te PRD i skontaktuj się z SAP HANA na zarządzania usługą Azure. Woluminy nie może pozostać zainstalowanego do jednostki, ponieważ nie mogą one być dostępne podczas działania jako cel replikacji magazynu.  
 
 ![Kroku konfiguracji odzyskiwania po awarii, zanim zostanie nawiązana replikacji](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_start3.PNG)
 
-Zespół operacyjny będzie ustanowić relacji replikacji między woluminami PRD w środowisku produkcyjnym region platformy Azure i woluminy PRD w odzyskiwania po awarii region platformy Azure.
+Zespół operacyjny będzie ustanowić relacji replikacji między woluminami PRD w środowisku produkcyjnym region platformy Azure oraz na woluminach PRD w regionie Azure odzyskiwania po awarii.
 
 >[!IMPORTANT]
 >Wolumin /hana/log nie będą replikowane, ponieważ nie jest konieczne przywrócenie replikowanych bazy danych SAP HANA w spójnym stanie, w lokacji odzyskiwania po awarii.
@@ -784,25 +827,54 @@ Wystąpienia dużych HANA operacji upewnij się o ustawieniach relacji replikacj
 
 ![Kroku konfiguracji odzyskiwania po awarii, zanim zostanie nawiązana replikacji](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_start4.PNG)
 
-W miarę postępów replikacji, migawek na woluminach PRD w odzyskiwania po awarii Azure regionów nie są przywracane. Tylko są przechowywane. Jeśli woluminy są instalowane w taki stan, reprezentują stanu, w którym możesz odinstalować tych woluminów po wystąpieniu PRD SAP HANA został zainstalowany w jednostce serwer odzyskiwania po awarii region platformy Azure. Reprezentują one magazynu kopii zapasowych, które nie zostały jeszcze przywrócone.
+Ponieważ w toku replikacji migawek na woluminach PRD w regionach DR Azure nie są przywracane. Tylko są przechowywane. Jeśli woluminy są instalowane w taki stan, reprezentują stanu, w którym możesz odinstalować tych woluminów po zainstalowaniu wystąpienia PRD SAP HANA w jednostce serwera w regionie Azure odzyskiwania po awarii. Reprezentują one magazynu kopii zapasowych, które nie zostały jeszcze przywrócone.
 
 W przypadku trybu failover również można przywrócić starszą migawkę magazynu, zamiast najnowszą migawkę magazynu.
 
 ## <a name="disaster-recovery-failover-procedure"></a>Procedury pracy awaryjnej odzyskiwania po awarii
-Wymagane lub konieczne trybu failover do lokacji odzyskiwania po awarii, należy najpierw wchodzić w interakcje z SAP HANA zespołu operacje platformy Azure. W krokach nierównej proces wykonanej do tej pory wygląda następująco:
+Istnieją dwa różne przypadków należy wziąć pod uwagę przy awarii lokacji odzyskiwania po awarii:
 
-1. Ponieważ nieprodukcyjnych wystąpienie HANA są uruchomione w jednostce odzyskiwania po awarii HANA dużych wystąpień, musisz zamknąć to wystąpienie. Przyjęto założenie, czy jest wstępnie zainstalowane nieaktywni wystąpienie produkcji HANA.
+- Należy bazy danych SAP HANA do najnowszy stan danych. W takim przypadku jest samoobsługi skrypt, który służy do pracy w trybie failover bez konieczności kontakt z firmą Microsoft. Chociaż powrotu po awarii należy współpraca z firmą Microsoft.
+- Chcesz przywrócić migawkę magazynu, który nie jest najnowsza wersja replikowanych migawki, konieczna współpraca z firmą Microsoft. 
+
+>[!NOTE]
+>Poniższe kroki procesu muszą być wykonywane w dużych HANA jednostki wystąpienia, która reprezentuje jednostkę odzyskiwania po awarii. 
+ 
+W przypadku przywracania najnowszej migawki replikowanego magazynu, kroki nierównej następującą postać: 
+
+1. Ponieważ nieprodukcyjnych wystąpienie HANA są uruchomione w jednostce odzyskiwania po awarii HANA dużych wystąpień, musisz zamknąć to wystąpienie. Jest założeń, czy jest wstępnie zainstalowane nieaktywni wystąpienie produkcji HANA.
+2. Upewnij się, że są uruchomione żadne procesy SAP HANA. Użyj następującego polecenia dla tego sprawdzenia: `/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList`. Dane wyjściowe powinny być widoczne możesz **hdbdaemon** przetwarzanie w stanie zatrzymania, a żadne inne procesy HANA w nim uruchomiona lub jest uruchomiona.
+3. Odzyskiwania po awarii lokacji HANA dużych wystąpienia jednostki, może wykonać skrypt **azure_hana_dr_failover.pl**. Skrypt jest podanie identyfikatora SID SAP HANA do przywrócenia. Na żądanie skrypt, wpisz w co najmniej tylko SAP HANA SID, który został zreplikowany i która jest przechowywana w pliku HANABackupCustomerDetails.txt w jednostce HANA dużych wystąpienia w lokacji odzyskiwania po awarii. Jeśli chcesz mieć wiele wystąpień SAP HANA przejścia w tryb failover, należy uruchomić skrypt kilka razy i dla typu żądania w SAP HANA SID chcesz w tryb failover i przywracania. Po zakończeniu skrypt pokazuje listę punktów instalacji woluminów, które są dodawane do dużych HANA wystąpienia jednostki. Ta lista zawiera również przywróconej woluminów odzyskiwania po awarii
+4. Zainstaluj woluminy przywróconej odzyskiwania po awarii za pomocą poleceń systemu operacyjnego Linux HANA dużych wystąpienia jednostki w lokacji odzyskiwania po awarii. 
+6. Uruchom wykonanej do tej pory nieaktywni wystąpienie SAP HANA w środowisku produkcyjnym.
+7. Jeśli wybrano opcję Kopiuj dzienniki kopii zapasowej dziennika transakcji Ponadto, aby skrócić czas odzyskiwania, należy scalić te kopie zapasowe dziennika transakcji do nowo zainstalowanego DR/hana/logbackups katalogu. Nie zastępuj istniejących kopii zapasowych. Po prostu skopiuj nowszych kopii zapasowych, które nie zostały zreplikowane z najnowszą replikacji migawki magazynu.
+8. Można również przywrócić pliki pojedynczego poza migawek, które zostały zreplikowane do woluminu /hana/shared/PRD w regionie Azure odzyskiwania po awarii. 
+
+Możesz również testowanie trybu failover odzyskiwania po awarii, bez wywierania wpływu na moment relacji. Aby wykonać test trybu failover, wykonaj kroki 1 i 2 opisanych wyżej czynności. Można jednak zmienić przechodzi do kroku 3.
+
+>[!IMPORTANT]
+>Wszystkie transakcje produkcji mogą nie działać w wystąpieniu, który został utworzony w lokacji odzyskiwania po awarii w procesie **testowania trybu failover** ze skryptem wprowadzone dalej. Polecenie wprowadzone dalej tworzy zestaw woluminów, które nie mają relacji do lokacji głównej. W związku z tym synchronizacji do lokacji głównej nie jest możliwe. 
+
+Krok #3 dla **test pracy awaryjnej** wymaga wyglądały jak:
+
+Odzyskiwania po awarii lokacji HANA dużych wystąpienia jednostki, może wykonać skrypt **azure_hana_test_dr_failover.pl**. Ten skrypt nie jest zatrzymywana relacji replikacji między lokacją główną a lokacją odzyskiwania po awarii. Zamiast tego skryptu jest Klonowanie woluminów magazynu odzyskiwania po awarii. Po pomyślnym zainicjowaniu procesu klonowania, sklonowany woluminy są przywrócony do stanu migawki najnowszych, a następnie zainstalowane do jednostki odzyskiwania po awarii. Skrypt jest podanie identyfikatora SID SAP HANA do przywrócenia. Wpisz jeden lub tylko SAP HANA SID, który został zreplikowany i która jest przechowywana w pliku HANABackupCustomerDetails.txt w jednostce HANA dużych wystąpienia w lokacji odzyskiwania po awarii. Jeśli chcesz mieć wiele wystąpień SAP HANA, którą chcesz przetestować, należy uruchomić skrypt kilka razy, a na typ żądania w SAP HANA SID chcesz przetestować tryb failover. Po zakończeniu skrypt pokazuje listę punktów instalacji woluminów, które są dodawane do dużych HANA wystąpienia jednostki. Ta lista zawiera również sklonowany woluminów odzyskiwania po awarii.
+
+Następnie kontynuuj kroki 4 – 8 poprzedniej procedurze.
+
+Jeśli musisz przełączyć się lokacja DR ratowania niektórych danych, który został usunięty godz. temu i dlatego powinien woluminów odzyskiwania po awarii, należy ustawić wcześniejszej niż najnowszą migawkę, ta procedura ma zastosowanie. 
+
+1. Ponieważ nieprodukcyjnych wystąpienie HANA są uruchomione w jednostce odzyskiwania po awarii HANA dużych wystąpień, musisz zamknąć to wystąpienie. Jest założeń, czy jest wstępnie zainstalowane nieaktywni wystąpienie produkcji HANA.
 2. Upewnij się, że są uruchomione żadne procesy SAP HANA. Użyj następującego polecenia dla tego sprawdzenia: `/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList`. Dane wyjściowe powinny być widoczne możesz **hdbdaemon** przetwarzanie w stanie zatrzymania, a żadne inne procesy HANA w nim uruchomiona lub jest uruchomiona.
 3. Określ, które migawek nazwa lub identyfikator kopii zapasowej SAP HANA przywrócić witryna odzyskiwania po awarii. W przypadku odzyskiwania po awarii w rzeczywistych tej migawki jest zwykle najnowszą migawkę. Jeśli potrzebujesz odzyskać utracone dane pobrania żadnej wcześniejszej migawki.
-4. Skontaktuj się z pomocą Azure obsługuje za pomocą żądania pomocy technicznej o wysokim priorytecie i poproś o przywracania migawki (nazwy i daty migawki) lub HANA identyfikator kopii zapasowej w lokacji odzyskiwania po awarii. Wartość domyślna to, że operacje przywracania woluminu /hana/data tylko. Jeśli chcesz mieć/hana/logbackups woluminy również należy wyraźnie określają, że. *Zalecamy nie przywrócenie /hana/shared woluminu.* Zamiast tego należy wybrać określonych plików, takich jak global.ini poza **.snapshot** katalogu i jego podkatalogach po Zainstaluj/hana/udostępniony wolumin PRD. Na stronie operacje będą się tak zdarzyć następujące kroki:. Zatrzymania replikacji migawek od wielkości produkcji do woluminów odzyskiwania po awarii. To może być już się to zdarzyć w przypadku wystąpienia awarii w lokacji produkcji Przyczyna potrzebne odzyskiwania po awarii.
+4. Skontaktuj się z pomocą Azure obsługuje za pomocą żądania pomocy technicznej o wysokim priorytecie i poproś o przywracania migawki (nazwy i daty migawki) lub HANA identyfikator kopii zapasowej w lokacji odzyskiwania po awarii. Wartość domyślna to, że operacje przywracania woluminu /hana/data tylko. Jeśli chcesz mieć/hana/logbackups woluminy również należy wyraźnie określają, że. *Przywracanie woluminów /hana/shared nie jest zalecane.* Zamiast tego należy wybrać określonych plików, takich jak global.ini poza **.snapshot** katalogu i jego podkatalogach po Zainstaluj/hana/udostępniony wolumin PRD. Na stronie operacje będą się tak zdarzyć następujące kroki:. Zatrzymania replikacji migawek od wielkości produkcji do woluminów odzyskiwania po awarii. Ta przerw w działaniu może już się to zdarzyć w przypadku wystąpienia awarii w lokacji produkcji przyczyny, które należy wykonać procedurę odzyskiwania po awarii.
     b. Magazyn migawek nazwy lub migawki z kopii zapasowej, którą wybrano identyfikator został przywrócony na woluminach odzyskiwania po awarii.
     c. Po przywróceniu woluminy odzyskiwania po awarii są dostępne do zamontowania jednostek HANA dużych wystąpienia w regionie odzyskiwania po awarii.
 5. Zainstaluj woluminów odzyskiwania po awarii do jednostki HANA dużych wystąpienia w lokacji odzyskiwania po awarii. 
 6. Uruchom wykonanej do tej pory nieaktywni wystąpienie SAP HANA w środowisku produkcyjnym.
 7. Jeśli wybrano opcję Kopiuj dzienniki kopii zapasowej dziennika transakcji Ponadto, aby skrócić czas odzyskiwania, należy scalić te kopie zapasowe dziennika transakcji do nowo zainstalowanego DR/hana/logbackups katalogu. Nie zastępuj istniejących kopii zapasowych. Po prostu skopiuj nowszych kopii zapasowych, które nie zostały zreplikowane z najnowszą replikacji migawki magazynu.
-8. Można przywrócić również pojedynczych plików poza migawek, które zostały zreplikowane do woluminu /hana/shared/PRD w odzyskiwania po awarii region platformy Azure.
+8. Można również przywrócić pliki pojedynczego poza migawek, które zostały zreplikowane do woluminu /hana/shared/PRD w regionie Azure odzyskiwania po awarii.
 
-Następnej sekwencji kroki obejmuje odzyskiwanie na podstawie migawki przywróconej magazynu i kopie zapasowe dziennika transakcji, które są dostępne wystąpienia produkcji SAP HANA. Kroki wyglądać następująco:
+Następnej sekwencji kroki obejmuje odzyskiwanie na podstawie migawki przywróconej magazynu i kopie zapasowe dziennika transakcji, które są dostępne wystąpienia produkcji SAP HANA. Kroki następującą postać:
 
 1. Zmień lokalizację kopii zapasowej na **/hana/logbackups** za pomocą programu SAP HANA Studio.
    ![Zmień lokalizację kopii zapasowej do odzyskiwania DR](./media/hana-overview-high-availability-disaster-recovery/change_backup_location_dr1.png)
@@ -828,7 +900,7 @@ Jeśli przywracania zatrzymuje się na **Zakończ** ekranu i nie jest wyświetla
 
 
 ### <a name="failback-from-dr-to-a-production-site"></a>Powrót po awarii z odzyskiwania po awarii do miejsca produkcji
-Użytkownik może zakończyć się niepowodzeniem z odzyskiwania po awarii do miejsca produkcji. Przyjrzyjmy się to, czy tryb failover w lokacji odzyskiwania po awarii spowodowane przez problemy w środowisku produkcyjnym region platformy Azure i nie trzeba odzyskać utracone dane. Oznacza to, że uruchomiony obciążenie produkcji SAP przez pewien czas w lokacji odzyskiwania po awarii. Jak zostaną rozwiązane problemy w lokacji produkcyjnej, chcesz powrót po awarii do lokacji produkcji. Ponieważ nie można utracić dane, krok do miejsca produkcji obejmuje kilka kroków i ścisłą współpracę z SAP HANA zespołu operacje platformy Azure. Jest do wyzwolenia zespół działu operacji można uruchomić synchronizacji do miejsca produkcji po zostaną rozwiązane problemy.
+Użytkownik może zakończyć się niepowodzeniem z odzyskiwania po awarii do miejsca produkcji. Przyjrzyjmy się to, czy tryb failover w lokacji odzyskiwania po awarii spowodowane przez problemy w środowisku produkcyjnym region platformy Azure i nie trzeba odzyskać utracone dane. Uruchomiony obciążenie produkcji SAP przez pewien czas w lokacji odzyskiwania po awarii. Jak zostaną rozwiązane problemy w lokacji produkcyjnej, chcesz powrót po awarii do lokacji produkcji. Ponieważ nie można utracić dane, krok do miejsca produkcji obejmuje kilka kroków i ścisłą współpracę z SAP HANA zespołu operacje platformy Azure. Jest do wyzwolenia zespół działu operacji można uruchomić synchronizacji do miejsca produkcji po zostaną rozwiązane problemy.
 
 Sekwencja kroków wygląda następująco:
 
@@ -850,7 +922,7 @@ Wywołanie skryptu, takiego jak:
 
 Dane wyjściowe jest dzielona według woluminu na następujące sekcje:  
 
-- Stan łącza
+- Stan linku
 - Bieżące działanie replikacji
 - Najnowszą migawkę replikowane 
 - Rozmiar najnowszą migawkę
@@ -858,7 +930,7 @@ Dane wyjściowe jest dzielona według woluminu na następujące sekcje:
 
 Stan łącza jest pokazywana jako **Active** chyba że łącza między lokacjami nie działa lub zdarzenia pracy awaryjnej jest obecnie uruchomione. Działanie replikacji adresów żadnych danych jest obecnie replikowana lub jest w stanie bezczynności lub innych działań są aktualnie wykonywane łącza. Ostatnia migawka replikowane tylko powinny się wyświetlać jako `snapmirror…`. Następnie zostanie wyświetlony rozmiar ostatnia migawka. Na koniec jest wyświetlany czas opóźnienia. Czas opóźnienia reprezentuje czas od czasu zaplanowanej replikacji, aby po zakończeniu replikacji. Opóźnienie może być większa niż godzinę replikacji danych, szczególnie w przypadku replikacji początkowej, mimo że replikacja została uruchomiona. Czas opóźnienia będzie rosły zakończenie trwającej replikacji.
 
-Przykład danych wyjściowych może wyglądać następująco:
+Przykład danych wyjściowych może wyglądać jak:
 
 ```
 hana_data_hm3_mnt00002_t020_dp

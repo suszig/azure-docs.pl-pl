@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: johnkem
-ms.openlocfilehash: a101039b59eb1a4a3bcac25162c7f6373283e1b6
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: f093c0cfdc6f59133c39cc8c2b10f9fe74692977
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorowanie aktywności subskrypcji z dziennika aktywności platformy Azure
 **Dziennika aktywności platformy Azure** jest Dziennik subskrypcji, która zapewnia wgląd w zdarzenia na poziomie subskrypcji, które wystąpiły na platformie Azure. W tym zakresie danych z usługi Azure Resource Manager danych operacyjnych do aktualizacji na zdarzenia kondycji usługi. Dziennik aktywności była wcześniej znana jako "Dzienników inspekcji" lub "Operacyjne dzienniki", ponieważ zdarzenia płaszczyzny kontroli Raporty Kategoria administracyjna dla subskrypcji. Korzystając z dziennika aktywności, można określić ", co, która i kiedy" dla żadnego zapisu (PUT, POST, DELETE) podejmowaną w odniesieniu do zasobów w ramach subskrypcji. Można także zrozumienie stanu operacji i inne odpowiednie właściwości. Dziennik nie zawiera operacje odczytu (GET) lub operacji dla zasobów korzystających z klasycznego / modelu "RDFE".
@@ -29,18 +29,21 @@ Rysunek 1: Dzienniki aktywności vs innych typów dzienników
 
 Dziennik aktywności różni się od [dzienników diagnostycznych](monitoring-overview-of-diagnostic-logs.md). Dzienniki aktywności zawierają dane dotyczące operacji na zasobie z zewnątrz ("płaszczyzny sterowania"). Dzienniki diagnostyczne są emitowane przez zasób i podaj informacje na temat operacji zasobu ("płaszczyzna danych").
 
-Można pobrać zdarzenia z dziennika aktywności przy użyciu portalu Azure, interfejsu wiersza polecenia, poleceń cmdlet programu PowerShell i interfejsu API REST Monitor Azure.
-
-
 > [!WARNING]
 > Dziennik aktywności platformy Azure jest przeznaczone głównie dla działania wykonywane w usłudze Azure Resource Manager. Nie śledzi zasobów przy użyciu modelu klasycznego/frontonu REDDOG. Niektóre typy zasobów Classic ma dostawcy zasobów serwera proxy w usłudze Azure Resource Manager (na przykład obszar Microsoft.ClassicCompute). Jeśli w interakcję z typem zasobu Classic za pośrednictwem usługi Azure Resource Manager przy użyciu tych dostawców zasobów serwera proxy, operacje pojawiają się w dzienniku aktywności. Jeśli w interakcję z typem zasobu Classic poza serwerów proxy usługi Azure Resource Manager, czynności użytkownika tylko są rejestrowane w dzienniku operacji. Dziennik operacji można przeglądać w oddzielnym części portalu.
 >
 >
 
+Można pobrać zdarzenia z dziennika aktywności przy użyciu portalu Azure, interfejsu wiersza polecenia, poleceń cmdlet programu PowerShell i interfejsu API REST Monitor Azure.
+
+> [!NOTE]
+
+>  [Alerty (wersja zapoznawcza)](monitoring-overview-unified-alerts.md) obecnie udostępnia udoskonalone środowisko podczas tworzenia i zarządzania regułami alertów dziennika aktywności.  [Dowiedz się więcej](monitoring-activity-log-alerts-new-experience.md).
+
+
 Umożliwia wyświetlenie poniższego klipu wideo wprowadzające dziennik aktywności.
 > [!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
-> 
->
+
 
 ## <a name="categories-in-the-activity-log"></a>Kategorie w dzienniku aktywności
 Dziennik zawiera kilka kategorii danych. Aby uzyskać szczegółowe informacje na schematów z tych kategorii [znajduje się w artykule](monitoring-activity-log-schema.md). Należą do nich:
@@ -138,11 +141,11 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 
 | Właściwość | Wymagane | Opis |
 | --- | --- | --- |
-| Nazwa |Tak |Nazwa profilu dziennika. |
+| Name (Nazwa) |Yes |Nazwa profilu dziennika. |
 | StorageAccountId |Nie |Identyfikator zasobu konta magazynu, do której ma zostać zapisany dziennik aktywności. |
 | serviceBusRuleId |Nie |Identyfikator reguły magistrali usługi chcesz mieć centra zdarzeń utworzonych w przestrzeni nazw usługi Service Bus. Ciąg w formacie: `{service bus resource ID}/authorizationrules/{key name}`. |
-| Lokalizacje |Tak |Rozdzielana przecinkami lista regionów, dla których chcesz zbierać zdarzenia dziennika aktywności. |
-| retentionInDays |Tak |Liczba dni dla zdarzenia, które mają być przechowywane, od 1 do 2147483647. Wartość zero przechowuje dzienniki w nieskończoność (zawsze). |
+| Lokalizacje |Yes |Rozdzielana przecinkami lista regionów, dla których chcesz zbierać zdarzenia dziennika aktywności. |
+| retentionInDays |Yes |Liczba dni dla zdarzenia, które mają być przechowywane, od 1 do 2147483647. Wartość zero przechowuje dzienniki w nieskończoność (zawsze). |
 | Kategorie |Nie |Rozdzielana przecinkami lista kategorii zdarzeń, które powinny być zbierane. Możliwe wartości to zapisu, usuwania i akcji. |
 
 #### <a name="remove-a-log-profile"></a>Usuń profil dziennika
@@ -167,11 +170,11 @@ azure insights logprofile add --name my_log_profile --storageId /subscriptions/s
 
 | Właściwość | Wymagane | Opis |
 | --- | --- | --- |
-| name |Tak |Nazwa profilu dziennika. |
+| name |Yes |Nazwa profilu dziennika. |
 | storageId |Nie |Identyfikator zasobu konta magazynu, do której ma zostać zapisany dziennik aktywności. |
 | serviceBusRuleId |Nie |Identyfikator reguły magistrali usługi chcesz mieć centra zdarzeń utworzonych w przestrzeni nazw usługi Service Bus. Ciąg w formacie: `{service bus resource ID}/authorizationrules/{key name}`. |
-| Lokalizacje |Tak |Rozdzielana przecinkami lista regionów, dla których chcesz zbierać zdarzenia dziennika aktywności. |
-| retentionInDays |Tak |Liczba dni dla zdarzenia, które mają być przechowywane, od 1 do 2147483647. Wartość zero przechowuje dzienniki w nieskończoność (zawsze). |
+| Lokalizacje |Yes |Rozdzielana przecinkami lista regionów, dla których chcesz zbierać zdarzenia dziennika aktywności. |
+| retentionInDays |Yes |Liczba dni dla zdarzenia, które mają być przechowywane, od 1 do 2147483647. Wartość zero przechowuje dzienniki w nieskończoność (zawsze). |
 | kategorie |Nie |Rozdzielana przecinkami lista kategorii zdarzeń, które powinny być zbierane. Możliwe wartości to zapisu, usuwania i akcji. |
 
 #### <a name="remove-a-log-profile"></a>Usuń profil dziennika

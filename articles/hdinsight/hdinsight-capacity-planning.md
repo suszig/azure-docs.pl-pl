@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: maxluk
-ms.openlocfilehash: 391b691e895c672ef872f8b98c88567175ad8030
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 70451c5a69a1a268aef0eb957cb92791b92eb221
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planowanie wydajności dla klastrów usługi HDInsight
 
@@ -89,8 +89,7 @@ Skalowanie klastra jest określany przez ilość jego węzły maszyny Wirtualnej
 
 W zależności od danego typu klastra zwiększenie liczby węzłów procesu roboczego dodaje dodatkowe wydajność obliczeniową (na przykład większej liczby rdzeni), ale może również dodać do łączną ilość pamięci wymaganej dla całego klastra do obsługi magazynu w pamięci przetwarzanych danych. Podobnie jak w przypadku wyboru rozmiar maszyny Wirtualnej i typ Wybieranie skali prawo klastra zwykle osiągnięciu empirycznie, przy użyciu symulowane obciążeń lub mozgi zapytania.
 
-Możesz skalować w poziomie z klastrem w celu spełnienia wymagań obciążenia szczytowego, a następnie skalować powrotem po tych dodatkowych węzłów nie są już potrzebne.
-<!-- - see [Scaling - best practices](hdinsight-scaling-best-practices.md). -->
+Możesz skalować w poziomie z klastrem w celu spełnienia wymagań obciążenia szczytowego, a następnie skalować powrotem po tych dodatkowych węzłów nie są już potrzebne. Aby uzyskać więcej informacji, zobacz [klastrów usługi HDInsight skali](hdinsight-scaling-best-practices.md).
 
 ### <a name="cluster-lifecycle"></a>Cykl życia klastra
 

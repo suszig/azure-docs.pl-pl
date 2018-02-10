@@ -3,7 +3,7 @@ title: "Nawiązywanie połączenia usługi Azure Data Lake Store z sieciami wirt
 description: "Nawiązywanie połączenia usługi Azure Data Lake Store z sieci wirtualnych Azure"
 services: data-lake-store,data-catalog
 documentationcenter: 
-author: nitinme
+author: esung22
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 683fcfdc-cf93-46c3-b2d2-5cb79f5e9ea5
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/28/2017
-ms.author: nitinme
-ms.openlocfilehash: 029939eabc7283d7591576fa1b14731a9e626a88
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/31/2018
+ms.author: elsung
+ms.openlocfilehash: c1bb9d8f5759ece8fe6384441c692adea190aba8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="access-azure-data-lake-store-from-vms-within-an-azure-vnet"></a>Dostęp do usługi Azure Data Lake Store z maszyn wirtualnych w ramach sieci Wirtualnej platformy Azure
 Azure Data Lake Store jest usługą PaaS, która działa na publiczne adresy Internet IP. Dowolnego serwera, który może nawiązać połączenia z publicznego Internetu zwykle mogą łączyć się również punktów końcowych usługi Azure Data Lake Store. Domyślnie wszystkie maszyny wirtualne, które znajdują się w sieci wirtualnych platformy Azure mogą uzyskiwać dostęp do Internetu i dlatego mogą uzyskiwać dostęp do usługi Azure Data Lake Store. Istnieje możliwość skonfigurowania maszyn wirtualnych w sieci Wirtualnej nie ma dostępu do Internetu. Dla tych maszyn wirtualnych dostęp do usługi Azure Data Lake Store jest ograniczony również. Blokowanie publiczny dostęp do Internetu dla maszyn wirtualnych w sieci wirtualnych platformy Azure może odbywać się przy użyciu dowolnego następujące podejście.
@@ -51,7 +51,7 @@ W przypadku tras, Udr lub wymieniane BGP trasy są używane do blokowania dostę
 ### <a name="enabling-connectivity-from-vms-restricted-by-using-expressroute"></a>Włączenie łączności z ograniczeniami przy użyciu usługi ExpressRoute maszyn wirtualnych
 Po skonfigurowaniu obwodu usługi ExpressRoute, serwerów lokalnych można uzyskać dostępu do usługi Data Lake Store za pośrednictwem publicznej komunikacji równorzędnej. Więcej informacji na temat konfigurowania usługi ExpressRoute dla publicznej komunikacji równorzędnej jest dostępne pod adresem [ExpressRoute — często zadawane pytania](../expressroute/expressroute-faqs.md).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Omówienie usługi Azure Data Lake Store](data-lake-store-overview.md)
 * [Zabezpieczanie danych przechowywanych w usłudze Azure Data Lake Store](data-lake-store-security-overview.md)
 

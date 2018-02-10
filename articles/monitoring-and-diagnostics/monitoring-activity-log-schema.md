@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: johnkem
-ms.openlocfilehash: 91129da9ef7791a506292d9e13e386a25ee341a8
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: a5c05466b21184a73d08190856e00ae95ee3727f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-activity-log-event-schema"></a>Schematu zdarzeń dziennika aktywności platformy Azure
 **Dziennika aktywności platformy Azure** jest dziennika, który zapewnia wgląd w wszelkie zdarzenia poziomu subskrypcji, które wystąpiły na platformie Azure. W tym artykule opisano schematu zdarzeń na kategorię danych.
@@ -27,98 +27,111 @@ Ta kategoria zawiera rekord wszystkich utworzyć, update, delete i akcji operacj
 ### <a name="sample-event"></a>Zdarzenie próbkowania
 ```json
 {
-  "authorization": {
-    "action": "microsoft.support/supporttickets/write",
-    "role": "Subscription Admin",
-    "scope": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841"
-  },
-  "caller": "admin@contoso.com",
-  "channels": "Operation",
-  "claims": {
-    "aud": "https://management.core.windows.net/",
-    "iss": "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/",
-    "iat": "1421876371",
-    "nbf": "1421876371",
-    "exp": "1421880271",
-    "ver": "1.0",
-    "http://schemas.microsoft.com/identity/claims/tenantid": "1e8d8218-c5e7-4578-9acc-9abbd5d23315 ",
-    "http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
-    "http://schemas.microsoft.com/identity/claims/objectidentifier": "2468adf0-8211-44e3-95xq-85137af64708",
-    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "admin@contoso.com",
-    "puid": "20030000801A118C",
-    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "9vckmEGF7zDKk1YzIY8k0t1_EAPaXoeHyPRn6f413zM",
-    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "John",
-    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "Smith",
-    "name": "John Smith",
-    "groups": "cacfe77c-e058-4712-83qw-f9b08849fd60,7f71d11d-4c41-4b23-99d2-d32ce7aa621c,31522864-0578-4ea0-9gdc-e66cc564d18c",
-    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": " admin@contoso.com",
-    "appid": "c44b4083-3bq0-49c1-b47d-974e53cbdf3c",
-    "appidacr": "2",
-    "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
-    "http://schemas.microsoft.com/claims/authnclassreference": "1"
-  },
-  "correlationId": "1e121103-0ba6-4300-ac9d-952bb5d0c80f",
-  "description": "",
-  "eventDataId": "44ade6b4-3813-45e6-ae27-7420a95fa2f8",
-  "eventName": {
-    "value": "EndRequest",
-    "localizedValue": "End request"
-  },
-  "httpRequest": {
-    "clientRequestId": "27003b25-91d3-418f-8eb1-29e537dcb249",
-    "clientIpAddress": "192.168.35.115",
-    "method": "PUT"
-  },
-  "id": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841/events/44ade6b4-3813-45e6-ae27-7420a95fa2f8/ticks/635574752669792776",
-  "level": "Informational",
-  "resourceGroupName": "MSSupportGroup",
-  "resourceProviderName": {
-    "value": "microsoft.support",
-    "localizedValue": "microsoft.support"
-  },
-  "resourceUri": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841",
-  "operationId": "1e121103-0ba6-4300-ac9d-952bb5d0c80f",
-  "operationName": {
-    "value": "microsoft.support/supporttickets/write",
-    "localizedValue": "microsoft.support/supporttickets/write"
-  },
-  "properties": {
-    "statusCode": "Created"
-  },
-  "status": {
-    "value": "Succeeded",
-    "localizedValue": "Succeeded"
-  },
-  "subStatus": {
-    "value": "Created",
-    "localizedValue": "Created (HTTP Status Code: 201)"
-  },
-  "eventTimestamp": "2015-01-21T22:14:26.9792776Z",
-  "submissionTimestamp": "2015-01-21T22:14:39.9936304Z",
-  "subscriptionId": "s1"
+    "authorization": {
+        "action": "Microsoft.Network/networkSecurityGroups/write",
+        "scope": "/subscriptions/dd042f02-6b3e-4f79-939a-6a381ffed3c0/resourcegroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG"
+    },
+    "caller": "rob@contoso.com",
+    "channels": "Operation",
+    "claims": {
+        "aud": "https://management.core.windows.net/",
+        "iss": "https://sts.windows.net/1114444b-7467-4144-a616-e3a5d63e147b/",
+        "iat": "1234567890",
+        "nbf": "1234567890",
+        "exp": "1234567890",
+        "_claim_names": "{\"groups\":\"src1\"}",
+        "_claim_sources": "{\"src1\":{\"endpoint\":\"https://graph.windows.net/1114444b-7467-4144-a616-e3a5d63e147b/users/f409edeb-4d29-44b5-9763-ee9348ad91bb/getMemberObjects\"}}",
+        "http://schemas.microsoft.com/claims/authnclassreference": "1",
+        "aio": "A3GgTJdwK4vy7Fa7l6DgJC2mI0GX44tML385OpU1Q+z+jaPnFMwB",
+        "http://schemas.microsoft.com/claims/authnmethodsreferences": "rsa,mfa",
+        "appid": "355249ed-15d9-460d-8481-84026b065942",
+        "appidacr": "2",
+        "http://schemas.microsoft.com/2012/01/devicecontext/claims/identifier": "10845a4d-ffa4-4b61-a3b4-e57b9b31cdb5",
+        "e_exp": "262800",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "Robertson",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "Rob",
+        "ipaddr": "111.111.1.111",
+        "name": "Rob Robertson",
+        "http://schemas.microsoft.com/identity/claims/objectidentifier": "f409edeb-4d29-44b5-9763-ee9348ad91bb",
+        "onprem_sid": "S-1-5-21-4837261184-168309720-1886587427-18514304",
+        "puid": "18247BBD84827C6D",
+        "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "b-24Jf94A3FH2sHWVIFqO3-RSJEiv24Jnif3gj7s",
+        "http://schemas.microsoft.com/identity/claims/tenantid": "1114444b-7467-4144-a616-e3a5d63e147b",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "rob@contoso.com",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "rob@contoso.com",
+        "uti": "IdP3SUJGtkGlt7dDQVRPAA",
+        "ver": "1.0"
+    },
+    "correlationId": "b5768deb-836b-41cc-803e-3f4de2f9e40b",
+    "eventDataId": "d0d36f97-b29c-4cd9-9d3d-ea2b92af3e9d",
+    "eventName": {
+        "value": "EndRequest",
+        "localizedValue": "End request"
+    },
+    "category": {
+        "value": "Administrative",
+        "localizedValue": "Administrative"
+    },
+    "eventTimestamp": "2018-01-29T20:42:31.3810679Z",
+    "id": "/subscriptions/dd042f02-6b3e-4f79-939a-6a381ffed3c0/resourcegroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG/events/d0d36f97-b29c-4cd9-9d3d-ea2b92af3e9d/ticks/636528553513810679",
+    "level": "Informational",
+    "operationId": "04e575f8-48d0-4c43-a8b3-78c4eb01d287",
+    "operationName": {
+        "value": "Microsoft.Network/networkSecurityGroups/write",
+        "localizedValue": "Microsoft.Network/networkSecurityGroups/write"
+    },
+    "resourceGroupName": "myResourceGroup",
+    "resourceProviderName": {
+        "value": "Microsoft.Network",
+        "localizedValue": "Microsoft.Network"
+    },
+    "resourceType": {
+        "value": "Microsoft.Network/networkSecurityGroups",
+        "localizedValue": "Microsoft.Network/networkSecurityGroups"
+    },
+    "resourceId": "/subscriptions/dd042f02-6b3e-4f79-939a-6a381ffed3c0/resourcegroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG",
+    "status": {
+        "value": "Succeeded",
+        "localizedValue": "Succeeded"
+    },
+    "subStatus": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "submissionTimestamp": "2018-01-29T20:42:50.0724829Z",
+    "subscriptionId": "dd042f02-6b3e-4f79-939a-6a381ffed3c0",
+    "properties": {
+        "statusCode": "Created",
+        "serviceRequestId": "a4c11dbd-697e-47c5-9663-12362307157d",
+        "responseBody": "",
+        "requestbody": ""
+    },
+    "relatedEvents": []
 }
+
 ```
 
 ### <a name="property-descriptions"></a>Opisy właściwości
 | Nazwa elementu | Opis |
 | --- | --- |
 | Autoryzacji |Obiekt typu blob RBAC właściwości zdarzenia. Zwykle zawiera właściwości "Akcja" i "rola" 'scope'. |
-| obiekt wywołujący |Adres e-mail użytkownika, który wykonał operację, oświadczenia UPN lub nazwy SPN oświadczenia na podstawie dostępności. |
-| Kanały |Jedną z następujących wartości: "Administrator", "Operacji" |
+| element wywołujący |Adres e-mail użytkownika, który wykonał operację, oświadczenia UPN lub nazwy SPN oświadczenia na podstawie dostępności. |
+| kanały |Jedną z następujących wartości: "Administrator", "Operacji" |
 | Oświadczenia |Token JWT używanych przez usługi Active Directory do uwierzytelniania użytkownika lub aplikacji do wykonania tej operacji w Menedżera zasobów. |
 | correlationId |Zazwyczaj identyfikator GUID w postaci ciągu. Zdarzenia, które mają correlationId należą do tego samego działania pełny. |
 | description |Statyczny tekst opisu zdarzenia. |
 | eventDataId |Unikatowy identyfikator zdarzenia. |
 | httpRequest |Obiekt typu blob opisujące żądania Http. Obejmuje zazwyczaj "clientRequestId", "clientIpAddress" i "method" (metoda HTTP. For example, PUT). |
 | poziom |Poziom zdarzenia. Jedną z następujących wartości: "Krytyczne", "Błąd", "Ostrzeżenie", "Informacyjny" i "Pełne" |
-| Grupy zasobów o nazwie |Nazwa grupy zasobów dla zasobu ryzyko. |
+| resourceGroupName |Nazwa grupy zasobów dla zasobu ryzyko. |
 | resourceProviderName |Nazwa dostawcy zasobu dla zasobu wpływ na |
 | resourceId |Identyfikator zasobu ryzyko zasobu. |
 | operationId |Identyfikator GUID współdzielenia zdarzenia, które odpowiadają jednej operacji. |
 | operationName |Nazwa operacji. |
 | properties |Zestaw `<Key, Value>` pary (słowniku) opisujący szczegóły zdarzenia. |
 | status |Ciąg opisujący stan operacji. Niektóre typowe wartości to: pracy w toku, zakończyło się pomyślnie, nie powiodło się, aktywne, rozwiązane. |
-| Podstan |Zazwyczaj wywołań REST odpowiedni kod stanu HTTP, ale można również uwzględnić inne parametry opisujące podstanu, takich jak te wartości typowych: OK (kod stanu HTTP: 200), utworzony (kod stanu HTTP: 201), akceptowane (kod stanu HTTP: 202), nie zawartości (kod stanu HTTP: 204), nieprawidłowe żądanie (kod stanu HTTP: 400), nie znaleziono (kod stanu HTTP: 404), konflikt (kod stanu HTTP : 409), wewnętrzny błąd serwera (kod stanu HTTP: 500), Usługa niedostępna (kod stanu HTTP: 503), limit czasu bramy (kod stanu HTTP: 504). |
+| subStatus |Zazwyczaj wywołań REST odpowiedni kod stanu HTTP, ale można również uwzględnić inne parametry opisujące podstanu, takich jak te wartości typowych: OK (kod stanu HTTP: 200), utworzony (kod stanu HTTP: 201), akceptowane (kod stanu HTTP: 202), nie zawartości (kod stanu HTTP: 204), nieprawidłowe żądanie (kod stanu HTTP: 400), nie znaleziono (kod stanu HTTP: 404), konflikt (kod stanu HTTP : 409), wewnętrzny błąd serwera (kod stanu HTTP: 500), Usługa niedostępna (kod stanu HTTP: 503), limit czasu bramy (kod stanu HTTP: 504). |
 | eventTimestamp |Sygnatura czasowa po zdarzeniu został wygenerowany przez usługę Azure przetwarzania żądania odpowiednie zdarzenie. |
 | submissionTimestamp |Znacznik czasu w momencie zdarzenia stały się dostępne na potrzeby zapytań. |
 | subscriptionId |Identyfikator subskrypcji platformy Azure. |
@@ -185,15 +198,15 @@ Ta kategoria zawiera rekord określone zdarzenia kondycji usługi, które wystą
 ### <a name="property-descriptions"></a>Opisy właściwości
 Nazwa elementu | Opis
 -------- | -----------
-Kanały | Jest jednym z następujących wartości: "Administrator", "Operacji"
+kanały | Jest jednym z następujących wartości: "Administrator", "Operacji"
 correlationId | Jest zazwyczaj identyfikator GUID w postaci ciągu. Zdarzenia z tym należy do tego samego działania pełny zwykle udostępnianie tego samego correlationId.
 description | Opis zdarzenia.
 eventDataId | Unikatowy identyfikator zdarzenia.
-EventName | Nazwa zdarzenia.
+eventName | Nazwa zdarzenia.
 poziom | Poziom zdarzenia. Jedną z następujących wartości: "Krytyczne", "Błąd", "Ostrzeżenie", "Informacyjny" i "Pełne"
 resourceProviderName | Nazwa dostawcy zasobów dla zasobu ryzyko. Jeśli nie jest znany, będzie to wartość null.
-Typ zasobu| Typ zasobu ryzyko zasobu. Jeśli nie jest znany, będzie to wartość null.
-Podstan | Zazwyczaj o wartości null dla zdarzenia kondycji usługi.
+resourceType| Typ zasobu ryzyko zasobu. Jeśli nie jest znany, będzie to wartość null.
+subStatus | Zazwyczaj o wartości null dla zdarzenia kondycji usługi.
 eventTimestamp | Znacznik czasu w momencie dziennik zdarzeń został wygenerowany i przesłane do dziennika aktywności.
 submissionTimestamp |   Znacznik czasu w momencie zdarzenia stały się dostępne w dzienniku aktywności.
 subscriptionId | Subskrypcja platformy Azure, w którym zarejestrowano to zdarzenie.
@@ -201,14 +214,14 @@ status | Ciąg opisujący stan operacji. Niektóre typowe wartości to: aktywne,
 operationName | Nazwa operacji. Zazwyczaj Microsoft.ServiceHealth/incident/action.
 category | "ServiceHealth"
 resourceId | Identyfikator zasobu ryzyko zasobu, jeśli znane. W przeciwnym razie podany identyfikator subskrypcji.
-Properties.Title | Tytuł zlokalizowane dla tej komunikacji. Językiem domyślnym będzie angielski.
-Properties.Communication | Szczegóły zlokalizowanych komunikacji z kodu znaczników HTML. Domyślnym będzie angielski.
+Properties.title | Tytuł zlokalizowane dla tej komunikacji. Językiem domyślnym będzie angielski.
+Properties.communication | Szczegóły zlokalizowanych komunikacji z kodu znaczników HTML. Domyślnym będzie angielski.
 Properties.incidentType | Możliwe wartości: AssistedRecovery, ActionRequired, informacje, zdarzenie, obsługi, zabezpieczeń
 Properties.trackingId | Identyfikuje incydent, który jest skojarzony to zdarzenie. Umożliwia korelowanie zdarzeń związanych ze zdarzeniem.
 Properties.impactedServices | Zmienionym obiektu blob JSON opisującą usług i regionów, które mają wpływ zdarzenia. Lista usług, z których każda ma elementy ServiceName i listę ImpactedRegions, z których każda ma RegionName.
 Properties.defaultLanguageTitle | Komunikat w języku angielskim
 Properties.defaultLanguageContent | Komunikat w języku angielskim jako kod znaczników html i zwykły tekst
-Properties.Stage | Możliwe wartości AssistedRecovery, ActionRequired, informacje, zdarzenie, zabezpieczeń: są aktywne, rozwiązane. W konserwacji są: aktywny, planowane, w toku, anulowane, Rescheduled, rozwiązane, Zakończ
+Properties.stage | Możliwe wartości AssistedRecovery, ActionRequired, informacje, zdarzenie, zabezpieczeń: są aktywne, rozwiązane. W konserwacji są: aktywny, planowane, w toku, anulowane, Rescheduled, rozwiązane, Zakończ
 Properties.communicationId | Komunikacja to zdarzenie jest skojarzony.
 
 ## <a name="alert"></a>Alerty
@@ -278,21 +291,21 @@ Ta kategoria zawiera rekord wszystkich aktywacji Azure alertów. Przykładem typ
 ### <a name="property-descriptions"></a>Opisy właściwości
 | Nazwa elementu | Opis |
 | --- | --- |
-| obiekt wywołujący | Zawsze Microsoft.Insights/alertRules |
-| Kanały | Zawsze "Admin, operację" |
+| element wywołujący | Always Microsoft.Insights/alertRules |
+| kanały | Zawsze "Admin, operację" |
 | Oświadczenia | Obiektu blob JSON z typem głównej nazwy usługi (nazwy głównej usługi) lub zasób, aparat alertów. |
 | correlationId | Identyfikator GUID w postaci ciągu. |
 | description |Tekst statyczny opis alertu zdarzenia. |
 | eventDataId |Unikatowy identyfikator zdarzenia alertu. |
 | poziom |Poziom zdarzenia. Jedną z następujących wartości: "Krytyczne", "Błąd", "Ostrzeżenie", "Informacyjny" i "Pełne" |
-| Grupy zasobów o nazwie |Nazwa grupy zasobów dla wpływ na zasobu, jeśli jest to alert metryki. Inne typy alertów jest to nazwa grupy zasobów, która zawiera samego alertu. |
+| resourceGroupName |Nazwa grupy zasobów dla wpływ na zasobu, jeśli jest to alert metryki. Inne typy alertów jest to nazwa grupy zasobów, która zawiera samego alertu. |
 | resourceProviderName |Nazwa dostawcy zasobów wpływ na zasobu, jeśli jest to alert metryki. Inne typy alertów jest to nazwa dostawcy zasobów dla samego alertu. |
 | resourceId | Nazwa identyfikatora zasobu wpływ na zasobu, jeśli jest to alert metryki. Inne typy alertów jest to identyfikator zasobu alertu zasobu sam. |
 | operationId |Identyfikator GUID współdzielenia zdarzenia, które odpowiadają jednej operacji. |
 | operationName |Nazwa operacji. |
 | properties |Zestaw `<Key, Value>` pary (słowniku) opisujący szczegóły zdarzenia. |
 | status |Ciąg opisujący stan operacji. Niektóre typowe wartości to: pracy w toku, zakończyło się pomyślnie, nie powiodło się, aktywne, rozwiązane. |
-| Podstan | Zazwyczaj o wartości null dla alertów. |
+| subStatus | Zazwyczaj o wartości null dla alertów. |
 | eventTimestamp |Sygnatura czasowa po zdarzeniu został wygenerowany przez usługę Azure przetwarzania żądania odpowiednie zdarzenie. |
 | submissionTimestamp |Znacznik czasu w momencie zdarzenia stały się dostępne na potrzeby zapytań. |
 | subscriptionId |Identyfikator subskrypcji platformy Azure. |
@@ -309,20 +322,20 @@ Pole właściwości będzie zawierać różne wartości w zależności od źród
 | properties.resourceId | Identyfikator zasobu z dziennika zdarzeń działania, który spowodował tę regułę alertów dziennika aktywności do aktywacji. |
 | properties.eventTimestamp | Sygnatura czasowa zdarzenia dziennika zdarzeń działania, który spowodował tę regułę alertów dziennika aktywności do aktywacji. |
 | properties.operationName | Nazwa operacji z dziennika zdarzeń działania, który spowodował tę regułę alertów dziennika aktywności do aktywacji. |
-| Properties.status | Stan działania dziennika zdarzeń, który spowodował tę regułę alertów dziennika aktywności do aktywacji.|
+| properties.status | Stan działania dziennika zdarzeń, który spowodował tę regułę alertów dziennika aktywności do aktywacji.|
 
 #### <a name="properties-for-metric-alerts"></a>Właściwości alertów metryki
 | Nazwa elementu | Opis |
 | --- | --- |
-| właściwości. RuleUri | Identyfikator zasobu metryki reguły alertu samej siebie. |
-| właściwości. RuleName | Nazwa metryki reguły alertów. |
+| properties.RuleUri | Identyfikator zasobu metryki reguły alertu samej siebie. |
+| properties.RuleName | Nazwa metryki reguły alertów. |
 | właściwości. RuleDescription | Opis metryki reguły alertu (zgodnie z definicją w regule alertu). |
 | właściwości. Próg | Wartość progowa, używana podczas obliczania metryki reguły alertów. |
-| właściwości. WindowSizeInMinutes | Rozmiar okna używana podczas obliczania metryki reguły alertów. |
-| właściwości. Agregacji | Typ agregacji zdefiniowane w regule alertu metryki. |
+| properties.WindowSizeInMinutes | Rozmiar okna używana podczas obliczania metryki reguły alertów. |
+| properties.Aggregation | Typ agregacji zdefiniowane w regule alertu metryki. |
 | właściwości. Operator | Operator warunkowy używana podczas obliczania metryki reguły alertów. |
-| właściwości. MetricName | Nazwa metryki metryki używana podczas obliczania metryki reguły alertów. |
-| właściwości. MetricUnit | Metryki jednostka Metryka używana podczas obliczania metryki reguły alertów. |
+| properties.MetricName | Nazwa metryki metryki używana podczas obliczania metryki reguły alertów. |
+| properties.MetricUnit | Metryki jednostka Metryka używana podczas obliczania metryki reguły alertów. |
 
 ## <a name="autoscale"></a>Automatyczne skalowanie
 Ta kategoria zawiera rekord wszystkie zdarzenia związane z operacji skalowania automatycznego aparatu oparte na ustawienia skalowania automatycznego zdefiniowanych w ramach subskrypcji. Przykładem typu zdarzenia, które widać w tej kategorii jest "Skalowania automatycznego skalowania w górę akcja nie powiodła się". Przy użyciu automatycznego skalowania, można automatycznie skalować w poziomie lub skalowanie liczby wystąpień w typie zasobów obsługiwanych na podstawie czasu dnia i/lub obciążenia () dane przy użyciu ustawienia skalowania automatycznego. Jeśli warunki są spełnione, aby skalowania w górę lub w dół, uruchamiania i zakończyło się pomyślnie lub niepowodzeniem zdarzenia będą rejestrowane w tej kategorii.
@@ -387,26 +400,26 @@ Ta kategoria zawiera rekord wszystkie zdarzenia związane z operacji skalowania 
 ### <a name="property-descriptions"></a>Opisy właściwości
 | Nazwa elementu | Opis |
 | --- | --- |
-| obiekt wywołujący | Zawsze Microsoft.Insights/autoscaleSettings |
-| Kanały | Zawsze "Admin, operację" |
+| element wywołujący | Always Microsoft.Insights/autoscaleSettings |
+| kanały | Zawsze "Admin, operację" |
 | Oświadczenia | Obiektu blob JSON z typem głównej nazwy usługi (nazwy głównej usługi) lub zasobów, aparatu skalowania automatycznego. |
 | correlationId | Identyfikator GUID w postaci ciągu. |
 | description |Opis zdarzenia skalowania automatycznego tekst statyczny. |
 | eventDataId |Unikatowy identyfikator zdarzenia automatycznego skalowania. |
 | poziom |Poziom zdarzenia. Jedną z następujących wartości: "Krytyczne", "Błąd", "Ostrzeżenie", "Informacyjny" i "Pełne" |
-| Grupy zasobów o nazwie |Nazwa grupy zasobów w ustawieniu skalowania automatycznego. |
+| resourceGroupName |Nazwa grupy zasobów w ustawieniu skalowania automatycznego. |
 | resourceProviderName |Nazwa dostawcy zasobów w ustawieniu skalowania automatycznego. |
 | resourceId |Identyfikator zasobu w ustawieniu skalowania automatycznego. |
 | operationId |Identyfikator GUID współdzielenia zdarzenia, które odpowiadają jednej operacji. |
 | operationName |Nazwa operacji. |
 | properties |Zestaw `<Key, Value>` pary (słowniku) opisujący szczegóły zdarzenia. |
 | właściwości. Opis elementu | Szczegółowy opis wykonywanych czynności został aparat skalowania automatycznego. |
-| właściwości. ResourceName | Identyfikator zasobu ryzyko zasobu (zasobu, na którym wykonywana akcji skalowania) |
+| properties.ResourceName | Identyfikator zasobu ryzyko zasobu (zasobu, na którym wykonywana akcji skalowania) |
 | właściwości. OldInstancesCount | Liczba wystąpień przed akcji skalowania automatycznego weszły w życie. |
-| właściwości. NewInstancesCount | Liczba wystąpień po akcji skalowania automatycznego weszły w życie. |
-| właściwości. LastScaleActionTime | Sygnatura czasowa wystąpienia akcji skalowania automatycznego. |
+| properties.NewInstancesCount | Liczba wystąpień po akcji skalowania automatycznego weszły w życie. |
+| properties.LastScaleActionTime | Sygnatura czasowa wystąpienia akcji skalowania automatycznego. |
 | status |Ciąg opisujący stan operacji. Niektóre typowe wartości to: pracy w toku, zakończyło się pomyślnie, nie powiodło się, aktywne, rozwiązane. |
-| Podstan | Zazwyczaj o wartości null dla automatycznego skalowania. |
+| subStatus | Zazwyczaj o wartości null dla automatycznego skalowania. |
 | eventTimestamp |Sygnatura czasowa po zdarzeniu został wygenerowany przez usługę Azure przetwarzania żądania odpowiednie zdarzenie. |
 | submissionTimestamp |Znacznik czasu w momencie zdarzenia stały się dostępne na potrzeby zapytań. |
 | subscriptionId |Identyfikator subskrypcji platformy Azure. |
@@ -477,27 +490,27 @@ Ta kategoria zawiera rekord wszystkie alerty wygenerowane przez Centrum zabezpie
 ### <a name="property-descriptions"></a>Opisy właściwości
 | Nazwa elementu | Opis |
 | --- | --- |
-| Kanały | Zawsze "operacji" |
+| kanały | Zawsze "operacji" |
 | correlationId | Identyfikator GUID w postaci ciągu. |
 | description |Statyczny tekst opisu zdarzenia zabezpieczeń. |
 | eventDataId |Unikatowy identyfikator zdarzenia zabezpieczeń. |
-| EventName |Przyjazna nazwa zdarzeń zabezpieczeń. |
+| eventName |Przyjazna nazwa zdarzeń zabezpieczeń. |
 | id |Identyfikator unikatowy zasób zdarzeń zabezpieczeń. |
 | poziom |Poziom zdarzenia. Jedną z następujących wartości: "Krytyczne", "Błąd", "Ostrzeżenie", "Informacyjny" lub "Pełne" |
-| Grupy zasobów o nazwie |Nazwa grupy zasobów dla zasobu. |
+| resourceGroupName |Nazwa grupy zasobów dla zasobu. |
 | resourceProviderName |Nazwa dostawcy zasobów Centrum zabezpieczeń Azure. Zawsze "Microsoft.Security". |
-| Typ zasobu |Typ zasobu, który wygenerował zdarzenie zabezpieczeń, takich jak "Microsoft.Security/locations/alerts" |
+| resourceType |Typ zasobu, który wygenerował zdarzenie zabezpieczeń, takich jak "Microsoft.Security/locations/alerts" |
 | resourceId |Identyfikator zasobu alertu zabezpieczeń. |
 | operationId |Identyfikator GUID współdzielenia zdarzenia, które odpowiadają jednej operacji. |
 | operationName |Nazwa operacji. |
 | properties |Zestaw `<Key, Value>` pary (słowniku) opisujący szczegóły zdarzenia. Te właściwości będą się różnić w zależności od rodzaju alertu zabezpieczeń. Zobacz [tej strony](../security-center/security-center-alerts-type.md) opis typów alertów, które pochodzą z Centrum zabezpieczeń. |
 | właściwości. Ważność |Poziom ważności. Możliwe wartości to "High", "Średni" lub "Low". |
 | status |Ciąg opisujący stan operacji. Niektóre typowe wartości to: pracy w toku, zakończyło się pomyślnie, nie powiodło się, aktywne, rozwiązane. |
-| Podstan | Zazwyczaj o wartości null dla zdarzeń zabezpieczeń. |
+| subStatus | Zazwyczaj o wartości null dla zdarzeń zabezpieczeń. |
 | eventTimestamp |Sygnatura czasowa po zdarzeniu został wygenerowany przez usługę Azure przetwarzania żądania odpowiednie zdarzenie. |
 | submissionTimestamp |Znacznik czasu w momencie zdarzenia stały się dostępne na potrzeby zapytań. |
 | subscriptionId |Identyfikator subskrypcji platformy Azure. |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Dowiedz się więcej o dziennik aktywności (dawniej dzienników inspekcji)](monitoring-overview-activity-logs.md)
 * [Strumień dziennika aktywności platformy Azure do usługi Event Hubs](monitoring-stream-activity-logs-event-hubs.md)

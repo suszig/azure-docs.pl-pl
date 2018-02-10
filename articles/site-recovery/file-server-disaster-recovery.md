@@ -9,14 +9,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2017
+ms.date: 02/06/2018
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: ac734ffc6cb57188b7b0959cbe7655949b2853de
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 779ec70a3b45a0ac3e766c956aac94932d4d126b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="protect-a-file-server-using-azure-site-recovery"></a>Ochrona serwera plików przy użyciu usługi Azure Site Recovery 
 
@@ -32,7 +32,7 @@ W celu otwartego pliku rozproszonej Udostępnianie systemu jest zapewnienie śro
 
 Następujące topologii przedstawiono środowisko serwera plików z DFSR zaimplementowana.
                 
-![DFSR architexture](media/site-recovery-file-server/dfsr-architecture.JPG)
+![dfsr-architexture](media/site-recovery-file-server/dfsr-architecture.JPG)
 
 W powyższych odwołanie wielu serwerów plików określonych jako elementy członkowskie, aktywnie uczestniczyć w replikacji plików między grupą replikacji. Zawartość w folderze replikowanym będzie dostępna dla wszystkich klientów wysyłania żądań do jednego z elementów członkowskich, nawet w przypadku awarii jednego z elementów członkowskich przechodzi do trybu offline.
 
@@ -66,10 +66,10 @@ Następujący diagram zawiera graficznie przedstawiają celem łatwiejszym limit
 Zgodnie z replikacji usługi Site Recovery jest niezależny od aplikacji, zalecenia zawarte w tym miejscu powinny dotyczy w następujących scenariuszach:
 | Element źródłowy    |Do lokacji dodatkowej    |Na platformie Azure
 |---------|---------|---------|
-|Azure| -|Tak|
-|Funkcja Hyper-V|   Tak |Tak
-|VMware |Tak|   Tak
-|Serwer fizyczny|   Tak |Tak
+|Azure| -|Yes|
+|Funkcja Hyper-V|   Yes |Yes
+|VMware |Yes|   Yes
+|Serwer fizyczny|   Yes |Yes
  
 
 > [!IMPORTANT]

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: jgao
-ms.openlocfilehash: e37abf9bbcf8f98c969a32d8eb37b9a7a6ddeb14
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4acaac52ec86f902a7971459ed4b19c1e5992a28
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Zarządzanie zasobami klastra Apache Spark w usłudze Azure HDInsight 
 
@@ -36,7 +36,7 @@ Apache Ambari służy do monitorowania klastra i wprowadzania zmian w konfigurac
 
 ## <a name="open-the-spark-history-server"></a>Otwórz okno Spark historii serwera
 
-Serwer historii Spark jest interfejs użytkownika sieci web została zakończona i uruchomiona aplikacji Spark. To rozszerzenie Sparkl w interfejsie użytkownika sieci Web.
+Serwer historii Spark jest interfejs użytkownika sieci web została zakończona i uruchomiona aplikacji Spark. To rozszerzenie interfejsu użytkownika sieci Web platforma Spark.
 
 **Aby otworzyć Interfejs sieci Web serwera Spark historii**
 

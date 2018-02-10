@@ -15,27 +15,27 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: cd470144dc0fcbbfab662125b57d414c6ee1ccdd
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 2fceb97e836db1c1f7a15d375a534a9187d3f2d2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Utwórz pełną maszyny wirtualnej systemu Linux z wiersza polecenia platformy Azure
 Aby szybko utworzyć maszynę wirtualną (VM) na platformie Azure, korzystając jednego polecenia interfejsu wiersza polecenia Azure, który można utworzyć wszelkie wymagane zasoby towarzyszące są używane wartości domyślne. Zasoby, takie jak sieć wirtualną, publiczny adres IP i reguły grupy zabezpieczeń sieci są tworzone automatycznie. Aby uzyskać większą kontrolę nad środowiskiem w środowisku produkcyjnym należy używać, może utworzyć te zasoby wcześniejsze i następnie dodać do nich maszyn wirtualnych. W tym artykule prowadzi użytkownika przez proces tworzenia maszyny Wirtualnej i każdy z zasobów pomocniczych jeden po drugim.
 
-Upewnij się, że zainstalowano najnowszą [Azure CLI 2.0](/cli/azure/install-az-cli2) i logowania do konta platformy Azure przy użyciu [logowania az](/cli/azure/#login).
+Upewnij się, że zainstalowano najnowszą [Azure CLI 2.0](/cli/azure/install-az-cli2) i logowania do konta platformy Azure przy użyciu [logowania az](/cli/azure/#az_login).
 
 W poniższych przykładach Zastąp przykładowe nazwy parametrów własne wartości. Przykład nazwy parametru zawierają *myResourceGroup*, *myVnet*, i *myVM*.
 
 ## <a name="create-resource-group"></a>Tworzenie grupy zasobów
-Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Grupy zasobów musi zostać utworzone przed maszyny wirtualnej i dodatkowe zasoby sieci wirtualnej. Tworzenie grupy zasobów z [Tworzenie grupy az](/cli/azure/group#create). Poniższy przykład tworzy grupę zasobów o nazwie *myResourceGroup* w *eastus* lokalizacji:
+Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Grupy zasobów musi zostać utworzone przed maszyny wirtualnej i dodatkowe zasoby sieci wirtualnej. Tworzenie grupy zasobów z [Tworzenie grupy az](/cli/azure/group#az_group_create). W poniższym przykładzie pokazano tworzenie grupy zasobów o nazwie *myResourceGroup* w lokalizacji *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Domyślnie dane wyjściowe polecenia wiersza polecenia platformy Azure jest w formacie JSON (JavaScript Object Notation). Aby zmienić domyślne dane wyjściowe do listy lub tabeli, na przykład użyć [skonfigurować az — dane wyjściowe](/cli/azure/#configure). Można również dodać `--output` do dowolnego polecenia jeden raz Zmień format danych wyjściowych. W poniższym przykładzie przedstawiono dane wyjściowe JSON `az group create` polecenia:
+Domyślnie dane wyjściowe polecenia wiersza polecenia platformy Azure jest w formacie JSON (JavaScript Object Notation). Aby zmienić domyślne dane wyjściowe do listy lub tabeli, na przykład użyć [skonfigurować az — dane wyjściowe](/cli/azure/#az_configure). Można również dodać `--output` do dowolnego polecenia jeden raz Zmień format danych wyjściowych. W poniższym przykładzie przedstawiono dane wyjściowe JSON `az group create` polecenia:
 
 ```json                       
 {
@@ -50,7 +50,7 @@ Domyślnie dane wyjściowe polecenia wiersza polecenia platformy Azure jest w fo
 ```
 
 ## <a name="create-a-virtual-network-and-subnet"></a>Tworzenie sieci wirtualnej i podsieci
-Dalej przez tworzenie sieci wirtualnej platformy Azure i podsieci do której można utworzyć maszyny wirtualne. Użyj [tworzenie sieci wirtualnej sieci az](/cli/azure/network/vnet#create) można utworzyć sieci wirtualnej o nazwie *myVnet* z *192.168.0.0/16* prefiks adresu. Możesz również dodać podsieć o nazwie *mySubnet* z prefiksem adresu o *192.168.1.0/24*:
+Dalej przez tworzenie sieci wirtualnej platformy Azure i podsieci do której można utworzyć maszyny wirtualne. Użyj [tworzenie sieci wirtualnej sieci az](/cli/azure/network/vnet#az_network_vnet_create) można utworzyć sieci wirtualnej o nazwie *myVnet* z *192.168.0.0/16* prefiks adresu. Możesz również dodać podsieć o nazwie *mySubnet* z prefiksem adresu o *192.168.1.0/24*:
 
 ```azurecli
 az network vnet create \
@@ -102,7 +102,7 @@ Dane wyjściowe zawierają logicznie tworzone podsieci w sieci wirtualnej:
 
 
 ## <a name="create-a-public-ip-address"></a>Tworzenie publicznego adresu IP
-Teraz Utwórzmy publiczny adres IP z [utworzyć az sieci publicznej ip](/cli/azure/network/public-ip#create). Ten publiczny adres IP umożliwia nawiązywanie połączenia z Internetu do maszyn wirtualnych. Ponieważ domyślnym adresem jest dynamiczny, utworzyć wpis DNS o nazwie z `--domain-name-label` parametru. Poniższy przykład tworzy publicznego adresu IP o nazwie *myPublicIP* o nazwie DNS *mypublicdns*. Ponieważ nazwy DNS musi być unikatowa, należy podać własną unikatową nazwę DNS:
+Teraz Utwórzmy publiczny adres IP z [utworzyć az sieci publicznej ip](/cli/azure/network/public-ip#az_network_public_ip_create). Ten publiczny adres IP umożliwia nawiązywanie połączenia z Internetu do maszyn wirtualnych. Ponieważ domyślnym adresem jest dynamiczny, utworzyć wpis DNS o nazwie z `--domain-name-label` parametru. Poniższy przykład tworzy publicznego adresu IP o nazwie *myPublicIP* o nazwie DNS *mypublicdns*. Ponieważ nazwy DNS musi być unikatowa, należy podać własną unikatową nazwę DNS:
 
 ```azurecli
 az network public-ip create \
@@ -141,7 +141,7 @@ Dane wyjściowe:
 
 
 ## <a name="create-a-network-security-group"></a>Tworzenie sieciowej grupy zabezpieczeń
-Sterowanie przepływem ruchu do i z maszyn wirtualnych, należy zastosować sieciową grupę zabezpieczeń na wirtualnej karcie Sieciowej lub podsieci. W poniższym przykładzie użyto [utworzyć nsg sieci az](/cli/azure/network/nsg#create) utworzyć sieciowej grupy zabezpieczeń o nazwie *myNetworkSecurityGroup*:
+Sterowanie przepływem ruchu do i z maszyn wirtualnych, należy zastosować sieciową grupę zabezpieczeń na wirtualnej karcie Sieciowej lub podsieci. W poniższym przykładzie użyto [utworzyć nsg sieci az](/cli/azure/network/nsg#az_network_nsg_create) utworzyć sieciowej grupy zabezpieczeń o nazwie *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nsg create \
@@ -149,7 +149,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-Można zdefiniować reguły, które akceptować lub odrzucać określonego ruchu. Aby zezwolić na połączenia przychodzące do portu 22 (Aby włączyć dostęp SSH), należy utworzyć regułę ruchu przychodzącego z [Tworzenie reguły nsg sieci az](/cli/azure/network/nsg/rule#create). Poniższy przykład tworzy reguły o nazwie *myNetworkSecurityGroupRuleSSH*:
+Można zdefiniować reguły, które akceptować lub odrzucać określonego ruchu. Aby zezwolić na połączenia przychodzące do portu 22 (Aby włączyć dostęp SSH), należy utworzyć regułę ruchu przychodzącego z [Tworzenie reguły nsg sieci az](/cli/azure/network/nsg/rule#az_network_nsg_rule_create). Poniższy przykład tworzy reguły o nazwie *myNetworkSecurityGroupRuleSSH*:
 
 ```azurecli
 az network nsg rule create \
@@ -175,7 +175,7 @@ az network nsg rule create \
     --access allow
 ```
 
-Sprawdź, czy grupy zabezpieczeń sieci i reguły z [Pokaż nsg sieci az](/cli/azure/network/nsg#show):
+Sprawdź, czy grupy zabezpieczeń sieci i reguły z [Pokaż nsg sieci az](/cli/azure/network/nsg#az_network_nsg_show):
 
 ```azurecli
 az network nsg show --resource-group myResourceGroup --name myNetworkSecurityGroup
@@ -332,7 +332,7 @@ Dane wyjściowe:
 ```
 
 ## <a name="create-a-virtual-nic"></a>Tworzenie wirtualnej karty Sieciowej
-Wirtualne karty sieciowe (NIC) są programowo dostępne, ponieważ reguły można stosować do ich używania. W zależności od [rozmiar maszyny Wirtualnej](sizes.md), możesz dołączyć wiele wirtualnych kart sieciowych do maszyny Wirtualnej. W następujących [tworzenie kart interfejsu sieciowego az](/cli/azure/network/nic#create) polecenia Utwórz karty Sieciowej o nazwie *myNic* i skojarzyć go z grupy zabezpieczeń sieci. Publiczny adres IP *myPublicIP* jest także powiązany z wirtualnej karty sieciowej.
+Wirtualne karty sieciowe (NIC) są programowo dostępne, ponieważ reguły można stosować do ich używania. W zależności od [rozmiar maszyny Wirtualnej](sizes.md), możesz dołączyć wiele wirtualnych kart sieciowych do maszyny Wirtualnej. W następujących [tworzenie kart interfejsu sieciowego az](/cli/azure/network/nic#az_network_nic_create) polecenia Utwórz karty Sieciowej o nazwie *myNic* i skojarzyć go z grupy zabezpieczeń sieci. Publiczny adres IP *myPublicIP* jest także powiązany z wirtualnej karty sieciowej.
 
 ```azurecli
 az network nic create \
@@ -444,7 +444,7 @@ Aktualizacja domen wskazują grupy maszyn wirtualnych i podstawowym sprzętem fi
 
 Azure automatycznie dystrybuuje maszyn wirtualnych w domenach awarii i aktualizacji podczas umieszczania ich w zestawie dostępności. Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępność maszyn wirtualnych](manage-availability.md).
 
-Utwórz zbiór dostępności dla maszyny Wirtualnej z [tworzenia maszyny wirtualnej az zestawu dostępności](/cli/azure/vm/availability-set#create). Poniższy przykład tworzy zbiór nazwanego dostępności *myAvailabilitySet*:
+Utwórz zbiór dostępności dla maszyny Wirtualnej z [tworzenia maszyny wirtualnej az zestawu dostępności](/cli/azure/vm/availability-set#az_vm_availability_set_create). Poniższy przykład tworzy zbiór nazwanego dostępności *myAvailabilitySet*:
 
 ```azurecli
 az vm availability-set create \
@@ -477,11 +477,11 @@ Domen błędów wyjścia uwagi i domen aktualizacji:
 
 
 ## <a name="create-a-vm"></a>Tworzenie maszyny wirtualnej
-Po utworzeniu zasobów sieciowych do obsługi maszyn wirtualnych dostęp do Internetu. Teraz Utwórz maszynę Wirtualną i zabezpiecz ją przy użyciu klucza SSH. W tym przykładzie Utwórzmy Ubuntu oparte na najnowszych LTS maszyny Wirtualnej. Można znaleźć dodatkowe obrazy z [listy obrazów maszyny wirtualnej az](/cli/azure/vm/image#list), zgodnie z opisem w [znajdowanie obrazów maszyn wirtualnych Azure](cli-ps-findimage.md).
+Po utworzeniu zasobów sieciowych do obsługi maszyn wirtualnych dostęp do Internetu. Teraz Utwórz maszynę Wirtualną i zabezpiecz ją przy użyciu klucza SSH. W tym przykładzie Utwórzmy Ubuntu oparte na najnowszych LTS maszyny Wirtualnej. Można znaleźć dodatkowe obrazy z [listy obrazów maszyny wirtualnej az](/cli/azure/vm/image#az_vm_image_list), zgodnie z opisem w [znajdowanie obrazów maszyn wirtualnych Azure](cli-ps-findimage.md).
 
 Określ klucz SSH do uwierzytelniania. Jeśli nie masz pary kluczy publicznych SSH, możesz [je utworzyć](mac-create-ssh-keys.md) lub użyj `--generate-ssh-keys` parametr, aby je utworzyć automatycznie. Jeśli masz już parę kluczy, ten parametr wykorzystuje istniejące klucze w `~/.ssh`.
 
-Tworzenie maszyny Wirtualnej, przełączając wszystkich zasobów i informacji razem z [tworzenia maszyny wirtualnej az](/cli/azure/vm#create) polecenia. Poniższy przykład tworzy Maszynę wirtualną o nazwie *myVM*:
+Tworzenie maszyny Wirtualnej, przełączając wszystkich zasobów i informacji razem z [tworzenia maszyny wirtualnej az](/cli/azure/vm#az_vm_create) polecenia. Poniższy przykład tworzy Maszynę wirtualną o nazwie *myVM*:
 
 ```azurecli
 az vm create \
@@ -558,7 +558,7 @@ Aby wyświetlić NGINX domyślnej witryny w akcji, otwórz przeglądarkę sieci 
 ![Domyślna witryna NGINX na maszynie Wirtualnej](media/create-cli-complete/nginx.png)
 
 ## <a name="export-as-a-template"></a>Eksportowanie jako szablon
-Co zrobić, jeśli chcesz teraz Utwórz środowisko rozwoju dodatkowych z takimi samymi parametrami lub w środowisku produkcyjnym, które odpowiadają go? Menedżer zasobów używa szablony JSON, które definiują wszystkie parametry dla danego środowiska. Limit całego środowiska kompilacji, umieszczając odwołanie do tego szablonu JSON. Możesz [ręcznie utworzyć szablony JSON](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) lub wyeksportować utworzenie szablonu JSON do istniejącego środowiska. Użyj [eksportowanie grupy az](/cli/azure/group#export) Aby wyeksportować grupy zasobów w następujący sposób:
+Co zrobić, jeśli chcesz teraz Utwórz środowisko rozwoju dodatkowych z takimi samymi parametrami lub w środowisku produkcyjnym, które odpowiadają go? Menedżer zasobów używa szablony JSON, które definiują wszystkie parametry dla danego środowiska. Limit całego środowiska kompilacji, umieszczając odwołanie do tego szablonu JSON. Możesz [ręcznie utworzyć szablony JSON](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) lub wyeksportować utworzenie szablonu JSON do istniejącego środowiska. Użyj [eksportowanie grupy az](/cli/azure/group#az_group_export) Aby wyeksportować grupy zasobów w następujący sposób:
 
 ```azurecli
 az group export --name myResourceGroup > myResourceGroup.json
@@ -566,7 +566,7 @@ az group export --name myResourceGroup > myResourceGroup.json
 
 To polecenie tworzy `myResourceGroup.json` plik w bieżącym katalogu roboczym. Podczas tworzenia środowiska z tego szablonu, wyświetlany jest monit dla nazw zasobów. Można go wypełnić te nazwy w pliku szablonu, dodając `--include-parameter-default-value` parametr `az group export` polecenia. Edytuj szablon JSON można określić nazwy zasobu lub [Tworzenie pliku parameters.JSON następującym kodem](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) , który określa nazwy zasobu.
 
-Aby utworzyć środowisko z szablonu, należy użyć [Utwórz wdrożenie grupy az](/cli/azure/group/deployment#create) w następujący sposób:
+Aby utworzyć środowisko z szablonu, należy użyć [Utwórz wdrożenie grupy az](/cli/azure/group/deployment#az_group_deployment_create) w następujący sposób:
 
 ```azurecli
 az group deployment create \
@@ -576,5 +576,5 @@ az group deployment create \
 
 Warto przeczytać [więcej informacji na temat sposobu wdrażania z szablonów](../../resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Więcej informacji na temat sposobu przyrostowo aktualizacja środowisk, użyj pliku parametrów i dostępu do szablonów z lokalizacji magazynu jednego.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Teraz możesz przystąpić do rozpoczęcia pracy z wieloma składnikami sieciowymi i maszyny wirtualne. To środowisko próbki służy do tworzenia aplikacji przy użyciu podstawowe składniki wprowadzone w tym miejscu.

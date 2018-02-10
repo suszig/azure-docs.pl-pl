@@ -1,26 +1,20 @@
 ---
-title: "Uruchom wyszczególniania odzyskiwania po awarii do lokacji dodatkowej lokalnymi z usługą Azure Site Recovery | Dokumentacja firmy Microsoft"
+title: "Uruchom wyszczególniania odzyskiwania po awarii do lokacji dodatkowej lokalnymi z usługi Azure Site Recovery | Dokumentacja firmy Microsoft"
 description: "Dowiedz się więcej o uruchamianiu wyszczególniania odzyskiwania po awarii do lokacji dodatkowej lokalnymi z usługą Azure Site Recovery"
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
 manager: carmonm
-editor: 
-ms.assetid: 445878e2-6682-49ba-914d-4c6824ab08a6
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 09/18/2017
+ms.date: 02/07/2018
 ms.author: raynew
-ms.openlocfilehash: 8737c2a22bd729cfc15d5448e1ec0becef643fd5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e5f8dce1ca2f728d15161622fb9ff2afb4b6c86
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="run-a-disaster-recovery-drill-for-hyper-v-vms-to-your-secondary-on-premises-site"></a>Uruchom wyszczególniania odzyskiwania po awarii dla maszyn wirtualnych funkcji Hyper-V do lokacji dodatkowej lokalnymi
+# <a name="run-a-disaster-recovery-drill-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Uruchom wyszczególniania odzyskiwania po awarii dla maszyn wirtualnych funkcji Hyper-V do lokacji dodatkowej lokalnymi
 
 [Usługi Azure Site Recovery](site-recovery-overview.md) usługi przyczynia się do strategii odzyskiwania po awarii poprzez organizowanie replikacji, trybu failover i powrotu po awarii maszyn lokalnych i Azure maszynach wirtualnych (VM) i zarządzanie nimi.
 
@@ -52,7 +46,7 @@ W tym samouczku przedstawiono sposób uruchamiania wyszczególniania odzyskiwani
 6. W **uwagi**, zarejestrować i zapisać wszelkie obserwacje związane z testowania trybu failover. 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Tryb failover produkcji](tutorial-vmm-to-vmm-failover-failback.md)
 

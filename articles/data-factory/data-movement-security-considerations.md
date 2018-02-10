@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 02/07/2018
 ms.author: abnarain
-ms.openlocfilehash: 8bd5ae2aac23b18aeb3ef44692f448b50b7e3d44
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 7bd08a838bef504e41f7aa63516a1b54ba497441
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Fabryka danych Azure — zagadnienia dotyczące zabezpieczeń dla przepływu danych
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -82,10 +82,10 @@ Usługa Azure Data Lake store zapewnia również szyfrowanie danych przechowywan
 Usługa Azure storage magazynu obiektów Blob i tabel Azure obsługuje magazynu usługi szyfrowania (SSE), który szyfruje dane przed wprowadzeniem trwałych do magazynu i automatycznie odszyfrowuje przed pobierania. Aby uzyskać więcej informacji, zobacz [szyfrowanie usługi Magazyn Azure dla danych magazynowanych](../storage/common/storage-service-encryption.md).
 
 #### <a name="amazon-s3"></a>Amazon S3
-Amazon S3 obsługuje szyfrowanie danych przechowywanych klienta i serwera. Aby uzyskać więcej informacji, zobacz [ochrona danych przy użyciu szyfrowania](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html). Fabryki danych nie obsługuje obecnie, Amazon S3 wewnątrz wirtualnych chmury prywatnej (VPC).
+Amazon S3 obsługuje szyfrowanie danych przechowywanych klienta i serwera. Aby uzyskać więcej informacji, zobacz [ochrona danych przy użyciu szyfrowania](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html).
 
 #### <a name="amazon-redshift"></a>Amazon Redshift
-Amazon Redshift obsługuje szyfrowanie klastra dla przechowywanych danych. Aby uzyskać więcej informacji, zobacz [szyfrowania bazy danych Redshift Amazon](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html). Fabryki danych nie obsługuje obecnie, Amazon Redshift wewnątrz VPC. 
+Amazon Redshift obsługuje szyfrowanie klastra dla przechowywanych danych. Aby uzyskać więcej informacji, zobacz [szyfrowania bazy danych Redshift Amazon](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html). 
 
 #### <a name="salesforce"></a>SalesForce
 SalesForce obsługuje szyfrowanie platformy osłony, który umożliwia szyfrowanie wszystkich plików, załączników i pola niestandardowe. Aby uzyskać więcej informacji, zobacz [opis przepływ uwierzytelniania OAuth serwera sieci Web](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm).  

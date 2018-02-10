@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 3b559e64f38727b1e390160515b7614ad1dfaa97
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 03aeb4fd190ec83a61875168116157404c1d730d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory-beta"></a>Kopiowanie danych z Google BigQuery przy użyciu fabryki danych Azure (wersja beta)
 
@@ -52,7 +52,7 @@ Następujące właściwości są obsługiwane przez Google BigQuery połączonej
 | additionalProjects | Rozdzielana przecinkami lista identyfikatorów projektów publicznych BigQuery projekty do dostępu.  | Nie |
 | requestGoogleDriveScope | Określa, czy żądania dostępu do dysku Google. Zezwalanie na dostęp dysk Google umożliwia obsługę tabel federacyjnych łączące dane BigQuery z danymi w usłudze dysk Google. Wartość domyślna to **false**.  | Nie |
 | authenticationType | Mechanizm uwierzytelniania OAuth 2.0, używany do uwierzytelniania. ServiceAuthentication może być używany tylko Self-hosted integracji w czasie wykonywania. <br/>Dozwolone wartości to **ServiceAuthentication** i **UserAuthentication**. | Yes |
-| refreshToken | Token odświeżania uzyskane z używany do autoryzacji dostępu do BigQuery dla UserAuthentication Google. W tym polu można oznaczyć jako SecureString Zapisz w bezpiecznej lokalizacji w fabryce danych. Możesz również przechowywania hasła w usłudze Azure Key Vault i umożliwić ściągania działania kopiowania stamtąd podczas wykonywania kopii danych. Aby dowiedzieć się więcej, zobacz [przechowywania poświadczeń w magazynie kluczy](store-credentials-in-key-vault.md). | Nie |
+| refreshToken | Token odświeżania uzyskane z używany do autoryzacji dostępu do BigQuery dla UserAuthentication Google. Zaznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w fabryce danych lub [odwołania klucz tajny przechowywane w usłudze Azure Key Vault](store-credentials-in-key-vault.md). | Nie |
 | e-mail | Identyfikator konta usługi poczty e-mail używany do ServiceAuthentication. Może służyć tylko na Self-hosted integracji w czasie wykonywania.  | Nie |
 | keyFilePath | Pełna ścieżka do pliku klucza .p12, który jest używany do uwierzytelniania adres e-mail konta usługi. Może służyć tylko na Self-hosted integracji w czasie wykonywania.  | Nie |
 | trustedCertPath | Pełna ścieżka pliku PEM, który zawiera zaufane certyfikaty urzędu certyfikacji służącego do weryfikowania serwer podczas nawiązywania połączenia za pośrednictwem protokołu SSL. Tej właściwości można ustawić tylko wtedy, gdy na środowiska uruchomieniowego integracji Self-hosted za pomocą protokołu SSL. Wartość domyślna to plik cacerts.pem zainstalowane ze środowiskiem uruchomieniowym integracji.  | Nie |

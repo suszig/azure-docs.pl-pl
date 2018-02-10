@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/12/2017
 ms.author: jdial
-ms.openlocfilehash: 55aece3f20ee98d21d7bb2b96cb3d039d4849f8f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 892aa03bd058b50fc4868a225dfe602624ff19ef
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-virtual-network"></a>Azure Virtual Network
 
@@ -44,7 +44,7 @@ Można zaimplementować wiele sieci wirtualnych w każdym Azure [subskrypcji](..
 - Używanie rozpoznawania nazw platformy Azure lub Podaj własny serwer DNS do użytku przez zasobów w sieci wirtualnej. Aby dowiedzieć się więcej na temat rozpoznawania nazw w sieciach wirtualnych, zobacz [rozpoznawanie nazw dla zasobów w sieciach wirtualnych](virtual-networks-name-resolution-for-vms-and-role-instances.md) artykułu.
 
 ## <a name = "internet"></a>Komunikacja z Internetem
-Wszystkie zasoby w sieci wirtualnej mogą komunikować się ruch wychodzący do Internetu. Domyślnie prywatnego adresu IP zasobu jest źródłowy adres sieciowy translacji (SNAT) do publicznego adresu IP wybrana przez infrastrukturę platformy Azure. Aby dowiedzieć się więcej na temat wychodzące połączenie z Internetem, przeczytaj [Opis połączeń wychodzących na platformie Azure](..\load-balancer\load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json#standalone-vm-with-no-instance-level-public-ip-address) artykułu. Aby zapobiec wychodzące połączenie z Internetem, można zaimplementować trasy niestandardowe lub filtrowanie ruchu.
+Wszystkie zasoby w sieci wirtualnej mogą komunikować się ruch wychodzący do Internetu. Domyślnie prywatnego adresu IP zasobu jest źródłowy adres sieciowy translacji (SNAT) do publicznego adresu IP wybrana przez infrastrukturę platformy Azure. Aby dowiedzieć się więcej na temat wychodzące połączenie z Internetem, przeczytaj [Opis połączeń wychodzących na platformie Azure](..\load-balancer\load-balancer-outbound-connections.md) artykułu. Aby zapobiec wychodzące połączenie z Internetem, można zaimplementować trasy niestandardowe lub filtrowanie ruchu.
 
 Do komunikacji przychodzącej zasobów platformy Azure z Internetu lub komunikacji ruch wychodzący do Internetu bez SNAT, musi on mieć przypisaną publicznego adresu IP. Aby dowiedzieć się więcej na temat publiczne adresy IP, przeczytaj [publicznego adresu IP, adresy](virtual-network-public-ip-address.md) artykułu.
 
