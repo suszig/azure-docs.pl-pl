@@ -2,12 +2,12 @@
 ## [Co to jest Relay?](relay-what-is-it.md)
 ## [Często zadawane pytania](relay-faq.md)
 
-# Wprowadzenie
+# Przewodniki Szybki start
 ## [Tworzenie przestrzeni nazw](relay-create-namespace-portal.md)
 ## [Tworzenie hybrydowej aplikacji lokalnej/w chmurze](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
 ## Połączenia hybrydowe
 ### [.NET](relay-hybrid-connections-dotnet-get-started.md)
-### [Węzeł](relay-hybrid-connections-node-get-started.md)
+### [Node](relay-hybrid-connections-node-get-started.md)
 ## [Przekaźnik WCF](relay-wcf-dotnet-get-started.md)
 ## [Samouczek dotyczący przekaźnika WCF](service-bus-relay-tutorial.md)
 ## [Przekaźniki WCF — samouczek dotyczący architektury REST](service-bus-relay-rest-tutorial.md)

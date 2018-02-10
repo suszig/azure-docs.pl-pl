@@ -360,6 +360,7 @@
           href: spark-connector-graph.md
         - name: Przesyłanie strumieniowe za pomocą usług Kafka i Spark w usłudze HDInsight
           href: ../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md
+          maintainContext: true
         - name: Wdrażanie witryny sieci Web za pomocą usługi Azure App Service
           href: create-website.md
         - name: Rejestrowanie aplikacji za pomocą usługi Logic Apps
