@@ -1,22 +1,22 @@
 ---
-title: "Uruchom w powłoce chmury Azure Ansible"
-description: "Dowiedz się, jak wykonywać różne zadania Ansible w powłoce chmury Azure"
+title: "Uruchom Ansible z Bash w chmurze Azure powłoki"
+description: "Dowiedz się, jak wykonywać różne zadania Ansible z Bash w powłoce chmury Azure"
 ms.service: ansible
-keywords: ansible, azure, devops, bash, cloudshell, playbook
+keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 author: tomarcher
 manager: routlaw
 ms.author: tarcher
-ms.date: 01/14/2018
+ms.date: 02/01/2018
 ms.topic: article
-ms.openlocfilehash: d5a818616d382954d0880bcae58bb13b632ad757
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 0cd0390a381e85c8f047960ce06c581a433d4a2c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="run-ansible-in-the-azure-cloud-shell"></a>Uruchom w powłoce chmury Azure Ansible
+# <a name="run-ansible-with-bash-in-azure-cloud-shell"></a>Uruchom Ansible z Bash w chmurze Azure powłoki
 
-W tym samouczku Dowiedz się jak wykonywać różne zadania Ansible w powłoce chmury Azure. Te zadania obejmują połączenie z maszyną wirtualną i tworzenie playbooks Ansible do tworzenia i usuwania grupy zasobów platformy Azure.
+W tym samouczku Dowiedz się jak wykonywać różne zadania Ansible z Bash w powłoce chmury. Te zadania obejmują połączenie z maszyną wirtualną i tworzenie playbooks Ansible do tworzenia i usuwania grupy zasobów platformy Azure.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -24,12 +24,14 @@ W tym samouczku Dowiedz się jak wykonywać różne zadania Ansible w powłoce c
 
 - **Poświadczenia Azure** - [Azure tworzenia poświadczeń i konfigurowania Ansible](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials)
 
-- **Skonfiguruj powłoki chmury Azure** — Jeśli jesteś nowym użytkownikiem powłoki chmury Azure, artykuł [szybkiego startu dla Bash w powłoce chmury Azure](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart) ilustruje sposób uruchomienia i skonfigurowania powłoki chmury.
+- **Skonfiguruj powłoki chmury Azure** — Jeśli jesteś nowym użytkownikiem powłoki chmury Azure, artykuł [szybkiego startu dla Bash w powłoce chmury Azure](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart) ilustruje sposób uruchomienia i skonfigurowania powłoki chmury. W tym miejscu uruchomić dedykowanej witrynie sieci Web dla powłoki chmury:
+
+[![Uruchom powłokę chmury](https://shell.azure.com/images/launchcloudshell.png "Uruchom powłokę chmury")](https://shell.azure.com)
 
 ## <a name="use-ansible-to-connect-to-a-vm"></a>Użyj Ansible nawiązywania połączenia z maszyną wirtualną
 Ansible został utworzony skrypt w języku Python o nazwie [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) generujący dynamiczne spisu zasobów platformy Azure poprzez żądania interfejsu API z Menedżerem zasobów Azure. Poniższe kroki umożliwia przeprowadzenie przy użyciu `azure_rm.py` skryptu, aby nawiązać połączenie maszyny wirtualnej platformy Azure:
 
-1. Otwórz powłokę chmury Azure.
+1. Otwórz Bash w powłoce chmury. Typ powłoki jest oznaczona po lewej stronie okna powłoki chmury.
 
 1. Jeśli nie masz maszynę wirtualną do użycia, wprowadź następujące polecenia, powłokę chmury, aby utworzyć maszynę wirtualną, z którą chcesz przetestować:
 
@@ -78,7 +80,7 @@ Ansible został utworzony skrypt w języku Python o nazwie [azure_rm.py](https:/
   az group delete -n <resourceGroup>
   ```
 
-## <a name="run-a-playbook-in-cloud-shell"></a>Uruchom w powłoce chmury podręcznikowym
+## <a name="run-a-playbook-in-cloud-shell"></a>Uruchamianie elementu playbook w usłudze Cloud Shell
 [Podręcznikowym ansible](https://docs.ansible.com/ansible/2.4/ansible-playbook.html) playbooks Ansible, uruchamiania zadań na docelowej hostami wykonuje polecenie. W tej sekcji przedstawiono przy użyciu powłoki chmury, aby utworzyć i wykonania dwóch playbooks — jednego do utworzenia grupy zasobów, a drugie, aby usunąć grupę zasobów. 
 
 1. Utwórz plik o nazwie `rg.yml` w następujący sposób:
