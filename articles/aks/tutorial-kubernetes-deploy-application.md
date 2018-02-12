@@ -1,6 +1,6 @@
 ---
-title: "Kubernetes na Azure samouczek — wdrażanie aplikacji"
-description: "Samouczek AKS — wdrażanie aplikacji"
+title: "Samouczek dotyczący usługi Kubernetes na platformie Azure — wdrażanie aplikacji"
+description: "Samouczek dotyczący usługi AKS — wdrażanie aplikacji"
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,62 +9,62 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 4468424a96b4949161218d495dd21f24285430fd
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.openlocfilehash: 33725eb64399f446ff540a36f702c80107958242
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="run-applications-in-azure-container-service-aks"></a>Uruchamianie aplikacji w usługi kontenera platformy Azure (AKS)
+# <a name="run-applications-in-azure-container-service-aks"></a>Uruchamianie aplikacji w usłudze Azure Container Service (AKS)
 
-W tym samouczku część cztery osiem, przykładowa aplikacja jest wdrażana w klastrze Kubernetes. Ukończono kroki obejmują:
+W tym samouczku (część czwarta z ośmiu) przykładowa aplikacja jest wdrażana w klastrze Kubernetes. Wykonano następujące czynności:
 
 > [!div class="checklist"]
-> * Pliki manifestu Kubernetes aktualizacji
-> * Uruchom aplikację w usłudze Kubernetes
+> * Aktualizowanie plików manifestu Kubernetes
+> * Uruchamianie aplikacji w usłudze Kubernetes
 > * Testowanie aplikacji
 
-W kolejnych samouczkach tej aplikacji jest skalowana, aktualizacji, oraz Operations Management Suite jest skonfigurowana do monitorowania Kubernetes klastra.
+W kolejnych samouczkach ta aplikacja będzie skalowana w poziomie i aktualizowana, a pakiet Operations Management Suite zostanie skonfigurowany do monitorowania klastra usługi Kubernetes.
 
-Ten samouczek zakłada podstawową wiedzę na temat pojęć Kubernetes, aby uzyskać szczegółowe informacje o Zobacz Kubernetes [dokumentacji Kubernetes][kubernetes-documentation].
+Na potrzeby tego samouczka założono, że masz podstawową wiedzę na temat pojęć związanych z rozwiązaniem Kubernetes. Aby uzyskać szczegółowe informacje na jego temat, zapoznaj się z [dokumentacją rozwiązania Kubernetes][kubernetes-documentation].
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-W poprzednim samouczki aplikacji zostało umieszczone w obrazie kontenera, ten obraz został załadowany w rejestrze kontenera Azure i klaster Kubernetes został utworzony. 
+W poprzednich samouczkach aplikacja została spakowana w postaci obrazu kontenera, obraz został przekazany do usługi Azure Container Registry i utworzono klaster usługi Kubernetes. 
 
-Do ukończenia tego samouczka, należy wstępnie utworzone `azure-vote-all-in-one-redis.yaml` Kubernetes pliku manifestu. Ten plik został pobrany z kodu źródłowego aplikacji w poprzednim samouczka. Sprawdź, czy zostały sklonowane repozytorium i że zostały zmienione katalogi do sklonowanego repozytorium.
+Do ukończenia tego samouczka potrzebujesz wstępnie utworzonego pliku manifestu usługi Kubernetes `azure-vote-all-in-one-redis.yaml`. Ten plik został pobrany z kodu źródłowego aplikacji w poprzednim samouczku. Sprawdź, czy został utworzony klon repozytorium oraz czy katalogi zostały zmienione na sklonowane repozytorium.
 
-Jeśli nie zostało wykonane następujące kroki, a następnie zostać z niego skorzystać, wróć do [samouczek 1 — Tworzenie kontenera obrazy][aks-tutorial-prepare-app].
+Jeśli nie wykonano tych kroków, a chcesz kontynuować pracę, wróć do części [Samouczek 1 — tworzenie obrazów kontenera][aks-tutorial-prepare-app].
 
-## <a name="update-manifest-file"></a>Aktualizacja pliku manifestu
+## <a name="update-manifest-file"></a>Aktualizowanie pliku manifestu
 
-W tym samouczku rejestru kontenera platformy Azure (ACR) został użyty do przechowywania obrazu kontenera. Przed uruchomieniem aplikacji, nazwa ACR logowania serwera musi zostać zaktualizowany w pliku manifestu Kubernetes.
+W tym samouczku użyto usługi Azure Container Registry (ACR) do przechowywania obrazu kontenera. Przed uruchomieniem aplikacji należy zaktualizować nazwę serwera logowania usługi ACR w pliku manifestu usługi Kubernetes.
 
-Pobierz nazwę serwera ACR logowania z [listy acr az] [ az-acr-list] polecenia.
+Pobierz nazwę serwera logowania usługi ACR przy użyciu polecenia [az acr list][az-acr-list].
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Plik manifestu został wstępnie utworzone przy użyciu nazwy serwera logowania `microsoft`. Otwórz plik w dowolnym edytorze tekstu. W tym przykładzie plik zostanie otwarty z `vi`.
+Plik manifestu został wstępnie utworzony przy użyciu nazwy serwera logowania `microsoft`. Otwórz plik w dowolnym edytorze tekstu. W tym przykładzie plik jest otwierany przy użyciu narzędzia `vi`.
 
 ```console
 vi azure-vote-all-in-one-redis.yaml
 ```
 
-Zastąp `microsoft` z nazwą serwera ACR logowania. Ta wartość zostanie znaleziona w wierszu **47** pliku manifestu.
+Zastąp element `microsoft` nazwą serwera logowania usługi ACR. Tę wartość można znaleźć w wierszu **47** pliku manifestu.
 
 ```yaml
 containers:
 - name: azure-vote-front
-  image: microsoft/azure-vote-front:redis-v1
+  image: microsoft/azure-vote-front:v1
 ```
 
 Zapisz i zamknij plik.
 
 ## <a name="deploy-application"></a>Wdrażanie aplikacji
 
-Użyj [utworzyć kubectl] [ kubectl-create] polecenie do uruchomienia aplikacji. To polecenie analizuje pliku manifestu i tworzy obiekty Kubernetes zdefiniowane.
+Użyj polecenia [kubectl create][kubectl-create], aby uruchomić aplikację. To polecenie analizuje plik manifestu i tworzy zdefiniowane obiekty usługi Kubernetes.
 
 ```azurecli
 kubectl create -f azure-vote-all-in-one-redis.yaml
@@ -81,9 +81,9 @@ service "azure-vote-front" created
 
 ## <a name="test-application"></a>Testowanie aplikacji
 
-A [usługi Kubernetes] [ kubernetes-service] jest tworzony, który udostępnia aplikacji w Internecie. Ten proces może potrwać kilka minut. 
+Utworzenie [usługi Kubernetes][kubernetes-service] powoduje uwidocznienie aplikacji w Internecie. Ten proces może potrwać kilka minut. 
 
-Aby monitorować postęp, należy użyć [kubectl pobrać usługi] [ kubectl-get] z `--watch` argumentu.
+Aby monitorować postęp, użyj polecenia [kubectl get-service][kubectl-get] z argumentem `--watch`.
 
 ```azurecli
 kubectl get service azure-vote-front --watch
@@ -105,19 +105,19 @@ Aby wyświetlić aplikację, przejdź do zewnętrznego adresu IP.
 
 ![Obraz przedstawiający klaster Kubernetes na platformie Azure](media/container-service-kubernetes-tutorials/azure-vote.png)
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku aplikacji Azure głos został wdrożony do klastra Kubernetes w AKS. Zadania ukończone obejmują:  
+W tym samouczku aplikacja do głosowania na platformie Azure została wdrożona w klastrze Kubernetes w usłudze AKS. Wykonasz następujące zadania:  
 
 > [!div class="checklist"]
-> * Pobierz pliki manifestu Kubernetes
-> * Uruchom aplikację w Kubernetes
-> * Przetestowane aplikacji
+> * Pobieranie plików manifestu Kubernetes
+> * Uruchamianie aplikacji w usłudze Kubernetes
+> * Testowanie aplikacji
 
-Przejdź do następnego samouczka, aby dowiedzieć się więcej na temat skalowania aplikacji Kubernetes jak podstawowej infrastruktury Kubernetes. 
+Przejdź do następnego samouczka, aby dowiedzieć się więcej na temat skalowania aplikacji Kubernetes i bazowej infrastruktury usługi Kubernetes. 
 
 > [!div class="nextstepaction"]
-> [Skala Kubernetes aplikacji i infrastruktury][aks-tutorial-scale]
+> [Skalowanie aplikacji i infrastruktury rozwiązania Kubernetes][aks-tutorial-scale]
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create

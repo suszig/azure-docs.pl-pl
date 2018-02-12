@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/21/2017
+ms.date: 02/01/2018
 ms.author: magoedte
-ms.openlocfilehash: 9a4709f298131722e9c473a19f7eee0aebf7e1e6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d873fe37ba2c4e851df35b9d5afe69b4adbf001c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analizowanie użycia danych w usłudze Log Analytics
-Usługa Log Analytics zawiera informacje na temat ilości zebranych danych, komputerów, z których zostały one wysyłane, oraz typów danych.  Pulpit nawigacyjny **Użycie usługi Log Analytics** pozwala na sprawdzenie ilości danych wysyłanych do usługi Log Analytics. Na pulpicie nawigacyjnym prezentowana jest ilość danych zebranych przez każde rozwiązanie i ilość danych wysyłanych przez komputery.
+Usługa Log Analytics zawiera informacje na temat ilości zebranych danych, systemów, z których zostały one wysyłane, oraz typów danych.  Pulpit nawigacyjny **Użycie usługi Log Analytics** pozwala na sprawdzenie ilości danych wysyłanych do usługi Log Analytics. Na pulpicie nawigacyjnym prezentowana jest ilość danych zebranych przez każde rozwiązanie i ilość danych wysyłanych przez komputery.
 
 ## <a name="understand-the-usage-dashboard"></a>Objaśnienie pulpitu nawigacyjnego Użycie
 Pulpit nawigacyjny **Użycie usługi Log Analytics** udostępnia następujące informacje:
@@ -37,24 +37,18 @@ Pulpit nawigacyjny **Użycie usługi Log Analytics** udostępnia następujące i
     - Węzły wglądu w dane i analizy
     - Węzły automatyzacji i kontroli
     - Węzły zabezpieczeń
-- Wydajność
-    - Ilość czasu zbierania i indeksowania danych
 - Lista zapytań
 
 ![pulpit nawigacyjny Użycie](./media/log-analytics-usage/usage-dashboard01.png)
 
 ### <a name="to-work-with-usage-data"></a>Aby pracować z danymi użycia
-1. Jeśli nie zostało to jeszcze zrobione, zaloguj się do witryny [Azure Portal](https://portal.azure.com) przy użyciu subskrypcji platformy Azure.
-2. W menu **Centrum** kliknij pozycję **Więcej usług** i na liście zasobów wpisz ciąg **Log Analytics**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Kliknij pozycję **Log Analytics**.  
-    ![Centrum platformy Azure](./media/log-analytics-usage/hub.png)
-3. Pulpit nawigacyjny **Log Analytics** wyświetla listę obszarów roboczych. Wybierz obszar roboczy.
-4. Na pulpicie nawigacyjnym *obszar roboczy* kliknij pozycję **Użycie usługi Log Analytics**.
-5. Na pulpicie nawigacyjnym **Użycie usługi Log Analytics** kliknij pozycję **Czas: ostatnie 24 godziny**, aby zmienić przedział czasu.  
-    ![przedział czasu](./media/log-analytics-usage/time.png)
-6. Wyświetl bloki kategorii użycia pokazujące obszary, które Cię interesują. Wybierz blok, a następnie kliknij w nim pozycję, aby wyświetlić więcej szczegółów w obszarze [Wyszukiwanie w dzienniku](log-analytics-log-searches.md).  
-    ![przykładowy blok użycia danych](./media/log-analytics-usage/blade.png)
-7. Na pulpicie nawigacyjnym wyszukiwania w dzienniku przejrzyj wyniki zwrócone w wyniku wyszukiwania.  
-    ![przykład wyszukiwania w dzienniku użycia](./media/log-analytics-usage/usage-log-search.png)
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+2. W witrynie Azure Portal kliknij pozycję **Więcej usług** w lewym dolnym rogu. Na liście zasobów wpisz **Log Analytics**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Wybierz pozycję **Log Analytics**.<br><br> ![Azure portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+3. Na liście obszarów roboczych usługi Log Analytics wybierz obszar roboczy.
+4. Z listy w lewym okienku wybierz pozycję **Użycie usługi Log Analytics**.
+5. Na pulpicie nawigacyjnym **Użycie usługi Log Analytics** kliknij pozycję **Czas: ostatnie 24 godziny**, aby zmienić przedział czasu.<br><br> ![przedział czasu](./media/log-analytics-usage/time.png)<br><br>
+6. Wyświetl bloki kategorii użycia pokazujące obszary, które Cię interesują. Wybierz blok, a następnie kliknij w nim pozycję, aby wyświetlić więcej szczegółów w obszarze [Wyszukiwanie w dzienniku](log-analytics-log-searches.md).<br><br> ![przykładowy blok użycia danych](./media/log-analytics-usage/blade.png)<br><br>
+7. Na pulpicie nawigacyjnym wyszukiwania w dzienniku przejrzyj wyniki zwrócone w wyniku wyszukiwania.<br><br> ![przykład wyszukiwania w dzienniku użycia](./media/log-analytics-usage/usage-log-search.png)
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>Tworzenie alertu, gdy ilość zebranych danych jest większa od oczekiwanej
 W tej sekcji opisano sposób tworzenia alertu w sytuacji, gdy:
@@ -63,20 +57,20 @@ W tej sekcji opisano sposób tworzenia alertu w sytuacji, gdy:
 
 [Alerty](log-analytics-alerts-creating.md) usługi Log Analytics używają zapytań wyszukiwania. Poniższe zapytanie daje rezultat, jeśli w ciągu ostatnich 24 godzin zebrano więcej niż 100 GB danych:
 
-`Type=Usage QuantityUnit=MBytes IsBillable=true | measure sum(div(Quantity,1024)) as DataGB by Type | where DataGB > 100`
+`union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
 
 Następujące zapytanie używa prostej formuły umożliwiającej przewidywanie, kiedy w ciągu jednego dnia zostanie wysłanych więcej niż 100 GB danych: 
 
-`Type=Usage QuantityUnit=MBytes IsBillable=true | measure sum(div(mul(Quantity,8),1024)) as EstimatedGB by Type | where EstimatedGB > 100`
+`union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
 
 Aby utworzyć alerty dotyczące innego woluminu danych, zmień w zapytaniach wartość 100 na liczbę gigabajtów, po przekroczeniu której ma zostać wyświetlony alert.
 
 Wykonaj kroki opisane w sekcji dotyczącej [tworzenie reguły alertu](log-analytics-alerts-creating.md#create-an-alert-rule), aby otrzymywać powiadomienia w sytuacji, gdy ilość zebranych danych jest większa niż oczekiwano.
 
-Podczas tworzenia alertu dla pierwszego zapytania odnoszącego się do przypadku, gdy w ciągu 24 godzin występuje więcej niż 100 GB danych, ustaw wartości elementów:
-- **Nazwa** na *Data volume greater than 100 GB in 24 hours* (Wolumin danych większy niż 100 GB w ciągu 24 godzin)
-- **Ważność** na *Ostrzeżenie*
-- **Zapytanie wyszukiwania** na `Type=Usage QuantityUnit=MBytes IsBillable=true | measure sum(div(Quantity,1024)) as DataGB by Type | where DataGB > 100`
+Podczas tworzenia alertu dla pierwszego zapytania odnoszącego się do przypadku, gdy w ciągu 24 godzin występuje więcej niż 100 GB danych, ustaw wartości elementów:  
+- **Nazwa** na *Data volume greater than 100 GB in 24 hours* (Wolumin danych większy niż 100 GB w ciągu 24 godzin)  
+- **Ważność** na *Ostrzeżenie*  
+- **Zapytanie wyszukiwania** na `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`   
 - **Przedział czasu** na *24 godziny*.
 - **Częstotliwość alertów** na jedną godzinę, ponieważ dane użycia są aktualizowane tylko raz na godzinę.
 - **Generuj alert w oparciu o** na *Liczba wyników*
@@ -87,7 +81,7 @@ Wykonaj kroki opisane w sekcji dotyczącej [dodawania akcji do reguł alertów](
 Podczas tworzenia alertu dla drugiego zapytania dotyczącego przypadku, w którym przewiduje się, że w ciągu 24 godzin wystąpi więcej niż 100 GB danych, ustaw wartości elementów:
 - **Nazwa** na *Data volume expected to greater than 100 GB in 24 hours* (Oczekiwany wolumin danych większy niż 100 GB w ciągu 24 godzin)
 - **Ważność** na *Ostrzeżenie*
-- **Zapytanie wyszukiwania** na `Type=Usage QuantityUnit=MBytes IsBillable=true | measure sum(div(mul(Quantity,8),1024)) as EstimatedGB by Type | where EstimatedGB > 100`
+- **Zapytanie wyszukiwania** na `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
 - **Przedział czasu** na *3 godziny*.
 - **Częstotliwość alertów** na jedną godzinę, ponieważ dane użycia są aktualizowane tylko raz na godzinę.
 - **Generuj alert w oparciu o** na *Liczba wyników*
@@ -115,33 +109,29 @@ Na tych dwóch wykresach są pokazywane wszystkie dane. Niektóre dane podlegaj�
 
 Spójrz na wykres *Objętość danych w czasie*. Aby wyświetlić rozwiązania i typy danych odpowiedzialne za wysyłanie większości danych dla określonego komputera, kliknij nazwę komputera. Kliknij nazwę pierwszego komputera na liście.
 
-Na poniższym zrzucie ekranu widać, że w przypadku tego komputera większość wysyłanych danych jest typu *Zarządzanie dziennikiem/wydajność*. 
-
-![wolumin danych na komputerze](./media/log-analytics-usage/log-analytics-usage-data-volume-computer.png)
+Na poniższym zrzucie ekranu widać, że w przypadku tego komputera większość wysyłanych danych jest typu *Zarządzanie dziennikiem/wydajność*.<br><br> ![wolumin danych na komputerze](./media/log-analytics-usage/log-analytics-usage-data-volume-computer.png)<br><br>
 
 Następnie wróć do pulpitu nawigacyjnego *Użycie* i spójrz na wykres *Objętość danych według rozwiązania*. Aby sprawdzić, które komputery wysyłają większość danych z określonego rozwiązania, kliknij nazwę rozwiązania na liście. Kliknij nazwę pierwszego rozwiązania na liście. 
 
-Na poniższym zrzucie ekranu widać, że najwięcej danych związanych z rozwiązaniem Zarządzanie dziennikiem wysyła komputer *acmetomcat*.
-
-![wolumin danych dla rozwiązania](./media/log-analytics-usage/log-analytics-usage-data-volume-solution.png)
+Na poniższym zrzucie ekranu widać, że najwięcej danych związanych z rozwiązaniem Zarządzanie dziennikiem wysyła komputer *acmetomcat*.<br><br> ![wolumin danych dla rozwiązania](./media/log-analytics-usage/log-analytics-usage-data-volume-solution.png)<br><br>
 
 Jeśli to konieczne, wykonaj dodatkową analizę w celu zidentyfikowania dużych woluminów w ramach rozwiązania lub typu danych. Przykładowe zapytania:
 
 + Rozwiązanie **zabezpieczające**
-  - `Type=SecurityEvent | measure count() by EventID`
+  - `SecurityEvent | summarize AggregatedValue = count() by EventID`
 + Rozwiązanie do **zarządzania dziennikami**
-  - `Type=Usage Solution=LogManagement IsBillable=true | measure count() by DataType`
+  - `Usage | where Solution == "LogManagement" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | summarize AggregatedValue = count() by DataType`
 + Typ danych **Perf**
-  - `Type=Perf | measure count() by CounterPath`
-  - `Type=Perf | measure count() by CounterName`
+  - `Perf | summarize AggregatedValue = count() by CounterPath`
+  - `Perf | summarize AggregatedValue = count() by CounterName`
 + Typ danych **Event**
-  - `Type=Event | measure count() by EventID`
-  - `Type=Event | measure count() by EventLog, EventLevelName`
+  - `Event | summarize AggregatedValue = count() by EventID`
+  - `Event | summarize AggregatedValue = count() by EventLog, EventLevelName`
 + Typ danych **Syslog**
-  - `Type=Syslog | measure count() by Facility, SeverityLevel`
-  - `Type=Syslog | measure count() by ProcessName`
+  - `Syslog | summarize AggregatedValue = count() by Facility, SeverityLevel`
+  - `Syslog | summarize AggregatedValue = count() by ProcessName`
 + Typ danych **AzureDiagnostics**
-  - `Type=AzureDiagnostics | measure count() by ResourceProvider, ResourceId`
+  - `AzureDiagnostics | summarize AggregatedValue = count() by ResourceProvider, ResourceId`
 
 Wykonaj następujące kroki, aby zmniejszyć wolumin zebranych danych dzienników:
 
@@ -155,20 +145,31 @@ Wykonaj następujące kroki, aby zmniejszyć wolumin zebranych danych dziennikó
 | Dane rozwiązań z komputerów, które nie wymagają rozwiązania | Użyj funkcji [określania celu rozwiązania](../operations-management-suite/operations-management-suite-solution-targeting.md), aby zbierać dane tylko z wymaganych grup komputerów. |
 
 ### <a name="check-if-there-are-more-nodes-than-expected"></a>Sprawdzanie, czy liczba węzłów przekracza oczekiwania
-Jeśli korzystasz z warstwy cenowej *Na węzeł (OMS)*, opłaty są naliczane na podstawie liczby używanych węzłów i rozwiązań. Aby sprawdzić, z ilu węzłów poszczególnych ofert korzystasz, przejdź do sekcji *ofert* pulpitu nawigacyjnego Użycie.
-
-![pulpit nawigacyjny Użycie](./media/log-analytics-usage/log-analytics-usage-offerings.png)
+Jeśli korzystasz z warstwy cenowej *Na węzeł (OMS)*, opłaty są naliczane na podstawie liczby używanych węzłów i rozwiązań. Aby sprawdzić, z ilu węzłów poszczególnych ofert korzystasz, przejdź do sekcji *ofert* pulpitu nawigacyjnego Użycie.<br><br> ![pulpit nawigacyjny Użycie](./media/log-analytics-usage/log-analytics-usage-offerings.png)<br><br>
 
 Kliknij opcję **Zobacz wszystko**, aby wyświetlić pełną listę komputerów, które wysyłają dane dla wybranej oferty.
 
 Użyj funkcji [określania celu rozwiązania](../operations-management-suite/operations-management-suite-solution-targeting.md), aby zbierać dane tylko z wymaganych grup komputerów.
 
+## <a name="check-if-there-is-ingestion-latency"></a>Sprawdzanie występowania opóźnienia w pozyskiwaniu danych
+W usłudze Log Analytics występuje możliwe do przewidzenia opóźnienie w pozyskiwaniu zbieranych danych.  Bezwzględny czas między indeksowaniem danych i udostępnieniem ich do wyszukiwania może być niemożliwy do przewidzenia. Wcześniej na pulpicie nawigacyjnym znajdował się wykres wydajności pokazujący czas, jaki zajmuje zbieranie i indeksowanie danych. Po wprowadzeniu nowego języka zapytań ten wykres został czasowo usunięty.  Do czasu wydania zaktualizowanych metryk mierzących opóźnienie w pozyskiwaniu danych można zastosować tymczasowe rozwiązanie polegające na użyciu następującego zapytania do oszacowania przybliżonego opóźnienia dla każdego typu danych.  
+
+    search *
+    | where TimeGenerated > ago(8h)
+    | summarize max(TimeGenerated) by Type
+    | extend LatencyInMinutes = round((now() - max_TimeGenerated)/1m,2)
+    | project Type, LatencyInMinutes
+    | sort by LatencyInMinutes desc
+
+> [!NOTE]
+> Zapytanie dotyczące opóźnienia w pozyskiwaniu danych nie powoduje wyświetlenia historii opóźnienia i jest ograniczone tylko do zwracania bieżących wyników.  Wartości elementu *TimeGenerated* są pobierane z agenta dla dzienników wspólnego schematu oraz z punktu końcowego kolekcji dla dzienników niestandardowych.  
+>
 
 ## <a name="next-steps"></a>Następne kroki
 * Zobacz temat [Wyszukiwanie w dziennikach w usłudze Log Analytics](log-analytics-log-searches.md), aby dowiedzieć się, jak korzystać z języka wyszukiwania. Możesz użyć zapytań wyszukiwania w celu przeprowadzenia dodatkowej analizy danych użycia.
 * Wykonaj kroki opisane w sekcji dotyczącej [tworzenia reguły alertu](log-analytics-alerts-creating.md#create-an-alert-rule), aby otrzymywać powiadomienia, gdy kryteria wyszukiwania zostaną spełnione.
 * Użyj funkcji [określania celu rozwiązania](../operations-management-suite/operations-management-suite-solution-targeting.md), aby zbierać dane tylko z wymaganych grup komputerów
-* Wybierz [pospolite lub minimalne zdarzenia zabezpieczeń](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/).
+* Aby skonfigurować efektywne zasady zbierania zdarzeń zabezpieczeń, przejrzyj [zasady filtrowania usługi Azure Security Center](../security-center/security-center-enable-data-collection.md)
 * Zmień [konfigurację licznika wydajności](log-analytics-data-sources-performance-counters.md)
-* Zmień [konfigurację dziennika zdarzeń](log-analytics-data-sources-windows-events.md)
-* Zmień [konfigurację dziennika systemu](log-analytics-data-sources-syslog.md)
+* Aby zmodyfikować ustawienia zbierania zdarzeń, przejrzyj [konfigurację dziennika zdarzeń](log-analytics-data-sources-windows-events.md)
+* Aby zmodyfikować ustawienia zbierania dla dziennika systemowego, przejrzyj [konfigurację dziennika systemowego](log-analytics-data-sources-syslog.md)

@@ -15,21 +15,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/20/2017
 ms.author: kumud
-ms.openlocfilehash: d71e2391b6415b2403447479dea4fd0a3b818ed0
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 4613e152336eda7ce7cdc4c44b0c6b5e96abac10
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="get-started-with-azure-dns-private-zones-using-powershell"></a>Rozpoczynanie pracy ze strefami prywatnymi usługi Azure DNS przy użyciu programu PowerShell
 
 W tym artykule przedstawiono kroki umożliwiające utworzenie po raz pierwszy prywatnej strefy i rekordu DNS przy użyciu programu Azure PowerShell.
 
-Strefa DNS jest używana do hostowania rekordów DNS dla określonej domeny. Aby rozpocząć hostowanie domeny w usłudze Azure DNS, musisz utworzyć strefę DNS dla tej nazwy domeny. Każdy rekord DNS domeny zostanie utworzony w tej strefie DNS. Aby opublikować prywatną strefę DNS w sieci wirtualnej, musisz określić listę sieci wirtualnych, które mogą rozpoznawać rekordy w strefie.  Nazywamy je „sieciami rozpoznawania”.  Możesz również określić zbiór sieci wirtualnych, dla którego usługa Azure DNS będzie utrzymywać rekordy nazw hosta zawsze, gdy maszyna wirtualna jest tworzona, zmienia protokół internetowy lub jest niszczona.  Nazywamy je „sieciami rejestracji”.
-
-Ponieważ ta funkcja to obecnie zarządzana wersja zapoznawcza, zostanie udostępniony moduł programu PowerShell w wersji zapoznawczej.
-
 [!INCLUDE [private-dns-preview-notice](../../includes/private-dns-preview-notice.md)]
+
+Strefa DNS jest używana do hostowania rekordów DNS dla określonej domeny. Aby rozpocząć hostowanie domeny w usłudze Azure DNS, musisz utworzyć strefę DNS dla tej nazwy domeny. Każdy rekord DNS domeny zostanie utworzony w tej strefie DNS. Aby opublikować prywatną strefę DNS w sieci wirtualnej, musisz określić listę sieci wirtualnych, które mogą rozpoznawać rekordy w strefie.  Nazywamy je „sieciami rozpoznawania”.  Możesz również określić zbiór sieci wirtualnych, dla którego usługa Azure DNS utrzymuje rekordy nazw hosta zawsze, gdy maszyna wirtualna jest tworzona, zmienia protokół internetowy lub jest niszczona.  Nazywamy je „sieciami rejestracji”.
+
+Ta funkcja jest obecnie w zarządzanej wersji zapoznawczej. Aby uzyskać moduł programu PowerShell w wersji zapoznawczej, wyślij wiadomość e-mail na adres [AzureDNS-PrivateZone@microsoft.com](mailto:AzureDNS-PrivateZone@microsoft.com).
+
+## <a name="get-the-preview-powershell-module"></a>Uzyskiwanie modułu programu PowerShell w wersji zapoznawczej
+
+Aby utworzyć prywatną strefę DNS przy użyciu programu PowerShell, wyślij wiadomość e-mail na adres [AzureDNS-PrivateZone@microsoft.com](mailto:AzureDNS-PrivateZone@microsoft.com) w celu uzyskania modułu programu PowerShell w wersji zapoznawczej.
 
 ## <a name="create-the-resource-group"></a>Tworzenie grupy zasobów
 

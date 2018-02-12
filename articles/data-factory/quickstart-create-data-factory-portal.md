@@ -9,13 +9,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: hero-article
-ms.date: 01/16/2018
+ms.date: 02/01/2018
 ms.author: jingwang
-ms.openlocfilehash: 0973a7ae8316d413244367f5407a89d1ba809847
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: f17dc18825c929a75169875594c7b1a13ba1f6d7
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Tworzenie fabryki danych za pomocą interfejsu użytkownika usługi Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
@@ -133,7 +133,7 @@ W ustawieniach połączonej usługi określono konto usługi Azure Storage, któ
 
    d. Określ wartość **OutputDataset** jako nazwę.
 
-   d. Wprowadź wartość **adftutorial/output** jako nazwę folderu. Jeśli folder wyjściowy nie istnieje, zostanie on utworzony za pomocą działania kopiowania.
+   d. Wprowadź wartość **adftutorial/output** jako nazwę folderu. Jeśli folder **output** nie istnieje, działanie kopiowania utworzy go w czasie wykonywania.
 
    e. Wprowadź wartość `@CONCAT(pipeline().RunId, '.txt')` jako nazwę pliku. 
    
@@ -180,7 +180,7 @@ W tym kroku uruchomisz przebieg testowy potoku przed jego wdrożeniem w fabryce 
 ## <a name="trigger-the-pipeline-manually"></a>Ręczne wyzwalanie potoku
 Podczas tej procedury wdrożysz jednostki (połączone usługi, zestawy danych i potoki) w usłudze Azure Data Factory. Następnie ręcznie wyzwolisz przebieg potoku. Możesz również opublikować jednostki za pomocą własnego repozytorium GIT programu Visual Studio Team Services (VSTS), co zostało omówione w [innym samouczku](tutorial-copy-data-portal.md?#configure-code-repository).
 
-1. Przed wyzwoleniem potoku należy opublikować jednostki w usłudze Data Factory. Aby przeprowadzić publikowanie, w okienku po lewej stronie wybierz pozycję **Opublikuj**. 
+1. Przed wyzwoleniem potoku należy opublikować jednostki w usłudze Data Factory. Aby przeprowadzić publikowanie, w okienku po lewej stronie wybierz pozycję **Opublikuj wszystkie**. 
 
    ![Przycisk Opublikuj](./media/quickstart-create-data-factory-portal/publish-button.png)
 2. Aby ręcznie wyzwolić potok, wybierz pozycję **Wyzwól** na pasku narzędzi, a następnie wybierz pozycję **Wyzwól teraz**. 
@@ -224,9 +224,9 @@ W tym samouczku ta procedura jest opcjonalna. Możesz utworzyć *wyzwalacz harmo
 5. Zapoznaj się z komunikatem ostrzegawczym, a następnie wybierz przycisk **Zakończ**.
 
    ![Komunikat ostrzegawczy i przycisk „Zakończ”](./media/quickstart-create-data-factory-portal/new-trigger-finish.png)
-6. Wybierz pozycję **Opublikuj**, aby opublikować zmiany w usłudze Data Factory. 
+6. Wybierz pozycję **Opublikuj wszystkie**, aby opublikować zmiany w usłudze Data Factory. 
 
-   ![Przycisk Opublikuj](./media/quickstart-create-data-factory-portal/publish-2.png)
+   ![Przycisk Opublikuj](./media/quickstart-create-data-factory-portal/publish-button.png)
 8. Przejdź do karty **Monitorowanie** po lewej stronie. Wybierz pozycję **Odśwież**, aby odświeżyć listę. Potok będzie uruchamiany raz na minutę od czasu opublikowania do czasu zakończenia. 
 
    Zwróć uwagę na wartości w kolumnie **Wyzwolone przez**. Ręczne uruchomienie wyzwalacza pochodzi z kroku wykonanego wcześniej (**Wyzwól teraz**). 
