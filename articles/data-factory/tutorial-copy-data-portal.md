@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 424a5ec49018e969edbf90c374a9da7e1d22395d
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 8b5211e9c932221c6b6134e7e0627f4d7f964123
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Kopiowanie danych z obiektu blob platformy Azure do bazy danych Azure SQL Database przy użyciu usługi Azure Data Factory
 W tym samouczku utworzysz fabrykę danych przy użyciu interfejsu użytkownika usługi Azure Data Factory. Potok w tej fabryce danych kopiuje dane z usługi Azure Blob Storage do usługi Azure SQL Database. Wzorzec konfiguracji w tym samouczku ma zastosowanie do kopiowania danych z magazynu opartego na plikach do relacyjnego magazynu danych. Aby zapoznać się z listą magazynów danych obsługiwanych jako źródła i ujścia, zobacz tabelę zawierającą [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -144,10 +144,7 @@ W tym samouczku rozpoczniesz od utworzenia potoku, a połączone usługi i zesta
 9. Na karcie **Ogólne** w oknie **Właściwości** u dołu podaj wartość **SourceBlobDataset** jako **nazwę**.
 
     ![Nazwa zestawu danych](./media/tutorial-copy-data-portal/dataset-name.png)
-10. W oknie Właściwości przejdź do karty **Połączenie**.   
-
-    ![Karta Połączenie](./media/tutorial-copy-data-portal/source-dataset-connection-tab.png)
-11. Kliknij przycisk **+ Nowy** obok pola tekstowego **Połączona usługa**. Połączona usługa łączy magazyn danych lub zasoby obliczeniowe z fabryką danych. W takim przypadku tworzysz połączoną usługę Azure Storage w celu połączenia konta usługi Azure Storage z magazynem danych. Połączona usługa ma informacje o połączeniu, których usługa Data Factory używa do nawiązywania połączenia z usługą Blob Storage w środowisku uruchomieniowym. Zestaw danych określa kontener, folder i plik (opcjonalnie) zawierający dane źródłowe. 
+10. W oknie Właściwości przejdź do karty **Połączenie**. Kliknij przycisk **+ Nowy** obok pola tekstowego **Połączona usługa**. Połączona usługa łączy magazyn danych lub zasoby obliczeniowe z fabryką danych. W takim przypadku tworzysz połączoną usługę Azure Storage w celu połączenia konta usługi Azure Storage z magazynem danych. Połączona usługa ma informacje o połączeniu, których usługa Data Factory używa do nawiązywania połączenia z usługą Blob Storage w środowisku uruchomieniowym. Zestaw danych określa kontener, folder i plik (opcjonalnie) zawierający dane źródłowe. 
 
     ![Przycisk Nowa połączona usługa](./media/tutorial-copy-data-portal/source-dataset-new-linked-service-button.png)
 12. W oknie **Nowa połączona usługa** wykonaj następujące czynności: 
@@ -283,7 +280,7 @@ Przed opublikowaniem artefaktów (połączone usługi, zestawy danych i potok) w
 2. Upewnij się, że dane z pliku źródłowego są wstawione do docelowej bazy danych usługi SQL. 
 
     ![Weryfikacja danych wyjściowych usługi SQL](./media/tutorial-copy-data-portal/verify-sql-output.png)
-3. W okienku po lewej stronie kliknij pozycję **Opublikuj**. Ta akcja powoduje opublikowanie utworzonych jednostek (połączone usługi, zestawy danych i potok) w usłudze Azure Data Factory.
+3. W okienku po lewej stronie kliknij pozycję **Opublikuj wszystkie**. Ta akcja powoduje opublikowanie utworzonych jednostek (połączone usługi, zestawy danych i potok) w usłudze Azure Data Factory.
 
     ![Przycisk Opublikuj](./media/tutorial-copy-data-portal/publish-button.png)
 4. Poczekaj na wyświetlenie komunikatu **Pomyślnie opublikowano**. Aby wyświetlić komunikaty powiadomień, kliknij kartę **Pokaż powiadomienia** na lewym pasku bocznym. Zamknij okno powiadomień, klikając przycisk **X**.
@@ -343,7 +340,7 @@ Jeśli nie chcesz pracować z repozytorium kodu platformy VSTS, możesz pominą�
 ## <a name="trigger-the-pipeline-manually"></a>Ręczne wyzwalanie potoku
 W tym kroku ręcznie wyzwolisz potok, który został opublikowany w poprzednim kroku. 
 
-1. Kliknij pozycję **Wyzwól** na pasku narzędzi, a następnie kliknij pozycję **Wyzwól teraz**. 
+1. Kliknij pozycję **Wyzwól** na pasku narzędzi, a następnie kliknij pozycję **Wyzwól teraz**. Na stronie **Uruchomienie potoku** kliknij przycisk **Zakończ**.  
 
     ![Menu Wyzwól teraz](./media/tutorial-copy-data-portal/trigger-now-menu.png)
 2. Przejdź do karty **Monitorowanie** po lewej stronie. Widoczne jest uruchomienie potoku, które zostało wyzwolone za pomocą wyzwalacza ręcznego. Linków w kolumnie Akcje możesz użyć, aby wyświetlić szczegóły działań i ponownie uruchomić potok.
@@ -386,10 +383,10 @@ W tym kroku utworzysz wyzwalacz harmonogramu potoku. Wyzwalacz uruchamia potok z
 6. Na stronie **Parametry uruchamiania wyzwalacza** przejrzyj ostrzeżenie, a następnie kliknij przycisk **Zakończ**. Potok w tym przykładzie nie przyjmuje żadnych parametrów. 
 
     ![Parametry potoku](./media/tutorial-copy-data-portal/trigger-pipeline-parameters.png)
-7. Kliknij przycisk **Opublikuj**, aby opublikować zmiany w repozytorium. Wyzwalacz nie zostanie faktycznie aktywowany do czasu pomyślnego opublikowania zmian. 
+7. Kliknij pozycję **Synchronizuj**, aby zsynchronizować zmiany z Twojej gałęzi z gałęzią główną. Opcja **Opublikuj zmiany po synchronizacji** jest domyślnie zaznaczona. W związku z tym po wybraniu pozycji **Synchronizuj** zaktualizowane jednostki z gałęzi głównej są również publikowane w usłudze Azure Data Factory. Wyzwalacz nie zostanie faktycznie aktywowany do czasu pomyślnego opublikowania zmian.
 
-    ![Publikowanie wyzwalacza](./media/tutorial-copy-data-portal/publish-trigger.png) 
-8. Przejdź do karty **Monitorowanie** po lewej stronie, aby zobaczyć wyzwolone uruchomienia potoku. 
+    ![Publikowanie wyzwalacza](./media/tutorial-copy-data-portal/sync-your-changes-with-trigger.png) 
+9. Przejdź do karty **Monitorowanie** po lewej stronie, aby zobaczyć wyzwolone uruchomienia potoku. 
 
     ![Wyzwolone uruchomienia potoku](./media/tutorial-copy-data-portal/triggered-pipeline-runs.png)    
 9. Aby przełączyć się z widoku uruchomień potoku do widoku uruchomień wyzwalacza, kliknij przycisk Uruchomienia potoku i wybierz pozycję Uruchomienia wyzwalacza.

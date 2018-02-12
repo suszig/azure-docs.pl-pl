@@ -1,9 +1,23 @@
-## <a name="deploy-uploaded-zip-file"></a>Wdrażanie przekazanego pliku ZIP
+---
+title: Plik dyrektywy include
+description: Plik dyrektywy include
+services: app-service
+author: cephalin
+ms.service: app-service
+ms.topic: include
+ms.date: 02/02/2018
+ms.author: cephalin
+ms.custom: include file
+ms.openlocfilehash: 917f8cc4a22199351614d101f1300b80052ee9a9
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 02/03/2018
+---
+## <a name="deploy-zip-file"></a>Wdrażanie plików ZIP
 
-W usłudze Cloud Shell wdróż przekazany plik ZIP do aplikacji internetowej przy użyciu polecenia [`az webapp deployment source config-zip`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az_webapp_deployment_source_config_zip). Upewnij się, że fragment *\<app_name>* został zastąpiony nazwą aplikacji internetowej.
+W przeglądarce przejdź do strony `https://<app_name>.scm.azurewebsites.net/ZipDeploy`.
 
-```azurecli-interactive
-az webapp deployment source config-zip --resource-group myResouceGroup --name <app_name> --src clouddrive/myAppFiles.zip
-```
+Przekaż plik ZIP utworzony w ramach procedury [Tworzenie pliku ZIP projektu](#create-a-project-zip-file) przez przeciągnięcie go do obszaru Eksploratora plików na stronie internetowej.
 
-To polecenie wdraża pliki i katalogi z pliku ZIP do domyślnego folderu aplikacji App Service (`\home\site\wwwroot`) i ponownie uruchamia aplikację. Jeśli został skonfigurowany jakikolwiek dodatkowy niestandardowy proces kompilacji, również zostanie uruchomiony.
+Gdy wdrażanie jest w toku, ikona w prawym górnym rogu wskazuje wartość procentową postępu. Na stronie są też wyświetlane pełne komunikaty dotyczące operacji poniżej obszaru Eksploratora. Po zakończeniu powinien zostać wyświetlony ostatni komunikat dotyczący wdrażania `Deployment successful`.

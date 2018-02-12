@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2018
+ms.date: 02/02/2018
 ms.author: cherylmc
-ms.openlocfilehash: 39129572ac9908429dc9b9ef64930e896afc355f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 8cc387fafb2771577b55f57f79cc8b3a6ee8cfa9
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Konfigurowanie połączenia typu punkt-lokacja z siecią wirtualną przy użyciu natywnego uwierzytelniania certyfikatu platformy Azure: Azure Portal
 
@@ -41,7 +41,7 @@ Przy łączeniu klientów mogą być używane następujące metody uwierzytelnia
 
 Ten artykuł pomaga skonfigurować konfigurację połączenia typu punkt-lokacja z uwierzytelnianiem za pomocą natywnego uwierzytelniania certyfikatu platformy Azure. Jeśli chcesz używać protokołu RADIUS do uwierzytelniania łączących się użytkowników, zobacz [P2S using RADIUS authentication](point-to-site-how-to-radius-ps.md) (Nawiązywanie połączeń typu punkt-lokacja z użyciem uwierzytelniania za pomocą protokołu RADIUS).
 
-![Łączenie komputera z siecią wirtualną platformy Azure — diagram połączenie typu punkt-lokacja](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/p2snativeps.png)
+![Łączenie komputera z siecią wirtualną platformy Azure — diagram połączenie typu punkt-lokacja](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/p2snativeportal.png)
 
 Połączenia typu punkt-lokacja nie wymagają urządzenia sieci VPN ani publicznego adresu IP. Połączenie typu punkt-lokacja tworzy połączenie sieci VPN nawiązywane za pośrednictwem protokołu SSTP (Secure Socket Tunneling Protocol) lub IKEv2.
 
@@ -113,12 +113,12 @@ Certyfikaty są używane przez platformę Azure do uwierzytelniania klientów ł
 
 ## <a name="addresspool"></a>6. Dodawanie puli adresów klienta
 
-Pula adresów klienta to określony przez Ciebie zakres prywatnych adresów IP. Klienci łączący się przez połączenie VPN typu punkt-lokacja otrzymują adres IP z tego zakresu. Używaj zakresu prywatnych adresów IP nienakładającego się na lokalizację lokalną, z której się łączysz, ani na sieć wirtualną, z którą chcesz się łączyć.
+Pula adresów klienta to określony przez Ciebie zakres prywatnych adresów IP. Klienci łączący się dynamicznie przez połączenie VPN typu punkt-lokacja otrzymują adres IP z tego zakresu. Używaj zakresu prywatnych adresów IP nienakładającego się na lokalizację lokalną, z której się łączysz, ani na sieć wirtualną, z którą chcesz się łączyć.
 
 1. Po utworzeniu bramy sieci wirtualnej przejdź do sekcji **Ustawienia** na stronie bramy sieci wirtualnej. W sekcji **Ustawienia** kliknij pozycję **Konfiguracja punktu do lokacji**, aby otworzyć stronę **Konfiguracja punktu do lokacji**.
 
   ![Strona połączenia typu punkt-lokacja](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/gatewayblade.png)
-2. Na stronie **Konfiguracja punktu do lokacji** możesz usunąć automatycznie wypełniony zakres, a następnie dodać zakres prywatnych adresów IP, z którego chcesz korzystać. Kliknij pozycję **Zapisz**, aby zweryfikować i zapisać ustawienie.
+2. Na stronie **Konfiguracja punktu do lokacji** możesz usunąć automatycznie wypełniony zakres, a następnie dodać zakres prywatnych adresów IP, z którego chcesz korzystać. Klienci sieci VPN dynamicznie otrzymują adres IP z określonego zakresu. Kliknij pozycję **Zapisz**, aby zweryfikować i zapisać ustawienie.
 
   ![Pula adresów klienta](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/ipaddresspool.png)
 

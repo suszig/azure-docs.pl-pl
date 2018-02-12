@@ -14,19 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/25/2018
 ms.author: mazha
-ms.openlocfilehash: 81a88f6495ca9092ca3b55b8ffb3e41def3b4623
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: f1681b0796885cd6dc880303485edb97c15cda71
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="getting-started-with-azure-cdn"></a>Wprowadzenie do usługi Azure CDN
-W tym artykule opisano włączanie usługi Azure Content Delivery Network (CDN) przez utworzenie nowego profilu i punktu końcowego usługi CDN.
-
-> [!IMPORTANT]
-> Wprowadzenie do usługi CDN i listę funkcji można znaleźć na stronie [Omówienie usługi CDN](cdn-overview.md).
-> 
-> 
+W tym artykule opisano włączanie usługi Azure [Content Delivery Network (CDN)](cdn-overview.md) przez utworzenie nowego profilu i punktu końcowego usługi CDN.
 
 ## <a name="create-a-new-cdn-profile"></a>Tworzenie nowego profilu CDN
 Profil CDN jest kolekcją punktów końcowych usługi CDN. Każdy profil może zawierać jeden lub więcej punktów końcowych usługi CDN. Do organizowania punktów końcowych usługi CDN według domeny internetowej, aplikacji internetowej lub innych kryteriów można używać wielu profilów.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: sdash
-ms.openlocfilehash: c9dd60170e93722cab8e8d5eb5b4202b71bbb8e4
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: b35f37b4599cdf6276bc82013dc2fdf1c7d12834
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Monitorowanie dostępności i czasu odpowiedzi dowolnej witryny sieci Web
 Po wdrożeniu aplikacji sieci Web lub witryny sieci Web na dowolnym serwerze możesz skonfigurować testy, aby monitorować jej dostępność i czas odpowiedzi. Usługa [Azure Application Insights](app-insights-overview.md) wysyła żądania sieci Web do aplikacji w regularnych odstępach czasu z punktów na całym świecie. Jeśli aplikacja będzie odpowiadać powoli lub wcale, usługa powiadomi Cię o tym za pomocą alertu.
@@ -113,6 +113,11 @@ Na podstawie wyniku testu dostępności możesz:
 * Otworzyć wynik testu sieci Web w programie Visual Studio.
 
 *Test wygląda dobrze, ale jest raportowany jako błąd?* Zobacz [Często zadawane pytania](#qna), aby zapoznać się ze sposobami ograniczania szumu.
+
+
+> [!TIP]
+> Aby zapewnić niezawodne monitorowanie, zalecamy przeprowadzenie testowania z co najmniej 2 lokalizacji.
+>
 
 ## <a name="multi-step-web-tests"></a>Wieloetapowe testy sieci Web
 Możliwe jest monitorowanie scenariusza, który obejmuje sekwencję adresów URL. Jeśli na przykład monitorujesz witrynę sklepu, możesz sprawdzić, czy dodawanie towarów do koszyka działa prawidłowo.

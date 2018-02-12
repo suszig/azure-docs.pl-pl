@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 10/20/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: d8ffd9b3b9a315129ab0442908a9b3ad3bbecd1c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: b0fccd058620537f6dcfaf37ee14c1ff0cb8857a
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="automate-resizing-uploaded-images-using-event-grid"></a>Automatyzowanie zmiany rozmiaru przekazanych obrazów za pomocą usługi Event Grid
 
@@ -45,7 +45,7 @@ W celu ukończenia tego samouczka:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten temat będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.14 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0.14 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
 
 Jeśli nie korzystasz z usługi Cloud Shell, musisz się najpierw zalogować za pomocą polecenia `az login`.
 
@@ -67,18 +67,20 @@ az storage account create --name <general_storage_account> \
 
 Do obsługi wykonywania funkcji potrzebna jest aplikacja funkcji. Aplikacja funkcji zapewnia środowisko do bezserwerowego wykonywania kodu funkcji. Utwórz aplikację funkcji przy użyciu polecenia [az functionapp create](/cli/azure/functionapp#az_functionapp_create). 
 
-W poniższym poleceniu w miejsce symbolu zastępczego `<function_app>` wstaw swoją własną unikatową w skali globalnej nazwę aplikacji funkcji. Nazwa `<function_app>` jest używana jako domyślna domena DNS aplikacji funkcji, więc nazwa ta musi być unikatowa wśród wszystkich aplikacji na platformie Azure. W tym przypadku `<general_storage_account>` jest nazwą utworzonego konta magazynu ogólnego.  
+W poniższym poleceniu w miejsce symbolu zastępczego `<function_app>` wstaw swoją własną unikatową w skali globalnej nazwę aplikacji funkcji. Nazwa aplikacji funkcji jest używana jako domyślna domena DNS aplikacji funkcji, więc nazwa ta musi być unikatowa wśród wszystkich aplikacji na platformie Azure. Zastąp ciąg `<general_storage_account>` nazwą utworzonego konta magazynu ogólnego.
 
 ```azurecli-interactive
 az functionapp create --name <function_app> --storage-account  <general_storage_account>  \
 --resource-group myResourceGroup --consumption-plan-location westcentralus
 ```
 
-Teraz trzeba skonfigurować aplikację funkcji, aby łączyła się z magazynem obiektów blob. 
+Teraz musisz skonfigurować aplikację funkcji do połączenia z kontem usługi Blob Storage utworzonym w [poprzednim samouczku][previous-tutorial].
 
 ## <a name="configure-the-function-app"></a>Konfigurowanie aplikacji funkcji
 
-Do łączenia się z kontem magazynu obiektów blob funkcja wymaga parametrów połączenia. W tym przypadku nazwą konta usługi Blob Storage utworzonego w poprzednim samouczku jest `<blob_storage_account>`. Parametry połączenia można uzyskać za pomocą polecenia [az storage account show-connection-string](/cli/azure/storage/account#az_storage_account_show_connection_string). Nazwa kontenera obrazów miniatur także musi być ustawiona na `thumbs`. Dodaj te ustawienia aplikacji w aplikacji funkcji za pomocą polecenia [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set).
+Do łączenia się z kontem usługi Blob Storage funkcja wymaga parametrów połączenia. Kod funkcji wdrażanej na platformie Azure w poniższym kroku wyszukuje parametry połączenia w ustawieniu aplikacji myblobstorage_STORAGE oraz wyszukuje nazwę kontenera obrazu miniatury w ustawieniu aplikacji myContainerName. Parametry połączenia można uzyskać za pomocą polecenia [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string). Skonfiguruj ustawienia aplikacji za pomocą polecenia [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set).
+
+W poniższych poleceniach interfejsu wiersza polecenia nazwą konta usługi Blob Storage utworzonego w poprzednim samouczku jest `<blob_storage_account>`.
 
 ```azurecli-interactive
 storageConnectionString=$(az storage account show-connection-string \
@@ -95,9 +97,9 @@ Teraz możesz wdrożyć projekt kodu funkcji do tej aplikacji funkcji.
 
 ## <a name="deploy-the-function-code"></a>Wdrażanie kodu funkcji 
 
-Funkcja języka C#, która przeprowadza zmianę rozmiaru obrazów, jest dostępna w tym [przykładowym repozytorium GitHub](https://github.com/Azure-Samples/function-image-upload-resize). Wdróż ten projekt kodu funkcji do aplikacji funkcji, używając polecenia [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#az_functionapp_deployment_source_config). 
+Funkcja języka C#, która przeprowadza zmianę rozmiaru obrazów, jest dostępna w tym [repozytorium GitHub](https://github.com/Azure-Samples/function-image-upload-resize). Wdróż ten projekt kodu funkcji do aplikacji funkcji, używając polecenia [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config). 
 
-W następującym poleceniu `<function_app>` to ta sama aplikacja funkcji, która została utworzona w poprzednim skrypcie.
+W poniższym poleceniu `<function_app>` to nazwa wcześniej utworzonej aplikacji funkcji.
 
 ```azurecli-interactive
 az functionapp deployment source config --name <function_app> \
@@ -105,17 +107,21 @@ az functionapp deployment source config --name <function_app> \
 --repo-url https://github.com/Azure-Samples/function-image-upload-resize
 ```
 
-Funkcja zmiany rozmiaru jest wyzwalana przez subskrypcję zdarzenia tworzenia obiektu blob. Dane przekazywane do wyzwalacza obejmują adres URL obiektu blob, który z kolei jest przekazywany do wejściowego powiązania w celu uzyskania przekazanego obrazu z usługi Blob Storage. Funkcja generuje obraz miniatury i zapisuje wynikowy strumień do oddzielnego kontenera w usłudze Blob Storage. Aby dowiedzieć się więcej na temat tej funkcji, zobacz [plik readme w przykładowym repozytorium](https://github.com/Azure-Samples/function-image-upload-resize/blob/master/README.md).
+Funkcja zmiany rozmiaru obrazu jest wyzwalana przez żądania HTTP wysyłane do niej z usługi Event Grid. Utwórz subskrypcję zdarzeń, aby określić w usłudze Event Grid, że chcesz otrzymywać te powiadomienia pod adresem URL funkcji. W tym samouczku zasubskrybowano zdarzenia tworzone przez obiekty blob.
+
+Dane przekazane do funkcji z powiadomienia usługi Event Grid zawierają adres URL obiektu blob. Ten adres URL jest następnie przekazywany do powiązania wejściowego w celu pobrania przekazanego obrazu z magazynu Blob Storage. Funkcja generuje obraz miniatury i zapisuje wynikowy strumień do oddzielnego kontenera w usłudze Blob Storage. 
 
 Ten projekt używa wartości `EventGridTrigger` dla typu wyzwalacza. Zamiast ogólnych wyzwalaczy HTTP zaleca się korzystanie z wyzwalacza usługi Event Grid. Usługa Event Grid automatycznie weryfikuje wyzwalacze funkcji usługi Event Grid. W przypadku ogólnych wyzwalaczy HTTP trzeba zaimplementować [odpowiedź weryfikacji](security-authentication.md#webhook-event-delivery).
 
+Aby dowiedzieć się więcej na temat tej funkcji, zobacz [pliki function.json i run.csx](https://github.com/Azure-Samples/function-image-upload-resize/tree/master/imageresizerfunc).
+ 
 Kod projektu funkcji jest wdrażany bezpośrednio z publicznego przykładowego repozytorium. Aby dowiedzieć się więcej na temat opcji wdrażania dla usługi Azure Functions, zobacz [Ciągłe wdrażanie dla usługi Azure Functions](../azure-functions/functions-continuous-deployment.md).
 
-## <a name="create-your-event-subscription"></a>Tworzenie subskrypcji zdarzeń
+## <a name="create-an-event-subscription"></a>Tworzenie subskrypcji zdarzeń
 
-Subskrypcja zdarzeń wskazuje, które zdarzenia generowane przez dostawcę mają być wysyłane do określonego punktu końcowego. W tym przypadku punkt końcowy jest uwidaczniany przez Twoją funkcję. Wykonując następujące kroki, utworzysz subskrypcję zdarzeń ze swojej funkcji w witrynie Azure Portal: 
+Subskrypcja zdarzeń wskazuje, które zdarzenia generowane przez dostawcę mają być wysyłane do określonego punktu końcowego. W tym przypadku punkt końcowy jest uwidaczniany przez Twoją funkcję. Poniżej przedstawiono procedurę tworzenia subskrypcji zdarzeń wysyłającej powiadomienia do funkcji w witrynie Azure Portal: 
 
-1. W witrynie [Azure Portal](https://portal.azure.com) kliknij strzałkę w lewym dolnym rogu, aby rozwinąć wszystkie usługi, wpisz wyraz `functions` w polu **Filtr** i wybierz pozycje **Aplikacje funkcji**. 
+1. W witrynie [Azure Portal](https://portal.azure.com) kliknij strzałkę w lewym dolnym rogu, aby rozwinąć wszystkie usługi, wpisz *funkcje* w polu **Filtr** i wybierz pozycję **Aplikacje funkcji**. 
 
     ![Przechodzenie do aplikacji funkcji w witrynie Azure Portal](./media/resize-images-on-storage-blob-upload-event/portal-find-functions.png)
 
@@ -124,21 +130,22 @@ Subskrypcja zdarzeń wskazuje, które zdarzenia generowane przez dostawcę mają
     ![Przechodzenie do aplikacji funkcji w witrynie Azure Portal](./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png)
 
 3. Użyj ustawień subskrypcji zdarzeń w sposób określony w tabeli poniżej.
-
+    
     ![Tworzenie subskrypcji zdarzeń z funkcji w witrynie Azure Portal](./media/resize-images-on-storage-blob-upload-event/event-subscription-create-flow.png)
 
     | Ustawienie      | Sugerowana wartość  | Opis                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nazwa** | imageresizersub | Nazwa identyfikująca nową subskrypcję zdarzeń. | 
     | **Typ tematu** |  Konta magazynu | Wybierz dostawcę zdarzeń konta usługi Storage. | 
-    | **Subskrypcja** | Twoja subskrypcja platformy Azure | Domyślnie powinna być wybrana Twoja bieżąca subskrypcja platformy Azure.   |
+    | **Subskrypcja** | Twoja subskrypcja platformy Azure | Domyślnie jest wybrana Twoja bieżąca subskrypcja platformy Azure.   |
     | **Grupa zasobów** | myResourceGroup | Wybierz pozycję **Użyj istniejącej** i wybierz grupę zasobów używaną w tym samouczku.  |
-    | **Wystąpienie** |  `<blob_storage_account>` |  Wybierz utworzone konto usługi Blob Storage. |
+    | **Wystąpienie** |  Konto usługi Blob Storage |  Wybierz utworzone konto usługi Blob Storage. |
     | **Typy zdarzeń** | Utworzony obiekt blob | Anuluj zaznaczenie wszystkich typów innych niż **Utworzony obiekt blob**. Tylko typy zdarzeń `Microsoft.Storage.BlobCreated` są przekazywane do funkcji.| 
+    | **Typ subskrybenta** |  Webhook |  Możesz wybrać element Webhook lub usługę Event Hubs. |
     | **Punkt końcowy subskrybenta** | generowany automatycznie | Użyj automatycznie wygenerowanego adresu URL punktu końcowego. | 
     | **Filtr prefiksu** | /blobServices/default/containers/images/blobs/ | Filtruje zdarzenia magazynu do tylko tych, które dotyczą kontenera **images**.| 
 
-4. Kliknij pozycję **Utwórz**, aby dodać subskrypcję zdarzeń. Spowoduje to utworzenie subskrypcji zdarzeń, która wyzwala funkcję **imageresizerfunc** po dodaniu obiektu blob do kontenera **images**. Obrazy o zmienionym rozmiarze są dodawane do kontenera **thumbs**.
+4. Kliknij pozycję **Utwórz**, aby dodać subskrypcję zdarzeń. Spowoduje to utworzenie subskrypcji zdarzeń, która wyzwala funkcję `imageresizerfunc` po dodaniu obiektu blob do kontenera *images*. Funkcja zmieni rozmiar obrazów i doda je do kontenera *thumbs*.
 
 Ponieważ usługi zaplecza zostały już skonfigurowane, można przetestować funkcję zmieniania rozmiaru obrazów w przykładowej aplikacji internetowej. 
 
@@ -148,7 +155,7 @@ Aby przetestować zmienianie rozmiaru obrazów w aplikacji internetowej, przejd�
 
 Kliknij region **Upload photos** (Przekazywanie zdjęć), aby wybrać i przekazać plik. Możesz także przeciągnąć zdjęcia do tego obszaru. 
 
-Zwróć uwagę, że gdy przekazany obraz zniknie, jego kopia jest wyświetlana na karuzeli **Generated thumbnails** (Wygenerowane miniatury). Ten obraz został poddany zmianie rozmiaru przez funkcję, dodany do kontenera miniatur i pobrany przez klienta internetowego. 
+Zwróć uwagę, że gdy przekazany obraz zniknie, jego kopia jest wyświetlana na karuzeli **Generated thumbnails** (Wygenerowane miniatury). Ten obraz został poddany zmianie rozmiaru przez funkcję, dodany do kontenera *thumbs* i pobrany przez klienta internetowego.
 
 ![Opublikowana aplikacja internetowa w przeglądarce Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
 
@@ -165,7 +172,6 @@ Przejdź do trzeciej części serii samouczków na temat usługi Storage, aby do
 
 > [!div class="nextstepaction"]
 > [Zabezpieczanie dostępu do danych aplikacji w chmurze](../storage/blobs/storage-secure-access-application.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-
 
 + Aby dowiedzieć się więcej na temat usługi Event Grid, zobacz [Wprowadzenie do usługi Azure Event Grid](overview.md). 
 + Aby wypróbować inny samouczek na temat usługi Azure Functions, zobacz [Tworzenie funkcji integrującej się z usługą Azure Logic Apps](..\azure-functions\functions-twitter-email.md). 

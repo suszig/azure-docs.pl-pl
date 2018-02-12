@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/15/2017
+ms.date: 01/31/2018
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: c9c23462f80533a224c3c2ac3658b9630f1798f9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: e2242851d51dee56679231b9f34c8b474ba6578d
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="configure-virtual-network-service-endpoints"></a>Konfigurowanie punktów końcowych usługi sieci wirtualnej
 
@@ -67,7 +67,7 @@ Zaloguj się do platformy Azure przy użyciu konta Azure. Jeśli nie masz konta 
 
 Ustawienie | Wartość
 ------- | -----
-Nazwa    | myVnet
+Name (Nazwa)    | myVnet
 Przestrzeń adresowa | 10.0.0.0/16
 Nazwa podsieci|mySubnet
 Zakres adresów podsieci|10.0.0.0/24
@@ -75,7 +75,7 @@ Grupa zasobów|Pozostaw pole Utwórz nowy zaznaczone, a następnie wprowadź naz
 Lokalizacja|Dowolny obsługiwany region, np. Australia Wschodnia
 Subskrypcja|Wybierz subskrypcję.
 __ServiceEndpoints__|Enabled (Włączony)
-__Usługi__ | Wybierz jedną lub wszystkie dostępne usługi. Usługi obsługiwane w okresie obowiązywania wersji zapoznawczej: __„Microsoft.Storage”, „Microsoft.Sql”__.
+__Usługi__ | Wybierz jedną lub wszystkie dostępne usługi. Usługi obsługiwane: __„Microsoft.Storage”, „Microsoft.Sql”__.
 
 Wybierz usługi dla punktów końcowych: ![Wybieranie usług punktu końcowego usługi](media/virtual-network-service-endpoints-portal/vnet-create-flow-services.png)
 
@@ -136,7 +136,7 @@ Get-AzureRmVirtualNetworkAvailableEndpointService -location eastus
 ```
 
 Dane wyjściowe: 
-Nazwa | ID | Typ
+Name (Nazwa) | ID | Typ
 -----|----|-------
 Microsoft.Storage|/subscriptions/xxxx-xxx-xxx/providers/Microsoft.Network/virtualNetworkEndpointServices/Microsoft.Storage|Microsoft.Network/virtualNetworkEndpointServices
 Microsoft.Sql|/subscriptions/xxxx-xxx-xxx/providers/Microsoft.Network/virtualNetworkEndpointServices/Microsoft.Sql|Microsoft.Network/virtualNetworkEndpointServices
@@ -387,7 +387,7 @@ Aby zabezpieczyć zasoby usługi platformy Azure w sieci wirtualnej, użytkownik
 
 Dowiedz się więcej na temat [wbudowanych ról](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) i przypisywaniu określonych uprawnień do [ról niestandardowych](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles).
 
-Sieci wirtualne i zasoby usług platformy Azure mogą należeć do tej samej lub różnych subskrypcji. Jeśli zasoby należą do różnych subskrypcji, w okresie obowiązywania tej wersji zapoznawczej powinny one znajdować się w tej samej dzierżawie usługi Active Directory (AD).
+Sieci wirtualne i zasoby usług platformy Azure mogą należeć do tej samej lub różnych subskrypcji. Jeśli zasoby należą do różnych subskrypcji, powinny one znajdować się w tej samej dzierżawie usługi Active Directory (AD).
 
 ## <a name="next-steps"></a>Następne kroki
 
