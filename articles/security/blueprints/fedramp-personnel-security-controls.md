@@ -1,6 +1,6 @@
 ---
-title: "Automatyzacja planu FedRAMP Azure - zabezpieczenia dotyczące personelu"
-description: "Aplikacje sieci Web dla FedRAMP - zabezpieczenia dotyczące personelu"
+title: "Plan zabezpieczeń platformy Azure i zgodność — automatyzacji aplikacji sieci Web FedRAMP - zabezpieczenia dotyczące personelu"
+description: "Automatyzacja aplikacji sieci Web FedRAMP - zabezpieczenia dotyczące personelu"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: ace6a78fe08d1dbabeb435d76e686ba9c61aac99
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 2b9095d0420987f9cad758e3c883a9e2b5cd60c4
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="personnel-security-ps"></a>Zabezpieczenia dotyczące personelu (PS)
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-ps-2b"></a>PS kontroli NIST 800 53-2.b
+ ## <a name="nist-800-53-control-ps-2b"></a>NIST 800-53 Control PS-2.b
 
 #### <a name="position-risk-designation"></a>Oznaczenie ryzyka pozycji
 
@@ -67,7 +67,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-ps-2c"></a>PS kontroli NIST 800 53-2.c
+ ## <a name="nist-800-53-control-ps-2c"></a>NIST 800-53 Control PS-2.c
 
 #### <a name="position-risk-designation"></a>Oznaczenie ryzyka pozycji
 
@@ -151,7 +151,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-ps-4b"></a>PS kontroli NIST 800 53-4.b
+ ## <a name="nist-800-53-control-ps-4b"></a>NIST 800-53 Control PS-4.b
 
 #### <a name="personnel-termination"></a>Personel zakończenia
 
@@ -197,7 +197,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="personnel-termination"></a>Personel zakończenia
 
-**PS 4.e** Po zakończeniu pracy poszczególnych organizacji zachowuje dostępu do informacji organizacyjnych i systemów informacyjnych wcześniej kontrolowane przez zakończone poszczególnych.
+**PS-4.e** Po zakończeniu pracy poszczególnych organizacji zachowuje dostępu do informacji organizacyjnych i systemów informacyjnych wcześniej kontrolowane przez zakończone poszczególnych.
 
 **Obowiązki:**`Customer Only`
 
@@ -207,7 +207,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-ps-4f"></a>PS kontroli NIST 800 53-4.f
+ ## <a name="nist-800-53-control-ps-4f"></a>NIST 800-53 Control PS-4.f
 
 #### <a name="personnel-termination"></a>Personel zakończenia
 
@@ -277,7 +277,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-ps-5d"></a>PS kontroli NIST 800 53-5.d
+ ## <a name="nist-800-53-control-ps-5d"></a>NIST 800-53 Control PS-5.d
 
 #### <a name="personnel-transfer"></a>Personel transferu
 
@@ -347,7 +347,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-ps-7b"></a>Od PS kontroli NIST 800 53-7.b
+ ## <a name="nist-800-53-control-ps-7b"></a>NIST 800-53 Control PS-7.b
 
 #### <a name="third-party-personnel-security"></a>Zabezpieczenia dotyczące personelu innych firm
 
@@ -361,7 +361,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-ps-7c"></a>PS kontroli NIST 800 53-7.c
+ ## <a name="nist-800-53-control-ps-7c"></a>NIST 800-53 Control PS-7.c
 
 #### <a name="third-party-personnel-security"></a>Zabezpieczenia dotyczące personelu innych firm
 
@@ -375,7 +375,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-ps-7d"></a>PS kontroli NIST 800 53-7.d
+ ## <a name="nist-800-53-control-ps-7d"></a>NIST 800-53 Control PS-7.d
 
 #### <a name="third-party-personnel-security"></a>Zabezpieczenia dotyczące personelu innych firm
 
@@ -393,7 +393,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="third-party-personnel-security"></a>Zabezpieczenia dotyczące personelu innych firm
 
-**PS 7.e** Organizacja monitoruje zgodność dostawcy.
+**PS-7.e** Organizacja monitoruje zgodność dostawcy.
 
 **Obowiązki:**`Customer Only`
 
@@ -417,7 +417,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-ps-8b"></a>PS kontroli NIST 800 53-8.b
+ ## <a name="nist-800-53-control-ps-8b"></a>NIST 800-53 Control PS-8.b
 
 #### <a name="personnel-sanctions"></a>Personel sankcje
 

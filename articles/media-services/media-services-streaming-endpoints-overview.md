@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.openlocfilehash: e454778c558b9c17c47ad9eb651737aa0b5e2605
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 80d625a6ab2d3c6d5de0a90fbff0760888154d70
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="streaming-endpoints-overview"></a>Omówienie punktów końcowych przesyłania strumieniowego 
 
-##<a name="overview"></a>Omówienie
+##<a name="overview"></a>Przegląd
 
 W programie Microsoft Azure Media Services (AMS), **punktu końcowego przesyłania strumieniowego** reprezentuje przesyłania strumieniowego usługa, która może dostarczać zawartość bezpośrednio do aplikacji klienckich odtwarzacza lub do Content Delivery Network (CDN) w celu dalszej dystrybucji. Usługa Media Services udostępnia również bezproblemową integrację usługi Azure CDN. Strumienia wychodzącego z usługi StreamingEndpoint może być strumień na żywo, wideo na żądanie lub pobierania progresywnego zawartości na koncie usługi Media Services. Każde konto usługi Azure Media Services zawiera domyślne StreamingEndpoint. Dodatkowe punkty końcowe mogą być tworzone w ramach konta. Istnieją dwie wersje punkty końcowe, 1.0 i 2.0. Począwszy od stycznia 2017 10, wszystkie nowo utworzonego konta usługi AMS zostaną uwzględnione w wersji 2.0 **domyślne** StreamingEndpoint. Dodatkowe punktów końcowych przesyłania strumieniowego dodanych do tego konta będą również w wersji 2.0. Ta zmiana nie ma wpływu na istniejące konta; istniejące punkty końcowe będą w wersji 1.0, a można uaktualnić do wersji 2.0. Ta zmiana będzie zmiany zachowania, rozliczeń i funkcji (Aby uzyskać więcej informacji, zobacz **przesyłania strumieniowego, typy i wersje** sekcji opisane poniżej).
 
@@ -68,32 +68,32 @@ Jeśli Twoje **wersji "1.0"** punktu końcowego przesyłania strumieniowego ma >
 |Typ|StreamingEndpointVersion|ScaleUnits|CDN|Rozliczenia|Umowa SLA| 
 |--------------|----------|-----------------|-----------------|-----------------|-----------------|    
 |Wdrożenie klasyczne|1.0|0|Nie dotyczy|Bezpłatna|Nie dotyczy|
-|Standardowy punkt końcowy przesyłania strumieniowego|2.0|0|Tak|Płatne|Tak|
-|Jednostki przesyłania strumieniowego Premium|1.0|>0|Tak|Płatne|Tak|
-|Jednostki przesyłania strumieniowego Premium|2.0|>0|Tak|Płatne|Tak|
+|Standardowy punkt końcowy przesyłania strumieniowego|2.0|0|Yes|Płatne|Yes|
+|Jednostki przesyłania strumieniowego Premium|1.0|>0|Yes|Płatne|Yes|
+|Jednostki przesyłania strumieniowego Premium|2.0|>0|Yes|Płatne|Yes|
 
 ### <a name="features"></a>Funkcje
 
-Funkcja|Standardowa|Premium
+Cecha|Standardowa (Standard)|Premium
 ---|---|---
-Pierwszy 15 dni wolne| Tak |Nie
+Pierwszy 15 dni wolne| Yes |Nie
 Przepływność |Do 600 MB/s, gdy nie jest używana usługa Azure CDN. Można skalować usługi CDN.|200 MB/s na jednostka (SU). Można skalować usługi CDN.
 Umowa SLA | 99.9|99,9 (200 MB/s na SU).
 CDN|Usługi Azure CDN, innej sieci CDN lub nie CDN.|Usługi Azure CDN, innej sieci CDN lub nie CDN.
 Karta jest proporcjonalna| Codziennie|Codziennie
-Szyfrowania dynamicznego|Tak|Tak
-Dynamiczne tworzenie pakietów|Tak|Tak
+Szyfrowanie dynamiczne|Yes|Yes
+Dynamiczne tworzenie pakietów|Yes|Yes
 Skalowanie|Automatycznie skalować do docelowej przepływności.|Dodatkowe jednostki przesyłania strumieniowego
-IP filtrowania/G20/niestandardowy host|Tak|Tak
-Pobierania progresywnego|Tak|Tak
-Zalecane użycie |Zalecane w przypadku większość przesyłania strumieniowego scenariuszy.|Użycie Professional.<br/>Jeśli uważasz, że masz potrzeb poza Standard. Skontaktuj się z nami (amsstreaming adresem), Jeśli przypuszczasz, rozmiar równoczesnych odbiorców większych niż 50 000 przeglądarki.
+IP filtrowania/G20/niestandardowy host|Yes|Yes
+Pobierania progresywnego|Yes|Yes
+Zalecane użycie |Zalecane w przypadku większość przesyłania strumieniowego scenariuszy.|Użycie Professional.<br/>Jeśli uważasz, że masz potrzeb poza Standard. Skontaktuj się z nami (amsstreaming@microsoft.com) Jeśli rozmiar równoczesnych odbiorców większych niż 50 000 przeglądarki.
 
 
 ## <a name="migration-between-types"></a>Migracja między typami
 
-Z | Do | Akcja
+Od | Do | Akcja
 ---|---|---
-Wdrożenie klasyczne|Standardowa|Należy wybrać
+Wdrożenie klasyczne|Standardowa (Standard)|Należy wybrać
 Wdrożenie klasyczne|Premium| Skala (dodatkowe jednostki przesyłania strumieniowego)
 Standard/Premium|Wdrożenie klasyczne|Niedostępne (jeśli punktu końcowego przesyłania strumieniowego w wersji 1.0. Istnieje możliwość zmiany klasyczne z ustawień scaleunits "0")
 Standard (lub bez CDN)|Premium z tej samej konfiguracji|Dozwolone w **uruchomiona** stanu. (za pośrednictwem portalu Azure)
@@ -104,7 +104,7 @@ W wersji 1.0 z SU > = 1 z sieci CDN|Standard/Premium z nie CDN|Dozwolone w **zat
 W wersji 1.0 z SU > = 1 z sieci CDN|Standard lub bez CDN|Dozwolone w **zatrzymana** stanu. Nie są dozwolone w **uruchomiona** stanu. W wersji 1.0 CDN będzie jednej usunięta, a nowe utworzone i uruchomione.
 W wersji 1.0 z SU > = 1 z sieci CDN|Premium lub bez CDN|Dozwolone w **zatrzymana** stanu. Nie są dozwolone w **uruchomiona** stanu. Klasyczne sieci CDN będzie jednej usunięta, a nowe utworzone i uruchomione.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Przejrzyj ścieżki szkoleniowe dotyczące usługi Media Services.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

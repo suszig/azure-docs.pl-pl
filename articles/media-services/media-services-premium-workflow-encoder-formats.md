@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: e18de2adc9aac585d6890dd7b43a54f1a0ca177e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eb1cadec240dc7f6e3ac5b8932d66c3d55c76e42
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Koderów-dekoderów i formaty Media Encoder Premium w przepływie pracy
 > [!NOTE]
-> Odpowiedzi na pytania koder premium poczty e-mail mepd z witryny Microsoft.com.
+> Odpowiedzi na pytania koder premium, poczty e-mail mepd@microsoft.com.
 > 
 > Procesor multimediów Media Encoder Premium w przepływie pracy omówione w tym temacie nie jest dostępna w Chinach. 
 > 
@@ -52,7 +52,7 @@ W poniższej sekcji przedstawiono formatów koderów-dekoderów i plików, któr
 ### <a name="input-video-codecs"></a>Dane wejściowe kodery-dekodery wideo
 * AVC 8-bitowych/10-bitowy, maksymalnie 4:2:2, w tym AVCIntra
 * Avid DNxHD (w MXF)
-* DVCPro/DVCProHD (w MXF)
+* DVCPro/DVCProHD (in MXF)
 * JPEG2000
 * MPEG-2 (maksymalnie 422 profilu i wysokiego poziomu, m.in wariantów, takich jak XDCAM, XDCAM HD, XDCAM IMX, CableLabs® i D10)
 * MPEG-1
@@ -61,7 +61,7 @@ W poniższej sekcji przedstawiono formatów koderów-dekoderów i plików, któr
 ### <a name="input-audio-codecs"></a>Dane wejściowe Audio koderów-dekoderów
 * AES (SMPTE 331 M i 302 M, AES3 2003)
 * Dolby® E
-* Dolby® cyfrowy (AC3)
+* Dolby® Digital (AC3)
 * AAC (AAC-LC, AAC HE i AAC-HEv2; maksymalnie 5.1)
 * MPEG warstwy 2
 * Mp3 (MPEG-1 Audio warstwy 3)
@@ -85,7 +85,7 @@ W poniższej sekcji przedstawiono formatów koderów-dekoderów i plików, któr
 ### <a name="output-video-codecs"></a>Dane wyjściowe kodery-dekodery wideo
 * AVC (H.264; 8-bitową; do profilu wysokiego poziomu 5.2; 4 K bardzo HD; Wewnątrz AVC)
 * Avid DNxHD (w MXF)
-* DVCPro/DVCProHD (w MXF)
+* DVCPro/DVCProHD (in MXF)
 * MPEG-2 (maksymalnie 422 profilu i wysokiego poziomu, m.in wariantów, takich jak XDCAM, XDCAM HD, XDCAM IMX, CableLabs® i D10)
 * MPEG-1
 * Windows Media wideo/VC-1
@@ -93,7 +93,7 @@ W poniższej sekcji przedstawiono formatów koderów-dekoderów i plików, któr
 
 ### <a name="output-audio-codecs"></a>Dane wyjściowe Audio koderów-dekoderów
 * AES (SMPTE 331 M i 302 M, AES3 2003)
-* Dolby® cyfrowy (AC3)
+* Dolby® Digital (AC3)
 * Dolby® Digital Plus (E-AC3) do 7.1
 * AAC (AAC-LC, AAC HE i AAC-HEv2; maksymalnie 5.1)
 * MPEG warstwy 2

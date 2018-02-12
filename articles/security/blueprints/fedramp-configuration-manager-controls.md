@@ -1,6 +1,6 @@
 ---
-title: "Automatyzacja planu FedRAMP Azure — Zarządzanie konfiguracją"
-description: "Aplikacje sieci Web dla FedRAMP — Zarządzanie konfiguracją"
+title: "Plan zarządzania konfiguracją - automatyzacji aplikacji sieci Web FedRAMP - Azure zabezpieczeń i zgodności"
+description: "Automatyzacji aplikacji sieci Web FedRAMP — Zarządzanie konfiguracją"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: e93aa430b7150f07210f5d1f37e2027d95334a59
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 6566783769d37ee829df3894fdb5673b4edafd2c
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="configuration-management-cm"></a>Zarządzanie konfiguracją (CM)
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Szablony usługi Azure Resource Manager i towarzyszące zasobów, które obejmuje ten plan Azure reprezentują linii bazowej "Konfiguracja jako kod" dla architektury wdrożone. Rozwiązanie znajduje się jednak GitHub, która może służyć do konfiguracji kontroli. Rozwiązanie zawiera linii bazowej konfiguracji żądanego stanu (DSC) dla każdej wdrożonej maszyny wirtualnej. |
+| **Klienta** | Szablony usługi Azure Resource Manager i towarzyszące zasobów, które obejmuje ten plan reprezentują linii bazowej "Konfiguracja jako kod" dla architektury wdrożone. Rozwiązanie znajduje się jednak GitHub, która może służyć do konfiguracji kontroli. Rozwiązanie zawiera linii bazowej konfiguracji żądanego stanu (DSC) dla każdej wdrożonej maszyny wirtualnej. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -105,7 +105,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Szablony usługi Azure Resource Manager i towarzyszące zasobów, które obejmuje ten plan Azure reprezentują linii bazowej "Konfiguracja jako kod" dla architektury wdrożone. Rozwiązanie znajduje się jednak GitHub, która może służyć do konfiguracji kontroli. W portalu Azure skryptu automatyzacji jest dostępna dla wszystkich wdrożonych zasobów i udostępnia zawsze aktualne reprezentacja tych zasobów.  |
+| **Klienta** | Szablony usługi Azure Resource Manager i towarzyszące zasobów, które obejmuje ten plan reprezentują linii bazowej "Konfiguracja jako kod" dla architektury wdrożone. Rozwiązanie znajduje się jednak GitHub, która może służyć do konfiguracji kontroli. W portalu Azure skryptu automatyzacji jest dostępna dla wszystkich wdrożonych zasobów i udostępnia zawsze aktualne reprezentacja tych zasobów.  |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -211,7 +211,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="configuration-change-control"></a>Kontroli zmian konfiguracji
 
-**CM 3.e** Organizacja zachowuje rekordów kontrolą konfiguracji zmiany w systemie informacji dla [przypisania: okres zdefiniowany organizacji].
+**CM-3.e** Organizacja zachowuje rekordów kontrolą konfiguracji zmiany w systemie informacji dla [przypisania: okres zdefiniowany organizacji].
 
 **Obowiązki:**`Customer Only`
 
@@ -309,7 +309,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="configuration-change-control--automated-document--notification--prohibition-of-changes"></a>Kontroli zmian konfiguracji | Automatyczne dokumentu / powiadomień / zakaz zmiany
 
-**.E CM – 3 (1)** Automatyczne mechanizmy dokumentu wszystkie zmiany do systemu informacji jest stosowana w organizacji.
+**CM-3 (1).e** Automatyczne mechanizmy dokumentu wszystkie zmiany do systemu informacji jest stosowana w organizacji.
 
 **Obowiązki:**`Customer Only`
 
@@ -455,7 +455,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Maszyn wirtualnych wdrożonych przez ten plan Azure wdrożenie zasad ograniczeń oprogramowania systemu Windows, aby określić użytkowników, którzy mogą instalować i uruchamiać określone aplikacje. Dalsze wszystkich okien cyfrowo są singed aktualizacji systemu operacyjnego. |
+| **Klienta** | Maszyn wirtualnych wdrożonych przez ten plan wdrożenia zasad ograniczeń oprogramowania systemu Windows, aby określić użytkowników, którzy mogą instalować i uruchamiać określone aplikacje. Dalsze wszystkich okien cyfrowo są singed aktualizacji systemu operacyjnego. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -497,7 +497,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure obejmuje linii bazowej konfiguracji żądanego stanu (DSC) dla każdej wdrożonej maszyny wirtualnej. Skrypty programu PowerShell te deklaratywne zdefiniować i skonfigurować zasoby, do których są stosowane. Linia bazowa konfiguracji DSC dołączane do zasobów wykorzystywanych przez to rozwiązanie można rozszerzyć przez klienta w celu spełnienia potrzeb misji. |
+| **Klienta** | Ten plan zawiera plan bazowy konfiguracji żądanego stanu (DSC) dla każdej wdrożonej maszyny wirtualnej. Skrypty programu PowerShell te deklaratywne zdefiniować i skonfigurować zasoby, do których są stosowane. Linia bazowa konfiguracji DSC dołączane do zasobów wykorzystywanych przez to rozwiązanie można rozszerzyć przez klienta w celu spełnienia potrzeb misji. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -511,7 +511,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure obejmuje linii bazowej konfiguracji żądanego stanu (DSC) dla każdej wdrożonej maszyny wirtualnej. Plany bazowe jest automatycznie stosowane do maszyn wirtualnych podczas wdrażania przy użyciu skryptu niestandardowego rozszerzenia maszyny wirtualnej. |
+| **Klienta** | Ten plan zawiera plan bazowy konfiguracji żądanego stanu (DSC) dla każdej wdrożonej maszyny wirtualnej. Plany bazowe jest automatycznie stosowane do maszyn wirtualnych podczas wdrażania przy użyciu skryptu niestandardowego rozszerzenia maszyny wirtualnej. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -539,7 +539,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża usługi Konfiguracja DSC automatyzacji. Automation DSC wyrównuje konfiguracje maszyny z określoną konfigurację zdefiniowany przez organizację. |
+| **Klienta** | Ten plan wdraża usługi Konfiguracja DSC automatyzacji. Automation DSC wyrównuje konfiguracje maszyny z określoną konfigurację zdefiniowany przez organizację. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -553,7 +553,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża Konfiguracja DSC automatyzacji Azure. Automation DSC wyrównuje konfiguracje maszyny z określoną konfigurację zdefiniowany przez organizację i stale monitoruje zmiany. |
+| **Klienta** | Ten plan wdraża Konfiguracja DSC automatyzacji Azure. Automation DSC wyrównuje konfiguracje maszyny z określoną konfigurację zdefiniowany przez organizację i stale monitoruje zmiany. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -567,7 +567,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża Konfiguracja DSC automatyzacji Azure. Część z platformy Azure Operations Management Suite (OMS), usługi Konfiguracja DSC automatyzacji można skonfigurować do generowania alertu lub błędy konfiguracji w przypadku wykrycia naprawienia. |
+| **Klienta** | Ten plan wdraża Konfiguracja DSC automatyzacji Azure. Część z platformy Azure Operations Management Suite (OMS), usługi Konfiguracja DSC automatyzacji można skonfigurować do generowania alertu lub błędy konfiguracji w przypadku wykrycia naprawienia. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -581,7 +581,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Zasoby wdrożone przez ten plan Azure są skonfigurowane do zapewnienia funkcji co najmniej ich przeznaczenia. Plan bazowy konfiguracji żądanego stanu (DSC) jest uwzględniony w każdej wdrożonej maszyny wirtualnej. Skrypty programu PowerShell te deklaratywne zdefiniować i skonfigurować zasoby, do których są stosowane. Linia bazowa konfiguracji DSC dołączane do zasobów wykorzystywanych przez to rozwiązanie można rozszerzyć przez klienta, aby jeszcze bardziej ograniczyć liczbę funkcji do potrzeb misji. |
+| **Klienta** | Zasoby wdrożone przez ten plan są skonfigurowane do zapewnienia funkcji co najmniej ich przeznaczenia. Plan bazowy konfiguracji żądanego stanu (DSC) jest uwzględniony w każdej wdrożonej maszyny wirtualnej. Skrypty programu PowerShell te deklaratywne zdefiniować i skonfigurować zasoby, do których są stosowane. Linia bazowa konfiguracji DSC dołączane do zasobów wykorzystywanych przez to rozwiązanie można rozszerzyć przez klienta, aby jeszcze bardziej ograniczyć liczbę funkcji do potrzeb misji. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -595,7 +595,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża brama aplikacji w usłudze Azure i siecią grup zabezpieczeń do ograniczenia użycia portów i protokołów wyłącznie do tych niezbędne. Brama aplikacji, grup zabezpieczeń sieci i linie bazowe konfiguracji DSC dla maszyn wirtualnych można dodatkowo skonfigurować przez klienta w celu ograniczenia użycia funkcji, portów, protokołów i usług, które były dostępne tylko funkcje przeznaczone. |
+| **Klienta** | Ten plan wdraża brama aplikacji w usłudze Azure i siecią grup zabezpieczeń do ograniczenia użycia portów i protokołów wyłącznie do tych niezbędne. Brama aplikacji, grup zabezpieczeń sieci i linie bazowe konfiguracji DSC dla maszyn wirtualnych można dodatkowo skonfigurować przez klienta w celu ograniczenia użycia funkcji, portów, protokołów i usług, które były dostępne tylko funkcje przeznaczone. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -693,7 +693,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża wszystkie zasoby grupy zasobów platformy Azure Resource Manager. Usługa Azure Resource Manager udostępnia zawsze aktualna lista wdrożonych zasobów i można dostosować do znacznika i grupy zasobów, Zarządzanie zapasami. Zasoby wdrażane przez to rozwiązanie podano tag określonych zasobów, które mogą być skojarzone z granicą systemu. |
+| **Klienta** | Ten plan wdraża wszystkie zasoby grupy zasobów platformy Azure Resource Manager. Usługa Azure Resource Manager udostępnia zawsze aktualna lista wdrożonych zasobów i można dostosować do znacznika i grupy zasobów, Zarządzanie zapasami. Zasoby wdrażane przez to rozwiązanie podano tag określonych zasobów, które mogą być skojarzone z granicą systemu. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -707,7 +707,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża wszystkie zasoby grupy zasobów platformy Azure Resource Manager. Usługa Azure Resource Manager udostępnia zawsze aktualna lista wdrożonych zasobów gotowa do przeglądu w portalu Azure. |
+| **Klienta** | Ten plan wdraża wszystkie zasoby grupy zasobów platformy Azure Resource Manager. Usługa Azure Resource Manager udostępnia zawsze aktualna lista wdrożonych zasobów gotowa do przeglądu w portalu Azure. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -721,7 +721,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża wszystkie zasoby grupy zasobów platformy Azure Resource Manager. Bloku zasobów w portalu Azure zawiera listę wszystkich wdrożonych zasobów, zapewniając zawsze aktualne spis wdrożone i usunąć zasobów. |
+| **Klienta** | Ten plan wdraża wszystkie zasoby grupy zasobów platformy Azure Resource Manager. Bloku zasobów w portalu Azure zawiera listę wszystkich wdrożonych zasobów, zapewniając zawsze aktualne spis wdrożone i usunąć zasobów. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -735,7 +735,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża wszystkie zasoby grupy zasobów platformy Azure Resource Manager. Bloku zasobów w portalu Azure zawiera listę wszystkich wdrożonych zasobów, zapewniając zawsze aktualne spis wdrożone i usunąć zasobów. |
+| **Klienta** | Ten plan wdraża wszystkie zasoby grupy zasobów platformy Azure Resource Manager. Bloku zasobów w portalu Azure zawiera listę wszystkich wdrożonych zasobów, zapewniając zawsze aktualne spis wdrożone i usunąć zasobów. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -777,7 +777,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża wszystkie zasoby grupy zasobów platformy Azure Resource Manager. Tagi zasobów platformy Azure są klucz / wartość pary, które można zastosować do klasyfikowania zasobów do celów accountability i/lub zarządzania. |
+| **Klienta** | Ten plan wdraża wszystkie zasoby grupy zasobów platformy Azure Resource Manager. Tagi zasobów platformy Azure są klucz / wartość pary, które można zastosować do klasyfikowania zasobów do celów accountability i/lub zarządzania. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -791,7 +791,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża wszystkie zasoby grupy zasobów platformy Azure Resource Manager. Usługa Azure Resource Manager udostępnia zawsze aktualna lista wdrożonych zasobów. Zasoby wdrażane przez to rozwiązanie podano tag określonych zasobów, które mogą być skojarzone z granicą systemu. |
+| **Klienta** | Ten plan wdraża wszystkie zasoby grupy zasobów platformy Azure Resource Manager. Usługa Azure Resource Manager udostępnia zawsze aktualna lista wdrożonych zasobów. Zasoby wdrażane przez to rozwiązanie podano tag określonych zasobów, które mogą być skojarzone z granicą systemu. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -809,7 +809,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-cm-9b"></a>Formant NIST 800 53 CM-9.b
+ ## <a name="nist-800-53-control-cm-9b"></a>NIST 800-53 Control CM-9.b
 
 #### <a name="configuration-management-plan"></a>Plan zarządzania konfiguracji
 
@@ -823,7 +823,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-cm-9c"></a>Formant NIST 800 53 CM-9.c
+ ## <a name="nist-800-53-control-cm-9c"></a>NIST 800-53 Control CM-9.c
 
 #### <a name="configuration-management-plan"></a>Plan zarządzania konfiguracji
 
@@ -837,7 +837,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-cm-9d"></a>Formant NIST 800 53 CM-9.d
+ ## <a name="nist-800-53-control-cm-9d"></a>NIST 800-53 Control CM-9.d
 
 #### <a name="configuration-management-plan"></a>Plan zarządzania konfiguracji
 
@@ -861,7 +861,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Licencji systemu Windows i program SQL Server znajdują się zasoby wdrożone przez ten plan Azure. Jest to funkcja wbudowana platformy Azure. Organizacje z istniejącej umowy licencyjne oprogramowania rozważyć wdrażanie modeli alternatywnych licencji. |
+| **Klienta** | Licencje systemu Windows i program SQL Server są dołączone do zasobów wykorzystywanych przez ten plan. Jest to funkcja wbudowana platformy Azure. Organizacje z istniejącej umowy licencyjne oprogramowania rozważyć wdrażanie modeli alternatywnych licencji. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -875,7 +875,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Licencji systemu Windows i program SQL Server znajdują się zasoby wdrożone przez ten plan Azure. Użytkownik nie ma obowiązku oddzielnie śledzić użycie licencji. |
+| **Klienta** | Licencje systemu Windows i program SQL Server są dołączone do zasobów wykorzystywanych przez ten plan. Użytkownik nie ma obowiązku oddzielnie śledzić użycie licencji. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -889,7 +889,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Plik nie peer-to-peer, udostępnianie możliwości wdrożone przez ten plan Azure nie istnieje. |
+| **Klienta** | Plik nie peer-to-peer, udostępnianie możliwości wdrożone przez ten plan nie istnieje. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 

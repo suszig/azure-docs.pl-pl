@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: d5f76d532b236e67a4e69eb820e2cfc3033a80c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7cd457fe0660718c3939d39ec1825009c5e4d17
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Transmisja strumieniowa na żywo korzystająca z usługi Azure Media Services do tworzenia strumieni o różnej szybkości transmisji bitów
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 W konsoli usługi Azure Media Services (AMS) **kanału** reprezentuje potok przetwarzania zawartości transmisji strumieniowej na żywo. A **kanału** odbiera na żywo wejściowych strumieni w jeden z dwóch sposobów:
 
 * Lokalny koder na żywo wysyła strumień o pojedynczej szybkości transmisji bitów do kanału obsługującego kodowanie na żywo za pomocą usługi Media Services w jednym z następujących formatów: RTP (MPEG TS), RTMP lub Smooth Streaming (pofragmentowany plik MP4). Kanał wykonuje następnie kodowanie na żywo przychodzącego strumienia o pojedynczej szybkości transmisji bitów do postaci strumienia wideo o różnych szybkościach transmisji bitów (adaptacyjnej szybkości transmisji bitów). Po odebraniu żądania usługa Media Services dostarcza strumień do klientów.
@@ -65,7 +65,7 @@ W tabeli poniżej pokazano, jak stany kanału przekładają się na naliczanie o
 | Stan kanału | Wskaźniki w interfejsie użytkownika portalu | Jest to karta? |
 | --- | --- | --- |
 | Uruchamianie |Uruchamianie |Nie (stan przejściowy) |
-| Działanie |Gotowy (brak uruchomionych programów)<br/>lub<br/>Transmisja strumieniowa (co najmniej jeden uruchomiony program) |TAK |
+| Działa |Gotowy (brak uruchomionych programów)<br/>lub<br/>Transmisja strumieniowa (co najmniej jeden uruchomiony program) |TAK |
 | Zatrzymywanie |Zatrzymywanie |Nie (stan przejściowy) |
 | Zatrzymane |Zatrzymane |Nie |
 
@@ -83,7 +83,7 @@ Poniższy diagram przedstawia na żywo przepływ pracy transmisji strumieniowej,
 Poniżej przedstawiono ogólne etapy tworzenia typowych aplikacji transmisji strumieniowej na żywo.
 
 > [!NOTE]
-> Obecnie maksymalny zalecany czas trwania wydarzenia na żywo wynosi 8 godzin. Skontaktuj się pod adresem amslived@Microsoft.com, jeśli chcesz uruchomić kanał na dłuższe okresy. Należy pamiętać, że istnieje rozliczeń wpływ kodowanie na żywo i należy pamiętać, że pozostawienie kanał kodowania na żywo w stanie "Uruchomiona" będą naliczane co godzinę opłat rozliczeń.  Zaleca się natychmiast zatrzymać kanałów uruchomione po zakończeniu zdarzenia transmisji strumieniowej na żywo, aby zapobiec zmianom bardzo co godzinę. 
+> Obecnie maksymalny zalecany czas trwania wydarzenia na żywo wynosi 8 godzin. Skontaktuj się z amslived@microsoft.com Jeśli chcesz uruchomić kanał na dłuższe okresy. Należy pamiętać, że istnieje rozliczeń wpływ kodowanie na żywo i należy pamiętać, że pozostawienie kanał kodowania na żywo w stanie "Uruchomiona" będą naliczane co godzinę opłat rozliczeń.  Zaleca się natychmiast zatrzymać kanałów uruchomione po zakończeniu zdarzenia transmisji strumieniowej na żywo, aby zapobiec zmianom bardzo co godzinę. 
 > 
 > 
 
@@ -160,8 +160,8 @@ Kwestie do rozważenia:
     * Mono, Stereo
 * Zalecane emisji koderów to:
   
-  * Wyobraź sobie ENC Selenio komunikacji 1
-  * Wyobraź sobie ENC Selenio komunikacji 2
+  * Imagine Communications Selenio ENC 1
+  * Imagine Communications Selenio ENC 2
   * Elemental na żywo
 
 #### <a id="single_bitrate_RTMP"></a>Pojedyncza szybkość transmisji bitów RTMP
@@ -248,7 +248,7 @@ Liczony od zera indeks, który określa, które wejściowego strumienia wideo po
 
 Wartość domyślna wynosi zero. Zaleca się wysyłanie w jednym programie strumień transportowy (SPTS). Jeśli strumień wejściowy zawiera wiele programów, kodera na żywo analizuje tabeli mapy programu (rata) w danych wejściowych, identyfikuje dane wejściowe, które mają nazwę typu strumienia wideo MPEG-2 lub H.264 i rozmieszcza je w kolejności określonej w konto Liczony od zera indeks jest następnie używany do odebrania wpis n-ty percentyl, w tym układ.
 
-### <a name="audio-stream"></a>Strumień audio
+### <a name="audio-stream"></a>Audio Stream
 Opcjonalny. W tym artykule opisano strumienie wejściowe audio. Jeśli to pole nie zostanie określony, mają zastosowanie określone wartości domyślne. To ustawienie jest dozwolone tylko wtedy, gdy ustawiono danych wejściowych, przesyłanie strumieniowe protokołu RTP (MPEG-TS).
 
 #### <a name="index"></a>Indeks
@@ -262,7 +262,7 @@ Może istnieć maksymalnie 8 zestawy strumieniem audio określona, jeśli dane w
 ### <a id="preset"></a>Ustawienie systemu
 Określa ustawienie wstępne do użycia przez koder na żywo w tym kanale. Obecnie jest jedyną dozwoloną wartość **Default720p** (ustawienie domyślne).
 
-Należy pamiętać, że jeśli potrzebujesz predefiniowanych, należy skontaktować się pod adresem amslived@Microsoft.com.
+Należy pamiętać, że jeśli potrzebujesz predefiniowanych, należy skontaktować się amslived@microsoft.com.
 
 **Default720p** będzie kodowanie wideo do następujących warstwy 7.
 
@@ -270,12 +270,12 @@ Należy pamiętać, że jeśli potrzebujesz predefiniowanych, należy skontaktow
 | Szybkość transmisji bitów | Szerokość | Wysokość | MaxFPS | Profil | Nazwa strumienia wyjściowego |
 | --- | --- | --- | --- | --- | --- |
 | 3500 |1280 |720 |30 |Wysoka |Video_1280x720_3500kbps |
-| 2200 |960 |540 |30 |Main |Video_960x540_2200kbps |
-| 1350 |704 |396 |30 |Main |Video_704x396_1350kbps |
-| 850 |512 |288 |30 |Main |Video_512x288_850kbps |
-| 550 |384 |216 |30 |Main |Video_384x216_550kbps |
-| 350 |340 |192 |30 |Linii bazowej |Video_340x192_350kbps |
-| 200 |340 |192 |30 |Linii bazowej |Video_340x192_200kbps |
+| 2200 |960 |540 |30 |Główny |Video_960x540_2200kbps |
+| 1350 |704 |396 |30 |Główny |Video_704x396_1350kbps |
+| 850 |512 |288 |30 |Główny |Video_512x288_850kbps |
+| 550 |384 |216 |30 |Główny |Video_384x216_550kbps |
+| 350 |340 |192 |30 |Baseline |Video_340x192_350kbps |
+| 200 |340 |192 |30 |Baseline |Video_340x192_200kbps |
 
 #### <a name="output-audio-stream"></a>Audio strumienia wyjściowego.
 Dźwięk jest zakodowany do stereo AAC-LC na 64 KB/s, częstotliwość próbkowania 44,1 kHz.
@@ -364,7 +364,7 @@ W tabeli poniżej pokazano, jak stany kanału przekładają się na naliczanie o
 | Stan kanału | Wskaźniki w interfejsie użytkownika portalu | Naliczanie opłat? |
 | --- | --- | --- |
 | Uruchamianie |Uruchamianie |Nie (stan przejściowy) |
-| Działanie |Gotowy (brak uruchomionych programów)<br/>lub<br/>Transmisja strumieniowa (co najmniej jeden uruchomiony program) |Tak |
+| Działa |Gotowy (brak uruchomionych programów)<br/>lub<br/>Transmisja strumieniowa (co najmniej jeden uruchomiony program) |Yes |
 | Zatrzymywanie |Zatrzymywanie |Nie (stan przejściowy) |
 | Zatrzymane |Zatrzymane |Nie |
 
@@ -381,7 +381,7 @@ W tabeli poniżej pokazano, jak stany kanału przekładają się na naliczanie o
 * Domyślnie 5 kanałów można dodawać tylko do konta usługi Media Services. Jest to przydziału elastycznego na wszystkich nowych kont. Aby uzyskać więcej informacji, zobacz [przydziały i ograniczenia](media-services-quotas-and-limitations.md).
 * Nie można zmienić protokołu wejściowego, gdy kanał lub skojarzone z nim programy są uruchomione. Jeśli potrzebujesz różnych protokołów, utwórz osobny kanał dla każdego protokołu wejściowego.
 * Rozliczenie jest przeprowadzane tylko w przypadku kanału **systemem** stanu. Aby uzyskać więcej informacji, zapoznaj się [to](media-services-manage-live-encoder-enabled-channels.md#states) sekcji.
-* Obecnie maksymalny zalecany czas trwania wydarzenia na żywo wynosi 8 godzin. Skontaktuj się z nami pod adresem amslived@microsoft.com, jeśli chcesz uruchomić kanał na dłużej.
+* Obecnie maksymalny zalecany czas trwania wydarzenia na żywo wynosi 8 godzin. Skontaktuj się z amslived@microsoft.com Jeśli chcesz uruchomić kanał na dłuższe okresy.
 * Upewnij się, że ma punktu końcowego przesyłania strumieniowego, z którego chcesz zawartości strumienia w **systemem** stanu.
 * Gdy wprowadzanie wielu wersji językowych i wykonywania, kodowanie na żywo przy użyciu platformy Azure, tylko RTP jest obsługiwane dla wielu języków w danych wejściowych. Można określić maksymalnie 8 strumieni audio przy użyciu usług terminalowych MPEG-2 przy użyciu protokołu RTP. Wprowadzania wielu ścieżek audio RTMP lub Smooth streaming nie jest obecnie obsługiwane. Twoją kodowanie na żywo z [live lokalnymi koduje](media-services-live-streaming-with-onprem-encoders.md), jest nie takiego ograniczenia, ponieważ niezależnie od są wysyłane do usługi AMS przechodzi przez kanał bez dalszego przetwarzania.
 * Ustawienie wstępne kodowania używa pojęcie "maksymalną szybkość" 30 klatek na sekundę. Dlatego w przypadku danych wejściowych jest 60 klatek na sekundę / 59.97i, ramki wejściowe są porzucony/dezaktywuje-interlaced do 30/29,97 kl. / s. Jeśli dane wejściowe są 50 klatek na sekundę/50i, ramki wejściowe są porzucony/dezaktywuje-interlaced do 25 kl. / s. Jeśli dane wejściowe są 25 kl. / s, dane wyjściowe pozostaje w 25 kl. / s.

@@ -77,6 +77,8 @@
       href: site-recovery-support-matrix-to-azure.md
     - name: Zestawienie obsługi replikacji środowisko lokalne–lokacja dodatkowa
       href: site-recovery-support-matrix-to-sec-site.md
+    - name: Typy powrotu po awarii
+      href: concepts-types-of-failback.md
     - name: Odzyskiwanie po awarii dla obciążeń
       href: site-recovery-workload.md
     - name: Migracja na platformę Azure
@@ -93,6 +95,8 @@
           href: site-recovery-azure-to-azure-networking-guidance.md
         - name: Konfigurowanie mapowania sieci na potrzeby odzyskiwania po awarii maszyny wirtualnej platformy Azure (wersja zapoznawcza)
           href: site-recovery-network-mapping-azure-to-azure.md
+        - name: Zachowywanie adresu IP na potrzeby odzyskiwania po awarii maszyny wirtualnej platformy Azure (wersja zapoznawcza)
+          href: site-recovery-retain-ip-azure-vm-failover.md
         - name: Przygotowywanie mapowania sieci na potrzeby replikacji maszyny wirtualnej funkcji Hyper-V do platformy Azure
           href: site-recovery-network-mapping.md
         - name: Konfigurowanie adresowania IP na potrzeby dostępu do platformy Azure po włączeniu trybu failover
@@ -275,6 +279,8 @@
           href: site-recovery-vmware-to-azure-push-install-error-codes.md
         - name: Problemy z przełączaniem do trybu failover na platformie Azure
           href: site-recovery-failover-to-azure-troubleshoot.md
+        - name: Problemy z ponownym włączaniem ochrony i powrotem po awarii
+          href: troubleshoot-failback-reprotect.md
         - name: Monitorowanie usługi Azure Site Recovery
           href: site-recovery-monitor-and-troubleshoot.md
 - name: Dokumentacja

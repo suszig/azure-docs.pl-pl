@@ -1,6 +1,6 @@
 ---
-title: "Formanty w usłudze Azure Active Directory dostępu warunkowego | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak działają kontroli dostępu warunkowego w usłudze Azure Active Directory."
+title: "Dostęp do formantów w usłudze Azure Active Directory dostępu warunkowego | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak dostęp do formantów w pracy dostępu warunkowego w usłudze Azure Active Directory."
 services: active-directory
 keywords: "dostęp warunkowy do aplikacji, dostęp warunkowy przy użyciu usługi Azure AD, bezpieczny dostęp do zasobów firmy, zasady dostępu warunkowego"
 documentationcenter: 
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2018
+ms.date: 02/09/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 24db2d29684f7ce5822c77c71f944327476b7196
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: c5a2ab3b8d2fe55eee1f67e4b697a1e5b0dd2daf
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/11/2018
 ---
-# <a name="controls-in-azure-active-directory-conditional-access"></a>Formanty w usłudze Azure Active Directory dostępu warunkowego 
+# <a name="access-controls-in-azure-active-directory-conditional-access"></a>Kontrola dostępu w usłudze Azure Active Directory dostępu warunkowego 
 
 Z [dostępu warunkowego w usłudze Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md), można kontrolować sposób autoryzowanym użytkownikom dostępu aplikacji w chmurze. W zasadach dostępu warunkowego zdefiniowanego odpowiedzi ("tym") Przyczyna służącą do wyzwalania zasad ("w takim przypadku"). 
 

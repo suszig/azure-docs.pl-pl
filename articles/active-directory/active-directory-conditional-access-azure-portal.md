@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 02/07/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 156ec054c36e6ad5bd9011954e96fe1d4afa05aa
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3c5e893508126c87f6e4371918d33d3d040a5894
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Dostęp warunkowy w usłudze Azure Active Directory
 
@@ -45,13 +45,13 @@ Poniżej przedstawiono niektóre typowe problemy dostępu ułatwiających dostę
 
 
 
-- **Logowanie ryzyka**: Azure AD Identity Protection wykrywa zagrożenie logowania. Jak Jeśli wykryte zagrożenie logowania aktora zły wskazuje, ograniczenie dostępu? Co zrobić, jeśli chcesz pobrać silniejszych dowód zalogowaniem się naprawdę została wykonana przez wiarygodnego użytkownika czy Twoje wątpliwości są wystarczająco silne nawet blokować określonym użytkownikom uzyskiwanie dostępu do aplikacji?
+- **[Logowanie ryzyka](active-directory-conditional-access-conditions.md#sign-in-risk)**: Azure AD Identity Protection wykrywa zagrożenie logowania. Jak Jeśli wykryte zagrożenie logowania aktora zły wskazuje, ograniczenie dostępu? Co zrobić, jeśli chcesz pobrać silniejszych dowód zalogowaniem się naprawdę została wykonana przez wiarygodnego użytkownika czy Twoje wątpliwości są wystarczająco silne nawet blokować określonym użytkownikom uzyskiwanie dostępu do aplikacji?
 
-- **Lokalizacja sieciowa**: usługi Azure AD jest dostępna z dowolnego miejsca. Co zrobić, jeśli próba dostępu jest wykonywane z lokalizacji sieciowej, która nie jest pod kontrolą działu IT? Przy użyciu kombinacji nazwy użytkownika i hasła mogą być wystarczająca potwierdzenie tożsamości w celu udzielenia dostępu próbuje zasobów z sieci firmowej. Co zrobić, jeśli użytkownik żądanie silniejszych potwierdzenie tożsamości dla dostępu nieudane próby były inicjowane z innych nieoczekiwany krajach lub regionach świata? Co zrobić, jeśli chcesz nawet blokować dostęp prób z określonych lokalizacji?  
+- **[Lokalizacja sieciowa](active-directory-conditional-access-locations.md)**: usługi Azure AD jest dostępna z dowolnego miejsca. Co zrobić, jeśli próba dostępu jest wykonywane z lokalizacji sieciowej, która nie jest pod kontrolą działu IT? Przy użyciu kombinacji nazwy użytkownika i hasła mogą być wystarczająca potwierdzenie tożsamości w celu udzielenia dostępu próbuje zasobów z sieci firmowej. Co zrobić, jeśli użytkownik żądanie silniejszych potwierdzenie tożsamości dla dostępu nieudane próby były inicjowane z innych nieoczekiwany krajach lub regionach świata? Co zrobić, jeśli chcesz nawet blokować dostęp prób z określonych lokalizacji?  
 
-- **Zarządzanie urządzeniami**: W usłudze Azure AD, użytkownicy mogą uzyskiwać dostęp do aplikacji w chmurze z szerokiej gamy urządzeniami, takimi jak telefon komórkowy, a także urządzeń osobistych. Co zrobić, jeśli żądanie taka próba dostępu tylko powinny być wykonywane użytkownika za pomocą urządzeń, które są zarządzane przez dział IT? Co zrobić, jeśli nawet chcesz zablokować niektórych typów formularza uzyskiwania dostępu do urządzenia w aplikacji w chmurze w swoim środowisku? 
+- **[Zarządzanie urządzeniami](active-directory-conditional-access-conditions.md#device-platforms)**: W usłudze Azure AD, użytkownicy mogą uzyskiwać dostęp do aplikacji w chmurze z szerokiej gamy urządzeniami, takimi jak telefon komórkowy, a także urządzeń osobistych. Co zrobić, jeśli żądanie taka próba dostępu tylko powinny być wykonywane użytkownika za pomocą urządzeń, które są zarządzane przez dział IT? Co zrobić, jeśli nawet chcesz zablokować niektórych typów formularza uzyskiwania dostępu do urządzenia w aplikacji w chmurze w swoim środowisku? 
 
-- **Aplikacja kliencka**: obecnie jest dostępne wiele aplikacji w chmurze przy użyciu różnych typów aplikacji, takich jak aplikacje sieci web, aplikacji mobilnych lub aplikacji klasycznych. Co zrobić, jeśli próba dostępu do odbywa się przy użyciu typu aplikacji klienta, który powoduje, że znane problemy? Potrzebne są co zrobić, jeśli urządzenie jest zarządzane przez dział INFORMATYCZNY dla niektórych typów aplikacji? 
+- **[Aplikacja kliencka](active-directory-conditional-access-conditions.md#client-apps)**: obecnie jest dostępne wiele aplikacji w chmurze przy użyciu różnych typów aplikacji, takich jak aplikacje sieci web, aplikacji mobilnych lub aplikacji klasycznych. Co zrobić, jeśli próba dostępu do odbywa się przy użyciu typu aplikacji klienta, który powoduje, że znane problemy? Potrzebne są co zrobić, jeśli urządzenie jest zarządzane przez dział INFORMATYCZNY dla niektórych typów aplikacji? 
 
 Te pytania i odpowiedzi powiązanych reprezentują typowych scenariuszy dostępu warunkowego dostępu usługi Azure AD. Dostęp warunkowy jest możliwość usługi Azure Active Directory, który umożliwia obsługę scenariuszy dostępu przy użyciu podejścia opartych na zasadach.
 
@@ -67,9 +67,9 @@ Zasady dostępu warunkowego to definicja scenariusza dostępu przy użyciu nast�
 
 **W takim przypadku** definiuje Przyczyna służącą do wyzwalania zasad. Z tego powodu charakteryzuje się grupy warunków, które zostały spełnione. W usłudze Azure AD dostęp warunkowy przypisanie dwa warunki odtwarzania specjalne uprawnienia:
 
-- **Użytkownicy**: zostanie wykonana próba dostępu do użytkowników (**kto**). 
+- **[Użytkownicy](active-directory-conditional-access-conditions.md#users-and-groups)**: zostanie wykonana próba dostępu do użytkowników (**kto**). 
 
-- **Aplikacje w chmurze**: próba dostępu do celów (**co**).    
+- **[Aplikacje w chmurze](active-directory-conditional-access-conditions.md#cloud-apps)**: próba dostępu do celów (**co**).    
 
 Te dwa warunki są wymagane w zasadach dostępu warunkowego. Oprócz dwa warunki obowiązkowe możesz również dołączać dodatkowe warunki, których opisano, jak odbywa się próba uzyskania dostępu. Typowe przykłady korzystają z urządzeń przenośnych lub lokalizacje, które znajdują się poza siecią firmową. Aby uzyskać więcej informacji, zobacz [warunki dostępu warunkowego w usłudze Azure Active Directory](active-directory-conditional-access-conditions.md).   
 
@@ -85,9 +85,10 @@ Stosując podejście na podstawie zasad ochrony dostępu do aplikacji w chmurze 
 
 ## <a name="next-steps"></a>Kolejne kroki
 
-- Jeśli chcesz dowiedzieć się więcej o warunkach, zobacz [warunki dostępu warunkowego w usłudze Azure Active Directory](active-directory-conditional-access-conditions.md).
+- Jeśli chcesz dowiedzieć się więcej na temat:
+    - Warunki, zobacz [warunki dostępu warunkowego w usłudze Azure Active Directory](active-directory-conditional-access-conditions.md).
 
-- Jeśli chcesz dowiedzieć się więcej na temat kontroli dostępu, zobacz [dostęp do formantów w usłudze Azure Active Directory dostępu warunkowego](active-directory-conditional-access-controls.md).
+    - Dostęp do formantów, zobacz [dostęp do formantów w usłudze Azure Active Directory dostępu warunkowego](active-directory-conditional-access-controls.md).
 
 - Jeśli chcesz uzyskać pewne doświadczenie w konfigurowaniu zasad dostępu warunkowego, zobacz [wprowadzenie dostępu warunkowego w usłudze Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
 

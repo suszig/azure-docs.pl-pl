@@ -422,6 +422,8 @@
           href: performance-diagnostics-vm-extension.md
         - name: Używanie wirtualizacji zagnieżdżonej
           href: troubleshoot-vm-by-use-nested-virtualization.md
+        - name: Instalowanie agenta maszyny wirtualnej w trybie offline
+          href: install-vm-agent-offline.md
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure

@@ -1,6 +1,6 @@
 ---
-title: "Automatyzacja planu FedRAMP Azure - ochrony fizyczne i środowiskowe"
-description: "Aplikacje sieci Web dla FedRAMP - ochrony fizyczne i środowiskowe"
+title: "Plan ochrony fizyczne i środowiskowe - automatyzacji aplikacji sieci Web FedRAMP - Azure zabezpieczeń i zgodności"
+description: "Automatyzacji aplikacji sieci Web FedRAMP - ochrony fizyczne i środowiskowe"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 9e9e473285f4e82e1da40b8c3d496d65733fbd45
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 792b9da0f4e5ec73c39f56a6e4805cf3c37133c4
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="physical-and-environmental-protection-pe"></a>Fizyczne i środowiskowe ochrony (PE)
 
@@ -155,7 +155,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="physical-access-control"></a>Kontrola dostępu fizycznego
 
-**PE 3.e** Organizacja zabezpiecza klucze, kombinacje i inne urządzenia fizycznego dostępu.
+**PE-3.e** Organizacja zabezpiecza klucze, kombinacje i inne urządzenia fizycznego dostępu.
 
 **Obowiązki:**`Azure Only`
 
@@ -613,7 +613,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-pe-17c"></a>Formant PE NIST 800 53-17.c
+ ## <a name="nist-800-53-control-pe-17c"></a>NIST 800-53 Control PE-17.c
 
 #### <a name="alternate-work-site"></a>Alternatywne pracy witryny
 

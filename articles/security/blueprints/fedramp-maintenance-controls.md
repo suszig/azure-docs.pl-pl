@@ -1,6 +1,6 @@
 ---
-title: Automatyzacja planu FedRAMP Azure - konserwacji
-description: Aplikacje sieci Web dla FedRAMP - konserwacji
+title: "Plan obsługi - automatyzacji aplikacji sieci Web FedRAMP - zabezpieczeń platformy Azure i zgodność"
+description: "Automatyzacja aplikacji sieci Web FedRAMP — konserwacji"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: a0546f6e10b04bbfdb5b02e5c0bbe6d907c76e72
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: de7dd5b4651f7f74d90d9d026af71cd676c720e6
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="maintenance-ma"></a>Konserwacji (MA)
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-ma-2b"></a>Formant MA NIST 800 53-2.b
+ ## <a name="nist-800-53-control-ma-2b"></a>NIST 800-53 Control MA-2.b
 
 #### <a name="controlled-maintenance"></a>Kontrolowane konserwacji
 
@@ -81,7 +81,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Platforma Microsoft Azure wymaga tej właściwości zasobów (np. urządzenia sieciowego lub serwera) konieczności transferu poza siedzibą firmy mają zatwierdzenia przez właściciela zasobów jawnego. |
 
 
- ## <a name="nist-800-53-control-ma-2d"></a>Formant MA NIST 800 53-2.d
+ ## <a name="nist-800-53-control-ma-2d"></a>NIST 800-53 Control MA-2.d
 
 #### <a name="controlled-maintenance"></a>Kontrolowane konserwacji
 
@@ -99,7 +99,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="controlled-maintenance"></a>Kontrolowane konserwacji
 
-**MA 2.e** Organizacja sprawdza wszystkie potencjalnie wpływ na zabezpieczenia, aby sprawdzić, czy formanty nadal działają poprawnie następujące akcje konserwacji lub naprawy.
+**MA-2.e** Organizacja sprawdza wszystkie potencjalnie wpływ na zabezpieczenia, aby sprawdzić, czy formanty nadal działają poprawnie następujące akcje konserwacji lub naprawy.
 
 **Obowiązki:**`Customer Only`
 
@@ -235,7 +235,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-ma-4c"></a>Formant MA NIST 800 53-4.c
+ ## <a name="nist-800-53-control-ma-4c"></a>NIST 800-53 Control MA-4.c
 
 #### <a name="nonlocal-maintenance"></a>Nielokalne konserwacji
 
@@ -267,7 +267,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="nonlocal-maintenance"></a>Nielokalne konserwacji
 
-**MA 4.e** Organizacja kończy sesji i połączenia sieciowe, po zakończeniu obsługi nielokalnych.
+**MA-4.e** Organizacja kończy sesji i połączenia sieciowe, po zakończeniu obsługi nielokalnych.
 
 **Obowiązki:**`Customer Only`
 

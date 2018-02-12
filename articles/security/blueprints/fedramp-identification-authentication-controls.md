@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP plan usługi Automatyzacja Azure - identyfikacji i uwierzytelniania"
-description: Aplikacje sieci Web dla FedRAMP - identyfikacji i uwierzytelniania
+title: "Azure zabezpieczeń i zgodności plan - automatyzacji aplikacji sieci Web FedRAMP - identyfikacji i uwierzytelniania"
+description: Automatyzacja aplikacji sieci Web FedRAMP - identyfikacji i uwierzytelniania
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 5ceac04f3f5c58ac5810dda6c99b40ebc8ad736f
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 21b5c453716f99be26c8dd6400bb3489477b4956
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="identification-and-authentication-ia"></a>Identyfikacji i uwierzytelniania (IA)
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Kont utworzonych przez ten plan Azure ma unikatowych identyfikatorów. Wbudowanych kont z-unikatowe identyfikatory są wyłączone lub usunięte. |
+| **Klienta** | Konta utworzone przez tego planu ma unikatowych identyfikatorów. Wbudowanych kont z-unikatowe identyfikatory są wyłączone lub usunięte. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Żadnych kont udostępnionych grupy są włączone na zasoby wdrożone przez ten plan Azure. |
+| **Klienta** | Brak udostępnionego grupy kont są włączone na zasobów wykorzystywanych przez ten plan. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Dostęp do zasobów wykorzystywanych przez ten plan Azure jest chroniony przed atakami powtarzania wbudowanej funkcji protokołu Kerberos w usłudze Azure Active Directory, usługi Active Directory i systemu operacyjnego Windows. W uwierzytelnianiu Kerberos uwierzytelniania wysyłane przez klienta zawiera dodatkowe dane, takie jak listy IP zaszyfrowane, klienta sygnatury czasowe i okres istnienia biletu. Jeśli pakiet jest odtwarzany, zostanie sprawdzony sygnatury czasowej. Jeśli znacznik czasu jest starsza niż, lub taka sama jak poprzednie uwierzytelniania, pakiet zostanie odrzucony. |
+| **Klienta** | Dostęp do zasobów wykorzystywanych przez ten plan jest chroniony przed atakami powtarzania wbudowanej funkcji protokołu Kerberos w usłudze Azure Active Directory, usługi Active Directory i systemu operacyjnego Windows. W uwierzytelnianiu Kerberos uwierzytelniania wysyłane przez klienta zawiera dodatkowe dane, takie jak listy IP zaszyfrowane, klienta sygnatury czasowe i okres istnienia biletu. Jeśli pakiet jest odtwarzany, zostanie sprawdzony sygnatury czasowej. Jeśli znacznik czasu jest starsza niż, lub taka sama jak poprzednie uwierzytelniania, pakiet zostanie odrzucony. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -147,7 +147,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Dostęp do zasobów wykorzystywanych przez ten plan Azure jest chroniony przed atakami powtarzania wbudowanej funkcji protokołu Kerberos w usłudze Azure Active Directory, usługi Active Directory i systemu operacyjnego Windows. W uwierzytelnianiu Kerberos uwierzytelniania wysyłane przez klienta zawiera dodatkowe dane, takie jak listy IP zaszyfrowane, klienta sygnatury czasowe i okres istnienia biletu. Jeśli pakiet jest odtwarzany, zostanie sprawdzony sygnatury czasowej. Jeśli znacznik czasu jest starsza niż, lub taka sama jak poprzednie uwierzytelniania, pakiet zostanie odrzucony. |
+| **Klienta** | Dostęp do zasobów wykorzystywanych przez ten plan jest chroniony przed atakami powtarzania wbudowanej funkcji protokołu Kerberos w usłudze Azure Active Directory, usługi Active Directory i systemu operacyjnego Windows. W uwierzytelnianiu Kerberos uwierzytelniania wysyłane przez klienta zawiera dodatkowe dane, takie jak listy IP zaszyfrowane, klienta sygnatury czasowe i okres istnienia biletu. Jeśli pakiet jest odtwarzany, zostanie sprawdzony sygnatury czasowej. Jeśli znacznik czasu jest starsza niż, lub taka sama jak poprzednie uwierzytelniania, pakiet zostanie odrzucony. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -193,7 +193,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-ia-4a"></a>NIST 800 53 kontroli IA-4.a
+ ## <a name="nist-800-53-control-ia-4a"></a>NIST 800-53 Control IA-4.a
 
 #### <a name="identifier-management"></a>Identyfikator zarządzania
 
@@ -207,7 +207,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-ia-4b"></a>NIST 800 53 kontroli IA-4.b
+ ## <a name="nist-800-53-control-ia-4b"></a>NIST 800-53 Control IA-4.b
 
 #### <a name="identifier-management"></a>Identyfikator zarządzania
 
@@ -217,11 +217,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure monituje podczas wdrażania identyfikatorów określonych klientów dla poszczególnych kont.  |
+| **Klienta** | Ten plan monity podczas wdrażania identyfikatorów określonych klientów dla poszczególnych kont.  |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-ia-4c"></a>NIST 800 53 kontroli IA-4.c
+ ## <a name="nist-800-53-control-ia-4c"></a>NIST 800-53 Control IA-4.c
 
 #### <a name="identifier-management"></a>Identyfikator zarządzania
 
@@ -253,13 +253,13 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="identifier-management"></a>Identyfikator zarządzania
 
-**IA 4.e** Organizacja zarządza identyfikatory systemu informacji przez wyłączenie identyfikator po [przypisania: organizacji zdefiniowane okresie braku aktywności].
+**IA-4.e** Organizacja zarządza identyfikatory systemu informacji przez wyłączenie identyfikator po [przypisania: organizacji zdefiniowane okresie braku aktywności].
 
 **Obowiązki:**`Customer Only`
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure implementuje zaplanowanego zadania dla usługi Active Directory automatycznie wyłączyć kont po 35 dni nieaktywności. |
+| **Klienta** | Ten plan implementuje zaplanowanego zadania dla usługi Active Directory automatycznie wyłączyć kont po 35 dni nieaktywności. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -291,7 +291,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-ia-5b"></a>NIST 800 53 kontroli IA-5.b
+ ## <a name="nist-800-53-control-ia-5b"></a>NIST 800-53 Control IA-5.b
 
 #### <a name="authenticator-management"></a>Wystawca uwierzytelnienia zarządzania
 
@@ -301,7 +301,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Cała zawartość początkowego uwierzytelniania dla kont utworzonych przez ten plan Azure spełnia wymagania określone w IA-5 (1) zweryfikowane, gdy został określony przez klienta podczas wdrażania.  |
+| **Klienta** | Cała zawartość początkowego uwierzytelniania dla kont utworzonych przez ten plan spełnia wymagania określone w IA-5 (1) zweryfikowane, gdy został określony przez klienta podczas wdrażania.  |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -315,11 +315,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Używany przez ten plan Azure spełniają wymagania dla siły zgodnie z wymaganiami FedRAMP wystawców uwierzytelnienia. |
+| **Klienta** | Używany przez spełnia wymagania tego planu dla siły zgodnie z wymaganiami FedRAMP wystawców uwierzytelnienia. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-ia-5d"></a>NIST 800 53 kontroli IA-5.d
+ ## <a name="nist-800-53-control-ia-5d"></a>NIST 800-53 Control IA-5.d
 
 #### <a name="authenticator-management"></a>Wystawca uwierzytelnienia zarządzania
 
@@ -337,13 +337,13 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="authenticator-management"></a>Wystawca uwierzytelnienia zarządzania
 
-**IA 5.e** Organizacja zarządza wystawców uwierzytelnienia systemu informacji przez zmianę domyślnej zawartości wystawców uwierzytelnienia przed instalacją systemu informacji.
+**IA-5.e** Organizacja zarządza wystawców uwierzytelnienia systemu informacji przez zmianę domyślnej zawartości wystawców uwierzytelnienia przed instalacją systemu informacji.
 
 **Obowiązki:**`Customer Only`
 
 |||
 |---|---|
-| **Klienta** | Wszystkich wystawców uwierzytelnienia dla składników tego planu Azure zostały zmienione z wartości domyślnych. Wystawców uwierzytelnienia są określone przez klienta podczas wdrażania tego rozwiązania. |
+| **Klienta** | Wartości domyślne zostały zmienione wszystkich wystawców uwierzytelnienia dla składników tego planu. Wystawców uwierzytelnienia są określone przez klienta podczas wdrażania tego rozwiązania. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -371,7 +371,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża kontrolera domeny, do której są przyłączone do wszystkich wdrożonych maszyn wirtualnych. Zasad grupy jest ustanowić i skonfigurowany tak, aby zaimplementować ograniczenia okres istnienia haseł (60 dni). |
+| **Klienta** | Ten plan wdrażania kontrolera domeny, do której są przyłączone do wszystkich wdrożonych maszyn wirtualnych. Zasad grupy jest ustanowić i skonfigurowany tak, aby zaimplementować ograniczenia okres istnienia haseł (60 dni). |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -385,11 +385,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure implementuje Key Vault w celu ochrony zawartości uwierzytelniania przed nieuprawnionym ujawnieniem i modyfikacji. Następujące wystawców uwierzytelnienia są przechowywane w magazynie kluczy: Azure hasło dla konta Wdróż, hasło administratora maszyny wirtualnej, hasło konta usługi programu SQL Server. |
+| **Klienta** | Ten plan implementuje Key Vault w celu ochrony zawartości uwierzytelniania przed nieuprawnionym ujawnieniem i modyfikacji. Następujące wystawców uwierzytelnienia są przechowywane w magazynie kluczy: Azure hasło dla konta Wdróż, hasło administratora maszyny wirtualnej, hasło konta usługi programu SQL Server. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-ia-5i"></a>NIST 800 53 kontroli IA-5.i
+ ## <a name="nist-800-53-control-ia-5i"></a>NIST 800-53 Control IA-5.i
 
 #### <a name="authenticator-management"></a>Wystawca uwierzytelnienia zarządzania
 
@@ -399,11 +399,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure implementuje Key Vault w celu ochrony zawartości uwierzytelniania przed nieuprawnionym ujawnieniem i modyfikacji. Następujące wystawców uwierzytelnienia są przechowywane w magazynie kluczy: Azure hasło dla konta Wdróż, hasło administratora maszyny wirtualnej, hasło konta usługi programu SQL Server. Magazyn kluczy szyfruje klucze i klucze tajne (takie jak klucze uwierzytelniania, klucze konta magazynu, klucze szyfrowania danych i hasła) przy użyciu kluczy chronionych przez sprzętowe moduły zabezpieczeń (HSM). |
+| **Klienta** | Ten plan implementuje Key Vault w celu ochrony zawartości uwierzytelniania przed nieuprawnionym ujawnieniem i modyfikacji. Następujące wystawców uwierzytelnienia są przechowywane w magazynie kluczy: Azure hasło dla konta Wdróż, hasło administratora maszyny wirtualnej, hasło konta usługi programu SQL Server. Magazyn kluczy szyfruje klucze i klucze tajne (takie jak klucze uwierzytelniania, klucze konta magazynu, klucze szyfrowania danych i hasła) przy użyciu kluczy chronionych przez sprzętowe moduły zabezpieczeń (HSM). |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-ia-5j"></a>NIST 800 53 kontroli IA-5.j
+ ## <a name="nist-800-53-control-ia-5j"></a>NIST 800-53 Control IA-5.j
 
 #### <a name="authenticator-management"></a>Wystawca uwierzytelnienia zarządzania
 
@@ -413,7 +413,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Żadnych kont udostępnionych grupy są włączone na zasoby wdrożone przez ten plan Azure. |
+| **Klienta** | Brak udostępnionego grupy kont są włączone na zasobów wykorzystywanych przez ten plan. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -427,7 +427,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża kontrolera domeny, do której są przyłączone do wszystkich wdrożonych maszyn wirtualnych. Zasad grupy jest ustanowić i skonfigurowany tak, aby wymusić wymagania dotyczące złożoności hasła dla kont lokalnych maszyn wirtualnych i kont usługi AD.  |
+| **Klienta** | Ten plan wdrażania kontrolera domeny, do której są przyłączone do wszystkich wdrożonych maszyn wirtualnych. Zasad grupy jest ustanowić i skonfigurowany tak, aby wymusić wymagania dotyczące złożoności hasła dla kont lokalnych maszyn wirtualnych i kont usługi AD.  |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -469,7 +469,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża kontrolera domeny, do której są przyłączone do wszystkich wdrożonych maszyn wirtualnych. Zasady grupy są połączenia i skonfigurowany tak, aby wymusić ograniczenia dotyczące haseł, które wymuszają minimalna (1 dzień) i (60 dni) maksymalny okres istnienia ograniczeń dla kont lokalnych i kont usługi AD. |
+| **Klienta** | Ten plan wdrażania kontrolera domeny, do której są przyłączone do wszystkich wdrożonych maszyn wirtualnych. Zasady grupy są połączenia i skonfigurowany tak, aby wymusić ograniczenia dotyczące haseł, które wymuszają minimalna (1 dzień) i (60 dni) maksymalny okres istnienia ograniczeń dla kont lokalnych i kont usługi AD. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -477,13 +477,13 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="authenticator-management--password-based-authentication"></a>Wystawca uwierzytelnienia zarządzania | Uwierzytelnianie oparte na hasłach
 
-**.E IA-5 (1)** Informacje, do uwierzytelniania opartego na hasłach zabronione ponownemu użyciu hasła dla [przypisania: liczba zdefiniowanych przez organizację] generacji.
+**IA-5 (1).e** Informacje, do uwierzytelniania opartego na hasłach zabronione ponownemu użyciu hasła dla [przypisania: liczba zdefiniowanych przez organizację] generacji.
 
 **Obowiązki:**`Customer Only`
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża kontrolera domeny, do której są przyłączone do wszystkich wdrożonych maszyn wirtualnych. Zasad grupy jest ustanowić i skonfigurowany tak, aby wymusić ograniczeń na warunki ponownemu (24 haseł) dla kont lokalnych i kont usługi AD. |
+| **Klienta** | Ten plan wdrażania kontrolera domeny, do której są przyłączone do wszystkich wdrożonych maszyn wirtualnych. Zasad grupy jest ustanowić i skonfigurowany tak, aby wymusić ograniczeń na warunki ponownemu (24 haseł) dla kont lokalnych i kont usługi AD. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -581,7 +581,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Konta użytkowników z tego planu Azure obejmują AD i kont użytkowników lokalnych. Oba te zapewniają mechanizmy, które Wymuszanie zgodności z wymaganiami ustanowionych haseł, aby można było utworzyć hasła początkowego i podczas zmiany hasła. Azure Active Directory jest automatyczne narzędzie w celu ustalenia, czy hasło wystawców uwierzytelnienia są wystarczająco silne do zaspokojenia długość hasła, złożoność, obracanie i okres istnienia ograniczenia ustalone w IA-5 (1). Usługi Azure Active Directory zapewnia, że siły uwierzytelniania hasła podczas tworzenia spełnia tymi standardami. Określony klienta hasła używane do wdrażania tego rozwiązania są sprawdzane w celu spełnienia wymagań odnośnie siły hasła. |
+| **Klienta** | Konta użytkowników z tego planu obejmują AD i kont użytkowników lokalnych. Oba te zapewniają mechanizmy, które Wymuszanie zgodności z wymaganiami ustanowionych haseł, aby można było utworzyć hasła początkowego i podczas zmiany hasła. Azure Active Directory jest automatyczne narzędzie w celu ustalenia, czy hasło wystawców uwierzytelnienia są wystarczająco silne do zaspokojenia długość hasła, złożoność, obracanie i okres istnienia ograniczenia ustalone w IA-5 (1). Usługi Azure Active Directory zapewnia, że siły uwierzytelniania hasła podczas tworzenia spełnia tymi standardami. Określony klienta hasła używane do wdrażania tego rozwiązania są sprawdzane w celu spełnienia wymagań odnośnie siły hasła. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -609,7 +609,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Nie jest używana z niezaszyfrowane statycznych wystawców uwierzytelnienia osadzone w aplikacji, dostęp do skryptów lub wdrożone przez ten plan Azure klawisze funkcyjne. Dowolny skrypt lub aplikację, która używa uwierzytelniania nawiązuje połączenie się z kontenerem usługi Azure Key Vault przed każdym użyciu. Dostęp do usługi Azure Key Vault kontenery podlega inspekcji, co umożliwia wykrywanie naruszeń zakaz, jeżeli używane konto usługi dostępu do systemu bez odpowiedniego wywołania do kontenera usługi Azure Key Vault. |
+| **Klienta** | Nie jest używana z niezaszyfrowane statycznych wystawców uwierzytelnienia osadzone w aplikacji, dostęp do skryptów lub wdrożone przez ten plan klawisze funkcyjne. Dowolny skrypt lub aplikację, która używa uwierzytelniania nawiązuje połączenie się z kontenerem usługi Azure Key Vault przed każdym użyciu. Dostęp do usługi Azure Key Vault kontenery podlega inspekcji, co umożliwia wykrywanie naruszeń zakaz, jeżeli używane konto usługi dostępu do systemu bez odpowiedniego wywołania do kontenera usługi Azure Key Vault. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -651,7 +651,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Żadne zasoby wdrożone przez ten plan Azure są skonfigurowane do korzystania z pamięci podręcznej wystawców uwierzytelnienia. Uwierzytelnianie wdrożonych maszyn wirtualnych wymaga wprowadzenia wystawcy uwierzytelnienia podczas uwierzytelniania. |
+| **Klienta** | Nie wdrożono przez ten plan zasobów są skonfigurowane do korzystania z pamięci podręcznej wystawców uwierzytelnienia. Uwierzytelnianie wdrożonych maszyn wirtualnych wymaga wprowadzenia wystawcy uwierzytelnienia podczas uwierzytelniania. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -665,7 +665,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Dostęp do zasobów wykorzystywanych przez ten plan Azure jest za pośrednictwem pulpitu zdalnego i korzysta z uwierzytelniania systemu Windows. Domyślne zachowanie sesji uwierzytelniania systemu Windows maski hasła, gdy dane wejściowe podczas sesji uwierzytelniania.  |
+| **Klienta** | Dostęp do zasobów wykorzystywanych przez ten plan jest za pośrednictwem pulpitu zdalnego i korzysta z uwierzytelniania systemu Windows. Domyślne zachowanie sesji uwierzytelniania systemu Windows maski hasła, gdy dane wejściowe podczas sesji uwierzytelniania.  |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -679,7 +679,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Uwierzytelnianie systemu Windows, pulpitu zdalnego i funkcji BitLocker są zatrudnieni przez ten plan Azure. Te składniki można skonfigurować polegać na FIPS 140 sprawdzania poprawności modułów kryptograficznych. |
+| **Klienta** | Uwierzytelnianie systemu Windows, pulpitu zdalnego i funkcji BitLocker są zatrudnieni przez ten plan. Te składniki można skonfigurować polegać na FIPS 140 sprawdzania poprawności modułów kryptograficznych. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 

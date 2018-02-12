@@ -1,6 +1,6 @@
 ---
-title: "Automatyzacja planu FedRAMP Azure--Oceny zabezpieczeń i autoryzacji"
-description: "Aplikacje sieci Web dla FedRAMP - oceny zabezpieczeń i autoryzacji"
+title: "Zabezpieczeń platformy Azure i oceny zabezpieczeń — automatyzacji aplikacji sieci Web FedRAMP — plan zgodności i autoryzacji"
+description: "Automatyzacja aplikacji FedRAMP Web — oceny zabezpieczeń i autoryzacji"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 24c3e53d12f1479ba2d6b17bf28ebb7e5912206e
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: d1c9846589adaef0baeeaf16077c8e74bef1cd9f
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="security-assessment-and-authorization-ca"></a>Ocena zabezpieczeń i autoryzacji (CA)
 
@@ -203,7 +203,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Azure grup zabezpieczeń, a brama aplikacji w sieci są wdrażane do ograniczenia łączność zewnętrzną do zasobów wykorzystywanych przez ten plan Azure. Zestawy reguł stosowane do grup zabezpieczeń sieci są skonfigurowane przy użyciu schematu Odmów domyślnie. |
+| **Klienta** | Grupy zabezpieczeń usługi Azure bramy aplikacji i sieci są wdrażane do ograniczenia łączność zewnętrzną do zasobów wykorzystywanych przez ten plan. Zestawy reguł stosowane do grup zabezpieczeń sieci są skonfigurowane przy użyciu schematu Odmów domyślnie. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -221,7 +221,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-ca-5b"></a>Formant urzędu certyfikacji NIST 800 53-5.b
+ ## <a name="nist-800-53-control-ca-5b"></a>NIST 800-53 Control CA-5.b
 
 #### <a name="plan-of-action-and-milestones"></a>Plan działania i punkty kontrolne
 
@@ -277,7 +277,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-ca-7a"></a>Formant urzędu certyfikacji NIST 800 53-7.a
+ ## <a name="nist-800-53-control-ca-7a"></a>NIST 800-53 Control CA-7.a
 
 #### <a name="continuous-monitoring"></a>Ciągłego monitorowania
 
@@ -291,7 +291,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-ca-7b"></a>Urząd certyfikacji kontroli NIST 800 53-od 7.b
+ ## <a name="nist-800-53-control-ca-7b"></a>NIST 800-53 Control CA-7.b
 
 #### <a name="continuous-monitoring"></a>Ciągłego monitorowania
 
@@ -305,7 +305,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-ca-7c"></a>Formant urzędu certyfikacji NIST 800 53-7.c
+ ## <a name="nist-800-53-control-ca-7c"></a>NIST 800-53 Control CA-7.c
 
 #### <a name="continuous-monitoring"></a>Ciągłego monitorowania
 
@@ -319,7 +319,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-ca-7d"></a>Formant urzędu certyfikacji NIST 800 53-7.d
+ ## <a name="nist-800-53-control-ca-7d"></a>NIST 800-53 Control CA-7.d
 
 #### <a name="continuous-monitoring"></a>Ciągłego monitorowania
 
@@ -337,7 +337,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="continuous-monitoring"></a>Ciągłego monitorowania
 
-**7.e urzędu certyfikacji** Organizacja rozwija strategii ciągłego monitorowania i implementuje ciągłego monitorowania program, który zawiera korelacji i analizy informacji związanych z zabezpieczeniami, ocen i monitorowania.
+**CA-7.e** Organizacja rozwija strategii ciągłego monitorowania i implementuje ciągłego monitorowania program, który zawiera korelacji i analizy informacji związanych z zabezpieczeniami, ocen i monitorowania.
 
 **Obowiązki:**`Customer Only`
 
@@ -347,7 +347,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-ca-7f"></a>Formant urzędu certyfikacji NIST 800 53-7.f
+ ## <a name="nist-800-53-control-ca-7f"></a>NIST 800-53 Control CA-7.f
 
 #### <a name="continuous-monitoring"></a>Ciągłego monitorowania
 
@@ -431,7 +431,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-ca-9a"></a>Formant urzędu certyfikacji NIST 800 53-9.a
+ ## <a name="nist-800-53-control-ca-9a"></a>NIST 800-53 Control CA-9.a
 
 #### <a name="internal-system-connections"></a>Połączenia wewnętrznego systemu
 
@@ -445,7 +445,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-ca-9b"></a>Formant urzędu certyfikacji NIST 800 53-9.b
+ ## <a name="nist-800-53-control-ca-9b"></a>NIST 800-53 Control CA-9.b
 
 #### <a name="internal-system-connections"></a>Połączenia wewnętrznego systemu
 

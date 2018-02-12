@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP plan usługi Automatyzacja Azure - systemu i nabywania usług"
-description: "Aplikacje sieci Web dla FedRAMP - systemu i nabywania usług"
+title: "Zabezpieczeń platformy Azure i zgodności plan - automatyzacji aplikacji sieci Web FedRAMP - systemu i nabywania usług"
+description: "Automatyzacja aplikacji FedRAMP sieci Web — System i nabywania usług"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: f38f2c7069c4edd0983fd1c2a723287950ace708
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 490632a77fd9fb72bda075b996c40378a394f389
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="system-and-services-acquisition-sa"></a>System i nabywania usług (SA)
 
@@ -281,7 +281,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="information-system-documentation"></a>Informacje w dokumentacji systemu
 
-**SA 5.e** Organizacja dystrybuuje dokumentacji [przypisania: techniczną zdefiniowany przez organizację lub ról].
+**SA-5.e** Organizacja dystrybuuje dokumentacji [przypisania: techniczną zdefiniowany przez organizację lub ról].
 
 **Obowiązki:**`Customer Only`
 
@@ -305,7 +305,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-sa-9a"></a>Formant NIST 800 53 SA-9.a
+ ## <a name="nist-800-53-control-sa-9a"></a>NIST 800-53 Control SA-9.a
 
 #### <a name="external-information-system-services"></a>Informacje o zewnętrznych usług systemowych
 
@@ -319,7 +319,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-sa-9b"></a>Formant NIST 800 53 SA-9.b
+ ## <a name="nist-800-53-control-sa-9b"></a>NIST 800-53 Control SA-9.b
 
 #### <a name="external-information-system-services"></a>Informacje o zewnętrznych usług systemowych
 
@@ -333,7 +333,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-sa-9c"></a>Formant NIST 800 53 SA-9.c
+ ## <a name="nist-800-53-control-sa-9c"></a>NIST 800-53 Control SA-9.c
 
 #### <a name="external-information-system-services"></a>Informacje o zewnętrznych usług systemowych
 
@@ -361,7 +361,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ### <a name="nist-800-53-control-sa-9-1b"></a>NIST 800 53 kontroli SA-9 (1) b
+ ### <a name="nist-800-53-control-sa-9-1b"></a>NIST 800-53 Control SA-9 (1).b
 
 #### <a name="external-information-system-services--risk-assessments--organizational-approvals"></a>Usługi systemu zewnętrznego informacji | Oceny ryzyka / organizacyjnej zatwierdzenia
 
@@ -477,7 +477,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="developer-configuration-management"></a>Zarządzanie konfiguracją Developer
 
-**SA 10.e** Organizacja wymaga dewelopera systemu informacji, składnik systemu lub usługa systemowa informacji do śledzenia luk w zabezpieczeniach i rozpoznawania luka w ramach systemu, składnika lub usługi, a raport wyników [przypisania: definicja organizacji personel].
+**SA-10.e** Organizacja wymaga dewelopera systemu informacji, składnik systemu lub usługa systemowa informacji do śledzenia luk w zabezpieczeniach i rozpoznawania luka w ramach systemu, składnika lub usługi, a raport wyników [przypisania: definicja organizacji personel].
 
 **Obowiązki:**`Customer Only`
 
@@ -561,7 +561,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="developer-security-testing-and-evaluation"></a>Deweloper zabezpieczeń testowania i oceny
 
-**SA 11.e** Organizacja wymaga deweloperowi systemu informacji, składnik systemu lub usługa systemowa informacji Popraw wady rozpoznane podczas testowania/oceny zabezpieczeń.
+**SA-11.e** Organizacja wymaga deweloperowi systemu informacji, składnik systemu lub usługa systemowa informacji Popraw wady rozpoznane podczas testowania/oceny zabezpieczeń.
 
 **Obowiązki:**`Customer Only`
 

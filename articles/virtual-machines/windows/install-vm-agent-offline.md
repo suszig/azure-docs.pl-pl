@@ -1,6 +1,6 @@
 ---
-title: Zainstaluj agenta maszyny Wirtualnej platformy Azure w trybie Offline | Dokumentacja firmy Microsoft
-description: "Dowiedz się, zainstaluj agenta maszyny Wirtualnej platformy Azure w trybie Offline."
+title: Zainstaluj agenta maszyny Wirtualnej platformy Azure w trybie offline | Dokumentacja firmy Microsoft
+description: Informacje o sposobie instalowania agenta maszyny Wirtualnej platformy Azure w trybie offline.
 services: virtual-machines-windows
 documentationcenter: 
 author: genlin
@@ -14,100 +14,119 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: genli
-ms.openlocfilehash: b38bfaffad3e214f3b854715e4d8030cde432bae
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3770cc3338c89a9bf88e2cf9ec3faa37e2ff109b
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/11/2018
 ---
-# <a name="install-the-vm-agent-in-offline-mode-in-an-azure-windows-vm"></a>Zainstaluj agenta maszyny Wirtualnej w trybie offline w maszynie Wirtualnej Windows Azure 
+# <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>Zainstaluj agenta maszyny wirtualnej platformy Azure w trybie offline 
 
-Agent maszyny Wirtualnej zawiera przydatne funkcje, takie jak Resetowanie hasła administratora lokalnego i wypychania skryptu. W tym artykule przedstawiono sposób instalowania agenta maszyny Wirtualnej dla maszyny Wirtualnej, która jest w trybie offline. 
+Agent maszyny wirtualnej Azure (Agent maszyny Wirtualnej) zawiera przydatne funkcje, takie jak Resetowanie hasła administratora lokalnego i wypychanie skryptu. W tym artykule przedstawiono sposób instalowania agenta maszyny Wirtualnej w trybie offline maszyny wirtualnej systemu Windows (VM). 
 
-## <a name="when-to-use-offline-mode"></a>Kiedy należy używać w trybie offline
+## <a name="when-to-use-the-vm-agent-in-offline-mode"></a>Kiedy należy używać agenta maszyny Wirtualnej w trybie offline
 
-Musisz zainstalować agenta maszyny Wirtualnej w tryb offline w następującym scenariuszu:
+Zainstaluj agenta maszyny Wirtualnej w tryb offline w następujących scenariuszach:
 
-- Można wdrożyć maszyny Wirtualnej platformy Azure, która jest nie ma agenta maszyny Wirtualnej zainstalowane lub nie działa agent maszyny Wirtualnej.
-- Nie pamiętasz hasła administratora lub nie masz dostępu do maszyny Wirtualnej.
+- Wdrożonej maszyny Wirtualnej platformy Azure nie ma zainstalowanego agenta maszyny Wirtualnej lub agent nie działa.
+- Nie pamiętasz hasła administratora dla maszyny Wirtualnej lub nie masz dostępu do maszyny Wirtualnej.
 
-W tym scenariuszu należy zainstalować agenta maszyny Wirtualnej w trybie offline. 
+## <a name="how-to-install-the-vm-agent-in-offline-mode"></a>Jak zainstalować agenta maszyny Wirtualnej w trybie offline
 
+Poniższe kroki należy zainstalować agenta maszyny Wirtualnej w trybie offline.
 
+### <a name="step-1-attach-the-os-disk-of-the-vm-to-another-vm-as-a-data-disk"></a>Krok 1: Dołączyć dysk systemu operacyjnego maszyny wirtualnej do innej maszyny Wirtualnej jako dysk z danymi
 
-## <a name="detailed-steps"></a>Szczegółowe procedury
+1.  Usuń maszynę Wirtualną. Należy wybrać **zachować dyski** opcję po usunięciu maszyny Wirtualnej.
 
-**Krok 1: Dołączyć dysk systemu operacyjnego maszyny wirtualnej do innej maszyny Wirtualnej jako dysk z danymi**
+2.  Dołączanie dysku systemu operacyjnego jako dysku danych do innej maszyny Wirtualnej (nazywane _Rozwiązywanie problemów z_ maszyny Wirtualnej). Aby uzyskać więcej informacji, zobacz [dołączenie dysku danych do maszyny Wirtualnej systemu Windows w portalu Azure](attach-managed-disk-portal.md).
 
-1.  Usuń maszynę Wirtualną. Upewnij się, że wybrano **zachować dyski** przy tym.
+3.  Podłącz do rozwiązywania problemów z maszyny Wirtualnej. Otwórz **Zarządzanie komputerem** > **dysku zarządzania**. Upewnij się, dysk systemu operacyjnego jest w trybie online i że litery dysków są przypisane do partycji dysku.
 
-2.  Dołącz dysk systemu operacyjnego jako dysku danych do innej maszyny Wirtualnej (Rozwiązywanie problemów z maszyny Wirtualnej). Aby uzyskać więcej informacji, zobacz [How to attach a data disk to a Windows VM in the Azure portal](attach-managed-disk-portal.md) (Jak dołączyć dysk danych do maszyny wirtualnej z systemem Windows w witrynie Azure Portal).
+### <a name="step-2-modify-the-os-disk-to-install-the-azure-vm-agent"></a>Krok 2: Modyfikowanie dysku systemu operacyjnego do zainstalowania agenta maszyny Wirtualnej Azure
 
-3.  Nawiąż połączenie z maszyną wirtualną rozwiązywania problemów. Otwórz **Zarządzanie komputerem** > **dysku zarządzania**. Upewnij się, że dysk systemu operacyjnego jest w trybie online i że jego partycji litery dysków przypisane.
+1.  Wprowadzić połączeń usług pulpitu zdalnego do rozwiązywania problemów z maszyny Wirtualnej.
 
-**Krok 2: Modyfikowanie dysk systemu operacyjnego do zainstalowania agenta maszyny Wirtualnej**
+2.  Na dysku systemu operacyjnego, który można dołączyć przejdź do folderu \windows\system32\config. Skopiuj wszystkie pliki w tym folderze jako zapasowy, w przypadku wycofywania jest wymagana.
 
-1.  Należy podłączania pulpitu zdalnego na rozwiązywanie problemów dotyczących maszyny Wirtualnej.
+3.  Uruchom **Edytora rejestru** (regedit.exe).
 
-2.  Na dysku systemu operacyjnego w przypadku dołączenia, przejdź do **\windows\system32\config**. Skopiuj wszystkie pliki jako zapasowy, w przypadku wycofywania jest wymagana.
+4.  Wybierz **HKEY_LOCAL_MACHINE** klucza. W menu, wybierz **pliku** > **Hive obciążenia**:
 
-3.  Uruchom Edytor rejestru (regedit.exe).
+    ![Załaduj gałąź](./media/install-vm-agent-offline/load-hive.png)
 
-4.  Kliknij przycisk **HKEY_LOCAL_MACHINE** klucza, a następnie wybierz **pliku** > **Hive obciążenia** w menu.
+5.  Przejdź do folderu \windows\system32\config\SYSTEM na dysku systemu operacyjnego, który można dołączyć. Wprowadź nazwę gałęzi, **BROKENSYSTEM**. Nowe gałęzi rejestru jest wyświetlana w obszarze **HKEY_LOCAL_MACHINE** klucza.
 
-    ![Gałąź obciążenia](./media/install-vm-agent-offline/load-hive.png)
+6.  Przejdź do folderu \windows\system32\config\SOFTWARE na dysku systemu operacyjnego, który można dołączyć. Wprowadź nazwę oprogramowanie hive, **BROKENSOFTWARE**.
 
-5.  Przejdź do **\windows\system32\config\SYSTEM** na system operacyjny tego zostanie dołączony na dysku, a następnie wpisz BROKENSYSTEM jako nazwa gałęzi. Po wykonaniu tej czynności zobaczą rejestru hive w obszarze **HKEY_LOCAL_MACHINE**.
+7.  Jeśli nie działa, czy Agent maszyny Wirtualnej, Utwórz kopię zapasową bieżącej konfiguracji.
 
-6.  Przejdź do **\windows\system32\config\SOFTWARE** na dysku systemu operacyjnego w przypadku dołączenia, wpisz nazwę gałęzi BROKENSOFTWARE.
-
-7.  Jeśli masz bieżąca wersja agenta, która nie działa, wykonaj kopię zapasową bieżącej konfiguracji. Jeśli maszyna wirtualna nie ma zainstalowanego agenta maszyny Wirtualnej, przejdź do następnego kroku.  
+    >[!NOTE]
+    >Jeśli maszyna wirtualna nie jest zainstalowany agent, przejdź do kroku 8. 
       
-    1. Zmień nazwę folderu \windowsazure na \windowsazure.old
+    1. Zmień nazwę folderu \windowsazure na \windowsazure.old.
 
-    2. Eksportuj następujące rejestrów
+    2. Wyeksportuj następujące rejestry organizacji:
         - HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet001\Services\WindowsAzureGuestAgent
-        - HKEY_LOCAL_MACHINE \BROKENSYSTEM\\ControlSet001\Services\WindowsAzureTelemetryService
+        - HKEY_LOCAL_MACHINE\BROKENSYSTEM\\ControlSet001\Services\WindowsAzureTelemetryService
         - HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet001\Services\RdAgent
 
-8.  Użyj istniejących plików w przypadku rozwiązywania problemów z maszyny Wirtualnej jako repozytorium instalacji agenta maszyny Wirtualnej: 
+8.  Użyj istniejących plików na rozwiązywanie problemów z maszyny Wirtualnej jako repozytorium do instalacji agenta maszyny Wirtualnej. Wykonaj następujące czynności:
 
     1. Z rozwiązywania maszyny Wirtualnej należy wyeksportować poniższe podklucze w formacie rejestru (reg): 
-
         - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\WindowsAzureGuestAgent
         - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\WindowsAzureTelemetryService
         - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\RdAgent
 
-        ![Obraz o eksportowanie kluczy rejestru](./media/install-vm-agent-offline/backup-reg.png)
+        ![Eksportowanie podkluczy rejestru](./media/install-vm-agent-offline/backup-reg.png)
 
-    2. Edytuj pliki te trzy rejestru, zmień **systemu** klucza wpisu **BROKENSYSTEM**, a następnie zapisz plik.
-        ![Obraz o zmianę kluczy rejestru](./media/install-vm-agent-offline/change-reg.png)
-    3. Dwukrotne kliknięcie plików rejestru do ich zaimportowania.
-    4. Upewnij się, że następujące klucze są pomyślnie zaimportowane do gałęzi BROKENSYSTEM: WindowsAzureGuestAgent, WindowsAzureTelemetryService i RdAgent.
+    2. Edytowanie plików rejestru. W każdym pliku, zmień wartość wpisu **systemu** do **BROKENSYSTEM** (jak pokazano na poniższych ilustracjach) i Zapisz plik.
+
+        ![Zmień wartość podklucza rejestru](./media/install-vm-agent-offline/change-reg.png)
+
+    3. Importowanie plików rejestru do repozytorium, klikając dwukrotnie każdego pliku rejestru.
+
+    4. Potwierdź, że następujące trzy podklucze są pomyślnie zaimportowane do **BROKENSYSTEM** gałęzi:
+        - WindowsAzureGuestAgent
+        - WindowsAzureTelemetryService
+        - RdAgent
 
 9.  Skopiuj folder agenta maszyny Wirtualnej z C:\windowsazure\packages do &lt;dysk systemu operacyjnego, który można dołączyć&gt;: \windowsazure\packages.
-    ![Obraz o kopiowanie plików](./media/install-vm-agent-offline/copy-package.png)
+
+    ![Skopiuj pliki agenta maszyny Wirtualnej do dysku systemu operacyjnego](./media/install-vm-agent-offline/copy-package.png)
       
-    **Uwaga** nie należy kopiować folderu dzienników. Po uruchomieniu usługi nowe dzienniki będą generowane.
+    >[!NOTE]
+    >Nie należy kopiować **dzienniki** folderu. Nowe dzienniki są generowane, po uruchomieniu usługi.
 
-10.  Kliknij BROKENSYSTEM i wybierz **pliku** > **Zwolnij gałąź rejestru** z menu.
+10.  Wybierz **BROKENSYSTEM**. Wybierz z menu **pliku** > **Zwolnij gałąź rejestru**.
 
-11.  Kliknij BROKENSOFTWARE i wybierz **pliku** > **Zwolnij gałąź rejestru** z menu.
+11.  Wybierz **BROKENSOFTWARE**. Wybierz z menu **pliku** > **Zwolnij gałąź rejestru**.
 
-12.  Odłącz dysk, a następnie utwórz ponownie maszynę Wirtualną za pomocą dysku systemu operacyjnego.
+12.  Odłącz dysk systemu operacyjnego, a następnie utwórz ponownie maszynę Wirtualną za pomocą dysku systemu operacyjnego.
 
-13.  Jeśli dostęp do maszyny Wirtualnej znajduje się teraz RDAgent systemem i dzienniki pobierania tworzone.
+13.  Dostęp do maszyny Wirtualnej. Należy zauważyć, że działa RdAgent i dzienniki są generowane.
 
-14. Jeśli jest to maszyny Wirtualnej utworzonej przy użyciu klasycznego modelu wdrażania, wszystko będzie gotowe. Jednak jeśli jest to maszyny Wirtualnej utworzonej przy użyciu modelu wdrażania usługi Resource Manager, należy również użyć programu Azure PowerShell można zaktualizować właściwości ProvisionGuestAgent, tak że Azure wie, że maszyna wirtualna jest zainstalowany agent. Aby to zrobić, uruchom następujące polecenia w programie Azure PowerShell:
+Jeśli maszyna wirtualna została utworzona przy użyciu klasycznego modelu wdrażania, wszystko będzie gotowe.
 
-        $vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>
-        $vm.VM.ProvisionGuestAgent = $true
-        Update-AzureVM –Name <VM name> –VM $vm.VM –ServiceName <cloud service name>
 
-    Po uruchomieniu **Get-AzureVM** po wykonaniu tych kroków **GuestAgentStatus** właściwości powinny zostać wypełnione zamiast wyświetlenie pustej strony:
+### <a name="use-the-provisionguestagent-property-for-vms-created-with-azure-resource-manager"></a>Użyj właściwości ProvisionGuestAgent dla maszyny wirtualne utworzone za pomocą Menedżera zasobów Azure
 
-        Get-AzureVM –ServiceName <cloud service name> –Name <VM name>
-        GuestAgentStatus:Microsoft.WindowsAzure.Commands.ServiceManagement.Model.PersistentVMModel.GuestAgentStatus
+Jeśli maszyna wirtualna została utworzona przy użyciu modelu wdrażania usługi Resource Manager, należy użyć modułu Azure PowerShell, aby zaktualizować **ProvisionGuestAgent** właściwości. Właściwość informuje Azure, że maszyna wirtualna jest zainstalowany Agent maszyny Wirtualnej.
+
+Aby ustawić **ProvisionGuestAgent** właściwości, uruchom następujące polecenia w programie Azure PowerShell:
+
+   ```powershell
+   $vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>
+   $vm.VM.ProvisionGuestAgent = $true
+   Update-AzureVM –Name <VM name> –VM $vm.VM –ServiceName <cloud service name>
+   ```
+
+Następnie uruchom `Get-AzureVM` polecenia. Zwróć uwagę, że **GuestAgentStatus** właściwości znajduje się teraz z danymi:
+
+   ```powershell
+   Get-AzureVM –ServiceName <cloud service name> –Name <VM name>
+   GuestAgentStatus:Microsoft.WindowsAzure.Commands.ServiceManagement.Model.PersistentVMModel.GuestAgentStatus
+   ```
 
 ## <a name="next-steps"></a>Kolejne kroki
 

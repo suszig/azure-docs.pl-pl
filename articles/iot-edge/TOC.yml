@@ -48,6 +48,8 @@
           href: how-to-vscode-develop-azure-function.md
         - name: Debugowanie usługi Azure Functions
           href: how-to-vscode-debug-azure-function.md
+    - name: Przechowywanie danych na brzegu
+      href: sql-storage.md
     - name: Rozwiązywanie problemów
       href: troubleshoot.md
 - name: Pojęcia

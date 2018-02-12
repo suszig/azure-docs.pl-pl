@@ -40,11 +40,19 @@
 ## Konfigurowanie hostingu wielu witryn
 ### [Azure portal](application-gateway-create-multisite-portal.md)
 ### [Azure PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
-## Konfigurowanie przekierowania
-### [Azure PowerShell](application-gateway-configure-redirect-powershell.md)
+### [Interfejs wiersza polecenia platformy Azure](tutorial-multisite-cli.md)
 ## Konfigurowanie zewnętrznego przekierowania
-### [Azure PowerShell](tutorial-external-site-redirect-cli.md)
-### [Interfejs wiersza polecenia platformy Azure](tutorial-external-site-redirect-powershell.md)
+### [Azure PowerShell](tutorial-external-site-redirect-powershell.md)
+### [Interfejs wiersza polecenia platformy Azure](tutorial-external-site-redirect-cli.md)
+## Konfigurowanie wewnętrznego przekierowania
+### [Azure PowerShell](tutorial-internal-site-redirect-powershell.md)
+### [Interfejs wiersza polecenia platformy Azure](tutorial-internal-site-redirect-cli.md)
+## Konfigurowanie przekierowania HTTP do HTTPS
+### [Azure PowerShell](tutorial-http-redirect-powershell.md)
+### [Interfejs wiersza polecenia platformy Azure](tutorial-http-redirect-cli.md)
+## Konfigurowanie przekierowania URL
+### [Azure PowerShell](tutorial-url-redirect-powershell.md)
+### [Interfejs wiersza polecenia platformy Azure](tutorial-url-redirect-cli.md)
 ## Konfigurowanie aplikacji internetowych jako składowych puli zaplecza
 ### [Azure PowerShell](application-gateway-web-app-powershell.md)
 ## Konfigurowanie sond kondycji

@@ -35,28 +35,38 @@
       href: container-service-quotas.md
 - name: Przewodniki z instrukcjami
   items:
-    - name: Skalowanie klastra AKS
-      href: scale-cluster.md
-    - name: Uaktualnianie klastra AKS
-      href: upgrade-cluster.md
-    - name: Uwierzytelnianie przy użyciu rekordu ACR
-      href: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json
-    - name: Uruchamianie aplikacji za pomocą narzędzia Helm
-      href: kubernetes-helm.md
-    - name: Tworzenie aplikacji za pomocą narzędzia Draft
-      href: kubernetes-draft.md
-    - name: Integracja z platformą Azure za pomocą usługi OSBA
-      href: integrate-azure.md
-    - name: Używanie pulpitu nawigacyjnego rozwiązania Kubernetes
-      href: kubernetes-dashboard.md
-    - name: Tworzenie jednostki usługi
-      href: kubernetes-service-principal.md
+    - name: Operacje klastra
+      items:
+        - name: Skalowanie klastra AKS
+          href: scale-cluster.md
+        - name: Uaktualnianie klastra AKS
+          href: upgrade-cluster.md
+        - name: Usuwanie klastra AKS
+          href: delete-cluster.md
     - name: Konfigurowanie woluminów danych
       items:
         - name: Azure Disks — trwały wolumin
           href: azure-disks-dynamic-pv.md
         - name: Azure Files — trwały wolumin
           href: azure-files-dynamic-pv.md
+    - name: Zabezpieczenia i uwierzytelnianie
+      items:
+        - name: Tworzenie jednostki usługi
+          href: kubernetes-service-principal.md
+        - name: Uwierzytelnianie przy użyciu rekordu ACR
+          href: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json
+    - name: Opracowywanie i uruchamianie aplikacji
+      items:
+        - name: Uruchamianie aplikacji za pomocą narzędzia Helm
+          href: kubernetes-helm.md
+        - name: Tworzenie aplikacji za pomocą narzędzia Draft
+          href: kubernetes-draft.md
+        - name: Integracja z platformą Azure za pomocą usługi OSBA
+          href: integrate-azure.md
+    - name: Podstawy platformy Kubernetes
+      items:
+        - name: Używanie pulpitu nawigacyjnego rozwiązania Kubernetes
+          href: kubernetes-dashboard.md
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure

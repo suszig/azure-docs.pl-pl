@@ -19,6 +19,7 @@
 ### [Xamarin](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native)
 ## Aplikacje sieci Web
 ### [Omówienie](active-directory-b2c-reference-oidc.md)
+### [Uwierzytelnianie użytkowników na platformie ASP.NET](active-directory-b2c-tutorials-web-app.md)
 ### [ASP.NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
 ### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp)
 ### [Node.js](active-directory-b2c-devquickstarts-web-node.md)
@@ -27,6 +28,7 @@
 ### [Język JavaScript i biblioteka MSAL](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
 ### [Język JavaScript i biblioteka Hello](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)
 ## Interfejsy API sieci Web
+### [Ochrona interfejsu API platformy ASP.NET](active-directory-b2c-tutorials-web-api.md)
 ### [ASP.NET](active-directory-b2c-devquickstarts-api-dotnet.md)
 ### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)
 ### [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
@@ -40,6 +42,7 @@
 ### [Amazon](active-directory-b2c-setup-amzn-app.md)
 ### [LinkedIn](active-directory-b2c-setup-li-app.md)
 ### [Twitter](active-directory-b2c-setup-twitter-app.md)
+### [GitHub](active-directory-b2c-setup-github-app.md)
 ### [Weibo](active-directory-b2c-setup-weibo-app.md)
 ### [QQ](active-directory-b2c-setup-qq-app.md)
 ### [WeChat](active-directory-b2c-setup-wechat-app.md)

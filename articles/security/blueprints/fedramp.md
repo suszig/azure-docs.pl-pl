@@ -1,6 +1,6 @@
 ---
-title: "Automatyzacja Azure planu — aplikacji sieci Web dla FedRAMP"
-description: "Automatyzacja Azure planu — aplikacji sieci Web dla FedRAMP"
+title: "Zabezpieczeń platformy Azure i plan zgodności - automatyzacji aplikacji sieci Web FedRAMP"
+description: "Zabezpieczeń platformy Azure i plan zgodności - automatyzacji aplikacji sieci Web FedRAMP"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: d0521d68bab8bd0b7db53a512da6d37033abd85e
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 9b605e500925e8435b15ec8055f8d8f376888aaf
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/11/2018
 ---
-# <a name="azure-blueprint-automation---web-applications-for-fedramp"></a>Automatyzacja Azure planu — aplikacji sieci Web dla FedRAMP
+# <a name="azure-security-and-compliance-blueprint---fedramp-web-applications-automation"></a>Zabezpieczeń platformy Azure i plan zgodności - automatyzacji aplikacji sieci Web FedRAMP
 
 ## <a name="overview"></a>Przegląd
 
-[Federalne ryzyka i Program do zarządzania autoryzacji (FedRAMP)](https://www.fedramp.gov), to program całej dla instytucji rządowych USA, który zawiera standardowe podejście do oceny zabezpieczeń, autoryzacji i ciągłego monitorowania produktów chmury i usługi. Ten plan usługi Automatyzacja Azure - aplikacji sieci Web dla FedRAMP zawiera wskazówki dotyczące wdrożenia FedRAMP zgodności infrastrukturę jako usługę (IaaS) środowiska odpowiednie dla prostej aplikacji sieci web skierowane do Internetu. To rozwiązanie pozwala zautomatyzować, wdrażanie i konfigurowanie zasobów Azure dla typowych architektura referencyjna prezentacja sposoby, w którym klienci mogą spełnić szczególne wymagania dotyczące zabezpieczeń i zgodności i służy jako podstawę do klientów do tworzenia i Skonfiguruj swoje własne rozwiązania na platformie Azure. Rozwiązanie implementuje podzbiór formantów z linii bazowej wysokiej FedRAMP, oparte na SP NIST 800-53. Aby uzyskać więcej informacji na temat wymagań FedRAMP wysokiej i to rozwiązanie, zobacz [FedRAMP wysokiego — omówienie wysokiego szczebla](fedramp-controls-overview.md). ***Uwaga: To rozwiązanie wdraża Azure dla instytucji rządowych.***
+[Federalne ryzyka i Program do zarządzania autoryzacji (FedRAMP)](https://www.fedramp.gov), to program całej dla instytucji rządowych USA, który zawiera standardowe podejście do oceny zabezpieczeń, autoryzacji i ciągłego monitorowania produktów chmury i usługi. Ten Azure zabezpieczeń i zgodności plan automatyzacji zawiera wskazówki dotyczące wdrożenia FedRAMP zgodności infrastrukturę jako usługę (IaaS) środowiska odpowiednie dla prostej aplikacji sieci web skierowane do Internetu. To rozwiązanie pozwala zautomatyzować, wdrażanie i konfigurowanie zasobów Azure dla typowych architektura referencyjna prezentacja sposoby, w którym klienci mogą spełnić szczególne wymagania dotyczące zabezpieczeń i zgodności i służy jako podstawę do klientów do tworzenia i Skonfiguruj swoje własne rozwiązania na platformie Azure. Rozwiązanie implementuje podzbiór formantów z linii bazowej wysokiej FedRAMP, oparte na SP NIST 800-53. Aby uzyskać więcej informacji na temat wymagań FedRAMP wysokiej i to rozwiązanie, zobacz [FedRAMP wysokiego — omówienie wysokiego szczebla](fedramp-controls-overview.md). ***Uwaga: To rozwiązanie wdraża Azure dla instytucji rządowych.***
 
 Taka architektura ma służyć jako podstawę do klientów dopasować do swoich specyficznych wymagań i nie powinna być używana jako — znajduje się w środowisku produkcyjnym. Wdrażanie aplikacji w tym środowisku bez żadnych modyfikacji nie wystarcza do całkowicie spełniają wymagania wysokiej FedRAMP linii bazowej. Pamiętaj o następujących kwestiach:
 - Taka architektura umożliwia linii bazowej, aby ułatwić klientom używać platformy Azure w sposób zgodny z FedRAMP.
@@ -36,17 +36,17 @@ Kliknij przycisk [tutaj](https://aka.ms/fedrampblueprintrepo) instrukcje wdroże
 
 ## <a name="solution-components"></a>Składniki rozwiązania
 
-Ten plan usługi Automatyzacja Azure automatycznie wdraża IaaS architekturę odwołania aplikacji sieci web z wstępnie skonfigurowane zabezpieczenia, aby ułatwić klientom zapewnienia zgodności z wymaganiami FedRAMP. Rozwiązania składa się z szablonów usługi Azure Resource Manager i skryptów programu PowerShell, które przewodnik dotyczący wdrażania zasobów i konfiguracji. Towarzyszące planu Azure [dokumentacji zgodności](#compliance-documentation) podano wskazujący dziedziczenia kontroli zabezpieczeń z platformy Azure i wdrożonych zasobów i konfiguracje, które są wyrównane z NIST SP 800 53 opcji zabezpieczeń, a tym samym umożliwia organizacjom szybkie zgodności.
+Ten Azure zabezpieczeń i zgodności plan automatyzacji automatycznie wdraża IaaS architekturę odwołania aplikacji sieci web z wstępnie skonfigurowane zabezpieczenia, aby ułatwić klientom zapewnienia zgodności z wymaganiami FedRAMP. Rozwiązania składa się z szablonów usługi Azure Resource Manager i skryptów programu PowerShell, które przewodnik dotyczący wdrażania zasobów i konfiguracji. Towarzyszące [dokumentacji zgodności](#compliance-documentation) podano wskazujący dziedziczenia kontroli zabezpieczeń z platformy Azure i wdrożonych zasobów i konfiguracje, które są wyrównane z NIST SP kontroli bezpieczeństwa 800 53, udostępniając organizacje mogą szybka ścieżka zgodności.
 
 ## <a name="architecture-diagram"></a>Diagram architektury
 
 To rozwiązanie wdraża architektura referencyjna dla aplikacji sieci web IaaS z wewnętrznej bazie danych. Architektura obejmują warstwa sieci web, dane warstwy infrastruktura usługi Active Directory, bramy aplikacji i usługi równoważenia obciążenia. Maszyny wirtualne wdrażane warstwy web i danych są skonfigurowane w zestawie dostępności i wystąpień programu SQL Server są konfigurowane w zawsze włączonej grupy dostępności, wysokiej dostępności. Maszyny wirtualne są przyłączone do domeny, a zasady grupy usługi Active Directory są używane do wymuszania konfiguracji zgodności i zabezpieczeń na poziomie systemu operacyjnego. Jumpbox zarządzania (host bastionu) zapewnia bezpieczne połączenie, Administratorzy mogą wdrożyć dostęp do zasobów.
 
-![tekst alternatywny](images/fedramp-architectural-diagram.png?raw=true "IaaS sieci web automatyzacji planu aplikacji dla środowisk FedRAMP zgodne")
+![tekst alternatywny](images/fedramp-architectural-diagram.png?raw=true "zabezpieczeń platformy Azure i plan zgodności - automatyzacji aplikacji sieci Web FedRAMP")
 
 To rozwiązanie wymaga następujących usług platformy Azure. Szczegółowe informacje o architekturze wdrażania znajdują się w [wdrożenia architecture](#deployment-architecture) sekcji.
 
-* **Maszyny wirtualne platformy Azure**
+* **Azure Virtual Machines**
     - (1) zarządzania/bastionu (Windows Server 2016 Datacenter)
     - (2) usługi active Directory kontrolera domeny (z systemem Windows Server Datacenter 2016)
     - (2) węzeł klastra programu SQL Server (SQL Server 2016 w systemie Windows Server 2012 R2)
@@ -91,7 +91,7 @@ Poniższa sekcja zawiera szczegóły dotyczące projektowania i wdrażania eleme
 
 Architektura zmniejsza ryzyko luk w zabezpieczeniach przy użyciu bramy aplikacji z zapory aplikacji sieci web (WAF) i zestaw reguł OWASP włączone. Dodatkowe funkcje obejmują:
 
-- [Końcowy do zakończenia SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
+- [End-to-End-SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - Włącz [odciążanie protokołu SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-portal)
 - Wyłącz [TLS 1.0 i 1.1](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - [Zapora aplikacji sieci Web](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) (Tryb zapory aplikacji sieci Web)
@@ -101,7 +101,7 @@ Architektura zmniejsza ryzyko luk w zabezpieczeniach przy użyciu bramy aplikacj
 
 Architektura definiuje prywatnej sieci wirtualnej z 10.200.0.0/16 przestrzeni adresowej.
 
-#### <a name="network-security-groups"></a>Sieciowe grupy zabezpieczeń
+#### <a name="network-security-groups"></a>Grupy zabezpieczeń sieci
 
 To rozwiązanie obejmuje zasoby w architekturze podsieci WWW, podsieci bazy danych, podsieci usługi Active Directory i zarządzania podsieci w sieci wirtualnej. Podsieci są logicznie oddzielone zastosować do poszczególnych podsieci, aby ograniczyć ruch między podsieciami, aby tylko to konieczne do systemu oraz funkcji zarządzania reguły grupy zabezpieczeń sieci.
 
@@ -118,7 +118,7 @@ Każdą z tych podsieci ma dedykowany sieciowej grupy zabezpieczeń (NSG):
 
 Każda podsieć jest skojarzona z jej odpowiednie grupy NSG.
 
-### <a name="data-at-rest"></a>Magazynowane dane
+### <a name="data-at-rest"></a>Dane magazynowane
 
 Architektura chroni dane przechowywane przy użyciu kilku środków szyfrowania.
 
@@ -126,7 +126,7 @@ Architektura chroni dane przechowywane przy użyciu kilku środków szyfrowania.
 
 Aby spełnić wymagania dotyczące szyfrowania danych na rest, użyj wszystkich kont magazynu [szyfrowanie usługi Magazyn](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
 
-#### <a name="sql-database"></a>Baza danych SQL
+#### <a name="sql-database"></a>SQL Database
 
 Baza danych SQL jest skonfigurowana do używania [funkcji przezroczystego szyfrowania danych (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption), który wykonuje w czasie rzeczywistym szyfrowania i odszyfrowywania danych i plików dziennika do ochrony informacji w stanie spoczynku. Funkcji TDE zawiera gwarantują, że przechowywanych danych nie zostało poddane nieautoryzowanego dostępu. 
 
@@ -138,8 +138,8 @@ Szyfrowanie dysków Azure umożliwia zaszyfrowanych dysków maszyny wirtualnej s
 
 [Operations Management Suite (OMS)](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) zapewnia szczegółowe rejestrowanie działania systemu i użytkownika, a także kondycji systemu. 
 
-- **Dzienniki aktywności:**[Dzienniki aktywności](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) zapewniają wgląd w operacje wykonywane na zasobów w ramach subskrypcji.  
-- **Dzienniki diagnostyczne:**[dzienniki diagnostyczne](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) są wszystkie dzienniki emitowane przez każdego zasobu.   Dzienniki te obejmują dzienniki systemu zdarzeń systemu Windows, dzienniki usługi Azure storage, dzienników inspekcji usługi Key Vault i dzienniki bramy aplikacji dostępu i zapory.
+- **Dzienniki aktywności:**[Dzienniki aktywności](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) zapewniają wgląd w operacje wykonywane na zasobów w ramach subskrypcji.
+- **Dzienniki diagnostyczne:**[dzienniki diagnostyczne](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) są wszystkie dzienniki emitowane przez każdego zasobu. Dzienniki te obejmują dzienniki systemu zdarzeń systemu Windows, dzienniki usługi Azure storage, dzienników inspekcji usługi Key Vault i dzienniki bramy aplikacji dostępu i zapory.
 - **Archiwizacja dziennika:** Dzienniki aktywności platformy Azure i dzienników diagnostycznych możliwe połączenie usługi Analiza dzienników Azure do przetwarzania, przechowywania i dashboarding. Przechowywania jest użytkownika do skonfigurowania zapasowej dzień 730 spełnia wymagania dotyczące przechowywania w danej organizacji.
 
 ### <a name="secrets-management"></a>Klucze tajne zarządzania
@@ -167,7 +167,7 @@ Maszyny wirtualne warstwy sieci web w wdraża rozwiązanie [zestawu dostępnośc
 
 Maszyny wirtualne warstwy bazy danych w zestawie dostępności jako wdraża rozwiązanie [grupy dostępności funkcji AlwaysOn](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview). Zawsze włączone dostępności grupy funkcja zapewnia możliwości wysokiej dostępności i odzyskiwania po awarii. 
 
-#### <a name="active-directory"></a>Active Directory
+#### <a name="active-directory"></a>Usługa Active Directory
 
 Wszystkich maszyn wirtualnych wdrożonych przez rozwiązanie są przyłączone do domeny, a zasady grupy usługi Active Directory są używane do wymuszania konfiguracji zgodności i zabezpieczeń na poziomie systemu operacyjnego. Maszyny wirtualne w usłudze Active Directory są wdrażane w zestawie dostępności.
 
@@ -182,9 +182,9 @@ Jumpbox zarządzania (host bastionu) zapewnia bezpieczne połączenie, Administr
 
 ### <a name="patch-management"></a>Zarządzanie poprawkami
 
-Maszyny wirtualne systemu Windows wdrożone przez ten plan automatyzacji są domyślnie skonfigurowane, odbierania automatycznych aktualizacji z usługi Windows Update. To rozwiązanie również wdraża rozwiązanie OMS usługi Automatyzacja Azure za pomocą których można utworzyć wdrożenia aktualizacji do wdrożenia poprawki na serwerach z systemem Windows w razie potrzeby.
+Maszyny wirtualne systemu Windows wdrożone przez Azure zabezpieczeń i zgodności plan automatyzacji są domyślnie skonfigurowane, odbierania automatycznych aktualizacji z usługi Windows Update. To rozwiązanie również wdraża rozwiązanie OMS usługi Automatyzacja Azure za pomocą których można utworzyć wdrożenia aktualizacji do wdrożenia poprawki na serwerach z systemem Windows w razie potrzeby.
 
-### <a name="operations-management"></a>Zarządzanie operacyjne
+### <a name="operations-management"></a>Zarządzanie operacjami
 
 #### <a name="log-analytics"></a>Log Analytics
 
@@ -211,11 +211,11 @@ Następujące rozwiązania OMS są wstępnie zainstalowane w ramach tego rozwią
 
 ### <a name="control-implementation-matrix"></a>Macierzy implementacji kontroli
 
-[Macierzy implementacji kontroli](https://aka.ms/blueprintwacim) (skoroszyt programu Excel) zawiera wszystkie opcje zabezpieczeń wymagane przez wysokiej FedRAMP linii bazowej. Określa macierzy, dla każdego formantu (lub podsekcja sterowania) wyznaczony klienta odpowiedzialne w macierzy obowiązki klienta: 1) Jeśli implementuje automatyzacji planu formantu i 2) opis sposobu implementacji wyrównana z zdefiniowanymi formantu. Ta zawartość jest również dostępna [tutaj](fedramp-controls-overview.md).
+[Macierzy implementacji kontroli](https://aka.ms/blueprintwacim) (skoroszyt programu Excel) zawiera wszystkie opcje zabezpieczeń wymagane przez wysokiej FedRAMP linii bazowej. Określa macierzy, dla każdego formantu (lub podsekcja sterowania) wyznaczony klienta odpowiedzialne w macierzy obowiązki klienta, 1) Jeśli automatyzacji planu implementuje formantu i 2) a opis sposobu implementacji wyrównana z zdefiniowanymi formantu. Ta zawartość jest również dostępna [tutaj](fedramp-controls-overview.md).
 
 ## <a name="deploy-the-solution"></a>Wdrażanie rozwiązania
 
-To rozwiązanie planu Azure składa się z pliki konfiguracji w formacie JSON i skryptów programu PowerShell, które są obsługiwane przez usługi interfejsu API usługi Azure Resource Manager do wdrażania zasobów w systemie Azure. Szczegółowe instrukcje są dostępne [tutaj](https://aka.ms/fedrampblueprintrepo). ***Uwaga: To rozwiązanie wdraża Azure dla instytucji rządowych.***
+To Azure zabezpieczeń i zgodności plan automatyzacji składa się z pliki konfiguracji w formacie JSON i skryptów programu PowerShell, które są obsługiwane przez usługi interfejsu API usługi Azure Resource Manager do wdrażania zasobów w systemie Azure. Szczegółowe instrukcje są dostępne [tutaj](https://aka.ms/fedrampblueprintrepo). ***Uwaga: To rozwiązanie wdraża Azure dla instytucji rządowych.***
 
 #### <a name="quickstart"></a>Szybki start
 1. Klonuj lub pobrać [to](https://aka.ms/fedrampblueprintrepo) repozytorium GitHub, aby na lokalnej stacji roboczej.
@@ -226,7 +226,7 @@ To rozwiązanie planu Azure składa się z pliki konfiguracji w formacie JSON i 
 
     [![Wdrażanie na platformie Azure](http://azuredeploy.net/AzureGov.png)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Ffedramp-iaas-webapp%2Fmaster%2Fazuredeploy.json)
 
-## <a name="disclaimer"></a>Zastrzeżenie
+## <a name="disclaimer"></a>Zrzeczenie odpowiedzialności
 
 - Ten dokument jest tylko do celów informacyjnych. MICROSOFT NIE UDZIELA ŻADNYCH GWARANCJI, WYRAŹNYCH, DOROZUMIANYCH LUB USTAWOWYCH, ODNOŚNIE DO INFORMACJI W TYM DOKUMENCIE. Niniejszy dokument jest udostępniany "jako — jest." Informacje i poglądy wyrażone w tym dokumencie, w tym adresy URL i innymi odwołaniami do witryn internetowych, mogą ulec zmianie bez uprzedzenia. Klienci odczytu ten dokument ponosi ryzyko związane z użyciem jej.  
 - Ten dokument nie zawiera klientów z żadnych praw do jakiejkolwiek własności intelektualnej w dowolnym produktem firmy Microsoft lub rozwiązania.  

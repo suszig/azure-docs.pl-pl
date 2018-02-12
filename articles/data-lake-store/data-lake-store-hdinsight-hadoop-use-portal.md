@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 4a27ae1402717c91029eda9d635db124f8bb6b8d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 43f045033648534e9c0fea344bbc38da34f8454b
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="create-hdinsight-clusters-with-data-lake-store-by-using-the-azure-portal"></a>Tworzenie klastrów usługi HDInsight z usługą Data Lake Store za pomocą portalu Azure
 > [!div class="op_single_selector"]
@@ -56,7 +56,7 @@ W tej sekcji utworzysz klaster usługi HDInsight przy użyciu kont usługi Data 
 
     ![Dodaj nazwy głównej usługi w klastrze usługi HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "Dodaj nazwy głównej usługi w klastrze usługi HDInsight")
 
-    - **Konto usługi Data Lake Store wybierz**: Wybierz istniejące konto usługi Data Lake Store. Istniejące konto usługi Data Lake Store jest wymagany.  Zobacz [wymagania wstępne](#prereuisites).
+    - **Konto usługi Data Lake Store wybierz**: Wybierz istniejące konto usługi Data Lake Store. Istniejące konto usługi Data Lake Store jest wymagany.  Zobacz [wymagania wstępne](#prerequisites).
     - **Ścieżka katalogu głównego**: wprowadź ścieżkę, w którym mają być przechowywane pliki specyficznych dla klastra. Zrzut ekranu, to __/klastrów/myhdiadlcluster/__, w którym __/klastrów__ musi istnieć folder, a Portal tworzy *myhdicluster* folderu.  *Myhdicluster* jest nazwą klastra.
     - **Dostęp do usługi Data Lake Store**: Konfigurowanie dostępu między konta usługi Data Lake Store i klaster usługi HDInsight. Aby uzyskać instrukcje, zobacz [dostępu Konfiguruj Data Lake Store](#configure-data-lake-store-access).
     - **Dodatkowe konta magazynu**: kont Dodawanie konta magazynu Azure jako dodatkowy magazyn dla klastra. Aby dodać dodatkowe magazyny Lake danych odbywa się przez nadanie uprawnień klastra na danych więcej kont usługi Data Lake Store podczas konfigurowania konta usługi Data Lake Store jako typu podstawowego magazynu. Zobacz [Konfigurowanie dostępu do usługi Data Lake Store](#configure-data-lake-store-access).

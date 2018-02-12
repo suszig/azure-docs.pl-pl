@@ -3,6 +3,7 @@
 > * [Urządzenie: Node.js, usługa: C#](../articles/iot-hub/iot-hub-csharp-node-device-management-get-started.md)
 > * [Urządzenie: C# usługi: C#](../articles/iot-hub/iot-hub-csharp-csharp-device-management-get-started.md)
 > * [Urządzeń: Usługa języka Java: Java](../articles/iot-hub/iot-hub-java-java-device-management-getstarted.md)
+> * [Urządzeń: Usługa języka Python: Python](../articles/iot-hub/iot-hub-python-python-device-management-get-started.md)
 
 Zaplecza aplikacji można użyć Centrum IoT Azure w nim elementów podstawowych, takich jak [dwie urządzenia] [ lnk-devtwin] i [bezpośrednie metody][lnk-c2dmethod], aby zdalnie uruchomić i monitorować urządzenia Akcje zarządzania na urządzeniach. Ten samouczek pokazuje, jak aplikacji zaplecza i aplikacji urządzenia mogą współdziałać ze sobą do inicjowania i monitorowania ponowne uruchomienie urządzenia zdalnego przy użyciu Centrum IoT.
 

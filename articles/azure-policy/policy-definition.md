@@ -9,11 +9,11 @@ ms.date: 01/17/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom: 
-ms.openlocfilehash: af373e2770ad020b3a3eb669424c001670ec9204
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 49efef62b873ba3c688023248f6940d85c33e248
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Struktura definicji zasad platformy Azure
 
@@ -66,14 +66,11 @@ Wszystkie próbki szablonu zasad Azure są [szablony zasad Azure](json-samples.m
 
 ## <a name="mode"></a>Tryb
 
-Firma Microsoft zaleca, aby ustawić `mode` do `all` zasad przydziału oceny wszystkich grup zasobów i typów. Można zobaczyć przykład wymusza tagów do grupy zasobów w definicji zasad [Zezwalaj niestandardowego obrazu maszyny Wirtualnej z grupy zasobów](scripts/allow-custom-vm-image.md).
+**Tryb** Określa, jakie typy zasobów, które zostanie obliczone dla zasad. Obsługiwane tryby to:
+* `all`: ocena grup zasobów i wszystkie typy zasobów 
+* `indexed`: tylko ocenić typy zasobów, które obsługują tagów i lokalizacja
 
-Jeśli zostanie ustawiona **wszystkie**, grupy zasobów i wszystkie typy zasobów są oceniane pod kątem zasad. Portal używa **wszystkie** dla wszystkich zasad. Jeśli używasz programu PowerShell lub interfejsu wiersza polecenia Azure, należy określić `mode` parametru i wartości **wszystkich**.
-
-Użyj wszystkich definicji zasad utworzonych przy użyciu portalu `all` tryb, jeśli chcesz użyć programu PowerShell lub interfejsu wiersza polecenia Azure, należy określić `mode` parametru i ustaw ją na `all`.
-
-Jeśli ustawiono tryb `indexed`, przypisanie zasad, które zostanie obliczone tylko dla typów zasobów, które obsługują tagów i lokalizacji.
-
+Firma Microsoft zaleca, aby ustawić **tryb** do `all`. Wszystkie definicje zasady utworzone za pomocą portalu `all` tryb. Jeśli używasz programu PowerShell lub interfejsu wiersza polecenia Azure, należy określić **tryb** parametru i wartości `all`. 
 
 ## <a name="parameters"></a>Parametry
 

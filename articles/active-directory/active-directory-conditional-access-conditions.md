@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2018
+ms.date: 02/09/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 22cc43a861e2a9d1d0c508da362a5f0b48d0c268
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: bb2124613ccc467f3c560e92bdf760420410267c
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="conditions-in-azure-active-directory-conditional-access"></a>Warunki dostępu warunkowego w usłudze Azure Active Directory 
 

@@ -1,6 +1,6 @@
 ---
-title: Automatyzacja planu FedRAMP Azure - oceny ryzyka
-description: Aplikacje sieci Web dla FedRAMP - oceny ryzyka
+title: "Plan oceny ryzyka — automatyzacji aplikacji sieci Web FedRAMP - Azure zabezpieczeń i zgodności"
+description: Automatyzacja aplikacji sieci Web FedRAMP - oceny ryzyka
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 1c6bc0bc120c6ad80ff28155f73d127352a8bdc3
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 7abdb674b9d6bb000ce9a8e1861d012c1882f2a5
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="risk-assessment-ra"></a>Ocena ryzyka (RA)
 
@@ -141,7 +141,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="risk-assessment"></a>Ocena ryzyka
 
-**Pomoc Zdalna 3.e** Organizacja aktualizuje oceny ryzyka [przypisania: zdefiniowany przez organizację częstotliwość] lub znaczących zmian do systemu informacje lub środowiska operacji (w tym identyfikacji nowych zagrożeń i luk w zabezpieczeniach), lub inne warunki, które mogą mieć wpływ na stan zabezpieczeń systemu.
+**RA-3.e** Organizacja aktualizuje oceny ryzyka [przypisania: zdefiniowany przez organizację częstotliwość] lub znaczących zmian do systemu informacje lub środowiska operacji (w tym identyfikacji nowych zagrożeń i luk w zabezpieczeniach), lub inne warunki, które mogą mieć wpływ na stan zabezpieczeń systemu.
 
 **Obowiązki:**`Customer Only`
 
@@ -161,7 +161,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża rozwiązanie OMS zabezpieczeń i inspekcji. To rozwiązanie zapewnia kompleksowy przegląd stan zabezpieczeń. W ramach rozwiązania dostępne są dwie domeny zabezpieczeń oceny aktualizacji i oceny linii bazowej. Oceny linii bazowej ocenia zestaw kluczy rejestru, ustawienia zasad inspekcji i ustawienia zasad zabezpieczeń wraz z zalecanym wartości tych ustawień firmy Microsoft. Oceny aktualizacji ocenia stan dostępne aktualizacje na wszystkich wdrożonych maszyn wirtualnych. |
+| **Klienta** | Ten plan wdraża rozwiązanie OMS zabezpieczeń i inspekcji. To rozwiązanie zapewnia kompleksowy przegląd stan zabezpieczeń. W ramach rozwiązania dostępne są dwie domeny zabezpieczeń oceny aktualizacji i oceny linii bazowej. Oceny linii bazowej ocenia zestaw kluczy rejestru, ustawienia zasad inspekcji i ustawienia zasad zabezpieczeń wraz z zalecanym wartości tych ustawień firmy Microsoft. Oceny aktualizacji ocenia stan dostępne aktualizacje na wszystkich wdrożonych maszyn wirtualnych. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -175,7 +175,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża rozwiązanie OMS zabezpieczeń i inspekcji. W ramach rozwiązania dostępne są dwie domeny zabezpieczeń oceny aktualizacji i oceny linii bazowej. Zidentyfikowanych problemów są przypisywane ważności. Wspólne identyfikatory konfiguracji wyliczenie CCE () są dostępne dla reguły oceny linii bazowej.  |
+| **Klienta** | Ten plan wdraża rozwiązanie OMS zabezpieczeń i inspekcji. W ramach rozwiązania dostępne są dwie domeny zabezpieczeń oceny aktualizacji i oceny linii bazowej. Zidentyfikowanych problemów są przypisywane ważności. Wspólne identyfikatory konfiguracji wyliczenie CCE () są dostępne dla reguły oceny linii bazowej.  |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -211,7 +211,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="vulnerability-scanning"></a>Luki w zabezpieczeniach skanowania
 
-**Pomoc Zdalna 5.e** Organizacja udostępnia informacje uzyskane z usterki skanowania oceny kontroli procesu i zabezpieczeń z [przypisania: techniczną zdefiniowany przez organizację lub ról] do usunięcia podobne luk w zabezpieczeniach w innych systemów informacyjnych (tj. słabe strony algorytmu systemowych lub braki).
+**RA-5.e** Organizacja udostępnia informacje uzyskane z usterki skanowania oceny kontroli procesu i zabezpieczeń z [przypisania: techniczną zdefiniowany przez organizację lub ról] do usunięcia podobne luk w zabezpieczeniach w innych systemów informacyjnych (tj. słabe strony algorytmu systemowych lub braki).
 
 **Obowiązki:**`Customer Only`
 
@@ -231,7 +231,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża rozwiązanie OMS zabezpieczeń i inspekcji. W ramach rozwiązania dostępne są dwie domeny zabezpieczeń oceny aktualizacji i oceny linii bazowej. Kryteria, względem których oceny tych rozwiązań jest automatycznie aktualizowany. |
+| **Klienta** | Ten plan wdraża rozwiązanie OMS zabezpieczeń i inspekcji. W ramach rozwiązania dostępne są dwie domeny zabezpieczeń oceny aktualizacji i oceny linii bazowej. Kryteria, względem których oceny tych rozwiązań jest automatycznie aktualizowany. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -245,7 +245,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża rozwiązanie OMS zabezpieczeń i inspekcji. W ramach rozwiązania dostępne są dwie domeny zabezpieczeń oceny aktualizacji i oceny linii bazowej. Kryteria, względem których oceny tych rozwiązań jest automatycznie aktualizowany. |
+| **Klienta** | Ten plan wdraża rozwiązanie OMS zabezpieczeń i inspekcji. W ramach rozwiązania dostępne są dwie domeny zabezpieczeń oceny aktualizacji i oceny linii bazowej. Kryteria, względem których oceny tych rozwiązań jest automatycznie aktualizowany. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -259,7 +259,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża rozwiązanie OMS zabezpieczeń i inspekcji. W ramach rozwiązania dostępne są dwie domeny zabezpieczeń oceny aktualizacji i oceny linii bazowej. Oceny aktualizacji wykonuje oceny przed maszynami wirtualnymi w systemach Windows i Linux. Oceny linii bazowej wykonuje oceny przed maszynami wirtualnymi systemu Windows przy użyciu planu bazowego Microsoft opracowane na podstawie branży najlepszych rozwiązań. |
+| **Klienta** | Ten plan wdraża rozwiązanie OMS zabezpieczeń i inspekcji. W ramach rozwiązania dostępne są dwie domeny zabezpieczeń oceny aktualizacji i oceny linii bazowej. Oceny aktualizacji wykonuje oceny przed maszynami wirtualnymi w systemach Windows i Linux. Oceny linii bazowej wykonuje oceny przed maszynami wirtualnymi systemu Windows przy użyciu planu bazowego Microsoft opracowane na podstawie branży najlepszych rozwiązań. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -287,7 +287,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Usługi Microsoft Monitoring Agent, która jest skonfigurowana na maszynach wirtualnych wdrożonych przez ten plan Azure, jest skonfigurowana jako Usługa automatyczna z niezbędne uprawnienia dla działań oceny. |
+| **Klienta** | Usługi Microsoft Monitoring Agent, która jest skonfigurowana na maszynach wirtualnych wdrożonych przez tego planu, jest skonfigurowana jako Usługa automatyczna z niezbędne uprawnienia dla działań oceny. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -329,5 +329,5 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża rozwiązanie OMS zabezpieczeń i inspekcji. To rozwiązanie zapewnia kompleksowy przegląd stan zabezpieczeń. Pulpit nawigacyjny zabezpieczeń i kontrola zapewnia wysokiego poziomu wgląd w stan zabezpieczeń wdrożonych zasobów przy użyciu danych dostępnych w wdrożonej rozwiązań OMS. |
+| **Klienta** | Ten plan wdraża rozwiązanie OMS zabezpieczeń i inspekcji. To rozwiązanie zapewnia kompleksowy przegląd stan zabezpieczeń. Pulpit nawigacyjny zabezpieczeń i kontrola zapewnia wysokiego poziomu wgląd w stan zabezpieczeń wdrożonych zasobów przy użyciu danych dostępnych w wdrożonej rozwiązań OMS. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |

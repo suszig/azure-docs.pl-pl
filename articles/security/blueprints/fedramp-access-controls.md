@@ -1,6 +1,6 @@
 ---
-title: "Automatyzacja planu FedRAMP Azure — kontrola dostępu"
-description: "Aplikacje sieci Web dla FedRAMP — kontrola dostępu"
+title: "Plan zabezpieczeń platformy Azure i zgodność — automatyzacji aplikacji sieci Web FedRAMP — kontrola dostępu"
+description: "Automatyzacja aplikacji sieci Web FedRAMP — kontroli dostępu"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: a7a840b338af3aa6c6a71f2db3cff1e36a8a6794
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 73ce33bc6136b9b76661dc9e29b3a11c3eabc5f8
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="access-control-ac"></a>Kontrola dostępu (AC)
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure opiera się na i implementuje następujące typy kont systemu: użytkowników usługi Azure Active Directory (używany do wdrożenia rozwiązania oraz zarządzanie dostępem do zasobów platformy Azure), użytkownicy systemu Windows (zarządzane przez usługę Active Directory), konto usługi programu SQL Server. |
+| **Klienta** | Ten plan opiera się na i implementuje następujące typy kont systemu: użytkowników usługi Azure Active Directory (używany do wdrożenia rozwiązania oraz zarządzanie dostępem do zasobów platformy Azure), użytkownicy systemu Windows (zarządzane przez usługę Active Directory), konto usługi programu SQL Server. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -99,7 +99,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="account-management"></a>Zarządzanie kontami
 
-**AC 2.e** Organizacja wymaga zatwierdzenia przez [przypisania: techniczną zdefiniowany przez organizację lub ról] dla żądań kierowanych do utworzenia informacji kont systemowych.
+**AC-2.e** Organizacja wymaga zatwierdzenia przez [przypisania: techniczną zdefiniowany przez organizację lub ról] dla żądań kierowanych do utworzenia informacji kont systemowych.
 
 **Obowiązki:**`Customer Only`
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure implementuje rozwiązania OMS zabezpieczeń i kontrola tożsamości i dostępu do pulpitu nawigacyjnego. Ten pulpit nawigacyjny umożliwia menedżerów konta do monitorowania informacji systemu kont. |
+| **Klienta** | Ten plan implementuje rozwiązania OMS zabezpieczeń i kontrola tożsamości i dostępu do pulpitu nawigacyjnego. Ten pulpit nawigacyjny umożliwia menedżerów konta do monitorowania informacji systemu kont. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -203,7 +203,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure implementuje rozwiązania OMS zabezpieczeń i kontrola tożsamości i dostępu do pulpitu nawigacyjnego. Ten pulpit nawigacyjny Włącz menedżerów konta do monitorowania informacji systemu kont. OMS można skonfigurować do wysyłania alertów, gdy podejrzewa się nietypowe działania lub występują inne zdarzenia, wstępnie zdefiniowanych. |
+| **Klienta** | Ten plan implementuje rozwiązania OMS zabezpieczeń i kontrola tożsamości i dostępu do pulpitu nawigacyjnego. Ten pulpit nawigacyjny umożliwia menedżerów konta do monitorowania informacji systemu kont. OMS można skonfigurować do wysyłania alertów, gdy podejrzewa się nietypowe działania lub występują inne zdarzenia, wstępnie zdefiniowanych. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -217,7 +217,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure nie powoduje wdrożenia tymczasowe lub awaryjnego kont. Ręcznie nie jest wyłączona, kontroler domeny wdrożone automatycznie wyłącza wszystkie nieaktywne konta po 35 dni. |
+| **Klienta** | Ten plan nie powoduje wdrożenia tymczasowe lub awaryjnego kont. Ręcznie nie jest wyłączona, kontroler domeny wdrożone automatycznie wyłącza wszystkie nieaktywne konta po 35 dni. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -231,7 +231,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Kontroler domeny wdrożone przez ten plan Azure jest skonfigurowany do wyłączyć wszystkich kont użytkowników po 35 dni nieaktywności. |
+| **Klienta** | Kontroler domeny wdrożone przez ten plan jest skonfigurowany do wyłączyć wszystkich kont użytkowników po 35 dni nieaktywności. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -245,7 +245,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure implementuje następujące typy kont systemu: użytkowników usługi Azure Active Directory, użytkowników systemu Windows, konto usługi programu SQL Server. Akcje zarządzania konta w usłudze Azure Active Directory generują zdarzenie w dzienniku aktywności platformy Azure; Poziom systemu operacyjnego konta akcji zarządzania generują zdarzenie w dzienniku systemu. Te dzienniki zbieranych przez usługi Analiza dzienników i przechowywane w repozytorium OMS. OMS można skonfigurować do wysyłania alertów w przypadku wystąpienia zdarzeń wstępnie zdefiniowane.  |
+| **Klienta** | Ten plan implementuje następujące typy kont systemu: użytkowników usługi Azure Active Directory, użytkowników systemu Windows, konto usługi programu SQL Server. Akcje zarządzania konta w usłudze Azure Active Directory generują zdarzenie w dzienniku aktywności platformy Azure; Poziom systemu operacyjnego konta akcji zarządzania generują zdarzenie w dzienniku systemu. Te dzienniki zbieranych przez usługi Analiza dzienników i przechowywane w repozytorium OMS. OMS można skonfigurować do wysyłania alertów w przypadku wystąpienia zdarzeń wstępnie zdefiniowane.  |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -273,7 +273,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure implementuje następujące typy kont systemu: użytkowników usługi Azure Active Directory, użytkowników systemu Windows, konto usługi programu SQL Server. Uprawnienia konta usługi Azure Active Directory są implementowane przy użyciu kontroli dostępu opartej na rolach, przypisując użytkowników do ról; Uprawnienia konta w usłudze Active Directory są implementowane za pomocą kontroli dostępu opartej na rolach, przypisując użytkownikom dla grup zabezpieczeń. Te systemy oparte na rolach można rozszerzyć przez klienta w celu spełnienia potrzeb misji. |
+| **Klienta** | Ten plan implementuje następujące typy kont systemu: użytkowników usługi Azure Active Directory, użytkowników systemu Windows, konto usługi programu SQL Server. Uprawnienia konta usługi Azure Active Directory są implementowane przy użyciu kontroli dostępu opartej na rolach, przypisując użytkowników do ról; Uprawnienia konta w usłudze Active Directory są implementowane za pomocą kontroli dostępu opartej na rolach, przypisując użytkownikom dla grup zabezpieczeń. Te systemy oparte na rolach można rozszerzyć przez klienta w celu spełnienia potrzeb misji. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -287,7 +287,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure implementuje OMS zabezpieczeń i tożsamości i dostępu do pulpitu nawigacyjnego rozwiązania inspekcji. Ten pulpit nawigacyjny umożliwia menedżerów konta do monitorowania informacji systemu kont. To rozwiązanie może być badana zgłoszenia przypisań ról uprzywilejowanych. |
+| **Klienta** | Ten plan implementuje OMS zabezpieczeń i inspekcji rozwiązania tożsamości i dostępu do pulpitu nawigacyjnego. Ten pulpit nawigacyjny umożliwia menedżerów konta do monitorowania informacji systemu kont. To rozwiązanie może być badana zgłoszenia przypisań ról uprzywilejowanych. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -315,7 +315,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Żadnych kont udostępnionych grupy są włączone na zasoby wdrożone przez ten plan Azure. |
+| **Klienta** | Brak udostępnionego grupy kont są włączone na zasobów wykorzystywanych przez ten plan. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -329,7 +329,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Żadnych kont udostępnionych grupy są włączone na zasoby wdrożone przez ten plan Azure. |
+| **Klienta** | Brak udostępnionego grupy kont są włączone na zasobów wykorzystywanych przez ten plan. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -343,7 +343,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża kontrolera domeny, do której są przyłączone do wszystkich wdrożonych maszyn wirtualnych. Zasady grupy w usłudze Active Directory i będzie skonfigurowany tak, aby zaimplementować ograniczenia czasu dnia lub inne warunki użytkowania konta. |
+| **Klienta** | Ten plan wdrażania kontrolera domeny, do której są przyłączone do wszystkich wdrożonych maszyn wirtualnych. Zasady grupy w usłudze Active Directory i będzie skonfigurowany tak, aby zaimplementować ograniczenia czasu dnia lub inne warunki użytkowania konta. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -357,7 +357,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure implementuje rozwiązania OMS zabezpieczeń i kontrola tożsamości i dostępu do pulpitu nawigacyjnego. Ten pulpit nawigacyjny umożliwia menedżerów konta na potrzeby monitorowania prób dostępu przed wdrożonych zasobów. |
+| **Klienta** | Ten plan implementuje rozwiązania OMS zabezpieczeń i kontrola tożsamości i dostępu do pulpitu nawigacyjnego. Ten pulpit nawigacyjny umożliwia menedżerów konta na potrzeby monitorowania prób dostępu przed wdrożonych zasobów. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -371,7 +371,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure implementuje rozwiązania OMS zabezpieczeń i kontrola tożsamości i dostępu do pulpitu nawigacyjnego. Ten pulpit nawigacyjny Włącz menedżerów konta na potrzeby monitorowania prób dostępu przed wdrożonych zasobów. To rozwiązanie można skonfigurować do wysyłania alertów, gdy podejrzewa się nietypowe działania lub występują inne zdarzenia, wstępnie zdefiniowanych. |
+| **Klienta** | Ten plan implementuje rozwiązania OMS zabezpieczeń i kontrola tożsamości i dostępu do pulpitu nawigacyjnego. Ten pulpit nawigacyjny umożliwia menedżerów konta na potrzeby monitorowania prób dostępu przed wdrożonych zasobów. To rozwiązanie można skonfigurować do wysyłania alertów, gdy podejrzewa się nietypowe działania lub występują inne zdarzenia, wstępnie zdefiniowanych. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -399,7 +399,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wymusza autoryzacje logicznego dostępu za pomocą kontroli dostępu opartej na rolach, wymuszane przez usługę Azure Active Directory przez przypisywania użytkowników do ról, usługi Active Directory, przypisując użytkownikom dla grup zabezpieczeń i formanty poziomu systemu operacyjnego Windows. Azure Active Directory role przypisane do użytkowników lub grup sterować logicznego dostępu do zasobów w obrębie platformy Azure na poziomie zasobu, grupy lub subskrypcji. Grup zabezpieczeń usługi Active Directory kontrolować logicznego dostępu do zasobów na poziomie systemu operacyjnego i funkcji. |
+| **Klienta** | Ten plan wymusza autoryzacje logicznego dostępu za pomocą kontroli dostępu opartej na rolach, wymuszane przez usługę Azure Active Directory przez przypisywania użytkowników do ról, usługi Active Directory, przypisując użytkownikom dla grup zabezpieczeń i formanty poziomu systemu operacyjnego Windows. Azure Active Directory role przypisane do użytkowników lub grup sterować logicznego dostępu do zasobów w obrębie platformy Azure na poziomie zasobu, grupy lub subskrypcji. Grup zabezpieczeń usługi Active Directory kontrolować logicznego dostępu do zasobów na poziomie systemu operacyjnego i funkcji. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -413,7 +413,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wymusza ograniczenia przepływu informacji przy użyciu grup zabezpieczeń sieci zastosować do podsieci, w których są wdrażane zasoby, bramy aplikacji i usługi równoważenia obciążenia. Grup zabezpieczeń sieci upewnij się, że przepływ informacji jest kontrolowany między zasobami na podstawie reguł zatwierdzone. Moduł równoważenia bramy i obciążenia aplikacji dynamicznie kierować ruchem do określonych zasobów na podstawie zatwierdzonych ról. |
+| **Klienta** | Ten plan wymusza ograniczenia przepływu informacji przy użyciu grup zabezpieczeń sieci zastosować do podsieci, w których są wdrażane zasoby, bramy aplikacji i usługi równoważenia obciążenia. Grup zabezpieczeń sieci upewnij się, że przepływ informacji jest kontrolowany między zasobami na podstawie reguł zatwierdzone. Moduł równoważenia bramy i obciążenia aplikacji dynamicznie kierować ruchem do określonych zasobów na podstawie zatwierdzonych ról. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -483,7 +483,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure implementuje kontroli dostępu opartej na rolach, które można skonfigurować w celu rozdzielenia obowiązków zgodnie z wymaganiami organizacji. Uprawnienia konta usługi Azure Active Directory są implementowane przy użyciu kontroli dostępu opartej na rolach, przypisując użytkowników do ról; Uprawnienia konta w usłudze Active Directory są implementowane za pomocą kontroli dostępu opartej na rolach, przypisując użytkownikom dla grup zabezpieczeń. |
+| **Klienta** | Ten plan implementuje kontroli dostępu opartej na rolach, które można skonfigurować w celu rozdzielenia obowiązków zgodnie z wymaganiami organizacji. Uprawnienia konta usługi Azure Active Directory są implementowane przy użyciu kontroli dostępu opartej na rolach, przypisując użytkowników do ról; Uprawnienia konta w usłudze Active Directory są implementowane za pomocą kontroli dostępu opartej na rolach, przypisując użytkownikom dla grup zabezpieczeń. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -497,7 +497,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure implementuje kontroli dostępu opartej na rolach do Ogranicz użytkowników do tylko te uprawnienia, które jawnie przypisane. Uprawnienia konta usługi Azure Active Directory są implementowane przy użyciu kontroli dostępu opartej na rolach, przypisując użytkowników do ról; Uprawnienia konta w usłudze Active Directory są implementowane za pomocą kontroli dostępu opartej na rolach, przypisując użytkownikom dla grup zabezpieczeń.  |
+| **Klienta** | Ten plan implementuje kontroli dostępu opartej na rolach do Ogranicz użytkowników do tylko te uprawnienia, które jawnie przypisane. Uprawnienia konta usługi Azure Active Directory są implementowane przy użyciu kontroli dostępu opartej na rolach, przypisując użytkowników do ról; Uprawnienia konta w usłudze Active Directory są implementowane za pomocą kontroli dostępu opartej na rolach, przypisując użytkownikom dla grup zabezpieczeń.  |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -595,7 +595,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure implementuje kontroli dostępu opartej na rolach do Ogranicz użytkowników do tylko te uprawnienia, które jawnie przypisane. Zabezpieczenia systemu operacyjnego na poziomie maszyny wirtualnej nie zezwalają na oprogramowanie ma zostać wykonane na wyższym poziomie uprawnień niż użytkowników wykonywania oprogramowania. |
+| **Klienta** | Ten plan implementuje kontroli dostępu opartej na rolach do Ogranicz użytkowników do tylko te uprawnienia, które jawnie przypisane. Zabezpieczenia systemu operacyjnego na poziomie maszyny wirtualnej nie zezwalają na oprogramowanie ma zostać wykonane na wyższym poziomie uprawnień niż użytkowników wykonywania oprogramowania. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -609,7 +609,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure implementuje usługę Analiza dzienników w OMS. Wdrożone maszyny wirtualne i usługi Azure kont magazynu diagnostyki są połączonych źródeł do analizy dzienników zapewnienie, że wykonanie funkcji uprzywilejowanych podlega inspekcji. |
+| **Klienta** | Ten plan implementuje usługę Analiza dzienników w OMS. Wdrożone maszyny wirtualne i usługi Azure kont magazynu diagnostyki są połączonych źródeł do analizy dzienników zapewnienie, że wykonanie funkcji uprzywilejowanych podlega inspekcji. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -623,7 +623,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure implementuje kontroli dostępu opartej na rolach do Ogranicz użytkowników do tylko te uprawnienia, które jawnie przypisane.  |
+| **Klienta** | Ten plan implementuje kontroli dostępu opartej na rolach do Ogranicz użytkowników do tylko te uprawnienia, które jawnie przypisane.  |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -637,7 +637,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Limity portalu Azure kolejnych nieprawidłowe próby logowania przez użytkowników. Zasady grupy są stosowane dla wszystkich maszyn wirtualnych wdrożonych przez ten plan Azure na poziomie systemu operacyjnego. Zasady ogranicza kolejnych nieudanych prób logowania przez użytkowników do nie więcej niż trzech w ciągu 15 minut. |
+| **Klienta** | Limity portalu Azure kolejnych nieprawidłowe próby logowania przez użytkowników. Zasady grupy są stosowane na poziomie systemu operacyjnego dla wszystkich maszyn wirtualnych wdrożonych przez tego planu. Zasady ogranicza kolejnych nieudanych prób logowania przez użytkowników do nie więcej niż trzech w ciągu 15 minut. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -651,7 +651,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Azure portal blokady konta po kolejnych nieprawidłowe próby logowania przez użytkowników. Zasady grupy są stosowane dla wszystkich maszyn wirtualnych wdrożonych przez ten plan Azure na poziomie systemu operacyjnego. Zasady blokowania kont do trzech godzin po trzech kolejnych nieudanych prób logowania przez użytkowników. |
+| **Klienta** | Azure portal blokady konta po kolejnych nieprawidłowe próby logowania przez użytkowników. Zasady grupy są stosowane na poziomie systemu operacyjnego dla wszystkich maszyn wirtualnych wdrożonych przez tego planu. Zasady blokowania kont do trzech godzin po trzech kolejnych nieudanych prób logowania przez użytkowników. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -679,7 +679,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża kontrolera domeny, do której są przyłączone do wszystkich wdrożonych maszyn wirtualnych. Zasady grupy implementuje powiadomienie Użyj systemu, który będzie wyświetlany użytkownikom przed logowania. Uwaga: Plan Azure implementuje Użyj powiadomienie systemowe przykład. Klienta należy edytować ten tekst ma spełnia organizacji i/lub wymagania dotyczące przepisów treści. |
+| **Klienta** | Ten plan wdrażania kontrolera domeny, do której są przyłączone do wszystkich wdrożonych maszyn wirtualnych. Zasady grupy implementuje powiadomienie Użyj systemu, który będzie wyświetlany użytkownikom przed logowania. Uwaga: Ten plan implementuje Użyj powiadomienie systemowe przykład. Klienta należy edytować ten tekst ma spełnia organizacji i/lub wymagania dotyczące przepisów treści. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -693,7 +693,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża kontrolera domeny, do której są przyłączone do wszystkich wdrożonych maszyn wirtualnych. Zasady grupy implementuje powiadomienie Użyj systemu, który będzie wyświetlany użytkownikom przed logowania. Użytkownik musi potwierdzić powiadomień, aby zalogować się. |
+| **Klienta** | Ten plan wdrażania kontrolera domeny, do której są przyłączone do wszystkich wdrożonych maszyn wirtualnych. Zasady grupy implementuje powiadomienie Użyj systemu, który będzie wyświetlany użytkownikom przed logowania. Użytkownik musi potwierdzić powiadomień, aby zalogować się. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -721,7 +721,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Zasady systemu operacyjnego został zaimplementowany dla maszyn wirtualnych wdrożonych przez ten plan Azure. Zasady implementuje ograniczenia równoczesnych sesji (dwa sesji). |
+| **Klienta** | Zasady systemu operacyjnego został zaimplementowany dla maszyn wirtualnych wdrożonych przez tego planu. Zasady implementuje ograniczenia równoczesnych sesji (dwa sesji). |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -735,7 +735,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża kontrolera domeny, do której są przyłączone do wszystkich wdrożonych maszyn wirtualnych. Zasady grupy implementuje blokady nieaktywności sesji protokołu RDP. Użytkownicy mogą ręcznie inicjować blokady. |
+| **Klienta** | Ten plan wdrażania kontrolera domeny, do której są przyłączone do wszystkich wdrożonych maszyn wirtualnych. Zasady grupy implementuje blokady nieaktywności sesji protokołu RDP. Użytkownicy mogą ręcznie inicjować blokady. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -749,7 +749,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża kontrolera domeny, do której są przyłączone do wszystkich wdrożonych maszyn wirtualnych. Zasady grupy implementuje blokady nieaktywności sesji protokołu RDP. Użytkownicy muszą ponownie uwierzytelniać do odblokowania sesji.  |
+| **Klienta** | Ten plan wdrażania kontrolera domeny, do której są przyłączone do wszystkich wdrożonych maszyn wirtualnych. Zasady grupy implementuje blokady nieaktywności sesji protokołu RDP. Użytkownicy muszą ponownie uwierzytelniać do odblokowania sesji.  |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -763,7 +763,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża kontrolera domeny, do której są przyłączone do wszystkich wdrożonych maszyn wirtualnych. Zasady grupy implementuje blokady nieaktywności sesji protokołu RDP. Blokady sesji zawiera informacje widoczne wcześniej. |
+| **Klienta** | Ten plan wdrażania kontrolera domeny, do której są przyłączone do wszystkich wdrożonych maszyn wirtualnych. Zasady grupy implementuje blokady nieaktywności sesji protokołu RDP. Blokady sesji zawiera informacje widoczne wcześniej. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -777,7 +777,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Konfiguracja hosta sesji usług pulpitu zdalnego dla maszyn wirtualnych systemu Windows wdrożone przez ten plan Azure można skonfigurować do zakończenia sesji wymagań organizacji. |
+| **Klienta** | Konfiguracja hosta sesji usług pulpitu zdalnego dla maszyn wirtualnych systemu Windows wdrożone przez ten plan można skonfigurować do zakończenia sesji wymagań organizacji. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -791,7 +791,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Azure portal maszyny wirtualnej systemów operacyjnych i wdrożone przez ten plan Azure Włącz używane do inicjowania wylogowania. |
+| **Klienta** | Azure portal maszyny wirtualnej systemów operacyjnych i wdrożone przez ten plan Włącz używane do inicjowania wylogowania. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -805,7 +805,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Azure portal maszyny wirtualnej systemów operacyjnych i wdrożone przez ten plan Azure Włącz używane do inicjowania wylogowania. Proces wylogowywania zawiera wskazanie użytkownikom zakończenia sesji. |
+| **Klienta** | Azure portal maszyny wirtualnej systemów operacyjnych i wdrożone przez ten plan Włącz używane do inicjowania wylogowania. Proces wylogowywania zawiera wskazanie użytkownikom zakończenia sesji. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -875,7 +875,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure zapewnia dostęp zdalny do systemu informacji za pośrednictwem portalu Azure za pomocą połączeń usług pulpitu zdalnego za pośrednictwem jumpbox i za pośrednictwem aplikacji sieci web zaimplementowana przez klienta. Dostęp za pośrednictwem portalu Azure i sesji pulpitu zdalnego są poddawane inspekcji i mogą być monitorowane przez OMS. Klient musi implementować kontroli dostępu zdalnego, w razie potrzeby do aplikacji sieci web. |
+| **Klienta** | Ten plan zapewnia dostęp zdalny do systemu informacji za pośrednictwem portalu Azure za pomocą połączeń usług pulpitu zdalnego za pośrednictwem jumpbox i za pośrednictwem aplikacji sieci web zaimplementowana przez klienta. Dostęp za pośrednictwem portalu Azure i sesji pulpitu zdalnego są poddawane inspekcji i mogą być monitorowane przez OMS. Klient musi implementować kontroli dostępu zdalnego, w razie potrzeby do aplikacji sieci web. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -889,7 +889,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Dostęp zdalny do zasobów wykorzystywanych przez ten schemat Azure, w tym portalu Azure, połączeń usług pulpitu zdalnego i brama aplikacji w sieci web, są chronione przy użyciu protokołu TLS. |
+| **Klienta** | Dostęp zdalny do zasobów wykorzystywanych przez ten schemat, w tym portalu Azure, połączeń usług pulpitu zdalnego i brama aplikacji w sieci web, są chronione przy użyciu protokołu TLS. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -903,7 +903,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Zdalny dostęp do aplikacji web zakładaną wdrożone przez ten plan Azure jest za pośrednictwem bramy aplikacji. Dostęp zdalny do innych zasobów jest za pośrednictwem jumpbox. Nie ma żadnych innych publicznie punktów końcowych. |
+| **Klienta** | Zdalny dostęp do aplikacji sieci web zakładaną wdrożone przez ten plan jest za pośrednictwem bramy aplikacji. Dostęp zdalny do innych zasobów jest za pośrednictwem jumpbox. Nie ma żadnych innych publicznie punktów końcowych. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -945,7 +945,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure zapewnia dostęp zdalny do systemu informacji za pośrednictwem portalu Azure, za pomocą połączeń usług pulpitu zdalnego za pośrednictwem jumpbox i aplikacji sieci web. Jeśli konta usługi Azure Active Directory jest wyłączony lub usunięty, dostępu do portalu Azure jest odłączony od razu. Podobnie jeśli konto na poziomie systemu operacyjnego maszyny wirtualnej jest wyłączone lub usunięte, pulpitu dostępu zdalnego za pośrednictwem jumpbox jest odłączony od razu. Klienci muszą implementować dostępu zdalnego rozłączyć dla aplikacji sieci web. |
+| **Klienta** | Ten plan zapewnia dostęp zdalny do systemu informacji za pośrednictwem portalu Azure, za pomocą połączeń usług pulpitu zdalnego za pośrednictwem jumpbox i aplikacji sieci web. Jeśli konta usługi Azure Active Directory jest wyłączony lub usunięty, dostępu do portalu Azure jest odłączony od razu. Podobnie jeśli konto na poziomie systemu operacyjnego maszyny wirtualnej jest wyłączone lub usunięte, pulpitu dostępu zdalnego za pośrednictwem jumpbox jest odłączony od razu. Klienci muszą implementować dostępu zdalnego rozłączyć dla aplikacji sieci web. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 

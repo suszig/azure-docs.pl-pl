@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: deguhath;bradsev;gokuma
-ms.openlocfilehash: 4b8023b8b2c33ce9fc1a6294e21b1518abbc392b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 078e1d209d0472051e2ec2804e67518a92285413
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Eksplorowanie i modelowanie danych za pomocą platformy Spark
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -218,7 +218,7 @@ Po wprowadzeniu danych w Spark, następnym krokiem w procesie nauki danych jest 
 Ten kod i kolejne wstawki umożliwia SQL magic próbki oraz lokalnego magic danych zapytania.
 
 * **Magiczna SQL (`%%sql`)** jądra HDInsight PySpark obsługuje zapytania HiveQL łatwe wbudowanego przed element sqlContext. (-O nazwa_zmiennej) argument będzie się powtarzał wyniki kwerendy SQL jako DataFrame Pandas, na serwerze Jupyter. Oznacza to, że jest on dostępny w trybie lokalnym.
-*  **`%%local` Magic** służy do uruchomienia kodu lokalnie na serwerze Jupyter jest headnode klastra usługi HDInsight. Zazwyczaj `%%local` magic w połączeniu z `%%sql` magic z parametrem -o. Parametru -o czy zachować dane wyjściowe kwerendy SQL lokalnie, a następnie %% magic lokalnego spowoduje wywołanie następnego zestawu fragment kodu w celu uruchomienia lokalnie wynik zapytania SQL jest trwały lokalnie
+* **`%%local` Magic** służy do uruchomienia kodu lokalnie na serwerze Jupyter jest headnode klastra usługi HDInsight. Zazwyczaj `%%local` magic w połączeniu z `%%sql` magic z parametrem -o. Parametru -o czy zachować dane wyjściowe kwerendy SQL lokalnie, a następnie %% magic lokalnego spowoduje wywołanie następnego zestawu fragment kodu w celu uruchomienia lokalnie wynik zapytania SQL jest trwały lokalnie
 
 Dane wyjściowe automatyczna wizualizacja po uruchomieniu kodu.
 
@@ -635,7 +635,7 @@ Kod w tej sekcji przedstawiono sposób uczenia, oceny i Zapisz model Regresja lo
 
 **DANE WYJŚCIOWE:** 
 
-Współczynniki: [0.0082065285375,-0.0223675576104,-0.0183812028036, - 3.48124578069e-05,-0.00247646947233,-0.00165897881503, 0.0675394837328,-0.111823113101,-0.324609912762,-0.204549780032,-1.36499216354, 0.591088507921,-0.664263411392,-1.00439726852, 3.46567827545,-3.51025855172,-0.0471341112232,-0.043521833294, 0.000243375810385, 0.054518719222]
+Coefficients: [0.0082065285375, -0.0223675576104, -0.0183812028036, -3.48124578069e-05, -0.00247646947233, -0.00165897881503, 0.0675394837328, -0.111823113101, -0.324609912762, -0.204549780032, -1.36499216354, 0.591088507921, -0.664263411392, -1.00439726852, 3.46567827545, -3.51025855172, -0.0471341112232, -0.043521833294, 0.000243375810385, 0.054518719222]
 
 Intercept:-0.0111216486893
 
@@ -904,7 +904,7 @@ Kod w tej sekcji pokazano, jak używać funkcji skalowany w celu przeszkolenia r
 
 **DANE WYJŚCIOWE:**
 
-Współczynniki: [0.00457675809917,-0.0226314167349,-0.0191910355236, 0.246793409578, 0.312047890459, 0.359634405999, 0.00928692253981,-0.000987181489428,-0.0888306617845, 0.0569376211553, 0.115519551711, 0.149250164995,-0.00990211159703,-0.00637410344522, 0.545083566179,-0.536756072402, 0.0105762393099,-0.0130117577055, 0.0129304737772,-0.00171065945959]
+Coefficients: [0.00457675809917, -0.0226314167349, -0.0191910355236, 0.246793409578, 0.312047890459, 0.359634405999, 0.00928692253981, -0.000987181489428, -0.0888306617845, 0.0569376211553, 0.115519551711, 0.149250164995, -0.00990211159703, -0.00637410344522, 0.545083566179, -0.536756072402, 0.0105762393099, -0.0130117577055, 0.0129304737772, -0.00171065945959]
 
 Przechwycić: 0.853872718283
 
@@ -969,7 +969,7 @@ Czas wykonywania nad komórką: 49.21 sekund
 ### <a name="gradient-boosting-trees-regression"></a>Gradientu zwiększania wyniku regresji drzewa.
 Kod w tej sekcji przedstawiono sposób uczenia, oceny i Zapisz gradientu zwiększania wyniku modelu drzewa, który prognozuje Porada ilość danych NYC taksówki podróży.
 
-** Nauczanie i Ewaluacja **
+**Nauczanie i Ewaluacja**
 
     #PREDICT TIP AMOUNTS USING GRADIENT BOOSTING TREES
 

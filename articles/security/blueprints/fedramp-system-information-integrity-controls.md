@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP plan usługi Automatyzacja Azure - systemu i integralność informacji"
-description: "Aplikacje sieci Web dla FedRAMP - systemu i integralność informacji"
+title: "Zabezpieczeń platformy Azure i systemu plan - automatyzacji aplikacji sieci Web FedRAMP — zgodność i integralność informacji"
+description: "Automatyzacja aplikacji FedRAMP sieci Web — System i integralność informacji"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 1dc6805a5a1f610f06ce58bd4bd644346436294e
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 2d744032c2a35fbbedf34397861c3bb03aa39939
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="system-and-information-integrity-si"></a>System i integralność informacji (SI)
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-si-2a"></a>Formant NIST 800 53 SI-2.a
+ ## <a name="nist-800-53-control-si-2a"></a>NIST 800-53 Control SI-2.a
 
 #### <a name="flaw-remediation"></a>Luka korygowania
 
@@ -49,11 +49,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża rozwiązanie Automatyzacja OMS i kontroli do śledzenia stanu aktualizacji dla maszyn wirtualnych systemu Windows wdrożone w ramach tej architektury. Na pulpicie nawigacyjnym OMS kafelka zarządzania aktualizacjami Wyświetla stan korygowania luka wszystkich wdrożonych serwerów systemu Windows. |
+| **Klienta** | Ten plan wdraża rozwiązanie Automatyzacja OMS i kontroli do śledzenia stanu aktualizacji dla maszyn wirtualnych systemu Windows wdrożone w ramach tej architektury. Na pulpicie nawigacyjnym OMS kafelka zarządzania aktualizacjami Wyświetla stan korygowania luka wszystkich wdrożonych serwerów systemu Windows. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-si-2b"></a>Formant NIST 800 53 SI-2.b
+ ## <a name="nist-800-53-control-si-2b"></a>NIST 800-53 Control SI-2.b
 
 #### <a name="flaw-remediation"></a>Luka korygowania
 
@@ -67,7 +67,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-si-2c"></a>Formant NIST 800 53 SI-2.c
+ ## <a name="nist-800-53-control-si-2c"></a>NIST 800-53 Control SI-2.c
 
 #### <a name="flaw-remediation"></a>Luka korygowania
 
@@ -77,11 +77,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Maszyny wirtualne systemu Windows wdrożone przez ten plan Azure są domyślnie skonfigurowane, odbierania automatycznych aktualizacji z usługi Windows Update. To rozwiązanie również wdraża rozwiązanie Automatyzacja OMS i kontroli, za pomocą których można utworzyć wdrożenia aktualizacji do wdrożenia poprawki na serwerach z systemem Windows w razie potrzeby. |
+| **Klienta** | Maszyny wirtualne systemu Windows wdrożone przez ten plan są domyślnie skonfigurowane, odbierania automatycznych aktualizacji z usługi Windows Update. To rozwiązanie również wdraża rozwiązanie Automatyzacja OMS i kontroli, za pomocą których można utworzyć wdrożenia aktualizacji do wdrożenia poprawki na serwerach z systemem Windows w razie potrzeby. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-si-2d"></a>Formant NIST 800 53 SI-2.d
+ ## <a name="nist-800-53-control-si-2d"></a>NIST 800-53 Control SI-2.d
 
 #### <a name="flaw-remediation"></a>Luka korygowania
 
@@ -105,7 +105,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża rozwiązanie Automatyzacja OMS i kontroli do śledzenia stanu aktualizacji dla maszyn wirtualnych systemu Windows wdrożone w ramach tej architektury. Na pulpicie nawigacyjnym OMS kafelka zarządzania aktualizacjami Wyświetla stan korygowania luka wszystkich wdrożonych serwerów systemu Windows. Do wdrożenia poprawki na serwerach z systemem Windows w razie potrzeby można utworzyć wdrożenia aktualizacji. |
+| **Klienta** | Ten plan wdraża rozwiązanie Automatyzacja OMS i kontroli do śledzenia stanu aktualizacji dla maszyn wirtualnych systemu Windows wdrożone w ramach tej architektury. Na pulpicie nawigacyjnym OMS kafelka zarządzania aktualizacjami Wyświetla stan korygowania luka wszystkich wdrożonych serwerów systemu Windows. Do wdrożenia poprawki na serwerach z systemem Windows w razie potrzeby można utworzyć wdrożenia aktualizacji. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża rozwiązanie Automatyzacja OMS i kontroli do śledzenia stanu aktualizacji dla maszyn wirtualnych systemu Windows wdrożone w ramach tej architektury. Skanowanie każdego zarządzanego komputera z systemem Windows odbywa się dwa razy dziennie. Co 15 minut wywoływany jest interfejs API systemu Windows, aby wykonać zapytanie o czas ostatniej aktualizacji w celu sprawdzenia, czy stan się zmienił, a jeśli tak, inicjowane jest skanowanie pod kątem zgodności. |
+| **Klienta** | Ten plan wdraża rozwiązanie Automatyzacja OMS i kontroli do śledzenia stanu aktualizacji dla maszyn wirtualnych systemu Windows wdrożone w ramach tej architektury. Skanowanie każdego zarządzanego komputera z systemem Windows odbywa się dwa razy dziennie. Co 15 minut wywoływany jest interfejs API systemu Windows, aby wykonać zapytanie o czas ostatniej aktualizacji w celu sprawdzenia, czy stan się zmienił, a jeśli tak, inicjowane jest skanowanie pod kątem zgodności. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -137,7 +137,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ### <a name="nist-800-53-control-si-2-3b"></a>NIST 800 53 kontrolować SI-2, b (3)
+ ### <a name="nist-800-53-control-si-2-3b"></a>NIST 800-53 Control SI-2 (3).b
 
 #### <a name="flaw-remediation--time-to-remediate-flaws--benchmarks-for-corrective-actions"></a>Aktualizacja_zabezpieczeń korygowania | Czas do rozwiązania wady / testy dla działania naprawcze
 
@@ -151,7 +151,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-si-3a"></a>Formant NIST 800 53 SI-3.a
+ ## <a name="nist-800-53-control-si-3a"></a>NIST 800-53 Control SI-3.a
 
 #### <a name="malicious-code-protection"></a>Ochrona złośliwego kodu
 
@@ -161,11 +161,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża zabezpieczenia ochrony przed złośliwym kodem oparta na hoście dla wszystkich wdrożonych maszyn wirtualnych systemu Windows implementowane przy użyciu rozszerzenia maszyny wirtualnej Antimalware firmy Microsoft. |
+| **Klienta** | Ten plan wdraża zabezpieczenia ochrony przed złośliwym kodem oparta na hoście dla wszystkich wdrożonych maszyn wirtualnych systemu Windows implementowane przy użyciu rozszerzenia maszyny wirtualnej Antimalware firmy Microsoft. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-si-3b"></a>Formant NIST 800 53 SI-3.b
+ ## <a name="nist-800-53-control-si-3b"></a>NIST 800-53 Control SI-3.b
 
 #### <a name="malicious-code-protection"></a>Ochrona złośliwego kodu
 
@@ -175,11 +175,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża zabezpieczenia ochrony przed złośliwym kodem oparta na hoście dla wszystkich wdrożonych maszyn wirtualnych systemu Windows implementowane przy użyciu rozszerzenia maszyny wirtualnej Antimalware firmy Microsoft. To rozszerzenie jest skonfigurowany do automatycznego aktualizowania obu ochrony przed złośliwym kodem aparatu i ochrony podpisy jako wersji staną się dostępne. |
+| **Klienta** | Ten plan wdraża zabezpieczenia ochrony przed złośliwym kodem oparta na hoście dla wszystkich wdrożonych maszyn wirtualnych systemu Windows implementowane przy użyciu rozszerzenia maszyny wirtualnej Antimalware firmy Microsoft. To rozszerzenie jest skonfigurowany do automatycznego aktualizowania obu ochrony przed złośliwym kodem aparatu i ochrony podpisy jako wersji staną się dostępne. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-si-3c"></a>Formant NIST 800 53 SI-3.c
+ ## <a name="nist-800-53-control-si-3c"></a>NIST 800-53 Control SI-3.c
 
 #### <a name="malicious-code-protection"></a>Ochrona złośliwego kodu
 
@@ -189,11 +189,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża zabezpieczenia ochrony przed złośliwym kodem oparta na hoście dla wszystkich wdrożonych maszyn wirtualnych systemu Windows implementowane przy użyciu rozszerzenia maszyny wirtualnej Antimalware firmy Microsoft. To rozszerzenie jest skonfigurowany do skanowania zarówno w czasie rzeczywistym oraz okresowe (co tydzień), automatycznie zaktualizować obu ochrony przed złośliwym kodem aparatu i ochrony sygnatury i akcje automatycznego korygowania. |
+| **Klienta** | Ten plan wdraża zabezpieczenia ochrony przed złośliwym kodem oparta na hoście dla wszystkich wdrożonych maszyn wirtualnych systemu Windows implementowane przy użyciu rozszerzenia maszyny wirtualnej Antimalware firmy Microsoft. To rozszerzenie jest skonfigurowany do skanowania zarówno w czasie rzeczywistym oraz okresowe (co tydzień), automatycznie zaktualizować obu ochrony przed złośliwym kodem aparatu i ochrony sygnatury i akcje automatycznego korygowania. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-si-3d"></a>Formant NIST 800 53 SI-3.d
+ ## <a name="nist-800-53-control-si-3d"></a>NIST 800-53 Control SI-3.d
 
 #### <a name="malicious-code-protection"></a>Ochrona złośliwego kodu
 
@@ -217,7 +217,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża zabezpieczenia ochrony przed złośliwym kodem oparta na hoście dla wszystkich wdrożonych maszyn wirtualnych systemu Windows implementowane przy użyciu rozszerzenia maszyny wirtualnej Antimalware firmy Microsoft. Azure OMS zapewnia scentralizowane możliwość sprawdź bieżący stan rozwiązania chroniące przed złośliwym kodem. |
+| **Klienta** | Ten plan wdraża zabezpieczenia ochrony przed złośliwym kodem oparta na hoście dla wszystkich wdrożonych maszyn wirtualnych systemu Windows implementowane przy użyciu rozszerzenia maszyny wirtualnej Antimalware firmy Microsoft. Azure OMS zapewnia scentralizowane możliwość sprawdź bieżący stan rozwiązania chroniące przed złośliwym kodem. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -231,7 +231,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża zabezpieczenia ochrony przed złośliwym kodem oparta na hoście dla wszystkich wdrożonych maszyn wirtualnych systemu Windows implementowane przy użyciu rozszerzenia maszyny wirtualnej Antimalware firmy Microsoft. To rozszerzenie jest skonfigurowany do automatycznego aktualizowania obu ochrony przed złośliwym kodem aparatu i ochrony podpisy jako wersji staną się dostępne. |
+| **Klienta** | Ten plan wdraża zabezpieczenia ochrony przed złośliwym kodem oparta na hoście dla wszystkich wdrożonych maszyn wirtualnych systemu Windows implementowane przy użyciu rozszerzenia maszyny wirtualnej Antimalware firmy Microsoft. To rozszerzenie jest skonfigurowany do automatycznego aktualizowania obu ochrony przed złośliwym kodem aparatu i ochrony podpisy jako wersji staną się dostępne. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -245,11 +245,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża zabezpieczenia ochrony przed złośliwym kodem oparta na hoście dla wszystkich wdrożonych maszyn wirtualnych systemu Windows implementowane przy użyciu rozszerzenia maszyny wirtualnej Antimalware firmy Microsoft. To rozszerzenie jest skonfigurowany do wykonywania heurystyczne wykrycie. |
+| **Klienta** | Ten plan wdraża zabezpieczenia ochrony przed złośliwym kodem oparta na hoście dla wszystkich wdrożonych maszyn wirtualnych systemu Windows implementowane przy użyciu rozszerzenia maszyny wirtualnej Antimalware firmy Microsoft. To rozszerzenie jest skonfigurowany do wykonywania heurystyczne wykrycie. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-si-4a"></a>Formant NIST 800 53 SI-4.a
+ ## <a name="nist-800-53-control-si-4a"></a>NIST 800-53 Control SI-4.a
 
 #### <a name="information-system-monitoring"></a>Monitorowanie systemu informacji
 
@@ -259,11 +259,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża analizy dzienników i rozwiązań zabezpieczeń OMS i inspekcji. To rozwiązanie zapewnia obszerne stan zabezpieczeń, ataków i wskaźniki potencjalnych ataków. Pulpit nawigacyjny zabezpieczeń i kontrola zapewnia wysokiego poziomu wgląd w stan zabezpieczeń wdrożonych zasobów przy użyciu danych dostępnych w wdrożonej rozwiązań OMS. |
+| **Klienta** | Ten plan wdraża analizy dzienników i rozwiązań zabezpieczeń OMS i inspekcji. To rozwiązanie zapewnia obszerne stan zabezpieczeń, ataków i wskaźniki potencjalnych ataków. Pulpit nawigacyjny zabezpieczeń i kontrola zapewnia wysokiego poziomu wgląd w stan zabezpieczeń wdrożonych zasobów przy użyciu danych dostępnych w wdrożonej rozwiązań OMS. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-si-4b"></a>Formant NIST 800 53 SI-4.b
+ ## <a name="nist-800-53-control-si-4b"></a>NIST 800-53 Control SI-4.b
 
 #### <a name="information-system-monitoring"></a>Monitorowanie systemu informacji
 
@@ -273,11 +273,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża rozwiązanie OMS zabezpieczeń i inspekcji. Identyfikowanie i dostępu do domeny udostępnia pulpit nawigacyjny przegląd stanu systemu tożsamości informacji, w tym liczby nieudanych prób logowania, a bieżąca liczba kont, które są rejestrowane w usłudze. Informacje dostępne w ten pulpit nawigacyjny może pomóc w identyfikacji potencjalnych podejrzanych działań. |
+| **Klienta** | Ten plan wdraża rozwiązanie OMS zabezpieczeń i inspekcji. Identyfikowanie i dostępu do domeny udostępnia pulpit nawigacyjny przegląd stanu systemu tożsamości informacji, w tym liczby nieudanych prób logowania, a bieżąca liczba kont, które są rejestrowane w usłudze. Informacje dostępne w ten pulpit nawigacyjny może pomóc w identyfikacji potencjalnych podejrzanych działań. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-si-4c"></a>Formant NIST 800 53 SI-4.c
+ ## <a name="nist-800-53-control-si-4c"></a>NIST 800-53 Control SI-4.c
 
 #### <a name="information-system-monitoring"></a>Monitorowanie systemu informacji
 
@@ -287,11 +287,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża analizy dzienników i rozwiązań zabezpieczeń OMS i inspekcji. Bezpieczeństwo i inspekcji pulpit nawigacyjny zapewnia wysokiego poziomu wgląd w stan zabezpieczeń zasobów wdrożone przy użyciu danych dostępna we wdrożonej OMS rozwiązania wgląd w dane monitorowania systemu operacyjnego maszyny Wirtualnej. |
+| **Klienta** | Ten plan wdraża analizy dzienników i rozwiązań zabezpieczeń OMS i inspekcji. Bezpieczeństwo i inspekcji pulpit nawigacyjny zapewnia wysokiego poziomu wgląd w stan zabezpieczeń zasobów wdrożone przy użyciu danych dostępna we wdrożonej OMS rozwiązania wgląd w dane monitorowania systemu operacyjnego maszyny Wirtualnej. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-si-4d"></a>Formant NIST 800 53 SI-4.d
+ ## <a name="nist-800-53-control-si-4d"></a>NIST 800-53 Control SI-4.d
 
 #### <a name="information-system-monitoring"></a>Monitorowanie systemu informacji
 
@@ -301,15 +301,15 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Formanty logicznego dostępu służą do ochrony informacji monitorowania w ramach tego planu Azure przed nieautoryzowanym dostępem, modyfikowanie i usuwanie. Usługa Azure Active Directory wymusza zatwierdzonych logicznego dostępu przy użyciu członkostwa w grupach opartej na rolach. Możliwość wyświetlania informacji monitorowania i używać narzędzi do monitorowania może być ograniczony do użytkowników, którzy wymagają tych uprawnień. |
+| **Klienta** | Formanty logicznego dostępu służą do ochrony informacji monitorowania w ramach tego planu przed nieautoryzowanym dostępem, modyfikowanie i usuwanie. Usługa Azure Active Directory wymusza zatwierdzonych logicznego dostępu przy użyciu członkostwa w grupach opartej na rolach. Możliwość wyświetlania informacji monitorowania i używać narzędzi do monitorowania może być ograniczony do użytkowników, którzy wymagają tych uprawnień. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-si-4e"></a>Formant NIST 800 53 SI-4.e
+ ## <a name="nist-800-53-control-si-4e"></a>NIST 800-53 Control SI-4.e
 
 #### <a name="information-system-monitoring"></a>Monitorowanie systemu informacji
 
-**SI 4.e** Poziom systemu informacji monitorowania aktywności, gdy istnieje wskazanie zwiększone ryzyko operacje organizacyjne i zasoby, osobom, innych organizacji lub kraju, na podstawie informacji egzekwowania prawa, między elementami organizacji informacje dotyczące analizy lub innych wiarygodnych źródeł informacji.
+**SI-4.e** Poziom systemu informacji monitorowania aktywności, gdy istnieje wskazanie zwiększone ryzyko operacje organizacyjne i zasoby, osobom, innych organizacji lub kraju, na podstawie informacji egzekwowania prawa, między elementami organizacji informacje dotyczące analizy lub innych wiarygodnych źródeł informacji.
 
 **Obowiązki:**`Customer Only`
 
@@ -319,7 +319,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-si-4f"></a>Formant NIST 800 53 SI-4.f
+ ## <a name="nist-800-53-control-si-4f"></a>NIST 800-53 Control SI-4.f
 
 #### <a name="information-system-monitoring"></a>Monitorowanie systemu informacji
 
@@ -333,7 +333,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-si-4g"></a>Formant NIST 800 53 SI-4.g
+ ## <a name="nist-800-53-control-si-4g"></a>NIST 800-53 Control SI-4.g
 
 #### <a name="information-system-monitoring"></a>Monitorowanie systemu informacji
 
@@ -371,7 +371,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża analizy dzienników i różne rozwiązania OMS, w tym w zakresie zabezpieczeń i inspekcji. Analiza dzienników zapewnia niemal w czasie rzeczywistym analizy zdarzeń między wdrożonych zasobów. Rozwiązania pakietu OMS zawiera obszerne stan zabezpieczeń między domenami rozwiązania. OMS zapewnia wgląd w stan zabezpieczeń wdrożonych zasobów przy użyciu danych dostępnych w wdrożonej rozwiązań OMS. OMS można skonfigurować do generowania alertów na podstawie określonych kryteriów. |
+| **Klienta** | Ten plan wdraża analizy dzienników i różne rozwiązania OMS, w tym w zakresie zabezpieczeń i inspekcji. Analiza dzienników zapewnia niemal w czasie rzeczywistym analizy zdarzeń między wdrożonych zasobów. Rozwiązania pakietu OMS zawiera obszerne stan zabezpieczeń między domenami rozwiązania. OMS zapewnia wgląd w stan zabezpieczeń wdrożonych zasobów przy użyciu danych dostępnych w wdrożonej rozwiązań OMS. OMS można skonfigurować do generowania alertów na podstawie określonych kryteriów. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -399,7 +399,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża różnych OMS rozwiązania w zakresie zabezpieczeń i inspekcji. Analiza dzienników zapewnia niemal w czasie rzeczywistym analizy zdarzeń między wdrożonych zasobów. Rozwiązania pakietu OMS zawiera obszerne stan zabezpieczeń między domenami rozwiązania. OMS można skonfigurować do generowania alertów na podstawie określonych kryteriów. |
+| **Klienta** | Ten plan wdraża różnych OMS rozwiązania w zakresie zabezpieczeń i inspekcji. Analiza dzienników zapewnia niemal w czasie rzeczywistym analizy zdarzeń między wdrożonych zasobów. Rozwiązania pakietu OMS zawiera obszerne stan zabezpieczeń między domenami rozwiązania. OMS można skonfigurować do generowania alertów na podstawie określonych kryteriów. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -441,7 +441,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża analizy dzienników i różne rozwiązania OMS, w tym w zakresie zabezpieczeń i inspekcji. OMS zapewnia wgląd w stan zabezpieczeń wdrożonych zasobów przy użyciu danych dostępnych w wdrożonej rozwiązań OMS. |
+| **Klienta** | Ten plan wdraża analizy dzienników i różne rozwiązania OMS, w tym w zakresie zabezpieczeń i inspekcji. OMS zapewnia wgląd w stan zabezpieczeń wdrożonych zasobów przy użyciu danych dostępnych w wdrożonej rozwiązań OMS. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -511,7 +511,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure zbiera dane monitorowania z wdrożonych zasobów, włącznie z danymi z możliwości monitorowania oparta na hoście. Microsoft Monitoring Agent jest zainstalowany na wszystkich maszynach wirtualnych systemu Windows do zbierania danych monitorowania używane przez usługi Analiza dzienników oraz innych rozwiązań pakietu OMS. |
+| **Klienta** | Ten plan zbiera dane monitorowania z wdrożonych zasobów, włącznie z danymi z możliwości monitorowania oparta na hoście. Microsoft Monitoring Agent jest zainstalowany na wszystkich maszynach wirtualnych systemu Windows do zbierania danych monitorowania używane przez usługi Analiza dzienników oraz innych rozwiązań pakietu OMS. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -529,7 +529,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-si-5a"></a>Formant NIST 800 53 SI-5.a
+ ## <a name="nist-800-53-control-si-5a"></a>NIST 800-53 Control SI-5.a
 
 #### <a name="security-alerts-advisories-and-directives"></a>Alerty zabezpieczeń, klasyfikatory i dyrektywy
 
@@ -543,7 +543,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-si-5b"></a>Formant NIST 800 53 SI-5.b
+ ## <a name="nist-800-53-control-si-5b"></a>NIST 800-53 Control SI-5.b
 
 #### <a name="security-alerts-advisories-and-directives"></a>Alerty zabezpieczeń, klasyfikatory i dyrektywy
 
@@ -557,7 +557,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-si-5c"></a>Formant NIST 800 53 SI-5.c
+ ## <a name="nist-800-53-control-si-5c"></a>NIST 800-53 Control SI-5.c
 
 #### <a name="security-alerts-advisories-and-directives"></a>Alerty zabezpieczeń, klasyfikatory i dyrektywy
 
@@ -571,7 +571,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-si-5d"></a>Formant NIST 800 53 SI-5.d
+ ## <a name="nist-800-53-control-si-5d"></a>NIST 800-53 Control SI-5.d
 
 #### <a name="security-alerts-advisories-and-directives"></a>Alerty zabezpieczeń, klasyfikatory i dyrektywy
 
@@ -599,7 +599,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-si-6a"></a>Formant NIST 800 53 SI-6.a
+ ## <a name="nist-800-53-control-si-6a"></a>NIST 800-53 Control SI-6.a
 
 #### <a name="security-function-verification"></a>Weryfikacja — funkcja
 
@@ -613,7 +613,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-si-6b"></a>Formant NIST 800 53 SI-6.b
+ ## <a name="nist-800-53-control-si-6b"></a>NIST 800-53 Control SI-6.b
 
 #### <a name="security-function-verification"></a>Weryfikacja — funkcja
 
@@ -627,7 +627,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-si-6c"></a>Formant NIST 800 53 SI-6.c
+ ## <a name="nist-800-53-control-si-6c"></a>NIST 800-53 Control SI-6.c
 
 #### <a name="security-function-verification"></a>Weryfikacja — funkcja
 
@@ -641,7 +641,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-si-6d"></a>Formant NIST 800 53 SI-6.d
+ ## <a name="nist-800-53-control-si-6d"></a>NIST 800-53 Control SI-6.d
 
 #### <a name="security-function-verification"></a>Weryfikacja — funkcja
 
@@ -665,7 +665,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Maszyn wirtualnych wdrożonych przez ten plan Azure Uruchom systemów operacyjnych Windows. System Windows udostępnia weryfikacji integralności plików w czasie rzeczywistym, ochrony i odzyskiwania podstawowej systemu plików, które są instalowane w ramach systemu Windows lub autoryzowanych aktualizacje systemu Windows za pomocą funkcji ochrony zasobów systemu Windows (WRP). |
+| **Klienta** | Maszyn wirtualnych wdrożonych przez ten plan uruchamiania systemów operacyjnych Windows. System Windows udostępnia weryfikacji integralności plików w czasie rzeczywistym, ochrony i odzyskiwania podstawowej systemu plików, które są instalowane w ramach systemu Windows lub autoryzowanych aktualizacje systemu Windows za pomocą funkcji ochrony zasobów systemu Windows (WRP). |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -679,7 +679,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Maszyn wirtualnych wdrożonych przez ten plan Azure Uruchom systemów operacyjnych Windows. System Windows udostępnia weryfikacji integralności plików w czasie rzeczywistym, ochrony i odzyskiwania podstawowej systemu plików, które są instalowane w ramach systemu Windows lub autoryzowanych aktualizacje systemu Windows za pomocą funkcji ochrony zasobów systemu Windows (WRP). WRP umożliwia sprawdzanie integralności w czasie rzeczywistym. |
+| **Klienta** | Maszyn wirtualnych wdrożonych przez ten plan uruchamiania systemów operacyjnych Windows. System Windows udostępnia weryfikacji integralności plików w czasie rzeczywistym, ochrony i odzyskiwania podstawowej systemu plików, które są instalowane w ramach systemu Windows lub autoryzowanych aktualizacje systemu Windows za pomocą funkcji ochrony zasobów systemu Windows (WRP). WRP umożliwia sprawdzanie integralności w czasie rzeczywistym. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -693,7 +693,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Maszyn wirtualnych wdrożonych przez ten plan Azure Uruchom systemów operacyjnych Windows. System Windows udostępnia weryfikacji integralności plików w czasie rzeczywistym, ochrony i odzyskiwania podstawowej systemu plików, które są instalowane w ramach systemu Windows lub autoryzowanych aktualizacje systemu Windows za pomocą funkcji ochrony zasobów systemu Windows (WRP).  |
+| **Klienta** | Maszyn wirtualnych wdrożonych przez ten plan uruchamiania systemów operacyjnych Windows. System Windows udostępnia weryfikacji integralności plików w czasie rzeczywistym, ochrony i odzyskiwania podstawowej systemu plików, które są instalowane w ramach systemu Windows lub autoryzowanych aktualizacje systemu Windows za pomocą funkcji ochrony zasobów systemu Windows (WRP).  |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -739,7 +739,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-si-8a"></a>Formant NIST 800 53 SI-8.a
+ ## <a name="nist-800-53-control-si-8a"></a>NIST 800-53 Control SI-8.a
 
 #### <a name="spam-protection"></a>Ochronę przed spamem
 
@@ -749,11 +749,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Brak serwerów poczty wdrożenia w ramach tego planu Azure. |
+| **Klienta** | Brak serwerów poczty wdrożenia w ramach tego planu. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-si-8b"></a>Formant NIST 800 53 SI-8.b
+ ## <a name="nist-800-53-control-si-8b"></a>NIST 800-53 Control SI-8.b
 
 #### <a name="spam-protection"></a>Ochronę przed spamem
 
@@ -763,7 +763,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Brak serwerów poczty wdrożenia w ramach tego planu Azure. |
+| **Klienta** | Brak serwerów poczty wdrożenia w ramach tego planu. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -777,7 +777,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Brak serwerów poczty wdrożenia w ramach tego planu Azure. |
+| **Klienta** | Brak serwerów poczty wdrożenia w ramach tego planu. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -791,7 +791,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Brak serwerów poczty wdrożenia w ramach tego planu Azure. |
+| **Klienta** | Brak serwerów poczty wdrożenia w ramach tego planu. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -819,7 +819,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Zasoby wdrożone przez ten plan Azure stosować komercyjnych systemów operacyjnych i aplikacji. To oprogramowanie używa najlepsze rozwiązania w branży, aby upewnić się, że poufne informacje nie została ujawniona w komunikatach o błędach. |
+| **Klienta** | Zasoby wdrożone przez ten plan stosować komercyjnych systemów operacyjnych i aplikacji. To oprogramowanie używa najlepsze rozwiązania w branży, aby upewnić się, że poufne informacje nie została ujawniona w komunikatach o błędach. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -833,7 +833,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Zasoby wdrożone przez ten plan Azure stosować komercyjnych systemów operacyjnych i aplikacji. To oprogramowanie używa najlepsze rozwiązania w branży, aby zapewnić komunikaty o błędach, które są odpowiednie w kontekście zastosowań odbieranie komunikatu. |
+| **Klienta** | Zasoby wdrożone przez ten plan stosować komercyjnych systemów operacyjnych i aplikacji. To oprogramowanie używa najlepsze rozwiązania w branży, aby zapewnić komunikaty o błędach, które są odpowiednie w kontekście zastosowań odbieranie komunikatu. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -861,5 +861,5 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Maszyn wirtualnych wdrożonych przez ten plan Azure Uruchom systemów operacyjnych Windows. System Windows ma ochrony w celu zapobiegania wykonywanie kodu w lokalizacji pamięci ograniczone: nie wykonać (NX), losowe generowanie układu przestrzeni adresów (ASLR) i funkcja Zapobieganie wykonywaniu danych (DEP). |
+| **Klienta** | Maszyn wirtualnych wdrożonych przez ten plan uruchamiania systemów operacyjnych Windows. System Windows ma ochrony w celu zapobiegania wykonywanie kodu w lokalizacji pamięci ograniczone: nie wykonać (NX), losowe generowanie układu przestrzeni adresów (ASLR) i funkcja Zapobieganie wykonywaniu danych (DEP). |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |

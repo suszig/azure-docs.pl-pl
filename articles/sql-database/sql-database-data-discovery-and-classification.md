@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: giladm
-ms.openlocfilehash: e6b9b5e497258f37037e0dc3f8efe656d5206af3
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1ff7f3509ccdaa6911cee0487d5a6d90b11eb79f
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Dane z bazy danych Azure SQL odnajdywania i klasyfikacji
 Dane odnajdywania & klasyfikacji (obecnie w wersji zapoznawczej) zapewnia zaawansowane możliwości, wbudowane w bazie danych SQL Azure dla **odnajdywania**, **klasyfikacji**, **etykietowania**  &  **ochrony** poufnych danych w bazach danych.
-Wykrywanie i klasyfikowania największe poufne dane (biznesowe i finansowe, opieki zdrowotnej, dane osobowe, itp.) mogą odgrywać istotną rolę w Twojej organizacji stature ochrony informacji. Może służyć jako infrastruktury:
+Wykrywanie i klasyfikowania najbardziej poufnych danych (business, finansowych, opieki zdrowotnej, dane osobowe, itp.) mogą odgrywać istotną rolę w Twojej stature ochrony informacji organizacyjnych. Może służyć jako infrastruktury:
+* Pomoc w spełniać normy prywatności danych i wymagania zgodności z przepisami, na przykład GDPR.
 * Różne scenariusze zabezpieczeń, takich jak monitorowanie (inspekcji) i alarmując o nietypowych dostęp do poufnych danych.
 * Kontrolowanie dostępu do i wzmacniania ochrony baz danych zawierających wysoce poufnych danych.
-* Pomoc w spełniać normy prywatności danych i wymagania zgodności z przepisami, na przykład GDPR.
 
 ## <a id="subheading-1"></a>Omówienie
 Dane odnajdywania & klasyfikacji wprowadza zestaw zaawansowanych usług i nowe możliwości SQL, tworzących nowego modelu SQL Information Protection mających na celu ochronę danych, a nie tylko bazy danych:
@@ -93,7 +93,9 @@ Klasyfikacja zawiera dwa atrybuty metadanych:
 
 ## <a id="subheading-3"></a>Inspekcja dostępu do danych poufnych
 
-Ważnym aspektem modelu ochrona informacji jest możliwość monitorowania dostęp do poufnych danych. [Usługa Azure SQL Database Auditing](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing) zostało rozszerzone, aby uwzględnić nowe pole w dzienniku inspekcji o nazwie *data_sensitivity_information*, która rejestruje klasyfikacji czułość (etykiety) rzeczywistych danych, który został zwrócony przez Zapytanie.
+Ważnym aspektem modelu ochrona informacji jest możliwość monitorowania dostęp do poufnych danych.
+
+[Usługa Azure SQL Database Auditing](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing) zostało rozszerzone, aby uwzględnić nowe pole w dzienniku inspekcji o nazwie *data_sensitivity_information*, która rejestruje klasyfikacje czułość (etykiety) rzeczywistych danych, który został zwrócony przez Zapytanie.
 
 ![Okienko nawigacji][11]
 
