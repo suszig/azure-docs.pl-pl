@@ -227,6 +227,8 @@
               items:
                 - name: Przykłady dla platformy .NET
                   href: sql-api-dotnet-samples.md
+                - name: Przykłady w języku Java
+                  href: sql-api-java-samples.md
                 - name: Przykłady dla platformy Node.js
                   href: sql-api-nodejs-samples.md
                 - name: Przykłady w języku Python

@@ -29,6 +29,8 @@
       href: apache-kafka-mirroring.md
     - name: Analizowanie dzienników usługi Kafka
       href: apache-kafka-log-analytics-operations-management.md
+    - name: Używanie usługi Kafka z usługą Azure Container Service
+      href: apache-kafka-azure-container-services.md
     - name: Tworzenie potoków przesyłania strumieniowego
       items:
         - name: Usługi Kafka i Spark (przesyłanie strumieniowe ze strukturą)

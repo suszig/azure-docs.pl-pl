@@ -34,6 +34,7 @@
 ### Konfigurowanie sieci VPN typu P2S
 #### [Azure PowerShell](point-to-site-how-to-radius-ps.md)
 ### [Tworzenie i instalowanie plików konfiguracji klienta sieci VPN](point-to-site-vpn-client-configuration-radius.md)
+### [Integrowanie uwierzytelniania RADIUS w sieci VPN typu P2S za pomocą serwera NPS](vpn-gateway-radiuis-mfa-nsp.md)
 
 ## Konfigurowanie połączeń między sieciami wirtualnymi
 ### [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
