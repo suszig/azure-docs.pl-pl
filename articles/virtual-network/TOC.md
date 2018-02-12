@@ -157,6 +157,7 @@
 #### [Interfejs wiersza polecenia platformy Azure](virtual-network-manage-nsg-arm-cli.md)
 
 #### [Dzienniki](virtual-network-nsg-manage-log.md)
+### [Tabele tras](manage-route-table.md)
 ### Interfejsy sieciowe
 #### [Tworzenie, zmienianie lub usuwanie interfejsów sieciowych](virtual-network-network-interface.md)
 #### [Dodawanie, zmienianie lub usuwanie adresów IP](virtual-network-network-interface-addresses.md)
@@ -177,6 +178,7 @@
 ### [Testowanie przepływności](virtual-network-bandwidth-testing.md)
 ### [Cannot delete virtual networks (Nie można usunąć sieci wirtualnych)](virtual-network-troubleshoot-cannot-delete-vnet.md)
 ### [Problemy z łącznością między maszynami wirtualnymi](virtual-network-troubleshoot-connectivity-problem-between-vms.md)
+### [Konfigurowanie rekordu PTR na potrzeby kontroli baneru SMTP](create-ptr-for-smtp-service.md)
 
 # Dokumentacja
 ## [Przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)

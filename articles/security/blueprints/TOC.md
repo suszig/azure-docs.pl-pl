@@ -17,8 +17,8 @@
 ### [Możliwości techniczne zabezpieczeń](../azure-security-technical-capabilities.md)
 ### [Nadzór na platformie Azure](../governance-in-azure.md)
 ### [Szyfrowanie danych w spoczynku](../azure-security-encryption-atrest.md)
-### Schematy architektury
-#### Zgodność — PCI DSS
+### Plany zabezpieczeń i zgodności platformy Azure
+#### PCI DSS
 ##### [Przetwarzanie płatności dla środowisk zgodnych z normą PCI DSS](payment-processing-blueprint.md)
 ##### [Omówienie wymagań](pci-dss-requirements-overview.md)
 ##### [Wymaganie 1 — zapory](pci-dss-requirement-1-firewall.md)
@@ -33,8 +33,8 @@
 ##### [Wymaganie 10 — monitorowanie](pci-dss-requirement-10-monitoring.md)
 ##### [Wymaganie 11 — testowanie](pci-dss-requirement-11-testing.md)
 ##### [Wymaganie 12 — zasady](pci-dss-requirement-12-policy.md)
-#### Zgodność — FedRAMP
-##### [Aplikacje internetowe dla programu FedRAMP](fedramp.md)
+#### FedRAMP
+##### [Automatyzacja aplikacji internetowych](fedramp.md)
 ##### [Omówienie mechanizmów zabezpieczeń](fedramp-controls-overview.md)
 ##### [Kontrola dostępu](fedramp-access-controls.md)
 ##### [Inspekcja i odpowiedzialność](fedramp-audit-accountability-controls.md)
@@ -53,14 +53,14 @@
 ##### [Ochrona systemu i komunikacji](fedramp-system-communications-protection-controls.md)
 ##### [Integralność systemów i informacji](fedramp-system-information-integrity-controls.md)
 ##### [Nabywanie systemów i usług](fedramp-system-services-acquisition-controls.md)
-#### Zgodność — UK-OFFICIAL
-##### [Trójwarstwowe aplikacje internetowe dla obciążeń UK-OFFICIAL](uk-official-three-tier-applications-overview.md)
+#### UK-OFFICIAL
+##### [Automatyzacja trójwarstwowych aplikacji internetowych](uk-official-three-tier-applications-overview.md)
 ##### [Omówienie](uk-official-three-tier-applications-overview.md)
 ##### [Omówienie zasad](uk-official-three-tier-applications-principles-overview.md)
-#### Zgodność — usługi finansowe
+#### Usługi finansowe
 ##### [Usługi finansowe dla obciążeń podlegających regulacjom](financial-services-regulated-workloads.md)
 
-# Wprowadzenie
+# Rozpoczęcie pracy
 ## [Rozpoczynanie pracy z zabezpieczeniami platformy Azure](../azure-security-getting-started.md)
 ## [Najlepsze rozwiązania i wzorce dotyczące zabezpieczeń](../security-best-practices-and-patterns.md)
 ## [Usługi i technologie zabezpieczeń](../azure-security-services-technologies.md)
@@ -93,7 +93,6 @@
 ### [Wprowadzenie do integracji dzienników platformy Azure](../security-azure-log-integration-overview.md)
 #### [Pierwsze kroki z integracją dzienników platformy Azure](../security-azure-log-integration-get-started.md)
 #### [Integrowanie usługi Azure Active Directory z dziennikami inspekcji](../security-azure-log-integration-ad.md)
-#### [Integrowanie alertów usługi Security Center](../security-azure-log-integration-security-center.md)
 #### [Integrowanie dzienników usługi Key Vault przy użyciu usługi Event Hubs](../security-azure-log-integration-keyvault-eventhub.md)
 #### [Często zadawane pytania](../security-azure-log-integration-faq.md)
 
