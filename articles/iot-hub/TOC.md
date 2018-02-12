@@ -38,6 +38,9 @@
 ### [Zarządzanie urządzeniami za pomocą rozszerzenia IoT dla interfejsu wiersza polecenia platformy Azure w wersji 2.0](iot-hub-device-management-iot-extension-azure-cli-2-0.md)
 ### [Zdalne monitorowanie i powiadomienia w usłudze Logic Apps](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
+## Używanie zestawu deweloperskiego IoT MXChip
+### [Monitorowanie zdalne za pomocą pakietu Azure IoT Suite](iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md)
+
 # Przewodniki z instrukcjami
 ## Planowanie
 ### [Porównanie usług IoT Hub i Event Hubs](iot-hub-compare-event-hubs.md)

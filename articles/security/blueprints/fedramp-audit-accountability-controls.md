@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP plan usługi Automatyzacja Azure - kontroli i odpowiedzialności"
-description: "Aplikacje sieci Web dla FedRAMP - kontroli i odpowiedzialności"
+title: "Zabezpieczeń platformy Azure i zgodności plan - automatyzacji aplikacji sieci Web FedRAMP - inspekcji i odpowiedzialności"
+description: "Automatyzacja aplikacji FedRAMP Web — kontroli i odpowiedzialności"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 83ef9cbb7652bf128d7758237a8e6fbeed6c6565
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: c37d027882882c637585d745ce81111ba30f6257
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="audit-and-accountability-au"></a>Inspekcja i Accountability (AU)
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Funkcja inspekcji dla tego planu Azure jest zapewniana przez Azure Monitor i usługi Analiza dzienników w OMS. Azure Monitor udostępnia dzienniki inspekcji szczegółowych dotyczących działań związanych z zasobami wdrożone. Te i dzienniki na poziomie systemu operacyjnego są zbierane przez analizy dzienników i przechowywane w repozytorium OMS. Analiza dzienników danych inspekcji są powiązane z różnych zasobów wdrożone przez to rozwiązanie i może zostać rozszerzony do aplikacji wdrożonych przez klienta sieci web. |
+| **Klienta** | Funkcja inspekcji dla tego planu są udostępniane przez Azure Monitor i usługi Analiza dzienników w OMS. Azure Monitor udostępnia dzienniki inspekcji szczegółowych dotyczących działań związanych z zasobami wdrożone. Te i dzienniki na poziomie systemu operacyjnego są zbierane przez analizy dzienników i przechowywane w repozytorium OMS. Analiza dzienników danych inspekcji są powiązane z różnych zasobów wdrożone przez to rozwiązanie i może zostać rozszerzony do aplikacji wdrożonych przez klienta sieci web. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Zdarzenia inspekcji przez ten plan Azure obejmują informacje wystarczające do określenia, w przypadku wystąpienia zdarzenia, źródło zdarzenia, wynik zdarzenia oraz inne szczegółowe informacje, które obsługuje zbadanie zdarzeń zabezpieczeń. |
+| **Klienta** | Zdarzenia inspekcji przez ten plan obejmują informacje wystarczające do określenia, w przypadku wystąpienia zdarzenia, źródło zdarzenia, wynik zdarzenia oraz inne szczegółowe informacje, które obsługuje zbadanie zdarzeń zabezpieczeń. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -91,7 +91,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Zdarzenia inspekcji przez ten plan Azure obejmują tych inspekcji przez działanie Azure dzienniki dla wdrożonych zasobów, dzienniki na poziomie systemu operacyjnego, dzienniki usługi Active Directory oraz do dzienników serwera SQL. Klienci mogą wybrać dodatkowe zdarzenia do inspekcji należy do potrzeb misji. |
+| **Klienta** | Zdarzenia inspekcji przez ten plan obejmują sprawdzana przez działanie Azure dzienniki dla wdrożonych zasobów, dzienniki na poziomie systemu operacyjnego, dzienniki usługi Active Directory, a do dzienników serwera SQL. Klienci mogą wybrać dodatkowe zdarzenia do inspekcji należy do potrzeb misji. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure zależy od możliwości wbudowanej inspekcji Azure, Windows Server i programu SQL Server. Te inspekcji rekordów inspekcji przechwytywania rozwiązania ze szczegółami wystarczające by spełnić ich wymagań tego formantu. |
+| **Klienta** | Ten plan zależy od możliwości wbudowanej inspekcji Azure, Windows Server i programu SQL Server. Te inspekcji rekordów inspekcji przechwytywania rozwiązania ze szczegółami wystarczające by spełnić ich wymagań tego formantu. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Zdarzenia dziennika aktywności platformy Azure, użyj szczegółowe schemat, który zawiera pola więcej niż 20 rodzaje informacji inspekcji. Oprócz dziennik aktywności ten plan Azure wdraża rozwiązania analizy dzienników w OMS, który obsługuje różnorodnych źródeł danych, takich jak dzienniki systemu Windows, Linux dzienniki dzienników diagnostyki Azure i dzienników klienta.  |
+| **Klienta** | Zdarzenia dziennika aktywności platformy Azure, użyj szczegółowe schemat, który zawiera pola więcej niż 20 rodzaje informacji inspekcji. Oprócz dziennik aktywności ten plan wdraża rozwiązania analizy dzienników w OMS, który obsługuje różnorodnych źródeł danych, takich jak dzienniki systemu Windows, Linux dzienniki dzienników diagnostyki Azure i dzienników klienta.  |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -147,7 +147,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Wszystkich maszyn wirtualnych wdrożonych przez ten plan Azure są przyłączone do wdrożonej domeny usługi Active Directory. Wszystkie maszyny wirtualne przyłączonych do domeny zaimplementować zasady grupy, które można skonfigurować do centralnie zarządzać konfiguracją systemu inspekcji poziomu systemu operacyjnego. |
+| **Klienta** | Wszystkich maszyn wirtualnych wdrożonych przez ten plan są przyłączone do domeny usługi Active Directory wdrożone. Wszystkie maszyny wirtualne przyłączonych do domeny zaimplementować zasady grupy, które można skonfigurować do centralnie zarządzać konfiguracją systemu inspekcji poziomu systemu operacyjnego. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -161,7 +161,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure przydziela wystarczającą pojemność magazynu przechowywanie rekordów inspekcji przez okres jednego roku. Wszystkie rekordy inspekcji są zbierane przez analizy dzienników, która jest skonfigurowana pod kątem przechowywania jeden rok. |
+| **Klienta** | Ten plan przydziela wystarczającą pojemność magazynu przechowywanie rekordów inspekcji przez okres jednego roku. Wszystkie rekordy inspekcji są zbierane przez analizy dzienników, która jest skonfigurowana pod kątem przechowywania jeden rok. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -189,7 +189,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Wszystkie rekordy inspekcji generowanych przez zasoby wdrożone przez ten plan Azure są zbierane przez analizy dzienników i zachowywane przez jeden rok. Alokacja magazynu przechowywania rekordów inspekcji jest dynamicznie przydzielane zapewnienie wystarczającej jest dostępna. |
+| **Klienta** | Wszystkie rekordy inspekcji generowanych przez wdrożone przez ten plan zasobów są zbierane przez analizy dzienników i zachowywane przez jeden rok. Alokacja magazynu przechowywania rekordów inspekcji jest dynamicznie przydzielane zapewnienie wystarczającej jest dostępna. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -203,7 +203,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Wszystkie rekordy inspekcji generowanych przez zasoby wdrożone przez ten plan Azure są zbierane przez analizy dzienników i zachowywane przez jeden rok. Alokacja magazynu przechowywania rekordów inspekcji jest dynamicznie przydzielane zapewnienie wystarczającej jest dostępna. |
+| **Klienta** | Wszystkie rekordy inspekcji generowanych przez wdrożone przez ten plan zasobów są zbierane przez analizy dzienników i zachowywane przez jeden rok. Alokacja magazynu przechowywania rekordów inspekcji jest dynamicznie przydzielane zapewnienie wystarczającej jest dostępna. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -273,7 +273,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure implementuje rozwiązania analizy dziennika w OMS, można scentralizować dane inspekcji przez wdrożone zasoby obsługujące oparty na analizie sytuacji świadomości całej organizacji. Klienci mogą wybrać do dalszej integracji z innymi systemami analizy dzienników. |
+| **Klienta** | Ten plan implementuje rozwiązania analizy dziennika w OMS, można scentralizować dane inspekcji przez wdrożone zasoby obsługujące oparty na analizie sytuacji świadomości całej organizacji. Klienci mogą wybrać do dalszej integracji z innymi systemami analizy dzienników. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -287,7 +287,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure implementuje rozwiązania analizy dziennika w OMS, można scentralizować dane inspekcji wdrożonych zasobów, pomocnicze scentralizowane przeglądu, analizy i raportowania. |
+| **Klienta** | Ten plan implementuje rozwiązania analizy dziennika w OMS, można scentralizować dane inspekcji wdrożonych zasobów, pomocnicze scentralizowane przeglądu, analizy i raportowania. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -301,7 +301,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża rozwiązanie OMS zabezpieczeń i inspekcji. To rozwiązanie zapewnia kompleksowy przegląd stan zabezpieczeń. Pulpit nawigacyjny zabezpieczeń i kontrola zapewnia wysokiego poziomu wgląd w stan zabezpieczeń zasobów wdrożone przy użyciu danych dostępnych w wdrożonej rozwiązań OMS, integrowanie danych dzienników i danych luki w zabezpieczeniach z oceny linii bazowej i poprawki. |
+| **Klienta** | Ten plan wdraża rozwiązanie OMS zabezpieczeń i inspekcji. To rozwiązanie zapewnia kompleksowy przegląd stan zabezpieczeń. Pulpit nawigacyjny zabezpieczeń i kontrola zapewnia wysokiego poziomu wgląd w stan zabezpieczeń zasobów wdrożone przy użyciu danych dostępnych w wdrożonej rozwiązań OMS, integrowanie danych dzienników i danych luki w zabezpieczeniach z oceny linii bazowej i poprawki. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -329,7 +329,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Maszyny wirtualne systemu Windows wdrożone przez ten plan Azure implementuje uprawnienia poziomu systemu operacyjnego, które ograniczają działania, które użytkownik może wykonać względem informacje inspekcji. W obrębie platformy Azure użytkowników lub grup użytkowników można przypisać do ról (np. właściciela, współautora, czytnika lub niestandardowej roli zabezpieczeń) do ograniczenia Akcje dostępne w odniesieniu do wszystkich zasobów lub wdrożyć rozwiązania analizy dzienników.  |
+| **Klienta** | Maszyny wirtualne systemu Windows wdrożone przez ten plan wdrożenia uprawnienia poziomu systemu operacyjnego, które ograniczają działania, które użytkownik może wykonać względem informacje inspekcji. W obrębie platformy Azure użytkowników lub grup użytkowników można przypisać do ról (np. właściciela, współautora, czytnika lub niestandardowej roli zabezpieczeń) do ograniczenia Akcje dostępne w odniesieniu do wszystkich zasobów lub wdrożyć rozwiązania analizy dzienników.  |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -357,7 +357,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure implementuje rozwiązania analizy dziennika w OMS. Analiza dzienników umożliwia monitorowanie OMS przez zbieranie danych z zarządzanych zasobów w centralnym repozytorium. Zebrane dane są dostępne na potrzeby alertów, analizy i eksportu. |
+| **Klienta** | Ten plan implementuje rozwiązania analizy dziennika w OMS. Analiza dzienników umożliwia monitorowanie OMS przez zbieranie danych z zarządzanych zasobów w centralnym repozytorium. Zebrane dane są dostępne na potrzeby alertów, analizy i eksportu. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -371,7 +371,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure implementuje rozwiązania analizy dziennika w OMS. Analiza dzienników umożliwia monitorowanie OMS przez zbieranie danych z zarządzanych zasobów w centralnym repozytorium. Zawartość i czas kolejność rekordów inspekcji nie zostaną zmodyfikowane, jeśli zebrane przez analizy dzienników. |
+| **Klienta** | Ten plan implementuje rozwiązania analizy dziennika w OMS. Analiza dzienników umożliwia monitorowanie OMS przez zbieranie danych z zarządzanych zasobów w centralnym repozytorium. Zawartość i czas kolejność rekordów inspekcji nie zostaną zmodyfikowane, jeśli zebrane przez analizy dzienników. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -385,7 +385,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure implementuje rozwiązania analizy dziennika w OMS. Analiza dzienników umożliwia monitorowanie OMS przez zbieranie danych z zarządzanych zasobów w centralnym repozytorium. Zebrane dane są dostępne na potrzeby alertów, analizy i eksportu. Usługa Log Analytics obejmuje zaawansowany język zapytań umożliwiający wyodrębnianie danych przechowywanych w repozytorium. |
+| **Klienta** | Ten plan implementuje rozwiązania analizy dziennika w OMS. Analiza dzienników umożliwia monitorowanie OMS przez zbieranie danych z zarządzanych zasobów w centralnym repozytorium. Zebrane dane są dostępne na potrzeby alertów, analizy i eksportu. Usługa Log Analytics obejmuje zaawansowany język zapytań umożliwiający wyodrębnianie danych przechowywanych w repozytorium. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -399,11 +399,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Zasoby wdrożone przez ten plan Azure umożliwia generowanie sygnatury czasowe dla rekordów inspekcji zegary wewnętrznego systemu. |
+| **Klienta** | Wdrożone przez ten plan zasobów umożliwia generowanie sygnatury czasowe dla rekordów inspekcji zegary wewnętrznego systemu. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-au-8b"></a>Australia kontroli NIST 800 53-8.b
+ ## <a name="nist-800-53-control-au-8b"></a>NIST 800-53 Control AU-8.b
 
 #### <a name="time-stamps"></a>Sygnatury czasowe
 
@@ -413,7 +413,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Zasoby wdrożone przez ten plan Azure umożliwia generowanie sygnatury czasowe dla rekordów inspekcji zegary wewnętrznego systemu. Sygnatury czasowe są rejestrowane w formacie UTC. |
+| **Klienta** | Wdrożone przez ten plan zasobów umożliwia generowanie sygnatury czasowe dla rekordów inspekcji zegary wewnętrznego systemu. Sygnatury czasowe są rejestrowane w formacie UTC. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -427,7 +427,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Zasoby wdrożone przez ten plan Azure umożliwia generowanie sygnatury czasowe dla rekordów inspekcji zegary wewnętrznego systemu. Zegary wewnętrznego systemu są skonfigurowane do synchronizacji z autorytatywne źródło czasu. |
+| **Klienta** | Wdrożone przez ten plan zasobów umożliwia generowanie sygnatury czasowe dla rekordów inspekcji zegary wewnętrznego systemu. Zegary wewnętrznego systemu są skonfigurowane do synchronizacji z autorytatywne źródło czasu. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -441,7 +441,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Zasoby wdrożone przez ten plan Azure umożliwia generowanie sygnatury czasowe dla rekordów inspekcji zegary wewnętrznego systemu. Zegary wewnętrznego systemu są skonfigurowane do synchronizacji z autorytatywne źródło czasu. |
+| **Klienta** | Wdrożone przez ten plan zasobów umożliwia generowanie sygnatury czasowe dla rekordów inspekcji zegary wewnętrznego systemu. Zegary wewnętrznego systemu są skonfigurowane do synchronizacji z autorytatywne źródło czasu. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -455,7 +455,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Formanty logicznego dostępu służą do ochrony przed nieautoryzowanym dostępem, modyfikowanie i usuwanie informacji inspekcji i narzędzi w obrębie tego planu Azure. Usługa Azure Active Directory wymusza zatwierdzonych logicznego dostępu przy użyciu członkostwa w grupach opartej na rolach. Możliwość wyświetlania informacji inspekcji i użyć narzędzia do inspekcji może być ograniczony do użytkowników, którzy wymagają tych uprawnień. |
+| **Klienta** | Formanty logicznego dostępu służą do ochrony przed nieautoryzowanym dostępem, modyfikowanie i usuwanie informacji inspekcji i narzędzi w obrębie tego planu. Usługa Azure Active Directory wymusza zatwierdzonych logicznego dostępu przy użyciu członkostwa w grupach opartej na rolach. Możliwość wyświetlania informacji inspekcji i użyć narzędzia do inspekcji może być ograniczony do użytkowników, którzy wymagają tych uprawnień. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -469,7 +469,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure implementuje usługę Analiza dzienników w OMS. Wdrożone maszyny wirtualne i usługi Azure konta magazynu diagnostyki połączonych źródeł do analizy dzienników i przechowywane oddzielnie od ich źródła. Dane są zbierane przez OMS w niemal w czasie rzeczywistym. |
+| **Klienta** | Ten plan implementuje usługę Analiza dzienników w OMS. Wdrożone maszyny wirtualne i usługi Azure konta magazynu diagnostyki połączonych źródeł do analizy dzienników i przechowywane oddzielnie od ich źródła. Dane są zbierane przez OMS w niemal w czasie rzeczywistym. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -483,7 +483,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure implementuje usługę Analiza dzienników w OMS. Analiza dzienników zapewnia, że dane przychodzące jest z zaufanego źródła, weryfikując certyfikaty i integralności danych za pomocą uwierzytelniania systemu Azure. |
+| **Klienta** | Ten plan implementuje usługę Analiza dzienników w OMS. Analiza dzienników zapewnia, że dane przychodzące jest z zaufanego źródła, weryfikując certyfikaty i integralności danych za pomocą uwierzytelniania systemu Azure. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -497,7 +497,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Formanty logicznego dostępu służą do ochrony przed nieautoryzowanym dostępem, modyfikowanie i usuwanie informacji inspekcji i narzędzi w obrębie tego planu Azure. Usługa Azure Active Directory wymusza zatwierdzonych logicznego dostępu przy użyciu członkostwa w grupach opartej na rolach. Możliwość wyświetlania informacji inspekcji i użyć narzędzia do inspekcji może być ograniczony do użytkowników, którzy wymagają tych uprawnień.
+| **Klienta** | Formanty logicznego dostępu służą do ochrony przed nieautoryzowanym dostępem, modyfikowanie i usuwanie informacji inspekcji i narzędzi w obrębie tego planu. Usługa Azure Active Directory wymusza zatwierdzonych logicznego dostępu przy użyciu członkostwa w grupach opartej na rolach. Możliwość wyświetlania informacji inspekcji i użyć narzędzia do inspekcji może być ograniczony do użytkowników, którzy wymagają tych uprawnień.
  |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
@@ -512,7 +512,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Funkcja inspekcji dla tego planu Azure jest zapewniana przez Azure Monitor i usługi Analiza dzienników w OMS. Azure Monitor udostępnia dzienniki inspekcji szczegółowych dotyczących działań związanych z zasobami wdrożone. Te i dzienniki na poziomie systemu operacyjnego są zbierane przez analizy dzienników i przechowywane w repozytorium OMS. Te dzienniki zawierał rekordy szczegółowe informacje o systemie zdarzeń i może pomóc w ochronie przed bez odrzucania. Ponadto dostęp do rejestrowania danych jest ograniczony przy użyciu kontroli dostępu opartej na rolach, aby zapobiec unauthored modyfikacja lub usunięcie danych dziennika. |
+| **Klienta** | Funkcja inspekcji dla tego planu są udostępniane przez Azure Monitor i usługi Analiza dzienników w OMS. Azure Monitor udostępnia dzienniki inspekcji szczegółowych dotyczących działań związanych z zasobami wdrożone. Te i dzienniki na poziomie systemu operacyjnego są zbierane przez analizy dzienników i przechowywane w repozytorium OMS. Te dzienniki zawierał rekordy szczegółowe informacje o systemie zdarzeń i może pomóc w ochronie przed bez odrzucania. Ponadto dostęp do rejestrowania danych jest ograniczony przy użyciu kontroli dostępu opartej na rolach, aby zapobiec unauthored modyfikacja lub usunięcie danych dziennika. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -526,7 +526,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure implementuje usługę Analiza dzienników w OMS. Analiza dzienników umożliwia monitorowanie OMS przez zbieranie danych z zarządzanych zasobów w centralnym repozytorium. Po zebraniu danych, dane przechowywane przez jeden rok na konfiguracji analizy dzienników. |
+| **Klienta** | Ten plan implementuje usługę Analiza dzienników w OMS. Analiza dzienników umożliwia monitorowanie OMS przez zbieranie danych z zarządzanych zasobów w centralnym repozytorium. Po zebraniu danych, dane przechowywane przez jeden rok na konfiguracji analizy dzienników. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -540,7 +540,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Zdarzenia inspekcji przez ten plan Azure obejmują tych inspekcji przez działanie Azure dzienniki dla wdrożonych zasobów, dzienniki na poziomie systemu operacyjnego, dzienniki usługi Active Directory oraz do dzienników serwera SQL. Klienci mogą wybrać dodatkowe zdarzenia do inspekcji należy do potrzeb misji. |
+| **Klienta** | Zdarzenia inspekcji przez ten plan obejmują sprawdzana przez działanie Azure dzienniki dla wdrożonych zasobów, dzienniki na poziomie systemu operacyjnego, dzienniki usługi Active Directory, a do dzienników serwera SQL. Klienci mogą wybrać dodatkowe zdarzenia do inspekcji należy do potrzeb misji. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -554,7 +554,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Dostęp do funkcji inspekcji jest ograniczony przy użyciu kontroli dostępu opartej na rolach w obrębie platformy Azure i na poziomie systemu operacyjnego maszyny wirtualnej. Konfiguracja zdarzeń wybrane określane przez zasoby wdrożone przez ten plan usługi Azure można skonfigurować przez użytkowników z odpowiednią autoryzacji opartej na rolach. |
+| **Klienta** | Dostęp do funkcji inspekcji jest ograniczony przy użyciu kontroli dostępu opartej na rolach w obrębie platformy Azure i na poziomie systemu operacyjnego maszyny wirtualnej. Konfiguracja zdarzenia wybrane określane przez zasoby wdrożone przez ten plan można skonfigurować przez użytkowników z odpowiednią autoryzacji opartej na rolach. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -568,7 +568,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Zdarzenia inspekcji przez ten plan Azure obejmują tych inspekcji przez działanie Azure dzienniki dla wdrożonych zasobów, dzienniki na poziomie systemu operacyjnego, dzienniki usługi Active Directory oraz do dzienników serwera SQL. Klienci mogą wybrać dodatkowe zdarzenia do inspekcji należy do potrzeb misji. |
+| **Klienta** | Zdarzenia inspekcji przez ten plan obejmują sprawdzana przez działanie Azure dzienniki dla wdrożonych zasobów, dzienniki na poziomie systemu operacyjnego, dzienniki usługi Active Directory, a do dzienników serwera SQL. Klienci mogą wybrać dodatkowe zdarzenia do inspekcji należy do potrzeb misji. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -582,7 +582,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure implementuje usługę Analiza dzienników w OMS. Analiza dzienników umożliwia monitorowanie OMS przez zbieranie danych z zarządzanych zasobów w centralnym repozytorium. Sygnatury czasowe rekordów inspekcji nie są zmieniane, w związku z tym dziennik inspekcji skorelowane czasu. |
+| **Klienta** | Ten plan implementuje usługę Analiza dzienników w OMS. Analiza dzienników umożliwia monitorowanie OMS przez zbieranie danych z zarządzanych zasobów w centralnym repozytorium. Sygnatury czasowe rekordów inspekcji nie są zmieniane, w związku z tym dziennik inspekcji skorelowane czasu. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -596,5 +596,5 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Dostęp do funkcji inspekcji jest ograniczony przy użyciu kontroli dostępu opartej na rolach w obrębie platformy Azure i na poziomie systemu operacyjnego maszyny wirtualnej. Konfiguracja zdarzeń wybrane określane przez zasoby wdrożone przez ten plan usługi Azure można skonfigurować przez użytkowników z odpowiednią autoryzacji opartej na rolach. |
+| **Klienta** | Dostęp do funkcji inspekcji jest ograniczony przy użyciu kontroli dostępu opartej na rolach w obrębie platformy Azure i na poziomie systemu operacyjnego maszyny wirtualnej. Konfiguracja zdarzenia wybrane określane przez zasoby wdrożone przez ten plan można skonfigurować przez użytkowników z odpowiednią autoryzacji opartej na rolach. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |

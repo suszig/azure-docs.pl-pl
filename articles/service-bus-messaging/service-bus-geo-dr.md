@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: sethm
-ms.openlocfilehash: fdeb9ba55fc8eade95f6fca88f47dd12aa18a480
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 9cbeff82f7a237c813ea91cd83e9273cad934991
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Azure awarii usługi Service Bus Geo
 
@@ -99,13 +99,13 @@ Należy uwzględnić następujące kwestie należy wziąć pod uwagę w tej wers
 
 1. W procesie planowania trybu failover, należy również rozważyć współczynnik czasu. Na przykład w przypadku utraty połączenia przez czas dłuższy niż 15-20 minut, możesz zainicjować trybu failover. 
  
-2. Fakt, że żadne dane nie są replikowane oznacza, że obecnie aktywnych sesji nie są replikowane. Ponadto wykrywania duplikatów i zaplanowane komunikaty mogą nie działać. Nowej sesji, zaplanowane wiadomości i nowych duplikaty będzie działać. 
+2. Fakt, że żadne dane nie są replikowane oznacza, że obecnie aktywnych sesji nie są replikowane. Ponadto wykrywania duplikatów i zaplanowane komunikaty mogą nie działać. Nowej sesji, nowe komunikaty zaplanowane i nowych duplikaty będzie działać. 
 
 3. Awarii złożonych infrastruktury rozproszonej powinna być [rehearsed](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) co najmniej raz. 
 
 4. Synchronizowanie jednostek może zająć trochę czasu, około 50-100 jednostek na minutę. Subskrypcje i reguły również liczba jednostki. 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Zobacz odzyskiwania po awarii geograficznie [tutaj dokumentacji interfejsu API REST](/rest/api/servicebus/disasterrecoveryconfigs).
 - Uruchom odzyskiwanie po awarii geograficznie [w witrynie GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR2).

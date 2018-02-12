@@ -1,6 +1,6 @@
 ---
-title: "Automatyzacja Azure planu — aplikacji sieci Web trójwarstwowa na Brytyjski oficjalne"
-description: "Automatyzacja Azure planu i — w aplikacji sieci Web trójwarstwowa na Brytyjski oficjalne"
+title: "Zabezpieczeń platformy Azure i plan zgodności - automatyzacji aplikacji sieci Web trójwarstwowa UK oficjalne"
+description: "Zabezpieczeń platformy Azure i plan zgodności - automatyzacji aplikacji sieci Web trójwarstwowa UK oficjalne"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,25 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 5f5694367d9be2ae66c7303cfea063b7f4979307
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 9d95ccdd536efbff1540fab2b564e7745f5ac397
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/11/2018
 ---
-# <a name="azure-blueprint-automation-three-tier-web-applications-for-uk-official"></a>Automatyzacji Azure plan: Aplikacje sieci Web trójwarstwowa na Brytyjski oficjalne
+# <a name="azure-security-and-compliance-blueprint---uk-offical-three-tier-web-applications-automation"></a>Zabezpieczeń platformy Azure i plan zgodności - automatyzacji aplikacji sieci Web oficjalnego UK trójwarstwowej
 
 ## <a name="overview"></a>Przegląd
 
  Ten artykuł zawiera wskazówki i automatyzacji skrypty w celu dostarczenia architektury trójwarstwowej aplikacja sieci web Microsoft Azure odpowiednie do obsługi wielu obciążeń sklasyfikowane jako URZĘDNIKA Zjednoczone Królestwo.
 
- Przy użyciu infrastruktury jako kod podejścia zbiór [usługi Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) szablonów (ARM) wdrożyć środowisko zawierające wyrównuje na Brytyjski National przez zabezpieczeń Centrum (NCSC) 14 [zasad zabezpieczeń chmury](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles)Centrum zabezpieczeń Internetu (ci) i [formanty krytycznych](https://www.cisecurity.org/critical-controls.cfm).
+ Przy użyciu infrastruktury jako kod podejścia zbiór [usługi Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) szablony wdrożyć środowisko zawierające wyrównuje na Brytyjski National przez zabezpieczeń Centrum (NCSC) 14 [zasad zabezpieczeń chmury](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) Centrum zabezpieczeń Internetu (ci) i [formanty krytycznych](https://www.cisecurity.org/critical-controls.cfm).
 
  NCSC zaleca się ich zasad zabezpieczeń chmury można używać przez klientów, można oszacować właściwości zabezpieczeń usługi, a także aby lepiej poznać podział obowiązków między klientem a dostawcy. Przygotowaliśmy informacji w odniesieniu do każdego z tych zasad, aby lepiej zrozumieć podział obowiązków.
 
- Tej architektury i szablony ARM są obsługiwane przez w dokumencie Microsoft [plan Azure dla instytucji rządowych UK](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1). W tym dokumencie katalogi usługami Azure jak dostosować UK NCSC 14 chmurze zasad bezpieczeństwa, umożliwiając firmom szybkie możliwość zobowiązań ich zgodność przy użyciu usług w chmurze globalnie i w UK w systemie Microsoft Azure Chmura.
+ Taka architektura i szablony usługi Azure Resource Manager są obsługiwane przez w dokumencie Microsoft [14 kontroli bezpieczeństwa chmury na Brytyjski w chmurze przy użyciu usługi Microsoft Azure](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1). W tym dokumencie katalogi usługami Azure jak dostosować UK NCSC 14 chmurze zasad bezpieczeństwa, umożliwiając firmom szybkie możliwość zobowiązań ich zgodność przy użyciu usług w chmurze globalnie i w UK w systemie Microsoft Azure Chmura.
 
  Ten szablon wdraża infrastrukturę dla obciążenia. Kod aplikacji i obsłudze warstwą biznesową a oprogramowanie warstwy danych musi być zainstalowana i skonfigurowana. Szczegółowe instrukcje są dostępne [tutaj](https://aka.ms/ukwebappblueprintrepo).
 
@@ -150,7 +150,7 @@ Magazyn
 
 **Zarządzanie sieciami wirtualnymi**: to [sieci wirtualnej](https://docs.microsoft.com/azure/Virtual-Network/virtual-networks-overviewcontains) zawiera zasoby, które implementuje zarządzania i monitorowania możliwości dla obciążeń działających w środowisku produkcyjnym sieci wirtualnej.
 
-**Jumpbox**: nazywane również [hosta bastionu](https://en.wikipedia.org/wiki/Bastion_host), która jest bezpiecznej maszyny Wirtualnej w sieci, w której administratorzy mogą używać do nawiązania połączenia maszyn wirtualnych w środowisku produkcyjnym sieci wirtualnej. Jumpbox ma umożliwiająca zdalne tylko ruch z publicznych adresów IP na liście bezpiecznych grupy NSG. Aby zezwolić na zdalny pulpitu ruch (RDP), źródło ruchu musi być zdefiniowana w grupie NSG. Zarządzanie zasobami produkcji jest za pomocą protokołu RDP przy użyciu zabezpieczonych Jumpbox maszyny Wirtualnej.
+**Jumpbox**: nazywane również [hosta bastionu](https://en.wikipedia.org/wiki/Bastion_host), która jest bezpiecznej maszyny Wirtualnej w sieci, w której administratorzy mogą używać do nawiązania połączenia maszyn wirtualnych w środowisku produkcyjnym sieci wirtualnej. Rampa zawiera sieciową grupę zabezpieczeń, która zezwala na zdalny ruch z publicznych adresów IP znajdujących się na liście bezpiecznych adresów. Aby zezwolić na zdalny pulpitu ruch (RDP), źródło ruchu musi być zdefiniowana w grupie NSG. Zarządzanie zasobami produkcji jest za pomocą protokołu RDP przy użyciu zabezpieczonych Jumpbox maszyny Wirtualnej.
 
 **Trasy zdefiniowane przez użytkownika**: [trasy zdefiniowane przez użytkownika](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) są używane do definiowania przepływu ruchu IP w sieci wirtualnych platformy Azure.
 
@@ -193,19 +193,19 @@ Te sieci wirtualne są nadal zarządzane jako oddzielne zasoby, ale pojawia się
 
 **Integracja usługi Active Directory**: zamiast dedykowanych architektury usług AD DS, klienci mogą chcieć użyć [usługi Azure Active Directory](https://docs.microsoft.com/azure/guidance/guidance-ra-identity#using-azure-active-directory) integracji lub [do lokalnego przyłączonych do usługi Active Directory na platformie Azure las](https://docs.microsoft.com/azure/guidance/guidance-ra-identity#using-active-directory-in-azure-joined-to-an-on-premises-forest).
 
-### <a name="security"></a>Zabezpieczenia
+### <a name="security"></a>Bezpieczeństwo
 
-**Zabezpieczenia Management**: ten plan Azure umożliwia administratorom połączenia do zarządzania sieciami wirtualnymi i Jumpbox za pomocą protokołu RDP z zaufanego źródła. Ruch sieciowy za zarządzanie sieciami wirtualnymi steruje się za pomocą grup NSG. Dostęp do portu 3389 jest ograniczone do ruchu z zaufanych zakres IP, dostępnym podsieć zawierająca Jumpbox.
+**Zabezpieczenia Management**: ten plan umożliwia administratorom połączenia do zarządzania sieciami wirtualnymi i Jumpbox za pomocą protokołu RDP z zaufanego źródła. Ruch sieciowy za zarządzanie sieciami wirtualnymi steruje się za pomocą grup NSG. Dostęp do portu 3389 jest ograniczone do ruchu z zaufanych zakres IP, dostępnym podsieć zawierająca Jumpbox.
 
 Klienci mogą również wziąć pod uwagę przy użyciu [modelu administracyjnego zwiększone zabezpieczenia](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/securing-privileged-access) do zabezpieczania środowiska podczas łączenia się Zarządzanie sieciami wirtualnymi i Jumpbox. Zalecane jest, aby zwiększyć bezpieczeństwo klienci powinni korzystać [uprzywilejowanego dostępu do stacji roboczej](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/privileged-access-workstations#what-is-a-privileged-access-workstation-paw) i RDGateway konfiguracji. Korzystanie z wirtualnych urządzeń sieciowych i publicznych/prywatnych sieci DMZ oferują dodatkowe ulepszenia zabezpieczeń.
 
-**Zabezpieczanie sieci**: [grup zabezpieczeń sieci](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) (NSG) są zalecane dla każdej podsieci w celu zapewnienia drugiego poziomu ochrony przed ruch przychodzący, pomijanie bramę niepoprawnie skonfigurowany lub wyłączone. Przykład — [szablon ARM w celu wdrażania grupy NSG](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/networkSecurityGroups).
+**Zabezpieczanie sieci**: [grup zabezpieczeń sieci](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) (NSG) są zalecane dla każdej podsieci w celu zapewnienia drugiego poziomu ochrony przed ruch przychodzący, pomijanie bramę niepoprawnie skonfigurowany lub wyłączone. Przykład — [szablonu usługi Resource Manager do wdrażania grupy NSG](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/networkSecurityGroups).
 
 **Zabezpieczanie punktów końcowych publicznego**: bramą internetową udostępnia usługi aplikacji użytkownikom za pośrednictwem Internetu. Dostęp do tych usług ruchu jest zabezpieczone przy użyciu [brama aplikacji w](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction), zapewniające zarządzania protokołu zapory aplikacji sieci Web i HTTPS.
 
 **Zakresy adresów IP**: zakresy IP architektury są sugerowane zakresów. Zalecana klientów należy wziąć pod uwagę ich środowiska i użycie odpowiednich zakresach.
 
-**Połączenia hybrydowe**: obciążeń w chmurze są połączone z lokalnymi centra danych za pośrednictwem protokołu IPSEC sieci VPN przy użyciu bramy sieci VPN platformy Azure. Klienci powinien upewnić się, że używają odpowiednie bramy sieci VPN z usługą Azure. Przykład — [szablonu ARM bramy sieci VPN](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). Klienci korzystający z na dużą skalę, obciążenia o znaczeniu krytycznym wymagania danych big data mogą chcieć należy rozważyć użycie architektury sieci hybrydowe [ExpressRoute](https://docs.microsoft.com/azure/guidance/guidance-hybrid-network-expressroute) sieci prywatnej łączności do firmy Microsoft usługi w chmurze.
+**Połączenia hybrydowe**: obciążeń w chmurze są połączone z lokalnego centrum danych za pośrednictwem protokołu IPSEC sieci VPN przy użyciu bramy sieci VPN platformy Azure. Klienci powinien upewnić się, że używają odpowiednie bramy sieci VPN z usługą Azure. Przykład — [szablonu usługi Resource Manager bramy sieci VPN](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). Klienci korzystający z na dużą skalę, obciążenia o znaczeniu krytycznym wymagania danych big data mogą chcieć należy rozważyć użycie architektury sieci hybrydowe [ExpressRoute](https://docs.microsoft.com/azure/guidance/guidance-hybrid-network-expressroute) sieci prywatnej łączności do firmy Microsoft usługi w chmurze.
 
 **Separacji**: informacje o architekturze wzorcowej oddziela sieci wirtualne dla operacji zarządzania i operacje biznesowe. Oddzielne sieci wirtualnych i podsieci umożliwia zarządzanie ruchu, w tym ograniczenia przychodzące i wychodzące ruchu za pomocą grup NSG między segmentami sieci po [bezpieczeństwa usług i sieci chmury Microsoft](https://docs.microsoft.com/azure/best-practices-network-security) najlepsze rozwiązania.
 
@@ -221,17 +221,17 @@ Klienci mogą również wziąć pod uwagę przy użyciu [modelu administracyjneg
 
 Usługa komercyjnych wierzchołek (Agencja działający zwiększające handlowych i nabywania działania przez Rząd) odnowić klasyfikacji Microsoft przedsiębiorstwa w zakresie usług w chmurze do chmury G IPv6, obejmujące wszystkie jego oferty na poziomie oficjalnego. Szczegóły Azure i w chmurze G znajdują się w [podsumowanie oceny zabezpieczeń G-chmury Azure UK](https://www.microsoft.com/en-us/trustcenter/compliance/uk-g-cloud).
 
-To rozwiązanie oficjalne UK Azure plan jest wyrównywany do zasad zabezpieczeń 14 chmury, które są udokumentowane w NCSC [zasad zabezpieczeń chmury](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) pomaga zapewnić środowisko, które obsługuje obciążeń sklasyfikowane jako oficjalne UK.
+Ten plan jest wyrównywany do zasad zabezpieczeń 14 chmury, które są udokumentowane w NCSC [zasad zabezpieczeń chmury](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) pomaga zapewnić środowisko, które obsługuje obciążeń sklasyfikowane jako oficjalne UK.
 
 [Macierzy odpowiedzialność klienta](https://aka.ms/blueprintuk-gcrm) (skoroszyt programu Excel) zawiera listę wszystkich zasad zabezpieczeń 14 chmury, a macierz wskazuje, dla każdej zasady (lub podsekcja zasady), czy zasada wdrażania jest odpowiedzialny za Microsoft, klienta lub udostępnionego między nimi.
 
-[Macierzy implementacji zasady](https://aka.ms/ukwebappblueprintpim) oznacza wszystkie zasady zabezpieczeń 14 chmury, a macierz, list (skoroszyt programu Excel), dla każdej zasady (lub zasadą podsekcja) wyznaczony odpowiedzialność klienta w klienta Obowiązki macierzy, 1) Jeśli Automatyzacja Azure planu implementuje zasady i 2) opis sposobu implementacji wyrównana z zdefiniowanymi zasady. Ta zawartość jest również dostępna [tutaj](https://github.com/Azure/uk-official-three-tier-webapp/blob/master/principles-overview.md).
+[Macierzy implementacji zasady](https://aka.ms/ukwebappblueprintpim) oznacza wszystkie zasady zabezpieczeń 14 chmury, a macierz, list (skoroszyt programu Excel), dla każdej zasady (lub zasadą podsekcja) wyznaczony odpowiedzialność klienta w klienta Obowiązki macierzy, 1) Jeśli automatyzacji planu implementuje zasady i 2) opis sposobu implementacji wyrównana z zdefiniowanymi zasady. Ta zawartość jest również dostępna [tutaj](https://github.com/Azure/uk-official-three-tier-webapp/blob/master/principles-overview.md).
 
 Ponadto Alliance zabezpieczeń chmury (CSA) opublikowane macierzy kontroli chmury, aby obsługiwać klientów podczas obliczania dostawców w chmurze oraz zidentyfikować pytania, na które należy odpowiedzieć na przed przejściem do usług w chmurze. W odpowiedzi, Microsoft Azure odbierane kwestionariusz inicjatywy oceny konsensu CSA ([CSA CAIQ](https://www.microsoft.com/en-us/TrustCenter/Compliance/CSA)), która opisuje, jak Microsoft adresów sugerowane zasad.
 
 ## <a name="deploy-the-solution"></a>Wdrażanie rozwiązania
 
-Istnieją dwie metody wdrażania, użytkownicy mogą skorzystać z celu wdrożenia tego rozwiązania Azure planu. Pierwsza metoda używa skrypt programu PowerShell, podczas gdy druga metoda wykorzystuje portalu Azure, aby wdrożyć architektura referencyjna struktury. Szczegółowe instrukcje są dostępne [tutaj](https://aka.ms/ukwebappblueprintrepo).
+Istnieją dwie metody, których użytkownicy wdrożenia może użyć do wdrożenia automatyzacji tego planu. Pierwsza metoda używa skrypt programu PowerShell, podczas gdy druga metoda wykorzystuje portalu Azure, aby wdrożyć architektura referencyjna struktury. Szczegółowe instrukcje są dostępne [tutaj](https://aka.ms/ukwebappblueprintrepo).
 
 ## <a name="disclaimer"></a>Zrzeczenie odpowiedzialności
 

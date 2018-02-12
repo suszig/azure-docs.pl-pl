@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP plan usługi Automatyzacja Azure - systemu i ochronę komunikacji"
-description: "Aplikacje sieci Web dla FedRAMP - systemu i ochronę komunikacji"
+title: "Ochrona komunikacji i systemu plan - automatyzacji aplikacji sieci Web FedRAMP - zgodności i zabezpieczeń platformy Azure"
+description: "Automatyzacji aplikacji sieci Web FedRAMP — systemu i ochronę komunikacji"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 02e2d07eb29d0d5d436afed1cdab4fe710674a8c
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: ce0917cec67612736103932903eab18d7f0f21bb
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="system-and-communications-protection-sc"></a>System i ochronę komunikacji (SC)
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure oddziela funkcji użytkownika od funkcji zarządzania systemu za pośrednictwem wymuszanie kontroli dostępu logicznych i architektura systemu. Funkcja użytkownika jest ograniczona do interfejsów aplikacji wdrożonych przez klienta sieci web. Interfejsy do obsługi funkcji zarządzania systemu są niezależne od interfejsów użytkownika. Wszystkie łączność w procesie zarządzania odbywa się za pośrednictwem bezpiecznego bastionu hosta (jumpbox) znajduje się w podsieci zarządzania z reguły grupy zabezpieczeń sieci można ograniczyć dostęp do zasobów w środowisku produkcyjnym zgodnie z potrzebami. |
+| **Klienta** | Ten plan oddziela funkcji użytkownika od funkcji zarządzania systemu za pośrednictwem wymuszanie kontroli dostępu logicznych i architektura systemu. Funkcja użytkownika jest ograniczona do interfejsów aplikacji wdrożonych przez klienta sieci web. Interfejsy do obsługi funkcji zarządzania systemu są niezależne od interfejsów użytkownika. Wszystkie łączność w procesie zarządzania odbywa się za pośrednictwem bezpiecznego bastionu hosta (jumpbox) znajduje się w podsieci zarządzania z reguły grupy zabezpieczeń sieci można ograniczyć dostęp do zasobów w środowisku produkcyjnym zgodnie z potrzebami. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Maszyn wirtualnych wdrożonych przez ten plan Azure Uruchom systemów operacyjnych Windows. System Windows zachowuje wykonywania oddzielnych domen dla każdego procesu wykonywanego przez przypisanie prywatnego wirtualnej przestrzeni adresowej do każdego procesu. Ponadto rozwiązanie implementuje architektury i dostęp do formantów opracowana w celu odizolowania funkcje zabezpieczeń, w miarę potrzeby. |
+| **Klienta** | Maszyn wirtualnych wdrożonych przez ten plan uruchamiania systemów operacyjnych Windows. System Windows zachowuje wykonywania oddzielnych domen dla każdego procesu wykonywanego przez przypisanie prywatnego wirtualnej przestrzeni adresowej do każdego procesu. Ponadto rozwiązanie implementuje architektury i dostęp do formantów opracowana w celu odizolowania funkcje zabezpieczeń, w miarę potrzeby. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Maszyn wirtualnych wdrożonych przez ten plan Azure Uruchom systemów operacyjnych Windows. System operacyjny zarządza zasobów (np. pamięci, magazynu) w taki sposób, że informacje są dostępne tylko dla użytkowników i ról z odpowiednimi uprawnieniami. |
+| **Klienta** | Maszyn wirtualnych wdrożonych przez ten plan uruchamiania systemów operacyjnych Windows. System operacyjny zarządza zasobów (np. pamięci, magazynu) w taki sposób, że informacje są dostępne tylko dla użytkowników i ról z odpowiednimi uprawnieniami. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -91,7 +91,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża bramę aplikacji obejmują zapory aplikacji sieci web i funkcji równoważenia obciążenia. Wdrożone maszyny wirtualne obsługujące warstwa sieci web, warstwy bazy danych i usługi Active Directory są wdrażane w zestawie dostępności skalowalności. |
+| **Klienta** | Ten plan wdraża bramę aplikacji obejmują zapory aplikacji sieci web i funkcji równoważenia obciążenia. Wdrożone maszyny wirtualne obsługujące warstwa sieci web, warstwy bazy danych i usługi Active Directory są wdrażane w zestawie dostępności skalowalności. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -105,7 +105,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Maszyn wirtualnych wdrożonych przez ten plan Azure Uruchom systemów operacyjnych Windows. Każdy proces systemu Windows udostępnia zasoby niezbędne do wykonania programu. Priorytet zasobów jest zarządzana przez system operacyjny. |
+| **Klienta** | Maszyn wirtualnych wdrożonych przez ten plan uruchamiania systemów operacyjnych Windows. Każdy proces systemu Windows udostępnia zasoby niezbędne do wykonania programu. Priorytet zasobów jest zarządzana przez system operacyjny. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -119,11 +119,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża bramy aplikacji, usługi równoważenia obciążenia i konfiguruje reguły grupy zabezpieczeń sieci w celu kontrolowania commutations na granicach zewnętrznych i między podsieciami wewnętrznego. Brama aplikacji, usługi równoważenia obciążenia i zdarzeń grupy zabezpieczeń sieci i dzienników diagnostycznych są zbierane przez OMS Log Analytics umożliwia monitorowanie klienta. |
+| **Klienta** | Ten plan wdraża bramy aplikacji, usługi równoważenia obciążenia i konfiguruje reguły grupy zabezpieczeń sieci w celu kontrolowania commutations na granicach zewnętrznych i między podsieciami wewnętrznego. Brama aplikacji, usługi równoważenia obciążenia i zdarzeń grupy zabezpieczeń sieci i dzienników diagnostycznych są zbierane przez OMS Log Analytics umożliwia monitorowanie klienta. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-sc-7b"></a>Formant SC NIST 800 53-od 7.b
+ ## <a name="nist-800-53-control-sc-7b"></a>NIST 800-53 Control SC-7.b
 
 #### <a name="boundary-protection"></a>Ochrona granic
 
@@ -133,11 +133,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża zasobów w architekturze podsieci WWW, podsieci bazy danych, podsieci usługi Active Directory i zarządzania podsieci. Podsieci są logicznie oddzielone reguły grupy zabezpieczeń sieci zastosować do poszczególnych podsieci, aby ograniczyć ruch między podsieciami, aby tylko to niezbędne do obsługi funkcji zarządzania i systemu (np. ruch zewnętrzny nie dostęp do bazy danych, zarządzanie, lub podsieci usługi Active Directory). |
+| **Klienta** | Ten plan wdrażania zasobów w architekturze podsieci WWW, podsieci bazy danych, podsieci usługi Active Directory i zarządzania podsieci. Podsieci są logicznie oddzielone reguły grupy zabezpieczeń sieci zastosować do poszczególnych podsieci, aby ograniczyć ruch między podsieciami, aby tylko to niezbędne do obsługi funkcji zarządzania i systemu (np. ruch zewnętrzny nie dostęp do bazy danych, zarządzanie, lub podsieci usługi Active Directory). |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-sc-7c"></a>NIST 800 53 kontroli SC-7.c
+ ## <a name="nist-800-53-control-sc-7c"></a>NIST 800-53 Control SC-7.c
 
 #### <a name="boundary-protection"></a>Ochrona granic
 
@@ -147,7 +147,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża bramę aplikacji do zarządzania połączeniami zewnętrzne do aplikacji sieci web wdrożonych przez klienta. Połączenia zewnętrzne dla zarządzania dostępu są ograniczone do hosta bastionu / adresy IP autoryzowane jumpbox wdrożone w podsieci zarządzania stosowane do ograniczenia połączeń zewnętrznych z reguły zabezpieczeń sieci. |
+| **Klienta** | Ten plan wdraża bramę aplikacji do zarządzania połączeniami zewnętrzne do aplikacji sieci web wdrożonych przez klienta. Połączenia zewnętrzne dla zarządzania dostępu są ograniczone do hosta bastionu / adresy IP autoryzowane jumpbox wdrożone w podsieci zarządzania stosowane do ograniczenia połączeń zewnętrznych z reguły zabezpieczeń sieci. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -161,7 +161,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża dwóch publicznych adresów IP: jeden skojarzone z bramą aplikacji; jeden skojarzona z hostem bastionu zarządzania / jumpbox. |
+| **Klienta** | Ten plan wdraża dwóch publicznych adresów IP: jeden skojarzone z bramą aplikacji; jeden skojarzona z hostem bastionu zarządzania / jumpbox. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -175,7 +175,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża dwóch publicznych adresów IP: jeden skojarzone z bramą aplikacji; jeden skojarzona z hostem bastionu zarządzania / jumpbox. Zarządzanie z tych interfejsów jest włączone za pośrednictwem technologia Sdn. |
+| **Klienta** | Ten plan wdraża dwóch publicznych adresów IP: jeden skojarzone z bramą aplikacji; jeden skojarzona z hostem bastionu zarządzania / jumpbox. Zarządzanie z tych interfejsów jest włączone za pośrednictwem technologia Sdn. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -189,7 +189,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża dwóch publicznych adresów IP: jeden skojarzone z bramą aplikacji; jeden skojarzona z hostem bastionu zarządzania / jumpbox. Zarządzanie z tych interfejsów jest włączone za pośrednictwem technologia Sdn. |
+| **Klienta** | Ten plan wdraża dwóch publicznych adresów IP: jeden skojarzone z bramą aplikacji; jeden skojarzona z hostem bastionu zarządzania / jumpbox. Zarządzanie z tych interfejsów jest włączone za pośrednictwem technologia Sdn. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -203,7 +203,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Brama aplikacji w sieci web wdrożone przez ten plan Azure skonfigurowano odbiornika protokołu HTTPS, następujących poufności i integralności sesje komunikacji. Połączeń pulpitu zdalnego jumpbox również są szyfrowane, zapewniając poufności i integralności. |
+| **Klienta** | Brama aplikacji w sieci web wdrożone przez ten plan jest konfigurowana odbiornika protokołu HTTPS, następujących poufności i integralności sesje komunikacji. Połączeń pulpitu zdalnego jumpbox również są szyfrowane, zapewniając poufności i integralności. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -225,7 +225,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="boundary-protection--external-telecommunications-services"></a>Ochrona granic | Usług telekomunikacyjnych zewnętrznych
 
-**.E SC-7 (4)** Organizacja przegląda wyjątki od zasad przepływu ruchu [przypisania: częstotliwość zdefiniowany przez organizację] i usuwa wyjątki, które nie są już obsługiwane przez jawne muszą misji/biznesowych.
+**SC-7 (4).e** Organizacja przegląda wyjątki od zasad przepływu ruchu [przypisania: częstotliwość zdefiniowany przez organizację] i usuwa wyjątki, które nie są już obsługiwane przez jawne muszą misji/biznesowych.
 
 **Obowiązki:**`Customer Only`
 
@@ -245,7 +245,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Zestawy reguł stosowane do sieciowej grupy zabezpieczeń wdrożone przez ten plan Azure są skonfigurowane przy użyciu schematu Odmów domyślnie. |
+| **Klienta** | Zestawy reguł stosowane do sieciowej grupy zabezpieczeń wdrożone przez ten plan są skonfigurowane przy użyciu schematu Odmów domyślnie. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -301,7 +301,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Maszyn wirtualnych wdrożonych przez ten plan Azure są skonfigurowane z włączona zapora oparta na hoście. |
+| **Klienta** | Maszyn wirtualnych wdrożonych przez ten plan skonfigurowano włączona zapora oparta na hoście. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -315,7 +315,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża zasobów w architekturze z podsiecią oddzielnego zarządzania dla wdrożenia klienta narzędzi zabezpieczeń informacji i składniki pomocy technicznej. Podsieci są logicznie oddzielone reguły grupy zabezpieczeń sieci. |
+| **Klienta** | Ten plan wdrażania zasobów w architekturze z podsiecią oddzielnego zarządzania dla wdrożenia klienta narzędzi zabezpieczeń informacji i składników obsługi. Podsieci są logicznie oddzielone reguły grupy zabezpieczeń sieci. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -357,7 +357,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża zasobów w architekturze podsieci WWW, podsieci bazy danych, podsieci usługi Active Directory i zarządzania podsieci. Podsieci są logicznie oddzielone zastosować do poszczególnych podsieci, aby ograniczyć ruch między podsieciami, aby tylko to konieczne do systemu oraz funkcji zarządzania reguły grupy zabezpieczeń sieci. |
+| **Klienta** | Ten plan wdrażania zasobów w architekturze podsieci WWW, podsieci bazy danych, podsieci usługi Active Directory i zarządzania podsieci. Podsieci są logicznie oddzielone zastosować do poszczególnych podsieci, aby ograniczyć ruch między podsieciami, aby tylko to konieczne do systemu oraz funkcji zarządzania reguły grupy zabezpieczeń sieci. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -385,7 +385,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure konfiguruje zasoby do komunikowania się przy użyciu protokołów tylko na zabezpieczone. Składnik zapory aplikacji sieci Web, bramy aplikacji został skonfigurowany do akceptowania communicators z zastosowań zewnętrznych za pośrednictwem protokołu HTTPS/TLS i komunikować się z puli zaplecza tylko za pośrednictwem protokołu HTTPS/TLS. SQL Server jest skonfigurowany do komunikacji tylko za pośrednictwem protokołu HTTPS/TLS. Usługi pulpitu zdalnego są skonfigurowane do używania bezpiecznych połączeń. |
+| **Klienta** | Ten plan konfiguruje zasoby do komunikowania się przy użyciu protokołów tylko na zabezpieczone. Składnik zapory aplikacji sieci Web, bramy aplikacji został skonfigurowany do akceptowania communicators z zastosowań zewnętrznych za pośrednictwem protokołu HTTPS/TLS i komunikować się z puli zaplecza tylko za pośrednictwem protokołu HTTPS/TLS. SQL Server jest skonfigurowany do komunikacji tylko za pośrednictwem protokołu HTTPS/TLS. Usługi pulpitu zdalnego są skonfigurowane do używania bezpiecznych połączeń. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -413,7 +413,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża usługi Azure Key Vault. Usługa Azure Key Vault ułatwia ochronę kluczy kryptograficznych i kluczy tajnych używanych przez aplikacje i usługi w chmurze. Usługa Azure Key Vault może wygenerować klucze za pomocą FIPS 140-2 poziom 2 możliwości sprzętowe w zabezpieczeń (HSM) moduł generowania kluczy. |
+| **Klienta** | Ten plan wdrażania usługi Azure Key Vault. Usługa Azure Key Vault ułatwia ochronę kluczy kryptograficznych i kluczy tajnych używanych przez aplikacje i usługi w chmurze. Usługa Azure Key Vault może wygenerować klucze za pomocą FIPS 140-2 poziom 2 możliwości sprzętowe w zabezpieczeń (HSM) moduł generowania kluczy. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -427,7 +427,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Usługa Azure Key Vault jest używany do przechowywania kluczy kryptograficznych i kluczy tajnych używanych w tym planu Azure. Key Vault usprawnia proces zarządzania kluczami klucze dostępu i szyfrowanie danych. Następujące wystawców uwierzytelnienia są przechowywane w magazynie kluczy: Azure hasło dla konta Wdróż, hasło administratora maszyny wirtualnej, hasło konta usługi programu SQL Server. |
+| **Klienta** | Usługa Azure Key Vault jest używany do przechowywania kluczy kryptograficznych i kluczy tajnych używanych w tym planu. Key Vault usprawnia proces zarządzania kluczami klucze dostępu i szyfrowanie danych. Następujące wystawców uwierzytelnienia są przechowywane w magazynie kluczy: Azure hasło dla konta Wdróż, hasło administratora maszyny wirtualnej, hasło konta usługi programu SQL Server. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -469,7 +469,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Uwierzytelnianie systemu Windows, pulpitu zdalnego i funkcji BitLocker są zatrudnieni przez ten plan Azure. Te składniki można skonfigurować polegać na FIPS 140 sprawdzania poprawności modułów kryptograficznych. |
+| **Klienta** | Uwierzytelnianie systemu Windows, pulpitu zdalnego i funkcji BitLocker są zatrudnieni przez ten plan. Te składniki można skonfigurować polegać na FIPS 140 sprawdzania poprawności modułów kryptograficznych. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -483,7 +483,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Brak współpracy urządzeń komputerowych wdrożenia w ramach tego planu Azure. Uwaga: Dostępne są fizycznych urządzeń komputerowych współpracy w zakresie systemów wdrożonego na platformie Azure. |
+| **Klienta** | Brak współpracy urządzeń komputerowych wdrożenia w ramach tego planu. Uwaga: Dostępne są fizycznych urządzeń komputerowych współpracy w zakresie systemów wdrożonego na platformie Azure. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -497,7 +497,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Brak współpracy urządzeń komputerowych wdrożenia w ramach tego planu Azure. Uwaga: Dostępne są fizycznych urządzeń komputerowych współpracy w zakresie systemów wdrożonego na platformie Azure. |
+| **Klienta** | Brak współpracy urządzeń komputerowych wdrożenia w ramach tego planu. Uwaga: Dostępne są fizycznych urządzeń komputerowych współpracy w zakresie systemów wdrożonego na platformie Azure. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -529,7 +529,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-sc-18b"></a>NIST 800 53 kontroli SC-18.b
+ ## <a name="nist-800-53-control-sc-18b"></a>NIST 800-53 Control SC-18.b
 
 #### <a name="mobile-code"></a>Dostępu mobilnego
 
@@ -543,7 +543,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-sc-18c"></a>NIST 800 53 kontroli SC-18.c
+ ## <a name="nist-800-53-control-sc-18c"></a>NIST 800-53 Control SC-18.c
 
 #### <a name="mobile-code"></a>Dostępu mobilnego
 
@@ -567,7 +567,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Nie ma żadnych głosowych przez internet protocol technologie wdrożenia w ramach tego planu Azure. |
+| **Klienta** | Nie ma żadnych głosowych przez internet protocol technologie wdrożenia w ramach tego planu. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -581,7 +581,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Nie ma żadnych głosowych przez internet protocol technologie wdrożenia w ramach tego planu Azure. |
+| **Klienta** | Nie ma żadnych głosowych przez internet protocol technologie wdrożenia w ramach tego planu. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -651,7 +651,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Dostęp zdalny do zasobów wykorzystywanych przez ten schemat Azure, w tym portalu Azure, połączeń usług pulpitu zdalnego i brama aplikacji w sieci web, są chronione przy użyciu protokołu TLS. TLS zapewnia autentyczności komunikacji na poziomie sesji. |
+| **Klienta** | Dostęp zdalny do zasobów wykorzystywanych przez ten schemat, w tym portalu Azure, połączeń usług pulpitu zdalnego i brama aplikacji w sieci web, są chronione przy użyciu protokołu TLS. TLS zapewnia autentyczności komunikacji na poziomie sesji. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -665,7 +665,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Dostęp zdalny do zasobów wykorzystywanych przez ten schemat Azure, w tym portalu Azure, połączeń usług pulpitu zdalnego i brama aplikacji w sieci web, są chronione przy użyciu protokołu TLS. Azure portal i sesji pulpitu zdalnego unieważnienie identyfikatory sesji podczas wylogowania. Unieważnienie sesji sieci Web jest wymuszana przez bramę aplikacji Azure — zasady zapory aplikacji sieci Web (WAF). Zapory aplikacji sieci Web stosuje koligacji pliku cookie sesji i wykonuje limit czasu sesji po 30 minutach (można skonfigurować po wdrożeniu szczegółowych zasad organizacji) aktywności klienta. |
+| **Klienta** | Dostęp zdalny do zasobów wykorzystywanych przez ten schemat, w tym portalu Azure, połączeń usług pulpitu zdalnego i brama aplikacji w sieci web, są chronione przy użyciu protokołu TLS. Azure portal i sesji pulpitu zdalnego unieważnienie identyfikatory sesji podczas wylogowania. Unieważnienie sesji sieci Web jest wymuszana przez bramę aplikacji Azure — zasady zapory aplikacji sieci Web (WAF). Zapory aplikacji sieci Web stosuje koligacji pliku cookie sesji i wykonuje limit czasu sesji po 30 minutach (można skonfigurować po wdrożeniu szczegółowych zasad organizacji) aktywności klienta. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -707,7 +707,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Maszyn wirtualnych wdrożonych przez ten plan Azure implementuje szyfrowanie dysku w celu ochrony poufności i integralności danych w stanie spoczynku. Szyfrowanie dysków Azure dla systemu Windows jest implementowane za pomocą funkcji BitLocker systemu Windows. Program SQL Server jest skonfigurowany do używania przezroczysty danych szyfrowania (funkcji TDE), który przeprowadza w czasie rzeczywistym szyfrowania i odszyfrowywania danych i plików dziennika do ochrony informacji w stanie spoczynku. Funkcji TDE zawiera gwarantują, że przechowywanych danych nie zostało poddane nieautoryzowanego dostępu. Klient może zdecydować się na wdrożenie dodatkowych funkcji kontroli poziomu aplikacji do ochrony integralności przechowywanych informacji. Poufność i integralność wszystkich magazynu obiektów blob wdrażane przez ten plan Azure są chronione przy użyciu szyfrowania usługi Azure magazynu (SSE). SSE zabezpiecza dane przechowywane w ramach konta magazynu platformy Azure przy użyciu szyfrowania AES 256-bitowego. |
+| **Klienta** | Maszyn wirtualnych wdrożonych przez ten plan wdrożenia szyfrowania dysku do ochrony poufności i integralności danych w stanie spoczynku. Szyfrowanie dysków Azure dla systemu Windows jest implementowane za pomocą funkcji BitLocker systemu Windows. Program SQL Server jest skonfigurowany do używania przezroczysty danych szyfrowania (funkcji TDE), który przeprowadza w czasie rzeczywistym szyfrowania i odszyfrowywania danych i plików dziennika do ochrony informacji w stanie spoczynku. Funkcji TDE zawiera gwarantują, że przechowywanych danych nie zostało poddane nieautoryzowanego dostępu. Klient może zdecydować się na wdrożenie dodatkowych funkcji kontroli poziomu aplikacji do ochrony integralności przechowywanych informacji. Poufność i integralność wszystkich magazynu obiektów blob wdrażane przez ten plan są chronione przy użyciu szyfrowania usługi Azure magazynu (SSE). SSE zabezpiecza dane przechowywane w ramach konta magazynu platformy Azure przy użyciu szyfrowania AES 256-bitowego. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -721,5 +721,5 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Maszyn wirtualnych wdrożonych przez ten plan Azure Uruchom systemów operacyjnych Windows. System Windows zachowuje wykonywania oddzielnych domen dla każdego procesu wykonywanego przez przypisanie prywatnego wirtualnej przestrzeni adresowej do każdego procesu. |
+| **Klienta** | Maszyn wirtualnych wdrożonych przez ten plan uruchamiania systemów operacyjnych Windows. System Windows zachowuje wykonywania oddzielnych domen dla każdego procesu wykonywanego przez przypisanie prywatnego wirtualnej przestrzeni adresowej do każdego procesu. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |

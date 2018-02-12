@@ -1,6 +1,6 @@
 ---
-title: Automatyzacja planu FedRAMP Azure - planowania
-description: "Aplikacje dla FedRAMP — sieci Web planowania"
+title: "Plan zabezpieczeń platformy Azure i zgodność — automatyzacji aplikacji sieci Web FedRAMP - planowania"
+description: Automatyzacja aplikacji sieci Web FedRAMP - planowania
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 8e4d4f228940d08bc522aabcd6f4ab573ff231d4
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: d5e5666db71ac9f5a136c9acb448fb13bf39a853
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="planning-pl"></a>Planowanie (PL)
 
@@ -81,7 +81,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-pl-2d"></a>Formant NIST 800 53 PL-2.d
+ ## <a name="nist-800-53-control-pl-2d"></a>NIST 800-53 Control PL-2.d
 
 #### <a name="system-security-plan"></a>Planowanie zabezpieczeń systemu
 
@@ -99,7 +99,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="system-security-plan"></a>Planowanie zabezpieczeń systemu
 
-**PL 2.e** Organizacja chroni plan ochrony przed nieuprawnionym ujawnieniem i modyfikacji.
+**PL-2.e** Organizacja chroni plan ochrony przed nieuprawnionym ujawnieniem i modyfikacji.
 
 **Obowiązki:**`Customer Only`
 

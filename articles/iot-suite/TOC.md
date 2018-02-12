@@ -12,7 +12,7 @@
 ### [Co to są wstępnie skonfigurowane rozwiązania?](iot-suite-v1-what-are-preconfigured-solutions.md)
 ### [Często zadawane pytania](iot-suite-v1-faq.md)
 
-### Wprowadzenie
+### Rozpoczęcie pracy
 #### [Wprowadzenie do wstępnie skonfigurowanych rozwiązań](iot-suite-v1-getstarted-preconfigured-solutions.md)
 #### [Uprawnienia w witrynie azureiotsuite.com](iot-suite-v1-permissions.md)
 #### [Przewodnik po rozwiązaniu do zdalnego monitorowania](iot-suite-v1-remote-monitoring-sample-walkthrough.md)
@@ -58,7 +58,9 @@
 ### [Używanie reguł do wykrywania problemów](iot-suite-remote-monitoring-automate.md)
 ### [Zarządzanie urządzeniami](iot-suite-remote-monitoring-manage.md)
 ### [Rozwiązywanie problemów z urządzeniami](iot-suite-remote-monitoring-maintain.md)
-### [Korzystanie z symulowanych urządzeń](iot-suite-remote-monitoring-test.md)
+### [Opis schematu modelu urządzenia](iot-suite-remote-monitoring-device-schema.md)
+### [Opis zachowania modelu urządzenia](iot-suite-remote-monitoring-device-behavior.md)
+### [Tworzenie nowego urządzenia symulowanego](iot-suite-remote-monitoring-test.md)
 ### [Dostosowywanie rozwiązania](iot-suite-remote-monitoring-customize.md)
 ### [Wdrażanie przy użyciu interfejsu wiersza polecenia](iot-suite-remote-monitoring-deploy-cli.md)
 ### Podłączanie urządzenia fizycznego

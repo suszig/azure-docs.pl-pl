@@ -1,6 +1,6 @@
 ---
 title: "Generowanie i eksportowania certyfikatów dla lokacji punktu: środowiska PowerShell: Azure | Dokumentacja firmy Microsoft"
-description: "Ten artykuł zawiera kroki, aby utworzyć certyfikat z podpisem własnym głównego, wyeksportować klucz publiczny i generować certyfikaty klienta przy użyciu programu PowerShell w systemie Windows 10."
+description: "Ten artykuł zawiera kroki, aby utworzyć certyfikat z podpisem własnym głównego, wyeksportować klucz publiczny i generować certyfikaty klienta przy użyciu programu PowerShell w systemie Windows 10 lub Windows Server 2016."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/09/2017
 ms.author: cherylmc
-ms.openlocfilehash: be2e8fe12dee88ccf81faaa114056a29e03881bd
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: dc7031a42781d57689c067988239ff0528d8d83b
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/11/2018
 ---
-# <a name="generate-and-export-certificates-for-point-to-site-connections-using-powershell-on-windows-10"></a>Generowanie i eksportowania certyfikatów połączeń punkt-lokacja za pomocą programu PowerShell w systemie Windows 10
+# <a name="generate-and-export-certificates-for-point-to-site-connections-using-powershell-on-windows-10-or-windows-server-2016"></a>Generowanie i eksportowania certyfikatów połączeń punkt-lokacja za pomocą programu PowerShell w systemie Windows 10 lub Windows Server 2016
 
-Połączenia punkt-lokacja używa certyfikatów w celu uwierzytelniania. W tym artykule pokazano, jak utworzyć certyfikat z podpisem własnym głównego i generować certyfikaty klienta przy użyciu programu PowerShell w systemie Windows 10. Jeśli szukasz punkt-lokacja kroków konfiguracji, takich jak sposób przekazywania certyfikatów głównych, wybierz jedną z artykułów "Konfiguruj punkt-lokacja" z następującej listy:
+Połączenia punkt-lokacja używa certyfikatów w celu uwierzytelniania. W tym artykule pokazano, jak utworzyć certyfikat z podpisem własnym głównego i generować certyfikaty klienta przy użyciu programu PowerShell w systemie Windows 10 lub Windows Server 2016. Jeśli szukasz punkt-lokacja kroków konfiguracji, takich jak sposób przekazywania certyfikatów głównych, wybierz jedną z artykułów "Konfiguruj punkt-lokacja" z następującej listy:
 
 > [!div class="op_single_selector"]
 > * [Tworzenie certyfikatów z podpisem własnym — PowerShell](vpn-gateway-certificates-point-to-site.md)
@@ -35,15 +35,15 @@ Połączenia punkt-lokacja używa certyfikatów w celu uwierzytelniania. W tym a
 > 
 
 
-Należy wykonać kroki opisane w tym artykule na komputerze z systemem Windows 10. Polecenia cmdlet programu PowerShell, które służy do generowania certyfikatów są częścią systemu operacyjnego Windows 10 i nie działają w innych wersjach systemu Windows. Komputer z systemem Windows 10 wymagana jest tylko do wygenerowania certyfikatów. Po wygenerowaniu certyfikaty, można przekazać je lub je zainstalować w dowolnym systemie operacyjnym klienta obsługiwanych. 
+Należy wykonać kroki opisane w tym artykule na komputerze z systemem Windows 10 lub Windows Server 2016. Polecenia cmdlet programu PowerShell, które służy do generowania certyfikatów są częścią systemu operacyjnego i nie działają w innych wersjach systemu Windows. Komputer z systemem Windows 10 lub Windows Server 2016 tylko jest potrzebny do generowania certyfikatów. Po wygenerowaniu certyfikaty, można przekazać je lub je zainstalować w dowolnym systemie operacyjnym klienta obsługiwanych. 
 
-Jeśli nie masz dostępu do komputera z systemem Windows 10, możesz użyć [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) do generowania certyfikatów. Certyfikaty, które można wygenerować za pomocą jednej z metod można instalować na żadnym [obsługiwane](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq) kliencki system operacyjny.
+Jeśli nie masz dostępu do komputera z systemem Windows 10 lub Windows Server 2016, możesz użyć [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) do generowania certyfikatów. Certyfikaty, które można wygenerować za pomocą jednej z metod można instalować na żadnym [obsługiwane](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq) kliencki system operacyjny.
 
 ## <a name="rootcert"></a>Utwórz certyfikat z podpisem własnym głównego
 
 Utwórz certyfikat z podpisem własnym głównego za pomocą polecenia cmdlet New-SelfSignedCertificate. Dodatkowy parametr informacji, zobacz [SelfSignedCertificate nowy](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
-1. Z komputera z systemem Windows 10 Otwórz konsolę programu Windows PowerShell z podwyższonym poziomem uprawnień.
+1. Z komputera z systemem Windows 10 lub Windows Server 2016 Otwórz konsolę programu Windows PowerShell z podwyższonym poziomem uprawnień.
 2. Skorzystaj z następującego przykładu, można utworzyć certyfikatu z podpisem własnym głównego. Poniższy przykład tworzy certyfikat główny z podpisem własnym o nazwie P2SRootCert, który jest automatycznie instalowany w "Certyfikaty — bieżący User\Personal\Certificates". Certyfikat można wyświetlić, otwierając *certmgr.msc*, lub *zarządzanie certyfikatami użytkownika*.
 
   ```powershell

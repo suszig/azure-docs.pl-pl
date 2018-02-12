@@ -14,17 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: f6095d98ada2974bce03ec8f5527367837daafd3
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: fd3f52de40c6d448d457824bcc675db036d2cb86
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Rozwiązywanie problemów aktywacji maszyny wirtualnej systemu Windows Azure
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 Jeśli masz problemy podczas aktywacji maszyny wirtualnej systemu Windows Azure (VM), która jest tworzona na podstawie obrazu niestandardowego, można użyć informacje zawarte w tym dokumencie, aby rozwiązać ten problem. 
+
+## <a name="understanding-azure-kms-endpoints-for-windows-product-activation-of-azure-virtual-machines"></a>Punkty końcowe usługi KMS Azure Opis aktywacji produktu Windows maszyn wirtualnych Azure
+Platforma Azure korzysta różnych punktów końcowych do aktywacji usługi KMS w zależności od regionu chmury, gdzie znajduje się maszyna wirtualna. Podczas korzystania z tego przewodnika dotyczące rozwiązywania problemów, należy użyć odpowiedniego punktu końcowego usługi KMS, który ma zastosowanie do tego regionu.
+
+* Regiony w chmurze publicznej systemu Azure: kms.core.windows.net:1688
+* Azure China national cloud regions: kms.core.chinacloudapi.cn:1688
+* Regiony platformy Azure national cloud Niemcy: kms.core.cloudapi.de:1688
+* Regiony platformy Azure national cloud nam wersji dla instytucji rządowych: kms.core.usgovcloudapi.net:1688
 
 ## <a name="symptom"></a>Objaw
 

@@ -11,20 +11,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/20/2017
+ms.date: 01/20/2018
 ms.author: asmalser
 ms.reviewer: luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cedba7397e29cb397560c65a2408cd27442ec01c
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: e161bb308f08e2a7c137c696e77bf1dfb86e8d31
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="configuring-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Konfigurowanie logowania jednokrotnego do aplikacji, które nie znajdują się w galerii aplikacji Azure Active Directory
 Ten artykuł dotyczy funkcja, która umożliwia administratorom na konfigurowanie rejestracji jednokrotnej do aplikacji nie znajduje się w galerii aplikacji usługi Azure Active Directory *bez pisania kodu*. Ta funkcja została wydana z wersji zapoznawczej technical preview 18 listopada 2015 i znajduje się w [Azure Active Directory Premium](active-directory-editions.md). Jeśli zamiast tego Wyszukaj wskazówki dla deweloperów na temat integracji z usługą Azure AD przez kod aplikacji niestandardowych, zobacz [scenariusze uwierzytelniania dla usługi Azure AD](active-directory-authentication-scenarios.md).
 
-Galerii aplikacji usługi Azure Active Directory zawiera listę aplikacji, które są znane do obsługi formularza rejestracji jednokrotnej z usługą Azure Active Directory, zgodnie z opisem w [w tym artykule](active-directory-appssoaccess-whatis.md). Po (jako IT specjalistyczne lub system integratora w organizacji) znalezieniu aplikacji chcesz się połączyć, możesz rozpocząć pracę, wykonując instrukcje krok po kroku przedstawiony w portalu zarządzania Azure, aby włączyć logowanie jednokrotne.
+Galerii aplikacji usługi Azure Active Directory zawiera listę aplikacji, które są znane do obsługi formularza rejestracji jednokrotnej z usługą Azure Active Directory, zgodnie z opisem w [w tym artykule](active-directory-appssoaccess-whatis.md). Po (jako IT specjalistyczne lub system integratora w organizacji) znalezieniu aplikacji, którą chcesz się połączyć, możesz rozpocząć pracę zgodnie z instrukcjami krok po kroku przedstawiony w portalu Azure, aby włączyć logowanie jednokrotne.
 
 Klienci z [Azure Active Directory Premium](active-directory-editions.md) licencji również uzyskać te dodatkowe możliwości:
 
@@ -38,32 +38,32 @@ To nie tylko aplikacji SaaS, które używają, ale ma nie jeszcze został na dod
 Te możliwości, nazywany również *szablony integracji aplikacji*, podaj punkty połączenia oparte na standardach aplikacji, które obsługują SAML, SCIM lub uwierzytelnianie oparte na formularzach i obejmują elastyczne opcje i ustawienia dla zgodności z szerokim liczbę aplikacji. 
 
 ## <a name="adding-an-unlisted-application"></a>Dodawanie nieznajdujące się na liście aplikacji
-Łączenie aplikacji przy użyciu szablonu usługi integracji aplikacji, zaloguj się do portalu zarządzania platformy Azure przy użyciu konta administratora usługi Azure Active Directory, a następnie przejdź do **usługi Active Directory > [katalog] > aplikacje** zaznacz **Dodaj**, a następnie **dodać aplikację z galerii**. 
+Aby połączyć aplikację przy użyciu szablonu usługi integracji aplikacji, zaloguj się do portalu Azure przy użyciu konta administratora usługi Azure Active Directory, a następnie przejdź do **usługi Active Directory > aplikacje dla przedsiębiorstw > nowej aplikacji > Inne niż galerii aplikacji** zaznacz **Dodaj**, a następnie **dodać aplikację z galerii**.
 
-![][1]
+  ![][1]
 
-W galerii aplikacji można dodać nieznajdujące się na liście aplikacji przy użyciu **niestandardowy** kategorii po lewej stronie lub wybierając **Dodawanie nieznajdujące się na liście aplikacji** łącze, które jest wyświetlane w wynikach wyszukiwania, jeśli nie można znaleźć żądanej aplikacji. Po wprowadzeniu nazwy aplikacji, można skonfigurować opcje rejestracji jednokrotnej i zachowania. 
+Nieznajdujące się na liście aplikacji w galerii aplikacji można dodawać przez zaznaczenie **Non galerii aplikacji** kafelka, który jest wyświetlany w wynikach wyszukiwania, jeśli nie można znaleźć żądanej aplikacji. Po wprowadzeniu nazwy aplikacji, można skonfigurować opcje rejestracji jednokrotnej i zachowania. 
 
-**Szybkie porady**: najlepszym rozwiązaniem, użyj funkcji wyszukiwania, aby sprawdzić, czy aplikacja już istnieje w galerii aplikacji. Jeśli aplikacja zostanie znaleziony i jego opis uwagi "logowania jednokrotnego", a następnie aplikacja jest już obsługiwana federacyjnego logowania jednokrotnego. 
+**Szybkie porady**: najlepszym rozwiązaniem, użyj funkcji wyszukiwania, aby sprawdzić, czy aplikacja już istnieje w galerii aplikacji. Czy aplikacja zostanie znaleziony i podaje opis "Logowanie jednokrotne", aplikacja jest już obsługiwane w przypadku federacyjnego logowania jednokrotnego.
 
-![][2]
+  ![][2]
 
-Dodawanie aplikacji w ten sposób zapewnia bardzo podobne do dostępne dla wstępnie zintegrowanych aplikacji. Aby rozpocząć, wybierz **skonfigurować logowanie jednokrotne**. Następnym ekranie przedstawia następujące trzy opcje dotyczące konfigurowania rejestracji jednokrotnej, są opisane w poniższych sekcjach.
+Dodawanie aplikacji w ten sposób zapewnia bardzo podobne do dostępne dla wstępnie zintegrowanych aplikacji. Aby rozpocząć, wybierz **skonfigurować logowanie jednokrotne**. Następnym ekranie przedstawia poniższe trzy opcje dotyczące konfigurowania rejestracji jednokrotnej, które zostały opisane w poniższych sekcjach.
 
-![][3]
+  ![][3]
 
-## <a name="azure-ad-single-sign-on"></a>Azure AD rejestracji jednokrotnej
-Wybierz tę opcję, aby skonfigurować uwierzytelnianie oparte na protokole SAML dla aplikacji. Wymaga to, że obsługa aplikacji SAML 2.0, a zbierały informacje na temat sposobu korzystania z funkcji SAML aplikacji przed kontynuowaniem. Po wybraniu **dalej**, pojawi się monit o wprowadzenie trzech różnych adresów URL odpowiadającego SAML punktów końcowych dla aplikacji. 
+## <a name="saml-based-sign-on"></a>SAML na podstawie logowania jednokrotnego
+Wybierz tę opcję, aby skonfigurować uwierzytelnianie oparte na protokole SAML dla aplikacji. Wymaga to, że obsługa aplikacji SAML 2.0, a zbierały informacje na temat sposobu korzystania z funkcji SAML aplikacji przed kontynuowaniem. Po wybraniu **dalej**, pojawi się monit o wprowadzenie trzech różnych adresów URL odpowiadającego SAML punktów końcowych dla aplikacji.
 
-![][4]
+  ![][4]
 
 Są to:
 
-* **Zaloguj się na adres URL (SP inicjowane tylko)** — w przypadku, gdy użytkownik przechodzi do logowania się w tej aplikacji. Jeśli aplikacja jest skonfigurowana do wykonania na, a następnie, gdy użytkownik przechodzi do tego adresu URL usługi zainicjował dostawcy funkcji logowania jednokrotnego, dostawcy usług wykonuje niezbędne przekierowanie do usługi Azure AD do uwierzytelniania i logowania użytkownika w. Jeśli to pole zostanie wypełnione, usługi Azure AD będzie używać tego adresu URL do uruchamiania aplikacji z usługi Office 365 i panelu dostępu usługi Azure AD. Jeśli to pole zostanie pominięte, a następnie usługi Azure AD, zamiast tego zostanie przeprowadzone dostawcy tożsamości-inicjowane logowania po uruchomieniu aplikacji z usługi Office 365, Panel dostępu usługi Azure AD lub Azure AD pojedynczy adres URL logowania (copyable z karty Pulpit nawigacyjny).
-* **Adres URL wystawcy** — adres URL wystawcy musi jednoznacznie wskazywać aplikacji, dla których jednym logowania jest skonfigurowane. Jest to wartość, która wysyła usługi Azure AD z powrotem do aplikacji jako **odbiorców** parametr tokenu SAML i aplikacji powinien go zweryfikować. Ta wartość jest także wyświetlany jako **identyfikator jednostki** w dowolnym metadanych SAML udostępniany przez aplikację. Sprawdź dokumentacji SAML aplikacji, aby uzyskać szczegółowe informacje, co jest identyfikator jednostki lub jest wartość odbiorców. Poniżej przedstawiono przykładowy sposób wyświetlania adresu URL odbiorców tokenu SAML zwrócony do aplikacji:
-
-```
-    <Subject>
+* **Zaloguj się na adres URL (SP inicjowane tylko)** — w przypadku, gdy użytkownik przechodzi do logowania się w tej aplikacji. Jeśli aplikacja jest skonfigurowany do wykonywania usługi zainicjował dostawcy logowania jednokrotnego, gdy użytkownik przechodzi do tego adresu URL, dostawcy usług wykonuje niezbędne przekierowanie do usługi Azure AD do uwierzytelniania i logowania użytkownika w. Jeśli to pole zostanie wypełnione, usługi Azure AD będzie używać tego adresu URL do uruchamiania aplikacji z usługi Office 365 i panelu dostępu usługi Azure AD. Jeśli to pole zostanie pominięte, a następnie usługi Azure AD, zamiast tego zostanie przeprowadzone dostawcy tożsamości-zainicjował logowania jednokrotnego, gdy aplikacja jest uruchamiana z usługi Office 365, Panel dostępu usługi Azure AD lub Azure AD pojedynczy adres URL logowania (copyable z karty Pulpit nawigacyjny).
+* **Adres URL wystawcy** — adres URL wystawcy musi jednoznacznie wskazywać aplikacji, dla którego rejestracji jednokrotnej jest konfigurowany. Jest to wartość, która wysyła usługi Azure AD z powrotem do aplikacji jako **odbiorców** parametr tokenu SAML i aplikacji powinien go zweryfikować. Ta wartość jest także wyświetlany jako **identyfikator jednostki** w dowolnym metadanych SAML udostępniany przez aplikację. W dokumentacji aplikacji SAML szczegółowe informacje na temat jest jego wartość Identyfikatora jednostki lub odbiorców. Poniżej przedstawiono przykładowy sposób wyświetlania adresu URL odbiorców tokenu SAML zwrócony do aplikacji:
+  
+  ```
+  <Subject>
     <NameID Format="urn:oasis:names:tc:SAML:2.0:nameid-format:unspecificed">chad.smith@example.com</NameID>
         <SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />
       </Subject>
@@ -72,12 +72,14 @@ Są to:
           <Audience>https://tenant.example.com</Audience>
         </AudienceRestriction>
       </Conditions>
-```
+    ```
 
 * **Adres URL odpowiedzi** — adres URL odpowiedzi jest, gdy aplikacja oczekuje odebrać tokenu SAML. To jest również nazywany **adres URL usługi konsumenta potwierdzenia (ACS)**. Sprawdź dokumentacji SAML aplikacji, aby uzyskać więcej informacji na jego odpowiedzi tokenu SAML adres URL lub adres URL usług ACS jest.
-  Po te zostały wprowadzone, kliknij przycisk **dalej** do przejścia do następnego ekranu. Ten ekran informuje o co musi zostać skonfigurowane na stronie aplikacji do akceptowania tokenu SAML z usługi Azure AD. 
+  Po te zostały wprowadzone, kliknij przycisk **dalej** do przejścia do następnego ekranu. Ten ekran informuje o co musi zostać skonfigurowane na stronie aplikacji do akceptowania tokenu SAML z usługi Azure AD.
 
-![][5]
+  * Polecenie **skonfigurować Litware**.
+  
+    ![][5]
 
 Wartości, które są wymagane będą się różnić w zależności od aplikacji, więc spróbuj dokumentacji SAML aplikacji, aby uzyskać szczegółowe informacje. **Logowania jednokrotnego** i **wylogowania** URL oba rozwiązania do tego samego punktu końcowego, który jest punktem końcowym obsługi żądań SAML dla swojego wystąpienia usługi Azure AD usługi. Adres URL wystawcy jest wartość, która jest wyświetlana jako "Wystawca" w tokenie SAML wystawiony dla aplikacji. 
 
@@ -86,9 +88,9 @@ Po skonfigurowaniu aplikacji kliknij **dalej** przycisk, a następnie **Complete
 ## <a name="assigning-users-and-groups-to-your-saml-application"></a>Przypisywanie użytkowników i grup do aplikacji SAML
 Po skonfigurowaniu aplikacji przy użyciu usługi Azure AD jako dostawca tożsamości SAML na podstawie jest już prawie gotowe do testów. Jako formant zabezpieczeń usługi Azure AD nie będzie wystawiać token, dzięki czemu mogą zalogować się do aplikacji, chyba że przyznano im dostęp przy użyciu usługi Azure AD. Użytkownicy mogą otrzymać dostęp bezpośrednio lub za pośrednictwem grupy, które są członkami. 
 
-Aby przypisać użytkownika lub grupę do aplikacji, kliknij przycisk **Przypisz użytkowników** przycisku. Wybierz użytkownika lub grupy, które chcesz przypisać, a następnie wybierz **przypisać** przycisku. 
+Aby przypisać użytkownika lub grupę do aplikacji, kliknij przycisk **Przypisz użytkowników** przycisku. Wybierz użytkownika lub grupy, które chcesz przypisać, a następnie wybierz **przypisać** przycisku.
 
-![][6]
+  ![][6]
 
 Przypisanie użytkownika umożliwi usługi Azure AD można wystawić token dla użytkownika, a także powoduje kafelka aplikacji są wyświetlane w panelu dostępu użytkownika. Kafelek aplikacji również będą wyświetlane w uruchamiający aplikację usługi Office 365, jeśli użytkownik korzysta z usługi Office 365. 
 
@@ -97,9 +99,9 @@ Możesz przekazać logo kafelka aplikacji przy użyciu **przekazać Logo** znajd
 ### <a name="customizing-the-claims-issued-in-the-saml-token"></a>Dostosowywanie oświadczeń wydanych w tokenie SAML
 Podczas uwierzytelniania użytkownika do aplikacji, usługi Azure AD wystawia SAML token aplikacja, która zawiera informacje (lub oświadczenia) dotyczące użytkownika, który unikatowo identyfikuje je. Domyślnie w tym nazwę użytkownika, adres e-mail, imię i nazwisko użytkownika. 
 
-Umożliwia wyświetlenie i edytowanie oświadczenia wysyłane w tokenie SAML do aplikacji w obszarze **atrybuty** kartę. 
+Umożliwia wyświetlenie i edytowanie oświadczenia wysyłane w tokenie SAML do aplikacji w obszarze **atrybuty** kartę.
 
-![][7]
+  ![][7]
 
 Istnieją dwie możliwe przyczyny, dlaczego konieczne może być Edycja oświadczeń wydanych w tokenie SAML: •zakres aplikacji została zapisana wymagają innego zestawu oświadczeń identyfikatorów URI lub wartości oświadczeń •Your aplikacja została wdrożona w taki sposób, który wymaga NameIdentifier oświadczeń inny niż nazwa użytkownika (nazwy głównej użytkownika AKA) przechowywanych w usłudze Azure Active Directory. 
 

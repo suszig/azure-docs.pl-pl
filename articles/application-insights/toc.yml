@@ -192,6 +192,8 @@
               href: app-insights-usage-segmentation.md
             - name: Lejki
               href: usage-funnels.md
+            - name: Wpływ
+              href: app-insights-usage-impact.md
             - name: Przechowywanie
               href: app-insights-usage-retention.md
             - name: Przepływy użytkowników

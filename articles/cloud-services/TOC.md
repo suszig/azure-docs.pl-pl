@@ -64,13 +64,13 @@
 
 ## Monitorowanie
 ### [Monitorowanie usługi w chmurze](cloud-services-how-to-monitor.md)
+### [Używanie liczników wydajności](diagnostics-performance-counters.md)
 ### [Testowanie wydajności](../vs-azure-tools-performance-profiling-cloud-services.md)
 #### [Testowanie przy użyciu programu Visual Studio Profiler](cloud-services-performance-testing-visual-studio-profiler.md)
 ### Włączanie diagnostyki
 #### [Azure PowerShell](cloud-services-diagnostics-powershell.md)
 #### [.NET](cloud-services-dotnet-diagnostics.md)
 #### [Program Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
-### [Używanie liczników wydajności w usłudze Diagnostyka Azure](cloud-services-dotnet-diagnostics-performance-counters.md)
 ### [Przechowywanie i przeglądanie danych diagnostycznych w usłudze Azure Storage](cloud-services-dotnet-diagnostics-storage.md)
 ### [Śledzenie usługi w chmurze przy użyciu usługi Diagnostyka](cloud-services-dotnet-diagnostics-trace-flow.md)
 ### [Wysyłanie danych diagnostycznych do usługi App Insights](cloud-services-dotnet-diagnostics-applicationinsights.md)

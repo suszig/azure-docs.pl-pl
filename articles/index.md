@@ -5,11 +5,11 @@ title: Dokumentacja platformy Microsoft Azure
 description: "Dowiedz się, jak tworzyć zaawansowane aplikacje i zarządzać nimi przy użyciu usług w chmurze platformy Microsoft Azure. Pobierz dokumentację, przykładowy kod, samouczki i wiele więcej."
 featureFlags:
 - clicktale
-ms.openlocfilehash: 88c99f7aa0af914210e760d498bb4fb514798207
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 2f0316b17dc1bedab724b3174f8f88d9e92f74f8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -4263,12 +4263,12 @@ Narzędzia SQL </h3>
                             <li>
                                 <div class="container intro">
                                     <p>
-Zestaw zalecanych architektur dla aplikacji w chmurze. Każda architektura obejmuje zalecane praktyki, normatywne kroki oraz komponent wykonywalny, który stanowi realizację zaleceń.
+Centrum architektury platformy Azure zawiera wskazówki dotyczące tworzenia kompleksowych rozwiązań na platformie Microsoft Azure. Można tu znaleźć architektury referencyjne, najlepsze rozwiązania, wzorce projektowe, przewodniki dotyczące scenariuszy i wdrożenia referencyjne.
                                     </p>
                                 </div>
                             </li>
                             <li>
-                                <a href="/azure/architecture/guide/">
+                                <a href="/azure/architecture/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -4278,8 +4278,27 @@ Zestaw zalecanych architektur dla aplikacji w chmurze. Każda architektura obejm
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
+                                                    <h3>Centrum architektury platformy Azure</h3>
+                                                    <p>Wskazówki dotyczące tworzenia kompleksowych rozwiązań na platformie Microsoft Azure.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/architecture/guide/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/index/azure_best-practices.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
                                                     <h3>Przewodnik dotyczący architektury aplikacji na platformie Azure</h3>
-                                                    <p>Podstawowa wiedza pozwalająca osiągnąć sukces w chmurze. Jeśli nie znasz jeszcze chmury lub platformy Azure, zacznij od tego miejsca.</p>
+                                                    <p>W tym przewodniku przedstawiono ustrukturyzowane podejście do projektowania aplikacji na platformie Azure, które są skalowalne, odporne i o wysokiej dostępności. Jest on oparty na sprawdzonych rozwiązaniach, których nauczyliśmy się dzięki zaangażowaniu klientów.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4318,27 +4337,6 @@ Zestaw zalecanych architektur dla aplikacji w chmurze. Każda architektura obejm
                                                 <div class="cardText">
                                                     <h3>Wzorce projektowe oparte na chmurze</h3>
                                                     <p>Wzorce projektowe dla chmury. Każdy wzorzec opisuje problem, wzorzec rozwiązania problemu oraz przykład oparty na platformie Azure.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/architecture/best-practices/api-design">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/index/azure_best-practices.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Najlepsze rozwiązania dla aplikacji w chmurze</h3>
-                                                    <p>
-Zestaw najlepszych rozwiązań dla aplikacji w chmurze, który obejmuje takie aspekty, jak skalowanie automatyczne, buforowanie, partycjonowanie danych, projektowanie interfejsu API i monitorowanie.
-                                                    </p>
                                                 </div>
                                             </div>
                                         </div>

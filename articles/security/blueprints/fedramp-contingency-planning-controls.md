@@ -1,6 +1,6 @@
 ---
-title: Automatyzacja planu FedRAMP Azure - planowania
-description: "Aplikacje dla FedRAMP — sieci Web planowania"
+title: "Plan zabezpieczeń platformy Azure i zgodność — automatyzacji aplikacji sieci Web FedRAMP - planowania"
+description: Automatyzacja aplikacji sieci Web FedRAMP - planowania
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: f6e07903b9d7bd69398f23ace168299c6c1bdf44
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: f993271656e9484881ccac357acb3d50830c219e
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="contingency-planning-cp"></a>Rozwiązanie przydatne planowania (CP)
 
@@ -371,7 +371,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Wszystkie konta magazynu wdrożonego przez ten plan Azure są replikowane w celu zapewnienia wysokiej dostępności przy użyciu magazynu geograficznie nadmiarowego (GRS). Magazyn GRS zapewnia, że dane są replikowane w regionie pomocniczym; sześć kopii danych mają być przechowywane na oddzielnych węzłach między dwoma centrami danych. |
+| **Klienta** | Wszystkie konta magazynu wdrożonego przez ten plan są replikowane w celu zapewnienia wysokiej dostępności przy użyciu magazynu geograficznie nadmiarowego (GRS). Magazyn GRS zapewnia, że dane są replikowane w regionie pomocniczym; sześć kopii danych mają być przechowywane na oddzielnych węzłach między dwoma centrami danych. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -385,7 +385,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Wszystkie konta magazynu wdrożonego przez ten plan Azure są replikowane w celu zapewnienia wysokiej dostępności przy użyciu magazynu geograficznie nadmiarowego (GRS). Kontroli zabezpieczeń fizycznych są implementowane jednolicie w centrach danych platformy Azure. |
+| **Klienta** | Wszystkie konta magazynu wdrożonego przez ten plan są replikowane w celu zapewnienia wysokiej dostępności przy użyciu magazynu geograficznie nadmiarowego (GRS). Kontroli zabezpieczeń fizycznych są implementowane jednolicie w centrach danych platformy Azure. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -399,7 +399,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Wszystkie konta magazynu wdrożonego przez ten plan Azure są replikowane w celu zapewnienia wysokiej dostępności przy użyciu magazynu geograficznie nadmiarowego (GRS). Magazyn GRS zapewnia, że dane są replikowane w regionie pomocniczym. Podstawowe i pomocnicze regiony są skojarzone zapewnienie niezbędne odległość między centrami danych, aby zapewnić dostępność w przypadku awarii całej strefy lub po awarii. |
+| **Klienta** | Wszystkie konta magazynu wdrożonego przez ten plan są replikowane w celu zapewnienia wysokiej dostępności przy użyciu magazynu geograficznie nadmiarowego (GRS). Magazyn GRS zapewnia, że dane są replikowane w regionie pomocniczym. Podstawowe i pomocnicze regiony są skojarzone zapewnienie niezbędne odległość między centrami danych, aby zapewnić dostępność w przypadku awarii całej strefy lub po awarii. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -413,7 +413,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Wszystkie konta magazynu wdrożonego przez ten plan Azure są replikowane w celu zapewnienia wysokiej dostępności przy użyciu magazynu geograficznie nadmiarowego (GRS). Magazyn GRS zapewnia, że dane są replikowane w regionie pomocniczym. Klienci muszą upewnij się, że model replikacji danych Azure jest zgodny z celami gotowości. |
+| **Klienta** | Wszystkie konta magazynu wdrożonego przez ten plan są replikowane w celu zapewnienia wysokiej dostępności przy użyciu magazynu geograficznie nadmiarowego (GRS). Magazyn GRS zapewnia, że dane są replikowane w regionie pomocniczym. Klienci muszą upewnij się, że model replikacji danych Azure jest zgodny z celami gotowości. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -441,7 +441,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure zawiera wskazówki dotyczące sposobu tego rozwiązania można równocześnie wdrożyć w wielu regionach i skonfigurowany tak, aby zapewnić pełną nadmiarowość w witrynie alternatywnej przetwarzania. |
+| **Klienta** | Ten plan zawiera wskazówki dotyczące sposobu tego rozwiązania można równocześnie wdrożyć w wielu regionach i skonfigurowany tak, aby zapewnić pełną nadmiarowość w witrynie alternatywnej przetwarzania. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -455,7 +455,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure zawiera wskazówki dotyczące sposobu tego rozwiązania można równocześnie wdrożyć w wielu regionach i skonfigurowany tak, aby zapewnić pełną nadmiarowość w witrynie alternatywnej przetwarzania. Podczas wdrażania innego regionu systemu Azure, inicjowania obsługi urządzeń jest zarządzana niewidocznie przez platformę Azure. |
+| **Klienta** | Ten plan zawiera wskazówki dotyczące sposobu tego rozwiązania można równocześnie wdrożyć w wielu regionach i skonfigurowany tak, aby zapewnić pełną nadmiarowość w witrynie alternatywnej przetwarzania. Podczas wdrażania innego regionu systemu Azure, inicjowania obsługi urządzeń jest zarządzana niewidocznie przez platformę Azure. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -469,7 +469,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure zawiera wskazówki dotyczące sposobu tego rozwiązania można równocześnie wdrożyć w wielu regionach i skonfigurowany tak, aby zapewnić pełną nadmiarowość w witrynie alternatywnej przetwarzania. Zabezpieczeń jednolicie są realizowane w centrach danych platformy Azure. |
+| **Klienta** | Ten plan zawiera wskazówki dotyczące sposobu tego rozwiązania można równocześnie wdrożyć w wielu regionach i skonfigurowany tak, aby zapewnić pełną nadmiarowość w witrynie alternatywnej przetwarzania. Zabezpieczeń jednolicie są realizowane w centrach danych platformy Azure. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -483,7 +483,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure zawiera wskazówki dotyczące sposobu tego rozwiązania można równocześnie wdrożyć w wielu regionach i skonfigurowany tak, aby zapewnić pełną nadmiarowość w witrynie alternatywnej przetwarzania. Centrach danych platformy Azure są oddzielone od siebie lokalizacjach geograficznych. |
+| **Klienta** | Ten plan zawiera wskazówki dotyczące sposobu tego rozwiązania można równocześnie wdrożyć w wielu regionach i skonfigurowany tak, aby zapewnić pełną nadmiarowość w witrynie alternatywnej przetwarzania. Centrach danych platformy Azure są oddzielone od siebie lokalizacjach geograficznych. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -511,7 +511,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure zawiera wskazówki dotyczące sposobu tego rozwiązania można równocześnie wdrożyć w wielu regionach i skonfigurowany tak, aby zapewnić pełną nadmiarowość w witrynie alternatywnej przetwarzania. W przypadku wdrażania do innego regionu systemu Azure, dostępność zasobów zarządza niewidocznie Azure. |
+| **Klienta** | Ten plan zawiera wskazówki dotyczące sposobu tego rozwiązania można równocześnie wdrożyć w wielu regionach i skonfigurowany tak, aby zapewnić pełną nadmiarowość w witrynie alternatywnej przetwarzania. W przypadku wdrażania do innego regionu systemu Azure, dostępność zasobów zarządza niewidocznie Azure. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -525,7 +525,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure zawiera wskazówki dotyczące sposobu tego rozwiązania można równocześnie wdrożyć w wielu regionach i skonfigurowany tak, aby zapewnić pełną nadmiarowość w witrynie alternatywnej przetwarzania. Podczas wdrażania innego regionu systemu Azure, zasób fizyczny przygotowania zarządza niewidocznie Azure. |
+| **Klienta** | Ten plan zawiera wskazówki dotyczące sposobu tego rozwiązania można równocześnie wdrożyć w wielu regionach i skonfigurowany tak, aby zapewnić pełną nadmiarowość w witrynie alternatywnej przetwarzania. Podczas wdrażania innego regionu systemu Azure, zasób fizyczny przygotowania zarządza niewidocznie Azure. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -651,7 +651,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża magazynu usług odzyskiwania. Informacje na poziomie użytkownika wdrożonej bazy danych SQL jest implementowane przy użyciu rozszerzenia SQL maszyn wirtualnych IaaS. |
+| **Klienta** | Ten plan wdraża magazynu usług odzyskiwania. Informacje na poziomie użytkownika wdrożonej bazy danych SQL jest implementowane przy użyciu rozszerzenia SQL maszyn wirtualnych IaaS. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -665,7 +665,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża magazynu usług odzyskiwania. Kopia zapasowa Azure zasad jest określana dla implementacji przechowywania obrazu kopii zapasowej codziennie, co tydzień, miesięcznych i rocznych wszystkich maszyn wirtualnych.  |
+| **Klienta** | Ten plan wdraża magazynu usług odzyskiwania. Kopia zapasowa Azure zasad jest określana dla implementacji przechowywania obrazu kopii zapasowej codziennie, co tydzień, miesięcznych i rocznych wszystkich maszyn wirtualnych.  |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -693,7 +693,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Poufność i integralność wszystkich magazynu obiektów blob wdrażane przez ten plan Azure są chronione przy użyciu usługi Azure SSE, który używa szyfrowania AES 256-bitowego dla wszystkich danych na rest. |
+| **Klienta** | Poufność i integralność wszystkich magazynu obiektów blob wdrażane przez ten plan są chronione przy użyciu usługi Azure SSE, który używa szyfrowania AES 256-bitowego dla wszystkich danych na rest. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -749,7 +749,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Wszystkie konta magazynu wdrożonego w ramach tego planu Azure, w tym używane dla kopii zapasowej, wdrożenie magazynu geograficznie nadmiarowego, zapewniając sześć kopii danych mają być przechowywane na oddzielnych węzłach między centrami danych dwa. |
+| **Klienta** | Wszystkie konta magazynu wdrożonego w ramach tego planu, włączając używane dla kopii zapasowej, wdrożenie magazynu geograficznie nadmiarowego, zapewniając sześć kopii danych mają być przechowywane na oddzielnych węzłach między centrami danych dwa. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
@@ -777,7 +777,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Klienta** | Ten plan Azure wdraża program SQL Server w zawsze włączonej grupy dostępności. Program SQL Server zachowuje dziennika transakcji obsługuje odzyskiwania transakcji w przypadku awarii systemu. |
+| **Klienta** | Ten plan wdraża program SQL Server w zawsze włączonej grupy dostępności. Program SQL Server zachowuje dziennika transakcji obsługuje odzyskiwania transakcji w przypadku awarii systemu. |
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 

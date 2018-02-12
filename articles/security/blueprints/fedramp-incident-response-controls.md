@@ -1,6 +1,6 @@
 ---
-title: "Aplikacje sieci Web dla FedRAMP — odpowiedzi na zdarzenia"
-description: "Aplikacje sieci Web dla FedRAMP — odpowiedzi na zdarzenia"
+title: "Azure zabezpieczeń i zgodności - automatyzacji aplikacji sieci Web FedRAMP — plan odpowiedzi na zdarzenia"
+description: "Automatyzacja aplikacji sieci Web FedRAMP — odpowiedzi na zdarzenia"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: b4db5e02bfe925c402ca19e6145c4f4c825bef54
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: bcdb2b151c4d14af59e8133bd871ef6c3c0b9f73
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="incident-response-ir"></a>Odpowiedzi na zdarzenia (IR)
 
@@ -450,7 +450,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="incident-response-plan"></a>Plan odpowiedzi na zdarzenia
 
-**8.e IR.** Organizacja komunikuje się plan odpowiedzi na zdarzenia zmiany [przypisania: personelu zdefiniowany przez organizację odpowiedzi na zdarzenia (identyfikowane przez nazwę i/lub roli) i organizacyjne elementy].
+**IR-8.e** Organizacja komunikuje się plan odpowiedzi na zdarzenia zmiany [przypisania: personelu zdefiniowany przez organizację odpowiedzi na zdarzenia (identyfikowane przez nazwę i/lub roli) i organizacyjne elementy].
 
 **Obowiązki:**`Customer Only`
 
@@ -502,7 +502,7 @@ ms.lasthandoff: 11/23/2017
 | **Dostawca (Microsoft Azure)** | Nie dotyczy |
 
 
- ## <a name="nist-800-53-control-ir-9c"></a>Formant NIST 800 53 IR-9.c
+ ## <a name="nist-800-53-control-ir-9c"></a>NIST 800-53 Control IR-9.c
 
 #### <a name="information-spillage-response"></a>Informacje o wyciek odpowiedzi
 
@@ -534,7 +534,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="information-spillage-response"></a>Informacje o wyciek odpowiedzi
 
-**9.e IR.** Organizacja odpowiada wyciekami informacje, określając innych systemów informacyjnych lub składników systemu, które mogą następnie zanieczyszczone.
+**IR-9.e** Organizacja odpowiada wyciekami informacje, określając innych systemów informacyjnych lub składników systemu, które mogą następnie zanieczyszczone.
 
 **Obowiązki:**`Customer Only`
 

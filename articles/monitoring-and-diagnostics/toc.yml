@@ -41,6 +41,8 @@
           href: monitoring-overview-autoscale.md
         - name: Dziennik aktywności
           href: monitoring-overview-activity-logs.md
+        - name: Alerty dziennika aktywności (wersja zapoznawcza)
+          href: monitoring-activity-log-alerts-new-experience.md
         - name: Grupy akcji
           href: monitoring-action-groups.md
         - name: Dzienniki diagnostyczne
@@ -84,8 +86,8 @@
           href: insights-alerts-command-line-interface.md
         - name: Konfigurowanie alertów przy użyciu programu Azure PowerShell
           href: insights-alerts-powershell.md
-        - name: Alert metryki wywołujący element webhook
-          href: insights-webhooks-alerts.md
+        - name: Akcje elementu webhook dla dziennika alertów
+          href: monitor-alerts-unified-log-webhook.md
         - name: Tworzenie alertu metryki za pomocą szablonu usługi Resource Manager
           href: monitoring-enable-alerts-using-template.md
     - name: Korzystanie ze skalowania automatycznego

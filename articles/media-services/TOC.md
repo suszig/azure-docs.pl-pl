@@ -171,6 +171,7 @@
 #### [Przewodnik po usłudze Face Redactor](media-services-redactor-walkthrough.md)
 ### [Przetwarzanie za pomocą miniatur wideo](media-services-video-summarization.md)
 ### [Przetwarzanie za pomocą oprogramowania OCR](media-services-video-optical-character-recognition.md)
+### [Przetwarzanie za pomocą pakietu Content Moderator](media-services-content-moderation.md)
 
 ## [Konfigurowanie telemetrii](media-services-telemetry-overview.md)
 ###[.NET](media-services-dotnet-telemetry.md)

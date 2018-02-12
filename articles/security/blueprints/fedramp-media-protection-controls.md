@@ -1,6 +1,6 @@
 ---
-title: Automatyzacja planu FedRAMP Azure - Media ochrony
-description: Aplikacje sieci Web dla FedRAMP - Media ochrony
+title: "Plan ochrony Media - automatyzacji aplikacji sieci Web FedRAMP - Azure zabezpieczeń i zgodności"
+description: "Automatyzacja aplikacji FedRAMP Web — ochrony nośnika"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 9cb33abc7ab88aaa54a77308c7863f8128f2e6c7
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 37812c2f7ee79685f9014a7999b4355e649ca6e1
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="media-protection-mp"></a>Ochrona nośnika (MP)
 
@@ -83,7 +83,7 @@ ms.lasthandoff: 11/23/2017
 
  ## <a name="nist-800-53-control-mp-4a"></a>Formant NIST 800 53 MP-4.a
 
-#### <a name="media-storage"></a>Nośnik magazynowania
+#### <a name="media-storage"></a>Media Storage
 
 **MP 4.a** organizacja kontroluje fizycznie i są bezpiecznie przechowywane [przypisania: zdefiniowane przez organizację typów nośników cyfrowych i/lub -cyfrowe] w [przypisania: zdefiniowane przez organizację kontrolowane obszarów].
 
@@ -97,7 +97,7 @@ ms.lasthandoff: 11/23/2017
 
  ## <a name="nist-800-53-control-mp-4b"></a>Formant NIST 800 53 MP-4.b
 
-#### <a name="media-storage"></a>Nośnik magazynowania
+#### <a name="media-storage"></a>Media Storage
 
 **Pakiet administracyjny 4.b** organizacji chroni informacji nośnika systemu, dopóki nie zostaną zniszczone nośnika lub oczyszczony przy użyciu zatwierdzonych sprzętu, technik i procedur.
 
