@@ -37,6 +37,8 @@
   items:
     - name: Operacje klastra
       items:
+        - name: Tworzenie klastra AKS
+          href: create-cluster.md
         - name: Skalowanie klastra AKS
           href: scale-cluster.md
         - name: Uaktualnianie klastra AKS
@@ -45,10 +47,14 @@
           href: delete-cluster.md
     - name: Konfigurowanie woluminów danych
       items:
-        - name: Azure Disks — trwały wolumin
+        - name: Azure Disks
           href: azure-disks-dynamic-pv.md
-        - name: Azure Files — trwały wolumin
+        - name: Azure Files
           href: azure-files-dynamic-pv.md
+    - name: Konfigurowanie sieci
+      items:
+        - name: Statyczny adres IP
+          href: static-ip.md
     - name: Zabezpieczenia i uwierzytelnianie
       items:
         - name: Tworzenie jednostki usługi

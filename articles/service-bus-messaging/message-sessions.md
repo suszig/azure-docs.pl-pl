@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: sethm
-ms.openlocfilehash: 7e5b42e2244b52b06c55e7a6ca30ba1657b1a532
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7a594e5951f6e90c9151fbaf231675d6ed091d1f
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>Sesje komunikatów: pierwszy, najpierw FIFO 
 
@@ -72,6 +72,8 @@ Funkcji stanu sesji umożliwia adnotacji zdefiniowanym przez aplikację wiadomo�
 Z perspektywy usługi Service Bus komunikat stanu sesji jest przezroczystości obiektu binarnego, które można przechowywać danych o rozmiarze jeden komunikat, który jest 256 KB dla standardowych magistrali usługi i 1 MB dla usługi Service Bus w warstwie Premium. Stan przetwarzania względem sesji może być przechowywany wewnątrz stanu sesji lub stan sesji może wskazywać niektórych lokalizacji magazynu lub rekordu bazy danych, który zawiera takie informacje.
 
 Interfejsy API do zarządzania stanu sesji [metoda SetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_) i [GetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate#Microsoft_ServiceBus_Messaging_MessageSession_GetState), można znaleźć w [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) obiektu w języku C# i interfejsów API języka Java. Zwraca wartość sesji, która była wcześniej bez stanu sesji **null** odwołania dla **GetState**. Wyczyszczenie stanu sesji wcześniej ustawiony wykonuje się za pomocą [SetState(null)](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_).
+
+Należy pamiętać, że stan sesji jest nadal tak długo, jak nie jest czyszczony w (zwracanie **null**), nawet jeśli są używane wszystkie wiadomości w sesji.
 
 Wszystkie istniejące sesje w kolejce lub subskrypcji mogą być wyliczane przy użyciu **SessionBrowser** metody interfejsu API języka Java i przy [GetMessageSessions](/dotnet/api/microsoft.servicebus.messaging.queueclient.getmessagesessions#Microsoft_ServiceBus_Messaging_QueueClient_GetMessageSessions) na [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) i [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient) w kliencie programu .NET.
 

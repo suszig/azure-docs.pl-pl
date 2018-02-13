@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: dc11ac2ce92fe2b7d3cb51bf60c6b4bd9a5be18d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 456e5bd722d103f10779aa0cd99bf01fdcf8a7fe
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiowanie danych do i z usługi Azure SQL Data Warehouse przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -269,14 +269,14 @@ Aparat PolyBase magazynu danych SQL obsługuje bezpośrednio obiektów Blob plat
 
 Jeśli nie zostały spełnione wymagania, fabryki danych Azure sprawdza ustawienia i automatycznie powraca do mechanizmu BULKINSERT przenoszenia danych.
 
-1. **Źródło połączona usługa** jest typu: **AzureStorage** lub **AzureDataLakeStore**.
+1. **Źródło połączona usługa** jest typu: **AzureStorage** lub **AzureDataLakeStore** z uwierzytelnianiem główną usługi.
 2. **Wejściowy zestaw danych** jest typu: **AzureBlob** lub **AzureDataLakeStoreFile**i wpisz w formacie `type` właściwości **OrcFormat** , **ParquetFormat**, lub **TextFormat** z następujących konfiguracji:
 
-   1. `rowDelimiter`musi być  **\n** .
-   2. `nullValue`ustawiono **pusty ciąg** (""), lub `treatEmptyAsNull` ustawiono **true**.
-   3. `encodingName`ustawiono **utf-8**, która jest **domyślne** wartość.
+   1. `rowDelimiter` musi być  **\n** .
+   2. `nullValue` ustawiono **pusty ciąg** (""), lub `treatEmptyAsNull` ustawiono **true**.
+   3. `encodingName` ustawiono **utf-8**, która jest **domyślne** wartość.
    4. `escapeChar`, `quoteChar`, `firstRowAsHeader`, i `skipLineCount` nie zostały określone.
-   5. `compression`może być **bez kompresji**, **GZip**, lub **Deflate**.
+   5. `compression` może być **bez kompresji**, **GZip**, lub **Deflate**.
 
     ```json
     "typeProperties": {

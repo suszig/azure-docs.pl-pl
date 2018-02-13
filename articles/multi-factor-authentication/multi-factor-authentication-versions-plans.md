@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: joflore
-ms.openlocfilehash: af86434e1205d67829fc7079d97a37f013c0f2d8
-ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
+ms.openlocfilehash: 67456fa865a7bc1057194d577cd79ce6378a7ac9
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Jak uzyskać uwierzytelnianie wieloskładnikowe Azure
 
@@ -67,6 +67,9 @@ Poniższa tabela zawiera listę funkcji, które są dostępne w różnych wersja
 | Pamiętanie uwierzytelniania MFA w przypadku zaufanych urządzeń |● |● |● |
 | Zestaw MFA SDK | | |● (przestarzałe) | 
 | Usługi MFA dla aplikacji lokalnych | | |● |
+
+## <a name="how-to-turn-on-azure-multi-factor-authentication-for-azure-ad-administrators"></a>Jak włączyć uwierzytelnianie wieloskładnikowe Azure dla administratorów usługi Azure AD
+Użytkownicy z przypisaną rolę administratora globalnego w dzierżaw usługi Azure AD można włączyć weryfikację dwuetapową dla konta administratora globalnego usługi Azure AD bez ponoszenia dodatkowych kosztów. Jeśli używasz Account Microsoft można zarejestrować w usłudze Multi-Factor authentication [tutaj](https://support.microsoft.com/en-us/help/12408/microsoft-account-about-two-step-verification). Jeśli nie używasz Account firmy Microsoft, należy włączyć uwierzytelnianie wieloskładnikowe dla administratorów globalnych [tutaj](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states).
 
 ## <a name="how-to-get-azure-multi-factor-authentication"></a>Jak uzyskać uwierzytelnianie wieloskładnikowe Azure
 Jeśli chcesz wszystkie funkcje oferowane przez usługi Azure Multi-Factor Authentication, dostępnych jest kilka opcji:

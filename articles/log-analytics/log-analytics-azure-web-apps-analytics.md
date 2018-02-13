@@ -3,7 +3,7 @@ title: "Wyświetl dane analityczne Azure Web Apps | Dokumentacja firmy Microsoft
 description: "Uzyskaj informacje o aplikacjach sieci Web platformy Azure przez zbieranie metryk różnych różnych zasobów aplikacji sieci Web platformy Azure umożliwia rozwiązania analizy aplikacji sieci Web platformy Azure."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: 20ff337f-b1a3-4696-9b5a-d39727a94220
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: banders
-ms.openlocfilehash: 6662fee875d44f88781be51443d48e86c1bf2d46
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: magoedte
+ms.openlocfilehash: 7c22950c391707cdfe14ca242ea82a317be0e46e
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Wyświetl dane analityczne metryki różnych zasobów aplikacji sieci Web Azure
 
@@ -95,14 +95,14 @@ Kliknij przycisk **Analytics aplikacji sieci Web Azure** Kafelek, aby otworzyć 
 | Kolumna | Opis |
 | --- | --- |
 | Azure Webapps |   |
-| Trendy żądania aplikacji sieci Web | Przedstawia wykres liniowy trendu żądania aplikacji sieci Web wybranego zakresu i pokazuje listę żądań top dziesięć sieci web. Kliknij wykres liniowy, aby uruchomić wyszukiwanie dziennika<code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"* (MetricName=Requests OR MetricName=Http*) &#124; measure avg(Average) by MetricName interval 1HOUR</code> <br>Kliknij element żądania sieci web, aby uruchomić wyszukiwanie dziennika trendu metryki żądania sieci web, które żądania. |
-| Czas odpowiedzi aplikacji sieci Web | Przedstawia wykres liniowy, czas odpowiedzi aplikacji sieci Web wybranego zakresu. Również pokazuje listę listę górnej dziesięć Web Apps odpowiedzi czasu. Kliknij na wykresie, aby uruchomić wyszukiwanie dziennika<code>Type:AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"* MetricName="AverageResponseTime" &#124; measure avg(Average) by Resource interval 1HOUR</code><br> Kliknij aplikację sieci Web, aby uruchomić wyszukiwanie dziennika zwracanie czasy odpowiedzi dla aplikacji sieci Web. |
-| Ruch w aplikacji sieci Web | Przedstawia wykres liniowy dla ruchu aplikacje sieci Web w MB i list górnej ruchu aplikacji sieci Web. Kliknij na wykresie, aby uruchomić wyszukiwanie dziennika<code>Type:AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"*  MetricName=BytesSent OR BytesReceived &#124; measure sum(Average) by Resource interval 1HOUR</code><br> Wszystkie aplikacje sieci Web z ruchem będzie wyświetlana w ciągu ostatniej minuty. Kliknij aplikację sieci Web, aby uruchomić wyszukiwanie dziennika przedstawiający bajtów odebranych i wysłanych do aplikacji sieci Web. |
+| Trendy żądania aplikacji sieci Web | Przedstawia wykres liniowy trendu żądania aplikacji sieci Web wybranego zakresu i pokazuje listę żądań top dziesięć sieci web. Kliknij wykres liniowy, aby uruchomić wyszukiwanie dziennika <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"* (MetricName=Requests OR MetricName=Http*) &#124; measure avg(Average) by MetricName interval 1HOUR</code> <br>Kliknij element żądania sieci web, aby uruchomić wyszukiwanie dziennika trendu metryki żądania sieci web, które żądania. |
+| Czas odpowiedzi aplikacji sieci Web | Przedstawia wykres liniowy, czas odpowiedzi aplikacji sieci Web wybranego zakresu. Również pokazuje listę listę górnej dziesięć Web Apps odpowiedzi czasu. Kliknij na wykresie, aby uruchomić wyszukiwanie dziennika <code>Type:AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"* MetricName="AverageResponseTime" &#124; measure avg(Average) by Resource interval 1HOUR</code><br> Kliknij aplikację sieci Web, aby uruchomić wyszukiwanie dziennika zwracanie czasy odpowiedzi dla aplikacji sieci Web. |
+| Ruch w aplikacji sieci Web | Przedstawia wykres liniowy dla ruchu aplikacje sieci Web w MB i list górnej ruchu aplikacji sieci Web. Kliknij na wykresie, aby uruchomić wyszukiwanie dziennika <code>Type:AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"*  MetricName=BytesSent OR BytesReceived &#124; measure sum(Average) by Resource interval 1HOUR</code><br> Wszystkie aplikacje sieci Web z ruchem będzie wyświetlana w ciągu ostatniej minuty. Kliknij aplikację sieci Web, aby uruchomić wyszukiwanie dziennika przedstawiający bajtów odebranych i wysłanych do aplikacji sieci Web. |
 | Plany usługi aplikacji Azure |   |
-| Planów usługi App Service z procesora &gt; 80% | List top 10 plany usługi App Service według użycia Procesora i przedstawia sumę plany usługi App Service, który ma użycie procesora CPU przekracza 80%. Kliknij przycisk całkowity obszar, aby uruchomić wyszukiwanie dziennika<code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SERVERFARMS/"* MetricName=CpuPercentage &#124; measure Avg(Average) by Resource</code><br> Będzie wyświetlana lista planów usługi aplikacji i ich średnie wykorzystanie procesora CPU. Kliknij przycisk Plan usługi App Service przeprowadzić wyszukiwanie dziennika przedstawiający jego średnie wykorzystanie procesora CPU. |
-| Planów usługi App Service z wykorzystanie pamięci &gt; 80% | List top 10 plany usługi App Service przez użycie pamięci i jest wyświetlana łączna liczba plany usługi App Service, który ma użycie pamięci jest większa niż 80%. Kliknij przycisk całkowity obszar, aby uruchomić wyszukiwanie dziennika<code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SERVERFARMS/"* MetricName=MemoryPercentage &#124; measure Avg(Average) by Resource</code><br> Będzie wyświetlana lista planów usługi aplikacji i ich średnie wykorzystanie pamięci. Kliknij przycisk Plan usługi App Service przeprowadzić wyszukiwanie dziennika przedstawiający jego średnie wykorzystanie pamięci. |
+| Planów usługi App Service z procesora &gt; 80% | List top 10 plany usługi App Service według użycia Procesora i przedstawia sumę plany usługi App Service, który ma użycie procesora CPU przekracza 80%. Kliknij przycisk całkowity obszar, aby uruchomić wyszukiwanie dziennika <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SERVERFARMS/"* MetricName=CpuPercentage &#124; measure Avg(Average) by Resource</code><br> Będzie wyświetlana lista planów usługi aplikacji i ich średnie wykorzystanie procesora CPU. Kliknij przycisk Plan usługi App Service przeprowadzić wyszukiwanie dziennika przedstawiający jego średnie wykorzystanie procesora CPU. |
+| Planów usługi App Service z wykorzystanie pamięci &gt; 80% | List top 10 plany usługi App Service przez użycie pamięci i jest wyświetlana łączna liczba plany usługi App Service, który ma użycie pamięci jest większa niż 80%. Kliknij przycisk całkowity obszar, aby uruchomić wyszukiwanie dziennika <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SERVERFARMS/"* MetricName=MemoryPercentage &#124; measure Avg(Average) by Resource</code><br> Będzie wyświetlana lista planów usługi aplikacji i ich średnie wykorzystanie pamięci. Kliknij przycisk Plan usługi App Service przeprowadzić wyszukiwanie dziennika przedstawiający jego średnie wykorzystanie pamięci. |
 | Dzienniki aktywności aplikacji sieci Web platformy Azure |   |
-| Inspekcji działania aplikacji sieci Web platformy Azure | Zawiera całkowitą liczbę aplikacji sieci Web za pomocą [Dzienniki aktywności](log-analytics-activity.md) i wyświetla operacje dziennika aktywności pierwszych 10. Kliknij przycisk całkowity obszar, aby uruchomić wyszukiwanie dziennika<code>Type=AzureActivity ResourceProvider= "Azure Web Sites" &#124; measure count() by OperationName</code><br> Listę operacje tworzenia dzienników działania będzie wyświetlana. Kliknij przycisk wyszukiwania dziennika, który zawiera listę rekordów do operacji wykonanie operacji dziennika aktywności. |
+| Inspekcji działania aplikacji sieci Web platformy Azure | Zawiera całkowitą liczbę aplikacji sieci Web za pomocą [Dzienniki aktywności](log-analytics-activity.md) i wyświetla operacje dziennika aktywności pierwszych 10. Kliknij przycisk całkowity obszar, aby uruchomić wyszukiwanie dziennika <code>Type=AzureActivity ResourceProvider= "Azure Web Sites" &#124; measure count() by OperationName</code><br> Listę operacje tworzenia dzienników działania będzie wyświetlana. Kliknij przycisk wyszukiwania dziennika, który zawiera listę rekordów do operacji wykonanie operacji dziennika aktywności. |
 
 
 

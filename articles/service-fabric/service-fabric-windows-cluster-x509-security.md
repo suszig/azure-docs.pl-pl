@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: ca858408ecb258cc64645571d048de93449689d6
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: ee1a2eeeda95b03b185090841cf93c4183c5fce2
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Zabezpieczanie klastra autonomicznego w systemie Windows przy użyciu certyfikatów X.509
 W tym artykule opisano, jak zabezpieczyć komunikację między różnych węzłów w klastrze Windows autonomicznych. On również opis do uwierzytelniania klientów nawiązujących połączenie z tym klastrem za pomocą certyfikatów X.509. Uwierzytelniania gwarantuje, że tylko autoryzowani użytkownicy mogą uzyskiwać dostęp do klastra i wdrożone aplikacje i wykonywanie zadań zarządzania. Certyfikat zabezpieczeń powinien być włączony w klastrze, podczas tworzenia klastra.  
@@ -48,6 +48,12 @@ Do uruchomienia z [pobierania pakietu sieci szkieletowej usług dla systemu Wind
             ],
             "X509StoreName": "My"
         },
+        "ClusterCertificateIssuerStores": [
+            {
+                "IssuerCommonName": "[IssuerCommonName]",
+                "X509StoreNames" : "Root"
+            }
+        ],
         "ServerCertificate": {
             "Thumbprint": "[Thumbprint]",
             "ThumbprintSecondary": "[Thumbprint]",
@@ -62,6 +68,12 @@ Do uruchomienia z [pobierania pakietu sieci szkieletowej usług dla systemu Wind
             ],
             "X509StoreName": "My"
         },
+        "ServerCertificateIssuerStores": [
+            {
+                "IssuerCommonName": "[IssuerCommonName]",
+                "X509StoreNames" : "Root"
+            }
+        ],
         "ClientCertificateThumbprints": [
             {
                 "CertificateThumbprint": "[Thumbprint]",
@@ -79,6 +91,12 @@ Do uruchomienia z [pobierania pakietu sieci szkieletowej usług dla systemu Wind
                 "IsAdmin": true
             }
         ],
+        "ClientCertificateIssuerStores": [
+            {
+                "IssuerCommonName": "[IssuerCommonName]",
+                "X509StoreNames": "Root"
+            }
+        ]
         "ReverseProxyCertificate": {
             "Thumbprint": "[Thumbprint]",
             "ThumbprintSecondary": "[Thumbprint]",
@@ -110,10 +128,13 @@ W poniższej tabeli wymieniono certyfikaty, które należy na konfigurację klas
 | --- | --- |
 | ClusterCertificate |Zalecana dla środowiska testowego. Ten certyfikat jest wymagany do zabezpieczenia komunikacji między węzłami w klastrze. Dwa różne certyfikaty, podstawowego i pomocniczego, można użyć do uaktualnienia. Odcisk palca certyfikatu podstawowego zestawu w sekcji odcisk palca i że w zmiennych ThumbprintSecondary pomocniczej. |
 | ClusterCertificateCommonNames |Zalecana dla środowiska produkcyjnego. Ten certyfikat jest wymagany do zabezpieczenia komunikacji między węzłami w klastrze. Można użyć jednego lub dwóch klastra wspólnej nazwy certyfikatów. CertificateIssuerThumbprint odpowiada odcisk palca wystawcy certyfikatu. Użycie więcej niż jeden certyfikat o takiej samej nazwie wspólnej można określić wielu wystawców odciski palców.|
+| ClusterCertificateIssuerStores |Zalecana dla środowiska produkcyjnego. Ten certyfikat odpowiada wystawca certyfikatu klastra. Nazwa pospolita i odpowiadającą jej nazwą magazynu w tej sekcji zamiast określania odcisk palca wystawcy w obszarze ClusterCertificateCommonNames, zapewniają wystawcy.  Ułatwia to przerzucania klastra wystawców certyfikatów. Można określić wielu wystawców klastrowania więcej niż jeden certyfikat jest używany. Pusty whitelists IssuerCommonName wszystkie certyfikaty w magazynach odpowiedniego określone w obszarze X509StoreNames.|
 | ServerCertificate |Zalecana dla środowiska testowego. Ten certyfikat jest przesyłany do klienta, gdy próbuje połączyć się z tym klastrem. Dla wygody można użyć tego samego certyfikatu dla ClusterCertificate i ServerCertificate. Dwa certyfikaty inny serwer, podstawowego i pomocniczego, można użyć do uaktualnienia. Odcisk palca certyfikatu podstawowego zestawu w sekcji odcisk palca i że w zmiennych ThumbprintSecondary pomocniczej. |
 | ServerCertificateCommonNames |Zalecana dla środowiska produkcyjnego. Ten certyfikat jest przesyłany do klienta, gdy próbuje połączyć się z tym klastrem. CertificateIssuerThumbprint odpowiada odcisk palca wystawcy certyfikatu. Użycie więcej niż jeden certyfikat o takiej samej nazwie wspólnej można określić wielu wystawców odciski palców. Dla wygody można użyć tego samego certyfikatu dla ClusterCertificateCommonNames i ServerCertificateCommonNames. Można użyć jednego lub dwóch certyfikatu wspólnej nazwy serwerów. |
+| ServerCertificateIssuerStores |Zalecana dla środowiska produkcyjnego. Ten certyfikat odpowiada wystawcy certyfikatu serwera. Nazwa pospolita i odpowiadającą jej nazwą magazynu w tej sekcji zamiast określania odcisk palca wystawcy w obszarze ServerCertificateCommonNames, zapewniają wystawcy.  Ułatwia to przerzucania wystawców certyfikatów. Wielu wystawców może być określona, jeśli jest używany więcej niż jeden certyfikat. Pusty whitelists IssuerCommonName wszystkie certyfikaty w magazynach odpowiedniego określone w obszarze X509StoreNames.|
 | ClientCertificateThumbprints |Zainstaluj ten zestaw certyfikatów na klientach uwierzytelniony. Może mieć wiele certyfikatów innego klienta zainstalowanych na maszynach, które chcesz zezwolić na dostęp do klastra. Ustaw odcisk palca certyfikatu, każdy w zmiennej CertificateThumbprint. Jeśli ustawisz IsAdmin *true*, klient z tym certyfikatem na nim zainstalowany zrobić administrator działania dotyczące zarządzania w klastrze. Jeśli jest IsAdmin *false*, klient z tym certyfikatem można wykonać akcje dozwolone tylko w przypadku praw dostępu użytkownika, zwykle tylko do odczytu. Aby uzyskać więcej informacji dotyczących ról, zobacz [kontroli dostępu opartej na rolach (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac). |
 | ClientCertificateCommonNames |Ustaw nazwę pospolitą pierwszy certyfikat klienta dla CertificateCommonName. CertificateIssuerThumbprint jest odcisk palca wystawcy certyfikatu. Aby dowiedzieć się więcej na temat wspólnej nazwy i wystawcy, zobacz [pracy z certyfikatami](https://msdn.microsoft.com/library/ms731899.aspx). |
+| ClientCertificateIssuerStores |Zalecana dla środowiska produkcyjnego. Ten certyfikat odpowiada wystawcę certyfikatu klienta (role zarówno administratora, jak i bez uprawnień administratora). Nazwa pospolita i odpowiadającą jej nazwą magazynu w tej sekcji zamiast określania odcisk palca wystawcy w obszarze ClientCertificateCommonNames, zapewniają wystawcy.  Ułatwia to przerzucania klienta wystawców certyfikatów. Wielu wystawców może być określona, jeśli jest używany więcej niż jeden certyfikat klienta. Pusty whitelists IssuerCommonName wszystkie certyfikaty w magazynach odpowiedniego określone w obszarze X509StoreNames.|
 | ReverseProxyCertificate |Zalecana dla środowiska testowego. Ten opcjonalny certyfikat może być określony, jeśli chcesz zabezpieczyć Twoje [odwrotny serwer proxy](service-fabric-reverseproxy.md). Upewnij się, że ten reverseProxyEndpointPort jest ustawiony w elementów NodeType, jeśli użycie tego certyfikatu. |
 | ReverseProxyCertificateCommonNames |Zalecana dla środowiska produkcyjnego. Ten opcjonalny certyfikat może być określony, jeśli chcesz zabezpieczyć Twoje [odwrotny serwer proxy](service-fabric-reverseproxy.md). Upewnij się, że ten reverseProxyEndpointPort jest ustawiony w elementów NodeType, jeśli użycie tego certyfikatu. |
 
@@ -123,7 +144,7 @@ Poniżej przedstawiono przykładową konfigurację klastra gdzie dostarczono kla
  {
     "name": "SampleCluster",
     "clusterConfigurationVersion": "1.0.0",
-    "apiVersion": "2016-09-26",
+    "apiVersion": "10-2017",
     "nodes": [{
         "nodeName": "vm0",
         "metadata": "Replace the localhost below with valid IP address or FQDN",
@@ -162,12 +183,21 @@ Poniżej przedstawiono przykładową konfigurację klastra gdzie dostarczono kla
                 "ClusterCertificateCommonNames": {
                   "CommonNames": [
                     {
-                      "CertificateCommonName": "myClusterCertCommonName",
-                      "CertificateIssuerThumbprint": "7c fc 91 97 13 66 8d 9f a8 ee 71 2b a2 f4 37 62 00 03 49 0d"
+                      "CertificateCommonName": "myClusterCertCommonName"
                     }
                   ],
                   "X509StoreName": "My"
                 },
+                "ClusterCertificateIssuerStores": [
+                    {
+                        "IssuerCommonName": "ClusterIssuer1",
+                        "X509StoreNames" : "Root"
+                    },
+                    {
+                        "IssuerCommonName": "ClusterIssuer2",
+                        "X509StoreNames" : "Root"
+                    }
+                ],
                 "ServerCertificateCommonNames": {
                   "CommonNames": [
                     {
@@ -221,6 +251,7 @@ Poniżej przedstawiono przykładową konfigurację klastra gdzie dostarczono kla
 
 ## <a name="certificate-rollover"></a>Przerzucanie certyfikatów
 Jeśli nazwa pospolita certyfikatu można użyć zamiast odcisk palca, przerzucania certyfikatu nie wymaga uaktualnienia konfiguracji klastra. Uaktualnień odcisk palca wystawcy upewnij się, że nowa lista odcisk palca przecina z stara lista. Najpierw trzeba uaktualniania programu config z nowego odcisków palca wystawcy, a następnie zainstaluj nowe certyfikaty (certyfikat serwera/klastra i wystawcy certyfikatów) w magazynie. Zachowaj starego wystawcy certyfikatu w magazynie certyfikatów na co najmniej dwie godziny po zainstalowaniu nowego certyfikatu wystawcy.
+Jeśli używasz magazynów wystawcy, uaktualnienie nie konfiguracji wystarczy wykonać wystawcy certyfikatu przerzucania. Zainstaluj nowy certyfikat wystawcy z datą wygaśnięcia ostatnie w magazynie certyfikatów odpowiednich i Usuń stare certyfikaty wystawcy po kilku godzinach.
 
 ## <a name="acquire-the-x509-certificates"></a>Uzyskanie certyfikatów X.509
 Do zabezpieczania komunikacji wewnątrz klastra, należy najpierw uzyskać certyfikaty X.509 dla węzłów klastra. Ponadto aby ograniczyć połączenia do tego klastra do autoryzowanych komputerów/użytkowników, należy uzyskać i zainstalować certyfikaty dla komputerów klienckich.

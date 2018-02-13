@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 02/12/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f8e3e0e8868c05188d9d6cb26fe6c2bd2891c17d
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: c62ea8efe56186a2f3ee934823b4ea03775037b0
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure rozwiązania Cosmos DB .NET Core SDK dla interfejsu API SQL: informacje o wersji i zasoby
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ ms.lasthandoff: 12/18/2017
 
 <tr><td>**Przykłady**</td><td>[Przykłady kodu platformy .NET](sql-api-dotnet-samples.md)</td></tr>
 
-<tr><td>**Wprowadzenie**</td><td>[Wprowadzenie do usługi Azure rozwiązania Cosmos DB .NET Core SDK](sql-api-dotnetcore-get-started.md)</td></tr>
+<tr><td>Wprowadzenie</td><td>[Wprowadzenie do usługi Azure rozwiązania Cosmos DB .NET Core SDK](sql-api-dotnetcore-get-started.md)</td></tr>
 
 <tr><td>**Samouczek aplikacji sieci Web**</td><td>[Tworzenie aplikacji sieci Web z bazy danych Azure rozwiązania Cosmos](sql-api-dotnet-application.md)</td></tr>
 
@@ -58,6 +58,14 @@ Azure rozwiązania Cosmos DB .NET Core SDK ma parzystość funkcji z najnowszej 
 
 > [!NOTE] 
 > Azure rozwiązania Cosmos DB .NET Core SDK nie jest jeszcze zgodne z aplikacjami systemu Windows platformy Uniwersalnej. Jeśli interesuje Cię .NET Core SDK, który obsługuje aplikacje platformy uniwersalnej systemu Windows, Wyślij wiadomość e-mail do [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com).
+
+### <a name="a-name180181"></a><a name="1.8.0"/>1.8.1
+
+* Stałe regresji gdzie FeedOptions.MaxItemCount = -1 zwrócił System.ArithmeticException: rozmiar strony jest ujemna.
+* Dodano nową funkcję ToString() do QueryMetrics.
+* Statystyki partycji narażonych na odczytywanie kolekcji.
+* Dodano właściwość PartitionKey ChangeFeedOptions.
+* Niewielkie poprawki błędów.
 
 ### <a name="a-name171171"></a><a name="1.7.1"/>1.7.1
  
@@ -157,6 +165,7 @@ Jeśli masz pytania dotyczące tego zestawu SDK, opublikuj wpis na [StackOverflo
 
 | Wersja | Data wydania | Dacie wycofania |
 | --- | --- | --- |
+| [1.8.1](#1.8.1) |05 lutego 2018 |--- |
 | [1.7.1](#1.7.1) |16 listopada 2017 r. |--- |
 | [1.7.0](#1.7.0) |10 listopada 2017 r. |--- |
 | [1.6.0](#1.6.0) |17 października 2017 r. |--- |
@@ -174,7 +183,7 @@ Jeśli masz pytania dotyczące tego zestawu SDK, opublikuj wpis na [StackOverflo
 | [1.1.1](#1.1.1) |14 marca 2017 r. |--- |
 | [1.1.0](#1.1.0) |16 lutego 2017 r. |--- |
 | [1.0.0](#1.0.0) |21 grudnia 2016 r. |--- |
-| [0.1.0-Preview](#0.1.0-preview) |15 listopada 2016 r. |31 grudnia 2016 r. |
+| [0.1.0-preview](#0.1.0-preview) |15 listopada 2016 r. |31 grudnia 2016 r. |
 
 ## <a name="see-also"></a>Zobacz też
 Aby dowiedzieć się więcej na temat rozwiązania Cosmos bazy danych, zobacz [bazy danych programu Microsoft Azure rozwiązania Cosmos](https://azure.microsoft.com/services/cosmos-db/) stronę usługi. 

@@ -16,11 +16,11 @@ ms.date: 08/15/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 1141245739f86a482bb0b5f550fd3b89d1213ce1
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 9b156f80ae2b52ea7cb07bcb2c047d35d07b9154
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrowanie infrastruktury sieci VPN z usługą Azure MFA za pomocą rozszerzenia serwera zasad sieciowych na platformie Azure
 
@@ -106,7 +106,7 @@ Usługi zasad sieciowych i dostępu udostępnia funkcje serwera i klienta RADIUS
 
 Aby uzyskać informacje o instalowaniu roli usług zasad sieciowych i dostępu usługi systemu Windows Server 2012 lub nowszy, odwiedź [zainstalować serwer zasad dotyczących kondycji ochrony dostępu do sieci](https://technet.microsoft.com/library/dd296890.aspx). Ochrony dostępu do sieci jest przestarzała w systemie Windows Server 2016. Opis najlepszych rozwiązań dla serwera NPS, w tym zalecenie, aby zainstalować serwer zasad Sieciowych na kontrolerze domeny, zobacz [najlepsze rozwiązania dotyczące serwera NPS](https://technet.microsoft.com/library/cc771746).
 
-### <a name="azure-mfa-license"></a>Licencja usługi Azure MFA
+### <a name="azure-mfa-license"></a>Azure MFA License
 
 Licencja jest wymagane uwierzytelnianie wieloskładnikowe Azure i jest dostępny za pośrednictwem usługi Azure AD Premium, Enterprise Mobility + zabezpieczeń lub licencji autonomicznej usługi Multi-Factor Authentication. Na podstawie zużycia licencji dla usługi Azure MFA, takich jak dla każdego użytkownika lub uwierzytelnianie licencji na nie są zgodne z rozszerzeniem serwera NPS. Aby uzyskać więcej informacji, zobacz [sposobu uzyskania usługi Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md). Do celów testowych, możesz użyć subskrypcji wersji próbnej.
 
@@ -186,7 +186,7 @@ Można użyć standardowego (opartej na kreatorze) lub zaawansowanych opcji konf
 
     ![Okno określić grupy użytkowników](./media/nps-extension-vpn/image7.png)
 
-9. Wybierz **dalej**.
+9. Wybierz opcję **Dalej**.
 
 10. W **określ filtry IP** wybierz **dalej**.
 
@@ -251,7 +251,7 @@ W tej sekcji należy skonfigurować serwer sieci VPN do uwierzytelniania RADIUS.
 
     b. Dla **wspólne hasło**, wybierz pozycję **zmiany**, a następnie wpisz wspólne hasło tajny, który został utworzony i zarejestrowane wcześniej.
 
-    d. W **limit czasu (w sekundach)** wybierz wartość z zakresu od **30** za pośrednictwem **60**.  
+    c. W **limit czasu (w sekundach)** wybierz wartość z zakresu od **30** za pośrednictwem **60**.  
     Wartość limitu czasu jest niezbędne w celu umożliwienia wystarczająco dużo czasu na ukończenie drugi składnik uwierzytelniania.
  
     ![Okno Dodawanie serwera RADIUS](./media/nps-extension-vpn/image16.png)
@@ -376,7 +376,7 @@ Aby użyć skryptu, dostarczają rozszerzenie poświadczeń administracyjnych us
 
 1. Uruchom program Windows PowerShell jako administrator.
 
-2. W wierszu polecenia programu PowerShell, wprowadź **cd c:\Program Files\Microsoft\AzureMfa\Config**, a następnie wybierz Enter.
+2. W wierszu polecenia programu PowerShell, wprowadź **cd "c:\Program Files\Microsoft\AzureMfa\Config"**, a następnie wybierz Enter.
 
 3. W następnym wierszu polecenia, wprowadź **.\AzureMfsNpsExtnConfigSetup.ps1**, a następnie wybierz Enter. Skrypt sprawdza, czy jest zainstalowany moduł Azure AD PowerShell. Jeśli nie jest zainstalowany, skrypt zainstaluje moduł.
  
@@ -398,7 +398,7 @@ Aby użyć skryptu, dostarczają rozszerzenie poświadczeń administracyjnych us
 
 6. Uruchom ponownie serwer.
 
-### <a name="verify-the-configuration"></a>Sprawdź, czy konfiguracja
+### <a name="verify-the-configuration"></a>Sprawdź konfigurację
 Aby sprawdzić konfigurację, należy ustanowić nowe połączenie sieci VPN z serwerem sieci VPN. Po pomyślnym wprowadzeniu poświadczeń dla uwierzytelniania podstawowego, połączenie sieci VPN czeka dodatkowego uwierzytelniania się powodzeniem przed połączenie zostanie nawiązane, jak pokazano poniżej. 
 
 ![Okno sieci VPN ustawienia systemu Windows](./media/nps-extension-vpn/image42.png)

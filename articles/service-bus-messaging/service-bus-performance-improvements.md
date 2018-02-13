@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/31/2018
 ms.author: sethm
-ms.openlocfilehash: be702f0b08ce14012db9da10d874031c7a5a562b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: aba53fcadb9cefa70afc175dd02e4723eb6e5f5d
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Najlepsze rozwiązania dotyczące poprawy wydajności przy użyciu usługi magistrali komunikatów
 
@@ -111,7 +111,12 @@ Przetwarzanie wsadowe nie wpływa na liczbę rozliczeniowy operacji obsługi wia
 
 ## <a name="batching-store-access"></a>Przetwarzanie wsadowe dostęp do sklepu
 
-W celu zwiększenia przepływności kolejki, tematu lub subskrypcji, usługi Service Bus partii wiele komunikatów, czy jest zapisywany do magazynu wewnętrznej. Jeśli jest włączona kolejka lub temat, zapisywania komunikatów w magazynie będzie można umieścić w partii. Jeśli włączona dla kolejki lub subskrypcji, usuwania komunikatów w sklepie będzie można umieścić w partii. Po włączeniu dostępu do sklepu wsadów dla jednostki usługi Service Bus opóźnienia operacji zapisu magazynu dotyczących tego obiektu przez maksymalnie 20 MS. Operacji dodatkowego magazynu, które występują w danym przedziale czasu są dodawane do wykonywania zadania wsadowego. Umieścić w zadaniu wsadowym wpływa jedynie na dostęp do magazynu **wysyłania** i **Complete** operacji; odbierania nie wpływ na operacje. Dostęp do sklepu wsadów jest właściwością w jednostce. Przetwarzanie wsadowe występuje we wszystkich jednostek, które umożliwiają dostęp do sklepu wsadowej.
+W celu zwiększenia przepływności kolejki, tematu lub subskrypcji, usługi Service Bus partii wiele komunikatów, czy jest zapisywany do magazynu wewnętrznej. Jeśli jest włączona kolejka lub temat, zapisywania komunikatów w magazynie będzie można umieścić w partii. Jeśli włączona dla kolejki lub subskrypcji, usuwania komunikatów w sklepie będzie można umieścić w partii. Po włączeniu dostępu do sklepu wsadów dla jednostki usługi Service Bus opóźnienia operacji zapisu magazynu dotyczących tego obiektu przez maksymalnie 20 MS. 
+
+> [!NOTE]
+> Istnieje ryzyko utraty wiadomości z partii, nawet jeśli dostępny jest na końcu zakresu przetwarzanie wsadowe 20ms awarii usługi Service Bus. 
+
+Operacji dodatkowego magazynu, które występują w danym przedziale czasu są dodawane do wykonywania zadania wsadowego. Umieścić w zadaniu wsadowym wpływa jedynie na dostęp do magazynu **wysyłania** i **Complete** operacji; odbierania nie wpływ na operacje. Dostęp do sklepu wsadów jest właściwością w jednostce. Przetwarzanie wsadowe występuje we wszystkich jednostek, które umożliwiają dostęp do sklepu wsadowej.
 
 Podczas tworzenia nowej kolejki, tematu lub subskrypcji, dostęp do sklepu wsadów jest domyślnie włączona. Aby wyłączyć dostęp do sklepu wsadów, ustaw [EnableBatchedOperations] [ EnableBatchedOperations] właściwości **false** przed utworzeniem jednostki. Na przykład:
 

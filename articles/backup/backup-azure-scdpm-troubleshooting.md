@@ -14,64 +14,84 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: pullabhk;markgal;adigan
-ms.openlocfilehash: 2244a39217f54eb5906d05990f19fc8ca2fdeb0e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: bf4ea676c5309bb732f6a4ce71849606b4d2e4df
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="troubleshoot-system-center-data-protection-manager"></a>Rozwiązywanie problemów z programu System Center Data Protection Manager
+# <a name="troubleshoot-system-center-data-protection-manager"></a>Rozwiązywanie problemów z programem System Center Data Protection Manager
 
-Możesz znaleźć informacje o najnowszej wersji programu SC DPM [tutaj](https://docs.microsoft.com/en-us/system-center/dpm/dpm-release-notes?view=sc-dpm-2016).
-Macierz obsługi ochrony można znaleźć [tutaj](https://docs.microsoft.com/en-us/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2016).
+W tym artykule opisano rozwiązania problemów, które mogą wystąpić podczas korzystania z programu Data Protection Manager.
 
-## <a name="replica-is-inconsistent"></a>Replika jest niespójna
+Najnowsze informacje o wersji programu System Center Data Protection Manager, zobacz [dokumentacji programu System Center](https://docs.microsoft.com/en-us/system-center/dpm/dpm-release-notes?view=sc-dpm-2016). Dowiedz się więcej o obsłudze programu Data Protection Manager w [tej macierzy](https://docs.microsoft.com/en-us/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2016).
 
-Ten błąd może się zdarzyć z różnych powodów, takich jak - zadania tworzenia repliki nie powiodła się, problemy z dziennika zmian woluminu filtru poziomu mapy bitowej błędów, komputera źródłowego został nieoczekiwanie wyłączony, przepełnienia dziennika synchronizacji lub replika jest niespójna naprawdę. Wykonaj następujące kroki, aby rozwiązać ten problem:
+
+## <a name="error-replica-is-inconsistent"></a>Błąd: Replika jest niespójna
+
+Repliki mogą być niezgodne z następujących powodów:
+- Zadanie tworzenia repliki zakończy się niepowodzeniem.
+- Występują problemy z dziennika zmian.
+- Mapy bitowej filtru poziomu wolumin zawiera błędy.
+- Nieoczekiwane zamknięcie maszyny źródłowej.
+- Przepełnienie w dzienniku synchronizacji.
+- Replika jest niespójna naprawdę.
+
+Aby rozwiązać ten problem, wykonaj następujące czynności:
 - Aby usunąć stan niespójna, uruchom sprawdzanie spójności ręcznie lub zaplanować codzienne sprawdzanie spójności.
-- Upewnij się, że używasz najnowszej wersji MAB serwera lub programu System Center DPM
-- Upewnij się, że jest włączone automatyczne sprawdzanie spójności
-- Spróbuj ponownie uruchomić usługi z wiersza polecenia ("net stop dpmra" następuje polecenie "net start dpmra")
-- Upewnij się, że spełniono wymagania dotyczące łączności i przepustowości sieci
-- Sprawdź, czy maszyna źródłowa została nieoczekiwanie wyłączony
-- Upewnij się, dysk jest uszkodzony i ma wystarczającej ilości miejsca dla replik
-- Upewnij się, nie zduplikowane zadanie tworzenia kopii zapasowej są uruchomione jednocześnie
+- Upewnij się, że używasz najnowszej wersji programu Microsoft Azure Backup Server i programu Data Protection Manager.
+- Upewnij się, że **automatycznej kontroli spójności** ustawienie jest włączone.
+- Spróbuj ponownie uruchomić usługi z wiersza polecenia. Użyj `net stop dpmra` polecenia następuje `net start dpmra`.
+- Upewnij się, że realizację wymagania dotyczące łączności i przepustowości sieci.
+- Sprawdź, czy maszyna źródłowa została nieoczekiwanie wyłączony.
+- Upewnij się, że dysk jest w dobrej kondycji i że istnieje wystarczająca ilość miejsca dla replik.
+- Upewnij się, że nie istnieją zduplikowane zadania tworzenia kopii zapasowych uruchomionych współbieżnie.
 
-## <a name="online-recovery-point-creation-failed"></a>Niepowodzenie tworzenia punktu odzyskiwania w trybie online
+## <a name="error-online-recovery-point-creation-failed"></a>Błąd: Tworzenie punktu odzyskiwania w trybie Online nie powiodło się.
 
-Wykonaj następujące kroki, aby rozwiązać ten problem:
-- Upewnij się, że używasz najnowszej wersji agenta usługi Kopia zapasowa Azure
-- Spróbuj ręcznie utworzyć punkt odzyskiwania w obszarze zadanie ochrony
-- Upewnij się, że Uruchom sprawdzanie spójności w źródle danych
-- Upewnij się, że spełniono wymagania dotyczące łączności i przepustowości sieci
-- Dane repliki są w stanie niespójnym. Utwórz punkt odzyskiwania dysku tego źródła danych
-- Upewnij się, że replika jest obecny i nie brakuje
-- Replika ma za mało miejsca, aby utworzyć dziennika USN
+Aby rozwiązać ten problem, wykonaj następujące czynności:
+- Upewnij się, że używasz najnowszej wersji agenta usługi Kopia zapasowa Azure.
+- Spróbuj ręcznie utworzyć punkt odzyskiwania w obszarze zadanie ochrony.
+- Upewnij się, że Uruchom sprawdzanie spójności w źródle danych.
+- Upewnij się, że realizację wymagania dotyczące łączności i przepustowości sieci.
+- Gdy dane repliki są w stanie niespójnym, Utwórz punkt odzyskiwania dysku tego źródła danych.
+- Upewnij się, że replika jest obecny i nie brakuje.
+- Upewnij się, że replika jest wystarczająca ilość miejsca do utworzenia dziennika (USN) numer sekwencji aktualizacji.
 
-## <a name="unable-to-configure-protection"></a>Nie można skonfigurować ochrony
+## <a name="error-unable-to-configure-protection"></a>Błąd: Nie można skonfigurować ochrony
 
-Ten błąd jest wyświetlany, gdy serwer programu DPM nie mógł skontaktować się z serwerem chronionym. Wykonaj następujące kroki, aby rozwiązać ten problem:
-- Upewnij się, że używasz najnowszej wersji agenta usługi Kopia zapasowa Azure
-- Upewnij się, że istnieje łączność (/ zaporą/serwera proxy sieci) między serwerem DPM i serwerze chronionym
-- W przypadku ochrony programu SQL Server, upewnij się, że NT AUTHORITY\SYSTEM ma włączyć za pomocą właściwości logowania administratora systemu
+Ten błąd występuje, gdy serwer programu Data Protection Manager nie może skontaktować się z serwera chronionego. 
 
-## <a name="this-server-is-not-registered-to-the-vault-specified-by-the-vault-credential"></a>Ten serwer nie jest zarejestrowany w magazynie określonym przez poświadczenie magazynu
+Aby rozwiązać ten problem, wykonaj następujące czynności:
+- Upewnij się, że używasz najnowszej wersji agenta usługi Kopia zapasowa Azure.
+- Upewnij się, że istnieje łączność (/ zaporą/serwera proxy sieci) między serwerem programu Data Protection Manager i na serwerze chronionym.
+- Jeśli chronisz serwer SQL, upewnij się, że **właściwości logowania** > **NT AUTHORITY\SYSTEM** pokazuje właściwości **sysadmin** ustawienie jest włączone.
 
-Ten błąd jest wyświetlany, gdy plik poświadczeń magazynu wybrane, nie należy do magazynu usług odzyskiwania skojarzone z programem System Center DPM / Azure Utwórz kopię zapasową serwera, na którym nastąpiła odzyskiwania. Wykonaj następujące kroki, aby rozwiązać ten problem:
-- Pobierz plik poświadczeń magazynu usług odzyskiwania magazynu, do którego programu System Center DPM / serwer kopii zapasowej Azure jest zarejestrowany.
-- Spróbuj zarejestrować serwer w magazynie przy użyciu najnowszego pliku poświadczeń magazynu pobranego.
+## <a name="error-server-not-registered-as-specified-in-vault-credential-file"></a>Błąd: Serwer nie zarejestrowany jako określony w pliku poświadczeń magazynu
 
-## <a name="either-the-recoverable-data-is-not-available-or-the-selected-server-is-not-a-dpm-server"></a>Dane możliwe do odzyskania są niedostępne albo wybrany serwer nie jest serwerem DPM
-Ten błąd jest wyświetlany, gdy nie ma żadnych innych programu System Center DPM / kopia zapasowa Azure serwery zarejestrowane w magazynie usług odzyskiwania lub serwerów nie zostały jeszcze przekazane metadanych lub wybrany serwer nie jest System Center DPM / serwer kopii zapasowej Azure.
-- Jeśli istnieją inne programu System Center DPM / serwerów kopia zapasowa Azure zarejestrowany w magazynie usług odzyskiwania, upewnij się, że agent jest zainstalowany najnowszej kopii zapasowej Azure.
-- Jeśli istnieją inne programu System Center DPM / serwerów kopia zapasowa Azure zarejestrowany w magazynie usług odzyskiwania, poczekaj na dzień po zakończeniu instalacji, aby rozpocząć proces odzyskiwania. Nocne zadanie przekazuje metadanych dla wszystkich chronionych kopii zapasowych w chmurze. Dane są dostępne do odzyskania.
+Ten błąd występuje podczas procesu odzyskiwania dla danych serwera kopii zapasowej Menedżera/Azure ochrony danych. Plik poświadczeń magazynu, który jest używany w procesie odzyskiwania nie należy do magazynu usług odzyskiwania dla serwera kopii zapasowej Menedżera/Azure ochrony danych.
 
-## <a name="the-encryption-passphrase-provided-does-not-match-with-passphrase-associated-with-the-following-server"></a>Podane hasło szyfrowania nie jest zgodne z hasłem skojarzonym z następującym serwerem
+Aby rozwiązać ten problem, wykonaj następujące kroki:
+1. Pobierz plik poświadczeń magazynu z magazynu usług odzyskiwania, w której jest zarejestrowana serwera kopii zapasowej Menedżera/Azure ochrony danych.
+2. Spróbuj zarejestrować serwer w magazynie przy użyciu najbardziej ostatnio pobrany plik poświadczeń magazynu.
 
-> [!NOTE]
->Jeśli nie pamiętasz/utracie hasło szyfrowania, to nie ma możliwość odzyskania danych. Jedyną opcją jest ponownie wygenerować hasła i służy do szyfrowania danych kopii zapasowych w przyszłości.
+## <a name="error-no-recoverable-data-or-selected-server-not-a-data-protection-manager-server"></a>Błąd: Nie dane możliwe do odzyskania lub wybrany serwer nie jest serwerem programu Data Protection Manager
+
+Ten błąd występuje z następujących powodów:
+- Nie ma innych serwerów kopii zapasowej Menedżera/Azure ochrony danych zarejestrowanych w magazynie usług odzyskiwania.
+- Serwery jeszcze nie zostały jeszcze przekazane metadanych.
+- Wybrany serwer nie jest serwerem kopii zapasowej Menedżera/Azure ochrony danych.
+
+W przypadku innych serwerów kopii zapasowej Menedżera/Azure ochrony danych są zarejestrowane w magazynie usług odzyskiwania, wykonaj następujące kroki, aby rozwiązać ten problem:
+1. Upewnij się, że zainstalowano najnowszą wersję agenta usługi Kopia zapasowa Azure.
+2. Po upewnieniu się, że zainstalowano najnowszą wersję agenta, poczekaj jeden dzień przed rozpoczęciem procesu odzyskiwania. Zadanie tworzenia kopii zapasowej co noc przekazuje metadanych dla wszystkich chronionych kopii zapasowych w chmurze. Dane kopii zapasowej jest dostępna dla odzyskiwania.
+
+## <a name="error-provided-encryption-passphrase-doesnt-match-passphrase-for-server"></a>Błąd: Hasło podane szyfrowania nie pasuje do hasła dla serwera
+
+Ten błąd występuje podczas procesu szyfrowania, gdy odzyskiwanie danych serwera kopii zapasowej Menedżera/Azure ochrony danych. Hasło szyfrowania, który jest używany w procesie odzyskiwania nie jest zgodny hasło szyfrowania serwera. W związku z tym agentem nie może odszyfrować danych i odzyskiwanie nie powiedzie się.
+
+> [!IMPORTANT]
+> Jeśli zapomnisz lub utratę hasło szyfrowania, istnieją inne metody do odzyskiwania danych. Jest to jedyna opcja można ponownie wygenerować hasła. Użyj nowe hasło do szyfrowania danych kopii zapasowych w przyszłości.
 >
+> Podczas odzyskiwania danych zawsze podać to samo hasło szyfrowania skojarzoną z serwera kopii zapasowej Menedżera/Azure ochrony danych. 
 >
-
-Ten błąd jest wyświetlany, gdy hasło szyfrowania używany w procesie szyfrowania danych z programu System Center DPM / są odzyskiwane dane serwera kopii zapasowej systemu Azure jest niezgodna z podane hasło szyfrowania. Agent jest do odszyfrowania danych. Dlatego odzyskiwanie zakończy się niepowodzeniem. Wykonaj następujące kroki, aby rozwiązać ten problem:
-- Podaj dokładny tego samego hasła szyfrowania skojarzone z programem System Center DPM / serwer kopii zapasowej Azure, którego dane są odzyskiwane. 

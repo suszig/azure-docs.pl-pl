@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: nitinme
-ms.openlocfilehash: c668dde33b3571436711c6c5e5289993a9edf1a2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: c36d742c61fb85f1b6077dd9156d6e36b37db1e1
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>Tworzenie aplikacji Spark dla klastra usługi HDInsight za pomocą narzędzi Azure dla programu Eclipse
 
@@ -69,6 +69,26 @@ Po otwarciu Eclipse, narzędzia HDInsight automatycznie wykrywa, czy zainstalowa
    
    ![Rozszerzanie nazwę klastra, aby wyświetlić zasoby](./media/apache-spark-eclipse-tool-plugin/view-explorer-4.png)
 
+## <a name="link-a-cluster"></a>Połącz klaster
+Można połączyć normalne klastra przy użyciu Ambari zarządzane username, także połączyć zabezpieczeń klastra usługi hadoop przy użyciu nazwy użytkownika domeny (takich jak: user1@contoso.com).
+1. Kliknij przycisk **Link klastra** z **Eksploratora Azure**.
+
+   ![menu kontekstowe klastra łącza](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
+
+2. Wprowadź **nazwy klastra**, **konta magazynu**, **klucza magazynu**, następnie wybierz kontener z **kontenera magazynu**, ostatnio, wprowadź nazwę użytkownika i hasło. Kliknij przycisk OK, aby połączyć klastra.
+   
+   ![okno dialogowe klastra łącza](./media/apache-spark-eclipse-tool-plugin/link-cluster-dialog.png)
+   
+   > [!NOTE]
+   > Używamy klucza magazynu połączone, nazwę użytkownika i hasło, jeśli klaster rejestrowane w subskrypcji platformy Azure i połączone klastra.
+
+3. Widać klastra połączone w **HDInsight** węzeł po kliknięciu przycisku OK, jeśli dane wejściowe są prawidłowe. Teraz można przesłać do tego klastra połączonych aplikacji.
+
+   ![połączone klastra](./media/apache-spark-intellij-tool-plugin/linked-cluster.png)
+
+4. Możesz również odłączyć klastra z **Eksploratora Azure**.
+   
+   ![odłączyć klastra](./media/apache-spark-intellij-tool-plugin/unlink.png)
 
 
 ## <a name="set-up-a-spark-scala-project-for-an-hdinsight-spark-cluster"></a>Konfigurowanie projektu Spark Scala dla klastra Spark w usłudze HDInsight
@@ -130,6 +150,7 @@ Po otwarciu Eclipse, narzędzia HDInsight automatycznie wykrywa, czy zainstalowa
 6. **Przesyłanie Spark** kartę powinna zaczynać się wyświetlanie postępu. Można zatrzymać aplikację, wybierając czerwony przycisk w **przesyłanie Spark** okna. Można również wyświetlić dzienników dla tej aplikacji określonych Uruchom wybierając ikona globu (wskazywane przez niebieskie pole w obrazie).
       
    ![Przesłanie Spark okna](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-4.png)
+
 
 ## <a name="access-and-manage-hdinsight-spark-clusters-by-using-hdinsight-tools-in-azure-toolkit-for-eclipse"></a>Dostęp i zarządzania klastrami Spark w usłudze HDInsight przy użyciu narzędzia HDInsight Tools w zestawie narzędzi Azure dla programu Eclipse
 Za pomocą narzędzi HDInsight, takich jak uzyskiwanie dostępu do danych wyjściowych zadania można wykonywać różne operacje.

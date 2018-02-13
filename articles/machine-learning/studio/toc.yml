@@ -1,5 +1,5 @@
 - name: Dokumentacja usługi Machine Learning Studio
-  href: index.md
+  href: index.yml
 - name: Omówienie
   expanded: true
   items:

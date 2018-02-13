@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 01/10/2018
+ms.date: 02/10/2018
 ms.author: owend
-ms.openlocfilehash: ea1094d0ce858cd7df9c49f18fb81b07e31fca53
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 568c18fb0591284995f5986f98b3762a9d19b056
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="connect-with-power-bi"></a>Uzyskuj dostęp do usługi Power BI
 
@@ -38,7 +38,9 @@ Po utworzeniu serwera na platformie Azure i wdrożone modelu tabelarycznego, uż
 
 3. W **bazy danych**, jeśli znasz nazwę bazy danych modelu tabelarycznego lub perspektywy, aby nawiązać połączenie, wklej go tutaj. W przeciwnym razie można pozostawić to pole puste i wybierz bazę danych lub perspektywy później.
 
-4. Pozostaw wartość domyślną **połączenia na żywo** opcji, a następnie naciśnij klawisz **Connect**. Import połączenia nie są obecnie obsługiwane.
+4. Wybierz opcję połączenie, a następnie naciśnij klawisz **Connect**. 
+
+    Zarówno **połączenia na żywo** i **importu** opcje są obsługiwane. Jednak zaleca się, że używasz połączenia na żywo, ponieważ tryb importu ma pewne ograniczenia; głównie wydajność serwera może mieć wpływ na podczas importowania. Ponadto, jeśli model ma być odświeżane w usłudze Power BI **zezwalają na dostęp z usługi Power BI** ustawienie ma zastosowanie tylko w przypadku wybrania **połączenia na żywo**.
 
 5. Jeśli zostanie wyświetlony monit, wprowadź poświadczenia logowania. 
 

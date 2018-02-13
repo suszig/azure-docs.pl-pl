@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2017
 ms.author: magoedte
-ms.openlocfilehash: 71c98a7e17472ae0aa7646b9e7fc745363546211
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 4232634f57f9650a35c40ee769cbeb0a3e009dfb
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="how-to-deploy-a-windows-hybrid-runbook-worker"></a>Wdrażanie systemu Windows hybrydowego Runbook Worker
 
@@ -50,7 +50,7 @@ Przejrzyj następujące informacje dotyczące [wymagania sprzętowe i programowe
 
 Wykonaj poniższe kroki, aby zautomatyzować instalację i konfigurację roli Windows hybrydowy proces roboczy.  
 
-1. Pobierz *OnPremiseHybridWorker.ps1 nowy* skrypt z [galerii programu PowerShell](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker/1.0/DisplayScript) bezpośrednio z komputera z uruchomionym roli hybrydowy proces roboczy elementu Runbook lub z innego komputera w danym środowisku i skopiować go do pracownika.  
+1. Pobierz *OnPremiseHybridWorker.ps1 nowy* skrypt z [galerii programu PowerShell](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker/) bezpośrednio z komputera z uruchomionym roli hybrydowy proces roboczy elementu Runbook lub z innego komputera w danym środowisku i skopiować go do pracownika.  
 
     *OnPremiseHybridWorker.ps1 nowy* skrypt wymaga następujących parametrów podczas wykonywania:
 
@@ -76,7 +76,7 @@ Wykonaj poniższe kroki, aby zautomatyzować instalację i konfigurację roli Wi
 
 4. Zostanie wyświetlony monit o zgodę na instalowanie **NuGet** i zostanie wyświetlony monit o uwierzytelniania przy użyciu poświadczeń platformy Azure.<br><br> ![Wykonanie skryptu OnPremiseHybridWorker nowy](media/automation-hybrid-runbook-worker/new-onpremisehybridworker-scriptoutput.png)
 
-5. Po zakończeniu skrypt bloku hybrydowego procesu roboczego grupy zostaną wyświetlone nowe grupy i liczby elementów członkowskich lub jeśli istniejącą grupę, do liczby elementów członkowskich jest zwiększany.  Można zaznaczyć grupę z listy na **hybrydowego procesu roboczego grupy** bloku, a następnie wybierz **hybrydowych procesów roboczych** kafelka.  Na **hybrydowych procesów roboczych** bloku, zobacz każdego członka grupy na liście.  
+5. Po zakończeniu skrypt strony hybrydowego procesu roboczego grup wyświetli nową grupę i liczby elementów członkowskich lub jeśli istniejącą grupę, do liczby elementów członkowskich jest zwiększany.  Można zaznaczyć grupę z listy na **hybrydowego procesu roboczego grupy** i wybrać opcję **hybrydowych procesów roboczych** kafelka.  Na **hybrydowych procesów roboczych** strony, zobacz każdego członka grupy na liście.  
 
 ### <a name="manual-deployment"></a>Ręczne wdrażanie 
 
@@ -113,13 +113,13 @@ Następnie uruchom **Add-HybridRunbookWorker** polecenia cmdlet, używając nast
 
     Add-HybridRunbookWorker –GroupName <String> -EndPoint <Url> -Token <String>
 
-Można uzyskać informacji wymaganych dla tego polecenia cmdlet z **zarządzanie kluczami** bloku w portalu Azure.  Otwórz ten blok, wybierając **klucze** opcję **ustawienia** bloku na Twoim koncie automatyzacji.
+Można uzyskać informacji wymaganych dla tego polecenia cmdlet z **zarządzanie kluczami** strony w portalu Azure.  Otwórz tę stronę, wybierając **klucze** opcję **ustawienia** strony na Twoim koncie automatyzacji.
 
 ![Omówienie procesu roboczego elementu Runbook hybrydowego](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
 * **GroupName** to nazwa grupy hybrydowych procesów roboczych elementu Runbook. Jeśli ta grupa już istnieje na koncie automatyzacji, bieżący komputer jest dodawany do niego.  Jeśli go jeszcze nie istnieje, następnie jest dodawany.
-* **Punkt końcowy** jest **adres URL** w **zarządzanie kluczami** bloku.
-* **Token** jest **podstawowy klucz dostępu** w **zarządzanie kluczami** bloku.  
+* **Punkt końcowy** jest **adres URL** w **zarządzanie kluczami** strony.
+* **Token** jest **podstawowy klucz dostępu** w **zarządzanie kluczami** strony.  
 
 Użyj **-Verbose** przełącznik z **Add-HybridRunbookWorker** uzyskać szczegółowe informacje o instalacji.
 
@@ -143,8 +143,8 @@ Hybrydowy proces roboczy elementu Runbook jest zależna od programu Microsoft Mo
 3. Usługa Microsoft Monitoring Agent nie jest uruchomiona.  
     Jeśli usługa Microsoft Monitoring Agent Windows nie jest uruchomiona, zapobiega to hybrydowy proces roboczy elementu Runbook komunikację z usługi Automatyzacja Azure.  Sprawdź, agent nie działa, wprowadzając następujące polecenie w programie PowerShell: `get-service healthservice`.  Jeśli usługa zostanie zatrzymana, wprowadź następujące polecenie w programie PowerShell, aby uruchomić usługę: `start-service healthservice`.  
 
-4. W **aplikacji i usług Menedżera Logs\Operations** dziennika zdarzeń, zobacz zdarzenia 4502 i zawierający EventMessage **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent** z następujący opis: *certyfikat przedstawiony przez usługę <wsid>. oms.opinsights.azure.com nie został wystawiony przez urząd certyfikacji używany dla usług firmy Microsoft. Skontaktuj się z administratorem sieci, aby sprawdzić, czy działają z serwera proxy przechwytującego komunikację TLS/SSL. Artykuł KB3126513 zawiera dodatkowe informacje dotyczące rozwiązywania problemów, które występują problemy dotyczące połączenia.*
-    To może być spowodowane komunikację blockking zapory serwera proxy lub sieci do systemu Microsoft Azure.  Sprawdź, czy komputer ma dostęp ruchu wychodzącego do *.azure automation.net na porty 443.
+4. W **aplikacji i usług Menedżera Logs\Operations** dziennika zdarzeń, zobacz zdarzenia 4502 i zawierający EventMessage **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**z następujący opis: *certyfikat przedstawiony przez usługę \<wsid\>. oms.opinsights.azure.com nie został wystawiony przez urząd certyfikacji używany dla usług firmy Microsoft. Skontaktuj się z administratorem sieci, aby sprawdzić, czy działają z serwera proxy przechwytującego komunikację TLS/SSL. Artykuł KB3126513 zawiera dodatkowe informacje dotyczące rozwiązywania problemów, które występują problemy dotyczące połączenia.*
+    Może to być spowodowane serwera proxy lub sieci Zapora blokuje komunikację do systemu Microsoft Azure.  Sprawdź, czy komputer ma dostęp ruchu wychodzącego do *.azure automation.net na porty 443.
 
 Dzienniki są przechowywane lokalnie na każdym hybrydowy proces roboczy na C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes.  Można sprawdzić, czy istnieją ostrzeżenia lub błędu zdarzeń zapisywanych w **aplikacji i usług Logs\Microsoft-SMA\Operations** i **aplikacji i usług Menedżera Logs\Operations** dziennika zdarzeń, który wskazuje z łącznością lub innego problemu dołączania roli do automatyzacji Azure lub problem podczas wykonywania normalnych operacji.  
 

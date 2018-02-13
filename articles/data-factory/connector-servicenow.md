@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 68a19bd20cd068a1388c806d30c1bdb2d7575682
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 28ecdc541bc7e95dfa6d7c1b2d984cba0654699f
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory-beta"></a>Kopiowanie danych z usługi ServiceNow przy użyciu fabryki danych Azure (wersja Beta)
 
@@ -51,7 +51,7 @@ Obsługiwane są następujące właściwości usługi ServiceNow połączone:
 | endpoint | Punkt końcowy serwera usługi ServiceNow (`http://ServiceNowData.com`).  | Yes |
 | authenticationType | Typ uwierzytelniania do użycia. <br/>Dozwolone wartości to: **podstawowe**, **OAuth2** | Yes |
 | nazwa użytkownika | Nazwa użytkownika używana do łączenia się z serwerem usługi ServiceNow uwierzytelniania Basic i protokołu OAuth2.  | Nie |
-| hasło | Hasło odpowiadający nazwie użytkownika do uwierzytelniania Basic i OAuth2. Można wybrać opcję Oznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w ADF lub przechowywania haseł w usłudze Azure Key Vault i umożliwić działanie kopiowania ściągnięcia stamtąd podczas wykonywania kopii danych — Dowiedz się więcej o [przechowywania poświadczeń w magazynie kluczy](store-credentials-in-key-vault.md). | Nie |
+| hasło | Hasło odpowiadający nazwie użytkownika do uwierzytelniania Basic i OAuth2. Zaznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w fabryce danych lub [odwołania klucz tajny przechowywane w usłudze Azure Key Vault](store-credentials-in-key-vault.md). | Nie |
 | clientId | Identyfikator klienta do uwierzytelniania protokołu OAuth2.  | Nie |
 | clientSecret | Klucz tajny klienta do uwierzytelniania protokołu OAuth2. Zaznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w fabryce danych lub [odwołania klucz tajny przechowywane w usłudze Azure Key Vault](store-credentials-in-key-vault.md). | Nie |
 | useEncryptedEndpoints | Określa, czy punkty końcowe źródła danych są szyfrowane przy użyciu protokołu HTTPS. Wartość domyślna to true.  | Nie |
@@ -103,14 +103,22 @@ Aby skopiować dane z usługi ServiceNow, ustaw właściwość Typ zestawu danyc
 
 Pełną listę sekcje i właściwości dostępnych dla definiowania działań, zobacz [potoki](concepts-pipelines-activities.md) artykułu. Ta sekcja zawiera listę obsługiwanych przez usługi ServiceNow źródła właściwości.
 
-### <a name="servicenowsource-as-source"></a>ServiceNowSource jako źródło
+### <a name="servicenow-as-source"></a>Usługi ServiceNow jako źródło
 
 Aby skopiować dane z usługi ServiceNow, należy ustawić typ źródła w przypadku działania kopiowania do **ServiceNowSource**. Następujące właściwości są obsługiwane w przypadku działania kopiowania **źródła** sekcji:
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **ServiceNowSource** | Yes |
-| query | Użyj niestandardowych zapytania SQL można odczytać danych. Na przykład: `"SELECT * FROM alm.asset"`. | Yes |
+| query | Użyj niestandardowych zapytania SQL można odczytać danych. Na przykład: `"SELECT * FROM Actual.alm_asset"`. | Yes |
+
+Należy pamiętać, że podczas określania schematu i kolumn dla usługi ServiceNow w zapytaniu:
+
+- **Schemat:** zapytanie do usługi ServiceNow należy podać schematu jako `Actual` lub `Display` , które można przyjrzeć się go jako parametru `sysparm_display_value` jako PRAWDA lub FAŁSZ, gdy wywołanie [interfejsy API restful ServiceNow](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
+- **Kolumna:** jest nazwa kolumny w przypadku wartości rzeczywistej `[columne name]_value` podczas wyświetlania wartości `[columne name]_display_value`.
+
+**Przykładowe zapytanie:** 
+ `SELECT distinct col_value, col_display_value FROM Actual.alm_asset` lub `SELECT distinct col_value, col_display_value FROM Display.alm_asset`
 
 **Przykład:**
 
@@ -134,7 +142,7 @@ Aby skopiować dane z usługi ServiceNow, należy ustawić typ źródła w przyp
         "typeProperties": {
             "source": {
                 "type": "ServiceNowSource",
-                "query": "SELECT * FROM alm.asset"
+                "query": "SELECT * FROM Actual.alm_asset"
             },
             "sink": {
                 "type": "<sink type>"

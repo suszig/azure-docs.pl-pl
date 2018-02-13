@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 02/09/2018
 ms.author: magoedte
-ms.openlocfilehash: a17418142fb5f52a93d7a56cb2e6e6e97a250002
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 2e4daebf18d5edeba92bc14d5a4f699fbd2d94ce
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Zarządzanie i obsługę agenta analizy dzienników systemu Windows i Linux
 
-Po początkowym wdrożeniu agentów systemu Windows lub Linux do analizy dzienników może być konieczne ponowne konfigurowanie agenta, w zależności od sytuacji lub usunąć z komputera, jeśli został osiągnięty wycofania etapem cykl życia.  Te zadania Konserwacja umożliwia łatwe zarządzanie ręcznie lub za pomocą automatyzacji, co zmniejsza zarówno operacyjne błędu, jak i koszty.
+Po początkowym wdrożeniu agentów systemu Windows lub Linux do analizy dzienników może być konieczne ponowne konfigurowanie agenta lub usunąć z komputera, jeśli został osiągnięty wycofania etapem cykl życia.  Te zadania Konserwacja umożliwia łatwe zarządzanie ręcznie lub za pomocą automatyzacji, co zmniejsza zarówno operacyjne błędu, jak i koszty.
 
 ## <a name="adding-or-removing-a-workspace"></a>Dodawanie lub usuwanie obszaru roboczego 
 
@@ -111,7 +111,7 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 ```  
 
 ### <a name="linux-agent"></a>Agent systemu Linux
-Jeśli komputery Linux muszą komunikować się za pośrednictwem serwera proxy lub bramy OMS do analizy dzienników, należy wykonać następujące czynności.  Wartość konfiguracji serwera proxy ma następującą składnię `[protocol://][user:password@]proxyhost[:port]`.  *Proxyhost* właściwość akceptuje w pełni kwalifikowaną nazwę domeny lub adres IP serwera proxy.
+Jeśli komputery Linux muszą komunikować się za pośrednictwem serwera proxy lub bramy OMS do analizy dzienników, należy wykonać następujące czynności.  Wartość konfiguracji serwera proxy ma następującą składnię `[protocol://][user:password@]proxyhost[:port]`.  Właściwość *proxyhost* akceptuje w pełni kwalifikowaną nazwę domeny lub adres IP serwera proxy.
 
 1. Edytuj plik `/etc/opt/microsoft/omsagent/proxy.conf`, uruchamiając następujące polecenia, i zmień wartości na odpowiednie dla siebie.
 
@@ -148,12 +148,9 @@ Pobrany plik dla agenta jest pakietem instalacyjnym niezależne utworzone za pom
 3. W wierszu polecenia wpisz `%WinDir%\System32\msiexec.exe /x <Path>:\MOMAgent.msi /qb`.  
 
 ### <a name="linux-agent"></a>Agent systemu Linux
-Aby usunąć agenta, wykonaj poniższe kroki.
+Aby usunąć agenta, uruchom następujące polecenie na komputerze z systemem Linux.  *--Przeczyścić* argument usuwa całkowicie agent i jego konfiguracja.
 
-1. Pobierz na komputer [uniwersalny skrypt](https://github.com/Microsoft/OMS-Agent-for-Linux/releases) agenta systemu Linux.
-2. Uruchom na komputerze plik sh pakietu z argumentem *--purge*, co spowoduje całkowite usunięcie agenta i jego konfiguracji.
-
-    `sudo sh ./omsagent-<version>.universal.x64.sh --purge`
+   `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh --purge`
 
 ## <a name="configure-agent-to-report-to-an-operations-manager-management-group"></a>Konfigurowanie agenta z grupy zarządzania programu Operations Manager
 
@@ -174,9 +171,9 @@ Wykonaj poniższe kroki, aby skonfigurować OMS agenta dla systemu Windows do ra
 ### <a name="linux-agent"></a>Agent systemu Linux
 Wykonaj poniższe kroki, aby skonfigurować agenta pakietu OMS dla systemu Linux z grupy zarządzania programu System Center Operations Manager. 
 
-1. Przeprowadź edycję pliku`/etc/opt/omi/conf/omiserver.conf`
-2. Upewnij się, że zaczyna się od wiersza `httpsport=` definiuje portu 1270. Takie jak:`httpsport=1270`
-3. Uruchom ponownie serwer OMI:`sudo /opt/omi/bin/service_control restart`
+1. Przeprowadź edycję pliku `/etc/opt/omi/conf/omiserver.conf`
+2. Upewnij się, że zaczyna się od wiersza `httpsport=` definiuje portu 1270. Takie jak: `httpsport=1270`
+3. Uruchom ponownie serwer OMI: `sudo /opt/omi/bin/service_control restart`
 
 ## <a name="next-steps"></a>Kolejne kroki
 

@@ -6,162 +6,164 @@ keywords:
 author: chrissie926
 manager: timlt
 ms.author: menchi
-ms.date: 01/11/2018
-ms.topic: tutorial
+ms.date: 02/12/2018
+ms.topic: article
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 26067187864f9a2a4c85c953ae8aca888458d245
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.reviewer: kgremban
+ms.openlocfilehash: ce3e979428233af578d71dee5ed10103e105f4f4
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="deploy-modules-to-an-iot-edge-device-using-iot-extension-for-azure-cli-20"></a>Wdrażanie modułów na IoT urządzenia przy użyciu rozszerzenia IoT Azure CLI 2.0
 
-[Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) jest typu open source cross platform narzędzia wiersza polecenia do zarządzania zasobami platformy Azure, takich jak IoT krawędzi. 2.0 interfejsu wiersza polecenia platformy Azure jest dostępna w systemach Windows, Linux i MacOS.
+[Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) jest open source cross platform narzędzie wiersza polecenia do zarządzania zasobami platformy Azure, takich jak IoT krawędzi. 2.0 interfejsu wiersza polecenia platformy Azure jest dostępna w systemach Windows, Linux i MacOS.
 
 Azure CLI 2.0 umożliwia zarządzanie zasobami, inicjowania obsługi administracyjnej wystąpień usługi urządzenia i połączone w koncentratory fabrycznej Centrum IoT Azure. Nowe rozszerzenie IoT wzbogaca 2.0 interfejsu wiersza polecenia platformy Azure z funkcjami takimi jak zarządzanie urządzeniami i pełne możliwości IoT krawędzi.
 
 W tym samouczku najpierw wykonaj kroki, aby skonfigurować interfejs wiersza polecenia Azure w wersji 2.0 i rozszerzenia IoT. Następnie zostanie przedstawiony sposób wdrażania modułów do urządzenia IoT przy użyciu dostępnych poleceń interfejsu wiersza polecenia.
 
-## <a name="installation"></a>Instalacja 
+## <a name="prerequisites"></a>Wymagania wstępne
 
-### <a name="step-1---install-python"></a>Krok 1 — instalacja języka Python
+* Konto platformy Azure. Jeśli nie masz jeszcze, możesz [utworzyć bezpłatne konto](https://azure.microsoft.com/free/?v=17.39a) dzisiaj. 
 
-[Python 2.7 x lub Python 3.x](https://www.python.org/downloads/) jest wymagana.
+* [Python 2.7 x lub Python 3.x](https://www.python.org/downloads/).
 
-### <a name="step-2---install-azure-cli-20"></a>Krok 2 - zainstaluj interfejs wiersza polecenia platformy Azure 2.0
+* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) w danym środowisku. Co najmniej w wersji 2.0 interfejsu wiersza polecenia platformy Azure musi być 2.0.24 lub nowszej. Użyj `az –-version` do sprawdzania poprawności. Ta wersja obsługuje az rozszerzenia poleceń i wprowadza Knack framework polecenia. Prostym sposobem instalowania w systemie Windows jest pobranie i zainstalowanie [MSI](https://aka.ms/InstallAzureCliWindows).
 
-Postępuj zgodnie z [instrukcje dotyczące instalacji](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) można skonfigurować 2.0 interfejsu wiersza polecenia platformy Azure w danym środowisku. Co najmniej w wersji 2.0 interfejsu wiersza polecenia platformy Azure musi być 2.0.24 lub nowszej. Użyj `az –version` do sprawdzania poprawności. Ta wersja obsługuje az rozszerzenia poleceń i wprowadza Knack framework polecenia. Prostym sposobem instalowania w systemie Windows jest pobranie i zainstalowanie [MSI](https://aka.ms/InstallAzureCliWindows).
-
-### <a name="step-3---install-iot-extension"></a>Krok 3 — IoT instalacji rozszerzenia
-
-[Plik readme rozszerzenia IoT](https://github.com/Azure/azure-iot-cli-extension) opisano kilka sposobów, aby zainstalować to rozszerzenie. Najprostszym sposobem jest uruchomienie `az extension add --name azure-cli-iot-ext`. Po zakończeniu instalacji, można użyć `az extension list` do sprawdzania poprawności obecnie zainstalowanych rozszerzeń lub `az extension show --name azure-cli-iot-ext` aby zobaczyć szczegółowe informacje o rozszerzeniu IoT. Aby usunąć rozszerzenia, można użyć `az extension remove --name azure-cli-iot-ext`.
-
-
-## <a name="deploy-modules-to-an-iot-edge-device"></a>Wdrażanie modułów do urządzenia IoT
-Z tego samouczka dowiesz się, sposób tworzenia wdrożenia IoT krawędzi. W przykładzie przedstawiono możesz zalogować się do konta platformy Azure, utworzyć grupy zasobów platformy Azure (kontener, który zawiera powiązane zasoby dla rozwiązania Azure), tworzenia Centrum IoT, Utwórz trzy tożsamości urządzenia IoT krawędzi, ustawienie tagów i wdrożenia krawędzi IoT następnie tworzyć, które Celem tych urządzeń. Wykonaj kroki instalacji opisanych powyżej, aby rozpocząć. Jeśli nie masz konta platformy Azure, ale możesz [utworzyć bezpłatne konto](https://azure.microsoft.com/free/?v=17.39a) dzisiaj. 
+* [Rozszerzenie IoT Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension):
+   1. Uruchom polecenie `az extension add --name azure-cli-iot-ext`. 
+   2. Po zakończeniu instalacji, użyj `az extension list` do sprawdzania poprawności obecnie zainstalowanych rozszerzeń lub `az extension show --name azure-cli-iot-ext` aby zobaczyć szczegółowe informacje o rozszerzeniu IoT.
+   3. Aby usunąć rozszerzenie, należy użyć `az extension remove --name azure-cli-iot-ext`.
 
 
-### <a name="1-login-to-the-azure-account"></a>1. Zaloguj się do konta platformy Azure
-  
-    az login
+## <a name="create-an-iot-edge-device"></a>Tworzenie urządzenia IoT
+Ten artykuł zawiera instrukcje dotyczące tworzenia wdrożenia IoT krawędzi. W przykładzie pokazano sposobu Zaloguj się do konta platformy Azure, utworzyć grupy zasobów platformy Azure (kontener, który zawiera powiązane zasoby Azure rozwiązania), tworzenia Centrum IoT, utworzyć trzy tożsamości urządzenia IoT krawędzi, znaczników i wdrożenia krawędzi IoT następnie tworzyć, które Celem tych urządzeń. 
 
-![logowanie][1]
+Zaloguj się do konta platformy Azure. Po wprowadzeniu poniższego polecenia logowania zostanie wyświetlony monit o zalogowanie się przy użyciu jednorazowego kodu przy użyciu przeglądarki sieci web: 
 
-### <a name="2-create-a-resource-group-iothubblogdemo-in-eastus"></a>2. Utwórz grupę zasobów IoTHubBlogDemo w eastus
+   ```cli
+   az login
+   ```
 
-    az group create -l eastus -n IoTHubBlogDemo
+Utwórz nową grupę zasobów o nazwie **IoTHubCLI** w regionie wschodnie stany USA: 
 
-![Tworzenie grupy zasobów][2]
+   ```cli
+   az group create -l eastus -n IoTHubCLI
+   ```
 
+   ![Tworzenie grupy zasobów][2]
 
-### <a name="3-create-an-iot-hub-blogdemohub-under-the-newly-created-resource-group"></a>3. Tworzenie Centrum IoT blogDemoHub w ramach grupy nowo utworzonego zasobu
+Tworzenie Centrum IoT o nazwie **CLIDemoHub** w grupie zasobów nowo utworzone:
 
-    az iot hub create --name blogDemoHub --resource-group IoTHubBlogDemo
+   ```cli
+   az iot hub create --name CLIDemoHub --resource-group IoTHubCLI --sku S1
+   ```
 
-![Create IoT Hub][3]
+   >[!TIP]
+   >Każda subskrypcja jest przydzielony jeden bezpłatne Centrum IoT. Aby utworzyć bezpłatne Centrum przy użyciu polecenia interfejsu wiersza polecenia, zastąp wartość jednostki SKU z `--sku F1`. Jeśli masz już bezpłatne Centrum w ramach subskrypcji, zostanie wyświetlony komunikat o błędzie podczas próby utworzenia drugiego. 
 
+Utwórz urządzenia IoT:
 
-### <a name="4-create-an-iot-edge-device"></a>4. Tworzenie urządzenia IoT
+   ```cli
+   az iot hub device-identity create --device-id edge001 -hub-name CLIDemoHub --edge-enabled
+   ```
 
-    az iot hub device-identity create -d edge001 -n blogDemoHub --edge-enabled
+   ![Utwórz urządzenie brzegowe IoT][4]
 
-![Utwórz urządzenie brzegowe IoT][4]
+## <a name="configure-the-iot-edge-device"></a>Skonfiguruj urządzenie brzegowe IoT
 
-### <a name="5-apply-configuration-to-the-iot-edge-device"></a>5. Zastosuj konfigurację do urządzenia IoT krawędzi
+Tworzenie szablonu JSON wdrożenia i zapisz go w lokalnie jako plik txt. Ścieżka do pliku, należy podczas uruchamiania polecenia Zastosuj konfigurację.
 
-Zapisz szablon JSON wdrożenia lokalnie jako plik txt. Ścieżka do pliku, należy podczas uruchamiania polecenia Zastosuj konfigurację.
+Szablony JSON wdrożenia należy zawsze należy uwzględniać moduły dwóch systemów, edgeAgent i edgeHub. Oprócz tych dwóch ten plik służy do wdrażania dodatkowych modułów na urządzeniu IoT krawędzi. Aby skonfigurować urządzenia IoT z jednego modułu tempSensor, skorzystaj z poniższego przykładu:
 
-Oto przykładowy szablon JSON wdrożenia, który zawiera jeden moduł tempSensor:
+   ```json
+   {
+     "moduleContent": {
+       "$edgeAgent": {
+         "properties.desired": {
+           "schemaVersion": "1.0",
+           "runtime": {
+             "type": "docker",
+             "settings": {
+               "minDockerVersion": "v1.25",
+               "loggingOptions": ""
+             }
+           },
+           "systemModules": {
+             "edgeAgent": {
+               "type": "docker",
+               "settings": {
+                 "image": "edgepreview.azurecr.io/azureiotedge/edge-agent:1.0-preview",
+                 "createOptions": "{}"
+               }
+             },
+             "edgeHub": {
+               "type": "docker",
+               "status": "running",
+               "restartPolicy": "always",
+               "settings": {
+                 "image": "edgepreview.azurecr.io/azureiotedge/edge-hub:1.0-preview",
+                 "createOptions": "{}"
+               }
+             }
+           },
+           "modules": {
+             "tempSensor": {
+               "version": "1.0",
+               "type": "docker",
+               "status": "running",
+               "restartPolicy": "always",
+               "settings": {
+                 "image": "edgepreview.azurecr.io/azureiotedge/simulated-temperature-sensor:1.0-preview",
+                 "createOptions": "{}"
+               }
+             }
+           }
+         }
+       },
+       "$edgeHub": {
+         "properties.desired": {
+           "schemaVersion": "1.0",
+           "routes": {},
+           "storeAndForwardConfiguration": {
+             "timeToLiveSecs": 7200
+           }
+         }
+       },
+       "tempSensor": {
+         "properties.desired": {}
+       }
+     }
+   }
+   ```
 
-```json
-{
-  "moduleContent": {
-    "$edgeAgent": {
-      "properties.desired": {
-        "schemaVersion": "1.0",
-        "runtime": {
-          "type": "docker",
-          "settings": {
-            "minDockerVersion": "v1.25",
-            "loggingOptions": ""
-          }
-        },
-        "systemModules": {
-          "edgeAgent": {
-            "type": "docker",
-            "settings": {
-              "image": "edgepreview.azurecr.io/azureiotedge/edge-agent:1.0-preview",
-              "createOptions": "{}"
-            }
-          },
-          "edgeHub": {
-            "type": "docker",
-            "status": "running",
-            "restartPolicy": "always",
-            "settings": {
-              "image": "edgepreview.azurecr.io/azureiotedge/edge-hub:1.0-preview",
-              "createOptions": "{}"
-            }
-          }
-        },
-        "modules": {
-          "tempSensor": {
-            "version": "1.0",
-            "type": "docker",
-            "status": "running",
-            "restartPolicy": "always",
-            "settings": {
-              "image": "edgepreview.azurecr.io/azureiotedge/simulated-temperature-sensor:1.0-preview",
-              "createOptions": "{}"
-            }
-          }
-        }
-      }
-    },
-    "$edgeHub": {
-      "properties.desired": {
-        "schemaVersion": "1.0",
-        "routes": {},
-        "storeAndForwardConfiguration": {
-          "timeToLiveSecs": 7200
-        }
-      }
-    },
-    "tempSensor": {
-      "properties.desired": {}
-    }
-  }
-}
-```
+Zastosuj konfigurację do urządzenia IoT krawędzi:
 
-    az iot hub apply-configuration --device-id edge001 --hub-name blogDemoHub --content C:\<yourLocation>\edgeconfig.txt
+   ```cli
+   az iot hub apply-configuration --device-id edge001 --hub-name CLIDemoHub --content C:\<configuration.txt file path>
+   ```
 
-![Zastosuj konfigurację][5]
-
-### <a name="6-list-modules"></a>6. Lista modułów
+Wyświetl moduły na urządzeniu IoT krawędzi:
     
-    az iot hub module-identity list --device-id edge001 --hub-name blogDemoHub
+   ```cli
+   az iot hub module-identity list --device-id edge001 --hub-name CLIDemoHub
+   ```
 
-![Lista modułów][6]
+   ![Lista modułów][6]
 
 ## <a name="next-steps"></a>Kolejne kroki
 
-W tym samouczku został utworzony funkcji platformy Azure, który zawiera kod, aby filtrować nieprzetworzone dane generowane przez urządzenia IoT krawędzi. Aby zachować Eksplorowanie usługi Azure IoT krawędzi, Dowiedz się, jak używać urządzenia IoT jako brama. 
-
-> [!div class="nextstepaction"]
-> [Tworzenie urządzenia bramy IoT](how-to-create-transparent-gateway.md)
+* Dowiedz się, jak [użyć urządzenia IoT jako bramy](how-to-create-transparent-gateway.md)
 
 <!--Links-->
 [lnk-tutorial1-win]: tutorial-simulate-device-windows.md
 [lnk-tutorial1-lin]: tutorial-simulate-device-linux.md
 
 <!-- Images -->
-[1]: ./media/tutorial-create-deployment-with-cli-iot-extension/login.jpg
-[2]: ./media/tutorial-create-deployment-with-cli-iot-extension/create-resource-group.jpg
-[3]: ./media/tutorial-create-deployment-with-cli-iot-extension/create-hub.jpg
+[2]: ./media/tutorial-create-deployment-with-cli-iot-extension/create-resource-group.png
 [4]: ./media/tutorial-create-deployment-with-cli-iot-extension/Create-edge-device.png
-[5]: ./media/tutorial-create-deployment-with-cli-iot-extension/apply-configuration.PNG
-[6]: ./media/tutorial-create-deployment-with-cli-iot-extension/list-modules.PNG
+[6]: ./media/tutorial-create-deployment-with-cli-iot-extension/list-modules.png
 

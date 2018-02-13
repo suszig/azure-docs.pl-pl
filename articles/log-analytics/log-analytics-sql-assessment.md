@@ -3,7 +3,7 @@ title: "Optymalizuj środowisko programu SQL Server z Azure Log Analytics | Doku
 description: "Z usługi Analiza dzienników Azure rozwiązania SQL sprawdzania kondycji służy do oceny ryzyka i kondycji środowisk w regularnych odstępach czasu."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: e297eb57-1718-4cfe-a241-b9e84b2c42ac
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
-ms.author: magoedte;banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 71caf0e1d58107376888ae454713703d845101eb
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 5da04e9479ebd6cec886a8c5ca38d040aec2758d
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Optymalizuj środowisko SQL z rozwiązaniem sprawdzania kondycji serwera SQL w analizy dzienników
 
@@ -43,7 +43,7 @@ Po dodaniu rozwiązania i ocenę jest zakończone, podsumowanie informacji o obs
 
 * Sprawdzanie kondycji SQL rozwiązania wymaga obsługiwanej wersji programu .NET Framework 4 zainstalowane na każdym komputerze, który ma Microsoft Monitoring Agent (MMA) zainstalowany.  MMA agent jest używany przez System Center 2016 - Operations Manager i Operations Manager 2012 R2 i usługą analizy dzienników.  
 * Rozwiązanie obsługuje programu SQL Server 2012, 2014 oraz 2016.
-* Obszar roboczy analizy dzienników można dodać rozwiązanie SQL sprawdzania kondycji z poziomu portalu Azure marketplace w portalu Azure.  Aby można było zainstalować rozwiązania, musi być administratorem lub współautora w subskrypcji platformy Azure. 
+* Obszar roboczy analizy dzienników można dodać rozwiązanie SQL sprawdzania kondycji z poziomu portalu Azure marketplace w portalu Azure.  Aby można było zainstalować rozwiązania, musi być administratorem lub współautora w subskrypcji platformy Azure.
 
   > [!NOTE]
   > Po dodaniu rozwiązania, plik AdvisorAssessment.exe jest dodawany do serwerów z agentami. Dane konfiguracji jest do odczytu i następnie wysyłane do analizy dzienników usługi w chmurze do przetwarzania. Logika jest stosowany do odebranych danych i usługi w chmurze rejestruje dane.
@@ -61,12 +61,12 @@ Agent na serwerze SQL, które raporty z grupą zarządzania programu Operations 
 Jeśli serwer SQL jest monitorowane przez program Operations Manager, należy skonfigurować konto Operations Manager uruchom jako. Zobacz [konta programu Operations Manager, Uruchom jako dla analizy dzienników](#operations-manager-run-as-accounts-for-log-analytics) poniżej Aby uzyskać więcej informacji.
 
 ## <a name="sql-health-check-data-collection-details"></a>Sprawdzanie kondycji SQL szczegóły zbierania danych
-Sprawdzanie kondycji SQL zbiera dane z następujących źródeł przy użyciu agenta, która została włączona: 
+Sprawdzanie kondycji SQL zbiera dane z następujących źródeł przy użyciu agenta, która została włączona:
 
-* Instrumentacja zarządzania Windows (WMI) 
-* Rejestr 
+* Instrumentacja zarządzania Windows (WMI)
+* Rejestr
 * Liczniki wydajności
-* Wyniki widoku dynamicznego zarządzania programu SQL Server 
+* Wyniki widoku dynamicznego zarządzania programu SQL Server
 
 Dane są zbierane w programie SQL Server i przekazywane do analizy dzienników co siedem dni.
 
@@ -163,10 +163,10 @@ Zanim użyjesz rozwiązanie do oceny w analizy dzienników, musi mieć zainstalo
 Wyświetl oceny zgodności podsumowania dla Twojej infrastruktury, a następnie wejdź do zalecenia.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Aby wyświetlić zalecenia dla obszaru fokus i podjąć działania naprawcze
-1. Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com). 
+1. Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com).
 2. W witrynie Azure Portal kliknij pozycję **Więcej usług** w lewym dolnym rogu. Na liście zasobów wpisz **Log Analytics**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Wybierz pozycję **Log Analytics**.
 3. W okienku subskrypcje analizy dzienników, wybierz obszar roboczy, a następnie kliknij przycisk **omówienie** kafelka.  
-4. Na **omówienie** kliknij przycisk **SQL kondycji Sprawdź** kafelka. 
+4. Na **omówienie** kliknij przycisk **SQL kondycji Sprawdź** kafelka.
 5. Na **sprawdzania kondycji** strony, sprawdź informacje w jednym z bloków obszaru fokus, a następnie kliknij przycisk jedna, aby wyświetlić zalecenia dla tego obszaru fokus.
 6. Na wszystkich stronach obszaru fokus można wyświetlić priorytetową zalecenia dla danego środowiska. Kliknij zalecenie, w obszarze **dotyczy obiektów** Aby wyświetlić szczegóły dotyczące Dlaczego tworzone są zalecenia.<br><br> ![Obraz sprawdzania kondycji SQL zalecenia](./media/log-analytics-sql-assessment/sql-healthcheck-dashboard-02.png)<br>
 7. Należy wykonać działania naprawcze sugerowane w **sugerowanych akcji**. Jeśli element został rozwiązany, ocen nowsze zarejestruje które zalecane akcje zostały pobrane i zwiększa wynik zgodności. Poprawione elementy są wyświetlane jako **przekazany obiektów**.

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2017
 ms.author: maxluk,jejiang
-ms.openlocfilehash: 77c7163b896c2b364039ea6c669ee70cf8be4d9e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 077805cedb7895c8c59b650b3ec691244168a9f5
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>Zestaw narzędzi platformy Azure dla IntelliJ umożliwia tworzenie aplikacji Spark dla klastra usługi HDInsight
 
@@ -69,6 +69,27 @@ Aby uzyskać instrukcje instalacji, zobacz [zainstalować zestaw narzędzi platf
    
     ![Nazwa klastra węzłów](./media/apache-spark-intellij-tool-plugin/view-explorer-4.png)
 
+## <a name="link-a-cluster"></a>Połącz klaster
+Można połączyć normalne klastra przy użyciu Ambari zarządzane username, także połączyć zabezpieczeń klastra usługi hadoop przy użyciu nazwy użytkownika domeny (takich jak: user1@contoso.com). 
+1. Kliknij przycisk **Link klastra** z **Eksploratora Azure**.
+
+   ![menu kontekstowe klastra łącza](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
+
+2. Wprowadź **nazwy klastra**, **konta magazynu**, **klucza magazynu**, następnie wybierz kontener z **kontenera magazynu**, ostatnio, wprowadź nazwę użytkownika i hasło. Należy sprawdzić nazwę użytkownika i hasło, jeśli awaria uwierzytelniania.
+   
+   ![okno dialogowe klastra łącza](./media/apache-spark-intellij-tool-plugin/link-a-cluster-dialog.png)
+
+   > [!NOTE]
+   > Używamy klucza magazynu połączone, nazwę użytkownika i hasło, jeśli klaster rejestrowane w subskrypcji platformy Azure i połączone klastra. 
+   
+3. Widać klastra połączone w **HDInsight** węzła, jeśli dane wejściowe są prawidłowe. Teraz można przesłać do tego klastra połączonych aplikacji.
+
+   ![połączone klastra](./media/apache-spark-intellij-tool-plugin/linked-cluster.png)
+
+4. Możesz również odłączyć klastra z **Eksploratora Azure**.
+   
+   ![odłączyć klastra](./media/apache-spark-intellij-tool-plugin/unlink.png)
+
 ## <a name="run-a-spark-scala-application-on-an-hdinsight-spark-cluster"></a>Uruchamianie aplikacji Spark Scala w klastrze Spark w usłudze HDInsight
 
 1. Uruchom IntelliJ IDEA, a następnie utworzyć projekt. W **nowy projekt** okno dialogowe, wykonaj następujące czynności: 
@@ -82,7 +103,7 @@ Aby uzyskać instrukcje instalacji, zobacz [zainstalować zestaw narzędzi platf
 
     ![Okno dialogowe nowego projektu](./media/apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
 
-2. Wybierz **dalej**.
+2. Wybierz opcję **Dalej**.
 
 3. Kreator tworzenia projektu Scala automatycznie wykrywa, czy po zainstalowaniu Scala wtyczki. Wybierz **zainstalować**.
 
@@ -164,12 +185,14 @@ Aby uzyskać instrukcje instalacji, zobacz [zainstalować zestaw narzędzi platf
 
    c. **Przesyłanie Spark** u dołu okna powinna zaczynać się wyświetlanie postępu. Można również Zatrzymaj aplikację, wybierając czerwony przycisk w **przesyłanie Spark** okna.
       
-      ![Przesłanie Spark okna](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-result.png)
+     ![Przesłanie Spark okna](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-result.png)
       
       Aby dowiedzieć się, jak uzyskać dostępu do danych wyjściowych zadania, zobacz "dostępu i zarządzania klastrami Spark w usłudze HDInsight przy użyciu zestawu narzędzi platformy Azure dla IntelliJ" sekcji w dalszej części tego artykułu.
 
 ## <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster"></a>Debugowanie aplikacji Spark lokalnie lub zdalnie w klastrze usługi HDInsight 
-Zalecamy również innym sposobem przesyłanie aplikacji Spark dla klastra. Należy również ustawić parametrów w **konfiguracji uruchomienia/debugowania** IDE. Aby uzyskać więcej informacji, zobacz [debugowanie aplikacji Spark lokalnie lub zdalnie w klastrze usługi HDInsight narzędzi Azure for IntelliJ za pośrednictwem protokołu SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
+Zalecamy również innym sposobem przesyłanie aplikacji Spark dla klastra. Możesz to zrobić przez ustawienie parametrów **konfiguracji uruchomienia/debugowania** IDE. Aby uzyskać więcej informacji, zobacz [debugowanie aplikacji Spark lokalnie lub zdalnie w klastrze usługi HDInsight narzędzi Azure for IntelliJ za pośrednictwem protokołu SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
+
+
 
 ## <a name="access-and-manage-hdinsight-spark-clusters-by-using-azure-toolkit-for-intellij"></a>Dostęp i zarządzania klastrami Spark w usłudze HDInsight przy użyciu zestawu narzędzi platformy Azure dla IntelliJ
 Różne operacje można wykonywać za pomocą narzędzi Azure for IntelliJ.
@@ -182,6 +205,8 @@ Różne operacje można wykonywać za pomocą narzędzi Azure for IntelliJ.
 2. W okienku po prawej stronie **widoku zadania Spark** karcie są wyświetlane wszystkie aplikacje, które zostały uruchomione w klastrze. Wybierz nazwę aplikacji, dla którego chcesz zobaczyć więcej szczegółów.
 
     ![Szczegóły aplikacji](./media/apache-spark-intellij-tool-plugin/view-job-logs.png)
+    >Uwaga
+    >
 
 3. Aby wyświetlić podstawowe informacje o zadaniu uruchomione, umieść kursor nad wykresu zadania. Aby wyświetlić wykres etapów i informacje, które generuje każde zadanie, wybierz węzeł na wykresie zadania.
 
@@ -256,7 +281,7 @@ Te błędy się tak zdarzyć, ponieważ rozmiar stosu nie jest wystarczająco du
 ## <a name="faq"></a>Często zadawane pytania
 Aby przesłać aplikacji do usługi Azure Data Lake Store, wybierz **Interactive** tryb podczas Azure procesu logowania. W przypadku wybrania **automatycznego** tryb, możesz uzyskać wystąpił błąd.
 
-![interakcyjny rejestrowanie](./media/apache-spark-intellij-tool-plugin/interative-signin.png)
+![interative-signin](./media/apache-spark-intellij-tool-plugin/interative-signin.png)
 
 Teraz możemy go rozwiązał. Można wybrać Azure Data Lake klastra do przesyłania aplikacji przy użyciu dowolnej metody logowania.
 

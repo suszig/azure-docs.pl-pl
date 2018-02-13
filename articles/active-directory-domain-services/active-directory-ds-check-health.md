@@ -12,39 +12,32 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 02/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: 4adbce0305bdc1a9b261f5cf644fad876d101bc6
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a9421ace7abf1f3d45b1f8cd810067d79faa92ec
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="azure-ad-domain-services---check-the-health-of-your-managed-domain"></a>Usługi domenowe Azure AD - Sprawdź kondycję domeny zarządzanej
+# <a name="check-the-health-of-an-azure-ad-domain-services-managed-domain"></a>Sprawdź kondycję domeny zarządzanej usług domenowych Azure AD
 
-## <a name="your-domains-health"></a>Kondycja Twojej domeny
+## <a name="overview-of-the-health-page"></a>Omówienie strony kondycji
+Na stronie kondycji portalu Azure, jest możliwe zapewnić aktualność na tym, co dzieje się w domenie zarządzanej. W tym artykule przedstawiono elementy strony kondycji.
 
-Na stronie kondycji portalu Azure, jest możliwe zapewnić aktualność na tym, co dzieje się w domenie zarządzanej. W tym artykule kroki do wszystkich elementów kondycji strony i omawiające jak upewnić się, że domena jest tip-top kształtu.
-
-### <a name="view-your-health-page"></a>Wyświetl stronę kondycji
-
-1. Przejdź do strony usługi domenowe Azure AD [portalu Azure](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices)
+### <a name="how-to-view-the-health-of-your-managed-domain"></a>Jak wyświetlić informacje o kondycji domeny zarządzanej
+1. Przejdź do [strony usług domenowych Azure AD](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) w portalu Azure.
 2. Polecenie domeny, który chcesz wyświetlić kondycję.
-3. W obszarze nawigacji po lewej stronie kliknij przycisk "Kondycję".
+3. W okienku nawigacji po lewej stronie kliknij **kondycji**.
 
-Poniżej jest przykładową stronę kondycji.
-
-![Przykładowa strona kondycji](.\media\active-directory-domain-services-alerts\health-page.png)
+Poniżej przedstawiono przykładową stronę kondycji: ![przykładową stronę kondycji](.\media\active-directory-domain-services-alerts\health-page.png)
 
 >[!NOTE]
-> Oceny kondycji Twojej domeny wokół co godzinę. Po wprowadzeniu zmian do domeny zarządzanej, należy zaczekać na następny cykl oceny wyświetlić domeny zaktualizowane kondycji. Możesz sprawdzić, kiedy domenę ostatniej oceny użyciem sygnatury czasowej "Ostatniej oceny" znajduje się w prawym górnym rogu.
+> Domeny zarządzanej kondycji jest oceniane co godzinę. Po wprowadzeniu zmian do domeny zarządzanej, poczekaj na następny cykl oceny wyświetlić kondycję zaktualizowane domeny zarządzanej. Sygnatura czasowa "Ostatniej oceny" w prawym górnym rogu pokazuje podczas ostatniej oceny kondycji domeny zarządzanej.
 >
 
 ### <a name="status-of-your-managed-domain"></a>Stan domeny zarządzanej
-
-Stan w górnym rogu kondycji Twojej strony wskazuje ogólną kondycję domenę. Stan uwzględnia wszystkie istniejące alerty w domenie. Można również wyświetlić stan domenę na stronie przeglądu usług domenowych Azure AD.
-
-Stany domeny zarządzanej:
+Stan w górnym rogu kondycji Twojej strony wskazuje ogólną kondycję domeny zarządzanej. Stan uwzględnia wszystkie istniejące alerty w domenie. Można również wyświetlić stan domenę na stronie przeglądu usług domenowych Azure AD.
 
 | Stan | Ikona | Wyjaśnienie |
 | --- | :----: | --- |
@@ -54,40 +47,36 @@ Stany domeny zarządzanej:
 | Wdrażanie | <img src= ".\media\active-directory-domain-services-alerts\deploying-icon.png" width = "15"> | Domeny jest w trakcie wdrażania. |
 
 ## <a name="monitors"></a>Monitory
+Monitory są aspektów domeny zarządzanej monitorująca regularnie usługi domenowe Azure AD. Najlepszy sposób, aby zachować monitory w dobrej kondycji jest Rozwiąż wszystkie aktywne alerty dla domeny zarządzanej.
 
-Monitory szczegółowo niektórych aspektów o Twojej domeny zarządzanej, który nadzoruje usług domenowych Azure AD. Najlepszy sposób, aby zachować monitory w dobrej kondycji jest Rozwiąż wszystkie alerty na domeny zarządzanej.
-
-Monitory dostępne są:
+Usługi domenowe Azure AD obecnie monitoruje następujące czynności:
  - Backup
- - Synchronizacji przy użyciu usługi AAD
+ - Synchronizacja z usługą Azure AD
 
-### <a name="backup"></a>Backup
-
-Monitoruje to, jak często możemy korzystać z kopii zapasowych domeny zarządzanej. Poniżej znajduje się tabela przedstawiająca kolumny szczegółów Monitora kopii zapasowej i jakie wartości powinny być zgodne z oczekiwaniami.
+### <a name="the-backup-monitor"></a>Monitor "kopii zapasowej"
+Monitoruje to, czy są wykonywane regularne tworzenie kopii zapasowych domeny zarządzanej. W poniższej tabeli opisano, czego można oczekiwać w kolumnie szczegóły kopii zapasowej monitora:
 
 | Wartość szczegółów | Wyjaśnienie |
 | --- | --- |
-|"Nigdy nie wykonano kopii" | Ten stan jest nowo utworzony domeny. Pierwsza kopia zapasowa jest zazwyczaj tworzony po 24 godzinach. Jeśli Twoje domeny zarządzanej nie jest nowo utworzony lub jesteś w tym stanie nietypowe ilość czasu, [się z pomocą techniczną](active-directory-ds-contact-us.md). |
-| Ostatnia kopia zapasowa została wykonana 1 do 14 dni temu | Ogólnie rzecz biorąc jest to wartość oczekiwana monitora kopii zapasowej. |
-| Ostatnia kopia zapasowa została wykonana więcej niż 14 dni temu. | Wszelkie czas dłuższy niż dwa tygodnie jest zbyt długi czas od ostatniej kopii zapasowej. Po pierwsze, rozwiąż wszystkie alerty, które są wyświetlane na domeny zarządzanej, a następnie, jeśli problem będzie nadal występować, [się z pomocą techniczną](active-directory-ds-contact-us.md). |
+|"Nigdy nie wykonano kopii" | Ten stan jest nowo utworzony domeny zarządzanej. Ogólnie rzecz biorąc pierwsza kopia zapasowa jest tworzony 24 godzin po udostępnieniu domeny zarządzanej. Jeśli domeny zarządzanej nie jest nowo utworzony lub ten stan jest widoczny dla nietypowe ilość czasu, [się z pomocą techniczną](active-directory-ds-contact-us.md). |
+| Ostatnia kopia zapasowa została wykonana 1 do 14 dni temu | Ogólnie rzecz biorąc Oczekiwano wartości tego monitora kopii zapasowej. |
+| Ostatnia kopia zapasowa została wykonana więcej niż 14 dni temu. | Wszelkie czas dłuższy niż dwa tygodnie jest zbyt długi czas od ostatniej kopii zapasowej. Aktywne alerty krytyczne może uniemożliwiać domeny zarządzanej, z których powstaje kopia zapasowa na bieżąco. Po pierwsze, rozwiąż wszystkie aktywne alerty dla domeny zarządzanej, a następnie Jeśli problem nadal pozostanie, [się z pomocą techniczną](active-directory-ds-contact-us.md). |
 
 
-### <a name="synchronization-with-azure-ad"></a>Synchronizacja z usługą Azure AD
-
-Przechowuje informacje o Microsoft, jak często domeny zarządzanej jest zsynchronizowany z usługą Azure Active Directory. Liczba użytkowników z domeny zarządzanej, a także ilość zmiany wprowadzone od ostatniej synchronizacji zarówno wpływają na jak długo może trwać okres synchronizacji. Ogólnie rzecz biorąc, jeżeli był dłuższy niż trzy dni od ostatniej synchronizacji, zaleca się [się z pomocą techniczną](active-directory-ds-contact-us.md).
+### <a name="the-synchronization-with-azure-ad-monitor"></a>Monitor "synchronizacji z usługą Azure AD"
+Microsoft monitoruje, jak często domeny zarządzanej jest zsynchronizowany z usługą Azure Active Directory. Liczba obiektów (użytkowników i grup) i liczby zmian w katalogu usługi Azure AD, od momentu ostatniej synchronizacji zarówno wpływają na jak długo może trwać okres synchronizacji. Jeśli Twoje domeny zarządzanej ostatniej synchronizacji ponad trzy dni temu, [się z pomocą techniczną](active-directory-ds-contact-us.md).
 
 ## <a name="alerts"></a>Alerty
+Alerty są generowane problemów na Twojej domeny zarządzanej, które należy rozważyć w kolejności dla usług domenowych Azure AD uruchomić. Każdy alert problem i zapewnia rozpoznawania adresów URL, które opisano wykonania określonych kroków w celu rozwiązania problemu. Aby wyświetlić wszystkie alerty i ich rozwiązania, odwiedź stronę [rozwiązywać problemy dotyczące alertów](active-directory-ds-troubleshoot-alerts.md) artykułu.
 
-Alerty są problemy na Twojej domeny zarządzanej, które należy rozważyć w kolejności dla usług domenowych Azure AD uruchomić. Każdy alert problem i zawiera adres URL, który opisano wykonania określonych kroków w celu rozwiązania problemu. Aby wyświetlić wszystkie alerty i ich rozwiązania, odwiedź stronę [rozwiązywać problemy dotyczące alertów](active-directory-ds-troubleshoot-alerts.md) artykułu.
-
-### <a name="severity"></a>Ważność
+### <a name="alert-severity"></a>Ważność alertu
 Alerty są podzielone na trzy różne poziomy ważności: krytyczne, ostrzeżenie i informacyjne.
 
- * **Alerty krytyczne** problemy, które poważnie obniżyć domeny zarządzanej. Te alerty powinny być kierowane natychmiast, jak Microsoft nie można monitorować, zarządzanie poprawki i synchronizacji domeny zarządzanej.
- * **Alerty ostrzegawcze** może mieć problemy, które mogą mieć wpływ na domenę w przyszłości, ale są nie zawsze "krytyczne" usługi. Te alerty konspektu najlepszych rozwiązań i nadaj sugestie dotyczące ochrony domeny zarządzanej.
+ * **Alerty krytyczne** problemy, które poważnie obniżyć domeny zarządzanej. Te alerty powinny być kierowane natychmiast, jak Microsoft nie można monitorować, zarządzanie poprawki i synchronizacji domeny zarządzanej. 
+ * **Alerty ostrzegawcze** powiadomienie, problemów, które mogą mieć wpływ na domeny zarządzanej w przyszłości. Te alerty oferują zalecenia dotyczące bezpiecznego domeny zarządzanej.
  * **Alerty informacyjne** są powiadomienia, które nie są niekorzystnego wpływu na domenie. Alerty informacyjne są przeznaczone do pozwalają na odpowiednią wiedzę na temat działania wykonywane w domenie i domenowych Azure AD usług.
 
 ## <a name="next-steps"></a>Kolejne kroki
 - [Rozwiązywanie alertów dotyczących domeny zarządzanej](active-directory-ds-troubleshoot-alerts.md)
-- [Więcej informacji na temat usług domenowych Azure AD](active-directory-ds-features.md)
-- [Skontaktuj się z nami](active-directory-ds-contact-us.md)
+- [Więcej informacji na temat usług domenowych Azure AD](active-directory-ds-overview.md)
+- [Skontaktuj się z zespołem produktu](active-directory-ds-contact-us.md)
