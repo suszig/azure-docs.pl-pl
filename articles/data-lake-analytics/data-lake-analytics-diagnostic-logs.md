@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/08/2017
+ms.date: 02/12/2018
 ms.author: larryfr
-ms.openlocfilehash: 5bab7a0646d34de3b6d71370a0fa4216845ee6a2
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: e6cc5fd3d45691dbdc004f346c10d7b4568ae9aa
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Uzyskiwanie dostępu do dzienników diagnostycznych dla usługi Azure Data Lake Analytics
 
@@ -51,7 +51,7 @@ Rejestrowanie diagnostyczne umożliwia zbieranie zapisy inspekcji dostępu do da
 
    * Aby uzyskać __archiwum na konto magazynu__, określ liczbę dni, aby zachować dane.
 
-   * Kliknij pozycję __Zapisz__.
+   * Kliknij przycisk __Save__ (Zapisz).
 
         > [!NOTE]
         > Musisz wybrać __archiwum na konto magazynu__, __strumienia do Centrum zdarzeń__ lub __wysyłać do analizy dzienników__ przed kliknięciem przycisku __zapisać__ przycisk.
@@ -130,7 +130,7 @@ Oto przykładowy wpis w dzienniku żądania w formacie JSON. Każdy obiekt blob 
 
 #### <a name="request-log-schema"></a>Schemat dziennika żądania
 
-| Nazwa | Typ | Opis |
+| Name (Nazwa) | Typ | Opis |
 | --- | --- | --- |
 | time |Ciąg |Znacznik czasu (w formacie UTC) dziennika |
 | resourceId |Ciąg |Identyfikator zasobu, w którym została wykonana operacja umieść na |
@@ -144,14 +144,14 @@ Oto przykładowy wpis w dzienniku żądania w formacie JSON. Każdy obiekt blob 
 
 #### <a name="request-log-properties-schema"></a>Schemat właściwości dziennika żądania
 
-| Nazwa | Typ | Opis |
+| Name (Nazwa) | Typ | Opis |
 | --- | --- | --- |
 | HttpMethod |Ciąg |Metoda HTTP używana dla tej operacji. Na przykład GET. |
 | Ścieżka |Ciąg |Ścieżka operacja została wykonana na |
 | RequestContentLength |int |Długość treści żądania HTTP |
 | ClientRequestId |Ciąg |Identyfikator, który unikatowo identyfikuje tego żądania |
-| Czas rozpoczęcia |Ciąg |Czas, w którym serwer odebrał żądanie |
-| wartość endTime |Ciąg |Czas wysłanego przez serwer odpowiedzi |
+| Godzina rozpoczęcia |Ciąg |Czas, w którym serwer odebrał żądanie |
+| Godzina zakończenia |Ciąg |Czas wysłanego przez serwer odpowiedzi |
 
 ### <a name="audit-logs"></a>Dzienniki inspekcji
 
@@ -182,7 +182,7 @@ Oto przykładowy wpis w dzienniku inspekcji w formacie JSON. Każdy obiekt blob 
 
 #### <a name="audit-log-schema"></a>Schemat dziennika inspekcji
 
-| Nazwa | Typ | Opis |
+| Name (Nazwa) | Typ | Opis |
 | --- | --- | --- |
 | time |Ciąg |Znacznik czasu (w formacie UTC) dziennika |
 | resourceId |Ciąg |Identyfikator zasobu, w którym została wykonana operacja umieść na |
@@ -200,14 +200,14 @@ Oto przykładowy wpis w dzienniku inspekcji w formacie JSON. Każdy obiekt blob 
 
 #### <a name="audit-log-properties-schema"></a>Schemat właściwości dziennika inspekcji
 
-| Nazwa | Typ | Opis |
+| Name (Nazwa) | Typ | Opis |
 | --- | --- | --- |
 | JobId |Ciąg |Identyfikator przypisany do zadania |
-| Nazwa zadania |Ciąg |Nazwa podany dla zadania |
+| JobName |Ciąg |Nazwa podany dla zadania |
 | JobRunTime |Ciąg |Środowisko uruchomieniowe używane do przetwarzania zadania |
-| SubmitTime |Ciąg |Czas (w formacie UTC), że zadanie zostało przesłane |
-| Czas rozpoczęcia |Ciąg |Przy uruchomieniu zadania uruchomione po przesłaniu (w formacie UTC) |
-| wartość endTime |Ciąg |Godzina zakończenia zadania |
+| Godzina przesłania |Ciąg |Czas (w formacie UTC), że zadanie zostało przesłane |
+| Godzina rozpoczęcia |Ciąg |Przy uruchomieniu zadania uruchomione po przesłaniu (w formacie UTC) |
+| Godzina zakończenia |Ciąg |Godzina zakończenia zadania |
 | Równoległość |Ciąg |Liczba wymagane dla tego zadania podczas przesyłania jednostki usługi Data Lake Analytics |
 
 > [!NOTE]
@@ -217,5 +217,5 @@ Oto przykładowy wpis w dzienniku inspekcji w formacie JSON. Każdy obiekt blob 
 
 Azure Data Lake Analytics zawiera przykładowe przetwarzanie i analizowanie danych dziennika. Na przykład można znaleźć [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Omówienie usługi Azure Data Lake Analytics](data-lake-analytics-overview.md)

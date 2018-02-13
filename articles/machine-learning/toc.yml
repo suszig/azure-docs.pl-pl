@@ -1,8 +1,6 @@
-- name: Funkcje usługi Machine Learning w wersji zapoznawczej
+- name: Usługi Azure Machine Learning (wersja zapoznawcza)
   href: preview/index.yml
-- name: Machine Learning Studio
-  href: studio/index.md
+- name: Azure Machine Learning Studio
+  href: studio/index.yml
 - name: Maszyna wirtualna do analizy danych
-  href: data-science-virtual-machine/overview.md
-- name: Zespołowe przetwarzanie danych dla celów naukowych
-  href: team-data-science-process/overview.md
+  href: data-science-virtual-machine/index.yml

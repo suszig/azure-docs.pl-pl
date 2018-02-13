@@ -3,7 +3,7 @@ title: "Śledzenie zmian z Azure Log Analytics | Dokumentacja firmy Microsoft"
 description: "Rozwiązanie śledzenia zmian w Log Analytics pomaga zidentyfikować oprogramowanie i zmiany usługi systemu Windows w środowisku."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: f8040d5d-3c89-4f0c-8520-751c00251cb7
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
-ms.author: banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 81cc7f78ef777e02b195422a81d9a9f15cb63564
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: ede3519b0b61ed20d85ea141dc6dee2505420448
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Śledzenie zmian w oprogramowaniu w Twoim środowisku z rozwiązaniem do śledzenia zmian
 
@@ -112,7 +112,7 @@ W poniższej tabeli przedstawiono metody zbierania danych i inne szczegółowe i
 
 W poniższej tabeli przedstawiono częstotliwość zbierania danych dla typów zmian.
 
-| **Zmień typ** | **częstotliwość** | **Jest****agenta****wysyłania różnice, jeśli znaleziono?**  |
+| **Zmień typ** | **frequency** | **Jest****agenta****wysyłania różnice, jeśli znaleziono?** |
 | --- | --- | --- |
 | Rejestr systemu Windows | 50 minut | Nie |
 | Plik systemu Windows | 30 minut | Tak. Jeśli nie została zmieniona w ciągu 24 godzin, jest wysyłane migawki. |
@@ -130,19 +130,19 @@ Analiza dzienników wykonuje rejestru systemu Windows, monitorowanie i śledzeni
     - Monitory skrypty uruchamiane automatycznie.
 - Klucz HKEY\_lokalnego\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown
     - Skrypty monitorów Uruchom przy zamykaniu.
-- Klucz HKEY\_lokalnego\_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run
+- HKEY\_LOCAL\_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run
     - Monitoruje klucze, które są ładowane przed użytkownik loguje się ich kont systemu Windows. Klucz jest używany dla 32-bitowe programów na komputerach 64-bitowych.
 - Klucz HKEY\_lokalnego\_MACHINE\SOFTWARE\Microsoft\Active Setup\Installed składników
     - Monitoruje zmiany w ustawieniach aplikacji.
-- Klucz HKEY\_lokalnego\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers
+- HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers
     - Monitory wspólnej autostart wpisów, które przyłączanie się bezpośrednio do Eksploratora Windows i zwykle uruchamiania w procesie z Explorer.exe.
-- Klucz HKEY\_lokalnego\_MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers
+- HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers
     - Monitory wspólnej autostart wpisów, które przyłączanie się bezpośrednio do Eksploratora Windows i zwykle uruchamiania w procesie z Explorer.exe.
-- Klucz HKEY\_lokalnego\_MACHINE\Software\Classes\Directory\Background\ShellEx\ContextMenuHandlers
+- HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\Background\ShellEx\ContextMenuHandlers
     - Monitory wspólnej autostart wpisów, które przyłączanie się bezpośrednio do Eksploratora Windows i zwykle uruchamiania w procesie z Explorer.exe.
-- Klucz HKEY\_lokalnego\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers
+- HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers
     - Monitory dla ikony nakładki obsługi rejestracji.
-- Klucz HKEY\_lokalnego\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers
+- HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers
     - Monitory dla ikony nakładki rejestracji programu obsługi dla 32-bitowe programów na komputerach 64-bitowych.
 - Klucz HKEY\_lokalnego\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser obiekty pomocnicze
     - Monitory nowych wtyczek obiektu pomocnika przeglądarki Internet Explorer. Używane do dostępu do modelu DOM (Document Object) bieżącej strony i sterowania nawigacji.
@@ -185,5 +185,5 @@ Można wyświetlić zmiany do Twojej infrastruktury, a następnie przechodzenie 
 2. Na **zmienić śledzenia** pulpitu nawigacyjnego, sprawdź informacje w jednym z bloków typ zmiany, a następnie kliknij przycisk jedna, aby wyświetlić szczegółowe informacje o nim w **wyszukiwania dziennika** strony.
 3. Na wszystkich stronach wyszukiwania dziennika można wyświetlić wyniki według czasu, szczegółowe wyniki i historię dziennik wyszukiwania. Można również filtrować według aspekty, aby zawęzić wyniki.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Użyj [Zaloguj wyszukiwania analizy dzienników](log-analytics-log-searches.md) aby zobaczyć zmianę szczegółowe dane śledzenia.

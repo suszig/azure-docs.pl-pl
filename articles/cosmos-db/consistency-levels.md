@@ -1,7 +1,7 @@
 ---
 title: "Poziomy spójności w usłudze Azure DB rozwiązania Cosmos | Dokumentacja firmy Microsoft"
 description: "Azure DB rozwiązania Cosmos ma pięć poziomy spójności, aby ułatwić równoważenie ostatecznego spójności, dostępnością i opóźnieniem kompromis."
-keywords: "spójność ostateczna azure rozwiązania cosmos db, azure, programu Microsoft azure"
+keywords: eventual consistency, azure cosmos db, azure, Microsoft azure
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 02/12/2018
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 303a36fc966cd92399de92b4d52f75c114b75781
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c3bd28316e3d2e7596021d6964594002d47d160a
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Poziomy spójności danych dostosowywalne w usłudze Azure DB rozwiązania Cosmos
 Azure DB rozwiązania Cosmos jest zaprojektowany od podstaw się z globalnego dystrybucji pamiętać dla każdego modelu danych. Zaprojektowano go do zapewnienia gwarancje przewidywalną małe opóźnienia i wielu modeli dobrze zdefiniowany swobodna spójności. Obecnie bazy danych Azure rozwiązania Cosmos zawiera pięć poziomów spójności: silne, nieaktualność, sesji, prefiks spójne i "ostateczna". Nieaktualność, sesji prefiks spójne i ostatecznego są nazywane "swobodna spójności modeli" świadczą one mniej spójności niż silne, czyli większości wysokiej spójny model dostępne. 
@@ -110,30 +110,34 @@ Domyślny poziom spójności można skonfigurować na Twoim koncie bazy danych, 
 ## <a name="consistency-levels-for-queries"></a>Poziomy spójności dla zapytań
 Domyślnie dla użytkownika zasobów poziomu spójności dla zapytań jest taka sama jak poziomu spójności dla odczytów. Domyślnie indeks jest aktualizowana synchronicznie na każdym insert, Zamień lub usuń elementu do kontenera DB rozwiązania Cosmos. Dzięki temu zapytania uwzględnić poziomu spójności co odczyty punktu. Podczas zapisu zoptymalizowany i obsługuje stałej ilości zapisy, indeks synchroniczne konserwacji i obsługująca spójne zapytania bazy danych Azure rozwiązania Cosmos można skonfigurować pewne kolekcji, aby zaktualizować ich indeksu w trybie opóźnienia. Dodatkowo indeksowanie z opóźnieniem zwiększa wydajność zapisu i jest idealne dla scenariuszy wprowadzanie zbiorczego obciążenia jest głównie ciężki odczytu.  
 
-| Tryb indeksowania | Odczytuje | Zapytania |
+| Tryb indeksowania | Czyta | Zapytania |
 | --- | --- | --- |
 | Spójność (ustawienie domyślne) |Wybierz jedną z nieaktualności silne, ograniczone, sesji, spójne prefiksu lub ostatecznego |Wybierz jedną z nieaktualności silne, ograniczone, sesji lub ostatecznego |
-| Powolne |Wybierz jedną z nieaktualności silne, ograniczone, sesji, spójne prefiksu lub ostatecznego |Ostateczna |
-| Brak |Wybierz jedną z nieaktualności silne, ograniczone, sesji, spójne prefiksu lub ostatecznego |Nie dotyczy |
+| Lazy |Wybierz jedną z nieaktualności silne, ograniczone, sesji, spójne prefiksu lub ostatecznego |Ostateczna |
+| None |Wybierz jedną z nieaktualności silne, ograniczone, sesji, spójne prefiksu lub ostatecznego |Nie dotyczy |
 
 Jako z żądaniami odczytu, możesz obniżyć poziom spójności żądania określonej kwerendy w każdym interfejsu API.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="consistency-levels-for-the-mongodb-api"></a>Poziomy spójności dla interfejsu API bazy danych MongoDB
+
+Azure DB rozwiązania Cosmos implementuje obecnie bazy danych MongoDB w wersji 3.4, mają dwa ustawienia spójności silne i "ostateczna". Ponieważ bazy danych rozwiązania Cosmos Azure multi-api, ustawienia zgodności są stosowane na poziomie konta i wymuszania spójności jest kontrolowany przez każdego interfejsu API.  Do 3,6 bazy danych MongoDB, nie było żadnych koncepcji spójność sesji, więc jeśli ustawisz konto bazy danych MongoDB interfejsu API, które będzie używane spójność sesji spójności jest obniżona do ostatecznego podczas korzystania z bazy danych MongoDB interfejsów API. Jeśli potrzebujesz gwarancji your właścicielem zapisu i odczytu konta bazy danych MongoDB interfejsu API, domyślny poziom spójności dla konta powinien być ustawiony na silne lub ograniczonych nieaktualności.
+
+## <a name="next-steps"></a>Kolejne kroki
 Jeśli chcesz zrobić więcej informacje o poziomy spójności i wady i zalety, zaleca się następujące zasoby:
 
 * Jakub Dougowi. Wyjaśniono spójności replikowanych danych za pośrednictwem baseball (klip wideo).   
-  [https://www.youtube.com/Watch?v=gluIh8zd26I](https://www.youtube.com/watch?v=gluIh8zd26I)
+  [https://www.youtube.com/watch?v=gluIh8zd26I](https://www.youtube.com/watch?v=gluIh8zd26I)
 * Jakub Dougowi. Wyjaśniono spójności replikowanych danych za pośrednictwem baseball.   
-  [http://Research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.PDF](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
+  [http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
 * Jakub Dougowi. Gwarancje sesji słabo spójności replikowanych danych.   
-  [http://DL.ACM.org/CITATION.cfm?ID=383631](http://dl.acm.org/citation.cfm?id=383631)
-* Abadi Danielowi. Wady i zalety spójności w projekcie: nowoczesnych systemów bazy danych dystrybucji: zakończenie jest tylko część wątku ".   
-  [http://Computer.org/CSDL/mags/co/2012/02/mco2012020037-ABS.HTML](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
+  [http://dl.acm.org/citation.cfm?id=383631](http://dl.acm.org/citation.cfm?id=383631)
+* Daniel Abadi. Wady i zalety spójności w projekcie: nowoczesnych systemów bazy danych dystrybucji: zakończenie jest tylko część wątku ".   
+  [http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
 * Peterowi Bailis, Shivaram Venkataraman, Michael J. tw, Joseph M. Hellerstein, Stoica zakres przechowywania. Prawdopodobieństwa ograniczone nieaktualności (PBS) praktyczne częściowe kworum.   
-  [http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.PDF](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
+  [http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 * Werner Vogels. Ostateczna spójne — uruchomić ponownie.    
-  [http://allthingsdistributed.com/2008/12/eventually_consistent.HTML](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
+  [http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
 * Moni Naor, wełna Avishai, obciążenia, pojemności i dostępność systemów kworum, SIAM Dziennik przetwarzania danych, v.27 n.2, 447 p.423, kwietnia 1998.
-  [http://epubs.siam.org/DOI/ABS/10.1137/S0097539795281232](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232)
-* Burckhardt Sebastianowi, Krzysztof Dern, Macanal Musuvathi, Tan Royowi, każdy: linearizability pełny i automatyczne sprawdzanie, postępowania 2010 konferencji ACM SIGPLAN programowania języka projekt i implementację, czerwca 05 10 2010 naszej, terenem Stanów Zjednoczonych [doi > 10.1145/1806596.1806634] [http://dl.acm.org/citation.cfm?id=1806634](http://dl.acm.org/citation.cfm?id=1806634)
-* Peterowi Bailis, Shivaram Venkataraman, Michael J. tw, Joseph M. Hellerstein, Stoica zakres przechowywania Probabilistically ograniczone nieaktualności do praktycznych kworum częściowe postępowania wydzielony VLDB, v.5 n.8, 787 p.776, kwietnia 2012 [http://dl.acm.org/citation.cfm?id=2212359](http://dl.acm.org/citation.cfm?id=2212359)
+  [http://epubs.siam.org/doi/abs/10.1137/S0097539795281232](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232)
+* Burckhardt Sebastianowi, Krzysztof Dern, Macanal Musuvathi, Tan Royowi, każdy: linearizability pełny i automatyczne sprawdzanie, postępowania 2010 konferencji ACM SIGPLAN programowania języka projekt i implementację, czerwca 05 10 2010 naszej, Ontario, Kanada [doi > 10.1145/1806596.1806634] [http://dl.acm.org/citation.cfm?id=1806634](http://dl.acm.org/citation.cfm?id=1806634)
+* Peterowi Bailis, Shivaram Venkataraman, Michael J. tw, Joseph M. Hellerstein, Stoica zakres przechowywania Probabilistically ograniczone nieaktualności do praktycznych kworum częściowe postępowania wydzielony VLDB, v.5 n.8, 787 p.776, kwietnia 2012 [http:// DL.ACM.org/CITATION.cfm?ID=2212359](http://dl.acm.org/citation.cfm?id=2212359)

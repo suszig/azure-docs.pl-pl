@@ -3,7 +3,7 @@ title: "Optymalizacja środowiskiem usługi Active Directory na platformie Azure
 description: "Active Directory kondycji Sprawdź rozwiązania można użyć do oceny ryzyka i kondycji środowisk w regularnych odstępach czasu."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: 81eb41b8-eb62-4eb2-9f7b-fde5c89c9b47
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
-ms.author: magoedte;banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a8f6cfc678d0b6443ac1aa440941eb2b5c664564
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: f026c605b84c5f2b6420e975a06d7c02227efbd9
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Optymalizowanie środowiska usługi Active Directory z rozwiązaniem Active Directory kondycji Sprawdź w analizy dzienników
 
@@ -41,7 +41,7 @@ Po dodaniu rozwiązania i sprawdzenie jest zakończone, podsumowanie informacji 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Active Directory kondycji Sprawdź rozwiązanie wymaga obsługiwanej wersji programu .NET Framework 4.5.2 lub powyżej zainstalowane na każdym komputerze, który ma Microsoft Monitoring Agent (MMA) zainstalowany.  MMA agent jest używany przez System Center 2016 - Operations Manager i Operations Manager 2012 R2 i usługą analizy dzienników. 
+* Active Directory kondycji Sprawdź rozwiązanie wymaga obsługiwanej wersji programu .NET Framework 4.5.2 lub powyżej zainstalowane na każdym komputerze, który ma Microsoft Monitoring Agent (MMA) zainstalowany.  MMA agent jest używany przez System Center 2016 - Operations Manager i Operations Manager 2012 R2 i usługą analizy dzienników.
 * Rozwiązanie obsługuje kontrolery domeny z systemem Windows Server 2008 i 2008 R2, Windows Server 2012 i 2012 R2 i Windows Server 2016.
 * Obszar roboczy analizy dzienników można dodać z poziomu portalu Azure marketplace w portalu Azure Active Directory kondycji Sprawdź rozwiązania.  Nie są wymagane żadne dalsze czynności konfiguracyjne.
 
@@ -62,13 +62,13 @@ Agenta na kontrolerze domeny, które raporty z grupą zarządzania programu Oper
 
 Active Directory kondycji Sprawdź zbiera dane z następujących źródeł przy użyciu agenta, która została włączona:
 
-- Rejestr 
-- LDAP 
+- Rejestr
+- LDAP
 - .NET Framework
-- Dziennik zdarzeń 
+- Dziennik zdarzeń
 - Usługa Active Directory interfejsy (ADSI)
 - Windows PowerShell
-- Plik danych 
+- Plik danych
 - Instrumentacja zarządzania Windows (WMI)
 - Narzędzie DCDIAG interfejsu API
 - Interfejs API usługi (NTFRS) replikacji plików
@@ -109,7 +109,7 @@ Wyświetl oceny zgodności podsumowania dla Twojej infrastruktury, a następnie 
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Aby wyświetlić zalecenia dla obszaru fokus i podjąć działania naprawcze
 3. Kliknij przycisk **omówienie** kafelku obszaru roboczego analizy dzienników w portalu Azure.
-4. Na **omówienie** kliknij przycisk **Active Directory kondycji Sprawdź** kafelka. 
+4. Na **omówienie** kliknij przycisk **Active Directory kondycji Sprawdź** kafelka.
 5. Na **sprawdzania kondycji** strony, sprawdź informacje w jednym z bloków obszaru fokus, a następnie kliknij przycisk jedna, aby wyświetlić zalecenia dla tego obszaru fokus.
 6. Na wszystkich stronach obszaru fokus można wyświetlić priorytetową zalecenia dla danego środowiska. Kliknij zalecenie, w obszarze **dotyczy obiektów** Aby wyświetlić szczegóły dotyczące Dlaczego tworzone są zalecenia.<br><br> ![obraz kondycji Sprawdź zalecenia](./media/log-analytics-ad-assessment/ad-healthcheck-dashboard-02.png)
 7. Należy wykonać działania naprawcze sugerowane w **sugerowanych akcji**. Jeśli element został rozwiązany, nowsze rekordy oceny zalecane akcje zostały pobrane i zwiększy wynik zgodności. Poprawione elementy są wyświetlane jako **przekazany obiektów**.
@@ -133,7 +133,7 @@ Jeśli masz zaleceń, które chcesz zignorować, można utworzyć pliku tekstowe
 2. Wklej lub wpisz każdego RecommendationId dla każde zalecenie, które mają analizy dzienników można zignorować w osobnym wierszu, a następnie zapisz i zamknij plik.
 3. Umieść plik w następującym folderze na każdym komputerze, w którym ma analizy dzienników zignorowanie zalecenia.
    * Na komputerach z usługą Microsoft Monitoring Agent (połączony bezpośrednio lub za pośrednictwem programu Operations Manager) - *SystemDrive*: \Program Files\Microsoft Agent\Agent monitorowania
-   * Na serwerze zarządzania programu Operations Manager 2012 R2 — *SystemDrive*: System Center 2012 R2\Operations Manager\Server \Program Files\Microsoft 
+   * Na serwerze zarządzania programu Operations Manager 2012 R2 — *SystemDrive*: System Center 2012 R2\Operations Manager\Server \Program Files\Microsoft
    * Na serwerze zarządzania programu Operations Manager 2016 - *SystemDrive*: \Program Files\Microsoft Manager\Server 2016\Operations programu System Center
 
 ### <a name="to-verify-that-recommendations-are-ignored"></a>Aby zweryfikować, że zalecenia są ignorowane

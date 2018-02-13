@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: 89e83dc02f32f6f2a781cf2e35040b29cc3d3c06
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: 0e2cd75845eb3613b23409b6bf1ab7d37d992275
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Użyj narzędzia Azure HDInsight dla kodu programu Visual Studio
 
@@ -101,6 +101,26 @@ W kodzie VS, aby móc przesłać skryptów do klastrów usługi HDInsight, nale�
     - Przedstawia interakcyjnych zapytań PySpark
     - Przedstawia PySpark partii skryptów
     - Ustaw konfiguracje
+
+**Aby połączyć klastra**
+
+Można połączyć normalne klastra przy użyciu Ambari zarządzane username, także połączyć zabezpieczeń klastra usługi hadoop przy użyciu nazwy użytkownika domeny (takich jak: user1@contoso.com).
+1. Otwórz palety polecenia, wybierając **CTRL + SHIFT + P**, a następnie wprowadź **HDInsight: Link klastra**.
+
+   ![polecenie klastra łącze](./media/hdinsight-for-vscode/link-cluster-command.png)
+
+2. Wprowadź HDInsight wprowadzania nazwy użytkownika -> -> adres URL klastra wprowadzania hasła -> Wybierz typ klastra -> go pokazuje Powodzenie informacji po weryfikacji.
+   
+   ![okno dialogowe klastra łącza](./media/hdinsight-for-vscode/link-cluster-process.png)
+
+   > [!NOTE]
+   > Używamy połączonej nazwy użytkownika i hasła, jeśli klaster rejestrowane w subskrypcji platformy Azure i połączone klastra. 
+   
+3. Widać klastra połączone za pomocą polecenia **klaster listą**. Teraz możesz przesłać skrypt do tego klastra połączony.
+
+   ![połączone klastra](./media/hdinsight-for-vscode/linked-cluster.png)
+
+4. Możesz również odłączyć klastra przez inputing **HDInsight: odłączyć klastra** z palety polecenia.
 
 ## <a name="list-hdinsight-clusters"></a>Lista klastrów usługi HDInsight
 
@@ -258,6 +278,9 @@ Narzędzia HDInsight Tools for VS kod umożliwia także przesłać interakcyjnyc
 Po przesłaniu zadania Python przesyłanie dzienników pojawia się w **dane wyjściowe** okna w kodzie VS. **URL interfejsu użytkownika Spark** i **URL interfejsu użytkownika Yarn** są również wyświetlane. Adres URL można otworzyć w przeglądarce sieci web, aby śledzić stan zadania.
 
 
+   
+
+
 ## <a name="additional-features"></a>Dodatkowe funkcje
 
 HDInsight dla kodu VS obsługuje następujące funkcje:
@@ -288,7 +311,7 @@ HDInsight dla kodu VS obsługuje następujące funkcje:
 * [Visualize Hive data with Microsoft Power BI in Azure HDInsight (Wizualizowanie danych programu Hive przy użyciu usługi Microsoft Power BI w usłudze Azure HDInsight)](hadoop/apache-hadoop-connect-hive-power-bi.md)
 * [Wizualizuj dane interakcyjne zapytań Hive z usługą Power BI w usłudze Azure HDInsight](./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
 * [Konfigurowanie środowiska interakcyjne PySpark dla kodu programu Visual Studio](set-up-pyspark-interactive-environment.md)
-* [Umożliwia uruchamianie zapytań Hive w usłudze Azure HDInsight Zeppelin](./hdinsight-connect-hive-zeppelin.md)
+* [Umożliwia uruchamianie zapytań Hive w usłudze Azure HDInsight Zeppelin ](./hdinsight-connect-hive-zeppelin.md)
 
 ### <a name="scenarios"></a>Scenariusze
 * [Platforma Spark i analiza biznesowa: interakcyjna analiza danych na platformie Spark w usłudze HDInsight z użyciem narzędzi do analizy biznesowej](spark/apache-spark-use-bi-tools.md)

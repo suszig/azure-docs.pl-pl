@@ -3,7 +3,7 @@ title: "Azure rozwiązania analizy SQL w Log Analytics | Dokumentacja firmy Micr
 description: "Rozwiązania analizy SQL Azure ułatwia zarządzanie bazami danych Azure SQL."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: b2712749-1ded-40c4-b211-abc51cc65171
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
-ms.author: magoedte;banders
-ms.openlocfilehash: 2a363f663677eb7078b7ae06fde374cdbe083fd5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: magoedte
+ms.openlocfilehash: 3a87e491e43c141d0afb08aa455c0d9682828ea1
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Monitorowanie bazy danych SQL Azure przy użyciu analiza SQL Azure (wersja zapoznawcza) w analizy dzienników
 
@@ -31,7 +31,7 @@ Obecnie to rozwiązanie w wersji zapoznawczej obsługuje maksymalnie 150 000 baz
 Rozwiązanie analiza SQL Azure, takich jak inne dostępne dla analizy dzienników pomaga monitorować i otrzymywanie powiadomień o kondycji zasobów platformy Azure — w takim przypadku baza danych SQL Azure. Baza danych SQL Azure Microsoft to usługa skalowalne relacyjnej bazy danych, który umożliwia znanych funkcji programu SQL Server podobny do aplikacji działających w chmurze Azure. Analizy dzienników umożliwia zbieranie, skorelowania i wizualizacji danych strukturalnych i bez struktury.
 
 Omówienie praktyczne przy użyciu rozwiązania analizy SQL Azure oraz typowe scenariusze użytkowania Zobacz osadzonego wideo:
-          
+
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
 >
 
@@ -63,11 +63,11 @@ Wykonaj poniższe kroki, aby dodać do swojego obszaru roboczego rozwiązania an
 2. W portalu Azure kliknij **nowy** (+ symbol), następnie na liście zasobów wybierz **monitorowanie i zarządzanie**.  
     ![Monitorowanie i zarządzanie](./media/log-analytics-azure-sql/monitoring-management.png)
 3. W **monitorowanie i zarządzanie** listy kliknij **zobaczyć wszystkie**.
-4. W **zalecane** kliknij **więcej** , a następnie na liście nowy Znajdź **analiza SQL Azure (wersja zapoznawcza)** i wybierz go.  
+4. W **zalecane** kliknij **więcej**, a następnie na liście nowy Znajdź **analiza SQL Azure (wersja zapoznawcza)** i wybierz go.  
     ![Rozwiązania analizy SQL Azure](./media/log-analytics-azure-sql/azure-sql-solution-portal.png)
-5. W **analiza SQL Azure (wersja zapoznawcza)** bloku, kliknij przycisk **Utwórz**.  
+5. W **analiza SQL Azure (wersja zapoznawcza)** obszaru, kliknij przycisk **Utwórz**.  
     ![Tworzenie](./media/log-analytics-azure-sql/portal-create.png)
-6. W **Utwórz nowe rozwiązanie** bloku obszar roboczy, który ma zostać dodany do rozwiązania, a następnie kliknij przycisk **Utwórz**.  
+6. W **Utwórz nowe rozwiązanie** obszaru obszar roboczy, który ma zostać dodany do rozwiązania, a następnie kliknij przycisk **Utwórz**.  
     ![Dodaj do obszaru roboczego](./media/log-analytics-azure-sql/add-to-workspace.png)
 
 
@@ -97,15 +97,15 @@ Po dodaniu rozwiązania do swojego obszaru roboczego kafelka analiza SQL Azure j
 
 ### <a name="viewing-azure-sql-analytics-data"></a>Wyświetlanie danych analiz SQL Azure
 
-Polecenie **analiza SQL Azure** Kafelek, aby otworzyć pulpitu nawigacyjnego Azure SQL Analytics. Pulpit nawigacyjny zawiera przegląd wszystkich baz danych, które są monitorowane przy użyciu różnych perspektyw. Dla różnych perspektyw pracę należy włączyć odpowiednie metryki lub dzienniki na zasobów SQL, aby być przesłana strumieniowo do obszaru roboczego analizy dzienników Azure. 
+Polecenie **analiza SQL Azure** Kafelek, aby otworzyć pulpitu nawigacyjnego Azure SQL Analytics. Pulpit nawigacyjny zawiera przegląd wszystkich baz danych, które są monitorowane przy użyciu różnych perspektyw. Dla różnych perspektyw pracę należy włączyć odpowiednie metryki lub dzienniki na zasobów SQL, aby być przesłana strumieniowo do obszaru roboczego analizy dzienników Azure.
 
 ![Omówienie Analytics Azure SQL](./media/log-analytics-azure-sql/azure-sql-sol-overview.png)
 
-Wybranie dowolnego elementu Kafelki, zostanie otwarty raport przechodzenia do określonych perspektywy. Po wybraniu perspektywy Przechodzenie do szczegółów raportu jest otwarty.
+Wybranie dowolnego elementu Kafelki, zostanie otwarty raport przechodzenia do określonych perspektywy. Po wybraniu perspektywy raport przechodzenia jest otwarty.
 
 ![Limity czasu Analytics Azure SQL](./media/log-analytics-azure-sql/azure-sql-sol-timeouts.png)
 
-Dla każdej perspektywy umożliwia podsumowania subskrypcji, serwer puli elastycznej i poziom bazy danych. Ponadto każdy perspektywy pokazuje perspektywy określonego raportu po prawej stronie. Wybierając z listy subskrypcję, serwera, puli lub bazy danych nadal Drąż w dół.
+Dla każdej perspektywy umożliwia podsumowania subskrypcji, serwer puli elastycznej i poziom bazy danych. Ponadto każdy perspektywy zawiera perspektywę specyficzne dla raportu po prawej stronie. Wybierając z listy subskrypcję, serwera, puli lub bazy danych nadal rozwijanie szczegółów.
 
 | Perspektywa | Opis |
 | --- | --- |
@@ -134,13 +134,13 @@ Zarówno pule elastyczne, jak i bazy danych ma swoje własne szczegółowymi rap
 
 ### <a name="query-reports"></a>Raporty zapytania
 
-Za pomocą perspektywy czeka zapytania i czas trwania kwerendy można skorelować wydajności wszelkie zapytania za pomocą raportu zapytania. Ten raport porównuje wydajność zapytań w różnych baz danych i ułatwia identyfikowanie baz danych, które wybrane zapytanie również i tych, które są przetwarzane wolno wykonywać.
+Za pomocą zapytania czeka perspektyw i czas trwania kwerendy można skorelować wydajności wszelkie zapytania za pomocą raportu zapytania. Ten raport porównuje wydajność zapytań w różnych baz danych i ułatwia identyfikowanie baz danych, które wybrane zapytanie również i tych, które są przetwarzane wolno wykonywać.
 
 ![Zapytania analityczne Azure SQL](./media/log-analytics-azure-sql/azure-sql-sol-queries.png)
 
 ### <a name="analyze-data-and-create-alerts"></a>Analizuj dane i tworzyć alerty
 
-Można łatwo tworzyć alerty o dane pochodzące z zasobów bazy danych SQL Azure. Poniżej przedstawiono kilka przydatne [wyszukiwania dziennika](log-analytics-log-searches.md) zapytań, które służy do tworzenia alertu:
+Można łatwo tworzyć alerty o dane pochodzące z zasobów bazy danych SQL Azure. Oto niektóre przydatne [wyszukiwania dziennika](log-analytics-log-searches.md) zapytań, które służy do tworzenia alertu:
 
 [!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 

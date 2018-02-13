@@ -1,6 +1,6 @@
 ---
-title: "Plan przetwarzania płatności dla środowisk standardem PCI DSS"
-description: Wymaganie PCI DSS
+title: "Azure zabezpieczeń i zgodności plan - środowisk standardem PCI DSS przetwarzania płatności"
+description: "Azure zabezpieczeń i zgodności plan - środowisk standardem PCI DSS przetwarzania płatności"
 services: security
 documentationcenter: na
 author: simorjay
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2017
+ms.date: 02/09/2018
 ms.author: frasim
-ms.openlocfilehash: 7f85c8b0377e57f08044bac41dbddbbedb7a4f55
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 3e97862091e6ea334f2437bd8424b79952f41bf4
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="azure-blueprint-automation-payment-processing-for-pci-dss-compliant-environments"></a>Automatyzacji Azure plan: Przetwarzania dla środowisk standardem PCI DSS płatności
+# <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Azure zabezpieczeń i zgodności plan - środowisk standardem PCI DSS przetwarzania płatności
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 Przetwarzanie płatności PCI DSS zgodne środowisk zawiera wskazówki dotyczące wdrożenia odpowiednie do obsługi dane kart płatniczych ważne środowiska standardem PCI DSS platformy jako — usługa (PaaS). Ilustrację architektura odwołania, a zaprojektowano w celu uproszczenia wdrażania programu Microsoft Azure. Ten plan przedstawiono rozwiązanie na trasie do potrzeb organizacji znalezienia podejście oparte na chmurze w celu zmniejszenia obciążenia i koszt wdrożenia.
 
@@ -43,7 +43,7 @@ Architektura podstawowych składa się z następujących składników:
 - **Szablony wdrażania**. W tym wdrożeniu [szablonów usługi Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview#template-deployment) są używane do automatycznego wdrożenia składników architektury w Microsoft Azure, określając parametry konfiguracji podczas instalacji.
 - **Skrypty wdrażania automatycznego**. Skrypty te pomocy wdrożyć rozwiązanie end-to-end. Skrypty obejmują:
     - Instalacja modułu i [administratora globalnego](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) skrypt instalacyjny jest używane do instalowania i sprawdź, czy wymagane moduły programu PowerShell i ról administratora globalnego są poprawnie skonfigurowane.
-    - Instalacja skryptu PowerShell służy do wdrażania rozwiązania end-to-end, podanego przez plik .zip oraz pliku bacpac, który zawiera pokaz wstępnie zbudowanych aplikacji sieci web z [przykładowej bazy danych SQL](https://github.com/Microsoft/azure-sql-security-sample). zawartość. Kod źródłowy dla tego rozwiązania jest gotowa do przeglądu [repozytorium kodu plan przetwarzania płatności][code-repo]. 
+    - Instalacja skryptu PowerShell służy do wdrażania rozwiązania end-to-end, podanego przez plik .zip oraz pliku bacpac, który zawiera pokaz wstępnie zbudowanych aplikacji sieci web z [przykładowej bazy danych SQL](https://github.com/Microsoft/azure-sql-security-sample). zawartość. Kod źródłowy dla tego rozwiązania jest gotowa do przeglądu [ repozytorium kodu planu][code-repo]. 
 
 ## <a name="architectural-diagram"></a>Diagram architektury
 
@@ -66,7 +66,7 @@ Administrator szuka rozwiązania, które można szybko wdrożyć celach jego w r
 
 Architektura podstawowych jest wyposażone w fikcyjne następujące elementy:
 
-Domeny lokacji`contosowebstore.com`
+Domeny lokacji `contosowebstore.com`
 
 Role użytkowników używane do zilustrowania przypadek użycia i zapewniają wgląd w interfejsie użytkownika.
 
@@ -111,8 +111,6 @@ Edna Benson jest Menedżer recepcjonista i biznesowych. Użytkownik jest odpowie
 - Edna można zmodyfikować informacje o kliencie.
 - Edna można zastąpić, lub Zastąp numer karty kredytowej, wygaśnięcia i CVV informacji.
 
-> W przypadku magazynu sieci Web firmy Contoso, użytkownik jest automatycznie jako **Edna** użytkownika do testowania możliwości środowiska wdrożone.
-
 ### <a name="contoso-webstore---estimated-pricing"></a>contoso Webstore - szacowane ceny
 
 Tej architektury podstawowych i przykładowej aplikacji sieci web mają strukturę opłaty miesięczne i koszt użycia na godzinę, które należy rozważyć w przypadku sortowania rozwiązania. Koszty te można oszacować, za pomocą [Azure Kalkulator wyceny](https://azure.microsoft.com/pricing/calculator/). Począwszy od września 2017 r. szacowany koszt miesięczne dla tego rozwiązania jest ~ $2500 obejmuje 1000 USD/miesiąc opłat użycia dla ASE v2. Te koszty zależą wielkość użycia i mogą ulec zmianie. Spoczywa na klienta, aby obliczyć ich szacowane koszty miesięczne w czasie wdrażania dokładniejsze oszacowania. 
@@ -151,7 +149,7 @@ Poniższa sekcja zawiera szczegóły dotyczące projektowania i wdrażania eleme
 
 Architektura podstawowych zmniejsza ryzyko luk w zabezpieczeniach przy użyciu bramy aplikacji z zapory aplikacji sieci web (WAF) i zestaw reguł OWASP włączone. Dodatkowe funkcje obejmują:
 
-- [Końcowy do zakończenia SSL](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
+- [End-to-End-SSL](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - Włącz [odciążanie protokołu SSL](/azure/application-gateway/application-gateway-ssl-portal)
 - Wyłącz [TLS 1.0 i 1.1](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - [Zapora aplikacji sieci Web](/azure/application-gateway/application-gateway-webapplicationfirewall-overview) (Tryb zapory aplikacji sieci Web)
@@ -183,7 +181,7 @@ Każdy z grup NSG mieć określone porty i protokoły otworzyć bezpiecznego i p
 #### <a name="custom-domain-ssl-certificates"></a>Certyfikaty SSL domeny niestandardowej
  Ruch HTTPS jest włączone, za pomocą certyfikatu SSL domeny niestandardowej.
 
-### <a name="data-at-rest"></a>Magazynowane dane
+### <a name="data-at-rest"></a>Dane magazynowane
 
 Architektura chroni dane przechowywane przy użyciu szyfrowania bazy danych inspekcji i stosowania innych środków.
 
@@ -191,7 +189,7 @@ Architektura chroni dane przechowywane przy użyciu szyfrowania bazy danych insp
 
 Aby spełnić wymagania zaszyfrowanych danych na rest, wszystkie [usługi Azure Storage](https://azure.microsoft.com/services/storage/) używa [szyfrowanie usługi Magazyn](/azure/storage/storage-service-encryption).
 
-#### <a name="azure-sql-database"></a>Usługa Azure SQL Database
+#### <a name="azure-sql-database"></a>Azure SQL Database
 
 Wystąpienie bazy danych SQL Azure używa następujących środków zabezpieczeń bazy danych:
 
@@ -207,8 +205,8 @@ Wystąpienie bazy danych SQL Azure używa następujących środków zabezpiecze�
 
 [Operations Management Suite (OMS)](/azure/operations-management-suite/) można udostępnić magazynu sieci Web firmy Contoso szczegółowe rejestrowanie całą aktywność systemu i użytkownika, obejmują posiadacza danych rejestrowania. Zmiany można przejrzeć i sprawdzić dokładność. 
 
-- **Dzienniki aktywności:**[Dzienniki aktywności](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) zapewniają wgląd w operacje wykonywane na zasobów w ramach subskrypcji.
-- **Dzienniki diagnostyczne:**[dzienniki diagnostyczne](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) są wszystkie dzienniki emitowane przez każdego zasobu. Dzienniki te obejmują dzienniki systemu zdarzeń systemu Windows, magazynu obiektów Blob platformy Azure, tabele i kolejki dzienników.
+- **Dzienniki aktywności:**[Dzienniki aktywności](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) zapewniają wgląd w operacje wykonywane na zasobów w ramach subskrypcji.  
+- **Dzienniki diagnostyczne:**[dzienniki diagnostyczne](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) są wszystkie dzienniki emitowane przez każdego zasobu.   Dzienniki te obejmują dzienniki systemu zdarzeń systemu Windows, magazynu obiektów Blob platformy Azure, tabele i kolejki dzienników.
 - **Dzienniki zapory:** Application Gateway udostępnia pełnej diagnostyki i dostępu do dzienników. Dzienniki zapory są dostępne dla bramy aplikacji zasoby, które mają zapory aplikacji sieci Web jest włączona.
 - **Archiwizacja dziennika:** wszystkich dzienników diagnostycznych są skonfigurowane do zapisu konto magazynu Azure scentralizowany i zaszyfrowane dla archiwizacji z okresu przechowywania określonych (2 dni). Dzienniki są następnie połączonych z Analiza dzienników Azure na potrzeby przetwarzania, przechowywania i dashboarding. [Zaloguj się Analytics](https://azure.microsoft.com/services/log-analytics) jest usługą OMS, która umożliwia zbieranie i analizowanie danych wygenerowanych przez zasobów w chmurze i lokalnych środowiskach.
 
@@ -357,7 +355,7 @@ Zdecydowanie zaleca się, że czystą instalację programu PowerShell można uż
     
 ## <a name="threat-model"></a>Modelu zagrożeń
 
-Diagram przepływu danych (DPD) i przykładowe modelu zagrożeń dla magazynu sieci Web firmy Contoso [modelu zagrożeń plan przetwarzania płatności](https://aka.ms/pciblueprintthreatmodel).
+Diagram przepływu danych (DPD) i przykładowe modelu zagrożeń dla magazynu sieci Web firmy Contoso [modelu zagrożeń planu](https://aka.ms/pciblueprintthreatmodel).
 
 ![](images/pci-threat-model.png)
 
@@ -373,7 +371,7 @@ Rozwiązanie zostało sprawdzone przez Coalfire systems, Inc. (PCI-DSS kwalifiko
 
 ## <a name="disclaimer-and-acknowledgements"></a>Zastrzeżenie i potwierdzeń
 
-*2017 września*
+2017 września
 
 - Ten dokument jest tylko do celów informacyjnych. FIRMA MICROSOFT I AVYAN NALEŻY UDZIELANIA ŻADNYCH GWARANCJI, WYRAŻONYCH, DOROZUMIANYCH LUB USTAWOWYCH, ODNOŚNIE DO INFORMACJI W TYM DOKUMENCIE. Niniejszy dokument jest udostępniany "jako — jest." Informacje i poglądy wyrażone w tym dokumencie, w tym adresy URL i innymi odwołaniami do witryn internetowych, mogą ulec zmianie bez uprzedzenia. Klienci odczytu ten dokument ponosi ryzyko związane z użyciem jej.  
 - Ten dokument nie zawiera klientów z żadnych praw do jakiejkolwiek własności intelektualnej w dowolnym produkt firmy Microsoft lub Avyan lub rozwiązania.  
@@ -390,7 +388,7 @@ Rozwiązanie zostało sprawdzone przez Coalfire systems, Inc. (PCI-DSS kwalifiko
 ### <a name="document-authors"></a>Autorzy dokumentu
 
 - *Piotr Simorjay (Microsoft)*  
-- *Gururaj Pandurangi (Avyan konsultacji)*
+- *Gururaj Pandurangi (Avyan Consulting)*
 
 
 [code-repo]: https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms "Repozytorium kodu"

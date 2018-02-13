@@ -1,6 +1,6 @@
 ---
-title: "Metryki alertów w czasie rzeczywistym w Monitorze systemu Azure w pobliżu | Dokumentacja firmy Microsoft"
-description: "Niemal w czasie rzeczywistym Metryka alerty pozwalają monitorować nawet 1 min metryki zasobów platformy Azure."
+title: "Pobliżu metryki alertów w czasie rzeczywistym w monitorze Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak korzystać z niemal w czasie rzeczywistym metryki alerty do monitorowania metryki zasobów platformy Azure z częstotliwością jak 1 minutę."
 author: snehithm
 manager: kmadnani1
 editor: 
@@ -15,27 +15,28 @@ ms.topic: article
 ms.date: 12/06/2017
 ms.author: snmuvva
 ms.custom: 
-ms.openlocfilehash: d3e88a98e0ba93a630d131c25ca4dd5cb16f1b1a
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 6370f4596e6b20962c6de0dbcbd5f86c3b7777cc
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="near-real-time-metric-alerts-preview"></a>Niemal w czasie rzeczywistym alerty metryki (wersja zapoznawcza)
-Azure Monitor obsługuje obecnie nowy typ metryki alertów o nazwie niemal w czasie rzeczywistym Metryka alerty (wersja zapoznawcza). Ta funkcja jest obecnie w wersji zapoznawczej.
-Te alerty różnią się od regularne alerty metryki na kilka sposobów
+Azure Monitor obsługuje nowy typ alertu o nazwie niemal w czasie rzeczywistym alerty metryki (wersja zapoznawcza). Ta funkcja jest obecnie w wersji zapoznawczej.
 
-- **Ulepszone opóźnienia** -niemal w czasie rzeczywistym Metryka alertów można monitorować zmiany w wartości metryki tak szybko, jak 1 min.
-- **Większa kontrola nad metryki warunki** -niemal w czasie rzeczywistym Metryka alerty Zezwalaj użytkownikom na definiowanie bardziej rozbudowane reguły alertów. Alerty są teraz obsługiwane monitorowanie maksymalnej, minimalnej, średni i całkowitej wartości metryki.
-- **Połączone monitorowanie wielu metryki** -niemal w czasie rzeczywistym Metryka alertów można monitorować metryki wielu (obecnie dwa) przy użyciu jednej reguły. Alert pobiera uruchomiony, jeśli obie metryki naruszyć ich odpowiednich progów w określonym przedziale czasu.
-- **System powiadomień moduły** — niemal w czasie rzeczywistym alerty metryki użycia [grupy akcji](monitoring-action-groups.md). Ta funkcja umożliwia użytkownikom tworzenie akcji w sposób moduły i użyj ich ponownie dla wielu reguł alertów.
+Niemal w czasie rzeczywistym Metryka alerty różnią się od regularne alerty metryki na kilka sposobów:
+
+- **Ulepszone opóźnienia**: niemal w czasie rzeczywistym Metryka alertów można monitorować zmiany w wartości metryki z częstotliwością jak 1 minutę.
+- **Większa kontrola nad metryki warunków**: można zdefiniować bardziej zaawansowane funkcje reguły alertów w pobliżu metryki alertów w czasie rzeczywistym. Alerty obsługuje monitorowanie maksymalnej, minimalnej, średni i całkowitej wartości metryki.
+- **Połączone monitorowanie wielu metryki**: niemal w czasie rzeczywistym Metryka alertów można monitorować wiele metryk (obecnie do dwóch metryk) przy użyciu jednej reguły. Alert zostanie wywołany, jeśli oba wskaźniki naruszenia ich odpowiednich progów w określonym przedziale czasu.
+- **System powiadomień moduły**: niemal w czasie rzeczywistym metryki użycia alerty [grupy akcji](monitoring-action-groups.md). Grupy akcji służy do tworzenia moduły akcji. Można ponownie użyć grup akcji dla wielu reguł alertów.
 
 > [!NOTE]
-> Niemal w czasie rzeczywistym alerty metryki funkcja jest obecnie w wersji zapoznawczej. Funkcje i środowisko użytkownika może ulec zmianie.
+> Near w czasie rzeczywistym metryki funkcja alertu jest obecnie w wersji zapoznawczej. Funkcje i środowisko użytkownika może ulec zmianie.
 >
 
-## <a name="what-resources-can-i-create-near-real-time-metric-alerts-for"></a>Jakie zasoby można tworzyć niemal w czasie rzeczywistym alerty metryki dla?
-Pełną listę typów zasobów, które są obsługiwane przez niemal w czasie rzeczywistym alerty metryki:
+## <a name="resources-you-can-use-with-near-real-time-metric-alerts"></a>Zasoby, których można używać z niemal w czasie rzeczywistym metryki alertów
+Poniżej przedstawiono pełną listę typów zasobów, które są obsługiwane w pobliżu metryki alertów w czasie rzeczywistym:
 
 * Microsoft.ApiManagement/service
 * Microsoft.Automation/automationAccounts
@@ -57,27 +58,26 @@ Pełną listę typów zasobów, które są obsługiwane przez niemal w czasie rz
 * Microsoft.StreamAnalytics/streamingjobs
 * Microsoft.CognitiveServices/accounts
 
-## <a name="near-real-time-metric-alerts-on-metrics-with-dimensions"></a>NEAR w czasie rzeczywistym Metryka alerty dotyczące metryk o wymiarach
-Niemal w czasie rzeczywistym Metryka alerty obsługuje alerty na metryki z wymiarów. Wymiary są odfiltrować Twoje metryki na odpowiedni poziom. Niemal w czasie rzeczywistym Metryka alerty dotyczące metryk z wymiarów są obsługiwane dla następujących typów zasobów
+## <a name="near-real-time-metric-alerts-for-metrics-that-use-dimensions"></a>Niemal w czasie rzeczywistym metryki alerty dotyczące metryk, które używają wymiarów
+Niemal w czasie rzeczywistym alerty metryki obsługuje alerty dla metryki, które są używane wymiary. Wymiary służy do filtrowania Twoje metryki na odpowiedni poziom. Niemal w czasie rzeczywistym Metryka alerty dotyczące metryk, które są używane wymiary są obsługiwane dla następujących zasobów:
 
 * Microsoft.ApiManagement/service
-* Magazyn.Microsoft/kontamagazynu (obsługiwane tylko w przypadku kont magazynu w regionach US)
-* Microsoft.Storage/storageAccounts/services (obsługiwane tylko w przypadku kont magazynu w regionach US)
+* Magazyn.Microsoft/kontamagazynu (obsługiwane tylko dla kont magazynu w regionach US)
+* Microsoft.Storage/storageAccounts/services (obsługiwane tylko dla kont magazynu w regionach US)
 
+## <a name="create-a-near-real-time-metric-alert"></a>Utwórz alert near metryki w czasie rzeczywistym
+Obecnie można tworzyć niemal w czasie rzeczywistym metryki alerty tylko w portalu Azure. Obsługa konfigurowania niemal w czasie rzeczywistym alerty metryki przy użyciu programu PowerShell, interfejsu wiersza polecenia platformy Azure (Azure CLI) i interfejsów API REST Monitor Azure będzie dostępna wkrótce.
 
-## <a name="create-a-near-real-time-metric-alert"></a>Utwórz Alert Near metryki w czasie rzeczywistym
-Obecnie niemal w czasie rzeczywistym Metryka alertów można tworzyć tylko za pośrednictwem portalu Azure. Obsługa konfigurowania niemal metryki alertów w czasie rzeczywistym za pomocą programu PowerShell, interfejsu wiersza polecenia (CLI) i interfejsu API REST Monitor Azure będzie dostępna wkrótce.
+Proces tworzenia near alert metryki w czasie rzeczywistym została przeniesiona do nowego **alertów (wersja zapoznawcza)** strony. Nawet wtedy, gdy alerty bieżącej strony wyświetla **alert dodać niemal w czasie rzeczywistym Metryka**, nastąpi przekierowanie do **alertów (wersja zapoznawcza)** strony.
 
-Środowisko tworzenia alertu dla niemal w czasie rzeczywistym Metryka Alert został przeniesiony do nowej **Alerts(Preview)** wystąpić. Mimo że alerty bieżącej strony pokazuje **alert dodać niemal w czasie rzeczywistym Metryka**, nastąpi przekierowanie do nowego środowiska.
+Aby dowiedzieć się, jak utworzyć near alertu metryki w czasie rzeczywistym, zobacz [Tworzenie reguły alertu w portalu Azure](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal).
 
-Możesz utworzyć near w czasie rzeczywistym alert metryki korzystając z procedury opisanej [tutaj](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal).
-
-## <a name="managing-near-real-time-metric-alerts"></a>Zarządzanie niemal w czasie rzeczywistym metryki alertów
-Po utworzeniu **alertu w pobliżu metryki w czasie rzeczywistym**, można zarządzać, korzystając z procedury opisanej [tutaj](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
+## <a name="manage-near-real-time-metric-alerts"></a>Zarządzanie niemal w czasie rzeczywistym metryki alertów
+Po utworzeniu near w czasie rzeczywistym alert metryki alertu można zarządzać przy użyciu procedury opisanej w [Zarządzanie alertami w portalu Azure](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
 
 ## <a name="payload-schema"></a>Schemat ładunku
 
-Operację POST zawiera następujące ładunek JSON i schematu dla wszystkich niemal w czasie rzeczywistym alerty metryki.
+Operację POST zawiera następujące ładunek JSON i schematu dla wszystkich niemal w czasie rzeczywistym alerty metryki:
 
 ```json
 {
@@ -123,6 +123,6 @@ Operację POST zawiera następujące ładunek JSON i schematu dla wszystkich nie
 
 ## <a name="next-steps"></a>Kolejne kroki
 
-* [Dowiedz się więcej na temat nowego środowiska alerty (wersja zapoznawcza)](monitoring-overview-unified-alerts.md)
-* [Dowiedz się więcej o alertach dziennika w alertach Azure (wersja zapoznawcza)](monitor-alerts-unified-log.md)
-* [Więcej informacji na temat alertów na platformie Azure](monitoring-overview-alerts.md)
+* Dowiedz się więcej o nowe [alerty środowisko (wersja zapoznawcza)](monitoring-overview-unified-alerts.md).
+* Dowiedz się więcej o [rejestrowania alertów w alertach Azure (wersja zapoznawcza)](monitor-alerts-unified-log.md).
+* Dowiedz się więcej o [alertów w usłudze Azure](monitoring-overview-alerts.md).

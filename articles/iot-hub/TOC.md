@@ -107,6 +107,7 @@
 #### [Zaplecze środowiska .NET/urządzenie środowiska Node.js](iot-hub-csharp-node-device-management-get-started.md)
 #### [Zaplecze środowiska .NET/urządzenie środowiska .NET](iot-hub-csharp-csharp-device-management-get-started.md)
 #### [Zaplecze środowiska Java/urządzenie środowiska Java](iot-hub-java-java-device-management-getstarted.md)
+#### [Zaplecze języka Python/urządzenie języka Python](iot-hub-python-python-device-management-get-started.md)
 ### Korzystanie z właściwości bliźniaczych reprezentacji
 #### [Zaplecze środowiska Node.js/urządzenie środowiska Node.js](iot-hub-node-node-twin-how-to-configure.md)
 #### [Zaplecze środowiska .NET/urządzenie środowiska Node.js](iot-hub-csharp-node-twin-how-to-configure.md)

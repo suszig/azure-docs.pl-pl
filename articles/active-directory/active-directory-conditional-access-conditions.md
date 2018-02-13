@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 02/09/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: bb2124613ccc467f3c560e92bdf760420410267c
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 2415a2c2c0143b4abeb8ec1ecab379a204456874
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="conditions-in-azure-active-directory-conditional-access"></a>Warunki dostępu warunkowego w usłudze Azure Active Directory 
 
@@ -51,7 +51,7 @@ Po wybraniu:
 
 - **Wszyscy użytkownicy**, zasady są stosowane do wszystkich użytkowników z w katalogu. W tym gości.
 
-- **Wybierz użytkowników i grupy**, można kierować określonych zestawów użytkowników, na przykład, wszyscy członkowie działu HR, podczas logowania się do aplikacji HR. 
+- **Wybierz użytkowników i grupy**, możesz zastosować zestawy określonych użytkowników. Na przykład można wybrać grupy, która zawiera wszystkie elementy członkowskie działu HR, jeśli masz aplikację HR wybrany jako aplikacji w chmurze. 
 
 - Grupy, może być dowolnego typu grupy w usłudze Azure AD, w tym dynamiczne lub przypisanych grup zabezpieczeń i dystrybucji.
 
@@ -90,7 +90,7 @@ Aby użyć tego warunku, musisz mieć [Azure Active Directory Identity Protectio
 Typowe przypadki użycia tego warunku są zasadami, które:
 
 - Blokowanie użytkowników rejestrowania wysokiego ryzyka, aby uniemożliwić użytkownikom potencjalnie prawnie niedozwolonych dostęp do aplikacji w chmurze. 
-- Wymagaj uwierzytelniania wieloskładnikowego podczas dla użytkowników z średnie ryzyko logowania. Wymuszając uwierzytelnianie wieloskładnikowe, możesz podać dodatkowe pewność, że logowanie jest wykonywane przez wiarygodnego właściciela konta.
+- Wymusić uwierzytelnianie wieloskładnikowe dla użytkowników z średnie ryzyko logowania. Wymuszając uwierzytelnianie wieloskładnikowe, możesz podać dodatkowe pewność, że logowanie jest wykonywane przez wiarygodnego właściciela konta.
 
 Aby uzyskać więcej informacji, zobacz [Ryzykowne logowania](active-directory-identityprotection.md#risky-sign-ins).  
 
@@ -99,7 +99,7 @@ Aby uzyskać więcej informacji, zobacz [Ryzykowne logowania](active-directory-i
 Platformy urządzeń charakteryzuje się systemu operacyjnego, który działa na urządzeniu. Usługi Azure AD identyfikuje platformy, korzystając z informacji podanych przez urządzenie, takie jak agent użytkownika. Ponieważ te informacje są niezweryfikowane, jest zalecane wszystkich platform zasad zastosowanych do nich, blokuje dostęp, wymagające zgodności z zasadami usługi Intune lub wymagających się, że urządzenie jest przyłączony do domeny. Wartość domyślna to zastosować zasady do wszystkich platform urządzeń. 
 
 
-![Warunki](./media/active-directory-conditional-access-conditions/02.png)
+![Warunki](./media/active-directory-conditional-access-conditions/24.png)
 
 Aby uzyskać pełną listę obsługiwanych platform urządzeń, zobacz [warunku platformy urządzenia](active-directory-conditional-access-technical-reference.md#device-platform-condition).
 
@@ -111,7 +111,7 @@ Typowy przypadek użycia dla tego warunku jest zasada, która ogranicza dostęp 
 
 Lokalizacje istnieje możliwość zdefiniowania warunków, które są oparte na której zainicjowano próby połączenia z. 
      
-![Warunki](./media/active-directory-conditional-access-conditions/03.png)
+![Warunki](./media/active-directory-conditional-access-conditions/25.png)
 
 Typowe przypadki użycia tego warunku są zasadami, które:
 

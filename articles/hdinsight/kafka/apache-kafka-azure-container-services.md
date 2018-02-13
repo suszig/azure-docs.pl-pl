@@ -14,35 +14,40 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/08/2018
 ms.author: larryfr
-ms.openlocfilehash: 8074797e2d37f98cc3b219dbf3e51f558bbee8c7
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 53342e11476a307bb6af356eb40fe51928041822
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="use-azure-container-services-with-kafka-on-hdinsight"></a>Użyj usługi kontenera platformy Azure z Kafka w usłudze HDInsight
 
-Dowiedz się, jak używać usługi kontenera platformy Azure (AKS) z Kafka w klastrze usługi HDInsight.
+Dowiedz się, jak używać usługi kontenera platformy Azure (AKS) z Kafka w klastrze usługi HDInsight. Kroki opisane w tym dokumencie użyj aplikacji Node.js hostowanych w AKS, aby sprawdzić łączność z Kafka. Ta aplikacja używa [kafka węzła](https://www.npmjs.com/package/kafka-node) pakietu do komunikowania się z Kafka. Używa [użyciu biblioteki Socket.io](https://socket.io/) dla zdarzeniami wysyłanie komunikatów między klient przeglądarki i zaplecza w AKS.
 
 [Apache Kafka](https://kafka.apache.org) to rozproszona platforma przesyłania strumieniowego typu „open source”, która umożliwia tworzenie aplikacji i potoków danych przesyłania strumieniowego w czasie rzeczywistym. Usługa kontenera platformy Azure zarządza hostowanym środowiskiem Kubernetes i umożliwia szybkie i łatwe do wdrażania konteneryzowanych aplikacji. Przy użyciu sieci wirtualnej platformy Azure, można połączyć te dwie usługi.
 
-> [!IMPORTANT]
-> Tym dokumencie przyjęto założenie, że czytelnik zna tworzenie i korzystanie z następujących usług platformy Azure:
->
-> * Usługa Kafka w usłudze HDInsight
-> * Azure Container Service
-> * Sieci wirtualne platformy Azure
->
-> Ten dokument założono również, że ma udał za pośrednictwem [samouczek usługi kontenera platformy Azure](../../aks/tutorial-kubernetes-prepare-app.md). W tym samouczku utworzy usługi kontenera klastrze Kubernetes rejestru kontenera i konfiguruje `kubectl` narzędzia.
-
 > [!NOTE]
-> Kroki opisane w tym dokumencie użyj aplikacji Node.js hostowanych w AKS, aby sprawdzić łączność z Kafka. Ta aplikacja używa [kafka węzła](https://www.npmjs.com/package/kafka-node) pakietu do komunikowania się z Kafka. Używa [użyciu biblioteki Socket.io](https://socket.io/) dla zdarzeniami wysyłanie komunikatów między klient przeglądarki i zaplecza w AKS.
+> Ten dokument koncentruje się na krokach wymaganych do włączenia usługi kontenera platformy Azure do komunikowania się z Kafka w usłudze HDInsight. Przykładem sam jest właśnie podstawowe Kafka klientowi pokazują, że działa w konfiguracji.
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+* [Interfejs wiersza polecenia platformy Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* Subskrypcja platformy Azure
+
+Tym dokumencie przyjęto założenie, że czytelnik zna tworzenie i korzystanie z następujących usług platformy Azure:
+
+* Usługa Kafka w usłudze HDInsight
+* Azure Container Service
+* Sieci wirtualne platformy Azure
+
+Ten dokument założono również, że ma udał za pośrednictwem [samouczek usługi kontenera platformy Azure](../../aks/tutorial-kubernetes-prepare-app.md). W tym samouczku utworzy usługi kontenera klastrze Kubernetes rejestru kontenera i konfiguruje `kubectl` narzędzia.
 
 ## <a name="architecture"></a>Architektura
 
 ### <a name="network-topology"></a>Topologia sieci
 
-Zarówno HDInsight i AKS użyć sieci wirtualnej platformy Azure jako kontener dla zasobów obliczeniowych. Aby umożliwić komunikację między HDInsight i AKS, należy włączyć komunikację między swoich sieci. Kroki opisane w tym dokumencie Użyj równorzędna sieci wirtualnych do sieci. Aby uzyskać więcej informacji dotyczących komunikacji równorzędnej, zobacz [równorzędna sieci wirtualnej](../../virtual-network/virtual-network-peering-overview.md) dokumentu.
+Zarówno HDInsight i AKS użyć sieci wirtualnej platformy Azure jako kontener dla zasobów obliczeniowych. Aby umożliwić komunikację między HDInsight i AKS, należy włączyć komunikację między swoich sieci. Kroki opisane w tym dokumencie Użyj równorzędna sieci wirtualnych do sieci. Inne połączenia, takich jak sieć VPN, również powinny działać. Aby uzyskać więcej informacji dotyczących komunikacji równorzędnej, zobacz [równorzędna sieci wirtualnej](../../virtual-network/virtual-network-peering-overview.md) dokumentu.
+
 
 Na poniższym diagramie przedstawiono topologię sieci używane w tym dokumencie:
 
@@ -51,11 +56,6 @@ Na poniższym diagramie przedstawiono topologię sieci używane w tym dokumencie
 > [!IMPORTANT]
 > Rozpoznawanie nazwy nie jest włączone między sieciami peered, więc adresów IP jest używana. Domyślnie Kafka w usłudze HDInsight jest skonfigurowany do zwracania nazwy hosta zamiast adresów IP, gdy klienci łączą się. Kroki opisane w tym dokumencie zmodyfikować Kafka do używania adresu IP zamiast reklamy.
 
-## <a name="prerequisites"></a>Wymagania wstępne
-
-* [Interfejs wiersza polecenia platformy Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-* Subskrypcja platformy Azure
-
 ## <a name="create-an-azure-container-service-aks"></a>Tworzenie usługi kontenera platformy Azure (AKS)
 
 Jeśli nie masz już AKS klastra, użyj jednej z następujących dokumentach Aby dowiedzieć się, jak utworzyć:
@@ -63,7 +63,10 @@ Jeśli nie masz już AKS klastra, użyj jednej z następujących dokumentach Aby
 * [Wdrażanie klastra usługi kontenera platformy Azure (AKS) — portalu](../../aks/kubernetes-walkthrough-portal.md)
 * [Wdrażanie klastra usługi kontenera platformy Azure (AKS) - interfejsu wiersza polecenia](../../aks/kubernetes-walkthrough.md)
 
-## <a name="configure-the-virtual-networks"></a>Konfigurowanie sieci wirtualnych
+> [!NOTE]
+> Podczas instalacji AKS tworzy sieć wirtualną. Ta sieć jest połączyć za pomocą utworzonym dla usługi HDInsight w następnej sekcji.
+
+## <a name="configure-virtual-network-peering"></a>Konfigurowanie sieci wirtualnej komunikacji równorzędnej
 
 1. Z [portalu Azure](https://portal.azure.com), wybierz pozycję __grup zasobów__, a następnie znajdź grupę zasobów, która zawiera sieć wirtualną klastra AKS. Nazwa grupy zasobów jest `MC_<resourcegroup>_<akscluster>_<location>`. `resourcegroup` i `akscluster` wpisy są nazwa grupy zasobów utworzonej w klastrze i nazwy klastra. `location` Jest klaster został utworzony w lokalizacji.
 

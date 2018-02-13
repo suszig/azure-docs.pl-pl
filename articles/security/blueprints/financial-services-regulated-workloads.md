@@ -1,6 +1,6 @@
 ---
-title: "Automatyzacja Azure plan - branży usług finansowych podlegającymi ochronie obciążeń"
-description: "Plan usług finansowych podlegającymi ochronie obciążeń"
+title: "Zabezpieczeń platformy Azure i plan zgodności - FFIEC branży usług finansowych podlegającymi ochronie obciążeń"
+description: "Zabezpieczeń platformy Azure i plan zgodności - FFIEC branży usług finansowych podlegającymi ochronie obciążeń"
 services: security
 documentationcenter: na
 author: simorjay
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2017
+ms.date: 02/09/2018
 ms.author: frasim
-ms.openlocfilehash: 19e26c16866dada8dcff04a520ce4c208d67c365
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: a1167f56f595f905c6338868806351345c06b91a
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="azure-blueprint-automation-financial-services-blueprint-for-regulated-workloads"></a>Automatyzacji Azure plan: Plan usług finansowych podlegającymi ochronie obciążeń
+# <a name="azure-security-and-compliance-blueprint---ffiec-financial-services-regulated-workloads"></a>Zabezpieczeń platformy Azure i plan zgodności - FFIEC branży usług finansowych podlegającymi ochronie obciążeń
 
 ## <a name="overview"></a>Przegląd
 
-Plan usług finansowych prowadzące działalność obciążeń pomaga wdrożyć jako usługa (PaaS) aplikacji sieci web przeznaczone do obsługi danych poufnych w chmurze platformy bezpieczne i zgodne. Plan obejmuje zautomatyzowanych skryptów i wskazówki, które pokazują architektura proste odwołanie i projekt, który ułatwia przyjęcie rozwiązania Microsoft Azure. Ten plan przedstawiono rozwiązanie na trasie do potrzeb organizacji znalezienia sposobów, aby zmniejszyć obciążenie i kosztu wdrożenia w chmurze.
+Azure zabezpieczeń i zgodności plan - obciążeń Regulated usług finansowych FFIEC pomaga wdrożyć jako usługa (PaaS) aplikacji sieci web przeznaczone do obsługi danych poufnych w chmurze platformy bezpieczne i zgodne. Plan obejmuje zautomatyzowanych skryptów i wskazówki, które pokazują architektura proste odwołanie i projekt, który ułatwia przyjęcie rozwiązania Microsoft Azure. Ten plan przedstawiono rozwiązanie na trasie do potrzeb organizacji znalezienia sposobów, aby zmniejszyć obciążenie i kosztu wdrożenia w chmurze.
 
 Ten plan zaprojektowano w celu spełnienia wymagań rygorystyczne normy zgodne ustawiony przez Amerykański Instytut z księgowym publicznym takich jak - SOC 1, SOC 2 Radę Payment Card Industry Data Security Standards DSS 3.2 i FFIEC dla Kolekcja, magazynowania i pobierania poufne dane finansowe. Poprzez wdrożenie rozwiązania, zarządzanego dostępu do danych finansowych w środowisku bezpieczne, zgodne i wielowarstwowych go pokazuje prawidłowego obsługi tych danych. Rozwiązanie jest wdrożone jako end-to-end rozwiązania PaaS bazujących na platformie Azure. 
 
@@ -52,7 +52,7 @@ Architektura składa się z następujących składników i korzysta z funkcji wd
 
 Następujące adresy planu przypadek użycia poniżej.
 
-> W tym scenariuszu pokazano, jak fikcyjne webstore przenieść się, że poufne dane do PaaS w chmurze rozwiązania opartego na platformie Azure. Rozwiązanie przykład ilustruje zbieranie informacji użytkownika podstawowego i wybrane dane poufne i obsługi. Tę pracę obiektowy automatyzacji planu Azure: przetwarzanie płatności dla środowisk standardem PCI DSS przetwarzania karty płatności. Uzyskać więcej informacji na temat rozszerzania na tę pracę ["Przejrzyj i wskazówki dla wdrożenia"](https://aka.ms/pciblueprintprocessingoverview) dokument zawiera przegląd standardem PCI DSS środowisk.
+> W tym scenariuszu pokazano, jak fikcyjne webstore przenieść się, że poufne dane do PaaS w chmurze rozwiązania opartego na platformie Azure. Rozwiązanie przykład ilustruje zbieranie informacji użytkownika podstawowego i wybrane dane poufne i obsługi. Tę pracę obiektowy zabezpieczeń platformy Azure i plan zgodności - środowisk standardem PCI DSS przetwarzania płatności. Uzyskać więcej informacji na temat rozszerzania na tę pracę ["Przejrzyj i wskazówki dla wdrożenia"](https://aka.ms/pciblueprintprocessingoverview) dokument zawiera przegląd standardem PCI DSS środowisk.
 
 ### <a name="use-case"></a>Przypadek użycia
 Mała magazynu sieci Web o nazwie *magazynu sieci Web firmy Contoso* jest gotowa do przeniesienia danych finansowych, który zawiera informacje dotyczące płatności klientów do chmury. 
@@ -65,7 +65,7 @@ Administrator magazynu sieci Web firmy Contoso jest szuka rozwiązania, które m
 
 Architektura podstawowych jest wyposażone w fikcyjne następujące elementy:
 
-Domeny lokacji`contosowebstore.com`
+Domeny lokacji `contosowebstore.com`
 
 Role użytkowników są wykorzystywane do przedstawienia przypadek użycia i zapewniają wgląd w interfejsie użytkownika.
 
@@ -111,7 +111,7 @@ Edna Benson jest Menedżer recepcjonista i biznesowych. Użytkownik jest odpowie
 - Edna można zastąpić informacji finansowych.
 - Edna konta nie można wyświetlić niefiltrowane informacji finansowych.
 
-> W magazynu sieci Web firmy Contoso, użytkownik zostanie automatycznie **Edna** użytkownika do testowania możliwości środowiska wdrożone.
+
 
 ### <a name="contoso-webstore---estimated-pricing"></a>contoso Webstore - szacowane ceny
 
@@ -151,7 +151,7 @@ Poniższa sekcja zawiera szczegóły dotyczące projektowania i wdrażania eleme
 
 Architektura podstawowych zmniejsza ryzyko luk w zabezpieczeniach z zapory aplikacji sieci web (WAF) i zestaw reguł OWASP włączona przy użyciu bramy aplikacji. Dodatkowe funkcje obejmują:
 
-- [Końcowy do zakończenia SSL](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
+- [End-to-End-SSL](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - [Odciążanie protokołu SSL](/azure/application-gateway/application-gateway-ssl-portal) włączone
 - [Protokołu TLS 1.0 i 1.1](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell) wyłączone
 - [Zapora aplikacji sieci Web](/azure/application-gateway/application-gateway-webapplicationfirewall-overview) (Tryb zapory aplikacji sieci Web)
@@ -172,7 +172,7 @@ Każdy z warstw sieci ma dedykowany sieciowej grupy zabezpieczeń (NSG):
 - Grupa NSG do zarządzania jumpbox (bastionu hosta)
 - Grupa NSG dla środowiska usługi aplikacji
 
-Każdy z grup NSG mieć określone porty i protokoły otwarty do bezpiecznego i prawidłowe funkcjonowanie rozwiązania. Aby uzyskać więcej informacji, zobacz [wskazówki PCI - grupy zabezpieczeń sieci](#network-security-groups).
+Każdy z grup NSG mieć określone porty i protokoły otwarty do bezpiecznego i prawidłowe funkcjonowanie rozwiązania. 
 
 Ponadto następujące konfiguracje są włączone dla każdej grupy NSG:
 
@@ -186,7 +186,7 @@ Ponadto następujące konfiguracje są włączone dla każdej grupy NSG:
 #### <a name="custom-domain-ssl-certificates"></a>Certyfikaty SSL domeny niestandardowej
  Ruch HTTPS jest włączone, za pomocą certyfikatu SSL domeny niestandardowej.
 
-### <a name="data-at-rest"></a>Magazynowane dane
+### <a name="data-at-rest"></a>Dane magazynowane
 
 Architektura chroni dane przechowywane przy użyciu szyfrowania bazy danych inspekcji i stosowania innych środków.
 
@@ -305,7 +305,7 @@ Domyślnym wdrożeniu mają na celu dostarczenie linii bazowej zaleceń Centrum 
 
 ## <a name="deploy-the-solution"></a>Wdrażanie rozwiązania
 
-Składniki wdrażania tego rozwiązania są dostępne w [repozytorium kodu plan przetwarzania płatności][code-repo]. Wdrażanie podstawowych architektura wymaga wykonania kilku czynności wykonywane przy użyciu v5 PowerShell firmy Microsoft. Aby połączyć z poziomu witryny sieci Web, podaj niestandardowej nazwy domeny (np. contoso.com). To jest określona za pomocą `-customHostName` przełącznika w kroku 2. Aby uzyskać więcej informacji, zobacz [kupić niestandardowej nazwy domeny dla aplikacji sieci Web Azure](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). Niestandardowej nazwy domeny nie jest wymagane, aby pomyślnie wdrożyć i uruchomić rozwiązania, ale będzie mógł podłączyć się do witryny sieci Web w celach demonstracyjnych.
+Składniki wdrażania tego rozwiązania są dostępne w [repozytorium kodu planu][code-repo]. Wdrażanie podstawowych architektura wymaga wykonania kilku czynności wykonywane przy użyciu v5 PowerShell firmy Microsoft. Aby połączyć z poziomu witryny sieci Web, podaj niestandardowej nazwy domeny (np. contoso.com). To jest określona za pomocą `-customHostName` przełącznika w kroku 2. Aby uzyskać więcej informacji, zobacz [kupić niestandardowej nazwy domeny dla aplikacji sieci Web Azure](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). Niestandardowej nazwy domeny nie jest wymagane, aby pomyślnie wdrożyć i uruchomić rozwiązania, ale będzie mógł podłączyć się do witryny sieci Web w celach demonstracyjnych.
 
 Skrypty dodać użytkowników domeny do dzierżawy usługi Azure AD, który określisz. Firma Microsoft zaleca utworzenie nowej usługi Azure AD dzierżawy do użycia jako test.
 
@@ -361,7 +361,7 @@ Firma Microsoft zaleca, że czystą instalację programu PowerShell można uży�
     
 ## <a name="threat-model"></a>Modelu zagrożeń
 
-Diagram przepływu danych (DPD) i przykładowe modelu zagrożeń dla magazynu sieci Web firmy Contoso [modelu zagrożeń plan przetwarzania płatności](https://aka.ms/pciblueprintthreatmodel).
+Diagram przepływu danych (DPD) i przykładowe modelu zagrożeń dla magazynu sieci Web firmy Contoso [modelu zagrożeń planu](https://aka.ms/pciblueprintthreatmodel).
 
 ![](images/pci-threat-model.png)
 
@@ -375,7 +375,7 @@ Klienci są zobowiązani do zachowania kopię [odpowiedzialność podsumowanie m
 
 ## <a name="disclaimer-and-acknowledgments"></a>Zastrzeżenie i potwierdzenia
 
-*2017 września*
+2017 września
 
 - Ten dokument jest tylko do celów informacyjnych. FIRMA MICROSOFT I AVYAN NALEŻY UDZIELANIA ŻADNYCH GWARANCJI, WYRAŻONYCH, DOROZUMIANYCH LUB USTAWOWYCH, ODNOŚNIE DO INFORMACJI W TYM DOKUMENCIE. Niniejszy dokument jest udostępniany "jako — jest." Informacje i poglądy wyrażone w tym dokumencie, w tym adresy URL i innymi odwołaniami do witryn internetowych, mogą ulec zmianie bez uprzedzenia. Klienci odczytu ten dokument ponosi ryzyko związane z użyciem jej.  
 - Ten dokument nie zawiera klientów z żadnych praw do jakiejkolwiek własności intelektualnej w dowolnym produkt firmy Microsoft lub Avyan lub rozwiązania.  

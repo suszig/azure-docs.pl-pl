@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: abnarain
-ms.openlocfilehash: 7bd08a838bef504e41f7aa63516a1b54ba497441
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 898e6914a427b2e8864d97a7188eb718811ce263
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Fabryka danych Azure — zagadnienia dotyczące zabezpieczeń dla przepływu danych
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -56,9 +56,6 @@ W tym artykule firma Microsoft analizuje zagadnienia dotyczące zabezpieczeń w 
 - Przechowywanie poświadczeń w usłudze Azure Key Vault 
 
    Możesz teraz przechowywane poświadczenia magazynu danych w [usługi Azure Key Vault](https://azure.microsoft.com/services/key-vault/), następnie umożliwił fabryki danych Azure, aby go uzyskać, podczas wykonywania działania. Aby uzyskać więcej informacji, zobacz [magazynu poświadczeń w usłudze Azure Key Vault](store-credentials-in-key-vault.md).
-
-   > [!NOTE]
-   > Obecnie tylko [łącznika Dynamics](connector-dynamics-crm-office-365.md) obsługuje tę funkcję. 
 
 ### <a name="data-encryption-in-transit"></a>Szyfrowanie danych podczas przesyłania
 W przypadku magazynu danych w chmurze obsługuje protokół HTTPS lub TLS, wszystkie dane transferu między usługi przenoszenia danych z fabryki danych i magazynu danych w chmurze są za pośrednictwem bezpiecznego kanału HTTPS lub TLS.

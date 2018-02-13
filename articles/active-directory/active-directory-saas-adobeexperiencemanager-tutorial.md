@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 4a4fccc4210fd6cf0ddbe99089c84a1fd38d5b09
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c366e314b77cd3344a90826b22b96a45e35b0b4e
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-experience-manager"></a>Samouczek: Azure Active Directory integracji z menedżerem środowisko Adobe
 
@@ -27,10 +27,10 @@ Z tego samouczka dowiesz się integrowanie Adobe środowisko Manager z usługą 
 Integrowanie programu Adobe środowisko Manager z usługą Azure AD zapewnia następujące korzyści:
 
 - Można kontrolować w usłudze Azure AD, kto ma dostęp do programu Adobe środowisko Manager.
-- Umożliwia użytkownikom automatycznie pobrać zalogowane Adobe obsługi Menedżera (logowanie jednokrotne) z konta usługi Azure AD.
-- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure.
+- Można umożliwić użytkownikom automatycznie pobrać zalogowany do Menedżera środowisko Adobe z konta usługi Azure AD.
+- Możesz zarządzać kont w jednej centralnej lokalizacji--portalu Azure.
 
-Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Aby uzyskać więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -40,25 +40,25 @@ Aby skonfigurować integrację usługi Azure AD z menedżerem środowisko Adobe,
 - Menedżera środowisko Adobe logowanie jednokrotne włączone subskrypcji
 
 > [!NOTE]
-> Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
+> Nie zaleca się używanie środowiska produkcyjnego do testowania czynności w tym samouczku.
 
-Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
+Aby przetestować kroki opisane w tym samouczku, wykonaj te zalecenia:
 
 - Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.
-- Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz [uzyskać miesięczna wersja próbna](https://azure.microsoft.com/pricing/free-trial/).
+- Jeśli nie masz środowisko wersji próbnej usługi Azure AD, [Pobierz bezpłatną wersję próbną miesięcznego](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
-W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
+W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz, który jest opisane w tym samouczku składa się z dwóch głównych elementów:
 
 1. Dodawanie menedżera środowisko Adobe z galerii
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
-## <a name="adding-adobe-experience-manager-from-the-gallery"></a>Dodawanie menedżera środowisko Adobe z galerii
+## <a name="add-adobe-experience-manager-from-the-gallery"></a>Dodaj Menedżera środowisko Adobe z galerii
 Aby skonfigurować integrację programu Adobe środowisko Manager z usługą Azure AD, należy dodać Menedżera środowisko Adobe z galerii do listy zarządzanych aplikacji SaaS.
 
-**Aby dodać Menedżera środowisko Adobe z galerii, wykonaj następujące czynności:**
+**Aby dodać Menedżera środowisko Adobe z galerii, należy wykonać następujące czynności:**
 
-1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
+1. W [portalu Azure](https://portal.azure.com), w okienku po lewej stronie wybierz **usługi Azure Active Directory** ikony. 
 
     ![Przycisk usługi Azure Active Directory][1]
 
@@ -66,90 +66,90 @@ Aby skonfigurować integrację programu Adobe środowisko Manager z usługą Azu
 
     ![Blok aplikacje przedsiębiorstwa][2]
     
-3. Aby dodać nową aplikację, kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.
+3. Aby dodać nową aplikację, zaznacz **nowej aplikacji** przycisk w górnej części okna dialogowego.
 
     ![Nowy przycisk aplikacji][3]
 
-4. W polu wyszukiwania wpisz **Menedżera środowisko Adobe**, wybierz pozycję **Menedżera środowisko Adobe** z panelu wyników kliknięcie **Dodaj** przycisk, aby dodać aplikację.
+4. W polu wyszukiwania wpisz **Menedżera środowisko Adobe**. Wybierz **Menedżera środowisko Adobe** z panelu wyniki, a następnie wybierz **Dodaj** przycisk, aby dodać aplikację.
 
     ![Menedżer obsługi Adobe na liście wyników](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfiguracja i testowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Adobe środowisko Manager na podstawie użytkownika testowego o nazwie "Britta Simona".
+W tej sekcji możesz skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Adobe środowisko Manager na podstawie użytkownika testowego o nazwie "Britta Simona".
 
-Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w Menedżerze środowisko Adobe jest dla użytkownika, w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i danemu użytkownikowi w Menedżerze środowisko Adobe musi określone.
+Do rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, który użytkownik odpowiednika w Menedżerze środowisko Adobe jest dla użytkownika w usłudze Azure AD. Innymi słowy należy ustanowić powiązanie użytkownika usługi Azure AD i danemu użytkownikowi w Menedżerze środowisko Adobe.
 
-W Menedżerze środowisko Adobe przypisać wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** do ustanawiania relacji łącza.
+W Menedżerze środowisko Adobe nadać wartość **Username** taką samą wartość **nazwy użytkownika** w usłudze Azure AD. Teraz ustanowieniu połączenia między dwóch użytkowników. 
 
-Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z menedżerem środowisko Adobe, należy wykonać poniższe bloki konstrukcyjne:
+Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z menedżerem środowisko Adobe, wykonaj poniższe bloki konstrukcyjne:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configure-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego Menedżera środowisko Adobe](#create-an-adobe-experience-manager-test-user)**  — aby odpowiednikiem Simona Britta w Adobe środowisko Manager połączonej z usługi Azure AD reprezentację użytkownika.
-4. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
-5. **[Test rejestracji jednokrotnej](#test-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
+1. [Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configure-azure-ad-single-sign-on) umożliwienie użytkownikom korzystać z tej funkcji.
+2. [Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user) do testowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. [Tworzenie użytkownika testowego Menedżera środowisko Adobe](#create-an-adobe-experience-manager-test-user) aby odpowiednikiem Simona Britta w Adobe środowisko Manager połączonej z usługi Azure AD reprezentację użytkownika.
+4. [Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user) umożliwiające Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
+5. [Test rejestracji jednokrotnej](#test-single-sign-on) Aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
 W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w aplikacji Adobe obsługi Menedżera.
 
-**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z menedżerem środowisko Adobe, wykonaj następujące czynności:**
+**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z menedżerem środowisko Adobe, należy wykonać następujące czynności:**
 
-1. W portalu Azure na **Menedżera środowisko Adobe** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
+1. W portalu Azure na **Menedżera środowisko Adobe** strona integracji aplikacji, wybierz opcję **logowanie jednokrotne**.
 
     ![Skonfigurować łącze rejestracji jednokrotnej][4]
 
-2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
+2. Aby włączyć logowanie jednokrotne, w **logowanie jednokrotne** okna dialogowego, **tryb** menu rozwijanego wybierz **na języku SAML logowania jednokrotnego**.
  
     ![Okno dialogowe rejestracji jednokrotnej](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_samlbase.png)
 
-3. Na **adresy URL i domeny Menedżera środowisko Adobe** sekcji, wykonaj następujące kroki, aby skonfigurować aplikację w **IdP** tryb:
+3. W **adresy URL i domeny Menedżera środowisko Adobe** sekcji, wykonaj następujące kroki, aby skonfigurować aplikację w **IdP** tryb:
 
     ![Adresy URL i domeny Menedżera środowisko Adobe pojedynczy informacje logowania jednokrotnego](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_url1.png)
 
-    a. W **identyfikator** tekstowym, wpisz unikatową wartość, który zdefiniowano na tym serwerze AEM. 
+    a. W **identyfikator** wpisz unikatową wartość, zdefiniowanego na tym serwerze AEM. 
 
-    b. W **adres URL odpowiedzi** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<AEM Server Url>/saml_login`
+    b. W **adres URL odpowiedzi** wpisz adres URL z następującego wzorca: `https://<AEM Server Url>/saml_login`.
 
     > [!NOTE] 
-    > Wartości te nie są prawdziwe. Rzeczywisty identyfikator i adres URL odpowiedzi, należy zaktualizować te wartości. Skontaktuj się z [zespołem pomocy technicznej Menedżera środowisko Adobe](https://helpx.adobe.com/support/experience-manager.html) uzyskać te wartości.
+    > Wartości te nie są prawdziwe. Zaktualizować te wartości z rzeczywistego identyfikatora i adres URL odpowiedzi. Aby uzyskać te wartości, skontaktuj się z [zespołem pomocy technicznej Menedżera środowisko Adobe](https://helpx.adobe.com/support/experience-manager.html).
  
-4. Sprawdź, Pokaż zaawansowane ustawienia adresu URL i wykonać następujący krok, jeśli chcesz skonfigurować aplikację w **SP** inicjowane tryb:
+4. Sprawdź **Pokaż zaawansowane ustawienia adresu URL**. Następnie wykonaj następujące kroki, aby skonfigurować aplikację w **SP** inicjowane tryb:
 
     ![Adresy URL i domeny Menedżera środowisko Adobe pojedynczy informacje logowania jednokrotnego](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_spconfigure.png)
 
-    W **na adres URL logowania** tekstowym, wpisz adres URL serwera Adobe środowisko Manager. 
+    W **na adres URL logowania** wpisz adres URL serwera Adobe środowisko Manager. 
 
-5. Na **certyfikat podpisywania SAML** kliknij **certyfikatu (Base64)** , a następnie zapisz plik certyfikatu na tym komputerze.
+5. W **certyfikat podpisywania SAML** zaznacz **certyfikatu (Base64)**. Następnie zapisz plik certyfikatu na tym komputerze.
 
     ![Łącze pobierania certyfikatu](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_certificate.png) 
 
-6. W sekcji konfiguracji Menedżera środowisko Adobe kliknij Manager środowisko Adobe skonfigurować, aby otworzyć Konfigurowanie logowania jednokrotnego okna. Kopiowania **SAML logowania jednokrotnego usługi adres URL**, **identyfikator jednostki SAML** i **Sign-Out identyfikator** z sekcji krótkimi opisami.
+6. Aby otworzyć okno logowania jednokrotnego Konfiguracja w sekcji konfiguracji Menedżera środowisko Adobe, wybierz **Konfigurowanie Menedżera środowisko Adobe**. Kopiowania **SAML logowania jednokrotnego usługi adres URL**, **identyfikator jednostki SAML**, i **Sign-Out identyfikator** z sekcji krótkimi opisami.
 
     ![Link w sekcji konfiguracji](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_configure.png) 
 
-7. Kliknij przycisk **zapisać** przycisku.
+7. Wybierz pozycję **Zapisz**.
 
-    ![Skonfiguruj przycisk pojedynczego logowania jednokrotnego Zapisz](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_general_400.png)
+    ![Konfigurowanie rejestracji jednokrotnej przycisk zapisywania](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_general_400.png)
 
-8. Otwórz **Menedżera środowisko Adobe** portalu administratora w innym oknie przeglądarki.
+8. W innym oknie przeglądarki Otwórz **Menedżera środowisko Adobe** portalu administratora.
 
-9. Wybierz **ustawienia** -> **zabezpieczeń** -> **użytkowników**.
+9. Wybierz **ustawienia** > **zabezpieczeń** > **użytkowników**.
 
-    ![Skonfiguruj przycisk pojedynczego logowania jednokrotnego Zapisz](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user.png)
+    ![Konfigurowanie rejestracji jednokrotnej przycisk zapisywania](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user.png)
 
 10. Wybierz **administratora** lub innych odpowiednich użytkowników.
 
     ![Skonfiguruj przycisk pojedynczego logowania jednokrotnego Zapisz](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin6.png)
 
-11. Wybierz **ustawienia konta** -> **Tworzenie lub zarządzać TrustStore**.
+11. Wybierz **ustawienia konta** > **Zarządzanie TrustStore**.
 
     ![Skonfiguruj przycisk pojedynczego logowania jednokrotnego Zapisz](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_managetrust.png)
 
-12. Kliknij przycisk **wybierz plik certyfikatu** z **dodać certyfikat z pliku CER** przycisku. Wyszukaj i wybierz plik certyfikatu, który został pobrany z portalu Azure.
+12. W obszarze **dodać certyfikat z pliku CER**, kliknij przycisk **wybierz plik certyfikatu**. Wyszukaj i wybierz plik certyfikatu, który został już pobrany z portalu Azure.
 
-    ![Skonfiguruj przycisk pojedynczego logowania jednokrotnego Zapisz](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user2.png)
+    ![Konfigurowanie rejestracji jednokrotnej przycisk zapisywania](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user2.png)
 
 13. Certyfikat jest dodawany do TrustStore. Należy pamiętać, alias certyfikatu.
 
@@ -159,48 +159,48 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Skonfiguruj przycisk pojedynczego logowania jednokrotnego Zapisz](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin8.png)
 
-15. Wybierz **ustawienia konta** -> **KeyStore Utwórz/Zarządzaj**. Tworzenie magazynu kluczy, podając hasło.
+15. Wybierz **ustawienia konta** > **KeyStore Utwórz/Zarządzaj**. Tworzenie magazynu kluczy, podając hasło.
 
     ![Skonfiguruj przycisk pojedynczego logowania jednokrotnego Zapisz](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin9.png)
 
-16. Wróć do administratora ekranu i wybierz pozycję **ustawienia** -> **operacji** -> **konsoli sieci Web**.
+16. Przejść do ekranu administratora. Następnie wybierz **ustawienia** > **operacji** > **konsoli sieci Web**.
 
     ![Skonfiguruj przycisk pojedynczego logowania jednokrotnego Zapisz](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin1.png)
 
-17. Spowoduje to otwarcie strony konfiguracji.
+    Spowoduje to otwarcie strony konfiguracji.
 
-    ![Skonfiguruj przycisk pojedynczego logowania jednokrotnego Zapisz](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin2.png)
+    ![Konfigurowanie rejestracji jednokrotnej przycisk zapisywania](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin2.png)
 
-18. Znajdź **Adobe granitu SAML 2.0 uwierzytelniania obsługi** i wybierz polecenie **Dodaj** ikony.
+17. Znajdź **Adobe granitu SAML 2.0 uwierzytelniania obsługi**. Następnie wybierz **Dodaj** ikony.
 
     ![Skonfiguruj przycisk pojedynczego logowania jednokrotnego Zapisz](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin3.png)
 
-19. Wykonaj następujące czynności na tej stronie.
+19. Na tej stronie, należy wykonać następujące czynności.
 
     ![Skonfiguruj przycisk pojedynczego logowania jednokrotnego Zapisz](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin4.png)
 
-    a. W **ścieżki** pole tekstowe, wprowadź  **/** .
+    a. W **ścieżki** wprowadź  **/** .
 
-    b. W **IDP URL** pole tekstowe, wprowadź wartość **SAML logowania jednokrotnego usługi adres URL**, które zostały skopiowane z portalu Azure.
+    b. W **IDP URL** wprowadź **SAML logowania jednokrotnego usługi adres URL** wartość skopiowany z portalu Azure.
 
-    c. W **Alias certyfikatu IDP** pole tekstowe, wprowadź wartość **Alias certyfikatu**, dodanego w TrustStore.
+    c. W **Alias certyfikatu IDP** wprowadź **Alias certyfikatu** wartości, który został dodany w TrustStore.
 
-    d. W **zabezpieczeń podany identyfikator jednostki** pole tekstowe, wprowadź wartość unikatową **identyfikator jednostki SAML**, które zostały skonfigurowane w portalu Azure.
+    d. W **zabezpieczeń podany identyfikator jednostki** wprowadź unikatowy **identyfikator jednostki SAML** wartość skonfigurowaną w portalu Azure.
 
-    e. W **adres URL usługi klienta potwierdzenia** pole tekstowe, wprowadź wartość **adres URL odpowiedzi służący**, które zostały skonfigurowane w portalu Azure.
+    e. W **adres URL usługi klienta potwierdzenia** wprowadź **adres URL odpowiedzi** wartość skonfigurowaną w portalu Azure.
 
-    f. W **magazynu haseł klucza** pole tekstowe, wprowadź **hasło**, który wybrano w magazynie kluczy.
+    f. W **magazynu haseł klucza** wprowadź **hasło** ustawioną w magazynie kluczy.
 
-    g. W **identyfikator atrybutu użytkownika** pole tekstowe, wprowadź **Identyfikatora nazwy** lub innych identyfikator użytkownika, który ma zastosowanie w Twoim przypadku.
+    g. W **identyfikator atrybutu użytkownika** wprowadź **Identyfikatora nazwy** lub inną nazwę użytkownika, która jest odpowiednia w Twoim przypadku.
 
-    h. Wybierz **CRX automatycznie Utwórz użytkowników.**
+    h. Wybierz **użytkowników automatycznie Utwórz CRX**.
 
-    i. W **adresu URL wylogowania** pole tekstowe, wprowadź wartość unikatową **Sign-Out URL** mające z portalu Azure.
+    i. W **adresu URL wylogowania** wprowadź unikatowy **Sign-Out URL** wartość pochodzący z portalu Azure.
 
-    j. Kliknij przycisk **Zapisz**
+    j. Wybierz pozycję **Zapisz**.
 
 > [!TIP]
-> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com) podczas konfigurowania aplikacji. Po dodaniu tej aplikacji z **usługi Active Directory** > **aplikacje dla przedsiębiorstw** zaznacz **rejestracji jednokrotnej** kartę. Dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Możesz przeczytać dodatkowe informacje o funkcji dokumentacji osadzony w [usługi Azure AD osadzonych dokumentacji]( https://go.microsoft.com/fwlink/?linkid=845985).
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -208,21 +208,21 @@ Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie 
 
    ![Tworzenie użytkownika testowego usługi Azure AD][100]
 
-**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
+**Aby utworzyć użytkownika testowego w usłudze Azure AD, należy wykonać następujące czynności:**
 
-1. W portalu Azure, w okienku po lewej stronie kliknij **usługi Azure Active Directory** przycisku.
+1. W portalu Azure, w lewym okienku wybierz **usługi Azure Active Directory** przycisku.
 
     ![Przycisk usługi Azure Active Directory](./media/active-directory-saas-adobeexperiencemanager-tutorial/create_aaduser_01.png)
 
-2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup**, a następnie kliknij przycisk **wszyscy użytkownicy**.
+2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup**, a następnie wybierz **wszyscy użytkownicy**.
 
     !["Użytkownicy i grupy" i "Wszyscy użytkownicy" łącza](./media/active-directory-saas-adobeexperiencemanager-tutorial/create_aaduser_02.png)
 
-3. Aby otworzyć **użytkownika** okno dialogowe, kliknij przycisk **Dodaj** w górnej części **wszyscy użytkownicy** okno dialogowe.
+3. Aby otworzyć **użytkownika** okno dialogowe, w górnej części **wszyscy użytkownicy** okno dialogowe, wybierz opcję **Dodaj**.
 
     ![Przycisk Dodaj](./media/active-directory-saas-adobeexperiencemanager-tutorial/create_aaduser_03.png)
 
-4. W **użytkownika** okna dialogowego wykonaj następujące czynności:
+4. W **użytkownika** okna dialogowego należy wykonać następujące czynności:
 
     ![Okno dialogowe użytkownika](./media/active-directory-saas-adobeexperiencemanager-tutorial/create_aaduser_04.png)
 
@@ -230,25 +230,25 @@ Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie 
 
     b. W **nazwy użytkownika** wpisz adres e-mail użytkownika Simona Britta.
 
-    c. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartość, która jest wyświetlana w **hasło** pole.
+    c. Wybierz **Pokaż hasło** pole wyboru. Zanotuj wartość, która jest wyświetlana w **hasło** pole.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Wybierz pozycję **Utwórz**.
   
 ### <a name="create-an-adobe-experience-manager-test-user"></a>Tworzenie użytkownika testowego Adobe środowisko Manager
 
-W tej sekcji należy utworzyć użytkownika o nazwie Simona Britta w Menedżerze środowisko Adobe. Jeśli wybrano **użytkowników CRX automatycznie Utwórz** opcję użytkowników zostanie utworzony automatycznie po pomyślnym uwierzytelnieniu. 
+W tej sekcji należy utworzyć użytkownika o nazwie Simona Britta w Menedżerze środowisko Adobe. W przypadku wybrania **użytkowników CRX automatycznie Utwórz** opcję, użytkownicy są tworzone automatycznie po pomyślnym uwierzytelnieniu. 
 
-Jeśli chcesz ręcznie utworzyć użytkowników, współpracy z [zespołem pomocy technicznej Menedżera środowisko Adobe](https://helpx.adobe.com/support/experience-manager.html) Aby dodać użytkowników na platformie Adobe obsługi Menedżera. 
+Jeśli chcesz ręcznie utworzyć użytkowników, pracy z [zespołem pomocy technicznej Menedżera środowisko Adobe](https://helpx.adobe.com/support/experience-manager.html) Aby dodać użytkowników na platformie Adobe obsługi Menedżera. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisz użytkownika testowego usługi Azure AD
 
-W tej sekcji można włączyć Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu do Menedżera środowisko Adobe.
+W tej sekcji można włączyć Simona Britta do przyznania im dostęp do programu Adobe środowisko Manager za pomocą usługi Azure rejestracji jednokrotnej.
 
 ![Przypisanie roli użytkownika][200] 
 
-**Aby przypisać do Menedżera środowisko Adobe Simona Britta, wykonaj następujące czynności:**
+**Aby przypisać do Menedżera środowisko Adobe Simona Britta, należy wykonać następujące czynności:**
 
-1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
+1. W portalu Azure Otwórz widok aplikacji. Następnie przejdź do widoku katalogu, wybierz opcję **aplikacje dla przedsiębiorstw**, a następnie wybierz **wszystkie aplikacje**.
 
     ![Przypisz użytkownika][201] 
 
@@ -256,30 +256,31 @@ W tej sekcji można włączyć Simona Britta do używania Azure logowania jednok
 
     ![Łączy Menedżera środowisko Adobe na liście aplikacji](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_app.png)  
 
-3. W menu po lewej stronie kliknij **użytkowników i grup**.
+3. W menu po lewej stronie wybierz **użytkowników i grup**.
 
     ![Łącze "Użytkownicy i grupy"][202]
 
-4. Kliknij przycisk **Dodaj** przycisku. Następnie wybierz **użytkowników i grup** na **Dodaj przydziału** okna dialogowego.
+4. Wybierz **Dodaj** przycisku. Następnie w **Dodaj przydziału** okno dialogowe, wybierz opcję **użytkowników i grup**.
 
     ![W okienku Dodaj przydziału][203]
 
-5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
+5. W **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
 
-6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
+6. W **użytkowników i grup** okno dialogowe, kliknij przycisk **wybierz** przycisku.
 
-7. Kliknij przycisk **przypisać** znajdującego się na **Dodaj przydziału** okna dialogowego.
+7. W **Dodaj przydziału** okno dialogowe, wybierz opcję **przypisać** przycisku.
     
 ### <a name="test-single-sign-on"></a>Test rejestracji jednokrotnej
 
 W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.
 
-Po kliknięciu kafelka Adobe środowisko Manager w panelu dostępu należy należy pobrać automatycznie zalogowane do aplikacji Adobe obsługi Menedżera.
+Po wybraniu kafelka Adobe środowisko Manager w panelu dostępu należy należy pobrać automatycznie zalogowany do aplikacji Adobe obsługi Menedżera.
+
 Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
-* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

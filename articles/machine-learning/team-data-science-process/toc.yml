@@ -1,5 +1,6 @@
 - name: Dokumentacja dotycząca zespołowego przetwarzania danych dla celów naukowych
-- name: Przegląd
+  href: index.yml
+- name: Omówienie
   href: overview.md
 - name: Cykl życia
   href: lifecycle.md
@@ -133,7 +134,7 @@
       items:
         - name: Zarządzanie logistyką danych
           items:
-            - name: Przegląd
+            - name: Omówienie
               href: ingest-data.md
             - name: Blob Storage
               href: move-azure-blob.md
@@ -162,7 +163,7 @@
               href: prepare-data.md
             - name: Eksplorowanie danych
               items:
-                - name: Przegląd
+                - name: Omówienie
                   href: explore-data.md
                 - name: Korzystanie z biblioteki Pandas
                   href: explore-data-blob.md
@@ -172,7 +173,7 @@
                   href: explore-data-hive-tables.md
             - name: Dane przykładowe
               items:
-                - name: Przegląd
+                - name: Omówienie
                   href: sample-data.md
                 - name: Korzystanie z magazynu Blob Storage
                   href: sample-data-blob.md
@@ -200,7 +201,7 @@
       items:
         - name: Funkcje inżynierskie
           items:
-            - name: Przegląd
+            - name: Omówienie
               href: create-features.md
             - name: Korzystanie z biblioteki Pandas
               href: create-features-blob.md
@@ -243,7 +244,7 @@
               href: 'https://docs.microsoft.com/azure/cognitive-services/'
             - name: Konserwacja zapobiegawcza
               items:
-                - name: Przegląd
+                - name: Omówienie
                   href: cortana-analytics-playbook-predictive-maintenance.md
                 - name: Architektura
                   href: cortana-analytics-architecture-predictive-maintenance.md
@@ -251,7 +252,7 @@
                   href: cortana-analytics-technical-guide-predictive-maintenance.md
             - name: Telemetria pojazdów
               items:
-                - name: Przegląd
+                - name: Omówienie
                   href: cortana-analytics-playbook-vehicle-telemetry.md
                 - name: Podręcznik
                   href: cortana-analytics-playbook-vehicle-telemetry-deep-dive.md

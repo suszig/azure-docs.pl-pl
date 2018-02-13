@@ -1,4 +1,5 @@
 - name: Dokumentacja maszyn wirtualnych do analizy danych
+  href: index.yml
   items: null
 - name: Omówienie
   expanded: true

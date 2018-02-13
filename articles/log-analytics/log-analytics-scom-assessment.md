@@ -3,7 +3,7 @@ title: "Optymalizacja środowiskiem programu System Center Operations Manager na
 description: "Sprawdź System Center Operations Manager kondycji rozwiązania można użyć do oceny ryzyka i kondycji środowisk w regularnych odstępach czasu."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: tysonn
 ms.assetid: 49aad8b1-3e05-4588-956c-6fdd7715cda1
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2017
-ms.author: magoedte;banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5709de72032de9e3f7342be43260d3468b9cee66
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 86484ca2bc7dc14035f48b8f7b1514a4fc471b74
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optymalizuj środowisko z rozwiązań System Center Operations Manager sprawdzanie kondycji (wersja zapoznawcza)
 
@@ -60,7 +60,7 @@ Skorzystaj z poniższych informacji, aby zainstalować i skonfigurować rozwiąz
 
 ## <a name="system-center-operations-manager-assessment-data-collection-details"></a>Szczegóły danych oceny System Center Operations Manager w kolekcji
 
-Ocena programu System Center Operations Manager zbiera dane z następujących źródeł: 
+Ocena programu System Center Operations Manager zbiera dane z następujących źródeł:
 
 * Rejestr
 * Instrumentacja zarządzania Windows (WMI)
@@ -72,7 +72,7 @@ Dane są zbierane na serwerze zarządzania i przekazywane do analizy dzienników
 
 ## <a name="operations-manager-run-as-accounts-for-log-analytics"></a>Uruchom jako konta programu Operations Manager dla analizy dzienników
 
-Kompilacje analizy dziennika od pakietów administracyjnych dla obciążeń w celu zapewnienia wartość — Dodawanie usług. Poszczególnych obciążeń wymaga specyficznego dla obciążenia uprawnień do uruchamiania pakietów administracyjnych w innym kontekście zabezpieczeń, takich jak konta użytkownika domeny. Skonfiguruj konto Operations Manager uruchom jako z poświadczeń dla konta uprzywilejowanego. Aby uzyskać dodatkowe informacje, zobacz [sposobu tworzenia konta Uruchom jako](https://technet.microsoft.com/library/hh321655(v=sc.12).aspx) w dokumentacji programu Operations Manager. 
+Kompilacje analizy dziennika od pakietów administracyjnych dla obciążeń w celu zapewnienia wartość — Dodawanie usług. Poszczególnych obciążeń wymaga specyficznego dla obciążenia uprawnień do uruchamiania pakietów administracyjnych w innym kontekście zabezpieczeń, takich jak konta użytkownika domeny. Skonfiguruj konto Operations Manager uruchom jako z poświadczeń dla konta uprzywilejowanego. Aby uzyskać dodatkowe informacje, zobacz [sposobu tworzenia konta Uruchom jako](https://technet.microsoft.com/library/hh321655(v=sc.12).aspx) w dokumentacji programu Operations Manager.
 
 Skorzystaj z poniższych informacji, aby ustawić konto Operations Manager uruchom jako dla Sprawdź System Center Operations Manager kondycji.
 
@@ -82,13 +82,13 @@ Konto Uruchom jako musi spełniać następujące wymagania przed kontynuowaniem:
 
 * Konto użytkownika domeny należącego do lokalnej grupy administratorów na wszystkich serwerach obsługujących dowolnej roli programu Operations Manager — serwer zarządzania, serwera SQL Server z operacyjną, Magazyn danych i bazy danych ACS, raportowanie, sieci Web konsoli, a serwer bramy.
 * Rola administratora menedżera operacji dla grupy zarządzania są oceniane
-* Jeśli konto nie ma prawa administratora systemu SQL, wykonujących [skryptu](#sql-script-to-grant-granular-permissions-to-the-run-as-account) udzielenia szczegółowe uprawnienia do konta na każde wystąpienie programu SQL Server obsługującego jednego lub wszystkich baz danych programu Operations Manager. 
+* Jeśli konto nie ma prawa administratora systemu SQL, wykonujących [skryptu](#sql-script-to-grant-granular-permissions-to-the-run-as-account) udzielenia szczegółowe uprawnienia do konta na każde wystąpienie programu SQL Server obsługującego jednego lub wszystkich baz danych programu Operations Manager.
 
 1. W konsoli programu Operations Manager, wybierz **administracji** przycisk nawigacji.
 2. W obszarze **Konfiguracja Uruchom jako**, kliknij przycisk **kont**.
 3. W **Utwórz konto Uruchom jako** kreatora na **wprowadzenie** kliknij **dalej**.
 4. Na **właściwości ogólne** wybierz pozycję **Windows** w **typ konta Uruchom jako:** listy.
-5. Wpisz nazwę wyświetlaną w **nazwy wyświetlanej** tekst pola i opcjonalnie wpisać opis w **opis** , a następnie kliknij przycisk **dalej**. 
+5. Wpisz nazwę wyświetlaną w **nazwy wyświetlanej** tekst pola i opcjonalnie wpisać opis w **opis** , a następnie kliknij przycisk **dalej**.
 6. Na **zabezpieczenia dystrybucji** wybierz pozycję **bezpieczniejsze**.
 7. Kliknij przycisk **Utwórz**.  
 
@@ -96,7 +96,7 @@ Teraz, gdy utworzone konto Uruchom jako jest potrzebuje do docelowych serwerów 
 
 1. W obszarze **Konfiguracja Uruchom jako**, **kont**, w okienku wyników kliknij dwukrotnie utworzonego wcześniej konta.
 2. Na **dystrybucji** , kliknij pozycję **Dodaj** dla **komputery wybrane** i dodać na dystrybucję konta na serwerze zarządzania.  Kliknij przycisk **OK** dwa razy, aby zapisać zmiany.
-3. W obszarze **Konfiguracja Uruchom jako**, kliknij przycisk **profile**. 
+3. W obszarze **Konfiguracja Uruchom jako**, kliknij przycisk **profile**.
 4. Wyszukaj *SCOM oceny profilu*.
 5. Nazwa profilu powinna być: *programu Microsoft System Center Advisor SCOM oceny profilu Uruchom jako*.
 6. Kliknij prawym przyciskiem myszy i zaktualizować jej właściwości i dodać ostatnio utworzone konto Uruchom jako, utworzony wcześniej.
@@ -216,7 +216,7 @@ Zanim użyjesz funkcję sprawdzania kondycji w analizy dzienników, musi mieć z
 Wyświetl oceny zgodności podsumowania dla Twojej infrastruktury, a następnie wejdź do zalecenia.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Aby wyświetlić zalecenia dla obszaru fokus i podjąć działania naprawcze
-1. Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com). 
+1. Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com).
 2. W witrynie Azure Portal kliknij pozycję **Więcej usług** w lewym dolnym rogu. Na liście zasobów wpisz **Log Analytics**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Wybierz pozycję **Log Analytics**.
 3. W okienku subskrypcje analizy dzienników, wybierz obszar roboczy, a następnie kliknij przycisk **portalu OMS** kafelka.  
 4. Na **omówienie** kliknij przycisk **Sprawdź System Center Operations Manager kondycji** kafelka.

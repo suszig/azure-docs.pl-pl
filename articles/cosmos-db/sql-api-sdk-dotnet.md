@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 02/12/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fb6937cc0fc744d6e3a783d77b2a16b6fc09f3bf
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 796a455ffb906a47ab4ac9ae069537b0d7a31156
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure SDK .NET dla interfejsu API SQL rozwiązania Cosmos DB: Pobierz i informacje o wersji
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ ms.lasthandoff: 12/18/2017
 
 <tr><td>**Przykłady**</td><td>[Przykłady kodu platformy .NET](sql-api-dotnet-samples.md)</td></tr>
 
-<tr><td>**Wprowadzenie**</td><td>[Wprowadzenie do zestawu .NET SDK usługi Azure rozwiązania Cosmos bazy danych](sql-api-get-started.md)</td></tr>
+<tr><td>Wprowadzenie</td><td>[Wprowadzenie do zestawu .NET SDK usługi Azure rozwiązania Cosmos bazy danych](sql-api-get-started.md)</td></tr>
 
 <tr><td>**Samouczek aplikacji sieci Web**</td><td>[Tworzenie aplikacji sieci Web z bazy danych Azure rozwiązania Cosmos](sql-api-dotnet-application.md)</td></tr>
 
@@ -53,6 +53,14 @@ ms.lasthandoff: 12/18/2017
 </table></br>
 
 ## <a name="release-notes"></a>Informacje o wersji
+### <a name="a-name12011201"></a><a name="1.20.1"/>1.20.1
+
+* Stałe regresji gdzie FeedOptions.MaxItemCount = -1 zwrócił System.ArithmeticException: rozmiar strony jest ujemna.
+* Dodano nową funkcję ToString() do QueryMetrics.
+* Statystyki partycji narażonych na odczytywanie kolekcji.
+* Dodano właściwość PartitionKey ChangeFeedOptions.
+* Niewielkie poprawki błędów.
+
 ### <a name="a-name11911191"></a><a name="1.19.1"/>1.19.1
 
 * Dodaje możliwość określenia unikatowe indeksy dokumentów za pomocą właściwości UniqueKeyPolicy na elementu DocumentCollection.
@@ -277,6 +285,7 @@ Wszystkie żądania dotyczące bazy danych rozwiązania Cosmos Azure przy użyci
 
 | Wersja | Data wydania | Dacie wycofania |
 | --- | --- | --- |
+| [1.20.1](#1.20.1) |05 lutego 2018 |--- |
 | [1.19.1](#1.19.1) |16 listopada 2017 r. |--- |
 | [1.19.0](#1.19.0) |10 listopada 2017 r. |--- |
 | [1.18.1](#1.18.1) |07 listopada 2017 r. |--- |
@@ -324,6 +333,6 @@ Wszystkie żądania dotyczące bazy danych rozwiązania Cosmos Azure przy użyci
 ## <a name="faq"></a>Często zadawane pytania
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 Aby dowiedzieć się więcej na temat rozwiązania Cosmos bazy danych, zobacz [bazy danych programu Microsoft Azure rozwiązania Cosmos](https://azure.microsoft.com/services/cosmos-db/) stronę usługi. 
 

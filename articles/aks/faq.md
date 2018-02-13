@@ -8,11 +8,11 @@ ms.service: container-service
 ms.topic: article
 ms.date: 2/01/2018
 ms.author: nepeters
-ms.openlocfilehash: 2b78479c257930669729a7781b3893b3e2064bab
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 73c49510512c9148f4fee98423b14770fa8602b9
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="frequently-asked-questions-about-azure-container-service-aks"></a>Często zadawane pytania dotyczące usługi kontenera platformy Azure (AKS)
 
@@ -50,7 +50,15 @@ Skalowanie automatyczne węzeł nie jest obsługiwane, ale znajduje się na plan
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>Dlaczego są tworzone dwie grupy zasobów z AKS? 
 
-Druga grupa zasobów jest automatycznie utworzone do łatwego usunięcia wszystkie zasoby skojarzone z wdrożeniem AKS.
+Każdy klaster usługi kontenera platformy Azure (AKS) znajduje się w dwóch grupach zasobów. Pierwszy jest tworzone przez użytkownika i zawiera tylko zasób AKS. Drugi grupy zasobów jest automatycznie utworzone podczas wdrażania i zawiera wszystkie klastra infrastrukturalne zasoby, takie jak maszyn wirtualnych, sieci i zasobów magazynu. Ta grupa zasobów jest tworzona dla oczyszczania łatwe zasobu. 
+
+Grupa zasobów automatycznie utworzone ma nazwę podobną do:
+
+```
+MC_myResourceGRoup_myAKSCluster_eastus
+```
+
+Podczas dodawania zasobów platformy Azure do użycia w klastrze Kubernetes, takich jak konta magazynu lub zastrzeżone publicznego adresu IP, te zasoby muszą zostać utworzone w automatycznie utworzyć grupy zasobów.   
 
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>Usługa Azure Key Vault jest zintegrowany z AKS? 
 

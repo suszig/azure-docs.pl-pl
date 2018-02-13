@@ -3,7 +3,7 @@ title: "Monitorowanie VMware rozwiązania analizy dzienników | Dokumentacja fir
 description: "Dowiedz się więcej o tym, jak to rozwiązanie monitorowanie VMware można ułatwić zarządzania dziennikami i monitorować hostach ESXi."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: 16516639-cc1e-465c-a22f-022f3be297f1
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
-ms.author: banders
-ms.openlocfilehash: 4af3651ce3d45837166248684d78ab4df95f524c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: magoedte
+ms.openlocfilehash: f54d24659ad13aa02462938711482326c5bf763c
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>VMware monitorowania (wersja zapoznawcza) rozwiązania analizy dzienników
 
@@ -44,8 +44,8 @@ Tworzenie maszyny Wirtualnej, aby otrzymywać wszystkie dane syslog hostach ESXi
 ### <a name="configure-syslog-collection"></a>Konfigurowanie zbierania syslog
 1. Skonfiguruj funkcję przesyłania syslog VSphere. Aby uzyskać szczegółowe informacje ułatwiające konfigurowanie przekazywania syslog, zobacz [Konfigurowanie syslog na ESXi 5.x i 6.0 (2003322)](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2003322). Przejdź do **Konfiguracja hosta ESXi** > **oprogramowania** > **Zaawansowane ustawienia** > **Syslog**.
    ![vsphereconfig](./media/log-analytics-vmware/vsphere1.png)  
-2. W *Syslog.global.logHost* pól, Dodaj serwer z systemem Linux i numer portu *1514*. Na przykład `tcp://hostname:1514` lub`tcp://123.456.789.101:1514`
-3. Otwórz zaporę hosta ESXi dla syslog. **Konfiguracja hosta ESXi** > **oprogramowania** > **profil zabezpieczeń** > **zapory** , a następnie otwórz **właściwości**.  
+2. W *Syslog.global.logHost* pól, Dodaj serwer z systemem Linux i numer portu *1514*. Na przykład `tcp://hostname:1514` lub `tcp://123.456.789.101:1514`
+3. Otwórz zaporę hosta ESXi dla syslog. **Konfiguracja hosta ESXi** > **oprogramowania** > **profil zabezpieczeń** > **zapory** , a następnie otwórz **Właściwości**.  
 
     ![vspherefw](./media/log-analytics-vmware/vsphere2.png)  
 
@@ -183,20 +183,20 @@ Może istnieć wiele przyczyn:
 
 * Hosta ESXi nie jest poprawnie wypychanie danych do maszyny Wirtualnej uruchomionej omsagent. Aby przetestować, wykonaj następujące czynności:
 
-  1. Aby potwierdzić, zaloguj się do hosta ESXi przy użyciu ssh i uruchom następujące polecenie:`nc -z ipaddressofVM 1514`
+  1. Aby potwierdzić, zaloguj się do hosta ESXi przy użyciu ssh i uruchom następujące polecenie: `nc -z ipaddressofVM 1514`
 
       Jeśli to się nie powiedzie, prawdopodobnie vSphere ustawień konfiguracji Zaawansowane nieprawidlowy. Zobacz [Konfigurowanie zbierania syslog](#configure-syslog-collection) informacji o konfigurowaniu hosta ESXi do przekazywania dziennika systemowego.
-  2. Jeśli połączenie port syslog zakończy się pomyślnie, ale nadal nie widzisz żadnych danych, Załaduj ponownie syslog na hoście ESXi, za pomocą ssh uruchom następujące polecenie:` esxcli system syslog reload`
+  2. Jeśli połączenie port syslog zakończy się pomyślnie, ale nadal nie widzisz żadnych danych, Załaduj ponownie syslog na hoście ESXi, za pomocą ssh uruchom następujące polecenie: ` esxcli system syslog reload`
 * Maszyna wirtualna z agentem pakietu OMS nie jest poprawnie ustawiony. Aby to sprawdzić, wykonaj następujące czynności:
 
-  1. Analiza dzienników nasłuchuje portu 1514. Aby sprawdzić, czy jest otwarty, uruchom następujące polecenie:`netstat -a | grep 1514`
+  1. Analiza dzienników nasłuchuje portu 1514. Aby sprawdzić, czy jest otwarty, uruchom następujące polecenie: `netstat -a | grep 1514`
   2. Powinny pojawić się portu `1514/tcp` otworzyć. Jeśli nie chcesz, sprawdź, czy omsagent jest poprawnie zainstalowany. Jeśli nie ma informacji o porcie, syslog port nie jest otwarty na maszynie Wirtualnej.
 
-    a. Sprawdź, czy Agent pakietu OMS jest uruchomiony przy użyciu `ps -ef | grep oms`. Jeśli nie jest uruchomiona, należy uruchomić proces, za pomocą polecenia` sudo /opt/microsoft/omsagent/bin/service_control start`
+    a. Sprawdź, czy Agent pakietu OMS jest uruchomiony przy użyciu `ps -ef | grep oms`. Jeśli nie jest uruchomiona, należy uruchomić proces, za pomocą polecenia ` sudo /opt/microsoft/omsagent/bin/service_control start`
 
     b. Otwórz plik `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf`.
 
-    c. Sprawdź, czy odpowiednie użytkownika i ustawienia grupy jest prawidłowy, podobnie jak:`-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
+    c. Sprawdź, czy odpowiednie użytkownika i ustawienia grupy jest prawidłowy, podobnie jak: `-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
 
     d. Jeśli plik nie istnieje lub jest nieprawidłowy, użytkownika i ustawienia grupy podjęcia działań naprawczych przez [przygotowania serwera Linux](#prepare-a-linux-server).
 
