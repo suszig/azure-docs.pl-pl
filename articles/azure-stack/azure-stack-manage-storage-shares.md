@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: dce4252846732ca5161018103438df1f9ff6146d
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 30e5265fbad66ab3c68bc5d5e90687b1a968167b
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Zarządzanie wydajnością magazynu Azure stosu
 
@@ -130,7 +130,7 @@ Migracja konsoliduje obiektu blob kontenery nowego udziału.
 - Jeśli brakuje uprawnień do grupy zasobów i nie można użyć programu PowerShell do badania dodatkowych woluminów danych przepełnienia, współpracować z właścicielem tych grup zasobów i kontenery zrozumieć całkowity rozmiar danych do migracji przed przeprowadzeniem migracji danych.  
 
 > [!IMPORTANT]
-> Migracja obiektów blob kontenera jest operację w trybie offline, która wymaga użycia programu PowerShell. Dopiero po zakończeniu migracji, wszystkie obiekty BLOB do kontenera, który jest przeprowadzana migracja pozostaną w trybie offline i nie można użyć.
+> Migracja obiektów blob kontenera jest operację w trybie offline, która wymaga użycia programu PowerShell. Dopiero po zakończeniu migracji, wszystkie obiekty BLOB do kontenera, który jest przeprowadzana migracja pozostaną w trybie offline i nie można użyć. Należy również unikać uaktualniania stosu Azure do momentu ukończenia wszystkich bieżących migracji.
 
 #### <a name="to-migrate-containers-using-powershell"></a>Aby przeprowadzić migrację kontenerów przy użyciu programu PowerShell
 1. Upewnij się, że masz [programu Azure PowerShell zainstalowany i skonfigurowany](http://azure.microsoft.com/documentation/articles/powershell-install-configure/). Aby uzyskać więcej informacji, zobacz temat [Using Azure PowerShell with Azure Resource Manager](http://go.microsoft.com/fwlink/?LinkId=394767) (Używanie programu Azure PowerShell z usługą Azure Resource Manager).
