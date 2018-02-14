@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: 608f5ec2fb4b8fa374778cb4f506f1d25eb7642b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 01f845e0cb987eb4e4e9baa62478d3ff6991fb7e
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure powiązania HTTP funkcje i elementu webhook
 
@@ -385,9 +385,9 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 |---------|---------|----------------------|
 | **Typ** | Nie dotyczy| Wymagana — musi być ustawiona `httpTrigger`. |
 | **Kierunek** | Nie dotyczy| Wymagana — musi być ustawiona `in`. |
-| **Nazwa** | Nie dotyczy| Wymagana — nazwa zmiennej używane w kodzie funkcji żądania lub treści żądania. |
+| Nazwa | Nie dotyczy| Wymagana — nazwa zmiennej używane w kodzie funkcji żądania lub treści żądania. |
 | <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Określa, jakie klucze, jeśli taki występuje, musi być obecny na żądanie, aby można było wywołać funkcję. Poziom dostępu może być jedną z następujących wartości: <ul><li><code>anonymous</code>&mdash;Brak klucza interfejsu API jest wymagana.</li><li><code>function</code>&mdash;Wymagany jest klucz interfejsu API właściwe dla funkcji. Jeśli nie zostanie podana jest wartość domyślna.</li><li><code>admin</code>&mdash;Klucz główny jest wymagany.</li></ul> Aby uzyskać więcej informacji, zobacz sekcję [klucze autoryzacji](#authorization-keys). |
-| **metody** |**Metody** | Tablica metod HTTP, na które odpowiada funkcji. Jeśli nie zostanie określony, funkcja odpowiada na wszystkich metod HTTP. Zobacz [dostosować punkt końcowy http](#trigger---customize-the-http-endpoint). |
+| **Metody** |**Metody** | Tablica metod HTTP, na które odpowiada funkcji. Jeśli nie zostanie określony, funkcja odpowiada na wszystkich metod HTTP. Zobacz [dostosować punkt końcowy http](#trigger---customize-the-http-endpoint). |
 | **route** | **Route** | Określa szablon trasy, kontrolowanie, do której żądanie odpowiada funkcji adresów URL. Jeśli nie zostanie podana wartość domyślna to `<functionname>`. Aby uzyskać więcej informacji, zobacz [dostosować punkt końcowy http](#customize-the-http-endpoint). |
 | **webHookType** | **WebHookType** |Konfiguruje wyzwalacz protokołu HTTP do działania jako [webhook](https://en.wikipedia.org/wiki/Webhook) odbiornika dla podanego dostawcy. Nie należy ustawiać `methods` właściwości, jeśli ta właściwość jest ustawiona. Typ elementu webhook może być jedną z następujących wartości:<ul><li><code>genericJson</code>&mdash;Punkt końcowy elementu webhook ogólnego przeznaczenia bez logiki dla określonego dostawcy. To ustawienie ogranicza żądania tylko do tych przy użyciu protokołu HTTP POST i z `application/json` typ zawartości.</li><li><code>github</code>&mdash;Funkcja odpowiada [elementów webhook GitHub](https://developer.github.com/webhooks/). Nie używaj _authLevel_ właściwości z elementów webhook GitHub. Aby uzyskać więcej informacji zobacz sekcję elementów webhook GitHub w dalszej części tego artykułu.</li><li><code>slack</code>&mdash;Funkcja odpowiada [Slack elementów webhook](https://api.slack.com/outgoing-webhooks). Nie używaj _authLevel_ właściwości z elementów webhook Slack. Aby uzyskać więcej informacji zobacz sekcję Slack elementów webhook w dalszej części tego artykułu.</li></ul>|
 
@@ -494,6 +494,9 @@ Domyślnie wszystkie trasy funkcji są poprzedzane prefiksem *interfejsu api*. M
 
 Wyzwalacze HTTP pozwalają używać kluczy w celu zwiększenia bezpieczeństwa. Standardowa wyzwalacza HTTP można użyć je jako klucz interfejsu API wymagające klucza, który ma być obecne w żądaniu. Elementów Webhook można używać kluczy do autoryzowania żądań na różne sposoby, w zależności od tego, czy dostawca obsługuje.
 
+> [!NOTE]
+> Podczas uruchamiania lokalnego funkcje, autoryzacji jest wyłączone niezależnie `authLevel` w `function.json`. Jak opublikować do usługi Azure Functions `authLevel` natychmiast obowiązuje.
+
 Klucze są przechowywane w ramach funkcji aplikacji na platformie Azure i są szyfrowane, gdy. Aby wyświetlić klucze, tworzenie nowych, lub Przywróć do nowych wartości kluczy, przejdź do jednej z funkcji w portalu i wybierz "Manage". 
 
 Istnieją dwa typy kluczy:
@@ -561,7 +564,7 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 |---------|---------|
 | **Typ** |należy wybrać opcję `http`. |
 | **Kierunek** | należy wybrać opcję `out`. |
-|**Nazwa** | Nazwa zmiennej używane w kodzie funkcji dla odpowiedzi. |
+|Nazwa | Nazwa zmiennej używane w kodzie funkcji dla odpowiedzi. |
 
 ## <a name="output---usage"></a>Dane wyjściowe — użycie
 

@@ -13,15 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 70686a48585d83ca5de78fdded99ae46e90cc20c
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 2fc2b07189994206c8465ed24374489eefd45966
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Samouczek: Skonfiguruj miejsca pracy przez usługi Facebook dla użytkownika automatycznego inicjowania obsługi administracyjnej.
 
 W tym samouczku przedstawiono kroki niezbędne do automatycznego udostępniania i usuwanie kont użytkowników z usługi Azure Active Directory (Azure AD) do miejsca pracy przez usługi Facebook.
+
+>[!NOTE]
+>W tym samouczku opisano łącznika, rozszerzający usługi dostarczania użytkownika programu Azure AD. Ważne informacje w tej usługi nie, jak to działa i często zadawane pytania, zobacz [zautomatyzować użytkownika alokowania i anulowania alokowania do aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-app-provisioning.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -90,5 +93,5 @@ Można teraz utworzyć konta testowego. Poczekaj maksymalnie 20 minut, aby spraw
 
 * [Zarządzanie aprowizacja konta użytkowników dla aplikacji przedsiębiorstwa](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-* [Konfigurowanie rejestracji jednokrotnej](active-directory-saas-facebook-at-work-tutorial.md)
+* Konfigurowanie rejestracji jednokrotnej
 
