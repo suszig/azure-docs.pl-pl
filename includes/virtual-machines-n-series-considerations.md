@@ -4,9 +4,7 @@
 
 * N-series maszyny wirtualne mogą być wdrażane tylko w modelu wdrażania usługi Resource Manager.
 
-* Podczas tworzenia maszyny Wirtualnej z N serii za pomocą portalu Azure na **podstawy** bloku, wybierz opcję **typu dysku maszyny Wirtualnej** z **HDD**. Aby wybrać dostępny rozmiar N serii na **rozmiar** bloku, kliknij przycisk **Wyświetl wszystkie**.
-
-* NC i maszyn wirtualnych z wirtualizacją sieci nie obsługują dysków maszyny Wirtualnej, które bazują na magazynu Azure Premium.
+* N-series maszyn wirtualnych różnią się w typie usługi Azure Storage obsługuje na dyskach. NC i maszyn wirtualnych z wirtualizacją sieci obsługują tylko dyski maszyn wirtualnych, które bazują przez standardowe dysku magazynu (HDD). NCv2 ND i NCv3 (wersja zapoznawcza) maszyn wirtualnych tylko obsługę dyski maszyn wirtualnych utworzonych przez magazynu dysków Premium (SSD).
 
 * Jeśli chcesz wdrożyć więcej niż kilka N serii maszyn wirtualnych, należy wziąć pod uwagę z subskrypcji lub inne opcje zakupu. Jeśli używasz [bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/), możesz użyć ograniczonej liczby rdzeni obliczeniowych platformy Azure.
 
