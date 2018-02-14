@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: aa4608d37b06db88819e6175dcf8f94a7e13f04a
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: cef7fc282edc7396a0f26dab98ea7f1087315b23
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="find-data-using-log-searches-in-log-analytics"></a>Wyszukiwanie danych przy użyciu dziennika wyszukiwania w analizy dzienników
 
@@ -39,7 +39,7 @@ Firma Microsoft będzie rozpoczynać się od prostego, praktyczne przykłady i n
 Po znasz zapoznać się z techniki wyszukiwania, można przejrzeć [analizy dzienników dziennika odwołanie wyszukiwania](log-analytics-search-reference.md).
 
 ## <a name="use-basic-filters"></a>Używanie filtrów podstawowych
-Jest najpierw wiedzieć, że pierwsza część wyszukiwania zapytania przed każdą "|" znak kreski pionowej, jest zawsze *filtru*. Należy go traktować jako klauzuli WHERE TSQL — Określa *co* podzbiór danych na potrzeby pobierania poza og obszaru roboczego analizy. Wyszukiwanie w magazynie danych dotyczy przede wszystkim określenie właściwości dane, które mają zostać wyodrębnione, dlatego jest naturalna, czy zapytanie może rozpoczynać się w klauzuli WHERE.
+Jest najpierw wiedzieć, że pierwsza część wyszukiwania zapytania przed każdą "|" znak kreski pionowej, jest zawsze *filtru*. Należy go traktować jako klauzuli WHERE TSQL — Określa *co* podzbiór danych na potrzeby pobierania poza obszar roboczy analizy dzienników. Wyszukiwanie w magazynie danych dotyczy przede wszystkim określenie właściwości dane, które mają zostać wyodrębnione, dlatego jest naturalna, czy zapytanie może rozpoczynać się w klauzuli WHERE.
 
 Filtry najbardziej podstawowym, można użyć są *słowa kluczowe*, na przykład "error" lub 'timeout' lub nazwę komputera. Tego rodzaju prostego zapytania zwracają zazwyczaj różnych kształty danych w ramach tego samego zestawu wyników. Analiza dzienników ma inną *typy* danych w systemie.
 
@@ -62,13 +62,13 @@ Jeśli tak, typ = wydajności rekordów pole o nazwie "CounterName", a następni
 Zapewni to tylko dane dotyczące wydajności nazwy licznika wydajności w przypadku "% czasu procesora".
 
 ### <a name="to-search-for-processor-time-performance-data"></a>Aby wyszukiwać dane wydajności czas procesora
-* W polu zapytania wyszukiwania wpisz`Type=Perf CounterName="% Processor Time"`
+* W polu zapytania wyszukiwania wpisz `Type=Perf CounterName="% Processor Time"`
 
 Można również być bardziej szczegółowe i używać **InstanceName = _ "Ogółem"** w zapytaniu, która jest licznika wydajności systemu Windows. Możesz też wybrać zestaw reguł, a drugi **pola: wartość**. Filtr jest automatycznie dodawany do filtru na pasku zapytania. Widać to na poniższej ilustracji. Pokazuje możliwości kliknij, aby dodać **InstanceName: "_łącznie"** zapytania bez wprowadzania żadnych czynności.
 
 ![aspekt wyszukiwania](./media/log-analytics-log-searches/oms-search-facet.png)
 
-Zapytanie staje się teraz`Type=Perf CounterName="% Processor Time" InstanceName="_Total"`
+Zapytanie staje się teraz `Type=Perf CounterName="% Processor Time" InstanceName="_Total"`
 
 W tym przykładzie, nie trzeba określić **typu = wydajności** na uzyskanie dostępu do tego wyniku. Ponieważ pola CounterName i InstanceName tylko istnieje dla rekordów typu = wydajności, zapytanie jest wystarczająco konkretny, aby zwrócić takie same wyniki jak dłużej, poprzedniego:
 
@@ -82,7 +82,7 @@ Na przykład zapytanie `Type=Event EventLog="Windows PowerShell"` jest taka sama
 
 Niejawny operator AND można łatwo cofnąć za pomocą operatora NOT jawnie. Na przykład:
 
-`Type:Event NOT(EventLog:"Windows PowerShell")`lub jego odpowiednik `Type=Event EventLog!="Windows PowerShell"` zwrócić wszystkie zdarzenia ze wszystkich dzienników, które nie są w Dzienniku programu Windows PowerShell.
+`Type:Event NOT(EventLog:"Windows PowerShell")` lub jego odpowiednik `Type=Event EventLog!="Windows PowerShell"` zwrócić wszystkie zdarzenia ze wszystkich dzienników, które nie są w Dzienniku programu Windows PowerShell.
 
 Można użyć innych operator logiczny takich jak "Lub". Następujące zapytanie zwraca rekordy, dla których dziennik zdarzeń jest albo aplikacji lub systemu.
 
@@ -168,7 +168,7 @@ EventLog=System TimeGenerated>NOW-24HOURS
 
 
 #### <a name="to-search-using-a-boolean-operator"></a>Wyszukiwania za pomocą operatora logicznego
-* W polu zapytania wyszukiwania wpisz`EventLog=System TimeGenerated>NOW-24HOURS`  
+* W polu zapytania wyszukiwania wpisz `EventLog=System TimeGenerated>NOW-24HOURS`  
     ![Wyszukiwanie z wartość logiczna](./media/log-analytics-log-searches/oms-search-boolean.png)
 
 Mimo że można kontrolować graficznie przedział czasu, a większość czasu można to zrobić, istnieją pewne zalety bezpośrednio do zapytania w tym filtr czasu. Na przykład, to rozwiązanie idealne za pomocą pulpitów nawigacyjnych, w którym można zastąpić niezależnie od tego czasu dla każdego kafelka *globalne* selektora czas na stronie pulpitu nawigacyjnego. Aby uzyskać więcej informacji, zobacz [sprawach czas na pulpicie nawigacyjnym](http://cloudadministrator.wordpress.com/2014/10/19/system-center-advisor-restarted-time-matters-in-dashboard-part-6/).
@@ -254,7 +254,7 @@ Type=Event EventID=600 | Top 1
 
 
 #### <a name="to-search-using-top"></a>Aby wyszukać góry
-* W polu zapytania wyszukiwania wpisz`Type=Event EventID=600 | Top 1`   
+* W polu zapytania wyszukiwania wpisz `Type=Event EventID=600 | Top 1`   
     ![top wyszukiwania](./media/log-analytics-log-searches/oms-search-top.png)
 
 Na powyższej ilustracji, istnieją tysiące 358 rekordy z EventID = 600. Pola, aspekty i filtry po lewej stronie zawsze zawierają informacje o wynikach *przez część filtru* zapytania, który jest część przed znakiem potoku. **Wyniki** okienko zwraca tylko najnowszy wynik 1, ponieważ przykładowe polecenie w kształcie i przekształcić wyniki.
@@ -309,7 +309,7 @@ Type=Event | Measure count() by EventID | Select EventID | Sort EventID asc
 ```
 
 #### <a name="to-search-using-measure-count"></a>Aby wyszukać liczba miary
-* W polu zapytania wyszukiwania wpisz`Type=Event | Measure count() by EventID`
+* W polu zapytania wyszukiwania wpisz `Type=Event | Measure count() by EventID`
 * Dołącz `| Select EventID` na końcu zapytania.
 * Na koniec Dołącz `| Sort EventID asc` na końcu zapytania.
 
