@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 3d1b5f30898bc0aab5c617ab547aa7db5e7e4375
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 75b568c12fd58d5599b6878dedb6c2266b6cb649
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="work-with-azure-functions-proxies"></a>Praca z serwerów proxy Azure Functions
 
@@ -50,13 +50,13 @@ Za pomocą proxy funkcji platformy Azure można modyfikować żądania i odpowie
 
 Domyślnie żądania zaplecza został zainicjowany jako kopia oryginalnego żądania. Oprócz skonfigurowania adresu URL zaplecza, można wprowadzić zmiany do metody HTTP, nagłówki i parametrów ciągu zapytania. Zmodyfikowane wartości może się odwoływać [ustawienia aplikacji] i [parametrów z żądania klienta oryginalnym].
 
-Obecnie nie są portalu obsługę modyfikowanie żądań zaplecza. Więcej informacji na temat do zastosowania z tej możliwości *proxies.json*, zobacz [zdefiniować obiekt requestOverrides].
+Żądania zaplecza może być modyfikowany w portalu przez expading *żądania zastąpienie* części strony szczegółów serwera proxy. 
 
 ### <a name="modify-response"></a>Modyfikować odpowiedzi
 
 Domyślnie odpowiedzi klienta zostanie zainicjowany jako kopię odpowiedzi zaplecza. Kod stanu odpowiedzi, frazę przyczyny, nagłówki i treści, można wprowadzić zmiany. Zmodyfikowane wartości może się odwoływać [ustawienia aplikacji], [parametrów z żądania klienta oryginalnym], i [parametry z odpowiedzi zaplecza].
 
-Obecnie nie są bez obsługi portalu modyfikowania odpowiedzi. Więcej informacji na temat do zastosowania z tej możliwości *proxies.json*, zobacz [zdefiniować obiekt responseOverrides].
+Żądania zaplecza może być modyfikowany w portalu przez expading *zastąpienie odpowiedzi* części strony szczegółów serwera proxy. 
 
 ## <a name="using-variables"></a>Używać zmiennych
 
@@ -65,7 +65,11 @@ Konfiguracja serwera proxy dla muszą być statyczne. Można warunku, aby używa
 ### <a name="reference-localhost"></a>Odwołanie do funkcji lokalnej
 Można użyć `localhost` do odwołania funkcji w tej samej aplikacji funkcja bezpośrednio, bez przesyłania żądania serwera proxy.
 
-`"backendurl": "localhost/api/httptriggerC#1"`będzie odwoływać się do funkcji lokalnej HTTP wyzwalane w trasy`/api/httptriggerC#1`
+`"backendurl": "https://localhost/api/httptriggerC#1"` będzie odwoływać się do funkcji lokalnej HTTP wyzwalane w trasy `/api/httptriggerC#1`
+
+ 
+>[!Note]  
+>Jeśli korzysta z funkcji *funkcję, administrator lub sys* poziomy autoryzacji, konieczne będzie podanie kodu i clientId, zgodnie z harmonogramem oryginalny adres URL funkcji. W takim przypadku będzie wyglądać odwołania: `"backendurl": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"`
 
 ### <a name="request-parameters"></a>Parametry żądania odwołania
 
@@ -114,7 +118,7 @@ Całkowicie wyłączyć śladów, dodając `"debug":false` do dowolnego określo
 
 ## <a name="advanced-configuration"></a>Konfiguracja zaawansowana
 
-Serwery proxy, które można skonfigurować są przechowywane w *proxies.json* pliku, który znajduje się w folderze głównym katalogiem aplikacji funkcji. Można ręcznie edytować ten plik i wdrożyć go jako część aplikacji przy użyciu jednej z [metody wdrażania](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) obsługiwane przez funkcje. Funkcja Azure funkcji proxy musi być [włączone](#enable) pliku do przetworzenia. 
+Serwery proxy, które można skonfigurować są przechowywane w *proxies.json* pliku, który znajduje się w folderze głównym katalogiem aplikacji funkcji. Można ręcznie edytować ten plik i wdrożyć go jako część aplikacji przy użyciu jednej z [metody wdrażania](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) obsługiwane przez funkcje. 
 
 > [!TIP] 
 > Jeśli nie zdefiniowano jednej z metod wdrażania, możesz także pracować z *proxies.json* pliku w portalu. Przejdź do funkcji aplikacji, wybierz opcję **funkcji platformy**, a następnie wybierz **Edytor usług aplikacji**. W ten sposób można wyświetlić strukturę całego pliku aplikacji funkcji, a następnie wprowadź zmiany.
@@ -229,16 +233,6 @@ Przykładowa konfiguracja może wyglądać następująco:
 ```
 > [!NOTE] 
 > W tym przykładzie treść odpowiedzi jest ustawiony bezpośrednio, więc nie `backendUri` właściwość jest wymagana. W przykładzie pokazano, jak można użyć do mocking interfejsów API Azure funkcji z serwerów proxy.
-
-## <a name="enable"></a>Włącz usługę Azure Functions serwerów proxy
-
-Serwery proxy są teraz włączone domyślnie! Jeśli zostały przy użyciu starszej wersji programu Podgląd serwerów proxy i wyłączone serwery proxy, musisz ręcznie włączyć serwery proxy raz w kolejności dla serwerów proxy do wykonania.
-
-1. Otwórz [portalu Azure], a następnie przejdź do aplikacji funkcji.
-2. Wybierz **funkcji ustawienia aplikacji**.
-3. Przełącznik **włączyć proxy funkcji Azure (wersja zapoznawcza)** do **na**.
-
-Można także wrócić tutaj można zaktualizować środowisko uruchomieniowe serwera proxy, gdy udostępnione nowe funkcje.
 
 [portalu Azure]: https://portal.azure.com
 [wyzwalaczy HTTP]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#http-trigger

@@ -1,6 +1,6 @@
 ---
-title: "Omówienie funkcji usługi Azure SQL Database | Microsoft Docs"
-description: "Ta strona zawiera omówienie serwerów logicznych i baz danych usługi Azure SQL Database, a także opis macierzy przedstawiającej obsługę funkcji wraz z linkami do każdej wymienionej funkcji."
+title: "Porównanie funkcji w usłudze Azure SQL Database | Dokumentacja firmy Microsoft"
+description: "W tym artykule porównanie funkcji programu SQL Server i bazy danych SQL Azure i przedstawia różnice między nimi."
 services: sql-database
 documentationcenter: na
 author: CarlRabeler
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 02/08/2018
 ms.author: carlrab
-ms.openlocfilehash: 23474539fd7db113ec4d857269056fb5061becca
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: dc9a7fa0a7fa0e029f71510cc516496ed12a6274
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="azure-sql-database-features"></a>Funkcje usługi Azure SQL Database
+# <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Porównanie funkcji: Azure SQL Database i programu SQL Server 
 
 Baza danych SQL Azure udostępnia typowe bazy kodu z programem SQL Server i na poziomie bazy danych obsługuje większość tej samej funkcji. Najważniejsze różnice między bazą danych SQL Azure i SQL Server są na poziomie wystąpienia. 
 
@@ -75,7 +75,7 @@ Poniższa tabela zawiera listę głównych funkcji programu SQL Server i zawiera
 | [Powiadomienia o zdarzeniach](https://docs.microsoft.com/sql/relational-databases/service-broker/event-notifications) | Nie — zobacz [alertów](sql-database-insights-alerts-portal.md) |
 | [Wyrażenia](https://docs.microsoft.com/sql/t-sql/language-elements/expressions-transact-sql) |Yes |
 | [Zdarzenia rozszerzone](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | Niektóre — zobacz [rozszerzony zdarzeń w bazie danych SQL](sql-database-xevent-db-diff-from-svr.md) |
-| [Rozszerzone procedury składowane](https://docs.microsoft.com/sql/relational-databases/extended-stored-procedures-programming/creating-extended-stored-procedures) | Nie |
+| [rozszerzone procedury składowane](https://docs.microsoft.com/sql/relational-databases/extended-stored-procedures-programming/creating-extended-stored-procedures) | Nie |
 | [Pliki i grup plików](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups) | Tylko grupy plik podstawowy |
 | [Filestream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | Nie |
 | [Wyszukiwanie pełnotekstowe](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) | Moduły dzielenia wyrazów innej firmy nie są obsługiwane. |
