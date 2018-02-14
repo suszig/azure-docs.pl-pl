@@ -1,9 +1,9 @@
 ---
 title: "Łączenie komputerów z usługą OMS przy użyciu bramy OMS | Dokumentacja firmy Microsoft"
-description: "Podłącz urządzenia zarządzane OMS i programu Operations Manager monitorowanych komputerów z bramą OMS do wysyłania danych z usługą OMS, gdy nie mają dostępu do Internetu."
+description: "Uzyskuj dostęp do Twojego urządzenia i komputery monitorowane programu Operations Manager bramy OMS do przesyłania danych do usługi Automatyzacja Azure i usługi analizy dzienników, gdy nie mają dostępu do Internetu."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: ae9a1623-d2ba-41d3-bd97-36e65d3ca119
@@ -12,24 +12,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
-ms.author: magoedte;banders
-ms.openlocfilehash: 16d79f02bffeb3db22a0190822d4304d3a1de73b
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.date: 02/10/2018
+ms.author: magoedte
+ms.openlocfilehash: 7ada626adc33e2689a3ba807aabb16ba56194243
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="connect-computers-without-internet-access-to-oms-using-the-oms-gateway"></a>Łączenia komputerów bez dostępu do Internetu za pomocą bramy OMS OMS
 
-W tym dokumencie opisano, jak Twoje zarządzane OMS i System Center Operations Manager monitorowanych komputerów może wysyłać dane z usługą OMS gdy nie mają dostępu do Internetu. Bramy OMS, czyli protokołu HTTP do przodu serwera proxy, który obsługuje tunelowania przy użyciu połączenia HTTP polecenia HTTP, można zbierać dane, a następnie wyślij je z usługą OMS w ich imieniu.  
+W tym dokumencie opisano, jak na komputerach zarządzanych przez agentów i komputery monitorowania programu System Center Operations Manager może wysyłać dane z usługą OMS gdy nie mają dostępu do Internetu. Bramy OMS, czyli protokołu HTTP do przodu serwera proxy, który obsługuje tunelowania przy użyciu połączenia HTTP polecenia HTTP, można zbierać dane, a następnie wyślij je z usługą OMS w ich imieniu.  
 
 Brama OMS umożliwia:
 
 * Hybrydowymi elementami roboczymi Runbook usługi Automatyzacja Azure  
-* Komputery z systemem Windows z programu Microsoft Monitoring Agent bezpośrednio połączone z obszarem roboczym pakietu OMS
-* Komputery z systemem Linux z agentem pakietu OMS Linux bezpośrednio połączone z obszarem roboczym pakietu OMS  
-* System Center Operations Manager 2012 z dodatkiem SP1 z pakietem UR7, programu Operations Manager 2012 R2 z UR3 lub programu Operations Manager w grupie zarządzania 2016 zintegrowane z usługą OMS.  
+* Komputery z systemem Windows z programu Microsoft Monitoring Agent jest podłączony bezpośrednio do obszaru roboczego analizy dzienników
+* Komputery z systemem Linux z agentem pakietu OMS Linux bezpośrednio podłączone do obszaru roboczego analizy dzienników  
+* System Center Operations Manager 2012 SP1 z pakietem UR7, Operations Manager 2012 R2 UR3, Operations Manager 2016 i grupę zarządzania programu Operations Manager w wersji 1801 zintegrowane z usługą OMS.  
 
 Jeśli zasady zabezpieczeń IT nie zezwalaj na komputerach w sieci, aby nawiązać połączenie z Internetem, takie jak punkt urządzeń sprzedaży (POS) lub usługi IT, pomocnicze serwery, ale należy połączyć je z usługą OMS do zarządzania i monitorowania ich, może zostać skonfigurowana do komunikacji bezpośrednio z bramą OMS odbierać konfigurację i przekazują dane w ich imieniu.  Jeśli te komputery są skonfigurowane z agentem pakietu OMS bezpośrednio z obszarem roboczym pakietu OMS, wszystkie komputery zamiast niego będą komunikować się z bramy OMS.  Brama transferu danych z agentów do OMS bezpośrednio, nie analizować dane przesyłane.
 
@@ -54,9 +54,9 @@ Na poniższym diagramie przedstawiono przepływ danych z grupy zarządzania prog
 Podczas wyznaczania komputer, aby uruchomić bramę OMS, ten komputer musi mieć następujące czynności:
 
 * Windows 10, Windows 8.1, Windows 7
-* Windows Server 2016, w systemie Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
+* Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2,  Windows Server 2008
 * Program .net framework 4.5
-* Co najmniej 4 rdzenie procesora i 8 GB pamięci 
+* Co najmniej 4 rdzenie procesora i 8 GB pamięci
 
 ### <a name="language-availability"></a>Dostępność języka
 
@@ -82,6 +82,14 @@ Brama OMS jest dostępna w następujących językach:
 ### <a name="supported-encryption-protocols"></a>Szyfrowania obsługiwanych protokołów
 Brama OMS obsługuje tylko zabezpieczeń TLS (Transport Layer) 1.0, 1.1 i 1.2.  Nie obsługuje protokołu Secure Sockets Layer (SSL).
 
+### <a name="supported-number-of-agent-connections"></a>Obsługiwana liczba połączeń agenta
+Poniższa tabela prezentuje obsługiwanej liczby agentów komunikację z serwerem bramy.  Ta obsługa jest oparta na agentów przekazywania ~ 200KB danych co 6 sekund. Ilość danych na badane agenta jest około 2.7GB na dzień.
+
+|Brama |Szacunkowa liczba agentów obsługiwane|  
+|--------|----------------------------------|  
+|-Procesora: Intel XEON E5 Procesora 2660 v3 @ 2.6GHz 2 rdzeni<br> -Pamięci: 4 GB<br> — Przepustowość sieci: 1 GB/s| 600|  
+|-Procesora: Intel XEON E5 Procesora 2660 v3 @ 2.6GHz 4 rdzenie<br> -Pamięci: 8 GB<br> — Przepustowość sieci: 1 GB/s| 1000|  
+
 ## <a name="download-the-oms-gateway"></a>Pobierz bramę OMS
 
 Istnieją trzy sposoby, aby pobrać najnowszą wersję pliku instalacyjnego bramy OMS.
@@ -104,7 +112,7 @@ Istnieją trzy sposoby, aby pobrać najnowszą wersję pliku instalacyjnego bram
 Aby zainstalować bramę, wykonaj następujące kroki.  Jeśli zainstalowano poprzednią wersję, nazywanych *dziennika analizy usługi przesyłania dalej*, zostaną uaktualnione do tej wersji.  
 
 1. Folder docelowy, kliknij dwukrotnie **OMS Gateway.msi**.
-2. Na **powitalnej** kliknij przycisk **dalej**.<br><br> ![Kreator instalacji bramy](./media/log-analytics-oms-gateway/gateway-wizard01.png)<br> 
+2. Na **stronie powitalnej** kliknij przycisk **Dalej**.<br><br> ![Kreator instalacji bramy](./media/log-analytics-oms-gateway/gateway-wizard01.png)<br>
 3. Na **umowy licencyjnej** wybierz pozycję **akceptuję warunki umowy licencyjnej** zgodę na umowę licencyjną, a następnie kliknij przycisk **dalej**.
 4. Na **portu i serwera proxy adres** strony:
    1. Wpisz numer portu TCP używanego do bramy. Instalator konfiguruje regułę ruchu przychodzącego z tego numeru portu w Zaporze systemu Windows.  Wartość domyślna to 8080.
@@ -116,20 +124,20 @@ Aby zainstalować bramę, wykonaj następujące kroki.  Jeśli zainstalowano pop
 7. Na **gotowe do zainstalowania** kliknij przycisk **zainstalować**. Kontrola konta użytkownika może pojawiać się żądania uprawnienia do zainstalowania. Jeśli tak, kliknij przycisk **tak**.
 8. Po zakończeniu instalacji kliknij przycisk **Zakończ**. Można sprawdzić, czy usługa jest uruchomiona przez otwarcie przystawki services.msc i upewnij się, że **bramy OMS** pojawią się na liście usług i jego stan jest **systemem**.<br><br> ![Usługi — Brama OMS](./media/log-analytics-oms-gateway/gateway-service.png)  
 
-## <a name="configure-network-load-balancing"></a>Konfigurowanie równoważenia obciążenia sieciowego 
+## <a name="configure-network-load-balancing"></a>Konfigurowanie równoważenia obciążenia sieciowego
 Można skonfigurować bramy w celu zapewnienia wysokiej dostępności przy użyciu równoważenia obciążenia sieciowego (NLB) firmy Microsoft sieci równoważenia obciążenia (NLB) lub usługi równoważenia obciążenia oparte na sprzęcie.  Moduł równoważenia obciążenia zarządza ruchu przez przekierowywanie żądanego połączenia z serwerów zarządzania agenci OMS lub Operations Manager w jego węzłach. Jeśli jeden serwer bramy ulegnie awarii, ruch jest kierowany do innych węzłów.
 
 Aby dowiedzieć się więcej o projektowaniu i wdrożyć klaster równoważenia obciążenia sieciowego systemu Windows Server 2016, zobacz [równoważenia obciążenia sieciowego](https://technet.microsoft.com/windows-server-docs/networking/technologies/network-load-balancing).  W poniższych krokach opisano sposób konfigurowania klastra równoważenia obciążenia sieciowego firmy Microsoft.  
 
 1.  Zaloguj się na serwerze z systemem Windows, należącego do klastra równoważenia obciążenia Sieciowego przy użyciu konta administracyjnego.  
 2.  Otwórz Menedżera równoważenia obciążenia sieciowego w Menedżerze serwera, kliknij przycisk **narzędzia**, a następnie kliknij przycisk **Menedżera równoważenia obciążenia sieciowego**.
-3. Aby połączyć się z serwerem bramy OMS z programu Microsoft Monitoring Agent zainstalowany, kliknij prawym przyciskiem myszy adres IP klastra, a następnie kliknij przycisk **Dodaj hosta do klastra**.<br><br> ![Obciążenia w sieci, Menedżer równoważenia — Dodaj hosta do klastra](./media/log-analytics-oms-gateway/nlb02.png)<br> 
-4. Wprowadź adres IP serwera bramy, którym chcesz się połączyć.<br><br> ![Sieci Menedżera równoważenia obciążenia — Dodaj hosta do klastra: połączenie](./media/log-analytics-oms-gateway/nlb03.png) 
-    
+3. Aby połączyć się z serwerem bramy OMS z programu Microsoft Monitoring Agent zainstalowany, kliknij prawym przyciskiem myszy adres IP klastra, a następnie kliknij przycisk **Dodaj hosta do klastra**.<br><br> ![Obciążenia w sieci, Menedżer równoważenia — Dodaj hosta do klastra](./media/log-analytics-oms-gateway/nlb02.png)<br>
+4. Wprowadź adres IP serwera bramy, którym chcesz się połączyć.<br><br> ![Sieci Menedżera równoważenia obciążenia — Dodaj hosta do klastra: połączenie](./media/log-analytics-oms-gateway/nlb03.png)
+
 ## <a name="configure-oms-agent-and-operations-manager-management-group"></a>Konfigurowanie agenta pakietu OMS i grupy zarządzania programu Operations Manager
 Poniższa sekcja zawiera kroki dotyczące sposobu konfigurowania bezpośrednio połączone OMS agentów grupy zarządzania programu Operations Manager i Azure Automation hybrydowymi elementami roboczymi Runbook z bramą OMS do komunikowania się z usługą OMS.  
 
-Aby poznać wymagania i kroki dotyczące instalowania agenta pakietu OMS na komputerach z systemem Windows bezpośredniego połączenia z usługą OMS, zobacz [komputery Windows połączenia z usługą OMS](log-analytics-windows-agent.md) lub Linux komputerów znajduje się w temacie [komputerów Linux połączenia z usługą OMS](log-analytics-linux-agents.md). 
+Aby poznać wymagania i kroki dotyczące instalowania agenta pakietu OMS na komputerach z systemem Windows bezpośredniego połączenia z usługą OMS, zobacz [komputery Windows połączenia z usługą OMS](log-analytics-windows-agents.md) lub Linux komputerów znajduje się w temacie [komputerów Linux połączenia z usługą OMS](log-analytics-linux-agents.md).
 
 ### <a name="configuring-the-oms-agent-and-operations-manager-to-use-the-oms-gateway-as-a-proxy-server"></a>Konfigurowanie agenta pakietu OMS i Operations Manager, aby użyć bramy OMS jako serwer proxy
 
@@ -148,26 +156,26 @@ Aby użyć bramy do obsługi programu Operations Manager, musi mieć:
 > Jeśli nie określisz wartości dla bramy, puste wartości jest przypisany do wszystkich agentów.
 
 
-1. Otwórz konsolę programu Operations Manager i w obszarze **Operations Management Suite**, kliknij przycisk **połączenia** , a następnie kliknij przycisk **Konfiguracja serwera Proxy**.<br><br> ![Operations Manager — Konfiguracja serwera Proxy](./media/log-analytics-oms-gateway/scom01.png)<br> 
-2. Wybierz **Użyj serwera proxy, aby uzyskać dostępu do usługi Operations Management Suite** , a następnie wpisz adres IP serwera bramy OMS lub wirtualny adres IP Równoważenie obciążenia Sieciowego. Upewnij się, że rozpoczyna `http://` prefiks.<br><br> ![Operations Manager — adres serwera proxy](./media/log-analytics-oms-gateway/scom02.png)<br> 
+1. Otwórz konsolę programu Operations Manager i w obszarze **Operations Management Suite**, kliknij przycisk **połączenia** , a następnie kliknij przycisk **Konfiguracja serwera Proxy**.<br><br> ![Operations Manager — Konfiguracja serwera Proxy](./media/log-analytics-oms-gateway/scom01.png)<br>
+2. Wybierz **Użyj serwera proxy, aby uzyskać dostępu do usługi Operations Management Suite** , a następnie wpisz adres IP serwera bramy OMS lub wirtualny adres IP Równoważenie obciążenia Sieciowego. Upewnij się, że rozpoczyna `http://` prefiks.<br><br> ![Operations Manager — adres serwera proxy](./media/log-analytics-oms-gateway/scom02.png)<br>
 3. Kliknij przycisk **Zakończ**. Serwer programu Operations Manager jest połączony z obszarem roboczym pakietu OMS.
 
 ### <a name="configure-operations-manager---specific-agents-use-proxy-server"></a>Konfigurowanie programu Operations Manager — określonych agentów Użyj serwera proxy
 W przypadku środowisk dużych lub złożonych tylko możesz określonych serwerów (lub grupy), aby użyć serwera bramy OMS.  Na tych serwerach nie można zaktualizować agenta programu Operations Manager bezpośrednio, ponieważ ta wartość zostanie zastąpiona wartości globalnej grupy zarządzania.  Zamiast tego należy Zastąp zasadę wykorzystane do zmuszenia tych wartości.
 
-> [!NOTE] 
+> [!NOTE]
 > Ten sam sposób konfiguracji może służyć do korzystania z wielu serwerów bramy OMS w danym środowisku.  Na przykład może wymagać określonych serwerów bramy OMS należy określić na podstawie na region.
 
 1. Otwórz konsolę programu Operations Manager i wybierz **tworzenie** obszaru roboczego.  
-2. W obszarze roboczym tworzenie, wybierz **reguły** i kliknij przycisk **zakres** przycisk na pasku narzędzi programu Operations Manager. Jeśli ten przycisk jest niedostępny, sprawdź, upewnij się, że wybrany obiekt, nie folder, w okienku monitorowanie. **Zakres obiektów pakietu administracyjnego** okno dialogowe wyświetla listę typowych klasy docelowej, grupami lub obiektami. 
+2. W obszarze roboczym tworzenie, wybierz **reguły** i kliknij przycisk **zakres** przycisk na pasku narzędzi programu Operations Manager. Jeśli ten przycisk jest niedostępny, sprawdź, upewnij się, że wybrany obiekt, nie folder, w okienku monitorowanie. **Zakres obiektów pakietu administracyjnego** okno dialogowe wyświetla listę typowych klasy docelowej, grupami lub obiektami.
 3. Typ **usługi kondycji** w **Wyszukaj** pola i wybierz go z listy.  Kliknij przycisk **OK**.  
 4. Wyszukaj regułę **regułę ustawienie serwera Proxy usługi Advisor** i na pasku narzędzi konsoli operacje kliknij **zastępuje** , a następnie wskaż polecenie **zastąpienia Rule\For konkretnego obiektu klasy: usługi kondycji**  i wybierz konkretnego obiektu z listy.  Można opcjonalnie utworzyć grupę niestandardowego obiektu usługi kondycji serwerów, które chcesz zastosować to zastąpienie, a następnie zastosować zastąpienia tej grupy.
 5. W **właściwości zastąpienia** okno dialogowe, kliknij, aby zaznaczyć w **zastąpienia** obok kolumny **WebProxyAddress** parametru.  W **wartość zastąpienia** wprowadź adres URL sprawdzeniu serwera bramy OMS rozpoczynających się od `http://` prefiks.
    >[!NOTE]
    > Nie trzeba włączyć reguły, ponieważ jest już zarządzany automatycznie za pomocą zastąpienia zawartych w pakiecie administracyjnym programu Microsoft System Center Advisor bezpiecznego odwołania Override przeznaczonych dla Microsoft System Center Advisor monitorowania grupie serwerów.
-   > 
-6. Wybierz pakiet administracyjny z **wybierz docelowy pakiet administracyjny** listy lub utworzenie nowego niezapieczętowanego pakietu przez kliknięcie przycisku **nowy**. 
-7. Po zakończeniu zmiany, kliknij przycisk **OK**. 
+   >
+6. Wybierz pakiet administracyjny z **wybierz docelowy pakiet administracyjny** listy lub utworzenie nowego niezapieczętowanego pakietu przez kliknięcie przycisku **nowy**.
+7. Po zakończeniu zmiany, kliknij przycisk **OK**.
 
 ### <a name="configure-for-automation-hybrid-workers"></a>Konfigurowanie dla automatyzacji hybrydowych procesów roboczych
 Jeśli masz automatyzacji hybrydowymi elementami roboczymi Runbook w środowisku, w poniższych krokach przedstawiono ręczne, tymczasowego obejścia, aby skonfigurować bramę do ich obsługi.
@@ -183,9 +191,9 @@ Aby zidentyfikować adres URL dla każdej lokalizacji, należy użyć następuj�
 
 **Zadanie adresy URL usługi danych dla środowiska uruchomieniowego**
 
-| **location** | **ADRES URL** |
+| **location** | **Adres URL** |
 | --- | --- |
-| Środkowo-północne stany USA |ncus-jobruntimedata produkcyjną su1.azure-automation.net |
+| Środkowo-północne stany USA |ncus-jobruntimedata-prod-su1.azure-automation.net |
 | Europa Zachodnia |we-jobruntimedata-prod-su1.azure-automation.net |
 | Środkowo-południowe stany USA |scus-jobruntimedata-prod-su1.azure-automation.net |
 | Wschodnie stany USA 2 |eus2-jobruntimedata-prod-su1.azure-automation.net |
@@ -198,23 +206,23 @@ Aby zidentyfikować adres URL dla każdej lokalizacji, należy użyć następuj�
 
 **Adresy URL usługi agenta**
 
-| **location** | **ADRES URL** |
+| **location** | **Adres URL** |
 | --- | --- |
-| Środkowo-północne stany USA |ncus-agentservice produkcyjną 1.azure-automation.net |
-| Europa Zachodnia |nie możemy agentservice produkcyjną 1.azure-automation.net |
-| Środkowo-południowe stany USA |scus-agentservice produkcyjną 1.azure-automation.net |
-| Wschodnie stany USA 2 |eus2-agentservice produkcyjną 1.azure-automation.net |
-| Kanada centralnej |DW — agentservice produkcyjną 1.azure-automation.net |
-| Europa Północna |ne — agentservice produkcyjną 1.azure-automation.net |
-| Azja Południowo-Wschodnia |SEA-agentservice produkcyjną 1.azure-automation.net |
-| Indie Środkowe |CID-agentservice produkcyjną 1.azure-automation.net |
-| Japonia |jpe-agentservice produkcyjną 1.azure-automation.net |
-| Australia |ASE-agentservice produkcyjną 1.azure-automation.net |
+| Środkowo-północne stany USA |ncus-agentservice-prod-1.azure-automation.net |
+| Europa Zachodnia |we-agentservice-prod-1.azure-automation.net |
+| Środkowo-południowe stany USA |scus-agentservice-prod-1.azure-automation.net |
+| Wschodnie stany USA 2 |eus2-agentservice-prod-1.azure-automation.net |
+| Kanada centralnej |cc-agentservice-prod-1.azure-automation.net |
+| Europa Północna |ne-agentservice-prod-1.azure-automation.net |
+| Azja Południowo-Wschodnia |sea-agentservice-prod-1.azure-automation.net |
+| Indie Środkowe |cid-agentservice-prod-1.azure-automation.net |
+| Japonia |jpe-agentservice-prod-1.azure-automation.net |
+| Australia |ase-agentservice-prod-1.azure-automation.net |
 
 Jeśli komputer jest zarejestrowany jako hybrydowy proces roboczy elementu Runbook automatycznie dla stosowania poprawek za pomocą rozwiązania do zarządzania aktualizacjami, wykonaj następujące kroki:
 
 1. Dodaj adresy URL usługi danych czasu wykonywania zadania do listy hostów dozwolone w bramie OMS. Na przykład: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
-2. Uruchom ponownie usługę OMS bramy przy użyciu następującego polecenia cmdlet programu PowerShell:`Restart-Service OMSGatewayService`
+2. Uruchom ponownie usługę OMS bramy przy użyciu następującego polecenia cmdlet programu PowerShell: `Restart-Service OMSGatewayService`
 
 Jeśli komputer jest na dodawanej do automatyzacji Azure za pomocą polecenia cmdlet rejestracji hybrydowy proces roboczy elementu Runbook, wykonaj następujące kroki:
 
@@ -228,19 +236,19 @@ Polecenia cmdlet ułatwiają wykonywanie zadań, które są potrzebne, aby zaktu
 
 1. Zainstaluj bramę OMS (MSI).
 2. Otwórz okno konsoli programu PowerShell.
-3. Aby zaimportować moduł, wpisz następujące polecenie:`Import-Module OMSGateway`
+3. Aby zaimportować moduł, wpisz następujące polecenie: `Import-Module OMSGateway`
 4. Jeśli błąd wystąpił w poprzednim kroku, moduł został pomyślnie zaimportowany i można użyć poleceń cmdlet. Typ`Get-Module OMSGateway`
 5. Po wprowadzeniu zmian przy użyciu poleceń cmdlet, upewnij się, uruchom ponownie usługę bramy.
 
 Jeśli wystąpi błąd w kroku 3, moduł nie został zaimportowany. Błąd może wystąpić, gdy nie będzie mógł odnaleźć modułu programu PowerShell. Możesz go znaleźć w ścieżce instalacji bramy: *C:\Program Files\Microsoft OMS Gateway\PowerShell*.
 
-| **Polecenia cmdlet** | **Parametry** | **Opis** | **Przykład** |
+| Polecenia cmdlet | **Parametry** | **Opis** | **Przykład** |
 | --- | --- | --- | --- |  
 | `Get-OMSGatewayConfig` |Klucz |Pobiera konfigurację usługi |`Get-OMSGatewayConfig` |  
 | `Set-OMSGatewayConfig` |Klucz (wymagane) <br> Wartość |Umożliwia zmianę konfiguracji usługi |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
 | `Get-OMSGatewayRelayProxy` | |Pobiera adres serwera proxy (nadrzędnego) przekazywania |`Get-OMSGatewayRelayProxy` |  
-| `Set-OMSGatewayRelayProxy` |Adres<br> Nazwa użytkownika<br> Hasło |Ustawia adres (i poświadczeń) przekazywania proxy (nadrzędnego) |1. Ustaw proxy przekazywania i poświadczeń:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. Ustaw przekazywania serwer proxy, który nie wymaga uwierzytelniania:`Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. Wyczyść ustawienie serwera proxy przekazywania:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
-| `Get-OMSGatewayAllowedHost` | |Pobiera obecnie dozwolone hosta (tylko lokalnie skonfigurowanych dozwolonych hosta, nie ma automatycznie pobrane dozwolonych hostów) |`Get-OMSGatewayAllowedHost` | 
+| `Set-OMSGatewayRelayProxy` |Adres<br> Nazwa użytkownika<br> Hasło |Ustawia adres (i poświadczeń) przekazywania proxy (nadrzędnego) |1. Ustaw proxy przekazywania i poświadczeń:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. Ustaw przekazywania serwer proxy, który nie wymaga uwierzytelniania: `Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. Wyczyść ustawienie serwera proxy przekazywania:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
+| `Get-OMSGatewayAllowedHost` | |Pobiera obecnie dozwolone hosta (tylko lokalnie skonfigurowanych dozwolonych hosta, nie ma automatycznie pobrane dozwolonych hostów) |`Get-OMSGatewayAllowedHost` |
 | `Add-OMSGatewayAllowedHost` |Host (wymagane) |Dodaje hosta do listy dozwolonych |`Add-OMSGatewayAllowedHost -Host www.test.com` |  
 | `Remove-OMSGatewayAllowedHost` |Host (wymagane) |Usuwa hosta z listy dozwolonych |`Remove-OMSGatewayAllowedHost`<br> `-Host www.test.com` |  
 | `Add-OMSGatewayAllowedClientCertificate` |Temat (wymagane) |Dodaje certyfikat klienta może ulec listy dozwolonych |`Add-OMSGatewayAllowed`<br>`ClientCertificate` <br> `-Subject mycert` |  
@@ -289,7 +297,5 @@ Aby poprosić o pomoc, kliknij symbol znak zapytania w prawym górnym rogu porta
 
 ![Nowe żądanie pomocy technicznej](./media/log-analytics-oms-gateway/support.png)
 
-Można także pozostawić swoją opinię na temat OMS lub analizy dzienników na [forum opinii Microsoft Azure](https://feedback.azure.com/forums/267889).
-
-## <a name="next-steps"></a>Następne kroki
-* [Dodaj źródła danych](log-analytics-data-sources.md) do zbierania danych z połączonych źródeł w obszarze roboczym analizy dzienników i zapisz go w repozytorium analizy dzienników.
+## <a name="next-steps"></a>Kolejne kroki
+[Dodaj źródła danych](log-analytics-data-sources.md) do zbierania danych z połączonych źródeł i zapisz go w obszarze roboczym analizy dzienników.

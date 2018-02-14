@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: db7daf61fa80854c17b58252d7d6cb30c329dfb1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3273f435cb65411c85e3a22369682d51e7a12baf
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Użyj bazy danych MySQL na Microsoft Azure stosu
 
@@ -88,7 +88,7 @@ Konto system musi mieć następujące uprawnienia:
 
     - Istnieje tylko jeden certyfikat plik w DependencyFilesLocalPath.
     
-    - Nazwa pliku nie może zawierać żadnych znaków specjalnych.
+    - Nazwa pliku nie może zawierać żadnych znaków specjalnych ani spacji.
 
 
 5. Otwórz **nowe** z podwyższonym poziomem uprawnień (administracyjnych) konsoli programu PowerShell. Następnie przejdź do katalogu, w którym zostały wyodrębnione pliki. Użyj nowego okna, aby uniknąć problemów, które mogą wystąpić z niepoprawne moduły programu PowerShell, które zostały już załadowane w systemie.

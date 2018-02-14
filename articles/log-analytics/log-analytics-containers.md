@@ -3,7 +3,7 @@ title: "Rozwiązania monitorowanie kontenera Azure Log Analytics | Dokumentacja 
 description: "Rozwiązanie monitorowania kontenera w Log Analytics pomaga wyświetlać i zarządzać Docker i Windows hostów kontenera w jednym miejscu."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: e1e4b52b-92d5-4bfa-8a09-ff8c6b5a9f78
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
-ms.author: magoedte;banders
-ms.openlocfilehash: a4b2407f392ed35968c9a6c8eeeb49c0c3cfe10e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: magoedte
+ms.openlocfilehash: b3f78f6cc89a3d4bf8712c339f66b5d50f373919
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Kontener rozwiązania monitorowanie analizy dzienników
 
@@ -356,7 +356,7 @@ Można utworzyć omsagent DaemonSets z lub bez kluczy tajnych.
         KEY:    88 bytes
         ```
 
-    5. Tworzenie sieci omsagent demon set, uruchamiając``` sudo kubectl create -f omsagent-ds-secrets.yaml ```
+    5. Tworzenie sieci omsagent demon set, uruchamiając ``` sudo kubectl create -f omsagent-ds-secrets.yaml ```
 
 2. Sprawdź, czy DaemonSet Agent pakietu OMS jest uruchomiona, podobny do następującego:
 
@@ -400,10 +400,10 @@ Dla systemu Windows Kubernetes skrypt będzie używany do generowania kluczy taj
         ```
         #> sudo bash ./secret-gen.sh
         ```
-    3. Tworzenie sieci omsagent demon set, uruchamiając``` kubectl create -f omsagentsecret.yaml ```
+    3. Tworzenie sieci omsagent demon set, uruchamiając ``` kubectl create -f omsagentsecret.yaml ```
     4. Aby sprawdzić, uruchom następujące polecenie:
-    
-        ``` 
+
+        ```
         root@ubuntu16-13db:~# kubectl get secrets
         ```
 
@@ -418,16 +418,16 @@ Dla systemu Windows Kubernetes skrypt będzie używany do generowania kluczy taj
         Namespace:      default
         Labels:         <none>
         Annotations:    <none>
-    
+
         Type:   Opaque
-    
+
         Data
         ====
         WSID:   36 bytes
-        KEY:    88 bytes 
+        KEY:    88 bytes
         ```
 
-    5. Tworzenie sieci omsagent demon set, uruchamiając```kubectl create -f ws-omsagent-de-secrets.yaml```
+    5. Tworzenie sieci omsagent demon set, uruchamiając ```kubectl create -f ws-omsagent-de-secrets.yaml```
 
 2. Sprawdź, czy DaemonSet Agent pakietu OMS jest uruchomiona, podobny do następującego:
 
@@ -437,12 +437,12 @@ Dla systemu Windows Kubernetes skrypt będzie używany do generowania kluczy taj
     omsagent   1         1         <none>          1h
     ```
 
-3. Aby zainstalować agenta w węźle procesu roboczego, które są uruchomione systemu Windows, wykonaj czynności opisane w sekcji [zainstalować i skonfigurować hosty kontenera systemu Windows](#install-and-configure-windows-container-hosts). 
+3. Aby zainstalować agenta w węźle procesu roboczego, które są uruchomione systemu Windows, wykonaj czynności opisane w sekcji [zainstalować i skonfigurować hosty kontenera systemu Windows](#install-and-configure-windows-container-hosts).
 
-#### <a name="use-helm-to-deploy-oms-agent-on-linux-kubernetes"></a>Użyj Helm, aby wdrożyć agenta pakietu OMS na Kubernetes systemu Linux 
+#### <a name="use-helm-to-deploy-oms-agent-on-linux-kubernetes"></a>Użyj Helm, aby wdrożyć agenta pakietu OMS na Kubernetes systemu Linux
 Aby używać helm do wdrożenia w środowisku Linux Kubernetes Agent pakietu OMS, wykonaj następujące kroki.
 
-1. Tworzenie sieci omsagent demon set, uruchamiając```helm install --name omsagent --set omsagent.secret.wsid=<WSID>,omsagent.secret.key=<KEY> stable/msoms```
+1. Tworzenie sieci omsagent demon set, uruchamiając ```helm install --name omsagent --set omsagent.secret.wsid=<WSID>,omsagent.secret.key=<KEY> stable/msoms```
 2. Wyniki będą podobne do następującego:
 
     ```
@@ -607,7 +607,7 @@ Analiza dzienników oznacza kontener jako **nie powiodło się** Jeśli został 
    ![Stan kontenerów](./media/log-analytics-containers/containers-log-search.png)
 3. Następnie kliknij przycisk zagregowane wartości kontenery nie powiodło się, aby wyświetlić dodatkowe informacje. Rozwiń węzeł **Pokaż więcej** Aby wyświetlić identyfikator obrazu.  
    ![kontenery nie powiodło się](./media/log-analytics-containers/containers-state-failed.png)  
-4. Następnie wpisz następujące polecenie w zapytaniu wyszukiwania. `Type=ContainerInventory <ImageID>`Aby wyświetlić szczegóły dotyczące obrazu, takich jak rozmiar obrazu i Liczba obrazów zatrzymane, a nie powiodło się.  
+4. Następnie wpisz następujące polecenie w zapytaniu wyszukiwania. `Type=ContainerInventory <ImageID>` Aby wyświetlić szczegóły dotyczące obrazu, takich jak rozmiar obrazu i Liczba obrazów zatrzymane, a nie powiodło się.  
    ![kontenery nie powiodło się](./media/log-analytics-containers/containers-failed04.png)
 
 ## <a name="search-logs-for-container-data"></a>Dzienniki wyszukiwania danych kontenera
@@ -625,7 +625,7 @@ W przypadku Rozwiązywanie problemów z określonego błędu, ułatwia Zobacz, g
 
 
 ### <a name="to-search-logs-for-container-data"></a>Do wyszukania w dziennikach dane w kontenerze
-* Wybierz obraz, który ostatnio nie powiodło się i znaleźć w dziennikach błędów. Uruchom znajdując nazwę kontenera, która działa obrazu z **ContainerInventory** wyszukiwania. Na przykład wyszukaj`Type=ContainerInventory ubuntu Failed`  
+* Wybierz obraz, który ostatnio nie powiodło się i znaleźć w dziennikach błędów. Uruchom znajdując nazwę kontenera, która działa obrazu z **ContainerInventory** wyszukiwania. Na przykład wyszukaj `Type=ContainerInventory ubuntu Failed`  
     ![Wyszukaj kontenery Ubuntu](./media/log-analytics-containers/search-ubuntu.png)
 
   Nazwa kontenera dalej, aby **nazwa**i poszukaj tych dzienników. W tym przykładzie jest to `Type=ContainerLog cranky_stonebreaker`.
