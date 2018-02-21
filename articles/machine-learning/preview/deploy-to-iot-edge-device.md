@@ -10,18 +10,18 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 2/1/2018
-ms.openlocfilehash: a48c2a78ec22a663dd3e8a0b22611d61181e3eef
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: e33ff3fdc38b5aca6bbaef2c1ac6888217797541
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="deploy-an-azure-machine-learning-model-to-an-azure-iot-edge-device"></a>Wdrażanie usługi Azure Machine Learning model na urządzenia IoT Azure
 
 Wszystkie modele uczenia maszynowego Azure konteneryzowanych jako usługi sieci web opartych na Docker można również uruchomić na urządzenia Azure IoT krawędzi. Dodatkowe skrypty oraz instrukcje można znaleźć w [Toolkit AI Azure IoT Edge](http://aka.ms/AI-toolkit).
 
 ## <a name="operationalize-the-model"></a>Operacjonalizuj modelu
-Operacjonalizować model zgodnie z instrukcjami w [wdrażanie usługi sieci Web zarządzania modelu Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/model-management-service-deploy) do utworzenia obrazu Docker z modelu.
+Operacjonalizować model zgodnie z instrukcjami w [wdrażanie usługi sieci Web zarządzania modelu Azure Machine Learning](model-management-service-deploy.md) do utworzenia obrazu Docker z modelu.
 
 ## <a name="deploy-to-azure-iot-edge"></a>Wdrażanie na krawędzi IoT Azure
 Azure IoT krawędzi przenosi analizy chmury i niestandardowe reguły biznesowe na urządzeniach. Wszystkie modele uczenia maszynowego można uruchamiać na urządzenia brzegowe IoT. Dokumentacja urządzenia IoT i utworzyć wdrożenie, znajduje się w temacie [aka.ms/azure-iot — krawędzi doc](https://aka.ms/azure-iot-edge-doc).

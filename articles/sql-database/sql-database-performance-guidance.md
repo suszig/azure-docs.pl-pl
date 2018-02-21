@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 02/09/2017
+ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 5dc245a29a9106156c207ed7394f8bb289db729e
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0a7bce49a73d60785f09f270894afc4037661e10
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Dostrajanie wydajności w bazie danych SQL Azure
 
@@ -34,7 +34,7 @@ Są to ręcznej metody, ponieważ potrzebne do podejmowania decyzji [warstw usł
 
 ## <a name="increasing-performance-tier-of-your-database"></a>Zwiększenie poziomu wydajności bazy danych
 
-Baza danych SQL Azure oferuje cztery [warstw usług](sql-database-service-tiers.md) wybraną z: Basic, Standard, Premium i Premium RS (mierzona jest wydajność w jednostek przepływności bazy danych, lub [Dtu](sql-database-what-is-a-dtu.md). Każdej warstwy usług izoluje ściśle zasobów można używać bazy danych SQL i zapewnia przewidywalną wydajność tego poziomu usług. W tym artykule firma Microsoft oferuje wskazówki, które ułatwiają wybieranie warstwy usługi dla aplikacji. Omówiono także sposoby dostroić aplikacji maksymalne z bazy danych SQL Azure.
+Baza danych SQL Azure oferuje cztery [warstw usług](sql-database-service-tiers.md) wybraną z: podstawowa, standardowa i Premium (mierzona jest wydajność w jednostek przepływności bazy danych, lub [Dtu](sql-database-what-is-a-dtu.md). Każdej warstwy usług izoluje ściśle zasobów można używać bazy danych SQL i zapewnia przewidywalną wydajność tego poziomu usług. W tym artykule firma Microsoft oferuje wskazówki, które ułatwiają wybieranie warstwy usługi dla aplikacji. Omówiono także sposoby dostroić aplikacji maksymalne z bazy danych SQL Azure.
 
 > [!NOTE]
 > Ten artykuł skupia się na wytyczne dotyczące wydajności dla pojedynczej bazy danych w bazie danych SQL Azure. Aby uzyskać wskazówki dotyczące wydajności związane z pule elastyczne, zobacz [zagadnienia dotyczące cen i wydajności dla pul elastycznych](sql-database-elastic-pool-guidance.md). Należy pamiętać, jednak wiele dostrajania zaleceń w tym artykule dotyczą baz danych w puli elastycznej i uzyskiwanie podobnego zwiększenia wydajności.
@@ -49,7 +49,6 @@ Baza danych SQL Azure oferuje cztery [warstw usług](sql-database-service-tiers.
   * **Obciążenia szczytowego wysokiej**. Aplikacja, która wymaga znacznej procesora CPU, pamięć lub wejścia/wyjścia (We/Wy) do ukończenia operacji wymaga poziomu dedykowanego, wysokiej wydajności. Na przykład znane użycie kilku rdzeni Procesora przez dłuższy czas operacji bazy danych jest kandydatem do warstwy Premium usługi.
   * **Wiele równoczesnych żądań**. Niektóre aplikacje bazy danych usługi dużo współbieżnych żądań, na przykład gdy obsługująca witryny sieci Web, która ma duże natężenie ruchu. Podstawowa i standardowa warstwy usług Ogranicz liczbę równoczesnych żądań dla jednej bazy danych. Aplikacje, które wymagają więcej połączeń należy wybrać rozmiar rezerwacji odpowiednie do obsługi maksymalną liczbę żądań potrzebne.
   * **Małe opóźnienia**. Niektóre aplikacje wymagają do zagwarantowania minimalnego czasu odpowiedzi z bazy danych. Jeśli określone procedury składowanej jest wywoływana w ramach szerszych operacji klienta, może być wymagane są zwracane z tego wywołania w milisekundach nie więcej niż 20 99 procent czasu. Aplikacje tego typu korzysta z warstwę Premium, aby upewnić się, że wymagane mocy obliczeniowej jest dostępny.
-* **Premium RS**: warstwy Premium RS jest przeznaczona dla obciążeń intensywnie wykonujących operacje We/Wy, które nie wymagają zapewnia najwyższą dostępność. Przykłady obejmują testowanie obciążeń wysokiej wydajności lub obciążenia analitycznych, gdzie bazy danych nie jest systemem rekordu.
 
 Poziom usług, który należy do bazy danych SQL zależy od wymagań obciążenia szczytowego dla każdego wymiaru zasobów. Niektóre aplikacje używane trivial ilość pojedynczego zasobu, ale mieć znaczący wymagania dotyczące innych zasobów.
 
@@ -276,7 +275,7 @@ Niektóre aplikacje intensywnie zapisu. Czasami można zmniejszyć całkowitego 
 ### <a name="application-tier-caching"></a>Buforowanie warstwy aplikacji
 Niektóre aplikacje bazy danych mają obciążeń intensywnie odczytu. Buforowanie warstwy może zmniejszyć obciążenie bazy danych i może zmniejszyć poziom wydajności, wymagany do obsługi bazy danych przy użyciu bazy danych SQL Azure. Z [pamięć podręczna Redis Azure](https://azure.microsoft.com/services/cache/), jeśli masz obciążenie intensywnie odczytu danych może odczytywać raz (lub raz na maszynie warstwy aplikacji, w zależności od sposobu skonfigurowania) i następnie przechowywania tych danych spoza Twojej bazy danych SQL. Jest to sposób, aby zmniejszyć obciążenie bazy danych (CPU i odczytu We/Wy), ale nie wpływa na spójności transakcyjnej, ponieważ odczytywane z pamięci podręcznej dane mogą być zsynchronizowane z danymi w bazie danych. Chociaż w wielu aplikacjach pewnego poziomu niespójności jest dopuszczalna, który nie jest spełniony dla wszystkich obciążeń. Wszelkie wymagania aplikacji należy zapoznać się przed zaimplementowaniem strategii buforowania warstwy aplikacji.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Aby uzyskać więcej informacji na temat warstwy usług, zobacz [opcje bazy danych SQL i wydajność](sql-database-service-tiers.md)
 * Aby uzyskać więcej informacji na temat pule elastyczne, zobacz [co to jest puli elastycznej platformy Azure?](sql-database-elastic-pool.md)
 * Aby uzyskać informacje o wydajności i elastyczne pule, zobacz [kiedy należy wziąć pod uwagę puli elastycznej](sql-database-elastic-pool-guidance.md)

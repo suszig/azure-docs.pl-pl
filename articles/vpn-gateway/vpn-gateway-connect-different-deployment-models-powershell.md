@@ -1,10 +1,10 @@
 ---
 title: "Połącz klasycznych sieci wirtualnych do sieci wirtualnych Menedżera zasobów Azure: programu PowerShell | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak utworzyć połączenie sieci VPN między klasycznych sieci wirtualnych i sieci wirtualnych Menedżera zasobów przy użyciu bramy sieci VPN i programu PowerShell"
+description: "Utwórz połączenie sieci VPN między klasycznych sieci wirtualnych i sieci wirtualnych Menedżera zasobów przy użyciu bramy sieci VPN i programu PowerShell."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-service-management,azure-resource-manager
 ms.assetid: f17c3bf0-5cc9-4629-9928-1b72d0c9340b
@@ -13,19 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/21/2017
+ms.date: 02/13/2018
 ms.author: cherylmc
-ms.openlocfilehash: da5bddba3a1fad74b2ee08fd2f34d1b01c7345c8
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a3afd89a928854a1b03bfd4c5645ea12dbb638fc
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Łączenie sieci wirtualnych z różnych modeli wdrażania za pomocą programu PowerShell
 
-
-
-W tym artykule przedstawiono sposób nawiązywania klasyczne sieci wirtualne sieci wirtualnych Menedżera zasobów umożliwia zasobów znajdujących się w modelach wdrażania oddzielne do komunikowania się ze sobą. Kroki opisane w tym artykule przy użyciu programu PowerShell, ale można również utworzyć w tej konfiguracji przy użyciu portalu Azure, wybierając artykułu z tej listy.
+W tym artykule opisano, jak połączyć klasycznych sieci wirtualnych do sieci wirtualnych Menedżera zasobów, aby umożliwić zasobów znajdujących się w modelach wdrażania oddzielne do komunikowania się ze sobą. Kroki opisane w tym artykule przy użyciu programu PowerShell, ale można również utworzyć w tej konfiguracji przy użyciu portalu Azure, wybierając artykułu z tej listy.
 
 > [!div class="op_single_selector"]
 > * [Portal](vpn-gateway-connect-different-deployment-models-portal.md)
@@ -35,7 +33,7 @@ W tym artykule przedstawiono sposób nawiązywania klasyczne sieci wirtualne sie
 
 Łączenie klasycznej sieci wirtualnej z Menedżera zasobów sieci wirtualnej jest podobny do łączenia sieci wirtualnej do lokalizacji lokalnej. Oba typy połączeń wykorzystują bramę sieci VPN, aby zapewnić bezpieczny tunel z użyciem protokołu IPsec/IKE. Można utworzyć połączenia między sieciami wirtualnymi, które są w różnych subskrypcji i w różnych regionach. Można również połączyć sieci wirtualnych, które mają już połączenia z sieciami lokalnymi tak długo, jak jest bramy, które zostały skonfigurowane z dynamicznego lub oparte na trasach. Więcej informacji na temat połączeń między sieciami wirtualnymi znajduje się w sekcji [Często zadawane pytania dotyczące połączeń między sieciami wirtualnymi](#faq) na końcu tego artykułu. 
 
-W przypadku Twojej sieci wirtualnych w tym samym regionie, możesz zamiast tego należy rozważyć połączenie ich za pomocą sieci wirtualnej komunikacji równorzędnej. W przypadku komunikacji równorzędnej sieci wirtualnych nie jest używana brama sieci VPN. Aby uzyskać więcej informacji, zobacz temat [Komunikacja równorzędna sieci wirtualnych](../virtual-network/virtual-network-peering-overview.md). 
+Jeśli nie masz już bramy sieci wirtualnej i nie chcesz utworzyć, możesz zamiast tego należy rozważyć połączenie Twojej sieci wirtualnych za pomocą komunikacji równorzędnej sieci wirtualnej. W przypadku komunikacji równorzędnej sieci wirtualnych nie jest używana brama sieci VPN. Aby uzyskać więcej informacji, zobacz temat [Komunikacja równorzędna sieci wirtualnych](../virtual-network/virtual-network-peering-overview.md).
 
 ## <a name="before"></a>Przed rozpoczęciem
 
@@ -56,17 +54,17 @@ Tych wartości możesz użyć do tworzenia środowiska testowego lub odwoływać
 Nazwa sieci wirtualnej = ClassicVNet <br>
 Lokalizacja = zachodnie stany USA <br>
 Przestrzeniami adresów sieci wirtualnej = 10.0.0.0/24 <br>
-Podsieć 1 = 10.0.0.0/27 <br>
+Subnet-1 = 10.0.0.0/27 <br>
 GatewaySubnet = 10.0.0.32/29 <br>
 Nazwa sieci lokalnej = RMVNetLocal <br>
-Elementu GatewayType = DynamicRouting
+GatewayType = DynamicRouting
 
 **Ustawienia Menedżera zasobów w sieci wirtualnej**
 
 Nazwa sieci wirtualnej = RMVNet <br>
 Grupa zasobów = RG1 <br>
 Przestrzeni adresów IP sieci wirtualnej = 192.168.0.0/16 <br>
-Podsieć 1 = 192.168.1.0/24 <br>
+Subnet-1 = 192.168.1.0/24 <br>
 GatewaySubnet = 192.168.0.0/26 <br>
 Lokalizacja = wschodnie stany USA <br>
 Nazwa publicznego adresu IP bramy = gwpip <br>
@@ -76,10 +74,22 @@ Konfiguracja adresów IP bramy = gwipconfig
 
 ## <a name="createsmgw"></a>Sekcja 1 — Konfigurowanie klasycznej sieci wirtualnej
 ### <a name="1-download-your-network-configuration-file"></a>1. Pobieranie pliku konfiguracji sieci
-1. Zaloguj się do konta platformy Azure, w konsoli programu PowerShell z podwyższonym poziomem uprawnień. Następujące polecenie cmdlet monituje o poświadczenia logowania dla konta platformy Azure. Po zalogowaniu pobiera ono ustawienia konta, aby były dostępne dla programu Azure PowerShell. Ukończenie tej części konfiguracji przy użyciu poleceń cmdlet programu PowerShell SM.
+1. Zaloguj się do konta platformy Azure, w konsoli programu PowerShell z podwyższonym poziomem uprawnień. Następujące polecenie cmdlet monituje o poświadczenia logowania dla konta platformy Azure. Po zalogowaniu pobiera ono ustawienia konta, aby były dostępne dla programu Azure PowerShell. Klasycznym poleceń cmdlet programu Azure PowerShell dla usługi zarządzania (SM) są używane w tej sekcji.
 
   ```powershell
   Add-AzureAccount
+  ```
+
+  Uzyskiwanie subskrypcji platformy Azure.
+
+  ```powershell
+  Get-AzureSubscription
+  ```
+
+  Jeśli masz więcej niż jedną subskrypcję, wybierz tę, której chcesz użyć.
+
+  ```powershell
+  Select-AzureSubscription -SubscriptionName "Name of subscription"
   ```
 2. Wyeksportuj do pliku konfiguracji sieci platformy Azure, uruchamiając następujące polecenie. Możesz zmienić lokalizację pliku, aby wyeksportować ją w innej lokalizacji, w razie potrzeby.
 
@@ -169,13 +179,13 @@ Aby utworzyć bramę sieci VPN RM sieci wirtualnej, wykonaj poniższe instrukcje
   Login-AzureRmAccount
   ``` 
    
-  Pobierz listę subskrypcji Azure, jeśli masz więcej niż jedną subskrypcję.
+  Pobierz listę subskrypcji platformy Azure.
 
   ```powershell
   Get-AzureRmSubscription
   ```
    
-  Wskaż subskrypcję, której chcesz użyć.
+  Jeśli masz więcej niż jedną subskrypcję, określ subskrypcję, która ma być używany.
 
   ```powershell
   Select-AzureRmSubscription -SubscriptionName "Name of subscription"
@@ -308,4 +318,3 @@ Tworzenie połączenia między bramami wymaga środowiska PowerShell. Może być
 ## <a name="faq"></a>Często zadawane pytania dotyczące połączeń między sieciami wirtualnymi
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
-

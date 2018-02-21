@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: ed06b869f1c8fb98d8b70693723b1a0fee3605fc
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
-ms.translationtype: MT
+ms.openlocfilehash: 5dd762cffbca909c5f682a16c86ef5a86f4860de
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="api-management-access-restriction-policies"></a>Zasady ograniczeń dostępu do interfejsu API zarządzania
 W tym temacie znajdują się informacje na następujące zasady usługi API Management. Aby uzyskać informacje dotyczące dodawania i konfigurowania zasad, zobacz [zasad w usłudze API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
   
-##  <a name="AccessRestrictionPolicies"></a>Zasady ograniczeń dostępu  
+##  <a name="AccessRestrictionPolicies"></a> Zasady ograniczeń dostępu  
   
 -   [Nagłówek HTTP wyboru](api-management-access-restriction-policies.md#CheckHTTPHeader) — wymusza istnienia i/lub wartość nagłówka HTTP.  
 -   [Limit szybkości wywołanie przez subskrypcji](api-management-access-restriction-policies.md#LimitCallRate) — użycie uniemożliwia API wzrósł poprzez ograniczenie wywołań szybkości, na podstawie subskrypcji na.  
@@ -33,7 +33,7 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
 -   [Ustaw przydział użycia przez klucz](#SetUsageQuotaByKey) — umożliwia egzekwowanie odnawialnymi lub okres istnienia wywołania woluminu i/lub przepustowości limit przydziału, na podstawie według klucza.  
 -   [Sprawdź poprawność JWT](api-management-access-restriction-policies.md#ValidateJWT) — wymusza istnienia i ważności wyodrębniony z określonego nagłówka HTTP lub parametr zapytania określony token JWT.  
   
-##  <a name="CheckHTTPHeader"></a>Sprawdź nagłówka HTTP  
+##  <a name="CheckHTTPHeader"></a> Sprawdź nagłówka HTTP  
  Użyj `check-header` zasady do wymuszenia, że żądanie ma określonego nagłówka HTTP. Można opcjonalnie sprawdzić, czy nagłówek nie ma określonej wartości lub sprawdź, czy zakres dozwolonych wartości. W przypadku niepowodzenia sprawdzania zasad przerywa przetwarzania żądania i zwraca komunikat kodu i błąd stanu HTTP określone przez zasady.  
   
 ### <a name="policy-statement"></a>Deklaracja zasad  
@@ -76,7 +76,7 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
   
 -   **Zakresy zasad:** globalnych produktu interfejsu API, operacji  
   
-##  <a name="LimitCallRate"></a>Limit szybkości wywołanie przez subskrypcję  
+##  <a name="LimitCallRate"></a> Limit szybkości wywołanie przez subskrypcję  
  `rate-limit` Zasad uniemożliwia nagłego interfejsu API na podstawie subskrypcji na ograniczając szybkość wywołania do określonej liczby na określonym przedziale czasu. Po wyzwoleniu tych zasad wywołującego odbiera `429 Too Many Requests` kod stanu odpowiedzi.  
   
 > [!IMPORTANT]
@@ -131,7 +131,7 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
   
 -   **Zakresy zasad:** produktu  
   
-##  <a name="LimitCallRateByKey"></a>Limit szybkości wywołanie przez klucz  
+##  <a name="LimitCallRateByKey"></a> Limit szybkości wywołanie przez klucz  
  `rate-limit-by-key` Zasad uniemożliwia nagłego interfejsu API na podstawie klucza na ograniczając szybkość wywołania do określonej liczby na określonym przedziale czasu. Klucz może mieć wartość dowolny ciąg i jest zwykle zapewniany przy użyciu wyrażenia zasad. Aby określić, które żądania powinno być liczone się do limitu można dodać warunku opcjonalnie przyrostu. Po wyzwoleniu tych zasad wywołującego odbiera `429 Too Many Requests` kod stanu odpowiedzi.  
   
  Aby uzyskać dodatkowe informacje i przykłady tych zasad, zobacz [Zaawansowane żądanie ograniczania z usługą Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
@@ -189,7 +189,7 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
   
 -   **Zakresy zasad:** globalnych produktu interfejsu API, operacji  
   
-##  <a name="RestrictCallerIPs"></a>Ograniczenia adresów IP wywołującego  
+##  <a name="RestrictCallerIPs"></a> Ograniczenia adresów IP wywołującego  
  `ip-filter` (Umożliwia/nie zezwala na) wywołania z określonych adresów IP i/lub zakresów adresów filtry zasad.  
   
 ### <a name="policy-statement"></a>Deklaracja zasad  
@@ -231,7 +231,7 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
 -   **Sekcje zasad:** dla ruchu przychodzącego  
 -   **Zakresy zasad:** globalnych produktu interfejsu API, operacji  
   
-##  <a name="SetUsageQuota"></a>Ustaw przydział użycia przez subskrypcję  
+##  <a name="SetUsageQuota"></a> Ustaw przydział użycia przez subskrypcję  
  `quota` Zasady wymuszają zastosowanie odnawialnymi lub okres istnienia wywołania woluminu i/lub przepustowości limit przydziału, na podstawie na subskrypcję.  
   
 > [!IMPORTANT]
@@ -286,7 +286,7 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
 -   **Sekcje zasad:** dla ruchu przychodzącego  
 -   **Zakresy zasad:** produktu  
   
-##  <a name="SetUsageQuotaByKey"></a>Ustaw przydział użycia według klucza  
+##  <a name="SetUsageQuotaByKey"></a> Ustaw przydział użycia według klucza  
  `quota-by-key` Zasady wymuszają zastosowanie odnawialnymi lub okres istnienia wywołania woluminu i/lub przepustowości limit przydziału, na podstawie według klucza. Klucz może mieć wartość dowolny ciąg i jest zwykle zapewniany przy użyciu wyrażenia zasad. Opcjonalne przyrostu warunku można dodać do określenia żądań, które powinno być liczone kierunku limit przydziału.  
   
  Aby uzyskać dodatkowe informacje i przykłady tych zasad, zobacz [Zaawansowane żądanie ograniczania z usługą Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
@@ -346,11 +346,11 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
 -   **Sekcje zasad:** dla ruchu przychodzącego  
 -   **Zakresy zasad:** globalnych produktu interfejsu API, operacji  
   
-##  <a name="ValidateJWT"></a>Sprawdź poprawność JWT  
+##  <a name="ValidateJWT"></a> Sprawdź poprawność JWT  
  `validate-jwt` Zasady wymuszają zastosowanie istnienia i ważności token JWT wyodrębnione z albo określonego nagłówka HTTP lub parametr zapytania określony.  
   
 > [!IMPORTANT]
->  `validate-jwt` Zasad wymaga, aby `exp` zarejestrowanych oświadczeń jest inlcuded w JWT token, chyba że `require-expiration-time` atrybut jest określona i ustawić `false`.  
+>  `validate-jwt` Zasad wymaga, aby `exp` zarejestrowanych oświadczeń jest uwzględniona w JWT token, chyba że `require-expiration-time` atrybut jest określona i ustawić `false`.  
 > `validate-jwt` Zasad obsługuje HS256 i RS256 algorytmy podpisywania. Dla HS256 klucz należy podać wbudowane w ramach zasad w postaci kodowany w standardzie base64. RS256 klucz ma zapewnienie za pośrednictwem punktu końcowego Otwórz identyfikator konfiguracji.  
   
 ### <a name="policy-statement"></a>Deklaracja zasad  
@@ -502,7 +502,7 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
 |nie powiodło się weryfikacji httpcode|Kod stanu HTTP do zwrócenia, jeśli token JWT nie przeszedł pomyślnie weryfikacji.|Nie|401|  
 |header-name|Nazwa nagłówka HTTP zawierający token.|Albo `header-name` lub `query-paremeter-name` musi być określony; ale nie oba.|ND|  
 |id|`id` Atrybutu `key` element umożliwia określenie ciąg, który będzie dopasowywane `kid` oświadczenia w tokenie (jeśli istnieje) dowiedzieć się, odpowiedni klucz do użycia w celu weryfikacji podpisu.|Nie|ND|  
-|dopasowanie|`match` Atrybutu `claim` element określa, czy każda wartość oświadczenia w zasadach musi być obecny w tokenie Weryfikacja powiodła się. Możliwe wartości:<br /><br /> -                          `all`-każdej wartości oświadczeń w zasadzie musi znajdować się w tokenem Weryfikacja powiodła się.<br /><br /> -                          `any`— wartość co najmniej jedno oświadczenie musi być obecny w tokenie Weryfikacja powiodła się.|Nie|all|  
+|dopasowanie|`match` Atrybutu `claim` element określa, czy każda wartość oświadczenia w zasadach musi być obecny w tokenie Weryfikacja powiodła się. Możliwe wartości:<br /><br /> -                          `all` -każdej wartości oświadczeń w zasadzie musi znajdować się w tokenem Weryfikacja powiodła się.<br /><br /> -                          `any` — wartość co najmniej jedno oświadczenie musi być obecny w tokenie Weryfikacja powiodła się.|Nie|all|  
 |Nazwa zapytania — paremeter|Nazwa parametru zapytania zawierający token.|Albo `header-name` lub `query-paremeter-name` musi być określony; ale nie oba.|ND|  
 |Wymagaj — wygasa|Boolean. Określa, czy oświadczenie wygaśnięcia jest wymagany w tokenie.|Nie|prawda|
 |Wymagaj schematu|Nazwa tokenu schemat, np. "Bearer". Gdy tego atrybutu jest ustawiona, zasady zapewni określony schemat jest obecny w wartość nagłówka uwierzytelnienia.|Nie|ND|

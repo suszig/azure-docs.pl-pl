@@ -1,3 +1,26 @@
+---
+title: "Usługi analiza strumienia: Wykrywanie oszustw w czasie rzeczywistym | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak utworzyć rozwiązanie wykrywania oszustw w czasie rzeczywistym z usługi Stream Analytics. Użyj Centrum zdarzeń do przetwarzania zdarzeń w czasie rzeczywistym."
+keywords: wykrywanie anomalii, wykrywanie oszustw, wykrywania anomalii w czasie rzeczywistym
+services: stream-analytics
+documentationcenter: 
+author: SnehaGunda
+manager: jhubbard
+editor: cgronlun
+ms.assetid: c10dd53f-d17a-4268-a561-cb500a8c04eb
+ms.service: stream-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-services
+ms.date: 03/28/2017
+ms.author: sngun
+ms.openlocfilehash: cc581142ca2c75bbee80f9d980c4984b4863a6cf
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 02/14/2018
+---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Rozpoczynanie pracy przy użyciu usługi Azure Stream Analytics: wykrywanie oszustw w czasie rzeczywistym
 
 Ten samouczek zawiera ilustrację end-to-end można używać usługi Azure Stream Analytics. Omawiane kwestie: 
@@ -126,7 +149,7 @@ Przed rozpoczęciem TelcoGenerator aplikacji, możesz ją skonfigurować tak, ab
 
 Niektóre pola klucza, które będą używane w tej aplikacji wykrywanie oszustw w czasie rzeczywistym, są następujące:
 
-|**Rekord**|**Definicja**|
+|**rekord**|**Definicja**|
 |----------|--------------|
 |`CallrecTime`|Godzina rozpoczęcia znacznik czasu wywołania. |
 |`SwitchNum`|Przełącznik telefonów używane do połączenia. W tym przykładzie przełączniki są ciągów reprezentujących kraj pochodzenia (USA, Chinach, UK, Niemcy lub Australii). |
@@ -385,7 +408,7 @@ Jednak jeśli wszystko będzie gotowe, a nie ma potrzeby zasoby, które zostały
 
 Aby uzyskać dodatkową pomoc, spróbuj naszych [forum usługi Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Można kontynuować tego samouczka z następujących artykułów:
 

@@ -1,10 +1,10 @@
 ---
 title: "Generowanie i eksportowania certyfikatów dla lokacji punktu: MakeCert: Azure | Dokumentacja firmy Microsoft"
-description: "Ten artykuł zawiera kroki, aby utworzyć certyfikat z podpisem własnym głównego, wyeksportować klucz publiczny i generowania certyfikatów klientów za pomocą narzędzia MakeCert."
+description: "Utwórz certyfikat z podpisem własnym głównego, wyeksportować klucz publiczny i generowania certyfikatów klientów za pomocą narzędzia MakeCert."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/09/2017
+ms.date: 02/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: 2beacc461370f268e54e1eedcb32939f7c606b14
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: b2f31761e4560cf4b9b9a5b92f5de9982a663a75
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>Generowanie i eksportowania certyfikatów połączeń punkt-lokacja za pomocą narzędzia MakeCert
 
@@ -99,3 +99,5 @@ Kontynuuj konfigurację punkt-lokacja.
 
 * Dla **Resource Manager** kroków modelu wdrażania, zobacz [P2S skonfigurować przy użyciu uwierzytelniania certyfikatu Azure natywnego](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 * Dla **klasycznego** kroków modelu wdrażania, zobacz [skonfigurować połączenie sieci VPN typu punkt-lokacja sieci wirtualnej (klasyczne)](vpn-gateway-howto-point-to-site-classic-azure-portal.md).
+
+Aby uzyskać informacje dotyczące rozwiązywania problemów P2S [połączenia punkt lokacja Azure Rozwiązywanie problemów z](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

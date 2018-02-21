@@ -1,10 +1,10 @@
 ---
 title: "Utwórz i zainstaluj pliki konfiguracji klienta sieci VPN dla połączeń P2S RADIUS: środowiska PowerShell: Azure | Dokumentacja firmy Microsoft"
-description: "Ten artykuł pomaga w utworzeniu pliku konfiguracji klienta sieci VPN dla połączenia punkt-lokacja, które używają uwierzytelniania serwera RADIUS."
+description: "Tworzenie klienta systemu Windows, Mac OS X i Linux VPN pliki konfiguracji dla połączeń, które korzystają z uwierzytelniania usługi RADIUS."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/05/2018
+ms.date: 02/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: fb83bda50535dc002120ee4621cd4c8df71c141c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ce914d2fd0472855ad7a17bf64ae43a76ceb5743
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Utwórz i zainstaluj pliki konfiguracji klienta sieci VPN do uwierzytelniania P2S RADIUS
 
-Aby połączyć sieć wirtualną za pośrednictwem punkt-lokacja, należy skonfigurować urządzenia klienckiego, z którego będą łączyć. Serwer usługi RADIUS udostępnia wiele opcji uwierzytelniania: uwierzytelnianie nazwy użytkownika i hasła, uwierzytelnianie certyfikatu, a także inne typy uwierzytelniania. Konfiguracja klienta sieci VPN jest różne dla każdego typu uwierzytelniania. Aby skonfigurować klienta sieci VPN, należy użyć plików konfiguracji klienta, które zawierają wymagane ustawienia. Ten artykuł pomaga utworzyć i zainstalować Konfiguracja klienta sieci VPN dla typu uwierzytelniania usługi RADIUS, którego chcesz używać.
+Aby połączyć sieć wirtualną za pośrednictwem punkt-lokacja, należy skonfigurować urządzenia klienckiego, z którego będą łączyć. Można utworzyć połączenia sieci VPN P2S z systemu Windows, Mac OS x i Linux urządzeń klienckich. Podczas korzystania z uwierzytelniania usługi RADIUS, istnieje wiele opcji uwierzytelniania: uwierzytelnianie nazwy użytkownika i hasła, uwierzytelnianie certyfikatu, a także inne typy uwierzytelniania. Konfiguracja klienta sieci VPN jest różne dla każdego typu uwierzytelniania. Aby skonfigurować klienta sieci VPN, należy użyć plików konfiguracji klienta, które zawierają wymagane ustawienia. Ten artykuł pomaga utworzyć i zainstalować Konfiguracja klienta sieci VPN dla typu uwierzytelniania usługi RADIUS, którego chcesz używać.
 
-### <a name="workflow"></a>Przepływ pracy
+Konfiguracja przepływu pracy do uwierzytelniania P2S RADIUS wygląda następująco:
 
 1. [Konfigurowanie bramy sieci VPN platformy Azure dla łączności P2S](point-to-site-how-to-radius-ps.md).
 2. [Konfigurowanie serwera usługi RADIUS na potrzeby uwierzytelniania](point-to-site-how-to-radius-ps.md#radius). 
@@ -36,6 +36,8 @@ Aby połączyć sieć wirtualną za pośrednictwem punkt-lokacja, należy skonfi
 >Jeśli wystąpiły jakiekolwiek zmiany konfiguracji sieci VPN typu punkt-lokacja po wygenerowaniu profilu konfiguracji klienta sieci VPN, takie jak typ protokołu sieci VPN lub typ uwierzytelniania, musisz wygenerować i zainstaluj nową konfigurację klienta sieci VPN na urządzeniach użytkownika.
 >
 >
+
+Aby użyć sekcje w tym artykule, najpierw zdecydować, jaki typ uwierzytelniania do użycia: nazwy użytkownika i hasła, certyfikatu lub inne typy uwierzytelniania. W każdej sekcji istnieją kroki dla systemu Windows, Mac OS X i Linux (ograniczone procedura w tej chwili niedostępna).
 
 ## <a name="adeap"></a>Uwierzytelnianie nazwy użytkownika i hasła
 
@@ -121,7 +123,7 @@ Aby skonfigurować natywny klient VPN systemu Windows do uwierzytelniania certyf
 
 Poniższe instrukcje zostały utworzone przy użyciu strongSwan 5.5.1 na Ubuntu 17.0.4. Rzeczywiste Ekrany mogą się różnić w zależności od używanej wersji systemu Linux i strongSwan.
 
-1. Otwórz **terminali** do zainstalowania **strongSwan** i jego Menedżera sieci, uruchamiając następujące polecenie. Jeśli zostanie wyświetlony błąd związany z "libcharon-extra wtyczek", należy ją zastąpić "strongswan wtyczka eap-mschapv2".
+1. Otwórz **terminali** do zainstalowania **strongSwan** i jego Menedżera sieci, za pomocą polecenia w przykładzie. Jeśli zostanie wyświetlony błąd związany z "libcharon-extra wtyczek", należy ją zastąpić "strongswan wtyczka eap-mschapv2".
 
   ```Terminal
   sudo apt-get install strongswan libcharon-extra-plugins moreutils iptables-persistent network-manager-strongswan
@@ -251,3 +253,5 @@ Aby użyć typu uwierzytelniania inny (na przykład OTP), a nie nazwy użytkowni
 ## <a name="next-steps"></a>Kolejne kroki
 
 Wróć do tego artykułu, aby [ukończyć konfigurację P2S](point-to-site-how-to-radius-ps.md).
+
+Aby uzyskać informacje dotyczące rozwiązywania problemów P2S [połączenia punkt lokacja Azure Rozwiązywanie problemów z](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

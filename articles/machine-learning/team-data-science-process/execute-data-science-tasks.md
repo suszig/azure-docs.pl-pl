@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: bradsev;
-ms.openlocfilehash: 1ad4e8c117f93f2f085c01fae2a5ab38cdd10d2f
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 7f3bf3bb5743bfb64489188d1016fb18d4967f79
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Wykonanie zadania nauki danych: eksploracji, modelowania i wdrażanie
 
@@ -25,10 +25,10 @@ Zadania nauki typowych danych obejmują Eksploracja danych, modelowania i wdroż
 
 - [Azure Machine Learning](../preview/index.yml)
 - [Programu SQL Server z usługami ML](https://docs.microsoft.com/sql/advanced-analytics/r/r-services#in-database-analytics-with-sql-server)
-- [Uczenie maszynowe Microsoft Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
+- [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
 
 
-## 1. <a name='DataQualityReportUtility-1'></a>Eksploracja 
+## 1. <a name='DataQualityReportUtility-1'></a> Eksploracja 
 
 Naukowca danych można wykonać eksploracji i raportowania w różnych sposobów: za pomocą bibliotek i pakiety dostępne dla języka Python (matplotlib na przykład) lub z R (ggplot lub struktury, na przykład). Analityków danych, można dostosować takiego kodu do potrzeb Eksploracja danych w określonych scenariuszach. Wymagania dotyczące danych strukturalnych są różne dla danych niestrukturalnych, takich jak tekstu lub obrazów. 
 
@@ -43,7 +43,7 @@ Tego opartych na języku znaczników markdown R lub Python na podstawie notesu n
 W tej chwili narzędzie działa tylko na ramek danych w pamięci. Pozwala określić parametry zestawu danych do eksplorowania na potrzeby pliku yaml programu. Aby uzyskać więcej informacji, zobacz [IDEAR w narzędzia do analizy danych TDSP](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/DataReport-Utils).
 
 
-## 2. <a name='ModelingUtility-2'></a>Modelowanie
+## 2. <a name='ModelingUtility-2'></a> Modelowanie
 
 Istnieje wiele narzędzi i pakietów w modelach szkolenia w różnych językach. Analityków danych powinien możesz korzystać, który z nich są doświadczenia z, jak długo zagadnienia dotyczące wydajności dotyczące dokładność i opóźnienia są spełnione dla odpowiednich firm Użyj przypadków i scenariusze produkcji.
 
@@ -63,7 +63,7 @@ Plik yaml programu służy do określania:
 - jaka część danych służy do szkolenia i jakie części do testowania
 - jakie algorytmy do uruchomienia 
 - wybór parametrów sterujących optymalizacji modelu:
-    - krzyżowe sprawdzanie poprawności 
+    - cross-validation 
     - Uruchamianie
     - złożeń krzyżowego sprawdzania poprawności
 - Ustawia hyper parametr dla każdej algorytmu. 
@@ -78,9 +78,9 @@ Po wielu modeli są wbudowane, zwykle musi być system rejestracji i zarządzani
 1. [Usługa Azure Machine Learning — model usługi zarządzania](../preview/index.yml)
 2. [ModelDB z MIT](https://mitdbg.github.io/modeldb/) 
 3. [SQL-seerver jako system zarządzania modelu](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
-4. [Uczenie maszynowe Microsoft Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
+4. [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
-## 3. <a name='Deployment-3'></a>Wdrożenia
+## 3. <a name='Deployment-3'></a>wdrożenia
 
 Wdrożenia produkcyjnego umożliwia modelu do pełnienia roli active w firmie. Prognoz z wdrożonym modelu może służyć do decyzje biznesowe.
 
@@ -88,9 +88,9 @@ Wdrożenia produkcyjnego umożliwia modelu do pełnienia roli active w firmie. P
 Istnieją różne podejścia i platformy, aby umieścić modeli w środowisku produkcyjnym. Poniżej przedstawiono kilka opcji:
 
 
-- [Model wdrażania w usłudze Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview)
+- [Model wdrażania w usłudze Azure Machine Learning](../preview/model-management-overview.md)
 - [Wdrażania modelu w programie SQL server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
-- [Uczenie maszynowe Microsoft Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
+- [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
 >
 >
@@ -105,7 +105,7 @@ Uwaga: Do wdrożenia za pomocą usługi Azure Machine Learning Studio, zobacz [w
 W przypadku wielu modeli w środowisku produkcyjnym, może być przydatne do wykonania [A / B, testowanie](https://en.wikipedia.org/wiki/A/B_testing) porównanie wydajności modeli. 
 
  
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Śledzenie postępu projektów analizy danych](track-progress.md) pokazuje, jak naukowca danych można śledzić postęp projektu analizy danych.
  

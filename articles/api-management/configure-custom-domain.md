@@ -11,15 +11,18 @@ ms.workload: integration
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: apimpm
-ms.openlocfilehash: 0f1c9e8e8298647721f16962d3f6756c74f8c8ef
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 96e233a26af95d4373323867046ca01fe1304608
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="configure-a-custom-domain-name"></a>Konfigurowanie niestandardowej nazwy domeny 
 
 Podczas tworzenia wystąpienia interfejsu API zarządzania (APIM) Azure przypisuje go do poddomeny azure api.net (na przykład `apim-service-name.azure-api.net`). Jednak mogą uwidaczniać APIM punktów końcowych przy użyciu z własnej nazwy domeny, takich jak **contoso.com**. W tym samouczku przedstawiono sposób odwzorowywania istniejącej nazwy DNS niestandardowe punkty końcowe udostępnianych przez wystąpienie usługi Azure API Management.
+
+> [!WARNING]
+> Klienci, którzy chcą korzystać przypinania certyfikatu w celu zwiększenia bezpieczeństwa aplikacji należy użyć nazwy domeny niestandardowej > i certyfikatów, które zarządzają, nie domyślnego certyfikatu. Klienci, którzy przypiąć domyślnego certyfikatu zamiast tego będzie > przyjmowanie zależności twardym we właściwościach certyfikatu nie decydować, która nie jest zalecanym rozwiązaniem.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

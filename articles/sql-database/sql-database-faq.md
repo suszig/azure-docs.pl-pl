@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: On Demand
-ms.date: 02/07/2017
-ms.author: sashan;carlrab
-ms.openlocfilehash: da463bcaf91321b65c8ad1067e457b88c8dcd58f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.date: 02/12/2018
+ms.author: carlrab
+ms.openlocfilehash: 4efa053afd26bde208441c4b841c5d02142a2d18
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="sql-database-faq"></a>SQL Database — często zadawane pytania
 
@@ -30,7 +30,7 @@ Bieżąca wersja bazy danych SQL jest w wersji 12. W wersji V11 została wycofan
 Firma Microsoft gwarantuje, że przez co najmniej 99,99% czasu klienci będą mogli korzystać z łączności między pojedynczą lub elastyczną bazą danych usługi Microsoft Azure SQL Database w warstwach Podstawowa, Standardowa i Premium a bramą internetową firmy Microsoft. Aby uzyskać więcej informacji, zobacz [SLA](http://azure.microsoft.com/support/legal/sla/).
 
 ## <a name="how-do-i-reset-the-password-for-the-server-admin"></a>Jak zresetować hasła administratora serwera?
-W [portalu Azure](https://portal.azure.com) kliknij **serwerów SQL**, wybierz serwer z listy, a następnie kliknij przycisk **Resetuj hasło**.
+W [portalu Azure](https://portal.azure.com), kliknij przycisk **serwerów SQL**, wybierz serwer z listy, a następnie kliknij przycisk **Resetuj hasło**.
 
 ## <a name="how-do-i-manage-databases-and-logins"></a>Jak zarządzać baz danych i logowania
 Zobacz [Zarządzanie bazami danych i logowaniami](sql-database-manage-logins.md).
@@ -44,7 +44,7 @@ Opłaty bazy danych SQL na przewidywalną, godzinową szybkość oparte na warst
 ## <a name="what-if-a-single-database-is-active-for-less-than-an-hour-or-uses-a-higher-service-tier-for-less-than-an-hour"></a>Co zrobić, jeśli pojedynczej bazy danych jest aktywna na mniej niż godzinę lub używa wyższego poziomu usług mniej niż godzinę?
 Opłaty są naliczane dla każdej godziny przy użyciu najwyższej warstwy usług istnieje baza danych + poziom wydajności, która zastosowana podczas tej godziny, niezależnie od użycia i czy baza danych była active przez mniej niż godzinę. Po utworzeniu pojedynczej bazy danych i usunąć go pięciu minut rachunku odzwierciedla opłat godzinę jedną bazę danych. 
 
-Przykłady
+Przykłady:
 
 * Jeśli tworzenie podstawowej bazy danych, a następnie natychmiast uaktualnić go do standardowa S1, naliczane są opłaty szybkością standardowa S1 dla pierwszej godziny.
 * Jeśli uaktualnienie bazy danych z Basic do Premium na 10:00 w dniu i zakończeniu uaktualniania 1:35 o godzinie następnego dnia są naliczane szybkością Premium, rozpoczynając od godziny 1:00 
@@ -53,7 +53,7 @@ Przykłady
 ## <a name="how-does-elastic-pool-usage-show-up-on-my-bill-and-what-happens-when-i-change-edtus-per-pool"></a>Jak jest użycie puli elastycznej wyświetlany na mojego rachunku i co się stanie po zmianie jednostek Edtu na pulę?
 Puli elastycznej opłat Pokaż na rachunku jako elastycznej Dtu (Edtu) w przyrostach wyświetlany w obszarze jednostek Edtu na pulę na [stronie cen](https://azure.microsoft.com/pricing/details/sql-database/). Jest bezpłatna dla bazy danych dla puli elastycznej. Opłaty są naliczane dla każdej godziny puli istnieje w najwyższym liczbę jednostek eDTU, niezależnie od użycia i czy pula było aktywne przez mniej niż godzinę. 
 
-Przykłady
+Przykłady:
 
 * Po utworzeniu standardowej puli elastycznej z 200 Edtu o godzinie 11:18 Dodawanie pięć baz danych do puli, naliczane są opłaty dla 200 Edtu całego godzinę od o godzinie 11 do końca dnia.
 * W dniu 2, 5 o godzinie: 05 1 bazy danych rozpocznie korzystanie z 50 jednostek Edtu i przechowuje stałej za pośrednictwem dnia. Bazy danych 2-5 zmieniają się między 0 a Edtu 80. W ciągu dnia można dodać pięć innych baz danych używających różnych jednostek Edtu w ciągu dnia. Dzień 2 jest pełny dzień rozliczane według 200 eDTU. 
@@ -76,17 +76,17 @@ Aby poznać warstwy jednostek Edtu i usług, zobacz [opcje bazy danych SQL i wyd
 W przeciwieństwie do pojedynczych baz danych przy użyciu [aktywna replikacja geograficzna](sql-database-geo-replication-overview.md) z elastycznych baz danych nie ma to bezpośredni wpływ rozliczeń.  Naliczane są tylko opłaty dla Edtu udostępnione dla poszczególnych pul (puli głównej i dodatkowej puli)
 
 ## <a name="how-does-the-use-of-the-auditing-feature-impact-my-bill"></a>W jaki sposób funkcja inspekcji będzie obciążać mój rachunek?
-Inspekcja jest wbudowana w usłudze SQL Database bez dodatkowych kosztów i jest dostępny dla baz danych Basic, Standard, Premium i Premium RS. Jednak do przechowywania dzienników inspekcji, używa funkcji inspekcji konta usługi Azure Storage oraz szybkości dla tabel i kolejek w usłudze Azure Storage są stosowane na podstawie rozmiaru dziennika inspekcji.
+Inspekcja jest wbudowana w usłudze SQL Database bez dodatkowych kosztów i jest dostępny dla baz danych Basic, Standard i Premium. Jednak do przechowywania dzienników inspekcji, używa funkcji inspekcji konta usługi Azure Storage oraz szybkości dla tabel i kolejek w usłudze Azure Storage są stosowane na podstawie rozmiaru dziennika inspekcji.
 
 ## <a name="how-do-i-find-the-right-service-tier-and-performance-level-for-single-databases-and-elastic-pools"></a>Jak znaleźć usługowy warstwę i poziom wydajności dla pojedynczych baz danych i pul elastycznych?
-Kilku narzędzi są dostępne. 
+Dostępne są narzędzia kilka: 
 
 * Dla lokalnych baz danych, użyj [advisor zmiany rozmiaru jednostek dtu w warstwie](http://dtucalculator.azurewebsites.net/) zaleca baz danych i Dtu wymagane i ocena wielu baz danych dla puli elastycznej.
 * Jeśli pojedynczej bazy danych będzie korzystać z w puli, inteligentnego aparatu Azure zaleca puli elastycznej, jeśli wzorzec historycznych danych użycia, która go. Zobacz [monitorowanie i zarządzanie nimi puli elastycznej z portalu Azure](sql-database-elastic-pool-manage-portal.md). Aby uzyskać więcej informacji o sposobie wykonać obliczenia samodzielnie, zobacz [zagadnienia dotyczące cen i wydajności dla elastycznej puli](sql-database-elastic-pool.md)
 * Aby sprawdzić, czy chcesz wybrać pojedynczej bazy danych w górę lub w dół, zobacz [wytyczne dotyczące wydajności dla pojedynczej bazy danych](sql-database-performance-guidance.md).
 
 ## <a name="how-often-can-i-change-the-service-tier-or-performance-level-of-a-single-database"></a>Jak często można zmienić poziomu warstwy lub wydajności usług pojedynczej bazy danych?
-Często mają można zmienić warstwy usług (między Basic, Standard, Premium i Premium RS) lub poziom wydajności w ramach warstwy usług (na przykład S1 S2). Dla wcześniejszych wersji baz danych można zmienić poziomu warstwy lub wydajności usług łącznie cztery razy w okresie 24 godzin.
+Jak często ma można zmienić warstwy usług (między podstawowa, standardowa i Premium) lub poziom wydajności w ramach warstwy usług (na przykład S1 S2). Dla wcześniejszych wersji baz danych można zmienić poziomu warstwy lub wydajności usług łącznie cztery razy w okresie 24 godzin.
 
 ## <a name="how-often-can-i-adjust-the-edtus-per-pool"></a>Jak często można dostosować jednostek Edtu na pulę?
 Tyle razy, ile ma.
@@ -101,7 +101,7 @@ Ogólnie rzecz biorąc, elastyczne pule są przeznaczone dla typowe [oprogramowa
 Magazyn kopii zapasowych jest magazynem skojarzonym z kopii zapasowych automatycznych bazy danych, które są używane do [punkt-w — czas-przywracania](sql-database-recovery-using-backups.md#point-in-time-restore) i [geograficzne](sql-database-recovery-using-backups.md#geo-restore). Usługa Microsoft Azure SQL Database oferuje do 200% maksymalnej pojemności aktywnego magazynu bazy danych na potrzeby kopii zapasowych bez dodatkowych kosztów. Na przykład jeśli wystąpienie standardowe bazy danych o rozmiarze DB elastycznie 250 GB, są dostarczane z 500 GB magazynu kopii zapasowej bez dodatkowych opłat. Jeśli bazy danych przekroczy udostępnionego magazynu kopii zapasowych, możesz skrócić okres przechowywania, kontaktując się z pomocą techniczną platformy Azure lub zapłacić za dodatkowe kopii zapasowych magazynu rozliczane według stawki standardowej dostęp do odczytu geograficznie magazynu geograficznie nadmiarowego (RA-GRS). Aby uzyskać więcej informacji dotyczących rozliczeń RA-GRS Zobacz szczegóły cennika magazynu.
 
 ## <a name="im-moving-from-webbusiness-to-the-new-service-tiers-what-do-i-need-to-know"></a>Przeprowadzam z sieci Web/firmy, aby nowe warstwy usług, co należy wiedzieć?
-Azure baz danych SQL w sieci Web i Business teraz zostały wycofane. Warstwy Basic, Standard, Premium, Premium RS i elastyczna Zastąp Ustępujący baz danych w sieci Web i Business. 
+Azure baz danych SQL w sieci Web i Business teraz zostały wycofane. Warstwy Basic, Standard, a Premium i elastyczna Zastąp Ustępujący baz danych w sieci Web i Business. 
 
 ## <a name="what-is-an-expected-replication-lag-when-geo-replicating-a-database-between-two-regions-within-the-same-azure-geography"></a>Co to jest opóźnienie replikacji oczekiwanego podczas replikowania geograficznie bazy danych między dwóch regionach w ramach tej samej lokalizacji geograficznej Azure?
 Firma Microsoft są obecnie obsługiwane RPO pięciu sekund i opóźnienie replikacji została mniejszej niż że gdy dodatkowej geograficzna jest obsługiwana na platformie Azure zalecane sparowanego regionu i w tej samej warstwie usługi.
@@ -119,7 +119,7 @@ Dodatkowej geograficzna jest replika async i firma Microsoft nie należy go prze
 Uwidaczniamy opóźnienie replikacji w czasie rzeczywistym między podstawowej bazy danych i geograficzna / pomocniczych za pośrednictwem DMV. Aby uzyskać więcej informacji, zobacz [sys.dm_geo_replication_link_status](https://msdn.microsoft.com/library/mt575504.aspx).
 
 ## <a name="to-move-a-database-to-a-different-server-in-the-same-subscription"></a>Aby przenieść bazę danych do innego serwera w tej samej subskrypcji
-* W [portalu Azure](https://portal.azure.com), kliknij przycisk **baz danych SQL**, wybierz bazę danych z listy, a następnie kliknij przycisk **kopiowania**. Zobacz [kopiowania bazy danych Azure SQL](sql-database-copy.md) uzyskać więcej szczegółowych informacji.
+W [portalu Azure](https://portal.azure.com), kliknij przycisk **baz danych SQL**, wybierz bazę danych z listy, a następnie kliknij przycisk **kopiowania**. Zobacz [kopiowania bazy danych Azure SQL](sql-database-copy.md) uzyskać więcej szczegółowych informacji.
 
 ## <a name="to-move-a-database-between-subscriptions"></a>Aby przenieść bazę danych między subskrypcjami
-* W [portalu Azure](https://portal.azure.com), kliknij przycisk **serwerów SQL** , a następnie wybierz serwer, który jest hostem bazy danych z listy. Kliknij przycisk **Przenieś**, a następnie wybierz zasoby do przeniesienia i subskrypcję docelową.
+W [portalu Azure](https://portal.azure.com), kliknij przycisk **serwerów SQL** , a następnie wybierz serwer, który jest hostem bazy danych z listy. Kliknij przycisk **Przenieś**, a następnie wybierz zasoby do przeniesienia i subskrypcję docelową.

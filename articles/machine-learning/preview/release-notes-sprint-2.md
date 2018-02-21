@@ -10,22 +10,22 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/04/2017
-ms.openlocfilehash: 6fede727a36b0f3243975bf23df2ef53baf1b15c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 630e6e22bb41c777a043a7e6580239e254db9f1f
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="sprint-2---december-2017"></a>Przebieg 2 — grudzień 2017 
 
 #### <a name="version-number-01171115263"></a>Numer wersji: 0.1.1711.15263
 
->Poniżej przedstawiono sposób [Znajdź numer wersji](https://docs.microsoft.com/azure/machine-learning/preview/known-issues-and-troubleshooting-guide).
+>Poniżej przedstawiono sposób [Znajdź numer wersji](known-issues-and-troubleshooting-guide.md).
 
 Trzeci aktualizacja Azure Machine Learning Workbench — Zapraszamy! Ta aktualizacja zawiera ulepszenia w aplikacji workbench, interfejsu wiersza polecenia (CLI) i usługi zaplecza. Dziękujemy wysyłania uśmiechy i frowns. Wiele z następujących aktualizacji są wykonywane jako bezpośrednie wyniki opinii użytkowników. 
 
 ## <a name="notable-new-features"></a>Ważne funkcje
-- [Obsługa programu SQL Server i bazy danych SQL Azure jako źródła danych](https://docs.microsoft.com/azure/machine-learning/preview/data-prep-appendix2-supported-data-sources#types) 
+- [Obsługa programu SQL Server i bazy danych SQL Azure jako źródła danych](data-prep-appendix2-supported-data-sources.md#types) 
 - [Głębokie uczenie na Spark z obsługą procesora GPU za pomocą MMLSpark](https://github.com/Azure/mmlspark/blob/master/docs/gpu-setup.md)
 - [Wszystkie kontenery AML są zgodne z urządzenia Azure IoT brzegowe po wdrożeniu (żadne dodatkowe czynności wymagane)](http://aka.ms/aml-iot-edge-blog)
 - Zarejestrowanego modelu listy i szczegółów widoki dostępne portalu Azure
@@ -56,7 +56,7 @@ Poniżej znajduje się lista szczegółowe aktualizacji w obszarze każdego skł
 
 - Ulepszenia wydajności podczas rekomendowania przypadków krawędzi, aby przejrzeć w transformacji "pochodzi kolumny przykładzie"
 
-- [Obsługa programu SQL Server i bazy danych SQL Azure jako źródła danych](https://docs.microsoft.com/azure/machine-learning/preview/data-prep-appendix2-supported-data-sources#types) 
+- [Obsługa programu SQL Server i bazy danych SQL Azure jako źródła danych](data-prep-appendix2-supported-data-sources.md#types) 
 
 ![Obraz tworzenia nowego źródła danych serwera SQL](media/release-notes-sprint-2/sql-server-data-source.png)
 
@@ -83,7 +83,7 @@ Teraz można tworzyć i dostęp do klastra lub remotedocker cel obliczeń typu p
 
 - Można przygotować ten element docelowy obliczeń i użyć jej do wykonania i Workbench uczenia Maszynowego Azure będzie używać tego klucza do uwierzytelniania.  
 
-Aby uzyskać więcej informacji na temat tworzenia elementów docelowych obliczeń, zobacz [Konfigurowanie Azure Machine Learning eksperymenty usługi](https://docs.microsoft.com/azure/machine-learning/preview/experimentation-service-configuration)
+Aby uzyskać więcej informacji na temat tworzenia elementów docelowych obliczeń, zobacz [Konfigurowanie Azure Machine Learning eksperymenty usługi](experimentation-service-configuration.md)
 
 ### <a name="visual-studio-tools-for-ai"></a>Visual Studio Tools for AI
 - Dodano obsługę [Visual Studio Tools for AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vstoolsai-vs2017). 
@@ -115,5 +115,5 @@ Aby uzyskać więcej informacji na temat tworzenia elementów docelowych oblicze
 ## <a name="breaking-changes"></a>FUNDAMENTALNE ZMIANY
 - Poziom jest podwyższany `--type` przełącznika w `az ml computetarget attach` polecenie podrzędne. 
 
-    - `az ml computetarget attach --type remotedocker`jest teraz`az ml computetarget attach remotedocker`
-    - `az ml computetarget attach --type cluster`jest teraz`az ml computetarget attach cluster`
+    - `az ml computetarget attach --type remotedocker` jest teraz `az ml computetarget attach remotedocker`
+    - `az ml computetarget attach --type cluster` jest teraz `az ml computetarget attach cluster`

@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: a9f50a1762f003727e62b43b6e81e62b66878f2f
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: cf86325971b607c7e1ec4b026f7df274e14c5e52
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="create-a-function-triggered-by-a-generic-webhook"></a>Tworzenie funkcji wyzwalanej przez ogólny element webhook
 
@@ -79,7 +79,7 @@ Następnie należy utworzyć punkt końcowy elementu webhook w alercie dziennika
     |  **Grupa zasobów** | myResourceGroup | Grupa zasobów, w której wdrażane są zasoby alertów. Użycie tej samej grupy zasobów, której użyto w aplikacji funkcji, ułatwia wyczyszczenie zasobów po zakończeniu pracy z samouczkiem. |
     | **Kategoria zdarzenia** | Administracyjne | Ta kategoria obejmuje zmiany w zasobach platformy Azure.  |
     | **Typ zasobu** | Grupy zasobów | Filtruje alerty pod kątem działań związanych z grupami zasobów. |
-    | **Grupa zasobów**<br/>i **Zasób** | Wszystkie | Monitorowanie wszystkich zasobów. |
+    | **Grupa zasobów**<br/>i **Zasób** | Wszyscy | Monitorowanie wszystkich zasobów. |
     | **Nazwa operacji** | Tworzenie grupy zasobów | Filtruje alerty pod kątem operacji tworzenia. |
     | **Poziom** | Informacyjne | Uwzględnia alerty o poziomie Informacyjne. | 
     | **Stan** | Powodzenie | Filtruje alerty pod kątem pomyślnie ukończonych akcji. |
@@ -128,7 +128,7 @@ Element webhook będzie teraz wywoływany w przypadku utworzenia grupy zasobów 
         if (activityLog == null || !string.Equals((string)activityLog["resourceType"], 
             "Microsoft.Resources/subscriptions/resourcegroups"))
         {
-            log.Error("An error occured");
+            log.Error("An error occurred");
             return req.CreateResponse(HttpStatusCode.BadRequest, new
             {
                 error = "Unexpected message payload or wrong alert received."

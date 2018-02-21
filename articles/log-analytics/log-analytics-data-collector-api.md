@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: 88d9c4b23eb676743c004c0d1b3ab45f6cd66055
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 5c6f2b35b48988af533612cb48da8fe79a838cf6
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Wysyłanie danych do analizy dzienników przy użyciu protokołu HTTP danych modułu zbierającego interfejsu API (w publicznej wersji zapoznawczej)
 W tym artykule przedstawiono sposób wysyłania danych do analizy dzienników z klienta interfejsu API REST za pomocą interfejsu API modułów zbierających dane HTTP.  Przedstawiono sposób formatowania danych zbieranych przez skrypt lub aplikację, dołączyć go w żądaniu i mieć tego żądania uprawnień przez analizy dzienników.  Przykłady są dostępne dla programu PowerShell, C# i Python.
@@ -49,7 +49,7 @@ Aby za pomocą interfejsu API modułów zbierających dane HTTP, należy utworzy
 ### <a name="request-uri-parameters"></a>Parametry identyfikatora URI żądania
 | Parametr | Opis |
 |:--- |:--- |
-| CustomerID |Unikatowy identyfikator dla obszaru roboczego programu Microsoft Operations Management Suite. |
+| CustomerID |Unikatowy identyfikator obszaru roboczego analizy dzienników. |
 | Zasób |Nazwa zasobu interfejsu API: / api/logs. |
 | Wersja interfejsu API |Wersja interfejsu API do używania z tym żądaniem. Obecnie jest 2016-04-01. |
 
@@ -70,7 +70,7 @@ Oto format nagłówka autoryzacji:
 Authorization: SharedKey <WorkspaceID>:<Signature>
 ```
 
-*WorkspaceID* jest unikatowym identyfikatorem dla obszaru roboczego usługi Operations Management Suite. *Podpis* jest [Hash-based kodu (metoda HMAC Message Authentication)](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) jest tworzony z żądania i następnie obliczane przy użyciu [algorytm SHA256](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx). Następnie należy kodować je przy użyciu kodowania Base64.
+*WorkspaceID* jest unikatowym identyfikatorem dla obszaru roboczego analizy dzienników. *Podpis* jest [Hash-based kodu (metoda HMAC Message Authentication)](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) jest tworzony z żądania i następnie obliczane przy użyciu [algorytm SHA256](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx). Następnie należy kodować je przy użyciu kodowania Base64.
 
 Użyj tego formatu do kodowania **SharedKey** podpisu ciągu:
 
@@ -204,7 +204,8 @@ W kolejnych sekcjach znajdują się przykłady sposobu przesyłania danych do in
 
 Dla każdej próbki wykonaj następujące kroki, aby ustawić zmienne dla nagłówka autoryzacji:
 
-1. W portalu usługi Operations Management Suite wybierz **ustawienia** Kafelek, a następnie wybierz **połączonych źródeł** kartę.
+1. W portalu Azure Znajdź obszaru roboczego analizy dzienników.
+2. Wybierz **Zaawansowane ustawienia** , a następnie **połączone źródła**.
 2. Po prawej stronie **identyfikator obszaru roboczego**, wybierz ikonę kopiowania, a następnie wklej identyfikator jako wartość **identyfikator klienta** zmiennej.
 3. Po prawej stronie **klucza podstawowego**, wybierz ikonę kopiowania, a następnie wklej identyfikator jako wartość **klucz wstępny** zmiennej.
 
@@ -311,7 +312,7 @@ namespace OIAPIExample
         // An example JSON object, with key/value pairs
         static string json = @"[{""DemoField1"":""DemoValue1"",""DemoField2"":""DemoValue2""},{""DemoField3"":""DemoValue3"",""DemoField4"":""DemoValue4""}]";
 
-        // Update customerId to your Operations Management Suite workspace ID
+        // Update customerId to your Log Analytics workspace ID
         static string customerId = "xxxxxxxx-xxx-xxx-xxx-xxxxxxxxxxxx";
 
         // For sharedKey, use either the primary or the secondary Connected Sources client authentication key   
@@ -389,7 +390,7 @@ import hashlib
 import hmac
 import base64
 
-# Update the customer ID to your Operations Management Suite workspace ID
+# Update the customer ID to your Log Analytics workspace ID
 customer_id = 'xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
 
 # For the shared key, use either the primary or the secondary Connected Sources client authentication key   

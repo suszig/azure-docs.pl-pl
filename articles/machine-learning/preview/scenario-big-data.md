@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: f2482c7a47c72d192f26f3d8d9b9249af53da25d
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: c8e023d68ec2c7e40675f985d3e13b0714cec8ea
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Prognozowanie obciążenia serwera pod kątem terabajtów danych
 
@@ -51,7 +51,7 @@ Wymagania wstępne dotyczące uruchamiania w tym przykładzie są następujące:
 * Windows 10 (instrukcje w tym przykładzie są generalnie takie same dla systemów macOS).
 * Dane nauki maszyny wirtualnej (DSVM) dla systemu Linux (Ubuntu), najlepiej w regionie wschodnie stany USA, gdzie znajduje się dane. Ubuntu DSVM można udostępnić, wykonując [tych instrukcji](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Możesz również sprawdzić [tego przewodnika Szybki Start](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). Zaleca się używania maszyny wirtualnej z co najmniej 8 rdzeni i 32 GB pamięci. 
 
-Postępuj zgodnie z [instrukcji](https://docs.microsoft.com/azure/machine-learning/preview/known-issues-and-troubleshooting-guide#remove-vm-execution-error-no-tty-present) Aby włączyć dostęp bez hasła sudoer na maszynie Wirtualnej do AML Workbench.  Możesz użyć [uwierzytelniania opartego na kluczach SSH dotyczące tworzenia i używania maszyny Wirtualnej w AML Workbench](https://docs.microsoft.com/azure/machine-learning/preview/experimentation-service-configuration#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). W tym przykładzie używamy hasła do maszyny Wirtualnej.  Zapisz Poniższa tabela z informacjami o DSVM do wykonania kolejnych kroków:
+Postępuj zgodnie z [instrukcji](known-issues-and-troubleshooting-guide.md#remove-vm-execution-error-no-tty-present) Aby włączyć dostęp bez hasła sudoer na maszynie Wirtualnej do AML Workbench.  Możesz użyć [uwierzytelniania opartego na kluczach SSH dotyczące tworzenia i używania maszyny Wirtualnej w AML Workbench](experimentation-service-configuration.md#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). W tym przykładzie używamy hasła do maszyny Wirtualnej.  Zapisz Poniższa tabela z informacjami o DSVM do wykonania kolejnych kroków:
 
  Nazwa pola| Wartość |  
  |------------|------|
@@ -71,7 +71,7 @@ Adres DSVM IP | xxx|
  Hasło   | xxx|
 
 
-* Konto magazynu Azure. Możesz wykonać [tych instrukcji](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) go utworzyć. Ponadto Utwórz dwa kontenery prywatnego obiektu blob o nazwach `fullmodel` i `onemonthmodel` na tym koncie magazynu. Konto magazynu służy do zapisania wyników obliczeń pośrednich i modeli uczenia maszynowego. Należy klucz konta magazynu nazwy i dostęp do wypróbowania w tym przykładzie. Zapisz Poniższa tabela z informacjami o koncie magazynu Azure do wykonania kolejnych kroków:
+* Konto usługi Azure Storage. Możesz wykonać [tych instrukcji](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) go utworzyć. Ponadto Utwórz dwa kontenery prywatnego obiektu blob o nazwach `fullmodel` i `onemonthmodel` na tym koncie magazynu. Konto magazynu służy do zapisania wyników obliczeń pośrednich i modeli uczenia maszynowego. Należy klucz konta magazynu nazwy i dostęp do wypróbowania w tym przykładzie. Zapisz Poniższa tabela z informacjami o koncie magazynu Azure do wykonania kolejnych kroków:
 
  Nazwa pola| Wartość |  
  |------------|------|
@@ -104,17 +104,17 @@ Numer kolumny | Nazwa pola| Typ | Opis |
 1  | `SessionStart` | Data/godzina |    Czas rozpoczęcia sesji
 2  |`SessionEnd`    | Data/godzina | Godzina zakończenia sesji
 3 |`ConcurrentConnectionCounts` | Liczba całkowita | Liczba jednoczesnych połączeń
-4 | `MbytesTransferred` | O podwójnej precyzji | Znormalizowany danych przesyłanych w megabajtach
+4 | `MbytesTransferred` | Podwójnej precyzji | Znormalizowany danych przesyłanych w megabajtach
 5 | `ServiceGrade` | Liczba całkowita |  Klasa usługi dla sesji
 6 | `HTTP1` | Liczba całkowita|  Sesja używa HTTP1 lub HTTP2
 7 |`ServerType` | Liczba całkowita   |Typ serwera
-8 |`SubService_1_Load` | O podwójnej precyzji |   Obciążenia subservice 1
-9 | `SubService_2_Load` | O podwójnej precyzji |  Subservice 2 obciążenia
-10 | `SubService_3_Load` | O podwójnej precyzji |     Obciążenia subservice 3
-11 |`SubService_4_Load` | O podwójnej precyzji |  Subservice 4 obciążenia
-12 | `SubService_5_Load`| O podwójnej precyzji |      Obciążenia subservice 5
-13 |`SecureBytes_Load`  | O podwójnej precyzji | Bezpieczne bajtów obciążenia
-14 |`TotalLoad` | O podwójnej precyzji | Całkowita liczba obciążenie serwera
+8 |`SubService_1_Load` | Podwójnej precyzji |   Obciążenia subservice 1
+9 | `SubService_2_Load` | Podwójnej precyzji |  Subservice 2 obciążenia
+10 | `SubService_3_Load` | Podwójnej precyzji |     Obciążenia subservice 3
+11 |`SubService_4_Load` | Podwójnej precyzji |  Subservice 4 obciążenia
+12 | `SubService_5_Load`| Podwójnej precyzji |      Obciążenia subservice 5
+13 |`SecureBytes_Load`  | Podwójnej precyzji | Bezpieczne bajtów obciążenia
+14 |`TotalLoad` | Podwójnej precyzji | Całkowita liczba obciążenie serwera
 15 |`ClientIP` | Ciąg|    Adres IP klienta
 16 |`ServerIP` | Ciąg|    Adres IP serwera
 
@@ -186,7 +186,7 @@ Pierwszy argument `configFilename`, jest plikiem konfiguracji lokalnej, której 
 
 | Pole | Typ | Opis |
 |-----------|------|-------------|
-| Konto magazynu | Ciąg | Nazwa konta magazynu Azure |
+| storageAccount | Ciąg | Nazwa konta magazynu Azure |
 | storageContainer | Ciąg | Kontener na koncie magazynu Azure do przechowywania wyników pośrednich |
 | atrybutu storageKey | Ciąg |Klucz dostępu do konta magazynu Azure |
 | Pliku danych|Ciąg | Pliki źródła danych  |
@@ -225,7 +225,7 @@ Przygotuj środowisko projektu za pomocą:
 ```az ml experiment prepare -c dockerdsvm```
 
 
-Z `PrepareEnvironment` ma wartość true, Machine Learning Workbench tworzy środowisko uruchomieniowe przy każdym przesyłania zadania. `Config/conda_dependencies.yml`i `Config/dsvm_spark_dependencies.yml` zawiera dostosowania środowiska uruchomieniowego. Zależności Conda, Spark, konfiguracji i zależności Spark można zawsze zmodyfikować, edytując następujące dwa pliki YMAL. W tym przykładzie dodano `azure-storage` i `azure-ml-api-sdk` jako dodatkowe pakiety Python w `Config/conda_dependencies.yml`. Dodaliśmy również `spark.default.parallelism`, `spark.executor.instances`, i `spark.executor.cores` w `Config/dsvm_spark_dependencies.yml`. 
+Z `PrepareEnvironment` ma wartość true, Machine Learning Workbench tworzy środowisko uruchomieniowe przy każdym przesyłania zadania. `Config/conda_dependencies.yml` i `Config/dsvm_spark_dependencies.yml` zawiera dostosowania środowiska uruchomieniowego. Zależności Conda, Spark, konfiguracji i zależności Spark można zawsze zmodyfikować, edytując następujące dwa pliki YMAL. W tym przykładzie dodano `azure-storage` i `azure-ml-api-sdk` jako dodatkowe pakiety Python w `Config/conda_dependencies.yml`. Dodaliśmy również `spark.default.parallelism`, `spark.executor.instances`, i `spark.executor.cores` w `Config/dsvm_spark_dependencies.yml`. 
 
 #####  <a name="2-data-preparation-and-feature-engineering-on-dsvm-docker"></a>2. Przygotowanie danych i funkcji engineering na DSVM Docker
 
@@ -330,7 +330,7 @@ Na prawo paska bocznego Workbench, przejdź do **działa** wyświetlić histori�
 
 W tej sekcji możesz operacjonalizacji model, który został utworzony w poprzednich krokach jako usługę sieci web. Można również sposób korzystania z usługi sieci web na potrzeby prognozowania obciążenia. Użyj języka maszyny operationalization wiersza polecenia interfejsów (CLIs) pakietu kodu i zależności jako obrazy usługi Docker i publikowanie model jako usługę sieci web konteneryzowanych.
 
-W wierszu polecenia w Machine Learning Workbench służy do uruchamiania CLIs.  Można również uruchomić CLIs na Ubuntu Linux, wykonując [Przewodnik instalacji](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/install-on-ubuntu-linux.md). 
+W wierszu polecenia w Machine Learning Workbench służy do uruchamiania CLIs.  Można również uruchomić CLIs na Ubuntu Linux, wykonując [Przewodnik instalacji](./deployment-setup-configuration.md#using-the-cli). 
 
 > [!NOTE]
 > W następujących poleceń Zamień wszystkie argumentu zmiennej jego rzeczywistą wartością. Trwa około 40 minut na zakończenie tej sekcji.
@@ -416,7 +416,7 @@ Wybierz unikatowy ciąg jako środowisko operationalization. W tym miejscu używ
 
 8. Skalowanie usługi sieci web. 
 
-   Aby uzyskać więcej informacji, zobacz [jak skalować operationalization w klastrze usługi kontenera platformy Azure](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/how-to-scale.md).
+   Aby uzyskać więcej informacji, zobacz [jak skalować operationalization w klastrze usługi kontenera platformy Azure](how-to-scale-clusters.md).
  
 
 ## <a name="next-steps"></a>Kolejne kroki

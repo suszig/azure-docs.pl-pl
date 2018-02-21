@@ -9,11 +9,11 @@ ms.date: 01/17/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom: 
-ms.openlocfilehash: 49efef62b873ba3c688023248f6940d85c33e248
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: ffff4a663b64342142f42a662905a290044e2dfb
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Struktura definicji zasad platformy Azure
 
@@ -262,6 +262,7 @@ Aliasy właściwości umożliwia dostęp do właściwości specyficzne dla typu 
 | Microsoft.Compute/virtualMachines/imageVersion | Ustaw wersję obrazu platformy lub obrazu z witryny marketplace użyty do utworzenia maszyny wirtualnej. |
 | Microsoft.Compute/virtualMachines/osDisk.Uri | Ustaw identyfikator URI dysku vhd. |
 | Microsoft.Compute/virtualMachines/sku.name | Ustaw rozmiar maszyny wirtualnej. |
+| Microsoft.Compute/virtualMachines/availabilitySet.id | Ustawia identyfikator dla maszyny wirtualnej zestawu dostępności. |
 
 **Microsoft.Compute/virtualMachines/extensions**
 
@@ -332,6 +333,7 @@ Aliasy właściwości umożliwia dostęp do właściwości specyficzne dla typu 
 | Microsoft.Storage/storageAccounts/enableFileEncryption | Określ, czy usługa szyfruje dane, jak są przechowywane w usłudze magazyn plików. |
 | Microsoft.Storage/storageAccounts/sku.name | Nazwa jednostki SKU zestawu. |
 | Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly | Ustaw, aby zezwolić tylko na ruch protokołu https do usługi Magazyn. |
+| Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules[*].id | Sprawdź, czy punkt końcowy usługi sieci wirtualnej jest włączone. |
 
 ## <a name="initiatives"></a>Inicjatywy
 

@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
-ms.openlocfilehash: 248b96cc97367ca2cb3fd82c9824d43dfee43c0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f6244e3f739424be169f1ea117500159bd5e4254
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="scale-up-an-app-in-azure"></a>Skalowanie w górę aplikacji na platformie Azure
 
 > [!NOTE]
-> Nowy **PremiumV2** warstwy daje szybszych procesorów CPU, pamięci masowej SSD i kliknij dwukrotnie współczynnik pamięci core niż warstwy cenowej istniejącej. Aby skalować do **PremiumV2** warstwy, zobacz [warstwy PremiumV2 Konfigurowanie aplikacji usługi](app-service-configure-premium-tier.md).
+> Nowy **PremiumV2** warstwy umożliwia szybszych procesorów CPU, pamięci masowej SSD, a podwaja współczynnik pamięci core warstwy cenowej istniejącej. Z zalet wydajności można zapisać pieniędzy po uruchomieniu aplikacji na mniejszej liczbie wystąpień. Aby skalować do **PremiumV2** warstwy, zobacz [warstwy PremiumV2 Konfigurowanie aplikacji usługi](app-service-configure-premium-tier.md).
 >
 
 W tym artykule przedstawiono sposób skalowania aplikacji w usłudze Azure App Service. Istnieją dwa przepływy pracy do skalowania, skalowania w górę i skalowania w poziomie i w tym artykule opisano skalowania w górę przepływu pracy.
 
 * [Skalowanie w górę](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Pobierz więcej Procesora, pamięci, miejsca na dysku i dodatkowych funkcji, takich jak dedykowanych maszynach wirtualnych (VM), niestandardowe domeny i certyfikaty, przemieszczania miejsc, skalowanie automatyczne i inne. Skalowanie w górę, zmieniając warstwę cenową planu usługi aplikacji — należącego do aplikacji.
 * [Skalowanie w poziomie](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Zwiększ liczbę wystąpień maszyn wirtualnych, które Uruchom aplikację.
-  Możesz skalować w poziomie do maksymalnie 20 wystąpień, w zależności od warstwy cenowej. [Środowiska usługi App Service](environment/intro.md) w **izolowany** dodatkowe warstwy zwiększa się liczba skalowalnego w poziomie do 100 wystąpień. Aby uzyskać więcej informacji na temat skalowania, zobacz [skalowanie liczby wystąpień ręcznie lub automatycznie](../monitoring-and-diagnostics/insights-how-to-scale.md). Brak Dowiedz się, jak używać Skalowanie automatyczne, który jest skalowanie liczby wystąpień automatycznie na podstawie wstępnie zdefiniowanych reguł i harmonogramy.
+  Możesz skalować w poziomie do maksymalnie 20 wystąpień, w zależności od warstwy cenowej. [Środowiska usługi App Service](environment/intro.md) w **izolowany** dodatkowe warstwy zwiększa się liczba skalowalnego w poziomie do 100 wystąpień. Aby uzyskać więcej informacji na temat skalowania, zobacz [skalowanie liczby wystąpień ręcznie lub automatycznie](../monitoring-and-diagnostics/insights-how-to-scale.md). Dowiedz się, jak używać Skalowanie automatyczne, który jest skalowanie liczby wystąpień automatycznie na podstawie wstępnie zdefiniowanych reguł i harmonogramy.
 
 Ustawienia skalowania trwać tylko sekund, stosowanie i wpływają na wszystkie aplikacje w sieci [planu usługi aplikacji](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
 Nie wymagają zmiany kodu lub ponownego wdrażania aplikacji.
@@ -82,14 +82,9 @@ Jeśli aplikacja jest zależny od innych usług, takich jak bazy danych SQL Azur
 Aby uzyskać szczegółowe informacje, takie jak rozmiarów maszyn wirtualnych dla każdej warstwy cenowej, zobacz [szczegóły cennika usługi App](https://azure.microsoft.com/pricing/details/web-sites/).
 Dla tabeli ograniczenia usługi, przydziały i ograniczenia i funkcji obsługiwanych w każdej warstwie, zobacz [ogranicza usługi aplikacji](../azure-subscription-service-limits.md#app-service-limits).
 
-> [!NOTE]
-> Jeśli chcesz rozpocząć pracę z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do [Wypróbuj usługę App Service](https://azure.microsoft.com/try/app-service/) gdzie możesz od razu utworzyć krótkotrwałą, początkową aplikację sieci web w usłudze App Service. Bez kart kredytowych są wymagane i nie bez zobowiązań.
-> 
-> 
-
 <a name="Next Steps"></a>
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Informacje o cenach, pomocy technicznej i umowy dotyczącej poziomu usług można znaleźć w następujących łączy:
   
     [Informacje o cenach transferu danych](https://azure.microsoft.com/pricing/details/data-transfers/)

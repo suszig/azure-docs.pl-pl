@@ -14,13 +14,12 @@ ms.devlang: NA
 ms.date: 10/11/2017
 ms.author: carlrab
 ms.workload: Active
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.openlocfilehash: 2f1ff7a7c2ecf04069ffa6afcc66e2f0f9915b35
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.topic: 02/12/2018
+ms.openlocfilehash: 7c1cbc16d968bd13d0486cd434b095f8d3ecf636
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Elastyczne pule pozwalają na zarządzanie i skalowania wielu baz danych Azure SQL
 
@@ -171,7 +170,7 @@ Usługa SQL Database ocenia historyczne dane użycia bazy danych i zaleca zastos
 
 Zalecenie puli obejmuje:
 
-- Warstwę cenową dla puli (podstawowa, standardowa, Premium lub Premium RS)
+- Warstwę cenową dla puli (Podstawowa, Standardowa lub Premium)
 - Odpowiednie **Jednostki eDTU PULI** (określane również jako Maks. wartość eDTU na pulę)
 - **Maks. wartość eDTU** i **Min. wartość eDTU** na bazę danych
 - Listę zalecanych baz danych dla puli
@@ -201,7 +200,7 @@ Na poniższym rysunku przedstawiono przykład puli elastycznej. Widok zawiera:
 
 Można przejść do określonej puli, aby wyświetlić jego wykorzystania zasobów. Domyślnie skonfigurowano puli pokazanie użycia magazynu i liczby jednostek eDTU w ciągu ostatniej godziny. Wykres można skonfigurować do wyświetlenia różnych metryk za pośrednictwem różnych okna czasowe. Kliknij przycisk **wykorzystania zasobów** wykresu w obszarze **monitorowania puli elastycznej** pokazanie wyświetlenia szczegółowych informacji o określonej metryki na określone okno czasu.
 
-![Monitorowanie puli elastycznej](./media/sql-database-elastic-pool-manage-portal/basic-2.png)
+![Monitorowanie pul elastycznych](./media/sql-database-elastic-pool-manage-portal/basic-2.png)
 
 ![Metryki strony](./media/sql-database-elastic-pool-manage-portal/metric.png)
 
@@ -223,7 +222,7 @@ Na **Edytuj wykres** formularza, wybierz zakres czasu (Ostatnia godzina dzisiaj,
 
 Można również monitorować pojedyncze bazy danych dla potencjalne problemy. W obszarze **elastycznej bazy danych monitorowania**, jest wykres przedstawia metryki pięć baz danych. Domyślnie wykresu wyświetla top 5 baz danych w puli przez użycie w jednostkach eDTU średni w ostatniej godziny. 
 
-![Monitorowanie puli elastycznej](./media/sql-database-elastic-pool-manage-portal/basic-3.png)
+![Monitorowanie pul elastycznych](./media/sql-database-elastic-pool-manage-portal/basic-3.png)
 
 Kliknij przycisk **użycie w jednostkach eDTU dla bazy danych dla ostatniej godziny** w obszarze **elastycznej bazy danych monitorowania**. Spowoduje to otwarcie **wykorzystania zasobów bazy danych** i udostępnia szczegółowy widok użycia bazy danych w puli. Przy użyciu siatki w dolnej części strony, można wybrać żadnych baz danych w puli, aby wyświetlić jego użycia na wykresie (maksymalnie 5 bazy danych). Można również dostosować metryki i przedziału czasowego wyświetlane na wykresie, klikając **Edytuj wykres**.
 
@@ -302,7 +301,7 @@ Tworzenie i zarządzanie nimi pule elastyczne bazy danych SQL przy użyciu progr
 
 | Polecenie cmdlet | Opis |
 | --- | --- |
-|[Nowe AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool)|Tworzy elastycznej puli baz danych na serwerze logicznym SQL.|
+|[New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool)|Tworzy elastycznej puli baz danych na serwerze logicznym SQL.|
 |[Get-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/get-azurermsqlelasticpool)|Pobiera pule elastyczne i ich wartości właściwości na serwerze logicznym SQL.|
 |[Set-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/set-azurermsqlelasticpool)|Modyfikuje właściwości elastycznej puli baz danych na serwerze logicznym SQL. Na przykład użyć **StorageMB** właściwości, aby zmodyfikować max magazynu elastycznej puli.|
 |[Remove-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/remove-azurermsqlelasticpool)|Usuwa elastycznej puli baz danych na serwerze logicznym SQL.|
@@ -346,9 +345,9 @@ Aby utworzyć i przenoszenia baz danych w istniejącej puli elastycznej lub do z
 | --- | --- |
 |[Utwórz bazę danych (baza danych Azure SQL)](/sql/t-sql/statements/create-database-azure-sql-database)|Tworzy nową bazę danych w istniejącej puli lub jako pojedynczej bazy danych. Musisz mieć połączenie z główną bazą danych, aby utworzyć nową bazę danych.|
 | [ALTER DATABASE (baza danych Azure SQL)](/sql/t-sql/statements/alter-database-azure-sql-database) |Przenoszenie bazy danych do z lub między elastyczne pule.|
-|[Usuwanie bazy danych (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Usuwa z bazy danych.|
-|[sys.elastic_pool_resource_stats (baza danych SQL Azure)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|Zwraca statystyki użycia zasobów dla wszystkich pul elastycznych baz danych serwera logicznego. Dla każdej puli elastycznej bazy danych jest jeden wiersz dla każdej sekundzie 15 raportowania okna (cztery wiersze na minutę). W tym procesora CPU, we/wy, dziennika, użycia magazynu i użycie równoczesnych żądań/sesji przez wszystkie bazy danych w puli.|
-|[sys.database_service_objectives (baza danych SQL Azure)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Zwraca edition (warstwy usług), celem usługi (warstwa cenowa) i nazwę puli elastycznej dla bazy danych Azure SQL lub usługi Azure SQL Data Warehouse. Jeśli zalogowany do głównej bazy danych na serwerze bazy danych SQL Azure, zwraca informacje o wszystkich baz danych. Dla usługi Azure SQL Data Warehouse musi być podłączony do bazy danych master.|
+|[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Usuwa z bazy danych.|
+|[sys.elastic_pool_resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|Zwraca statystyki użycia zasobów dla wszystkich pul elastycznych baz danych serwera logicznego. Dla każdej puli elastycznej bazy danych jest jeden wiersz dla każdej sekundzie 15 raportowania okna (cztery wiersze na minutę). W tym procesora CPU, we/wy, dziennika, użycia magazynu i użycie równoczesnych żądań/sesji przez wszystkie bazy danych w puli.|
+|[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Zwraca edition (warstwy usług), celem usługi (warstwa cenowa) i nazwę puli elastycznej dla bazy danych Azure SQL lub usługi Azure SQL Data Warehouse. Jeśli zalogowany do głównej bazy danych na serwerze bazy danych SQL Azure, zwraca informacje o wszystkich baz danych. Dla usługi Azure SQL Data Warehouse musi być podłączony do bazy danych master.|
 
 ## <a name="manage-elastic-pools-and-databases-using-the-rest-api"></a>Zarządzanie pule elastyczne i baz danych przy użyciu interfejsu API REST
 
@@ -375,7 +374,7 @@ Tworzenie i zarządzanie nimi elastyczna baza danych SQL pule Użyj te żądania
 |[Bazy danych — lista przez serwer](/rest/api/sql/databases/listbyserver)|Zwraca listę baz danych na serwerze.|
 |[Bazy danych — aktualizacja](/rest/api/sql/databases/update)|Aktualizuje istniejącą bazę danych.|
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Aby obejrzeć wideo, zobacz [Microsoft Virtual Academy kursu wideo na możliwości elastycznej bazy danych SQL Azure](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 * Aby dowiedzieć się więcej na temat wzorców projektowych dla aplikacji SaaS wykorzystujących pule elastyczne, zobacz artykuł [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md) (Wzorce projektowe dla wielodostępnych aplikacji SaaS korzystających z usługi Azure SQL Database).

@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/11/2018
+ms.date: 2/13/2018
 ms.author: johnkem
-ms.openlocfilehash: b2813035b4665a36b475e791965d395b84ddb3f1
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: d449be98cd59756e2bafc584e0501b8c83c594eb
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Azure strumienia danych do Centrum zdarzeń do użycia przez monitorowania przez narzędzie zewnętrzne
 
@@ -93,7 +93,9 @@ Monitorowanie danych aplikacji wymaga, że kodu został zinstrumentowany przy u�
 Routing monitorowanych danych do Centrum zdarzeń z monitorem Azure pozwala łatwo zintegrować z partnerem SIEM i narzędzi do monitorowania. Większość narzędzi wymagają parametry połączenia Centrum zdarzeń i pewnych uprawnień do subskrypcji platformy Azure można odczytać danych z Centrum zdarzeń. W tym miejscu jest niepełna lista narzędzi z integracją Azure Monitor:
 
 * **IBM QRadar** -Microsoft Azure DSM i Protokół Centrum zdarzeń Azure firmy Microsoft są dostępne do pobrania z [witrynie pomocy technicznej IBM](http://www.ibm.com/support). Możesz [Dowiedz się więcej o integracji z platformy Azure, w tym miejscu](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
-* **Splunk** - [dodatek Monitor Azure dla Splunk](https://splunkbase.splunk.com/app/3534/) jest dostępna w Splunkbase i projekt typu open source. [Dokumentacja jest tutaj](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).
+* **Splunk** — w zależności od ustawień Splunk, istnieją dwie metody:
+    1. [Dodatek Monitor Azure dla Splunk](https://splunkbase.splunk.com/app/3534/) jest dostępna w Splunkbase i projekt typu open source. [Dokumentacja jest tutaj](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).
+    2. Jeśli nie można zainstalować dodatkowe wystąpienia Splunk (np. Jeśli przy użyciu serwera proxy lub w chmurze Splunk uruchomiona), może przekazywać te zdarzenia do modułu zbierającego zdarzeń HTTP Splunk przy użyciu [tej funkcji, które jest uruchamiane przez nowe komunikaty w Centrum zdarzeń](https://github.com/sebastus/AzureFunctionForSplunkVS).
 * **SumoLogic** — instrukcje dotyczące konfigurowania SumoLogic do pracy z danymi z Centrum zdarzeń są [dostępne tutaj](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub)
 
 ## <a name="next-steps"></a>Następne kroki

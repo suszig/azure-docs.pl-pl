@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: kumud
 ms.custom: 
-ms.openlocfilehash: 7f4088cf4470b1f9fa22c4ec83a9f92657032734
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: c8b345cd973b8cd939ad111132f1afdadae9f2b7
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Jak wysłać rzeczywiste pomiary użytkownika do usługi Azure Traffic Manager przy użyciu stron sieci web
 
@@ -65,7 +65,7 @@ Po uzyskaniu klucza rumu, następnym krokiem jest osadzanie tego skopiowanych Ja
 
     **Rysunek 3: Proste HTML z osadzonych JavaScript rzeczywiste pomiary użytkownika**
 
-3.  Zapisz plik HTML
+3.  Zapisz plik HTML i hosta na serwerze sieci Web połączony z Internetem. 
 4. Następnym razem, gdy ta strona jest renderowany w przeglądarce sieci web, JavaScript, do których odwołuje się jest pobierana i skrypt zostanie wykonany, miary i operacje raportowania.
 
 

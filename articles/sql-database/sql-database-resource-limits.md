@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 01/29/2018
+ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 531b162f2c3d6165c3ca8a54a5822bc10e7c0eff
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: MT
+ms.openlocfilehash: 9f443c6e93f894f49ee2f82787be2025f74ed720
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-sql-database-resource-limits"></a>Limitom zasobów bazy danych SQL Azure
 
@@ -53,7 +53,7 @@ Czas trwania całego procesu skalowania w górę zależy zarówno od rozmiaru, j
 
 * Jeśli uaktualniasz do wyższego poziomu wydajności ani warstwy usługi, maksymalnego rozmiaru bazy danych nie zwiększa chyba że jawnie określ większy rozmiar (maxsize).
 * Na starszą wersję bazy danych, bazy danych używane miejsce musi być mniejszy niż maksymalny dozwolony rozmiar docelowy warstwę i poziom wydajności usługi. 
-* Przy przechodzeniu z **Premium** lub **Premium RS** do **standardowe** warstwy, kosztów dodatkowe miejsce do magazynowania ma zastosowanie, gdy maksymalny rozmiar bazy danych (1) jest obsługiwany w docelowej poziom wydajności i (2) maksymalny rozmiar przekracza wielkość magazynu dołączone docelowy poziom wydajności. Na przykład jeśli baza danych P1 o maksymalnej długości 500 GB jest downsized do S3, następnie koszt dodatkowe miejsce do magazynowania ma zastosowanie od S3 obsługuje maksymalny rozmiar 500 GB, a jego wielkość magazynu dołączone jest tylko 250 GB. Tak dodatkowe miejsce do magazynowania jest 500 GB – 250 GB = 250 GB. Dla dodatkowego magazynu o cenach, zobacz [SQL Database — cennik](https://azure.microsoft.com/pricing/details/sql-database/). Jeśli rzeczywista ilość miejsca jest mniejsza niż wielkość magazynu dołączone to z żadnymi dodatkowymi kosztami można uniknąć przez ograniczenie maksymalnego rozmiaru bazy danych do uwzględniona ilość. 
+* Podczas zmiany na starszą wersję z **Premium** do **standardowe** warstwy, kosztów dodatkowe miejsce do magazynowania w przypadku zarówno (1 maksymalny rozmiar bazy danych jest obsługiwany w docelowej poziom wydajności i (2 maksymalny rozmiar przekracza Magazyn dołączony ilość docelowy poziom wydajności. Na przykład jeśli baza danych P1 o maksymalnej długości 500 GB jest downsized do S3, następnie koszt dodatkowe miejsce do magazynowania ma zastosowanie od S3 obsługuje maksymalny rozmiar 500 GB, a jego wielkość magazynu dołączone jest tylko 250 GB. Tak dodatkowe miejsce do magazynowania jest 500 GB – 250 GB = 250 GB. Dla dodatkowego magazynu o cenach, zobacz [SQL Database — cennik](https://azure.microsoft.com/pricing/details/sql-database/). Jeśli rzeczywista ilość miejsca jest mniejsza niż wielkość magazynu dołączone to z żadnymi dodatkowymi kosztami można uniknąć przez ograniczenie maksymalnego rozmiaru bazy danych do uwzględniona ilość. 
 * Podczas uaktualniania bazy danych o [— replikacja geograficzna](sql-database-geo-replication-portal.md) włączone, Uaktualnij swoje pomocniczej bazy danych do warstwy żądaną wydajność przed uaktualnieniem podstawowej bazy danych (ogólne wskazówki). Podczas uaktualniania do innej, najpierw uaktualniania dodatkowej bazy danych jest wymagana.
 * Podczas zmiany na starszą wersję bazy danych o [— replikacja geograficzna](sql-database-geo-replication-portal.md) włączone, obniżyć jego głównej bazy danych do warstwy żądaną wydajność przed przejściem dodatkowej bazy danych (ogólne wskazówki). Podczas zmiany na starszą wersję do innej wersji, najpierw zmiany na starszą wersję podstawowej bazy danych jest wymagana.
 * Oferowane usługi przywracania różnią się w zależności do warstwy usług. Jeśli są powrót do subskrypcji **podstawowe** warstwy, brak krótszym okresie przechowywania kopii zapasowych — Zobacz [kopie zapasowe bazy danych SQL Azure](sql-database-automated-backups.md).
@@ -111,6 +111,10 @@ Można zwiększyć lub zmniejszyć zasoby dostępne dla puli elastycznej oparte 
 - Ogólnie rzecz biorąc, czas trwania, aby zmienić wartości min Edtu na bazę danych lub maksymalna liczba jednostek Edtu na bazę danych to pięć minut lub mniej.
 - Gdy redukcję zatrudnienia jednostek Edtu puli miejsca puli musi być mniejszy niż maksymalny dozwolony rozmiar Edtu warstwy i puli usługi docelowej.
 - Gdy ponowne skalowanie jednostek Edtu puli, kosztów dodatkowe miejsce do magazynowania w przypadku magazynu (1 maksymalny rozmiar puli jest obsługiwana przez docelową pulę i (2 maksymalny rozmiar magazynu przekracza wielkość magazynu dołączone docelową pulę. Na przykład jeśli 100 jednostek eDTU puli standardowej, maksymalny rozmiar 100 GB jest downsized do 50 eDTU puli standardowej, to koszt dodatkowe miejsce do magazynowania jest stosowany od docelową pulę obsługuje maksymalny rozmiar 100 GB, a jego wielkość magazynu dołączone jest tylko 50 GB. Tak dodatkowe miejsce do magazynowania jest 100 GB – 50 GB = 50 GB. Dla dodatkowego magazynu o cenach, zobacz [SQL Database — cennik](https://azure.microsoft.com/pricing/details/sql-database/). Jeśli rzeczywista ilość miejsca jest mniejsza niż wielkość magazynu dołączone to z żadnymi dodatkowymi kosztami można uniknąć przez ograniczenie maksymalnego rozmiaru bazy danych do uwzględniona ilość. 
+
+## <a name="what-is-the-maximum-number-of-servers-and-databases"></a>Co to jest maksymalna liczba serwerów i baz danych?
+
+Maksymalna liczba serwerów na subskrypcję na region to 21. Maksymalna liczba baz danych na serwerze to 5000. Są to limity zmienne ustalonych ładunku doświadczalnie na podstawie rozmiaru analizy, analizy kolekcji logicznej głównej telemetrii i kilka innych aspektów. Możesz poprosić do przekroczą limit, pod warunkiem pozostać w limitu przydziału jednostek dtu w warstwie. Wraz ze wzrostem dużej liczby baz danych i serwerów, problem, którego nastąpi trafienie jest kolekcji Statystyka zasobów logicznych master i Rywalizacja o operacji zarządzania. Te problemy nie są krytyczne; zostanie mogą znacznie zwiększyć czas oczekiwania.
 
 ## <a name="what-happens-when-database-and-elastic-pool-resource-limits-are-reached"></a>Co się stanie po osiągnięciu bazy danych i elastycznej puli zasobów limity?
 

@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: 7fec71f621ffeff2fc42a5a9464ae9011b2e2fee
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 2/12/2018
+ms.openlocfilehash: 253cf9a47f04cf551ce8abee216477dedb54a53b
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-database-for-postgresql-server-firewall-rules"></a>Bazy danych platformy Azure dla reguł zapory serwera PostgreSQL
 Azure bazy danych dla serwera PostgreSQL zapory uniemożliwia wszystkich dostęp do serwera bazy danych do chwili określenia komputery, które ma uprawnienia. Zapora udziela dostępu do serwera, na podstawie źródłowego adresu IP dla każdego żądania.
@@ -32,6 +32,15 @@ Reguły zapory na poziomie serwera dotyczą wszystkich baz danych na tej samej b
 Jeśli adres IP żądania nie jest w ramach zakresów określonych w żadnej z reguł zapory na poziomie serwera, żądanie połączenia zakończy się niepowodzeniem.
 Na przykład jeśli aplikacja łączy się z sterownik JDBC dla PostgreSQL, mogą wystąpić ten błąd próby nawiązania połączenia, gdy Zapora blokuje połączenia.
 > java.util.concurrent.ExecutionException: java.lang.RuntimeException: org.postgresql.util.PSQLException: błąd krytyczny: nie pg\_hba.conf wpis dla hosta: "123.45.67.890" użytkownika "adminuser", bazy danych "postgresql", SSL
+
+## <a name="connecting-from-azure"></a>Łączenie z platformy Azure
+Aby umożliwić aplikacjom połączenia z bazą danych Azure PostgreSQL serwera z platformy Azure, można włączyć połączenia platformy Azure. Na przykład do obsługi aplikacji Azure aplikacje sieci Web lub aplikacji, która działa w maszynie Wirtualnej platformy Azure lub nawiązywania połączenia z bramą zarządzania danymi fabryki danych Azure. Zasoby nie muszą znajdować się w tej samej sieci wirtualnej (VNet) lub grupy zasobów dla reguły zapory, aby włączyć te połączenia. Gdy aplikacja platformy Azure próbuje połączyć się z serwerem bazy danych, zapora sprawdza, czy połączenia platformy Azure są dozwolone. Istnieje kilka metod, aby włączyć te typy połączeń. Ustawienie zapory z początkowym i końcowym adresem równym 0.0.0.0 wskazuje, że te połączenia są dozwolone. Alternatywnie, można ustawić **zezwolić na dostęp do usług platformy Azure** opcji w celu **ON** w portalu z **zabezpieczenia połączeń** okienko i naciśnij klawisz **zapisać**. Jeśli próba połączenia nie jest dozwolone, żądanie nie osiąga PostgreSQL serwera bazy danych Azure.
+
+> [!IMPORTANT]
+> Ta opcja konfiguruje zaporę w celu zezwalania na wszystkie połączenia z platformy Azure, w tym połączenia z subskrypcji innych klientów. W przypadku wybrania tej opcji upewnij się, że uprawnienia logowania i użytkownika zezwalają na dostęp tylko uprawnionym użytkownikom.
+> 
+
+![Skonfiguruj Zezwalaj na dostęp do usług platformy Azure w portalu](media/concepts-firewall-rules/allow-azure-services.png)
 
 ## <a name="programmatically-managing-firewall-rules"></a>Programowe zarządzanie regułami zapory
 Oprócz portalu Azure można zarządzać reguły zapory, programowo przy użyciu wiersza polecenia platformy Azure.
@@ -53,7 +62,7 @@ Na przykład za pomocą klienta JDBC, może się pojawić następujący błąd.
 
 * Pobierz statycznych adresów IP zamiast tego dla komputerów klienckich, a następnie dodaj statyczny adres IP reguły zapory.
 
-## <a name="next-steps"></a>Następne kroki
-W przypadku artykułów na temat tworzenia reguł zapory na poziomie serwera zobacz:
-* [Tworzenie i zarządzanie bazą danych Azure dla reguł zapory PostgreSQL przy użyciu portalu Azure](howto-manage-firewall-using-portal.md).
-* [Tworzenie i zarządzanie bazą danych Azure dla reguł zapory PostgreSQL przy użyciu interfejsu wiersza polecenia Azure](howto-manage-firewall-using-cli.md).
+## <a name="next-steps"></a>Kolejne kroki
+W przypadku artykułów na temat tworzenia reguł zapory serwera i na poziomie bazy danych zobacz:
+* [Tworzenie i zarządzanie bazą danych Azure dla reguł zapory PostgreSQL przy użyciu portalu Azure](howto-manage-firewall-using-portal.md)
+* [Tworzenie i zarządzanie bazą danych Azure dla reguł zapory PostgreSQL przy użyciu wiersza polecenia platformy Azure](howto-manage-firewall-using-cli.md)

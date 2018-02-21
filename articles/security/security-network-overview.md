@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: cefc15e7df0dabd9229196d0175dcf6546a6ebce
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: d3ce4d5c6766c41fe32164ebfe623ea8c06b58f9
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-network-security-overview"></a>Przegląd zabezpieczeń sieci platformy Azure
 Microsoft Azure obejmuje to niezawodna infrastruktura sieci do obsługi aplikacji i wymaganiami dotyczącymi łączności usługi. Łączność sieciowa będzie możliwe między zasobami znajdującymi się na platformie Azure, między lokalnymi i Azure hostowanych zasobów oraz do i z Internetu i Azure.
@@ -37,11 +37,11 @@ W tym artykule Przegląd zabezpieczeń sieci Azure skupia się wokół następuj
 
 
 ## <a name="azure-networking"></a>Sieci systemu Azure
-Maszyny wirtualne muszą łączność sieciową. W celu spełnienia tego wymagania, platforma Azure wymaga maszyn wirtualnych, które będą podłączone do sieci wirtualnej platformy Azure. Sieci wirtualnej platformy Azure jest konstrukcją logiczną, rozszerzający fizycznej Azure sieci szkieletowej. Każdy logicznej sieci wirtualnej platformy Azure jest odizolowana od wszystkich innych sieciach wirtualnych platformy Azure. Dzięki temu można mieć pewność, że ruch sieciowy we wdrożeniach nie jest dostępna dla innych klientów firmy Microsoft Azure.
+Maszyny wirtualne muszą łączność sieciową. W celu spełnienia tego wymagania, platforma Azure wymaga maszyn wirtualnych, które będą podłączone do sieci wirtualnej platformy Azure. Sieci wirtualnej platformy Azure jest konstrukcją logiczną, rozszerzający fizycznej Azure sieci szkieletowej. Każdy logicznej sieci wirtualnej platformy Azure jest odizolowana od wszystkich innych sieciach wirtualnych platformy Azure. Pomaga to zapewnić, że ruch sieciowy we wdrożeniach nie jest dostępna dla innych klientów firmy Microsoft Azure.
 
 Więcej informacji:
 
-* [Omówienie sieci wirtualnej](../virtual-network/virtual-networks-overview.md)
+* [Omówienie usługi Virtual Network](../virtual-network/virtual-networks-overview.md)
 
 
 ## <a name="network-access-control"></a>Kontrola dostępu do sieci
@@ -217,7 +217,7 @@ Do rozpoznawania nazw wewnętrznych dostępne są dwie opcje:
 
 Więcej informacji:
 
-* [Omówienie sieci wirtualnej](../virtual-network/virtual-networks-overview.md)
+* [Omówienie usługi Virtual Network](../virtual-network/virtual-networks-overview.md)
 * [Zarządzanie serwerami DNS używanymi przez sieć wirtualną (VNet)](../virtual-network/virtual-network-manage-network.md#dns-servers)
 
 Dla zewnętrznych rozpoznawanie nazw DNS dostępne są dwie opcje:
@@ -249,7 +249,7 @@ Więcej informacji:
 
 Platforma Azure udostępnia funkcje ułatwiające w tym obszarze klucza z wczesnego wykrywania, monitorowania i możliwość zbierania i przejrzyj ruch sieciowy.
 
-### <a name="azure-network-watcher"></a>Monitor sieci platformy Azure
+### <a name="azure-network-watcher"></a>Azure Network Watcher
 Azure obserwatora sieciowego zawiera wiele funkcji, które pomóc w rozwiązywaniu problemów, a także zapewnić zupełnie nowy zestaw narzędzi ułatwiających identyfikację problemów z zabezpieczeniami.
 
 [Widok grupy zabezpieczeń ](/network-watcher/network-watcher-security-group-view-overview.md) ułatwia utrzymanie zgodności inspekcji i zabezpieczeń maszyn wirtualnych i może służyć do wykonywania inspekcji programowe porównanie zasad linii bazowych zdefiniowanych przez organizację do wprowadzenia reguł dla poszczególnych maszyn wirtualnych. Może to pomóc w identyfikacji dowolnego odejście konfiguracji.
@@ -272,7 +272,7 @@ Centrum zabezpieczeń Azure ułatwia optymalizacji i monitorować przez zabezpie
 
 Więcej informacji:
 
-* [Wprowadzenie do Centrum zabezpieczeń Azure](../security-center/security-center-intro.md)
+* [Wprowadzenie do usługi Azure Security Center](../security-center/security-center-intro.md)
 
 
 ### <a name="logging"></a>Rejestrowanie
