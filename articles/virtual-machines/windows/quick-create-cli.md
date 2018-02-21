@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 6dc92640f1ff46bac25c11fe246deed514030d9b
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 9d7469035205f066091f6ca87f7199208706170c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-the-azure-cli"></a>Tworzenie maszyny wirtualnej z systemem Windows za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -36,7 +36,7 @@ Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#create). Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. 
+Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#az_group_create). Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. 
 
 Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myResourceGroup* w lokalizacji *eastus*.
 
@@ -71,7 +71,7 @@ Po utworzeniu maszyny wirtualnej w interfejsie wiersza polecenia platformy Azure
 
 ## <a name="open-port-80-for-web-traffic"></a>Otwieranie portu 80 na potrzeby ruchu w sieci Web 
 
-Domyślnie dozwolone są tylko połączenia RDP z maszynami wirtualnymi z systemem Windows wdrożonymi na platformie Azure. Jeśli ta maszyna wirtualna ma być serwerem sieci Web, port 80 należy otworzyć z Internetu. Otwórz odpowiedni port za pomocą polecenia [az vm open-port](/cli/azure/vm#open-port).  
+Domyślnie dozwolone są tylko połączenia RDP z maszynami wirtualnymi z systemem Windows wdrożonymi na platformie Azure. Jeśli ta maszyna wirtualna ma być serwerem sieci Web, port 80 należy otworzyć z Internetu. Otwórz odpowiedni port za pomocą polecenia [az vm open-port](/cli/azure/vm#az_vm_open_port).  
  
  ```azurecli-interactive  
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -102,7 +102,7 @@ Po zainstalowaniu usług IIS i otwarciu portu 80 na maszynie wirtualnej z Intern
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Gdy grupa zasobów, maszyna wirtualna i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia [az group delete](/cli/azure/group#delete).
+Gdy grupa zasobów, maszyna wirtualna i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia [az group delete](/cli/azure/group#az_group_delete).
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

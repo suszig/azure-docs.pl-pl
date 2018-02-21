@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 2cebe6dd35e2a20738e2766447451ee32807eb4d
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 02118533c4ab552f81157f644bb794e68fbc4ce3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="secure-a-web-server-with-ssl-certificates-on-a-linux-virtual-machine-in-azure"></a>Zabezpieczanie serwera sieci Web za pomocą certyfikatów SSL na maszynie wirtualnej z systemem Linux na platformie Azure
 Aby zabezpieczyć serwery sieci Web, można używać certyfikatu SSL (Secure Sockets Layer) do szyfrowania ruchu w sieci Web. Te certyfikaty SSL mogą być przechowywane w usłudze Azure Key Vault i umożliwiają bezpieczne wdrażanie certyfikatów na maszynach wirtualnych z systemem Linux na platformie Azure. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
@@ -43,13 +43,13 @@ Zamiast używania niestandardowego obrazu maszyny wirtualnej, który zawiera wbu
 
 
 ## <a name="create-an-azure-key-vault"></a>Tworzenie usługi Azure Key Vault
-Aby można było utworzyć usługę Key Vault i certyfikaty, utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#create). Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myResourceGroupSecureWeb* w lokalizacji *eastus*:
+Aby można było utworzyć usługę Key Vault i certyfikaty, utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#az_group_create). Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myResourceGroupSecureWeb* w lokalizacji *eastus*:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupSecureWeb --location eastus
 ```
 
-Następnie utwórz usługę Key Vault za pomocą polecenia [az keyvault create](/cli/azure/keyvault#create) i włącz ją do użycia podczas wdrażania maszyny wirtualnej. Każda usługa Key Vault wymaga unikatowej nazwy, która powinna zawierać tylko małe litery. Zamień wartość *<mykeyvault>* w poniższym przykładzie na własną unikatową nazwę usługi Key Vault:
+Następnie utwórz usługę Key Vault za pomocą polecenia [az keyvault create](/cli/azure/keyvault#az_keyvault_create) i włącz ją do użycia podczas wdrażania maszyny wirtualnej. Każda usługa Key Vault wymaga unikatowej nazwy, która powinna zawierać tylko małe litery. Zamień wartość *<mykeyvault>* w poniższym przykładzie na własną unikatową nazwę usługi Key Vault:
 
 ```azurecli-interactive 
 keyvault_name=<mykeyvault>
@@ -70,7 +70,7 @@ az keyvault certificate create \
 ```
 
 ### <a name="prepare-a-certificate-for-use-with-a-vm"></a>Przygotowywanie certyfikatu do użycia z maszyną wirtualną
-Aby użyć certyfikatu podczas tworzenia maszyny wirtualnej, uzyskaj identyfikator certyfikatu za pomocą polecenia [az keyvault secret list-versions](/cli/azure/keyvault/secret#list-versions). Przekonwertuj certyfikat za pomocą polecenia [az vm format-secret](/cli/azure/vm#format-secret). W poniższym przykładzie przypisano dane wyjściowe tych poleceń do zmiennych w celu łatwiejszego użycia w następnych krokach:
+Aby użyć certyfikatu podczas tworzenia maszyny wirtualnej, uzyskaj identyfikator certyfikatu za pomocą polecenia [az keyvault secret list-versions](/cli/azure/keyvault/secret#az_keyvault_secret_list_versions). Przekonwertuj certyfikat za pomocą polecenia [az vm format-secret](/cli/azure/vm#az_vm_format_secret). W poniższym przykładzie przypisano dane wyjściowe tych poleceń do zmiennych w celu łatwiejszego użycia w następnych krokach:
 
 ```azurecli-interactive 
 secret=$(az keyvault secret list-versions \
@@ -110,7 +110,7 @@ runcmd:
 ```
 
 ### <a name="create-a-secure-vm"></a>Tworzenie bezpiecznej maszyny wirtualnej
-Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm#create). Dane certyfikatu są wstrzykiwane z usługi Key Vault za pomocą parametru `--secrets`. Konfiguracja pakietu cloud-init jest przekazywana za pomocą parametru `--custom-data`:
+Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm#az_vm_create). Dane certyfikatu są wstrzykiwane z usługi Key Vault za pomocą parametru `--secrets`. Konfiguracja pakietu cloud-init jest przekazywana za pomocą parametru `--custom-data`:
 
 ```azurecli-interactive 
 az vm create \
@@ -125,7 +125,7 @@ az vm create \
 
 Utworzenie maszyny wirtualnej, zainstalowanie pakietów i uruchomienie aplikacji potrwa kilka minut. Podczas tworzenia maszyny wirtualnej zanotuj wartość `publicIpAddress` wyświetlaną w wierszu polecenia platformy Azure. Ten adres służy do uzyskiwania dostępu do witryny w przeglądarce sieci Web.
 
-Aby zezwolić na bezpieczny ruch internetowy do maszyny wirtualnej, otwórz port 443 z Internetu za pomocą polecenia [az vm open-port](/cli/azure/vm#open-port):
+Aby zezwolić na bezpieczny ruch internetowy do maszyny wirtualnej, otwórz port 443 z Internetu za pomocą polecenia [az vm open-port](/cli/azure/vm#az_vm_open_port):
 
 ```azurecli-interactive 
 az vm open-port \

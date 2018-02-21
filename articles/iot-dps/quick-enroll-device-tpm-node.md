@@ -12,17 +12,16 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 34a1fa02513d5676811c3a37175fd7313d33c0e0
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 196e9fdc64346f3722694928ada26db2da23ef8a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-nodejs-service-sdk"></a>Rejestrowanie urządzenia TPM w usłudze IoT Hub Device Provisioning przy użyciu zestawu SDK usługi Node.js
-> [!div class="op_single_selector"]
-> * [Java](quick-enroll-device-tpm-java.md)
-> * [C#](quick-enroll-device-tpm-csharp.md)
-> * [Node.js](quick-enroll-device-tpm-node.md)
+
+[!INCLUDE [iot-dps-selector-quick-enroll-device-tpm](../../includes/iot-dps-selector-quick-enroll-device-tpm.md)]
+
 
 W tych instrukcjach pokazano, jak programowo utworzyć rejestrację indywidualną dla urządzenia TPM w usłudze Azure IoT Hub Device Provisioning przy użyciu [zestawu SDK usługi Node.js](https://github.com/Azure/azure-iot-sdk-node) i przykładowej aplikacji Node.js. Opcjonalnie można zarejestrować symulowane urządzenie TPM w usłudze aprowizacji przy użyciu tego wpisu rejestracji indywidualnej. Mimo że ta procedura działa zarówno na maszynach z systemem Windows, jak i Linux, na potrzeby tego artykułu zostanie użyta maszyna deweloperska z systemem Windows.
 

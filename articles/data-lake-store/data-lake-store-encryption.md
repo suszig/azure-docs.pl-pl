@@ -1,9 +1,9 @@
 ---
 title: "Szyfrowanie w usłudze Azure Data Lake Store | Microsoft Docs"
-description: "Omówienie sposobu działania szyfrowania i wymiany kluczy w usłudze Azure Data Lake Store"
+description: "Szyfrowanie w usłudze Azure Data Lake Store pomaga chronić dane, implementować zasady bezpieczeństwa w przedsiębiorstwie i spełniać prawne wymagania dotyczące zgodności. Ten artykuł zawiera omówienie projektu i niektórych technicznych aspektów implementacji."
 services: data-lake-store
 documentationcenter: 
-author: yagupta
+author: esung22
 manager: 
 editor: 
 ms.assetid: 
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 4/14/2017
+ms.date: 01/31/2018
 ms.author: yagupta
-ms.openlocfilehash: 20444d368c568ee716ff242e33323b91ffd198eb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4df0ce3d705361f20fa003929fed6a019f8b2f5e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="encryption-of-data-in-azure-data-lake-store"></a>Szyfrowanie danych w usłudze Azure Data Lake Store
 
@@ -83,7 +83,7 @@ W projekcie szyfrowania danych używane są trzy typy kluczy. Poniższa tabela z
 |-----------------------|--------------|-----------------|----------------------------------------------|------------|---------------------------------------------------------------------------------------------------------|
 | Główny klucz szyfrowania | GKS          | Konto usługi Data Lake Store | Usługa Key Vault                              | Asymetryczny | Może nim zarządzać usługa Data Lake Store lub można to robić samodzielnie.                                                              |
 | Klucz szyfrowania danych   | KSD          | Konto usługi Data Lake Store | Magazyn trwały zarządzany przez usługę Data Lake Store | Symetryczny  | Klucz szyfrowania danych jest szyfrowany przy użyciu głównego klucza szyfrowania. Na nośniku trwałym jest zapisywany zaszyfrowany klucz szyfrowania danych. |
-| Klucz szyfrowania bloków  | KSB          | Blok danych | Brak                                         | Symetryczny  | Klucz szyfrowania bloków jest tworzony na podstawie klucza szyfrowania danych i bloku danych.                                                      |
+| Klucz szyfrowania bloków  | KSB          | Blok danych | None                                         | Symetryczny  | Klucz szyfrowania bloków jest tworzony na podstawie klucza szyfrowania danych i bloku danych.                                                      |
 
 Poniższy diagram przedstawia te koncepcje:
 
