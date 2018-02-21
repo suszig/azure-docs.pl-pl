@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/5/2018
 ms.author: subramar
-ms.openlocfilehash: 3c59ad25294fe88f6145b6e55bb498cd958dbca2
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: b39a5790e5a2ef5483428842b537e0189f5f2b32
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Przygotowywanie środowiska projektowego w systemie Linux
 > [!div class="op_single_selector"]
@@ -143,10 +143,12 @@ Usługa Service Fabric udostępnia narzędzia do tworzenia szkieletów, które u
 
 1. Zainstaluj środowisko NodeJs i menedżera NPM na swojej maszynie
 
+Ubuntu
   ```bash
   sudo apt-get install npm
   sudo apt install nodejs-legacy
   ```
+
 2. Zainstaluj generator szablonów [narzędzia Yeoman](http://yeoman.io/) na swoim komputerze z poziomu narzędzia NPM
 
   ```bash
@@ -169,7 +171,7 @@ Zainstaluj [zestaw .NET Core 2.0 SDK dla systemu Ubuntu](https://www.microsoft.c
 
 W celu kompilowania usług Service Fabric za pomocą języka Java zainstaluj rozwiązania JDK 1.8 i Gradle umożliwiające uruchamianie zadań kompilacji. Poniższy fragment kodu instaluje zestaw Open JDK 1.8 wraz z narzędziem Gradle. Biblioteki Java usługi Service Fabric są ściągane z narzędzia Maven.
 
-  ```bash
+ ```bash
   sudo apt-get install openjdk-8-jdk-headless
   sudo apt-get install gradle
   ```

@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.date: 11/30/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 9814dca53f1a410f4d1e95cc18b98373f27f9802
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: be01d3104db04ebd759f2eab99505a2be4762c6c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>Jednostka usługi Azure Container Service (AKS)
 
@@ -35,7 +35,7 @@ Podczas wdrażania klastra usługi AKS za pomocą polecenia `az aks create` masz
 W następującym przykładzie tworzony jest klaster AKS. Ponieważ nie podano istniejącej jednostki usługi, dla klastra jest tworzona jednostka usługi. Aby można było ukończyć tę operację, Twoje konto musi mieć odpowiednie uprawnienia do tworzenia jednostki usługi.
 
 ```azurecli
-az aks create --name myK8SCluster --resource-group myResourceGroup --generate-ssh-keys
+az aks create --name myAKSCluster --resource-group myResourceGroup --generate-ssh-keys
 ```
 
 ## <a name="use-an-existing-sp"></a>Używanie istniejącej jednostki usługi
@@ -67,7 +67,7 @@ Dane wyjściowe będą podobne do następujących. Zwróć uwagę na elementy `a
 Korzystając ze wstępnie utworzonej jednostki usługi, podaj `appId` i `password` jako wartości argumentu w poleceniu `az aks create`.
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myK8SCluster --service-principal <appId> --client-secret <password>
+az aks create --resource-group myResourceGroup --name myAKSCluster --service-principal <appId> --client-secret <password>
 ```
 
 W przypadku wdrażania klastra AKS przy użyciu witryny Azure Portal wprowadź wartość `appId` w polu **Identyfikator klienta jednostki usługi** i wartość `password` w polu **Klucz tajny klienta jednostki usługi** w formie konfiguracji klastra AKS.

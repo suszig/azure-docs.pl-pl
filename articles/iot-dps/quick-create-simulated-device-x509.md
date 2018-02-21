@@ -12,18 +12,14 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 3ada994b645064cf2a28f0d6287b70f8fffa804c
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: 4d723a3b78a43d3b609d5a884591a92606ca11cc
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-and-provision-an-x509-simulated-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Tworzenie i aprowizowanie symulowanego urządzenia X.509 za pomocą zestawu SDK języka C dla usługi IoT Hub Device Provisioning
-> [!div class="op_single_selector"]
-> * [C](quick-create-simulated-device-x509.md)
-> * [Java](quick-create-simulated-device-x509-java.md)
-> * [C#](quick-create-simulated-device-x509-csharp.md)
-> * [Python](quick-create-simulated-device-x509-python.md)
+[!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
 Te kroki pokazują, jak zasymulować urządzenie X.509 na maszynie deweloperskiej z systemem operacyjnym Windows OS i użyć przykładowego kodu do połączenia tego symulowanego urządzenia z usługą Device Provisioning Service i Twoim centrum IoT Hub. 
 
@@ -145,4 +141,4 @@ Jeśli planujesz dalszą pracę z przykładem klienta urządzenia i eksplorowani
 W tym przewodniku Szybki start na Twojej maszynie z systemem Windows utworzono symulowane urządzenie X.509, które zostało następnie zaaprowizowane do Twojego centrum IoT przy użyciu usługi Azure IoT Hub Device Provisioning w portalu. Aby dowiedzieć się, jak zarejestrować urządzenie X.509 programowo, przejdź do przewodnika Szybki start dotyczącego programowej rejestracji urządzeń X.509. 
 
 > [!div class="nextstepaction"]
-> [Przewodnik Szybki start platformy Azure — rejestrowanie urządzenia X.509 w usłudze Azure IoT Hub Device Provisioning](quick-enroll-device-x509-java.md)
+> [Przewodnik Szybki start platformy Azure — Rejestrowanie urządzenia X.509 w usłudze Azure IoT Hub Device Provisioning](quick-enroll-device-x509-java.md)
