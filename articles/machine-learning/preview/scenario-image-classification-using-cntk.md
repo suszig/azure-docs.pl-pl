@@ -11,11 +11,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 53d182d84c8f28c7b4055780a5b41df00fdc8583
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: c3ad1cf8651858a2cb1fdadc2beed4e5c7bef56c
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Za pomocą usługi Azure Machine Learning Workbench klasyfikacji obrazu
 
@@ -54,7 +54,7 @@ Wymagania wstępne dotyczące uruchamiania w tym przykładzie są następujące:
 4. Dedykowanego procesora GPU nie jest wymagana do wykonania w część 1, szkolenia SVM, jednak wymagana jest uściślenie z DNN opisanych w części 2. Jeśli brakuje silne procesora GPU, aby uczenia na wiele procesorów graficznych lub nie masz komputera z systemem Windows należy rozważyć przy użyciu platformy Azure głębokie Learning maszyny wirtualnej z systemem operacyjnym Windows. Zobacz [tutaj](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning) Przewodnik wdrożenia kliknij 1. Po wdrożeniu, połączenie z maszyną Wirtualną za pomocą Podłączania pulpitu zdalnego, zainstaluj istnieje Workbench i wykonywania kodu lokalnie z maszyny Wirtualnej.
 5. Różne bibliotek języka Python, takie jak OpenCV muszą być zainstalowane. Kliknij przycisk *Otwórz okno wiersza polecenia* z *pliku* menu Narzędzia Workbench i uruchom następujące polecenia, aby zainstalować te zależności:  
     - `pip install https://cntk.ai/PythonWheel/GPU/cntk-2.2-cp35-cp35m-win_amd64.whl`  
-    - `pip install opencv_python-3.3.1-cp35-cp35m-win_amd64.whl`Po pobraniu koło OpenCV z http://www.lfd.uci.edu/~gohlke/pythonlibs/ (dokładnej nazwy pliku i wersja zmienić)
+    - `pip install opencv_python-3.3.1-cp35-cp35m-win_amd64.whl` Po pobraniu koło OpenCV z http://www.lfd.uci.edu/~gohlke/pythonlibs/ (dokładnej nazwy pliku i wersja zmienić)
     - `conda install pillow`
     - `pip install -U numpy`
     - `pip install bqplot`
@@ -81,7 +81,7 @@ Wykonanie tych czynności tworzy struktury projektu, pokazano poniżej. Katalog 
 
   Folder| Opis
   ---|---
-  aml_config /|                           Katalog zawierający pliki konfiguracji usługi Azure Machine Learning Workbench
+  aml_config/|                           Katalog zawierający pliki konfiguracji usługi Azure Machine Learning Workbench
   bibliotek /|                              Katalog zawierający wszystkie funkcje pomocy Python i Jupyter
   notesów /|                              Katalog zawierający wszystkie notesy
   zasoby /|                              Katalog zawierający wszystkie zasoby (na przykład adres url sposób obrazy)
@@ -193,7 +193,7 @@ Na koniec notesu `showResults.py` podano przewijanie obrazów testu i wizualizow
 ### <a name="step-6-deployment"></a>Krok 6: wdrożenia
 `Scripts: 6_callWebservice.py, deploymain.py. Notebook: deploy.ipynb`
 
-Teraz można opublikować przeszkolone systemu jako interfejs API REST. Wdrożenia opisanej w notesie `deploy.ipynb`i w oparciu o funkcje środowiska roboczego Azure Machine Learning (Pamiętaj, aby ustawić jako jądra jądra lokalnego projektu o nazwie "NAZWAPROJEKTU lokalnego"). W sekcji także doskonała wdrożenia [samouczek IRIS](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-3) wdrożenia więcej powiązane informacje.
+Teraz można opublikować przeszkolone systemu jako interfejs API REST. Wdrożenia opisanej w notesie `deploy.ipynb`i w oparciu o funkcje środowiska roboczego Azure Machine Learning (Pamiętaj, aby ustawić jako jądra jądra lokalnego projektu o nazwie "NAZWAPROJEKTU lokalnego"). W sekcji także doskonała wdrożenia [samouczek IRIS](tutorial-classifying-iris-part-3.md) wdrożenia więcej powiązane informacje.
 
 Po wdrożeniu można wywołać usługę sieci web przy użyciu skryptu `6_callWebservice.py`. Należy pamiętać, że adres IP (lokalnej lub w chmurze) usługa sieci web musi najpierw należy ustawić w skrypcie. Notesu `deploy.ipynb` wyjaśniono, jak znaleźć ten adres IP.
 
@@ -228,7 +228,7 @@ Jak widać na powierzchni poniżej, dokładność, przy użyciu uściślenia DNN
 
 ### <a name="run-history-tracking"></a>Uruchom śledzenie historii
 
-W magazynie Azure Machine Learning Workbench historii każdego uruchamiania na platformie Azure umożliwia porównanie co najmniej dwa przebiegi, które są nawet tygodnie od siebie. To jest omówiona szczegółowo w artykule [samouczek Iris](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-2). Również przedstawiono poniższe zrzuty ekranu, którym możemy porównać dwa przebiegi skryptu `5_evaluate.py`, przy użyciu albo uściślenia DNN oznacza to, `classifier = "dnn"`(liczba wykonywania 148) lub SVM szkolenia, oznacza to, `classifier = "svm"` (liczba wykonywania 150).
+W magazynie Azure Machine Learning Workbench historii każdego uruchamiania na platformie Azure umożliwia porównanie co najmniej dwa przebiegi, które są nawet tygodnie od siebie. To jest omówiona szczegółowo w artykule [samouczek Iris](tutorial-classifying-iris-part-2.md). Również przedstawiono poniższe zrzuty ekranu, którym możemy porównać dwa przebiegi skryptu `5_evaluate.py`, przy użyciu albo uściślenia DNN oznacza to, `classifier = "dnn"`(liczba wykonywania 148) lub SVM szkolenia, oznacza to, `classifier = "svm"` (liczba wykonywania 150).
 
 W pierwszym zrzut ekranu Uszczegółowienie DNN prowadzi do umożliwiające lepsze niż szkolenia SVM dla wszystkich klas. Drugi zrzut ekranu przedstawia wszystkie metryki, które są śledzone, łącznie z klasyfikatora został. To śledzenie odbywa się w skrypcie `5_evaluate.py` przez wywołanie metody Azure Machine Learning Workbench rejestratora. Ponadto skrypt zapisuje ROC krzywej i nieporozumień macierzy *generuje* folderu. To *generuje* folder jest specjalne, w tym jego zawartości jest również śledzona przez funkcję historii Workbench, a więc pliki wyjściowe są dostępne w dowolnym momencie, niezależnie od tego, czy zostały zastąpione kopiami lokalnymi.
 

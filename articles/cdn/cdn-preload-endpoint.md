@@ -4,7 +4,7 @@ description: "Dowiedz się, jak wstępne ładowanie pamięci podręcznej zawarto
 services: cdn
 documentationcenter: 
 author: dksimpson
-manager: erikre
+manager: akucer
 editor: 
 ms.assetid: 5ea3eba5-1335-413e-9af3-3918ce608a83
 ms.service: cdn
@@ -12,23 +12,21 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 02/12/2018
 ms.author: mazha
-ms.openlocfilehash: acd6eae12ff338c64cc8879aa8c27b226e3d2f84
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e00205ddcaab277029d7185d0158a64818d0d49b
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Wstępne ładowanie zasobów w punkcie końcowym usługi Azure CDN
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
-Domyślnie zasoby są buforowane tylko wtedy, gdy są one wymagane. W związku z tym pierwsze żądanie z każdego regionu może trwać dłużej niż kolejnych żądań. Dzieje się tak, ponieważ serwery krawędzi zawartość nie jest jeszcze buforowane i trzeba przesyła żądanie do serwera pochodzenia. Wstępnego ładowania zawartości, można uniknąć tego opóźnienia pierwszy trafień.
-
-Oprócz zapewnienia lepszej obsługi klienta, wstępne ładowanie pamięci podręcznej zasobów można również zmniejszenie ruchu w sieci na serwerze źródłowym.
+Domyślnie zasoby są buforowane tylko wtedy, gdy są one wymagane. Ponieważ serwery krawędzi zawartość nie jest jeszcze buforowane i chcesz przesłać żądanie do serwera pochodzenia, pierwsze żądanie z każdego regionu może trwać dłużej niż kolejnych żądań. Aby uniknąć tego opóźnienia trafień pierwszej, wstępne ładowanie zasobów. Oprócz zapewnienia lepszej obsługi klienta, wstępne ładowanie pamięci podręcznej zasobów można ograniczyć ruch sieciowy na serwerze źródłowym.
 
 > [!NOTE]
-> Wstępne ładowanie zasobów jest przydatna przy dużych zdarzenia lub zawartości, która staje się dostępna jednocześnie do wielu użytkowników, takich jak nowe wydanie filmu lub aktualizacji oprogramowania.
+> Wstępne ładowanie zasobów jest przydatna przy dużych zdarzenia lub zawartości, która staje się jednocześnie dostępna dla wielu użytkowników, takich jak nowe wydanie filmu lub aktualizacji oprogramowania.
 > 
 > 
 
@@ -48,13 +46,13 @@ W tym samouczku przedstawiono wstępnego ładowania zawartości w pamięci podr�
 4. Aby uzyskać **ścieżki zawartości**, wprowadź pełną ścieżkę każdego zasobu do załadowania (na przykład `/pictures/kitten.png`).
    
    > [!TIP]
-   > Więcej **ścieżki zawartości** pola tekstowe pojawią się po rozpoczęciu wprowadzania tekstu, co pozwala na utworzenie listy wiele zasobów. Aby usunąć zasoby z listy, kliknij przycisk wielokropka (...), a następnie wybierz **usunąć**.
+   > Po rozpoczęciu wprowadzania tekstu, więcej **ścieżki zawartości** pola tekstowe pojawi się umożliwia utworzenie listy wiele zasobów. Aby usunąć zasoby z listy, kliknij przycisk wielokropka (...), a następnie wybierz **usunąć**.
    > 
    > Każda ścieżka zawartości musi być względnym adresem URL, który pasuje do następujących [wyrażeń regularnych](https://msdn.microsoft.com/library/az24scfc.aspx):  
-   > - Załadować ścieżki pojedynczy plik: `@"^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$"`;  
-   > - Załaduj pojedynczy plik z ciągu zapytania:`@"^(?:\?[-_a-zA-Z0-9\/%:;=!,.\+'&\u0020]*)?$";` 
+   > - Ładowanie ścieżki pojedynczy plik: `^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$`  
+   > - Załaduj pojedynczy plik z ciągu zapytania: `^(?:\?[-_a-zA-Z0-9\/%:;=!,.\+'&\u0020]*)?$` 
    > 
-   > Każdego zasobu musi mieć własny ścieżkę. Nie ma żadnych funkcji symboli wieloznacznych dla wstępnego ładowania zasobów.
+   > Ponieważ każdy zasobów musi mieć własny ścieżkę, nie ma żadnych funkcji symbolu wieloznacznego wstępnego ładowania zasobów.
    > 
    > 
    
@@ -63,7 +61,7 @@ W tym samouczku przedstawiono wstępnego ładowania zawartości w pamięci podr�
    
 
 > [!NOTE]
-> Istnieje ograniczenie 10 obciążenia żądań na minutę na profilu CDN. 50 ścieżek równoczesnych mogą być przetwarzane w tym samym czasie. Każda ścieżka ma limit długość ścieżki 1024 znaków.
+> Ma limitu 10 żądań obciążenia na minutę dla profilu sieci CDN i 50 równoczesnych ścieżek, które mogą być przetwarzane w tym samym czasie. Każda ścieżka ma limit długość ścieżki 1024 znaków.
 > 
 > 
 

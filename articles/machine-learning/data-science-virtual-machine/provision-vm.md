@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.openlocfilehash: d71d8e44d0327515ed302c5c902ce87587e36c7d
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 6f933c75d4829e3b2c5198aeee324f15490d8a93
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Aprowizowanie maszyny wirtualnej nauki danych systemu Windows, na platformie Azure
 Maszyna wirtualna nauki danych firmy Microsoft znajduje się obraz maszyny wirtualnej (VM) systemu Windows Azure wstępnie zainstalowany i skonfigurowany z kilku popularnych narzędzi, które są często używane do analizy danych i uczenia maszynowego. Narzędzia uwzględnione są:
 
-* [Uczenie maszynowe Azure](https://azure.microsoft.com/services/machine-learning-services/) Workbench
-* [Microsoft ML Server](https://docs.microsoft.com/machine-learning-server/index) Developer Edition
+* [Uczenie maszynowe Azure](../preview/index.yml) Workbench
+* [Microsoft Machine Learning serwera](https://docs.microsoft.com/machine-learning-server/index) Developer Edition
 * Dystrybucję oprogramowania Python anaconda
 * Notesu Jupyter (z R, Python, jądra PySpark)
 * Visual Studio Community Edition
@@ -35,12 +35,12 @@ Maszyna wirtualna nauki danych firmy Microsoft znajduje się obraz maszyny wirtu
   * Głębokie uczenia struktury: bogaty zestaw struktur AI tym [kognitywnych zestaw narzędzi firmy Microsoft](https://www.microsoft.com/en-us/cognitive-toolkit/), [TensorFlow](https://www.tensorflow.org/), [moduł łańcucha](https://chainer.org/), mxNet, Keras znajdują się na maszynie Wirtualnej.
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): szybki komputer uczenia systemu obsługującego technik, takich jak online, wyznaczania wartości skrótu, allreduce, redukcji, learning2search, aktywna i uczenie się interakcyjne.
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/): narzędzie, zapewniając szybkie i dokładne boosted drzewa wykonania.
-  * [Rattle](http://rattle.togaware.com/) (R analitycznych narzędzia do Dowiedz się łatwo): narzędzie, które umożliwia wprowadzenie do analizy danych i machine learning w R, udostępniając Eksploracja danych z Graficznym interfejsem użytkownika i modelowanie z automatycznego generowania kodu języka R.
+  * [Rattle](http://rattle.togaware.com/) (R analitycznych narzędzia do Dowiedz się łatwo): narzędzie, które umożliwia wprowadzenie do analizy danych i machine learning w łatwy R. Obejmuje on Eksploracja danych z Graficznym interfejsem użytkownika i modelowanie z automatycznego generowania kodu języka R.
   * [Weka](http://www.cs.waikato.ac.nz/ml/weka/) : wyszukiwania danych wizualnych i oprogramowania w języku Java uczenia maszynowego.
   * [Przechodzenie do szczegółów Apache](https://drill.apache.org/): aparatu zapytań SQL bez schematu dla platformy Hadoop, NoSQL i magazynu w chmurze.  Obsługuje interfejsy ODBC i JDBC, aby umożliwić wykonywanie zapytania NoSQL i pliki ze standardowych narzędzi do analizy Biznesowej, takich jak usługi Power BI, Excel, Tableau.
 * Biblioteki języka R i Python dla programu uczenie maszynowe Azure i innych usług Azure
 * W tym Git Bash do pracy z tym GitHub, Visual Studio Team Services repozytoriach kodów źródłowych Git
-* Porty Windows kilku popularnych Linux narzędzia wiersza polecenia (w tym awk, mniejszyć, perl, grep, znajdowanie, wget, curl itp.) dostępny za pośrednictwem wiersza polecenia. 
+* Porty Windows kilku popularnych Linux narzędzia wiersza polecenia (w tym awk mniejszyć, perl, grep, Znajdź, wget, curl, itp.) dostępny za pośrednictwem wiersza polecenia. 
 
 Podczas analizy danych obejmuje iteracja w sekwencji zadań:
 
@@ -64,7 +64,7 @@ Przed utworzeniem maszyny wirtualnej nauki danych firmy Microsoft, należy dyspo
 
 
 ## <a name="create-your-microsoft-data-science-virtual-machine"></a>Tworzenie maszyny wirtualnej nauki danych firmy Microsoft
-Poniżej przedstawiono kroki, aby utworzyć wystąpienie programu Microsoft Data nauki maszyny wirtualnej:
+Aby utworzyć wystąpienie programu Microsoft Data nauki maszyny wirtualnej, wykonaj następujące kroki:
 
 1. Przejdź do wyświetlania na maszynie wirtualnej [portalu Azure](https://portal.azure.com/#create/microsoft-ads.windows-data-science-vmwindows2016).
 2. Wybierz **Utwórz** znajdujący się u dołu do kreatora.![ Konfigurowanie danych nauki vm](./media/provision-vm/configure-data-science-virtual-machine.png)
@@ -82,9 +82,9 @@ Poniżej przedstawiono kroki, aby utworzyć wystąpienie programu Microsoft Data
    2. **Rozmiar**: Wybierz jeden z typów serwerów, które spełnia Twoje wymagania funkcjonalne i ograniczenia kosztów. Więcej opcji dotyczących rozmiarów maszyn wirtualnych można uzyskać, wybierając polecenie "Wyświetl wszystko".
    3. **Ustawienia**:
       
-      1. **Dysków zarządzanych**: Wybierz zarządzanych, jeśli chcesz Azure do zarządzania dyskami maszyny wirtualnej.  W przeciwnym razie należy określić nowe lub exitsting konta magazynu. 
-      2. **Inne parametry**: zwykle po prostu użyć wartości domyślnych. W przypadku, gdy chcesz Rozważ użycie wartości innych niż domyślne można umieść kursor nad informacyjną łącze, aby uzyskać pomoc dotyczącą określonych pól.
-   4. **Podsumowanie**: Sprawdź, czy wszystkie informacje wprowadzone jest poprawna, a następnie kliknij przycisk **Utwórz**. **Uwaga**: maszyny Wirtualnej nie ma żadnych dodatkowych kosztów poza obliczeniowe dla rozmiaru serwera w **rozmiar** kroku. 
+      1. **Dysków zarządzanych**: Wybierz zarządzanych, jeśli chcesz Azure do zarządzania dyskami maszyny wirtualnej.  W przeciwnym razie należy określić konto magazynu do nowego lub istniejącego. 
+      2. **Inne parametry**: zwykle po prostu użyć wartości domyślnych. Jeśli chcesz wziąć pod uwagę przy użyciu wartości innych niż domyślne, umieść kursor nad informacyjną łącze, aby uzyskać pomoc dotyczącą określonych pól.
+    a. **Podsumowanie**: Sprawdź, czy wszystkie informacje wprowadzone jest poprawna, a następnie kliknij przycisk **Utwórz**. **Uwaga**: maszyny Wirtualnej nie ma żadnych dodatkowych kosztów poza obliczeniowe dla rozmiaru serwera w **rozmiar** kroku. 
 
 > [!NOTE]
 > Udostępnianie powinno zająć około 10-20 minut. Stan inicjowania obsługi administracyjnej jest wyświetlana w portalu Azure.
@@ -101,7 +101,7 @@ Gdy maszyna wirtualna jest utworzone i udostępnione, można przystąpić do uru
 
 ### <a name="azure-machine-learning-workbench"></a>Środowisko robocze usługi Azure Machine Learning
 
-Azure Machine Learning Workbench jest aplikacją i interfejsu wiersza polecenia. Workbench ma przygotowanie wbudowanych danych, która uzyskuje informacje o etapów przygotowywania danych je wykonywać. Umożliwia także zarządzanie projektami, uruchom historii i integracji notesu możliwość niemal wydajność pracy. Użytkownik może skorzystać z najlepszych struktur typu open source, w tym TensorFlow, kognitywnych Toolkit Spark ML i scikit — Dowiedz się, jak tworzenie modeli. Na DSVM udostępniamy ikony pulpitu (InstallAMLFromLocal), aby lokalnie Wyodrębnij workbench uczenie maszynowe Azure do katalogu % LOCALAPPDATA % każdego użytkownika. Każdy użytkownik, który musi używać Workbench musi jedynie na czas działania dwukrotne kliknięcie ikony pulpitu InstallAMLFromLocal zainstalowanie ich wystąpienia Workbench. Usługa Azure Machine Learning również tworzone i używane środowisko Python dla poszczególnych użytkowników, które są wyodrębniane w % LOCALAPPDATA%\amlworkbench\python.
+Azure Machine Learning Workbench jest aplikacją i interfejsu wiersza polecenia. Workbench ma przygotowanie wbudowanych danych, która uzyskuje informacje o etapów przygotowywania danych je wykonywać. Umożliwia także zarządzanie projektami, uruchom historii i integracji notesu możliwość niemal wydajność pracy. Użytkownik może skorzystać z najlepszych struktur open source, w tym TensorFlow, kognitywnych Toolkit Spark ML i scikit — Dowiedz się, jak tworzenie modeli. Na DSVM udostępniamy ikony pulpitu (InstallAMLFromLocal), aby lokalnie Wyodrębnij workbench uczenie maszynowe Azure do katalogu % LOCALAPPDATA % każdego użytkownika. Każdy użytkownik, który musi używać Workbench musi jedynie na czas działania dwukrotne kliknięcie ikony pulpitu InstallAMLFromLocal zainstalowanie ich wystąpienia Workbench. Usługa Azure Machine Learning również tworzone i używane środowisko Python dla poszczególnych użytkowników, które są wyodrębniane w % LOCALAPPDATA%\amlworkbench\python.
 
 ### <a name="microsoft-ml-server-developer-edition"></a>Microsoft ML Server Developer Edition
 Jeśli chcesz korzystać z Microsoft enterprise bibliotek skalowalne R lub Python do analizy sieci, czy maszyna wirtualna ma Microsoft ML Server Developer (wcześniej znane jako Microsoft R Server) zainstalowanej wersji. Microsoft ML Server jest platformie analizy szeroko można wdrożyć klasy korporacyjnej dostępny na R i Python i skalowalne, komercyjnie obsługiwane i bezpieczna. Obsługa różnych statystyk danych big data, modelowania predykcyjnego i możliwości uczenia maszynowego, ML serwer obsługuje pełną gamę analytics — eksploracji, analizy wizualizacji i modelowania. Dzięki użyciu i rozszerzanie typu open source R i Python, Microsoft ML Server jest w pełni zgodny z R / skrypty języka Python, funkcje i sieci CRAN / narzędzia pip / skalować Conda pakietów, do analizowania danych w przedsiębiorstwie. Dotyczy również ograniczenia w pamięci Otwórz R źródło przez dodanie przetwarzanie równoległe i podzielony danych. Umożliwia to uruchamianie analizy danych niż co mieści się w pamięci głównej.  Visual Studio Community Edition uwzględnione na maszynie Wirtualnej zawiera narzędzia R do narzędzi Visual Studio i języka Python dla rozszerzenia Visual Studio, który zapewnia pełne IDE do pracy z R lub Python. Firma Microsoft udostępnia również inne IDEs także takie jak [programu RStudio](http://www.rstudio.com) i [PyCharm Community edition](https://www.jetbrains.com/pycharm/) na maszynie Wirtualnej. 
@@ -114,7 +114,7 @@ Do tworzenia aplikacji przy użyciu języka Python dystrybucja Anaconda Python 2
 > 
 > 
 
-Anaconda Python 2.7 jest zainstalowana w C:\Anaconda i Anaconda Python 3.5 jest zainstalowana w c:\Anaconda\envs\py35. Zobacz [dokumentacji PTVS](https://github.com/Microsoft/PTVS/wiki/Selecting-and-Installing-Python-Interpreters#hey-i-already-have-an-interpreter-on-my-machine-but-ptvs-doesnt-seem-to-know-about-it) szczegółowy opis kroków. 
+Anaconda Python 2.7 jest zainstalowana w C:\Anaconda i Anaconda Python 3.5 jest zainstalowana w c:\Anaconda\envs\py35. Zobacz [dokumentacji PTVS](/visualstudio/python/python-environments.md#selecting-and-installing-python-interpreters) szczegółowy opis kroków. 
 
 ### <a name="jupyter-notebook"></a>Jupyter Notebook
 Dystrybucji anaconda zawiera również notesu Jupyter, środowisko, aby udostępnić kodu i analizy. Serwer notesu Jupyter został wstępnie skonfigurowany z użyciem jądra Python 2.7, Python, 3.5, PySpark, Julia i R. Brak ikony pulpitu o nazwie "Notesu Jupyter", aby uruchomić serwera Jupyter i uruchomienie przeglądarki do uzyskiwania dostępu do serwera notesu. 
@@ -183,7 +183,7 @@ Do tworzenia pulpitów nawigacyjnych i wspaniałych wizualizacji **Power BI Desk
 | Środowisko Python 3.5 anaconda |c:\Anaconda\envs\py35 |
 | Microsoft ML Server autonomiczny Python  | C:\Program Files\Microsoft\ML Server\PYTHON_SERVER |
 | Wystąpienie domyślne R (ML serwer autonomiczny) |C:\Program Files\Microsoft\ML Server\R_SERVER |
-| Katalog wystąpień w bazie danych SQL usługi uczenia Maszynowego |C:\Program Files\Microsoft SQL Server\MSSQL14. MSSQLSERVER |
+| Katalog wystąpień w bazie danych SQL usługi uczenia Maszynowego |C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER |
 | Azure Machine Learning Workbench (dla poszczególnych użytkowników) | %localappdata%\amlworkbench | 
 | Różne narzędzia |c:\dsvm\tools |
 
@@ -196,9 +196,9 @@ Do tworzenia pulpitów nawigacyjnych i wspaniałych wizualizacji **Power BI Desk
 Poniżej przedstawiono niektóre kolejne kroki, aby kontynuować learning eksploracji. 
 
 * Poznaj różnych narzędzi analizy danych na nauki danych maszyny Wirtualnej, klikając start menu i wyewidencjonowywanie wymienionych w menu Narzędzia.
-* Dowiedz się więcej o Azure Machine Learning usług i Workbench, przechodząc na stronę produktu [strony Szybki Start i samouczki](https://docs.microsoft.com/azure/machine-learning/preview/). 
+* Dowiedz się więcej o Azure Machine Learning usług i Workbench, przechodząc na stronę produktu [strony Szybki Start i samouczki](../preview/index.yml). 
 * Przejdź do **C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts** dla przykładów przy użyciu biblioteki RevoScaleR w R obsługującego analizy danych w skali przedsiębiorstwa.  
 * Przeczytaj artykuł: [10 sposobów na nauki danych maszyny wirtualnej](http://aka.ms/dsvmtenthings)
-* Dowiedz się, jak tworzyć kompleksowe rozwiązania analityczne systematycznie przy użyciu [proces nauki danych zespołu](https://azure.microsoft.com/documentation/learning-paths/data-science-process/).
+* Dowiedz się, jak tworzyć kompleksowe rozwiązania analityczne systematycznie przy użyciu [proces nauki danych zespołu](../team-data-science-process/index.yml).
 * Odwiedź stronę [galerii Azure AI](http://gallery.cortanaintelligence.com) maszyny uczenie i danych analytics przykłady korzystających z usługi Azure Machine learning oraz dane dotyczące usług na platformie Azure. Ikona zostały również zamieszczone na **Start** menu i na pulpicie maszyny wirtualnej do tej galerii.
 

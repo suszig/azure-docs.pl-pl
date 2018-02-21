@@ -33,14 +33,22 @@
   items:
     - name: Wdrażanie grup z wieloma kontenerami
       href: container-instances-multi-container-group.md
-    - name: Utrwalanie danych za pomocą usługi Azure Files
-      href: container-instances-mounting-azure-files-volume.md
     - name: Wdrażanie z usługi Azure Container Registry
       href: container-instances-using-azure-container-registry.md
     - name: Uruchamianie zadań konteneryzowanych
       href: container-instances-restart-policy.md
     - name: Rozwiązywanie problemów z wdrożeniami
       href: container-instances-troubleshooting.md
+    - name: Konfigurowanie woluminów danych
+      items:
+        - name: Azure Files
+          href: container-instances-volume-azure-files.md
+        - name: emptyDir
+          href: container-instances-volume-emptydir.md
+        - name: gitRepo
+          href: container-instances-volume-gitrepo.md
+        - name: wpis tajny
+          href: container-instances-volume-secret.md
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure

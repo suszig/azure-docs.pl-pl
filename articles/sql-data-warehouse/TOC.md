@@ -117,12 +117,11 @@
 ### [Analizowanie obciążenia](analyze-your-workload.md)
 
 ## Skalowanie w poziomie
-### [Zarządzanie obliczeniami — interfejs API REST](sql-data-warehouse-manage-compute-rest-api.md)
+
 ### [Automatyzowanie poziomów obliczeniowych](manage-compute-with-azure-functions.md)
 
 
 # Dokumentacja
-
 
 ## T-SQL
 ### [Pełna dokumentacja](https://docs.microsoft.com/sql/t-sql/language-reference/)
@@ -130,6 +129,7 @@
 ### [Instrukcje usługi SQL DW](sql-data-warehouse-reference-tsql-statements.md)
 ## [Widoki systemowe](sql-data-warehouse-reference-tsql-system-views.md)
 ## [Polecenia cmdlet programu PowerShell](sql-data-warehouse-reference-powershell-cmdlets.md)
+## [Interfejsy API REST](sql-data-warehouse-manage-compute-rest-api.md)
 
 # Zasoby
 ## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=databases)

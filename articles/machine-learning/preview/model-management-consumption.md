@@ -10,26 +10,26 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: 64141afe421ace44fe71c04f8a2fba48144633c9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 120611f98c97fa4c5bfa2a44aece47f246d9ec57
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="consuming-web-services"></a>Korzystanie z usług sieci web
-Gdy należy wdrożyć model jako usługę sieci web w czasie rzeczywistym, możesz przesyła dane i uzyskać prognoz z różnych platform i aplikacji. Usługa sieci web czasu rzeczywistego udostępnia interfejs API REST dla pobierania prognoz. Można wysyłać dane do usługi sieci web w formacie jednego lub wielu wierszy w momencie uzyskać co najmniej jeden prognoz w.
+Gdy należy wdrożyć model jako usługę sieci web w czasie rzeczywistym, możesz przesyła dane i uzyskać prognoz z różnych platform i aplikacji. Usługa sieci web czasu rzeczywistego udostępnia interfejs API REST dla pobierania prognoz. Można wysyłać dane do usługi sieci web w formacie jednego lub wielu wierszy można pobrać co najmniej jeden prognoz naraz.
 
-Z [usługi sieci Web Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/model-management-service-deploy), zewnętrzną aplikacją synchronicznie komunikuje się z modelu predykcyjnego za wywołania HTTP POST na adres URL usługi. Aby wywołać usługi sieci web, aplikacja kliencka musi określić klucz interfejsu API, który jest tworzony podczas wdrażania Prognozowanie i umieszczanie danych żądania w treści żądania POST.
+Z [usługi sieci Web Azure Machine Learning](model-management-service-deploy.md), zewnętrzną aplikacją synchronicznie komunikuje się z modelu predykcyjnego za wywołania HTTP POST na adres URL usługi. Aby wywołać usługi sieci web, aplikacja kliencka musi określić klucz interfejsu API, który jest tworzony podczas wdrażania Prognozowanie i umieszczanie danych żądania w treści żądania POST.
 
 Należy pamiętać, że klucze interfejsu API są dostępne tylko w trybie wdrożenia klastra. Usługi sieci web w lokalnej nie ma kluczy.
 
 ## <a name="service-deployment-options"></a>Opcje wdrażania usługi
-Azure Machine Learning Web services można wdrożyć klastry oparte na chmurze dla scenariuszy zarówno produkcyjnych i testowych i lokalnych stacji roboczych przy użyciu aparatu docker. Funkcjonalność model predykcyjny w obu przypadkach pozostaje taki sam. Wdrożenie klastra na podstawie zapewnia skalowalny i wydajność rozwiązania oparte na usługi kontenera platformy Azure, podczas lokalnego wdrożenia może służyć do debugowania. 
+Azure Machine Learning Web services można wdrożyć klastry oparte na chmurze dla scenariuszy zarówno produkcyjnych i testowych i lokalnych stacji roboczych przy użyciu aparatu docker. Funkcjonalność model predykcyjny w obu przypadkach pozostaje taki sam. Wdrożenia na podstawie klastra zapewniają skalowalność i wydajność rozwiązania oparte na usługi kontenera platformy Azure, podczas lokalnego wdrożenia może służyć do debugowania. 
 
 Interfejsów API i interfejsu wiersza polecenia Azure Machine Learning zapewnia wygodny poleceń do tworzenia i zarządzania obliczeniowe środowiska w przypadku wdrożeń usługi przy użyciu ```az ml env``` opcji. 
 
 ## <a name="list-deployed-services-and-images"></a>Lista jest wdrożona usług i obrazów
-Można wyświetlić listę aktualnie wdrożonych usług i obrazy usługi Docker za pomocą polecenia interfejsu wiersza polecenia ```az ml service list realtime -o table```. Należy pamiętać, że to polecenie zawsze działa w kontekście bieżącego środowiska obliczeniowe i nie będzie Pokaż usług, które są wdrażane w środowisku, które nie jest ustawiony na bieżącej. Aby ustawić Użyj środowiska ```az ml env set```. 
+Można wyświetlić listę aktualnie wdrożonych usług i obrazy usługi Docker za pomocą polecenia interfejsu wiersza polecenia ```az ml service list realtime -o table```. Należy pamiętać, że to polecenie zawsze działa w kontekście bieżącego środowiska obliczeniowego. Czy pokazuj usług, które są wdrażane w środowisku, które nie jest ustawiony na bieżącej. Aby ustawić Użyj środowiska ```az ml env set```. 
 
 ## <a name="get-service-information"></a>Uzyskiwanie informacji o usłudze
 Po pomyślnym wdrożeniu usługi sieci web Użyj następującego polecenia, aby uzyskać adres URL usługi i inne szczegóły wywoływania punktu końcowego usługi. 
@@ -38,9 +38,9 @@ Po pomyślnym wdrożeniu usługi sieci web Użyj następującego polecenia, aby 
 az ml service usage realtime -i <service name>
 ```
 
-To polecenie będzie Wydrukuj adres URL usługi, nagłówki żądania wymagane, adresu URL struktury swagger i przykładowe dane do wywoływania usługi, jeśli podano schematu interfejsu API usługi podczas wdrażania.
+To polecenie wyświetla się adres URL usługi, nagłówki żądania wymagane, adresu URL struktury swagger i przykładowe dane do wywoływania usługi, jeśli podano schematu interfejsu API usługi w czasie wdrażania.
 
-Można testować usługę bezpośrednio z poziomu interfejsu wiersza polecenia, bez tworzenia requst HTTP przez wprowadzenie polecenia interfejsu wiersza polecenia próbki z danych wejściowych:
+Można testować usługę bezpośrednio z poziomu interfejsu wiersza polecenia, bez tworzenia żądania HTTP, wprowadzając przykład polecenia interfejsu wiersza polecenia z danych wejściowych:
 
 ```
 az ml service run realtime -i <service name> -d "Your input data"
@@ -55,13 +55,13 @@ az ml service keys realtime -i <web service id>
 Podczas tworzenia żądania HTTP, Użyj klucza w nagłówku autoryzacji: "Autoryzacja": "Bearer <key>"
 
 ## <a name="get-the-service-swagger-description"></a>Pobrania opisu usługi programu Swagger
-Jeśli podano schematu interfejsu API usługi punktu końcowego usługi może narazić dokumentu Swagger ```http://<ip>/api/v1/service/<service name>/swagger.json```. Dokumentu Swagger może służyć do automatycznego generowania klienta usługi i Eksploruj oczekiwane dane wejściowe i inne szczegółowe informacje o usłudze.
+Jeśli podano schematu interfejsu API usługi, punkt końcowy usługi może narazić dokumentu Swagger ```http://<ip>/api/v1/service/<service name>/swagger.json```. Dokumentu Swagger może służyć do automatycznego generowania klienta usługi i Eksploruj oczekiwane dane wejściowe i inne szczegółowe informacje o usłudze.
 
 ## <a name="get-service-logs"></a>Pobierz dzienniki usługi
 Aby zrozumieć zachowania usługi i diagnozowania problemów, istnieje kilka sposobów, aby pobrać dzienniki usługi:
 - Polecenia interfejsu wiersza polecenia ```az ml service logs realtime -i <service id>```. To polecenie działa zarówno w przypadku klastra, jak i lokalnego trybów.
 - Jeśli rejestrowanie usługi zostało włączone w wdrożenia, dzienniki usługi również będą wysyłane do AppInsight. Polecenia interfejsu wiersza polecenia ```az ml service usage realtime -i <service id>``` zawiera adres URL AppInsight. Należy pamiętać, że dzienniki AppInsight mogą być opóźnione przez 2-5 minut.
-- Dzienniki klastra można wyświetlić za pomocą konsoli Kubernetes podłączoną po ustawieniu w bieżącym środowisku klastra z```az ml env set```
+- Dzienniki klastra można wyświetlić za pomocą konsoli Kubernetes podłączoną po ustawieniu w bieżącym środowisku klastra z ```az ml env set```
 - Docker lokalne dzienniki są dostępne dzienniki aparatu docker, gdy usługa jest uruchomiona lokalnie.
 
 ## <a name="call-the-service-using-c"></a>Wywołania tej usługi przy użyciu języka C#

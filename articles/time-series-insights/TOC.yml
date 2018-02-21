@@ -16,6 +16,8 @@
       href: time-series-insights-explorer.md
     - name: Minimalizowanie ograniczania
       href: time-series-insights-environment-mitigate-latency.md
+    - name: Omówienie przechowywania danych
+      href: time-series-insights-concepts-retention.md
     - name: Diagnozowanie i rozwiązywanie problemów
       href: time-series-insights-diagnose-and-solve-problems.md
     - name: Programowanie
@@ -38,6 +40,8 @@
       href: time-series-insights-how-to-add-an-event-source-eventhub.md
     - name: Łączenie z usługą IoT Hub
       href: time-series-insights-how-to-add-an-event-source-iothub.md
+    - name: Konfigurowanie przechowywania danych
+      href: time-series-insights-how-to-configure-retention.md
     - name: Tworzenie zestawu danych referencyjnych
       href: time-series-insights-add-reference-data-set.md
     - name: Wysyłanie zdarzeń
@@ -56,7 +60,7 @@
   items:
     - name: Powiązane usługi
       items:
-        - name: Pakiet IoT Azure
+        - name: Azure IoT Suite
           href: /azure/iot-suite/
         - name: Azure Event Hubs
           href: /azure/event-hubs/

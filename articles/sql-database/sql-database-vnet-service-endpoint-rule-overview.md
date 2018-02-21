@@ -4,7 +4,7 @@ description: "Oznacz podsieci jako punkt końcowy usługi sieci wirtualnej. Nast
 services: sql-database
 documentationcenter: 
 author: MightyPen
-manager: jhubbard
+manager: craigg
 editor: 
 tags: 
 ms.assetid: 
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 02/05/2018
+ms.date: 02/13/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 90c9aeac46240466bc28cf4c32bb5ff7ef443455
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
-ms.translationtype: MT
+ms.openlocfilehash: 95e5b2fafa20e636957aacb10dbdf9e1fd02cf8f
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Użyj punktów końcowych usługi sieci wirtualnej i reguł bazy danych SQL Azure
 
@@ -144,6 +144,12 @@ Bazy danych SQL Azure funkcja reguł sieć wirtualna ma następujące ograniczen
     - [Lokacja-lokacja (S2S) wirtualnej sieci prywatnej (VPN)][vpn-gateway-indexmd-608y]
     - Lokalnymi za pośrednictwem [ExpressRoute][expressroute-indexmd-744v]
 
+#### <a name="considerations-when-using-service-endpoints"></a>Uwagi dotyczące korzystania z punktów końcowych usług
+W przypadku używania punktów końcowych usługi dla bazy danych SQL Azure, należy przejrzeć następujące zagadnienia:
+
+- **Wychodzące do publicznych adresów IP usługi Azure SQL bazy danych jest wymagana**: grup zabezpieczeń sieci (NSG) muszą być otwarte do adresów IP bazy danych SQL Azure zezwalająca na łączności. Można to zrobić za pomocą NSG [tagi usługi](../virtual-network/security-overview.md#service-tags) bazy danych SQL Azure.
+- **Bazy danych platformy Azure, PostgreSQL i MySQL nie są obsługiwane**: punktów końcowych usługi nie są obsługiwane w bazie danych Azure PostgreSQL lub MySQL. Włączenie punktów końcowych usługi do bazy danych SQL spowoduje przerwanie połączenia do tych usług. Mamy środki zaradcze dla tego; Skontaktuj się z  *dmalik@microsoft.com* .
+
 #### <a name="expressroute"></a>ExpressRoute
 
 Jeśli sieć jest podłączony do sieci Azure przy użyciu [ExpressRoute][expressroute-indexmd-744v], każdy obwód jest skonfigurowany z dwóch publicznych adresów IP w Microsoft Edge. Dwa adresy IP są używane nawiązać Services firmy Microsoft, takich jak do magazynu Azure, korzystając z publicznej komunikacji równorzędnej platformy Azure.
@@ -171,6 +177,8 @@ Edytor zapytań bazy danych SQL Azure jest wdrażany na maszynach wirtualnych na
 #### <a name="table-auditing"></a>Inspekcja tabeli
 Obecnie istnieją dwa sposoby włączania inspekcji bazy danych SQL. Inspekcja tabeli kończy się niepowodzeniem, po włączeniu punktów końcowych usługi na serwerze SQL Azure. Środki zaradcze w tym miejscu jest przejście do Inspekcja obiektów Blob.
 
+#### <a name="impact-on-data-sync"></a>Wpływ na synchronizacji danych
+Azure SQLDB ma funkcja synchronizacji danych, która łączy do baz danych przy użyciu adresów IP platformy Azure. Korzystając z punktów końcowych usługi, prawdopodobnie spowoduje wyłączenie **Zezwalaj wszystkich usług Azure** dostęp do serwera sieci logicznej. Spowoduje to przerwanie funkcja synchronizacji danych.
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Wpływ za pomocą punktów końcowych usługi sieci wirtualnej z usługą Azure storage
 
@@ -178,7 +186,7 @@ Usługa Azure Storage zaimplementowała tej samej funkcji, która umożliwia ogr
 Jeśli wybierzesz użyć tej funkcji przy użyciu konta magazynu, który jest używany przez serwer SQL platformy Azure, można uruchomić na problemy. Jest obok listy oraz omówienie funkcji Azure SQLDB, które ma wpływ na to.
 
 #### <a name="azure-sqldw-polybase"></a>Azure SQLDW PolyBase
-Program PolyBase jest najczęściej używany do ładowania danych do usługi Azure SQLDW z kont magazynu. Jeśli konto magazynu, które są podczas ładowania danych z ogranicza dostęp tylko do wielu podsieci sieci wirtualnej, spowoduje przerwanie połączenia z programu PolyBase do konta.
+Program PolyBase jest najczęściej używany do ładowania danych do usługi Azure SQLDW z kont magazynu. Jeśli konto magazynu, które są podczas ładowania danych z ogranicza dostęp tylko do wielu podsieci sieci wirtualnej, spowoduje przerwanie połączenia z programu PolyBase do konta. Istnieje łagodzenia tego; Skontaktuj się z  *dmalik@microsoft.com*  Aby uzyskać więcej informacji.
 
 #### <a name="azure-sqldb-blob-auditing"></a>Obiekt Blob Azure SQLDB inspekcji
 Inspekcja obiektów blob wypchnięcia dzienników inspekcji na koncie magazynu. Jeśli to konto magazynu jest używana funkcja punktów końcowych usługi zdarzenie spowoduje przerwanie połączenia z Azure SQLDB do konta magazynu.

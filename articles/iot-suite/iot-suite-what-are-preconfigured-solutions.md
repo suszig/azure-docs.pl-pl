@@ -1,6 +1,6 @@
 ---
-title: "Omówienie wstępnie skonfigurowanych rozwiązań Pakietu IoT Azure | Microsoft Docs"
-description: "Opis wstępnie skonfigurowanych rozwiązań Pakietu IoT Azure, w tym informacje dotyczące ich architektury oraz linki prowadzące do dodatkowych zasobów."
+title: "Omówienie wstępnie skonfigurowanych rozwiązań pakietu Azure IoT Suite | Microsoft Docs"
+description: "Opis wstępnie skonfigurowanych rozwiązań pakietu Azure IoT Suite, w tym informacje dotyczące ich architektury oraz linki prowadzące do dodatkowych zasobów."
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 17/01/2018
 ms.author: dobett
-ms.openlocfilehash: 0ac6226b1e5773b1212b70172e2c13a0a5c925a8
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: b29c5fe9543c5fe6da9ff52da6549fdcacff868f
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="what-is-azure-iot-suite"></a>Co to jest Pakiet IoT Azure?
+# <a name="what-is-azure-iot-suite"></a>Co to jest pakiet Azure IoT Suite?
 
-Pakiet IoT Azure jest zestawem *wstępnie skonfigurowanych rozwiązań* który:
+Pakiet Azure IoT Suite jest zestawem *wstępnie skonfigurowanych rozwiązań* który:
 
 * Można wdrożyć w ciągu kilku minut.
 * Ułatwia szybkie rozpoczynanie pracy.
@@ -72,7 +72,7 @@ W poniższej tabeli przedstawiono odwzorowanie rozwiązań na określone funkcje
 * *Analiza predykcyjna*: zaplecze rozwiązania analizuje dane przesyłane z urządzenia do chmury i przewiduje czas, kiedy konkretne działania powinny zostać wykonane. Na przykład analiza danych telemetrycznych silnika samolotu umożliwia określenie konieczności przeprowadzenia konserwacji silnika.
 
 > [!NOTE]
-> Aby wdrożyć wstępnie skonfigurowane rozwiązanie i uzyskać więcej informacji o sposobie ich dostosowywania, odwiedź stronę [Pakiet IoT Microsoft Azure](https://www.azureiotsuite.com/).
+> Aby wdrożyć wstępnie skonfigurowane rozwiązanie i uzyskać więcej informacji o sposobie ich dostosowywania, odwiedź stronę [Pakiet Microsoft Azure IoT Suite](https://www.azureiotsuite.com/).
 
 ## <a name="azure-services"></a>Usługi platformy Azure
 
@@ -80,7 +80,7 @@ Podczas wdrażania wstępnie skonfigurowanego rozwiązania proces inicjowania ob
 
 |                      | Zdalne monitorowanie  | Konserwacja zapobiegawcza | Połączona fabryka |
 | -------------------- | ------------------ | ---------------------- | ----------------- |
-| Usługa IoT Hub              | Yes                |                        | Yes               |
+| Usługa IoT Hub              | Yes                | Yes                    | Yes               |
 | Event Hubs           |                    | Yes                    |                   |
 | Time Series Insights |                    |                        | Yes               |
 | Usługi kontenerów   | Yes                |                        |                   |
@@ -150,7 +150,7 @@ Interfejs użytkownika jest tworzony przy użyciu biblioteki [React](https://fac
 
 Po omówieniu wstępnie skonfigurowanych rozwiązań Pakietu IoT zamieszczono tutaj sugerowane następne czynności, które warto wykonać dla poszczególnych rozwiązań:
 
-* [Eksplorowanie modelu wdrażania Menedżera zasobów rozwiązania do zdalnego monitorowania Pakietu IoT Azure](iot-suite-remote-monitoring-explore.md).
+* [Eksplorowanie modelu wdrażania przy użyciu usługi Resource Manager rozwiązania do zdalnego monitorowania pakietu Azure IoT Suite](iot-suite-remote-monitoring-explore.md).
 * [Omówienie wstępnie skonfigurowanego rozwiązania konserwacji predykcyjnej](iot-suite-predictive-overview.md).
 * [Wprowadzenie do wstępnie skonfigurowanego rozwiązania połączonej fabryki](iot-suite-connected-factory-overview.md).
 

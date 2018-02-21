@@ -43,6 +43,7 @@
 ## Tworzenie pul i zarządzanie nimi
 ### [Automatyczne skalowanie węzłów obliczeniowych](batch-automatic-scaling.md)
 ### [Maszyny wirtualne intensywnie korzystające z mocy obliczeniowej](batch-pool-compute-intensive-sizes.md)
+### [Konfigurowanie dostępu do węzłów obliczeniowych](pool-endpoint-configuration.md)
 ### [Tworzenie puli za pomocą niestandardowego obrazu](batch-custom-images.md)
 ### [Tworzenie puli w sieci wirtualnej](batch-virtual-network.md)
 ### [Węzły obliczeniowe z systemem Linux](batch-linux-nodes.md)

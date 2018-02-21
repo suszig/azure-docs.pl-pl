@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/01/2018
+ms.date: 02/13/2018
 ms.author: magoedte
-ms.openlocfilehash: d873fe37ba2c4e851df35b9d5afe69b4adbf001c
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 9125f3db8929a41f49ff3ae53de9f3a71f5bf051
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analizowanie użycia danych w usłudze Log Analytics
 Usługa Log Analytics zawiera informacje na temat ilości zebranych danych, systemów, z których zostały one wysyłane, oraz typów danych.  Pulpit nawigacyjny **Użycie usługi Log Analytics** pozwala na sprawdzenie ilości danych wysyłanych do usługi Log Analytics. Na pulpicie nawigacyjnym prezentowana jest ilość danych zebranych przez każde rozwiązanie i ilość danych wysyłanych przez komputery.
@@ -36,7 +36,9 @@ Pulpit nawigacyjny **Użycie usługi Log Analytics** udostępnia następujące i
 - Oferty
     - Węzły wglądu w dane i analizy
     - Węzły automatyzacji i kontroli
-    - Węzły zabezpieczeń
+    - Węzły zabezpieczeń  
+- Wydajność
+    - Ilość czasu zbierania i indeksowania danych  
 - Lista zapytań
 
 ![pulpit nawigacyjny Użycie](./media/log-analytics-usage/usage-dashboard01.png)
@@ -151,19 +153,6 @@ Kliknij opcję **Zobacz wszystko**, aby wyświetlić pełną listę komputerów,
 
 Użyj funkcji [określania celu rozwiązania](../operations-management-suite/operations-management-suite-solution-targeting.md), aby zbierać dane tylko z wymaganych grup komputerów.
 
-## <a name="check-if-there-is-ingestion-latency"></a>Sprawdzanie występowania opóźnienia w pozyskiwaniu danych
-W usłudze Log Analytics występuje możliwe do przewidzenia opóźnienie w pozyskiwaniu zbieranych danych.  Bezwzględny czas między indeksowaniem danych i udostępnieniem ich do wyszukiwania może być niemożliwy do przewidzenia. Wcześniej na pulpicie nawigacyjnym znajdował się wykres wydajności pokazujący czas, jaki zajmuje zbieranie i indeksowanie danych. Po wprowadzeniu nowego języka zapytań ten wykres został czasowo usunięty.  Do czasu wydania zaktualizowanych metryk mierzących opóźnienie w pozyskiwaniu danych można zastosować tymczasowe rozwiązanie polegające na użyciu następującego zapytania do oszacowania przybliżonego opóźnienia dla każdego typu danych.  
-
-    search *
-    | where TimeGenerated > ago(8h)
-    | summarize max(TimeGenerated) by Type
-    | extend LatencyInMinutes = round((now() - max_TimeGenerated)/1m,2)
-    | project Type, LatencyInMinutes
-    | sort by LatencyInMinutes desc
-
-> [!NOTE]
-> Zapytanie dotyczące opóźnienia w pozyskiwaniu danych nie powoduje wyświetlenia historii opóźnienia i jest ograniczone tylko do zwracania bieżących wyników.  Wartości elementu *TimeGenerated* są pobierane z agenta dla dzienników wspólnego schematu oraz z punktu końcowego kolekcji dla dzienników niestandardowych.  
->
 
 ## <a name="next-steps"></a>Następne kroki
 * Zobacz temat [Wyszukiwanie w dziennikach w usłudze Log Analytics](log-analytics-log-searches.md), aby dowiedzieć się, jak korzystać z języka wyszukiwania. Możesz użyć zapytań wyszukiwania w celu przeprowadzenia dodatkowej analizy danych użycia.

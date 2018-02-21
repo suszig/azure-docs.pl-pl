@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/25/2017
 ms.author: pratshar
-ms.openlocfilehash: 160457fdad57cd947077aeb3a4ed85fd2a2849d8
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: afdab6e5ee5ae3bb8bc553afd93ff8f1ee18147f
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="failover-in-site-recovery"></a>Praca w trybie failover w usłudze Site Recovery
 W tym artykule opisano, jak do pracy awaryjnej maszyn wirtualnych i fizycznych serwerów są chronione przez usługę Site Recovery.
@@ -31,11 +31,11 @@ Skorzystaj z poniższej tabeli, aby dowiedzieć się o opcjach trybu failover ud
 
 | Scenariusz | Wymagania aplikacji odzyskiwania | Przepływ pracy dla funkcji Hyper-V | Przepływ pracy programu VMware
 |---|--|--|--|
-|Planowany tryb failover z powodu przestoju nadchodzących centrum danych| Zerowej utraty danych dla aplikacji, podczas planowanych działań| Dla funkcji Hyper-V funkcja automatycznego odzyskiwania systemu replikuje dane z częstotliwością kopiowania określone przez użytkownika. Planowany tryb Failover jest używany do zastąpienia częstotliwość i replikować końcowe zmiany przed trybu failover jest inicjowana. <br/> <br/> 1.    Planowanie okna obsługi, zgodnie z procesem zarządzania zmianami Twojej firmy. <br/><br/> 2. powiadamiający użytkowników o nadchodzących przestoju. <br/><br/> 3. Przełącz do trybu offline aplikacji dla użytkownika.<br/><br/>4 zainicjować planowane trybu Failover przy użyciu portalu usługi ASR. Na lokalnej maszynie wirtualnej jest automatycznie zamykana.<br/><br/>Skuteczne stosowanie utraty danych = 0 <br/><br/>Dziennik punktów odzyskiwania jest również udostępniany w okna przechowywania dla użytkownika, który chce używać starszych punktów odzyskiwania. (przechowywania 24 godziny dla funkcji Hyper-V).| Dla VMware funkcja automatycznego odzyskiwania systemu replikuje dane stale przy użyciu punktu dystrybucji list CRL. Pracy awaryjnej zapewnia możliwość pracy awaryjnej do najnowszych danych (w tym zamykania aplikacji post)<br/><br/> 1. Planowanie okna obsługi, zgodnie z procesem zarządzania zmianami <br/><br/>2. powiadamiać użytkowników o nadchodzących przestoju <br/><br/>3.  Przełącz do trybu offline aplikacji dla użytkownika. <br/><br/>4.  Zainicjuj planowanego trybu Failover przy użyciu portalu usługi ASR do ostatniego punktu, gdy aplikacja jest w trybie offline. Użyj opcji "Nieplanowanego trybu Failover" w portalu i wybierz najnowszy punkt do trybu failover. Na lokalnej maszynie wirtualnej jest automatycznie zamykana.<br/><br/>Skuteczne stosowanie utraty danych = 0 <br/><br/>Dziennik punktów odzyskiwania w oknie przechowywania jest dostępna dla klienta, który chce używać starszych punktów odzyskiwania. (72 godzin przechowywania dla VMware).
+|Planowany tryb failover z powodu przestoju nadchodzących centrum danych| Zerowej utraty danych dla aplikacji, podczas planowanych działań| Dla funkcji Hyper-V funkcja automatycznego odzyskiwania systemu replikuje dane z częstotliwością kopiowania określonej przez użytkownika. Planowany tryb Failover jest używany do zastąpienia częstotliwość i replikować końcowe zmiany przed trybu failover jest inicjowana. <br/> <br/> 1.    Planowanie okna obsługi, zgodnie z procesem zarządzania zmianami Twojej firmy. <br/><br/> 2. powiadamiający użytkowników o nadchodzących przestoju. <br/><br/> 3. Przełącz do trybu offline aplikacji dla użytkownika.<br/><br/>4 zainicjować planowane trybu Failover przy użyciu portalu usługi ASR. Na lokalnej maszynie wirtualnej jest automatycznie zamknięcia.<br/><br/>Skuteczne stosowanie utraty danych = 0 <br/><br/>Dziennik punktów odzyskiwania jest również udostępniany w okna przechowywania dla użytkownika, który chce używać starszych punktów odzyskiwania. (przechowywania 24 godziny dla funkcji Hyper-V).| Dla VMware funkcja automatycznego odzyskiwania systemu replikuje dane stale przy użyciu punktu dystrybucji list CRL. Pracy awaryjnej zapewnia możliwość pracy awaryjnej do najnowszych danych (w tym zamknięcia aplikacji post)<br/><br/> 1. Planowanie okna obsługi, zgodnie z procesem zarządzania zmianami <br/><br/>2. powiadamiać użytkowników o nadchodzących przestoju <br/><br/>3.    Przełącz do trybu offline aplikacji dla użytkownika. <br/><br/>4.  Zainicjuj planowanego trybu Failover przy użyciu portalu usługi ASR do ostatniego punktu, gdy aplikacja jest w trybie offline. Użyj opcji "Nieplanowanego trybu Failover" w portalu i wybierz najnowszy punkt do trybu failover. Na lokalnej maszynie wirtualnej jest automatycznie zamknięcia.<br/><br/>Skuteczne stosowanie utraty danych = 0 <br/><br/>Dziennik punktów odzyskiwania w oknie przechowywania jest dostępna dla klienta, który chce używać starszych punktów odzyskiwania. (72 godzin przechowywania dla VMware).
 |Tryb failover z powodu przestoju nieplanowane centrum danych (naturalnego lub IT po awarii) | Minimalna utrata danych dla aplikacji | 1. zainicjowanie planu BCP organizacji <br/><br/>2. Zainicjuj nieplanowanego trybu Failover przy użyciu portalu usługi ASR do najnowszej lub punktu z okna przechowywania (dziennik).| 1. Zainicjuj planu BCP Twojej organizacji. <br/><br/>2.  Zainicjuj nieplanowanego trybu Failover przy użyciu portalu usługi ASR do najnowszej lub punktu z okna przechowywania (dziennik).
 
 
-## <a name="run-a-failover"></a>Tryb failover
+## <a name="run-a-failover"></a>Uruchamianie trybu failover
 W tej procedurze opisano sposób uruchamiania trybu failover dla [planu odzyskiwania](site-recovery-create-recovery-plans.md). Zamiast tego można uruchomić trybu failover dla jednej maszyny wirtualnej lub serwerze fizycznym z **elementy replikowane** strony
 
 
@@ -58,25 +58,24 @@ W tej procedurze opisano sposób uruchamiania trybu failover dla [planu odzyskiw
 
 1. Jeśli niektóre maszyny wirtualne w planie odzyskiwania zostały awaryjnie podczas poprzedniego uruchomienia, a teraz maszyny wirtualne są aktywne w miejscu źródłowym i docelowym, można użyć **zmianę kierunku** opcję, aby określić kierunek, w którym powinno się zdarzyć pracy awaryjnej.
 1. Jeśli użytkownik jest przechodzenie w tryb failover na platformie Azure i szyfrowanie danych jest włączone dla chmury (dotyczy tylko w przypadku ochrony maszyn wirtualnych funkcji Hyper-v z serwera programu VMM), w **klucza szyfrowania** wybierz certyfikat, który został wystawiony, włączenie szyfrowania danych podczas instalacji na serwerze programu VMM.
-1. Wybierz **Zamknij maszynę przed rozpoczęciem pracy awaryjnej** Jeśli chcesz, aby usługi Site Recovery, aby spróbować wykonać zamykania maszyn wirtualnych źródła przed wyzwolenie pracy awaryjnej. Tryb failover trwa nawet w przypadku zamknięcia nie powiedzie się.  
+1. Wybierz **wyłączenia maszyny przed rozpoczęciem pracy awaryjnej** Jeśli chcesz, aby usługi Site Recovery, aby spróbować wykonać zamykania maszyn wirtualnych źródła przed wyzwolenie pracy awaryjnej. Tryb failover trwa nawet w przypadku wyłączenia nie powiodło się.  
 
     > [!NOTE]
-    > Jeśli maszyny wirtualne funkcji Hyper-v są chronione, opcja zamknięcie również próbuje synchronizować dane lokalne, które nie zostały wysłane do usługi przed wyzwolenie pracy awaryjnej.
+    > Jeśli maszyny wirtualne funkcji Hyper-v są chronione, możliwość wyłączenia również próbuje synchronizować dane lokalne, które nie zostały wysłane do usługi przed wyzwolenie pracy awaryjnej.
     >
     >
 
 1. Możesz śledzić postęp trybu failover **zadania** strony. Nawet jeśli występują błędy podczas nieplanowanego trybu failover, planu odzyskiwania uruchamia do czasu ukończenia.
-1. Po przejściu w tryb failover Sprawdź poprawność maszyny wirtualnej po zalogowaniu się do niego. Jeśli chcesz przejść do innego punktu odzyskiwania dla maszyny wirtualnej, a następnie można użyć **zmienić punktu odzyskiwania** opcji.
-1. Po uzyskaniu nieudane przez maszynę wirtualną, możesz **zatwierdzić** pracy awaryjnej. Zatwierdzanie powoduje usunięcie wszystkich punktów odzyskiwania dostępnych w usłudze i **zmienić punktu odzyskiwania** opcja nie będzie już dostępna.
+1. Po przejściu w tryb failover należy zweryfikować maszyny wirtualnej przez rejestrowanie się w nim. Jeśli chcesz wykonać przełączenie do innego punktu odzyskiwania maszyny wirtualnej, a następnie można użyć **zmienić punktu odzyskiwania** opcji.
+1. Po uzyskaniu nieudane przez maszynę wirtualną, możesz **zatwierdzić** pracy awaryjnej. **Zatwierdzanie powoduje usunięcie wszystkich punktów odzyskiwania dostępnych w usłudze** i **zmienić punktu odzyskiwania** opcja nie jest już dostępny.
 
 ## <a name="planned-failover"></a>Planowany tryb failover
-Maszyny wirtualne/serwery fizyczne chronione za pomocą usługi Site Recovery również obsługa **planowanego trybu failover**. Planowany tryb failover to zero danych utraty pracy awaryjnej opcja. Po wyzwoleniu planowanego trybu failover, najpierw zamknij źródłowych maszynach wirtualnych, najnowsze dane są synchronizowane i następnie wyzwoleniu trybu failover.
+Maszyny wirtualne/serwery fizyczne chronione za pomocą usługi Site Recovery również obsługa **planowanego trybu failover**. Planowany tryb failover to zero danych utraty pracy awaryjnej opcja. Po wyzwoleniu planowanego trybu failover, najpierw źródłowych maszynach wirtualnych są wyłączenia, najnowsze dane są synchronizowane i następnie wyzwoleniu trybu failover.
 
 > [!NOTE]
-> Podczas możesz trybu failover funkcji Hyper-v maszyn wirtualnych z jednej lokalnej lokacji do innej lokacji lokalnej, aby wrócić do lokacji głównej lokalnymi należy najpierw **replikacji odwrotnej** maszyny wirtualnej z powrotem do lokacji głównej i wyzwolić tryb failover. Jeśli podstawowa maszyna wirtualna nie jest dostępne, przed uruchomieniem do **replikacji odwrotnej** niezbędnych do przywrócenia maszyny wirtualnej z kopii zapasowej.   
+> Podczas pracy awaryjnej maszyn wirtualnych funkcji Hyper-v z jednej lokalnej lokacji do innej lokacji lokalnej powrót do lokacji głównej lokalnymi trzeba najpierw **replikacja odwrotna** maszyny wirtualnej z powrotem do lokacji głównej, a następnie wyzwalacz trybu failover. Jeśli podstawowa maszyna wirtualna nie jest dostępne, przed uruchomieniem do **replikacja odwrotna** niezbędnych do przywrócenia maszyny wirtualnej z kopii zapasowej.   
 >
 >
-
 ## <a name="failover-job"></a>Zadanie trybu failover
 
 ![Tryb failover](./media/site-recovery-failover/FailoverJob.png)
@@ -102,13 +101,13 @@ W niektórych przypadkach pracy awaryjnej maszyn wirtualnych wymaga bardzo pośr
 * Maszyny wirtualne funkcji Hyper-V chronione jako serwerów fizycznych
 * Maszyny wirtualne VMware, gdy następujące sterowniki nie są dostępne jako rozruchu sterowników 
     * storvsc 
-    * magistralę maszyny wirtualnej 
+    * vmbus 
     * storflt 
     * Intelide 
-    * ATAPI
+    * atapi
 * Adresy IP maszyn wirtualnych VMware, które nie mają włączone niezależnie od tego, czy używasz DHCP lub statyczna usługi DHCP
 
-We wszystkich innych przypadkach ten krok pośrednie nie jest wymagane, a czas pracy w trybie failover jest znacznie niższa. 
+We wszystkich innych przypadkach ten krok pośrednie nie jest wymagane, a czas pracy w trybie failover jest niższa. 
 
 
 
@@ -117,12 +116,14 @@ We wszystkich innych przypadkach ten krok pośrednie nie jest wymagane, a czas p
 ## <a name="using-scripts-in-failover"></a>Za pomocą skryptów w tryb Failover
 Można zautomatyzować niektóre działania podczas wykonywania pracy awaryjnej. Za pomocą skryptów lub [elementy runbook automatyzacji Azure](site-recovery-runbook-automation.md) w [planów odzyskiwania](site-recovery-create-recovery-plans.md) w tym celu.
 
-## <a name="other-considerations"></a>Inne zagadnienia
-* **Litera dysku** — Aby zachować litery dysku w przypadku maszyn wirtualnych po pracy awaryjnej można ustawić **zasad sieci SAN** dla maszyny wirtualnej do **OnlineAll**. [Dowiedz się więcej](https://support.microsoft.com/en-us/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
+## <a name="post-failover-considerations"></a>Zagadnienia dotyczące trybu failover POST
+Po pracy awaryjnej należy wziąć pod uwagę następujące zalecenia:
+### <a name="retaining-drive-letter-after-failover"></a>Zachowywanie litery dysku po trybu failover 
+Aby zachować litery dysku w przypadku maszyn wirtualnych po pracy awaryjnej, można ustawić **zasad sieci SAN** dla maszyny wirtualnej do **OnlineAll**. [Dowiedz się więcej](https://support.microsoft.com/en-us/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 > [!WARNING]
 > Gdy ma przejścia w tryb failover maszyny wirtualne i lokalnego centrum danych jest dostępna, wykonaj następujące czynności [ **Wznów** ](site-recovery-how-to-reprotect.md) maszyn wirtualnych VMware z powrotem do lokalnego centrum danych.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: bradsev;
-ms.openlocfilehash: df1124ddb436f0cfeec8f4ed9728fa15278b9325
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 9bae3971f438659c121bfc18a23746a016e5ef97
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="predict-twitter-sentiment-with-word-embeddings-by-using-the-team-data-science-process"></a>Przewidywanie Twitter wskaźniki nastrojów klientów z programu word osadzeń przy użyciu procesu nauki danych zespołu
 
@@ -131,7 +131,7 @@ Ostatnim krokiem jest wdrożenie modelu prognozowania przeszkolone wskaźniki na
 
 ![Pulpit nawigacyjny Kubernetes](./media/predict-twitter-sentiment/kubernetes-dashboard.PNG)
 
-Aby uzyskać więcej informacji na temat procesu operationalization, zobacz [wdrażanie usługi Azure Machine Learning model jako usługę sieci web](https://docs.microsoft.com/azure/machine-learning/preview/model-management-service-deploy).
+Aby uzyskać więcej informacji na temat procesu operationalization, zobacz [wdrażanie usługi Azure Machine Learning model jako usługę sieci web](../preview/model-management-service-deploy.md).
 
 ## <a name="conclusion"></a>Podsumowanie
 
@@ -140,11 +140,11 @@ W tym artykule przedstawiono sposób uczenie modelu przy użyciu osadzanie word 
 
 ## <a name="references"></a>Dokumentacja
 
-* [Proces nauki danych zespołu](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) 
+* [Zespołowe przetwarzanie danych dla celów naukowych](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) 
 * [Jak używać zespołu danych nauki procesu (TDSP) w usłudze Azure Machine Learning](https://aka.ms/how-to-use-tdsp-in-aml)
 * [Szablony projektów TDSP dla usługi Azure Machine Learning](https://aka.ms/tdspamlgithubrepo)
-* [Azure Machine Learning Workbench](https://docs.microsoft.com/azure/machine-learning/preview/)
+* [Środowisko robocze usługi Azure Machine Learning](../preview/index.yml)
 * [USA przychody zestaw danych z repozytorium UCI ML](https://archive.ics.uci.edu/ml/datasets/adult)
-* [Rozpoznawanie jednostek biomedycznych przy użyciu szablonów TDSP](https://docs.microsoft.com/azure/machine-learning/preview/scenario-tdsp-biomedical-recognition)
-* [Mikolov, Tomasowi, i wsp. "Reprezentacje słów i wyrażeń oraz ich Compositionality rozproszonych. Zmienia informacje neuronowej systemów przetwarzania." 2013.](https://arxiv.org/abs/1310.4546)
-* [Tang, Duyu, i wsp. "Uczenia wskaźniki nastrojów klientów specyficzne dla programu Word osadzanie klasyfikacji wskaźniki nastrojów klientów usługi Twitter". LISTY KONTROLI DOSTĘPU (1). 2014.](http://www.aclweb.org/anthology/P14-1146)
+* [Rozpoznawanie jednostek biomedycznych przy użyciu szablonów TDSP](../preview/scenario-tdsp-biomedical-recognition.md)
+* [Mikolov, Tomas, et al. "Reprezentacje słów i wyrażeń oraz ich Compositionality rozproszonych. Zmienia informacje neuronowej systemów przetwarzania." 2013.](https://arxiv.org/abs/1310.4546)
+* [Tang, Duyu, et al. "Uczenia wskaźniki nastrojów klientów specyficzne dla programu Word osadzanie klasyfikacji wskaźniki nastrojów klientów usługi Twitter". ACL (1). 2014.](http://www.aclweb.org/anthology/P14-1146)

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 11/02/2017
 ms.author: sethm
-ms.openlocfilehash: 77bb769a094c2a619c0c75363e23ae3ee561c1e4
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: fe13de5f83fe18a85f8d46d0eee039159e1a60e9
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="net-on-premisescloud-hybrid-application-using-azure-wcf-relay"></a>Tworzenie hybrydowej aplikacji lokalnej/w chmurze platformy .NET przy użyciu przekaźnika WCF platformy Azure
 
@@ -231,7 +231,7 @@ W tej sekcji utworzysz prostą aplikację ASP.NET, która będzie wyświetlać d
     ![][18]
 
 7. W oknie dialogowym **Nowa aplikacja sieci Web platformy ASP.NET** kliknij przycisk **OK**, aby utworzyć aplikację MVC.
-8. Teraz musisz skonfigurować zasoby platformy Azure dla nowej aplikacji sieci Web. Postępuj zgodnie z instrukcjami znajdującymi się w [sekcji Publikowanie na platformie Azure tego artykułu](../app-service/app-service-web-get-started-dotnet.md#publish-to-azure). Następnie wróć do tego samouczka i przejdź do następnego kroku.
+8. Teraz musisz skonfigurować zasoby platformy Azure dla nowej aplikacji sieci Web. Postępuj zgodnie z instrukcjami znajdującymi się w [sekcji Publikowanie na platformie Azure tego artykułu](../app-service/app-service-web-get-started-dotnet-framework.md#publish-to-azure). Następnie wróć do tego samouczka i przejdź do następnego kroku.
 10. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy pozycję **Modele** i kliknij polecenie **Dodaj**, a następnie kliknij pozycję **Klasa**. W polu **Nazwa** wpisz nazwę **Product.cs**. Następnie kliknij pozycję **Dodaj**.
 
     ![][17]

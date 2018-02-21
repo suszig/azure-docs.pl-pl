@@ -84,26 +84,10 @@ sql-database-elastic-pool.md
 | Maksymalny rozmiar magazynu na bazę danych (GB)* | 1024 | 1024 | 1024 | 1024 | 1024 | 
 ||||||||
 
-### <a name="premium-rs-elastic-pool-limits"></a>Limity elastycznych pul Premium RS
-
-| Jednostki eDTU na pulę | **125** | **250** | **500** | **1000** |
-|:---|---:|---:|---:| ---: | ---: | 
-| Magazyn dołączony na pulę (GB) | 250 | 500 | 750 | 750 |
-| Maksymalna liczba opcji magazynu dla każdej puli (GB) * | 250, 500, 750, 1024 | 500, 750, 1024 | 750, 1024 | 1024 | 
-| Maksymalna liczba OLTP w pamięci magazynu dla każdej puli (GB) | 1 | 2 | 4 | 10 |
-| Maksymalna liczba baz danych na pulę | 50 | 100 | 100 | 100 |
-| Maksymalna liczba współbieżnych procesów roboczych (żądań) na pulę | 200 | 400 | 800 | 1600 |
-| Maksymalna liczba współbieżnych logowań na pulę | 200 | 400 | 800 | 1600 |
-| Maksymalna liczba współbieżnych sesji na pulę | 30000 | 30000 | 30000 | 30000 |
-| Min wyborów jednostek Edtu na bazę danych | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 |
-| Maksymalna liczba opcji jednostek Edtu na bazę danych | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 
-| Maksymalny rozmiar magazynu na bazę danych (GB)* | 1024 | 1024 | 1024 | 1024 | 
-||||||||
-
 > [!IMPORTANT]
 > \* Magazyn o rozmiarze większym niż ilość miejsca do magazynowania są dostępne w wersji zapoznawczej dodatkowych kosztów za dodatkową opłatą. Aby uzyskać więcej informacji, zobacz [bazy danych SQL cennikiem](https://azure.microsoft.com/pricing/details/sql-database/). Wielkość magazynu jest większa niż ilość miejsca w magazynie uwzględnione są w wersji zapoznawczej i zastosowania dodatkowych kosztów. Aby uzyskać więcej informacji, zobacz [bazy danych SQL cennikiem](https://azure.microsoft.com/pricing/details/sql-database/).
 >
-> \*W warstwie Premium więcej niż 1 TB pamięci masowej jest obecnie dostępna w następujących regionach: Australia Wschodnia, Australia Południowo-Wschodnia, Kanada centralnej, Kanada Wschodnia, Francja centralnej, centralnej Niemcy Japonia Wschodnia, centralnej Korei południowo-środkowe USA, Południowo-Wschodnia, Azja, Stany East2 , Europa Zachodnia, zachodnie stany USA i Virginia wersji dla instytucji rządowych Stanów Zjednoczonych. 
+> \* W warstwie Premium więcej niż 1 TB pamięci masowej jest obecnie dostępna w następujących regionach: Australia Wschodnia, Australia Południowo-Wschodnia, Kanada centralnej, Kanada Wschodnia, Francja centralnej, centralnej Niemcy Japonia Wschodnia, centralnej Korei południowo-środkowe USA, Południowo-Wschodnia, Azja, Stany East2 , Europa Zachodnia, zachodnie stany USA i Virginia wersji dla instytucji rządowych Stanów Zjednoczonych. 
 >
->\*\*Min/max Edtu na bazę danych w systemie w 200 jednostek Edtu i wyższych **standardowe** pule są w wersji zapoznawczej.
+>\*\* Min/max Edtu na bazę danych w systemie w 200 jednostek Edtu i wyższych **standardowe** pule są w wersji zapoznawczej.
 >

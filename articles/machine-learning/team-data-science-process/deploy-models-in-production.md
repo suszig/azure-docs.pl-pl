@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: bradsev;
-ms.openlocfilehash: c7be9eda2d6f37951eb120250861cf4a39b0141b
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 122c6db2a915dd2a933e261b5b735e7214407d66
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="deploy-models-in-production"></a>Wdrażanie modeli w środowisku produkcyjnym
 
@@ -27,9 +27,9 @@ Wdrożenia produkcyjnego umożliwia modelu do pełnienia roli active w firmie. P
 Istnieją różne podejścia i platformy, aby umieścić modeli w środowisku produkcyjnym. Poniżej przedstawiono kilka opcji:
 
 
-- [Model wdrażania w usłudze Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview)
+- [Model wdrażania w usłudze Azure Machine Learning](../preview/model-management-overview.md)
 - [Wdrażania modelu w programie SQL server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
-- [Uczenie maszynowe Microsoft Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
+- [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
 
 >[!NOTE]
@@ -45,7 +45,7 @@ Istnieją różne podejścia i platformy, aby umieścić modeli w środowisku pr
 W przypadku wielu modeli w środowisku produkcyjnym, może być przydatne do wykonania [A / B, testowanie](https://en.wikipedia.org/wiki/A/B_testing) porównanie wydajności modeli. 
 
  
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Wskazówki, które pokazują wszystkie kroki procesu **określonych scenariuszy** podawane są również. Wymieniono i połączone z opisami miniatur w [wskazówki przykład](walkthroughs.md) artykułu. Pokazują one sposób łączenia chmury, narzędzia lokalnych i usług w przepływie pracy lub potoku, aby utworzyć aplikację inteligentnego. 
  

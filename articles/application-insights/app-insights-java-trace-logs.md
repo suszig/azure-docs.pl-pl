@@ -11,23 +11,20 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2016
+ms.date: 02/12/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6e441c9cbd15bb1528ea8e8a781f90900af90cf2
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: ef813ec3f9f654fb3786fba4135a04e403928e9a
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Eksploruj dzienniki śledzenia w usłudze Application Insights w języku Java
 Jeśli używasz Logback lub Log4J (1.2 lub 2.0) śledzenia, może mieć dzienników śledzenia automatycznie przesyłane do usługi Application Insights, gdzie można eksplorować i ich wyszukiwanie.
 
 ## <a name="install-the-java-sdk"></a>Instalowanie oprogramowania Java SDK
 
-Zainstaluj [zestaw SDK usługi Application Insights dla języka Java][java], jeśli jeszcze nie który.
-
-(Jeśli nie chcesz śledzić żądania HTTP, można pominąć większość plik XML konfiguracji, ale musi zawierać co najmniej `InstrumentationKey` elementu. Należy także wywołać `new TelemetryClient()` zainicjować zestawu SDK.)
-
+Postępuj zgodnie z instrukcjami, aby zainstalować [zestaw SDK usługi Application Insights dla języka Java][java], jeśli jeszcze nie który.
 
 ## <a name="add-logging-libraries-to-your-project"></a>Dodaj do projektu biblioteki rejestrowania
 *Wybierz odpowiedni sposób dla danego projektu.*
@@ -101,13 +98,14 @@ Następnie Odśwież zależności projektu, aby uzyskać pobierane pliki binarne
 ```
 
 #### <a name="otherwise-"></a>W innym przypadku...
-Pobierz i Wyodrębnij appendera odpowiednie, a następnie dodaj odpowiednią bibliotekę do projektu:
+Postępuj zgodnie z wytycznymi, aby ręcznie zainstalować zestaw SDK Java usługi Application Insights, Pobierz jar (po uzgadnianiu Maven centralnej strony kliknij łącze "jar" w sekcji pobierania) dla odpowiednich appendera i Dodaj jar pobrany appendera do projektu.
 
-| Rejestratora | Do pobrania | Biblioteka |
+| Logger | Do pobrania | Biblioteka |
 | --- | --- | --- |
-| Logback |[Zestaw SDK z appendera Logback](https://aka.ms/xt62a4) |applicationinsights — rejestrowanie logback |
-| Log4J v2.0 |[Zestaw SDK z narzędzia Log4J appendera v2](https://aka.ms/qypznq) |applicationinsights — rejestrowanie log4j2 |
-| 1.2 Log4j |[Zestaw SDK z narzędzia Log4J appendera 1.2](https://aka.ms/ky9cbo) |applicationinsights — rejestrowanie log4j1_2 |
+| Logback |[Appendera Logback Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-logback%22) |applicationinsights-logging-logback |
+| Log4J v2.0 |[Log4J v2 appendera Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j2%22) |applicationinsights-logging-log4j2 |
+| Log4j v1.2 |[Log4J 1.2 appendera Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j1_2%22) |applicationinsights-logging-log4j1_2 |
+
 
 ## <a name="add-the-appender-to-your-logging-framework"></a>Dodawanie appendera do Twojej struktury rejestrowania
 Aby rozpocząć pobieranie danych śledzenia, Scal odpowiedni fragment kodu do pliku konfiguracji narzędzia Log4J lub Logback: 
@@ -128,7 +126,7 @@ Aby rozpocząć pobieranie danych śledzenia, Scal odpowiedni fragment kodu do p
 
 ```XML
 
-    <Configuration packages="com.microsoft.applicationinsights.Log4j">
+    <Configuration packages="com.microsoft.applicationinsights.log4j.v2">
       <Appenders>
         <ApplicationInsightsAppender name="aiAppender" />
       </Appenders>
@@ -158,9 +156,11 @@ Appenders usługi Application Insights można odwoływać się przez wszystkie s
 ## <a name="explore-your-traces-in-the-application-insights-portal"></a>Eksploruj dane śledzenia w portalu usługi Application Insights
 Teraz, gdy skonfigurowano z projektem, aby wysyłał informacje śledzenia do usługi Application Insights, można wyświetlać i wyszukać te operacje śledzenia w portalu usługi Application Insights w [wyszukiwania] [ diagnostic] bloku.
 
+Wyjątki przesłano za pośrednictwem rejestratorów będą wyświetlane w portalu jako dane telemetryczne wyjątku.
+
 ![Otwórz wyszukiwanie w portalu usługi Application Insights](./media/app-insights-java-trace-logs/10-diagnostics.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Wyszukiwanie diagnostycznych][diagnostic]
 
 <!--Link references-->

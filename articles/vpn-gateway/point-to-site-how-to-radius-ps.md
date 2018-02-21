@@ -1,10 +1,10 @@
 ---
 title: "Połącz komputer sieć wirtualną przy użyciu uwierzytelniania punkt-lokacja i RADIUS: programu PowerShell | Azure"
-description: "Bezpieczne łączenie komputera sieci wirtualnej platformy Azure przez utworzenie połączenie bramy sieci VPN typu punkt-lokacja, które jest używane uwierzytelnianie usługi RADIUS."
+description: "Bezpieczne łączenie klientów systemu Windows i Mac OS X z wirtualnych sieć adresu przy użyciu uwierzytelniania P2S i usługi RADIUS."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/04/2017
+ms.date: 02/12/2018
 ms.author: anzaman
-ms.openlocfilehash: 13ae129eefb717f22db25ab29232fe1efe69a8ce
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3b7315aaa57d1387e3cea31e8b306131a59a7006
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Skonfiguruj połączenie punkt-lokacja sieci wirtualnej przy użyciu uwierzytelniania usługi RADIUS: środowiska PowerShell
 
@@ -235,6 +235,8 @@ W oknie dialogowym Sieć znajdź profil klienta, którego chcesz użyć, a nast�
       Default Gateway.................:
       NetBIOS over Tcpip..............: Enabled
   ```
+
+Aby rozwiązać połączeń P2S, zobacz [połączenia punkt lokacja Azure Rozwiązywanie problemów z](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
 
 ## <a name="connectVM"></a>Nawiązywanie połączenia z maszyną wirtualną
 

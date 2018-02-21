@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 221af59c211cc6ce0471718908db1544ca2d75ed
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: a2abe0733f52c1e032a718fd8f870c3ec9686a41
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Samouczek: kopiowanie danych z lokalnej bazy danych programu SQL Server do usługi Azure Blob Storage
 W tym samouczku użyjesz programu Azure PowerShell, aby utworzyć potok usługi Data Factory, który kopiuje dane z lokalnej bazy danych programu SQL Server do usługi Azure Blob Storage. Utworzysz własne środowisko Integration Runtime (Self-hosted), służące do przenoszenia danych między lokalnym magazynem danych i magazynem danych w chmurze. 
@@ -35,7 +35,7 @@ Ten samouczek obejmuje wykonanie następujących kroków:
 > * Tworzenie połączonych zestawów programu SQL Server i usługi Azure Storage. 
 > * Tworzenie zestawów danych programu SQL Server i usługi Azure Blob.
 > * Tworzenie potoku z działaniem kopiowania do przenoszenia danych.
-> * Uruchamianie przebiegu potoku.
+> * Uruchamianie potoku.
 > * Monitorowanie uruchomienia potoku.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -202,6 +202,9 @@ W tej sekcji utworzysz własne środowisko Integration Runtime i skojarzysz je z
 
 2. Utwórz własne środowisko Integration Runtime. 
 
+    ```powershell
+    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $integrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
+    ``` 
     Oto przykładowe dane wyjściowe:
 
     ```json
@@ -210,7 +213,7 @@ W tej sekcji utworzysz własne środowisko Integration Runtime i skojarzysz je z
     ResourceGroupName : ADFTutorialResourceGroup
     DataFactoryName   : onpremdf0914
     Name              : myonpremirsp0914
-    Description       :
+    Description       : selfhosted IR description
     ```
 
 3. Uruchom następujące polecenie, aby pobrać stan utworzonego środowiska Integration Runtime:
@@ -614,7 +617,7 @@ $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -
     }
     ```
 
-    Oto dane wyjściowe przykładowego przebiegu:
+    Oto dane wyjściowe przykładowego uruchomienia:
 
     ```jdon
     ResourceGroupName : <resourceGroupName>
@@ -639,7 +642,7 @@ $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -
     ($result | Where-Object {$_.ActivityName -eq "CopySqlServerToAzureBlobActivity"}).Output.ToString()
     ```
 
-    Oto dane wyjściowe przykładowego przebiegu:
+    Oto dane wyjściowe przykładowego uruchomienia:
 
     ```json
     {
@@ -661,7 +664,7 @@ Potok automatycznie tworzy folder wyjściowy o nazwie *fromonprem* w kontenerze 
 
     ![Utworzony folder wyjściowy](media/tutorial-hybrid-copy-powershell/fromonprem-folder.png)
 2. Wybierz pozycję `fromonprem` na liście folderów. 
-3. Upewnij się jest wyświetlany plik o nazwie `dbo.emp.txt`.
+3. Upewnij się, że jest wyświetlany plik o nazwie `dbo.emp.txt`.
 
     ![Plik wyjściowy](media/tutorial-hybrid-copy-powershell/fromonprem-file.png)
 
@@ -675,7 +678,7 @@ Potok w tym przykładzie kopiuje dane z jednej lokalizacji do innej lokalizacji 
 > * Tworzenie połączonych zestawów programu SQL Server i usługi Azure Storage. 
 > * Tworzenie zestawów danych programu SQL Server i usługi Azure Blob.
 > * Tworzenie potoku z działaniem kopiowania do przenoszenia danych.
-> * Uruchamianie przebiegu potoku.
+> * Uruchamianie potoku.
 > * Monitorowanie uruchomienia potoku.
 
 Lista magazynów danych obsługiwanych przez usługę Data Factory znajduje się w artykule dotyczącym [obsługiwanych magazynów danych](copy-activity-overview.md#supported-data-stores-and-formats).

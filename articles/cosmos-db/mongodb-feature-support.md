@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: 007b530cd7a14f063ae4f86d18daa9742c6655c2
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: e955aa1c3985e540246d964b4dce88d15fb85949
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>Obsługa interfejsu API bazy danych MongoDB funkcji bazy danych MongoDB i składni
 
-Azure DB rozwiązania Cosmos jest usługa globalnie rozproszone wielu modelu bazy danych firmy Microsoft. Użytkownik może komunikować się z bazy danych MongoDB API za pomocą dowolnego klienta bazy danych MongoDB typu open source [sterowniki](https://docs.mongodb.org/ecosystem/drivers). Interfejs API bazy danych MongoDB umożliwia korzystanie z istniejących sterowników klienta przez do bazy danych MongoDB [okablować protokołu](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
+Azure Cosmos DB to rozproszona globalnie, wielomodelowa usługa bazy danych firmy Microsoft. Użytkownik może komunikować się z bazy danych MongoDB API za pomocą dowolnego klienta bazy danych MongoDB typu open source [sterowniki](https://docs.mongodb.org/ecosystem/drivers). Interfejs API bazy danych MongoDB umożliwia korzystanie z istniejących sterowników klienta przez do bazy danych MongoDB [okablować protokołu](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
 Za pomocą interfejsu API Azure rozwiązania Cosmos bazy danych MongoDB, można korzystać z zalet interfejsów API bazy danych MongoDB użyto, biorąc pod uwagę możliwości przedsiębiorstwa Azure rozwiązania Cosmos DB: [globalne dystrybucji](distribute-data-globally.md), [automatycznego dzielenia na fragmenty](partition-data.md), dostępność i opóźnienia gwarancji, automatycznego indeksowania każdego pola, szyfrowanie w rest, kopie zapasowe i o wiele więcej.
 
@@ -36,8 +36,8 @@ Interfejs API Azure rozwiązania Cosmos bazy danych MongoDB zapewnia obsługę k
 Azure DB rozwiązania Cosmos obsługuje następujące polecenia bazy danych na wszystkich kontach API bazy danych MongoDB. 
 
 ### <a name="query-and-write-operation-commands"></a>Polecenia operacji zapytania i zapisu
-- usuń
-- znajdź
+- usuwanie
+- Znajdź
 - findAndModify
 - getLastError
 - getMore
@@ -237,22 +237,49 @@ W zapytaniach $regex zakotwiczony lewej strony wyrażenia Zezwalaj indeksu wyszu
 Gdy istnieje potrzeba zawierają "$" lub "|", zaleca się tworzenie zapytań regex dwie (lub więcej). Na przykład podane następujące oryginalne zapytanie: ```find({x:{$regex: /^abc$/})```, musi on być modyfikowany w następujący sposób: ```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```.
 Pierwsza część użyje ograniczyć wyszukiwanie do tych dokumentów, począwszy od indeksu ^ abc i drugiej części będą zgodne dokładne wpisów. Pasek operator "|" działa jako funkcję "lub" - zapytanie ```find({x:{$regex: /^abc|^def/})``` odpowiada whin dokumenty, które pola "x" ma wartość, która rozpoczyna się od "abc" albo "def". Korzystanie z indeksu, zaleca się break zapytanie na dwie różne połączonych $lub operator: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
 
+### <a name="update-operators"></a>Operatory aktualizacji
+
+#### <a name="field-update-operators"></a>Pola, operatory aktualizacji
+- $inc
+- $mul
+- $rename
+- $setOnInsert
+- $set
+- Nie ustawiono $
+- $min
+- $max
+- $currentDate
+
+#### <a name="array-update-operators"></a>Operatory aktualizacji tablicy
+- $addToSet
+- $pop
+- $pullAll
+- $pull (Uwaga: $pull z warunkiem nie jest obsługiwane)
+- $pushAll
+- $push
+- $każdego
+- $slice
+- $sort
+- $position
+
+#### <a name="bitwise-update-operator"></a>Aktualizacja z bitowego operatora
+- $bit
 
 ### <a name="geospatial-operators"></a>Operatory lokalizacji geograficznych
 
 Operator | Przykład 
 --- | --- |
-$geoWithin | ```{ "Location.coordinates": { $geoWithin: { $centerSphere: [ [ -121, 46 ], 5 ] } } }``` | Tak
-$geoIntersects |  ```{ "Location.coordinates": { $geoIntersects: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Tak
-$pobliżu | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Tak
-$nearSphere | ```{ "Location.coordinates": { $nearSphere : [ -121, 46  ], $maxDistance: 0.50 } }``` | Tak
-$geometry | ```{ "Location.coordinates": { $geoWithin: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Tak
-$minDistance | ```{ "Location.coordinates": { $nearSphere : { $geometry: {type: "Point", coordinates: [ -121, 46 ]}, $minDistance: 1000, $maxDistance: 1000000 } } }``` | Tak
-$maxDistance | ```{ "Location.coordinates": { $nearSphere : [ -121, 46  ], $maxDistance: 0.50 } }``` | Tak
-$center | ```{ "Location.coordinates": { $geoWithin: { $center: [ [-121, 46], 1 ] } } }``` | Tak
-$centerSphere | ```{ "Location.coordinates": { $geoWithin: { $centerSphere: [ [ -121, 46 ], 5 ] } } }``` | Tak
-$box | ```{ "Location.coordinates": { $geoWithin: { $box:  [ [ 0, 0 ], [ -122, 47 ] ] } } }``` | Tak
-$polygon | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Tak
+$geoWithin | ```{ "Location.coordinates": { $geoWithin: { $centerSphere: [ [ -121, 46 ], 5 ] } } }``` | Yes
+$geoIntersects |  ```{ "Location.coordinates": { $geoIntersects: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Yes
+$pobliżu | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Yes
+$nearSphere | ```{ "Location.coordinates": { $nearSphere : [ -121, 46  ], $maxDistance: 0.50 } }``` | Yes
+$geometry | ```{ "Location.coordinates": { $geoWithin: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Yes
+$minDistance | ```{ "Location.coordinates": { $nearSphere : { $geometry: {type: "Point", coordinates: [ -121, 46 ]}, $minDistance: 1000, $maxDistance: 1000000 } } }``` | Yes
+$maxDistance | ```{ "Location.coordinates": { $nearSphere : [ -121, 46  ], $maxDistance: 0.50 } }``` | Yes
+$center | ```{ "Location.coordinates": { $geoWithin: { $center: [ [-121, 46], 1 ] } } }``` | Yes
+$centerSphere | ```{ "Location.coordinates": { $geoWithin: { $centerSphere: [ [ -121, 46 ], 5 ] } } }``` | Yes
+$box | ```{ "Location.coordinates": { $geoWithin: { $box:  [ [ 0, 0 ], [ -122, 47 ] ] } } }``` | Yes
+$polygon | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Yes
 
 ## <a name="additional-operators"></a>Dodatkowe operatory
 
@@ -262,7 +289,7 @@ $all | ```{ "Location.coordinates": { $all: [-121.758, 46.87] } }``` |
 $elemMatch | ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |  
 $size | ```{ "Location.coordinates": { $size: 2 } }``` | 
 $comment |  ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } }, $comment: "Negative values"}``` | 
-$text |  | Nie jest obsługiwane. Zamiast tego użyj $regex 
+$text |  | Nieobsługiwane. Zamiast tego użyj $regex 
 
 ### <a name="methods"></a>Metody
 
@@ -272,7 +299,7 @@ Obsługiwane są następujące metody:
 
 Metoda | Przykład | Uwagi 
 --- | --- | --- |
-CURSOR.sort() | ```cursor.sort({ "Elevation": -1 })``` | Dokumenty bez klucza sortowania nie zwracana
+cursor.sort() | ```cursor.sort({ "Elevation": -1 })``` | Dokumenty bez klucza sortowania nie zwracana
 
 ## <a name="unique-indexes"></a>Unikatowe indeksy
 
@@ -292,11 +319,11 @@ Azure DB rozwiązania Cosmos nie obsługuje jeszcze użytkowników i ról. Kontr
 
 Azure DB rozwiązania Cosmos obsługuje automatyczne natywnego replikacji w najniższej warstwy. Istotą takiej logiki jest rozszerzony limit do osiągnięcia replikacji małe opóźnienia, globalnych. Azure DB rozwiązania Cosmos nie obsługuje polecenia ręczna replikacja.
 
-## <a name="sharding"></a>Dzielenia na fragmenty
+## <a name="sharding"></a>Dzielenie na fragmenty
 
 Azure DB rozwiązania Cosmos obsługuje dzielenia na fragmenty automatycznego, po stronie serwera. Azure DB rozwiązania Cosmos nie obsługuje polecenia ręcznego dzielenia na fragmenty.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Dowiedz się, jak [Użyj Studio 3T](mongodb-mongochef.md) z interfejsu API dla bazy danych MongoDB.
 - Dowiedz się, jak [Użyj Robo 3T](mongodb-robomongo.md) z interfejsu API dla bazy danych MongoDB.

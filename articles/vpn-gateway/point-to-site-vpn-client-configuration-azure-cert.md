@@ -1,10 +1,10 @@
 ---
 title: "Utwórz i zainstaluj pliki konfiguracji klienta P2S VPN uwierzytelniania certyfikatu Azure: środowiska PowerShell: Azure | Dokumentacja firmy Microsoft"
-description: "Ten artykuł ułatwia tworzenie i zainstaluj pliki konfiguracji klienta sieci VPN dla połączenia punkt-lokacja, które korzystają z certyfikatu uwierzytelniania."
+description: "Utwórz i zainstaluj system Windows i Mac OS X w sieci VPN plików konfiguracji klienta dla P2S certyfikatu uwierzytelniania."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/06/2018
+ms.date: 02/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: 8c27cbaa27dbafbba4a6124680c3e6e83cbcbab8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b18e01a780f6371ecae3298a6f3f41949090b9e8
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/14/2018
 ---
-# <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Utwórz i zainstaluj pliki konfiguracji klienta sieci VPN w przypadku konfiguracji uwierzytelniania P2S natywnego certyfikatu Azure
+# <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-point-to-site-configurations"></a>Utwórz i zainstaluj VPN plików konfiguracji klienta dla natywnych Azure certyfikatu konfiguracji uwierzytelniania punkt-lokacja
 
 Pliki konfiguracji klienta sieci VPN znajdują się w pliku zip. Pliki konfiguracji Podaj ustawienia wymagane dla natywnego klienta systemu Windows lub Mac IKEv2 sieci VPN do nawiązania połączenia sieci wirtualnej za pośrednictwem połączenia punkt-lokacja, które używają uwierzytelniania natywnego certyfikatu Azure.
 
@@ -117,3 +117,5 @@ Kliknij przycisk **Dodaj** do zaimportowania.
 ## <a name="next-steps"></a>Następne kroki
 
 Wróć do tego artykułu, aby [ukończyć konfigurację P2S](vpn-gateway-howto-point-to-site-rm-ps.md).
+
+Aby uzyskać informacje dotyczące rozwiązywania problemów P2S [połączenia punkt lokacja Azure Rozwiązywanie problemów z](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

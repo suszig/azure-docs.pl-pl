@@ -6,21 +6,20 @@ documentationcenter:
 author: curtand
 manager: mtillman
 editor: 
-ms.assetid: 7fc27e8e-b55f-4194-9b8f-2e95705fb731
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: 
+ms.devlang: 
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 02/07/2018
 ms.author: curtand
 ms.reviewer: vincesm
-ms.custom: it-pro;
-ms.openlocfilehash: de26452dfb32438ef56fa0c9a31a24b05987b48c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.custom: it-pro
+ms.openlocfilehash: 1fed14fc117c7652e677a245625502c1810068ff
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Przypisywanie ról administratorów w usłudze Azure Active Directory
 
@@ -64,7 +63,7 @@ Dostępne są następujące role administratora:
 
 * **Gość zapraszającej**: użytkownicy w tej roli mogą zarządzać użytkownika zaproszeń do skorzystania z usługi Azure Active Directory B2B gościa, gdy ustawienia użytkownika "Zaprosić elementy członkowskie" jest ustawiona na nie. Więcej informacji na temat współpracy B2B w [dotyczące usługi Azure AD B2B współpracy między firmami](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Nie ma inne uprawnienia.
 
-<!-- * **Information Protection Administrator**: Users with this role can access Azure Information Protection in the Azure portal. They can configure labels for the Azure Information Protection policy, manage protection templates, and activate protection.-->
+* **Administrator ochrony informacji (wersja zapoznawcza)**: użytkownicy z tą rolą mają uprawnienia tylko w usłudze Azure Information Protection. Nie są przyznawane prawa użytkownika w Centrum ochrony tożsamości, Zarządzanie tożsamościami uprzywilejowanymi, Monitor Office 365 usługi kondycji lub Office 365 zabezpieczeń i Centrum zgodności. Ich konfigurowanie etykiety dla zasad usługi Azure Information Protection, Zarządzanie szablonami ochrony i aktywować ochrony.
 
 * **Administrator usługi Intune**: użytkownicy z tą rolą uprawnień globalnych w ramach programu Microsoft Intune Online, gdy usługa jest obecny. Ponadto ta rola zawiera zdolność do zarządzania użytkownikami i urządzeniami, aby skojarzyć zasady, oraz tworzenie grup i zarządzanie nimi.
 
@@ -87,9 +86,9 @@ Dostępne są następujące role administratora:
 
 * **Raporty czytnika**: użytkownicy z tą rolą mogą wyświetlać użycia raportowania danych i raportów pulpitu nawigacyjnego w Centrum administracyjnym usługi Office 365 i kontekst przyjęcia pakietu w usługi Power BI. Ponadto roli zapewnia dostęp do logowania jednokrotnego raporty i działania w usłudze Azure AD i interfejsem API raportowania danych zwróconych przez program Microsoft Graph. Użytkownicy przypisani do roli Czytelnik raporty dostępne tylko odpowiednie użycia i przyjęcia metryki. Nie ma uprawnień administratora do skonfigurowania ustawień lub dostępu do Centrum administracyjnego określonego produktu, takich jak program Exchange. 
 
-* **Administrator zabezpieczeń**: użytkownicy z tą rolą mają wszystkie uprawnienia tylko do odczytu z czytnika rolę zabezpieczeń, a także możliwość zarządzania konfiguracją dla usług związanych z zabezpieczeniami: Azure Active Directory Identity Protection, usługi Azure Information Protection, Zarządzanie tożsamościami uprzywilejowanymi i Office 365 zabezpieczeń i Centrum zgodności. Więcej informacji na temat uprawnień usługi Office 365 są dostępne pod adresem [uprawnień w programie Office 365 zabezpieczeń & Centrum zgodności](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
+* **Administrator zabezpieczeń**: użytkownicy z tą rolą mają wszystkie uprawnienia tylko do odczytu z czytnika rolę zabezpieczeń, a także możliwość zarządzania konfiguracją dla usług związanych z zabezpieczeniami: Azure Active Directory Identity Protection, platforma Azure Information Protection, Zarządzanie tożsamościami uprzywilejowanymi oraz zabezpieczeń usługi Office 365 i Centrum zgodności. Więcej informacji na temat uprawnień usługi Office 365 są dostępne pod adresem [uprawnień w programie Office 365 zabezpieczeń & Centrum zgodności](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
-* **Czytnik zabezpieczeń**: użytkownicy z tą rolą mają globalny dostęp tylko do odczytu, w tym wszystkie informacje w usłudze Azure Active Directory, Identity Protection, Privileged Identity Management, a także możliwości odczytywanie raporty logowania w usłudze Azure Active Directory i dzienniki inspekcji. Rola przyznaje również uprawnienia tylko do odczytu w programie Office 365 zabezpieczeń & Centrum zgodności. Więcej informacji na temat uprawnień usługi Office 365 są dostępne pod adresem [uprawnień w programie Office 365 zabezpieczeń & Centrum zgodności](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
+* **Czytnik zabezpieczeń**: użytkownicy z tą rolą mają globalny dostęp tylko do odczytu, w tym wszystkie informacje w usłudze Azure Active Directory, ochronę tożsamości, Privileged Identity Management, a także pozwala na odczyt raportów logowania w usłudze Azure Active Directory i dzienniki inspekcji. Rola przyznaje również uprawnienia tylko do odczytu w programie Office 365 zabezpieczeń & Centrum zgodności. Więcej informacji na temat uprawnień usługi Office 365 są dostępne pod adresem [uprawnień w programie Office 365 zabezpieczeń & Centrum zgodności](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
 * **Administrator obsługuje usługi**: użytkownicy z tą rolą mogą otwierać żądania pomocy technicznej z firmą Microsoft dla usług Azure i usługi Office 365 i widoki pulpitu nawigacyjnego usługi i komunikat Centrum w portalu Azure i portalu administracyjnego usługi Office 365. Więcej informacji na [ról administratora o usługi Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
@@ -128,11 +127,10 @@ Dostępne są następujące role administratora:
 | --- | --- |
 | <p>Wyświetlanie informacji o firmy i użytkownika</p><p>Zarządzanie biletami pomocy technicznej pakietu Office</p><p>Zmienianie haseł dla użytkowników i innych administratorów pomocy technicznej</p>|<p>Wykonywanie operacji rozliczeń i zakupów dla produktów pakietu Office</p><p>Tworzenie i zarządzanie widokami użytkownika</p><p>Tworzenie, edycję, usuwanie użytkowników i grup i zarządzanie licencjami użytkowników</p><p>Zarządzanie domenami</p><p>Zarządzanie informacjami o firmy</p><p>Delegowanie ról administracyjnych do innych użytkowników</p><p>Używanie synchronizacji katalogów</p><p>Wyświetlanie raportów</p>|
 
-<!--### Information Protection Administrator 
-In | Can do
+### <a name="information-protection-administrator-preview"></a>Administrator ochrony informacji (wersja zapoznawcza)
+W | Możliwość
 -------- | ---------
-Azure Information Protection | * Configure global, scoped policies and labels<br>* Manage, configure, update protection templates<br>* Enable protection activation for use 
-Privileged Identity Management | * Read permissions<br>* Cannot manage Azure AD role memberships or settings. --->
+Azure Information Protection | <li>Konfigurowanie ustawień i etykiet w zasadach globalne i zakresami<li>Konfigurowanie i Zarządzanie szablonami ochrony<li>Aktywować lub dezaktywować ochrona —
  
 ### <a name="reports-reader"></a>Czytnik raportów 
 Możliwość | Nie można wykonać

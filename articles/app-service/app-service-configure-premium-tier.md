@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: cephalin
-ms.openlocfilehash: 92cc8d8b0f67dde95ea2e3fc2f0f083bd8ac8aab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76897173d9fdfffe7139e7c5648ad0efb1c05b97
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Konfigurowanie warstwy PremiumV2 dla usługi Azure App Service
 
-Nowy **PremiumV2** warstwa cenowa oferuje [Dv2 serii maszyn wirtualnych](../virtual-machines/windows/sizes-general.md#dv2-series) szybkich procesorów, pamięci masowej SSD i podwójne współczynnik pamięci core w porównaniu do **standardowe** warstwy. W tym artykule, możesz dowiedzieć się, jak utworzyć aplikację w **PremiumV2** warstwę lub skalować aplikację na **PremiumV2** warstwy.
+Nowy **PremiumV2** warstwy cenowej umożliwia szybsze procesorów, pamięci masowej SSD i stosunek symulacyjnych pamięci na do podstawowej warstwy cenowej istniejącej. Z zalet wydajności można zapisać pieniędzy po uruchomieniu aplikacji na mniejszej liczbie wystąpień. W tym artykule, możesz dowiedzieć się, jak utworzyć aplikację w **PremiumV2** warstwę lub skalować aplikację na **PremiumV2** warstwy.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -56,7 +56,7 @@ Wybierz jedną z **PremiumV2** opcje i kliknij przycisk **wybierz**.
 ![](media/app-service-configure-premium-tier/pick-premium-tier.png)
 
 > [!IMPORTANT] 
-> Jeśli nie widzisz **P1V2**, **P2V2**, i **P3V2** jako opcje albo **PremiumV2** nie jest dostępny w Twoim regionie wyboru, lub Konfigurowanie planu usługi aplikacji systemu Linux, które nie obsługuje **PremiumV2**.
+> Jeśli nie widzisz **P1V2**, **P2V2**, i **P3V2** jako opcje albo **PremiumV2** nie jest dostępny w Twoim regionie wyboru, lub jesteś Konfigurowanie planu usługi aplikacji systemu Linux, które nie obsługuje **PremiumV2**.
 
 ## <a name="scale-up-an-existing-app-to-premiumv2-tier"></a>Skalowanie w górę istniejącą aplikację do warstwy PremiumV2
 
@@ -74,7 +74,7 @@ Wybierz jedną z **PremiumV2** rozmiary, następnie kliknij przycisk **wybierz**
 
 ![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
-Jeśli operacja zakończy się pomyślnie, strony Przegląd aplikacji wskazuje, że jest teraz w **PremiumV2** warstwy.
+Jeśli operacja zakończy się pomyślnie, strony Przegląd aplikacji wskazuje, że jest teraz **PremiumV2** warstwy.
 
 ![](media/app-service-configure-premium-tier/finished.png)
 
@@ -82,13 +82,13 @@ Jeśli operacja zakończy się pomyślnie, strony Przegląd aplikacji wskazuje, 
 
 Niektóre plany usługi aplikacji — nie można skalować do warstwy PremiumV2. Operacja skalowania w górę zwraca błąd, należy najpierw nowy plan usługi aplikacji — dla aplikacji.
 
-Utwórz _Windows_ planu usługi aplikacji w tej samej grupie regionu i zasobu jako istniejącą aplikację usługi aplikacji. Wykonaj kroki opisane w temacie [tworzenie aplikacji w warstwie PremiumV2](#create) ustawić ją na **PremiumV2** warstwy. W razie potrzeby można użyć tej samej konfiguracji skalowania w poziomie jako istniejący plan usługi aplikacji (liczba wystąpień, skalowania automatycznego i tak dalej).
+Utwórz _Windows_ planu usługi aplikacji w tej samej grupie regionu i zasobu jako istniejącą aplikację usługi aplikacji. Wykonaj kroki opisane w temacie [tworzenie aplikacji w warstwie PremiumV2](#create) ustawić ją na **PremiumV2** warstwy. Należy używać tej samej konfiguracji skalowania w poziomie jako istniejący plan usługi aplikacji (liczba wystąpień, skalowania automatycznego i tak dalej).
 
 Ponownie otwórz stronę aplikację usługi aplikacji. W lewym panelu nawigacyjnym usługi aplikacji, wybierz **planu usługi aplikacji zmiany**.
 
 ![](media/app-service-configure-premium-tier/change-plan.png)
 
-Wybierz utworzony plan usługi aplikacji.
+Wybierz plan usługi aplikacji, który został utworzony.
 
 ![](media/app-service-configure-premium-tier/select-plan.png)
 
@@ -98,16 +98,16 @@ Po zakończeniu operacji zmiany aplikacja działa **PremiumV2** warstwy.
 
 ## <a name="scale-up-from-an-unsupported-region"></a>Skalowanie w górę od nieobsługiwany region
 
-Jeśli aplikacja będzie działać w regionie, w którym **PremiumV2** jest jeszcze niedostępne, można przenieść aplikację w innym regionie, aby móc korzystać z **PremiumV2**. Dostępne są dwie opcje:
+Jeśli aplikacja będzie działać w regionie, w którym **PremiumV2** nie jest dostępne jeszcze aplikacji można przenieść do innego regionu, aby móc korzystać z **PremiumV2**. Dostępne są dwie opcje:
 
 - Utwórz nową aplikację w **PremiumV2** planowanie, a następnie ponownie wdrożyć kod aplikacji. Wykonaj kroki opisane w temacie [tworzenie aplikacji w warstwie PremiumV2](#create) ustawić ją na **PremiumV2** warstwy. W razie potrzeby można użyć tej samej konfiguracji skalowania w poziomie jako istniejący plan usługi aplikacji (liczba wystąpień, skalowania automatycznego i tak dalej).
 - Jeśli aplikacja będzie już działać w istniejącym **Premium** warstwy, a następnie aplikacji może klonować z ustawienia aplikacji, parametry połączenia i konfiguracji wdrożenia.
 
     ![](media/app-service-configure-premium-tier/clone-app.png)
 
-    W **aplikacji w klonowania** stronę, można utworzyć nowy plan usługi aplikacji w regionie i określ ustawienia, które chcesz sklonować.
+    W **aplikacji w klonowania** stronę, można utworzyć planu usługi App Service w regionie i określ ustawienia, które chcesz sklonować.
 
-## <a name="automate-with-scripts"></a>Zautomatyzować za pomocą skryptów
+## <a name="automate-with-scripts"></a>Automatyzowanie przy użyciu skryptów
 
 Można zautomatyzować tworzenie aplikacji w **PremiumV2** warstwy za pomocą skryptów przy użyciu [interfejsu wiersza polecenia Azure](/cli/azure/install-azure-cli) lub [programu Azure PowerShell](/powershell/azure/overview).
 

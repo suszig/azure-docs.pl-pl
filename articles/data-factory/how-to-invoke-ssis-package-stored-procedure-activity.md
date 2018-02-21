@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jingwang
-ms.openlocfilehash: ee7da3bc4579ad5415977e42ad48e9e06a7e4253
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
-ms.translationtype: MT
+ms.openlocfilehash: 39d60592c7fcbc937dc9f86e4c8b6962a51fd6ef
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Wywołanie pakietów SSIS za pomocą działania procedury składowanej w fabryce danych Azure
 W tym artykule opisano sposób wywołania pakietów SSIS z potoku fabryki danych Azure za pomocą działania procedury składowanej. 
@@ -76,7 +76,7 @@ W tym kroku używasz interfejsu użytkownika z fabryki danych do utworzenia poto
 1. W strony wprowadzenie, kliknij przycisk **tworzenie potoku**: 
 
     ![Strona Wprowadzenie](./media/how-to-invoke-ssis-package-stored-procedure-activity/get-started-page.png)
-2. W **działania** przybornika, rozwiń węzeł **bazy danych SQL**i przeciągnij upuść **procedury składowanej** działania na powierzchnię projektanta potoku. 
+2. W **działania** przybornika, rozwiń węzeł **ogólne**i przeciągnij upuść **procedury składowanej** działania na powierzchnię projektanta potoku. 
 
     ![Działania procedury składowanej przeciągnij i upuść](./media/how-to-invoke-ssis-package-stored-procedure-activity/drag-drop-sproc-activity.png)
 3. W oknie dialogowym właściwości działania procedury składowanej, przełącz się do **konto SQL** , a następnie kliknij pozycję **+ nowy**. Utwórz połączenie z bazą danych Azure SQL obsługującego katalogu SSIS (SSIDB bazy danych). 
@@ -95,11 +95,12 @@ W tym kroku używasz interfejsu użytkownika z fabryki danych do utworzenia poto
         ![Połączona usługa Azure SQL Database](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
 5. W oknie właściwości, przełącz się do **procedury składowanej** karcie z **konto SQL** , i wykonaj następujące czynności: 
 
-    1. Dla **nazwę procedury przechowywane** pola Enter `sp_executesql`. 
-    2. Kliknij przycisk **+ nowy** w **parametry procedury przechowywane** sekcji. 
-    3. Aby uzyskać **nazwa** parametru, wpisz **instrukcji INSERT**. 
-    4. Aby uzyskać **typu** parametru, wpisz **ciąg**. 
-    5. Aby uzyskać **wartość** parametru, wpisz poniższe zapytanie SQL:
+    1. Wybierz pozycję **Edit** (Edytuj). 
+    2. Dla **nazwę procedury przechowywane** pola Enter `sp_executesql`. 
+    3. Kliknij przycisk **+ nowy** w **parametry procedury przechowywane** sekcji. 
+    4. Aby uzyskać **nazwa** parametru, wpisz **instrukcji INSERT**. 
+    5. Aby uzyskać **typu** parametru, wpisz **ciąg**. 
+    6. Aby uzyskać **wartość** parametru, wpisz poniższe zapytanie SQL:
 
         W zapytaniu SQL określ wartości prawo **nazwa_folderu**, **project_name**, i **nazwa_pakietu** parametrów. 
 
@@ -121,7 +122,8 @@ W tej sekcji wyzwalanie wykonywania potoku, a następnie monitorować go.
 1. Aby wyzwolić potoku uruchamiania, kliknij przycisk **wyzwalacza** na pasku narzędzi, a następnie kliknij przycisk **uruchomić teraz**. 
 
     ![Wyzwól teraz](./media/how-to-invoke-ssis-package-stored-procedure-activity/trigger-now.png)
-2. Przejdź do karty **Monitorowanie** po lewej stronie. Zostanie wyświetlony potoku uruchamiania i jego stan oraz innych informacji (na przykład czas uruchomienia Start). Aby odświeżyć widok, kliknij przycisk **Odśwież**.
+2. W **uruchomić potoku** wybierz **Zakończ**. 
+3. Przejdź do karty **Monitorowanie** po lewej stronie. Zostanie wyświetlony potoku uruchamiania i jego stan oraz innych informacji (na przykład czas uruchomienia Start). Aby odświeżyć widok, kliknij przycisk **Odśwież**.
 
     ![Uruchomienia potoków](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
 3. Kliknij link **Wyświetl uruchomienia działania** w kolumnie **Akcje**. Użytkownik widzi tylko jedno działanie Uruchom jako potoku ma tylko jedno działanie (działania procedury składowanej).
