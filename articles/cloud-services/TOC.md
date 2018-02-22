@@ -20,13 +20,10 @@
 #### [Magazyn obiektów blob i połączone usługi](../visual-studio/vs-storage-cloud-services-getting-started-blobs.md)
 #### [Magazyn kolejek i połączone usługi](../visual-studio/vs-storage-cloud-services-getting-started-queues.md)
 #### [Magazyn tabel i połączone usługi](../visual-studio/vs-storage-cloud-services-getting-started-tables.md)
-### Konfigurowanie pakietów dla kompilacji ciągłej i wdrażania
-#### [TFS i Team Build](cloud-services-dotnet-continuous-delivery.md)
 ### [Konfigurowanie reguł ruchu dla roli](cloud-services-enable-communication-role-instances.md)
 ### [Obsługa zdarzeń cyklu życia usługi w chmurze](cloud-services-role-lifecycle-dotnet.md)
 ### [Biblioteka Socket.io (Node.js)](cloud-services-nodejs-chat-app-socketio.md)
 ### [Nawiązywanie połączenia telefonicznego za pomocą usługi Twilio (.NET)](../partner-twilio-cloud-services-dotnet-phone-call-web-role.md)
-### [New Relic](../store-new-relic-cloud-services-dotnet-application-performance-management.md)
 
 ### Konfigurowanie zadań uruchamiania
 #### [Tworzenie zadań uruchamiania](cloud-services-startup-tasks.md)
@@ -73,11 +70,9 @@
 #### [Program Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
 ### [Przechowywanie i przeglądanie danych diagnostycznych w usłudze Azure Storage](cloud-services-dotnet-diagnostics-storage.md)
 ### [Śledzenie usługi w chmurze przy użyciu usługi Diagnostyka](cloud-services-dotnet-diagnostics-trace-flow.md)
-### [Wysyłanie danych diagnostycznych do usługi App Insights](cloud-services-dotnet-diagnostics-applicationinsights.md)
 
 ## Rozwiązywanie problemów
 ### Debugowanie 
-#### [Włączanie debugowania zdalnego z dostarczaniem ciągłym](cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging.md)
 #### [Opcje dla usługi w chmurze](../vs-azure-tools-debugging-cloud-services-overview.md)
 #### [Lokalna usługa w chmurze przy użyciu programu Visual Studio](../vs-azure-tools-debug-cloud-services-virtual-machines.md)
 #### [Opublikowana usługa w chmurze przy użyciu programu Visual Studio](../vs-azure-tools-intellitrace-debug-published-cloud-services.md)

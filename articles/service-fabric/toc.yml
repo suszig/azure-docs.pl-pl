@@ -529,7 +529,11 @@
         - name: Nawiązywanie połączenia z zabezpieczonym klastrem
           href: service-fabric-connect-to-secure-cluster.md
         - name: Stosowanie poprawek do węzłów klastra
-          href: service-fabric-patch-orchestration-application.md
+          items:
+            - name: Windows
+              href: service-fabric-patch-orchestration-application.md
+            - name: Linux
+              href: service-fabric-patch-orchestration-application-linux.md
     - name: Monitorowanie i diagnozowanie
       items:
         - name: OMS
@@ -599,7 +603,7 @@
     - name: Ścieżka szkoleniowa
       href: 'https://azure.microsoft.com/documentation/learning-paths/service-fabric/'
     - name: Forum MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric'
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureServiceFabric'
     - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/service-fabric/'
     - name: Kalkulator cen
