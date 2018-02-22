@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 1ba7a415a56f5147e73faa48fcd51151c3c818a8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 695db2f5e6ffe794d76d0b9126dc231ed8a87d2c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Jak zabezpieczyć interfejs API sieci Web wewnętrznej bazy danych z usługi Azure Active Directory i zarządzanie interfejsami API
 Poniższe wideo przedstawia sposób tworzenia zaplecza interfejsu API sieci Web i chronić go przy użyciu protokołu OAuth 2.0 z usługą Azure Active Directory i zarządzanie interfejsami API.  Ten artykuł zawiera omówienie i dodatkowe informacje dotyczące czynności w wideo. To 24 minutę wideo pokazuje, jak do:
@@ -33,7 +33,7 @@ Poniższe wideo przedstawia sposób tworzenia zaplecza interfejsu API sieci Web 
 > 
 
 ## <a name="create-an-azure-ad-directory"></a>Utwórz katalog usługi Azure AD
-Do zabezpieczania serwera interfejsu API sieci Web przy użyciu usługi Azure Active Directory, musisz najpierw mieć dzierżawę usługi AAD. W tym wideo dzierżawa o nazwie **APIMDemo** jest używany. Aby utworzyć dzierżawę usługi AAD, zaloguj się do [klasycznego portalu Azure](https://manage.windowsazure.com) i kliknij przycisk **nowy**->**usługi aplikacji**->**usługi Active Directory**->**katalogu**->**Utwórz niestandardowy**. 
+Do zabezpieczania serwera interfejsu API sieci Web przy użyciu usługi Azure Active Directory, musisz najpierw mieć dzierżawę usługi AAD. W tym wideo o nazwie dzierżawcy **APIMDemo** jest używany. Aby utworzyć dzierżawę usługi AAD, zaloguj się do [klasycznego portalu Azure](https://manage.windowsazure.com) i kliknij przycisk **nowy**->**usługi aplikacji**->**usługi Active Directory**->**katalogu**->**Utwórz niestandardowy**. 
 
 ![Usługa Azure Active Directory][api-management-create-aad-menu]
 
@@ -46,7 +46,7 @@ W tym kroku zaplecza interfejsu API sieci Web jest tworzony przy użyciu program
 
 ![Visual Studio][api-management-new-web-app]
 
-Kliknij przycisk **interfejsu API sieci Web** z **wybierz listę szablonów** do tworzenia projektu interfejsu API sieci Web. Aby skonfigurować uwierzytelnianie katalogu Azure kliknij **Zmień uwierzytelnianie**.
+Kliknij przycisk **interfejsu API sieci Web** z **wybierz listę szablonów** do tworzenia projektu interfejsu API sieci Web. Kliknij, aby skonfigurować uwierzytelnianie katalogu Azure **Zmień uwierzytelnianie**.
 
 ![Nowy projekt][api-management-new-project]
 
@@ -70,7 +70,7 @@ Monit logowanie do platformy Azure, a następnie można skonfigurować aplikacji
 
 ![Konfigurowanie][api-management-configure-web-app]
 
-W tym przykładzie nowy **planu usługi aplikacji** o nazwie **APIMAADDemo** jest określona.
+W tym przykładzie nową **planu usługi aplikacji** o nazwie **APIMAADDemo** jest określona.
 
 Kliknij przycisk **OK** do skonfigurowania aplikacji sieci Web i utworzyć projekt.
 
@@ -192,7 +192,7 @@ Interfejsy API są skonfigurowane z portalu wydawcy interfejsu API, który jest 
 
 Operacje mogą być [ręcznie dodawać do interfejsów API](api-management-howto-add-operations.md), lub mogą być importowane. W tym wideo operacje są importowane w formacie struktury Swagger, zaczynając od 6:40.
 
-Utwórz plik o nazwie `calcapi.json` z następującą zawartość, a następnie zapisz go na komputerze. Upewnij się, że `host` atrybutu punktów z wewnętrzną bazą danych interfejsu API sieci Web. W tym przykładzie używamy programu `"host": "apimaaddemo.azurewebsites.net"`.
+Utwórz plik o nazwie `calcapi.json` z następującą zawartość, a następnie zapisz go na komputerze. Upewnij się, że `host` atrybutu punktów z wewnętrzną bazą danych interfejsu API sieci Web. W tym przykładzie `"host": "apimaaddemo.azurewebsites.net"` jest używany.
 
 ```json
 {
@@ -387,7 +387,7 @@ Wybierz **sieci Web, aplikacji i/lub interfejs API sieci Web**, wprowadź nazwę
 
 ![Nowa aplikacja][api-management-aad-new-application-devportal-1]
 
-Aby uzyskać **adres URL logowania** wprowadź adres URL usługi API Management i Dołącz `/signin`. W tym przykładzie używamy programu `https://contoso5.portal.azure-api.net/signin`.
+Aby uzyskać **adres URL logowania** wprowadź adres URL usługi API Management i Dołącz `/signin`. W tym przykładzie `https://contoso5.portal.azure-api.net/signin` jest używany.
 
 Aby uzyskać **adres URL identyfikatora aplikacji** wprowadź adres URL usługi API Management i Dołącz niektóre unikatowe znaki. Mogą to być wszystkie odpowiednie znaki w tym przykładzie `https://contoso5.portal.azure-api.net/dp` jest używany. Gdy żądane **właściwości aplikacji** są skonfigurowane, kliknij znacznik wyboru, aby utworzyć aplikację.
 
@@ -402,7 +402,7 @@ Kliknij przycisk **zabezpieczeń** z interfejsu API zarządzania menu po lewej s
 
 Wprowadź nazwę i opcjonalny opis w **nazwa** i **opis** pola. Te pola są używane do identyfikowania serwera autoryzacji OAuth 2.0 w wystąpieniu usługi Zarządzanie interfejsami API. W tym przykładzie **pokaz serwera autoryzacji** jest używany. Później podczas określania serwera OAuth 2.0, który będzie używany do uwierzytelniania dla interfejsu API, możesz wybrać tej nazwy.
 
-Aby uzyskać **adres URL strony rejestracji klienta** wprowadź wartość symbolu zastępczego, takich jak `http://localhost`.  **Adres URL strony rejestracji klienta** wskazuje strona, do której użytkownicy mogą używać, aby utworzyć i skonfigurować swoje własne konta dla dostawcy OAuth 2.0, które obsługują zarządzanie kontami użytkowników. W tym przykładzie użytkowników nie tworzyć i konfigurować własne konta, więc symbol zastępczy jest używany.
+Aby uzyskać **adres URL strony rejestracji klienta** wprowadź wartość symbolu zastępczego, takich jak `http://localhost`.  **Adres URL strony rejestracji klienta** wskazuje strona, do której użytkownicy mogą używać, aby utworzyć i skonfigurować swoje własne konta dla dostawcy OAuth 2.0, które obsługują zarządzanie kontami użytkowników. W tym przykładzie użytkowników nie utworzyć i skonfigurować swoje własne konta, aby używany jest symbol zastępczy.
 
 ![Dodawanie serwera autoryzacji][api-management-add-authorization-server-1]
 
@@ -410,7 +410,7 @@ Następnie określ **adres URL punktu końcowego autoryzacji** i **adres URL pun
 
 ![Serwer autoryzacji][api-management-add-authorization-server-1a]
 
-Te wartości można pobrać z **punkty końcowe aplikacji** strony aplikacji AAD utworzona dla portalu dla deweloperów. Aby uzyskać dostęp do punktów końcowych, przejdź do **Konfigurowanie** aplikacji AAD i kliknij polecenie **wyświetlić punkty końcowe**.
+Te wartości można pobrać z **punkty końcowe aplikacji** strony aplikacji AAD utworzona dla portalu dla deweloperów. Aby uzyskać dostęp do punktów końcowych, przejdź do **Konfiguruj** dla aplikacji AAD i kliknij polecenie **wyświetlić punkty końcowe**.
 
 ![Aplikacja][api-management-aad-devportal-application]
 
@@ -434,7 +434,7 @@ Następnie określ poświadczenia klienta. Są to poświadczenia dla zasobu, kt�
 
 Aby uzyskać **identyfikator klienta**, przejdź do **Konfiguruj** aplikacji AAD w portalu dla deweloperów i kopia **identyfikator klienta**.
 
-Aby uzyskać **klucz tajny klienta** kliknij **wybierz czas trwania** listy rozwijanej w **klucze** sekcji i określ interwał. W tym przykładzie używany jest 1 rok.
+Aby uzyskać **klucz tajny klienta** kliknij **wybierz czas trwania** listy rozwijanej w **klucze** sekcji i określ interwał. W tym przykładzie jest używany 1 rok.
 
 ![Identyfikator klienta][api-management-aad-client-id]
 
@@ -495,7 +495,7 @@ Kliknij przycisk **wysyłania** i zanotuj **stanu odpowiedzi** z **200 OK** i wy
 Następna procedura wideo rozpoczyna się od 16:30 i konfiguruje prostą aplikację pulpitu do wywołania interfejsu API. Pierwszym krokiem jest zarejestrować aplikację w usłudze Azure AD i nadaj mu dostęp do katalogu i usługi wewnętrznej bazy danych. Na 18:25 istnieje pokaz pulpitu aplikacji podczas wywoływania operacji na Kalkulator interfejsu API.
 
 ## <a name="configure-a-jwt-validation-policy-to-pre-authorize-requests"></a>Skonfiguruj zasady sprawdzania poprawności tokenu JWT wstępnie autoryzować żądania
-Ostatnia procedura wideo rozpoczyna się od 20:48 i przedstawiono sposób użycia [JWT do zweryfikowania](https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#ValidateJWT) zasad do wstępnie autoryzacji żądania, sprawdzając poprawność tokenów dostępu dla każdego żądania przychodzącego. Jeśli żądanie nie jest weryfikowany przez zasady sprawdzania poprawności tokenów JWT, żądanie jest blokowany przez interfejs API zarządzania i nie jest przekazywane do wewnętrznej bazy danych.
+Ostatnia procedura wideo rozpoczyna się od 20:48 i przedstawiono sposób użycia [JWT do zweryfikowania](api-management-access-restriction-policies.md#ValidateJWT) zasad do wstępnie autoryzacji żądania, sprawdzając poprawność tokenów dostępu dla każdego żądania przychodzącego. Jeśli żądanie nie jest weryfikowany przez zasady sprawdzania poprawności tokenów JWT, żądanie jest blokowany przez interfejs API zarządzania i nie jest przekazywane do wewnętrznej bazy danych.
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">

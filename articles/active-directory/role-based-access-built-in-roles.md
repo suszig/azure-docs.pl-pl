@@ -15,11 +15,11 @@ ms.date: 01/30/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: it-pro
-ms.openlocfilehash: 520a52161438c967b7614ab01b2e9892612254f0
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 82fa6d3f04dc528c0e2d95dae82e7a7f8787ea7c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Wbudowanych ról dla kontroli dostępu opartej na rolach na platformie Azure
 Azure opartej na rolach kontroli dostępu (RBAC) zawiera następujące role wbudowane przypisane do użytkowników, grup i usług. Nie można zmodyfikować definicje ról wbudowanych. Można jednak utworzyć [niestandardowych ról w Azure RBAC](role-based-access-control-custom-roles.md) do określonych potrzeb organizacji.
@@ -48,9 +48,9 @@ W tym artykule opisano tylko różne role, które istnieją już dzisiaj. Po prz
 | [Operator kopii zapasowych](#backup-operator) | Można zarządzać kopii zapasowej, chyba że usuwanie kopii zapasowej w magazynie usług odzyskiwania |
 | [Czytnik kopii zapasowej](#backup-reader) | Można wyświetlić wszystkie usługi zarządzania kopiami zapasowymi  |
 | [Czytnik rozliczeń](#billing-reader) | Można wyświetlić wszystkich informacji dotyczących rozliczeń  |
-| [Współautor BizTalk](#biztalk-contributor) |Można zarządzać usługi BizTalk services |
+| [BizTalk Contributor](#biztalk-contributor) |Można zarządzać usługi BizTalk services |
 | [Współautor ClearDB MySQL bazy danych](#cleardb-mysql-db-contributor) |Można zarządzać baz danych ClearDB MySQL |
-| [Współautora](#contributor) |Mogą zarządzać wszystkim poza dostępem. |
+| [Contributor](#contributor) |Mogą zarządzać wszystkim poza dostępem. |
 | [Współautor fabryki danych](#data-factory-contributor) |Można tworzyć i zarządzać fabryki danych i zasoby podrzędne w nich. |
 | [DevTest Labs użytkownika](#devtest-labs-user) |Można wyświetlić wszystko i połącz start, zamknięcia i ponownego uruchomienia maszyny wirtualnej |
 | [Współautor strefy DNS](#dns-zone-contributor) |Można zarządzać strefy DNS i rekordów |
@@ -61,20 +61,19 @@ W tym artykule opisano tylko różne role, które istnieją już dzisiaj. Po prz
 | [Czytnik monitorowania](#monitoring-reader) |Może czytać wszystkie dane monitorowania |
 | [Monitorowanie współautora](#monitoring-contributor) |Można odczytać danych monitorowania i edytować ustawienia monitorowania |
 | [Współautor sieci](#network-contributor) |Można zarządzać wszystkich zasobów sieciowych |
-| [Nowy współtwórca konta APM Relic](#new-relic-apm-account-contributor) |Można zarządzać kontami nowe zarządzanie wydajnością aplikacji Relic i aplikacji |
 | [Właściciel](#owner) |Mogą zarządzać wszystkim łącznie z dostępem |
-| [Czytnik](#reader) |Mogą przeglądać wszystko, ale nie można wprowadzić zmian |
+| [Reader](#reader) |Mogą przeglądać wszystko, ale nie można wprowadzić zmian |
 | [Współautor pamięci podręcznej redis](#redis-cache-contributor) |Można zarządzać pamięci podręczne Redis |
 | [Harmonogram zadania kolekcje współautora](#scheduler-job-collections-contributor) |Można zarządzać harmonogramu kolekcji zadań |
 | [Współautor usługi wyszukiwania](#search-service-contributor) |Można zarządzać usługi wyszukiwania |
 | [Administrator zabezpieczeń](#security-administrator) | W Centrum zabezpieczeń tylko: można wyświetlić zasady zabezpieczeń, wyświetlanie stanów zabezpieczeń, Edytuj zasady zabezpieczeń, wyświetlanie alertów i zalecenia, odrzucać alerty i zalecenia |
-| [Menedżer zabezpieczeń](#security-manager) | Zarządzanie składniki zabezpieczeń, zasady zabezpieczeń i maszyny wirtualne |
+| [Security Manager](#security-manager) | Zarządzanie składniki zabezpieczeń, zasady zabezpieczeń i maszyny wirtualne |
 | [Czytnik zabezpieczeń](#security-reader) | W Centrum zabezpieczeń tylko: można wyświetlić zalecenia i alertów, widok zasady zabezpieczeń, wyświetlanie stanów zabezpieczeń, ale nie można wprowadzić zmian |
 | [Współautor odzyskiwania lokacji](#site-recovery-contributor) | Można zarządzać Site Recovery w magazynie usług odzyskiwania |
 | [Operator odzyskiwania lokacji](#site-recovery-operator) | Można zarządzać trybu failover i powrotu po awarii operacje odzyskiwania lokacji w magazynie usług odzyskiwania |
 | [Czytnik odzyskiwania lokacji](#site-recovery-reader) | Można wyświetlić wszystkie operacje zarządzania usługi Site Recovery  |
 | [Współautor bazy danych SQL](#sql-db-contributor) |Można zarządzać baz danych, ale nie ich zasad związanych z zabezpieczeniami |
-| [Menedżera zabezpieczeń programu SQL](#sql-security-manager) |Można zarządzać zasadami związanych z zabezpieczeniami serwerów SQL i baz danych |
+| [SQL Security Manager](#sql-security-manager) |Można zarządzać zasadami związanych z zabezpieczeniami serwerów SQL i baz danych |
 | [SQL Server współautora](#sql-server-contributor) |Można zarządzać serwerami programu SQL Server i baz danych, ale nie ich zasad związanych z zabezpieczeniami |
 | [Współautor konta magazynu Classic](#classic-storage-account-contributor) |Można zarządzać klasycznych kont magazynu |
 | [Współautor konta magazynu](#storage-account-contributor) |Można zarządzać kontami magazynu |
@@ -299,7 +298,7 @@ Można zarządzać baz danych ClearDB MySQL
 | Microsoft.Resources/deployments/* |Tworzenie i zarządzanie nimi wdrożenia grupy zasobów |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Odczytanie grup zasobów |
 | Microsoft.Support/* |Tworzenie i zarządzanie biletami pomocy technicznej |
-| successbricks.cleardb/Databases/* |Tworzenie i zarządzanie bazami danych ClearDB MySQL |
+| successbricks.cleardb/databases/* |Tworzenie i zarządzanie bazami danych ClearDB MySQL |
 
 ### <a name="contributor"></a>Współautor
 Mogą zarządzać wszystkim poza dostępem
@@ -308,7 +307,7 @@ Mogą zarządzać wszystkim poza dostępem
 | --- | --- |
 | * |Tworzenie i zarządzanie zasobami wszystkich typów |
 
-| **NotActions** |  |
+| NotActions |  |
 | --- | --- |
 | Microsoft.Authorization/*/Delete |Nie można usuwać role i przypisania ról |
 | Microsoft.Authorization/*/Write |Nie można utworzyć role i przypisania ról |
@@ -364,7 +363,7 @@ Strefy DNS i rekordy można zarządzać.
 
 | **Akcje** |  |
 | --- | --- |
-| Microsoft.Authorization/ \* /Odczyt |Role odczytu i przypisania ról |
+| Microsoft.Authorization/\*/read |Role odczytu i przypisania ról |
 | Microsoft.Insights/alertRules/\* |Tworzenie i zarządzanie nimi reguły alertów |
 | Microsoft.Network/dnsZones/\* |Tworzenie i zarządzanie strefy DNS i rekordów |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Przeczytaj kondycji zasobów |
@@ -440,19 +439,6 @@ Można zarządzać wszystkich zasobów sieciowych
 | Microsoft.Resources/deployments/* |Tworzenie i zarządzanie nimi wdrożenia grupy zasobów |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Odczytanie grup zasobów |
 | Microsoft.Support/* |Tworzenie i zarządzanie biletami pomocy technicznej |
-
-### <a name="new-relic-apm-account-contributor"></a>Współautor konta usługi New Relic APM
-Można zarządzać kontami nowe zarządzanie wydajnością aplikacji Relic i aplikacji
-
-| **Akcje** |  |
-| --- | --- |
-| Microsoft.Authorization/*/read |Role odczytu i przypisania roli |
-| Microsoft.Insights/alertRules/* |Tworzenie i zarządzanie nimi reguły alertów |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Kondycja odczytu zasobów |
-| Microsoft.Resources/deployments/* |Tworzenie i zarządzanie nimi wdrożenia grupy zasobów |
-| Microsoft.Resources/subscriptions/resourceGroups/read |Odczytanie grup zasobów |
-| Microsoft.Support/* |Tworzenie i zarządzanie biletami pomocy technicznej |
-| NewRelic.APM/accounts/* |Tworzenie i zarządzanie nimi kont zarządzania wydajności usługi New Relic w aplikacji |
 
 ### <a name="owner"></a>Właściciel
 Mogą zarządzać wszystkim łącznie z dostępem
@@ -563,7 +549,7 @@ Można zarządzać wszystkie akcje zarządzania odzyskiwania lokacji, z wyjątki
 | Microsoft.RecoveryServices/Vaults/certificates/write | Aktualizuje certyfikat poświadczeń magazynu |
 | Microsoft.RecoveryServices/Vaults/extendedInformation/* | Tworzenie i zarządzanie nimi rozszerzone informacje związane z magazynu |
 | Microsoft.RecoveryServices/Vaults/monitoringAlerts/*  | Odczyt alertów dla magazynu usług odzyskiwania |
-| Microsoft.RecoveryServices/Vaults/monitoringConfigurations/ notificationConfiguration/Odczyt  | Konfiguracja powiadomień w magazynie usług odzyskiwania odczytu |
+| Microsoft.RecoveryServices/Vaults/monitoringConfigurations/ notificationConfiguration/read  | Konfiguracja powiadomień w magazynie usług odzyskiwania odczytu |
 | Microsoft.RecoveryServices/Vaults/read | Magazyny usług odzyskiwania odczytu |
 | Microsoft.RecoveryServices/Vaults/refreshContainers/read | Zarządzanie pobieranie operacji wykrywania nowo utworzony kontenerów |
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/* | Tworzenie i Zarządzanie tożsamościami w zarejestrowany |
@@ -592,7 +578,7 @@ Można trybu Failover i powrotu po awarii, ale nie można wykonywać inne akcje 
 | Microsoft.Network/virtualNetworks/read | Sieci wirtualne odczytu |
 | Microsoft.RecoveryServices/Vaults/extendedInformation/read | Odczyt rozszerzone informacje związane z magazynu |
 | Microsoft.RecoveryServices/Vaults/monitoringAlerts/*  | Odczyt alertów dla magazynu usług odzyskiwania |
-| Microsoft.RecoveryServices/Vaults/monitoringConfigurations/ notificationConfiguration/Odczyt  | Konfiguracja powiadomień w magazynie usług odzyskiwania odczytu |
+| Microsoft.RecoveryServices/Vaults/monitoringConfigurations/ notificationConfiguration/read  | Konfiguracja powiadomień w magazynie usług odzyskiwania odczytu |
 | Microsoft.RecoveryServices/Vaults/read | Magazyny usług odzyskiwania odczytu |
 | Microsoft.RecoveryServices/Vaults/refreshContainers/read | Zarządzanie pobieranie operacji wykrywania nowo utworzony kontenerów |
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read | Odczytywanie stan operacji i wynik operacji zostało przesłane |
@@ -601,38 +587,38 @@ Można trybu Failover i powrotu po awarii, ale nie można wykonywać inne akcje 
 | Microsoft.RecoveryServices/vaults/replicationEvents/read | Przeczytaj zdarzenia replikacji |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/checkConsistency/action | Sprawdzanie spójności sieci szkieletowych |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/read | Sieci szkieletowe odczytu replikacji |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ reassociateGateway/działania | Ponowne kojarzenie brama replikacji |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ reassociateGateway/action | Ponowne kojarzenie brama replikacji |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/renewcertificate/action | Odnów certyfikat sieci szkieletowej replikacji |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationNetworks/read | Przeczytaj replikacji sieci szkieletowej |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationNetworks/replicationNetworkMappings/Odczyt | Mapowanie sieci szkieletowej replikacji odczytu |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/Odczyt | Kontenery ochrony |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectableItems/Odczyt | Pobierz listę wszystkich elementów chronionych |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationNetworks/replicationNetworkMappings/read | Mapowanie sieci szkieletowej replikacji odczytu |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/read | Kontenery ochrony |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectableItems/read | Pobierz listę wszystkich elementów chronionych |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/applyRecoveryPoint/działania | Zastosuj określony punkt odzyskiwania |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/failoverCommit/działania | Zatwierdzania pracy w trybie failover nie powiodło się za pośrednictwem elementu |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/plannedFailover/działania | Uruchomić planowanego trybu failover dla chronionego elementu |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/Odczyt | Pobierz listę wszystkich chronionych elementach |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers replicationProtectedItems/recoveryPoints/odczytu | Pobierz listę dostępnych punktów odzyskiwania |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/repairReplication/działania | Naprawa replikacji dla chronionego elementu |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ponownej ochrony/działania | Uruchom ponownie włączyć ochronę dla chronionego elementu|
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/testFailover/działania | Uruchom test pracy w trybie failover chronionego elementu |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ failoverCommit/action | Zatwierdzania pracy w trybie failover nie powiodło się za pośrednictwem elementu |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ plannedFailover/action | Uruchomić planowanego trybu failover dla chronionego elementu |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/read | Pobierz listę wszystkich chronionych elementach |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read | Pobierz listę dostępnych punktów odzyskiwania |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ repairReplication/action | Naprawa replikacji dla chronionego elementu |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/reProtect/action | Uruchom ponownie włączyć ochronę dla chronionego elementu|
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/testFailover/action | Uruchom test pracy w trybie failover chronionego elementu |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/testFailoverCleanup/działania | Uruchom czyszczenie test trybu failover |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/unplannedFailover/działania | Uruchomić nieplanowany tryb failover chronionego elementu |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/updateMobilityService/działania | Aktualizacja usługi mobilności |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectionContainerMappings/Odczyt | Mapowanie kontenera ochrony do odczytu |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ unplannedFailover/action | Uruchomić nieplanowany tryb failover chronionego elementu |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ updateMobilityService/action | Aktualizacja usługi mobilności |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectionContainerMappings/read | Mapowanie kontenera ochrony do odczytu |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationRecoveryServicesProviders/Odczyt | Dostawcy usług odzyskiwania odczytu |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationRecoveryServicesProviders/refreshProvider/działania | Odśwież dostawcę usług odzyskiwania |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/Odczyt | Klasyfikacje magazynu dla sieci szkieletowych replikacji do odczytu |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/replicationStorageClassificationMappings/Odczyt | Przeczytaj mapowania klasyfikacji magazynu |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/replicationStorageClassificationMappings/read | Przeczytaj mapowania klasyfikacji magazynu |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/read | Odczyt zarejestrowanych informacji o programie vCenter |
 | Microsoft.RecoveryServices/vaults/replicationJobs/* | Tworzenie i zarządzanie nimi zadania replikacji |
 | Microsoft.RecoveryServices/vaults/replicationPolicies/read | Przeczytaj zasady replikacji |
 | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/ failoverCommit/działania | Zatwierdź trybu failover planu odzyskiwania w trybie failover |
-| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/ plannedFailover/działania | Uruchom tryb failover planu odzyskiwania |
+| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/ plannedFailover/action | Uruchom tryb failover planu odzyskiwania |
 | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/read | Przeczytaj planów odzyskiwania |
 | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/reProtect/action | Uruchom ponownie włączyć ochronę planu odzyskiwania |
 | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/testFailover/action | Uruchomić testowy tryb failover planu odzyskiwania |
-| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/ testFailoverCleanup/działania | Uruchom czyszczenie test trybu failover planu odzyskiwania |
-| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/ unplannedFailover/działania | Uruchomić nieplanowany tryb failover planu odzyskiwania |
+| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/ testFailoverCleanup/action | Uruchom czyszczenie test trybu failover planu odzyskiwania |
+| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/ unplannedFailover/action | Uruchomić nieplanowany tryb failover planu odzyskiwania |
 | Microsoft.RecoveryServices/Vaults/storageConfig/read | Konfiguracja magazynu odczytu z magazynu usług odzyskiwania |
 | Microsoft.RecoveryServices/Vaults/tokenInfo/read | Magazyn usług odzyskiwania odczytu informacji o tokenie |
 | Microsoft.RecoveryServices/Vaults/usages/read | Szczegóły użycia odczytu z magazynu usług odzyskiwania |
@@ -650,7 +636,7 @@ Można monitorować stan usługi Site Recovery w magazynie usług odzyskiwania i
 | Microsoft.Authorization/*/read | Role odczytu i przypisania ról |
 | Microsoft.RecoveryServices/Vaults/extendedInformation/read  | Odczyt rozszerzone informacje związane z magazynu |
 | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read  | Odczyt alertów dla magazynu usług odzyskiwania |
-| Microsoft.RecoveryServices/Vaults/monitoringConfigurations/ notificationConfiguration/Odczyt  | Konfiguracja powiadomień w magazynie usług odzyskiwania odczytu |
+| Microsoft.RecoveryServices/Vaults/monitoringConfigurations/ notificationConfiguration/read  | Konfiguracja powiadomień w magazynie usług odzyskiwania odczytu |
 | Microsoft.RecoveryServices/Vaults/read  | Magazyny usług odzyskiwania odczytu |
 | Microsoft.RecoveryServices/Vaults/refreshContainers/read  | Zarządzanie pobieranie operacji wykrywania nowo utworzony kontenerów |
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read  | Odczytywanie stan operacji i wynik operacji zostało przesłane |
@@ -659,15 +645,15 @@ Można monitorować stan usługi Site Recovery w magazynie usług odzyskiwania i
 | Microsoft.RecoveryServices/vaults/replicationEvents/read  | Przeczytaj zdarzenia replikacji |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/read  | Sieci szkieletowe odczytu replikacji |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationNetworks/read  | Przeczytaj replikacji sieci szkieletowej |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationNetworks/replicationNetworkMappings/Odczyt  | Mapowanie sieci szkieletowej replikacji odczytu |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/Odczyt  |  Kontenery ochrony |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectableItems/Odczyt  | Pobierz listę wszystkich elementów chronionych |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/Odczyt  | Pobierz listę wszystkich chronionych elementach |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers replicationProtectedItems/recoveryPoints/odczytu  | Pobierz listę dostępnych punktów odzyskiwania |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectionContainerMappings/Odczyt  | Mapowanie kontenera ochrony do odczytu |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationNetworks/replicationNetworkMappings/read  | Mapowanie sieci szkieletowej replikacji odczytu |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/read  |  Kontenery ochrony |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectableItems/read  | Pobierz listę wszystkich elementów chronionych |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/read  | Pobierz listę wszystkich chronionych elementach |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read  | Pobierz listę dostępnych punktów odzyskiwania |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectionContainerMappings/read  | Mapowanie kontenera ochrony do odczytu |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationRecoveryServicesProviders/Odczyt  | Dostawcy usług odzyskiwania odczytu |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/Odczyt  | Klasyfikacje magazynu dla sieci szkieletowych replikacji do odczytu |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/replicationStorageClassificationMappings/Odczyt  |  Przeczytaj mapowania klasyfikacji magazynu |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/replicationStorageClassificationMappings/read  |  Przeczytaj mapowania klasyfikacji magazynu |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/read  |  Odczyt zarejestrowanych informacji o programie vCenter |
 | Microsoft.RecoveryServices/vaults/replicationJobs/read  |  Odczyt stanu zadań replikacji |
 | Microsoft.RecoveryServices/vaults/replicationPolicies/read  |  Przeczytaj zasady replikacji |
@@ -691,7 +677,7 @@ Można zarządzać baz danych, ale nie ich zasad związanych z zabezpieczeniami
 | Microsoft.Sql/servers/read |Przeczytaj serwerów SQL |
 | Microsoft.Support/* |Tworzenie i zarządzanie biletami pomocy technicznej |
 
-| **NotActions** |  |
+| NotActions |  |
 | --- | --- |
 | Microsoft.Sql/servers/databases/auditingPolicies/* |Nie można edytować zasady inspekcji |
 | Microsoft.Sql/servers/databases/auditingSettings/* |Nie można edytować ustawień inspekcji |
@@ -741,7 +727,7 @@ Można zarządzać serwerami programu SQL Server i baz danych, ale nie ich zasad
 | Microsoft.Sql/servers/* |Tworzenie i zarządzanie serwerami programu SQL Server |
 | Microsoft.Support/* |Tworzenie i zarządzanie biletami pomocy technicznej |
 
-| **NotActions** |  |
+| NotActions |  |
 | --- | --- |
 | Microsoft.Sql/servers/auditingPolicies/* |Nie można edytować zasady inspekcji serwera SQL |
 | Microsoft.Sql/servers/auditingSettings/* |Nie można edytować ustawienia inspekcji serwera SQL |

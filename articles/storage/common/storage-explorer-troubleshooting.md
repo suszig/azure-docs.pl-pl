@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: delhan
-ms.openlocfilehash: 3187939fa813f941c2fe12a359df474a6c487c71
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 2f62de428d1915b1e070350a2837f24c3486f8c7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Podręczniku rozwiązywania problemów z Eksploratora usługi Storage platformy Azure
 
-Eksploratora usługi Microsoft Azure Storage (wersja zapoznawcza) jest autonomiczną aplikację, która pozwala łatwo pracować z danymi usługi Azure Storage w systemie Windows, system macOS i Linux. Aplikacja może nawiązać hostowanych na Azure, suwerenne chmur i stosu Azure kont magazynu.
+Eksploratora usługi Microsoft Azure Storage (wersja zapoznawcza) jest autonomiczną aplikację, która pozwala łatwo pracować z danymi usługi Azure Storage w systemie Windows, macOS i Linux. Aplikacja może nawiązać hostowanych na Azure, National chmur i stosu Azure kont magazynu.
 
 Ten przewodnik zawiera podsumowanie rozwiązania dla typowe problemy występujące w Eksploratorze usługi Storage.
 
@@ -73,7 +73,7 @@ Jeśli nie można pobrać subskrypcji, po pomyślnym zalogowaniu, wykonaj nastę
 
 - Spróbuj usunąć i ponowne dodawanie konta.
 
-- Spróbuj usuwanie następujących plików z katalogu głównego (czyli C:\Users\ContosoUser), a następnie ponowne dodanie konta:
+- Spróbuj usuwanie następujących plików z katalogu głównego (czyli C:\Users\ContosoUser), a następnie ponowne dodawanie konta:
 
     - .adalcache
 
@@ -83,7 +83,7 @@ Jeśli nie można pobrać subskrypcji, po pomyślnym zalogowaniu, wykonaj nastę
 
 - Obejrzyj narzędzi deweloperskich konsoli (przez naciśnięcie klawisza F12) logujesz dla komunikatów o błędach:
 
-![Narzędzia dla deweloperów](./media/storage-explorer-troubleshooting/4022501_en_2.png)
+![narzędzia deweloperskie](./media/storage-explorer-troubleshooting/4022501_en_2.png)
 
 ### <a name="unable-to-see-the-authentication-page"></a>Nie można znaleźć na stronie uwierzytelniania
 
@@ -116,7 +116,7 @@ Jeśli nie można usunąć konta lub łącze Uwierzytelnij ponownie wykonywać �
     - ~/.config/StorageExplorer dla systemu Linux
 
 > [!NOTE]
->  Należy ponownie wprowadzić swoje poświadczenia, jeśli te pliki zostaną usunięte.
+>  Po usunięciu poprzednie pliki, należy zalogować się ponownie do konta.
 
 ## <a name="proxy-issues"></a>Problemy z serwera proxy
 
@@ -173,15 +173,23 @@ Jeśli łączysz się z usługą przy użyciu adresu URL SAS i występuje błąd
 
 - Jeśli adres URL SAS jest oparta na zasadach dostępu, sprawdź, czy zasady dostępu nie został odwołany.
 
-Jeśli Twoje przypadkowo dołączony nieprawidłowy adres URL SAS i nie można odłączyć, wykonaj następujące czynności:
+Jeśli przypadkowo dołączone przy użyciu nieprawidłowego adresu URL SAS i nie można odłączyć, wykonaj następujące kroki:
 1.  Podczas uruchamiania Eksploratora usługi Storage, naciśnij klawisz F12, aby otworzyć okno narzędzia developer.
 2.  Kliknij kartę aplikacji, a następnie kliknij przycisk Magazyn lokalny > file:// w drzewie po lewej stronie.
-3.  Znajdź klucz skojarzony z typem usługi problematyczne identyfikatora URI sygnatury dostępu Współdzielonego. Na przykład w przypadku nieprawidłowy identyfikator URI SAS dla kontenera obiektów blob, poszukaj klucza o nazwie "StorageExplorer_AddStorageServiceSAS_v1_blob".
+3.  Znajdź klucz skojarzony z typem usługi problematyczne identyfikatora URI sygnatury dostępu Współdzielonego. Na przykład w przypadku nieprawidłowy identyfikator URI SAS dla kontenera obiektów blob, poszukaj klucza o nazwie `StorageExplorer_AddStorageServiceSAS_v1_blob`.
 4.  Wartość klucza powinien być tablicy JSON. Znajdź obiektów skojarzonych z nieprawidłowy identyfikator URI i usuń go.
 5.  Naciśnij klawisze Ctrl + R, aby załadować ponownie Eksploratora usługi Storage.
 
+## <a name="linux-dependencies"></a>Zależności systemu Linux
 
-## <a name="next-steps"></a>Następne kroki
+Dla dystrybucjach systemu Linux niż Ubuntu 16.04 może być konieczne ręczne zainstalowanie niektórych zależności. Ogólnie rzecz biorąc wymagane są następujące pakiety:
+* libgconf-2-4
+* libsecret
+* Aktualne GCC
+
+W zależności od Twojego distro mogą istnieć inne pakiety, które należy zainstalować. Eksplorator magazynu [wersji](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) zawiera etapy niektóre dystrybucjach.
+
+## <a name="next-steps"></a>Kolejne kroki
 
 Jeśli te rozwiązania nie działają dla Ciebie, przesłać problem za pomocą narzędzia opinii z poczty e-mail i szczegółów o problemie uwzględnione podczas można tak, aby firma Microsoft kontaktu z Tobą w celu rozwiązania problemu.
 

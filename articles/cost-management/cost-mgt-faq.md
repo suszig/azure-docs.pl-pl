@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 02/14/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: b3c7c19543d50ed91129a2040bea1db1c4df1ea7
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0d33f434dccae7836ae7774afbdf9b80d4685eb4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Często zadawane pytania dotyczące usługi Azure Management koszt
 
@@ -58,7 +58,7 @@ Jeśli nie można wyświetlić wszystkie dane zalecenie Optymalizator, najprawdo
 
 Aby aktywować konto:
 
-1.  W portalu Cloudyn kliknij **ustawienia** w górnym prawym rogu i wybierz pozycję **kont chmury**.
+1.  W portalu Cloudyn kliknij pozycję **Ustawienia** w górnym prawym rogu i wybierz pozycję **Konta w chmurze**.
 2.  Na karcie konta usługi Microsoft Azure, wyszukaj konta, które mają **nieaktywowani** subskrypcji.
 3.  Po prawej stronie konto nieaktywowani **Edytuj** symbol podobny ołówka.
 4.  Identyfikator i szybkość identyfikator dzierżawy jest wykrywany automatycznie. Kliknij przycisk **Dalej**.
@@ -116,9 +116,9 @@ Aby dodać dodatkowe konta dostawcy usług Kryptograficznych do jednostki, wybie
 
 Może mieć wiele kont platformy Azure przy użyciu różnych waluty. Jednak koszt raportów w Cloudyn nie pokazuj więcej niż jeden typ waluty na raport.
 
-Jeśli masz wiele subskrypcji przy użyciu różnych walut jednostki nadrzędnej i jej waluty jednostki podrzędne są wyświetlane z  **$**  symbolu. Nasze sugerowane najlepszym rozwiązaniem jest aby uniknąć używania różnych waluty w tej samej hierarchii jednostek. Innymi słowy wszystkie subskrypcje strukturę jednostek należy używać tej samej waluty.
+Jeśli masz wiele subskrypcji przy użyciu różnych walut jednostki nadrzędnej i jej podrzędne jednostki waluty są wyświetlane w USD  **$** . Nasze sugerowane najlepszym rozwiązaniem jest aby uniknąć używania różnych waluty w tej samej hierarchii jednostek. Innymi słowy wszystkie subskrypcje strukturę jednostek należy używać tej samej waluty.
 
-Cloudyn automatycznie wykrywa walucie subskrypcji Enterprise Agreement i przedstawia on prawidłowo w raportach.  Jednak wyświetlane tylko Cloudyn  **$**  symbol dla konta platformy Azure bezpośrednio w sieci web i dostawcy usług Kryptograficznych.
+Cloudyn automatycznie wykrywa walucie subskrypcji Enterprise Agreement i przedstawia on prawidłowo w raportach.  Jednak Cloudyn wyświetlane są tylko USD  **$**  dla konta platformy Azure bezpośrednio w sieci web i dostawcy usług Kryptograficznych.
 
 ## <a name="what-are-cloudyn-data-refresh-timelines"></a>Co to są dane Cloudyn Odśwież osi czasu?
 

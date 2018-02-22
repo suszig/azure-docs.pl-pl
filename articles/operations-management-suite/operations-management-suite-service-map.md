@@ -1,6 +1,6 @@
 ---
-title: "Użycie rozwiązania mapy usługi w Operations Management Suite | Dokumentacja firmy Microsoft"
-description: "Mapa usługi jest rozwiązania Operations Management Suite, który automatycznie odnajduje składniki aplikacji w systemach Windows i Linux oraz mapy komunikacji między usługami. Ten artykuł zawiera szczegółowe informacje dotyczące wdrażania mapy usługi w danym środowisku i korzystania z niego w różnych scenariuszach."
+title: "Przy użyciu mapy usługi rozwiązania na platformie Azure | Dokumentacja firmy Microsoft"
+description: "Usługa Service Map jest rozwiązaniem platformy Azure, które automatycznie odnajduje składniki aplikacji w systemach Windows i Linux oraz mapuje komunikację między usługami. Ten artykuł zawiera szczegółowe informacje dotyczące wdrażania mapy usługi w danym środowisku i korzystania z niego w różnych scenariuszach."
 services: operations-management-suite
 documentationcenter: 
 author: daveirwin1
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 993dff7657a73803ca21677e19b08946fb89bfa2
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 84a43a4f04d7cd89d0d968acb436d196353eb81d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="use-the-service-map-solution-in-operations-management-suite"></a>Użycie rozwiązania mapy usługi w Operations Management Suite
+# <a name="using-service-map-solution-in-azure"></a>Przy użyciu mapy usługi rozwiązania na platformie Azure
 Mapa usługi automatycznie odnajduje składniki aplikacji w systemach Windows i Linux oraz mapuje komunikację między usługami. Z mapy usługi można przeglądać serwery w taki sposób, który należy wziąć pod uwagę ich: jako połączonych systemy, które dostarczają usług krytycznych. Mapy usługi pokazuje połączeń między serwerami, procesów, i portów w dowolnej połączenia TCP architekturze, bez konieczności wykonywania konfiguracyjnych wymaganych innych niż instalację agenta.
 
-W tym artykule opisano szczegóły przy użyciu mapy usługi. Informacje o konfigurowaniu mapy usługi i dołączania agentów, zobacz [rozwiązania Konfigurowanie mapy usługi Operations Management Suite](operations-management-suite-service-map-configure.md).
+W tym artykule opisano szczegóły przy użyciu mapy usługi. Informacje o konfigurowaniu mapy usługi i dołączania agentów, zobacz [mapy usługi konfigurowanie rozwiązania na platformie Azure](operations-management-suite-service-map-configure.md).
 
 
 ## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Przypadki użycia: należy go przetwarza pamiętać zależności
@@ -32,7 +32,7 @@ W tym artykule opisano szczegóły przy użyciu mapy usługi. Informacje o konfi
 Mapy usług automatycznie tworzy wspólnej mapę zależności odwołania na serwery, procesów i usług innych firm. Odnajduje, a mapuje wszystkie zależności TCP, identyfikowanie niespodziewanego połączenia zdalnego systemów innych firm, które zależą od i zależności do tradycyjnych ciemny obszarów sieci, takich jak usługi Active Directory. Mapa usług odnajduje połączenia sieciowe nie powiodło się, które próbujesz zarządzanych systemach, aby pomaga zidentyfikować potencjalne konfiguracji serwera, awaria usługi i problemy z siecią.
 
 ### <a name="incident-management"></a>Zarządzanie zdarzeniami
-Mapy usług pozwala wyeliminować czynności izolacji problem przedstawiające, jak połączenia systemów i wpływu na siebie. Oprócz Identyfikacja połączenia nie powiodło się, pomaga zidentyfikować równoważenia obciążenia nieprawidłowo, zaskakująco lub zbyt duże obciążenie usług krytycznych i nieautoryzowane klientów, takich jak komputerach deweloperów rozmowie z systemów produkcyjnych. Przy użyciu zintegrowanego przepływy pracy z Operations Management Suite zmienić śledzenia, możesz też sprawdzić, czy zdarzenie zmiany na maszynie zaplecza lub usługi wyjaśnia głównej przyczyny zdarzenia.
+Mapy usług pozwala wyeliminować czynności izolacji problem przedstawiające, jak połączenia systemów i wpływu na siebie. Oprócz Identyfikacja połączenia nie powiodło się, pomaga zidentyfikować równoważenia obciążenia nieprawidłowo, zaskakująco lub zbyt duże obciążenie usług krytycznych i nieautoryzowane klientów, takich jak komputerach deweloperów rozmowie z systemów produkcyjnych. Przy użyciu zintegrowanego przepływów pracy ze śledzeniem zmienić, możesz też sprawdzić, czy zdarzenie zmiany na maszynie zaplecza lub usługi wyjaśnia głównej przyczyny zdarzenia.
 
 ### <a name="migration-assurance"></a>Zapewnienie migracji
 Przy użyciu mapy usługi, można efektywnie planowania, przyspieszanie i zweryfikować Azure migracji, które pomaga zapewnić, że nic pozostawione i nie występują awarie niespodziewanego. Umożliwia odnalezienie wszystkich współzależne systemów, które należy migrować ze sobą, oceny konfiguracji systemu oraz wydajności i ustalić, czy na komputerze z uruchomionym systemem nadal działa jako użytkowników lub kwalifikuje się do likwidacji zamiast migracji. Po zakończeniu przenoszenia można sprawdzić na obciążenia klientów i tożsamości, aby sprawdzić połączenie systemy testowe i klientów. Jeśli definicje planowania i zapory podsieci problemy, połączenia nie powiodło się w społeczności maps mapy usługi punktu do systemów, które wymagają łączności.
@@ -41,7 +41,7 @@ Przy użyciu mapy usługi, można efektywnie planowania, przyspieszanie i zweryf
 Jeśli używasz usługi Azure Site Recovery i musi pomocy definiowanie sekwencji odzyskiwania dla środowiska aplikacji mapy usługi można automatycznie wyświetlić jak systemy opierają się na siebie nawzajem w celu zapewnienia, że plan odzyskiwania jest niezawodne. Wybierając krytyczne serwera lub grupy i wyświetlanie swoich klientów, można zidentyfikować systemów frontonu do odzyskania po serwer jest przywracane i dostępne. Z drugiej strony analizując krytyczne serwerów zaplecza zależności można zidentyfikować systemów do odzyskania, zanim zostaną przywrócone przez systemy fokus.
 
 ### <a name="patch-management"></a>Zarządzanie poprawkami
-Mapy usług podnosi poziom użytkowania oceny aktualizacji Operations Management Suite systemu, pokazujące, które innych zespołów i serwery są zależne od usługi, więc można powiadomić je z wyprzedzeniem przed wyłączyć przez systemy w celu wdrożenia poprawki. Mapy usług zwiększa również poprawki zarządzania w programie Operations Management Suite poprzez wyświetlenie, czy usługi są dostępne i poprawnie połączone po zostaną poprawiono i ponownie uruchomione.
+Mapy usług podnosi poziom użytkowania oceny aktualizacji systemu, pokazujące, które innych zespołów i serwery są zależne od usługi, więc można powiadomić je z wyprzedzeniem przed wyłączyć przez systemy w celu wdrożenia poprawki. Mapy usług zwiększa również zarządzanie poprawkami poprzez wyświetlenie, czy usługi są dostępne i poprawnie połączone po zostaną poprawiono i ponownie uruchomione.
 
 
 ## <a name="mapping-overview"></a>Mapowanie — omówienie
@@ -54,7 +54,7 @@ Maszyny można skalować w mapę, aby pokazać działanie przetworzenia grup i p
 Domyślnie mapy usługi maps zawierają ostatnich 30 minut informacji o zależnościach. Za pomocą formantów czasu, w lewym górnym rogu, można zbadać mapy dla przedziałów czasu historycznych maksymalnie jedną godzinę, aby pokazać, jak zależności wyszukiwanego w przeszłości (na przykład podczas zdarzenia lub zanim nastąpiła zmiana). Dane mapy usługi są przechowywane przez 30 dni roboczych płatną i 7 dni w bezpłatnych obszarów roboczych.
 
 ## <a name="status-badges-and-border-coloring"></a>Identyfikatory stanu i kolorowanie obramowania
-W dolnej części każdego serwera w planie może być lista identyfikatory stan przekazywania stanu informacji o serwerze. Identyfikatory oznacza, że niektóre istotne informacje dla serwera z jednego z integracji rozwiązania Operations Management Suite. Klikając pozycję wskaźnika przejście bezpośrednio do szczegółów o stanie w okienku po prawej stronie. Stan aktualnie dostępne identyfikatory obejmują alerty, działu, zmiany, zabezpieczeń i aktualizacje.
+W dolnej części każdego serwera w planie może być lista identyfikatory stan przekazywania stanu informacji o serwerze. Identyfikatory oznacza, że niektóre istotne informacje dla serwera z jednego z integracji rozwiązania. Klikając pozycję wskaźnika przejście bezpośrednio do szczegółów o stanie w okienku po prawej stronie. Stan aktualnie dostępne identyfikatory obejmują alerty, działu, zmiany, zabezpieczeń i aktualizacje.
 
 W zależności od ważności identyfikatory stan obramowań węzła maszyny mogą być kolorowe czerwony (krytyczna), żółty (ostrzeżenie) lub niebieski (informacyjny). Kolor reprezentuje najpoważniejsze stan dowolnego identyfikatory stanu. Szare obramowanie wskazuje węzła, który ma wskaźników stanu.
 
@@ -68,7 +68,7 @@ Grupy na komputerze umożliwiają wyświetlanie mapy skupia się wokół zestaw 
 
 Użytkownicy wybierają serwerów, które należą do grupy ze sobą i wybierz nazwę grupy.  Można następnie wyświetlić grupy wszystkich połączeń i procesy lub wyświetlić tylko procesy i połączeń, które bezpośrednio odnoszą się do elementów członkowskich grupy.
 
-![Grupy na komputerze](media/oms-service-map/machine-group.png)
+![Machine Group](media/oms-service-map/machine-group.png)
 
 ### <a name="creating-a-machine-group"></a>Tworzenie grupy na komputerze
 Aby utworzyć grupę, wybierz maszynę lub maszyn, które mają na maszynach listy i kliknij przycisk **Dodaj do grupy**.
@@ -135,10 +135,10 @@ Niektóre procesy obsługi ról określonego na maszynach: serwery sieci web, se
 ![Ikony ról](media/oms-service-map/role-icons.png)
 
 
-## <a name="failed-connections"></a>Połączenia nie powiodło się
+## <a name="failed-connections"></a>Połączenia zakończone niepowodzeniem
 Nie powiodło się połączeń są wyświetlane w mapy usługi maps dla procesów i komputerów, z czerwonym linię kropkowaną wskazujący, że systemu klienta kończy się niepowodzeniem do procesu lub portu. Połączenia nie powiodło się są zgłaszane z dowolnego systemu przy użyciu wdrożonej agenta mapy usługi, w przypadku tego systemu jest próba połączenia nie powiodło się. Mapa usług mierzy ten proces obserwując gniazda TCP, których nie można ustanowić połączenia. Ten błąd może wystąpić z zapory, błąd konfiguracji klienta lub serwera lub usługi zdalnej jest niedostępna.
 
-![Połączenia nie powiodło się](media/oms-service-map/failed-connections.png)
+![Połączenia zakończone niepowodzeniem](media/oms-service-map/failed-connections.png)
 
 Opis połączenia nie powiodło się może pomóc w rozwiązywaniu problemów, weryfikacji migracji, analizowania zabezpieczeń i zrozumienia ogólnej architektury. Czasami jest bezpieczna połączenia nie powiodło się, ale często wskazuje, bezpośrednio do problemu, takich jak środowisko trybu failover, nagle staje się niedostępny lub dwoma warstwami aplikacji nie będą mogli komunikować po migracji chmury.
 
@@ -159,7 +159,7 @@ Port serwera grupy są pola, które reprezentują portów na serwerach, które n
 ## <a name="context-menu"></a>Menu Kontekst
 Klikając przycisk wielokropka (...) u góry po prawej dowolnego serwera Wyświetla menu kontekstowego dla tego serwera.
 
-![Połączenia nie powiodło się](media/oms-service-map/context-menu.png)
+![Połączenia zakończone niepowodzeniem](media/oms-service-map/context-menu.png)
 
 ### <a name="load-server-map"></a>Obciążenia serwera mapy
 Kliknięcie przycisku **obciążenia serwera mapy** przejście do nowej mapy z wybranego serwera jako nową maszynę fokus.
@@ -168,12 +168,12 @@ Kliknięcie przycisku **obciążenia serwera mapy** przejście do nowej mapy z w
 Kliknięcie przycisku **Pokaż Self-Links** ponownie rysuje węzeł serwera, wraz ze wszystkimi linki do samego siebie, które są połączeń TCP, które rozpoczęcia i zakończenia procesów w ramach serwera. Jeśli linki do samego siebie są wyświetlane zmiany polecenia menu **Ukryj Self-Links**, dzięki czemu można je wyłączyć.
 
 ## <a name="computer-summary"></a>Podsumowanie komputera
-**Podsumowanie maszyny** okienko zawiera przegląd systemu operacyjnego serwera, liczby zależności i danych z innych rozwiązań pakietu Operations Management Suite. Dane te obejmują metryki wydajności, bilety usług technicznej śledzenia zmian, zabezpieczeń i aktualizacje.
+**Podsumowanie maszyny** okienko zawiera przegląd systemu operacyjnego serwera, liczby zależności i danych z innych rozwiązań. Dane te obejmują metryki wydajności, bilety usług technicznej śledzenia zmian, zabezpieczeń i aktualizacje.
 
 ![Okienko Podsumowanie maszyny](media/oms-service-map/machine-summary.png)
 
 ## <a name="computer-and-process-properties"></a>Właściwości komputera i procesu
-Po przejściu mapy mapy usług, możesz wybrać maszyn i procesy w celu uzyskania dodatkowych kontekstu dotyczące ich właściwości. Maszyny zawierają informacje dotyczące DNS nazwy, adresów IPv4, procesora CPU i pamięci, pojemności, typu maszyny Wirtualnej, systemu operacyjnego i wersji, ostatniego ponownego rozruchu czasie i identyfikatory ich agentów Operations Management Suite i mapy usługi.
+Po przejściu mapy mapy usług, możesz wybrać maszyn i procesy w celu uzyskania dodatkowych kontekstu dotyczące ich właściwości. Maszyny zawierają informacje dotyczące DNS nazwy, adresów IPv4, procesora CPU i pamięci, pojemności, typu maszyny Wirtualnej, systemu operacyjnego i wersji, ostatniego ponownego rozruchu czasie i identyfikatory ich agentów OMS i mapy usługi.
 
 ![W okienku właściwości maszyny](media/oms-service-map/machine-properties.png)
 
@@ -185,8 +185,8 @@ Szczegóły procesu można zbierać z metadanych systemu operacyjnego dotyczące
 
 ![Okienko Podsumowanie procesu](media/oms-service-map/process-summary.png)
 
-## <a name="operations-management-suite-alerts-integration"></a>Integracji programu Operations Management Suite alertów
-Mapy usług integruje się z alertami pakiet zarządzania Operations do pokazania w wybranym zakresie czasu wypalane alerty dla wybranego serwera. Serwer Wyświetla ikonę, jeśli są aktualne alerty i **alerty maszyny** w okienku wyświetlana lista alertów.
+## <a name="alerts-integration"></a>Integracja alertów
+Mapy usług integruje się z alertami w analizy dzienników do pokazania w wybranym zakresie czasu wypalane alerty dla wybranego serwera. Serwer Wyświetla ikonę, jeśli są aktualne alerty i **alerty maszyny** w okienku wyświetlana lista alertów.
 
 ![W okienku alertów maszyny](media/oms-service-map/machine-alerts.png)
 
@@ -197,13 +197,13 @@ Aby włączyć mapy usługi do wyświetlenia powiązanych alertów, należy utwo
 ![Konfiguracja alertów](media/oms-service-map/alert-configuration.png)
 
 
-## <a name="operations-management-suite-log-events-integration"></a>Integracji programu Operations Management Suite dziennika zdarzeń
+## <a name="log-events-integration"></a>Integracja z dziennika zdarzeń
 Mapa usług integruje się z dziennika wyszukiwanie, aby wyświetlić liczbę wszystkich zdarzeń dziennika dostępna dla wybranego serwera w wybranym zakresie czasu. Możesz kliknąć każdy wiersz na liście zdarzeń liczników szybkiego dostępu do dziennika wyszukiwania i zobaczyć osobny dziennik zdarzeń.
 
 ![Okienko dziennika zdarzeń maszyny](media/oms-service-map/log-events.png)
 
-## <a name="operations-management-suite-service-desk-integration"></a>Integracji programu Operations Management Suite działu
-Mapa usług integracji z łącznika zarządzania usługi IT odbywa się automatycznie, gdy oba rozwiązania są włączone i skonfigurowane w obszarze roboczym usługi Operations Management Suite. Integracja usługi mapy etykietą "Działu". Aby uzyskać więcej informacji, zobacz [centralnie zarządzać zarządzanie usługami IT — elementów roboczych za pomocą łącznika zarządzania usługi IT](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview).
+## <a name="service-desk-integration"></a>Integracja usługi technicznej
+Mapa usług integracji z łącznika zarządzania usługi IT odbywa się automatycznie, gdy oba rozwiązania są włączone i skonfigurowane w obszarze roboczym analizy dzienników. Integracja usługi mapy etykietą "Działu". Aby uzyskać więcej informacji, zobacz [centralnie zarządzać zarządzanie usługami IT — elementów roboczych za pomocą łącznika zarządzania usługi IT](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview).
 
 **Działu maszyny** okienko Wyświetla listę wszystkich zdarzeń zarządzania usługami INFORMATYCZNYMI dla wybranego serwera w wybranym zakresie czasu. Serwer Wyświetla ikonę, jeśli bieżący elementów i wyświetlane w okienku działu maszyny.
 
@@ -214,8 +214,8 @@ Aby otworzyć element w rozwiązaniu Zarządzanie usługami IT — połączonych
 Aby wyświetlić szczegóły elementu dziennik wyszukiwania, kliknij przycisk **Pokaż dziennik wyszukiwania**.
 
 
-## <a name="operations-management-suite-change-tracking-integration"></a>Integracja śledzenia zmian pakiet zarządzania Operations
-Mapa usług integracji z śledzenia zmian odbywa się automatycznie, gdy oba rozwiązania są włączone i skonfigurowane w obszarze roboczym usługi Operations Management Suite.
+## <a name="change-tracking-integration"></a>Zmień integracji śledzenia
+Mapa usług integracji z śledzenia zmian odbywa się automatycznie, gdy oba rozwiązania są włączone i skonfigurowane w obszarze roboczym analizy dzienników.
 
 **Śledzenia zmian maszyny** okienku są wyświetlane wszystkie zmiany z najnowszych pierwszy, wraz z linkiem do przechodzenia do wyszukiwania dziennika, aby uzyskać dodatkowe szczegóły.
 
@@ -226,7 +226,7 @@ Poniższa ilustracja jest szczegółowy widok zdarzenie Zmianakonfiguracji, któ
 ![Zmianakonfiguracji zdarzeń](media/oms-service-map/configuration-change-event.png)
 
 
-## <a name="operations-management-suite-performance-integration"></a>Integracji programu Operations Management Suite wydajności
+## <a name="performance-integration"></a>Integracja wydajności
 **Wydajność maszyny** okienko przedstawia metryki wydajności standardowe dla wybranego serwera. Metryki obejmują użycie Procesora, wykorzystanie pamięci, sieci bajtów wysłanych i odebranych i listę najważniejszych procesów sieci bajtów wysłanych i odebranych.
 
 ![Okienko wyników maszyny](media/oms-service-map/machine-performance.png)
@@ -245,20 +245,20 @@ Linux:
 - Sieci Adapter(*)\\bajty wysłane/s
 - Sieci Adapter(*)\\bajty odebrane/s
 
-Aby uzyskać dane dotyczące wydajności sieci, musi również włączono rozwiązania podczas transmisji danych 2.0 w Operations Management Suite.
+Aby uzyskać dane dotyczące wydajności sieci, musi również włączono rozwiązania podczas transmisji danych 2.0 w obszarze roboczym.
  
-## <a name="operations-management-suite-security-integration"></a>Integracji programu Operations Management Suite zabezpieczeń
-Mapy usług integracji z zabezpieczeniami i inspekcji odbywa się automatycznie, gdy oba rozwiązania są włączone i skonfigurowane w obszarze roboczym usługi Operations Management Suite.
+## <a name="security-integration"></a>Integracja z zabezpieczeniami
+Mapy usług integracji z zabezpieczeniami i inspekcji odbywa się automatycznie, gdy oba rozwiązania są włączone i skonfigurowane w obszarze roboczym analizy dzienników.
 
-**Zabezpieczeń maszyny** w okienku zostaną wyświetlone dane z rozwiązania Operations Management Suite zabezpieczeń i inspekcji dla wybranego serwera. W okienku listy podsumowanie oczekujących bezpieczeństwo serwera podczas wybranego zakresu czasu. Kliknięcie dowolnej ćwiczeń problemy dotyczące zabezpieczeń w dół do wyszukiwania dziennika, aby uzyskać szczegółowe informacje o nich.
+**Zabezpieczeń maszyny** w okienku zostaną wyświetlone dane z rozwiązań zabezpieczeń i inspekcji dla wybranego serwera. W okienku listy podsumowanie oczekujących bezpieczeństwo serwera podczas wybranego zakresu czasu. Kliknięcie dowolnej ćwiczeń problemy dotyczące zabezpieczeń w dół do wyszukiwania dziennika, aby uzyskać szczegółowe informacje o nich.
 
 ![Okienko zabezpieczeń komputera](media/oms-service-map/machine-security.png)
 
 
-## <a name="operations-management-suite-updates-integration"></a>Integracji programu Operations Management Suite aktualizacje
-Mapa usług integracji z zarządzania aktualizacjami odbywa się automatycznie, gdy oba rozwiązania są włączone i skonfigurowane w obszarze roboczym usługi Operations Management Suite.
+## <a name="updates-integration"></a>Integracja aktualizacji
+Mapa usług integracji z zarządzania aktualizacjami odbywa się automatycznie, gdy oba rozwiązania są włączone i skonfigurowane w obszarze roboczym Anlaytics dziennika.
 
-**Machine aktualizacje** okienku są wyświetlane dane z rozwiązania do zarządzania programu Operations Management Suite aktualizacji dla wybranego serwera. Okienko zawiera podsumowanie dowolnych brakujących aktualizacji dla serwera w wybranym zakresie czasu.
+**Machine aktualizacje** okienku są wyświetlane dane z rozwiązania do zarządzania aktualizacji dla wybranego serwera. Okienko zawiera podsumowanie dowolnych brakujących aktualizacji dla serwera w wybranym zakresie czasu.
 
 ![Okienko śledzenia zmian maszyny](media/oms-service-map/machine-updates.png)
 
@@ -272,8 +272,8 @@ Jeden rekord jest generowany na godzinę dla każdego komputera unikatowy i proc
 
 Istnieją wewnętrznie generowane właściwości, które służy do identyfikacji procesów unikatowy i komputerami:
 
-- Komputer: Użyj ResourceId lub ResourceName_s do unikatowej identyfikacji komputera w ramach obszarem roboczym usługi Operations Management Suite.
-- Proces: ResourceId używany do jednoznacznego identyfikowania proces roboczy usługi Operations Management Suite. ResourceName_s jest unikatowa w kontekście komputera, na którym proces jest uruchomiony (MachineResourceName_s) 
+- Komputer: Użyj ResourceId lub ResourceName_s do unikatowej identyfikacji komputera w obszarze roboczym analizy dzienników.
+- Proces: ResourceId używany do jednoznacznego identyfikowania procesu w obszarze roboczym analizy dzienników. ResourceName_s jest unikatowa w kontekście komputera, na którym proces jest uruchomiony (MachineResourceName_s) 
 
 Ponieważ wiele rekordów może istnieć dla określonego procesu i komputera w określonym okresie, zapytania mogą zwracać więcej niż jeden rekord dla tego samego komputera lub proces. Aby dołączyć tylko ostatniego rekordu, należy dodać "| Funkcja deduplikacji ResourceId"w zapytaniu.
 
@@ -284,7 +284,7 @@ Rekordy z typem *ServiceMapComputer_CL* dane spisu dla serwerów z agentami mapy
 |:--|:--|
 | Typ | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
-| Identyfikator zasobu | Unikatowy identyfikator dla maszyny w obszarze roboczym |
+| ResourceId | Unikatowy identyfikator dla maszyny w obszarze roboczym |
 | ResourceName_s | Unikatowy identyfikator dla maszyny w obszarze roboczym |
 | ComputerName_s | Nazwa FQDN komputera |
 | Ipv4Addresses_s | Lista IPv4 serwera adresów |
@@ -311,7 +311,7 @@ Rekordy z typem *ServiceMapProcess_CL* mają dane spisu dla procesów połączen
 |:--|:--|
 | Typ | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |
-| Identyfikator zasobu | Unikatowy identyfikator procesu, w obszarze roboczym |
+| ResourceId | Unikatowy identyfikator procesu, w obszarze roboczym |
 | ResourceName_s | Unikatowy identyfikator procesu na maszynie, na którym jest uruchomiony|
 | MachineResourceName_s | Nazwa zasobu maszyny |
 | ExecutableName_s | Nazwa pliku wykonywalnego procesu |

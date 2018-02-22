@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 10/13/2017
 ms.author: joroja
-ms.openlocfilehash: 064ccec58406e08ae68320b59fcf2a96952a41ee
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7f65ad324e1bf0887ea293254621466a2f1ddaff
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Informacje o wersji dla publicznej wersji zapoznawczej usługi Azure Active Directory B2C zasad niestandardowych
 Zestaw funkcji niestandardowych zasad jest teraz dostępna w wersji ewaluacyjnej w publicznej wersji zapoznawczej dla wszystkich usługi Azure Active Directory B2C (Azure AD B2C) klientów. Ten zestaw funkcji jest przeznaczona dla deweloperów zaawansowane tożsamości tworzenia najbardziej złożonych rozwiązań tożsamości.  
@@ -60,19 +60,19 @@ Aby w pełni skorzystać z publicznej wersji zapoznawczej, zalecamy deweloperom 
 ## <a name="features-by-stage-and-known-issues"></a>Funkcje w etapie i znane problemy
 Niestandardowe zasady/Identity Framework środowisko możliwości opracowywane są stałe i szybkie.  Ta tabela jest indeks dostępność funkcji/składników.
 
-Opublikuj pytania na przepełnienie stosu w [aka.ms/aadb2cso](http://aka.ms/aadb2cso)
+Opublikuj pytania na przepełnienie stosu w [https://aka.ms/aadb2cso](https://aka.ms/aadb2cso)
 
 
 ### <a name="identity-providers-tokens-protocols"></a>Dostawcy tokenów, protokoły
 Interfejsy o składnikach zewnętrznych i aplikacji
 
-| Funkcja | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
+| Cecha | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
 |---------------------------------------------|-------------|---------|----|-------|
-| IDP OpenIDConnect |  | x |  | na przykład Google + |
+| IDP-OpenIDConnect |  | x |  | na przykład Google + |
 | IDP OAUTH2 |  | x |  | na przykład usługi Facebook  |
 | IDP OAUTH1 |  | x |  | na przykład w usłudze Twitter |
-| IDP SAML |  | x |  | na przykład Salesforce, usług AD FS |
-| IDP WSFED | x |  |  |  |
+| IDP-SAML |  | x |  | na przykład Salesforce, usług AD FS |
+| IDP-WSFED | x |  |  |  |
 | Jednostki uzależnionej firm OAUTH |  | x |  |  |
 | Jednostki uzależnionej OIDC firm |  | x |  |  |
 | Jednostki uzależnionej firm SAML | x |  |  |  |
@@ -83,7 +83,7 @@ Interfejsy o składnikach zewnętrznych i aplikacji
 ### <a name="component-support"></a>Obsługa składników
 
 
-| Funkcja | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
+| Cecha | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
 |-------------------------------------------|-------------|---------|----|-------|
 | Usługa Azure Multi-Factor Authentication |  | x |  |  |
 | Usługa Azure Active Directory jako katalogu lokalnego |  | x |  |  |
@@ -94,7 +94,7 @@ Interfejsy o składnikach zewnętrznych i aplikacji
 
 ### <a name="content-definition"></a>Definicja zawartości
 
-| Funkcja | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
+| Cecha | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
 |-----------------------------------------------------------------------------|-------------|---------|----|-------|
 |   Strona błędu, api.error |  | x |  |  |
 |   Strona wybierania IDP, api.idpselections |  | x |  |  |
@@ -109,7 +109,7 @@ Interfejsy o składnikach zewnętrznych i aplikacji
 
 
 ### <a name="app-ief-integration"></a>Integracja aplikacji IEF
-| Funkcja | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
+| Cecha | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
 |--------------------------------------------------|-------------|---------|----|-------------------------------------------------|
 | Id_token_hint parametr ciągu zapytania | x |  |  |  |
 | Domain_hint parametr ciągu zapytania |  | x |  | dostępne, ponieważ oświadczenia, mogą zostać przekazane do IDP |
@@ -120,7 +120,7 @@ Interfejsy o składnikach zewnętrznych i aplikacji
 
 ### <a name="session-management"></a>Zarządzanie sesjami
 
-| Funkcja | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
+| Cecha | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
 |---------------------------------|-------------|---------|----|-------|
 | Dostawca sesji rejestracji Jednokrotnej |  | x |  |  |
 | Dostawcy sesji logowania zewnętrznego |  | x |  |  |
@@ -128,14 +128,14 @@ Interfejsy o składnikach zewnętrznych i aplikacji
 
 
 ### <a name="security"></a>Bezpieczeństwo
-| Funkcja | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
+| Cecha | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
 |---------------------------------------------|-------------|---------|----|-------|
 | Zasady kluczy generowania, ręczne przekazywanie |  | x |  |  |
 | Zasady kluczy - RSA/certyfikatów, kluczy tajnych |  | x |  |  |
 
 
 ### <a name="developer-interface"></a>Interfejs Developer
-| Funkcja | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
+| Cecha | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
 |---------------------------------------------|-------------|---------|----|-------|
 | Portal Azure — IEF UX |  | x |  |  |
 | Application Insights UserJourney dzienniki  |  | x |  |  |
@@ -143,5 +143,5 @@ Interfejsy o składnikach zewnętrznych i aplikacji
 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Wprowadzenie do zasad niestandardowych](active-directory-b2c-get-started-custom.md).

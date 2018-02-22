@@ -23,28 +23,28 @@ Do wykonania kroków tego samouczka jest potrzebne aktywne konto platformy Azure
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 
-Przed przystąpieniem do pisania jakiegokolwiek kodu dla urządzenia musisz przeprowadzić aprowizację wstępnie skonfigurowanego rozwiązania do monitorowania zdalnego i nowego niestandardowego urządzenia w ramach tego rozwiązania.
+Przed przystąpieniem do napisania kodu dla danego urządzenia, wdrożyć zdalnego monitorowania wstępnie skonfigurowane rozwiązanie i dodać nowe urządzenie fizyczne do rozwiązania.
 
-### <a name="provision-your-remote-monitoring-preconfigured-solution"></a>Aprowizowanie wstępnie skonfigurowanego rozwiązania do monitorowania zdalnego
+### <a name="deploy-your-remote-monitoring-preconfigured-solution"></a>Wdrażanie zdalnego wstępnie skonfigurowane rozwiązanie monitorowania
 
 **Chłodnica** urządzenia, możesz utworzyć w tym samouczku wysyłania danych do wystąpienia [monitorowania zdalnego](../articles/iot-suite/iot-suite-remote-monitoring-explore.md) wstępnie skonfigurowane rozwiązanie. Jeśli nie zostało już wstępnie skonfigurowane zdalnego wstępnie skonfigurowane rozwiązanie monitorowania w konta platformy Azure, zobacz [wdrożyć zdalnego wstępnie skonfigurowane rozwiązanie monitorowania](../articles/iot-suite/iot-suite-remote-monitoring-deploy.md)
 
-Po zakończeniu procesu aprowizowania rozwiązania do monitorowania zdalnego kliknij pozycję **Uruchom**, aby otworzyć pulpit nawigacyjny rozwiązania w przeglądarce.
+Podczas procesu wdrażania dla zdalnego rozwiązanie monitorowania zakończy, kliknij przycisk **uruchamianie** aby otworzyć pulpit nawigacyjny rozwiązania w przeglądarce.
 
 ![Pulpit nawigacyjny rozwiązania](media/iot-suite-selector-connecting/dashboard.png)
 
-### <a name="provision-your-device-in-the-remote-monitoring-solution"></a>Aprowizowanie urządzenia w ramach rozwiązania do monitorowania zdalnego
+### <a name="add-your-device-to-the-remote-monitoring-solution"></a>Dodaj urządzenia do zdalnego rozwiązanie monitorowania
 
 > [!NOTE]
-> Jeśli już przeprowadzono aprowizację urządzenia w ramach rozwiązania, możesz pominąć ten krok. Należy ciąg połączenia urządzenia, który można pobrać z portalu Azure, podczas tworzenia aplikacji klienckiej.
+> Jeśli masz już dodany urządzenia w rozwiązaniu, możesz pominąć ten krok. Parametry połączenia urządzenia wymaga jednak następnego kroku. Można pobrać parametrów połączenia do urządzenia z [portalu Azure](https://portal.azure.com) lub przy użyciu [az iot](https://docs.microsoft.com/cli/azure/iot?view=azure-cli-latest) narzędzia interfejsu wiersza polecenia.
 
-Aby urządzenie mogło nawiązać połączenie ze wstępnie skonfigurowanym rozwiązaniem, musi ono zidentyfikować się względem usługi IoT Hub za pomocą prawidłowych poświadczeń. Użytkownik ma możliwość zapisania rozwiązania parametry połączenia urządzenia, które zawiera poświadczenia podczas dodawania urządzenia. Ciąg połączenia urządzenia możesz uwzględnić w dalszej części tego samouczka aplikacji klienta.
+Aby urządzenie mogło nawiązać połączenie ze wstępnie skonfigurowanym rozwiązaniem, musi ono zidentyfikować się względem usługi IoT Hub za pomocą prawidłowych poświadczeń. Użytkownik ma możliwość zapisania rozwiązania parametry połączenia urządzenia, które zawiera te poświadczenia podczas dodawania urządzenia. Ciąg połączenia urządzenia możesz uwzględnić w dalszej części tego samouczka aplikacji klienta.
 
 Aby dodać urządzenie do zdalnego rozwiązanie monitorowania, wykonaj następujące czynności na **urządzeń** strony w rozwiązaniu:
 
 1. Wybierz **+ nowe urządzenie**, a następnie wybierz pozycję **fizycznych** jako **typu urządzenia**:
 
-    ![Zainicjuj obsługę urządzenia fizycznego](media/iot-suite-selector-connecting/devicesprovision.png)
+    ![Dodaj urządzenia fizycznego](media/iot-suite-selector-connecting/devicesprovision.png)
 
 1. Wprowadź **fizyczna Chłodnica** jako identyfikator urządzenia. Wybierz **klucza symetrycznego** i **automatycznego generowania kluczy** opcje:
 
@@ -54,9 +54,7 @@ Aby dodać urządzenie do zdalnego rozwiązanie monitorowania, wykonaj następuj
 
     ![Pobieranie poświadczeń](media/iot-suite-selector-connecting/credentials.png)
 
-Aby zlokalizować poświadczeń, których urządzenie musi używać do łączenia się wstępnie skonfigurowane rozwiązanie, przejdź do portalu Azure w przeglądarce. Zaloguj się do subskrypcji.
-
-Możesz mieć teraz udostępniane w monitorowania zdalnego urządzenia fizycznego wstępnie skonfigurowane rozwiązanie. W poniższych sekcjach można zaimplementować aplikacji klienckiej, który używa poświadczeń urządzenia do nawiązania połączenia rozwiązania.
+Zostało teraz dodane urządzenie fizyczne do zdalnego wstępnie skonfigurowane rozwiązanie monitorowania i oznaczane w parametrach połączenia urządzenia. W poniższych sekcjach można zaimplementować aplikacji klienckiej, która używa ciągu połączenia urządzenia do łączenia się rozwiązania.
 
 Aplikacja kliencka implementuje wbudowane **Chłodnica** model urządzenia. Model urządzenia wstępnie skonfigurowane rozwiązanie określa następujące informacje o urządzeniu:
 

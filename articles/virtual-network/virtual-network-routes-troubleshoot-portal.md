@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: d9b951ad4c54a3714ba7e857d5198c351215cbac
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: e0b835f4cbad9855bfb7ddccf2d9bf5b4bf88231
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="troubleshoot-routes-using-the-azure-portal"></a>Rozwiązywanie problemów z tras przy użyciu portalu Azure
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ Podczas w przykładzie użyto tylko tras systemowych, te same kroki może służ
 Aby wyświetlić trasy agregacji, które są stosowane do maszyny Wirtualnej, wykonaj następujące kroki:
 
 1. Zaloguj się do portalu Azure pod adresem https://portal.azure.com. Konto musi mieć przypisaną *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* operacji interfejsu sieciowego. Aby dowiedzieć się, jak przypisać operacje do kont, zobacz [Tworzenie niestandardowych ról dla kontroli dostępu](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
-2. Kliknij przycisk **więcej usług**, następnie kliknij przycisk **maszyn wirtualnych** na liście.
+2. Kliknij przycisk **wszystkie usługi**, następnie kliknij przycisk **maszyn wirtualnych** na liście.
 3. Wybierz maszynę Wirtualną, aby rozwiązać problemy z listy, która pojawia się i zostanie wyświetlony blok maszyny Wirtualnej, z opcjami.
 4. Kliknij przycisk **Diagnozuj & rozwiązywania problemów** , a następnie wybierz powszechny problem. Na przykład **nie mogę połączyć się z maszyną Wirtualną z systemem Windows** jest zaznaczone.
 
@@ -97,7 +97,7 @@ Więcej rozwiązywania scenariusze w przypadku oceny tunelowanie wymuszone i tra
 Jeśli jest w pełni funkcjonalne przepływ ruchu sieciowego dla konkretnego interfejsu sieciowego (NIC), można wyświetlić pełną listę tras skuteczne karty sieciowej bezpośrednio. Aby wyświetlić trasy agregacji, które są stosowane do karty Sieciowej, wykonaj następujące kroki:
 
 1. Zaloguj się do portalu Azure pod adresem https://portal.azure.com.
-2. Kliknij przycisk **więcej usług**, następnie kliknij przycisk **interfejsy sieciowe**
+2. Kliknij przycisk **wszystkie usługi**, następnie kliknij przycisk **interfejsy sieciowe**
 3. Wyszukaj liście Nazwa karty sieciowej, lub wybierz ją z listy. W tym przykładzie **VM1 NIC1** jest zaznaczone.
 4. Wybierz **skuteczne tras** w **interfejsu sieciowego** bloku, jak pokazano na poniższej ilustracji:
 
@@ -117,7 +117,7 @@ Na przykład przez (*UDRoute*) jest określona w tabeli tras (*UDRouteTable*). T
 Aby wyświetlić łączny trasy dla tabeli tras, wykonaj następujące kroki:
 
 1. Zaloguj się do portalu Azure pod adresem https://portal.azure.com.
-2. Kliknij przycisk **więcej usług**, następnie kliknij przycisk **tabel tras**
+2. Kliknij przycisk **wszystkie usługi**, następnie kliknij przycisk **tabel tras**
 3. Wyszukaj listę do tabeli tras, którą chcesz znajduje łączny trasy dla i zaznacz go. W tym przykładzie **UDRouteTable** jest zaznaczone. Zostanie wyświetlony blok dla tabeli wybranej trasy, jak pokazano na poniższej ilustracji:
 
     ![](./media/virtual-network-routes-troubleshoot-portal/image9.png)

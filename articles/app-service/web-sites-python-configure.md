@@ -15,11 +15,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/26/2016
 ms.author: huvalo
-ms.openlocfilehash: 86e19d5bb942937779665eb60d9dc0654c16747d
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: fa5f9afbc595f06bd41e8670fab7730b610f570e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configuring-python-with-azure-app-service-web-apps"></a>Konfigurowanie języka Python z aplikacjami sieci Web usługi aplikacji Azure
 W tym samouczku opisano opcje dotyczące tworzenia i konfigurowania podstawowej aplikacji Python zgodnych sieci Web serwera bramy interfejsu (WSGI) w [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -36,7 +36,7 @@ W portalu Azure Marketplace zawiera szablony dla struktur Bottle, Django i Flask
 ## <a name="web-app-creation-on-azure-portal"></a>Tworzenie aplikacji sieci Web w portalu Azure
 Ten samouczek zakłada istniejącą subskrypcję platformy Azure i dostęp do portalu Azure.
 
-Jeśli nie masz istniejącej aplikacji sieci web, możesz utworzyć jedną z [portalu Azure](https://portal.azure.com).  Kliknij przycisk Nowy w lewym górnym rogu, a następnie kliknij przycisk **sieci Web i mobilność** > **aplikacji sieci Web**.
+Jeśli nie masz istniejącej aplikacji sieci web, możesz utworzyć jedną z [portalu Azure](https://portal.azure.com). W lewym górnym rogu kliknij **Utwórz zasób** > **sieci Web i mobilność** > **aplikacji sieci Web**.
 
 ## <a name="git-publishing"></a>Publikowanie w usłudze Git
 Skonfiguruj publikowanie w systemie Git dla nowo utworzonej aplikacji sieci Web zgodnie z poniższymi instrukcjami w artykule [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md) (Lokalne wdrażanie przy użyciu systemu Git w usłudze Azure App Service). W tym samouczku używana Git do tworzenia, zarządzania i publikowanie aplikacji sieci web języka Python w usłudze Azure App Service.
@@ -53,7 +53,7 @@ W kolejnych sekcjach są tworzone następujące pliki. Powinny one umieszczone w
     ptvs_virtualenv_proxy.py
 
 
-## <a name="wsgi-handler"></a>Program obsługi WSGI
+## <a name="wsgi-handler"></a>WSGI Handler
 WSGI jest standardem Python opisanego przez [3333 program ten](http://www.python.org/dev/peps/pep-3333/) Definiowanie interfejsu między serwerem sieci web i Python. Zapewnia interfejs standardowych do pisania różnych aplikacji sieci web i struktur za pomocą języka Python. Obecnie popularnych struktur sieci web języka Python posłużyć WSGI. Umożliwia aplikacji sieci Web usługi aplikacji Azure obsługę tych platform; Ponadto użytkownicy zaawansowani można nawet tworzyć własne tak długo, jak niestandardowy program obsługi jest zgodna z wytycznymi specyfikacji WSGI.
 
 Oto przykład `app.py` definiuje niestandardowego programu obsługi:
@@ -207,9 +207,9 @@ Pliki statyczne są obsługiwane przez serwer sieci web bezpośrednio, bez przec
 
 W powyższych przykładach lokalizacji plików statycznych na dysku powinien być zgodny lokalizacji w adresie URL. Oznacza to, że żądanie `http://pythonapp.azurewebsites.net/static/site.css` posłuży pliku na dysku w `\static\site.css`.
 
-`WSGI_ALT_VIRTUALENV_HANDLER`Określa się tam WSGI program obsługi. W powyższych przykładach ma `app.wsgi_app` ponieważ program obsługi ma funkcji o nazwie `wsgi_app` w `app.py` w folderze głównym.
+`WSGI_ALT_VIRTUALENV_HANDLER` Określa się tam WSGI program obsługi. W powyższych przykładach ma `app.wsgi_app` ponieważ program obsługi ma funkcji o nazwie `wsgi_app` w `app.py` w folderze głównym.
 
-`PYTHONPATH`można dostosować, ale po zainstalowaniu wszystkich zależności w środowisku wirtualnym, określając je w pliku requirements.txt, nie należy go zmienić.
+`PYTHONPATH` można dostosować, ale po zainstalowaniu wszystkich zależności w środowisku wirtualnym, określając je w pliku requirements.txt, nie należy go zmienić.
 
 ## <a name="virtual-environment-proxy"></a>Serwer Proxy środowiska wirtualnego
 Następujący skrypt służy do pobierania programu obsługi WSGI, aktywować wirtualnego środowiska i dziennik błędów. Jest ona być rodzajowa i używane bez modyfikacji.
@@ -349,7 +349,7 @@ Zawartość `ptvs_virtualenv_proxy.py`:
 ## <a name="troubleshooting---virtual-environment"></a>Rozwiązywanie problemów — środowisko wirtualne
 [!INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Więcej informacji możesz znaleźć w [Centrum deweloperów języka Python](/develop/python/).
 
 > [!NOTE]

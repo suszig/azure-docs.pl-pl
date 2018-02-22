@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 9b1118b0159437e179b09b179571ed1460c3daf6
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 91efb85d17bd6ba57b1dc14253257f3f20e37c92
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-net-desktop-wpf-getting-started"></a>Azure AD .NET pulpitu (WPF) wprowadzenie
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -47,7 +47,7 @@ Aby włączyć swoją aplikację w celu uzyskania tokenów, musisz najpierw zare
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Na górnym pasku, kliknij na Twoim koncie i w obszarze **katalogu** wybierz dzierżawy usługi Active Directory, w którym chcesz zarejestrować aplikację.
-3. Polecenie **więcej usług** w nawigacji po lewej stronie i wybierz polecenie **usługi Azure Active Directory**.
+3. Polecenie **wszystkie usługi** w nawigacji po lewej stronie i wybierz polecenie **usługi Azure Active Directory**.
 4. Polecenie **rejestracji aplikacji** i wybierz polecenie **Dodaj**.
 5. Postępuj zgodnie z monitami i utworzyć nową **natywną aplikację kliencką**.
   * **Nazwa** aplikacji będzie opisywać aplikację dla użytkowników końcowych
@@ -131,7 +131,7 @@ private void SignOut(object sender = null, RoutedEventArgs args = null)
 }
 ```
 
-* Jednak jeśli użytkownik nie klikniesz przycisku "Wyloguj", można zachować sesję użytkownika dla przy następnym uruchomieniu DirectorySearcher.  Po uruchomieniu aplikacji, należy sprawdzić ADAL w pamięci podręcznej tokenu dla istniejącego tokenu, a następnie odpowiednio zaktualizować interfejsu użytkownika.  W `CheckForCachedToken()` metody innego wywoływania `AcquireTokenAsync(...)`, przekazując teraz `PromptBehavior.Never` parametru.  `PromptBehavior.Never`informuje ADAL, że użytkownik nie powinien być monitowany w celu logowania się i ADAL zamiast tego powinien zgłosić wyjątek, jeśli nie można zwrócić token.
+* Jednak jeśli użytkownik nie klikniesz przycisku "Wyloguj", można zachować sesję użytkownika dla przy następnym uruchomieniu DirectorySearcher.  Po uruchomieniu aplikacji, należy sprawdzić ADAL w pamięci podręcznej tokenu dla istniejącego tokenu, a następnie odpowiednio zaktualizować interfejsu użytkownika.  W `CheckForCachedToken()` metody innego wywoływania `AcquireTokenAsync(...)`, przekazując teraz `PromptBehavior.Never` parametru.  `PromptBehavior.Never` informuje ADAL, że użytkownik nie powinien być monitowany w celu logowania się i ADAL zamiast tego powinien zgłosić wyjątek, jeśli nie można zwrócić token.
 
 ```csharp
 public async void CheckForCachedToken() 

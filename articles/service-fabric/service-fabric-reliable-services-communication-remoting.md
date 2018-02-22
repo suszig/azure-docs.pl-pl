@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: df4a86e3de87daad22646672f278c7f3226660c6
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 3bdd271eff6f6ea5b337d148f661c7eada429991
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="service-remoting-with-reliable-services"></a>Komunikacji zdalnej usługi z usługami Reliable Services
 Dla usług, które nie są związane z protokołu komunikacyjnego konkretnego lub stosu, takie jak WebAPI, Windows Communication Foundation (WCF) lub innych osób, w ramach niezawodnej usługi udostępnia mechanizm komunikacji zdalnej szybkie i łatwe Konfigurowanie zdalnego wywołania procedury dla usługi.
@@ -30,7 +30,7 @@ Konfigurowanie komunikacji zdalnej usługi odbywa się w dwóch prostych krokach
 2. Użyj odbiornika usługi zdalne w usłudze. Jest RemotingListener `ICommunicationListener` implementację, która zapewnia możliwości komunikacji zdalnej. `Microsoft.ServiceFabric.Services.Remoting.Runtime` Przestrzeń nazw zawiera metody rozszerzenia`CreateServiceRemotingListener` dla usług zarówno bezstanowe i stanowe, które mogą służyć do tworzenia odbiornik komunikacji zdalnej przy użyciu protokołu transportu domyślnego komunikacji zdalnej.
 
 >[!NOTE]
->`Remoting` Przestrzeń nazw jest dostępna jako osobny pakiet NuGet o nazwie`Microsoft.ServiceFabric.Services.Remoting`
+>`Remoting` Przestrzeń nazw jest dostępna jako osobny pakiet NuGet o nazwie `Microsoft.ServiceFabric.Services.Remoting`
 
 Na przykład następującej usługi bezstanowej przedstawia jedną metodę można uzyskać za pośrednictwem zdalnego wywołania procedury "Hello World".
 
@@ -59,7 +59,7 @@ class MyService : StatelessService, IMyService
 
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
-        return new[] { new ServiceInstanceListener(context =>            this.CreateServiceRemotingListener(context)) };
+        return new[] { new ServiceInstanceListener(context => this.CreateServiceRemotingListener(context)) };
     }
 }
 ```
@@ -84,7 +84,7 @@ W ramach usług zdalnych propaguje wyjątki zgłaszane przez usługę do klienta
 ## <a name="service-proxy-lifetime"></a>Okres istnienia usługi serwera Proxy
 Tworzenie ServiceProxy jest lekkie operacji, aby użytkownicy mogli tworzyć dowolną liczbę potrzebnych im. Tak długo, jak użytkownicy muszą ją można ponownie użyć wystąpienia serwera Proxy usługi. Jeśli zdalne wywołanie procedury zgłasza wyjątek, użytkownicy mogą nadal ponownie użyć tego samego wystąpienia serwera proxy. Każdy ServiceProxy zawiera komunikacji klienta używany do wysyłania wiadomości przez sieć. Podczas wywoływania wywołań zdalnych, firma Microsoft wewnętrznie Sprawdź, czy klient komunikacji jest prawidłowy. Na podstawie tego wyniku, możemy ponownie utworzyć klienta komunikacji w razie potrzeby. Dlatego jeśli wystąpi wyjątek, użytkownicy nie muszą utworzyć ponownie `ServiceProxy` ponieważ go to zrobione przezroczysty.
 
-### <a name="serviceproxyfactory-lifetime"></a>Okres istnienia ServiceProxyFactory
+### <a name="serviceproxyfactory-lifetime"></a>ServiceProxyFactory Lifetime
 [ServiceProxyFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) jest fabrykę tworzącą wystąpień serwera proxy dla różnych usług zdalnych interfejsów. Jeśli używasz interfejsu api `ServiceProxy.Create` tworzenia serwera proxy, framework utworzy pojedynczą ServiceProxy.
 Warto utworzyć jedną ręcznie, gdy trzeba zastąpić [IServiceRemotingClientFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.iserviceremotingclientfactory) właściwości.
 Tworzenie fabryki jest kosztowna operacja. ServiceProxyFactory przechowuje wewnętrznej pamięci podręcznej klienta komunikacji.
@@ -146,7 +146,7 @@ Poniżej przedstawiono kroki do wykonania.
   </Resources>
   ```
 
-2. Użyj [Remoting V2Listener](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingistener?view=azure-dotnet). Domyślna nazwa zasobu punktu końcowego usługi używany jest "ServiceEndpointV2" i musi być zdefiniowana w elemencie Service Manifest.
+2. Użyj [Remoting V2Listener](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingListener?view=azure-dotnet). Domyślna nazwa zasobu punktu końcowego usługi używany jest "ServiceEndpointV2" i musi być zdefiniowana w elemencie Service Manifest.
 
   ```csharp
   protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -387,7 +387,7 @@ Poniższy przykład używa serializacji Json z V2 komunikacji zdalnej.
             });
   ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Interfejs API OWIN w niezawodnej usługi sieci Web](service-fabric-reliable-services-communication-webapi.md)
 * [Komunikacyjny WCF z usługami Reliable Services](service-fabric-reliable-services-communication-wcf.md)
 * [Zabezpieczenia komunikacji niezawodnej usług](service-fabric-reliable-services-secure-communication.md)

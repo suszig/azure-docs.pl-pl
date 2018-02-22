@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2b9ad6da3963fefc5441581d113f6f690bd72be0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: d46b869815fef44a8137bb5121133a1c0140ca30
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="working-with-management-solutions-in-azure-preview"></a>Praca z rozwiązaniami do zarządzania na platformie Azure (wersja zapoznawcza)
 > [!NOTE]
@@ -36,7 +36,7 @@ Istnieje wiele metod do lokalizowania i instalowanie rozwiązania do zarządzani
 Rozwiązania do zarządzania są dostarczane przez firmę Microsoft i partnerów zaufanych może być zainstalowana z portalu Azure Marketplace w portalu Azure.
 
 1. Zaloguj się w witrynie Azure Portal.
-2. W okienku po lewej stronie wybierz **więcej usług**.
+2. W okienku po lewej stronie wybierz **wszystkie usługi**.
 3. Albo przewiń w dół do **rozwiązań** lub typ *rozwiązań* do **filtru** okna dialogowego.
 4. Kliknij przycisk **+ Dodaj** przycisku.
 5. Wyszukaj rozwiązania, które interesują Cię przez przeglądanie, klikając pozycję **filtru** przycisk lub wprowadzając w **Everthing wyszukiwania** pole.
@@ -92,7 +92,7 @@ Możesz sprawdzić połączenie między obszaru roboczego analizy dzienników i 
 Umożliwia poniższej procedury do wyświetlanie rozwiązania do zarządzania w obszary robocze połączone z subskrypcją platformy Azure.
 
 1. Zaloguj się w witrynie Azure Portal.
-2. W okienku po lewej stronie wybierz **więcej usług**.
+2. W okienku po lewej stronie wybierz **wszystkie usługi**.
 3. Albo przewiń w dół do **rozwiązań** lub typ *rozwiązań* do **filtru** okna dialogowego.
 4. Rozwiązania zainstalowane w wszystkie obszary robocze zostaną wyświetlone.
 

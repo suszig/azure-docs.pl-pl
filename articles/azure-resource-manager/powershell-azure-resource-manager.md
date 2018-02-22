@@ -12,250 +12,214 @@ ms.workload: multiple
 ms.tgt_pltfrm: powershell
 ms.devlang: na
 ms.topic: article
-ms.date: 10/06/2017
+ms.date: 02/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: ae5ccb83a0088cb7c9668f18620b74f9f3f1e9b0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7e2f988fd62753e1ebed702728dee7ede65c72c4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="manage-resources-with-azure-powershell-and-resource-manager"></a>Zarządzanie zasobami za pomocą programu Azure PowerShell i Menedżera zasobów
+# <a name="manage-resources-with-azure-powershell"></a>Zarządzanie zasobami za pomocą programu Azure PowerShell
 
-W tym artykule Dowiedz się jak zarządzać rozwiązań z programu Azure PowerShell i Menedżera zasobów Azure. Jeśli nie masz doświadczenia z usługą Resource Manager, zobacz [omówienie Resource Manager](resource-group-overview.md). Ten artykuł dotyczy zadań zarządzania. Wykonasz następujące zadania:
+[!include[Resource Manager governance introduction](../../includes/resource-manager-governance-intro.md)]
 
-1. Tworzenie grupy zasobów
-2. Dodaj zasób do grupy zasobów
-3. Dodaj tag do zasobu
-4. Wykonywanie zapytań względem zasobów na podstawie nazw lub wartości tagów
-5. Zastosuj i Usuń blokada na zasób
-6. Usuń grupę zasobów
+[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-W tym artykule nie pokazuje sposób wdrażania szablonu usługi Resource Manager do subskrypcji. Informacje, zobacz [wdrażanie zasobów przy użyciu szablonów usługi Resource Manager i programu Azure PowerShell](resource-group-template-deploy.md).
+Jeśli użytkownik chce zainstalować i lokalnie przy użyciu programu PowerShell, zobacz [modułu instalacji programu Azure PowerShell](/powershell/azure/install-azurerm-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie `Login-AzureRmAccount`, aby utworzyć połączenie z platformą Azure.
 
-## <a name="get-started-with-azure-powershell"></a>Wprowadzenie do programu Azure PowerShell
+## <a name="understand-scope"></a>Zrozumieć zakres
 
-Jeśli nie zainstalowano programu Azure PowerShell, zobacz [jak instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview).
+[!include[Resource Manager governance scope](../../includes/resource-manager-governance-scope.md)]
 
-Jeśli mieć zainstalowany program Azure PowerShell w przeszłości, ale nie zaktualizowano on niedawno, należy rozważyć zainstalowanie najnowszej wersji. Należy zaktualizować wersję za pomocą tej samej metody, które zostały użyte do zainstalowania go. Na przykład użycie Instalatora platformy sieci Web, uruchom ją ponownie i wyszukać aktualizację.
+W tym artykule zastosowanie wszystkich ustawień zarządzania do grupy zasobów, można łatwo usunąć te ustawienia po zakończeniu.
 
-Aby sprawdzić swoją wersję modułu zasobów Azure, użyj następującego polecenia cmdlet:
+Teraz Utwórz grupę zasobów.
 
-```powershell
-Get-Module -ListAvailable -Name AzureRm.Resources | Select Version
+```azurepowershell-interactive
+Set-AzureRmContext -Subscription <subscription-name>
+New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
-Ten artykuł został zaktualizowany na potrzeby wersji 3.3.0. Jeśli masz starszą wersję środowiska mogą nie odpowiadać kroki opisane w tym artykule. Aby uzyskać dokumentację poleceń cmdlet w tej wersji, zobacz [AzureRM.Resources modułu](/powershell/module/azurerm.resources).
+Grupa zasobów jest obecnie pusta.
 
-## <a name="log-in-to-your-azure-account"></a>Zaloguj się do konta platformy Azure
-Przed rozpoczęciem pracy rozwiązania, należy zalogować się do swojego konta.
+## <a name="role-based-access-control"></a>Kontrola dostępu oparta na rolach
 
-Aby zalogować się do konta platformy Azure, użyj **Login-AzureRmAccount** polecenia cmdlet.
+[!include[Resource Manager governance policy](../../includes/resource-manager-governance-rbac.md)]
 
-```powershell
-Login-AzureRmAccount
+### <a name="assign-a-role"></a>Przypisywanie roli
+
+W tym artykule możesz wdrożyć maszyny wirtualnej i jej powiązane sieci wirtualnej. Do zarządzania rozwiązań maszyny wirtualnej, istnieją trzy role określonych zasobów, które zapewniają dostęp do potrzebnych:
+
+* [Współautor maszyny wirtualnej](../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor)
+* [Współautor sieci](../active-directory/role-based-access-built-in-roles.md#network-contributor)
+* [Współautor konta magazynu](../active-directory/role-based-access-built-in-roles.md#storage-account-contributor)
+
+Zamiast przypisywać role poszczególnym użytkownikom, łatwiej często [utworzyć grupy usługi Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md) dla użytkowników, którzy potrzebują podjęcia działań podobne. Następnie przypisać do odpowiedniej roli. Aby uprościć w tym artykule, należy utworzyć grupy usługi Azure Active Directory bez członków. Nadal można przypisać tej grupy do roli dla zakresu. 
+
+Poniższy przykład tworzy grupę i przypisuje go do roli współautora maszyny wirtualnej dla grupy zasobów. Aby uruchomić `New-AzureAdGroup` polecenia należy używać [powłoki chmury Azure](/azure/cloud-shell/overview) lub [Pobierz moduł Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/).
+
+```azurepowershell-interactive
+$adgroup = New-AzureADGroup -DisplayName VMDemoContributors `
+  -MailNickName vmDemoGroup `
+  -MailEnabled $false `
+  -SecurityEnabled $true
+New-AzureRmRoleAssignment -ObjectId $adgroup.ObjectId `
+  -ResourceGroupName myResourceGroup `
+  -RoleDefinitionName "Virtual Machine Contributor"
 ```
 
-Polecenie cmdlet wyświetla monit o podanie poświadczeń logowania dla konta platformy Azure. Po zalogowaniu pobiera ono ustawienia konta, aby były dostępne dla programu Azure PowerShell.
+Zwykle, powtórz proces **współautora sieci** i **współautora konta magazynu** się upewnić, że użytkownicy są dodawani do zarządzania zasobami wdrożone. W tym artykule można pominąć te kroki.
 
-Polecenie cmdlet zwraca informacje dotyczące konta i subskrypcji do użycia dla zadania.
+## <a name="azure-policies"></a>Zasady usługi Azure
 
-```powershell
-Environment           : AzureCloud
-Account               : example@contoso.com
-TenantId              : {guid}
-SubscriptionId        : {guid}
-SubscriptionName      : Example Subscription One
-CurrentStorageAccount :
+[!include[Resource Manager governance policy](../../includes/resource-manager-governance-policy.md)]
 
+### <a name="apply-policies"></a>Stosowanie zasad
+
+Subskrypcja obejmuje już kilka definicje zasad. Aby wyświetlić definicje dostępnych zasad, należy użyć:
+
+```azurepowershell-interactive
+(Get-AzureRmPolicyDefinition).Properties | Format-Table displayName, policyType
 ```
 
-Jeśli masz więcej niż jedną subskrypcję, możesz przełączyć się do innej subskrypcji. Po pierwsze Zobacz wszystkie subskrypcje dla swojego konta.
+Możesz sprawdzić istniejące definicje zasad. Typ zasad jest **wbudowane** lub **niestandardowy**. Przejrzyj definicje dla tych, które opisują warunek, który chcesz przypisać. W tym artykule należy przypisać zasady który:
 
-```powershell
-Get-AzureRmSubscription
+* ograniczenie lokalizacji dla wszystkich zasobów
+* Ogranicz jednostki SKU dla maszyn wirtualnych
+* maszyny wirtualne, które nie korzystają z dysków zarządzanych inspekcji
+
+```azurepowershell-interactive
+$locations ="eastus", "eastus2"
+$skus = "Standard_DS1_v2", "Standard_E2s_v2"
+
+$rg = Get-AzureRmResourceGroup -Name myResourceGroup
+
+$locationDefinition = Get-AzureRmPolicyDefinition | where-object {$_.properties.displayname -eq "Allowed locations"}
+$skuDefinition = Get-AzureRmPolicyDefinition | where-object {$_.properties.displayname -eq "Allowed virtual machine SKUs"}
+$auditDefinition = Get-AzureRmPolicyDefinition | where-object {$_.properties.displayname -eq "Audit VMs that do not use managed disks"}
+
+New-AzureRMPolicyAssignment -Name "Set permitted locations" `
+  -Scope $rg.ResourceId `
+  -PolicyDefinition $locationDefinition `
+  -listOfAllowedLocations $locations
+New-AzureRMPolicyAssignment -Name "Set permitted VM SKUs" `
+  -Scope $rg.ResourceId `
+  -PolicyDefinition $skuDefinition `
+  -listOfAllowedSKUs $skus
+New-AzureRMPolicyAssignment -Name "Audit unmanaged disks" `
+  -Scope $rg.ResourceId `
+  -PolicyDefinition $auditDefinition
 ```
 
-Zwraca włączyć i wyłączyć subskrypcje.
+## <a name="deploy-the-virtual-machine"></a>Wdróż maszynę wirtualną
 
-```powershell
-SubscriptionName : Example Subscription One
-SubscriptionId   : {guid}
-TenantId         : {guid}
-State            : Enabled
+Przypisano ról i zasad, więc wszystko jest gotowe do wdrożenia rozwiązania. Rozmiar domyślny to Standard_DS1_v2, które jest jednym z dozwolonych jednostki SKU. Podczas wykonywania tego kroku jest wyświetlany monit o poświadczenia. Wprowadzane wartości są konfigurowane jako nazwa użytkownika i hasło dla maszyny wirtualnej.
 
-SubscriptionName : Example Subscription Two
-SubscriptionId   : {guid}
-TenantId         : {guid}
-State            : Enabled
-
-SubscriptionName : Example Subscription Three
-SubscriptionId   : {guid}
-TenantId         : {guid}
-State            : Disabled
+```azurepowershell-interactive
+New-AzureRmVm -ResourceGroupName "myResourceGroup" `
+     -Name "myVM" `
+     -Location "East US" `
+     -VirtualNetworkName "myVnet" `
+     -SubnetName "mySubnet" `
+     -SecurityGroupName "myNetworkSecurityGroup" `
+     -PublicIpAddressName "myPublicIpAddress" `
+     -OpenPorts 80,3389
 ```
 
-Aby przełączyć się do innej subskrypcji, należy podać nazwę subskrypcji z **Set-AzureRmContext** polecenia cmdlet.
+Po zakończeniu wdrożenia, można zastosować więcej ustawienia zarządzania do rozwiązania.
 
-```powershell
-Set-AzureRmContext -SubscriptionName "Example Subscription Two"
+## <a name="lock-resources"></a>Blokowanie zasobów
+
+[!include[Resource Manager governance locks](../../includes/resource-manager-governance-locks.md)]
+
+### <a name="lock-a-resource"></a>Zablokowanie zasobu
+
+Aby zablokować maszyny wirtualnej i grupy zabezpieczeń sieci, należy użyć:
+
+```azurepowershell-interactive
+New-AzureRmResourceLock -LockLevel CanNotDelete `
+  -LockName LockVM `
+  -ResourceName myVM `
+  -ResourceType Microsoft.Compute/virtualMachines `
+  -ResourceGroupName myResourceGroup
+New-AzureRmResourceLock -LockLevel CanNotDelete `
+  -LockName LockNSG `
+  -ResourceName myNetworkSecurityGroup `
+  -ResourceType Microsoft.Network/networkSecurityGroups `
+  -ResourceGroupName myResourceGroup
 ```
 
-## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
+Tylko można usunąć maszyny wirtualnej, w szczególności usunięcia blokady. Ten krok jest wyświetlany w obszarze [wyczyścić zasoby](#clean-up-resources).
 
-Przed wdrożeniem żadnych zasobów w Twojej subskrypcji, należy utworzyć grupę zasobów, która będzie zawierać zasoby.
+## <a name="tag-resources"></a>Tag zasobów
 
-Aby utworzyć grupę zasobów, użyj **New-AzureRmResourceGroup** polecenia cmdlet. Używa polecenia **nazwa** parametr, aby określić nazwę grupy zasobów i **lokalizacji** parametru w celu określenia lokalizacji.
+[!include[Resource Manager governance tags](../../includes/resource-manager-governance-tags.md)]
 
-```powershell
-New-AzureRmResourceGroup -Name TestRG1 -Location "South Central US"
+### <a name="tag-resources"></a>Tag zasobów
+
+[!include[Resource Manager governance tags Powershell](../../includes/resource-manager-governance-tags-powershell.md)]
+
+Aby zastosować tagi do maszyny wirtualnej, należy użyć:
+
+```azurepowershell-interactive
+$r = Get-AzureRmResource -ResourceName myVM `
+  -ResourceGroupName myResourceGroup `
+  -ResourceType Microsoft.Compute/virtualMachines
+Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test"; Project="Documentation" } -ResourceId $r.ResourceId -Force
 ```
 
-Dane wyjściowe znajduje się w następującym formacie:
+### <a name="find-resources-by-tag"></a>Znajdź zasoby według znaczników
 
-```powershell
-ResourceGroupName : TestRG1
-Location          : southcentralus
-ProvisioningState : Succeeded
-Tags              :
-ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1
+Aby znaleźć zasoby z tagu nazwy i wartości, należy użyć:
+
+```azurepowershell-interactive
+(Find-AzureRmResource -TagName Environment -TagValue Test).Name
 ```
 
-Aby pobrać grupę zasobów później, należy użyć następującego polecenia cmdlet:
+Można użyć wartości zwracane dla zadań zarządzania, takich jak zatrzymanie wszystkich maszyn wirtualnych z wartością tagu.
 
-```powershell
-Get-AzureRmResourceGroup -ResourceGroupName TestRG1
+```azurepowershell-interactive
+Find-AzureRmResource -TagName Environment -TagValue Test | Where-Object {$_.ResourceType -eq "Microsoft.Compute/virtualMachines"} | Stop-AzureRmVM
 ```
 
-Aby uzyskać wszystkie grupy zasobów w ramach subskrypcji, nie należy określać nazwy:
+### <a name="view-costs-by-tag-values"></a>Wyświetlanie kosztów przez wartości tagów
 
-```powershell
-Get-AzureRmResourceGroup
+Po zastosowaniu tagów do zasobów, można wyświetlić kosztów zasobów z tych tagów. Trwa podczas analizy kosztów wyświetlić najnowsze użycie, więc może nie być wyświetlana koszty jeszcze. Gdy koszty są dostępne, można wyświetlić kosztów zasobów między grupami zasobów w ramach subskrypcji. Użytkownicy muszą mieć [subskrypcji poziom dostępu do informacji dotyczących rozliczeń](../billing/billing-manage-access.md) koszty.
+
+Aby wyświetlić koszty według znaczników w portalu, wybierz subskrypcję, a następnie wybierz **analizy kosztów**.
+
+![Analiza kosztów](./media/powershell-azure-resource-manager/select-cost-analysis.png)
+
+Następnie filtrować według wartości tagu i wybierz **Zastosuj**.
+
+![Koszt widok znaczników](./media/powershell-azure-resource-manager/view-costs-by-tag.png)
+
+Można również użyć [interfejsów API usługi Azure rozliczeń](../billing/billing-usage-rate-card-overview.md) można programowo wyświetlać kosztów.
+
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+
+Nie można usunąć grupy zabezpieczeń sieci zablokowane, aż do usunięcia blokady. Aby usunąć blokadę, należy użyć:
+
+```azurepowershell-interactive
+Remove-AzureRmResourceLock -LockName LockVM `
+  -ResourceName myVM `
+  -ResourceType Microsoft.Compute/virtualMachines `
+  -ResourceGroupName myResourceGroup
+Remove-AzureRmResourceLock -LockName LockNSG `
+  -ResourceName myNetworkSecurityGroup `
+  -ResourceType Microsoft.Network/networkSecurityGroups `
+  -ResourceGroupName myResourceGroup
 ```
 
-## <a name="add-resources-to-a-resource-group"></a>Dodaj zasoby do grupy zasobów
-
-Aby dodać zasobu do grupy zasobów, można użyć **AzureRmResource nowy** polecenia cmdlet lub polecenia cmdlet, które są specyficzne dla typu zasobu tworzysz (takich jak **New-AzureRmStorageAccount**). Użytkownik może łatwiej, użyj polecenia cmdlet, które są specyficzne dla typu zasobu, ponieważ uwzględnia on również parametry dla właściwości, które są potrzebne dla nowego zasobu. Aby użyć **AzureRmResource nowy**, musisz znać wszystkie właściwości można ustawić bez konieczności podawania dla nich.
-
-Jednak dodawanie zasobów za pomocą poleceń cmdlet może spowodować przyszłych pomyłek, ponieważ nowy zasób nie istnieje w szablonie usługi Resource Manager. Firma Microsoft zaleca Definiowanie infrastruktury dla rozwiązania Azure w ramach szablonu usługi Resource Manager. Szablony umożliwiają niezawodne i wielokrotnego wdrażania rozwiązania. W tym artykule Utwórz konto magazynu za pomocą polecenia cmdlet programu PowerShell, ale później wygenerowanie szablonu z grupy zasobów.
-
-Następujące polecenie cmdlet tworzy konto magazynu. Zamiast nazwy pokazano w przykładzie, Podaj unikatową nazwę konta magazynu. Nazwa musi mieć od 3 do 24 znaków i zawierać tylko cyfry i małe litery. Jeśli używasz nazwę pokazano w przykładzie, wystąpi błąd, ponieważ ta nazwa jest już używana.
+Gdy grupa zasobów, maszyna wirtualna i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup).
 
 ```powershell
-New-AzureRmStorageAccount -ResourceGroupName TestRG1 -AccountName mystoragename -Type "Standard_LRS" -Location "South Central US"
+Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
-Jeśli potrzebujesz do odtworzenia tego zasobu, należy użyć następującego polecenia cmdlet:
-
-```powershell
-Get-AzureRmResource -ResourceName mystoragename -ResourceGroupName TestRG1
-```
-
-## <a name="add-a-tag"></a>Dodaj tag
-
-Znaczniki umożliwiają organizowania zasobów zgodnie z innej właściwości. Na przykład może mieć kilka zasobów w różnych grup zasobów należących do tego samego działu. Tag działu i wartości można zastosować do tych zasobów, aby oznaczyć je jako należące do tej samej kategorii. Alternatywnie można oznaczyć, czy zasób jest używany w środowisku produkcyjnym lub testowym. W tym artykule tagi są stosowane tylko do jednego zasobu, ale w danym środowisku prawdopodobnie warto dodawania tagów do wszystkich zasobów.
-
-Następujące polecenie cmdlet ma zastosowanie dwa tagi do konta magazynu:
-
-```powershell
-Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceName mystoragename -ResourceGroupName TestRG1 -ResourceType Microsoft.Storage/storageAccounts
- ```
-
-Tagi są aktualizowane jako pojedynczego obiektu. Aby dodać tag do zasobu, która zawiera już znaczników, należy najpierw pobrać istniejące znaczniki. Dodaj nowy znacznik do obiektu, który zawiera istniejące znaczniki i ponownie zastosuj wszystkie tagi do zasobu.
-
-```powershell
-$tags = (Get-AzureRmResource -ResourceName mystoragename -ResourceGroupName TestRG1).Tags
-$tags += @{Status="Approved"}
-Set-AzureRmResource -Tag $tags -ResourceName mystoragename -ResourceGroupName TestRG1 -ResourceType Microsoft.Storage/storageAccounts
-```
-
-## <a name="search-for-resources"></a>Wyszukaj zasoby
-
-Użyj **AzureRmResource Znajdź** polecenia cmdlet można pobrać zasobów do wyszukiwania różnych warunków.
-
-* Aby uzyskać za pomocą nazwy zasobu, należy podać **ResourceNameContains** parametru:
-
-  ```powershell
-  Find-AzureRmResource -ResourceNameContains mystoragename
-  ```
-
-* Aby uzyskać wszystkie zasoby w grupie zasobów, należy podać **ResourceGroupNameContains** parametru:
-
-  ```powershell
-  Find-AzureRmResource -ResourceGroupNameContains TestRG1
-  ```
-
-* Aby pobrać wszystkich zasobów o nazwie tagu i wartości, należy podać **TagName** i **TagValue** parametry:
-
-  ```powershell
-  Find-AzureRmResource -TagName Dept -TagValue IT
-  ```
-
-* Do wszystkich zasobów z określonego typu zasobu, należy podać **ResourceType** parametru:
-
-  ```powershell
-  Find-AzureRmResource -ResourceType Microsoft.Storage/storageAccounts
-  ```
-
-## <a name="get-resource-id"></a>Pobierz identyfikator zasobu
-
-Wiele poleceń zająć identyfikator zasobu jako parametr. Aby uzyskać identyfikator zasobu i przechowywać w zmiennej, należy użyć:
-
-```powershell
-$webappID = (Get-AzureRmResource -ResourceGroupName exampleGroup -ResourceName exampleSite).ResourceId
-```
-
-## <a name="lock-a-resource"></a>Zablokowanie zasobu
-
-Aby upewnić się, że krytyczne zasobów nie zostanie przypadkowo usunięty lub zmodyfikowany, zastosuj blokady do zasobu. Można określić **CanNotDelete** lub **tylko do odczytu**.
-
-Aby utworzyć lub usunąć blokady zarządzania, musi mieć dostęp do `Microsoft.Authorization/*` lub `Microsoft.Authorization/locks/*` akcje. Wbudowanych ról tylko właściciel i Administrator dostępu użytkowników są przyznawane te akcje.
-
-Aby zastosować blokady, należy użyć następującego polecenia cmdlet:
-
-```powershell
-New-AzureRmResourceLock -LockLevel CanNotDelete -LockName LockStorage -ResourceName mystoragename -ResourceType Microsoft.Storage/storageAccounts -ResourceGroupName TestRG1
-```
-
-Nie można usunąć zablokowanych zasobu w poprzednim przykładzie, aż do usunięcia blokady. Aby usunąć blokadę, należy użyć:
-
-```powershell
-Remove-AzureRmResourceLock -LockName LockStorage -ResourceName mystoragename -ResourceType Microsoft.Storage/storageAccounts -ResourceGroupName TestRG1
-```
-
-Aby uzyskać więcej informacji na temat ustawienie blokady, zobacz [blokowania zasobów z usługi Azure Resource Manager](resource-group-lock-resources.md).
-
-## <a name="remove-resources-or-resource-group"></a>Usuwanie zasobów lub grupy zasobów
-Można usunąć zasób lub grupa zasobów. Usuń grupę zasobów, należy również usunąć wszystkie zasoby w grupie zasobów.
-
-* Aby usunąć zasób z grupy zasobów, użyj **AzureRmResource Usuń** polecenia cmdlet. To polecenie cmdlet Usuwa zasób, ale nie powoduje usunięcia grupy zasobów.
-
-  ```powershell
-  Remove-AzureRmResource -ResourceName mystoragename -ResourceType Microsoft.Storage/storageAccounts -ResourceGroupName TestRG1
-  ```
-
-* Aby usunąć grupę zasobów i wszystkie jego zasoby, używać **Remove-AzureRmResourceGroup** polecenia cmdlet.
-
-  ```powershell
-  Remove-AzureRmResourceGroup -Name TestRG1
-  ```
-
-Dla obu poleceń cmdlet zostanie wyświetlona prośba o potwierdzenie, że chcesz usunąć zasób lub grupa zasobów. Jeśli operacja pomyślnie Usuwa zasób lub grupa zasobów, zwraca **True**.
-
-## <a name="run-resource-manager-scripts-with-azure-automation"></a>Uruchamianie skryptów Menedżera zasobów w usłudze Automatyzacja Azure
-
-W tym artykule przedstawiono sposób wykonywania podstawowych operacji dotyczących zasobów przy użyciu programu Azure PowerShell. W przypadku bardziej zaawansowanych scenariuszy zarządzania zwykle chcesz utworzyć skrypt, a następnie ponownie użyć tego skryptu, zgodnie z potrzebami lub zgodnie z harmonogramem. [Automatyzacja Azure](../automation/automation-intro.md) zapewnia sposobem zautomatyzowania często używanych skryptów, które zarządzają rozwiązań platformy Azure.
-
-W następujących tematach opisano, jak używać usługi Automatyzacja Azure Resource Manager i programu PowerShell do skutecznie wykonywać zadania zarządzania:
-
-- Aby uzyskać informacje dotyczące tworzenia elementu runbook, zobacz [Moje pierwszego elementu runbook programu PowerShell](../automation/automation-first-runbook-textual-powershell.md).
-- Aby uzyskać informacje na temat pracy z galerii skryptów, zobacz [galerie elementów Runbook i modułów w automatyzacji Azure](../automation/automation-runbook-gallery.md).
-- Dla elementów runbook uruchamianie i zatrzymywanie maszyn wirtualnych, zobacz [scenariusz automatyzacji Azure: formacie JSON przy użyciu tagów, aby utworzyć harmonogram uruchamiania maszyny Wirtualnej platformy Azure i zamykania](../automation/automation-scenario-start-stop-vm-wjson-tags.md).
-- Dla elementów runbook uruchamianie i zatrzymywanie maszyn wirtualnych po godzinach pracy, zobacz [uruchamiania/zatrzymywania maszyn wirtualnych, podczas rozwiązania poza godzinami szczytu w automatyzacji](../automation/automation-solution-vm-management.md).
-
-## <a name="next-steps"></a>Następne kroki
-* Aby uzyskać informacje dotyczące tworzenia szablonów usługi Resource Manager, zobacz [Authoring Azure Resource Manager szablony](resource-group-authoring-templates.md).
-* Informacje na temat wdrażania szablonów, zobacz [wdrażanie aplikacji przy użyciu szablonu usługi Resource Manager Azure](resource-group-template-deploy.md).
+## <a name="next-steps"></a>Kolejne kroki
+* Aby uzyskać informacje dotyczące monitorowania maszyn wirtualnych, zobacz [monitorowania i aktualizowania maszyny wirtualnej systemu Windows przy użyciu programu Azure PowerShell](../virtual-machines/windows/tutorial-monitoring.md).
+* Aby dowiedzieć się więcej o korzystaniu z Centrum zabezpieczeń Azure do wdrożenia rozwiązania w zakresie zabezpieczeń, [monitorowanie zabezpieczeń maszyny wirtualnej przy użyciu Centrum zabezpieczeń Azure](../virtual-machines/windows/tutorial-azure-security.md).
 * Można przenieść istniejące zasoby do nowej grupy zasobów. Aby uzyskać przykłady, zobacz [przeniesienia zasobów do nowej grupy zasobów lub subskrypcji](resource-group-move-resources.md).
 * Aby uzyskać instrukcje dla przedsiębiorstw dotyczące użycia usługi Resource Manager w celu efektywnego zarządzania subskrypcjami, zobacz [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md) (Szkielet platformy Azure dla przedsiębiorstwa — narzucony nadzór subskrypcji).
-

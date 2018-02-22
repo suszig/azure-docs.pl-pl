@@ -15,11 +15,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
-ms.openlocfilehash: 5e3c729ce3e75665078d7f33baed943087fbe0ca
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: ee7febeb04d3a956b4a0a11b69f8f34acee23067
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Testowanie wydajności usługi w chmurze lokalnie w emulatorze obliczeń platformy Azure przy użyciu profilera Visual Studio
 Różnych narzędzi i technik są dostępne do testowania wydajności usługi w chmurze.
@@ -44,31 +44,35 @@ Instrukcje te mogą posłużyć z istniejącego projektu lub z nowym projektem. 
 
 Na przykład celów, dodać kod do projektu, który zajmuje dużo czasu i przedstawiono niektóre problem z wydajnością oczywiste. Na przykład dodaj następujący kod do projektu roli proces roboczy:
 
-    public class Concatenator
+```csharp
+public class Concatenator
+{
+    public static string Concatenate(int number)
     {
-        public static string Concatenate(int number)
+        int count;
+        string s = "";
+        for (count = 0; count < number; count++)
         {
-            int count;
-            string s = "";
-            for (count = 0; count < number; count++)
-            {
-                s += "\n" + count.ToString();
-            }
-            return s;
+            s += "\n" + count.ToString();
         }
+        return s;
     }
+}
+```
 
 Wywołaj ten kod w metodzie RunAsync w klasie pochodnej RoleEntryPoint roli procesu roboczego. (Zignorować ostrzeżenie dotyczące metody uruchomiona synchronicznie).
 
-        private async Task RunAsync(CancellationToken cancellationToken)
-        {
-            // TODO: Replace the following with your own logic.
-            while (!cancellationToken.IsCancellationRequested)
-            {
-                Trace.TraceInformation("Working");
-                Concatenator.Concatenate(10000);
-            }
-        }
+```csharp
+private async Task RunAsync(CancellationToken cancellationToken)
+{
+    // TODO: Replace the following with your own logic.
+    while (!cancellationToken.IsCancellationRequested)
+    {
+        Trace.TraceInformation("Working");
+        Concatenator.Concatenate(10000);
+    }
+}
+```
 
 Tworzenie i uruchamianie usługi w chmurze lokalnie bez debugowania (Ctrl + F5) z konfiguracją rozwiązania ustawioną **wersji**. Dzięki temu, że wszystkie pliki i foldery są tworzone dla aplikacji uruchomionej na komputerze lokalnym i zapewnia, że są uruchomione te emulatory. Uruchom interfejs użytkownika emulatora obliczeń z poziomu paska zadań, aby sprawdzić, czy działa swojej roli procesu roboczego.
 
@@ -88,9 +92,11 @@ W przypadku folderu projektu na dysku sieciowym, profilera zostanie wyświetlony
  Możesz także dołączyć do roli sieci web przez dołączenie do WaIISHost.exe.
 Jeśli istnieje wiele procesów roli procesu roboczego w aplikacji, należy użyć processID, aby odróżnić je. ProcessID można badać programowo, uzyskując dostęp do obiektu procesu. Na przykład jeśli dodasz ten kod do metody Run klas pochodnych po RoleEntryPoint w roli można przyjrzeć się zaloguj interfejs użytkownika emulatora obliczeń wiedzieć, jakie procesy, aby nawiązać połączenie.
 
-    var process = System.Diagnostics.Process.GetCurrentProcess();
-    var message = String.Format("Process ID: {0}", process.Id);
-    Trace.WriteLine(message, "Information");
+```csharp
+var process = System.Diagnostics.Process.GetCurrentProcess();
+var message = String.Format("Process ID: {0}", process.Id);
+Trace.WriteLine(message, "Information");
+```
 
 Aby wyświetlić dziennik, uruchom interfejs użytkownika emulatora obliczeń.
 
@@ -126,16 +132,18 @@ Jeśli dodano kod łączenia ciągu w tym artykule, w tym powinna zostać wyświ
 ## <a name="4-make-changes-and-compare-performance"></a>4: wprowadź zmiany i porównanie wydajności
 Można także porównać wydajności przed i po zmianie kodu.  Zatrzymaj uruchomionego procesu, a następnie Edytuj kod, aby zastąpić ciąg operacji łączenia z użyciem klasy StringBuilder:
 
-    public static string Concatenate(int number)
+```csharp
+public static string Concatenate(int number)
+{
+    int count;
+    System.Text.StringBuilder builder = new System.Text.StringBuilder("");
+    for (count = 0; count < number; count++)
     {
-        int count;
-        System.Text.StringBuilder builder = new System.Text.StringBuilder("");
-        for (count = 0; count < number; count++)
-        {
-             builder.Append("\n" + count.ToString());
-        }
-        return builder.ToString();
+        builder.Append("\n" + count.ToString());
     }
+    return builder.ToString();
+}
+```
 
 Czy inne uruchomienie wydajności, a następnie porównaj wydajność. W Eksploratorze wydajności, jeśli działa znajdują się w tej samej sesji można po prostu wybraniu obu raportów, otwórz menu skrótów i **raporty porównanie wydajności**. Do porównania z uruchomiony w innej sesji wydajności, należy otworzyć **Analizuj** menu i wybierz polecenie **raporty porównanie wydajności**. Określ oba pliki, w wyświetlonym oknie dialogowym.
 

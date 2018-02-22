@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 81602766848a91331c8d811ea1c8ec3ffae44b96
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a59ea7c9e111f8ae5b0d9bd620faa5495c3924b7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-network-using-an-azure-resource-manager-template"></a>Utwórz sieć wirtualną przy użyciu szablonu usługi Azure Resource Manager
 
@@ -39,9 +39,9 @@ W tym artykule wyjaśniono, jak utworzyć sieć wirtualną przy użyciu modelu w
 - [PowerShell (klasyczny)](virtual-networks-create-vnet-classic-netcfg-ps.md)
 - [Interfejs wiersza polecenia (klasyczny)](virtual-networks-create-vnet-classic-cli.md)
 
-Dowiesz się, jak pobrać i zmodyfikować istniejący szablon usługi ARM z serwisu GitHub oraz jak wdrożyć szablon przy użyciu serwisu GitHub, programu PowerShell i interfejsu wiersza polecenie platformy Azure.
+Dowiedz się, jak pobrać i zmodyfikować i istniejącego szablonu usługi Azure Resource Manager z usługi GitHub i wdrożyć szablon przy użyciu serwisu GitHub, programu PowerShell i interfejsu wiersza polecenia Azure.
 
-Jeśli po prostu wdrażasz szablon usługi ARM bezpośrednio z serwisu GitHub, bez wprowadzania żadnych zmian, przejdź do artykułu na temat [wdrażania szablonu z serwisu GitHub](#deploy-the-arm-template-by-using-click-to-deploy).
+Jeśli po prostu wdrażasz szablon usługi Azure Resource Manager bezpośrednio z serwisu GitHub, bez wprowadzania żadnych zmian, przejdź do [wdrażania szablonu z serwisu github](#deploy-the-arm-template-by-using-click-to-deploy).
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
@@ -52,11 +52,11 @@ Możesz pobrać istniejący szablon do tworzenia sieci wirtualnej z dwoma podsie
 2. Kliknij opcję **azuredeploy.json**, a następnie kliknij opcję **RAW**.
 3. Zapisz plik do folderu lokalnego na komputerze.
 4. Jeśli znasz szablony, przejdź do kroku 7.
-5. Otwórz zapisany plik i przyjrzyj się zawartości sekcji **parameters** w wierszu 5. Parametry szablonu ARM zawierają symbole zastępcze wartości, które mogą zostać wypełnione podczas wdrażania.
+5. Otwórz zapisany plik i przyjrzyj się zawartości sekcji **parametry** w wierszu 5. Parametry szablonu usługi Azure Resource Manager zawierają symbole zastępcze wartości, które można wypełnić podczas wdrażania.
    
    | Parametr | Opis |
    | --- | --- |
-   | **location** |Region platformy Azure, w której zostanie utworzona sieć wirtualna |
+   | **location** |Region platformy Azure, w którym utworzona sieć wirtualna |
    | **vnetName** |Nazwa nowej sieci wirtualnej |
    | **addressPrefix** |Przestrzeń adresowa sieci wirtualnej w formacie CIDR |
    | **subnet1Name** |Nazwa pierwszej sieci wirtualnej |
@@ -71,7 +71,7 @@ Możesz pobrać istniejący szablon do tworzenia sieci wirtualnej z dwoma podsie
 6. Sprawdź zawartość w obszarze **resources**, w szczególności następujące pozycje:
    
    * **type**. Typ zasobu tworzonego przez szablon. W tym przypadku jest to **Microsoft.Network/virtualNetworks** reprezentujący sieć wirtualną.
-   * **name**. Nazwa zasobu. Zwróć uwagę na pozycję **[parameters('vnetName')]**, co oznacza nazwę podaną przez użytkownika jako dane wejściowe lub zawartą w pliku parametrów podczas wdrażania.
+   * **name**. Nazwa zasobu. Zwróć uwagę na **[parameters('vnetName')]**, co oznacza, że nazwa podana jako dane wejściowe użytkownika lub pliku parametrów podczas wdrażania.
    * **properties**. Lista właściwości zasobu. Ten szablon używa właściwości przestrzeni adresowej i podsieci podczas tworzenia sieci wirtualnej.
 7. Przejdź z powrotem do [strony przykładowego szablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets).
 8. Kliknij opcję **azuredeploy-paremeters.json**, a następnie kliknij opcję **RAW**.
@@ -231,7 +231,7 @@ Można ponownie użyć wstępnie zdefiniowanych szablonów usługi Azure Resourc
    
     ![Przesyłanie kafelka wdrażania w portalu w wersji zapoznawczej](./media/virtual-networks-create-vnet-arm-template-click-include/figure4.png)
 
-10. Po zakończeniu wdrażania, w portalu Azure kliknij **więcej usług**, typ *sieci wirtualnych* w wyświetlonym oknie filtru kliknięcie sieci wirtualnych, aby zobaczyć bloku sieci wirtualnej. W bloku, kliknij *TestVNet*. W *TestVNet* bloku, kliknij przycisk **podsieci** wyświetlić utworzony podsieci, jak pokazano na poniższej ilustracji:
+10. Po zakończeniu wdrażania, w portalu Azure kliknij **wszystkie usługi**, typ *sieci wirtualnych* w wyświetlonym oknie filtru kliknięcie sieci wirtualnych, aby zobaczyć bloku sieci wirtualnej. W bloku, kliknij *TestVNet*. W *TestVNet* bloku, kliknij przycisk **podsieci** wyświetlić utworzony podsieci, jak pokazano na poniższej ilustracji:
     
      ![Tworzenie sieci wirtualnej w portalu w wersji zapoznawczej](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.png)
 

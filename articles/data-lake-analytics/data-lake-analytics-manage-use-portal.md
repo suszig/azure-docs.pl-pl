@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-ms.openlocfilehash: e49d1a0e0ccc6567d0a6841817667717ff5dba76
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 15b3b44e45a59f44bd9bbd96dce867cc87fa410c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-azure-data-lake-analytics-by-using-the-azure-portal"></a>Zarządzanie usługą Azure Data Lake Analytics przy użyciu portalu Azure
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -30,10 +30,10 @@ Dowiedz się, jak zarządzanie kontami, źródłami danych konta, użytkowników
 
 ## <a name="manage-data-lake-analytics-accounts"></a>Zarządzanie kontami usługi Data Lake Analytics
 
-### <a name="create-an-account"></a>Tworzenie konta usługi
+### <a name="create-an-account"></a>Tworzenie konta
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. Kliknij przycisk **Nowy** > **Zbieranie danych i analiza** > **Data Lake Analytics**.
+2. Kliknij przycisk **Utwórz zasób** > **analizy i analiza** > **usługi Data Lake Analytics**.
 3. Wybierz wartości dla następujących elementów: 
    1. **Nazwa**: Nazwa konta usługi Data Lake Analytics.
    2. **Subskrypcja**: używane jako konto subskrypcji Azure.
@@ -78,7 +78,7 @@ Data Lake Analytics do dalszego blokowania dostępu służy do swojego konta us�
 
 Jeśli połączenie innymi usługami Azure, takich jak fabryki danych Azure lub maszyn wirtualnych, do konta usługi Data Lake Analytics, upewnij się, że **Zezwalaj usług Azure** włączono **na**. 
 
-### <a name="set-up-a-firewall-rule"></a>Konfigurowanie reguł zapory
+### <a name="set-up-a-firewall-rule"></a>Konfigurowanie reguły zapory
 
 1. W portalu Azure przejdź do swojego konta usługi Data Lake Analytics.
 2. W menu po lewej stronie kliknij **zapory**.
@@ -248,7 +248,7 @@ Brak domyślnych zasad ustawić dla każdego konta. Domyślna zasada ma zastosow
 * [Wpis w blogu zasad na poziomie konta](https://blogs.msdn.microsoft.com/azuredatalake/2017/06/08/managing-your-azure-data-lake-analytics-compute-resources-account-level-policy/)
 * [Zasady na poziomie zadania wpis w blogu](https://blogs.msdn.microsoft.com/azuredatalake/2017/06/08/managing-your-azure-data-lake-analytics-compute-resources-job-level-policy/)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Omówienie usługi Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Rozpoczynanie pracy z usługą Data Lake Analytics przy użyciu portalu Azure](data-lake-analytics-get-started-portal.md)

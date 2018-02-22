@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 01/25/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 264dc38383b9adad70325f7fb7802b1dcf2da1c0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 61100b9786245204502686a47e5aae2a6d210259
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-network-using-the-azure-portal"></a>Tworzenie sieci wirtualnej przy użyciu witryny Azure Portal
 
@@ -102,7 +102,7 @@ Aby sprawdzić poprawność komunikację z *myVm2*, wprowadź następujące pole
 mstsc /v:myVm2
 ```
 
-Podłączanie pulpitu zdalnego zakończy się pomyślnie, ponieważ obie maszyny wirtualne mają przypisane z prywatnych adresów IP *domyślne* podsieci i dlatego pulpitu zdalnego jest otwarty przez zaporę systemu Windows, domyślnie. Możesz połączyć się z *myVm2* przez hosta o nazwie, ponieważ platforma Azure automatycznie udostępnia rozpoznawanie nazw DNS dla wszystkich hostów w sieci wirtualnej. W wierszu polecenia polecenie ping Mój *myVm1*, z *myVm2*.
+Podłączanie pulpitu zdalnego zakończy się pomyślnie, ponieważ obie maszyny wirtualne mają przypisane z prywatnych adresów IP *domyślne* podsieci i dlatego pulpitu zdalnego jest otwarty przez zaporę systemu Windows, domyślnie. Możesz połączyć się z *myVm2* przez hosta o nazwie, ponieważ platforma Azure automatycznie udostępnia rozpoznawanie nazw DNS dla wszystkich hostów w sieci wirtualnej. W wierszu polecenia polecenie ping *myVm1*, z *myVm2*.
 
 ```
 ping myvm1

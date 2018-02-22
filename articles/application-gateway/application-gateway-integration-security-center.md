@@ -15,15 +15,15 @@ ms.custom:
 ms.workload: infrastructure-services
 ms.date: 06/07/2017
 ms.author: davidmu
-ms.openlocfilehash: e0ae5d797a2a502cceeb1be20af4953f16f1320a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 68d4f9cb5fc9c9f15a355d9fdade922889d2aa30
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>Omówienie integracji między bramą aplikacji i Centrum zabezpieczeń Azure
 
-Dowiedz się, jak bramy aplikacji i Centrum zabezpieczeń pomaga chronić zasobów aplikacji sieci web. Zapora aplikacji sieci web dla aplikacji bramy (WAF) integruje się z [Centrum zabezpieczeń](../security-center/security-center-intro.md) w celu zapewnienia bezproblemowego przeglądu zapobiegające, wykrywania i reagowania na zagrożenia do aplikacji sieci web niechronione w danym środowisku.
+Dowiedz się, jak bramy aplikacji i Centrum zabezpieczeń pomaga chronić zasobów aplikacji sieci web. Zapora aplikacji sieci web dla aplikacji bramy (WAF) integruje się z [Centrum zabezpieczeń](../security-center/security-center-intro.md) bezproblemowe widoku, aby zapobiec, wykrywania i reagowania na zagrożenia do aplikacji sieci web niechronione w danym środowisku.
 
 ## <a name="overview"></a>Przegląd
 
@@ -31,35 +31,35 @@ Bramy aplikacji zapory aplikacji sieci Web jest zalecenia w Centrum zabezpiecze�
 
 ![Integracja z Centrum zabezpieczeń][1]
 
-Klikając przycisk żadnych zaleceń dotyczących zapory aplikacji sieci web są otwierane w nowym bloku zawierającego szczegóły zalecenia.
+Klikając przycisk żadnych zaleceń, że dotyczące zapory aplikacji sieci web otwiera nową stronę zawierającego szczegóły zalecenia.
 
 ## <a name="add-a-web-application-firewall-to-an-existing-resource"></a>Dodawanie zapory aplikacji sieci web do istniejącego zasobu
 
-Przejdź do **więcej usług** > **bezpieczeństwo i Obsługa tożsamości** > **Centrum zabezpieczeń** i na **Centrum zabezpieczeń — omówienie**  bloku, kliknij przycisk **aplikacji**. Na **Centrum zabezpieczeń — aplikacje** bloku, tabela zawiera listę aplikacji, wykrytych przez Centrum zabezpieczeń w ramach subskrypcji.
+Przejdź do **wszystkie usługi** > **bezpieczeństwo i Obsługa tożsamości** > **Centrum zabezpieczeń** i na **Centrum zabezpieczeń — omówienie**, kliknij przycisk **aplikacji**. Na **Centrum zabezpieczeń — aplikacje**, tabela zawiera listę aplikacji, wykrytych przez Centrum zabezpieczeń w ramach subskrypcji.
 
 ![aplikacje sieci Web][3]
 
-Klikając aplikacji sieci web z krytyczny problem, możesz uzyskać **kondycja zabezpieczeń aplikacji** bloku. Na poniższej ilustracji, aplikacji sieci web, która nie jest chroniony przez zapory aplikacji sieci web. 
+Klikając aplikacji sieci web z krytyczny problem, możesz uzyskać **kondycja zabezpieczeń aplikacji** strony. Na poniższej ilustracji, aplikacji sieci web, która nie jest chroniony przez zapory aplikacji sieci web. 
 
 ![zasoby sieci Web, które nie są chronione][2]
 
-Kliknij przycisk **Dodawanie zapory aplikacji sieci web** w obszarze **zalecenia** otworzyć **Dodawanie zapory aplikacji sieci Web** bloku.
+Kliknij przycisk **Dodawanie zapory aplikacji sieci web** w obszarze **zalecenia** otworzyć **Dodawanie zapory aplikacji sieci Web** strony.
 
-Jeśli nie masz istniejącą bramę aplikacji lub chcesz utworzyć nową, kliknij przycisk **Utwórz nowy** i na **Tworzenie nowej zapory aplikacji sieci Web** bloku, a następnie kliknij przycisk **Microsoft - aplikacji Brama**. Powoduje to przejście kroki, aby utworzyć bramę aplikacji. W tym momencie aplikacji sieci web jest dodawany jako zasobu chronionego, Centrum zabezpieczeń teraz śledzi, że ten zasób jest chroniony przez zapory aplikacji sieci web. To nie Dodaj jako członka puli wewnętrznej bazy danych.
+Jeśli nie masz istniejącą bramę aplikacji lub chcesz utworzyć nową, kliknij przycisk **Utwórz nowy** i na **Tworzenie nowej zapory aplikacji sieci Web**i kliknij przycisk **Microsoft - bramy aplikacji** . Powoduje to przejście kroki, aby utworzyć bramę aplikacji. W tym momencie aplikacji sieci web jest dodawany jako zasobu chronionego, Centrum zabezpieczeń teraz śledzi, że ten zasób jest chroniony przez zapory aplikacji sieci web. To nie Dodaj jako członka puli wewnętrznej bazy danych.
 
 Jeśli masz istniejącą bramę aplikacji, można go w **użyć istniejącego rozwiązania**
 
-![Blok dodawania zapory aplikacji sieci Web][4]
+![Strona Dodawanie zapory aplikacji sieci Web][4]
 
-Dodawanie aplikacji sieci web do bramy aplikacji za pomocą Centrum zabezpieczeń nie powoduje dodania zasobu jako członka puli wewnętrznej bazy danych, to należy wykonać w zasobu bramy aplikacji bezpośrednio.
+Dodawanie aplikacji sieci web do bramy aplikacji za pomocą Centrum zabezpieczeń nie dodaje zasobu jako członka puli wewnętrznej bazy danych. Musi to dla zasobu bramy aplikacji bezpośrednio.
 
 ## <a name="add-a-resource-to-an-existing-web-application-firewall"></a>Dodaj zasób do istniejących zapory aplikacji sieci web
 
-Przejdź do **więcej usług** > **bezpieczeństwo i Obsługa tożsamości** > **Centrum zabezpieczeń** i na **Centrum zabezpieczeń — omówienie**  bloku, kliknij przycisk **rozwiązania partnerskie**. Pokaż istniejącej bramy aplikacji obsługującej Centrum zabezpieczeń w **rozwiązań partnerskich** bloku.
+Przejdź do **wszystkie usługi** > **bezpieczeństwo i Obsługa tożsamości** > **Centrum zabezpieczeń** i na **Centrum zabezpieczeń — omówienie**, kliknij przycisk **rozwiązania partnerskie**. Pokaż istniejącej bramy aplikacji obsługującej Centrum zabezpieczeń w **rozwiązań partnerskich** strony.
 
 ![rozwiązania partnerskie][7]
 
-Kliknij przycisk **Połącz aplikację** otworzyć **łączenie aplikacji** bloku, w tym miejscu można skorzystać opcji, aby wybrać istniejące aplikacje. Wybierz aplikacje do ochrony i kliknij przycisk **OK**. Nie dodaje aplikacji sieci web do puli zaplecza bramy aplikacji. Zasoby to ustawienie jako chroniony zasób, Centrum zabezpieczeń można śledzić. Aby dodać zasobu jako członka puli wewnętrznej bazy danych, należy to zrobić na bramie aplikacji w bieżącym bloku można kliknąć **Konsola rozwiązań** podjąć w celu zasobu bramy aplikacji, którym można dodać aplikacji sieci web Pula zaplecza.
+Kliknij przycisk **Połącz aplikację** otworzyć **łączenie aplikacji**, w tym miejscu są podane opcji, aby wybrać istniejące aplikacje. Wybierz aplikacje do ochrony i kliknij przycisk **OK**. Nie dodaje aplikacji sieci web do puli zaplecza bramy aplikacji. Zasoby to ustawienie jako chroniony zasób, Centrum zabezpieczeń można śledzić. Aby dodać zasobu jako członka puli wewnętrznej bazy danych, należy to zrobić na bramie aplikacji, z bieżącej strony, możesz kliknąć **Konsola rozwiązań** podjąć w celu zasobu bramy aplikacji, którym można dodać aplikacji sieci web Pula zaplecza.
 
 ![aplikacje rozwiązania partnerskie][6]
 
@@ -67,7 +67,7 @@ Kliknij przycisk **Połącz aplikację** otworzyć **łączenie aplikacji** blok
 
 Centrum zabezpieczeń śledzi aplikacji dodanych do bramy aplikacji jako chronionego zasobu.  Monitoruje kondycję tego zasobu i zapewnia, że jest chroniony przez bramę aplikacji. Następnym krokiem jest dodawanie prywatnego adresu IP, publiczny adres IP lub karty Sieciowej maszyny wirtualnej do puli zaplecza bramy aplikacji. Dopóki nie jest to dodatkowe zalecenia **Finalizuj ochronę aplikacji** jest wyświetlany, dopóki zasób nie zostanie dodany.
 
-![Blok dodawania zapory aplikacji sieci Web][5]
+![Strona Dodawanie zapory aplikacji sieci Web][5]
 
 ## <a name="security-alerts"></a>Alerty zabezpieczeń
 

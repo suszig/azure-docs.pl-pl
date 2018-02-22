@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: cjiang
-ms.openlocfilehash: cd6103924571ea6fee0cb1e696884a6106082d7a
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 8279bc2ba2032ee40d24ddb1f7f23e2725e56e7c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="sign-up-for-an-office-365-subscription-with-your-azure-account"></a>Załóż subskrypcji usługi Office 365 z Twoim kontem platformy Azure
 Jeśli jest to Twoja subskrypcja platformy Azure, można użyć konta platformy Azure w celu uzyskania subskrypcji usługi Office 365. W przypadku części organizacji, która ma subskrypcji platformy Azure, można utworzyć subskrypcji usługi Office 365 dla użytkowników w istniejącej Azure usługi Active Directory (Azure AD). Utwórz konto usługi Office 365 przy użyciu konta mającego uprawnienia administratora globalnego lub administratorem rozliczeń w dzierżawie usługi Azure Active Directory. Aby uzyskać więcej informacji, zobacz [Sprawdź uprawnienia Moje konto w usłudze Azure AD](#RoleInAzureAD) i [przypisywanie ról administratorów w usłudze Azure Active Directory](../active-directory/active-directory-assign-admin-roles-azure-portal.md).
@@ -53,7 +53,7 @@ Po utworzeniu konta subskrypcji usługi Office 365 jest dodawany do tego samego 
 
 ## <a id="RoleInAzureAD"></a>Sprawdź uprawnienia Moje konto w usłudze Azure AD
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-2. Kliknij przycisk **więcej usług**, a następnie wyszukaj **usługi Active Directory**.
+2. Kliknij przycisk **wszystkie usługi**, a następnie wyszukaj **usługi Active Directory**.
 
     ![Zrzut ekranu z usługi Active Directory w portalu Azure](./media/billing-use-existing-azure-account-office-365-subscription/billing-more-services-active-directory.png)
 3. Kliknij przycisk **użytkowników i grup** > **wszyscy użytkownicy**.

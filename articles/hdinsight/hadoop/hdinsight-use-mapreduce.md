@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: ad12dee2eb01f839db07985fcb0805bf961354cc
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: bfd176aaf02dd96cee8877f1754dd0ce7ebded13
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-mapreduce-in-hadoop-on-hdinsight"></a>Korzystać z usługi MapReduce w Hadoop w usłudze HDInsight
 
@@ -30,11 +30,11 @@ Informacje o sposobie uruchamiania zadań MapReduce na klastrach usługi HDInsig
 |:--- |:--- |:--- |:--- |
 | [SSH](apache-hadoop-use-mapreduce-ssh.md) |Użyj polecenia Hadoop za pomocą **SSH** |Linux |Linux, Unix, Mac OS X lub systemu Windows |
 | [REST](apache-hadoop-use-mapreduce-curl.md) |Przesłać zadanie zdalnie przy użyciu **REST** (przykłady użycia cURL) |Linux lub Windows |Linux, Unix, Mac OS X lub systemu Windows |
-| [Środowisko Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Przesłać zadanie zdalnie przy użyciu **środowiska Windows PowerShell** |Linux lub Windows |Windows |
-| [Pulpit zdalny](apache-hadoop-use-mapreduce-remote-desktop.md) (HDInsight 3.2 i 3.3) |Użyj polecenia Hadoop za pomocą **pulpitu zdalnego** |Windows |Windows |
+| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Przesłać zadanie zdalnie przy użyciu **środowiska Windows PowerShell** |Linux lub Windows |Windows |
 
 > [!IMPORTANT]
 > Linux jest jedynym systemem operacyjnym używanym w połączeniu z usługą HDInsight w wersji 3.4 lub nowszą. Aby uzyskać więcej informacji, zobacz sekcję [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Wycofanie usługi HDInsight w systemie Windows).
+>
 
 ## <a id="whatis"></a>Co to jest MapReduce
 
@@ -46,7 +46,7 @@ MapReduce z Hadoop to platforma oprogramowania do zapisywania zadania, które pr
 
 Na poniższym diagramie przedstawiono w przykładzie zadania MapReduce liczba podstawowe programu word:
 
-![HDI. WordCountDiagram][image-hdi-wordcountdiagram]
+![HDI.WordCountDiagram][image-hdi-wordcountdiagram]
 
 Dane wyjściowe tego zadania jest liczba ile razy każdego wyrazu wystąpił w tekście.
 
@@ -166,9 +166,8 @@ HDInsight można uruchamiać zadania HiveQL przy użyciu różnych metod. Skorzy
 | **Użyj tej**... | **. Aby to zrobić** | ...zwykle to **systemu operacyjnego klastra** | ...from to **system operacyjny klienta** |
 |:--- |:--- |:--- |:--- |
 | [SSH](apache-hadoop-use-mapreduce-ssh.md) |Użyj polecenia Hadoop za pomocą **SSH** |Linux |Linux, Unix, Mac OS X lub systemu Windows |
-| [Narzędzie curl](apache-hadoop-use-mapreduce-curl.md) |Przesłać zadanie zdalnie przy użyciu **REST** |Linux lub Windows |Linux, Unix, Mac OS X lub systemu Windows |
-| [Środowisko Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Przesłać zadanie zdalnie przy użyciu **środowiska Windows PowerShell** |Linux lub Windows |Windows |
-| [Pulpit zdalny](apache-hadoop-use-mapreduce-remote-desktop.md) (HDInsight 3.2 i 3.3) |Użyj polecenia Hadoop za pomocą **pulpitu zdalnego** |Windows |Windows |
+| [Curl](apache-hadoop-use-mapreduce-curl.md) |Przesłać zadanie zdalnie przy użyciu **REST** |Linux lub Windows |Linux, Unix, Mac OS X lub systemu Windows |
+| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Przesłać zadanie zdalnie przy użyciu **środowiska Windows PowerShell** |Linux lub Windows |Windows |
 
 > [!IMPORTANT]
 > Linux jest jedynym systemem operacyjnym używanym w połączeniu z usługą HDInsight w wersji 3.4 lub nowszą. Aby uzyskać więcej informacji, zobacz sekcję [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Wycofanie usługi HDInsight w systemie Windows).

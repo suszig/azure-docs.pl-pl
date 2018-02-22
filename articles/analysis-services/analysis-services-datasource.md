@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 5ba7ef5aa2cccad7cda3cb39459a5a5722516524
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 33115ee35670407c3b046f70a5fbebc47284b4b9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Źródła danych obsługiwane w usłudze Azure Analysis Services
 Azure serwery usług Analysis Services obsługują połączenia ze źródłami danych w chmurze i lokalnie w Twojej organizacji. Dodatkowe obsługiwanych źródeł danych są dodawane przez cały czas. Zaglądaj tu. 
@@ -28,22 +28,22 @@ Obecnie obsługiwane są następujące źródła danych:
 
 | Chmura  |
 |---|
-| Magazyn obiektów Blob platformy Azure *  |
-| Usługa Azure SQL Database  |
+| Azure Blob Storage*  |
+| Azure SQL Database  |
 | Magazyn danych Azure |
 
 
 | Lokalnie  |   |   |   |
 |---|---|---|---|
-| Dostępu do bazy danych  | Folder * | Baza danych Oracle  | Baza danych programu Teradata |
+| Dostępu do bazy danych  | Folder* | Baza danych Oracle  | Baza danych programu Teradata |
 | Active Directory *  | Dokument JSON *  | Baza danych Postgre SQL *  |Tabela XML * |
 | Analysis Services  | Wiersze z danych binarnych *  | SAP HANA *  |
 | Analytics Platform System  | Baza danych MySQL  | SAP Business Warehouse *  | |
-| Dynamics CRM *  | Źródła danych OData *  | SharePoint *  |
+| Dynamics CRM*  | Źródła danych OData *  | SharePoint*  |
 | Skoroszyt programu Excel  | Zapytanie ODBC  | SQL Database  |
-| Exchange *  | OLE DB  | Baza danych programu Sybase  |
+| Exchange*  | OLE DB  | Baza danych programu Sybase  |
 
-\*Tylko modele w 1400 tabelarycznych. 
+\* Tylko modele w 1400 tabelarycznych. 
 
 > [!IMPORTANT]
 > Łączenie ze źródłami danych lokalnych wymagają [bramy danych lokalnych](analysis-services-gateway.md) zainstalowany na komputerze w danym środowisku.
@@ -57,13 +57,13 @@ W przypadku modeli danych, które nawiązania połączenia danych w chmurze źr�
 Następujący dostawcy źródła danych są obsługiwane w pamięci lub modeli danych zapytania bezpośredniego, podczas nawiązywania połączenia ze źródłami danych w chmurze lub lokalne:
 
 ### <a name="cloud"></a>Chmura
-| **Źródło danych** | **W pamięci** | **Zapytania bezpośredniego** |
+| **Źródło danych** | **W pamięci** | **DirectQuery** |
 |  --- | --- | --- |
 | Azure SQL Data Warehouse |.NET framework Data Provider for SQL Server |.NET framework Data Provider for SQL Server |
-| Usługa Azure SQL Database |.NET framework Data Provider for SQL Server |.NET framework Data Provider for SQL Server | |
+| Azure SQL Database |.NET framework Data Provider for SQL Server |.NET framework Data Provider for SQL Server | |
 
 ### <a name="on-premises-via-gateway"></a>Lokalne (za pośrednictwem bramy)
-|**Źródło danych** | **W pamięci** | **Zapytania bezpośredniego** |
+|**Źródło danych** | **W pamięci** | **DirectQuery** |
 |  --- | --- | --- |
 | Oprogramowanie SQL Server |SQL Server Native Client 11.0 |.NET framework Data Provider for SQL Server |
 | Oprogramowanie SQL Server |Dostawca Microsoft OLE DB dla programu SQL Server |.NET framework Data Provider for SQL Server | |
@@ -99,7 +99,7 @@ Dla źródeł danych w chmurze:
 
 * Jeśli uwierzytelnianie SQL personifikacji powinna być konta usługi.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Jeśli masz lokalnych źródeł danych, należy zainstalować [brama lokalna](analysis-services-gateway.md).   
 Aby dowiedzieć się więcej na temat zarządzania serwerem w SSDT lub SSMS, zobacz [Zarządzanie serwerem](analysis-services-manage.md).
 

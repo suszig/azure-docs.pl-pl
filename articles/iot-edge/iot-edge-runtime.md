@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 10/05/2017
+ms.date: 02/15/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4727560df897f6c1a0aaa6d7f5d4e1c76fc02a46
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 7515f6b2e074c33488fc44768705896d7c9d8ce6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture---preview"></a>Zrozumienie środowiska uruchomieniowego Azure IoT Edge i jego architektura - preview
 
@@ -64,14 +64,18 @@ Koncentrator krawędzi umożliwia komunikację modułu do modułu. Przy użyciu 
 
 Aby wysyłać dane do Centrum krawędzi, moduł wywołuje metodę SendEventAsync. Pierwszy argument określa, w których dane wyjściowe do wysłania tej wiadomości. Następujące pseudocode wysyła komunikat na output1:
 
-    DeviceClient client = new DeviceClient.CreateFromConnectionString(moduleConnectionString, settings); 
-    await client.OpenAsync(); 
-    await client.SendEventAsync(“output1”, message); 
+   ```csharp
+   DeviceClient client = new DeviceClient.CreateFromConnectionString(moduleConnectionString, settings); 
+   await client.OpenAsync(); 
+   await client.SendEventAsync(“output1”, message); 
+   ```
 
 Aby komunikat o błędzie, należy zarejestrować wywołania zwrotnego, który przetwarza wiadomości przychodzących na określone dane wejściowe. Następujące pseudocode rejestruje messageProcessor funkcji przeznaczonych do przetwarzania wszystkich komunikatów odebranych na input1:
 
-    await client.SetEventHandlerAsync(“input1”, messageProcessor, userContext);
-    
+   ```csharp
+   await client.SetEventHandlerAsync(“input1”, messageProcessor, userContext);
+   ```
+
 Deweloper rozwiązania jest odpowiedzialny za określenie reguł określających sposób Centrum krawędzi przekazuje wiadomości między modułami. Reguły routingu są zdefiniowane w chmurze i przesuwana Centrum krawędzi w jego dwie urządzenia. Taka sama składnia dla tras Centrum IoT służy do definiowania tras między modułami w programie Azure IoT Edge. 
 
 <!--- For more info on how to declare routes between modules, see []. --->   
@@ -86,13 +90,13 @@ Aby rozpocząć wykonywania agenta krawędzi, uruchom polecenie start azure-iot-
 
 Każdy element w słowniku modułów zawiera informacje na temat modułu i jest używana przez agenta krawędzi kontroli cyklu życia modułu. Niektóre z bardziej interesującego właściwości to: 
 
-* **Settings.Image** — obraz kontenera, który używa krawędź agent można uruchomić modułu. Musi być skonfigurowany agent krawędzi przy użyciu poświadczeń dla kontenera rejestru, jeśli obraz jest chroniony hasłem. Aby skonfigurować agenta krawędzi, użyj następującego polecenia:`azure-iot-edge-runtime-ctl.py –configure`
+* **Settings.Image** — obraz kontenera, który używa krawędź agent można uruchomić modułu. Musi być skonfigurowany agent krawędzi przy użyciu poświadczeń dla kontenera rejestru, jeśli obraz jest chroniony hasłem. Aby skonfigurować agenta krawędzi, użyj następującego polecenia: `azure-iot-edge-runtime-ctl.py –configure`
 * **settings.createOptions** — ciąg, który jest przekazywany bezpośrednio do demona Docker podczas uruchamiania modułu kontenera. Umożliwia dodanie opcji Docker w tej właściwości zaawansowane opcje, takie jak port przekazywania lub instalowanie woluminów do kontenera modułu.  
 * **Stan** — stan, w którym agent krawędzi umieszcza modułu. Ta wartość jest zazwyczaj równa *systemem* większość użytkowników ma agenta krawędzi, aby natychmiast uruchomić wszystkie moduły na urządzeniu. Można jednak określić początkowy stan modułu, aby zostać zatrzymane i poczekaj, aż przyszłości mówić krawędź agent można uruchomić modułu. Agent krawędzi raportuje stan każdego modułu ją z chmurą we właściwościach zgłoszony. Różnica między żądanej właściwości, a właściwość zgłoszone jest wskaźnik lub zachowania urządzeń. Dostępne są następujące stany obsługiwane:
    * Pobieranie
    * Działa
    * W złej kondycji
-   * Błąd
+   * Niepowodzenie
    * Zatrzymane
 * **restartPolicy** — jak moduł ponowne uruchomienie agenta krawędzi. Możliwe wartości obejmują:
    * Nigdy nie — agent krawędzi nigdy nie uruchamia ponownie moduł.

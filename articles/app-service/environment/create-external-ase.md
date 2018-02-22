@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: e1beb06301807c35a1b070989a0f80f4c8097762
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 439fadeb01ccad58642492eb49ef25f866a9a9dd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-external-app-service-environment"></a>Tworzenie środowiska usługi aplikacji zewnętrznych #
 
@@ -59,7 +59,7 @@ Plan usługi aplikacji to kontener aplikacji. Po utworzeniu aplikacji w usłudze
 
 Aby utworzyć ASE podczas tworzenia planu usługi aplikacji:
 
-1. W [portalu Azure](https://portal.azure.com/), wybierz pozycję **nowy** > **sieci Web i mobilność** > **aplikacji sieci Web**.
+1. W [portalu Azure](https://portal.azure.com/), wybierz pozycję **Utwórz zasób** > **sieci Web i mobilność** > **aplikacji sieci Web**.
 
     ![Tworzenie aplikacji sieci Web][1]
 
@@ -97,7 +97,7 @@ Aby utworzyć ASE podczas tworzenia planu usługi aplikacji:
 
 Tworzenie autonomicznych ASE, nie ma nic w nim. Pusty ASE nadal wiąże miesięcznych opłat infrastruktury. Wykonaj poniższe kroki tworzenia ASE z ILB lub utworzyć ASE w jego własnej grupy zasobów. Po utworzeniu sieci ASE mogą tworzyć aplikacje w nim przy użyciu standardowego procesu. Twoje nowe ASE wybierz jako lokalizację.
 
-1. Wyszukiwanie Azure Marketplace w celu **środowiska usługi aplikacji**, lub wybierz **nowy** > **Web Mobile** > **środowiska usługi aplikacji**. 
+1. Wyszukiwanie Azure Marketplace w celu **środowiska usługi aplikacji**, lub wybierz **Utwórz zasób** > **Web Mobile** > **aplikacji Usługi środowiska**. 
 
 2. Wprowadź nazwę użytkownika ASE. Ta nazwa jest używana na potrzeby aplikacji utworzonych w ASE. Jeśli nazwa jest *mynewdemoase*, nazwa domeny podrzędnej jest *. mynewdemoase.p.azurewebsites.net*. Jeśli tworzysz aplikację o nazwie *mytestapp*, jest adresowanego na mytestapp.mynewdemoase.p.azurewebsites.net. Nie można użyć biały znak w nazwie. Jeśli używasz wielkich liter, nazwa domeny jest całkowita małe wersja nazwy. Jeśli używasz ILB, nazwę ASE nie jest używana w Twojej domeny podrzędnej, ale zamiast tego jest jasno określone podczas tworzenia ASE.
 

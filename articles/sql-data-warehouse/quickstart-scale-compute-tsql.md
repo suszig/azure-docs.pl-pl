@@ -14,15 +14,15 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 01/31/2018
 ms.author: elbutter;barbkess
-ms.openlocfilehash: 9d6ecd53fc034fd7014b17c98f1c5a99088723fe
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: f984f9b348f589e20cb8a4b68578ddef84d8292d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-using-t-sql"></a>Szybki Start: Skalowanie możliwości obliczeniowych w magazynie danych SQL Azure za pomocą T-SQL
 
-Skalowanie możliwości obliczeniowych w magazynie danych SQL Azure przy użyciu T-SQL i programu SQL Server Management Studio (SSMS). Skalowanie w poziomie obliczeń w celu zapewnienia lepszej wydajności lub skali ponownie obliczeniowe celu ograniczenia kosztów. 
+Skalowanie możliwości obliczeniowych w magazynie danych SQL Azure przy użyciu T-SQL i programu SQL Server Management Studio (SSMS). [Skalowanie w poziomie obliczeń](sql-data-warehouse-manage-compute-overview.md) dla lepszą wydajność i skalę kopii obliczeń w celu ograniczenia kosztów. 
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
@@ -87,7 +87,7 @@ Aby wyświetlić bieżące jednostki magazynu danych do magazynu danych:
     ![Jednostki dwu bieżącego widoku](media/quickstart-scale-compute-tsql/view-current-dwu.png)
 
 
-## <a name="scale-compute"></a>Skalowanie możliwości obliczeniowych
+## <a name="scale-compute"></a>Skalowanie zasobów obliczeniowych
 W usłudze SQL Data Warehouse można zwiększyć lub zmniejszyć zasoby obliczeniowe przez dostosowanie wartości właściwości jednostki magazynu danych. [Tworzenie i Connect - portal](create-data-warehouse-portal.md) utworzony **mySampleDataWarehouse** i zainicjować go od 400 jednostek dwu. Poniższe kroki Dostosuj liczbę jednostek dwu dla **mySampleDataWarehouse**.
 
 Aby zmienić jednostki magazynu danych:

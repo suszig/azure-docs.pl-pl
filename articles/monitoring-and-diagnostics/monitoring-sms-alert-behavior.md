@@ -1,8 +1,8 @@
 ---
 title: "Zachowanie alertów programu SMS w grupach akcji | Dokumentacja firmy Microsoft"
 description: "Format wiadomości SMS i odpowiada na wiadomości SMS, aby anulować subskrypcję, należy dokonać ponownej subskrypcji lub prosić o pomoc."
-author: anirudhcavale
-manager: orenr
+author: dkamstra
+manager: chrad
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,63 +12,39 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
-ms.author: ancav
-ms.openlocfilehash: 012f001356463a8a7d9b95f186111959627f2c28
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.date: 02/16/2018
+ms.author: dukek
+ms.openlocfilehash: ce6908de0f6bcc30d1ee846fe92171a0cb589cbb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>Zachowanie w grupach akcji alertów programu SMS
-## <a name="overview"></a>Omówienie ##
-Akcja grupy umożliwiają skonfigurowanie listy odbiorców. Następnie można użyć tych grup, podczas definiowania alerty dziennika aktywności; zapewnienie, że grupy określonej akcji powiadomienie po wyzwoleniu alertu dziennika aktywności. Jeden z alertów mechanizmów, obsługiwane jest SMS; alerty obsługują komunikację dwukierunkową. Użytkownik może odpowiadać na zgłoszenie alertu:
+## <a name="overview"></a>Przegląd ##
+Grupy akcji umożliwiają skonfigurowanie listy akcji. Te grupy są używane podczas definiowania alerty; zapewnienie, że po wyzwoleniu alertu jest powiadamiany o grupy określonej akcji. Jedna z akcji obsługiwanych jest SMS; Powiadomień programu SMS obsługuje komunikację dwukierunkową. Użytkownik może Odpowiedz na wiadomość SMS, aby:
 
-- **Anulowanie subskrypcji alertów:** użytkownik może zrezygnować z wszystkich alertów programu SMS dla wszystkich grup akcji lub grupy pojedynczej akcji.  
-- **Dokonać ponownej subskrypcji alertów:** użytkownika możesz dokonać ponownej subskrypcji dla wszystkich alertów programu SMS dla wszystkich grup akcji lub grupy pojedynczej akcji.  
-- **Prosić o pomoc:** użytkownik może uzyskać więcej informacji na temat programu SMS. Nastąpi przekierowanie do tego artykułu.
+- **Anulowanie subskrypcji alertów:** użytkownik może zrezygnować z wszystkich alertów programu SMS dla wszystkich grup akcji lub grupy jednej akcji.
+- **Dokonać ponownej subskrypcji alertów:** użytkownik może dokonać ponownej subskrypcji dla wszystkich alertów programu SMS dla wszystkich grup akcji lub grupy jednej akcji.  
+- **Prosić o pomoc:** użytkownik może uzyskać więcej informacji na temat programu SMS. Są one przekierowywane do tego artykułu.
 
 W tym artykule opisano działanie alertów programu SMS i akcje reakcji użytkownika może przyjmować na podstawie ustawień regionalnych użytkownika:
 
-## <a name="usacanada-sms-behavior"></a>Zachowanie USA i Kanady SMS
-### <a name="receiving-an-sms-alert"></a>Otrzymywanie alertów programu SMS
-Odbiornik programu SMS, który jest skonfigurowany jako część grupy akcji, otrzymają wiadomość SMS, po zgłoszeniu alertu. SMS będzie zawierać następujące informacje:
+## <a name="receiving-an-sms-alert"></a>Otrzymywanie alertów programu SMS
+Odbiornik programu SMS, skonfigurowany jako część grupy akcji odbiera wiadomość SMS, po wyzwoleniu alertu. SMS zawiera następujące informacje:
 * Nazwa_skrócona grupy akcji ten alert został wysłany do
 - Nazwa alertu
 
-### <a name="unsubscribing-from-sms-alerts-for-one-action-group"></a>Anulowanie subskrypcji alertów programu SMS dla jednej grupy akcji
-Użytkownik może zrezygnować z SMS alertów dla grupy jedną akcję odpowiedzi na krótki kod 29873 ze słowami kluczowymi: "Wyłączanie &lt;nazwa_skrócona grupy akcji&gt;".
-
-Przykład. Użytkownika nie chcesz otrzymywać alerty dotyczące grupy akcji z nazwa_skrócona "Azure" wyśle wiadomość SMS krótki kod 29873 mówi "Wyłącz Azure"
-
-### <a name="unsubscribing-from-sms-alerts-for-all-action-groups"></a>Anulowanie subskrypcji alertów programu SMS dla wszystkich grup, akcja
-Użytkownik może zrezygnować z wszystkie alerty programu SMS dla wszystkich grup akcji odpowiedzi na krótki kod 29873 za pomocą dowolnego z następujących słów kluczowych:
-* ZATRZYMAJ
-
-Przykład. Użytkownik pragnący subskrypcję wszystkie alerty programu SMS dla wszystkich grup akcji, wyśle wiadomość SMS krótki kod 29873 mówi stop (Zatrzymaj)"
+| ODPOWIEDŹ | Opis |
+| ----- | ----------- |
+| WYŁĄCZ <Action Group Short name> | Wyłącza dalsze programu SMS z grupy akcji |
+| WŁĄCZ <Action Group Short name> | Ponownie włącza programu SMS z grupy akcji |
+| STOP | Wyłącza dalsze SMS ze wszystkich grup, akcja |
+| POCZĄTEK | Ponownie włącza SMS ze wszystkich grup, akcja |
+| POMOC | Odpowiedź jest wysyłana do użytkownika z łączem do tego artykułu. |
 
 >[!NOTE]
 >Jeśli użytkownik anulował z alertów programu SMS, ale jest następnie dodawana do nowej grupy akcji; BĘDĄ one otrzymywać alerty programu SMS dla tej nowej grupy akcji, ale pozostaje anulować ze wszystkich grup poprzedniej akcji.
->
->
-
-### <a name="resubscribing-to-sms-alerts-for-one-action-group"></a>Resubscribing do alertów programu SMS dla jednej grupy akcji
-Użytkownika można dokonać ponownej subskrypcji programu SMS dla alertów dla grupy jedną akcję odpowiedzi na krótki kod 29873 ze słowami kluczowymi: "Włącz &lt;nazwa_skrócona grupy akcji&gt;".
-
-Przykład. Użytkownik pragnący dokonać ponownej subskrypcji do alertów dla grupy akcji z nazwa_skrócona "Azure" wyśle wiadomość SMS krótki kod 29873 mówi "Włącz Azure"
-
-### <a name="resubscribing-to-sms-alerts-for-all-action-groups"></a>Resubscribing do alertów programu SMS dla wszystkich grup, akcja
-Użytkownik może dokonać ponownej subskrypcji programu SMS wszystkich alertów dla wszystkich grup akcji odpowiedzi na krótki kod 29873 za pomocą dowolnego z następujących słów kluczowych:
-
-* POCZĄTEK
-
-Przykład. Użytkownik pragnący subskrypcję wszystkie alerty programu SMS dla wszystkich grup akcji, wyśle wiadomość SMS krótki kod 29873 mówi "START"
-
-### <a name="requesting-help-via-sms"></a>Żądanie pomocy przy użyciu usługi SMS
-Użytkownik może uzyskać więcej informacji na temat SMS się, że po otrzymaniu odpowiedzi na krótki kod 29873 za pomocą dowolnego z następujących słów kluczowych:
-* POMOC
-
-Odpowiedzi będą wysyłane do użytkownika z łączem do tego artykułu.
 
 ## <a name="next-steps"></a>Następne kroki
 Pobierz [Przegląd alertów dotyczących działań w dzienniku](monitoring-overview-alerts.md) i Dowiedz się, jak otrzymywać alerty  

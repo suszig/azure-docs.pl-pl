@@ -4,7 +4,7 @@ description: "Dowiedz się, jak zautomatyzować konfigurację programu SQL Serve
 services: virtual-machines-windows
 documentationcenter: 
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: ab8d41a7-1971-4032-ab71-eb435c455dc1
@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 02/17/2017
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2a9ac5763bb934bd0646e47c3936f7bdd0d603b1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5fd0fb1f8ac9bb0132c64c195d4cc9c86ef8edd0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Konfigurowanie integracji magazynu kluczy Azure dla programu SQL Server na maszynach wirtualnych Azure (klasyczne)
 > [!div class="op_single_selector"]
@@ -53,8 +53,8 @@ Poniższa tabela zawiera listę parametrów wymaganych do uruchomienia skryptu p
 | Parametr | Opis | Przykład |
 | --- | --- | --- |
 | **$akvURL** |**Adres URL magazynu kluczy** |"https://contosokeyvault.vault.azure.net/" |
-| **$spName** |**Główna nazwa usługi** |"fde2b411 - 33d 5-4e11-af04eb07b669ccf2" |
-| **$spSecret** |**Klucz tajny nazwy głównej usługi** |"9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM =" |
+| **$spName** |**Główna nazwa usługi** |"fde2b411-33d5-4e11-af04eb07b669ccf2" |
+| **$spSecret** |**Klucz tajny nazwy głównej usługi** |"9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=" |
 | **$credName** |**Nazwa poświadczenia**: integracja usługi Azure Key Vault powoduje utworzenie poświadczenia w programie SQL Server, co umożliwia maszynie wirtualnej dostęp do magazynu kluczy. Wybierz nazwę tego poświadczenia. |"mycred1" |
 | **$vmName** |**Nazwa maszyny wirtualnej**: Nazwa maszyny wirtualnej utworzonej wcześniej SQL. |"myvmname" |
 | **$serviceName** |**Nazwa usługi**: Nazwa usługi w chmurze, która jest skojarzona z maszyną Wirtualną programu SQL. |"mycloudservicename" |

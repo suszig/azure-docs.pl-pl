@@ -16,11 +16,11 @@ ms.date: 07/20/2017
 ms.author: billmath
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: 19cd4ae8dc0ca3efa4eca51e5a6ba102338b4ef9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: eaf9e7088c8c88140ea690c13ff7e0c7026b8f86
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Można skonfigurować tokenu okresy istnienia w usłudze Azure Active Directory (publicznej wersji zapoznawczej)
 Można określić okres istnienia token wystawiony przez usługę Azure Active Directory (Azure AD). Można ustawić tokenu okresy istnienia dla wszystkich aplikacji w organizacji, dla wielodostępnych aplikacji (wielu organizacji) lub nazwy głównej usługi określonego w organizacji.
@@ -73,11 +73,11 @@ Zasady okres istnienia tokenu jest typem obiektu zasad, który zawiera reguły o
 | Właściwość | Ciąg właściwości zasady | Dotyczy | Domyślne | Minimalne | Maksimum |
 | --- | --- | --- | --- | --- | --- |
 | Okres istnienia tokenu dostępu |AccessTokenLifetime |Tokeny dostępu, tokeny Identyfikatora, SAML2 tokenów |1 godzina |10 minut |1 dzień |
-| Odśwież tokenu maksymalny czas nieaktywny |MaxInactiveTime |Tokenów odświeżania |14 dni |10 minut |90 dni |
-| Token odświeżania Jednoskładnikowego maksymalny wiek |MaxAgeSingleFactor |Odśwież tokeny (dla wszystkich użytkowników) |Dopóki odwołany |10 minut |Dopóki odwołany<sup>1</sup> |
-| Maksymalny wiek tokenu wieloskładnikowego odświeżania |MaxAgeMultiFactor |Odśwież tokeny (dla wszystkich użytkowników) |Dopóki odwołany |10 minut |Dopóki odwołany<sup>1</sup> |
-| Maksymalny wiek tokenu sesji Jednoskładnikowego |MaxAgeSessionSingleFactor<sup>2</sup> |Tokeny sesji (stałe i nietrwałe) |Dopóki odwołany |10 minut |Dopóki odwołany<sup>1</sup> |
-| Maksymalny wiek tokenu wieloskładnikowego sesji |MaxAgeSessionMultiFactor<sup>3</sup> |Tokeny sesji (stałe i nietrwałe) |Dopóki odwołany |10 minut |Dopóki odwołany<sup>1</sup> |
+| Odśwież tokenu maksymalny czas nieaktywny |MaxInactiveTime |Tokenów odświeżania |90 dni |10 minut |90 dni |
+| Token odświeżania Jednoskładnikowego maksymalny wiek |MaxAgeSingleFactor |Odśwież tokeny (dla wszystkich użytkowników) |Dopóki odwołany |10 minut |Until-revoked<sup>1</sup> |
+| Maksymalny wiek tokenu wieloskładnikowego odświeżania |MaxAgeMultiFactor |Odśwież tokeny (dla wszystkich użytkowników) |Dopóki odwołany |10 minut |Until-revoked<sup>1</sup> |
+| Maksymalny wiek tokenu sesji Jednoskładnikowego |MaxAgeSessionSingleFactor<sup>2</sup> |Tokeny sesji (stałe i nietrwałe) |Dopóki odwołany |10 minut |Until-revoked<sup>1</sup> |
+| Maksymalny wiek tokenu wieloskładnikowego sesji |MaxAgeSessionMultiFactor<sup>3</sup> |Tokeny sesji (stałe i nietrwałe) |Dopóki odwołany |10 minut |Until-revoked<sup>1</sup> |
 
 * <sup>1</sup>365 dni to maksymalna długość jawne, które można ustawić dla tych atrybutów.
 * <sup>2</sup>Jeśli **MaxAgeSessionSingleFactor** nie jest ustawiona, ta wartość ma **MaxAgeSingleFactor** wartości. Jeśli parametr nie jest ustawiona, właściwość ma wartość domyślną (do odwołane).
@@ -172,7 +172,7 @@ Zmniejszenie maksymalny wiek wymuszającej uwierzytelnianie częściej. Poniewa�
 Zmniejszenie maksymalny wiek wymuszającej uwierzytelnianie częściej. Ponieważ przyjęto, że uwierzytelniania jednoskładnikowego jest mniej bezpieczne niż uwierzytelnianie wieloskładnikowe, firma Microsoft zaleca, ustaw tą właściwość na wartość, która jest równa lub mniejsza niż wartość właściwości wieloskładnikowego sesji tokenu maksymalny wiek.
 
 ### <a name="multi-factor-session-token-max-age"></a>Maksymalny wiek tokenu wieloskładnikowego sesji
-**Ciąg:** MaxAgeSessionMultiFactor
+**String:** MaxAgeSessionMultiFactor
 
 **Wpływ:** tokeny sesji (stałe i nietrwałe)
 
@@ -355,7 +355,7 @@ W tym przykładzie utworzysz kilka zasad, aby dowiedzieć się, jak działa syst
 
 Można użyć następujących poleceń cmdlet do zarządzania zasadami.
 
-#### <a name="new-azureadpolicy"></a>Nowe AzureADPolicy
+#### <a name="new-azureadpolicy"></a>New-AzureADPolicy
 
 Tworzy nowe zasady.
 
@@ -369,7 +369,7 @@ New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -Is
 | <code>&#8209;DisplayName</code> |Ciąg nazwę zasady. |`-DisplayName "MyTokenPolicy"` |
 | <code>&#8209;IsOrganizationDefault</code> |Jeśli PRAWDA, ustawia zasad jako zasady domyślne Twojej organizacji. W przypadku wartości FAŁSZ nie działa. |`-IsOrganizationDefault $true` |
 | <code>&#8209;Type</code> |Typ zasad. Okresy istnienia tokenu zawsze używaj "TokenLifetimePolicy." | `-Type "TokenLifetimePolicy"` |
-| <code>&#8209;AlternativeIdentifier</code>[Opcjonalnie] |Ustawia alternatywny identyfikator zasad. |`-AlternativeIdentifier "myAltId"` |
+| <code>&#8209;AlternativeIdentifier</code> [Opcjonalnie] |Ustawia alternatywny identyfikator zasad. |`-AlternativeIdentifier "myAltId"` |
 
 </br></br>
 
@@ -382,7 +382,7 @@ Get-AzureADPolicy
 
 | Parametry | Opis | Przykład |
 | --- | --- | --- |
-| <code>&#8209;Id</code>[Opcjonalnie] |**Identyfikator obiektu (Id)** ma zasad. |`-Id <ObjectId of Policy>` |
+| <code>&#8209;Id</code> [Opcjonalnie] |**Identyfikator obiektu (Id)** ma zasad. |`-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -399,7 +399,7 @@ Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
 
 </br></br>
 
-#### <a name="set-azureadpolicy"></a>Zestaw AzureADPolicy
+#### <a name="set-azureadpolicy"></a>Set-AzureADPolicy
 Aktualizuje istniejące zasady.
 
 ```PowerShell
@@ -410,14 +410,14 @@ Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**Identyfikator obiektu (Id)** ma zasad. |`-Id <ObjectId of Policy>` |
 | <code>&#8209;DisplayName</code> |Ciąg nazwę zasady. |`-DisplayName "MyTokenPolicy"` |
-| <code>&#8209;Definition</code>[Opcjonalnie] |Tablica stringified JSON, który zawiera wszystkie zasady reguły. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
-| <code>&#8209;IsOrganizationDefault</code>[Opcjonalnie] |Jeśli PRAWDA, ustawia zasad jako zasady domyślne Twojej organizacji. W przypadku wartości FAŁSZ nie działa. |`-IsOrganizationDefault $true` |
-| <code>&#8209;Type</code>[Opcjonalnie] |Typ zasad. Okresy istnienia tokenu zawsze używaj "TokenLifetimePolicy." |`-Type "TokenLifetimePolicy"` |
-| <code>&#8209;AlternativeIdentifier</code>[Opcjonalnie] |Ustawia alternatywny identyfikator zasad. |`-AlternativeIdentifier "myAltId"` |
+| <code>&#8209;Definition</code> [Opcjonalnie] |Tablica stringified JSON, który zawiera wszystkie zasady reguły. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
+| <code>&#8209;IsOrganizationDefault</code> [Opcjonalnie] |Jeśli PRAWDA, ustawia zasad jako zasady domyślne Twojej organizacji. W przypadku wartości FAŁSZ nie działa. |`-IsOrganizationDefault $true` |
+| <code>&#8209;Type</code> [Opcjonalnie] |Typ zasad. Okresy istnienia tokenu zawsze używaj "TokenLifetimePolicy." |`-Type "TokenLifetimePolicy"` |
+| <code>&#8209;AlternativeIdentifier</code> [Opcjonalnie] |Ustawia alternatywny identyfikator zasad. |`-AlternativeIdentifier "myAltId"` |
 
 </br></br>
 
-#### <a name="remove-azureadpolicy"></a>Usuń AzureADPolicy
+#### <a name="remove-azureadpolicy"></a>Remove-AzureADPolicy
 Usuwa określonych zasad.
 
 ```PowerShell
@@ -433,7 +433,7 @@ Usuwa określonych zasad.
 ### <a name="application-policies"></a>Zasady aplikacji
 Zasady aplikacji, można użyć następujących poleceń cmdlet.</br></br>
 
-#### <a name="add-azureadapplicationpolicy"></a>Dodaj AzureADApplicationPolicy
+#### <a name="add-azureadapplicationpolicy"></a>Add-AzureADApplicationPolicy
 Łącza do aplikacji określonej zasady.
 
 ```PowerShell
@@ -460,7 +460,7 @@ Get-AzureADApplicationPolicy -Id <ObjectId of Application>
 
 </br></br>
 
-#### <a name="remove-azureadapplicationpolicy"></a>Usuń AzureADApplicationPolicy
+#### <a name="remove-azureadapplicationpolicy"></a>Remove-AzureADApplicationPolicy
 Usuwa zasady z aplikacją.
 
 ```PowerShell
@@ -477,7 +477,7 @@ Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectI
 ### <a name="service-principal-policies"></a>Zasady dotyczące nazw głównych usług
 Można użyć następujących poleceń cmdlet dla podmiotu zabezpieczeń zasad usługi.
 
-#### <a name="add-azureadserviceprincipalpolicy"></a>Dodaj AzureADServicePrincipalPolicy
+#### <a name="add-azureadserviceprincipalpolicy"></a>Add-AzureADServicePrincipalPolicy
 Łączy określonych zasad nazwy głównej usługi.
 
 ```PowerShell
@@ -504,7 +504,7 @@ Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
 
 </br></br>
 
-#### <a name="remove-azureadserviceprincipalpolicy"></a>Usuń AzureADServicePrincipalPolicy
+#### <a name="remove-azureadserviceprincipalpolicy"></a>Remove-AzureADServicePrincipalPolicy
 Usuwa zasady z określonej nazwy głównej usługi.
 
 ```PowerShell

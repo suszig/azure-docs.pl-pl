@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2017
 ms.author: cherylmc;ganesr
-ms.openlocfilehash: 08582d03428acb860bc304c365ffa6626ba33903
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: be97f441d6eb2e97d85d598b0ed66718aec97b14
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Tworzenie i modyfikowanie obwodu usługi ExpressRoute
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ Przejdź w przeglądarce do witryny [Azure Portal](http://portal.azure.com) i za
 > 
 > 
 
-1. Można utworzyć obwodu usługi ExpressRoute, wybierając opcję, aby utworzyć nowy zasób. Kliknij przycisk **nowy** > **sieci** > **ExpressRoute**, jak pokazano na poniższej ilustracji:
+1. Można utworzyć obwodu usługi ExpressRoute, wybierając opcję, aby utworzyć nowy zasób. Kliknij przycisk **Utwórz zasób** > **sieci** > **ExpressRoute**, jak pokazano na poniższej ilustracji:
 
   ![Create an ExpressRoute circuit (Tworzenie obwodu usługi ExpressRoute)](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit1.png)
 2. Po kliknięciu **ExpressRoute**, zobaczysz **obwodu ExpressRoute utworzyć** strony. Gdy jest wypełnianie wartości na tej stronie, upewnij się, należy określić prawidłowe jednostki SKU warstwy (standardowy lub Premium) i danych zliczania modelu rozliczeń (bez ograniczeń lub Metered).

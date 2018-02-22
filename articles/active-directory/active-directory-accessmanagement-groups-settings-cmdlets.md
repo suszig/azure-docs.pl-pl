@@ -6,24 +6,23 @@ documentationcenter:
 author: curtand
 manager: mtillman
 editor: 
-ms.assetid: 9f2090e6-3af4-4f07-bbb2-1d18dae89b73
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: 
+ms.devlang: 
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 02/20/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro;
-ms.openlocfilehash: 331dafc9164e315c84036fa0af11820e89066f36
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 75df4436d5d36878f361e87f34d9bfc8bed1e58f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Polecenia cmdlet usługi Azure Active Directory służące do konfigurowania ustawień grupy
-Ten artykuł zawiera instrukcje dotyczące używania poleceń cmdlet programu PowerShell usługi Azure Active Directory (Azure AD) do tworzenia i aktualizacji grupy. Ta zawartość dotyczy tylko w grupach usługi Office 365. 
+Ten artykuł zawiera instrukcje dotyczące używania poleceń cmdlet programu PowerShell usługi Azure Active Directory (Azure AD) do tworzenia i aktualizacji grupy. Ta zawartość dotyczy tylko w grupach usługi Office 365 (nazywane również ujednoliconego grup). 
 
 > [!IMPORTANT]
 > Niektóre ustawienia wymagają licencji usługi Azure Active Directory Premium P1. Aby uzyskać więcej informacji, zobacz [ustawienia szablonu](#template-settings) tabeli.
@@ -42,7 +41,7 @@ Jeśli znasz nazwę ustawienia, które ma zostać pobrane, możesz użyć poniż
 ```
 
 ## <a name="create-settings-at-the-directory-level"></a>Utwórz ustawienia na poziomie katalogu
-Te kroki tworzenia ustawień na poziomie katalogu, które mają zastosowanie do wszystkich grup usługi Office 365 (Unified grupy) w katalogu.
+Te kroki tworzenia ustawień na poziomie katalogu, które mają zastosowanie do wszystkich grup usługi Office 365 w katalogu.
 
 1. W poleceniach cmdlet DirectorySettings Podaj identyfikator SettingsTemplate, którego chcesz użyć. Jeśli nie znasz tego Identyfikatora, to polecenie cmdlet zwraca listę wszystkich szablonów ustawienia:
   
@@ -55,7 +54,7 @@ Te kroki tworzenia ustawień na poziomie katalogu, które mają zastosowanie do 
   Id                                   DisplayName         Description
   --                                   -----------         -----------
   62375ab9-6b52-47ed-826b-58e47e0e304b Group.Unified       ...
-  08d542b9-071f-4e16-94b0-74abb372e3d9 Group.Unified.Guest Settings for a specific Unified Group
+  08d542b9-071f-4e16-94b0-74abb372e3d9 Group.Unified.Guest Settings for a specific Office 365 group
   16933506-8a8d-4f0d-ad58-e1db05a5b929 Company.BuiltIn     Setting templates define the different settings that can be used for the associ...
   4bc7f740-180e-4586-adb6-38b2e9024e6b Application...
   898f1161-d651-43d1-805c-3b0b388a9fc2 Custom Policy       Settings ...
@@ -93,20 +92,19 @@ Poniżej przedstawiono ustawienia zdefiniowane w Group.Unified SettingsTemplate.
 
 | **Ustawienie** | **Opis** |
 | --- | --- |
-|  <ul><li>EnableGroupCreation<li>Typ: wartość logiczna<li>Domyślnie: True |Flaga wskazująca, czy tworzenie grupy Unified jest dozwolone w katalogu przez użytkowników bez uprawnień administratora. To ustawienie nie wymaga licencji usługi Azure Active Directory Premium P1.|
-|  <ul><li>GroupCreationAllowedGroupId<li>Typ: ciąg<li>Wartość domyślna: "" |Identyfikator GUID grupy zabezpieczeń, dla której członkowie mogą tworzyć grupy Unified nawet wtedy, gdy EnableGroupCreation == false. |
+|  <ul><li>EnableGroupCreation<li>Typ: wartość logiczna<li>Domyślnie: True |Flaga wskazująca, czy tworzenie grupy usługi Office 365 jest dozwolone w katalogu przez użytkowników bez uprawnień administratora. To ustawienie nie wymaga licencji usługi Azure Active Directory Premium P1.|
+|  <ul><li>GroupCreationAllowedGroupId<li>Typ: ciąg<li>Wartość domyślna: "" |Identyfikator GUID grupy zabezpieczeń, dla której członkowie mogą tworzyć grup usługi Office 365, nawet wtedy, gdy EnableGroupCreation == false. |
 |  <ul><li>UsageGuidelinesUrl<li>Typ: ciąg<li>Wartość domyślna: "" |Link do wskazówek użycia grupy. |
 |  <ul><li>ClassificationDescriptions<li>Typ: ciąg<li>Wartość domyślna: "" | Rozdzielana przecinkami lista Opisy klasyfikacji. |
 |  <ul><li>DefaultClassification<li>Typ: ciąg<li>Wartość domyślna: "" | Klasyfikacja, która ma być używana jako domyślna Klasyfikacja grupy, jeśli żaden nie został określony.|
-|  <ul><li>PrefixSuffixNamingRequirement<li>Typ: ciąg<li>Wartość domyślna: "" | Nie używaj. Nie jest zaimplementowana. |
-| <ul><li>CustomBlockedWordsList<li>Typ: ciąg<li>Wartość domyślna: "" | Nie używaj. Nie jest zaimplementowana. |
+|  <ul><li>PrefixSuffixNamingRequirement<li>Typ: ciąg<li>Wartość domyślna: "" | Ciąg o maksymalnej długości 64 znaków, który definiuje konwencji nazewnictwa skonfigurowane dla grup usługi Office 365. Aby uzyskać więcej informacji, zobacz [wymusić zasady nazewnictwa dla grup usługi Office 365 (wersja zapoznawcza)](groups-naming-policy.md). |
+| <ul><li>CustomBlockedWordsList<li>Typ: ciąg<li>Wartość domyślna: "" | Ciąg rozdzielony przecinkami wyrażeń, które użytkownicy mogą nie do użycia w grupie lub aliasy. Aby uzyskać więcej informacji, zobacz [wymusić zasady nazewnictwa dla grup usługi Office 365 (wersja zapoznawcza)](groups-naming-policy.md). |
 | <ul><li>EnableMSStandardBlockedWords<li>Typ: wartość logiczna<li>Wartość domyślna: "False" | Nie należy używać
 |  <ul><li>AllowGuestsToBeGroupOwner<li>Typ: wartość logiczna<li>Domyślnie: False | Wartość logiczna wskazująca, czy użytkownika gościa może być właścicielem grupy. |
-|  <ul><li>AllowGuestsToAccessGroups<li>Typ: wartość logiczna<li>Domyślnie: True | Wartość logiczna wskazująca, czy użytkownika gościa mogą mieć dostęp do zawartości grupy Unified.  To ustawienie nie wymaga licencji usługi Azure Active Directory Premium P1.|
+|  <ul><li>AllowGuestsToAccessGroups<li>Typ: wartość logiczna<li>Domyślnie: True | Wartość logiczna wskazująca, czy użytkownika gościa mogą mieć dostęp do zawartości grup usługi Office 365.  To ustawienie nie wymaga licencji usługi Azure Active Directory Premium P1.|
 |  <ul><li>GuestUsageGuidelinesUrl<li>Typ: ciąg<li>Wartość domyślna: "" | Adres url link do wskazówek użycia gościa. |
 |  <ul><li>AllowToAddGuests<li>Typ: wartość logiczna<li>Domyślnie: True | Wartość logiczna wskazująca, czy można dodawać gości do tego katalogu.|
-|  <ul><li>ClassificationList<li>Typ: ciąg<li>Wartość domyślna: "" |Rozdzielana przecinkami lista wartości prawidłowe klasyfikacji, które można zastosować do ujednoliconego grup. |
-
+|  <ul><li>ClassificationList<li>Typ: ciąg<li>Wartość domyślna: "" |Rozdzielana przecinkami lista wartości prawidłowe klasyfikacji, które mogą być stosowane do grupy usługi Office 365. |
 
 ## <a name="read-settings-at-the-directory-level"></a>Odczytaj ustawienia na poziomie katalogu
 Te kroki do odczytu na poziomie katalogu ustawień, które mają zastosowanie do wszystkich grup pakietu Office w katalogu.
@@ -138,6 +136,7 @@ Te kroki do odczytu na poziomie katalogu ustawień, które mają zastosowanie do
   ClassificationDescriptions
   DefaultClassification
   PrefixSuffixNamingRequirement
+  CustomBlockedWordsList        
   AllowGuestsToBeGroupOwner     False 
   AllowGuestsToAccessGroups     True
   GuestUsageGuidelinesUrl
@@ -157,7 +156,7 @@ Te kroki do odczytu na poziomie katalogu ustawień, które mają zastosowanie do
   Id                                   DisplayName            Description
   --                                   -----------            -----------
   62375ab9-6b52-47ed-826b-58e47e0e304b Group.Unified          ...
-  08d542b9-071f-4e16-94b0-74abb372e3d9 Group.Unified.Guest    Settings for a specific Unified Group
+  08d542b9-071f-4e16-94b0-74abb372e3d9 Group.Unified.Guest    Settings for a specific Office 365 group
   4bc7f740-180e-4586-adb6-38b2e9024e6b Application            ...
   898f1161-d651-43d1-805c-3b0b388a9fc2 Custom Policy Settings ...
   5cf42378-d67d-4f36-ba46-e8b86229381d Password Rule Settings ...
@@ -186,7 +185,7 @@ Te kroki do odczytu na poziomie katalogu ustawień, które mają zastosowanie do
 
 ## <a name="update-settings-at-the-directory-level"></a>Zaktualizuj ustawienia na poziomie katalogu
 
-Te kroki zaktualizować ustawienia na poziomie katalogu, które mają zastosowanie do wszystkich grup ujednolicony w katalogu. Tych przykładów założono, że istnieje już obiekt ustawień w katalogu.
+Te kroki zaktualizować ustawienia na poziomie katalogu, które mają zastosowanie do wszystkich grup usługi Office 365 w katalogu. Tych przykładów założono, że istnieje już obiekt ustawień w katalogu.
 
 1. Znajdź istniejący obiekt ustawień:
   ```

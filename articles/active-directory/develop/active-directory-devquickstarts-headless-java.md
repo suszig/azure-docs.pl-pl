@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 2330ccf734944a8a563f9031a9d51902255c30d5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 895741c6a33434633b8c35df959b3c68d005ba3e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="using-java-command-line-app-to-access-an-api-with-azure-ad"></a>Dostęp do interfejsu API za pomocą usługi Azure AD za pomocą aplikacji Java wiersza polecenia
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -46,7 +46,7 @@ Aby włączyć swoją aplikację w celu uwierzytelniania użytkowników, musisz 
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Na górnym pasku, kliknij na Twoim koncie i w obszarze **katalogu** wybierz dzierżawy usługi Active Directory, w którym chcesz zarejestrować aplikację.
-3. Polecenie **więcej usług** w nawigacji po lewej stronie i wybierz polecenie **usługi Azure Active Directory**.
+3. Polecenie **wszystkie usługi** w nawigacji po lewej stronie i wybierz polecenie **usługi Azure Active Directory**.
 4. Polecenie **rejestracji aplikacji** i wybierz polecenie **Dodaj**.
 5. Postępuj zgodnie z monitami i utworzyć nową **aplikacji sieci Web i/lub WebAPI**.
   * **Nazwa** aplikacji będzie opisywać aplikację dla użytkowników końcowych

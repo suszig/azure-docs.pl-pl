@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: dda0e2efa72356f00b0372e4f6ce961719946b8d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1025fd10b00bc07872e23cb10da2682fa8cca394
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Zdarzenie siatki zabezpieczeń i uwierzytelniania 
 
@@ -59,6 +59,11 @@ Aby zweryfikować własność punktu końcowego, odsyłania kodu walidacji we w�
   "validationResponse": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
 }
 ```
+### <a name="event-delivery-security"></a>Zabezpieczenia dostarczania zdarzeń
+
+Dodając parametry zapytania do adresu URL elementu webhook podczas tworzenia subskrypcji zdarzeń, można zabezpieczyć punkt końcowy elementu webhook. Wartość dla jednego z tych parametrów zapytania jako klucz tajny, takich jak [token dostępu](https://en.wikipedia.org/wiki/Access_token) którego elementu webhook można użyć do rozpoznania zdarzenia pochodzi od siatki zdarzeń z prawidłowe uprawnienia. Siatka zdarzeń będzie zawierać te parametry zapytań w każdym dostarczania zdarzeń do elementu webhook.
+
+Podczas edytowania subskrypcji zdarzeń, parametry zapytania nie zostanie wyświetlony ani zwracane, chyba że [--obejmują full-— adres url punktu końcowego](https://docs.microsoft.com/en-us/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_show) parametr jest używany w Azure [interfejsu wiersza polecenia](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest).
 
 Na koniec jest należy pamiętać, że siatki zdarzeń Azure obsługuje tylko punktów końcowych HTTPS elementu webhook.
 
@@ -68,15 +73,15 @@ Aby subskrybować zdarzenia, musisz mieć **Microsoft.EventGrid/EventSubscriptio
 
 ### <a name="system-topics-azure-service-publishers"></a>Tematy systemu (usługa Azure wydawców)
 
-Tematy systemu potrzebne uprawnienia do zapisu w nowej subskrypcji zdarzeń w zakresie zasobów publikowania zdarzenia. Format zasobu jest:`/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}`
+Tematy systemu potrzebne uprawnienia do zapisu w nowej subskrypcji zdarzeń w zakresie zasobów publikowania zdarzenia. Format zasobu jest: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}`
 
-Na przykład, aby subskrybować zdarzenia na konto magazynu o nazwie **myacct**, musisz mieć uprawnienia Microsoft.EventGrid/EventSubscriptions/Write na:`/subscriptions/####/resourceGroups/testrg/providers/Microsoft.Storage/storageAccounts/myacct`
+Na przykład, aby subskrybować zdarzenia na konto magazynu o nazwie **myacct**, musisz mieć uprawnienia Microsoft.EventGrid/EventSubscriptions/Write na: `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.Storage/storageAccounts/myacct`
 
 ### <a name="custom-topics"></a>Niestandardowe — tematy
 
-Tematy niestandardowe należy uprawnienia do zapisu w nowej subskrypcji zdarzeń w zakresie tematu zdarzeń siatki. Format zasobu jest:`/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}`
+Tematy niestandardowe należy uprawnienia do zapisu w nowej subskrypcji zdarzeń w zakresie tematu zdarzeń siatki. Format zasobu jest: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}`
 
-Na przykład, aby zasubskrybować niestandardowego tematu o nazwie **mytopic**, musisz mieć uprawnienia Microsoft.EventGrid/EventSubscriptions/Write na:`/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic`
+Na przykład, aby zasubskrybować niestandardowego tematu o nazwie **mytopic**, musisz mieć uprawnienia Microsoft.EventGrid/EventSubscriptions/Write na: `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic`
 
 ## <a name="topic-publishing"></a>Publikowanie w temacie
 
@@ -86,7 +91,7 @@ Wartość uwierzytelniania możesz uwzględnić w nagłówku HTTP. Sygnatury dos
 
 ### <a name="key-authentication"></a>Uwierzytelnianie za pomocą klucza
 
-Uwierzytelnianie za pomocą klucza jest to najprostsza forma uwierzytelniania. Użyj następującego formatu:`aeg-sas-key: <your key>`
+Uwierzytelnianie za pomocą klucza jest to najprostsza forma uwierzytelniania. Użyj następującego formatu: `aeg-sas-key: <your key>`
 
 Na przykład można przekazać klucza z:
 
@@ -98,7 +103,7 @@ aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==
 
 Tokeny sygnatury dostępu Współdzielonego dla zdarzeń siatki obejmują zasobu czas wygaśnięcia i sygnaturę. Format tokenu sygnatury dostępu Współdzielonego: `r={resource}&e={expiration}&s={signature}`.
 
-Zasób jest ścieżką tematu, do którego są wysyłane zdarzenia. Na przykład ścieżka prawidłowego zasobu to:`https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events`
+Zasób jest ścieżką tematu, do którego są wysyłane zdarzenia. Na przykład ścieżka prawidłowego zasobu to: `https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events`
 
 Podpis jest generowanie z klucza.
 

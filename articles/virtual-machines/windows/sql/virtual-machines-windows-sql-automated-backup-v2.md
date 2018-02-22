@@ -4,7 +4,7 @@ description: "Zawiera opis funkcji automatycznego tworzenia kopii zapasowej dla 
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-resource-manager
 ms.assetid: ebd23868-821c-475b-b867-06d4a2e310c7
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 04/05/2017
+ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: e7e14b0243f82c672392d5ab4bb6aca01156465b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: ecae49e70a0fdd30be8a0872d02abcf4a4c228bd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="automated-backup-v2-for-sql-server-2016-azure-virtual-machines-resource-manager"></a>Automatycznego tworzenia kopii zapasowej w wersji 2 dla programu SQL Server 2016 maszyn wirtualnych platformy Azure (Resource Manager)
 
 > [!div class="op_single_selector"]
-> * [Program SQL Server 2014](virtual-machines-windows-sql-automated-backup.md)
+> * [SQL Server 2014](virtual-machines-windows-sql-automated-backup.md)
 > * [SQL Server 2016](virtual-machines-windows-sql-automated-backup-v2.md)
 
 Automatyczne v2 kopii zapasowej automatycznie konfiguruje [zarządzanej kopii zapasowej Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) dla wszystkich istniejących i nowych baz danych na maszynie Wirtualnej platformy Azure, uruchomione wersje programu SQL Server 2016 Standard, Enterprise lub dewelopera. Dzięki temu można skonfigurować kopie zapasowe zwykłej bazy danych, które korzystać z magazynu trwałego obiektów blob platformy Azure. Automatyczne v2 kopii zapasowej jest zależna od [rozszerzenia agenta programu SQL Server IaaS](virtual-machines-windows-sql-server-agent-extension.md).
@@ -71,22 +71,22 @@ W poniższej tabeli opisano opcje, które można skonfigurować do automatyczneg
 | **Automatyczne kopie zapasowe** | Włącza/wyłącza (wyłączone) | Włącza lub wyłącza funkcję automatycznego tworzenia kopii zapasowej dla maszyny Wirtualnej platformy Azure, programem SQL Server 2016 Standard lub Enterprise. |
 | **Okres przechowywania** | 1 do 30 dni (30 dni) | Liczba dni przechowywania kopii zapasowych. |
 | **Konto magazynu** | Konto magazynu Azure | Konto magazynu Azure do przechowywania plików automatycznego tworzenia kopii zapasowej w magazynie obiektów blob. Kontener jest tworzony w tej lokalizacji, aby zapisać wszystkie pliki kopii zapasowej. Konwencja nazewnictwa pliku kopii zapasowej obejmuje daty, godziny i identyfikator GUID bazy danych. |
-| **Szyfrowanie** |Włącza/wyłącza (wyłączone) | Włącza lub wyłącza funkcję szyfrowania. Po włączeniu szyfrowania certyfikatów służących do przywrócenia kopii zapasowej znajdują się na koncie magazynu określonym w tym samym **automaticbackup** kontenera przy użyciu tej samej konwencji nazewnictwa. Zmiana hasła nowego certyfikatu jest generowana za pomocą tego hasła, ale pozostaje stary certyfikat do przywrócenia poprzedniego kopii zapasowych. |
-| **Hasło** |Tekst hasła | Hasło dla kluczy szyfrowania. Jest to tylko wymagane, jeśli jest włączone szyfrowanie. Aby przywrócić zaszyfrowanej kopii zapasowej, musi mieć prawidłowe hasło, a powiązany certyfikat, który został użyty w momencie utworzenia kopii zapasowej. |
+| **Szyfrowanie** |Włącza/wyłącza (wyłączone) | Włącza lub wyłącza funkcję szyfrowania. Gdy jest włączone szyfrowanie, certyfikaty służące do przywrócenia kopii zapasowej znajdują się w podanego konta magazynu. Wykorzystuje takie same **automaticbackup** kontener o tej samej konwencji nazewnictwa. Zmiana hasła nowego certyfikatu jest generowana za pomocą tego hasła, ale pozostaje stary certyfikat do przywrócenia poprzedniego kopii zapasowych. |
+| **Hasło** |Tekst hasła | Hasło dla kluczy szyfrowania. To hasło jest tylko wymagane, jeśli jest włączone szyfrowanie. Aby przywrócić zaszyfrowanej kopii zapasowej, musi mieć prawidłowe hasło, a powiązany certyfikat, który został użyty w momencie utworzenia kopii zapasowej. |
 
 ### <a name="advanced-settings"></a>Ustawienia zaawansowane
 
 | Ustawienie | Zakres (ustawienie domyślne) | Opis |
 | --- | --- | --- |
-| **Kopie zapasowe bazy danych systemu** | Włącza/wyłącza (wyłączone) | Po włączeniu tej funkcji będzie również wykonać kopię zapasową systemowych baz danych: Master, MSDB i modelu. Sprawdź, czy są w trybie odzyskiwania pełnego Jeśli kopie zapasowe dziennika do wykonania dla bazy danych MSDB i modelu. Kopie zapasowe dziennika nigdy nie są wykonywane dla głównego. A nie kopii zapasowych są wykonywane dla bazy danych TempDB. |
-| **Harmonogram tworzenia kopii zapasowych** | Ręczne/automatycznego (automatycznego) | Domyślnie harmonogram tworzenia kopii zapasowych będzie automatycznie ustalana na podstawie przyrostu dziennika. Ręczne harmonogram tworzenia kopii zapasowych umożliwia użytkownikowi określić przedział czasu tworzenia kopii zapasowych. W takim przypadku kopie zapasowe tylko nastąpi z częstotliwością i podczas określone okno czasu danego dnia. |
-| **Częstotliwość tworzenia pełnej kopii zapasowej** | Codziennie/co tydzień | Częstotliwość tworzenia pełnych kopii zapasowych. W obu przypadkach pełne kopie zapasowe rozpocznie się podczas następnego okna zaplanowanej godzinie. Po wybraniu co tydzień kopii zapasowych może obejmować wiele dni, dopóki wszystkie bazy danych pomyślnie wykonano kopię zapasową. |
+| **Kopie zapasowe bazy danych systemu** | Włącza/wyłącza (wyłączone) | Po włączeniu tej funkcji również tworzone są kopie zapasowe systemowych baz danych: Master, MSDB i modelu. Sprawdź, czy są w trybie odzyskiwania pełnego Jeśli kopie zapasowe dziennika do wykonania dla bazy danych MSDB i modelu. Kopie zapasowe dziennika nigdy nie są wykonywane dla głównego. A nie kopii zapasowych są wykonywane dla bazy danych TempDB. |
+| **Harmonogram tworzenia kopii zapasowych** | Ręczne/automatycznego (automatycznego) | Domyślnie harmonogram tworzenia kopii zapasowych jest ustalany automatycznie na podstawie przyrostu dziennika. Ręczne harmonogram tworzenia kopii zapasowych umożliwia użytkownikowi określić przedział czasu tworzenia kopii zapasowych. W takim przypadku kopie zapasowe tylko została wykonana z częstotliwością i podczas określone okno czasu danego dnia. |
+| **Częstotliwość tworzenia pełnej kopii zapasowej** | Codziennie/co tydzień | Częstotliwość tworzenia pełnych kopii zapasowych. W obu przypadkach pełne kopie zapasowe rozpocząć w następnym oknie zaplanowanym terminie. Po wybraniu co tydzień kopii zapasowych może obejmować wiele dni, dopóki wszystkie bazy danych pomyślnie wykonano kopię zapasową. |
 | **Czas rozpoczęcia pełnej kopii zapasowej** | 00:00 – 23:00 (01:00) | Godzina rozpoczęcia dotyczącego danego dnia, w którym pełnych kopii zapasowych może mieć miejsce. |
 | **Przedział czasu tworzenia pełnej kopii zapasowej** | 1 – 23 godzin (1 godz.) | Czas trwania przedział czasu danego dnia, w którym pełnych kopii zapasowych może mieć miejsce. |
 | **Częstotliwość wykonywania kopii zapasowych dziennika** | 5 – 60 minut (60 minut) | Częstotliwość tworzenia kopii zapasowych dziennika. |
 
 ## <a name="understanding-full-backup-frequency"></a>Opis częstotliwość tworzenia pełnej kopii zapasowej
-Należy zrozumieć różnicę między codziennie i cotygodniowych pełnych kopii zapasowych. W tym wysiłku opisano dwa przykładowe scenariusze.
+Należy zrozumieć różnicę między codziennie i cotygodniowych pełnych kopii zapasowych. Należy wziąć pod uwagę następujące dwa przykładowe scenariusze.
 
 ### <a name="scenario-1-weekly-backups"></a>Scenariusz 1: Cotygodniowe kopie zapasowe
 Masz zawierającą liczbę bardzo dużych baz danych maszyny Wirtualnej serwera SQL.
@@ -98,13 +98,13 @@ W poniedziałek możesz włączyć automatyczna usługa Backup v2 z następując
 - Czas rozpoczęcia tworzenia kopii zapasowej pełnej: **01:00**
 - Przedział czasu tworzenia pełnej kopii zapasowej: **1 godzina**
 
-Oznacza to, że następnym dostępnym oknie kopii zapasowej ma wtorek na 1: 00 1 godziny. W tym czasie automatyczna usługa Backup rozpocznie się wykonywanie kopii zapasowych baz danych jednego naraz. W tym scenariuszu baz danych są wystarczająco duże, że pełne kopie zapasowe ukończy dla pierwszego kilka baz danych. Jednak po godzinie nie wszystkie bazy danych utworzone kopie zapasowe.
+Oznacza to, że następnym dostępnym oknie kopii zapasowej ma wtorek na 1: 00 1 godziny. W tym czasie automatyczna usługa Backup rozpoczyna wykonywanie kopii zapasowych baz danych jednego naraz. W tym scenariuszu baz danych są wystarczająco duże, że pełne kopie zapasowe zakończyć dla pierwszego kilka baz danych. Jednak po godzinie nie wszystkie bazy danych utworzone kopie zapasowe.
 
-W takim przypadku automatyczna usługa Backup rozpocznie się tworzenie kopii zapasowej bazy danych pozostałych następnego dnia, środę o godzinie 1: 00 1 godziny. Jeśli nie wszystkie bazy danych utworzone kopie zapasowe w tym czasie, spróbuje ponownie następnego dnia, w tym samym czasie. Operacja będzie kontynuowana, dopóki wszystkie bazy danych zostały pomyślnie kopii zapasowej.
+W takim przypadku automatyczna usługa Backup rozpoczyna wykonywanie kopii zapasowych pozostałe bazy danych następnego dnia, środę o godzinie 1: 00 przez jedną godzinę. Jeśli nie wszystkie bazy danych utworzone kopie zapasowe w tym czasie, próbuje następnego dnia w tym samym czasie. Ten proces jest kontynuowany, dopóki wszystkie bazy danych zostały pomyślnie kopii zapasowej.
 
-Gdy osiągnie ona wtorek ponownie, automatyczna usługa Backup rozpocznie się wykonywanie kopii zapasowych wszystkich baz danych ponownie.
+Po jego osiągnie wtorek automatyczna usługa Backup rozpoczyna ponownie tworzenie kopii zapasowych wszystkich baz danych.
 
-W tym scenariuszu pokazano, że automatyczna usługa Backup działa jedynie w określone okno czasu, a każda baza danych zostaną skopiowane nawet, jeden raz w tygodniu. Oznacza to również, że jest to możliwe obejmować wielu dni w przypadku, gdy nie jest możliwe przeprowadzenie wszystkie kopie zapasowe w jednym dniu kopii zapasowych.
+W tym scenariuszu pokazano, że automatyczna usługa Backup działa tylko w określone okno czasu, a każda baza danych kopii zapasowej raz w tygodniu. Oznacza to również, że jest to możliwe obejmować wielu dni w przypadku, gdy nie jest możliwe przeprowadzenie wszystkie kopie zapasowe w jednym dniu kopii zapasowych.
 
 ### <a name="scenario-2-daily-backups"></a>Scenariusz 2: Codzienne wykonywanie kopii zapasowych
 Masz zawierającą liczbę bardzo dużych baz danych maszyny Wirtualnej serwera SQL.
@@ -116,9 +116,9 @@ W poniedziałek możesz włączyć automatyczna usługa Backup v2 z następując
 - Czas rozpoczęcia tworzenia kopii zapasowej pełnej: 22:00
 - Przedział czasu tworzenia pełnej kopii zapasowej: 6 godzin
 
-Oznacza to, że następnym dostępnym oknie kopii zapasowej ma poniedziałek godzinie 10 przez 6 godzin. W tym czasie automatyczna usługa Backup rozpocznie się wykonywanie kopii zapasowych baz danych jednego naraz.
+Oznacza to, że następnym dostępnym oknie kopii zapasowej ma poniedziałek godzinie 10 przez 6 godzin. W tym czasie automatyczna usługa Backup rozpoczyna wykonywanie kopii zapasowych baz danych jednego naraz.
 
-Następnie wtorek 10 przez 6 godzin, pełne kopie zapasowe wszystkich baz danych zostanie uruchomiony ponownie.
+Następnie wtorek 10 przez 6 godzin, pełne kopie zapasowe wszystkich baz danych uruchom ponownie.
 
 > [!IMPORTANT]
 > Podczas planowania codzienne wykonywanie kopii zapasowych, zalecane jest, aby zaplanować okno czasu szerokości do upewnij się, że wszystkie może być kopie zapasowe baz danych w tej chwili. Jest to szczególnie ważne w przypadku, gdy ma dużą ilość danych, aby utworzyć kopię zapasową.
@@ -152,7 +152,7 @@ W **konfigurację programu SQL Server** bloku, kliknij przycisk **Edytuj** przyc
 
 Gdy skończysz, kliknij przycisk **OK** przycisk w dolnej części **konfigurację programu SQL Server** bloku, aby zapisać zmiany.
 
-Jeśli po raz pierwszy włączasz automatyczna usługa Backup, Azure konfiguruje agenta programu SQL Server IaaS w tle. W tym czasie portalu Azure może nie informować, że skonfigurowano automatycznego tworzenia kopii zapasowej. Poczekaj kilka minut dla agenta, który ma zostać zainstalowany, skonfigurowany. Po utworzeniu tego portalu Azure będzie odzwierciedlać nowe ustawienia.
+Jeśli po raz pierwszy włączasz automatyczna usługa Backup, Azure konfiguruje agenta programu SQL Server IaaS w tle. W tym czasie portalu Azure może nie informować, że skonfigurowano automatycznego tworzenia kopii zapasowej. Poczekaj kilka minut dla agenta, który ma zostać zainstalowany, skonfigurowany. Po wykonaniu tej portalu Azure będzie odzwierciedlać nowe ustawienia.
 
 ## <a name="configuration-with-powershell"></a>Konfiguracja przy użyciu programu PowerShell
 
@@ -182,7 +182,7 @@ Set-AzureRmVMSqlServerExtension -VMName $vmname `
     -Version "1.2" -Location $region 
 ```
 
-### <a id="verifysettings"></a>Sprawdź bieżące ustawienia
+### <a id="verifysettings"></a> Sprawdź bieżące ustawienia
 Jeśli włączono automatyczne kopie zapasowe podczas inicjowania obsługi, można sprawdzić bieżącej konfiguracji za pomocą programu PowerShell. Uruchom **Get-AzureRmVMSqlServerExtension** polecenia i sprawdź, czy **AutoBackupSettings** właściwości:
 
 ```powershell

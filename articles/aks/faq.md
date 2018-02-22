@@ -6,19 +6,19 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: article
-ms.date: 2/01/2018
+ms.date: 2/14/2018
 ms.author: nepeters
-ms.openlocfilehash: 73c49510512c9148f4fee98423b14770fa8602b9
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 59dceded1e72e6e0e3d1a2bb25ca63bd023a9d21
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="frequently-asked-questions-about-azure-container-service-aks"></a>Często zadawane pytania dotyczące usługi kontenera platformy Azure (AKS)
 
 Ten artykuł adresy częste pytania dotyczące usługi kontenera platformy Azure (AKS).
 
-## <a name="which-azure-regions-will-have-azure-container-service-aks"></a>Regiony platformy Azure będą miały usługi kontenera platformy Azure (AKS)? 
+## <a name="which-azure-regions-provide-the-azure-container-service-aks-today"></a>Regiony platformy Azure zapewnia dzisiaj usługi kontenera platformy Azure (AKS)?
 
 - Kanada Środkowa 
 - Kanada Wschodnia 
@@ -32,13 +32,17 @@ Ten artykuł adresy częste pytania dotyczące usługi kontenera platformy Azure
 
 Dodatkowe regiony są dodawane wraz ze wzrostem wymagań.
 
-## <a name="are-security-updates-applied-to-aks-nodes"></a>Aktualizacje zabezpieczeń są stosowane do węzłów AKS? 
+## <a name="are-security-updates-applied-to-aks-agent-nodes"></a>Aktualizacje zabezpieczeń są stosowane do węzłów agenta AKS? 
 
-Poprawki zabezpieczeń systemu operacyjnego są stosowane do węzłów w klastrze zgodnie z harmonogramem co noc, jednak nie jest przeprowadzany ponowny rozruch. W razie potrzeby węzłów może ponownie uruchomiony za pośrednictwem portalu lub wiersza polecenia platformy Azure. Podczas uaktualniania klastra, najnowsze obraz Ubuntu jest używany i wszystkie poprawki zabezpieczeń są stosowane (o ponowne uruchomienie komputera).
+Azure automatycznie stosuje poprawki zabezpieczeń do węzłów w klastrze zgodnie z harmonogramem co noc. Jednak ponosisz odpowiedzialność za zapewnienie, że węzły są ponownie uruchamiane zgodnie z wymaganiami. Masz kilka opcji umożliwiających wykonywanie ponowne uruchomienie węzła:
 
-## <a name="do-you-recommend-customers-use-acs-or-akss"></a>Polecisz klientom użycie usługi ACS lub AKSs? 
+- Ręcznie za pośrednictwem portalu Azure lub interfejsu wiersza polecenia Azure. 
+- Uaktualniając AKS klastra. Uaktualnienia klastrowania automatycznie [cordon i opróżnienia węzłów](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/), dostosowania ich kopię zapasową przy użyciu najnowszych Ubuntu obrazu. Można zaktualizować obraz systemu operacyjnego na węzły bez zmiany wersji Kubernetes, określając w bieżącej wersji klastra `az aks upgrade`.
+- Przy użyciu [Kured](https://github.com/weaveworks/kured), demon Kubernetes open source ponowne uruchomienie komputera. Kured działa jako [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) i monitoruje każdy węzeł obecność pliku wskazujący, że wymagane jest ponowne uruchomienie. Organizuje następnie te ponowne uruchomienia w ramach klastra zgodnie z tej samej cordon i opróżniania proces opisany wcześniej.
 
-Biorąc pod uwagę, że usługa kontenera platformy Azure (AKS) będzie GA w późniejszym terminie, firma Microsoft zaleca, aby kompilacji w weryfikacji koncepcji, tworzenia i testowania klastrów w AKS, ale klastrów produkcyjnych w ACS Kubernetes.  
+## <a name="do-you-recommend-customers-use-acs-or-aks"></a>Polecisz klientom użycie usługi ACS lub AKS? 
+
+Podczas AKS pozostaje w wersji zapoznawczej, zaleca się utworzenie klastrów produkcyjnych przy użyciu usługi ACS Kubernetes lub [aparat acs](https://github.com/azure/acs-engine). Weryfikacja koncepcji wdrożeń i środowisk: tworzenie i testowanie, można użyć AKS.
 
 ## <a name="when-will-acs-be-deprecated"></a>Gdy zostaną wycofane ACS? 
 
@@ -48,21 +52,27 @@ Usługi ACS zostaną wycofane wokół AKS staje się po chwili Konieczne będzie
 
 Skalowanie automatyczne węzeł nie jest obsługiwane, ale znajduje się na plan. Można przyjrzeć to powierzając jej ich konserwację Otwórz [implementacji Skalowanie automatyczne][auto-scaler].
 
-## <a name="why-are-two-resource-groups-created-with-aks"></a>Dlaczego są tworzone dwie grupy zasobów z AKS? 
+## <a name="does-aks-support-kubernetes-role-based-access-control-rbac"></a>AKS obsługuje Kubernetes kontroli dostępu opartej na rolach (RBAC)?
 
-Każdy klaster usługi kontenera platformy Azure (AKS) znajduje się w dwóch grupach zasobów. Pierwszy jest tworzone przez użytkownika i zawiera tylko zasób AKS. Drugi grupy zasobów jest automatycznie utworzone podczas wdrażania i zawiera wszystkie klastra infrastrukturalne zasoby, takie jak maszyn wirtualnych, sieci i zasobów magazynu. Ta grupa zasobów jest tworzona dla oczyszczania łatwe zasobu. 
+Nie, RBAC nie jest obecnie obsługiwany w AKS, ale będzie wkrótce dostępna.   
 
-Grupa zasobów automatycznie utworzone ma nazwę podobną do:
+## <a name="can-i-deploy-aks-into-my-existing-virtual-network"></a>Czy mogę wdrożyć AKS w mojej istniejącej sieci wirtualnej
 
-```
-MC_myResourceGRoup_myAKSCluster_eastus
-```
-
-Podczas dodawania zasobów platformy Azure do użycia w klastrze Kubernetes, takich jak konta magazynu lub zastrzeżone publicznego adresu IP, te zasoby muszą zostać utworzone w automatycznie utworzyć grupy zasobów.   
+Nie, to nie jest jeszcze dostępny, ale będzie wkrótce dostępna.
 
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>Usługa Azure Key Vault jest zintegrowany z AKS? 
 
 Nie, nie jest, ale jest planowane tej integracji. W czasie można wypróbować następujące rozwiązania z [Hexadite][hexadite]. 
+
+## <a name="can-i-run-windows-server-containers-on-aks"></a>Kontenery systemu Windows Server można uruchomić na AKS?
+
+Nie, AKS nie jest aktualnie dostępny węzłów agenta opartego na systemie Windows Server, więc nie można uruchomić kontenery systemu Windows Server. Jeśli musisz uruchomić kontenery systemu Windows Server na Kubernetes na platformie Azure, zobacz [dokumentacji dla aparatu acs](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md).
+
+## <a name="why-are-two-resource-groups-created-with-aks"></a>Dlaczego są tworzone dwie grupy zasobów z AKS? 
+
+Dla każdego wdrożenia AKS obejmuje dwie grupy zasobów. Pierwszy jest tworzone przez użytkownika i zawiera tylko zasób AKS. Dostawca zasobów AKS automatycznie tworzy drugi podczas wdrażania o nazwie, jak *MC_myResourceGRoup_myAKSCluster_eastus*. Drugi grupa zasobów zawiera wszystkie zasoby infrastruktury skojarzony z klastrem, takich jak maszyn wirtualnych, sieci i magazynu. Aby uprościć Oczyszczanie zasobów zostanie utworzony. 
+
+W przypadku tworzenia zasobów, które będą używane z klastra AKS, takich jak konta magazynu lub zastrzeżone publicznego adresu IP, należy umieścić je w grupie zasobów wygenerowanej automatycznie.
 
 <!-- LINKS - external -->
 [auto-scaler]: https://github.com/kubernetes/autoscaler

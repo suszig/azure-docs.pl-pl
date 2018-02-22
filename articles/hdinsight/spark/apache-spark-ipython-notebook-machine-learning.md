@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: jgao
-ms.openlocfilehash: 74dcd368d8696df26c5ad294c5657161fbe7f408
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 2f7dcb9bea05a79a6647b549896c8107f9e830af
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="build-apache-spark-machine-learning-applications-on-azure-hdinsight"></a>Tworzenie aplikacji do uczenia maszynowego Apache Spark w usłudze Azure HDInsight
 
@@ -28,9 +28,9 @@ Informacje o sposobie tworzenia komputera Apache Spark nauki aplikacji przy uży
 
 [MLlib](https://spark.apache.org/docs/1.1.0/mllib-guide.html) Biblioteka learning skalowalne maszyny platforma Spark składające się z wspólnej uczenia algorytmów i narzędzia, w tym klasyfikacji, regresji, klastra, filtrowania współpracy, zmniejszenie wymiary, a także podstawowy Optymalizacja w nim elementów podstawowych.
 
-**Wymagania wstępne:**
+## <a name="prerequisites"></a>Wymagania wstępne:
 
-Należy dysponować następującymi elementami:
+Musi mieć następującego elementu:
 
 * Klaster Apache Spark w usłudze HDInsight. Aby uzyskać instrukcje, zobacz [klastrów utworzyć Apache Spark w usłudze Azure HDInsight](apache-spark-jupyter-spark-sql.md). 
 
@@ -181,8 +181,8 @@ W tej aplikacji, użyj Spark [potoku ML](https://spark.apache.org/docs/2.2.0/ml-
     Row(SystemInfo=u'7 22', prediction=0.0, probability=DenseVector([0.5015, 0.4985]))
     ```
    
-   W pierwszym wierszu Prognozowanie widać, że system HVAC o identyfikatorze 20 i wiek systemu 25 lat, kompilacja będzie gorących (**prognozowania = 1.0**). Wartość pierwszego DenseVector (0.49999) odnosi się do prognozowania 0,0 i drugiej wartości (0.5001) odpowiada prognozowania 1.0. W danych wyjściowych, nawet jeśli druga wartość jest tylko nieznacznie wyższe modelu zawiera **prognozowania = 1.0**.
-10. Aby zwolnić zasoby zamknięcia. W tym celu w menu **File** (Plik) w notesie kliknij polecenie **Close and Halt** (Zamknij i zatrzymaj). Spowoduje to zakończenie pracy i zamknięcie notesu.
+   W pierwszym wierszu Prognozowanie widać, czy system HVAC o identyfikatorze 20 i wiek systemu 25 lat, kompilacja jest gorących (**prognozowania = 1.0**). Wartość pierwszego DenseVector (0.49999) odnosi się do prognozowania 0,0 i drugiej wartości (0.5001) odpowiada prognozowania 1.0. W danych wyjściowych, nawet jeśli druga wartość jest tylko nieznacznie wyższe modelu zawiera **prognozowania = 1.0**.
+10. Zamknij aby zwolnić zasoby. W tym celu w menu **File** (Plik) w notesie kliknij polecenie **Close and Halt** (Zamknij i zatrzymaj). Spowoduje to zamknięta i zamknięcie notesu.
 
 ## <a name="anaconda"></a>Użyj Anaconda scikit — Dowiedz się biblioteki Spark uczenia maszynowego
 Klastry platformy Apache Spark w usłudze HDInsight obejmują bibliotekami Anaconda. Obejmuje to także **scikit — Dowiedz się** biblioteki uczenia maszynowego. Biblioteka zawiera także różne zestawy danych, które służą do tworzenia przykładowej aplikacji bezpośrednio z notesu Jupyter. Przykłady dotyczące używania scikit — Dowiedz się, biblioteka, zobacz [http://scikit-learn.org/stable/auto_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html).
@@ -193,7 +193,6 @@ Klastry platformy Apache Spark w usłudze HDInsight obejmują bibliotekami Anaco
 ### <a name="scenarios"></a>Scenariusze
 * [Platforma Spark i analiza biznesowa: interakcyjna analiza danych na platformie Spark w usłudze HDInsight z użyciem narzędzi do analizy biznesowej](apache-spark-use-bi-tools.md)
 * [Platforma Spark i usługa Machine Learning: korzystanie z platformy Spark w usłudze HDInsight do przewidywania wyników kontroli żywności](apache-spark-machine-learning-mllib-ipython.md)
-* [Przesyłanie strumieniowe Spark: korzystanie z platformy Spark w usłudze HDInsight do tworzenia aplikacji do przesyłania strumieniowego w czasie rzeczywistym](apache-spark-eventhub-streaming.md)
 * [Analiza dzienników witryny sieci Web na platformie Spark w usłudze HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Tworzenie i uruchamianie aplikacji

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: d0bdce43796ea555fc20ddc56a2a670042d4f16b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 77f4bf0fc38043afd7a6634bcf16a0f10f7ddfeb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="problem-configuring-federated-single-sign-on-for-a-non-gallery-application"></a>Problem podczas konfiguracji federacyjne logowanie jednokrotne dla aplikacji z systemem innym niż galerii
 
@@ -27,33 +27,33 @@ Jeśli napotkasz problem podczas konfigurowania aplikacji. Sprawdź zostały wyk
 
 Aby dodać drugie wystąpienie aplikacji, musisz mieć możliwość:
 
--   Skonfiguruj Unikatowy identyfikator dla drugiego wystąpienia. Nie można skonfigurować w taki sam identyfikator używany po raz pierwszy.
+-   Skonfiguruj Unikatowy identyfikator dla drugiego wystąpienia. Nie można skonfigurować ten sam identyfikator używany po raz pierwszy.
 
 -   Skonfiguruj inny certyfikat niż w pierwszym wystąpieniu.
 
-Jeśli aplikacja nie obsługuje dowolne z powyższych. Następnie, nie będzie można skonfigurować drugie wystąpienie.
+Jeśli aplikacja nie obsługuje żadnego z poprzednim, nie można skonfigurować drugie wystąpienie.
 
 ## <a name="where-do-i-set-the-entityid-user-identifier-format"></a>Gdy ustawienie formatu EntityID (identyfikator użytkownika)
 
-Nie można wybrać format EntityID (identyfikator użytkownika) usługi Azure AD wysyła do aplikacji w odpowiedzi po uwierzytelnieniu użytkownika.
+Nie można wybrać format EntityID (identyfikator użytkownika), który wysyła usługi Azure AD do aplikacji w odpowiedzi po uwierzytelnieniu użytkownika.
 
-Wybrano Azure wybierz AD format dla atrybutu NameID (identyfikator użytkownika) na podstawie wartości lub format żądany przez aplikację w SAML AuthRequest. Aby uzyskać więcej informacji można znaleźć w artykule [protokołu SAML rejestracji jednokrotnej](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) w sekcji NameIDPolicy,
+Usługi Azure AD wybiera formatu żądany przez aplikację w SAML AuthRequest lub format dla atrybutu NameID (identyfikator użytkownika) oparte na wybranej wartości. Aby uzyskać więcej informacji można znaleźć w artykule [protokołu SAML rejestracji jednokrotnej](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) w sekcji NameIDPolicy,
 
 ## <a name="where-do-i-get-the-application-metadata-or-certificate-from-azure-ad"></a>Gdzie uzyskać metadanych aplikacji lub certyfikatu z usługi Azure AD
 
-Aby pobrać metadanych aplikacji lub certyfikatu z usługi Azure AD, wykonaj następujące czynności:
+Aby pobrać metadanych aplikacji lub certyfikatu z usługi Azure AD, wykonaj następujące kroki:
 
-1.  Otwórz [ **Azure Portal** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego** lub **ko-administratora.**
+1.  Otwórz [ **portalu Azure** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego** lub **ko-administratora.**
 
-2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **więcej usług** u dołu menu nawigacji głównego po lewej stronie.
+2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **wszystkie usługi** w górnej części menu nawigacji po lewej stronie głównej.
 
 3.  Wpisz w **"Azure Active Directory**" w polu wyszukiwania filtr a wybierz **usługi Azure Active Directory** elementu.
 
-4.  Kliknij przycisk **aplikacje dla przedsiębiorstw** w menu nawigacji po lewej stronie usługi Azure Active Directory.
+4.  Kliknij przycisk **aplikacje dla przedsiębiorstw** z menu nawigacji po lewej stronie usługi Azure Active Directory.
 
 5.  Kliknij przycisk **wszystkie aplikacje** Aby wyświetlić listę wszystkich aplikacji.
 
-   * Jeśli nie ma aplikacji ma tutaj będą wyświetlane, użyj **filtru** kontroli nad **listę wszystkich aplikacji** i ustaw **Pokaż** opcji w celu **wszystkich aplikacji.**
+   * Jeśli nie ma aplikacji ma tutaj będą wyświetlane, użyj **filtru** kontroli nad **listę wszystkich aplikacji** i ustaw **Pokaż** opcji w celu **wszystkich Aplikacje.**
 
 6.  Wybierz aplikację, skonfigurowaniu logowania jednokrotnego.
 
@@ -67,5 +67,5 @@ Usługi Azure AD nie udostępnia adresu URL można pobrać metadanych. Można po
 
 Aby dowiedzieć się, jak dostosować oświadczeń atrybutów SAML wysyłanych do aplikacji, zobacz [oświadczeń mapowanie w usłudze Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) Aby uzyskać więcej informacji.
 
-## <a name="next-steps"></a>Następne kroki
-[Zarządzanie aplikacjami przy użyciu usługi Azure Active Directory](active-directory-enable-sso-scenario.md)
+## <a name="next-steps"></a>Kolejne kroki
+[Managing Applications with Azure Active Directory (Zarządzanie aplikacjami za pomocą usługi Azure Active Directory)](active-directory-enable-sso-scenario.md)

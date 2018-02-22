@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 1/19/2017
 ms.author: tamram
-ms.openlocfilehash: 327816874fb2f2d43192e02410bd31c168e574f7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 66406ed327f496dce7e77bb9ff650e0eec44bbdd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Co zrobić po wystąpieniu awarii usługi Azure Storage
 Firma Microsoft pracujemy nad twardego upewnij się, że naszych usług są zawsze dostępne. Czasami wymusza poza naszych wpływ kontroli nam w sposób, aby spowodować usługi nieplanowanych przestojów w jednym lub więcej regionów. Aby ułatwić obsługę tych zdarzeń w rzadkich, udostępniamy wysokiego poziomu dotyczące usługi Azure Storage.
@@ -27,9 +27,9 @@ Firma Microsoft pracujemy nad twardego upewnij się, że naszych usług są zaws
 Jest to bardzo ważne, aby każdy klient przygotował własny plan odzyskiwania po awarii. Starań, aby dokonać odzyskiwania po awarii magazynu zwykle obejmuje zarówno personel, jak i zautomatyzowane procedury, aby ponownie uaktywnić aplikacji w działającym stanie. Zapoznaj się z dokumentacją Azure poniżej, aby utworzyć własnego planu odzyskiwania po awarii:
 
 * [Lista kontrolna dotycząca dostępności](https://docs.microsoft.com/azure/architecture/checklist/availability)
-* [Projektowanie aplikacji odpornych na błędy dla platformy Azure](/azure/architecture/resiliency)
+* [Projektowanie aplikacji odpornych na błędy dla platformy Azure](https://docs.microsoft.com/azure/architecture/resiliency/)
 * [Usługa Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/)
-* [Replikacja usługi Azure Storage](storage-redundancy)
+* [Replikacja usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 * [Usługa Kopia zapasowa Azure](https://azure.microsoft.com/services/backup/)
 
 ## <a name="how-to-detect"></a>Jak wykryć

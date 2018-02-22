@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 128abd504785227c1f27debd329d46d358e6e516
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: d62be25678044ead469f65362b6f47c1a2df893b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="track-b2b-communication-in-the-microsoft-operations-management-suite-oms"></a>Śledzenie komunikacji B2B pakiet zarządzania Operations (OMS) firmy Microsoft
 
@@ -47,7 +47,7 @@ Po skonfigurowaniu B2B komunikacji między dwiema uruchomionych procesów biznes
 
 Aby OMS śledzenie wiadomości B2B aplikacji logiki, należy dodać **B2B aplikacje logiki** rozwiązania do portalu OMS. Dowiedz się więcej o [Dodawanie rozwiązania do pakietu OMS](../log-analytics/log-analytics-get-started.md).
 
-1. W [portalu Azure](https://portal.azure.com), wybierz **więcej usług**. Wyszukaj "analizy dzienników", a następnie wybierz pozycję **analizy dzienników** w sposób pokazany poniżej:
+1. W [portalu Azure](https://portal.azure.com), wybierz **wszystkie usługi**. Wyszukaj "analizy dzienników", a następnie wybierz pozycję **analizy dzienników** w sposób pokazany poniżej:
 
    ![Znajdź analizy dzienników](media/logic-apps-track-b2b-messages-omsportal/browseloganalytics.png)
 
@@ -156,7 +156,7 @@ Poniżej przedstawiono opisy właściwości dla każdego komunikatu AS2.
 | ACK. | Stan wiadomości MDN <br>Zaakceptowane = odebranych lub wysłanych MDN dodatnią. <br>Oczekujące = oczekiwanie na odbierać lub wysyłać MDN. <br>Odrzucone = odebranych lub wysłanych MDN ujemna. <br>Nie wymaga = MDN nie jest skonfigurowany w umowie. |
 | Kierunek | Kierunek wiadomości AS2 |
 | Identyfikator korelacji | Identyfikator odpowiadająca wyzwalacze i akcje w aplikacji logiki |
-| Identyfikator wiadomości | Identyfikator komunikatu AS2 z nagłówków komunikatu AS2 |
+| Identyfikator komunikatu | Identyfikator komunikatu AS2 z nagłówków komunikatu AS2 |
 | Sygnatura czasowa | Czas przetworzenia komunikatu akcji AS2 |
 |          |             |
 

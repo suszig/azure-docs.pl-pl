@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/14/2017
+ms.date: 02/16/2018
 ms.author: billmath
-ms.openlocfilehash: 815d2f289e18a97eff0a05ad1d7dfe4cad1fdfc5
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 843582a980280a14f033c6d27965867c063039e2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Historia wersji
 Zespół usługi Azure Active Directory (Azure AD) regularnie aktualizuje Azure AD Connect z nowych funkcji. Nie wszystkie dodatki mają zastosowanie do wszystkich grup odbiorców.
@@ -35,6 +35,73 @@ Wymagane uprawnienia | Uprawnienia wymagane do zastosowania aktualizacji, zobacz
 
 Pobierz | [Pobieranie programu Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+## <a name="117490"></a>1.1.749.0
+Stan: Wydane do wybranych klientów
+
+>[!NOTE]
+>Po zakończeniu uaktualniania do tej nowej wersji automatycznie spowodują uruchomienie pełnej synchronizacji i pełny import dla łącznika usługi Azure AD i pełnej synchronizacji dla łącznika usługi AD. Ponieważ może to potrwać pewien czas w zależności od wielkości środowiska Azure AD Connect upewnij się, że wykonaniu czynności niezbędnych do obsługi to lub Wstrzymaj się na temat uaktualniania, aby znaleźć dogodnym momencie w tym celu.
+
+### <a name="azure-ad-connect"></a>Program Azure AD Connect
+#### <a name="fixed-issues"></a>Rozwiązane problemy
+* Usuń okna czasowego w tle zadań w celu filtrowania partycji strony, gdy
+* Usuń okna czasowego na zadania w tle dla strony filtrowania partycji podczas przełączania do następnej strony.
+
+* Stałe błędu, który spowodował naruszenie zasad dostępu podczas akcji niestandardowej ConfigDB
+
+* Stałe błędów pozwoli na odzyskanie limit czasu połączenia SQL.
+
+* Stałe usterki, w których certyfikatów z symbolami wieloznacznymi sieci SAN nie powiodło się sprawdzanie wymagań wstępnych
+
+* Stałe błędów, co powoduje, że miiserver.exe do awarii podczas eksportowania łącznika usługi Azure AD.
+
+* Stałe błędów rejestrowane próba nieprawidłowe hasło, które na kontrolerze domeny, podczas uruchamiania kreatora Azure AD Connect, aby zmienić konfigurację
+
+
+#### <a name="new-features-and-improvements"></a>Nowe funkcje i ulepszenia
+
+* Dodawanie ustawień prywatności dla daty ogólnej ochrony rozporządzenia (GDPR).  GDPR są nam wskazują rodzaje danych klienta, które są współużytkowane z firmą Microsoft (danych telemetrycznych kondycji, itp.), mają linki do szczegółowych dokumentację w trybie online i umożliwiają naszym klientom zmienić swoje preferencje.  Tego wyboru w dodaje następujące czynności:
+
+
+    - Udostępnianie danych i powiadomienie o prywatności w czystej instalacji strony umowy licencyjnej.
+    - Udostępnianie i ochrona prywatności powiadomienia danych na stronie uaktualnienia.
+    - Utworzenie nowego dodatkowe zadania "Prywatność ustawienia", której użytkownik może zmienić swoje preferencje.
+
+* dane telemetryczne aplikacji - administratora można przełączać tej klasy danych wł. / wył w momencie
+
+* Azure AD kondycji dane — administrator musi odwiedź portal kondycji do kontrolowania ustawień kondycji.
+   Po zmianie zasad usługi agentów odczytu i wymuszania go.
+
+* Dodane urządzenie zapisu czynności konfiguracyjnych i pasek postępu inicjowania strony
+
+* Ulepszone ogólne diagnostyki za pomocą raportu w formacie HTML i zbierania danych pełnego tekstu ZIP / raport HTML
+
+* Poprawia niezawodność automatycznego uaktualnienia i dodany dodatkowe telemetrię, aby upewnić się, że można ustalić kondycję serwera
+
+* Ogranicz uprawnienia dostępne do kont uprzywilejowanych na koncie w łączniku AD
+
+  * W przypadku nowych instalacji Kreatora ogranicza uprawnienia, które konta uprzywilejowane ma konta MSOL po utworzeniu konta MSOL.
+
+Zmiany zajmie się poniżej:
+1. Instalacji ekspresowej
+2. Instalacje niestandardowe automatyczne tworzenie konta
+
+* Zmieniony Instalator, więc nie wymaga uprawnień administratora systemu w czystej instalacji programu Azure AD Connect
+
+* Dodano nowe narzędzia do rozwiązywania problemów z synchronizacją dla konkretnego obiektu. Jest on dostępny w obszarze opcji "Rozwiązywanie problemów z synchronizacji obiektu" Azure AD Connect kreatora Rozwiązywanie problemów z dodatkowe zadania. Obecnie to narzędzie sprawdza, czy:
+
+  * UserPrincipalName niezgodność między obiektów synchronizowanych użytkowników i konta użytkowników w dzierżawie programu Azure AD.
+  * Jeśli obiekt jest filtrowana z synchronizacji z powodu filtrowania domeny
+  * Jeśli obiekt jest filtrowana z synchronizacji z powodu jednostki organizacyjnej (OU) filtrowania
+
+* Dodano nowe narzędzia do synchronizacji bieżącego skrót hasła przechowywane w lokalnej usłudze Active Directory dla określonego konta użytkownika.
+
+Narzędzie nie wymaga zmiany hasła. Jest on dostępny w obszarze opcji "Rozwiązywanie problemów z synchronizacji haseł w wyznaczania wartości skrótu" Azure AD Connect kreatora Rozwiązywanie problemów z dodatkowe zadania.
+
+
+
+
+
+
 ## <a name="116540"></a>1.1.654.0
 Stan:, 12 grudnia 2017
 
@@ -50,7 +117,7 @@ Poprawa został dodany do programu Azure AD Connect wersji 1.1.654.0 (i po) aby 
 >[!NOTE]
 >Ta wersja usuwa tylko luki w zabezpieczeniach dla nowych instalacji programu Azure AD Connect, gdy konto usługi jest tworzone przez proces instalacji. W przypadku istniejących instalacji lub w przypadku, gdy samodzielnie konto należy upewnić się, tę lukę w zabezpieczeniach nie istnieje.
 
-#### <a name="lock"></a>Zablokowanie dostępu do konta usług AD DS
+#### <a name="lock"></a> Zablokowanie dostępu do konta usług AD DS
 Blokowanie dostępu do konta usług AD DS, implementując następujące zmiany uprawnień w lokalnej usługi AD:  
 
 *   Wyłączyć funkcję dziedziczenia w określonym obiekcie
@@ -63,9 +130,9 @@ Zezwalaj    | SYSTEM                        | Pełna kontrola         | Ten obie
 Zezwalaj    | Administratorzy przedsiębiorstwa             | Pełna kontrola         | Ten obiekt  |
 Zezwalaj    | Administratorzy domeny                 | Pełna kontrola         | Ten obiekt  |
 Zezwalaj    | Administratorzy                | Pełna kontrola         | Ten obiekt  |
-Zezwalaj    | Kontrolery domeny przedsiębiorstwa | Wyświetlanie zawartości        | Ten obiekt  |
-Zezwalaj    | Kontrolery domeny przedsiębiorstwa | Odczyt wszystkich właściwości  | Ten obiekt  |
-Zezwalaj    | Kontrolery domeny przedsiębiorstwa | Uprawnienia do odczytu     | Ten obiekt  |
+Zezwalaj    | Enterprise Domain Controllers | Wyświetlanie zawartości        | Ten obiekt  |
+Zezwalaj    | Enterprise Domain Controllers | Odczyt wszystkich właściwości  | Ten obiekt  |
+Zezwalaj    | Enterprise Domain Controllers | Uprawnienia do odczytu     | Ten obiekt  |
 Zezwalaj    | Użytkownicy uwierzytelnieni           | Wyświetlanie zawartości        | Ten obiekt  |
 Zezwalaj    | Użytkownicy uwierzytelnieni           | Odczyt wszystkich właściwości  | Ten obiekt  |
 Zezwalaj    | Użytkownicy uwierzytelnieni           | Uprawnienia do odczytu     | Ten obiekt  |
@@ -413,13 +480,13 @@ CBool(
     * Osoba: distinguishedName
 
   * Następujące atrybuty zostały dodane do schematu łącznika usługi Azure AD:
-    * Grupa: OnPremisesSamAccountName
-    * Grupa: Nazwa NetBIOS
+    * Group: OnPremisesSamAccountName
+    * Group: NetBiosName
     * Grupa: NazwaDomenyDNS
     * Użytkownik: OnPremisesDistinguishedName
 
 * Skrypt polecenia cmdlet ADSyncDomainJoinedComputerSync ma teraz nowe opcjonalny parametr o nazwie AzureEnvironment. Parametr jest używany do określenia którym odpowiedniego dzierżawcy usługi Azure Active Directory znajduje się w regionie. Prawidłowe wartości to:
-  * AzureCloud (ustawienie domyślne)
+  * AzureCloud (default)
   * AzureChinaCloud
   * AzureGermanyCloud
   * USGovernment
@@ -431,10 +498,10 @@ CBool(
 #### <a name="issues-fixed"></a>Problemy z stałej
 
 * Następujące adresy URL są nowe WS-Federation punkty końcowe wprowadzone przez usługę Azure AD, aby zwiększyć odporność awarii uwierzytelniania i zostaną dodane do lokalnej konfiguracji relacji zaufania usług AD FS odpowiedzieć strony:
-  * https://ests.Login.microsoftonline.com/Login.srf
-  * https://stamp2.Login.microsoftonline.com/Login.srf
-  * https://ccs.Login.microsoftonline.com/Login.srf
-  * https://ccs-sdf.Login.microsoftonline.com/Login.srf
+  * https://ests.login.microsoftonline.com/login.srf
+  * https://stamp2.login.microsoftonline.com/login.srf
+  * https://ccs.login.microsoftonline.com/login.srf
+  * https://ccs-sdf.login.microsoftonline.com/login.srf
   
 * Rozwiązano problem powodujący usług AD FS do generowania wartości oświadczenia niepoprawne IssuerID. Problem występuje, gdy istnieje wielu zweryfikowanych domen w dzierżawie usługi Azure AD i sufiks domeny atrybutu userPrincipalName służący do generowania oświadczeń IssuerID jest co najmniej 3 poziomy głębokości (na przykład johndoe@us.contoso.com). Problem zostanie rozwiązany, aktualizując regex używane przez reguły oświadczeń.
 

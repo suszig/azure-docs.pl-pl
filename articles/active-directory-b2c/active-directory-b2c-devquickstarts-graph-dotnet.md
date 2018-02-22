@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: parakhj
-ms.openlocfilehash: 33df6c4255d4ca672e65237c8be45b3f0bc7864e
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: dd84a8da348d0d534ba19a3d61970ec0d8c66cc8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Usługa Azure AD B2C: Użyj Azure interfejs API Graph usługi AD
 
@@ -45,7 +45,7 @@ Po umieszczeniu dzierżawy B2C, należy zarejestrować aplikację za pośrednict
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Wybierz dzierżawy usługi Azure AD B2C, wybierając konto w prawym górnym rogu strony.
-3. W okienku nawigacji po lewej stronie wybierz **więcej usług**, kliknij przycisk **rejestracji aplikacji**i kliknij przycisk **Dodaj**.
+3. W okienku nawigacji po lewej stronie wybierz **wszystkie usługi**, kliknij przycisk **rejestracji aplikacji**i kliknij przycisk **Dodaj**.
 4. Postępuj zgodnie z monitami i utwórz nową aplikację. 
     1. Wybierz **aplikacji w sieci Web / interfejs API** jako typ aplikacji.    
     2. Podaj **żadnego identyfikator URI przekierowania** (np. https://B2CGraphAPI), ponieważ nie jest to potrzebne w tym przykładzie.  
@@ -128,7 +128,7 @@ Aby użyć B2CGraphClient, otwórz `cmd` poleceń systemu Windows, w wierszu pol
 Spowoduje to wyświetlenie krótki opis każdego polecenia. Zawsze jednego z tych poleceń, wywołaj `B2CGraphClient` zgłasza żądanie do interfejsu API programu Azure AD Graph.
 
 ### <a name="get-an-access-token"></a>Pobranie tokenu dostępu
-Wszystkie żądania interfejsu API programu Graph wymaga tokenu dostępu do uwierzytelniania. `B2CGraphClient`korzysta open source Active Directory Authentication Library (ADAL), aby uzyskać tokeny dostępu. Biblioteka ADAL ułatwia tokenu nabycia, zapewniając prostych interfejsu API i Dbamy o pewne ważne informacje, takie jak buforowanie tokenów dostępu. Nie masz uzyskać tokenów, jednak przy użyciu biblioteki ADAL. Można również uzyskać tokeny przez obsługuje tworzenie żądań HTTP.
+Wszystkie żądania interfejsu API programu Graph wymaga tokenu dostępu do uwierzytelniania. `B2CGraphClient` korzysta open source Active Directory Authentication Library (ADAL), aby uzyskać tokeny dostępu. Biblioteka ADAL ułatwia tokenu nabycia, zapewniając prostych interfejsu API i Dbamy o pewne ważne informacje, takie jak buforowanie tokenów dostępu. Nie masz uzyskać tokenów, jednak przy użyciu biblioteki ADAL. Można również uzyskać tokeny przez obsługuje tworzenie żądań HTTP.
 
 > [!NOTE]
 > Ten przykład kodu wykorzystuje ADAL w wersji 2, aby komunikować się z interfejsu API programu Graph.  Aby uzyskać tokenów dostępu, które mogą być używane z interfejsem API usługi Azure AD Graph, należy użyć ADAL w wersji 2 lub 3.
@@ -357,7 +357,7 @@ Można użyć pełnej nazwy, takie jak `extension_55dc0861f9a44eb999e0a8a872204a
 > B2C Update-User <object-id-of-user> <path-to-json-file>
 ```
 
-Za pomocą `B2CGraphClient`, masz aplikacji usługi, który można programowo zarządzać użytkownicy dzierżawy B2C. `B2CGraphClient`używa jego tożsamość aplikacji do uwierzytelniania interfejsu API programu Azure AD Graph. Uzyskuje on również tokenów przy użyciu klucza tajnego klienta. Ponieważ ta funkcja jest dołączyć do aplikacji, należy pamiętać o kilka najważniejszych dla aplikacji B2C:
+Za pomocą `B2CGraphClient`, masz aplikacji usługi, który można programowo zarządzać użytkownicy dzierżawy B2C. `B2CGraphClient` używa jego tożsamość aplikacji do uwierzytelniania interfejsu API programu Azure AD Graph. Uzyskuje on również tokenów przy użyciu klucza tajnego klienta. Ponieważ ta funkcja jest dołączyć do aplikacji, należy pamiętać o kilka najważniejszych dla aplikacji B2C:
 
 * Należy przyznać odpowiednie uprawnienia w dzierżawie aplikacji.
 * Na razie należy użyć biblioteki ADAL (nie MSAL) można uzyskać tokeny dostępu. (Możesz również wysłać wiadomości protokołu bezpośrednio, bez korzystania z biblioteki.)

@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: a75ad760fe7f9663c5b43500581170d5f8671a13
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 2879daf4b5ba072a3a9b11ec87c01e5904b6a5dc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="data-preparations-user-guide"></a>Podręcznik użytkownika przygotowań danych 
 Środowisko usługi Azure Machine Learning danych przygotowania zawiera wiele zaawansowanych funkcji. W tym artykule omówiono najgłębszym części środowiska.
@@ -55,7 +55,7 @@ Dla każdego źródła danych pliku wielu próbkach umożliwia generowanie i prz
 
 Istnieją różne dostępne strategie, każdy z innymi parametrami można konfigurować.
 
-#### <a name="top"></a>Pierwsze
+#### <a name="top"></a>Najważniejsze
 Ta strategia może odnosić się do plików lokalnych lub zdalnych. Trwa pierwsze N wierszy (określonego przez liczbę) do źródła danych.
 
 #### <a name="random-n"></a>Losowe N 
@@ -89,7 +89,7 @@ Do rozwidlania:
 4. Po **warunki**, wybierz pozycję **Utwórz przepływu danych zawierająca filtrowane limit wiersze** do rozwidlania wyświetlania z systemem innym niż zestaw wyników na nowy przepływ danych.
 
 
-Takie rozwiązanie jest często używane wyodrębnienie zestawu danych, która wymaga dodatkowych przygotowań. Po wrangle rozwidlonych zestawu danych, jest często scalania danych z zestawu wyników w oryginalnym przepływu danych. Do scalania (wstecznego operacji rozwidlenia), użyj jednej z następujących czynności:
+Takie rozwiązanie jest często używane wyodrębnienie zestawu danych, która wymaga dodatkowych przygotowań. Po przygotowaniu rozwidlonych zestawu danych jest często scalania danych z zestawu wyników w oryginalnym przepływu danych. Do scalania (wstecznego operacji rozwidlenia), użyj jednej z następujących czynności:
 
 - **Dołącz wiersze**. Scal dwa lub więcej przepływów danych w pionie (row-wise). 
 - **Dołącz kolumny**. Scal poziomie co najmniej dwóch przepływów danych (column-wise).

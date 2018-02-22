@@ -2,24 +2,18 @@
 title: "Szybki start platformy Azure — Transferowanie obiektów do usługi Azure Blob Storage i z niej za pomocą Eksploratora usługi Azure Storage | Microsoft Docs"
 description: "Skrócona instrukcja transferowania obiektów do usługi Azure Blob Storage i z niej za pomocą Eksploratora usługi Azure Storage"
 services: storage
-documentationcenter: storage
-author: georgewallace
+author: tamram
 manager: jeconnoc
-editor: 
-ms.assetid: 
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 12/04/2017
-ms.author: gwallace
-ms.openlocfilehash: c500ab59fad5fd59ca1b99b5ebc75d4902f78845
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.date: 02/20/2018
+ms.author: tamram
+ms.openlocfilehash: 5a91a39a340f20197e49a8045f0ee65c924469cb
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-azure-storage-explorer"></a>Transferowanie obiektów do usługi Azure Blob Storage i z niej za pomocą Eksploratora usługi Azure Storage
 

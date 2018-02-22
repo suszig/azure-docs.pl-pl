@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 0e9eba9baeec00f13880ba6b32d87be8e5872bc8
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: bd2f251e97248497592b40128dcc03db5d6eba7a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Umożliwia dostęp do usługi Azure Key Vault Linux VM zarządzane usługi tożsamości (MSI) 
 
@@ -45,7 +45,7 @@ Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](http
 
 W tym samouczku utworzymy nową maszynę Wirtualną systemu Linux. Można również włączyć MSI na istniejącej maszyny Wirtualnej.
 
-1. Kliknij przycisk **Nowy** znajdujący się w lewym górnym rogu witryny Azure Portal.
+1. Kliknij przycisk **Utwórz zasób** znaleziono przycisku w lewym górnym rogu portalu Azure.
 2. Wybierz pozycję **Wystąpienia obliczeniowe**, a następnie wybierz pozycję **Ubuntu Server 16.04 LTS**.
 3. Wprowadź informacje o maszynie wirtualnej. Aby uzyskać **typ uwierzytelniania**, wybierz pozycję **klucz publiczny SSH** lub **hasło**. Utworzony poświadczenia umożliwiają Zaloguj się do maszyny Wirtualnej.
 
@@ -77,7 +77,7 @@ Za pomocą Instalatora MSI kodu można uzyskać tokenów dostępu do uwierzyteln
 
 Najpierw należy utworzyć magazyn kluczy i udzielanie dostępu tożsamości naszych maszyny Wirtualnej w magazynie kluczy.   
 
-1. W górnej części na pasku nawigacyjnym po lewej stronie wybierz **+ nowy** następnie **bezpieczeństwo i Obsługa tożsamości** następnie **Key Vault**.  
+1. U góry na lewym pasku nawigacyjnym, zaznacz pole wyboru **Utwórz zasób** > **bezpieczeństwo i Obsługa tożsamości** > **Key Vault**.  
 2. Podaj **nazwa** dla nowego magazynu kluczy. 
 3. Zlokalizuj Key Vault w tej samej grupie subskrypcji i zasobu jako maszyny Wirtualnej utworzone wcześniej. 
 4. Wybierz **zasady dostępu** i kliknij przycisk **Dodaj nowe**. 

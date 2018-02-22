@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: juluk
-ms.openlocfilehash: a2c5348ea2ea02917472c1c3ae3bb518364c6848
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 300630919ed832b059dd96fa0f35f89b52b0430d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="features--tools-for-bash-in-azure-cloud-shell"></a>Funkcje i narzędzia do Bash w powłoce chmury Azure
 
@@ -37,7 +37,7 @@ Bash w chmurze powłoki bezpiecznie i automatycznie służy do uwierzytelniania 
 
 ### <a name="ssh-into-azure-linux-virtual-machines"></a>SSH do maszyn wirtualnych systemu Linux platformy Azure
 
-Tworzenie maszyny Wirtualnej systemu Linux z 2.0 interfejsu wiersza polecenia platformy Azure można utworzyć domyślny klucz SSH i umieścić go w sieci `$Home` katalogu. Wprowadzenie do protokołu SSH klucze w `$Home` umożliwia bezpośrednie połączenia SSH do maszyn wirtualnych systemu Linux platformy Azure bezpośrednio z powłoki chmury. Klucze są przechowywane w acc_<user>.img w udziale plików, stosować najlepsze rozwiązania lub udostępniania dostęp do udziału plików lub kluczy.
+Tworzenie maszyny Wirtualnej systemu Linux z 2.0 interfejsu wiersza polecenia platformy Azure można utworzyć domyślny klucz SSH i umieścić go w sieci `$Home` katalogu. Wprowadzenie do protokołu SSH klucze w `$Home` umożliwia połączeń SSH do maszyn wirtualnych systemu Linux platformy Azure bezpośrednio z powłoki chmury. Klucze są przechowywane w acc_<user>.img w udziale plików, stosować najlepsze rozwiązania lub udostępniania dostęp do udziału plików lub kluczy.
 
 ### <a name="home-persistence-across-sessions"></a>Trwałość $Home między sesjami
 
@@ -47,6 +47,10 @@ Ponadto w Bash w powłoce chmurze Twoje `$Home` katalogu jest utrwalony jako .im
 Pliki poza `$Home` i stan maszyny nie są zachowywane między sesjami.
 
 [Dowiedz się więcej o plikach utrwalanie w Bash w powłoce chmury.](persisting-shell-storage.md)
+
+### <a name="deep-integration-with-open-source-tooling"></a>Ścisła integracja z narzędziami open source
+
+Bash w chmurze powłoki obejmuje wstępnie skonfigurowane uwierzytelnianie open source narzędzi, takich jak Terraform i Ansible. Wypróbuj ją z wskazówki przykład.
 
 ## <a name="tools"></a>Narzędzia
 

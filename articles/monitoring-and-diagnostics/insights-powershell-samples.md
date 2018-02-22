@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 2/14/2018
 ms.author: robb
-ms.openlocfilehash: 36836a4528c8ba04eee1c5234fd6d4e0f9545913
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 3479b9c5bc1c8c77d2c6012b40dc9cd8f8e1708b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Przykładów dla platformy Azure Monitor PowerShell szybki start
-Ten artykuł przedstawia przykładowe polecenia programu PowerShell, aby ułatwić dostęp do funkcji Azure monitora. Azure Monitor pozwala automatycznego skalowania usługi w chmurze, maszyn wirtualnych i aplikacji sieci Web. Można też do wysyłania powiadomień o alertach, lub zadzwoń na podstawie wartości dane telemetryczne skonfigurowanych adresów URL sieci web.
+Ten artykuł przedstawia przykładowe polecenia programu PowerShell, aby ułatwić dostęp do funkcji Azure monitora.
 
 > [!NOTE]
 > Azure Monitor to nowa nazwa dla proponowaną "Azure Insights" do 25 września 2016 r. Jednak przestrzenie nazw, dlatego poniższe polecenia nadal zawierać słowo "insights".
@@ -93,10 +93,10 @@ Polecenie pobiera ostatnich 1000 zdarzenia z dziennika aktywności:
 Get-AzureRmLog -MaxEvents 1000
 ```
 
-`Get-AzureRmLog`obsługuje wiele innych parametrów. Zobacz `Get-AzureRmLog` odwołania, aby uzyskać więcej informacji.
+`Get-AzureRmLog` obsługuje wiele innych parametrów. Zobacz `Get-AzureRmLog` odwołania, aby uzyskać więcej informacji.
 
 > [!NOTE]
-> `Get-AzureRmLog`zapewnia tylko 15 dni historii. Przy użyciu **- MaxEvents** parametr umożliwia zapytania ostatniego N zdarzeń ponad 15 dni. Aby dostępu zdarzenia starsze niż 15 dni należy użyć interfejsu API REST lub zestawu SDK (C# przykład przy użyciu zestawu SDK). Jeśli nie zostanie uwzględniony **StartTime**, to wartością domyślną jest **EndTime** minus jedną godzinę. Jeśli nie zostanie uwzględniony **EndTime**, to wartością domyślną jest bieżący czas. Wszystkie godziny są w formacie UTC.
+> `Get-AzureRmLog` zapewnia tylko 15 dni historii. Przy użyciu **- MaxEvents** parametr umożliwia zapytania ostatniego N zdarzeń ponad 15 dni. Aby dostępu zdarzenia starsze niż 15 dni należy użyć interfejsu API REST lub zestawu SDK (C# przykład przy użyciu zestawu SDK). Jeśli nie zostanie uwzględniony **StartTime**, to wartością domyślną jest **EndTime** minus jedną godzinę. Jeśli nie zostanie uwzględniony **EndTime**, to wartością domyślną jest bieżący czas. Wszystkie godziny są w formacie UTC.
 > 
 > 
 
@@ -136,7 +136,7 @@ Pobierz wszystkie reguły alertu dla zasobu docelowego. Na przykład wszystkie r
 Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
 ```
 
-`Get-AzureRmAlertRule`obsługuje inne parametry. Zobacz [Get AlertRule](https://msdn.microsoft.com/library/mt282459.aspx) Aby uzyskać więcej informacji.
+`Get-AzureRmAlertRule` obsługuje inne parametry. Zobacz [Get AlertRule](https://msdn.microsoft.com/library/mt282459.aspx) Aby uzyskać więcej informacji.
 
 ## <a name="create-metric-alerts"></a>Tworzenie metryk alertów
 Można użyć `Add-AlertRule` polecenia cmdlet do tworzenia, aktualizowania ani wyłączyć regułę alertu.
@@ -145,17 +145,17 @@ Można utworzyć właściwości poczty e-mail i elementu webhook za pomocą `New
 
 W poniższej tabeli opisano parametry i wartości używane do utworzenia alertu za pomocą metryki.
 
-| Parametr | wartość |
+| parametr | wartość |
 | --- | --- |
-| Nazwa |simpletestdiskwrite |
+| Name (Nazwa) |simpletestdiskwrite |
 | Lokalizacja tę regułę alertów |Wschodnie stany USA |
 | ResourceGroup |montest |
-| Element TargetResourceId |/Subscriptions/S1/resourceGroups/montest/Providers/Microsoft.COMPUTE/virtualMachines/testconfig |
+| TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
 | MetricName alertu, który jest tworzony |\Disk \PhysicalDisk (_Total) / s. Zobacz `Get-MetricDefinitions` polecenia cmdlet dotyczące pobrania dokładne metryki nazw |
 | Operator |GreaterThan |
 | Wartość progowa (liczba/s w tym metryki) |1 |
 | Rozmiar_okna (w formacie hh: mm:) |00:05:00 |
-| agregatora (Statystyka metryki, który używa w tym przypadku średnia liczba) |Średni |
+| agregatora (Statystyka metryki, który używa w tym przypadku średnia liczba) |Średnia |
 | niestandardowe wiadomości e-mail (tablicy ciągów) |'foo@example.com','bar@example.com' |
 | Wyślij wiadomość e-mail do właściciele, współautorzy i czytelnicy |-SendToServiceOwners |
 
@@ -199,6 +199,22 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 ```
 
 Pełną listę dostępnych opcji `Get-AzureRmMetricDefinition` znajduje się w temacie [Get-MetricDefinitions](https://msdn.microsoft.com/library/mt282458.aspx).
+
+## <a name="create-and-manage-activity-log-alerts"></a>Tworzenie i Zarządzanie alertami dziennik aktywności
+Można użyć `Set-AzureRmActivityLogAlert` polecenia cmdlet, aby ustawić alert dziennik aktywności. Alert dziennik aktywności wymaga czy najpierw zdefiniować warunki jako słownik warunków, a następnie tworzony alert, który używa tych warunków.
+
+```PowerShell
+
+$condition1 = New-AzureRmActivityLogAlertCondition -Field 'category' -Equals 'Administrative'
+$condition2 = New-AzureRmActivityLogAlertCondition -Field 'operationName' -Equals 'Microsoft.Compute/virtualMachines/write'
+$additionalWebhookProperties = New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"
+$additionalWebhookProperties.Add('customProperty', 'someValue')
+$actionGrp1 = New-AzureRmActionGroup -ActionGroupId 'actiongr1' -WebhookProperties $dict
+Set-AzureRmActivityLogAlert -Location 'Global' -Name 'alert on VM create' -ResourceGroupName 'myResourceGroup' -Scope '/' -Action $actionGrp1 -Condition $condition1, $condition2
+
+```
+
+Właściwości elementu webhook dodatkowe są opcjonalne. Możesz odzyskać zawartość działania dziennika alertów za pomocą `Get-AzureRmActivityLogAlert`.
 
 ## <a name="create-and-manage-autoscale-settings"></a>Utwórz i Zarządzaj ustawieniami automatycznego skalowania
 Zasób (aplikacja sieci Web, maszyn wirtualnych, usługa w chmurze lub zestawu skalowania maszyn wirtualnych) może mieć tylko jedno ustawienie skalowania automatycznego skonfigurowane pod jego kątem.

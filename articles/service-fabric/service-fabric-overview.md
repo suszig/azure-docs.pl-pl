@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: msfussell
 ms.custom: mvc
-ms.openlocfilehash: 4aca25f74d3e22911ab5059a8cdec45f189dc8cf
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: aab15e6981e4f5f3c69ea6a85995fd2db69ff8b8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="overview-of-azure-service-fabric"></a>Omówienie usługi Azure Service Fabric
 Usługa Azure Service Fabric to platforma systemów rozproszonych ułatwiająca pakowanie i wdrażanie skalowalnych i niezawodnych mikrousług i kontenerów oraz zarządzanie nimi. Ponadto usługa Service Fabric pozwala sprostać istotnym wyzwaniom związanym z opracowywaniem natywnych aplikacji chmurowych i zarządzaniem nimi. Deweloperzy i administratorzy mogą uniknąć złożonych problemów związanych z infrastrukturą i skoncentrować się na implementowaniu wymagających obciążeń o znaczeniu strategicznym, które są skalowalne, niezawodne i łatwe w zarządzaniu. Usługa Service Fabric to platforma następnej generacji do tworzenia działających w kontenerach aplikacji w skali chmury warstwy pierwszej dla przedsiębiorstw i zarządzania nimi.
@@ -49,7 +49,7 @@ Usługa Service Fabric może działać wszędzie. Możesz tworzyć klastry usłu
 
 ![Platforma Service Fabric][Image1]
 
-Na potrzeby programowania dla systemu Windows zestaw SDK .NET usługi Service Fabric jest zintegrowany z programami Visual Studio i PowerShell. Zobacz [Przygotowywanie środowiska deweloperskiego w systemie Windows](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started.md). Na potrzeby programowania dla systemu Linux zestaw SKD Java usługi Service Fabric jest zintegrowany ze środowiskiem Eclipse, a narzędzie Yeoman umożliwia generowanie szablonów dla platform Java i .NET Core oraz aplikacji kontenerowych. Zobacz [Przygotowywanie środowiska projektowego w systemie Linux](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started.md).
+Na potrzeby programowania dla systemu Windows zestaw SDK .NET usługi Service Fabric jest zintegrowany z programami Visual Studio i PowerShell. Zobacz [Przygotowywanie środowiska deweloperskiego w systemie Windows](service-fabric-get-started.md). Na potrzeby programowania dla systemu Linux zestaw SKD Java usługi Service Fabric jest zintegrowany ze środowiskiem Eclipse, a narzędzie Yeoman umożliwia generowanie szablonów dla platform Java i .NET Core oraz aplikacji kontenerowych. Zobacz [Przygotowywanie środowiska projektowego w systemie Linux](service-fabric-get-started.md).
 
 Aby uzyskać więcej informacji na temat tworzenia klastrów, zapoznaj się z artykułami dotyczącymi [tworzenia klastra w systemie Windows Server lub Linux](service-fabric-deploy-anywhere.md) lub w przypadku platformy Azure — tworzenia klastra [w witrynie Azure Portal](service-fabric-cluster-creation-via-portal.md).
 

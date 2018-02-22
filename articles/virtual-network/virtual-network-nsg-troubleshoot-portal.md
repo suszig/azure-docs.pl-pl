@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: 92816a5b1a74be5b64d974ad9ade47374db5db10
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5998aa0e0b281ead859c24d792c3e175e3cca899
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>Rozwiązywanie problemów z grup zabezpieczeń sieci przy użyciu portalu Azure
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ Wykonaj poniższe kroki, aby rozwiązać grup NSG dla maszyny Wirtualnej:
 Pełna lista reguł efektywnym elementem systemu zabezpieczeń można wyświetlić karty sieciowej, z samej maszyny Wirtualnej. Można także dodawanie, modyfikowanie i usuwanie reguły NSG podsieci i karty w bloku skuteczne reguły, jeśli masz uprawnienia do wykonania tych operacji.
 
 1. Zaloguj się do portalu Azure pod adresem https://portal.azure.com przy użyciu konta platformy Azure. Konto musi mieć przypisaną *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* operacji interfejsu sieciowego. Aby dowiedzieć się, jak przypisać operacje do kont, zobacz [Tworzenie niestandardowych ról dla kontroli dostępu](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
-2. Kliknij przycisk **więcej usług**, następnie kliknij przycisk **maszyn wirtualnych** na liście.
+2. Kliknij przycisk **wszystkie usługi**, następnie kliknij przycisk **maszyn wirtualnych** na liście.
 3. Wybierz maszynę Wirtualną, aby rozwiązać problemy z listy, która pojawia się i zostanie wyświetlony blok maszyny Wirtualnej, z opcjami.
 4. Kliknij przycisk **Diagnozuj & rozwiązywania problemów** , a następnie wybierz powszechny problem. Na przykład **nie mogę połączyć się z maszyną Wirtualną z systemem Windows** jest zaznaczone. 
    
@@ -96,7 +96,7 @@ Pełna lista reguł efektywnym elementem systemu zabezpieczeń można wyświetli
 Jeśli do ruchu maszyny Wirtualnej jest w pełni funkcjonalne dla określonych kart interfejsu Sieciowego, można wyświetlić pełną listę skuteczne reguły do karty Sieciowej z kontekstu interfejsów sieciowych, wykonując następujące czynności:
 
 1. Zaloguj się do portalu Azure pod adresem https://portal.azure.com.
-2. Kliknij przycisk **więcej usług**, następnie kliknij przycisk **interfejsy sieciowe** na liście.
+2. Kliknij przycisk **wszystkie usługi**, następnie kliknij przycisk **interfejsy sieciowe** na liście.
 3. Wybierz interfejs sieciowy. Na poniższej ilustracji, karta sieciowa o nazwie *VM1 NIC1* jest zaznaczone.
    
     ![](./media/virtual-network-nsg-troubleshoot-portal/image5.png)
@@ -113,7 +113,7 @@ Jeśli do ruchu maszyny Wirtualnej jest w pełni funkcjonalne dla określonych k
 Podczas modyfikowania reguły NSG, można przejrzeć wpływu reguły dodawany na określonej maszynie Wirtualnej. Pełna lista reguł efektywnym elementem systemu zabezpieczeń można wyświetlić wszystkie karty sieciowe obsługujące danego grupa NSG jest stosowana do, bez konieczności przełączania kontekstu w danym bloku NSG. Rozwiązywać skuteczne reguły w obrębie grupy NSG, wykonaj następujące kroki:
 
 1. Zaloguj się do portalu Azure pod adresem https://portal.azure.com.
-2. Kliknij przycisk **więcej usług**, następnie kliknij przycisk **sieciowej grupy zabezpieczeń** na liście.
+2. Kliknij przycisk **wszystkie usługi**, następnie kliknij przycisk **sieciowej grupy zabezpieczeń** na liście.
 3. Wybierz grupy NSG. Na poniższej ilustracji grupy NSG o nazwie grupy nsg VM1 został wybrany.
    
     ![](./media/virtual-network-nsg-troubleshoot-portal/image6.png)

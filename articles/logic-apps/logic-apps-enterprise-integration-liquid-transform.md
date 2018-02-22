@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: LADocs; divswa
-ms.openlocfilehash: c1a1a5530c19d39a8e37d122235c8340caa88570
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 4bb003afd757faac675a9af8599a781247717a64
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="perform-advanced-json-transformations-with-a-liquid-template"></a>Wykonywać zaawansowane przekształcenia JSON przy użyciu szablonu płynne
 
@@ -110,7 +110,46 @@ W tym artykule Dowiedz się, jak używać mapy płynne lub szablonu, który obs�
 
 Publikowania danych wejściowych JSON do aplikacji logiki z [Postman](https://www.getpostman.com/postman) lub podobnego narzędzia. Przekształcone dane wyjściowe JSON aplikacji logiki wygląda następująco:
   
-![Przykładowe dane wyjściowe](./media/logic-apps-enterprise-integration-liquid-transform/example-output.png)
+![Przykładowe dane wyjściowe](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontojson.png)
+
+## <a name="more-liquid-action-examples"></a>Więcej przykładów płynne akcji
+Płynnych nie jest ograniczone do tylko przekształcenia JSON. Poniżej przedstawiono inne akcje dostępne przekształcania, korzystających z płynnych.
+
+* Przekształć JSON do tekstu
+  
+  Oto płynne szablon używany w tym przykładzie:
+   
+   ``` json
+   {{content.firstName | Append: ' ' | Append: content.lastName}}
+   ```
+   Poniżej przedstawiono przykładowe dane wejściowe i wyjściowe:
+  
+   ![Przykładowe dane wyjściowe JSON do tekstu](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontotext.png)
+
+* Przekształcanie XML do ciągu JSON
+  
+  Oto płynne szablon używany w tym przykładzie:
+   
+   ``` json
+   [{% JSONArrayFor item in content -%}
+        {{item}}
+    {% endJSONArrayFor -%}]
+   ```
+   Poniżej przedstawiono przykładowe dane wejściowe i wyjściowe:
+
+   ![Przykładowe dane wyjściowe XML do ciągu JSON](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltojson.png)
+
+* Przekształcanie XML do tekstu
+  
+  Oto płynne szablon używany w tym przykładzie:
+
+   ``` json
+   {{content.firstName | Append: ' ' | Append: content.lastName}}
+   ```
+
+   Poniżej przedstawiono przykładowe dane wejściowe i wyjściowe:
+
+   ![Przykładowe dane wyjściowe XML do tekstu](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltotext.png)
 
 ## <a name="next-steps"></a>Kolejne kroki
 

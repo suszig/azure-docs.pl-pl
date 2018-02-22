@@ -16,30 +16,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: ea5453f98c427304fd0b437ba27846a008da2585
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 2bead1a879811349e4bee5dfebdcbbb838130b81
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Dostosowywanie klastrów usługi HDInsight przy użyciu ładowania początkowego
 
 Czasami użytkownik chce skonfigurować pliki konfiguracyjne, które obejmują:
 
 * clusterIdentity.xml
-* Core-site.xml
-* Gateway.XML
-* hbase env.xml
+* core-site.xml
+* gateway.xml
+* hbase-env.xml
 * hbase-site.xml
-* System plików hdfs-site.xml
-* env.xml gałęzi
-* gałąź site.xml
+* hdfs-site.xml
+* hive-env.xml
+* hive-site.xml
 * mapred lokacji
 * oozie-site.xml
-* oozie env.xml
-* STORM-site.xml
-* tez site.xml
-* webhcat site.xml
+* oozie-env.xml
+* storm-site.xml
+* tez-site.xml
+* webhcat-site.xml
 * yarn-site.xml
 * Server.Properties (brokera kafka konfiguracji)
 
@@ -86,7 +86,7 @@ Zakończenie pracy skryptu programu PowerShell można znaleźć w [dodatku](#app
 **Aby sprawdzić zmiany:**
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. Z menu po lewej stronie kliknij **klastrów usługi HDInsight**. Jeśli nie widzisz, kliknij przycisk **więcej usług** pierwszy.
+2. Z menu po lewej stronie kliknij **klastrów usługi HDInsight**. Jeśli nie widzisz, kliknij przycisk **wszystkie usługi** pierwszy.
 3. Kliknij utworzony przy użyciu skryptu środowiska PowerShell klastra.
 4. Kliknij przycisk **pulpitu nawigacyjnego** od górnej krawędzi bloku, aby otworzyć Interfejs użytkownika narzędzia Ambari.
 5. Kliknij przycisk **Hive** z menu po lewej stronie.

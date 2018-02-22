@@ -1,6 +1,6 @@
 ---
 title: "Połączenie bramy sieci VPN platformy Azure do wielu urządzeń lokalnych, na podstawie zasad sieci VPN: usługi Azure Resource Manager: programu PowerShell | Dokumentacja firmy Microsoft"
-description: "Ten artykuł przeprowadzi Cię przez skonfigurowanie Azure bramy sieci VPN opartej na trasach do wielu opartych na zasadach urządzenia sieci VPN za pomocą usługi Azure Resource Manager i programu PowerShell."
+description: "Konfigurowanie usługi Azure opartej na trasach bramy sieci VPN do wielu opartych na zasadach urządzenia sieci VPN za pomocą usługi Azure Resource Manager i programu PowerShell."
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/27/2017
+ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: db4d8837fb5c5d15364422e957e4914966215674
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 90c855e768f403098e535391afb55e3c78044b0a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>Połączenie bramy sieci VPN platformy Azure do wielu urządzeń lokalnych, na podstawie zasad sieci VPN przy użyciu programu PowerShell
 
@@ -43,9 +43,9 @@ Poniższych diagramach wyróżnić dwa modele:
 ### <a name="azure-support-for-policy-based-vpn"></a>Pomocy technicznej platformy Azure dla sieci VPN opartych na zasadach
 Obecnie usługa Azure obsługuje oba tryby bramy sieci VPN: opartej na trasach bramy sieci VPN i bramy sieci VPN opartych na zasadach. Zostały one utworzone na różnych platformach wewnętrznego, które powodują różne specyfikacje:
 
-|                          | **Brama sieci VPN PolicyBased** | **Brama sieci VPN z siecią typu RouteBased**               |
+|                          | **PolicyBased VPN Gateway** | **Brama sieci VPN z siecią typu RouteBased**               |
 | ---                      | ---                         | ---                                      |
-| **Jednostka SKU bramy Azure**    | Podstawowa                       | Basic, Standard, wysokowydajnej, VpnGw1, VpnGw2, VpnGw3 |
+| **Jednostka SKU bramy Azure**    | Podstawowa                       | Basic, Standard, HighPerformance, VpnGw1, VpnGw2, VpnGw3 |
 | **Wersja IKE**          | IKEv1                       | IKEv2                                    |
 | **Maks. Połączeń S2S** | **1**                       | Basic/Standard: 10<br> Wysokowydajnej: 30 |
 |                          |                             |                                          |
@@ -146,7 +146,7 @@ New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location
 > Należy utworzyć zasady IPsec i IKE, aby włączyć opcję "UsePolicyBasedTrafficSelectors" w połączeniu.
 
 Poniższy przykład tworzy zasady IPsec i IKE z te algorytmy i parametry:
-* IKEv2: DHGroup24 AES256, SHA384
+* IKEv2: AES256, SHA384, DHGroup24
 * Protokół IPsec: AES256, SHA256, PFS24, skojarzenia zabezpieczeń okres istnienia 3600 s & 2048KB
 
 ```powershell
@@ -211,7 +211,7 @@ $connection6  = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -
 Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6 -UsePolicyBasedTrafficSelectors $True
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Po zakończeniu procesu nawiązywania połączenia można dodać do sieci wirtualnych maszyny wirtualne. Kroki opisano w sekcji [Tworzenie maszyny wirtualnej](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Sprawdź również [zasady IPsec/IKE skonfigurować dla połączeń sieci VPN S2S lub wirtualnymi do](vpn-gateway-ipsecikepolicy-rm-powershell.md) uzyskać więcej informacji dotyczących zasad protokołu IPsec/IKE niestandardowych.

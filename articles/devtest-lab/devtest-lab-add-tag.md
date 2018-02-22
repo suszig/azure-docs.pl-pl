@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2017
 ms.author: v-craic
-ms.openlocfilehash: 38b6612bc33326b758b357dca09081c02d294e5d
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 72e82b207a543a9020b38b2c4494717e9f648ab7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>Dodawanie tagów do laboratorium w usłudze Azure DevTest Labs
 
@@ -40,7 +40,7 @@ Każdy znacznik składa się z **nazwa**/**wartość** pary. Na przykład można
 ## <a name="steps-to-manage-tags-in-an-existing-lab"></a>Kroki, aby zarządzać znaczników w istniejących laboratorium
 
 1. Zaloguj się w witrynie [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. W razie potrzeby wybierz **więcej usług**, a następnie wybierz **DevTest Labs** z listy. Laboratorium może być jest wyświetlana na pulpicie nawigacyjnym w obszarze **wszystkie zasoby**.
+1. W razie potrzeby wybierz **wszystkie usługi**, a następnie wybierz **DevTest Labs** z listy. Laboratorium może być jest wyświetlana na pulpicie nawigacyjnym w obszarze **wszystkie zasoby**.
 1. Z listy labs wybierz laboratorium, w której chcesz dodać lub zarządzać tagów.  
 1. W laboratorium **omówienie** wybierz opcję **konfiguracji i zasadach**.  
 

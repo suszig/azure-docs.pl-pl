@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 619334b3ca65654fd845a62c2fc068156d94d6fc
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 6c949c07c95c5d965b31725bce4ab2deac646bca
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-android-getting-started"></a>Azure AD systemu Android wprowadzenie
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -52,7 +52,7 @@ Zakłada się, że w przypadku rejestrowania interfejsu API REST TODO odwołuje 
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Na górnym pasku kliknij konto. W **katalogu** wybierz dzierżawy usługi Azure AD, które chcesz zarejestrować aplikację.
-3. Kliknij przycisk **więcej usług** w okienku po lewej stronie, a następnie wybierz **usługi Azure Active Directory**.
+3. Kliknij przycisk **wszystkie usługi** w okienku po lewej stronie, a następnie wybierz **usługi Azure Active Directory**.
 4. Kliknij przycisk **rejestracji aplikacji**, a następnie wybierz **Dodaj**.
 5. Wprowadź przyjazną nazwę dla aplikacji (na przykład **TodoListService**), wybierz pozycję **aplikacji sieci Web i/lub interfejs API sieci Web**i kliknij przycisk **dalej**.
 6. Zaloguj się na adres URL wprowadź podstawowy adres URL przykładowej. Domyślnie jest to `https://localhost:8080`.
@@ -70,7 +70,7 @@ Zakłada się, że w przypadku rejestrowania przykładowej aplikacji odwołuje s
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Na górnym pasku kliknij konto. W **katalogu** wybierz dzierżawy usługi Azure AD, które chcesz zarejestrować aplikację.
-3. Kliknij przycisk **więcej usług** w okienku po lewej stronie, a następnie wybierz **usługi Azure Active Directory**.
+3. Kliknij przycisk **wszystkie usługi** w okienku po lewej stronie, a następnie wybierz **usługi Azure Active Directory**.
 4. Kliknij przycisk **rejestracji aplikacji**, a następnie wybierz **Dodaj**.
 5. Wprowadź przyjazną nazwę dla aplikacji (na przykład **TodoListClient Android**), wybierz pozycję **natywną aplikację kliencką**i kliknij przycisk **dalej**.
 6. Identyfikator URI przekierowania, można wprowadzić `http://TodoListClient`. Kliknij przycisk **Zakończ**.
@@ -85,9 +85,9 @@ Tworzenia za pomocą narzędzia Maven, można użyć pom.xml na najwyższym pozi
 2. Postępuj zgodnie z instrukcjami [wymagania wstępne dotyczące konfigurowania środowiska Maven dla systemu Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android/wiki/Setting-up-maven-environment-for-Android).
 3. Konfigurowanie emulatora z 19 zestawu SDK.
 4. Przejdź do folderu głównego, w którym sklonować repozytorium.
-5. Uruchom następujące polecenie:`mvn clean install`
-6. Zmień katalog na przykład Szybki Start:`cd samples\hello`
-7. Uruchom następujące polecenie:`mvn android:deploy android:run`
+5. Uruchom następujące polecenie: `mvn clean install`
+6. Zmień katalog na przykład Szybki Start: `cd samples\hello`
+7. Uruchom następujące polecenie: `mvn android:deploy android:run`
 
    Powinna zostać wyświetlona uruchamiania aplikacji.
 8. Wprowadź poświadczenia użytkownika testowego próby.

@@ -14,13 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/09/2017
 ms.author: mikhegn
-ms.openlocfilehash: 959fdb4aceee48863f3914d1b91f2bec6e256d6b
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 6bc986236d50106485dce151f1f74622f56400c5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="manage-applications-for-multiple-environments"></a>Zarządzanie aplikacjami w wielu środowiskach
+# <a name="manage-applications-for-multiple-environments"></a>Zarządzanie aplikacjami dla wielu środowisk
 
 Klastrów sieci szkieletowej usług Azure umożliwiają tworzenie klastrów za pomocą dowolnej lokalizacji z jednego do wielu tysięcy komputerów. W większości przypadków okaże się, że konieczności wdrażania aplikacji w konfiguracji klastra z wieloma: z lokalnego klastra projektowego klastra udostępnionego programowanie i klastra produkcyjnego. Wszystkie te klastry są traktowane jako kodu musi zostać uruchomione różnych środowisk. Pliki binarne aplikacji mogą działać bez żadnych modyfikacji w tym szerokie spektrum, ale często chcesz skonfigurować aplikację inaczej.
 
@@ -55,8 +55,8 @@ Podczas tworzenia wystąpienia nazwanego aplikacji w sieci szkieletowej usług, 
 ## <a name="next-steps"></a>Kolejne kroki
 Następujące artykuły pokazują, jak korzystać z niektórych pojęcia opisane tutaj:
 
-- [Sposób określania zmiennych środowiskowych dla usług w sieci szkieletowej usług](service-fabric-how-to-specify-port-number-using-parameters.md)
-- [Jak określić numer portu usługi przy użyciu parametrów w sieci szkieletowej usług](service-fabric-how-to-specify-environment-variables.md)
+- [Sposób określania zmiennych środowiskowych dla usług w sieci szkieletowej usług](service-fabric-how-to-specify-environment-variables.md)
+- [Jak określić numer portu usługi przy użyciu parametrów w sieci szkieletowej usług](service-fabric-how-to-specify-port-number-using-parameters.md)
 - [Jak parametryzacja pliki konfiguracji](service-fabric-how-to-parameterize-configuration-files.md)
 
 - [Odwołanie do zmiennej środowiskowej](service-fabric-environment-variables-reference.md)

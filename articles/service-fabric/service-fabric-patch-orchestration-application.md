@@ -12,19 +12,25 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/9/2017
+ms.date: 1/16/2018
 ms.author: nachandr
-ms.openlocfilehash: 13c11902e275d1023e474d717800b3a36a6b31f2
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: bb3afdd3afa81664589f738945a63d20013d5291
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Poprawka systemu operacyjnego Windows w klastrze usługi sieć szkieletowa
 
+> [!div class="op_single_selector"]
+> * [Windows](service-fabric-patch-orchestration-application.md)
+> * [Linux](service-fabric-patch-orchestration-application-linux.md)
+>
+>
+
 Aplikacja orchestration poprawki jest aplikacja sieć szkieletowa usług Azure, która automatyzuje systemu operacyjnego stosowanie poprawek w klastrze usługi sieć szkieletowa bez przestoju.
 
-Poprawka aplikacji aranżacji zapewnia następujące korzyści:
+Poprawka aplikacji aranżacji oferuje następujące funkcje:
 
 - **Instalacja aktualizacji automatycznych systemu operacyjnego**. Automatycznie pobierania i instalowania aktualizacji systemu operacyjnego. Węzły klastra są ponownie uruchamiane zgodnie z potrzebami bez przestoju klastra.
 
@@ -61,15 +67,15 @@ Aplikacja orchestration poprawki wymaga usługi repair Menedżera system zostać
 Azure klastrów w warstwie srebrny trwałości ma usługę Menedżer naprawy domyślnie włączone. Azure klastrów w warstwie trwałości gold mogą lub nie mieć usługę Menedżer naprawy włączone, w zależności od tego, kiedy te klastry zostały utworzone. Klastry platformy Azure w warstwie brązową trwałości, domyślnie nie być włączona usługa Menedżera naprawy. Jeśli usługa jest już włączony, można to sprawdzić w sekcji system usługi Service Fabric Explorer.
 
 ##### <a name="azure-portal"></a>Azure Portal
-Podczas konfigurowania klastra można włączyć naprawy menedżera z portalu Azure. Wybierz **Menedżera naprawy obejmują** opcję w obszarze **Dodaj funkcji** w czasie konfiguracji klastra.
+Podczas konfigurowania klastra można włączyć naprawy menedżera z portalu Azure. Wybierz **Menedżera naprawy obejmują** opcję w obszarze **dodatkowe funkcje** w czasie konfiguracji klastra.
 ![Obraz Menedżera naprawy włączenie z portalu Azure](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
-##### <a name="azure-resource-manager-template"></a>Szablon usługi Azure Resource Manager
-Możesz też użyć [szablonu usługi Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) Aby włączyć usługę Menedżer naprawy na nowych i istniejących klastrów sieci szkieletowej usług. Pobierz szablon dla klastra, który chcesz wdrożyć. Można korzystać z przykładowych szablonów lub utworzyć niestandardowy szablon usługi Resource Manager. 
+##### <a name="azure-resource-manager-deployment-model"></a>Model wdrażania usługi Azure Resource Manager
+Możesz też użyć [modelu wdrażania usługi Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) Aby włączyć usługę Menedżer naprawy na nowych i istniejących klastrów sieci szkieletowej usług. Pobierz szablon dla klastra, który chcesz wdrożyć. Można korzystać z przykładowych szablonów lub utworzyć niestandardowy szablon modelu wdrażania usługi Azure Resource Manager. 
 
-Aby włączyć naprawy Menedżera usługi przy użyciu [szablonu usługi Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm):
+Aby włączyć naprawy Menedżera usługi przy użyciu [szablonu modelu wdrażania usługi Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm):
 
-1. Najpierw sprawdź, czy `apiversion` ustawiono `2017-07-01-preview` dla `Microsoft.ServiceFabric/clusters` zasobów, jak pokazano w poniższy fragment kodu. Jeśli jest inny, musisz zaktualizować `apiVersion` wartość `2017-07-01-preview`:
+1. Najpierw sprawdź, czy `apiversion` ustawiono `2017-07-01-preview` dla `Microsoft.ServiceFabric/clusters` zasobów. Jeśli jest inny, musisz zaktualizować `apiVersion` wartość `2017-07-01-preview` lub nowszy:
 
     ```json
     {
@@ -136,18 +142,18 @@ Pobierz aplikację z [pobrać link](https://go.microsoft.com/fwlink/P/?linkid=84
 
 Zachowanie aplikacji aranżacji poprawek można skonfigurować zgodnie z potrzebami. Zastąpić wartości domyślne, przekazując w parametrze aplikacji podczas tworzenia aplikacji lub aktualizacji. Można podać parametry aplikacji, określając `ApplicationParameter` do `Start-ServiceFabricApplicationUpgrade` lub `New-ServiceFabricApplication` polecenia cmdlet.
 
-|**Parametr**        |**Typ**                          | **Szczegóły**|
+|**Parameter**        |**Typ**                          | **Szczegóły**|
 |:-|-|-|
 |MaxResultsToCache    |Długie                              | Maksymalna liczba wyników aktualizacji systemu Windows, które mają być buforowane. <br>Wartość domyślna to 3000 zakładając, że: <br> -Liczba węzłów to 20. <br> -Liczba aktualizacji pojawia się w węźle miesięcznie wynosi pięć. <br> -Liczba wyników dla operacji może być 10. <br> — Powinny być przechowywane wyniki dla ostatnich trzech miesięcy. |
-|TaskApprovalPolicy   |wyliczenia <br> {NodeWise, UpgradeDomainWise}                          |TaskApprovalPolicy wskazuje zasad, który ma być używany przez usługę koordynatora instalowania aktualizacji systemu Windows w węzłach klastra sieci szkieletowej usług.<br>                         Dozwolone wartości to: <br>                                                           <b>NodeWise</b>. Windows Update jest zainstalowany jeden węzeł naraz. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update jest zainstalowanych domeny uaktualnienia pojedynczo. (Maksymalnie, wszystkie węzły należące do domeny uaktualnienia można przejść do usługi Windows Update.)
+|TaskApprovalPolicy   |wyliczenia <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy wskazuje zasad, który ma być używany przez usługę koordynatora instalowania aktualizacji systemu Windows w węzłach klastra sieci szkieletowej usług.<br>                         Dozwolone wartości to: <br>                                                           <b>NodeWise</b>. Windows Update jest zainstalowany jeden węzeł naraz. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update jest zainstalowanych domeny uaktualnienia pojedynczo. (Maksymalnie, wszystkie węzły należące do domeny uaktualnienia można przejść do usługi Windows Update.)
 |LogsDiskQuotaInMB   |Długie  <br> (Domyślnie: 1024)               |Maksymalny rozmiar poprawki aplikacji aranżacji loguje MB, co może trwale znajdować się lokalnie w węzłach.
-| WUQuery               | Ciąg<br>(Domyślnie: "IsInstalled = 0")                | Zapytania w celu pobrania aktualizacji systemu Windows. Aby uzyskać więcej informacji, zobacz [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
-| InstallWindowsOSOnlyUpdates | wartość logiczna <br> (domyślne: True)                 | Ta flaga zezwala na instalację aktualizacji systemu operacyjnego Windows.            |
-| WUOperationTimeOutInMinutes | int <br>(Domyślnie: 90).                   | Określa limit czasu do żadnej operacji usługi Windows Update (wyszukiwania lub pobierania lub instalacji). Jeśli działanie nie zostało ukończone w określonym czasie, zostało przerwane.       |
-| WURescheduleCount     | int <br> (Domyślne: 5).                  | Maksymalna liczba usługi zmienia harmonogram systemu Windows aktualizacji w przypadku, gdy operacja trwale kończy się niepowodzeniem.          |
-| WURescheduleTimeInMinutes | int <br>(Domyślnie: 30). | Interwał, jaką usługa zmienia harmonogram aktualizacji systemu Windows w przypadku awaria nie zniknie. |
-| WUFrequency           | Ciąg rozdzielony przecinkami (domyślne: "Co tydzień, środę, 7:00:00")     | Częstotliwość instalacji usługi Windows Update. Format i możliwe wartości to: <br>— Co miesiąc, DD gg, na przykład, co miesiąc, 5, 12: 22:32. <br> — Gg co tydzień i dzień, na przykład, co tydzień, Wtorek, 12:22:32.  <br> -Codziennie, ss, na przykład codziennie, 12:22:32.  <br> -Wskazuje brak, nie można wykonać aktualizacji systemu Windows.  <br><br> Należy pamiętać, że wszystkie godziny są w formacie UTC.|
-| AcceptWindowsUpdateEula | wartość logiczna <br>(Domyślnie: true) | Ustawiając tę flagę aplikacji akceptuje umowy licencyjnej użytkownika końcowego dla Windows Update w imieniu właściciela maszyny.              |
+| WUQuery               | ciąg<br>(Domyślnie: "IsInstalled = 0")                | Zapytania w celu pobrania aktualizacji systemu Windows. Aby uzyskać więcej informacji, zobacz [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
+| InstallWindowsOSOnlyUpdates | Wartość logiczna <br> (domyślne: True)                 | Ta flaga zezwala na instalację aktualizacji systemu operacyjnego Windows.            |
+| WUOperationTimeOutInMinutes | Int <br>(Domyślnie: 90).                   | Określa limit czasu do żadnej operacji usługi Windows Update (wyszukiwania lub pobierania lub instalacji). Jeśli działanie nie zostało ukończone w określonym czasie, zostało przerwane.       |
+| WURescheduleCount     | Int <br> (Domyślne: 5).                  | Maksymalna liczba usługi zmienia harmonogram systemu Windows aktualizacji w przypadku, gdy operacja trwale kończy się niepowodzeniem.          |
+| WURescheduleTimeInMinutes | Int <br>(Domyślnie: 30). | Interwał, jaką usługa zmienia harmonogram aktualizacji systemu Windows w przypadku awaria nie zniknie. |
+| WUFrequency           | Ciąg rozdzielony przecinkami (domyślne: "Co tydzień, środę, 7:00:00")     | Częstotliwość instalacji usługi Windows Update. Format i możliwe wartości to: <br>— Co miesiąc, DD gg, na przykład, co miesiąc, 5, 12: 22:32. <br> — Gg co tydzień i dzień, na przykład, co tydzień, Wtorek, 12:22:32.  <br> -Codziennie, ss, na przykład codziennie, 12:22:32.  <br> -Wskazuje brak, nie można wykonać aktualizacji systemu Windows.  <br><br> Należy pamiętać, że czasy są w formacie UTC.|
+| AcceptWindowsUpdateEula | Wartość logiczna <br>(Domyślnie: true) | Ustawiając tę flagę aplikacji akceptuje umowy licencyjnej użytkownika końcowego dla Windows Update w imieniu właściciela maszyny.              |
 
 > [!TIP]
 > Jeśli chcesz usługi Windows Update, aby natychmiast ustawić `WUFrequency` względem czasu wdrożenia aplikacji. Na przykład klaster z pięcioma węzłami testu i Planowanie wdrażania aplikacji przy około 17:00:00 czasu UTC. Jeśli założono, że uaktualnienie aplikacji lub wdrożenia ma 30 minut maksymalnie, ustaw WUFrequency jako "Codziennie, 17:30:00."
@@ -216,10 +222,10 @@ Poniżej opisano pola JSON.
 
 Pole | Wartości | Szczegóły
 -- | -- | --
-Klasy OperationResult | 0 - powiodło się.<br> 1 - zakończyło się pomyślnie z błędami<br> 2 - nie powiodło się<br> 3 - zostało przerwane<br> 4 - zostało przerwane z limitem czasu | Wskazuje wynik operacji ogólnej (zazwyczaj dotyczących instalacji co najmniej jednej aktualizacji).
-resultCode | Identyczny klasy OperationResult | To pole wskazuje wynik operacji instalacji dla indywidualnej aktualizacji.
+OperationResult | 0 - powiodło się.<br> 1 - zakończyło się pomyślnie z błędami<br> 2 - nie powiodło się<br> 3 - zostało przerwane<br> 4 - zostało przerwane z limitem czasu | Wskazuje wynik operacji ogólnej (zazwyczaj dotyczących instalacji co najmniej jednej aktualizacji).
+ResultCode | Identyczny klasy OperationResult | To pole wskazuje wynik operacji instalacji dla indywidualnej aktualizacji.
 Typ operacji | 1 — Instalacja<br> 0 — wyszukiwanie i pobieranie.| Instalacja jest tylko typ operacji, która będzie wyświetlana w wynikach domyślnie.
-WindowsUpdateQuery | Domyślna to "IsInstalled = 0" |Usługi Windows update zapytania, który został użyty do wyszukania aktualizacji. Aby uzyskać więcej informacji, zobacz [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
+WindowsUpdateQuery | Domyślna to "IsInstalled = 0" |Usługi Windows update zapytania, którego użyto do wyszukiwania aktualizacji. Aby uzyskać więcej informacji, zobacz [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
 RebootRequired | wartość true — był wymagany ponowny rozruch<br> FALSE — nie był wymagany ponowny rozruch | Wskazuje, jeśli ponowne uruchomienie był wymagany do ukończenia instalacji aktualizacji.
 
 Jeśli aktualizacja nie jest zaplanowane jeszcze, wyniku JSON nie jest pusty.
@@ -246,7 +252,7 @@ Aby włączyć zwrotnego serwera proxy w klastrze, wykonaj czynności opisane w 
 
 Poprawka aranżacji aplikacji dzienniki są gromadzone w ramach dzienniki środowisko uruchomieniowe usługi sieć szkieletowa usług.
 
-W przypadku, gdy chcesz przechwytywać dzienniki za pośrednictwem narzędzia diagnostyczne/potoku wybranych przez użytkownika. Aplikacja orchestration poprawki używa poniżej stałym dostawcy identyfikatory do dziennika zdarzeń za pośrednictwem [źródła zdarzeń](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)
+W przypadku, gdy chcesz przechwytywać dzienniki za pośrednictwem narzędzia diagnostyczne/potoku wybranych przez użytkownika. Aplikacja orchestration poprawki używa poniżej stałym dostawcy identyfikatorów do rejestrowania zdarzeń za pomocą [źródła zdarzeń](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)
 
 - e39b723c-590c-4090-abb0-11e3e6616346
 - fc0028ff-bfdc-499f-80dc-ed922c52c5e9
@@ -300,14 +306,14 @@ Q. **Dlaczego poprawki w klastrach podąża tak długo do uruchomienia?**
 A. Czas potrzebny aplikacji aranżacji poprawki przede wszystkim jest zależna od następujących czynników:
 
 - Zasady usługi koordynatora. 
-  - Domyślne zasady `NodeWise`, powoduje stosowanie poprawek tylko jeden węzeł naraz. Szczególnie w przypadku większych klastrów, firma Microsoft zaleca się używanie `UpgradeDomainWise` zasady w celu uzyskania szybszego poprawki w klastrach.
+  - Domyślne zasady `NodeWise`, powoduje stosowanie poprawek tylko jeden węzeł naraz. Zwłaszcza, jeśli jest klastrem większy, firma Microsoft zaleca użycie `UpgradeDomainWise` zasady w celu uzyskania szybszego poprawki w klastrach.
 - Liczba dostępnych do pobrania i zainstalowania aktualizacji. 
 - Średni czas potrzebny do pobrania i zainstalowania aktualizacji, który nie może przekraczać po kilku godzinach.
 - Wydajność maszyny Wirtualnej i sieci przepustowości.
 
-Q. **Dlaczego widzę niektórych aktualizacji w wynikach usługi Windows Update uzyskany za pośrednictwem interfejsu API REST, ale nie w obszarze Historia usługi Windows Update na komputerze?**
+Q. **Dlaczego widzę niektórych aktualizacji w wynikach usługi Windows Update uzyskany za pośrednictwem interfejsu API REST, ale nie w historii usługi Windows Update na komputerze?**
 
-A. Niektóre aktualizacje produktu muszą zostać zaewidencjonowane historii odpowiednich aktualizacji/poprawki. Na przykład aktualizacje programu Windows Defender nie są wyświetlane w historii usługi Windows Update w systemie Windows Server 2016.
+A. Niektóre aktualizacje produktu może występować tylko w historii odpowiednich aktualizacji/poprawki. Na przykład aktualizacje programu Windows Defender nie są wyświetlane w historii usługi Windows Update w systemie Windows Server 2016.
 
 ## <a name="disclaimers"></a>Zastrzeżenia
 

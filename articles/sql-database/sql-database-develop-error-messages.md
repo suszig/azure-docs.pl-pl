@@ -1,30 +1,12 @@
----
-title: "Kody błędów SQL — błąd połączenia z bazą danych | Dokumentacja firmy Microsoft"
-description: "Dowiedz się więcej o kodach błędów SQL dla bazy danych SQL klienta aplikacji, takich jak typowych błędów połączenia bazy danych, problemy kopii bazy danych i ogólne błędy. "
-keywords: "Kod błędu SQL, sql dostępu, błędów połączenia bazy danych, kody błędów sql"
-services: sql-database
-documentationcenter: 
-author: stevestein
-manager: jhubbard
-editor: 
-ms.assetid: 2a23e4ca-ea93-4990-855a-1f9f05548202
-ms.service: sql-database
-ms.custom: develop apps
-ms.workload: Active
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 09/28/2017
-ms.author: sstein
-ms.openlocfilehash: 34e7142b5ca13ad8de5a4dbd380377abdf055c04
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: MT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ ---
+title: kody błędów SQL — błąd połączenia z bazą danych | Opis elementu Docs firmy Microsoft: "Dowiedz się więcej o kodach błędów SQL dla bazy danych SQL klienta aplikacji, takich jak typowych błędów połączenia bazy danych, problemy kopii bazy danych i ogólne błędy. "słów kluczowych: kod błędu sql, sql dostępu do bazy danych błąd połączenia usług kody błędów programu sql: documentationcenter bazy danych sql:" Autor: stevestein Menedżera: Edytor jhubbard: "
+
+ms.assetid: 2a23e4ca-ea93-4990-855a-1f9f05548202 ms.service: sql-database ms.custom: develop apps ms.workload: "Active" ms.tgt_pltfrm: na ms.devlang: na ms.topic: article ms.date: 09/28/2017 ms.author: sstein
+
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Kody błędów SQL dla aplikacji klienckich, bazy danych SQL: błędy połączeń i inne problemy z bazy danych
 
-Ten artykuł zawiera listę kodów błędów programu SQL dla aplikacji klienckich bazy danych SQL, w tym błędów połączenia bazy danych, błędów przejściowych (nazywanych również błędów przejściowych) błędy ładu zasobów, problemy kopii bazy danych, puli elastycznej i inne błędy. Większość kategorii dla bazy danych SQL Azure, a nie dotyczą programu Microsoft SQL Server.
+Ten artykuł zawiera listę kodów błędów programu SQL dla aplikacji klienckich bazy danych SQL, w tym błędów połączenia bazy danych, błędów przejściowych (nazywanych również błędów przejściowych) błędy ładu zasobów, problemy kopii bazy danych, puli elastycznej i inne błędy. Większość kategorii dla bazy danych SQL Azure, a nie dotyczą programu Microsoft SQL Server. Zobacz też [komunikaty o błędach systemu](https://technet.microsoft.com/en-us/library/cc645603(v=sql.105).aspx).
 
 ## <a name="database-connection-errors-transient-errors-and-other-temporary-errors"></a>Błędów połączenia bazy danych, błędów przejściowych i innych tymczasowe błędy
 Poniższa tabela zawiera kody błędów SQL błędów utraty połączenia i innych błędów przejściowych, które mogą wystąpić, gdy aplikacja próbuje uzyskać dostępu do bazy danych SQL. Aby uzyskać Rozpoczynanie pracy — samouczki dotyczące nawiązywania połączenia z bazą danych SQL Azure, zobacz [nawiązywania połączenia z bazą danych SQL Azure](sql-database-libraries.md).
@@ -52,7 +34,7 @@ Omówienie *okresu blokowania* dla klientów używających ADO.NET jest dostępn
 ### <a name="transient-fault-error-codes"></a>Kody błędów błędu przejściowego
 Następujące błędy są przejściowych i należy wykonać ponownie logiki aplikacji: 
 
-| Kod błędu: | Ważność | Opis |
+| Kod błędu | Ważność | Opis |
 | ---:| ---:|:--- |
 | 4060 |16 |Nie można otworzyć bazy danych "%. & #x2a; ls" żądanego podczas logowania. Logowanie nie powiodło się. |
 | 40197 |17 |Usługa napotkała błąd podczas przetwarzania żądania. Spróbuj ponownie. Kod błędu: %d.<br/><br/>Ten błąd jest wyświetlany, gdy usługa nie działa z powodu oprogramowania lub modernizacji sprzętu, awarii sprzętu lub inne problemy trybu failover. Kod błędu: (%d) osadzone w komunikacie błąd 40197 udostępnia dodatkowe informacje o rodzaju awarii lub trybu failover, który wystąpił. Przykładowe kody są osadzone w komunikacie błąd 40197 błędów to 40020, 40143 40166 i 40540.<br/><br/>Automatyczne ponowne łączenie z serwerem bazy danych SQL łączy dobrej kopii bazy danych. Aplikacja musi catch 40197, dziennik błędów osadzony kod błędu: (%d) w wiadomości do rozwiązywania problemów i ponowić próbę połączenia z bazą danych SQL, dopóki zasoby są dostępne, a połączenie zostanie nawiązane ponownie. |
@@ -66,7 +48,7 @@ Następujące błędy są przejściowych i należy wykonać ponownie logiki apli
 ## <a name="database-copy-errors"></a>Błędy kopiowania bazy danych
 Następujące błędy mogą wystąpić podczas kopiowania bazy danych w bazie danych SQL Azure. Więcej informacji znajdziesz w artykule [Kopiowanie bazy danych usługi Azure SQL Database](sql-database-copy.md).
 
-| Kod błędu: | Ważność | Opis |
+| Kod błędu | Ważność | Opis |
 | ---:| ---:|:--- |
 | 40635 |16 |Klient o adresie IP "%. & #x2a; ls" jest tymczasowo wyłączona. |
 | 40637 |16 |Utwórz kopię bazy danych jest obecnie wyłączona. |
@@ -94,7 +76,7 @@ Tematy pokrewne:
 
 * Bardziej szczegółowe informacje znajdują się w tym miejscu: [limity zasobów bazy danych SQL Azure](sql-database-service-tiers.md).
 
-| Kod błędu: | Ważność | Opis |
+| Kod błędu | Ważność | Opis |
 | ---:| ---:|:--- |
 | 10928 |20 |Identyfikator zasobu: %d. Limit %s dla bazy danych jest %d i został osiągnięty. Aby uzyskać więcej informacji, zobacz [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>Identyfikator zasobu wskazuje zasób, który został osiągnięty limit. Dla wątków roboczych, identyfikator zasobu = 1. Dla sesji, identyfikator zasobu = 2.<br/><br/>Aby uzyskać więcej informacji na temat tego błędu i sposobu rozwiązania go zobacz:<br/>• [Limity zasobów bazy danych SQL azure](sql-database-service-tiers.md). |
 | 10929 |20 |Identyfikator zasobu: %d. Gwarancji minimalna %s wynosi %d, maksymalny limit wynosi %d, a bieżące użycie dla bazy danych wynosi %d. Jednak serwer jest obecnie zbyt zajęty, aby obsługiwać żądania przekracza %d dla tej bazy danych. Aby uzyskać więcej informacji, zobacz [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). W przeciwnym razie spróbuj ponownie później.<br/><br/>Identyfikator zasobu wskazuje zasób, który został osiągnięty limit. Dla wątków roboczych, identyfikator zasobu = 1. Dla sesji, identyfikator zasobu = 2.<br/><br/>Aby uzyskać więcej informacji na temat tego błędu i sposobu rozwiązania go zobacz:<br/>• [Limity zasobów bazy danych SQL azure](sql-database-service-tiers.md). |
@@ -118,14 +100,14 @@ Do tworzenia i używania pule elastyczne odnoszą się następujące błędy:
 | 40859 |EX_USER |Pula elastyczna nie obsługuje warstwy usługi '%ls'. |Warstwa usług puli elastycznej |Warstwa określonej usługi nie jest obsługiwana dla puli elastycznej inicjowania obsługi administracyjnej. |Podaj poprawne edition lub pozostaw pole puste, aby użyć domyślnej warstwy usług warstwy usług. |
 | 40860 |EX_USER |Kombinacja puli elastycznej usług i '%ls' cel '%ls' jest nieprawidłowa. |Nazwa puli elastycznej; Nazwa celu poziomu usługi |Elastyczne cel puli i usługi mogą być określone razem tylko wtedy, gdy cel usługi jest określony jako "ElasticPool". |Określ poprawny kombinacja puli elastycznej i cel usługi. |
 | 40861 |EX_USER |Wersja bazy danych "%. *ls nie może być inna niż warstwa usług puli elastycznej, czyli "%.* ls. |Wersja bazy danych, warstwa usług puli elastycznej |Wersja bazy danych jest inna niż warstwa usług puli elastycznej. |Nie można określić wersji bazy danych, która jest inna niż warstwa usług puli elastycznej.  Należy pamiętać, że wersja bazy danych nie muszą być określone. |
-| 40862 |EX_USER |Nazwa puli elastycznej musi być określona, jeśli określono cel usług puli elastycznej. |Brak |Cel usług puli elastycznej nie identyfikuje jednoznacznie puli elastycznej. |Jeśli przy użyciu cel usług puli elastycznej, należy określić nazwę puli elastycznej. |
+| 40862 |EX_USER |Nazwa puli elastycznej musi być określona, jeśli określono cel usług puli elastycznej. |None |Cel usług puli elastycznej nie identyfikuje jednoznacznie puli elastycznej. |Jeśli przy użyciu cel usług puli elastycznej, należy określić nazwę puli elastycznej. |
 | 40864 |EX_USER |Liczba jednostek Dtu dla puli elastycznej musi wynosić co najmniej (%d) Dtu dla warstwy usług "%. * ls. |Liczba jednostek Dtu dla puli elastycznej; Warstwa usług puli elastycznej. |Trwa próba skonfigurowania jednostek Dtu dla puli elastycznej poniżej minimalnego limitu. |Ustawienie jednostek Dtu dla elastyczna pula co najmniej minimalny limit ponownych prób. |
 | 40865 |EX_USER |Liczba jednostek Dtu dla puli elastycznej nie może przekroczyć (%d) Dtu dla warstwy usług "%. * ls. |Liczba jednostek Dtu dla puli elastycznej; Warstwa usług puli elastycznej. |Trwa próba skonfigurowania jednostek Dtu dla puli elastycznej przekracza maksymalny limit. |Ustawienie jednostek Dtu dla puli elastycznej nie może przekraczać maksymalny limit ponownych prób. |
 | 40867 |EX_USER |Maksymalna wartość DTU na bazę danych musi wynosić co najmniej (%d) dla warstwy usług "%. * ls. |Maksymalnej wartości DTU na bazę danych; Warstwa usług puli elastycznej |Trwa próba skonfigurowania maksymalnej wartości DTU na bazę danych poniżej obsługiwany limit. | onsider przy użyciu warstwa usług puli elastycznej, który obsługuje odpowiednie ustawienie. |
 | 40868 |EX_USER |Maksymalna wartość DTU na bazę danych nie może przekroczyć (%d) dla warstwy usług "%. * ls. |Maksymalnej wartości DTU na bazę danych; Warstwa usług puli elastycznej. |Trwa próba skonfigurowania maksymalnej wartości DTU na bazę danych, przekracza obsługiwany limit. | Należy rozważyć użycie warstwa usług puli elastycznej, który obsługuje odpowiednie ustawienie. |
 | 40870 |EX_USER |Minimalna wartość DTU na bazę danych nie może przekroczyć (%d) dla warstwy usług "%. * ls. |Minimalna wartość DTU na bazę danych; Warstwa usług puli elastycznej. |Trwa próba skonfigurowania minimalna wartość DTU na bazę danych, przekracza obsługiwany limit. | Należy rozważyć użycie warstwa usług puli elastycznej, który obsługuje odpowiednie ustawienie. |
 | 40873 |EX_USER |Liczba baz danych (%d) i minimalna wartość DTU na bazę danych (%d) nie może przekroczyć wartości Dtu puli elastycznej (%d). |Liczba baz danych w puli elastycznej; Minimalna wartość DTU na bazę danych; Liczba jednostek Dtu puli elastycznej. |Próba określenia minimalna wartość DTU dla baz danych w puli elastycznej, który przekracza Dtu puli elastycznej. | Należy rozważyć zwiększenie wartości Dtu puli elastycznej, Zmniejsz minimalna wartość DTU na bazę danych lub Zmniejsz liczbę baz danych w puli elastycznej. |
-| 40877 |EX_USER |Nie można usunąć puli elastycznej, chyba że nie zawiera żadnych baz danych. |Brak |Pula elastyczna zawiera jeden lub więcej baz danych i nie można usunąć. |Usunąć z puli elastycznej bazy danych, aby można było go usunąć. |
+| 40877 |EX_USER |Nie można usunąć puli elastycznej, chyba że nie zawiera żadnych baz danych. |None |Pula elastyczna zawiera jeden lub więcej baz danych i nie można usunąć. |Usunąć z puli elastycznej bazy danych, aby można było go usunąć. |
 | 40881 |EX_USER |Pula elastyczna "%. * ls osiągnęła swój limit liczby bazy danych.  Limit liczby bazy danych dla puli elastycznej nie może przekroczyć (%d) dla puli elastycznej (% d) Dtu. |Nazwa puli elastycznej; limit liczby bazy danych w puli elastycznej; Liczba jednostek Edtu puli zasobów. |Próba utworzyć lub dodać do puli elastycznej bazy danych, po osiągnięciu limitu liczby bazy danych w puli elastycznej. | Należy rozważyć zwiększenie wartości Dtu puli elastycznej, jeśli to możliwe, aby zwiększyć limit bazy danych lub usunąć z puli elastycznej bazy danych. |
 | 40889 |EX_USER |Dtu lub limitu magazynowania dla puli elastycznej "%. * ls nie można zmniejszyć, ponieważ nie zapewniłoby z wystarczającą ilością wolnego miejsca dla bazy danych. |Nazwa puli elastycznej. |Próba zmniejszyć limit magazynowania puli elastycznej poniżej jego użycia magazynu. | Rozważ zmniejszenie użycia magazynu pojedynczych baz danych w puli elastycznej lub usunąć bazy danych z puli, aby zmniejszyć jej Dtu lub limitu magazynowania. |
 | 40891 |EX_USER |Minimalna wartość DTU na bazę danych (%d) nie może przekraczać maksymalnej wartości DTU na bazę danych (%d). |Minimalna wartość DTU na bazę danych; Maksymalna wartość DTU na bazę danych. |Trwa próba skonfigurowania minimalna wartość DTU na bazę danych jest większa niż maksymalna liczba jednostek DTU na bazę danych. |Upewnij się, że minimalna wartość DTU na baz danych nie przekracza maksymalnej wartości DTU na bazę danych. |
@@ -141,7 +123,7 @@ Tematy pokrewne:
 ## <a name="general-errors"></a>Ogólne błędy
 Następujące błędy nie należą do żadnych poprzednich kategorii.
 
-| Kod błędu: | Ważność | Opis |
+| Kod błędu | Ważność | Opis |
 | ---:| ---:|:--- |
 | 15006 |16 |(AdministratorLogin) nie jest prawidłową nazwą, ponieważ zawiera ona nieprawidłowe znaki. |
 | 18452 |14 |Logowanie nie powiodło się. Nazwa logowania pochodzi z niezaufanej domeny i nie można używać z systemu Windows authentication.%. & #x2a; ls (nazwy logowania systemu Windows nie są obsługiwane w tej wersji programu SQL Server). |
@@ -209,7 +191,7 @@ Następujące błędy nie należą do żadnych poprzednich kategorii.
 | 45168 |16 |System SQL Azure jest obciążony i umieszcza górny limit współbieżnych operacji CRUD bazy danych dla pojedynczego serwera (np. Tworzenie bazy danych). Serwer określony w komunikacie o błędzie przekroczyła maksymalną liczbę równoczesnych połączeń. Spróbuj ponownie później. |
 | 45169 |16 |System SQL azure jest obciążony i umieszcza górny limit liczby operacji CRUD równoczesnych serwera dla pojedynczego subskrypcji (np. Utwórz serwera). Subskrypcja określona w komunikacie o błędzie przekroczyła maksymalną liczbę równoczesnych połączeń, a żądanie zostało odrzucone. Spróbuj ponownie później. |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Przeczytaj informacje o [funkcje bazy danych Azure SQL](sql-database-features.md).
 * Przeczytaj informacje o [warstw usług](sql-database-service-tiers.md).
 

@@ -4,7 +4,7 @@ description: "W tym samouczku przedstawiono sposób konfigurowania wymagań wst�
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 tags: azure-service-management
 ms.assetid: c492db4c-3faa-4645-849f-5a1a663be55a
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 0748e0ffa405fc02f6da7e2c412beec12510fde5
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 85ad53f0b7b4b14784bb0755ee22763d124e63ba
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Spełnić wymagania wstępne dotyczące tworzenia zawsze włączonych grup dostępności na maszynach wirtualnych Azure
 
@@ -41,7 +41,7 @@ Ten samouczek zakłada, że masz podstawową wiedzę na temat programu SQL Serve
 Musisz mieć konto platformy Azure. Możesz [Załóż bezpłatne konto platformy Azure](/pricing/free-trial/?WT.mc_id=A261C142F) lub [aktywować korzyści dla subskrybentów programu Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
-1. Zaloguj się w witrynie [Azure Portal](http://portal.azure.com).
+1. Zaloguj się w [Portalu Azure](http://portal.azure.com).
 2. Kliknij przycisk  **+**  można utworzyć nowego obiektu w portalu.
 
    ![Nowy obiekt](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-portalplus.png)
@@ -84,7 +84,7 @@ Aby utworzyć sieć wirtualną:
    | --- | --- |
    | **Nazwa** |autoHAVNET |
    | **Przestrzeń adresowa** |10.33.0.0/24 |
-   | **Nazwa podsieci** |Administrator |
+   | **Nazwa podsieci** |Jednostka administracyjna |
    | **Zakres adresów podsieci** |10.33.0.0/29 |
    | **Subskrypcja** |Określ subskrypcję, która ma być używana. **Subskrypcja** jest puste, jeśli masz tylko jedną subskrypcję. |
    | **Grupa zasobów** |Wybierz **Użyj istniejącego** i wybierz nazwę grupy zasobów. |
@@ -124,12 +124,12 @@ Poniższa tabela zawiera podsumowanie ustawień konfiguracji sieci:
 | --- | --- |
 | **Nazwa** |**autoHAVNET** |
 | **Przestrzeń adresowa** |Ta wartość zależy od przestrzeni adresowych dostępne w ramach subskrypcji. Typowe wartości to 10.0.0.0/16. |
-| **Nazwa podsieci** |**Administrator** |
+| **Nazwa podsieci** |**admin** |
 | **Zakres adresów podsieci** |Ta wartość zależy od zakresy adresów dostępne w ramach subskrypcji. Typowe wartości to 10.0.0.0/24. |
 | **Nazwa podsieci** |**sqlsubnet** |
 | **Zakres adresów podsieci** |Ta wartość zależy od zakresy adresów dostępne w ramach subskrypcji. Typowe wartości to 10.0.1.0/24. |
 | **Subskrypcja** |Określ subskrypcję, która ma być używana. |
-| **Grupa zasobów** |**SQL-HA-ZARZĄDCY ZASOBÓW** |
+| **Grupa zasobów** |**SQL-HA-RG** |
 | **Lokalizacja** |Określenie tej samej lokalizacji, który został wybrany dla grupy zasobów. |
 
 ## <a name="create-availability-sets"></a>Tworzenie zestawów dostępności
@@ -145,7 +145,7 @@ W poniższej tabeli, należy skonfigurować dwa zestawy dostępności zgodnie z 
 | **Pole** | Zestaw dostępności kontrolera domeny | Zestaw dostępności programu SQL Server |
 | --- | --- | --- |
 | **Nazwa** |adavailabilityset |sqlavailabilityset |
-| **Grupa zasobów** |SQL-HA-ZARZĄDCY ZASOBÓW |SQL-HA-ZARZĄDCY ZASOBÓW |
+| **Grupa zasobów** |SQL-HA-RG |SQL-HA-RG |
 | **Domen błędów** |3 |3 |
 | **Aktualizowanie domeny** |5 |3 |
 
@@ -157,7 +157,7 @@ Po utworzeniu sieci, podsieci, zestawów dostępności i równoważenia obciąż
 ### <a name="create-virtual-machines-for-the-domain-controllers"></a>Tworzenie maszyn wirtualnych kontrolerów domeny
 Aby utworzyć i skonfigurować na kontrolerach domeny, wróć do **SQL-HA-zarządcy zasobów** grupy zasobów.
 
-1. Kliknij pozycję **Dodaj**. **Wszystko** zostanie otwarty blok.
+1. Kliknij pozycję **Add** (Dodaj). **Wszystko** zostanie otwarty blok.
 2. Typ **systemu Windows Server 2016 Datacenter**.
 3. Kliknij przycisk **systemu Windows Server 2016 Datacenter**. W **systemu Windows Server Datacenter 2016** bloku, sprawdź, czy model wdrażania **Menedżera zasobów**, a następnie kliknij przycisk **Utwórz**. Otwiera Azure **tworzenia maszyny wirtualnej** bloku.
 
@@ -177,19 +177,19 @@ W poniższej tabeli przedstawiono ustawienia dla tych dwóch maszyn:
 | --- | --- |
 | **Nazwa** |Pierwszy kontroler domeny: *kontrolerów domeny podstawowej ad*.</br>Drugi kontroler domeny *kontrolerów domeny pomocniczy ad*. |
 | **Typ dysku maszyny wirtualnej** |SSD |
-| **Nazwa użytkownika** |Administrator domeny |
+| **Nazwa użytkownika** |DomainAdmin |
 | **Hasło** |Contoso! 0000 |
 | **Subskrypcja** |*Twoja subskrypcja* |
-| **Grupa zasobów** |SQL-HA-ZARZĄDCY ZASOBÓW |
+| **Grupa zasobów** |SQL-HA-RG |
 | **Lokalizacja** |*Lokalizacja* |
 | **Rozmiar** |DS1_V2 |
 | **Storage** | **Użyj zarządzanego dysków** - **tak** |
 | **Sieć wirtualna** |autoHAVNET |
-| **Podsieć** |Administrator |
+| **Podsieć** |administrator |
 | **Publiczny adres IP** |*Tej samej nazwy co maszyna wirtualna* |
 | **Grupy zabezpieczeń sieci** |*Tej samej nazwy co maszyna wirtualna* |
 | **Zestaw dostępności** |adavailabilityset </br>**Odporność domen**: 2</br>**Aktualizowanie domeny**: 2|
-| **Diagnostyka** |Włączono |
+| **Diagnostyka** |Enabled (Włączony) |
 | **Konto magazynu diagnostyki** |*Automatycznie utworzone* |
 
    >[!IMPORTANT]
@@ -307,14 +307,14 @@ Po zakończeniu zmiany konfiguracji, uruchom ponownie serwer.
 
 W portalu Azure w ramach sieci wirtualnej należy zmienić obejmują adres IP kontrolera domeny pomocniczy serwer DNS. Dzięki temu nadmiarowości usługi DNS.
 
-### <a name=DomainAccounts></a>Konfigurowanie kont domeny
+### <a name=DomainAccounts></a> Konfigurowanie kont domeny
 
 W następnych krokach konfigurowania kont usługi Active Directory. W poniższej tabeli przedstawiono kont:
 
-| |Konto instalacji<br/> |SQLServer 0 <br/>Konto programu SQL Server i usługi agenta SQL |SQLServer-1<br/>Konto programu SQL Server i usługi agenta SQL
+| |Konto instalacji<br/> |sqlserver-0 <br/>Konto programu SQL Server i usługi agenta SQL |sqlserver-1<br/>Konto programu SQL Server i usługi agenta SQL
 | --- | --- | --- | ---
-|**Imię** |Zainstaluj |SQLSvc1 | SQLSvc2
-|**SamAccountName użytkownika** |Zainstaluj |SQLSvc1 | SQLSvc2
+|Imię |Instalowanie |SQLSvc1 | SQLSvc2
+|**SamAccountName użytkownika** |Instalowanie |SQLSvc1 | SQLSvc2
 
 Poniższe kroki umożliwiają utworzenie poszczególnych kont.
 
@@ -364,12 +364,12 @@ Przed kontynuowaniem należy wziąć pod uwagę następujące decyzje dotyczące
 Następnie należy utworzyć trzy maszyny wirtualne — dwóch maszyn wirtualnych serwera SQL i maszyny Wirtualnej na dodatkowym węźle klastra. Do tworzenia poszczególnych maszyn wirtualnych, przejdź wstecz do **SQL-HA-zarządcy zasobów** grupy zasobów, kliknij przycisk **Dodaj**, Wyszukiwanie elementu galerii odpowiednie, kliknij przycisk **maszyny wirtualnej**, a następnie kliknij przycisk  **Z galerii**. Użyj informacji w poniższej tabeli ułatwiają tworzenie maszyn wirtualnych:
 
 
-| Strona | VM1 | MASZYNY VM2 | VM3 |
+| Strona | Maszyna wirtualna 1 | Maszyna wirtualna 2 | VM3 |
 | --- | --- | --- | --- |
 | Wybierz element galerii odpowiednie |**Windows Server 2016 Datacenter** |**SQL Server 2016 SP1 Enterprise w systemie Windows Server 2016** |**SQL Server 2016 SP1 Enterprise w systemie Windows Server 2016** |
-| Konfiguracja maszyny wirtualnej **podstawy** |**Nazwa** = fsw klastra<br/>**Nazwa użytkownika** = administrator domeny<br/>**Hasło** = Contoso! 0000<br/>**Subskrypcja** = subskrypcji<br/>**Grupa zasobów** = SQL-HA-zarządcy zasobów<br/>**Lokalizacja** = Twojej lokalizacji platformy azure |**Nazwa** sqlserver-0 =<br/>**Nazwa użytkownika** = administrator domeny<br/>**Hasło** = Contoso! 0000<br/>**Subskrypcja** = subskrypcji<br/>**Grupa zasobów** = SQL-HA-zarządcy zasobów<br/>**Lokalizacja** = Twojej lokalizacji platformy azure |**Nazwa** sqlserver-1<br/>**Nazwa użytkownika** = administrator domeny<br/>**Hasło** = Contoso! 0000<br/>**Subskrypcja** = subskrypcji<br/>**Grupa zasobów** = SQL-HA-zarządcy zasobów<br/>**Lokalizacja** = Twojej lokalizacji platformy azure |
+| Konfiguracja maszyny wirtualnej **podstawy** |**Nazwa** = fsw klastra<br/>**Nazwa użytkownika** = administrator domeny<br/>**Hasło** = Contoso! 0000<br/>**Subskrypcja** = subskrypcji<br/>**Grupa zasobów** = SQL-HA-zarządcy zasobów<br/>**Lokalizacja** = Twojej lokalizacji platformy azure |**Name** = sqlserver-0<br/>**Nazwa użytkownika** = administrator domeny<br/>**Hasło** = Contoso! 0000<br/>**Subskrypcja** = subskrypcji<br/>**Grupa zasobów** = SQL-HA-zarządcy zasobów<br/>**Lokalizacja** = Twojej lokalizacji platformy azure |**Nazwa** sqlserver-1<br/>**Nazwa użytkownika** = administrator domeny<br/>**Hasło** = Contoso! 0000<br/>**Subskrypcja** = subskrypcji<br/>**Grupa zasobów** = SQL-HA-zarządcy zasobów<br/>**Lokalizacja** = Twojej lokalizacji platformy azure |
 | Konfiguracja maszyny wirtualnej **rozmiaru** |**ROZMIAR** = DS1\_V2 (1 vCPU, 3.5 GB) |**ROZMIAR** = DS2\_V2 (2 Vcpu, 7 GB)</br>Rozmiar musi obsługiwać magazynu SSD (obsługi dysków Premium. )) |**ROZMIAR** = DS2\_V2 (2 Vcpu, 7 GB) |
-| Konfiguracja maszyny wirtualnej **ustawienia** |**Magazyn**: Użyj zarządzanego dysków.<br/>**Sieć wirtualna** = autoHAVNET<br/>**Podsieci** = sqlsubnet(10.1.1.0/24)<br/>**Publiczny adres IP** wygenerowanej automatycznie.<br/>**Grupy zabezpieczeń sieci** = Brak<br/>**Monitorowanie diagnostyki** = włączone<br/>**Konto magazynu diagnostyki** = Użyj konta usługi storage automatycznie generowanych<br/>**Zestaw dostępności** = sqlAvailabilitySet<br/> |**Magazyn**: Użyj zarządzanego dysków.<br/>**Sieć wirtualna** = autoHAVNET<br/>**Podsieci** = sqlsubnet(10.1.1.0/24)<br/>**Publiczny adres IP** wygenerowanej automatycznie.<br/>**Grupy zabezpieczeń sieci** = Brak<br/>**Monitorowanie diagnostyki** = włączone<br/>**Konto magazynu diagnostyki** = Użyj konta usługi storage automatycznie generowanych<br/>**Zestaw dostępności** = sqlAvailabilitySet<br/> |**Magazyn**: Użyj zarządzanego dysków.<br/>**Sieć wirtualna** = autoHAVNET<br/>**Podsieci** = sqlsubnet(10.1.1.0/24)<br/>**Publiczny adres IP** wygenerowanej automatycznie.<br/>**Grupy zabezpieczeń sieci** = Brak<br/>**Monitorowanie diagnostyki** = włączone<br/>**Konto magazynu diagnostyki** = Użyj konta usługi storage automatycznie generowanych<br/>**Zestaw dostępności** = sqlAvailabilitySet<br/> |
+| Konfiguracja maszyny wirtualnej **ustawienia** |**Magazyn**: Użyj zarządzanego dysków.<br/>**Sieć wirtualna** = autoHAVNET<br/>**Subnet** = sqlsubnet(10.1.1.0/24)<br/>**Publiczny adres IP** wygenerowanej automatycznie.<br/>**Grupy zabezpieczeń sieci** = Brak<br/>**Monitorowanie diagnostyki** = włączone<br/>**Konto magazynu diagnostyki** = Użyj konta usługi storage automatycznie generowanych<br/>**Zestaw dostępności** = sqlAvailabilitySet<br/> |**Magazyn**: Użyj zarządzanego dysków.<br/>**Sieć wirtualna** = autoHAVNET<br/>**Subnet** = sqlsubnet(10.1.1.0/24)<br/>**Publiczny adres IP** wygenerowanej automatycznie.<br/>**Grupy zabezpieczeń sieci** = Brak<br/>**Monitorowanie diagnostyki** = włączone<br/>**Konto magazynu diagnostyki** = Użyj konta usługi storage automatycznie generowanych<br/>**Zestaw dostępności** = sqlAvailabilitySet<br/> |**Magazyn**: Użyj zarządzanego dysków.<br/>**Sieć wirtualna** = autoHAVNET<br/>**Subnet** = sqlsubnet(10.1.1.0/24)<br/>**Publiczny adres IP** wygenerowanej automatycznie.<br/>**Grupy zabezpieczeń sieci** = Brak<br/>**Monitorowanie diagnostyki** = włączone<br/>**Konto magazynu diagnostyki** = Użyj konta usługi storage automatycznie generowanych<br/>**Zestaw dostępności** = sqlAvailabilitySet<br/> |
 | Konfiguracja maszyny wirtualnej **ustawienia programu SQL Server** |Nie dotyczy |**Łączność z serwerem SQL** = Private (w ramach sieci wirtualnej)<br/>**Port** = 1433<br/>**Uwierzytelnianie SQL** = wyłączone<br/>**Konfiguracja magazynu** = ogólne<br/>**Automatyczne stosowanie poprawek** = niedziela, 2:00<br/>**Automatyczne kopie zapasowe** = wyłączone</br>**Integracja magazynu kluczy Azure** = wyłączone |**Łączność z serwerem SQL** = Private (w ramach sieci wirtualnej)<br/>**Port** = 1433<br/>**Uwierzytelnianie SQL** = wyłączone<br/>**Konfiguracja magazynu** = ogólne<br/>**Automatyczne stosowanie poprawek** = niedziela, 2:00<br/>**Automatyczne kopie zapasowe** = wyłączone</br>**Integracja magazynu kluczy Azure** = wyłączone |
 
 <br/>
@@ -462,7 +462,7 @@ Aby dodać funkcje klaster trybu Failover, wykonaj następujące czynności na o
 
 Powtórz kroki na inne maszyny Wirtualnej serwera SQL.
 
-## <a name="a-nameendpoint-firewall-configure-the-firewall-on-each-sql-server-vm"></a><a name="endpoint-firewall">Skonfigurować zaporę na każdej maszynie Wirtualnej serwera SQL
+## <a name="a-nameendpoint-firewall-configure-the-firewall-on-each-sql-server-vm"></a><a name="endpoint-firewall"> Skonfigurować zaporę na każdej maszynie Wirtualnej serwera SQL
 
 Rozwiązanie wymaga następujące porty TCP, aby być otwarty w zaporze:
 
@@ -493,6 +493,6 @@ Metoda otwarcia portów zależy od zaporę, którego używasz. W następnej sekc
 
 Powtórz te kroki dla drugiej maszyny Wirtualnej programu SQL Server.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Utwórz grupę dostępności programu SQL Server AlwaysOn na maszynach wirtualnych Azure](virtual-machines-windows-portal-sql-availability-group-tutorial.md)

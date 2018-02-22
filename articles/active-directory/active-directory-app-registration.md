@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: priyamo
 ms.reviewer: elisol
-ms.openlocfilehash: 4f32f57d4c8b3e13d2aa31b04ee10bb46a6c71f7
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 8f5d4ba82fcf3c963373b0e90b707a7d86fc0fea
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="register-your-application-with-your-azure-active-directory-tenant"></a>Zarejestrować aplikację z dzierżawą usługi Azure Active Directory
 
@@ -27,7 +27,7 @@ Aby zarejestrować aplikację z dzierżawą usługi Azure Active Directory (Azur
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Wybierz dzierżawy usługi Azure AD, wybierając konto w prawym górnym rogu strony.
-3. W okienku nawigacji po lewej stronie wybierz **więcej usług**, kliknij przycisk **rejestracji aplikacji**i kliknij przycisk **Dodaj**.
+3. W okienku nawigacji po lewej stronie wybierz **wszystkie usługi**, kliknij przycisk **rejestracji aplikacji**i kliknij przycisk **Dodaj**.
 4. Postępuj zgodnie z monitami i utwórz nową aplikację. Jeśli chcesz szczegółowe przykłady dla aplikacji sieci web lub natywnych aplikacji, zapoznaj się naszego [quickstarts](active-directory-developers-guide.md).
   * W przypadku aplikacji sieci Web, podaj **adres URL logowania**, który jest podstawowy adres URL aplikacji, w którym użytkownicy mogą rejestrować w np. `http://localhost:12345`.
 <!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->
@@ -40,7 +40,7 @@ Można łatwo zmodyfikować ustawienia istniejących aplikacji przy użyciu port
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Wybierz dzierżawy usługi Azure AD, wybierając konto w prawym górnym rogu strony.
-3. W okienku nawigacji po lewej stronie wybierz **więcej usług**, kliknij przycisk **rejestracji aplikacji**i wybierz aplikację z listy.
+3. W okienku nawigacji po lewej stronie wybierz **wszystkie usługi**, kliknij przycisk **rejestracji aplikacji**i wybierz aplikację z listy.
 4. Kliknij przycisk **ustawienia** otwarcie strony ustawień aplikacji.
   * **Właściwości** strona umożliwia modyfikowanie ogólne informacje dla aplikacji. W tym nazwy aplikacji, adres URL logowania jednokrotnego i adresu URL wylogowania.
   * **Adresy URL odpowiedzi** strony umożliwia dodanie adresu URL odpowiedzi, który jest, gdzie usługi Azure AD wysyła odpowiedzi tokenu.
@@ -54,7 +54,7 @@ Edytor manifestu wbudowanego umożliwia modyfikowanie niektórych właściwości
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Wybierz dzierżawy usługi Azure AD, wybierając konto w prawym górnym rogu strony.
-3. W okienku nawigacji po lewej stronie wybierz **więcej usług**, kliknij przycisk **rejestracji aplikacji**i wybierz aplikację z listy.
+3. W okienku nawigacji po lewej stronie wybierz **wszystkie usługi**, kliknij przycisk **rejestracji aplikacji**i wybierz aplikację z listy.
 4. Kliknij przycisk **manifestu** ze strony aplikacji, aby otworzyć Edytor manifestu w tekście.
 5. Bezpośrednio można wprowadzić zmiany w manifeście i zapisz go, gdy wszystko jest gotowe. Alternatywnie możesz pobrać manifest, aby otworzyć go w edytorze ulubionych i przekaż zaktualizowaną manifestu.
 

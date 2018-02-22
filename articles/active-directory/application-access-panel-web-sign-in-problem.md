@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviwer: japere
-ms.openlocfilehash: 0f50a705d4453970d039c2219aef8e1a411fd533
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 83c3a893fe18f2de2acc4fdbc9b048c92cc71d15
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="problem-signing-in-to-the-access-panel-website"></a>Problem z logowaniem do panelu dostępu do witryny sieci Web
 
-Panel dostępu jest widok, a następnie uruchom chmurowych aplikacji, które administrator usługi Azure AD udzielił im dostępu do portalu sieci web, dzięki czemu użytkownik, który ma konto służbowe w usłudze Azure Active Directory (Azure AD). Użytkownik, który ma wersje usługi Azure AD umożliwia także grupami samoobsługi i funkcje zarządzania aplikacjami za pomocą panelu dostępu. Panel dostępu jest oddzielony od portalu Azure i nie wymaga użytkownikom posiadania subskrypcji platformy Azure.
+Widok, a następnie uruchom chmurowych aplikacji, które administrator usługi Azure AD udzielił im dostępu do panelu dostępu jest portal sieci web, który umożliwia użytkownikowi, który ma konto służbowe w usłudze Azure Active Directory (Azure AD). Użytkownik, który ma wersje usługi Azure AD umożliwia także grupami samoobsługi i funkcje zarządzania aplikacjami za pomocą panelu dostępu. Panel dostępu jest oddzielony od portalu Azure i nie wymaga użytkownikom posiadania subskrypcji platformy Azure.
 
 Użytkownicy mogą Zaloguj się do panelu dostępu jeśli ma konto służbowe w usłudze Azure AD.
 
@@ -40,7 +40,7 @@ Jeśli użytkownik ma subskrypcję platformy Azure lub usługi Office 365 i korz
 
 -   Upewnij się, że przeglądarka użytkownika został dodany adres URL do jego **Zaufane witryny**
 
--   Upewnij się, że konto użytkownika jest **włączone** dla logowania.
+-   Upewnij się, że konto użytkownika jest **włączone** logowania.
 
 -   Upewnij się, że konto użytkownika jest **bez blokady.**
 
@@ -50,7 +50,7 @@ Jeśli użytkownik ma subskrypcję platformy Azure lub usługi Office 365 i korz
 
 -   Upewnij się, że **zasady dostępu warunkowego** lub **Identity Protection** zasad nie blokuje dostępu użytkownika.
 
--   Upewnij się, że użytkownik **informacje kontaktowe uwierzytelniania** jest aktualny, aby umożliwić uwierzytelnianie wieloskładnikowe lub dostępu warunkowego zasad, które mają być egzekwowane.
+-   Upewnij się, że użytkownik **informacje kontaktowe uwierzytelniania** jest aktualna, aby umożliwić uwierzytelnianie wieloskładnikowe lub dostępu warunkowego zasad, które mają być egzekwowane.
 
 -   Upewnij się, że również spróbuj wyczyszczenie plików cookie w przeglądarce, a następnie spróbuj się ponownie zalogować.
 
@@ -93,11 +93,11 @@ Dostęp do panelu dostępu mogą zostać zablokowane z powodu problemu z kontem 
 
 ### <a name="check-if-a-user-account-exists-in-azure-active-directory"></a>Sprawdź, czy konto użytkownika istnieje w usłudze Azure Active Directory
 
-Aby sprawdzić, czy konto użytkownika jest obecne, wykonaj następujące czynności:
+Aby sprawdzić, czy konto użytkownika jest obecne, wykonaj następujące kroki:
 
-1.  Otwórz [ **Azure Portal** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
+1.  Otwórz [ **portalu Azure** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
 
-2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **więcej usług** u dołu menu nawigacji głównego po lewej stronie.
+2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **wszystkie usługi** w górnej części menu nawigacji po lewej stronie głównej.
 
 3.  Wpisz w **"Azure Active Directory**" w polu wyszukiwania filtr a wybierz **usługi Azure Active Directory** elementu.
 
@@ -111,11 +111,11 @@ Aby sprawdzić, czy konto użytkownika jest obecne, wykonaj następujące czynno
 
 ### <a name="check-a-users-account-status"></a>Sprawdź stan konta użytkownika
 
-Aby sprawdzić stan konta użytkownika, wykonaj następujące czynności:
+Aby sprawdzić stan konta użytkownika, wykonaj następujące kroki:
 
-1.  Otwórz [ **Azure Portal** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
+1.  Otwórz [ **portalu Azure** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
 
-2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **więcej usług** u dołu menu nawigacji głównego po lewej stronie.
+2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **wszystkie usługi** w górnej części menu nawigacji po lewej stronie głównej.
 
 3.  Wpisz w **"Azure Active Directory**" w polu wyszukiwania filtr a wybierz **usługi Azure Active Directory** elementu.
 
@@ -131,11 +131,11 @@ Aby sprawdzić stan konta użytkownika, wykonaj następujące czynności:
 
 ### <a name="reset-a-users-password"></a>Resetowanie hasła użytkownika
 
-Aby zresetować hasło użytkownika, wykonaj następujące czynności:
+Aby zresetować hasło użytkownika, wykonaj następujące kroki:
 
-1.  Otwórz [ **Azure Portal** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
+1.  Otwórz [ **portalu Azure** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
 
-2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **więcej usług** u dołu menu nawigacji głównego po lewej stronie.
+2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **wszystkie usługi** w górnej części menu nawigacji po lewej stronie głównej.
 
 3.  Wpisz w **"Azure Active Directory**" w polu wyszukiwania filtr a wybierz **usługi Azure Active Directory** elementu.
 
@@ -145,17 +145,17 @@ Aby zresetować hasło użytkownika, wykonaj następujące czynności:
 
 6.  **Wyszukiwanie** dla użytkownika planuje się i **kliknij wiersz** do wybrania.
 
-7.  Kliknij przycisk **resetowania hasła** na górze bloku użytkownika.
+7.  Kliknij przycisk **resetowania hasła** w górnej części okienka użytkownika.
 
-8.  Kliknij przycisk **resetowania hasła** znajdującego się na **resetowania hasła** wyświetlonym bloku.
+8.  Kliknij przycisk **resetowania hasła** znajdującego się na **resetowania hasła** okienko zostanie wyświetlone.
 
 9.  Kopiuj **hasło tymczasowe** lub **wprowadź nowe hasło** dla użytkownika.
 
-10. Komunikować się z tego nowego hasła dla użytkownika, konieczności zmianę hasła podczas kolejnego logowania w usłudze Azure Active Directory.
+10. Komunikować się z tego nowego hasła dla użytkownika, konieczności zmianę hasła podczas ich następnego logowania do usługi Azure Active Directory.
 
 ### <a name="enable-self-service-password-reset"></a>Włącz samoobsługowe Resetowanie hasła
 
-Aby włączyć samoobsługowe Resetowanie hasła, wykonaj poniższe kroki wdrażania:
+Aby włączyć samoobsługowe Resetowanie hasła, wykonaj następujące kroki wdrażania:
 
 -   [Umożliwianie użytkownikom resetowania swoich haseł w usłudze Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started#enable-users-to-reset-their-azure-ad-passwords)
 
@@ -163,11 +163,11 @@ Aby włączyć samoobsługowe Resetowanie hasła, wykonaj poniższe kroki wdraż
 
 ### <a name="check-a-users-multi-factor-authentication-status"></a>Sprawdź stan usługi Multi-Factor authentication użytkownika
 
-Aby sprawdzić stan usługi Multi-Factor authentication użytkownika, wykonaj następujące czynności:
+Aby sprawdzić stan usługi Multi-Factor authentication użytkownika, wykonaj następujące kroki:
 
-1.  Otwórz [ **Azure Portal** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
+1.  Otwórz [ **portalu Azure** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
 
-2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **więcej usług** u dołu menu nawigacji głównego po lewej stronie.
+2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **wszystkie usługi** w górnej części menu nawigacji po lewej stronie głównej.
 
 3.  Wpisz w **"Azure Active Directory**" w polu wyszukiwania filtr a wybierz **usługi Azure Active Directory** elementu.
 
@@ -175,7 +175,7 @@ Aby sprawdzić stan usługi Multi-Factor authentication użytkownika, wykonaj na
 
 5.  Kliknij przycisk **wszyscy użytkownicy**.
 
-6.  Kliknij przycisk **uwierzytelnianie wieloskładnikowe** u góry bloku.
+6.  Kliknij przycisk **uwierzytelnianie wieloskładnikowe** u góry okienka.
 
 7.  Raz **portalu administracyjnego usługi Multi-Factor Authentication** obciążeń, upewnij się, czy na **użytkowników** kartę.
 
@@ -190,11 +190,11 @@ Aby sprawdzić stan usługi Multi-Factor authentication użytkownika, wykonaj na
 
 ### <a name="check-a-users-authentication-contact-info"></a>Sprawdź informacje kontaktowe uwierzytelniania użytkownika
 
-Aby sprawdzić informacje kontaktowe uwierzytelniania użytkownika używane do uwierzytelniania wieloskładnikowego, dostępu warunkowego, ochrony tożsamości i resetowania hasła, wykonaj następujące czynności:
+Aby sprawdzić informacje kontaktowe uwierzytelniania użytkownika używane do uwierzytelniania wieloskładnikowego, dostępu warunkowego, ochrony tożsamości i resetowania hasła, wykonaj następujące kroki:
 
-1.  Otwórz [ **Azure Portal** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
+1.  Otwórz [ **portalu Azure** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
 
-2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **więcej usług** u dołu menu nawigacji głównego po lewej stronie.
+2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **wszystkie usługi** w górnej części menu nawigacji po lewej stronie głównej.
 
 3.  Wpisz w **"Azure Active Directory**" w polu wyszukiwania filtr a wybierz **usługi Azure Active Directory** elementu.
 
@@ -212,11 +212,11 @@ Aby sprawdzić informacje kontaktowe uwierzytelniania użytkownika używane do u
 
 ### <a name="check-a-users-group-memberships"></a>Sprawdzanie członkostwa w grupach użytkownika
 
-Aby sprawdzić członkostwa w grupach użytkownika, wykonaj następujące czynności:
+Aby sprawdzić członkostwa w grupach użytkownika, wykonaj następujące kroki:
 
-1.  Otwórz [ **Azure Portal** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
+1.  Otwórz [ **portalu Azure** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
 
-2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **więcej usług** u dołu menu nawigacji głównego po lewej stronie.
+2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **wszystkie usługi** w górnej części menu nawigacji po lewej stronie głównej.
 
 3.  Wpisz w **"Azure Active Directory**" w polu wyszukiwania filtr a wybierz **usługi Azure Active Directory** elementu.
 
@@ -230,11 +230,11 @@ Aby sprawdzić członkostwa w grupach użytkownika, wykonaj następujące czynno
 
 ### <a name="check-a-users-assigned-licenses"></a>Sprawdź przypisane licencje użytkownika
 
-Aby sprawdzić przypisane licencje użytkownika, wykonaj następujące czynności:
+Aby sprawdzić przypisane licencje użytkownika, wykonaj następujące kroki:
 
-1.  Otwórz [ **Azure Portal** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
+1.  Otwórz [ **portalu Azure** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
 
-2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **więcej usług** u dołu menu nawigacji głównego po lewej stronie.
+2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **wszystkie usługi** w górnej części menu nawigacji po lewej stronie głównej.
 
 3.  Wpisz w **"Azure Active Directory**" w polu wyszukiwania filtr a wybierz **usługi Azure Active Directory** elementu.
 
@@ -248,11 +248,11 @@ Aby sprawdzić przypisane licencje użytkownika, wykonaj następujące czynnośc
 
 ### <a name="assign-a-user-a-license"></a>Przypisywanie licencji użytkownika 
 
-Aby przypisać licencję do użytkownika, wykonaj następujące czynności:
+Aby przypisać licencję do użytkownika, wykonaj następujące kroki:
 
-1.  Otwórz [ **Azure Portal** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
+1.  Otwórz [ **portalu Azure** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
 
-2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **więcej usług** u dołu menu nawigacji głównego po lewej stronie.
+2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **wszystkie usługi** w górnej części menu nawigacji po lewej stronie głównej.
 
 3.  Wpisz w **"Azure Active Directory**" w polu wyszukiwania filtr a wybierz **usługi Azure Active Directory** elementu.
 
@@ -288,5 +288,5 @@ Otwórz bilet pomocy technicznej następujące informacje, jeśli są dostępne:
 
 -   Ślady fiddler
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Podaj logowanie jednokrotne do aplikacji przy użyciu serwera Proxy aplikacji](active-directory-application-proxy-sso-using-kcd.md)
