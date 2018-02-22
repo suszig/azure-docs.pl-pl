@@ -1,4 +1,4 @@
-Aby utworzyć pamięć podręczną, najpierw zaloguj się w [witrynie Azure Portal](https://portal.azure.com), a następnie kliknij kolejno opcje **Nowy** > **Bazy danych** > **Pamięć podręczna Redis Cache**.
+Aby utworzyć pamięć podręczną, najpierw zaloguj się do [portalu Azure](https://portal.azure.com)i kliknij przycisk **Utwórz zasób** > **baz danych** > **pamięci podręcznej Redis** .
 
 > [!NOTE]
 > Jeśli nie masz konta Azure, możesz w ciągu kliku minut [utworzyć je bezpłatnie](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero).
@@ -16,12 +16,12 @@ Aby utworzyć pamięć podręczną, najpierw zaloguj się w [witrynie Azure Port
 > 
 > 
 
-W bloku **Nowa pamięć podręczna Redis** określ odpowiednią konfigurację pamięci podręcznej.
+W **nowa pamięć podręczna Redis**, określ odpowiednią konfigurację pamięci podręcznej.
 
 ![Tworzenie pamięci podręcznej](media/redis-cache-create/redis-cache-cache-create.png) 
 
 * W polu **Nazwa DNS** wprowadź unikatową nazwę pamięci podręcznej, która zostanie użyta dla punktu końcowego pamięci podręcznej. Nazwa pamięci podręcznej musi być ciągiem od 1 do 63 znaków i może zawierać tylko cyfry, litery i znak `-`. Na początku ani na końcu nazwy pamięci podręcznej nie może występować znak `-`, a następujące po sobie znaki `-` nie są prawidłowe.
-* W polu **Subskrypcja** wybierz subskrypcję platformy Azure, która ma być używana dla pamięci podręcznej. Jeśli konto ma tylko jedną subskrypcję, zostanie ona automatycznie wybrana i lista rozwijana **Subskrypcja** nie będzie wyświetlana.
+* W polu **Subskrypcja** wybierz subskrypcję platformy Azure, która ma być używana dla pamięci podręcznej. Jeśli konto ma tylko jedną subskrypcję, jest on automatycznie wybierany i **subskrypcji** listy rozwijanej nie są wyświetlane.
 * W polu **Grupa zasobów** wybierz lub utwórz grupę zasobów dla pamięci podręcznej. Więcej informacji można znaleźć w temacie [Używanie grup zasobów do zarządzania zasobami platformy Azure](../articles/azure-resource-manager/resource-group-overview.md). 
 * Użyj opcji **Lokalizacja**, aby określić lokalizację geograficzną, w której będzie hostowana pamięć podręczna. Firma Microsoft zdecydowanie zaleca tworzenie pamięci podręcznej w tym samym regionie, w którym występuje aplikacja klienta pamięci podręcznej, w celu uzyskania możliwie najlepszej wydajności.
 * W polu **Warstwa cenowa** wybierz odpowiedni rozmiar i funkcje pamięci podręcznej.
