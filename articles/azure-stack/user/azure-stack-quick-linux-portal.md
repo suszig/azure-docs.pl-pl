@@ -7,14 +7,14 @@ author: vhorne
 manager: byronr
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 09/25/2017
+ms.date: 12/11/2017
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: a97372002052570ccad2bb8bc442eb0dd1ca76d9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 1e1732f48de9f95e669d0282d120e48b5fe5f0ef
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-stack-portal"></a>Utwórz maszynę wirtualną systemu Linux przy użyciu portalu Azure stosu
 
@@ -59,7 +59,7 @@ Zaloguj się do portalu Azure stosu. Adres w portalu Azure stosu zależy od tego
 
 ## <a name="create-the-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
-1. Kliknij przycisk **nowy** znaleziono przycisku w lewym górnym rogu portalu Azure stosu.
+1. Kliknij przycisk **Utwórz zasób** w lewym górnym rogu portalu Azure stosu.
 
 2. Wybierz pozycję **Wystąpienia obliczeniowe**, a następnie wybierz pozycję **Ubuntu Server 16.04 LTS**.
 3. Kliknij przycisk **Utwórz**.
@@ -119,7 +119,7 @@ Sieciowa grupa zabezpieczeń zabezpiecza ruch przychodzący i wychodzący. Po ut
 1. Na maszynie wirtualnej **omówienie** kliknij nazwę **grupy zasobów**.
 2. Wybierz **sieciowej grupy zabezpieczeń** dla maszyny wirtualnej. Sieciową grupę zabezpieczeń można zidentyfikować za pomocą kolumny **Typ**. 
 3. W menu po lewej stronie w obszarze **ustawienia**, kliknij przycisk **reguły zabezpieczeń dla ruchu przychodzącego**.
-4. Kliknij pozycję **Dodaj**.
+4. Kliknij pozycję **Add** (Dodaj).
 5. W polu **Nazwa** wpisz wartość **http**. Upewnij się, że w polu **Zakres portów** ustawiono wartość 80, a w polu **Akcja** — wartość **Zezwalaj**. 
 6. Kliknij przycisk **OK**.
 
@@ -137,7 +137,7 @@ Otwórz przeglądarkę sieci web i przejdź do ```http://<public IP address>```.
 
 Gdy grupa zasobów, maszyna wirtualna i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć. Aby to zrobić, wybierz grupę zasobów na stronie maszyny wirtualnej, a następnie kliknij przycisk **usunąć**.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym szybki start zostały wdrożone prostą maszynę wirtualną systemu Linux, reguły grupy zabezpieczeń sieci i zainstalowany na serwerze sieci web. Aby dowiedzieć się więcej o maszynach wirtualnych Azure stosu, nadal [zagadnienia dotyczące maszyn wirtualnych w stosie Azure](azure-stack-vm-considerations.md).
 

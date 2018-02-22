@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: 75a8f521135757ceb99cb0086f331c35827e4800
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: d96e2e6767ca01c8c16403a8846e3ab9d16796bc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Wymagania dotyczące certyfikatów infrastruktury kluczy publicznych stosu Azure
 Azure stos nie zawiera publicznych infrastruktury sieci przy użyciu dostępne z zewnątrz publiczne adresy IP przypisane do niewielki zestaw usług Azure stosu i prawdopodobnie maszyny wirtualne dzierżawców. Certyfikaty PKI z odpowiedniej nazwy DNS dla tych punktów końcowych infrastruktury publicznych stosu Azure są wymagane podczas wdrażania usługi Azure stosu. Ten artykuł zawiera informacje na temat:
@@ -33,7 +33,7 @@ Azure stos nie zawiera publicznych infrastruktury sieci przy użyciu dostępne z
 ## <a name="certificate-requirements"></a>Wymagania dotyczące certyfikatów
 Poniższa lista zawiera opis wymagań dotyczących certyfikatów, które są wymagane do wdrożenia usługi Azure stosu: 
 - Certyfikaty muszą być wystawiane z wewnętrznego urzędu certyfikacji lub publicznego urzędu certyfikacji. Jeśli jest używany publiczny urząd certyfikacji, musi być uwzględniona w obrazu podstawowego systemu operacyjnego w ramach programu Microsoft zaufanego głównego urzędu. Pełną listę można znaleźć: https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca 
-- Certyfikat może być obejmujące wszystkie przestrzenie nazw w pole alternatywnej nazwy podmiotu (SAN) certyfikatu jeden symbol wieloznaczny. Alternatywnie można użyć poszczególnych certyfikatów przy użyciu symbole wieloznaczne dla punktów końcowych, takie jak magazyn i magazyn kluczy, w którym są one wymagane. 
+- Certyfikat może być obejmujące wszystkie przestrzenie nazw w pole alternatywnej nazwy podmiotu (SAN) certyfikatu jeden symbol wieloznaczny. Alternatywnie można użyć poszczególnych certyfikatów dla punktów końcowych, takie jak usługi acs oraz gdy wymagane są usługi Key Vault za pomocą symbole wieloznaczne. 
 - Algorytm podpisu certyfikatu nie może być SHA1, muszą być silniejsze. 
 - Format certyfikatu musi być PFX, jak klucze publiczne i prywatne są wymagane do zainstalowania stosu Azure. 
 - Pliki pfx certyfikatu musi mieć wartość "Podpis cyfrowy" i "KeyEncipherment" w polu "Użycie klucza".

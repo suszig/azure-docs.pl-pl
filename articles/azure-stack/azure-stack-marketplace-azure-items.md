@@ -3,8 +3,8 @@ title: "Azure Marketplace dostępnych elementów dla stosu Azure | Dokumentacja 
 description: "Te elementy portalu Azure Marketplace można w stosie Azure."
 services: azure-stack
 documentationcenter: 
-author: JeffGoldner
-manager: bradleyb
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2018
-ms.author: JeffGoldner
-ms.openlocfilehash: a23b5ff4dc8b0cf18e529d9cdc9925ea7fcedba0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: brenduns
+ms.reviewer: jeffgo
+ms.openlocfilehash: bfc55a305fd0099af5cc2bb394420e547d2703bc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace dostępnych elementów dla usługi Azure stosu
 
@@ -30,14 +31,14 @@ Zaleca się, aby pobrać te zawsze, gdy są dostępne aktualizacje dla rozszerze
 
 |  | Nazwa elementu | Opis | Wydawca | Typ systemu operacyjnego |
 | --- | --- | --- | --- | --- |
-|![](media/azure-stack-marketplace-azure-items/cse.png) | [Rozszerzenie IaaS SQL](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| <b>Pobierz to rozszerzenie do wdrożenia dowolnego programu SQL Server w elemencie Marketplace systemu Windows — jest to wymagane.</b> | Microsoft | Windows |
-|![](media/azure-stack-marketplace-azure-items/cse.png) | [Niestandardowe rozszerzenie skryptu](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/extensions-customscript)| <b>Pobierz aktualizację do wersji w pole niestandardowe skryptu rozszerzenia systemu Windows.</b> | Microsoft | Windows |
-|![](media/azure-stack-marketplace-azure-items/dsc.png) | [Rozszerzenia usługi Konfiguracja DSC środowiska PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| <b>Pobierz aktualizację do wersji w polu rozszerzenia usługi Konfiguracja DSC środowiska PowerShell.</b> | Microsoft | Windows |
-| ![](media/azure-stack-marketplace-azure-items/cse.png) | [Rozszerzenie ochrony przed złośliwym oprogramowaniem firmy Microsoft](https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware)| Antimalware Microsoft Azure to rozwiązanie jednego agenta dla aplikacji i dzierżawy w środowiskach, przeznaczony do pracy w tle bez udziału człowieka. | Microsoft | Windows |
+|![](media/azure-stack-marketplace-azure-items/cse.png) | [ Rozszerzenie IaaS SQL ](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| <b>Pobierz to rozszerzenie do wdrożenia dowolnego programu SQL Server w elemencie Marketplace systemu Windows — jest to wymagane.</b> | Microsoft | Windows |
+|![](media/azure-stack-marketplace-azure-items/cse.png) | [ Niestandardowe rozszerzenie skryptu ](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/extensions-customscript)| <b>Pobierz aktualizację do wersji w pole niestandardowe skryptu rozszerzenia systemu Windows.</b> | Microsoft | Windows |
+|![](media/azure-stack-marketplace-azure-items/dsc.png) | [ Rozszerzenia usługi Konfiguracja DSC środowiska PowerShell ](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| <b>Pobierz aktualizację do wersji w polu rozszerzenia usługi Konfiguracja DSC środowiska PowerShell.</b> | Microsoft | Windows |
+| ![](media/azure-stack-marketplace-azure-items/cse.png) | [ Rozszerzenie ochrony przed złośliwym oprogramowaniem firmy Microsoft ](https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware)| Antimalware Microsoft Azure to rozwiązanie jednego agenta dla aplikacji i dzierżawy w środowiskach, przeznaczony do pracy w tle bez udziału człowieka. | Microsoft | Windows |
 | ![](media/azure-stack-marketplace-azure-items/dockerextension.png) | [Docker](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.docker-arm) | Rozszerzenie docker dla maszyn wirtualnych systemu Linux. | Microsoft | Linux |
-| ![](media/azure-stack-marketplace-azure-items/cse.png) | [Dostęp do maszyny Wirtualnej dla systemu Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| <b>Pobierz aktualizację do wersji w polu VMAccess dla rozszerzenia systemu Linux. Jest to ważne, jeśli planujesz używać Debian maszyn wirtualnych systemu Linux.</b> | Microsoft | Linux |
-| ![](media/azure-stack-marketplace-azure-items/acronis.png) | [Rozszerzenie usługi Acronis Backup dla systemu Linux](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | Rozszerzenie Acronis kopia zapasowa Microsoft Azure jest częścią rodziny kopii zapasowej Acronis środków ochrony danych. | Acronis International GmbH. | Linux |
-| ![](media/azure-stack-marketplace-azure-items/acronis.png) | [Rozszerzenie usługi Acronis Backup dla systemu Windows](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | Rozszerzenie Acronis kopia zapasowa Microsoft Azure jest częścią rodziny kopii zapasowej Acronis środków ochrony danych. | Acronis International GmbH. | Windows |
+| ![](media/azure-stack-marketplace-azure-items/cse.png) | [ Dostęp do maszyny Wirtualnej dla systemu Linux ](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| <b>Pobierz aktualizację do wersji w polu VMAccess dla rozszerzenia systemu Linux. Jest to ważne, jeśli planujesz używać Debian maszyn wirtualnych systemu Linux.</b> | Microsoft | Linux |
+| ![](media/azure-stack-marketplace-azure-items/acronis.png) | [ Rozszerzenie usługi Acronis Backup dla systemu Linux ](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | Rozszerzenie Acronis kopia zapasowa Microsoft Azure jest częścią rodziny kopii zapasowej Acronis środków ochrony danych. | Acronis International GmbH. | Linux |
+| ![](media/azure-stack-marketplace-azure-items/acronis.png) | [ Rozszerzenie usługi Acronis Backup dla systemu Windows ](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | Rozszerzenie Acronis kopia zapasowa Microsoft Azure jest częścią rodziny kopii zapasowej Acronis środków ochrony danych. | Acronis International GmbH. | Windows |
 
 ## <a name="microsoft-virtual-machine-images-and-solution-templates"></a>Obrazy maszyny wirtualnej firmy Microsoft i szablonów rozwiązania
 
@@ -70,9 +71,9 @@ Microsoft Azure stosu obsługuje następujące maszyny wirtualne Azure Marketpla
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [Program SQL Express 2017 r Server w systemie SUSE Linux Enterprise Server (SLES) 12 z dodatkiem SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonSLES12SP2) | Bezpłatna wersja express programu SQL Server 2016 z dodatkiem SP1. | Microsoft + SUSE |
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 przedsiębiorstwa w systemie SUSE Linux Enterprise Server (SLES) 12 z dodatkiem SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.Microsoft.SQLServer2017EnterpriseonSLES12SP2) | Baza danych platforma inteligentnego, kluczowych aplikacji. | Microsoft + SUSE |
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [Program SQL Server 2017 sieci Web w systemie SUSE Linux Enterprise Server (SLES) 12 z dodatkiem SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.Microsoft.SQLServer2017WebonSLES12SP2) | Baza danych platforma inteligentnego, kluczowych aplikacji. | Microsoft + SUSE |
-| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning serwera 9.2.1 w systemie Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onWindowsServer2016) | Microsoft Machine Learning serwera 9.2.1 w systemie Windows Server 2016. | Microsoft |
-| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning serwera 9.2.1 na Ubuntu 16.04](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onUbuntu1604) | Microsoft Machine Learning Server 9.2.1 on Ubuntu 16.04. | Microsoft + Canonical |
-| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning serwera 9.2.1 na CentOS Linux 7.2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onCentOSLinux72) | Microsoft Machine Learning serwera 9.2.1 na CentOS Linux 7.2. | Firma Microsoft + nieautoryzowanego Wave |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning serwera 9.2.1 w systemie Windows Server 2016 ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onWindowsServer2016) | Microsoft Machine Learning serwera 9.2.1 w systemie Windows Server 2016. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning serwera 9.2.1 na Ubuntu 16.04 ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onUbuntu1604) | Microsoft Machine Learning Server 9.2.1 on Ubuntu 16.04. | Microsoft + Canonical |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning serwera 9.2.1 na CentOS Linux 7.2 ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onCentOSLinux72) | Microsoft Machine Learning serwera 9.2.1 na CentOS Linux 7.2. | Firma Microsoft + nieautoryzowanego Wave |
 
 
 ## <a name="linux-distributions"></a>Dystrybucje systemu Linux
@@ -85,7 +86,7 @@ Microsoft Azure stosu obsługuje następujące maszyny wirtualne Azure Marketpla
 | ![](media/azure-stack-marketplace-azure-items/roguewave.png) | [Na podstawie centOS 6,9](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased69) | Tej dystrybucji systemu Linux jest oparta na CentOS i są dostarczane przez nieautoryzowanego oprogramowania Wave. | Nieautoryzowanego oprogramowania Wave (dawniej OpenLogic)  |
 | ![](media/azure-stack-marketplace-azure-items/roguewave.png) | [7.4 na podstawie centOS](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased74) | Tej dystrybucji systemu Linux jest oparta na CentOS i są dostarczane przez nieautoryzowanego oprogramowania Wave. | Nieautoryzowanego oprogramowania Wave (dawniej OpenLogic) |
 | ![](media/azure-stack-marketplace-azure-items/roguewave.png) | [Na podstawie centOS LVM 7.4](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased74LVM) | Tej dystrybucji systemu Linux jest oparta na CentOS i są dostarczane przez nieautoryzowanego oprogramowania Wave. | Nieautoryzowanego oprogramowania Wave (dawniej OpenLogic) |
-| ![](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 12 Z DODATKIEM SP3 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSELinuxEnterpriseServer12SP3BringYourOwnSubscription) | SUSE Linux Enterprise Server 12 SP3. | SUSE |
+| ![](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 12 Z DODATKIEM SP3 (BYOS) ](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSELinuxEnterpriseServer12SP3BringYourOwnSubscription) | SUSE Linux Enterprise Server 12 SP3. | SUSE |
 
 ## <a name="third-party-byol-free-and-trial-images-and-solution-templates"></a>BYOL innych firm, obrazy wolnego i wersji próbnej i szablony rozwiązań
 
@@ -209,5 +210,5 @@ Microsoft Azure stosu obsługuje następujące maszyny wirtualne Azure Marketpla
 | ![](media/azure-stack-marketplace-azure-items/kemp.png) | [Przełącznik ADC zawartości modułu równoważenia obciążenia loadMaster](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | Moduł równoważenia obciążenia kontrolera (ADC) warstwy 4-7 aplikacji dostarczania zawartości przełącznika i Menedżera ruchu. | KEMP Technologies Inc. |
 | ![](media/azure-stack-marketplace-azure-items/noobaa.png) | [S3 usług AWS hybrydowego NooBaa compatibe - Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | Usługa magazynu zgodnego S3 obejmuje publicznego i pojemności zasobów lokalnych. | NooBaa |
 | ![](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet przedsiębiorstwa](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise pozwala zautomatyzować w całym cyklu ich życia infrastruktury Azure stosu. <b>Pobierz oba elementy Puppet Marketplace.</b> | Puppet |
-| ![](media/azure-stack-marketplace-azure-items/suse.png) | [Serwer Proxy Menedżera 3.0 SUSE (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSEManager30ProxyBringYourOwnSubscription) | Najlepsze w klasie Otwórz przystawkę Zarządzanie infrastrukturą źródła. | SUSE |
-| ![](media/azure-stack-marketplace-azure-items/zerodown.png) | [Narzędzie ZeroDown oprogramowania](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.zerodown-software-tool-7_1) | V7.1 Narzędzie oprogramowania ZeroDown - migracji + wysokiej dostępności. | ZeroDown oprogramowania |
+| ![](media/azure-stack-marketplace-azure-items/suse.png) | [Serwer Proxy Menedżera 3.0 SUSE (BYOS) ](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSEManager30ProxyBringYourOwnSubscription) | Najlepsze w klasie Otwórz przystawkę Zarządzanie infrastrukturą źródła. | SUSE |
+| ![](media/azure-stack-marketplace-azure-items/zerodown.png) | [Narzędzie ZeroDown oprogramowania ](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.zerodown-software-tool-7_1) | V7.1 Narzędzie oprogramowania ZeroDown - migracji + wysokiej dostępności. | ZeroDown oprogramowania |

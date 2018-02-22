@@ -3,8 +3,8 @@ title: "Omówienie usługi Azure stosu planu, oferty, przydziału i subskrypcji 
 description: "Jako operator chmury ma być planów Azure stosu, oferty, przydziały i subskrypcje."
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 3dc92e5c-c004-49db-9a94-783f1f798b98
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 8/22/2017
-ms.author: erikje
-ms.openlocfilehash: 083ca2f0a06625810d2f90a682ba0b3110032e60
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: 
+ms.openlocfilehash: 7c395dfcdfcd509d8b32028badd1c1310ea67657
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>Omówienie planu, oferty, przydziału i subskrypcji
 
@@ -51,11 +52,11 @@ Aby ułatwić zarządzanie pojemność w chmurze, wybierz lub utworzyć przydzia
 
 Można skonfigurować przydziały według regionu. Na przykład planu zawierający usługi obliczeniowe z regionu A może mieć przydziału dwóch maszyn wirtualnych, 4 GB pamięci RAM oraz 10 rdzeni Procesora. Azure stosu Development Kit, tylko jeden region (o nazwie *lokalnego*) jest dostępny.
 
-### <a name="base-plan"></a>Podstawowy plan
+### <a name="base-plan"></a>Plan podstawowy
 
 Podczas tworzenia oferty, administrator usługi mogą obejmować planu podstawowego. Te plany podstawowe są domyślnie dołączone, gdy użytkownik subskrybuje tej oferty. Gdy użytkownik subskrybuje, mają dostęp do wszystkich dostawców zasobów określone w te plany podstawowe (za pomocą odpowiednich przydziały).
 
-### <a name="add-on-plans"></a>Plany dodatku
+### <a name="add-on-plans"></a>Plany dodatkowe
 
 Opcjonalne dodatkowe plany można również uwzględnić w oferty. Dodatek planów nie znajdują się domyślnie w subskrypcji. Dodatkowe programy są dodatkowe planów (limity) dostępna w propozycję subskrybenta można dodać do subskrypcji. Na przykład możesz zaoferować podstawowy plan o ograniczonych zasobów z wersji próbnej i planu dodatkowe zasoby bardziej znaczące klienci, którzy zdecydują się wdrożyć usługę.
 
@@ -75,6 +76,6 @@ Jak użytkownicy uzyskują dostęp do Twojej oferty jest subskrypcja. Jeśli ope
 
 Subskrypcja dostawca domyślny jest tworzony automatycznie podczas wdrażania usługi Azure stosu Development Kit. Ta subskrypcja może służyć do zarządzania Azure stosu, wdrożyć dodatkowe dostawców zasobów oraz tworzenie planów i oferty dla użytkowników. Zabezpieczeń i licencjonowania przyczyn nie można stosować do uruchamiania obciążeń klientów i aplikacji. 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Tworzenie planu](azure-stack-create-plan.md)

@@ -3,8 +3,8 @@ title: "Tworzenie i publikowanie elementów Marketplace w stosie Azure | Dokumen
 description: "Tworzenie i publikowanie elementów Marketplace w stosie Azure."
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 77e5f60c-a86e-4d54-aa8d-288e9a889386
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2017
-ms.author: erikje
-ms.openlocfilehash: 64203ce186665aada98fbe8daed971164a650399
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: jeffgo
+ms.openlocfilehash: 5ac91dac3cb446abaf07492d8b6ec8aa0c120ef4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Tworzenie i publikowanie elementu portalu Marketplace
 
@@ -100,14 +101,14 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="reference-marketplace-item-manifestjson"></a>Odwołanie: Manifest.json elementów Marketplace
 ### <a name="identity-information"></a>Informacje o tożsamości
-| Nazwa | Wymagane | Typ | Ograniczenia | Opis |
+| Name (Nazwa) | Wymagane | Typ | Ograniczenia | Opis |
 | --- | --- | --- | --- | --- |
-| Nazwa |X |Ciąg |[A-Za-z0-9] + | |
-| Wydawca |X |Ciąg |[A-Za-z0-9] + | |
+| Name (Nazwa) |X |Ciąg |[A-Za-z0-9]+ | |
+| Wydawca |X |Ciąg |[A-Za-z0-9]+ | |
 | Wersja |X |Ciąg |[Programu SemVer v2](http://semver.org/) | |
 
 ### <a name="metadata"></a>Metadane
-| Nazwa | Wymagane | Typ | Ograniczenia | Opis |
+| Name (Nazwa) | Wymagane | Typ | Ograniczenia | Opis |
 | --- | --- | --- | --- | --- |
 | Nazwa wyświetlana |X |Ciąg |Zalecenie 80 znaków |Portalu może nie wyświetlać nazwę elementu bezpiecznie, jeśli jest więcej niż 80 znaków. |
 | PublisherDisplayName |X |Ciąg |Zalecenie 30 znaków |Portalu może nie wyświetlać nazwę wydawcy bezpiecznie, jeśli jest więcej niż 30 znaków. |
@@ -119,7 +120,7 @@ ms.lasthandoff: 10/11/2017
 ### <a name="images"></a>Obrazy
 Witryny Marketplace korzysta z następujących ikon:
 
-| Nazwa | Szerokość | Wysokość | Uwagi |
+| Name (Nazwa) | Szerokość | Wysokość | Uwagi |
 | --- | --- | --- | --- |
 | Międzynarodowe |255 pikseli |115 pikseli |Zawsze wymagany |
 | Large |115 pikseli |115 pikseli |Zawsze wymagany |
@@ -133,15 +134,15 @@ Każdy element Marketplace powinny być oznaczane kategorię, która identyfikuj
 ### <a name="links"></a>Linki
 Każdy element Marketplace mogą zawierać różne linki do dodatkowej zawartości. Łącza są określone jako lista nazw i identyfikatorów URI.
 
-| Nazwa | Wymagane | Typ | Ograniczenia | Opis |
+| Name (Nazwa) | Wymagane | Typ | Ograniczenia | Opis |
 | --- | --- | --- | --- | --- |
 | Nazwa wyświetlana |X |Ciąg |Maksymalnie 64 znaków. | |
-| Identyfikator URI |X |IDENTYFIKATOR URI | | |
+| Identyfikator URI |X |Identyfikator URI | | |
 
 ### <a name="additional-properties"></a>Dodatkowe właściwości
 Oprócz powyższych metadanych autorzy Marketplace można podać danych pary klucza i wartości niestandardowe w następującym formacie:
 
-| Nazwa | Wymagane | Typ | Ograniczenia | Opis |
+| Name (Nazwa) | Wymagane | Typ | Ograniczenia | Opis |
 | --- | --- | --- | --- | --- |
 | Nazwa wyświetlana |X |Ciąg |Maksymalnie 25 znaków | |
 | Wartość |X |Ciąg |Maksymalnie 30 znaków | |

@@ -3,8 +3,8 @@ title: "Tworzenie szablonów dla stosu Azure | Dokumentacja firmy Microsoft"
 description: "Dowiedz się, najlepsze rozwiązania szablonu Azure stosu"
 services: azure-stack
 documentationcenter: 
-author: HeathL17
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 8a5bc713-6f51-49c8-aeed-6ced0145e07b
 ms.service: azure-stack
@@ -12,25 +12,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2017
-ms.author: helaw
-ms.openlocfilehash: b9109c58b29d5f09f1a86068a87c5e7f839228af
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
-ms.translationtype: MT
+ms.date: 02/20/2018
+ms.author: brenduns
+ms.reviewer: jeffgo
+ms.openlocfilehash: f85875b5b128f53d45fe9af97c026fc6e34b2d27
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-resource-manager-template-considerations"></a>Zagadnienia dotyczące szablonów usługi Azure Resource Manager
 
 *Dotyczy: Azure stosu zintegrowanych systemów i Azure stosu Development Kit*
 
-Podczas opracowywania aplikacji jest zapewnienie przenośność szablonu platformy Azure i stosu Azure.  W tym temacie przedstawiono zagadnienia związane z opracowywaniem usługi Azure Resource Manager [szablony](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf), co może prototypu wdrożenia aplikacji i testowania na platformie Azure bez dostępu do środowiska Azure stosu.
+Podczas opracowywania aplikacji jest zapewnienie przenośność szablonu platformy Azure i stosu Azure. W tym artykule przedstawiono zagadnienia związane z opracowywaniem usługi Azure Resource Manager [szablony](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf), co może prototypu wdrożenia aplikacji i testowania na platformie Azure bez dostępu do środowiska Azure stosu.
 
 ## <a name="resource-provider-availability"></a>Dostępność dostawcy zasobów
-Szablon, który zamierzasz wdrożyć muszą używać usługi Microsoft Azure, który jest już dostępny, lub w wersji zapoznawczej w stosie Azure.
+Szablon, który zamierzasz wdrożyć należy używać tylko usług Microsoft Azure, które są już dostępne lub w wersji zapoznawczej w stosie Azure.
 
 ## <a name="public-namespaces"></a>Publiczne obszary nazw
-Ponieważ stosu Azure znajduje się w centrum danych, ma przestrzeni nazw punktu końcowego usługi innej niż chmurze publicznej Azure. W związku z tym zapisane na stałe publiczne punkty końcowe w szablonach usługi Resource Manager zakończyć się niepowodzeniem podczas próby wdrażania ich na stosie Azure. Zamiast tego można użyć *odwołania* i *łączenie* funkcja dynamiczne tworzenie punktu końcowego usługi na podstawie wartości pobrać od dostawcy zasobów podczas wdrażania. Na przykład zamiast określania *blob.core.windows.net* w szablonie, należy pobrać [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-simple-windows-vm/azuredeploy.json#L201) dynamicznie ustawić *osDisk.URI* punktu końcowego:
+Ponieważ stosu Azure znajduje się w centrum danych, ma przestrzeni nazw punktu końcowego usługi innej niż chmurze publicznej Azure. W związku z tym zapisane na stałe publiczne punkty końcowe w szablonach usługi Azure Resource Manager zakończyć się niepowodzeniem podczas próby wdrażania ich na stosie Azure. Zamiast tego można użyć *odwołania* i *łączenie* funkcja dynamiczne tworzenie punktu końcowego usługi na podstawie wartości pobrać od dostawcy zasobów podczas wdrażania. Na przykład zamiast określania *blob.core.windows.net* w szablonie, należy pobrać [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-simple-windows-vm/azuredeploy.json#L201) dynamicznie ustawić *osDisk.URI* punktu końcowego:
 
      "osDisk": {"name": "osdisk","vhd": {"uri": 
      "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2015-06-15').primaryEndpoints.blob, variables('vmStorageAccountContainerName'),
@@ -46,23 +47,21 @@ Wersje usługi Azure może się różnić między Azure i stosu Azure. Każdy za
 | Magazyn |`'2016-01-01'`, `'2015-06-15'`, `'2015-05-01-preview'` |
 | KeyVault | `'2015-06-01'` |
 | App Service |`'2015-08-01'` |
-| MySQL |`'2015-09-01'` |
-| SQL |`'2014-04-01-preview'` |
 
 ## <a name="template-functions"></a>Funkcje szablonów
-Menedżer zasobów [funkcje](../../azure-resource-manager/resource-group-template-functions.md) zapewniają możliwości wymagane do tworzenia dynamicznych szablonów. Na przykład można użyć funkcji dla zadania, takie jak:
+Usługa Azure Resource Manager [funkcje](../../azure-resource-manager/resource-group-template-functions.md) zapewniają możliwości wymagane do tworzenia dynamicznych szablonów. Na przykład można użyć funkcji dla zadania, takie jak:
 
 * Łączenie lub przycinanie ciągów 
 * Wartości odwołania z innych zasobów
 * Iteracja zasobów, aby wdrożyć wiele wystąpień 
 
-Podczas tworzenia szablonów, niektóre funkcje nie są dostępne w systemie Azure stosu Development Kit i nie powinna być używana. Te funkcje są:
+Te funkcje nie są dostępne w stosie Azure:
 
 * Pomiń
 * podejmij
 
 ## <a name="resource-location"></a>Lokalizacja zasobu
-Szablony usługi Resource Manager umożliwia atrybut lokalizacji umieść zasoby podczas wdrażania. Na platformie Azure lokalizacje odwoływać się do regionu zachodnie stany USA lub Azji. W stosie Azure lokalizacje są różnych, ponieważ stos Azure znajduje się w centrum danych.  Aby zapewnić, że szablony są możliwej platformy Azure i stosu Azure, powinien odwoływać lokalizacja grupy zasobów, zgodnie z wdrożeniem poszczególnych zasobów. Można to zrobić przy użyciu `[resourceGroup().Location]` zapewnienie wszystkie zasoby dziedziczą lokalizacja grupy zasobów.  Poniższy fragment szablonu usługi Resource Manager znajduje się przykład podczas wdrażania konta magazynu przy użyciu tej funkcji:
+Szablony usługi Azure Resource Manager umożliwia atrybut lokalizacji umieść zasoby podczas wdrażania. Na platformie Azure lokalizacje odwoływać się do regionu zachodnie stany USA lub Azji. W stosie Azure lokalizacje są różnych, ponieważ stos Azure znajduje się w centrum danych. Aby zapewnić, że szablony są możliwej platformy Azure i stosu Azure, powinien odwoływać lokalizacja grupy zasobów, zgodnie z wdrożeniem poszczególnych zasobów. Można to zrobić przy użyciu `[resourceGroup().Location]` zapewnienie wszystkie zasoby dziedziczą lokalizacja grupy zasobów. Poniższy fragment jest przykładem korzystania z tej funkcji podczas wdrażania konta magazynu:
 
     "resources": [
     {
@@ -77,7 +76,7 @@ Szablony usługi Resource Manager umożliwia atrybut lokalizacji umieść zasoby
     }
     ]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Wdrażanie szablonów za pomocą programu PowerShell](azure-stack-deploy-template-powershell.md)
 * [Wdrażanie szablonów z wiersza polecenia platformy Azure](azure-stack-deploy-template-command-line.md)
 * [Wdrażanie szablonów za pomocą programu Visual Studio](azure-stack-deploy-template-visual-studio.md)
