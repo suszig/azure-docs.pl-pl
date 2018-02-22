@@ -95,8 +95,6 @@
           href: apache-spark-streaming-overview.md
         - name: Tworzenie zadań przesyłania strumieniowego platformy Spark o wysokiej dostępności na platformie YARN
           href: apache-spark-streaming-high-availability.md
-        - name: Zdarzenia przesyłania strumieniowego procesu
-          href: apache-spark-eventhub-streaming.md
         - name: Przesyłanie strumieniowe ze strukturą za pomocą usługi Event Hubs
           href: apache-spark-eventhub-structured-streaming.md
         - name: Przesyłanie strumieniowe ze strukturą za pomocą usługi Kafka
