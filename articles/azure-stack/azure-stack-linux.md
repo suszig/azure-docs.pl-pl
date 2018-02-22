@@ -3,8 +3,8 @@ title: "Dodawanie obrazów systemu Linux Azure stosu"
 description: "Dowiedz się, jak dodać obrazy Linux Azure stosu."
 services: azure-stack
 documentationcenter: 
-author: anjayajodha
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.service: azure-stack
 ms.workload: na
@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 9/25/2017
-ms.author: anajod
-ms.openlocfilehash: a8763c01cba4e5a9eaa3b7842b627d6eb9661a95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: anajod
+ms.openlocfilehash: 29e5443de4dc43efe6d536b0f8b9cfc6ad37a669
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="add-linux-images-to-azure-stack"></a>Dodawanie obrazów systemu Linux Azure stosu
 
@@ -94,6 +95,6 @@ Można przygotować własny obraz systemu Linux przy użyciu jednej z poniższyc
 2. [Dodawanie obrazu do witryny Marketplace](azure-stack-add-vm-image.md). Upewnij się, że `OSType` ustawiono parametr `Linux`.
 3. Po dodaniu go do portalu Marketplace, zostanie utworzony element Marketplace, a użytkownicy będą mogli wdrażać maszyny wirtualnej systemu Linux.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Przegląd oferty usług Azure stosu](azure-stack-offer-services-overview.md)
 

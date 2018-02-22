@@ -5,21 +5,18 @@ services: azure-stack
 author: jeffgilb
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/16/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: 
-ms.openlocfilehash: e368109adc7db4c589ac37b28c4891cb3ec5346f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8af533147f3cc12f2334a43e7b672c69d0d25802
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure stosu integracji datacenter — publikować punkty końcowe
-
-*Dotyczy: Azure stosu zintegrowane systemy*
-
-Stos Azure konfiguruje różnych punktów końcowych (adresów VIP - wirtualnych adresów IP) dla jego role infrastruktury. Te adresy VIP są przydzielone z puli publicznych adresów IP. Każdy adres VIP jest zabezpieczony z listy kontroli dostępu (ACL) w warstwie sieci zdefiniowanych przez oprogramowanie. Listy ACL są również używane przez przełączniki fizyczne (torach i BMC) dodatkowo zabezpieczyć rozwiązanie. Wpis DNS jest tworzony dla każdego punktu końcowego w strefie DNS zewnętrznego, który został określony w czasie wdrażania.
+Stos Azure konfiguruje wielu wirtualnych adresów IP (VIP) dla jego role infrastruktury. Te adresy VIP są przydzielone z puli publicznych adresów IP. Każdy adres VIP jest zabezpieczony z listy kontroli dostępu (ACL) w warstwie sieci zdefiniowanych przez oprogramowanie. Listy ACL są również używane przez przełączniki fizyczne (torach i BMC) dodatkowo zabezpieczyć rozwiązanie. Wpis DNS jest tworzony dla każdego punktu końcowego w strefie DNS zewnętrznego, który został określony w czasie wdrażania.
 
 
 Na poniższym diagramie architektury przedstawiono warstwy inną sieć i listy kontroli dostępu:
@@ -28,7 +25,7 @@ Na poniższym diagramie architektury przedstawiono warstwy inną sieć i listy k
 
 ## <a name="ports-and-protocols-inbound"></a>Porty i protokoły (ruch przychodzący)
 
-W poniższej tabeli wymieniono infrastruktury wirtualne adresy IP, które są wymagane do publikowania stosu Azure punktów końcowych sieci zewnętrznych. Lista zawiera każdego punktu końcowego, wymagany port i protokół. Punkty końcowe wymagane dla dostawców dodatkowych zasobów, takich jak dostawca zasobów SQL i innych osób, znajdują się w dokumentacji wdrażania dostawcy określonego zasobu.
+Poniżej przedstawiono infrastruktury wirtualne adresy IP, które są wymagane do publikowania stosu Azure punktów końcowych sieci zewnętrznych. Lista zawiera każdego punktu końcowego, wymagany port i protokół. Punkty końcowe wymagane dla dostawców dodatkowych zasobów, takich jak dostawca zasobów SQL i innych osób, znajdują się w dokumentacji wdrażania dostawcy określonego zasobu.
 
 Wewnętrzna infrastruktura adresy VIP nie są wyświetlane, ponieważ nie są one wymagane do publikowania stosu Azure.
 
@@ -38,7 +35,7 @@ Wewnętrzna infrastruktura adresy VIP nie są wyświetlane, ponieważ nie są on
 
 |Punkt końcowy (VIP)|Rekord hosta DNS|Protokół|Porty|
 |---------|---------|---------|---------|
-|ADFS|Adfs.*&lt;region>.&lt;fqdn>*|HTTPS|443|
+|AD FS|Adfs.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Portal (administrator)|Adminportal.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13020<br>13021<br>13026<br>30015|
 |Usługa Azure Resource Manager (administrator)|Adminmanagement.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>30024|
 |Portal (użytkownika)|Portal.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>12495<br>12649<br>13001<br>13010<br>13011<br>13020<br>13021<br>30015<br>13003|
@@ -52,7 +49,11 @@ Wewnętrzna infrastruktura adresy VIP nie są wyświetlane, ponieważ nie są on
 |Tabela magazynu|&#42;.table.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |Obiektu Blob magazynu|&#42;.blob.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |Dostawca zasobów SQL|sqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
-|Dostawca zasobów MySQL|mysqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304
+|Dostawca zasobów MySQL|mysqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
+|App Service|&#42;.appservice.*&lt;region>.&lt;fqdn>*|TCP|80 (HTTP)<br>443 (HTTPS)<br>8172 (MSDeploy)|
+|  |&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)|
+|  |api.appservice.*&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)<br>44300 (usługa azure Resource Manager)|
+|  |ftp.appservice.*&lt;region>.&lt;fqdn>*|TCP, UDP|21, 1021, 10001-101000 (FTP)<br>990 (FTPS)|
 
 ## <a name="ports-and-urls-outbound"></a>Porty i adresy URL (wychodzące)
 

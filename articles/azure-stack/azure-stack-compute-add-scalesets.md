@@ -1,18 +1,22 @@
 ---
-title: "Udostępnia zestawy skalowania maszyny wirtualnej Azure stosu"
-description: "Dowiedz się, jak administrator chmury nie może dodać skalowania maszyny wirtualnej w portalu Azure Marketplace stosu"
+title: "Dostępne w stosie Azure zestawach skali maszyn wirtualnych upewnij | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak dodać skalowania maszyny wirtualnej w portalu Azure Marketplace stosu operatorowi chmury"
 services: azure-stack
-author: anjayajodha
+author: brenduns
+manager: femila
+editor: 
+ms.assetid: 
 ms.service: azure-stack
 ms.topic: article
 ms.date: 9/25/2017
-ms.author: anajod
+ms.author: brenduns
+ms.reviewer: anajod
 keywords: 
-ms.openlocfilehash: 31aeb963bdf4fd32712bc6f29f64060ec1c77cb8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6e4c1145b8ff4665024b4532cf9cc9ac6a0a24a1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Udostępnia zestawy skalowania maszyny wirtualnej Azure stosu
 
@@ -47,7 +51,7 @@ Na stosie Azure zestawy skalowania maszyny wirtualnej nie obsługują automatycz
 
 Edytuj poniższy skrypt programu PowerShell dla danego środowiska, a następnie uruchom go, aby dodać zestaw do programu Azure Marketplace stosu skalowania maszyny wirtualnej. 
 
-``$User``to konto, które są używane do łączenia z portalu administratora. Na przykład serviceadmin@contoso.onmicrosoft.com.
+``$User`` to konto, które są używane do łączenia z portalu administratora. Na przykład serviceadmin@contoso.onmicrosoft.com.
 
 ```
 $Arm = "https://adminmanagement.local.azurestack.external"
@@ -80,6 +84,6 @@ Aby usunąć maszynę wirtualną skalować zestawu z elementem galerii, uruchom 
 > Nie można bezpośrednio usunąć elementu galerii. Należy odświeżyć portal kilka razy, zanim zostanie usunięte z portalu Marketplace.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Często zadawane pytania dotyczące usługi Azure stosu](azure-stack-faq.md)
 

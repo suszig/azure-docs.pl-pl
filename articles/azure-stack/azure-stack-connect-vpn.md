@@ -3,8 +3,8 @@ title: "Stos Azure połączenia z platformą Azure przy użyciu sieci VPN"
 description: "Jak nawiązać sieci wirtualnych Azure stosu sieci wirtualnych na platformie Azure przy użyciu sieci VPN."
 services: azure-stack
 documentationcenter: 
-author: ScottNapolitan
-manager: 
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
-ms.author: victorh
-ms.openlocfilehash: 5d963fe8b1b576768156500af39254f45939f90d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: brenduns
+ms.reviewer: scottnap
+ms.openlocfilehash: 16cc1962eb72ac219adc8483f38cecf41a4296c1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>Stos Azure połączenia z platformą Azure przy użyciu sieci VPN
 
@@ -40,7 +41,7 @@ Aby ukończyć konfigurację połączenia, upewnij się, że masz następujące 
 ## <a name="network-example-values-table"></a>Tabela wartości przykład sieci
 Tabela wartości przykład sieci zawiera przykładowe wartości, które są używane w tym artykule. Możesz użyć tych wartości, lub można odwołać się do nich, aby lepiej zrozumieć przykłady w tym artykule.
 
-**Tabela wartości przykład sieci**
+Tabela wartości przykład sieci
 |   |Azure Stack|Azure|
 |---------|---------|---------|
 |Nazwa sieci wirtualnej     |Azs-VNet|AzureVNet |

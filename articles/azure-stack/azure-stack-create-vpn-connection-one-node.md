@@ -3,8 +3,8 @@ title: "Utwórz połączenie sieci VPN lokacja lokacja między dwoma sieciami wi
 description: "Krok po kroku procedury, która używa administrator chmury nie można utworzyć połączenia sieci VPN lokacja lokacja między dwoma środowiskami Azure stosu Development Kit jednym węzłem."
 services: azure-stack
 documentationcenter: 
-author: ScottNapolitan
-manager: darmour
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 3f1b4e02-dbab-46a3-8e11-a777722120ec
 ms.service: azure-stack
@@ -13,15 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 7/10/2017
-ms.author: scottnap
-ms.openlocfilehash: fa2a940620e06521fa110fa13dcbc3050635a502
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: scottnap
+ms.openlocfilehash: 886d56169c5500c9175b7ddc43edfc29c5142fbb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>Utwórz połączenie sieci VPN lokacja lokacja między dwoma sieciami wirtualnymi w różnych środowiskach Azure stosu Development Kit
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 W tym artykule przedstawiono sposób utworzyć połączenie VPN lokacja lokacja między dwiema sieciami wirtualnego w dwóch oddzielnych środowisk Azure stosu Development Kit. Podczas konfigurowania połączeń, dowiesz się, jak działają bramy sieci VPN w stosie Azure.
 
 ### <a name="connection-diagram"></a>Diagram połączenia
@@ -50,9 +51,9 @@ W poniższej tabeli przedstawiono konfigurację sieci dla obu środowiskach Azur
 **Tabela konfiguracji sieci**
 |   |POC1|POC2|
 |---------|---------|---------|
-|Nazwa sieci wirtualnej     |SIEĆ WIRTUALNA-01|SIEĆ WIRTUALNA-02 |
+|Nazwa sieci wirtualnej     |VNET-01|VNET-02 |
 |Przestrzeń adresową sieci wirtualnej |10.0.10.0/23|10.0.20.0/23|
-|Nazwa podsieci     |Podsieć-01|Podsieć-02|
+|Nazwa podsieci     |Subnet-01|Subnet-02|
 |Zakres adresów podsieci|10.0.10.0/24 |10.0.20.0/24 |
 |Podsieć bramy     |10.0.11.0/24|10.0.21.0/24|
 |Zewnętrzny adres BGPNAT     |         |         |
@@ -365,4 +366,4 @@ Jeśli chcesz wiedzieć, ile dane są przesyłane za pośrednictwem połączenia
 2. Przejdź do **wszystkie zasoby**, a następnie wybierz **POC2 POC1** połączenia. **Połączenia** pojawi się.
 4. Na **połączenia** bloku, statystyki dotyczące **danych w** i **dla danych wychodzących** są wyświetlane. Na poniższym zrzucie ekranu dużą liczbą są przypisane do transferu dodatkowych plików. Niektóre niezerowe wartości powinny być widoczne.
    
-    ![Data in i out](media/azure-stack-create-vpn-connection-one-node-tp2/image20.png)
+    ![Dane wejściowe i wyjściowe](media/azure-stack-create-vpn-connection-one-node-tp2/image20.png)

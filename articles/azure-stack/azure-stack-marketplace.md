@@ -3,8 +3,8 @@ title: "Publikowanie elementów marketplace niestandardowych w stosie Azure (ope
 description: "Jako operator stosu Azure jak opublikować element marketplace niestandardowych w stosie Azure."
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 60871cbb-eed2-433c-a76d-d605c7aec06c
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
-ms.author: erikje
-ms.openlocfilehash: 7b5f976eb2d51eb86761a2bd0be6adb45ca87681
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: jeffgo
+ms.openlocfilehash: c791708e11b7e9e8bbe046f06233d948d4632c90
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="the-azure-stack-marketplace-overview"></a>Omówienie usługi Azure Marketplace stosu
 
@@ -32,7 +33,7 @@ Aby otworzyć witryny Marketplace, kliknij przycisk **nowy**.
 
 ![](media/azure-stack-publish-custom-marketplace-item/image1.png)
 
-## <a name="marketplace-items"></a>Elementów portalu Marketplace
+## <a name="marketplace-items"></a>Elementy portalu Marketplace
 Element Azure Marketplace stosu jest usługi, aplikacji lub zasobów, które użytkownicy mogą pobrać i użyć. Wszystkie elementy Azure Marketplace stosu są widoczne dla wszystkich użytkowników.
 
 Każdy element Marketplace zawiera:
@@ -43,6 +44,6 @@ Każdy element Marketplace zawiera:
 
 Każdy element publikowane w witrynie Marketplace używa formatu o nazwie pakietu galerii Azure (azpkg). Dodaj oddzielnie, wdrożenia lub środowisko uruchomieniowe zasobów (takich jak kod, pliki zip za pomocą oprogramowania, obrazy maszyny wirtualnej) Azure stosu nie jako część elementu portalu Marketplace. 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Tworzenie i publikowanie elementu portalu marketplace](azure-stack-create-and-publish-marketplace-item.md)
 

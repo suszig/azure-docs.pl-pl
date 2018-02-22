@@ -3,8 +3,8 @@ title: Tworzenie testowej maszyny Wirtualnej w stosie Azure | Dokumentacja firmy
 description: "Dowiedz się, jak udostępnić testowej maszyny Wirtualnej w stosie Azure jako operatorowi chmury."
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: c86646e1-a12e-493f-b396-f17bfacd60c2
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
-ms.author: erikje
-ms.openlocfilehash: 233cf4df53af6a49e5fe4c5d51e112d8196a7530
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: 
+ms.openlocfilehash: 41096f68e5e7d9e31098d1e8919101418abe4c03
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-test-virtual-machine-in-azure-stack"></a>Utwórz testową maszynę wirtualną w stosie Azure
 
@@ -41,5 +42,5 @@ Jako operator stosu Azure można utworzyć testowej maszyny wirtualnej w celu zw
     ![](media/azure-stack-provision-vm/image06.png)
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Przy użyciu portali administratora i użytkownika w stosie Azure](azure-stack-manage-portals.md)
