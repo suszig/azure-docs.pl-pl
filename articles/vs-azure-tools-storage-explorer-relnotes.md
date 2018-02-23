@@ -14,25 +14,79 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: fb47ceb63d45a3e896d55d8c304562cc667d0414
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: d23ddfb881695b2310d379a9112e6ab8305c0cce
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Informacje o wersji Eksploratora usługi Microsoft Azure Storage (wersja zapoznawcza)
 
-Ten artykuł zawiera zlecenia, które uwagi 0.9.4 Eksploratora usługi Azure Storage (wersja zapoznawcza) wersji, a także informacje o wersji w poprzednich wersjach.
+Ten artykuł zawiera zlecenia, które uwagi 0.9.5 Eksploratora usługi Azure Storage (wersja zapoznawcza) wersji, a także informacje o wersji w poprzednich wersjach.
 
 [Eksploratora usługi Microsoft Azure Storage (wersja zapoznawcza)](./vs-azure-tools-storage-manage-with-storage-explorer.md) jest aplikacją autonomiczną, która pozwala łatwo pracować z danymi usługi Azure Storage w systemie Windows, macOS i Linux.
+
+## <a name="version-095"></a>Wersja 0.9.5
+02/06/2018
+
+### <a name="download-azure-storage-explorer-095-preview"></a>Pobierz Eksploratora usługi Azure Storage 0.9.5 (wersja zapoznawcza)
+- [Eksplorator usługi Azure Storage 0.9.5 (wersja zapoznawcza) dla systemu Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Eksplorator usługi Azure Storage 0.9.5 (wersja zapoznawcza) dla komputerów Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Eksplorator usługi Azure Storage 0.9.5 (wersja zapoznawcza) dla systemu Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>Nowa
+
+* Obsługa migawki w udziałach plików.
+    * Utwórz i Zarządzaj migawek dla Twojego udziałów plików.
+    * Łatwo przełączać widoki między migawki z udziałów plików, Ci poznać platformę.
+    * Przywróć poprzednie wersje plików.
+* Obsługa wersji zapoznawczej usługi Azure Data Lake Store:
+    * Połącz do zasobów ADLS przez wiele kont.
+    * Nawiązywanie połączenia i udostępnianie zasobów ADLS przy użyciu identyfikatorów URI ADL.
+    * Wykonywanie cyklicznie operacji podstawowy plik lub folder.
+    * PIN poszczególnych folderów do szybkiego dostępu.
+    * Wyświetlanie statystyk folderu.
+
+### <a name="fixes"></a>Poprawki
+* Ulepszenia wydajności uruchamiania.
+* Różne poprawki błędów.
+
+### <a name="known-issues"></a>Znane problemy
+* Eksplorator usługi Storage nie obsługuje kont usług AD FS.
+* Celem Azure stosu, przekazywanie pewne pliki jako uzupełnialnych obiektów blob może zakończyć się niepowodzeniem.
+* Po kliknięciu przycisku "Anuluj" dla zadania, może upłynąć trochę czasu dla tego zadania anulować. Jest to spowodowane używamy rozwiązanie filtru Anuluj opisane w tym miejscu.
+* Jeśli wybierzesz nieprawidłowy certyfikat kodu PIN/karty inteligentnej, będzie konieczne ponowne uruchomienie w celu Eksploratora usługi Storage zapomnij tej decyzji.
+* Panel ustawień konta mogą być wyświetlane, należy ponownie wprowadzić poświadczenia, aby filtrować subskrypcji.
+* Zmiana nazwy obiektów blob (indywidualnie lub wewnątrz kontenera obiektów blob zmienionej nazwie) nie zostaną zachowane migawki. Wszystkie inne właściwości i metadanych dla obiektów blob, plików i jednostek są zachowywane podczas zmiany nazwy.
+* Mimo że stosu Azure aktualnie nie obsługuje udziałów plików, węzła udziałów plików jest nadal wyświetlana na koncie dołączone magazynu Azure stosu.
+* Powłoka elektronów wykorzystywane przez Eksploratora magazynu ma problemy z niektórych przyspieszanie sprzętowe procesora GPU (jednostka przetwarzania grafiki). Jeśli Eksploratora usługi Storage są wyświetlane puste okno główne (pusta), można spróbować uruchamianie Eksploratora usługi Storage z poziomu wiersza polecenia i wyłączanie przyspieszenie procesora GPU, dodając `--disable-gpu` przełącznika:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Dla użytkowników Ubuntu 14.04, konieczne będzie zapewnienia GCC jest aktualny — można to zrobić, uruchamiając następujące polecenia i ponownym uruchomieniu komputera:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Dla użytkowników Ubuntu 17.04 będą musieli zainstalować GConf — można to zrobić, uruchamiając następujące polecenia i ponownym uruchomieniu komputera:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
 
 ## <a name="version-094--093"></a>Wersja 0.9.4 / 0.9.3
 01/21/2018
 
 ### <a name="download-azure-storage-explorer-094-preview"></a>Pobierz Eksploratora usługi Azure Storage 0.9.4 (wersja zapoznawcza)
-- [Eksplorator usługi Azure Storage 0.9.4 (wersja zapoznawcza) dla systemu Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Eksplorator usługi Azure Storage 0.9.4 (wersja zapoznawcza) dla komputerów Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Eksplorator usługi Azure Storage 0.9.4 (wersja zapoznawcza) dla systemu Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+* [Pobierz Eksploratora usługi Azure Storage 0.9.4 (wersja zapoznawcza) dla systemu Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
+* [Pobierz Eksploratora usługi Azure Storage 0.9.4 (wersja zapoznawcza) dla komputerów Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
+* [Pobierz Eksploratora usługi Azure Storage 0.9.4 (wersja zapoznawcza) dla systemu Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
 
 ### <a name="new"></a>Nowa
 * Twoje istniejące okno Eksploratora magazynu będzie ponownie użyte podczas:
@@ -76,15 +130,30 @@ Ten artykuł zawiera zlecenia, które uwagi 0.9.4 Eksploratora usługi Azure Sto
     sudo apt-get install libgconf-2-4
     ```
 
+## <a name="previous-releases"></a>Poprzednie wersje
+
+* [Wersja 0.9.2](#version-092)
+* [W wersji od 0.9.1 / 0.9.0](#version-091)
+* [Wersja 0.8.16](#version-0816)
+* [Wersja 0.8.14](#version-0814)
+* [Wersja 0.8.13](#version-0813)
+* [Wersja 0.8.12 / 0.8.11 / 0.8.10](#version-0812--0811--0810)
+* [Wersja 0.8.9 / 0.8.8](#version-089--088)
+* [Wersja 0.8.7](#version-087)
+* [Wersja 0.8.6](#version-086)
+* [Wersja 0.8.5](#version-085)
+* [Wersja 0.8.4](#version-084)
+* [Wersja 0.8.3](#version-083)
+* [Wersja 0.8.2](#version-082)
+* [Wersja 0.8.0](#version-080)
+* [Wersja 0.7.20160509.0](#version-07201605090)
+* [Wersja 0.7.20160325.0](#version-07201603250)
+* [Wersja 0.7.20160129.1](#version-07201601291)
+* [Wersja 0.7.20160105.0](#version-07201601050)
+* [Wersja 0.7.20151116.0](#version-07201511160)
+
 ## <a name="version-092"></a>Wersja 0.9.2
 11/01/2017
-
-### <a name="download-azure-storage-explorer-092-preview"></a>Pobierz Eksploratora usługi Azure Storage 0.9.2 (wersja zapoznawcza)
-* [Pobierz Eksploratora usługi Azure Storage 0.9.2 (wersja zapoznawcza) dla systemu Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
-* [Pobierz Eksploratora usługi Azure Storage 0.9.2 (wersja zapoznawcza) dla komputerów Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
-* [Pobierz Eksploratora usługi Azure Storage 0.9.2 (wersja zapoznawcza) dla systemu Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
-
-
 
 ### <a name="hotfixes"></a>Poprawki
 * Nieoczekiwane dane zmiany były możliwe podczas edycji wartości Edm.DateTime dla jednostek tabeli w zależności od tego, w lokalnej strefie czasowej. Edytor używa teraz pola tekstowego, dając dokładne, spójne kontrolę nad Edm.DateTime wartości.
@@ -144,32 +213,6 @@ Ten artykuł zawiera zlecenia, które uwagi 0.9.4 Eksploratora usługi Azure Sto
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-
-
-
-
-
-## <a name="previous-releases"></a>Poprzednie wersje
-
-* [W wersji od 0.9.1 / 0.9.0](#version-091)
-* [Wersja 0.8.16](#version-0816)
-* [Wersja 0.8.14](#version-0814)
-* [Wersja 0.8.13](#version-0813)
-* [Wersja 0.8.12 / 0.8.11 / 0.8.10](#version-0812--0811--0810)
-* [Wersja 0.8.9 / 0.8.8](#version-089--088)
-* [Wersja 0.8.7](#version-087)
-* [Wersja 0.8.6](#version-086)
-* [Wersja 0.8.5](#version-085)
-* [Wersja 0.8.4](#version-084)
-* [Wersja 0.8.3](#version-083)
-* [Wersja 0.8.2](#version-082)
-* [Wersja 0.8.0](#version-080)
-* [Wersja 0.7.20160509.0](#version-07201605090)
-* [Wersja 0.7.20160325.0](#version-07201603250)
-* [Wersja 0.7.20160129.1](#version-07201601291)
-* [Wersja 0.7.20160105.0](#version-07201601050)
-* [Wersja 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-091--090-preview"></a>W wersji od 0.9.1 / 0.9.0 (wersja zapoznawcza)
 10/20/2017

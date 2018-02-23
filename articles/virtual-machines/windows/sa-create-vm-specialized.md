@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: e92a9d5900e3e0fe71084e5003010d419e44cb39
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 811cc6cea80acbe6cbbf4533c1f9a8c9c7f53702
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Utwórz maszynę Wirtualną z wirtualnego dysku twardego specjalne konta magazynu
 
@@ -118,7 +118,7 @@ Wirtualny dysk twardy można skopiować do innego konta magazynu do użycia podc
 ### <a name="before-you-begin"></a>Przed rozpoczęciem
 Upewnij się, że możesz:
 
-* Ma informacje o **konta magazynu źródłowego i docelowego**. Dla źródłowej maszyny Wirtualnej musisz mieć nazwy konta i kontener magazynu. Zazwyczaj nazwa kontenera będzie **wirtualne dyski twarde**. Należy również mieć konto magazynu docelowego. Jeśli nie masz jeszcze jeden, możesz utworzyć jedną przy użyciu albo portalu (**więcej usług** > kont magazynu > Dodaj) lub przy użyciu [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) polecenia cmdlet. 
+* Ma informacje o **konta magazynu źródłowego i docelowego**. Dla źródłowej maszyny Wirtualnej musisz mieć nazwy konta i kontener magazynu. Zazwyczaj nazwa kontenera będzie **wirtualne dyski twarde**. Należy również mieć konto magazynu docelowego. Jeśli nie masz jeszcze jeden, możesz utworzyć jedną przy użyciu albo portalu (**wszystkie usługi** > kont magazynu > Dodaj) lub przy użyciu [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) polecenia cmdlet. 
 * Zostały pobrane i zainstalowane [narzędzia AzCopy](../../storage/common/storage-use-azcopy.md). 
 
 ### <a name="deallocate-the-vm"></a>Cofnięcie przydziału maszyny Wirtualnej
@@ -138,7 +138,7 @@ Należy adresy URL konta magazynu źródłowego i docelowego. Adresy URL wygląd
 
 Aby uzyskać adres URL, można użyć portalu Azure lub programu Azure Powershell:
 
-* **Portal**: kliknij  **>**  dla **więcej usług** > **kont magazynu**  >   *Konto magazynu* > **obiekty BLOB** i pliku wirtualnego dysku twardego źródłowego jest prawdopodobnie w **wirtualne dyski twarde** kontenera. Kliknij przycisk **właściwości** dla kontenera, a następnie skopiuj tekst, którego etykietą jest **adres URL**. Będziesz potrzebować adresy URL kontenery źródłowym i docelowym. 
+* **Portal**: kliknij  **>**  dla **wszystkie usługi** > **kont magazynu** > *magazynu konto* > **obiekty BLOB** i pliku wirtualnego dysku twardego źródłowego jest prawdopodobnie w **wirtualne dyski twarde** kontenera. Kliknij przycisk **właściwości** dla kontenera, a następnie skopiuj tekst, którego etykietą jest **adres URL**. Będziesz potrzebować adresy URL kontenery źródłowym i docelowym. 
 * **PowerShell**: Użyj [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) Aby uzyskać informacje dotyczące maszyny Wirtualnej o nazwie **myVM** w grupie zasobów **myResourceGroup**. W wynikach wyszukiwania **profilu magazynu** sekcji **identyfikator Uri dysku Vhd**. Pierwsza część identyfikatora Uri jest adres URL do kontenera i ostatniej części jest nazwa wirtualnego dysku twardego systemu operacyjnego dla maszyny Wirtualnej.
 
 ```powershell
@@ -148,7 +148,7 @@ Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 ## <a name="get-the-storage-access-keys"></a>Uzyskaj klucze dostępu do magazynu
 Znajdź klucze dostępu dla serwera źródłowego i docelowego konta magazynu. Aby uzyskać więcej informacji na temat kluczy dostępu, zobacz [kont magazynu Azure o](../../storage/common/storage-create-storage-account.md).
 
-* **Portal**: kliknij **więcej usług** > **kont magazynu** > *konta magazynu*  >  **Klucze dostępu**. Skopiuj klucz oznaczony jako **klucz1**.
+* **Portal**: kliknij **wszystkie usługi** > **kont magazynu** > *konta magazynu*  >   **Klucze dostępu**. Skopiuj klucz oznaczony jako **klucz1**.
 * **PowerShell**: Użyj [Get-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/get-azurermstorageaccountkey) można uzyskać klucza magazynu dla konta magazynu **mojekontomagazynu** w grupie zasobów **myResourceGroup**. Skopiuj klucz z etykietą **klucz1**.
 
 ```powershell
@@ -312,7 +312,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 ```
 
 ### <a name="verify-that-the-vm-was-created"></a>Sprawdź, czy maszyna wirtualna została utworzona
-Nowo utworzona maszyna wirtualna powinna być widoczna albo w [portalu Azure](https://portal.azure.com)w obszarze **Przeglądaj** > **maszyn wirtualnych**, lub za pomocą następujących poleceń programu PowerShell:
+Nowo utworzona maszyna wirtualna powinna być widoczna albo w [portalu Azure](https://portal.azure.com)w obszarze **wszystkie usługi** > **maszyn wirtualnych**, lub za pomocą następującego środowiska PowerShell polecenia:
 
 ```powershell
 $vmList = Get-AzureRmVM -ResourceGroupName $rgName

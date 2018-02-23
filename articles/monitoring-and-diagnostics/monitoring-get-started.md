@@ -14,27 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: johnkem
-ms.openlocfilehash: ba4e8fe0d54deb4a980174ff7d0904854c794d3d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9c352c67aa0e9392c9e9d68822abeb27344bd8b7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-azure-monitor"></a>Rozpoczynanie pracy z usługą Azure Monitor
-Usługa Azure Monitor to usługa platformy, która zapewnia jedno źródło monitorowania zasobów systemu Azure. Dzięki usłudze Azure Monitor możesz wykonywać wizualizacje i zapytania, ustalać trasy, archiwizować i podejmować działania dotyczące metryk i dzienników pochodzących z zasobów na platformie Azure. Możesz pracować z tymi danymi przy użyciu bloku portalu Monitor, [poleceń cmdlet programu PowerShell usługi Monitor](insights-powershell-samples.md), [międzyplatformowego interfejsu wiersza polecenia](insights-cli-samples.md) lub [interfejsów API REST usługi Azure Monitor](https://msdn.microsoft.com/library/dn931943.aspx). Ten artykuł zawiera przewodnik po kilku głównych elementach usługi Azure Monitor obejmujący użycie portalu w celach demonstracyjnych.
+Usługa Azure Monitor to usługa platformy, która zapewnia jedno źródło monitorowania zasobów systemu Azure. Dzięki usłudze Azure Monitor możesz wykonywać wizualizacje i zapytania, ustalać trasy, archiwizować i podejmować działania dotyczące metryk i dzienników pochodzących z zasobów na platformie Azure. Możesz pracować z tego danych przy użyciu portalu Azure [poleceń cmdlet programu PowerShell Monitor](insights-powershell-samples.md), [interfejsu wiersza polecenia i Platform](insights-cli-samples.md), lub [interfejsów API REST Monitor Azure](https://msdn.microsoft.com/library/dn931943.aspx). Ten artykuł zawiera przewodnik po kilku głównych elementach usługi Azure Monitor obejmujący użycie portalu w celach demonstracyjnych.
 
 ## <a name="walkthrough"></a>Przewodnik
-1. W portalu przejdź do obszaru **Więcej usług** i znajdź opcję **Monitor**. Kliknij ikonę gwiazdki, aby dodać tę opcję do listy ulubionych i zapewnić jej dostępność bezpośrednio z lewego paska nawigacyjnego.
+1. W portalu, przejdź do **wszystkie usługi** i Znajdź **Monitor** opcji. Kliknij ikonę gwiazdki, aby dodać tę opcję do listy ulubionych i zapewnić jej dostępność bezpośrednio z lewego paska nawigacyjnego.
 
     ![Opcja Monitor na liście usług](./media/monitoring-get-started/monitor-more-services.png)
-2. Kliknij opcję **Monitor**, aby otworzyć blok **Monitor**. Ten blok gromadzi wszystkie ustawienia monitorowania i dane użytkownika w jednym skonsolidowanym widoku. Na początku widoczna jest sekcja **Dziennik aktywności**.
+2. Kliknij przycisk **Monitor** opcję, aby otworzyć **Monitor** strony. Ta strona zgromadzono wszystkich monitorowania ustawień i danych do jednego, skonsolidowanego widoku. Na początku widoczna jest sekcja **Dziennik aktywności**.
 
-    ![Nawigacja w bloku Monitor](./media/monitoring-get-started/monitor-blade-nav.png)
+    ![Monitor nawigacji](./media/monitoring-get-started/monitor-blade-nav.png)
 
     Usługa Azure Monitor obejmuje trzy podstawowe kategorie danych monitorowania: **dziennik aktywności**, **metryki** i **dzienniki diagnostyczne**.
 3. Kliknij opcję **Dziennik aktywności**, aby wyświetlić sekcję dziennika aktywności.
 
-    ![Blok dziennika aktywności](./media/monitoring-get-started/monitor-act-log-blade.png)
+    ![Dziennik aktywności](./media/monitoring-get-started/monitor-act-log-blade.png)
 
     [**Dziennik aktywności**](monitoring-overview-activity-logs.md) zawiera opis wszystkich operacji wykonywanych na zasobach objętych subskrypcją. Przy użyciu dziennika aktywności można określić zakres działań, autorów i czas dowolnych operacji tworzenia, aktualizowania lub usuwania dotyczących zasobów objętych subskrypcją. Dziennik aktywności zawiera na przykład informacje o tym, kiedy i przez kogo została zatrzymana aplikacja sieci Web. Zdarzenia dziennika aktywności są przechowywane na platformie i dostępne do badania przez 90 dni.
 
@@ -50,12 +50,12 @@ Usługa Azure Monitor to usługa platformy, która zapewnia jedno źródło moni
 6. Wróć do pulpitu nawigacyjnego. Zapytanie (wraz z liczbą wyników) jest teraz wyświetlane na pulpicie nawigacyjnym. Jest to przydatne, jeśli chcesz szybko sprawdzić wszystkie akcje wysokiej jakości, które wystąpiły ostatnio w ramach subskrypcji, na przykład nowa rola została przypisana lub maszyna wirtualna została usunięta.
 
     ![Dzienniki aktywności przypięty do pulpitu nawigacyjnego](./media/monitoring-get-started/monitor-act-log-db.png)
-7. Wróć do kafelka **Monitor** i kliknij sekcję **Metryki**. Należy najpierw wybrać zasób filtrowania i wybierając, korzystając z opcji listy rozwijanej w górnej części bloku.
+7. Wróć do kafelka **Monitor** i kliknij sekcję **Metryki**. Należy najpierw wybrać zasób filtrowania i wybierając, korzystając z opcji listy rozwijanej w górnej części strony.
 
     ![Filtrowanie zasobu pod kątem metryk](./media/monitoring-get-started/monitor-met-filter.png)
 
     Wszystkie zasoby platformy Azure tworzą [**metryki**](monitoring-overview-metrics.md). Ten widok gromadzi wszystkie metryki na jednym ekranie, dzięki czemu można łatwo prześledzić działanie zasobów. Ponadto zapoznaj się z naszym marki [Nowa metryka wykresów środowisko](https://aka.ms/azuremonitor/new-metrics-charts) , klikając **metryki (wersja zapoznawcza)** kartę.
-8. Po wybraniu zasobu wszystkie dostępne metryki są wyświetlane po lewej stronie bloku. Można jednocześnie prezentować wiele metryk na wykresie, wybierając metryki i modyfikując zakres czasu i typ wykresu. Możesz również wyświetlić wszystkie alerty metryki ustawione dla danego zasobu.
+8. Po wybraniu zasobu w lewej części strony są wyświetlane wszystkie dostępne metryki. Można jednocześnie prezentować wiele metryk na wykresie, wybierając metryki i modyfikując zakres czasu i typ wykresu. Możesz również wyświetlić wszystkie alerty metryki ustawione dla danego zasobu.
 
     ![Blok metryki](./media/monitoring-get-started/monitor-metric-blade.png)
 
@@ -64,14 +64,14 @@ Usługa Azure Monitor to usługa platformy, która zapewnia jedno źródło moni
    >
    >
 9. Jeśli wykres Ci odpowiada, możesz przypiąć go do pulpitu nawigacyjnego za pomocą przycisku **Przypnij**.
-10. Wróć do bloku **Monitor** i kliknij pozycję **Dzienniki diagnostyczne**.
+10. Wróć do **Monitor** i kliknij przycisk **dzienniki diagnostyczne**.
 
     ![Blok dzienników diagnostycznych](./media/monitoring-get-started/monitor-diaglogs-blade.png)
 
     [**Dzienniki diagnostyczne**](monitoring-overview-of-diagnostic-logs.md) to dzienniki tworzone *przez* zasób, które dostarczają dane o działaniu tego zasobu. Na przykład typami dzienników diagnostycznych są liczniki reguł grup zabezpieczeń sieci oraz dzienniki przepływu pracy aplikacji logiki. Te dzienniki mogą być przechowywane na koncie magazynu, przesyłane strumieniowo do usługi Event Hub i/lub wysyłane do usługi [Log Analytics](../log-analytics/log-analytics-overview.md). Usługa Log Analytics jest produktem firmy Microsoft służącym do analizy operacyjnej, który umożliwia zaawansowane wyszukiwanie oraz generowanie alertów.
 
     W portalu można wyświetlić i odfiltrować listę wszystkich zasobów objętych subskrypcją, aby ustalić, czy włączono dla nich tworzenie dzienników diagnostycznych.
-11. Kliknij zasób w bloku dzienników diagnostycznych. Jeśli dzienniki diagnostyczne są przechowywane na koncie magazynu, zostanie wyświetlona lista tworzonych co godzinę dzienników, które można bezpośrednio pobrać.
+11. Kliknij zasób na stronie dzienników diagnostycznych. Jeśli dzienniki diagnostyczne są przechowywane na koncie magazynu, zostanie wyświetlona lista tworzonych co godzinę dzienników, które można bezpośrednio pobrać.
 
     ![Dzienniki diagnostyczne dla jednego zasobu](./media/monitoring-get-started/monitor-diaglogs-detail.png)
 
@@ -80,7 +80,7 @@ Usługa Azure Monitor to usługa platformy, która zapewnia jedno źródło moni
     ![Włączanie dzienników diagnostycznych](./media/monitoring-get-started/monitor-diaglogs-enable.png)
 
     Jeśli skonfigurowano wysyłanie dzienników diagnostycznych do usługi Log Analytics, można je przeszukiwać w sekcji **Wyszukiwanie w dziennikach** portalu.
-12. Przejdź do sekcji **Alerty** bloku Monitor.
+12. Przejdź do **alerty** sekcji strony monitora.
 
     ![publiczny blok alertów](./media/monitoring-get-started/monitor-alerts-nopp.png)
 
@@ -100,5 +100,5 @@ Wykonując poniższe kroki i przypinając odpowiednie kafelki do pulpitu nawigac
 
 ![Pulpit nawigacyjny usługi Azure Monitor](./media/monitoring-get-started/monitor-final-dash.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Zapoznaj się z tematem [Omówienie usługi Azure Monitor](monitoring-overview.md)

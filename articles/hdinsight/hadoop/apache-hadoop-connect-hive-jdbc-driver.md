@@ -14,13 +14,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: 7da4a7e0a60fd1e5c78f53b0a8e7ab333c5d2465
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: c56a4ec4d1abea5a862172966697747cbb3d234c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>Zapytanie Hive za pośrednictwem sterownik JDBC w usłudze HDInsight
 
@@ -102,9 +102,9 @@ SQuirreL SQL jest klienta JDBC, który umożliwia zdalne uruchamianie zapytań H
 
         3. Po nawiązaniu połączenia, skopiuj następujące pliki z sesji pulpitu zdalnego na komputerze lokalnym. Umieść je w lokalnym katalogu o nazwie `hivedriver`.
 
-            * C:\apps\dist\hive-0.14.0.2.2.9.1-7\lib\hive-jdbc-0.14.0.2.2.9.1-7-Standalone.JAR
-            * C:\apps\dist\hadoop-2.6.0.2.2.9.1-7\share\hadoop\common\hadoop-Common-2.6.0.2.2.9.1-7.JAR
-            * C:\apps\dist\hadoop-2.6.0.2.2.9.1-7\share\hadoop\common\lib\hadoop-auth-2.6.0.2.2.9.1-7.JAR
+            * C:\apps\dist\hive-0.14.0.2.2.9.1-7\lib\hive-jdbc-0.14.0.2.2.9.1-7-standalone.jar
+            * C:\apps\dist\hadoop-2.6.0.2.2.9.1-7\share\hadoop\common\hadoop-common-2.6.0.2.2.9.1-7.jar
+            * C:\apps\dist\hadoop-2.6.0.2.2.9.1-7\share\hadoop\common\lib\hadoop-auth-2.6.0.2.2.9.1-7.jar
 
             > [!NOTE]
             > Numery wersji dołączony do ścieżki i nazwy plików mogą być inne dla klastra.
@@ -122,7 +122,7 @@ SQuirreL SQL jest klienta JDBC, który umożliwia zdalne uruchamianie zapytań H
 4. W oknie dialogowym dodawania sterowników Dodaj następujące informacje:
 
     * **Nazwa**: Hive
-    * **Przykładowy adres URL**:`jdbc:hive2://localhost:443/default;transportMode=http;ssl=true;httpPath=/hive2`
+    * **Przykładowy adres URL**: `jdbc:hive2://localhost:443/default;transportMode=http;ssl=true;httpPath=/hive2`
     * **Dodatkowe ścieżki klasy**: Użyj przycisk Dodaj, aby dodać pliki jar pobrane wcześniej
     * **Nazwa klasy**: org.apache.hive.jdbc.HiveDriver
 
@@ -140,7 +140,7 @@ SQuirreL SQL jest klienta JDBC, który umożliwia zdalne uruchamianie zapytań H
 
     * **Sterownik**: Użyj listy rozwijanej, aby wybrać **Hive** sterownika
 
-    * **ADRES URL**:`jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2`
+    * **ADRES URL**: `jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2`
 
         Zastąp **CLUSTERNAME** nazwą klastra usługi HDInsight:
 

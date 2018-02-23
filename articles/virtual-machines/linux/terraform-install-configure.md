@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/23/2017
 ms.author: echuvyrov
-ms.openlocfilehash: c156776103a466af8923ba7249d96835ff339268
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: dada9c70eef2adb2704e276a5401509581e37538
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Instalowanie i konfigurowanie Terraform do obsługi administracyjnej maszyn wirtualnych i innych infrastruktury na platformie Azure
  
@@ -80,12 +80,13 @@ az vm list-sizes --location westus
 
 ## <a name="configure-terraform-environment-variables"></a>Skonfiguruj Terraform zmienne środowiskowe
 
-Skonfiguruj Terraform używane Identyfikatora dzierżawy, identyfikator subskrypcji, identyfikator klienta i klienta w nazwy głównej usługi podczas tworzenia zasobów platformy Azure. Ustaw następujące zmienne środowiskowe, które są używane automatycznie przez [Azure Terraform modułów](https://registry.terraform.io/modules/Azure).
+Skonfiguruj Terraform używane Identyfikatora dzierżawy, identyfikator subskrypcji, identyfikator klienta i klienta w nazwy głównej usługi podczas tworzenia zasobów platformy Azure. Można również ustawić środowiska pracy z chmury Azure innych niż Azure publicznego. Ustaw następujące zmienne środowiskowe, które są używane automatycznie przez [Azure Terraform modułów](https://registry.terraform.io/modules/Azure).
 
 - ARM_SUBSCRIPTION_ID
 - ARM_CLIENT_ID
 - ARM_CLIENT_SECRET
 - ARM_TENANT_ID
+- ARM_ENVIRONMENT
 
 Ten przykładowy skrypt powłoki umożliwia ustawienie tych zmiennych:
 
@@ -96,6 +97,9 @@ export ARM_SUBSCRIPTION_ID=your_subscription_id
 export ARM_CLIENT_ID=your_appId
 export ARM_CLIENT_SECRET=your_password
 export ARM_TENANT_ID=your_tenant_id
+
+# Not needed for public, required for usgovernment, german, china
+export ARM_ENVIRONMENT=public
 ```
 
 ## <a name="run-a-sample-script"></a>Uruchom skrypt przykładowy
@@ -141,7 +145,7 @@ azurerm_resource_group.rg: Creating...
 azurerm_resource_group.rg: Creation complete after 1s
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Zainstalowano Terraform i skonfigurować poświadczenia platformy Azure, dzięki czemu możesz przystąpić do wdrażania infrastruktury do Twojej subskrypcji platformy Azure. Następnie został przetestowany instalację, tworząc pusty grupy zasobów platformy Azure.
 

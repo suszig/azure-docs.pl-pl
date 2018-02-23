@@ -4,7 +4,7 @@ description: "W tym artykule opisano sposób tworzenia wystąpienia klastra tryb
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 tags: azure-service-management
 ms.assetid: 9fc761b1-21ad-4d79-bebc-a2f094ec214d
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/26/2017
 ms.author: mikeray
-ms.openlocfilehash: ec35b4a02c04d5b6d0bbf9049927529258c3825b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 8c957b1f2b4466ba68d81885fb014ad4026a47d2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Skonfiguruj wystąpienie klastra pracy awaryjnej programu SQL Server na maszynach wirtualnych Azure
 
@@ -117,7 +117,7 @@ Z tych wymagań wstępnych w miejscu można kontynuować tworzenie klastra trybu
       >[!IMPORTANT]
       >Nie można ustawić lub zmienić dostępności ustawić po utworzeniu maszyny wirtualnej.
 
-   Wybierz obraz z portalu Azure Marketplace. Korzystając z witryny Marketplace zawiera obraz z tym systemu Windows Server i SQL Server lub tylko systemu Windows Server. Aby uzyskać więcej informacji, zobacz [Omówienie programu SQL Server na maszynach wirtualnych platformy Azure](../../virtual-machines-windows-sql-server-iaas-overview.md)
+   Wybierz obraz z portalu Azure Marketplace. Korzystając z witryny Marketplace zawiera obraz z tym systemu Windows Server i SQL Server lub tylko systemu Windows Server. Aby uzyskać więcej informacji, zobacz [Omówienie programu SQL Server na maszynach wirtualnych platformy Azure](virtual-machines-windows-sql-server-iaas-overview.md)
 
    Oficjalna obrazów programu SQL Server w galerii Azure obejmują zainstalowane wystąpienie programu SQL Server, oraz oprogramowanie instalacyjne programu SQL Server i wymaganego klucza.
 

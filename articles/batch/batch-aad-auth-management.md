@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 04/27/2017
 ms.author: tamram
-ms.openlocfilehash: 26d4adf4f74f9aacc4cf8cf24be293ebdb4d63c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 054e9686a1acae09f4dd3b7d841d82eae1fc88a9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Uwierzytelnianie rozwiązań do zarządzania partii z usługą Active Directory
 
@@ -49,7 +49,7 @@ Następnie należy delegować dostęp do aplikacji interfejsu API Azure Resource
 
 Wykonaj następujące kroki w portalu Azure:
 
-1. W okienku nawigacji po lewej stronie portalu Azure wybierz **więcej usług**, kliknij przycisk **rejestracji aplikacji**i kliknij przycisk **Dodaj**.
+1. W okienku nawigacji po lewej stronie portalu Azure wybierz **wszystkie usługi**, kliknij przycisk **rejestracji aplikacji**i kliknij przycisk **Dodaj**.
 2. Wyszukaj nazwę aplikacji na liście rejestracji aplikacji:
 
     ![Wyszukaj nazwę aplikacji](./media/batch-aad-auth-management/search-app-registration.png)
@@ -122,7 +122,7 @@ AuthenticationResult authResult = authContext.AcquireToken(ResourceUri,
 
 Po podaniu poświadczeń przykładowej aplikacji można przystąpić do wysyłania żądań uwierzytelnionych do usługi partia zadań zarządzania. 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby uzyskać więcej informacji na temat uruchamiania [AccountManagement przykładowej aplikacji][acct_mgmt_sample], zobacz [partii Zarządzanie kontami i limitami przydziału z biblioteki klienta usługi partia zadań zarządzania dla programu .NET](batch-management-dotnet.md).
 

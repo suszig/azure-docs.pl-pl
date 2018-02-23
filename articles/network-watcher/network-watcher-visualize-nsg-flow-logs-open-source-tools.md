@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 6caff3237e9694a00fc0847d5612b7a6e08d4b69
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f7d51352aa8411e36f4224804c90c2554d4ef9e6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Wizualizuj dzienników przepływu NSG obserwatora sieci Azure przy użyciu narzędzi typu open source
 
@@ -46,7 +46,7 @@ W tym scenariuszu muszą mieć sieci grupy przepływu rejestrowanie zabezpiecze�
 1. Elastyczne stosu w wersji 5.0 i nowszych wymaga Java 8. Uruchom polecenie `java -version` do sprawdź wersję. Jeśli nie masz java instalacji, zapoznaj się z dokumentacją na [witryny sieci Web programu Oracle](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html)
 1. Pobierz poprawny pakiet binarnych systemu:
 
-    ```
+    ```bash
     curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.2.0.deb
     sudo dpkg -i elasticsearch-5.2.0.deb
     sudo /etc/init.d/elasticsearch start
@@ -56,13 +56,13 @@ W tym scenariuszu muszą mieć sieci grupy przepływu rejestrowanie zabezpiecze�
 
 1. Sprawdź, czy Elasticsearch działa przy użyciu polecenia:
 
-    ```
+    ```bash
     curl http://127.0.0.1:9200
     ```
 
     Powinna zostać wyświetlona odpowiedź podobną do poniższego:
 
-    ```
+    ```json
     {
     "name" : "Angela Del Toro",
     "cluster_name" : "elasticsearch",
@@ -83,13 +83,13 @@ Dodatkowe instrukcje dotyczące instalowania elastycznej wyszukiwania, można zn
 
 1. Aby zainstalować Logstash, uruchom następujące polecenia:
 
-    ```
+    ```bash
     curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
     sudo dpkg -i logstash-5.2.0.deb
     ```
 1. Obok należy skonfigurować Logstash dostępu i analizować dzienniki przepływu. Tworzenie pliku logstash.conf przy użyciu:
 
-    ```
+    ```bash
     sudo touch /etc/logstash/conf.d/logstash.conf
     ```
 
@@ -162,13 +162,13 @@ Aby uzyskać dalsze instrukcje na temat instalowania Logstash odwoływać się d
 
 Ten dodatek plug-in Logstash pozwoli uzyskać bezpośredniego dostępu do dzienników przepływu ze swojego konta magazynu wyznaczonego. Aby zainstalować ten dodatek plug-in, z poziomu katalogu instalacyjnego Logstash domyślnej (w tym /usr/share/logstash/bin przypadków), uruchom polecenie:
 
-```
+```bash
 logstash-plugin install logstash-input-azureblob
 ```
 
 Aby uruchomić Logstash, uruchom polecenie:
 
-```
+```bash
 sudo /etc/init.d/logstash start
 ```
 
@@ -178,19 +178,19 @@ Aby uzyskać więcej informacji na temat tej wtyczki, zajrzyj do dokumentacji [t
 
 1. Uruchom następujące polecenia, aby zainstalować Kibana:
 
-  ```
+  ```bash
   curl -L -O https://artifacts.elastic.co/downloads/kibana/kibana-5.2.0-linux-x86_64.tar.gz
   tar xzvf kibana-5.2.0-linux-x86_64.tar.gz
   ```
 
 1. Aby uruchomić Kibana należy użyć polecenia:
 
-  ```
+  ```bash
   cd kibana-5.2.0-linux-x86_64/
   ./bin/kibana
   ```
 
-1. Aby wyświetlić Kibana interfejsu sieci web, przejdź do`http://localhost:5601`
+1. Aby wyświetlić Kibana interfejsu sieci web, przejdź do `http://localhost:5601`
 1. W tym scenariuszu wzorzec indeksu, używany dla dzienników przepływu jest "nsg przepływu dzienniki". Wzór indeksu w sekcji "wyjściowej" w pliku logstash.conf mogą ulec zmianie.
 
 1. Jeśli chcesz wyświetlić pulpit nawigacyjny Kibana zdalnie, Utwórz regułę ruchu przychodzącego grupy NSG zezwalania na dostęp do **portu 5601**.
@@ -213,7 +213,7 @@ Przykładowy pulpit nawigacyjny udostępnia kilka wizualizacje dzienników przep
 
 1. Przechodzi przez kierunku/decyzji w miarę upływu czasu — czas serii wykresów wyświetlana jest liczba przepływów w przedziale czasu. Jednostka czasu i zakres obu tych wizualizacje można edytować. Przepływy decyzją zawiera część akceptować lub odrzucać decyzje, podczas gdy przepływów przez kierunek część ruchu przychodzącego i wychodzącego. Z tych elementów wizualnych można zbadać ruchu trendów w czasie i poszukaj nagłego ani nietypowe wzorce.
 
-  ![Rysunek 2][2]
+  ![figure2][2]
 
 1. Przechodzi przez Port docelowy/źródłowy — wykresy kołowe przedstawiający podział przepływów do odpowiednich portów. Z tym widokiem widać z najczęściej używane porty. Jeśli klikniesz przycisk na określonym porcie w obrębie wykresu kołowego, pozostałej części pulpitu nawigacyjnego zostanie odfiltrowana do przepływów tego portu.
 
@@ -241,7 +241,7 @@ Używanie paska zapytania w górnej części pulpitu nawigacyjnego, można filtr
 
 Łącząc dzienniki przepływu sieciową grupę zabezpieczeń z elastycznej stosu, mają uzyskujemy zaawansowanego, można dostosować sposób wizualizacji naszych ruchu sieciowego. Te pulpity nawigacyjne pozwala szybko uzyskać i udostępniać informacji na temat ruchu sieciowego, jak również filtru w dół i badanie na wszelkich potencjalnych nieprawidłowości. Przy użyciu Kibana, można dostosować te pulpity nawigacyjne i tworzenie wizualizacji określonych potrzeb żadnych zabezpieczeń, inspekcji i zgodności.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Dowiedz się, jak wizualizacji NSG dzienników przepływu z usługi Power BI, odwiedzając [wizualizacji NSG przepływa dzienników przy użyciu usługi Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 

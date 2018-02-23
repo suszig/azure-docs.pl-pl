@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: a41c09cc5a13c8326e22e315801b81c86d125c0e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: da7050edae282c90c4f92c588ce8fe501ccba50d
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="how-to-configure-user-provisioning-to-an-azure-ad-gallery-application"></a>Jak skonfigurować Inicjowanie obsługi użytkowników dla aplikacji w galerii Azure AD
 
@@ -31,7 +31,7 @@ W portalu Azure **inicjowania obsługi administracyjnej** karcie w lewym okienku
 
 Podręcznik jest tylko tryb wyświetlany dla danej aplikacji, oznacza, że nie usługi Azure AD automatycznego inicjowania obsługi administracyjnej łącznik został utworzony dla aplikacji jeszcze. Lub oznacza to, że aplikacja nie obsługuje interfejsu API zarządzania wstępnych użytkownika, na których można utworzyć łącznik automatycznego inicjowania obsługi administracyjnej.
 
-Jeśli chcesz zażądać pomocy technicznej dla automatyczne Inicjowanie obsługi administracyjnej dla danej aplikacji, możesz też wypełnić żądania w <http://aka.ms/aadapprequest>.
+Jeśli chcesz zażądać pomocy technicznej dla automatyczne Inicjowanie obsługi administracyjnej dla danej aplikacji, możesz też wypełnić żądania przy użyciu [Azure Active Directory żądań aplikacji](https://aka.ms/aadapprequest).
 
 ## <a name="configuring-an-application-for-automatic-provisioning"></a>Konfigurowanie aplikacji do automatycznego inicjowania obsługi
 
@@ -50,6 +50,6 @@ Samouczki aplikacji można znaleźć w folderze [listy samouczki dotyczące inte
 
 Ważne jest, aby uwzględnić podczas konfigurowania udostępniania można przejrzeć i skonfigurować mapowanie atrybutów i przepływów pracy, określających, które użytkownik (lub grupa) właściwości przepływu z usługi Azure AD do aplikacji. Dotyczy to również ustawienie "zgodnej właściwości" używany do jednoznacznego identyfikowania i odpowiada użytkowników/grupy między tymi dwoma systemami. Aby uzyskać więcej informacji na ten proces ważne.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Dostosowywanie użytkownika udostępniania mapowań atrybutów dla aplikacji SaaS w usłudze Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings)
 

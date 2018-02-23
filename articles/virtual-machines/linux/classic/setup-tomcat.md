@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: ningk
-ms.openlocfilehash: b76f6f7f53bc649fbc740a79e182f81f3fd983c7
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: f3bd3167c9a879a876774e5d91fbb10fd340c6a8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>Konfigurowanie Tomcat7 na maszynie wirtualnej systemu Linux przy użyciu platformy Azure
 Apache Tomcat (lub po prostu Tomcat, również nazywanych Jakarta Tomcat) to serwer sieci web typu open source i kontener serwlet opracowane przez Foundation oprogramowania Apache (ASF). Tomcat implementuje Serwlet Java i specyfikacje JavaServer Pages (JSP) z Sun Microsystems. Tomcat zapewnia czysty Java HTTP środowisku serwera sieci web do uruchamiania kodu języka Java. W najprostszej konfiguracji Tomcat działa w procesie jeden system operacyjny. Ten proces jest uruchomiony maszyny wirtualnej Java (JVM). Każde żądanie HTTP z przeglądarki do serwera Tomcat jest przetwarzany jako oddzielnym wątku w procesie Tomcat.  
@@ -64,7 +64,7 @@ Wykonaj następujące kroki, aby wygenerować klucz uwierzytelniania SSH.
 6. Kliknij przycisk **Zapisz klucz prywatny**i zapisz go w pliku o nazwie privateKey.ppk.
 
 ### <a name="step-2-create-the-image-in-the-azure-portal"></a>Krok 2: Tworzenie obrazu w portalu Azure
-1. W [portal](https://portal.azure.com/), kliknij przycisk **nowy** na pasku zadań do utworzenia obrazu. Następnie wybierz obraz systemu Linux, który jest na podstawie Twoich potrzeb. W poniższym przykładzie użyto Ubuntu 14.04 obrazu.
+1. W [portal](https://portal.azure.com/), kliknij przycisk **Utwórz zasób** na pasku zadań do utworzenia obrazu. Następnie wybierz obraz systemu Linux, który jest na podstawie Twoich potrzeb. W poniższym przykładzie użyto Ubuntu 14.04 obrazu.
 ![Zrzut ekranu pokazujący przycisk Nowy portalu][3]
 
 2. Aby uzyskać **nazwy hosta**, określ nazwę dla adresu URL, który możesz i klientów internetowych uzyskują dostęp do tej maszyny wirtualnej. Zdefiniuj ostatnia część nazwy DNS, na przykład tomcatdemo. Azure wygeneruje wtedy adres URL jako tomcatdemo.cloudapp.net.  
@@ -86,7 +86,7 @@ TCP port 8080 jest domyślny numer portu serwera Tomcat używa do nasłuchiwania
    ![Zrzut ekranu przedstawiający katalogu maszyny wirtualne][5]
 2. Aby dodać punkt końcowy maszyny wirtualnej, kliknij przycisk **punkty końcowe** pole.
    ![Zrzut ekranu pokazujący pole punkty końcowe][6]
-3. Kliknij pozycję **Dodaj**.  
+3. Kliknij pozycję **Add** (Dodaj).  
 
    1. Dla punktu końcowego, wprowadź nazwę punktu końcowego w **punktu końcowego**, a następnie wprowadź 80 w **Port publiczny**.  
 

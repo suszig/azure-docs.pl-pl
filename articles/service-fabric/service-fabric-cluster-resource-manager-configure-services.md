@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 084fdf2f9a65eed3e444851afb88390aacf33738
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0ae4e874d0fd0922295a4ec7ad719a0a1fb108c8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configuring-cluster-resource-manager-settings-for-service-fabric-services"></a>Konfigurowanie ustawień Menedżera zasobów klastra dla usługi sieci szkieletowej usług
 Menedżer zasobów klastra sieci szkieletowej usług umożliwia szczegółową kontrolę nad zasady każdego użytkownika, nazwę usługi. Każda usługa o nazwie można określić zasady jak powinna zostać przydzielona w klastrze. Każda usługa o nazwie również zdefiniować zestaw metryki, którą chce do raportu, w tym, jak ważne są do tej usługi. Konfigurowanie usług dzieli na trzy różne zadania:
@@ -40,7 +40,7 @@ Istnieją inne typy zasad umieszczania, które są przydatne w mniej typowych sc
 
 Inne zasady umieszczania są skonfigurowane za pośrednictwem korelacji lub zasad.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - Metryki są zarządzaniu Menedżer zasobów klastra sieci szkieletowej usług konsumenckich i pojemności w klastrze. Aby dowiedzieć się więcej na temat metryki i sposobach ich konfigurowania, zapoznaj się [w tym artykule](service-fabric-cluster-resource-manager-metrics.md)
 - Koligacja jest jeden tryb, które można skonfigurować dla usług. Nie jest często, ale jeśli potrzebne informacje na temat jego [tutaj](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
 - Istnieje wiele reguł różnych umieszczania skonfigurowane w usłudze do obsługi dodatkowych scenariuszach. Można znaleźć informacje dotyczące tych zasad umieszczania różnych [tutaj](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)

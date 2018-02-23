@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/09/2017
+ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: 58fc58049e346d60c0882a91bd04485746a15cbd
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6b5a8c81b1e3e45c85ea84a46054b6a38a886c5b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Dokumentacja host.JSON dla usługi Azure Functions
 
@@ -115,7 +115,7 @@ Określa, ile wywołania funkcji są agregowane kiedy [obliczanie metryki dla us
 }
 ```
 
-|Właściwość  |Domyślne | Opis |
+|Właściwość |Domyślne  | Opis |
 |---------|---------|---------| 
 |batchSize|1000|Maksymalna liczba żądań do zagregowania.| 
 |flushTimeout|00:00:30|Maksymalny czas okresu do zagregowania.| 
@@ -237,25 +237,7 @@ Formanty filtrowania dla dzienników napisane przez [obiektu ILogger](functions-
 
 Ustawienia konfiguracji dla [magazynu kolejki wyzwalaczy i powiązań](functions-bindings-storage-queue.md).
 
-```json
-{
-    "queues": {
-      "maxPollingInterval": 2000,
-      "visibilityTimeout" : "00:00:30",
-      "batchSize": 16,
-      "maxDequeueCount": 5,
-      "newBatchThreshold": 8
-    }
-}
-```
-
-|Właściwość  |Domyślne | Opis |
-|---------|---------|---------| 
-|maxPollingInterval|60000|Maksymalny interwał w milisekundach między sond kolejki.| 
-|visibilityTimeout|0|Przedział czasu między kolejnymi próbami podczas przetwarzania komunikatu nie powiedzie się.| 
-|batchSize|16|Liczba wiadomości w kolejce do pobrania i przetwarzanie równoległe. Wartość maksymalna to 32.| 
-|maxDequeueCount|5|Liczba prób przetwarzania przed jego przeniesieniem do skażone kolejki wiadomości.| 
-|newBatchThreshold|batchSize/2|Próg pobrane nową partię komunikatów.| 
+[!INCLUDE [functions-host-json-queues](../../includes/functions-host-json-queues.md)]
 
 ## <a name="servicebus"></a>serviceBus
 
@@ -268,6 +250,7 @@ Ustawienia konfiguracji dla [usługi Service Bus wyzwalaczy i powiązań](functi
 Ustawienia konfiguracji dla pojedynczych blokady zachowanie. Aby uzyskać więcej informacji, zobacz [GitHub problem o obsłudze singleton](https://github.com/Azure/azure-webjobs-sdk-script/issues/912).
 
 ```json
+{
     "singleton": {
       "lockPeriod": "00:00:15",
       "listenerLockPeriod": "00:01:00",

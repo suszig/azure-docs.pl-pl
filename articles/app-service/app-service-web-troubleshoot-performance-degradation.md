@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
-ms.openlocfilehash: 1cfe7ec37ad8b24a8bd9ab2bf67e95675a57b675
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b71aa004095a94bea84623fd2b5dbdfc1f81af0
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>Powolne web app Rozwiązywanie problemów z wydajnością w usłudze Azure App Service
 W tym artykule pomocy w rozwiązywaniu problemów z wydajnością aplikacji sieci web wolne w [usłudze Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -58,7 +58,7 @@ Ta opcja pozwala dowiedzieć się, jeśli masz problemy aplikacji. W bloku aplik
 
 Niektóre metryki, które mogą zostać do monitorowania aplikacji sieci web
 
-* Pamięć średni zestaw roboczy
+* Średni zestaw roboczy pamięci
 * Średni czas odpowiedzi
 * Czas procesora CPU
 * Zestaw roboczy pamięci
@@ -90,11 +90,7 @@ Każdej aplikacji sieci web usługi App Service udostępnia punkt końcowy rozsz
 - Edytory kodu źródłowego, takich jak [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
 - Narzędzia do zarządzania dla połączonych zasobów, takich jak bazy danych MySQL podłączone do aplikacji sieci web.
 
-[Azure Application Insights](/services/application-insights/) i [usługi New Relic](/marketplace/partners/newrelic/newrelic/) są dwa rozszerzenia lokacji, które są dostępne do monitorowania wydajności. Aby używać usługi New Relic, należy zainstalować agenta w czasie wykonywania. Aby korzystać z usługi Azure Application Insights, Odbuduj kodu za pomocą zestawu SDK i można także zainstalować rozszerzenia, która zapewnia dostęp do dodatkowych danych. Zestaw SDK umożliwia napisz kod umożliwiający monitorowanie użycia i wydajności aplikacji bardziej szczegółowo.
-
-Aby korzystać z usługi Application Insights, zobacz [monitorować wydajność w aplikacji sieci web](../application-insights/app-insights-web-monitor-performance.md).
-
-Aby korzystać z usługi New Relic, zobacz [zarządzanie wydajnością aplikacji Relic nowego na platformie Azure](../store-new-relic-cloud-services-dotnet-application-performance-management.md).
+[Azure Application Insights](/services/application-insights/) jest rozszerzeniem lokacji, które jest również dostępna do monitorowania wydajności. Aby korzystać z usługi Application Insights, należy odtworzyć kodu za pomocą zestawu SDK. Można także zainstalować rozszerzenia, która zapewnia dostęp do dodatkowych danych. Zestaw SDK umożliwia napisz kod umożliwiający monitorowanie użycia i wydajności aplikacji bardziej szczegółowo. Aby uzyskać więcej informacji, zobacz [monitorować wydajność w aplikacji sieci web](../application-insights/app-insights-web-monitor-performance.md).
 
 <a name="collect" />
 
@@ -137,7 +133,7 @@ Portalu pomocy technicznej usługi Azure App Service udostępnia trzy oddzielne 
 
 1. Sprawdź bieżące zachowanie
 2. Analizowanie zbierania informacji diagnostycznych i uruchamiając analizatorów wbudowane
-3. Ograniczenia
+3. Ograniczenie
 
 Problem jest wykonywane od razu, kliknij przycisk **Analizuj** > **diagnostyki** > **diagnozowanie teraz** utworzenie sesji diagnostycznej, do którego Służy do zbierania dzienników HTTP, dzienniki Podglądu zdarzeń zrzuty pamięci, dzienniki błędów PHP i raportu procesu PHP.
 

@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: nitinme
-ms.openlocfilehash: b561352d702d1c5a415ebebc253869b8a56d68d8
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 2be4477528c9109151c4737eabc16741cc020ce8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Jądra dla notesu Jupyter w klastrze Spark w usłudze Azure HDInsight 
 
@@ -80,7 +80,7 @@ Poniżej przedstawiono kilka korzyści z notesu Jupyter w klastrze Spark w usłu
    
     W poniższej tabeli wymieniono różne poleceń magicznych dostępnych za pośrednictwem jądra.
 
-   | Magiczna | Przykład | Opis |
+   | Magic | Przykład | Opis |
    | --- | --- | --- |
    | pomoc |`%%help` |Generuje spis wszystkich dostępnych poleceń magicznych przykład i opis |
    | Informacje o |`%%info` |Dane wyjściowe informacji o sesji dla bieżącej punktu końcowego programu Livy |
@@ -88,8 +88,8 @@ Poniżej przedstawiono kilka korzyści z notesu Jupyter w klastrze Spark w usłu
    | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |Wykonuje zapytanie Hive względem element sqlContext. Jeśli `-o` parametr jest przekazywany, w wyniku zapytania jest trwały %% lokalny kontekst Python jako [Pandas](http://pandas.pydata.org/) dataframe. |
    | lokalne |`%%local`<br>`a=1` |Cały kod w kolejnych wierszy jest wykonywana lokalnie. Kod musi być prawidłowym kodem Python2 nawet niezależnie od jądra, którego używasz. Tak, nawet w przypadku wybrania **PySpark3** lub **Spark** jądra podczas tworzenia notesu, jeśli używasz `%%local` magic w komórce, tej komórki musi mieć tylko prawidłowy kod Python2... |
    | dzienniki |`%%logs` |Dane wyjściowe dzienników dla bieżącej sesji programu Livy. |
-   | usuń |`%%delete -f -s <session number>` |Usuwa określonej sesji bieżącego Livy punktu końcowego. Należy pamiętać, że nie można usunąć sesji, która jest inicjowane dla samej siebie jądra. |
-   | Czyszczenie |`%%cleanup -f` |Usuwa wszystkich sesji dla bieżącej Livy punktu końcowego tego notesu sesji. Flagi force -f jest obowiązkowe. |
+   | usuwanie |`%%delete -f -s <session number>` |Usuwa określonej sesji bieżącego Livy punktu końcowego. Nie można usunąć sesji, która jest inicjowane dla samej siebie jądra. |
+   | oczyszczanie |`%%cleanup -f` |Usuwa wszystkich sesji dla bieżącej Livy punktu końcowego tego notesu sesji. Flagi force -f jest obowiązkowe. |
 
    > [!NOTE]
    > Oprócz poleceń magicznych dodane przez jądro PySpark, można również użyć [wbudowanych IPython poleceń magicznych](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics), takie jak `%%sh`. Można użyć `%%sh` magic do uruchamiania skryptów i blok kodu na headnode klastra.
@@ -160,7 +160,6 @@ Nowe jądra znajdują się w rozwijającymi etap i będzie dojrzałych wraz z up
 * [Platforma Spark i analiza biznesowa: interakcyjna analiza danych na platformie Spark w usłudze HDInsight z użyciem narzędzi do analizy biznesowej](apache-spark-use-bi-tools.md)
 * [Platforma Spark i usługa Machine Learning: korzystanie z platformy Spark w usłudze HDInsight do analizy temperatury w budynku z użyciem danych HVAC](apache-spark-ipython-notebook-machine-learning.md)
 * [Platforma Spark i usługa Machine Learning: korzystanie z platformy Spark w usłudze HDInsight do przewidywania wyników kontroli żywności](apache-spark-machine-learning-mllib-ipython.md)
-* [Przesyłanie strumieniowe Spark: korzystanie z platformy Spark w usłudze HDInsight do tworzenia aplikacji do przesyłania strumieniowego w czasie rzeczywistym](apache-spark-eventhub-streaming.md)
 * [Analiza dzienników witryny sieci Web na platformie Spark w usłudze HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Tworzenie i uruchamianie aplikacji

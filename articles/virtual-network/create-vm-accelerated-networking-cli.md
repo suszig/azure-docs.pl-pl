@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: c051fec3369ef0d309ecf6c68b17272bb396eeec
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e4c875d07905b56c0d3eb346c839f7a4917531de
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Utwórz maszynę wirtualną systemu Linux za pomocą przyspieszony sieci
 
@@ -48,8 +48,8 @@ Korzyści wynikające z przyspieszonego sieci dotyczą tylko maszynę Wirtualną
 ## <a name="supported-operating-systems"></a>Obsługiwane systemy operacyjne
 * **Ubuntu 16.04**: 4.11.0-1013 lub nowszej wersji jądra
 * **SLES SP3**: 4.4.92-6.18 lub nowszej wersji jądra
-* **RHEL**: 7.4.2017120423 lub nowszej wersji jądra
-* **CentOS**: 7.4.20171206 lub nowszej wersji jądra
+* **RHEL 7.4**: 7.4.2017120423 lub nowszej wersji jądra
+* **CentOS 7.4**: 7.4.20171206 lub nowszej wersji jądra
 
 ## <a name="supported-vm-instances"></a>Obsługiwane wystąpienia maszyny Wirtualnej
 Przyspieszone sieci jest obsługiwana w najbardziej ogólnego przeznaczenia i rozmiary obliczeniowe są zoptymalizowane pod kątem wystąpienia z co najmniej 4 Vcpu. W przypadkach, takich jak D/DSv3 lub E/ESv3 obsługujące wielowątkowość przyspieszony sieci jest obsługiwany w wystąpieniach maszyny Wirtualnej z co najmniej 8 Vcpu.  Są obsługiwane serii: D/DSv2, D/DSv3 E/ESv3, F/Fs/Fsv2 i Ms/Mms. 

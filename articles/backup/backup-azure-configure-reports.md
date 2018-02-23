@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 11/10/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 40433df5ebe90aec3a9294f2c5a6083c4567b161
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: e32e84eacee3a43b948b0a4b4177ab956b34ca3c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-azure-backup-reports"></a>Konfigurowanie raportów usługi Azure Backup
 Ten artykuł zawiera informacje o procedurę konfigurowania raportów dla usługi Kopia zapasowa Azure przy użyciu magazynu usług odzyskiwania oraz dostęp do tych raportów za pomocą usługi Power BI. Po wykonaniu tych kroków, można przejść bezpośrednio do usługi Power BI do wyświetlania wszystkich raportów, dostosowywania i tworzenia raportów. 
@@ -38,12 +38,12 @@ Ten artykuł zawiera informacje o procedurę konfigurowania raportów dla usług
 
 ## <a name="configure-storage-account-for-reports"></a>Konfigurowanie konta magazynu dla raportów
 Następujące kroki umożliwiają konfigurowanie konta magazynu dla magazynu usług odzyskiwania przy użyciu portalu Azure. Jest to jednorazowej konfiguracji i po skonfigurowaniu konta magazynu, można przejść do usługi Power BI bezpośrednio do wyświetlania zawartości pakietu i korzystać z raportów.
-1. Jeśli masz już magazyn usług odzyskiwania, Otwórz, przejdź do następnego kroku. Jeśli Twój magazyn Usług odzyskiwania nie jest otwarty, ale w portalu Azure są takie magazyny, w menu Centrum kliknij opcję **Przeglądaj**.
+1. Jeśli masz już magazyn usług odzyskiwania, Otwórz, przejdź do następnego kroku. Jeśli nie masz otwarte magazyn usług odzyskiwania, ale znajdują się w portalu Azure, kliknij przycisk **wszystkie usługi**.
 
    * Na liście zasobów wpisz **Usługi odzyskiwania**.
    * Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Po wyświetleniu pozycji **Magazyny Usług odzyskiwania** kliknij ją.
 
-      ![Tworzenie magazynu Usług odzyskiwania — krok 1](./media/backup-azure-vms-encryption/browse-to-rs-vaults.png) <br/>
+      ![Tworzenie magazynu usługi Recovery Services — krok 1](./media/backup-azure-vms-encryption/browse-to-rs-vaults.png) <br/>
 
      Zostanie wyświetlona lista magazynów Usług odzyskiwania. Wybierz magazyn z listy magazynów Usług odzyskiwania.
 
@@ -80,7 +80,7 @@ Następujące kroki umożliwiają konfigurowanie konta magazynu dla magazynu us�
 ## <a name="view-reports-in-power-bi"></a>Wyświetlanie raportów w usłudze Power BI 
 Po Konfigurowanie konta magazynu dla raportów, za pomocą magazynu usług odzyskiwania, trwa około 24 godziny dla raportowania danych można uruchomić przepływu. Po 24 godzinach konfigurowania konta magazynu wykonaj następujące kroki, aby wyświetlić raporty w usłudze Power BI:
 1. [Zaloguj się](https://powerbi.microsoft.com/landing/signin/) do usługi Power BI.
-2. Kliknij przycisk **Pobierz dane** i kliknij przycisk Pobierz w obszarze **usług** w bibliotece zawartości pakietu. Wykonaj kroki wymienione w [dokumentacji usługi Power BI na dostęp do zawartości pakietu](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-packs-services/).
+2. Kliknij przycisk **Pobierz dane** i kliknij przycisk **uzyskać** w obszarze **usług** w bibliotece zawartości pakietu. Wykonaj kroki wymienione w [dokumentacji usługi Power BI na dostęp do zawartości pakietu](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-packs-services/).
 
      ![Importowanie pakietu zawartości](./media/backup-azure-configure-reports/content-pack-import.png)
 3. Typ **kopia zapasowa Azure** na pasku wyszukiwania i kliknij przycisk **Pobierz teraz**.
@@ -88,7 +88,7 @@ Po Konfigurowanie konta magazynu dla raportów, za pomocą magazynu usług odzys
       ![Pobierz pakiet zawartości](./media/backup-azure-configure-reports/content-pack-get.png)
 4. Wprowadź nazwę konta magazynu, które są skonfigurowane w kroku 5 powyżej, a następnie kliknij przycisk **dalej** przycisku.
 
-    ![Wprowadź nazwę konta magazynu](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
+    ![Podaj nazwę konta magazynu](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
 5. Wprowadź klucz konta magazynu dla tego konta magazynu. Możesz [wyświetlanie i kopiowanie kluczy dostępu do magazynu](../storage/common/storage-create-storage-account.md#manage-your-storage-account) przechodząc do konta magazynu w portalu Azure. 
 
      ![Wprowadź konto magazynu](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>
@@ -150,10 +150,10 @@ Po Konfigurowanie konta magazynu dla raportów, za pomocą magazynu usług odzys
 ## <a name="troubleshooting-errors"></a>Rozwiązywanie problemów z błędami
 | Szczegóły błędu | Rozwiązanie |
 | --- | --- |
-| Po skonfigurowaniu konta magazynu dla raportów kopii zapasowej **konta magazynu** pozostanie **nieskonfigurowane**. | Jeśli został pomyślnie skonfigurowany konta magazynu danych raportowania będą przepływać w pomimo tego problemu. Aby rozwiązać ten problem, przejdź do portalu Azure > więcej usług > Ustawienia diagnostyki > magazynu RS > Edytuj ustawienia. Usuń wcześniej skonfigurowane ustawienie i Utwórz nowe ustawienie w tym samym bloku. Teraz ustaw dla pola **nazwa** do **usługi**. To konto magazynu skonfigurowanych powinny być wyświetlane. |
+| Po skonfigurowaniu konta magazynu dla raportów kopii zapasowej **konta magazynu** pozostanie **nieskonfigurowane**. | Jeśli został pomyślnie skonfigurowany konta magazynu danych raportowania będą przepływać w pomimo tego problemu. Aby rozwiązać ten problem, przejdź do portalu Azure > wszystkie usługi > Ustawienia diagnostyki > magazynu RS > Edytuj ustawienia. Usuń wcześniej skonfigurowane ustawienie i Utwórz nowe ustawienie w tym samym bloku. Teraz ustaw dla pola **nazwa** do **usługi**. To konto magazynu skonfigurowanych powinny być wyświetlane. |
 |Po zaimportowaniu kopia zapasowa Azure zawartości pakietu w usłudze Power BI, błąd **nie znaleziono kontenera 404** pojawia się. | Zgodnie z sugestią podaną w tym dokumencie należy poczekać na 24 godziny po skonfigurowaniu raportów w magazynie usług odzyskiwania, aby poprawnie wyświetlać je w usłudze Power BI. Jeśli spróbujesz uzyskać dostępu do raportów przed 24 godziny, zostanie umieszczony błąd, ponieważ pełnych danych nie ma jeszcze do wyświetlania raportów prawidłowe. |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Teraz, gdy skonfigurowano konto magazynu i zaimportowany pakiet zawartości usługi Kopia zapasowa Azure, następnym krokiem jest dostosować te raporty i używaj modelu danych raportowania do tworzenia raportów. Więcej szczegółów można znaleźć w następujących artykułach.
 
 * [Przy użyciu modelu danych raportowania usługi Kopia zapasowa Azure](backup-azure-reports-data-model.md)

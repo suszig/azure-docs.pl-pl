@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: barclayn
-ms.openlocfilehash: 7ce6297d7d6b61ac95df58db3fa1a2a0a123a64e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 397161cf2eaea9712fec352a45f5fc49e8da486c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="document-protection-of-personal-data-with-azure-reporting-tools"></a>Ochrona danych osobowych dokumentu przy użyciu narzędzi do raportowania platformy Azure
 
@@ -144,7 +144,7 @@ Istnieje wiele sposobów, aby użyć danych w dzienniku aktywności i innych zas
 
 - Dane przy użyciu monitora interfejsu API REST Azure, polecenia interfejsu wiersza polecenia, można zbadać [PowerShell](https://docs.microsoft.com/powershell/) poleceń cmdlet lub zestawu .NET SDK.
 
-Aby rozpocząć pracę z monitorem Azure, wybierz **więcej usług** w portalu Azure.
+Aby rozpocząć pracę z monitorem Azure, wybierz **wszystkie usługi** w portalu Azure.
 
 1. Przewiń w dół do **Monitor** w **monitorowanie i zarządzanie** sekcji.
 

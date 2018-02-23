@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 01/19/2018
 ms.author: asaxton
-ms.openlocfilehash: 7eb64cce37f2655b72ab9b5fadedf7581fe007fb
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 9b7d0bc31946d6022e9bfae463f4a22eb12c2a58
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="scale-your-power-bi-embedded-capacity"></a>Skalowanie programu Power BI Embedded pojemności
 
@@ -33,9 +33,9 @@ Przyjęto założenie, że utworzono Power BI Embedded pojemności. Jeśli nie m
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/).
 
-2. Wybierz **więcej usług** > **Power BI Embedded** wyświetlić pojemności sieci.
+2. Wybierz **wszystkie usługi** > **Power BI Embedded** wyświetlić pojemności sieci.
 
-    ![Więcej usług w portalu Azure](media/scale-capacity/azure-portal-more-services.png)
+    ![Wszystkie usługi w portalu Azure](media/scale-capacity/azure-portal-more-services.png)
 
 3. Wybierz pojemności, który chcesz skalować.
 

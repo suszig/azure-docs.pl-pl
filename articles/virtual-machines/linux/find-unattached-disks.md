@@ -1,6 +1,6 @@
 ---
 title: "Znajdowanie i usuwanie odłączyć dysku systemu Azure zarządzane i niezarządzane | Dokumentacja firmy Microsoft"
-description: "Jak znaleźć i usunąć odłączyć dysku systemu Azure zarządzane i niezarządzane (pliki VHD/stronicowych obiektów blob), za pomocą wiersza polecenia platformy Azure"
+description: "Jak znaleźć i usunąć odłączyć dysku systemu Azure zarządzane i niezarządzane (pliki VHD/stronicowych obiektów blob) przy użyciu wiersza polecenia platformy Azure."
 services: virtual-machines-linux
 documentationcenter: 
 author: ramankumarlive
@@ -15,23 +15,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 ms.author: ramankum
-ms.openlocfilehash: 9ada768cd4128b9dd6949b5a96c557496c6bb11c
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 281e51783af05e02346b537f0abccdb2def38b31
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks"></a>Znajdowanie i usuwanie odłączyć dysku systemu Azure zarządzane i niezarządzane
-Po usunięciu maszyny wirtualnej na platformie Azure dysków dołączonych do niego nie są usuwane domyślnie. Zapobiega utracie danych z powodu usunięty przez pomyłkę maszyn wirtualnych, ale nadal niepotrzebnie opłacać odłączyć dysków. Użyj w tym artykule, aby znaleźć i usunąć wszystkie dyski odłączyć i zapisać koszt. 
+Po usunięciu maszyny wirtualnej (VM) na platformie Azure, domyślnie nie są usuwane wszystkie dyski, które są dołączone do maszyny Wirtualnej. Ta funkcja pomaga zapobiec utracie danych z powodu usunięcia przypadkowe maszyn wirtualnych. Po usunięciu maszyny Wirtualnej będzie kontynuował opłacać odłączyć dysków. W tym artykule przedstawiono, jak znaleźć i Usuń wszystkie dyski odłączyć i zredukowanie niepotrzebnych kosztów. 
 
 
-## <a name="find-and-delete-unattached-managed-disks"></a>Znajdowanie i usuwanie odłączyć dysków zarządzanych 
+## <a name="managed-disks-find-and-delete-unattached-disks"></a>Dyski zarządzane: znajdowanie i usuwanie odłączyć dysków 
 
-Poniższy skrypt pokazuje, jak znaleźć odłączyć dysków zarządzanych za pomocą właściwości zarządzane.  W pętli wszystkich zarządzanych dysków w ramach subskrypcji i umożliwia sprawdzenie, czy *zarządzane* właściwość ma wartość null, aby znaleźć odłączyć dysków zarządzanych. *Zarządzane* właściwość przechowuje identyfikator zasobu maszyny wirtualnej, do której jest dołączona dysku zarządzanego. 
+Poniższy skrypt szuka niedołączonej [dyskach zarządzanych](managed-disks-overview.md) , sprawdzając wartość **zarządzane** właściwości. Jeśli dysków zarządzanych jest podłączony do maszyny Wirtualnej, **zarządzane** właściwość zawiera identyfikator zasobu maszyny wirtualnej. W przypadku dysków zarządzanych odłączyć, **zarządzane** właściwość ma wartość null. Skrypt sprawdza, czy wszystkie dyski zarządzanych w subskrypcji platformy Azure. Jeśli skrypt lokalizuje dysków zarządzanych z **zarządzane** właściwością o wartości null, skrypt określa, czy dysk jest odłączyć.
 
-Zdecydowanie zalecamy do pierwszego uruchomienia skryptu przez ustawienie *deleteUnattachedDisks* zmiennej na 0, aby wyświetlić wszystkie odłączyć dysków. Po zapoznaniu się odłączyć dysków, uruchom skrypt przez ustawienie *deleteUnattachedDisks* 1, aby usunąć wszystkie odłączyć dysków.
+>[!IMPORTANT]
+>Najpierw należy uruchomić skrypt przez ustawienie **deleteUnattachedDisks** zmiennej na wartość 0. Ta akcja pozwala znaleźć i wyświetlić niedołączonej zarządzanych dysków.
+>
+>Po przejrzeniu odłączyć dysków, uruchom ponownie skrypt i ustaw **deleteUnattachedDisks** zmienną do 1. Ta akcja służy do usuwania wszystkich odłączyć dysków zarządzanych.
+>
 
- ```azurecli
+```azurecli
 
 # Set deleteUnattachedDisks=1 if you want to delete unattached Managed Disks
 # Set deleteUnattachedDisks=0 if you want to see the Id of the unattached Managed Disks
@@ -51,16 +55,19 @@ do
         echo $id
     fi
 done
-
 ```
-## <a name="find-and-delete-unattached-unmanaged-disks"></a>Znajdowanie i usuwanie odłączyć dysków niezarządzane 
 
-Niezarządzane dyski są przechowywane jako pliki VHD [stronicowe](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-page-blobs) w [konta usługi Azure Storage](../../storage/common/storage-create-storage-account.md). Poniższy skrypt pokazuje, jak znaleźć za pomocą właściwości LeaseStatus odłączyć dysków niezarządzane (stronicowych obiektów blob). Wszystkie dyski niezarządzane we wszystkich magazyn kont w ramach subskrypcji i sprawdza, czy w pętli *LeaseStatus* odblokowaniu właściwości można znaleźć odłączyć dysków niezarządzane. *LeaseStatus* ustawiono właściwości do zablokowanego Jeśli niezarządzane dysk jest podłączony do maszyny wirtualnej. 
+## <a name="unmanaged-disks-find-and-delete-unattached-disks"></a>Niezarządzane dysków: znajdowanie i usuwanie odłączyć dysków 
 
-Zdecydowanie zalecamy do pierwszego uruchomienia skryptu przez ustawienie *deleteUnattachedVHDs* zmiennej na 0, aby wyświetlić wszystkie odłączyć dysków. Po zapoznaniu się odłączyć dysków, uruchom skrypt przez ustawienie *deleteUnattachedVHDs* 1, aby usunąć wszystkie odłączyć dysków.
+Niezarządzane dyski znajdują się pliki VHD, które są przechowywane jako [stronicowe](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-page-blobs) w [kontami magazynu Azure](../../storage/common/storage-create-storage-account.md). Poniższy skrypt szuka odłączyć dysków niezarządzane (stronicowych obiektów blob), sprawdzając wartość **LeaseStatus** właściwości. Gdy niezarządzany dysku jest dołączony do maszyny Wirtualnej, **LeaseStatus** właściwość jest ustawiona na **zablokowany**. W przypadku niezarządzanych dysku odłączyć, **LeaseStatus** właściwość jest ustawiona na **odblokowany**. Skrypt sprawdza, czy wszystkie dyski niezarządzanego na wszystkich kontach magazynu Azure w subskrypcji platformy Azure. Gdy skrypt lokalizuje niezarządzane dysk z **LeaseStatus** ustawioną właściwość **odblokowany**, skrypt określa, czy dysk jest odłączyć.
 
+>[!IMPORTANT]
+>Najpierw należy uruchomić skrypt przez ustawienie **deleteUnattachedVHDs** zmiennej na wartość 0. Ta akcja pozwala znaleźć i wyświetlić wszystkich niedołączonej niezarządzane dysków VHD.
+>
+>Po przejrzeniu odłączyć dysków, uruchom ponownie skrypt i ustaw **deleteUnattachedVHDs** zmienną do 1. Ta akcja służy do usuwania wszystkich niedołączonej niezarządzane dysków VHD.
+>
 
- ```azurecli
+```azurecli
    
 # Set deleteUnattachedVHDs=1 if you want to delete unattached VHDs
 # Set deleteUnattachedVHDs=0 if you want to see the details of the unattached VHDs
@@ -101,7 +108,6 @@ do
         done
     done
 done 
-
 ```
 
 ## <a name="next-steps"></a>Kolejne kroki

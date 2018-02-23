@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 1508faf7a05461de65b7a4c2f68e2ef9bbd7e19d
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5549c175c280961b09f5996e3387a50dae31222f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Zainstaluj notesu Jupyter na komputerze i nawiązywanie Apache Spark w usłudze HDInsight
 
@@ -55,9 +55,9 @@ Python należy zainstalować przed zainstalowaniem notesów Jupyter. Zarówno Py
 
 Aby uzyskać instrukcje dotyczące sposobu instalowania Spark magic, jądra PySpark i Spark, postępuj zgodnie z instrukcjami instalacji [dokumentacji sparkmagic](https://github.com/jupyter-incubator/sparkmagic#installation) w witrynie GitHub. Pierwszym krokiem w dokumentacji magic Spark jest wyświetlany monit o zainstalowanie Spark magic. Zastąp ten pierwszy krok w łączu za pomocą następujących poleceń, w zależności od wersji z klastrem usługi HDInsight, z którą będzie łączyć się. Następnie wykonaj pozostałe kroki w dokumentacji magic Spark. Jeśli chcesz zainstalować różne jądra, należy wykonać krok 3 w sekcji instrukcje instalacji magic Spark.
 
-* W przypadku klastrów v3.4 należy zainstalować sparkmagic 0.2.3, wykonując`pip install sparkmagic==0.2.3`
+* W przypadku klastrów v3.4 należy zainstalować sparkmagic 0.2.3, wykonując `pip install sparkmagic==0.2.3`
 
-* W przypadku klastrów w wersji 3.5 i v3.6 należy zainstalować sparkmagic 0.11.2, wykonując`pip install sparkmagic==0.11.2`
+* W przypadku klastrów w wersji 3.5 i v3.6 należy zainstalować sparkmagic 0.11.2, wykonując `pip install sparkmagic==0.11.2`
 
 ## <a name="configure-spark-magic-to-connect-to-hdinsight-spark-cluster"></a>Skonfiguruj magic Spark do nawiązania połączenia klastra Spark w usłudze HDInsight
 
@@ -150,7 +150,6 @@ Może istnieć wiele przyczyn, dlaczego warto Instalacja oprogramowania Jupyter 
 * [Platforma Spark i analiza biznesowa: interakcyjna analiza danych na platformie Spark w usłudze HDInsight z użyciem narzędzi do analizy biznesowej](apache-spark-use-bi-tools.md)
 * [Platforma Spark i usługa Machine Learning: korzystanie z platformy Spark w usłudze HDInsight do analizy temperatury w budynku z użyciem danych HVAC](apache-spark-ipython-notebook-machine-learning.md)
 * [Platforma Spark i usługa Machine Learning: korzystanie z platformy Spark w usłudze HDInsight do przewidywania wyników kontroli żywności](apache-spark-machine-learning-mllib-ipython.md)
-* [Przesyłanie strumieniowe Spark: korzystanie z platformy Spark w usłudze HDInsight do tworzenia aplikacji do przesyłania strumieniowego w czasie rzeczywistym](apache-spark-eventhub-streaming.md)
 * [Analiza dzienników witryny sieci Web na platformie Spark w usłudze HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Tworzenie i uruchamianie aplikacji

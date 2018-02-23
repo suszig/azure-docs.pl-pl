@@ -1,8 +1,8 @@
 ---
 title: "Utwórz i Zarządzaj grupami akcji w portalu Azure | Dokumentacja firmy Microsoft"
 description: "Informacje o sposobie tworzenia i obsługi grup działań w portalu Azure."
-author: anirudhcavale
-manager: orenr
+author: dkamstra
+manager: chrad
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2017
-ms.author: ancav
-ms.openlocfilehash: 9f7f9dcc473e6925000ebe76a6592779c228a9af
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.date: 02/16/2018
+ms.author: dukek
+ms.openlocfilehash: 772b9c2b9532bd2cc37ad89db92545297eecd903
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Utwórz i Zarządzaj grupami akcji w portalu Azure
 ## <a name="overview"></a>Przegląd ##
 W tym artykule przedstawiono sposób tworzenia i obsługi grup działań w portalu Azure.
 
-Można skonfigurować listę akcji przy użyciu grup działań. Te grupy następnie mogą być używane podczas definiowania alertów dotyczących działań w dzienniku. Następnie te grupy mogą być ponownie używane przez każdy alert dziennika aktywności, zdefiniowane przez użytkownika, zapewniając podjęcie te same akcje każdym razem, gdy zostanie wyzwolony alert dziennika aktywności.
+Można skonfigurować listę akcji przy użyciu grup działań. Każdy alert, zdefiniowane przez użytkownika, zapewnienie, że te same akcje podejmowane są zawsze, gdy alert jest wyzwalany następnie można te grupy.
 
 Grupy akcji może mieć maksymalnie 10 każdego typu akcji. Każda akcja składa się z następującymi właściwościami:
 
@@ -56,7 +56,7 @@ Aby uzyskać informacje na temat sposobu konfigurowania grup akcji za pomocą sz
 
     a. **Nazwa**: wprowadź unikatowy identyfikator dla tej akcji.
 
-    b. **Typ akcji**: Wybierz programu SMS, wiadomości e-mail, webhook, aplikację usługi Azure, zarządzanie usługami IT — lub elementu Runbook automatyzacji.
+    b. **Typ akcji**: Wybierz aplikacji poczty E-mail/SMS/platformy Azure, Webhook, zarządzanie usługami IT — lub elementu Runbook automatyzacji.
 
     c. **Szczegóły**: oparte na typ akcji, wprowadź numer telefonu, adres e-mail, identyfikator URI elementu webhook, aplikację usługi Azure, zarządzanie usługami IT — połączenie lub elementu runbook automatyzacji. Zarządzanie usługami IT — akcji, należy również określić **elementu roboczego** i wymaga narzędzie Zarządzanie usługami IT — innych pól.
 

@@ -1,6 +1,6 @@
 ---
-title: "Zarządzanie moc obliczeniową w usłudze Azure SQL Data Warehouse (omówienie) | Dokumentacja firmy Microsoft"
-description: "Wydajność skalowania możliwości w usłudze Azure SQL Data Warehouse. Skalowanie w poziomie przez dostosowanie wartości dwu lub wstrzymywać i wznawiać zasobów obliczeniowych w celu ograniczenia kosztów."
+title: "Zarządzanie zasobów obliczeniowych w usłudze Azure SQL Data Warehouse | Dokumentacja firmy Microsoft"
+description: "Więcej informacji na temat skalowania wydajności możliwości w usłudze Azure SQL Data Warehouse. Skalowanie w poziomie przez dostosowanie wartości dwu lub niższe koszty wstrzymując hurtowni danych."
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
@@ -13,36 +13,30 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 3/23/2017
+ms.date: 02/20/2018
 ms.author: elbutter
-ms.openlocfilehash: d795abe5254d47a72a468b0989e46829a5c5142a
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 7e6ae6e59b53dd79dab5e2504cf7a43a30e55353
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="manage-compute-power-in-azure-sql-data-warehouse-overview"></a>Zarządzanie moc obliczeniową w usłudze Azure SQL Data Warehouse (omówienie)
-> [!div class="op_single_selector"]
-> * [Omówienie](sql-data-warehouse-manage-compute-overview.md)
-> * [Portal](sql-data-warehouse-manage-compute-portal.md)
-> * [Program PowerShell](sql-data-warehouse-manage-compute-powershell.md)
-> * [REST](sql-data-warehouse-manage-compute-rest-api.md)
-> * [TSQL](sql-data-warehouse-manage-compute-tsql.md)
->
->
+# <a name="manage-compute-in-azure-sql-data-warehouse"></a>Zarządzanie obliczeniowych w magazynie danych SQL Azure
+Informacje o zarządzaniu zasobów obliczeniowych w magazynie danych SQL Azure. Niższe koszty wstrzymując hurtowni danych albo skalować w hurtowni danych w celu spełnienia wymagań dotyczących wydajności. 
 
-Architektura usługi SQL Data Warehouse oddziela magazynu i zasobów obliczeniowych, umożliwiając niezależne skalowanie. W związku z tym obliczeniowe mogą być skalowane do wymagań dotyczących wydajności niezależnie od ilości danych. Fizyczne konsekwencją tej architektury jest to, że [rozliczeń] [ billed] dla zasobów obliczeniowych i magazynu jest oddzielona. 
+## <a name="what-is-compute-management"></a>Co to jest obliczeń management?
+Architektura usługi SQL Data Warehouse oddziela magazynu i zasobów obliczeniowych, umożliwiając niezależne skalowanie. W związku z tym można skalować obliczeń do wymagań dotyczących wydajności niezależne od magazynu danych. Można też wstrzymywać i wznawiać zasoby obliczeniowe. Fizyczne konsekwencją tej architektury jest to, że [rozliczeń](https://azure.microsoft.com/pricing/details/sql-data-warehouse/) dla zasobów obliczeniowych i magazynu jest oddzielona. Jeśli nie musisz użyć magazynu danych przez pewien czas, można zmniejszyć koszty obliczeń wstrzymując obliczeń. 
 
-Ten przegląd zawiera opis jak skalować w poziomie współpracuje z usługi SQL Data Warehouse i jak wykorzystywać wstrzymania, wznowienia i skalować możliwości usługi SQL Data Warehouse. 
+## <a name="scaling-compute"></a>Skalowanie obliczeń
+Można skalować w poziomie lub skalować obliczeń wstecz przez dostosowanie wartości właściwości [jednostki magazynu danych](what-is-a-data-warehouse-unit-dwu-cdwu.md) ustawienie dla magazynu danych. Ładowanie i zapytań wydajności może zwiększyć liniowo jak dodać więcej jednostek magazynu danych. Magazyn danych SQL oferuje [poziomów usług](performance-tiers.md#service-levels) danych magazynu jednostki, zapewniający zauważalne zmiany wydajności podczas skalowania out lub utworzyć ich kopię. 
 
-## <a name="how-compute-management-operations-work-in-sql-data-warehouse"></a>Jak obliczeń operacje zarządzania działają w usłudze SQL Data Warehouse
-Architektura magazynu danych SQL składa się z węzeł kontrolny, węzłów obliczeniowych i warstwy magazynu rozmieszczenie dystrybucje 60. 
+Skalowalny w poziomie kroki opisane w artykule [portalu Azure](quickstart-scale-compute-portal.md), [PowerShell](quickstart-scale-compute-powershell.md), lub [T-SQL](quickstart-scale-compute-tsql.md) Przewodniki Szybki Start. Można również wykonywać operacje skalowania w poziomie przy użyciu [interfejsu API REST](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
-Podczas normalnej sesji aktywnych w usłudze SQL Data Warehouse węzła głównego systemu zarządza metadanych i zawiera Optymalizator zapytań rozproszonych. Poniżej tego węzła głównego są węzłów obliczeniowych i warstwą magazynu. 400 DWU system ma jednego węzła głównego, czterech węzłów obliczeniowych i magazynu, składającego się z 60 dystrybucji. 
+Do wykonania operacji skalowania, SQL Data Warehouse najpierw Kasuje wszystkie zapytania przychodzące i wycofa następnie transakcji w celu zapewnienia spójnego stanu. Skalowanie występuje tylko po ukończeniu wycofywania transakcji. Dla operacji skalowania system odłącza warstwy magazynu z węzłów obliczeniowych, dodaje węzłów obliczeniowych i następnie reattaches warstwy magazynu do warstwy obliczeniowej. Każdy magazyn danych jest przechowywana jako 60 dystrybucji, które jest rozmieszczana równomiernie do węzłów obliczeniowych. Dodawanie więcej węzłów obliczeniowych dodaje więcej mocy obliczeniowej. Miarę wzrostu liczby węzłów obliczeniowych, zmniejsza liczbę podziału w każdym węźle obliczeń, zapewniając więcej mocy obliczeniowej dla zapytań. Podobnie zmniejszając jednostki magazynu danych zmniejsza liczbę węzłów obliczeniowych, co zmniejsza zasoby obliczeniowe dla zapytania.
 
-Przejście skali lub wstrzymać działanie, system najpierw Kasuje wszystkie zapytania przychodzące i wycofa następnie transakcji w celu zapewnienia spójnego stanu. Dla operacji skalowania skalowanie będzie miało miejsce tylko po zakończeniu tego transakcyjne wycofywania. Dla operacji skalowania w górę przepisy systemu nadmiarowe żądaną liczbę węzły obliczeniowe, a następnie rozpoczyna podłączenie węzłów obliczeniowych do warstwy magazynu. Dla operacji dół niepotrzebnych węzły są wydawane i pozostałe węzły obliczeniowe ponownie podłączyć się do odpowiedniej liczby dystrybucji. Dla operacji Wstrzymaj obliczeniowe wszystkie węzły są wydawane i systemu zostaną poddane różnych operacji na metadanych pozostawić końcowego systemu stabilna.
+W poniższej tabeli przedstawiono, jak zmienić liczbę dystrybucje na węzeł obliczeń zmiany jednostki magazynu danych.  DWU6000 zapewnia 60 węzłów obliczeniowych i osiąga znacznie większą wydajność zapytań, niż DWU100. 
 
-| DWU  | \#węzły obliczeniowe | \#dystrybucji na węzeł |
+| Jednostki magazynu danych  | \# węzły obliczeniowe | \# dystrybucji na węzeł |
 | ---- | ------------------ | ---------------------------- |
 | 100  | 1                  | 60                           |
 | 200  | 2                  | 30                           |
@@ -57,163 +51,72 @@ Przejście skali lub wstrzymać działanie, system najpierw Kasuje wszystkie zap
 | 3000 | 30                 | 2                            |
 | 6000 | 60                 | 1                            |
 
-Trzy podstawowe funkcje zarządzania obliczeniowe są:
 
-1. Wstrzymaj
-2. Resume
-3. Skalowanie
+## <a name="finding-the-right-size-of-data-warehouse-units"></a>Znajdowanie właściwego rozmiaru jednostki magazynu danych
 
-Każda z tych operacji może potrwać kilka minut. Jeśli jesteś skalowanie/wstrzymywanie/wznawianie automatycznie, można wdrożyć logikę, aby upewnić się, czy niektóre operacje zostały zakończone przed kontynuowaniem inną akcję. 
+Aby wyświetlić skalowania, zwłaszcza w przypadku większych jednostki magazynu danych, zwiększenia wydajności chcesz użyć co najmniej 1 TB zestawu danych. Aby znaleźć najlepszego numeru jednostki magazynu danych magazynu danych, spróbuj skalowanie w górę i w dół. Po załadowaniu danych, uruchom kilka zapytań z różnymi liczbami jednostki magazynu danych. Ponieważ skalowanie odbywa się szybko, możesz wypróbować różne poziomy wydajności w ciągu godziny lub mniej. 
 
-Sprawdzanie stanu bazy danych za pośrednictwem różnych punktów końcowych pozwoli prawidłowo zaimplementować automatyzacji takich operacji. Portalu zapewni powiadomienie po zakończeniu operacji i bazy danych bieżący stan, ale nie jest możliwe programowe sprawdzania stanu. 
+Zalecenia dotyczące znajdowania najlepszego numeru danych magazynu jednostki:
 
->  [!NOTE]
->
->  Funkcja zarządzania nie istnieje we wszystkich punktów końcowych obliczeń.
->
->  
+- Dla magazynu danych na programowanie rozpocząć przez wybranie mniejszej liczby jednostki magazynu danych.  Dobry punkt wyjścia jest DW400 lub DW200.
+- Monitorowanie wydajności aplikacji, obserwowania liczbę jednostek magazynu danych, wybranych w porównaniu do wydajności, które należy obserwować.
+- Załóżmy skali liniowej i określić, ile trzeba zwiększyć lub zmniejszyć jednostki magazynu danych. 
+- Kontynuuj, wprowadzić zmiany, aż do uzyskania optymalnej wydajności poziom dla potrzeb biznesowych.
 
-|              | Wstrzymanie/wznowienie | Skalowanie | Sprawdź stan bazy danych |
-| ------------ | ------------ | ----- | -------------------- |
-| Azure Portal | Yes          | Yes   | **Nie**               |
-| PowerShell   | Yes          | Yes   | Yes                  |
-| Interfejs API REST     | Yes          | Yes   | Yes                  |
-| T-SQL        | **Nie**       | Yes   | Yes                  |
+## <a name="when-to-scale-out"></a>Kiedy skalować w poziomie
+Skalowanie w poziomie jednostki magazynu danych ma wpływ tych aspektów wydajności:
 
+- Liniowo poprawia wydajność systemu pod kątem skanowania, agregacji i CTAS instrukcje.
+- Zwiększa liczbę czytelników i zapisywania ładowania danych.
+- Maksymalna liczba równoczesnych zapytań i gniazda współbieżności.
 
+Zalecenia dotyczące Kiedy skalować w poziomie danych magazynu jednostki:
 
-<a name="scale-compute-bk"></a>
+- Przed wykonaniem operacji ładowania i przekształcania dużej ilości danych skalować w poziomie, aby udostępnić te dane szybciej.
+- W godzinach szczytu skalowanie w poziomie do uwzględnienia większej liczby równoczesnych zapytań. 
 
-## <a name="scale-compute"></a>Skalowanie możliwości obliczeniowych
+## <a name="what-if-scaling-out-does-not-improve-performance"></a>Co zrobić, jeśli skalowania nie poprawia wydajności?
 
-Mierzona jest wydajność w usłudze SQL Data Warehouse w [jednostki magazynu danych (dwu)] [magazynu danych (dwu) jednostki] czyli abstracted miary zasoby obliczeniowe, takie jak procesor CPU, pamięci i we/wy przepustowości. Użytkownik, który chce skalowania wydajności ich systemu to zrobić za pomocą różnych środków, takich jak za pośrednictwem portalu, T-SQL i interfejsów API REST. 
+Dodawanie zwiększenie równoległości jednostki magazynu danych. Jeśli praca jest podzielona równomiernie między węzły obliczeń, dodatkowe równoległości poprawia wydajność zapytań. Jeśli skalowanie w poziomie nie jest zmiana wydajności, dostępne są niektóre przyczyny, dlaczego taka sytuacja może wystąpić. Między dystrybucje może być niesymetryczna danych lub kwerend może wprowadzenie dużą ilość ruchu danych. Aby sprawdzić problemy z wydajnością zapytania, zobacz [Rozwiązywanie problemów z wydajnością](sql-data-warehouse-troubleshoot.md#performance). 
 
-### <a name="how-do-i-scale-compute"></a>Jak skalować obliczeń?
-Obliczeń zasilania odbywa się SQL Data Warehouse, zmieniając ustawienie wartości DWU. Zwiększona wydajność liniowo jak dodać więcej DWU dla niektórych operacji.  Firma Microsoft oferuje ofert DWU, zapewniający, że gdy system skalować w górę lub w dół znacznie zmienić wydajność. 
+## <a name="pausing-and-resuming-compute"></a>Wstrzymywanie i wznawianie obliczeniowe
+Wstrzymywanie obliczeń powoduje, że warstwy magazynowania można odłączyć od węzłów obliczeniowych. Zasoby obliczeniowe są wydawane z Twojego konta. Możesz nie są naliczane obliczania podczas obliczeń jest wstrzymana. Wznawianie obliczeń reattaches magazynu węzłami obliczeniowymi i wznawia opłat obliczania. Po zatrzymaniu magazynu danych:
 
-Aby dostosować liczbę jednostek dwu, można użyć dowolnej z tych poszczególnych metod.
+* Zasoby obliczeniowe i pamięci są zwracane do puli zasobów dostępnych w centrum danych
+* Koszt jednostkowy magazynu danych są zera na czas trwania pauzy.
+* Nie wpływa na magazyn danych i danych pozostaje niezmieniona. 
+* Usługa SQL Data Warehouse anuluje wszystkie uruchomione lub umieszczonych w kolejce operacji.
 
-* [Skala obliczeniowe zasilania z portalu Azure][Scale compute power with Azure portal]
-* [Skala obliczeniowe zasilania przy użyciu programu PowerShell][Scale compute power with PowerShell]
-* [Moc obliczeniową skali z interfejsów API REST][Scale compute power with REST APIs]
-* [Skala obliczeniowe zasilania przy użyciu języka TSQL][Scale compute power with TSQL]
+Po wznowieniu pracy hurtowni danych:
 
-### <a name="how-many-dwus-should-i-use"></a>Liczbę jednostek dwu należy używać?
+* Usługa SQL Data Warehouse uzyskuje zasobów obliczeniowych i pamięci dla ustawienie jednostek magazynu danych.
+* Obliczeniowe opłat za Twoje Wznów jednostki magazynu danych.
+* Dane staną się dostępne.
+* Po magazynu danych jest w trybie online, możesz konieczne ponowne uruchomienie zapytania obciążenia.
 
-Aby przekonać się, jaka jest idealna wartość DWU, skaluj w górę i w dół oraz uruchom kilka zapytań po załadowaniu danych. Ponieważ skalowanie odbywa się szybko, możesz wypróbować różne poziomy wydajności w ciągu godziny lub mniej. 
+Jeśli chcesz zawsze magazyn danych dostępny, należy wziąć pod uwagę skalowanie w dół najmniejszy rozmiar, a nie wstrzymanie. 
 
-> [!Note] 
-> Usługa SQL Data Warehouse zaprojektowano w celu przetwarzania dużych ilości danych. Aby wyświetlić jego wartość true, możliwości skalowania, zwłaszcza na większą liczbę jednostek dwu, chcesz użyć dużych zestawów danych, które zbliża się lub przekracza 1 TB.
+Dla wstrzymać i wznowić czynności, zobacz [portalu Azure](pause-and-resume-compute-portal.md), lub [PowerShell](pause-and-resume-compute-powershell.md) Przewodniki Szybki Start. Można również użyć [wstrzymać interfejsu API REST](sql-data-warehouse-manage-compute-rest-api.md#pause-compute) lub [wznowić interfejsu API REST](sql-data-warehouse-manage-compute-rest-api.md#resume-compute).
 
-Zalecenia dotyczące znajdowania wartość DWU najlepsze dla obciążenia:
+## <a name="drain-transactions-before-pausing-or-scaling"></a>Opróżnianie transakcji przed wstrzymywaniem i skalowaniem
+Firma Microsoft zaleca stosowanie istniejących transakcji zakończyć przed rozpoczęciem operacji pauzę lub skali.
 
-1. Dla magazynu danych na programowanie rozpocząć wybierając mniejszą wydajnością DWU.  Dobry punkt wyjścia jest DW400 lub DW200.
-2. Monitorowanie wydajności aplikacji, obserwowania liczby jednostek dwu wybrane w porównaniu do wydajności, które należy obserwować.
-3. Określ, ile szybciej lub wolniej wydajność powinna być można osiągnąć poziom optymalną wydajność do wymagań przejmując skali liniowej.
-4. Zwiększanie lub zmniejszanie liczby jednostek dwu proporcjonalnie do jak znacznie szybciej lub wolniej ma obciążenia do wykonania. 
-5. Kontynuuj, wprowadzić zmiany, aż do uzyskania optymalnej wydajności poziom dla potrzeb biznesowych.
+Gdy ma zostać przeprowadzona procedura wstrzymania lub skalowania usługi SQL Data Warehouse, po zainicjowaniu odpowiedniego żądania następuje anulowanie zapytań w tle.  Anulowanie prostego zapytania typu SELECT to szybka operacja, która nie ma prawie żadnego wpływu na czas wstrzymywania lub skalowania wystąpienia.  Może jednak nie być możliwe szybkie zatrzymanie zapytań transakcyjnych, które modyfikują dane lub ich strukturę.  **Zapytania transakcyjne należy z założenia wykonać w całości lub wycofać ich zmiany.**  Całkowite cofnięcie wyników działania zapytania transakcyjnego może trwać równie długo lub nawet dłużej niż pierwotna zmiana wprowadzona przez zapytanie.  Na przykład w przypadku anulowania zapytania, którego zadaniem było usunięcie wierszy i które było uruchomione przez godzinę, może upłynąć kolejna godzina, zanim system z powrotem wstawi wiersze, które zostały usunięte.  W przypadku uruchomienia procedury wstrzymywania lub skalowania w toku transakcji operacja wstrzymywania lub skalowania może zająć dużo czasu, ponieważ zanim będzie możliwe jej wykonanie, zmiany muszą zostać w pełni cofnięte.
 
-> [!NOTE]
->
-> Wydajność zapytań tylko zwiększa się wraz z paralelizacja więcej jeśli pracy może zostać podzielony między węzły obliczeń. Jeśli okaże się, że skalowanie nie zmienia się na wydajność, można znaleźć na naszych dostrajanie artykuły, aby sprawdzić, czy dane jest nierównomiernie dystrybuowane lub jeśli udostępniono dużą ilość ruchu danych wydajności. 
+Zobacz też [opis transakcji](sql-data-warehouse-develop-transactions.md)i [optymalizacji transakcji][optymalizacji transakcji](sql-data-warehouse-develop-best-practices-transactions.md).
 
-### <a name="when-should-i-scale-dwus"></a>Kiedy skalować liczbę jednostek dwu?
-Skalowanie jednostek dwu powoduje zmianę następujących ważne scenariusze:
+## <a name="automating-compute-management"></a>Automatyzacja zarządzania obliczeń
+Aby zautomatyzować operacje zarządzania obliczeniowe, zobacz [Zarządzaj obliczeniowe o usługę Azure functions](manage-compute-with-azure-functions.md).
 
-1. Liniowo Zmiana wydajności systemu pod kątem skanowania, agregacji i CTAS — instrukcje
-2. Zwiększenie liczby czytelników i zapisywania podczas ładowania przy użyciu programu PolyBase
-3. Maksymalna liczba równoczesnych zapytań i gniazda współbieżności
+Każdego skalowalnego w poziomie, Wstrzymaj i operacje wznawiania może potrwać kilka minut. Czy możesz skalowania, wstrzymywanie, wznawianie automatycznie, zaleca się wdrożenie logiki, aby upewnić się, że niektóre operacje została ukończona przed wykonaniem innej akcji. Sprawdzanie stanu magazynu danych przy użyciu różnych punktów końcowych umożliwia prawidłowo zaimplementować automatyzacji takich operacji. 
 
-Zalecenia dotyczące Kiedy skalować liczbę jednostek dwu:
+Aby sprawdzić stan magazynu danych, zobacz [PowerShell](quickstart-scale-compute-powershell.md#check-database-state) lub [T-SQL](quickstart-scale-compute-tsql.md#check-database-state) Szybki Start. Możesz również sprawdzić stan magazynu danych z [interfejsu API REST](sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
 
-1. Przed wykonaniem operacji ładowania i przekształcania dużej ilości danych, skalowanie w górę liczbę jednostek dwu tak, aby szybciej Twoje dane są dostępne.
-2. W godzinach szczytu skalowanie w celu uwzględnienia większej liczby równoczesnych zapytań. 
-
-<a name="pause-compute-bk"></a>
-
-## <a name="pause-compute"></a>Wstrzymaj obliczeń
-[!INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md)]
-
-Aby wstrzymać bazy danych, użyj jednej z tych poszczególnych metod.
-
-* [Wstrzymaj obliczeń z portalu Azure][Pause compute with Azure portal]
-* [Wstrzymaj obliczeń przy użyciu programu PowerShell][Pause compute with PowerShell]
-* [Wstrzymaj obliczeń z interfejsów API REST][Pause compute with REST APIs]
-
-<a name="resume-compute-bk"></a>
-
-## <a name="resume-compute"></a>Wznów obliczeń
-[!INCLUDE [SQL Data Warehouse resume description](../../includes/sql-data-warehouse-resume-description.md)]
-
-Aby wznowić działanie bazy danych, użyj jednej z tych poszczególnych metod.
-
-* [Wznów obliczeń z portalu Azure][Resume compute with Azure portal]
-* [Wznów obliczeń przy użyciu programu PowerShell][Resume compute with PowerShell]
-* [Wznów obliczeń z interfejsów API REST][Resume compute with REST APIs]
-
-<a name="check-compute-bk"></a>
-
-## <a name="check-database-state"></a>Sprawdź stan bazy danych 
-
-Aby wznowić działanie bazy danych, użyj jednej z tych poszczególnych metod.
-
-- [Sprawdź stan bazy danych z T-SQL][Check database state with T-SQL]
-- [Sprawdź stan bazy danych przy użyciu programu PowerShell][Check database state with PowerShell]
-- [Sprawdź stan bazy danych z interfejsów API REST][Check database state with REST APIs]
 
 ## <a name="permissions"></a>Uprawnienia
 
-Skalowanie bazy danych musi mieć uprawnienia opisanego w [ALTER DATABASE][ALTER DATABASE].  Wstrzymywanie i wznawianie wymagają [Współautor bazy danych SQL] [ SQL DB Contributor] uprawnienia, w szczególności Microsoft.Sql/servers/databases/action.
+Skalowanie w magazynie danych wymaga uprawnienia opisane w [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse.md).  Wstrzymywanie i wznawianie wymagają [Współautor bazy danych SQL](../active-directory/role-based-access-built-in-roles.md#sql-db-contributor) uprawnienia, w szczególności Microsoft.Sql/servers/databases/action.
 
-<a name="next-steps-bk"></a>
 
 ## <a name="next-steps"></a>Kolejne kroki
-Zobacz następujące artykuły, aby ułatwić zrozumienie pojęcia niektóre dodatkowe wydajności:
-
-* [Zarządzanie obciążenia i współbieżność][Workload and concurrency management]
-* [Omówienie projektowania tabeli][Table design overview]
-* [Dystrybucja tabeli][Table distribution]
-* [Indeksowanie tabeli][Table indexing]
-* [Partycjonowanie tabel][Table partitioning]
-* [Statystyk tabeli][Table statistics]
-* [Najlepsze praktyki][Best practices]
-
-<!--Image reference-->
-
-<!--Article references-->
-[billed]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
-[Scale compute power with Azure portal]: ./sql-data-warehouse-manage-compute-portal.md#scale-compute-power
-[Scale compute power with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#scale-compute-bk
-[Scale compute power with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#scale-compute-bk
-[Scale compute power with TSQL]: ./sql-data-warehouse-manage-compute-tsql.md#scale-compute-bk
-
-[capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
-
-[Pause compute with Azure portal]:  ./sql-data-warehouse-manage-compute-portal.md
-[Pause compute with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#pause-compute-bk
-[Pause compute with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#pause-compute-bk
-
-[Resume compute with Azure portal]:  ./sql-data-warehouse-manage-compute-portal.md
-[Resume compute with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#resume-compute-bk
-[Resume compute with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#resume-compute-bk
-
-[Check database state with T-SQL]: ./sql-data-warehouse-manage-compute-tsql.md#check-database-state-and-operation-progress
-[Check database state with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#check-database-state
-[Check database state with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#check-database-state
-
-[Workload and concurrency management]: ./sql-data-warehouse-develop-concurrency.md
-[Table design overview]: ./sql-data-warehouse-tables-overview.md
-[Table distribution]: ./sql-data-warehouse-tables-distribute.md
-[Table indexing]: ./sql-data-warehouse-tables-index.md
-[Table partitioning]: ./sql-data-warehouse-tables-partition.md
-[Table statistics]: ./sql-data-warehouse-tables-statistics.md
-[Best practices]: ./sql-data-warehouse-best-practices.md
-[development overview]: ./sql-data-warehouse-overview-develop.md
-
-[SQL DB Contributor]: ../active-directory/role-based-access-built-in-roles.md#sql-db-contributor
-
-<!--MSDN references-->
-[ALTER DATABASE]: https://msdn.microsoft.com/library/mt204042.aspx
-
-<!--Other Web references-->
-[Azure portal]: http://portal.azure.com/
+Innym aspektem zarządzania zasoby obliczeniowe jest przydziału zasobów obliczeniowych różnych dla poszczególnych zapytań. Aby uzyskać więcej informacji, zobacz [klasy zasobów do zarządzania obciążenia](resource-classes-for-workload-management.md).

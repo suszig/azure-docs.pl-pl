@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2016
 ms.author: v-craic
-ms.openlocfilehash: a3b52bb8db0bcd46badb15d4bc65b85977faaadc
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 5f7c9be115b27d6033429c1224fa15fd7b844c1d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-azure-marketplace-image-settings-in-azure-devtest-labs"></a>Skonfiguruj ustawienia obrazu portalu Azure Marketplace w usłudze Azure DevTest Labs
 DevTest Labs obsługuje tworzenia maszyn wirtualnych oparte na obrazach portalu Azure Marketplace w zależności od sposobu konfiguracji portalu Azure Marketplace obrazów do wykorzystania w laboratorium. W tym artykule przedstawiono sposób określić, które, portalu Azure Marketplace obrazy mogą być używane podczas tworzenia maszyn wirtualnych w laboratorium. Dzięki temu, że zespół ma dostęp tylko do obrazów Marketplace, które są im potrzebne. 
 
 ## <a name="select-which-azure-marketplace-images-are-allowed-when-creating-a-vm"></a>Wybierz obrazy portalu Azure Marketplace, które są dozwolone podczas tworzenia maszyny Wirtualnej
 1. Zaloguj się w witrynie [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Wybierz **więcej usług**, a następnie wybierz **DevTest Labs** z listy.
+2. Wybierz **wszystkie usługi**, a następnie wybierz **DevTest Labs** z listy.
 3. Z listy labs wybierz żądany laboratorium. 
 4. W bloku laboratorium, wybierz **konfiguracji i zasadach**.
 5. W laboratorium w **konfiguracji i zasadach** bloku w obszarze **baz maszyn wirtualnych**, wybierz pozycję **obrazów Marketplace**.

@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/15/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: d8943db3ec6ef5875b2b884d42ea25dbb44a30e5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5bc01c7e70e6837989c6bebd843ba1f41c8c5aeb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Poznaj możliwości zdalnego wstępnie skonfigurowane rozwiązanie monitorowania
 
@@ -31,6 +31,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Odpowiadanie na alarmu
 > * Zaktualizuj oprogramowanie układowe urządzenia
 > * Organizowanie zasobów
+> * Zatrzymywanie i uruchamianie symulowanego urządzenia
 
 Poniższe wideo przedstawia przewodnik zdalnego rozwiązanie monitorowania:
 
@@ -230,6 +231,16 @@ Można użyć wartości tagów, aby utworzyć filtry.
 
 Contoso operator można teraz kwerendy urządzeń według zespół operacyjny bez konieczności zmian na urządzeniach.
 
+## <a name="stop-simulated-devices"></a>Zatrzymaj symulowanego urządzenia
+
+W menu ustawień służy do zatrzymania symulowanego urządzenia. Pozwala to zmniejszyć koszty testowania i eksploracja rozwiązania. Aby uruchomić lub zatrzymać symulowanego urządzenia:
+
+1. Wybierz **ustawienia** ikony.
+
+1. Następnie przełącz **systemem** lub wyłącz:
+
+    ![Menu ustawień](media/iot-suite-remote-monitoring-explore/settings.png)
+
 ## <a name="next-steps"></a>Kolejne kroki
 
 W tym samouczku przedstawiono do:
@@ -239,6 +250,7 @@ W tym samouczku przedstawiono do:
 > * Odpowiadanie na alarmu
 > * Zaktualizuj oprogramowanie układowe urządzenia
 > * Organizowanie zasobów
+> * Zatrzymywanie i uruchamianie symulowanego urządzenia
 
 Teraz, gdy rozwiązanie monitorowania zdalnego zostały zbadane, sugerowane następnych krokach zostaną Dowiedz się więcej o zaawansowanych funkcji zdalnego rozwiązanie monitorowania:
 

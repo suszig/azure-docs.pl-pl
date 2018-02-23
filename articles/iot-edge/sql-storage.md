@@ -3,17 +3,17 @@ title: "Moduł SQL krawędzi IoT Azure | Dokumentacja firmy Microsoft"
 description: "Przechowywanie danych na krawędzi, z modułów programu Microsoft SQL, z usługi Azure Functions do formatowania danych."
 services: iot-edge
 keywords: 
-author: ebertrams
+author: kgremban
 manager: timlt
 ms.author: kgremban, ebertrams
-ms.date: 02/07/2018
+ms.date: 02/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: f7ff069a2536d0138be8cbb32eefba342e1e9275
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 4b66a699e4c58662cadd799cf6aec83b9d34b7e6
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="store-data-at-the-edge-with-sql-server-databases"></a>Przechowywanie danych na krawędzi, z baz danych programu SQL Server
 
@@ -92,7 +92,6 @@ W kroku 3, możesz dodać utworzyć opcje do kontenera programu SQL Server, któ
              }
           }
         }
-      }
    ```
 
 3. W zależności od systemu operacyjnego, której używasz należy zaktualizować ustawienia modułu SQL z następującym kodem: 
@@ -101,7 +100,7 @@ W kroku 3, możesz dodać utworzyć opcje do kontenera programu SQL Server, któ
 
       ```json
       "image": "microsoft/mssql-server-windows-developer",
-      "createOptions": "{\r\n\t"Env": [\r\n\t\t"ACCEPT_EULA=Y",\r\n\t\t"sa_password=Strong!Passw0rd"\r\n\t],\r\n\t"HostConfig": {\r\n\t\t"Mounts": [{\r\n\t\t\t"Target": "C:\\mssql",\r\n\t\t\t"Source": "sqlVolume",\r\n\t\t\t"Type": "volume"\r\n\t\t}],\r\n\t\t"PortBindings": {\r\n\t\t\t"1433/tcp": [{\r\n\t\t\t\t"HostPort": "1401"\r\n\t\t\t}]\r\n\t\t}\r\n\t}\r\n}"
+      "createOptions": "{\r\n\t"Env": [\r\n\t\t"ACCEPT_EULA=Y",\r\n\t\t"sa_password=Strong!Passw0rd"\r\n\t],\r\n\t"HostConfig": {\r\n\t\t"Mounts": [{\r\n\t\t\t"Target": "C:\\\\mssql",\r\n\t\t\t"Source": "sqlVolume",\r\n\t\t\t"Type": "volume"\r\n\t\t}],\r\n\t\t"PortBindings": {\r\n\t\t\t"1433/tcp": [{\r\n\t\t\t\t"HostPort": "1401"\r\n\t\t\t}]\r\n\t\t}\r\n\t}\r\n}"
       ```
 
    * Linux:
@@ -118,7 +117,7 @@ W kroku 3, możesz dodać utworzyć opcje do kontenera programu SQL Server, któ
 8. Aby uruchomić środowisko uruchomieniowe programu Edge, zaznacz **krawędzi: Start krawędzi** w palecie polecenia.
 
 >[!TIP]
->Należy utworzyć kontener programu SQL Server w środowisku produkcyjnym za każdym razem [zmienić domyślne hasło administratora systemu](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker.md#change-the-sa-password).
+>Należy utworzyć kontener programu SQL Server w środowisku produkcyjnym za każdym razem [zmienić domyślne hasło administratora systemu](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker#change-the-sa-password).
 
 ## <a name="create-the-sql-database"></a>Tworzenie bazy danych SQL
 
@@ -132,7 +131,7 @@ W narzędziu wiersza polecenia połączenia z bazą danych:
    ```
 
 * Linux    
-   ```cmd
+   ```bash
    Docker exec -it sql 'bash'
    ```
 
@@ -144,7 +143,7 @@ Otwórz narzędzie polecenia SQL:
    ```
 
 * Linux
-   ```cmd
+   ```bash
    /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
 
@@ -189,7 +188,7 @@ Krawędź IoT automatycznie tworzy mostka (Linux) lub sieci NAT (z systemem Wind
 
 * Linux
 
-   ```cmd
+   ```bash
    sudo docker network inspect azure-iot-edge
    ```
 
@@ -309,7 +308,7 @@ W narzędziu wiersza polecenia połączenia z bazą danych:
    ```
 
 * Linux    
-   ```cmd
+   ```bash
    Docker exec -it sql 'bash'
    ```
 
@@ -321,7 +320,7 @@ Otwórz narzędzie polecenia SQL:
    ```
 
 * Linux
-   ```cmd
+   ```bash
    /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
 

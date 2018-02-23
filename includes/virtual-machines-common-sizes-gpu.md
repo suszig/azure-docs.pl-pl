@@ -34,7 +34,7 @@ NCv2 wystąpienia są generacji maszyn serii NC, obsługiwane przez [P100 tesla 
 | Standard_NC6s_v2 |6 |112 | 336 | 1 | 12 |
 | Standard_NC12s_v2 |12 |224 | 672 | 2 | 24 |
 | Standard_NC24s_v2 |24 |448 | 1344 | 4 | 32 |
-| Standard_NC24rs_v2 * |24 |1448 | 1344 | 4 | 32 |
+| Standard_NC24rs_v2 * |24 |448 | 1344 | 4 | 32 |
 
 Procesor GPU 1 = co karta P100.
 

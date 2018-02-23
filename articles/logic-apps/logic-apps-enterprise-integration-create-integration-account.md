@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: LADocs; mandia
-ms.openlocfilehash: 716e7b5bab8725dea0fd2b760d0e46e8e892c5b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7ec63810fe78b38c574ec39369d5926f80e595e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="what-is-an-integration-account"></a>Co to jest konto integracji?
 
 Konta integracji umożliwia enterprise integracji aplikacji do zarządzania artefaktów, w tym schematów, map, certyfikaty, partnerzy i umów. Dowolną aplikację integracji, tworzonych przy użyciu konta integracji dostęp do tych schematów, map, certyfikaty i itd.
 
-## <a name="create-an-integration-account"></a>Tworzenie konta usługi integracji
+## <a name="create-an-integration-account"></a>Tworzenie konta integracji
 
-1.  Zaloguj się w witrynie [Azure Portal](http://portal.azure.com "Azure Portal"). Wybierz z menu po lewej stronie **więcej usług**.
+1.  Zaloguj się w witrynie [Azure Portal](http://portal.azure.com "Azure Portal"). Wybierz z menu po lewej stronie **wszystkie usługi**.
 
-    ![Wybierz pozycję "Więcej usług"](./media/logic-apps-enterprise-integration-accounts/account-1.png)
+    ![Wybierz opcję "wszystkie usługi"](./media/logic-apps-enterprise-integration-accounts/account-1.png)
 
 2. W polu wyszukiwania wpisz "Integracja" filtru. Na liście wyników wybierz **konta integracji**.
 
@@ -85,9 +85,9 @@ Teraz, kiedy Twoje konto integracji jest połączone z aplikacji logiki, można 
 
 ## <a name="delete-your-integration-account"></a>Usuwanie konta integracji
 
-1. Wybierz **więcej usług**.
+1. Wybierz **wszystkie usługi**.
 
-    ![Wybierz pozycję "Więcej usług"](./media/logic-apps-enterprise-integration-accounts/account-1.png)
+    ![Wybierz opcję "wszystkie usługi"](./media/logic-apps-enterprise-integration-accounts/account-1.png)
 
 2. W polu wyszukiwania wpisz "Integracja" filtru. Na liście wyników wybierz **konta integracji**.
 
@@ -110,9 +110,9 @@ Aby przenieść konta integracji innego Azure subskrypcji lub grupy zasobów, wy
 > [!IMPORTANT]
 > Należy zaktualizować wszystkie skrypty do używania nowych identyfikatorów zasobów. po przeniesieniu konta integracji.
 
-1. Wybierz **więcej usług**.
+1. Wybierz **wszystkie usługi**.
 
-    ![Wybierz pozycję "Więcej usług"](./media/logic-apps-enterprise-integration-accounts/account-1.png)
+    ![Wybierz opcję "wszystkie usługi"](./media/logic-apps-enterprise-integration-accounts/account-1.png)
 
 2. W polu wyszukiwania wpisz "Integracja" filtru. Na liście wyników wybierz **konta integracji**.
 

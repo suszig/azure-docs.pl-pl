@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 6f9786b75f5160ceaa4dd269a91d7f3a4b6700d5
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 5e6a79a9b716b6797a1af21f0dcb911219b77207
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="collect-model-data-by-using-data-collection"></a>Zbieranie danych modelu przy użyciu funkcji zbierania danych
 
@@ -88,7 +88,7 @@ Aby korzystać z funkcji zbierania danych modelu, należy wprowadzić następuj�
 Aby wyświetlić zebrane dane w magazynie obiektów blob:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. Wybierz **więcej usług**.
+2. Wybierz **wszystkie usługi**.
 3. W polu wyszukiwania wpisz **kont magazynu** i wybierz klawisz Enter.
 4. Z **kont magazynu** bloku wyszukiwania wybierz **konta magazynu** zasobów. Aby określić konto magazynu, wykonaj następujące kroki:
 

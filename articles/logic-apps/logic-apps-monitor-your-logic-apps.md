@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 8ad8281744293a05b50f8664a7e5a3fea7aa7b33
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: f0376070a8bec7d97f54e9a198d5d67a9751334c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Monitorowanie stanu, konfigurowanie rejestrowania diagnostyki i Włącz alerty dla usługi Azure Logic Apps
 
@@ -29,7 +29,7 @@ Aby otrzymywać powiadomień o awarii lub innych możliwych problemów, skonfigu
 
 ## <a name="view-runs-and-trigger-history-for-your-logic-app"></a>Uruchamia widok i historii wyzwalacza dla aplikacji logiki
 
-1. Aby znaleźć aplikację logiki w [portalu Azure](https://portal.azure.com), w menu głównym Azure wybierz **więcej usług**. W polu wyszukiwania Znajdź "aplikacje logiki", a następnie wybierz pozycję **Logic apps**.
+1. Aby znaleźć aplikację logiki w [portalu Azure](https://portal.azure.com), w menu głównym Azure wybierz **wszystkie usługi**. W polu wyszukiwania wpisz "aplikacje logiki", a następnie wybierz pozycję **Logic apps**.
 
    ![Znajdź aplikację logiki](./media/logic-apps-monitor-your-logic-apps/find-your-logic-app.png)
 
@@ -109,7 +109,7 @@ Teraz można znaleźć zdarzeń i inne dane dla zdarzenia wyzwalacza, uruchom zd
 
 Aby znaleźć i wyświetlić zdarzenia w aplikacji logiki, takie jak wyzwolenia zdarzenia, uruchom zdarzenia i akcji, wykonaj następujące kroki.
 
-1. W [portalu Azure](https://portal.azure.com), wybierz **więcej usług**. Wyszukaj "analizy dzienników", a następnie wybierz **analizy dzienników** w sposób pokazany poniżej:
+1. W [portalu Azure](https://portal.azure.com), wybierz **wszystkie usługi**. Wyszukaj "analizy dzienników", a następnie wybierz **analizy dzienników** w sposób pokazany poniżej:
 
    ![Wybierz pozycję "Analizy dzienników"](media/logic-apps-monitor-your-logic-apps/browseloganalytics.png)
 

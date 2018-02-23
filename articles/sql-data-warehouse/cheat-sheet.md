@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 12/14/2017
+ms.date: 02/20/2018
 ms.author: acomet
-ms.openlocfilehash: a16c2230c26865913285cb8cbd5b0f81426acdd1
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 6c8278be32ae6c6452283ba946a36f363dd4d76d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Ściągawka dla usługi Azure SQL Data Warehouse
 Arkusz ze wskazówkami dotyczącymi ten zawiera przydatne porady i wskazówki umożliwiające tworzenie rozwiązań magazyn danych SQL Azure. Przed rozpoczęciem pracy Dowiedz się więcej o każdym kroku szczegółowo odczytując [wzorce magazynu danych Azure SQL w obciążenie i wzorce przed](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns), który opisano, co to jest usługa SQL Data Warehouse i co nie jest.
@@ -121,7 +121,7 @@ Na koniec za pomocą warstwy zoptymalizowanych pod kątem obliczeniowe, każda k
 Dowiedz się więcej, jak pracować z [klasy zasobów i współbieżność].
 
 ## <a name="lower-your-cost"></a>Niższy koszt
-Kluczowych funkcji usługi SQL Data Warehouse jest możliwość wstrzymania, gdy nie używasz, co uniemożliwia rozliczenia zasoby obliczeniowe. Inną niezwykle ważną cechą jest możliwość skalowania zasobów. Wstrzymywanie i skalowania można zrobić za pomocą portalu Azure lub za pomocą poleceń programu PowerShell.
+Kluczowych funkcji usługi SQL Data Warehouse jest możliwość [Zarządzanie zasoby obliczeniowe](sql-data-warehouse-manage-compute-overview.md). Można wstrzymać hurtowni danych, gdy nie używasz, co uniemożliwia rozliczenia zasoby obliczeniowe. Możesz skalować zasobów do Twojej wymagań dotyczących wydajności. Aby wstrzymać, użyj [portalu Azure](pause-and-resume-compute-portal.md) lub [PowerShell](pause-and-resume-compute-powershell.md). Aby skalować, użyj [portalu Azure](quickstart-scale-compute-portal.md), [Powershell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md), lub [interfejsu API REST](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
 Funkcja automatycznego skalowania teraz w czasie ma w środowisku Azure Functions:
 

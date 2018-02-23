@@ -1,10 +1,10 @@
 ---
-title: Konfigurowanie maszyn wirtualnych systemu Windows programu SQL Server 2017 w portalu Azure | Dokumentacja firmy Microsoft
+title: "Inicjowanie obsługi administracyjnej przewodnik dotyczący dla maszyn wirtualnych systemu Windows programu SQL Server w portalu Azure | Dokumentacja firmy Microsoft"
 description: Ten przewodnik opisuje opcje tworzenia maszyn wirtualnych systemu Windows programu SQL Server 2017 w portalu Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 tags: azure-resource-manager
 ms.assetid: 1aff691f-a40a-4de2-b6a0-def1384e086e
 ms.service: virtual-machines-sql
@@ -12,28 +12,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 12/12/2017
+ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: 440c783de73652ad2d312cd92db8635dc65df9ed
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 23a1f008e2c51325b7e9c7676847d55d7ccb7d44
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="how-to-create-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Jak utworzyć maszynę wirtualną systemu Windows programu SQL Server w portalu Azure
+# <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Udostępnianie maszynę wirtualną systemu Windows programu SQL Server w portalu Azure
 
-Ten przewodnik przeprowadzi Cię przez różne opcje dostępne podczas tworzenia maszyny wirtualnej systemu Windows programu SQL Server w portalu Azure. Można wykonaj kroki, aby utworzyć maszynę Wirtualną własnego programu SQL Server podczas nauki o różnych opcji. Alternatywnie można przejść do określonej sekcji odwołania na konkretnym kroku w portalu.
+Ten przewodnik zawiera szczegółowe informacje o różnych opcjach dostępnych podczas tworzenia maszyny wirtualnej systemu Windows programu SQL Server w portalu Azure. W tym artykule omówiono więcej opcji konfiguracji niż [maszyny Wirtualnej serwera SQL — Szybki Start](quickstart-sql-vm-create-portal.md), które wykraczają więcej za pomocą możliwą inicjowania obsługi zadań. 
 
-> [!TIP]
-> Aby szybko rozpocząć pracę z portalu wartości domyślne, zobacz [Szybki Start Azure — tworzenie maszyny Wirtualnej serwera SQL w portalu](quickstart-sql-vm-create-portal.md).
+Ten przewodnik umożliwia tworzenie własnych maszyn wirtualnych serwera SQL. Można również używać go jako odwołanie opcje dostępne w portalu Azure.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a id="select"></a> Wybieranie obrazu maszyny wirtualnej SQL z galerii
+## <a id="select"></a> Obrazy galerii maszyny wirtualnej programu SQL Server
+
+Podczas tworzenia maszyny wirtualnej programu SQL Server, można wybrać jeden z kilku wstępnie skonfigurowane obrazów w galerii maszyn wirtualnych. Poniższe kroki pokazują, jak wybrać jeden z obrazów 2017 serwera SQL.
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com) przy użyciu swojego konta.
 
-1. W witrynie Azure Portal kliknij pozycję **Nowe**. Portal otworzy okno **Nowe**.
+1. W portalu Azure, kliknij polecenie **Utwórz zasób**. Portal otworzy okno **Nowe**.
 
 1. W oknie **Nowe** kliknij grupę **Obliczenia**, a następnie kliknij pozycję **Zobacz wszystko**.
 
@@ -52,10 +53,10 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 1. Wybierz obraz o nazwie **Free SQL Server License: SQL Server 2017 Developer on Windows Server 2016 (Bezpłatna licencja programu SQL Server: SQL Server 2017 Developer w systemie Windows Server 2016)**.
 
    > [!TIP]
-   > W tym samouczku jest używana wersja Developer — w pełni funkcjonalna wersja programu SQL Server, bezpłatna w przypadku zastosowań obejmujących tworzenie i testowanie. Opłaty dotyczą tylko kosztów obsługi maszyny wirtualnej. Możesz jednak wybrać dowolny z obrazów do wykorzystania w tym samouczku.
+   > Developer edition jest używany w tym przewodniku, ponieważ to oferujący wszystkie funkcje, bezpłatna wersja programu SQL Server do rozwoju testowania. Opłaty dotyczą tylko kosztów obsługi maszyny wirtualnej. Jednak możesz mogą wybrać jeden z obrazów do użycia w tym przewodniku. Opis dostępnych obrazów, zobacz [omówienia maszyn wirtualnych systemu Windows Server SQL](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
 
    > [!TIP]
-   > W przypadku obrazów maszyn wirtualnych SQL koszty licencji programu SQL Server zostały uwzględnione w cenie za minutę dla tworzonej maszyny wirtualnej (z wyjątkiem wersji Developer i Express). Z programu SQL Server Developer można korzystać bezpłatnie w środowiskach tworzenia i testowania (nie produkcyjnych). Z programu SQL Express można korzystać bezpłatnie na potrzeby obsługi małych obciążeń (mniej niż 1 GB pamięci i mniej niż 10 GB magazynu). Drugą opcją jest używanie własnej licencji (BYOL, bring your own license) i płatność tylko za maszynę wirtualną. Nazwy tych obrazów mają prefiks {BYOL}. 
+   > Koszty licencjonowania programu SQL Server są włączone do ceny na minutę maszyny wirtualnej, Utwórz i zmienia się przez edition i rdzeni. Jednak program SQL Server Developer edition jest bezpłatna dla tworzenia/testowania (nie środowisko produkcyjne) i programu SQL Express jest bezpłatna dla lekkich obciążeń (mniej niż 1 GB pamięci, mniej niż 10 GB miejsca do magazynowania). Można również przełączyć your właścicielem licencji (BYOL) i płatności tylko dla maszyny Wirtualnej. Nazwy tych obrazów mają prefiks {BYOL}. 
    >
    > Aby uzyskać więcej informacji na temat tych opcji, zobacz [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Wskazówki dotyczące cen maszyn wirtualnych platformy Azure z programem SQL Server).
 
@@ -65,7 +66,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
     ![Tworzenie maszyny wirtualnej SQL przy użyciu usługi Resource Manager](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
 
-## <a id="configure"></a> Konfigurowanie maszyny wirtualnej
+## <a id="configure"></a> Opcje konfiguracji
 Do konfigurowania maszyny wirtualnej programu SQL Server służy pięć okien.
 
 | Krok | Opis |
@@ -95,7 +96,7 @@ W oknie **Podstawowe** podaj następujące informacje:
   > [!NOTE]
   > Nowa grupa zasobów jest przydatna, jeśli tylko testujesz lub poznajesz wdrożenia programu SQL Server na platformie Azure. Po zakończeniu testu usuń grupę zasobów, aby automatycznie usunąć maszynę wirtualną i wszystkie skojarzone z nią zasoby. Aby uzyskać więcej informacji na temat grup zasobów, zobacz [Omówienie usługi Azure Resource Manager](../../../azure-resource-manager/resource-group-overview.md).
 
-* Wybierz **Lokalizację** dla regionu platformy Azure, w którym będzie hostowane to wdrożenie.
+* Wybierz **lokalizacji** dla regionu platformy Azure do obsługi tego wdrożenia.
 
 * Kliknij pozycję **OK**, aby zapisać ustawienia.
 
@@ -106,14 +107,14 @@ W oknie **Podstawowe** podaj następujące informacje:
 W kroku **Rozmiar** wybierz rozmiar maszyny wirtualnej w oknie **Wybierz rozmiar**. W tym oknie początkowo wyświetlane są rozmiary maszyn zalecane zgodnie z wybranym obrazem.
 
 > [!IMPORTANT]
-> Szacowany koszt miesięczny wyświetlany w oknie **Wybieranie rozmiaru** nie uwzględnia kosztów licencjonowania programu SQL Server. Jest to koszt samej maszyny wirtualnej. W przypadku wersji Express i Developer programu SQL Server jest to szacowany łączny koszt. W przypadku innych wersji zobacz [cennik maszyn wirtualnych z systemem Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) i wybierz docelową wersję programu SQL Server. Zobacz również [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Wskazówki dotyczące cen maszyn wirtualnych platformy Azure z programem SQL Server).
+> Szacowany koszt miesięczny wyświetlany w oknie **Wybieranie rozmiaru** nie uwzględnia kosztów licencjonowania programu SQL Server. Ta szacowana jest kosztów samej maszyny wirtualnej. W przypadku wersji Express i Developer programu SQL Server to szacuje się, że szacowany koszt całkowity. W przypadku innych wersji zobacz [cennik maszyn wirtualnych z systemem Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) i wybierz docelową wersję programu SQL Server. Zobacz również [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Wskazówki dotyczące cen maszyn wirtualnych platformy Azure z programem SQL Server).
 
 ![Opcje rozmiaru maszyny wirtualnej SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-choose-a-size.png)
 
 W przypadku obciążeń produkcyjnych zobacz zalecane rozmiary i konfiguracje maszyn w artykule [Najlepsze rozwiązania w zakresie wydajności dla programu SQL Server w usłudze Azure Virtual Machines](virtual-machines-windows-sql-performance.md). Jeśli potrzebujesz rozmiaru maszyny, którego nie ma na liście, kliknij przycisk **Wyświetl wszystkie**.
 
 > [!NOTE]
-> Aby uzyskać więcej informacji na temat rozmiarów maszyny wirtualnej, zobacz [Sizes for virtual machines](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Rozmiary maszyn wirtualnych).
+> Aby uzyskać więcej informacji na temat rozmiarów maszyny wirtualnej, zobacz artykuł [Sizes for virtual machines](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Rozmiary maszyn wirtualnych).
 
 Wybierz rozmiar maszyny wirtualnej, a następnie kliknij pozycję **Wybierz**.
 
@@ -124,13 +125,13 @@ W oknie **Ustawienia** skonfiguruj usługę Azure Storage, sieć i monitorowanie
 * W obszarze **Storage** wybierz pozycję **Tak** dla użycia usługi **Managed Disks**.
 
    > [!NOTE]
-   > Firma Microsoft zaleca usługę Managed Disks dla programu SQL Server. Usługa Managed Disks obsługuje magazyn w tle. Ponadto jeśli maszyny wirtualne z usługą Managed Disks znajdują się w tym samym zestawie dostępności, platforma Azure dystrybuuje zasoby magazynu w celu zapewnienia odpowiedniej nadmiarowości. Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure Managed Disks](../../../storage/storage-managed-disks-overview.md). Aby uzyskać szczegóły dotyczące dysków zarządzanych w zestawie dostępności, zobacz sekcję [Use managed disks for VMs in availability set](../manage-availability.md) (Używanie dysków zarządzanych dla maszyn wirtualnych w zestawie dostępności).
+   > Firma Microsoft zaleca usługę Managed Disks dla programu SQL Server. Usługa Managed Disks obsługuje magazyn w tle. Ponadto jeśli maszyny wirtualne z usługą Managed Disks znajdują się w tym samym zestawie dostępności, platforma Azure dystrybuuje zasoby magazynu w celu zapewnienia odpowiedniej nadmiarowości. Aby uzyskać więcej informacji, zobacz [omówienie dysków zarządzanych Azure] [.. / zarządzane dysków overview.md). Aby uzyskać szczegóły dotyczące dysków zarządzanych w zestawie dostępności, zobacz sekcję [Use managed disks for VMs in availability set](../manage-availability.md) (Używanie dysków zarządzanych dla maszyn wirtualnych w zestawie dostępności).
 
-* W obszarze **Sieć** możesz zaakceptować automatycznie wypełnione wartości. Możesz również kliknąć poszczególne funkcje, aby ręcznie skonfigurować ustawienia **Sieć wirtualna**, **Podsieć**, **Publiczny adres IP** i **Sieciowa grupa zabezpieczeń**. Na potrzeby tego samouczka zachowaj wartości domyślne.
+* W obszarze **Sieć** możesz zaakceptować automatycznie wypełnione wartości. Możesz również kliknąć poszczególne funkcje, aby ręcznie skonfigurować ustawienia **Sieć wirtualna**, **Podsieć**, **Publiczny adres IP** i **Sieciowa grupa zabezpieczeń**. Na potrzeby tego przewodnika Zachowaj wartości domyślne.
 
 * Platforma Azure domyślnie umożliwia **monitorowanie** za pomocą tego samego konta magazynu wyznaczonego dla maszyny wirtualnej. Możesz zmienić te ustawienia tutaj.
 
-* Na potrzeby tego samouczka w obszarze **Zestaw dostępności** możesz pozostawić wartość domyślną **brak**. Jeśli planujesz konfigurowanie zawsze włączonych grup dostępności SQL, skonfiguruj dostępność, aby zapobiec ponownemu utworzeniu maszyny wirtualnej.  Aby uzyskać więcej informacji, zobacz [Manage the Availability of Virtual Machines](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Zarządzanie dostępnością usługi Virtual Machines).
+* W obszarze **zestawu dostępności**, można pozostawić wartość domyślną **Brak** w ramach tego przewodnika. Jeśli planujesz konfigurowanie zawsze włączonych grup dostępności SQL, skonfiguruj dostępność, aby zapobiec ponownemu utworzeniu maszyny wirtualnej.  Aby uzyskać więcej informacji, zobacz [Manage the Availability of Virtual Machines](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Zarządzanie dostępnością usługi Virtual Machines).
 
 Po zakończeniu konfigurowania tych ustawień kliknij pozycję **OK**.
 
@@ -149,12 +150,12 @@ W oknie **Ustawienia programu SQL Server** skonfiguruj określone ustawienia i o
 
 ### <a name="connectivity"></a>Łączność
 
-W obszarze **Łączność z serwerem SQL** określ żądany typ dostępu do wystąpienia programu SQL Server na tej maszynie wirtualnej. Na potrzeby tego samouczka wybierz pozycję **Publiczne (Internet)**, aby zezwolić na połączenia z programem SQL Server z komputerów lub usług w Internecie. Jeśli ta opcja zostanie wybrana, platforma Azure automatycznie skonfiguruje zaporę i sieciową grupę zabezpieczeń do zezwalania na ruch przez port 1433.
+W obszarze **Łączność z serwerem SQL** określ żądany typ dostępu do wystąpienia programu SQL Server na tej maszynie wirtualnej. Na potrzeby tego przewodnika, wybierz **publiczne (internet)** umożliwia nawiązywanie połączeń z programem SQL Server z komputerów lub usług w Internecie. Jeśli ta opcja zostanie wybrana, platforma Azure automatycznie skonfiguruje zaporę i sieciową grupę zabezpieczeń do zezwalania na ruch przez port 1433.
 
 ![Opcje łączności z serwerem SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-connectivity-alt.png)
 
 > [!TIP]
-> Domyślnie program SQL Server nasłuchuje na dobrze znanym porcie **1433**. Aby zwiększyć bezpieczeństwo, zmień port w poprzednim oknie dialogowym do nasłuchiwania na porcie innym niż domyślny, takim jak 1401. Jeśli to zrobisz, musisz nawiązywać połączenie przy użyciu tego portu z dowolnych narzędzi klienta, takich jak program SSMS.
+> Domyślnie program SQL Server nasłuchuje na dobrze znanym porcie **1433**. Aby zwiększyć bezpieczeństwo, zmień port w poprzednim oknie dialogowym do nasłuchiwania na porcie innym niż domyślny, takim jak 1401. Jeśli zmienisz numer portu, należy połączyć za pomocą tego portu, z narzędzi klienta, takich jak SSMS.
 
 Aby ustanowić połączenie z programem SQL Server za pośrednictwem Internetu, musisz również włączyć funkcję Uwierzytelnianie programu SQL Server opisaną w następnej sekcji.
 
@@ -165,9 +166,6 @@ Jeśli nie chcesz zezwolić na połączenia z aparatem bazy danych za pośrednic
 
 Ogólnie rzecz biorąc, można ulepszyć zabezpieczenia, wybierając łączność z najbardziej restrykcyjnymi ograniczeniami akceptowanymi w danym scenariuszu. Jednak wszystkie opcje można zabezpieczyć przy użyciu reguł sieciowej grupy zabezpieczeń i uwierzytelniania SQL/Windows. Możesz edytować sieciową grupę zabezpieczeń po utworzeniu maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [Zagadnienia dotyczące zabezpieczeń programu SQL Server w usłudze Azure Virtual Machines](virtual-machines-windows-sql-security.md).
 
-> [!NOTE]
-> W obrazach maszyn wirtualnych programu SQL Server w wersji Express protokół TCP/IP nie jest domyślnie włączony. Ta zasada obowiązuje nawet dla opcji łączności publicznej i prywatnej. W przypadku wersji Express należy [ręcznie włączyć protokół TCP/IP](#configure-sql-server-to-listen-on-the-tcp-protocol) po utworzeniu maszyny wirtualnej przy użyciu Menedżera konfiguracji programu SQL Server.
-
 ### <a name="authentication"></a>Authentication
 
 Jeśli wymagasz uwierzytelniania programu SQL Server, kliknij pozycję **Włącz** w obszarze **Uwierzytelnianie SQL**.
@@ -175,11 +173,9 @@ Jeśli wymagasz uwierzytelniania programu SQL Server, kliknij pozycję **Włącz
 ![Uwierzytelnianie programu SQL Server](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-authentication.png)
 
 > [!NOTE]
-> Jeśli planujesz dostęp do programu SQL Server za pośrednictwem Internetu (tzn. opcja łączności publicznej), musisz w tym miejscu włączyć uwierzytelnianie SQL. Publiczny dostęp do programu SQL Server wymaga użycia uwierzytelniania SQL.
-> 
-> 
+> Jeśli planujesz dostęp do programu SQL Server za pośrednictwem Internetu (opcja łączności publicznej), należy włączyć uwierzytelnianie SQL, w tym miejscu. Publiczny dostęp do programu SQL Server wymaga użycia uwierzytelniania SQL.
 
-Jeśli włączasz opcję uwierzytelniania programu SQL Server, podaj informacje w polach **Nazwa logowania** i **Hasło**. Ta nazwa użytkownika jest skonfigurowana jako identyfikator logowania uwierzytelniania programu SQL Server i członek stałej roli serwera **sysadmin**. Aby uzyskać więcej informacji na temat trybów uwierzytelniana, zobacz [Choose an Authentication Mode](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode) (Wybieranie trybu uwierzytelniania).
+Jeśli włączasz opcję uwierzytelniania programu SQL Server, podaj informacje w polach **Nazwa logowania** i **Hasło**. Ta nazwa użytkownika jest skonfigurowana jako identyfikator logowania uwierzytelniania programu SQL Server i członek stałej roli serwera **sysadmin**. Aby uzyskać więcej informacji na temat trybów uwierzytelniana, zobacz artykuł [Choose an Authentication Mode](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode) (Wybieranie trybu uwierzytelniania).
 
 Jeśli nie włączysz opcji uwierzytelniania programu SQL Server, możesz użyć konta administratora lokalnego na maszynie wirtualnej do ustanawiania połączeń z wystąpieniem programu SQL Server.
 
@@ -248,7 +244,7 @@ Aby uzyskać więcej informacji, zobacz [Configure Azure Key Vault Integration f
 
 ### <a name="sql-server-machine-learning-services"></a>SQL Server Machine Learning Services
 
-Dostępna jest opcja włączenia usług [SQL Server Machine Learning Services](https://msdn.microsoft.com/library/mt604845.aspx). Umożliwia to korzystanie z zaawansowanych funkcji analizy za pomocą programu SQL Server 2017. Kliknij pozycję **Włącz** w oknie **Ustawienia programu SQL Server**.
+Dostępna jest opcja włączenia usług [SQL Server Machine Learning Services](https://msdn.microsoft.com/library/mt604845.aspx). Ta opcja pozwala na użycie zaawansowana analityka przy 2017 serwera SQL. Kliknij pozycję **Włącz** w oknie **Ustawienia programu SQL Server**.
 
 ![Włączanie usług SQL Server Machine Learning Services](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
 
@@ -275,12 +271,12 @@ Korzystając z dostępu do maszyny, możesz bezpośrednio zmienić ustawienia ma
 
 ## <a id="connect"></a> Zdalne ustanawianie połączenia z programem SQL Server
 
-W tym samouczku wybrano opcję dostępu **Publiczne** dla maszyny wirtualnej i opcję **Uwierzytelnianie programu SQL Server**. Te ustawienia powodują automatyczne skonfigurowanie maszyny wirtualnej do zezwalania na połączenia z programem SQL Server z dowolnego klienta za pośrednictwem Internetu (zakładając, że ma on poprawny identyfikator logowania SQL).
+W tym przewodniku wybrano **publicznego** dostępu dla maszyny wirtualnej i **uwierzytelniania programu SQL Server**. Te ustawienia powodują automatyczne skonfigurowanie maszyny wirtualnej do zezwalania na połączenia z programem SQL Server z dowolnego klienta za pośrednictwem Internetu (zakładając, że ma on poprawny identyfikator logowania SQL).
 
 > [!NOTE]
 > Jeśli podczas aprowizacji nie wybrano opcji Publiczne, możesz zmienić ustawienia łączności SQL za pośrednictwem portalu po aprowizacji. Aby uzyskać więcej informacji, zobacz [Zmiana ustawień łączności SQL](virtual-machines-windows-sql-connect.md#change).
 
-Poniższe sekcje pokazują, jak nawiązać połączenie z wystąpieniem programu SQL Server na maszynie wirtualnej z innego komputera za pośrednictwem Internetu.
+W poniższych sekcjach przedstawiono sposób nawiązywania połączenia przez internet do Twojego wystąpienia maszyny Wirtualnej programu SQL Server.
 
 [!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
 

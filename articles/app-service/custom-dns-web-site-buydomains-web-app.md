@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
-ms.openlocfilehash: 13a61caf9b4dff8ffc08970d5a4c09efa9c5f117
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 152dbb6d47dfdf3bf5df945b823f64e58e7d91e2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Kup niestandardowej nazwy domeny dla aplikacji sieci Web Azure
 
@@ -30,7 +30,7 @@ Ten artykuł dotyczy usługi Azure App Service (aplikacje sieci Web, aplikacje A
 
 W celu ukończenia tego samouczka:
 
-* [Utwórz aplikację usługi aplikacji](/azure/app-service/), lub użyć utworzonego w samouczku innej aplikacji.
+* [Utwórz aplikację usługi App Service](/azure/app-service/) lub użyj aplikacji utworzonej w innym samouczku.
 * [Usuń limit wydatków na subskrypcję](../billing/billing-spending-limit.md#remove). Nie można kupić domen aplikacji usługi z środki na korzystanie z bezpłatnej subskrypcji.
 
 ## <a name="prepare-the-app"></a>Przygotowywanie aplikacji
@@ -41,44 +41,44 @@ Do używania niestandardowych domen w usłudze Azure Web Apps, aplikacji sieci w
 
 ### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
-Otwórz [portalu Azure](https://portal.azure.com) i zaloguj się przy użyciu konta platformy Azure.
+Otwórz witrynę [Azure Portal](https://portal.azure.com) i zaloguj się przy użyciu konta platformy Azure.
 
-### <a name="navigate-to-the-app-in-the-azure-portal"></a>Przejdź do aplikacji w portalu Azure
+### <a name="navigate-to-the-app-in-the-azure-portal"></a>Nawigowanie do aplikacji w witrynie Azure Portal
 
-Wybierz z menu po lewej stronie **usługi aplikacji**, a następnie wybierz nazwę aplikacji.
+W lewym menu wybierz pozycję **App Services**, a następnie wybierz nazwę swojej aplikacji.
 
-![Nawigacji w portalu do aplikacji Azure](./media/app-service-web-tutorial-custom-domain/select-app.png)
+![Nawigacja w portalu do aplikacji platformy Azure](./media/app-service-web-tutorial-custom-domain/select-app.png)
 
-Zostanie wyświetlona strona zarządzania aplikacji usługi aplikacji.  
+Zostanie wyświetlona strona zarządzania aplikacji usługi App Service.  
 
-### <a name="check-the-pricing-tier"></a>Sprawdź warstwę cenową
+### <a name="check-the-pricing-tier"></a>Sprawdzanie warstwy cenowej
 
-W lewym obszarze nawigacji strony aplikacji, przewiń **ustawienia** a następnie wybierz opcję **skalowanie w górę (plan usługi App Service)**.
+W lewym obszarze nawigacji na stronie aplikacji przewiń do sekcji **Ustawienia** i wybierz pozycję **Skaluj w górę (plan usługi App Service)**.
 
-![Skalowanie w pionie menu](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
+![Menu skalowania w górę](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
-Warstwa bieżąca aplikacja zostanie wyróżniona niebieskim obramowaniem. Upewnij się, że aplikacja nie znajduje się w **wolne** warstwy. Niestandardowe DNS nie jest obsługiwany w **wolne** warstwy. 
+Bieżąca warstwa aplikacji jest wyróżniona niebieskim obramowaniem. Upewnij się, że aplikacja nie znajduje się w warstwie **Bezpłatna**. Niestandardowe nazwy DNS nie są obsługiwane w warstwie **Bezpłatna**. 
 
-![Sprawdź warstwę cenową](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
+![Sprawdzanie warstwy cenowej](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
 Jeśli plan usługi aplikacji nie jest **wolne**, Zamknij **wybierz warstwę cenową** strony i przejść [kupić domeny](#buy-the-domain).
 
-### <a name="scale-up-the-app-service-plan"></a>Skalowanie w górę plan usługi aplikacji
+### <a name="scale-up-the-app-service-plan"></a>Skalowanie w górę planu usługi App Service
 
-Wybierz jedno z systemem innym niż bez warstw (**Shared**, **podstawowe**, **standardowe**, lub **Premium**). 
+Wybierz jedną z płatnych warstw (**Współdzielona**, **Podstawowa**, **Standardowa** lub **Premium**). 
 
 Kliknij pozycję **Wybierz**.
 
-![Sprawdź warstwę cenową](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
+![Sprawdzanie warstwy cenowej](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 
-Gdy zostanie wyświetlone następujące powiadomienie, zakończeniu operacji skalowania.
+Wyświetlenie następującego powiadomienia oznacza zakończenie operacji skalowania.
 
 ![Potwierdzenie operacji skalowania](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
 
 ## <a name="buy-the-domain"></a>Kup domeny
 
 ### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
-Otwórz [portalu Azure](https://portal.azure.com/) i zaloguj się przy użyciu konta platformy Azure.
+Otwórz witrynę [Azure Portal](https://portal.azure.com/) i zaloguj się przy użyciu konta platformy Azure.
 
 ### <a name="launch-buy-domains"></a>Uruchamianie Kup domen
 W **aplikacje sieci Web** kliknij nazwę aplikacji sieci web, wybierz pozycję **ustawienia**, a następnie wybierz **domen niestandardowych**
@@ -114,7 +114,7 @@ Następnie wybierz odpowiednie opcje dla danej domeny. Zobacz poniższą tabelę
 | Ustawienie | Sugerowana wartość | Opis |
 |-|-|-|
 |Ochrona prywatności | Włączanie | Zgódź się na "Ochrona prywatności", który jest dostępny w zapłaconej kwoty _bezpłatnie_. Niektóre domeny najwyższego poziomu zarządza rejestratorów, które nie obsługują ochrony prywatności i są one wyświetlane na **ochrony prywatności** strony. |
-| Przypisz domyślne nazwy hostów | **www** i**@** | Wybierz powiązania z żądaną nazwą hosta, w razie potrzeby. Po zakończeniu operacji zakupu domeny aplikacji sieci web są dostępne w wybranej nazwy hostów. Jeśli aplikacja sieci web jest za [usługi Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), nie widzisz opcję, aby przypisać domeny głównej (@), ponieważ Menedżera ruchu jest nie rekordów A pomocy technicznej. Można zmienić przypisania nazwy hosta, po zakończeniu zakupu domeny. |
+| Przypisz domyślne nazwy hostów | **www** i **@** | Wybierz powiązania z żądaną nazwą hosta, w razie potrzeby. Po zakończeniu operacji zakupu domeny aplikacji sieci web są dostępne w wybranej nazwy hostów. Jeśli aplikacja sieci web jest za [usługi Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), nie widzisz opcję, aby przypisać domeny głównej (@), ponieważ Menedżera ruchu jest nie rekordów A pomocy technicznej. Można zmienić przypisania nazwy hosta, po zakończeniu zakupu domeny. |
 
 ### <a name="accept-terms-and-purchase"></a>Zaakceptuj postanowienia i zakupu
 
@@ -166,7 +166,7 @@ Upewnij się, że zakupione domeny jest wymieniony w **domenami usługi aplikacj
 >
 >
 
-Wybierz **dodać nazwę hosta**.
+Wybierz przycisk **Dodaj nazwę hosta**.
 
 ### <a name="configure-hostname"></a>Konfigurowanie nazwy hosta
 W **dodać nazwę hosta** okna dialogowego, wpisz nazwę FQDN domeny usługi aplikacji lub dowolnej domeny podrzędnej. Na przykład:
@@ -177,7 +177,7 @@ W **dodać nazwę hosta** okna dialogowego, wpisz nazwę FQDN domeny usługi apl
 
 Po zakończeniu wybierz **weryfikacji**. Typ rekordu nazwa hosta jest automatycznie zaznacza za użytkownika.
 
-Wybierz **dodać nazwę hosta**.
+Wybierz przycisk **Dodaj nazwę hosta**.
 
 Po zakończeniu operacji zostanie wyświetlone powiadomienie Powodzenie dla przypisanej nazwy hosta.  
 
@@ -220,7 +220,7 @@ Na platformie Azure rekordy DNS dla domeny usługi aplikacji są zarządzane prz
 
 ### <a name="open-app-service-domain"></a>Domena Otwórz usługi aplikacji
 
-W portalu Azure, z menu po lewej stronie wybierz **więcej usług** > **domenami usługi aplikacji**.
+W portalu Azure, z menu po lewej stronie wybierz **wszystkie usługi** > **domenami usługi aplikacji**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 
@@ -240,7 +240,7 @@ Po zakupie domena usługi aplikacji masz pięć dni, aby anulować zakup dla pe�
 
 ### <a name="open-app-service-domain"></a>Domena Otwórz usługi aplikacji
 
-W portalu Azure, z menu po lewej stronie wybierz **więcej usług** > **domenami usługi aplikacji**.
+W portalu Azure, z menu po lewej stronie wybierz **wszystkie usługi** > **domenami usługi aplikacji**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 
@@ -270,9 +270,9 @@ Aby potwierdzić operację, wybierz **tak**.
 
 Po zakończeniu operacji domena jest zwolnione z subskrypcji i wszyscy kupić ponownie. 
 
-## <a name="direct-default-url-to-a-custom-directory"></a>Bezpośrednie domyślny adres URL katalog niestandardowych
+## <a name="direct-default-url-to-a-custom-directory"></a>Kierowanie domyślnego adresu URL do katalogu niestandardowego
 
-Domyślnie usługi aplikacji kieruje żądania sieci web do katalogu głównego w kodzie aplikacji. Aby skierować do podkatalogu, takich jak `public`, zobacz [bezpośrednie domyślny adres URL katalog niestandardowych](app-service-web-tutorial-custom-domain.md#virtualdir).
+Domyślnie usługa App Service kieruje żądania internetowe do katalogu głównego w kodzie aplikacji. Aby skierować do podkatalogu, takich jak `public`, zobacz [bezpośrednie domyślny adres URL katalog niestandardowych](app-service-web-tutorial-custom-domain.md#virtualdir).
 
 ## <a name="more-resources"></a>Więcej zasobów
 

@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 10/05/2017
+ms.date: 02/15/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 726bbafa9e4ba35cfa4a9cbf4d89056d52fe7963
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0f3ce7496427b6975eb4ac476e7d1737321ed2e9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="understand-azure-iot-edge-modules---preview"></a>Zrozumienie modułów krawędzi IoT Azure — wersja zapoznawcza
 
@@ -50,7 +50,7 @@ Każde wystąpienie modułu ma również odpowiedniego dwie modułu, którego mo
 
 Dwie modułu jest dokument JSON, który przechowuje właściwości informacje i konfiguracji modułu. To pojęcie równoleżnikami [dwie urządzenia] [ lnk-device-twin] koncepcji z Centrum IoT. Struktury dwie modułu jest dokładnie taka sama jak dwie urządzenia. Interfejsy API używane do interakcji z oboma typami twins również są takie same. Jedyną różnicą między tymi dwoma jest tożsamości używanej do tworzenia wystąpienia zestawu SDK klienta. 
 
-```
+```csharp
 // Create a DeviceClient object. This DeviceClient will act on behalf of a 
 // module since it is created with a module’s connection string instead 
 // of a device connection string. 
@@ -61,7 +61,7 @@ await client.OpenAsync();
 Twin twin = await client.GetTwinAsync(); 
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
  - [Zrozumienie jego architektura i środowiska uruchomieniowego krawędzi IoT Azure][lnk-runtime]
 
 <!-- Images -->

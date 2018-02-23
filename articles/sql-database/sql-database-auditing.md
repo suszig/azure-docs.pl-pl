@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: giladm
-ms.openlocfilehash: 791761e33e0daa470668e268e5392a4b9361a1bd
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 0994bdc7e6c86e10f7002649830fc59ad3d1a045
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Rozpoczynanie pracy z inspekcją bazy danych SQL
 Usługa Azure SQL database auditing śledzi zdarzenia bazy danych i zapisuje je inspekcji logowania na koncie magazynu Azure. Inspekcja również:
@@ -42,7 +42,8 @@ Inspekcję można skonfigurować dla różnych kategorii, zgodnie z objaśnienie
 > [!IMPORTANT]
 > Dzienniki inspekcji są zapisywane w **Dołącz obiekty BLOB** w magazynie obiektów Blob platformy Azure w ramach subskrypcji platformy Azure.
 >
-> **Magazyn w sieci wirtualnej** jest obecnie **nieobsługiwane**.
+> * **Magazyn w warstwie Premium** jest obecnie **nieobsługiwane** przez Dołącz obiektów blob.
+> * **Magazyn w sieci wirtualnej** jest obecnie **nieobsługiwane**.
 
 ## <a id="subheading-8"></a>Zdefiniuj na poziomie serwera, a zasady inspekcji na poziomie bazy danych
 
@@ -68,7 +69,7 @@ W poniższej sekcji opisano konfigurację inspekcji przy użyciu portalu Azure.
 1. Przejdź do witryny [Azure Portal](https://portal.azure.com).
 2. Przejdź do **ustawienia** bloku programu SQL server bazy danych/SQL chcesz inspekcji. W **ustawienia** bloku, wybierz opcję **Inspekcja i wykrywanie zagrożeń**.
 
-    <a id="auditing-screenshot"></a>![Okienko nawigacji][1]
+    <a id="auditing-screenshot"></a> ![Okienko nawigacji][1]
 3. Jeśli wolisz skonfigurować zasady inspekcji serwera, możesz wybrać **wyświetlić ustawienia serwera** łącze w bloku inspekcji bazy danych. Można następnie wyświetlić lub zmodyfikować ustawienia inspekcji serwera. Zasady inspekcji serwera dotyczą wszystkich istniejących i nowo utworzone bazy danych na tym serwerze.
 
     ![Okienko nawigacji][2]
@@ -81,7 +82,7 @@ W poniższej sekcji opisano konfigurację inspekcji przy użyciu portalu Azure.
    >[!TIP]
    >Aby uzyskać maksymalne wykorzystanie inspekcji szablonów raportów, należy użyć tego samego konta magazynu dla wszystkich baz danych inspekcji.
 
-    <a id="storage-screenshot"></a>![Okienko nawigacji][4]
+    <a id="storage-screenshot"></a> ![Okienko nawigacji][4]
 6. Jeśli chcesz dostosować zdarzeń inspekcji, można to zrobić za pomocą programu PowerShell lub interfejsu API REST.
 7. Po skonfigurowaniu ustawień inspekcji można włączyć funkcji wykrywania zagrożeń i skonfigurować wiadomości e-mail w celu otrzymywania alertów zabezpieczeń. Gdy używasz wykrywanie zagrożeń, pojawi się aktywne alerty w przypadku nietypowe działania bazy danych, które mogą wskazywać możliwe zagrożenia bezpieczeństwa. Aby uzyskać więcej informacji, zobacz [wprowadzenie wykrywanie zagrożeń](sql-database-threat-detection-get-started.md).
 8. Kliknij pozycję **Zapisz**.

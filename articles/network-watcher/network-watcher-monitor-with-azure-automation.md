@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 935431783b08919049c5c24b56285647bc7b35ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c6efbc5da37a2ac500a575419263c0f21cca4b7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Monitorowanie bramy sieci VPN z rozwiązywaniem problemów obserwatora sieciowego
 
@@ -51,7 +51,7 @@ Przed rozpoczęciem tego scenariusza, musi mieć następujące wymagania wstępn
 
 ### <a name="create-the-runbook"></a>Tworzenie elementu runbook
 
-Pierwszym krokiem do konfigurowania w przykładzie jest można utworzyć elementu runbook. W tym przykładzie użyto konta Uruchom jako. Więcej informacji o kontach Uruchom jako można znaleźć [uwierzytelniania elementy Runbook za pomocą konta Uruchom jako platformy Azure](../automation/automation-sec-configure-azure-runas-account.md)
+Pierwszym krokiem do konfigurowania w przykładzie jest można utworzyć elementu runbook. W tym przykładzie użyto konta Uruchom jako. Więcej informacji o kontach Uruchom jako można znaleźć [uwierzytelniania elementy Runbook za pomocą konta Uruchom jako platformy Azure](../automation/automation-create-runas-account.md)
 
 ### <a name="step-1"></a>Krok 1
 
@@ -183,7 +183,7 @@ Kliknij przycisk Zapisz, aby zapisać harmonogram do elementu runbook.
 
 ![Krok 10][10]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Teraz wiedzę na temat integracji obserwatora sieciowego Rozwiązywanie problemów z usługi Automatyzacja Azure, Dowiedz się, jak można wyzwolić przechwytywania pakietów na alerty maszyny Wirtualnej po przejściu na stronę [utworzyć przechwytywania alertów wyzwalanych pakietów z obserwatora sieciowego Azure](network-watcher-alert-triggered-packet-capture.md).
 

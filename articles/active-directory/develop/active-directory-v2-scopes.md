@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: a93cfd710f89efbd4dab01b84ecdb12b4acb0033
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b35e4a7619c23660d93d91219a92be7e93a35139
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Zakresy, uprawnienia i zgody w punkcie końcowym v2.0 usługi Azure Active Directory
 Aplikacje do zintegrowania z usługą Azure Active Directory (Azure AD) wykonaj modelu autoryzacji, która zapewnia użytkownikom kontrolę nad jak aplikacja może uzyskiwać dostępu do danych. Implementacja v2.0 modelu autoryzacji została zaktualizowana i zmienia sposób aplikacji musi współdziałać z usługą Azure AD. W tym artykule opisano podstawowe pojęcia tego modelu autoryzacji, w tym zakresy, uprawnienia i zgody.
@@ -32,23 +32,23 @@ Aplikacje do zintegrowania z usługą Azure Active Directory (Azure AD) wykonaj 
 ## <a name="scopes-and-permissions"></a>Zakresy i uprawnień
 Azure AD implementuje [OAuth 2.0](active-directory-v2-protocols.md) protokołu autoryzacji. OAuth 2.0 jest to metoda, za pomocą którego aplikacji innych firm mają dostęp do zasobów sieci web hostowanych w imieniu użytkownika. Dowolnego zasobu hostowanych w sieci web, która integruje się z usługą Azure AD ma identyfikator zasobu, lub *aplikacji identyfikator URI*. Na przykład zasobów hostowanych w sieci web firmy Microsoft są między innymi:
 
-* Office 365 Unified poczty interfejsu API:`https://outlook.office.com`
-* W przypadku interfejsu API programu Graph usługi Azure AD:`https://graph.windows.net`
-* Program Microsoft Graph:`https://graph.microsoft.com`
+* Office 365 Unified poczty interfejsu API: `https://outlook.office.com`
+* W przypadku interfejsu API programu Graph usługi Azure AD: `https://graph.windows.net`
+* Program Microsoft Graph: `https://graph.microsoft.com`
 
 To samo dotyczy dla wszystkich zasobów innych firm, które zostały zintegrowane z usługą Azure AD. Żadnego z tych zasobów również definiować zestaw uprawnień, które mogą służyć do dzielenia funkcjonalność tego zasobu na mniejsze fragmenty. Na przykład [Microsoft Graph](https://graph.microsoft.io) ma określone uprawnienia do wykonywania następujących zadań, między innymi:
 
 * Przeczytaj kalendarza użytkownika
 * Zapis do kalendarza użytkownika
-* Wysyłaj pocztę jako użytkownik
+* Wysyłania wiadomości e-mail jako użytkownik
 
 Zdefiniowanie tych typów uprawnień, zasób ma precyzyjną kontrolę nad jego danych i jak dane są widoczne. Aplikacji innych firm mogą żądać tych uprawnień przez użytkownika aplikacji. Użytkownik aplikacji musi zatwierdzić uprawnienia, zanim aplikacja może działać w imieniu użytkownika. Według segmentu zasobu funkcje na mniejsze zestawy uprawnień, aplikacje innych firm mogą być tworzone na żądanie tylko określone uprawnienia, które są niezbędne do wykonywania ich funkcji. Użytkownicy aplikacji mogą poznać, dokładnie tak jak aplikacja będzie używać swoich danych i może być większa pewność, że aplikacja nie zachowuje się ze złośliwymi działaniami.
 
 W usłudze Azure AD i OAuth, tego rodzaju uprawnienia są nazywane *zakresy*. One również są nazywane *oAuth2Permissions*. Zakres jest reprezentowana w usłudze Azure AD jako wartość ciągu. W ramach przykładu Microsoft Graph, jest wartość zakresu dla każdego uprawnienia:
 
-* Przeczytaj kalendarza użytkownika za pomocą`Calendars.Read`
-* Zapis do kalendarza użytkownika za pomocą`Calendars.ReadWrite`
-* Wysyłania wiadomości e-mail jako użytkownika przy użyciu przez`Mail.Send`
+* Przeczytaj kalendarza użytkownika za pomocą `Calendars.Read`
+* Zapis do kalendarza użytkownika za pomocą `Calendars.ReadWrite`
+* Wysyłania wiadomości e-mail jako użytkownika przy użyciu przez `Mail.Send`
 
 Aplikacji mogą żądać tych uprawnień, określając zakresów w żądaniach wysyłanych do punktu końcowego v2.0.
 
@@ -58,7 +58,7 @@ V2.0 wdrażania protokołu OpenID Connect ma kilka dobrze zdefiniowany zakresy, 
 ### <a name="openid"></a>openid
 Jeśli aplikacja przeprowadza logowania za pomocą [OpenID Connect](active-directory-v2-protocols.md), należy go zażądać `openid` zakresu. `openid` Zakresu wyświetlane na stronie zgoda konta pracy jako uprawnienie "Logowanie się w" oraz na osobiste strony zgody konto Microsoft jako uprawnienie "Wyświetl swój profil i łączenie z aplikacjami i usługami za pomocą konta Microsoft". Z tego uprawnienia, aplikacja może odbierać Unikatowy identyfikator dla użytkownika w postaci `sub` oświadczeń. Udostępnia również aplikacji uprawnień dostępu do punktu końcowego informacje o użytkowniku. `openid` Zakresu pozwala na token punktu końcowego v2.0 uzyskać tokeny Identyfikatora, które mogą być używane do zabezpieczenia połączenia HTTP między poszczególnymi składnikami aplikacji.
 
-### <a name="email"></a>wyślij wiadomość e-mail
+### <a name="email"></a>e-mail
 `email` Zakresu, może być używany z `openid` zakresu i innych. Daje dostęp do aplikacji do użytkownika podstawowego adresu e-mail w postaci `email` oświadczeń. `email` Oświadczenia jest uwzględniona w tokenu, tylko wtedy, gdy adres e-mail jest skojarzony z konta użytkownika, które nie zawsze jest wielkość liter. Gdy jest używana funkcja `email` zakresu, aplikacja powinna być przygotowana do obsługi przypadek, w którym `email` oświadczenia nie istnieje w tokenie.
 
 ### <a name="profile"></a>Profil
@@ -102,9 +102,9 @@ Aby poprosić o zgodę dla wszystkich użytkowników w dzierżawie, punktu końc
 ## <a name="admin-restricted-scopes"></a>Ograniczonym zakresów
 Można podać niektóre wysokiego poziomu uprawnień w ekosystemie Microsoft *ograniczonym*. Przykłady tego rodzaju zakresy obejmują następujące uprawnienia:
 
-* Odczytuj dane katalogu organizacji za pomocą`Directory.Read`
-* Zapis danych katalogu w organizacji za pomocą`Directory.ReadWrite`
-* Przeczytaj przy użyciu grup zabezpieczeń w katalogu organizacji`Groups.Read.All`
+* Odczytuj dane katalogu organizacji za pomocą `Directory.Read`
+* Zapis danych katalogu w organizacji za pomocą `Directory.ReadWrite`
+* Przeczytaj przy użyciu grup zabezpieczeń w katalogu organizacji `Groups.Read.All`
 
 Mimo że użytkownika klienta może umożliwić aplikacji dostęp do danych tego rodzaju, użytkowników w organizacji są ograniczone z udzielanie dostępu do tego samego zestawu poufne dane firmy. Jeśli aplikacja żąda dostępu do jednego z tych uprawnień z organizacji użytkownika, użytkownik otrzymuje komunikat o błędzie z informacją, że nie masz uprawnień do wyrażenia zgody na uprawnienia aplikacji.
 
@@ -147,7 +147,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 | Parametr | Warunek | Opis |
 | --- | --- | --- |
-| Dzierżawy |Wymagane |Dzierżawca katalogu, który chcesz zażądać uprawnień. Można podać w formacie przyjaznej nazwy lub identyfikatora GUID. |
+| dzierżawa |Wymagane |Dzierżawca katalogu, który chcesz zażądać uprawnień. Może być podany w formacie przyjaznej nazwy lub identyfikatora GUID lub objęty przywoływana za pomocą "typowe" jak pokazano w przykładzie. |
 | client_id |Wymagane |Identyfikator aplikacji, która [portalu rejestracji aplikacji](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) przypisany do aplikacji. |
 | redirect_uri |Wymagane |Identyfikator URI przekierowania w miejscu odpowiedź do wysłania dla aplikacji do obsługi. Dokładnie musi odpowiadać jeden przekierowania URI, który został zarejestrowany w portalu rejestracji aplikacji. |
 | state |Zalecane |Wartość zawarte w żądaniu zwracana w odpowiedzi tokenu. Można go ciągiem żadnej zawartości, który ma. Umożliwia kodowanie informacje o stanie użytkownika w aplikacji przed wystąpieniem żądania uwierzytelniania, takich jak strony lub widoku, które znajdowały się w stan. |
@@ -163,7 +163,7 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 
 | Parametr | Opis |
 | --- | --- | --- |
-| Dzierżawy |Dzierżawy katalogu, który uprawnień aplikacji żądał, w formacie GUID. |
+| dzierżawa |Dzierżawy katalogu, który uprawnień aplikacji żądał, w formacie GUID. |
 | state |Wartość zawarte w żądaniu, które również zostaną zwrócone w odpowiedzi tokenu. Można go ciągiem żadnej zawartości, który ma. Stan jest używany do kodowania informacje o stanie użytkownika w aplikacji, przed wystąpieniem żądania uwierzytelniania, takich jak strony lub widok, które były na. |
 | admin_consent |Zostanie ustawiona do **true**. |
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2016
 ms.author: markgal;trinadhk;giridham;
-ms.openlocfilehash: ebd7a886f5853ec3fa9b6e816083e9edd868ef76
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 1e9f6d44965e8a6cd9529ef860f0fb57fd8e572d
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Monitorowanie alertów związanych z kopiami zapasowymi maszyny wirtualnej platformy Azure
 Alerty są odpowiedzi z usługi, czy próg zdarzenia zostały spełnione lub przekroczenia. Uzyskiwanie informacji o tym, gdy rozpoczęcia problemów może być krytyczne zachowaniu niskich kosztów biznesowych. Alerty zwykle nie występują zgodnie z harmonogramem, a więc warto wiedzieć, jak najszybciej po wystąpieniu alerty. Na przykład gdy zadanie tworzenia kopii zapasowej lub przywracania nie powiodło się, alert występuje w ciągu pięciu minut błędu. Na pulpicie nawigacyjnym magazynu w kafelku alerty kopii zapasowej Wyświetla zdarzeń krytycznych i poziom ostrzeżeń. W ustawieniach alerty kopii zapasowej można wyświetlić wszystkie zdarzenia. Ale co zrobić, jeśli alarm występuje, gdy pracujesz na oddzielnych problem? Jeśli nie znasz w przypadku alertu, może to być pomocnicza niedogodności lub może naruszyć bezpieczeństwo danych. Aby upewnić się, że osobom potrafią alertu — Jeśli występuje on, należy skonfigurować usługę, aby wysłać powiadomienia o alertach pocztą e-mail. Aby uzyskać więcej informacji na temat konfigurowania powiadomień e-mail, zobacz [skonfigurować powiadomienia](backup-azure-monitor-vms.md#configure-notifications).
@@ -43,7 +43,7 @@ Aby otworzyć blok alerty kopii zapasowej za pomocą bloku alerty i zdarzenia:
     ![Kafelek alerty kopii zapasowej](./media/backup-azure-monitor-vms/backup-alerts-critical.png)
 4. Aby wyświetlić szczegółowe informacje na temat określonego alertu, z listy zdarzeń, kliknij alert, aby otworzyć jego **szczegóły** bloku.
 
-    ![Szczegóły zdarzenia](./media/backup-azure-monitor-vms/audit-logs-event-detail.png)
+    ![Szczegół zdarzenia](./media/backup-azure-monitor-vms/audit-logs-event-detail.png)
 
     Aby dostosować wyświetlane na liście atrybutów, zobacz [wyświetlić atrybuty dodatkowe zdarzenia](backup-azure-monitor-vms.md#view-additional-event-attributes)
 
@@ -70,9 +70,9 @@ Aby skonfigurować powiadomienia e-mail dla alertów
    ### <a name="what-alert-types-are-available-for-azure-iaas-vm-backup"></a>Jakie typy alertów są dostępne dla kopii zapasowych maszyn wirtualnych IaaS platformy Azure?
    | Poziom alertu | Wysyłania alertów |
    | --- | --- |
-   | Krytyczny |Niepowodzenia wykonywania kopii zapasowej, niepowodzenia odzyskiwania |
-   | Ostrzeżenie |None |
-   | Informacyjne |None |
+   | Krytyczne | niepowodzenia tworzenia kopii zapasowej, niepowodzenia odzyskiwania |
+   | Ostrzeżenie | w przypadku zadań tworzenia kopii zapasowej zakończyło się pomyślnie z ostrzeżeniami (np: Niektóre moduły zapisujące nie powiodło się podczas tworzenia migawki) |
+   | Informacyjne | obecnie alerty informacyjne nie są dostępne dla kopii zapasowej maszyny Wirtualnej Azure |
 
 ### <a name="are-there-situations-where-email-isnt-sent-even-if-notifications-are-configured"></a>Czy występują sytuacje, w których wiadomość e-mail nie jest wysyłana, mimo że powiadomienia zostały skonfigurowane?
 Istnieją sytuacje, w którym alert nie są wysyłane, nawet jeśli powiadomienia zostały prawidłowo skonfigurowane. W następujących sytuacjach wiadomości e-mail powiadomienia nie są wysyłane do uniknięcia szumu alertu:
@@ -99,7 +99,7 @@ Istnieją sytuacje, w którym alert nie są wysyłane, nawet jeśli powiadomieni
     ![Szczegóły operacji](./media/backup-azure-monitor-vms/audit-logs-details-window.png)
 3. Aby wyświetlić szczegółowe informacje dotyczące konkretnego zdarzenia, z listy zdarzeń, kliknij zdarzenie, aby otworzyć jego **szczegóły** bloku.
 
-    ![Szczegóły zdarzenia](./media/backup-azure-monitor-vms/audit-logs-details-window-deep.png)
+    ![Szczegół zdarzenia](./media/backup-azure-monitor-vms/audit-logs-details-window-deep.png)
 
     Informacje o poziom zdarzenia są szczegółowych informacji. Jeśli preferowane jest wyświetlany tyle informacje o każdym zdarzeniu i chcesz dodać tyle szczegółów **zdarzenia** bloku, zobacz sekcję [rozszerzanie informacji o zdarzeniu](backup-azure-monitor-vms.md#view-additional-event-attributes).
 
@@ -207,9 +207,9 @@ Dzienniki zdarzeń włączyć doskonałe których post i inspekcji obsługę ope
 * Zatrzymaj ochronę
 * Usuwanie danych kopii zapasowej
 * Dodawanie zasad
-* Usuwanie zasad
+* Usuń zasady
 * Aktualizowanie zasad
-* Anulowanie zadania
+* Anuluj zadanie
 
 Szerokie opis zdarzenia, operacje i dzienniki inspekcji dla usług Azure, zapoznaj się z artykułem [wyświetlania zdarzeń i dzienniki inspekcji](../monitoring-and-diagnostics/insights-debugging-with-events.md).
 

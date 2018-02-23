@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 397afc28b5f4c4f7f84afde13b6d031d83aaced4
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 2de214f604469025a8a4accde44359fea0ded7e9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones-preview"></a>Tworzenie zestawu skali maszyny wirtualnej, który używa strefy dostępności (wersja zapoznawcza)
 Aby chronić Twoje zestawy skalowania maszyny wirtualnej z centrum danych na poziomie awarii, można utworzyć skali, ustaw w różnych strefach dostępności. Regiony platformy Azure obsługujące stref dostępności ma co najmniej trzech oddzielnych stref, każde z nich własne niezależne od zasilania źródła, sieci i chłodzenia. Aby uzyskać więcej informacji, zobacz [Przegląd stref dostępności](../availability-zones/az-overview.md).
@@ -30,13 +30,7 @@ Aby chronić Twoje zestawy skalowania maszyny wirtualnej z centrum danych na poz
 ## <a name="single-zone-and-zone-redundant-scale-sets"></a>Zestawy skalowania pojedynczej strefy i strefowo nadmiarowy
 Podczas wdrażania zestaw skali maszyny wirtualnej, można użyć jednej strefie dostępności w regionie lub stref.
 
-Po utworzeniu skali w jednej strefie, można sterować która strefa uruchomienie wszystkich wystąpień tych maszyn wirtualnych i jest zarządzany zestaw skali i autoscales tylko w ramach tej strefy. Na poniższym diagramie przedstawiono przykład tworzenia wielu skalowania pojedynczej strefy ustawia usługi równoważenia obciążenia strefowo nadmiarowy, który dystrybuuje ruch:
-
-![Zestaw skalowania pojedynczej strefy wdrożenia z modułem równoważenia obciążenia strefowo nadmiarowy](media/virtual-machine-scale-sets-use-availability-zones/zonal-vmss.png)
-
-Zestaw skali strefowo nadmiarowy umożliwia tworzenie zestaw skalowania pojedynczego obejmującej wiele stref. Podczas tworzenia wystąpień maszyny Wirtualnej, a domyślnie one są równomierne różnych strefach. W przypadku przerwania wystąpienia w jednej ze stref, zestaw skali automatycznie skalować w poziomie w celu zwiększenia pojemności. Najlepszym rozwiązaniem jest skonfigurowanie reguł skalowania automatycznego na podstawie użycia procesora CPU lub pamięci. Reguły automatycznego skalowania umożliwia zestaw odpowiedzieć na utratę wystąpień maszyn wirtualnych w tej strefie przez skalowanie w poziomie nowych wystąpień w pozostałych strefach operacyjne skalowania. Na poniższym diagramie przedstawiono przykład skali pojedynczy zestaw, który jest wdrażana w wielu strefach:
-
-![Nadmiarowe Zonal skali ustawić wdrożenia i modułu równoważenia obciążenia](media/virtual-machine-scale-sets-use-availability-zones/zone-redundant-vmss.png)
+Po utworzeniu skali w jednej strefie, można sterować która strefa uruchomienie wszystkich wystąpień tych maszyn wirtualnych i jest zarządzany zestaw skali i autoscales tylko w ramach tej strefy. Zestaw skali strefowo nadmiarowy umożliwia tworzenie zestaw skalowania pojedynczego obejmującej wiele stref. Podczas tworzenia wystąpień maszyny Wirtualnej, a domyślnie one są równomierne różnych strefach. W przypadku przerwania wystąpienia w jednej ze stref, zestaw skali automatycznie skalować w poziomie w celu zwiększenia pojemności. Najlepszym rozwiązaniem jest skonfigurowanie reguł skalowania automatycznego na podstawie użycia procesora CPU lub pamięci. Reguły automatycznego skalowania umożliwia zestaw odpowiedzieć na utratę wystąpień maszyn wirtualnych w tej strefie przez skalowanie w poziomie nowych wystąpień w pozostałych strefach operacyjne skalowania.
 
 Do korzystania ze stref dostępności, należy utworzyć w zestawie skali [obsługiwany region platformy Azure](../availability-zones/az-overview.md#regions-that-support-availability-zones). Należy również [rejestrowania programu Podgląd stref dostępności](http://aka.ms/azenroll). Można utworzyć zestaw skalowania, który używa strefy dostępności z jednego z następujących metod:
 

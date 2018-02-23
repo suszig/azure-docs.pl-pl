@@ -13,17 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/24/2018
+ms.date: 02/15/2018
 ms.author: saurinsh
-ms.openlocfilehash: 6284b246c071fb99a8b47845aca34b6262e5b856
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: b4d71eeb0aab75e67e851f867f194ed7578d0d1c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-domain-joined-hdinsight-sandbox-environment"></a>Skonfiguruj środowisko piaskownicy domeny w usłudze HDInsight
 
-Dowiedz się, jak skonfigurować klaster Azure HDInsight z autonomicznej usługi Active Directory i [zakres Apache](http://hortonworks.com/apache/ranger/) mógł korzystać z silnego uwierzytelniania i sformatowanego dostępu opartej na rolach zasad kontroli (RBAC). Aby uzyskać więcej informacji, zobacz [klastrów HDInsight przyłączonych do domeny wprowadź](apache-domain-joined-introduction.md).
+Dowiedz się, jak skonfigurować klaster Azure HDInsight z autonomicznej usługi Active Directory i [zakres Apache](http://hortonworks.com/apache/ranger/) mógł korzystać z silnego uwierzytelniania i sformatowanego dostępu opartej na rolach zasad kontroli (RBAC). Aby uzyskać więcej informacji, zobacz [klastrów HDInsight przyłączonych do domeny wprowadź](apache-domain-joined-introduction.md). 
+
+> [!IMPORTANT]
+> Domyślnie — ta konfiguracja tylko można używać konta usługi Azure Storage. Aby korzystać z usługi Azure Data Lake Store, synchronizacja usługi Active Directory do nowej usługi Azure Active Directory.
 
 Bez klastra usługi HDInsight przyłączonych do domeny, każdy klaster może zawierać tylko konta użytkowników usługi Hadoop HTTP, a konto użytkownika SSH.  Uwierzytelnianie wielu użytkowników można osiągnąć za pomocą:
 
@@ -40,6 +43,7 @@ Przy użyciu autonomicznej usługi Active Directory systemem Azure IaaS zostało
     - Tworzenie klastra usługi HDInsight
 
 > [!IMPORTANT]
+> 
 > Oozie nie jest włączona w usłudze HDInsight z przyłączonych do domeny.
 
 ## <a name="prerequisite"></a>Wymagania wstępne

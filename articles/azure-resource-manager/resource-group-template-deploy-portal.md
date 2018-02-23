@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: ea91fdd58dd3b5c118fe390afe1eb355e3c26570
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 39680d4e70cc47cfa119b3a46e8d51ea87fa618d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Deploy resources with Resource Manager templates and Azure portal (Wdrażanie zasobów za pomocą szablonów usługi Resource Manager i witryny Azure Portal)
 
@@ -47,7 +47,7 @@ W tym temacie przedstawiono sposób użycia [portalu Azure](https://portal.azure
 
 Po utworzeniu grupy zasobów, zasobów można wdrożyć do niego z witryny Marketplace. Witryny Marketplace udostępnia wstępnie zdefiniowane rozwiązań dla typowych scenariuszy.
 
-1. Aby uruchomić wdrożenia, zaznacz **nowy**.
+1. Aby uruchomić wdrożenia, zaznacz **Utwórz zasób**.
 
    ![Nowy zasób](./media/resource-group-template-deploy-portal/new-resources.png)
 
@@ -79,7 +79,7 @@ Po utworzeniu grupy zasobów, zasobów można wdrożyć do niego z witryny Marke
 
 Jeśli chcesz wykonać wdrożenie, ale nie używa tych szablonów w witrynie Marketplace można utworzyć szablon niestandardowy, który definiuje infrastrukturę Twojego rozwiązania. Aby dowiedzieć się więcej na temat tworzenia szablonów, zobacz [poznać strukturę i składni szablonów usługi Azure Resource Manager](resource-group-authoring-templates.md).
 
-1. Aby wdrożyć szablon niestandardowy za pośrednictwem portalu, wybierz **nowy**i wyszukaj **wdrażania szablonu** dopóki nie zostanie ona wybrana, korzystając z opcji.
+1. Aby wdrożyć szablon niestandardowy za pośrednictwem portalu, wybierz **Utwórz zasób**i wyszukaj **wdrażania szablonu** dopóki nie zostanie ona wybrana, korzystając z opcji.
 
    ![Wdrażanie szablonu wyszukiwania](./media/resource-group-template-deploy-portal/search-template.png)
 
@@ -131,7 +131,7 @@ Portal umożliwia zapisywanie szablonu do konta platformy Azure i wdróż go pon
 
    ![zapisany szablon wdrażania](./media/resource-group-template-deploy-portal/deploy-saved-template.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Aby wyświetlić dzienniki inspekcji, zobacz [inspekcji operacji za pomocą Menedżera zasobów](resource-group-audit.md).
 * Aby rozwiązać błędy wdrożenia, zobacz [wyświetlić operacje wdrażania](resource-manager-deployment-operations.md).
 * Aby pobrać szablonu z wdrożenia lub grupy zasobów, zobacz [szablonu eksportu usługi Azure Resource Manager z istniejących zasobów](resource-manager-export-template.md).

@@ -1,6 +1,6 @@
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-2. Od lewego górnego rogu kliknij pozycję **Nowy > Obliczenia > Windows Server 2016 Datacenter**.
+2. Uruchamianie w lewym górnym rogu, kliknij przycisk **Utwórz zasób** > **obliczeniowe** > **systemu Windows Server Datacenter 2016**.
 
     ![Nawigowanie do obrazów maszyn wirtualnych Azure w portalu](./media/virtual-machines-common-portal-create-fqdn/marketplace-new.png)
 

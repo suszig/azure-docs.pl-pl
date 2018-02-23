@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/01/2018
+ms.date: 02/09/2018
 ms.author: chackdan
-ms.openlocfilehash: 7537d7015ee8739be4b9ba08846866d4cfbe38be
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 4a42e36307f440a29740d947314f91dffac51a42
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Tworzenie klastra sieci szkieletowej usług na platformie Azure przy użyciu portalu Azure
 > [!div class="op_single_selector"]
@@ -82,7 +82,7 @@ Tworzenia klastra produkcyjnego dostosowane do potrzeb aplikacji obejmuje niekt�
 ![Wyszukiwanie szablonu klastra sieci szkieletowej usług w portalu Azure.][SearchforServiceFabricClusterTemplate]
 
 1. Zaloguj się w witrynie [Azure Portal][azure-portal].
-2. Kliknij przycisk **nowy** można dodać nowego szablonu zasobów. Wyszukaj szablonu klastra sieci szkieletowej usług w **Marketplace** w obszarze **wszystko**.
+2. Kliknij przycisk **Utwórz zasób** można dodać nowego szablonu zasobów. Wyszukaj szablonu klastra sieci szkieletowej usług w **Marketplace** w obszarze **wszystko**.
 3. Wybierz **klastra sieci szkieletowej usług** z listy.
 4. Przejdź do **klastra sieci szkieletowej usług** bloku, kliknij przycisk **Utwórz**,
 5. **Klastra tworzenia sieci szkieletowej usług** bloku obejmuje następujące cztery kroki:
@@ -134,6 +134,7 @@ Aby ułatwić skonfigurowanie klastra bezpiecznego testu dla Ciebie, firma Micro
 #####<a name="basic-option"></a>Opcja podstawowe
 Wykonaj ekranów w celu dodania lub ponowne użycie istniejących keyvault i dodawanie certyfikatu. Dodawanie certyfikatu jest procesem synchroniczne i dlatego trzeba będzie czekać na certyfikat, który ma zostać utworzony.
 
+
 Oprzeć możliwość przesłania nawigacji po ekranie, aż do zakończenia poprzedniego procesu.
 
 ![CreateKeyVault]
@@ -142,7 +143,7 @@ Teraz, certyfikatu zostanie dodany do Twojej keyvault, może zostać wyświetlon
 
 ![CreateKeyVault2]
 
-Kliknij zasady dostępu zaawansowane i włączyć dostęp do maszyn wirtualnych do wdrożenia. Zaleca się włączenie również wdrażania szablonu.
+Kliknij zasady dostępu zaawansowane i włączyć dostęp do maszyn wirtualnych do wdrożenia. Zaleca się włączenie również wdrażania szablonu. Po dokonaniu wybrane elementy, nie zapomnij kliknij **zapisać** przycisk i zamknij poza **zasady dostępu** okienka.
 
 ![CreateKeyVault3]
 

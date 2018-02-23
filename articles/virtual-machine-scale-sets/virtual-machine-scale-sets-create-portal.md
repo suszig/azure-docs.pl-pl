@@ -1,7 +1,7 @@
 ---
 title: Tworzenie zestawu skalowania maszyny wirtualnej w portalu Azure | Dokumentacja firmy Microsoft
 description: "Dowiedz się, jak szybko utworzyć skalowania maszyny wirtualnej w portalu Azure"
-keywords: zestawy skalowania maszyny wirtualnej
+keywords: zestawy skalowania maszyn wirtualnych
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: iainfoulds
@@ -17,11 +17,11 @@ ms.topic: article
 ms.date: 12/19/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a501a852a317ec7d087904c3a675ebefce1bece0
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: ae41149bf507e30dc5281fd60a9d6f77d2023293
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Tworzenie zestawu skalowania maszyny wirtualnej w portalu Azure
 Zestaw skalowania maszyn wirtualnych umożliwia wdrożenie zestawu identycznych, automatycznie skalowanych maszyn wirtualnych, oraz zarządzanie nimi. Maszyny wirtualne w zestawie skalowania można skalować ręcznie lub można zdefiniować reguły skalowania automatycznego na podstawie użycia zasobów, takich jak procesor CPU, zapotrzebowanie na pamięć lub ruch sieciowy. W tym artykule Rozpoczęto pobieranie tworzenia skali maszyny wirtualnej w portalu Azure. Można również utworzyć zestaw o skali [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md) lub [programu Azure PowerShell](virtual-machine-scale-sets-create-powershell.md).
@@ -36,7 +36,7 @@ Zaloguj się w witrynie Azure Portal pod adresem http://portal.azure.com.
 ## <a name="create-virtual-machine-scale-set"></a>Utwórz zestaw skali maszyny wirtualnej
 Można wdrożyć zestaw z obrazu systemu Windows Server lub obrazu systemu Linux, takich jak RHEL, CentOS, Ubuntu i SLES skalowania.
 
-1. Kliknij przycisk **Nowy** znajdujący się w lewym górnym rogu witryny Azure Portal.
+1. Kliknij przycisk **Utwórz zasób** w lewym górnym rogu portalu Azure.
 2. Wyszukaj *zestaw skali*, wybierz **zestaw skali maszyny wirtualnej**, a następnie wybierz pozycję **Utwórz**.
 3. Wprowadź nazwę dla zestawu skalowania, takich jak *myScaleSet*.
 4. Wybierz żądany typ systemu operacyjnego, takich jak *systemu Windows Server Datacenter 2016*.
@@ -65,8 +65,8 @@ Aby wyświetlić te NAT zasady i informacje o połączeniu dla programu skali Us
 
 Można połączyć na każdej maszynie Wirtualnej w skali ustawić za pomocą tych zasad translatora adresów Sieciowych. Każde wystąpienie maszyny Wirtualnej zawiera docelowy adres IP i numer portu TCP. Na przykład, jeśli docelowy adres IP jest *104.42.1.19* i TCP port jest *50001*, należy połączyć się z wystąpieniem maszyny Wirtualnej w następujący sposób:
 
-- Zestaw Windows skali łączyć się wystąpienia maszyny Wirtualnej z protokołem RDP na`104.42.1.19:50001`
-- Zestaw skali Linux łączyć się wystąpienia maszyny Wirtualnej przy użyciu protokołu SSH w`ssh azureuser@104.42.1.19 -p 50001`
+- Zestaw Windows skali łączyć się wystąpienia maszyny Wirtualnej z protokołem RDP na `104.42.1.19:50001`
+- Zestaw skali Linux łączyć się wystąpienia maszyny Wirtualnej przy użyciu protokołu SSH w `ssh azureuser@104.42.1.19 -p 50001`
 
 Po wyświetleniu monitu wprowadź poświadczenia, określona w poprzednim kroku, podczas tworzenia zestawu skalowania. Wystąpienia zestawu skali są regularnie maszyn wirtualnych współpracujących z normalnego. Aby uzyskać więcej informacji na temat wdrażania i uruchamiania aplikacji w skali sieci zestaw wystąpień, zobacz [wdrożyć aplikację na zestawy skalowania maszyny wirtualnej](virtual-machine-scale-sets-deploy-app.md)
 

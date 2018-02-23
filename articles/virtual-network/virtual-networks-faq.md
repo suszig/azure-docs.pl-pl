@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/18/2017
 ms.author: jdial
-ms.openlocfilehash: c71e188b74ebfd9420f840957e83190cf476b584
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2042bc44df7d3d61bf52d28a910dae1b125b9fdb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Sieć wirtualna platformy Azure — często zadawane pytania (FAQ)
 
@@ -46,7 +46,7 @@ Tak. Można użyć sieci wirtualnej bez korzystania z połączeń hybrydowych. J
 
 Tak. Można wdrożyć [urządzenie wirtualne sieci WAN optymalizacji](https://azure.microsoft.com/marketplace/?term=wan+optimization) z kilku dostawców za pośrednictwem portalu Azure Marketplace.
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 ### <a name="what-tools-do-i-use-to-create-a-vnet"></a>Jakie narzędzia należy używać, aby utworzyć sieć wirtualną?
 Następujące narzędzia służy do tworzenia lub konfigurowania sieci wirtualnej:
@@ -81,7 +81,7 @@ Tak. Możesz użyć użytkownika zdefiniowane routingu przez. Aby uzyskać więc
 Nie. Firma Microsoft nie obsługują multiemisji lub emisji.
 
 ### <a name="what-protocols-can-i-use-within-vnets"></a>Jakie protokoły można używać w ramach sieci wirtualnych?
-Można używać protokołów TCP, UDP i ICMP TCP/IP w ramach sieci wirtualnych. Multiemisji, emisji hermetyzowany IP-in-IP pakiety i pakiety Generic Routing Encapsulation (GRE) są zablokowane w ramach sieci wirtualnych. 
+Można używać protokołów TCP, UDP i ICMP TCP/IP w ramach sieci wirtualnych. Emisji pojedynczej jest obsługiwana w ramach sieci wirtualnych, z wyjątkiem dynamiczne hosta konfiguracji Protocol (DHCP) za pośrednictwem emisji pojedynczej (źródłowy port UDP/68 / docelowy port UDP i 67). Multiemisji, emisji hermetyzowany IP-in-IP pakiety i pakiety Generic Routing Encapsulation (GRE) są zablokowane w ramach sieci wirtualnych. 
 
 ### <a name="can-i-ping-my-default-routers-within-a-vnet"></a>Czy można wywołać Moje domyślne routery w sieci wirtualnej?
 Nie.

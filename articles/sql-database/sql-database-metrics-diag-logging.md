@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
 ms.author: vvasic
-ms.openlocfilehash: 2e377ef96f6c2b5866ad258a88d6403fd0bb1e41
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 87bbbd1fdcb9afb59de0bda29e99e23e0b9ad104
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Metryki bazy danych SQL Azure i rejestrowanie danych diagnostycznych 
 Baza danych SQL Azure może emitować metryki i informacji diagnostycznych dzienników łatwiejsze monitorowania. Usługę SQL Database można skonfigurować do przechowywania danych dotyczących użycia zasobów, pracowników i sesji oraz połączeń z jednym z następujących zasobów platformy Azure:
@@ -43,7 +43,7 @@ Metryki i rejestrowania diagnostyki nie jest włączona domyślnie. Można włą
 Po włączeniu metryki i rejestrowanie danych diagnostycznych, należy określić zasobów platformy Azure, w którym są zbierane wybranych danych. Dostępne opcje to:
 
 - Log Analytics
-- Usługa Event Hubs
+- Event Hubs
 - Magazyn 
 
 Można udostępnić nowych zasobów platformy Azure lub wybierz istniejący zasób. Po wybraniu zasobów magazynu, należy określić dane, które mają być zbierane. Dostępne opcje to:
@@ -180,7 +180,7 @@ Monitorowanie floty bazy danych SQL jest proste — analizy dzienników. Wymagan
 
 ### <a name="create-a-log-analytics-resource"></a>Utwórz zasób analizy dzienników
 
-1. Wybierz **nowy** w menu po lewej stronie.
+1. Wybierz **Utwórz zasób** w menu po lewej stronie.
 
 2. Wybierz **monitorowania i zarządzania**.
 
@@ -266,7 +266,7 @@ Dowiedz się, jak [pobrać dzienniki metryki i informacji diagnostycznych z maga
 |**Zasób**|**Metryki**|
 |---|---|
 |Database (Baza danych)|Procent użycia jednostek DTU, używane jednostek dtu w warstwie, limit jednostek dtu w warstwie, procent użycia procesora CPU i procent odczytu danych fizycznych, dziennika zapisu procent, Powodzenie/nie powiodło się/zablokowane przez połączeń zapory, wartość procentowa sesji, procent pracowników, magazynu, procent użycia magazynu, XTP procent użycia magazynu, i Zakleszczenie |
-|Puli elastycznej|procent liczby jednostek eDTU używany eDTU, limit liczby jednostek eDTU, procent użycia procesora CPU i procent odczytu danych fizycznych, dziennika zapisu procent, procent sesji, procent pracowników, magazynu, procent użycia magazynu, limit magazynu, XTP procent użycia magazynu |
+|Pula elastyczna|procent liczby jednostek eDTU używany eDTU, limit liczby jednostek eDTU, procent użycia procesora CPU i procent odczytu danych fizycznych, dziennika zapisu procent, procent sesji, procent pracowników, magazynu, procent użycia magazynu, limit magazynu, XTP procent użycia magazynu |
 |||
 
 ### <a name="query-store-runtime-statistics"></a>Magazyn zapytań statystyk czasu wykonywania
@@ -287,7 +287,7 @@ Dowiedz się, jak [pobrać dzienniki metryki i informacji diagnostycznych z maga
 |LogicalServerName_s|Nazwa serwera, należącego do bazy danych.|
 |ElasticPoolName_s|Nazwa puli elastycznej bazy danych należy, jeśli istnieje.|
 |DatabaseName_s|Nazwa bazy danych.|
-|Identyfikator zasobu|Identyfikator URI zasobu.|
+|ResourceId|Identyfikator URI zasobu.|
 |query_hash_s|Wyślij zapytanie do wyznaczania wartości skrótu.|
 |query_plan_hash_s|Skrót planu zapytania.|
 |statement_sql_handle_s|Dojście do instrukcji sql.|
@@ -338,7 +338,7 @@ Dowiedz się więcej o [dane statystyk czasu wykonywania magazynu zapytań](http
 |LogicalServerName_s|Nazwa serwera, należącego do bazy danych.|
 |ElasticPoolName_s|Nazwa puli elastycznej bazy danych należy, jeśli istnieje.|
 |DatabaseName_s|Nazwa bazy danych.|
-|Identyfikator zasobu|Identyfikator URI zasobu.|
+|ResourceId|Identyfikator URI zasobu.|
 |wait_category_s|Kategoria czas oczekiwania.|
 |is_parameterizable_s|To zapytanie można sparametryzować.|
 |statement_type_s|Typ instrukcji.|
@@ -376,7 +376,7 @@ Dowiedz się więcej o [magazyn zapytań oczekiwania statystyki danych](https://
 |LogicalServerName_s|Nazwa serwera, należącego do bazy danych.|
 |ElasticPoolName_s|Nazwa puli elastycznej bazy danych należy, jeśli istnieje.|
 |DatabaseName_s|Nazwa bazy danych.|
-|Identyfikator zasobu|Identyfikator URI zasobu.|
+|ResourceId|Identyfikator URI zasobu.|
 |Komunikat|Komunikat o błędzie w postaci zwykłego tekstu.|
 |user_defined_b|Jest błąd zdefiniowanych przez użytkownika.|
 |error_number_d|Kod błędu.|
@@ -405,7 +405,7 @@ Dowiedz się więcej o [komunikaty o błędach programu SQL Server](https://msdn
 |LogicalServerName_s|Nazwa serwera, należącego do bazy danych.|
 |ElasticPoolName_s|Nazwa puli elastycznej bazy danych należy, jeśli istnieje.|
 |DatabaseName_s|Nazwa bazy danych.|
-|Identyfikator zasobu|Identyfikator URI zasobu.|
+|ResourceId|Identyfikator URI zasobu.|
 |wait_type_s|Nazwa typu oczekiwania.|
 |start_utc_date_t [UTC]|Mierzy czas rozpoczęcia okresu.|
 |end_utc_date_t [UTC]|Mierzy czas zakończenia okresu.|
@@ -434,7 +434,7 @@ Dowiedz się więcej o [bazy danych statystyki oczekiwania](https://docs.microso
 |LogicalServerName_s|Nazwa serwera, należącego do bazy danych.|
 |ElasticPoolName_s|Nazwa puli elastycznej bazy danych należy, jeśli istnieje.|
 |DatabaseName_s|Nazwa bazy danych.|
-|Identyfikator zasobu|Identyfikator URI zasobu.|
+|ResourceId|Identyfikator URI zasobu.|
 |error_state_d|Kod stanu błędu.|
 |query_hash_s|Zapytanie skrótu, jeśli jest dostępna.|
 |query_plan_hash_s|Zapytanie skrótu planu, jeśli jest dostępna.|
@@ -457,7 +457,7 @@ Dowiedz się więcej o [bazy danych statystyki oczekiwania](https://docs.microso
 |LogicalServerName_s|Nazwa serwera, należącego do bazy danych.|
 |ElasticPoolName_s|Nazwa puli elastycznej bazy danych należy, jeśli istnieje.|
 |DatabaseName_s|Nazwa bazy danych.|
-|Identyfikator zasobu|Identyfikator URI zasobu.|
+|ResourceId|Identyfikator URI zasobu.|
 |lock_mode_s|Tryb blokowania użyta przez zapytanie.|
 |resource_owner_type_s|Właściciel blokady.|
 |blocked_process_filtered_s|Zablokowane procesu raportu XML.|
@@ -466,7 +466,7 @@ Dowiedz się więcej o [bazy danych statystyki oczekiwania](https://docs.microso
 ### <a name="intelligent-insights-dataset"></a>Inteligentnego Insights zestawu danych.
 Dowiedz się więcej o [format dziennika inteligentnego Insights](sql-database-intelligent-insights-use-diagnostics-log.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby dowiedzieć się, jak włączyć rejestrowanie i zrozumienie kategorii metryki i dziennika obsługiwanych przez różne usługi platformy Azure, przeczytaj:
 

@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: c1a9310d0a09d714f1d58f29e5683097c9dc6b90
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8b85457c5df9fb15c7eebe8b6fe8fb904f9e6009
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Kod testu Azure funkcji i lokalnie
 
@@ -128,7 +128,7 @@ Local.settings.json pliku przechowuje ustawienia Azure funkcje podstawowe narzę
 ```
 | Ustawienie      | Opis                            |
 | ------------ | -------------------------------------- |
-| **IsEncrypted** | Jeśli wartość **true**, wszystkie wartości są szyfrowane za pomocą klucza komputera lokalnego. Używane z `func settings` poleceń. Wartość domyślna to **false**. |
+| **isEncrypted** | Jeśli wartość **true**, wszystkie wartości są szyfrowane za pomocą klucza komputera lokalnego. Używane z `func settings` poleceń. Wartość domyślna to **false**. |
 | **Wartości** | Kolekcja ustawień aplikacji, używane podczas uruchamiania lokalnego. **AzureWebJobsStorage** i **AzureWebJobsDashboard** przedstawiono; Aby uzyskać pełną listę, zobacz [informacje dotyczące ustawień aplikacji](functions-app-settings.md).  |
 | **Host** | Ustawienia w tej sekcji dostosować funkcje procesu hosta podczas uruchamiania lokalnego. | 
 | **LocalHttpPort** | Ustawia domyślny port używany podczas uruchamiania lokalnego hosta funkcji (`func host start` i `func run`). `--port` Opcji wiersza polecenia mają pierwszeństwo przed tej wartości. |
@@ -169,7 +169,7 @@ Aby utworzyć funkcję, uruchom następujące polecenie:
 ```
 func new
 ``` 
-`func new`obsługuje następujące argumenty opcjonalne:
+`func new` obsługuje następujące argumenty opcjonalne:
 
 | Argument     | Opis                            |
 | ------------ | -------------------------------------- |
@@ -197,7 +197,7 @@ Aby uruchomić projekt funkcji, należy uruchomić hosta funkcji. Host umożliwi
 func host start
 ```
 
-`func host start`obsługuje następujące opcje:
+`func host start` obsługuje następujące opcje:
 
 | Opcja     | Opis                            |
 | ------------ | -------------------------------------- |
@@ -231,6 +231,9 @@ Aby uruchomić hosta i skonfigurować debugowanie JavaScript, uruchom polecenie:
 ```
 func host start --debug vscode
 ```
+
+> [!IMPORTANT]
+> Debugowanie tylko Node.js 8.x jest obsługiwana. Node.js 9.x nie jest obsługiwane. 
 
 Następnie w programie Visual Studio Code, w **debugowania** widok, wybierz opcję **dołączanie do usługi Azure Functions**. Umożliwia dołączanie punktów przerwania, Sprawdź zmienne i wykonywać krokowo kodu.
 
@@ -293,7 +296,7 @@ curl --request POST -H "Content-Type:application/json" --data '{"input":"sample 
 
 Można także wywoływać bezpośrednio za pomocą funkcji `func run <FunctionName>` i podaj dane wejściowe dla funkcji. To polecenie jest podobny do uruchamiania przy użyciu funkcji **testu** kartę w portalu Azure. 
 
-`func run`obsługuje następujące opcje:
+`func run` obsługuje następujące opcje:
 
 | Opcja     | Opis                            |
 | ------------ | -------------------------------------- |

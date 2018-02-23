@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: seohack1
-ms.openlocfilehash: afa609d7b47f3c743f5d3bfd4011e09c762ccbd1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 686cc2a94af729e6f872c334a6e5fda947d43725
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="password-management-frequently-asked-questions"></a>Często zadawane pytania dotyczące zarządzania hasłami
 
@@ -40,7 +40,7 @@ Często zadawane pytania jest podzielony na następujące sekcje:
 
 * **Pytanie: czy Moi użytkownicy rejestrowanie własnych danych resetowania hasła?**
 
-  > **Odpowiedź:** tak. Tak długo, jak resetowania hasła jest włączona i są one licencjonowane, użytkowników można przejść do portalu rejestracji resetowania haseł (http://aka.ms/ssprsetup) do rejestrowania informacji o ich uwierzytelnianie. Użytkownicy mogą również zarejestrować za pomocą panelu dostępu (http://myapps.microsoft.com). Można zarejestrować za pomocą panelu dostępu, muszą wybrać obraz ich profilu, wybierz **profilu**, a następnie wybierz **zarejestrować do resetowania hasła** opcji.
+  > **Odpowiedź:** tak. Tak długo, jak resetowania hasła jest włączona i są one licencjonowane, użytkowników można przejść do portalu rejestracji resetowania haseł (https://aka.ms/ssprsetup) do rejestrowania informacji o ich uwierzytelnianie. Użytkownicy mogą również zarejestrować za pomocą panelu dostępu (http://myapps.microsoft.com). Można zarejestrować za pomocą panelu dostępu, muszą wybrać obraz ich profilu, wybierz **profilu**, a następnie wybierz **zarejestrować do resetowania hasła** opcji.
   >
   >
 * **Pytanie: czy włączyć hasła zresetowanie grupy i zdecydować włączyć ją dla wszystkich są moje użytkowników wymagane ponownie zarejestrować?**
@@ -180,7 +180,7 @@ Często zadawane pytania jest podzielony na następujące sekcje:
   >
 * **Pytanie: Jeśli użytkownik został zarejestrowany w więcej niż maksymalna liczba pytań wymaganych do zresetowania, jak są pytania zabezpieczające wybrane podczas resetowania?**
 
-  > **Odpowiedź:** *N* liczbę pytań zabezpieczających są losowo wybrane poza łączna liczba pytań, użytkownik jest zarejestrowany dla, gdzie *N* jest wartość ustawioną dla  **Liczba pytań wymaganych do zresetowania** opcji. Na przykład jeśli użytkownik został zarejestrowany pięć pytań zabezpieczeń, ale tylko trzy są wymagane, aby zresetować hasło, trzy z pięciu pytania są losowo dobierane i są prezentowane w resetowania. Aby zapobiec pytanie atakowaniu, jeśli użytkownik pobiera odpowiedzi na pytania niewłaściwy procesu wyboru rozpoczyna się za pośrednictwem.
+  > **Odpowiedź:** *N* liczbę pytań zabezpieczających są losowo wybrane poza łączna liczba pytań, użytkownik jest zarejestrowany dla miejsca *N* jest wartość ustawioną dla **numer pytań wymaganych do zresetowania** opcji. Na przykład jeśli użytkownik został zarejestrowany pięć pytań zabezpieczeń, ale tylko trzy są wymagane, aby zresetować hasło, trzy z pięciu pytania są losowo dobierane i są prezentowane w resetowania. Aby zapobiec pytanie atakowaniu, jeśli użytkownik pobiera odpowiedzi na pytania niewłaściwy procesu wyboru rozpoczyna się za pośrednictwem.
   >
   >
 * **Pytanie: jak długo są poczty e-mail i SMS jednorazowe kody dostępu prawidłowy?**

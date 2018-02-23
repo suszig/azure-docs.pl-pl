@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: v-craic
-ms.openlocfilehash: 2921356f848739d602807236006f9867eaa2a4e4
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 348952626e13b9ac73ca2ec8e101bf02e416dc9b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Dodaj właścicieli i użytkowników w usłudze Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -36,7 +36,7 @@ Istnieją trzy główne role przypisanie użytkownika:
 
 W poniższej tabeli przedstawiono akcje, które mogą być wykonywane przez użytkowników w każdej z tych ról:
 
-| **Można wykonać akcje użytkowników w tej roli** | **DevTest Labs użytkownika** | **Właściciel** | **Współautora** |
+| **Można wykonać akcje użytkowników w tej roli** | **DevTest Labs użytkownika** | **Właściciel** | **Contributor** |
 | --- | --- | --- | --- |
 | **Zadania laboratorium** | | | |
 | Dodawanie użytkowników do laboratorium |Nie |Yes |Nie |
@@ -64,7 +64,7 @@ Właściciele i użytkowników można dodać na poziomie laboratorium za pośred
 Poniższe kroki ułatwiają dodawanie właściciela lub użytkowników do laboratorium w usłudze Azure DevTest Labs:
 
 1. Zaloguj się w witrynie [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Wybierz pozycję **Więcej usług**, a następnie z listy wybierz pozycję **DevTest Labs**.
+2. Wybierz **wszystkie usługi**, a następnie wybierz **DevTest Labs** z listy.
 3. Z listy labs wybierz żądany laboratorium.
 4. W bloku laboratorium, wybierz **konfiguracji**. 
 5. Na **konfiguracji** bloku, wybierz opcję **użytkowników**.
@@ -118,7 +118,7 @@ Możesz dodać dodatkowe właścicieli do laboratorium za pomocą bloku laborato
 Aby dodać właściciela subskrypcji platformy Azure, wykonaj następujące kroki:
 
 1. Zaloguj się w witrynie [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Wybierz **więcej usług**, a następnie wybierz **subskrypcje** z listy.
+2. Wybierz **wszystkie usługi**, a następnie wybierz **subskrypcje** z listy.
 3. Wybierz odpowiednią subskrypcję.
 4. Wybierz **dostępu** ikony. 
    

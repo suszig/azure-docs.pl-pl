@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Active
 ms.date: 07/05/2017
 ms.author: carlrab
-ms.openlocfilehash: 25fa8d03a206452c17e5d4ad38211203aeb5dd65
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 57132367faaa4c4869f2415f32897562c8056fb1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Więcej informacji na temat automatycznego tworzenia kopii zapasowej bazy danych SQL
 
@@ -41,9 +41,6 @@ Te kopie zapasowe, można użyć:
 > [!NOTE]
 > W magazynie Azure określenie *replikacji* odwołuje się do kopiowania plików z jednej lokalizacji do innej. SQL do *replikacji bazy danych* odwołuje się do przechowywania wiele pomocniczych baz danych synchronizowane z podstawowej bazy danych. 
 > 
-
-## <a name="how-much-backup-storage-is-included-at-no-cost"></a>Ile miejsca do magazynowania kopii zapasowej wchodzi bezpłatnie?
-Baza danych SQL zawiera maksymalnie 200% magazynu maksymalną elastycznie bazy danych jako magazynu kopii zapasowej bez ponoszenia dodatkowych kosztów. Na przykład jeśli wystąpienie standardowe bazy danych o rozmiarze DB elastycznie 250 GB, masz 500 GB miejsca do magazynowania kopii zapasowej bez dodatkowych opłat. 
 
 ## <a name="how-often-do-backups-happen"></a>Jak często stanie kopie zapasowe?
 Kopie zapasowe pełnej bazy danych są wykonywane co tydzień, kopie zapasowe różnicowej bazy danych są zazwyczaj wykonywane co kilka godzin, a dziennik transakcji, których kopie zapasowe są zazwyczaj wykonywane co 5 – 10 minut. Pierwsza pełna kopia zapasowa jest zaplanowane, natychmiast po utworzeniu bazy danych. Zazwyczaj wykonuje w ciągu 30 minut, ale może to trwać dłużej baza danych jest znaczne rozmiary. Na przykład początkowa kopia zapasowa może trwać dłużej w przywróconej bazy danych lub kopii bazy danych. Po pierwszym pełną kopię zapasową wszystkie dodatkowe kopie zapasowe są zaplanowane automatycznie i zarządzane w trybie dyskretnym w tle. Dokładny czas wszystkie kopie zapasowe bazy danych jest określana przez usługi SQL Database go jako ogólną obciążenia systemu. 
@@ -81,7 +78,7 @@ Po dodaniu zasad od lewej do prawej z bazą danych przy użyciu portalu Azure lu
 
 Po włączeniu funkcji TDE dla bazy danych Azure SQL kopii zapasowych również są szyfrowane. Wszystkie nowe bazy danych Azure SQL korzystają z funkcji TDE domyślnie włączone. Aby uzyskać więcej informacji o funkcji TDE, zobacz [przezroczystego szyfrowania danych z bazy danych SQL Azure](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Kopie zapasowe bazy danych są integralną część każdej strategii odzyskiwania biznesowych, jak ciągłości i odzyskiwaniem po awarii, ponieważ ich ochronę danych przed przypadkowym uszkodzenia lub usunięcia. Aby poznać inne bazy danych SQL Azure firm ciągłości rozwiązania, zobacz temat [omówienie ciągłości działalności biznesowej](sql-database-business-continuity.md).
 - Aby przywrócić do punktu w czasie przy użyciu portalu Azure, zobacz [przywrócenie bazy danych do punktu w czasie przy użyciu portalu Azure](sql-database-recovery-using-backups.md).

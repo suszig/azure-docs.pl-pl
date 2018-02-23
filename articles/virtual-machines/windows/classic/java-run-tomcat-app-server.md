@@ -15,11 +15,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 03/16/2017
 ms.author: robmcm
-ms.openlocfilehash: 768c94fe0d2d6cfafc1f8b57256012e01de0f7a9
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: b166d2af56051b7d90eba0d50e1ea41f96c1109e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-run-a-java-application-server-on-a-virtual-machine-created-with-the-classic-deployment-model"></a>Jak uruchomić serwer aplikacji Java na maszynie wirtualnej utworzonej przy użyciu klasycznego modelu wdrażania
 > [!IMPORTANT]
@@ -44,7 +44,7 @@ Ukończono instalację powoduje Tomcat uruchomione na maszynie wirtualnej.
 
 ## <a name="to-create-a-virtual-machine"></a>Aby utworzyć maszynę wirtualną
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).  
-2. Kliknij przycisk **nowy**, kliknij przycisk **obliczeniowe**, następnie kliknij przycisk **zobaczyć wszystkie** w **wyróżnionych aplikacji**.
+2. Kliknij przycisk **Utwórz zasób**, kliknij przycisk **obliczeniowe**, następnie kliknij przycisk **zobaczyć wszystkie** w **wyróżnionych aplikacji**.
 3. Kliknij przycisk **JDK**, kliknij przycisk **JDK 8** w **JDK** okienka.  
    Maszyny wirtualnej obrazy obsługujące **JDK 6** i **JDK 7** są dostępne, jeśli masz starsze aplikacje, które nie są gotowe do uruchomienia w JDK 8.
 4. Wybierz w okienku JDK 8 **klasycznego**, następnie kliknij przycisk **Utwórz**.
@@ -93,7 +93,7 @@ Aby wyświetlić Tomcat uruchomiona z zewnętrznych komputerów, należy utworzy
 2. Kliknij przycisk **maszyn wirtualnych (klasyczne)**.
 3. Kliknij nazwę maszyny wirtualnej, na którym działa serwer aplikacji Java.
 4. Kliknij przycisk **Punkty końcowe**.
-5. Kliknij pozycję **Dodaj**.
+5. Kliknij pozycję **Add** (Dodaj).
 6. W **dodać punkt końcowy** okno dialogowe:
    1. Określ nazwę dla punktu końcowego; na przykład **HttpIn**.
    2. Wybierz **TCP** dla protokołu.
@@ -121,7 +121,7 @@ Aby wyświetlić Tomcat uruchomiona z zewnętrznych komputerów, należy utworzy
 10. Na **nazwa** ekranu, określ nazwę reguły, takie jak **HttpIn** (Nazwa reguły nie jest wymagany do dopasowania Nazwa punktu końcowego, jednak), a następnie kliknij przycisk **Zakończ**.  
     ![Nazwa nowej reguły ruchu przychodzącego][NewRuleName]
 
-W tym momencie witryny sieci Web Tomcat powinien być widoczny z zewnętrznej przeglądarki. W oknie adresu w przeglądarce, wpisz adres URL w formacie  **http://*Twojego\_DNS\_nazwa*. cloudapp.net**, gdzie ***Twojego\_DNS\_nazwa*** jest nazwą DNS, należy określić podczas tworzenia maszyny wirtualnej.
+W tym momencie witryny sieci Web Tomcat powinien być widoczny z zewnętrznej przeglądarki. W oknie adresu w przeglądarce, wpisz adres URL w formacie **http://*Twojego\_DNS\_nazwa*. cloudapp.net**, gdzie ***Twojego\_DNS\_nazwa*** jest nazwą DNS, należy określić podczas tworzenia maszyny wirtualnej.
 
 ## <a name="application-lifecycle-considerations"></a>Zagadnienia dotyczące cyklu życia aplikacji
 * Można tworzyć własne archiwum aplikacji sieci web (plik WAR) i dodaj go do **webapps** folderu. Na przykład Tworzenie podstawowego projektu sieci web dynamiczne strony usługi Java (JSP) i wyeksportować go jako plik WAR. Następnie skopiuj plik WAR do Apache Tomcat **webapps** folderu na maszynie wirtualnej, a następnie uruchom go w przeglądarce.
@@ -131,7 +131,7 @@ W tym momencie witryny sieci Web Tomcat powinien być widoczny z zewnętrznej pr
 
     O konieczności Tomcat automatycznego uruchamiania jest, że jej uruchomienie po ponownym uruchomieniu maszyny wirtualnej (na przykład po zainstalowaniu aktualizacji oprogramowania, które wymagają ponownego uruchomienia).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Informacje na temat innych usług (takich jak magazynu Azure, magistrali usług i bazy danych SQL), które warto uwzględnić z aplikacji Java. Wyświetlanie informacji dostępnych w [Centrum deweloperów języka Java](https://azure.microsoft.com/develop/java/).
 
 [virtual_machine_tomcat]:media/java-run-tomcat-app-server/WA_VirtualMachineRunningApacheTomcat.png

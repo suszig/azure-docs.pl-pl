@@ -4,7 +4,7 @@ description: "Zawiera opis zagadnień kopia zapasowa i przywracanie baz danych S
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-resource-management
 ms.assetid: 95a89072-0edf-49b5-88ed-584891c0e066
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/15/2016
 ms.author: mikeray
-ms.openlocfilehash: 65557938673c5442758396a47873be1016e0f71b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 16fef048e7c795f3d21fbc4185f6ba31bbc885fb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Tworzenie i przywracanie kopii zapasowych programu SQL Server na maszynach wirtualnych platformy Azure
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Magazyn Azure przechowuje 3 kopie każdego dysku maszyny Wirtualnej platformy Azure, aby zagwarantować ochronę przed utratą danych lub uszkodzenie danych fizycznych. W związku z tym w przeciwieństwie do lokalnego, nie musisz martwić się o tych. Jednak można powinien nadal kopie zapasowe baz danych programu SQL Server, aby zapewnić ochronę przed błędami aplikacji lub użytkownika (np. Wstawianie nieodpowiedniego lub usuwaniem tabel) oraz możliwość Przywracanie do punktu w czasie.
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
@@ -81,7 +81,7 @@ Dla programu SQL Server z kopii zapasowej i przywracania danych w programie SQL 
 
 Dla kopii zapasowej serwera SQL i przywracania danych w programie SQL Server 2008, zobacz [wykonywanie kopii zapasowej i przywracanie baz danych programu SQL Server (SQL Server 2008)](https://msdn.microsoft.com/library/ms187048%28v=sql.100%29.aspx).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Jeśli planowania wdrożenia programu SQL Server w maszynie Wirtualnej platformy Azure, możesz znaleźć wskazówki dotyczące inicjowania obsługi administracyjnej w następujących instrukcji: [inicjowania obsługi maszyny wirtualnej programu SQL Server na platformie Azure za pomocą Menedżera zasobów Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
 Chociaż kopii zapasowej i przywracania może służyć do migracji danych, istnieją potencjalnie łatwiejsze ścieżki migracji danych do programu SQL Server na maszynie Wirtualnej platformy Azure. Pełne omówienie opcji migracji i zalecenia, zobacz [Migrowanie bazy danych do programu SQL Server na maszynie Wirtualnej platformy Azure](virtual-machines-windows-migrate-sql.md).

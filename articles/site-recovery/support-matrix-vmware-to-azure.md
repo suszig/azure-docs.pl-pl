@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: raynew
-ms.openlocfilehash: 837d53c4a70353c92de2475bb355051fdb2fcbb2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 88fc17b635cc96defd1b6f766b9b2ac2c63f2fa7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Tabela wsparcia dla VMware i replikacja serwerów fizycznych do platformy Azure
 
@@ -22,17 +22,17 @@ Ten artykuł zawiera podsumowanie obsługiwanych składników i ustawienia odzys
 
 ## <a name="supported-scenarios"></a>Obsługiwane scenariusze
 
-**Scenariusz** | **Szczegóły** 
---- | --- 
-**Maszyny wirtualne VMware** | Można wykonać odzyskiwania po awarii do platformy Azure dla maszyn wirtualnych VMware lokalnymi. Można wdrożyć ten scenariusz, w portalu Azure lub przy użyciu programu PowerShell.
-**Serwerów fizycznych** | Można wykonać odzyskiwania po awarii do platformy Azure dla lokalnych serwerów fizycznych systemu Windows i Linux. Można wdrożyć ten scenariusz, w portalu Azure.
+**Scenariusz** | **Szczegóły**
+--- | ---
+Maszyny wirtualne VMware | Można wykonać odzyskiwania po awarii do platformy Azure dla maszyn wirtualnych VMware lokalnymi. Można wdrożyć ten scenariusz, w portalu Azure lub przy użyciu programu PowerShell.
+Serwerów fizycznych | Można wykonać odzyskiwania po awarii do platformy Azure dla lokalnych serwerów fizycznych systemu Windows i Linux. Można wdrożyć ten scenariusz, w portalu Azure.
 
 ## <a name="on-premises-virtualization-servers"></a>Lokalnych serwerów wirtualizacji
 
-**Serwer** | **Wymagania** | **Szczegóły**
+**Serwer** | Wymagania | **Szczegóły**
 --- | --- | ---
 **VMware** | vCenter Server 6.5 6.0 lub 5.5 lub vSphere 6.5, 6.0, 5.5 | Firma Microsoft zaleca się, że używany jest serwer vCenter
-**Serwerów fizycznych** | Nie dotyczy
+Serwerów fizycznych | Nie dotyczy
 
 
 ## <a name="replicated-machines"></a>Replikowane maszyny
@@ -55,7 +55,7 @@ System operacyjny maszyny (Linux) | Red Hat Enterprise Linux: 5.2-5.11, 6.1-6.9,
 ### <a name="ubuntu-kernel-versions"></a>Ubuntu wersji jądra
 
 
-**Obsługiwana wersja** | **Wersja usługi mobilności** | **Wersja jądra** |
+**Obsługiwana wersja** | **Wersja usługi mobilności** | Wersja jądra |
 --- | --- | --- |
 14.04 LTS | 9.10 | 3.13.0-24-Generic do 3.13.0-121-generic,<br/>3.16.0-25-Generic do 3.16.0-77-generic,<br/>3.19.0-18-Generic do 3.19.0-80-generic,<br/>4.2.0-18-Generic do 4.2.0-42-generic,<br/>4.4.0-21-Generic do 4.4.0-81-generic |
 14.04 LTS | 9.11 | 3.13.0-24-Generic do 3.13.0-128-generic,<br/>3.16.0-25-Generic do 3.16.0-77-generic,<br/>3.19.0-18-Generic do 3.19.0-80-generic,<br/>4.2.0-18-Generic do 4.2.0-42-generic,<br/>4.4.0-21-Generic do 4.4.0-91-generic |
@@ -83,104 +83,105 @@ XFSv5 | Funkcje XFSv5 na XFS systemów plików, takich jak metadanych sumy kontr
 
 ## <a name="network"></a>Sieć
 
-**Składnik** | **Obsługiwane** 
---- | --- 
+**Składnik** | **Obsługiwane**
+--- | ---
 Tworzenie zespołu kart sieciowych hosta | Obsługiwane w maszynach wirtualnych VMware <br/><br/>Nieobsługiwane w przypadku replikacji maszyny fizycznej.
-Host sieci VLAN | Yes 
-Sieci hostów protokołu IPv4 | Yes 
-Sieci hostów protokołu IPv6 | Nie 
-Gość serwera sieci zespołu kart interfejsu sieciowego | Nie 
-Gość serwera sieci IPv4 | Yes 
-Gość serwera sieci IPv6 | Nie 
-Gość serwera sieci statycznego adresu IP (z systemem Windows) | Yes 
+Host sieci VLAN | Yes
+Sieci hostów protokołu IPv4 | Yes
+Sieci hostów protokołu IPv6 | Nie
+Gość serwera sieci zespołu kart interfejsu sieciowego | Nie
+Gość serwera sieci IPv4 | Yes
+Gość serwera sieci IPv6 | Nie
+Gość serwera sieci statycznego adresu IP (z systemem Windows) | Yes
 Gość serwera sieci statycznego adresu IP (Linux) | Yes <br/><br/>Maszyny wirtualne są skonfigurowane do używania protokołu DHCP w przypadku powrotu po awarii  
-Wiele kart sieciowych sieci z serwerem gościa | Yes 
+Wiele kart sieciowych sieci z serwerem gościa | Yes
 
 
 ## <a name="azure-vm-network-after-failover"></a>Sieć maszyny Wirtualnej platformy Azure (po trybu failover)
 
-**Składnik** | **Obsługiwane** 
---- | --- 
-ExpressRoute | Yes 
-Wewnętrzny moduł równoważenia obciążenia | Yes 
-ELB | Yes 
-Traffic Manager | Yes 
-Multi-NIC | Yes 
-Zastrzeżony adres IP | Yes 
-Protokół IPv4 | Yes 
-Zachowaj źródłowy adres IP | Yes 
-Punkty końcowe usługi sieci wirtualnej<br/><br/> (Usługa azure storage zapory i sieci wirtualne) | Nie 
+**Składnik** | **Obsługiwane**
+--- | ---
+ExpressRoute | Yes
+Wewnętrzny moduł równoważenia obciążenia | Yes
+ELB | Yes
+Traffic Manager | Yes
+Multi-NIC | Yes
+Zastrzeżony adres IP | Yes
+Protokół IPv4 | Yes
+Zachowaj źródłowy adres IP | Yes
+Punkty końcowe usługi sieci wirtualnej<br/><br/> (Usługa azure storage zapory i sieci wirtualne) | Nie
 
 
 ## <a name="storage"></a>Magazyn
 
 
-**Składnik** | **Obsługiwane** 
---- | --- 
-Host systemu plików NFS | Tak, aby VMware<br/><br/> Nie dla serwerów fizycznych 
+**Składnik** | **Obsługiwane**
+--- | ---
+Host systemu plików NFS | Tak, aby VMware<br/><br/> Nie dla serwerów fizycznych
 Sieć SAN (ISCSI) hosta | Yes
 Wiele ścieżek hosta (MPIO) | Tak — przetestowana: Microsoft DSM, EMC PowerPath 5.7 z dodatkiem SP4 EMC PowerPath DSM dla CLARiiON
-Gość i serwerem VMDK | Yes 
-Gość i serwerem interfejsem EFI/UEFI| Partial (migracja do platformy Azure dla systemu Windows Server 2012 i późniejsze). </br></br> ** Zobacz uwagi pod koniec tabeli.
-Dysk udostępniony klaster gościa serwera | Nie 
-Gość i serwerem zaszyfrowanego dysku | Nie 
-Gość serwera systemu plików NFS | Nie 
+Gość i serwerem VMDK | Yes
+Gość i serwerem interfejsem EFI/UEFI| Partial (migracja do platformy Azure dla systemu Windows Server 2012 i nowszych maszyn wirtualnych VMware tylko). </br></br> ** Zobacz uwagi pod koniec tabeli.
+Dysk udostępniony klaster gościa serwera | Nie
+Gość i serwerem zaszyfrowanego dysku | Nie
+Gość serwera systemu plików NFS | Nie
 Gość serwera SMB 3.0 | Nie
-Gość i serwerem RDM | Yes<br/><br/> Brak serwerów fizycznych 
-Gość i serwerem dysku > 1 TB | Yes<br/><br/>Do 4095 GB 
+Gość i serwerem RDM | Yes<br/><br/> Brak serwerów fizycznych
+Gość i serwerem dysku > 1 TB | Yes<br/><br/>Do 4095 GB
 Gość i serwerem dysku o rozmiarze sektora fizycznego logicznych i 4 k 4K | Yes
-Dysk serwera gościa z logicznych 4K i rozmiar sektora fizycznego 512 bajtów | Yes 
+Dysk serwera gościa z logicznych 4K i rozmiar sektora fizycznego 512 bajtów | Yes
 Wolumin serwera gościa z dysku rozłożone > 4 TB <br><br/>Zarządzanie woluminami LVM logiczne | Yes
-Gość/server - miejsca do magazynowania | Nie 
-Gość i serwerem dodawania i usuwania gorących dysku | Nie 
-Gość/server — Wyklucz dysku | Yes 
+Gość/server - miejsca do magazynowania | Nie
+Gość i serwerem dodawania i usuwania gorących dysku | Nie
+Gość/server — Wyklucz dysku | Yes
 Gość i serwerem wiele ścieżek (MPIO) | ND
 
 > [!NOTE]
-> ** UEFI ** rozruchu maszyn wirtualnych VMware lub serwerów fizycznych z systemem Windows Server 2012 lub nowszym można poddać migracji do usługi Azure. Obowiązują następujące ograniczenia.
+> ** UEFI ** rozruchu maszyn wirtualnych VMware z systemem Windows Server 2012 lub nowszym można poddać migracji do usługi Azure. Obowiązują następujące ograniczenia.
 > - Tylko migracja do systemu Azure jest obsługiwana. Powrót po awarii do lokalnej lokacji oprogramowania VMware nie jest obsługiwane.
 > - Serwer nie powinna mieć więcej niż 4 partycji na dysku systemu operacyjnego.
 > - Wymagana wersja usługi mobilności odzyskiwania lokacji Azure 9.13 lub nowszej.
+> - Nie jest obsługiwana na serwerach fizycznych.
 
 
 ## <a name="azure-storage"></a>Azure Storage
 
-**Składnik** | **Obsługiwane** 
---- | --- 
-LRS | Yes 
-GRS | Yes 
-RA-GRS | Yes 
-Magazynu chłodnego | Nie 
-Magazynu gorącego| Nie 
-Obiekty BLOB typu Block | Nie 
-Szyfrowanie rest(SSE)| Yes 
-Premium Storage | Yes 
-Import/Eksport usługi | Nie 
-Punkty końcowe usługi sieci wirtualnej<br/><br/> Usługa Azure storage zapory i sieci wirtualne skonfigurowane na docelowe konto magazynu pamięci podręcznej/magazynów (używane do przechowywania danych replikacji) | Nie 
-Konta magazynu ogólnego przeznaczenia V2 (zarówno gorącego i chłodnej warstwy) | Nie 
+**Składnik** | **Obsługiwane**
+--- | ---
+LRS | Yes
+GRS | Yes
+RA-GRS | Yes
+Magazynu chłodnego | Nie
+Magazynu gorącego| Nie
+Obiekty BLOB typu Block | Nie
+Szyfrowanie rest(SSE)| Yes
+Premium Storage | Yes
+Import/Eksport usługi | Nie
+Punkty końcowe usługi sieci wirtualnej<br/><br/> Usługa Azure storage zapory i sieci wirtualne skonfigurowane na docelowe konto magazynu pamięci podręcznej/magazynów (używane do przechowywania danych replikacji) | Nie
+Konta magazynu ogólnego przeznaczenia V2 (zarówno gorącego i chłodnej warstwy) | Nie
 
 
 ## <a name="azure-compute"></a>Obliczeń platformy Azure
 
-**Featuree** | **Obsługiwane** 
---- | --- 
-Zestawy dostępności | Yes 
+**Featuree** | **Obsługiwane**
+--- | ---
+Zestawy dostępności | Yes
 HUB | Yes   
-Dyski zarządzane | Yes 
+Dyski zarządzane | Yes
 
 ## <a name="azure-vm-requirements"></a>Wymagania dotyczące maszyny Wirtualnej platformy Azure
 
 Lokalnych maszyn wirtualnych, które są replikowane do platformy Azure musi spełniać wymagania maszyny Wirtualnej Azure podsumowaniem w poniższej tabeli.
 
-**Składnik** | **Wymagania** | **Szczegóły**
+**Składnik** | Wymagania | **Szczegóły**
 --- | --- | ---
-**System operacyjny gościa** | Sprawdź [obsługiwanych systemów operacyjnych](#replicated machines) | Sprawdzanie wymagań wstępnych kończy się niepowodzeniem, jeśli jest nieobsługiwany.
+System operacyjny gościa | Sprawdź [obsługiwanych systemów operacyjnych](#replicated machines) | Sprawdzanie wymagań wstępnych kończy się niepowodzeniem, jeśli jest nieobsługiwany.
 **Architektura systemu operacyjnego gościa** | 64-bitowa | Sprawdzanie wymagań wstępnych kończy się niepowodzeniem, jeśli nieobsługiwane
 **Rozmiar dysku systemu operacyjnego** | Do 2048 GB | Sprawdzanie wymagań wstępnych kończy się niepowodzeniem, jeśli nieobsługiwane
 **Liczba dysków systemu operacyjnego** | 1 | Sprawdzanie wymagań wstępnych zakończy się niepowodzeniem, jeśli jest nieobsługiwany.
 **Liczba dysków danych** | Replikowanie 64 lub mniej, jeśli **maszyn wirtualnych VMware do platformy Azure**; 16 lub mniej przypadku replikowania **maszyn wirtualnych funkcji Hyper-V w systemie Azure** | Sprawdzanie wymagań wstępnych zakończy się niepowodzeniem, jeśli nieobsługiwane
 **Rozmiar wirtualnego dysku twardego dysku danych** | Do 4095 GB | Sprawdzanie wymagań wstępnych kończy się niepowodzeniem, jeśli nieobsługiwane
-**Karty sieciowe** | Wiele kart sieciowych są obsługiwane. | 
+**Karty sieciowe** | Wiele kart sieciowych są obsługiwane. |
 **Udostępniony wirtualny dysk twardy** | Nieobsługiwane | Sprawdzanie wymagań wstępnych kończy się niepowodzeniem, jeśli nieobsługiwane
 **FC dysku** | Nieobsługiwane | Sprawdzanie wymagań wstępnych kończy się niepowodzeniem, jeśli nieobsługiwane
 **Format dysku twardego** | WIRTUALNEGO DYSKU TWARDEGO <br/><br/> VHDX | Chociaż VHDX nie jest obecnie obsługiwany na platformie Azure, Usługa Site Recovery automatycznie konwertuje VHDX do wirtualnego dysku twardego, gdy awaryjnie na platformie Azure. Gdy nie powiedzie się do lokalnych maszyn wirtualnych w dalszym ciągu korzystać z formatu VHDX.
@@ -190,10 +191,10 @@ Lokalnych maszyn wirtualnych, które są replikowane do platformy Azure musi spe
 
 ## <a name="vault-tasks"></a>Magazyn zadań
 
-**Akcja** | **Obsługiwane** 
---- | --- 
-Przenieś magazyn między grupami zasobów<br/><br/> W obrębie subskrypcji oraz | Nie 
-Przenieść magazyn, sieć, maszyn wirtualnych platformy Azure w grupach zasobów<br/><br/> W obrębie subskrypcji oraz | Nie 
+**Akcja** | **Obsługiwane**
+--- | ---
+Przenieś magazyn między grupami zasobów<br/><br/> W obrębie subskrypcji oraz | Nie
+Przenieść magazyn, sieć, maszyn wirtualnych platformy Azure w grupach zasobów<br/><br/> W obrębie subskrypcji oraz | Nie
 
 
 ## <a name="mobility-service"></a>Usługa mobilności

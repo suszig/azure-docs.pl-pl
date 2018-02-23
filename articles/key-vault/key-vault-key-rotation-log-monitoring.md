@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: jodehavi;stgriffi
-ms.openlocfilehash: 2de788fabcae501d1a388bcea6b7759c9ea269cc
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 793f35bfd2e5e6b22e0804f01a69c0c20990d211
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>Konfigurowanie kompleksowej wymiany i inspekcji kluczy w usłudze Azure Key Vault
 ## <a name="introduction"></a>Wprowadzenie
@@ -255,12 +255,12 @@ Następnym krokiem jest [Utwórz kolejkę Azure Service Bus](../service-bus-mess
 
 1. Tworzenie przestrzeni nazw usługi Service Bus (Jeśli masz już konto, którego chcesz użyć dla tego, przejdź do kroku 2).
 2. Przejdź do usługi service bus w portalu Azure i wybierz obszar nazw, aby utworzyć kolejkę w.
-3. Wybierz **nowy** i wybierz polecenie **usługi Service Bus > kolejki** i wprowadź wymagane szczegóły.
+3. Wybierz **Utwórz zasób**, **integracji przedsiębiorstwa**, **usługi Service Bus**, a następnie wprowadź wymagane szczegóły.
 4. Wybierz informacje o połączeniu usługi Service Bus, wybierając obszar nazw, a następnie klikając polecenie **informacje o połączeniu**. Informacje te będą potrzebne do następnej sekcji.
 
 Następnie [Tworzenie funkcji platformy Azure](../azure-functions/functions-create-first-azure-function.md) sondowania dzienniki magazynu kluczy w ramach konta magazynu i odebrania nowych zdarzeń. Jest to funkcja, która zostanie wywołany zgodnie z harmonogramem.
 
-Aby utworzyć funkcję platformy Azure, wybierz **nowy > aplikacji funkcji** w portalu Azure. Podczas tworzenia można użyć istniejącego planu obsługi lub Utwórz nową. Można również wybrać do obsługi dynamicznej. Więcej informacji na temat funkcji hosting opcje można znaleźć w folderze [jak skalować usługę Azure Functions](../azure-functions/functions-scale.md).
+Aby utworzyć funkcję platformy Azure, wybierz **Utwórz zasób**, wyszukiwania witryny marketplace w celu _aplikacji funkcji_i kliknij przycisk **Utwórz**. Podczas tworzenia można użyć istniejącego planu obsługi lub Utwórz nową. Można również wybrać do obsługi dynamicznej. Więcej informacji na temat funkcji hosting opcje można znaleźć w folderze [jak skalować usługę Azure Functions](../azure-functions/functions-scale.md).
 
 Po utworzeniu funkcji platformy Azure, przejdź do niego i wybierz polecenie czasomierz, funkcji i C\#. Następnie kliknij przycisk **tworzenia tej funkcji**.
 

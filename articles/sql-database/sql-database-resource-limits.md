@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 9f443c6e93f894f49ee2f82787be2025f74ed720
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
-ms.translationtype: HT
+ms.openlocfilehash: 47f42c10a791caa8ab20401574fb853ad3e4f0e9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-sql-database-resource-limits"></a>Limitom zasobów bazy danych SQL Azure
 
@@ -114,7 +114,16 @@ Można zwiększyć lub zmniejszyć zasoby dostępne dla puli elastycznej oparte 
 
 ## <a name="what-is-the-maximum-number-of-servers-and-databases"></a>Co to jest maksymalna liczba serwerów i baz danych?
 
-Maksymalna liczba serwerów na subskrypcję na region to 21. Maksymalna liczba baz danych na serwerze to 5000. Są to limity zmienne ustalonych ładunku doświadczalnie na podstawie rozmiaru analizy, analizy kolekcji logicznej głównej telemetrii i kilka innych aspektów. Możesz poprosić do przekroczą limit, pod warunkiem pozostać w limitu przydziału jednostek dtu w warstwie. Wraz ze wzrostem dużej liczby baz danych i serwerów, problem, którego nastąpi trafienie jest kolekcji Statystyka zasobów logicznych master i Rywalizacja o operacji zarządzania. Te problemy nie są krytyczne; zostanie mogą znacznie zwiększyć czas oczekiwania.
+| Maksimum | Wartość |
+| :--- | :--- |
+| Baz danych na serwerze | 5000 |
+| Liczba serwerów na subskrypcję dla regionu | 21 |
+|||
+
+> [!IMPORTANT]
+> Jak liczba baz danych zbliża się do limitu na serwerze, mogą wystąpić następujące czynności:
+> <br> • Zwiększyć czas oczekiwania w wykonywanie zapytań bazy danych master.  Dotyczy to widoków dane statystyczne wykorzystania zasobów, takich jak sys.resource_stats.
+> <br> • Zwiększenie opóźnienia podczas wykonywania operacji zarządzania i renderowania portalu punkt widzenia obejmujących wyliczanie baz danych na serwerze.
 
 ## <a name="what-happens-when-database-and-elastic-pool-resource-limits-are-reached"></a>Co się stanie po osiągnięciu bazy danych i elastycznej puli zasobów limity?
 

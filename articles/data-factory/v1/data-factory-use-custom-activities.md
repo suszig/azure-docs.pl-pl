@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: cfdee4450b0ef88d593d401009a7d7f29c24780b
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 855cb5b9cda873a2966465062d0164b2b054b1cd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Korzystanie z działań niestandardowych w potoku usługi Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -421,7 +421,7 @@ Poniżej przedstawiono kroki, które należy wykonać w tej sekcji:
 
 ### <a name="step-1-create-the-data-factory"></a>Krok 1: Tworzenie fabryki danych
 1. Po zalogowaniu się do portalu Azure, wykonaj następujące czynności:
-   1. Kliknij przycisk **NOWY** w menu po lewej stronie.
+   1. Kliknij przycisk **Utwórz zasób** w menu po lewej stronie.
    2. Kliknij przycisk **dane i analiza** w **nowy** bloku.
    3. Kliknij przycisk **Fabryka danych** w bloku **Analiza danych**.
    
@@ -441,7 +441,7 @@ Poniżej przedstawiono kroki, które należy wykonać w tej sekcji:
 Połączone usługi łączą magazyny danych lub usługi obliczeniowe z fabryką danych Azure. W tym kroku możesz połączyć Twoje konto usługi Azure Storage i konta usługi partia zadań Azure z fabryką danych.
 
 #### <a name="create-azure-storage-linked-service"></a>Tworzenie połączonej usługi Azure Storage
-1. Kliknij przycisk **tworzenie i wdrażanie** Kafelek na **FABRYKI danych** bloku **CustomActivityFactory**. Zostanie wyświetlony Edytor fabryki danych.
+1. Kliknij przycisk **tworzenie i wdrażanie** Kafelek na **FABRYKI danych** bloku **CustomActivityFactory**. Pojawi się Edytor fabryki danych.
 2. Kliknij przycisk **nowy magazyn danych** polecenie Pasek i wybierz polecenie **magazynu Azure**. Powinien zostać wyświetlony skrypt JSON do tworzenia połączonej usługi Azure Storage w edytorze.
     
     ![Nowy magazyn danych - Azure Storage](media/data-factory-use-custom-activities/new-data-store-menu.png)

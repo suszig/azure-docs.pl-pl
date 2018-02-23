@@ -4,7 +4,7 @@ description: "W tym temacie opisano, jak Azure konfiguruje magazynu dla maszyn w
 services: virtual-machines-windows
 documentationcenter: na
 author: ninarn
-manager: jhubbard
+manager: craigg
 tags: azure-resource-manager
 ms.assetid: 169fc765-3269-48fa-83f1-9fe3e4e40947
 ms.service: virtual-machines-sql
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/05/2017
 ms.author: ninarn
-ms.openlocfilehash: 7d076b970481b68d9c352d54f3452b8e222f5c64
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 21c8b955d48da03559097db93b2cb66029a203ec
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Konfigurację magazynu dla maszyn wirtualnych programu SQL Server
 Po skonfigurowaniu obraz maszyny wirtualnej programu SQL Server na platformie Azure, portalu pomaga zautomatyzować konfigurację magazynu. W tym podłączania do maszyny Wirtualnej, udostępnienie magazynu do programu SQL Server i skonfigurowania go do Optymalizuj pod kątem wymagań dotyczących wydajności dotyczące magazynu.
@@ -132,7 +132,7 @@ W poniższej tabeli opisano dostępne opcje typu trzy obciążenia i ich odpowie
 
 | Typ obciążenia | Opis | Optymalizacje |
 | --- | --- | --- |
-| **Ogólne** |Ustawienie domyślne obsługujące większość obciążeń |Brak |
+| Ogólne |Ustawienie domyślne obsługujące większość obciążeń |None |
 | **Przetwarzania transakcyjnego** |Optymalizuje magazyn dla obciążeń OLTP tradycyjne bazy danych |Flaga śledzenia 1117<br/>Flaga śledzenia 1118 |
 | **Magazynowania danych** |Optymalizuje magazyn dla analizą i raportami obciążeń |Flaga śledzenia 610<br/>Flaga śledzenia 1117 |
 
@@ -141,5 +141,5 @@ W poniższej tabeli opisano dostępne opcje typu trzy obciążenia i ich odpowie
 >
 >
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Do innych tematów związanych z programem SQL Server na maszynach wirtualnych Azure, zobacz [programu SQL Server na maszynach wirtualnych Azure](virtual-machines-windows-sql-server-iaas-overview.md).

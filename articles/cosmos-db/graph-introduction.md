@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: lbosq
-ms.openlocfilehash: 14921dbeb0b670e4ec29a224caca07da12bfb82b
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: ba58377614326a10405be4a64d4b39f116b75bfe
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Wprowadzenie do platformy Azure rozwiązania Cosmos DB: interfejs API programu Graph
 
@@ -107,22 +107,14 @@ Służy Azure interfejsu wiersza polecenia (CLI), programu Azure PowerShell lub 
 
 W poniższej tabeli przedstawiono popularne sterowniki Gremlin korzystających z bazy danych rozwiązania Cosmos Azure:
 
-| Do pobrania | Dokumentacja |
-| --- | --- |
-| [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) |[Gremlin JavaDoc](http://tinkerpop.apache.org/javadocs/current/full/) |
-| [Node.js](https://www.npmjs.com/package/gremlin) |[Gremlin języka JavaScript w witrynie Github](https://github.com/jbmusso/gremlin-javascript) |
-| [Gremlin konsoli](https://tinkerpop.apache.org/downloads.html) |[TinkerPop dokumentów](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |
-
-Azure DB rozwiązania Cosmos zawiera także biblioteki .NET, która zawiera metody rozszerzenia Gremlin nad [zestawów SDK DB rozwiązania Cosmos Azure](sql-api-sdk-dotnet.md) za pośrednictwem pakietu NuGet. Ta biblioteka zawiera serwer Gremlin "w toku", który umożliwia bezpośrednie łączenie się z partycji danych.
-
-| Do pobrania | Dokumentacja |
-| --- | --- |
-| [.NET](https://www.nuget.org/packages/Microsoft.Azure.Graphs/) |[Microsoft.Azure.Graphs](https://msdn.microsoft.com/library/azure/dn948556.aspx) |
-
-Za pomocą [Azure rozwiązania Cosmos DB emulatora](local-emulator.md), można użyć interfejsu API Graph platformy .NET, które są powyżej umożliwiające opracowanie i przetestowanie lokalnie, bez tworzenia subskrypcji platformy Azure lub ponoszenia kosztów. Po zakończeniu jak aplikacja działa w emulatorze, możesz przełączyć się do korzystania z konta bazy danych Azure rozwiązania Cosmos w chmurze.
-
-> [!NOTE]
-> Obsługę weryfikacji zapytań Gremlin [Azure rozwiązania Cosmos DB emulatora](local-emulator.md) tylko jest dostępny za pośrednictwem interfejsu API Graph platformy .NET.
+| Do pobrania | Dokumentacja | Wprowadzenie |
+| --- | --- | --- |
+| [.NET](http://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-DotNet) | [Gremlin.NET w witrynie GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [Utwórz wykres przy użyciu platformy .NET](create-graph-dotnet.md) |
+| [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Gremlin JavaDoc](http://tinkerpop.apache.org/javadocs/current/full/) | [Utwórz wykres przy użyciu języka Java](create-graph-java.md) |
+| [Node.js](https://www.npmjs.com/package/gremlin) | [Gremlin języka JavaScript w witrynie Github](https://github.com/jbmusso/gremlin-javascript) | [Utwórz wykres przy użyciu środowiska Node.js](create-graph-nodejs.md) |
+| [Python](http://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Gremlin języka Python w witrynie Github](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Utwórz wykres używany język Python](create-graph-python.md) |
+| [PHP](https://packagist.org/packages/brightzone/gremlin-php) | [Gremlin-PHP w witrynie GitHub](https://github.com/PommeVerte/gremlin-php) | [Tworzenie za pomocą języka PHP](create-graph-php.md) |
+| [Gremlin konsoli](https://tinkerpop.apache.org/downloads.html) | [TinkerPop dokumentów](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |  [Utwórz wykres przy użyciu konsoli Gremlin](create-graph-gremlin-console.md) |
 
 ## <a name="scenarios-for-graph-support-of-azure-cosmos-db"></a>Scenariusze obsługi wykres Azure DB rozwiązania Cosmos
 Poniżej przedstawiono kilka scenariuszy, w której wykres obsługę bazy danych Azure rozwiązania Cosmos może służyć:

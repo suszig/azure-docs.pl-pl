@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 7173c87dec980130992438954650227c16ad7292
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: d4e76c85af7a9b90867d91a6290c4f4deea19a75
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="more-details-about-features-in-preview"></a>Więcej informacji na temat funkcji w wersji zapoznawczej
 W tym temacie opisano sposób użycia funkcji obecnie w wersji zapoznawczej.
@@ -26,7 +26,7 @@ W tym temacie opisano sposób użycia funkcji obecnie w wersji zapoznawczej.
 ## <a name="group-writeback"></a>Zapisywanie zwrotne grup
 Opcja dla zapisu zwrotnego grup w funkcji opcjonalnych służy do zapisywania zwrotnego **grupy usługi Office 365** do lasu za pomocą programu Exchange jest zainstalowany. To jest grupa, która zawsze jest zarządzany w chmurze. Jeśli masz lokalnego programu Exchange, następnie można napisać ponownie te grupy do lokalnego, wysyłanie i odbieranie wiadomości e-mail z następujących grup użytkowników z skrzynki pocztowej programu Exchange lokalnie.
 
-Więcej informacji na temat grupy usługi Office 365 i sposobu ich użycia można znaleźć [tutaj](http://aka.ms/O365g).
+Więcej informacji na temat grupy usługi Office 365 i sposobu ich użycia można znaleźć [tutaj](https://aka.ms/O365g).
 
 Grupy usługi Office 365 jest reprezentowany jako grupy dystrybucji w lokalnej instalacji usług AD DS. Z lokalnym programem Exchange server musi być na aktualizację zbiorczą programu Exchange 2013 8 (wydane w marca 2015) lub programów Exchange 2016 rozpoznać ten nowy typ grupy.
 

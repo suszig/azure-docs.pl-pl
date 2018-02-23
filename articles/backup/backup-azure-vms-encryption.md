@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 10/13/2017
 ms.author: pajosh;markgal;trinadhk; sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 509e891207d1469ed244eab4512ec66420284fd5
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 4a1a3c5eb5550967e0a0e045ec508a86cd80ee03
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Kopie zapasowe i przywracanie zaszyfrowanych maszyn wirtualnych w usłudze Kopia zapasowa Azure
 Ten artykuł zawiera informacje o kroki kopii zapasowej i przywracanie maszyn wirtualnych (VM) za pomocą usługi Kopia zapasowa Azure. Zapewnia także szczegółowe informacje o obsługiwanych scenariuszach wymagania wstępne i kroki rozwiązywania problemów w przypadku wystąpienia błędów.
@@ -48,7 +48,7 @@ Ten artykuł zawiera informacje o kroki kopii zapasowej i przywracanie maszyn wi
 Ustawienie celu kopii zapasowej, definiowania zasad, skonfiguruj elementów i Wyzwól kopię zapasową, wykonaj następujące kroki.
 
 ### <a name="configure-backup"></a>Konfigurowanie kopii zapasowych
-1. Jeśli masz już magazyn usług odzyskiwania, Otwórz, przejdź do następnego kroku. Jeśli nie masz magazyn usług odzyskiwania, Otwórz, ale możesz teraz w portalu Azure **Centrum** menu, wybierz opcję **Przeglądaj**.
+1. Jeśli masz już magazyn usług odzyskiwania, Otwórz, przejdź do następnego kroku. Jeśli nie masz magazyn usług odzyskiwania, Otwórz, ale w portalu Azure, wybierz opcję **wszystkie usługi**.
 
    a. Na liście zasobów wpisz **Usługi odzyskiwania**.
 
@@ -56,7 +56,7 @@ Ustawienie celu kopii zapasowej, definiowania zasad, skonfiguruj elementów i Wy
 
       ![Magazyn usługi Recovery Services](./media/backup-azure-vms-encryption/browse-to-rs-vaults.png) <br/>
 
-    d. Zostanie wyświetlona lista magazynów Usług odzyskiwania. Wybierz magazyn z listy.
+    c. Zostanie wyświetlona lista magazynów Usług odzyskiwania. Wybierz magazyn z listy.
 
      Zostanie otwarty pulpit nawigacyjny wybranego magazynu.
 2. Wybierz z listy elementów, który pojawia się w magazynie, **kopii zapasowej** można uruchomić tworzenia kopii zapasowej zaszyfrowanego maszyny Wirtualnej.
@@ -98,7 +98,7 @@ Jeśli masz maszyny wirtualne już tworzona kopia zapasowa w magazynie usług od
 
 ## <a name="provide-permissions-to-backup"></a>Podaj uprawnienia do tworzenia kopii zapasowej
 Wykonaj następujące kroki, aby zapewnić odpowiednie uprawnienia do tworzenia kopii zapasowej dostępu do magazynu kluczy i wykonanie kopii zapasowej zaszyfrowanego maszyn wirtualnych.
-1. Wybierz **więcej usług**i wyszukaj **klucza magazynów**.
+1. Wybierz **wszystkie usługi**i wyszukaj **klucza magazynów**.
 
     ![Magazyny kluczy](./media/backup-azure-vms-encryption/search-key-vault.png)
     

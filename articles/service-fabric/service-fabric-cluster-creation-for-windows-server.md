@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
-ms.author: chackdan;maburlik;dekapur
-ms.openlocfilehash: 4b3b1e8a368419fe4014802f7b2a35b7ae3fba3c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: dekapur;chackdan;maburlik
+ms.openlocfilehash: 7d65845d21205e22a3e5b0868acb637ff614fb42
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Tworzenie autonomicznych klastra w systemie Windows Server
 Sieć szkieletowa usług Azure służy do tworzenia klastrów sieci szkieletowej usług na dowolnym maszyn wirtualnych lub komputerach z systemem Windows Server. Oznacza to, można wdrażać i uruchamianie aplikacji platformy Service Fabric w dowolnym środowisku, które zawiera zestaw połączonych komputerów z systemem Windows Server, lokalnie i z każdego dostawcy chmury. Usługa Service Fabric realizuje pakietu instalacyjnego do tworzenia klastrów sieci szkieletowej usług o nazwie autonomicznych pakietu systemu Windows Server.
@@ -193,7 +193,7 @@ Brak.
 > 
 > 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Wdrażanie i usunąć aplikacje przy użyciu programu PowerShell](service-fabric-deploy-remove-applications.md)
 * [Ustawienia konfiguracji dla autonomicznych klastra systemu Windows](service-fabric-cluster-manifest.md)
 * [Dodaj lub usuń węzły do klastra usługi sieć szkieletowa autonomiczny](service-fabric-cluster-windows-server-add-remove-nodes.md)

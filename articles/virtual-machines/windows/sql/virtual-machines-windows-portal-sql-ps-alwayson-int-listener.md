@@ -4,7 +4,7 @@ description: "Skonfiguruj odbiorniki grupy dostępności w modelu usługi Azure 
 services: virtual-machines
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 ms.assetid: 14b39cde-311c-4ddf-98f3-8694e01a7d3b
 ms.service: virtual-machines-sql
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/22/2017
 ms.author: mikeray
-ms.openlocfilehash: 74fa1e4c9cfa608a9a385f3dd82a0599fbcc421c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5efb72f450261e098b638af023001ddb2a5015cf
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Skonfiguruj co najmniej jeden zawsze na dostępność odbiorniki grupy - Resource Manager
 W tym temacie przedstawiono sposób:
@@ -28,13 +28,13 @@ W tym temacie przedstawiono sposób:
 
 Odbiornik grupy dostępności to nazwa sieci wirtualnej, z którym łączą się klienci dla dostępu do bazy danych. Na maszynach wirtualnych Azure usługi równoważenia obciążenia zawiera adres IP dla odbiornika. Load balancer kieruje ruch z wystąpieniem programu SQL Server nasłuchuje na porcie sondowania. Zazwyczaj grupa dostępności używa wewnętrznego modułu równoważenia obciążenia. Azure wewnętrznego modułu równoważenia obciążenia może obsługiwać jeden lub wiele adresów IP. Każdy adres IP używa portu określonych sondowania. Ten dokument przedstawia sposób tworzenia modułu równoważenia obciążenia lub Dodaj adresy IP do istniejącej usługi równoważenia obciążenia dla grupy dostępności programu SQL Server przy użyciu programu PowerShell. 
 
-Możliwość przypisania wielu adresów IP do wewnętrznego modułu równoważenia obciążenia jest nowa w systemie Azure i jest dostępna tylko w modelu usługi Resource Manager. Aby zakończyć to zadanie, należy mieć wdrożonych na maszynach wirtualnych Azure w modelu usługi Resource Manager grupy dostępności programu SQL Server. Maszyny wirtualne zarówno programu SQL Server musi należeć do tego samego zestawu dostępności. Można użyć [szablonów Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) można automatycznie utworzyć grupy dostępności usługi Azure Resource Manager. Ten szablon tworzy automatycznie grupy dostępności, w tym wewnętrznego modułu równoważenia obciążenia. Jeśli wolisz, możesz [ręczne konfigurowanie zawsze włączonej grupy dostępności](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
+Możliwość przypisania wielu adresów IP do wewnętrznego modułu równoważenia obciążenia jest nowa w systemie Azure i jest dostępna tylko w modelu usługi Resource Manager. Aby zakończyć to zadanie, należy mieć wdrożonych na maszynach wirtualnych Azure w modelu usługi Resource Manager grupy dostępności programu SQL Server. Maszyny wirtualne zarówno programu SQL Server musi należeć do tego samego zestawu dostępności. Można użyć [szablonów Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) można automatycznie utworzyć grupy dostępności usługi Azure Resource Manager. Ten szablon tworzy automatycznie grupy dostępności, w tym wewnętrznego modułu równoważenia obciążenia. Jeśli wolisz, możesz [ręczne konfigurowanie zawsze włączonej grupy dostępności](virtual-machines-windows-portal-sql-availability-group-tutorial.md).
 
 W tym temacie wymaga już skonfigurowania grup dostępności.  
 
 Tematy pokrewne obejmują:
 
-* [Konfigurowanie grup dostępności AlwaysOn w maszynie Wirtualnej platformy Azure (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)   
+* [Konfigurowanie grup dostępności AlwaysOn w maszynie Wirtualnej platformy Azure (GUI)](virtual-machines-windows-portal-sql-availability-group-tutorial.md)   
 * [Konfigurowanie połączenia do wirtualnymi przy użyciu usługi Azure Resource Manager i programu PowerShell](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
 [!INCLUDE [Start your PowerShell session](../../../../includes/sql-vm-powershell.md)]
@@ -98,7 +98,7 @@ foreach($VMName in $VMNames)
     }
 ```
 
-## <a name="Add-IP"></a>Przykładowy skrypt: Dodaj adres IP do istniejącej usługi równoważenia obciążenia przy użyciu programu PowerShell
+## <a name="Add-IP"></a> Przykładowy skrypt: Dodaj adres IP do istniejącej usługi równoważenia obciążenia przy użyciu programu PowerShell
 Aby używać więcej niż jednej grupy dostępności, Dodaj dodatkowy adres IP do modułu równoważenia obciążenia. Każdy adres IP wymaga własne reguły równoważenia obciążenia, port sondy oraz portu frontonu.
 
 Frontonu jest port aplikacje używają do nawiązania połączenia z wystąpieniem serwera SQL. Adresy IP dla grup dostępności różnych można używać tego samego portu frontonu.
@@ -195,8 +195,8 @@ Należy zauważyć, że następujące wytyczne dotyczące odbiornika grupy dost�
 * Wewnętrzny moduł równoważenia obciążenia należy tylko uzyskiwanie dostępu do odbiornika ze w tej samej sieci wirtualnej.
 
 
-## <a name="for-more-information"></a>Aby uzyskać więcej informacji
-Aby uzyskać więcej informacji, zobacz [dostępności Konfigurowanie zawsze włączonej grupy w maszynie Wirtualnej platformy Azure ręcznie](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
+## <a name="for-more-information"></a>Więcej informacji
+Aby uzyskać więcej informacji, zobacz [dostępności Konfigurowanie zawsze włączonej grupy w maszynie Wirtualnej platformy Azure ręcznie](virtual-machines-windows-portal-sql-availability-group-tutorial.md).
 
 ## <a name="powershell-cmdlets"></a>Polecenia cmdlet programu PowerShell
 Użyj następujących poleceń cmdlet programu PowerShell, aby utworzyć wewnętrznego modułu równoważenia obciążenia maszyn wirtualnych platformy Azure.

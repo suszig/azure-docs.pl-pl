@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/28/2017
 ms.author: asaxton
-ms.openlocfilehash: ab5d184fde2cbcb517b325624c8405954b4d0972
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a7f86ebf3e79812eb50e58cbb320336cbd1149e6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="pause-and-start-your-power-bi-embedded-capacity-in-the-azure-portal"></a>Wstrzymywanie i uruchomić Power BI Embedded wydajność w portalu Azure
 
@@ -35,9 +35,9 @@ Wstrzymanie możliwości uniemożliwia są rozliczane. Wstrzymywanie wydajność
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/).
 
-2. Wybierz **więcej usług** > **Power BI Embedded** wyświetlić pojemności sieci.
+2. Wybierz **wszystkie usługi** > **Power BI Embedded** wyświetlić pojemności sieci.
 
-    ![Więcej usług w portalu Azure](media/pause-start/azure-portal-more-services.png)
+    ![Wszystkie usługi w portalu Azure](media/pause-start/azure-portal-more-services.png)
 
 3. Wybierz pojemności, którą chcesz wstrzymać.
 
@@ -57,9 +57,9 @@ Wznów użycia przez uruchomienie wydajność. Uruchamianie wydajność równie�
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/).
 
-2. Wybierz **więcej usług** > **Power BI Embedded** wyświetlić pojemności sieci.
+2. Wybierz **wszystkie usługi** > **Power BI Embedded** wyświetlić pojemności sieci.
 
-    ![Więcej usług w portalu Azure](media/pause-start/azure-portal-more-services.png)
+    ![Wszystkie usługi w portalu Azure](media/pause-start/azure-portal-more-services.png)
 
 3. Wybierz pojemności, który chcesz uruchomić.
 
@@ -75,7 +75,7 @@ Wznów użycia przez uruchomienie wydajność. Uruchamianie wydajność równie�
 
 Jeśli zawartość jest przypisany do tej pojemności, jest ona dostępna po uruchomieniu.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Jeśli chcesz skalowanie możliwości, zobacz [Power BI Embedded możliwości skalowania](scale-capacity.md).
 

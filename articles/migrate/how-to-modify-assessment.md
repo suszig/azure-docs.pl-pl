@@ -4,40 +4,41 @@ description: "Opisuje sposób ustawiania i uruchamiania ocenę do migrowania mas
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 06/02/2017
 ms.author: raynew
-ms.openlocfilehash: ce47790f6214864afdba33eb5cbe3a9e49b81cd5
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 8babdbc30e062c7b289e90a674cec3222943e48d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="customize-an-assessment"></a>Dostosowywanie oceny
 
-[Azure migracji](migrate-overview.md) tworzy oceny z ustawieniami domyślnymi. Po utworzeniu ocenę, można zmodyfikować te ustawienia domyślne, korzystając z instrukcji w tym artykule.
+[Azure migracji](migrate-overview.md) tworzy oceny z właściwości domyślnych. Po utworzeniu ocenę, można zmodyfikować właściwości domyślnych, korzystając z instrukcji w tym artykule.
 
 
-## <a name="edit-assessment-values"></a>Edytuj wartości oceny
+## <a name="edit-assessment-properties"></a>Edytowanie właściwości oceny
 
-1. W projekcie migracji Azure **oceny** , wybierz ocenę i kliknij przycisk **Edytuj właściwości**.
-2. Zmodyfikuj ustawienia zgodnie z poniższą tabelą.
+1. W **oceny** strony migrację, wybierz ocenę i kliknij przycisk **Edytuj właściwości**.
+2. Modyfikowanie właściwości zgodnie z poniższej tabeli:
 
     **Ustawienie** | **Szczegóły** | **Domyślne**
     --- | --- | ---
     **Lokalizacja docelowa** | Lokalizacja platformy Azure, do której chcesz przeprowadzić migrację. |  Zachodnie stany USA 2 jest domyślną lokalizacją.
-    **Nadmiarowość magazynu** | Typ magazynu, który będzie używany przez maszyny wirtualne platformy Azure po zakończeniu migracji. | Tylko [magazyn lokalnie nadmiarowy (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) replikacji jest obecnie obsługiwany.
-    **Współczynnik komfortu** | Współczynnik komfort jest buforu, który jest używany podczas oceny. Umożliwia ona konta dla elementów, takich jak użycie okresach, krótka historia wydajności, może się zwiększyć w przyszłości użycia. | Ustawienie domyślne to 1.3 x.
-    **Historia wydajności** | Czas używany podczas obliczania Historia wydajności. | Domyślny to jeden miesiąc.
-    **Procentowy wykorzystania** | Wartość percentylu wziąć pod uwagę historii wydajności. | Domyślnie jest to 95%.
-    **Warstwa cenowa** | Można określić [warstwy cenowej](https://azure.microsoft.com/blog/basic-tier-virtual-machines-2/) dla maszyny Wirtualnej.  | Domyślnie [standardowe](../virtual-machines/windows/sizes-general.md) warstwy jest używany.
-    **Oferta** | [Azure oferuje](https://azure.microsoft.com/support/legal/offer-details/) , stosowane. | [Płatność za rzeczywiste użycie](https://azure.microsoft.com/offers/ms-azr-0003p/) jest ustawieniem domyślnym.
-    **Waluty** | Waluta rozliczeniowa. | Domyślnie jest USD.
-    **Rabat (%)** | Rabatów specyficzne dla subskrypcji jest wyświetlany u góry wszystkie oferty. | Ustawieniem domyślnym jest 0%.
-    **Korzyści Użyj hybrydowe platformy Azure** | Wskazuje, czy jest zarejestrowany w [Azure hybrydowego Użyj korzyści](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Jeśli ustawiona tak, ceny z systemem innym niż Windows Azure są należy wziąć pod uwagę dla maszyn wirtualnych systemu Windows. | Wartość domyślna to Yes.
+    **Nadmiarowość magazynu** | Typ nadmiarowość magazynu, który będzie używany przez maszyny wirtualne Azure po zakończeniu migracji. | [Magazyn lokalnie nadmiarowy (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) jest wartością domyślną. Azure obsługuje tylko migracji zarządzane opartej na dyskach: ocen i dysków zarządzanych obsługują tylko LRS, dlatego właściwość obecnie zawiera tylko opcja LRS. 
+    **Kryterium zmiany rozmiaru** | Kryterium do użycia przez Azure migrację do odpowiedniego rozmiaru maszyn wirtualnych platformy Azure. Należy albo czy *na podstawie wydajności* zmiany rozmiaru lub rozmiar maszyn wirtualnych *jako lokalną*, bez uwzględniania Historia wydajności. | Na podstawie rozmiaru jest domyślną opcją.
+    **Historia wydajności** | Czas trwania wziąć pod uwagę do oceny wydajności maszyn wirtualnych. Ta właściwość ma zastosowanie tylko w przypadku zmiany rozmiaru kryterium *wydajności na podstawie rozmiaru*. | Domyślny to jeden dzień.
+    **Procentowy wykorzystania** | Wartość próbki wydajność, Ustaw to zostać uwzględnione podczas doboru wielkości. Ta właściwość ma zastosowanie tylko w przypadku zmiany rozmiaru kryterium *wydajności na podstawie rozmiaru*.  | Domyślnie jest 95. percentyl.
+    **Warstwa cenowa** | Można określić [cenowym (Basic/Standard)](../virtual-machines/windows/sizes-general.md) do docelowych maszyn wirtualnych platformy Azure. Na przykład jeśli planujesz migrację do środowiska produkcyjnego, chcesz wziąć pod uwagę warstwy standardowa, zawiera maszyny wirtualne z niskim opóźnieniem, ale może kosztować więcej. Z drugiej strony Jeśli masz środowisko testowe deweloperów, można wziąć pod uwagę warstwie podstawowej, która maszyn wirtualnych z większego opóźnienia i zredukowania kosztów. | Domyślnie [standardowe](../virtual-machines/windows/sizes-general.md) warstwy jest używany.
+    **Współczynnik komfortu** | Podczas oceny usługa Azure Migrate uwzględnia bufor (współczynnik komfortu). Jest on stosowany do wszystkich danych użycia maszyn wirtualnych (procesora, pamięci, dysku i sieci). Współczynnik komfortu uwzględnia kwestie, takie jak okresowe użycie, krótka historia wydajności i prawdopodobne zwiększenie użycia w przyszłości.<br/><br/> Na przykład 10-rdzeniowa maszyna wirtualna o użyciu na poziomie 20% jest w normalnych warunkach równoważna 2-rdzeniowej maszynie wirtualnej. Jednak wynik zastosowania współczynnika komfortu o wartości 2 daje 4-rdzeniową maszynę wirtualną. | Ustawienie domyślne to 1.3 x.
+    **Oferta** | [Oferta platformy Azure](https://azure.microsoft.com/support/legal/offer-details/) , które są zarejestrowane w usłudze. | [Płatność za rzeczywiste użycie](https://azure.microsoft.com/offers/ms-azr-0003p/) jest ustawieniem domyślnym.
+    Waluty | Waluta rozliczeniowa. | Domyślnie jest USD.
+    **Rabat (%)** | Rabatów specyficzne dla subskrypcji jest wyświetlany u góry oferta platformy Azure. | Ustawieniem domyślnym jest 0%.
+    **Korzyści hybrydowe platformy Azure** | Określ, jeśli masz pakiet software assurance i kwalifikują się do [korzyści hybrydowego Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Jeśli ustawiona tak, ceny z systemem innym niż Windows Azure są traktowane jako dla maszyn wirtualnych systemu Windows. | Wartość domyślna to Yes.
 
 3. Kliknij przycisk **zapisać** zaktualizować oceny.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Dowiedz się więcej](concepts-assessment-calculation.md) o obliczania oceny.

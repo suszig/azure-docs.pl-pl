@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: curtand
 ms.reviewer: vincesm
-ms.openlocfilehash: 83d23323f050f670680499ecb428c07c94096418
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 880eaedcba2c0cdfe057ddb2460cf6a19bf8298e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="default-user-permissions-in-azure-active-directory"></a>Domyślne uprawnienia użytkowników w usłudze Azure Active Directory
 
@@ -59,7 +59,7 @@ Możliwość rejestrowania (Utwórz) aplikacji | Ta opcja nie uniemożliwia twor
 Administratorzy i użytkownicy w roli zapraszającej gościa można zaprosić gości | Ta opcja nie uniemożliwia wszystkich gości zaproszenia. Zobacz Konfigurowanie domyślnych uprawnień dla użytkowników. Aby uzyskać więcej informacji, zobacz [aplikacji, uprawnienia i zgody w usłudze Azure Active Directory](active-directory-apps-permissions-consent.md).
 Elementy członkowskie można zaprosić gości | Ustawienie to nie do nie pozwala na zaproszenia gości. Globalna Administratorzy, Administratorzy konta użytkownika i Inviters gościa będzie nadal można zaprosić gości. Aby uzyskać więcej informacji, zobacz [aplikacji, uprawnienia i zgody w usłudze Azure Active Directory](active-directory-apps-permissions-consent.md).
 Ogranicz dostęp do portalu administracyjnego usługi Azure AD | Ta opcja nie uniemożliwia użytkownikom uzyskiwanie dostępu do portalu usługi Azure Active Directory.
-Możliwość czytania innych użytkowników | Aby uzyskać więcej informacji, zobacz [aplikacji, uprawnienia i zgody w usłudze Azure Active Directory](active-directory-apps-permissions-consent.md).
+Możliwość czytania innych użytkowników | To ustawienie jest dostępne w programie PowerShell tylko. To ustawienie na $false zapobiega wszystkich innych niż administratorzy odczytywania informacji użytkownika z katalogu. Nie zapobiega odczytu informacji użytkownika w innych usługach firmy Microsoft, takich jak Exchange Online. To ustawienie jest przeznaczone specjalne okoliczności i ustawienia, które nie jest zalecane na $false.
 
 ## <a name="object-ownership"></a>Własność obiektu
 

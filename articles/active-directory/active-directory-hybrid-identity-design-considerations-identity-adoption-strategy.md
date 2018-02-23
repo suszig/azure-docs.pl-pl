@@ -15,21 +15,21 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 238f8451f1d00b14563486ca5df9e77612a32654
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: e6c9cbc4f158e62092c7a9e401e618880e5ea3b6
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definiowanie strategii wdrażania tożsamości hybrydowej
-W tym zadaniu będziesz definiować strategii wdrażania tożsamości hybrydowej dla hybrydowych rozwiązań tożsamości do spełnienia wymagań biznesowych, które zostały omówione w:
+To zadanie służy do definiowania strategii wdrażania tożsamości hybrydowej dla hybrydowych rozwiązań tożsamości do spełnienia wymagań biznesowych, które zostały omówione w:
 
 * [Określanie potrzeb biznesowych](active-directory-hybrid-identity-design-considerations-business-needs.md)
 * [Określenie wymagań synchronizacji katalogu](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
 * [Określić wymagania dotyczące uwierzytelniania wieloskładnikowego](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
 ## <a name="define-business-needs-strategy"></a>Definiowanie strategii potrzeb biznesowych
-Musi mieć pierwszych adresów zadań określania biznesowe organizacji.  Może to być bardzo szeroki i zakres pełzanie może wystąpić, jeśli nie są dokładne.  Na początku należy zachować prostotę, ale należy pamiętać o planowania projektu, który będzie pomieścić a ułatwienia zmian w przyszłości.  Niezależnie od tego, czy jest prostego projektu lub jeden bardzo złożonych Azure Active Directory jest platformy pakietu Microsoft Identity, która obsługuje usługi Office 365, Microsoft Online Services i chmura aplikacjom obsługującym.
+Musi mieć pierwszych adresów zadań określania biznesowe organizacji.  Może to być bardzo szeroki i zakres pełzanie może wystąpić, jeśli nie są dokładne.  Na początku należy zachować prostotę, ale należy pamiętać o planowania projektu, który będzie pomieścić a ułatwienia zmian w przyszłości.  Niezależnie od tego, czy jest prostego projektu lub jeden bardzo złożonych, Azure Active Directory jest platformy pakietu Microsoft Identity, która obsługuje usługi Office 365, Microsoft Online Services i chmura aplikacjom obsługującym.
 
 ## <a name="define-an-integration-strategy"></a>Definiowanie strategii integracji
 Firma Microsoft udostępnia trzy scenariusze integracji głównego tożsamości w chmurze, tożsamości synchronizowane i tożsamości federacyjnych.  Należy zaplanować na przyjmowanie jedną z następujących strategii integracji.  Strategia wybrane może różnić się i mogą obejmować decyzji w wybranie jednej, jakiego rodzaju środowisko użytkownika, aby określić, czy masz niektórych z istniejącej infrastruktury już na miejscu i co to jest najbardziej ekonomiczne.  
@@ -39,34 +39,34 @@ Firma Microsoft udostępnia trzy scenariusze integracji głównego tożsamości 
 Scenariusze zdefiniowane na rysunku powyżej są następujące:
 
 * **Tożsamości w chmurze**: są to tożsamości, które istnieją tylko w chmurze.  W przypadku usługi Azure AD czy są one przechowywane w katalogu usługi Azure AD.
-* **Zsynchronizowane**: są to tożsamości, które są umiejscowione lokalnie i w chmurze.  Za pomocą usługi Azure AD Connect, użytkownicy są tworzone lub połączony z istniejących kont usługi Azure AD.  Skrót hasła użytkownika są synchronizowane ze środowiska lokalnego do chmury w tzw skrót hasła.  Podczas synchronizacji przy użyciu jedno zastrzeżenie: jest, że jeśli użytkownik jest wyłączony w środowisku lokalnym, może potrwać do 3 godzin tego stan konta w usłudze Azure AD.  Jest to spowodowane interwał synchronizacji.
+* **Zsynchronizowane**: są to tożsamości, które są umiejscowione lokalnie i w chmurze.  Za pomocą usługi Azure AD Connect, użytkownicy są tworzone lub połączony z istniejących kont usługi Azure AD.  Skrót hasła użytkownika są synchronizowane ze środowiska lokalnego do chmury w tzw skrót hasła.  Podczas synchronizacji przy użyciu jedno zastrzeżenie: jest, że jeśli użytkownik jest wyłączony w środowisku lokalnym, może potrwać do trzech godzin, zanim ten stan konta w usłudze Azure AD.  Jest to spowodowane interwał synchronizacji.
 * **Federacyjna**: tymi tożsamościami istnieje lokalnie i w chmurze.  Za pomocą usługi Azure AD Connect, użytkownicy są tworzone lub połączony z istniejących kont usługi Azure AD.  
 
 > [!NOTE]
-> Aby uzyskać więcej informacji na temat opcji synchronizacji przeczytaj [integrowanie tożsamości lokalnych z usługą Azure Active Directory](connect/active-directory-aadconnect.md).
+> Aby uzyskać więcej informacji na temat opcji synchronizacji, przeczytaj [integrowanie tożsamości lokalnych z usługą Azure Active Directory](connect/active-directory-aadconnect.md).
 > 
 > 
 
-Poniższa tabela może pomóc w określeniu zalety i wady każdego z następujących strategii:
+Poniższa tabela pomoże w określeniu zalety i wady każdego z następujących strategii:
 
 | Strategia | Zalety | Wady |
 | --- | --- | --- |
-| **Tożsamości w chmurze** |Łatwiejsze zarządzanie dla małych organizacji. <br> Nie można zainstalować dodatkowy sprzęt na — lokalnym — bez potrzeby<br>Łatwe wyłączenie, gdy użytkownik opuści firmę |Użytkownicy będą musieli logowania podczas uzyskiwania dostępu do obciążeń w chmurze <br> Hasła może lub nie może być taka sama dla tożsamości w chmurze i lokalnie |
-| **Zsynchronizowane** |Lokalnego hasła będzie uwierzytelnienia zarówno lokalnie oraz katalogi w chmurze <br>Łatwiejsze zarządzanie w przypadku małych, średnich i dużych organizacji. <br>Użytkownicy mogą mieć rejestracji jednokrotnej (SSO) dla niektórych zasobów <br> Metoda Microsoft preferowany do synchronizacji <br> Łatwiejsze zarządzanie |Niektórzy klienci mogą być chce Zsynchronizuj swoje katalogi z chmurą powodu polecenie określonej firmy |
-| **Federacyjna** |Użytkownicy mogą mieć rejestracji jednokrotnej (SSO) <br>Jeśli użytkownik zostanie zakończony lub pozostawia, konta mogą natychmiast wyłączone, a dostęp odwołać,<br> Obsługa zaawansowanych scenariuszy nie może być realizowane za pomocą synchronizacji |Większej liczby kroków do instalacji i konfiguracji <br> Wyższy konserwacji <br> Może wymagać dodatkowego sprzętu infrastruktury usługi STS <br> Może wymagać dodatkowego sprzętu do zainstalowania serwera federacyjnego. Dodatkowe oprogramowanie jest wymagany, jeśli jest używany przez usługi AD FS <br> Wymagaj szeroką gamę Instalatora dla logowania jednokrotnego <br> Krytyczne punktu awarii, jeśli serwer federacyjny działa, użytkownicy nie będą mogli się uwierzytelnić w |
+| **Tożsamości w chmurze** |Łatwiejsze zarządzanie dla małych organizacji. <br> Nie można zainstalować dodatkowy sprzęt na — lokalnym — bez potrzeby<br>Łatwe wyłączenie, gdy użytkownik opuści firmę |Użytkownicy będą musieli zarejestrować się w przypadku uzyskiwania dostępu do obciążeń w chmurze <br> Hasła może lub nie może być taka sama dla tożsamości w chmurze i lokalnie |
+| **Zsynchronizowane** |Lokalnego hasła uwierzytelnia lokalnie i w chmurze katalogów <br>Łatwiejsze zarządzanie mały, średni lub dużych organizacjach <br>Użytkownicy mogą mieć rejestracji jednokrotnej (SSO) dla niektórych zasobów <br> Metoda Microsoft preferowany do synchronizacji <br> Łatwiejsze zarządzanie |Niektórzy klienci mogą być chce Zsynchronizuj swoje katalogi z chmurą powodu polecenie określonej firmy |
+| **Federacyjna** |Użytkownicy mogą mieć rejestracji jednokrotnej (SSO) <br>Jeśli użytkownik zostanie zakończony lub pozostawia, konto można natychmiast wyłączone i dostępu odwołane,<br> Obsługuje zaawansowane scenariusze, które nie mogą być realizowane za pomocą synchronizacji |Większej liczby kroków do instalowania i konfigurowania <br> Wyższy konserwacji <br> Może wymagać dodatkowego sprzętu infrastruktury usługi STS <br> Może wymagać dodatkowego sprzętu do zainstalowania serwera federacyjnego. Dodatkowe oprogramowanie jest wymagany, jeśli jest używany przez usługi AD FS <br> Wymagaj szeroką gamę Instalatora dla logowania jednokrotnego <br> Krytyczne punktu awarii, jeśli serwer federacyjny działa, użytkownicy nie będą mogli się uwierzytelnić w |
 
 ### <a name="client-experience"></a>Środowisko pracy klienta
-Strategia, którego używasz wyznaczają środowisko logowania użytkownika.  Poniższe tabele zawierają informacje dotyczące ich środowiska logowania, należy oczekiwać co użytkownicy.  Należy zauważyć, że nie wszyscy dostawcy tożsamości federacyjnych obsługuje logowania jednokrotnego we wszystkich scenariuszach.
+Strategia, którego używasz wyznaczają środowisko logowania użytkownika.  Poniższe tabele zawierają informacje dotyczące ich środowiska logowania, należy oczekiwać co użytkownicy.  Nie wszyscy dostawcy tożsamości federacyjnych obsługują logowanie SSO we wszystkich scenariuszach.
 
 **Aplikacje przyłączone domena, jak i prywatnych sieci**:
 
 |  | Tożsamości synchronizowane | Tożsamość federacyjna |
 | --- | --- | --- |
-| Przeglądarki sieci Web |Uwierzytelnianie oparte na formularzach |pojedynczy znak na, a czasami trzeba podać identyfikator organizacji |
+| Przeglądarki sieci Web |Uwierzytelnianie oparte na formularzach |Logowanie jednokrotne, czasami trzeba podać identyfikator organizacji |
 | Outlook |Monit o podanie poświadczeń |Monit o podanie poświadczeń |
-| Skype dla firm (Lync) |Monit o podanie poświadczeń |logowania jednokrotnego dla Lync, monitowanie o poświadczenia dla programu Exchange |
-| SkyDrive Pro |Monit o podanie poświadczeń |logowanie jednokrotne |
-| Office Pro Plus subskrypcji |Monit o podanie poświadczeń |logowanie jednokrotne |
+| Skype dla firm (Lync) |Monit o podanie poświadczeń |Logowanie jednokrotne Lync, monitowanie o poświadczenia dla programu Exchange |
+| SkyDrive Pro |Monit o podanie poświadczeń |Logowanie jednokrotne |
+| Office Pro Plus subskrypcji |Monit o podanie poświadczeń |Logowanie jednokrotne |
 
 **Zewnętrznych lub niezaufanych źródeł**:
 
@@ -74,23 +74,23 @@ Strategia, którego używasz wyznaczają środowisko logowania użytkownika.  Po
 | --- | --- | --- |
 | Przeglądarki sieci Web |Uwierzytelnianie oparte na formularzach |Uwierzytelnianie oparte na formularzach |
 | Outlook i Skype dla firm (Lync), Skydrive Pro subskrypcji pakietu Office |Monit o podanie poświadczeń |Monit o podanie poświadczeń |
-| Exchange ActiveSync |Monit o podanie poświadczeń |logowania jednokrotnego dla Lync, monitowanie o poświadczenia dla programu Exchange |
+| Exchange ActiveSync |Monit o podanie poświadczeń |Logowanie jednokrotne Lync, monitowanie o poświadczenia dla programu Exchange |
 | Aplikacje mobilne |Monit o podanie poświadczeń |Monit o podanie poświadczeń |
 
-Jeśli już wiesz zadanie 1, czy masz 3rd strony IdP lub czy będzie używany jeden zapewniające federacji z usługą Azure AD, należy należy pamiętać o następujących obsługiwane możliwości:
+Jeśli już wiesz zadanie 1, że będzie innych dostawców tożsamości lub są jej użyć do zapewnienia federacji z usługą Azure AD, należy należy pamiętać o następujących obsługiwane możliwości:
 
-* Dowolnego dostawcy SAML 2.0, który jest zgodny z dodatkiem SP Lite profilu mogą obsługiwać uwierzytelniania do usługi Azure AD i skojarzone aplikacje
-* Obsługuje uwierzytelnianie pasywnym, które ułatwia uwierzytelnianie OWA, SPO, itp.
+* Wszelkie dostawcy SAML 2.0, który jest zgodny z dodatkiem SP Lite profilu mogą obsługiwać uwierzytelniania do usługi Azure AD i skojarzone aplikacje
+* Obsługuje uwierzytelnianie pasywnym, które umożliwia uwierzytelnianie OWA, SPO, itp.
 * Klienci usługi Exchange Online mogą być obsługiwane za pośrednictwem SAML 2.0 rozszerzone klienta profilu (ECP)
 
 Należy wziąć pod uwagę jakie funkcje przestaną być dostępne:
 
-* Bez obsługi zaufania/federacyjnych w sieci Web spowoduje przerwanie wszystkich aktywnych klientów
+* Bez obsługi zaufania/federacyjnych przerwanie wszystkich aktywnych klientów
   * Oznacza to, że nie klienta Lync, klient usługi OneDrive, subskrypcji pakietu Office, Office Mobile przed pakietu Office 2016
-* Przejście pakietu Office do uwierzytelnianiem pasywnym umożliwiają obsługuje czysty SAML 2.0 IdPs, ale nadal będzie pomocy technicznej na podstawie klienta przez klienta
+* Przejście pakietu Office do uwierzytelnianiem pasywnym umożliwia im to obsługuje czysty SAML 2.0 IdPs, ale nadal będzie pomocy technicznej na podstawie klienta przez klienta
 
 > [!NOTE]
-> Listę najnowszych odczytać http://aka.ms/ssoproviders artykułu.
+> Listę najnowszych odczytać https://aka.ms/ssoproviders artykułu.
 > 
 > 
 
@@ -108,7 +108,7 @@ Całościowo kilka narzędzi synchronizacji ma istniał i używane dla różnych
 ### <a name="supported-topologies"></a>Obsługiwane topologie
 Podczas definiowania strategii synchronizacji, należy określić topologię, która jest używana. W zależności od informacje, które zostało ustalone w kroku 2 można określić, która topologia jest odpowiednie do użycia. Pojedynczy las, pojedynczy Topologia usługi Azure AD jest najbardziej popularnym i składa się z jednego lasu usługi Active Directory i jedno wystąpienie usługi Azure AD.  To ma być używane w większości scenariuszy i jest oczekiwany topologii, przy użyciu usługi Azure AD Connect Express instalacji, jak pokazano na poniższej ilustracji.
 
-![](./media/hybrid-id-design-considerations/single-forest.png)Scenariusz jeden las jest często stosowane w dużych i małych nawet organizacje mogą mieć wiele lasów, jak pokazano na rysunku 5.
+![](./media/hybrid-id-design-considerations/single-forest.png) Scenariusz jeden las jest typowe dla dużych i małych nawet organizacje mogą mieć wiele lasów, jak pokazano na rysunku 5.
 
 > [!NOTE]
 > Aby uzyskać więcej informacji na temat różnych lokalnymi i topologii usługi Azure AD z programem Azure AD Connect synchronizacji, przeczytaj artykuł na temat [topologii dla usługi Azure AD Connect](connect/active-directory-aadconnect-topologies.md).
@@ -141,7 +141,7 @@ Jeśli masz więcej niż jedno konto active lub więcej niż jedną skrzynkę po
 
 **Obejmującego wiele lasów wielu scenariusza usługi Azure AD**
 
-Zalecane w celu zapewnienia jednego katalogu usługi Azure AD dla organizacji, ale możliwe jest ona relację 1:1 jest przechowywana między serwerem synchronizacji Azure AD Connect i katalog usługi Azure AD.  Dla każdego wystąpienia usługi Azure AD konieczne będzie instalacji programu Azure AD Connect.  Ponadto usługi Azure AD, zgodnie z projektem jest izolowana i użytkownicy w jednym wystąpieniu usługi Azure AD nie będą mogli wyświetlić użytkowników w innym wystąpieniu.
+Zalecane w celu zapewnienia jednego katalogu usługi Azure AD dla organizacji, ale możliwe jest ona relację 1:1 jest przechowywana między serwerem synchronizacji Azure AD Connect i katalog usługi Azure AD.  Dla każdego wystąpienia usługi Azure AD należy instalacji programu Azure AD Connect.  Ponadto usługi Azure AD, zgodnie z projektem jest izolowana i użytkownicy w jednym wystąpieniu usługi Azure AD nie będą mogli wyświetlić użytkowników w innym wystąpieniu.
 
 Jest to możliwe i obsługiwanych nawiązać lokalne wystąpienie usługi Active Directory wiele katalogów usługi Azure AD, jak pokazano na poniższej ilustracji:
 
@@ -159,7 +159,7 @@ W tym celu następujące muszą być spełnione:
   * Grupuj zapisu z konfiguracji domyślnej
   * Zapisywanie zwrotne urządzeń
 
-Należy pamiętać, że następujące nie jest obsługiwane i nie powinna być wybrana jako implementacji:
+Następujące nie jest obsługiwane i nie powinna być wybrana jako implementacji:
 
 * Wiele serwerów synchronizacji Azure AD Connect, połączenie z tym samym katalogu usługi Azure AD nawet, jeśli zostały skonfigurowane do synchronizacji wykluczają się wzajemnie zbiór obiektu nie jest obsługiwane
 * Go nie jest obsługiwana na synchronizowanie tego samego użytkownika do wielu katalogów usługi Azure AD. 
@@ -173,7 +173,7 @@ Należy pamiętać, że następujące nie jest obsługiwane i nie powinna być w
 > 
 
 ## <a name="define-multi-factor-authentication-strategy"></a>Definiowanie strategii uwierzytelniania wieloskładnikowego
-W tym zadaniu zostanie Definiowanie strategii uwierzytelniania wieloskładnikowego do użycia.  Uwierzytelnianie wieloskładnikowe platformy Azure jest dostarczany w dwóch różnych wersji.  Jeden jest oparty na chmurze, a drugi to lokalne za pomocą serwera usługi Azure MFA.  Na podstawie oceny powyżej, które można określić, które rozwiązanie jest poprawne dla strategii.  Aby określić, która opcja Projekt najlepiej spełnienia wymagań dotyczących zabezpieczeń w firmie, należy użyć w poniższej tabeli:
+W tym zadaniu zostanie Definiowanie strategii uwierzytelniania wieloskładnikowego do użycia.  Uwierzytelnianie wieloskładnikowe platformy Azure jest dostarczany w dwóch różnych wersjach.  Jeden jest oparty na chmurze, a drugi to lokalne za pomocą serwera usługi Azure MFA.  Na podstawie oceny powyżej, które można określić, które rozwiązanie jest poprawne dla strategii.  Aby określić, która opcja Projekt najlepiej spełnia wymagania dotyczące zabezpieczeń w firmie, należy użyć w poniższej tabeli:
 
 Opcje projektu wieloskładnikowego:
 

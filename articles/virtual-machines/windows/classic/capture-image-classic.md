@@ -16,13 +16,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: 6f7d8e8b3d1ed7c8a06f7e11fea492eec8b60409
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: ee6371faa9c3cc72104ba0eb05d17226679fa420
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>Przechwytywanie obrazu maszyny wirtualnej systemu Windows przy użyciu klasycznego modelu wdrażania.
+# <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>Przechwytywanie obrazu maszyny wirtualnej systemu Windows na platformie Azure utworzonego przy użyciu klasycznego modelu wdrażania
 > [!IMPORTANT]
 > Platforma Azure ma dwa różne modele wdrażania do tworzenia i pracy z zasobami: [Resource Manager i Model Klasyczny](../../../resource-manager-deployment-model.md). W tym artykule omówiono przy użyciu klasycznego modelu wdrożenia. Firma Microsoft zaleca, aby w przypadku większości nowych wdrożeń korzystać z modelu opartego na programie Resource Manager. Menedżer zasobów modelu informacji, zobacz [Przechwyć obraz zarządzanych uogólniony maszyny wirtualnej na platformie Azure](../capture-image-resource.md).
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
@@ -57,7 +57,7 @@ Przed przechwyceniem obrazu maszyny wirtualnej platformy Azure, zaleca się doce
 
    ![Uruchom program Sysprep](./media/capture-image/SysprepGeneral.png)
 5. Narzędzie Sysprep zamyka maszynę wirtualną, która zmieni stan maszyny wirtualnej w portalu Azure, aby **zatrzymane**.
-6. W portalu Azure kliknij **maszyn wirtualnych (klasyczne)** i wybierz maszynę wirtualną, które mają być przechwytywane. **Obrazów maszyn wirtualnych (klasyczne)** grupy znajduje się w obszarze **obliczeniowe** podczas wyświetlania **więcej usług**.
+6. W portalu Azure kliknij **maszyn wirtualnych (klasyczne)** i wybierz maszynę wirtualną, które mają być przechwytywane. **Obrazów maszyn wirtualnych (klasyczne)** grupy znajduje się w obszarze **obliczeniowe** podczas wyświetlania **wszystkie usługi**.
 
 7. Na pasku poleceń, kliknij przycisk **przechwytywania**.
 
@@ -74,7 +74,7 @@ Przed przechwyceniem obrazu maszyny wirtualnej platformy Azure, zaleca się doce
     ![Pomyślne przechwytywania obrazu](./media/capture-image/VMCapturedImageAvailable.png)
 
 ## <a name="next-steps"></a>Kolejne kroki
-Obraz jest gotowy do utworzenia maszyny wirtualnej. Aby to zrobić, należy utworzyć maszynę wirtualną, wybierając **więcej usług** element menu u dołu menu usługi, następnie **obrazów maszyn wirtualnych (klasyczne)** w **obliczeniowe** grupy. Aby uzyskać instrukcje, zobacz [Utwórz maszynę wirtualną z obrazu](createportal.md).
+Obraz jest gotowy do utworzenia maszyny wirtualnej. Aby to zrobić, należy utworzyć maszynę wirtualną, wybierając **wszystkie usługi** element menu u dołu menu usługi, następnie **obrazów maszyn wirtualnych (klasyczne)** w **obliczeniowe** grupy. Aby uzyskać instrukcje, zobacz [Utwórz maszynę wirtualną z obrazu](createportal.md).
 
 [How to sign in to a virtual machine running Windows Server]:connect-logon.md
 [How to Use Sysprep: An Introduction]: http://technet.microsoft.com/library/bb457073.aspx

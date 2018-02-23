@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: barlan
-ms.openlocfilehash: 683badcfb67dd9e98058d560a6b13d1a3474d3e9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 19c8d9084c9ce03d347e58b3359b65cdbcd80651
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>To podejście wielowarstwowych zabezpieczeń hasła usługi Azure AD
 
@@ -46,7 +46,7 @@ Usługi Azure AD i System obsługi kont Microsoft Użyj branży sprawdzonych met
 * Hasła dynamicznie zakazane
 * Inteligentna blokada haseł
 
-Informacji na temat zarządzania hasłami oparte na bieżącej badań, można znaleźć w dokumencie [wskazówki dotyczące hasła](http://aka.ms/passwordguidance).
+Informacji na temat zarządzania hasłami oparte na bieżącej badań, można znaleźć w dokumencie [wskazówki dotyczące hasła](https://aka.ms/passwordguidance).
 
 ### <a name="dynamically-banned-passwords"></a>Hasła dynamicznie zakazane
 
@@ -80,7 +80,7 @@ Aby uzyskać informacje o resetowania w usłudze Azure Active Directory, zobacz 
   >Jeśli jesteś administratorem usługi Azure AD, możesz użyć usługi [Windows Hello](https://www.microsoft.com/windows/windows-hello), aby całkowicie uniknąć tworzenia tradycyjnych haseł przez użytkowników.
   >
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Jak zaktualizować własne hasło](active-directory-passwords-update-your-own-password.md)
 * [The fundamentals of Azure identity management](fundamentals-identity.md) (Podstawy zarządzania tożsamościami w usłudze Azure)

@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/14/2017
 ms.author: jgao
-ms.openlocfilehash: af4538bb398e6b18aeb9703ba5099b0e2c70fa64
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 39c1be51d7aa54691a6ff55483138a603c3fabed
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Ustawianie klastrów w usłudze HDInsight Hadoop, Spark, Kafka i
 
@@ -68,7 +68,7 @@ Wykonaj instrukcje wyświetlane na ekranie przeprowadzenie instalacji podstawowy
 
 [Usługa Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) pomaga w pracy z zasobami w aplikacji w grupie, określany jako grupy zasobów platformy Azure. Można wdrożyć, zaktualizować, monitorować lub usunąć wszystkie zasoby aplikacji w ramach jednej skoordynowanej operacji.
 
-## <a name="cluster-types"></a>Typy klastrów i konfiguracji
+## <a name="cluster-types">Typy klastrów i konfiguracji</a>
 Usługa Azure HDInsight aktualnie zawiera następujące typy klastrów, każde z nich zestaw składników, aby zapewnić użycie pewnych funkcji.
 
 > [!IMPORTANT]
@@ -84,7 +84,7 @@ Usługa Azure HDInsight aktualnie zawiera następujące typy klastrów, każde z
 | [Kafka](kafka/apache-kafka-introduction.md) | Rozproszonej platformy przesyłania strumieniowego, który może służyć do tworzenia w czasie rzeczywistym przesyłania strumieniowego potoki danych i aplikacji |
 | [R Server](r-server/r-server-overview.md) |Różne statystyki danych big data, modelowania predykcyjnego i możliwości uczenia maszynowego |
 | [Spark](spark/apache-spark-overview.md) |Przetwarzanie w pamięci, interakcyjnych zapytań przetwarzania wsadowego micro strumienia |
-| [STORM](storm/apache-storm-overview.md) |Przetwarzanie zdarzeń w czasie rzeczywistym |
+| [Storm](storm/apache-storm-overview.md) |Przetwarzanie zdarzeń w czasie rzeczywistym |
 
 
 ### <a name="hdinsight-version"></a>Wersja usługi HDInsight
@@ -127,6 +127,8 @@ Podczas konfigurowania dla domyślnego punktu końcowego magazynu należy okreś
 
 ### <a name="optional-metastores"></a>Magazyny opcjonalne
 Można utworzyć opcjonalne magazyny Oozie lub gałąź. Jednak nie wszystkie typy klastrów obsługują magazyny i magazyn danych SQL Azure nie jest zgodna z magazynów metadanych. 
+
+Aby uzyskać więcej informacji, zobacz [używać zewnętrznych metadanych magazynów w usłudze Azure HDInsight](./hdinsight-use-external-metadata-stores.md).
 
 > [!IMPORTANT]
 > Podczas tworzenia niestandardowego potrzeby magazynu metadanych, nie używaj łączniki, łączniki i spacje w nazwie bazy danych. Może to spowodować niepowodzenie procesu tworzenia klastra.
@@ -226,19 +228,19 @@ Niektóre składniki natywnego języka Java, takich jak Mahout i usuwania kaskad
 Czasami użytkownik chce skonfigurować następujące pliki konfiguracji w trakcie procesu tworzenia:
 
 * clusterIdentity.xml
-* Core-site.xml
-* Gateway.XML
-* hbase env.xml
+* core-site.xml
+* gateway.xml
+* hbase-env.xml
 * hbase-site.xml
-* System plików hdfs-site.xml
-* env.xml gałęzi
-* gałąź site.xml
+* hdfs-site.xml
+* hive-env.xml
+* hive-site.xml
 * mapred lokacji
 * oozie-site.xml
-* oozie env.xml
-* STORM-site.xml
-* tez site.xml
-* webhcat site.xml
+* oozie-env.xml
+* storm-site.xml
+* tez-site.xml
+* webhcat-site.xml
 * yarn-site.xml
 
 Aby uzyskać więcej informacji, zobacz [HDInsight dostosować klastry za pomocą początkowego](hdinsight-hadoop-customize-cluster-bootstrap.md).

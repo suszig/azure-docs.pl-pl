@@ -1,6 +1,6 @@
 ---
 title: "Wskazówki dotyczące zabezpieczeń platformy Azure i wzorce | Dokumentacja firmy Microsoft"
-description: "Artykuł zawiera wprowadzenie o najlepszych rozwiązaniach dotyczących zabezpieczeń platformy Azure i wzorce oraz listę wyselekcjonowanych najlepsze rozwiązania dotyczące różnych zasobów platformy Azure."
+description: "Artykuł zawiera listę wzorców i najlepszych rozwiązań dotyczących zabezpieczeń platformy Azure dla różnych zasobów platformy Azure."
 services: azure-security
 documentationcenter: na
 author: TomShinder
@@ -12,38 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
-ms.author: terrylan
-ms.openlocfilehash: c8a25d64f3925ec963d8d02c827bd2045994feac
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.date: 2/16/2018
+ms.author: 
+ms.openlocfilehash: 5176f679971d542e67dfc6ff04a729fa52bc3f6e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Wskazówki dotyczące zabezpieczeń platformy Azure i wzorce
-Obecnie istnieją następujące Azure najlepsze rozwiązania i wzorce artykułów. Upewnij się, że można znaleźć w witrynie okresowo, aby wyświetlić aktualizacje z naszej listy rosnącym wzorców i najlepszych rozwiązań dotyczących zabezpieczeń platformy Azure:  
 
-* [Najlepsze rozwiązania sieci platformy Azure](azure-security-network-security-best-practices.md)
-* [Najlepsze praktyki dotyczące danych Azure zabezpieczeń i szyfrowania](azure-security-data-encryption-best-practices.md)
-* [Zarządzanie tożsamościami i dostępem kontrolować najlepszych rozwiązań dotyczących zabezpieczeń](azure-security-identity-management-best-practices.md)
-* [Najlepsze rozwiązania Internetu rzeczy](azure-security-iot-best-practices.md)
-* [IaaS platformy azure najlepsze rozwiązania] (azure-security-iaas.md)
 * [Najlepsze rozwiązania Azure granic](../best-practices-network-security.md)
+* [Najlepsze rozwiązania Azure bazy danych](azure-database-security-best-practices.md)
+* [Najlepsze praktyki dotyczące danych Azure zabezpieczeń i szyfrowania](azure-security-data-encryption-best-practices.md)
+* [Zarządzanie tożsamościami Azure i dostępu do kontroli najlepszych rozwiązań dotyczących zabezpieczeń](azure-security-identity-management-best-practices.md)
+* [Najlepsze rozwiązania sieci platformy Azure](azure-security-network-security-best-practices.md)
+* [Usługa Azure operational najlepsze rozwiązania](azure-operational-security-best-practices.md)
+* [Najlepsze rozwiązania w zakresie Azure PaaS](https://docs.microsoft.com/azure/security/security-paas-deployments) 
+* [Azure Service Fabric najlepszych rozwiązań dotyczących zabezpieczeń](security-best-practices-and-patterns.md)
+* [Najlepsze rozwiązania dotyczące zabezpieczeń maszyny Wirtualnej Azure](azure-service-fabric-security-best-practices.md)
 * [Implementowanie bezpiecznej architektury sieci hybrydowej na platformie Azure](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
-* [Azure PaaS najlepszych rozwiązań] (https://docs.microsoft.com/azure/security/security-paas-deployments)
+* [Najlepsze rozwiązania Internetu rzeczy](azure-security-iot-best-practices.md)* [PaaS Zabezpieczanie bazy danych Azure](security-paas-applications-using-sql.md)
+* [Zabezpieczanie PaaS w sieci web i aplikacji dla urządzeń przenośnych przy użyciu usługi Azure App Service](security-paas-applications-using-app-services.md)
+* [Securing PaaS web and mobile applications using Azure Storage (Zabezpieczanie internetowych i mobilnych aplikacji PaaS przy użyciu usługi Azure Storage)](security-paas-applications-using-storage.md)
+* [Najlepsze rozwiązania dotyczące IaaS obciążeń na platformie Azure](azure-security-iaas.md)
 
-Platforma Azure udostępnia bezpieczne platformy, na którym można tworzyć rozwiązań. Firma Microsoft udostępnia również usług i technologii do zwiększania bezpieczeństwa rozwiązań na platformie Azure. Ze względu na wiele opcji dostępnych dla użytkownika ma wiele osób Głoska zainteresowanie co firma Microsoft zaleca jako najlepsze rozwiązania i wzorce dotyczące poprawy zabezpieczeń.
 
-Możemy zrozumieć zainteresowanie i utworzono kolekcję dokumentów zawierających opis sposobów, podany kontekst prawo w celu zwiększenia bezpieczeństwa wdrożeń platformy Azure.
 
-W tych najlepszych rozwiązań i wzorców artykuły omówiono kolekcja najlepszych rozwiązań i wzorców przydatne dla określonych tematów. Następujące najlepsze rozwiązania i wzorce są uzyskiwane z naszych, korzystając z tych technologii i doświadczenia klientów, takich jak samodzielnie.
-
-Dla każdego najlepiej staramy się wyjaśnić:
-
-* Co to jest najlepszym rozwiązaniem
-* Dlaczego chcesz włączyć tej najlepsze praktyki
-* Jeśli nie zostanie włączone najlepszym rozwiązaniem, co może być skutkiem
-* Możliwe alternatywy najlepsze praktyki
-* Jak można znaleźć umożliwiające najlepsze praktyki
-
-Mamy nadzieję na tym wiele więcej artykułów na architekturę zabezpieczeń platformy Azure i najlepsze rozwiązania. W przypadku tematów, które chcesz nam obejmują, Daj nam znać, w obszarze dyskusji u dołu tej strony.

@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 01/25/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: b2fc8a622549a9858c6c769a7e648fe07a3d01c1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2cb32ddc67060d9860d172b90cc399622c52b04b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-network-using-the-azure-cli"></a>Utwórz sieć wirtualną przy użyciu wiersza polecenia platformy Azure
 
@@ -81,7 +81,7 @@ az vm create \
   --no-wait
 ```
 
-Azure automatycznie tworzy maszynę wirtualną w *domyślne* podsieć *myVirtualNetwork* wirtualnych sieci, ponieważ sieć wirtualna nie istnieje w grupie zasobów, a nie sieci wirtualnej lub podsieć jest określone w poleceniu. Azure DHCP automatycznie przypisać 10.0.0.4 do maszyny wirtualnej podczas tworzenia, ponieważ jest pierwszy dostępny adres w *domyślne* podsieci. Lokalizacja, w której utworzono maszynę wirtualną w musi być lokalizację, w której sieć wirtualna istnieje w. Maszyna wirtualna nie jest wymagane w tej samej grupie zasobów co maszyny wirtualnej, chociaż w tym artykule.
+Azure automatycznie tworzy maszynę wirtualną w *domyślne* podsieć *myVirtualNetwork* wirtualnych sieci, ponieważ sieć wirtualna nie istnieje w grupie zasobów, a nie sieci wirtualnej lub podsieć jest określone w poleceniu. Azure DHCP automatycznie przypisać 10.0.0.4 do maszyny wirtualnej podczas tworzenia, ponieważ jest pierwszy dostępny adres w *domyślne* podsieci. Lokalizacja, w której utworzono maszynę wirtualną w musi być lokalizację, w której sieć wirtualna istnieje w. Maszyna wirtualna nie jest wymagane w tej samej grupie zasobów co sieć wirtualna, chociaż w tym artykule.
 
 Tworzenie drugiej maszyny wirtualnej. Domyślnie program Azure tworzy także tej maszyny wirtualnej w *domyślne* podsieci.
 

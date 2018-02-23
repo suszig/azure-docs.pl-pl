@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: a2ba6c6b59ba4decdfd621a62ec07ae04bfb98cb
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 5c850fe9eaf78ab5ee6a175e5433998e1f15ab2e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="reset-your-work-or-school-password"></a>Resetowanie hasła lub szkoły
 
@@ -125,12 +125,12 @@ Teraz można uzyskać dostępu do konta. Jeśli nie, skontaktuj się z organizac
 | Widać wystąpił błąd podczas próby zmiany hasła. | Niestety hasło zawiera słowo, wyrażenie lub wzorca, który umożliwia łatwe do odgadnięcia hasła. Spróbuj ponownie, używając innego hasła. | Wybierz trudniej odgadnąć hasło. |
 | Pojawia się Strona "Skontaktuj się z administratorem" po wprowadzeniu mój identyfikator użytkownika | Skontaktuj się z administratorem. <br> <br> Wykryliśmy, że hasło konta użytkownika nie jest zarządzany przez firmę Microsoft. W związku z tym nie możemy automatycznie zresetować hasła. <br> <br> Należy skontaktować się z działu IT, aby uzyskać dalszą pomoc. | Ten komunikat jest wyświetlany, ponieważ działu IT zarządza hasła w środowisku lokalnym. Nie można zresetować hasło przy użyciu łącza "Nie może uzyskać dostępu do konta". <br> <br> Aby zresetować hasło, bezpośrednio uzyskać pomoc, skontaktuj się z pracownikami działu IT i go poinformować, że chcesz zresetować hasło, więc ich włączenia tej funkcji można.|
 | Pojawia się komunikat o błędzie "Twoje konto nie ma uprawnień do resetowania hasła" po wprowadzeniu mój identyfikator użytkownika | Twoje konto nie jest włączona w celu resetowania haseł. <br> <br> Przepraszamy, ale pracownicy działu informatycznego nie skonfigurował konta w do tej usługi. <br> <br> Jeśli chcesz, możemy skontaktować się z administratorem w Twojej organizacji, aby zresetował Twoje hasło. | Ten komunikat jest wyświetlany, ponieważ pracownicy działu informatycznego nie włączył resetowania haseł dla organizacji z łącza "Nie może uzyskać dostępu do konta" lub nie ma licencji można korzystać z funkcji. <br> <br> Aby zresetować hasło, wybierz opcję "Skontaktuj się z administratorem link" Aby wysłać wiadomość e-mail do firmy przez personel działu informatycznego i daj znać, aby zresetować hasło, więc ich włączenia tej funkcji można. |
-| Pojawia się komunikat o błędzie "Nie można zweryfikować konto" po wprowadzeniu mój identyfikator użytkownika | Nie można zweryfikować Twoje konto. <br> <br> Jeśli chcesz, możemy skontaktować się z administratorem w Twojej organizacji, aby zresetował Twoje hasło. | Ten komunikat jest wyświetlany, ponieważ jest włączona w celu resetowania haseł, ale nie została zarejestrowana do korzystania z usługi. Aby zarejestrować do resetowania hasła, należy przejść do http://aka.ms/ssprsetup po ma odzyskać dostęp do Twojego konta. <br> <br> Aby zresetować hasło, wybierz łącze "Skontaktuj się z administratorem", aby wysłać wiadomość e-mail do firmy personel działu informatycznego. |
+| Pojawia się komunikat o błędzie "Nie można zweryfikować konto" po wprowadzeniu mój identyfikator użytkownika | Nie można zweryfikować Twoje konto. <br> <br> Jeśli chcesz, możemy skontaktować się z administratorem w Twojej organizacji, aby zresetował Twoje hasło. | Ten komunikat jest wyświetlany, ponieważ jest włączona w celu resetowania haseł, ale nie została zarejestrowana do korzystania z usługi. Aby zarejestrować do resetowania hasła, należy przejść do https://aka.ms/ssprsetup po ma odzyskać dostęp do Twojego konta. <br> <br> Aby zresetować hasło, wybierz łącze "Skontaktuj się z administratorem", aby wysłać wiadomość e-mail do firmy personel działu informatycznego. |
 
 ## <a name="next-steps"></a>Kolejne kroki
 
 * [Jak zarejestrować się do używania samoobsługowego resetowania hasła](active-directory-passwords-reset-register.md)
-* [Strona rejestracji w celu resetowania hasła](http://aka.ms/ssprsetup)
+* [Strona rejestracji w celu resetowania hasła](https://aka.ms/ssprsetup)
 * [Portal resetowania hasła](https://passwordreset.microsoftonline.com/)
 * [Nie można zalogować się do konta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
 

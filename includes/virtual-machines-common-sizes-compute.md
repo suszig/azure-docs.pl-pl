@@ -24,11 +24,13 @@ ACU: 195-210
 | Standard_F16s_v2 | 16     | 32          | 128            | 32             | 32000 (256)                                                           | Wysoka                                           |
 | Standard_F32s_v2 | 32     | 64          | 256            | 32             | 64000 (512)                                                           | Bardzo wysoka                                 |
 | Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128000 (1024)                                                         | Bardzo wysoka                                 |
-| Standard_F72s_v2<sup>2</sup> | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | Bardzo wysoka                                 |
+| Standard_F72s_v2<sup>2, 3</sup> | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | Bardzo wysoka                                 |
 
-<sup>1</sup>serii Fsv2 maszyny Wirtualnej funkcji technologią Intel® Hyper-Threading
+<sup>1</sup> serii Fsv2 maszyny Wirtualnej funkcji technologią Intel® Hyper-Threading
 
 <sup>2</sup> więcej niż 64 vCPU, muszą mieć jedną z tych gościa obsługiwanych systemów operacyjnych: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 z dodatkiem SP2 i Red Hat Enterprise Linux, CentOS 7.3 lub Oracle 7.3 Linux z LIS 4.2.1
+
+<sup>3</sup> wystąpienia jest izolowana sprzętu przeznaczonego do jednego odbiorcy.
 
 ## <a name="fs-series-sup1sup"></a>Seria FS <sup>1</sup>
 

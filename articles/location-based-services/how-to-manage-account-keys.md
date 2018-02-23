@@ -9,11 +9,11 @@ ms.date: 11/14/2017
 ms.topic: article
 ms.service: location-based-services
 manager: timlt
-ms.openlocfilehash: 3bc28d6744725e7c58d78c5262d9e50d3bb674e8
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: b82ff3edc3515d9dce465c7a7ed6084a2bfe25c2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-manage-your-azure-location-based-services-account-and-keys"></a>Jak zarządzać Twoje konto usługi na podstawie lokalizacji platformy Azure i kluczy
 
@@ -27,7 +27,7 @@ Zaloguj się w witrynie Azure Portal pod adresem http://portal.azure.com.
 
 ## <a name="create-a-new-account"></a>Utwórz nowe konto
 
-1. Kliknij przycisk **Nowy** znajdujący się w lewym górnym rogu witryny Azure Portal.
+1. Kliknij przycisk **Utwórz zasób** w lewym górnym rogu portalu Azure.
 
 2. Wyszukaj i wybierz **usługi na podstawie lokalizacji**, następnie kliknij przycisk **Utwórz**.
 

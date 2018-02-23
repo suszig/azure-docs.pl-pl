@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: anjangsh; billgib; genemi
-ms.openlocfilehash: 549b6abf5728e50ee365f40326263d391e4b26fd
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: c6c83f4ac93dd105b2f311250061b8880f5d2a5b
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>Analytics między dzierżawcy przy użyciu wyodrębnione dane
 
@@ -76,7 +76,7 @@ Do wykonania zadań opisanych w tym samouczku niezbędne jest spełnienie nastę
 - Skrypty Wingtip SaaS i aplikację [kod źródłowy](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) są pobierane z usługi GitHub. Upewnij się, *odblokować plik zip* przed wyodrębniania jego zawartość. Zapoznaj się z [ogólne wskazówki](saas-tenancy-wingtip-app-guidance-tips.md) dla czynności, aby pobrać i odblokować skrypty Wingtip biletów SaaS.
 - Power BI Desktop jest zainstalowany. [Pobierz program Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 - Zainicjowano partii dodatkowi dzierżawcy, zobacz [ **samouczek dzierżaw udostępniania**](saas-multitenantdb-provision-and-catalog.md).
-- Zadania konta i zadania konta w bazie danych zostały utworzone. Zobacz odpowiednie kroki w [ **Samouczek zarządzania schematu**](saas-multitenantdb-schema-management.md#create-a-job-account-database-and-new-job-account).
+- Agent zadań i zadania agenta w bazie danych zostały utworzone. Zobacz odpowiednie kroki w [ **Samouczek zarządzania schematu**](saas-multitenantdb-schema-management.md#create-a-job-agent-database-and-new-job-agent).
 
 ### <a name="create-data-for-the-demo"></a>Utwórz dane dla pokaz
 
@@ -171,7 +171,7 @@ Dane w tabeli Schemat gwiazdy zawiera wszystkie biletu sprzedaży dane potrzebne
 
 Do nawiązania połączenia usługi Power BI i zaimportować widoków, które wcześniej utworzony, wykonaj następujące kroki:
 
-1. Uruchom program Power BI desktop.
+1. Launch Power BI desktop.
 2. Na Wstążce głównej wybierz **Pobierz dane**i wybierz **więcej...** z menu.
 3. W **Pobierz dane** okna, wybierz bazę danych SQL Azure.
 4. W oknie nazwy logowania bazy danych, wprowadź nazwę serwera (katalogu-mt -\<użytkownika\>. database.windows.net). Wybierz **importu** dla **tryb łączności danych**, a następnie kliknij przycisk OK. 
@@ -228,7 +228,7 @@ Wcześniej należy pogłębione analizę, aby sprawdzić, czy sprzedaży biletó
 
 Zostały spełnione trendów w danych dzierżawy z aplikacji Wingtip biletów SaaS wielodostępne w bazie danych. Należy rozważyć inne sposoby aplikacji mogą ułatwić podjęcie decyzji biznesowych dla dostawców aplikacji SaaS. Dostawców można lepiej spełnić na potrzeby swoich dzierżaw. Miejmy nadzieję, że w tym samouczku ma wyposażone możesz narzędzia niezbędne do wykonywania analizy danych dzierżawy dla firmom podejmowanie decyzji opartych na danych.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
@@ -241,7 +241,7 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 
 Gratulacje!
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 <!-- - Additional [tutorials that build upon the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials). -->
 - [Zadania elastyczne](sql-database-elastic-jobs-overview.md).

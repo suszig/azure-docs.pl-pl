@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: 054705e802867fda666c80217396db197c60f50e
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 0aac3a9d3595ea0e761ba14070bf7cff4d4b264c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="settings-and-data-roaming-faq"></a>Roaming ustawień i danych — często zadawane pytania
 W tym temacie odpowiedzi na pytania Administratorzy IT mogą mieć o ustawieniach i synchronizacji danych aplikacji.
@@ -80,7 +80,7 @@ Kiedy usługi Azure AD wielu kont z różnych dzierżaw usługi Azure AD znajduj
 ## <a name="what-are-the-roaming-settings-options-for-existing-windows-desktop-applications"></a>Jakie są opcje Ustawienia roamingu, istniejących aplikacji klasycznych systemu Windows?
 Roaming działa tylko dla aplikacji uniwersalnych systemu Windows. Dostępne są dwie opcje do włączania mobilnego na istniejącą aplikację pulpitu systemu Windows:
 
-* [Mostek pulpitu](http://aka.ms/desktopbridge) pomaga Przełącz istniejących aplikacji klasycznych systemu Windows dla platformy uniwersalnej systemu Windows. W tym miejscu minimalnych zmianach w kodzie będą musieli korzystać z mobilne dane aplikacji Azure AD. Mostek pulpitu udostępnia aplikacjami za pomocą tożsamości aplikacji, co jest wymagane do włączenia dane aplikacji mobilnych dla istniejącej aplikacji klasycznych.
+* [Mostek pulpitu](https://aka.ms/desktopbridge) pomaga Przełącz istniejących aplikacji klasycznych systemu Windows dla platformy uniwersalnej systemu Windows. W tym miejscu minimalnych zmianach w kodzie będą musieli korzystać z mobilne dane aplikacji Azure AD. Mostek pulpitu udostępnia aplikacjami za pomocą tożsamości aplikacji, co jest wymagane do włączenia dane aplikacji mobilnych dla istniejącej aplikacji klasycznych.
 * [Wirtualizacji środowiska użytkownika (UE-V)](https://technet.microsoft.com/library/dn458947.aspx) pomaga utworzyć ustawienia niestandardowe szablon dla istniejącej aplikacji klasycznych systemu Windows i włączyć mobilnych dla aplikacji Win32. Ta opcja nie wymaga Deweloper aplikacji zmienić kod aplikacji. UE-V jest ograniczona do lokalnej usługi Active Directory mobilnego dla klientów, którzy kupili pakietu Microsoft Desktop Optimization Pack.
 
 Administratorzy mogą skonfigurować wirtualizacji środowiska użytkownika są przekazywane dane aplikacji pulpitu systemu Windows, zmieniając roaming ustawień systemu operacyjnego i danych aplikacji uniwersalnej za pośrednictwem [wirtualizacji środowiska użytkownika, zasady grupy](https://technet.microsoft.com/itpro/mdop/uev-v2/configuring-ue-v-2x-with-group-policy-objects-both-uevv2), takie jak:
