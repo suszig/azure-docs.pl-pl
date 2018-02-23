@@ -1,6 +1,6 @@
 ---
-title: Sieci wirtualnych platformy Azure i maszyn wirtualnych systemu Linux | Dokumentacja firmy Microsoft
-description: "Samouczek — Zarządzanie sieciami wirtualnymi platformy Azure i maszyn wirtualnych systemu Linux z interfejsu wiersza polecenia platformy Azure"
+title: Sieci wirtualne platformy Azure i maszyny wirtualne z systemem Linux | Microsoft Docs
+description: "Samouczek — Zarządzanie sieciami wirtualnymi platformy Azure i maszynami wirtualnymi z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: neilpeterson
@@ -16,51 +16,51 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 0e7f4308290a14e592cf1739fa5b0b3360d7c68b
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: cce0cebc4a31cd78dd7c0c73424e1b674134d360
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="manage-azure-virtual-networks-and-linux-virtual-machines-with-the-azure-cli"></a>Zarządzanie sieciami wirtualnymi platformy Azure i maszyn wirtualnych systemu Linux z interfejsu wiersza polecenia platformy Azure
+# <a name="manage-azure-virtual-networks-and-linux-virtual-machines-with-the-azure-cli"></a>Zarządzanie sieciami wirtualnymi platformy Azure i maszynami wirtualnymi z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Maszyny wirtualne platformy Azure używania sieci platformy Azure do komunikacji sieciowej wewnętrznych i zewnętrznych. Ten samouczek przeprowadzi Cię przez wdrożenie dwóch maszyn wirtualnych i konfigurowanie sieci platformy Azure dla tych maszyn wirtualnych. Przykłady w tym samouczku założono, że maszyny wirtualne obsługujące aplikacji sieci web z bazy danych zaplecza, jednak aplikacja nie zostanie wdrożona w samouczku. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Maszyny wirtualne platformy Azure korzystają z sieci platformy Azure do wewnętrznej i zewnętrznej komunikacji sieciowej. Ten samouczek przedstawia proces wdrażania dwóch maszyn wirtualnych i konfigurowania dla nich sieci platformy Azure. W przykładach w tym samouczku założono, że maszyny wirtualne hostują aplikację internetową z zapleczem bazy danych, jednak wdrożenie aplikacji nie jest omówione w samouczku. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie sieci wirtualnej i podsieci
 > * Tworzenie publicznego adresu IP
-> * Tworzenie frontonu maszyny Wirtualnej
+> * Tworzenie maszyny wirtualnej frontonu
 > * Zabezpieczanie ruchu sieciowego
-> * Tworzenie maszyny Wirtualnej zaplecza
+> * Tworzenie maszyny wirtualnej zaplecza
 
-Podczas wykonywania tego samouczka, można wyświetlić te zasoby utworzone:
+Podczas pracy z tym samouczkiem zostaną utworzone następujące zasoby:
 
-![Sieci wirtualnej z dwoma podsieciami](./media/tutorial-virtual-network/networktutorial.png)
+![Sieć wirtualna z dwiema podsieciami](./media/tutorial-virtual-network/networktutorial.png)
 
-- *myVNet* -sieć wirtualna, która maszyn wirtualnych używają do komunikowania się ze sobą i z Internetu.
-- *myFrontendSubnet* -podsieci w *myVNet* używany przez zasoby frontonu.
-- *myPublicIPAddress* -publiczny adres IP używany do dostępu *myFrontendVM* z Internetu.
-- *myFrontentNic* -interfejs sieciowy używany przez *myFrontendVM* do komunikowania się z *myBackendVM*.
-- *myFrontendVM* -maszyny Wirtualnej, używany do komunikacji między z Internetem i *myBackendVM*.
-- *myBackendNSG* -grupy zabezpieczeń sieci, która kontroluje komunikację między *myFrontendVM* i *myBackendVM*.
-- *myBackendSubnet* -podsieci skojarzone z *myBackendNSG* i używany przez zasoby zaplecza.
-- *myBackendNic* -interfejs sieciowy używany przez *myBackendVM* do komunikowania się z *myFrontendVM*.
-- *myBackendVM* -maszynę Wirtualną, która korzysta z portu 22 i 3306 do komunikowania się z *myFrontendVM*.
+- *myVNet* — sieć wirtualna, której maszyny wirtualne używają do komunikacji między sobą i z Internetem.
+- *myFrontendSubnet* — podsieć w sieci *myVNet* używana przez zasoby frontonu.
+- *myPublicIPAddress* — publiczny adres IP używany do uzyskania dostępu do maszyny *myFrontendVM* za pośrednictwem Internetu.
+- *myFrontentNic* — interfejs sieciowy używany przez maszynę wirtualną *myFrontendVM* do komunikacji z maszyną *myBackendVM*.
+- *myFrontendVM* — maszyna wirtualna używana do komunikacji pomiędzy Internetem a maszyną *myBackendVM*.
+- *myBackendNSG* — sieciowa grupa zabezpieczeń, która kontroluje komunikację między maszyną *myFrontendVM* a maszyną *myBackendVM*.
+- *myBackendSubnet* — podsieć skojarzona z grupą *myBackendNSG* i używana przez zasoby zaplecza.
+- *myBackendNic* — interfejs sieciowy używany przez maszynę wirtualną *myBackendVM* do komunikacji z maszyną *myFrontendVM*.
+- *myBackendVM* — maszyna wirtualna, która korzysta z portów 22 i 3306 do komunikacji z maszyną*myFrontendVM*.
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Jeśli wybierzesz do zainstalowania i używania interfejsu wiersza polecenia lokalnie, w tym samouczku wymaga używasz interfejsu wiersza polecenia Azure w wersji 2.0.4 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
 
-## <a name="vm-networking-overview"></a>Omówienie sieci maszyny Wirtualnej
+## <a name="vm-networking-overview"></a>Omówienie sieci maszyn wirtualnych
 
-Sieci wirtualnych platformy Azure Włącz bezpiecznych połączeń sieci między maszynami wirtualnymi, internet i innymi usługami Azure, takich jak bazy danych Azure SQL. Sieci wirtualne są podzielone na segmentach logicznej podsieci. Podsieci są używane do sterowania przepływem sieci oraz funkcję granicy zabezpieczeń. Podczas wdrażania maszyny Wirtualnej, zwykle obejmuje interfejs sieci wirtualnej, który jest podłączony do podsieci.
+Sieci wirtualne platformy Azure umożliwiają nawiązywanie bezpiecznych połączeń sieciowych pomiędzy maszynami wirtualnymi, Internetem i innymi usługami platformy Azure, na przykład Azure SQL Database. Sieci wirtualne są podzielone na logiczne segmenty nazywane podsieciami. Podsieci są używane do sterowania przepływem sieciowym oraz pełnią funkcję granicy zabezpieczeń. Wdrażana maszyna wirtualna zwykle zawiera wirtualny interfejs sieciowy dołączony do podsieci.
 
 ## <a name="create-a-virtual-network-and-subnet"></a>Tworzenie sieci wirtualnej i podsieci
 
-W tym samouczku jednej sieci wirtualnej jest tworzony z dwoma podsieciami. Podsieci frontonu do obsługi aplikacji sieci web, a podsieć zaplecza dla hostingu serwera bazy danych.
+W tym samouczku zostanie utworzona jedna sieć wirtualna z dwoma podsieciami. Zostanie utworzona podsieć frontonu do hostowania aplikacji internetowej oraz podsieć zaplecza do hostowania serwera bazy danych.
 
-Przed utworzeniem sieci wirtualnej, Utwórz nową grupę zasobów o [Tworzenie grupy az](/cli/azure/group#create). Poniższy przykład tworzy grupę zasobów o nazwie *myRGNetwork* w lokalizacji eastus.
+Przed utworzeniem sieci wirtualnej należy utworzyć grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#az_group_create). Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myRGNetwork* w lokalizacji eastus.
 
 ```azurecli-interactive 
 az group create --name myRGNetwork --location eastus
@@ -68,7 +68,7 @@ az group create --name myRGNetwork --location eastus
 
 ### <a name="create-virtual-network"></a>Tworzenie sieci wirtualnej
 
-Użyj [tworzenie sieci wirtualnej sieci az](/cli/azure/network/vnet#create) polecenie, aby utworzyć sieć wirtualną. W tym przykładzie sieci o nazwie *mvVNet* i podano prefiksu adresu *10.0.0.0/16*. Tworzona jest również podsieć o nazwie *myFrontendSubnet* i prefiksem *10.0.1.0/24*. W dalszej części tego samouczka frontonu maszyny Wirtualnej jest podłączona do tej podsieci. 
+Użyj polecenia [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create), aby utworzyć sieć wirtualną. W tym przykładzie sieć nazywa się *mvVNet*, a jej prefiks adresu to *10.0.0.0/16*. Tworzona jest również podsieć o nazwie *myFrontendSubnet* z prefiksem *10.0.1.0/24*. W dalszej części tego samouczka maszyna wirtualna frontonu zostanie połączona z tą podsiecią. 
 
 ```azurecli-interactive 
 az network vnet create \
@@ -79,9 +79,9 @@ az network vnet create \
   --subnet-prefix 10.0.1.0/24
 ```
 
-### <a name="create-subnet"></a>Utwórz podsieć
+### <a name="create-subnet"></a>Tworzenie podsieci
 
-Nowa podsieć zostanie dodany do sieci wirtualnej przy użyciu [Utwórz podsieć sieci wirtualnej sieci az](/cli/azure/network/vnet/subnet#create) polecenia. W tym przykładzie podsieć o nazwie *myBackendSubnet* i podano prefiksu adresu *10.0.2.0/24*. Ta podsieć jest używany ze wszystkimi usługami zaplecza.
+Nowa podsieć jest dodawana do maszyny wirtualnej przy użyciu polecenia [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). W tym przykładzie podsieć nazywa się *myBackendSubnet*, a jej prefiks adresu to *10.0.2.0/24*. Ta podsieć jest używana ze wszystkimi usługami zaplecza.
 
 ```azurecli-interactive 
 az network vnet subnet create \
@@ -91,49 +91,49 @@ az network vnet subnet create \
   --address-prefix 10.0.2.0/24
 ```
 
-W tym momencie sieci zostało utworzone i podzielone na dwie podsieci, jeden dla usługi frontonu i drugi dla usług zaplecza. W następnej sekcji maszyny wirtualne są tworzone i połączone z tych podsieci.
+W ten sposób utworzono sieć i podzielono ją na dwie podsieci — jedną dla usług frontonu i jedną dla usług zaplecza. W kolejnej sekcji zostaną utworzone maszyny wirtualne połączone z tymi podsieciami.
 
 ## <a name="create-a-public-ip-address"></a>Tworzenie publicznego adresu IP
 
-Publiczny adres IP umożliwia zasobów platformy Azure jako dostępny w Internecie. Metoda alokacji publicznego adresu IP można skonfigurować jako dynamicznej lub statycznej. Domyślnie jest dynamicznie przydzielane publicznego adresu IP. Dynamiczne adresy IP są wydawane po cofnięciu przydziału maszyny Wirtualnej. Ten problem powoduje, że adres IP zmienić podczas żadnej operacji, która obejmuje dezalokacji maszyny Wirtualnej.
+Publiczny adres IP umożliwia dostęp do zasobów platformy Azure w Internecie. Można skonfigurować dynamiczną lub statyczną alokację publicznego adresu IP. Domyślnie publiczny adres IP jest przydzielany dynamicznie. Dynamiczne adresy IP są zwalniane, gdy przydział maszyny wirtualnej zostaje cofnięty. Dlatego adres IP zmienia się podczas każdej operacji, która obejmuje cofnięcie przydziału maszyny wirtualnej.
 
-Metoda alokacji można ustawić jako statyczny, który zapewnia, że adres IP jest przypisana do maszyny Wirtualnej, nawet podczas deallocated stanu. Korzystając z statycznie przydzielony adres IP, nie można określić adres IP. Zamiast tego jest ona przydzielone z puli dostępnych adresów.
+Można też ustawić statyczną metodę alokacji, co gwarantuje, że adres IP pozostanie przydzielony do maszyny wirtualnej nawet wówczas, gdy jej przydział zostanie cofnięty. Podczas korzystania ze statycznie przydzielonych adresów IP nie można określić adresu IP. Zamiast tego jest on przydzielany z puli dostępnych adresów.
 
 ```azurecli-interactive
 az network public-ip create --resource-group myRGNetwork --name myPublicIPAddress
 ```
 
-Podczas tworzenia maszyny Wirtualnej z [tworzenia maszyny wirtualnej az](/cli/azure/vm#create) polecenia domyślnego publicznego adresu IP adres metodę alokacji jest dynamiczny. Podczas tworzenia maszyny wirtualnej przy użyciu [tworzenia maszyny wirtualnej az](/cli/azure/vm#create) polecenia, obejmują `--public-ip-address-allocation static` argument można przypisać statycznego publicznego adresu IP. Ta operacja nie jest prezentowana w tym samouczku, jednak w następnej sekcji dynamicznie przydzielonego adresu IP została zmieniona na statycznie przydzielonego adresu. 
+Podczas tworzenia maszyny wirtualnej za pomocą polecenia [az vm create](/cli/azure/vm#az_vm_create) domyślnie stosowana jest dynamiczna metoda alokacji publicznego adresu IP. Aby przypisać statyczny publiczny adres IP do maszyny wirtualnej, należy podczas tworzenia jej za pomocą polecenia [az vm create](/cli/azure/vm#az_vm_create) dołączyć argument `--public-ip-address-allocation static`. Ta operacja nie jest pokazana w samouczku, ale w kolejnej sekcji dynamicznie przypisany adres IP zostanie zmieniony na adres przypisany statycznie. 
 
-### <a name="change-allocation-method"></a>Zmień metodę alokacji
+### <a name="change-allocation-method"></a>Zmiana metody alokacji
 
-Metoda alokacji adresów IP można zmienić za pomocą [az sieci ip publicznego aktualizacji](/cli/azure/network/public-ip#update) polecenia. W tym przykładzie metoda alokacji adresu IP frontonu maszyny wirtualnej zostanie zmieniona na statyczne.
+Metodę alokacji adresu IP można zmienić za pomocą polecenia [az network public-ip update](/cli/azure/network/public-ip#az_network_public_ip_update). W tym przykładzie metoda alokacji adresu IP maszyny wirtualnej frontonu zostanie zmieniona na statyczną.
 
-Po pierwsze Cofnij Przydział maszyny Wirtualnej.
+Najpierw cofnij przydział maszyny wirtualnej.
 
 ```azurecli-interactive 
 az vm deallocate --resource-group myRGNetwork --name myFrontendVM
 ```
 
-Użyj [az sieci ip publicznego aktualizacji](/cli/azure/network/public-ip#update) polecenie, aby zaktualizować metodę alokacji. W takim przypadku `--allocation-method` jest ustawiany *statycznych*.
+Użyj polecenia [az network public-ip update](/cli/azure/network/public-ip#az_network_public_ip_update), aby zaktualizować metodę alokacji. W tym przypadku parametr `--allocation-method` zostanie zmieniony na *static*.
 
 ```azurecli-interactive 
 az network public-ip update --resource-group myRGNetwork --name myPublicIPAddress --allocation-method static
 ```
 
-Uruchom maszynę Wirtualną.
+Uruchom maszynę wirtualną.
 
 ```azurecli-interactive 
 az vm start --resource-group myRGNetwork --name myFrontendVM --no-wait
 ```
 
-### <a name="no-public-ip-address"></a>Nie publicznego adresu IP
+### <a name="no-public-ip-address"></a>Brak publicznego adresu IP
 
-Często maszyny Wirtualnej nie musi być dostępny za pośrednictwem Internetu. Aby utworzyć Maszynę wirtualną bez publicznego adresu IP, należy użyć `--public-ip-address ""` argumentu z pustego zestawu cudzysłowów. Ta konfiguracja jest przedstawiona w dalszej części tego samouczka.
+Maszyna wirtualna często nie musi być dostępna przez Internet. Aby utworzyć maszynę wirtualną bez publicznego adresu IP, należy użyć argumentu `--public-ip-address ""` z pustą parą podwójnych cudzysłowów. Ta konfiguracja jest przedstawiona w dalszej części tego samouczka.
 
-## <a name="create-a-front-end-vm"></a>Tworzenie frontonu maszyny Wirtualnej
+## <a name="create-a-front-end-vm"></a>Tworzenie maszyny wirtualnej frontonu
 
-Użyj [tworzenia maszyny wirtualnej az](/cli/azure/vm#create) polecenie, aby utworzyć maszynę Wirtualną o nazwie *myFrontendVM* przy użyciu *myPublicIPAddress*.
+Użyj polecenia [az vm create](/cli/azure/vm#az_vm_create), aby utworzyć maszynę wirtualną o nazwie *myFrontendVM*, korzystającą z adresu *myPublicIPAddress*.
 
 ```azurecli-interactive 
 az vm create \
@@ -149,35 +149,35 @@ az vm create \
 
 ## <a name="secure-network-traffic"></a>Zabezpieczanie ruchu sieciowego
 
-Sieciowa grupa zabezpieczeń (NSG, network security group) zawiera listę reguł zabezpieczeń, które blokują lub zezwalają na ruch sieciowy do zasobów połączonych z usługami Azure Virtual Network (VNet). Grupy NSG można skojarzyć z podsieci lub sieci poszczególnych interfejsów. Grupa NSG jest skojarzona z karty sieciowej, ma zastosowanie tylko skojarzonego VM. Jeśli sieciowa grupa zabezpieczeń jest skojarzona z podsiecią, te reguły są stosowane do wszystkich zasobów połączonych z tą podsiecią. 
+Sieciowa grupa zabezpieczeń (NSG, network security group) zawiera listę reguł zabezpieczeń, które blokują lub zezwalają na ruch sieciowy do zasobów połączonych z usługami Azure Virtual Network (VNet). Sieciowe grupy zabezpieczeń można skojarzyć z podsieciami lub pojedynczymi interfejsami sieciowymi. Jeśli sieciowa grupa zabezpieczeń jest skojarzona z interfejsem sieciowym, jest stosowana wyłącznie do powiązanej maszyny wirtualnej. Jeśli sieciowa grupa zabezpieczeń jest skojarzona z podsiecią, te reguły są stosowane do wszystkich zasobów połączonych z tą podsiecią. 
 
 ### <a name="network-security-group-rules"></a>Reguły sieciowych grup zabezpieczeń
 
-Reguły NSG definiują portów sieciowych za pośrednictwem których ruch jest dozwolony lub niedozwolony. Zasady mogą obejmować źródłowe i docelowe zakresów adresów IP tak, aby ruch jest kontrolowany między konkretnych systemów lub podsieci. Reguły NSG obejmują także priorytet (od 1 — i 4096). Reguły są sprawdzane według ważności. Reguła o priorytecie 100 jest oceniane przed regułą z priorytetem 200.
+Reguły sieciowych grup zabezpieczeń określają porty sieciowe, dla których ruch jest dozwolony lub niedozwolony. Reguły mogą zawierać zakresy źródłowych lub docelowych adresów IP, umożliwiając kontrolę ruchu pomiędzy określonymi systemami lub podsieciami. Reguły sieciowych grup zabezpieczeń mają również priorytet (od 1 do 4096). Priorytet określa kolejność oceny reguł. Reguła z priorytetem 100 jest oceniana przed regułą z priorytetem 200.
 
 Wszystkie sieciowe grupy zabezpieczeń zawierają zestaw reguł domyślnych. Reguł domyślnych nie można usunąć, ale ponieważ mają przypisany najniższy priorytet, mogą być zastąpione przez tworzone zasady.
 
-Reguły domyślne dla grupy NSG są:
+Domyślne reguły dla sieciowych grup zabezpieczeń to:
 
-- **Sieć wirtualna** — ruch pochodzący i kończenie w sieci wirtualnej jest dozwolony zarówno w kierunkach przychodzących i wychodzących.
-- **Internet** — ruch wychodzący jest dozwolone, ale ruch przychodzący jest zablokowany.
-- **Moduł równoważenia obciążenia** — umożliwia modułowi równoważenia obciążenia Azure badanie kondycji maszyn wirtualnych i wystąpień ról. Tę zasadę można zastąpić, jeśli nie używasz zestawu o zrównoważonym obciążeniu.
+- **Sieć wirtualna** — ruch pochodzący z sieci wirtualnej i kończący się w niej jest dozwolony zarówno w kierunku przychodzącym, jak i wychodzącym.
+- **Internet** — ruch wychodzący jest dozwolony, ale ruch przychodzący jest blokowany.
+- **Moduł równoważenia obciążenia** — umożliwia modułowi równoważenia obciążenia platformy Azure badanie kondycji maszyn wirtualnych i wystąpień ról. Jeśli nie używasz zestawu z równoważeniem obciążenia, możesz przesłonić tę regułę.
 
-### <a name="create-network-security-groups"></a>Utwórz grupy zabezpieczeń sieci
+### <a name="create-network-security-groups"></a>Tworzenie sieciowych grup zabezpieczeń
 
-Można utworzyć grupy zabezpieczeń sieci w tym samym czasie jako maszynę Wirtualną przy użyciu [tworzenia maszyny wirtualnej az](/cli/azure/vm#create) polecenia. Gdy tak się grupa NSG jest skojarzona z interfejsu sieciowego maszyn wirtualnych i reguły NSG jest automatycznie utworzona zezwalająca na ruch na porcie *22* z dowolnego źródła. Wcześniej w tym samouczku frontonu NSG został automatycznie utworzony z maszyny Wirtualnej frontonu. Reguły NSG również został automatycznie utworzony dla portu 22. 
+Sieciową grupę zabezpieczeń można utworzyć podczas tworzenia maszyny wirtualnej przy użyciu polecenia [az vm create](/cli/azure/vm#az_vm_create). W takim przypadku sieciowa grupa zabezpieczeń jest skojarzona z interfejsem sieciowym tej maszyny wirtualnej, z automatycznie utworzoną regułą zezwalającej na ruch z dowolnego źródła przez port *22*. Wcześniej w tym samouczku sieciowa grupa zabezpieczeń frontonu została automatycznie utworzona wraz z maszyną wirtualną frontonu. Została również automatycznie utworzona reguła sieciowej grupy zabezpieczeń dla portu 22. 
 
-W niektórych przypadkach może być przydatne do wstępnego tworzenia grupy NSG, takie jak kiedy nie należy tworzyć reguły domyślne SSH, lub gdy musi być podłączona grupa NSG do podsieci. 
+W niektórych przypadkach pomocne może być wcześniejsze utworzenie sieciowej grupy zabezpieczeń, na przykład wtedy, gdy nie powinny być tworzone domyślne reguły protokołu SSH, lub jeśli sieciowa grupa zabezpieczeń ma być połączona z podsiecią. 
 
-Użyj [utworzyć nsg sieci az](/cli/azure/network/nsg#create) polecenie, aby utworzyć grupę zabezpieczeń sieci.
+Użyj polecenia [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create), aby utworzyć sieciową grupę zabezpieczeń.
 
 ```azurecli-interactive 
 az network nsg create --resource-group myRGNetwork --name myBackendNSG
 ```
 
-Kojarzenie grupy NSG do interfejsu sieciowego, a nie jest skojarzony z podsiecią. W tej konfiguracji żadnej maszyny Wirtualnej, który jest podłączony do podsieci dziedziczy reguły NSG.
+Sieciowa grupa zabezpieczeń nie zostanie skojarzona z interfejsem sieciowym, ale z podsiecią. W tej konfiguracji każda maszyna wirtualna połączona z podsiecią dziedziczy reguły sieciowej grupy zabezpieczeń.
 
-Aktualizuj istniejącą podsieć o nazwie *myBackendSubnet* z Nowa grupa NSG.
+Zaktualizuj istniejącą podsieć o nazwie *myBackendSubnet*, używając nowej sieciowej grupy zabezpieczeń.
 
 ```azurecli-interactive 
 az network vnet subnet update \
@@ -187,11 +187,11 @@ az network vnet subnet update \
   --network-security-group myBackendNSG
 ```
 
-### <a name="secure-incoming-traffic"></a>Bezpieczny ruch przychodzący
+### <a name="secure-incoming-traffic"></a>Zabezpieczanie ruchu przychodzącego
 
-Podczas tworzenia maszyny Wirtualnej frontonu, reguły NSG utworzono zezwalająca na ruch przychodzący na porcie 22. Ta zasada umożliwia połączeń SSH z maszyną wirtualną. Na przykład ruch powinno być dozwolone na porcie *80*. Ta konfiguracja pozwala na maszynie Wirtualnej dostęp do aplikacji sieci web.
+Podczas tworzenia maszyny wirtualnej frontonu utworzona została reguła sieciowej grupy zabezpieczeń, zezwalająca na ruch przychodzący na porcie 22. Ta reguła umożliwia nawiązywanie połączeń SSH z maszyną wirtualną. W tym przykładzie ruch powinien być również dozwolony na porcie *80*. Ta konfiguracja umożliwia uzyskanie dostępu do aplikacji internetowej na maszynie wirtualnej.
 
-Użyj [Tworzenie reguły nsg sieci az](/cli/azure/network/nsg/rule#create) polecenie, aby utworzyć regułę dla portu *80*.
+Użyj polecenia [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create), aby utworzyć regułę dla portu *80*.
 
 ```azurecli-interactive 
 az network nsg rule create \
@@ -208,17 +208,17 @@ az network nsg rule create \
   --destination-port-range 80
 ```
 
-Frontonu maszyny Wirtualnej jest dostępny tylko na porcie *22* i port *80*. Cały ruch przychodzący jest zablokowany na grupę zabezpieczeń sieci. Może to być przydatne do wizualizacji konfiguracjach reguły NSG. Zwraca konfigurację reguły NSG z [listy reguł sieciowej az](/cli/azure/network/nsg/rule#list) polecenia. 
+Maszyna wirtualna frontonu jest dostępna tylko na porcie *22* i porcie *80*. Pozostały ruch przychodzący jest blokowany w sieciowej grupie zabezpieczeń. Warto zwizualizować konfiguracje reguł sieciowej grupy zabezpieczeń. Polecenie [az network rule list](/cli/azure/network/nsg/rule#az_network_nsg_rule_list) zwraca konfigurację reguł sieciowej grupy zabezpieczeń. 
 
 ```azurecli-interactive 
 az network nsg rule list --resource-group myRGNetwork --nsg-name myFrontendNSG --output table
 ```
 
-### <a name="secure-vm-to-vm-traffic"></a>Bezpiecznej maszyny Wirtualnej do ruchu maszyny Wirtualnej
+### <a name="secure-vm-to-vm-traffic"></a>Zabezpieczanie ruchu między maszynami wirtualnymi
 
-Reguły grupy zabezpieczeń sieci można także zastosować między maszynami wirtualnymi. Na przykład frontonu maszyny Wirtualnej musi łączyć się z zaplecza maszyny Wirtualnej na porcie *22* i *3306*. Ta konfiguracja umożliwia połączeń SSH z frontonu maszyny Wirtualnej, a także zezwolić aplikacji na Maszynie wirtualnej frontonu do komunikowania się z wewnętrznej bazy danych MySQL. Powinien zostać zablokowany cały ruch między maszynami wirtualnymi frontonu i zaplecza.
+Reguły sieciowych grup zabezpieczeń można także stosować pomiędzy maszynami wirtualnymi. W tym przykładzie maszyna wirtualna frontonu musi połączyć się z maszyną wirtualną zaplecza na porcie *22* i *3306*. Ta konfiguracja umożliwia nawiązywanie połączeń SSH wychodzących z maszyny wirtualnej frontonu, a także umożliwia aplikacji na maszynie wirtualnej frontonu komunikację z bazą danych MySQL zaplecza. Cały pozostały ruch pomiędzy maszynami wirtualnymi frontonu i zaplecza powinien zostać zablokowany.
 
-Użyj [Tworzenie reguły nsg sieci az](/cli/azure/network/nsg/rule#create) polecenie, aby utworzyć regułę dla portu 22. Zwróć uwagę, że `--source-address-prefix` argument określa wartość *10.0.1.0/24*. Taka konfiguracja powoduje, że za pośrednictwem grupa NSG jest dozwolone tylko na ruch z podsieci frontonu.
+Użyj polecenia [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create), aby utworzyć regułę dla portu 22. Zwróć uwagę, że argument `--source-address-prefix` ma wartość *10.0.1.0/24*. Ta konfiguracja gwarantuje, że ruch z podsieci frontonu jest dozwolony wyłącznie za pośrednictwem sieciowej grupy zabezpieczeń.
 
 ```azurecli-interactive 
 az network nsg rule create \
@@ -235,7 +235,7 @@ az network nsg rule create \
   --destination-port-range "22"
 ```
 
-Teraz Dodaj regułę dla ruchu danych MySQL na porcie 3306.
+Teraz dodaj regułę dla ruchu bazy MySQL na porcie 3306.
 
 ```azurecli-interactive 
 az network nsg rule create \
@@ -252,7 +252,7 @@ az network nsg rule create \
   --destination-port-range "3306"
 ```
 
-Ponadto ponieważ grup NSG domyślną regułę zezwalającą na cały ruch między maszynami wirtualnymi w tej samej sieci wirtualnej, regułę można utworzyć dla grup NSG zaplecza zablokować cały ruch. Zauważ, że `--priority` znajduje się wartość *300*, która jest niższy tej reguły NSG i MySQL. Taka konfiguracja powoduje, że ruch SSH i MySQL nadal uzyskuje zezwolenie za pośrednictwem grupy NSG.
+Ponieważ sieciowe grupy zabezpieczeń mają domyślną regułę zezwalającą na dowolny ruch pomiędzy maszynami wirtualnymi w tej samej sieci wirtualnej, można utworzyć regułę blokowania całego ruchu w sieciowych grupach zabezpieczeń zaplecza. Zwróć uwagę, że parametr `--priority` ma wartość *300*, czyli niższą niż priorytet reguł sieciowej grupy zabezpieczeń i reguł bazy danych MySQL. Ta konfiguracja gwarantuje, że ruch SSH i MySQL będzie nadal dozwolony w sieciowej grupie zabezpieczeń.
 
 ```azurecli-interactive 
 az network nsg rule create \
@@ -269,9 +269,9 @@ az network nsg rule create \
   --destination-port-range "*"
 ```
 
-## <a name="create-back-end-vm"></a>Tworzenie maszyny Wirtualnej z zaplecza
+## <a name="create-back-end-vm"></a>Tworzenie maszyny wirtualnej zaplecza
 
-Teraz Utwórz maszynę wirtualną, która jest dołączona do *myBackendSubnet*. Zwróć uwagę, że `--nsg` argument ma wartość pustą cudzysłowów. Grupy NSG nie muszą zostać utworzone z maszyną Wirtualną. Maszyna wirtualna jest podłączony do podsieci wewnętrznej, które są chronione za pomocą wstępnie utworzone NSG zaplecza. Ta grupa NSG stosuje się do maszyny Wirtualnej. Ponadto Zauważ, że `--public-ip-address` argument ma wartość pustą cudzysłowów. Ta konfiguracja tworzy Maszynę wirtualną bez publicznego adresu IP. 
+Teraz należy utworzyć maszynę wirtualną połączoną z podsiecią *myBackendSubnet*. Należy zwrócić uwagę, że wartość argumentu `--nsg` to pusta para cudzysłowów. Z tą maszyną wirtualną nie trzeba tworzyć sieciowej grupy zabezpieczeń. Maszyna wirtualna jest połączona z podsiecią zaplecza, która jest chroniona za pomocą utworzonej wcześniej sieciowej grupy zabezpieczeń. Ta sieciowa grupa zabezpieczeń jest stosowana do maszyny wirtualnej. Należy również zauważyć, że wartość argumentu `--public-ip-address` ma to pusta para cudzysłowów. Ta konfiguracja tworzy maszynę wirtualną bez publicznego adresu IP. 
 
 ```azurecli-interactive 
 az vm create \
@@ -285,24 +285,24 @@ az vm create \
   --generate-ssh-keys
 ```
 
-Maszyna wirtualna zaplecza jest dostępny tylko na porcie *22* i port *3306* z podsieci frontonu. Cały ruch przychodzący jest zablokowany na grupę zabezpieczeń sieci. Może to być przydatne do wizualizacji konfiguracjach reguły NSG. Zwraca konfigurację reguły NSG z [listy reguł sieciowej az](/cli/azure/network/nsg/rule#list) polecenia. 
+Maszyna wirtualna zaplecza jest dostępna dla podsieci frontonu tylko na porcie *22* i porcie *3306*. Pozostały ruch przychodzący jest blokowany w sieciowej grupie zabezpieczeń. Warto zwizualizować konfiguracje reguł sieciowej grupy zabezpieczeń. Polecenie [az network rule list](/cli/azure/network/nsg/rule#az_network_nsg_rule_list) zwraca konfigurację reguł sieciowej grupy zabezpieczeń. 
 
 ```azurecli-interactive 
 az network nsg rule list --resource-group myRGNetwork --nsg-name myBackendNSG --output table
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku zostało utworzone i zabezpieczonej sieci platformy Azure w odniesieniu do maszyn wirtualnych. W tym samouczku omówiono:
+W tym samouczku utworzono i zabezpieczono sieci platformy Azure na potrzeby maszyn wirtualnych. W tym samouczku omówiono:
 
 > [!div class="checklist"]
 > * Tworzenie sieci wirtualnej i podsieci
 > * Tworzenie publicznego adresu IP
-> * Tworzenie frontonu maszyny Wirtualnej
+> * Tworzenie maszyny wirtualnej frontonu
 > * Zabezpieczanie ruchu sieciowego
-> * Tworzenie maszyny Wirtualnej z zaplecza
+> * Tworzenie maszyny wirtualnej zaplecza
 
-Przejdź do następnego samouczka, aby dowiedzieć się więcej na temat zabezpieczania danych w przypadku maszyn wirtualnych przy użyciu kopii zapasowej systemu Azure. 
+Przejdź do kolejnego samouczka, aby dowiedzieć się więcej na temat zabezpieczania danych na maszynach wirtualnych za pomocą usługi Azure Backup. 
 
 > [!div class="nextstepaction"]
-> [Tworzenie kopii zapasowych maszyn wirtualnych systemu Linux na platformie Azure](./tutorial-backup-vms.md)
+> [Back up Linux virtual machines in Azure (Tworzenie kopii zapasowej maszyn wirtualnych z systemem Linux na platformie Azure)](./tutorial-backup-vms.md)

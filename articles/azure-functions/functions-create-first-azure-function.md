@@ -13,14 +13,15 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/17/2017
+ms.date: 01/21/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 754ca6e5297c3be9166efa7a40a5ba3714911c99
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+experiment: 
+ms.openlocfilehash: 391cf4b5df4b52e6fcbe496c6e31052f1fda4a44
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Tworzenie pierwszej funkcji w witrynie Azure Portal
 
@@ -30,9 +31,9 @@ Usługa Azure Functions umożliwia wykonywanie kodu w środowisku [bezserwerowym
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
 
-Otwórz witrynę Azure Portal. W tym celu zaloguj się do witryny [Azure Portal](https://portal.azure.com/) przy użyciu danych konta Azure.
+Zaloguj się do witryny Azure Portal pod adresem <http://portal.azure.com>, używając swojego konta platformy Azure.
 
 ## <a name="create-a-function-app"></a>Tworzenie aplikacji funkcji
 
@@ -76,7 +77,7 @@ Możesz teraz uruchomić nową funkcję, wysyłając żądanie HTTP.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-[!INCLUDE [Clean up resources](../../includes/functions-quickstart-cleanup.md)]
+[!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 

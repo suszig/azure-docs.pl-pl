@@ -79,6 +79,14 @@
               href: backup-mabs-system-state-and-bmr.md
         - name: Odzyskiwanie danych z usługi Azure Backup Server
           href: backup-azure-alternate-dpm-server.md
+    - name: Udziały plików platformy Azure
+      items:
+        - name: Tworzenie kopii zapasowej udziałów plików platformy Azure
+          href: backup-azure-files.md
+        - name: Tworzenie kopii zapasowej udziałów plików platformy Azure — często zadawane pytania
+          href: backup-azure-files-faq.md
+        - name: Rozwiązywanie problemów dotyczących tworzenia kopii zapasowej udziałów plików platformy Azure
+          href: troubleshoot-azure-files.md
     - name: Maszyny wirtualne platformy Azure
       items:
         - name: Przygotowywanie maszyny wirtualnej

@@ -1,4 +1,4 @@
-1. W portalu po lewej stronie kliknij pozycję **+** i wpisz „brama sieci wirtualnej” w polu wyszukiwania. Znajdź pozycję **Brama sieci wirtualnej** w wynikach wyszukiwania i kliknij tę pozycję. Na stronie **Brama sieci wirtualnej** kliknij pozycję **Utwórz** u dołu strony, aby otworzyć stronę **Tworzenie bramy sieci wirtualnej**.
+1. W portalu po lewej stronie kliknij pozycję **+ Utwórz zasób** i wpisz „Brama sieci wirtualnej” w polu wyszukiwania. Znajdź pozycję **Brama sieci wirtualnej** w wynikach wyszukiwania i kliknij tę pozycję. Na stronie **Brama sieci wirtualnej** kliknij pozycję **Utwórz** u dołu strony, aby otworzyć stronę **Tworzenie bramy sieci wirtualnej**.
 2. Na stronie **Tworzenie bramy sieci wirtualnej** wypełnij wartości dla swojej bramy sieci wirtualnej.
 
   ![Pola na stronie Tworzenie bramy sieci wirtualnej](./media/vpn-gateway-add-gw-p2s-rm-portal-include/p2sgw.png "Pola na stronie Tworzenie bramy sieci wirtualnej")

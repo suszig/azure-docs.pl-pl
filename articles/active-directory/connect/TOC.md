@@ -17,6 +17,7 @@
 ### [Uaktualnianie z narzędzia DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 ### [Uaktualnianie z poprzedniej wersji](active-directory-aadconnect-upgrade-previous-version.md)
 ### [Instalowanie przy użyciu istniejącej bazy danych ADSync](active-directory-aadconnect-existing-database.md)
+### [Install using SQL delegated administrator permissions (Instalowanie przy użyciu delegowanych uprawnień administratora programu SQL)](active-directory-aadconnect-sql-delegation.md)
 
 # Instrukcje
 ## Planowanie i projektowanie
@@ -51,6 +52,7 @@
 
 
 ## Zarządzanie programem Azure AD Connect Sync
+### [GDPR compliance and Azure AD Connect (Zgodność z rozporządzeniem RODO a program Azure AD Connect)](active-directory-aadconnect-gdpr.md)
 ### [Zapobieganie przypadkowemu usuwaniu](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 ### [Synchronizacja haseł](active-directory-aadconnectsync-implement-password-synchronization.md)
 ### [Konto usługi Azure AD](active-directory-aadconnectsync-howto-azureadaccount.md)
@@ -81,6 +83,7 @@
 ### [Łączność](active-directory-aadconnect-troubleshoot-connectivity.md)
 ### [Błędy występujące podczas synchronizacji](active-directory-aadconnect-troubleshoot-sync-errors.md)
 ### [Obiekt nie jest zsynchronizowany](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
+### [Object sync using the troubleshooting task (Synchronizacja obiektów za pomocą zadania rozwiązywania problemów)](active-directory-aadconnect-troubleshoot-objectsync.md)
 ### [Synchronizacja haseł](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)
 ### [Błąd LargeObject spowodowany przez element userCertificate](active-directory-aadconnectsync-largeobjecterror-usercertificate.md)
 ### [Jak usunąć limit 10 GB dla lokalnej bazy danych](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)

@@ -17,13 +17,11 @@ articles/sql-database/sql-database-connect-query.md
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
-2. Na liście po lewej stronie wybierz **Przeglądaj**. 
+2. Na liście po lewej stronie wybierz **wszystkie usługi**. 
 
 3. Przewiń i wybierz **serwerów SQL**. 
    
     ![Znaleźć serwera bazy danych SQL Azure w portalu][b21-FindServerInPortal]
-4. Dla wygody zminimalizować **Przeglądaj** bloku.
-
 5. W polu filtru zacznij wpisywać nazwę serwera. Twoje wiersz jest wyświetlany.
 
 6. Wybierz wiersz dla serwera. Zostanie wyświetlony blok serwera.

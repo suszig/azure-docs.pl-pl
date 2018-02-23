@@ -1,6 +1,6 @@
 ---
-title: "Utwórz zestawy skalowania maszyny wirtualnej dla systemu Linux na platformie Azure | Dokumentacja firmy Microsoft"
-description: "Tworzenie i wdrażanie aplikacji wysokiej dostępności na maszynach wirtualnych systemu Linux przy użyciu zestawu skali maszyny wirtualnej"
+title: "Tworzenie zestawów skalowania maszyn wirtualnych dla systemu Linux na platformie Azure | Microsoft Docs"
+description: "Tworzenie i wdrażanie aplikacji o wysokiej dostępności na maszynach wirtualnych z systemem Linux przy użyciu zestawu skalowania maszyn wirtualnych"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: iainfoulds
@@ -15,42 +15,42 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: 8703d0c06f2507cc3c21d4280d887a8772145a28
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: 263983017e08dcc9a8e614c159ef5afaaf1d924e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux"></a>Tworzenie zestawu skali maszyny wirtualnej i wdrażanie aplikacji wysokiej dostępności w systemie Linux
-Zestaw skali maszyny wirtualnej umożliwia wdrażanie i zarządzanie nimi zestaw identyczne, automatyczne skalowanie maszyn wirtualnych. Można ręcznie skalować liczbę maszyn wirtualnych w zestawie skalowania lub definiowania reguł do skalowania automatycznego na podstawie użycia zasobów, takie jak procesor CPU, pamięci żądanie lub ruchu sieciowego. W tym samouczku możesz wdrożyć skali maszyny wirtualnej w usłudze Azure. Omawiane kwestie:
+# <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux"></a>Tworzenie zestawu skalowania maszyn wirtualnych i wdrażanie aplikacji o wysokiej dostępności w systemie Linux
+Zestaw skalowania maszyn wirtualnych umożliwia wdrożenie zestawu identycznych, automatycznie skalowanych maszyn wirtualnych, oraz zarządzanie nimi. Maszyny wirtualne w zestawie skalowania można skalować ręcznie lub można zdefiniować reguły skalowania automatycznego na podstawie użycia zasobów, takich jak procesor CPU, zapotrzebowanie na pamięć lub ruch sieciowy. W tym samouczku wdrażany jest zestaw skalowania maszyn wirtualnych na platformie Azure. Omawiane kwestie:
 
 > [!div class="checklist"]
-> * Umożliwia tworzenie aplikacji do skalowania init chmury
-> * Utwórz zestaw skali maszyny wirtualnej
-> * Zwiększ lub Zmniejsz liczbę wystąpień w zestawie skalowania
+> * Tworzenie aplikacji do skalowania za pomocą pliku cloud-init
+> * Tworzenie zestawu skalowania maszyn wirtualnych
+> * Zwiększanie lub zmniejszanie liczby wystąpień w zestawie skalowania
 > * Tworzenie reguł skalowania automatycznego
-> * Wyświetl informacje o połączeniu dla wystąpień zestawu skali
-> * Dysków danych w zestawie skalowania
+> * Wyświetlanie informacji o połączeniach dla wystąpień zestawu skalowania
+> * Korzystanie z dysków danych w zestawie skalowania
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Jeśli wybierzesz do zainstalowania i używania interfejsu wiersza polecenia lokalnie, w tym samouczku wymaga używasz interfejsu wiersza polecenia Azure w wersji 2.0.22 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.22 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
 
-## <a name="scale-set-overview"></a>Omówienie zestawu skali
-Zestaw skali maszyny wirtualnej umożliwia wdrażanie i zarządzanie nimi zestaw identyczne, automatyczne skalowanie maszyn wirtualnych. Maszyny wirtualne w zestawie skalowania są dystrybuowane w domenach awarii i aktualizacji logikę w co najmniej jednej *umieszczania grupy*. Są to grupy podobnie skonfigurowanych maszyn wirtualnych, podobnie jak [zestawów dostępności](tutorial-availability-sets.md).
+## <a name="scale-set-overview"></a>Omówienie zestawów skalowania
+Zestaw skalowania maszyn wirtualnych umożliwia wdrożenie zestawu identycznych, automatycznie skalowanych maszyn wirtualnych, oraz zarządzanie nimi. Maszyny wirtualne w zestawie skalowania są dystrybuowane w ramach domen aktualizacji i usterek logiki w co najmniej jednej *grupie umieszczania*. Są to grupy podobnie skonfigurowanych maszyn wirtualnych — podobne do [zestawów dostępności](tutorial-availability-sets.md).
 
-Maszyny wirtualne są tworzone zgodnie z potrzebami w zestawie skalowania. Należy zdefiniować regułę automatycznego skalowania do kontrolowania sposobu i czasu maszyny wirtualne są dodawane lub usuwane z zestawu skalowania. Reguły te mogą być wyzwalane w oparciu metryki przykład obciążenia procesora CPU, pamięć lub ruchu sieciowego.
+Maszyny wirtualne są tworzone zgodnie z potrzebami w zestawie skalowania. W celu kontrolowania tego, jak i kiedy maszyny wirtualne są dodawane lub usuwane z zestawu skalowania, definiuje się reguły skalowania automatycznego. Reguły te mogą być wyzwalane na podstawie metryk, takich jak obciążenie procesora, użycie pamięci lub ruch sieciowy.
 
-Skala ustawia obsługi maksymalnie 1000 maszyn wirtualnych, korzystając z obrazu platformy Azure. W przypadku obciążeń z instalacją znaczących lub wymagania dotyczące dostosowywania maszyny Wirtualnej, warto [utworzyć niestandardowy obraz maszyny Wirtualnej](tutorial-custom-images.md). Możesz utworzyć maksymalnie 300 maszyn wirtualnych w skali ustawić przy użyciu obrazu niestandardowego.
+Zestawy skalowania obsługują maksymalnie 1000 maszyn wirtualnych, gdy jest używany obraz platformy Azure. W przypadku obciążeń ze znaczącymi wymaganiami dotyczącymi dostosowywania instalacji lub maszyn wirtualnych warto rozważyć [utworzenie niestandardowego obrazu maszyny wirtualnej](tutorial-custom-images.md). Przy użyciu obrazu niestandardowego można utworzyć maksymalnie 300 maszyn wirtualnych w zestawie skalowania.
 
 
-## <a name="create-an-app-to-scale"></a>Utwórz aplikację do skalowania
-W środowisku produkcyjnym, warto [utworzyć niestandardowy obraz maszyny Wirtualnej](tutorial-custom-images.md) zawierającą aplikacji zainstalowane i skonfigurowane. W tym samouczku umożliwia dostosowywanie maszyn wirtualnych po pierwszym uruchomieniu komputera, aby szybko wyświetlić zestaw akcji skalowania.
+## <a name="create-an-app-to-scale"></a>Tworzenie aplikacji do skalowania
+Dla środowiska produkcyjnego warto rozważyć [utworzenie niestandardowego obrazu maszyny wirtualnej](tutorial-custom-images.md) zawierającego już zainstalowaną i skonfigurowaną aplikację. Ten samouczek obejmuje dostosowywanie maszyn wirtualnych przy pierwszym rozruchu w celu szybkiego zobaczenia zestawu skalowania w działaniu.
 
-W poprzednich samouczka przedstawiono [sposobu dostosowywania maszyny wirtualnej systemu Linux, po pierwszym uruchomieniu komputera](tutorial-automate-vm-deployment.md) z inicjowaniem chmury. Można użyć tego samego pliku konfiguracji chmury init NGINX zainstalować i uruchomić prostej aplikacji Node.js "Hello World". 
+Poprzedni samouczek dotyczył [dostosowywania maszyny wirtualnej z systemem Linux przy pierwszym rozruchu](tutorial-automate-vm-deployment.md) przy użyciu pliku cloud-init. Tego samego pliku konfiguracji cloud-init można użyć do zainstalowania aparatu NGINX i uruchomienia prostej aplikacji Node.js: „Hello World”. 
 
-W bieżącym powłoki, Utwórz plik o nazwie *init.txt chmury* i wklej następującą konfigurację. Na przykład utworzyć plik, w powłoce chmury nie na komputerze lokalnym. Wprowadź `sensible-editor cloud-init.txt` do tworzenia pliku i wyświetlić listę dostępnych edytory. Upewnij się, że poprawnie skopiować pliku całego init chmury szczególnie pierwszy wiersz:
+W bieżącej powłoce utwórz plik o nazwie *cloud-init.txt* i wklej poniższą konfigurację. Na przykład utwórz plik w usłudze Cloud Shell, a nie na maszynie lokalnej. Wprowadź `sensible-editor cloud-init.txt`, aby utworzyć plik i wyświetlić listę dostępnych edytorów. Upewnij się, że skopiowano cały plik cloud-init chmury, a szczególnie pierwszy wiersz:
 
 ```yaml
 #cloud-config
@@ -95,14 +95,14 @@ runcmd:
 ```
 
 
-## <a name="create-a-scale-set"></a>Utwórz zestaw skali
-Przed utworzeniem zestaw skali, Utwórz grupę zasobów o [Tworzenie grupy az](/cli/azure/group#create). Poniższy przykład tworzy grupę zasobów o nazwie *myResourceGroupScaleSet* w *eastus* lokalizacji:
+## <a name="create-a-scale-set"></a>Tworzenie zestawu skalowania
+Zanim będzie można utworzyć zestaw skalowania, utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#az_group_create). Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myResourceGroupScaleSet* w lokalizacji *eastus*:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupScaleSet --location eastus
 ```
 
-Teraz Utwórz zestaw o skali maszyny wirtualnej [az vmss utworzyć](/cli/azure/vmss#create). Poniższy przykład tworzy zestaw o nazwie skalowania *myScaleSet*, używa pliku init chmury do dostosowywania maszyny Wirtualnej i generuje klucze SSH, jeśli nie istnieją:
+Teraz utwórz zestaw skalowania maszyn wirtualnych przy użyciu polecenia [az vmss create](/cli/azure/vmss#az_vmss_create). W poniższym przykładzie pokazano tworzenie zestawu skalowania o nazwie *myScaleSet*, dostosowywanie maszyny wirtualnej za pomocą pliku cloud-init i generowanie kluczy SSH, jeśli nie istnieją:
 
 ```azurecli-interactive 
 az vmss create \
@@ -115,13 +115,13 @@ az vmss create \
   --generate-ssh-keys
 ```
 
-Trwa kilka minut, aby utworzyć i skonfigurować zasoby zestaw skali i maszyn wirtualnych. Istnieją zadania w tle, które nadal działać po interfejsu wiersza polecenia Azure powrót do wiersza polecenia. Może to być inny kilka minut, w celu uzyskania dostępu do aplikacji.
+Utworzenie i skonfigurowanie wszystkich zasobów zestawu skalowania i maszyn wirtualnych trwa kilka minut. Pewne zadania w tle działają nadal po powrocie do wiersza polecenia w interfejsie wiersza polecenia platformy Azure. Może upłynąć kilka minut, zanim będzie można uzyskać dostęp do aplikacji.
 
 
-## <a name="allow-web-traffic"></a>Zezwalaj na ruch w sieci web
-Moduł równoważenia obciążenia został utworzony automatycznie jako część zestawu skali maszyny wirtualnej. Moduł równoważenia obciążenia dystrybuuje ruch zestawu zdefiniowanego maszyn wirtualnych przy użyciu reguły modułu równoważenia obciążenia. Dowiedz się więcej o pojęcia dotyczące usługi równoważenia obciążenia i konfiguracji w następnym samouczku [jak równoważyć obciążenie maszyn wirtualnych na platformie Azure](tutorial-load-balancer.md).
+## <a name="allow-web-traffic"></a>Zezwalanie na ruch internetowy
+Jako część zestawu skalowania maszyn wirtualnych został automatycznie utworzony moduł równoważenia obciążenia. Moduł równoważenia obciążenia dystrybuuje ruch w ramach zestawu zdefiniowanych maszyn wirtualnych przy użyciu reguł modułu równoważenia obciążenia. Więcej informacji o pojęciach dotyczących modułu równoważenia obciążenia i jego konfiguracji podano w następnym samouczku: [Jak równoważyć obciążenie maszyn wirtualnych na platformie Azure](tutorial-load-balancer.md).
 
-Aby zezwolić na ruch do aplikacji sieci web, należy utworzyć regułę z [utworzyć regułę równoważeniem obciążenia sieciowego az](/cli/azure/network/lb/rule#create). Poniższy przykład tworzy reguły o nazwie *myLoadBalancerRuleWeb*:
+Aby zezwolić na docieranie ruchu do aplikacji internetowej, utwórz regułę za pomocą polecenia [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create). W poniższym przykładzie pokazano tworzenie reguły o nazwie *myLoadBalancerRuleWeb*:
 
 ```azurecli-interactive 
 az network lb rule create \
@@ -136,7 +136,7 @@ az network lb rule create \
 ```
 
 ## <a name="test-your-app"></a>Testowanie aplikacji
-Aby wyświetlić aplikację Node.js w sieci web, należy uzyskać publicznego adresu IP z usługi równoważenia obciążenia z [az sieci ip publicznego Pokaż](/cli/azure/network/public-ip#show). Poniższy przykład uzyskuje adres IP dla *myScaleSetLBPublicIP* utworzona w ramach zestawu skali:
+Aby zobaczyć aplikację Node.js w Internecie, uzyskaj publiczny adres IP modułu równoważenia obciążenia za pomocą polecenia [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). W poniższym przykładzie pokazano uzyskiwanie adresu IP dla modułu *myScaleSetLBPublicIP* utworzonego w ramach zestawu skalowania:
 
 ```azurecli-interactive 
 az network public-ip show \
@@ -146,18 +146,18 @@ az network public-ip show \
     --output tsv
 ```
 
-Wprowadź publicznego adresu IP w przeglądarce sieci web. Aplikacja jest wyświetlana, łącznie z nazwą hosta maszyny Wirtualnej, ruch do dystrybucji modułu równoważenia obciążenia:
+Wprowadź publiczny adres IP w przeglądarce internetowej. Aplikacja zostanie wyświetlona — wraz z nazwą hosta maszyny wirtualnej, do której moduł równoważenia obciążenia kieruje ruch:
 
-![Uruchomionej aplikacji Node.js](./media/tutorial-create-vmss/running-nodejs-app.png)
+![Uruchamianie aplikacji Node.js](./media/tutorial-create-vmss/running-nodejs-app.png)
 
-Aby wyświetlić zestaw akcji skalowania, możesz można życie odświeżania przeglądarki sieci web, aby zobaczyć Dystrybuuj ruch na wszystkich maszynach wirtualnych z tą aplikacją usługi równoważenia obciążenia.
+Aby zobaczyć zestaw skalowania w działaniu, możesz wymusić odświeżenie przeglądarki internetowej i przyjrzeć się temu, jak moduł równoważenia obciążenia rozdziela ruch między wszystkie maszyny wirtualne, na których działa aplikacja.
 
 
 ## <a name="management-tasks"></a>Zadania zarządzania
-W całym cyklu życia zestawu skalowania konieczne może być Uruchom jedno lub więcej zadań zarządzania. Ponadto można tworzenia skryptów automatyzujących różnych zadań cyklu życia. Azure CLI 2.0 umożliwia szybkie do wykonywania tych zadań. Poniżej przedstawiono kilka typowych zadań.
+W całym cyklu życia zestawu skalowania konieczne może być uruchomienie jednego lub większej liczby zadań zarządzania. Ponadto może pojawić się potrzeba tworzenia skryptów automatyzujących różne zadania cyklu życia. Interfejs wiersza polecenia platformy Azure 2.0 umożliwia szybkie wykonywanie tych zadań. Poniżej przedstawiono kilka typowych zadań.
 
-### <a name="view-vms-in-a-scale-set"></a>Maszyny wirtualne widoku w zestawie skalowania
-Aby wyświetlić listę uruchomionych w zestawie skalowania maszyn wirtualnych, użyj [wystąpienia listy az vmss](/cli/azure/vmss#list-instances) w następujący sposób:
+### <a name="view-vms-in-a-scale-set"></a>Wyświetlanie maszyn wirtualnych w zestawie skalowania
+Aby wyświetlić listę uruchomionych maszyn wirtualnych w zestawie skalowania, użyj polecenia [az vmss list-instances](/cli/azure/vmss#az_vmss_list_instances) w następujący sposób:
 
 ```azurecli-interactive 
 az vmss list-instances \
@@ -176,8 +176,8 @@ Dane wyjściowe są podobne do poniższego przykładu:
 ```
 
 
-### <a name="increase-or-decrease-vm-instances"></a>Zwiększanie lub zmniejszanie wystąpień maszyn wirtualnych
-Aby wyświetlić liczbę wystąpień aktualnie zainstalowana w zestawie skalowania, użyj [Pokaż vmss az](/cli/azure/vmss#show) i wykonywać zapytania na *sku.capacity*:
+### <a name="increase-or-decrease-vm-instances"></a>Zwiększanie lub zmniejszanie liczby wystąpień maszyn wirtualnych
+Aby wyświetlić liczbę bieżących wystąpień w zestawie skalowania, użyj polecenia [az vmss show](/cli/azure/vmss#az_vmss_show) i zapytania *sku.capacity*:
 
 ```azurecli-interactive 
 az vmss show \
@@ -187,7 +187,7 @@ az vmss show \
     --output table
 ```
 
-Możesz ręcznie zwiększyć lub zmniejszyć liczbę maszyn wirtualnych w skali ustawiony za pomocą [skali vmss az](/cli/azure/vmss#scale). Poniższy przykład ustawia liczbę maszyn wirtualnych w skali, z ustawioną *3*:
+Następnie możesz ręcznie zwiększyć lub zmniejszyć liczbę maszyn wirtualnych w zestawie skalowania za pomocą polecenia [az vmss scale](/cli/azure/vmss#az_vmss_scale). W poniższym przykładzie liczba maszyn wirtualnych w zestawie skalowania jest ustawiana na *3*:
 
 ```azurecli-interactive 
 az vmss scale \
@@ -197,8 +197,8 @@ az vmss scale \
 ```
 
 
-### <a name="configure-autoscale-rules"></a>Konfigurowanie reguł automatycznego skalowania
-Zamiast ręcznie skalowanie liczby wystąpień w skali sieci, można zdefiniować reguły automatycznego skalowania. Te reguły monitorować wystąpienia w zestawie skali i Odpowiedz, odpowiednio na podstawie metryk i progów, które należy zdefiniować. Limit liczby wystąpień programu przez jedną skaluje poniższy przykład, gdy średni obciążenie procesora CPU jest większy niż 60% w okresie 5 minut. Jeśli w okresie 5-minutowy średnie obciążenie procesora CPU spadnie poniżej 30%, wystąpienia są skalowane w przez jedno wystąpienie. Identyfikator subskrypcji jest używany do tworzenia zasobu identyfikatorów URI różnych skali zestaw składników. Aby utworzyć reguły z [utworzyć ustawienia skalowania automatycznego az monitora](/cli/azure/monitor/autoscale-settings#create), skopiuj i wklej poniższy profil polecenia skalowania automatycznego:
+### <a name="configure-autoscale-rules"></a>Konfigurowanie skalowania automatycznego
+Zamiast ręcznie skalować liczbę wystąpień w zestawie skalowania, można zdefiniować reguły automatycznego skalowania. Te reguły monitorują wystąpienia w zestawie skalowania i odpowiednio reagują na podstawie zdefiniowanych metryk i progów. W poniższym przykładzie skala liczby wystąpień jest zwiększana o jedno, gdy średnie obciążenie procesora przekracza 60% w okresie 5 minut. Jeśli w okresie 5 minut średnie obciążenie procesora spadnie poniżej 30%, skala liczby wystąpień zostanie zmniejszona o jedno. Identyfikator subskrypcji jest używany do tworzenia identyfikatorów URI zasobów dla różnych składników zestawu skalowania. Aby utworzyć te reguły za pomocą polecenia [az monitor autoscale-settings create](/cli/azure/monitor/autoscale-settings#az_monitor_autoscale_settings_create), skopiuj i wklej poniższy profil polecenia skalowania automatycznego:
 
 ```azurecli-interactive 
 sub=$(az account show --query id -o tsv)
@@ -267,11 +267,11 @@ az monitor autoscale-settings create \
     }'
 ```
 
-Ponowne użycie profilów skalowania automatycznego, Utwórz plik JSON (JavaScript Object Notation) i że w celu przekazania `az monitor autoscale-settings create` z `--parameters @autoscale.json` parametru. Aby uzyskać więcej informacji projektu na korzystanie z automatycznego skalowania, zobacz [najlepsze rozwiązania w zakresie skalowania automatycznego](/azure/architecture/best-practices/auto-scaling).
+Aby ponownie użyć tego profilu skalowania automatycznego, można utworzyć plik JSON (JavaScript Object Notation) i przekazać go do polecenia `az monitor autoscale-settings create` z parametrem `--parameters @autoscale.json`. Aby uzyskać więcej informacji dotyczących projektowania na temat korzystania ze skalowania automatycznego, zobacz [najlepsze rozwiązania w zakresie skalowania automatycznego](/azure/architecture/best-practices/auto-scaling).
 
 
-### <a name="get-connection-info"></a>Pobierz informacje o połączeniu
-Aby uzyskać informacje o połączeniu o w Twojej zestawy skalowania maszyn wirtualnych, użyj [az vmss listy--połączenia — informacje o wystąpieniu](/cli/azure/vmss#list-instance-connection-info). To polecenie wyświetla publicznego adresu IP i portu dla każdej maszyny Wirtualnej, która umożliwia nawiązanie połączenia przy użyciu protokołu SSH:
+### <a name="get-connection-info"></a>Uzyskiwanie informacji o połączeniu
+Aby uzyskać informacje o połączeniu związane z maszynami wirtualnymi w używanych zestawach skalowania, użyj polecenia [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info). To polecenie zwraca publiczny adres IP i port dla każdej maszyny wirtualnej, która umożliwia nawiązanie połączenia przy użyciu powłoki SSH:
 
 ```azurecli-interactive 
 az vmss list-instance-connection-info \
@@ -280,11 +280,11 @@ az vmss list-instance-connection-info \
 ```
 
 
-## <a name="use-data-disks-with-scale-sets"></a>Dyski danych za pomocą zestawów skali
-Można tworzyć i dysków z danymi za pomocą zestawów skali. W poprzednich samouczka przedstawiono sposób [dysków Azure zarządzanie](tutorial-manage-disks.md) który przedstawiono najlepsze rozwiązania i ulepszenia wydajności umożliwiające tworzenie aplikacji dla dysków z danymi, a nie na dysku systemu operacyjnego.
+## <a name="use-data-disks-with-scale-sets"></a>Korzystanie z dysków danych z zestawami skalowania
+Można tworzyć dyski danych i używać ich z zestawami skalowania. W poprzednim samouczku przedstawiono sposób [zarządzania dyskami platformy Azure](tutorial-manage-disks.md) oraz przedstawiono najlepsze rozwiązania i ulepszenia wydajności dotyczące tworzenia aplikacji na dyskach danych zamiast na dyskach systemu operacyjnego.
 
-### <a name="create-scale-set-with-data-disks"></a>Utwórz zestaw skali z dysków z danymi
-Aby utworzyć zestaw skali i dołączyć dysk danych, należy dodać `--data-disk-sizes-gb` parametr [az vmss utworzyć](/cli/azure/vmss#create) polecenia. Poniższy przykład tworzy zestaw o skali *50*do niej dołączone dyski danych Gb na każde wystąpienie:
+### <a name="create-scale-set-with-data-disks"></a>Tworzenie zestawu skalowania z dyskami danych
+Aby utworzyć zestaw skalowania z dołączonymi dyskami danych, dodaj parametr `--data-disk-sizes-gb` do polecenia [az vmss create](/cli/azure/vmss#az_vmss_create). W poniższym przykładzie tworzony jest zestaw skalowania z dyskami danych o rozmiarze *50* GB dołączonymi do poszczególnych wystąpień:
 
 ```azurecli-interactive 
 az vmss create \
@@ -298,10 +298,10 @@ az vmss create \
     --data-disk-sizes-gb 50
 ```
 
-Usunięcie wystąpienia z zestawu skalowania żadnych dysków dołączonych danych są również usuwane.
+Usunięcie wystąpienia z zestawu skalowania powoduje też usunięcie wszelkich dołączonych dysków danych.
 
-### <a name="add-data-disks"></a>Dodawanie dysków z danymi
-Aby dodać dysk z danymi do wystąpień w zestawie skali, użyj [dołączyć dysku vmss az](/cli/azure/vmss/disk#attach). W poniższym przykładzie dodano *50*dysk Gb na każde wystąpienie:
+### <a name="add-data-disks"></a>Dodawanie dysków danych
+Aby dodać dysk danych do wystąpień w zestawie skalowania, użyj polecenia [az vmss disk attach](/cli/azure/vmss/disk#az_vmss_disk_attach). W poniższym przykładzie do każdego wystąpienia dodano dysk o rozmiarze *50* GB:
 
 ```azurecli-interactive 
 az vmss disk attach \
@@ -311,8 +311,8 @@ az vmss disk attach \
     --lun 2
 ```
 
-### <a name="detach-data-disks"></a>Odłączanie dysku z danymi
-Aby usunąć dysk z danymi do wystąpień w zestawie skali, użyj [odłączyć dysku vmss az](/cli/azure/vmss/disk#detach). Poniższy przykład umożliwia usunięcie dysk z danymi o numerze LUN *2* z każde wystąpienie:
+### <a name="detach-data-disks"></a>Odłączanie dysków danych
+Aby usunąć dysk danych z wystąpień w zestawie skalowania, użyj polecenia [az vmss disk detach](/cli/azure/vmss/disk#az_vmss_disk_detach). W poniższym przykładzie z każdego wystąpienia usunięto dysk danych w jednostce LUN *2*:
 
 ```azurecli-interactive 
 az vmss disk detach \
@@ -322,18 +322,18 @@ az vmss disk detach \
 ```
 
 
-## <a name="next-steps"></a>Kolejne kroki
-W tym samouczku utworzony zestaw skali maszyny wirtualnej. W tym samouczku omówiono:
+## <a name="next-steps"></a>Następne kroki
+W tym samouczku tworzony jest zestaw skalowania maszyn wirtualnych. W tym samouczku omówiono:
 
 > [!div class="checklist"]
-> * Umożliwia tworzenie aplikacji do skalowania init chmury
-> * Utwórz zestaw skali maszyny wirtualnej
-> * Zwiększ lub Zmniejsz liczbę wystąpień w zestawie skalowania
+> * Tworzenie aplikacji do skalowania za pomocą pliku cloud-init
+> * Tworzenie zestawu skalowania maszyn wirtualnych
+> * Zwiększanie lub zmniejszanie liczby wystąpień w zestawie skalowania
 > * Tworzenie reguł skalowania automatycznego
-> * Wyświetl informacje o połączeniu dla wystąpień zestawu skali
-> * Dysków danych w zestawie skalowania
+> * Wyświetlanie informacji o połączeniach dla wystąpień zestawu skalowania
+> * Korzystanie z dysków danych w zestawie skalowania
 
-Przejdź do następnego samouczek, aby dowiedzieć się więcej na temat pojęć dla maszyn wirtualnych równoważenia obciążenia.
+Przejdź do kolejnego samouczka, aby uzyskać więcej informacji o pojęciach dotyczących równoważenia obciążenia dla maszyn wirtualnych.
 
 > [!div class="nextstepaction"]
-> [Równoważyć obciążenie maszyn wirtualnych](tutorial-load-balancer.md)
+> [Równoważenie obciążenia maszyn wirtualnych](tutorial-load-balancer.md)

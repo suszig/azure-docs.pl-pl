@@ -30,6 +30,9 @@
 #### [Zaawansowane automatyczne skalowanie](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Aplikacje w zestawach skalowania](virtual-machine-scale-sets-deploy-app.md)
 ### [Korzystanie z dysków danych z zestawami skalowania](virtual-machine-scale-sets-attached-disks.md)
+### Szyfrowanie dysków w zestawach skalowania
+#### [Korzystanie z programu PowerShell](virtual-machine-scale-sets-encrypt-disks-ps.md)
+#### [Korzystanie z interfejsu wiersza polecenia platformy Azure 2.0](virtual-machine-scale-sets-encrypt-disks-cli.md)
 ### [Praca z dużymi zestawami skalowania](virtual-machine-scale-sets-placement-groups.md)
 ### [Konwertowanie szablonu zestawu skalowania w celu używania dysku zarządzanego](virtual-machine-scale-sets-convert-template-to-md.md)
 

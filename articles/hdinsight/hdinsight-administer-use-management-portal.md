@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: ecaad702843a63bb82b781339d25fde10df0a0a4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 77c47809a01e9ff2bb851163f9adf987738f98f6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Zarządzanie systemem Windows klastrów platformy Hadoop w usłudze HDInsight przy użyciu portalu Azure
 
@@ -43,7 +43,7 @@ Przed rozpoczęciem korzystania z informacji zawartych w tym artykule należy dy
 1. Zaloguj się do [https://portal.azure.com](https://portal.azure.com).
 2. Po otwarciu portalu, możesz:
 
-   * Kliknij przycisk **nowy** z menu po lewej stronie do utworzenia nowego klastra:
+   * Kliknij przycisk **Utwórz zasób** z menu po lewej stronie do utworzenia nowego klastra:
 
        ![przycisk Nowy klaster usługi HDInsight](./media/hdinsight-administer-use-management-portal/azure-portal-new-button.png)
    * Kliknij przycisk **klastrów usługi HDInsight** z menu po lewej stronie.
@@ -132,7 +132,7 @@ Instalacja oprogramowania niestandardowych w klastrze za pomocą usługi Podłą
    * **Region**: Lokalizacja platformy Azure. Aby uzyskać listę obsługiwanych lokalizacji platformy Azure, zobacz **Region** lista rozwijana na [cennik usługi HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
    * **Dane utworzone**.
    * **System operacyjny**: albo **Windows** lub **Linux**.
-   * **Typ**: Hadoop, HBase, Storm, Spark.
+   * **Type**: Hadoop, HBase, Storm, Spark.
    * **Wersja**. Zobacz [wersji usługi HDInsight](hdinsight-component-versioning.md)
    * **Subskrypcja**: Nazwa subskrypcji.
    * **Identyfikator subskrypcji**.
@@ -159,7 +159,7 @@ Skalowanie funkcji klastra umożliwia zmianę liczby węzłów procesu roboczego
 
 Wpływ zmianę liczby węzłów danych dla każdego typu obsługiwanych przez HDInsight klastra:
 
-* Usługa Hadoop
+* Hadoop
 
     Można bezproblemowo zwiększyć liczbę węzłów procesu roboczego w klastrze platformy Hadoop, który jest uruchomiony bez wpływu na wszystkie oczekujące lub uruchomione zadania. Również można przesłać nowe zadania, gdy operacja jest w toku. Błędy w operacji skalowania bezpiecznie obsługi tak, aby zawsze pozostanie w stanie funkcjonalności klastra.
 
@@ -352,7 +352,7 @@ Połącz się z klastrem przy użyciu pulpitu zdalnego i za pomocą wiersza pole
 1. Połącz z klastrem przy użyciu pulpitu zdalnego.
 2. Na pulpicie kliknij dwukrotnie **wiersza polecenia usługi Hadoop**.
 
-    ![HDI. HadoopCommandLine][image-hadoopcommandline]
+    ![HDI.HadoopCommandLine][image-hadoopcommandline]
 
     Aby uzyskać więcej informacji o poleceniach Hadoop, zobacz [Hadoop polecenia odwołanie](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html).
 
@@ -365,7 +365,7 @@ W poprzednim zrzucie ekranu Nazwa folderu ma numer wersji usługi Hadoop, osadzo
     cd %sqoop_home%
     cd %hcatalog_home%
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 W tym artykule uzyskanych sposób tworzenia klastra usługi HDInsight przy użyciu portalu i jak otworzyć narzędzia wiersza polecenia usługi Hadoop. Aby dowiedzieć się więcej, zobacz następujące artykuły:
 
 * [Administrowanie HDInsight przy użyciu programu Azure PowerShell](hdinsight-administer-use-powershell.md)

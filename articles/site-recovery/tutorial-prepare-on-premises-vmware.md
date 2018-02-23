@@ -1,118 +1,112 @@
 ---
-title: "Przygotowanie serwerów VMware lokalnych do odzyskiwania po awarii maszyn wirtualnych VMware do platformy Azure | Dokumentacja firmy Microsoft"
-description: "Poznaj sposoby przygotowania lokalnych serwerów VMware do odzyskiwania po awarii na platformie Azure przy użyciu usługi Azure Site Recovery."
+title: "Przygotowywanie lokalnych serwerów VMware do odzyskiwania po awarii maszyn wirtualnych VMware na platformie Azure| Microsoft Docs"
+description: "Dowiedz się, jak przygotować lokalne serwery VMware do odzyskiwania po awarii na platformie Azure przy użyciu usługi Azure Site Recovery."
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
 manager: carmonm
-editor: 
-ms.assetid: 90a4582c-6436-4a54-a8f8-1fee806b8af7
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/01/2017
+ms.topic: tutorial
+ms.date: 02/07/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: af09c5602c53be4377ba19e68ff3486bcfefe0ea
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
-ms.translationtype: MT
+ms.openlocfilehash: 4fecd5f8ddb4a6f432995a7779e29479b5b1a7c0
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Przygotowywanie serwerów VMware lokalnych do odzyskiwania awaryjnego na platformie Azure
+# <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Przygotowywanie lokalnych serwerów VMware do odzyskiwania po awarii na platformie Azure
 
-Ten samouczek przedstawia sposób przygotowania infrastruktury lokalnej programu VMware można replikować maszyny wirtualne VMware do platformy Azure. Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+W tym samouczku pokazano, jak przygotować infrastrukturę lokalną VMware do replikowania maszyn wirtualnych VMware na platformie Azure. Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Przygotowanie konta na vCenter server lub vSphere ESXi hosta, aby zautomatyzować odnajdywania maszyny Wirtualnej
-> * Przygotowanie konta do automatycznej instalacji usługi mobilności na maszynach wirtualnych VMware
-> * Przejrzyj wymagania dotyczące serwera VMware
-> * Przejrzyj wymagania dotyczące maszyny Wirtualnej VMware
+> * Przygotowywanie konta na serwerze vCenter lub hoście vSphere ESXi w celu zautomatyzowania odnajdowania maszyn wirtualnych
+> * Przygotowywanie konta do automatycznej instalacji usługi Mobility na maszynach wirtualnych VMware
+> * Przegląd wymagań dotyczących serwerów VMware
+> * Przegląd wymagań dotyczących maszyn wirtualnych VMware
 
-W tym samouczku zostanie przedstawiony sposób wykonywania kopii zapasowej jednej maszyny Wirtualnej za pomocą usługi Azure Site Recovery. Jeśli planujesz chronić wiele maszyn wirtualnych VMware, należy pobrać [narzędzie wdrożenia Planistę](https://aka.ms/asr-deployment-planner) dla replikacji maszyn wirtualnych VMware. To narzędzie można zbierać informacje o zgodności maszyn wirtualnych, dysków dla maszyny Wirtualnej i tworzeniem danych dla każdego dysku. Narzędzie obejmuje również wymagania dotyczące przepustowości sieci i infrastruktury platformy Azure wymagane do pomyślnego replikacji i testowania trybu failover. [Dowiedz się więcej](site-recovery-deployment-planner.md) o uruchomienie narzędzia.
+W tej serii samouczków pokazano, jak utworzyć kopię zapasową jednej maszyny wirtualnej za pomocą usługi Azure Site Recovery. Jeśli planujesz ochronę wielu maszyn wirtualnych VMware, pobierz [narzędzie Planista wdrażania](https://aka.ms/asr-deployment-planner) na potrzeby replikacji maszyn wirtualnych VMware. To narzędzie pozwala zebrać informacje o zgodności maszyn wirtualnych, liczbie dysków przypadających na maszynę wirtualną oraz współczynniku zmian danych przypadających na dysk. Narzędzie uwzględnia również wymagania dotyczące przepustowości sieci i infrastruktury platformy Azure potrzebnej do pomyślnej replikacji i testowania trybu failover. [Dowiedz się więcej](site-recovery-deployment-planner.md) o uruchamianiu narzędzia.
 
-Jest to drugi samouczek z tej serii. Upewnij się, że masz [Konfigurowanie składników Azure](tutorial-prepare-azure.md) zgodnie z opisem w poprzedniej samouczka.
+Jest to drugi samouczek z tej serii. Upewnij się, że są już [skonfigurowane składniki platformy Azure](tutorial-prepare-azure.md) zgodnie z opisem w poprzednim samouczku.
 
-## <a name="prepare-an-account-for-automatic-discovery"></a>Przygotowanie konta automatycznego wykrywania
+## <a name="prepare-an-account-for-automatic-discovery"></a>Przygotowywanie konta do automatycznego odnajdowania
 
-Odzyskiwanie lokacji musi mieć dostęp do serwerów VMware:
+Usługa Site Recovery musi mieć dostęp do serwerów VMware w następujących celach:
 
-- Automatycznie odnajduje maszyn wirtualnych. Wymagane jest co najmniej konto tylko do odczytu.
-- Organizowanie replikacji, trybu failover i powrotu po awarii. Potrzebujesz konta, które można uruchomić operacji, takich jak tworzenie i usuwanie dysków i włączanie na maszynach wirtualnych.
+- Automatyczne odnajdowanie maszyn wirtualnych. Wymagane jest co najmniej konto tylko do odczytu.
+- Organizowanie replikacji, trybu failover i powrotu po awarii. Potrzebne jest konto, na którym można uruchamiać operacje, takie jak tworzenie i usuwanie dysków, a także włączanie maszyn wirtualnych.
 
 Utwórz konto w następujący sposób:
 
-1. Aby użyć dedykowanego konta, należy utworzyć rolę na poziomie vCenter. Nadaj nazwę roli takich jak **Azure_Site_Recovery**.
-2. Przypisz rolę uprawnienia podsumowane w poniższej tabeli.
-3. Utwórz użytkownika na hoście serwera lub vSphere vCenter. Przypisać rolę użytkownikowi.
+1. Aby użyć dedykowanego konta, utwórz rolę na poziomie vCenter. Nadaj roli nazwę, taką jak **Azure_Site_Recovery**.
+2. Przypisz do roli uprawnienia podsumowane w poniższej tabeli.
+3. Utwórz użytkownika na serwerze vCenter lub hoście vSphere. Przypisz tę rolę temu użytkownikowi.
 
-### <a name="vmware-account-permissions"></a>VMware uprawnień konta
+### <a name="vmware-account-permissions"></a>Uprawnienia konta VMware
 
-**Zadanie podrzędne** | **Uprawnienia roli /** | **Szczegóły**
+**Zadanie podrzędne** | **Rola/uprawnienia** | **Szczegóły**
 --- | --- | ---
-**Odnajdywanie maszyny Wirtualnej** | Co najmniej użytkownika tylko do odczytu<br/><br/> Centrum danych obiektu –> propagowany do obiektu podrzędnego roli = tylko do odczytu | Użytkownik przypisane na poziomie centrum danych i ma dostęp do wszystkich obiektów w centrum danych.<br/><br/> Aby ograniczyć dostęp, Przypisz **dostępu** roli z **propagowany do podrzędnego** obiektu do obiektów podrzędnych (hostami vSphere, datastores, maszyn wirtualnych i sieci).
-**Pełnej replikacji, trybu failover i powrotu po awarii** |  Tworzenie roli (Azure_Site_Recovery) z wymaganymi uprawnieniami, a następnie przypisać rolę użytkownikowi VMware lub grupy<br/><br/> Centrum danych obiektu –> propagowany do obiektu podrzędnego roli = Azure_Site_Recovery<br/><br/> Magazyn danych -> Przydziel przestrzeń na, Przeglądaj magazynu danych, operacje na plikach niskiego poziomu, usuń plik, zaktualizuj pliki maszyny wirtualnej<br/><br/> Sieć -> Przypisywanie sieci<br/><br/> Zasób -> Przypisywanie maszyny Wirtualnej do puli zasobów, migracji Zasilanie wyłączone maszyny Wirtualnej, migracja zasilanego na maszynie Wirtualnej<br/><br/> Zadania -> Utwórz zadanie, zadania aktualizacji<br/><br/> Maszyny wirtualne -> Konfiguracja<br/><br/> Maszyny wirtualne -> interakcja -> odpowiedzi na pytanie, połączenie z urządzeniem, skonfiguruj nośnik CD, skonfiguruj dyskietka, wyłącz zasilanie, włączania zasilania, zainstaluj narzędzia VMware<br/><br/> Maszyny wirtualne -> spisu -> Utwórz, rejestrowanie, wyrejestrowywanie<br/><br/> Maszyny wirtualne -> inicjowania obsługi administracyjnej -> Zezwalaj na pobieranie maszyny wirtualnej, a także zezwalanie przekazać pliki maszyny wirtualnej<br/><br/> Maszyny wirtualne -> migawki -> Usuń migawki | Użytkownik przypisane na poziomie centrum danych i ma dostęp do wszystkich obiektów w centrum danych.<br/><br/> Aby ograniczyć dostęp, Przypisz **dostępu** roli z **propagowany do podrzędnego** obiektu do obiektów podrzędnych (hostami vSphere, datastores, maszyn wirtualnych i sieci).
+**Odnajdowanie maszyn wirtualnych** | Co najmniej użytkownik tylko do odczytu<br/><br/> Obiekt centrum danych –> propagacja do obiektu podrzędnego, rola = tylko do odczytu | Użytkownik przypisany na poziomie centrum danych, mający dostęp do wszystkich obiektów w centrum danych.<br/><br/> Aby ograniczyć dostęp, przypisz rolę **Bez dostępu** z obiektem **Propagacja do obiektu podrzędnego** do obiektów podrzędnych (hostów vSphere, magazynów danych, maszyn wirtualnych i sieci).
+**Pełna replikacja, tryb failover i powrót po awarii** |  Utwórz rolę (Azure_Site_Recovery) z wymaganymi uprawnieniami, a następnie przypisz ją użytkownikowi lub grupie VMware<br/><br/> Obiekt centrum danych –> propagacja do obiektu podrzędnego, rola = Azure_Site_Recovery<br/><br/> Magazyn danych -> przydzielanie miejsca, przegląd magazynu danych, operacje na plikach niskiego poziomu, usuwanie pliku, aktualizowanie plików maszyn wirtualnych<br/><br/> Sieć -> przypisywanie sieci<br/><br/> Zasób -> przypisywanie maszyny wirtualnej do puli zasobów, migracja wyłączonej maszyny wirtualnej, migracja włączonej maszyny wirtualnej<br/><br/> Zadania -> tworzenie zadania, aktualizowanie zadania<br/><br/> Maszyna wirtualna -> konfiguracja<br/><br/> Maszyna wirtualna -> interakcja -> odpowiadanie na pytanie, połączenie z urządzeniem, konfigurowanie nośnika CD, konfigurowanie dyskietki, wyłączanie, włączanie, instalowanie narzędzi VMware<br/><br/> Maszyna wirtualna -> spis -> tworzenie, rejestrowanie, wyrejestrowywanie<br/><br/> Maszyna wirtualna -> aprowizowanie -> zezwalanie na pobieranie maszyny wirtualnej, zezwalanie na przekazywanie plików maszyny wirtualnej<br/><br/> Maszyna wirtualna -> migawki -> usuwanie migawek | Użytkownik przypisany na poziomie centrum danych, mający dostęp do wszystkich obiektów w centrum danych.<br/><br/> Aby ograniczyć dostęp, przypisz rolę **Bez dostępu** z obiektem **Propagacja do obiektu podrzędnego** do obiektów podrzędnych (hostów vSphere, magazynów danych, maszyn wirtualnych i sieci).
 
-## <a name="prepare-an-account-for-mobility-service-installation"></a>Przygotowanie do instalacji usługi mobilności konta
+## <a name="prepare-an-account-for-mobility-service-installation"></a>Przygotowywanie konta do instalacji usługi Mobility
 
-Musi być zainstalowana usługa mobilności na maszynie Wirtualnej, którą chcesz replikować. Usługa Site Recovery automatycznie instaluje tej usługi, po włączeniu replikacji dla maszyny Wirtualnej. Automatyczną instalację należy przygotować konta, które uzyskują dostęp maszyny Wirtualnej odzyskiwania lokacji. To konto będzie można określić podczas odzyskiwania po awarii w konsoli platformy Azure.
+Usługa Mobility musi być zainstalowana na każdej maszynie wirtualnej, która ma być replikowana. Usługa Site Recovery automatycznie instaluje tę usługę po włączeniu replikacji dla danej maszyny wirtualnej. Instalacja automatyczna wymaga przygotowania konta, za pomocą którego usługa Site Recovery będzie uzyskiwać dostęp do maszyny wirtualnej. To konto określa się podczas konfigurowania odzyskiwania po awarii w konsoli platformy Azure.
 
-1. Przygotowanie domeny lub lokalnego konta z uprawnieniami do zainstalowania na maszynie Wirtualnej.
-2. Aby zainstalować na maszynach wirtualnych systemu Windows, jeśli nie używasz konta domeny, należy wyłączyć kontroli dostępu użytkownika zdalnego na komputerze lokalnym.
-   - Z rejestru w obszarze **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, Dodaj wpis DWORD **LocalAccountTokenFilterPolicy**, o wartości 1.
-3. Do zainstalowania na maszynach wirtualnych systemu Linux, należy przygotować konta głównego na serwer źródłowy z systemem Linux.
+1. Przygotuj domenę lub konto lokalne z uprawnieniami do instalowania na maszynie wirtualnej.
+2. Aby zainstalować na maszynach wirtualnych z systemem Windows, jeśli nie korzystasz z konta domeny, wyłącz kontrolę dostępu użytkowników zdalnych na komputerze lokalnym.
+   - W kluczu rejestru **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System** dodaj wpis DWORD **LocalAccountTokenFilterPolicy** o wartości 1.
+3. Aby zainstalować na maszynach wirtualnych z systemem Linux, przygotuj konto superużytkownika na serwerze źródłowym z systemem Linux.
 
 
-## <a name="check-vmware-server-requirements"></a>Wymagania serwera VMware
+## <a name="check-vmware-server-requirements"></a>Sprawdzanie wymagań dotyczących serwerów VMware
 
-Upewnij się, że serwery VMware spełniać następujące wymagania.
+Upewnij się, że serwery VMware spełniają następujące wymagania.
 
 **Składnik** | **Wymaganie**
 --- | ---
 **Serwer vCenter** | vCenter 6.5, 6.0 lub 5.5
-**hostem vSphere** | vSphere 6.5, 6.0, 5.5
+**Host vSphere** | vSphere 6.5, 6.0, 5.5
 
-## <a name="check-vmware-vm-requirements"></a>Sprawdź wymagania maszyny Wirtualnej VMware
+## <a name="check-vmware-vm-requirements"></a>Sprawdzanie wymagań dotyczących maszyn wirtualnych VMware
 
-Upewnij się, że maszyna wirtualna spełnia wymagania Azure podsumowane w poniższej tabeli.
+Upewnij się, że maszyna wirtualna spełnia wymagania platformy Azure podsumowane w poniższej tabeli.
 
-**Wymaganie maszyny Wirtualnej** | **Szczegóły**
+**Wymaganie dotyczące maszyny wirtualnej** | **Szczegóły**
 --- | ---
 **Rozmiar dysku systemu operacyjnego** | Do 2048 GB.
 **Liczba dysków systemu operacyjnego** | 1
 **Liczba dysków danych** | 64 lub mniej
 **Rozmiar wirtualnego dysku twardego dysku danych** | Do 4095 GB
-**Karty sieciowe** | Wiele kart sieciowych są obsługiwane.
+**Karty sieciowe** | Obsługiwana jest konfiguracja z wieloma kartami sieciowymi
 **Udostępniony wirtualny dysk twardy** | Nieobsługiwane
-**FC dysku** | Nieobsługiwane
-**Format dysku twardego** | Plik VHD lub VHDX.<br/><br/> Chociaż VHDX nie jest obecnie obsługiwany na platformie Azure, Usługa Site Recovery automatycznie konwertuje VHDX do wirtualnego dysku twardego, gdy awaryjnie na platformie Azure. Gdy nie powiedzie się do maszyn wirtualnych lokalnie nadal używać formatu VHDX.
-**Bitlocker** | Nieobsługiwane. Wyłącz przed włączeniem replikacji dla maszyny Wirtualnej.
-**Nazwa maszyny Wirtualnej** | Od 1 do 63 znaków.<br/><br/> Ograniczone do litery, cyfry i łączniki. Nazwa maszyny Wirtualnej musi zaczynać i kończyć literą lub cyfrą.
-**Typu maszyny Wirtualnej** | Generacja 1 - Linux lub Windows<br/><br/>Generacja 2 — tylko w systemie Windows
+**Dysk FC** | Nieobsługiwane
+**Format dysku twardego** | Plik VHD lub VHDX.<br/><br/> Chociaż pliki VHDX nie są obecnie obsługiwane na platformie Azure, usługa Site Recovery automatycznie konwertuje pliki VHDX na wirtualne dyski twarde w przypadku trybu failover na platformie Azure. Po powrocie po awarii do środowiska lokalnego maszyny wirtualne nadal używają formatu VHDX.
+**Bitlocker** | Nieobsługiwane. Wyłącz przed włączeniem replikacji dla maszyny wirtualnej.
+**Nazwa maszyny wirtualnej** | Od 1 do 63 znaków.<br/><br/> Ograniczone do liter, cyfr i łączników. Nazwa maszyny wirtualnej musi zaczynać się i kończyć literą lub cyfrą.
+**Typ maszyny wirtualnej** | Generacja 1 — Linux lub Windows<br/><br/>Generacja 2 — tylko Windows
 
-Maszyna wirtualna musi również działać obsługiwanego systemu operacyjnego. Zobacz [macierz obsługi usługi Site Recovery](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) pełną listę obsługiwanych wersji.
+Na maszynie wirtualnej musi również działać obsługiwany system operacyjny. Zobacz [macierz obsługi usługi Site Recovery](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions), aby zapoznać się z pełną listą obsługiwanych wersji.
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Przygotowanie do połączenia z maszynami wirtualnymi Azure po przejściu do trybu failover
 
-Podczas scenariusza trybu failover możesz nawiązać replikowanych maszyn wirtualnych na platformie Azure z sieci lokalnej.
+Podczas scenariusza trybu failover może zaistnieć potrzeba połączenia się z replikowanymi maszynami wirtualnymi na platformie Azure z sieci lokalnej.
 
-Aby połączyć się za pomocą protokołu RDP po pracy awaryjnej maszyn wirtualnych systemu Windows, wykonaj następujące czynności:
+Aby nawiązać połączenie z maszynami wirtualnymi z systemem Windows przy użyciu protokołu RDP po przejściu do trybu failover, wykonaj następujące czynności:
 
-1. Aby uzyskać dostęp przez internet, należy włączyć protokół RDP na lokalnej maszynie Wirtualnej przed trybu failover. Upewnij się, że TCP i UDP reguły są dodawane do **publicznego** profilu oraz że RDP jest dozwolone w **zapory systemu Windows** > **dozwolone aplikacje** we wszystkich profilach.
-2. Aby uzyskać dostęp za pośrednictwem połączenia VPN lokacja lokacja, należy włączyć RDP na maszynie lokalnej. RDP powinno być dozwolone w **zapory systemu Windows** -> **dozwolone aplikacje i funkcje** dla **domeny i prywatnej** sieci.
-   Sprawdź, czy zasady sieci SAN systemu operacyjnego są ustawione na **OnlineAll**. [Dowiedz się więcej](https://support.microsoft.com/kb/3031135). Powinien istnieć nie oczekujące aktualizacje systemu Windows na maszynie Wirtualnej, gdy użytkownik zainicjuje tryb failover. Jeśli, nie będzie można logować się do maszyny wirtualnej do momentu ukończenia aktualizacji.
-3. Na maszynie Wirtualnej Azure z systemem Windows po w tryb failover, sprawdź **diagnostyki rozruchu** Aby wyświetlić zrzut ekranu maszyny wirtualnej. Jeśli nie możesz połączyć, sprawdź, czy maszyna wirtualna działa i przejrzyj te [porady dotyczące rozwiązywania problemów](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+1. Aby uzyskać dostęp przez Internet, włącz protokół RDP na lokalnej maszynie wirtualnej przed włączeniem trybu failover. Upewnij się, że reguły TCP i UDP zostały dodane do profilu **publicznego** oraz że w pozycji **Zapora systemu Windows** > **Dozwolone aplikacje** zezwolono na użycie protokołu RDP we wszystkich profilach.
+2. Aby uzyskać dostęp za pośrednictwem połączenia VPN typu lokacja-lokacja, włącz protokół RDP na maszynie lokalnej. Używanie protokołu RDP powinno być dozwolone w pozycji **Zapora systemu Windows** -> **Dozwolone aplikacje i funkcje** dla sieci typu **Domena i prywatne**.
+   Upewnij się, że zasady sieci SAN systemu operacyjnego są ustawione na **OnlineAll**. [Dowiedz się więcej](https://support.microsoft.com/kb/3031135). Podczas wyzwalania trybu failover na maszynie wirtualnej nie powinno być żadnych oczekujących aktualizacji systemu Windows. W przeciwnym razie nie będzie można zalogować się na maszynie wirtualnej do momentu ukończenia aktualizacji.
+3. Na maszynie wirtualnej platformy Azure z systemem Windows po przejściu do trybu failover sprawdź **diagnostykę rozruchu**, aby wyświetlić zrzut ekranu maszyny wirtualnej. Jeśli nie możesz się połączyć, upewnij się, że maszyna wirtualna jest uruchomiona, i przejrzyj te [porady dotyczące rozwiązywania problemów](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
-Aby połączyć się przy użyciu protokołu SSH po pracy awaryjnej maszyn wirtualnych systemu Linux, wykonaj następujące czynności:
+Aby nawiązać połączenie z maszynami wirtualnymi z systemem Linux przy użyciu powłoki SSH po przejściu do trybu failover, wykonaj następujące czynności:
 
-1. Na maszynie lokalnej przed trybu failover Sprawdź, czy Usługa Secure Shell jest ustawiony na automatyczne uruchomienie przy rozruchu systemu. Sprawdź, czy reguły zapory zezwalają na połączenie SSH.
+1. Na komputerze lokalnym przed włączeniem trybu failover upewnij się, że skonfigurowano automatyczne uruchamianie usługi Secure Shell przy rozruchu systemu. Sprawdź, czy reguły zapory zezwalają na połączenie SSH.
 
-2. Na maszynie Wirtualnej Azure po pracy awaryjnej zezwalać na połączenia przychodzące do portu SSH dla zasad grupy zabezpieczeń sieci w trybie Failover maszyny Wirtualnej i podsieci platformy Azure, do którego jest podłączony.
-   [Dodaj publiczny adres IP](site-recovery-monitoring-and-troubleshooting.md) dla maszyny Wirtualnej. Możesz sprawdzić **diagnostyki rozruchu** Aby wyświetlić zrzut ekranu maszyny wirtualnej.
+2. Na maszynie wirtualnej platformy Azure po przejściu do trybu failover zezwól na połączenia przychodzące do portu SSH w regułach grupy zabezpieczeń sieci na maszynie wirtualnej w trybie failover i w podsieci platformy Azure.
+   [Dodaj publiczny adres IP](site-recovery-monitoring-and-troubleshooting.md) dla maszyny wirtualnej. Możesz sprawdzić **diagnostykę rozruchu**, aby wyświetlić zrzut ekranu maszyny wirtualnej.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Konfigurowanie odzyskiwania po awarii do platformy Azure dla maszyn wirtualnych VMware](tutorial-vmware-to-azure.md)
+> [Konfigurowanie odzyskiwania po awarii na platformie Azure dla maszyn wirtualnych VMware](tutorial-vmware-to-azure.md)

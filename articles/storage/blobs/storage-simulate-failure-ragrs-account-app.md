@@ -1,55 +1,58 @@
 ---
-title: "Symulacja błędu podczas uzyskiwania dostępu do odczytu nadmiarowego magazynu na platformie Azure | Dokumentacja firmy Microsoft"
-description: "Symulacja błędu podczas uzyskiwania dostępu do magazynu geograficznie nadmiarowego dostęp do odczytu"
+title: "Symulowanie błędu podczas uzyskiwania dostępu do odczytu do magazynu nadmiarowego na platformie Azure | Microsoft Docs"
+description: "Symulowanie błędu podczas uzyskiwania dostępu do odczytu do magazynu nadmiarowego"
 services: storage
-documentationcenter: 
-author: georgewallace
+author: ruthogunnnaike
 manager: jeconnoc
-editor: 
 ms.service: storage
-ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: csharp
+ms.devlang: 
 ms.topic: tutorial
-ms.date: 12/05/2017
-ms.author: gwallace
-ms.custom: mvc
-ms.openlocfilehash: 151e875bd72598b0b788d68eee7fb186fca86f46
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.date: 12/23/2017
+ms.author: v-ruogun
+ms.openlocfilehash: 9ebf773cf39d832416dce820e67201c21a679296
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Symulacja błędu podczas uzyskiwania dostępu do magazynu geograficznie nadmiarowego dostęp do odczytu
+# <a name="simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Symulowanie błędu podczas uzyskiwania dostępu do odczytu do magazynu nadmiarowego
 
-W tym samouczku jest częścią dwóch serii. W tym samouczku można wstrzyknąć odpowiedzi nie powiodło się z Fiddler żądań [dostęp do odczytu z magazynu geograficznie nadmiarowego](../common/storage-redundancy.md#read-access-geo-redundant-storage) konta magazynu (RA-GRS) symulację awarii i aplikacji do odczytu z punktu końcowego dodatkowej.
+Niniejszy samouczek jest drugą częścią serii.  W tym samouczku możesz użyć programu [Fiddler](#simulate-a-failure-with-fiddler) lub [routingu statycznego](#simulate-a-failure-with-an-invalid-static-route) do symulacji błędu żądań kierowanych do podstawowego punktu końcowego konta magazynu [geograficznie nadmiarowego do odczytu ](../common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS) — aplikacja będzie odczytywać dane z pomocniczego punktu końcowego.
 
-![Scenariusz aplikacji](media/storage-simulate-failure-ragrs-account-app/scenario.png)
+![Aplikacja scenariusza](media/storage-simulate-failure-ragrs-account-app/scenario.png)
 
-W części dwóch serii dowiesz się, jak:
+Aby ukończyć ten samouczek, należy wcześniej wykonać czynności opisane w poprzednim samouczku dotyczącym magazynu: [Uzyskiwanie wysokiej dostępności danych aplikacji przy użyciu usługi Azure Storage][previous-tutorial].
+
+Część druga serii zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Uruchomić i zatrzymać aplikację
-> * Symulację awarii
-> * Symulowanie przywracania podstawowy punkt końcowy
+> * Uruchamianie i zatrzymywanie aplikacji
+> * Symulowanie błędu przy użyciu programu [Fiddler](#simulate-a-failure-with-fiddler) lub [nieprawidłowej trasy statycznej](#simulate-a-failure-with-an-invalid-static-route) 
+> * Symulowanie przywracania podstawowego punktu końcowego
+
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W celu ukończenia tego samouczka:
+Aby przeprowadzić symulację błędu przy użyciu programu Fiddler: 
 
-* Pobierz i zainstaluj [Fiddler](https://www.telerik.com/download/fiddler)
+* Pobierz i [zainstaluj program Fiddler](https://www.telerik.com/download/fiddler)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-Do ukończenia tego samouczka, należy wykonać poprzednie samouczek magazynu: [wysokiej dostępności danych aplikacji z usługą Azure storage][previous-tutorial].
+## <a name="simulate-a-failure-with-fiddler"></a>Symulowanie błędu przy użyciu programu Fiddler
 
-## <a name="launch-fiddler"></a>Uruchamianie narzędzia fiddler
+Aby symulować błąd przy użyciu programu Fiddler, należy dodać odpowiedź oznaczającą błąd dla żądań kierowanych do podstawowego punktu końcowego konta magazynu RA-GRS w celu symulowania błędu.
 
-Otwórz Fiddler, wybierz **reguły** i **dostosować zasady**.
+Wykonaj poniższe kroki, aby symulować niepowodzenie i przywracanie podstawowego punktu końcowego przy użyciu programu Fiddler.
 
-![Dostosuj zasady Fiddler](media/storage-simulate-failure-ragrs-account-app/figure1.png)
+### <a name="launch-fiddler"></a>Uruchamianie programu Fiddler
 
-Fiddler ScriptEditor uruchamia przedstawiający **SampleRules.js** pliku. Ten plik jest używany do dostosowania Fiddler. Wklej następujący przykładowy kod w `OnBeforeResponse` funkcji. Nowy kod jest oznaczone jako komentarz, aby upewnić się, że logika tworzonego nie jest zaimplementowana natychmiast. Po jego zakończeniu wybierz **pliku** i **zapisać** Aby zapisać zmiany.
+Otwórz program Fiddler i wybierz kolejno pozycje **Reguły** i **Dostosuj reguły**.
+
+![Dostosowywanie zasad programu Fiddler](media/storage-simulate-failure-ragrs-account-app/figure1.png)
+
+Zostanie uruchomiony edytor ScriptEditor programu Fiddler z plikiem **SampleRules.js**. Ten plik jest używany do dostosowywania programu Fiddler. Wklej następujący przykładowy kod w funkcji `OnBeforeResponse`. Nowy kod jest oznaczony jako komentarz, co gwarantuje, że tworzona przez niego logika nie natychmiast implementowana. Po zakończeniu wybierz pozycję **Plik** i **Zapisz**, aby zapisać zmiany.
 
 ```javascript
     /*
@@ -67,17 +70,23 @@ Fiddler ScriptEditor uruchamia przedstawiający **SampleRules.js** pliku. Ten pl
     */
 ```
 
-![Wklej reguły niestandardowe](media/storage-simulate-failure-ragrs-account-app/figure2.png)
+![Wklejanie dostosowanej reguły](media/storage-simulate-failure-ragrs-account-app/figure2.png)
 
-## <a name="start-and-pause-the-application"></a>Uruchomić i zatrzymać aplikację
+### <a name="start-and-pause-the-application"></a>Uruchamianie i zatrzymywanie aplikacji
 
-W programie Visual Studio, naciśnij klawisz **F5** lub wybierz **Start** można rozpocząć debugowania aplikacji. Gdy aplikacja rozpoczyna odczyt z podstawowego punktu końcowego, naciśnij klawisz **dowolny klawisz,** w oknie konsoli można wstrzymać aplikacji.
+Uruchom aplikację w edytorze IDE lub edytorze tekstów. Gdy aplikacja rozpocznie odczyt z podstawowego punktu końcowego, naciśnij **dowolny klawisz** w oknie konsoli, aby wstrzymać jej działanie.
 
-## <a name="simulate-failure"></a>Symulacja błędu
+### <a name="simulate-failure"></a>Symulowanie błędu
 
-Z aplikacją wstrzymana teraz Usuń komentarz niestandardowej reguły zapisaliśmy poprzedni krok w narzędziu Fiddler. Ten kod przykładowy szuka żądania do konta magazynu RA-GRS, jeśli ścieżka zawiera nazwę obrazu, `HelloWorld`, zwraca kod odpowiedzi `503 - Service Unavailable`.
+Po wstrzymaniu aplikacji można usunąć oznaczenie jako komentarza reguły niestandardowej zapisanej w programie Fiddler w poprzednim kroku. Przykładowy kod wyszukuje żądania kierowane do konta magazynu RA-GRS i jeśli ścieżka zawiera nazwę obrazu, `HelloWorld`, zwraca kod odpowiedzi `503 - Service Unavailable`.
 
-Przejdź do Fiddler i wybierz **reguły** -> **dostosować zasady...** .  Usuń komentarz poniższej wierszy, Zastąp `STORAGEACCOUNTNAME` z nazwą konta magazynu. Wybierz **pliku** -> **zapisać** Aby zapisać zmiany.
+Przejdź do programu Fiddler i wybierz kolejno pozycje **Reguły** -> **Dostosuj reguły...**.  Usuń komentarz z poniższych wierszy i zastąp element `STORAGEACCOUNTNAME` nazwą konta magazynu. Wybierz kolejno pozycje **Plik** -> **Zapisz**. 
+
+> [!NOTE]
+> Jeśli używasz przykładowej aplikacji w systemie Linux, musisz ponownie uruchomić program Fiddler po każdej edycji pliku **CustomRule.js**, aby program Fiddler zainstalował logikę niestandardową. 
+> 
+> 
+
 
 ```javascript
          if ((oSession.hostname == "STORAGEACCOUNTNAME.blob.core.windows.net")
@@ -86,40 +95,93 @@ Przejdź do Fiddler i wybierz **reguły** -> **dostosować zasady...** .  Usuń 
          }
 ```
 
-Aby wznowić aplikacji, naciśnij klawisz **dowolny klawisz,** .
+Aby wznowić działanie aplikacji, naciśnij **dowolny klawisz**.
 
-Po uruchomieniu aplikacji ponownie, żądania do punktu końcowego podstawowego zacząć się nie powieść. Aplikacja próbuje ponownie połączyć się z punktem końcowym głównej 5 razy. Po próg niepowodzeń pięć prób obraz żąda od dodatkowej punktu końcowego tylko do odczytu. Po aplikacji pomyślnie pobiera obraz 20 razy z pomocniczy punkt końcowy, aplikacja próbuje połączyć się podstawowy punkt końcowy. Jeśli podstawowy punkt końcowy jest nadal jest nieosiągalny, aplikacja wznawia odczytu z punktu końcowego dodatkowej. Ten wzorzec jest [wyłącznika](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker) wzorzec opisanych w poprzednich instrukcji.
+Po ponownym uruchomieniu aplikacji zaczną występować błędy żądań kierowanych do podstawowego punktu końcowego. Aplikacja próbuje ponownie połączyć się z podstawowym punktem końcowym 5 razy. Po osiągnięciu progu błędów w pięciu próbach żąda ona obrazu od pomocniczego punktu końcowego tylko do odczytu. Po pomyślnym pobraniu obrazu 20 razy z pomocniczego punktu końcowego aplikacja próbuje połączyć się z podstawowym punktem końcowym. Jeśli podstawowy punkt końcowy jest nadal nieosiągalny, aplikacja wznawia odczyt z pomocniczego punktu końcowego. Jest to wzorzec [wyłącznika](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker) opisany w poprzednim samouczku.
 
-![Wklej reguły niestandardowe](media/storage-simulate-failure-ragrs-account-app/figure3.png)
+![Wklejanie dostosowanej reguły](media/storage-simulate-failure-ragrs-account-app/figure3.png)
 
-## <a name="simulate-primary-endpoint-restoration"></a>Symulowanie przywracania podstawowy punkt końcowy
+### <a name="simulate-primary-endpoint-restoration"></a>Symulowanie przywracania podstawowego punktu końcowego
 
-Żądania do punktu końcowego podstawowego z Fiddler niestandardowego zestawu reguł w poprzednim kroku, zakończyć się niepowodzeniem. Aby symulować podstawowy punkt końcowy ponownie, należy usunąć logiki iniekcję `503` błędu.
+Po ustawieniu niestandardowej reguły programu Fiddler w poprzednim kroku żądania kierowane do podstawowego punktu końcowego kończą się niepowodzeniem. Aby symulować ponowne działanie podstawowego punktu końcowego, usuń logikę w celu przeprowadzenia iniekcji błędu `503`.
 
-Aby wstrzymać aplikacja, naciśnij klawisz **dowolny klawisz,**.
+Aby zatrzymać aplikację, naciśnij **dowolny klawisz**.
 
-### <a name="remove-the-custom-rule"></a>Usuń niestandardową regułę
+Przejdź do programu Fiddler i wybierz kolejno pozycje **Reguły** i **Dostosuj reguły...**.  Dodaj komentarz do logiki niestandardowej lub usuń ją z funkcji `OnBeforeResponse`, pozostawiając funkcję domyślną. Wybierz kolejno pozycje **Plik** i **Zapisz**, aby zapisać zmiany.
 
-Przejdź do Fiddler i wybierz **reguły** i **dostosować zasady...** .  Komentarz dotyczący lub usuń niestandardowej logiki w `OnBeforeResponse` funkcji, pozostawiając domyślnej funkcji. Wybierz **pliku** i **zapisać** Aby zapisać zmiany.
+![Usuwanie dostosowanej reguły](media/storage-simulate-failure-ragrs-account-app/figure5.png)
 
-![Usuń regułę dostosowane](media/storage-simulate-failure-ragrs-account-app/figure5.png)
+Po zakończeniu naciśnij **dowolny klawisz**, aby wznowić działanie aplikacji. Aplikacja będzie kontynuować odczytywanie z podstawowego punktu końcowego do momentu osiągnięcia 999 trafień.
 
-Po zakończeniu naciśnij klawisz **dowolny klawisz,** wznowić działania aplikacji. Odczyt z podstawowego punktu końcowego aplikacji będzie nadal występować, do momentu jej Trafienia odczytów 999.
+![Wznawianie działania aplikacji](media/storage-simulate-failure-ragrs-account-app/figure4.png)
 
-![Wznów aplikacji](media/storage-simulate-failure-ragrs-account-app/figure4.png)
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="simulate-a-failure-with-an-invalid-static-route"></a>Symulowanie błędu przy użyciu nieprawidłowej trasy statycznej 
+Możesz utworzyć nieprawidłową trasę statyczną dla wszystkich żądań kierowanych do podstawowego punktu końcowego konta magazynu [geograficznie nadmiarowego do odczytu](../common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS). W tym samouczku host lokalny jest używany jako brama na potrzeby kierowania żądań do konta magazynu. Dzięki użyciu hosta lokalnego brama powoduje, że wszystkie żądania kierowane do podstawowego punktu końcowego konta magazynu wywołują sprzężenie zwrotne wewnątrz hosta, co następnie prowadzi do wystąpienia błędu. Wykonaj poniższe kroki, aby symulować błąd i przywracanie podstawowego punktu końcowego przy użyciu nieprawidłowej trasy statycznej. 
 
-W części dwóch serii poznanie symulację awarii do testowania magazynu geograficznie nadmiarowego dostęp do odczytu, np.:
+### <a name="start-and-pause-the-application"></a>Uruchamianie i zatrzymywanie aplikacji
+
+Uruchom aplikację w edytorze IDE lub edytorze tekstów. Gdy aplikacja rozpocznie odczyt z podstawowego punktu końcowego, naciśnij **dowolny klawisz** w oknie konsoli, aby wstrzymać jej działanie. 
+
+### <a name="simulate-failure"></a>Symulowanie błędu
+
+Po wstrzymaniu działania aplikacji uruchom wiersz polecenia w systemie Windows jako administrator lub uruchom terminal jako katalog główny w systemie Linux. Aby uzyskać informacje na temat domeny podstawowego punktu końcowego konta magazynu, wprowadź poniższe polecenie w wierszu polecenia lub terminalu.
+
+```
+nslookup STORAGEACCOUNTNAME.blob.core.windows.net
+``` 
+ Zastąp wartość `STORAGEACCOUNTNAME` nazwą konta magazynu. Skopiuj adres IP konta magazynu do edytora tekstów w celu późniejszego użycia. Aby uzyskać adres IP hosta lokalnego, wpisz `ipconfig` w wierszu polecenia systemu Windows lub `ifconfig` w terminalu systemu Linux. 
+
+Aby dodać trasę statyczną dla hosta docelowego, wpisz poniższe polecenie w wierszu polecenia systemu Windows lub terminalu systemu Linux. 
+
+
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
+  route add <destination_ip> gw <gateway_ip>
+
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+
+  route add <destination_ip> <gateway_ip>
+
+---
+ 
+Zastąp element `<destination_ip>` adresem IP konta magazynu, a element `<gateway_ip>` adresem IP hosta lokalnego. Aby wznowić działanie aplikacji, naciśnij **dowolny klawisz**.
+
+Po ponownym uruchomieniu aplikacji zaczną występować błędy żądań kierowanych do podstawowego punktu końcowego. Aplikacja próbuje ponownie połączyć się z podstawowym punktem końcowym 5 razy. Po osiągnięciu progu błędów w pięciu próbach żąda ona obrazu od pomocniczego punktu końcowego tylko do odczytu. Po pomyślnym pobraniu obrazu 20 razy z pomocniczego punktu końcowego aplikacja próbuje połączyć się z podstawowym punktem końcowym. Jeśli podstawowy punkt końcowy jest nadal nieosiągalny, aplikacja wznawia odczyt z pomocniczego punktu końcowego. Jest to wzorzec [wyłącznika](/azure/architecture/patterns/circuit-breaker.md) opisany w poprzednim samouczku.
+
+### <a name="simulate-primary-endpoint-restoration"></a>Symulowanie przywracania podstawowego punktu końcowego
+
+Aby symulować ponowne działanie podstawowego punktu końcowego, usuń trasę statyczną podstawowego punktu końcowego z tabeli routingu. Dzięki temu wszystkie żądania do podstawowego punktu końcowego będą kierowane za pośrednictwem bramy domyślnej. 
+
+Aby usunąć trasę statyczną hosta docelowego, konto magazynu, wpisz poniższe polecenie w wierszu polecenia systemu Windows lub terminalu systemu Linux. 
+ 
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
+route del <destination_ip> gw <gateway_ip>
+
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+
+route delete <destination_ip> <gateway_ip>
+
+---
+
+Naciśnij **dowolny klawisz**, aby wznowić działanie aplikacji. Aplikacja będzie kontynuować odczytywanie z podstawowego punktu końcowego do momentu osiągnięcia 999 trafień.
+
+![Wznawianie działania aplikacji](media/storage-simulate-failure-ragrs-account-app/figure4.png)
+
+
+## <a name="next-steps"></a>Następne kroki
+
+W drugiej części serii omówiono czynności dotyczące symulowania błędu w celu przetestowania magazynu geograficznie nadmiarowego do odczytu, takie jak:
 
 > [!div class="checklist"]
-> * Uruchomić i zatrzymać aplikację
-> * Symulację awarii
-> * Symulowanie przywracania podstawowy punkt końcowy
+> * Uruchamianie i zatrzymywanie aplikacji
+> * Symulowanie błędu przy użyciu programu [Fiddler](#simulate-a-failure-with-fiddler) lub [nieprawidłowej trasy statycznej](#simulate-a-failure-with-an-invalid-static-route) 
+> * Symulowanie przywracania podstawowego punktu końcowego
 
-Wykonaj to łącze, aby wyświetlić przykłady wbudowanych magazynu.
+Kliknij ten link, aby wyświetlić wstępnie skompilowane przykłady magazynu.
 
 > [!div class="nextstepaction"]
-> [Przykłady skryptów magazynu Azure](storage-samples-blobs-cli.md)
+> [Przykłady skryptów usługi Azure Storage](storage-samples-blobs-cli.md)
 
 [previous-tutorial]: storage-create-geo-redundant-storage.md

@@ -1,6 +1,6 @@
 ---
-title: "Wdrażanie ElasticSearch na maszynie wirtualnej programowanie na platformie Azure"
-description: "Samouczek — instalacja stosu elastycznych na komputerze projektowym maszyny Wirtualnej systemu Linux na platformie Azure"
+title: "Wdrażanie programu ElasticSearch na deweloperskiej maszynie wirtualnej na platformie Azure"
+description: "Samouczek — Instalowanie programu Elastic Stack na deweloperskiej maszynie wirtualnej z systemem Linux na platformie Azure"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: rloutlaw
@@ -13,34 +13,34 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 10/11/2017
 ms.author: routlaw
-ms.openlocfilehash: 5b0b51504478cc0d501a89760ccd60808a69ccbd
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: MT
+ms.openlocfilehash: 7941e557dfbb71df7c2d55608c4a14c026535db8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="install-the-elastic-stack-on-an-azure-vm"></a>Zainstaluj stosu elastycznych na maszynie Wirtualnej platformy Azure
+# <a name="install-the-elastic-stack-on-an-azure-vm"></a>Instalowanie programu Elastic Stack na maszynie wirtualnej platformy Azure
 
-W tym artykule przedstawiono sposób wdrażania [Elasticsearch](https://www.elastic.co/products/elasticsearch), [Logstash](https://www.elastic.co/products/logstash), i [Kibana](https://www.elastic.co/products/kibana), na maszynie Wirtualnej systemu Ubuntu na platformie Azure. Aby zobaczyć stos elastycznej w akcji, można opcjonalnie nawiązać Kibana i pracować z niektórych przykładowych danych rejestrowania. 
+W tym artykule przedstawiono sposób wdrażania programów [Elasticsearch](https://www.elastic.co/products/elasticsearch), [Logstash](https://www.elastic.co/products/logstash) i [Kibana](https://www.elastic.co/products/kibana) na maszynie wirtualnej z systemem Ubuntu na platformie Azure. Aby zobaczyć program Elastic Stack w działaniu, można opcjonalnie połączyć się z programem Kibana i popracować z przykładowymi danymi rejestrów. 
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Tworzenie maszyny Wirtualnej systemu Ubuntu w grupie zasobów platformy Azure
-> * Zainstaluj w maszynie Wirtualnej Elasticsearch, Logstash i Kibana
-> * Wyślij przykładowych danych do Elasticsearch z Logstash 
-> * Otwieranie portów i pracować z danymi w konsoli Kibana
+> * Tworzenie maszyny wirtualnej z systemem Ubuntu w grupie zasobów platformy Azure
+> * Instalowanie programów Elasticsearch, Logstash i Kibana na maszynie wirtualnej
+> * Wysyłanie przykładowych danych do programu Elasticsearch za pomocą programu Logstash 
+> * Otwieranie portów i praca z danymi w konsoli Kibana
 
 
- To wdrożenie jest odpowiednia podstawowego środowiska deweloperskiego przy użyciu elastycznej stosu. Aby uzyskać więcej informacji na temat elastycznej stosu, w tym zalecenia w środowisku produkcyjnym, zobacz [elastycznej dokumentacji](https://www.elastic.co/guide/index.html) i [Centrum architektura Azure](/azure/architecture/elasticsearch/).
+ To wdrożenie nadaje się do podstawowego programowania z użyciem programu Elastic Stack. Aby uzyskać więcej informacji na temat programu Elastic Stack, w tym zalecenia co do środowiska produkcyjnego, zobacz [dokumentację programu Elastic](https://www.elastic.co/guide/index.html) i [Centrum architektury platformy Azure](/azure/architecture/elasticsearch/).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Jeśli wybierzesz do zainstalowania i używania interfejsu wiersza polecenia lokalnie, w tym samouczku wymaga używasz interfejsu wiersza polecenia Azure w wersji 2.0.4 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#create). Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. 
+Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#az_group_create). Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. 
 
 Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myResourceGroup* w lokalizacji *eastus*.
 
@@ -50,7 +50,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
-Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm#create). 
+Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm#az_vm_create). 
 
 Następujący przykład umożliwia utworzenie maszyny wirtualnej o nazwie *myVM* i kluczy SSH, jeśli jeszcze nie istnieją w domyślnej lokalizacji kluczy. Aby użyć określonego zestawu kluczy, użyj opcji `--ssh-key-value`.  
 
@@ -80,58 +80,58 @@ Po utworzeniu maszyny wirtualnej w interfejsie wiersza polecenia platformy Azure
 
 ## <a name="ssh-into-your-vm"></a>Łączenie z maszyną wirtualną za pośrednictwem protokołu SSH
 
-Jeśli nie znasz już publicznego adresu IP maszyny Wirtualnej, należy uruchomić [az sieci ip publicznego listy](/cli/azure/network/public-ip#list) polecenia:
+Jeśli nie znasz jeszcze publicznego adresu IP maszyny wirtualnej, uruchom polecenie [az network public-ip list](/cli/azure/network/public-ip#az_network_public_ip_list):
 
 ```azurecli-interactive
 az network public-ip list --resource-group myResourceGroup --query [].ipAddress
 ```
 
-Użyj następującego polecenia, aby utworzyć sesję SSH z maszyną wirtualną. Zastąp poprawne publiczny adres IP maszyny wirtualnej. W tym przykładzie adres IP jest *40.68.254.142*.
+Użyj następującego polecenia, aby utworzyć sesję SSH z maszyną wirtualną. Pamiętaj o wstawieniu prawidłowego publicznego adresu IP swojej maszyny wirtualnej. W tym przykładzie adres IP to *40.68.254.142*.
 
 ```bash
 ssh azureuser@40.68.254.142
 ```
 
-## <a name="install-the-elastic-stack"></a>Zainstaluj elastycznej stosu
+## <a name="install-the-elastic-stack"></a>Instalowanie programu Elastic Stack
 
-Importowanie klucza podpisywania Elasticsearch i zaktualizować listę źródeł stanie uwzględnienie repozytorium pakietów elastycznej:
+Zaimportuj klucz podpisywania programu Elasticsearch i zaktualizuj listę źródeł APT w celu uwzględnienia repozytorium pakietu Elastic:
 
 ```bash
 wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
 echo "deb https://artifacts.elastic.co/packages/5.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-5.x.list
 ```
 
-Instalowanie wirtualnej Java na maszynie Wirtualnej i konfigurowanie JAVA_HOME ta zmienna jest niezbędne składniki stosu elastycznych do uruchomienia.
+Zainstaluj maszynę wirtualną Java na maszynie wirtualnej i skonfiguruj zmienną JAVA_HOME. Jest to niezbędne, aby składniki programu Elastic Stack mogły działać.
 
 ```bash
 sudo apt update && sudo apt install openjdk-8-jre-headless
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ```
 
-Uruchom następujące polecenia, aby zaktualizować źródła pakietu Ubuntu i zainstaluj Elasticsearch, Kibana i Logstash.
+Uruchom następujące polecenia, aby zaktualizować źródła pakietu systemu Ubuntu i zainstalować programy Elasticsearch, Kibana i Logstash.
 
 ```bash
 sudo apt update && sudo apt install elasticsearch kibana logstash   
 ```
 
 > [!NOTE]
-> Szczegółowe instrukcje dotyczące instalacji, w tym katalogu układów i konfiguracji początkowej, są obsługiwane w [elastyczna w dokumentacji](https://www.elastic.co/guide/en/elastic-stack/current/installing-elastic-stack.html)
+> Szczegółowe instrukcje instalacji, w tym układy katalogów i wstępną konfigurację, można znaleźć w [dokumentacji programu Elastic](https://www.elastic.co/guide/en/elastic-stack/current/installing-elastic-stack.html)
 
-## <a name="start-elasticsearch"></a>Uruchom Elasticsearch 
+## <a name="start-elasticsearch"></a>Uruchamianie programu Elasticsearch 
 
-Uruchom Elasticsearch na maszynie Wirtualnej za pomocą następującego polecenia:
+Uruchom program Elasticsearch na maszynie wirtualnej za pomocą następującego polecenia:
 
 ```bash
 sudo systemctl start elasticsearch.service
 ```
 
-To polecenie powoduje żadnych danych wyjściowych, dlatego Sprawdź, czy Elasticsearch jest uruchomiona na maszynie Wirtualnej z tym `curl` polecenia:
+To polecenie nie daje żadnych danych wyjściowych, dlatego sprawdź, czy program Elasticsearch działa na maszynie wirtualnej, używając tego polecenia `curl`:
 
 ```bash
 curl -XGET 'localhost:9200/'
 ```
 
-Jeśli Elasticsearch jest uruchomiona, zapoznaj się dane wyjściowe podobne do następujących:
+Jeśli program Elasticsearch działa, zobaczysz dane wyjściowe zbliżone do następujących:
 
 ```json
 {
@@ -149,21 +149,21 @@ Jeśli Elasticsearch jest uruchomiona, zapoznaj się dane wyjściowe podobne do 
 }
 ```
 
-## <a name="start-logstash-and-add-data-to-elasticsearch"></a>Uruchom Logstash i dodać dane do Elasticsearch
+## <a name="start-logstash-and-add-data-to-elasticsearch"></a>Uruchamianie programu Logstash i dodawanie danych do programu Elasticsearch
 
-Uruchom Logstash przy użyciu następującego polecenia:
+Uruchom program Logstash za pomocą następującego polecenia:
 
 ```bash 
 sudo systemctl start logstash.service
 ```
 
-W trybie interakcyjnym, aby upewnić się, że działa prawidłowo, należy przetestować Logstash:
+Przetestuj program Logstash w trybie interakcyjnym, aby upewnić się, że działa prawidłowo:
 
 ```bash
 sudo /usr/share/logstash/bin/logstash -e 'input { stdin { } } output { stdout {} }'
 ```
 
-Jest to podstawowy logstash [potoku](https://www.elastic.co/guide/en/logstash/5.6/pipeline.html) który echa standardowe dane wejściowe do wyjścia standardowego. 
+Jest to podstawowy [potok](https://www.elastic.co/guide/en/logstash/5.6/pipeline.html) logstash, który odwzorowuje dane ze standardowego wejścia na standardowym wyjściu. 
 
 ```output
 The stdin plugin is now waiting for input:
@@ -171,7 +171,7 @@ hello azure
 2017-10-11T20:01:08.904Z myVM hello azure
 ```
 
-Konfigurowanie Logstash do przekazywania komunikatów jądra z tej maszyny Wirtualnej do Elasticsearch. Utwórz nowy plik w pusty katalog o nazwie `vm-syslog-logstash.conf` i Wklej w następującej konfiguracji Logstash:
+Skonfiguruj program Logstash, aby kierował komunikaty jądra z tej maszyny wirtualnej do programu Elasticsearch. Utwórz nowy plik w pustym katalogu o nazwie `vm-syslog-logstash.conf` i wklej do niego następującą konfigurację programu Logstash:
 
 ```Logstash
 input {
@@ -197,23 +197,23 @@ output {
 }
 ```
 
-Przetestować tę konfigurację i wysyłanie danych z serwera syslog do Elasticsearch:
+Przetestuj tę konfigurację i wyślij dane dziennika systemu do programu Elasticsearch:
 
 ```bash
 sudo /usr/share/logstash/bin/logstash -f vm-syslog-logstash.conf
 ```
 
-W terminalu powtarzana, ponieważ są one wysyłane do Elasticsearch pojawić się wpisy dziennika systemowego. Użyj `CTRL+C` aby wyjść poza Logstash po wysłanych do niektórych danych.
+W terminalu zobaczysz wpisy dziennika systemu wyświetlane w miarę ich wysyłania do programu Elasticsearch. Użyj kombinacji klawiszy `CTRL+C`, aby wyjść z programu Logstash po wysłaniu danych.
 
-## <a name="start-kibana-and-visualize-the-data-in-elasticsearch"></a>Uruchom Kibana i wizualizacji danych w Elasticsearch
+## <a name="start-kibana-and-visualize-the-data-in-elasticsearch"></a>Uruchamianie programu Kibana i wizualizowanie danych w programie Elasticsearch
 
-Edytuj `/etc/kibana/kibana.yml` i zmień adres IP Kibana nasłuchuje umożliwi dostęp z przeglądarki sieci web.
+Poddaj edycji plik `/etc/kibana/kibana.yml` i zmień adres IP, pod którym nasłuchuje program Kibana, tak aby był do niego dostęp z przeglądarki internetowej.
 
 ```bash
 server.host:"0.0.0.0"
 ```
 
-Uruchom Kibana przy użyciu następującego polecenia:
+Uruchom program Kibana za pomocą następującego polecenia:
 
 ```bash
 sudo systemctl start kibana.service
@@ -225,20 +225,20 @@ Otwórz port 5601 z wiersza polecenia platformy Azure, aby umożliwić uzyskiwan
 az vm open-port --port 5601 --resource-group myResourceGroup --name myVM
 ```
 
-Otwarcie konsoli Kibana i wybierz **Utwórz** do wygenerowania na podstawie danych syslog wysłane do Elasticsearch wcześniej indeks domyślny. 
+Otwórz konsolę Kibana i wybierz pozycję **Utwórz** w celu wygenerowania domyślnego indeksu na podstawie danych dziennika systemu wysłanych wcześniej do programu Elasticsearch. 
 
-![Przeglądaj zdarzenia dziennika systemowego w Kibana](media/elasticsearch-install/kibana-index.png)
+![Przeglądanie zdarzeń dziennika systemu w programie w Kibana](media/elasticsearch-install/kibana-index.png)
 
-Wybierz **odnajdowania** na konsoli Kibana wyszukiwania Przeglądaj i odfiltrować zdarzenia dziennika systemowego.
+Wybierz pozycję **Discover** (Odnajdywanie) w konsoli Kibana, aby wyszukiwać, przeglądać i filtrować zdarzenia z dziennika systemu.
 
-![Przeglądaj zdarzenia dziennika systemowego w Kibana](media/elasticsearch-install/kibana-search-filter.png)
+![Przeglądanie zdarzeń dziennika systemu w programie w Kibana](media/elasticsearch-install/kibana-search-filter.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku wdrożono stosu elastycznych do tworzenia maszyny Wirtualnej na platformie Azure. W tym samouczku omówiono:
+W tym samouczku został wdrożony program Elastic Stack na deweloperskiej maszynie wirtualnej na platformie Azure. W tym samouczku omówiono:
 
 > [!div class="checklist"]
-> * Tworzenie maszyny Wirtualnej systemu Ubuntu w grupie zasobów platformy Azure
-> * Zainstaluj w maszynie Wirtualnej Elasticsearch, Logstash i Kibana
-> * Wysyłanie przykładowych danych do Elasticsearch z Logstash 
-> * Otwieranie portów i pracować z danymi w konsoli Kibana
+> * Tworzenie maszyny wirtualnej z systemem Ubuntu w grupie zasobów platformy Azure
+> * Instalowanie programów Elasticsearch, Logstash i Kibana na maszynie wirtualnej
+> * Wysyłanie przykładowych danych do programu Elasticsearch z programu Logstash 
+> * Otwieranie portów i praca z danymi w konsoli Kibana

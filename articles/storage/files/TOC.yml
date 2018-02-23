@@ -198,6 +198,8 @@
           href: ../../vs-azure-tools-storage-explorer-relnotes.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Rozwiązywanie problemów z programem Storage Explorer
           href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Ułatwienia dostępu Eksploratora usługi Storage
+          href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Pakiety NuGet
       items:
         - name: Biblioteka klienta usługi Azure Storage dla programu .NET

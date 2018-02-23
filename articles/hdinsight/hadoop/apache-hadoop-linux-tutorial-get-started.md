@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/17/2018
 ms.author: jgao
-ms.openlocfilehash: e517edecce92acdadde5497558055c59fa819976
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: a96612e09e51db8941a7828f8fe9cb7bbced837d
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="hadoop-tutorial-get-started-using-hadoop-in-hdinsight"></a>Samouczek Hadoop: rozpoczęcie korzystania z usługi Hadoop w usłudze HDInsight
 
@@ -52,7 +52,7 @@ Użyty w tym samouczku szablon usługi Resource Manager znajduje się w serwisie
     * **Grupa zasobów**: utwórz grupę zasobów lub wybierz istniejącą.  Grupa zasobów jest kontenerem składników platformy Azure.  W tym przypadku grupa zasobów zawiera klaster usługi HDInsight i zależne konto usługi Azure Storage. 
     * **Lokalizacja**: wybierz lokalizację platformy Azure, w której chcesz utworzyć klaster.  Wybierz lokalizację znajdującą się blisko, aby zapewnić lepszą wydajność. 
     * **Typ klastra**: na potrzeby tego samouczka wybierz opcję **hadoop**.
-    * **Nazwa klastra**: wprowadź nazwę klastra Hadoop.
+    * **Nazwa klastra**: wprowadź nazwę klastra Hadoop. Ponieważ wszystkie klastry w usłudze HDInsight używają tej samej przestrzeni nazw DNS, ta nazwa musi być unikatowa. Nazwa może składać się z maksymalnie 59 znaków, w tym liter, cyfr i łączników. Pamiętaj, że pierwszym ani ostatnim znakiem nazwy nie może być łącznik.
     * **Nazwa logowania i hasło klastra**: domyślna nazwa logowania to **admin**.
     * **Nazwa użytkownika i hasło SSH**: domyślna nazwa użytkownika to **sshuser**.  Tę nazwę można zmienić. 
      

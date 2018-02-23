@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 93df74da6e9db1bd03885179cd3917205ab3b4ee
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: ddc299d0a292ba17624aa3d0617e420a82f2abf3
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Przyrostowe ładowanie danych z bazy danych Azure SQL Database do magazynu Azure Blob Storage z użyciem informacji o śledzeniu zmian 
 W tym samouczku utworzysz fabrykę usługi Azure Data Factory z potokiem służącym do ładowania danych przyrostowych na podstawie informacji o **śledzeniu zmian** w źródłowej bazie danych Azure SQL Database do magazynu Azure Blob Storage.  
@@ -151,6 +151,7 @@ Zainstaluj najnowsze moduły programu Azure PowerShell, wykonując instrukcje po
 
 ## <a name="create-a-data-factory"></a>Tworzenie fabryki danych
 
+1. Uruchom przeglądarkę internetową **Microsoft Edge** lub **Google Chrome**. Obecnie interfejs użytkownika usługi Data Factory jest obsługiwany tylko przez przeglądarki internetowe Microsoft Edge i Google Chrome.
 1. Kliknij przycisk **Nowy** w lewym menu, kliknij pozycję **Dane + analiza**, a następnie kliknij pozycję **Data Factory**. 
    
    ![Nowy-> Fabryka danych](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory-menu.png)
@@ -360,7 +361,7 @@ W tym kroku utworzysz potok z następującymi działaniami, który będzie okres
 2. Zostanie wyświetlona nowa karta służąca do konfigurowania potoku. Potok powinien być też widoczny w widoku drzewa. W oknie **Właściwości** zmień nazwę potoku na **IncrementalCopyPipeline**.
 
     ![Nazwa potoku](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-pipeline-name.png)
-3. Rozwiń pozycję **SQL Database** w przyborniku **Działania**, a następnie przeciągnij i upuść działanie **Lookup** (Wyszukiwanie) do powierzchni projektanta potoku. Ustaw nazwę działania na **LookupLastChangeTrackingVersionActivity**. To działanie pobiera wersję rozwiązania Change Tracking używaną podczas ostatniej operacji kopiowania, które jest przechowywana w tabeli **wersja_rozwiązania_ChangeTracking_magazynu_tabel**.
+3. W przyborniku **Działania** rozwiń pozycję **Ogólne**, a następnie przeciągnij działanie **Lookup** (Wyszukiwanie) i upuść je na powierzchni projektanta potoku. Ustaw nazwę działania na **LookupLastChangeTrackingVersionActivity**. To działanie pobiera wersję rozwiązania Change Tracking używaną podczas ostatniej operacji kopiowania, które jest przechowywana w tabeli **wersja_rozwiązania_ChangeTracking_magazynu_tabel**.
 
     ![Działanie Lookup (Wyszukiwanie) — nazwa](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-name.png)
 4. Przejdź do obszaru **Ustawienia** w oknie **Właściwości** i wybierz pozycję **ChangeTrackingDataset** w polu **Źródłowy zestaw danych**. 
@@ -408,12 +409,13 @@ W tym kroku utworzysz potok z następującymi działaniami, który będzie okres
     ![Działanie Stored Procedure (Procedura składowana) — konto SQL](./media/tutorial-incremental-copy-change-tracking-feature-portal/sql-account-tab.png)
 13. Przejdź do karty **Procedura składowana** i wykonaj następujące czynności: 
 
-    1. Wprowadź wartość **Update_ChangeTracking_Version** w polu **nazwy procedury składowanej**.  
-    2. W sekcji **Parametry procedury składowanej** użyj przycisku **+ Nowy**, aby dodać dwa poniższe parametry:
+    1. W polu **Nazwa procedury składowanej** wybierz wartość **Update_ChangeTracking_Version**.  
+    2. Wybierz pozycję **Importuj parametr**. 
+    3. W sekcji **Parametry procedury składowanej** określ następujące wartości parametrów: 
 
         | Name (Nazwa) | Typ | Wartość | 
         | ---- | ---- | ----- | 
-        | CurrentTrackingVersion | INT64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} | 
+        | CurrentTrackingVersion | Int64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} | 
         | TableName | Ciąg | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} | 
     
         ![Działanie Stored Procedure (Procedura składowana) — parametry](./media/tutorial-incremental-copy-change-tracking-feature-portal/stored-procedure-parameters.png)
@@ -423,14 +425,15 @@ W tym kroku utworzysz potok z następującymi działaniami, który będzie okres
 15. Na pasku narzędzi kliknij pozycję **Weryfikuj**. Potwierdź, że weryfikacja nie zwróciła błędów. Zamknij okno **Raport weryfikacji potoku**, klikając pozycję **>>**. 
 
     ![Przycisk Weryfikuj](./media/tutorial-incremental-copy-change-tracking-feature-portal/validate-button.png)
-16.  Opublikuj jednostki (usługi połączone, zestawy danych i potoki) w usłudze Data Factory, klikając przycisk **Publikuj**. Poczekaj na wyświetlenie komunikatu **Publikowanie powiodło się**. 
+16.  Opublikuj jednostki (usługi połączone, zestawy danych i potoki) w usłudze Data Factory, klikając przycisk **Opublikuj wszystko**. Poczekaj na wyświetlenie komunikatu **Publikowanie powiodło się**. 
 
         ![Przycisk Opublikuj](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)    
 
 ### <a name="run-the-incremental-copy-pipeline"></a>Uruchamianie potoku kopiowania przyrostowego
-Kliknij pozycję **Wyzwól** na pasku narzędzi dla potoku, a następnie kliknij pozycję **Wyzwól teraz**. 
+1. Kliknij pozycję **Wyzwól** na pasku narzędzi dla potoku, a następnie kliknij pozycję **Wyzwól teraz**. 
 
-![Menu Wyzwól teraz](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu-2.png)
+    ![Menu Wyzwól teraz](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu-2.png)
+2. W oknie **Uruchomienie potoku** wybierz pozycję **Zakończ**.
 
 ### <a name="monitor-the-incremental-copy-pipeline"></a>Monitorowanie potoku kopiowania przyrostowego
 1. Kliknij kartę **Monitorowanie** po lewej stronie. Na liście zostanie wyświetlone uruchomienie potoku i jego stan. Aby odświeżyć listę, kliknij pozycję **Odśwież**. Linki w kolumnie **Działania** umożliwiają wyświetlanie uruchomień działań skojarzonych z uruchomieniem potoku oraz ponowne uruchamianie potoku. 

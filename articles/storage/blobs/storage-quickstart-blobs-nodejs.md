@@ -2,24 +2,18 @@
 title: "Szybki start platformy Azure — Transferowanie obiektów do i z usługi Azure Blob Storage za pomocą środowiska Node.js | Microsoft Docs"
 description: "Skrócona instrukcja transferowania obiektów do i z usługi Azure Blob Storage za pomocą środowiska Node.js"
 services: storage
-documentationcenter: storage
-author: georgewallace
-manager: timlt
-editor: tysonn
-ms.assetid: 
+author: tamram
+manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/30/2017
-ms.author: gwallace
-ms.openlocfilehash: dd4d3abf082767c40760d020c0997b365452e769
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.date: 02/06/2018
+ms.author: tamram
+ms.openlocfilehash: 07845d0e1917c00dbd6098ef2bfbd9dcbbf2f97b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-nodejs"></a>Transferowanie obiektów do i z usługi Azure Blob Storage za pomocą środowiska Node.js
 
@@ -27,7 +21,7 @@ Dzięki temu przewodnikowi Szybki start dowiesz się, w jaki sposób za pomocą 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby ukończyć ten przewodnik Szybki Start:
+Aby ukończyć ten przewodnik Szybki start:
 
 * Zainstalować środowisko [Node.js](https://nodejs.org/en/).
 
@@ -109,9 +103,9 @@ W kolejnej części omówimy przykładowy kod, aby wyjaśnić, w jaki sposób dz
 
 ### <a name="get-references-to-the-storage-objects"></a>Pobieranie odwołań do obiektów magazynu
 
-Najpierw należy utworzyć odwołanie do obiektu `BlobService` używane w celu uzyskania dostępu do usługi Blob Storage i zarządzania nią. Te obiekty są powiązane — każdy obiekt jest używany przez kolejny na liście.
+Najpierw należy utworzyć odwołanie do obiektu **BlobService** używane w celu uzyskania dostępu do usługi Blob Storage i zarządzania nią. Te obiekty są powiązane — każdy obiekt jest używany przez kolejny na liście.
 
-* Utwórz wystąpienie obiektu **[BlobService](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService__ctor)**, które wskazuje na usługę Blob service na koncie magazynu.
+* Utwórz wystąpienie obiektu [BlobService](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService__ctor), które wskazuje na usługę Blob service na koncie magazynu.
 
 * Utwórz nowy kontener, a następnie skonfiguruj uprawnienia w kontenerze, tak aby obiekty blob były publiczne i można było do nich uzyskać dostęp za pomocą samego adresu URL. Kontener zaczyna się od ciągu **quickstartcontainer -**.
 
@@ -199,4 +193,4 @@ W tym przewodniku Szybki start przedstawiono metodę transferowania plików mię
 > [!div class="nextstepaction"]
 > [Instrukcje: Operacje wykonywane w usłudze Blob Storage](storage-nodejs-how-to-use-blob-storage.md)
 
-Aby uzyskać więcej informacji na temat Eksploratora usługi Storage i obiektów blob, zapoznaj się artykułem [Manage Azure Blob storage resources with Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) (Zarządzanie zasobami usługi Azure Blob Storage za pomocą Eksploratora usługi Microsoft Azure Storage).
+Aby zapoznać się z dokumentacją języka Node.js dotyczącą usługi Azure Storage, zobacz [pakiet azure-storage](https://docs.microsoft.com/javascript/api/azure-storage/?view=azure-node-latest).

@@ -378,8 +378,8 @@
               href: saas-dbpertenant-restore-single-tenant.md
             - name: Zarządzanie schematem dzierżaw
               href: saas-tenancy-schema-management.md
-            - name: Uruchamianie zapytań ad hoc
-              href: saas-tenancy-adhoc-analytics.md
+            - name: Raportowanie międzydzierżawowe
+              href: saas-tenancy-cross-tenant-reporting.md
             - name: Proces ETL na potrzeby analizy
               href: saas-tenancy-tenant-analytics.md
         - name: Baza danych z wieloma dzierżawcami

@@ -12,13 +12,13 @@ ms.devlang: csharp
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 9/19/2017
+ms.date: 1/27/2018
 ms.author: subramar
-ms.openlocfilehash: e18dcad73486ab7610c53c269fbc81de73b5147e
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 7a7bda1b2bab05459e4266f7bac0d32ea4093c8b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Tworzenie pierwszej aplikacji usługi Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -40,10 +40,18 @@ Usługa Service Fabric udostępnia narzędzia do tworzenia szkieletów, które u
 
 1. Zainstaluj środowisko NodeJs i menedżera NPM na swojej maszynie
 
-  ```bash
-  sudo apt-get install npm
-  sudo apt install nodejs-legacy
-  ```
+   Ubuntu
+   ```bash
+   sudo apt-get install npm
+   sudo apt install nodejs-legacy
+   ```
+
+   Red Hat Enterprise Linux 7.4 (obsługa wersji zapoznawczej usługi Service Fabric)
+   ```bash
+   sudo yum install nodejs
+   sudo yum install npm
+   ```
+
 2. Zainstaluj generator szablonów [narzędzia Yeoman](http://yeoman.io/) na swoim komputerze z poziomu narzędzia NPM
 
   ```bash
@@ -118,11 +126,6 @@ Projekty aktora nie działają samodzielnie. Wymagają one wysyłania im komunik
 Aby dodać kolejną usługę do aplikacji utworzonej już przy użyciu polecenia `yo`, wykonaj następujące czynności:
 1. Zmień katalog na katalog główny istniejącej aplikacji.  Na przykład wpisz polecenie `cd ~/YeomanSamples/MyApplication`, jeśli aplikacja `MyApplication` to aplikacja utworzona przez narzędzie Yeoman.
 2. Uruchom polecenie `yo azuresfcsharp:AddService`
-
-## <a name="migrating-from-projectjson-to-csproj"></a>Migrowanie z plików project.json do plików csproj
-1. Uruchomienie polecenia „dotnet migrate” w katalogu głównym projektu spowoduje zmigrowanie wszystkich plików project.json do formatu csproj.
-2. Zaktualizuj odpowiednio odwołania do projektu w plikach projektu tak, aby wskazywały pliki csproj.
-3. Zaktualizuj nazwy plików projektu w plikach csproj w skrypcie build.sh.
 
 ## <a name="next-steps"></a>Następne kroki
 

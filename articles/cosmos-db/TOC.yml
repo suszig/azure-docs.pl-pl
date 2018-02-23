@@ -131,6 +131,8 @@
       href: cli-samples.md
     - name: PowerShell
       href: powershell-samples.md
+    - name: Szablony usługi Azure Resource Manager
+      href: 'https://azure.microsoft.com/resources/templates/?term=cosmos+db&pageNumber=1'
 - name: Pojęcia
   items:
     - name: Bezserwerowa baza danych
@@ -342,6 +344,8 @@
           href: logging.md
         - name: Zarządzanie kluczami i spójnością
           href: manage-account.md
+        - name: Kontrola dostępu
+          href: access-control.md
         - name: Eksplorator usługi Azure Storage
           href: storage-explorer.md
         - name: Bezpieczeństwo

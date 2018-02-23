@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2017
 ms.author: johnkem; magoedte
-ms.openlocfilehash: d59abde29fc7b73a799e5bf3659b02f824b693de
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: df20e174abb9960ad378221008ac7261fd0582f1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Zbierania i wykorzystywania danych dziennika z zasobów platformy Azure
 
@@ -163,7 +163,7 @@ Upewnij się, że wszystkie zasoby zostały skonfigurowane przy użyciu ustawie�
 
 ![Diagnostycznych dzienników bloku w portalu](./media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-nav.png)
 
-Może być konieczne kliknięcie pozycji "Więcej usług" nie można znaleźć sekcji monitora.
+Może być konieczne kliknięcie pozycji "Wszystkie usługi" nie można znaleźć sekcji monitora.
 
 W tym miejscu możesz wyświetlić i filtrować wszystkie zasoby, które obsługują ustawień diagnostycznych, aby zobaczyć, czy mają włączoną diagnostykę. Możesz również przejść do Zobacz Jeśli wiele ustawień są ustawiane w zasobie i sprawdź, które konta magazynu, przestrzeni nazw usługi Event Hubs i/lub obszar roboczy analizy dzienników, które dane są przesyłane do.
 
@@ -174,7 +174,7 @@ Dodawanie ustawienie diagnostyczne wyświetlenie widoku ustawień diagnostycznyc
 ## <a name="supported-services-categories-and-schemas-for-resource-diagnostic-logs"></a>Obsługiwane usługi, kategorie i schematy do dzienników diagnostycznych zasobu
 [Znajduje się w artykule](monitoring-diagnostic-logs-schema.md) pełną listę obsługiwanych usług i kategorie dziennika i schematy używane przez te usługi.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Strumień zasobu dzienników diagnostycznych do **centra zdarzeń**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Zmień ustawienia diagnostyczne zasobu przy użyciu interfejsu API REST Azure monitora](https://msdn.microsoft.com/library/azure/dn931931.aspx)

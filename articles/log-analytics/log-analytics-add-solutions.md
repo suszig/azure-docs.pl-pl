@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 68bf84d0f848b60885d3976d3991b606e77ed074
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: f6ec6dd46d28518baf6f105dd232a4b0e77a8c6f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="add-azure-log-analytics-management-solutions-to-your-workspace"></a>Dodawanie rozwiązania do zarządzania usługi Analiza dzienników Azure do swojego obszaru roboczego
 
@@ -46,8 +46,7 @@ Rozwiązania do zarządzania można zainstalować z portalu Azure marketplace, k
 
 ## <a name="add-a-management-solution"></a>Dodaj rozwiązanie do zarządzania
 1. Jeśli nie zostało to jeszcze zrobione, zaloguj się do witryny [Azure Portal](https://portal.azure.com) przy użyciu subskrypcji platformy Azure.
-2. W **nowy** bloku w obszarze **Marketplace**, wybierz pozycję **monitorowanie i zarządzanie**.
-3. W **monitorowanie i zarządzanie** bloku, kliknij przycisk **zobaczyć wszystkie**.  
+2. Wybierz **Utwórz zasób** > **monitorowanie i zarządzanie** > **zobaczyć wszystkie**.  
     ![Monitorowanie + blok zarządzania](./media/log-analytics-add-solutions/monitoring-management-blade.png)  
 4. Po prawej stronie **rozwiązań do zarządzania**, kliknij przycisk **więcej**.
 5. W **rozwiązań do zarządzania** bloku, wybierz rozwiązanie do zarządzania, które mają zostać dodane do obszaru roboczego.  

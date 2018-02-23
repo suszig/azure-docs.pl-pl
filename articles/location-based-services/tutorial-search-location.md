@@ -12,13 +12,13 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 8da7d9112c9527945ab4b524625603faa84cf00d
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 791992028d11633fc20f55ae1a34e7fcd442bf3a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="search-nearby-point-of-interest-using-azure-location-based-services"></a>Wyszukiwanie punktu orientacyjnego w pobliżu za pomocą usług Azure Location Based Services
+# <a name="search-nearby-points-of-interest-using-azure-location-based-services"></a>Wyszukiwanie punktów orientacyjnych w pobliżu za pomocą usług Azure Location Based Services
 
 W tym samouczku przedstawiono sposób konfigurowania konta przy użyciu usług Azure Location Based Services, a następnie używania udostępnionych interfejsów API do wyszukiwania punktu orientacyjnego. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -30,7 +30,7 @@ W tym samouczku przedstawiono sposób konfigurowania konta przy użyciu usług A
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
 
-# <a name="log-in-to-the-azure-portal"></a>Logowanie do witryny Azure Portal
+## <a name="log-in-to-the-azure-portal"></a>Logowanie do witryny Azure Portal
 Zaloguj się do witryny [Azure Portal](https://portal.azure.com).
 
 <a id="createaccount"></a>

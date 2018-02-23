@@ -1,159 +1,193 @@
 ---
-title: "Zarządzanie dyskami Azure przy użyciu programu Azure PowerShell | Dokumentacja firmy Microsoft"
-description: "Samouczek — Zarządzanie dyskami Azure przy użyciu programu Azure PowerShell"
+title: "Zarządzanie dyskami platformy Azure za pomocą programu Azure PowerShell | Microsoft Docs"
+description: "Samouczek — zarządzanie dyskami platformy Azure przy użyciu programu Azure PowerShell"
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 editor: tysonn
-tags: azure-service-management
+tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/02/2017
-ms.author: nepeters
+ms.date: 02/09/2018
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 58c8ba2682cc9cc8f2089d2a70cc95a03079832e
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
-ms.translationtype: MT
+ms.openlocfilehash: ea38fe599960db42c518603b59a60a920d1f1daf
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/14/2018
 ---
-# <a name="manage-azure-disks-with-powershell"></a>Zarządzanie dyskami Azure przy użyciu programu PowerShell
+# <a name="manage-azure-disks-with-powershell"></a>Zarządzanie dyskami platformy Azure przy użyciu programu PowerShell
 
-Maszyny wirtualne platformy Azure dysków do przechowywania systemu operacyjnego, aplikacje i dane maszyn wirtualnych. Podczas tworzenia maszyny Wirtualnej jest ważne wybrać rozmiar dysku i odpowiednie do oczekiwanego obciążenia w konfiguracji. W tym samouczku opisano wdrażanie i Zarządzanie dyskami maszyny Wirtualnej. Informacje o:
+Maszyny wirtualne platformy Azure przechowują swoje systemy operacyjne, aplikacje i dane na dyskach. Ważne jest, aby podczas tworzenia maszyny wirtualnej wybrać rozmiar dysku i konfigurację odpowiadające oczekiwanemu obciążeniu. W tym samouczku opisano wdrażanie dysków maszyn wirtualnych i zarządzanie nimi. Zapoznasz się z informacjami na temat następujących zagadnień:
 
 > [!div class="checklist"]
-> * Dyski systemu operacyjnego i tymczasowego
+> * Dyski systemu operacyjnego i dyski tymczasowe
 > * Dyski z danymi
-> * Standard i dysków w warstwie Premium
+> * Dyski w warstwie Standardowa i Premium
 > * Wydajność dysku
-> * Dołączanie i przygotowywania dysków z danymi
+> * Dołączanie i przygotowywanie dysków z danymi
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Jeśli postanowisz zainstalować program PowerShell i używać go lokalnie, ten samouczek wymaga modułu Azure PowerShell w wersji 3.6 lub nowszej. Uruchom polecenie ` Get-Module -ListAvailable AzureRM`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-azurerm-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie `Login-AzureRmAccount`, aby utworzyć połączenie z platformą Azure. 
+Jeśli chcesz zainstalować program PowerShell i używać go lokalnie, ten samouczek wymaga modułu Azure PowerShell w wersji 5.3 lub nowszej. Uruchom polecenie `Get-Module -ListAvailable AzureRM`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-azurerm-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie `Login-AzureRmAccount`, aby utworzyć połączenie z platformą Azure. 
 
-## <a name="default-azure-disks"></a>Domyślna dysku systemu Azure
+## <a name="default-azure-disks"></a>Domyślne dyski platformy Azure
 
-Po utworzeniu maszyny wirtualnej platformy Azure, dwa dyski są automatycznie dołączane do maszyny wirtualnej. 
+Do tworzonej maszyny wirtualnej platformy Azure automatycznie dołączane są dwa dyski. 
 
-**Dysk systemu operacyjnego** -dysków systemu operacyjnego może być o rozmiarze maksymalnie 4 terabajt i hostuje maszyny wirtualne systemu operacyjnego.  Dysk systemu operacyjnego jest przypisany literą dysku z *c:* domyślnie. Dysk buforowanie konfiguracji dysku systemu operacyjnego jest zoptymalizowana pod kątem wydajności systemu operacyjnego. Dysk systemu operacyjnego **nie powinien** hosta aplikacji i danych. Dla aplikacji i danych należy użyć dysku danych, które szczegółowo w dalszej części tego artykułu.
+**Dysk systemu operacyjnego** — dyski systemu operacyjnego mogą mieć rozmiar 4 terabajtów i hostują system operacyjny maszyn wirtualnych.  Dysk systemu operacyjnego ma domyślnie przypisaną literę dysku *c:*. Konfiguracja buforowania dysku systemu operacyjnego jest zoptymalizowana pod kątem wydajności systemu operacyjnego. Dysk systemu operacyjnego **nie powinien** hostować aplikacji ani danych. Na potrzeby aplikacji i danych należy użyć dysku z danymi, które zostanie szczegółowo opisany w dalszej części tego artykułu.
 
-**Dysku tymczasowym** -tymczasowego dysków używać dysków SSD, który znajduje się na tym samym hoście Azure co maszyna wirtualna. Tymczasowy dyski są wysokiej wydajności i mogą być używane do operacji, takich jak przetwarzanie danych tymczasowych. Jednak jeśli maszyna wirtualna zostanie przeniesiona do nowego hosta, zostaną usunięte wszystkie dane przechowywane na dysku tymczasowym. Rozmiar dysku tymczasowym zależy od rozmiaru maszyny Wirtualnej. Tymczasowe dyski są przypisane literę dysku *d:* domyślnie.
+**Dysk tymczasowy** — dyski tymczasowe używają dysku SSD, który znajduje się na tym samym hoście platformy Azure co maszyna wirtualna. Dyski tymczasowe są wysoce wydajne i można przy ich użyciu wykonywać operacje takie jak przetwarzanie danych tymczasowych. Jednak jeśli maszyna wirtualna zostanie przeniesiona do nowego hosta, wszystkie dane przechowywane na dysku tymczasowym zostaną usunięte. Rozmiar dysku tymczasowego zależy od rozmiaru maszyny wirtualnej. Dyski tymczasowe mają domyślnie przypisaną literę dysku *d:*.
 
-### <a name="temporary-disk-sizes"></a>Rozmiary dysku tymczasowym
+### <a name="temporary-disk-sizes"></a>Rozmiary dysków tymczasowych
 
-| Typ | Rozmiar maszyny wirtualnej | Maksymalny rozmiar dysku tymczasowego (GB) |
+| Typ | Typowe rozmiary | Maksymalny rozmiar dysku tymczasowego (GiB) |
 |----|----|----|
-| [Zastosowania ogólne](sizes-general.md) | A i serii D | 800 |
-| [Optymalizacja pod kątem obliczeń](sizes-compute.md) | Seria F | 800 |
-| [Optymalizacja pod kątem pamięci](../virtual-machines-windows-sizes-memory.md) | D i G serii | 6144 |
-| [Optymalizacja pod kątem magazynu](../virtual-machines-windows-sizes-storage.md) | Seria L | 5630 |
-| [Procesor GPU](sizes-gpu.md) | N serii | 1440 |
-| [Wysoka wydajność](sizes-hpc.md) | A i serii H | 2000 |
+| [Zastosowania ogólne](sizes-general.md) | Seria A, B i D | 1600 |
+| [Optymalizacja pod kątem obliczeń](sizes-compute.md) | Seria F | 576 |
+| [Optymalizacja pod kątem pamięci](sizes-memory.md) | Seria D, E, G i M | 6144 |
+| [Optymalizacja pod kątem magazynu](sizes-storage.md) | Seria L | 5630 |
+| [Procesor GPU](sizes-gpu.md) | Seria N | 1440 |
+| [Wysoka wydajność](sizes-hpc.md) | Seria A i H | 2000 |
 
-## <a name="azure-data-disks"></a>Dyski danych Azure
+## <a name="azure-data-disks"></a>Dyski z danymi platformy Azure
 
-Instalowanie aplikacji i przechowywania danych można dodać dodatkowego dysku z danymi. Dyski danych używanego w sytuacji, gdy wymagane jest trwałe i szybko reagowały pamięci masowej. Każdy dysk danych ma maksymalną pojemność 1 terabajt. Rozmiar maszyny wirtualnej Określa, jak wiele dysków z danymi może zostać dołączony do maszyny Wirtualnej. Dla każdej maszyny Wirtualnej vCPU można dołączyć danych dwóch dysków. 
+Dodatkowe dyski z danymi można dodać w celu instalowania aplikacji i przechowywania danych. Dyski z danymi powinny być używane w sytuacji, gdy potrzebny jest trwały i dynamiczny magazyn danych. Każdy dysk z danymi ma maksymalną pojemność wynoszącą 4 terabajty. Liczba dysków z danymi, które można dołączyć do maszyny wirtualnej, zależy od jej rozmiaru. Na każdy procesor wirtualny maszyny wirtualnej można dołączyć dwa dyski z danymi. 
 
-### <a name="max-data-disks-per-vm"></a>Maksymalna liczba dysków z danymi dla maszyny Wirtualnej
+### <a name="max-data-disks-per-vm"></a>Maksymalna liczba dysków z danymi na maszynę wirtualną
 
-| Typ | Rozmiar maszyny wirtualnej | Maksymalna liczba dysków z danymi dla maszyny Wirtualnej |
+| Typ | Typowe rozmiary | Maksymalna liczba dysków z danymi na maszynę wirtualną |
 |----|----|----|
-| [Zastosowania ogólne](sizes-general.md) | A i serii D | 32 |
-| [Optymalizacja pod kątem obliczeń](sizes-compute.md) | Seria F | 32 |
-| [Optymalizacja pod kątem pamięci](../virtual-machines-windows-sizes-memory.md) | D i G serii | 64 |
-| [Optymalizacja pod kątem magazynu](../virtual-machines-windows-sizes-storage.md) | Seria L | 64 |
-| [Procesor GPU](sizes-gpu.md) | N serii | 48 |
-| [Wysoka wydajność](sizes-hpc.md) | A i serii H | 32 |
+| [Zastosowania ogólne](sizes-general.md) | Seria A, B i D | 64 |
+| [Optymalizacja pod kątem obliczeń](sizes-compute.md) | Seria F | 64 |
+| [Optymalizacja pod kątem pamięci](sizes-memory.md) | Seria D, E, G i M | 64 |
+| [Optymalizacja pod kątem magazynu](sizes-storage.md) | Seria L | 64 |
+| [Procesor GPU](sizes-gpu.md) | Seria N | 64 |
+| [Wysoka wydajność](sizes-hpc.md) | Seria A i H | 64 |
 
-## <a name="vm-disk-types"></a>Typy dysków maszyny Wirtualnej
+## <a name="vm-disk-types"></a>Typy dysków maszyny wirtualnej
 
-Platforma Azure oferuje dwa rodzaje dysku.
+Na platformie Azure dostępne są dwa typy dysków.
 
-### <a name="standard-disk"></a>Dysków w warstwie standardowa
+### <a name="standard-disk"></a>Dysk w warstwie Standardowa
 
-Magazyn Standard Storage bazuje na dyskach twardych (HDD) i stanowi ekonomiczne, chociaż wciąż wydajne rozwiązanie. Dyski standardowe idealnie nadają się do deweloperów ekonomiczne i testów obciążenia.
+Magazyn Standard Storage bazuje na dyskach twardych (HDD) i stanowi ekonomiczne, chociaż wciąż wydajne rozwiązanie. Dyski w warstwie Standardowa idealnie nadają się do ekonomicznej obsługi obciążeń tworzenia i testowania.
 
-### <a name="premium-disk"></a>Dysku Premium
+### <a name="premium-disk"></a>Dysk w warstwie Premium
 
-Dyski Premium bazują na dysk SSD dysku wysokiej wydajności i małych opóźnień. Idealny dla maszyn wirtualnych obciążeniu produkcji. Magazyn w warstwie Premium obsługuje serii DS, DSv2 serii GS-series i FS serii maszyn wirtualnych. Dyski Premium mają pięciu typów (P10, P20, P30, P40, P50), rozmiar dysku Określa typ dysku. Podczas wybierania, rozmiar dysku wartość jest zaokrąglana do dalej typu. Na przykład, jeśli rozmiar jest poniżej 128 GB typu dysku będzie P10, między 129 i 512 P20, 512 P30, P40 2TB i P50 4TB. 
+Dyski w warstwie Premium są wspierane przez oparty na technologii SSD dysk o wysokiej wydajności i niskim opóźnieniu. Idealnie nadają się one dla maszyn wirtualnych z uruchomionym obciążeniem produkcyjnym. Usługa Premium Storage obsługuje maszyny wirtualne z serii DS, DSv2, GS i FS. Istnieje pięć typów dysków w warstwie Premium (P10, P20, P30, P40, P50); rozmiar dysku określa typ dysku. Podczas wybierania rozmiaru dysku wartość jest zaokrąglana do następnego typu. Jeśli na przykład rozmiar jest mniejszy niż 128 GB, typ dysku to P10, jeśli rozmiar przypada między 129 GB i 512 GB, rozmiar dysku to P20.
 
-### <a name="premium-disk-performance"></a>Wydajność dysku Premium
+### <a name="premium-disk-performance"></a>Wydajność dysku w warstwie Premium
 
-|Typ dysku magazynu w warstwie Premium | P10 | P20 | P30 |
-| --- | --- | --- | --- |
-| Rozmiar dysku (zaokrąglony) | 128 GB | 512 GB | 1024 GB (1 TB) |
-| Liczba operacji wejścia/wyjścia na sekundę na dysk | 500 | 2,300 | 5,000 |
-Przepływność na dysk | 100 MB/s | 150 MB/s | 200 MB/s |
+|Typ dysku magazynu Premium Storage | P4 | P6 | P10 | P20 | P30 | P40 | P50 |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Rozmiar dysku (zaokrąglony w górę) | 32 GB | 64 GB | 128 GB | 512 GB | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) |
+| Maksymalna liczba operacji wejścia/wyjścia na sekundę na dysk | 120 | 240 | 500 | 2300 | 5000 | 7500 | 7500 |
+Przepływność na dysk | 25 MB/s | 50 MB/s | 100 MB/s | 150 MB/s | 200 MB/s | 250 MB/s | 250 MB/s |
 
-Gdy powyższej tabeli określa maksymalną liczbę IOPS dla każdego dysku, można osiągnąć wyższy poziom wydajności przez stosowanie wielu dysków z danymi. Na przykład dysków z danymi 64 może zostać dołączona do maszyny Wirtualnej Standard_GS5. Jeśli każda z tych dysków o jako P30 można osiągnąć maksymalnie 80 000 IOPS. Aby uzyskać szczegółowe informacje o maksymalnej IOPS dla maszyny Wirtualnej, zobacz [typów maszyny Wirtualnej, a rozmiary](./sizes.md).
+W powyższej tabeli podano maksymalną liczbę operacji wejścia/wyjścia na sekundę na dysk, ale wyższą wydajność można osiągnąć przez stosowanie wielu dysków z danymi. Na przykład do maszyny wirtualnej Standard_GS5 można dołączyć 64 dyski z danymi. Jeśli każda z tych dysków ma rozmiar P30, można osiągnąć maksymalnie 80 000 operacji we/wy na sekundę. Aby uzyskać szczegółowe informacje na temat maksymalnej liczby operacji we/wy na sekundę dla maszyny wirtualnej, zobacz [VM types and sizes (Typy i rozmiary maszyn wirtualnych)](./sizes.md).
 
-## <a name="create-and-attach-disks"></a>Utwórz i Dołącz dysków
+## <a name="create-and-attach-disks"></a>Tworzenie i dołączanie dysków
 
-Aby ukończyć przykład, w tym samouczku, musi mieć istniejącej maszyny wirtualnej. Jeśli to konieczne, to [przykładowym skrypcie](../scripts/virtual-machines-windows-powershell-sample-create-vm.md) można utworzyć. Podczas pracy nad samouczek, Zastąp maszyny Wirtualnej i grupy zasobów nazwy w razie potrzeby.
+Do utworzenia przykładu przedstawionego w tym samouczku potrzebna jest istniejąca maszyna wirtualna. W razie potrzeby utwórz maszynę wirtualną za pomocą poniższych poleceń.
 
-Tworzenie początkowej konfiguracji z [AzureRmDiskConfig nowy](/powershell/module/azurerm.compute/new-azurermdiskconfig). Poniższy przykład służy do konfigurowania dysku, który wynosi 128 GB w rozmiarze.
-
-```azurepowershell-interactive
-$diskConfig = New-AzureRmDiskConfig -Location EastUS -CreateOption Empty -DiskSizeGB 128
-```
-
-Tworzenie dysku z danymi z [AzureRmDisk nowy](/powershell/module/azurerm.compute/new-azurermdisk) polecenia.
+Ustaw nazwę użytkownika i hasło potrzebne dla konta administratora na maszynie wirtualnej przy użyciu polecenia [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
 ```azurepowershell-interactive
-$dataDisk = New-AzureRmDisk -ResourceGroupName myResourceGroup -DiskName myDataDisk -Disk $diskConfig
+$cred = Get-Credential
 ```
 
-Uzyskiwanie maszyny wirtualnej, który chcesz dodać dysk danych w celu z [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) polecenia.
+Utwórz maszynę wirtualną za pomocą polecenia [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
 
 ```azurepowershell-interactive
-$vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
+New-AzureRmVm `
+    -ResourceGroupName "myResourceGroupDisk" `
+    -Name "myVM" `
+    -Location "East US" `
+    -VirtualNetworkName "myVnet" `
+    -SubnetName "mySubnet" `
+    -SecurityGroupName "myNetworkSecurityGroup" `
+    -PublicIpAddressName "myPublicIpAddress" `
+    -Credential $cred `
+    -AsJob
 ```
 
-Dodaj dysk danych do konfiguracji maszyny wirtualnej z [AzureRmVMDataDisk Dodaj](/powershell/module/azurerm.compute/add-azurermvmdatadisk) polecenia.
+Parametr `-AsJob` umożliwia tworzenie maszyny wirtualnej w tle, co powoduje powrót do wiersza polecenia programu PowerShell. Możesz wyświetlić szczegóły zadań w tle, używając polecenia cmdlet `Job`.
+
+Do tworzenia konfiguracji początkowej służy polecenie [New-AzureRmDiskConfig](/powershell/module/azurerm.compute/new-azurermdiskconfig). W poniższym przykładzie jest konfigurowany dysk o rozmiarze 128 gigabajtów.
 
 ```azurepowershell-interactive
-$vm = Add-AzureRmVMDataDisk -VM $vm -Name myDataDisk -CreateOption Attach -ManagedDiskId $dataDisk.Id -Lun 1
+$diskConfig = New-AzureRmDiskConfig `
+    -Location "EastUS" `
+    -CreateOption Empty `
+    -DiskSizeGB 128
 ```
 
-Zaktualizuj maszynę wirtualną z [AzureRmVM aktualizacji](/powershell/module/azurerm.compute/add-azurermvmdatadisk) polecenia.
+Do tworzenia dysku danych służy polecenie [New-AzureRmDisk](/powershell/module/azurerm.compute/new-azurermdisk).
 
 ```azurepowershell-interactive
-Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm
+$dataDisk = New-AzureRmDisk `
+    -ResourceGroupName "myResourceGroupDisk" `
+    -DiskName "myDataDisk" `
+    -Disk $diskConfig
 ```
 
-## <a name="prepare-data-disks"></a>Przygotowanie dysków z danymi
+Do pobierania maszyny wirtualnej, do której chcesz dodać dysk z danymi, służy polecenie [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm).
 
-Po dysk został dołączony do maszyny wirtualnej, musi być skonfigurowana do używania dysku systemu operacyjnego. Poniższy przykład pokazuje, jak ręcznie skonfigurować pierwszego dysku dodane do maszyny Wirtualnej. Ten proces można również zautomatyzować przy użyciu [niestandardowe rozszerzenie skryptu](./tutorial-automate-vm-deployment.md).
+```azurepowershell-interactive
+$vm = Get-AzureRmVM -ResourceGroupName "myResourceGroupDisk" -Name "myVM"
+```
+
+Do dodawania dysku z danymi do konfiguracji maszyny wirtualnej służy polecenie [Add-AzureRmVMDataDisk](/powershell/module/azurerm.compute/add-azurermvmdatadisk).
+
+```azurepowershell-interactive
+$vm = Add-AzureRmVMDataDisk `
+    -VM $vm `
+    -Name "myDataDisk" `
+    -CreateOption Attach `
+    -ManagedDiskId $dataDisk.Id `
+    -Lun 1
+```
+
+Do aktualizowania maszyny wirtualnej służy polecenie [Update-AzureRmVM](/powershell/module/azurerm.compute/add-azurermvmdatadisk).
+
+```azurepowershell-interactive
+Update-AzureRmVM -ResourceGroupName "myResourceGroupDisk" -VM $vm
+```
+
+## <a name="prepare-data-disks"></a>Przygotowywanie dysków z danymi
+
+Po dołączeniu dysku do maszyny wirtualnej należy skonfigurować system operacyjny do korzystania z tego dysku. Poniższy przykład pokazuje, jak ręcznie skonfigurować pierwszy dysk dodany do maszyny wirtualnej. Proces ten można też zautomatyzować przy użyciu [niestandardowego rozszerzenia skryptu](./tutorial-automate-vm-deployment.md).
 
 ### <a name="manual-configuration"></a>Konfiguracja ręczna
 
-Utwórz połączenie RDP z maszyny wirtualnej. Otwieranie programu PowerShell i uruchom ten skrypt.
+Utwórz połączenie RDP z maszyną wirtualną. Otwórz program PowerShell i uruchom ten skrypt.
 
-```azurepowershell-interactive
+```azurepowershell
 Get-Disk | Where partitionstyle -eq 'raw' | `
 Initialize-Disk -PartitionStyle MBR -PassThru | `
 New-Partition -AssignDriveLetter -UseMaximumSize | `
 Format-Volume -FileSystem NTFS -NewFileSystemLabel "myDataDisk" -Confirm:$false
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przedstawiono tematy dysków maszyny Wirtualnej takich jak:
+W tym samouczku przedstawiono zagadnienia dotyczące dysków maszyn wirtualnych, takie jak:
 
 > [!div class="checklist"]
-> * Dyski systemu operacyjnego i tymczasowego
+> * Dyski systemu operacyjnego i dyski tymczasowe
 > * Dyski z danymi
-> * Standard i dysków w warstwie Premium
+> * Dyski w warstwie Standardowa i Premium
 > * Wydajność dysku
-> * Dołączanie i przygotowywania dysków z danymi
+> * Dołączanie i przygotowywanie dysków z danymi
 
-Przejdź do następnego w samouczku więcej informacji na temat automatyzacji konfiguracji maszyny Wirtualnej.
+Przejdź do następnego samouczka, aby dowiedzieć się więcej na temat automatyzowania konfigurowania maszyny wirtualnej.
 
 > [!div class="nextstepaction"]
 > [Automatyzowanie konfiguracji maszyny wirtualnej](./tutorial-automate-vm-deployment.md)

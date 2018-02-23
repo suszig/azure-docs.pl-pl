@@ -2,18 +2,19 @@
 title: "Azure stosu Szybki Start - Utwórz maszynę wirtualną systemu Windows"
 description: "Azure stosu Szybki Start - Utwórz maszynę Wirtualną z systemem Windows przy użyciu portalu"
 services: azure-stack
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
 ms.date: 09/15/2017
-ms.author: erikje
+ms.author: brenduns
+ms.reviewer: 
 ms.custom: mvc
-ms.openlocfilehash: 64a623b3f5cb443e0676e7d89d7040837be95737
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 9df976fd26318038ab4152863638e262d7f284aa
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-the-azure-stack-portal"></a>Utwórz maszynę wirtualną z systemem Windows przy użyciu portalu Azure stosu
 
@@ -46,5 +47,5 @@ Zaloguj się do portalu Azure stosu. Adres w portalu Azure stosu zależy od tego
 
 Gdy maszyna wirtualna nie jest już potrzebny, Usuń grupę zasobów, maszyny wirtualnej i wszystkie powiązane zasoby. Aby to zrobić, wybierz grupę zasobów na stronie maszyny wirtualnej, a następnie kliknij przycisk **usunąć**.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 W tym szybki start wdrożeniu prostą maszynę wirtualną systemu Windows. Aby dowiedzieć się więcej o maszynach wirtualnych Azure stosu, nadal [zagadnienia dotyczące maszyn wirtualnych w stosie Azure](azure-stack-vm-considerations.md).

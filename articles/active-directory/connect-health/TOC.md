@@ -1,7 +1,7 @@
 # Omówienie
 ## [Co to jest program Azure AD Connect Health?](active-directory-aadconnect-health.md)
 
-# Rozpoczynanie pracy
+# Rozpoczęcie pracy
 ## [Używanie programu Azure AD Connect Health z usługami AD FS](active-directory-aadconnect-health-adfs.md)
 ## [Używanie programu Azure AD Connect Health w celu synchronizacji](active-directory-aadconnect-health-sync.md)
 ## [Używanie programu Azure AD Connect Health z usługami AD DS](active-directory-aadconnect-health-adds.md)
@@ -14,6 +14,7 @@
 # Dokumentacja
 ## [Przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Historia wersji programu Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
+## [GDPR compliance and Azure AD Connect Health (Zgodność z rozporządzeniem RODO a program Azure AD Connect Health)](active-directory-aadconnect-health-gdpr.md)
 
 # Powiązane
 ## [Integrowanie tożsamości lokalnych z usługą Azure Active Directory](../active-directory-aadconnect.md)

@@ -14,15 +14,15 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 01/31/2018
 ms.author: elbutter;barbkess
-ms.openlocfilehash: ff6c14ced42385d81f3c42b4b4bf1fd06464c0d1
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: a3a435d6bdb0d35c96349540d5e9f9b5be61bd9b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>Szybki Start: Skali obliczeń w usłudze Azure SQL Data Warehouse w programie PowerShell
 
-Skalowanie możliwości obliczeniowych w magazynie danych SQL Azure w programie PowerShell. Skalowanie w poziomie obliczeń w celu zapewnienia lepszej wydajności lub skali ponownie obliczeniowe celu ograniczenia kosztów. 
+Skalowanie możliwości obliczeniowych w magazynie danych SQL Azure w programie PowerShell. [Skalowanie w poziomie obliczeń](sql-data-warehouse-manage-compute-overview.md) dla lepszą wydajność i skalę kopii obliczeń w celu ograniczenia kosztów. 
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
@@ -67,7 +67,7 @@ Wykonaj następujące kroki, aby znaleźć informacje o lokalizacji dla magazynu
 4. Zanotuj nazwę magazynu danych, która będzie używana jako nazwa bazy danych. Również Zanotuj nazwę serwera i grupy zasobów. Będzie używane w wstrzymanie i wznowić poleceń.
 5. Jeśli serwer jest foo.database.windows.net, należy użyć pierwszej części jako nazwę serwera, polecenia cmdlet programu PowerShell. Na poprzedniej ilustracji pełną nazwę serwera jest NowySerwer 20171113.database.windows.net. Używamy **20171113 NowySerwer** jako nazwę serwera w poleceniu cmdlet programu PowerShell.
 
-## <a name="scale-compute"></a>Skalowanie możliwości obliczeniowych
+## <a name="scale-compute"></a>Skalowanie zasobów obliczeniowych
 
 W usłudze SQL Data Warehouse można zwiększyć lub zmniejszyć zasoby obliczeniowe przez dostosowanie wartości właściwości jednostki magazynu danych. [Tworzenie i Connect - portal](create-data-warehouse-portal.md) utworzony **mySampleDataWarehouse** i zainicjować go od 400 jednostek dwu. Poniższe kroki Dostosuj liczbę jednostek dwu dla **mySampleDataWarehouse**.
 

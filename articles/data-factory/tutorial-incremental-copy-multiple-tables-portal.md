@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/20/2018
 ms.author: jingwang
-ms.openlocfilehash: c79bce401b0f1d67d7955f4c97a5dfac5008be0d
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 11dedc8866fcc0239fd4a34b7ed73af34c6d5a4e
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Przyrostowe ładowanie danych z wielu tabel w programie SQL Server do bazy danych Azure SQL Database
 W tym samouczku utworzysz fabrykę danych Azure Data Factory z potokiem służącym do ładowania danych różnicowych z wielu tabel na lokalnym serwerze SQL Server do bazy danych Azure SQL Database.    
@@ -135,7 +135,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
     ```
 
-### <a name="create-another-table-in-the-sql-database-to-store-the-high-watermark-value"></a>Tworzenie innej tabeli w bazie danych SQL do przechowywania wartości górnego limitu
+### <a name="create-another-table-in-the-azure-sql-database-to-store-the-high-watermark-value"></a>Tworzenie innej tabeli w bazie danych Azure SQL Database do przechowywania wartości górnego limitu
 1. Uruchom następujące polecenie SQL względem bazy danych SQL, aby utworzyć tabelę o nazwie `watermarktable` w celu przechowywania wartości limitu: 
     
     ```sql
@@ -157,7 +157,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
     
     ```
 
-### <a name="create-a-stored-procedure-in-the-sql-database"></a>Tworzenie procedur składowanych w bazie danych SQL 
+### <a name="create-a-stored-procedure-in-the-azure-sql-database"></a>Tworzenie procedury składowanej w usłudze Azure SQL Database 
 
 Uruchom następujące polecenie, aby utworzyć procedurę składowaną w bazie danych SQL. Ta procedura składowana służy do aktualizowania wartość limitu po każdym uruchomieniu potoku. 
 
@@ -175,7 +175,7 @@ END
 
 ```
 
-### <a name="create-data-types-and-additional-stored-procedures"></a>Tworzenie typów danych i dodatkowych procedur składowanych
+### <a name="create-data-types-and-additional-stored-procedures-in-azure-sql-database"></a>Tworzenie typów danych i dodatkowych procedur składowanych w usłudze Azure SQL Database
 Uruchom następujące zapytanie, aby utworzyć dwie procedury składowane i dwa typy danych w bazie danych SQL. Służą one do scalania danych z tabel źródłowych w tabelach docelowych.
 
 ```sql
@@ -228,6 +228,7 @@ END
 
 ## <a name="create-a-data-factory"></a>Tworzenie fabryki danych
 
+1. Uruchom przeglądarkę internetową **Microsoft Edge** lub **Google Chrome**. Obecnie interfejs użytkownika usługi Data Factory jest obsługiwany tylko przez przeglądarki internetowe Microsoft Edge i Google Chrome.
 1. Kliknij przycisk **Nowy** w lewym menu, kliknij pozycję **Dane + analiza**, a następnie kliknij pozycję **Data Factory**. 
    
    ![Nowy-> Fabryka danych](./media/tutorial-incremental-copy-multiple-tables-portal/new-azure-data-factory-menu.png)
@@ -422,7 +423,7 @@ Potok przyjmuje listę nazw tabel jako parametr. Działanie ForEach służy do p
     3. Wybierz pozycję **Obiekt** dla parametru **typ**.
 
     ![Parametry potoku](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-parameters.png) 
-4. Przeciągnij działanie **ForEach** (Dla każdego) z przybornika **Działania** i upuść je na powierzchni projektanta potoku. Na karcie **Ogólne** w oknie **Właściwości** wprowadź wartość **IterateSQLTables**. 
+4. W przyborniku **Działania** rozwiń pozycję **Iteracja i warunki**, a następnie przeciągnij i upuść działanie **ForEach** na powierzchni projektanta potoku. Na karcie **Ogólne** w oknie **Właściwości** wprowadź wartość **IterateSQLTables**. 
 
     ![Działanie ForEach — nazwa](./media/tutorial-incremental-copy-multiple-tables-portal/foreach-name.png)
 5. Przejdź do karty **Ustawienia** w oknie **Właściwości** i wprowadź wartość `@pipeline().parameters.tableList` w polu **Elementy**. Działanie ForEach przeprowadza iterację po liście tabel i wykonuje operację kopiowania przyrostowego. 
@@ -431,7 +432,7 @@ Potok przyjmuje listę nazw tabel jako parametr. Działanie ForEach służy do p
 6. Wybierz działanie **ForEach** w potoku, jeśli jeszcze nie zostało wybrane. Kliknij przycisk **Edytuj (ikonę ołówka)**.
 
     ![Działanie ForEach — edycja](./media/tutorial-incremental-copy-multiple-tables-portal/edit-foreach.png)
-7. Przeciągnij działanie **Lookup** (Wyszukaj) z przybornika **Działania** i wprowadź wartość **LookupOldWaterMarkActivity** w polu **Nazwa**.
+7. W przyborniku **Działania** rozwiń pozycję **SQL Database**, przeciągnij i upuść działanie **Lookup** (Wyszukiwanie) na powierzchni projektanta potoku, a następnie wprowadź wartość **LookupOldWaterMarkActivity** w polu **Nazwa**.
 
     ![Pierwsze działanie Lookup — nazwa](./media/tutorial-incremental-copy-multiple-tables-portal/first-lookup-name.png)
 8. Przejdź do karty **Ustawienia** w oknie **Właściwości** i wykonaj następujące czynności: 
@@ -497,12 +498,13 @@ Potok przyjmuje listę nazw tabel jako parametr. Działanie ForEach służy do p
     ![Działanie Stored Procedure (Procedura składowana) — konto SQL](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png)
 19. Przejdź do karty **Procedura składowana** i wykonaj następujące czynności:
 
-    1. Wprowadź wartość `sp_write_watermark` w polu **Nazwa procedury składowanej**. 
-    2. Użyj przycisku **Nowy**, aby dodać następujące parametry: 
+    1. W polu **Nazwa procedury składowanej** wybierz wartość `sp_write_watermark`. 
+    2. Wybierz pozycję **Importuj parametr**. 
+    3. Określ wartości następujących parametrów: 
 
         | Name (Nazwa) | Typ | Wartość | 
         | ---- | ---- | ----- |
-        | LastModifiedtime | datetime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
+        | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
         | TableName | Ciąg | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
     
         ![Działanie procedury składowanej — ustawienia procedury składowanej](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)

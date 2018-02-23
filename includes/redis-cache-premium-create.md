@@ -1,4 +1,4 @@
-Aby utworzyć pamięć podręczną w warstwie Premium, zaloguj się do witryny [Azure Portal](https://portal.azure.com), a następnie kliknij kolejno pozycje **Nowy** > **Bazy danych** > **Pamięć podręczna Redis Cache**.
+Aby utworzyć pamięć podręczna premium, zaloguj się do [portalu Azure](https://portal.azure.com) i kliknij przycisk **Utwórz zasób** > **baz danych** > **pamięci podręcznej Redis** .
 
 ![Tworzenie pamięci podręcznej](media/redis-cache-premium-create/redis-cache-new-cache-menu.png)
 

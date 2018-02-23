@@ -3,8 +3,8 @@ title: "Udostępnić użytkownikom Azure stosu baz danych SQL | Dokumentacja fir
 description: "Samouczek, aby zainstalować dostawcę zasobów programu SQL Server i utworzyć oferuje które zezwala użytkownikom Azure stosu na tworzenie baz danych."
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: 
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 7/03/2017
-ms.author: erikje
+ms.author: brenduns
+ms.reviewer: 
 ms.custom: mvc
-ms.openlocfilehash: f774888ba3921d0688feddac669ed1dca4667441
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e9fd74fa44bb9482ee2285f4305085ee6ff2fb73
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="make-sql-databases-available-to-your-azure-stack-users"></a>Udostępnić użytkownikom Azure stosu bazy danych SQL
 
@@ -73,7 +74,7 @@ Wdrożeniu dostawcy zasobów programu SQL Server, a następnie utworzyć ofertę
 4. Kliknij przycisk **SKU** > Wybierz jednostki SKU SQL utworzony dla programu SQL Server obsługującego > **OK**.
 5. Kliknij przycisk **Utwórz**.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 

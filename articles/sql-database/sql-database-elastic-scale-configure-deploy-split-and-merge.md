@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: 203e1f8842c229088102412afa5de8f967837041
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 4505aebc8919a5d7b8f3debe0db9f49b465176bf
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy-a-split-merge-service"></a>Wdrażanie usługi z podziałem i scalaniem
 Narzędzia do scalania podziału umożliwia przenoszenie danych między podzielonej baz danych. Zobacz [przenoszenia danych między bazami danych w chmurze skalowalnych w poziomie](sql-database-elastic-scale-overview-split-and-merge.md)
@@ -39,8 +39,8 @@ Pliki są umieszczane w katalogu o nazwie **Microsoft.Azure.SqlDatabase.ElasticS
 2. Upewnij się, że serwer bazy danych SQL Azure umożliwia usługom Azure się z nią połączyć. W portalu w **ustawienia zapory**, upewnij się, **zezwolić na dostęp do usług Azure** mają ustawioną wartość **na**. Kliknij ikonę "Zapisz".
    
    ![Dozwolone usług][1]
-3. Tworzenie konta usługi Azure Storage, który będzie używany dla danych wyjściowych diagnostyki. Przejdź do portalu Azure. Na pasku po lewej stronie kliknij **nowy**, kliknij przycisk **dane i magazyn**, następnie **magazynu**.
-4. Tworzenie usługi w chmurze Azure zawierających usługi podziału scalania.  Przejdź do portalu Azure. Na pasku po lewej stronie kliknij **nowy**, następnie **obliczeniowe**, **usługi w chmurze**, i **Utwórz**. 
+3. Tworzenie konta usługi Azure Storage, który będzie używany dla danych wyjściowych diagnostyki. Przejdź do portalu Azure. Na pasku po lewej stronie kliknij **Utwórz zasób**, kliknij przycisk **dane i magazyn**, następnie **magazynu**.
+4. Tworzenie usługi w chmurze Azure zawierających usługi podziału scalania.  Przejdź do portalu Azure. Na pasku po lewej stronie kliknij **Utwórz zasób**, następnie **obliczeniowe**, **usługi w chmurze**, i **Utwórz**. 
 
 ## <a name="configure-your-split-merge-service"></a>Konfigurowanie usługi scalania podziału
 ### <a name="split-merge-service-configuration"></a>Konfiguracja usługi scalania podziału
@@ -128,7 +128,7 @@ Należy pamiętać, w środowisku produkcyjnym wdrożeń oddzielne certyfikaty p
 3. Kliknij przycisk **pulpitu nawigacyjnego**.
 4. Wybierz środowisko przejściowe, a następnie kliknij przycisk **przekazania nowego wdrożenia przemieszczania**.
    
-   ![Przemieszczania][3]
+   ![Przemieszczanie][3]
 5. W oknie dialogowym wprowadź etykietę wdrożenia. "Pakietu" i "Konfiguracja", kliknij przycisk "Z lokalnego" i wybierz polecenie **SplitMergeService.cspkg** plików i skonfigurowaną wcześniej pliku cscfg.
 6. Upewnij się, że pole wyboru **Wdróż, nawet jeśli co najmniej jedna rola zawiera pojedyncze wystąpienie** jest zaznaczony.
 7. Kliknij przycisk znaczników w prawym dolnym rogu, aby rozpocząć wdrażanie. Powinien zająć kilka minut.

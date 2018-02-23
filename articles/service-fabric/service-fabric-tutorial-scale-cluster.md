@@ -1,6 +1,6 @@
 ---
-title: "Skalowanie klastra usługi sieć szkieletowa usług Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak szybko skalować klastra usługi sieć szkieletowa usług."
+title: "Skalowanie klastra usługi Azure Service Fabric | Microsoft Docs"
+description: "Dowiedz się, jak szybko przeskalować klaster usługi Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: Thraka
@@ -12,43 +12,43 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/24/2017
+ms.date: 02/06/2018
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: 63b4747164959b0e95f6d3f1908d1fd265589a98
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.openlocfilehash: bbbb31687ab0980d62b35d627c4b1708b7ae8288
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="scale-a-service-fabric-cluster"></a>Skalowanie klastra sieci szkieletowej usług
+# <a name="scale-a-service-fabric-cluster"></a>Skalowanie klastra usługi Service Fabric
 
-W tym samouczku jest częścią dwóch serii i pokazuje, jak skalować istniejący klaster, a w. Po wprowadzeniu gotowe, będzie wiadomo, jak skalować klastra i sposób wyczyścić wszystkie zasoby przedziale.
+Niniejszy samouczek jest drugą częścią serii. Przedstawiono w nim skalowanie istniejącego klastra w poziomie i w pionie. Ukończenie tego samouczka pozwoli Ci uzyskać wiedzę na temat skalowania klastra i czyszczenia pozostałych zasobów.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Liczba węzłów klastra do odczytu
-> * Dodaj węzły klastra (skalowanie w poziomie)
-> * Usuń węzły klastra (skali w)
+> * Odczytywanie liczby węzłów klastra
+> * Dodawanie węzłów klastra (skalowanie w poziomie)
+> * Usuwanie węzłów klastra (skalowanie w pionie)
 
-W tym samouczku dowiesz się, jak:
+Ta seria samouczków zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
-> * Tworzenie bezpiecznej [klastra systemu Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) lub [klaster systemu Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) na platformie Azure przy użyciu szablonu
-> * Skalowanie klastra przychodzący lub wychodzący
-> * [Uaktualnienie środowiska uruchomieniowego klastra](service-fabric-tutorial-upgrade-cluster.md)
-> * [Wdrażanie interfejsu API zarządzania za pomocą sieci szkieletowej usług](service-fabric-tutorial-deploy-api-management.md)
+> * Tworzenie bezpiecznego [klastra systemu Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) lub [klastra systemu Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) na platformie Azure przy użyciu szablonu
+> * Skalowanie klastra w poziomie lub w pionie
+> * [Uaktualnianie środowiska uruchomieniowego klastra](service-fabric-tutorial-upgrade-cluster.md)
+> * [Wdrażanie usługi API Management z usługą Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Przed rozpoczęciem tego samouczka:
-- Jeśli nie masz subskrypcji platformy Azure, Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- Zainstaluj [programu Azure Powershell w wersji modułu 4.1 lub wyższej](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) lub [Azure CLI 2.0](/cli/azure/install-azure-cli).
-- Tworzenie bezpiecznej [klastra systemu Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) lub [klaster systemu Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) na platformie Azure
-- W przypadku wdrażania klastra systemu Windows, konfigurowanie środowiska projektowego systemu Windows. Zainstaluj [programu Visual Studio 2017](http://www.visualstudio.com) i **Azure programowanie**, **ASP.NET i sieć web development**, i **aplikacji dla wielu platform .NET Core**obciążeń.  Następnie skonfiguruj [środowiska programowania .NET](service-fabric-get-started.md).
-- Jeśli w przypadku wdrażania klastra Linux należy skonfigurować środowisko projektowe Java na [Linux](service-fabric-get-started-linux.md) lub [MacOS](service-fabric-get-started-mac.md).  Zainstaluj [usługi sieci szkieletowej interfejsu wiersza polecenia](service-fabric-cli.md). 
+- Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Zainstaluj [moduł Azure PowerShell w wersji 4.1 lub nowszej](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) albo [interfejs wiersza polecenia platformy Azure 2.0](/cli/azure/install-azure-cli).
+- Utwórz bezpieczny [klaster systemu Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) lub [klaster systemu Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) na platformie Azure.
+- W przypadku wdrażania klastra systemu Windows skonfiguruj środowisko deweloperskie w systemie Windows. Zainstaluj program [Visual Studio 2017](http://www.visualstudio.com), a następnie zainstaluj obciążenia **Programowanie na platformie Azure**, **Tworzenie aplikacji na platformie ASP.NET i aplikacji internetowych** oraz **Programowanie dla wielu platform w środowisku .NET Core**.  Następnie skonfiguruj [środowisko deweloperskie platformy .NET](service-fabric-get-started.md).
+- W przypadku wdrażania klastra systemu Linux skonfiguruj środowisko projektowe Java w systemie [Linux](service-fabric-get-started-linux.md) lub [MacOS](service-fabric-get-started-mac.md).  Zainstaluj [interfejs wiersza polecenia usługi Service Fabric](service-fabric-cli.md). 
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
-Zaloguj się na konto Azure Wybierz subskrypcję, przed wykonaniem polecenia platformy Azure.
+Przed wykonaniem poleceń platformy Azure zaloguj się na konto platformy Azure i wybierz subskrypcję.
 
 ```powershell
 Login-AzureRmAccount
@@ -63,9 +63,9 @@ az account set --subscription <guid>
 
 ## <a name="connect-to-the-cluster"></a>Łączenie z klastrem
 
-Do pomyślnego ukończenia tej części samouczka zostały wykonane, należy nawiązać zarówno klastra sieci szkieletowej usług, jak i zestawu skali maszyny wirtualnej (obsługującego klastra). Zestaw skali maszyny wirtualnej jest zasobem platformy Azure, który jest hostem usługi sieć szkieletowa usług Azure.
+Do ukończenia tej części samouczka wymagane jest połączenie zarówno z klastrem usługi Service Fabric, jak i zestawem skalowania maszyn wirtualnych (który hostuje klaster). Zestaw skalowania maszyn wirtualnych jest zasobem, który hostuje usługę Service Fabric na platformie Azure.
 
-Po podłączeniu do klastra, możesz go zapytania informacji. Aby dowiedzieć się więcej o jakie węzłów klastra jest znane, można użyć klastra. Łączenie z klastrem w poniższym kodzie używa tego samego certyfikatu, który został utworzony w pierwszej części tej serii. Upewnij się, że ustawisz `$endpoint` i `$thumbprint` zmienne do wartości.
+Po połączeniu się z klastrem można wykonywać zapytania skierowanie do niego. Komunikując się z klastrem, można dowiedzieć się, jakie węzły są rozpoznawane. W poniższym kodzie, który umożliwia połączenie się z klastrem, użyto certyfikatu utworzonego w pierwszej części tej serii. Pamiętaj, aby zmiennym `$endpoint` i `$thumbprint` nadać odpowiednie wartości.
 
 ```powershell
 $endpoint = "<mycluster>.southcentralus.cloudapp.azure.com:19000"
@@ -85,20 +85,20 @@ sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.az
 --pem ./aztestcluster201709151446.pem --no-verify
 ```
 
-Teraz, gdy masz połączenie, służy polecenie można uzyskać stanu każdego węzła w klastrze. Dla programu PowerShell, użyj `Get-ServiceFabricClusterHealth` polecenia oraz **sfctl** Użyj "polecenia.
+Po nawiązaniu połączenia możesz pobrać stan poszczególnych węzłów w klastrze za pomocą polecenia. W programie PowerShell użyj polecenia `Get-ServiceFabricClusterHealth`, a w programie **sfctl** — polecenia `sfctl cluster select`.
 
 ## <a name="scale-out"></a>Skalowanie w poziomie
 
-Skalowanie w poziomie, możesz dodać więcej wystąpień maszyny wirtualnej w zestawie skali. Wystąpienia te staną się węzły, które korzysta z sieci szkieletowej usług. Sieć szkieletowa usług wie, kiedy zestaw skali ma więcej wystąpień dodane (przez skalowanie w poziomie) i reaguje automatycznie. Poniższy kod pobiera skalę ustawić według nazwy i zwiększa **pojemności** skali ustawione przez 1.
+Skalowanie w poziomie polega na dodawaniu wystąpień maszyn wirtualnych do zestawu skalowania. Wystąpienia te stają się węzłami używanymi przez usługę Service Fabric. Usługa Service Fabric wykrywa zwiększenie liczby wystąpień (efekt skalowania w poziomie) i reaguje automatycznie. Poniższy kod pobiera nazwę zestawu skalowania i zwiększa jego **pojemność** o 1.
 
 ```powershell
 $scaleset = Get-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm
 $scaleset.Sku.Capacity += 1
 
-Update-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm -VirtualMachineScaleSet $scaleset
+Update-AzureRmVmss -ResourceGroupName $scaleset.ResourceGroupName -VMScaleSetName $scaleset.Name -VirtualMachineScaleSet $scaleset
 ```
 
-Ten kod ustawia pojemność 6.
+Pojemność jest ustawiana na 6.
 
 ```azurecli
 # Get the name of the node with
@@ -108,46 +108,47 @@ az vmss list-instances -n nt1vm -g sfclustertutorialgroup --query [*].name
 az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 6
 ```
 
-## <a name="scale-in"></a>Skalowanie w
+## <a name="scale-in"></a>Skalowanie w pionie
 
-Skalowanie w jest taka sama jak skalowanie w poziomie, z wyjątkiem użycia dolna **pojemności** wartość. Skalowanie w zestawie skalowania, należy usunąć wystąpień maszyn wirtualnych z zestawu skalowania. Zazwyczaj usługi sieć szkieletowa nie zna co miało miejsce, a sądzi, że węzeł przeszedł Brak. Sieć szkieletowa usług następnie zgłasza Stan nieprawidłowości dla klastra. Aby uniknąć tego nieprawidłowego stanu, należy poinformować usługi sieć szkieletowa spodziewać się węzeł, który ma zniknąć.
+Skalowanie w pionie odbywa się tak samo jak skalowanie w poziomie, przy czym używana jest niższa wartość **pojemności**. Skalowanie w pionie polega na usuwaniu wystąpień maszyn wirtualnych z zestawu skalowania. Zazwyczaj usługa Service Fabric traktuje tę zmianę jako zniknięcie węzła. Powoduje to zgłoszenie stanu złej kondycji klastra. Aby temu zapobiec, musisz poinformować usługę Service Fabric o oczekiwanym zniknięciu węzła.
 
-### <a name="remove-the-service-fabric-node"></a>Usuń węzeł sieci szkieletowej usług
+### <a name="remove-the-service-fabric-node"></a>Usuwanie węzła usługi Service Fabric
 
 > [!NOTE]
-> Ta część dotyczy tylko *brązowa* warstwa trwałości. Aby uzyskać więcej informacji o trwałości, zobacz [planowania pojemności klastra usługi sieć szkieletowa][durability].
+> Ta część dotyczy tylko warstwy trwałości *Brązowa*. Aby uzyskać więcej informacji o trwałości, zobacz [Planowanie pojemności klastra usługi Service Fabric][durability].
 
-Skalowanie w zestawie skalowania maszyn wirtualnych skali (w większości przypadków) usuwa wystąpienie maszyny wirtualnej, utworzonej ostatnio. Dlatego należy znaleźć dopasowanie, ostatniego utworzenia, węzeł sieci szkieletowej usług. Możesz znaleźć tego ostatniego węzła za pośrednictwem powiązanych punktów sprzedaży sprawdzanie `NodeInstanceId` wartości właściwości w węzłach sieci szkieletowej usług. Przykłady kodu poniżej sortowania przez węzeł wystąpienia i zwracają szczegółowe informacje o wystąpieniu o największej wartości identyfikatora. 
+Skalowanie w pionie zestawu skalowania maszyn wirtualnych w większości przypadków powoduje usunięcie ostatnio utworzonego wystąpienia maszyny wirtualnej. A zatem należy znaleźć niedawno utworzony, pasujący węzeł usługi Service Fabric. Można to zrobić, wyszukując największą wartość właściwości `NodeInstanceId` w węzłach usługi Service Fabric. Poniższy przykładowy kod przedstawia sortowanie według wystąpienia węzła i zwraca szczegóły wystąpienia o największej wartości identyfikatora. 
 
 ```powershell
-Get-ServiceFabricNode | Sort-Object NodeInstanceId -Descending | Select-Object -First 1
+Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1
 ```
 
 ```azurecli
-`sfctl node list --query "sort_by(items[*], &instanceId)[-1]"`
+sfctl node list --query "sort_by(items[*], &name)[-1]"
 ```
 
-Klastra sieci szkieletowej usług musi wiedzieć, że ten węzeł ma zostać usunięte. Istnieją trzy kroki, które należy wykonać:
+Klaster usługi Service Fabric musi „wiedzieć”, że ten węzeł ma zostać usunięty. Musisz wykonać trzy kroki:
 
-1. Wyłącz węzeł, aby była już replikacja danych.  
-Środowiska PowerShell:`Disable-ServiceFabricNode`  
-sfcli:`sfctl node disable`
+1. Wyłącz węzeł, aby zatrzymać replikację danych.  
+PowerShell: `Disable-ServiceFabricNode`  
+sfcli: `sfctl node disable`
 
-2. Zatrzymanie węzła, tak aby środowisko uruchomieniowe usługi sieć szkieletowa przebiega prawidłowo, a aplikacja pobiera żądanie przerwania.  
-Środowiska PowerShell:`Start-ServiceFabricNodeTransition -Stop`  
-sfcli:`sfctl node transition --node-transition-type Stop`
+2. Zatrzymaj węzeł, aby środowisko uruchomieniowe usługi Service Fabric zostało prawidłowo zamknięte, a aplikacja otrzymała żądanie przerwania.  
+PowerShell: `Start-ServiceFabricNodeTransition -Stop`  
+sfcli: `sfctl node transition --node-transition-type Stop`
 
 2. Usuń węzeł z klastra.  
-Środowiska PowerShell:`Remove-ServiceFabricNodeState`  
-sfcli:`sfctl node remove-state`
+PowerShell: `Remove-ServiceFabricNodeState`  
+sfcli: `sfctl node remove-state`
 
-Gdy te trzy kroki zostały zastosowane do węzła, można usunąć z zestawu skalowania. Jeśli używasz dowolnego warstwa trwałości oprócz [brązowa][durability], te kroki są wykonywane, gdy wystąpienia zestawu skalowania powoduje usunięcie.
+Po wykonaniu powyższych kroków węzeł może zostać usunięty z zestawu skalowania. Jeśli korzystasz z innej warstwy trwałości niż [brązowa][durability], kroki te są wykonywane automatycznie w przypadku usunięcia wystąpienia zestawu skalowania.
 
-Poniższy blok kodu pobiera ostatni węzeł utworzony, wyłącza zatrzymuje i usuwa węzeł z klastra.
+Poniższy blok kodu obejmuje pobranie ostatnio utworzonego węzła oraz jego wyłączenie, zatrzymanie i usunięcie z klastra.
 
 ```powershell
+#### After you've connected.....
 # Get the node that was created last
-$node = Get-ServiceFabricNode | Sort-Object NodeInstanceId -Descending | Select-Object -First 1
+$node = Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1
 
 # Node details for the disable/stop process
 $nodename = $node.NodeName
@@ -202,7 +203,7 @@ else
 }
 ```
 
-W **sfctl** kodu poniżej, następujące polecenie służy do pobierania **nazwa węzła** i **węzła wystąpienia identyfikatora** wartości utworzone ostatniego węzła:`sfctl node list --query "sort_by(items[*], &instanceId)[-1].[instanceId,name]"`
+W poniższym kodzie przedstawiającym użycie polecenia **sfctl** następujące polecenie służy do pobrania wartości **node-name** ostatnio utworzonego węzła: `sfctl node list --query "sort_by(items[*], &name)[-1].name"`
 
 ```azurecli
 # Inform the node that it is going to be removed
@@ -216,19 +217,19 @@ sfctl node remove-state --node-name _nt1vm_5
 ```
 
 > [!TIP]
-> Należy użyć następującego **sfctl** zapytania, aby sprawdzić stan każdego kroku
+> Następujące zapytania **sfctl** pozwalają sprawdzić stan każdego kroku
 >
-> **Sprawdź stan dezaktywację.**  
-> `sfctl node list --query "sort_by(items[*], &instanceId)[-1].nodeDeactivationInfo"`
+> **Sprawdzanie stanu dezaktywacji**  
+> `sfctl node list --query "sort_by(items[*], &name)[-1].nodeDeactivationInfo"`
 >
-> **Sprawdź stan zatrzymania**  
-> `sfctl node list --query "sort_by(items[*], &instanceId)[-1].isStopped"`
+> **Sprawdzanie stanu zatrzymania**  
+> `sfctl node list --query "sort_by(items[*], &name)[-1].isStopped"`
 >
 
 
-### <a name="scale-in-the-scale-set"></a>Skalowanie w zestawie skalowania
+### <a name="scale-in-the-scale-set"></a>Skalowanie zestawu w pionie
 
-Teraz, gdy węzeł sieci szkieletowej usług został usunięty z klastra, zestaw skali maszyny wirtualnej może być skalowana w. W poniższym przykładzie zostanie zmniejszona pojemność zestawu skalowania 1.
+Po usunięciu węzła usługi Service Fabric z klastra zestaw skalowania maszyn wirtualnych można przeskalować w pionie. W poniższym przykładzie pojemność zestawu skalowania została zmniejszona o 1.
 
 ```powershell
 $scaleset = Get-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm
@@ -237,7 +238,7 @@ $scaleset.Sku.Capacity -= 1
 Update-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm -VirtualMachineScaleSet $scaleset
 ```
 
-Ten kod ustawia pojemność 5.
+Pojemność jest ustawiana na 5.
 
 ```azurecli
 # Get the name of the node with
@@ -253,13 +254,13 @@ az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 5
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Liczba węzłów klastra do odczytu
-> * Dodaj węzły klastra (skalowanie w poziomie)
-> * Usuń węzły klastra (skali w)
+> * Odczytywanie liczby węzłów klastra
+> * Dodawanie węzłów klastra (skalowanie w poziomie)
+> * Usuwanie węzłów klastra (skalowanie w pionie)
 
 
-Następnie przejdź do samouczka następujące informacje na temat uaktualniania środowiska uruchomieniowego klastra.
+Przejdź do kolejnego samouczka, aby dowiedzieć się, jak uaktualnić środowisko uruchomieniowe klastra.
 > [!div class="nextstepaction"]
-> [Uaktualnienie środowiska uruchomieniowego klastra](service-fabric-tutorial-upgrade-cluster.md)
+> [Uaktualnianie środowiska uruchomieniowego klastra](service-fabric-tutorial-upgrade-cluster.md)
 
 [durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/05/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 23cc9ce855eeba9e9a365e42beeee01b09f0fee3
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 6aec2146d83c18a1e1714843cd49890f178e4fb3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Wdrażanie aplikacji kontenera systemu Linux w usłudze Azure Service Fabric na platformie Azure
 Usługa Azure Service Fabric to platforma systemów rozproszonych ułatwiająca pakowanie i wdrażanie skalowalnych oraz niezawodnych mikrousług i kontenerów, a także zarządzanie nimi. 
@@ -34,31 +34,34 @@ W tym przewodniku Szybki start zawarto informacje na temat wykonywania następuj
 > * Skalowanie kontenerów i przenoszenie ich do trybu failover w usłudze Service Fabric
 
 ## <a name="prerequisite"></a>Wymagania wstępne
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
-  
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+1. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, upewnij się, że uruchamiasz interfejs wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Aby znaleźć wersję, uruchom polecenie az --version. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+2. Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, upewnij się, że uruchamiasz interfejs wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Aby znaleźć wersję, uruchom polecenie az --version. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## <a name="get-application-package"></a>Pobieranie pakietu aplikacji
 Do wdrożenia kontenerów w usłudze Service Fabric potrzebujesz zestawu plików manifestu (definicja aplikacji), które opisują poszczególne kontenery i aplikację.
 
 W powłoce chmury użyj usługi Git, aby sklonować kopię definicji aplikacji.
 
-```azurecli-interactive
+```bash
 git clone https://github.com/Azure-Samples/service-fabric-containers.git
 
 cd service-fabric-containers/Linux/container-tutorial/Voting
 ```
+## <a name="deploy-the-application-to-azure"></a>Wdrażanie aplikacji na platformie Azure
 
-## <a name="deploy-the-containers-to-a-service-fabric-cluster-in-azure"></a>Wdrażanie kontenerów w klastrze usługi Service Fabric na platformie Azure
-Aby wdrożyć aplikację w klastrze na platformie Azure, użyj klastra własnego lub klastra testowego.
+### <a name="set-up-your-azure-service-fabric-cluster"></a>Konfigurowanie klastra usługi Azure Service Fabric
+Aby wdrożyć aplikację w klastrze na platformie Azure, utwórz własny klaster.
 
-> [!Note]
-> Aplikacja musi być wdrożona w klastrze na platformie Azure, a nie klastrze usługi Service Fabric na lokalnym komputerze deweloperskim. 
->
+Klastry testowe to bezpłatne, działające przez ograniczony czas klastry usługi Service Fabric hostowane na platformie Azure. Są one obsługiwane przez zespół usługi Service Fabric. Każdy może wdrażać w nich aplikacje i poznawać szczegółowo platformę. Aby uzyskać dostęp do klastra testowego, [postępuj zgodnie z instrukcjami](http://aka.ms/tryservicefabric). 
 
-Klastry testowe to bezpłatne, działające przez ograniczony czas klastry usługi Service Fabric hostowane na platformie Azure. Są one obsługiwane przez zespół usługi Service Fabric, gdzie każdy może wdrażać aplikacje i dowiadywać się więcej o platformie. Aby uzyskać dostęp do klastra testowego, [postępuj zgodnie z instrukcjami](http://aka.ms/tryservicefabric). 
+W celu wykonywania operacji zarządzania w zabezpieczonym klastrze testowym można użyć narzędzia Service Fabric Explorer, interfejsu wiersza polecenia lub programu PowerShell. Aby korzystać z narzędzia Service Fabric Explorer, należy załadować plik PFX z witryny internetowej klastra testowego i zaimportować certyfikat do magazynu certyfikatów (w systemie Windows lub Mac) lub do przeglądarki (w systemie Ubuntu). Nie ma żadnego hasła dla certyfikatów z podpisem własnym z klastra testowego. 
+
+Aby wykonywać operacje zarządzania za pomocą programu PowerShell lub interfejsu wiersza polecenia, potrzebny będzie plik PFX (w przypadku programu PowerShell) lub PEM (w przypadku interfejsu wiersza polecenia). Aby przekonwertować plik PFX na plik PEM, uruchom następujące polecenie:  
+
+```bash
+openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
+```
 
 Aby uzyskać informacje na temat tworzenia własnego klastra, zobacz [Tworzenie klastra usługi Service Fabric na platformie Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
@@ -67,17 +70,11 @@ Aby uzyskać informacje na temat tworzenia własnego klastra, zobacz [Tworzenie 
 >
 
 ### <a name="install-service-fabric-command-line-interface-and-connect-to-your-cluster"></a>Instalowanie interfejsu wiersza polecenia usługi Service Fabric i nawiązywanie połączenia z klastrem
-Zainstaluj [interfejs wiersza polecenia usługi Service Fabric (sfctl)](service-fabric-cli.md) w środowisku interfejsu wiersza polecenia.
 
-```azurecli-interactive
-pip3 install --user sfctl 
-export PATH=$PATH:~/.local/bin
-```
+Połącz się z klastrem usługi Service Fabric na platformie Azure przy użyciu interfejsu wiersza polecenia platformy Azure. Punkt końcowy to punkt końcowy zarządzania klastrem — na przykład `https://linh1x87d1d.westus.cloudapp.azure.com:19080`.
 
-Połącz się z klastrem usługi Service Fabric na platformie Azure przy użyciu interfejsu wiersza polecenia platformy Azure. Punkt końcowy to punkt końcowy zarządzania klastrem — na przykład `http://linh1x87d1d.westus.cloudapp.azure.com:19080`.
-
-```azurecli-interactive
-sfctl cluster select --endpoint http://linh1x87d1d.westus.cloudapp.azure.com:19080
+```bash
+sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify
 ```
 
 ### <a name="deploy-the-service-fabric-application"></a>Wdrażanie aplikacji usługi Service Fabric 
@@ -86,13 +83,13 @@ Aplikacje kontenera usługi Service Fabric można wdrożyć przy użyciu opisane
 #### <a name="deploy-using-service-fabric-application-package"></a>Wdrażanie przy użyciu pakietu aplikacji usługi Service Fabric
 Użyj udostępnionego skryptu instalacji, aby skopiować definicję aplikacji do głosowania do klastra, zarejestrować typ aplikacji i utworzyć wystąpienie aplikacji.
 
-```azurecli-interactive
+```bash
 ./install.sh
 ```
 
 #### <a name="deploy-the-application-using-docker-compose"></a>Wdrażanie aplikacji przy użyciu narzędzia Docker Compose
 Wdróż i zainstaluj aplikację w klastrze usługi Service Fabric przy użyciu narzędzia Docker Compose za pomocą następującego polecenia.
-```azurecli-interactive
+```bash
 sfctl compose create --deployment-name TestApp --file-path docker-compose.yml
 ```
 

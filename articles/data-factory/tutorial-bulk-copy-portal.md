@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 6aa5d4aa032ef4dc3583bf76b9c451874b74f9a6
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 5f0703a3cb2ce912bfc042d0717ad8d921ec43e3
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Zbiorcze kopiowanie wielu tabel przy użyciu usługi Azure Data Factory
 W tym samouczku przedstawiono **kopiowanie wielu tabel z bazy danych Azure SQL Database do usługi Azure SQL Data Warehouse**. Tego samego wzorca można użyć także w innych scenariuszach kopiowania. Na przykład kopiowanie tabel z programu SQL Server/Oracle do usługi Azure SQL Database/Data Warehouse/Azure Blob, kopiowanie różnych ścieżek z obiektów blob do tabeli bazy danych Azure SQL Database.
@@ -74,6 +74,7 @@ Zarówno dla bazy SQL Database, jak i dla magazynu SQL Data Warehouse, zezwól u
 3. Na stronie **Ustawienia zapory** kliknij pozycję **WŁĄCZ** dla ustawienia **Zezwalaj na dostęp do usług platformy Azure**.
 
 ## <a name="create-a-data-factory"></a>Tworzenie fabryki danych
+1. Uruchom przeglądarkę internetową **Microsoft Edge** lub **Google Chrome**. Obecnie interfejs użytkownika usługi Data Factory jest obsługiwany tylko przez przeglądarki internetowe Microsoft Edge i Google Chrome.
 1. Kliknij przycisk **Nowy** w lewym menu, kliknij pozycję **Dane + analiza**, a następnie kliknij pozycję **Data Factory**. 
    
    ![Nowy-> Fabryka danych](./media/tutorial-bulk-copy-portal/new-azure-data-factory-menu.png)
@@ -286,7 +287,7 @@ Ten potok wykonuje dwie czynności:
 2. W oknie Właściwości zmień nazwę potoku na **GetTableListAndTriggerCopyData**. 
 
     ![Nazwa potoku](./media/tutorial-bulk-copy-portal/second-pipeline-name.png)
-3. W przyborniku **Działania** rozwiń pozycję **SQL Database**, przeciągnij i upuść działanie **Lookup** (Wyszukiwanie) na powierzchni projektanta i wykonaj poniższe czynności:
+3. W przyborniku **Działania** rozwiń pozycję **Ogólne**, przeciągnij i upuść działanie **Lookup** (Wyszukiwanie) na powierzchni projektanta i wykonaj poniższe czynności:
 
     1. Wprowadź wartość **LookupTableList** w polu **Nazwa**. 
     2. Wprowadź wartość **Pobieranie listy tabel z bazy danych Azure SQL Database** w polu **Opis**.
@@ -322,7 +323,7 @@ Ten potok wykonuje dwie czynności:
 8. Aby zweryfikować potok, kliknij pozycję **Weryfikuj** na pasku narzędzi. Potwierdź, że weryfikacja nie zwróciła błędów. Aby zamknąć okno **Raport weryfikacji potoku**, kliknij pozycję **>>**.
 
     ![Drugi potok — raport weryfikacji](./media/tutorial-bulk-copy-portal/second-pipeline-validation-report.png)
-9. Aby opublikować jednostki (zestawy danych, potoki itp.) do usługi Data Factory, kliknij pozycję **Opublikuj**. Poczekaj na pomyślne zakończenie publikowania. 
+9. Aby opublikować jednostki (zestawy danych, potoki itp.) w usłudze Data Factory, kliknij pozycję **Opublikuj wszystko**. Poczekaj na pomyślne zakończenie publikowania. 
 
     ![Przycisk Opublikuj](./media/tutorial-bulk-copy-portal/publish.png)
 
