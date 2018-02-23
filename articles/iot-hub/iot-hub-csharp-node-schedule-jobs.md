@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2017
 ms.author: juanpere
-ms.openlocfilehash: e6795f09e275f9fcd38000d48710560244abc11d
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: bbc548ff7394ebdf158d8040eb8e188de951be2c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="schedule-and-broadcast-jobs-netnodejs"></a>Zadania harmonogramu i emisji (.NET/Node.js)
 
@@ -80,6 +80,7 @@ W tej sekcji Tworzenie aplikacji konsoli .NET (przy użyciu języka C#) korzysta
 1. Dodaj następujące `using` instrukcję, jeśli jeszcze nie istnieje w instrukcjach domyślne.
 
     ```csharp
+    using System.Threading;
     using System.Threading.Tasks;
     ```
 
@@ -251,7 +252,7 @@ Teraz można przystąpić do uruchomienia aplikacji.
 
     ![Uruchamianie aplikacji do planowania zadań][img-schedulejobs]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym samouczku użyto zadanie można zaplanować metoda bezpośrednia urządzenia i aktualizacji właściwości dwie urządzenia.
 

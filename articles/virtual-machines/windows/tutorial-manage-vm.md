@@ -1,218 +1,87 @@
 ---
-title: "Tworzenie i zarządzanie maszynami wirtualnymi systemu Windows z modułu Azure PowerShell | Dokumentacja firmy Microsoft"
-description: "Samouczek — tworzenie i zarządzanie maszynami wirtualnymi systemu Windows z modułu Azure PowerShell"
+title: "Tworzenie maszyn wirtualnych z systemem Windows i zarządzanie nimi za pomocą modułu Azure PowerShell | Microsoft Docs"
+description: "Samouczek — tworzenie maszyn wirtualnych z systemem Windows i zarządzanie nimi za pomocą modułu Azure PowerShell"
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 editor: tysonn
-tags: azure-service-management
+tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/02/2017
-ms.author: nepeters
+ms.date: 02/09/2018
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: c612a251105197ab2b46bf448ae39253e5a65f36
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: MT
+ms.openlocfilehash: 4cf406dfbab40631c99da70085e99ba90f563411
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/14/2018
 ---
-# <a name="create-and-manage-windows-vms-with-the-azure-powershell-module"></a>Tworzenie i zarządzanie maszynami wirtualnymi systemu Windows z modułu Azure PowerShell
+# <a name="create-and-manage-windows-vms-with-the-azure-powershell-module"></a>Tworzenie maszyn wirtualnych z systemem Windows i zarządzanie nimi za pomocą modułu Azure PowerShell
 
-Maszyny wirtualne platformy Azure zawierają w pełni konfigurowalne i elastyczne środowiska komputerowego. Ten samouczek obejmuje elementów wdrożenia podstawowej maszyny wirtualnej platformy Azure, takich jak rozmiar maszyny Wirtualnej, wybierając obrazu maszyny Wirtualnej i wdrażanie maszyny Wirtualnej. Omawiane kwestie:
+Maszyny wirtualne platformy Azure oferują w pełni konfigurowalne i elastyczne środowiska obliczeniowe. W tym samouczku opisano podstawowe elementy wdrożenia maszyny wirtualnej platformy Azure, takie jak wybieranie rozmiaru i obrazu maszyny wirtualnej oraz wdrażanie maszyny wirtualnej. Omawiane kwestie:
 
 > [!div class="checklist"]
-> * Tworzenie i połączyć z maszyną wirtualną
-> * Wybierz i używać obrazów maszyn wirtualnych
+> * Tworzenie maszyny wirtualnej i łączenie z nią
+> * Wybieranie i używanie obrazów maszyn wirtualnych
 > * Wyświetlanie i używanie określonych rozmiarów maszyn wirtualnych
 > * Zmienianie rozmiaru maszyny wirtualnej
-> * Wyświetlanie i zrozumienie stanu maszyny Wirtualnej
+> * Wyświetlanie stanu maszyny wirtualnej i jego omówienie
 
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Jeśli postanowisz zainstalować program PowerShell i używać go lokalnie, ten samouczek wymaga modułu Azure PowerShell w wersji 3.6 lub nowszej. Uruchom polecenie ` Get-Module -ListAvailable AzureRM`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-azurerm-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie `Login-AzureRmAccount`, aby utworzyć połączenie z platformą Azure. 
+Jeśli chcesz zainstalować program PowerShell i używać go lokalnie, ten samouczek wymaga modułu Azure PowerShell w wersji 5.3 lub nowszej. Uruchom polecenie `Get-Module -ListAvailable AzureRM`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-azurerm-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie `Login-AzureRmAccount`, aby utworzyć połączenie z platformą Azure. 
 
 ## <a name="create-resource-group"></a>Tworzenie grupy zasobów
 
 Utwórz grupę zasobów na pomocą polecenia [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). 
 
-Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Grupy zasobów musi zostać utworzone przed maszyny wirtualnej. W tym przykładzie grupy zasobów o nazwie *myResourceGroupVM* jest tworzony w *EastUS* regionu. 
+Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Grupę zasobów należy utworzyć przed maszyną wirtualną. W poniższym przykładzie grupa zasobów o nazwie *myResourceGroupVM* zostanie utworzona w regionie *EastUS*:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -ResourceGroupName myResourceGroupVM -Location EastUS
+New-AzureRmResourceGroup -ResourceGroupName "myResourceGroupVM" -Location "EastUS"
 ```
 
-Grupa zasobów jest określony, podczas tworzenia lub modyfikowania maszyn wirtualnych, które są widoczne w tym samouczku.
+Grupa zasobów jest określana podczas tworzenia lub modyfikowania maszyn wirtualnych, co zostało przedstawione w tym samouczku.
 
 ## <a name="create-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
-Maszyny wirtualnej musi być podłączony do sieci wirtualnej. Do komunikacji z maszyny wirtualnej używającej publicznego adresu IP za pośrednictwem karty interfejsu sieciowego.
+Podczas tworzenia maszyny wirtualnej masz dostęp do kilku opcji, takich jak obraz systemu operacyjnego, konfiguracja sieci i poświadczenia administracyjne. W tym przykładzie zostanie utworzona maszyna wirtualna o nazwie *myVM* z domyślnie uruchomioną najnowszą wersją systemu Windows Server 2016 Datacenter.
 
-### <a name="create-virtual-network"></a>Tworzenie sieci wirtualnej
-
-Utwórz podsieć o [AzureRmVirtualNetworkSubnetConfig nowy](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig):
-
-```azurepowershell-interactive
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
-    -Name mySubnet `
-    -AddressPrefix 192.168.1.0/24
-```
-
-Tworzenie sieci wirtualnej z [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork):
-
-```azurepowershell-interactive
-$vnet = New-AzureRmVirtualNetwork `
-  -ResourceGroupName myResourceGroupVM `
-  -Location EastUS `
-  -Name myVnet `
-  -AddressPrefix 192.168.0.0/16 `
-  -Subnet $subnetConfig
-```
-### <a name="create-public-ip-address"></a>Utwórz publiczny adres IP
-
-Utwórz publiczny adres IP z [AzureRmPublicIpAddress nowy](/powershell/module/azurerm.network/new-azurermpublicipaddress):
-
-```azurepowershell-interactive
-$pip = New-AzureRmPublicIpAddress `
-  -ResourceGroupName myResourceGroupVM `
-  -Location EastUS `
-  -AllocationMethod Static `
-  -Name myPublicIPAddress
-```
-
-### <a name="create-network-interface-card"></a>Utwórz karty interfejsu sieciowego
-
-Utwórz kartę sieciową z [AzureRmNetworkInterface nowy](/powershell/module/azurerm.network/new-azurermnetworkinterface):
-
-```azurepowershell-interactive
-$nic = New-AzureRmNetworkInterface `
-  -ResourceGroupName myResourceGroupVM  `
-  -Location EastUS `
-  -Name myNic `
-  -SubnetId $vnet.Subnets[0].Id `
-  -PublicIpAddressId $pip.Id
-```
-
-### <a name="create-network-security-group"></a>Utwórz grupę zabezpieczeń sieci
-
-Azure [sieciowej grupy zabezpieczeń](../../virtual-network/virtual-networks-nsg.md) (NSG) steruje ruchu przychodzącego i wychodzącego dla jednego lub wielu maszyn wirtualnych. Reguły grupy zabezpieczeń sieci akceptować lub odrzucać ruchu sieciowego na określonym porcie lub zakres portów. Te zasady mogą również obejmować prefiks adresu źródłowego, dzięki czemu tylko ruch w źródle wstępnie zdefiniowanych może komunikować się z maszyną wirtualną. Aby uzyskać dostęp serwer sieci Web usług IIS, który jest instalowany, należy dodać regułę ruchu przychodzącego grupy NSG.
-
-Aby utworzyć regułę ruchu przychodzącego grupy NSG, użyj [AzureRmNetworkSecurityRuleConfig Dodaj](/powershell/module/azurerm.network/add-azurermnetworksecurityruleconfig). Poniższy przykład tworzy reguły NSG o nazwie *myNSGRule* który otwiera port *3389* dla maszyny wirtualnej:
-
-```azurepowershell-interactive
-$nsgRule = New-AzureRmNetworkSecurityRuleConfig `
-  -Name myNSGRule `
-  -Protocol Tcp `
-  -Direction Inbound `
-  -Priority 1000 `
-  -SourceAddressPrefix * `
-  -SourcePortRange * `
-  -DestinationAddressPrefix * `
-  -DestinationPortRange 3389 `
-  -Access Allow
-```
-
-Tworzenie przy użyciu NSG *myNSGRule* z [AzureRmNetworkSecurityGroup nowy](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup):
-
-```azurepowershell-interactive
-$nsg = New-AzureRmNetworkSecurityGroup `
-    -ResourceGroupName myResourceGroupVM `
-    -Location EastUS `
-    -Name myNetworkSecurityGroup `
-    -SecurityRules $nsgRule
-```
-
-Dodaj grupy NSG do podsieci w sieci wirtualnej z [AzureRmVirtualNetworkSubnetConfig zestaw](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig):
-
-```azurepowershell-interactive
-Set-AzureRmVirtualNetworkSubnetConfig `
-    -Name mySubnet `
-    -VirtualNetwork $vnet `
-    -NetworkSecurityGroup $nsg `
-    -AddressPrefix 192.168.1.0/24
-```
-
-Aktualizacja sieci wirtualnej z [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork):
-
-```azurepowershell-interactive
-Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
-```
-
-### <a name="create-virtual-machine"></a>Tworzenie maszyny wirtualnej
-
-Podczas tworzenia maszyny wirtualnej, takich jak obraz systemu operacyjnego, dysku zmiany rozmiaru i administracyjnych poświadczeń jest kilka opcji. W tym przykładzie utworzono maszynę wirtualną o nazwie *myVM* z najnowszą wersją systemu Windows Server 2016 Datacenter.
-
-Ustaw nazwę użytkownika i hasło potrzebne do konta administratora na maszynie wirtualnej z [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Ustaw nazwę użytkownika i hasło potrzebne dla konta administratora na maszynie wirtualnej przy użyciu polecenia [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-Tworzenie konfiguracji początkowej dla maszyny wirtualnej o [AzureRmVMConfig nowy](/powershell/module/azurerm.compute/new-azurermvmconfig):
-
-```azurepowershell-interactive
-$vm = New-AzureRmVMConfig -VMName myVM -VMSize Standard_D1
-```
-
-Dodaj informacje dotyczące systemu operacyjnego do konfiguracji maszyny wirtualnej z [AzureRmVMOperatingSystem zestaw](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem):
-
-```azurepowershell-interactive
-$vm = Set-AzureRmVMOperatingSystem `
-    -VM $vm `
-    -Windows `
-    -ComputerName myVM `
-    -Credential $cred `
-    -ProvisionVMAgent -EnableAutoUpdate
-```
-
-Dodawanie informacji o obrazie w konfiguracji maszyny wirtualnej z [AzureRmVMSourceImage zestaw](/powershell/module/azurerm.compute/set-azurermvmsourceimage):
-
-```azurepowershell-interactive
-$vm = Set-AzureRmVMSourceImage `
-    -VM $vm `
-    -PublisherName MicrosoftWindowsServer `
-    -Offer WindowsServer `
-    -Skus 2016-Datacenter `
-    -Version latest
-```
-
-Dodaj do konfiguracji maszyny wirtualnej z ustawień dysku systemu operacyjnego [AzureRmVMOSDisk zestaw](/powershell/module/azurerm.compute/set-azurermvmosdisk):
-
-```azurepowershell-interactive
-$vm = Set-AzureRmVMOSDisk `
-    -VM $vm `
-    -Name myOsDisk `
-    -DiskSizeInGB 128 `
-    -CreateOption FromImage `
-    -Caching ReadWrite
-```
-
-Dodaj kartę sieciową utworzonego wcześniej w konfiguracji maszyny wirtualnej z [AzureRmVMNetworkInterface Dodaj](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface):
-
-```azurepowershell-interactive
-$vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
-```
-
 Utwórz maszynę wirtualną za pomocą polecenia [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
 
 ```azurepowershell-interactive
-New-AzureRmVM -ResourceGroupName myResourceGroupVM -Location EastUS -VM $vm
+New-AzureRmVm `
+    -ResourceGroupName "myResourceGroupVM" `
+    -Name "myVM" `
+    -Location "East US" `
+    -VirtualNetworkName "myVnet" `
+    -SubnetName "mySubnet" `
+    -SecurityGroupName "myNetworkSecurityGroup" `
+    -PublicIpAddressName "myPublicIpAddress" `
+    -Credential $cred
 ```
 
-## <a name="connect-to-vm"></a>Połączenie z maszyną Wirtualną
+## <a name="connect-to-vm"></a>Łączenie z maszyną wirtualną
 
 Po zakończeniu wdrożenia utwórz połączenie pulpitu zdalnego z maszyną wirtualną.
 
 Uruchom następujące polecenia, aby zwrócić publiczny adres IP maszyny wirtualnej. Zapisz ten adres IP, aby połączyć się z nim w przeglądarce w celu przetestowania połączenia z siecią Web w przyszłym kroku.
 
 ```azurepowershell-interactive
-Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroupVM  | Select IpAddress
+Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroupVM"  | Select IpAddress
 ```
 
 Użyj następującego polecenia na swojej maszynie lokalnej, aby utworzyć sesję usług pulpitu zdalnego z maszyną wirtualną. Zamień adres IP na *publiczny adres IP* Twojej maszyny wirtualnej. Po wyświetleniu monitu wprowadź poświadczenia używane podczas tworzenia maszyny wirtualnej.
@@ -221,17 +90,17 @@ Użyj następującego polecenia na swojej maszynie lokalnej, aby utworzyć sesj�
 mstsc /v:<publicIpAddress>
 ```
 
-## <a name="understand-vm-images"></a>Zrozumienie obrazów maszyn wirtualnych
+## <a name="understand-vm-images"></a>Omówienie obrazów maszyny wirtualnej
 
-Azure marketplace zawiera wiele obrazów maszyny wirtualnej, które mogą służyć do tworzenia nowej maszyny wirtualnej. W poprzednich krokach utworzono maszynę wirtualną przy użyciu obrazu systemu Windows Server 2016-centrum danych. W tym kroku modułu programu PowerShell jest używany do wyszukiwania marketplace dla innych obrazów systemu Windows, które może również jako podstawa dla nowych maszyn wirtualnych. Proces ten składa się z wyszukiwanie wydawcy, oferty i nazwa obrazu (Sku). 
+Witryna Azure Marketplace udostępnia wiele obrazów maszyn wirtualnych, które mogą służyć do tworzenia nowej maszyny wirtualnej. W poprzednich krokach utworzono maszynę wirtualną przy użyciu obrazu systemu Windows Server 2016 Datacenter. W tym kroku moduł PowerShell jest używany do wyszukiwania w witrynie Marketplace innych obrazów systemu Windows, które mogą również służyć jako podstawa dla nowych maszyn wirtualnych. Ten proces składa się z wyszukiwania wydawcy, oferty i nazwy obrazu (SKU). 
 
-Użyj [Get AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) polecenie, aby zwrócić listę wydawców obrazu.  
+Użyj polecenia [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher), aby uzyskać listę wydawców obrazów:
 
 ```powersehll
 Get-AzureRmVMImagePublisher -Location "EastUS"
 ```
 
-Użyj [Get AzureRmVMImageOffer](/powershell/module/azurerm.compute/get-azurermvmimageoffer) aby powrócić do listy oferty obrazu. Z tego polecenia zwracana lista jest filtrowana na wybranego wydawcy. 
+Użyj polecenia [Get-AzureRmVMImageOffer](/powershell/module/azurerm.compute/get-azurermvmimageoffer), aby uzyskać listę ofert obrazów. To polecenie umożliwia filtrowanie zwracanej listy według określonego wydawcy:
 
 ```azurepowershell-interactive
 Get-AzureRmVMImageOffer -Location "EastUS" -PublisherName "MicrosoftWindowsServer"
@@ -245,7 +114,7 @@ WindowsServer     MicrosoftWindowsServer EastUS
 WindowsServer-HUB MicrosoftWindowsServer EastUS   
 ```
 
-[Get-AzureRmVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) polecenia zostanie następnie filtrować według nazwy wydawcy i oferty, aby powrócić do listy nazwy obrazów.
+Polecenie [Get-AzureRmVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) spowoduje następnie odfiltrowanie według nazwy wydawcy i oferty w celu uzyskania listy nazw obrazów.
 
 ```azurepowershell-interactive
 Get-AzureRmVMImageSku -Location "EastUS" -PublisherName "MicrosoftWindowsServer" -Offer "WindowsServer"
@@ -270,95 +139,102 @@ Skus                                      Offer         PublisherName          L
 2016-Nano-Server                          WindowsServer MicrosoftWindowsServer EastUS
 ```
 
-Te informacje można wdrożyć maszyny Wirtualnej z określonego obrazu. W tym przykładzie nazwa obrazu dla obiektu maszyny Wirtualnej. W tym samouczku kroki wdrażania pełną odwoływać się do poprzednich przykładach.
+Te informacje mogą być używane na potrzeby wdrażania maszyny wirtualnej za pomocą określonego obrazu. W tym przykładzie wdrażasz maszynę wirtualną przy użyciu systemu Windows Server 2016 i obrazu kontenerów.
 
 ```azurepowershell-interactive
-$vm = Set-AzureRmVMSourceImage `
-    -VM $vm `
-    -PublisherName MicrosoftWindowsServer `
-    -Offer WindowsServer `
-    -Skus 2016-Datacenter-with-Containers `
-    -Version latest
+New-AzureRmVm `
+    -ResourceGroupName "myResourceGroupVM" `
+    -Name "myVM2" `
+    -Location "East US" `
+    -VirtualNetworkName "myVnet" `
+    -SubnetName "mySubnet" `
+    -SecurityGroupName "myNetworkSecurityGroup" `
+    -PublicIpAddressName "myPublicIpAddress2" `
+    -ImageName "MicrosoftWindowsServer:WindowsServer:2016-Datacenter-with-Containers:latest" `
+    -Credential $cred `
+    -AsJob
 ```
 
-## <a name="understand-vm-sizes"></a>Zrozumienie rozmiarów maszyn wirtualnych
+Parametr `-AsJob` umożliwia tworzenie maszyny wirtualnej w tle, co powoduje powrót do wiersza polecenia programu PowerShell. Możesz wyświetlić szczegóły zadań w tle, używając polecenia cmdlet `Job`.
 
-Rozmiar maszyny wirtualnej określa zasoby obliczeniowe np. Procesora GPU i pamięci, które są dostępne do maszyny wirtualnej. Należy maszyny wirtualne są tworzone z odpowiednią dla obciążenia pracą expect rozmiar. Jeśli zwiększa obciążenie, można zmienić rozmiar istniejącej maszyny wirtualnej.
+
+## <a name="understand-vm-sizes"></a>Omówienie rozmiarów maszyn wirtualnych
+
+Rozmiar maszyny wirtualnej określa ilość zasobów obliczeniowych, takich jak procesor CPU, procesor GPU i pamięć, które są dostępne dla maszyny wirtualnej. Tworzone maszyny wirtualne powinny mieć rozmiar odpowiadający oczekiwanemu obciążeniu. Jeśli obciążenie zwiększy się, można zmienić rozmiar istniejącej maszyny wirtualnej.
 
 ### <a name="vm-sizes"></a>Rozmiary maszyn wirtualnych
 
-Poniższa tabela kategoryzuje rozmiary do przypadków użycia.  
-
-| Typ                     | Rozmiary           |    Opis       |
+W poniższej tabeli przedstawiono kategorie rozmiarów podzielone według przypadków użycia.  
+| Typ                     | Typowe rozmiary           |    Opis       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| Zastosowania ogólne         |DSv2, Dv2, DS, D, Av2, A0 7| Zrównoważonym Procesora do pamięci. Nadaje się doskonale dla deweloperów i testowania i w małych, średnich rozwiązania aplikacji i danych.  |
-| Optymalizacja pod kątem obliczeń      | FS, F             | Wysoka Procesora do pamięci. Nadaje się do aplikacji średnia ruchu, urządzeń sieciowych i procesów wsadowych.        |
-| Optymalizacja pod kątem pamięci       | GS, G, DSv2, DS, Dv2, D   | Wysoka pamięci do-procesora CPU. Doskonałe rozwiązanie dla relacyjnych baz danych, średnich i dużych pamięci podręcznych i analiza w pamięci.                 |
-| Optymalizacja pod kątem magazynu       | Ls                | Wysoka przepływność dysku i operacje we/wy. Idealne rozwiązanie w przypadku danych big data oraz baz danych SQL i NoSQL.                                                         |
-| Procesory GPU           | WIRTUALIZACJĄ SIECI, NC            | Celem duże Renderowanie grafiki i wideo edycji specjalne maszyn wirtualnych.       |
-| Wysoka wydajność | H-A8 11          | Nasze najbardziej zaawansowanych Procesora maszyny wirtualne z interfejsami opcjonalne wysokiej przepustowości sieci (RDMA). 
+| [Zastosowania ogólne](sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0–7| Zrównoważona moc procesora CPU w stosunku do pamięci. Opcja idealna w przypadku tworzenia i testowania, małych i średnich aplikacji oraz rozwiązań dotyczących danych.  |
+| [Optymalizacja pod kątem obliczeń](sizes-compute.md)   | Fs, F             | Duża moc procesora CPU w stosunku do pamięci. Opcja dobra w przypadku aplikacji o średnim ruchu, urządzeń sieciowych i procesów wsadowych.        |
+| [Optymalizacja pod kątem pamięci](sizes-memory.md)    | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | Duża ilość pamięci na rdzeń. Opcja bardzo dobra w przypadku relacyjnych baz danych, średnich i dużych pamięci podręcznych oraz analizowania w pamięci.                 |
+| [Optymalizacja pod kątem magazynu](sizes-storage.md)      | Ls                | Wysoka przepływność dysku i duża liczba operacji we/wy. Opcja idealna w przypadku danych big data oraz baz danych SQL i NoSQL.                                                         |
+| [Procesor GPU](sizes-gpu.md)          | NV, NC            | Maszyny wirtualne wyspecjalizowane pod kątem intensywnego renderowania grafiki i edytowania materiałów wideo.       |
+| [Wysoka wydajność](sizes-hpc.md) | H, A8-11          | Maszyny wirtualne z najbardziej wydajnymi procesorami CPU oraz, opcjonalnie, interfejsami sieciowymi zapewniającymi wysoką przepływność (RDMA). 
 
 
-### <a name="find-available-vm-sizes"></a>Znajdowanie dostępnych rozmiarów maszyny Wirtualnej
+### <a name="find-available-vm-sizes"></a>Wyszukiwanie dostępnych rozmiarów maszyn wirtualnych
 
-Aby wyświetlić listę dostępnych rozmiarów maszyny Wirtualnej w regionie, w szczególności, użyj [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize) polecenia.
+Aby wyświetlić listę dostępnych rozmiarów maszyn wirtualnych w danym regionie, użyj polecenia [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize).
 
 ```azurepowershell-interactive
-Get-AzureRmVMSize -Location EastUS
+Get-AzureRmVMSize -Location "EastUS"
 ```
 
 ## <a name="resize-a-vm"></a>Zmienianie rozmiaru maszyny wirtualnej
 
-Po wdrożeniu maszyny Wirtualnej, można zmienić rozmiaru można zwiększyć lub zmniejszyć alokacji zasobów.
+Po wdrożeniu maszyny wirtualnej można zmienić jej rozmiar w celu zwiększenia lub zmniejszenia alokacji zasobów.
 
-Przed zmianą rozmiaru maszyny Wirtualnej, sprawdź, czy żądany rozmiar jest dostępny na bieżący klaster maszyny Wirtualnej. [Get AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize) polecenie zwraca listę rozmiarów. 
+Przed zmianą rozmiaru maszyny wirtualnej sprawdź, czy żądany rozmiar jest dostępny w bieżącym klastrze maszyny wirtualnej. Polecenie [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize) zwraca listę rozmiarów. 
 
 ```azurepowershell-interactive
-Get-AzureRmVMSize -ResourceGroupName myResourceGroupVM -VMName myVM 
+Get-AzureRmVMSize -ResourceGroupName "myResourceGroupVM" -VMName "myVM"
 ```
 
-Jeśli żądany rozmiar jest dostępny, maszyny Wirtualnej można zmienić rozmiar ze stanu zasilania na, jednak podczas operacji ponownego rozruchu.
+Jeśli żądany rozmiar maszyny wirtualnej jest dostępny, można go zmienić dla włączonej maszyny, ale zostanie ona ponownie uruchomiona w trakcie tej operacji.
 
 ```azurepowershell-interactive
-$vm = Get-AzureRmVM -ResourceGroupName myResourceGroupVM  -VMName myVM 
+$vm = Get-AzureRmVM -ResourceGroupName "myResourceGroupVM"  -VMName "myVM"
 $vm.HardwareProfile.VmSize = "Standard_D4"
-Update-AzureRmVM -VM $vm -ResourceGroupName myResourceGroupVM 
+Update-AzureRmVM -VM $vm -ResourceGroupName "myResourceGroupVM"
 ```
 
-Jeśli na bieżący klaster nie ma żądanego rozmiaru, maszyna wirtualna musi alokację, zanim nastąpi operacji zmiany rozmiaru. Uwaga: w przypadku maszyny Wirtualnej jest włączona ponownie, zostaną usunięte wszystkie dane na dysku tymczasowym i publiczny adres IP adresów zmiany, chyba że używana jest statyczny adres IP. 
+Jeśli żądany rozmiar jest niedostępny w bieżącym klastrze, przed rozpoczęciem operacji zmiany rozmiaru należy cofnąć przydział maszyny wirtualnej. Pamiętaj, że gdy maszyna wirtualna zostanie ponownie włączona, wszystkie dane na dysku tymczasowym zostaną usunięte, a publiczny adres IP zmieni się, chyba że używany jest statyczny adres IP. 
 
 ```azurepowershell-interactive
-Stop-AzureRmVM -ResourceGroupName myResourceGroupVM -Name "myVM" -Force
-$vm = Get-AzureRmVM -ResourceGroupName myResourceGroupVM  -VMName myVM
+Stop-AzureRmVM -ResourceGroupName "myResourceGroupVM" -Name "myVM" -Force
+$vm = Get-AzureRmVM -ResourceGroupName "myResourceGroupVM"  -VMName "myVM"
 $vm.HardwareProfile.VmSize = "Standard_F4s"
-Update-AzureRmVM -VM $vm -ResourceGroupName myResourceGroupVM 
-Start-AzureRmVM -ResourceGroupName myResourceGroupVM  -Name $vm.name
+Update-AzureRmVM -VM $vm -ResourceGroupName "myResourceGroupVM"
+Start-AzureRmVM -ResourceGroupName "myResourceGroupVM"  -Name $vm.name
 ```
 
-## <a name="vm-power-states"></a>Stany zasilania maszyny Wirtualnej
+## <a name="vm-power-states"></a>Stany zasilania maszyny wirtualnej
 
-Maszyny Wirtualnej platformy Azure może mieć jedną z wielu stany zasilania. Ten stan reprezentuje bieżący stan maszyny wirtualnej z punktu widzenia funkcji hypervisor. 
+Maszyna wirtualna platformy Azure może znajdować się w jednym z wielu stanów zasilania. Ten stan reprezentuje bieżący stan maszyny wirtualnej z punktu widzenia funkcji hypervisor. 
 
 ### <a name="power-states"></a>Stany zasilania
 
 | Stan zasilania | Opis
 |----|----|
-| Uruchamianie | Wskazuje, że maszyna wirtualna zostanie uruchomiona. |
-| Uruchomione | Wskazuje, że maszyna wirtualna jest uruchomiona. |
+| Uruchamianie | Wskazuje, że maszyna wirtualna jest uruchamiana. |
+| Działanie | Wskazuje, że maszyna wirtualna działa. |
 | Zatrzymywanie | Wskazuje, że maszyna wirtualna jest zatrzymywana. | 
-| Zatrzymano | Wskazuje, czy maszyna wirtualna jest zatrzymana. Należy pamiętać, że maszyny wirtualne w stanie zatrzymania nadal naliczenie opłat za obliczenia.  |
-| Cofanie przydziału | Wskazuje, że cofana jest maszyny wirtualnej. |
-| Cofnięto przydział | Wskazuje, że maszyna wirtualna jest całkowicie usunięte z funkcji hypervisor, ale nadal dostępne w płaszczyźnie formantu. Maszyny wirtualne w stanie Deallocated nie naliczenie opłat za obliczenia. |
+| Zatrzymano | Wskazuje, że maszyna wirtualna została zatrzymana. Pamiętaj, że opłaty za operacje obliczeniowe są także naliczane w przypadku maszyn wirtualnych w stanie Zatrzymano.  |
+| Cofanie przydziału | Wskazuje, że przydział maszyny wirtualnej jest cofany. |
+| Cofnięto przydział | Wskazuje, że maszyna wirtualna została całkowicie usunięta z funkcji hypervisor, ale jest nadal dostępna na płaszczyźnie kontroli. Opłaty za operacje obliczeniowe nie są naliczane w przypadku maszyn wirtualnych w stanie Cofnięto przydział. |
 | - | Wskazuje, że stan zasilania maszyny wirtualnej jest nieznany. |
 
-### <a name="find-power-state"></a>Znajdź stan zasilania
+### <a name="find-power-state"></a>Znajdowanie stanu zasilania
 
-Aby pobrać stan określonej maszyny Wirtualnej, użyj [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) polecenia. Należy określić prawidłową nazwę maszyny wirtualnej i grupy zasobów. 
+Aby pobrać stan określonej maszyny wirtualnej, użyj polecenia [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm). Pamiętaj, aby określić prawidłową nazwę maszyny wirtualnej i grupy zasobów. 
 
 ```azurepowershell-interactive
 Get-AzureRmVM `
-    -ResourceGroupName myResourceGroupVM `
-    -Name myVM `
+    -ResourceGroupName "myResourceGroupVM" `
+    -Name "myVM" `
     -Status | Select @{n="Status"; e={$_.Statuses[1].Code}}
 ```
 
@@ -372,44 +248,44 @@ PowerState/running
 
 ## <a name="management-tasks"></a>Zadania zarządzania
 
-Podczas cyklu maszyny wirtualnej można uruchomić zadania zarządzania, takie jak uruchamianie, zatrzymywanie lub usuwanie maszyny wirtualnej. Ponadto można tworzyć skrypty służące do automatyzowania zadań powtarzających się lub złożonych. Przy użyciu programu Azure PowerShell, wiele typowych zadań zarządzania można uruchomić z wiersza polecenia lub w skryptach.
+W trakcie cyklu życia maszyny wirtualnej można uruchamiać zadania zarządzania, takie jak uruchamianie, zatrzymywanie lub usuwanie maszyny wirtualnej. Ponadto można tworzyć skrypty służące do automatyzowania zadań powtarzających się lub złożonych. Dzięki użyciu programu Azure PowerShell wiele typowych zadań zarządzania można uruchamiać z poziomu wiersza polecenia lub w skryptach.
 
-### <a name="stop-virtual-machine"></a>Zatrzymaj maszynę wirtualną
+### <a name="stop-virtual-machine"></a>Zatrzymywanie maszyny wirtualnej
 
-Zatrzymaj i cofnięcia przydzielenia maszynie wirtualnej z [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm):
+Do zatrzymywania maszyny wirtualnej i cofania jej przydziału służy polecenie [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm):
 
 ```azurepowershell-interactive
-Stop-AzureRmVM -ResourceGroupName myResourceGroupVM -Name "myVM" -Force
+Stop-AzureRmVM -ResourceGroupName "myResourceGroupVM" -Name "myVM" -Force
 ```
 
-Jeśli chcesz zachować maszyny wirtualnej w stanie elastycznie, użyj parametru - StayProvisioned.
+Jeśli maszyna wirtualna ma zachować stan Aprowizowano, użyj parametru -StayProvisioned.
 
-### <a name="start-virtual-machine"></a>Uruchom maszynę wirtualną
+### <a name="start-virtual-machine"></a>Uruchamianie maszyny wirtualnej
 
 ```azurepowershell-interactive
-Start-AzureRmVM -ResourceGroupName myResourceGroupVM -Name myVM
+Start-AzureRmVM -ResourceGroupName "myResourceGroupVM" -Name "myVM"
 ```
 
-### <a name="delete-resource-group"></a>Usuń grupę zasobów
+### <a name="delete-resource-group"></a>Usuwanie grupy zasobów
 
-Usunięcie grupy zasobów powoduje usunięcie wszystkie zasoby zawarte w ciągu.
+Usunięcie grupy zasobów spowoduje również usunięcie wszystkich znajdujących się w niej zasobów.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroupVM -Force
+Remove-AzureRmResourceGroup -Name "myResourceGroupVM" -Force
 ```
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku poznanie podstawowych tworzenia maszyny Wirtualnej i zarządzania, np.:
+W niniejszym samouczku zawarto informacje dotyczące podstawowych zadań tworzenia maszyny wirtualnej i zarządzania nią, takie jak:
 
 > [!div class="checklist"]
-> * Tworzenie i połączyć z maszyną wirtualną
-> * Wybierz i używać obrazów maszyn wirtualnych
+> * Tworzenie maszyny wirtualnej i łączenie z nią
+> * Wybieranie i używanie obrazów maszyn wirtualnych
 > * Wyświetlanie i używanie określonych rozmiarów maszyn wirtualnych
 > * Zmienianie rozmiaru maszyny wirtualnej
-> * Wyświetlanie i zrozumienie stanu maszyny Wirtualnej
+> * Wyświetlanie stanu maszyny wirtualnej i jego omówienie
 
-Przejście do następnym samouczku, aby dowiedzieć się więcej o dyski maszyny Wirtualnej.  
+Przejdź do następnego samouczka, aby dowiedzieć się więcej na temat dysków maszyn wirtualnych.  
 
 > [!div class="nextstepaction"]
-> [Utwórz i Zarządzaj maszyny Wirtualnej dyski](./tutorial-manage-data-disk.md)
+> [Tworzenie dysków maszyn wirtualnych i zarządzanie nimi](./tutorial-manage-data-disk.md)

@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: jgao
-ms.openlocfilehash: 864d34306dad2915a15b032a27600cefdc632bb9
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 0e1d7b46aeaf8f21fdf2942f986643746dad3313
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Użyj Spark MLlib do tworzenia aplikacji uczenia maszynowego i analizować zestawu danych
 
@@ -79,9 +79,9 @@ W poniższych krokach opracowywania modelu, aby zobaczyć, co jest potrzebne do 
         from pyspark.sql.types import *
 
 ## <a name="construct-an-input-dataframe"></a>Konstrukcja dataframe wejściowych
-Możemy użyć `sqlContext` wykonania przekształcenia na danych strukturalnych. Pierwszym zadaniem jest ładowanie przykładowych danych ((**Food_Inspections1.csv**)) do programu Spark SQL *dataframe*.
+Można użyć `sqlContext` wykonania przekształcenia na danych strukturalnych. Pierwszym zadaniem jest ładowanie przykładowych danych ((**Food_Inspections1.csv**)) do programu Spark SQL *dataframe*.
 
-1. Ponieważ dane pierwotne w formacie CSV, należy użyć obiektu context Spark ściągania każdy wiersz w pliku do pamięci jako tekst bez struktury. następnie należy użyć języka Python CSV biblioteki można przeanalizować indywidualnie każdego wiersza.
+1. Ponieważ dane pierwotne w formacie CSV, musisz użyć kontekstu Spark ściągania każdy wiersz w pliku do pamięci jako tekst bez struktury. następnie należy użyć języka Python CSV biblioteki można przeanalizować indywidualnie każdego wiersza.
 
         def csvParse(s):
             import csv
@@ -93,7 +93,7 @@ Możemy użyć `sqlContext` wykonania przekształcenia na danych strukturalnych.
 
         inspections = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
                         .map(csvParse)
-1. Mamy teraz plik CSV jako RDD.  Aby poznać schemat danych, pobieranie z RDD jeden wiersz.
+1. Plik CSV jest teraz dostępna jako RDD.  Aby poznać schemat danych, można pobierać z RDD jeden wiersz.
 
         inspections.take(1)
 
@@ -120,7 +120,7 @@ Możemy użyć `sqlContext` wykonania przekształcenia na danych strukturalnych.
           '41.97583445690982',
           '-87.7107455232781',
           '(41.97583445690982, -87.7107455232781)']]
-1. Dane wyjściowe poprzedniego daje wyobrażenie o schemat pliku wejściowego. Zawiera nazwę każda jednostka organizacyjna, typ ustanowienia, adres, dane inspekcji i lokalizacji, między innymi. Teraz wybierz kilka kolumn, które są przydatne w przypadku naszego analizy predykcyjnej i grupowania wyników jako dataframe, który następnie używamy w celu utworzenia tabeli tymczasowej.
+1. Dane wyjściowe poprzedniego daje wyobrażenie o schemat pliku wejściowego. Zawiera nazwę każda jednostka organizacyjna, typ ustanowienia, adres, dane inspekcji i lokalizacji, między innymi. Ta funkcja pozwala wybrać kilka kolumn, które są przydatne w przypadku naszego analizy predykcyjnej i grupowania wyników jako dataframe, które zostaną następnie użyte do utworzenia tabeli tymczasowej.
 
         schema = StructType([
         StructField("id", IntegerType(), False),
@@ -130,7 +130,7 @@ Możemy użyć `sqlContext` wykonania przekształcenia na danych strukturalnych.
 
         df = sqlContext.createDataFrame(inspections.map(lambda l: (int(l[0]), l[1], l[12], l[13])) , schema)
         df.registerTempTable('CountResults')
-1. Teraz *dataframe*, `df` na którym można wykonać nasze analizy. Mamy także wywołania tabeli tymczasowej **CountResults**. Dodaliśmy cztery kolumny zainteresowanie dataframe: **identyfikator**, **nazwa**, **wyniki**, i **naruszeń**.
+1. Masz teraz *dataframe*, `df` na której można wykonać nasze analizy. Masz również wywołanie tabeli tymczasowej **CountResults**. Dodaliśmy cztery kolumny zainteresowanie dataframe: **identyfikator**, **nazwa**, **wyniki**, i **naruszeń**.
 
     Załóż małej przykładowej danych:
 
@@ -172,7 +172,7 @@ Możemy użyć `sqlContext` wykonania przekształcenia na danych strukturalnych.
         |  Pass w/ Conditions|
         |     Out of Business|
         +--------------------+
-1. Szybkie wizualizacji, ułatwisz nam Przyczyna informacji o dystrybucji tych wyników. Mamy już dane w tabeli tymczasowej **CountResults**. Można uruchomić następujące zapytanie SQL dla tabeli, aby uzyskać lepsze zrozumienie rozkład wyniki.
+1. Szybkie wizualizacji, ułatwisz nam Przyczyna informacji o dystrybucji tych wyników. Masz już dane w tabeli tymczasowej **CountResults**. Można uruchomić następujące zapytanie SQL dla tabeli, aby uzyskać lepsze zrozumienie rozkład wyniki.
 
         %%sql -o countResultsdf
         SELECT results, COUNT(results) AS cnt FROM CountResults GROUP BY results
@@ -203,12 +203,12 @@ Możemy użyć `sqlContext` wykonania przekształcenia na danych strukturalnych.
 
    * Biznesowe, które nie znajdują się
    * Niepowodzenie
-   * — Dostęp próbny
+   * Powodzenie
    * PSS z warunkami
    * Poza biznesowa
 
-     Daj nam opracowywania modelu, który można odgadnąć wyników inspekcji żywności, podane naruszenia. Regresja logistyczna jest metoda klasyfikacji binarnej, warto do grupowania danych w dwóch kategorii: **niepowodzenie** i **przekazać**. "Przekaż z warunkami" jest nadal przebiegu, gdy firma Microsoft nauczenia modelu, możemy należy wziąć pod uwagę wyniki równoważne. Dane z innych wyników ("Nie znajduje się biznesowych" lub "Out of Business") nie są przydatne, więc możemy usunąć je z naszego zestawu szkoleniowego. Powinno to być poprawny, ponieważ te dwie kategorie tworzą niewielka wyników mimo to.
-1. Daj nam Przejdź dalej i przekonwertować naszych istniejących dataframe (`df`) do nowej dataframe, gdzie każdej kontroli jest reprezentowany jako pary naruszeń etykiety. W tym przypadku etykiety `0.0` reprezentuje awarii etykiety `1.0` reprezentuje sukcesu i etykiety `-1.0` reprezentuje pewnych wyników oprócz tych dwóch. Firma Microsoft filtrować wyniki te podczas obliczania nowej ramki danych.
+     Daj nam opracowywania modelu, który można odgadnąć wyników inspekcji żywności, podane naruszenia. Regresja logistyczna jest metoda klasyfikacji binarnej, warto do grupowania danych w dwóch kategorii: **niepowodzenie** i **przekazać**. "Przekaż z warunkami" jest nadal przebiegu, więc po nauczenia modelu, należy wziąć pod uwagę wyniki równoważne. Dane z innych wyników ("Nie znajduje się biznesowych" lub "Out of Business") nie są przydatne, usuń je z naszego zestawu szkoleniowego. Powinno to być poprawny, ponieważ te dwie kategorie tworzą niewielka wyników mimo to.
+1. Daj nam Przejdź dalej i przekonwertować naszych istniejących dataframe (`df`) do nowej dataframe, gdzie każdej kontroli jest reprezentowany jako pary naruszeń etykiety. W tym przypadku etykiety `0.0` reprezentuje awarii etykiety `1.0` reprezentuje sukcesu i etykiety `-1.0` reprezentuje pewnych wyników oprócz tych dwóch. Można odfiltrować innych uzyskanych przy obliczaniu nowej ramki danych.
 
         def labelForResults(s):
             if s == 'Fail':
@@ -233,11 +233,11 @@ Możemy użyć `sqlContext` wykonania przekształcenia na danych strukturalnych.
         [Row(label=0.0, violations=u"41. PREMISES MAINTAINED FREE OF LITTER, UNNECESSARY ARTICLES, CLEANING  EQUIPMENT PROPERLY STORED - Comments: All parts of the food establishment and all parts of the property used in connection with the operation of the establishment shall be kept neat and clean and should not produce any offensive odors.  REMOVE MATTRESS FROM SMALL DUMPSTER. | 35. WALLS, CEILINGS, ATTACHED EQUIPMENT CONSTRUCTED PER CODE: GOOD REPAIR, SURFACES CLEAN AND DUST-LESS CLEANING METHODS - Comments: The walls and ceilings shall be in good repair and easily cleaned.  REPAIR MISALIGNED DOORS AND DOOR NEAR ELEVATOR.  DETAIL CLEAN BLACK MOLD LIKE SUBSTANCE FROM WALLS BY BOTH DISH MACHINES.  REPAIR OR REMOVE BASEBOARD UNDER DISH MACHINE (LEFT REAR KITCHEN). SEAL ALL GAPS.  REPLACE MILK CRATES USED IN WALK IN COOLERS AND STORAGE AREAS WITH PROPER SHELVING AT LEAST 6' OFF THE FLOOR.  | 38. VENTILATION: ROOMS AND EQUIPMENT VENTED AS REQUIRED: PLUMBING: INSTALLED AND MAINTAINED - Comments: The flow of air discharged from kitchen fans shall always be through a duct to a point above the roofline.  REPAIR BROKEN VENTILATION IN MEN'S AND WOMEN'S WASHROOMS NEXT TO DINING AREA. | 32. FOOD AND NON-FOOD CONTACT SURFACES PROPERLY DESIGNED, CONSTRUCTED AND MAINTAINED - Comments: All food and non-food contact equipment and utensils shall be smooth, easily cleanable, and durable, and shall be in good repair.  REPAIR DAMAGED PLUG ON LEFT SIDE OF 2 COMPARTMENT SINK.  REPAIR SELF CLOSER ON BOTTOM LEFT DOOR OF 4 DOOR PREP UNIT NEXT TO OFFICE.")]
 
 ## <a name="create-a-logistic-regression-model-from-the-input-dataframe"></a>Tworzenie modelu Regresja logistyczna z dataframe wejściowych
-Nasze ostatnim zadaniem jest można przekonwertować danych oznaczonych do formatu, który może zostać przeanalizowana przez Regresja logistyczna. Dane wejściowe algorytm Regresja logistyczna powinna być zestaw *pary wektor etykiety funkcji*, gdzie "wektor funkcji" jest wektorem liczb reprezentujący punkt wejściowy. Tak musimy przekonwertować kolumny "naruszeń", który jest częściową strukturą i zawiera wiele komentarzy w niezależnych, do tablicy liczb rzeczywistych, które maszyna można łatwo zrozumieć.
+Nasze ostatnim zadaniem jest można przekonwertować danych oznaczonych do formatu, który może zostać przeanalizowana przez Regresja logistyczna. Dane wejściowe algorytm Regresja logistyczna powinna być zestaw *pary wektor etykiety funkcji*, gdzie "wektor funkcji" jest wektorem liczb reprezentujący punkt wejściowy. Tak należy przekonwertować kolumny "naruszeń", która jest częściową strukturą i zawiera wiele komentarzy w niezależnych, do tablicy liczb rzeczywistych, które maszyna można łatwo zrozumieć.
 
 Na jednym komputerze standardowe uczenia podejście do przetwarzania języka naturalnego jest przypisanie każdego wyrazu różne "index", a następnie przekazać wektora maszynie Algorytm uczenia w taki sposób, że każdy indeks wartość zawiera względne częstotliwości tego wyrazu w ciągu tekstowym.
 
-MLlib zapewnia prosty sposób wykonania tej operacji. Po pierwsze "tokenizacji" każdego ciąg naruszeń, aby uzyskać poszczególnych wyrazów w każdym ciągu. Następnie należy użyć `HashingTF` Aby przekonwertować każdego zestawu tokenów wektor funkcji, które można następnie przekazać do algorytmu Regresja logistyczna do konstruowania modelu. Przeprowadza się wszystkie kroki w sekwencji za pomocą "potoku".
+MLlib zapewnia prosty sposób wykonania tej operacji. Po pierwsze "tokenizacji" każdego ciąg naruszeń, aby uzyskać poszczególnych wyrazów w każdym ciągu. Następnie należy użyć `HashingTF` Aby przekonwertować każdego zestawu tokenów wektor funkcji, które można następnie przekazać do algorytmu Regresja logistyczna do konstruowania modelu. Wszystkie kroki przeprowadzić przy użyciu "potoku".
 
     tokenizer = Tokenizer(inputCol="violations", outputCol="words")
     hashingTF = HashingTF(inputCol=tokenizer.getOutputCol(), outputCol="features")
@@ -247,7 +247,7 @@ MLlib zapewnia prosty sposób wykonania tej operacji. Po pierwsze "tokenizacji" 
     model = pipeline.fit(labeledData)
 
 ## <a name="evaluate-the-model-on-a-separate-test-dataset"></a>Ocena modelu na oddzielne testowego zestawu danych
-Możemy użyć modelu utworzyliśmy wcześniej do *prognozowania* co wyników inspekcji nowych będzie, oparte na naruszenia, które zaobserwowano. Firma Microsoft uczenia modelu w zestawie danych **Food_Inspections1.csv**. Daj nam użyj drugiego zestawu danych, **Food_Inspections2.csv**, do *oceny* siłę tego modelu na nowych danych. Drugi zestaw danych (**Food_Inspections2.csv**) powinna już być domyślnego kontenera magazynu skojarzone z klastrem.
+Można użyć modelu utworzonego wcześniej do *prognozowania* co wyników inspekcji nowych będzie, oparte na naruszenia, które zaobserwowano. Uczenia modelu w zestawie danych **Food_Inspections1.csv**. Daj nam użyj drugiego zestawu danych, **Food_Inspections2.csv**, do *oceny* siłę tego modelu na nowych danych. Drugi zestaw danych (**Food_Inspections2.csv**) powinna już być domyślnego kontenera magazynu skojarzone z klastrem.
 
 1. Poniższy fragment kodu tworzy nowy dataframe, **predictionsDf** zawierający prognozy generowane przez model. Fragment kodu tworzy także tabeli tymczasowej o nazwie **prognoz** oparte na dataframe.
 
@@ -279,7 +279,7 @@ Możemy użyć modelu utworzyliśmy wcześniej do *prognozowania* co wyników in
         predictionsDf.take(1)
 
    Brak prognozowania pierwszego wpisu w testowego zestawu danych.
-1. `model.transform()` Metoda stosuje przekształcenia do nowych danych z tego samego schematu i przyjeździe Prognozowanie klasyfikowania danych. Możemy statystykami proste uzyskanie zorientować się, jak dokładny zostały naszego operacje przewidywania dla:
+1. `model.transform()` Metoda stosuje przekształcenia do nowych danych z tego samego schematu i przyjeździe Prognozowanie klasyfikowania danych. Można wykonać statystykami proste uzyskanie zorientować się, jak dokładny zostały naszego operacje przewidywania dla:
 
         numSuccesses = predictionsDf.where("""(prediction = 0 AND results = 'Fail') OR
                                               (prediction = 1 AND (results = 'Pass' OR
@@ -301,9 +301,9 @@ Możemy użyć modelu utworzyliśmy wcześniej do *prognozowania* co wyników in
     Korzystanie z platformy Spark Regresja logistyczna daje dokładne modelu relacji między opisy naruszeń w języku angielskim i czy danej firmy spowoduje powodzenie lub Niepowodzenie inspekcji żywności.
 
 ## <a name="create-a-visual-representation-of-the-prediction"></a>Utwórz wizualną reprezentację Prognozowanie
-Firma Microsoft teraz utworzyć końcowego wizualizacji, aby pomóc nam Przyczyna o wyniki tego testu.
+Można teraz utworzyć końcowego wizualizacji, aby pomóc nam Przyczyna o wyniki tego testu.
 
-1. Rozpoczniemy wyodrębniając różnych prognoz i wyniki z **prognoz** tabeli tymczasowej utworzony wcześniej. Następujące kwerendy oddzielnych danych wyjściowych w formacie *true_positive*, *false_positive*, *true_negative*, i *false_negative*. W zapytaniach poniżej, możemy wyłączyć wizualizacji przy użyciu `-q` i zapisać dane wyjściowe (przy użyciu `-o`) jako dataframes, który można następnie użyć z `%%local` magic.
+1. Możesz uruchomić wyodrębnianie różnych prognoz i wyniki z **prognoz** tabeli tymczasowej utworzony wcześniej. Następujące kwerendy oddzielnych danych wyjściowych w formacie *true_positive*, *false_positive*, *true_negative*, i *false_negative*. W zapytaniach poniżej, możesz wyłączyć wizualizacji przy użyciu `-q` i zapisać dane wyjściowe (przy użyciu `-o`) jako dataframes, który można następnie użyć z `%%local` magic.
 
         %%sql -q -o true_positive
         SELECT count(*) AS cnt FROM Predictions WHERE prediction = 0 AND results = 'Fail'
@@ -343,7 +343,6 @@ Po zakończeniu działania aplikacji należy wyłączać aby zwolnić zasoby. W 
 ### <a name="scenarios"></a>Scenariusze
 * [Platforma Spark i analiza biznesowa: interakcyjna analiza danych na platformie Spark w usłudze HDInsight z użyciem narzędzi do analizy biznesowej](apache-spark-use-bi-tools.md)
 * [Platforma Spark i usługa Machine Learning: korzystanie z platformy Spark w usłudze HDInsight do analizy temperatury w budynku z użyciem danych HVAC](apache-spark-ipython-notebook-machine-learning.md)
-* [Przesyłanie strumieniowe Spark: korzystanie z platformy Spark w usłudze HDInsight do tworzenia aplikacji do przesyłania strumieniowego w czasie rzeczywistym](apache-spark-eventhub-streaming.md)
 * [Analiza dzienników witryny sieci Web na platformie Spark w usłudze HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Tworzenie i uruchamianie aplikacji

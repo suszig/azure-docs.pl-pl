@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: LADocs; mandia
-ms.openlocfilehash: 6a283d8772e48aa6671d88288c2083d891a220d5
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: fa61bbecc51c4f3163bd1cc077391bb102662297
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="exchange-as2-messages-for-enterprise-integration-with-logic-apps"></a>Wymiana komunikatów AS2 enterprise integracji z usługą logic apps
 
@@ -40,12 +40,12 @@ Po [Tworzenie konta usługi integracji](../logic-apps/logic-apps-enterprise-inte
 
 1.  Zaloguj się w witrynie [Azure Portal](http://portal.azure.com "Azure Portal").  
 
-2.  Wybierz z menu po lewej stronie **więcej usług**. W polu wyszukiwania wprowadź **integracji** jako filtr. Na liście wyników wybierz **konta integracji**.
+2.  Wybierz z menu po lewej stronie **wszystkie usługi**. W polu wyszukiwania wprowadź **integracji** jako filtr. Na liście wyników wybierz **konta integracji**.
 
     > [!TIP]
-    > Jeśli nie widzisz **więcej usług**, trzeba będzie najpierw rozwinąć menu. W górnej części menu zwinięte, wybierz **Pokaż menu**.
+    > Jeśli nie widzisz **wszystkich usług**, trzeba będzie najpierw rozwinąć menu. W górnej części menu zwinięte, wybierz **Pokaż menu**.
 
-    ![Więcej usług, filtr "integrację", wybierz "Konta integracji"](./media/logic-apps-enterprise-integration-as2/overview-1.png)
+    ![Wszystkie usługi, filtr "integrację", wybierz "Konta integracji"](./media/logic-apps-enterprise-integration-as2/overview-1.png)
 
 3. W **konta integracji** bloku, który zostanie otwarty, wybierz konto integracji, w której chcesz utworzyć umowy.
 Jeśli nie widzisz kont integracji [utworzyć pierwszy](../logic-apps/logic-apps-enterprise-integration-accounts.md "wszystkiego o konta integracji").  
@@ -72,8 +72,8 @@ Jeśli nie widzisz kont integracji [utworzyć pierwszy](../logic-apps/logic-apps
     | Tożsamość hosta |Identyfikator partnera hosta |
     | Partner gościa |Umowa musi mieć partnera zarówno hosta, jak i gościa. Partner gościa reprezentuje organizację, która jest działalność z partnerem hosta. |
     | Tożsamość gościa |Identyfikator partnera gościa |
-    | Odbierają ustawienia |Te właściwości stosowane do wszystkich komunikatów odebranych przez umowy. |
-    | Wyślij ustawienia |Te właściwości stosowane do wszystkich wiadomości wysłanych przez umowy. |
+    | Ustawienia odbierania |Te właściwości stosowane do wszystkich komunikatów odebranych przez umowy. |
+    | Ustawienia wysyłania |Te właściwości stosowane do wszystkich wiadomości wysłanych przez umowy. |
 
 ## <a name="configure-how-your-agreement-handles-received-messages"></a>Skonfiguruj sposób dojść do Porozumienia odebrane wiadomości
 
@@ -104,15 +104,15 @@ Umowie jest teraz gotowy do obsługi wiadomości przychodzących, które odpowia
 
 | Właściwość | Opis |
 | --- | --- |
-| Zastąpienie właściwości wiadomości |Wskazuje, można zastąpić właściwości w odebranej wiadomości. |
-| Komunikat powinny być podpisane. |Wymaga komunikaty były podpisane cyfrowo. Konfigurowanie certyfikatu publicznego partnera gościa do sprawdzenia podpisu.  |
-| Można zaszyfrować wiadomości |Wymaga szyfrowanie wiadomości. Wiadomości zaszyfrowanych przez inne niż są odrzucane. Skonfiguruj certyfikat prywatny partnera hosta do odszyfrowywania wiadomości.  |
-| Powinien być kompresowane wiadomości |Wymaga wiadomości do skompresowania. Skompresowane inne niż wiadomości są odrzucane. |
-| Tekst MDN |Domyślne dyspozycji powiadomienia (MDN) do wysłania do nadawcy wiadomości. |
-| Wyślij MDN |Wymaga MDNs do wysłania. |
-| Wyślij MDN podpisem |Wymaga MDNs były podpisane. |
-| Algorytm Micznych |Wybierz algorytm podpisywania wiadomości. |
-| Wysyłanie asynchroniczne MDN | Wymaga komunikatów do wysłania asynchronicznie. |
+| Przesłoń właściwości komunikatu |Wskazuje, można zastąpić właściwości w odebranej wiadomości. |
+| Komunikat powinien być podpisany |Wymaga komunikaty były podpisane cyfrowo. Konfigurowanie certyfikatu publicznego partnera gościa do sprawdzenia podpisu.  |
+| Komunikat powinien być zaszyfrowany |Wymaga szyfrowanie wiadomości. Wiadomości zaszyfrowanych przez inne niż są odrzucane. Skonfiguruj certyfikat prywatny partnera hosta do odszyfrowywania wiadomości.  |
+| Komunikat powinien być skompresowany |Wymaga wiadomości do skompresowania. Skompresowane inne niż wiadomości są odrzucane. |
+| Tekst powiadomienia MDN |Domyślne dyspozycji powiadomienia (MDN) do wysłania do nadawcy wiadomości. |
+| Wyślij powiadomienie MDN |Wymaga MDNs do wysłania. |
+| Wyślij podpisane powiadomienie MDN |Wymaga MDNs były podpisane. |
+| Algorytm MIC |Wybierz algorytm podpisywania wiadomości. |
+| Wyślij asynchroniczne powiadomienie MDN | Wymaga komunikatów do wysłania asynchronicznie. |
 | Adres URL | Podaj adres URL, który ma zostać wysłana MDNs. |
 
 ## <a name="configure-how-your-agreement-sends-messages"></a>Skonfiguruj sposób umowie wysyłania wiadomości
@@ -149,19 +149,19 @@ Umowie jest teraz gotowy do obsługi komunikatów wychodzących, które odpowiad
 
 | Właściwość | Opis |
 | --- | --- |
-| Włącz podpisywania wiadomości |Wymaga wszystkich wiadomości wysłanych z umowy były podpisane. |
-| Algorytm Micznych |Algorytm używany do podpisywania wiadomości. Konfiguruje certyfikatu prywatnego partnera hosta Mikrofon algorytm podpisywania wiadomości. |
+| Włącz podpisywanie komunikatów |Wymaga wszystkich wiadomości wysłanych z umowy były podpisane. |
+| Algorytm MIC |Algorytm używany do podpisywania wiadomości. Konfiguruje certyfikatu prywatnego partnera hosta Mikrofon algorytm podpisywania wiadomości. |
 | Certyfikat |Wybierz certyfikat do użycia podczas podpisywania wiadomości. Umożliwia skonfigurowanie certyfikatu prywatnego partnera hosta do podpisywania wiadomości. |
-| Włącz szyfrowanie wiadomości |Wymaga szyfrowania wszystkich wiadomości wysłanych z niniejszej Umowy. Określa algorytm gościa partnera publicznego certyfikatu do szyfrowania wiadomości. |
+| Włącz szyfrowanie komunikatów |Wymaga szyfrowania wszystkich wiadomości wysłanych z niniejszej Umowy. Określa algorytm gościa partnera publicznego certyfikatu do szyfrowania wiadomości. |
 | Algorytm szyfrowania |Algorytm szyfrowania do użycia na potrzeby szyfrowania wiadomości. Konfiguruje gościa partnera publiczny certyfikatu do szyfrowania wiadomości. |
 | Certyfikat |Certyfikat używany do szyfrowania wiadomości. Konfiguruje gościa partnera prywatny certyfikatu do szyfrowania wiadomości. |
-| Włącz kompresję wiadomości |Wymaga kompresji wszystkich wiadomości wysłanych z niniejszej Umowy. |
-| Unfold — nagłówki HTTP |Umieszcza nagłówka content-type protokołu HTTP na jeden wiersz. |
-| Żądanie MDN |Wymaga MDN dla wszystkich wiadomości wysłanych z niniejszej Umowy. |
-| Żądanie podpisany MDN |Wymaga wszystkich MDNs, które są wysyłane do podpisania tej Umowy. |
-| Żądania asynchroniczne MDN |Wymaga asynchroniczne MDNs do wysłania do tej Umowy. |
+| Włącz kompresję komunikatów |Wymaga kompresji wszystkich wiadomości wysłanych z niniejszej Umowy. |
+| Rozwiń nagłówki HTTP |Umieszcza nagłówka content-type protokołu HTTP na jeden wiersz. |
+| Żądaj powiadomienia MDN |Wymaga MDN dla wszystkich wiadomości wysłanych z niniejszej Umowy. |
+| Żądaj podpisanego powiadomienia MDN |Wymaga wszystkich MDNs, które są wysyłane do podpisania tej Umowy. |
+| Żądaj asynchronicznego powiadomienia MDN |Wymaga asynchroniczne MDNs do wysłania do tej Umowy. |
 | Adres URL |Podaj adres URL, który ma zostać wysłana MDNs. |
-| Włącz NRR |Wymaga bez odrzucania odbioru (NRR), atrybut komunikacji, który udostępnia dowód odebrania danych jako problemu. |
+| Włącz opcję NRR |Wymaga bez odrzucania odbioru (NRR), atrybut komunikacji, który udostępnia dowód odebrania danych jako problemu. |
 | Format algorytmu SHA2 |Wybierz format algorytmu do użycia w Micznych lub logowanie nagłówków wychodzących wiadomości AS2 lub MDN |
 
 ## <a name="find-your-created-agreement"></a>Znajdź utworzone umowy

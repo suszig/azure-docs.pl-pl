@@ -2,7 +2,7 @@ W każdym miesiącu klienci platformy Azure mogą odblokować 25 000 bezpłatny
 
 ### <a name="to-sign-up-for-a-sendgrid-account"></a>Aby utworzyć konto usługi SendGrid
 1. Zaloguj się do [portalu Azure][Azure portal].
-2. W menu po lewej stronie kliknij pozycję **Nowy**.
+2. W menu po lewej stronie kliknij **Utwórz zasób**.
 
     ![command-bar-new][command-bar-new]
 3. Kliknij kolejno pozycje **Dodatki** i **Dostarczanie poczty e-mail przy użyciu usługi SendGrid**.
@@ -45,7 +45,7 @@ W każdym miesiącu klienci platformy Azure mogą odblokować 25 000 bezpłatny
 
     ![api-keys][api-keys]
 
-3. Kliknij listę rozwijaną **Utwórz klucz interfejsu API** i wybierz pozycję **Ogólny klucz interfejsu API**.
+3. Kliknij przycisk **Utwórz klucz interfejsu API**.
 
     ![general-api-key][general-api-key]
 4. Musisz podać **nazwę klucza** i przyznać pełen dostęp w wierszu **Wysyłanie poczty**. Wybierz przycisk **Zapisz**.

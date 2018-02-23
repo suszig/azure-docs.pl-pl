@@ -4,7 +4,7 @@ description: "W tym artykule opisano sposób konfigurowania grupy dostępności 
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 tags: azure-service-management
 ms.assetid: 388c464e-a16e-4c9d-a0d5-bb7cf5974689
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: 1ce90cf4bae66bfd6387a2698fd9b1ba7fc64595
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2a954ca10bdec3343dbd8796b50053a1c8c40ff4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Konfigurowanie zawsze włączonej grupy dostępności na maszynach wirtualnych Azure w różnych regionach
 
@@ -165,9 +165,9 @@ Po zakończeniu testowania łączności, przenieść podstawową replikę z powr
 
 | Lokalizacja | Wystąpienie serwera | Rola | Tryb dostępności | Tryb pracy awaryjnej
 | ----- | ----- | ----- | ----- | -----
-| Centrum danych podstawowych | SQL 1 | Podstawowy | Synchroniczne | Automatyczne
-| Centrum danych podstawowych | SQL 2 | Pomocniczy | Synchroniczne | Automatyczne
-| Centrum danych w dodatkowej lub zdalnego | SQL 3 | Pomocniczy | Asynchroniczne | Ręcznie
+| Centrum danych podstawowych | SQL-1 | Podstawowy | Synchroniczne | Automatyczny
+| Centrum danych podstawowych | SQL-2 | Pomocniczy | Synchroniczne | Automatyczny
+| Centrum danych w dodatkowej lub zdalnego | SQL-3 | Pomocniczy | Asynchroniczne | Ręczne
 
 
 ### <a name="more-information-about-planned-and-forced-manual-failover"></a>Więcej informacji na temat planowanymi, jak i wymuszonego ręcznego przełączania trybu failover
@@ -177,9 +177,9 @@ Aby uzyskać więcej informacji, zobacz następujące tematy:
 - [Wykonaj planowane ręcznego przełączania trybu Failover grupy dostępności (SQL Server)](http://msdn.microsoft.com/library/hh231018.aspx)
 - [Wykonaj wymuszonego ręcznego przełączania trybu Failover grupy dostępności (SQL Server)](http://msdn.microsoft.com/library/ff877957.aspx)
 
-## <a name="additional-links"></a>Linki do dodatkowych
+## <a name="additional-links"></a>Dodatkowe linki
 
 * [Zawsze włączone grupy dostępności](http://msdn.microsoft.com/library/hh510230.aspx)
-* [Maszyny wirtualne platformy Azure](http://docs.microsoft.com/azure/virtual-machines/windows/)
+* [Azure Virtual Machines](http://docs.microsoft.com/azure/virtual-machines/windows/)
 * [Moduły równoważenia obciążenia Azure](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer)
 * [Zestawy dostępności Azure](../manage-availability.md)

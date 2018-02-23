@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 2/13/2018
 ms.author: subramar
-ms.openlocfilehash: 5fed3b5b127a2b398b99ab2b46c762920e9dc249
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cdad0617c59fd5881c3857388809fac2186b36d8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="service-fabric-application-upgrade"></a>Uaktualnianie aplikacji usługi Service Fabric
 Aplikacja Azure Service Fabric jest kolekcja usług. Podczas uaktualniania usługi sieć szkieletowa porównuje nowe [manifest aplikacji](service-fabric-application-and-service-manifests.md) z poprzedniej wersji i określa usług w aplikacji wymagają aktualizacji. Sieć szkieletowa usług porównuje wersji numery w usłudze manifesty numery wersji w poprzedniej wersji. Jeśli usługa nie została zmieniona, czy usługa nie jest uaktualniony.
@@ -47,23 +47,23 @@ Tryb, w którym firma Microsoft zaleca się uaktualnienie aplikacji jest monitor
 Niemonitorowane ręczny tryb wymaga ręcznej interwencji po każdym uaktualnieniu domeny aktualizacji, aby rozpocząć poza uaktualniania do następnej domeny aktualizacji. Nie sieci szkieletowej usług kondycji są sprawdzane. Administrator przeprowadza kontrole kondycji lub stanu przed rozpoczęciem uaktualniania w następnej domeny aktualizacji.
 
 ## <a name="upgrade-default-services"></a>Uaktualnij usługi domyślne
-Podczas procesu uaktualniania aplikacji można uaktualnić usługi domyślnej aplikacji sieci szkieletowej usług. Domyślne usługi są zdefiniowane w [manifest aplikacji](service-fabric-application-and-service-manifests.md). Standardowe reguły uaktualniania usług domyślnych są następujące:
+Niektóre domyślne parametry usługi zdefiniowane w [manifest aplikacji](service-fabric-application-and-service-manifests.md) można również uaktualnić w ramach uaktualniania aplikacji. Tylko parametry usługi obsługujące zmieniane za pośrednictwem [ServiceFabricService aktualizacji](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) można zmienić w ramach uaktualnienia. Zachowanie zmiana domyślnych usług podczas uaktualniania aplikacji jest następujący:
 
-1. Domyślne usługi w nowym [manifest aplikacji](service-fabric-application-and-service-manifests.md) który nie istnieje w klastrze są tworzone.
+1. Domyślne usługi w nowych manifest aplikacji, które jeszcze nie istnieją w klastrze są tworzone.
+2. Zaktualizowano domyślne usługi, które istnieją w manifestach poprzedniej i nowych aplikacji. Parametry usługi domyślne w manifeście aplikacji nowe zastępowania parametrów istniejącej usługi. Uaktualnienie aplikacji będzie wycofywania automatycznie, jeśli domyślna usługa aktualizacji nie powiedzie się.
+3. Domyślne usługi, które nie istnieją w nowej manifest aplikacji są usuwane, jeśli istnieją w klastrze. **Należy pamiętać, że usunięcie domyślnej usługi spowoduje usunięcie wszystkie te usługi do stanu i nie można cofnąć.**
+
+Podczas uaktualniania aplikacji zostanie wycofana, domyślne parametry usługi są przywracane do ich starych wartości przed rozpocząć uaktualniania, ale usługami usunięto nie może zostać ponownie utworzone z ich poprzedni stan.
+
 > [!TIP]
-> [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) musi być ustawiona na true, aby włączyć następujące reguły. Ta funkcja jest obsługiwana w wersji 5.5.
-
-2. Domyślne usługi istniejących w obu poprzednich [manifest aplikacji](service-fabric-application-and-service-manifests.md) i nowej wersji zostały zaktualizowane. Opisy usług w nowej wersji zastąpiłaby już w klastrze. Uaktualnianie aplikacji czy wycofywania automatycznie po aktualizacji awaria usługi domyślne.
-3. Domyślne usługi w poprzedniej [manifest aplikacji](service-fabric-application-and-service-manifests.md) , ale nie w nowej wersji są usuwane. **Należy zwrócić uwagę, to usunięcie usług domyślnych nie można przywrócić.**
-
-W przypadku uaktualniania zostanie wycofana, domyślne, które usługi są przywracane do stanu przed rozpoczęciem uaktualniania. Ale usługami usunięto nigdy nie mogą być tworzone.
+> [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) ustawienia konfiguracji klastra musi być *true* Aby włączyć reguły 2) i 3) powyżej (domyślna usługa aktualizacji i usuwania). Ta funkcja jest obsługiwana, począwszy od platformy Service Fabric w wersji 5.5.
 
 ## <a name="application-upgrade-flowchart"></a>Schemat blokowy uaktualniania aplikacji
 Schemat blokowy dalej w tym temacie mogą pomóc zrozumieć proces uaktualniania aplikacji sieci szkieletowej usług. W szczególności przepływ w tym artykule opisano sposób limity czasu, w tym *HealthCheckStableDuration*, *HealthCheckRetryTimeout*, i *UpgradeHealthCheckInterval*, pomoc Formant podczas uaktualniania w domenie jedna aktualizacja jest uznawany za powodzenie lub niepowodzenie.
 
 ![Proces uaktualniania dla aplikacji sieci szkieletowej usług][image]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Uaktualnianie aplikacji za pomocą Visual Studio](service-fabric-application-upgrade-tutorial.md) przeprowadzi Cię przez proces uaktualnienia aplikacji przy użyciu programu Visual Studio.
 
 [Uaktualnienie z aplikacji przy użyciu programu Powershell](service-fabric-application-upgrade-tutorial-powershell.md) przeprowadzi Cię przez proces uaktualnienia aplikacji przy użyciu programu PowerShell.

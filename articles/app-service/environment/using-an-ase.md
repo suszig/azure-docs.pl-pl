@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 64746f7b1a09e35b35e794f5a11d69bef39a03a0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 64e1652ac4067a3f1639bf81cfcd0f79637ade9b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-an-app-service-environment"></a>Użyj środowiska usługi aplikacji #
 
-## <a name="overview"></a>Omówienie ##
+## <a name="overview"></a>Przegląd ##
 
 Środowiska usługi aplikacji Azure to wdrożenie usługi Azure App Service w podsieci sieci wirtualnej platformy Azure klienta. Składa się z:
 
@@ -48,7 +48,7 @@ Jeśli nie masz ASE, możesz utworzyć jedną zgodnie z instrukcjami w [tworzeni
 
 Aby utworzyć aplikację sieci web w elemencie ASE:
 
-1. Wybierz **nowe** > **sieci Web i mobilność** > **sieci Web aplikacji**.
+1. Wybierz **Utwórz zasób** > **sieci Web i mobilność** > **aplikacji sieci Web**.
 
 2. Wprowadź nazwę dla aplikacji sieci web. Jeśli plan usługi aplikacji jest już wybrana w elemencie ASE, nazwę domeny dla aplikacji odzwierciedla ASE nazwę domeny.
 
@@ -102,15 +102,15 @@ Frontonu zasoby są ASE punktu końcowego HTTP/HTTPS. Z domyślnej konfiguracji 
 
 W elemencie ASE zewnętrznych domeny, który jest używany podczas tworzenia aplikacji różni się od wielodostępnej usługi aplikacji. Zawiera nazwę ASE. Aby uzyskać więcej informacji na temat tworzenia ASE zewnętrznych, zobacz [tworzenie środowiska usługi aplikacji][MakeExternalASE]. Nazwa domeny w elemencie ASE zewnętrznych wygląda następująco: *.&lt; asename&gt;. p.azurewebsites.net*. Na przykład, jeśli nosi nazwę Twojej ASE _ase zewnętrzne_ i hosta aplikacji o nazwie _contoso_ w tym ASE, możesz uzyskać do niej dostęp w następujących adresów URL:
 
-- contoso.external ase.p.azurewebsites.net
-- contoso.SCM.external ase.p.azurewebsites.net
+- contoso.external-ase.p.azurewebsites.net
+- contoso.scm.external-ase.p.azurewebsites.net
 
 Adres URL contoso.scm.external-ase.p.azurewebsites.net umożliwia dostęp do konsoli Kudu lub do publikowania aplikacji za pomocą sieci web deploy. Informacje w konsoli Kudu, zobacz [konsoli Kudu dla usługi Azure App Service][Kudu]. Konsoli Kudu zapewnia interfejsu użytkownika sieci web dla debugowania przekazywania plików, edytowanie plików i wiele innych.
 
 W elemencie ASE ILB należy określić domeny, w czasie wdrażania. Aby uzyskać więcej informacji na temat tworzenia ASE ILB, zobacz [tworzenie i używanie ASE ILB][MakeILBASE]. Jeśli określisz nazwy domeny _ilb ase.info_, aplikacji, w tym ASE korzystania z tej domeny podczas tworzenia aplikacji. Dla aplikacji o nazwie _contoso_, adresy URL są:
 
-- contoso.ilb ase.info
-- contoso.SCM.ilb ase.info
+- contoso.ilb-ase.info
+- contoso.scm.ilb-ase.info
 
 ## <a name="publishing"></a>Publikowanie ##
 
@@ -126,9 +126,9 @@ Z zewnętrznego ASE te opcje publikowania wszystkich działają tak samo. Aby uz
 
 Główna różnica z publikowaniem są względem ASE ILB. Z ASE ILB publikowania punktów końcowych, które są dostępne tylko za pośrednictwem ILB. ILB znajduje się na prywatnego adresu IP w podsieci ASE w sieci wirtualnej. Jeśli nie masz dostępu do sieci do ILB, nie można opublikować żadnej aplikacji na tym ASE. Jak wspomniano w [tworzenie i używanie ASE ILB][MakeILBASE], należy skonfigurować usługę DNS dla aplikacji w systemie. Która zawiera punkt końcowy SCM. Jeśli nie są prawidłowo zdefiniowane, nie można opublikować. IDEs Twojego muszą mieć dostęp sieciowy do ILB, aby opublikować bezpośrednio do niego.
 
-Internetowych systemów elementu konfiguracji, takich jak GitHub i Visual Studio Team Services nie działają z ASE ILB, ponieważ punkt końcowy publikowania nie jest dostępny Internet. Zamiast tego należy użyć systemu elementu konfiguracji, który wykorzystuje model ściągania, takich jak Dropbox.
+Internetowych systemów elementu konfiguracji, takich jak GitHub i Visual Studio Team Services nie działają z ASE ILB, ponieważ punkt końcowy publikowania nie jest dostępny Internet. Zamiast tego należy używać systemu ciągłej integracji używającego modelu ściągania, takiego jak Dropbox.
 
-Publikowanie punktów końcowych dla aplikacji w elemencie ASE ILB Użyj domeny, która została utworzona ILB ASE. Można to sprawdzić w profilu publikowania aplikacji i w bloku portalu aplikacji (w **omówienie** > **Essentials** oraz w **właściwości**). 
+Punkty końcowe publikowania dla aplikacji w środowisku ASE z wewnętrznym modułem równoważenia obciążenia używają domeny, za pomocą której utworzono to środowisko. Można to sprawdzić w profilu publikowania aplikacji i w bloku portalu aplikacji (w **omówienie** > **Essentials** oraz w **właściwości**). 
 
 ## <a name="pricing"></a>Cennik ##
 

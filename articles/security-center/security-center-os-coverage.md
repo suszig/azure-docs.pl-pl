@@ -12,23 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 02/15/2018
 ms.author: terrylan
-ms.openlocfilehash: fd238f0b2d877f7f57a27ce495dae8de1ab9c066
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 3b57cacec729bd2f2dd4acdbb9c15e69ab9f5c85
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="supported-platforms-in-azure-security-center"></a>Obsługiwane platformy w Centrum zabezpieczeń Azure
-Monitorowanie stanu zabezpieczeń i zalecenia są dostępne dla maszyn wirtualnych (VM) utworzona przy użyciu zarówno klasycznego i modeli wdrażania Menedżera zasobów.
+Monitorowanie stanu zabezpieczeń i zalecenia są dostępne dla maszyn wirtualnych (VM), utworzone za pomocą zarówno classic i modeli wdrażania usługi Resource Manager i komputery.
 
 > [!NOTE]
 > Dowiedz się więcej o [klasycznego i modeli wdrażania usługi Resource Manager](../azure-classic-rm.md) dla zasobów platformy Azure.
 >
 >
 
-## <a name="supported-platforms-for-windows-vms"></a>Obsługiwane platformy dla maszyn wirtualnych systemu Windows
+## <a name="supported-platforms-for-windows-computers-and-vms"></a>Obsługiwane platformy dla komputerów z systemem Windows i maszyny wirtualne
 Obsługiwane systemy operacyjne Windows:
 
 * Windows Server 2008
@@ -38,10 +38,10 @@ Obsługiwane systemy operacyjne Windows:
 * Windows Server 2016
 
 
-## <a name="supported-platforms-for-linux-vms"></a>Obsługiwane platformy dla maszyn wirtualnych systemu Linux
+## <a name="supported-platforms-for-linux-computers-and-vms"></a>Obsługiwane platformy dla komputerów z systemem Linux i maszyny wirtualne
 Obsługiwane systemy operacyjne Linux:
 
-* Wersje Ubuntu 12.04, 14.04, 16.04, 16.10
+* Ubuntu versions 12.04, 14.04, 16.04, 16.10
 * Debian wersji 7, 8
 * CentOS w wersji 6. \*, 7.*
 * Red Hat Enterprise Linux (RHEL) w wersji 6. \*, 7.*
@@ -56,7 +56,7 @@ Obsługiwane systemy operacyjne Linux:
 ## <a name="vms-and-cloud-services"></a>Maszyny wirtualne i usługi w chmurze
 Maszyn wirtualnych uruchomionych w usłudze chmury są również obsługiwane. Tylko chmury usługi sieci web i proces roboczy role uruchomione w środowisku produkcyjnym, które są monitorowane gniazda. Aby dowiedzieć się więcej na temat usługi w chmurze, zobacz [Omówienie usługi w chmurze](../cloud-services/cloud-services-choose-me.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Przewodnik planowania Centrum zabezpieczeń Azure i obsługi](security-center-planning-and-operations-guide.md) — informacje o sposobie planowania i projektowania przyjęcie Centrum zabezpieczeń Azure
 - [Alerty zabezpieczeń według typu w Centrum zabezpieczeń Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type.md#virtual-machine-behavioral-analysis) — Dowiedz się więcej na temat analizy behawioralnej maszyny wirtualnej i awarii zrzutu pamięci analizy w Centrum zabezpieczeń

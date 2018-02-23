@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 02/21/2017
 ms.author: billmath
-ms.openlocfilehash: b533df58d24b3bc76a229ad09c682d1d8aeaf741
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2d172b22d00f21062237a1af1742bad6a03c864c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory bezproblemowe logowanie jednokrotne: Szybki start
 
@@ -75,10 +75,10 @@ Wykonaj te instrukcje, aby sprawdzić prawidłowo włączone bezproblemowe rejes
 
 ## <a name="step-3-roll-out-the-feature"></a>Krok 3: Wdrażanie funkcji
 
-Aby wdrożyć funkcję dla użytkowników, należy dodać następujące adresy URL usługi Azure AD do ustawienia strefy Intranet użytkowników za pomocą zasad grupy w usłudze Active Directory:
+Aby wdrożyć funkcję dla użytkowników, należy dodać następujący adres URL usługi Azure AD do ustawienia strefy Intranet użytkowników za pomocą zasad grupy w usłudze Active Directory:
 
-- https://AutoLogon.microsoftazuread-sso.com
-- https://aadg.Windows.NET.nsatc.NET
+- https://autologon.microsoftazuread-sso.com
+
 
 Ponadto należy włączyć zasadę strefy Intranet nosi nazwę **Zezwalaj na pasku stanu za pomocą skryptu aktualizacji** za pomocą zasad grupy. 
 
@@ -87,7 +87,7 @@ Ponadto należy włączyć zasadę strefy Intranet nosi nazwę **Zezwalaj na pas
 
 ### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>Dlaczego należy zmodyfikować ustawienia strefy Intranet użytkowników?
 
-Domyślnie przeglądarka automatycznie oblicza poprawnej strefy Internecie lub intranecie, z określonym adresem URL. Na przykład "http://contoso/" mapuje do strefy Intranet, podczas gdy "http://intranet.contoso.com/" mapuje strefie Internet (ponieważ adres URL zawiera kropkę). Przeglądarki nie wysyłaj biletów Kerberos do punktu końcowego w chmurze, takich jak dwa adresy URL usługi Azure AD, chyba że dodasz adres URL strefy Intranet w przeglądarce.
+Domyślnie przeglądarka automatycznie oblicza poprawnej strefy Internecie lub intranecie, z określonym adresem URL. Na przykład "http://contoso/" mapuje do strefy Intranet, podczas gdy "http://intranet.contoso.com/" mapuje strefie Internet (ponieważ adres URL zawiera kropkę). Przeglądarki nie wyśle biletów Kerberos do punktu końcowego w chmurze, takich jak Azure AD adresu URL, chyba że dodasz do strefy Intranet w przeglądarce adres URL.
 
 ### <a name="detailed-steps"></a>Szczegółowe procedury
 
@@ -101,16 +101,12 @@ Domyślnie przeglądarka automatycznie oblicza poprawnej strefy Internecie lub i
 
    Wynik wygląda następująco:
 
-    Wartość: https://autologon.microsoftazuread-sso.com
+    Value: https://autologon.microsoftazuread-sso.com
   
-    Dane: 1
-        
-   Wartość: https://aadg.windows.net.nsatc.net
-
     Dane: 1
 
    >[!NOTE]
-   > Jeśli chcesz uniemożliwić użytkownikom niektóre przy użyciu łatwego logowania jednokrotnego (na przykład, jeśli ci użytkownicy Zaloguj się na udostępnionym kioski), wartość poprzednimi wartościami **4**. Ta akcja dodaje adresy URL usługi Azure AD do ograniczonej strefy, a nie powiedzie się bezproblemowe logowanie Jednokrotne cały czas.
+   > Jeśli chcesz uniemożliwić użytkownikom niektóre przy użyciu łatwego logowania jednokrotnego (na przykład, jeśli ci użytkownicy Zaloguj się na udostępnionym kioski), wartość poprzednimi wartościami **4**. Ta akcja dodaje adres URL usługi Azure AD do ograniczonej strefy, a nie powiedzie się bezproblemowe logowanie Jednokrotne cały czas.
    >
 
 5. Wybierz **OK**, a następnie wybierz **OK** ponownie.
@@ -133,7 +129,7 @@ Mozilla Firefox nie są automatycznie używane uwierzytelnianie Kerberos. Każdy
 1. Uruchom program Firefox, a następnie wprowadź `about:config` na pasku adresu. Odrzucić żadnych powiadomień, które są wyświetlane.
 2. Wyszukaj **network.negotiate-auth.trusted URI** preferencji. Ta opcja wyświetla listę zaufanych witryn w programie Firefox uwierzytelniania Kerberos.
 3. Kliknij prawym przyciskiem myszy i wybierz **Modyfikuj**.
-4. Wprowadź https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net w polu.
+4. Enter https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net in the field.
 5. Wybierz **OK** , a następnie ponownie przeglądarkę.
 
 #### <a name="safari-mac-os"></a>Safari (Mac OS)
@@ -146,9 +142,9 @@ Jeśli masz zastąpiona [AuthNegotiateDelegateWhitelist](https://www.chromium.or
 
 #### <a name="google-chrome-mac-os-only"></a>Google Chrome (tylko Mac OS)
 
-Google Chrome na innych platform z systemem innym niż Windows i Mac OS, można znaleźć w temacie [listy zasad projektu chromu](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) informacji na temat dozwolonych programu Azure AD adresy URL zintegrowane uwierzytelnianie.
+Google Chrome na innych platform z systemem innym niż Windows i Mac OS, można znaleźć w temacie [listy zasad projektu chromu](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) Aby uzyskać informacje dotyczące sposobu listą dozwolonych adresów IP, adres URL usługi Azure AD zintegrowane uwierzytelnianie.
 
-Użycie innych firm rozszerzenia zasad grupy usługi Active Directory do wdrażanie usługi Azure AD adresy URL Firefox i Google Chrome na użytkowników komputerów Mac znajduje się poza zakres tego artykułu.
+Korzystanie z innych firm rozszerzenia zasad grupy usługi Active Directory do wdrażanie Azure AD adres URL do przeglądarki Firefox i Google Chrome na użytkowników komputerów Mac jest poza zakres tego artykułu.
 
 #### <a name="known-browser-limitations"></a>Ograniczenia dotyczące znanych przeglądarki
 
@@ -176,7 +172,7 @@ W kroku 2 Azure AD Connect tworzy konta komputerów (reprezentujący usługi Azu
 >[!IMPORTANT]
 >Nie trzeba wykonać ten krok _natychmiast_ po włączeniu funkcji. Przerzuć klucze Kerberos odszyfrowywania co najmniej raz na 30 dni.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Nowości techniczne](active-directory-aadconnect-sso-how-it-works.md): zrozumieć sposób działania funkcji bezproblemowe logowanie jednokrotne.
 - [Często zadawane pytania](active-directory-aadconnect-sso-faq.md): odpowiedzi na często zadawane pytania dotyczące bezproblemowe logowanie jednokrotne.

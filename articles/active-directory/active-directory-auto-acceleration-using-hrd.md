@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: it-pro
 ms.date: 11/09/2017
 ms.author: billmath
-ms.openlocfilehash: e2e6e5c40dc4a9f67f94c45f8394512db3f777f5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: deaa52a062eb01450f760324e01e520fcbe894e1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-sign-in-auto-acceleration-for-an-application-by-using-a-home-realm-discovery-policy"></a>Konfigurowanie logowania automatycznego przyspieszenie dla aplikacji za pomocą zasad odnajdowania obszaru macierzystego
 
@@ -29,13 +29,13 @@ Użytkownik może być konieczne przekierowanie do uwierzytelnienia do jednej z 
 
 - Dzierżawca domowej użytkownika (może to być jako zasób, którego użytkownik próbuje uzyskać dostęp do tej samej dzierżawy). 
 
-- Konta Microsoft.  Użytkownik jest gościa w dzierżawie zasobów.
+- Microsoft account.  Użytkownik jest gościa w dzierżawie zasobów.
 
 - Inny dostawca tożsamości, która jest Sfederowane przy użyciu dzierżawy usługi Azure AD.
 
 -  Dostawca tożsamości lokalnych, takich jak Active Directory Federation Services (AD FS).
 
-## <a name="auto-acceleration"></a>Akceleracja automatycznie 
+## <a name="auto-acceleration"></a>Auto-acceleration 
 Niektóre organizacje skonfigurować ich dzierżawy usługi Azure Active Directory możliwości utworzenia federacji z innego dostawców tożsamości, takie jak usługi AD FS do uwierzytelniania użytkowników.  
 
 W tych przypadkach gdy loguje użytkownika do aplikacji są najpierw najpierw wpisywane w stronę logowania w usłudze Azure AD. Po wpisywania ich nazwy UPN, są one następnie przekierowanie do strony logowania dostawców tożsamości. W pewnych okolicznościach Administratorzy mogą chcieć przekierować użytkowników do strony logowania, gdy są one zalogowanie się do określonych aplikacji. 
@@ -83,9 +83,9 @@ Istnieją trzy kroki w celu ustawienia logowania automatycznego przyspieszenie a
 
 1. Tworzenie zasad odnajdowanie obszaru macierzystego dla przyspieszenia automatycznie.
 
-2. Lokalizowanie zasady usług, do którego ma zostać dołączony zasad.
+2. Wyszukiwanie nazwy głównej usługi, do którego ma zostać dołączony zasad.
 
-3. Dołączanie zasady zasady usługi. Zasady mogą został utworzony w dzierżawie, ale nie ma żadnego efektu, dopóki nie są one dołączone do jednostki. 
+3. Dołączanie zasady do nazwy głównej usługi. Zasady mogą został utworzony w dzierżawie, ale nie ma żadnego efektu, dopóki nie są one dołączone do jednostki. 
 
 Odnajdowanie obszaru macierzystego zasad można dołączyć do nazwy głównej usługi, a tylko jedna zasada HRD mogą być aktywne w danej jednostce w dowolnym momencie.  
 
@@ -170,12 +170,12 @@ Get-AzureADPolicy
 ```
 
 
-Aby włączyć przyspieszenie automatycznie po utworzeniu zasad HRD, można przypisać go do wielu zasad z usługi aplikacji.
+Aby włączyć przyspieszenie automatycznie po utworzeniu zasad HRD, można przypisać go do wiele elementów głównych z usługi aplikacji.
 
 #### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>Krok 2: Znajdź nazwy głównej usługi, do którego chcesz przypisać zasady  
 Należy **ObjectID** podmiotów zabezpieczeń usługi, do których chcesz przypisać zasady. Istnieje kilka sposobów, aby znaleźć **ObjectID** podmiotów zabezpieczeń usługi.    
 
-Mogą korzystać z portalu lub można zbadać [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Można także przejść do [narzędzie Explorer wykres](https://graphexplorer.cloudapp.net/) i zaloguj się do swojego konta usługi Azure AD, aby zobaczyć nazwy główne usług wszystkich organizacji. Ponieważ używasz programu PowerShell służy polecenie cmdlet get-AzureADServicePrincipal Aby wyświetlić listę zasad usługi i ich identyfikatorów.
+Mogą korzystać z portalu lub można zbadać [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Można także przejść do [narzędzie Explorer wykres](https://graphexplorer.cloudapp.net/) i zaloguj się do swojego konta usługi Azure AD, aby zobaczyć nazwy główne usług wszystkich organizacji. Ponieważ używasz programu PowerShell służy polecenie cmdlet get-AzureADServicePrincipal do tworzenia listy nazw głównych usług i ich identyfikatorów.
 
 #### <a name="step-3-assign-the-policy-to-your-service-principal"></a>Krok 3: Przypisz zasady do Twojej nazwy głównej usługi  
 Po utworzeniu **ObjectID** z aplikacji, dla której chcesz skonfigurować automatyczne przyspieszenie nazwy głównej usługi, uruchom następujące polecenie. To polecenie powoduje skojarzenie zasad HRD, które zostały utworzone w kroku 1 z nazwy głównej usługi, zlokalizowanego w kroku 2.
@@ -226,7 +226,7 @@ Remove-AzureADApplicationPolicy -ObjectId <ObjectId of the Service Principal>  -
 ``` powershell
 Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
 ```
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - Aby uzyskać więcej informacji na temat działania uwierzytelniania w usłudze Azure AD, zobacz [scenariusze uwierzytelniania dla usługi Azure AD](develop/active-directory-authentication-scenarios.md).
 - Aby uzyskać więcej informacji dotyczących użytkownika logowania jednokrotnego, zobacz [dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-enterprise-apps-manage-sso.md).
 - Odwiedź stronę [przewodnik dewelopera usługi Active Directory](develop/active-directory-developers-guide.md) omówienie związane z programowaniem całą jego zawartość.

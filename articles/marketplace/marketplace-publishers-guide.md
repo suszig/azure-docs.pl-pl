@@ -1,7 +1,7 @@
 ---
-title: "Przewodnik wydawcy witrynę Azure Marketplace"
+title: Przewodnik AppSource wydawcy i portalu Azure Marketplace
 description: "Krok po kroku przewodnik i publikowanie list kontrolnych dla wydawców nowego portalu Azure Marketplace"
-services: marketplace
+services: Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: 
 author: ellacroi
 manager: msmbaldwin
@@ -14,17 +14,17 @@ ms.devlang:
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 0017986f9766fb8ad9fe15f04a064273ca675f9f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: d02d6e942dfc503dd87a8ebcb6e2ddcf6b6065c5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="azure-marketplace-publisher-guide"></a>Przewodnik wydawcy witrynę Azure Marketplace
+# <a name="azure-marketplace-and-appsource-publisher-guide"></a>Przewodnik AppSource wydawcy i portalu Azure Marketplace
 
-Witamy w podręczniku wydawcy Marketplace. Ten przewodnik ułatwia candidate i istniejących wydawców zrozumieć sposób korzystania z portalu Azure Marketplace oraz sklepy AppSource listy ich aplikacji i usług, do zwiększenia ich przedsiębiorstwa, we współpracy z firmą Microsoft. Na koniec tego przewodnika możesz dowiedzieć się więcej na temat każdego z tych tematów i wiedzieć, gdzie można znaleźć bardziej szczegółowe informacje:
+Witamy w [witrynę Azure Marketplace](https://azuremarketplace.microsoft.com) i [AppSource](https://appsource.microsoft.com) wydawca przewodnika. Ten przewodnik ułatwia nowych i istniejących wydawców zrozumieć sposób korzystania z portalu Azure Marketplace oraz sklepy AppSource, kroki wymagane do publikowania aplikacji i usług oraz sposób jego rozwoju we współpracy z firmą Microsoft. Na koniec tego przewodnika możesz dowiedzieć się więcej na temat każdego z tych tematów i wiedzieć, gdzie można znaleźć bardziej szczegółowe informacje:
 
-- Jakie są korzyści z uczestnictwa w witrynie Marketplace
+- Jakie są korzyści z listy w jednym z sklepy marketplace
 - Jakie są portalu Azure Marketplace i AppSource
 - Jak korzystać z tych sklepy
 - Sklepu, która jest odpowiednia dla usług i oferty 
@@ -36,30 +36,33 @@ Witamy w podręczniku wydawcy Marketplace. Ten przewodnik ułatwia candidate i i
 - Jak zoptymalizować listy i korzystać z zasobów przejdź na rynek wpływ dysku
 - Gdzie można uzyskać pomoc i obsługę pytania dotyczące portalu Azure Marketplace, AppSource, lub ten podręcznik publikowania, skontaktuj się z zespołem Marketplace, w  **cloudmarketplace@microsoft.com** . 
 
-## <a name="the-benefits-of-participating-in-marketplace"></a>Korzyści z uczestnictwa w witrynie Marketplace
+## <a name="benefits-of-participating-in-the-marketplace"></a>Korzyści z uczestnictwa w witrynie marketplace
 
-Marketplace jest punktem startowym do wspólnego działania przejdź na rynek z firmą Microsoft i zamachowym dla rozwoju firmy. Przy użyciu uruchamiania podwyższania poziomu, generowanie żądanie i wspólnych sprzedaży i marketingu, portfela oferta portalu Marketplace można bezpośrednio z aparatu firm chmury. Nie ma żadnych opłat za uczestniczących w witrynie Marketplace. Naszym celem jest nawiązać połączenia z najlepszych rozwiązań, które naszym ekosystemem partnerów oferuje klientom firmy Microsoft.
+Azure Marketplace i AppSource są uruchamiania punkty dla wspólnych działań przejdź na rynek z firmą Microsoft i zamachowym dla rozwoju firmy. Przy użyciu uruchamiania podwyższania poziomu, generowanie żądanie i wspólnych sprzedaży i marketingu, Twoje w witrynie Marketplace można bezpośrednio z aparatu firm chmury. Nie ma żadnych opłat za uczestniczących w witrynie marketplace. Naszym celem jest nawiązać połączenia z najlepszych rozwiązań i usług, które naszym ekosystemem partnerów oferuje klientom firmy Microsoft.
 
-Wykorzystać możliwości portalu Marketplace do rozwoju firmy:
+Wykorzystać możliwości portalu marketplace do rozwoju firmy:
 
-- **Generowanie potencjalnych klientów i sprzedaży możliwości.** Wprowadź nowy rynkach z rozwiniętym portfolio rozwiązań na platformie Microsoft w chmurze. O dostępności wyższych kategorii i ofert witryny Marketplace sprzedaży. 
-- **Zwiększyć wartość biznesową i zwiększyć rozmiar transakcji z istniejących i nowych klientów.** Rosnąć transakcji rozmiar i adres problemy biznesowe klienta podczas przenoszenia obciążeń w chmurze. Zwiększyć rentowność transakcji sprzedaży kompletnych rozwiązań. 
-- **Uzyskiwanie przydatnych wyników analiz.** Twój sukces jest naszym sukcesem. Uzyskiwanie szczegółowych informacji za pośrednictwem portalu dla partnerów chmury na jakie wykonuje, co poprowadzą wygenerowało i jak zmaksymalizować działań w ramach kampanii.
+- **Generowanie potencjalnych klientów i sprzedaży możliwości.** Wprowadź nowy rynkach z rozwiniętym portfolio rozwiązań na platformie Microsoft w chmurze. O dostępności wyższych kategorii i sprzedaży ofert witryny marketplace. 
+- **Zwiększyć wartość biznesową i zwiększyć rozmiar transakcji z istniejących i nowych klientów.** Rosnąć transakcji rozmiar i adres problemy biznesowe klienta podczas przenoszenia obciążeń w chmurze. Zmniejsz cykle sprzedaży i zwiększyć rentowność transakcji o tym docelowych określonych obciążeń i scenariusze branży sprzedaży kompletnych rozwiązań.
+- **Uzyskiwanie przydatnych wyników analiz.** Twój sukces jest naszym sukcesem. Uzyskiwanie szczegółowych informacji na temat wydajności z listy za pośrednictwem portalu dla partnerów chmury. Dowiedz się, jakie wykonuje, co poprowadzą wygenerowało i jak zmaksymalizować działań w ramach kampanii.
+
+>[!NOTE]
+>Aplikacje, które rozszerzają pakietu Office będą uzyskiwać dostęp do szczegółowych informacji za pośrednictwem aplikacji pakietu Office procesu publikowania.
 
 ## <a name="what-are-azure-marketplace-and-appsource"></a>Jakie są portalu Azure Marketplace i AppSource?
 
-Firma Microsoft udostępnia dwa różne sklepy Marketplace, umożliwiających partnerów listy oferty, Włącz prób i transact bezpośrednio z ekosystemem i klientów firmy Microsoft: — Azure Marketplace (https://azuremarketplace.microsoft.com) i () [AppSource] https://appsource.microsoft.com). Te Sklepy Zezwalaj klientom znaleźć, spróbuj, a następnie Kup aplikacji i usług, które przyspieszyć ich przekształcenie cyfrowych i pomóc wydawców wzrostu ich firmy przez zwiększenie dostęp do klientów i ekosystemem partnerów firmy Microsoft.
+Firma Microsoft udostępnia dwa sklepy różne marketplace, umożliwiających partnerów listy oferty, Włącz prób i transact bezpośrednio z ekosystemem i klientów firmy Microsoft: — Azure Marketplace (https://azuremarketplace.microsoft.com) i () [AppSource] https://appsource.microsoft.com). Te Sklepy Zezwalaj klientom znaleźć, spróbuj, a następnie Kup aplikacji i usług, które przyspieszyć ich przekształcenie cyfrowych i pomóc wydawców wzrostu ich firmy przez zwiększenie dostęp do klientów i ekosystemem partnerów firmy Microsoft.
  
-Sklepy Marketplace są wyrównane do odbiorców i produktów w chmurze firmy Microsoft, aby ułatwić klientom znalezienie dokładnie potrzebują. Każdy sklepu oferty specjalne opcje publikowania, aby ułatwić zmaksymalizowaniu zwrotu z inwestycji publikowania podsumowane w poniższej tabeli:
+Sklepy marketplace są wyrównane do odbiorców i produktów w chmurze firmy Microsoft, aby ułatwić klientom znalezienie potrzebnych informacji. Każdy sklepu oferty specjalne opcje publikowania, aby ułatwić zmaksymalizowaniu zwrotu z inwestycji publikowania podsumowane w poniższej tabeli:
 
 
 |          |Azure Marketplace |AppSource  |
 |---------|---------|---------|
 |Odbiorcy docelowi     |Informatycy i deweloperzy (role specjalistyczne obejmują DBAs, SecOP, metodyki DevOps itp.)    | Wiersz decydentów Business (role specjalistyczne obejmują zamówień, produkcyjnym, ewidencjonowanie aktywności itp.)      |
-|Zbudowany rozszerzenie     |Azure         | Azure, Dynamics 365 usługi Office 365, usługa Power BI i aplikacje zasilania       |
-|Typy rozwiązania i usługi     |  Rozwiązania dla infrastruktury i usług   | Zakończono wiersz Professional usługi i aplikacje biznesowe        |
-|Opcje publikowania     |  Skontaktować się ze mną, usługi konsultingowe oferują, wersji próbnej, maszyny wirtualnej, szablony rozwiązań i zarządzanych aplikacjach       |  Skontaktować się ze mną konsultacji oferty usługi lub wersja próbna       |
-|Środowisko w aplikacji     | Portalu Azure i interfejsu wiersza polecenia         | Usługi Office 365, Dynamics 365 usługi Power BI, aplikacje klienckie pakietu Office       |
+|Skompilowany, albo aby rozszerzyć     |Azure         | Azure, Dynamics 365 usługi Office 365, usługa Power BI i aplikacje zasilania       |
+|Typy rozwiązania i usługi     |  Rozwiązania dla infrastruktury i usług   | Zakończono wiersza aplikacji biznesowych w chmurze, usługi Office 365 dodatków oraz usług professional        |
+|Opcje publikowania     |  Skontaktować się ze mną, usługi konsultingowe oferują, wersji próbnej, maszyny wirtualnej, szablony rozwiązań i zarządzanych aplikacjach       |  Bezpłatna wersja próbna i Pobierz teraz, testowanie, skontaktuj się z pomocą, mnie konsultacji oferty usługi      |
+|Udostępnia środowisko w aplikacji użytkownikom dostępu do aplikacji i usług w kontekście aplikacji  | Portalu Azure i interfejsu wiersza polecenia         | Usługi Office 365, Dynamics 365 usługi Power BI, aplikacje klienckie pakietu Office       |
 
 ## <a name="leveraging-these-storefronts"></a>Wykorzystanie tych sklepy
 
@@ -75,44 +78,50 @@ Uwzględnij informatyków i deweloperów chmury za pomocą **portalu Azure Marke
 |**Wymaga mechanizm wdrażania skalowalnej dla usług i aplikacji innych firm**   | Umożliwia tworzenie i konfiguracja skalowalnych wdrożeń dla usług i aplikacji innych firm        |
 |**Wymaga nowych aplikacji i usług integracji i pracować z istniejącymi rozwiązaniami**  |   Łatwo zintegrować z istniejącymi rozwiązaniami na platformie Azure usługi i aplikacje innych producentów      |
 
-Uwzględnij firm użytkowników przy użyciu **AppSource** do odnajdywania i spróbuj SaaS Linia biznesowych aplikacji i usług: 
+Uwzględnij użytkowników biznesowych na **AppSource** Aby znaleźć, spróbuj i biznesowych SaaS aplikacji i usług implementacji pomoc wyników biznesowych dysku i skrócić czas wartości:: 
 
 
 |Potrzeba klienta  |AppSource  |
 |---------|---------|
-|**Chce rozszerzyć funkcjonalność Dynamics 365, usługi Office 365, usługi Power BI i aplikacje zasilania**   |  Umożliwia klientom korzystanie z usług i aplikacji innych firm do rozszerzania możliwości platformy w chmurze firmy Microsoft       |
-|**Uzna wyzwanie odnajdywanie prawo aplikacji lub usługi**    |   Zapewnia zaspokaja do odnajdywania i wersji próbnej aplikacji i usług oraz dodatki      |
-|**Wymaga branżowe rozwiązań biznesowych**   | Włącza rozwiązań dla każdej branży, aby klienci mogą znaleźć wymaganych        |
-|**Wymaga rozwiązań specyficzne dla firm**    | Umożliwia rozwiązań dla każdego wiersza biznesowych i firm problemu oraz obsługi klienta, HR operacji i wiele innych        |
+|**Trwa wyszukiwanie rozwiązań biznesowych, które współpracują z produktami firmy Microsoft już używają** | Zezwalaj klientom korzystanie z usług i aplikacji innych firm rozszerzenie aplikacji w chmurze firmy Microsoft i technologii.       |
+|**Możliwość łatwo znaleźć z prawej strony prawym rozwiązania lub implementacji usługi.**    |   Udostępnia zaspokaja odnajdywanie wersji próbnej, w celu uzyskania aplikacji i usług, dodatków oraz      |
+|**Wiersz branżowe rozwiązanie biznesowe na wyzwania firmy**   | Udostępnia Zakończono branży end-to-end rozwiązań pomagających szczególne wymagania dotyczące adresów między wiele branż     |
+|**Aplikacje, aby poprawić wydajność, wydajności i biznesowych**    | Zapewnia aplikacji biznesowych, w tym obsługi klienta, HR operacji i wiele innych        |
+| **Implementacja doświadczonym partnera, aby pomóc dostosować aplikacje do ich sytuacji unikatowy** | Udostępnia katalog konsultacji oferty usług dla rozwiązania oparte na Dynamics 365, usługa Power BI, rozwiązanie PowerApps i 3 aplikacje firm są dostępne na AppSource ułatwia użytkownikom biznesowym znaleźć konsultacji usług projekt, aby dostarczyć przewidywalną wyników |
 
 ## <a name="understanding-the-differences-between-storefronts"></a>Opis różnic między sklepy
 
-Wybieranie sklepu rozpoczyna się od zidentyfikowania docelowych odbiorców dla danej oferty: Azure Marketplace jest wyrównywany do potrzeb ZAWODOWYM informatykom i deweloperom i AppSource jest użytkownikom biznesowym. Jeśli rozwiązania jest przeznaczony dla obu grup odbiorców, wystarczy raz opublikować listę w obu sklepy.
+Wybieranie sklepu rozpoczyna się od zidentyfikowania docelowych odbiorców dla danej oferty: Azure Marketplace jest wyrównywany do potrzeb ZAWODOWYM informatykom i deweloperom i AppSource jest do potrzeb biznesowych. Jeśli rozwiązania jest przeznaczony dla obu grup odbiorców, wystarczy raz opublikować listę w obu sklepy.
  
 Należy rozważyć dodatkowe zalety każdego sklepu:
 
 |Korzyści sklepu  |Azure Marketplace  |AppSource   |
 |---------|---------|---------|
-|**Elastyczność rozliczeń**    | W przypadku maszyn wirtualnych "Płatności zgodnie z rzeczywistym użyciem" Opcje rozliczeń, użyj umowy enterprise firmy Microsoft lub bezpośredniego modeli sprzedaży sieci web. Cenników także subskrypcji warstwę bezpłatna, gdzie oferty jest stale wolnego, a także Spróbuj teraz subskrypcją promotionally wolnego przez ograniczony okres, po którym są konwertowane na subskrypcję płatną. "Bring Your Own License" jest także Aktywacja opcji obsługi wydawcy dla obu opcji rozliczeń, w scenariuszach, w przypadku, gdy maszyny wirtualne są wdrażane za pomocą aplikacji Azure (np. szablon rozwiązania lub zarządzanych aplikacji), wszystkie zasoby Azure udostępniane są rozliczane bezpośrednio do klienta | AppSource oferuje bezproblemowego inicjowania obsługi administracyjnej środowisko wersji próbnej, ale nie oferuje aktualnie włączone commerce opcji publikowania; Dzięki temu można korzystać z bieżącej kolejności i rozliczeń infrastruktury bez dodatkowej inwestycji lub zmian        |
-|**Ułatwienia połączenia z innymi partnerami**     |Azure Marketplace nie zezwala obecnie na wydawcy, aby połączyć partnerów dostawcy dostarczania lub każda usługa oferty         |  Niezależni dostawcy oprogramowania, integratorów systemów. platforma i zarządzane dostawców usług może odnosić się w przypadku scenariuszy konkretnej implementacji obsługi współpracy sprzedaży dla nowych klientów      |
+|**Elastyczność rozliczeń**    | W przypadku maszyn wirtualnych "Płatności zgodnie z rzeczywistym użyciem" Opcje rozliczeń, użyj umowy enterprise firmy Microsoft lub bezpośredniego modeli sprzedaży sieci web. Cenników także subskrypcji warstwę bezpłatna, gdzie oferty jest stale wolnego, a także Spróbuj teraz subskrypcją promotionally wolnego przez ograniczony okres, po którym są konwertowane na subskrypcję płatną. "Bring Your Own License" jest także Aktywacja opcji obsługi wydawcy dla obu opcji rozliczeń, w scenariuszach, w przypadku, gdy maszyny wirtualne są wdrażane za pomocą aplikacji Azure (np. szablon rozwiązania lub zarządzanych aplikacji), wszystkie zasoby Azure udostępniane są rozliczane bezpośrednio do klienta | AppSource oferuje środowisko wersji próbnej Inicjowanie obsługi administracyjnej, ale nie oferuje aktualnie włączone commerce opcji publikowania; Dzięki temu można korzystać z bieżącej kolejności i rozliczeń infrastruktury bez dodatkowej inwestycji lub zmian        |
+|**Ułatwienia połączenia z innymi partnerami**     |Azure Marketplace nie zezwala obecnie na wydawcy, aby połączyć partnerów dostawcy dostarczania lub każda usługa oferty, ale spowoduje uruchomienie tej funkcji w 2018         |  Niezależni dostawcy oprogramowania, integratorów systemów. platforma i zarządzane dostawców usług może odnosić się w przypadku scenariuszy konkretnej implementacji obsługi współpracy sprzedaży dla nowych klientów      |
 |**Automatyzacja**     |    Azure Marketplace nie zezwala obecnie na wydawcy, aby połączyć partnerów dostawcy dostarczania lub każda usługa oferty     | Korzystaj z automatycznych SaaS z dodatku inicjowania obsługi i umożliwia zautomatyzowanie danych SaaS scenariusze kolekcji i wdrażania rozwiązania szablony        |Niezależni dostawcy oprogramowania, integratorów systemów. platforma i zarządzane dostawców usług może odnosić się w przypadku scenariuszy konkretnej implementacji obsługi współpracy sprzedaży dla nowych klientów
 |**Wiele typów chmury**     |   Publikowanie zarówno chmur publicznych i rozwiązań lokalnych za pomocą usługi Azure stosu lub publikacji Azure dla instytucji rządowych i regionalnych chmur tym Chin i Niemczech      |    AppSource nie obecnie oferuje obsługę stosu Azure, Azure dla instytucji rządowych lub regionalnych chmury     |
-|**W kontekście prezentacji dla klientów**     |  Udostępnij rozwiązania w środowisku w portalu Azure w wyszukiwaniu kontekstowych (maszyny wirtualne i szablony rozwiązań)       |  Udostępnij rozwiązania w środowisku w aplikacji dla produktów firmy Microsoft       |
+|**W kontekście prezentacji dla klientów**     |  Udostępnij rozwiązania w środowisku w portalu Azure w wyszukiwaniu kontekstowych (maszyny wirtualne i szablony rozwiązań)       |  Osiągnąć więcej klientów za pośrednictwem doświadczenie w aplikacji dla produktów firmy Microsoft, takich jak Dynamics 365, usługa Power BI i usługi Office 365    |
 
 ## <a name="select-a-publishing-option"></a>Wybierz publikowania opcji
 
 Każdy sklepu obsługuje wiele opcji publikowania oraz typów oferty: Lista wersji próbnej i Transact. Wybierz typ oferty, które najlepiej informują aplikacji i szczegółów usługi. Wszystkie opcje publikowania zapewni partnerów dostęp, prowadzi do udostępniania. 
 
+W tej sekcji opisano za pomocą opcji dostępnych dla Ciebie w obu sklepy. 
+
 
 |**Opcja publikowania**  | **Typ oferty** | **Sklepu**  |
 |---------|---------|---------|
-|**Lista**    |    Skontaktować się ze mną konsultacji usługi     |  Azure Marketplace, AppSource       |
+|Lista    |    Skontaktować się ze mną konsultacji usługi     |  Azure Marketplace, AppSource       |
 |**Wersja próbna**   |     W warstwie bezpłatna wersja próbna, wersja próbna SaaS, pokaz interaktywny, testowanie    |  Azure Marketplace, AppSource       |
 |**Transact**     |   Maszyna wirtualna, szablon rozwiązania zarządzanych aplikacji      |    Azure Marketplace     |
 
 ### <a name="list"></a>LISTA
 
 Użyj **kontaktu mnie** gdy udział wersji próbnej lub poziomu transakcji nie jest możliwe. Zaletą tej metody jest możliwość wydawców z rozwiązanie na rynek natychmiast rozpocząć potencjalni klienci, którzy mogą nurtured do podstawowych transakcji można uruchomić Twojej zamachowym biznesowe odbierania. Jednak wadą jest, że zaangażowanie klientów jest ograniczona w porównaniu z innych typów ofert.
+
+>[!IMPORTANT]
+>Skontaktuj się z Me nie jest typem listy zalecane i należy używać tylko w sytuacji, w których nie istnieje sposób ustanowienie środowisko wersji próbnej. Zaangażowanie klientów jest najlepiej z wersji próbnej i oferuje Transact. Jeśli masz środowisko wersji próbnej dowolnego typu procesu dołączania przeprowadzi Cię do jednej z tych opcji, w zależności od danego scenariusza.
 
 Gdy oferta obejmuje głównie profesjonalne usługi (np. oceny, implementacji, zakładów), użyj **usługi konsultingowe** typu oferty. Zakres oferty, czas trwania i cen musi być stałą, musi być jednego odbiorcy i musi być przeprowadzane na miejscu.
 
@@ -122,7 +131,7 @@ Zapewnianie obsługi wersji próbnej powoduje podwyższenie poziomu zaangażowan
  
 Wszystkie opcje wersji próbnej są wdrażane w środowisku wersji próbnej i/lub subskrypcji Azure, a nie w środowisku lub subskrypcji Azure odbiorcy. Prób powinny być doprowadziły klienta bez żadnych dodatkowych zakupów i minimalna, dodatkowego skonfigurowania, aby ukończyć prosty przypadek użycia. Wersje próbne musi zawierać bezpłatna pomoc techniczna co najmniej na czas trwania okresu próbnego. Użytkownicy wersji próbnej należy nurtured i monitorowane na ścieżce oceny zamierzonego celu uzyskania najlepszych wyników. Wydawcy są zachęcani do użycia zarówno Marketplace potencjalnych klientów i własnych wydawcy analizy w aplikacji można monitorować i zarządzać nimi użytkowników wersji próbnej.
 
-Istnieją 3 typowe scenariusze wersji próbnej:
+Istnieją 4 typowe scenariusze wersji próbnej:
 
 
 |**Opcja wersji próbnej**  |**Najważniejsze korzyści**  |**Wybierz tę opcję Jeśli...**  |
@@ -130,6 +139,7 @@ Istnieją 3 typowe scenariusze wersji próbnej:
 |**Bezpłatna wersja próbna**    |     Umożliwia klientowi spróbuj produkt przed metodą automatycznego można przekonwertować na płatną zakupu i umożliwia potwierdzenie pojęcia związane z zaangażowania klientów i wspólnego z zespoły firmy Microsoft |     Rozwiązania jest maszyną wirtualną lub rozwiązania rozwiązania szablon lub SaaS, oferty i możesz oferty produktów SaaS wielodostępne, możesz uzyskać pierwszego uruchomienia systemu, aby rozpocząć klienta szybkie i uruchomienie, jeśli masz pojedynczej dzierżawy, ale są dodawania klientów jako "nam gościa wywołujących|
 **Przetestuj**     |     Umożliwia klientowi spróbuj produkt przed zakupu oraz są udostępniane z przewodnikiem obsługi rozwiązania wstępnie skonfigurowane ustawienia |   Rozwiązania jest maszyna wirtualna, szablon rozwiązania lub aplikacji SaaS przy użyciu pojedynczej dzierżawy lub jest skomplikowane, aby udostępnić lub nie masz metodę konwersji okresu próbnego do oferty płatnej |
 |**Pokaz interaktywny**    |  Umożliwia klientom Zobacz produktu w akcji bez złożoności Instalatora       |    Rozwiązania wymaga złożonych konfiguracji, który jest trudna do osiągnięcia w okresie próbnym     |
+
 
 #### <a name="free-trial"></a>Bezpłatna wersja próbna
 
@@ -159,7 +169,10 @@ W portalu Azure Marketplace, użyj **maszyny wirtualnej** podczas wdrażania roz
 
 Użyj **szablon rozwiązania Azure** kiedy rozwiązanie wymaga dodatkowej automatyzacji wdrażania i konfigurowania poza urządzenie wirtualne. Szablony rozwiązań można zautomatyzować, inicjowanie obsługi administracyjnej przynajmniej jeden zasób maszyny wirtualnej i dodatkowo może zapewnić zasobów sieci i magazynu. Szablony rozwiązań zapewniają korzyści automatyzacji w pojedynczej maszyny wirtualnej, a także środowisk całego rozwiązania IaaS. Dowiedz się więcej o tworzeniu szablonów rozwiązania [tutaj](https://github.com/MicrosoftDocs/azure-docs).
 
-Podczas wdrażania maszyny wirtualnej lub całego rozwiązania opartego na IaaS subskrypcją klienta podczas wydawcy lub odbiorcy żąda rozwiązania do zarządzania przez 3 strony, na przykład SI lub MSP, należy użyć aplikacji zarządzanych platformy Azure. Dowiedz się więcej o [tutaj tworzenie aplikacji zarządzanych przez](https://docs.microsoft.com/azure/managed-applications/overview). Aby uzyskać listę często zadawanych pytań, zobacz [Azure Marketplace — często zadawane pytania](https://azure.microsoft.com/marketplace/faq/).
+Użyj **aplikacji zarządzanych platformy Azure** podczas wdrażania maszyny wirtualnej lub całego rozwiązania opartego na IaaS subskrypcją klienta podczas wydawcy lub odbiorcy żąda rozwiązania do zarządzania przez 3 strony, na przykład SI lub MSP. Dowiedz się więcej o [tutaj tworzenie aplikacji zarządzanych przez](https://docs.microsoft.com/azure/managed-applications/overview). Aby uzyskać listę często zadawanych pytań, zobacz [Azure Marketplace — często zadawane pytania](https://azure.microsoft.com/marketplace/faq/).
+
+>[!NOTE]
+> Zarządzane aplikacje muszą być możliwe za pośrednictwem portalu marketplace. Jeśli komunikacji klienta jest istotny, należy pamiętać, że można dotrzeć do zainteresowanych klientów, jeśli włączono udostępnianie potencjalnych klientów.
 
 ### <a name="azure-certified"></a>Certyfikaty platformy Azure
 
@@ -197,11 +210,11 @@ Z drugiej strony Jeśli włączysz użycie własnej licencji jako opcja:
 |Koszt licencji     | Opłata licencji negocjowane i rozliczane według wydawcy        |
 |---------|---------|
 |Koszt użycia platformy Azure (D1 1-rdzeni)    | $0.14 na godzinę         |
-|**Jest on rozliczany klienta przez firmę Microsoft**     | **$0.14 na godzinę**        |
+|**Jest on rozliczany klienta przez firmę Microsoft**     | $0.14 na godzinę        |
 
 W tym scenariuszu Microsoft rachunków $0.14 na godzinę do użycia opublikowanego obrazu maszyny wirtualnej. 
 
-|**Opłaty firmy Microsoft**    |   **$0.14 na godzinę**      |
+|**Opłaty firmy Microsoft**    |   $0.14 na godzinę      |
 |---------|---------|
 |Microsoft zachowuje koszt użycia usługi Azure     |    $0.14 na godzinę     |
 |Microsoft zachowuje 0% koszt licencji     |  0,00 USD na godzinę       |
@@ -227,7 +240,7 @@ Każdy klient mający umowę Enterprise Agreement może dodać do niej opcję ko
 |---------|---------|---------|
 |**Zasady udziału**    | Przejrzyj Azure Marketplace udział zasady [tutaj] (https://azure.microsoft.com/support/legal/marketplace/participation-policies/).       | Lista, z wersji próbnej, Transact        |
 |**Integracja z programem Microsoft**    | Azure ofert witryny Marketplace należy wykorzystać lub rozszerzenia usług Microsoft Azure, takich jak obliczeniowych, sieci lub magazynu i wyrównanie do istniejącej kategorii portalu Azure Marketplace, np. baz danych, zabezpieczeń, sieci. Znajdź pełną listę [tutaj](https://azuremarketplace.microsoft.com/marketplace/apps).        | Lista, z wersji próbnej, Transact        |
-|**Grupy odbiorców**    | Azure ofert witryny Marketplace musi być dla specjalistów IT, deweloperów chmury lub innych ról technicznej klienta.       |  Lista, z wersji próbnej, Transact 
+|**Audience**    | Azure ofert witryny Marketplace musi być dla specjalistów IT, deweloperów chmury lub innych ról technicznej klienta.       |  Lista, z wersji próbnej, Transact 
 |**Zarządzanie potencjalnymi klientami**    | Aby otrzymywać potencjalnych klientów z witryny Marketplace, należy włączyć programu CRM (Marketo, Microsoft Dynamics lub Salesforce) akceptować dane potencjalnych klientów.        |   Lista, z wersji próbnej, Transact      |
 |**Zasady zachowania poufności informacji i warunki użytkowania**     |   Zasady zachowania poufności musi być dostępny za pośrednictwem publicznego adresu URL, a Twoje warunki użytkowania należy wprowadzić jako tekst podczas publikowania.      |   Lista, z wersji próbnej, Transact      |
 |**Pomoc techniczna**     |  Ofertę musi zawierać adres URL pomocy technicznej publicznie dostępnych gdzie klienci mogą znaleźć Pomoc. W przypadku wersji próbnej należy podać obsługi bez ponoszenia dodatkowych kosztów dla okresu próbnego.       |  Wersja próbna, Transact       |
@@ -238,7 +251,7 @@ Każdy klient mający umowę Enterprise Agreement może dodać do niej opcję ko
 |---------|---------|---------|
 |**Bezpłatny okres próbny i środowisko wersji próbnej**     |  Klient musi mieć możliwość użycia aplikacji bezpłatnie przez ograniczony czas.<br>Oznacza to, że klient nie będą poddawani uwierzytelnianiu licencji lub subskrypcji opłaty za produktu ani koszt produktu firmy Microsoft lub usługi podstawowej. Ponieważ wszystkie opcje wersji próbnej subskrypcji produktu Microsoft wydawcy są wdrażane, próbny koszt optymalizacji i zarządzania jest kontrolowany wyłącznie przez wydawcę.<br>Można wybrać bezpłatnej wersji próbnej, interaktywny pokaz lub dysk testu. Niezależnie od tego, możesz wybrać bezpłatna wersja próbna musi zaoferować klientowi minimalna ilość czasu na wypróbowanie aplikacji dla bez dodatkowych kosztów.<br> Dotrzeć do cloudmarketplace@microsoft.com do rozpoczęcia procesu tworzenia dysku testu. Uwaga: Azure SaaS Marketplace środowiska wersji próbnej musi zezwolić użytkownikom na logowanie za pomocą ich usługi Active Directory działa poświadczeń. [Dowiedz się więcej.](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences) |   Wersja próbna      | 
 | **Można łatwo konfigurować, gotowe rozwiązanie**    |  Aplikacja musi być łatwo i szybko do skonfigurowania i.       |  Wersja próbna       |
-|**Czas dostępności/działania**    |    Platformie lub aplikacja SaaS musi mieć przestojów co najmniej 99,9%.     |    Wersja próbna     |
+|**Availability/Uptime**    |    Platformie lub aplikacja SaaS musi mieć przestojów co najmniej 99,9%.     |    Wersja próbna     |
 |**Azure Active Directory**    |    Ofertę musi zezwalać na usługi Azure Active Directory federacyjne logowanie jednokrotne (SSO federacyjnych AAD) za zgodą włączone.      |  Wersja próbna|
 
 ### <a name="prerequisites-specific-to-transact-publishing"></a>Wymagania wstępne dotyczące transakcji publikowania
@@ -252,7 +265,7 @@ Każdy klient mający umowę Enterprise Agreement może dodać do niej opcję ko
 ### <a name="prerequisites-specific-to-consulting-services-publishing"></a>Wymagania wstępne dotyczące do konsultacji Publikowanie usług
 
 
-|**Wymagania** |**Szczegóły**  |**Opcja publikowania**  |
+|Wymagania |**Szczegóły**  |**Opcja publikowania**  |
 |---------|---------|---------|
 |**Właściwości oferty usługi**     | Konsultacji usługi musi być dostarczonego stałego zakresu, stały czas trwania, ustalonej ceny (lub wolne) zaangażowania, przede wszystkim przedsprzedaży skoncentrowany na zadaniach, ograniczone do jednego odbiorcy i przeprowadzić na miejscu        |    List     |
 |**Partner wymagania dotyczące usługi doradcze**    |   **Tylko AppSource.**  Dynamics 365 dla klienta Engagement [chmury Silver lub Gold klienta relacji zarządzania kompetencja](https://partner.microsoft.com/en-us/membership/cloud-customer-relationship-management-competency). Dynamics 365 Finanse i operacje Enterprise Edition: Silver lub Gold [planowania zasobów przedsiębiorstwa] (https://partner.microsoft.com/en-us/membership/enterprise-resource-planning-competency) kompetencja i minimalna przychodu 25K $ w chmurze Operacje w końcu 12 miesięcy. Dynamics 365 Finance oraz w operacjach, Business edition: służyć jako [dostawcy usługi w chmurze (CSP)](https://partner.microsoft.com/en-us/cloud-solution-provider) lub [cyfrowe partnera rekordu (DPOR)](https://partner.microsoft.com/en-us/membership/digital-partner-of-record) dla co najmniej jednego odbiorcy. Usługa Power BI: Spełniają kryteria (file:///C:/Users/ellacroi/Downloads/BI%20Partner%20Program%20Overview%20 & % 20Incentives.pdf) [rozwiązań partnerskich]. Rozwiązanie PowerApps: Ma rozwiązania — partnera pokazy (https://powerapps.microsoft.com/en-us/partner-showcase/) |    List     |
@@ -295,7 +308,22 @@ Istnieje wiele opcji dla pojedynczej dzierżawy aplikacji:
 - Tworzenie dla klienta "Test dysk"
 - Tworzenie wielodostępnych przykładową aplikację pokaz logowania jednokrotnego
 
-## <a name="cloud-partner-portal-pre-publishing-checklist"></a>Portal dla partnerów chmury wstępnie publikowania listy kontrolnej
+##<a name="publishing-processes-by-product-for-office-dynamics-and-power-bi"></a>Procesy publikowania produktu dla pakietu Office, Dynamics i usługi Power BI
+W przypadku aplikacji AppSource rozszerzających pakietu Office, Dynamics i usługi Power BI możesz dowiedzieć się więcej określone wymagania w dokumentacji produktu określonych w tej sekcji. 
+
+
+|Product (Produkt) |Publikowanie informacji o  |
+|---------|---------|
+|Office 365     |    Przegląd [publikowania procesu i wskazówki dotyczące]( https://docs.microsoft.com/en-us/office/dev/store/submit-to-the-office-store).     |
+|Dynamics 365 Finanse i operacje  |   Podczas kompilowania, Enterprise Edition, przejrzyj [publikowania procesu i wskazówki](https://docs.microsoft.com/en-us/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source)      |
+|Dynamics 365 naboru klienta |Przegląd [publikowania procesu i wskazówki](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/publish-app-appsource) |
+|Power BI   |     Przegląd [publikowania procesu i wskazówki.]( https://docs.microsoft.com/en-us/power-bi/developer/office-store)    |
+|Cortana Intelligence     |    Dowiedz się więcej o [Cortana w AppSource](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide)     |
+|AppSource konsultacji oferty     |  Przegląd [wskazówki i informacje o sposobie przesyłania ofertę.]( https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf)    |
+
+
+
+## <a name="cloud-partner-portal-pre-publishing-checklist-for-azure-marketplace"></a>Portal dla partnerów chmury wstępnie publikowania listy kontrolnej witrynę Azure Marketplace
 
 Przed rozpoczęciem procesu publikowania, jest przydatne do zrozumienia składniki wymagane do utworzenia oferty. Poniższe artefakty są wymagane do ukończenia tworzenia oferty publikowania przepływu pracy w portalu dla partnerów chmury. 
 
@@ -364,7 +392,7 @@ Przed rozpoczęciem procesu publikowania, jest przydatne do zrozumienia składni
 
 |Będzie on potrzebny publikowania artefaktów  |Dla tego typu oferty  |
 |---------|---------|
-|**Numer wersji**     |    Transact "aplikacje platformy Azure (szablony rozwiązań i zarządzanych aplikacji)     |
+|Numer wersji     |    Transact "aplikacje platformy Azure (szablony rozwiązań i zarządzanych aplikacji)     |
 |**Plik pakietu zawierający pliki szablonów i createUIDefinitionFile**   |Transact "aplikacje platformy Azure (szablony rozwiązań i zarządzanych aplikacji)         |
 |**Szczegóły dotyczące systemu operacyjnego**    |   Transact "maszyny wirtualne      |
 |**Porty i protokoły w użyciu**    |  Transact "maszyny wirtualne       |
@@ -388,13 +416,13 @@ W tej sekcji wyjaśniono możemy kroki: aby stać się wydawcy w portalu Azure M
 
 Przez cały proces publikowania witryny Marketplace będzie używać adresu e-mail, który identyfikuje konta witryny Marketplace. Ten adres e-mail musi zostać zarejestrowany jako identyfikator firmy Microsoft i będą używane dla obu [Microsoft Developer Center](https://developer.microsoft.com/) i [portalu dla partnerów chmury](https://cloudpartner.azure.com/). Powinien mieć tylko jedno konto Microsoft identyfikator dla Twojej oferty Azure Marketplace i AppSource i zdecydowanie zaleca się nie są współużytkowane z innymi usługami lub oferty.
 
-Wybrany adres e-mail najlepiej musi należeć do domeny firmowej i kontrolowane przez Twój zespół IT. Zapoznaj się z tematem dodatku: wytyczne dotyczące tworzenia Identyfikatora Microsoft do zarządzania konta witryny Marketplace i dodatek: wskazówki dotyczące IDs firmy Microsoft w AAD Sfederowanych domen przed wskazówki dotyczące tworzenia identyfikatora. 
+Wybrany adres e-mail najlepiej musi należeć do domeny firmowej i kontrolowane przez Twój zespół IT. Przejrzyj informacje zawarte w [wskazówki i porady](#Guidelines-and-How-Tos) tym wskazówki dotyczące tworzenia Identyfikatora Microsoft do zarządzania konta witryny Marketplace i wskazówki dotyczące IDs firmy Microsoft w domenach federacyjnych AAD dla przed wskazówki dotyczące tworzenia identyfikatora. 
 
 #### <a name="submit-the-marketplace-nomination-form"></a>Prześlij formularz wyznaczenie Marketplace
 Jako część procesu dołączania Marketplace należy przesłać formularz wyznaczenie przesyłanie informacji o aplikacji lub oferty usługi, informacje o Twojej firmie i poziomu obsługi, który będzie dostarczać.  
 Po przesłaniu formularza zespół Marketplace Przejrzyj aplikacji i sprawdzić poprawności żądania. Po weryfikowane żądanie, otrzymasz powiadomienie za pośrednictwem poczty e-mail kolejne kroki, które muszą zostać wykonane jako zatwierdzone partnera w portalu dla partnerów chmury. Prześlij Twojej nazwy w:
 
-Wyznaczenie witrynę Azure Marketplace: http://aka.ms/listonazuremarketplace   
+Azure Marketplace Nomination: http://aka.ms/listonazuremarketplace   
 Wyznaczenie AppSource: http://aka.ms/listonappsource
 
 #### <a name="register-in-the-developer-center"></a>Zarejestruj w Centrum deweloperów
@@ -423,175 +451,6 @@ Umożliwia dostęp do Twojego profilu wydawcy konta witryny Marketplace (identyf
 
 Aby uzyskać szczegółowe informacje na temat korzystania z portalu dla partnerów chmury, zapoznaj się [informacje](https://cloudpartner.azure.com/#Learn) menu w portalu i kliknij pozycję w sekcji dokumentacji. 
 
-## <a name="how-to-grow-your-business-with-marketplace"></a>Jak rozwoju firmy z portalu Marketplace
-
-Następujące najlepsze rozwiązania w dziale marketingu pomoże również zmaksymalizować z następującymi korzyściami dla firmy za pośrednictwem portalu Marketplace ustawić do poprawnego działania przejdź na rynek i inicjatyw Sell wspólnej firmy Microsoft. [Sieci partnera firmy Microsoft (MPN)](https://partner.microsoft.com/membership) jest wszystkie bramy niepochodzącego z witryny Marketplace powiązane zasoby programowe i marketingu. 
-
-Jakość publikacji aplikacji i zobowiązania do klienta na żądanie partnerskie i generowania zaangażowania pomocy dysku klienta rozwoju firmy. Angażowanie się w tych działaniach pomogą firmie Microsoft wzmocnić przejdź na rynek pracy i funkcji klucza rozwiązania przez sklepy marketplace. 
-
-Ta sekcja przeprowadzi Cię przez marketing najlepsze rozwiązania dotyczące oferty, zgodnie z poniższej listy kontrolnej:
-
-- Zostały zoptymalizowane pod Mój lista, aby ruch dysku i zaangażowania.
-- Utworzono wiadomości na witryny sieci Web, wykorzystaniu strony docelowej unikatowy, ruch dysku do mojego Lista Marketplace.
-- Opublikowaniu I dysk testów lub innych wersji próbnej, aby klientów może zgłaszać Moje oferta działającej na platformie Azure.
-- Po zaplanowaniu i wbudowane własne marketing i promocji kampanii świadomości dysku i zaangażowania.
-- Tak, aby zawsze działa ktoś do testowania lub wdrażania aplikacji, I otrzymywanie informacji, ich nazwę i włączeniu generowania realizacji na żądanie.
-- I zostały poznanie i połączone z zasobami partnera, które są dostępne do mnie za pośrednictwem [sieci partnera firmy Microsoft (MPN)](https://partner.microsoft.com/membership).
-
-### <a name="create-a-great-listing"></a>Utwórz listę dużą
-
-Z listy w witrynie marketplace czasami może być pierwszym interakcję z potencjalnych klientów. Podobnie jak wszelkie pierwsze wrażenia ma być silne i coś odbiorców chce wykonać kolejne czynności. Istnieją pewne podstawowe czynności, które można wykonać, aby sprawić, że to pierwsze wrażenia w witrynie marketplace dużą!
-
-- **Odnaleziono:** zapisu opis oferty za pomocą słów kluczowych i warunki kupujący będzie wyszukiwać. 
-- **Można visual:** obrazy i klipy wideo Pokaż funkcje klucza użytkowników i pomocy można zilustrować środowiska. Zastanów się, co można wyświetlić czy pomaga dostarczania z wartości oferty lub odpowiedzi na najczęściej zadawane pytania Twojego.
-- **Zapewnia środowisko:** klientów, takich jak próby przed zakupu. Potencjalni klienci z pokazy i wersji próbnych, i dyski testu udowodnić prowadzić do więcej transakcji klienta. Im silniejsze środowisko wersji próbnej można zapewnić silniejsze potencjalnego klienta, który zostanie wygenerowany. Znaleźliśmy testowanie (średnia) prowadzi wynik do 40% zamknięte transakcje.
-- **Pomoc odbiorców Dowiedz się więcej:** podczas czy zachęcamy do zachowania obszaru omówienie jasny i prosty, dostępna jest również odpowiednią ilość miejsca, aby wskazywały do dodatkowych zasobów dotyczących produktu. Skorzystaj z tego miejsca na dostarczenie wiadomości zwięzły o funkcje produktu i jak jest dopasowany do potrzeb klientów; Nie można niejasne je bezpośrednio do dodatkowych materiałów, aby dowiedzieć się więcej. Podwyższenie, jeśli te materiałów szkoleniowych lub łącza można śledzić w zawartości strategii marketingowej, więc możesz może być spójnie pielęgnacji potencjalnych klientów.
-- **Wykorzystanie oceny i recenzje:** pozwalają klientom sprzedaży produktu w Twoim imieniu. Propagowanie klienta może być największych sterownika sprzedaży i jest często, gdy kupujący go przed ich więcej informacji na temat produktu. Posiadanie wielu przeglądami silne pomoże również zwiększyć ofertę w wynikach wyszukiwania i w obszarach polecanych klucza.
-
-### <a name="build-a-great-landing-page"></a>Strona docelowa dużą kompilacji
-Strona początkowa, w witrynie sieci Web firmy jest bramy z czynności związane z generowaniem żądanie z portalu Marketplace w portalu Azure Marketplace. 
-
-Rozpocznij od zidentyfikowania cele. Rozwiązania z witryny Marketplace zdecyduj, jest klienta docelowego i jaka akcja ma podjęcie. Przykładowe akcje byłoby testowanie naszego rozwiązania lub "Teraz Get rozwiązania." Strony docelowej można użyć w wielu marketing taktyk cokolwiek ze zdarzeń, emisji w sieci Web i mediów społecznościowych oficjalnych dokumentów, sesje technicznych i prasowych. Im bardziej spójny jesteś w Twojej wiadomości i wywołanie akcji, tym łatwiej rozwiązanie będzie można znaleźć.
-
-Jeśli masz gotowe planu kampanii, należy stosować następujące najlepsze rozwiązania i należy rozważyć, co w celu uniknięcia podczas kompilowania strony, aby zmaksymalizować efektywność strony docelowej: 
-
-
-|Najlepsze praktyki  |Możliwości, aby zapobiec  |
-|---------|---------|
-|**Zwrócone jaki rozwiązania rozwiązuje problem klienta i jak korzystać z platformy Azure, aby była w stanie**    |  Błąd nieznajdującej sposoby, w którym Twojego rozwiązania oraz Azure współpracują ze sobą       |
-|**Utwórz krótkie, łatwych do zapamiętania adres URL**    |    Długie adresy URL nie są do zapamiętania i są trudne do zlokalizowania     |
-|**Dodaj treść visual: odbiorcy opiniami wideo lub rozwiązanie architektura są najlepsze rozwiązania**   |   Przy użyciu zbyt dużej ilości tekstu ułatwia odbiorców dostrojenie i Zatrzymaj eksploracji Tobie      |
-|**Utworzyć czytelne wezwania do akcji, należy przekierować odwiedzin strony katalogu witryny Marketplace**    |   O zbyt wiele łącza lub możliwych działań na stronie       |
-|**Umieść wywołania do działania w nagłówku lub wyraźnie nakreślono sekcji**    |  Osadzanie łącza do Twojej witryny Marketplace wyświetlania tekstu akapitu       |
-|**Badania najlepsze słowa kluczowe i zoptymalizować strony wyszukiwania**    | Zakładając, że nazwa produktu wygeneruje wyższej klasyfikacji wyszukiwania        |
-|**Słowa kluczowe korzystaj z kampanii reklamowych**    |  Właściwości sieci web przy użyciu wielu innych słów kluczowych będzie rozcieńczyć inwestycji reklam       |
-|**Umieść nazw produktów i słów kluczowych "powyżej złożenia"**     | Tworzenie użytkowników przewiń, aby zobaczyć, jakie produktu lub rozwiązanie prezentacji        |
-|**Umożliwia sprawdzanie poprawności rozwiązania marki obrazów (np. Azure Certified *), a zgodnie z Microsoft znakowania wskazówki**    |    Przy użyciu cofnąć zatwierdzenia obrazów marki firmy Microsoft     |
-
-* Dowiedz się więcej o [certyfikowane Azure wskaźnika](https://azure.microsoft.com/support/legal/marketplace/certified-guidelines/ ). [Sieć partnerów firmy Microsoft (MPN)](https://partner.microsoft.com/en-us/membership/how-it-works) elementy Członkowskie mogą uzyskiwać dostęp do zasobów dodatkowych znakować za pośrednictwem [Brand centralnej](https://microsoft.sharepoint.com/teams/brandcentral) i uzyskiwać dostęp do [konstruktora Logo](https://logobuilder.partner.microsoft.com) narzędzia. Kliknij tutaj, aby dowiedzieć się więcej na temat przyłączania [MPN](https://partner.microsoft.com/en-us/membership/how-it-works). 
-
-### <a name="promoting-your-new-offer"></a>Podwyższenie poziomu nowego ofertę
-
-#### <a name="building-an-effective-marketing-campaign"></a>Tworzenie kampanię marketingową skuteczne
-Kampanię marketingową jest serią działań promocyjna lub marketingu taktyk celem zwiększają odbiorców do żądanej akcji lub wynik. Przed rozpoczęciem projektowania kampanii, wykonaj następujące czynności:
-
-#### <a name="know-your-audience"></a>Poznawanie swoich odbiorców
-
-Po pierwsze sprawdzenie, kto jest kupujący i kto jest osoba mająca wpływ? Twoje taktyk i wywołania akcji dla każdej grupy mogą się różnić. Zadaj pytania te oceny:
-
-- Poziom kontroli kupujący ma za pośrednictwem zakupów decyzji? 
-- Jak duży wpływ ma osoba mająca wpływ? 
-- Jaki wpływ osoba mająca wpływ? 
-- Są one mieć wpływ na budżet lub rozwiązania jest wybierany? 
-
-Znajomość odpowiedzi na te pytania pomoże Ci podjąć decyzje dotyczące inwestycji Twojej kwoty i sposób dystrybucji Twojej kwoty.
-
-#### <a name="define-where-your-audience-learns"></a>Zdefiniuj, gdy uzyskuje informacje o odbiorców
-
-Kupujący są 90% przez podróży w czasie, gdy odwiedzają marketplace. Kupujący uzyskać to znacznie wraz w proces podejmowania decyzji poznawania rozwiązań i oceny opcje z wyprzedzeniem. Chcesz zaprojektować kampanię, która ma być, gdzie Twoje nabywców i specjaliści dowiedzieć się. Każdy odbiorców dla każdej branży, pionowy lub kategorii różni się. Jest odbiorców informacje w trybie online, za pomocą poczty e-mail, na targach, za pośrednictwem mediów społecznościowych, lub z zaufanych doradców konwersacji? W zależności od tego, jak i gdzie odbiorców uzyskuje informacje o należy projektować działań i odpowiednio dystrybucji ds. Kombinacja tych taktyk staje się strategii kampanii.
-
-#### <a name="create-clear-campaign-goals"></a>Tworzenie celów wyczyść kampanii
-
-Należy zdefiniować Powodzenie kampanii marketplace i utworzyć wskaźników KPI. Usuń zaznaczenie. Może działać wiele kampanie z zakończenia różnych celów. Oczywiście wszystkie chcemy wzrostu sprzedaży. Kiedy ostatecznym celem zakończenia jest zwiększone nabycia przychodu lub klienta. Jednak kampanii marketingowych, może powiązany celów innych etapami cyklu zakupu.
-
-Na przykład jeśli nowo uruchomieniu produktu w naszym Marketplace może się okazać najlepiej spędzony fokus na odbiorców, education i generowania realizacji. Powodzenie może być zdefiniowany przez liczbę potencjalnych klientów wygenerowana przez użytkownika lista marketplace. W takim przypadku Twoje marketingu taktyk (i strona początkowa) czy skupić się na rysunku klientów do Twojej listy marketplace.
-
-Jeśli zestaw wersji próbnej w witrynie marketplace i wiesz, że produkt wymaga pewnego poziomu zaangażowania i środowisko przed zakupem, mogą mieć pobrać liczbę prób celem kampanii. W takim przypadku obszarów dla Twojego taktyk kampanii może znacznie skoncentrowane na wspieranie wersji próbnej w witrynie marketplace. 
-
-Jeśli produktu lub kategorii jest bardziej dobrze znanych i masz możliwości zakupu skonfigurowane w witrynie marketplace, które użytkownik chce pominąć krok wersji próbnej i bezpośrednie odbiorców bezpośrednio do Kup teraz łącze w witrynie marketplace.
-
-W bardziej dojrzałe punktu w historii Twoją ofertę zdecydujesz się skoncentrować wysiłków kampanii grup bazy klientów i w takim przypadku wykonywania akcji kierunku zwiększyć zakupu w witrynie Marketplace. Twoje taktyk może skupić się na zachęcając klientów do "Kup teraz" w witrynie marketplace. Wskaźników KPI może być przychody wygenerowany za pośrednictwem portalu Marketplace.
-
-Niezależnie od dojrzałości Twoją ofertę i cele organizacji przebywania ukierunkowanych na ten cel i mapowanie się zbiór zintegrowanych taktyk marketing wyrównany do tego celu jest kluczem do maksymalizowania ekonomiczności kampanii.
-
-W ramach są nowe wydawcy w portalu Azure Marketplace będzie oferujemy możesz niektóre bezpłatnie z zalet Marketplace GTM. Należy niezwykle o uwzględnieniu sposób korzystania z tych zalet w przypadku strategii kampanii. Let działu marketingu cele kampanii marketplace i akcję odbiorców. Możemy dostosować te elementy dostarczane do pracy do planu.
-
-Aby uzyskać dodatkową pomoc przejdź na rynek, w tym szablony, zawartości sieci web, szkolenia i narzędzia do promowania Twoje odwiedziny firm [www. MicrosoftGoToMarket.com](https://www.MicrosoftGoToMarket.com) do dodatkowej zawartości na kampanii, tworzenie i najlepsze rozwiązania w zakresie marketingu, odwiedź stronę [inteligentne partnera Marketing](https://partner.microsoft.com/en-US/smart-partner-marketing), programu Microsoft Partner Network.
-
-#### <a name="marketplace-gtm-benefits"></a>Korzyści GTM Marketplace
-
-Nowych list w witrynie Marketplace będzie mogła odbierać bezpłatnie z zalet GTM Marketplace. Gdy na liście, zespół marketingu specjalistów zostanie dotrzeć do Ciebie do wystartuj te działania. Nie ma nic umożliwiające z wyjątkiem kontaktowaniu się z nami po osiągnięcie tego. 
-
-Działania dostarczamy różnią się w zależności od stanu Twoje rozwiązanie w naszej witrynie marketplace. Korzyści znacznie zwiększyć dla oferty, które pochodzą z środowisko wersji próbnej lub transact możliwości w witrynie marketplace.
-
-Aby zmaksymalizować wpływu tych działań, czy zachęcamy do ma planu uruchamiania gotowych do wykonania. Możesz korzystać ze strony docelowej dla wielu z tych taktyk. Należy pamiętać, że OCP katalogu (jeden katalog partnera komercyjnych) korzyści członków sieci Microsoft Partner Network. 
-
-![Korzyści GTM Marketplace](./media/marketplace-publishers-guide/marketplace-gtm-promotion.png)
-
-Aby uzyskać pomoc, w tym szablony, zawartość sieci web, szkolenia i narzędzia do promowania firmy, odwiedź [Microsoft przejdź na rynku](https://www.microsoftgotomarket.com).
-
-#### <a name="enable-lead-sharing"></a>Włącz udostępnianie potencjalnych klientów
-
-Upewnij się, czy realizacji jest włączona funkcja zarządzania w ramach Twojej oferty Marketplace, aby odbierać informacje kontaktowe dotyczące klientów Marketplace. Potencjalni klienci stanowią podstawę dla zasięg żądanie generowania kampanii, ruchy sprzedaży personel sprzedaży pola, a informacje dotyczące sposobu wykonywania jest Twoją ofertę. 
-
-Najlepsze rozwiązania dotyczące używania tych potencjalnych klientów obejmują:
-
-- Kwalifikowanie potencjalnych klientów i oceniania je jako szans sprzedaży
-- Pielęgnacji wprowadzaniu planowanej sprzedaży
-- Dopasuj tych działań z ogólnej strategii kampanii marketingowych
-
-Potencjalni klienci pokazują zainteresowanie bardzo wybrany użytkownik ofertę Marketplace i w technologii i dlatego powinien być traktowany jako sposób znaleźć potencjalnie zaangażowane klientów. Po utworzeniu potencjalnego klienta w witrynie Marketplace podobne realizacji jest tworzony w sprzedawcy pola Microsoft CRM. 
-
-Jednak potencjalnych klientów Marketplace różnią się od Microsoft kwalifikowana sprzedawcy potencjalni klienci, którzy są funkcją program wspólnie sprzedaży. Wymienione poniżej, aby dowiedzieć się więcej o sposobie dostęp do programu wspólnej sprzedaży. 
-
-#### <a name="promote-your-business-through-microsoft"></a>Podwyższ poziom firmy przez firmę Microsoft
-
-Istnieje wiele osób oraz zespołów w ramach firmy Microsoft, którego jedynym celem jest obsługuje naszych partnerów i zmniejszyć wszelkie tarcie dostępnych w sprzedaży z nami. Teraz, że zostały umieszczone w naszej witrynie marketplace został otwarty dostęp do naszego portalu marketplace programów i zasobów. 
-
-Jeśli masz już konta do [sieci partnera firmy Microsoft (MPN)](https://partner.microsoft.com), to powinno być pierwszym krokiem. MPN zawiera wskazówki ułatwiające nawigację Microsoft "z nowe możliwości biznesowe, połączenie z zespołów lub partnerów, aby uzyskać informacje o rozwiązaniach i odpowiednio zwiększyć skillset Twojego.
-Najlepsze następne kroki należy wykonać, aby otworzyć dostęp do jeszcze więcej korzyści partnerskich i zasoby są:
-
-1.  Korzystaj z [podstawowe zalety](https://partner.microsoft.com/en-US/membership/core-benefits) w ramach naszych sieci Microsoft Partner Network, otrzymują podstawowe korzyści, które mogą pomóc zaoszczędzić czas i pieniądze podczas wzmocnienie możliwości, lepiej obsługiwać klientów i połączeń kompilacji łączność firmy.
-
-2.  Zdobyć Twoje [kompetencja platformy chmury](https://partner.microsoft.com/en-us/membership/cloud-platform-competency) zdobywanie kompetencja umożliwia rozróżnianie samodzielnie w ramach sieci rozszerzania partnera firmy Microsoft, a także pokazują techniczne wiedzę i klienta powodzenia na rynku. Kompetencja zdobywanie jest również wymagane w przypadku wielu programy klucza partnera, takie jak sprzedaż wspólnej.
-
-3.  Stają się [wspólnej sprzedaje gotowe](https://partner.microsoft.com/en-US/reach-customers/promote-your-business) ten program umożliwia i współpracować bezpośrednio z sprzedawców firmy Microsoft i innych partnerów na możliwości odbiorcy docelowego konta planowania. Rozwiązanie staje się widoczne dla naszych sprzedających w katalogu ich rozwiązania i naszych sprzedających są nagrodę współpraca i zastosowanie Tobie.
-
-#### <a name="merchandising"></a>Promocji 
-W ramach procesu publikowania uznawany za typ oferty, aby utworzyć i miał możliwości, aby wybrać kategorię dla danej oferty w portalu Azure Marketplace. Upewnij się, że wybierz kategorię, która jest dokładne do rozwiązania, tak aby pojawi się dokładnie do potencjalnych klientów. 
-
-W portalu Azure Marketplace można kwalifikować się do polecane aplikacje po włączeniu funkcji wersji próbnej i Transact. Przejrzyj Marketplace GTM korzyści, aby zrozumieć, jak polecane aplikacje mieści się w kontekście swoje korzyści przejdź na rynek. 
-
-Polecane aplikacje wybrano na podstawie których aplikacje mają w najlepszym środowisku klienta dla użytkowników i wykorzystuje partnera wysokiej jakości marketingowych, zaangażowania. W tym jasności listę, niezawodności technologii i wzrost użycia platform klientów i poziom interakcji użytkowników z tworzenia wysokiej jakości materiałów marketingowych. 
-
-Aby zmaksymalizować szanse aplikacji jest umieszczony, możesz inwestycji w powodzenie Twojej oferty marketplace i należy wziąć pod uwagę poniższych metod, aby zapewnić doskonałe wrażenia oferty: 
-
-- Upewnij się, że Twoje marketing artefakty są prawidłowo przekazywać i wyświetlania
-- Dołącz [sieci Microsoft Partner Network](https://partner.microsoft.com/membership) i kontaktowaniu się z ekosystemem partnerów
-- Dysk wysokiej jakości ruch do Twojej oferty w portalu Azure Marketplace przez tworzenie wysokiej jakości żądanie generowania kampanii
-- Upewnij się, czy rozwiązania Azure i aplikacje są dostępne w portalu Azure Marketplace
-- Wzrostu użycia oferty Azure Marketplace zwiększają żądanie, zapewniając wysokiej jakości obsługi klienta, i podając odpowiednim aktualizacje na produktu
-
-## <a name="analytics-and-reporting"></a>Analizy i raportowania
-
-W sekcji wgląd w portalu dla partnerów chmury zobaczysz ogólne omówienie wydajności Twoją ofertę. Raporty zawarte w tej sekcji są:  
-- Podsumowanie migawki zleceń
-- Sposób użycia
-- Wdrożenia
-- Trendy klienta na stronie głównej Insights
-- Szczegółowe zamówień, użycia i dane klienta
-- Zleceń i użycie wyświetlany jako miesięczne podsumowanie lub Wyświetl trend sześciu miesięcy
-- Użycie/zamówień podział według kilku kryteriów
-
-Szczegółowe raporty Pokaż informacje o kliencie, takie jak nazwa firmy i lokalizacji geograficznej w dół, aby kod pocztowy, aby można było porównać klientów i kompensacji Twoich sprzedawców. Poniższa lista zawiera określone atrybuty dostarczamy klientów:
-- Odsprzedawcy
-- Imię
-- Nazwisko
-- Adres e-mail
-- Nazwa firmy
-- Data transakcji
-- Nazwa subskrypcji
-- Identyfikator subskrypcji platformy Azure (tylko dla klientów między)
-- Nazwa wystąpienia chmury
-- Liczba kolejności
-- Region kraju klienta
-- Miasto klienta
-- Kultura komunikacji klienta
-- Kodu pocztowego klienta
-
-Najlepszym rozwiązaniem dla informacje w tych raportach jest uzgodnienie z własnych danych wewnętrznych i przy jego użyciu pomóc ustalić ich priorytety akcji kampanii marketingowych. 
-
-Sekcji Analytics Insights portalu partnerów chmury udostępnia bogate pulpit nawigacyjny usługi Power BI umożliwia ruch był widoczny na stronie szczegółów aplikacji w oparciu. Nowe funkcje dla tego pulpitu nawigacyjnego są rozwijane w sposób stałe. W portalu dla partnerów chmury jest także dokumentacja Campaigns firmy Microsoft, mechanizm, za pomocą którego można konfigurować kampanie i monitorowanie ich w portalu.
 
 ## <a name="getting-support"></a>Uzyskiwanie pomocy technicznej
 
@@ -600,7 +459,7 @@ Jest to lista opcje pomocy technicznej dla portalu Azure Marketplace:
 **Azure Marketplace ogólne zapytania:**
 |Obsługa kanału |Opis |
 |---------|---------|
-|Adres e-mail:cloudmarketplace@microsoft.com     |  Pomoc techniczna dotycząca dołączania listy dystrybucyjnej. Używany do żądania dołączania, konfigurowanie odnajdywania sesji i sesje projektowania architektury (ADS) z partnerami.        |
+|Adres e-mail: cloudmarketplace@microsoft.com     |  Pomoc techniczna dotycząca dołączania listy dystrybucyjnej. Używany do żądania dołączania, konfigurowanie odnajdywania sesji i sesje projektowania architektury (ADS) z partnerami.        |
 
 **Obsługa publikowania Azure Marketplace:**
 
@@ -633,9 +492,9 @@ Amp-testdrive@microsoft.com |   Zapewnia dostęp dołączania do dysków testu. 
 
 |Obsługa kanału  |Opis  |
 |---------|---------|
-|Adres e-mail:cosell@microsoft.com    |  Zapewnia obsługę procesów dołączania i pytania dotyczące programu wspólnej sprzedaży. W oparciu o czas pacyficzny strefy.        |
-|Adres e-mail:gtm@microsoft.com    |  Zapewnia obsługę korzyści przejdź na rynek oraz program pytania. Godziny pracy w strefie czas pacyficzny.        |
-|Adres e-mail:CEBrand@Microsoft.com     |  Odpowiedzi na pytania dotyczące użycia marki dla platformy Azure logo i znakowanie.       |
+|Adres e-mail: cosell@microsoft.com    |  Zapewnia obsługę procesów dołączania i pytania dotyczące programu wspólnej sprzedaży. W oparciu o czas pacyficzny strefy.        |
+|Adres e-mail: gtm@microsoft.com    |  Zapewnia obsługę korzyści przejdź na rynek oraz program pytania. Godziny pracy w strefie czas pacyficzny.        |
+|Adres e-mail: CEBrand@Microsoft.com     |  Odpowiedzi na pytania dotyczące użycia marki dla platformy Azure logo i znakowanie.       |
 
 ## <a name="guidelines-and-how-tos"></a>Wskazówki i kwestie
 
@@ -644,7 +503,7 @@ Amp-testdrive@microsoft.com |   Zapewnia dostęp dołączania do dysków testu. 
 Podczas tworzenia konta firmy, zgodna z tymi wytycznymi Jeśli więcej niż jedna osoba potrzebować dostępu do konta, logując się przy użyciu konta Microsoft, które otworzyć konto.
 
 >[!IMPORTANT]
->Zezwalaj wielu użytkownikom na dostęp do tego konta Centrum deweloperów, zaleca się używanie usługi Azure Active Directory do przypisywania ról dla poszczególnych użytkowników, którzy mogą uzyskać dostępu do konta poprzez zalogowanie za pomocą ich indywidualne poświadczenia usługi Azure AD. Aby uzyskać więcej informacji, zapoznaj się z tematem [wskazówek z domenami federacyjnych AAD](#guidance-with-aad-federated-domains). Utwórz konto Microsoft przy użyciu adresu e-mail, który należy do domeny firmy, ale nie jest przykład pojedynczego individual'for windowsapps@fabrikam.com.
+>Zezwalaj wielu użytkownikom na dostęp do tego konta Centrum deweloperów, zaleca się używanie usługi Azure Active Directory do przypisywania ról dla poszczególnych użytkowników, którzy mogą uzyskać dostępu do konta poprzez zalogowanie za pomocą ich indywidualne poświadczenia usługi Azure AD. Aby uzyskać więcej informacji, zapoznaj się z tematem [wskazówek z domenami federacyjnych AAD](#guidance-with-aad-federated-domains). Utwórz konto Microsoft przy użyciu adresu e-mail, który należy do domeny firmy, ale nie do jedna osoba, na przykład windowsapps@fabrikam.com.
 
 - Ograniczanie dostępu do tego konta Microsoft na najmniejszą możliwą liczbę deweloperów.
 - Konfigurowanie listy dystrybucyjnej firmowej poczty e-mail, która zawiera wszystkich użytkowników potrzebuje uzyskiwać dostęp do konta dewelopera, a następnie dodać ten adres e-mail do informacji zabezpieczających. Dzięki temu wszyscy pracownicy na liście, aby otrzymać kod zabezpieczeń w razie potrzeby i zarządzać informacji zabezpieczających konta Microsoft. Konfigurowanie listy dystrybucyjnej nie jest realne, właściciela konta e-mail poszczególnych będzie muszą być dostępne do uzyskania dostępu i udostępniania kodu zabezpieczeń po wyświetleniu monitu (np. po dodaniu nowych informacji zabezpieczających do konta lub gdy muszą być dostępne z nowych urządzeń).

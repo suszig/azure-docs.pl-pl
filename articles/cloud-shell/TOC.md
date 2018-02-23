@@ -1,23 +1,22 @@
 # [Omówienie](overview.md)
 
 # Szybki start
-## [Przewodnik Szybki start po powłoce Bash](quickstart.md)
-## [Przewodnik Szybki start po programie PowerShell](quickstart-powershell.md)
+## [Bash — Szybki start](quickstart.md)
+## [PowerShell — Szybki start](quickstart-powershell.md)
 
 # Pojęcia
-## [Funkcje i narzędzia powłoki Bash](features.md)
-## [Funkcje i narzędzia programu PowerShell](features-powershell.md)
+## [Bash — funkcje i narzędzia](features.md)
+## [PowerShell — funkcje i narzędzia](features-powershell.md)
 ## [Ograniczenia](limitations.md)
 
 # Porady
-## [Magazyn trwały powłoki Bash](persisting-shell-storage.md)
-## [Magazyn trwały programu PowerShell](persisting-shell-storage-powershell.md)
+## [Bash — utrwalanie magazynu](persisting-shell-storage.md)
+## [PowerShell — utrwalanie magazynu](persisting-shell-storage-powershell.md)
 ## [Korzystanie z okna](using-the-shell-window.md)
 
 # Przykłady
-## [Wdrażanie zasobów platformy Azure przy użyciu programu Terraform w powłoce Bash](example-terraform-bash.md)
-
-## [Run Ansible in Bash (Uruchamianie rozwiązania Ansible w powłoce Bash)](../ansible/ansible-run-playbook-in-cloudshell.md)
+## [Bash — tworzenie zasobów za pomocą programu Terraform](example-terraform-bash.md)
+## [Bash — uruchamianie elementów playbook w rozwiązaniu Ansible](../ansible/ansible-run-playbook-in-cloudshell.md)
 
 # [Osadzanie usługi Cloud Shell](embed-cloud-shell.md)
 

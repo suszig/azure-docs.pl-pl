@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 906450f75557820bb27762707c3328b08b23cccb
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 8ae99c7ce6382626657777d003a1cb82348c4aba
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="introduction-to-azure-advisor"></a>Wprowadzenie do usługi Advisor Azure
 
@@ -32,7 +32,7 @@ Klasyfikator można:
 * Poprawa wydajności, zabezpieczeń i wysokiej dostępności zasobów, jak Zidentyfikuj możliwości zmniejszyć ogólną Azure wydatków.
 * Pobierz zalecenia z wbudowanym proponowanych działań.
 
-Dostęp można uzyskać Advisor za pomocą [portalu Azure](https://aka.ms/azureadvisordashboard). Zaloguj się do [portal](https://portal.azure.com), zlokalizuj **Advisor** w menu nawigacji, lub wyszukaj go w **więcej usług** menu.
+Dostęp można uzyskać Advisor za pomocą [portalu Azure](https://aka.ms/azureadvisordashboard). Zaloguj się do [portal](https://portal.azure.com), zlokalizuj **Advisor** w menu nawigacji, lub wyszukaj go w **wszystkie usługi** menu.
 
 Pulpit nawigacyjny usługi Advisor wyświetla spersonalizowane zalecenia dotyczące wszystkich subskrypcji.  Można zastosować filtry, aby wyświetlić zalecenia dla określonej subskrypcji i typów zasobów.  Zalecenia są podzielone na cztery kategorie: 
 
@@ -57,7 +57,7 @@ Jeśli nie zamierzasz natychmiast podejmuj odpowiednie akcje na podstawie zalece
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 
 ### <a name="how-do-i-access-advisor"></a>Jak uzyskać dostępu do usługi Advisor
-Dostęp można uzyskać Advisor za pomocą [portalu Azure](https://aka.ms/azureadvisordashboard). Zaloguj się do [portal](https://portal.azure.com), zlokalizuj **Advisor** w menu nawigacji, lub wyszukaj go w **więcej usług** menu.
+Dostęp można uzyskać Advisor za pomocą [portalu Azure](https://aka.ms/azureadvisordashboard). Zaloguj się do [portal](https://portal.azure.com), zlokalizuj **Advisor** w menu nawigacji, lub wyszukaj go w **wszystkie usługi** menu.
 
 Można również wyświetlić zalecenia doradcy w zakresie za pomocą interfejsu zasobu maszyny wirtualnej. Wybierz maszynę wirtualną, a następnie przewiń do zalecenia doradcy w zakresie w menu. 
 
@@ -73,7 +73,7 @@ Klasyfikator zawiera zalecenia dotyczące maszyny wirtualnej, zestawów dostępn
 
 Aby odłożyć, lub zignorować zalecenie, kliknij przycisk **Odłóż** łącza. Można określić czas włączenia trybu czuwania okresu lub wybierz opcję **nigdy** aby odrzucić zalecenia.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby dowiedzieć się więcej na temat zalecenia doradcy w zakresie, zobacz:
 

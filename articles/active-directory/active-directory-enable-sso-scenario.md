@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: e825e6be79efad5dfb385f96901a2b5682027963
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: f4035e4c1ef2bc78256ed842bc4b1ac65ecf8b53
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>Zarządzanie aplikacjami przy użyciu usługi Azure Active Directory
 Poza rzeczywiste przepływu pracy lub zawartości przedsiębiorstwa mają dwa podstawowe wymagania dotyczące wszystkich aplikacji:
@@ -78,7 +78,7 @@ Jeśli zarządzanie aplikacjami i włączenia funkcji logowania jednokrotnego pr
 * Uwierzytelnianie jest wykonywane lokalnie (np. usługi AD) użytkownika lub konta usługi Azure AD.
 * Wykonuje autoryzacji dla usługi Azure AD przypisania i ochrony zasady zapewnienia spójności użytkownika końcowego i dzięki któremu można dodać przypisania, lokalizacji i warunki MFA w dowolnej aplikacji, niezależnie od jej możliwości.
 
-Należy pamiętać, że sposób Autoryzacja jest wprowadzany w aplikacji docelowej zależy w zależności od tego, jak aplikacji został zintegrowany z usługą Azure AD.
+Należy poznać który sposób Autoryzacja jest wprowadzany w aplikacji docelowej zależy od typu integracji aplikacji z usługą Azure AD.
 
 * **Aplikacje wstępnie zintegrowanych przez dostawcę usług** takich jak usługi Office 365 i Azure są to aplikacje wbudowane bezpośrednio w usłudze Azure AD i zależne dla ich kompleksowe funkcje zarządzania tożsamościami i dostępem. Dostęp do tych aplikacji jest włączone za pośrednictwem informacji katalogowych i wydawania tokenów.
 * **Aplikacje wstępnie zintegrowanych przez firmę Microsoft i niestandardowych aplikacji** są to aplikacje w chmurze niezależne, które zależą od katalogu aplikacji wewnętrznych i może działać niezależnie od usługi Azure AD. Dostęp do tych aplikacji jest włączone przez wystawienie aplikacji poświadczenie mapowany na konto aplikacji. W zależności od możliwości aplikacji poświadczenie może być token Federacji lub nazwę użytkownika i hasło dla konta, które zostało wcześniej zainicjowane w aplikacji.
@@ -90,13 +90,13 @@ Na przykład jeśli użytkownik nie przyłączy organizacji, należy utworzyć k
 W przedsiębiorstwach nowoczesnego działu IT często nie są znane wszystkich aplikacji, które są używane w chmurze. W połączeniu z usługi Cloud App Discovery usługi Azure AD zapewnia rozwiązanie, aby wykryć te aplikacje.
 
 ## <a name="account-management"></a>Zarządzanie kontami
-Zarządzanie kontami w różnych aplikacjach tradycyjnym jest wykonywane przez proces ręczny IT lub obsługuje osobistych w organizacji. Usługi Azure AD pełni zautomatyzowanego zarządzania kontami przez wszystkie aplikacje dostawcy zintegrowane usługi i aplikacje, te wstępnie zintegrowanych przez firmę Microsoft obsługujący użytkownika automatycznego inicjowania obsługi administracyjnej lub SAML JIT.
+Zarządzanie kontami w różnych aplikacjach tradycyjnym jest wykonywane przez proces ręczny IT lub pracownikami pomocy technicznej w organizacji. Usługi Azure AD pełni zautomatyzowanie zarządzania kontami przez wszystkie aplikacje dostawcy zintegrowane usługi i aplikacje, te wstępnie zintegrowanych przez firmę Microsoft pomocniczych użytkownika automatycznego inicjowania obsługi lub inicjowania obsługi administracyjnej SAML just in time.
 
 ## <a name="automated-user-provisioning"></a>Inicjowanie obsługi użytkowników automatycznych
 Niektóre aplikacje Podaj interfejsów automatyzacji tworzenia i usuwania (lub dezaktywacji) kont. Jeśli dostawca oferuje takiego interfejsu, jest wykorzystywana przez usługę Azure AD. Zmniejsza koszty operacyjne, ponieważ zadania administracyjne odbywa się automatycznie i zwiększa bezpieczeństwo środowiska, ponieważ zmniejsza prawdopodobieństwo nieautoryzowanego dostępu.
 
 ## <a name="access-management"></a>Zarządzanie dostępem
-Używanie programu Azure AD można zarządzać dostępu do aplikacji za pomocą poszczególnych lub reguły zmiennych przypisania. Możesz również delegować dostęp administracyjny do odpowiednich osób w organizacji zapewnienia najlepsze nadzoru i zmniejszenie obciążenia pomocy technicznej.
+Z usługą Azure AD można zarządzać dostępu do aplikacji za pomocą poszczególnych lub reguły zmiennych przypisania. Możesz również delegować dostęp administracyjny do odpowiednich osób w organizacji zapewnienia najlepsze nadzoru i zmniejszenie obciążenia pomocy technicznej.
 
 ## <a name="on-premises-applications"></a>Aplikacje lokalne
 Wbudowanych w aplikacji serwera proxy umożliwia publikowanie aplikacji lokalnych użytkowników, co powoduje jednocześnie spójny dostęp dzięki chmurze nowoczesnych aplikacji i korzyści wynikające z możliwości monitorowania, raportowania i zabezpieczeń usługi Azure AD.

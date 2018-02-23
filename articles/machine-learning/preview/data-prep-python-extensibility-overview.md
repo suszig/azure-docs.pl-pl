@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 76ed1a93af22620ccc2074168b3ff20f6bb4c37d
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 936d3718c84cad49221e64b65e60bea7e37a523c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="data-preparations-python-extensions"></a>Rozszerzenia języka Python przygotowań danych
 Sposób wypełniania funkcji luki pomiędzy wbudowane funkcje usługi Azure Machine Learning danych przygotowania zawiera rozszerzalności na różnych poziomach. W tym dokumencie możemy konspektu rozszerzalność dzięki skrypt w języku Python. 
@@ -101,7 +101,7 @@ Aby zainstalować pakiety w celu obliczeń, należy zmodyfikować plik conda_dep
 ### <a name="windows"></a>Windows 
 Aby znaleźć lokalizację w systemie Windows, Znajdź instalacji specyficzny dla aplikacji, Python i jego katalogu skryptów. Domyślna lokalizacja to:  
 
-`C:\Users\<user>\AppData\Local\AmlWorkbench\Python\Scripts.` 
+`C:\Users\<user>\AppData\Local\AmlWorkbench\Python\Scripts` 
 
 Następnie uruchom jedno z następujących poleceń: 
 
@@ -114,7 +114,7 @@ lub
 ### <a name="mac"></a>Mac 
 Aby znaleźć lokalizację na komputerze Mac, Znajdź instalacji specyficzny dla aplikacji, Python i jego katalogu skryptów. Domyślna lokalizacja to: 
 
-`/Users/<user>/Library/Caches/AmlWorkbench>/Python/bin` 
+`/Users/<user>/Library/Caches/AmlWorkbench/Python/bin` 
 
 Następnie uruchom jedno z następujących poleceń: 
 

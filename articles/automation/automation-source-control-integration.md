@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte;sngun
-ms.openlocfilehash: bb1ce4ceaa3d0c9aea014fc810ea269641dec14c
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 15e69105d4171c63b4ccef0b072bccf49a2e9ceb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integracja kontroli źródła w usłudze Automatyzacja Azure
 Integracja kontroli źródła umożliwia kojarzenie elementów runbook do Twojego konta automatyzacji do repozytorium GitHub kontroli źródła. Kontroli źródła pozwala łatwo współpracować z zespołem śledzenia zmian i przywrócenie wcześniejszych wersji elementów runbook. Na przykład kontroli źródła umożliwia synchronizowanie różnych gałęziach w kontroli źródła do kont automatyzacji rozwoju, testowym lub produkcyjnym, co ułatwia promowanie kod, który był testowany w środowisku projektowania do produkcji automatyzacji konto.
@@ -30,18 +30,17 @@ Kontrola źródła umożliwia wypychanie kodu usługi Automatyzacja Azure do kon
 > 
 > 
 
-Istnieją dwa proste kroki wymagane do skonfigurowania kontroli źródła dla konta automatyzacji i tylko jeden z nich, jeśli masz już konto GitHub. Są to:
+Istnieją dwa proste kroki wymagane do skonfigurowania kontroli źródła dla konta automatyzacji i tylko jeden z nich, jeśli masz już konto GitHub. Oto one:
 
 ## <a name="step-1--create-a-github-repository"></a>Krok 1: Tworzenie repozytorium GitHub
 Jeśli masz już konto GitHub i repozytorium, który chcesz połączyć usługi Automatyzacja Azure, następnie zaloguj się do istniejącego konta i uruchomić z kroku 2 poniżej. W przeciwnym razie przejdź do [GitHub](https://github.com/), załóż nowe konto i [utworzyć nowe repozytorium](https://help.github.com/articles/create-a-repo/).
 
 ## <a name="step-2--set-up-source-control-in-azure-automation"></a>Krok 2 — Konfiguracja systemu kontroli źródła w usłudze Automatyzacja Azure
-1. Na stronie konto usługi Automatyzacja w portalu Azure kliknij **ustawić kontroli źródła.** 
+1. Z konta automatyzacji strony w portalu Azure w obszarze **ustawienia konta**, kliknij przycisk **kontroli źródła.** 
    
-    ![Konfigurowanie kontroli źródła](media/automation-source-control-integration/automation_01_SetUpSourceControl.png)
-2. **Kontroli źródła** strona zostanie otwarta, w którym można skonfigurować szczegółowe informacje o koncie usługi GitHub. Poniżej znajduje się lista parametrów do skonfigurowania:  
+1. **Kontroli źródła** strona zostanie otwarta, w którym można skonfigurować szczegółowe informacje o koncie usługi GitHub. Poniżej znajduje się lista parametrów do skonfigurowania:  
    
-   | **Parametr** | **Opis** |
+   | **Parameter** | **Opis** |
    |:--- |:--- |
    | Wybieranie źródła |Wybierz źródło. Obecnie tylko **GitHub** jest obsługiwana. |
    | Autoryzacja |Kliknij przycisk **autoryzacji** przycisk, aby udzielić dostępu usługi Automatyzacja Azure z Twoim repozytorium GitHub. Jeśli użytkownik jest już zalogowany na koncie usługi GitHub w innym oknie, są używane poświadczenia tego konta. Po autoryzacji zakończy się pomyślnie, strony zostaną wyświetlone w obszarze nazwy użytkownika usługi GitHub **właściwości autoryzacji**. |
@@ -50,7 +49,7 @@ Jeśli masz już konto GitHub i repozytorium, który chcesz połączyć usługi 
    | Ścieżka folderu Runbook |Ścieżka folderu runbook Określa ścieżkę w repozytorium GitHub, z którego chcesz wypychania lub ściągania kodu. Należy podać w formacie **/nazwa folderu/nazwa podfolderu**. Tylko elementy runbook w ścieżce folderu elementów runbook będą synchronizowane z kontem automatyzacji. Elementy Runbook w podfolderach w ścieżce folderu elementów runbook będą **nie** zsynchronizowane. Użyj  **/**  na zsynchronizowanie wszystkich elementów runbook w repozytorium. |
 3. Na przykład, jeśli masz repozytorium o nazwie **PowerShellScripts** zawiera folder o nazwie **RootFolder**, który zawiera folder o nazwie **podfolder**. Można synchronizować z poziomu każdego folderu za pomocą następujących ciągów:
    
-   1. Do synchronizacji elementów runbook **repozytorium**, ścieżka folderu runbook*/*
+   1. Do synchronizacji elementów runbook **repozytorium**, ścieżka folderu runbook */*
    2. Do synchronizacji elementów runbook **RootFolder**, jest na ścieżce folderu elementów runbook */RootFolder*
    3. Do synchronizacji elementów runbook **podfolder**, jest na ścieżce folderu elementów runbook */RootFolder/podfolder*.
 4. Po skonfigurowaniu parametry są wyświetlane na **ustawić kontroli źródła** strony.  
@@ -64,17 +63,17 @@ Jeśli masz już konto GitHub i repozytorium, który chcesz połączyć usługi 
    
    * Zmienna **Microsoft.Azure.Automation.SourceControl.Connection** zawiera wartości parametrów połączenia, jak pokazano poniżej.  
      
-     | **Parametr** | **Wartość** |
+     | **Parameter** | **Wartość** |
      |:--- |:--- |
-     | Nazwa |Microsoft.Azure.Automation.SourceControl.Connection |
+     | Name (Nazwa) |Microsoft.Azure.Automation.SourceControl.Connection |
      | Typ |Ciąg |
      | Wartość |{"Gałęzi":\<*nazwę gałęzi*>, "RunbookFolderPath":\<*ścieżce folderu elementów Runbook*>, "Typ dostawcy":\<*ma wartość 1 GitHub*>, "Repository":\<*nazwę repozytorium*>, "Nazwa_użytkownika":\<*GitHub Twoja nazwa użytkownika*>} |
 
     * Zmienna **Microsoft.Azure.Automation.SourceControl.OAuthToken**, zawiera bezpieczne zaszyfrowaną wartość OAuthToken Twojego.  
 
-    |**Parametr**            |**Wartość** |
+    |**Parameter**            |**Wartość** |
     |:---|:---|
-    | Nazwa  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
+    | Name (Nazwa)  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
     | Typ | Unknown(Encrypted) |
     | Wartość | <*Zaszyfrowane OAuthToken*> |  
 
@@ -137,7 +136,7 @@ Aby odłączyć od konto GitHub, otwórz stronę synchronizacji repozytorium, a 
 
   ![Przycisk Rozłącz](media/automation-source-control-integration/automation_12_Disconnect.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby uzyskać więcej informacji na temat integracji kontroli źródła zobacz następujące zasoby:  
 
 * [Automatyzacja Azure: Integracji kontroli źródła w usłudze Automatyzacja Azure](https://azure.microsoft.com/blog/azure-automation-source-control-13/)  

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
 ms.openlocfilehash: 57ee7770193641d0e13da2c7f8aaa6cfc6aefe73
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hosted-graphite"></a>Samouczek: Integracji Azure Active Directory z hostowanej grafitu
 
@@ -110,9 +110,9 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_url.png)
 
-    a. W **identyfikator** tekstowym, wpisz adres URL, używając następującego wzorca:`https://www.hostedgraphite.com/metadata/<user id>`
+    a. W **identyfikator** tekstowym, wpisz adres URL, używając następującego wzorca: `https://www.hostedgraphite.com/metadata/<user id>`
 
-    b. W **adres URL odpowiedzi** tekstowym, wpisz adres URL, używając następującego wzorca:`https://www.hostedgraphite.com/complete/saml/<user id>`
+    b. W **adres URL odpowiedzi** tekstowym, wpisz adres URL, używając następującego wzorca: `https://www.hostedgraphite.com/complete/saml/<user id>`
 
 4. Na **hostowanej grafitu domeny i adres URL** sekcji, jeśli chcesz skonfigurować aplikację w **SP zainicjował tryb**, wykonaj następujące czynności:
    
@@ -120,7 +120,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
   
     a. Polecenie **Pokaż zaawansowane ustawienia adresu URL** opcji
 
-    b. W **na adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`https://www.hostedgraphite.com/login/saml/<user id>/`   
+    b. W **na adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca: `https://www.hostedgraphite.com/login/saml/<user id>/`   
 
     > [!NOTE] 
     > Należy pamiętać, że nie są one rzeczywiste wartości. Należy zaktualizować te wartości z rzeczywistego identyfikatora, adres URL odpowiedzi i na adres URL logowania. Aby uzyskać te wartości, możesz uzyskać dostęp -> Ustawienia SAML na stronie aplikacji lub skontaktuj się z [zespołem pomocy technicznej usługi hostowanej grafitu](mailto:help@hostedgraphite.com).
@@ -205,7 +205,7 @@ Celem tej sekcji jest utworzenie użytkownika o nazwie Simona Britta w hostowane
 Nie ma elementu akcji można w tej sekcji. Nowy użytkownik zostanie utworzony podczas próby dostępu do hostowanych grafitu, jeśli go jeszcze nie istnieje.
 
 >[!NOTE]
->Jeśli trzeba ręcznie utworzyć użytkownika, musisz skontaktuj się z zespołem pomocy technicznej grafitu hostowanej za pośrednictwem < mailto:help@hostedgraphite.com >. 
+>Jeśli trzeba ręcznie utworzyć użytkownika, musisz skontaktuj się z zespołem pomocy technicznej grafitu hostowanej za pośrednictwem <mailto:help@hostedgraphite.com>. 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Przypisanie użytkownika testowego usługi Azure AD
 
@@ -243,7 +243,7 @@ Celem tej sekcji służy do testowania konfigurację usługi Azure AD z logowani
 
 Po kliknięciu kafelka grafitu hostowanej w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do aplikacji hostowanych grafitu.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)

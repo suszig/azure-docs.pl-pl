@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: xshi
-ms.openlocfilehash: 7a611912ae55eb22103539dbba9f1a06aaa543b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0caa3397723f9cd0476e85d52a8d30ae283b6e47
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Zdalne monitorowanie IoT i powiadomienia przy użyciu usługi Azure Logic Apps łączenia z Centrum IoT i skrzynek pocztowych
 
@@ -50,7 +50,7 @@ Sposób do tworzenia aplikacji logiki łączącej centrum IoT i skrzynki pocztow
 
 ### <a name="create-a-service-bus-namespace"></a>Utwórz przestrzeń nazw magistrali usług
 
-1. Na [portalu Azure](https://portal.azure.com/), kliknij przycisk **nowy** > **integracji przedsiębiorstwa** > **usługi Service Bus**.
+1. Na [portalu Azure](https://portal.azure.com/), kliknij przycisk **Utwórz zasób** > **integracji przedsiębiorstwa** > **usługi Service Bus**.
 1. Podaj następujące informacje:
 
    **Nazwa**: Nazwa usługi service bus.
@@ -111,7 +111,7 @@ Sposób do tworzenia aplikacji logiki łączącej centrum IoT i skrzynki pocztow
 
 ### <a name="create-a-logic-app"></a>Tworzenie aplikacji logiki
 
-1. W [portalu Azure](https://portal.azure.com/), kliknij przycisk **nowy** > **integracji przedsiębiorstwa** > **aplikacji logiki**.
+1. W [portalu Azure](https://portal.azure.com/), kliknij przycisk **Utwórz zasób** > **integracji przedsiębiorstwa** > **aplikacji logiki**.
 1. Wprowadź następujące informacje:
 
    **Nazwa**: Nazwa aplikacji logiki.
@@ -170,7 +170,7 @@ Aplikację logiki jest w stanie podczas zapisywania.
    > [!NOTE]
    > Usługodawca poczty e-mail może być konieczne zweryfikować tożsamość nadawcy, aby upewnić się, że użytkownik, który wysyła wiadomości e-mail jest.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Pomyślnie utworzono aplikację logiki, która łączy Centrum IoT i skrzynki pocztowej temperatury monitorowania i powiadomień.
 

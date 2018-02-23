@@ -61,6 +61,7 @@
 # Instrukcje
 ## [Monitorowanie usługi VPN Gateway za pomocą usługi Azure Automation](network-watcher-monitor-with-azure-automation.md)
 ## [Diagnozowanie połączeń lokalnych za pomocą usługi VPN Gateway](network-watcher-diagnose-on-premises-connectivity.md)
+## [Monitor network connections (Monitorowanie połączeń sieciowych)](connection-monitor.md)
 ## [Sprawdzanie zgodności i przeprowadzanie inspekcji w sieci przy użyciu programu PowerShell](network-watcher-nsg-auditing-powershell.md)
 ## [Analizowanie dzienników usługi Application Gateway w usłudze Azure Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
 ## Przechwytywanie pakietów

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2018
+ms.date: 02/06/2018
 ms.author: yurid
-ms.openlocfilehash: 04f2dd3dcaa44a243cb9620ab8192e15aae82a01
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 608947ec4a94cad276e34e8d3457f05b06d04ad6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Monitorowanie kondycji zabezpieczeń w Centrum zabezpieczeń Azure
 Informacje zawarte w tym artykule ułatwiają korzystanie z funkcji monitorowania w usłudze Azure Security Center w celu monitorowania zgodności z zasadami.
@@ -87,6 +87,13 @@ Aby wyświetlić szczegóły zalecenia, kliknij nazwę brakującej aktualizacji 
 > [!NOTE]
 > Przedstawione tutaj zalecenia dotyczące zabezpieczeń są takie same jak w opcji **Zalecenia**. Więcej informacji dotyczących stosowania zaleceń można znaleźć w artykule [Wdrażanie zaleceń dotyczących zabezpieczeń w usłudze Azure Security Center](security-center-recommendations.md). Dotyczy to nie tylko maszyn wirtualnych i komputerów, ale także wszystkich zasobów, które są dostępne za pośrednictwem kafelka **Kondycja zasobu**.
 >
+
+#### <a name="unmonitored-vms"></a>Niemonitorowane maszyny wirtualne
+Maszyna wirtualna jest niemonitorowana przez usługę Security Center, jeśli na maszynie wirtualnej nie jest uruchomione rozszerzenie programu Microsoft Monitoring Agent. Na maszynie wirtualnej może już być zainstalowany lokalny agent, na przykład bezpośredni agent pakietu OMS lub agent SCOM. Maszyny wirtualne z tymi agentami są identyfikowane jako niemonitorowane, ponieważ ci agenci nie są w pełni obsługiwani w usłudze Security Center. Aby w pełni skorzystać ze wszystkich funkcji usługi Security Center, wymagane jest rozszerzenie programu Microsoft Monitoring Agent.
+
+Rozszerzenie można zainstalować na niemonitorowanej maszynie wirtualnej obok już zainstalowanego lokalnego agenta. Obu agentów należy skonfigurować tak samo, łącząc ich z tym samym obszarem roboczym. Dzięki temu usługa Security Center może wchodzić w interakcje z rozszerzeniem programu Microsoft Monitoring Agent i zbierać dane.  Zobacz [Włączanie rozszerzenia maszyny wirtualnej](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension), aby uzyskać instrukcje dotyczące sposobu instalowania rozszerzenia programu Microsoft Monitoring Agent.
+
+Zobacz [Monitorowanie problemów dotyczących kondycji agenta](security-center-troubleshooting-guide.md#monitoring-agent-health-issues), aby dowiedzieć się więcej na temat powodów, dla których usługa Security Center nie może prawidłowo monitorować maszyn wirtualnych i komputerów zainicjowanych do automatycznej aprowizacji.
 
 #### <a name="vms--computers-section"></a>Sekcja Maszyny wirtualne i komputery
 Sekcja Maszyny wirtualne i komputery zawiera przegląd wszystkich zaleceń dotyczących maszyn wirtualnych i komputerów. Każda kolumna reprezentuje jeden zestaw zaleceń, jak pokazano na poniższym zrzucie ekranu:

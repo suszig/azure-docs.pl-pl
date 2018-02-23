@@ -4,7 +4,7 @@ description: "Omówienie różnych typów HADR strategii na serwerze SQL działa
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: 53981f7e-8370-4979-b26a-93a5988d905f
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: mikeray
-ms.openlocfilehash: a81b956107ef82f40ad5304808068a7573ca7d27
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e9b4ca959b93e097bb52a841cec02cc476ef5f48
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Wysoka dostępność i odzyskiwanie awaryjne na potrzeby programu SQL Server na maszynach wirtualnych platformy Azure
 
@@ -69,7 +69,7 @@ Możesz mieć rozwiązanie odzyskiwania po awarii dla baz danych programu SQL Se
 | Technologia | Przykład architektury |
 | --- | --- |
 | **Grupy dostępności** |Niektóre repliki dostępności uruchomionych w maszynach wirtualnych platformy Azure i innych replik uruchamiane lokalnie do odzyskiwania po awarii między witrynami. Lokacji produkcyjnej może być lokalnie lub w centrum danych Azure.<br/>![Grupy dostępności](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_alwayson.gif)<br/>Ponieważ wszystkie repliki dostępności muszą być tego samego klastra trybu failover, klaster musi obejmować obu sieci (klastra trybu failover wielu podsieci). Ta konfiguracja wymaga połączenia sieci VPN platformy Azure i siecią lokalną.<br/><br/>Pomyślnym awarii baz danych należy również zainstalować repliki kontrolera domeny w lokacji odzyskiwania po awarii.<br/><br/>Użytkownik może użyć Kreatora dodawania repliki w programie SSMS można dodać repliki Azure do istniejących zawsze włączonej grupy dostępności. Aby uzyskać więcej informacji, zobacz samouczek: rozszerzenie sieci zawsze włączonej grupy dostępności na platformie Azure. |
-| **Funkcja dublowania baz danych** |Jednego partnera uruchomione w maszynie Wirtualnej platformy Azure i innych uruchamiania lokalnego do odzyskiwania awaryjnego międzylokacyjnej przy użyciu certyfikatów serwera. Partnerzy nie muszą znajdować się w tej samej domenie usługi Active Directory, a żadne połączenie sieci VPN nie jest wymagane.<br/>![Funkcja dublowania baz danych](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_dbmirroring.gif)<br/>Dublowania scenariusz innej bazy danych wymaga jednego partnera uruchomione w maszynie Wirtualnej platformy Azure i innych uruchomionych lokalnie w tej samej domenie usługi Active Directory do odzyskiwania po awarii między witrynami. A [połączenia sieci VPN między sieci wirtualnej platformy Azure i siecią lokalną](../../../vpn-gateway/vpn-gateway-site-to-site-create.md) jest wymagana.<br/><br/>Pomyślnym awarii baz danych należy również zainstalować repliki kontrolera domeny w lokacji odzyskiwania po awarii. |
+| **Funkcja dublowania baz danych** |Jednego partnera uruchomione w maszynie Wirtualnej platformy Azure i innych uruchamiania lokalnego do odzyskiwania awaryjnego międzylokacyjnej przy użyciu certyfikatów serwera. Partnerzy nie muszą znajdować się w tej samej domenie usługi Active Directory, a żadne połączenie sieci VPN nie jest wymagane.<br/>![Funkcja dublowania baz danych](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_dbmirroring.gif)<br/>Dublowania scenariusz innej bazy danych wymaga jednego partnera uruchomione w maszynie Wirtualnej platformy Azure i innych uruchomionych lokalnie w tej samej domenie usługi Active Directory do odzyskiwania po awarii między witrynami. A [połączenia sieci VPN między sieci wirtualnej platformy Azure i siecią lokalną](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) jest wymagana.<br/><br/>Pomyślnym awarii baz danych należy również zainstalować repliki kontrolera domeny w lokacji odzyskiwania po awarii. |
 | **Wysyłanie dziennika** |Jeden serwer działający w maszynie Wirtualnej platformy Azure i inne uruchomione lokalnego odzyskiwania po awarii między witrynami. Wysyłanie dziennika zależy od udostępnianie plików systemu Windows, dlatego wymagane jest połączenie sieci VPN między sieci wirtualnej platformy Azure i siecią lokalną.<br/>![Wysyłanie dziennika](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_log_shipping.gif)<br/>Pomyślnym awarii baz danych należy również zainstalować repliki kontrolera domeny w lokacji odzyskiwania po awarii. |
 | **Kopia zapasowa i przywracanie z usługi Magazyn obiektów Blob platformy Azure** |Lokalne produkcyjnych baz danych kopii zapasowej bezpośrednio do magazynu obiektów blob platformy Azure dla odzyskiwania po awarii.<br/>![Tworzenie kopii zapasowej i przywracanie](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_backup_restore.gif)<br/>Aby uzyskać więcej informacji, zobacz [kopii zapasowej i przywracania dla programu SQL Server w usłudze Azure Virtual Machines](virtual-machines-windows-sql-backup-recovery.md). |
 | **Replikacja i pracy awaryjnej programu SQL Server na platformie Azure za pomocą usługi Azure Site Recovery** |Lokalne replikowane bezpośrednio do magazynu Azure do odzyskiwania po awarii programu SQL Server w środowisku produkcyjnym.<br/>![Replikuj za pomocą usługi Azure Site Recovery](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_standalone_sqlserver-asr.png)<br/>Aby uzyskać więcej informacji, zobacz [ochrony programu SQL Server przy użyciu odzyskiwanie po awarii programu SQL Server i usługi Azure Site Recovery](../../../site-recovery/site-recovery-sql.md). |
@@ -104,7 +104,7 @@ Istnieją dwie główne opcje dotyczące konfigurowania programu odbiornika: zew
 Jeśli grupy dostępności obejmujących wiele podsieci platformy Azure (na przykład wdrożenia, które przecina regiony platformy Azure), musi zawierać ciąg połączenia klienta "**MultisubnetFailover = True**". W efekcie próby połączenia równoległe w replikach w różnych podsieciach. Aby uzyskać instrukcje na temat konfigurowania odbiornik zobacz
 
 * [Skonfiguruj odbiornik ILB dla grupy dostępności na platformie Azure](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md).
-* [Skonfiguruj odbiornik zewnętrzny dla grup dostępności w systemie Azure](../classic/ps-sql-ext-listener.md).
+* [Skonfiguruj odbiornik zewnętrzny dla grup dostępności w systemie Azure](../sqlclassic/virtual-machines-windows-classic-ps-sql-ext-listener.md).
 
 Można nadal połączenie z każdą replikę dostępności oddzielnie łącząc się bezpośrednio do wystąpienia usługi. Ponadto ponieważ grupy dostępności są zgodne z klientów dublowania bazy danych, możesz nawiązać połączenie repliki dostępności, takich jak dublowania partnerów, jak długo repliki są skonfigurowane podobne do funkcji dublowania baz danych bazy danych:
 
@@ -129,7 +129,7 @@ Należy wdrożyć rozwiązanie HADR przy założeniu, że mogą być okresów z 
 ### <a name="geo-replication-support"></a>Replikacja geograficzna pomocy technicznej
 Replikacja geograficzna, w przypadku dysków Azure nie obsługuje plików danych i plik dziennika dotyczący tej samej bazy danych, aby były przechowywane na oddzielnych dyskach. GRS są replikowane zmian na każdym dysku niezależnie i asynchronicznie. Ten mechanizm gwarantuje kolejności zapisu w ramach jednego dysku na kopii replikacją geograficzną, a nie na replikacją geograficzną kopie wiele dysków. Konfigurując bazę danych do przechowywania jego plików danych i jego pliku dziennika na oddzielnych dyskach, dyski odzyskany po awarii może zawierać aktualniejszej kopii pliku danych niż plik dziennika, który dzieli zapisu z wyprzedzeniem logowania programu SQL Server i właściwości ACID transakcji. Jeśli nie masz możliwość wyłączenia — replikacja geograficzna na koncie magazynu, należy przechowywać wszystkie pliki danych i dziennika określonej bazy danych na tym samym dysku. Jeśli należy użyć więcej niż jednego dysku ze względu na rozmiar bazy danych, należy wdrożyć jeden z wymienionych powyżej, aby zapewnić nadmiarowość danych rozwiązania odzyskiwania po awarii.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Jeśli musisz utworzyć maszynę wirtualną platformy Azure z programem SQL Server, zobacz [inicjowania obsługi maszyny wirtualnej programu SQL Server na platformie Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
 Aby uzyskać najlepszą wydajność z programu SQL Server uruchomionego na maszynie Wirtualnej platformy Azure, zobacz wskazówki zawarte w [wydajności najlepsze rozwiązania dotyczące programu SQL Server w usłudze Azure Virtual Machines](virtual-machines-windows-sql-performance.md).

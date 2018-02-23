@@ -16,18 +16,18 @@ ms.date: 08/01/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 8f1013419f7e54f5760636f169635b84c8bd118e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c569bde2a480ff191dd3079f3ca93a7400cadb3e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-the-settings-for-a-group-in-azure-active-directory"></a>Zarządzanie ustawieniami grupy w usłudze Azure Active Directory
 W tym artykule wyjaśniono, jak zmienić ustawienia grupy w usłudze Azure Active Directory (Azure AD).
 
 ## <a name="how-do-i-find-and-change-the-settings"></a>Jak znaleźć i zmienić ustawienia?
 1. Zaloguj się w [centrum administracyjnym usługi Azure AD](https://aad.portal.azure.com) przy użyciu konta, które jest administratorem globalnym katalogu.
-2. Wybierz **więcej usług**, wprowadź **użytkowników i grup** w polu tekstowym, a następnie wybierz **Enter**.
+2. Wybierz **wszystkie usługi**, wprowadź **użytkowników i grup** w polu tekstowym, a następnie wybierz **Enter**.
 
    ![Otwieranie użytkowników i grup bloku](./media/active-directory-groups-settings-azure-portal/search-user-management.png)
 3. Na **użytkowników i grup** bloku, wybierz opcję **wszystkich grup**.
@@ -41,7 +41,7 @@ W tym artykule wyjaśniono, jak zmienić ustawienia grupy w usłudze Azure Activ
 
    ![Trwa zapisywanie zmian właściwości](./media/active-directory-groups-settings-azure-portal/save-group-properties.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Te artykuły zawierają dodatkowe informacje o usłudze Azure Active Directory.
 
 * [Zobacz istniejących grup](active-directory-groups-view-azure-portal.md)

@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/14/2017
 ms.author: dastrock
-ms.openlocfilehash: f3de9016fe29a51ab2c7fb9e93fcd33af0f0e871
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: f634adbacc8e1fc128ecef15ad38f2f8b28eb25d
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="migrate-from-the-azure-access-control-service"></a>Migrowanie z usługi kontroli dostępu platformy Azure
 
 Kontroli dostępu platformy Azure, usługa Azure Active Directory (Azure AD), zostaną wycofane w listopadzie 2018. Aplikacji i usług, które obecnie używają kontroli dostępu muszą być całkowicie migrowane do mechanizm uwierzytelniania inny wtedy. W tym artykule opisano zalecenia dotyczące bieżącego klientów podczas planowania można zastąpić korzystanie z kontroli dostępu. Kontrola dostępu nie jest obecnie używany, nie musisz podejmować żadnych działań.
 
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 Kontrola dostępu jest usługa uwierzytelniania w chmurze zapewnia prosty sposób uwierzytelniania i autoryzacji użytkowników do uzyskiwania dostępu do usług i aplikacji sieci web. Dzięki temu wiele funkcji uwierzytelniania i autoryzacji, aby uwzględnić poza swój kod. Kontrola dostępu jest głównie używana przez deweloperów i architektów klientów platformy Microsoft .NET, aplikacji sieci web ASP.NET i usługi sieci web Windows Communication Foundation (WCF).
 
@@ -84,11 +84,11 @@ Każdej usługi chmury firmy Microsoft, który akceptuje tokeny wystawione przez
 | Usługa | Wskazówki |
 | ------- | -------- |
 | Azure Service Bus | [Migrowanie do sygnatur dostępu współdzielonego](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas) |
-| Przekaźnik magistrali usług Azure | [Migrowanie do sygnatur dostępu współdzielonego](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
-| Zarządzana pamięć podręczna Azure | [Migracja do usługi Azure Redis Cache](https://docs.microsoft.com/azure/redis-cache/cache-faq#which-azure-cache-offering-is-right-for-me) |
-| Usługi Azure DataMarket | [Migrowanie do interfejsów API usługi kognitywnych](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
+| Azure Service Bus Relay | [Migrowanie do sygnatur dostępu współdzielonego](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
+| Azure Managed Cache | [Migracja do usługi Azure Redis Cache](https://docs.microsoft.com/azure/redis-cache/cache-faq#which-azure-cache-offering-is-right-for-me) |
+| Azure DataMarket | [Migrowanie do interfejsów API usługi kognitywnych](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
 | BizTalk Services | [Migrowanie do funkcji Logic Apps w usłudze Azure App Service](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
-| Usługi Azure Media Services | [Migrowanie do uwierzytelniania usługi Azure AD](https://azure.microsoft.com/blog/azure-media-service-aad-auth-and-acs-deprecation/) |
+| Azure Media Services | [Migrowanie do uwierzytelniania usługi Azure AD](https://azure.microsoft.com/blog/azure-media-service-aad-auth-and-acs-deprecation/) |
 | Azure Backup | [Uaktualnij agenta usługi Kopia zapasowa Azure](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq) |
 
 <!-- Dynamics CRM: Migrate to new SDK, Dynamics team handling privately -->
@@ -145,7 +145,7 @@ Na wysokim poziomie *usługi Azure Active Directory jest prawdopodobnie najlepsz
 | Uwierzytelnianie OAuth 2.0 | Obsługa wersji roboczej 13 | Obsługa RFC 6749, większość nowoczesnych specyfikacji |
 | WS-Trust | Obsługiwane | Nieobsługiwane |
 | **Formaty tokenów** | | |
-| TOKEN JWT | Obsługiwane w wersji Beta | Obsługiwane |
+| JWT | Obsługiwane w wersji Beta | Obsługiwane |
 | SAML 1.1 | Obsługiwane | Wersja zapoznawcza |
 | SAML 2.0 | Obsługiwane | Obsługiwane |
 | SWT | Obsługiwane | Nieobsługiwane |
@@ -180,7 +180,7 @@ Informacje o innym podejściu jest wykonanie czynności opisanych [ten przykład
 
 Jeśli wybierzesz takie podejście, należy zrozumieć [podpisywania przerzucania kluczy w usłudze Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). Ta metoda używa usługi Azure AD globalnego klucza do wydawania tokenów podpisywania. Domyślnie WIF nie odświeża automatycznie klucze podpisywania. Gdy usługi Azure AD obraca jego globalne klucze podpisywania, implementacji WIF trzeba przygotować aby zatwierdzić zmiany.
 
-Jeśli można zintegrować z usługą Azure AD za pomocą protokoły OpenID Connect i OAuth, zaleca się w ten sposób. Mamy szczegółową dokumentację i wskazówki dotyczące sposobu integracji usługi Azure AD w aplikacji sieci web dostępnych w naszym [przewodnik dewelopera usługi Azure AD](http://aka.ms/aaddev).
+Jeśli można zintegrować z usługą Azure AD za pomocą protokoły OpenID Connect i OAuth, zaleca się w ten sposób. Mamy szczegółową dokumentację i wskazówki dotyczące sposobu integracji usługi Azure AD w aplikacji sieci web dostępnych w naszym [przewodnik dewelopera usługi Azure AD](https://aka.ms/aaddev).
 
 <!-- TODO: If customers ask about authZ, let's put a blurb on role claims here -->
 
@@ -208,7 +208,7 @@ W poniższej tabeli porównano funkcje kontroli dostępu, które mają zastosowa
 | Uwierzytelnianie OAuth 2.0 | Obsługa wersji roboczej 13 | Obsługa RFC 6749, większość nowoczesnych specyfikacji |
 | WS-Trust | Obsługiwane | Nieobsługiwane |
 | **Formaty tokenów** | | |
-| TOKEN JWT | Obsługiwane w wersji Beta | Obsługiwane |
+| JWT | Obsługiwane w wersji Beta | Obsługiwane |
 | SAML 1.1 | Obsługiwane | Nieobsługiwane |
 | SAML 2.0 | Obsługiwane | Nieobsługiwane |
 | SWT | Obsługiwane | Nieobsługiwane |
@@ -231,7 +231,7 @@ Jeśli zdecydujesz się, że usługi Azure AD B2C jest najlepszym ścieżki migr
 W niektórych przypadkach może się okazać, że usługi Azure AD i Azure AD B2C nie są wystarczające, aby zastąpić kontroli dostępu w aplikacji sieci web bez wprowadzania zmian w kodzie głównych. Typowe przykłady mogą być następujące:
 
 - Aplikacje sieci Web na użytek WIF lub WS-Federation logowanie z dostawców tożsamości społecznościowych, takich jak Google lub usługi Facebook.
-- Aplikacji sieci Web, które wykonują bezpośredniego federacyjnego przedsiębiorstwa identyfikowania dostawcy za pomocą protokołu WS-Federation.
+- Aplikacji sieci Web, które wykonują bezpośredniego Federacji, do dostawcy tożsamości organizacji za pomocą protokołu WS-Federation.
 - Aplikacje, które wymagają tokenu dostępu przez dostawcę tożsamości społecznościowych (takich jak Google lub usługi Facebook) jako oświadczenia w tokenach wystawiony przez kontroli dostępu w sieci Web.
 - Aplikacje sieci Web z regułami przekształcania tokenów złożonych, które usługi Azure AD lub Azure AD B2C nie można odtworzyć.
 - Aplikacji sieci web z wieloma dzierżawcami, które umożliwia centralne zarządzanie Federacji, do wielu dostawców tożsamości różnych usług ACS
@@ -282,7 +282,7 @@ Umożliwia także usługi Azure AD do uwierzytelniania serwera do serwera przy u
 | Jak zarejestrować klienta | Tworzenie tożsamości usługi w portalu zarządzania kontroli dostępu | Utwórz inną aplikację sieci web usługi Azure AD w portalu Azure |
 | Protokół używany |-Protokół OAuth WRAP<br />-Przyznanie poświadczeń klienta OAuth 2.0 projekt 13 | Przyznanie poświadczeń klienta OAuth 2.0 |
 | Metody uwierzytelniania klienta |-Proste hasło<br />-Podpisem SWT<br />— Token SAML od dostawcy tożsamości federacyjnych |-Proste hasło<br />-Podpisany token JWT. |
-| Formaty tokenów |-JWT.<br />-SAML 1.1<br />-SAML 2.0<br />-SWT<br /> | Tylko JWT |
+| Formaty tokenów |- JWT<br />- SAML 1.1<br />- SAML 2.0<br />- SWT<br /> | Tylko JWT |
 | Token przekształcania |-Dodaj oświadczenia niestandardowe<br />-Logika wystawiania oświadczeń Jeżeli to proste | Dodawanie oświadczenia niestandardowe | 
 | Automatyzowanie zadań konfiguracji i zarządzania | Obsługiwane za pośrednictwem usługi zarządzania kontroli dostępu | Obsługiwane przez program Microsoft Graph i Azure AD Graph API |
 

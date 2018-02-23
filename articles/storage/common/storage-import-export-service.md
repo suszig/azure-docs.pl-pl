@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: muralikk
-ms.openlocfilehash: 56cc2a82e7957e677f96c638f7e3e903a3b717e1
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
-ms.translationtype: HT
+ms.openlocfilehash: 0c34b7ce028ef0fae77322513f62557fa9f9929c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Transfer danych do usługi Azure Storage za pomocą usługi Import/Eksport Microsoft Azure
 W tym artykule udostępniamy instrukcje krok po kroku na temat używania usługi Import/Eksport Azure do bezpiecznego przesyłania dużych ilości danych do magazynu obiektów Blob platformy Azure i usługi pliki Azure przez wysyłanie dysków do centrum danych platformy Azure. Ta usługa może również przesyłanie danych z magazynu Azure do dysków twardych i wysłać do lokalnych witryn. Dane z pojedynczej stacji dysków SATA wewnętrzny można zaimportować do magazynu obiektów Blob platformy Azure lub usługi pliki Azure. 
@@ -87,7 +87,7 @@ Tej usługi można użyć w scenariuszach takich jak:
 W tej sekcji na listę wymagań wstępnych dotyczących tej usługi. Dokładne zapoznanie się je przed dostarczeniem dysków.
 
 ### <a name="storage-account"></a>Konto magazynu
-Musi mieć istniejącej subskrypcji platformy Azure i co najmniej jedno konto magazynu ma być używana usługa importu i eksportu. Każde zadanie może służyć do transferu danych do lub z tylko jedno konto magazynu. Innymi słowy zadanie pojedynczego importu/eksportu nie może obejmować wielu wielu kont magazynu. Aby uzyskać informacje dotyczące tworzenia nowego konta magazynu, zobacz [jak utworzyć konto magazynu](storage-create-storage-account.md#create-a-storage-account).
+Musi mieć istniejącej subskrypcji platformy Azure i co najmniej jedno konto magazynu ma być używana usługa importu i eksportu. Import/Eksport Azure obsługuje tylko klasyczny, konta magazynu obiektów Blob i kont magazynu ogólnego przeznaczenia v1. Każde zadanie może służyć do transferu danych do lub z tylko jedno konto magazynu. Innymi słowy zadanie pojedynczego importu/eksportu nie może obejmować wielu wielu kont magazynu. Aby uzyskać informacje dotyczące tworzenia nowego konta magazynu, zobacz [jak utworzyć konto magazynu](storage-create-storage-account.md#create-a-storage-account).
 
 ### <a name="data-types"></a>Typy danych
 Usługa Import/Eksport Azure umożliwia kopiowanie danych do **bloku** obiektów blob, **strony** obiektów blob, lub **pliki**. Z drugiej strony, można wyeksportować tylko **bloku** obiektów blob, **strony** obiektów blob lub **Append** obiekty BLOB z usługi Azure storage przy użyciu tej usługi. Usługa obsługuje tylko importowanie plików Azure do usługi Azure storage. Eksportowanie plików Azure nie jest obecnie obsługiwane.

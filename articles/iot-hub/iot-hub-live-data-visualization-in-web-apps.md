@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2017
 ms.author: xshi
-ms.openlocfilehash: e037f5c29cabf8e5d0d3e7ded187280a0652d5c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 54a2defd6bfe2396e24584c686698d3215893cfd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-by-using-the-web-apps-feature-of-azure-app-service"></a>Wizualizacja danych czujnika w czasie rzeczywistym z Centrum Azure IoT za pomocą funkcji aplikacji sieci Web usługi aplikacji Azure
 
@@ -49,7 +49,7 @@ W tym samouczku możesz dowiedzieć się, jak do wizualizacji danych czujnika w 
 
 ## <a name="create-a-web-app"></a>Tworzenie aplikacji sieci Web
 
-1. W [portalu Azure](https://ms.portal.azure.com/), kliknij przycisk **nowy** > **sieci Web i mobilność** > **aplikacji sieci Web**.
+1. W [portalu Azure](https://portal.azure.com/), kliknij przycisk **Utwórz zasób** > **sieci Web i mobilność** > **aplikacji sieci Web**.
 2. Wprowadź nazwę unikatową zadania upewnij się, subskrypcji, określ grupę zasobów i lokalizację, wybierz opcję **Przypnij do pulpitu nawigacyjnego**, a następnie kliknij przycisk **Utwórz**.
 
    Firma Microsoft zaleca, wybierz lokalizację, jak te grupy zasobów. W ten sposób mogą korzystać z szybkość przetwarzania i zmniejsza koszty transferu danych.
@@ -115,7 +115,7 @@ Powinny pojawić się w czasie rzeczywistym danych temperatury i wilgotności z 
 > [!NOTE]
 > Upewnij się, że przykładowa aplikacja jest uruchomiona na twoim urządzeniu. Jeśli nie, otrzymasz pusty wykres, może się odwoływać do samouczków w obszarze [skonfigurować na twoim urządzeniu](iot-hub-raspberry-pi-kit-node-get-started.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 W celu wizualizacji danych czujnika w czasie rzeczywistym z Centrum IoT pomyślnie zastosowano aplikację sieci web.
 
 Aby alternatywny sposób wizualizuj dane z Centrum IoT Azure, zobacz [usługi Power BI do wizualizacji danych czujnika w czasie rzeczywistym z Centrum IoT](iot-hub-live-data-visualization-in-power-bi.md).

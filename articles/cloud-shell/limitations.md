@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: 08426b6142dd125a5981d65635ecc55336cb3d15
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 21a050373a9901220e106534464a8c13565bb3d8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Ograniczenia powłoki w chmurze Azure
 
@@ -33,7 +33,6 @@ Komputer udostępniający sesję powłoki chmury jest tymczasowy i zostanie odtw
 * Z magazynem zainstalowanym, tylko zmiany w `clouddrive` katalogu są zachowywane. W Bash Twoje `$Home` katalogu również jest trwały.
 * Udziały plików platformy Azure może być instalowany tylko z poziomu programu [przypisane region](persisting-shell-storage.md#mount-a-new-clouddrive).
   * W Bash, uruchom `env` można znaleźć w Twoim regionie Ustaw jako `ACC_LOCATION`.
-* Usługa pliki Azure obsługuje tylko lokalnie nadmiarowego magazynu i kont magazynu geograficznie nadmiarowego.
 
 ### <a name="browser-support"></a>Obsługa przeglądarek
 
@@ -55,18 +54,11 @@ Powłoka chmury jest przeznaczony dla przypadków użycia interaktywnego. W zwi�
 
 ### <a name="user-permissions"></a>Uprawnienia użytkowników
 
-Uprawnienia zostały ustawione jako normalnych użytkowników bez dostępu do operacji sudo. Każda instalacja poza Twojej `$Home` katalogu nie jest trwały.
-
-### <a name="clouddrive-smb-limited-permissions"></a>Clouddrive SMB ograniczone uprawnienia
-Niektórych poleceń w `clouddrive` katalogu, takie jak `git clone`, nie ma odpowiednich uprawnień do odczytu/zapisu niektórych plików. Jeśli zostanie osiągnięty ten problem, spróbuj uruchomić go z Twojego `$Home` katalogu, który nie ma ograniczenia SMB.
+Uprawnienia zostały ustawione jako normalnych użytkowników bez dostępu do operacji sudo. Każda instalacja poza Twojej `$Home` lub `clouddrive` katalogu nie jest trwały.
 
 ### <a name="editing-bashrc"></a>Edytowanie .bashrc
 
-Mają ostrożność w przypadku edycji .bashrc w ten sposób może spowodować nieoczekiwane błędy w chmurze powłoki.
-
-### <a name="bashhistory"></a>.bash_history
-
-Historię poleceń bash może być niespójna z powodu przerw w działaniu sesję powłoki chmury lub równoczesnych sesji.
+Mają ostrożność w przypadku edycji .bashrc w ten sposób mogą powodować nieoczekiwane błędy Bash w powłoce chmury.
 
 ## <a name="powershell-limitations"></a>Ograniczenia programu PowerShell
 

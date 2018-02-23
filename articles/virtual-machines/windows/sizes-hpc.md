@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/28/2017
+ms.date: 02/21/2018
 ms.author: jonbeck
-ms.openlocfilehash: fc2cae8208baa211db2166c9d66a83153fa7b445
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: dfeb6b0cbd74ff5a5b11b730c6413df189096ab8
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="high-performance-compute-vm-sizes"></a>Rozmiary maszyn wirtualnych wysokiej wydajności obliczeniowej
 
@@ -36,13 +36,7 @@ Ten interfejs umożliwia wystąpienia z funkcją RDMA do komunikacji za pośredn
 
 Poniżej przedstawiono wymagania dotyczące maszyn wirtualnych systemu Windows z funkcją RDMA do uzyskania dostępu do sieci Azure RDMA: 
 
-* **System operacyjny**
-  
-  Windows Server 2012 R2, Windows Server 2012
-  
-  > [!NOTE]
-  > Windows Server 2016 nie obsługuje obecnie, łączności RDMA na platformie Azure.
-  >
+* **System operacyjny** -Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 * **Zestaw dostępności lub usługi w chmurze** — wdrażanie maszyn wirtualnych z funkcją RDMA w tym samym zestawie dostępności (przy użyciu modelu wdrażania usługi Azure Resource Manager) lub samej usługi w chmurze (przy użyciu klasycznego modelu wdrażania). Jeśli używasz partii zadań Azure, maszyny wirtualne z funkcją RDMA musi być w tej samej puli.
 
@@ -52,7 +46,7 @@ Poniżej przedstawiono wymagania dotyczące maszyn wirtualnych systemu Windows z
 
 * **Przestrzeń adresową sieci RDMA** -RDMA sieci na platformie Azure rezerwuje 172.16.0.0/16 przestrzeni adresowej. Do uruchamiania aplikacji MPI w wystąpieniach wdrożony w sieci wirtualnej platformy Azure, upewnij się, że przestrzeń adresową sieci wirtualnej nakłada się na sieciowych RDMA.
 
-* **Rozszerzenia maszyny Wirtualnej HpcVmDrivers** — na maszynach wirtualnych z funkcją RDMA, należy dodać rozszerzenie HpcVmDrivers, aby zainstalować sterowniki urządzeń sieciowych systemu Windows dla łączności RDMA. (W przypadku niektórych wdrożeń wystąpień A8 i A9, rozszerzenia HpcVmDrivers jest dodawane automatycznie). Aby dodać rozszerzenie maszyny Wirtualnej do maszyny Wirtualnej, można użyć [programu Azure PowerShell](/powershell/azure/overview) polecenia cmdlet. 
+* **Rozszerzenia maszyny Wirtualnej HpcVmDrivers** — na maszynach wirtualnych z funkcją RDMA, Dodaj rozszerzenie HpcVmDrivers, aby zainstalować sterowniki urządzeń sieciowych systemu Windows dla łączności RDMA. (W przypadku niektórych wdrożeń wystąpień A8 i A9, rozszerzenia HpcVmDrivers jest dodawane automatycznie). Aby dodać rozszerzenie maszyny Wirtualnej do maszyny Wirtualnej, można użyć [programu Azure PowerShell](/powershell/azure/overview) polecenia cmdlet. 
 
   
   Polecenie instaluje najnowsze rozszerzenia HpcVMDrivers wersji 1.1 na istniejącej maszyny Wirtualnej z funkcją RDMA, o nazwie *myVM* wdrożone w grupie zasobów o nazwie *myResourceGroup* w  *Zachodnie stany USA* regionu:
@@ -78,7 +72,7 @@ Poniżej przedstawiono wymagania dotyczące maszyn wirtualnych systemu Windows z
 - [Optymalizacja pod kątem magazynu](../virtual-machines-windows-sizes-storage.md)
 - [Optymalizacja pod kątem procesora GPU](sizes-gpu.md)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Dla listy kontrolne użyć wystąpienia obliczeniowych pakietem HPC w systemie Windows Server, zobacz [Konfigurowanie klastra RDMA systemu Windows z pakietem HPC do uruchamiania aplikacji MPI](classic/hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 

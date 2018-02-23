@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/18/2017
 ms.author: barclayn
 ms.custom: pim
-ms.openlocfilehash: c35b0c4171d411bd0c0483866f88780757cb3ee8
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 94855cf102764532fa0a6718541beffe93230fd1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Co to jest Azure AD Privileged Identity Management?
 
@@ -54,7 +54,7 @@ Możesz rozpocząć korzystanie z usługi Azure AD Privileged Identity Managemen
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/) jako administrator globalny katalogu.
 2. Jeśli organizacja dysponuje więcej niż jednym katalogiem, wybierz swoją nazwę użytkownika w prawym górnym rogu witryny Azure Portal. Wybierz katalog, w którym będziesz używać usługi Azure AD Privileged Identity Management.
-3. Wybierz polecenie **Więcej usług** i użyj pola tekstowego filtru, aby wyszukać **Azure AD Privileged Identity Management**.
+3. Wybierz **wszystkie usługi** i użyj polu tekstowym filtru w celu wyszukania **Azure AD Privileged Identity Management**.
 4. Zaznacz opcję **Przypnij do pulpitu nawigacyjnego**, a następnie kliknij pozycję **Utwórz**. Nastąpi otwarcie aplikacji Privileged Identity Management.
 
 Jeśli jesteś pierwszą osobą, aby użyć usługi Azure AD Privileged Identity Management w katalogu, przejdź do usługi Azure AD directory ról, a następnie przejdź do ról katalogu usługi Azure AD, [Kreator zabezpieczeń](active-directory-privileged-identity-management-security-wizard.md) przeprowadzi Cię przez początkowy etap przypisania. Po wykonaniu tej automatycznie staje się pierwszym **administrator zabezpieczeń** i **administrator ról uprzywilejowanych** katalogu.
@@ -125,7 +125,7 @@ Ustawienia roli dla ról zasobów Azure (wersja zapoznawcza) umożliwiają admin
 
 ![](./media/active-directory-privileged-identity-management-configure/role-settings-details.png)
 
-## <a name="role-activation"></a>Uaktywnienie roli
+## <a name="role-activation"></a>Aktywacja roli
 
 Aby [aktywować rolę](active-directory-privileged-identity-management-how-to-activate-role.md), administrator uprawnionych żądań czasu wiązaniem "Aktywacja" dla roli. Aktywacja może zażądać przy użyciu **Uaktywnij rolę Mój** opcji w usłudze Azure AD Privileged Identity Management.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/05/2017
 ms.author: kraigb
-ms.openlocfilehash: 5fe910e2757dd5ec783538e23e7f52e2f5725b39
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1004f7d6938b4038df7681dc7f7551db2e988e61
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="building-azure-projects-from-the-command-line"></a>Kompilowanie projektów platformy Azure z poziomu wiersza polecenia
 Aparat kompilacji firmy Microsoft (MSBuild) można tworzyć produktów w środowisku laboratorium kompilacji, których nie zainstalowano programu Visual Studio. Program MSBuild używa formatu XML dla plików projektu, które extensible i w pełni obsługiwane przez firmę Microsoft. Przy użyciu formatu pliku MSBuild, można opisać co elementów musi być skompilowany dla platformy i konfiguracji.
@@ -35,6 +35,5 @@ Domyślnie każdy projekt Azure zawiera jeden plik konfiguracji usługi dla loka
 
 Jeśli chcesz użyć innego katalogu pakietu przechowywane i pliki konfiguracji, należy ustawić ścieżki, za pomocą `/p:PublishDir=Directory\` opcji, w tym końcowe separatora ukośnik odwrotny.
 
-## <a name="next-steps"></a>Następne kroki
-Po utworzeniu pakietu należy go wdrożyć na platformie Azure. Samouczek przedstawiający sposób automatyzacji procesu, zobacz [ciągłego dostarczania dla usług w chmurze na platformie Azure](./cloud-services/cloud-services-dotnet-continuous-delivery.md).
-
+## <a name="next-steps"></a>Kolejne kroki
+Po utworzeniu pakietu należy go wdrożyć na platformie Azure.

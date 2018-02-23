@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 01bccb2f8d103faf77b39825a1f9ff663329ed7a
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 38bc949917f6bb56486ad6267044ef2f19e33fcb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-powershell"></a>Migracja zasobów IaaS ze środowiska klasycznego do usługi Azure Resource Manager przy użyciu programu Azure PowerShell
 Te kroki pokazują, jak używać poleceń programu Azure PowerShell do migracji infrastruktury jako zasoby usługi (IaaS) z klasycznym modelu wdrażania modelu wdrażania usługi Azure Resource Manager.
@@ -59,7 +59,7 @@ Aby uzyskać instrukcje instalacji, zobacz [jak instalowanie i konfigurowanie pr
 Do przeprowadzania migracji, możesz muszą zostać dodane jako współadministrator subskrypcji w [portalu Azure](https://portal.azure.com).
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com).
-2. W menu Centrum wybierz **subskrypcji**. Jeśli nie widzisz, wybierz **więcej usług**.
+2. W menu Centrum wybierz **subskrypcji**. Jeśli nie widzisz, wybierz **wszystkie usługi**.
 3. Znajdź pozycję odpowiednie subskrypcji, a następnie przyjrzeć się **Moje roli** pola. Dla administratora współpracującego, wartość powinna być _administrator konta_.
 
 Jeśli nie jest możliwe dodać administratora współpracującego, następnie skontaktuj się z administratorem usługi ani współadministratorem subskrypcji można pobrać samodzielnie dodane.   
@@ -340,7 +340,7 @@ Jeśli przygotowane Konfiguracja wygląda dobrze, możesz przejść do przodu i 
     Move-AzureStorageAccount -Commit -StorageAccountName $storageAccountName
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Omówienie migracji zasobów IaaS ze środowiska klasycznego do usługi Azure Resource Manager obsługiwane platformy](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Techniczne szczegółowe informacje na temat obsługiwanych platform migracji ze środowiska klasycznego do usługi Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Planowanie migracji zasobów rozwiązania IaaS z wdrożenia klasycznego do usługi Azure Resource Manager](migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

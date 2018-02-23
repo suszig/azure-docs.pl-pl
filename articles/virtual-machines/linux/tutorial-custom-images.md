@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie niestandardowych obrazów maszyn wirtualnych z wiersza polecenia platformy Azure | Dokumentacja firmy Microsoft"
-description: "Samouczek — Tworzenie niestandardowego obrazu maszyny Wirtualnej przy użyciu wiersza polecenia platformy Azure."
+title: "Tworzenie niestandardowych obrazów maszyn wirtualnych przy użyciu wiersza polecenia platformy Azure | Microsoft Docs"
+description: "Samouczek — tworzenie niestandardowego obrazu maszyny wirtualnej przy użyciu wiersza polecenia platformy Azure."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,51 +16,51 @@ ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e73494ff4827b74cbb42b2b0f1f9738c78960e23
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 297faeb56ac2d4743bfe5887e369be066e91fbd3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="create-a-custom-image-of-an-azure-vm-using-the-cli"></a>Tworzenie niestandardowego obrazu maszyny Wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia
+# <a name="create-a-custom-image-of-an-azure-vm-using-the-cli"></a>Tworzenie niestandardowego obrazu maszyny wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia
 
-Niestandardowe obrazy są takie jak obrazy marketplace, ale można je utworzyć samodzielnie. Niestandardowe obrazy może służyć do ładowania początkowego konfiguracje, takie jak wstępnego ładowania aplikacji, konfiguracji aplikacji i inne konfiguracje systemu operacyjnego. W tym samouczku utworzysz własnego niestandardowego obrazu maszyny wirtualnej platformy Azure. Omawiane kwestie:
+Obrazy niestandardowe są podobne do obrazów z platformy handlowej, ale tworzy się je samodzielnie. Obrazy niestandardowe mogą służyć do ładowania początkowego konfiguracji, na przykład do wstępnego ładowania aplikacji, konfiguracji aplikacji i innych konfiguracji systemu operacyjnego. W tym samouczku utworzysz własny niestandardowy obraz maszyny wirtualnej platformy Azure. Omawiane kwestie:
 
 > [!div class="checklist"]
-> * Anulowanie zastrzeżenia i generalize maszyny wirtualne
+> * Anulowanie aprowizacji i uogólnianie maszyn wirtualnych
 > * Tworzenie obrazu niestandardowego
-> * Utwórz maszynę Wirtualną z obrazu niestandardowego
-> * Wyświetlanie listy wszystkich obrazów w ramach subskrypcji
-> * Usuń obraz
+> * Tworzenie maszyny wirtualnej na podstawie obrazu niestandardowego
+> * Wyświetlanie listy wszystkich obrazów w subskrypcji
+> * Usuwanie obrazu
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Jeśli wybierzesz do zainstalowania i używania interfejsu wiersza polecenia lokalnie, w tym samouczku wymaga używasz interfejsu wiersza polecenia Azure w wersji 2.0.4 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-Poniższe kroki szczegółowo sposób pobrać istniejącej maszyny Wirtualnej i przekształcić ją do ponownego użycia niestandardowego obrazu używanego do utworzenia nowego wystąpienia maszyny Wirtualnej.
+W poniższych krokach wyjaśniono szczegółowo, jak na podstawie istniejącej maszyny wirtualnej utworzyć obraz niestandardowy do ponownego użycia, za pomocą którego można utworzyć nowe wystąpienia maszyn wirtualnych.
 
-Aby ukończyć przykład, w tym samouczku, musi mieć istniejącej maszyny wirtualnej. Jeśli to konieczne, to [przykładowym skrypcie](../scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md) można utworzyć. Podczas pracy nad samouczek, Zastąp maszyny Wirtualnej i grupy zasobów nazwy w razie potrzeby.
+Do utworzenia przykładu przedstawionego w tym samouczku potrzebna jest istniejąca maszyna wirtualna. W razie potrzeby [ten przykładowy skrypt](../scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md) pomoże Ci go utworzyć. Podczas pracy z tym samouczkiem zamień w odpowiednich przypadkach nazwy maszyn wirtualnych i grup zasobów.
 
 ## <a name="create-a-custom-image"></a>Tworzenie obrazu niestandardowego
 
-Aby utworzyć obraz maszyny wirtualnej, należy przygotować maszyny Wirtualnej anulowania obsługi, dealokowanie, a następnie oznaczenie źródłowej maszyny Wirtualnej, ponieważ uogólniony. Maszyny Wirtualnej został przygotowany, można tworzyć obrazu.
+Aby utworzyć obraz maszyny wirtualnej, należy przygotować maszynę wirtualną przez anulowanie aprowizacji, cofnięcie przydziału, a następnie oznaczenie źródłowej maszyny wirtualnej jako uogólnionej. Po przygotowaniu maszyny wirtualnej można utworzyć obraz.
 
-### <a name="deprovision-the-vm"></a>Anulowanie zastrzeżenia maszyny Wirtualnej 
+### <a name="deprovision-the-vm"></a>Anulowanie aprowizacji maszyny wirtualnej 
 
-Cofanie zastrzegania stanowi uogólnienie maszyny Wirtualnej przez usunięcie informacji na temat określonego komputera. Ta generalizacji sprawia, że można wdrożyć wiele maszyn wirtualnych za pomocą pojedynczego obrazu. Podczas anulowania obsługi, nazwa hosta jest resetowany do *localhost.localdomain*. Klucze hosta SSH, konfiguracje wskazują hasła głównego i buforowanych dzierżaw DHCP również są usuwane.
+Anulowanie aprowizacji powoduje uogólnienie maszyny wirtualnej przez usunięcie informacji charakterystycznych dla danego komputera. To uogólnienie sprawia, że można wdrożyć wiele maszyn wirtualnych za pomocą pojedynczego obrazu. Podczas anulowania aprowizacji nazwa hosta jest resetowana do *localhost.localdomain*. Usuwane są również klucze hosta SSH, konfiguracje „nameserver”, hasło administratora (root) i buforowane dzierżawy DHCP.
 
-Aby anulowanie zastrzeżenia maszyny Wirtualnej, użyj agenta maszyny Wirtualnej platformy Azure (agenta waagent). Agent maszyny Wirtualnej platformy Azure jest zainstalowana na maszynie Wirtualnej i zarządza interakcji z kontrolerem sieci szkieletowej Azure i udostępniania. Aby uzyskać więcej informacji, zobacz [Podręcznik użytkownika agenta systemu Linux Azure](agent-user-guide.md).
+Aby anulować aprowizację maszyny wirtualnej, użyj agenta maszyny wirtualnej platformy Azure (waagent). Agent maszyny wirtualnej platformy Azure jest zainstalowany na maszynie wirtualnej i zarządza aprowizowaniem oraz interakcjami z kontrolerem sieci szkieletowej Azure. Aby uzyskać więcej informacji, zobacz [Przewodnik użytkownika Agenta platformy Azure dla systemu Linux](agent-user-guide.md).
 
-Połączenie z maszyną Wirtualną przy użyciu protokołu SSH, a następnie uruchom polecenie Anulowanie zastrzeżenia maszyny Wirtualnej. Z `+user` argument, ostatnie konto użytkownika elastycznie i wszelkie powiązane dane, również zostaną usunięte. Zamień adres IP przykład publiczny adres IP maszyny Wirtualnej.
+Połącz się z maszyną wirtualną przy użyciu protokołu SSH, a następnie uruchom polecenie anulowania aprowizacji maszyny wirtualnej. Dzięki użyciu argumentu `+user` zostaną również usunięte ostatnie aprowizowane konto użytkownika i wszelkie powiązane dane. Zastąp przykładowy adres IP publicznym adresem IP swojej maszyny wirtualnej.
 
-SSH z maszyną Wirtualną.
+Połącz się przez protokół SSH z maszyną wirtualną.
 ```bash
 ssh azureuser@52.174.34.95
 ```
-Anulowanie zastrzeżenia maszyny Wirtualnej.
+Anuluj aprowizację maszyny wirtualnej.
 
 ```bash
 sudo waagent -deprovision+user -force
@@ -71,15 +71,15 @@ Zamknij sesję SSH.
 exit
 ```
 
-### <a name="deallocate-and-mark-the-vm-as-generalized"></a>Cofnięcie przydziału i zostać oznaczone jako uogólniona maszyna wirtualna
+### <a name="deallocate-and-mark-the-vm-as-generalized"></a>Cofanie przydziału i oznaczanie maszyny wirtualnej jako uogólnionej
 
-Do utworzenia obrazu, musi można cofnąć przydziału maszyny Wirtualnej. Cofnięcie przydziału maszynę Wirtualną przy użyciu [deallocate wirtualna az](/cli//azure/vm#deallocate). 
+Aby można było utworzyć obraz, należy cofnąć przydział maszyny wirtualnej. Cofnij przydział maszyny wirtualnej przy użyciu polecenia [az vm deallocate](/cli//azure/vm#deallocate). 
    
 ```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-Wreszcie, Ustaw stan maszyny Wirtualnej, ponieważ uogólniony z [generalize wirtualna az](/cli//azure/vm#generalize) będzie wówczas traktował platformy Azure, maszyny Wirtualnej został uogólniony. Można tworzyć tylko obraz z ogólnych maszyny Wirtualnej.
+Na koniec ustaw dla maszyny wirtualnej stan uogólniony za pomocą polecenia [az vm generalize](/cli//azure/vm#generalize), aby poinformować platformę Azure, że maszyna została uogólniona. Obraz można utworzyć tylko za pomocą uogólnionej maszyny wirtualnej.
    
 ```azurecli-interactive 
 az vm generalize --resource-group myResourceGroup --name myVM
@@ -87,7 +87,7 @@ az vm generalize --resource-group myResourceGroup --name myVM
 
 ### <a name="create-the-image"></a>Tworzenie obrazu
 
-Teraz można utworzyć obrazu maszyny wirtualnej za pomocą [tworzenia obrazu az](/cli//azure/image#create). Poniższy przykład tworzy obraz o nazwie *myImage* z maszyny Wirtualnej o nazwie *myVM*.
+Teraz można utworzyć obraz maszyny wirtualnej za pomocą polecenia [az image create](/cli//azure/image#create). W poniższym przykładzie utworzono obraz o nazwie *myImage* za pomocą maszyny wirtualnej o nazwie *myVM*.
    
 ```azurecli-interactive 
 az image create \
@@ -98,7 +98,7 @@ az image create \
  
 ## <a name="create-vms-from-the-image"></a>Tworzenie maszyn wirtualnych z obrazu
 
-Teraz, gdy masz obrazu można utworzyć jeden lub więcej nowych maszyn wirtualnych z obrazu przy użyciu [tworzenia maszyny wirtualnej az](/cli/azure/vm#create). Poniższy przykład tworzy Maszynę wirtualną o nazwie *myVMfromImage* z obrazu o nazwie *myImage*.
+Obraz już istnieje, można więc za jego pomocą utworzyć jedną lub więcej nowych maszyn wirtualnych przy użyciu polecenia [az vm create](/cli/azure/vm#az_vm_create). W poniższym przykładzie utworzono maszynę wirtualną o nazwie *myVMfromImage* za pomocą obrazu o nazwie *myImage*.
 
 ```azurecli-interactive 
 az vm create \
@@ -111,16 +111,16 @@ az vm create \
 
 ## <a name="image-management"></a>Zarządzanie obrazami 
 
-Oto kilka przykładów typowych zadań zarządzania obrazu i jak zakończyć je za pomocą wiersza polecenia platformy Azure.
+Oto kilka przykładów typowych zadań zarządzania obrazami i tego, jak można je wykonać za pomocą wiersza polecenia platformy Azure.
 
-Wyświetl listę wszystkich obrazów według nazwy w formacie tabeli.
+Wyświetlanie listy wszystkich obrazów posortowanej według nazw w formacie tabeli.
 
 ```azurecli-interactive 
 az image list \
     --resource-group myResourceGroup
 ```
 
-Usuń obraz. W tym przykładzie usuwa obraz o nazwie *myOldImage* z *myResourceGroup*.
+Usuwanie obrazu. W tym przykładzie obraz o nazwie *myOldImage* jest usuwany z grupy *myResourceGroup*.
 
 ```azurecli-interactive 
 az image delete \
@@ -130,17 +130,17 @@ az image delete \
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku utworzony niestandardowy obraz maszyny Wirtualnej. W tym samouczku omówiono:
+W tym samouczku został utworzony obraz niestandardowy maszyny wirtualnej. W tym samouczku omówiono:
 
 > [!div class="checklist"]
-> * Anulowanie zastrzeżenia i generalize maszyny wirtualne
+> * Anulowanie aprowizacji i uogólnianie maszyn wirtualnych
 > * Tworzenie obrazu niestandardowego
-> * Utwórz maszynę Wirtualną z obrazu niestandardowego
-> * Wyświetlanie listy wszystkich obrazów w ramach subskrypcji
-> * Usuń obraz
+> * Tworzenie maszyny wirtualnej na podstawie obrazu niestandardowego
+> * Wyświetlanie listy wszystkich obrazów w subskrypcji
+> * Usuwanie obrazu
 
-Przejście do następnym samouczku, aby dowiedzieć się więcej o wysokiej dostępności maszyny wirtualnej.
+Przejdź do następnego samouczka, aby dowiedzieć się więcej o maszynach wirtualnych o wysokiej dostępności.
 
 > [!div class="nextstepaction"]
-> [Tworzenie maszyn wirtualnych wysokiej dostępności](tutorial-availability-sets.md).
+> [Tworzenie maszyn wirtualnych o wysokiej dostępności](tutorial-availability-sets.md).
 

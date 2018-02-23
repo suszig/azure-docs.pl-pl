@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: billgib
-ms.openlocfilehash: eec7f9262dd8e8cccb5ba68cbe2f12581cd01470
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a13eeb79320360da078ee19a61cc32a2e1f35354
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Dostarczanie i katalogu nowi dzierżawcy przy użyciu aplikacji dla poszczególnych dzierżawców wzorzec SaaS
 
@@ -30,7 +30,7 @@ Ten artykuł zawiera dwie główne części:
 * Samouczek, który prezentuje przykładowy kod programu PowerShell, który wykonuje inicjowania obsługi administracyjnej i skatalogowania
     * W samouczku aplikacji SaaS biletów Wingtip próbki, dostosowane do aplikacji autonomicznej na wzorzec dzierżawy.
 
-## <a name="application-per-tenant-pattern"></a>Aplikacji w ciągu wzorca dzierżawy
+## <a name="standalone-application-per-tenant-pattern"></a>Aplikacja autonomiczna na wzorzec dzierżawy
 Aplikacji autonomicznej na wzorzec dzierżawy jest jednym z kilku dla wielodostępnych aplikacji SaaS.  W tym wzorcu aplikacji autonomicznej zostanie zainicjowana dla każdego dzierżawcy. Aplikacja składa się z poziomu składniki aplikacji i bazy danych SQL.  Każdej dzierżawy aplikacji można wdrożyć w dostawcy subskrypcji.  Alternatywnie Azure oferuje [zarządzanych aplikacji program](https://docs.microsoft.com/en-us/azure/managed-applications/overview) aplikacji może być wdrożonych w subskrypcji dzierżawcy i zarządzane przez dostawcę w imieniu dzierżawcy. 
 
    ![wzorzec aplikacji na dzierżawy](media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern.png)
@@ -59,7 +59,7 @@ Każdy dzierżawca wymaga nowej grupy zasobów platformy Azure, które należy u
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 * Zainicjuj obsługę wykazu
-* Zarejestruj baz danych dzierżawy wdrożone wcześniej w katalogu
+* Zarejestruj przykładowe bazy dzierżawy wdrożone wcześniej w katalogu
 * Udostępnić dodatkowe dzierżawy i zarejestruj go w katalogu
 
 Szablon usługi Azure Resource Manager służy do wdrażania i konfigurowania aplikacji, Utwórz bazę danych dzierżawy, a następnie zaimportuj pliku bacpac pliku można go zainicjować. Żądania importu mogą być kolejkowane na kilka minut, zanim zostanie których wykonano akcje.
@@ -148,3 +148,5 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Jak wdrożyć aplikacji autonomicznej Wingtip biletów SaaS.
 > * Temat serwerów i baz danych, które tworzą aplikacji.
 > * Jak usunąć przykładowych zasobów, aby zatrzymać rozliczeń powiązanego.
+
+Można sprawdzić, jak katalog jest używany do obsługi różnych scenariuszy dzierżawy między za pomocą wersji bazy danych dla dzierżawy [aplikacji SaaS biletów Wingtip](https://docs.microsoft.com/en-us/azure/sql-database/saas-dbpertenant-wingtip-app-overview).  

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 09/28/2017
 ms.author: danlep
-ms.openlocfilehash: 82cd6e04693d0cf38b7608fb380a723291c87ffe
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8ad9c3a779ca52140a78ae905e4825f3144976aa
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Uwierzytelnianie partii rozwiązań usług w usłudze Active Directory
 
@@ -92,7 +92,7 @@ Do uwierzytelniania za pomocą uwierzytelniania zintegrowanego, należy przyzna�
 
 Po wprowadzeniu [zarejestrowana aplikacja](#register-your-application-with-an-azure-ad-tenant), wykonaj następujące kroki w portalu Azure, aby przyznać jej dostęp do usługi partia zadań:
 
-1. W okienku nawigacji po lewej stronie portalu Azure wybierz **więcej usług**, kliknij przycisk **rejestracji aplikacji**.
+1. W okienku nawigacji po lewej stronie portalu Azure wybierz **wszystkie usługi**. Kliknij przycisk **rejestracji aplikacji**.
 2. Wyszukaj nazwę aplikacji na liście rejestracji aplikacji:
 
     ![Wyszukaj nazwę aplikacji](./media/batch-aad-auth/search-app-registration.png)
@@ -124,7 +124,7 @@ Podczas uwierzytelniania aplikacji z główną usługą wysyła zarówno identyf
 
 Wykonaj następujące kroki w portalu Azure:
 
-1. W okienku nawigacji po lewej stronie portalu Azure wybierz **więcej usług**, kliknij przycisk **rejestracji aplikacji**.
+1. W okienku nawigacji po lewej stronie portalu Azure wybierz **wszystkie usługi**. Kliknij przycisk **rejestracji aplikacji**.
 2. Wyszukaj nazwę aplikacji na liście rejestracji aplikacji.
 3. Wyświetl **ustawienia** bloku. W **dostępu do interfejsu API** zaznacz **klucze**.
 4. Aby utworzyć klucz, wprowadź opis klucza. Następnie wybierz czas trwania dla klucza jeden lub dwa lata. 

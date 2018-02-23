@@ -4,7 +4,7 @@ description: "Instrukcje krok po kroku dotyczące tworzenia odbiornika dla grupy
 services: virtual-machines
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 ms.assetid: d1f291e9-9af2-41ba-9d29-9541e3adcfcf
 ms.service: virtual-machines-sql
@@ -12,26 +12,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 05/01/2017
+ms.date: 02/16/2017
 ms.author: mikeray
-ms.openlocfilehash: 09fed7e785708d4afe64905de973becc188181d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0399f9ef969098216e080140a67f81725b670115
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Konfigurowanie usługi równoważenia obciążenia zawsze włączonej grupy dostępności na platformie Azure
 W tym artykule opisano sposób tworzenia modułu równoważenia obciążenia dla grupy dostępności programu SQL Server zawsze włączony w maszynach wirtualnych platformy Azure, które działają z usługą Azure Resource Manager. Grupa dostępności wymaga modułu równoważenia obciążenia w przypadku wystąpienia programu SQL Server na maszynach wirtualnych Azure. Moduł równoważenia obciążenia przechowuje adres IP dla odbiornika grupy dostępności. Jeśli grupy dostępności obejmuje wielu regionach, każdy region musi modułu równoważenia obciążenia.
 
 Do zakończenia tego zadania, należy mieć wdrożonych na maszynach wirtualnych Azure, których są uruchomione za pomocą Menedżera zasobów grupy dostępności programu SQL Server. Maszyny wirtualne zarówno programu SQL Server musi należeć do tego samego zestawu dostępności. Można użyć [szablonów Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) można automatycznie utworzyć grupy dostępności w Menedżerze zasobów. Ten szablon automatycznie utworzy wewnętrznego modułu równoważenia obciążenia. 
 
-Jeśli wolisz, możesz [ręcznie skonfigurować grupę dostępności](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
+Jeśli wolisz, możesz [ręcznie skonfigurować grupę dostępności](virtual-machines-windows-portal-sql-availability-group-tutorial.md).
 
 W tym artykule wymaga już skonfigurowania grup dostępności.  
 
 Tematy pokrewne obejmują:
 
-* [Konfigurowanie zawsze włączonych grup dostępności maszyny Wirtualnej Azure (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)   
+* [Konfigurowanie zawsze włączonych grup dostępności maszyny Wirtualnej Azure (GUI)](virtual-machines-windows-portal-sql-availability-group-tutorial.md)   
 * [Konfigurowanie połączenia do wirtualnymi przy użyciu usługi Azure Resource Manager i programu PowerShell](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
 Instruktaż w tym artykule, możesz utworzyć i skonfigurowania funkcji równoważenia obciążenia w portalu Azure. Po zakończeniu procesu konfigurowania klastra do korzystania z adresu IP z usługi równoważenia obciążenia dla odbiornika grupy dostępności.
@@ -68,7 +68,7 @@ Najpierw utwórz moduł równoważenia obciążenia.
    | **Typ** |**Wewnętrzny**: większości wdrożeń używać wewnętrznego modułu równoważenia obciążenia, które umożliwia aplikacji łączenie się z grupą dostępności w ramach tej samej sieci wirtualnej.  </br> **Zewnętrzne**: umożliwia aplikacji łączenie się z grupą dostępności za pośrednictwem publicznego połączenia internetowego. |
    | **Sieć wirtualna** |Wybierz czy intances programu SQL Server znajdują się w sieci wirtualnej. |
    | **Podsieć** |Wybierz podsieć, będące w wystąpieniach programu SQL Server. |
-   | **Przypisywanie adresów IP** |**Statyczne** |
+   | Przypisywanie adresów IP |**Statyczne** |
    | **Prywatny adres IP** |Podaj dostępny adres IP z podsieci. Użyj tego adresu IP, tworząc odbiornik w klastrze. W skrypcie programu PowerShell w dalszej części tego artykułu, użyj tego samego adresu dla `$ILBIP` zmiennej. |
    | **Subskrypcja** |Jeśli masz wiele subskrypcji, w tym polu może być wyświetlany. Wybierz subskrypcję, którą chcesz skojarzyć z tym zasobem. Zwykle jest tej samej subskrypcji co wszystkie zasoby grupy dostępności. |
    | **Grupa zasobów** |Wybierz grupę zasobów, będące w wystąpieniach programu SQL Server. |
@@ -141,9 +141,9 @@ Reguły równoważenia obciążenia skonfigurować sposób równoważenia obcią
    | **Port** |*1433* |
    | **Port zaplecza** |*1433*. Ta wartość jest ignorowana, ponieważ ta zasada używa **pływającego adresu IP (bezpośredni zwrot serwera)**. |
    | **Sondy** |Użyj nazwy sondy utworzonego dla tej usługi równoważenia obciążenia. |
-   | **Trwałość sesji** |**Brak** |
-   | **Limit czasu bezczynności (w minutach)** |*4* |
-   | **Zmienny adres IP (bezpośredni zwrot serwera)** |**Włączone** |
+   | **Trwałość sesji** |Brak |
+   | Limit czasu bezczynności (w minutach) |*4* |
+   | **Zmienny adres IP (bezpośredni zwrot serwera)** |**włączone** |
 
    > [!NOTE]
    > Może być konieczne przewiń w dół bloku, aby wyświetlić wszystkie ustawienia.
@@ -243,8 +243,8 @@ Aby dodać adres IP do modułu równoważenia obciążenia z portalu Azure, wyko
    |**Port zaplecza** |Użyj taką samą wartość jak **portu**.
    |**Puli wewnętrznej bazy danych** |Puli zawierającej maszyn wirtualnych o wystąpieniach programu SQL Server. 
    |**Badania kondycji** |Wybierz sondowania, który został utworzony.
-   |**Trwałość sesji** |Brak
-   |**Limit czasu bezczynności (w minutach)** |Domyślne (4)
+   |**Trwałość sesji** |None
+   |Limit czasu bezczynności (w minutach) |Domyślne (4)
    |**Zmienny adres IP (bezpośredni zwrot serwera)** | Enabled (Włączony)
 
 ### <a name="configure-the-availability-group-to-use-the-new-ip-address"></a>Skonfiguruj grupę dostępności, aby użyć nowego adresu IP
@@ -270,6 +270,34 @@ Po dodaniu adresu IP dla odbiornika, należy skonfigurować grupę dostępności
 
 Po skonfigurowaniu grupy dostępności, aby użyć nowego adresu IP, należy skonfigurować połączenie odbiornika. 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="add-load-balancing-rule-for-distributed-availability-group"></a>Dodaj regułę dla rozproszonej grupy dostępności równoważenia obciążenia
+
+Jeśli grupa dostępności uczestniczy w rozproszonej grupy dostępności, usługi równoważenia obciążenia musi dodatkowe reguły. Ta reguła zapisuje port używany przez odbiornik grupy dostępności rozproszonych.
+
+>[!IMPORTANT]
+>Ten krok ma zastosowanie tylko, gdy grupa dostępności uczestniczy w [rozproszonej grupy dostępności](http://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups). 
+
+1. Na każdym serwerze, który uczestniczy w rozproszonej grupie dostępności Utwórz regułę ruchu przychodzącego na odbiornika grupy dostępności rozproszonej TCP port. W przykładach wiele dokumentacji używa 5022. 
+
+1. W portalu Azure kliknij modułu równoważenia obciążenia, a następnie kliknij przycisk **reguły równoważenia obciążenia**, a następnie kliknij przycisk **+ Dodaj**. 
+
+1. Utwórz regułę równoważenia z następującymi ustawieniami obciążenia:
+
+   |Ustawienie |Wartość
+   |:-----|:----
+   |**Nazwa** |Nazwa do identyfikowania reguły dla grupy dostępności rozproszonej równoważenia obciążenia. 
+   |**Adres IP frontonu** |Użyj tego samego adresu IP frontonu jako grupy dostępności.
+   |**Protokół** |TCP
+   |**Port** |5022 — numer portu [odbiornika punktu końcowego grupy dostępności rozproszonej](http://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups).</br> Może być dowolny dostępny port.  
+   |**Port zaplecza** | 5022 - Użyj tę samą wartość jak **portu**.
+   |**Puli wewnętrznej bazy danych** |Puli zawierającej maszyn wirtualnych o wystąpieniach programu SQL Server. 
+   |**Badania kondycji** |Wybierz sondowania, który został utworzony.
+   |**Trwałość sesji** |None
+   |Limit czasu bezczynności (w minutach) |Domyślne (4)
+   |**Zmienny adres IP (bezpośredni zwrot serwera)** | Enabled (Włączony)
+
+Powtórz te kroki dla usługi równoważenia obciążenia na inne uczestniczących w grupach rozproszonych dostępności grupy dostępności.
+
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Konfigurowanie programu SQL Server zawsze włączonej grupy dostępności na maszynach wirtualnych Azure w różnych regionach](virtual-machines-windows-portal-sql-availability-group-dr.md)

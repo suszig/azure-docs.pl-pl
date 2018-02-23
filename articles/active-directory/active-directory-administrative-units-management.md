@@ -16,11 +16,11 @@ ms.date: 08/17/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 1e85300676eeee9259e40faa0e0ede94a36f6167
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d657eda25f3b26cb793a7ba1a4546f98c08b7e65
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="administrative-units-management-in-azure-ad---public-preview"></a>Zarządzanie jednostkami administracyjnymi w usłudze Azure AD - publicznej wersji zapoznawczej
 W tym artykule opisano jednostkami administracyjnymi — nowy kontener usługi Azure Active Directory zasobów, które mogą służyć do delegowania uprawnień administracyjnych za pośrednictwem podzbiór użytkowników i stosowania zasad do podzbioru użytkowników. W usłudze Azure Active Directory jednostki administracyjne Włącz centralnej Administratorzy delegować uprawnienia do administratorów regionalnych lub ustawienie zasad na poziomie szczegółowym.
@@ -28,7 +28,7 @@ W tym artykule opisano jednostkami administracyjnymi — nowy kontener usługi A
 Jest to przydatne w przypadku organizacji z działów niezależne, na przykład, który składa się z wielu szkoły autonomicznego (służbowe biznesowych, szkoły inżynierii itd.), niezależne od siebie uniwersytetu duże. Takie podziałów ma własnych administratorów IT, którzy kontroli dostępu, zarządzania użytkownikami i ustawić zasady specjalnie z myślą o ich dzielenia. Chcesz centralnej Administratorzy można przyznać tych działów uprawnień administratorów przez użytkowników w ich określonego działów. Dokładniej za pomocą tego przykładu, głównym administratorem można, na przykład utworzyć jednostkę administracyjne dla konkretnego szkole (służbowe Business) i wypełnić ją tylko użytkownicy biznesowi służbowe. Głównym administratorem można dodać służbowego firm personel działu informatycznego do zakresu roli nadawaj innymi słowy, pracownicy działu informatycznego uprawnień administracyjnych służbowe firm tylko za pośrednictwem jednostki administracyjne służbowe biznesowej.
 
 > [!IMPORTANT]
-> Role administratora o zakresie jednostki administracyjne można przypisać tylko w przypadku włączenia usługi Azure Active Directory — wersja Premium. Aby uzyskać więcej informacji, zobacz [wprowadzenie do korzystania z usługi Azure AD Premium](active-directory-get-started-premium.md).
+> Do użycia jednostek administracyjnych wymaga administratora o zakresie jednostki administracyjnej mają licencji usługi Azure Active Directory Premium i Azure Active Directory — wersja podstawowa licencji dla wszystkich użytkowników w jednostce administracyjnej. Aby uzyskać więcej informacji, zobacz [wprowadzenie do korzystania z usługi Azure AD Premium](active-directory-get-started-premium.md).
 >
 
 
@@ -39,5 +39,5 @@ W tej wersji zapoznawczej można tworzyć i zarządzanie jednostkami administrac
 
 Aby uzyskać więcej informacji na temat wymagań programowych i instalowanie modułu usługi Azure AD oraz informacje dotyczące poleceń cmdlet programu Azure AD modułu Zarządzanie jednostkami administracyjnymi, wraz ze składnią, opisy parametrów i przykłady, zobacz [usługi Azure Active PowerShell katalogu](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Wersje usługi Azure Active Directory](active-directory-editions.md)

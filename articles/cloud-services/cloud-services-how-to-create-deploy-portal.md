@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 020e2996f40ed4a48affd3776e44e382c40cb3c0
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 96b92690cd164b1012380f82a1d1bd3336350e57
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Jak utworzyć i wdrożyć usługi w chmurze
 Azure portal udostępnia dwa sposoby tworzenia i wdrażania usługi w chmurze: *szybkie tworzenie* i *Utwórz niestandardowy*.
@@ -59,15 +59,15 @@ Aby utworzyć usługi w chmurze z wdrożeniami ról sieć web i proces roboczy r
 
 ## <a name="create-and-deploy"></a>Tworzenie i wdrażanie
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
-2. Kliknij przycisk **nowy > obliczeniowe**, następnie przewiń w dół i kliknij przycisk **usługi w chmurze**.
+2. Kliknij przycisk **tworzenie zasobu > obliczeniowe**, następnie przewiń w dół i kliknij przycisk **usługi w chmurze**.
 
     ![Publikowanie usługi w chmurze](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
-3. W nowym **usługi w chmurze** bloku, wprowadź wartość dla **nazwy DNS**.
+3. W nowym **usługi w chmurze** okienku, wprowadź wartość dla **nazwy DNS**.
 4. Utwórz nową **grupy zasobów** lub wybierz istniejący.
 5. Wybierz **lokalizację**.
-6. Kliknij przycisk **pakietu**. Spowoduje to otwarcie **przekazania pakietu** bloku. Wypełnij wymagane pola. Jeśli jakieś role zawierają pojedynczego wystąpienia, upewnij się, **Wdróż, nawet jeśli co najmniej jedna rola zawiera pojedyncze wystąpienie** jest zaznaczone.
+6. Kliknij przycisk **pakietu**. Spowoduje to otwarcie **przekazania pakietu** okienka. Wypełnij wymagane pola. Jeśli jakieś role zawierają pojedynczego wystąpienia, upewnij się, **Wdróż, nawet jeśli co najmniej jedna rola zawiera pojedyncze wystąpienie** jest zaznaczone.
 7. Upewnij się, że **rozpocząć wdrażanie** jest zaznaczone.
-8. Kliknij przycisk **OK** którego zostanie zamknięte **przekazania pakietu** bloku.
+8. Kliknij przycisk **OK** którego zostanie zamknięte **przekazania pakietu** okienka.
 9. Jeśli nie masz żadnych certyfikatów, aby dodać, kliknij przycisk **Utwórz**.
 
     ![Publikowanie usługi w chmurze](media/cloud-services-how-to-create-deploy-portal/select-package.png)
@@ -75,9 +75,9 @@ Aby utworzyć usługi w chmurze z wdrożeniami ról sieć web i proces roboczy r
 ## <a name="upload-a-certificate"></a>Przekaż certyfikat
 Jeśli pakiet wdrażania [skonfigurowana do używania certyfikatów](cloud-services-configure-ssl-certificate-portal.md#modify), możesz teraz przekazać certyfikat.
 
-1. Wybierz **certyfikaty**i na **Dodaj certyfikaty** bloku, wybierz plik .pfx certyfikatu SSL, a następnie podaj **hasło** dla certyfikatu
-2. Kliknij przycisk **certyfikatu Attach**, a następnie kliknij przycisk **OK** na **Dodaj certyfikaty** bloku.
-3. Kliknij przycisk **Utwórz** na **usługi w chmurze** bloku. Po wdrożeniu został osiągnięty **gotowe** stanu, możesz przejść do następnych kroków.
+1. Wybierz **certyfikaty**i na **Dodaj certyfikaty** okienku, wybierz plik .pfx certyfikatu SSL, a następnie podaj **hasło** dla certyfikatu
+2. Kliknij przycisk **certyfikatu Attach**, a następnie kliknij przycisk **OK** na **Dodaj certyfikaty** okienka.
+3. Kliknij przycisk **Utwórz** na **usługi w chmurze** okienka. Po wdrożeniu został osiągnięty **gotowe** stanu, możesz przejść do następnych kroków.
 
     ![Publikowanie usługi w chmurze](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
 
@@ -91,7 +91,7 @@ Jeśli pakiet wdrażania [skonfigurowana do używania certyfikatów](cloud-servi
 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Konfiguracja ogólna usługi w chmurze](cloud-services-how-to-configure-portal.md).
 * Skonfiguruj [niestandardowej nazwy domeny](cloud-services-custom-domain-name-portal.md).
 * [Usługi w chmurze zarządzanie](cloud-services-how-to-manage-portal.md).

@@ -1,6 +1,6 @@
 ---
-title: Dostosowywanie systemu Windows maszyny Wirtualnej na platformie Azure | Dokumentacja firmy Microsoft
-description: "Dowiedz się, jak dostosować maszyn wirtualnych systemu Windows na platformie Azure za pomocą niestandardowego rozszerzenia skryptu i magazyn kluczy"
+title: Dostosowywanie maszyny wirtualnej z systemem Windows na platformie Azure | Microsoft Docs
+description: "Dowiedz się, jak przy użyciu rozszerzenia niestandardowego skryptu zautomatyzować instalację aplikacji na maszynach wirtualnych z systemem Windows na platformie Azure"
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -10,169 +10,103 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 12/13/2017
+ms.date: 02/09/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 17a6c243aaf73fcd88261870fbdd9e8c936471b8
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 63858da0a4a47d67ec659e922ab10f9f7bc97938
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/14/2018
 ---
-# <a name="how-to-customize-a-windows-virtual-machine-in-azure"></a>Dostosowywanie maszyny wirtualnej systemu Windows na platformie Azure
-Aby skonfigurować maszynach wirtualnych (VM) w sposób szybki i spójny, wymagane jest zwykle jakiegoś automatyzacji. Typowym podejściem dostosować Maszynę wirtualną systemu Windows jest użycie [niestandardowe rozszerzenie skryptu systemu Windows](extensions-customscript.md). Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+# <a name="how-to-customize-a-windows-virtual-machine-in-azure"></a>Jak dostosować maszynę wirtualną z systemem Windows na platformie Azure
+Aby w szybki i spójny sposób skonfigurować maszyny wirtualne, stosuje się na ogół jakąś formę automatyzacji. Typowym rozwiązaniem w przypadku dostosowywania maszyn wirtualnych z systemem Windows jest użycie [rozszerzenia niestandardowego skryptu dla systemu Windows](extensions-customscript.md). Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Użyj niestandardowe rozszerzenie skryptu, aby zainstalować usługi IIS
-> * Utwórz maszynę Wirtualną, która używa niestandardowe rozszerzenie skryptu
-> * Wyświetl uruchomione witryny usług IIS, po zastosowaniu rozszerzenia
+> * Instalowanie usług IIS za pomocą rozszerzenia niestandardowego skryptu
+> * Tworzenie maszyny wirtualnej korzystającej z rozszerzenia niestandardowego skryptu
+> * Wyświetlanie działającej witryny usług IIS po zastosowaniu rozszerzenia
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Jeśli postanowisz zainstalować program PowerShell i używać go lokalnie, ten samouczek wymaga modułu Azure PowerShell w wersji 3.6 lub nowszej. Uruchom polecenie ` Get-Module -ListAvailable AzureRM`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-azurerm-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie `Login-AzureRmAccount`, aby utworzyć połączenie z platformą Azure. 
+Jeśli postanowisz zainstalować program PowerShell i używać go lokalnie, ten samouczek wymaga modułu Azure PowerShell w wersji 5.3 lub nowszej. Uruchom polecenie `Get-Module -ListAvailable AzureRM`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-azurerm-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie `Login-AzureRmAccount`, aby utworzyć połączenie z platformą Azure. 
 
 
-## <a name="custom-script-extension-overview"></a>Omówienie rozszerzenia niestandardowego skryptu
-Niestandardowe rozszerzenie skryptu pobiera i uruchamia skrypty na maszynach wirtualnych Azure. To rozszerzenie jest przydatne w przypadku konfiguracji wdrożenia post, instalacja oprogramowania lub dowolnej innej konfiguracji / zadanie zarządzania. Skryptów można pobrać z magazynu Azure lub usługi GitHub lub dostarczone do portalu Azure pod adresem rozszerzenia czas wykonywania.
+## <a name="custom-script-extension-overview"></a>Rozszerzenie niestandardowego skryptu — omówienie
+Rozszerzenie niestandardowego skryptu pobiera i wykonuje skrypty na maszynach wirtualnych platformy Azure. To rozszerzenie jest przydatne w przypadku konfiguracji po wdrożeniu, instalowania oprogramowania lub każdego innego zadania związanego z konfiguracją lub zarządzaniem. Skrypty można pobrać z usługi Azure Storage lub GitHub bądź można je dostarczyć do witryny Azure Portal w czasie wykonywania rozszerzenia.
 
-Rozszerzenie skryptu niestandardowego integruje się z szablonów usługi Azure Resource Manager i mogą być także uruchamiane przy użyciu wiersza polecenia platformy Azure, programu PowerShell, portalu Azure lub interfejsu API REST dla maszyny wirtualnej Azure.
+Rozszerzenie niestandardowego skryptu można zintegrować z szablonami usługi Azure Resource Manager, a także uruchamiać przy użyciu interfejsu wiersza polecenia platformy Azure, programu PowerShell, witryny Azure Portal lub interfejsu API REST maszyny wirtualnej platformy Azure.
 
-Niestandardowe rozszerzenie skryptu służy w systemach Windows i maszyn wirtualnych systemu Linux.
+Rozszerzenia niestandardowego skryptu można używać na maszynach wirtualnych z systemem Windows lub Linux.
 
 
 ## <a name="create-virtual-machine"></a>Tworzenie maszyny wirtualnej
-Przed utworzeniem maszyny Wirtualnej, Utwórz nową grupę zasobów o [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Poniższy przykład tworzy grupę zasobów o nazwie *myResourceGroupAutomate* w *EastUS* lokalizacji:
-
-```azurepowershell-interactive
-New-AzureRmResourceGroup -ResourceGroupName myResourceGroupAutomate -Location EastUS
-```
-
-Ustaw nazwę użytkownika i hasło administratora dla maszyn wirtualnych o [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Najpierw ustaw nazwę użytkownika i hasło administratora maszyny wirtualnej przy użyciu polecenia [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-Teraz możesz utworzyć maszynę Wirtualną z [AzureRmVM nowy](/powershell/module/azurerm.compute/new-azurermvm). Poniższy przykład tworzy składniki wymagane sieci wirtualnej, konfiguracja systemu operacyjnego, a następnie tworzy Maszynę wirtualną o nazwie *myVM*:
+Następnie utwórz maszynę wirtualną za pomocą polecenia [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). W poniższym przykładzie zostanie utworzona maszyna wirtualna o nazwie *myVM* w lokalizacji *EastUS*. Grupa zasobów *myResourceGroupAutomate* i pomocnicze zasoby sieciowe zostaną utworzone, jeśli jeszcze nie istnieją. To polecenie cmdlet otwiera również port *80* w celu obsługi ruchu internetowego.
 
 ```azurepowershell-interactive
-# Create a subnet configuration
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
-    -Name mySubnet `
-    -AddressPrefix 192.168.1.0/24
-
-# Create a virtual network
-$vnet = New-AzureRmVirtualNetwork `
-    -ResourceGroupName myResourceGroupAutomate `
-    -Location EastUS `
-    -Name myVnet `
-    -AddressPrefix 192.168.0.0/16 `
-    -Subnet $subnetConfig
-
-# Create a public IP address and specify a DNS name
-$publicIP = New-AzureRmPublicIpAddress `
-    -ResourceGroupName myResourceGroupAutomate `
-    -Location EastUS `
-    -AllocationMethod Static `
-    -IdleTimeoutInMinutes 4 `
-    -Name "myPublicIP"
-
-# Create an inbound network security group rule for port 3389
-$nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig `
-    -Name myNetworkSecurityGroupRuleRDP  `
-    -Protocol Tcp `
-    -Direction Inbound `
-    -Priority 1000 `
-    -SourceAddressPrefix * `
-    -SourcePortRange * `
-    -DestinationAddressPrefix * `
-    -DestinationPortRange 3389 `
-    -Access Allow
-
-# Create an inbound network security group rule for port 80
-$nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig `
-    -Name myNetworkSecurityGroupRuleWWW  `
-    -Protocol Tcp `
-    -Direction Inbound `
-    -Priority 1001 `
-    -SourceAddressPrefix * `
-    -SourcePortRange * `
-    -DestinationAddressPrefix * `
-    -DestinationPortRange 80 `
-    -Access Allow
-
-# Create a network security group
-$nsg = New-AzureRmNetworkSecurityGroup `
-    -ResourceGroupName myResourceGroupAutomate `
-    -Location EastUS `
-    -Name myNetworkSecurityGroup `
-    -SecurityRules $nsgRuleRDP,$nsgRuleWeb
-
-# Create a virtual network card and associate with public IP address and NSG
-$nic = New-AzureRmNetworkInterface `
-    -Name myNic `
-    -ResourceGroupName myResourceGroupAutomate `
-    -Location EastUS `
-    -SubnetId $vnet.Subnets[0].Id `
-    -PublicIpAddressId $publicIP.Id `
-    -NetworkSecurityGroupId $nsg.Id
-
-# Create a virtual machine configuration
-$vmConfig = New-AzureRmVMConfig -VMName myVM -VMSize Standard_DS2 | `
-Set-AzureRmVMOperatingSystem -Windows -ComputerName myVM -Credential $cred | `
-Set-AzureRmVMSourceImage -PublisherName MicrosoftWindowsServer `
-    -Offer WindowsServer -Skus 2016-Datacenter -Version latest | `
-Add-AzureRmVMNetworkInterface -Id $nic.Id
-
-# Create a virtual machine using the configuration
-New-AzureRmVM -ResourceGroupName myResourceGroupAutomate -Location EastUS -VM $vmConfig
+New-AzureRmVm `
+    -ResourceGroupName "myResourceGroupAutomate" `
+    -Name "myVM" `
+    -Location "East US" `
+    -VirtualNetworkName "myVnet" `
+    -SubnetName "mySubnet" `
+    -SecurityGroupName "myNetworkSecurityGroup" `
+    -PublicIpAddressName "myPublicIpAddress" `
+    -OpenPorts 80 `
+    -Credential $cred
 ```
 
-Trwa kilka minut, aż zasobów i maszyna wirtualna ma zostać utworzony.
+Utworzenie maszyny wirtualnej i zasobów może potrwać kilka minut.
 
 
 ## <a name="automate-iis-install"></a>Automatyzowanie instalacji usług IIS
-Użyj [AzureRmVMExtension zestaw](/powershell/module/azurerm.compute/set-azurermvmextension) do zainstalowania niestandardowe rozszerzenie skryptu. Uruchamia rozszerzenia `powershell Add-WindowsFeature Web-Server` Aby zainstalować serwer sieci Web usług IIS, a następnie aktualizacje *Default.htm* stronę, aby wyświetlić nazwę hosta maszyny wirtualnej:
+Zainstaluj rozszerzenie niestandardowego skryptu przy użyciu polecenia [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension). To rozszerzenie uruchamia polecenie `powershell Add-WindowsFeature Web-Server`, aby zainstalować serwer internetowy usług IIS, a następnie aktualizuje stronę *Default.htm* w celu wyświetlenia nazwy hosta maszyny wirtualnej:
 
 ```azurepowershell-interactive
-Set-AzureRmVMExtension -ResourceGroupName myResourceGroupAutomate `
-    -ExtensionName IIS `
-    -VMName myVM `
+Set-AzureRmVMExtension -ResourceGroupName "myResourceGroupAutomate" `
+    -ExtensionName "IIS" `
+    -VMName "myVM" `
+    -Location "EastUS" `
     -Publisher Microsoft.Compute `
     -ExtensionType CustomScriptExtension `
     -TypeHandlerVersion 1.8 `
-    -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
-    -Location EastUS
+    -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}'
 ```
 
 
-## <a name="test-web-site"></a>Test witryny sieci web
-Publiczny adres IP z usługi równoważenia obciążenia z [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). Poniższy przykład uzyskuje adres IP dla *myPublicIP* utworzony wcześniej:
+## <a name="test-web-site"></a>Testowanie witryny internetowej
+Uzyskaj publiczny adres IP modułu równoważenia obciążenia za pomocą polecenia [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). W poniższym przykładzie uzyskano utworzony wcześniej adres IP *myPublicIPAddress*:
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIPAddress `
-    -ResourceGroupName myResourceGroupAutomate `
-    -Name myPublicIP | select IpAddress
+    -ResourceGroupName "myResourceGroupAutomate" `
+    -Name "myPublicIPAddress" | select IpAddress
 ```
 
-Następnie można wprowadzić publicznego adresu IP w przeglądarce sieci web. Witryna sieci Web jest wyświetlany, łącznie z nazwą hosta maszyny Wirtualnej dystrybuowanej usługi równoważenia obciążenia w ruchu, jak w poniższym przykładzie:
+Następnie możesz wprowadzić publiczny adres IP w przeglądarce internetowej. Zostanie wyświetlona witryna internetowa z nazwą hosta maszyny wirtualnej, do której moduł równoważenia obciążenia kieruje ruch, jak pokazano na poniższym przykładzie:
 
-![Witryna sieci Web IIS uruchomiona](./media/tutorial-automate-vm-deployment/running-iis-website.png)
+![Działająca witryna internetowa usług IIS](./media/tutorial-automate-vm-deployment/running-iis-website.png)
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku można zautomatyzować instalacji usług IIS na maszynie Wirtualnej. W tym samouczku omówiono:
+Podczas pracy z tym samouczkiem zautomatyzowano instalację usług IIS na maszynie wirtualnej. W tym samouczku omówiono:
 
 > [!div class="checklist"]
-> * Użyj niestandardowe rozszerzenie skryptu, aby zainstalować usługi IIS
-> * Utwórz maszynę Wirtualną, która używa niestandardowe rozszerzenie skryptu
-> * Wyświetl uruchomione witryny usług IIS, po zastosowaniu rozszerzenia
+> * Instalowanie usług IIS za pomocą rozszerzenia niestandardowego skryptu
+> * Tworzenie maszyny wirtualnej korzystającej z rozszerzenia niestandardowego skryptu
+> * Wyświetlanie działającej witryny usług IIS po zastosowaniu rozszerzenia
 
-Przejdź do samouczka dalej informacje na temat tworzenia niestandardowych obrazów maszyn wirtualnych.
+Przejdź do następnego samouczka, aby dowiedzieć się, jak tworzyć niestandardowe obrazy maszyn wirtualnych.
 
 > [!div class="nextstepaction"]
 > [Tworzenie niestandardowych obrazów maszyn wirtualnych](./tutorial-custom-images.md)

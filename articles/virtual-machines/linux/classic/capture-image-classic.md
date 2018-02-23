@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: iainfou
-ms.openlocfilehash: f63a2cdeaec512bed4fd0f86ef7c9d5a9b77d7f6
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: be463b18c049c8b92c21cfde82defcf76718a5f0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>Jak przechwycić klasyczną maszynę wirtualną z systemem Linux jako obraz
 > [!IMPORTANT]
@@ -76,7 +76,7 @@ Tych krokach przyjęto założenie, że już utworzone przy użyciu klasycznego 
     ```azurecli
     azure vm shutdown myVM
     ```
-   Jeśli to konieczne, można wyświetlić listę wszystkich maszyny wirtualne utworzone w ramach subskrypcji przy użyciu`azure vm list`
+   Jeśli to konieczne, można wyświetlić listę wszystkich maszyny wirtualne utworzone w ramach subskrypcji przy użyciu `azure vm list`
 
    > [!NOTE]
    > Jeśli używasz portalu Azure, wybierz maszynę Wirtualną i kliknij przycisk **zatrzymać** można zamknąć maszyny Wirtualnej.
@@ -98,7 +98,7 @@ Tych krokach przyjęto założenie, że już utworzone przy użyciu klasycznego 
    azure vm image list
    ```
 
-   Na [portalu Azure](http://portal.azure.com), nowy obraz zostanie wyświetlony w **obrazów maszyn wirtualnych (klasyczne)** należący do **obliczeniowe** usług. Dostęp można uzyskać **obrazów maszyn wirtualnych (klasyczne)** , klikając _więcej usług_ w dolnej części platformy Azure Usługa listy, a następnie sprawdzając **obliczeniowe** usług.   
+   Na [portalu Azure](http://portal.azure.com), nowy obraz zostanie wyświetlony w **obrazów maszyn wirtualnych (klasyczne)** należący do **obliczeniowe** usług. Dostęp można uzyskać **obrazów maszyn wirtualnych (klasyczne)** , klikając **wszystkie usługi** w górnej części platformy Azure Usługa listy, a następnie sprawdzając **obliczeniowe** usług.   
 
    ![Pomyślne przechwytywania obrazu](./media/capture-image/VMCapturedImageAvailable.png)
 

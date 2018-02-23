@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/27/2017
+ms.date: 02/16/2018
 ms.author: larryfr
-ms.openlocfilehash: cfed3617f20074f361629c65f14ce38c1012c702
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: ba4a2dfc6a69e9ab18948bc9e33597a56bdd3bd9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-powershell"></a>Uruchamianie zadań MapReduce z Hadoop w usłudze HDInsight przy użyciu programu PowerShell
 
@@ -30,14 +30,14 @@ Ten dokument zawiera przykładowy uruchomienie zadania MapReduce w usługi Hadoo
 
 ## <a id="prereq"></a>Wymagania wstępne
 
-* **Klaster usługi Azure HDInsight (Hadoop w usłudze HDInsight)**
+* Klaster usługi Azure HDInsight (Hadoop w usłudze HDInsight)
 
   > [!IMPORTANT]
   > Linux jest jedynym systemem operacyjnym używanym w połączeniu z usługą HDInsight w wersji 3.4 lub nowszą. Aby uzyskać więcej informacji, zobacz sekcję [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Wycofanie usługi HDInsight w systemie Windows).
 
 * **Stacja robocza z programem Azure PowerShell**.
 
-## <a id="powershell"></a>Uruchomienie zadania MapReduce przy użyciu programu Azure PowerShell
+## <a id="powershell"></a>Uruchomienie zadania MapReduce
 
 Udostępnia program Azure PowerShell *poleceń cmdlet* umożliwiającą zdalne uruchamianie zadań MapReduce w usłudze HDInsight. Wewnętrznie PowerShell wywołań REST do [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (nazywanych Templeton) uruchomionego w klastrze usługi HDInsight.
 

@@ -2,7 +2,7 @@
 
 1.  Za pomocą poświadczeń konta Microsoft zaloguj się do witryny Azure Portal pod tym adresem URL: <https://portal.azure.com/>. Jeśli wdrażane urządzenia w portalu dla instytucji rządowych, zaloguj się w: <https://portal.azure.us/>
 
-2.  W portalu Azure kliknij **+ nowy** &gt; **magazynu** &gt; **serii wirtualnego StorSimple**.
+2.  W portalu Azure kliknij **+ Utwórz zasób** &gt; **magazynu** &gt; **serii wirtualnego StorSimple**.
 
     ![Tworzenie nowej usługi](./media/storsimple-virtual-array-create-new-service/createnewservice2.png) 
 

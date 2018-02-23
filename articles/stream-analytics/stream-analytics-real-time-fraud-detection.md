@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: sngun
-ms.openlocfilehash: cc581142ca2c75bbee80f9d980c4984b4863a6cf
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
-ms.translationtype: HT
+ms.openlocfilehash: a3b61b0eeef9ffc97b0cc06a8de44859e4d6db85
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Rozpoczynanie pracy przy użyciu usługi Azure Stream Analytics: wykrywanie oszustw w czasie rzeczywistym
 
@@ -61,7 +61,7 @@ Do analizy strumienia danych, możesz *pozyskiwania* go na platformie Azure. Typ
 ### <a name="create-a-namespace-and-event-hub"></a>Tworzenie Centrum przestrzeń nazw i zdarzeń
 W tej procedurze należy najpierw utworzyć przestrzeń nazw Centrum zdarzeń, a następnie Centrum zdarzeń należy dodać do tej przestrzeni nazw. Przestrzenie nazw Centrum zdarzeń są używane do logicznego grupowania wystąpień magistrali powiązanych zdarzeń. 
 
-1. Zaloguj się do portalu Azure, a następnie kliknij przycisk **nowy** > **Internetu rzeczy** > **Centrum zdarzeń**. 
+1. Zaloguj się do portalu Azure, a następnie kliknij przycisk **Utwórz zasób** > **Internetu rzeczy** > **Centrum zdarzeń**. 
 
 2. W **tworzenie przestrzeni nazw** okienku, wprowadź nazwę przestrzeni nazw, takich jak `<yourname>-eh-ns-demo`. Można użyć dowolnej nazwy przestrzeni nazw, ale nazwa musi być prawidłowa dla danego adresu URL i między Azure musi być unikatowa. 
     
@@ -165,7 +165,7 @@ Teraz, gdy masz strumienia zdarzeń wywołania można skonfigurować zadania us�
 
 ### <a name="create-the-job"></a>Utwórz zadanie 
 
-1. W portalu Azure kliknij **nowy** > **Internetu rzeczy** > **zadanie usługi Stream Analytics**.
+1. W portalu Azure kliknij **Utwórz zasób** > **Internetu rzeczy** > **zadanie usługi Stream Analytics**.
 
 2. Nazwa zadania `sa_frauddetection_job_demo`, określ subskrypcję, lokalizacji i grupy zasobów.
 

@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: sstein
-ms.openlocfilehash: d17c361d2249cc95be78cde143925251ad65db44
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 2871d2b1208013808958e8a5b0c62fce31af86ec
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/22/2018
 ---
-# <a name="introduction-to-a-sql-database-multi-tenant-saas-app-example"></a>Wprowadzenie do przykład aplikacji SaaS wielodostępne połączenia bazy danych SQL
+# <a name="introduction-to-a-multi-tenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Wprowadzenie do aplikacji SaaS wielodostępne korzystającej z bazy danych na wzorzec dzierżawcy z bazy danych SQL
 
-*Wingtip SaaS* jest aplikacja przykładowa aplikacja wielodostępne, który demonstruje wyjątkowych zalet bazy danych SQL. Aplikacja używa wzorca aplikacji SaaS database-per-tenant (baza danych dla dzierżawy) do obsługi wielu dzierżaw. Aplikacja jest przeznaczona do pokazują funkcje bazy danych SQL Azure, które umożliwiają SaaS scenariuszy, w tym kilka wzorce projektowania i zarządzania SaaS. Aby szybko rozpocząć pracę, aplikacja Wingtip SaaS wdraża w mniej niż pięć minut!
+*Wingtip SaaS* jest aplikacja przykładowa aplikacja wielodostępnej. Aplikacja korzysta z bazy danych dla dzierżawy, wzorzec aplikacji SaaS, aby obsłużyć wielu dzierżawców. Funkcje bazy danych SQL Azure, które umożliwiają scenariuszy SaaS, przy użyciu kilku wzorce projektowania i zarządzania SaaS aplikacji, których są wyświetlane. Aby szybko rozpocząć pracę, aplikacja Wingtip SaaS wdraża w mniej niż pięć minut!
 
-Skrypty zarządzania i kodu źródłowego aplikacji są dostępne w [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) repozytorium GitHub. Zapoznaj się z [ogólne wskazówki](saas-tenancy-wingtip-app-guidance-tips.md) dla czynności, aby pobrać i odblokować skrypty Wingtip biletów SaaS.
+Skrypty zarządzania i kodu źródłowego aplikacji są dostępne w [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) repozytorium GitHub. Przed rozpoczęciem zapoznaj się [ogólne wskazówki](saas-tenancy-wingtip-app-guidance-tips.md) dla czynności, aby pobrać i odblokować skrypty zarządzania Wingtip biletów.
 
 ## <a name="application-architecture"></a>Architektura aplikacji
 
@@ -48,13 +48,13 @@ Po wdrożeniu aplikacji, Poznaj następujące samouczki, które zależą od mome
 |[Monitorowanie i zarządzanie nimi wydajności](saas-dbpertenant-performance-monitoring.md)| Dowiedz się, jak używać funkcji monitorowania bazy danych SQL i sposobu ustawiania alertów po przekroczeniu progów wydajności. |
 |[Monitorowanie za pomocą analizy dzienników (OMS)](saas-dbpertenant-log-analytics.md) | Informacje o używaniu [analizy dzienników](../log-analytics/log-analytics-overview.md) do monitorowania dużej ilości zasobów, między wiele pul. |
 |[Przywracanie pojedynczej dzierżawy](saas-dbpertenant-restore-single-tenant.md)| Dowiedz się, jak przywracanie dzierżawy bazy danych do wcześniejszego punktu w czasie. Włącza się również kroki, aby przywrócić równoległych bazy danych w trybie online, pozostawiając istniejącej bazy danych dzierżawy. |
-|[Zarządzanie schematem dzierżawy](saas-tenancy-schema-management.md)| Dowiedz się, jak aktualizacja schematu i aktualizacji danych referencyjnych we wszystkich dzierżaw Wingtip SaaS. |
-|[Uruchom analytics ad hoc](saas-tenancy-adhoc-analytics.md) | Tworzenie bazy danych analizy ad hoc i uruchamianie zapytań rozproszonych w czasie rzeczywistym we wszystkich dzierżawców.  |
-|[Uruchom analytics dzierżawy](saas-tenancy-tenant-analytics.md) | Wyodrębnianie danych dzierżawy do analityka bazy danych lub dane magazynu na potrzeby uruchamiania zapytań analityczne w trybie offline. |
+|[Zarządzanie dzierżawy schematu bazy danych](saas-tenancy-schema-management.md)| Dowiedz się, jak zaktualizować schemat i aktualizacji danych referencyjnych dla wszystkich baz danych dzierżawy. |
+|[Uruchamianie zapytań rozproszonych między dzierżawy](saas-tenancy-cross-tenant-reporting.md) | Tworzenie bazy danych analizy ad hoc i uruchamianie zapytań rozproszonych w czasie rzeczywistym we wszystkich dzierżawców.  |
+|[Uruchom analizy danych wyodrębnionych dzierżawy](saas-tenancy-tenant-analytics.md) | Wyodrębnianie danych dzierżawy do analityka bazy danych lub dane magazynu dla zapytania analityczne w trybie offline. |
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
-- [Wskazówki i porady dotyczące przykład aplikacji SaaS wielodostępne bazy danych SQL Azure](saas-tenancy-wingtip-app-guidance-tips.md)
+- [Ogólne wskazówki i porady dotyczące wdrażania i przy użyciu przykład aplikacji SaaS biletów Wingtip](saas-tenancy-wingtip-app-guidance-tips.md)
 
 - [Wdrażanie aplikacji Wingtip SaaS](saas-dbpertenant-get-started-deploy.md)

@@ -1,6 +1,6 @@
 ---
-title: "Zarządzanie dyskami Azure z wiersza polecenia platformy Azure | Dokumentacja firmy Microsoft"
-description: "Samouczek — Zarządzanie dyskami Azure z wiersza polecenia platformy Azure"
+title: "Zarządzanie dyskami platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure | Microsoft Docs"
+description: "Samouczek — zarządzanie dyskami platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: neilpeterson
@@ -16,91 +16,91 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 16cc0c5e38eb273fc2504a39497d00c76d666316
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: 87b410fdcd5901499e809f8d2b9a7b8788134cfc
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="manage-azure-disks-with-the-azure-cli"></a>Zarządzanie dyskami Azure z wiersza polecenia platformy Azure
+# <a name="manage-azure-disks-with-the-azure-cli"></a>Zarządzanie dyskami platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure
 
-Maszyny wirtualne platformy Azure dysków do przechowywania systemu operacyjnego, aplikacje i dane maszyn wirtualnych. Podczas tworzenia maszyny Wirtualnej jest ważne wybrać rozmiar dysku i odpowiednie do oczekiwanego obciążenia w konfiguracji. W tym samouczku opisano wdrażanie i Zarządzanie dyskami maszyny Wirtualnej. Informacje o:
+Maszyny wirtualne platformy Azure przechowują swoje systemy operacyjne, aplikacje i dane na dyskach. Ważne jest, aby podczas tworzenia maszyny wirtualnej wybrać rozmiar dysku i konfigurację odpowiadające oczekiwanemu obciążeniu. W tym samouczku opisano wdrażanie dysków maszyn wirtualnych i zarządzanie nimi. Zapoznasz się z informacjami na temat następujących zagadnień:
 
 > [!div class="checklist"]
-> * Dyski systemu operacyjnego i tymczasowego
+> * Dyski systemu operacyjnego i dyski tymczasowe
 > * Dyski z danymi
-> * Standard i dysków w warstwie Premium
+> * Dyski w warstwie Standardowa i Premium
 > * Wydajność dysku
-> * Dołączanie i przygotowywania dysków z danymi
-> * Zmiana rozmiaru dysków
+> * Dołączanie i przygotowywanie dysków z danymi
+> * Zmienianie rozmiaru dysków
 > * Migawki dysków
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Jeśli wybierzesz do zainstalowania i używania interfejsu wiersza polecenia lokalnie, w tym samouczku wymaga używasz interfejsu wiersza polecenia Azure w wersji 2.0.4 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
 
-## <a name="default-azure-disks"></a>Domyślna dysku systemu Azure
+## <a name="default-azure-disks"></a>Domyślne dyski platformy Azure
 
-Po utworzeniu maszyny wirtualnej platformy Azure, dwa dyski są automatycznie dołączane do maszyny wirtualnej. 
+Do tworzonej maszyny wirtualnej platformy Azure automatycznie dołączane są dwa dyski. 
 
-**Dysk systemu operacyjnego** -dysków systemu operacyjnego może być o rozmiarze maksymalnie 1 terabajt oraz hostów maszyn wirtualnych systemu operacyjnego. Dysk systemu operacyjnego jest oznaczony */dev/sda* domyślnie. Dysk buforowanie konfiguracji dysku systemu operacyjnego jest zoptymalizowana pod kątem wydajności systemu operacyjnego. Z powodu tej konfiguracji dysku systemu operacyjnego **nie powinien** hosta aplikacji i danych. Dla aplikacji i danych użycia dysków danych, które opisano szczegółowo w dalszej części tego artykułu. 
+**Dysk systemu operacyjnego** — dyski systemu operacyjnego mogą mieć rozmiar do 1 terabajta i hostują system operacyjny maszyny wirtualnej. Domyślnie dysk sytemu operacyjnego ma etykietę */dev/sda*. Konfiguracja buforowania dysku systemu operacyjnego jest zoptymalizowana pod kątem wydajności systemu operacyjnego. Ze względu na tę konfigurację dysk sytemu operacyjnego **nie powinien** hostować aplikacji ani danych. Na potrzeby aplikacji i danych należy użyć dysków z danymi, które zostaną szczegółowo opisane w dalszej części tego artykułu. 
 
-**Dysku tymczasowym** -tymczasowego dysków używać dysków SSD, który znajduje się na tym samym hoście Azure co maszyna wirtualna. Tymczasowy dyski są wysokiej wydajności i mogą być używane do operacji, takich jak przetwarzanie danych tymczasowych. Jednak jeśli maszyna wirtualna zostanie przeniesiona do nowego hosta, zostaną usunięte wszystkie dane przechowywane na dysku tymczasowym. Rozmiar dysku tymczasowym zależy od rozmiaru maszyny Wirtualnej. Tymczasowe dyski są oznaczone jako */dev/sdb* i mieć punktu instalacji z *katalogu/mnt*.
+**Dysk tymczasowy** — dyski tymczasowe używają dysku SSD, który znajduje się na tym samym hoście platformy Azure co maszyna wirtualna. Dyski tymczasowe są wysoce wydajne i można przy ich użyciu wykonywać operacje takie jak przetwarzanie danych tymczasowych. Jednak jeśli maszyna wirtualna zostanie przeniesiona do nowego hosta, wszystkie dane przechowywane na dysku tymczasowym zostaną usunięte. Rozmiar dysku tymczasowego zależy od rozmiaru maszyny wirtualnej. Dyski tymczasowe mają etykietę */dev/sdb* oraz punkt instalacji */mnt*.
 
-### <a name="temporary-disk-sizes"></a>Rozmiary dysku tymczasowym
+### <a name="temporary-disk-sizes"></a>Rozmiary dysków tymczasowych
 
 | Typ | Rozmiar maszyny wirtualnej | Maksymalny rozmiar dysku tymczasowego (GB) |
 |----|----|----|
-| [Zastosowania ogólne](sizes-general.md) | A i serii D | 800 |
+| [Zastosowania ogólne](sizes-general.md) | Seria A i D | 800 |
 | [Optymalizacja pod kątem obliczeń](sizes-compute.md) | Seria F | 800 |
-| [Optymalizacja pod kątem pamięci](../virtual-machines-windows-sizes-memory.md) | D i G serii | 6144 |
+| [Optymalizacja pod kątem pamięci](../virtual-machines-windows-sizes-memory.md) | Seria D i G | 6144 |
 | [Optymalizacja pod kątem magazynu](../virtual-machines-windows-sizes-storage.md) | Seria L | 5630 |
-| [Procesor GPU](sizes-gpu.md) | N serii | 1440 |
-| [Wysoka wydajność](sizes-hpc.md) | A i serii H | 2000 |
+| [Procesor GPU](sizes-gpu.md) | Seria N | 1440 |
+| [Wysoka wydajność](sizes-hpc.md) | Seria A i H | 2000 |
 
-## <a name="azure-data-disks"></a>Dyski danych Azure
+## <a name="azure-data-disks"></a>Dyski z danymi platformy Azure
 
-Instalowanie aplikacji i przechowywania danych można dodać dodatkowego dysku z danymi. Dyski danych używanego w sytuacji, gdy wymagane jest trwałe i szybko reagowały pamięci masowej. Każdy dysk danych ma maksymalną pojemność 1 terabajt. Rozmiar maszyny wirtualnej Określa, jak wiele dysków z danymi może zostać dołączony do maszyny Wirtualnej. Dla każdej maszyny Wirtualnej vCPU można dołączyć danych dwóch dysków. 
+Dodatkowe dyski z danymi można dodać w celu instalowania aplikacji i przechowywania danych. Dyski z danymi powinny być używane w sytuacji, gdy potrzebny jest trwały i dynamiczny magazyn danych. Każdy dysk z danymi ma maksymalną pojemność wynoszącą 1 terabajt. Liczba dysków z danymi, które można dołączyć do maszyny wirtualnej, zależy od jej rozmiaru. Na każdy procesor wirtualny maszyny wirtualnej można dołączyć dwa dyski z danymi. 
 
-### <a name="max-data-disks-per-vm"></a>Maksymalna liczba dysków z danymi dla maszyny Wirtualnej
+### <a name="max-data-disks-per-vm"></a>Maksymalna liczba dysków z danymi na maszynę wirtualną
 
-| Typ | Rozmiar maszyny wirtualnej | Maksymalna liczba dysków z danymi dla maszyny Wirtualnej |
+| Typ | Rozmiar maszyny wirtualnej | Maksymalna liczba dysków z danymi na maszynę wirtualną |
 |----|----|----|
-| [Zastosowania ogólne](sizes-general.md) | A i serii D | 32 |
+| [Zastosowania ogólne](sizes-general.md) | Seria A i D | 32 |
 | [Optymalizacja pod kątem obliczeń](sizes-compute.md) | Seria F | 32 |
-| [Optymalizacja pod kątem pamięci](../virtual-machines-windows-sizes-memory.md) | D i G serii | 64 |
+| [Optymalizacja pod kątem pamięci](../virtual-machines-windows-sizes-memory.md) | Seria D i G | 64 |
 | [Optymalizacja pod kątem magazynu](../virtual-machines-windows-sizes-storage.md) | Seria L | 64 |
-| [Procesor GPU](sizes-gpu.md) | N serii | 48 |
-| [Wysoka wydajność](sizes-hpc.md) | A i serii H | 32 |
+| [Procesor GPU](sizes-gpu.md) | Seria N | 48 |
+| [Wysoka wydajność](sizes-hpc.md) | Seria A i H | 32 |
 
-## <a name="vm-disk-types"></a>Typy dysków maszyny Wirtualnej
+## <a name="vm-disk-types"></a>Typy dysków maszyny wirtualnej
 
-Platforma Azure oferuje dwa rodzaje dysku.
+Na platformie Azure dostępne są dwa typy dysków.
 
-### <a name="standard-disk"></a>Dysków w warstwie standardowa
+### <a name="standard-disk"></a>Dysk w warstwie Standardowa
 
-Magazyn Standard Storage bazuje na dyskach twardych (HDD) i stanowi ekonomiczne, chociaż wciąż wydajne rozwiązanie. Dyski standardowe idealnie nadają się do deweloperów ekonomiczne i testów obciążenia.
+Magazyn Standard Storage bazuje na dyskach twardych (HDD) i stanowi ekonomiczne, chociaż wciąż wydajne rozwiązanie. Dyski w warstwie Standardowa idealnie nadają się do ekonomicznej obsługi obciążeń tworzenia i testowania.
 
-### <a name="premium-disk"></a>Dysku Premium
+### <a name="premium-disk"></a>Dysk w warstwie Premium
 
-Dyski Premium bazują na dysk SSD dysku wysokiej wydajności i małych opóźnień. Idealny dla maszyn wirtualnych obciążeniu produkcji. Magazyn w warstwie Premium obsługuje serii DS, DSv2 serii GS-series i FS serii maszyn wirtualnych. Dyski w warstwie Premium są dostępne w trzech typów (P10, P20, P30), rozmiar dysku Określa typ dysku. Podczas wybierania, rozmiar dysku wartość jest zaokrąglana do dalej typu. Na przykład jeśli rozmiar dysku jest mniejszy niż 128 GB, typ dysku jest P10. Jeśli rozmiar dysku wynosi 129 GB i 512, rozmiar jest P20. Niczego ponad 512 GB, rozmiar jest P30.
+Dyski w warstwie Premium są wspierane przez oparty na technologii SSD dysk o wysokiej wydajności i niskim opóźnieniu. Idealnie nadają się one dla maszyn wirtualnych z uruchomionym obciążeniem produkcyjnym. Usługa Premium Storage obsługuje maszyny wirtualne z serii DS, DSv2, GS i FS. Dostępne są 3 typy dysków w warstwie Premium (P10, P20, P30, P40, P50); typ dysku zależy od jego rozmiaru. Podczas wybierania rozmiaru dysku wartość jest zaokrąglana do następnego typu. Jeśli na przykład rozmiar dysku wynosi mniej niż 128 GB, jest to dysk typu P10. Jeśli rozmiar dysku należy do zakresu od 129 GB do 512 GB, jest to dysk typu P20. Dyski o rozmiarze powyżej 512 GB są dyskami typu P30.
 
-### <a name="premium-disk-performance"></a>Wydajność dysku Premium
+### <a name="premium-disk-performance"></a>Wydajność dysku w warstwie Premium
 
-|Typ dysku magazynu w warstwie Premium | P10 | P20 | P30 |
+|Typ dysku magazynu Premium Storage | P10 | P20 | P30 |
 | --- | --- | --- | --- |
-| Rozmiar dysku (zaokrąglony) | 128 GB | 512 GB | 1024 GB (1 TB) |
-| Maksymalna liczba operacji wejścia/wyjścia na sekundę na dysk | 500 | 2,300 | 5,000 |
+| Rozmiar dysku (zaokrąglony w górę) | 128 GB | 512 GB | 1024 GB (1 TB) |
+| Maksymalna liczba operacji wejścia/wyjścia na sekundę na dysk | 500 | 2300 | 5000 |
 Przepływność na dysk | 100 MB/s | 150 MB/s | 200 MB/s |
 
-Gdy powyższej tabeli określa maksymalną liczbę IOPS dla każdego dysku, można osiągnąć wyższy poziom wydajności przez stosowanie wielu dysków z danymi. Na przykład Standard_GS5 maszyny Wirtualnej można osiągnąć maksymalnie 80 000 IOPS. Aby uzyskać szczegółowe informacje o maksymalnej IOPS dla maszyny Wirtualnej, zobacz [rozmiarów maszyn wirtualnych systemu Linux](sizes.md).
+W powyższej tabeli podano maksymalną liczbę operacji wejścia/wyjścia na sekundę na dysk, ale wyższą wydajność można osiągnąć przez stosowanie wielu dysków z danymi. Na przykład maszyna wirtualna Standard_GS5 może osiągnąć maksymalnie 80 000 operacji we/wy na sekundę Aby uzyskać szczegółowe informacje na temat maksymalnej liczby operacji we/wy na sekundę na maszynę wirtualną, zobacz [Rozmiary maszyn wirtualnych z systemem Linux](sizes.md).
 
-## <a name="create-and-attach-disks"></a>Utwórz i Dołącz dysków
+## <a name="create-and-attach-disks"></a>Tworzenie i dołączanie dysków
 
-Dyski danych można tworzyć i dołączone w czasie tworzenia maszyny Wirtualnej lub do istniejącej maszyny Wirtualnej.
+Dyski z danymi można tworzyć i dołączać podczas tworzenia maszyny wirtualnej lub dołączać je do istniejącej maszyny wirtualnej.
 
-### <a name="attach-disk-at-vm-creation"></a>Dołączenie dysku podczas tworzenia maszyny Wirtualnej
+### <a name="attach-disk-at-vm-creation"></a>Dołączanie dysku podczas tworzenia maszyny wirtualnej
 
 Utwórz grupę zasobów za pomocą polecenia [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create). 
 
@@ -108,7 +108,7 @@ Utwórz grupę zasobów za pomocą polecenia [az group create](https://docs.micr
 az group create --name myResourceGroupDisk --location eastus
 ```
 
-Utwórz maszynę Wirtualną przy użyciu [tworzenia maszyny wirtualnej az]( /cli/azure/vm#create) polecenia. `--datadisk-sizes-gb` Argument jest używany do określenia, czy dodatkowy dysk należy utworzyć i podłączony do maszyny wirtualnej. Aby utworzyć i dołączyć więcej niż jeden dysk, użyj rozdzieloną spacjami listę wartości rozmiaru dysku. W poniższym przykładzie maszyna wirtualna zostanie utworzona z dwóch dysków, zarówno 128 GB. Ponieważ rozmiary dysków wynoszą 128 GB, te dyski obydwa są skonfigurowane jako P10s, które zapewniają maksymalną 500 IOPS dla każdego dysku.
+Utwórz maszynę wirtualną za pomocą polecenia [az vm create]( /cli/azure/vm#az_vm_create). Za pomocą argumentu `--datadisk-sizes-gb` określa się, że powinien zostać utworzony dodatkowy dysk i dołączony do maszyny wirtualnej. Aby utworzyć i dołączyć więcej niż jeden dysk, użyj rozdzielanej spacjami listy wartości rozmiarów dysków. W poniższym przykładzie maszyna wirtualna jest tworzona z dwoma dyskami z danymi o rozmiarze 128 GB każdy. Ponieważ rozmiary dysków wynoszą 128 GB, oba dyski są konfigurowane jako dyski P10, co zapewnia 500 operacji we/wy na sekundę na dysk.
 
 ```azurecli-interactive 
 az vm create \
@@ -120,51 +120,51 @@ az vm create \
   --generate-ssh-keys
 ```
 
-### <a name="attach-disk-to-existing-vm"></a>Dołączanie dysku do istniejącej maszyny Wirtualnej
+### <a name="attach-disk-to-existing-vm"></a>Dołączanie dysku do istniejącej maszyny wirtualnej
 
-Aby utworzyć i dołączyć nowego dysku do istniejącej maszyny wirtualnej, użyj [dołączyć dysku maszyny wirtualnej az](/cli/azure/vm/disk#attach) polecenia. Poniższy przykład tworzy dysk premium 128 GB w rozmiarze i dołącza go do maszyny Wirtualnej utworzone w ostatnim kroku.
+Aby utworzyć i dołączyć nowy dysk do istniejącej maszyny wirtualnej, użyj polecenia [az vm disk attach](/cli/azure/vm/disk#az_vm_disk_attach). W poniższym przykładzie tworzony jest dysk w warstwie Premium o rozmiarze 128 GB i dołączany do maszyny wirtualnej utworzonej w poprzednim kroku.
 
 ```azurecli-interactive 
 az vm disk attach --vm-name myVM --resource-group myResourceGroupDisk --disk myDataDisk --size-gb 128 --sku Premium_LRS --new 
 ```
 
-## <a name="prepare-data-disks"></a>Przygotowanie dysków z danymi
+## <a name="prepare-data-disks"></a>Przygotowywanie dysków z danymi
 
-Po dysk został dołączony do maszyny wirtualnej, musi być skonfigurowana do używania dysku systemu operacyjnego. Poniższy przykład pokazuje, jak ręcznie skonfigurować dysk. Ten proces można również zautomatyzować, używając inicjowaniem chmury, które są objęte w [nowsze samouczek](./tutorial-automate-vm-deployment.md).
+Po dołączeniu dysku do maszyny wirtualnej należy skonfigurować system operacyjny do korzystania z tego dysku. Poniższy przykład pokazuje, jak ręcznie skonfigurować dysk. Ten proces można także zautomatyzować za pomocą pakietu cloud-init, co omówiono w jednym z [dalszych samouczków](./tutorial-automate-vm-deployment.md).
 
 ### <a name="manual-configuration"></a>Konfiguracja ręczna
 
-Utwórz połączenie SSH z maszyną wirtualną. Zamień adres IP przykład publiczny adres IP maszyny wirtualnej.
+Utwórz połączenie SSH z maszyną wirtualną. Zastąp przykładowy adres IP publicznym adresem IP maszyny wirtualnej.
 
 ```azurecli-interactive 
 ssh 52.174.34.95
 ```
 
-Partycji dysku z `fdisk`.
+Podziel dysk na partycje za pomocą polecenia `fdisk`.
 
 ```bash
 (echo n; echo p; echo 1; echo ; echo ; echo w) | sudo fdisk /dev/sdc
 ```
 
-Zapis systemu plików do partycji przy użyciu `mkfs` polecenia.
+Utwórz na partycji system plików za pomocą polecenia `mkfs`.
 
 ```bash
 sudo mkfs -t ext4 /dev/sdc1
 ```
 
-Zainstaluj nowy dysk, aby była dostępna w systemie operacyjnym.
+Zainstaluj nowy dysk, aby był dostępny w systemie operacyjnym.
 
 ```bash
 sudo mkdir /datadrive && sudo mount /dev/sdc1 /datadrive
 ```
 
-Dysk jest teraz dostępna za pośrednictwem *datadrive* punktu instalacji, który można zweryfikować, uruchamiając `df -h` polecenia. 
+Do tego dysku można teraz uzyskać dostęp za pośrednictwem punktu instalacji *datadrive*, co można zweryfikować, uruchamiając polecenie `df -h`. 
 
 ```bash
 df -h
 ```
 
-Dane wyjściowe zawierają nowy dysk zainstalowany na */datadrive*.
+W danych wyjściowych widoczny jest nowy dysk zainstalowany w punkcie instalacji */datadrive*.
 
 ```bash
 Filesystem      Size  Used Avail Use% Mounted on
@@ -173,87 +173,87 @@ Filesystem      Size  Used Avail Use% Mounted on
 /dev/sdc1        50G   52M   47G   1% /datadrive
 ```
 
-Aby upewnić się, że dysk jest ponownej instalacji po ponownym uruchomieniu, musi zostać dodany do */etc/fstab* pliku. Aby to zrobić, należy uzyskać identyfikator UUID dysku o `blkid` narzędzia.
+Aby zapewnić, że dysk zostanie ponownie zainstalowany po ponownym uruchomieniu, należy dodać go do pliku */etc/fstab*. Aby to zrobić, uzyskaj identyfikator UUID dysku za pomocą narzędzia `blkid`.
 
 ```bash
 sudo -i blkid
 ```
 
-Identyfikator UUID dysku, wyświetla dane wyjściowe `/dev/sdc1` w takim przypadku.
+Identyfikator UUID dysku jest wyświetlany w danych wyjściowych, w tym przypadku jest to `/dev/sdc1`.
 
 ```bash
 /dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
 ```
 
-Dodaj wiersz podobny do następującego do */etc/fstab* pliku. Również należy pamiętać, że zapis bariery można wyłączyć za pomocą *bariery = 0*, ta konfiguracja może poprawić wydajność dysku. 
+Dodaj do pliku */etc/fstab* wiersz podobny do następującego. Pamiętaj również, że bariery zapisu można wyłączyć za pomocą instrukcji *barrier=0*; ta konfiguracja może zwiększyć wydajność dysku. 
 
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive  ext4    defaults,nofail,barrier=0   1  2
 ```
 
-Teraz, dysk został skonfigurowany, Zamknij sesję SSH.
+Teraz, gdy dysk został skonfigurowany, zamknij sesję SSH.
 
 ```bash
 exit
 ```
 
-## <a name="resize-vm-disk"></a>Zmiana rozmiaru dysku maszyny Wirtualnej
+## <a name="resize-vm-disk"></a>Zmienianie rozmiaru dysku maszyny wirtualnej
 
-Po wdrożeniu maszyny Wirtualnej, dysk systemu operacyjnego lub żadnych dysków dołączonych danych można zwiększyć rozmiar. Zwiększenie rozmiaru dysku jest przydatne, gdy wymagające więcej miejsca do magazynowania lub wyższego poziomu wydajności (P10 P20, P30). Zauważ, że dyski nie można zmniejszyć rozmiar.
+Po wdrożeniu maszyny wirtualnej można zwiększyć rozmiar dysku systemu operacyjnego lub dowolnych dołączonych dysków z danymi. Zwiększenie rozmiaru dysku jest korzystne, gdy potrzebujesz więcej miejsca do magazynowania lub wyższego poziomu wydajności (P10, P20, P30). Pamiętaj, że rozmiaru dysku nie można zmniejszyć.
 
-Przed zwiększeniem rozmiaru dysku, wymagany jest identyfikator lub nazwę dysku. Użyj [Lista dysków az](/cli/azure/disk#az_disk_list) polecenia, aby zwrócić wszystkie dyski w grupie zasobów. Zanotuj nazwę dysku, który chcesz zmienić rozmiar.
+Aby zwiększyć rozmiar dysku, należy najpierw uzyskać jego identyfikator lub nazwę. Za pomocą polecenia [az disk list](/cli/azure/disk#az_disk_list) wyświetl listę wszystkich dysków w grupie zasobów. Zanotuj nazwę dysku, którego rozmiar chcesz zwiększyć.
 
 ```azurecli-interactive 
 az disk list -g myResourceGroupDisk --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' --output table
 ```
 
-Maszyna wirtualna musi również być alokację. Użyj [deallocate wirtualna az]( /cli/azure/vm#deallocate) polecenie, aby zatrzymać i cofnięcia przydzielenia Maszynie wirtualnej.
+Należy także cofnąć przydział maszyny wirtualnej. Za pomocą polecenia [az vm deallocate]( /cli/azure/vm#az_vm_deallocate) zatrzymaj maszynę wirtualną i cofnij jej przydział.
 
 ```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroupDisk --name myVM
 ```
 
-Użyj [aktualizacja dysku az](/cli/azure/vm/disk#update) polecenia zmiany rozmiaru dysku. W tym przykładzie zmienia rozmiar dysku o nazwie *myDataDisk* do 1 terabajt.
+Za pomocą polecenia [az disk update](/cli/azure/vm/disk#az_vm_disk_update) zmień rozmiar dysku. Ten przykład zmienia rozmiar dysku o nazwie *myDataDisk* na 1 terabajt.
 
 ```azurecli-interactive 
 az disk update --name myDataDisk --resource-group myResourceGroupDisk --size-gb 1023
 ```
 
-Po ukończeniu operacji zmiany rozmiaru, uruchom maszynę Wirtualną.
+Po zakończeniu operacji zmiany rozmiaru włącz maszynę wirtualną.
 
 ```azurecli-interactive 
 az vm start --resource-group myResourceGroupDisk --name myVM
 ```
 
-Jeśli po zmianie rozmiaru dysku systemu operacyjnego, automatycznie rozszerza partycji. Jeśli zmieniono dysk z danymi, wszystkie partycje bieżącego musi zostać rozszerzony w systemie operacyjnym maszyny wirtualne.
+Jeśli zmieniono rozmiar dysku systemu operacyjnego, partycja zostanie automatycznie rozszerzona. Jeśli zmieniono rozmiar dysku z danymi, bieżące partycje należy rozszerzyć z poziomu systemu operacyjnego maszyny wirtualnej.
 
-## <a name="snapshot-azure-disks"></a>Migawki dysków Azure
+## <a name="snapshot-azure-disks"></a>Tworzenie migawek dysków platformy Azure
 
-Tworzenie migawki dysku tworzy odczytu tylko, w momencie kopii dysku. Migawki maszyny Wirtualnej platformy Azure są przydatne do szybkiego zapisywania stanu maszyny wirtualnej przed wprowadzeniem zmian w konfiguracji. W przypadku zmiany konfiguracji okazać się niepożądane, można przywrócić stan maszyny Wirtualnej za pomocą migawki. Gdy maszyna wirtualna ma więcej niż jeden dysk, migawki każdego dysku, niezależnie od innych. Do wykonywania kopii zapasowych spójności aplikacji, należy wziąć pod uwagę zatrzymanie maszyny Wirtualnej przed wykonaniem migawki dysków. Można również użyć [usługi Kopia zapasowa Azure](/azure/backup/), który służy do wykonywania automatycznych kopii zapasowych uruchomionej maszyny Wirtualnej.
+Utworzenie migawki dysku powoduje utworzenie jego kopii tylko do odczytu ze stałym punktem odniesienia. Migawki maszyn wirtualnych platformy Azure są przydatne do szybkiego zapisywania stanu maszyny wirtualnej przed wprowadzeniem zmian w konfiguracji. Jeśli zmiany konfiguracji okażą się niepożądane, za pomocą migawki można przywrócić stan maszyny wirtualnej. Jeśli maszyna wirtualna ma więcej niż jeden dysk, migawki każdego dysku są tworzone niezależnie od innych. W przypadku wykonywania kopii zapasowych spójnych z aplikacjami rozważ zatrzymanie maszyny wirtualnej przed utworzeniem migawek dysków. Możesz także użyć [usługi Azure Backup](/azure/backup/), która umożliwia wykonywanie automatycznych kopii zapasowych, gdy maszyna wirtualna jest uruchomiona.
 
 ### <a name="create-snapshot"></a>Tworzenie migawki
 
-Przed utworzeniem migawek dysków maszyny wirtualnej, wymagany jest identyfikator lub nazwę dysku. Użyj [az maszyny wirtualnej pokazu](https://docs.microsoft.com/cli/azure/vm#az_vm_show) poleceniu, aby uzyskać identyfikator dysku. W tym przykładzie identyfikator dysku jest przechowywana w zmiennej, dzięki czemu mogą być używane w kolejnym kroku.
+Aby utworzyć migawkę dysku maszyny wirtualnej, należy najpierw uzyskać identyfikator i nazwę dysku. Za pomocą polecenia [az vm show](https://docs.microsoft.com/cli/azure/vm#az_vm_show) wyświetl identyfikator dysku. W tym przykładzie identyfikator dysku jest przechowywany w zmiennej, aby można go było użyć w późniejszym kroku.
 
 ```azurecli-interactive 
 osdiskid=$(az vm show -g myResourceGroupDisk -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
 ```
 
-Teraz, gdy masz identyfikator dysku maszyny wirtualnej, polecenie tworzy migawkę dysku.
+Teraz, gdy masz identyfikator dysku maszyny wirtualnej, za pomocą poniższego polecenia możesz utworzyć migawkę tego dysku.
 
 ```azurcli
 az snapshot create -g myResourceGroupDisk --source "$osdiskid" --name osDisk-backup
 ```
 
-### <a name="create-disk-from-snapshot"></a>Utwórz dysk z migawki
+### <a name="create-disk-from-snapshot"></a>Tworzenie dysku z migawki
 
-Następnie można przekonwertować tej migawki na dysk, którego można użyć w celu ponownego utworzenia maszyny wirtualnej.
+Tę migawkę można następnie przekonwertować na dysk, przy użyciu którego można odtworzyć maszynę wirtualną.
 
 ```azurecli-interactive 
 az disk create --resource-group myResourceGroupDisk --name mySnapshotDisk --source osDisk-backup
 ```
 
-### <a name="restore-virtual-machine-from-snapshot"></a>Przywracanie z migawki maszyny wirtualnej
+### <a name="restore-virtual-machine-from-snapshot"></a>Przywracanie maszyny wirtualnej z migawki
 
 Aby zademonstrować odzyskiwanie maszyny wirtualnej, usuń istniejącą maszynę wirtualną. 
 
@@ -261,42 +261,42 @@ Aby zademonstrować odzyskiwanie maszyny wirtualnej, usuń istniejącą maszynę
 az vm delete --resource-group myResourceGroupDisk --name myVM
 ```
 
-Utwórz nową maszynę wirtualną na podstawie dysku migawki.
+Utwórz nową maszynę wirtualną z migawki dysku.
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupDisk --name myVM --attach-os-disk mySnapshotDisk --os-type linux
 ```
 
-### <a name="reattach-data-disk"></a>Podłącz dysk danych
+### <a name="reattach-data-disk"></a>Ponowne dołączanie dysku z danymi
 
-Wszystkie dyski danych muszą zostać ponownie nałożona do maszyny wirtualnej.
+Wszystkie dyski z danymi należy ponownie dołączyć do maszyny wirtualnej.
 
-Najpierw znaleźć, używając nazwy dysku danych [Lista dysków az](https://docs.microsoft.com/cli/azure/disk#az_disk_list) polecenia. W tym przykładzie umieszcza nazwę dysku w zmiennej o nazwie *datadisk*, która jest używana w następnym kroku.
+Najpierw odnajdź nazwę dysku z danymi za pomocą polecenia [az disk list](https://docs.microsoft.com/cli/azure/disk#az_disk_list). W tym przykładzie nazwę dysku umieszczono w zmiennej o nazwie *datadisk*, która zostanie użyta w następnym kroku.
 
 ```azurecli-interactive 
 datadisk=$(az disk list -g myResourceGroupDisk --query "[?contains(name,'myVM')].[name]" -o tsv)
 ```
 
-Użyj [dołączyć dysku maszyny wirtualnej az](https://docs.microsoft.com/cli/azure/vm/disk#az_vm_disk_attach) polecenie, aby podłączyć dysk.
+Dołącz dysk za pomocą polecenia [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#az_vm_disk_attach).
 
 ```azurecli-interactive 
 az vm disk attach –g myResourceGroupDisk –-vm-name myVM –-disk $datadisk
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przedstawiono tematy dysków maszyny Wirtualnej takich jak:
+W tym samouczku przedstawiono zagadnienia dotyczące dysków maszyn wirtualnych, takie jak:
 
 > [!div class="checklist"]
-> * Dyski systemu operacyjnego i tymczasowego
+> * Dyski systemu operacyjnego i dyski tymczasowe
 > * Dyski z danymi
-> * Standard i dysków w warstwie Premium
+> * Dyski w warstwie Standardowa i Premium
 > * Wydajność dysku
-> * Dołączanie i przygotowywania dysków z danymi
-> * Zmiana rozmiaru dysków
+> * Dołączanie i przygotowywanie dysków z danymi
+> * Zmienianie rozmiaru dysków
 > * Migawki dysków
 
-Przejdź do następnego w samouczku więcej informacji na temat automatyzacji konfiguracji maszyny Wirtualnej.
+Przejdź do następnego samouczka, aby dowiedzieć się więcej na temat automatyzowania konfigurowania maszyny wirtualnej.
 
 > [!div class="nextstepaction"]
 > [Automatyzowanie konfiguracji maszyny wirtualnej](./tutorial-automate-vm-deployment.md)

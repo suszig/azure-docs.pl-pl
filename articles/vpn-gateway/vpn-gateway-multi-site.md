@@ -1,6 +1,6 @@
 ---
 title: "Połączenie wirtualnej sieci z wieloma lokacjami przy użyciu bramy sieci VPN i programu PowerShell: klasycznym | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano podłączania wielu lokacji lokalnej lokalnego do sieci wirtualnej dla klasycznym modelu wdrażania przy użyciu bramy sieci VPN."
+description: "Podłączyć wiele lokacji lokalnej lokalnego do klasycznej sieci wirtualnej przy użyciu bramy sieci VPN."
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/20/2017
+ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: 434f84dc6244eddce9b172a617722b218360ffc2
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c0af4271df0e88354edb717b8d6f4c99ab29e573
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Dodaj połączenie lokacja-lokacja z sieci wirtualnej z istniejącego połączenia bramy sieci VPN (klasyczne)
 

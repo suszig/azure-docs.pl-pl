@@ -12,13 +12,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 52c74feacb8cf2e7005f6b284d7b55078449dc79
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 0e154c7789b38843cd3784daa8cf60d078bdc546
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Zarządzanie usług Azure Analysis Services przy użyciu programu PowerShell
 
@@ -36,15 +36,15 @@ Polecenia cmdlet systemu Azure Analysis Services są uwzględnione w [AzureRM.An
 
 |Polecenie cmdlet|Opis| 
 |------------|-----------------| 
-|[Dodaj AzureAnalysisServicesAccount](/powershell/module/azurerm.analysisservices/add-azureanalysisservicesaccount)|Dodaje uwierzytelnionego konto do użycia dla żądań polecenia cmdlet serwera usług Azure Analysis Services.| 
+|[Add-AzureAnalysisServicesAccount](/powershell/module/azurerm.analysisservices/add-azureanalysisservicesaccount)|Dodaje uwierzytelnionego konto do użycia dla żądań polecenia cmdlet serwera usług Azure Analysis Services.| 
 |[Get-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/get-azurermanalysisservicesserver)|Pobiera Szczegóły wystąpienia serwera.|  
-|[Nowe AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver)|Tworzy wystąpienie serwera.|   
-|[Usuń AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/remove-azurermanalysisservicesserver)|Usuwa wystąpienie serwera.|  
-|[AzureAnalysisServicesInstance ponownego uruchomienia](/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|Uruchamia ponownie wystąpienie serwera usług Analysis Services w środowisku aktualnie zalogowany. określony w poleceniu Add-AzureAnalysisServicesAccount.|  
+|[New-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver)|Tworzy wystąpienie serwera.|   
+|[Remove-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/remove-azurermanalysisservicesserver)|Usuwa wystąpienie serwera.|  
+|[Restart-AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|Uruchamia ponownie wystąpienie serwera usług Analysis Services w środowisku aktualnie zalogowany. określony w poleceniu Add-AzureAnalysisServicesAccount.|  
 |[Resume-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/resume-azurermanalysisservicesserver)|Wznawia wystąpienia serwera.|  
-|[Wstrzymaj AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/suspend-azurermanalysisservicesserver)|Wstrzymuje wystąpienia serwera.| 
-|[Zestaw AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver)|Modyfikuje wystąpienia serwera.|   
-|[AzureRmAnalysisServicesServer testu](/powershell/module/azurerm.analysisservices/test-azurermanalysisservicesserver)|Testy istnienia wystąpienia serwera.| 
+|[Suspend-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/suspend-azurermanalysisservicesserver)|Wstrzymuje wystąpienia serwera.| 
+|[Set-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver)|Modyfikuje wystąpienia serwera.|   
+|[Test-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/test-azurermanalysisservicesserver)|Testy istnienia wystąpienia serwera.| 
 
 ## <a name="database-operations"></a>Operacje bazy danych
 
@@ -56,14 +56,14 @@ Moduł SqlServer udostępnia polecenia cmdlet do bazy danych specyficznych dla z
 |Polecenie cmdlet|Opis|
 |------------|-----------------| 
 |[Dodaj RoleMember](https://msdn.microsoft.com/library/hh510167.aspx)|Dodaj członka do roli bazy danych.| 
-|[ASDatabase kopii zapasowej](https://docs.microsoft.com/sql/analysis-services/powershell/backup-asdatabase-cmdlet)|Wykonywanie kopii zapasowej bazy danych usług Analysis Services.|  
-|[Usuń RoleMember](https://msdn.microsoft.com/library/hh510173.aspx)|Usuwanie członka z roli bazy danych.|   
-|[Wywołanie ASCmd](https://msdn.microsoft.com/library/hh479579.aspx)|Wykonanie skryptu TMSL.|
-|[Wywołanie ProcessASDatabase](https://msdn.microsoft.com/library/mt651773.aspx)|Przetwarzanie bazy danych.|  
-|[Wywołanie ProcessPartition](https://msdn.microsoft.com/library/hh510164.aspx)|Przetwarzanie partycji.| 
-|[Wywołanie ProcessTable](https://msdn.microsoft.com/library/mt651774.aspx)|Przetwarza tabelę.|  
-|[Scalania partycji](https://msdn.microsoft.com/library/hh479576.aspx)|Scalania partycji.|  
-|[Przywracanie ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/restore-asdatabase-cmdlet)|Przywróć bazę danych usług Analysis Services.| 
+|[Backup-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/backup-asdatabase-cmdlet)|Wykonywanie kopii zapasowej bazy danych usług Analysis Services.|  
+|[Remove-RoleMember](https://msdn.microsoft.com/library/hh510173.aspx)|Usuwanie członka z roli bazy danych.|   
+|[Invoke-ASCmd](https://msdn.microsoft.com/library/hh479579.aspx)|Wykonanie skryptu TMSL.|
+|[Invoke-ProcessASDatabase](https://msdn.microsoft.com/library/mt651773.aspx)|Przetwarzanie bazy danych.|  
+|[Invoke-ProcessPartition](https://msdn.microsoft.com/library/hh510164.aspx)|Przetwarzanie partycji.| 
+|[Invoke-ProcessTable](https://msdn.microsoft.com/library/mt651774.aspx)|Przetwarza tabelę.|  
+|[Merge-Partition](https://msdn.microsoft.com/library/hh479576.aspx)|Scalania partycji.|  
+|[Restore-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/restore-asdatabase-cmdlet)|Przywróć bazę danych usług Analysis Services.| 
   
 
 ## <a name="related-information"></a>Informacje pokrewne

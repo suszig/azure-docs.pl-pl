@@ -14,21 +14,18 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 02/20/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: ca566aed706d4598c6067d42bdbec08d16dc3841
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 2403261f05d9e5aab2e50939720b3eb007aecd6e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Tworzenie topologii Apache Storm w języku Java
 
 Dowiedz się, jak utworzyć topologię, opartych na języku Java Apache STORM. Możesz utworzyć topologii Storm, która implementuje aplikacji liczba programu word. Maven służy do tworzenia i pakiet projektu. Następnie zostanie przedstawiony sposób zdefiniuj topologię za pomocą framework strumienia.
-
-> [!NOTE]
-> W ramach strumienia jest dostępne w Storm 0.10.0 lub nowszej. STORM 0.10.0 jest dostępna w HDInsight 3.3 i 3.4.
 
 Po wykonaniu tych kroków w tym dokumencie, można wdrożyć topologii Apache Storm w usłudze HDInsight.
 
@@ -43,11 +40,11 @@ Po wykonaniu tych kroków w tym dokumencie, można wdrożyć topologii Apache St
 
 * Edytor tekstu lub IDE.
 
-## <a name="configure-environment-variables"></a>Skonfiguruj zmienne środowiskowe
+## <a name="configure-environment-variables"></a>Konfigurowanie zmiennych środowiskowych
 
 Po zainstalowaniu Java i zestaw JDK, który można konfigurować następujące zmienne środowiskowe. Jednak należy sprawdzić, czy istnieją i że zawierają one poprawne wartości dla systemu.
 
-* **JAVA_HOME** -powinny wskazywać na katalog, w którym zainstalowano środowiska wykonawczego języka Java (JRE). Na przykład w systemie Unix lub Linux dystrybucji, powinien on wartość podobną do `/usr/lib/jvm/java-8-oracle`. W systemie Windows będzie mieć wartość podobną do`c:\Program Files (x86)\Java\jre1.8`
+* **JAVA_HOME** -powinny wskazywać na katalog, w którym zainstalowano środowiska wykonawczego języka Java (JRE). Na przykład w systemie Unix lub Linux dystrybucji, powinien on wartość podobną do `/usr/lib/jvm/java-8-oracle`. W systemie Windows będzie mieć wartość podobną do `c:\Program Files (x86)\Java\jre1.8`
 
 * **ŚCIEŻKA** -powinny zawierać następujące ścieżki:
 
@@ -80,8 +77,8 @@ To polecenie tworzy katalog o nazwie `WordCount` w bieżącej lokalizacji, któr
 
 Usuwanie wygenerowanego testu i pliki aplikacji:
 
-* **src\test\java\com\microsoft\example\AppTest.Java**
-* **src\main\java\com\microsoft\example\App.Java**
+* **src\test\java\com\microsoft\example\AppTest.java**
+* **src\main\java\com\microsoft\example\App.java**
 
 ## <a name="add-maven-repositories"></a>Dodaj repozytoria Maven
 

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 099e3c259f0b63e4376847727eb8e185aeb37380
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: f4a1562983ffa68dbd6586a2ae3a569f766387b5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Tworzenie sieci wirtualnej (wdrożenia klasyczne) z wieloma podsieciami
 
@@ -39,10 +39,10 @@ Można utworzyć sieci wirtualnej (wdrożenia klasyczne) przy użyciu [portalu A
 ## <a name="portal"></a>Portal
 
 1. W przeglądarce sieci Web, przejdź do [portalu Azure](https://portal.azure.com). Zaloguj się za pomocą programu [konta Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Jeśli nie masz konta platformy Azure, możesz skorzystać z [bezpłatnej wersji próbnej](https://azure.microsoft.com/offers/ms-azr-0044p).
-2. Kliknij przycisk **+ nowy** w portalu.
-3. Wprowadź *sieci wirtualnej* w **wyszukiwania portalu Marketplace** pole w górnej części **nowy** wyświetlonym bloku.  Kliknij przycisk **sieci wirtualnej** po wyświetleniu w wynikach wyszukiwania.
-4. Wybierz **klasycznego** w **wybierz model wdrożenia** polu **sieci wirtualnej** bloku, zostanie wyświetlone, następnie kliknij przycisk **Utwórz**. 
-5. Wprowadź następujące wartości **Utwórz sieć wirtualną (klasyczne)** bloku, a następnie kliknij przycisk **Utwórz**:
+2. Kliknij przycisk **Utwórz zasób** w portalu.
+3. Wprowadź *sieci wirtualnej* w **wyszukiwania portalu Marketplace** pole w górnej części **nowy** okienko zostanie wyświetlone. Kliknij przycisk **sieci wirtualnej** po wyświetleniu w wynikach wyszukiwania.
+4. Wybierz **klasycznego** w **wybierz model wdrożenia** polu **sieci wirtualnej** okienko zostanie wyświetlone, następnie kliknij przycisk **Utwórz**. 
+5. Wprowadź następujące wartości **Utwórz sieć wirtualną (klasyczne)** okienka, a następnie kliknij przycisk **Utwórz**:
 
     |Ustawienie|Wartość|
     |---|---|
@@ -55,13 +55,13 @@ Można utworzyć sieci wirtualnej (wdrożenia klasyczne) przy użyciu [portalu A
 
     Jeśli jesteś nowym użytkownikiem usługi Azure, Dowiedz się więcej o [grup zasobów](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), [subskrypcje](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription), i [lokalizacje](https://azure.microsoft.com/regions) (zwaną także *regionów*).
 4. W portalu można utworzyć tylko jedną podsieć, podczas tworzenia sieci wirtualnej. W tym samouczku utworzysz drugiej podsieci po utworzeniu sieci wirtualnej. Później można utworzyć Internet dostępnych zasobów w **publicznego** podsieci. Można także utworzyć zasoby, które nie są dostępne z Internetu w **prywatnej** podsieci. Aby utworzyć drugą podsieć, wprowadź **myVnet** w **wyszukiwania zasobów** u góry strony. Kliknij przycisk **myVnet** po wyświetleniu w wynikach wyszukiwania.
-5. Kliknij przycisk **podsieci** (w **ustawienia** sekcji) na **Utwórz sieć wirtualną (klasyczne)** wyświetlonym bloku.
-6. Kliknij przycisk **+ Dodaj** na **myVnet - podsieci** wyświetlonym bloku.
-7. Wprowadź **prywatnej** dla **nazwa** na **Dodaj podsieć** bloku. Wprowadź **10.0.1.0/24** dla **zakres adresów**.  Kliknij przycisk **OK**.
-8. Na **myVnet - podsieci** bloku, zostanie wyświetlony **publicznego** i **prywatnej** podsieci, które zostały utworzone.
+5. Kliknij przycisk **podsieci** (w **ustawienia** sekcji) na **Utwórz sieć wirtualną (klasyczne)** okienko zostanie wyświetlone.
+6. Kliknij przycisk **+ Dodaj** na **myVnet - podsieci** okienko zostanie wyświetlone.
+7. Wprowadź **prywatnej** dla **nazwa** na **Dodaj podsieć** okienka. Wprowadź **10.0.1.0/24** dla **zakres adresów**.  Kliknij przycisk **OK**.
+8. Na **myVnet - podsieci** okienku zostanie wyświetlony **publicznego** i **prywatnej** podsieci, które zostały utworzone.
 9. **Opcjonalne**: po zakończeniu tego samouczka warto usunąć zasoby, które zostały utworzone, tak aby nie wiąże się z opłatami użycia:
-    - Kliknij przycisk **omówienie** na **myVnet** bloku.
-    - Kliknij przycisk **usunąć** ikonę na **myVnet** bloku.
+    - Kliknij przycisk **omówienie** na **myVnet** okienka.
+    - Kliknij przycisk **usunąć** ikonę na **myVnet** okienka.
     - Aby potwierdzić usunięcie, kliknij przycisk **tak** w **sieci wirtualnej Delete** pole.
 
 ## <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure

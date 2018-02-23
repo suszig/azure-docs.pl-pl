@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 3be59e32de22e0939ee887fba1d20829f1ef22eb
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 8198fbe9f919638565357c61ba487e47a8f5229c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Powiązania dla funkcji trwałe (funkcje platformy Azure)
 
@@ -42,8 +42,8 @@ Podczas pisania funkcje programu orchestrator w językach skryptów (na przykła
 }
 ```
 
-* `orchestration`to nazwa orchestration. Jest to wartość, której klienci muszą używać chcąc Uruchom nowe wystąpienia tej funkcji programu orchestrator. Ta właściwość jest opcjonalna. Jeśli nie zostanie określony, używany jest nazwa funkcji.
-* `version`jest etykietę wersji orchestration. Klienci, którzy uruchomić nowe wystąpienie klasy aranżacji musi zawierać dopasowania etykiety wersji. Ta właściwość jest opcjonalna. Jeśli nie określono pusty ciąg jest używany. Aby uzyskać więcej informacji o wersji, zobacz [Versioning](durable-functions-versioning.md).
+* `orchestration` to nazwa orchestration. Jest to wartość, której klienci muszą używać chcąc Uruchom nowe wystąpienia tej funkcji programu orchestrator. Ta właściwość jest opcjonalna. Jeśli nie zostanie określony, używany jest nazwa funkcji.
+* `version` jest etykietę wersji orchestration. Klienci, którzy uruchomić nowe wystąpienie klasy aranżacji musi zawierać dopasowania etykiety wersji. Ta właściwość jest opcjonalna. Jeśli nie określono pusty ciąg jest używany. Aby uzyskać więcej informacji o wersji, zobacz [Versioning](durable-functions-versioning.md).
 
 > [!NOTE]
 > Ustawienie wartości `orchestration` lub `version` właściwości nie jest zalecane w tej chwili.
@@ -116,8 +116,8 @@ Jeśli używasz portalu Azure do tworzenia aplikacji, wyzwalacz działania jest 
 }
 ```
 
-* `activity`to nazwa działania. Jest to wartość, która umożliwia wywołanie tej funkcji działania funkcji programu orchestrator. Ta właściwość jest opcjonalna. Jeśli nie zostanie określony, używany jest nazwa funkcji.
-* `version`jest wersja etykietę działania. Funkcje programu orchestrator, które wywołują działania musi zawierać dopasowania etykiety wersji. Ta właściwość jest opcjonalna. Jeśli nie określono pusty ciąg jest używany. Aby uzyskać więcej informacji, zobacz [Versioning](durable-functions-versioning.md).
+* `activity` to nazwa działania. Jest to wartość, która umożliwia wywołanie tej funkcji działania funkcji programu orchestrator. Ta właściwość jest opcjonalna. Jeśli nie zostanie określony, używany jest nazwa funkcji.
+* `version` jest wersja etykietę działania. Funkcje programu orchestrator, które wywołują działania musi zawierać dopasowania etykiety wersji. Ta właściwość jest opcjonalna. Jeśli nie określono pusty ciąg jest używany. Aby uzyskać więcej informacji, zobacz [Versioning](durable-functions-versioning.md).
 
 > [!NOTE]
 > Ustawienie wartości `activity` lub `version` właściwości nie jest zalecane w tej chwili.
@@ -172,7 +172,7 @@ public static string SayHello([ActivityTrigger] string name)
 
 ## <a name="orchestration-client"></a>Klient aranżacji
 
-Powiązanie klienta orchestration umożliwia pisanie funkcji, które interakcję z funkcjami programu orchestrator. Na przykład może działać w wystąpieniach aranżacji w sposób followng:
+Powiązanie klienta orchestration umożliwia pisanie funkcji, które interakcję z funkcjami programu orchestrator. Na przykład można było na wystąpieniach aranżacji w następujący sposób:
 * Uruchom je.
 * Wyślij zapytanie do ich stan.
 * Je zakończyć.
@@ -192,8 +192,8 @@ Jeśli używasz języków skryptów (np. *csx* plików) do tworzenia aplikacji, 
 }
 ```
 
-* `taskHub`-Używane w sytuacji, gdy wiele aplikacji funkcji Udostępnianie tego samego konta magazynu, ale musi być od siebie odizolowane. Jeśli nie zostanie określony, wartością domyślną z `host.json` jest używany. Ta wartość musi odpowiadać wartości przez funkcje programu orchestrator docelowej.
-* `connectionName`-Nazwa ustawienia aplikacji, która zawiera parametry połączenia konta magazynu. Konto magazynu reprezentowany przez ten ciąg połączenia musi być taka sama, używany przez funkcje programu orchestrator docelowej. Jeśli nie zostanie określony, jest używany domyślny ciąg połączenia konta magazynu dla funkcji aplikacji.
+* `taskHub` -Używane w sytuacji, gdy wiele aplikacji funkcji Udostępnianie tego samego konta magazynu, ale musi być od siebie odizolowane. Jeśli nie zostanie określony, wartością domyślną z `host.json` jest używany. Ta wartość musi odpowiadać wartości przez funkcje programu orchestrator docelowej.
+* `connectionName` -Nazwa ustawienia aplikacji, która zawiera parametry połączenia konta magazynu. Konto magazynu reprezentowany przez ten ciąg połączenia musi być taka sama, używany przez funkcje programu orchestrator docelowej. Jeśli nie zostanie określony, jest używany domyślny ciąg połączenia konta magazynu dla funkcji aplikacji.
 
 > [!NOTE]
 > W większości przypadków zaleca się, Pomiń te właściwości oraz polegać na zachowanie domyślne.

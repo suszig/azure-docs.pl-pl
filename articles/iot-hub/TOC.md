@@ -87,6 +87,7 @@
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
 #### [Node.js](iot-hub-node-node-file-upload.md)
+#### [Python](iot-hub-python-python-file-upload.md)
 ### Wprowadzenie do zarządzania bliźniaczymi reprezentacjami urządzeń
 #### [Zaplecze środowiska Node.js/urządzenie środowiska Node.js](iot-hub-node-node-twin-getstarted.md)
 #### [Zaplecze środowiska .NET/urządzenie środowiska Node.js](iot-hub-csharp-node-twin-getstarted.md)
@@ -110,15 +111,19 @@
 #### [Zaplecze środowiska .NET/urządzenie środowiska Node.js](iot-hub-csharp-node-twin-how-to-configure.md)
 #### [Zaplecze środowiska .NET/urządzenie środowiska .NET](iot-hub-csharp-csharp-twin-how-to-configure.md)
 #### [Zaplecze środowiska Java/urządzenie środowiska Java](iot-hub-java-java-twin-how-to-configure.md)
+#### [Zaplecze języka Python/urządzenie języka Python](iot-hub-python-python-twin-how-to-configure.md)
 ### Aktualizowanie oprogramowania układowego urządzenia za pomocą zadań urządzeń
 #### [Zaplecze środowiska Node/urządzenie środowiska Node](iot-hub-node-node-firmware-update.md)
 #### [Zaplecze środowiska .NET/urządzenie środowiska Node.js](iot-hub-csharp-node-firmware-update.md)
 #### [Zaplecze środowiska .NET/urządzenie środowiska .NET](iot-hub-csharp-csharp-firmware-update.md)
 #### [Zaplecze środowiska Java/urządzenie środowiska Java](iot-hub-java-java-firmware-update.md)
+#### [Zaplecze języka Python/urządzenie języka Python](iot-hub-python-python-firmware-update.md)
 ### Planowanie i emitowanie zadań
 #### [Zaplecze środowiska Node.js/urządzenie środowiska Node.js](iot-hub-node-node-schedule-jobs.md)
 #### [Zaplecze środowiska .NET/urządzenie środowiska Node.js](iot-hub-csharp-node-schedule-jobs.md)
-#### [Java](iot-hub-java-java-schedule-jobs.md)
+#### [Zaplecze środowiska .NET/urządzenie środowiska .NET](iot-hub-csharp-csharp-schedule-jobs.md)
+#### [Zaplecze środowiska Java/urządzenie środowiska Java](iot-hub-java-java-schedule-jobs.md)
+#### [Zaplecze języka Python/urządzenie języka Python](iot-hub-python-python-schedule-jobs.md)
 
 ## Zarządzanie
 ### Tworzenie centrum IoT 

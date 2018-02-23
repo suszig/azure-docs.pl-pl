@@ -15,15 +15,13 @@ Klasyczne maszyny wirtualne można dodać do zestawu przy użyciu jednej z dwóc
 > 
 > 
 
-## <a id="createset"></a>— Opcja 1: tworzenie maszyny wirtualnej i dostępności na tym samym czasie
+## <a id="createset"> </a>Opcja 1: Tworzenie maszyny wirtualnej i dostępności na tym samym czasie
 W tym celu można użyć portalu Azure lub poleceń programu PowerShell systemu Azure.
 
 Aby korzystać z portalu Azure:
 
 1. Jeśli jeszcze tego nie zrobiono, zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. W menu centralnym kliknij **+ nowy**, a następnie kliknij przycisk **maszyny wirtualnej**.
-   
-    ![Tekst alternatywny obrazu](./media/virtual-machines-common-classic-configure-availability/ChooseVMImage.png)
+2. Kliknij przycisk **Utwórz zasób** > **obliczeniowe**.
 3. Wybierz obraz maszyny wirtualnej Marketplace, którego chcesz użyć. Można utworzyć maszyny wirtualnej systemu Linux lub Windows.
 4. Dla wybranej maszyny wirtualnej, sprawdź, czy model wdrażania jest ustawiony na **klasycznego** , a następnie kliknij przycisk **Utwórz**
    
@@ -38,11 +36,11 @@ Aby korzystać z portalu Azure:
 
 Aby użyć poleceń programu Azure PowerShell do tworzenia maszyny wirtualnej platformy Azure i dodaj go do zestawu dostępności nowych lub istniejących, zobacz [użycia programu Azure PowerShell do tworzenia i wstępnie skonfigurować maszyn wirtualnych z systemem Windows](../articles/virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-## <a id="addmachine"></a>Opcja 2: Dodaj istniejącą maszynę wirtualną do zestawu dostępności
+## <a id="addmachine"> </a>Opcja 2: Dodaj istniejącą maszynę wirtualną do zestawu dostępności
 W portalu Azure można dodać istniejącego klasycznych maszyn wirtualnych do istniejących dostępności ustawić lub Utwórz nową dla nich. (Należy pamiętać, że maszyny wirtualne w tym samym zestawie dostępności muszą należeć do tej samej usługi w chmurze). Te kroki są prawie takie same. Przy użyciu programu Azure PowerShell można dodać maszyny wirtualnej do istniejącego zestawu dostępności.
 
 1. Jeśli nie zostało to jeszcze zrobione, zaloguj się do [portalu Azure](https://portal.azure.com).
-2. W menu centralnym kliknij **maszyn wirtualnych (klasyczne)**.
+2. W menu po lewej stronie kliknij **maszyn wirtualnych (klasyczne)**.
    
     ![Tekst alternatywny obrazu](./media/virtual-machines-common-classic-configure-availability/ChooseClassicVM.png)
 3. Z listy maszyn wirtualnych wybierz nazwę maszyny wirtualnej, który chcesz dodać do zestawu.

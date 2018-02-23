@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: sstein
-ms.openlocfilehash: 0f26ce26b8b33274291c115ae136d124d79ed349
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: ca4566ced525f0cb732afc15d96d9ef73fd8cff5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-azure-key-vault"></a>Zawsze zaszyfrowane: Ochrona poufnych danych w bazie danych SQL i przechowywania kluczy szyfrowania w usłudze Azure Key Vault
 
@@ -77,9 +77,9 @@ Może szybko utworzyć magazyn kluczy, uruchamiając poniższy skrypt. Aby uzysk
 
 
 
-## <a name="create-a-blank-sql-database"></a>Utwórz pustą bazę danych SQL
+## <a name="create-a-blank-sql-database"></a>Tworzenie pustej bazy danych SQL
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-2. Przejdź do **nowe** > **dane i magazyn** > **bazy danych SQL**.
+2. Przejdź do **Utwórz zasób** > **baz danych** > **bazy danych SQL**.
 3. Utwórz **puste** bazy danych o nazwie **Clinic** na nowym lub istniejącym serwerze. Aby uzyskać szczegółowe informacje o sposobie tworzenia bazy danych w portalu Azure, zobacz [pierwszą bazę danych Azure SQL](sql-database-get-started-portal.md).
    
     ![Tworzenie pustej bazy danych](./media/sql-database-always-encrypted-azure-key-vault/create-database.png)
@@ -91,7 +91,7 @@ Konieczne będzie połączenie string później w samouczku, dlatego po utworzen
    
     ![Skopiuj parametry połączenia](./media/sql-database-always-encrypted-azure-key-vault/connection-strings.png)
 
-## <a name="connect-to-the-database-with-ssms"></a>Połączenie z bazą danych z narzędzia SSMS
+## <a name="connect-to-the-database-with-ssms"></a>Nawiązywanie połączenia z bazą danych za pomocą programu SSMS
 Otwórz SSMS i nawiąż połączenie z serwerem z bazą danych Clinic.
 
 1. Otwórz program SSMS. (Przejdź do **Connect** > **aparatu bazy danych** otworzyć **Połącz z serwerem** okna, jeśli nie jest otwarty.)

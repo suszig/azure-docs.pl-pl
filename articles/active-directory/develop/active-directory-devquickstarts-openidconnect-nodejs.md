@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: a0079c1f4265e1c2564b85247cf5f5e0289799db
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 0a3bbfe32bde0cd3971450f5a9a909dcf8b5d793
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Wprowadzenie aplikacji sieci web AD Node.js Azure
 W tym miejscu możemy użyć usługi Passport:
@@ -48,14 +48,14 @@ Ukończona aplikacja znajduje się na końcu również w tym samouczku.
 
 2. W menu w górnej części strony wybierz konto. W obszarze **katalogu** wybierz dzierżawy usługi Active Directory, które chcesz zarejestrować aplikację.
 
-3. Wybierz **więcej usług** w menu po lewej stronie ekranu, a następnie wybierz **usługi Azure Active Directory**.
+3. Wybierz **wszystkie usługi** w menu po lewej stronie ekranu, a następnie wybierz **usługi Azure Active Directory**.
 
 4. Wybierz **rejestracji aplikacji**, a następnie wybierz **Dodaj**.
 
 5. Postępuj zgodnie z monitami, aby utworzyć **aplikacji sieci Web** i/lub **WebAPI**.
   * **Nazwa** aplikacji opisuje aplikacji dla użytkowników.
 
-  * **Adres URL logowania** jest podstawowy adres URL aplikacji.  Domyślnie szkielet "http://localhost: 3000/auth/openid/powrotu".
+  * **Adres URL logowania** jest podstawowy adres URL aplikacji.  Domyślnie szkielet `http://localhost:3000/auth/openid/return`.
 
 6. Po zarejestrowaniu, usługi Azure AD przypisuje aplikacji identyfikatora aplikacji Potrzebujesz tej wartości w poniższych sekcjach, dlatego skopiuj go ze strony aplikacji.
 7. Z **ustawienia** -> **właściwości** strony dla aplikacji, zaktualizuj identyfikator URI aplikacji. **Identyfikator URI aplikacji** to unikatowy identyfikator aplikacji. Konwencji jest użycie formatu `https://<tenant-domain>/<app-name>`, na przykład: `https://contoso.onmicrosoft.com/my-first-aad-app`.
@@ -252,7 +252,7 @@ Poprzedni kod obejmuje wszystkich użytkowników, która do uwierzytelniania ser
 
 
 ## <a name="step-4-use-passport-to-issue-sign-in-and-sign-out-requests-to-azure-ad"></a>Krok 4: Użyj Passport do wysyłania żądań zalogowania się i wylogowania do usługi Azure AD
-Aplikacji jest teraz prawidłowo skonfigurowana do komunikowania się z punktem końcowym przy użyciu protokołu uwierzytelniania OpenID Connect.  `passport-azure-ad`ma podjąć obsługę wszystkich szczegółów obsługuje tworzenie komunikatów uwierzytelniania, sprawdzanie poprawności tokenów z usługi Azure AD i pozostawienie sesji użytkownika. Wszystkie punkty, które pozostaje przyznawanie użytkownikom możliwość zalogować się i wylogowywania i zbieranie dodatkowych informacji na temat zalogowanych użytkowników.
+Aplikacji jest teraz prawidłowo skonfigurowana do komunikowania się z punktem końcowym przy użyciu protokołu uwierzytelniania OpenID Connect.  `passport-azure-ad` ma podjąć obsługę wszystkich szczegółów obsługuje tworzenie komunikatów uwierzytelniania, sprawdzanie poprawności tokenów z usługi Azure AD i pozostawienie sesji użytkownika. Wszystkie punkty, które pozostaje przyznawanie użytkownikom możliwość zalogować się i wylogowywania i zbieranie dodatkowych informacji na temat zalogowanych użytkowników.
 
 1. Po pierwsze Dodajmy domyślną, logowania, konta i wylogowania metody naszych `app.js` pliku:
 

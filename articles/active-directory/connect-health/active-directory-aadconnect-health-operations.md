@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 5e6910ea52f880e28378c9bf7fde02d080bc2e58
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 98dc12a857d910e8822dcfbb61209aa9ef773f47
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Operacje platformy Azure Active Directory Connect Health
 W tym temacie opisano różne operacje, które można wykonać za pomocą usługi Azure Active Directory (Azure AD) Connect Health.
@@ -42,6 +42,9 @@ Można skonfigurować usługę Azure AD Connect Health do wysyłania powiadomie�
 
 ## <a name="delete-a-server-or-service-instance"></a>Usuń wystąpienia usługi lub serwera
 
+>[!NOTE] 
+> Azure AD premium licencji jest wymagana dla procedury usuwania.
+
 W niektórych przypadkach możesz usunąć serwer z monitorowane. Oto, co należy wiedzieć, aby usunąć serwer z usługi Azure AD Connect Health.
 
 W przypadku usuwania serwera, należy pamiętać o następujących czynności:
@@ -51,7 +54,11 @@ W przypadku usuwania serwera, należy pamiętać o następujących czynności:
 * Ta akcja nie powoduje usunięcia danych już zebrane z tego serwera. Że dane zostaną usunięte zgodnie z zasadami przechowywania danych platformy Azure.
 * Po wykonaniu tej akcji, jeśli chcesz rozpocząć monitorowanie tego samego serwera, należy odinstalować i ponownie zainstalować agenta programu Health na tym serwerze.
 
-### <a name="to-delete-a-server-from-the-azure-ad-connect-health-service"></a>Aby usunąć serwer z usługi Azure AD Connect Health
+### <a name="delete-a-server-from-the-azure-ad-connect-health-service"></a>Usuwanie serwera z usługi Azure AD Connect Health
+
+>[!NOTE] 
+> Azure AD premium licencji jest wymagana dla procedury usuwania.
+
 Azure AD Connect Health dla usług federacyjnych Active Directory (AD FS) i Azure AD Connect (synchronizacja):
 
 1. Otwórz **serwera** bloku z **listy serwerów** bloku, wybierając nazwę serwera, który ma zostać usunięty.
@@ -133,7 +140,7 @@ Teraz wyświetlani użytkownicy i grupy mają dostęp, zgodnie z ich przypisane 
 >
 
 #### <a name="step-3-share-the-blade-location-with-users-or-groups"></a>Krok 3: Udostępnianie lokalizacji bloku użytkowników lub grup
-1. Po przypisaniu uprawnienia, użytkownik może uzyskać dostęp Azure AD Connect Health, przechodząc [tutaj](http://aka.ms/aadconnecthealth).
+1. Po przypisaniu uprawnienia, użytkownik może uzyskać dostęp Azure AD Connect Health, przechodząc [tutaj](https://aka.ms/aadconnecthealth).
 2. W bloku użytkownika można przypiąć blok lub składniki, do pulpitu nawigacyjnego. Po prostu kliknij **Przypnij do pulpitu nawigacyjnego** ikony.<br>
    ![Zrzut ekranu Azure AD Connect Health RBAC Przypnij blok z ikonę pinezki podświetlone](./media/active-directory-aadconnect-health/RBAC_pin_blade.png)
 
@@ -148,7 +155,7 @@ Można usunąć użytkownika lub grupy dodane do usługi Azure AD Connect RBAC k
 
 [//]: # (End of RBAC section)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
 * [Instalowanie agenta programu Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
 * [Używanie programu Azure AD Connect Health z usługami AD FS](active-directory-aadconnect-health-adfs.md)

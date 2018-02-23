@@ -12,22 +12,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 02/07/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: b76d6a31dfe600a4639b830bfbbb5cacfc158dd6
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: f4240c9196796c2e83c408271fe81b20842ab722
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Azure podręcznikowym ochronę tożsamości w usłudze Active Directory
+
 Tego podręcznika dotyczącego ułatwia:
 
 * Wypełnij dane w środowisku Identity Protection według symulowanie symulacje zdarzenia o podwyższonym ryzyku i luk w zabezpieczeniach
 * Konfigurowanie zasad dostępu warunkowego opartego na zagrożenia i testowanie wpływu tych zasad
 
+
 ## <a name="simulating-risk-events"></a>Symulacja zdarzeń o podwyższonym ryzyku
+
 W tej sekcji przedstawiono kroki symulowanie następujące typy zdarzeń ryzyka:
 
 * Logowania z anonimowych adresów IP (prosty)
@@ -37,39 +40,53 @@ W tej sekcji przedstawiono kroki symulowanie następujące typy zdarzeń ryzyka:
 Inne zdarzenia o podwyższonym ryzyku nie symulowane w bezpieczny sposób.
 
 ### <a name="sign-ins-from-anonymous-ip-addresses"></a>Logowania z anonimowych adresów IP
-Ten typ zdarzenia ryzyka identyfikuje użytkowników, którzy zalogowali się pomyślnie z adresu IP, który został zidentyfikowany jako adres IP anonimowy serwer proxy. Te serwery proxy są używane przez osoby, które chcesz ukryć adres IP swoich urządzeń i może służyć do złośliwymi działaniami.
+
+Aby uzyskać więcej informacji na temat danego zdarzenia ryzyka, zobacz [logowania z anonimowych adresów IP](active-directory-reporting-risk-events.md#sign-ins-from-anonymous-ip-addresses). 
+
+Wykonanie poniższej procedury wymaga użycia:
+
+- [Przeglądarki Tor](https://www.torproject.org/projects/torbrowser.html.en) do symulowania anonimowych adresów IP. Należy użyć maszyny wirtualnej, jeśli Twoja organizacja ogranicza za pomocą przeglądarki Tor.
+- Konto testu, który nie jest jeszcze zarejestrowany w usłudze Multi-Factor authentication.
 
 **Aby symulować logowanie z anonimowego adresu IP, wykonaj następujące kroki**:
 
-1. Pobierz [przeglądarki Tor](https://www.torproject.org/projects/torbrowser.html.en).
-2. Przy użyciu przeglądarki Tor, przejdź do [https://myapps.microsoft.com](https://myapps.microsoft.com).   
-3. Wprowadź poświadczenia konta, która ma być wyświetlana w **logowania z anonimowych adresów IP** raportu.
+1. Przy użyciu [przeglądarki Tor](https://www.torproject.org/projects/torbrowser.html.en), przejdź do [https://myapps.microsoft.com](https://myapps.microsoft.com).   
+2. Wprowadź poświadczenia konta, która ma być wyświetlana w **logowania z anonimowych adresów IP** raportu.
 
-Logowanie będzie wyświetlana na pulpicie nawigacyjnym ochronę tożsamości w ciągu 5 minut. 
+Przy logowaniu są wyświetlane na pulpicie nawigacyjnym ochronę tożsamości w ciągu 10 – 15 minut. 
 
 ### <a name="sign-ins-from-unfamiliar-locations"></a>Logowania z nieznanych lokalizacji
-Ryzyko nieznanych lokalizacji jest mechanizm oceny w czasie rzeczywistym logowania, który uwzględnia poza logowania w lokalizacji (IP, szerokości geograficznej / długości i ASN) do określenia lokalizacji nowego / doświadczenia w pracy. System przechowuje poprzednie adresów IP, szerokości geograficznej / geograficzne i numerów ASN użytkownika i ich lokalizacje znane. Lokalizacja logowania jest uznawany za doświadczenia w pracy, jeśli lokalizacja logowania nie pasuje do żadnego z istniejącej lokalizacji znane.
 
-Ochrona tożsamości usługi Azure Active Directory:  
+Aby uzyskać więcej informacji na temat danego zdarzenia ryzyka, zobacz [logowania z nieznanych lokalizacji](active-directory-reporting-risk-events.md#sign-in-from-unfamiliar-locations). 
 
-* ma okres learning początkowej 14 dni, w których nie Flaga wszelkie nowe lokalizacje jako nieznanych lokalizacji.
-* ignoruje logowania z urządzeń znanych i lokalizacje, które są geograficznie istniejącej lokalizacji znane.
+Aby symulować nieznanych lokalizacji, należy zalogować się w lokalizacji i urządzenie, którego konto testu nie zalogował się z przed.
 
-Aby symulować nieznanych lokalizacji, należy zalogować się w lokalizacji i urządzenia, które konta nie zalogował się z przed. 
+Poniższa procedura wykorzystuje nowo utworzone:
+
+- Połączenie sieci VPN, aby symulować nowej lokalizacji.
+
+- Maszyna wirtualna, aby symulować nowego urządzenia.
+
+Wykonanie poniższej procedury można używać konta użytkownika, które ma wymaga:
+
+- Co najmniej 30-dniowej logowania w historii.
+- Uwierzytelnianie wieloskładnikowe jest włączone.
+
 
 **Aby symulować logowania z nieznanych lokalizacji, wykonaj następujące kroki**:
 
-1. Wybierz konto, które ma co najmniej 14 dni historii logowania. 
-2. Wykonaj jedną:
+1. Podczas logowania się przy użyciu konta testu, nie żądanie uwierzytelniania MFA nie przekazując żądanie uwierzytelniania MFA.
+2. Przy użyciu nowego sieć VPN, przejdź do [https://myapps.microsoft.com](https://myapps.microsoft.com) , a następnie wprowadź poświadczenia konta testowego.
    
-   a. Podczas korzystania z sieci VPN, przejdź do [https://myapps.microsoft.com](https://myapps.microsoft.com) , a następnie wprowadź poświadczenia konta, aby symulować zdarzenia ryzyka.
-   
-   b. Poproś skojarzenia w innej lokalizacji, aby zalogować się przy użyciu poświadczeń konta (niezalecane).
 
-Logowanie będzie wyświetlana na pulpicie nawigacyjnym ochronę tożsamości w ciągu 5 minut.
+Przy logowaniu są wyświetlane na pulpicie nawigacyjnym ochronę tożsamości w ciągu 10 – 15 minut.
 
 ### <a name="impossible-travel-to-atypical-location"></a>Niemożliwa podróż do nietypowych lokalizacji
-Symuluje warunku niemożliwa podróż jest trudne, ponieważ algorytm chwastów limit false alarmów, takich jak niemożliwa podróż ze znanych urządzeń lub logowania z sieci VPN, które są używane przez innych użytkowników w katalogu uczenia maszynowego. Ponadto algorytm wymaga historię logowania 3-14 dni dla użytkownika, przed rozpoczęciem generowania zdarzeń o podwyższonym ryzyku.
+
+Aby uzyskać więcej informacji na temat danego zdarzenia ryzyka, zobacz [Impossible podróż do nietypowych lokalizacji](active-directory-reporting-risk-events.md#impossible-travel-to-atypical-locations). 
+
+Symuluje warunku niemożliwa podróż jest trudne, ponieważ algorytm chwastów limit false alarmów, takich jak niemożliwa podróż ze znanych urządzeń lub logowania z sieci VPN, które są używane przez innych użytkowników w katalogu uczenia maszynowego. Ponadto algorytm wymaga historię logowania w ciągu ostatnich 14 dni i 10 logowania użytkownika, przed rozpoczęciem generowania zdarzeń o podwyższonym ryzyku. Z powodu złożonych modeli uczenia maszynowego i powyżej reguły istnieje ryzyko, że nie spowoduje następujące kroki zdarzenia ryzyka. Można replikować te kroki dla wielu kont usługi Azure AD do publikowania zdarzeń tego ryzyka.
+
 
 **Aby symulować niemożliwa podróż do nietypowych lokalizacji, wykonaj następujące kroki**:
 
@@ -79,61 +96,80 @@ Symuluje warunku niemożliwa podróż jest trudne, ponieważ algorytm chwastów 
 4. Zmienianie adresu IP. Adres IP można zmienić za pomocą sieci VPN, dodatek Tor, lub kręci się nowego komputera na platformie Azure w centrum danych.
 5. Zaloguj się do [https://myapps.microsoft.com](https://myapps.microsoft.com) przy użyciu tych samych poświadczeń jako przed i za kilka minut po poprzednim logowanie.
 
-Przy logowaniu będzie wyświetlana na pulpicie nawigacyjnym ochronę tożsamości w ciągu 2-4 godzin.<br>
-Ze względu na maszynie złożonych zaangażowany modeli uczenia istnieje ryzyko, który nie ma pobrać pobierany się.<br> Można replikować te kroki dla wielu kont usługi Azure AD.
+Rejestrowanie zostaną wyświetlone na pulpicie nawigacyjnym ochronę tożsamości w ciągu 2-4 godzin.
 
 ## <a name="simulating-vulnerabilities"></a>Symuluje luk w zabezpieczeniach
 Luki w zabezpieczeniach występują słabych w środowisku usługi Azure AD, które mogą być używane przez aktora nieprawidłowy. Obecnie 3 typy luk w zabezpieczeniach są udostępniane w Azure AD Identity Protection, zwiększają inne funkcje usługi Azure AD. Te luki w zabezpieczeniach będą wyświetlane na pulpicie nawigacyjnym Identity Protection automatycznie po skonfigurowaniu tych funkcji.
 
-* Usługi Azure AD [uwierzytelnianie wieloskładnikowe?](../multi-factor-authentication/multi-factor-authentication.md)
+* Usługi Azure AD [uwierzytelnianie wieloskładnikowe](../multi-factor-authentication/multi-factor-authentication.md)
 * Usługi Azure AD [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md).
 * Usługi Azure AD [Privileged Identity Management](active-directory-privileged-identity-management-configure.md). 
 
-## <a name="user-compromise-risk"></a>Ryzyko naruszenia zabezpieczeń użytkownika
-**Aby przetestować użytkownika ryzyko naruszenia zabezpieczeń, wykonaj następujące kroki**:
+
+## <a name="testing-security-policies"></a>Testowanie zasad zabezpieczeń
+
+Ta sekcja zawiera kroki do badania ryzyka użytkownika i zasady zabezpieczeń logowania ryzyka.
+
+
+### <a name="user-risk-security-policy"></a>Zasady zabezpieczeń użytkownika ryzyka
+
+Aby uzyskać więcej informacji, zobacz [zasady zabezpieczeń użytkownika ryzyka](active-directory-identityprotection.md#user-risk-security-policy).
+
+![Ryzyko użytkownika](./media/active-directory-identityprotection-playbook/02.png "Podręcznikowym")
+
+
+**Aby przetestować zasad zabezpieczeń dla użytkownika ryzyka, wykonaj następujące kroki**:
 
 1. Zaloguj się do [https://portal.azure.com](https://portal.azure.com) przy użyciu poświadczeń administratora globalnego dla dzierżawy.
 2. Przejdź do **ochronę tożsamości**. 
-3. W głównym **Azure AD Identity Protection** bloku, kliknij przycisk **ustawienia**. 
-4. Na **ustawienia portalu** bloku, w obszarze **reguły zabezpieczeń**, kliknij przycisk **ryzyko naruszenia zabezpieczeń użytkownika**. 
-5. Na **Zaloguj ryzyka** bloku, Włącz **Włącz regułę** wyłączone, a następnie kliknij przycisk **zapisać** ustawienia.
-6. Symulowanie doświadczenia w pracy dla danego konta użytkownika, lokalizacji lub anonimowe zdarzenie ryzyka adresu IP. Będzie to podnieść poziom ryzyka użytkownika dla tego użytkownika do **średni**.
-7. Poczekaj kilka minut, a następnie sprawdź tego poziomu użytkownika dla użytkownika jest **średni**.
-8. Przejdź do **ustawienia portalu** bloku.
-9. Na **ryzyko naruszenia zabezpieczeń użytkownika** bloku, w obszarze **Włącz regułę**, wybierz pozycję **na** . 
-10. Wybierz jedną z następujących opcji:
-    
-    a. Blok wybierz **średni** w obszarze **bloku Zaloguj**.
-    
-    b. Aby wymusić zmianę bezpieczne hasło, wybierz **średni** w obszarze **wymusić uwierzytelnianie wieloskładnikowe**.
-11. Kliknij pozycję **Zapisz**.
-12. Teraz możesz przetestować dostępu warunkowego opartego na ryzyko, logując się przy użyciu użytkownik z poziomem ryzyka z podwyższonym poziomem uprawnień. Ryzyko użytkownika w przypadku średniej, w zależności od konfiguracji zasad, logowanie jest albo zablokowania lub zostało wymuszone, aby zmienić hasło. 
-    <br><br>
-    ![Playbook](./media/active-directory-identityprotection-playbook/201.png "Playbook")
-    <br>
+3. Na **Azure AD Identity Protection** kliknij przycisk **zasad ryzyka użytkownika**.
+4. W **przypisania** wybierz odpowiednich użytkowników (i grup) i poziom ryzyka użytkownika.
 
-## <a name="sign-in-risk"></a>Ryzyko związane z logowaniem
-**Aby przetestować znak ryzyko, należy wykonać następujące czynności:**
+    ![Ryzyko użytkownika](./media/active-directory-identityprotection-playbook/03.png "Podręcznikowym")
+
+5. W sekcji Formanty wybierz żądany kontroli dostępu (np. wymagają zmiany hasła).
+5. Jako **wymuszać zasady**, wybierz pozycję **poza**.
+6. Podniesienie poziomu ryzyka użytkownika testowe konto, na przykład symulując jednego zdarzenia ryzyka kilka razy.
+7. Poczekaj kilka minut, a następnie sprawdź, czy dla użytkownika na poziomie użytkownika jest średnia liczba godzin. W przeciwnym razie symulować więcej zdarzenia ryzyka dla użytkownika.
+8. Jako **wymuszać zasady**, wybierz pozycję **na**.
+9. Teraz możesz przetestować dostępu warunkowego opartego na ryzyko użytkownika, logując się przy użyciu użytkownik z poziomem ryzyka z podwyższonym poziomem uprawnień.
+    
+    
+
+### <a name="sign-in-risk-security-policy"></a>Zasady zabezpieczeń logowania ryzyka
+
+Aby uzyskać więcej informacji, zobacz [zasady zabezpieczeń użytkownika ryzyka](active-directory-identityprotection.md#user-risk-security-policy).
+
+![Logowanie ryzyka](./media/active-directory-identityprotection-playbook/01.png "Podręcznikowym")
+
+
+**Aby przetestować znak w zasadzie ryzyka, należy wykonać następujące czynności:**
 
 1. Zaloguj się do [https://portal.azure.com ](https://portal.azure.com) przy użyciu poświadczeń administratora globalnego dla dzierżawy.
-2. Przejdź do **ochronę tożsamości**.
-3. W głównym **Azure AD Identity Protection** bloku, kliknij przycisk **ustawienia**. 
-4. Na **ustawienia portalu** bloku, w obszarze **reguły zabezpieczeń**, kliknij przycisk **Zaloguj ryzyka**.
-5. Na ** Zaloguj ryzyka ** bloku, wybierz opcję **na** w obszarze **Włącz regułę**. 
-6. Wybierz jedną z następujących opcji:
-   
-   a. Aby zablokować, wybierz **średni** w obszarze **bloku Zaloguj**
-   
-   b. Aby wymusić zmianę bezpieczne hasło, wybierz **średni** w obszarze **wymusić uwierzytelnianie wieloskładnikowe**.
-7. Aby zablokować, należy wybrać średnia liczba godzin w bloku logowania.
-8. Aby wymusić uwierzytelnianie wieloskładnikowe, wybierz **średni** w obszarze **wymusić uwierzytelnianie wieloskładnikowe**.
-9. Kliknij przycisk **Zapisz**.
-10. Teraz możesz przetestować dostępu warunkowego opartego na ryzyko symulując nieznanych lokalizacji lub anonimowe IP ryzyka zdarzeń, ponieważ są one zarówno **średni** ryzyka zdarzenia.
+
+2. Przejdź do **Azure AD Identity Protection**.
+
+3. W głównym **Azure AD Identity Protection** kliknij przycisk **logowania zasad ryzyka**. 
+
+4. W **przypisania** sekcji, wybierz odpowiednich użytkowników (i grup) i zaloguj się poziom ryzyka.
+
+    ![Logowanie ryzyka](./media/active-directory-identityprotection-playbook/04.png "Podręcznikowym")
 
 
-![Playbook](./media/active-directory-identityprotection-playbook/200.png "Playbook")
+5. W **formanty** wybierz żądany kontroli dostępu (na przykład **wymusić uwierzytelnianie wieloskładnikowe**). 
+
+6. Jako **wymuszać zasady**, wybierz pozycję **na**.
+
+7. Kliknij pozycję **Zapisz**.
+
+8. Teraz możesz przetestować logowania dostępu warunkowego opartego na ryzyko logując się przy użyciu ryzykowne sesji (na przykład przy użyciu przeglądarki Tor). 
+
+ 
+
+
 
 
 ## <a name="see-also"></a>Zobacz także
-* [Ochronę tożsamości usługi Azure Active Directory](active-directory-identityprotection.md)
+
+- [Ochronę tożsamości usługi Azure Active Directory](active-directory-identityprotection.md)
 

@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 250e84550fdf3253f28d682e85fe4bf855e40a4d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f24daaf5690eb1d9a0ab3b27a3626d03e6021d99
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Przypisywanie licencji do użytkowników na podstawie członkostwa w grupie w usłudze Azure Active Directory
 
@@ -31,42 +31,42 @@ W tym przykładzie dzierżawcy zawiera grupę zabezpieczeń o nazwie **zarządza
 > [!NOTE]
 > Pewnych usług firmy Microsoft nie są dostępne we wszystkich lokalizacjach. Przed licencji mogą być przypisane do użytkownika, administrator musi określać właściwość Usage lokalizacji użytkownika.
 
-> Przypisywaniu licencji grupy użytkowników bez użycia lokalizacji określonej będzie dziedziczyć lokalizację katalogu. Jeśli użytkownicy w wielu lokalizacjach, zaleca się zawsze wartość lokalizacji użytkowania jako część programu przepływu tworzenia użytkownika w usłudze Azure AD (np. za pomocą AAD Connect) -, który zapewni wynik przypisania licencji zawsze jest poprawna i użytkownicy nie będą odbierać usług w lokalizacjach, które nie są dozwolone.
+> Przypisywaniu licencji grupy użytkowników bez użycia lokalizacji określonej dziedziczą lokalizację katalogu. Jeśli użytkownicy w wielu lokalizacjach, zaleca się zawsze wartość lokalizacji użytkowania jako część programu przepływu tworzenia użytkownika w usłudze Azure AD (np. za pomocą AAD Connect) -, które powodują wynik przypisania licencji zawsze jest poprawna i użytkownicy nie będą odbierać usługi w lokalizacjach, które nie są dozwolone.
 
 ## <a name="step-1-assign-the-required-licenses"></a>Krok 1: Przypisywanie licencji wymagane
 
 1. Zaloguj się do [ **portalu Azure** ](https://portal.azure.com) przy użyciu konta administratora. Zarządzanie licencjami, konto musi być administratorem konta rolę lub użytkownika administratora globalnego.
 
-2. Wybierz **więcej usług** w lewym okienku nawigacji, a następnie wybierz **usługi Azure Active Directory**. Można dodać tego bloku do ulubionych lub przypiąć go do pulpitu nawigacyjnego portalu.
+2. Wybierz **wszystkie usługi** w lewym okienku nawigacji, a następnie wybierz **usługi Azure Active Directory**. Można dodać do ulubionych w tym okienku lub przypiąć go do pulpitu nawigacyjnego portalu.
 
-3. Na **usługi Azure Active Directory** bloku, wybierz opcję **licencji**. Spowoduje to otwarcie bloku, w którym możesz wyświetlić i zarządzać wszystkich produktów objętego w dzierżawie.
+3. Na **usługi Azure Active Directory** okienku wybierz **licencji** aby otworzyć okienko, w którym możesz wyświetlić i zarządzać wszystkich produktów objętego w dzierżawie.
 
-4. W obszarze **wszystkich produktów**, wybierz Office 365 Enterprise E3 i Enterprise Mobility + Security wybierając nazwy produktu. Aby uruchomić przypisania, zaznacz **przypisać** w górnej części bloku.
+4. W obszarze **wszystkich produktów**, wybierz Office 365 Enterprise E3 i Enterprise Mobility + Security wybierając nazwy produktu. Aby uruchomić przypisania, zaznacz **przypisać** u góry okienka.
 
    ![Wszystkie produkty, przypisywanie licencji](media/active-directory-licensing-group-assignment-azure-portal/all-products-assign.png)
 
-5. Na **przypisanie licencji** bloku, kliknij przycisk **użytkowników i grup** otworzyć **użytkowników i grup** bloku. Wyszukaj nazwę grupy *zarządzania zasobami Ludzkimi stosują*, wybierz grupę, a następnie upewnij się potwierdzić, klikając **wybierz** w dolnej części bloku.
+5. Na **przypisanie licencji** okienku, kliknij przycisk **użytkowników i grup** otworzyć **użytkowników i grup** okienka. Wyszukaj nazwę grupy *zarządzania zasobami Ludzkimi stosują*, wybierz grupę, a następnie upewnij się potwierdzić, klikając **wybierz** u dołu okienka.
 
    ![Wybierz grupę](media/active-directory-licensing-group-assignment-azure-portal/select-a-group.png)
 
-6. Na **przypisanie licencji** bloku, kliknij przycisk **opcje przydziału (opcjonalnie)**, który zawiera wszystkie plany usługi uwzględnione w dwóch produktów, które wcześniej wybrano. Znajdź **usługi Yammer Enterprise** i włączyć ją **poza** można wyłączyć tę usługę od licencji produktu. Upewnij się, klikając **OK** w dolnej części **opcje przydziału**.
+6. Na **przypisanie licencji** okienku, kliknij przycisk **opcje przydziału (opcjonalnie)**, który zawiera wszystkie plany usługi uwzględnione w dwóch produktów, które wcześniej wybrano. Znajdź **usługi Yammer Enterprise** i włączyć ją **poza** można wyłączyć tę usługę od licencji produktu. Upewnij się, klikając **OK** w dolnej części **opcje przydziału**.
 
-   ![Opcje przydziału](media/active-directory-licensing-group-assignment-azure-portal/assignment-options.png)
+   ![Opcje przypisania](media/active-directory-licensing-group-assignment-azure-portal/assignment-options.png)
 
-7. Aby dokończyć przypisanie na **przypisanie licencji** bloku, kliknij przycisk **przypisać** w dolnej części bloku.
+7. Aby dokończyć przypisanie na **przypisanie licencji** okienku, kliknij przycisk **przypisać** w dolnej części okienka.
 
 8. W prawym górnym rogu, który pokazuje stan i wynik procesu zostanie wyświetlone powiadomienie. Jeśli przypisanie do grupy nie można ukończyć (na przykład ze względu na istniejące licencji w grupie), kliknij powiadomienie, aby wyświetlić szczegóły błędu.
 
-Firma Microsoft już teraz określić szablon licencji dla grupy zarządzania zasobami Ludzkimi stosują. Proces w tle w usłudze Azure AD został uruchomiony przetworzyć wszystkie istniejące elementy członkowskie tej grupy. Ta początkowa operacja może potrwać pewien czas zależnie od wielkości bieżącej grupy. W następnym kroku opiszemy jak sprawdzić, czy proces zostanie zakończony i ustalić, czy dalszej uwagi jest wymagane do rozwiązania problemów.
+Firma Microsoft już teraz określić szablon licencji dla grupy zarządzania zasobami Ludzkimi stosują. Proces w tle w usłudze Azure AD został uruchomiony przetworzyć wszystkie istniejące elementy członkowskie tej grupy. Ta początkowa operacja może potrwać pewien czas zależnie od wielkości bieżącej grupy. Następnym krokiem opisuje sposób sprawdzić, czy proces zostanie zakończony i ustalić, czy dalszej uwagi jest wymagane do rozwiązania problemów.
 
 > [!NOTE]
-> Możesz uruchomić tego samego przypisania z alternatywną lokalizację: **użytkowników i grup** w usłudze Azure AD. Przejdź do **usługi Azure Active Directory** > **użytkowników i grup** > **wszystkich grup**. Następnie znajdź grupie, zaznacz go, a następnie przejdź do **licencji** kartę. **Przypisać** przycisk u góry bloku spowoduje otwarcie bloku przypisania licencji.
+> Możesz uruchomić tego samego przypisania z alternatywną lokalizację: **użytkowników i grup** w usłudze Azure AD. Przejdź do **usługi Azure Active Directory** > **użytkowników i grup** > **wszystkich grup**. Następnie znajdź grupie, zaznacz go, a następnie przejdź do **licencji** kartę. **Przypisać** przycisk u góry okienka otwieranie okienka przypisania licencji.
 
 ## <a name="step-2-verify-that-the-initial-assignment-has-finished"></a>Krok 2: Sprawdź zakończenie początkowej przypisania
 
 1. Przejdź do **usługi Azure Active Directory** > **użytkowników i grup** > **wszystkich grup**. Następnie znajdź **zarządzania zasobami Ludzkimi stosują** grupy, które zostały przypisane licencje.
 
-2. Na **zarządzania zasobami Ludzkimi stosują** bloku grupy, wybierz opcję **licencji**. Dzięki temu można szybko upewnij się, jeśli pełni przypisane licencje do użytkowników, a jeśli wystąpiły żadne błędy, które należy zapoznać się. Dostępne są następujące informacje:
+2. Na **zarządzania zasobami Ludzkimi stosują** okienko grupy, wybierz opcję **licencji**. Dzięki temu można szybko upewnij się, jeśli pełni przypisane licencje do użytkowników, a jeśli wystąpiły żadne błędy, które należy zapoznać się. Dostępne są następujące informacje:
 
    - Lista licencje produktów, które są aktualnie przypisane do grupy. Wybierz pozycję Pokaż określonych usług, które zostały włączone i wprowadzać zmiany.
 
@@ -74,7 +74,7 @@ Firma Microsoft już teraz określić szablon licencji dla grupy zarządzania za
 
    - Informacje o użytkownikach, którzy są w stanie błędu, ponieważ nie można przypisać licencje do nich.
 
-   ![Opcje przydziału](media/active-directory-licensing-group-assignment-azure-portal/assignment-errors.png)
+   ![Opcje przypisania](media/active-directory-licensing-group-assignment-azure-portal/assignment-errors.png)
 
 3. Zobacz szczegółowe informacje o licencji przetwarzania pod **usługi Azure Active Directory** > **użytkowników i grup** > *Nazwa grupy* > **dzienniki inspekcji**. Należy uwzględnić następujące działania:
 
@@ -87,12 +87,12 @@ Firma Microsoft już teraz określić szablon licencji dla grupy zarządzania za
 ## <a name="step-3-check-for-license-problems-and-resolve-them"></a>Krok 3: Sprawdź licencji problemów i ich rozwiązania
 
 1. Przejdź do **usługi Azure Active Directory** > **użytkowników i grup** > **wszystkich grup**i Znajdź **zarządzania zasobami Ludzkimi stosują** grupy, które zostały przypisane licencje.
-2. Na **zarządzania zasobami Ludzkimi stosują** bloku grupy, wybierz opcję **licencji**. Powiadomienia u góry bloku wskazuje, że 10 użytkowników, których nie można przypisać licencje do użytkowników. Kliknięcie go otwiera listę wszystkich użytkowników w stan błędu licencjonowania dla tej grupy.
+2. Na **zarządzania zasobami Ludzkimi stosują** okienko grupy, wybierz opcję **licencji**. Powiadomienia u góry okienka wskazuje, że 10 użytkowników, których nie można przypisać licencje do użytkowników. Kliknięcie go otwiera listę wszystkich użytkowników w stan błędu licencjonowania dla tej grupy.
 3. **Nie powiodło się przypisania** kolumna zawiera informacje nam czy obu licencji produktu nie można przypisać do użytkowników. **Najważniejsze przyczyny niepowodzenia** kolumna zawiera przyczynę niepowodzenia. W takim przypadku ma **planów usługi powodujące konflikt**.
 
    ![Przypisania nie powiodło się](media/active-directory-licensing-group-assignment-azure-portal/failed-assignments.png)
 
-4. Wybierz użytkownika, aby otworzyć **licencji** bloku. Blok ten zawiera wszystkie licencje, które są aktualnie przypisane do użytkownika. W tym przykładzie użytkownik ma licencji Office 365 Enterprise E1, która została odziedziczona z **użytkowników kiosku** grupy. Powoduje to konflikt z licencji E3, do której próbowano zastosować z systemu **zarządzania zasobami Ludzkimi stosują** grupy. W związku z tym Brak licencji z tej grupy zostanie przypisana do użytkownika.
+4. Wybierz użytkownika, aby otworzyć **licencji** okienka. W tym okienku są wyświetlane wszystkie licencje, które są aktualnie przypisane do użytkownika. W tym przykładzie użytkownik ma licencji Office 365 Enterprise E1, która została odziedziczona z **użytkowników kiosku** grupy. Powoduje to konflikt z licencji E3, do której próbowano zastosować z systemu **zarządzania zasobami Ludzkimi stosują** grupy. W związku z tym Brak licencji z tej grupy zostanie przypisana do użytkownika.
 
    ![Widok licencji dla użytkownika](media/active-directory-licensing-group-assignment-azure-portal/user-license-view.png)
 
@@ -100,7 +100,7 @@ Firma Microsoft już teraz określić szablon licencji dla grupy zarządzania za
 
    ![Poprawnie przypisanej licencji](media/active-directory-licensing-group-assignment-azure-portal/license-correctly-assigned.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby dowiedzieć się więcej na temat zestawu do zarządzania licencji za pomocą grup funkcji, zobacz następujące artykuły:
 

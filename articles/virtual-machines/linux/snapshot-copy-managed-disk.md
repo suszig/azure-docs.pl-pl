@@ -13,11 +13,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: cynthn
-ms.openlocfilehash: da00c48f7da5a9be146f4fdb626c93db746c0f9b
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 152c5a1103d32af27f689086cfcc9cc1a7acc5d3
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-snapshot"></a>Utwórz migawkę 
 
@@ -65,7 +65,7 @@ Dane wyjściowe powinny wyglądać podobnie jak:
 ## <a name="use-azure-portal-to-take-a-snapshot"></a>Utworzenie migawki za pomocą portalu Azure 
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. Począwszy od lewej górnej kliknij **nowy** i wyszukaj **migawki**.
+2. Począwszy od lewej górnej kliknij **Utwórz zasób** i wyszukaj **migawki**.
 3. W bloku migawki kliknij **Utwórz**.
 4. Wprowadź **nazwa** dla migawki.
 5. Wybierz istniejącą [grupę zasobów](../../azure-resource-manager/resource-group-overview.md#resource-groups) lub wprowadź nazwę nowej grupy zasobów. 
@@ -77,7 +77,7 @@ Dane wyjściowe powinny wyglądać podobnie jak:
 Jeśli planujesz użyć migawki, aby utworzyć dysk zarządzany i dołączyć maszynę Wirtualną, która musi być wydajnych, użyj parametru `--sku Premium_LRS` z `az snapshot create` polecenia. Spowoduje to utworzenie migawki tak, aby była przechowywana jako dysk zarządzane Premium. Dysków zarządzanych w warstwie Premium działać lepiej, ponieważ są dysków półprzewodnikowych (SSD), ale są droższe niż dyski standardowe (HDD).
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
  Utwórz maszynę wirtualną z migawki, tworząc dysków zarządzanych z migawki, a następnie Trwa dołączanie nowego dysku zarządzanego jako dysk systemu operacyjnego. Aby uzyskać więcej informacji, zobacz [tworzenie maszyny Wirtualnej z migawki](./../scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fcli%2fmodule%2ftoc.json) skryptu.
 

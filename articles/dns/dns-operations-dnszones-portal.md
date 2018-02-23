@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2017
 ms.author: gwallace
-ms.openlocfilehash: 69a509612e6204fc93dd42bf2fe69cb165b5777c
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: cfb1debf9447cd66856b73166a133d5d498fcc79
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>Jak zarządzać stref DNS w portalu Azure
 
@@ -31,7 +31,7 @@ W tym artykule przedstawiono sposób zarządzania stref DNS przy użyciu portalu
 ## <a name="create-a-dns-zone"></a>Tworzenie strefy DNS
 
 1. Logowanie się do witryny Azure Portal
-2. W menu Centrum kliknij pozycję **Nowa > Sieć >** , a następnie kliknij pozycję **Strefa DNS**, aby otworzyć blok Tworzenie strefy DNS.
+2. W menu centralnym kliknij przycisk, a następnie kliknij przycisk **tworzenie zasobu > Sieć >** , a następnie kliknij przycisk **strefy DNS** aby otworzyć blok strefy DNS Utwórz.
 
     ![Strefa DNS](./media/dns-operations-dnszones-portal/openzone650.png)
 

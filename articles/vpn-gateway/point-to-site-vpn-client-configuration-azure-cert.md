@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: b18e01a780f6371ecae3298a6f3f41949090b9e8
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 0ca7b7ca9435d1ba05a2cc0951f5bc88b51bf81b
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-point-to-site-configurations"></a>Utwórz i zainstaluj VPN plików konfiguracji klienta dla natywnych Azure certyfikatu konfiguracji uwierzytelniania punkt-lokacja
 
@@ -66,6 +66,11 @@ Pliki konfiguracji klienta przy użyciu programu PowerShell, można wygenerować
 ## <a name="installwin"></a>Zainstaluj pakiet konfiguracji klienta VPN systemu Windows
 
 Na każdym komputerze klienckim z systemem Windows można użyć tej samej konfiguracji pakietu klienta VPN, tak długo, jak wersja pasuje do architektury dla klienta. Aby uzyskać listę systemów operacyjnych klienta, które są obsługiwane, zobacz sekcję punkt-lokacja [bramy sieci VPN — często zadawane pytania](vpn-gateway-vpn-faq.md#P2S).
+
+>[!NOTE]
+>Musi mieć prawa administratora na komputerze klienckim z systemem Windows, z którym chcesz się połączyć.
+>
+>
 
 Aby skonfigurować natywny klient VPN systemu Windows do uwierzytelniania certyfikatów, wykonaj następujące kroki:
 

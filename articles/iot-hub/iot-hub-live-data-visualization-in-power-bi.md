@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: xshi
-ms.openlocfilehash: b190fea06ffc2406d781c7edad091f097cca9c2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 82915a92464f240591777595e878a534cde0136c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Wizualizacja danych czujnika w czasie rzeczywistym z Centrum IoT Azure przy użyciu usługi Power BI
 
@@ -44,7 +44,7 @@ Sposób do wizualizacji danych czujnika w czasie rzeczywistym, który odbiera Ce
   - Aktywna subskrypcja platformy Azure.
   - Centrum Azure IoT w ramach Twojej subskrypcji.
   - Aplikacja klienta, która wysyła komunikaty do Centrum Azure IoT.
-- Konto usługi Power BI. ([Spróbuj bezpłatnie usługę Power BI](https://powerbi.microsoft.com/))
+- A Power BI account. ([Spróbuj bezpłatnie usługę Power BI](https://powerbi.microsoft.com/))
 
 [!INCLUDE [iot-hub-get-started-create-consumer-group](../../includes/iot-hub-get-started-create-consumer-group.md)]
 
@@ -52,7 +52,7 @@ Sposób do wizualizacji danych czujnika w czasie rzeczywistym, który odbiera Ce
 
 ### <a name="create-a-stream-analytics-job"></a>Tworzenie zadania usługi Stream Analytics
 
-1. W portalu Azure, kliknij przycisk Nowy > Internetu rzeczy > Zadanie usługi Stream Analytics.
+1. W [portalu Azure](https://portal.azure.com), kliknij przycisk **Utwórz zasób** > **Internetu rzeczy** > **zadanie usługi Stream Analytics**.
 1. Wprowadź następujące informacje dla zadania.
 
    **Nazwa zadania**: Nazwa zadania. Nazwa musi być unikatowa w skali globalnej.
@@ -61,7 +61,7 @@ Sposób do wizualizacji danych czujnika w czasie rzeczywistym, który odbiera Ce
 
    **Lokalizacja**: Użyj tej samej lokalizacji co grupie zasobów.
 
-   **Przypnij do pulpitu nawigacyjnego**: Zaznacz tę opcję, by mieć łatwy dostęp do Centrum IoT z poziomu pulpitu nawigacyjnego.
+   **Przypnij do pulpitu nawigacyjnego**: zaznacz tę opcję, aby mieć łatwy dostęp do centrum IoT Hub z pulpitu nawigacyjnego.
 
    ![Utwórz zadanie usługi Stream Analytics na platformie Azure](media/iot-hub-live-data-visualization-in-power-bi/2_create-stream-analytics-job-azure.png)
 
@@ -153,7 +153,7 @@ Wprowadzono łącze do raportu udostępnienie osobom dostęp do raportów i frag
 
 Firma Microsoft oferuje także [aplikacji mobilnych usługi Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-power-bi-apps-for-mobile-devices/) do przeglądania i interakcji z raportów i pulpitów nawigacyjnych usługi Power BI na swoim urządzeniu przenośnym.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Pomyślnie zastosowano usługi Power BI do wizualizacji danych czujnika w czasie rzeczywistym z Centrum Azure IoT.
 Istnieje inny sposób wizualizuj dane z Centrum IoT Azure. Zobacz [użyj aplikacji sieci Web platformy Azure do wizualizacji danych czujnika w czasie rzeczywistym z Centrum IoT Azure](iot-hub-live-data-visualization-in-web-apps.md).

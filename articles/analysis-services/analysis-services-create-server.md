@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 10f34fe17c6b8faad3bcb7bcffe9d9c3c0d8b10a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 54b9c9df1c368575c271a44e4738a2fc25ac4798
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-azure-analysis-services-server-in-azure-portal"></a>Tworzenie serwera usług Azure Analysis Services w portalu Azure
 W tym artykule przedstawiono tworzenie zasobu serwera usług Analysis Services w ramach subskrypcji platformy Azure.
@@ -50,12 +50,12 @@ Aby ukończyć ten przewodnik Szybki Start, musisz spełnić następujące warun
    * **Warstwa cenowa**: Wybierz warstwę cenową. Maksymalnie 400 GB modele tabelaryczne są obsługiwane. Aby dowiedzieć się więcej, zobacz [cennik usług Azure Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/).
 4. Kliknij przycisk **Utwórz**.
 
-Utwórz potrzebuje zazwyczaj w obszarze chwilę. często tylko kilka sekund. W przypadku wybrania **dodać do portalu**, przejdź do portalu w taki sposób, aby wyświetlić nowy serwer. Lub przejdź do **więcej usług** > **usług Analysis Services** czy serwer jest gotowy.
+Utwórz potrzebuje zazwyczaj w obszarze chwilę. często tylko kilka sekund. W przypadku wybrania **dodać do portalu**, przejdź do portalu w taki sposób, aby wyświetlić nowy serwer. Lub przejdź do **wszystkie usługi** > **usług Analysis Services** czy serwer jest gotowy.
 
  ![Pulpit nawigacyjny](./media/analysis-services-create-server/aas-create-server-dashboard.png)
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Po utworzeniu serwera, możesz [wdrożenia modelu](analysis-services-deploy.md) do niej przy użyciu narzędzi SSDT lub SSMS.
 
 Jeśli model wdrażania na serwerze nawiązuje połączenie z lokalnych źródeł danych, musisz zainstalować [bramy danych lokalnych](analysis-services-gateway.md) na komputerze w sieci.

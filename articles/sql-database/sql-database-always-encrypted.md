@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2017
 ms.author: sstein
-ms.openlocfilehash: 47154202d0a8f7704561676fa645b5ccdb5b8c01
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 8e86648195811a666a197b6ee06ad610a1c8d568
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-the-windows-certificate-store"></a>Zawsze zaszyfrowane: Ochrona poufnych danych w bazie danych SQL i przechowywania kluczy szyfrowania w magazynie certyfikatów systemu Windows
 
@@ -46,9 +46,9 @@ W tym samouczku potrzebne są:
 * [.NET framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) lub nowszej (na komputerze klienckim).
 * Program [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 
-## <a name="create-a-blank-sql-database"></a>Utwórz pustą bazę danych SQL
+## <a name="create-a-blank-sql-database"></a>Tworzenie pustej bazy danych SQL
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-2. Kliknij przycisk **nowe** > **dane i magazyn** > **bazy danych SQL**.
+2. Kliknij przycisk **Utwórz zasób** > **dane i magazyn** > **bazy danych SQL**.
 3. Utwórz **puste** bazy danych o nazwie **Clinic** na nowym lub istniejącym serwerze. Aby uzyskać szczegółowe instrukcje dotyczące tworzenia bazy danych w portalu Azure, zobacz [pierwszą bazę danych Azure SQL](sql-database-get-started-portal.md).
    
     ![Tworzenie pustej bazy danych](./media/sql-database-always-encrypted/create-database.png)
@@ -60,7 +60,7 @@ Parametry połączenia należy później w samouczku. Po utworzeniu bazy danych,
    
     ![Skopiuj parametry połączenia](./media/sql-database-always-encrypted/connection-strings.png)
 
-## <a name="connect-to-the-database-with-ssms"></a>Połączenie z bazą danych z narzędzia SSMS
+## <a name="connect-to-the-database-with-ssms"></a>Nawiązywanie połączenia z bazą danych za pomocą programu SSMS
 Otwórz SSMS i nawiąż połączenie z serwerem z bazą danych Clinic.
 
 1. Otwórz program SSMS. (Kliknij **Connect** > **aparatu bazy danych** otworzyć **Połącz z serwerem** okna, jeśli nie jest otwarty).
@@ -503,7 +503,7 @@ Aby uzyskać dostęp do danych w postaci zwykłego tekstu przy użyciu narzędzi
 > 
 > 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Po utworzeniu bazy danych, która używa zawsze zaszyfrowane, można wykonać następujące czynności:
 
 * W tym przykładzie należy uruchomić na innym komputerze. Nie będzie on mieć dostęp do kluczy szyfrowania, więc nie ma dostępu do danych w postaci zwykłego tekstu ani nie będzie działać prawidłowo.

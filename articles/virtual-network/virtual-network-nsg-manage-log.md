@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2017
 ms.author: jdial
-ms.openlocfilehash: 552f37dd704de25159bc0f0ad34fdae9ed8b73f5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6beb9ae1b64e27df0a4eefefd592c7850efc7d2d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="log-analytics-for-network-security-groups-nsgs"></a>Usługa Log Analytics dla sieciowych grup zabezpieczeń
 
@@ -46,7 +46,7 @@ Należy włączyć rejestrowanie diagnostyczne *każdego* NSG, które mają być
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Aby włączyć rejestrowanie, zaloguj się za pomocą portalu [portal](https://portal.azure.com). Kliknij przycisk **więcej usług**, wpisz *sieciowej grupy zabezpieczeń*. Wybierz grupy NSG, aby włączyć rejestrowanie. Postępuj zgodnie z instrukcjami dla zasobów obliczeniowych z systemem innym niż w [Włączanie dzienników diagnostycznych w portalu](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs) artykułu. Wybierz **NetworkSecurityGroupEvent**, **NetworkSecurityGroupRuleCounter**, lub oba rodzaje dzienników.
+Aby włączyć rejestrowanie, zaloguj się za pomocą portalu [portal](https://portal.azure.com). Kliknij przycisk **wszystkie usługi**, wpisz *sieciowej grupy zabezpieczeń*. Wybierz grupy NSG, aby włączyć rejestrowanie. Postępuj zgodnie z instrukcjami dla zasobów obliczeniowych z systemem innym niż w [Włączanie dzienników diagnostycznych w portalu](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs) artykułu. Wybierz **NetworkSecurityGroupEvent**, **NetworkSecurityGroupRuleCounter**, lub oba rodzaje dzienników.
 
 ### <a name="powershell"></a>PowerShell
 

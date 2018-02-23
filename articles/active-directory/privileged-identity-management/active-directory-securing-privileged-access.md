@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/17/2017
 ms.author: kgremban
 ms.custom: pim
-ms.openlocfilehash: e1bc0f27b14beef91b4deb68dc625d75195445fb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6611bd07ad4c65953349c62cae3ece735fd85e70
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="securing-privileged-access-in-azure-ad"></a>Zabezpieczanie uprzywilejowanego dostępu w usłudze Azure AD
 Zabezpieczanie uprzywilejowanego dostępu jest krytyczne pierwszy krok w celu ochrony zasobów biznesowych w organizacji modern. Uprzywilejowane konta są kontami, które Administruj i Zarządzaj systemów informatycznych. Osoby atakujące przez docelowe te konta do uzyskiwania dostępu do danych organizacji i systemów. Aby zabezpieczyć uprzywilejowanego dostępu, można odizolować kont i systemów ryzyka narażenia na złośliwy użytkownik.
@@ -50,7 +50,7 @@ Aby uzyskać więcej informacji, zobacz [MFA dla usługi Office 365 i uwierzytel
 ## <a name="time-bound-privileges"></a>Uprawnienia powiązane z czasu
 W niektórych organizacjach może się okazać mają zbyt wielu użytkownikom wysoko uprzywilejowane ról. Użytkownik mogły zostać dodane do roli dla danego działania, takie jak zalogowania się do usługi, ale nie był używany często później tych uprawnień.
 
-Aby zmniejszyć czas ekspozycji uprawnień i zwiększyć Twojej wgląd w ich użycia, ograniczyć użytkownikom na pobieranie tylko na swoje uprawnienia "just in time" (JIT) lub przypisać te role skróconą czas bez obaw uprawnienia zostanie odwołany automatycznie. W przypadku usługi Azure Active Directory, zasobów Azure (wersja zapoznawcza) i usług Online firmy Microsoft, można użyć [Azure AD Privileged Identity zarządzania (PIM)](http://aka.ms/AzurePIM).
+Aby zmniejszyć czas ekspozycji uprawnień i zwiększyć Twojej wgląd w ich użycia, ograniczyć użytkownikom na pobieranie tylko na swoje uprawnienia "just in time" (JIT) lub przypisać te role skróconą czas bez obaw uprawnienia zostanie odwołany automatycznie. W przypadku usługi Azure Active Directory, zasobów Azure (wersja zapoznawcza) i usług Online firmy Microsoft, można użyć [Azure AD Privileged Identity zarządzania (PIM)](https://aka.ms/AzurePIM).
 
 ![Pulpit nawigacyjny usługi PIM][2]
 
@@ -68,7 +68,7 @@ Z kontroli dostępu warunkowego usługi Azure Active Directory sprawdza określo
 * Włącz [Azure AD Identity Protection](../active-directory-identityprotection.md)
 * Włącz [kontroli dostępu warunkowego](../active-directory-conditional-access-azure-portal.md)
 
-Aby uzyskać więcej informacji na tworzeniu planu pełną zabezpieczeń, zobacz sekcję "obowiązki klienta i plan" [Microsoft Cloud Security dla architektów Enterprise](http://aka.ms/securecustomer) dokumentu. Aby uzyskać więcej informacji na angażowaniu usług firmy Microsoft z dowolnego z tych tematów, skontaktuj się z przedstawicielem firmy Microsoft lub odwiedź nasze [strony rozwiązania bezpieczeństwa](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx).
+Aby uzyskać więcej informacji na tworzeniu planu pełną zabezpieczeń, zobacz sekcję "obowiązki klienta i plan" [Microsoft Cloud Security dla architektów Enterprise](https://aka.ms/securecustomer) dokumentu. Aby uzyskać więcej informacji na angażowaniu usług firmy Microsoft z dowolnego z tych tematów, skontaktuj się z przedstawicielem firmy Microsoft lub odwiedź nasze [strony rozwiązania bezpieczeństwa](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx).
 
 <!--Image references-->
 [1]: ../media/active-directory-privileged-identity-management-configure/Search_PIM.png

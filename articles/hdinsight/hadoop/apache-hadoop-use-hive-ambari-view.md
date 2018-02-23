@@ -14,59 +14,64 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/19/2018
+ms.date: 02/13/2018
 ms.author: larryfr
-ms.openlocfilehash: 5f66e60249af489e695029cbb072f3cc881bb039
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: af5fe44b611e8ff9d93aba8a30c71213c452aff9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-ambari-hive-view-with-hadoop-in-hdinsight"></a>Użyj widoku Hive narzędzia Ambari z platformą Hadoop w usłudze HDInsight
 
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-Dowiedz się, jak uruchamianie zapytań Hive przy użyciu widoku Hive narzędzia Ambari. Ambari to zarządzania i monitorowania narzędzia dostarczanego z klastrami HDInsight opartych na systemie Linux. Jednym z funkcje oferowane przez Ambari jest interfejsem użytkownika sieci Web, który może służyć do uruchamiania zapytań Hive.
-
-> [!NOTE]
-> Ambari ma wiele funkcji, które nie zostały omówione w tym dokumencie. Aby uzyskać więcej informacji, zobacz [Zarządzanie klastrami usługi HDInsight przy użyciu interfejsu użytkownika sieci Web Ambari](../hdinsight-hadoop-manage-ambari.md).
+Dowiedz się, jak uruchamianie zapytań Hive przy użyciu widoku Hive narzędzia Ambari. Hive View pozwala na tworzenie, optymalizacja i uruchamianie zapytań Hive z przeglądarki sieci web.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Klaster usługi HDInsight opartej na systemie Linux. Aby uzyskać informacje dotyczące tworzenia klastrów, zobacz [rozpocząć korzystanie z platformy Hadoop w usłudze HDInsight](apache-hadoop-linux-tutorial-get-started.md).
+* Opartych na systemie Linux platformą Hadoop w klastrze usługi HDInsight w wersji 3.4 lub większą.
 
-> [!IMPORTANT]
-> Kroki opisane w tym dokumencie wymagają klastra usługi Azure HDInsight, która używa systemu Linux. Linux jest tylko system operacyjny używany w usłudze HDInsight w wersji 3.4 lub nowszej. Aby uzyskać więcej informacji, zobacz sekcję [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Wycofanie usługi HDInsight w systemie Windows).
+  > [!IMPORTANT]
+  > Linux jest jedynym systemem operacyjnym używanym w połączeniu z usługą HDInsight w wersji 3.4 lub nowszą. Aby uzyskać więcej informacji, zobacz sekcję [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Wycofanie usługi HDInsight w systemie Windows).
 
-## <a name="open-the-hive-view"></a>Otwórz widok gałęzi
+* Przeglądarki sieci web
 
-Widoki Ambari można otworzyć z portalu Azure. Wybierz z klastrem usługi HDInsight, a następnie wybierz **widoków Ambari** z **szybkie linki** sekcji.
+## <a name="run-a-hive-query"></a>Uruchomienie zapytania programu Hive
 
-![Szybkie linki części portalu](./media/apache-hadoop-use-hive-ambari-view/quicklinks.png)
+1. Otwórz [portal Azure](https://portal.azure.com).
 
-Wybierz z listy widoków, __Hive View__.
+2. Wybierz z klastrem usługi HDInsight, a następnie wybierz **widoków Ambari** z **szybkie linki** sekcji.
 
-![Wybrany widok gałęzi](./media/apache-hadoop-use-hive-ambari-view/select-hive-view.png)
+    ![Szybkie linki części portalu](./media/apache-hadoop-use-hive-ambari-view/quicklinks.png)
 
-> [!NOTE]
-> Gdy uzyskujesz dostęp do narzędzia Ambari, zostanie wyświetlony monit o uwierzytelniania do lokacji. Wprowadź administratora (domyślna `admin`) konta i hasło, które zostały użyte podczas tworzenia klastra.
+    Gdy monit o uwierzytelnienie, użyj logowania do klastra (domyślna `admin`) konta i hasło podane podczas tworzenia klastra.
 
-Należy wyświetlić stronę podobną do poniższej ilustracji:
+3. Wybierz z listy widoków, __Hive View__.
 
-![Obraz arkusza kwerend widoku Hive](./media/apache-hadoop-use-hive-ambari-view/ambari-hive-view.png)
+    ![Wybrany widok gałęzi](./media/apache-hadoop-use-hive-ambari-view/select-hive-view.png)
 
-## <a name="run-a-query"></a>Uruchamianie zapytania
+    Strona widoku Hive jest podobna do poniższej ilustracji:
 
-Aby uruchomić zapytanie Hive, wykonaj następujące kroki w widoku Hive.
+    ![Obraz arkusza kwerend widoku Hive](./media/apache-hadoop-use-hive-ambari-view/ambari-hive-view.png)
 
-1. Z __zapytania__ karcie, wklej poniższe instrukcje HiveQL do arkusza:
+4. Z __zapytania__ karcie, wklej poniższe instrukcje HiveQL do arkusza:
 
     ```hiveql
     DROP TABLE log4jLogs;
-    CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
+    CREATE EXTERNAL TABLE log4jLogs(
+        t1 string,
+        t2 string,
+        t3 string,
+        t4 string,
+        t5 string,
+        t6 string,
+        t7 string)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
     STORED AS TEXTFILE LOCATION '/example/data/';
-    SELECT t4 AS sev, COUNT(*) AS cnt FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;
+    SELECT t4 AS loglevel, COUNT(*) AS count FROM log4jLogs 
+        WHERE t4 = '[ERROR]' 
+        GROUP BY t4;
     ```
 
     Te instrukcje, wykonaj następujące czynności:
@@ -82,42 +87,20 @@ Aby uruchomić zapytanie Hive, wykonaj następujące kroki w widoku Hive.
 
    * `SELECT`: Wybiera liczbę wszystkich wierszy, gdzie t4 kolumna zawiera wartość [Błąd].
 
-     > [!NOTE]
-     > Użyj tabel zewnętrznych, jeśli potrzebujesz danych do zaktualizowania przez źródło zewnętrzne, takie jak dane automatyczne przekazywanie procesu lub inna operacja MapReduce. Usunięcie tabeli zewnętrznej jest *nie* Usuń dane, definicję tabeli.
-
     > [!IMPORTANT]
     > Pozostaw __bazy danych__ zaznaczenie na __domyślne__. Przykłady w tym dokumencie Użyj domyślnej bazy danych uwzględnionych w usłudze HDInsight.
 
-2. Aby uruchomić zapytanie, należy użyć **Execute** znajdujący się poniżej arkusza. Przycisk zmieni kolor pomarańczowy, a tekst zostanie zmieniony na **zatrzymać**.
+5. Aby uruchomić zapytanie, należy użyć **Execute** znajdujący się poniżej arkusza. Przycisk zmieni kolor pomarańczowy, a tekst zostanie zmieniony na **zatrzymać**.
 
-3. Po zakończeniu zapytanie **wyniki** karcie są wyświetlane wyniki operacji. Następujący tekst jest wynik kwerendy:
+6. Po zakończeniu zapytanie **wyniki** karcie są wyświetlane wyniki operacji. Następujący tekst jest wynik kwerendy:
 
-        sev       cnt
-        [ERROR]   3
+        loglevel       count
+        [ERROR]        3
 
     Można użyć **dzienniki** kartę, aby wyświetlić informacje o rejestrowaniu utworzenia zadania.
 
    > [!TIP]
    > Pobierz lub zapisać wyniki z **Zapisz wyniki** okno dialogowe listy rozwijanej w prawym górnym rogu **wyniki przetwarzania zapytania** sekcji.
-
-4. Wybierz pierwsze cztery wiersze tego zapytania, a następnie wybierz **Execute**. Zwróć uwagę, że nie ma żadnych wyników po zakończeniu zadania. Przy użyciu **Execute** przycisku po wybraniu części zapytania działa tylko wybrane instrukcje. W takim przypadku zaznaczenie nie włączono końcowej instrukcji, która pobiera wiersze z tabeli. Jeśli wybierzesz tylko ten wiersz i użyj **Execute**, powinny pojawić się oczekiwanych rezultatów.
-
-5. Aby dodać arkusz, należy użyć **nowy arkusz** przycisk w dolnej części **edytora zapytań**. W nowym arkuszu wprowadź poniższe instrukcje HiveQL:
-
-    ```hiveql
-    CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
-    INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
-    ```
-
-  Te instrukcje, wykonaj następujące czynności:
-
-   * **Utwórz Tabela Jeśli nie ISTNIEJE**: tworzy tabelę, jeśli już nie istnieje. Ponieważ **zewnętrznych** — słowo kluczowe nie jest używana, jest tworzony wewnętrznej tabeli. Wewnętrznej tabeli są przechowywane w magazynie danych programu Hive i zarządza całkowicie Hive. W przeciwieństwie do tabel zewnętrznych, upuszczając wewnętrznej tabeli usuwa danych źródłowych.
-
-   * **ORC AS PRZECHOWYWANE**: przechowuje dane w formacie zoptymalizowanych pod kątem wiersza kolumnowy (ORC). ORC jest wysoce zoptymalizowane i wydajne formatu do przechowywania danych gałęzi.
-
-   * **ZASTĄP INSERT... Wybierz**: wybiera wiersze z **log4jLogs** tabeli, która zawiera `[ERROR]`, a następnie wstawia dane do **errorLogs** tabeli.
-
-Użyj **Execute** przycisk, aby uruchomić to zapytanie. **Wyniki** karta nie zawiera żadnych informacji, gdy kwerenda zwraca zero wierszy. Stan powinny być widoczne jako **zakończyło się pomyślnie** po zakończeniu działania zapytania.
 
 ### <a name="visual-explain"></a>Wyjaśnić Visual
 
@@ -152,9 +135,14 @@ Z **zapytania** kartę, można opcjonalnie zapisać zapytania. Po zapisaniu kwer
 
 ![Obraz karty zapisane kwerendy](./media/apache-hadoop-use-hive-ambari-view/saved-queries.png)
 
+> [!TIP]
+> Zapisane kwerendy są przechowywane w magazynie klastra domyślne. Można znaleźć zapisane kwerendy w ścieżce `/user/<username>/hive/scripts`. Są one przechowywane jako zwykły tekst `.hql` plików.
+>
+> W przypadku usunięcia klastra, ale zachować magazynu, można użyć narzędzia, takie jak [Eksploratora usługi Storage Azure](https://azure.microsoft.com/features/storage-explorer/) lub Eksploratora usługi Data Lake Storage (z [Azure Portal](https://portal.azure.com)) można pobrać zapytania.
+
 ## <a name="user-defined-functions"></a>Funkcje zdefiniowane przez użytkownika
 
-Można również rozszerzyć zasięg Hive za pomocą funkcji zdefiniowanej przez użytkownika (UDF). Użyj funkcji zdefiniowanej przez użytkownika do implementacji funkcji lub logikę, która nie jest łatwo zgodnie z modelem w HiveQL.
+Hive można rozszerzyć za pomocą funkcji zdefiniowanej przez użytkownika (UDF). Użyj funkcji zdefiniowanej przez użytkownika do implementacji funkcji lub logikę, która nie jest łatwo zgodnie z modelem w HiveQL.
 
 Deklarowanie i Zapisywanie zestawu funkcji UDF przy użyciu **UDF** u góry widoku Hive. Te funkcje UDF mogą być używane z **edytora zapytań**.
 

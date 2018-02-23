@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: johnkem
-ms.openlocfilehash: f093c0cfdc6f59133c39cc8c2b10f9fe74692977
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: aef427483d647c53ba45688ce33a75f876115d08
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorowanie aktywności subskrypcji z dziennika aktywności platformy Azure
 **Dziennika aktywności platformy Azure** jest Dziennik subskrypcji, która zapewnia wgląd w zdarzenia na poziomie subskrypcji, które wystąpiły na platformie Azure. W tym zakresie danych z usługi Azure Resource Manager danych operacyjnych do aktualizacji na zdarzenia kondycji usługi. Dziennik aktywności była wcześniej znana jako "Dzienników inspekcji" lub "Operacyjne dzienniki", ponieważ zdarzenia płaszczyzny kontroli Raporty Kategoria administracyjna dla subskrypcji. Korzystając z dziennika aktywności, można określić ", co, która i kiedy" dla żadnego zapisu (PUT, POST, DELETE) podejmowaną w odniesieniu do zasobów w ramach subskrypcji. Można także zrozumienie stanu operacji i inne odpowiednie właściwości. Dziennik nie zawiera operacje odczytu (GET) lub operacji dla zasobów korzystających z klasycznego / modelu "RDFE".
@@ -73,9 +73,9 @@ Poniżej podano niektóre czynności, które można wykonywać z dziennika aktyw
 
 ## <a name="query-the-activity-log-in-the-azure-portal"></a>Zapytanie dziennik aktywności w portalu Azure
 W portalu Azure można wyświetlić dziennik aktywności w kilku miejscach:
-* **Bloku dziennika aktywności**, otwieranego przez wyszukiwanie w okienku nawigacji po lewej stronie dziennik aktywności w obszarze "Więcej usługi".
-* **Bloku Monitor**, który pojawia się domyślnie w okienku nawigacji po lewej stronie. Dziennik aktywności jest jedną sekcję tego bloku Azure Monitor.
-* Dowolnego zasobu **bloku zasobów**, na przykład blok konfiguracji maszyny wirtualnej. Dziennik aktywności jest się w sekcji większość tych blokach zasobów i kliknięcie jej automatycznie filtruje zdarzenia do tych związanych z tym określonego zasobu.
+* **Dziennik aktywności** dostępnej przez wyszukiwanie dziennik aktywności w obszarze **wszystkie usługi** w okienku nawigacji po lewej stronie.
+* **Monitor** pojawia się domyślnie w okienku nawigacji po lewej stronie. Dziennik aktywności jest jedną sekcję Azure Monitor.
+* Dowolnego zasobu **zasobów**, na przykład blok konfiguracji maszyny wirtualnej. Dziennik aktywności jest się w sekcji większość tych blokach zasobów i kliknięcie jej automatycznie filtruje zdarzenia do tych związanych z tym określonego zasobu.
 
 W portalu Azure można filtrować dziennik aktywności przez te pola:
 * TimeSpan — godzina rozpoczęcia i zakończenia zdarzenia.
@@ -113,7 +113,7 @@ Te ustawienia można skonfigurować przy użyciu opcji "Export" w bloku dziennik
 ### <a name="configure-log-profiles-using-the-azure-portal"></a>Konfigurowanie profilów dziennika przy użyciu portalu Azure
 Możesz strumienia dziennika aktywności do Centrum zdarzeń lub przechowywać je w ramach konta magazynu przy użyciu opcji "Export" w portalu Azure.
 
-1. Przejdź do **dziennik aktywności** bloku przy użyciu menu po lewej stronie portalu.
+1. Przejdź do **dziennik aktywności** za pomocą menu po lewej stronie portalu.
 
     ![Przejdź do dziennika aktywności w portalu](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
 2. Kliknij przycisk **wyeksportować** u góry bloku.

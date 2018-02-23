@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: barclayn
-ms.openlocfilehash: 97e8d23d90821489575b3ac6e8f1e810b7ce25a9
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 51dca8955745b40a9126b142ea15e707fe58bc72
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-personal-data-in-microsoft-azure"></a>Zarządzanie danych osobowych w Microsoft Azure
 
@@ -59,23 +59,23 @@ Użytkownik musi zalogować się przy użyciu konta, które jest administratorem
 
 1. Zaloguj się do [portalu Azure](https://portal.azure.com) przy użyciu konta, które jest administratorem globalnym katalogu.
 
-2. Wybierz **więcej usług**, wprowadź **użytkowników i grup** w polu tekstowym, a następnie wybierz **Enter**.
+2. Wybierz **wszystkie usługi**, wprowadź **użytkowników i grup** w polu tekstowym, a następnie wybierz **Enter**.
 
-    ![nośnik/image1.png](media/manage-personal-data-azure/image001.png)
+    ![media/image1.png](media/manage-personal-data-azure/image001.png)
 
 3. Na **użytkowników i grup** bloku, wybierz opcję **użytkowników**.
 
-    ![nośnik/image2.png](media/manage-personal-data-azure/image003.png)
+    ![media/image2.png](media/manage-personal-data-azure/image003.png)
 
 4. Na **użytkowników i grup — Użytkownicy** bloku, wybierz użytkownika z listy, a następnie w bloku dla wybranego użytkownika, wybierz opcję **profilu** Aby wyświetlić informacje o profilu użytkownika, który musi zostać poprawiony lub zaktualizować.
 
-    ![nośnik/image3.png](media/manage-personal-data-azure/image005.png)
+    ![media/image3.png](media/manage-personal-data-azure/image005.png)
 
 5. Popraw lub zaktualizować informacje, a następnie na pasku poleceń Wybierz **zapisać.**
 
 6.  W bloku dla wybranego użytkownika, wybierz **pracy informacji** Aby wyświetlić informacje o pracy użytkownika, który musi zostać poprawiony lub zaktualizować.
 
-    ![nośnik/image4.png](media/manage-personal-data-azure/image007.png)
+    ![media/image4.png](media/manage-personal-data-azure/image007.png)
 
 7. Popraw lub zaktualizować informacje o pracy użytkownika, a następnie na pasku poleceń Wybierz **zapisać.**
 
@@ -83,17 +83,17 @@ Użytkownik musi zalogować się przy użyciu konta, które jest administratorem
 
 1. Zaloguj się do [portalu Azure](https://portal.azure.com) przy użyciu konta, które jest administratorem globalnym katalogu.
 
-2. Wybierz **więcej usług**, wprowadź **użytkowników i grup** w polu tekstowym, a następnie wybierz **Enter**.
+2. Wybierz **wszystkie usługi**, wprowadź **użytkowników i grup** w polu tekstowym, a następnie wybierz **Enter**.
 
     ![](media/manage-personal-data-azure/image001.png)
 
 3. Na **użytkowników i grup** bloku, wybierz opcję **użytkowników**.
 
-    ![nośnik/image2.png](media/manage-personal-data-azure/image003.png)
+    ![media/image2.png](media/manage-personal-data-azure/image003.png)
 
 4. W bloku **Użytkownicy i grupy — Użytkownicy** wybierz użytkownika z listy.
 
-    ![nośnik/image3.png](media/manage-personal-data-azure/image007.png)
+    ![media/image3.png](media/manage-personal-data-azure/image007.png)
 
 5. W bloku dla wybranego użytkownika, wybierz **omówienie**, a następnie na pasku poleceń Wybierz **usunąć**.
 

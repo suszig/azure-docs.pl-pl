@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 35064c792b72222d59b1d3f0913a92a4a2b34612
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 5143abdde715424a41a53bb661db342acf817e0c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-cost-of-data-retention-with-your-log-analytics-workspace"></a>Zarządzanie koszt przechowywania danych z obszaru roboczego analizy dzienników
 Gdy zarejestrujesz się w celu wykonania analizy dziennika, w zależności od wybranego planu ma limitu jak długo są przechowywane dane generowane przez swoich połączonych źródeł w obszarze roboczym.  W tym artykule omówiono zagadnienia, które mogą mieć wpływ na koszty przechowywania tych danych w różnych okresach czasu i sposób konfigurowania tej granicy.   
@@ -44,11 +44,11 @@ Podczas używania *wolne* plan, jeśli okaże się stale przekracza dozwolone kw
 ## <a name="change-the-data-retention-period"></a>Zmienić okres przechowywania danych 
 
 1. Zaloguj się do [Azure Portal](http://portal.azure.com). 
-2. Kliknij przycisk **więcej usług** znaleziono w lewym dolnym rogu. Na liście zasobów wpisz **Log Analytics**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Wybierz **dziennika analizy**.
+2. Kliknij przycisk **wszystkie usługi**. Na liście zasobów wpisz **Log Analytics**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Wybierz pozycję **Log Analytics**.
 3. W okienku subskrypcje analizy dzienników wybierz obszar roboczy, aby zmodyfikować z listy.
 4. Na stronie obszaru roboczego kliknij **przechowywania** w lewym okienku.
 5. W okienku obszaru roboczego przechowywania poruszając suwakiem, możesz zwiększyć lub zmniejszyć liczbę dni, a następnie kliknij przycisk **zapisać**.  Jeśli pracujesz w *wolnego* warstwy, nie można zmodyfikować okres przechowywania danych i trzeba Uaktualnij do planu płatną w celu kontrolowania tego ustawienia.<br><br> ![Zmiana ustawienia przechowywania danych obszaru roboczego](media/log-analytics-manage-cost/manage-cost-change-retention.png)
 
-## <a name="next-steps"></a>Następne kroki  
+## <a name="next-steps"></a>Kolejne kroki  
 
 Aby określić, ile danych są zbierane, jakie źródła są wysyłania, a także różne typy danych wysyłanych do zarządzania konsumenckich i kosztów, zobacz [analizowanie danych użycia w analizy dzienników](log-analytics-usage.md)

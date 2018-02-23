@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 8915abbb27184c2f0b47747e422e5a4fa7bc1cbb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0379592f1c4f6e9d3f6fd2127b8e34e99a8b0176
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Przewodnik dotyczący tworzenia obrazu maszyny wirtualnej do portalu Azure Marketplace
 W tym artykule **krok 2**, przeprowadzi Cię przez przygotowanie wirtualnych dysków twardych (VHD), które zostaną wdrożone w portalu Azure Marketplace. Dyski VHD są podstawę sieci jednostki SKU. Proces jest różny w zależności od tego, czy udostępniasz SKU opartych na systemie Linux lub z systemem Windows. W tym artykule przedstawiono oba scenariusze. Ten proces można przeprowadzić równolegle z [o tworzeniu konta i rejestracji][link-acct-creation].
@@ -127,7 +127,7 @@ Zdecydowanie zaleca się tworzenie dysk VHD w chmurze za pomocą protokołu RDP 
 
 **Łączenie za pośrednictwem protokołu RDP za pomocą [portalu Microsoft Azure][link-azure-portal]**
 
-1. Wybierz **Przeglądaj** > **maszyn wirtualnych**.
+1. Wybierz **wszystkie usługi** > **maszyn wirtualnych**.
 2. Zostanie otwarty blok maszyn wirtualnych. Upewnij się, maszyny Wirtualnej, który chcesz połączyć z działa, a następnie wybierz z listy wdrożonych maszyn wirtualnych.
 3. Zostanie otwarty blok, który opisuje wybranej maszynie Wirtualnej. U góry, kliknij przycisk **Connect**.
 4. Monit o wprowadzenie nazwy użytkownika i hasło, które zostały określone podczas inicjowania obsługi administracyjnej.
@@ -136,7 +136,7 @@ Zdecydowanie zaleca się tworzenie dysk VHD w chmurze za pomocą protokołu RDP 
 
 Aby pobrać pliku z pulpitu zdalnego na komputerze lokalnym, należy użyć [polecenia cmdlet Get-AzureRemoteDesktopFile][link-technet-2]. Aby użyć tego polecenia cmdlet, musisz znać nazwę usługi i nazwy maszyny wirtualnej. Jeśli utworzono maszynę Wirtualną z [portalu Microsoft Azure][link-azure-portal], można znaleźć te informacje w obszarze właściwości maszyny Wirtualnej:
 
-1. W portalu Microsoft Azure, wybierz **Przeglądaj** > **maszyn wirtualnych**.
+1. W portalu Microsoft Azure, wybierz **wszystkie usługi** > **maszyn wirtualnych**.
 2. Zostanie otwarty blok maszyn wirtualnych. Wybierz maszynę Wirtualną, która została wdrożona.
 3. Zostanie otwarty blok, który opisuje wybranej maszynie Wirtualnej.
 4. Kliknij pozycję **Właściwości**.
@@ -214,7 +214,6 @@ Aby wdrożyć maszynę Wirtualną z obrazu użytkownika maszyny Wirtualnej, moż
 
 1. Przejdź do **nowy** > **obliczeniowe** > **maszyny wirtualnej** > **z galerii**.
 
-    ![Rysowanie][img-manage-vm-new]
 2. Przejdź do **Moje obrazy**, a następnie wybierz obraz maszyny Wirtualnej, z której chcesz wdrożyć Maszynę wirtualną:
 
    1. Należy zwrócić szczególną uwagę, aby obraz należy wybrać, ponieważ **Moje obrazy** widoku są wyszczególnione zarówno obrazy systemu operacyjnego i obrazy maszyny Wirtualnej.
@@ -407,15 +406,15 @@ Poniżej przedstawiono kroki podczas generowania adresu URL SAS za pomocą Ekspl
 
     Wygenerowany adres URL SAS do kontenera poziom i teraz należy dodać nazwę dysku VHD w nim.
 
-    Format adresu URL SAS poziomu kontenera:`https://testrg009.blob.core.windows.net/vhds?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
+    Format adresu URL SAS poziomu kontenera: `https://testrg009.blob.core.windows.net/vhds?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
 
-    Wstaw nazwę dysku VHD po nazwie kontenera w adresie URL SAS, jak pokazano poniżej`https://testrg009.blob.core.windows.net/vhds/<VHD NAME>?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
+    Wstaw nazwę dysku VHD po nazwie kontenera w adresie URL SAS, jak pokazano poniżej `https://testrg009.blob.core.windows.net/vhds/<VHD NAME>?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
 
     Przykład:
 
     ![Rysowanie](media/marketplace-publishing-vm-image-creation/img5.2_15.png)
 
-    TestRGVM201631920152.vhd jest nazwa wirtualnego dysku twardego, a następnie będzie adres URL SAS wirtualnego dysku twardego`https://testrg009.blob.core.windows.net/vhds/TestRGVM201631920152.vhd?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
+    TestRGVM201631920152.vhd jest nazwa wirtualnego dysku twardego, a następnie będzie adres URL SAS wirtualnego dysku twardego `https://testrg009.blob.core.windows.net/vhds/TestRGVM201631920152.vhd?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
 
     - Upewnij się, że nazwa pliku obrazu i **"VHD"** są w identyfikatorze URI.
     - Upewnij się, że w środku podpisu, **"sp = rl"** pojawi się. Oznacza to, że dostęp do odczytu i listy podano pomyślnie.
@@ -471,11 +470,11 @@ Poniżej przedstawiono kroki podczas generowania adresu URL sygnatury dostępu W
 
     `https://st20151.blob.core.windows.net/vhds?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
-7.  Wstaw nazwę dysku VHD po nazwie kontenera w adresie URL SAS, jak pokazano poniżej`https://st20151.blob.core.windows.net/vhds/<VHDName>?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
+7.  Wstaw nazwę dysku VHD po nazwie kontenera w adresie URL SAS, jak pokazano poniżej `https://st20151.blob.core.windows.net/vhds/<VHDName>?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
     Przykład:
 
-    TestRGVM201631920152.vhd jest nazwa wirtualnego dysku twardego, a następnie będzie adres URL SAS wirtualnego dysku twardego
+    TestRGVM201631920152.vhd jest nazwa wirtualnego dysku twardego, a następnie będzie adres URL SAS wirtualnego dysku twardego 
 
     `https://st20151.blob.core.windows.net/vhds/ TestRGVM201631920152.vhd?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 

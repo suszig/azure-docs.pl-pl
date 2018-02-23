@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/09/2017
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: cb9d20bcb4b863736229bb920f5d4615b2c28c94
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 91d4398589707e8007c4b93639ddb568e39f51a7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-an-application-to-a-party-cluster-in-azure"></a>Wdrażanie aplikacji w klastrze testowym na platformie Azure
 Ten samouczek to druga część serii. Przedstawiono w nim sposób wdrażania aplikacji usługi Azure Service Fabric w klastrze testowym na platformie Azure.
@@ -59,14 +59,33 @@ Zamiast klastra testowego możesz użyć własnego klastra.  Podstawowy fronton 
 > [!NOTE]
 > Klastry testowe nie są zabezpieczone, dlatego umieszczane w nich aplikacje i dowolne dane mogą być widoczne dla innych użytkowników. Dlatego wdrażaj tylko to, co mogą zobaczyć inne osoby. Aby uzyskać szczegółowe informacje, pamiętaj o przeczytaniu naszych Warunków użytkowania.
 
+Zaloguj się i [dołącz do klastra z systemem Windows](http://aka.ms/tryservicefabric). Pobierz certyfikat PFX na komputer, klikając link **PFX**. Certyfikat i wartość **Punkt końcowy połączenia** będą używane w kolejnych krokach.
+
+![Plik PFX i punkt końcowy połączenia](./media/service-fabric-quickstart-containers/party-cluster-cert.png)
+
+Na komputerze z systemem Windows zainstaluj plik PFX w magazynie certyfikatów *CurrentUser\My*.
+
+```powershell
+PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:
+\CurrentUser\My
+
+
+  PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
+
+Thumbprint                                Subject
+----------                                -------
+3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
+```
+
+
 ## <a name="deploy-the-app-to-the-azure"></a>Wdrażanie aplikacji na platformie Azure
 Kiedy aplikacja jest gotowa, można wdrożyć ją w klastrze testowym bezpośrednio z programu Visual Studio.
 
-1. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy pozycję **Voting (Głosowanie)** i wybierz polecenie **Publikuj**.
+1. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy pozycję **Voting (Głosowanie)** i wybierz polecenie **Publikuj**. 
 
-    ![Okno dialogowe Publikowanie](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
+    ![Okno dialogowe Publikowanie](./media/service-fabric-quickstart-containers/publish-app.png)
 
-2. Wpisz punkt końcowy połączenia klastra testowego w polu **Punkt końcowy połączenia**, a następnie kliknij pozycję **Publikuj**.
+2. Skopiuj **punkt końcowy połączenia** ze strony klastra testowego do pola **Punkt końcowy połączenia**. Na przykład `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Kliknij pozycję **Zaawansowane parametry połączenia** i wprowadź poniższe informacje.  Wartości *FindValue* i *ServerCertThumbprint* muszą być zgodne z odciskiem palca certyfikatu zainstalowanego w poprzednim kroku. Kliknij przycisk **Opublikuj**. 
 
     Po zakończeniu publikowania powinno być możliwe wysłanie żądania do aplikacji za pośrednictwem przeglądarki.
 
@@ -81,7 +100,7 @@ Service Fabric Explorer to graficzny interfejs użytkownika, który służy do e
 
 Aby usunąć aplikację z klastra testowego:
 
-1. Przejdź do narzędzia Service Fabric Explorer za pomocą linku podanego na stronie tworzenia konta klastra testowego. Na przykład http://win1kw5649s.westus.cloudapp.azure.com:19080/Explorer/index.html.
+1. Przejdź do narzędzia Service Fabric Explorer za pomocą linku podanego na stronie tworzenia konta klastra testowego. Na przykład https://win1kw5649s.westus.cloudapp.azure.com:19080/Explorer/index.html.
 
 2. W narzędziu Service Fabric Explorer przejdź do węzła **fabric://Voting** w widoku drzewa po lewej stronie.
 

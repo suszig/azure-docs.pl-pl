@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: genemi
-ms.openlocfilehash: 2daf05513127c2d1ab8e4b0196b578e18b6e03e7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: fbc63cebe8c1456f5eb34666d15f4e00fd55fe5b
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Wdrażanie i Eksploruj aplikacja pojedynczej dzierżawy autonomiczna, która używa bazy danych SQL Azure
 
@@ -47,9 +47,9 @@ Dodatkowe samouczki będzie publikowana. Umożliwi ich Eksploruj zakresu scenari
 Wdrażanie aplikacji dla trzech dzierżaw podana:
 
 1. Kliknij każdy blue **wdrażanie na platformie Azure** przycisk, aby otworzyć szablon wdrożenia w [portalu Azure](https://portal.azure.com). Każdy szablon wymaga dwóch wartości parametru; Nazwa nowej grupy zasobów i nazwę użytkownika, która odróżnia to wdrożenie od innych wdrożeń aplikacji. Następnym krokiem szczegółowe informacje dotyczące ustawiania tych wartości.<br><br>
-    <a href="http://aka.ms/deploywingtipsa-contoso" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a>&nbsp; **Hall porozumieniu firmy Contoso**
+    <a href="http://aka.ms/deploywingtipsa-contoso" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Hall porozumieniu firmy Contoso**
 <br><br>
-    <a href="http://aka.ms/deploywingtipsa-dogwood" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a>&nbsp; **Dojo dereń**
+    <a href="http://aka.ms/deploywingtipsa-dogwood" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Dojo dereń**
 <br><br>
     <a href="http://aka.ms/deploywingtipsa-fabrikam" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Fabrikam Jazz Club**
 
@@ -100,9 +100,7 @@ W środowisku produkcyjnym zwykle należy utworzyć rekord CNAME DNS, aby [ *pun
 Oto niektóre zasoby, które zostały wdrożone:
 
 1. W [portalu Azure](http://portal.azure.com), przejdź do listy grup zasobów.
-2. Zobacz **wingtip-sa-katalogu -&lt;użytkownika&gt;**  grupy zasobów.
-    - W tej grupie zasobów **katalogu-sa -&lt;użytkownika&gt;**  wdrożyć serwer. Serwer zawiera **tenantcatalog** bazy danych.
-    - Należy również sprawdzić dzierżawy trzech grup zasobów.
+2. Powinna zostać wyświetlona dzierżawy trzech grup zasobów.
 3. Otwórz **wingtip-sa-fabrikam -&lt;użytkownika&gt;**  grupy zasobów, która zawiera zasoby wdrożenia klub Jazz firmy Fabrikam.  **Fabrikamjazzclub -&lt;użytkownika&gt;**  serwer zawiera **fabrikamjazzclub** bazy danych.
 
 Każda baza danych dzierżawy jest 50 DTU *autonomiczny* bazy danych.
@@ -131,6 +129,6 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Temat serwerów i baz danych, które tworzą aplikacji.
 > * Jak usunąć przykładowych zasobów, aby zatrzymać rozliczeń powiązanego.
 
-Następnie spróbuj [udostępniania i wykaz](saas-standaloneapp-provision-and-catalog.md) samouczka.
+Następnie spróbuj [udostępniania i wykaz](saas-standaloneapp-provision-and-catalog.md) samouczek, w którym będzie zbadać użycie katalogu dzierżawcy, który umożliwia zakresu dzierżawy różnych scenariuszy, takich jak schematu analytics zarządzaniem i dzierżawami.
  
 

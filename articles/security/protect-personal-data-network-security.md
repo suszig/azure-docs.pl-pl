@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/22/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: d61b29f1327f57bc32b2c53de3fe58e53fcf3cac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2510a4aed34b6a156cc9a9da6215de5956aac023
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="protect-personal-data-with-network-security-features-azure-application-gateway-and-network-security-groups"></a>Ochrona danych osobowych z funkcjami zabezpieczeń sieci: Brama aplikacji w usłudze Azure i grup zabezpieczeń sieci
 
@@ -59,18 +59,9 @@ Można utworzyć bramy aplikacji z zapory aplikacji sieci Web, lub dodawanie zap
 
 Aby utworzyć nową bramę aplikacji za pomocą zapory aplikacji sieci Web jest włączone, wykonaj następujące czynności:
 
-1. Zaloguj się do portalu Azure i w **ulubione** okienku portalu, kliknij przycisk **nowy**
-
-2. W bloku **Nowy** kliknij pozycję **Sieć**.
-
-3. Kliknij przycisk **brama aplikacji w**.
-
-4. Przejdź do portalu Azure **kliknij nowy \> sieci \> Application Gateway.**
-
-   ![Tworzenie bramy aplikacji](media/protect-netsec/app-gateway-01.png)
-
+1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com).
+2. Wybierz **Utwórz zasób** > **sieci** > **brama aplikacji w**.
 5. W **podstawy** bloku, zostanie wyświetlone, wprowadź wartości dla pola: nazwa, warstwy (standardowy lub zapory aplikacji sieci Web), rozmiar jednostki SKU (mały, średni lub duży) wystąpienia count (2 wysokiej dostępności), subskrypcji, lokalizacji i grupy zasobów.
-
 6. W **ustawienia** bloku, który jest wyświetlany w obszarze **sieci wirtualnej**, kliknij przycisk **wybierz sieć wirtualną**. W tym kroku zostanie otwarta wprowadź wybierz bloku sieci wirtualnej.
 
 7. Kliknij przycisk **Utwórz nowy** otworzyć **Utwórz sieć wirtualną** bloku.
@@ -126,7 +117,7 @@ Aby uzyskać więcej pomocy w planowanie i wdrażanie grup NSG, a przykładowy s
 
 Aby utworzyć reguły ruchu przychodzącego w istniejącej grupy NSG, wykonaj następujące czynności:
 
-1. Kliknij przycisk **Przeglądaj**, a następnie **sieciowej grupy zabezpieczeń**.
+1. Kliknij przycisk **wszystkie usługi**, a następnie **sieciowej grupy zabezpieczeń**.
 
 2. Na liście grup NSG, kliknij **frontonu NSG**, a następnie **reguły zabezpieczeń dla ruchu przychodzącego.**
 
@@ -140,11 +131,11 @@ Nowa reguła będą wyświetlane w grupie NSG po kilku sekundach.
 
 Aby uzyskać dodatkowe instrukcje dotyczące sposobu tworzenia grup NSG w podsieci, tworzenie reguł i skojarzeniu grupy NSG z podsiecią frontonu i zaplecza, zobacz [Utwórz grupy zabezpieczeń sieci przy użyciu portalu Azure.](https://docs.microsoft.com/azure/virtual-network/virtual-networks-create-nsg-arm-pportal)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Zabezpieczenia sieci platformy Azure](https://azure.microsoft.com/blog/azure-network-security/)
 
-[Najlepsze rozwiązania sieci platformy Azure](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices)
+[Azure Network Security Best Practices (Najlepsze rozwiązania z zakresu zabezpieczeń sieci platformy Azure)](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices)
 
 [Uzyskaj informacje na temat grupy zabezpieczeń sieci](https://docs.microsoft.com/rest/api/network/virtualnetwork/get-information-about-a-network-security-group)
 

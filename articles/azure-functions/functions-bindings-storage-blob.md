@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/27/2017
+ms.date: 02/12/2018
 ms.author: glenga
-ms.openlocfilehash: 120a65a271291b75661d7d070cbd4a7222edd18a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9294d19ea78a2b9cf4282d627eddd16e6588d3ee
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure powiązania magazynu obiektów Blob dla usługi Azure Functions
 
@@ -208,7 +208,7 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 |**Kierunek** | Nie dotyczy | należy wybrać opcję `in`. Ta właściwość ma wartość automatycznie, podczas tworzenia wyzwalacza w portalu Azure. Wyjątki w [użycia](#trigger---usage) sekcji. |
 |**Nazwa** | Nie dotyczy | Nazwa zmiennej, która reprezentuje obiektu blob w kodzie funkcji. | 
 |**Ścieżka** | **BlobPath** |Kontener do monitorowania.  Może być [wzorzec nazwy obiektu blob](#trigger-blob-name-patterns). | 
-|**połączenia** | **Połączenia** | Nazwa ustawienia aplikacji, która zawiera parametry połączenia magazynu do użycia dla tego powiązania. Jeśli nazwa ustawienia aplikacji rozpoczyna się od "AzureWebJobs", można określić tylko w pozostałej części nazwy w tym miejscu. Na przykład jeśli ustawisz `connection` do "MyStorage" środowisko uruchomieniowe Functions szuka ustawienie aplikacji o nazwie "AzureWebJobsMyStorage." Jeśli opuścisz `connection` pusta, środowisko uruchomieniowe Functions używa domyślnego ciągu połączenia magazynu w ustawieniu aplikacji o nazwie `AzureWebJobsStorage`.<br><br>Ciąg połączenia nie może być dla konta magazynu ogólnego przeznaczenia, [konta magazynu tylko do obiektów blob](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
+|**Połączenia** | **Połączenia** | Nazwa ustawienia aplikacji, która zawiera parametry połączenia magazynu do użycia dla tego powiązania. Jeśli nazwa ustawienia aplikacji rozpoczyna się od "AzureWebJobs", można określić tylko w pozostałej części nazwy w tym miejscu. Na przykład jeśli ustawisz `connection` do "MyStorage" środowisko uruchomieniowe Functions szuka ustawienie aplikacji o nazwie "AzureWebJobsMyStorage." Jeśli opuścisz `connection` pusta, środowisko uruchomieniowe Functions używa domyślnego ciągu połączenia magazynu w ustawieniu aplikacji o nazwie `AzureWebJobsStorage`.<br><br>Ciąg połączenia nie może być dla konta magazynu ogólnego przeznaczenia, [konta magazynu tylko do obiektów blob](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -220,20 +220,29 @@ W języku C# i skryptu C#, dostęp do danych obiektów blob za pomocą parametru
 * `TextReader`
 * `Byte[]`
 * `string`
-* `ICloudBlob`(wymaga kierunek powiązania "inout" *function.json*)
-* `CloudBlockBlob`(wymaga kierunek powiązania "inout" *function.json*)
-* `CloudPageBlob`(wymaga kierunek powiązania "inout" *function.json*)
-* `CloudAppendBlob`(wymaga kierunek powiązania "inout" *function.json*)
+* `ICloudBlob` (wymaga kierunek powiązania "inout" *function.json*)
+* `CloudBlockBlob` (wymaga kierunek powiązania "inout" *function.json*)
+* `CloudPageBlob` (wymaga kierunek powiązania "inout" *function.json*)
+* `CloudAppendBlob` (wymaga kierunek powiązania "inout" *function.json*)
 
 Jak wspomniano, niektóre z tych typów wymagają `inout` powiązanie kierunek *function.json*. Tym kierunku nie jest obsługiwany przez standardowy edytor w portalu Azure, trzeba używać Zaawansowany edytor.
 
-Jeśli oczekiwano tekstu w obiektach blob, można powiązać `string` typu. To ustawienie jest zalecane tylko, jeśli rozmiar obiektu blob jest mała, ponieważ zawartość obiektu blob całego są ładowane do pamięci. Ogólnie rzecz biorąc, zaleca się używania `Stream` lub `CloudBlockBlob` typu.
+Jeśli oczekiwano tekstu w obiektach blob, można powiązać `string` typu. To ustawienie jest zalecane tylko, jeśli rozmiar obiektu blob jest mała, ponieważ zawartość obiektu blob całego są ładowane do pamięci. Ogólnie rzecz biorąc, zaleca się używania `Stream` lub `CloudBlockBlob` typu. Aby uzyskać więcej informacji, zobacz [użycia pamięci i współbieżność](#trigger---concurrency-and-memory-usage) dalszej części tego artykułu.
 
 W języku JavaScript, dostęp do danych wejściowych obiektu blob przy użyciu `context.bindings.<name>`.
 
 ## <a name="trigger---blob-name-patterns"></a>Wyzwalacz - wzorce nazw obiektów blob
 
-Można określić wzorzec nazwy obiektów blob w `path` właściwości w *function.json* lub `BlobTrigger` atrybut konstruktora. Wzorzec nazwy mogą być [wyrażenie filtru lub powiązanie](functions-triggers-bindings.md#binding-expressions-and-patterns).
+Można określić wzorzec nazwy obiektów blob w `path` właściwości w *function.json* lub `BlobTrigger` atrybut konstruktora. Wzorzec nazwy mogą być [wyrażenie filtru lub powiązanie](functions-triggers-bindings.md#binding-expressions-and-patterns). Przykłady można znaleźć w poniższych sekcjach.
+
+### <a name="get-file-name-and-extension"></a>Pobierz nazwę i rozszerzenie pliku
+
+Poniższy przykład przedstawia sposób powiązania osobno nazwę pliku obiektu blob i rozszerzenie:
+
+```json
+"path": "input/{blobname}.{blobextension}",
+```
+Jeśli nosi nazwę obiektu blob *Blob1.txt oryginalne*, wartość `blobname` i `blobextension` zmienne w kodzie funkcja *Blob1 oryginalne* i *txt*.
 
 ### <a name="filter-on-blob-name"></a>Filtrowanie według nazwy obiektu blob
 
@@ -262,15 +271,6 @@ Aby wyszukać nawiasy klamrowe w nazwach plików, poza nawiasy klamrowe przy uż
 ```
 
 Jeśli w nazwie obiektu blob *{20140101}-soundfile.mp3*, `name` jest wartość zmiennej w kodzie funkcja *soundfile.mp3*. 
-
-### <a name="get-file-name-and-extension"></a>Pobierz nazwę i rozszerzenie pliku
-
-Poniższy przykład przedstawia sposób powiązania osobno nazwę pliku obiektu blob i rozszerzenie:
-
-```json
-"path": "input/{blobname}.{blobextension}",
-```
-Jeśli nosi nazwę obiektu blob *Blob1.txt oryginalne*, wartość `blobname` i `blobextension` zmienne w kodzie funkcja *Blob1 oryginalne* i *txt*.
 
 ## <a name="trigger---metadata"></a>Wyzwalacz - metadanych
 
@@ -309,6 +309,14 @@ Jeśli nie wszystkie próby 5, usługi Azure Functions dodaje komunikat do kolej
 * ContainerName
 * BlobName
 * Element ETag (identyfikator wersji obiektów blob, na przykład: "0x8D1DC6E70A277EF")
+
+## <a name="trigger---concurrency-and-memory-usage"></a>Wyzwalacz - współbieżności i użycie pamięci
+
+Wyzwalacz obiektów blob używane wewnętrznie, kolejki, więc maksymalną liczbę wywołań funkcji współbieżnych jest kontrolowany przez [konfiguracji kolejek w host.json](functions-host-json.md#queues). Ustawienia domyślne ograniczenia współbieżności 24 wywołań. Ten limit dotyczy oddzielnie każdej funkcji, która używa wyzwalacza obiektu blob.
+
+[Plan zużycie](functions-scale.md#how-the-consumption-plan-works) ogranicza aplikacji funkcji w jednej maszyny wirtualnej (VM) do 1,5 GB pamięci. Pamięć jest używana przez każdego współbieżnie wykonywanego wystąpienia funkcji i funkcje wykonawcze. Jeśli funkcja wyzwalana blob ładuje całego obiektu blob w pamięci, maksymalna ilość pamięci, używaną przez tą funkcję tylko do obiektów BLOB to 24 * rozmiar maksymalny obiektu blob. Na przykład aplikacja funkcji z trzech funkcji wyzwalanych przez obiekt blob i domyślne ustawienia byłyby wirtualna maksymalną wartość współbieżności to 3 * 24 = 72 wywołań funkcji.
+
+Funkcje kodu JavaScript ładowanie całego obiektu blob do pamięci i funkcje C# to zrobić, jeśli można powiązać `string`.
 
 ## <a name="trigger---polling-for-large-containers"></a>Wyzwalacz - sondowanie dużych kontenerów
 
@@ -483,7 +491,7 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 |**Kierunek** | Nie dotyczy | należy wybrać opcję `in`. Wyjątki w [użycia](#input---usage) sekcji. |
 |**Nazwa** | Nie dotyczy | Nazwa zmiennej, która reprezentuje obiektu blob w kodzie funkcji.|
 |**Ścieżka** |**BlobPath** | Ścieżka do obiektu blob. | 
-|**połączenia** |**Połączenia**| Nazwa ustawienia aplikacji, która zawiera parametry połączenia magazynu do użycia dla tego powiązania. Jeśli nazwa ustawienia aplikacji rozpoczyna się od "AzureWebJobs", można określić tylko w pozostałej części nazwy w tym miejscu. Na przykład jeśli ustawisz `connection` do "MyStorage" środowisko uruchomieniowe Functions szuka ustawienie aplikacji o nazwie "AzureWebJobsMyStorage." Jeśli opuścisz `connection` pusta, środowisko uruchomieniowe Functions używa domyślnego ciągu połączenia magazynu w ustawieniu aplikacji o nazwie `AzureWebJobsStorage`.<br><br>Ciąg połączenia nie może być dla konta magazynu ogólnego przeznaczenia, [konta magazynu tylko do obiektów blob](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
+|**Połączenia** |**Połączenia**| Nazwa ustawienia aplikacji, która zawiera parametry połączenia magazynu do użycia dla tego powiązania. Jeśli nazwa ustawienia aplikacji rozpoczyna się od "AzureWebJobs", można określić tylko w pozostałej części nazwy w tym miejscu. Na przykład jeśli ustawisz `connection` do "MyStorage" środowisko uruchomieniowe Functions szuka ustawienie aplikacji o nazwie "AzureWebJobsMyStorage." Jeśli opuścisz `connection` pusta, środowisko uruchomieniowe Functions używa domyślnego ciągu połączenia magazynu w ustawieniu aplikacji o nazwie `AzureWebJobsStorage`.<br><br>Ciąg połączenia nie może być dla konta magazynu ogólnego przeznaczenia, [konta magazynu tylko do obiektów blob](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
 |Nie dotyczy | **Dostęp** | Wskazuje, czy będzie można odczytu lub zapisu. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -498,10 +506,10 @@ Biblioteki klas C# i skryptu C#, dostęp do obiektu blob przy użyciu parametru 
 * `Stream`
 * `CloudBlobContainer`
 * `CloudBlobDirectory`
-* `ICloudBlob`(wymaga kierunek powiązania "inout" *function.json*)
-* `CloudBlockBlob`(wymaga kierunek powiązania "inout" *function.json*)
-* `CloudPageBlob`(wymaga kierunek powiązania "inout" *function.json*)
-* `CloudAppendBlob`(wymaga kierunek powiązania "inout" *function.json*)
+* `ICloudBlob` (wymaga kierunek powiązania "inout" *function.json*)
+* `CloudBlockBlob` (wymaga kierunek powiązania "inout" *function.json*)
+* `CloudPageBlob` (wymaga kierunek powiązania "inout" *function.json*)
+* `CloudAppendBlob` (wymaga kierunek powiązania "inout" *function.json*)
 
 Jak wspomniano, niektóre z tych typów wymagają `inout` powiązanie kierunek *function.json*. Tym kierunku nie jest obsługiwany przez standardowy edytor w portalu Azure, trzeba używać Zaawansowany edytor.
 
@@ -694,7 +702,7 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 |**Kierunek** | Nie dotyczy | Należy wybrać opcję `out` dla powiązania danych wyjściowych. Wyjątki w [użycia](#output---usage) sekcji. |
 |**Nazwa** | Nie dotyczy | Nazwa zmiennej, która reprezentuje obiektu blob w kodzie funkcji.  Ustaw `$return` odwoływać się do wartości zwracane funkcji.|
 |**Ścieżka** |**BlobPath** | Ścieżka do obiektu blob. | 
-|**połączenia** |**Połączenia**| Nazwa ustawienia aplikacji, która zawiera parametry połączenia magazynu do użycia dla tego powiązania. Jeśli nazwa ustawienia aplikacji rozpoczyna się od "AzureWebJobs", można określić tylko w pozostałej części nazwy w tym miejscu. Na przykład jeśli ustawisz `connection` do "MyStorage" środowisko uruchomieniowe Functions szuka ustawienie aplikacji o nazwie "AzureWebJobsMyStorage." Jeśli opuścisz `connection` pusta, środowisko uruchomieniowe Functions używa domyślnego ciągu połączenia magazynu w ustawieniu aplikacji o nazwie `AzureWebJobsStorage`.<br><br>Ciąg połączenia nie może być dla konta magazynu ogólnego przeznaczenia, [konta magazynu tylko do obiektów blob](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
+|**Połączenia** |**Połączenia**| Nazwa ustawienia aplikacji, która zawiera parametry połączenia magazynu do użycia dla tego powiązania. Jeśli nazwa ustawienia aplikacji rozpoczyna się od "AzureWebJobs", można określić tylko w pozostałej części nazwy w tym miejscu. Na przykład jeśli ustawisz `connection` do "MyStorage" środowisko uruchomieniowe Functions szuka ustawienie aplikacji o nazwie "AzureWebJobsMyStorage." Jeśli opuścisz `connection` pusta, środowisko uruchomieniowe Functions używa domyślnego ciągu połączenia magazynu w ustawieniu aplikacji o nazwie `AzureWebJobsStorage`.<br><br>Ciąg połączenia nie może być dla konta magazynu ogólnego przeznaczenia, [konta magazynu tylko do obiektów blob](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
 |Nie dotyczy | **Dostęp** | Wskazuje, czy będzie można odczytu lub zapisu. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -710,10 +718,10 @@ Biblioteki klas C# i skryptu C#, dostęp do obiektu blob przy użyciu parametru 
 * `Stream`
 * `CloudBlobContainer`
 * `CloudBlobDirectory`
-* `ICloudBlob`(wymaga kierunek powiązania "inout" *function.json*)
-* `CloudBlockBlob`(wymaga kierunek powiązania "inout" *function.json*)
-* `CloudPageBlob`(wymaga kierunek powiązania "inout" *function.json*)
-* `CloudAppendBlob`(wymaga kierunek powiązania "inout" *function.json*)
+* `ICloudBlob` (wymaga kierunek powiązania "inout" *function.json*)
+* `CloudBlockBlob` (wymaga kierunek powiązania "inout" *function.json*)
+* `CloudPageBlob` (wymaga kierunek powiązania "inout" *function.json*)
+* `CloudAppendBlob` (wymaga kierunek powiązania "inout" *function.json*)
 
 Jak wspomniano, niektóre z tych typów wymagają `inout` powiązanie kierunek *function.json*. Tym kierunku nie jest obsługiwany przez standardowy edytor w portalu Azure, trzeba używać Zaawansowany edytor.
 

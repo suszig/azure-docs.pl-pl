@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 07/06/2017
 ms.author: samacha
-ms.openlocfilehash: 243ee799d2cddb1baf5b8046eee6eaf182463d2e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d06681c687f5cd3eb10d375499266c7e78be1558
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Wykonywanie analiz wskaźniki nastrojów klientów przy użyciu usługi Azure Stream Analytics i usługi Azure Machine Learning
 W tym artykule opisano, jak szybko skonfigurować proste zadanie usługi analiza strumienia Azure, której zintegrowano usługi Azure Machine Learning. Umożliwia modelu uczenia maszynowego analytics wskaźniki nastrojów klientów z Cortana Intelligence Gallery analizować dane przesyłane strumieniowo tekstu i określić wynik wskaźniki nastrojów klientów w czasie rzeczywistym. Przy użyciu pakietu Cortana Intelligence Suite pozwala wykonać to zadanie, nie martwiąc się o mogli dokładnie zapoznać się tworzenia modelu analizy wskaźniki nastrojów klientów.
@@ -57,7 +57,7 @@ Na wysokim poziomie Aby wykonać zadania zostało to pokazane w tym artykule wyk
 ## <a name="create-a-storage-container-and-upload-the-csv-input-file"></a>Tworzenie kontenera magazynu i przekazywanie pliku wejściowego CSV
 W tym kroku można użyć dowolnego pliku CSV, takie jak dostępne z usługi GitHub.
 
-1. W portalu Azure kliknij **nowy** &gt; **magazynu** &gt; **konta magazynu**.
+1. W portalu Azure kliknij **Utwórz zasób** &gt; **magazynu** &gt; **konta magazynu**.
 
    ![Utwórz nowe konto magazynu](./media/stream-analytics-machine-learning-integration-tutorial/azure-portal-create-storage-account.png)
 
@@ -117,7 +117,7 @@ Teraz, dane przykładowe są w obiekcie blob, można włączyć model analizy ws
 
 7. W **aplikacje** kolumny, kliknij przycisk **programu Excel 2010 lub starszych skoroszytu** łącze, aby pobrać skoroszytu programu Excel. Skoroszyt zawiera klucz interfejsu API i adres URL, który trzeba później skonfigurować zadanie usługi Stream Analytics.
 
-    ![Stream Analytics Machine Learning, szybkiego dostępu](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-quick-glance.png)  
+    ![Stream Analytics Machine Learning, quick glance](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-quick-glance.png)  
 
 
 ## <a name="create-a-stream-analytics-job-that-uses-the-machine-learning-model"></a>Utwórz zadanie usługi Stream Analytics, która korzysta z modelu uczenia maszynowego
@@ -128,7 +128,7 @@ Można teraz utworzyć zadanie usługi Stream Analytics odczytujący tweetów pr
 
 1. Przejdź do witryny [Azure Portal](https://portal.azure.com).  
 
-2. Kliknij przycisk **nowy** > **Internetu rzeczy** > **zadanie usługi Stream Analytics**. 
+2. Kliknij przycisk **Utwórz zasób** > **Internetu rzeczy** > **zadanie usługi Stream Analytics**. 
 
    ![Ścieżki portalu platformy Azure dla pobierania do nowego zadania usługi analiza strumienia](./media/stream-analytics-machine-learning-integration-tutorial/azure-portal-new-iot-sa-job.png)
    
@@ -269,7 +269,7 @@ Można również wyświetlić metryk powiązanych funkcji usługi Azure Machine 
 * **Działania zdarzenia** wskazuje liczbę zdarzeń w żądaniu. Domyślnie każde żądanie usługi sieci web usługi Machine Learning zawiera zdarzenia do 1000.  
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Wprowadzenie do usługi Azure Stream Analytics](stream-analytics-introduction.md)
 * [Azure Stream Analytics Query Language Reference (Dokumentacja dotycząca języka zapytań usługi Azure Stream Analytics)](https://msdn.microsoft.com/library/azure/dn834998.aspx)

@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 02/01/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d41df9b9d9bd518bb507b0fcde001f35c11e6264
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
-ms.translationtype: HT
+ms.openlocfilehash: 9ef09e33803a976e05e555ec7ae9eb872d237137
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>SAP HANA dużych wystąpień wysokiej dostępności i odzyskiwania po awarii na platformie Azure 
 
@@ -111,7 +111,7 @@ SAP HANA na platformie Azure (wystąpienia duże) oferuje dwie opcje tworzenia k
 Infrastruktury magazynu bazowy SAP HANA na platformie Azure (wystąpienia duże) obsługuje magazynu migawek woluminów. Kopii zapasowej oraz Przywracanie woluminów jest obsługiwane przez następujące kwestie:
 
 - Zamiast bazy danych pełne kopie zapasowe wykonywane na częste migawek woluminu magazynu.
-- Gdy wyzwalania migawkę za pośrednictwem danych/hana/i zaloguj hana oraz /hana/shared (w tym /usr/sap) woluminów, pamięci masowej migawki inicjuje SAP HANA migawki przed rozpoczęciem wykonywania migawki magazynu. Ta migawka SAP HANA jest punkt instalacji operacje przywracania dziennika ostatecznego po odzyskaniu migawki magazynu.
+- Gdy wyzwalania migawki przez /hana/data i /hana/shared (w tym /usr/sap) woluminów, pamięci masowej migawki inicjuje SAP HANA migawki przed rozpoczęciem wykonywania migawki magazynu. Ta migawka SAP HANA jest punkt instalacji operacje przywracania dziennika ostatecznego po odzyskaniu migawki magazynu.
 - Od momentu, w którym migawki magazynu zostało wykonane pomyślnie jest usuwany migawki SAP HANA.
 - Kopie zapasowe dziennika transakcji podjęto często i są przechowywane w woluminie /hana/logbackups lub na platformie Azure. Możesz wyzwolić woluminu /hana/logbackups, który zawiera kopie zapasowe dziennika transakcji do tworzenia migawki oddzielnie. W takim przypadku nie trzeba wykonać migawki HANA.
 - Jeśli w czasie, należy przywrócić bazę danych pewnym, żądanie techniczną firmy Microsoft Azure (w przypadku awarii produkcyjnym) lub SAP HANA na zarządzania usługą Azure przywracania migawki magazynu. Przykładem jest planowane Przywracanie systemu piaskownicy do stanu pierwotnego.
@@ -149,7 +149,7 @@ Poniższe sekcje zawierają informacje dotyczące wykonywania migawek, w tym og�
 - Podczas większych reorganizacji SAP HANA tabel Magazyn migawek należy unikać, jeśli to możliwe.
 - Migawki magazynu są wstępnie wymagana do korzystanie z funkcji odzyskiwania po awarii programu SAP HANA na platformie Azure (wystąpienia duże).
 
-### <a name="pre-requisites-for-leveraging-self-service-storage-snapshots"></a>Wymagania wstępne dla wykorzystaniu migawek samoobsługi magazynu
+### <a name="prerequisites-for-leveraging-self-service-storage-snapshots"></a>Wymagania wstępne dotyczące wykorzystaniu migawek samoobsługi magazynu
 
 Upewnij się, czy skrypt migawka została wykonana pomyślnie, upewnij się, że Perl jest zainstalowana w systemie operacyjnym Linux na serwerze HANA dużych wystąpień. Perl jest wstępnie zainstalowane na urządzenia HANA dużych wystąpienia. Aby sprawdzić wersję języka perl, użyj następującego polecenia:
 
@@ -290,7 +290,7 @@ HANABackupCustomerDetails.txt
 W obsłudze skryptów języka perl: 
 
 - Nigdy nie należy modyfikować skryptów, jeśli nie zalecił Microsoft Operations.
-- Po otrzymaniu monitu, aby zmodyfikować skrypt lub plik parametrów, należy zawsze używać edytora tekstów linux, takie jak "vi" i nie edytory systemu Windows, takim jak Notatnik. Za pomocą Edytora systemu windows może spowodować uszkodzenie format pliku.
+- Po otrzymaniu monitu, aby zmodyfikować skrypt lub plik parametrów, należy zawsze używać edytora tekstów Linux, takie jak "vi" i nie edytory systemu Windows, takim jak Notatnik. Za pomocą Edytora systemu windows może spowodować uszkodzenie format pliku.
 - Zawsze używaj najnowszych skryptów. Najnowszą wersję można pobrać z witryny GitHub.
 - Użyj tej samej wersji skryptów w orientacji poziomej.
 - Testowanie skryptów i zapoznaj się z parametrów wymaganych i dane wyjściowe skryptu przed użyciem bezpośrednio w systemie produkcji.
@@ -299,7 +299,7 @@ W obsłudze skryptów języka perl:
 
 Celem różnych skryptów i plików jest:
 
-- **Azure\_hana\_backup.pl**: Planowanie ten skrypt z cron do wykonania migawki pamięci masowej na HANA danych/dziennika/udostępnione woluminy, / hana/logbackups woluminu lub systemu operacyjnego.
+- **Azure\_hana\_backup.pl**: Planowanie ten skrypt z cron do wykonania migawki pamięci masowej na dane HANA i udostępnione woluminy, / hana/logbackups woluminu lub systemu operacyjnego.
 - **Azure\_hana\_replikacji\_status.pl**: ten skrypt zawiera podstawowe szczegóły dotyczące stanu replikacji z lokacji produkcyjnej do odzyskiwania po awarii lokacji. Monitory skryptu, aby upewnić się, że replikacja odbywa się i zawiera rozmiar elementów które są replikowane. Zawiera również wskazówki, jeśli replikacji trwa zbyt długo lub łącze jest wyłączony.
 - **Azure\_hana\_migawki\_details.pl**: ten skrypt zawiera listę podstawowe szczegóły dotyczące wszystkie migawki, na każdym woluminie, które istnieją w danym środowisku. Ten skrypt może działać na podstawowym serwerze lub na jednostkę server w lokalizacji odzyskiwania po awarii. Skrypt zawiera następujące informacje podziale na każdy wolumin, który zawiera migawki:
    * Rozmiar całkowitą migawek woluminu

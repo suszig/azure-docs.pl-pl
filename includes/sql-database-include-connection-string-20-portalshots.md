@@ -11,7 +11,7 @@ Latest Freshness check:  2015-09-02 , GeneMi.
 ### <a name="obtain-the-connection-string-from-the-azure-portal"></a>Uzyskanie parametrów połączenia z portalu Azure
 Użyj [portalu Azure](https://portal.azure.com/) uzyskać parametry połączenia, które są niezbędne, aby program kliencki wchodzić w interakcje z bazy danych SQL Azure. 
 
-1. Wybierz **PRZEGLĄDAJ wszystko** > **baz danych SQL**.
+1. Wybierz **wszystkie usługi** > **baz danych SQL**.
 
 2. Wprowadź nazwę bazy danych w polu tekstowym filtru u lewego górnego rogu **baz danych SQL** bloku.
 
@@ -19,7 +19,6 @@ Użyj [portalu Azure](https://portal.azure.com/) uzyskać parametry połączenia
 
 4. Po wyświetleniu bloku bazy danych, wybierz pozycję visual wygody **Minimalizuj** przycisków zwijanie bloków używane do przeglądania i filtrowania bazy danych. 
    
-    ![Filtr, aby odizolować bazy danych][10-FilterDatabase]
 5. W bloku bazy danych, wybierz **Pokaż parametry połączenia bazy danych**.
 
 6. Jeśli zamierzasz używać biblioteki połączenia ADO.NET, skopiuj ciąg z etykietą **ADO**. 
@@ -31,7 +30,7 @@ Aby uzyskać więcej informacji, zobacz [parametry połączenia i pliki konfigur
 
 <!-- Image references. -->
 
-[10-FilterDatabase]: ./media/sql-database-include-connection-string-20-portalshots/connqry-connstr-a.png
+
 
 [20-CopyAdoConnectionString]: ./media/sql-database-include-connection-string-20-portalshots/connqry-connstr-b.png
 

@@ -3,8 +3,8 @@ title: "Zarządzanie uprawnieniami do zasobów dla każdego użytkownika w stosi
 description: "Jako administrator usługi lub dzierżawy informacje o sposobie zarządzania uprawnieniami RBAC."
 services: azure-stack
 documentationcenter: 
-author: Heathl17
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
-ms.author: helaw
-ms.openlocfilehash: 1e0ced4b2d65456034ba3f8543152702c089a0b0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: 
+ms.openlocfilehash: dfec5648ff383fd98965c1918cdab6472bb3c17f
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="manage-role-based-access-control"></a>Zarządzanie kontrolą dostępu opartą na rolach
 
@@ -36,6 +37,6 @@ Użytkownik w stosie Azure może być czytnika, właściciela lub współautora 
 3. W **użytkowników** bloku, kliknij przycisk **ról**.
 4. W **ról** bloku, kliknij przycisk **Dodaj** się dodanie zezwoleń użytkownika.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 

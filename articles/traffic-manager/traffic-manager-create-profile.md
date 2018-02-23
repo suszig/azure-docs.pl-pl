@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: kumud
-ms.openlocfilehash: e9ff7947e7801a9f352a7a947b09893b8f615d88
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1994c8374244b62e65b1a54234775d9a39f72bb3
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-traffic-manager-profile"></a>Tworzenie profilu usługi Traffic Manager
 
@@ -28,8 +28,8 @@ W tym artykule dwa punkty końcowe z wcześniej utworzonej aplikacji sieci Web p
 
 ### <a name="create-a-traffic-manager-profile"></a>Tworzenie profilu usługi Traffic Manager
 1. Z poziomu przeglądarki zaloguj się do witryny [Azure Portal](http://portal.azure.com). Jeśli nie masz jeszcze konta, możesz przystąpić do [bezpłatna miesięczna wersja próbna](https://azure.microsoft.com/free/). 
-2. W menu **Centrum** kliknij pozycje **Nowy** > **Sieć** > **Zobacz wszystkie**, kliknij profil usługi **Traffic Manager**, aby otworzyć blok **Tworzenie profilu usługi Traffic Manager**, a następnie kliknij przycisk **Utwórz**.
-3. W bloku **Tworzenie profilu usługi Traffic Manager** podaj następujące informacje:
+2. Kliknij przycisk **Utwórz zasób** > **sieci** > **profilu usługi Traffic Manager** > **Utwórz**.
+4. W **profilu usługi Traffic Manager utwórz**pełnego w następujący sposób:
     1. W polu **Nazwa** podaj nazwę profilu. Ta nazwa musi być unikatowa w ramach strefy trafficmanager.net i powoduje nazwę DNS <name>, trafficmanager.net, która umożliwia dostęp do Twojego profilu usługi Traffic Manager.
     2. W obszarze **Metoda routingu** wybierz metodę routingu **Priorytet**.
     3. W obszarze **Subskrypcja** wybierz subskrypcję, w ramach której ma zostać utworzony ten profil.
@@ -43,30 +43,30 @@ W tym artykule dwa punkty końcowe z wcześniej utworzonej aplikacji sieci Web p
 ## <a name="add-traffic-manager-endpoints"></a>Dodawanie punktów końcowych usługi Traffic Manager
 
 1. Na pasku wyszukiwania portalu, wyszukaj **profilu usługi Traffic Manager** nazwy utworzonego w poprzednim i kliknij pozycję profilu Menedżera ruchu w wynikach który wyświetlone.
-2. W bloku **profilu usługi Traffic Manager**, w sekcji **Ustawienia** kliknij pozycję **Punkty końcowe**.
-3. W wyświetlonym bloku **Punkty końcowe** kliknij pozycję **Dodaj**.
-4. W bloku **Dodawanie punktu końcowego** wykonaj następujące czynności:
+2. W **profilu usługi Traffic Manager**w **ustawienia** kliknij **punkty końcowe**.
+3. Kliknij pozycję **Add** (Dodaj).
+4. Wykonaj w następujący sposób:
     1. Dla opcji **Typ** kliknij pozycję **Punkt końcowy platformy Azure**.
     2. W polu **Nazwa** podaj nazwę dla tego punktu końcowego.
     3. Dla **typu zasobu docelowego**, kliknij przycisk **usługi aplikacji**.
-    4. Aby uzyskać **zasób docelowy**, kliknij przycisk **wybierz usługę aplikacji** można wyświetlić listę aplikacji sieci Web w ramach tej samej subskrypcji. W **zasobów** bloku, który jest wyświetlany, wybierz usługę aplikacji, która ma zostać dodany jako pierwszy punkt końcowy.
+    4. Aby uzyskać **zasób docelowy**, kliknij przycisk **wybierz usługę aplikacji** można wyświetlić listę aplikacji sieci Web w ramach tej samej subskrypcji. W **zasobów**, wybierz usługę aplikacji, która ma zostać dodany jako pierwszy punkt końcowy.
     5. Dla opcji **Priorytet** wybierz wartość **1**. Spowoduje to kierowanie całego ruchu do tego punktu końcowego, jeśli jest on w dobrej kondycji.
     6. Pozycję **Dodaj jako wyłączone** pozostaw niezaznaczoną.
     7. Kliknij przycisk **OK**.
 5.  Powtórz kroki 3 i 4 dla następnego punktu końcowego aplikacji sieci Web Azure. Dla tego punktu końcowego ustaw opcję **Priorytet** na wartość **2**.
-6.  Po zakończeniu dodawania obu punktów końcowych będą one wyświetlane w bloku **profilu usługi Traffic Manager** ze stanem monitorowania **Online**.
+6.  Po zakończeniu dodawania oba punkty końcowe są wyświetlane w **profilu usługi Traffic Manager** wraz z ich monitorowania statusu **Online**.
 
     ![Dodawanie punktu końcowego Menedżera ruchu](./media/traffic-manager-create-profile/add-traffic-manager-endpoint.png)
 
 ## <a name="use-the-traffic-manager-profile"></a>Użyj profilu Menedżera ruchu
 1.  Na pasku wyszukiwania portalu, wyszukaj **profilu usługi Traffic Manager** nazwy, który został utworzony w poprzedniej sekcji. W wynikach, które są wyświetlane kliknij profil Menedżera ruchu.
-2. W **profilu usługi Traffic Manager** bloku, kliknij przycisk **omówienie**.
-3. **Profilu usługi Traffic Manager** bloku Wyświetla nazwę DNS nowo utworzony profil Menedżera ruchu. Może to służyć przez wszystkich klientów (na przykład, przechodząc do niej przy użyciu przeglądarki sieci web) do pobrania kierowane do prawej punktu końcowego jako określana przez typ routingu. W takim przypadku wszystkie żądania są kierowane do pierwszego punktu końcowego, a w przypadku wykrycia przez Menedżera ruchu jest zła, ruch automatycznie przełącza do następnego punktu końcowego.
+2. Kliknij przycisk **omówienie**.
+3. **Profilu usługi Traffic Manager** Wyświetla nazwę DNS nowo utworzony profil Menedżera ruchu. Może to służyć przez wszystkich klientów (na przykład, przechodząc do niej przy użyciu przeglądarki sieci web) do pobrania kierowane do prawej punktu końcowego jako określana przez typ routingu. W takim przypadku wszystkie żądania są kierowane do pierwszego punktu końcowego, a w przypadku wykrycia przez Menedżera ruchu jest zła, ruch automatycznie przełącza do następnego punktu końcowego.
 
 ## <a name="delete-the-traffic-manager-profile"></a>Usuwanie profilu Menedżera ruchu
-Gdy nie są już potrzebne, Usuń grupę zasobów i profilu Menedżera ruchu, który został utworzony. Aby to zrobić, wybierz grupę zasobów, z **profilu usługi Traffic Manager** bloku i kliknij przycisk **usunąć**.
+Gdy nie są już potrzebne, Usuń grupę zasobów i profilu Menedżera ruchu, który został utworzony. Aby to zrobić, wybierz grupę zasobów, z **profilu usługi Traffic Manager** i kliknij przycisk **usunąć**.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Dowiedz się więcej o [routingu typy](traffic-manager-routing-methods.md).
 - Dowiedz się więcej o typy punktów końcowych [typy punktów końcowych](traffic-manager-endpoint-types.md).

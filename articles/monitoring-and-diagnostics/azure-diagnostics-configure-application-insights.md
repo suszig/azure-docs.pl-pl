@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2016
 ms.author: robb
-ms.openlocfilehash: 7dd8c6e1fbfba2587aadb3410c3a769b57e06001
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b4f1f8900637f23220f9a89adbb321707c49e2d3
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Wyślij dane diagnostyczne usługi w chmurze maszyny wirtualnej i sieci szkieletowej usług do usługi Application Insights
 Usługi w chmurze, maszyn wirtualnych, zestawy skalowania maszyny wirtualnej i sieci szkieletowej usług wszystkie używane rozszerzenie diagnostyki Azure do zbierania danych.  Diagnostyka Azure wysyła dane do tabel usługi Azure Storage.  Można jednak również potoku wszystkie lub podzbiór danych do innych lokalizacji przy użyciu rozszerzenia diagnostyki Azure w wersji 1.5 lub nowszego.
@@ -67,12 +67,12 @@ Przykład konfiguracji zbiorniku dla usługi Application Insights:
 
 - **ApplicationInsights** element określa klucz Instrumentacji zasobu usługi Application insights wysyłania danych diagnostycznych platformy Azure.
     - Jeśli nie masz istniejący zasób usługi Application Insights, zobacz [utworzyć nowy zasób usługi Application Insights](../application-insights/app-insights-create-new-resource.md) Aby uzyskać więcej informacji na temat tworzenia zasobu i pobierania klucza instrumentacji.
-    - Jeśli tworzysz usługi w chmurze z Azure SDK 2.8 i nowsze, ten klucz Instrumentacji jest wypełniane automatycznie. Wartość na podstawie **APPINSIGHTS_INSTRUMENTATIONKEY** ustawienie konfiguracyjne usługi podczas pakowania projektu usługi w chmurze. Zobacz [użycia usługi Application Insights z diagnostyki Azure rozwiązywać problemy z usługą w chmurze](../cloud-services/cloud-services-dotnet-diagnostics-applicationinsights.md).
+    - Jeśli tworzysz usługi w chmurze z Azure SDK 2.8 i nowsze, ten klucz Instrumentacji jest wypełniane automatycznie. Wartość na podstawie **APPINSIGHTS_INSTRUMENTATIONKEY** ustawienie konfiguracyjne usługi podczas pakowania projektu usługi w chmurze. Zobacz [usługi Application Insights za pomocą usługi w chmurze](../application-insights/app-insights-cloudservices.md).
 
 - **Kanałów** elementu zawiera jeden lub więcej **kanału** elementów.
     - *Nazwa* jednoznacznie odnosi się do tego kanału.
     - *Loglevel* atrybutu pozwala określić poziom dziennika, który umożliwia kanału. Dostępne są następujące poziomy rejestrowania dostępne w kolejności od najbardziej do najmniej informacji:
-        - Pełne informacje
+        - Pełne
         - Informacje
         - Ostrzeżenie
         - Błąd

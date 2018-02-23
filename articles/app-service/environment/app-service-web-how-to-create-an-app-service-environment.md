@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/11/2017
 ms.author: ccompy
-ms.openlocfilehash: ef0dc1b820f42b73af3af3882085729ecc21230c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2741ea2931ddd7989fc05e1cddbeedb80bf30410
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-create-an-app-service-environment-v1"></a>Jak utworzyć usługę aplikacji środowiska v1 
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 > Ten artykuł dotyczy v1 środowiska usługi aplikacji. Istnieje nowsza wersja środowiska usługi aplikacji jest łatwiejsza w użyciu, który jest uruchamiany na bardziej zaawansowanych infrastruktury. Aby dowiedzieć się więcej o nowy początek wersji z [wprowadzenie do środowiska usługi aplikacji](intro.md).
 > 
 
-### <a name="overview"></a>Omówienie
+### <a name="overview"></a>Przegląd
 Środowiska usługi aplikacji (ASE) to opcja Premium usługi Azure App Service, która zapewnia możliwość rozszerzonej konfiguracji, która nie jest dostępna w sygnatury wielodostępnej. Funkcja ASE zasadniczo wdraża usługi aplikacji Azure do klienta sieci wirtualnej. Aby uzyskać lepsze zrozumienie możliwości oferowane przez odczytać środowiska usługi App Service [co to jest środowisko usługi aplikacji] [ WhatisASE] dokumentacji.
 
 ### <a name="before-you-create-your-ase"></a>Przed utworzeniem sieci ASE
@@ -42,12 +42,12 @@ Należy zwrócić uwagę czynników, które nie można zmienić. Te aspekty, nie
 Podczas pobierania sieci wirtualnej i określania podsieci, upewnij się, jest wystarczająco duża, aby uwzględnić przyszłego rozwoju. 
 
 ### <a name="creating-an-app-service-environment-v1"></a>Tworzenie aplikacji usługi v1 środowiska
-Aby utworzyć v1 środowiska usługi aplikacji, należy wyszukać Azure Marketplace w celu ***v1 środowiska usługi aplikacji***, lub za pośrednictwem nowy -> Sieć Web i mobilność -> środowisko usługi aplikacji. Aby utworzyć ASEv1:
+Aby utworzyć v1 środowiska usługi aplikacji, możesz wyszukać Azure Marketplace w celu ***v1 środowiska usługi aplikacji***, lub przejść przez **Utwórz zasób** -> **sieci Web i mobilność**  ->  **Środowiska usługi aplikacji**. Aby utworzyć ASEv1:
 
-1. Podaj nazwę użytkownika ASE. Nazwa określona dla ASE będzie używany dla aplikacji utworzonych w ASE. Jeśli nazwa ASE appsvcenvdemo może być nazwa poddomeny. *appsvcenvdemo.p.azurewebsites.net*. Jeśli w związku z tym utworzono aplikację o nazwie *mytestapp* , a następnie byłoby adresowanego na *mytestapp.appsvcenvdemo.p.azurewebsites.net*. Biały znak nie można użyć nazwy użytkownika ASE. Jeśli używasz wielkich liter w nazwie nazwy domeny będzie całkowita wersją małe o tej nazwie. Jeśli używasz ILB to nazwę ASE nie jest używana w Twojej domeny podrzędnej, ale zamiast tego jest jasno określone podczas tworzenia ASE
+1. Podaj nazwę użytkownika ASE. Nazwa określona dla ASE będzie używany dla aplikacji utworzonych w ASE. Jeśli nazwa ASE appsvcenvdemo, nazwę domeny podrzędnej byłaby: *appsvcenvdemo.p.azurewebsites.net*. Jeśli w związku z tym utworzono aplikację o nazwie *mytestapp*, byłoby adresowanego na *mytestapp.appsvcenvdemo.p.azurewebsites.net*. Biały znak nie można użyć nazwy użytkownika ASE. Jeśli używasz wielkich liter w nazwie nazwy domeny będzie całkowita wersją małe o tej nazwie. Jeśli używasz ILB, nazwę ASE nie jest używana w Twojej domeny podrzędnej, ale zamiast tego jest jasno określone podczas tworzenia ASE.
    
     ![][1]
-2. Wybierz subskrypcję. Subskrypcja używana na potrzeby Twojego ASE jest również ten, który będzie zawierał wszystkie aplikacje w tym ASE. Twoje ASE nie można umieścić w sieci wirtualnej, który znajduje się w innej subskrypcji
+2. Wybierz subskrypcję. Subskrypcji, używanego programu ASE dotyczą również wszystkie aplikacje tworzone w tym ASE. Twoje ASE nie można umieścić w sieci wirtualnej, który znajduje się w innej subskrypcji.
 3. Wybierz lub określ nową grupę zasobów. Grupa zasobów używany do Twojej ASE muszą być takie same, służący do sieci wirtualnej. W przypadku wybrania istniejącej sieci wirtualnej wybranej grupy zasobów dla Twojego ASE zostanie zaktualizowany w celu odzwierciedlenia z sieci wirtualnej.
    
     ![][2]

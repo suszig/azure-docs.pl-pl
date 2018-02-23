@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 71929b449f2a0fa55327fd3f9741208506859e85
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 6478d577c52ffa23c3149c8213f182eaa1e466bd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-stream-analytics-event-order-considerations"></a>Zagadnienia dotyczące usługi Azure Stream Analytics zdarzeń kolejności
 
@@ -70,6 +70,9 @@ Zdarzenia, które pojawiają się poza kolejnością, ale w ramach zestawu poza 
 * **Porzucone**: odrzucone.
 
 Gdy analiza strumienia zmienia kolejność zdarzeń, które są odbierane poza kolejnością tolerancji, wyniki kwerendy jest opóźniony o tolerancji poza kolejnością.
+
+### <a name="early-events"></a>Wczesne zdarzenia
+Podczas przetwarzania aplikacji czasu, zdarzenia, których czas aplikacji ma więcej niż 5 minut przed ich Godzina nadejścia są usuwane lub dostosowywane opcji konfiguracji.
 
 ### <a name="example"></a>Przykład
 
@@ -132,7 +135,7 @@ Usługa Azure Stream Analytics implementuje tę funkcję za pomocą [TIMESTAMP B
 ## <a name="get-help"></a>Uzyskiwanie pomocy
 Aby uzyskać dodatkową pomoc, spróbuj [forum usługi Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Wprowadzenie do usługi analiza strumienia](stream-analytics-introduction.md)
 * [Wprowadzenie do usługi analiza strumienia](stream-analytics-real-time-fraud-detection.md)
 * [Zadania usługi analiza strumienia skali](stream-analytics-scale-jobs.md)

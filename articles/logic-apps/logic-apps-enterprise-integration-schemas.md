@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 4f58a587c1f10aea1cee89e46fa9ec340e0d21c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db2d9313e443ebc9dd32fcb905b0ae62219e4bbf
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="validate-xml-with-schemas-for-azure-logic-apps-and-the-enterprise-integration-pack"></a>Walidacja danych XML o schematach dla usługi Azure Logic Apps i pakiet integracyjny dla przedsiębiorstw
 
@@ -26,9 +26,9 @@ Schematy potwierdzić, że dokumenty XML, które otrzymujesz są prawidłowe i m
 
 ## <a name="add-a-schema"></a>Dodawanie schematu
 
-1. W portalu Azure wybierz **więcej usług**.
+1. W portalu Azure wybierz **wszystkie usługi**.
 
-    ![Portalu Azure, "Więcej usług"](media/logic-apps-enterprise-integration-schemas/overview-11.png)
+    ![Portalu Azure, "Wszystkie usługi"](media/logic-apps-enterprise-integration-schemas/overview-11.png)
 
 2. W polu filtru wyszukiwania wprowadź **integracji**i wybierz **konta integracji** z listy wyników.
 
@@ -130,6 +130,6 @@ Azure pokazuje komunikat pomyślnie przekazana schematu.
 
     ![Twoje konto, z wyróżnioną pozycją "schematy" integracji](media/logic-apps-enterprise-integration-schemas/delete-31.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Dowiedz się więcej o pakiet integracyjny dla przedsiębiorstw](logic-apps-enterprise-integration-overview.md "Dowiedz się więcej na temat pakiet integracyjny dla przedsiębiorstw").  
 

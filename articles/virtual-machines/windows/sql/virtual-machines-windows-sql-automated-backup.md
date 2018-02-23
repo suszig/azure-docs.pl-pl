@@ -4,7 +4,7 @@ description: "Zawiera opis funkcji automatycznego tworzenia kopii zapasowej dla 
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-resource-manager
 ms.assetid: bdc63fd1-db49-4e76-87d5-b5c6a890e53c
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/05/2018
 ms.author: jroth
-ms.openlocfilehash: 281aac8229c55cde1f36857a8f1042aa08f7e372
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: e7e4aab3a4c4f1ccca6868134ec0b829cb7af2f2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>Automatyczne kopie zapasowe maszyn wirtualnych programu SQL Server 2014 (Resource Manager)
 
 > [!div class="op_single_selector"]
-> * [Program SQL Server 2014](virtual-machines-windows-sql-automated-backup.md)
+> * [SQL Server 2014](virtual-machines-windows-sql-automated-backup.md)
 > * [SQL Server 2016](virtual-machines-windows-sql-automated-backup-v2.md)
 
 Automatyczne kopie zapasowe automatycznie konfiguruje [zarządzanej kopii zapasowej Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) dla wszystkich istniejących i nowych baz danych na maszynie Wirtualnej platformy Azure, programem SQL Server 2014 Standard lub Enterprise. Dzięki temu można skonfigurować kopie zapasowe zwykłej bazy danych, które korzystać z magazynu trwałego obiektów blob platformy Azure. Automatyczne kopie zapasowe jest zależna od [rozszerzenia agenta programu SQL Server IaaS](virtual-machines-windows-sql-server-agent-extension.md).
@@ -57,7 +57,7 @@ Aby korzystać z automatycznego tworzenia kopii zapasowej, należy wziąć pod u
 
 - Resource Manager
 
-**Program Azure PowerShell**:
+**Azure PowerShell**:
 
 - [Zainstaluj najnowsze poleceń programu PowerShell Azure](/powershell/azure/overview) Jeśli planujesz Konfigurowanie automatycznego tworzenia kopii zapasowej przy użyciu programu PowerShell.
 
@@ -138,7 +138,7 @@ Set-AzureRmVMSqlServerExtension -VMName $vmname `
 > [!IMPORTANT]
 > Jeśli rozszerzenie nie jest już zainstalowany, instalowania rozszerzenia uruchamia ponownie usługę SQL Server.
 
-### <a id="verifysettings"></a>Sprawdź bieżące ustawienia
+### <a id="verifysettings"></a> Sprawdź bieżące ustawienia
 
 Jeśli włączono automatyczne kopie zapasowe podczas inicjowania obsługi, można sprawdzić bieżącej konfiguracji za pomocą programu PowerShell. Uruchom **Get-AzureRmVMSqlServerExtension** polecenia i sprawdź, czy **AutoBackupSettings** właściwości:
 

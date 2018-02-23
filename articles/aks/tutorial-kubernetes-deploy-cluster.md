@@ -1,6 +1,6 @@
 ---
-title: "Kubernetes na Azure samouczek — wdrażanie klastra"
-description: "Samouczek AKS — wdrażanie klastra"
+title: "Samouczek dotyczący rozwiązania Kubernetes na platformie Azure — wdrażanie klastra"
+description: "Samouczek dotyczący usługi AKS — wdrażanie klastra"
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,51 +9,51 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2c2318d9a5f72800f9cfbd430dca448fd1e5746f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: e0d5bd57a40fca837ead42e691e1fa0c802dc013
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="deploy-an-azure-container-service-aks-cluster"></a>Wdrażanie klastra usługi kontenera platformy Azure (AKS)
+# <a name="deploy-an-azure-container-service-aks-cluster"></a>Wdrażanie klastra usługi Azure Container Service (AKS)
 
-Usługa Kubernetes zapewnia rozproszoną platformę dla konteneryzowanych aplikacji. Z AKS inicjowania obsługi klastra produkcyjnego gotowe Kubernetes jest proste i szybkie. W tym samouczku części trzech ośmiu klastra Kubernetes zostanie wdrożona w AKS. Ukończono kroki obejmują:
+Usługa Kubernetes zapewnia rozproszoną platformę dla konteneryzowanych aplikacji. Usługa AKS umożliwia łatwe i szybkie aprowizowanie produkcyjnego klastra Kubernetes. W tym samouczku (część trzecia z ośmiu) w usłudze AKS jest wdrażany klaster Kubernetes. Wykonano następujące czynności:
 
 > [!div class="checklist"]
-> * Wdrażanie klastra Kubernetes AKS
-> * Instalacja Kubernetes interfejsu wiersza polecenia (kubectl)
-> * Konfiguracja kubectl
+> * Wdrażanie klastra AKS rozwiązania Kubernetes
+> * Instalacja interfejsu wiersza polecenia rozwiązania Kubernetes (kubectl)
+> * Konfiguracja narzędzia kubectl
 
-W kolejnych samouczkach aplikacji Azure głos jest wdrożone w klastrze, skalowania, aktualizacji i Operations Management Suite jest skonfigurowany do monitorowania klastrów Kubernetes.
+W kolejnych samouczkach aplikacja do głosowania platformy Azure będzie wdrażana do klastra, skalowana i aktualizowana, a pakiet Operations Management Suite zostanie skonfigurowany do monitorowania klastra usługi Kubernetes.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-W poprzednich samouczki obrazu kontenera utworzono i przekazywanych do wystąpienia rejestru kontenera platformy Azure. Jeśli nie zostało wykonane następujące kroki, a następnie zostać z niego skorzystać, wróć do [samouczek 1 — Tworzenie kontenera obrazy][aks-tutorial-prepare-app].
+W poprzednich samouczkach utworzono obraz kontenera i przekazano go do wystąpienia usługi Azure Container Registry. Jeśli nie wykonano tych kroków, a chcesz kontynuować pracę, wróć do części [Samouczek 1 — tworzenie obrazów kontenera][aks-tutorial-prepare-app].
 
-## <a name="enabling-aks-preview-for-your-azure-subscription"></a>Włączenie subskrypcji platformy Azure w wersji zapoznawczej AKS
-Gdy AKS jest w wersji zapoznawczej, tworzenia nowych klastrów wymaga flagi funkcji w ramach subskrypcji. Aby zażądać tej funkcji dla dowolnej liczby subskrypcje, które chcesz użyć. Użyj `az provider register` polecenie, aby zarejestrować dostawcę AKS:
+## <a name="enabling-aks-preview-for-your-azure-subscription"></a>Włączanie wersji zapoznawczej usługi AKS dla subskrypcji platformy Azure
+W przypadku usługi AKS w wersji zapoznawczej tworzenie nowych klastrów wymaga flagi funkcji w ramach subskrypcji. Możesz zażądać tej funkcji dla dowolnej liczby subskrypcji, z których chcesz skorzystać. Użyj polecenia `az provider register`, aby zarejestrować dostawcę usług AKS:
 
 ```azurecli-interactive
 az provider register -n Microsoft.ContainerService
 ```
 
-Po zarejestrowaniu możesz teraz przystąpić do tworzenia klastra Kubernetes z AKS.
+Po zarejestrowaniu możesz przystąpić do tworzenia klastra Kubernetes za pomocą usługi AKS.
 
 ## <a name="create-kubernetes-cluster"></a>Tworzenie klastra Kubernetes
 
-W poniższym przykładzie tworzony klaster o nazwie `myK8sCluster` w grupie zasobów o nazwie `myResourceGroup`. Ta grupa zasobów została utworzona w [poprzedniego samouczek][aks-tutorial-prepare-acr].
+Poniższy przykład obejmuje tworzenie klastra o nazwie `myAKSCluster` w grupie zasobów o nazwie `myResourceGroup`. Ta grupa zasobów została utworzona w ramach [poprzedniego samouczka][aks-tutorial-prepare-acr].
 
 ```azurecli
-az aks create --resource-group myResourceGroup --name myK8sCluster --node-count 1 --generate-ssh-keys
+az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --generate-ssh-keys
 ```
 
-Po kilku minutach ukończeniu wdrożenia i informacji o wdrażaniu AKS w formacie json zwraca.
+Po kilku minutach wdrażanie zostanie zakończone i zwróci informacje o wdrożeniu usługi AKS w formacie JSON.
 
-## <a name="install-the-kubectl-cli"></a>Zainstaluj kubectl interfejsu wiersza polecenia
+## <a name="install-the-kubectl-cli"></a>Instalowanie interfejsu wiersza polecenia kubectl
 
-Aby połączyć się z klastrem Kubernetes z komputera klienta, należy użyć [kubectl][kubectl], Kubernetes klient wiersza polecenia.
+Aby nawiązać połączenie z klastrem Kubernetes z komputera klienckiego, należy użyć narzędzia [kubectl][kubectl], czyli klienta wiersza polecenia usługi Kubernetes.
 
-Jeśli korzystasz z usługi Azure CloudShell, narzędzie kubectl jest już zainstalowane. Jeśli użytkownik chce go zainstalować lokalnie, uruchom następujące polecenie:
+Jeśli korzystasz z usługi Azure CloudShell, narzędzie kubectl jest już zainstalowane. Jeśli chcesz zainstalować je lokalnie, uruchom następujące polecenie:
 
 ```azurecli
 az aks install-cli
@@ -61,13 +61,13 @@ az aks install-cli
 
 ## <a name="connect-with-kubectl"></a>Nawiązywanie połączenia przy użyciu narzędzia kubectl
 
-Aby skonfigurować kubectl do nawiązania połączenia z klastrem Kubernetes, uruchom następujące polecenie:
+Aby skonfigurować narzędzie kubectl w celu łączenia się z klastrem Kubernetes, uruchom następujące polecenie:
 
 ```azurecli
-az aks get-credentials --resource-group=myResourceGroup --name=myK8sCluster
+az aks get-credentials --resource-group=myResourceGroup --name=myAKSCluster
 ```
 
-Aby sprawdzić połączenie z klastrem, uruchom [kubectl uzyskać węzłów] [ kubectl-get] polecenia.
+Aby sprawdzić połączenie z klastrem, uruchom polecenie [kubectl get nodes][kubectl-get].
 
 ```azurecli
 kubectl get nodes
@@ -77,24 +77,24 @@ Dane wyjściowe:
 
 ```
 NAME                          STATUS    AGE       VERSION
-k8s-myk8scluster-36346190-0   Ready     49m       v1.7.7
+k8s-myAKSCluster-36346190-0   Ready     49m       v1.7.7
 ```
 
-Po ukończeniu samouczka masz klastry AKS dla obciążeń. W kolejnych samouczkach aplikacji kontenera wielu jest wdrażane do tego klastra, skalowana w poziomie, aktualizacji i monitorowane.
+Po ukończeniu samouczka klaster AKS jest gotowy do użycia z obciążeniami. W kolejnych samouczkach aplikacja wielu kontenerów jest wdrażana do tego klastra, skalowana w poziomie, aktualizowana i monitorowana.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku klastra Kubernetes został wdrożony w AKS. Wykonano następujące czynności:
+W tym samouczku w usłudze AKS został wdrożony klaster Kubernetes. Wykonano następujące czynności:
 
 > [!div class="checklist"]
-> * Wdrożone klastra Kubernetes AKS
-> * Zainstalowane Kubernetes interfejsu wiersza polecenia (kubectl)
-> * Skonfigurowany kubectl
+> * Wdrożony klaster AKS rozwiązania Kubernetes
+> * Instalacja interfejsu wiersza polecenia rozwiązania Kubernetes (kubectl)
+> * Konfigurowanie narzędzia kubectl
 
-Przejdź do następnego samouczka, aby dowiedzieć się więcej na temat uruchamiania aplikacji w klastrze.
+Przejdź do następnego samouczka, aby dowiedzieć się, jak uruchomić aplikację w klastrze.
 
 > [!div class="nextstepaction"]
-> [Wdrażanie aplikacji w Kubernetes][aks-tutorial-deploy-app]
+> [Wdrażanie aplikacji w rozwiązaniu Kubernetes][aks-tutorial-deploy-app]
 
 <!-- LINKS - external -->
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/

@@ -254,6 +254,9 @@
     - name: Usługa Key Vault
       tocHref: /azure/key-vault/
       topicHref: /azure/key-vault/
+    - name: Usługi oparte na lokalizacji
+      tocHref: /azure/location-based-services/
+      topicHref: /azure/location-based-services/
     - name: Moduł równoważenia obciążenia
       tocHref: /azure/load-balancer/
       topicHref: /azure/load-balancer/

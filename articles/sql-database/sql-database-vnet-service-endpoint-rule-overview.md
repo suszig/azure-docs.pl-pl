@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 02/13/2018
+ms.date: 02/20/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 95e5b2fafa20e636957aacb10dbdf9e1fd02cf8f
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
-ms.translationtype: HT
+ms.openlocfilehash: 33ce521903265f60715f66220c4d038cf6d86671
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Użyj punktów końcowych usługi sieci wirtualnej i reguł bazy danych SQL Azure
 
@@ -127,9 +127,6 @@ Istnieje możliwość użycia [kontroli dostępu opartej na rolach (RBAC)] [ rba
 ## <a name="limitations"></a>Ograniczenia
 
 Bazy danych SQL Azure funkcja reguł sieć wirtualna ma następujące ograniczenia:
-
-- W chwili obecnej, aplikacji sieci Web platformy Azure w podsieci, która ma **punktów końcowych usługi** włączona ma nie jeszcze funkcja zgodnie z oczekiwaniami. Pracujemy nad włączenie tej funkcji.
-    - Dopóki ta funkcja jest w pełni zaimplementowana, zaleca się przenoszenie aplikacji sieci Web do innej podsieci, która nie ma punktów końcowych usługi włączona dla bazy danych SQL.
 
 - W zaporze dla Twojej bazy danych SQL każda reguła sieci wirtualnej odwołuje się do podsieci. Te przywoływanego podsieci muszą być obsługiwane w tym samym regionie geograficznym, który jest hostem bazy danych SQL.
 

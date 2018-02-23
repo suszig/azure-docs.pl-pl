@@ -1,6 +1,6 @@
 ---
-title: "Jak załadować saldo maszyn wirtualnych systemu Linux na platformie Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak używać usługi równoważenia obciążenia Azure do tworzenia aplikacji wysokiej dostępności i bezpieczne w trzech maszyn wirtualnych systemu Linux"
+title: "Jak równoważyć obciążenie maszyn wirtualnych z systemem Linux na platformie Azure | Microsoft Docs"
+description: "Dowiedz się, jak utworzyć bezpieczną aplikację o wysokiej dostępności przy użyciu trzech maszyn wirtualnych z systemem Linux i modułu równoważenia obciążenia platformy Azure"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,50 +16,50 @@ ms.workload: infrastructure
 ms.date: 11/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: dc25d6106ad67710660b1a5c48270a7082688d51
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: MT
+ms.openlocfilehash: feb2c369fc00d37c9a6af0c0be68cbf7d9e59921
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="how-to-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application"></a>Jak załadować saldo maszyn wirtualnych systemu Linux na platformie Azure, aby utworzyć aplikację wysokiej dostępności
-Równoważenie obciążenia sieciowego zapewnia wyższy poziom dostępności dzięki rozproszeniu przychodzące żądania między wieloma maszynami wirtualnymi. W tym samouczku opisano różne składniki usługi równoważenia obciążenia Azure dystrybucji ruchu, które zapewniają wysoką dostępność. Omawiane kwestie:
+# <a name="how-to-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application"></a>Jak równoważyć obciążenie maszyn wirtualnych z systemem Linux na platformie Azure w celu utworzenia aplikacji o wysokiej dostępności
+Równoważenie obciążenia zwiększa dostępność dzięki rozdzieleniu żądań przychodzących pomiędzy wiele maszyn wirtualnych. W tym samouczku poznasz poszczególne składniki modułu równoważenia obciążenia platformy Azure, które dystrybuują ruch i zapewniają wysoką dostępność. Omawiane kwestie:
 
 > [!div class="checklist"]
-> * Tworzenie usługi równoważenia obciążenia Azure
-> * Utwórz kondycji sondę modułu równoważenia obciążenia
-> * Tworzenie reguły ruchu usługi równoważenia obciążenia
-> * Umożliwia utworzenie podstawowej aplikacji Node.js init chmury
-> * Tworzenie maszyn wirtualnych i dołączanie do usługi równoważenia obciążenia
-> * Wyświetl modułu równoważenia obciążenia w akcji
-> * Dodawanie i usuwanie maszyny wirtualne z modułem równoważenia obciążenia
+> * Tworzenie modułu równoważenia obciążenia na platformie Azure
+> * Tworzenie sondy kondycji modułu równoważenia obciążenia
+> * Tworzenie reguł ruchu modułu równoważenia obciążenia
+> * Używanie pliku cloud-init do tworzenia podstawowej aplikacji Node.js
+> * Tworzenie maszyn wirtualnych i dołączanie ich do modułu równoważenia obciążenia
+> * Wyświetlanie działającego modułu równoważenia obciążenia
+> * Dodawanie i usuwanie maszyn wirtualnych w module równoważenia obciążenia
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Jeśli wybierzesz do zainstalowania i używania interfejsu wiersza polecenia lokalnie, w tym samouczku wymaga używasz interfejsu wiersza polecenia Azure w wersji 2.0.4 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
 
-## <a name="azure-load-balancer-overview"></a>Omówienie usługi równoważenia obciążenia Azure
-Moduł równoważenia obciążenia Azure jest równoważenia obciążenia warstwy 4 (TCP, UDP), który zapewnia wysoką dostępność, przekazując przychodzący ruch między maszynami wirtualnymi w dobrej kondycji. Badanie kondycji modułu równoważenia obciążenia monitoruje danego portu na każdej maszynie Wirtualnej i tylko dystrybuuje ruch do operacyjnej maszyny Wirtualnej.
+## <a name="azure-load-balancer-overview"></a>Omówienie modułu równoważenia obciążenia platformy Azure
+Moduł równoważenia obciążenia platformy Azure jest modułem w warstwie 4 (TCP, UDP), który zapewnia wysoką dostępność, rozkładając ruch przychodzący na maszyny wirtualne w dobrej kondycji. Sonda kondycji modułu równoważenia obciążenia monitoruje określony port na każdej maszynie wirtualnej i dystrybuuje ruch tylko do działającej maszyny wirtualnej.
 
-Należy zdefiniować frontonu konfiguracji adresu IP, który zawiera co najmniej jeden publiczny adres IP. Ta frontonu konfiguracji IP umożliwia Twojej usługi równoważenia obciążenia i aplikacje mają być dostępne za pośrednictwem Internetu. 
+Zdefiniuj konfigurację IP frontonu z co najmniej jednym publicznym adresem IP. Ta konfiguracja frontonu zapewnia dostęp do aplikacji i modułu równoważenia obciążenia za pośrednictwem Internetu. 
 
-Maszyny wirtualne połączenia z modułem równoważenia obciążenia przy użyciu ich karty interfejsu sieci wirtualnej (NIC). Aby rozpowszechnić ruch do maszyn wirtualnych, puli adresów zaplecza zawiera adres IP adresów wirtualnych (NIC) połączony z usługą równoważenia obciążenia.
+Maszyny wirtualne łączą się z modułem równoważenia obciążenia za pośrednictwem wirtualnej karty sieciowej. Na potrzeby rozdzielania ruchu między maszyny wirtualne używana jest pula adresów zaplecza, zawierająca adresy IP wirtualnych kart sieciowych połączonych z modułem równoważenia obciążenia.
 
-Aby sterowanie przepływem ruchu, należy zdefiniować reguły modułu równoważenia obciążenia dla określonych portów i protokołów, które mapują do maszyn wirtualnych.
+Aby sterować przepływem ruchu, zdefiniuj reguły równoważenia obciążenia dla poszczególnych portów i protokołów mapowanych na Twoje maszyny wirtualne.
 
-Po wykonaniu poprzednich w samouczku [utworzyć zestaw skali maszyny wirtualnej](tutorial-create-vmss.md), usługi równoważenia obciążenia został utworzony. Wszystkie te składniki zostały skonfigurowane dla Ciebie jako część zestawu skali.
+Jeśli został wykonany poprzedni samouczek omawiający [tworzenie zestawu skalowania maszyn wirtualnych](tutorial-create-vmss.md), masz już utworzony moduł równoważenia obciążenia. Wszystkie te składniki zostały już skonfigurowane jako część zestawu skalowania.
 
 
-## <a name="create-azure-load-balancer"></a>Tworzenie usługi równoważenia obciążenia Azure
-W tej sekcji Szczegóły, jak można tworzyć i konfigurować poszczególnych składników usługi równoważenia obciążenia. Przed utworzeniem przez moduł równoważenia obciążenia, Utwórz nową grupę zasobów o [Tworzenie grupy az](/cli/azure/group#create). Poniższy przykład tworzy grupę zasobów o nazwie *myResourceGroupLoadBalancer* w *eastus* lokalizacji:
+## <a name="create-azure-load-balancer"></a>Tworzenie modułu równoważenia obciążenia na platformie Azure
+W tej sekcji opisano szczegółowo procedurę tworzenia i konfigurowania poszczególnych składników modułu równoważenia obciążenia. Zanim będzie można utworzyć własny moduł równoważenia obciążenia, należy utworzyć grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#az_group_create). W poniższym przykładzie zostanie utworzona grupa zasobów o nazwie *myResourceGroupLoadBalancer* w lokalizacji *eastus*:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupLoadBalancer --location eastus
 ```
 
 ### <a name="create-a-public-ip-address"></a>Tworzenie publicznego adresu IP
-Aby uzyskać dostęp do aplikacji w Internecie, należy publicznego adresu IP usługi równoważenia obciążenia. Utwórz publiczny adres IP z [utworzyć az sieci publicznej ip](/cli/azure/network/public-ip#create). Poniższy przykład tworzy publiczny adres IP o nazwie *myPublicIP* w *myResourceGroupLoadBalancer* grupy zasobów:
+Aby uzyskać dostęp do aplikacji za pośrednictwem Internetu, potrzebujesz publicznego adresu IP modułu równoważenia obciążenia. Utwórz publiczny adres IP za pomocą polecenia [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create). W poniższym przykładzie zostanie utworzony publiczny adres IP o nazwie *myPublicIP* w grupie zasobów *myResourceGroupLoadBalancer*:
 
 ```azurecli-interactive 
 az network public-ip create \
@@ -68,7 +68,7 @@ az network public-ip create \
 ```
 
 ### <a name="create-a-load-balancer"></a>Tworzenie modułu równoważenia obciążenia
-Tworzenie modułu równoważenia obciążenia z [utworzyć równoważeniem obciążenia sieciowego az](/cli/azure/network/lb#create). Poniższy przykład tworzy moduł równoważenia obciążenia o nazwie *myLoadBalancer* i przypisuje *myPublicIP* adres frontonu konfiguracją protokołu IP:
+Utwórz moduł równoważenia obciążenia za pomocą polecenia [az network lb create](/cli/azure/network/lb#az_network_lb_create). Poniższy przykład tworzy moduł równoważenia obciążenia o nazwie *myLoadBalancer* i przypisuje adres *myPublicIP* do konfiguracji protokołu IP frontonu:
 
 ```azurecli-interactive 
 az network lb create \
@@ -79,12 +79,12 @@ az network lb create \
     --public-ip-address myPublicIP
 ```
 
-### <a name="create-a-health-probe"></a>Utworzyć sondy kondycji
-Aby zezwolić usłudze równoważenia obciążenia do monitorowania stanu aplikacji, należy użyć sondy kondycji. Sondy kondycji dynamicznie dodaje lub usuwa maszyn wirtualnych z oparte na ich odpowiedzi na sprawdzenie kondycji obrót usługi równoważenia obciążenia. Domyślnie maszyny Wirtualnej zostanie usunięte z dystrybucji modułu równoważenia obciążenia po dwóch kolejnych błędów na 15 sekund. Można utworzyć sondy kondycji, na podstawie protokołu lub stronę wyboru kondycji określonych aplikacji. 
+### <a name="create-a-health-probe"></a>Tworzenie sondy kondycji
+Sonda kondycji umożliwia modułowi równoważenia obciążenia monitorowanie stanu aplikacji. Dynamicznie dodaje lub usuwa maszyny wirtualne w rotacji modułu równoważenia obciążenia na podstawie ich odpowiedzi na kontrole kondycji. Domyślnie maszyna wirtualna jest wykluczana z dystrybucji ruchu przez moduł równoważenia obciążenia, jeśli dwie kolejne próby podejmowane w 15-sekundowych odstępach zakończą się niepowodzeniem. Sonda kondycji jest tworzona z użyciem protokołu lub konkretnej strony kontroli kondycji aplikacji. 
 
-Poniższy przykład tworzy sondowaniem TCP. Można również utworzyć niestandardowe sond HTTP więcej kontroli kondycji szczegółowe. Podczas korzystania z niestandardowego badanie HTTP, należy utworzyć strona sprawdzania kondycji, takich jak *healthcheck.js*. Sonda musi zwracać **HTTP 200 OK** odpowiedzi dla usługi równoważenia obciążenia zachować hosta w obrotu.
+W poniższym przykładzie zostanie utworzona sonda TCP. Możesz także tworzyć niestandardowe sondy HTTP na potrzeby bardziej szczegółowych kontroli kondycji. W przypadku użycia niestandardowej sondy HTTP należy utworzyć stronę kontroli kondycji, na przykład *healthcheck.js*. Aby dany host pozostał w rotacji, sonda musi zwrócić do modułu równoważenia obciążenia kod odpowiedzi **HTTP 200 OK**.
 
-Aby utworzyć sondy kondycji TCP, należy użyć [utworzyć sondy równoważeniem obciążenia sieciowego az](/cli/azure/network/lb/probe#create). Poniższy przykład tworzy badanie kondycji o nazwie *myHealthProbe*:
+Aby utworzyć sondę kondycji TCP, należy użyć polecenia [az network lb probe create](/cli/azure/network/lb/probe#az_network_lb_probe_create). W poniższym przykładzie zostanie utworzona sonda kondycji o nazwie *myHealthProbe*:
 
 ```azurecli-interactive 
 az network lb probe create \
@@ -96,9 +96,9 @@ az network lb probe create \
 ```
 
 ### <a name="create-a-load-balancer-rule"></a>Tworzenie reguły modułu równoważenia obciążenia
-Reguły modułu równoważenia obciążenia jest używany do definiowania rozkład ruchu do maszyn wirtualnych. Należy zdefiniować konfiguracji IP frontonu dla ruchu przychodzącego i puli adresów IP zaplecza, aby odbierać ruch, wraz z wymagany port źródłowy i docelowy. Aby upewnij się, że tylko dobrej kondycji maszyn wirtualnych odbieranie ruchu, również zdefiniować sondy kondycji do użycia.
+Reguła modułu równoważenia obciążenia służy do definiowania sposobu dystrybucji ruchu do maszyn wirtualnych. Zdefiniuj konfigurację adresu IP frontonu na potrzeby ruchu przychodzącego oraz pulę adresów IP zaplecza do odbierania ruchu, wraz z wymaganym portem źródłowym i docelowym. Aby mieć pewność, że ruch będzie kierowany tylko do maszyn wirtualnych w dobrej kondycji, zdefiniuj również sondę kondycji do użycia.
 
-Tworzenie reguły modułu równoważenia obciążenia z [utworzyć regułę równoważeniem obciążenia sieciowego az](/cli/azure/network/lb/rule#create). Poniższy przykład tworzy reguły o nazwie *myLoadBalancerRule*, używa *myHealthProbe* badania kondycji i równoważy ruch na porcie *80*:
+Utwórz regułę modułu równoważenia obciążenia za pomocą polecenia [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create). W poniższym przykładzie zostanie utworzona reguła o nazwie *myLoadBalancerRule*, która używa sondy kondycji o nazwie *myHealthProbe* i równoważy ruch na porcie *80*:
 
 ```azurecli-interactive 
 az network lb rule create \
@@ -115,10 +115,10 @@ az network lb rule create \
 
 
 ## <a name="configure-virtual-network"></a>Konfigurowanie sieci wirtualnej
-Przed wdrożeniem niektórych maszyn wirtualnych i przetestować z usługi równoważenia, Utwórz pomocnicze zasoby sieci wirtualnej. Aby uzyskać więcej informacji o sieciach wirtualnych, zobacz [Zarządzanie sieciami wirtualnymi Azure](tutorial-virtual-network.md) samouczka.
+Zanim będzie możliwe wdrożenie maszyn wirtualnych i przetestowanie modułu równoważenia obciążenia, należy utworzyć pomocnicze zasoby sieci wirtualnej. Więcej informacji na temat sieci wirtualnych zawiera samouczek [Manage Azure Virtual Networks (Zarządzanie sieciami wirtualnymi platformy Azure)](tutorial-virtual-network.md).
 
-### <a name="create-network-resources"></a>Utwórz zasoby sieciowe
-Tworzenie sieci wirtualnej z [tworzenie sieci wirtualnej sieci az](/cli/azure/network/vnet#create). Poniższy przykład tworzy sieć wirtualną o nazwie *myVnet* z podsiecią o nazwie *mySubnet*:
+### <a name="create-network-resources"></a>Tworzenie zasobów sieciowych
+Utwórz sieć wirtualną za pomocą polecenia [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). Poniższy przykład obejmuje tworzenie sieci wirtualnej o nazwie *myVnet* z podsiecią o nazwie *mySubnet*:
 
 ```azurecli-interactive 
 az network vnet create \
@@ -127,7 +127,7 @@ az network vnet create \
     --subnet-name mySubnet
 ```
 
-Aby dodać grupę zabezpieczeń sieci, należy użyć [utworzyć nsg sieci az](/cli/azure/network/nsg#create). Poniższy przykład tworzy sieciową grupę zabezpieczeń o nazwie *myNetworkSecurityGroup*:
+Aby dodać sieciową grupę zabezpieczeń, użyj polecenia [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create). Poniższy przykład tworzy sieciową grupę zabezpieczeń o nazwie *myNetworkSecurityGroup*:
 
 ```azurecli-interactive 
 az network nsg create \
@@ -135,7 +135,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-Tworzenie reguły grupy zabezpieczeń sieci z [Tworzenie reguły nsg sieci az](/cli/azure/network/nsg/rule#create). Poniższy przykład tworzy regułę grupy zabezpieczeń sieci o nazwie *myNetworkSecurityGroupRule*:
+Utwórz regułę sieciowej grupy zabezpieczeń za pomocą polecenia [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create). Poniższy przykład tworzy regułę sieciowej grupy zabezpieczeń o nazwie *myNetworkSecurityGroupRule*:
 
 ```azurecli-interactive 
 az network nsg rule create \
@@ -147,7 +147,7 @@ az network nsg rule create \
     --destination-port-range 80
 ```
 
-Wirtualne karty sieciowe są tworzone za pomocą [tworzenie kart interfejsu sieciowego az](/cli/azure/network/nic#create). Poniższy przykład tworzy trzy wirtualne karty sieciowe. (Jedną wirtualną kartę Sieciową dla każdej maszyny Wirtualnej można utworzyć dla aplikacji w poniższych krokach). Można utworzyć dodatkowe wirtualne karty sieciowe i maszyn wirtualnych w dowolnym momencie i dodaj je do usługi równoważenia obciążenia:
+Wirtualne karty sieciowe są tworzone za pomocą polecenia [az network nic create](/cli/azure/network/nic#az_network_nic_create). W poniższym przykładzie zostaną utworzone trzy wirtualne karty sieciowe. (Po jednej karcie na każdą maszynę wirtualną, która zostanie utworzona na potrzeby aplikacji w kolejnych krokach). Możesz w dowolnym momencie utworzyć i dodać do modułu równoważenia obciążenia dodatkowe wirtualne karty sieciowe i maszyny wirtualne:
 
 ```bash
 for i in `seq 1 3`; do
@@ -162,15 +162,15 @@ for i in `seq 1 3`; do
 done
 ```
 
-Gdy wszystkie trzy wirtualne karty sieciowe są tworzone, przejdź do kolejnego kroku
+Gdy wszystkie trzy wirtualne karty sieciowe zostaną utworzone, przejdź do kolejnego kroku
 
 
 ## <a name="create-virtual-machines"></a>Tworzenie maszyn wirtualnych
 
-### <a name="create-cloud-init-config"></a>Tworzenie konfiguracji init chmury
-W poprzednich samouczek dotyczący [sposobu dostosowywania maszyny wirtualnej systemu Linux, po pierwszym uruchomieniu komputera](tutorial-automate-vm-deployment.md), wiesz, jak można zautomatyzować dostosowania maszyny Wirtualnej z inicjowaniem chmury. Można użyć tego samego pliku konfiguracji chmury init NGINX zainstalować i uruchomić proste "Hello World" aplikacji Node.js w następnym kroku. Aby wyświetlić moduł równoważenia obciążenia w akcji na końcu samouczka dostęp do tej prostej aplikacji w przeglądarce sieci web.
+### <a name="create-cloud-init-config"></a>Tworzenie pliku konfiguracji cloud-init
+W poprzednim samouczku dotyczącym [sposobu dostosowywania maszyny wirtualnej systemu Linux przy pierwszym uruchomieniu](tutorial-automate-vm-deployment.md) przedstawiono proces automatyzowania dostosowywania maszyny wirtualnej przy użyciu pliku cloud-init. Tego samego pliku konfiguracji cloud-init można użyć do zainstalowania aparatu NGINX i uruchomienia prostej aplikacji Node.js: „Hello World” w następnym kroku. Aby zobaczyć moduł równoważenia obciążenia w akcji, na końcu samouczka uzyskasz dostęp do tej prostej aplikacji w przeglądarce internetowej.
 
-W bieżącym powłoki, Utwórz plik o nazwie *init.txt chmury* i wklej następującą konfigurację. Na przykład utworzyć plik, w powłoce chmury nie na komputerze lokalnym. Wprowadź `sensible-editor cloud-init.txt` do tworzenia pliku i wyświetlić listę dostępnych edytory. Upewnij się, że poprawnie skopiować pliku całego init chmury szczególnie pierwszy wiersz:
+W bieżącej powłoce utwórz plik o nazwie *cloud-init.txt* i wklej poniższą konfigurację. Na przykład utwórz plik w usłudze Cloud Shell, a nie na maszynie lokalnej. Wprowadź `sensible-editor cloud-init.txt`, aby utworzyć plik i wyświetlić listę dostępnych edytorów. Upewnij się, że skopiowano cały plik cloud-init chmury, a szczególnie pierwszy wiersz:
 
 ```yaml
 #cloud-config
@@ -215,9 +215,9 @@ runcmd:
 ```
 
 ### <a name="create-virtual-machines"></a>Tworzenie maszyn wirtualnych
-Aby zwiększyć wysoką dostępność aplikacji, umieść maszyn wirtualnych w zestawie dostępności. Aby uzyskać więcej informacji na temat zestawów dostępności, zobacz poprzedni [sposób tworzenia maszyn wirtualnych o wysokiej dostępności](tutorial-availability-sets.md) samouczka.
+Aby poprawić wysoką dostępność aplikacji, umieść maszyny wirtualne w zestawie dostępności. Aby uzyskać więcej informacji na temat zestawów dostępności, zobacz poprzedni samouczek [How to create highly available virtual machines (Tworzenie maszyn wirtualnych o wysokiej dostępności)](tutorial-availability-sets.md).
 
-Utwórz zestaw o dostępności [tworzenia maszyny wirtualnej az zestawu dostępności](/cli/azure/vm/availability-set#create). Poniższy przykład tworzy zbiór nazwanego dostępności *myAvailabilitySet*:
+Aby utworzyć zestaw dostępności, użyj polecenia [az vm availability-set create](/cli/azure/vm/availability-set#az_vm_availability_set_create). W poniższym przykładzie zostanie utworzony zestaw dostępności o nazwie *myAvailabilitySet*:
 
 ```azurecli-interactive 
 az vm availability-set create \
@@ -225,7 +225,7 @@ az vm availability-set create \
     --name myAvailabilitySet
 ```
 
-Teraz można tworzyć maszyn wirtualnych o [tworzenia maszyny wirtualnej az](/cli/azure/vm#create). Poniższy przykład tworzy trzech maszyn wirtualnych i generuje klucze SSH, jeśli jeszcze nie istnieje:
+Teraz możesz utworzyć maszyny wirtualne za pomocą polecenia [az vm create](/cli/azure/vm#az_vm_create). W poniższym przykładzie pokazano tworzenie trzech maszyn wirtualnych i generowanie kluczy SSH, jeśli jeszcze nie istnieją:
 
 ```bash
 for i in `seq 1 3`; do
@@ -242,11 +242,11 @@ for i in `seq 1 3`; do
 done
 ```
 
-Istnieją zadania w tle, które nadal działać po interfejsu wiersza polecenia Azure powrót do wiersza polecenia. `--no-wait` Parametr bez oczekiwania na ukończenie wszystkich zadań. Może to być inny kilka minut, w celu uzyskania dostępu do aplikacji. Sondy kondycji modułu równoważenia obciążenia automatycznie wykrywa, gdy aplikacja jest uruchomiona na każdej maszynie Wirtualnej. Gdy aplikacja jest uruchomiona, rozpoczyna się reguły modułu równoważenia obciążenia do dystrybucji ruchu.
+Pewne zadania w tle działają nadal po powrocie do wiersza polecenia w interfejsie wiersza polecenia platformy Azure. Parametr `--no-wait` nie czeka na zakończenie wszystkich zadań. Może upłynąć kilka minut, zanim będzie można uzyskać dostęp do aplikacji. Sonda kondycji modułu równoważenia obciążenia automatycznie wykrywa, gdy aplikacja jest uruchomiona na każdej maszynie wirtualnej. Gdy aplikacja jest uruchomiona, reguła modułu równoważenia obciążenia rozpoczyna dystrybucję ruchu.
 
 
-## <a name="test-load-balancer"></a>Test usługi równoważenia obciążenia
-Publiczny adres IP z usługi równoważenia obciążenia z [az sieci ip publicznego Pokaż](/cli/azure/network/public-ip#show). Poniższy przykład uzyskuje adres IP dla *myPublicIP* utworzony wcześniej:
+## <a name="test-load-balancer"></a>Testowanie modułu równoważenia obciążenia
+Uzyskaj publiczny adres IP modułu równoważenia obciążenia za pomocą polecenia [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). W poniższym przykładzie uzyskano utworzony wcześniej adres IP *myPublicIP*:
 
 ```azurecli-interactive 
 az network public-ip show \
@@ -256,18 +256,18 @@ az network public-ip show \
     --output tsv
 ```
 
-Następnie można wprowadzić publicznego adresu IP w przeglądarce sieci web. Pamiętaj — zajmuje kilka minut dla maszyn wirtualnych będzie gotowa, przed rozpoczęciem dystrybucji ruchu do nich usługi równoważenia obciążenia. Aplikacja jest wyświetlana, łącznie z nazwą hosta maszyny Wirtualnej dystrybuowanej usługi równoważenia obciążenia w ruchu, jak w poniższym przykładzie:
+Następnie możesz wprowadzić publiczny adres IP w przeglądarce internetowej. Pamiętaj — kilka minut trwa przygotowanie maszyn wirtualnych zanim moduł równoważenia obciążenia rozpocznie dystrybucję ruchu do nich. Zostanie wyświetlona aplikacja z nazwą hosta maszyny wirtualnej, do której moduł równoważenia obciążenia kieruje ruch, jak pokazano na poniższym przykładzie:
 
-![Uruchomionej aplikacji Node.js](./media/tutorial-load-balancer/running-nodejs-app.png)
+![Uruchamianie aplikacji Node.js](./media/tutorial-load-balancer/running-nodejs-app.png)
 
-Aby wyświetlić Dystrybuuj ruch we wszystkich trzech maszyn wirtualnych z tą aplikacją usługi równoważenia obciążenia, możesz można życie odświeżania przeglądarki sieci web.
+Aby zobaczyć, jak moduł równoważenia obciążenia rozdziela ruch między trzy maszyny wirtualne używane przez aplikację, możesz wymusić odświeżenie w przeglądarce internetowej.
 
 
-## <a name="add-and-remove-vms"></a>Dodawanie i usuwanie maszyny wirtualne
-Może być konieczne przeprowadzenie konserwacji na maszynach wirtualnych z tą aplikacją, takich jak instalowanie aktualizacji systemu operacyjnego. Aby poradzić sobie z zwiększenie obciążenia do aplikacji, może być konieczne dodanie kolejnych maszyn wirtualnych. W tej sekcji przedstawiono sposób Usuń lub Dodaj Maszynę wirtualną z modułu równoważenia obciążenia.
+## <a name="add-and-remove-vms"></a>Dodawanie i usuwanie maszyn wirtualnych
+Maszyny wirtualne, na których działa aplikacja, mogą wymagać przeprowadzenia konserwacji, na przykład zainstalowania aktualizacji systemu operacyjnego. Zwiększony ruch do Twojej aplikacji może wiązać się z koniecznością dodania większej liczby maszyn wirtualnych. W tej sekcji pokazano, jak usunąć lub dodać maszyny wirtualne w module równoważenia obciążenia.
 
-### <a name="remove-a-vm-from-the-load-balancer"></a>Usuń Maszynę wirtualną z usługi równoważenia obciążenia
-Możesz usunąć Maszynę wirtualną z puli adresów zaplecza z [az kart konfiguracji ip puli adresów sieciowych — Usuń](/cli/azure/network/nic/ip-config/address-pool#remove). Poniższy przykład umożliwia usunięcie wirtualnej karty Sieciowej dla **myVM2** z *myLoadBalancer*:
+### <a name="remove-a-vm-from-the-load-balancer"></a>Usuwanie maszyny wirtualnej z modułu równoważenia obciążenia
+Maszynę wirtualną możesz usunąć z puli adresów zaplecza za pomocą polecenia [az network nic ip-config address-pool remove](/cli/azure/network/nic/ip-config/address-pool#az_network_nic_ip_config_address_pool_remove). Poniższy przykład usuwa wirtualną kartę sieciową dla maszyny **myVM2** z modułu *myLoadBalancer*:
 
 ```azurecli-interactive 
 az network nic ip-config address-pool remove \
@@ -278,9 +278,9 @@ az network nic ip-config address-pool remove \
     --address-pool myBackEndPool 
 ```
 
-Aby wyświetlić rozpowszechniają ruchu pozostałych dwóch maszyn wirtualnych z tą aplikacją usługi równoważenia obciążenia można można życie odświeżania przeglądarki sieci web. Teraz można przeprowadzać konserwacji na maszynie Wirtualnej, takie jak instalowanie aktualizacji systemu operacyjnego lub wykonywania ponownego uruchomienia maszyny Wirtualnej.
+Aby zobaczyć, jak moduł równoważenia obciążenia rozdziela ruch między pozostałe dwie maszyny wirtualne używane przez aplikację, możesz wymusić odświeżenie w przeglądarce internetowej. Możesz teraz wykonać czynności konserwacyjne na maszynie wirtualnej, na przykład zainstalować aktualizacje systemu operacyjnego lub ponownie uruchomić maszynę wirtualną.
 
-Aby wyświetlić listę maszyn wirtualnych z wirtualne karty sieciowe podłączone do usługi równoważenia obciążenia, użyj [Pokaż puli adresów równoważeniem obciążenia sieciowego az](/cli/azure/network/lb/address-pool#show). Zapytania i odfiltrować identyfikator wirtualnej karty Sieciowej w następujący sposób:
+Aby wyświetlić listę maszyn wirtualnych z wirtualnymi kartami sieciowymi podłączonymi do modułu równoważenia obciążenia, użyj polecenia [az network lb address-pool show](/cli/azure/network/lb/address-pool#az_network_lb_address_pool_show). Zapytania i filtrowanie według identyfikatora wirtualnej karty sieciowej należy wykonać w następujący sposób:
 
 ```azurecli-interactive
 az network lb address-pool show \
@@ -291,15 +291,15 @@ az network lb address-pool show \
     --output tsv | cut -f4
 ```
 
-Wynik jest podobny do poniższego przykładu, który pokazuje, że wirtualnej karty Sieciowej dla maszyny Wirtualnej 2 nie jest już częścią puli adresów zaplecza:
+Dane wyjściowe są podobne do poniższego przykładu, który pokazuje, że wirtualna karta sieciowa dla maszyny wirtualnej 2 nie jest już częścią puli adresów zaplecza:
 
 ```bash
 /subscriptions/<guid>/resourceGroups/myResourceGroupLoadBalancer/providers/Microsoft.Network/networkInterfaces/myNic1/ipConfigurations/ipconfig1
 /subscriptions/<guid>/resourceGroups/myResourceGroupLoadBalancer/providers/Microsoft.Network/networkInterfaces/myNic3/ipConfigurations/ipconfig1
 ```
 
-### <a name="add-a-vm-to-the-load-balancer"></a>Dodaj Maszynę wirtualną z usługą równoważenia obciążenia
-Po wykonaniu obsługi maszyny Wirtualnej, lub jeśli trzeba zwiększyć pojemność, można dodać maszyny Wirtualnej do puli adresów zaplecza z [az kart konfiguracji ip puli adresów sieciowych — Dodaj](/cli/azure/network/nic/ip-config/address-pool#add). W poniższym przykładzie dodano wirtualnej karty Sieciowej dla **myVM2** do *myLoadBalancer*:
+### <a name="add-a-vm-to-the-load-balancer"></a>Dodawanie maszyny wirtualnej do modułu równoważenia obciążenia
+Po przeprowadzeniu konserwacji maszyny wirtualnej lub jeśli trzeba zwiększyć pojemność, możesz dodać maszynę wirtualną do puli adresów zaplecza za pomocą polecenia [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#az_network_nic_ip_config_address_pool_add). Poniższy przykład dodaje wirtualną kartę sieciową dla maszyny **myVM2** do modułu *myLoadBalancer*:
 
 ```azurecli-interactive 
 az network nic ip-config address-pool add \
@@ -310,22 +310,22 @@ az network nic ip-config address-pool add \
     --address-pool myBackEndPool
 ```
 
-Aby sprawdzić, czy wirtualną kartę Sieciową podłączoną do puli adresów zaplecza, użyj [Pokaż puli adresów równoważeniem obciążenia sieciowego az](/cli/azure/network/lb/address-pool#show) ponownie z poprzedniego kroku.
+Aby sprawdzić, czy wirtualna karta sieciowa jest włączona do puli adresów zaplecza, ponownie użyj polecenia [az network lb address-pool show](/cli/azure/network/lb/address-pool#az_network_lb_address_pool_show) z poprzedniego kroku.
 
 
 ## <a name="next-steps"></a>Następne kroki
-W tym samouczku utworzony moduł równoważenia obciążenia i dołączone do maszyn wirtualnych. W tym samouczku omówiono:
+Podczas pracy z tym samouczkiem utworzono moduł równoważenia obciążenia i dołączono do niego maszyny wirtualne. W tym samouczku omówiono:
 
 > [!div class="checklist"]
-> * Tworzenie usługi równoważenia obciążenia Azure
-> * Utwórz kondycji sondę modułu równoważenia obciążenia
-> * Tworzenie reguły ruchu usługi równoważenia obciążenia
-> * Umożliwia utworzenie podstawowej aplikacji Node.js init chmury
-> * Tworzenie maszyn wirtualnych i dołączanie do usługi równoważenia obciążenia
-> * Wyświetl modułu równoważenia obciążenia w akcji
-> * Dodawanie i usuwanie maszyny wirtualne z modułem równoważenia obciążenia
+> * Tworzenie modułu równoważenia obciążenia na platformie Azure
+> * Tworzenie sondy kondycji modułu równoważenia obciążenia
+> * Tworzenie reguł ruchu modułu równoważenia obciążenia
+> * Używanie pliku cloud-init do tworzenia podstawowej aplikacji Node.js
+> * Tworzenie maszyn wirtualnych i dołączanie ich do modułu równoważenia obciążenia
+> * Wyświetlanie działającego modułu równoważenia obciążenia
+> * Dodawanie i usuwanie maszyn wirtualnych w module równoważenia obciążenia
 
-Przejdź do następnego samouczkiem, aby dowiedzieć się więcej o składnikach sieci wirtualnej platformy Azure.
+Przejdź do następnego samouczka, aby dowiedzieć się więcej o składnikach sieci wirtualnej platformy Azure.
 
 > [!div class="nextstepaction"]
 > [Zarządzanie maszynami wirtualnymi i sieciami wirtualnymi](tutorial-virtual-network.md)

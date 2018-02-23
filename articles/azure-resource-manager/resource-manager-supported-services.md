@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: 6a9128f45d4199404019cee594842d59c7f1aaf3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b1915288feff8f1d9fc780fef40a247d1c35839
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="resource-providers-and-types"></a>Dostawcy zasobów i typów
 
@@ -53,7 +53,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-Rejestrowanie dostawcy zasobów służy do konfigurowania subskrypcji do pracy z dostawcy zasobów. Subskrypcja jest zawsze zakres rejestracji. Domyślnie automatycznie zarejestrowano wielu dostawców zasobów. Jednak należy ręcznie zarejestrować niektórzy dostawcy zasobów. Aby zarejestrować dostawcy zasobów, musi mieć uprawnienia do wykonywania `/register/action` operacji dla dostawcy zasobów. Ta operacja znajduje rolę współautora i właściciela.
+Rejestrowanie dostawcy zasobów służy do konfigurowania subskrypcji do pracy z dostawcy zasobów. Subskrypcja jest zawsze zakres rejestracji. Domyślnie automatycznie zarejestrowano wielu dostawców zasobów. Jednak należy ręcznie zarejestrować niektórzy dostawcy zasobów. Aby zarejestrować dostawcy zasobów, musi mieć uprawnienia do wykonywania `/register/action` operacji dla dostawcy zasobów. Ta operacja jest uwzględniona w rolach Współautor i Właściciel.
 
 ```powershell
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
@@ -157,7 +157,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-Rejestrowanie dostawcy zasobów służy do konfigurowania subskrypcji do pracy z dostawcy zasobów. Subskrypcja jest zawsze zakres rejestracji. Domyślnie automatycznie zarejestrowano wielu dostawców zasobów. Jednak należy ręcznie zarejestrować niektórzy dostawcy zasobów. Aby zarejestrować dostawcy zasobów, musi mieć uprawnienia do wykonywania `/register/action` operacji dla dostawcy zasobów. Ta operacja znajduje rolę współautora i właściciela.
+Rejestrowanie dostawcy zasobów służy do konfigurowania subskrypcji do pracy z dostawcy zasobów. Subskrypcja jest zawsze zakres rejestracji. Domyślnie automatycznie zarejestrowano wielu dostawców zasobów. Jednak należy ręcznie zarejestrować niektórzy dostawcy zasobów. Aby zarejestrować dostawcy zasobów, musi mieć uprawnienia do wykonywania `/register/action` operacji dla dostawcy zasobów. Ta operacja jest uwzględniona w rolach Współautor i Właściciel.
 
 ```azurecli
 az provider register --namespace Microsoft.Batch
@@ -257,15 +257,15 @@ Wybierz **dostawców zasobów** i wyświetlić listę dostępnych dostawców zas
 
 ![Pokaż dostawców zasobów](./media/resource-manager-supported-services/show-resource-providers.png)
 
-Rejestrowanie dostawcy zasobów służy do konfigurowania subskrypcji do pracy z dostawcy zasobów. Subskrypcja jest zawsze zakres rejestracji. Domyślnie automatycznie zarejestrowano wielu dostawców zasobów. Jednak należy ręcznie zarejestrować niektórzy dostawcy zasobów. Aby zarejestrować dostawcy zasobów, musi mieć uprawnienia do wykonywania `/register/action` operacji dla dostawcy zasobów. Ta operacja znajduje rolę współautora i właściciela. Aby zarejestrować dostawcy zasobów, wybierz **zarejestrować**.
+Rejestrowanie dostawcy zasobów służy do konfigurowania subskrypcji do pracy z dostawcy zasobów. Subskrypcja jest zawsze zakres rejestracji. Domyślnie automatycznie zarejestrowano wielu dostawców zasobów. Jednak należy ręcznie zarejestrować niektórzy dostawcy zasobów. Aby zarejestrować dostawcy zasobów, musi mieć uprawnienia do wykonywania `/register/action` operacji dla dostawcy zasobów. Ta operacja jest uwzględniona w rolach Współautor i Właściciel. Aby zarejestrować dostawcy zasobów, wybierz **zarejestrować**.
 
 ![Rejestrowanie dostawcy zasobów](./media/resource-manager-supported-services/register-provider.png)
 
 Nie można wyrejestrować dostawcy zasobów, gdy nadal masz typów zasobów z tego dostawcy zasobów w ramach subskrypcji.
 
-Aby wyświetlić informacje dotyczące dostawcy określonego zasobu, wybierz **więcej usług**.
+Aby wyświetlić informacje dotyczące dostawcy określonego zasobu, wybierz **wszystkie usługi**.
 
-![Wybierz więcej usług](./media/resource-manager-supported-services/more-services.png)
+![Wybierz wszystkie usługi](./media/resource-manager-supported-services/more-services.png)
 
 Wyszukaj **Eksploratora zasobów** i wybierz ją z dostępnych opcji.
 
@@ -287,7 +287,7 @@ Wersja interfejsu API odpowiada wersji operacji interfejsu API REST, które są 
 
 ![Pokaż wersje interfejsu API](./media/resource-manager-supported-services/show-api-versions.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Aby uzyskać informacje dotyczące tworzenia szablonów usługi Resource Manager, zobacz [szablonów Authoring Azure Resource Manager](resource-group-authoring-templates.md).
 * Aby dowiedzieć się więcej na temat wdrażania zasobów, zobacz [wdrażania aplikacji przy użyciu szablonu usługi Azure Resource Manager](resource-group-template-deploy.md).
 * Aby wyświetlić operacje dla dostawców zasobów, zobacz [interfejsu API REST Azure](/rest/api/).

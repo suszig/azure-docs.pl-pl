@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 41ead775c8ce1919d8c3813b58c8a4d648c8bc64
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: e166e73ba45e229d8049738fa4a79f5dc117d806
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Samouczek: Kopiowanie danych z magazynu obiektów Blob do bazy danych SQL przy użyciu fabryki danych
 > [!div class="op_single_selector"]
@@ -56,7 +56,7 @@ Przed rozpoczęciem tego samouczka wymagane są następujące wymagania wstępne
 Należy nazwę konta i klucz konta magazynu Azure w celu tego samouczka. Należy zanotować **nazwa konta** i **klucz konta** dla konta magazynu Azure.
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
-2. Kliknij przycisk **więcej usług** w menu po lewej stronie i wybierz **kont magazynu**.
+2. Kliknij przycisk **wszystkie usługi** w menu po lewej stronie i wybierz **kont magazynu**.
 
     ![Przeglądaj - kont magazynu](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/browse-storage-accounts.png)
 3. W **kont magazynu** bloku, wybierz opcję **konto magazynu Azure** , które mają być używane w tym samouczku.
@@ -70,7 +70,7 @@ Należy nazwę konta i klucz konta magazynu Azure w celu tego samouczka. Należy
 ## <a name="collect-sql-server-database-user-names"></a>Zbieraj programu SQL server, bazy danych, nazwy użytkowników
 Należy nazwy serwera Azure SQL, bazy danych i wykonywać w tym samouczku. Zanotuj nazwy **serwera**, **bazy danych**, i **użytkownika** bazy danych Azure SQL.
 
-1. W **portalu Azure**, kliknij przycisk **więcej usług** po lewej i wybierz **baz danych SQL**.
+1. W **portalu Azure**, kliknij przycisk **wszystkie usługi** po lewej i wybierz **baz danych SQL**.
 2. W **bloku bazy danych SQL**, wybierz pozycję **bazy danych** , które mają być używane w tym samouczku. Należy zanotować **Nazwa bazy danych**.  
 3. W **bazy danych SQL** bloku, kliknij przycisk **właściwości** w obszarze **ustawienia**.
 4. Zanotuj wartości **nazwy serwera** i **identyfikator logowania administratora serwera**.
@@ -79,7 +79,7 @@ Należy nazwy serwera Azure SQL, bazy danych i wykonywać w tym samouczku. Zanot
 ## <a name="allow-azure-services-to-access-sql-server"></a>Zezwalaj usługom platformy Azure na dostęp do serwera SQL
 Upewnij się, że **zezwolić na dostęp do usług platformy Azure** ustawienie włączenia **ON** serwera Azure SQL, aby usługi fabryka danych można uzyskać dostępu do serwera Azure SQL. W celu sprawdzenia i włączenia tego ustawienia wykonaj następujące kroki:
 
-1. Kliknij centrum **Więcej usług** po lewej stronie, a następnie kliknij przycisk **Serwery SQL**.
+1. Kliknij przycisk **wszystkie usługi** koncentratora po lewej i kliknij przycisk **serwerów SQL**.
 2. Wybierz swój serwer, a następnie kliknij przycisk **Zapora** w obszarze **USTAWIENIA**.
 3. W bloku **Ustawienia zapory** kliknij pozycję **WŁĄCZ** dla ustawienia **Zezwalaj na dostęp do usług Azure**.
 4. Zamknij wszystkie bloki, klikając **X**.

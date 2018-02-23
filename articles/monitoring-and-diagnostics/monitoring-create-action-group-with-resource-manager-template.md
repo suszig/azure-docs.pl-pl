@@ -1,8 +1,8 @@
 ---
 title: "Tworzenie grup akcji z szablonami usługi Resource Manager | Dokumentacja firmy Microsoft"
 description: "Dowiedz się, jak utworzyć grupę za pomocą szablonu usługi Azure Resource Manager."
-author: anirudhcavale
-manager: orenr
+author: dkamstra
+manager: chrad
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
-ms.author: ancav
-ms.openlocfilehash: 5e715cad5cb28ad0c763ffb29c43e9ee98741699
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.date: 02/16/2018
+ms.author: dukek
+ms.openlocfilehash: 1f97bf1e1e5c2800c2cdc16a6bcc1837f178e408
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-action-group-with-a-resource-manager-template"></a>Utwórz grupę z szablonem usługi Resource Manager
 W tym artykule przedstawiono sposób użycia [szablonu usługi Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) do skonfigurowania grup działań. Przy użyciu szablonów, można automatycznie skonfigurować grupy akcji, których można użyć ponownie w pewnych typów alertów. Te grupy działań upewnij się, że poprawne strony są powiadamiani o wyzwolenia alertu.
@@ -56,7 +56,7 @@ Aby utworzyć grupę przy użyciu szablonu usługi Resource Manager, utwórz zas
   "resources": [
     {
       "type": "Microsoft.Insights/actionGroups",
-      "apiVersion": "2017-04-01",
+      "apiVersion": "2018-03-01",
       "name": "[parameters('actionGroupName')]",
       "location": "Global",
       "properties": {
@@ -139,7 +139,7 @@ Aby utworzyć grupę przy użyciu szablonu usługi Resource Manager, utwórz zas
   "resources": [
     {
       "type": "Microsoft.Insights/actionGroups",
-      "apiVersion": "2017-04-01",
+      "apiVersion": "2018-03-01",
       "name": "[parameters('actionGroupName')]",
       "location": "Global",
       "properties": {
@@ -168,7 +168,7 @@ Aby utworzyć grupę przy użyciu szablonu usługi Resource Manager, utwórz zas
 ```
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Dowiedz się więcej o [grupy akcji](monitoring-action-groups.md).
 * Dowiedz się więcej o [alerty](monitoring-overview-alerts.md).
 * Dowiedz się, jak dodać [alerty za pomocą szablonu usługi Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md).

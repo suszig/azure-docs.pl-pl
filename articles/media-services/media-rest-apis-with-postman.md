@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2017
 ms.author: juliako
-ms.openlocfilehash: a24b73a93bddbeb5b56ddfdf604fa99faccea442
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 72b110cac8d4945c958d760ff98e2da2f2796b62
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Skonfiguruj Postman dla wywołań interfejsu API REST usługi multimediów
 
@@ -33,7 +33,7 @@ To środowisko i kolekcji jest używany w artykułach, które pokazują, jak uzy
 
 ## <a name="configure-the-environment"></a>Konfigurowanie środowiska 
 
-1. Utwórz plik JSON zawierający zmiennych środowiskowych w samouczkach AMS. Nadaj nazwę plikowi **AzureMediaServices.postman_environment.json**. Otwórz plik i Wklej kod, który definiuje środowiska Postman [ten przykładowy kod](postman-environment.md). 
+1. Utwórz plik JSON zawierający zmiennych środowiskowych w samouczkach AMS. Nazwa pliku (na przykład **AzureMediaServices.postman_environment.json**). Otwórz plik i Wklej kod, który definiuje środowiska Postman [ten przykładowy kod](postman-environment.md). 
 2. Otwórz **Postman**.
 3. Po prawej stronie ekranu wybierz **środowiska Zarządzaj** opcji.
 
@@ -48,7 +48,7 @@ To środowisko i kolekcji jest używany w artykułach, które pokazują, jak uzy
 
 ## <a name="configure-the-collection"></a>Konfigurowanie kolekcji
 
-1. Utwórz plik JSON zawierający **Postman** kolekcji z wszystkie operacje, które są wymagane do przekazania pliku do usługi Media Services. Nadaj nazwę plikowi **AzureMediaServicesOperations.postman_collection.json**. Otwórz plik i Wklej kod, który definiuje **Postman** kolekcji z [ten przykładowy kod](postman-collection.md).
+1. Utwórz plik JSON zawierający **Postman** kolekcji z wszystkie operacje, które są wymagane do przekazania pliku do usługi Media Services. Nazwa pliku (na przykład **AzureMediaServicesOperations.postman_collection.json**). Otwórz plik i Wklej kod, który definiuje **Postman** kolekcji z [ten przykładowy kod](postman-collection.md).
 2. Kliknij przycisk **zaimportować** można zaimportować pliku kolekcji.
 3. Wybierz **AzureMediaServicesOperations.postman_collection.json** pliku.
 

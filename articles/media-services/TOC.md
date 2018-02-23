@@ -36,8 +36,11 @@
 #### [Zarządzanie elementami zawartości na wielu kontach magazynu](meda-services-managing-multiple-storage-accounts.md)
 ### [Limity przydziału i ograniczenia](media-services-quotas-and-limitations.md)
 ## [Konfigurowanie programu Postman](media-rest-apis-with-postman.md)
-### [Środowisko](postman-environment.md)
-### [Kolekcja](postman-collection.md)
+### Przesyłanie strumieniowe na żądanie
+#### [Środowisko](postman-environment.md)
+#### [Kolekcja](postman-collection.md)
+### Transmisja strumieniowa na żywo
+#### [Kolekcja](postman-live-streaming-collection.md)
 ## Przekazywanie zawartości
 ### Przekazywanie plików do konta
 #### [Azure portal](media-services-portal-upload-files.md)

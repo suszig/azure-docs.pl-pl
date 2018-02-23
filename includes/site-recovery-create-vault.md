@@ -1,6 +1,6 @@
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com) > **Recovery Services**.
-2. Kliknij pozycję **Nowy** > **Monitorowanie i zarządzanie** > **Backup and Site Recovery**.
+2. Kliknij przycisk **Utwórz zasób** > **monitorowanie i zarządzanie** > **kopii zapasowych i odzyskiwania lokacji**.
 3. W polu **Nazwa** wprowadź przyjazną nazwę identyfikującą magazyn. Jeśli masz więcej niż jedną subskrypcję, wybierz odpowiedni.
 4. [Utwórz grupę zasobów](../articles/azure-resource-manager/resource-group-template-deploy-portal.md) lub wybierz istniejącą. Określ region platformy Azure. 
 5. Aby szybko uzyskać dostęp do magazynu z pulpitu nawigacyjnego, kliknij przycisk **Przypnij do pulpitu nawigacyjnego** > **Utwórz**.

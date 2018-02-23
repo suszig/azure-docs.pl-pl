@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: d46f04a3e9fdb1beaf11c769ecdd7b807c5f817f
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 51734f5b39e9ca8af65048f2a7efd5c61cd53204
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-angularjs-getting-started"></a>Azure AD AngularJS, wprowadzenie
 
@@ -48,7 +48,7 @@ Aby umożliwić aplikacji w celu uwierzytelniania użytkowników i uzyskać toke
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Jeśli użytkownik jest zalogowany do wielu katalogów, konieczne może być upewnij się, że wyświetlany jest poprawnym katalogu. Aby to zrobić, na górnym pasku kliknij swoje konto. W obszarze **katalogu** wybierz dzierżawy usługi Azure AD, które chcesz zarejestrować aplikację.
-3. Kliknij przycisk **więcej usług** w okienku po lewej stronie, a następnie wybierz **usługi Azure Active Directory**.
+3. Kliknij przycisk **wszystkie usługi** w okienku po lewej stronie, a następnie wybierz **usługi Azure Active Directory**.
 4. Kliknij przycisk **rejestracji aplikacji**, a następnie wybierz **Dodaj**.
 5. Postępuj zgodnie z monitami i utworzyć nową aplikację sieci web i/lub interfejs API sieci web:
   * **Nazwa** opisuje aplikacji dla użytkowników.
@@ -78,8 +78,8 @@ Rozpocznij, dodając adal.js do projektu TodoSPA przy użyciu konsoli Menedżera
 
 ### <a name="configure-the-back-end-server"></a>Konfigurowanie serwera zaplecza
 Dla aplikacji jednej strony zaplecza do czy listy interfejsu API zaakceptować tokeny z przeglądarki wewnętrznej musi informacji konfiguracyjnych dotyczących rejestracji aplikacji. W projekcie TodoSPA Otwórz `web.config`. Zastąp wartości elementów w `<appSettings>` sekcji do wartości, które były używane w portalu Azure. Kod będzie odwoływać tych wartości, przy każdym użyciu biblioteki ADAL.
-  * `ida:Tenant`jest to domena dzierżawy usługi Azure AD — na przykład contoso.onmicrosoft.com.
-  * `ida:Audience`jest to identyfikator klienta aplikacji, który został skopiowany z portalu.
+  * `ida:Tenant` jest to domena dzierżawy usługi Azure AD — na przykład contoso.onmicrosoft.com.
+  * `ida:Audience` jest to identyfikator klienta aplikacji, który został skopiowany z portalu.
 
 ## <a name="step-3-use-adal-to-help-secure-pages-in-the-single-page-app"></a>Krok 3: Użyj biblioteki ADAL w celu bezpiecznego stron w aplikacji jednej strony
 Adal.js integruje się z AngularJS trasy i dostawców HTTP, więc bezpiecznego poszczególnych widoków może pomóc w aplikacji jednej strony.

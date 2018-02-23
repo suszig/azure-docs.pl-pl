@@ -1,6 +1,6 @@
 ---
 title: "Mapa usług integracji z programem System Center Operations Manager | Dokumentacja firmy Microsoft"
-description: "Mapa usługi jest rozwiązania Operations Management Suite, który automatycznie odnajduje składniki aplikacji w systemach Windows i Linux oraz mapy komunikacji między usługami. W tym artykule omówiono przy użyciu mapy usługi do automatycznego tworzenia diagramów aplikacji rozproszonej w programie Operations Manager."
+description: "Usługa Service Map jest rozwiązaniem platformy Azure, które automatycznie odnajduje składniki aplikacji w systemach Windows i Linux oraz mapuje komunikację między usługami. W tym artykule omówiono przy użyciu mapy usługi do automatycznego tworzenia diagramów aplikacji rozproszonej w programie Operations Manager."
 services: operations-management-suite
 documentationcenter: 
 author: daveirwin1
@@ -14,33 +14,33 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
-ms.openlocfilehash: af1f683f08ff6b70b23ff265f39b9a76f92f4be2
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 906a90acb8754ff4b70235256cd184e2611ff5a0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Mapa usług integracji z programem System Center Operations Manager
   > [!NOTE]
   > Ta funkcja jest dostępna w publicznej wersji zapoznawczej.
   > 
   
-Mapa usług pakiet zarządzania Operations automatycznie wykrywa składniki aplikacji w systemach Windows i Linux i komunikacji między usługami mapy. Mapa usług umożliwia wyświetlenie serwerów sposób traktować ich jako połączonych systemy, które dostarczają usług krytycznych. Mapa usługi pokazuje połączeń między serwerami, procesów i portów w dowolnej architekturze połączenia TCP, bez konieczności wykonywania konfiguracyjnych wymaganych oprócz instalację agenta. Aby uzyskać więcej informacji, zobacz [mapy usługi dokumentacji](operations-management-suite-service-map.md).
+Mapa usługi automatycznie odnajduje składniki aplikacji w systemach Windows i Linux oraz mapuje komunikację między usługami. Mapa usług umożliwia wyświetlenie serwerów sposób traktować ich jako połączonych systemy, które dostarczają usług krytycznych. Mapa usługi pokazuje połączeń między serwerami, procesów i portów w dowolnej architekturze połączenia TCP, bez konieczności wykonywania konfiguracyjnych wymaganych oprócz instalację agenta. Aby uzyskać więcej informacji, zobacz [mapy usługi dokumentacji](operations-management-suite-service-map.md).
 
 Dzięki tej integracji między mapy usługi i System Center Operations Manager może automatycznie tworzyć diagramy aplikacji rozproszonej w programie Operations Manager, które są oparte na mapach dynamiczne zależności mapy usług.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * Grupy zarządzania programu Operations Manager (2012 R2 lub nowszy) zarządza z zestawu serwerów.
-* Obszar roboczy usługi Operations Management Suite przy włączonej funkcji mapy usługi.
+* Obszar roboczy analizy dzienników przy włączonej funkcji mapy usługi.
 * Zestaw serwerów (co najmniej jeden), które są zarządzane przez programu Operations Manager oraz wysyłania danych do mapy usługi. Serwery z systemem Windows i Linux są obsługiwane.
-* Nazwy głównej usługi z dostępem do subskrypcji Azure, która jest powiązana z obszarem roboczym usługi Operations Management Suite. Aby uzyskać więcej informacji, przejdź do [Tworzenie nazwy głównej usługi](#creating-a-service-principal).
+* Nazwy głównej usługi z dostępem do subskrypcji Azure, która jest skojarzona z obszaru roboczego analizy dzienników. Aby uzyskać więcej informacji, przejdź do [Tworzenie nazwy głównej usługi](#creating-a-service-principal).
 
 ## <a name="install-the-service-map-management-pack"></a>Zainstaluj pakiet administracyjny mapy usług
 Należy włączyć integrację programu Operations Manager a Service Map importując Microsoft.SystemCenter.ServiceMap pakietu administracyjnego (Microsoft.SystemCenter.ServiceMap.mpb). Można pobrać pakietu administracyjnego z [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=55763). Pakiet zawiera następujące pakiety administracyjne:
 * Widoki aplikacji mapy usługi firmy Microsoft
-* Wewnętrzny mapy usługi programu Microsoft System Center
+* Microsoft System Center Service Map Internal
 * Zastąpienia mapy usługi programu Microsoft System Center
-* Mapa usług programu Microsoft System Center
+* Microsoft System Center Service Map
 
 ## <a name="configure-the-service-map-integration"></a>Konfigurowanie integracji mapy usług
 Po zainstalowaniu pakietu administracyjnego mapy usług, nowy węzeł **mapy usługi**, jest wyświetlana w obszarze **Operations Management Suite** w **administracji** okienka. 
@@ -55,7 +55,7 @@ Aby skonfigurować integrację mapy usług, wykonaj następujące czynności:
 
     ![W oknie Konfiguracja połączenia](media/oms-service-map/scom-config-spn.png)
 
-3. W **wyboru subskrypcji** , wybierz subskrypcję platformy Azure, grupy zasobów platformy Azure (jedna zawiera obszar roboczy usługi Operations Management Suite) i obszar roboczy usługi Operations Management Suite, a następnie kliknij przycisk **dalej**.
+3. W **wyboru subskrypcji** okna, wybierz subskrypcję platformy Azure, grupy zasobów platformy Azure (jedna zawiera obszar roboczy analizy dzienników) i obszaru roboczego analizy dzienników, a następnie kliknij przycisk **dalej**.
 
     ![Obszar roboczy konfiguracji menedżera operacji](media/oms-service-map/scom-config-workspace.png)
 
@@ -73,22 +73,22 @@ Aby skonfigurować integrację mapy usług, wykonaj następujące czynności:
 
     ![Grupa konfiguracji programu Operations Manager](media/oms-service-map/scom-config-group.png)
 
-6. Opcjonalnie: Wybierz pulę zasobów serwera zarządzania do komunikacji z pakietem Operations Management Suite, a następnie kliknij przycisk **Dodaj obszar roboczy**.
+6. Opcjonalnie: Wybierz pulę zasobów serwera zarządzania do komunikacji z analizy dzienników, a następnie kliknij przycisk **Dodaj obszar roboczy**.
 
     ![Pula zasobów konfiguracji menedżera operacji](media/oms-service-map/scom-config-pool.png)
 
-    Może upłynąć kilka minut, aby skonfigurować i zarejestrować obszar roboczy usługi Operations Management Suite. Po skonfigurowaniu programu Operations Manager inicjuje pierwszej synchronizacji mapy usługi Operations Management Suite.
+    Może upłynąć kilka minut, konfigurowanie i rejestrowanie obszaru roboczego analizy dzienników. Po skonfigurowaniu programu Operations Manager inicjuje pierwszej synchronizacji mapy usługi.
 
     ![Pula zasobów konfiguracji menedżera operacji](media/oms-service-map/scom-config-success.png)
 
 
 ## <a name="monitor-service-map"></a>Monitor mapy usług
-Po podłączeniu obszar roboczy usługi Operations Management Suite nowego folderu, mapy usług jest wyświetlana w **monitorowanie** okienku konsoli programu Operations Manager.
+Po podłączeniu obszaru roboczego analizy dzienników nowego folderu, mapy usług jest wyświetlana w **monitorowanie** okienku konsoli programu Operations Manager.
 
 ![W okienku Monitoring programu Operations Manager](media/oms-service-map/scom-monitoring.png)
 
 Folder mapy usługi ma cztery węzły:
-* **Aktywne alerty**: Wyświetla wszystkie aktywne alerty dotyczące komunikacji między programem Operations Manager i mapy usługi.  Należy pamiętać, że te alerty nie są Operations Management Suite alerty są zsynchronizowane z programem Operations Manager. 
+* **Aktywne alerty**: Wyświetla wszystkie aktywne alerty dotyczące komunikacji między programem Operations Manager i mapy usługi.  Należy pamiętać, że te alerty są analizy dzienników alerty są zsynchronizowane z programem Operations Manager. 
 
 * **Serwery**: Wyświetla listę monitorowanych serwerów, które są skonfigurowane do synchronizacji z mapy usługi.
 
@@ -103,7 +103,7 @@ Folder mapy usługi ma cztery węzły:
     ![Diagram aplikacji rozproszonej programu Operations Manager](media/oms-service-map/scom-dad.png)
 
 ## <a name="edit-or-delete-the-workspace"></a>Edytowanie lub usuwanie obszaru roboczego
-Można edytować lub usunąć obszar roboczy skonfigurowany za pomocą **omówienie mapy usługi** okienka (**administracji** okienko > **Operations Management Suite** > **mapy usługi**). Teraz można skonfigurować tylko jeden obszar roboczy usługi Operations Management Suite.
+Można edytować lub usunąć obszar roboczy skonfigurowany za pomocą **omówienie mapy usługi** okienka (**administracji** okienko > **Operations Management Suite** > **mapy usługi**). Teraz można skonfigurować tylko jeden obszar roboczy analizy dzienników.
 
 ![W okienku obszaru roboczego Edytuj menedżera operacji](media/oms-service-map/scom-edit-workspace.png)
 
@@ -120,7 +120,7 @@ Reguła, _Microsoft.SystemCenter.ServiceMapImport.Rule_, tworzona jest okresowo 
 ## <a name="known-issues-and-limitations"></a>Znane problemy i ograniczenia
 
 Bieżący projekt przedstawia następujące problemy i ograniczenia:
-* Będzie można połączyć wyłącznie do jednego obszaru roboczego usługi Operations Management Suite.
+* Będzie można połączyć wyłącznie do jednego obszaru roboczego analizy dzienników.
 * Chociaż możesz dodać serwery do ręcznie za pomocą grupy serwerów mapy usług **tworzenie** okienku mapy dla tych serwerów nie zostały zsynchronizowane natychmiast.  Zostaną one zsynchronizowane z mapy usługi podczas następnego cyklu synchronizacji.
 * Jeśli wprowadzisz zmiany do diagramów aplikacji rozproszonych utworzonych przez pakiet administracyjny, te zmiany zostaną zastąpione prawdopodobnie w następnej synchronizacji z mapy usługi.
 

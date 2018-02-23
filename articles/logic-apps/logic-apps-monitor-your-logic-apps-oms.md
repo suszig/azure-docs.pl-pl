@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/9/2017
 ms.author: LADocs; divswa
-ms.openlocfilehash: 8da2bc9645e432ddf0e9f627c7b5e30c44fd74b6
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 2f9f27dc74348909b89941c2bb17ccdf610dba33
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-and-get-insights-about-logic-app-runs-with-operations-management-suite-oms-and-log-analytics"></a>Monitorowanie i uzyskiwanie szczegółowych informacji o uruchomieniu aplikacji logiki Operations Management Suite (OMS) i analizy dzienników
 
@@ -35,7 +35,7 @@ Przed rozpoczęciem, musisz mieć obszarem roboczym pakietu OMS. Dowiedz się [j
 
 ## <a name="turn-on-diagnostics-logging-when-creating-logic-apps"></a>Włącz rejestrowanie danych diagnostycznych podczas tworzenia aplikacji logiki
 
-1. W [portalu Azure](https://portal.azure.com), tworzenie aplikacji logiki. Wybierz **nowe** > **integracji przedsiębiorstwa** > **aplikacji logiki** > **utworzyć**.
+1. W [portalu Azure](https://portal.azure.com), tworzenie aplikacji logiki. Wybierz **Utwórz zasób** > **integracji przedsiębiorstwa** > **aplikacji logiki**.
 
    ![Tworzenie aplikacji logiki](media/logic-apps-monitor-your-logic-apps-oms/find-logic-apps-azure.png)
 
@@ -152,7 +152,7 @@ Jeśli już włączone analizy dzienników, podczas tworzenia aplikacji logiki, 
 
      ![Analiza dzienników Azure - widok zapytania](media/logic-apps-monitor-your-logic-apps-oms/query.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Monitorowanie komunikatów B2B](../logic-apps/logic-apps-monitor-b2b-message.md)
 

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 233e4eea8439320c1c7446e2c2b2e9d379351a3e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 53e9b55a82e7750393dfb6c4818681028c5c4d2f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-portal"></a>Utwórz maszynę Wirtualną za pomocą statycznego publicznego adresu IP przy użyciu portalu Azure
 
@@ -43,25 +43,25 @@ ms.lasthandoff: 12/21/2017
 Aby utworzyć Maszynę wirtualną za pomocą statycznego publicznego adresu IP w portalu Azure, wykonaj następujące kroki:
 
 1. W przeglądarce przejdź do witryny [Azure Portal](https://portal.azure.com) i, jeśli to konieczne, zaloguj się przy użyciu konta platformy Azure.
-2. W lewym górnym rogu portalu kliknij **nowy**>>**obliczeniowe**>**systemu Windows Server 2012 R2 Datacenter**.
+2. W lewym górnym rogu portalu kliknij **Utwórz zasób**>>**obliczeniowe**>**systemu Windows Server 2012 R2 Datacenter**.
 3. W **wybierz model wdrożenia** wybierz **Resource Manager** i kliknij przycisk **Utwórz**.
-4. W **podstawy** bloku, wprowadź informacje maszyny Wirtualnej, jak pokazano poniżej, a następnie kliknij przycisk **OK**.
+4. W **podstawy** okienku, wprowadź następujący informacji o maszyny Wirtualnej, a następnie kliknij **OK**.
    
     ![Portal Azure — podstawy](./media/virtual-network-deploy-static-pip-arm-portal/figure1.png)
-5. W **wybierz rozmiar** bloku, kliknij przycisk **A1 standardowe** w sposób przedstawiony poniżej, a następnie kliknij przycisk **wybierz**.
+5. W **wybierz rozmiar** okienku, kliknij przycisk **A1 standardowe** następujące, a następnie kliknij przycisk **wybierz**.
    
     ![Portal Azure — wybierz rozmiar](./media/virtual-network-deploy-static-pip-arm-portal/figure2.png)
-6. W **ustawienia** bloku, kliknij przycisk **publicznego adresu IP**, a następnie w **tworzenie publicznego adresu IP** bloku, w obszarze **przypisania**, kliknij przycisk **statycznych** jak pokazano poniżej. A następnie kliknij przycisk **OK**.
+6. W **ustawienia** okienku, kliknij przycisk **publicznego adresu IP**, a następnie w **tworzenie publicznego adresu IP** okienku w obszarze **przypisania**, kliknij  **Statyczne** w następujący sposób. A następnie kliknij przycisk **OK**.
    
     ![Portal Azure — tworzenie publicznego adresu IP](./media/virtual-network-deploy-static-pip-arm-portal/figure3.png)
-7. W **ustawienia** bloku, kliknij przycisk **OK**.
-8. Przegląd **Podsumowanie** bloku, jak pokazano poniżej, a następnie kliknij przycisk **OK**.
+7. W **ustawienia** okienku, kliknij przycisk **OK**.
+8. Przegląd **Podsumowanie** okienko następujące, a następnie kliknij przycisk **OK**.
    
     ![Portal Azure — tworzenie publicznego adresu IP](./media/virtual-network-deploy-static-pip-arm-portal/figure4.png)
 9. Zobaczysz nowy Kafelek na pulpicie nawigacyjnym.
    
     ![Portal Azure — tworzenie publicznego adresu IP](./media/virtual-network-deploy-static-pip-arm-portal/figure5.png)
-10. Po utworzeniu maszyny Wirtualnej **ustawienia** w sposób przedstawiony poniżej zostanie wyświetlony blok
+10. Po utworzeniu maszyny Wirtualnej **ustawienia** okienku są wyświetlane w następujący sposób:
     
     ![Portal Azure — tworzenie publicznego adresu IP](./media/virtual-network-deploy-static-pip-arm-portal/figure6.png)
 

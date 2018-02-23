@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Fabric — Konfigurowanie monitorowania z OMS Log Analytics | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak skonfigurować OMS do wizualizacji i analizowania zdarzeń monitorowania klastrów sieci szkieletowej usług Azure."
+title: "Azure Service Fabric — skonfiguruj monitorowanie za pomocą analizy dzienników OMS | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak skonfigurować usługi Operations Management Suite do wizualizacji i analizowania zdarzeń do monitorowania klastrów sieci szkieletowej usług Azure."
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -14,67 +14,71 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/17/2017
 ms.author: dekapur
-ms.openlocfilehash: 53b06c5a1395f34c96d4011366835a920d5c670b
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 288c7482058cd9f824b6001bb9ad36d1a5e0f8bf
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="set-up-oms-log-analytics-for-a-cluster"></a>Konfigurowanie OMS analizy dzienników dla klastra
+# <a name="set-up-operations-management-suite-log-analytics-for-a-cluster"></a>Konfigurowanie Operations Management Suite Log Analytics dla klastra
 
-Obszar roboczy OMS za pośrednictwem usługi Azure Resource Manager, programu PowerShell lub za pośrednictwem portalu Azure Marketplace można skonfigurować. Jeśli obsługujesz zaktualizowany szablon usługi Resource Manager wdrożenia, do użytku w przyszłości, należy użyć tego samego szablonu do konfigurowania środowiska OMS. Wdrażanie za pośrednictwem portalu Marketplace jest łatwiejsze, jeśli masz już wdrożone z włączoną diagnostykę klastra. W przypadku braku dostępu na poziomie subskrypcji w ramach konta, w której wdrażasz OMS przy użyciu programu PowerShell, albo wdrożyć za pomocą szablonu usługi Resource Manager.
+Obszar roboczy Operations Management Suite (OMS) za pośrednictwem usługi Azure Resource Manager, programu PowerShell lub portalu Azure Marketplace można skonfigurować. Jeśli obsługa zaktualizowany szablon usługi Resource Manager wdrożenia do użycia w przyszłości, należy użyć tego samego szablonu do konfigurowania środowiska OMS. Wdrożenia za pośrednictwem portalu Marketplace jest łatwiejsze, jeśli masz już wdrożone z włączoną diagnostykę klastra. Jeśli nie masz dostępu na poziomie subskrypcji w ramach konta, w której wdrażasz OMS, wdrożyć przy użyciu programu PowerShell lub szablonu usługi Resource Manager.
 
 > [!NOTE]
-> Musisz mieć diagnostykę włączone dla klastra, aby wyświetlić klastra / zdarzenia na poziomie platformy aby można było pomyślnie skonfigurować OMS do monitorowania klastra.
+> Można skonfigurować OMS, aby monitorować klastra, musisz mieć włączone, aby wyświetlić zdarzenia klastra platformy poziomie lub diagnostyki.
 
-## <a name="deploying-oms-using-azure-marketplace"></a>Wdrażanie pakietu OMS przy użyciu portalu Azure Marketplace
+## <a name="deploy-oms-by-using-azure-marketplace"></a>Wdrażanie pakietu OMS przy użyciu portalu Azure Marketplace
 
-Jeśli wolisz Dodaj obszar roboczy OMS po wdrożeniu klastra, przejdź do portalu Azure Marketplace, (w portalu) i poszukaj *"Analytics sieci szkieletowej usług".*
+Jeśli chcesz dodać obszar roboczy OMS po wdrożeniu klastra, przejdź do portalu Azure Marketplace w portalu i poszukaj **usługi sieć szkieletowa Analytics**:
 
-1. Polecenie **nowy** w menu nawigacji po lewej stronie. 
+1. Wybierz **nowy** w menu nawigacji po lewej stronie. 
 
-2. Wyszukaj *usługi Analytics sieci szkieletowej*. Kliknij zasób, który jest wyświetlany.
+2. Wyszukaj **usługi Analytics sieci szkieletowej**. Wybierz zasób, który jest wyświetlany.
 
-3. Polecenie **tworzenie**
+3. Wybierz pozycję **Utwórz**.
 
     ![OMS rz Analytics w portalu Marketplace](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics.png)
 
-4. W oknie tworzenia usługi sieć szkieletowa Analytics kliknij **wybierz obszar roboczy** dla *obszarem roboczym pakietu OMS* pola, a następnie **Utwórz nowy obszar roboczy**. Wypełnij odpowiednie wpisy — jedynym wymaganiem jest subskrypcji dla klastra sieci szkieletowej usług i obszarem roboczym pakietu OMS musi być taka sama. Po sprawdzeniu poprawności wpisy obszar roboczy OMS rozpocząć wdrażanie. Ten trwa tylko kilka minut.
+4. W oknie tworzenia analiz sieci szkieletowej usług wybierz **wybierz obszar roboczy** dla **obszarem roboczym pakietu OMS** pola, a następnie **Utwórz nowy obszar roboczy**. Wypełnij odpowiednie wpisy. Jedynym wymaganiem jest subskrypcji dla klastra usługi sieć szkieletowa usług i obszar roboczy OMS jest taka sama. Po sprawdzeniu poprawności wpisy obszar roboczy OMS rozpocznie wdrażanie. Wdrożenie zajmuje tylko kilka minut.
 
-5. Gdy skończysz, kliknij przycisk **Utwórz** ponownie w dolnej części okna Tworzenie usługi Analytics sieci szkieletowej. Upewnij się, że nowy obszar roboczy zostaną wyświetlone w obszarze *obszarem roboczym pakietu OMS*. Spowoduje to dodanie rozwiązania do obszaru roboczego, który został utworzony.
+5. Po zakończeniu wybierz **Utwórz** ponownie w dolnej części okna Tworzenie usługi Analytics sieci szkieletowej. Upewnij się, że nowy obszar roboczy zostaną wyświetlone w obszarze **obszarem roboczym pakietu OMS**. Ta akcja dodaje rozwiązania do obszaru roboczego, który został utworzony.
 
-Jeśli korzystasz z systemu Windows, kontynuuj następujące kroki, aby Podłączanie OMS na koncie magazynu przechowywania zdarzeń klastra. Włączenie tego środowiska prawidłowo w przypadku klastrów systemu Linux jest nadal w toku. W tym czasie kontynuować dodawanie Agent pakietu OMS do klastra.  
+Jeśli korzystasz z systemu Windows, wykonaj następujące kroki, aby nawiązać połączenia z usługą OMS konta magazynu przechowywania zdarzeń klastra. 
 
-1. Obszar roboczy nadal musi być połączona z danych diagnostycznych z klastra. Przejdź do utworzenia rozwiązania analizy sieci szkieletowej usług w grupy zasobów. Powinny pojawić się *ServiceFabric (\<nameOfOMSWorkspace\>)*. Kliknij rozwiązanie, aby przejść do strony Przegląd, z którym można zmienić ustawienia rozwiązania, ustawienia obszaru roboczego i przejdź do portalu OMS.
+>[!NOTE]
+>Włączenie tej czynności w przypadku klastrów systemu Linux nie jest jeszcze dostępna. 
 
-2. W menu nawigacji po lewej stronie kliknij **dzienników kont magazynu**w obszarze *źródeł danych obszaru roboczego*.
+### <a name="add-the-oms-agent-to-your-cluster"></a>Dodaj Agent pakietu OMS do klastra 
 
-3. Na *dzienniki konta magazynu* kliknij przycisk **Dodaj** u góry, aby dodać dzienników z klastra do obszaru roboczego.
+1. Obszar roboczy musi być połączona z danych diagnostycznych z klastra. Przejdź do grupy zasobów, w której utworzono rozwiązania analizy sieci szkieletowej usług. Wybierz **ServiceFabric\<nameOfOMSWorkspace\>**  i przejdź do strony Przegląd. Z tego miejsca można zmienić ustawienia rozwiązania, ustawienia obszaru roboczego i uzyskać dostęp do portalu OMS.
 
-4. Kliknij przycisk do **konta magazynu** można dodać odpowiednie konta tworzone w klastrze. Jeśli zostanie użyta domyślna nazwa, nosi nazwę konta magazynu *sfdg\<resourceGroupName\>*. Można również to potwierdzić, sprawdzając szablonu usługi Azure Resource Manager używane do wdrażania klastra, sprawdzając wartość używaną do `applicationDiagnosticsStorageAccountName`. Może być również konieczne przewiń w dół i kliknij przycisk **załadować więcej** Jeśli nazwa nie jest wyświetlany. Kliknij nazwę konta magazynu prawo górę aby go wybrać.
+2. W menu nawigacji po lewej stronie w obszarze **źródeł danych obszaru roboczego**, wybierz pozycję **dzienników kont magazynu**.
 
-5. Następnie należy określić *— typ danych*, powinien być ustawiony na **zdarzenia sieci szkieletowej usług**.
+3. Na **dzienniki konta magazynu** wybierz pozycję **Dodaj** u góry, aby dodać dzienników z klastra do obszaru roboczego.
 
-6. *Źródła* automatycznie powinien być ustawiony na *WADServiceFabric\*EventTable*.
+4. Wybierz **konta magazynu** można dodać odpowiednie konta tworzone w klastrze. Jeśli zostanie użyta domyślna nazwa, konto magazynu jest **sfdg\<resourceGroupName\>**. Można również potwierdzić to przy użyciu szablonu usługi Azure Resource Manager używane do wdrażania klastra, sprawdzając wartość używaną do **applicationDiagnosticsStorageAccountName**. Jeśli nazwa nie jest wyświetlany, przewiń w dół i wybierz **załadować więcej**. Wybierz nazwę konta magazynu.
 
-7. Kliknij przycisk **OK** nawiązać obszaru roboczego dzienników z klastra.
+5. Określ typ danych. Ustaw ją na **zdarzenia sieci szkieletowej usług**.
+
+6. Upewnij się, że źródło jest automatycznie ustawiana **WADServiceFabric\*EventTable**.
+
+7. Wybierz **OK** nawiązać obszaru roboczego dzienników z klastra.
 
     ![Dodaj dzienniki konta magazynu z usługą OMS](media/service-fabric-diagnostics-event-analysis-oms/add-storage-account.png)
 
-Konto powinna zostać wyświetlona jako część programu *dzienniki konta magazynu* w źródłach danych obszaru roboczego.
+Konto teraz wyświetlone jako część konta magazynu dzienniki w źródłach danych obszaru roboczego.
 
-Z tym zostało dodane rozwiązania analizy sieci szkieletowej usług w obszarze roboczym analizy dzienników OMS, który jest teraz prawidłowo podłączone do sieci klastra platformy oraz tabeli dziennika aplikacji. Możesz dodać dodatkowe źródła do obszaru roboczego w taki sam sposób.
+W obszarze roboczym analizy dzienników OMS, który jest teraz prawidłowo podłączone do sieci klastra platformy oraz tabeli dziennika aplikacji dodaniu rozwiązania analizy sieci szkieletowej usług. Możesz dodać dodatkowe źródła do obszaru roboczego w taki sam sposób.
 
 
-## <a name="deploying-oms-using-a-resource-manager-template"></a>Wdrażanie pakietu OMS przy użyciu szablonu usługi Resource Manager
+## <a name="deploy-oms-by-using-a-resource-manager-template"></a>Wdrażanie pakietu OMS przy użyciu szablonu usługi Resource Manager
 
-W przypadku wdrażania klastra przy użyciu szablonu usługi Resource Manager, szablon, należy utworzyć nowy obszar roboczy OMS Dodaj rozwiązania sieci szkieletowej usługi do niego i skonfiguruj go można odczytać danych z tabel do przechowywania odpowiednie.
+W przypadku wdrażania klastra przy użyciu szablonu usługi Resource Manager szablon tworzy nowy obszar roboczy OMS, dodaje rozwiązania sieci szkieletowej usług do obszaru roboczego i skonfiguruje je odczytać danych z tabel odpowiedniego magazynu.
 
-[W tym miejscu](https://azure.microsoft.com/resources/templates/service-fabric-oms/) jest przykładowy szablon, który można używać i modyfikować zgodnie z wymaganiami. Więcej szablonów, które zapewniają różne opcje dla Konfigurowanie obszarem roboczym pakietu OMS można znaleźć w [szablonów usługi Service Fabric i OMS](https://azure.microsoft.com/resources/templates/?term=service+fabric+OMS).
+Można użyć i modyfikować [ten przykładowy szablon](https://azure.microsoft.com/resources/templates/service-fabric-oms/) zgodnie z wymaganiami. Szablony, które zapewniają różne opcje dla Konfigurowanie obszarem roboczym pakietu OMS można znaleźć w [szablonów usługi Service Fabric i OMS](https://azure.microsoft.com/resources/templates/?term=service+fabric+OMS).
 
-Główne zmiany są następujące:
-
-1. Dodaj `omsWorkspaceName` i `omsRegion` do parametry. Oznacza to, dodając następujący fragment kodu do parametrów zdefiniowanych w Twojej *template.json* pliku. Możesz zmodyfikować wartości domyślne, zgodnie z własnymi potrzebami. Należy również dodać dwa nowe parametry w Twojej *parameters.JSON następującym kodem* do definiowania ich wartości dla wdrażania zasobów:
+Wprowadź następujące zmiany:
+1. Dodaj `omsWorkspaceName` i `omsRegion` do parametry, dodając następujący fragment kodu do parametrów zdefiniowanych w Twojej *template.json* pliku. Możesz zmodyfikować wartości domyślne, zgodnie z własnymi potrzebami. Ponadto Dodaj dwa nowe parametry w Twojej *parameters.JSON następującym kodem* pliku, aby określić ich wartości dla wdrażania zasobów:
     
     ```json
     "omsWorkspacename": {
@@ -98,9 +102,9 @@ Główne zmiany są następujące:
     }
     ```
 
-    `omsRegion` Wartości muszą być zgodne z określonego zestawu wartości. Należy wybrać jedną, która jest najbardziej zbliżony do wdrożenia klastra.
+    `omsRegion` Wartości muszą być zgodne z określonego zestawu wartości. Wybierz jedną, która jest najbardziej zbliżony do wdrożenia klastra.
 
-2. Jeśli wszystkie dzienniki aplikacji będą wysyłane do OMS, upewnij się, że `applicationDiagnosticsStorageAccountType` i `applicationDiagnosticsStorageAccountName` są dołączone jako parametry w szablonie. Jeśli nie, dodaj je do sekcji variables tak jak i Edytuj ich wartości zgodnie z potrzebami. Możesz również uwzględnić je jako parametry, jeśli chcesz, zgodny z formatem użyta powyżej.
+2. Jeśli wszystkie dzienniki aplikacji zostanie wysłana do OMS, najpierw upewnij się, że `applicationDiagnosticsStorageAccountType` i `applicationDiagnosticsStorageAccountName` są dołączone jako parametry w szablonie. Jeśli nie są uwzględnione, dodaj je do sekcji zmiennych i Edytuj ich wartości zgodnie z potrzebami. Można również uwzględnić je jako parametry, postępując w poprzednim formacie.
 
     ```json
     "applicationDiagnosticsStorageAccountType": "Standard_LRS",
@@ -114,7 +118,7 @@ Główne zmiany są następujące:
     "solutionName": "ServiceFabric"
     ```
 
-4. Dodanie poniższego na końcu sekcji zasobów, po którym jest zadeklarowany jako zasób klastra usługi sieć szkieletowa usług.
+4. Dodaj następującą wartość do końca sekcji zasobów, po którym jest zadeklarowany jako zasób klastra usługi sieć szkieletowa usług:
 
     ```json
     {
@@ -175,19 +179,19 @@ Główne zmiany są następujące:
     > [!NOTE]
     > Jeśli dodano `applicationDiagnosticsStorageAccountName` jako zmienną, upewnij się, że każde odwołanie do jej modyfikowania `variables('applicationDiagnosticsStorageAccountName')` zamiast `parameters('applicationDiagnosticsStorageAccountName')`.
 
-5. Wdrażanie szablonu jako uaktualniania programu Menedżer zasobów do klastra. Jest to realizowane przy użyciu `New-AzureRmResourceGroupDeployment` interfejsu API w module środowiska AzureRM PowerShell. Należy na przykład polecenie:
+5. Wdrażanie szablonu jako uaktualniania programu Menedżer zasobów do klastra przy użyciu `New-AzureRmResourceGroupDeployment` interfejsu API w module środowiska AzureRM PowerShell. Należy na przykład polecenie:
 
     ```powershell
     New-AzureRmResourceGroupDeployment -ResourceGroupName "sfcluster1" -TemplateFile "<path>\template.json" -TemplateParameterFile "<path>\parameters.json"
     ``` 
 
-    Usługa Azure Resource Manager będzie mógł wykryć, że jest to aktualizacja do istniejącego zasobu. Będzie przetwarzać tylko zmiany między szablonu zwiększają istniejącego wdrożenia i nowy szablon, pod warunkiem.
+    Usługa Azure Resource Manager wykryje, że to polecenie aktualizacji do istniejącego zasobu. Przetwarza tylko zmiany między szablonu zwiększają istniejącego wdrożenia i nowy szablon, pod warunkiem.
 
-## <a name="deploying-oms-using-azure-powershell"></a>Wdrażanie pakietu OMS przy użyciu programu Azure PowerShell
+## <a name="deploy-oms-by-using-azure-powershell"></a>Wdrażanie pakietu OMS przy użyciu programu Azure PowerShell
 
-Można także wdrożyć zasobu OMS Log Analytics za pomocą programu PowerShell. Jest to realizowane za pośrednictwem `New-AzureRmOperationalInsightsWorkspace` polecenia. Aby to zrobić, upewnij się, że zainstalowano [programu Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.1.1). Użyj tego skryptu do tworzenia nowego obszaru roboczego analizy dzienników OMS i Dodaj do niej rozwiązania sieci szkieletowej usług: 
+Można także wdrożyć zasobu OMS Log Analytics za pomocą programu PowerShell przy użyciu `New-AzureRmOperationalInsightsWorkspace` polecenia. Aby użyć tej metody, upewnij się, zainstalowano [programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.1.1). Użyj tego skryptu do tworzenia nowego obszaru roboczego analizy dzienników OMS i Dodaj do niej rozwiązania sieci szkieletowej usług: 
 
-```ps
+```PowerShell
 
 $SubscriptionName = "<Name of your subscription>"
 $ResourceGroup = "<Resource group name>"
@@ -211,11 +215,11 @@ Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup
 
 ```
 
-Po zakończeniu tego procesu, jeśli klaster jest klastrem systemu Windows, wykonaj kroki opisane w powyższej sekcji, aby przyłączyć analizy dzienników OMS na konto magazynu odpowiednie.
+Gdy wszystko będzie gotowe, wykonaj kroki opisane w poprzedniej sekcji do nawiązania połączenia z kontem magazynu odpowiednie OMS analizy dzienników.
 
-Można także dodać inne rozwiązania lub wprowadzić inne zmiany na obszar roboczy OMS przy użyciu programu PowerShell. Aby uzyskać więcej informacji na temat, zobacz [analizy dzienników zarządzania przy użyciu programu PowerShell](../log-analytics/log-analytics-powershell-workspace-configuration.md)
+Można także dodać inne rozwiązania lub wprowadzić inne zmiany na obszar roboczy OMS przy użyciu programu PowerShell. Aby dowiedzieć się więcej, zobacz [analizy dzienników zarządzania przy użyciu programu PowerShell](../log-analytics/log-analytics-powershell-workspace-configuration.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Wdrażanie agenta pakietu OMS](service-fabric-diagnostics-oms-agent.md) na węzły do zbierania liczników wydajności i zbieranie statystyk docker i dzienniki dla kontenerów
 * Pobierz zapoznaniu się z [wyszukiwania i badania dziennika](../log-analytics/log-analytics-log-searches.md) funkcje dostępne w ramach analizy dzienników
 * [Projektant widoków umożliwia tworzenie niestandardowych widoków w analizy dzienników](../log-analytics/log-analytics-view-designer.md)

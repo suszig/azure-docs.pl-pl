@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 7562e43f58f303ea34a08b8b9e056a0c3d0c10d0
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 378330149aebc1936846472a522631308fe3eb80
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Rozwiązywanie problemów z synchronizacji plików Azure (wersja zapoznawcza)
 Umożliwia synchronizacji plików Azure (wersja zapoznawcza) scentralizowanie udziałów plików w organizacji w plikach Azure, przy zachowaniu elastyczności, wydajności i zgodności serwera plików lokalnych. Synchronizacja programu Azure pliku przy użyciu systemu Windows Server do szybkiego pamięci podręcznej udziału plików na platformę Azure. Można użyć każdego protokołu, który jest dostępny w systemie Windows Server dostępu do danych lokalnie, w tym protokołu SMB, systemu plików NFS i FTPS. Może mieć dowolną liczbę pamięci podręcznych zgodnie z potrzebami na całym świecie.
@@ -43,6 +43,10 @@ Przejrzyj installer.log, aby ustalić przyczynę niepowodzenia instalacji.
 > [!Note]  
 > Instalacja agenta zakończy się niepowodzeniem, jeśli komputer jest skonfigurowany do użycia usługi Microsoft Update i usługa Windows Update nie jest uruchomiona.
 
+<a id="agent-installation-on-DC"></a>**Instalacja agenta nie powiedzie się na kontrolerze domeny usługi Active Directory** Jeśli spróbuj i zainstalować agenta synchronizacji na kontrolerze domeny usługi Active Directory, gdzie właściciela roli kontrolera PDC jest w systemie Windows Server 2008 R2 lub poniżej wersji systemu operacyjnego, można napotkać problem gdzie synchronizacji Agent nie zostanie zainstalowana.
+
+Aby rozwiązać, Przenieś rolę podstawowego kontrolera domeny do innej domeny kontrolera uruchomionego systemu Windows Server 2012 R2 lub nowszej, a następnie zainstalować synchronizacji.
+
 <a id="agent-installation-websitename-failure"></a>**Instalacja agenta zakończy się niepowodzeniem z powodu następującego błędu: "Magazynu synchronizacji agenta przedwcześnie zakończył"**  
 Ten problem może wystąpić, jeśli zostanie zmieniona nazwa domyślnej witryny sieci Web usług IIS. Aby obejść ten problem, Zmień nazwę domyślna witryna sieci Web IIS jako "Default Web Site", a następnie ponów próbę instalacji. Problem zostanie rozwiązany w przyszłej aktualizacji agenta. 
 
@@ -51,6 +55,8 @@ Jeśli serwer nie jest wymieniony w obszarze **zarejestrowanych serwerów** dla 
 1. Zaloguj się do serwera, który chcesz zarejestrować.
 2. Otwórz Eksploratora plików, a następnie przejdź do katalogu instalacji agenta synchronizacji magazynu (domyślna lokalizacja to C:\Program Files\Azure\StorageSyncAgent). 
 3. Uruchom ServerRegistration.exe, a następnie Ukończ pracę kreatora, aby zarejestrować serwer z magazynu usługi synchronizacji.
+
+
 
 <a id="server-already-registered"></a>**Rejestracja serwera wyświetli następujący komunikat podczas instalacji agenta synchronizacji plików Azure: "ten serwer jest już zarejestrowany"** 
 
@@ -95,9 +101,7 @@ Aby utworzyć punktu końcowego w chmurze, Twoje konto użytkownika musi mieć n
 
 Następujące role wbudowane wymaganych uprawnień Authorization firmy Microsoft:  
 * Właściciel
-* Administrator dostępu użytkowników
-
-Aby określić, czy rola konto użytkownika ma wymagane uprawnienia:  
+* Administrator dostępu użytkowników, aby określić, czy rola konto użytkownika ma wymagane uprawnienia:  
 1. W portalu Azure wybierz **grup zasobów**.
 2. Wybierz grupę zasobów, w którym znajduje się na koncie magazynu, a następnie wybierz **(IAM) kontroli dostępu**.
 3. Wybierz **roli** (na przykład właścicielem lub współautorem) dla tego konta użytkownika.
@@ -105,11 +109,24 @@ Aby określić, czy rola konto użytkownika ma wymagane uprawnienia:
     * **Przypisanie roli** powinien mieć **odczytu** i **zapisu** uprawnienia.
     * **Definicja roli** powinien mieć **odczytu** i **zapisu** uprawnienia.
 
-<a id="server-endpoint-createjobfailed"></a>**Utworzenie punktu końcowego serwera nie powiedzie się, z powodu następującego błędu: "MgmtServerJobFailed" (kod błędu:-2134375898)**                                                                                                                           
+<a id="server-endpoint-createjobfailed"></a>**Utworzenie punktu końcowego serwera nie powiedzie się, z powodu następującego błędu: "MgmtServerJobFailed" (kod błędu:-2134375898)**                                                                                                                    
 Ten problem występuje, jeśli ścieżka punktu końcowego serwera znajduje się na woluminie systemowym i w chmurze jest włączona obsługa poziomów. Chmura obsługi nie jest obsługiwana w woluminie systemowym. Można utworzyć punktu końcowego serwera w woluminie systemowym, wyłącz chmury, dodając funkcje warstw podczas tworzenia serwera punktu końcowego.
 
 <a id="server-endpoint-deletejobexpired"></a>**Usuwanie punktu końcowego serwera nie powiedzie się, z powodu następującego błędu: "MgmtServerJobExpired"**                
 Ten problem występuje, gdy serwer działa w trybie offline lub nie ma łączności sieciowej. Jeśli serwer nie jest już dostępna, należy wyrejestrować serwera w portalu, co spowoduje usunięcie punktów końcowych serwera. Aby usunąć punkty końcowe serwera, wykonaj kroki opisane w [Wyrejestruj serwer z funkcją synchronizacji plików Azure](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
+
+<a id="server-endpoint-provisioningfailed"></a>**Nie można otworzyć stronę właściwości punktu końcowego serwera lub zaktualizować zasadami obsługi poziomów w chmurze**
+
+Ten problem może wystąpić, jeśli operacja zarządzania, na serwerze punktu końcowego nie powiedzie się. Jeśli strona Właściwości punktu końcowego serwera nie jest wyświetlana w portalu Azure, trwa aktualizowanie punktu końcowego serwera za pomocą poleceń programu PowerShell z serwera może rozwiązać ten problem. 
+
+```PowerShell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
+# Get the server endpoint id based on the server endpoint DisplayName property
+Get-AzureRmStorageSyncServerEndpoint -SubscriptionId mysubguid -ResourceGroupName myrgname -StorageSyncServiceName storagesvcname -SyncGroupName mysyncgroup
+
+# Update the free space percent policy for the server endpoint
+Set-AzureRmStorageSyncServerEndpoint -Id serverendpointid -CloudTiering true -VolumeFreeSpacePercent 60
+```
 
 ## <a name="sync"></a>Sync
 <a id="afs-change-detection"></a>**Jeśli utworzono plik bezpośrednio w mojej udziału plików na platformę Azure przy użyciu protokołu SMB lub za pośrednictwem portalu, jak długo trwa pliku do synchronizacji serwerów w grupie synchronizacji?**  

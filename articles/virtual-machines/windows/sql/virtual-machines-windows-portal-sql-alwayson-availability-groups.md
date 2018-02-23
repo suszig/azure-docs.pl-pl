@@ -4,7 +4,7 @@ description: "Ten samouczek przedstawia sposób tworzenia zawsze włączonej gru
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-resource-manager
 ms.assetid: 64e85527-d5c8-40d9-bbe2-13045d25fc68
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: d430febee23081b26eee0a68d4beb43228549f52
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a612ffd5a68e34cb0a367a6a883495ef26aeb4bc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Konfigurowanie zawsze włączonych grup dostępności w maszynach wirtualnych platformy Azure automatycznie: Menedżer zasobów
 
@@ -63,8 +63,8 @@ W tym samouczku Użyj portalu Azure, aby:
 Platforma Azure udostępnia obrazu galerii dla całego rozwiązania. Aby zlokalizować szablonu:
 
 1. Zaloguj się do portalu Azure przy użyciu swojego konta.
-2. W portalu Azure kliknij **+ nowy** otworzyć **nowy** bloku.
-3. Na **nowy** bloku, wyszukiwanie **AlwaysOn**.
+2. W portalu Azure kliknij **Utwórz zasób** otworzyć **nowy** okienka.
+3. Na **nowy** okienka, wyszukiwanie **AlwaysOn**.
    ![Znajdź szablon (AlwaysOn)](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/16-findalwayson.png)
 4. W wynikach wyszukiwania Znajdź **klastra programu SQL Server AlwaysOn**.
    ![Szablon (AlwaysOn)](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/17-alwaysontemplate.png)
@@ -197,7 +197,7 @@ Monitorowanie postępu wdrożenia z portalu Azure. Ikona reprezentuje wdrożenia
 
 ![Pulpit nawigacyjny platformy Azure](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/11-deploydashboard.png)
 
-## <a name="connect-to-sql-server"></a>Połączenia z serwerem SQL
+## <a name="connect-to-sql-server"></a>Ustanawianie połączenia z programem SQL Server
 Nowe wystąpienia programu SQL Server są uruchomione na maszynach wirtualnych mających podłączonej do Internetu adresów IP. Możesz pulpitu zdalnego (RDP) bezpośrednio do każdej maszyny wirtualnej programu SQL Server.
 
 Dla protokołu RDP do programu SQL Server wykonaj następujące kroki:

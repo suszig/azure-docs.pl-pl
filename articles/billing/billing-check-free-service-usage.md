@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: amberb
-ms.openlocfilehash: 27ff6c92904a0b32cd4a37c8b1930adc121a7231
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8bc63091dfba822f9839f61dd12c212154ba695d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>Sprawdź użycie bezpłatnych usług dołączonego bezpłatne konto platformy Azure 
 
@@ -28,7 +28,7 @@ To nie naliczane opłaty za usługi objęte bezpłatnie bezpłatne konto platfor
 
 1.  Zaloguj się do witryny [Azure Portal]( http://portal.azure.com).
 
-2.  W dolnej części nawigacji po lewej stronie, wybierz **więcej usług**.
+2.  W obszarze nawigacji po lewej stronie, wybierz **wszystkie usługi**.
 
 3.  Wybierz **subskrypcje**.
 
@@ -63,7 +63,7 @@ To nie naliczane opłaty za usługi objęte bezpłatnie bezpłatne konto platfor
 
 Użycie pliku zawiera szczegółowe informacje dotyczące subskrypcji platformy Azure. Twoje co miesiąc i codziennie użycia pliku można pobrać z Centrum konta platformy Azure. Aby dowiedzieć się, jak pobrać plik użycia i zrozumieć dostęp wymagany, zobacz [uzyskać faktury i użycie](billing-download-azure-invoice-daily-usage-date.md). Aby uzyskać informacje dotyczące kolumn w pliku użycia, zobacz [zrozumieć warunki na użycie](billing-understand-your-usage.md). 
 
-Plik użycia zawiera informacje o użyciu zarówno bezpłatnych i płatnych usług. Liczniki bezpłatnej usługi będzie zawierał **wolne** dołączany na końcu nazwy licznika. Można znaleźć wolnej liczników, otwórz plik w formacie programu excel i filtr **kolumny kategorii licznika** dla komórek zawierających tekst **— wolne** (Filtry tekstu użyj &rarr; filtr zawierania)&nbsp;
+Plik użycia zawiera informacje o użyciu zarówno bezpłatnych i płatnych usług. Liczniki bezpłatnej usługi będzie zawierał **wolne** dołączany na końcu nazwy licznika. Można znaleźć wolnej liczników, otwórz plik w formacie programu excel i filtr **kolumny kategorii licznika** dla komórek zawierających tekst **— wolne** (Filtry tekstu użyj &rarr; filtr zawierania) &nbsp;
 
 ![Zrzut ekranu pokazujący użycia bezpłatnych usług](./media/billing-check-usage-of-free-services/free-services-usage-csv.png)
 

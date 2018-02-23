@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: 0f374e846dd0f67627c3caaa5b29e8bfb258f470
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 410c2ee581a98a44e7c3c98e680686e5a1eae34e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="run-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Uruchamianie zapytań Hive przy użyciu narzędzi Data Lake tools dla programu Visual Studio
 
@@ -43,7 +43,7 @@ Informacje o sposobie korzystania z narzędzi Data Lake dla programu Visual Stud
 
 * Narzędzia HDInsight tools for Visual Studio lub usługi Azure Data Lake tools dla programu Visual Studio. Zobacz [rozpocząć korzystanie z narzędzi Visual Studio Hadoop dla usługi HDInsight](apache-hadoop-visual-studio-tools-get-started.md) informacji o instalowaniu i konfigurowaniu narzędzi.
 
-## <a id="run"></a>Uruchamianie zapytań Hive przy użyciu programu Visual Studio
+## <a id="run"></a> Uruchamianie zapytań Hive przy użyciu programu Visual Studio
 
 1. Otwórz **programu Visual Studio** i wybierz **nowy** > **projektu** > **usługi Azure Data Lake** > **HIVE** > **aplikacji Hive**. Podaj nazwę dla tego projektu.
 
@@ -75,7 +75,7 @@ Informacje o sposobie korzystania z narzędzi Data Lake dla programu Visual Stud
 
    * `SELECT`: Wybierz liczbę wszystkich wierszy gdzie kolumna `t4` zawiera wartość `[ERROR]`. Ta instrukcja zwraca wartość `3` ponieważ istnieją trzy wiersze, które zawierają tę wartość.
 
-   * `INPUT__FILE__NAME LIKE '%.log'`-Informuje Hive czy firma Microsoft powinno zwrócić dane tylko z plików w. dziennika. Klauzulę ogranicza wyszukiwanie do pliku sample.log, który zawiera dane.
+   * `INPUT__FILE__NAME LIKE '%.log'` -Informuje Hive czy firma Microsoft powinno zwrócić dane tylko z plików w. dziennika. Klauzulę ogranicza wyszukiwanie do pliku sample.log, który zawiera dane.
 
 3. Na pasku narzędzi wybierz **klastra usługi HDInsight** , który ma być używany dla tego zapytania. Wybierz **przesyłania** do uruchamiania instrukcje jako zadania Hive.
 

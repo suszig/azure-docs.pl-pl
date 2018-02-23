@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: Active
-ms.date: 11/20/2017
+ms.date: 02/13/2018
 ms.author: carlrab
-ms.openlocfilehash: 06eb02e408b95176ca99ca391b437a3751876fac
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 81b61d59e63924e4af5befe4cbd638be98b385e6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Odzyskiwanie bazy danych Azure SQL przy użyciu kopii zapasowych bazy danych automatycznych
 Baza danych SQL oferuje następujące opcje bazy danych odzyskiwania przy użyciu [automatyczne kopie zapasowe bazy danych](sql-database-automated-backups.md) i [kopie zapasowe w przechowywania długoterminowego](sql-database-long-term-retention.md). Można przywrócić z kopii zapasowej bazy danych, aby:
@@ -34,7 +34,7 @@ Baza danych SQL oferuje następujące opcje bazy danych odzyskiwania przy użyci
 
 Przywrócona baza danych generuje koszt dodatkowe miejsce do magazynowania w następujących warunkach: 
 - Przywracanie P11 — P15 S4 S12 lub P1 — P6 Jeśli maksymalnego rozmiaru bazy danych jest większa niż 500 GB.
-- Przywracanie P1 — P6 lub PRS1 — PRS6 do S4 S12 Jeśli maksymalnego rozmiaru bazy danych jest większa niż 250 GB.
+- Przywracanie P1 — P6 do S4 S12 Jeśli maksymalnego rozmiaru bazy danych jest większa niż 250 GB.
 
 Nadmiarowe jest koszt, ponieważ maksymalny rozmiar przywróconej bazy danych jest większa niż ilość miejsca w magazynie uwzględnione na poziomie wydajności i wszelkie dodatkowe miejsce do magazynowania elastycznie powyżej uwzględniona ilość jest bardzo obciążona.  Aby cenach szczegóły dodatkowe miejsce do magazynowania, zobacz [bazy danych SQL cennikiem](https://azure.microsoft.com/pricing/details/sql-database/).  Jeśli rzeczywista ilość miejsca jest mniejsza niż ilość miejsca w magazynie uwzględnione, następnie z żadnymi dodatkowymi kosztami można tego uniknąć przez ograniczenie maksymalnego rozmiaru bazy danych do uwzględniona ilość. Aby uzyskać więcej informacji dotyczących rozmiaru magazynu bazy danych i zmiana maksymalnego rozmiaru bazy danych, zobacz [pojedyncze bazy danych zasobów limity](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels).  
 

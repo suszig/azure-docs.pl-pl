@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 8/25/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: dbb30809ab68079666ecfa81a896c1d5101fb6fb
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 4d45ed14be499ed927f1433e134a029066146eea
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>Skalowanie wdrożeń Wpięć aby spełnić wymagania z agentami maszyny Wirtualnej Azure
 
@@ -91,7 +91,7 @@ W tym samouczku zostaną wykonane następujące czynności:
             }
      ```
 
-    Należy użyć nazwy głównej usługi zakończone `id` dla pole **identyfikator subskrypcji**, `appId` wartość **identyfikator klienta**, `password` dla **klucz tajny klienta**i adres URL dla **końcowym tokenów OAuth 2.0** z `https://login.windows.net/<tenant_value>`. Wybierz **Dodaj** dodać nazwy głównej usługi, a następnie skonfiguruj dodatek plug-in, aby użyć nowo utworzonego poświadczenia.
+    Należy użyć nazwy głównej usługi zakończone `id` dla pole **identyfikator subskrypcji**, `appId` wartość **identyfikator klienta**, `password` dla **klucz tajny klienta**, i `tenant` dla **Identyfikatorem dzierżawy**. Wybierz **Dodaj** dodać nazwy głównej usługi, a następnie skonfiguruj dodatek plug-in, aby użyć nowo utworzonego poświadczenia.
 
     ![Konfigurowanie nazwy głównej usługi Azure](./media/jenkins-azure-vm-agents/new-service-principal.png)
 
@@ -130,7 +130,7 @@ Wybierz **Sprawdź szablon** Sprawdź konfigurację, a następnie wybierz **zapi
 2. Wprowadź `demoproject1` dla nazwy i wybierz **stylu projektu**, a następnie wybierz pozycję **OK**.
 3. W **ogólne** , wybierz pozycję **Ogranicz, w którym można uruchomić projektu** i typ `ubuntu` w **wyrażenie etykiety**. Zostanie wyświetlony komunikat z potwierdzeniem, że etykiety jest obsługiwana przez konfigurację chmury utworzony w poprzednim kroku. 
    ![Konfigurowanie zadania](./media/jenkins-azure-vm-agents/job-config.png)
-4. W **zarządzania kodem źródłowym** wybierz opcję **Git** i Dodaj następujący adres URL do **adres URL repozytorium** pola:`https://github.com/spring-projects/spring-petclinic.git`
+4. W **zarządzania kodem źródłowym** wybierz opcję **Git** i Dodaj następujący adres URL do **adres URL repozytorium** pola: `https://github.com/spring-projects/spring-petclinic.git`
 5. W **kompilacji** wybierz opcję **kroku kompilacji Dodaj**, następnie **wywołania najwyższego poziomu celów Maven**. Wprowadź `package` w **cele** pola.
 6. Wybierz **zapisać** można zapisać definicji zadania.
 
@@ -142,7 +142,7 @@ Wybierz **Sprawdź szablon** Sprawdź konfigurację, a następnie wybierz **zapi
 
 ![Dane wyjściowe konsoli](./media/jenkins-azure-vm-agents/console-output.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 > [!div class="nextstepaction"]
 > [CI/CD w usłudze Azure App Service](java-deploy-webapp-tutorial.md)

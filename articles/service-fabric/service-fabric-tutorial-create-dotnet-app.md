@@ -1,26 +1,10 @@
+--Tytuł: tworzenie aplikacji .NET dla usługi Service Fabric | Opis elementu Microsoft Docs: informacje o sposobie tworzenia aplikacji platformy ASP.NET Core frontonu i niezawodnej usługi stanowej zaplecza i wdrażanie aplikacji do klastra.
+usługi: documentationcenter sieci szkieletowej usług: Autor .net: Menedżer rwike77: Edytor timlt: "
+
+ms.assetid: ms.service: service-fabric ms.devlang: dotNet ms.topic: tutorial ms.tgt_pltfrm: NA ms.workload: NA ms.date: 01/29/2018 ms.author: ryanwi ms.custom: mvc
+
 ---
-title: "Tworzenie aplikacji platformy .NET dla usługi Service Fabric | Microsoft Docs"
-description: "Informacje o sposobie tworzenia aplikacji za pomocą frontonu platformy ASP.NET Core i niezawodnej stanowej usługi zaplecza, a także o sposobie wdrażania aplikacji w klastrze."
-services: service-fabric
-documentationcenter: .net
-author: rwike77
-manager: timlt
-editor: 
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: dotNet
-ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 01/29/2018
-ms.author: ryanwi
-ms.custom: mvc
-ms.openlocfilehash: 467abe321fba166f1b862ae9f254c4943ba9e488
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: HT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
----
+
 # <a name="create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Tworzenie i wdrażanie aplikacji przy użyciu usługi frontonu platformy ASP.NET Core z internetowym interfejsem API oraz stanowej usługi zaplecza
 Niniejszy samouczek jest pierwszą częścią serii.  Zostanie tutaj przedstawiony sposób tworzenia aplikacji usługi Azure Service Fabric za pomocą frontonu internetowego interfejsu API platformy ASP.NET Core i stanowej usługi zaplecza umożliwiającej przechowywanie danych. Po zakończeniu będziesz mieć aplikację do głosowania z usługą internetową frontonu ASP.NET Core, która zapisuje wyniki głosowania w stanowej usłudze zaplecza w klastrze. Jeśli nie chcesz ręcznie tworzyć aplikacji do głosowania, możesz [pobrać kod źródłowy](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) ukończonej aplikacji i przejść od razu do sekcji [Szczegółowe omówienie przykładowej aplikacji do głosowania](#walkthrough_anchor).
 
@@ -43,7 +27,7 @@ Ta seria samouczków zawiera informacje na temat wykonywania następujących czy
 ## <a name="prerequisites"></a>Wymagania wstępne
 Przed rozpoczęciem tego samouczka:
 - Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Zainstaluj program Visual Studio 2017](https://www.visualstudio.com/) w wersji 15.3 lub nowszej z obciążeniami **Programowanie na platformie Azure** i **Tworzenie aplikacji na platformie ASP.NET i tworzenie aplikacji internetowych**.
+- [Zainstaluj program Visual Studio 2017](https://www.visualstudio.com/) wersji 15.5 lub nowszym z **Azure programowanie** i **ASP.NET i sieć web development** obciążeń.
 - [Zainstaluj zestaw SDK usługi Service Fabric.](service-fabric-get-started.md)
 
 ## <a name="create-an-aspnet-web-api-service-as-a-reliable-service"></a>Tworzenie usługi internetowego interfejsu API platformy ASP.NET jako niezawodnej usługi
@@ -629,7 +613,7 @@ Aby zobaczyć, co się stanie w kodzie, wykonaj następujące kroki:
 Aby zatrzymać sesję debugowania, naciśnij klawisze **Shift+F5**.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 W tej części samouczka zawarto informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]

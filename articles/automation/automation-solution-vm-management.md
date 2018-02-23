@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: magoedte
-ms.openlocfilehash: 4424cbb83bdb31c60e15d62f9387b4050611a98d
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: 7ffd424de2a7224b5ac50fa228289c5397092b2e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="startstop-vms-during-off-hours-solution-preview-in-azure-automation"></a>Maszyny wirtualne uruchamiania i zatrzymywania podczas rozwiązania poza godzinami szczytu (wersja zapoznawcza) w usłudze Automatyzacja Azure
 
@@ -68,14 +68,14 @@ W poniższej tabeli wymieniono elementy runbook wdrożonych na koncie automatyza
 
 Obejmują wszystkie nadrzędne elementy runbook *WhatIf* parametru. Wartość **True**, *WhatIf* obsługuje określające zachowanie dokładne wykonuje element runbook podczas uruchamiania bez *WhatIf* parametru i sprawdza poprawność poprawny są maszyny wirtualne docelowe.  Element runbook tylko wykonuje działania zdefiniowane podczas *WhatIf* ustawiono parametr **False**. 
 
-|**Element Runbook** | **Parametry** | **Opis**|
+|**Runbook** | **Parametry** | **Opis**|
 | --- | --- | ---| 
 |AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | Wywołana tylko z nadrzędnego elementu runbook. Tworzy alerty na podstawie ciągu zasobu dla scenariusza AutoStop.| 
 |AutoStop_CreateAlert_Parent | WhatIf: Wartość PRAWDA lub FAŁSZ <br> VMList | Tworzy lub aktualizuje Azure reguł alertów na maszynach wirtualnych w grupach docelowych subskrypcja lub zasób. <br> VMList: Rozdzielana przecinkami lista maszyn wirtualnych.  Na przykład *vm1 maszyny vm2, vm3*.| 
 |AutoStop_Disable | brak | Wyłącza alerty AutoStop i domyślnego harmonogramu.| 
 |AutoStop_StopVM_Child | WebHookData | Wywołana tylko z nadrzędnego elementu runbook. Reguły alertów wywołanie tego elementu runbook można zatrzymać maszyny Wirtualnej.|  
 |Bootstrap_Main | brak | Jednorazowo można skonfigurować bootstrap konfiguracje, takie jak webhookURI, które nie są zwykle dostępne z usługi Azure Resource Manager. Ten element runbook zostanie usunięta automatycznie po pomyślnym wdrożeniu.|  
-|ScheduledStartStop_Child | VMName <br> Akcja: Zatrzymywania lub uruchamiania <br> Grupy zasobów o nazwie | Wywołana tylko z nadrzędnego elementu runbook. Wykonuje zatrzymanie lub uruchomienie na zatrzymanie zaplanowane.|  
+|ScheduledStartStop_Child | VMName <br> Akcja: Zatrzymywania lub uruchamiania <br> ResourceGroupName | Wywołana tylko z nadrzędnego elementu runbook. Wykonuje zatrzymanie lub uruchomienie na zatrzymanie zaplanowane.|  
 |ScheduledStartStop_Parent | Akcja: Zatrzymywania lub uruchamiania <br> WhatIf: Wartość PRAWDA lub FAŁSZ | Ma to wpływ na wszystkie maszyny wirtualne w subskrypcji. Edytuj **External_Start_ResourceGroupNames** i **External_Stop_ResourceGroupNames** można wykonać tylko na tych grup zasobów obiektu docelowego. Można też wykluczyć określone maszyn wirtualnych, aktualizując **External_ExcludeVMNames** zmiennej. *WhatIf* działa tak samo jak inne elementy runbook.|  
 |SequencedStartStop_Parent | Akcja: Zatrzymywania lub uruchamiania <br> WhatIf: Wartość PRAWDA lub FAŁSZ | Utwórz znaczniki o nazwie **SequenceStart** i **SequenceStop** na każdej maszynie Wirtualnej, dla którego chcesz działania uruchamiania/zatrzymywania sekwencji. Wartość tagu powinna być dodatnią liczbą całkowitą (1, 2, 3) umożliwiająca kolejność, w którym chcesz uruchomić lub zatrzymać. *WhatIf* działa tak samo jak inne elementy runbook. <br> **Uwaga**: maszyny wirtualne muszą się znajdować w zdefiniowany jako External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames i External_ExcludeVMNames w automatyzacji Azure zmiennych grupy zasobów. Muszą mieć odpowiednie znaczniki do wykonywania działań zaczęły obowiązywać.|
 
@@ -129,7 +129,7 @@ Nie należy włączać wszystkie harmonogramy, ponieważ może to powodować nak
 
 Wykonaj poniższe kroki, aby dodać uruchamiania/zatrzymywania maszyn wirtualnych podczas rozwiązania poza godzinami szczytu na koncie automatyzacji, a następnie skonfiguruj zmienne, aby dostosować rozwiązania.
 
-1. W witrynie Azure Portal kliknij pozycję **Nowy**.<br> ![Azure portal](media/automation-solution-vm-management/azure-portal-01.png)<br>  
+1. W portalu Azure kliknij **Utwórz zasób**.<br> ![Azure portal](media/automation-solution-vm-management/azure-portal-01.png)<br>  
 2. W okienku Marketplace wpisz słowo kluczowe, taką jak **Start** lub **uruchamiania i zatrzymywania**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Alternatywnie można wpisz słowa kluczowe co najmniej jeden z pełną nazwę rozwiązania i naciśnij klawisz Enter.  Wybierz **uruchamiania/zatrzymywania maszyn wirtualnych w godzinach [Podgląd]** w wynikach wyszukiwania.  
 3. W **uruchamiania/zatrzymywania maszyn wirtualnych w godzinach [Podgląd]** okienko dla wybranego rozwiązania, sprawdź informacje, a następnie kliknij przycisk **Utwórz**.  
 4. **Dodaj rozwiązanie** pojawi się okienko. Monit o skonfigurowanie rozwiązania, przed zaimportowaniem go w ramach subskrypcji automatyzacji.<br><br> ![Zarządzanie maszynami wirtualnymi — blok Dodawanie rozwiązania](media/automation-solution-vm-management/azure-portal-add-solution-01.png)<br><br>
@@ -297,7 +297,7 @@ Poniższa tabela zawiera przykładowe wyszukiwania dzienników dla rekordów dzi
 Zapytanie | Opis|
 ----------|----------|
 Znajdź zadania dla elementu runbook ScheduledStartStop_Parent, które zakończyły się pomyślnie | Wyszukiwanie kategorii == "JobLogs" &#124; gdzie (RunbookName_s == "ScheduledStartStop_Parent") &#124; gdzie (ResultType == "Ukończone") &#124; Podsumuj AggregatedValue = count() ResultType, bin (TimeGenerated, 1h) &#124; Sortuj według TimeGenerated desc|
-Znajdź zadania dla elementu runbook SequencedStartStop_Parent, które zakończyły się pomyślnie | Wyszukiwanie kategorii == "JobLogs" &#124; gdzie (RunbookName_s == "SequencedStartStop_Parent") &#124; gdzie (ResultType == "Ukończone") &#124; Podsumuj AggregatedValue = count() ResultType, bin (TimeGenerated, 1h) &#124; Sortuj według TimeGenerated desc
+Znajdź zadania dla elementu runbook SequencedStartStop_Parent, które zakończyły się pomyślnie | search Category == "JobLogs" &#124; where ( RunbookName_s == "SequencedStartStop_Parent" ) &#124; where ( ResultType == "Completed" )  &#124; summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) &#124; sort by TimeGenerated desc
 
 ## <a name="removing-the-solution"></a>Usuwanie rozwiązania
 

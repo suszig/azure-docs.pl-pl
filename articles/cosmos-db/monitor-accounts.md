@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: mimig
-ms.openlocfilehash: f07489172306b4f6d03b5a9b1399ed92e007c3c1
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 0e9a47e6a1a5c7a44c5553742d6c5c81f8ca7286
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-azure-cosmos-db"></a>Monitorowanie Azure rozwiązania Cosmos bazy danych
 Można monitorować swoje konta bazy danych Azure rozwiązania Cosmos w [portalu Azure](https://portal.azure.com/). Dla każdego konta bazy danych Azure rozwiązania Cosmos pełny pakiet metryki jest dostępna do monitorowania przepływności, magazynu, dostępności, opóźnienia i spójności.
@@ -26,7 +26,7 @@ Można monitorować swoje konta bazy danych Azure rozwiązania Cosmos w [portalu
 Metryki można przeglądać na stronie konta Nowa strona metryki, lub w monitorze Azure.
 
 ## <a name="view-performance-metrics-on-the-metrics-page"></a>Metryki wydajności widoku na stronie metryk
-1. W [portalu Azure](https://portal.azure.com/), kliknij przycisk **więcej usług**, przewiń do **baz danych**, kliknij przycisk **bazy danych Azure rozwiązania Cosmos**, a następnie kliknij nazwę konta Azure DB rozwiązania Cosmos, dla którego chcesz wyświetlić metryki wydajności.
+1. W [portalu Azure](https://portal.azure.com/), kliknij przycisk **wszystkie usługi**, przewiń do **baz danych**, kliknij przycisk **bazy danych Azure rozwiązania Cosmos**, a następnie kliknij nazwę platformy Azure Konto rozwiązania cosmos bazy danych, dla którego chcesz wyświetlić metryki wydajności.
 2. Nowa strona załadowanie, w menu zasobów w obszarze **monitorowanie**, kliknij przycisk **metryki**.
 3. Po otwarciu strony metryki wybrać kolekcję, aby zapoznać się z **kolekcji** listy rozwijanej.
 
@@ -42,7 +42,7 @@ Metryki można przeglądać na stronie konta Nowa strona metryki, lub w monitorz
 5. Na liście **dostępne metryki**, wybrać metryki do wyświetlenia. Użyj przycisku CTRL do wielokrotnego wyboru. 
 
 ## <a name="view-performance-metrics-on-the-account-page"></a>Metryki wydajności widoku na stronie konta
-1. W [portalu Azure](https://portal.azure.com/), kliknij przycisk **więcej usług**, przewiń do **baz danych**, kliknij przycisk **bazy danych Azure rozwiązania Cosmos**, a następnie kliknij nazwę konta Azure DB rozwiązania Cosmos, dla którego chcesz wyświetlić metryki wydajności.
+1. W [portalu Azure](https://portal.azure.com/), kliknij przycisk **wszystkie usługi**, przewiń do **baz danych**, kliknij przycisk **bazy danych Azure rozwiązania Cosmos**, a następnie kliknij nazwę platformy Azure Konto rozwiązania cosmos bazy danych, dla którego chcesz wyświetlić metryki wydajności.
 2. **Monitorowanie** obiektyw domyślnie wyświetla następujące Kafelki:
    
    * Całkowita liczba żądań dla bieżącego dnia.
@@ -53,7 +53,7 @@ Metryki można przeglądać na stronie konta Nowa strona metryki, lub w monitorz
 4. **Metryka** strony są wyświetlane szczegóły dotyczące całkowita liczba żądań. 
 
 ## <a name="set-up-alerts-in-the-portal"></a>Konfigurowanie alertów w portalu
-1. W [portalu Azure](https://portal.azure.com/), kliknij przycisk **więcej usług**, kliknij przycisk **bazy danych Azure rozwiązania Cosmos**, a następnie kliknij nazwę konta Azure DB rozwiązania Cosmos, dla której chcesz skonfigurować wydajności metryki alerty.
+1. W [portalu Azure](https://portal.azure.com/), kliknij przycisk **wszystkie usługi**, kliknij przycisk **bazy danych Azure rozwiązania Cosmos**, a następnie kliknij nazwę konta Azure DB rozwiązania Cosmos, dla której chcesz skonfigurować wydajności metryki alerty.
 2. W menu zasobów kliknij **reguły alertów** aby otworzyć stronę reguł alertów.  
    ![Zrzut ekranu przedstawiający Alert zasady wybrane części](./media/monitor-accounts/madocdb10.5.png)
 3. W **reguły alertów** kliknij przycisk **Dodaj alert**.  
@@ -84,6 +84,6 @@ Zapytania można pobrać metryki poszczególnych Użyj następującego formatu:
 
 Aby uzyskać więcej informacji, zobacz [pobieranie zasobu metryki za pośrednictwem interfejsu API REST Azure Monitor](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/02/23/retrieving-resource-metrics-via-the-azure-insights-api/). Należy pamiętać, że zmieniono nazwę "Azure Insights" "Azure Monitor".  Ten wpis w blogu odwołuje się do nazwy starszej.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby dowiedzieć się więcej na temat planowania wydajności bazy danych rozwiązania Cosmos Azure, zobacz [Kalkulator planowania pojemności bazy danych Azure rozwiązania Cosmos](https://www.documentdb.com/capacityplanner).
 

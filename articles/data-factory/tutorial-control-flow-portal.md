@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: de48d61af0e8056a749715343ef821cfc35cb93d
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 2b1e3fa7fa57d92dbc3a33af20ed258d674e1625
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Rozgałęzianie działań i tworzenie łańcuchów działań w potoku usługi Data Factory
 W tym samouczku pokazano, jak utworzyć potok usługi Data Factory przedstawiający niektóre funkcje przepływu sterowania. Ten potok tworzy prostą kopię z kontenera w usłudze Azure Blob Storage w innym kontenerze na tym samym koncie magazynu. Jeśli działanie kopiowania zakończy się powodzeniem, potok wysyła szczegóły zakończonej pomyślnie operacji kopiowania (takie jak ilość zapisanych danych) w wiadomości e-mail z informacją o powodzeniu. W przypadku niepowodzenia działania kopiowania potok wysyła szczegóły błędu kopiowania (np. komunikat o błędzie) w wiadomości e-mail z informacją o niepowodzeniu. W samouczku pokazano, jak przekazać parametry.
@@ -129,6 +129,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 
 ## <a name="create-a-data-factory"></a>Tworzenie fabryki danych
 
+1. Uruchom przeglądarkę internetową **Microsoft Edge** lub **Google Chrome**. Obecnie interfejs użytkownika usługi Data Factory jest obsługiwany tylko przez przeglądarki internetowe Microsoft Edge i Google Chrome.
 1. Kliknij przycisk **Nowy** w lewym menu, kliknij pozycję **Dane + analiza**, a następnie kliknij pozycję **Data Factory**. 
    
    ![Nowy-> Fabryka danych](./media/tutorial-control-flow-portal/new-azure-data-factory-menu.png)
@@ -241,8 +242,7 @@ W tym kroku jest tworzony potok z jednym działaniem kopiowania i dwoma działan
         - Nazwa fabryki danych — przekazywanie wartości elementu `@{pipeline().DataFactory}`. Jest to zmienna systemowa, która umożliwia dostęp do odpowiedniej nazwy fabryki danych. Lista zmiennych systemowych jest dostępna w artykule [Zmienne systemowe](control-flow-system-variables.md).
         - Nazwa potoku — przekazywanie wartości elementu `@{pipeline().Pipeline}`. Jest to również zmienna systemowa, która umożliwia dostęp do odpowiedniej nazwy potoku. 
         - Odbiorca — przekazywanie wartości elementu @pipeline().parameters.receiver). Uzyskuje dostęp do parametrów potoku.
-    6. **Ustawienia** powinny wyglądać podobnie jak na poniższym obrazie: 
-
+    
         ![Ustawienia dla pierwszego działania internetowego](./media/tutorial-control-flow-portal/web-activity1-settings.png)         
 19. Połącz działanie **Kopiowanie** z działaniem **Internet**, przeciągając zielony przycisk znajdujący się obok działania kopiowania i upuszczając go na działaniu internetowym. 
 
@@ -266,8 +266,7 @@ W tym kroku jest tworzony potok z jednym działaniem kopiowania i dwoma działan
             "receiver": "@pipeline().parameters.receiver"
         }
         ```
-    6. **Ustawienia** powinny wyglądać podobnie jak na poniższym obrazie: 
-    
+
         ![Ustawienia dla drugiego działania internetowego](./media/tutorial-control-flow-portal/web-activity2-settings.png)         
 22. Wybierz działanie **Kopiowanie** w projektancie potoku, a następnie kliknij przycisk **+->** i zaznacz pozycję **Błąd**.  
 
@@ -278,7 +277,7 @@ W tym kroku jest tworzony potok z jednym działaniem kopiowania i dwoma działan
 24. Aby zweryfikować potok, kliknij przycisk **Weryfikuj** na pasku narzędzi. Zamknij okno **Dane wyjściowe weryfikacji potoku**, klikając przycisk **>>**.
 
     ![Weryfikowanie potoku](./media/tutorial-control-flow-portal/validate-pipeline.png)
-24. Aby opublikować jednostki (zestawy danych, potoki itp.) w usłudze Data Factory, kliknij przycisk **Opublikuj**. Poczekaj na wyświetlenie komunikatu **Pomyślnie opublikowano**.
+24. Aby opublikować jednostki (zestawy danych, potoki itp.) w usłudze Data Factory, kliknij przycisk **Opublikuj wszystko**. Poczekaj na wyświetlenie komunikatu **Pomyślnie opublikowano**.
 
     ![Publikowanie](./media/tutorial-control-flow-portal/publish-button.png)
  

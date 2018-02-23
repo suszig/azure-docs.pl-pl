@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/07/2017
 ms.author: v-craic
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3dcd285761774c3cd1050976894f1f15db61b52c
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 330f6ae246697d54c6bce0690346652b5f2e2dd0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Zarządzanie formuły Azure DevTest Labs
 
@@ -40,7 +40,7 @@ Poniższe kroki ułatwiają tworzenie formuły z niestandardowego obrazu, obrazu
 
 1. Zaloguj się w witrynie [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-2. Wybierz **więcej usług**, a następnie wybierz **DevTest Labs** z listy.
+2. Wybierz **wszystkie usługi**, a następnie wybierz **DevTest Labs** z listy.
 
 3. Z listy labs wybierz żądany laboratorium.  
 
@@ -87,7 +87,7 @@ Poniższe kroki ułatwiają tworzenie formułę opartą na istniejącej maszyny 
 > 
 
 1. Zaloguj się w witrynie [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Wybierz **więcej usług**, a następnie wybierz **DevTest Labs** z listy.
+2. Wybierz **wszystkie usługi**, a następnie wybierz **DevTest Labs** z listy.
 3. Z listy labs wybierz żądany laboratorium.  
 4. W laboratorium **omówienie** bloku, wybierz maszynę Wirtualną, z którego chcesz utworzyć formuły.
    
@@ -104,7 +104,7 @@ Poniższe kroki ułatwiają tworzenie formułę opartą na istniejącej maszyny 
 Aby zmodyfikować formuły, wykonaj następujące kroki:
 
 1. Zaloguj się w witrynie [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Wybierz **więcej usług**, a następnie wybierz **DevTest Labs** z listy.
+2. Wybierz **wszystkie usługi**, a następnie wybierz **DevTest Labs** z listy.
 3. Z listy labs wybierz żądany laboratorium.  
 4. W bloku laboratorium, wybierz **formuły (podstaw wielokrotnego użytku)**.
    
@@ -116,7 +116,7 @@ Aby zmodyfikować formuły, wykonaj następujące kroki:
 Aby usunąć formuły, wykonaj następujące kroki:
 
 1. Zaloguj się w witrynie [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Wybierz **więcej usług**, a następnie wybierz **DevTest Labs** z listy.
+2. Wybierz **wszystkie usługi**, a następnie wybierz **DevTest Labs** z listy.
 3. Z listy labs wybierz żądany laboratorium.  
 4. W środowisku laboratoryjnym **ustawienia** bloku, wybierz opcję **formuły**.
    

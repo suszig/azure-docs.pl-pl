@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 ms.author: v-craic
-ms.openlocfilehash: 25675aae77fbe2610fe416210de9a306c1c09f3d
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: a37fece1f46a992b860e3a57f63da5852038205f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-microsoft-azure-storage-explorer"></a>Przekaż plik wirtualnego dysku twardego na konto magazynu w laboratorium, przy użyciu Eksploratora magazynu Microsoft Azure
 
@@ -36,7 +36,7 @@ W poniższych krokach objaśniono za pośrednictwem przekazywania pliku wirtualn
 
     1. Zaloguj się w witrynie [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
     
-    1. Wybierz pozycję **Więcej usług**, a następnie z listy wybierz pozycję **DevTest Labs**.
+    1. Wybierz **wszystkie usługi**, a następnie wybierz **DevTest Labs** z listy.
     
     1. Z listy labs wybierz żądany laboratorium.  
     
@@ -54,7 +54,7 @@ W poniższych krokach objaśniono za pośrednictwem przekazywania pliku wirtualn
     
     1. **Przekazywanie obrazu za pomocą programu PowerShell** bloku Wyświetla wywołanie **Add-AzureVhd** polecenia cmdlet. Pierwszy parametr (*docelowego*) zawiera nazwę konta magazynu dla laboratorium w następującym formacie:
     
-        https://<Storage-ACCOUNT-name>.blob.Core.Windows.NET/Uploads/... 
+        https://<STORAGE-ACCOUNT-NAME>.blob.core.windows.net/uploads/... 
 
     1. Zwróć uwagę na nazwy konta magazynu, ponieważ jest używana w dalszych krokach.
     

@@ -3,8 +3,8 @@ title: "Udostępnić użytkownikom stosu Azure maszyny wirtualnej | Dokumentacja
 description: "Samouczek, aby udostępnić maszyn wirtualnych na stosie Azure"
 services: azure-stack
 documentationcenter: 
-author: vhorne
-manager: 
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/23/2017
-ms.author: victorh
+ms.author: brenduns
+ms.reviewer: 
 ms.custom: mvc
-ms.openlocfilehash: f6fce4a3230c98295afb19e633bf2801c115831f
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: d169a18df8916cfb8dd30b00248099a3d374aacc
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="make-virtual-machines-available-to-your-azure-stack-users"></a>Udostępnić użytkownikom stosu Azure maszyny wirtualne
 
@@ -74,7 +75,7 @@ Teraz możesz uzyskać rzeczy gotowy dla użytkowników. Podczas uruchamiania pr
 
    W tym przykładzie mamy najpierw utworzyć przydział dla usługi obliczeniowej. Na liście przestrzeni nazw, wybierz **Microsoft.Compute** przestrzeni nazw, a następnie kliknij przycisk **Utwórz nowy przydział**.
    
-   ![Utwórz nowy przydział](media/azure-stack-tutorial-tenant-vm/image06.png)
+   ![Tworzenie nowego przydziału](media/azure-stack-tutorial-tenant-vm/image06.png)
 
    g. Na **Tworzenie przydziału** sekcji, wpisz nazwę przydziału i ustaw odpowiednie parametry limitu przydziału i kliknij **OK**.
 
@@ -120,7 +121,7 @@ Teraz, po utworzeniu oferty, można sprawdzić. Zaloguj się jako użytkownik i 
 
    ![Uzyskaj subskrypcję](media/azure-stack-subscribe-plan-provision-vm/image01.png)
 
-   b. W **Nazwa wyświetlana** pola, wpisz nazwę dla Twojej subskrypcji, kliknij przycisk **oferują**, kliknij jeden z oferty w **wybierz ofertę** sekcji, a następnie kliknij przycisk  **Utwórz**.
+   b. W **Nazwa wyświetlana** pola, wpisz nazwę dla Twojej subskrypcji, kliknij przycisk **oferują**, kliknij jeden z oferty w **wybierz ofertę** sekcji, a następnie kliknij przycisk ** Utwórz**.
 
    ![Tworzenie oferty](media/azure-stack-subscribe-plan-provision-vm/image02.png)
 

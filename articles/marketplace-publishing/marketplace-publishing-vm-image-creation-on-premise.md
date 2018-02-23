@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 8f6b9a9293dc149586e6e5fd55028170ea825b07
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 77771f1e690bdfb59d42989a34068634f35f845d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>Tworzenie obrazu maszyny wirtualnej lokalnej dla portalu Azure Marketplace
 Zdecydowanie zaleca się tworzenie Azure wirtualnych dysków twardych (VHD) bezpośrednio w chmurze przy użyciu protokołu Remote Desktop Protocol. Jeśli musisz, prawdopodobnie Pobierz wirtualnego dysku twardego i opracowanie go za pomocą infrastruktury lokalnej.  
@@ -75,7 +75,7 @@ Oprócz przy użyciu portalu Azure, możesz użyć [Save-AzureVhd](http://msdn.m
         Save-AzureVhd –Source <storageURIOfVhd> `
         -LocalFilePath <diskLocationOnWorkstation> `
         -StorageKey <keyForStorageAccount>
-Na przykład Zapisz-AzureVhd-źródła "https://baseimagevm.blob.core.windows.net/vhds/BaseImageVM-6820cq00-BaseImageVM-os-1411003770191.vhd" - LocalFilePath "C:\Users\Administrator\Desktop\baseimagevm.vhd" - atrybutu StorageKey<String>
+For example, Save-AzureVhd -Source “https://baseimagevm.blob.core.windows.net/vhds/BaseImageVM-6820cq00-BaseImageVM-os-1411003770191.vhd” -LocalFilePath “C:\Users\Administrator\Desktop\baseimagevm.vhd” -StorageKey <String>
 
 > [!NOTE]
 > **Zapisz-AzureVhd** ma również **NumberOfThreads** opcja, która może służyć do zwiększenia równoległości, aby jak najlepiej wykorzystać dostępnej przepustowości dla pobierania.
@@ -92,7 +92,7 @@ Aby utworzyć konto magazynu, można użyć [portalu Microsoft Azure](https://po
 
 **Utwórz konto magazynu z portalu Microsoft Azure**
 
-1. Kliknij przycisk **Nowy**.
+1. Kliknij przycisk **Utwórz zasób**.
 2. Wybierz **magazynu**.
 3. Wprowadź nazwę konta magazynu, a następnie wybierz lokalizację.
    
@@ -143,9 +143,9 @@ Użyj [Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx) polecenia 
         Add-AzureVhd –Destination “http://mystorageaccount.blob.core.windows.net/containername/vmsku.vhd” -LocalFilePath “C:\Users\Administrator\Desktop\vmsku.vhd”
 
 ### <a name="upload-a-vhd-by-using-the-command-line-tool-for-mac-and-linux"></a>Przekazywanie wirtualnego dysku twardego za pomocą narzędzia wiersza polecenia dla komputerów Mac i Linux
-Z [narzędzia wiersza polecenia systemu Linux](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2), należy użyć następującego: Tworzenie obrazu maszyny wirtualnej azure <image name> — lokalizacji <Location of the data center> — system operacyjny Linux<LocationOfLocalVHD>
+Z [narzędzia wiersza polecenia systemu Linux](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2), należy użyć następującego: Tworzenie obrazu maszyny wirtualnej azure <image name> — lokalizacji <Location of the data center> — system operacyjny Linux <LocationOfLocalVHD>
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Tworzenie obrazu maszyny wirtualnej dla witryny Marketplace](marketplace-publishing-vm-image-creation.md)
 * [Konfigurowanie programu Azure PowerShell](marketplace-publishing-powershell-setup.md)
 

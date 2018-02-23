@@ -4,7 +4,7 @@ description: "Zawiera najlepsze rozwiązania dotyczące wybierania model cenowy 
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/17/2017
 ms.author: jroth
-ms.openlocfilehash: fa1611944d266001a54c4d78205c942a5226d97b
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: fe04aa382a3e829b201dbe92442f841fb29fff15
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Wskazówek dotyczących ceny dla maszyn wirtualnych Azure, programu SQL Server
 
@@ -49,7 +49,7 @@ Jeśli obciążenie z systemem innym niż lightweight produkcji, użyj jednej z 
 | Wersja programu SQL Server | Obciążenie |
 |-----|-----|
 | Sieć Web | Mała witryn sieci web |
-| Standardowa | Mała liczba godzin w przypadku obciążeń średnia |
+| Standardowa (Standard) | Mała liczba godzin w przypadku obciążeń średnia |
 | Enterprise | Obciążeń dużych lub krytycznym|
 
 Dostępne są dwie opcje w celu opłacenia licencjonowania programu SQL Server dla następujących wersji: *płatności za użycie* lub *użycie własnej licencji (BYOL)*.
@@ -112,13 +112,13 @@ Aby utworzyć maszyny Wirtualnej Azure SQL Server 2016 z jednym z tych obrazów 
 
 Aby uniknąć niepotrzebnych kosztów, wybierz rozmiar maszyny wirtualnej optymalne i rozważ sporadyczne zamknięcia nieciągły obciążeń.
 
-### <a id="machinesize"></a>Poprawnie rozmiaru maszyny Wirtualnej
+### <a id="machinesize"></a> Poprawnie rozmiaru maszyny Wirtualnej
 
 Liczba rdzeni bezpośrednio dotyczy koszty licencjonowania programu SQL Server. Wybierz rozmiar maszyny Wirtualnej, który odpowiada Twoim potrzebom oczekiwany dla Procesora, pamięci, magazynu i przepustowości we/wy. Aby uzyskać pełną listę opcji rozmiaru maszyny, zobacz [rozmiarów maszyn wirtualnych systemu Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) i [rozmiarów maszyn wirtualnych systemu Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Istnieją nowe rozmiary maszyny, które działają prawidłowo w przypadku niektórych typów obciążeń programu SQL Server. Rozmiary maszyn Obsługa wysokiego poziomu pamięci, magazynu i przepustowości we/wy, ale mają niższe liczby rdzeni zwirtualizowanych. Rozważmy na przykład następująco:
 
-| Rozmiar maszyny wirtualnej | Vcpu | Memory (Pamięć) | Maksymalna liczba dysków | Maksymalna przepustowość we/wy | Koszty licencjonowania programu SQL | Łączne koszty (obliczeń + licencjonowania) |
+| Rozmiar maszyny wirtualnej | Procesory wirtualne vCPU | Memory (Pamięć) | Maksymalna liczba dysków | Maksymalna przepustowość we/wy | Koszty licencjonowania programu SQL | Łączne koszty (obliczeń + licencjonowania) |
 |---|---|---|---|---|---|---|
 | **Standard_DS14v2** | 16 | 112 GB | 32 | 51,200 IOPS lub 768 MB/s | | |
 | **Standard_DS14 4v2** | 4 | 112 GB | 32 | 51,200 IOPS lub 768 MB/s | 75% niższa | 57% niższa |
@@ -143,7 +143,7 @@ Dla innych przepływów pracy, należy wziąć pod uwagę automatycznie zamykani
 > [!IMPORTANT]
 > Zamykanie i cofanie przydziału maszyny Wirtualnej jest jedynym sposobem uniknięcia naliczania opłat. Po prostu zatrzymanie lub zamykania maszyny Wirtualnej za pomocą apletu Opcje zasilania nadal użycie zostaną naliczone opłaty powiązane.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Ogólne Azure cennik wskazówki, zobacz [uniknąć kosztów nieoczekiwany rozliczenia Azure i kosztów zarządzania](../../../billing/billing-getting-started.md).
 

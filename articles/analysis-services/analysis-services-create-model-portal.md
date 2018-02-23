@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 0a70ce4a106b8d9103080f050ab2317cd69348c1
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 038cfb72cfc98fdddaca6751b321c11066527e56
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-model-in-azure-portal"></a>Tworzenie modelu w portalu Azure
 
@@ -68,7 +68,7 @@ Nowy model zostanie wyświetlona w przeglądarce. W tym miejscu można wykonywa�
 > Podczas edytowania metadanych modelu lub utworzyć nowe miary w przeglądarce, te zmiany są zapisywane do modelu w systemie Azure. Jeśli pracujesz także do modelu w SSDT, Power BI Desktop lub programu Excel, modelu można uzyskać zsynchronizowane.
 
 
-## <a name="next-steps"></a>Następne kroki 
+## <a name="next-steps"></a>Kolejne kroki 
 [Zarządzanie ról bazy danych i użytkowników](analysis-services-database-users.md)  
 [Łączenie z programem Excel](analysis-services-connect-excel.md)  
 

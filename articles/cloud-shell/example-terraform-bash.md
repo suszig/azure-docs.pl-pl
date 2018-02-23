@@ -1,6 +1,6 @@
 ---
 title: "Wdrażanie z Terraform z Bash w chmurze Azure powłoki | Dokumentacja firmy Microsoft"
-description: "Wdrażanie zasobów platformy Azure z Terraform w Bash"
+description: "Wdrażanie z Terraform z Bash w chmurze Azure powłoki"
 services: Azure
 documentationcenter: 
 author: tomarcher
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: tarcher
-ms.openlocfilehash: c75b5d521dc3eacaf5c5921c35442b1afeb4fa13
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 6df6a3a5242e0a5fc5c03136e1cd20967a93487a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="terraform-and-bash-in-cloud-shell"></a>Terraform i Bash w powłoce chmury
+# <a name="deploy-with-terraform-from-bash-in-azure-cloud-shell"></a>Wdrażanie z Terraform z Bash w chmurze Azure powłoki
 W tym artykule przedstawiono tworzenie grupy zasobów z [Terraform AzureRM dostawcy](https://www.terraform.io/docs/providers/azurerm/index.html). 
 
 [Hashicorp Terraform](https://www.terraform.io/) to narzędzie typu open source, które zostały określone zasady interfejsów API w plikach konfiguracji deklaratywne, które mogą być udostępnione wśród członków zespołu można edytowane, przejrzeć i numerów wersji. Dostawca Microsoft AzureRM służy do interakcji z zasobami obsługiwane przez Menedżera zasobów Azure za pośrednictwem interfejsów API AzureRM. 
@@ -186,6 +186,6 @@ Destroy complete! Resources: 1 destroyed.
 
 Pomyślnie utworzono zasobów platformy Azure za pośrednictwem Terraform. Odwiedź stronę kolejne kroki, aby kontynuować zapoznawanie powłoki chmury.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Więcej informacji na temat dostawcy usługi Terraform Azure](https://www.terraform.io/docs/providers/azurerm/#)<br>
 [Bash w chmurze powłoki Szybki Start](quickstart.md)

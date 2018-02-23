@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: tomfitz
-ms.openlocfilehash: c8f19a4f0aadbee2de97bb3ec85c2c85b493a394
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0af34a64cd3cc33519f2cc69653982e00e4c1e9b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="export-an-azure-resource-manager-template-from-existing-resources"></a>Eksportowanie szablonu usługi Azure Resource Manager z istniejących zasobów
 W tym artykule opisano sposób eksportowania szablonu usługi Resource Manager z istniejących zasobów w ramach subskrypcji. Wygenerowany szablon umożliwi lepsze zrozumienie składni szablonu.
@@ -33,7 +33,7 @@ W tym temacie opisano sposób użycia obu metod za pośrednictwem portalu.
 ## <a name="deploy-resources"></a>Wdrażanie zasobów
 Zacznijmy od wdrożenia zasobów na platformie Azure, których będzie można użyć do wyeksportowania w postaci szablonu. Jeśli w swojej subskrypcji masz już grupę zasobów, którą chcesz wyeksportować do szablonu, możesz pominąć tę sekcję. W dalszej części tego artykułu przyjęto założenie, że została wdrożona aplikacja internetowa i rozwiązanie bazy danych SQL przedstawione w tej sekcji. Jeśli używasz innego rozwiązania, Twoje środowisko może się nieco różnić, ale procedura eksportowania szablonu jest taka sama. 
 
-1. W witrynie [Azure Portal](https://portal.azure.com) wybierz pozycję **Nowy**.
+1. W [portalu Azure](https://portal.azure.com), wybierz pozycję **Utwórz zasób**.
    
       ![wybieranie nowego elementu](./media/resource-manager-export-template/new.png)
 2. Wyszukaj pozycję **Aplikacja sieci Web i baza danych SQL** i wybierz ją z dostępnych opcji.
@@ -169,7 +169,7 @@ Nie wszystkie typy zasobów obsługują funkcję eksportowania szablonu. Aby roz
 > 
 > 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Wiesz już, jak wyeksportować szablon na podstawie zasobów, które zostały utworzone w portalu.
 
 * Szablon można wdrożyć przy użyciu [programu PowerShell](resource-group-template-deploy.md), [interfejsu wiersza polecenia platformy Azure](resource-group-template-deploy-cli.md) lub [interfejsu API REST](resource-group-template-deploy-rest.md).

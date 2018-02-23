@@ -12,11 +12,11 @@ Sieci wirtualne są zalecanym sposobem Podłączanie maszyn wirtualnych na platf
 Umożliwia podłączanie maszyn wirtualnych w sieci wirtualnej:
 
 1. Utwórz sieć wirtualną w [portalu Azure](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md) i określ "classic deployment".
-2. Utwórz zbiór usługi w chmurze dla danego wdrożenia w celu odzwierciedlenia projektu dla zestawów dostępności i równoważenia obciążenia. W portalu Azure, kliknij przycisk **nowe > obliczenia > Usługa w chmurze** dla każdej usługi w chmurze.
+2. Utwórz zbiór usługi w chmurze dla danego wdrożenia w celu odzwierciedlenia projektu dla zestawów dostępności i równoważenia obciążenia. W portalu Azure kliknij **tworzenie zasobu > obliczenia > Usługa w chmurze** dla każdej usługi w chmurze.
 
   W trakcie wypełniania szczegóły usługi chmury, wybierz taki sam _grupy zasobów_ używane z siecią wirtualną.
 
-3. Aby utworzyć każdej nowej maszyny wirtualnej, kliknij przycisk **nowy > obliczeniowe**, następnie wybierz odpowiedni obraz maszyny Wirtualnej z **wyróżnionych aplikacji**.
+3. Aby utworzyć każdej nowej maszyny wirtualnej, kliknij przycisk **tworzenie zasobu > obliczeniowe**, następnie wybierz odpowiedni obraz maszyny Wirtualnej z **wyróżnionych aplikacji**.
 
   W maszynie Wirtualnej **podstawy** bloku, wybierz taki sam _grupy zasobów_ używane z siecią wirtualną.
 

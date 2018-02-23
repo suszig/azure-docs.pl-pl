@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/20/2017
 ms.author: kumud
-ms.openlocfilehash: e28983f6015f8dcaa546c20fd9bc8d986a15ab5d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b9b4275497798db5310f2a28aeb6c582b1a7429c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zone-redundant-public-ip-address-frontend-using-azure-portal"></a>Utwórz publiczny obciążenia standardowego równoważenia z strefowo nadmiarowy frontonu adres publiczny adres IP za pomocą portalu Azure
 
@@ -39,12 +39,12 @@ Przed wybraniem strefy lub strefowo nadmiarowy opcję frontonu publicznego adres
 
 ## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure. 
 
-Zaloguj się do portalu Azure pod adresem https://portal.azure.com.
+Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 
 ## <a name="create-a-zone-redundant-load-balancer"></a>Tworzenie modułu równoważenia obciążenia nadmiarowe strefy
 
 1. Przejdź w przeglądarce do witryny Azure Portal ([http://portal.azure.com](http://portal.azure.com)) i zaloguj się przy użyciu konta Azure.
-2. Po lewej stronie górnej części ekranu, wybierz **nowy** > **sieci** > **usługi równoważenia obciążenia.**
+2. Po lewej stronie górnej części ekranu, wybierz **Utwórz zasób** > **sieci** > **usługi równoważenia obciążenia.**
 3. W ** Utwórz moduł równoważenia obciążenia w obszarze **nazwa** typu **myPublicLB**.
 4. W obszarze **Typ** wybierz opcję **Publiczny**.
 5. W obszarze jednostka SKU, wybierz **Standard (wersja zapoznawcza)**.
@@ -54,7 +54,7 @@ Zaloguj się do portalu Azure pod adresem https://portal.azure.com.
     ![Utwórz strefowo nadmiarowy standardowe usługi równoważenia obciążenia z portalu Azure](./media/load-balancer-get-started-internet-az-portal/create-zone-redundant-load-balancer-standard.png)
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - Dowiedz się, jak [tworzenie publicznego adresu IP w strefie dostępności](../virtual-network/create-public-ip-availability-zone-portal.md)
 
 

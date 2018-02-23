@@ -1,4 +1,4 @@
-Kliknij przycisk **Nowy**. W polu **Szukaj w witrynie Marketplace** wprowadź wartość `Azure Active Directory B2C`.
+Kliknij przycisk **Utwórz zasób** przycisku. W polu **Szukaj w witrynie Marketplace** wprowadź wartość `Azure Active Directory B2C`.
 
 ![Podświetlony przycisk Dodaj i tekst Azure Active Directory B2C w polu wyszukiwania w witrynie Marketplace](./media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
 

@@ -12,36 +12,61 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 02/20/2018
 ms.author: mimig
-ms.openlocfilehash: b8f92953634f9294805521d8b925ed67d121a17d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0d76e3bea8b3d24c4232c699354320f6b873722e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure DB rozwiązania Cosmos rejestrowania diagnostycznego
 
-Po rozpoczęciu przy użyciu co najmniej jeden bazy danych Azure rozwiązania Cosmos baz danych można monitorować, kiedy baz danych są dostępne. Rejestrowanie w usłudze Azure DB rozwiązania Cosmos diagnostyczne umożliwia monitorowanie. Po włączeniu rejestrowania diagnostycznego, możesz wysłać dzienniki, aby [usługi Azure Storage](https://azure.microsoft.com/services/storage/), ich do strumienia [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), i/lub wyeksportować je do [analizy dzienników](https://azure.microsoft.com/services/log-analytics/), który jest częścią [ Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite).
+Po rozpoczęciu przy użyciu co najmniej jeden bazy danych Azure rozwiązania Cosmos baz danych można monitorować, kiedy baz danych są dostępne. Ten artykuł zawiera omówienie dzienników dostępnych na platformie Azure, a następnie wyjaśniono, jak włączyć rejestrowanie diagnostyczne do celów, aby wysłać dzienniki monitorowania [usługi Azure Storage](https://azure.microsoft.com/services/storage/), ich do strumienia [Azure Event Hubs ](https://azure.microsoft.com/services/event-hubs/), i/lub wyeksportować je do [analizy dzienników](https://azure.microsoft.com/services/log-analytics/), który jest częścią [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite).
+
+## <a name="logs-available-in-azure"></a>Dzienniki dostępnej na platformie Azure
+
+Przed uzyskujemy do monitorowania konta bazy danych rozwiązania Cosmos Azure umożliwia wyjaśnienia kilka rzeczy, o rejestrowania i monitorowania. Istnieją różne typy dzienników na platformie Azure. Brak [Dzienniki aktywności Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), [dzienników diagnostycznych platformy Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), [metryki](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics), zdarzenia, puls monitorowania, dzienniki operacji itp. Brak nadmiarem dzienników. Można wyświetlić pełną listę dzienników w [Azure Log Analytics](https://azure.microsoft.com/en-us/services/log-analytics/) w portalu Azure. 
+
+Na poniższej ilustracji przedstawiono różne rodzaje dostępnych dzienników Azure.
+
+![Różne rodzaje dzienników Azure](./media/logging/azurelogging.png)
+
+Nasze omówienie pozwala skupić się na działanie usługi Azure, Azure Diagnotic i metryki. Dlatego jaka jest różnica między te trzy dzienniki? 
+
+### <a name="azure-activity-log"></a>Dziennik aktywności platformy Azure
+
+Dziennik aktywności platformy Azure jest Dziennik subskrypcji, która zapewnia wgląd w zdarzenia na poziomie subskrypcji, które wystąpiły na platformie Azure. Dziennik aktywności raporty płaszczyzny kontroli zdarzeń dla subskrypcji z kategorii administracyjnej. Korzystając z dziennika aktywności, można określić ", co, która i kiedy" dla żadnego zapisu (PUT, POST, DELETE) podejmowaną w odniesieniu do zasobów w ramach subskrypcji. Można także zrozumienie stanu operacji i inne odpowiednie właściwości. 
+
+Dziennik aktywności różni się od dzienników diagnostycznych. Dzienniki aktywności zawierają dane dotyczące operacji na zasobie z zewnątrz ("płaszczyzny sterowania"). W kontekście bazy danych Azure rozwiązania Cosmos niektóre płaszczyzny kontroli operacji zalicza się tworzenie kolekcji, listy kluczy, usuń klucze, listy bazy danych itp. Dzienniki diagnostyczne są emitowane przez zasób i podaj informacje na temat operacji zasobu ("płaszczyzna danych"). Przykłady dzienników diagnostycznych płaszczyzna danych będzie delete, insert, operacja readfeed itp.
+
+Dzienniki aktywności (operacji kontroli płaszczyzny) może być bardziej rozbudowane charakter, mogą one obejmować pełny adres e-mail wywołującego, adres IP wywołującego Nazwa zasobu, nazwy operacji i identyfikatora dzierżawcy, itd. Dziennik zawiera kilka [kategorii](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema) danych. Aby uzyskać szczegółowe informacje na schematów z tych kategorii, zobacz [schematu zdarzeń dziennika aktywności platformy Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema).  Jednak dzienników diagnostycznych mogą być restrykcyjne charakteru danych dane osobowe często jest usuwany z nich. Tak może zawierać adres IP obiektu wywołującego, ale jest usuwany ostatni octent.
+
+### <a name="azure-metrics"></a>Azure Metrics
+
+[Metryki Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-metrics), najważniejszych rodzaju danych telemetrycznych platformy Azure (nazywanych również liczniki wydajności) emitowane przez zasobów najbardziej Azure. Metryki umożliwiają wyświetlanie informacji o przepływności, magazynu, spójności, dostępności i opóźnienia zasobów platformy Azure DB rozwiązania Cosmos. Aby uzyskać więcej informacji, zobacz [monitorowanie i debugowanie za pomocą metryki w usłudze Azure DB rozwiązania Cosmos](use-metrics.md).
+
+### <a name="azure-diagnostic-logs"></a>Dzienniki diagnostyczne platformy Azure
+
+Azure dzienników diagnostycznych są emitowane przez zasób dzienniki i rozbudowane, często danych o działaniu tego zasobu. Zawartość tych dzienników zależy od typu zasobu. Dzienniki diagnostyczne poziom zasobów również różnią się od dzienników diagnostycznych na poziomie systemu operacyjnego gościa. Dzienniki diagnostyczne systemu operacyjnego gościa znajdują się te zebranych przez agenta, które działają w ramach maszyny wirtualnej lub inne obsługiwane typu zasobu. Poziom zasobów dzienników diagnostycznych wymagają żadne dane specyficzne dla zasobów agenta do przechwycenia z platformą Azure, podczas dzienników diagnostycznych na poziomie systemu operacyjnego gościa przechwycenia danych z systemu operacyjnego i aplikacji uruchomionych na maszynie wirtualnej.
 
 ![Rejestrowania diagnostycznego do magazynu, usługa Event Hubs lub Operations Management Suite za pomocą analizy dzienników](./media/logging/azure-cosmos-db-logging-overview.png)
 
-Użyj tego samouczka, aby rozpocząć korzystanie z bazy danych rozwiązania Cosmos Azure rejestrowania za pomocą portalu Azure, interfejsu wiersza polecenia lub środowiska PowerShell.
-
-## <a name="what-is-logged"></a>Co to jest rejestrowane?
+### <a name="what-is-logged-by-azure-diagnostic-logs"></a>Co to jest rejestrowane przez dzienników diagnostycznych platformy Azure?
 
 * Wszystkie żądania uwierzytelnionego wewnętrznej bazy danych (TCP/REST) we wszystkich interfejsów API, są rejestrowane, w tym żądań zakończonych niepowodzeniem w wyniku uprawnienia dostępu, błędów systemu lub błędów w żądaniach. Obsługa użytkownika inicjowane wykresu, Cassandra, i żądania interfejsu API tabeli nie są obecnie dostępne.
 * Operacje w bazie danych, w tym operacji CRUD na wszystkie dokumenty, kontenery i baz danych.
 * Operacje na klucze konta, które obejmują tworzenie, modyfikowanie lub usuwanie tych kluczy.
 * Nieuwierzytelnione żądania, które powodują uzyskanie odpowiedzi 401. Na przykład żądania, które nie mają tokenu elementu nośnego, są nieprawidłowo sformułowane, wygasły lub mają nieprawidłowy token.
 
-## <a name="prerequisites"></a>Wymagania wstępne
-Do ukończenia tego samouczka, musi mieć następujące zasoby:
+<a id="#turn-on"></a>
+## <a name="turn-on-logging-in-the-azure-portal"></a>Włącz rejestrowanie w portalu Azure
+
+Aby włączyć rejestrowanie danych diagnostycznych, musi mieć następujące zasoby:
 
 * Istniejące bazy danych Azure rozwiązania Cosmos konta bazy danych i kontenera. Aby uzyskać instrukcje tworzenia tych zasobów, zobacz [Tworzenie konta bazy danych przy użyciu portalu Azure](create-sql-api-dotnet.md#create-a-database-account), [przykłady interfejsu wiersza polecenia](cli-samples.md), lub [przykłady środowiska PowerShell](powershell-samples.md).
 
-<a id="#turn-on"></a>
-## <a name="turn-on-logging-in-the-azure-portal"></a>Włącz rejestrowanie w portalu Azure
+Aby włączyć rejestrowanie diagnostyczne w portalu Azure, wykonaj następujące czynności:
 
 1. W [portalu Azure](https://portal.azure.com), w Azure rozwiązania Cosmos DB konta, kliknij przycisk **dzienniki diagnostyczne** nawigacji po lewej stronie, a następnie kliknij polecenie **Włącz diagnostykę**.
 
@@ -98,7 +123,7 @@ Można połączyć tych parametrów, aby włączyć wiele opcji danych wyjściow
 
 ## <a name="turn-on-logging-using-powershell"></a>Włącz rejestrowanie przy użyciu programu PowerShell
 
-Aby włączyć rejestrowanie za pomocą programu PowerShell, należy przy użyciu minimalnej wersji 1.0.1 programu Azure Powershell.
+Aby włączyć funkcję rejestrowania diagnostycznego przy użyciu programu PowerShell, należy programu Azure Powershell z minimalnej wersji 1.0.1.
 
 Aby zainstalować program Azure PowerShell i skojarzyć go z subskrypcją platformy Azure, zobacz [Sposób instalowania i konfigurowania programu Azure PowerShell](/powershell/azure/overview).
 
@@ -233,7 +258,7 @@ Name              : resourceId=/SUBSCRIPTIONS/<subscription-ID>/RESOURCEGROUPS/C
 /MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/CONTOSOCOSMOSDB/y=2017/m=09/d=28/h=19/m=00/PT1H.json
 ```
 
-Jak widać w przedstawionych danych wyjściowych, obiekty BLOB zgodne z konwencją nazewnictwa:`resourceId=/SUBSCRIPTIONS/<subscription-ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<Database Account Name>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json`
+Jak widać w przedstawionych danych wyjściowych, obiekty BLOB zgodne z konwencją nazewnictwa: `resourceId=/SUBSCRIPTIONS/<subscription-ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<Database Account Name>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json`
 
 Wartości daty i godziny używają czasu UTC.
 
@@ -285,8 +310,8 @@ Aby selektywnie pobierać obiekty blob, użyj symboli wieloznacznych. Na przykł
 
 Ponadto:
 
-* Aby zbadać stan ustawień diagnostycznych dla zasobu bazy danych:`Get-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
-* Aby wyłączyć rejestrowanie **DataPlaneRequests** kategorii dla zasobu konta bazy danych:`Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories DataPlaneRequests`
+* Aby zbadać stan ustawień diagnostycznych dla zasobu bazy danych: `Get-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
+* Aby wyłączyć rejestrowanie **DataPlaneRequests** kategorii dla zasobu konta bazy danych: `Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories DataPlaneRequests`
 
 
 Obiekty BLOB, które są zwracane w każdym z tych kwerend są przechowywane jako tekst w formacie obiektu blob JSON, jak pokazano w poniższym kodzie. 
@@ -315,7 +340,7 @@ Aby dowiedzieć się więcej o danych w każdym obiekcie blob JSON, zobacz [inte
 
 ## <a name="managing-your-logs"></a>Zarządzanie dzienników
 
-Dzienniki są udostępniane na koncie dwóch godzin od momentu w którym wykonano operację bazy danych Azure rozwiązania Cosmos. To Ty zarządzasz dziennikami na swoim koncie magazynu:
+Dzienniki diagnostyczne są udostępniane na koncie dwóch godzin od momentu w którym wykonano operację bazy danych Azure rozwiązania Cosmos. To Ty zarządzasz dziennikami na swoim koncie magazynu:
 
 * Użyj standardowych metod kontroli dostępu platformy Azure w celu zabezpieczenia dzienników, wprowadzając ograniczenia co do tego, kto może uzyskiwać do nich dostęp.
 * Usuń dzienniki, których nie chcesz już przechowywać na koncie magazynu.
@@ -325,7 +350,7 @@ Dzienniki są udostępniane na koncie dwóch godzin od momentu w którym wykonan
 <a id="#view-in-loganalytics"></a>
 ## <a name="view-logs-in-log-analytics"></a>Wyświetl dzienniki w analizy dzienników
 
-W przypadku wybrania **wysyłać do analizy dzienników** opcji po włączeniu rejestrowania danych diagnostycznych z kolekcji jest przekazywane do analizy dzienników w ciągu dwóch godzin. Oznacza to, że jeśli analizy dzienników przyjrzeć się natychmiast po włączeniu rejestrowania, nie będą widzieć żadnych danych. Po prostu Zaczekaj dwie godziny i spróbuj ponownie. 
+W przypadku wybrania **wysyłać do analizy dzienników** opcję po włączeniu rejestrowania diagnostycznego diagnostycznych danych z kolekcji jest przekazywane do analizy dzienników w ciągu dwóch godzin. Oznacza to, że jeśli analizy dzienników przyjrzeć się natychmiast po włączeniu rejestrowania, nie będą widzieć żadnych danych. Po prostu Zaczekaj dwie godziny i spróbuj ponownie. 
 
 Przed wyświetleniem dzienników, należy sprawdzić i zobaczyć, jeśli obszaru roboczego analizy dzienników został uaktualniony do użycia nowego języka zapytań usługi Analiza dzienników. Aby to sprawdzić, należy otworzyć [portalu Azure](https://portal.azure.com), kliknij przycisk **analizy dzienników** po lewej stronie, następnie wybierz nazwę obszaru roboczego jak pokazano na poniższej ilustracji. **Obszarem roboczym pakietu OMS** zostanie wyświetlona strona, jak pokazano na poniższej ilustracji.
 

@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 01/02/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e48e0e256306707ca7fde3636a4215b235fa2eb7
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 4246ecfa50176400c54cd80857e25675290e7170
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Architektura na platformie Azure i SAP HANA (duże wystąpień) — omówienie
 
@@ -74,7 +74,7 @@ Istnieje szereg dodatkowych zasobów, które zostały opublikowane na wdrożenie
 
 - [Za pomocą rozwiązania SAP na maszyny wirtualne Microsoft Azure](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## <a name="certification"></a>Certyfikat
+## <a name="certification"></a>Certyfikacja
 
 Oprócz certyfikacji NetWeaver SAP wymaga specjalnych certyfikacji dla SAP HANA do obsługi SAP HANA na niektórych infrastruktury, takich jak Azure IaaS.
 
@@ -137,21 +137,19 @@ Począwszy od 2017 lipca SAP HANA na platformie Azure (wystąpienia duże) jest 
 | Zoptymalizowana pod kątem OLAP: programu SAP BW BW/4HANA<br /> lub SAP HANA dla ogólnych obciążeń OLAP | SAP HANA na Azure S72<br /> — 2 procesor Intel Xeon® x E7 8890 v3<br /> 36 rdzeni Procesora i 72 wątków CPU |  768 GB |  3 TB | Dostępna |
 | --- | SAP HANA na Azure S144<br /> – 4 procesor Intel Xeon® x E7 8890 v3<br /> 72 rdzeni Procesora i 144 wątków CPU |  1,5 TB |  6 TB | Nieoferowane już |
 | --- | SAP HANA na Azure S192<br /> – 4 procesor Intel Xeon® x E7 8890 v4<br /> 96 rdzeni Procesora i 192 wątków CPU |  2.0 TB |  8 TB | Dostępna |
-| --- | SAP HANA na Azure S384<br /> – 8 procesor Intel Xeon® x E7 8890 v4<br /> 192 rdzeni Procesora i 384 wątków CPU |  4.0 TB |  16 TB | Gotowy do zlecenia |
+| --- | SAP HANA na Azure S384<br /> – 8 procesor Intel Xeon® x E7 8890 v4<br /> 192 rdzeni Procesora i 384 wątków CPU |  4.0 TB |  16 TB | Dostępna |
 | Zoptymalizowana pod kątem OLTP: SAP Business Suite<br /> SAP HANA lub S/4HANA (OLTP)<br /> ogólny OLTP | SAP HANA na Azure S72m<br /> — 2 procesor Intel Xeon® x E7 8890 v3<br /> 36 rdzeni Procesora i 72 wątków CPU |  1,5 TB |  6 TB | Dostępna |
 |---| SAP HANA na Azure S144m<br /> – 4 procesor Intel Xeon® x E7 8890 v3<br /> 72 rdzeni Procesora i 144 wątków CPU |  3.0 TB |  12 TB | Nieoferowane już |
 |---| SAP HANA na Azure S192m<br /> – 4 procesor Intel Xeon® x E7 8890 v4<br /> 96 rdzeni Procesora i 192 wątków CPU  |  4.0 TB |  16 TB | Dostępna |
-|---| SAP HANA na Azure S384m<br /> – 8 procesor Intel Xeon® x E7 8890 v4<br /> 192 rdzeni Procesora i 384 wątków CPU |  6.0 TB |  18 TB | Gotowy do zlecenia |
-|---| SAP HANA na Azure S384xm<br /> – 8 procesor Intel Xeon® x E7 8890 v4<br /> 192 rdzeni Procesora i 384 wątków CPU |  8.0 TB |  22 TB |  Gotowy do zlecenia |
-|---| SAP HANA na Azure S576<br /> – 12 procesor Intel Xeon® x E7 8890 v4<br /> 288 rdzeni Procesora i 576 wątków CPU |  12.0 TB |  28 TB | Gotowy do zlecenia |
-|---| SAP HANA na Azure S768<br /> – 16 procesor Intel Xeon® x E7 8890 v4<br /> 384 rdzeni Procesora i 768 wątków CPU |  16.0 TB |  36 TB | Gotowy do zlecenia |
-|---| SAP HANA na Azure S960<br /> – 20 procesor Intel Xeon® x E7 8890 v4<br /> 480 rdzeni Procesora i 960 wątków CPU |  20.0 TB |  46 TB | Gotowy do zlecenia |
+|---| SAP HANA na Azure S384m<br /> – 8 procesor Intel Xeon® x E7 8890 v4<br /> 192 rdzeni Procesora i 384 wątków CPU |  6.0 TB |  18 TB | Dostępna |
+|---| SAP HANA na Azure S384xm<br /> – 8 procesor Intel Xeon® x E7 8890 v4<br /> 192 rdzeni Procesora i 384 wątków CPU |  8.0 TB |  22 TB |  Dostępna |
+|---| SAP HANA na Azure S576<br /> – 12 procesor Intel Xeon® x E7 8890 v4<br /> 288 rdzeni Procesora i 576 wątków CPU |  12.0 TB |  28 TB | Dostępna |
+|---| SAP HANA na Azure S768<br /> – 16 procesor Intel Xeon® x E7 8890 v4<br /> 384 rdzeni Procesora i 768 wątków CPU |  16.0 TB |  36 TB | Dostępna |
+|---| SAP HANA na Azure S960<br /> – 20 procesor Intel Xeon® x E7 8890 v4<br /> 480 rdzeni Procesora i 960 wątków CPU |  20.0 TB |  46 TB | Dostępna |
 
 - Rdzenie procesora CPU = suma nie-Procesora rdzeni hiperwątkowych sumy procesorów jednostki serwera.
 - Wątków procesora CPU = Suma wątków obliczeniowe udostępniane przez hiperwątkowych rdzeni procesora CPU sumy procesorów jednostki serwera. Wszystkie jednostki są domyślnie skonfigurowane, aby użyć funkcji Hyper-Threading.
 
-
-Odwołuje się różne konfiguracje powyżej, które są dostępne lub "nie są oferowane już" [&#2316233; SAP Obsługa Uwaga — SAP HANA w systemie Microsoft Azure (wystąpienia duże)](https://launchpad.support.sap.com/#/notes/2316233/E). Konfiguracje, które są oznaczone jako "Gotowy do kolejności" znajdzie ich wejściem w nocie SAP wkrótce. Jednak te wystąpienia jednostki SKU może zostać określona już na sześciu różnych regionach platformy Azure, że dostępna jest usługa HANA dużych wystąpienia.
 
 Konkretne konfiguracje wybrane są zależne od obciążenia, zasobów procesora CPU i pamięci żądany. Istnieje możliwość dla obciążenia OLTP jednostki magazynowe, które są optymalizowane na potrzeby obciążeń OLAP. 
 
@@ -220,7 +218,7 @@ Jednak ta usługa jest zoptymalizowana pod kątem SAP HANA, więc obszary, w kt�
 
 Poniższa lista zawiera więcej szczegółów na poszczególnych warstw i Twoje obowiązki:
 
-**Sieć:** sieciach wewnętrznych dla sygnatury dużych wystąpienia systemem SAP HANA dostępu do magazynu, łączność między wystąpienia (dla skalowalnego w poziomie i inne funkcje), połączenie pozioma i łączności do platformy Azure gdzie SAP warstwy aplikacji jest hostowana w maszynach wirtualnych platformy Azure. Zawiera także połączenia sieci WAN między centrach danych platformy Azure dla replikacji celów odzyskiwania po awarii. Wszystkie sieci są podzielone na partycje przez dzierżawcę, oraz zastosować QOS.
+**Sieć:** sieciach wewnętrznych dla sygnatury dużych wystąpienia systemem SAP HANA dostępu do magazynu, łączność między wystąpienia (na potrzeby skalowania w poziomie i inne funkcje), połączenie pozioma i łączności do platformy Azure gdzie SAP warstwy aplikacji znajduje się w maszynach wirtualnych platformy Azure. Zawiera także połączenia sieci WAN między centrach danych platformy Azure dla replikacji celów odzyskiwania po awarii. Wszystkie sieci są podzielone na partycje przez dzierżawcę, oraz zastosować QOS.
 
 **Magazyn:** zwirtualizowany magazynu dla wszystkich woluminów wymagane przez serwery SAP HANA, a także migawek na partycje. 
 
@@ -277,7 +275,7 @@ Ta lista składana wymagania dotyczące systemu SAP HANA na platformie Azure (wy
 
 - Usługa Azure ExpressRoute między lokalnymi Azure: nawiązać połączenia z lokalnego centrum danych Azure, upewnij się, że kolejność co najmniej 1 GB/s połączenia od usługodawcy internetowego. 
 
-**System operacyjny:**
+System operacyjny:
 
 - Licencji w systemie SUSE Linux Enterprise Server 12 SAP aplikacji.
 
@@ -337,7 +335,7 @@ Zobacz poniższą tabelę pod względem Alokacja magazynu. W tabeli wymieniono o
 | S384 | 11,520 GB | 1536 GB | 1792 GB | 1536 GB |
 | S384m | 12 000 GB | 2050 GB | 2050 GB | 2040 GB |
 | S384xm | 16 000 GB | 2050 GB | 2050 GB | 2040 GB |
-| S576 | 20 000 GB | 3100 GB | 2050 GB | 3100 GB |
+| S576 | 20,000 GB | 3100 GB | 2050 GB | 3100 GB |
 | S768 | UŻYWANE 28 000 GB | 3100 GB | 2050 GB | 3100 GB |
 | S960 | 36,000 GB | 4100 GB | 2050 GB | 4100 GB |
 

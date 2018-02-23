@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: b6a333d075e0391adca4f37bbff8918391a22fde
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6aef0fbe44e19b515c2bc10c0e7c38fabac10dae
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="development-tools-on-the-data-science-virtual-machine"></a>Narzędzia deweloperskie na maszynie wirtualnej nauki danych
 
@@ -33,7 +33,7 @@ Maszyna wirtualna nauki danych (DSVM) zapewnia wydajne środowisko do programowa
 | Typowe zastosowania      | Tworzenie oprogramowania    |
 | Jak jest on skonfigurowany / zainstalowanym DSVM?      | Obciążenie nauki danych (narzędzia Python i R), Azure obciążenia (na platformie Hadoop, Data Lake), Node.js, narzędzia programu SQL Server    |
 | Jak używać / uruchom go?      | Skrót na pulpicie (`C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.exe`)    |
-| Pokrewne narzędzia na DSVM      |     Juno kodu i programu RStudio, Visual Studio  |
+| Pokrewne narzędzia na DSVM      |     Visual Studio Code, RStudio, Juno  |
 
 ## <a name="visual-studio-code"></a>Visual Studio Code 
 |    |           |
@@ -42,16 +42,25 @@ Maszyna wirtualna nauki danych (DSVM) zapewnia wydajne środowisko do programowa
 | DSVM obsługiwane wersje      | Windows, Linux     |
 | Typowe zastosowania      | Edytor kodu i integracja z usługą Git   |
 | Jak używać / uruchom go?      | Skrót na pulpicie (`C:\Program Files (x86)\Microsoft VS Code\Code.exe`) w systemie Windows, skrót na pulpicie lub terminali (`code`) w systemie Linux    |
-| Pokrewne narzędzia na DSVM      |     Juno 2017 programu Visual Studio, programu RStudio,  |
+| Pokrewne narzędzia na DSVM      |     Visual Studio 2017, RStudio, Juno  |
 
 ## <a name="rstudio--desktop"></a>Programu RStudio pulpitu 
 |    |           |
 | ------------- | ------------- |
-| Co to jest?   | Klient IDE języka R    |
+| Co to jest?   | Klient IDE dla języka R    |
 | DSVM obsługiwane wersje      | Windows, Linux      |
 | Typowe zastosowania      |  Programowanie R     |
 | Jak używać / uruchom go?      | Skrót na pulpicie (`C:\Program Files\RStudio\bin\rstudio.exe`) w systemie Windows, skrót na pulpicie (`/usr/bin/rstudio`) w systemie Linux      |
-| Pokrewne narzędzia na DSVM      |   Visual Studio 2017, kod programu Visual Studio, Juno      |
+| Pokrewne narzędzia na DSVM      |   Visual Studio 2017, Visual Studio Code, Juno      |
+
+## <a name="rstudio--server"></a>Serwer programu RStudio 
+|    |           |
+| ------------- | ------------- |
+| Co to jest?   | IDE opartych na sieci Web dla języka R    |
+| DSVM obsługiwane wersje      | Linux      |
+| Typowe zastosowania      |  Programowanie R     |
+| Jak używać / uruchom go?      | Włącz usługę z _systemctl włączenia serwera programu rstudio_, następnie uruchom usługę za pomocą _systemctl start serwera programu rstudio_. Użytkownik może następnie zaloguj się do serwera programu RStudio w http://your-vm-ip:8787.       |
+| Pokrewne narzędzia na DSVM      |   Visual Studio 2017, Visual Studio Code, RStudio Desktop      |
 
 ## <a name="juno"></a>Juno 
 |    |           |
@@ -60,7 +69,7 @@ Maszyna wirtualna nauki danych (DSVM) zapewnia wydajne środowisko do programowa
 | DSVM obsługiwane wersje      | Windows, Linux      |
 | Typowe zastosowania      |  Programowanie Julia     |
 | Jak używać / uruchom go?      | Skrót na pulpicie (`C:\JuliaPro-0.5.1.1\Juno.bat`) w systemie Windows, skrót na pulpicie (`/opt/JuliaPro-VERSION/Juno`) w systemie Linux      |
-| Pokrewne narzędzia na DSVM      |   Visual Studio 2017, kod programu Visual Studio, programu RStudio      |
+| Pokrewne narzędzia na DSVM      |   Visual Studio 2017, Visual Studio Code, RStudio      |
 
 ## <a name="pycharm"></a>Pycharm
 |    |           |
@@ -69,7 +78,7 @@ Maszyna wirtualna nauki danych (DSVM) zapewnia wydajne środowisko do programowa
 | DSVM obsługiwane wersje      | Linux      |
 | Typowe zastosowania      |  Programowanie R     |
 | Jak używać / uruchom go?      | Skrót na pulpicie (`/usr/bin/pycharm`) w systemie Linux      |
-| Pokrewne narzędzia na DSVM      |   Visual Studio 2017, kod programu Visual Studio, programu RStudio      |
+| Pokrewne narzędzia na DSVM      |   Visual Studio 2017, Visual Studio Code, RStudio      |
 
 
 
@@ -80,5 +89,5 @@ Maszyna wirtualna nauki danych (DSVM) zapewnia wydajne środowisko do programowa
 | DSVM obsługiwane wersje      | Windows  |
 | Typowe zastosowania      |  Wizualizacja danych i tworzenie pulpitów nawigacyjnych   |
 | Jak używać / uruchom go?      | Skrót na pulpicie (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
-| Pokrewne narzędzia na DSVM      |   Visual Studio 2017, kod programu Visual Studio, Juno      |
+| Pokrewne narzędzia na DSVM      |   Visual Studio 2017, Visual Studio Code, Juno      |
 

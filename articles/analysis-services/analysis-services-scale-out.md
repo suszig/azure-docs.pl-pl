@@ -12,13 +12,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 14bdbf3dd6d940cc3f4b665658f0c789916a2597
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: d00f6bbc285cca028f22ced69ad03d8a2814d76a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-analysis-services-scale-out"></a>Skalowalne usług Azure Analysis Services
 
@@ -42,7 +42,7 @@ Po zakończeniu operacji przetwarzania odbywa się synchronizacja między serwer
 
 ## <a name="monitor-qpu-usage"></a>Monitorowanie użycia QPU
 
- Aby ustalić, czy skalowalnego w poziomie serwera jest niezbędne, serwer w portalu Azure należy monitorować za pomocą metryki. Jeśli Twoje QPU regularnie maxes wychodzących, oznacza to, że liczba zapytań dotyczących modeli przekracza limit QPU dla planu. Metryka długość kolejki zadania puli zapytania zwiększa także liczby zapytań w kolejki puli wątków zapytania przekracza dostępne QPU. Aby dowiedzieć się więcej, zobacz [monitorować metryki serwera](analysis-services-monitor.md).
+ Aby ustalić, czy skalowalnego w poziomie serwera jest niezbędne, serwer w portalu Azure należy monitorować za pomocą metryki. Jeśli Twoje QPU regularnie maxes wychodzących, oznacza to, że liczba zapytań dotyczących modeli przekracza limit QPU dla planu. Metryka długość kolejki zadania puli zapytania zwiększa także liczby zapytań w kolejki puli wątków zapytania przekracza dostępne QPU. Aby dowiedzieć się więcej, zobacz [monitorowanie metryk serwera](analysis-services-monitor.md).
 
 ## <a name="configure-scale-out"></a>Skonfiguruj skalowalny w poziomie
 
@@ -79,7 +79,7 @@ Użyj **synchronizacji** operacji.
 `GET https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
 
 ### <a name="powershell"></a>PowerShell
-Aby można było uruchomić synchronizacji w programie PowerShell, [aktualizacji do najnowszej](https://github.com/Azure/azure-powershell/releases) modułu AzureRM 5.01 lub nowszej. Użyj [AzureAnalysisServicesInstance synchronizacji](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
+Aby można było uruchomić synchronizacji w programie PowerShell, [aktualizacji do najnowszej](https://github.com/Azure/azure-powershell/releases) modułu AzureRM 5.01 lub nowszej. Use [Sync-AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
 
 ## <a name="connections"></a>Połączenia
 

@@ -4,7 +4,7 @@ description: "Dowiedz się, jak nawiązać połączenia z programem SQL Server u
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/12/2017
 ms.author: jroth
-ms.openlocfilehash: 6d90904315e5d0a99ead193d1f95b504e796d587
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 7285cf47c3a5ec731cd9cfe311053e9d19886f1d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Połączenie z maszyną wirtualną programu SQL Server na platformie Azure
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 W tym temacie opisano sposób podłączania do wystąpienia programu SQL Server uruchomiony na maszynie wirtualnej platformy Azure. Obejmuje on niektóre [scenariusze ogólne łączności](#connection-scenarios) , a następnie oferuje [kroki w portalu, aby zmiana ustawienia łączności](#change). Jeśli chcesz rozwiązać lub konfigurowania łączności poza portalu, zobacz [ręcznej konfiguracji](#manual) na końcu tego tematu. 
 
@@ -40,9 +40,9 @@ Dostępne opcje dla połączenia:
 
 | Opcja | Opis |
 |---|---|
-| **Publiczna** | Połączenia z serwerem SQL w Internecie |
+| **Public** | Połączenia z serwerem SQL w Internecie |
 | **Prywatne** | Połączenia z serwerem SQL w tej samej sieci wirtualnej |
-| **Lokalne** | Połączenia z serwerem SQL lokalnie na tej samej maszyny wirtualnej | 
+| **lokalne** | Połączenia z serwerem SQL lokalnie na tej samej maszyny wirtualnej | 
 
 W poniższych sekcjach opisano **publicznego** i **prywatnej** szczegółowo opcje.
 
@@ -80,7 +80,7 @@ Po wybraniu **prywatnej** dla **łączność z serwerem SQL** typu w portalu Azu
 > [!IMPORTANT]
 > Obrazy maszyny wirtualnej dla programu SQL Server Developer i wersji Express nie należy włączać automatycznie protokołu TCP/IP. Dla deweloperów i ekspresowej wersji, należy użyć programu SQL Server Configuration Manager do [ręcznie Włącz protokół TCP/IP](#manualtcp) po utworzeniu maszyny Wirtualnej.
 
-Prywatne łączności jest często używana w połączeniu z [sieci wirtualnej](../../../virtual-network/virtual-networks-overview.md), co pozwala kilka scenariuszy. Możesz połączyć maszyn wirtualnych w tej samej sieci wirtualnej, nawet jeżeli tych maszyn wirtualnych znajdują się w różnych grupach zasobów. I [sieci VPN typu lokacja lokacja](../../../vpn-gateway/vpn-gateway-site-to-site-create.md), możesz utworzyć to architektura hybrydowego łączy maszyn wirtualnych z lokalnymi sieciami i maszyn.
+Prywatne łączności jest często używana w połączeniu z [sieci wirtualnej](../../../virtual-network/virtual-networks-overview.md), co pozwala kilka scenariuszy. Możesz połączyć maszyn wirtualnych w tej samej sieci wirtualnej, nawet jeżeli tych maszyn wirtualnych znajdują się w różnych grupach zasobów. I [sieci VPN typu lokacja lokacja](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), możesz utworzyć to architektura hybrydowego łączy maszyn wirtualnych z lokalnymi sieciami i maszyn.
 
 Sieci wirtualne umożliwiają także dołączyć do domeny maszynach wirtualnych platformy Azure. To jest jedynym sposobem, aby używać uwierzytelniania systemu Windows z programem SQL Server. Inne scenariusze połączenia wymagają uwierzytelniania SQL z nazwy użytkownika i hasła.
 
@@ -90,7 +90,7 @@ Przy założeniu, że skonfigurowano DNS w sieci wirtualnej, należy połączyć
 Server=mysqlvm;Integrated Security=true
 ```
 
-## <a id="change"></a>Zmień ustawienia połączenia SQL
+## <a id="change"></a> Zmień ustawienia połączenia SQL
 
 Możesz zmienić ustawienia połączenia dla maszyny wirtualnej programu SQL Server w portalu Azure.
 
@@ -108,7 +108,7 @@ Możesz zmienić ustawienia połączenia dla maszyny wirtualnej programu SQL Ser
 
    ![Powiadomienie o aktualizacji maszyny Wirtualnej SQL](./media/virtual-machines-windows-sql-connect/sql-vm-updating-notification.png)
 
-## <a id="manualtcp"></a>Włącz protokół TCP/IP dla deweloperów i Express w wersji
+## <a id="manualtcp"></a> Włącz protokół TCP/IP dla deweloperów i Express w wersji
 
 Zmieniając ustawienia łączności serwera SQL Azure nie powoduje automatycznego włączenia protokołu TCP/IP dla programu SQL Server Developer i wersji Express. W poniższych krokach omówiono, jak ręcznie włączyć protokół TCP/IP w celu zdalnego nawiązania połączenia przy użyciu adresu IP.
 
@@ -126,7 +126,7 @@ Poniższe kroki pokazują, jak utworzyć opcjonalną etykietę DNS dla sieci mas
 
 [!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
 
-## <a id="manual"></a>Ręczne konfigurowanie i rozwiązywanie problemów
+## <a id="manual"></a> Ręczne konfigurowanie i rozwiązywanie problemów
 
 Portalu zapewnia opcje, aby automatycznie skonfigurować połączenie, jednak warto wiedzieć, jak ręcznie skonfigurować połączenie. Zapoznanie się z wymaganiami może również ułatwić rozwiązywanie problemów.
 

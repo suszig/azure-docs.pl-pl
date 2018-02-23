@@ -1,5 +1,5 @@
 ---
-title: Uruchom zapytania analityczne bazach danych | Dokumentacja firmy Microsoft
+title: "Uruchom analytics między dzierżawcy przy użyciu wyodrębnione dane | Dokumentacja firmy Microsoft"
 description: "Zapytania analityczne między dzierżawcy przy użyciu danych pobranych z wielu baz danych z bazy danych SQL Azure."
 keywords: "samouczek usługi sql database"
 services: sql-database
@@ -15,19 +15,19 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: anjangsh; billgib; genemi
-ms.openlocfilehash: fb4311f28f55cfeb3f07a441adde18ae95f39e90
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 62f09a7ff353783b0f54202554d126bf59ee941a
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>Analytics między dzierżawcy przy użyciu wyodrębnione dane
 
-W tym samouczku opisano pośrednictwem ukończenia analizy. Scenariuszu pokazano, jak analytics można włączyć firmom podejmowanie decyzji inteligentne. Przy użyciu danych pobranych z każdej dzierżawy bazy danych, użyj analytics Aby uzyskać wgląd w działanie dzierżawy, w tym ich wykorzystania przykładowej aplikacji SaaS biletów Wingtip. Ten scenariusz obejmuje trzy kroki: 
+W tym samouczku opisano pośrednictwem ukończenia analizy. Scenariuszu pokazano, jak analytics można włączyć firmom podejmowanie decyzji inteligentne. Przy użyciu danych pobranych z każdej dzierżawy bazy danych, użyj analytics Aby uzyskać wgląd w dzierżawy użycia zachowanie i aplikacji. Ten scenariusz obejmuje trzy kroki: 
 
-1.  **Wyodrębnianie danych** z każdej dzierżawy bazy danych, do analityka magazynu.
-2.  **Optymalizacja wyodrębnione dane** przetwarzania analytics.
-3.  Użyj **Business Intelligence** narzędzi do rysowania limit przydatne informacje na temat technologii, które można kierować podejmowania decyzji. 
+1.  **Wyodrębnij** danych z każdej dzierżawy bazy danych i **obciążenia** do analityka magazynu.
+2.  **Przekształć wyodrębnione dane** przetwarzania analytics.
+3.  Użyj **analizy biznesowej** narzędzi do rysowania limit przydatne informacje na temat technologii, które można kierować podejmowania decyzji. 
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -42,29 +42,28 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 ## <a name="offline-tenant-analytics-pattern"></a>Wzorzec analytics dzierżawy w trybie offline
 
-Aplikacji SaaS, które tworzysz mają dostęp do dużych ilości danych dzierżawy, przechowywane w chmurze. Danych udostępnia bogate źródło szczegółowe informacje dotyczące operacji i użycia aplikacji oraz o zachowaniu dzierżawcy. Te szczegółowe informacje można przeprowadzają opracowanie funkcji, ulepszenia użyteczność i innych inwestycji w aplikacji i platform.
+Wielodostępnych aplikacji SaaS ma zwykle ogromnych ilości danych dzierżawy, przechowywane w chmurze. Dzięki tym danym firma sformatowanego źródła szczegółowych informacji na temat operacji i użycie aplikacji i zachowania dzierżawcom. Te szczegółowe informacje można przeprowadzają opracowanie funkcji, ulepszenia użyteczność i innych inwestycji w aplikacji i platform.
 
-Dostęp do danych dla wszystkich dzierżawców jest proste, gdy wszystkie dane są tylko jeden wielodostępne bazy danych. Ale dostępu jest bardziej złożony, gdy na dużą skalę dystrybuowana do tysięcy baz danych. Jest jednym ze sposobów tame złożoność wyodrębnić dane do bazy danych analizy lub magazynu danych. Następnie wykonasz zapytania magazynu analytics zbieranie szczegółowych informacji z danych biletów dla wszystkich dzierżawców.
+Uzyskiwanie dostępu do danych dla wszystkich dzierżawców jest proste, gdy wszystkie dane są tylko jeden wielodostępne bazy danych. Ale dostępu jest bardziej złożony, gdy na dużą skalę dystrybuowana do tysięcy baz danych. Jednym ze sposobów tame złożoność oraz zminimalizować wpływ analytics zapytania na danych transakcyjnych jest aby wyodrębnić dane do magazynu celu przeznaczony analytics bazy danych lub danych.
 
-Ten samouczek przedstawia scenariusza pełną analytics tej przykładowej aplikacji SaaS. Po pierwsze, elastyczne zadań służą do planowania wyodrębniania danych z każdej dzierżawy bazy danych. Dane są przesyłane do magazynu analytics. Magazyn analytics może być bazy danych SQL lub SQL Data Warehouse. Do wyodrębniania danych na dużą skalę [fabryki danych Azure](../data-factory/introduction.md) jest commended.
+Ten samouczek przedstawia scenariusza pełną analytics dla aplikacji SaaS biletów Wingtip. Najpierw *zadania elastyczne* służy do wyodrębniania danych z każdej dzierżawy bazy danych i załaduj go do tymczasowej tabel w magazynie analytics. Magazyn analytics może być bazy danych SQL lub SQL Data Warehouse. Do wyodrębniania danych na dużą skalę [fabryki danych Azure](../data-factory/introduction.md) jest zalecane.
 
-Następnie dane zagregowane jest rozdrobniony na zestaw [schematu gwiazdy](https://www.wikipedia.org/wiki/Star_schema) tabel. Tabele składają się z tabeli faktów centralnej plus tabele wymiarów pokrewne:
+Następnie dane zagregowane jest przekształcana na zbiór [schematu gwiazdy](https://www.wikipedia.org/wiki/Star_schema) tabel. Tabele składają się z tabeli faktów centralnej plus wymiaru powiązanych tabel.  Bilety Wingtip:
 
 - Tabela faktów centralnej w schemacie gwiazdkę zawiera dane biletu.
-- Tabele wymiarów zawierają dane dotyczące miejsc, zdarzenia, klientów i zakupu daty.
+- Tabele wymiarów opisano miejsc, zdarzenia, klientów i zakupu daty.
 
-Razem Środkowej i wydajne przetwarzania analitycznego wymiaru tabel Włącz. Schemat gwiazdy używane w tym samouczku jest wyświetlane na poniższej ilustracji:
+Razem centralnej tabele faktów i wymiarów Włącz wydajność przetwarzania analitycznego. Schemat gwiazdy używane w tym samouczku pokazano na poniższej ilustracji:
  
 ![architectureOverView](media/saas-tenancy-tenant-analytics/StarSchema.png)
 
-Na koniec proszeni są tabele schematu gwiazdy. Wyniki zapytania są wyświetlane wizualnie aby wyróżnić wgląd w zachowanie dzierżawcy i ich użycia w aplikacji. Za pomocą tego schematu gwiazdy można uruchomić zapytania, które ułatwiają odnajdywanie elementy, takie jak następujące:
+Na koniec analityka magazynu jest poddawany kwerendzie przy użyciu **PowerBI** aby wyróżnić wgląd w zachowanie dzierżawcy i ich użycia aplikacji Wingtip biletów. Uruchamianie zapytań, które:
+ 
+- Pokaż względną popularne każdego miejscową
+- Wyróżnij wzorce w sprzedaży biletów dla różnych zdarzeń
+- Pokaż względną Powodzenie różnych miejsc w sprzedaży się ich zdarzeń
 
-- Kto jest kupowanie biletów i z których miejsce.
-- Ukryte wzorców i trendów w następujących obszarach:
-    - Sprzedaży biletów.
-    - Względne popularne każdego miejsca.
-
-Zrozumienie, jak często każdego dzierżawcy jest korzystanie z usługi umożliwia tworzenie planów usług w celu zaspokojenia swoich potrzeb. Ten samouczek zawiera podstawowe przykłady szczegółowe informacje, które mogą być zgromadzone z danych dzierżawy.
+Opis sposobu każdego dzierżawcy jest przy użyciu usługi służy do zapoznaj się z opcjami monetizing usługi i poprawy usługi, aby ułatwić dzierżawcom więcej powiódł się. W tym samouczku zawiera podstawowe przykłady rodzajów szczegółowe informacje, które mogą być zgromadzone z danych dzierżawy.
 
 ## <a name="setup"></a>Konfiguracja
 
@@ -76,7 +75,7 @@ Do wykonania zadań opisanych w tym samouczku niezbędne jest spełnienie nastę
 - Skrypty Wingtip biletów SaaS bazy danych dla dzierżawy i aplikacji [kod źródłowy](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/) są pobierane z usługi GitHub. Zobacz instrukcje pobierania. Upewnij się, *odblokować plik zip* przed wyodrębniania jego zawartość. Zapoznaj się z [ogólne wskazówki](saas-tenancy-wingtip-app-guidance-tips.md) dla czynności, aby pobrać i odblokować skrypty Wingtip biletów SaaS.
 - Power BI Desktop jest zainstalowany. [Pobierz program Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 - Zainicjowano partii dodatkowi dzierżawcy, zobacz [ **samouczek dzierżaw udostępniania**](saas-dbpertenant-provision-and-catalog.md).
-- Zadania konta i zadania konta w bazie danych zostały utworzone. Zobacz odpowiednie kroki w [ **Samouczek zarządzania schematu**](saas-tenancy-schema-management.md#create-a-job-account-database-and-new-job-account).
+- Zadania konta i zadania konta w bazie danych zostały utworzone. Zobacz odpowiednie kroki w [ **Samouczek zarządzania schematu**](saas-tenancy-schema-management.md#create-a-job-agent-database-and-new-job-agent).
 
 ### <a name="create-data-for-the-demo"></a>Utwórz dane dla pokaz
 
@@ -171,7 +170,7 @@ Dane w tabeli Schemat gwiazdy zawiera wszystkie biletu sprzedaży dane potrzebne
 
 Do nawiązania połączenia usługi Power BI i zaimportować widoków, które wcześniej utworzony, wykonaj następujące kroki:
 
-1. Uruchom program Power BI desktop.
+1. Launch Power BI desktop.
 2. Na Wstążce głównej wybierz **Pobierz dane**i wybierz **więcej...** z menu.
 3. W **Pobierz dane** okna, wybierz bazę danych SQL Azure.
 4. W oknie nazwy logowania bazy danych, wprowadź nazwę serwera (katalogu-dpt -&lt;użytkownika&gt;. database.windows.net). Wybierz **importu** dla **tryb łączności danych**, a następnie kliknij przycisk OK. 
@@ -228,7 +227,7 @@ Wcześniej należy pogłębione analizę, aby sprawdzić, czy sprzedaży biletó
 
 Zostały spełnione trendów w danych dzierżawy z aplikacji WingTip. Należy rozważyć inne sposoby aplikacji mogą ułatwić podjęcie decyzji biznesowych dla dostawców aplikacji SaaS. Dostawców można lepiej spełnić na potrzeby swoich dzierżaw. Miejmy nadzieję, że w tym samouczku ma wyposażone możesz narzędzia niezbędne do wykonywania analizy danych dzierżawy dla firmom podejmowanie decyzji opartych na danych.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
@@ -241,7 +240,7 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 
 Gratulacje!
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - Dodatkowe [samouczków, z którymi aplikacji Wingtip SaaS](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
 - [Zadania elastyczne](sql-database-elastic-jobs-overview.md).

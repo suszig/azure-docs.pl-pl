@@ -3,8 +3,8 @@ title: Magazyn i widoku danych diagnostycznych w magazynie Azure | Dokumentacja 
 description: "Pobierz dane diagnostyczne platformy Azure do usługi Azure Storage i wyświetlić"
 services: cloud-services
 documentationcenter: .net
-author: rboucher
-manager: jwhit
+author: thraka
+manager: timlt
 editor: tysonn
 ms.assetid: 18e0780d-43e7-41e4-b8e9-f1fb9a36eb03
 ms.service: cloud-services
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
-ms.author: robb
-ms.openlocfilehash: 374cc179e13c00e439415e3df16e0c6d5ccba5e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: adegeo
+ms.openlocfilehash: 448d685cf2c0a21f4f87e672644a3cf72c2a576f
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Magazyn i widoku danych diagnostycznych w usłudze Azure Storage
 Danych diagnostycznych nie są trwale przechowywane, chyba że transfer emulatora magazynu Microsoft Azure lub do magazynu Azure. Raz w magazynie, można je wyświetlić jeden z kilku dostępnych narzędzi.

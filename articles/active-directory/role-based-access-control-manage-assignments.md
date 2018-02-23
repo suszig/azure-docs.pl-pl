@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/04/2017
 ms.author: rolyon
-ms.openlocfilehash: e893aeeabf6a34707fbfe6576293a9e0726dd975
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7794d25e9111a4c2dbe822f9618d0acdfb69a2d2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="view-access-assignments-for-users-and-groups-in-the-azure-portal"></a>Wyświetl przypisania dostępu dla użytkowników i grup w portalu Azure
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Uzyskaj więcej informacji o sposobie [zarządzanie dostępem do zasobów subskr
 ## <a name="view-access-assignments"></a>Wyświetl dostępu przypisania
 Aby wyszukać przypisań dostępu dla jednego użytkownika lub grupę, uruchom w usłudze Azure Active Directory w [portalu Azure](http://portal.azure.com).
 
-1. Wybierz **usługi Azure Active Directory**. Jeśli ta opcja nie jest widoczna na liście nawigacji, wybierz **więcej usług** , a następnie przewiń w dół, aby znaleźć **usługi Azure Active Directory**.
+1. Wybierz **usługi Azure Active Directory**. Jeśli ta opcja nie jest widoczna na liście nawigacji, wybierz **wszystkie usługi** , a następnie przewiń w dół, aby znaleźć **usługi Azure Active Directory**.
 2. Wybierz **użytkowników i grup**, a następnie albo **wszyscy użytkownicy** lub **wszystkich grup**. Na przykład możemy skupić się na poszczególnych użytkowników.
     ![Zarządzaj użytkownikami i grupami w usłudze Azure Active Directory — zrzut ekranu](./media/role-based-access-control-manage-assignments/rbac_users_groups.png)
 3. Wyszukaj użytkownika według nazwy lub nazwy użytkownika.

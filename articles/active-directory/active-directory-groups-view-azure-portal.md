@@ -16,18 +16,18 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017;it-pro
 ms.reviewer: piotrci
-ms.openlocfilehash: 1aaebb66287edc375909f7367648da6cf5f4cc40
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 25ab1da5a07874596bf5ec62313e672af83a9bb9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="view-or-search-for-your-user-groups-in-azure-active-directory"></a>Przeglądanie i wyszukiwanie grup użytkownika w usłudze Azure Active Directory
 W tym artykule opisano sposób wyświetlania wszystkich grup w usłudze Azure Active Directory (Azure AD). Jest jedną z funkcji zarządzania użytkownika usługi Azure AD, czy można użyć grupy do wykonywania zadań zarządzania, takich jak przypisywanie licencji lub uprawnień do liczby użytkowników jednocześnie.
 
 ## <a name="how-do-i-see-all-the-groups"></a>Jak wyświetlić wszystkie grupy?
 1. Zaloguj się do [portalu Azure](https://portal.azure.com) przy użyciu konta, które jest administratorem globalnym katalogu.
-2. Wybierz **więcej usług**, wprowadź **użytkowników i grup** w polu tekstowym, a następnie wybierz **Enter**.
+2. Wybierz **wszystkie usługi**, wprowadź **użytkowników i grup** w polu tekstowym, a następnie wybierz **Enter**.
 
    ![Otwieranie użytkowników i grup](./media/active-directory-groups-view-azure-portal/search-user-management.png)
 3. Na **użytkowników i grup** bloku, wybierz opcję **wszystkich grup**.
@@ -35,7 +35,7 @@ W tym artykule opisano sposób wyświetlania wszystkich grup w usłudze Azure Ac
    ![Otwieranie bloku grupy](./media/active-directory-groups-view-azure-portal/view-groups-blade.png)
 4. Na **użytkowników i grup — wszystkie grupy** bloku, można dodać lub usunąć wyświetlanie kolumn, filtrować listę wyszukiwania dla grupy lub wprowadzanie zmian do grup, które mają wystarczających uprawnień do zmiany.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Te artykuły zawierają dodatkowe informacje o usłudze Azure Active Directory.
 
 * [Zobacz istniejących grup](active-directory-groups-view-azure-portal.md)

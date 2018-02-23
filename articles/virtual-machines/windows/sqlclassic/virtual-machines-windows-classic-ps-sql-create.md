@@ -4,7 +4,7 @@ description: "Zawiera kroki i skryptów programu PowerShell do tworzenia maszyny
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 tags: azure-service-management
 ms.assetid: b73be387-9323-4e08-be53-6e5928e3786e
 ms.service: virtual-machines-sql
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/07/2017
 ms.author: jroth
-ms.openlocfilehash: c3bd4329e8a22ce8503d6593560d29c2a3135e83
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 66f44e27562f33373e0b67fe6e0ebf9c6bf99e03
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="provision-a-sql-server-virtual-machine-using-azure-powershell-classic"></a>Aprowizowanie maszyny wirtualnej programu SQL Server przy użyciu programu Azure PowerShell (klasyczne)
 
@@ -76,7 +76,7 @@ Maszyny wirtualnej programu SQL Server będzie obsługiwana w systemie usługi c
    ```
 
    > [!NOTE]
-   > Jeśli potrzebujesz nowe konto magazynu, należy najpierw utworzyć nazwę konta magazynu liter wszystkich przy użyciu polecenia New-AzureStorageAccount, jak w poniższym przykładzie:`New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation`
+   > Jeśli potrzebujesz nowe konto magazynu, należy najpierw utworzyć nazwę konta magazynu liter wszystkich przy użyciu polecenia New-AzureStorageAccount, jak w poniższym przykładzie: `New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation`
 
 4. Nazwa konta magazynu docelowego, aby przypisać **$staccount**. Następnie użyj **AzureSubscription zestaw** subskrypcji i bieżącego konta magazynu.
 
@@ -195,7 +195,7 @@ New-AzureVM –ServiceName $svcname -VMs $vm1
 
 Po zalogowaniu się do komputera przy użyciu pulpitu zdalnego, należy skonfigurować serwer SQL, na podstawie instrukcji w [kroki związane z konfigurowaniem łączności z serwerem SQL w maszynie Wirtualnej platformy Azure](virtual-machines-windows-classic-sql-connect.md#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Można znaleźć dodatkowe instrukcje dotyczące inicjowania obsługi administracyjnej maszyn wirtualnych przy użyciu programu PowerShell w [dokumentacji maszyn wirtualnych](../classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 

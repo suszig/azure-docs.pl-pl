@@ -12,13 +12,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: a947dde1551c653faa54f088c1712c41c7657aa0
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: e0119580c4128ffd237127a62e29dac34297da5d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="alias-server-names"></a>Nazwy serwerów aliasu
 
@@ -39,7 +39,7 @@ Podczas nawiązywania połączenia z klientem, nazwę serwera alias jest wprowad
 
 ![Power BI Desktop połączenia](media/analysis-services-alias/aas-alias-connect-pbid.png)
 
-## <a name="create-an-alias"></a>Tworzenie aliasu
+## <a name="create-an-alias"></a>Utwórz alias
 
 Aby utworzyć alias punktu końcowego, używając dowolnej metody, która zwraca prawidłową nazwę serwera usług Azure Analysis Services. Na przykład odwołania do pliku w magazynie obiektów Blob Azure zawierających rzeczywistych server name, lub tworzenie i publikowanie aplikacji formularzy sieci Web ASP.NET.
 
@@ -58,7 +58,7 @@ protected void Page_Load(object sender, EventArgs e)
 }
 ```
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 [Biblioteki klienta](analysis-services-data-providers.md)   
 [Nawiązywanie połączenia z Power BI Desktop](analysis-services-connect-pbi.md)

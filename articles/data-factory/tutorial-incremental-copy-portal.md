@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: ff26d3ae159320f8c726b37eb0c68e6c5f2c2cc3
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: edde9d8c6fe070e5323cf63d222c7cd6a8983e8a
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Przyrostowe ładowanie danych z bazy danych Azure SQL Database do magazynu Azure Blob Storage
 W tym samouczku utworzysz fabrykę danych Azure Data Factory z potokiem, który ładuje dane różnicowe z tabeli w bazie danych Azure SQL Database do magazynu Azure Blob Storage. 
@@ -154,6 +154,7 @@ END
 
 ## <a name="create-a-data-factory"></a>Tworzenie fabryki danych
 
+1. Uruchom przeglądarkę internetową **Microsoft Edge** lub **Google Chrome**. Obecnie interfejs użytkownika usługi Data Factory jest obsługiwany tylko przez przeglądarki internetowe Microsoft Edge i Google Chrome.
 1. Kliknij przycisk **Nowy** w lewym menu, kliknij pozycję **Dane + analiza**, a następnie kliknij pozycję **Data Factory**. 
    
    ![Nowy-> Fabryka danych](./media/tutorial-incremental-copy-portal/new-azure-data-factory-menu.png)
@@ -192,7 +193,7 @@ W tym samouczku utworzysz potok z dwoma działaniami Lookup, jednym działaniem 
 3. Na stronie **Ogólne** w oknie **Właściwości** dla potoku wpisz nazwę **IncrementalCopyPipeline**. 
 
    ![Nazwa potoku](./media/tutorial-incremental-copy-portal/pipeline-name.png)
-4. Dodajmy pierwsze działanie wyszukiwania w celu pobrania starej wartości limitu. W przyborniku **Działania** rozwiń pozycję **SQL Database**, a następnie przeciągnij i upuść działanie **Lookup** (Wyszukiwanie) do powierzchni Projektanta potoku. Zmień nazwę działania na **LookupOldWaterMarkActivity**.
+4. Dodajmy pierwsze działanie wyszukiwania w celu pobrania starej wartości limitu. W przyborniku **Działania** rozwiń pozycję **Ogólne**, a następnie przeciągnij działanie **Lookup** (Wyszukiwanie) i upuść je na powierzchni projektanta potoku. Zmień nazwę działania na **LookupOldWaterMarkActivity**.
 
    ![Pierwsze działanie wyszukiwania — nazwa](./media/tutorial-incremental-copy-portal/first-lookup-name.png)
 5. Przejdź do karty **Ustawienia**, a następnie kliknij pozycję **+Nowy** dla pozycji **Źródłowy zestaw danych**. W tym kroku utworzysz zestaw danych reprezentujący dane w tabeli **watermarktable**. Ta tabela zawiera stary limit, który był używany w poprzedniej operacji kopiowania. 
@@ -224,7 +225,7 @@ W tym samouczku utworzysz potok z dwoma działaniami Lookup, jednym działaniem 
 11. Przejdź do edytora potoku, klikając kartę potoku u góry lub klikając nazwę potoku w widoku drzewa po lewej stronie. W oknie dialogowym właściwości działania **Lookup** (Wyszukiwanie) upewnij się, że dla pola **Zestaw danych źródłowych** wybrano wartość **WatermarkDataset**. 
 
     ![Potok — stary zestaw danych limitu](./media/tutorial-incremental-copy-portal/pipeline-old-watermark-dataset-selected.png)
-12. W przyborniku **Działania** rozwiń pozycję **SQL Database**, a następnie przeciągnij i upuść kolejne działanie **Lookup** (Wyszukiwanie) do powierzchni Projektanta potoku. Na karcie **Ogólne** okna właściwości ustaw nazwę **LookupNewWaterMarkActivity**. To działanie wyszukiwania pobiera nową wartość limitu z tabeli zawierającej dane źródłowe do skopiowania do miejsca docelowego. 
+12. W przyborniku **Działania** rozwiń pozycję **Ogólne**, a następnie przeciągnij i upuść kolejne działanie **Lookup** (Wyszukiwanie) na powierzchni projektanta potoku. Na karcie **Ogólne** okna właściwości ustaw nazwę **LookupNewWaterMarkActivity**. To działanie wyszukiwania pobiera nową wartość limitu z tabeli zawierającej dane źródłowe do skopiowania do miejsca docelowego. 
 
     ![Drugie działanie wyszukiwania — nazwa](./media/tutorial-incremental-copy-portal/second-lookup-activity-name.png)
 13. W oknie właściwości dla drugiego działania **Lookup** (Wyszukiwania) przejdź do karty **Ustawienia**, a następnie kliknij pozycję **Nowy**. Utworzysz zestaw danych wskazujący tabelę źródłową zawierającą nową wartość limitu (wartość maksymalna elementu LastModifyTime). 
@@ -295,7 +296,7 @@ W tym samouczku utworzysz potok z dwoma działaniami Lookup, jednym działaniem 
 
         ![Zestaw danych będących ujściem — ustawienia połączenia](./media/tutorial-incremental-copy-portal/sink-dataset-connection-settings.png)
 28. Przejdź do edytora **potoku**, klikając kartę potoku u góry lub klikając nazwę potoku w widoku drzewa po lewej stronie. 
-29. W przyborniku **Działania** rozwiń pozycję **SQL Database**, a następnie przeciągnij i upuść działanie **Stored Procedure** (Procedura składowana) z przybornika **Działania** do powierzchni Projektanta potoku. **Połącz** zielone (Powodzenie) wyjście działania **kopiowania** z działaniem **procedury składowanej**. 
+29. W przyborniku **Działania** rozwiń pozycję **Ogólne**, a następnie przeciągnij i upuść działanie **Stored Procedure** (Procedura składowana) z przybornika **Działania** na powierzchnię projektanta potoku. **Połącz** zielone (Powodzenie) wyjście działania **kopiowania** z działaniem **procedury składowanej**. 
     
     ![Działanie Copy (Kopiowanie) — źródło](./media/tutorial-incremental-copy-portal/connect-copy-to-stored-procedure-activity.png)
 24. Wybierz **działanie procedury składowanej** w Projektancie potoku i zmień jego nazwę na **StoredProceduretoWriteWatermarkActivity**. 
@@ -306,26 +307,27 @@ W tym samouczku utworzysz potok z dwoma działaniami Lookup, jednym działaniem 
     ![Działanie Stored Procedure (Procedura składowana) — konto SQL](./media/tutorial-incremental-copy-portal/sp-activity-sql-account-settings.png)
 26. Przejdź do karty **Procedura składowana** i wykonaj następujące czynności: 
 
-    1. Wprowadź wartość **sp_write_watermark** w polu **Nazwa procedury składowanej**. 
-    2. Aby określić wartości parametrów procedury składowanej, kliknij pozycję **+Nowy** w sekcji **Parametry procedury składowanej**, a następnie wprowadź następujące wartości: 
+    1. W polu **Nazwa procedury składowanej** wybierz wartość **sp_write_watermark**. 
+    2. Aby określić wartości parametrów procedury składowanej, kliknij pozycję **Importuj parametr**, a następnie wprowadź następujące wartości parametrów: 
 
         | Name (Nazwa) | Typ | Wartość | 
         | ---- | ---- | ----- | 
-        | LastModifiedtime | datetime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
+        | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
         | TableName | Ciąg | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
     ![Działanie procedury składowanej — ustawienia procedury składowanej](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
 27. Aby zweryfikować ustawienia potoku, kliknij pozycję **Weryfikuj** na pasku narzędzi. Potwierdź, że weryfikacja nie zwróciła błędów. Aby zamknąć okno **Raport weryfikacji potoku**, kliknij pozycję >>.   
 
     ![Weryfikowanie potoku](./media/tutorial-incremental-copy-portal/validate-pipeline.png)
-28. Opublikuj jednostki (usługi połączone, zestawy danych i potoki) w usłudze Azure Data Factory, klikając przycisk **Publikuj**. Poczekaj, aż zostanie wyświetlony komunikat o pomyślnym opublikowaniu. 
+28. Opublikuj jednostki (usługi połączone, zestawy danych i potoki) w usłudze Azure Data Factory, wybierając przycisk **Opublikuj wszystko**. Poczekaj, aż zostanie wyświetlony komunikat o pomyślnym opublikowaniu. 
 
     ![Przycisk Opublikuj](./media/tutorial-incremental-copy-portal/publish-button.png)
 
 ## <a name="trigger-a-pipeline-run"></a>Wyzwalanie uruchomienia potoku
-Kliknij pozycję **Wyzwól** na pasku narzędzi, a następnie kliknij pozycję **Wyzwól teraz**. 
+1. Kliknij pozycję **Wyzwól** na pasku narzędzi, a następnie kliknij pozycję **Wyzwól teraz**. 
 
-![Przycisk Wyzwól teraz](./media/tutorial-incremental-copy-portal/trigger-now.png)
+    ![Przycisk Wyzwól teraz](./media/tutorial-incremental-copy-portal/trigger-now.png)
+2. W oknie **Uruchomienie potoku** wybierz pozycję **Zakończ**. 
 
 ## <a name="monitor-the-pipeline-run"></a>Monitorowanie działania potoku
 

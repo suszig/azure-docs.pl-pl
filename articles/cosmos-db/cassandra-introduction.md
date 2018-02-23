@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: govindk
-ms.openlocfilehash: fe911b69278021262f1d90f2157bb78ca48db0db
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 62e56a611d3f720172ace83a4b407a962ec69ea8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="introduction-to-apache-cassandra-api-for-azure-cosmos-db"></a>Wprowadzenie do Apache Cassandra interfejsu API dla rozwiązania Cosmos Azure DB
 
@@ -64,7 +64,7 @@ Interfejs API Cassandra umożliwia interakcję z danymi przechowywanymi w usłud
 
 Jeśli masz już subskrypcję platformy Azure, możesz je założyć wziąć udział w programie Cassandra interfejsu API (wersja zapoznawcza) [portalu Azure](https://aka.ms/cosmosdb-cassandra-signup).  Jeśli jesteś nowym użytkownikiem usługi Azure, należy zarejestrować się w celu [bezpłatnej wersji próbnej](https://azure.microsoft.com/free) gdzie uzyskać 12 miesięcy bezpłatny dostęp do bazy danych Azure rozwiązania Cosmos. Wykonaj poniższe kroki, aby zażądać dostępu do programu Cassandra interfejsu API (wersja zapoznawcza).
 
-1. W [portalu Azure](https://portal.azure.com), kliknij przycisk **nowy** > **baz danych** > **bazy danych Azure rozwiązania Cosmos**. 
+1. W [portalu Azure](https://portal.azure.com), kliknij przycisk **Utwórz zasób** > **baz danych** > **bazy danych Azure rozwiązania Cosmos**. 
 
 2. Na stronie nowe konto, wybierz **Cassandra** w polu interfejsu API. 
 
@@ -88,7 +88,7 @@ Po przyłączeniu program w wersji zapoznawczej, wykonaj quickstarts Cassandra i
 * [Szybki Start: Tworzenie Cassandra aplikacji sieci web z usług .NET i bazy danych Azure rozwiązania Cosmos](create-cassandra-dotnet.md)
 * [Szybki Start: Tworzenie Cassandra aplikacja sieci web za pomocą języka Python i bazy danych Azure rozwiązania Cosmos](create-cassandra-python.md)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Informacje o interfejsie API Cassandra DB rozwiązania Cosmos Azure została zintegrowana z ogólną dokumentację bazy danych Azure rozwiązania Cosmos, ale poniżej przedstawiono kilka wskazówek, które ułatwią rozpoczęcie pracy:
 

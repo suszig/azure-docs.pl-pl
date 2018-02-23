@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 02/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 426a456f8d979c8fb68b469f01eb68f378e876e8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a17d0918ea5938daf81c469fd6402a7dc9764831
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Azure Site Recovery macierz obsługi replikacji z lokalnych do platformy Azure
 
@@ -72,17 +72,17 @@ W poniższej tabeli przedstawiono obsługę systemu operacyjnego replikowanych w
 
 >[!NOTE]
 >
-> \*Windows Server 2016 Nano Server nie jest obsługiwane.
+> \* Windows Server 2016 Nano Server nie jest obsługiwane.
 >
 > Na dystrybucje systemu Linux obsługiwane są tylko podstawowe jądra będących częścią wersja pomocnicza wersji/aktualizacji dystrybucji.
 >
 > Uaktualnienia w wersjach głównych dystrybucji systemu Linux na platformie Azure Site Recovery chronione maszyny wirtualnej VMware lub serwera fizycznego nie jest obsługiwane. Podczas uaktualniania systemu operacyjnego w wersji głównych (na przykład CentOS 6.* do CentOS 7.*), wyłącz replikację dla maszyny, Uaktualnij system operacyjny na maszynie, a następnie włącz ponownie replikacji.
-> 
+>
 
 
 ### <a name="supported-ubuntu-kernel-versions-for-vmwarephysical-servers"></a>Ubuntu wersji jądra programu VMware/serwery fizyczne
 
-**Zlecenia** | **Wersja usługi mobilności** | **Wersja jądra** |
+**Zlecenia** | **Wersja usługi mobilności** | Wersja jądra |
 --- | --- | --- |
 14.04 LTS | 9.10 | 3.13.0-24-Generic do 3.13.0-121-generic,<br/>3.16.0-25-Generic do 3.16.0-77-generic,<br/>3.19.0-18-Generic do 3.19.0-80-generic,<br/>4.2.0-18-Generic do 4.2.0-42-generic,<br/>4.4.0-21-Generic do 4.4.0-81-generic |
 14.04 LTS | 9.11 | 3.13.0-24-Generic do 3.13.0-128-generic,<br/>3.16.0-25-Generic do 3.16.0-77-generic,<br/>3.19.0-18-Generic do 3.19.0-80-generic,<br/>4.2.0-18-Generic do 4.2.0-42-generic,<br/>4.4.0-21-Generic do 4.4.0-91-generic |
@@ -134,7 +134,7 @@ Multi-NIC | Yes | Yes
 
 ### <a name="failed-over-azure-vm-network-configuration"></a>Konfiguracja sieci maszyny Wirtualnej Azure przełączona w tryb failover
 
-**Sieć platformy Azure** | **Serwer VMware/fizyczne** | **Funkcja Hyper-V (z/bez programu Virtual Machine Manager)**
+Sieć platformy Azure | **Serwer VMware/fizyczne** | **Funkcja Hyper-V (z/bez programu Virtual Machine Manager)**
 --- | --- | ---
 ExpressRoute | Yes | Yes
 Wewnętrzny moduł równoważenia obciążenia | Yes | Yes
@@ -166,7 +166,7 @@ Wiele ścieżek (MPIO)<br></br>Przetestowana: moduł DSM firmy Microsoft, EMC Po
 VMDK | Yes | ND
 VHD/VHDX | ND | Yes
 Gł 2 maszyny Wirtualnej | ND | Yes
-EFI/UEFI| Migracja do systemu Azure dla systemu Windows Server 2012 i późniejsze. </br></br> ** Zobacz uwagi pod koniec tabeli.  | Yes
+EFI/UEFI| Migracja do usługi Azure dla systemu Windows Server 2012 i nowszych maszyny wirtualne VMware tylko. </br></br> ** Zobacz uwagi pod koniec tabeli.  | Yes
 Udostępniony dysk klastra | Nie | Nie
 Zaszyfrowanego dysku | Nie | Nie
 NFS | Nie | ND
@@ -182,10 +182,11 @@ Wykluczanie dysku | Yes | Yes
 Wiele ścieżek (MPIO) | ND | Yes
 
 > [!NOTE]
-> ** UEFI rozruchu maszyn wirtualnych VMware lub serwerów fizycznych z systemem Windows Server 2012 lub nowszym można poddać migracji do usługi Azure. Obowiązują następujące ograniczenia.
+> ** UEFI rozruchu maszyn wirtualnych VMware z systemem Windows Server 2012 lub nowszym można poddać migracji do usługi Azure. Obowiązują następujące ograniczenia.
 > - Migracja do platformy Azure. Powrót po awarii do lokalnej lokacji oprogramowania VMware nie jest obsługiwane.
 > - Nie więcej niż 4 partycje są obsługiwane na dysku systemu operacyjnego serwera.
 > - Wymagana wersja usługi mobilności odzyskiwania lokacji Azure 9.13 lub nowszej.
+> - Nie jest obsługiwana na serwerach fizycznych.
 
 **Magazyn platformy Azure** | **Serwer VMware/fizyczne** | **Funkcja Hyper-V (z/bez programu Virtual Machine Manager)**
 --- | --- | ---
@@ -214,9 +215,9 @@ Dyski zarządzane | Yes | Yes<br/><br/>Powrót po awarii do środowiska lokalneg
 
 Możesz wdrożyć usługę Site Recovery, aby replikować maszyny wirtualne i serwery fizyczne z dowolnym systemem operacyjnym obsługiwanym przez platformę Azure. Jest to większość wersji systemów Windows i Linux. Lokalna Usługa maszyn wirtualnych, które chcesz replikować muszą być zgodne z następującymi wymaganiami Azure podczas replikacji do platformy Azure.
 
-**Entity** | **Wymagania** | **Szczegóły**
+**Entity** | Wymagania | **Szczegóły**
 --- | --- | ---
-**System operacyjny gościa** | Funkcja Hyper-V Azure replikacji: Usługa Site Recovery obsługuje wszystkich systemów operacyjnych, które są [obsługiwany przez platformę Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). <br/><br/> VMware i replikacji na serwerze fizycznym: sprawdzanie systemu Windows i Linux [wymagania wstępne](site-recovery-vmware-to-azure-classic.md) | Sprawdzanie wymagań wstępnych zakończy się niepowodzeniem, jeśli jest nieobsługiwany.
+System operacyjny gościa | Funkcja Hyper-V Azure replikacji: Usługa Site Recovery obsługuje wszystkich systemów operacyjnych, które są [obsługiwany przez platformę Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). <br/><br/> VMware i replikacji na serwerze fizycznym: sprawdzanie systemu Windows i Linux [wymagania wstępne](site-recovery-vmware-to-azure-classic.md) | Sprawdzanie wymagań wstępnych zakończy się niepowodzeniem, jeśli jest nieobsługiwany.
 **Architektura systemu operacyjnego gościa** | 64-bitowa | Sprawdzanie wymagań wstępnych zakończy się niepowodzeniem, jeśli nieobsługiwane
 **Rozmiar dysku systemu operacyjnego** | 2048 GB, jeśli jest replikowana **maszyn wirtualnych VMware lub serwerów fizycznych do platformy Azure**.<br/><br/>Maksymalnie 2048 GB dla **funkcji Hyper-V generacji 1** maszyn wirtualnych.<br/><br/>Maksymalnie 300 GB dla **maszyn wirtualnych funkcji Hyper-V generacji 2**.  | Sprawdzanie wymagań wstępnych zakończy się niepowodzeniem, jeśli nieobsługiwane
 **Liczba dysków systemu operacyjnego** | 1 | Sprawdzanie wymagań wstępnych zakończy się niepowodzeniem, jeśli jest nieobsługiwany.

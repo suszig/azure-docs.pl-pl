@@ -36,6 +36,8 @@
       href: delivery-and-retry.md
 - name: Przewodniki z instrukcjami
   items:
+    - name: Odbieranie zdarzeń w punkcie końcowym HTTP
+      href: receive-events.md
     - name: Strumieniowe przesyłanie danych z usługi Event Hubs do magazynu danych
       href: event-grid-event-hubs-integration.md
     - name: Wysyłanie powiadomień dotyczących zdarzeń usługi IoT Hub

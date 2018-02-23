@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: edee4fbb37744a8ef93c6a0b7e60b0790d1af9c4
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: f642a1f8060f566ec95b23995d0f82191b0c5315
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>Zainstalować i używać Solr w klastrach HDInsight Hadoop
 
@@ -45,9 +45,9 @@ Dowiedz się, jak zainstalować Solr w usłudze Azure HDInsight za pomocą akcji
 
 Ten skrypt wprowadza następujące zmiany w klastrze usługi HDInsight:
 
-* Instaluje Solr 4.9 do`/usr/hdp/current/solr`
+* Instaluje Solr 4.9 do `/usr/hdp/current/solr`
 * Tworzy użytkownika, **solrusr**, które jest używane do uruchamiania usługi Solr
-* Ustawia **solruser** jako właściciel`/usr/hdp/current/solr`
+* Ustawia **solruser** jako właściciel `/usr/hdp/current/solr`
 * Dodaje [Upstart](http://upstart.ubuntu.com/) konfiguracji, które jest uruchamiane automatycznie Solr.
 
 ## <a name="install"></a>Zainstaluj Solr za pomocą akcji skryptu
@@ -61,7 +61,7 @@ Aby utworzyć klaster ma zainstalowany Solr, wykonaj czynności w [Tworzenie kla
 1. Z __klastra Podsumowanie__ sekcji, settings__ select__Advanced, następnie __skryptu akcji__. Skorzystaj z poniższych informacji, aby wypełnić formularza:
 
    * **Nazwa**: Wprowadź przyjazną nazwę dla akcji skryptu.
-   * **Identyfikator URI skryptu**: https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
+   * **SCRIPT URI**: https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
    * **HEAD**: Zaznaczenie tego pola wyboru
    * **Proces ROBOCZY**: Zaznaczenie tego pola wyboru
    * **DOZORCY**: Zaznacz tę opcję, aby zainstalować w węźle dozorcy
@@ -321,7 +321,7 @@ Aby utworzyć kopię zapasową danych Solr do magazynu domyślnego dla klastra, 
 
 Aby uzyskać więcej informacji na temat pracy z Solr tworzenia kopii zapasowej i przywracania, zobacz [https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Zainstaluj Giraph w klastrach HDInsight](hdinsight-hadoop-giraph-install-linux.md). Dostosowywanie klastra należy zainstalować Giraph w klastrach HDInsight Hadoop. Giraph umożliwia wykonywanie wykresu przetwarzanie przy użyciu platformy Hadoop i mogą być używane z usługi Azure HDInsight.
 

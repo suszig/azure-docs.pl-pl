@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: 
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/29/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 02c25de980b399812676285ad3f87f60af93265f
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: cadd47d2e5f490f82846ea562803fcd60f5405a7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="setup-diagnostic-logging"></a>Ustawienia rejestrowania diagnostycznego
 
@@ -53,9 +53,9 @@ Wybieranie **aparat** wszystkie dzienniki [systemu xEvents](https://docs.microso
 |Powiadomienia     |    Powiadomienia     |
 |Sesja     |  Inicjowanie sesji       |
 |Blokady    |  Zakleszczenie       |
-|Przetwarzanie zapytań     |   Rozpocznij zapytanie aparatu Magazynu trybu VertiPaq      |
-|Przetwarzanie zapytań     |   Końcowy zapytanie aparatu Magazynu trybu VertiPaq      |
-|Przetwarzanie zapytań     |   Dopasowanie pamięci podręcznej zapytanie aparatu Magazynu trybu VertiPaq      |
+|Przetwarzanie zapytań     |   VertiPaq SE Query Begin      |
+|Przetwarzanie zapytań     |   VertiPaq SE Query End      |
+|Przetwarzanie zapytań     |   VertiPaq SE Query Cache Match      |
 |Przetwarzanie zapytań     |   Rozpocznij zapytania bezpośredniego      |
 |Przetwarzanie zapytań     |  Końcowy zapytania bezpośredniego       |
 
@@ -83,15 +83,15 @@ Kategoria metryki rejestruje takie same [metryki serwera](analysis-services-moni
 
     ![Włączanie rejestrowania diagnostyki dla bazy danych Azure rozwiązania Cosmos w portalu Azure](./media/analysis-services-logging/aas-logging-turn-on-diagnostics.png)
 
-2. W **ustawień diagnostycznych**, wykonaj następujące czynności: 
+2. W **ustawień diagnostycznych**, określ następujące opcje: 
 
     * **Nazwa**. Wprowadź nazwę dla dzienników do utworzenia.
 
-    * **Archiwum na konto magazynu**. Aby użyć tej opcji, należy istniejące konto magazynu, aby nawiązać połączenie. Zobacz [Utwórz konto magazynu](../storage/common/storage-create-storage-account.md). Postępuj zgodnie z instrukcjami, aby utworzyć Resource Manager konta ogólnego przeznaczenia. Następnie wróć do tej strony w portalu, aby wybrać konta magazynu. Może upłynąć kilka minut dla kont magazynu nowo utworzony pojawią się w menu rozwijanym.
-    * **Strumień do Centrum zdarzeń**. Aby użyć tej opcji, należy istniejących Centrum zdarzeń przestrzeni nazw i zdarzenia koncentratora do nawiązania połączenia. Aby utworzyć przestrzeń nazw usługi Event Hubs, zobacz [tworzenie przestrzeni nazw usługi Event Hubs i Centrum zdarzeń za pomocą portalu Azure](../event-hubs/event-hubs-create.md). Następnie wróć do tej strony w portalu, aby wybrać nazwę przestrzeni nazw i zasad Centrum zdarzeń.
+    * **Archiwum na konto magazynu**. Aby użyć tej opcji, należy istniejące konto magazynu, aby nawiązać połączenie. Zobacz [Utwórz konto magazynu](../storage/common/storage-create-storage-account.md). Postępuj zgodnie z instrukcjami, aby utworzyć konto ogólnego przeznaczenia, Menedżer zasobów, a następnie wybierz konto magazynu, wracając do tej strony w portalu. Może upłynąć kilka minut dla kont magazynu nowo utworzony pojawią się w menu rozwijanym.
+    * **Strumień do Centrum zdarzeń**. Aby użyć tej opcji, należy istniejących Centrum zdarzeń przestrzeni nazw i zdarzenia koncentratora do nawiązania połączenia. Aby dowiedzieć się więcej, zobacz [tworzenie przestrzeni nazw usługi Event Hubs i Centrum zdarzeń za pomocą portalu Azure](../event-hubs/event-hubs-create.md). Następnie wróć do tej strony w portalu, aby wybrać nazwę przestrzeni nazw i zasad Centrum zdarzeń.
     * **Wyślij do analizy dzienników**. Aby użyć tej opcji, użyj istniejący obszar roboczy lub utworzyć nowy obszar roboczy analizy dzienników, wykonując następujące kroki, aby [Utwórz nowy obszar roboczy](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) w portalu. Aby uzyskać więcej informacji o wyświetlaniu dzienników w analizy dzienników, zobacz [Wyświetl dzienniki w analizy dzienników](#view-in-loganalytics).
 
-    * **Aparat**. Wybierz tę opcję, aby zalogować się systemów Xevent. Jeśli w przypadku archiwizacji konta magazynu można wybrać okres przechowywania dzienników diagnostycznych. Dzienniki są autodeleted, po wygaśnięciu okresu przechowywania.
+    * **Engine**. Wybierz tę opcję, aby zalogować się systemów Xevent. Jeśli w przypadku archiwizacji konta magazynu można wybrać okres przechowywania dzienników diagnostycznych. Dzienniki są autodeleted, po wygaśnięciu okresu przechowywania.
     * **Usługa**. Wybierz tę opcję, aby rejestrować zdarzenia na poziomie usługi. Jeśli archiwizacji do konta magazynu można wybrać okres przechowywania dzienników diagnostycznych. Dzienniki są autodeleted, po wygaśnięciu okresu przechowywania.
     * **Metryki**. Wybierz tę opcję, aby przechowywać pełne dane w [metryki](analysis-services-monitor.md#server-metrics). Jeśli archiwizacji do konta magazynu można wybrać okres przechowywania dzienników diagnostycznych. Dzienniki są autodeleted, po wygaśnięciu okresu przechowywania.
 
@@ -171,7 +171,7 @@ W **typu**, kliknij przycisk **AzureDiagnostics**, a następnie kliknij przycisk
 
 Kliknij przycisk **EventClass\_s** lub jedną z nazw zdarzeń i analizy dzienników nadal konstruowanie zapytania. Pamiętaj zapisać zapytania do późniejszego.
 
-Pamiętaj, aby wyewidencjonowania Operations Management Suite, który zapewnia witryny sieci Web z rozszerzoną zapytania, dashboarding i możliwości alertów na danych analizy dzienników.
+Pamiętaj zobaczyć Operations Management Suite, który zapewnia witryny sieci Web z rozszerzoną zapytania, dashboarding i możliwości alertów na danych analizy dzienników.
 
 ### <a name="queries"></a>Zapytania
 

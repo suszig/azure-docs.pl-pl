@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 07/07/2017
 ms.author: robb
-ms.openlocfilehash: c463479b7eaee5a0548c8891dd3a20ef070dd39b
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 5f2b68e800f484a64e79f965fc855aebe090186a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-service-health"></a>Azure Service Health
 Kondycja usługi Azure zawiera informacje o odpowiednim i spersonalizowane, gdy problemy w usługach Azure mieć wpływ na usługi.  Można go również przygotować do najbliższej planowanej konserwacji.
@@ -32,8 +32,13 @@ Kondycja usługi śledzi trzy typy zdarzeń kondycji, które mogą mieć wpływ 
     ![Zdarzenia kondycji usługi](./media/service-health-overview/azure-service-health-overview-7.png)
 
 ## <a name="get-started-with-service-health"></a>Wprowadzenie do usługi kondycji
-Aby uruchomić Pulpit nawigacyjny kondycji usługi, wybierz Kafelek kondycja usługi na pulpicie nawigacyjnym portalu. Jeśli Kafelek wcześniej zostały usunięte lub jest używany niestandardowy pulpit nawigacyjny, wyszukaj usługi usługi kondycji w "Więcej usługi" (dołu w lewo na pulpicie nawigacyjnym).
+Aby uruchomić Pulpit nawigacyjny kondycji usługi, wybierz Kafelek kondycja usługi na pulpicie nawigacyjnym portalu. 
+
 ![Wprowadzenie do usługi kondycji](./media/service-health-overview/azure-service-health-overview-1.png)
+
+Jeśli Kafelek wcześniej zostały usunięte lub jest używany niestandardowy pulpit nawigacyjny, wyszukaj usługi usługi kondycji w "**wszystkie usługi**" (z góry po lewej na pulpicie nawigacyjnym).
+
+![Wprowadzenie do usługi kondycji](./media/service-health-overview/azure-service-health-overview-1a.png)
 
 ## <a name="see-current-issues-which-impact-your-services"></a>Zobacz bieżących problemach mogących mieć wpływ na usługi
 **Usługi problemów** widok zawiera wszystkie bieżące problemy w usług Azure, które wpływają na Twoich zasobów. Można zrozumieć, kiedy rozpoczął się problem i jakie usługi i regiony są w pełni funkcjonalne. Można również odczytać najnowszą aktualizację, aby zrozumieć Azure czynności aby rozwiązać ten problem. 

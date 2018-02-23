@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/28/2017
 ms.author: asaxton
-ms.openlocfilehash: 1902e5c18cd7083ceeda79e6b9e779e4baaf175a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bf7eb967760338626cd7e0465b16dc570e5f582a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-power-bi-embedded-capacity-in-the-azure-portal"></a>Utwórz Power BI Embedded pojemności w portalu Azure
 
@@ -41,7 +41,7 @@ Aby ukończyć ten przewodnik Szybki Start, musisz spełnić następujące warun
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/).
 
-2. Wybierz **+ (nowy)** > **dane i analiza**.
+2. Wybierz **Utwórz zasób** > **dane i analiza**.
 
 3. W polu wyszukiwania, wyszukaj *Power BI Embedded*.
 
@@ -62,11 +62,11 @@ Aby ukończyć ten przewodnik Szybki Start, musisz spełnić następujące warun
 
 6. Wybierz pozycję **Utwórz**.
 
-Tworzenie potrzebuje zazwyczaj w obszarze chwilę. często tylko kilka sekund. W przypadku wybrania **Przypnij do pulpitu nawigacyjnego**, przejdź do pulpitu nawigacyjnego, aby zobaczyć nowe możliwości. Lub przejdź do **więcej usług** > **Power BI Embedded** czy wydajność jest gotowy.
+Tworzenie potrzebuje zazwyczaj w obszarze chwilę. często tylko kilka sekund. W przypadku wybrania **Przypnij do pulpitu nawigacyjnego**, przejdź do pulpitu nawigacyjnego, aby zobaczyć nowe możliwości. Lub przejdź do **wszystkie usługi** > **Power BI Embedded** czy wydajność jest gotowy.
 
 ![Pulpitu nawigacyjnego portalu Azure w usłudze Power BI Embedded pojemności](media/create-capacity/azure-portal-dashboard.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby użyć nowego miejsca do Power BI Embedded, przejdź do portalu administracyjnego usługi Power BI, aby przypisać obszarów roboczych. Aby uzyskać więcej informacji, zobacz [Manage capacities within Power BI Premium and Power BI Embedded (Zarządzanie pojemnościami w usługach Power BI Premium i Power BI Embedded)](https://powerbi.microsoft.com/documentation/powerbi-admin-premium-manage/).
 

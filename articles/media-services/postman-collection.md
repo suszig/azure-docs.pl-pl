@@ -1,27 +1,14 @@
----
-title: Importu kolekcji Postman
-description: "Ten artykuł zawiera definicję kolekcji Postman dla wywołania usługi Azure Media Services REST."
-services: media-services
-documentationcenter: 
-author: Juliako
-manager: cfowler
-editor: 
-ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/04/2017
-ms.author: juliako
-ms.openlocfilehash: 9d1937f11d379910437a2e4ea21d4a963aacbc9a
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
-ms.translationtype: MT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2018
----
-# <a name="import-the-postman-collection"></a>Importu kolekcji Postman
+ ---
+Tytuł: zaimportować kolekcję Postman z przesyłania strumieniowego na żądanie Azure operations opisu: w tym artykule przedstawiono definicji kolekcji Postman dla wywołania usługi Azure Media Services REST.
+usług: documentationcenter usługi media services: "Autor: Menedżer Juliako: Edytor cfowler:"
 
-Ten artykuł zawiera definicję **Postman** kolekcji zawierającej pogrupowane żądania HTTP, które mogą wywoływać interfejsy API REST usługi Media. Ta definicja jest używana przez [wymaga skonfigurowania Postman interfejsu API REST usługi Media](media-rest-apis-with-postman.md) samouczka.
+ms.service: media-services ms.workload: media ms.tgt_pltfrm: na ms.devlang: na ms.topic: article ms.date: 01/04/2017 ms.author: juliako
+
+---
+
+# <a name="import-a-postman-collection-with-on-demand-streaming-operations"></a>Importuj z przesyłania strumieniowego na żądanie operacji kolekcji Postman
+
+Ten artykuł zawiera definicję **Postman** kolekcji zawierającej pogrupowane żądania HTTP, które wywołują interfejsów API usługi Azure Media Services REST. Aby uzyskać informacje o sposobie konfigurowania **Postman** dzięki mogą być używane do wywoływania interfejsów API REST usługi nośnika, zobacz [wymaga skonfigurowania Postman interfejsu API REST usługi Media](media-rest-apis-with-postman.md) samouczka.
 
 ```
 {

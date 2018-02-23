@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 12/13/2017
 ms.author: barbkess
-ms.openlocfilehash: 80974f7660696887783e97b674e2d9921fe2feac
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 277766c22e25945fb314aa51017a72f415cbab46
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Najlepsze rozwiązania dotyczące ładowania danych do usługi Azure SQL Data Warehouse
 Zalecenia dotyczące ładowania danych do usługi Azure SQL Data Warehouse i optymalizacji wydajności tego procesu. 
@@ -120,15 +120,19 @@ Zalecanym rozwiązaniem w zakresie zabezpieczeń jest regularne zmienianie klucz
 
 Aby przeprowadzić rotację kluczy konta usługi Azure Storage:
 
-1. Utwórz drugie poświadczenie o zakresie bazy danych na podstawie pomocniczego klucza dostępu do magazynu.
-2. Utwórz drugie zewnętrzne źródło danych na podstawie tego nowego poświadczenia.
-3. Usuń tabele zewnętrzne i utwórz nowe, wskazujące nowe zewnętrzne źródła danych. 
+Dla każdego konta magazynu, którego klucz został zmieniony, wydaj poświadczenie [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql.md).
 
-Po przeprowadzeniu migracji tabel zewnętrznych do nowego źródła danych wykonaj następujące zadania oczyszczania:
+Przykład:
 
-1. Usuń pierwsze zewnętrzne źródło danych.
-2. Usuń pierwsze poświadczenie o zakresie bazy danych utworzone na podstawie podstawowego klucza dostępu do magazynu.
-3. Zaloguj się do platformy Azure i ponownie wygeneruj podstawowy klucz dostępu, aby był gotowy do kolejnej rotacji.
+Został utworzony klucz oryginalny
+
+CREATE DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key1' 
+
+Zamień klucz 1 na klucz 2
+
+ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key2' 
+
+Nie są potrzebne żadne inne zmiany podstawowych zewnętrznych źródeł danych.
 
 
 ## <a name="next-steps"></a>Następne kroki

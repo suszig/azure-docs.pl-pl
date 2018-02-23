@@ -24,10 +24,13 @@ Wystąpienia serii ESv3 są oparte na procesorach Intel XEON® E5-2673 v4 (Broad
 | Standardowa_E8s_v3  | 8      | 64          | 128            | 16             | 16 000 / 128 (200)                                                    | 12 800 / 192                              | 4 / 4,000                                       |
 | Standardowa_E16s_v3 | 16     | 128         | 256            | 32             | 32 000 / 256 (400)                                                    | 25 600 / 384                              | 8 / 8,000                                       |
 | Standard_E32s_v3 <sup>2</sup> | 32     | 256         | 512            | 32             | 64 000 / 512 (800)                                                    | 51 200 / 768                              | 8 / 16,000                             |
-| Standard_E64s_v3 <sup>2</sup> | 64     | 432         | 864            | 32             | 128 000/1024 (1600)                                                   | 80 000 / 1200                             | 8 / 30,000                             |
+| Standard_E64s_v3 <sup>2,3</sup> | 64     | 432         | 864            | 32             | 128 000/1024 (1600)                                                   | 80 000 / 1200                             | 8 / 30,000                             |
 
-<sup>1</sup> Esv3 serii maszyny Wirtualnej funkcji technologią Intel® Hyper-Threading <sup>2</sup> ograniczone dostępne rozmiary core 
+<sup>1</sup> serii Esv3 maszyny Wirtualnej funkcji technologią Intel® Hyper-Threading
 
+<sup>2</sup> ograniczone dostępne rozmiary core 
+
+<sup>3</sup> wystąpienia jest izolowana sprzętu przeznaczonego do jednego odbiorcy.
 ## <a name="ev3-series-sup1sup"></a>Seria Ev3 <sup>1</sup>
 
 ACU: 160–190 
@@ -44,9 +47,11 @@ Opłaty za magazyn dysków danych są naliczane oddzielnie od opłat za maszyny 
 | Standardowa_E8_v3  | 8         | 64          | 200            | 16             | 12000/187/93                                             | 4 / 4,000                     |
 | Standardowa_E16_v3 | 16        | 128         | 400            | 32             | 24000/375/187                                            | 8 / 8,000                     |
 | Standardowa_E32_v3 | 32        | 256         | 800            | 32             | 48000/750/375                                            | 8 / 16,000                 |
-| Standardowa_E64_v3 | 64        | 432         | 1600           | 32             | 96000/1000/500                                           | 8 / 30,000           |
+| Standard_E64_v3<sup>2</sup> | 64        | 432         | 1600           | 32             | 96000/1000/500                                           | 8 / 30,000           |
 
 <sup>1</sup> serii Ev3 maszyny Wirtualnej funkcji technologią Intel® Hyper-Threading
+
+<sup>2</sup> wystąpienia jest izolowana sprzętu przeznaczonego do jednego odbiorcy.
 
 ## <a name="m-series-sup1sup"></a>M-series <sup>1</sup>
 
@@ -56,8 +61,8 @@ ACU: 160–180
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
 | Standard_M64s  | 64   | 1024        | 2048           | 64             | 80 000 / 800 (6348)       | 40 000 / 1000                            | 8 / 16 000          |
 | Standardowa_M64ms  | 64   | 1792        | 2048           | 64             | 80 000 / 800 (6348)       | 40 000 / 1000                            | 8 / 16 000          |
-| Standard_M128s <sup>2. 3</sup> | 128  | 2048        | 4096           | 64             | 160 000 / 1 600 (12 696) | 80 000 / 2000                            | 8 / 30000          |
-| Standard_M128ms <sup>2. 3</sup> | 128  | 3800        | 4096           | 64             | 160 000 / 1 600 (12 696) | 80 000 / 2000                            | 8 / 30000          |
+| Standard_M128s <sup>2, 3</sup> | 128  | 2048        | 4096           | 64             | 160 000 / 1 600 (12 696) | 80 000 / 2000                            | 8 / 30000          |
+| Standard_M128ms <sup>2, 3, 4</sup> | 128  | 3800        | 4096           | 64             | 160 000 / 1 600 (12 696) | 80 000 / 2000                            | 8 / 30000          |
 
 <sup>1</sup> funkcja wirtualna serii M technologią Intel® Hyper-Threading
 
@@ -65,6 +70,7 @@ ACU: 160–180
 
 <sup>3</sup> ograniczone dostępne rozmiary core.
 
+<sup>4</sup>wystąpienia jest izolowana sprzętu przeznaczonego do jednego odbiorcy.
 <br>
 
 ## <a name="gs-series-sup1sup"></a>GS-series <sup>1</sup>

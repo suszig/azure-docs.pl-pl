@@ -4,7 +4,7 @@ description: "W tym samouczku są używane zasoby utworzone za pomocą klasyczny
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: 7ca7c423-8342-4175-a70b-d5101dfb7f23
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 50326a093adaf3558c56dfd0b38544f0e60be460
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3e56f1741a9cfd3f2d9f786c2ce22eb6a946ef2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>Rozszerzanie lokalnymi zawsze włączone grupy dostępności na platformie Azure
 Zawsze włączone grupy dostępności zapewnia wysoką dostępność dla grup bazy danych, dodając replikach pomocniczych. Zezwalaj na tych replik przechodzenie w tryb failover baz danych w przypadku awarii. Ponadto one może służyć do odciążenia odczytu obciążeń lub zadania tworzenia kopii zapasowych.
@@ -58,7 +58,7 @@ W tej sekcji przedstawia sposób użycia **Kreatora dodawania repliki Azure** do
    | Ustawienie | Opis |
    | --- | --- |
    | **Obraz** |Wybierz żądaną kombinację systemu operacyjnego i programu SQL Server |
-   | **Rozmiar maszyny Wirtualnej** |Wybierz rozmiar maszyny Wirtualnej, który najlepiej odpowiada Twoim potrzebom biznesowa |
+   | Rozmiar maszyny Wirtualnej |Wybierz rozmiar maszyny Wirtualnej, który najlepiej odpowiada Twoim potrzebom biznesowa |
    | **Nazwa maszyny Wirtualnej** |Określ unikatową nazwę dla nowej maszyny Wirtualnej. Nazwa musi zawierać od 3 do 15 znaków, może zawierać tylko litery, cyfry i łączniki, musi zaczynać się literą i kończyć literą lub cyfrą. |
    | **Nazwa użytkownika maszyny Wirtualnej** |Określ nazwę użytkownika, który ma zostać konta administratora na maszynie Wirtualnej |
    | **Hasło administratora maszyny Wirtualnej** |Określ hasło dla nowego konta |
@@ -89,7 +89,7 @@ W tej sekcji przedstawia sposób użycia **Kreatora dodawania repliki Azure** do
 ## <a name="create-an-availability-group-listener"></a>Utwórz odbiornik grupy dostępności
 Po utworzeniu grupy dostępności, należy utworzyć odbiornika dla klientom na łączenie się z replikami. Odbiorniki bezpośrednie połączenia przychodzące do podstawowej lub pomocniczej replice tylko do odczytu. Aby uzyskać więcej informacji na odbiorników, zobacz [skonfigurować odbiornik ILB dla zawsze włączonych grup dostępności na platformie Azure](../classic/ps-sql-int-listener.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Oprócz używania **Kreatora dodawania repliki Azure** do rozszerzenia Twojej zawsze włączonej grupy dostępności na platformie Azure, to może również przenieść niektórych obciążeń programu SQL Server całkowicie na platformie Azure. Aby rozpocząć, zobacz [inicjowania obsługi maszyny wirtualnej programu SQL Server na platformie Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md).
 
 Do innych tematów związanych z programem SQL Server na maszynach wirtualnych Azure, zobacz [programu SQL Server na maszynach wirtualnych Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).

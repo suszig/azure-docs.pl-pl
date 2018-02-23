@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/08/2018
+ms.date: 02/21/2018
 ms.author: larryfr
-ms.openlocfilehash: 8bd5bebb04303b83a21bc1434e713ce26de54ae9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e0ca77fb49bfdd0a47c7efe746d58a93dd4eafc1
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Rozszerzenie Azure HDInsight przy użyciu sieci wirtualnej platformy Azure
 
@@ -210,7 +210,7 @@ Aby połączyć się Ambari i stron sieci web za pośrednictwem sieci wirtualnej
 
 2. Aby określić węzeł i port, który usługa jest dostępna na, zobacz [porty używane przez usługi Hadoop w usłudze HDInsight](./hdinsight-hadoop-port-settings-for-services.md) dokumentu.
 
-## <a id="networktraffic"></a>Kontrolowanie ruchu w sieci
+## <a id="networktraffic"></a> Kontrolowanie ruchu w sieci
 
 Ruch sieciowy w sieciach wirtualnych platformy Azure można sterować przy użyciu następujących metod:
 
@@ -227,7 +227,7 @@ Jako zarządzanej usługi HDInsight wymaga nieograniczony dostęp do usług plat
 
 HDInsight udostępnia usługi na kilku portów. Używając urządzenie wirtualne zapory, musisz zezwolić na ruch na portach używanych na potrzeby tych usług. Aby uzyskać więcej informacji zobacz sekcję [wymagane porty].
 
-### <a id="hdinsight-ip"></a>HDInsight z grup zabezpieczeń sieci i trasy zdefiniowane przez użytkownika
+### <a id="hdinsight-ip"></a> HDInsight z grup zabezpieczeń sieci i trasy zdefiniowane przez użytkownika
 
 Jeśli planujesz używanie **sieciowej grupy zabezpieczeń** lub **trasy zdefiniowane przez użytkownika** do kontroli ruchu sieciowego, wykonaj następujące czynności przed zainstalowaniem usługi HDInsight:
 
@@ -250,7 +250,7 @@ Aby uzyskać więcej informacji na sieciowych grup zabezpieczeń lub trasy zdefi
 
 Wymuszanie tunelowania jest zdefiniowane przez użytkownika Konfiguracja routingu którym cały ruch z podsieci będzie zmuszony do określonej sieci lub lokalizacji, takiej jak sieć lokalną. HDInsight jest __nie__ obsługi wymuszonego tunelowania.
 
-## <a id="hdinsight-ip"></a>Wymaganych adresów IP
+## <a id="hdinsight-ip"></a> Wymaganych adresów IP
 
 > [!IMPORTANT]
 > Usług kondycji oraz zarządzania platformy Azure musi mieć możliwość komunikacji z usługą HDInsight. Jeśli używasz grup zabezpieczeń sieci lub trasy zdefiniowane przez użytkownika, zezwalać na ruch z adresów IP dla tych usług do usługi HDInsight.
@@ -299,6 +299,7 @@ Jeśli używasz grup zabezpieczeń sieci lub trasy zdefiniowane przez użytkowni
     | &nbsp; | Wschodnie stany USA | 13.82.225.233</br>40.71.175.99 | 443 | Przychodzący |
     | &nbsp; | Środkowo-północne stany USA | 157.56.8.38</br>157.55.213.99 | 443 | Przychodzący |
     | &nbsp; | Środkowo-zachodnie stany USA | 52.161.23.15</br>52.161.10.167 | 443 | Przychodzący |
+    | &nbsp; | Zachodnie stany USA | 13.64.254.98</br>23.101.196.19 | 443 | Przychodzący |
     | &nbsp; | Zachodnie stany USA 2 | 52.175.211.210</br>52.175.222.222 | 443 | Przychodzący |
 
     Aby uzyskać informacje dotyczące adresów IP do użycia na potrzeby Azure dla instytucji rządowych, zobacz [Azure dla instytucji rządowych analizy i analiza](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) dokumentu.
@@ -307,7 +308,7 @@ Jeśli używasz grup zabezpieczeń sieci lub trasy zdefiniowane przez użytkowni
 
 Aby uzyskać więcej informacji, zobacz [kontrolowanie ruchu w sieci](#networktraffic) sekcji.
 
-## <a id="hdinsight-ports"></a>Wymagane porty
+## <a id="hdinsight-ports"></a> Wymagane porty
 
 Jeśli planowane jest użycie sieci **urządzenie wirtualne zapory** do zabezpieczania sieci wirtualnej, musisz zezwolić na ruch wychodzący na następujące porty:
 
@@ -499,7 +500,7 @@ Poniższe kroki umożliwiają utworzenie sieci wirtualnej, która ogranicza ruch
 > az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule5 --protocol "*" --source-port-range "*" --destination-port-range "22" --source-address-prefix "*" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 306 --direction "Inbound"
 > ```
 
-## <a id="example-dns"></a>Przykład: Konfiguracji DNS
+## <a id="example-dns"></a> Przykład: Konfiguracji DNS
 
 ### <a name="name-resolution-between-a-virtual-network-and-a-connected-on-premises-network"></a>Rozpoznawanie nazw między sieci wirtualnej i sieci połączonych lokalnie
 

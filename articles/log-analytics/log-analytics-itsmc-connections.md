@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: a51ba4b45b7f6c72037d5c562a4ccd59e601cee4
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: e0cae844e8b7f3eab68ed02dbcd17f4d1cebfd25
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Zarządzanie usługami IT — produktów/usług Uzyskuj dostęp do łącznika zarządzania usługi IT
 Ten artykuł zawiera informacje o tym, jak skonfigurować połączenie między Zarządzanie usługami IT — produktu/usługi i IT usługi zarządzania łącznika (ITSMC) w analizy dzienników do centralnego zarządzania elementami pracy. Aby uzyskać więcej informacji o ITSMC, zobacz [omówienie](log-analytics-itsmc-overview.md).
@@ -185,11 +185,12 @@ Poniższe sekcje zawierają szczegółowe informacje na temat nawiązywania poł
 ### <a name="prerequisites"></a>Wymagania wstępne
 Upewnij się, że są spełnione następujące wymagania wstępne:
 - ITSMC zainstalowane. Więcej informacji: [Dodawanie rozwiązania do zarządzania łącznika usługi IT](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- Usługi ServiceNow obsługiwane wersje: Dżakarta, Stambuł, Helsinki, serwera Geneva
+- Usługi ServiceNow obsługiwane wersje: Kingston, Dżakarta, Stambuł, Helsinki, serwera Geneva.
 
 **Administratorzy usługi ServiceNow musi wykonać następujące czynności w ich wystąpienia usługi ServiceNow**:
 - Generują identyfikator klienta i klucz tajny klienta usługi ServiceNow produktu. Aby uzyskać informacje na temat generowania identyfikator klienta i klucz tajny zobacz poniższe informacje zgodnie z wymaganiami:
 
+    - [Konfigurowanie uwierzytelniania OAuth dla Kingston](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/concept/OAuth-setup.html)
     - [Konfigurowanie uwierzytelniania OAuth dla Dżakarta](https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Konfigurowanie uwierzytelniania OAuth dla Stambuł](https://docs.servicenow.com/bundle/istanbul-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Konfigurowanie uwierzytelniania OAuth dla Helsinkach](https://docs.servicenow.com/bundle/helsinki-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
@@ -199,7 +200,7 @@ Upewnij się, że są spełnione następujące wymagania wstępne:
 - Zainstaluj aplikację użytkownika integracji OMS firmy Microsoft (usługi ServiceNow aplikacji). [Dowiedz się więcej](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
 - Utworzenie roli użytkownika integracji dla zainstalowanej aplikacji użytkownika. Informacje dotyczące sposobu tworzenia roli użytkownika integracji [tutaj](#create-integration-user-role-in-servicenow-app).
 
-### <a name="connection-procedure"></a>**Procedura połączenia**
+### <a name="connection-procedure"></a>Procedura połączenia
 Użyj poniższej procedury, aby utworzyć połączenie usługi ServiceNow:
 
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: bradsev
-ms.openlocfilehash: fed2e9af3e9765ce5a2486fe9468d3ca690a0d5d
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 05884fd39db284e268f31987e5ad7a47b9f87ebf
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Przenoszenie danych z lokalnego programu SQL server SQL Azure z fabryką danych Azure
 W tym temacie pokazano, jak przenieść dane z lokalną bazą danych serwera SQL z bazą danych SQL Azure za pomocą usługi Azure Blob Storage przy użyciu fabryki danych Azure (ADF).
@@ -61,12 +61,12 @@ Ten samouczek zakłada, że masz:
 >
 >
 
-## <a name="upload-data"></a>Przekazywanie danych do lokalnego serwera SQL
+## <a name="upload-data"></a> Przekazywanie danych do lokalnego serwera SQL
 Używamy [dataset taksówki NYC](http://chriswhong.com/open-data/foil_nyc_taxi/) aby zademonstrować procesu migracji. Taksówki NYC zestawu danych jest dostępna, zgodnie z opisem w tym blogu w magazynie obiektów blob platformy Azure [danych taksówki NYC](http://www.andresmh.com/nyctaxitrips/). Dane mają dwóch plików, pliku trip_data.csv, który zawiera szczegóły podróży, i pliku trip_far.csv, który zawiera szczegółowe informacje o klasie płatnej w odniesieniu do każdej podróży. Przykładowe i opis te pliki znajdują się w [opis zestawu danych rund taksówki NYC](sql-walkthrough.md#dataset).
 
 Można dostosować procedury podaną poniżej do zestawu danych użytkownika lub wykonaj kroki opisane przy użyciu taksówki NYC zestawu danych. Aby przekazać taksówki NYC zestawu danych do lokalnej bazy danych programu SQL Server, wykonaj procedurę opisaną w [zbiorczego importowania danych do bazy danych serwera SQL](sql-walkthrough.md#dbload). Te instrukcje dotyczą programu SQL Server na maszynie wirtualnej platformy Azure, ale procedura przekazywania do lokalnego serwera SQL jest taka sama.
 
-## <a name="create-adf"></a>Tworzenie fabryki danych Azure
+## <a name="create-adf"></a> Tworzenie fabryki danych Azure
 Instrukcje dotyczące tworzenia nowych fabryki danych Azure i grupy zasobów w [portalu Azure](https://portal.azure.com/) podano [tworzenie fabryki danych Azure](../../data-factory/v1/data-factory-build-your-first-pipeline-using-editor.md#create-a-data-factory). Nazwa nowego wystąpienia ADF *adfdsp* i nazwę grupy zasobów utworzonej *adfdsprg*.
 
 ## <a name="install-and-configure-up-the-data-management-gateway"></a>Instalowanie i konfigurowanie się brama zarządzania danymi
@@ -105,7 +105,7 @@ Definicje opartych na formacie JSON w tabelach stosować następujących nazw:
 Trzy definicje tabel są wymagane dla tego potoku ADF:
 
 1. [SQL lokalnej tabeli](#adf-table-onprem-sql)
-2. [Tabela obiektów blob](#adf-table-blob-store)
+2. [Tabela obiektów blob ](#adf-table-blob-store)
 3. [SQL tabeli platformy Azure](#adf-table-azure-sql)
 
 > [!NOTE]
@@ -113,7 +113,7 @@ Trzy definicje tabel są wymagane dla tego potoku ADF:
 >
 >
 
-### <a name="adf-table-onprem-sql"></a>SQL lokalnej tabeli
+### <a name="adf-table-onprem-sql">SQL lokalnej tabeli</a>
 Definicja tabeli dla lokalnego programu SQL Server jest określona w następującym pliku JSON:
 
         {
@@ -148,7 +148,7 @@ Kopiuj do pliku definicji JSON tabeli o nazwie *onpremtabledef.json* pliku i zap
     New-AzureDataFactoryTable -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp –File C:\temp\onpremtabledef.json
 
 
-### <a name="adf-table-blob-store"></a>Tabela obiektów blob
+### <a name="adf-table-blob-store">Tabela obiektów blob </a>
 Definicja tabeli dla lokalizacji obiektu blob danych wyjściowych jest w następującej (mapuje pozyskiwane danych z lokalnego do obiektów blob platformy Azure):
 
         {
@@ -178,7 +178,7 @@ Kopiuj do pliku definicji JSON tabeli o nazwie *bloboutputtabledef.json* pliku i
 
     New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\bloboutputtabledef.json  
 
-### <a name="adf-table-azure-sq"></a>SQL tabeli platformy Azure
+### <a name="adf-table-azure-sql">SQL tabeli platformy Azure</a>
 Definicja tabeli SQL Azure jest poniżej (w tym schemacie mapowania danych z obiektu blob) wyjściowy:
 
     {

@@ -4,7 +4,7 @@ description: "Ten samouczek przedstawia kroki tworzenia zawsze na odbiornik grup
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: a2453032-94ab-4775-b976-c74d24716728
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 8e506be42aea4fb3c48c29b771a78dcf694f4518
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 38bb77c6b1d083bd6b52b785a991f24965d00e12
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>Skonfiguruj odbiornik zewnętrzny dla zawsze włączonych grup dostępności w systemie Azure
 > [!div class="op_single_selector"]
@@ -59,7 +59,7 @@ Punkt końcowy z równoważeniem obciążenia należy utworzyć dla każdej masz
 3. Sprawdź, czy **nazwa** i **Port publiczny** nasłuchującego punktu końcowego, którego chcesz użyć nie jest już używany. W poniższym przykładzie nazwa to "MyEndpoint", a numer portu to "1433".
 4. Na kliencie lokalnym, Pobierz i zainstaluj [modułu programu PowerShell najnowsze](https://azure.microsoft.com/downloads/).
 5. Uruchom **programu Azure PowerShell**. Nowej sesji programu PowerShell jest otwarty z Azure załadowanych modułów administracyjnych.
-6. Uruchom **Get-AzurePublishSettingsFile**. To polecenie cmdlet kieruje do przeglądarki, aby pobrać plik ustawień publikowania do katalogu lokalnego. Może pojawić się prośba o podanie poświadczeń logowania dla subskrypcji platformy Azure.
+6. Run **Get-AzurePublishSettingsFile**. To polecenie cmdlet kieruje do przeglądarki, aby pobrać plik ustawień publikowania do katalogu lokalnego. Może pojawić się prośba o podanie poświadczeń logowania dla subskrypcji platformy Azure.
 7. Uruchom **AzurePublishSettingsFile importu** polecenia ze ścieżką pobrany plik ustawień publikowania:
    
         Import-AzurePublishSettingsFile -PublishSettingsFile <PublishSettingsFilePath>

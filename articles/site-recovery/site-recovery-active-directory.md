@@ -5,57 +5,54 @@ services: site-recovery
 documentationcenter: 
 author: mayanknayar
 manager: rochakm
-editor: 
-ms.assetid: af1d9b26-1956-46ef-bd05-c545980b72dc
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 12/15/2017
+ms.date: 02/13/2018
 ms.author: manayar
-ms.openlocfilehash: 4ff42d5dc18a80e94ff81d3e4d9ed55533ad0e19
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 71e28d7c91526de07e64a294873d3f25fe5378f7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Użyj usługi Azure Site Recovery do ochrony usługi Active Directory i DNS
-Aplikacje przedsiębiorstwa, takich jak SharePoint, Dynamics AX i SAP są zależne od usługi Active Directory i infrastruktury DNS, aby mógł działać poprawnie. Podczas tworzenia rozwiązanie odzyskiwania po awarii dla aplikacji, aby zapewnić działanie aplikacji poprawne często konieczne odzyskać usługi Active Directory i DNS wcześniej inne składniki aplikacji.
 
-Azure Site Recovery umożliwia utworzenie planu odzyskiwania po awarii pełną, automatyczne dla usługi Active Directory. W przypadku wystąpienia przerw w działaniu można zainicjować trybu failover w ciągu kilku sekund z dowolnego miejsca. Masz usługi Active Directory w górę i uruchomiony w ciągu kilku minut. Jeśli w lokacji głównej zostały wdrożone usługi Active Directory dla wielu aplikacji, na przykład dla programu SharePoint i SAP, możesz do pracy awaryjnej w całej lokacji. Możesz pierwszy w trybie Failover usługi Active Directory przy użyciu usługi Site Recovery. Następnie należy przełączyć inne aplikacje przy użyciu planów odzyskiwania specyficzne dla aplikacji.
+Aplikacje przedsiębiorstwa, takich jak SharePoint, Dynamics AX i SAP są zależne od usługi Active Directory i infrastruktury DNS, aby mógł działać poprawnie. Podczas odzyskiwania po awarii dla aplikacji, należy często odzyskać usługi Active Directory i DNS wcześniej inne składniki aplikacji w celu zapewnienia ich funkcjonalności właściwej aplikacji.
 
-W tym artykule opisano sposób tworzenia rozwiązanie odzyskiwania po awarii dla usługi Active Directory, jak wykonać przełączenia do trybu failover przy użyciu planu odzyskiwania jednym kliknięciem i obsługiwane konfiguracje i wymagania wstępne. Należy zapoznać się z usługą Active Directory i Azure Site Recovery, aby rozpocząć.
+Można użyć [usługi Site Recovery](site-recovery-overview.md) umożliwia utworzenie planu odzyskiwania po awarii dla usługi Active Directory. W przypadku wystąpienia przerw w działaniu można zainicjować trybu failover. Masz usługi Active Directory w górę i uruchomiony w ciągu kilku minut. Jeśli w lokacji głównej zostały wdrożone usługi Active Directory dla wielu aplikacji, na przykład dla programu SharePoint i SAP, możesz do pracy awaryjnej w całej lokacji. Możesz pierwszy w trybie Failover usługi Active Directory przy użyciu mentu odzyskiwania. Następnie należy przełączyć inne aplikacje, przy użyciu planów odzyskiwania specyficzne dla aplikacji.
+
+W tym artykule opisano sposób tworzenia rozwiązanie odzyskiwania po awarii dla usługi Active Directory. Zawiera wymagania wstępne i instrukcje pracy awaryjnej. Należy zapoznać się z usługą Active Directory i usługi Site Recovery, przed rozpoczęciem.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-* Magazyn usług odzyskiwania Azure w ramach subskrypcji Microsoft Azure.
-* Jeśli przeprowadzasz replikację do platformy Azure, [przygotowanie](tutorial-prepare-azure.md) zasobów platformy Azure. Zasoby obejmują subskrypcji platformy Azure, wystąpienie usługi Azure Virtual Network i konto magazynu platformy Azure.
-* Przejrzyj wymagania dotyczące pomocy technicznej dla wszystkich składników.
+
+* Jeśli przeprowadzasz replikację do platformy Azure, [przygotowanie zasobów Azure](tutorial-prepare-azure.md), włącznie z subskrypcji, sieci wirtualnej platformy Azure, konta magazynu i magazynu usług odzyskiwania.
+* Przegląd [spełnić wymagania dotyczące](site-recovery-support-matrix-to-azure.md) dla wszystkich składników.
 
 ## <a name="replicate-the-domain-controller"></a>Replikowanie kontrolera domeny
 
-Należy zdefiniować [replikacji usługi Site Recovery](#enable-protection-using-site-recovery) na co najmniej jedną maszynę wirtualną, kontrolera domeny lub DNS. Jeśli masz [wielu kontrolerów domeny](#environment-with-multiple-domain-controllers) w danym środowisku, należy również skonfigurować [dodatkowy kontroler domeny](#protect-active-directory-with-active-directory-replication) w lokacji docelowej. Dodatkowy kontroler domeny może być na platformie Azure lub lokalnego pomocniczego centrum danych.
+Należy zdefiniować [replikacji usługi Site Recovery](#enable-protection-using-site-recovery), na co najmniej jedną maszynę Wirtualną, która obsługuje kontrolera domeny lub DNS. Jeśli masz [wielu kontrolerów domeny](#environment-with-multiple-domain-controllers) w danym środowisku, należy również skonfigurować [dodatkowy kontroler domeny](#protect-active-directory-with-active-directory-replication) w lokacji docelowej. Dodatkowy kontroler domeny może być na platformie Azure lub lokalnego pomocniczego centrum danych.
 
-### <a name="single-domain-controller-environments"></a>Kontroler domeny jednego środowiska
+### <a name="single-domain-controller"></a>Kontroler domeny pojedynczej
 Jeśli masz tylko kilka aplikacji i jeden kontroler domeny, możesz chcieć razem ulegają awarii w całej lokacji. W takim przypadku zaleca się przy użyciu usługi Site Recovery do replikacji kontrolera domeny do lokacji docelowej (albo w Azure lub lokalnego pomocniczego centrum danych). Możesz użyć tego samego kontrolera domeny replikowanych lub maszyny wirtualnej DNS dla [testowanie trybu failover](#test-failover-considerations).
 
-### <a name="multiple-domain-controllers-environments"></a>Wiele środowisk kontrolerów domeny
+### <a name="multiple-domain-controllers"></a>Wiele kontrolerów domeny
 Jeśli masz wiele aplikacji i więcej niż jeden kontroler domeny w środowisku, lub jeśli planujesz do trybu failover kilka aplikacji w czasie, oprócz replikacji maszyny wirtualnej kontrolera domeny z usługą Site Recovery, zaleca się konfigurowanie [dodatkowy kontroler domeny](#protect-active-directory-with-active-directory-replication) w docelowej lokacji (albo w Azure lub lokalnego pomocniczego centrum danych). Aby uzyskać [testowanie trybu failover](#test-failover-considerations), można użyć kontrolera domeny, który jest replikowany przez usługę Site Recovery. Dla trybu failover można użyć dodatkowego kontrolera domeny w lokacji docelowej.
 
-## <a name="enable-protection-by-using-site-recovery"></a>Włącz ochronę za pomocą usługi Site Recovery
+## <a name="enable-protection-with-site-recovery"></a>Włącz ochronę za pomocą usługi Site Recovery
 
 Site Recovery można użyć do ochrony maszyny wirtualnej, która obsługuje kontrolera domeny lub DNS.
 
-### <a name="protect-the-virtual-machine"></a>Ochrona maszyny wirtualnej
+### <a name="protect-the-vm"></a>Ochrona maszyny Wirtualnej
 Kontroler domeny, który jest replikowany za pomocą usługi Site Recovery jest używana do [testowanie trybu failover](#test-failover-considerations). Upewnij się, że spełnia następujące wymagania:
 
 1. Kontroler domeny jest serwerem wykazu globalnego.
 2. Kontroler domeny powinien być właścicielem roli FSMO dla ról, które są wymagane podczas testowania trybu failover. W przeciwnym wypadku te role musi być [zajęte](http://aka.ms/ad_seize_fsmo) po przejściu w tryb failover.
 
-### <a name="configure-virtual-machine-network-settings"></a>Konfigurowanie ustawień sieci maszyny wirtualnej
+### <a name="configure-vm-network-settings"></a>Konfigurowanie ustawień sieciowych maszyny Wirtualnej
 Dla maszyny wirtualnej, która obsługuje kontrolera domeny lub DNS w usłudze Site Recovery, skonfigurować ustawienia sieciowe w obszarze **obliczenia i sieć** ustawienia zreplikowanej maszyny wirtualnej. Dzięki temu, że maszyna wirtualna jest dołączona do odpowiedniej sieci po pracy awaryjnej.
 
-## <a name="protect-active-directory-with-active-directory-replication"></a>Ochrona usługi Active Directory z replikacji usługi Active Directory
+## <a name="protect-active-directory"></a>Ochrona usługi Active Directory
+
 ### <a name="site-to-site-protection"></a>Ochrona lokacja lokacja
 Tworzenie kontrolera domeny w lokacji dodatkowej. Podczas podwyższania poziomu serwera do roli kontrolera domeny, określ nazwę tej samej domeny, który jest używany w lokacji głównej. Można użyć **Lokacje usługi Active Directory i usługi** przystawki można skonfigurować ustawienia na obiekt łącza lokacji, do której są dodawane witryny. Konfigurując ustawienia dla łącza lokacji, możesz kontrolować termin replikacji między co najmniej dwóch lokacji, i jak często występuje. Aby uzyskać więcej informacji, zobacz [planowanie replikacji między lokacjami](https://technet.microsoft.com/library/cc731862.aspx).
 
@@ -91,7 +88,7 @@ Większość aplikacji wymaga obecności kontrolera domeny lub serwer DNS. Dlate
 
 ### <a name="test-failover-to-a-secondary-site"></a>Testowanie trybu failover do lokacji dodatkowej
 
-1. Jeśli przeprowadzasz replikację do innej lokacji lokalnej i korzystania z protokołu DHCP, postępuj zgodnie z instrukcjami, aby [Konfigurowanie systemu DNS i DHCP do testowania trybu failover](site-recovery-test-failover-vmm-to-vmm.md#prepare-dhcp).
+1. Jeśli przeprowadzasz replikację do innej lokacji lokalnej i korzystania z protokołu DHCP [Konfigurowanie systemu DNS i DHCP do testowania trybu failover](hyper-v-vmm-test-failover.md#prepare-dhcp).
 2. Wykonaj test trybu failover maszyny wirtualnej kontrolera domeny z systemem w sieci izolowanej. Użyj najnowszych dostępnych *aplikacji spójne* punktu odzyskiwania maszyny wirtualnej kontrolera domeny do testowania trybu failover.
 3. Uruchom test trybu failover planu odzyskiwania, który zawiera maszyny wirtualne, których aplikacja jest uruchamiana na.
 4. Po zakończeniu testowania, *oczyszczania testowy tryb failover* na maszynie wirtualnej kontrolera domeny. Ten krok powoduje usunięcie kontrolera domeny, który został utworzony do testowania trybu failover.

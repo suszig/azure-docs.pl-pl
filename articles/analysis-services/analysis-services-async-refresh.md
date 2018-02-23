@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/18/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 06d807b83f700c675c6979998dd8f74372a4845f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 1f31c05554db16d604a9825ef9b1317a0f281456
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Odświeżanie asynchroniczne przy użyciu interfejsu API REST
 Przy użyciu języka programowania, który obsługuje wywołania REST, można wykonywać operacje asynchroniczne odświeżanie danych w sieci modele tabelaryczne usług Azure Analysis Services. W tym synchronizacji repliki tylko do odczytu dla zapytania skalowania w poziomie. 
@@ -104,7 +104,7 @@ Określanie parametrów nie jest wymagane. Wartość domyślna została zastosow
 |Typ     |  wyliczenia       |  Typ przetwarzanie ma zostać wykonane. Typy są zgodne z TMSL [Odśwież polecenia](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) typy: pełne, clearValues, obliczenia tylko dane automatyczne, dodać i defragmentacji.       |   Automatyczne      |
 |CommitMode     |  wyliczenia       |  Określa, czy obiekty zostaną również zatwierdzone w partiach lub po zakończeniu. Tryby obejmują: partialBatch transakcyjna, domyślnie.  |  transakcyjne       |
 |MaxParallelism     |   Int      |  Ta wartość określa maksymalną liczbę wątków, na którym do uruchomienia polecenia przetwarzania równoległego. To wyrównane z właściwością MaxParallelism, które można ustawić w TMSL [sekwencji polecenia](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) lub przy użyciu innych metod.       | 10        |
-|retryCount    |    Int     |   Wskazuje, ile razy ponowi operację przed niepowodzeniem.      |     0    |
+|RetryCount    |    Int     |   Wskazuje, ile razy ponowi operację przed niepowodzeniem.      |     0    |
 |Obiekty     |   Tablica      |   Tablica obiektów do przetworzenia. Każdy obiekt obejmuje: "table" podczas przetwarzania całą tabelę lub "table" i "partycji" podczas przetwarzania partycji. Jeśli nie określono żadnych obiektów, jest odświeżany całego modelu. |   Proces całego modelu      |
 
 CommitMode jest równa partialBatch. Jest używany podczas operacją ładowania początkowego dużych zestawów danych może potrwać do godziny. W przypadku niepowodzenia operacji odświeżania po pomyślnie zatwierdzania jednego lub więcej instancji pomyślnie zatwierdzony partii pozostaną zatwierdzone (go nie cofnie pomyślnie zatwierdzony partie).
@@ -208,7 +208,7 @@ Przykładowy kod można używać logowania interakcyjnego, nazwę użytkownika/h
 
 Ta forma uwierzytelniania wymaga aplikacji Azure można utworzyć z uprawnieniami interfejsu API przypisane. 
 
-1.  W portalu Azure kliknij **nowy** > **usługi Azure Active Directory** > **rejestracji aplikacji** > **nowy Rejestracja aplikacji**.
+1.  W portalu Azure kliknij **Utwórz zasób** > **usługi Azure Active Directory** > **rejestracji aplikacji**  >   **Nowej rejestracji aplikacji**.
 
     ![Nowej rejestracji aplikacji](./media/analysis-services-async-refresh/aas-async-app-reg.png)
 

@@ -41,6 +41,8 @@
 #### [Transferowanie, blokady i uzgadnianie komunikatów](message-transfers-locks-settlement.md)
 #### [Sekwencjonowanie i sygnatury czasowe komunikatów](message-sequencing.md)
 #### [Wygaśnięcie komunikatu (czas wygaśnięcia)](message-expiration.md)
+#### [Message handling using Azure Event Grid (Obsługa komunikatów przy użyciu usługi Azure Event Grid)](service-bus-to-event-grid-integration-concept.md)
+#### [Azure Event Grid examples (Przykłady usługi Azure Event Grid)](service-bus-to-event-grid-integration-example.md)
 ### [Uwierzytelnianie i autoryzacja](service-bus-authentication-and-authorization.md)
 #### [Migrowanie z usługi ACS do sygnatury dostępu współdzielonego](service-bus-migrate-acs-sas.md)
 #### [Authentication with Shared Access Signatures (Uwierzytelnianie za pomocą sygnatur dostępu współdzielonego)](service-bus-sas.md)

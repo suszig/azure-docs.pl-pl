@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: xshi
-ms.openlocfilehash: 50ae54b9476c49b80236e295c0bf244df8236cff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec6bd6b053f6546c77508d29065de25739619d96
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Pogody prognozy przy użyciu danych czujnika z Centrum IoT w usłudze Azure Machine Learning
 
@@ -80,7 +80,7 @@ Sposób na potrzeby usługi Azure Machine Learning pogodowe prognozy (szansy ust
 
 ### <a name="create-a-stream-analytics-job"></a>Tworzenie zadania usługi Stream Analytics
 
-1. W [portalu Azure](https://ms.portal.azure.com/), kliknij przycisk **nowy** > **Internetu rzeczy** > **zadanie usługi Stream Analytics**.
+1. W [portalu Azure](https://portal.azure.com/), kliknij przycisk **Utwórz zasób** > **Internetu rzeczy** > **zadanie usługi Stream Analytics**.
 1. Wprowadź następujące informacje dla zadania.
 
    **Nazwa zadania**: Nazwa zadania. Nazwa musi być unikatowa w skali globalnej.
@@ -89,7 +89,7 @@ Sposób na potrzeby usługi Azure Machine Learning pogodowe prognozy (szansy ust
 
    **Lokalizacja**: Użyj tej samej lokalizacji co grupie zasobów.
 
-   **Przypnij do pulpitu nawigacyjnego**: Zaznacz tę opcję, by mieć łatwy dostęp do Centrum IoT z poziomu pulpitu nawigacyjnego.
+   **Przypnij do pulpitu nawigacyjnego**: zaznacz tę opcję, aby mieć łatwy dostęp do centrum IoT Hub z pulpitu nawigacyjnego.
 
    ![Utwórz zadanie usługi Stream Analytics na platformie Azure](media/iot-hub-weather-forecast-machine-learning/7_create-stream-analytics-job-azure.png)
 

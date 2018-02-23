@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: c21b575e9e055b2dec69bea270012b91df2b662b
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 9f733ee6c193a695dacaf7c390402e12407e198d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Zrozumienia i rozwiązania błędów, odbierane z usługi WebHCat w usłudze HDInsight
 
@@ -48,9 +48,9 @@ W przypadku przekroczenia następujące wartości domyślne, możesz obniżyć w
 
 | Ustawienie | Wyniki działania | Wartość domyślna |
 | --- | --- | --- |
-| [yarn.Scheduler.Capacity.Maximum — aplikacje][maximum-applications] |Maksymalna liczba zadań, które mogą być jednocześnie aktywne (oczekiwanie lub uruchomiona) |10 000 |
-| [templeton.EXEC.max procs][max-procs] |Maksymalna liczba żądań, które mogą być przekazywane jednocześnie |20 |
-| [mapreduce.jobhistory.max wieku ms][max-age-ms] |Liczba dni, które Historia zadania są zachowywane. |7 dni |
+| [yarn.scheduler.capacity.maximum-applications][maximum-applications] |Maksymalna liczba zadań, które mogą być jednocześnie aktywne (oczekiwanie lub uruchomiona) |10 000 |
+| [templeton.exec.max-procs][max-procs] |Maksymalna liczba żądań, które mogą być przekazywane jednocześnie |20 |
+| [mapreduce.jobhistory.max-age-ms][max-age-ms] |Liczba dni, które Historia zadania są zachowywane. |7 dni |
 
 ## <a name="too-many-requests"></a>Za dużo żądań
 
@@ -86,7 +86,7 @@ W przypadku przekroczenia następujące wartości domyślne, możesz obniżyć w
 | --- | --- |
 | Wewnętrzny wyrzucanie elementów bezużytecznych jest wykonywana w ramach procesu usługi WebHCat |Poczekaj na wyrzucanie elementów bezużytecznych Zakończ lub ponownego uruchomienia usługi WebHCat |
 | Upłynął limit czasu oczekiwania na odpowiedź z usługi ResourceManager. Ten błąd może wystąpić, gdy liczba aktywnych aplikacji skonfigurowane maksimum (domyślnie 10 000) |Poczekaj, aż aktualnie uruchomionych zadań do wykonania lub zwiększ limit równoczesnych zadań, modyfikując `yarn.scheduler.capacity.maximum-applications`. Aby uzyskać więcej informacji, zobacz [modyfikowanie konfiguracji](#modifying-configuration) sekcji. |
-| Podjęto próbę pobrania wszystkich zadań za pomocą [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) wywołania podczas `Fields` ma ustawioną wartość`*` |Nie pobierają *wszystkie* szczegóły zadania. Zamiast tego użyj `jobid` można pobrać szczegółów zadań większe tylko niektórych identyfikator zadania. Nie używaj`Fields` |
+| Podjęto próbę pobrania wszystkich zadań za pomocą [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) wywołania podczas `Fields` ma ustawioną wartość `*` |Nie pobierają *wszystkie* szczegóły zadania. Zamiast tego użyj `jobid` można pobrać szczegółów zadań większe tylko niektórych identyfikator zadania. Nie używaj `Fields` |
 | Usługi WebHCat nie działa w trybie failover HeadNode |Poczekaj 2 minuty, a następnie spróbuj ponownie wykonać operację |
 | Istnieje więcej niż 500 oczekujące zadania przesłane za pośrednictwem usługi WebHCat |Poczekaj, aż obecnie oczekujące zadania zostały ukończone przed przesłaniem więcej zadań |
 

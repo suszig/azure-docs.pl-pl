@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 5dd90d527afd81ad225b9693b126f48e48bde884
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 37f50d962ff73330a23c0f7397b93c84dd2e8181
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Umożliwia dostęp do usługi Azure Key Vault Windows wirtualna zarządzane usługi tożsamości (MSI) 
 
@@ -47,7 +47,7 @@ Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](http
 
 W tym samouczku utworzymy nową maszynę Wirtualną systemu Windows. Można również włączyć MSI na istniejącej maszyny Wirtualnej.
 
-1.  Kliknij przycisk **Nowy** znajdujący się w lewym górnym rogu witryny Azure Portal.
+1.  Kliknij przycisk **Utwórz zasób** znaleziono przycisku w lewym górnym rogu portalu Azure.
 2.  Wybierz pozycję **Wystąpienia obliczeniowe**, a następnie wybierz pozycję **Windows Server 2016 Datacenter**. 
 3.  Wprowadź informacje o maszynie wirtualnej. **Username** i **hasło** utworzony, w tym miejscu jest poświadczeń umożliwia logowanie do maszyny wirtualnej.
 4.  Wybierz odpowiednią **subskrypcji** dla maszyny wirtualnej na liście rozwijanej.
@@ -77,7 +77,7 @@ Za pomocą Instalatora MSI kodu mogą uzyskiwać tokeny dostępu do uwierzytelni
 
 Najpierw należy utworzyć magazyn kluczy i udzielanie dostępu tożsamości naszych maszyny Wirtualnej w magazynie kluczy.   
 
-1. W górnej części na pasku nawigacyjnym po lewej stronie wybierz **+ nowy** następnie **bezpieczeństwo i Obsługa tożsamości** następnie **Key Vault**.  
+1. U góry na lewym pasku nawigacyjnym, zaznacz pole wyboru **Utwórz zasób** > **bezpieczeństwo i Obsługa tożsamości** > **Key Vault**.  
 2. Podaj **nazwa** dla nowego magazynu kluczy. 
 3. Zlokalizuj Key Vault w tej samej grupie subskrypcji i zasobu jako maszyny Wirtualnej utworzone wcześniej. 
 4. Wybierz **zasady dostępu** i kliknij przycisk **Dodaj nowe**. 

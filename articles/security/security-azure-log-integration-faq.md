@@ -12,17 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload8: na
-ms.date: 08/07/2017
+ms.date: 02/16/2018
 ms.author: TomSh
 ms.custom: azlog
-ms.openlocfilehash: bfdc7154160bb6bb7dc9c46eb2352ce74310c4de
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 615bfb1ea86d31733fc1db7139cd995fbbbac7aa
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-log-integration-faq"></a>Integracja dzienników Azure — często zadawane pytania
-Ten artykuł zawiera odpowiedzi na często zadawane pytania (FAQ) dotyczące integracji dziennika Azure. 
+
+Ten artykuł zawiera odpowiedzi na często zadawane pytania (FAQ) dotyczące integracji dziennika Azure.
+
+>[!IMPORTANT]
+>Preferowaną metodą integrowanie dzienników Azure jest za pomocą łącznika Azure Monitor dostawcą SIEM i wykonując te [instrukcje](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). Jednak jeśli dostawcą SIEM nie łącznika do monitorowania Azure, można korzystać z usługi Azure dziennika integracji jako rozwiązanie tymczasowe (Jeśli system SIEM jest obsługiwana przez integrację dziennika Azure) do czasu udostępnienia łącznika programu.
 
 Integracja dziennika Azure to usługa systemu operacyjnego Windows używanej do integracji nowych dzienników z zasobów platformy Azure w sieci lokalnej zabezpieczeń informacji i zdarzenia (SIEM) systemów zarządzania. Integracja ta zapewnia jednolity pulpit nawigacyjny dla wszystkich zasobów, lokalnie lub w chmurze. Możesz agregować, skorelowania, analizowanie i alertów zdarzeń zabezpieczeń skojarzonych z aplikacjami.
 
@@ -34,20 +38,20 @@ Tak. Brak bezpłatne oprogramowanie Integration dziennika Azure.
 Jest obecnie dostępna w Azure handlowych i Azure dla instytucji rządowych i nie jest dostępny w Chinach lub Niemczech.
 
 ## <a name="how-can-i-see-the-storage-accounts-from-which-azure-log-integration-is-pulling-azure-vm-logs"></a>Jak można wyświetlić kont magazynu, z których integracji dziennika Azure jest ściąganie dzienniki maszyny Wirtualnej platformy Azure?
-Uruchom polecenie **listy źródeł azlog**.
+Uruchom polecenie **listy źródeł AzLog**.
 
 ## <a name="how-can-i-tell-which-subscription-the-azure-log-integration-logs-are-from"></a>Jak sprawdzić, subskrypcji, w której są dzienniki Azure dziennika integracji z?
 
 W przypadku dzienników inspekcji, które są umieszczone w **AzureResourcemanagerJson** katalogów, subskrypcji identyfikator jest nazwa pliku dziennika. Dotyczy to również dzienniki w **AzureSecurityCenterJson** folderu. Na przykład:
 
-20170407T070805_2768037.0000000023. **1111e5ee-1111-111b-a11e-1e111e1111dc**JSON
+20170407T070805_2768037.0000000023.**1111e5ee-1111-111b-a11e-1e111e1111dc**.json
 
 Dzienniki inspekcji w usłudze Azure Active Directory zawierają identyfikator dzierżawy jako część nazwy.
 
 Dzienniki diagnostyczne, które są odczytywane z Centrum zdarzeń nie ma identyfikator subskrypcji jako część nazwy. Zamiast tego zawierają przyjazną nazwę określony jako część tworzenie źródło zdarzenia koncentratora. 
 
 ## <a name="how-can-i-update-the-proxy-configuration"></a>Jak można zaktualizować konfiguracji serwera proxy?
-Jeśli ustawienie serwera proxy nie zezwalają na dostęp do magazynu Azure bezpośrednio, otwórz **AZLOG. WYWOŁANIE PLIKU EXE. CONFIG** w pliku **c:\Program Files\Microsoft Azure dziennika integracji**. Aktualizowanie pliku, aby uwzględnić **defaultProxy —** sekcji o adresie serwera proxy w swojej organizacji. Po ukończeniu aktualizacji, Zatrzymaj i uruchom usługę za pomocą poleceń **azlog net stop** i **net start azlog**.
+Jeśli ustawienie serwera proxy nie zezwalają na dostęp do magazynu Azure bezpośrednio, otwórz **AZLOG. WYWOŁANIE PLIKU EXE. CONFIG** w pliku **c:\Program Files\Microsoft Azure dziennika integracji**. Aktualizowanie pliku, aby uwzględnić **defaultProxy —** sekcji o adresie serwera proxy w swojej organizacji. Po ukończeniu aktualizacji, Zatrzymaj i uruchom usługę za pomocą poleceń **net stop AzLog** i **net start AzLog**.
 
     <?xml version="1.0" encoding="utf-8"?>
     <configuration>
@@ -74,7 +78,7 @@ Zdarzenie XML ma następujące metadane, identyfikator subskrypcji w tym:
 ![Zdarzenie XML][1]
 
 ## <a name="error-messages"></a>Komunikaty o błędach
-### <a name="when-i-run-the-command-azlog-createazureid-why-do-i-get-the-following-error"></a>Po uruchomieniu polecenia **azlog createazureid**, dlaczego uzyskać następujący błąd?
+### <a name="when-i-run-the-command-azlog-createazureid-why-do-i-get-the-following-error"></a>Po uruchomieniu polecenia ```AzLog createazureid```, dlaczego uzyskać następujący błąd?
 Błąd:
 
   *Nie można utworzyć aplikację AAD - dzierżawy 72f988bf-86f1-41af-91ab-2d7cd011db37-Przyczyna = "Zabronione" - komunikat = "Wystarczających uprawnień do ukończenia tej operacji."*

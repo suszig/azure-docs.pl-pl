@@ -10,18 +10,20 @@ ms.author: grhuynh
 ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: quickstart
-ms.date: 12/07/2017
-ms.openlocfilehash: d410516f807b7914e15bed1fb93ee58d3e340d1e
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.date: 02/05/2018
+ms.openlocfilehash: 7aeb4d5ad939cefcf8300b78b4afcc9d91ca0624
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="submit-a-workflow-using-multiple-inputs-from-the-same-sample"></a>Przesyłanie przepływu pracy przy użyciu wielu danych wejściowych z tej samej próbki
 
-Ten poradnik Szybki start przedstawia sposób przesyłania przepływu pracy do usługi Microsoft Genomics, jeśli plik wejściowy to wiele plików FASTQ lub BAM **pochodzących z tej samej próbki**. Należy jednak pamiętać, że **nie można** mieszać plików FASTQ i BAM podczas tego samego przesyłania.
+Ten poradnik Szybki start przedstawia sposób przesyłania przepływu pracy do usługi Microsoft Genomics, jeśli plik wejściowy to wiele plików FASTQ lub BAM **pochodzących z tej samej próbki**. Na przykład w przypadku uruchomienia **tej samej próbki** w wielu pasmach w sekwenserze mógłby on zwrócić parę plików FASTQ dla każdego pasma. Zamiast łączyć te pliki FASTQ przed dopasowywaniem i wywoływaniem wariantów, można bezpośrednio przesłać wszystkie te dane wejściowe do klienta `msgen`. Dane wyjściowe z klienta `msgen` stanowiłyby **pojedynczy zestaw** plików, obejmujący pliki bam, bai i vcf. 
 
-W tym temacie założono, że użytkownik zainstalował i uruchomił klienta `msgen` oraz że zna sposób korzystania z usługi Azure Storage. Po pomyślnym przesłaniu przepływu pracy przy użyciu podanych przykładowych danych masz wszystko gotowe, aby kontynuować pracę z tym poradnikiem Szybki start. 
+Należy jednak pamiętać, że **nie można** mieszać plików FASTQ i BAM podczas tego samego przesyłania. Ponadto **nie** można przesłać wielu plików FASTQ ani BAM od wielu osób. 
+
+W tym artykule założono, że użytkownik zainstalował i uruchomił klienta `msgen` oraz że zna sposób korzystania z usługi Azure Storage. Po pomyślnym przesłaniu przepływu pracy przy użyciu podanych przykładowych danych masz wszystko gotowe, aby kontynuować pracę z tym poradnikiem Szybki start. 
 
 
 ## <a name="multiple-bam-files"></a>Wiele plików BAM
@@ -32,7 +34,7 @@ Załóżmy, że masz wiele plików BAM jako dane wejściowe, *reads.bam*, *addit
 
 ### <a name="submit-your-job-to-the-msgen-client"></a>Przesyłanie zadania do klienta `msgen` 
 
-Możesz przesłać wiele plików BAM, przekazując wszystkie ich nazwy do argumentu --input-blob-name-1. Należy pamiętać, że wszystkie pliki powinny pochodzić z tej samej próbki, ale ich kolejność nie jest ważna. Poniżej przedstawiono przykłady przesyłania z wiersza polecenia w systemie Windows, w systemie Unix i przy użyciu pliku konfiguracji. Z myślą o zachowaniu przejrzystości dodano podziały wierszy:
+Możesz przesłać wiele plików BAM, przekazując wszystkie ich nazwy do argumentu --input-blob-name-1. Należy pamiętać, że wszystkie pliki powinny pochodzić z tej samej próbki, ale ich kolejność nie jest ważna. W poniższej sekcji przedstawiono przykłady przesyłania z wiersza polecenia w systemie Windows, w systemie Unix i przy użyciu pliku konfiguracji. Z myślą o zachowaniu przejrzystości dodano podziały wierszy:
 
 
 W przypadku systemu Windows:
@@ -97,7 +99,7 @@ Załóżmy, że masz wiele sparowanych plików FASTQ jako dane wejściowe, *read
 
 Sparowane pliki FASTQ muszą pochodzić z tych samych przykładowych danych oraz muszą być przetwarzane wspólnie.  Kolejność nazw plików ma znaczenie, gdy są przekazywane jako argumenty do obiektów --input-blob-name-1 i --input-blob-name-2. 
 
-Poniżej przedstawiono przykłady przesyłania z wiersza polecenia w systemie Windows, w systemie Unix i przy użyciu pliku konfiguracji. Z myślą o zachowaniu przejrzystości dodano podziały wierszy:
+W poniższej sekcji przedstawiono przykłady przesyłania z wiersza polecenia w systemie Windows, w systemie Unix i przy użyciu pliku konfiguracji. Z myślą o zachowaniu przejrzystości dodano podziały wierszy:
 
 
 W przypadku systemu Windows:
@@ -155,4 +157,4 @@ output_storage_account_container: outputs
 Prześlij plik `config.txt` przy użyciu tego wywołania: `msgen submit -f config.txt`
 
 ## <a name="next-steps"></a>Następne kroki
-W tym artykule przekazano wiele plików BAM lub sparowanych plików FASTQ do usługi Azure Storage oraz przesłano przepływ pracy do usługi Microsoft Genomics za pośrednictwem klienta `msgen` Python. Aby uzyskać dodatkowe informacje o przesyłaniu przepływów pracy i innych poleceniach, których możesz użyć wraz z usługą Microsoft Genomics, zobacz [często zadawane pytania](frequently-asked-questions-genomics.md). 
+W tym artykule przekazano wiele plików BAM lub sparowanych plików FASTQ do usługi Azure Storage oraz przesłano przepływ pracy do usługi Microsoft Genomics za pośrednictwem klienta `msgen` Python. Aby uzyskać więcej informacji o przesyłaniu przepływów pracy i innych poleceniach, których możesz użyć wraz z usługą Microsoft Genomics, zobacz [często zadawane pytania](frequently-asked-questions-genomics.md). 

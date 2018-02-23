@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/29/2017
 ms.author: samacha
-ms.openlocfilehash: 98230a8b61d1776a9ab23fd416af306efc700959
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96a169343481f1cdf43af82a7768cfe08cbd4886
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>W czasie rzeczywistym analizy usługi Azure Stream Analytics wskaźniki nastrojów klientów usługi Twitter
 
@@ -51,7 +51,7 @@ Przykładowa aplikacja generuje zdarzenia i umieszcza je w Centrum zdarzeń plat
 ### <a name="create-an-event-hub-namespace-and-event-hub"></a>Tworzenie Centrum zdarzeń w przestrzeni nazw i Centrum zdarzeń
 W tej procedurze należy najpierw utworzyć przestrzeń nazw Centrum zdarzeń, a następnie Centrum zdarzeń należy dodać do tej przestrzeni nazw. Przestrzenie nazw Centrum zdarzeń są używane do logicznego grupowania wystąpień magistrali powiązanych zdarzeń. 
 
-1. Zaloguj się do portalu Azure, a następnie kliknij przycisk **nowy** > **Internetu rzeczy** > **Centrum zdarzeń**. 
+1. Zaloguj się do portalu Azure, a następnie kliknij przycisk **Utwórz zasób** > **Internetu rzeczy** > **Centrum zdarzeń**. 
 
 2. W **tworzenie przestrzeni nazw** bloku, wprowadź nazwę przestrzeni nazw, takich jak `<yourname>-socialtwitter-eh-ns`. Można użyć dowolnej nazwy przestrzeni nazw, ale nazwa musi być prawidłowa dla danego adresu URL i między Azure musi być unikatowa. 
     
@@ -200,7 +200,7 @@ Poniższa procedura dokumentów obu podejść.
 
 Teraz, gdy zdarzenia tweet strumieniowe w czasie rzeczywistym z serwisem Twitter, można skonfigurować zadania usługi analiza strumienia do analizowania tych zdarzeń w czasie rzeczywistym.
 
-1. W portalu Azure kliknij **nowy** > **Internetu rzeczy** > **zadanie usługi Stream Analytics**.
+1. W portalu Azure kliknij **Utwórz zasób** > **Internetu rzeczy** > **zadanie usługi Stream Analytics**.
 
 2. Nazwa zadania `socialtwitter-sa-job` i określ subskrypcję, lokalizacji i grupy zasobów.
 
@@ -377,7 +377,7 @@ Na potrzeby tego samouczka możesz sprawdzić tematy, które są wymienione wię
 ## <a name="get-support"></a>Uzyskiwanie pomocy technicznej
 Aby uzyskać dodatkową pomoc, spróbuj naszych [forum usługi Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Wprowadzenie do usługi Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics (Rozpoczynanie pracy z usługą Azure Stream Analytics)](stream-analytics-real-time-fraud-detection.md)
 * [Scale Azure Stream Analytics jobs (Skalowanie zadań usługi Azure Stream Analytics)](stream-analytics-scale-jobs.md)
