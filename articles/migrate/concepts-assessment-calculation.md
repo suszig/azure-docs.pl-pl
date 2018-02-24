@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/02/2017
 ms.author: raynew
-ms.openlocfilehash: db09ff30ff9f3852e84162b8400572e76515230f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: b264e2ceac4e76faa37d21972b94cfe323aa3ce5
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="assessment-calculations"></a>Obliczenia dotyczące oceny
 
@@ -109,28 +109,28 @@ W przypadku zmiany rozmiaru kryterium *jako lokalne zmiany rozmiaru*, Azure migr
  
 ### <a name="confidence-rating"></a>Ocena zaufania
 
-Każdy oceny w migracji Azure jest skojarzony z zakresu od 1 gwiazdka do 5 gwiazdek (1 gwiazdka być najniższy i czym najwyższy 5 gwiazdek) przedziałem zaufania. Ocena ufności jest przypisany do oceny na podstawie dostępności punktów danych potrzebnych do obliczania oceny. Pomaga oszacować niezawodność zalecenia dotyczące rozmiaru podał Azure migracji. 
+Każdy oceny w migracji Azure jest skojarzony z zakresu od 1 gwiazdka do 5 gwiazdkę (1 gwiazdka być najniższy i 5 Gwiazda jest najwyższa) przedziałem zaufania. Ocena ufności jest przypisany do oceny na podstawie dostępności punktów danych potrzebnych do obliczania oceny. Przedziałem zaufania ocenę pomaga oszacować niezawodność zalecenia dotyczące rozmiaru podał Azure migracji. 
 
-Zaufanie jest przydatne podczas wykonywania *wydajności na podstawie rozmiaru* jak nie wszystkie punkty danych mogą być dostępne. Dla *jako lokalne zmiany rozmiaru*, ocenę ufności jest zawsze 5 gwiazdek jako migracji Azure ma wszystkie dane, należy go rozmiaru maszyny Wirtualnej. 
+Zaufanie jest przydatne podczas wykonywania *wydajności na podstawie rozmiaru* jako migracji Azure może nie mieć wystarczających punkty danych do użycia na podstawie zmiany rozmiaru. Dla *jako lokalne zmiany rozmiaru*, ocenę ufności jest zawsze 5 gwiazdek jako migracji Azure ma wszystkich punktów danych, należy go rozmiaru maszyny Wirtualnej. 
 
-Na podstawie wydajności zmiany rozmiaru migracji Azure potrzebuje danych użycia procesora CPU i pamięci. Dla każdego dysku do maszyny Wirtualnej, musi on odczytu/zapisu IOPS i przepływność celu wydajności na podstawie zmiany rozmiaru. Podobnie dla każdej karty sieciowej podłączony do maszyny Wirtualnej Azure migracji musi sieci lub brak zgody na celu wydajności na podstawie rozmiaru. Jeśli z powyższych numerów użycie nie są dostępne w programie vCenter Server, zalecenie rozmiar programach migracji Azure może nie być prawidłowe. W zależności od procent dostępności punktów danych podano przedziałem zaufania oceny:
+Na podstawie wydajności rozmiaru maszyny wirtualnej Azure migracji musi danych użycia procesora CPU i pamięci. Ponadto dla każdego dysku do maszyny Wirtualnej, musi on odczytu/zapisu IOPS i przepustowość. Podobnie dla każdej karty sieciowej podłączony do maszyny Wirtualnej Azure migracji musi sieci lub brak zgody na celu wydajności na podstawie rozmiaru. Jeśli z powyższych numerów użycie nie są dostępne w programie vCenter Server, zalecenie rozmiar programach migracji Azure może nie być prawidłowe. W zależności od procent dostępności punktów danych podano przedziałem zaufania oceny:
 
    **Dostępność punktów danych** | Ocena zaufania
    --- | ---
    0%-20% | 1 gwiazdka
-   21%-40% | 2 gwiazdki
-   41%-60% | 3 gwiazdki
-   61%-80% | 4 gwiazdki
-   81%-100% | 5 gwiazdek
+   21%-40% | 2 gwiazdy
+   41%-60% | 3 gwiazdy
+   61%-80% | 4 gwiazdy
+   81%-100% | 5 gwiazdy
 
 Ocena nie może mieć wszystkich punktów danych dostępnych z jednego z następujących powodów:
-- Ustawienie statystyk w programie vCenter Server nie jest ustawiony na poziom 3 i oceny zawiera wydajności na podstawie rozmiaru jako kryterium zmiany rozmiaru. Jeśli ustawienie statystyk w programie vCenter Server jest niższy niż poziom 3, dane wydajności dla dysku i sieci nie są zbierane z vCenter Server. W takim przypadku zalecenie dostarczonych przez migrację Azure dysku i sieci jest tylko na podstawie przydzielone lokalnymi. Dla magazynu migracji Azure zaleca dyski standardowe, jak nie istnieje sposób, aby ustalić, czy dysk ma wysoką wartość IOPS/przepływności i potrzeby dysków w warstwie premium.
-- Ustawienie statystyk w programie vCenter Server został ustawiony poziom 3 przez krótki czas, przed przeprowadzony po raz pierwszy odnajdywania. Na przykład jeśli zmienisz poziom ustawień statystyki dzisiaj 3 i rozpoczęcie wyłączanie funkcji odnajdywania przy użyciu urządzenia modułu zbierającego jutro (po 24 godzinach), jeśli tworzysz oceny przez jeden dzień, należy wszystkich punktów danych. Jednak w przypadku zmiany czasu trwania wydajności we właściwościach oceny na jeden miesiąc, przedziałem zaufania przestanie działać jako dysk i nie są dostępne dane wydajności sieci przez ostatni miesiąc. Jeśli chcesz wziąć pod uwagę dane dotyczące wydajności ostatni miesiąc, zaleca się pozostawienie vCenter statystyki ustawienie serwera do poziomu 3 przez jeden miesiąc przed należy rozpocząć wyłączanie funkcji odnajdywania. 
+- Ustawienie statystyk w programie vCenter Server nie jest ustawiony na poziom 3 i oceny zawiera wydajności na podstawie rozmiaru jako kryterium zmiany rozmiaru. Jeśli ustawienie statystyk w programie vCenter Server jest niższy niż poziom 3, dane wydajności dla dysku i sieci nie są zbierane z vCenter Server. W takim przypadku zalecenie dostarczonych przez migrację Azure dysku i sieci nie jest na podstawie użycia. Dla magazynu migracji Azure zaleca dyski standardowe, jak bez uwzględniania IOPS/przepływność dysku, Azure migracji nie można ustalić, czy dysk należy dysku premium na platformie Azure.
+- Ustawienie statystyk w programie vCenter Server został ustawiony poziom 3 krótszy czas, przed przeprowadzony po raz pierwszy odnajdywania. Na przykład załóżmy Rozważmy scenariusz, w którym zmienić ustawienie poziomu 3 dzisiaj i rozpoczęcie wyłączanie funkcji odnajdywania jutro (po 24 godzinach) przy użyciu urządzenia modułu zbierającego statystyki. Jeśli tworzysz oceny przez jeden dzień, masz wszystkich punktów danych, a przedziałem zaufania oceny będzie 5 gwiazdek. Jednak w przypadku zmiany czasu trwania wydajności we właściwościach oceny na jeden miesiąc, przedziałem zaufania przestanie działać jako dysk i sieci danych wydajności przez ostatni miesiąc nie będzie dostępny. Jeśli chcesz wziąć pod uwagę dane dotyczące wydajności ostatni miesiąc, zaleca się pozostawienie vCenter statystyki ustawienie serwera do poziomu 3 przez jeden miesiąc przed należy rozpocząć wyłączanie funkcji odnajdywania. 
 - Zamknięte kilka maszyn wirtualnych w okresie, dla której jest obliczany oceny. Jeśli wszystkie maszyny wirtualne zostały odłączony od zasilania dla niektórych czas trwania, serwer vCenter nie będzie miał dane wydajności dla tego okresu. 
 - Kilka maszyn wirtualnych utworzonych w zakresie od okresu, dla której obliczana jest oceny. Na przykład w przypadku tworzenia ocenę wydajności historii ostatni miesiąc, ale kilka maszyn wirtualnych zostały utworzone w środowisku tylko tydzień temu. W takich przypadkach Historia wydajności nowych maszyn wirtualnych nie będą istnieje cały czas trwania.
 
 > [!NOTE]
-> W przypadku klasyfikacji zaufania każdej oceny poniżej 3 gwiazdki, firma Microsoft zaleca, aby zmienić poziom ustawienia statystyki serwera vCenter do 3, poczekaj, aż czas trwania, który chcesz wziąć pod uwagę w celu oceny (1 dzień/tydzień/miesiąc 1), a następnie wykonaj odnajdywanie i oceny. Jeśli nie można wykonać poprzednie, na podstawie rozmiaru może nie być prawidłowe i zaleca, aby przełączyć się do *jako lokalne zmiany rozmiaru* , zmieniając właściwości oceny.
+> W przypadku klasyfikacji zaufania każdej oceny poniżej 4 gwiazdki, firma Microsoft zaleca, aby zmienić poziom ustawienia statystyki serwera vCenter do 3, poczekaj, aż czas trwania, który chcesz wziąć pod uwagę w celu oceny (1 dzień/tydzień/miesiąc 1), a następnie wykonaj odnajdywanie i oceny. Jeśli nie można wykonać poprzednie, na podstawie rozmiaru może nie być prawidłowe i zaleca, aby przełączyć się do *jako lokalne zmiany rozmiaru* , zmieniając właściwości oceny.
 
 ## <a name="monthly-cost-estimation"></a>Miesięczne szacowania kosztów
 

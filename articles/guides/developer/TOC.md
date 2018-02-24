@@ -22,7 +22,7 @@
 ### [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 ### [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
 ## [Tworzenie funkcji połączonej z platformą Azure](https://docs.microsoft.com/azure/azure-functions/functions-create-an-azure-connected-function)
-## [Aplikacja internetowa wdrażana w rozwiązaniu Docker w systemie Linux](https://docs.microsoft.com/azure/app-service/containers/quickstart-custom-docker-image) 
+## [Aplikacja internetowa wdrażana w rozwiązaniu Docker w systemie Linux](https://docs.microsoft.com/azure/app-service/containers/quickstart-docker-go) 
 
 # Przykłady
 ## Interfejs wiersza polecenia platformy Azure

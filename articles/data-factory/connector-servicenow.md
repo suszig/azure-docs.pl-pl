@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 02/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 28ecdc541bc7e95dfa6d7c1b2d984cba0654699f
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 64b0982ab1d0b212120d962d4c47a1b8db8ca025
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory-beta"></a>Kopiowanie danych z usługi ServiceNow przy użyciu fabryki danych Azure (wersja Beta)
 
@@ -114,11 +114,11 @@ Aby skopiować dane z usługi ServiceNow, należy ustawić typ źródła w przyp
 
 Należy pamiętać, że podczas określania schematu i kolumn dla usługi ServiceNow w zapytaniu:
 
-- **Schemat:** zapytanie do usługi ServiceNow należy podać schematu jako `Actual` lub `Display` , które można przyjrzeć się go jako parametru `sysparm_display_value` jako PRAWDA lub FAŁSZ, gdy wywołanie [interfejsy API restful ServiceNow](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
-- **Kolumna:** jest nazwa kolumny w przypadku wartości rzeczywistej `[columne name]_value` podczas wyświetlania wartości `[columne name]_display_value`.
+- **Schemat:** Określ schematu jako `Actual` lub `Display` kwerendę usługi ServiceNow, które można przyjrzeć się go jako parametru `sysparm_display_value` jako PRAWDA lub FAŁSZ, gdy wywołanie [interfejsy API restful ServiceNow](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
+- **Kolumna:** nazwa kolumny dla wartości rzeczywistych w obszarze `Actual` jest scehma `[columne name]_value`, natomiast w przypadku wartości wyświetlanej w obszarze `Display` schemat jest `[columne name]_display_value`. Uwaga nazwy kolumny musi mapy do schematu, używany w zapytaniu.
 
 **Przykładowe zapytanie:** 
- `SELECT distinct col_value, col_display_value FROM Actual.alm_asset` lub `SELECT distinct col_value, col_display_value FROM Display.alm_asset`
+ `SELECT col_value FROM Actual.alm_asset` lub `SELECT col_display_value FROM Display.alm_asset`
 
 **Przykład:**
 

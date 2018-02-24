@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/01/2017
 ms.author: larryfr
-ms.openlocfilehash: 0ae573922938b775900b839a24a917e4211fbadc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1ed98856753854b0d6baee5bfa74d0623043aa99
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Tworzenie klastrów usługi HDInsight przy użyciu wiersza polecenia platformy Azure
 
@@ -29,8 +29,9 @@ ms.lasthandoff: 12/11/2017
 Kroki opisane w tym przewodniku dokumentu tworzenia klastra usługi HDInsight 3.5 przy użyciu 1.0 interfejsu wiersza polecenia platformy Azure.
 
 > [!IMPORTANT]
-> Linux jest jedynym systemem operacyjnym używanym w połączeniu z usługą HDInsight w wersji 3.4 lub nowszą. Aby uzyskać więcej informacji, zobacz sekcję [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Wycofanie usługi HDInsight w systemie Windows).
-
+> W tym temacie opisano, jak używać 1.0 interfejsu wiersza polecenia platformy Azure do tworzenia klastra usługi HDInsight. Ta wersja interfejsu wiersza polecenia jest przestarzały i nie dodano obsługę tworzenia klastrów usługi HDInsight 2.0 interfejsu wiersza polecenia platformy Azure.
+>
+> Tworzenie i zarządzanie nimi w usłudze hdinsight umożliwia także programu Azure PowerShell. Aby uzyskać więcej informacji, zobacz [Tworzenie klastrów usługi HDInsight przy użyciu programu Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) dokumentu.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -41,7 +42,7 @@ Kroki opisane w tym przewodniku dokumentu tworzenia klastra usługi HDInsight 3.
 * **Interfejs wiersza polecenia platformy Azure**. Z wiersza polecenia platformy Azure w wersji 0.10.14 ostatnio przetestowane kroki opisane w tym dokumencie.
 
     > [!IMPORTANT]
-    > Kroki opisane w tym dokumencie nie współpracujesz z 2.0 interfejsu wiersza polecenia platformy Azure. Azure CLI 2.0 nie obsługuje tworzenia klastra usługi HDInsight.
+    > Azure CLI 1.0 jest przestarzały i nie dodano obsługę tworzenia klastrów usługi HDInsight 2.0 interfejsu wiersza polecenia platformy Azure.
 
 ## <a name="log-in-to-your-azure-subscription"></a>Logowanie się do subskrypcji platformy Azure
 
@@ -127,7 +128,7 @@ Poniższe kroki należy wykonać z poziomu wiersza polecenia, takich jak program
 
 W razie problemów podczas tworzenia klastrów usługi HDInsight zapoznaj się z [wymaganiami dotyczącymi kontroli dostępu](hdinsight-administer-use-portal-linux.md#create-clusters).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Teraz, że pomyślnie utworzono klaster usługi HDInsight przy użyciu wiersza polecenia platformy Azure, aby dowiedzieć się, jak pracować z klastra należy użyć następującego:
 
@@ -139,7 +140,7 @@ Teraz, że pomyślnie utworzono klaster usługi HDInsight przy użyciu wiersza p
 
 ### <a name="hbase-clusters"></a>Klastrów HBase
 
-* [Rozpoczynanie pracy z bazy danych HBase w usłudze HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [Wprowadzenie do usługi HBase w usłudze HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
 * [Tworzenie aplikacji Java bazy danych hbase w usłudze HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
 
 ### <a name="storm-clusters"></a>Klastry STORM

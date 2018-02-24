@@ -4,21 +4,21 @@ description: "W tym dokumencie opisano kroki i pojęcia związane z w instalowan
 services: machine-learning
 author: raymondlaghaeian
 ms.author: raymondl
-manager: neerajkh
-ms.reviewer: garyericson, jasonwhowell, mldocs
+manager: hjerez
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
-ms.openlocfilehash: 151e7c2dc808a8fa117a0d7a1950185abe9e3152
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 45ddd4dc6fb5559c020706e2784158b1319f9b52
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="model-management-setup"></a>Model konfiguracji zarządzania
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Ten dokument stanowi wprowadzenie do wdrażania i zarządzania nimi komputerze uczenia modele jako usługi sieci web przy użyciu zarządzania modelu uczenia Maszynowego Azure. 
 
 Za pomocą zarządzania modelu uczenia Maszynowego Azure można efektywnego wdrożenia i zarządzania nimi modeli uczenia maszynowego, które są tworzone przy użyciu wielu platform, na przykład SparkML, Keras, TensorFlow, kognitywnych zestaw narzędzi firmy Microsoft lub Python. 
@@ -107,7 +107,7 @@ Polecenie Ustawienia lokalnego środowiska tworzy następujące zasoby w Twojej 
 - Grupa zasobów (Jeśli nie zostanie podana)
 - Konto magazynu
 - Rejestru kontenera platformy Azure (ACR)
-- Usługa Application insights
+- Application Insights
 
 Po pomyślnym zakończeniu instalacji, należy ustawić środowiska do użycia przy użyciu następującego polecenia:
 
@@ -129,7 +129,7 @@ Polecenie Ustawienia środowiska klastra tworzy następujące zasoby w Twojej su
 - Konto magazynu
 - Rejestru kontenera platformy Azure (ACR)
 - Wdrożenie Kubernetes w klastrze usługi kontenera platformy Azure (ACS)
-- Usługa Application insights
+- Application Insights
 
 Grupy zasobów konta magazynu i ACR są tworzone szybko. Wdrażanie usług ACS może zająć maksymalnie 20 minut. 
 

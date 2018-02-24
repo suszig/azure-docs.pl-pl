@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/22/2018
 ms.author: larryfr
-ms.openlocfilehash: a972344e2b6205fbcf69d2969c42211ec5b24869
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 18b7b5d56acb4d9d0c2ed007f0521193e37d82e8
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>Wdrażanie i zarządzanie nimi topologii Apache Storm w usłudze HDInsight
 
@@ -44,7 +44,7 @@ W tym dokumencie przedstawiono podstawy zarządzania i monitorowania topologii S
   * Program Visual Studio 2012 z [aktualizacja 4](http://www.microsoft.com/download/details.aspx?id=39305)
 
   * Visual Studio 2013 z [aktualizacja 4](http://www.microsoft.com/download/details.aspx?id=44921) lub [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
-  * [Program Visual Studio 2015](https://www.visualstudio.com/downloads/)
+  * [Visual Studio 2015](https://www.visualstudio.com/downloads/)
 
   * Visual Studio 2015 (dowolna wersja)
 
@@ -86,7 +86,7 @@ Narzędzia HDInsight Tools może służyć do przesyłania C# i hybrydowych topo
 
         storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology WordCount
 
-    To polecenie uruchamia przykładową topologię WordCount w klastrze. Ta topologia losowo generuje zdania, a następnie liczby wystąpień poszczególnych wyrazów w zdaniach.
+    To polecenie uruchamia w klastrze przykładową topologię WordCount. Ta topologia losowo generuje zdania, a następnie liczby wystąpień poszczególnych wyrazów w zdaniach.
 
    > [!NOTE]
    > Podczas przesyłania topologii do klastra przed użyciem polecenia `storm` należy skopiować plik JAR zawierający klaster. Aby skopiować plik do klastra, można użyć `scp` polecenia. Na przykład: `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
@@ -226,7 +226,7 @@ W pełni kwalifikowaną nazwę (FQDN) dla węzła głównego klastra można znal
 
 * **W sesji SSH**: Użyj polecenia `headnode -f` w sesji SSH do klastra.
 * **Z sieci Ambari Web**: Wybierz **usług** w górnej części strony, następnie wybierz **Storm**. Z **Podsumowanie** wybierz opcję **serwera interfejsu użytkownika Storm**. Nazwa FQDN węzła, który jest hostem interfejsu użytkownika platformy Storm i interfejsu API REST jest wyświetlany w górnej części strony.
-* **Z interfejsu API REST Ambari**: Użyj polecenia `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` można pobrać informacji na temat interfejsu użytkownika platformy Storm i interfejsu API REST są uruchomione na węzeł. Zastąp **hasło** o hasło administratora klastra. Zastąp **CLUSTERNAME** z nazwą klastra. W odpowiedzi wpis "host_name" zawiera nazwę FQDN węzła.
+* **Z interfejsu API REST Ambari**: Użyj polecenia `curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` można pobrać informacji na temat interfejsu użytkownika platformy Storm i interfejsu API REST są uruchomione na węzeł. Zastąp **CLUSTERNAME** z nazwą klastra. Po wyświetleniu monitu wprowadź hasło dla konta logowania (Administrator). W odpowiedzi wpis "host_name" zawiera nazwę FQDN węzła.
 
 ### <a name="authentication"></a>Authentication
 

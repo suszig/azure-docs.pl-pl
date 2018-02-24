@@ -12,17 +12,17 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2018
+ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: ab42789b091898c69091ba6b3fa2a8bf91e711f6
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 6832bd6dfb136b944a752ae61da74465a01c80a4
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Blokowanie zasobów, aby uniemożliwić nieoczekiwane zmiany 
 
-Jako administrator może być konieczne zablokować subskrypcji, grupy zasobów lub zasobów uniemożliwić innym użytkownikom w organizacji przypadkowo usuwanie i modyfikowanie kluczowych zasobów. Można ustawić poziom blokady **CanNotDelete** lub **tylko do odczytu**. 
+Jako administrator może być konieczne zablokować subskrypcji, grupy zasobów lub zasobów uniemożliwić innym użytkownikom w organizacji przypadkowo usuwanie i modyfikowanie kluczowych zasobów. Można ustawić poziom blokady **CanNotDelete** lub **tylko do odczytu**. W portalu, są nazywane blokad **usunąć** i **tylko do odczytu** odpowiednio.
 
 * **CanNotDelete** oznacza, że autoryzowani użytkownicy mogą nadal odczytywać i modyfikować zasobu, ale ich nie można usunąć tego zasobu. 
 * **Tylko do odczytu** oznacza, że autoryzowani użytkownicy mogą odczytywać zasobu, ale nie można usunąć lub zaktualizować zasobu. Stosowanie Ta blokada jest podobny do ograniczania wszystkim uprawnionym użytkownikom uprawnienia przyznane przez **czytnika** roli. 

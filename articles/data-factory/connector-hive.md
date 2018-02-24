@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 8816885a7703e89c53bbfd839c9e7eb1337c3879
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e5acf32353f675a98b05692e352c3ca323588ac3
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>Kopiowanie danych z gałęzi przy użyciu fabryki danych Azure 
 
@@ -48,7 +48,7 @@ Hive połączone usługi, obsługiwane są następujące właściwości:
 | host | IP adres lub nazwę hosta serwera Hive, rozdzielone znakiem ";" na wielu hostach, (tylko wtedy, gdy serviceDiscoveryMode jest włączona).  | Yes |
 | port | Port TCP używany przez serwer gałęzi do nasłuchiwania dla połączeń klienta.  | Nie |
 | Typ | Typ serwera Hive. <br/>Dozwolone wartości to: **HiveServer1**, **serwera HiveServer2**, **HiveThriftServer** | Nie |
-| thriftTransportProtocol | Protokół transportu do użycia w warstwie Thrift. <br/>Dozwolone wartości to: **Binary**, **SASL**, ** HTTP ** | Nie |
+| thriftTransportProtocol | Protokół transportu do użycia w warstwie Thrift. <br/>Dozwolone wartości to: **Binary**, **SASL**, **HTTP** | Nie |
 | authenticationType | Metoda uwierzytelniania używany do uzyskiwania dostępu do serwera Hive. <br/>Dozwolone wartości to: **anonimowe**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Yes |
 | serviceDiscoveryMode | wartość true, aby wskazać, przy użyciu usługi dozorcy false nie.  | Nie |
 | zooKeeperNameSpace | Przestrzeń nazw na dozorcy, w których Hive Server 2 dodawania węzłów.  | Nie |

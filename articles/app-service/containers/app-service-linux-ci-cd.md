@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: cccbd4952c66d3d8140e2a03e3b76afaa5ba3fbf
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 84bc344438d5542cc6409fa50aa6e55eb547c6a8
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Ciągłe wdrażanie w aplikacji sieci Web dla kontenerów
 
@@ -83,12 +83,12 @@ Dla adresu URL elementu Webhook, musisz podać adres URL uzyskane z **krok 3**
 
 Gdy obraz zostanie zaktualizowany, aplikacji sieci web aktualizowany automatycznie z nowego obrazu.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Co to jest Azure App Service w systemie Linux?](./app-service-linux-intro.md)
 * [Rejestru kontenera platformy Azure](https://azure.microsoft.com/services/container-registry/)
-* [W usłudze Azure App Service w systemie Linux przy użyciu platformy .NET Core](quickstart-dotnetcore.md)
-* [W usłudze Azure App Service w systemie Linux przy użyciu Ruby](quickstart-ruby.md)
-* [Sposób użycia niestandardowego obrazu Docker dla aplikacji sieci Web dla kontenerów](quickstart-custom-docker-image.md)
-* [Usługa aplikacji Azure aplikacji sieci Web dla kontenerów — często zadawane pytania](./app-service-linux-faq.md)
+* [Using .NET Core in Azure App Service on Linux](quickstart-dotnetcore.md) (Korzystanie z platformy .NET Core w usłudze Azure App Service w systemie Linux)
+* [Using Ruby in Azure App Service on Linux](quickstart-ruby.md) (Używanie języka Ruby w usłudze Azure App Service w systemie Linux)
+* [How to use a custom Docker image for Web App for Containers](quickstart-docker-go.md) (Używanie niestandardowego obrazu platformy Docker dla usługi Web App for Containers)
+* [Azure App Service Web App for Containers FAQ](./app-service-linux-faq.md) (Usługa Web App for Containers w usłudze Azure App Service — często zadawane pytania)
 * [Zarządzanie aplikacją sieci Web dla kontenerów używa interfejsu wiersza polecenia platformy Azure w wersji 2.0](./app-service-linux-cli.md)

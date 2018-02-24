@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 02/22/2018
 ms.author: jgao
 ms.custom: hdiseo17may2017
-ms.openlocfilehash: 04f76d15f12b52d7b47011010a5ce20cc45174ee
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 5bb2ee2b9b838cc9feca60eca6b2c721ca58ed45
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="serialize-data-in-hadoop-with-the-microsoft-avro-library"></a>Serializować danych platformy Hadoop za pomocą programu Microsoft Avro Library
 
@@ -78,7 +78,7 @@ Microsoft Avro Library zawiera narzędzie generowania kodu, które umożliwia tw
 3. Przejdź do folderu C:\SDK\src\Microsoft.Hadoop.Avro.Tools i uruchom build.bat. (Plik wywołuje program MSBuild z dystrybucji 32-bitowej platformy .NET. Jeśli chcesz używać wersji 64-bitowych, Edycja build.bat po komentarze w pliku). Upewnij się, że kompilacja zakończy się pomyślnie. (W niektórych systemach MSBuild może powodować ostrzeżenia. Ostrzeżenia te nie wpływają na narzędzie tak długo, jak nie ma żadnych błędów kompilacji.)
 4. Skompilowany narzędzie znajduje się w C:\SDK\Bin\Unsigned\Release\Microsoft.Hadoop.Avro.Tools.
 
-Aby zapoznać się ze składnią wiersza polecenia, uruchom następujące polecenie z folderu, w którym znajduje się narzędzie generowania kodu:`Microsoft.Hadoop.Avro.Tools help /c:codegen`
+Aby zapoznać się ze składnią wiersza polecenia, uruchom następujące polecenie z folderu, w którym znajduje się narzędzie generowania kodu: `Microsoft.Hadoop.Avro.Tools help /c:codegen`
 
 Aby przetestować narzędzie, można wygenerować klas C# z przykładowy plik schematu JSON podane z kodem źródłowym. Uruchom następujące polecenie:
 

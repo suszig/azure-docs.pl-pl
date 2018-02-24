@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: 760a6a30513308aa59c5e253e3b91e28cf9e3241
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: e83aa590cc41abcd661e6f0fef450833c816dac4
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="use-the-iot-extension-for-azure-cli-20-for-azure-iot-hub-device-management"></a>Użyj rozszerzenia IoT 2.0 interfejsu wiersza polecenia platformy Azure do zarządzania urządzeniami Centrum IoT Azure
 
@@ -66,21 +66,21 @@ Uruchom Azure CLI w wersji 2.0 i rozszerzenia IoT Azure CLI 2.0 z różnymi opcj
 - Zainstaluj rozszerzenie IoT. Najprostszym sposobem jest uruchomienie `az extension add --name azure-cli-iot-ext`. [Plik readme rozszerzenia IoT](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md) opisano kilka sposobów, aby zainstalować to rozszerzenie.
 
 
-## <a name="login-to-your-azure-account"></a>Zaloguj się do konta platformy Azure
+## <a name="log-in-to-your-azure-account"></a>Zaloguj się do konta platformy Azure
 
-Nazwa logowania do konta platformy Azure, uruchamiając następujące polecenie:
+Zaloguj się do konta platformy Azure, uruchamiając następujące polecenie:
 
 ```bash
 az login
 ```
 
-## <a name="use-the-iot-extension-for-azure-cli-20-with-direct-methods"></a>Użyj rozszerzenia IoT Azure CLI 2.0 za pomocą metod bezpośredniego
+## <a name="direct-methods"></a>Metody bezpośrednie
 
 ```bash
 az iot hub invoke-device-method --device-id <your device id> --hub-name <your hub name> --method-name <the method name> --method-payload <the method payload>
 ```
 
-## <a name="use-the-iot-extension-for-azure-cli-20-with-twins-desired-properties"></a>Za pomocą rozszerzenia IoT Azure CLI 2.0 dwie w odpowiednich właściwościach
+## <a name="device-twin-desired-properties"></a>Właściwości dwie żądanego urządzenia
 
 Ustaw interwał żądanej właściwości = 3000, uruchamiając następujące polecenie:
 
@@ -90,7 +90,7 @@ az iot hub device-twin update -n <your hub name> -d <your device id> --set prope
 
 Tej właściwości można odczytać z urządzenia.
 
-## <a name="use-the-iot-extension-for-azure-cli-20-with-twins-reported-properties"></a>Używane rozszerzenie IoT Azure CLI 2.0 z właściwościami zgłoszonego przez dwie
+## <a name="device-twin-reported-properties"></a>Dwie urządzenia zgłoszone właściwości
 
 Pobierz właściwości zgłoszonego urządzenia, uruchamiając następujące polecenie:
 
@@ -100,7 +100,7 @@ az iot hub device-twin update -n <your hub name> -d <your device id> --set prope
 
 Jedna z właściwości jest $metadata. $lastUpdated przedstawiającego urządzenie tym czas ostatniego wysłania lub odebrania wiadomości.
 
-## <a name="use-the-iot-extension-for-azure-cli-20-with-twins-tags"></a>Używane rozszerzenie IoT Azure CLI 2.0 tagów w dwie
+## <a name="device-twin-tags"></a>Tagi dwie urządzenia
 
 Wyświetlanie znaczników i właściwości urządzenia, uruchamiając następujące polecenie:
 
@@ -114,7 +114,7 @@ Dodaj rolę pola = temperatury i wilgotności na urządzeniu, uruchamiając nast
 az iot hub device-twin update --hub-name <your hub name> --device-id <your device id> --set tags = '{"role":"temperature&humidity"}}'
 ```
 
-## <a name="use-the-iot-extension-for-azure-cli-20-with-device-twins-queries"></a>Użyj rozszerzenia IoT Azure CLI 2.0 z zapytaniami twins urządzenia
+## <a name="device-twin-queries"></a>Urządzenie dwie zapytań
 
 Zapytanie urządzeń przy użyciu tagu roli = "temperatury i wilgotności", uruchamiając następujące polecenie:
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 9c35e796cb823b2b059b726f099d658ee5e8192b
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: d82a91aa51b6684e6bf88de142d00705a0ceddba
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Wymagania wstępne dotyczące usługi Azure AD Connect
 W tym temacie opisano wymagania wstępne i wymagania sprzętowe programu Azure AD Connect.
@@ -61,7 +61,7 @@ Przed zainstalowaniem usługi Azure AD Connect, istnieje kilka rzeczy, które s�
 ### <a name="sql-server-used-by-azure-ad-connect"></a>SQL Server używane przez program Azure AD Connect
 * Program Azure AD Connect wymaga bazy danych programu SQL Server do przechowywania danych tożsamości. Domyślnie jest instalowany program SQL Server 2012 Express LocalDB (światła wersja programu SQL Server Express). SQL Server Express ma limit rozmiaru 10GB, który umożliwia zarządzanie około 100 000 obiektów. Trzeba zarządzać większą ilość obiektów katalogu, należy wskazać Kreatora instalacji na inną instalację programu SQL Server.
 * Jeśli używasz oddzielny serwer SQL, mają zastosowanie te wymagania:
-  * Azure AD Connect obsługuje wszystkie odmian programu Microsoft SQL Server z programu SQL Server 2008 (za pomocą najnowszego dodatku Service Pack) do dodatku SP1 dla programu SQL Server 2016. Baza danych SQL Azure firmy Microsoft jest **nieobsługiwane** jako bazy danych.
+  * Azure AD Connect obsługuje wszystkie wersje programu Microsoft SQL Server z programu SQL Server 2008 (za pomocą najnowszego dodatku Service Pack) do dodatku SP1 dla programu SQL Server 2016. Baza danych SQL Azure firmy Microsoft jest **nieobsługiwane** jako bazy danych.
   * Należy użyć bez uwzględniania wielkości liter sortowania bazy danych SQL. Te sortowania są oznaczone symbolem \_CI_ w ich imieniu. Jest **nieobsługiwane** do korzystania z sortowania z uwzględnieniem wielkości liter, identyfikowane przez \_cs_ — w ich imieniu.
   * Może mieć tylko jeden aparat synchronizacji pojedyncze wystąpienie serwera SQL. Jest **nieobsługiwane** udostępniać wystąpienia programu SQL synchronizacji programu FIM/MIM narzędzia DirSync i Azure AD Sync.
 
@@ -149,13 +149,13 @@ Przed wersją 1.1.614.0 Azure AD Connect domyślnie używa protokołu TLS 1.0 do
 Wdrażanie usług federacyjnych Active Directory lub serwer Proxy aplikacji sieci Web za pomocą usługi Azure AD Connect, sprawdź następujące wymagania:
 
 * Jeśli serwer docelowy jest przyłączony do domeny, następnie upewnij się, że zdalnego zarządzania systemu Windows jest włączona.
-  * W oknie polecenia z podwyższonym poziomem uprawnień Psh — polecenie`Enable-PSRemoting –force`
+  * W oknie polecenia z podwyższonym poziomem uprawnień Psh — polecenie `Enable-PSRemoting –force`
 * Jeśli serwer docelowy jest poza domeną przyłączone WAP maszyny, a następnie istnieje kilka dodatkowych wymagań
   * Na docelowym komputerze (WAP):
     * Upewnij się, usługi winrm (zdalne zarządzanie systemem Windows / usługi WS-Management) jest uruchomiona za pomocą przystawki usługi
-    * W oknie polecenia z podwyższonym poziomem uprawnień Psh — polecenie`Enable-PSRemoting –force`
+    * W oknie polecenia z podwyższonym poziomem uprawnień Psh — polecenie `Enable-PSRemoting –force`
   * Na komputerze, na którym działa Kreator (Jeśli komputer docelowy jest domeny z systemem innym niż sprzężone lub niezaufanej domeny):
-    * W oknie polecenia z podwyższonym poziomem uprawnień Psh — polecenie`Set-Item WSMan:\localhost\Client\TrustedHosts –Value <DMZServerFQDN> -Force –Concatenate`
+    * W oknie polecenia z podwyższonym poziomem uprawnień Psh — polecenie `Set-Item WSMan:\localhost\Client\TrustedHosts –Value <DMZServerFQDN> -Force –Concatenate`
     * W Menedżerze serwera:
       * Dodaj hosta DMZ WAP do puli maszyn (Menedżer serwera -> Zarządzaj -> Dodaj serwery... karta DNS)
       * Karta serwery wszystkie Menedżera serwera: kliknij prawym przyciskiem myszy serwer proxy i wybierz polecenie Zarządzaj jako..., wprowadź poświadczenia lokalnego (nie domeny) dla komputera WAP

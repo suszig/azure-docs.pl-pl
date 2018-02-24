@@ -4,17 +4,17 @@ description: "Zawiera omówienie znanych problemów dotyczących usługi Azure m
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: troubleshooting
-ms.date: 12/12/2017
+ms.date: 02/21/2018
 ms.author: raynew
-ms.openlocfilehash: 1fcc9e12e63eda73d53ae2085bc2a64d31ea2067
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 249de45dbd9bedf1b3c2d2a5957acf31d6c0d243
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="troubleshoot-azure-migrate"></a>Rozwiązywanie problemów z usługą Azure Migrate
 
-## <a name="troubleshoot-common-errors"></a>Rozwiąż typowe błędy
+## <a name="troubleshoot-common-errors"></a>Rozwiązywanie typowych problemów
 
 [Azure migracji](migrate-overview.md) ocenia obciążeń lokalnych do migracji do usługi Azure. W tym artykule umożliwiają rozwiązywanie problemów podczas wdrażania i przy użyciu migracji Azure.
 
@@ -24,14 +24,14 @@ ms.lasthandoff: 12/12/2017
 Może to nastąpić, gdy maszyny, którego używasz znajduje się za serwerem proxy. Upewnij się, że podajesz poświadczenia autoryzacji, jeśli serwer proxy wymaga jednego.
 Jeśli używasz dowolnego zapora oparta na adres URL serwera proxy do sterowania łączność wychodząca, upewnij się listą dozwolonych adresów IP są wymagane adresów URL:
 
-**ADRES URL** | **Cel**  
+**Adres URL** | **Cel**  
 --- | ---
-*. portal.azure.com | Wymagane sprawdzenie połączenia z usługą Azure i sprawdzić poprawności synchronizacji czasu problemy.
-*. oneget.org | Wymagany do pobrania programu powershell na podstawie modułu PowerCLI vCenter.
+*.portal.azure.com | Wymagane sprawdzenie połączenia z usługą Azure i sprawdzić poprawności synchronizacji czasu problemy.
+*.oneget.org | Wymagany do pobrania programu powershell na podstawie modułu PowerCLI vCenter.
 
 **Moduł zbierający nie może połączyć się projektu za pomocą Identyfikatora projektu i klucza I skopiowany z portalu.**
 
-Upewnij się, zostały skopiowane i wklejone odpowiednie informacje. Aby rozwiązać problemy, należy zainstalować Microsoft Monitoring Agent (MMA) w następujący sposób:
+Upewnij się, zostały skopiowane i wklejone odpowiednie informacje. Aby rozwiązać problemy, zainstaluj program Microsoft Monitoring Agent (MMA) i sprawdź, czy MMA można połączyć się z projektu w następujący sposób:
 
 1. W module zbierającym maszyny Wirtualnej, należy pobrać [MMA](https://go.microsoft.com/fwlink/?LinkId=828603).
 2. Aby rozpocząć instalację, kliknij dwukrotnie pobrany plik.
@@ -67,15 +67,15 @@ Aby włączyć zbieranie danych wydajności dysku i sieci, należy zmienić pozi
 
 ## <a name="troubleshoot-readiness-issues"></a>Rozwiązywanie problemów gotowości
 
-**Problem** | **Poprawka**
+**Problem** | **Fix**
 --- | ---
-Nieobsługiwany typ rozruchu | Zmień na systemu BIOS, przed rozpoczęciem migracji.
+Nieobsługiwany typ rozruchu | Azure nie obsługuje maszyn wirtualnych z typem rozruchu interfejsu EFI. Zalecane jest można przekonwertować typu rozruchu systemu BIOS, przed rozpoczęciem migracji. <br/><br/>Można użyć [usługi Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/tutorial-migrate-on-premises-to-azure) przeprowadzania migracji takich maszyn wirtualnych, jak konwersji typu rozruchowego maszyny wirtualnej do systemu BIOS podczas migracji.
 Liczba dysków przekracza limit | Usuń nieużywane dyski na komputerze przed migracją.
-Rozmiar dysku przekracza limit | Zmniejszanie dysków do mniej niż 4 TB przed migracją. 
-Niedostępne dysku w określonej lokalizacji | Upewnij się, że dysk jest w lokalizacji docelowej, przed przeprowadzeniem migracji.
-Niedostępne nadmiarowości określonego dysku | Dysk należy używać typu magazynu nadmiarowość zdefiniowanego w ustawieniach oceny (LRS domyślnie).
-Nie można określić przydatności dysk z powodu błędu wewnętrznego | Spróbuj utworzyć nowy oceny grupy. 
-Maszyna wirtualna z wymagane rdzeni i ilości pamięci nie można odnaleźć | Azure nie drobne odpowiedniego typu maszyny Wirtualnej. Ograniczenia pamięci i liczby rdzeni na lokalnej maszynie, przed przeprowadzeniem migracji. 
+Rozmiar dysku przekracza limit | Azure obsługuje dyski o rozmiarze nieprzekraczającym 4 TB. Zmniejszanie dysków do mniej niż 4 TB przed migracją. 
+Dysk niedostępny w określonej lokalizacji | Upewnij się, że dysk jest w lokalizacji docelowej, przed przeprowadzeniem migracji.
+Brak dostępnych dysków dla określonej nadmiarowości | Dysk należy używać typu magazynu nadmiarowość zdefiniowanego w ustawieniach oceny (LRS domyślnie).
+Nie można określić przydatności dysku z powodu błędu wewnętrznego | Spróbuj utworzyć nowy oceny grupy. 
+Nie znaleziono maszyny wirtualnej o żądanej liczbie rdzeni i pamięci | Azure nie drobne odpowiedniego typu maszyny Wirtualnej. Ograniczenia pamięci i liczby rdzeni na lokalnej maszynie, przed przeprowadzeniem migracji. 
 Co najmniej jeden dysk nieodpowiednie. | Upewnij się, że lokalne dyski są 4 TB lub w obszarze przed rozpoczęciem migracji.
 Jeden lub więcej kart sieciowych nie nadaje się. | Usuń nieużywane sieciowe z maszyny przed migracją.
 Nie można określić przydatności maszyny Wirtualnej z powodu błędu wewnętrznego. | Spróbuj utworzyć nowy oceny grupy. 
@@ -83,12 +83,15 @@ Nie można określić przydatności do co najmniej jeden dysk z powodu błędu w
 Nie można określić przydatności do co najmniej jednej karty sieciowej z powodu błędu wewnętrznego. | Spróbuj utworzyć nowy oceny grupy.
 Nie można odnaleźć wydajności wymagane magazynu maszyny Wirtualnej. | Wydajność magazynu (IOPS/przepływność) wymagane dla komputera przekracza obsługi maszyny Wirtualnej platformy Azure. Zmniejsz wymagania dotyczące magazynu dla maszyny przed migracją.
 Nie można odnaleźć wydajności wymagana sieć maszyny Wirtualnej. | Wydajność sieci (We/Wy) wymagane dla komputera przekracza obsługi maszyny Wirtualnej platformy Azure. Zmniejsz wymagania sieciowe dla komputera. 
-Maszyna wirtualna nie można odnaleźć określonej warstwie cenowej. | Sprawdź ustawienia warstwy cenowej. 
+Maszyna wirtualna nie można odnaleźć w określonej warstwie cenowej. | Jeśli warstwa cenowa jest ustawiony na standardowy, należy wziąć pod uwagę downsizing maszyny Wirtualnej przed migracją do systemu Azure. Jeśli zmiany rozmiaru warstwy Basic, należy rozważyć zmianę warstwy cenowej oceny Standard. 
 Maszyna wirtualna nie można odnaleźć w określonej lokalizacji. | Użyj inną lokalizację docelową przed migracją.
-Problemy dotyczące obsługi systemu operacyjnego Linux | Upewnij się, że jest uruchomiona 64-bitowym z tych obsługiwane [systemów operacyjnych](../virtual-machines/linux/endorsed-distros.md).
-Problemy dotyczące obsługi systemu operacyjnego Windows | Upewnij się, że używasz obsługiwanego systemu operacyjnego. [Dowiedz się więcej](concepts-assessment-calculation.md#azure-suitability-analysis)
-Nieznany system operacyjny. | Sprawdź, czy system operacyjny określony w programie vCenter jest poprawny, a następnie powtórzyć ten proces odnajdowania.
-Wymagana jest subskrypcja programu Visual Studio. | Klienckie systemy operacyjne Windows są obsługiwane tylko dla subskrypcji Visual Studio (MSDN).
+Nieznany system operacyjny | System operacyjny maszyny wirtualnej została określona jako "Inne" w programie vCenter Server, z powodu którego Azure migracji nie można zidentyfikować platformy Azure gotowości maszyny wirtualnej. Upewnij się, że system operacyjny uruchomiony na maszynie jest [obsługiwane](https://aka.ms/azureoslist) przez platformę Azure, przed przeprowadzeniem migracji maszyny.
+Warunkowo obsługiwanych systemu operacyjnego Windows | System operacyjny osiągnęła koniec okresu pomocy technicznej i musi niestandardowe obsługuje umowy (CSA) dla [obsługuje na platformie Azure](https://aka.ms/WSosstatement), Rozważ uaktualnienie systemu operacyjnego przed przeprowadzeniem migracji na platformie Azure.
+Nieobsługiwany system Windows. | Azure obsługuje tylko [wybranych wersji systemu operacyjnego Windows](https://aka.ms/WSosstatement), Rozważ uaktualnienie systemu operacyjnego maszyny przed migracją do systemu Azure. 
+Warunkowo zatwierdzone systemu operacyjnego Linux | Azure wspiera tylko działania [wybranych wersji systemu operacyjnego Linux](../virtual-machines/linux/endorsed-distros.md), Rozważ uaktualnienie systemu operacyjnego maszyny przed migracją do systemu Azure.
+Unendorsed system operacyjny Linux | Komputer może rozruchu w systemie Azure, ale nie obsługuje systemu operacyjnego są dostarczane przez platformę Azure, Rozważ uaktualnienie systemu operacyjnego w celu [zatwierdzone wersji systemu Linux](../virtual-machines/linux/endorsed-distros.md) przed migracją do systemu Azure
+Nieobsługiwany typ systemu operacyjnego (liczba bitów) | Maszyny wirtualne z 32-bitowego systemu operacyjnego może rozruchu w systemie Azure, ale zaleca się uaktualnienie systemu operacyjnego maszyny wirtualnej z 32-bitowej do 64-bitowych przed migracją do systemu Azure.
+Wymagana jest subskrypcja programu Visual Studio. | Maszyny została uruchomiona w nim co systemu operacyjnego klienta systemu Windows jest obsługiwana tylko w ramach subskrypcji programu Visual Studio.
 
 
 ## <a name="collect-logs"></a>Zbieranie dzienników

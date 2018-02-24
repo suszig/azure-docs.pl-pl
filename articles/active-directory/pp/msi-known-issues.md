@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 8820691f5b7c6dbd2c15faede75de123f779b167
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: b0b5b991b7d2baaa40ebedbd19247717e91aa027
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="faq-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Często zadawane pytania i znane problemy z zarządzania usługi tożsamości (MSI) dla usługi Azure Active Directory
 
@@ -128,5 +128,4 @@ az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`
 - VMAgent w systemie Windows nie obsługuje obecnie MSI przypisany użytkownik. 
-- Przypisania ról Instalatora MSI w celu uzyskania dostępu do zasobu, obecnie nie wymaga specjalnych uprawnień. 
 - Gdy użytkownik, któremu przypisano MSI ma Maszynę wirtualną, ale żaden system przydzielonych MSI, portalu interfejsu użytkownika będzie widoczna MSI jako włączona. Aby włączyć system przypisane MSI, użyj szablonu usługi Azure Resource Manager, Azure CLI lub zestawu SDK.

@@ -12,14 +12,14 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 02/21/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 06445845ef8f93a06cb4b52e07108965cc3b7f8a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 775db415e667729f6eecf8223a84f5ac0aa45c4c
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="batch-service-quotas-and-limits"></a>Limity przydziału i limity usługi Batch
 
@@ -39,9 +39,10 @@ Jeśli planujesz uruchamianie obciążeń produkcyjnych w partii, może być kon
 ## <a name="resource-quotas"></a>Limity przydziałów zasobów
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
-### <a name="quotas-in-user-subscription-mode"></a>Przydziały w trybie użytkownika subskrypcji
 
-Jeśli starszej wersji interfejsu API partii jest używany do tworzenia konta usługi partia zadań z trybem przydziału puli ustawioną **subskrypcji użytkownika**, przydziały są stosowane w inny sposób. W tym trybie nie jest zalecane, maszyny wirtualne wsadowe i inne zasoby są tworzone bezpośrednio w Twojej subskrypcji po utworzeniu puli. Limit przydziału rdzeni partii zadań Azure nie ma zastosowania do konto utworzone w tym trybie. Zamiast tego przydziały w subskrypcji dla regionalne obliczeniowe rdzeni i inne zasoby są stosowane. Dowiedz się więcej o te przydziały w [subskrypcji platformy Azure i usługi limity, przydziały i ograniczenia](../azure-subscription-service-limits.md).
+### <a name="cores-quotas-in-user-subscription-mode"></a>Przydziały rdzeni w trybie użytkownika subskrypcji
+
+Jeśli utworzono konto usługi partia zadań z trybem przydziału puli ustawioną **subskrypcji użytkownika**, przydziały są stosowane w inny sposób. W tym trybie partii maszyny wirtualne i inne zasoby są tworzone bezpośrednio w Twojej subskrypcji po utworzeniu puli. Konto utworzone w tym trybie nie dotyczą przydziały rdzeni partii zadań Azure. Zamiast tego przydziały w subskrypcji dla regionalne obliczeniowe rdzeni i inne zasoby są stosowane. Dowiedz się więcej o te przydziały w [subskrypcji platformy Azure i usługi limity, przydziały i ograniczenia](../azure-subscription-service-limits.md).
 
 ## <a name="other-limits"></a>Inne ograniczenia.
 | **Zasób** | **Limit maksymalny** |
@@ -108,7 +109,7 @@ Po przesłaniu żądania obsługi pomocy technicznej platformy Azure skontaktuje
 ## <a name="related-topics"></a>Powiązane tematy
 * [Tworzenie konta usługi partia zadań Azure za pomocą portalu Azure](batch-account-create-portal.md)
 * [Omówienie funkcji usługi partia zadań Azure](batch-api-basics.md)
-* [Subskrypcji platformy Azure i usługi limity, przydziały i ograniczenia](../azure-subscription-service-limits.md)
+* [Azure subscription and service limits, quotas, and constraints (Limity subskrypcji i usług, limity przydziału oraz ograniczenia platformy Azure)](../azure-subscription-service-limits.md)
 
 [portal]: https://portal.azure.com
 [portal_classic_increase]: https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/

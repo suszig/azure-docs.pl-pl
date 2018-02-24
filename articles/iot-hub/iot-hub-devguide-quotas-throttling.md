@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: e16c8b9e8bfb75226d7dec32e545da72cba107e9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7aa963e7f7463dbc06ba98e4876ea5d98f6921c8
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Odwołanie - Centrum IoT przydziały i ograniczenia przepustowości
 
@@ -31,6 +31,8 @@ Jednostka SKU określa również sposób ograniczania przepustowości ogranicze�
 
 ## <a name="operation-throttles"></a>Limity operacji
 Limity operacji są ograniczenia szybkości, są stosowane w zakresach minuty, które mają na celu uniemożliwić nadużycia. Centrum IoT podejmuje próbę uniknięcia zwraca błędy, jeśli to możliwe, ale uruchamia zwracania wyjątków, jeśli przepustnicy naruszenia zbyt długo.
+
+W dowolnym momencie można zwiększyć przydziały i limity przepustowości przez odpowiednie zwiększenie liczby elastycznie jednostki w Centrum IoT.
 
 W poniższej tabeli przedstawiono limity wymuszone. Wartości odnoszą się do poszczególnych koncentratora.
 
@@ -50,15 +52,11 @@ W poniższej tabeli przedstawiono limity wymuszone. Wartości odnoszą się do p
 
 <sup>1</sup>ograniczenie rozmiaru miernika jest 8 KB
 
-> [!IMPORTANT]
-> *Połączenia urządzenia* ograniczania kontroluje częstotliwość, w którym można nawiązać nowe połączenia urządzenia z Centrum IoT. *Połączenia urządzenia* przepustnicy nie kontroluje maksymalna liczba równocześnie połączonych urządzeń. Przepustnica zależy od liczby jednostek, które są udostępniane dla Centrum IoT.
+*Połączenia urządzenia* ograniczania kontroluje częstotliwość, w którym można nawiązać nowe połączenia urządzenia z Centrum IoT. *Połączenia urządzenia* przepustnicy nie kontroluje maksymalna liczba równocześnie połączonych urządzeń. Przepustnica zależy od liczby jednostek, które są udostępniane dla Centrum IoT.
 
 Na przykład jeśli kupisz pojedynczą jednostkę S1 get przepustnicy połączenia o szybkości 100 na sekundę. W związku z tym nawiązać 100 000 urządzeń ma co najmniej 1 000 sekund (około 16 minut). Jednak może mieć dowolną liczbę równocześnie połączonych urządzeń zgodnie z urządzeń zarejestrowanych w rejestrze tożsamości.
 
 Szczegółowe omówienie Centrum IoT ograniczania zachowania, zobacz wpis w blogu [Centrum IoT ograniczania przepustowości i][lnk-throttle-blog].
-
-> [!NOTE]
-> W dowolnym momencie można zwiększyć przydziały i limity przepustowości przez odpowiednie zwiększenie liczby elastycznie jednostki w Centrum IoT.
 
 > [!IMPORTANT]
 > Operacje rejestru tożsamości są przeznaczone dla środowiska wykonawczego używanych do zarządzania urządzeniami i inicjowania obsługi scenariuszy. Odczytu lub aktualizacji dużej liczby urządzeń tożsamości jest obsługiwany za pośrednictwem [importowanie i eksportowanie zadań][lnk-importexport].

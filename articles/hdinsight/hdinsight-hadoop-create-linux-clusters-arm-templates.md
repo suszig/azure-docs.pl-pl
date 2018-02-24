@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/06/2017
+ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 38a60a64c8b2207a4795a63cfeb3527dedc8aa91
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 15edd860a86f5d865a6bcb52700b43eaca4ff5c6
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="create-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Tworzenie klastrów Hadoop w usłudze HDInsight przy użyciu szablonów usługi Resource Manager
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -82,7 +82,7 @@ Aby obejrzeć wprowadzenie do korzystania z programu Visual Studio z grupami zas
 
 W razie problemów podczas tworzenia klastrów usługi HDInsight zapoznaj się z [wymaganiami dotyczącymi kontroli dostępu](hdinsight-administer-use-portal-linux.md#create-clusters).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 W tym artykule uzyskanych kilka sposobów tworzenia klastra usługi HDInsight. Aby dowiedzieć się więcej, zobacz następujące artykuły:
 
 * Dla usługi HDInsight więcej powiązanych szablony, zobacz [szablonów Szybki Start Azure](https://azure.microsoft.com/resources/templates/?term=hdinsight).

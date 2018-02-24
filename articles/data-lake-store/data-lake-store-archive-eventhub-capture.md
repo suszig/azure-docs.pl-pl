@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 221ee6990fe0b5bfc9e745fc85543c4e04e41bd3
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: ac8000abc35cba89c4bf655a4806636933ab8d08
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="use-azure-data-lake-store-to-capture-data-from-event-hubs"></a>Użyj usługi Azure Data Lake Store do przechwytywania danych z usługi Event Hubs
 
@@ -120,6 +120,6 @@ Teraz możesz przetestować rozwiązania przez wysyłanie danych do Centrum zdar
 Po zaimportowaniu danych w usłudze Data Lake Store, można uruchomić zadania analitycznych do przetworzenia oraz wykonywać danych. Zobacz [USQL Avro przykład](https://github.com/Azure/usql/tree/master/Examples/AvroExamples) o tym, jak to zrobić przy użyciu usługi Azure Data Lake Analytics.
   
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Zabezpieczanie danych w usłudze Data Lake Store](data-lake-store-secure-data.md)
 * [Kopiowanie danych z obiektów blob magazynu Azure do usługi Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md)

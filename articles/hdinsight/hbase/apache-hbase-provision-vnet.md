@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/03/2017
+ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 1d3dba645acf51a7dcdd42fa23c82db962244b62
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 08f71340fea7424262fc9c549351bd50bcfcafe2
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="create-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Tworzenie klastrów HBase w usłudze HDInsight w sieci wirtualnej platformy Azure
 Dowiedz się, jak utworzyć klaster Azure HDInsight HBase w [sieci wirtualnej Azure][1].
@@ -34,7 +34,7 @@ Dzięki integracji sieci wirtualnej klastrów HBase można wdrożyć do tej same
 ### <a name="prerequisites"></a>Wymagania wstępne
 Przed przystąpieniem do wykonywania kroków opisanych w tym samouczku musisz mieć poniższe:
 
-* **Subskrypcja platformy Azure**. Zobacz artykuł [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* **Subskrypcja platformy Azure**. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Stacja robocza z programem Azure PowerShell**. Zobacz [instalacja i używanie programu Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
 ## <a name="create-hbase-cluster-into-virtual-network"></a>Tworzenie klastra HBase w sieci wirtualnej
@@ -44,7 +44,7 @@ W tej sekcji, utworzyć klaster HBase opartych na systemie Linux z zależne kont
 > Niektóre właściwości są zakodowane na stałe do szablonu. Na przykład:
 >
 > * **Lokalizacja**: wschodnie stany USA 2
-> * **Wersja klastra**: 3,6
+> * **Wersja klastra**: 3.6
 > * **Liczba węzłów procesu roboczego klastra**: 2
 > * **Domyślne konto magazynu**: unikatowy ciąg
 > * **Nazwa sieci wirtualnej**: &lt;nazwa klastra >-Sieć wirtualna
@@ -243,15 +243,15 @@ Aby użyć tych informacji w aplikacji Java, można wykonać kroki opisane w [U�
 >
 >
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 W tym samouczku przedstawiono sposób utworzyć klaster HBase. Aby dowiedzieć się więcej, zobacz:
 
 * [Rozpoczynanie pracy z usługą HDInsight](../hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Użyj węzłami pusty krawędzi w usłudze HDInsight](../hdinsight-apps-use-edge-node.md)
 * [Konfigurowanie replikacji bazy danych HBase w usłudze HDInsight](apache-hbase-replication.md)
 * [Tworzenie klastrów Hadoop w usłudze HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
-* [Rozpoczynanie pracy z platformą Hadoop w usłudze HDInsight przy użyciu bazy danych HBase](./apache-hbase-tutorial-get-started-linux.md)
-* [Omówienie sieci wirtualnej](../../virtual-network/virtual-networks-overview.md)
+* [Rozpoczęcie korzystania z bazy danych HBase z użyciem usługi Hadoop w usłudze HDInsight](./apache-hbase-tutorial-get-started-linux.md)
+* [Omówienie usługi Virtual Network](../../virtual-network/virtual-networks-overview.md)
 
 [1]: http://azure.microsoft.com/services/virtual-network/
 [2]: http://technet.microsoft.com/library/ee176961.aspx
