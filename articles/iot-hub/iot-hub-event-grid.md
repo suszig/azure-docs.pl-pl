@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/14/2018
 ms.author: kgremban
-ms.openlocfilehash: 6123039ba5eeb720e0ca590fa69af915da91367c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7c75a65714898f27ab0008ad5a30a5714d7174f4
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions---preview"></a>Reagowanie na zdarzenia Centrum IoT przy użyciu siatki zdarzeń do akcje wyzwalacza - Preview
 
@@ -28,14 +28,7 @@ Centrum IoT Azure integruje się z siatki zdarzeń platformy Azure, dzięki czem
 
 ## <a name="regional-availability"></a>Dostępność regionalna
 
-Siatki zdarzeń integracji znajduje się w publicznej wersji zapoznawczej, więc jest dostępny w ograniczonej liczbie regionów. Integracja działa centra IoT znajduje się w następujących regionach:
-
-* Środkowe stany USA
-* Wschodnie stany USA
-* Wschodnie stany USA 2
-* Środkowo-zachodnie stany USA
-* Zachodnie stany USA
-* Zachodnie stany USA 2
+Integracja siatki zdarzeń jest dostępna dla centra IoT znajdujących się w regionach, gdzie siatki zdarzeń jest obsługiwana. Aby uzyskać najnowszą listę regionów, zobacz [wprowadzenie do usługi Azure Event siatki][lnk-eg-overview]. 
 
 ## <a name="event-types"></a>Typy zdarzeń
 

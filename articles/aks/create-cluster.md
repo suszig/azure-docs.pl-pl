@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 02/12/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 3e884bc16680d74801911547045deb48246afccd
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 37d6dfc0aa6b3e4fcd88a53e83a3a3d7f2157681
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="create-an-azure-container-service-aks-cluster"></a>Tworzenie klastra usługi kontenera platformy Azure (AKS)
 
@@ -21,7 +21,7 @@ Klaster usługi kontenera platformy Azure (AKS) mogą być tworzone z wiersza po
 
 ## <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-Użyj [utworzyć az aks] [ az-aks-create] polecenie, aby usunąć klaster AKS.
+Użyj [utworzyć az aks] [ az-aks-create] polecenie, aby utworzyć klaster AKS.
 
 ```azurecli-interactive
 az aks create --resource-group myResourceGroup --name myAKSCluster

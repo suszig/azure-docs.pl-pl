@@ -10,24 +10,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/25/2017
+ms.date: 2/22/2017
 ms.author: rithorn
-ms.openlocfilehash: acdcf5b772cbaca1827663b49d5cc8cafa238108
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 54c7610f1a0d3de2503ef471ca9adc0db423f530
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="troubleshoot-enterprise-cost-views"></a>Rozwiązywanie problemów z enterprise koszt widoków 
 
 W ramach rejestracji enterprise istnieje wiele ustawień, które może spowodować, że użytkownicy nie będą mogli wyświetlić kosztów w ramach rejestracji.  Jeśli rejestracja nie została zakupiona bezpośrednio z firmą Microsoft, te ustawienia są zarządzane przez administratora rejestracji lub przez partnera.  Ten artykuł pomaga w zrozumieniu ustawienia są oraz ich wpływ na rejestracji. Te ustawienia są niezależne od [role RBAC Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure). 
 
-> [!Note]
-> Ta funkcja jest obecnie w prywatnej wersji zapoznawczej. [Zarejestruj się tutaj](https://forms.office.com/Pages/DesignPage.aspx#FormId=v4j5cvGGr0GRqy180BHbR0YtfU6ham9OsGsPPYdu2xdUNk1BQUwzTkUyOVc5NUpCTFcwR0pIOVFETS4u) ma informacji o rejestracji join w wersji zapoznawczej.     
 
 ## <a name="enabling-access-to-costs"></a>Włączanie dostępu do kosztów
 
-Czy jest wyświetlany komunikat bez autoryzacji, lub *"Koszt widoki są wyłączone w Twojej rejestracji."* Jeśli szukasz informacji o kosztach? ![nieautoryzowanego](media/billing-enterprise-mgmt-groups/unauthorized.png)
+Czy występuje komunikat bez autoryzacji, lub *"Koszt widoki są wyłączone w Twojej rejestracji."* Jeśli szukasz informacji o kosztach? ![nieautoryzowanego](media/billing-enterprise-mgmt-groups/unauthorized.png)
 
 Może to być spowodowane jedną z następujących powodów:
 
@@ -47,4 +45,3 @@ Jeśli wyświetlany jest komunikat o błędzie "ten zasób jest niedostępny" po
 
 Skontaktuj się z Administruj grup subskrypcji lub zarządzania, aby uzyskać dostęp.  
 * Subskrypcji, odwołanie [based kontroli dostępu (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) dokumentu, aby uzyskać pomoc, na którym rola jest wymagana.
-* Dla grupy zarządzania RBAC dostępu nie jest dostępny i będzie dostępna wkrótce. Skontaktuj się z portalem enterprise administrowania przypisany dostęp.   

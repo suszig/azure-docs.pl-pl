@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/03/2017
+ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 4bd7f5b584030f9c1554b56895493837d2eac357
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 3577b06bfb23457c17099902a7ac9fb8eb6e3087
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="optimize-hive-queries-in-azure-hdinsight"></a>Optymalizacja zapytań programu Hive w usłudze Azure HDInsight
 
@@ -177,7 +177,7 @@ Dostępnych jest więcej metod optymalizacji można rozważyć, na przykład:
 * **Dołącz do optymalizacji:** optymalizacji wykonywania zapytania gałęzi planowania podnieść wydajność sprzężenia i zmniejsza potrzebę wskazówek użytkownika. Aby uzyskać więcej informacji, zobacz [Join optymalizacji](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+JoinOptimization#LanguageManualJoinOptimization-JoinOptimization).
 * **Zwiększ reduktory**.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 W tym artykule uzyskanych kilka typowych metody optymalizacji zapytań Hive. Aby dowiedzieć się więcej, zobacz następujące artykuły:
 
 * [Use Apache Hive w usłudze HDInsight](hadoop/hdinsight-use-hive.md)

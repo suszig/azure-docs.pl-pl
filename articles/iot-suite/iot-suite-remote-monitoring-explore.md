@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 02/15/2018
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 5bc01c7e70e6837989c6bebd843ba1f41c8c5aeb
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 96d701860abcc645b37d0420fe352da2adeb992f
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Poznaj możliwości zdalnego wstępnie skonfigurowane rozwiązanie monitorowania
 
@@ -114,7 +114,7 @@ Na **konserwacji** strony, można wyświetlić szczegóły reguły, która wyzwo
 
     ![Strona konserwacji listą alarmów, które ma być wywołany](media/iot-suite-remote-monitoring-explore/maintenancealarmlist.png)
 
-1. Alarm pierwszy na liście jest ostatnim zadaniem. Kliknij przycisk **wykorzystania Chłodnica** alarmu, aby wyświetlić skojarzone urządzenia i danych telemetrycznych. Dane telemetryczne przedstawia końcówka wykorzystania Chłodnica:
+1. Alarm pierwszy na liście jest ostatnim zadaniem. Kliknij przycisk **Chłodnica wykorzystania zbyt duże** alarmu, aby wyświetlić skojarzone urządzenia i danych telemetrycznych. Dane telemetryczne przedstawia nagłego wykorzystania dla Chłodnica:
 
     ![Strona konserwacji przedstawia dane telemetryczne dla wybranych alarmu](media/iot-suite-remote-monitoring-explore/maintenancetelemetry.png)
 
@@ -159,12 +159,12 @@ Aby wykonywać zadania zarządzania niezbędne urządzenia, należy użyć **urz
 
     ![Wybierz urządzenie, na stronie urządzenia](media/iot-suite-remote-monitoring-explore/devicesselect.png)
 
-1. Kliknij przycisk **harmonogram** przycisk, a następnie wybierz pozycję **aktualizacji oprogramowania układowego**. Wprowadź wartości w polach **Nazwa zadania** i **URI oprogramowania układowego**. Wybierz **Zastosuj** zaplanowane zadanie, które chcesz teraz uruchomić:
+1. Kliknij przycisk **harmonogram** przycisk, a następnie wybierz pozycję **aktualizacji oprogramowania układowego**. Wprowadź wartości w polach **Nazwa zadania**, **wersja oprogramowania układowego**, i **URI oprogramowania układowego**. Wybierz **Zastosuj** zaplanowane zadanie, które chcesz teraz uruchomić:
 
     ![Planowanie aktualizacji oprogramowania układowego na urządzeniu](media/iot-suite-remote-monitoring-explore/devicesschedulefirmware.png)
 
     > [!NOTE]
-    > Z symulowanego urządzenia można użyć dowolnego adresu URL jako, takich jak **URI oprogramowania układowego** wartość. Symulowane urządzeń nie dostępu do adresu URL.
+    > Z symulowanego urządzenia można użyć dowolnego adresu URL jako, takich jak **URI oprogramowania układowego** wartości i wartości dla **wersja oprogramowania układowego**. Symulowane urządzeń nie dostępu do adresu URL.
 
 1. Należy pamiętać, ile urządzeń ma wpływ na zadania i wybierz polecenie **Zastosuj**:
 

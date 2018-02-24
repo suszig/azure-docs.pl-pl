@@ -13,37 +13,37 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/21/2018
+ms.date: 02/22/2018
 ms.author: owend
-ms.openlocfilehash: 2149330eb711fea76a144f5ec748ae6760c7746a
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: e5159f8c6e8c271230151f71bf3057d07fc75c21
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Biblioteki klienta do nawiązywania połączenia z usług Azure Analysis Services
 
 Biblioteki klienta są niezbędne dla aplikacji klienckich i narzędzia do połączenia się z serwerami usług Analysis Services. 
 
-## <a name="download-the-latest-client-libraries"></a>Pobierz najnowsze biblioteki klienta  
+## <a name="download-the-latest-client-libraries-windows-installer"></a>Pobierz najnowsze biblioteki klienta (Instalator Windows)  
 
 |Do pobrania  |Wersja  | 
 |---------|---------|
 |[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.300.129.01      |
 |[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.300.129.01      |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.0.300.129.01      |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    115.0.300.129.01      |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.0.2      |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.0.2      |
 
-## <a name="amo-and-adomd-on-nuget"></a>AMO i ADOMD na NuGet
+## <a name="amo-and-adomd-nuget-packages"></a>AMO i ADOMD (pakietów NuGet)
 
-Usługi Analysis Services Management Objects (AMO) i ADOMD bibliotek klienta są dostępne jako możliwe do zainstalowania pakietów z [NuGet.org](https://www.nuget.org/). 
+Usługi Analysis Services Management Objects (AMO) i ADOMD bibliotek klienta są dostępne jako możliwe do zainstalowania pakietów z [NuGet.org](https://www.nuget.org/). Zaleca się, że migrację do odwołań NuGet zamiast za pomocą Instalatora Windows. 
 
 |Pakiet  |Wersja  | 
 |---------|---------|
 |[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.0.2      |
 |[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.0.2      |
 
-Zaleca się, że migrację do odwołań NuGet zamiast za pomocą Instalatora MSI. 
+
 
 Zestawy pakietu NuGet AssemblyVersion wykonaj wersjonowania semantycznego: główne. POMOCNICZE. POPRAWKI. Odwołań NuGet załadować oczekiwanej wersji, nawet jeśli jest w innej wersji w pamięci podręcznej GAC (wynikające z instalacji pliku MSI). POPRAWKA jest zwiększany dla każdej wersji. Wersje AMO i ADOMD są przechowywane w synchronizacji.
 
@@ -67,9 +67,7 @@ Biblioteki klienta dla połączeń klienckich różnią się od dostawców danyc
 
 ### <a name="amo"></a>AMO  
 
- AMO jest biblioteką zarządzanego klienta używany do zarządzania serwerem i definicji danych. Zostanie on zainstalowany i używana przez narzędzia i aplikacje klienckie. Na przykład SQL Server Management Studio (SSMS) używa AMO do nawiązania połączenia usług Analysis Services.  
-  
- Połączenie przy użyciu AMO jest zwykle minimalny, składające się z `“data source=\<servername>”`. Po nawiązaniu połączenia należy użyć interfejsu API do pracy z bazy danych, kolekcji i obiektów głównych. Zarówno program SSDT, jak i SSMS Użyj AMO do nawiązywania połączenia z wystąpieniem usług Analysis Services.  
+ AMO jest biblioteką zarządzanego klienta używany do zarządzania serwerem i definicji danych. Zostanie on zainstalowany i używana przez narzędzia i aplikacje klienckie. Na przykład SQL Server Management Studio (SSMS) używa AMO do nawiązania połączenia usług Analysis Services. Połączenie przy użyciu AMO jest zwykle minimalny, składające się z `“data source=\<servername>”`. Po nawiązaniu połączenia należy użyć interfejsu API do pracy z bazy danych, kolekcji i obiektów głównych. Zarówno program SSDT, jak i SSMS Użyj AMO do nawiązywania połączenia z wystąpieniem usług Analysis Services.  
 
   
 ### <a name="adomd"></a>ADOMD
@@ -83,21 +81,21 @@ Biblioteki klienta dla połączeń klienckich różnią się od dostawców danyc
   
 ### <a name="oleddb-msolap"></a>OLEDDB (MSOLAP)  
   
-1.  Przejdź do pozycji `C:\Program Files\Microsoft Analysis Services\AS OLEDB\140` (Plik > Nowy > Inny). Jeśli masz więcej niż jednym folderze, wybierz większej liczby.
+1.  Przejdź do "C:\Program Files\Microsoft analizy Services\AS OLEDB\. Jeśli masz więcej niż jednym folderze, wybierz większej liczby.
   
-2.  Kliknij prawym przyciskiem myszy **msolap.dll** > **właściwości** > **szczegóły**. Jeśli plik dll, który ma nazwę msolap140.dll, jest starsza niż najnowszej wersji i powinny zostać uaktualnione.
+2.  Kliknij prawym przyciskiem myszy **msolap.dll** > **właściwości** > **szczegóły**. Jeśli nazwa pliku jest msolap140.dll, jest starsza niż najnowszej wersji i powinny zostać uaktualnione.
     
     ![Szczegóły biblioteki klienta](media/analysis-services-data-providers/aas-msolap-details.png)
     
   
 ### <a name="amo"></a>AMO
 
-1. Przejdź do pozycji `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices\v4.0_14.0.0.0__89845dcd8080cc91` (Plik > Nowy > Inny).
+1. Przejdź do pozycji `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices\` (Plik > Nowy > Inny). Jeśli masz więcej niż jednym folderze, wybierz większej liczby.
 2. Kliknij prawym przyciskiem myszy **Microsoft.AnalysisServices** > **właściwości** > **szczegóły**.  
 
 ### <a name="adomd"></a>ADOMD
 
-1. Przejdź do pozycji `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices.AdomdClient\v4.0_14.0.0.0__89845dcd8080cc91` (Plik > Nowy > Inny).
+1. Przejdź do pozycji `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices.AdomdClient\` (Plik > Nowy > Inny). Jeśli masz więcej niż jednym folderze, wybierz większej liczby.
 2. Kliknij prawym przyciskiem myszy **Microsoft.AnalysisServices.AdomdClient** > **właściwości** > **szczegóły**.  
 
 

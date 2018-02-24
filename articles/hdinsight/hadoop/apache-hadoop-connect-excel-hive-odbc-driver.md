@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/06/2017
+ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: d169645b9b701e611d27e0d984bf44b7ca85d2ad
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: b2b5427f037203e86f6b73610084993892ed4a37
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="connect-excel-to-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Łączenie programu Excel do platformy Hadoop w usłudze Azure HDInsight z sterownik Microsoft Hive ODBC
 
@@ -46,7 +46,7 @@ Przed rozpoczęciem tego artykułu, musi mieć następujące elementy:
 ## <a name="install-microsoft-hive-odbc-driver"></a>Zainstalować sterownik Microsoft Hive ODBC
 Pobierz i zainstaluj sterownik Microsoft Hive ODBC z [Centrum pobierania][hive-odbc-driver-download].
 
-W 32-bitowy lub 64-bitowych wersjach systemu Windows 7, Windows 8, Windows 10, Windows Server 2008 R2 i Windows Server 2012 można zainstalować ten sterownik. Sterownik umożliwia połączenie do usługi Azure HDInsight (w wersji 1.6 lub nowszy) i emulatora usługi Azure HDInsight (v.1.0.0.0 i nowsze). Jest zainstalowanie wersji zgodnej z wersją aplikacji, w którym korzystać ze sterownika ODBC. W tym samouczku sterownik jest używany z Office Excel.
+W 32-bitowy lub 64-bitowych wersjach systemu Windows 7, Windows 8, Windows 10, Windows Server 2008 R2 i Windows Server 2012 można zainstalować ten sterownik. Sterownik umożliwia połączenie do usługi Azure HDInsight. Jest zainstalowanie wersji zgodnej z wersją aplikacji, w którym korzystać ze sterownika ODBC. W tym samouczku sterownik jest używany z Office Excel.
 
 ## <a name="create-hive-odbc-data-source"></a>Tworzenie źródła danych ODBC usługi Hive
 Poniższe kroki pokazują, jak utworzyć Hive źródła danych ODBC.

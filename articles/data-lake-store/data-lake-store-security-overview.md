@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: d65341ae79a8894d054503e0b0807dee3e4cca8c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e3df23e8803d8b34cc4178f8047d0fe2172d04be
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="security-in-azure-data-lake-store"></a>Zabezpieczeń w usłudze Azure Data Lake Store
 Wiele przedsiębiorstw są korzystanie z analizy danych big data szczegółowe informacje biznesowe ułatwić im podejmowanie decyzji inteligentne. Organizacja może mieć środowisko złożone i podlegającymi ochronie, z coraz większa liczba różnych użytkowników. Jest ważne dla organizacji upewnić się, że ważnych danych biznesowych jest bezpieczniejsza, przechowywane z odpowiedniego poziomu udzielono dostępu do poszczególnych użytkowników. Azure Data Lake Store ułatwia spełnia te wymagania dotyczące zabezpieczeń. W tym artykule, więcej informacji na temat funkcji zabezpieczeń w usłudze Data Lake Store, w tym:
@@ -54,7 +54,7 @@ Należy pamiętać, że chociaż role są przypisane do zarządzania kontami, ni
 
 | Role | Uprawnienia do zarządzania | Prawa dostępu do danych | Wyjaśnienie |
 | --- | --- | --- | --- |
-| Nie przypisanej roli. |Brak |Wystawianych przez listy kontroli dostępu |Użytkownik nie można użyć portalu Azure lub poleceń cmdlet programu Azure PowerShell, aby przeglądać usługi Data Lake Store. Użytkownik może użyć tylko narzędzia wiersza polecenia. |
+| Nie przypisanej roli. |None |Wystawianych przez listy kontroli dostępu |Użytkownik nie można użyć portalu Azure lub poleceń cmdlet programu Azure PowerShell, aby przeglądać usługi Data Lake Store. Użytkownik może użyć tylko narzędzia wiersza polecenia. |
 | Właściciel |Wszyscy |Wszyscy |Rola właściciela jest administratora. Tej roli mogą zarządzać wszystkim i ma pełny dostęp do danych. |
 | Czytelnik |Tylko do odczytu |Wystawianych przez listy kontroli dostępu |Rolę czytelnika mogą przeglądać wszystko dotyczące zarządzania kontami, takie jak użytkownik jest przypisany do roli. Rolę czytelnika nie wprowadzać zmian. |
 | Współautor |Wszystkie z wyjątkiem dodawania i usuwania ról |Wystawianych przez listy kontroli dostępu |Rola współautora można zarządzać niektórych aspektów konta, takich jak wdrożenia i tworzenie i Zarządzanie alertami. Rola współautora nie można dodać lub usunąć role. |

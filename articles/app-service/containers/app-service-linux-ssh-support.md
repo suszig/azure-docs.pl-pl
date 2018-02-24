@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.openlocfilehash: 7e6bb974565810ebb8d8e21d1c274d42d6d39e55
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 5c877222c9ce409ea8758d5830f79e4a8b64fd8f
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Obsługa protokołu SSH dla usługi Azure App Service w systemie Linux
 
@@ -54,7 +54,7 @@ Te kroki są są wyświetlane w repozytorium Azure App Service jako [przykład](
 1. Obejmują `openssh-server` instalacji w [ `RUN` instrukcji](https://docs.docker.com/engine/reference/builder/#run) w plik Dockerfile obrazu i ustaw hasło dla głównego konta `"Docker!"`.
 
     > [!NOTE]
-    > Ta konfiguracja nie zezwala na połączenia zewnętrzne do kontenera. SSH jest możliwy tylko za pośrednictwem Kudu / SCM lokacji, który jest uwierzytelniany przy użyciu poświadczeń publikowania.
+    > Ta konfiguracja nie zezwala na połączenia zewnętrzne z kontenerem. SSH jest możliwy tylko za pośrednictwem Kudu / SCM lokacji, który jest uwierzytelniany przy użyciu poświadczeń publikowania.
 
     ```docker
     # ------------------------
@@ -69,14 +69,14 @@ Te kroki są są wyświetlane w repozytorium Azure App Service jako [przykład](
 
     > [!NOTE]
     > *Sshd_config* plik musi zawierać następujące lub połączenie nie powiedzie się: 
-    > * `Ciphers`musi zawierać co najmniej jedną z następujących: `aes128-cbc,3des-cbc,aes256-cbc`.
-    > * `MACs`musi zawierać co najmniej jedną z następujących: `hmac-sha1,hmac-sha1-96`.
+    > * `Ciphers` musi zawierać co najmniej jedną z następujących: `aes128-cbc,3des-cbc,aes256-cbc`.
+    > * `MACs` musi zawierać co najmniej jedną z następujących: `hmac-sha1,hmac-sha1-96`.
 
     ```docker
     COPY sshd_config /etc/ssh/
     ```
 
-1. Obejmują portu 2222 [ `EXPOSE` instrukcji](https://docs.docker.com/engine/reference/builder/#expose) dla plik Dockerfile. Chociaż hasła głównego jest znany, port 2222 nie jest dostępny z Internetu. Jest wewnętrzny tylko port dostępny tylko przez kontenery w ramach sieci Mostek wirtualnej sieci prywatnej.
+1. Obejmują portu 2222 [ `EXPOSE` instrukcji](https://docs.docker.com/engine/reference/builder/#expose) dla plik Dockerfile. Mimo iż hasło konta root jest znane, nie można uzyskać dostępu do portu 2222 z Internetu. Jest wewnętrzny tylko port dostępny tylko przez kontenery w ramach sieci Mostek wirtualnej sieci prywatnej.
 
     ```docker
     EXPOSE 2222 80
@@ -99,11 +99,11 @@ Plik Dockerfile używa [ `CMD` instrukcji](https://docs.docker.com/engine/refere
     CMD ["/bin/init_container.sh"]
     ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
-Zobacz poniższe łącza, aby uzyskać więcej informacji dotyczących aplikacji sieci Web dla kontenerów. Pytania i uwagi można umieścić na [naszym forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
+Zobacz poniższe łącza, aby uzyskać więcej informacji dotyczących aplikacji sieci Web dla kontenerów. Pytania i uwagi można zamieszczać na [naszym forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
-* [Sposób użycia niestandardowego obrazu Docker dla aplikacji sieci Web dla kontenerów](quickstart-custom-docker-image.md)
-* [W usłudze Azure App Service w systemie Linux przy użyciu platformy .NET Core](quickstart-dotnetcore.md)
-* [W usłudze Azure App Service w systemie Linux przy użyciu Ruby](quickstart-ruby.md)
-* [Usługa aplikacji Azure aplikacji sieci Web dla kontenerów — często zadawane pytania](app-service-linux-faq.md)
+* [How to use a custom Docker image for Web App for Containers](quickstart-docker-go.md) (Używanie niestandardowego obrazu platformy Docker dla usługi Web App for Containers)
+* [Using .NET Core in Azure App Service on Linux](quickstart-dotnetcore.md) (Korzystanie z platformy .NET Core w usłudze Azure App Service w systemie Linux)
+* [Using Ruby in Azure App Service on Linux](quickstart-ruby.md) (Używanie języka Ruby w usłudze Azure App Service w systemie Linux)
+* [Azure App Service Web App for Containers FAQ](app-service-linux-faq.md) (Usługa Web App for Containers w usłudze Azure App Service — często zadawane pytania)

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: e4c875d07905b56c0d3eb346c839f7a4917531de
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 82a0a336e8315d7fe9862e22e47a6847f94bfcb1
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Utwórz maszynę wirtualną systemu Linux za pomocą przyspieszony sieci
 
@@ -47,7 +47,7 @@ Korzyści wynikające z przyspieszonego sieci dotyczą tylko maszynę Wirtualną
 
 ## <a name="supported-operating-systems"></a>Obsługiwane systemy operacyjne
 * **Ubuntu 16.04**: 4.11.0-1013 lub nowszej wersji jądra
-* **SLES SP3**: 4.4.92-6.18 lub nowszej wersji jądra
+* **Z dodatkiem SP3 SLES 12**: 4.4.92-6.18 lub nowszej wersji jądra
 * **RHEL 7.4**: 7.4.2017120423 lub nowszej wersji jądra
 * **CentOS 7.4**: 7.4.20171206 lub nowszej wersji jądra
 
@@ -78,7 +78,7 @@ az group create --name myResourceGroup --location centralus
 
 Musisz wybrać obsługiwanym regionie systemu Linux na liście [Linux przyspieszony sieci](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview).
 
-Tworzenie sieci wirtualnej z [tworzenie sieci wirtualnej sieci az](/cli/azure/network/vnet#az_network_vnet_create). Poniższy przykład tworzy sieć wirtualną o nazwie *myVnet* z jedną podsiecią:
+Utwórz sieć wirtualną za pomocą polecenia [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). Poniższy przykład tworzy sieć wirtualną o nazwie *myVnet* z jedną podsiecią:
 
 ```azurecli
 az network vnet create \
@@ -117,7 +117,7 @@ az network nsg rule create \
 
 ## <a name="create-a-network-interface-with-accelerated-networking"></a>Utwórz interfejs sieciowy z przyspieszonego sieci
 
-Utwórz publiczny adres IP z [utworzyć az sieci publicznej ip](/cli/azure/network/public-ip#az_network_public_ip_create). Publiczny adres IP nie jest wymagane, jeśli nie planujesz dostęp do maszyny wirtualnej z Internetu, ale wykonać kroki opisane w tym artykule, jest to wymagane.
+Utwórz publiczny adres IP za pomocą polecenia [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create). Publiczny adres IP nie jest wymagane, jeśli nie planujesz dostęp do maszyny wirtualnej z Internetu, ale wykonać kroki opisane w tym artykule, jest to wymagane.
 
 ```azurecli
 az network public-ip create \

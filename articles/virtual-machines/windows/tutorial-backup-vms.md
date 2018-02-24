@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 20760650b093216a2929de580f5971c45e0534a8
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 9638c7148d4347bb9cbc9e48022037ee6cb983d7
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="back-up-windows-virtual-machines-in-azure"></a>Tworzenie kopii zapasowych maszyn wirtualnych systemu Windows na platformie Azure
 
@@ -92,7 +92,7 @@ W tym przykładzie zostanie przedstawiony sposób odzyskać plik obrazu, który 
 18. Na komputerze lokalnym, wróć do karty przeglądarki dla portalu Azure i w **krok 3: odinstaluj dyski po odzyskaniu** kliknij **odinstalować dyski** przycisku. Jeśli zapomnisz wykonać ten krok, połączenie punktu instalacji jest automatycznie Zamknij po 12 godzinach. Po tych 12 godzin należy pobrać nowe skryptu można utworzyć nowego punktu instalacji.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
@@ -104,7 +104,7 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 Przejdź do następnego samouczka, aby dowiedzieć się więcej na temat monitorowania maszyn wirtualnych.
 
 > [!div class="nextstepaction"]
-> [Monitorowanie maszyn wirtualnych](tutorial-monitoring.md)
+> [Decydować maszyny wirtualne](tutorial-govern-resources.md)
 
 
 

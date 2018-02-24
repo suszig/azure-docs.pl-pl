@@ -4,18 +4,18 @@ description: "Dokumentacja interfejsu wiersza polecenia Azure Machine Learning M
 services: machine-learning
 author: raymondl
 ms.author: raymondl, aashishb
-manager: neerajkh
-ms.reviewer: garyericson, jasonwhowell, mldocs
+manager: hjerez
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/08/2017
-ms.openlocfilehash: 373abb8f40a8acf557b7cd4a0d0b3fb55f4a545c
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 219c61d1842369caadaf8e85dcb039242c37ef6c
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="model-management-command-line-interface-reference"></a>Odwołanie do modelu administracyjnego interfejsu wiersza polecenia
 
@@ -70,7 +70,7 @@ Argumenty lokalnego:
 
 **Konfigurowanie środowiska wdrażania**
 
-Polecenia instalacji wymagane jest posiadanie współautora dostępu do subskrypcji. Jeśli nie masz potrzebny jest co najmniej współautora dostęp do grupy zasobów, które są wdrażane do. Aby zrobić to drugie, należy określić nazwę grupy zasobów jako część za pomocą polecenia Instalatora `-g` flagę. 
+Polecenia instalacji wymagane jest posiadanie współautora dostępu do subskrypcji. Jeśli go nie masz, potrzebujesz przynajmniej prawa dostępu współautora do grupy zasobów, w której przeprowadzasz wdrożenie. W drugim przypadku musisz określić nazwę grupy zasobów jako część polecenia instalatora przy użyciu flagi `-g`. 
 
 Dostępne są dwie opcje wdrożenia: *lokalnego* i *klastra*. Ustawienie `--cluster` (lub `-c`) Flaga umożliwia wdrożenie klastra, który inicjuje klastrem usługi ACS. Podstawowa konfiguracja ma następującą składnię:
 

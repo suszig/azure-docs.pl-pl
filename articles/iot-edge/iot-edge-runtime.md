@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 02/15/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 7515f6b2e074c33488fc44768705896d7c9d8ce6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8bd725e2201cb08853f4fb63d156b6359427663b
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture---preview"></a>Zrozumienie środowiska uruchomieniowego Azure IoT Edge i jego architektura - preview
 
@@ -94,10 +94,10 @@ Każdy element w słowniku modułów zawiera informacje na temat modułu i jest 
 * **settings.createOptions** — ciąg, który jest przekazywany bezpośrednio do demona Docker podczas uruchamiania modułu kontenera. Umożliwia dodanie opcji Docker w tej właściwości zaawansowane opcje, takie jak port przekazywania lub instalowanie woluminów do kontenera modułu.  
 * **Stan** — stan, w którym agent krawędzi umieszcza modułu. Ta wartość jest zazwyczaj równa *systemem* większość użytkowników ma agenta krawędzi, aby natychmiast uruchomić wszystkie moduły na urządzeniu. Można jednak określić początkowy stan modułu, aby zostać zatrzymane i poczekaj, aż przyszłości mówić krawędź agent można uruchomić modułu. Agent krawędzi raportuje stan każdego modułu ją z chmurą we właściwościach zgłoszony. Różnica między żądanej właściwości, a właściwość zgłoszone jest wskaźnik lub zachowania urządzeń. Dostępne są następujące stany obsługiwane:
    * Pobieranie
-   * Działa
+   * Działanie
    * W złej kondycji
    * Niepowodzenie
-   * Zatrzymane
+   * Zatrzymano
 * **restartPolicy** — jak moduł ponowne uruchomienie agenta krawędzi. Możliwe wartości obejmują:
    * Nigdy nie — agent krawędzi nigdy nie uruchamia ponownie moduł.
    * onFailure — jeśli wystąpiła awaria modułu, agent krawędzi ponownie go uruchamia. Jeśli moduł, który zamyka się prawidłowo, agent krawędzi nie uruchom go ponownie.
@@ -123,8 +123,8 @@ Agent krawędzi IoT odgrywa kluczową rolę w oknie zabezpieczenia urządzenia I
 - [Zrozumienie modułów Azure IoT krawędzi][modułów lnk]
 
 <!-- Images -->
-[1]: ./media/iot-edge-runtime/pipeline.png
-[2]: ./media/iot-edge-runtime/gateway.png
+[1]: ./media/iot-edge-runtime/Pipeline.png
+[2]: ./media/iot-edge-runtime/Gateway.png
 [3]: ./media/iot-edge-runtime/ModuleEndpoints.png
 [4]: ./media/iot-edge-runtime/ModuleEndpointsWithRoutes.png
 

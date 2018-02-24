@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-ms.openlocfilehash: 771b3ffa0ece10e7373011536a12ed4cb1a1dd6d
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: ae266b0fc78083250c5d14ff2978cd59d394b202
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informacje o nieobsługiwanych dystrybucjach
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-Platforma Azure umowy SLA stosuje się do maszyn wirtualnych z systemem operacyjnym Linux tylko wtedy, gdy jeden z [dystrybucje zatwierdzone](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) jest używany. Wszystkie dystrybucje systemu Linux, które znajdują się w galerii Azure obrazu są potwierdzony dystrybucji z odpowiednią konfiguracją.
+Platforma Azure umowy SLA stosuje się do maszyn wirtualnych z systemem operacyjnym Linux tylko wtedy, gdy jeden z [dystrybucje zatwierdzone](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) jest używany. Dla tych potwierdzony dystrybucji obrazów Linux znajdują się w portalu Azure Marketplace z odpowiednią konfiguracją.
 
 * [Dystrybucje zatwierdzone na systemie Linux na platformie Azure —](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Obsługa obrazów systemu Linux na platformie Microsoft Azure](https://support.microsoft.com/kb/2941892)

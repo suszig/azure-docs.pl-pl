@@ -4,20 +4,20 @@ description: "Zawiera omówienie obliczeń oceny w usłudze Azure migracji."
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/12/2017
+ms.date: 2/21/2018
 ms.author: raynew
-ms.openlocfilehash: 10bc249aa70852dce71c96e46319925cececdd8b
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 886977764517f1fec89eee77fc3263d30ff9ab31
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="dependency-visualization"></a>Wizualizacja zależności
 
 [Migracji Azure](migrate-overview.md) usług ocenia grup lokalnych maszyn do migracji do usługi Azure. Aby zgrupować maszyny, można użyć wizualizacji zależności. Ten artykuł zawiera informacje o tej funkcji.
 
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 Wizualizacja zależności w Azure migracji służy do tworzenia grup dla migracji oceny o większej pewności. Za pomocą wizualizacji zależności można wyświetlić zależności sieci przez określone maszyny lub dla grupy komputerów. Jest to przydatne w celu zapewnienia, że żadne funkcje lub zostały utracone (lub zapomnienia hasła maszyny) w procesie migracji, gdy aplikacje i obciążenia uruchomione na wielu komputerach.  
 
@@ -35,7 +35,7 @@ Aby korzystać z wizualizacji zależności, musisz pobrać i zainstalować agent
 
 ## <a name="do-i-need-to-pay-for-it"></a>Należy dokonać jego?
 
-Tak. Obszar roboczy analizy dzienników jest domyślnie tworzona, ale nie jest używana, chyba że w Azure migracji za pomocą wizualizacji zależności. Jeśli jest używany wizualizacji zależności (lub Użyj obszaru roboczego poza Azure migracji), są naliczane opłaty za użycie obszaru roboczego.  [Dowiedz się więcej](https://azure.microsoft.com/pricing/details/insight-analytics/) o cenach rozwiązania mapy usługi. 
+Więcej informacji o cenach usługi Azure Migrate można uzyskać [tutaj](https://azure.microsoft.com/pricing/details/azure-migrate/). 
 
 ## <a name="how-do-i-manage-the-workspace"></a>Jak zarządzać obszaru roboczego?
 
@@ -43,6 +43,6 @@ Można użyć obszaru roboczego analizy dzienników poza Azure migracji. Nie zos
 
 Nie należy usuwać obszar roboczy utworzony przez Azure migracji, o ile nie usuniesz migracji projektu. Jeśli to zrobisz, zależności nie działają zgodnie z oczekiwaniami.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Grupy maszyn przy użyciu zależności maszyny](how-to-create-group-machine-dependencies.md)

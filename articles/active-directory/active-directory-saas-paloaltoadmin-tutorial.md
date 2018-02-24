@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 8e54630d97dee2388ffc9c8877faeac269df1609
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 60430f08f54232db619efd054ca3a7d9a44f4cdc
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>Samouczek: Azure Active Directory integracji z sieciami Palo Alto - Admin interfejsu użytkownika
 
@@ -106,11 +106,14 @@ W tej sekcji włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azur
 
 3. Na **Palo Alto Networks - administratora domeny interfejsu użytkownika i adres URL** sekcji, wykonaj następujące czynności:
 
-    ![Sieci Palo Alto - Admin interfejsu użytkownika domeny i adresy URL pojedynczego logowania jednokrotnego informacji](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_url.png)
+    ![Sieci Palo Alto - Admin interfejsu użytkownika domeny i adresy URL pojedynczego logowania jednokrotnego informacji](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_general_show_advanced_url.png)
+    
+    a. W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca: `https://<Customer Firewall FQDN>/php/login.php`
 
-    a. W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<Customer Firewall FQDN>/php/login.php`
-
-    b. W **identyfikator** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<Customer Firewall FQDN>/SAML20/SP`
+    b. W **identyfikator** tekstowym, wpisz adres URL, używając następującego wzorca: `https://<Customer Firewall FQDN>:443/SAML20/SP`
+    
+    c. W **adres URL odpowiedzi** tekstowym, wpisz adres URL usługi konsumenta potwierdzenia (ACS) przy użyciu następującego wzorca: `https://<Customer Firewall FQDN>:443/SAML20/SP/ACS`
+    
 
     > [!NOTE] 
     > Wartości te nie są prawdziwe. Rzeczywisty adres URL logowania i identyfikator, należy zaktualizować te wartości. Skontaktuj się z [Palo Alto Networks - zespołem pomocy technicznej Admin interfejsu użytkownika klienta](https://support.paloaltonetworks.com/support) uzyskać te wartości. 
@@ -134,7 +137,7 @@ W tej sekcji włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azur
     
     b. W **nazwa** tekstowym, wpisz nazwę atrybut wyświetlany dla danego wiersza.
     
-    d. Z **wartość** listy, wpisz wartość atrybutu wyświetlany dla danego wiersza.
+    c. Z **wartość** listy, wpisz wartość atrybutu wyświetlany dla danego wiersza.
     
     d. Kliknij przycisk **Ok**
 
@@ -163,13 +166,71 @@ W tej sekcji włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azur
 
 11. Wykonaj następujące akcje w oknie importu
 
-    ![Skonfiguruj Palo Alto rejestracji jednokrotnej](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_admin3.png)
+    ![Skonfiguruj Palo Alto rejestracji jednokrotnej](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_idp.png)
 
-    a. W **nazwa profilu** pole tekstowe, podaj nazwę np. Azure AD administratora interfejsu użytkownika.
+    a. W **nazwa profilu** pole tekstowe, podaj nazwę np. Admin AzureAD w interfejsie użytkownika.
     
     b. W **metadanych dostawcy tożsamości**, kliknij przycisk **Przeglądaj** i wybierz plik metadata.xml, który został pobrany z portalu Azure
     
+    c. Usuń zaznaczenie "**weryfikacji certyfikatu dostawcy tożsamości**"
+    
     d. Kliknij przycisk **OK**.
+    
+    e. Zatwierdź konfiguracji zapory, wybierając **zatwierdzić** przycisku
+
+12. Wybierz **dostawca tożsamości SAML** na pasku nawigacyjnym po lewej stronie i kliknij przycisk w profilu dostawca tożsamości SAML (np. interfejsu użytkownika administratora AzureAD) utworzone w poprzednim kroku. 
+    
+  ![Skonfiguruj Palo Alto sieci rejestracji jednokrotnej](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_idp_select.png)
+
+13. Wykonaj następujące czynności na **profilu serwera dostawca tożsamości SAML** okna
+
+  ![Skonfiguruj Palo Alto sieci pojedynczego Wyloguj się](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_slo.png)
+  
+  a. W **URL SLO Provieder tożsamości** pole tekstowe, usuń poprzednio zaimportowanego adres URL usługi i Dodaj następujący adres URL: `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0`
+  
+  b. Kliknij przycisk **OK**.
+
+
+14. Zapory sieci Palo Alto interfejsie użytkownika administracyjnego, kliknij przycisk **urządzenia** i wybierz **role administratora**
+
+15. Kliknij przycisk **Dodaj** przycisku. W oknie profilu roli Administrator Podaj nazwę roli administratora (np. fwadmin). Ta nazwa roli administratora powinna odpowiadać nazwie atrybutu SAML rolę administratora, wysłane przez dostawcę tożsamości. W kroku 5 zostały utworzone z roli Administrator nazwą i wartością. 
+
+  ![Skonfiguruj rolę administratora sieci Palo Alto](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_adminrole.png)
+  
+16. W Interfejsie administratora zapory, kliknij polecenie **urządzenia** i wybierz **profilu uwierzytelniania**
+
+17. Kliknij przycisk **Dodaj** przycisku. W oknie profilu uwierzytelniania wykonaj następujące czynności: 
+
+ ![Konfigurowanie profilu uwierzytelniania sieci Palo Alto](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_authentication_profile.png)
+
+   a. W **nazwa** pole tekstowe, podaj nazwę np. AzureSAML_Admin_AuthProfile
+    
+   b. W **typu** listy rozwijanej wybierz **SAML** 
+   
+   c. Na liście rozwijanej IdP profil serwera wybierz odpowiedni profil serwera dostawca tożsamości SAML (np. AzureAD Admin interfejsu użytkownika)
+   
+   c. Wybierz "**włączyć pojedynczego wylogowania**" checkbox
+    
+   d. Wprowadź nazwę atrybutu (np. adminrole) w polu tekstowym atrybutu roli administratora. 
+   
+   e. Wybierz kartę Zaawansowane i kliknij przycisk **Dodaj** przycisku w okienku na liście dozwolonych. Wybierz wszystkie lub konkretnych użytkowników i grup, które mogą uwierzytelniać za pomocą tego profilu. Podczas uwierzytelniania użytkownika, Zapora odpowiada skojarzona nazwa użytkownika lub grupy względem wpisy na tej liście. Jeśli nie dodasz wpisów, użytkownicy nie mogą uwierzytelniać.
+   
+   ![Konfigurowanie profilu uwierzytelniania sieci Palo Alto](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_allowlist.png)
+   
+   f. Kliknij przycisk **OK**.
+
+18. Aby umożliwić administratorom za pomocą logowania jednokrotnego SAML za pomocą platformy Azure, kliknij **urządzenia** i wybierz **Instalatora**. W okienku ustawień wybierz **zarządzania** i kliknij koło zębate ikonę w obszarze **ustawienia uwierzytelniania**. 
+
+ ![Konfiguruj ustawienia uwierzytelniania sieci Palo Alto](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_authsetup.png)
+
+19. Wybierz profil uwierzytelnianie SAML, utworzony w kroku 17. (np. AzureSAML_Admin_AuthProfile)
+
+ ![Konfiguruj ustawienia uwierzytelniania sieci Palo Alto](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_authsettings.png)
+
+20. Kliknij przycisk **OK**.
+
+21. Zatwierdź konfiguracji po wybraniu **zatwierdzić** przycisku.
+
 
 > [!TIP]
 > Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -203,7 +264,7 @@ Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie 
 
     b. W **nazwy użytkownika** wpisz adres e-mail użytkownika Simona Britta.
 
-    d. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartość, która jest wyświetlana w **hasło** pole.
+    c. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartość, która jest wyświetlana w **hasło** pole.
 
     d. Kliknij przycisk **Utwórz**.
  

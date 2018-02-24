@@ -8,22 +8,23 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 67f9d08c-eea0-401b-952b-db765655dad0
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: 
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/27/2017
 ms.author: larryfr
-ms.openlocfilehash: 9ad160377a8779ae917e6fd2d605ee01b12c3e2a
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ROBOTS: NOINDEX
+ms.openlocfilehash: fe1cf3eab1f0ca930b516e4ab44f1e2439cb3e07
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-c"></a>Zdarzenia procesu z usługi Azure Event Hubs z systemu Storm w usłudze HDInsight (C#)
 
-Dowiedz się, jak pracować z usługą Azure Event Hubs z systemu Apache Storm w usłudze HDInsight. Ten dokument używa topologii Storm C# do odczytywania i zapisywania danych z centrów Evbent
+Dowiedz się, jak pracować z usługą Azure Event Hubs z systemu Apache Storm w usłudze HDInsight. Ten dokument używa topologii Storm C# do odczytywania i zapisywania danych z usługi Event Hubs
 
 > [!NOTE]
 > Wersja języka Java tego projektu, dla [przetwarzać zdarzeń z usługi Azure Event Hubs z systemu Storm w usłudze HDInsight (Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/).
@@ -36,9 +37,6 @@ Kroki opisane w tym dokumencie Użyj SCP.NET, pakietu NuGet, który ułatwia two
 > Podczas czynności opisane w tym dokumencie zależą od środowiska projektowego systemu Windows w programie Visual Studio, skompilowany projekt może zostać przesłane do systemu Storm w klastrze usługi HDInsight, który używa systemu Linux. Topologie SCP.NET obsługują tylko opartych na systemie Linux klastrów utworzonych po 28 października 2016 roku.
 
 HDInsight 3.4 i większe wykorzystanie Mono uruchamiania topologie języka C#. Przykład używane w tym dokumencie współpracuje z 3,6 HDInsight. Jeśli planujesz tworzenie własnych rozwiązań .NET dla usługi HDInsight, sprawdź [Mono zgodności](http://www.mono-project.com/docs/about-mono/compatibility/) dokument dla potencjalnych niezgodności.
-
-> [!WARNING]
-> Jeśli wystąpią problemy z kompilacją projektów, w których używana jest wersja SCP.NET 1.0.0.x, skontaktuj się z pomocą techniczną firmy Microsoft, aby uzyskać pomoc.
 
 ### <a name="cluster-versioning"></a>Przechowywanie wersji klastra
 
@@ -142,12 +140,12 @@ Utwórz katalog o nazwie `eventhubspout`i Zapisz plik do katalogu.
 
 Centra zdarzeń to źródło danych, w tym przykładzie. Skorzystaj z informacji w sekcji "Tworzenie Centrum zdarzeń" [Rozpoczynanie pracy z usługą Event Hubs](../../event-hubs/event-hubs-create.md).
 
-1. Po utworzeniu Centrum zdarzeń wyświetlić **EventHub** bloku na platformie Azure, portalu i wybierz pozycję **zasady dostępu współużytkowanego**. Wybierz **+ Dodaj** można dodać następujące zasady:
+1. Po utworzeniu Centrum zdarzeń wyświetlić **EventHub** ustawień na platformie Azure, portalu i wybierz pozycję **zasady dostępu współużytkowanego**. Wybierz **+ Dodaj** można dodać następujące zasady:
 
-   | Nazwa | Uprawnienia |
+   | Name (Nazwa) | Uprawnienia |
    | --- | --- |
-   | Składnik zapisywania |Send |
-   | Czytnik |Nasłuchiwanie |
+   | autor |Send |
+   | czytelnik |Nasłuchuj |
 
     ![Zrzut ekranu udziału dostępu zasady okna](./media/apache-storm-develop-csharp-event-hub-topology/sas.png)
 
@@ -227,7 +225,7 @@ Aby zatrzymać topologie, wybierz każdej topologii w **podglądu topologii Stor
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym dokumencie zapoznaniu spout centra zdarzeń w języku Java i zablokowanie od topologii C# do pracy z danymi w usłudze Azure Event Hubs. Aby dowiedzieć się więcej o tworzeniu topologie języka C#, zobacz następujące tematy:
 

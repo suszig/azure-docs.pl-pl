@@ -27,13 +27,13 @@ UnifiedAgent.exe /Role <MS|MT> /InstallLocation <Install Location> /Platform “
 
 | Parametr|Typ|Opis|Możliwe wartości|
 |-|-|-|-|
-|/ Roli|Obowiązkowy|Określa, czy należy zainstalować usługi mobilności (MS) lub MasterTarget(MT) powinna zostać zainstalowana.|MS </br> MT|
-|/InstallLocation|Optional (Opcjonalność)|Lokalizacja, w którym jest zainstalowana usługa mobilności|Dowolny folder na komputerze|
-|/ Platform|Obowiązkowy|Określa platformę, na którym zainstalowano pobierania usługi mobilności </br> </br>- **VMware** : Użyj tej wartości, jeśli instalujesz usługi mobilności na maszynie Wirtualnej systemem *VMware vSphere hostach ESXi*, *hosty funkcji Hyper-V* i *serwerów fizycznych* </br> - **Azure** : Użyj tej wartości, jeśli instalujesz agenta na maszynie Wirtualnej Azure IaaS| VMware </br> Azure|
-|/ Dyskretnej|Optional (Opcjonalność)|Określa, aby uruchomić Instalatora w trybie dyskretnym| Nie dotyczy|
+|/ Roli|Obowiązkowy|Określa, czy należy zainstalować usługi mobilności (MS) lub MasterTarget (MT) powinien być zainstalowany.|MS </br> MT|
+|/InstallLocation|Optional (Opcjonalność)|Lokalizacja, w którym jest zainstalowana usługa mobilności.|Dowolny folder na komputerze|
+|/ Platform|Obowiązkowy|Określa platformę, na którym zainstalowano usługę mobilności. </br> </br>- **VMware**: Użyj tej wartości, po zainstalowaniu usługi mobilności na maszynie Wirtualnej systemem *hosty programu VMware vSphere ESXi*, *hosty funkcji Hyper-V*, i *serwerów fizycznych*. </br> - **Azure**: Użyj tej wartości, po zainstalowaniu agenta na maszynie Wirtualnej platformy Azure IaaS. | VMware </br> Azure|
+|/ Dyskretnej|Optional (Opcjonalność)|Określa, aby uruchomić Instalatora w trybie dyskretnym.| ND|
 
 >[!TIP]
-> Dzienniki instalacji można znaleźć w %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log
+> Dzienniki instalacji można znaleźć w % ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
 
 #### <a name="mobility-service-registration-command-line-arguments"></a>Argumenty wiersza polecenia rejestracji usługi mobilności
 
@@ -44,9 +44,9 @@ UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <Passphrase
 
   | Parametr|Typ|Opis|Możliwe wartości|
   |-|-|-|-|
-  |/ CSEndPoint |Obowiązkowy|Adres IP serwera konfiguracji| Dowolny prawidłowy adres IP|
+  |/CSEndPoint |Obowiązkowy|Adres IP serwera konfiguracji| Dowolny prawidłowy adres IP|
   |/PassphraseFilePath|Obowiązkowy|Lokalizacja hasło |Wszelkie prawidłową ścieżką UNC lub ścieżkę do pliku lokalnego|
 
 
 >[!TIP]
-> Dzienniki AgentConfiguration znajduje się w obszarze %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log
+> Dzienniki konfiguracji agenta można znaleźć w % ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.

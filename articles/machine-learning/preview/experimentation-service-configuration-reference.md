@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 16c72f8c22307a124fdb670aabca771084c0d1ec
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: aaa9705aed59b5cf78100eda9997bb1ca74845b9
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>Pliki konfiguracji w usłudze Azure Machine Learning eksperymenty usługi
 
@@ -36,7 +36,7 @@ Ten plik jest [conda środowiska pliku](https://conda.io/docs/using/envs.html#cr
 
 W tym pliku należy określić pakietów języka Python, potrzebne do wykonania skryptu. Usługa Azure eksperymenty ML powoduje utworzenie środowiska conda obrazka Docker listę zależności. Na liście pakietów musi być osiągalna przez aparat wykonywania. Z tego powodu pakiety muszą być wymienione w kanałów, takich jak:
 
-* [continuum.IO](https://anaconda.org/conda-forge/repo)
+* [continuum.io](https://anaconda.org/conda-forge/repo)
 * [PyPI](https://pypi.python.org/pypi)
 * publicznie dostępnym punkcie końcowym (URL)
 * lub ścieżka do pliku lokalnego
@@ -143,7 +143,7 @@ _\<Nazwa docelowego obliczeniowe > .compute_ plik Określa połączenia i inform
 
 **sharedVolumes**: flagi sygnalizują, który aparat wykonywania należy używać Docker udostępnionego woluminu funkcji na potrzeby wysłania plików projektu i z powrotem. O tej flagi włączone przyspieszyć wykonywanie ponieważ Docker mogą uzyskiwać dostęp do projektów bezpośrednio, bez konieczności skopiuj je. Najlepiej ustawić _false_ czy aparatem platformy Docker działa w systemie Windows od woluminu udostępniania dla platformy Docker w systemie Windows może być niestabilnym. Ustaw ją na _true_ Jeśli jest uruchomiony system macOS lub Linux.
 
-**nvidiaDocker**: tej flagi, gdy wartość _true_, informuje usługi Azure ML eksperymenty do _nvidia docker_ polecenia, w przeciwieństwie do zwykłej _docker_ polecenia do uruchomienia obrazu Docker. _Nvidia docker_ aparat umożliwia kontenerze Docker na dostęp do procesora GPU sprzętu. Ustawienie jest wymagane, jeśli chcesz uruchomić wykonywania procesora GPU w kontenerze Docker. Obsługuje tylko hoście z systemem Linux _nvidia docker_. Na przykład DSVM opartych na systemie Linux na platformie Azure jest dostarczany z _nvidia docker_. _NVIDIA docker_ od tej chwili nie jest obsługiwana w systemie Windows.
+**nvidiaDocker**: tej flagi, gdy wartość _true_, informuje usługi Azure ML eksperymenty do _nvidia docker_ polecenia, w przeciwieństwie do zwykłej _docker_polecenia do uruchomienia obrazu Docker. _Nvidia docker_ aparat umożliwia kontenerze Docker na dostęp do procesora GPU sprzętu. Ustawienie jest wymagane, jeśli chcesz uruchomić wykonywania procesora GPU w kontenerze Docker. Obsługuje tylko hoście z systemem Linux _nvidia docker_. Na przykład DSVM opartych na systemie Linux na platformie Azure jest dostarczany z _nvidia docker_. _NVIDIA docker_ od tej chwili nie jest obsługiwana w systemie Windows.
 
 **nativeSharedDirectory**: Ta właściwość określa podstawowego katalogu (na przykład: _~/.azureml/share/_) w celu udostępnienia w którym można zapisać plików działa na tej samej wartości docelowej obliczeń. Jeśli to ustawienie jest używane, gdy uruchomione w kontenerze Docker _sharedVolumes_ musi być ustawiona na wartość true. W przeciwnym razie wykonanie nie powiedzie się.
 
@@ -166,8 +166,8 @@ _"eksperymentu uczenia maszynowego az przesłać foo.runconfig"_ automatycznie u
 **Zmienne środowiskowe**: Ta sekcja umożliwia użytkownikom Ustaw zmienne środowiskowe w ramach ich przebiegów. Użytkownik może określić zmiennych środowiskowych przy użyciu pary nazwa wartość w następującym formacie:
 ```
 EnvironmentVariables:
-"EXAMPLE_ENV_VAR1": "Example Value1"
-"EXAMPLE_ENV_VAR2": "Example Value2"
+  "EXAMPLE_ENV_VAR1": "Example Value1"
+  "EXAMPLE_ENV_VAR2": "Example Value2"
 ```
 
 Te zmienne środowiskowe są dostępne w kodzie użytkownika. Na przykład ten kod phyton Wyświetla zmienną środowiskową o nazwie "EXAMPLE_ENV_VAR"
@@ -210,5 +210,5 @@ Oparte na zastąpienie powyżej, w poniższym przykładzie kodu teraz odczytuje 
 ```
 df = datasource.load_datasource('mylocal.dsource')
 ```
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Dowiedz się więcej o [konfiguracji usługi eksperymenty](experimentation-service-configuration.md).
