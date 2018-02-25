@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 02/07/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 409dd26cc1dfcb1c562d175a43e842b213501d03
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 126f5c4db355af19a7151a267115127757b17599
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-to-azure-replication-architecture"></a>Architektura replikacji Azure do platformy Azure
 
@@ -46,8 +46,8 @@ Po włączeniu replikacji maszyny Wirtualnej Azure następujące zasoby są twor
 
 **Zasób** | **Szczegóły**
 --- | ---
-Docelowa grupa zasobów | Grupa zasobów replikowane maszyny wirtualne należą po pracy awaryjnej.
-Docelowy sieci wirtualnej | Sieć wirtualna, w którym replikowanych maszyn wirtualnych znajdują się po pracy awaryjnej. Mapowanie sieci jest tworzony między sieciami wirtualnymi źródłowym i docelowym i na odwrót.
+**Docelowa grupa zasobów** | Grupa zasobów replikowane maszyny wirtualne należą po pracy awaryjnej.
+**Docelowy sieci wirtualnej** | Sieć wirtualna, w którym replikowanych maszyn wirtualnych znajdują się po pracy awaryjnej. Mapowanie sieci jest tworzony między sieciami wirtualnymi źródłowym i docelowym i na odwrót.
 **Konta magazynu pamięci podręcznej** | Replikacja zmian maszyny Wirtualnej źródłowego na docelowe konto magazynu, są śledzone i wysyłane do konta magazynu pamięci podręcznej w lokalizacji źródłowej. Ten krok zapewnia minimalny wpływ na aplikacje produkcyjne uruchomione na maszynie Wirtualnej.
 **Konta magazynu docelowego**  | Konta magazynu w lokalizacji docelowej, do którego dane są replikowane.
 **Docelowy zestawów dostępności**  | Zestawy dostępności, której replikowanych maszyn wirtualnych znajdują się po pracy awaryjnej.
@@ -69,10 +69,10 @@ Ponieważ replikacja jest włączona, rozszerzenia usługi Site Recovery usługi
  - Adresy URL/IP uwierzytelnianie usługi Office 365
  - Adresy IP konta magazynu pamięci podręcznej
 
-Włączenie spójności wielu maszyn wirtualnych, maszyny w grupie replikacji komunikują się ze sobą za pośrednictwem portu 20004. Upewnij się, że nie istnieje żadne urządzenia zapory blokuje wewnętrznej komunikacji między maszynami wirtualnymi za pośrednictwem portu 20004.
+Jeśli włączono spójność między wieloma maszynami wirtualnymi, maszyny z grupy replikacji komunikują się między sobą przez port 20004. Upewnij się, że żadne urządzenie zapory nie blokuje wewnętrznej komunikacji między maszynami wirtualnymi za pośrednictwem portu 20004.
 
 > [!IMPORTANT]
-Jeśli chcesz maszyn wirtualnych systemu Linux jako część grupy replikacji, upewnij się, że ruch wychodzący na porcie 20004 ręcznie jest otwarty zgodnie z harmonogramem wskazówek określonych wersji systemu Linux.
+Jeśli do grupy replikacji chcesz dodać maszyny wirtualne z systemem Linux, musisz ręcznie otworzyć port 20004 dla ruchu wychodzącego zgodnie ze wskazówkami dla konkretnej wersji systemu Linux.
 
 ### <a name="step-3"></a>Krok 3
 

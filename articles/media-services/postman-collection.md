@@ -1,11 +1,24 @@
- ---
-Tytuł: zaimportować kolekcję Postman z przesyłania strumieniowego na żądanie Azure operations opisu: w tym artykule przedstawiono definicji kolekcji Postman dla wywołania usługi Azure Media Services REST.
-usług: documentationcenter usługi media services: "Autor: Menedżer Juliako: Edytor cfowler:"
-
-ms.service: media-services ms.workload: media ms.tgt_pltfrm: na ms.devlang: na ms.topic: article ms.date: 01/04/2017 ms.author: juliako
-
 ---
-
+title: "Importu kolekcji Postman z operacjami przesyłania strumieniowego na żądanie Azure"
+description: "Ten artykuł zawiera definicję kolekcji Postman dla wywołania usługi Azure Media Services REST."
+services: media-services
+documentationcenter: 
+author: Juliako
+manager: cfowler
+editor: 
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/04/2017
+ms.author: juliako
+ms.openlocfilehash: 0146f02df44d9b38f3a3f85c025ec42750a9c6e7
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 02/24/2018
+---
 # <a name="import-a-postman-collection-with-on-demand-streaming-operations"></a>Importuj z przesyłania strumieniowego na żądanie operacji kolekcji Postman
 
 Ten artykuł zawiera definicję **Postman** kolekcji zawierającej pogrupowane żądania HTTP, które wywołują interfejsów API usługi Azure Media Services REST. Aby uzyskać informacje o sposobie konfigurowania **Postman** dzięki mogą być używane do wywoływania interfejsów API REST usługi nośnika, zobacz [wymaga skonfigurowania Postman interfejsu API REST usługi Media](media-rest-apis-with-postman.md) samouczka.

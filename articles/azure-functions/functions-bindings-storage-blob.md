@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: glenga
-ms.openlocfilehash: 9294d19ea78a2b9cf4282d627eddd16e6588d3ee
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e44261e8ee62ce6a91110da0ec0bc489c426f688
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure powiązania magazynu obiektów Blob dla usługi Azure Functions
 
@@ -63,6 +63,8 @@ public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, 
 }
 ```
 
+Ciąg `{name}` w ścieżce wyzwalacza obiektu blob `samples-workitems/{name}` tworzy [powiązanie wyrażenie](functions-triggers-bindings.md#binding-expressions-and-patterns) czy można użyć w kodzie funkcji na dostęp do nazwy pliku wyzwalająca obiektu blob. Aby uzyskać więcej informacji, zobacz [obiektu Blob wzorce nazw](#trigger---blob-name-patterns) dalszej części tego artykułu.
+
 Aby uzyskać więcej informacji na temat `BlobTrigger` atrybutów, zobacz [wyzwalacza — atrybuty](#trigger---attributes).
 
 ### <a name="trigger---c-script-example"></a>Wyzwalacz — przykładowy skrypt w języku C#
@@ -79,14 +81,16 @@ W tym miejscu jest powiązanie danych *function.json* pliku:
             "name": "myBlob",
             "type": "blobTrigger",
             "direction": "in",
-            "path": "samples-workitems",
+            "path": "samples-workitems/{name}",
             "connection":"MyStorageAccountAppSetting"
         }
     ]
 }
 ```
 
-[Konfiguracji](#trigger---configuration) sekcji opisano te właściwości.
+Ciąg `{name}` w ścieżce wyzwalacza obiektu blob `samples-workitems/{name}` tworzy [powiązanie wyrażenie](functions-triggers-bindings.md#binding-expressions-and-patterns) czy można użyć w kodzie funkcji na dostęp do nazwy pliku wyzwalająca obiektu blob. Aby uzyskać więcej informacji, zobacz [obiektu Blob wzorce nazw](#trigger---blob-name-patterns) dalszej części tego artykułu.
+
+Aby uzyskać więcej informacji na temat *function.json* właściwości pliku, zobacz [konfiguracji](#trigger---configuration) sekcji opisano te właściwości.
 
 Oto C# kodu skryptu, który jest powiązany z `Stream`:
 
@@ -112,7 +116,7 @@ public static void Run(CloudBlockBlob myBlob, string name, TraceWriter log)
 
 ### <a name="trigger---javascript-example"></a>Wyzwalacz — przykład JavaScript
 
-W poniższym przykładzie przedstawiono wyzwalacza obiektu blob powiązanie w *function.json* plików i [kod JavaScript] (funkcje — odwołanie node.md), która używa powiązania. Jeśli obiekt blob jest dodane lub zaktualizowane w funkcji zapisuje dziennik `samples-workitems` kontenera.
+W poniższym przykładzie przedstawiono wyzwalacza obiektu blob powiązanie w *function.json* pliku i [kod JavaScript](functions-reference-node.md) używającą powiązania. Jeśli obiekt blob jest dodane lub zaktualizowane w funkcji zapisuje dziennik `samples-workitems` kontenera.
 
 Oto *function.json* pliku:
 
@@ -124,14 +128,16 @@ Oto *function.json* pliku:
             "name": "myBlob",
             "type": "blobTrigger",
             "direction": "in",
-            "path": "samples-workitems",
+            "path": "samples-workitems/{name}",
             "connection":"MyStorageAccountAppSetting"
         }
     ]
 }
 ```
 
-[Konfiguracji](#trigger---configuration) sekcji opisano te właściwości.
+Ciąg `{name}` w ścieżce wyzwalacza obiektu blob `samples-workitems/{name}` tworzy [powiązanie wyrażenie](functions-triggers-bindings.md#binding-expressions-and-patterns) czy można użyć w kodzie funkcji na dostęp do nazwy pliku wyzwalająca obiektu blob. Aby uzyskać więcej informacji, zobacz [obiektu Blob wzorce nazw](#trigger---blob-name-patterns) dalszej części tego artykułu.
+
+Aby uzyskać więcej informacji na temat *function.json* właściwości pliku, zobacz [konfiguracji](#trigger---configuration) sekcji opisano te właściwości.
 
 Oto kod JavaScript:
 
@@ -204,7 +210,7 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 
 |Właściwość Function.JSON | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
-|**Typ** | Nie dotyczy | należy wybrać opcję `blobTrigger`. Ta właściwość ma wartość automatycznie, podczas tworzenia wyzwalacza w portalu Azure.|
+|Typ | Nie dotyczy | należy wybrać opcję `blobTrigger`. Ta właściwość ma wartość automatycznie, podczas tworzenia wyzwalacza w portalu Azure.|
 |**Kierunek** | Nie dotyczy | należy wybrać opcję `in`. Ta właściwość ma wartość automatycznie, podczas tworzenia wyzwalacza w portalu Azure. Wyjątki w [użycia](#trigger---usage) sekcji. |
 |**Nazwa** | Nie dotyczy | Nazwa zmiennej, która reprezentuje obiektu blob w kodzie funkcji. | 
 |**Ścieżka** | **BlobPath** |Kontener do monitorowania.  Może być [wzorzec nazwy obiektu blob](#trigger-blob-name-patterns). | 
@@ -214,12 +220,13 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 
 ## <a name="trigger---usage"></a>Wyzwalacz — użycie
 
-W języku C# i skryptu C#, dostęp do danych obiektów blob za pomocą parametru metody, takie jak `T paramName`. W języku C# skryptu `paramName` jest wartością określoną w `name` właściwość *function.json*. Można powiązać żadnego z następujących typów:
+W języku C# i skryptu C# można użyć następujących typów parametru obiektu blob wyzwalająca:
 
 * `Stream`
 * `TextReader`
-* `Byte[]`
 * `string`
+* `Byte[]`
+* POCO do serializacji w formacie JSON
 * `ICloudBlob` (wymaga kierunek powiązania "inout" *function.json*)
 * `CloudBlockBlob` (wymaga kierunek powiązania "inout" *function.json*)
 * `CloudPageBlob` (wymaga kierunek powiązania "inout" *function.json*)
@@ -227,9 +234,9 @@ W języku C# i skryptu C#, dostęp do danych obiektów blob za pomocą parametru
 
 Jak wspomniano, niektóre z tych typów wymagają `inout` powiązanie kierunek *function.json*. Tym kierunku nie jest obsługiwany przez standardowy edytor w portalu Azure, trzeba używać Zaawansowany edytor.
 
-Jeśli oczekiwano tekstu w obiektach blob, można powiązać `string` typu. To ustawienie jest zalecane tylko, jeśli rozmiar obiektu blob jest mała, ponieważ zawartość obiektu blob całego są ładowane do pamięci. Ogólnie rzecz biorąc, zaleca się używania `Stream` lub `CloudBlockBlob` typu. Aby uzyskać więcej informacji, zobacz [użycia pamięci i współbieżność](#trigger---concurrency-and-memory-usage) dalszej części tego artykułu.
+Powiązanie z `string`, `Byte[]`, lub POCO zaleca się tylko wtedy, jeśli rozmiar obiektu blob jest mały, jako blob całej zawartości są ładowane do pamięci. Ogólnie rzecz biorąc, zaleca się używania `Stream` lub `CloudBlockBlob` typu. Aby uzyskać więcej informacji, zobacz [użycia pamięci i współbieżność](#trigger---concurrency-and-memory-usage) dalszej części tego artykułu.
 
-W języku JavaScript, dostęp do danych wejściowych obiektu blob przy użyciu `context.bindings.<name>`.
+W języku JavaScript, dostęp do danych wejściowych obiektu blob przy użyciu `context.bindings.<name from function.json>`.
 
 ## <a name="trigger---blob-name-patterns"></a>Wyzwalacz - wzorce nazw obiektów blob
 
@@ -242,7 +249,7 @@ Poniższy przykład przedstawia sposób powiązania osobno nazwę pliku obiektu 
 ```json
 "path": "input/{blobname}.{blobextension}",
 ```
-Jeśli nosi nazwę obiektu blob *Blob1.txt oryginalne*, wartość `blobname` i `blobextension` zmienne w kodzie funkcja *Blob1 oryginalne* i *txt*.
+Jeśli nosi nazwę obiektu blob *Blob1.txt oryginalne*, wartości `blobname` i `blobextension` zmienne w kodzie funkcja *Blob1 oryginalne* i *txt*.
 
 ### <a name="filter-on-blob-name"></a>Filtrowanie według nazwy obiektu blob
 
@@ -276,13 +283,28 @@ Jeśli w nazwie obiektu blob *{20140101}-soundfile.mp3*, `name` jest wartość z
 
 Wyzwalacz obiektów blob udostępnia kilka właściwości metadanych. Te właściwości mogą służyć jako część wyrażenia powiązania w pozostałych powiązaniach lub parametrów w kodzie. Te wartości mogą być tej samej semantyki jako [CloudBlob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob?view=azure-dotnet) typu.
 
-
 |Właściwość  |Typ  |Opis  |
 |---------|---------|---------|
 |`BlobTrigger`|`string`|Ścieżka do wyzwalania obiektu blob.|
 |`Uri`|`System.Uri`|Identyfikator URI obiektu blob dla lokalizacji głównej.|
 |`Properties` |[BlobProperties](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties)|Właściwości systemu obiektu blob. |
 |`Metadata` |`IDictionary<string,string>`|Zdefiniowane przez użytkownika metadane obiektu blob.|
+
+Na przykład poniższy skrypt języka C# i JavaScript przykłady dziennika ścieżki do obiektu blob wyzwalania, w tym kontenerze:
+
+```csharp
+public static void Run(string myBlob, string blobTrigger, TraceWriter log)
+{
+    log.Info($"Full blob path: {blobTrigger}");
+} 
+```
+
+```javascript
+module.exports = function (context, myBlob) {
+    context.log("Full blob path:", context.bindingData.blobTrigger);
+    context.done();
+};
+```
 
 ## <a name="trigger---blob-receipts"></a>Wyzwalacz — obiekt blob potwierdzenia
 
@@ -316,9 +338,9 @@ Wyzwalacz obiektów blob używane wewnętrznie, kolejki, więc maksymalną liczb
 
 [Plan zużycie](functions-scale.md#how-the-consumption-plan-works) ogranicza aplikacji funkcji w jednej maszyny wirtualnej (VM) do 1,5 GB pamięci. Pamięć jest używana przez każdego współbieżnie wykonywanego wystąpienia funkcji i funkcje wykonawcze. Jeśli funkcja wyzwalana blob ładuje całego obiektu blob w pamięci, maksymalna ilość pamięci, używaną przez tą funkcję tylko do obiektów BLOB to 24 * rozmiar maksymalny obiektu blob. Na przykład aplikacja funkcji z trzech funkcji wyzwalanych przez obiekt blob i domyślne ustawienia byłyby wirtualna maksymalną wartość współbieżności to 3 * 24 = 72 wywołań funkcji.
 
-Funkcje kodu JavaScript ładowanie całego obiektu blob do pamięci i funkcje C# to zrobić, jeśli można powiązać `string`.
+Funkcje kodu JavaScript ładowanie całego obiektu blob do pamięci i funkcje C# to zrobić, jeśli można powiązać `string`, `Byte[]`, lub POCO.
 
-## <a name="trigger---polling-for-large-containers"></a>Wyzwalacz - sondowanie dużych kontenerów
+## <a name="trigger---polling"></a>Wyzwalanie - sondowania
 
 Jeśli kontenera obiektów blob monitorowanych zawiera więcej niż 10 000 obiektów blob, funkcje skanowania środowiska uruchomieniowego plików dziennika do wyszukiwać nowych lub zmienionych obiektów blob. Ten proces może spowodować opóźnienia. Funkcja może nie pobrać są uruchamiane kilka minut lub dłużej po utworzeniu obiektu blob. Ponadto [magazynu dzienniki są tworzone na "optymalnego"](/rest/api/storageservices/About-Storage-Analytics-Logging) podstawy. Nie ma żadnej gwarancji, że wszystkie zdarzenia są przechwytywane. W niektórych warunkach Dzienniki mogą zostać pominięci. Jeśli potrzebujesz przetwarzania szybsze i bardziej niezawodny obiektów blob, należy rozważyć utworzenie [komunikatu w kolejce](../storage/queues/storage-dotnet-how-to-use-queues.md) podczas tworzenia obiektu blob. Następnie użyj [wyzwalacza kolejki](functions-bindings-storage-queue.md) zamiast wyzwalacza obiektu blob do przetworzenia w obiekcie blob. Inną opcją jest użycie siatki zdarzeń; Zobacz samouczek [zmiana rozmiaru Automatyzacja przekazać obrazów przy użyciu siatki zdarzeń](../event-grid/resize-images-on-storage-blob-upload-event.md).
 
@@ -487,7 +509,7 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 
 |Właściwość Function.JSON | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
-|**Typ** | Nie dotyczy | należy wybrać opcję `blob`. |
+|Typ | Nie dotyczy | należy wybrać opcję `blob`. |
 |**Kierunek** | Nie dotyczy | należy wybrać opcję `in`. Wyjątki w [użycia](#input---usage) sekcji. |
 |**Nazwa** | Nie dotyczy | Nazwa zmiennej, która reprezentuje obiektu blob w kodzie funkcji.|
 |**Ścieżka** |**BlobPath** | Ścieżka do obiektu blob. | 
@@ -498,12 +520,12 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 
 ## <a name="input---usage"></a>Dane wejściowe — użycie
 
-Biblioteki klas C# i skryptu C#, dostęp do obiektu blob przy użyciu parametru metody takie jak `Stream paramName`. W języku C# skryptu `paramName` jest wartością określoną w `name` właściwość *function.json*. Można powiązać żadnego z następujących typów:
+W języku C# i skryptu C# można użyć następujących typów parametru dla powiązania wejściowego obiektu blob:
 
+* `Stream`
 * `TextReader`
 * `string`
 * `Byte[]`
-* `Stream`
 * `CloudBlobContainer`
 * `CloudBlobDirectory`
 * `ICloudBlob` (wymaga kierunek powiązania "inout" *function.json*)
@@ -513,9 +535,9 @@ Biblioteki klas C# i skryptu C#, dostęp do obiektu blob przy użyciu parametru 
 
 Jak wspomniano, niektóre z tych typów wymagają `inout` powiązanie kierunek *function.json*. Tym kierunku nie jest obsługiwany przez standardowy edytor w portalu Azure, trzeba używać Zaawansowany edytor.
 
-Podczas czytania tekstu obiekty BLOB można powiązać `string` typu. Ten typ jest zalecane tylko w przypadku, gdy zawartość całego obiektu blob są ładowane do pamięci jest mała, rozmiar obiektu blob. Ogólnie rzecz biorąc, zaleca się używania `Stream` lub `CloudBlockBlob` typu.
+Powiązanie z `string` lub `Byte[]` jest zalecane tylko jeśli rozmiar obiektu blob jest mały, ponieważ zawartość obiektu blob całego są ładowane do pamięci. Ogólnie rzecz biorąc, zaleca się używania `Stream` lub `CloudBlockBlob` typu. Aby uzyskać więcej informacji, zobacz [użycia pamięci i współbieżność](#trigger---concurrency-and-memory-usage) we wcześniejszej części tego artykułu.
 
-W języku JavaScript, uzyskiwać dostęp za pomocą danych obiektów blob `context.bindings.<name>`.
+W języku JavaScript, uzyskiwać dostęp za pomocą danych obiektów blob `context.bindings.<name from function.json>`.
 
 ## <a name="output"></a>Dane wyjściowe
 
@@ -698,7 +720,7 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 
 |Właściwość Function.JSON | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
-|**Typ** | Nie dotyczy | należy wybrać opcję `blob`. |
+|Typ | Nie dotyczy | należy wybrać opcję `blob`. |
 |**Kierunek** | Nie dotyczy | Należy wybrać opcję `out` dla powiązania danych wyjściowych. Wyjątki w [użycia](#output---usage) sekcji. |
 |**Nazwa** | Nie dotyczy | Nazwa zmiennej, która reprezentuje obiektu blob w kodzie funkcji.  Ustaw `$return` odwoływać się do wartości zwracane funkcji.|
 |**Ścieżka** |**BlobPath** | Ścieżka do obiektu blob. | 
@@ -709,7 +731,7 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 
 ## <a name="output---usage"></a>Dane wyjściowe — użycie
 
-Biblioteki klas C# i skryptu C#, dostęp do obiektu blob przy użyciu parametru metody takie jak `Stream paramName`. W języku C# skryptu `paramName` jest wartością określoną w `name` właściwość *function.json*. Można powiązać żadnego z następujących typów:
+W języku C# i skryptu C#, można użyć następujących typów parametrów w obiekcie blob powiązania wyjściowego:
 
 * `TextWriter`
 * `out string`
@@ -725,9 +747,12 @@ Biblioteki klas C# i skryptu C#, dostęp do obiektu blob przy użyciu parametru 
 
 Jak wspomniano, niektóre z tych typów wymagają `inout` powiązanie kierunek *function.json*. Tym kierunku nie jest obsługiwany przez standardowy edytor w portalu Azure, trzeba używać Zaawansowany edytor.
 
-Podczas czytania tekstu obiekty BLOB można powiązać `string` typu. Ten typ jest zalecane tylko w przypadku, gdy zawartość całego obiektu blob są ładowane do pamięci jest mała, rozmiar obiektu blob. Ogólnie rzecz biorąc, zaleca się używania `Stream` lub `CloudBlockBlob` typu.
+W funkcji asynchronicznych, użyj wartości zwracanej lub `IAsyncCollector` zamiast `out` parametru.
 
-W języku JavaScript, uzyskiwać dostęp za pomocą danych obiektów blob `context.bindings.<name>`.
+Powiązanie z `string` lub `Byte[]` jest zalecane tylko jeśli rozmiar obiektu blob jest mały, ponieważ zawartość obiektu blob całego są ładowane do pamięci. Ogólnie rzecz biorąc, zaleca się używania `Stream` lub `CloudBlockBlob` typu. Aby uzyskać więcej informacji, zobacz [użycia pamięci i współbieżność](#trigger---concurrency-and-memory-usage) we wcześniejszej części tego artykułu.
+
+
+W języku JavaScript, uzyskiwać dostęp za pomocą danych obiektów blob `context.bindings.<name from function.json>`.
 
 ## <a name="exceptions-and-return-codes"></a>Wyjątki i kody powrotne
 

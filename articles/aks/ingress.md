@@ -1,0 +1,181 @@
+---
+title: "Skonfiguruj transfer danych przychodzących z klastrem usługi kontenera platformy Azure (AKS)"
+description: "Instalowanie i konfigurowanie kontrolera wejściowych NGINX w klastrze usługi kontenera platformy Azure (AKS)."
+services: container-service
+author: neilpeterson
+manager: timlt
+ms.service: container-service
+ms.topic: article
+ms.date: 2/21/2018
+ms.author: nepeters
+ms.custom: mvc
+ms.openlocfilehash: f0a674daab177d71658c546fa4719892a33ed869
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 02/24/2018
+---
+# <a name="https-ingress-on-azure-container-service-aks"></a>Ruch przychodzący HTTPS w usłudze kontenera platformy Azure (AKS)
+
+Kontroler transfer danych przychodzących jest oprogramowaniem udostępniający zwrotnego serwera proxy, routingu ruchu można konfigurować i zakończenie TLS Kubernetes usług. Kubernetes wejściowych zasobów są używane do konfigurowania tras dla poszczególnych usług Kubernetes i transfer danych przychodzących reguł. Przy użyciu kontrolera wejściowych i transfer danych przychodzących reguł, pojedynczy adres zewnętrzny można kierować ruchem do wielu usług w klastrze Kubernetes.
+
+Ten dokument przeprowadzi Cię przez wdrożenie próbki [kontrolera wejściowych NGIX] [ nginx-ingress] w klastrze usługi kontenera platformy Azure (AKS). Ponadto [— LEGO KUBE] [ kube-lego] projektu służy do automatycznego generowania i skonfigurować [umożliwia szyfrowanie] [ lets-encrypt] certyfikatów. Na koniec kilka aplikacji są uruchamiane w klastrze AKS, z których każdy jest dostępny za pośrednictwem jednego adresu.
+
+## <a name="install-an-ingress-controller"></a>Instalowanie kontrolera wejściowych
+
+Należy zainstalować kontroler wejściowych NGINX Helm. Zobacz kontrolera wejściowych NGINX [dokumentacji] [ nginx-ingress] wdrożenia szczegółowych informacji. 
+
+```
+helm install stable/nginx-ingress
+```
+
+Podczas instalacji Azure publiczny adres IP jest tworzona dla kontrolera wejściowych. Aby uzyskać publicznego adresu IP, użyj polecenia kubectl get usługi. Może upłynąć trochę czasu, adres IP ma być przypisany do usługi.
+
+```console
+$ kubectl get service
+
+NAME                                          TYPE           CLUSTER-IP     EXTERNAL-IP      PORT(S)                      AGE
+kubernetes                                    ClusterIP      10.0.0.1       <none>           443/TCP                      3d
+toned-spaniel-nginx-ingress-controller        LoadBalancer   10.0.236.223   52.224.125.195   80:30927/TCP,443:31144/TCP   18m
+toned-spaniel-nginx-ingress-default-backend   ClusterIP      10.0.5.86      <none>           80/TCP                       18m
+```
+
+Ponieważ żadne reguły wejściowych utworzono po przejściu do publicznego adresu IP, są kierowane do strony NGINX wejściowych kontrolerów domyślne 404.
+
+![Domyślne NGINX wewnętrznej bazy danych](media/ingress/default-back-end.png)
+
+## <a name="configure-dns-name"></a>Konfigurowanie nazwy DNS
+
+Ponieważ są używane certyfikaty protokołu HTTPS, należy skonfigurować nazwy FQDN dla adresu IP kontrolerów wejściowych. Na przykład nazwa FQDN Azure jest tworzony z wiersza polecenia platformy Azure. Skrypt aktualizacji o adresie IP kontrolera wejściowych i nazwy, który chcesz użyć w nazwie FQDN.
+
+```
+#!/bin/bash
+
+# Public IP address
+IP="52.224.125.195"
+
+# Name to associate with public IP address
+DNSNAME="demo-aks-ingress"
+
+# Get resource group and public ip name
+RESOURCEGROUP=$(az network public-ip list --query "[?contains(ipAddress, '$IP')].[resourceGroup]" --output tsv)
+PIPNAME=$(az network public-ip list --query "[?contains(ipAddress, '$IP')].[name]" --output tsv)
+
+# Update public ip address with dns name
+az network public-ip update --resource-group $RESOURCEGROUP --name  $PIPNAME --dns-name $DNSNAME
+```
+
+W razie potrzeby, uruchom następujące polecenie, aby pobrać nazwę FQDN. Zaktualizuj wartość adresu IP z tym kontrolerem wejściowych.
+
+```azurecli
+az network public-ip list --query "[?contains(ipAddress, '52.224.125.195')].[dnsSettings.fqdn]" --output tsv
+```
+
+Transfer danych przychodzących kontrolera jest teraz dostępny za pomocą nazwy FQDN.
+
+## <a name="install-kube-lego"></a>Zainstaluj — LEGO KUBE
+
+Kontroler wejściowych NGINX obsługuje zakończenia TLS. Gdy istnieje kilka sposobów, aby pobrać i skonfigurować certyfikaty dla protokołu HTTPS, w tym dokumencie przedstawiono przy użyciu [— LEGO KUBE][kube-lego], która umożliwia automatyczne [umożliwia szyfrowanie] [ lets-encrypt] certyfikatu generacji oraz funkcji zarządzania.
+
+Aby zainstalować kontroler — LEGO KUBE, następujące polecenie Helm instalacji. Zaktualizować adres e-mail z Twojej organizacji.
+
+```
+helm install stable/kube-lego \
+  --set config.LEGO_EMAIL=user@contoso.com \
+  --set config.LEGO_URL=https://acme-v01.api.letsencrypt.org/directory
+```
+
+Aby uzyskać więcej informacji o konfiguracji — LEGO KUBE, zobacz [dokumentacji — LEGO KUBE][kube-lego].
+
+## <a name="run-application"></a>Uruchamianie aplikacji
+
+W tym momencie kontroler wejściowych i rozwiązania do zarządzania certyfikatu skonfigurowano. Teraz uruchom kilka aplikacji w klastrze AKS.
+
+Na przykład Helm służy do uruchamiania wielu wystąpień aplikacji world hello proste.
+
+Przed uruchomieniem aplikacji, należy dodać repozytorium Helm przykładów dla platformy Azure w systemie deweloperskim.
+
+```
+helm repo add azure-samples https://azure-samples.github.io/helm-charts/
+```
+
+ Uruchom AKS hello world wykresu za pomocą następującego polecenia:
+
+```
+helm install azure-samples/aks-helloworld
+```
+
+Teraz można zainstalować drugie wystąpienie aplikacji hello world.
+
+Drugie wystąpienie określ nowy tytuł tak, aby aplikacje były różne wizualne. Należy również określić unikatową nazwę usługi. Te konfiguracje są widoczne w poniższym poleceniu.
+
+```console
+helm install azure-samples/aks-helloworld --set title="AKS Ingress Demo" --set serviceName="ingress-demo"
+```
+
+## <a name="create-ingress-route"></a>Utwórz trasę wejściowych
+
+Obie aplikacje są obecnie uruchomione w klastrze Kubernetes jednak skonfigurowano usługi typu `ClusterIP`. Tak aplikacje nie są dostępne z Internetu. Aby udostępnić, utwórz zasób Kubernetes wejściowych. Zasobów wejściowych konfiguruje reguły, które kierować ruchem do jednej z dwóch aplikacji.
+
+Utwórz nazwę pliku `hello-world-ingress.yaml` i skopiuj następujące yaml programu.
+
+Zwróć uwagę, że ruch do adresu `https://demo-aks-ingress.eastus.cloudapp.azure.com/` jest kierowany do usługi o nazwie `aks-helloworld`. Ruch do adresu `https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two` jest kierowany do `ingress-demo` usługi.
+
+```
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: hello-world-ingress
+  annotations:
+    kubernetes.io/tls-acme: "true"
+    ingress.kubernetes.io/rewrite-target: /
+spec:
+  tls:
+  - hosts:
+    - demo-aks-ingress.eastus.cloudapp.azure.com
+    secretName: tls-secret
+  rules:
+  - host: demo-aks-ingress.eastus.cloudapp.azure.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: aks-helloworld
+          servicePort: 80
+      - path: /hello-world-two
+        backend:
+          serviceName: ingress-demo
+          servicePort: 80
+```
+
+Utwórz zasób transfer danych przychodzących z `kubectl apply` polecenia.
+
+```console
+kubectl apply -f hello-world-ingress.yaml
+```
+
+## <a name="test-the-ingress-configuration"></a>Przetestuj konfigurację wejściowych
+
+Przeglądaj, aby nazwa FQDN kontrolera wejściowych Kubernetes, powinna zostać wyświetlona aplikacja hello world.
+
+![Przykładowa aplikacja, jeden](media/ingress/app-one.png)
+
+Teraz przejdź do nazwy FQDN kontroler transfer danych przychodzących z `/hello-world-two` ścieżki, powinny pojawić się aplikacji hello world z tytułem niestandardowych.
+
+![Przykładowa aplikacja dwa](media/ingress/app-two.png)
+
+Także zauważyć, że połączenie jest szyfrowane, oraz że jest używany certyfikat wystawiony przez umożliwia szyfrowanie.
+
+![Umożliwia szyfrowanie certyfikatu](media/ingress/certificate.png)
+
+## <a name="next-steps"></a>Kolejne kroki
+
+Dowiedz się więcej na temat oprogramowania zostało to pokazane w tym dokumencie. 
+
+- [NGINX wejściowych kontrolera][nginx-ingress]
+- [KUBE-LEGO][kube-lego]
+
+<!-- LINKS - external -->
+[kube-lego]: https://github.com/jetstack/kube-lego
+[lets-encrypt]: https://letsencrypt.org/
+[nginx-ingress]: https://github.com/kubernetes/ingress-nginx

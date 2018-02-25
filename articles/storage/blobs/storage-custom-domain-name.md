@@ -2,23 +2,17 @@
 title: "Konfigurowanie niestandardowej nazwy domeny dla punktu końcowego magazynu obiektów Blob platformy Azure | Dokumentacja firmy Microsoft"
 description: "Użyj portalu Azure, aby zamapować własną nazwę kanoniczną (CNAME) do punktu końcowego magazynu obiektów Blob na koncie magazynu Azure."
 services: storage
-documentationcenter: 
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: aaafd8c5-eacb-49dc-8c8b-3f7011ad5e92
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: tamram
-ms.openlocfilehash: 4dfca37e3a369fdfb41b4064b72ccd027bd8cbd3
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 2b776e8f40f6972a60f933b0104312b119439f38
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="configure-a-custom-domain-name-for-your-blob-storage-endpoint"></a>Konfigurowanie niestandardowej nazwy domeny dla punktu końcowego usługi Blob Storage
 
@@ -32,9 +26,9 @@ W poniższej tabeli przedstawiono kilka przykładowych adresy URL obiektu blob d
 
 | Typ zasobu | Domyślny adres URL | Adres URL domeny niestandardowej |
 | --- | --- | --- |
-| Konto magazynu | http://mystorageaccount.blob.Core.Windows.NET | http://www.contoso.com |
-| Obiekt blob |http://mystorageaccount.blob.Core.Windows.NET/mycontainer/myblob | http://www.contoso.com/mycontainer/myblob |
-| Nadrzędny kontener | http://mystorageaccount.blob.Core.Windows.NET/myblob lub http://mystorageaccount.blob.core.windows.net/$ głównego/mojblob| http://www.contoso.com/myblob lub http://www.contoso.com/$ głównego/mojblob |
+| Konto magazynu | http://mystorageaccount.blob.core.windows.net | http://www.contoso.com |
+| Obiekt blob |http://mystorageaccount.blob.core.windows.net/mycontainer/myblob | http://www.contoso.com/mycontainer/myblob |
+| Nadrzędny kontener | http://mystorageaccount.blob.core.windows.net/myblob or http://mystorageaccount.blob.core.windows.net/$root/myblob| http://www.contoso.com/myblob lub http://www.contoso.com/$ głównego/mojblob |
 
 ## <a name="direct-vs-intermediary-domain-mapping"></a>Bezpośrednie a mapowanie pośredniczące domeny
 
@@ -160,6 +154,6 @@ Użyj [Set-AzureRmStorageAccount](/powershell/module/azurerm.storage/set-azurerm
       -CustomDomainName ""
   ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Zamapować niestandardową domenę na punkt końcowy Azure sieci dostarczania zawartości (CDN)](../../cdn/cdn-map-content-to-custom-domain.md)
 * [Dostęp do obiektów blob z domenami niestandardowymi za pośrednictwem protokołu HTTPS przy użyciu usługi Azure CDN](storage-https-custom-domain-cdn.md)

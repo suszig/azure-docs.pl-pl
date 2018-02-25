@@ -2,30 +2,24 @@
 title: "Jak używać magazynu obiektów Blob platformy Azure (obiekt magazynu) w języku Java | Dokumentacja firmy Microsoft"
 description: "Przechowuj dane niestrukturalne w chmurze za pomocą Magazynu obiektów blob Azure."
 services: storage
-documentationcenter: java
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 2e223b38-92de-4c2f-9254-346374545d32
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: java
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.openlocfilehash: 91ef09916dbb587305572ea640fb4408ea9aebb6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4b243aa7a4e9aa3028259258292d1271867d28f4
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="how-to-use-blob-storage-from-java"></a>Jak używać Magazynu obiektów Blob w języku Java
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
 
 [!INCLUDE [storage-check-out-samples-java](../../../includes/storage-check-out-samples-java.md)]
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Magazyn obiektów blob Azure jest usługą służącą do przechowywania danych niestrukturalnych w chmurze w postaci obiektów blob. Magazyn obiektów blob umożliwia przechowywanie dowolnego typu danych tekstowych lub binarnych, takich jak dokumenty, pliki multimedialne lub instalatory aplikacji. Magazyn obiektów blob jest również nazywany magazynem obiektów.
 
 W tym artykule opisano sposób wykonywania typowych scenariuszy przy użyciu magazynu obiektów Blob Microsoft Azure. Przykłady są napisane w języku Java i użyj [Azure Storage SDK for Java][Azure Storage SDK for Java]. Omówione scenariusze obejmują **przekazywania**, **wyświetlania**, **pobieranie**, i **usuwanie** obiektów blob. Aby uzyskać więcej informacji dotyczących obiektów blob, zobacz [następne kroki](#Next-Steps) sekcji.
@@ -271,13 +265,13 @@ catch (Exception e)
 }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Teraz, kiedy znasz już podstawy magazynu obiektów Blob, skorzystaj z poniższych linków, aby dowiedzieć się więcej o bardziej skomplikowanych zadaniach magazynu.
 
 * [Magazyn Azure SDK dla języka Java][Azure Storage SDK for Java]
 * [Odwołanie do zestawu SDK klienta usługi Azure Storage][odwołania do zestawu SDK klienta magazynu Azure]
 * [Interfejs API REST usługi Azure Storage][Azure Storage REST API]
-* [Blog zespołu usługi Magazyn Azure][Azure Storage Team Blog]
+* [Azure Storage Team Blog][Azure Storage Team Blog]
 
 Aby uzyskać więcej informacji, zobacz też [Azure dla deweloperów języka Java](/java/azure).
 

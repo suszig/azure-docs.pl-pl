@@ -11,11 +11,11 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: eb07b1811b017f71a003be26522e6b213a300321
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 62063c42ab15a071a4500417a5d8adf6bfeac97f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Utwórz bramę aplikacji przy użyciu ścieżki na podstawie reguł routingu przy użyciu portalu Azure
 
@@ -71,7 +71,7 @@ Sieć wirtualna jest wymagany dla komunikacji między zasobami, które można ut
 1. Kliknij przycisk **wszystkie zasoby** w menu po lewej stronie, a następnie kliknij przycisk **myVNet** na liście zasobów.
 2. Kliknij przycisk **podsieci**, a następnie kliknij przycisk **podsieci**.
 
-    ![Utwórz podsieć](./media/application-gateway-create-url-route-portal/application-gateway-subnet.png)
+    ![Tworzenie podsieci](./media/application-gateway-create-url-route-portal/application-gateway-subnet.png)
 
 3. Wprowadź *myBackendSubnet* dla nazwy podsieci, a następnie kliknij przycisk **OK**.
 
@@ -120,7 +120,7 @@ W tym przykładzie należy utworzyć trzy maszyny wirtualne do użycia jako serw
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>Tworzenie puli wewnętrznej bazy danych z maszynami wirtualnymi
 
 1. Kliknij przycisk **wszystkie zasoby** , a następnie kliknij przycisk **myAppGateway**.
-2. Kliknij przycisk **pul zaplecza**. Domyślna pula został utworzony automatycznie z bramy aplikacji. Kliknij przycisk **appGateayBackendPool**.
+2. Kliknij przycisk **pul zaplecza**. Domyślna pula został utworzony automatycznie z bramy aplikacji. Kliknij przycisk **appGatewayBackendPool**.
 3. Kliknij przycisk **docelowy Dodaj** można dodać *myVM1* do appGatewayBackendPool.
 
     ![Dodawanie serwerów wewnętrznej bazy danych](./media/application-gateway-create-url-route-portal/application-gateway-backend.png)

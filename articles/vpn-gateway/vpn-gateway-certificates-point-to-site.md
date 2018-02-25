@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/12/2018
+ms.date: 02/23/2018
 ms.author: cherylmc
-ms.openlocfilehash: 5e041de12105770a16e43b5ff4f918a1eba92b2a
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: ff590ecb5091695d6105b510f563251fe43412fe
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-powershell-on-windows-10-or-windows-server-2016"></a>Generowanie i eksportowania certyfikatów połączeń punkt-lokacja za pomocą programu PowerShell w systemie Windows 10 lub Windows Server 2016
 
@@ -78,7 +78,7 @@ W tym przykładzie używane zadeklarowanej zmiennej "$cert" z poprzedniej sekcji
 Zmodyfikuj i uruchom przykład, aby wygenerować certyfikat klienta. Po uruchomieniu poniższy przykład bez modyfikowania jej wynikiem jest certyfikat klienta o nazwie "P2SChildCert".  Jeśli chcesz nazwać certyfikatu podrzędnego czegoś innego, zmodyfikuj wartość CN. Nie należy zmieniać TextExtension, uruchamiając w tym przykładzie. Możesz wygenerować certyfikat klienta jest automatycznie instalowany w "Certyfikaty — bieżący User\Personal\Certificates" na komputerze.
 
 ```powershell
-New-SelfSignedCertificate -Type Custom -KeySpec Signature `
+New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature `
 -Subject "CN=P2SChildCert" -KeyExportPolicy Exportable `
 -HashAlgorithm sha256 -KeyLength 2048 `
 -CertStoreLocation "Cert:\CurrentUser\My" `
@@ -116,7 +116,7 @@ Jeśli tworzysz dodatkowych certyfikatów lub nie korzystają z tej samej sesji 
 4.  Zmodyfikuj i uruchom przykład, aby wygenerować certyfikat klienta. Po uruchomieniu poniższy przykład bez modyfikowania jej wynikiem jest certyfikat klienta o nazwie "P2SChildCert". Jeśli chcesz nazwać certyfikatu podrzędnego czegoś innego, zmodyfikuj wartość CN. Nie należy zmieniać TextExtension, uruchamiając w tym przykładzie. Możesz wygenerować certyfikat klienta jest automatycznie instalowany w "Certyfikaty — bieżący User\Personal\Certificates" na komputerze.
 
   ```powershell
-  New-SelfSignedCertificate -Type Custom -KeySpec Signature `
+  New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature `
   -Subject "CN=P2SChildCert" -KeyExportPolicy Exportable `
   -HashAlgorithm sha256 -KeyLength 2048 `
   -CertStoreLocation "Cert:\CurrentUser\My" `

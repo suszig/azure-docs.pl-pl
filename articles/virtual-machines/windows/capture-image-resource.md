@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 172ad5198f7c813ed114f9fe3caea3d6a5dc6a97
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 84f6f0c13e8c06aa934d98ecc3c3e4a61f95c641
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Tworzenie zarządzanego obrazu uogólniony maszyny wirtualnej na platformie Azure
 
@@ -55,7 +55,7 @@ Upewnij się, że ról serwera uruchomionych na komputerze są obsługiwane prze
 3. W **nazwa**, wpisz nazwę, która ma zostać użyte na potrzeby obrazu.
 4. W **grupy zasobów** wybierz opcję **Utwórz nowy** i wpisz nazwę lub wybierz **Użyj istniejącego** i wybierz grupę zasobów do użycia z listy rozwijanej.
 5. Jeśli chcesz usunąć źródłowej maszyny Wirtualnej po obraz został utworzony, wybierz pozycję **automatycznie Usuń tę maszynę wirtualną po utworzeniu obrazu**.
-6. Gdy wszystko będzie gotowe, kliknij przycisk **Utwórz**.
+6. Po zakończeniu kliknij przycisk **Utwórz**.
 16. Po utworzeniu obrazu, zobaczysz go jako **obrazu** zasobu na liście zasobów w grupie zasobów.
 
 
@@ -65,7 +65,7 @@ Upewnij się, że ról serwera uruchomionych na komputerze są obsługiwane prze
 Tworzenie obrazu bezpośrednio z maszyny Wirtualnej sprawdza, czy obraz zawiera wszystkie dyski skojarzonych z maszyną Wirtualną, w tym dysku systemu operacyjnego i dysków z danymi. W tym przykładzie przedstawiono sposób tworzenia zarządzanego obrazu z maszyny Wirtualnej używa dyskach zarządzanych.
 
 
-Przed rozpoczęciem upewnij się, że masz najnowszą wersję modułu programu AzureRM.Compute PowerShell. Uruchom następujące polecenie, aby go zainstalować.
+Przed rozpoczęciem upewnij się, że masz najnowszą wersję modułu programu AzureRM.Compute PowerShell. Uruchom następujące polecenie, aby go zainstalować. (Użyj `Get-Module` Aby sprawdzić wersję, jakie masz.)
 
 ```azurepowershell-interactive
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0

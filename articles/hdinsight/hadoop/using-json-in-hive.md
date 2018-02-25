@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: 96faa0cf518e4b02b5ba9fd8aedaf21bd6288b02
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 62b21db5c52287c1d0d058cba3a433434c364777
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Przetwarzanie i analizowanie dokumentów JSON przy użyciu Apache Hive w usłudze Azure HDInsight
 
@@ -115,7 +115,7 @@ Następujące zapytanie zwraca imię i nazwisko dla użytkowników:
 
 Poniżej przedstawiono dane wyjściowe po uruchomieniu tego zapytania w oknie konsoli:
 
-![get_json_object funkcji zdefiniowanej przez użytkownika][image-hdi-hivejson-getjsonobject]
+![get_json_object UDF][image-hdi-hivejson-getjsonobject]
 
 Istnieją ograniczenia get_json_object funkcji zdefiniowanej przez użytkownika:
 
@@ -134,7 +134,7 @@ Inny UDF udostępniane przez Hive jest wywoływana [json_tuple](https://cwiki.ap
 
 Dane wyjściowe tego skryptu w konsoli programu Hive:
 
-![json_tuple funkcji zdefiniowanej przez użytkownika][image-hdi-hivejson-jsontuple]
+![json_tuple UDF][image-hdi-hivejson-jsontuple]
 
 Json_tuple używa funkcji zdefiniowanej przez użytkownika [penetracji widoku](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) składni w gałęzi, dzięki czemu json\_spójnej kolekcji, aby utworzyć wirtualny tabelę, stosując funkcję UDT do każdego wiersza oryginalnej tabeli. Złożone JSONs być zbyt trudno obsługiwać z powodu wielokrotnego użycia **PENETRACJI WIDOKU**. Ponadto **JSON_TUPLE** nie może obsłużyć JSONs zagnieżdżonych.
 
@@ -151,7 +151,6 @@ Aby uzyskać pokrewne artykuły zobacz:
 * [Używanie Hive i HiveQL z usługą Hadoop w usłudze HDInsight do analizy przykładowego pliku Apache log4j](../hdinsight-use-hive.md)
 * [Analizowanie danych opóźnienie transmitowane przy użyciu usługi Hive w usłudze HDInsight](../hdinsight-analyze-flight-delay-data.md)
 * [Analizowanie danych Twitter przy użyciu usługi Hive w usłudze HDInsight](../hdinsight-analyze-twitter-data.md)
-* [Uruchom zadania usługi Hadoop przy użyciu bazy danych rozwiązania Cosmos Azure i usługi HDInsight](../../cosmos-db/run-hadoop-with-hdinsight.md)
 
 [hdinsight-python]:python-udf-hdinsight.md
 

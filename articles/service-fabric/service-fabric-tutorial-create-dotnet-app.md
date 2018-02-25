@@ -1,11 +1,11 @@
---Tytuł: tworzenie aplikacji .NET dla usługi Service Fabric | Opis elementu Microsoft Docs: informacje o sposobie tworzenia aplikacji platformy ASP.NET Core frontonu i niezawodnej usługi stanowej zaplecza i wdrażanie aplikacji do klastra.
+--Tytuł: tworzenie aplikacji .NET dla usługi Service Fabric | Opis elementu Docs firmy Microsoft: W tym samouczku zostanie przedstawiony sposób tworzenia aplikacji platformy ASP.NET Core frontonu i niezawodnej usługi stanowej zaplecza i wdrażanie aplikacji do klastra.
 usługi: documentationcenter sieci szkieletowej usług: Autor .net: Menedżer rwike77: Edytor timlt: "
 
 ms.assetid: ms.service: service-fabric ms.devlang: dotNet ms.topic: tutorial ms.tgt_pltfrm: NA ms.workload: NA ms.date: 01/29/2018 ms.author: ryanwi ms.custom: mvc
 
 ---
 
-# <a name="create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Tworzenie i wdrażanie aplikacji przy użyciu usługi frontonu platformy ASP.NET Core z internetowym interfejsem API oraz stanowej usługi zaplecza
+# <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Samouczek: tworzenie i wdrażanie aplikacji przy użyciu interfejsu API platformy ASP.NET Core sieci Web usługi frontonu i usługi stanowej zaplecza
 Niniejszy samouczek jest pierwszą częścią serii.  Zostanie tutaj przedstawiony sposób tworzenia aplikacji usługi Azure Service Fabric za pomocą frontonu internetowego interfejsu API platformy ASP.NET Core i stanowej usługi zaplecza umożliwiającej przechowywanie danych. Po zakończeniu będziesz mieć aplikację do głosowania z usługą internetową frontonu ASP.NET Core, która zapisuje wyniki głosowania w stanowej usłudze zaplecza w klastrze. Jeśli nie chcesz ręcznie tworzyć aplikacji do głosowania, możesz [pobrać kod źródłowy](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) ukończonej aplikacji i przejść od razu do sekcji [Szczegółowe omówienie przykładowej aplikacji do głosowania](#walkthrough_anchor).
 
 ![Diagram aplikacji](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)

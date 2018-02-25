@@ -12,13 +12,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: af6bf1d69761520d20d0a0c5d872377793f6650b
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 1e6f1e1ee37592d974cab01ca229995c4ff6b70e
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="install-and-use-presto-on-hdinsight-hadoop-clusters"></a>Zainstalować i używać Presto w klastrach HDInsight Hadoop
 
@@ -169,7 +169,7 @@ TPC DS to branżowy standard do pomiaru wydajności wiele systemów wsparcia dec
 
 
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Zainstalować i używać Hue w klastrach HDInsight](hdinsight-hadoop-hue-linux.md). HUE jest interfejs użytkownika, który ułatwia tworzenie, uruchamianie i Zapisz zadań Pig i Hive, a także przeglądania magazynu domyślnego dla Twojej usługi HDInsight klastra w sieci web.
 
 * [Zainstaluj Giraph w klastrach HDInsight](hdinsight-hadoop-giraph-install-linux.md). Dostosowywanie klastra należy zainstalować Giraph w klastrach HDInsight Hadoop. Giraph umożliwia wykonywanie wykresu przetwarzanie przy użyciu platformy Hadoop i mogą być używane z usługi Azure HDInsight.

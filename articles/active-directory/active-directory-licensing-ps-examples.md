@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
-ms.openlocfilehash: 82d4bdbe60fe403ea07ed958e9aec9dbf4e9fbb8
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 6a518f9c7ddb11de2b459d5d28c404316eb62355
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="powershell-examples-for-group-based-licensing-in-azure-ad"></a>Przykłady programu PowerShell oparta na grupy licencjonowania w usłudze Azure AD
 
@@ -27,6 +27,9 @@ Pełna funkcjonalność licencjonowania na podstawie grupy jest dostępna za po�
 
 > [!NOTE]
 > Przed rozpoczęciem uruchamiania poleceń cmdlet, upewnij się, możesz nawiązać dzierżawy, uruchamiając `Connect-MsolService` polecenia cmdlet.
+
+>[!WARNING]
+>Ten kod stanowi przykład dla celów demonstracyjnych. Jeśli zamierzasz używać go w środowisku, należy wziąć pod uwagę testowanie go najpierw na małą skalę lub w dzierżawie oddzielne testu. Może być konieczne dostosowanie kod w celu spełnienia specyficznych potrzeb danego środowiska.
 
 ## <a name="view-product-licenses-assigned-to-a-group"></a>Przypisane do grupy licencji produktu widoku
 [Get-MsolGroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0) polecenia cmdlet można pobrać obiektu grupy, a następnie sprawdź *licencji* właściwości: Wyświetla listę wszystkich licencji produktu aktualnie przypisane do grupy.
@@ -70,7 +73,7 @@ c2652d63-9161-439b-b74e-fcd8228a7074 EMSandOffice             {ENTERPRISEPREMIUM
 ```
 
 ## <a name="get-statistics-for-groups-with-licenses"></a>Uzyskać statystyki dla grupy licencji
-Może raportować podstawowe statystyki dla grup licencji. W poniższym przykładzie mamy listę liczba całkowita liczba użytkowników, liczba użytkowników z już przypisany przez grupę licencji oraz liczby użytkowników, dla których licencji nie może zostać przypisana przez grupę.
+Może raportować podstawowe statystyki dla grup licencji. W poniższym przykładzie skrypt wyświetla liczba całkowita liczba użytkowników, liczba użytkowników z już przypisany przez grupę licencji oraz liczby użytkowników, dla których licencji nie może zostać przypisana przez grupę.
 
 ```
 #get all groups with licenses
@@ -141,7 +144,7 @@ ObjectId                             DisplayName             GroupType Descripti
 ```
 ## <a name="get-all-users-with-license-errors-in-a-group"></a>Pobierz wszyscy użytkownicy z błędami licencji w grupie
 
-Biorąc pod uwagę grupy, która zawiera niektóre licencję pokrewne błędy, można teraz wyświetlić listę wszystkich użytkownikach, których dotyczą te błędy. Użytkownik może mieć za błędy z innych grup. Jednak w tym przykładzie, wyniki tylko istotne dla danej grupy błędów jest ograniczona przez sprawdzenie **ReferencedObjectId** właściwości każdego **IndirectLicenseError** wpis użytkownika.
+Podana grupy, która zawiera błędy dotyczące licencji, można teraz wyświetlić wszystkich użytkowników objętych te błędy. Użytkownik może mieć za błędy z innych grup. Jednak w tym przykładzie, wyniki tylko istotne dla danej grupy błędów jest ograniczona przez sprawdzenie **ReferencedObjectId** właściwości każdego **IndirectLicenseError** wpis użytkownika.
 
 ```
 #a sample group with errors
@@ -167,10 +170,10 @@ ObjectId                             DisplayName      License Error
 ```
 ## <a name="get-all-users-with-license-errors-in-the-entire-tenant"></a>Pobieranie wszystkich użytkowników z błędami licencji w całej dzierżawy
 
-Aby wyświetlić listę wszystkich użytkowników, którzy mają błędy licencji z co najmniej jedną grupę, można użyć poniższego skryptu. Skrypt ten znajduje się lista jeden wiersz dla każdego użytkownika na błąd licencji, dzięki czemu można jednoznacznie zidentyfikować źródła z każdym błędzie.
+Poniższy skrypt można pobrać wszystkich użytkowników, którzy mają błędy licencji z co najmniej jedną grupę. Skrypt drukuje jeden wiersz dla każdego użytkownika na błąd licencji, dzięki czemu można jednoznacznie zidentyfikować źródła z każdym błędzie.
 
 > [!NOTE]
-> Ten skrypt powoduje wyliczenie wszystkich użytkowników w dzierżawie, który może nie być optymalne dla dużych dzierżaw.
+> Ten skrypt wylicza wszystkich użytkowników w dzierżawie, który może nie być optymalne dla dużych dzierżaw.
 
 ```
 Get-MsolUser -All | Where {$_.IndirectLicenseErrors } | % {   
@@ -213,7 +216,7 @@ Get-MsolUser -All | Where {$_.IndirectLicenseErrors } | % {
 
 ## <a name="check-if-user-license-is-assigned-directly-or-inherited-from-a-group"></a>Sprawdź, czy licencji użytkownika jest przypisane bezpośrednio lub odziedziczone po grupie
 
-Dla obiektu użytkownika jest możliwe sprawdzenie, czy przypisano licencji określonego produktu z grupy, czy przypisano bezpośrednio.
+Dla obiekt użytkownika jest możliwe sprawdzenie, czy przypisano licencji określonego produktu z grupy, czy przypisano bezpośrednio.
 
 Dwie funkcje próbki poniżej może służyć do analizowania typu przypisania na poszczególnych użytkowników:
 ```
@@ -302,7 +305,7 @@ ObjectId                             SkuId       AssignedDirectly AssignedFromGr
 ## <a name="remove-direct-licenses-for-users-with-group-licenses"></a>Usuń bezpośredni licencji dla użytkowników z grupy licencji
 Ten skrypt ma na celu usunąć niepotrzebne bezpośredniego licencji użytkowników, którzy już dziedziczyć po samym licencji grupę; na przykład jako część [przechodzenia do licencjonowania na podstawie grupy](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-migration-azure-portal).
 > [!NOTE]
-> Należy najpierw sprawdzić poprawności licencji bezpośrednio do usunięcia nie należy włączać więcej funkcji usługi niż dziedziczone licencji. W przeciwnym razie usuwanie licencyjnych bezpośrednie mogą wyłączyć dostęp do usług i danych użytkowników. Obecnie nie jest możliwe sprawdzenie za pomocą programu PowerShell, usługi, które są włączone za pośrednictwem bezpośredniego vs dziedziczone licencji. W skrypcie określono minimalnego poziomu usług, znamy są dziedziczone z grup i sprawdzamy z informacjami.
+> Należy najpierw sprawdzić poprawności licencji bezpośrednio do usunięcia nie należy włączać więcej funkcji usługi niż dziedziczone licencji. W przeciwnym razie usuwanie licencyjnych bezpośrednie mogą wyłączyć dostęp do usług i danych użytkowników. Obecnie nie jest możliwe sprawdzenie za pomocą programu PowerShell, usługi, które są włączone za pośrednictwem bezpośredniego vs dziedziczone licencji. W skrypcie możemy określ minimalny poziom usług, znamy są dziedziczone z grup i sprawdź, względem których, aby upewnić się, użytkownicy nie nieoczekiwanie utracą dostęp do usług.
 
 ```
 #BEGIN: Helper functions used by the script
@@ -382,7 +385,7 @@ function GetDisabledPlansForSKU
 {
     Param([string]$skuId, [string[]]$enabledPlans)
 
-    $allPlans = Get-MsolAccountSku | where {$_.AccountSkuId -ieq $skuId} | Select -ExpandProperty ServiceStatus | Where {$_.ProvisioningStatus -ine "PendingActivation"} | Select -ExpandProperty ServicePlan | Select -ExpandProperty ServiceName
+    $allPlans = Get-MsolAccountSku | where {$_.AccountSkuId -ieq $skuId} | Select -ExpandProperty ServiceStatus | Where {$_.ProvisioningStatus -ine "PendingActivation" -and $_.ServicePlan.TargetClass -ieq "User"} | Select -ExpandProperty ServicePlan | Select -ExpandProperty ServiceName
     $disabledPlans = $allPlans | Where {$enabledPlans -inotcontains $_}
 
     return $disabledPlans
@@ -476,7 +479,7 @@ aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipp
 
 ## <a name="next-steps"></a>Kolejne kroki
 
-Aby dowiedzieć się więcej na temat zestawu do zarządzania licencji za pomocą grup funkcji, zobacz następujące tematy:
+Aby dowiedzieć się więcej na temat zestawu do zarządzania licencji za pomocą grup funkcji, zobacz następujące artykuły:
 
 * [Co to jest oparte na grupach Licencjonowanie w usłudze Azure Active Directory?](active-directory-licensing-whatis-azure-portal.md)
 * [Przypisywanie licencji do grupy w usłudze Azure Active Directory](active-directory-licensing-group-assignment-azure-portal.md)

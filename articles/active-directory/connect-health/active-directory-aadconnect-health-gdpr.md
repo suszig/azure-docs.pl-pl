@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/18/2018
 ms.author: billmath
-ms.openlocfilehash: b9a0b9027bbead00300040186e453933b3a7f46b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d66f717f546271a5e5c3c49d6cbaef1c190d18d8
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="gdpr-compliance-and-azure-ad-connect-health"></a>GDPR zgodności i Azure AD Connect Health 
 
@@ -35,6 +35,8 @@ Azure AD Connect Health należące do **procesora danych** Kategoria klasyfikacj
 
 ## <a name="data-retention-policy"></a>Zasady przechowywania danych
 Azure AD Connect Health nie generować raporty, wykonywać analizy lub wgląd ponad 30 dni. W związku z tym Azure AD Connect Health nie przechowywania, przetwarzania lub zachować wszystkie dane poza 30 dni. Ten projekt jest zgodne z przepisami GDPR przepisy dotyczące zgodności ochrony prywatności firmy Microsoft, a zasady przechowywania danych usługi Azure AD. 
+
+Serwery z aktywny **dane usługi kondycji nie jest aktualny** **błąd** alerty dotyczące ponad 30 dni kolejnych sugeruje, że żadne dane nie osiągnęła Connect Health podczas tego okresu. Te serwery będą wyłączone i nie jest wyświetlana w portalu Connect Health. Aby ponownie włączyć serwerów, należy odinstalować i [ponownie zainstalować agenta programu health](active-directory-aadconnect-health-agent-install.md). Należy pamiętać, że to nie ma zastosowania do **ostrzeżenia** tego samego typu alertu. Ostrzeżenia wskazują, że brakuje częściowe dane z serwera, który zostanie wyświetlony alert dla. 
  
 ## <a name="disable-data-collection-and-monitoring-in-azure-ad-connect-health"></a>Wyłączanie zbierania danych i monitoring w programie Azure AD Connect Health
 Azure AD Connect Health umożliwia zatrzymać zbieranie danych dla poszczególnych serwerów monitorowanych lub wystąpienie monitorowanej usługi. Na przykład można zatrzymać zbieranie danych dla poszczególnych serwerów usług AD FS (Active Directory Federation Services), które są monitorowane przy użyciu usługi Azure AD Connect Health. Można również zatrzymać zbieranie danych dla całego wystąpienia usług AD FS, która jest monitorowana przy użyciu usługi Azure AD Connect Health. Gdy wybierzesz to zrobić, odpowiadające serwery są usuwane z portalu Azure AD Connect Health po zatrzymaniu zbierania danych. 
@@ -53,7 +55,7 @@ Po zatrzymaniu zbierania danych i monitorowania dla monitorowanych pojedynczy se
 - Wszystkie dane należącego do wystąpienia monitorowanej usługi zostaną usunięte zgodnie z zasadami przechowywania danych programu Microsoft Azure.
 
 ### <a name="disable-data-collection-and-monitoring-for-a-monitored-server"></a>Wyłączanie zbierania danych i monitorowania na monitorowanym serwerze
-Zobacz [jak usuwanie serwera z usługi Azure AD Connect Health](active-directory-aadconnect-health-operations.md#to-delete-a-server-from-the-azure-ad-connect-health-service).
+Zobacz [jak usuwanie serwera z usługi Azure AD Connect Health](active-directory-aadconnect-health-operations.md#delete-a-server-from-the-azure-ad-connect-health-service).
 
 ### <a name="disable-data-collection-and-monitoring-for-an-instance-of-a-monitored-service"></a>Wyłączanie zbierania danych i monitorowania dla wystąpienia usługi monitorowane
 Zobacz [jak usunąć wystąpienie usługi z usługi Azure AD Connect Health](active-directory-aadconnect-health-operations.md#delete-a-service-instance-from-azure-ad-connect-health-service).

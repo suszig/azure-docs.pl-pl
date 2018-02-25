@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 02/23/2018
 ms.author: mimig
-ms.openlocfilehash: c7aadb4e535ed221f882f251324b6d4e633c2d5e
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: b63c778f02b88bea4d68206f441aef7b32172c24
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Żądanie jednostki w Azure rozwiązania Cosmos bazy danych
 Teraz dostępne: Azure DB rozwiązania Cosmos [Kalkulator jednostki żądania](https://www.documentdb.com/capacityplanner). Dowiedz się więcej w [Szacowanie przepustowość sieci musi](request-units.md#estimating-throughput-needs).
@@ -44,7 +44,7 @@ Bazy danych Azure rozwiązania Cosmos jest wiele modeli bazy danych, to należy 
 ## <a name="request-units-and-request-charges"></a>Jednostek żądania i żądania opłat
 Azure DB rozwiązania Cosmos zapewnia szybkie, przewidywalną wydajność przez *rezerwowania* zasobów do zaspokojenia musi przepływność aplikacji.  Ponieważ aplikacja obciążenia i dostęp do zmiany wzorce wraz z upływem czasu, bazy danych Azure rozwiązania Cosmos umożliwia łatwe zwiększyć lub zmniejszyć ilość zarezerwowaną przepływnością dostępne dla aplikacji.
 
-Z bazy danych Azure rozwiązania Cosmos zarezerwowaną przepływnością jest określane w przeliczeniu na jednostki żądania przetwarzania na sekundę. Można potraktować jednostki żądania jako walutę przepływności, zgodnie z którymi możesz *zarezerwować* ilość gwarantowane żądania jednostki dostępne dla aplikacji na podstawie sekundowym.  Każdej operacji w usłudze Azure DB rozwiązania Cosmos — zapisywanie dokumentu, wykonywania zapytania, aktualizowanie dokumentu — korzysta z Procesora, pamięci i IOPS.  Oznacza to, że każda operacja wiąże się z *żądań bezpłatnie*, który jest wyrażona w *jednostek żądania*.  Opis czynników, które mają wpływ żądania jednostki opłat, wraz z aplikacji wymagania dotyczące przepływności, umożliwia uruchamianie aplikacji jako koszt skutecznie, jak to możliwe. Eksplorator zapytań jest również cudowne narzędzie do testowania podstawowej zapytania.
+Z bazy danych Azure rozwiązania Cosmos zarezerwowaną przepływnością jest określane w przeliczeniu na jednostki żądania przetwarzania na sekundę. Można potraktować jednostki żądania jako walutę przepływności, zgodnie z którymi możesz *zarezerwować* ilość gwarantowane żądania jednostki dostępne dla aplikacji na podstawie sekundowym.  Każdej operacji w usłudze Azure DB rozwiązania Cosmos — zapisywanie dokumentu, wykonywania zapytania, aktualizowanie dokumentu — korzysta z Procesora, pamięci i IOPS.  Oznacza to, że każda operacja wiąże się z *żądań bezpłatnie*, który jest wyrażona w *jednostek żądania*.  Opis czynników, które mają wpływ żądania jednostki opłat, wraz z aplikacji wymagania dotyczące przepływności, umożliwia uruchamianie aplikacji jako koszt skutecznie, jak to możliwe. Eksplorator danych w portalu Azure jest również cudowne narzędzie do testowania podstawowej zapytania.
 
 Zalecamy rozpoczęcie pracy od obejrzenia poniższego klipu wideo, w którym Aravind Ramachandran wyjaśniono jednostek żądania i przewidywalną wydajność bazy danych Azure rozwiązania Cosmos.
 
@@ -190,9 +190,7 @@ Za pomocą narzędzia jest prosty:
 > 
 
 ### <a name="use-the-azure-cosmos-db-request-charge-response-header"></a>Użyj nagłówka odpowiedzi opłat żądania bazy danych Azure rozwiązania Cosmos
-Każdy odpowiedź z usługi Azure DB rozwiązania Cosmos zawiera niestandardowy nagłówek (`x-ms-request-charge`) zawiera jednostki żądania używane dla żądania. Ten nagłówek jest również dostępny za pośrednictwem Azure DB rozwiązania Cosmos z zestawów SDK. W zestawie SDK .NET RequestCharge jest właściwością obiektu ResourceResponse.  Dla zapytań Eksploratora zapytań bazy danych Azure rozwiązania Cosmos w portalu Azure informacje żądania opłaty dotyczące wykonywane zapytania.
-
-![Badanie RU opłat w Eksploratorze zapytania][1]
+Każdy odpowiedź z usługi Azure DB rozwiązania Cosmos zawiera niestandardowy nagłówek (`x-ms-request-charge`) zawiera jednostki żądania używane dla żądania. Ten nagłówek jest również dostępny za pośrednictwem Azure DB rozwiązania Cosmos z zestawów SDK. W zestawie SDK .NET RequestCharge jest właściwością obiektu ResourceResponse.  Dla zapytań Eksploratora danych Azure DB rozwiązania Cosmos w portalu Azure informacje żądania opłaty dotyczące wykonywane zapytania.
 
 Pamiętając o tym jednej metody w oszacowania zarezerwowaną przepływnością wymagane przez aplikację jest rejestrowanie skojarzone z systemem typowymi operacjami względem elementu reprezentatywny używanych przez aplikację, a następnie Szacowanie opłata jednostki żądania Liczba operacji przewidujesz wykonywania każdej sekundy.  Pamiętaj mierzyć i obejmują typowe zapytania i również użycie skryptu bazy danych Azure rozwiązania Cosmos.
 
@@ -304,8 +302,8 @@ W poniższej tabeli przedstawiono przybliżone żądania jednostki związanych z
 
 | Operacja | Opłata jednostki żądania |
 | --- | --- |
-| Utwórz element |~ 15 RU |
-| Odczytu elementu |~ 1 RU |
+| Utwórz element |~15 RU |
+| Odczytu elementu |~1 RU |
 | Element zapytania według identyfikatora |~2.5 RU |
 
 Ponadto w poniższej tabeli zamieszczono przybliżonej żądania jednostki opłat za typowe zapytania używane w aplikacji:
@@ -313,9 +311,9 @@ Ponadto w poniższej tabeli zamieszczono przybliżonej żądania jednostki opła
 | Zapytanie | Opłata jednostki żądania | Liczba zwróconych elementów |
 | --- | --- | --- |
 | Wybierz żywności według identyfikatora |~2.5 RU |1 |
-| Wybierz żywności według producenta |~ 7 RU |7 |
-| Wybierz grupy żywności i kolejność według wagi |~ 70 RU |100 |
-| Zaznacz górny żywności 10 w grupie żywności |~ 10 RU |10 |
+| Wybierz żywności według producenta |~7 RU |7 |
+| Wybierz grupy żywności i kolejność według wagi |~70 RU |100 |
+| Zaznacz górny żywności 10 w grupie żywności |~10 RU |10 |
 
 > [!NOTE]
 > Opłat RU się różnić w zależności od liczby elementów zwróconych.
@@ -334,7 +332,7 @@ Dzięki tym informacjom można oszacować wymagania dotyczące RU dla tej aplika
 
 W takim przypadku spodziewasz się wymóg średniej przepływności 1,275 RU/s.  Zaokrąglenie do najbliższej 100, może udostępnić 1300 RU/s dla kolekcji tej aplikacji.
 
-## <a id="RequestRateTooLarge"></a>Przekraczanie limitów zarezerwowaną przepływnością w usłudze Azure DB rozwiązania Cosmos
+## <a id="RequestRateTooLarge"></a> Przekraczanie limitów zarezerwowaną przepływnością w usłudze Azure DB rozwiązania Cosmos
 Odwołaj, że zużycie jednostka żądania jest oceniana jako szybkość na sekundę, jeśli budżetu jest pusta. Dla aplikacji, które przekroczyć współczynnika jednostki żądania elastycznie kontenera żądań do tej kolekcji są ograniczane dopóki częstotliwość spadnie poniżej poziomu zastrzeżone. W przypadku ograniczania serwera preemptively kończy żądanie z RequestRateTooLargeException (kod stanu HTTP 429) i zwraca wartość wskazującą czas (w milisekundach), które użytkownik musi czekać przed ponowną próbą wykonania nagłówek x-ms ponawiania — po ms żądanie.
 
     HTTP Status 429
@@ -345,7 +343,7 @@ Jeśli używasz zestawu SDK klienta usługi .NET i LINQ zapytania, a następnie 
 
 Jeśli masz więcej niż jednego klienta zbiorczo operacyjnego powyżej liczby żądań domyślne zachowanie ponownych prób nie mogą być niewystarczające, a klient zgłosi DocumentClientException z kodem stanu 429 do aplikacji. W przypadkach, takich jak ta można rozważyć Obsługa zachowanie ponownych prób i logikę w aplikacji Błąd procedury obsługi lub zwiększenie zarezerwowaną przepływnością kontenera.
 
-## <a id="RequestRateTooLargeAPIforMongoDB"></a>Przekraczanie limitów zarezerwowaną przepływnością w interfejsie API, bazy danych mongodb
+## <a id="RequestRateTooLargeAPIforMongoDB"></a> Przekraczanie limitów zarezerwowaną przepływnością w interfejsie API, bazy danych mongodb
 Aplikacje, które przekraczają żądania elastycznie jednostki dla kolekcji będzie ograniczony, dopóki częstotliwość spadnie poniżej poziomu zastrzeżone. W przypadku przepustnicy wewnętrznej bazy danych preemptively zakończy się żądanie z *16500* kod błędu: - *zbyt wiele żądań*. Domyślnie interfejsu API dla bazy danych MongoDB automatycznie ponowi próbę maksymalnie 10 razy przed zwróceniem *zbyt wiele żądań* kod błędu. W przypadku otrzymania wiele *zbyt wiele żądań* kody błędów, można rozważyć albo dodanie zachowanie ponownych prób w aplikacji Błąd procedury obsługi lub [zwiększenie zarezerwowaną przepływnością dla kolekcji](set-throughput.md).
 
 ## <a name="next-steps"></a>Kolejne kroki
@@ -358,7 +356,6 @@ Aby dowiedzieć się więcej na temat bazy danych rozwiązania Cosmos Azure, zob
 
 Aby rozpocząć testowanie z bazy danych Azure rozwiązania Cosmos wydajności i skalowania, zobacz [wydajności i skalowania testowania z bazy danych Azure rozwiązania Cosmos](performance-testing.md).
 
-[1]: ./media/request-units/queryexplorer.png 
 [2]: ./media/request-units/RUEstimatorUpload.png
 [3]: ./media/request-units/RUEstimatorDocuments.png
 [4]: ./media/request-units/RUEstimatorResults.png

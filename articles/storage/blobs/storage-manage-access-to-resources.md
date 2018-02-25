@@ -2,23 +2,17 @@
 title: "Włącz publiczny dostęp do odczytu do kontenerów i obiektów blob w magazynie obiektów Blob platformy Azure | Dokumentacja firmy Microsoft"
 description: "Dowiedz się, jak udostępnić kontenerów i obiektów blob dla dostępu anonimowego i sposób programowy dostęp."
 services: storage
-documentationcenter: 
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: a2cffee6-3224-4f2a-8183-66ca23b2d2d7
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: tamram
-ms.openlocfilehash: f52079c72be298daaa45074e516f911022780392
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 4ddafb095816b5be82a18faa9c60869094e5e4c6
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Zarządzanie dostępem anonimowym w trybie odczytu do kontenerów i obiektów blob
 Można włączyć anonimowego, publiczny dostęp do odczytu do kontenera i jego obiektów blob w magazynie obiektów Blob Azure. W ten sposób można przyznać dostęp tylko do odczytu do tych zasobów, bez udostępniania swój klucz konta usługi i bez konieczności sygnatury dostępu współdzielonego (SAS).
@@ -36,7 +30,7 @@ Kontener można skonfigurować następujące uprawnienia:
 
 Następujące służy do ustawiania uprawnień kontenera:
 
-* [Witryna Azure Portal](https://portal.azure.com)
+* [Azure portal](https://portal.azure.com)
 * [Azure PowerShell](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Interfejs wiersza polecenia platformy Azure 2.0](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-and-manage-blobs)
 * Programowo za pomocą jednej z bibliotek klienckich magazynu lub interfejsu API REST
@@ -123,32 +117,32 @@ Poniższej tabeli operacje może zostać wywołana przez użytkowników anonimow
 | --- | --- | --- |
 | Kontenery listy |Tylko właściciel |Tylko właściciel |
 | Tworzenie kontenera |Tylko właściciel |Tylko właściciel |
-| Pobierz właściwości kontenera |Wszystkie |Tylko właściciel |
-| Pobranie metadanych kontenera |Wszystkie |Tylko właściciel |
+| Pobierz właściwości kontenera |Wszyscy |Tylko właściciel |
+| Pobranie metadanych kontenera |Wszyscy |Tylko właściciel |
 | Ustaw metadanych kontenera |Tylko właściciel |Tylko właściciel |
 | Pobierz ACL kontenera |Tylko właściciel |Tylko właściciel |
 | Ustaw ACL kontenera |Tylko właściciel |Tylko właściciel |
 | Usunąć kontenera |Tylko właściciel |Tylko właściciel |
-| Lista obiektów blob |Wszystkie |Tylko właściciel |
-| Umieszczanie obiektu Blob |Tylko właściciel |Tylko właściciel |
-| Pobierz obiekt Blob |Wszystkie |Wszystkie |
-| Pobierz właściwości obiektu Blob |Wszystkie |Wszystkie |
+| Lista obiektów blob |Wszyscy |Tylko właściciel |
+| Put Blob |Tylko właściciel |Tylko właściciel |
+| Get Blob |Wszyscy |Wszyscy |
+| Pobierz właściwości obiektu Blob |Wszyscy |Wszyscy |
 | Ustaw właściwości obiektów Blob |Tylko właściciel |Tylko właściciel |
-| Pobierz metadane obiektu Blob |Wszystkie |Wszystkie |
+| Pobierz metadane obiektu Blob |Wszyscy |Wszyscy |
 | Ustaw metadane obiektu Blob |Tylko właściciel |Tylko właściciel |
 | Umieść bloku |Tylko właściciel |Tylko właściciel |
-| Pobierz listę zablokowanych (tylko zatwierdzone bloki) |Wszystkie |Wszystkie |
+| Pobierz listę zablokowanych (tylko zatwierdzone bloki) |Wszyscy |Wszyscy |
 | Pobierz listę bloku (tylko niezatwierdzone bloków lub wszystkie bloki) |Tylko właściciel |Tylko właściciel |
 | Umieść zablokowanych |Tylko właściciel |Tylko właściciel |
 | Usuwanie obiektów Blob |Tylko właściciel |Tylko właściciel |
-| Kopiowanie obiektu Blob |Tylko właściciel |Tylko właściciel |
+| Copy Blob |Tylko właściciel |Tylko właściciel |
 | Migawki obiektu Blob |Tylko właściciel |Tylko właściciel |
 | Obiekt Blob dzierżawy |Tylko właściciel |Tylko właściciel |
 | Umieść stronę |Tylko właściciel |Tylko właściciel |
-| Get zakresów stron |Wszystkie |Wszystkie |
+| Get zakresów stron |Wszyscy |Wszyscy |
 | Dołącz obiektów Blob |Tylko właściciel |Tylko właściciel |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Uwierzytelnianie dla usług Azure Storage](https://msdn.microsoft.com/library/azure/dd179428.aspx)
 * [Przy użyciu sygnatury dostępu współdzielonego (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

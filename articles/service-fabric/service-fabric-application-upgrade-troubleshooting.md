@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/03/2017
+ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: acfd26674aafab4ed1925d6b33967f917058b1be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: beacf34ae0cf7cfd55b63a862d3dabce99248939
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="troubleshoot-application-upgrades"></a>Rozwiązywanie problemów z uaktualnieniami aplikacji
 W tym artykule omówiono niektóre typowe problemy dotyczące uaktualniania aplikacji sieci szkieletowej usług Azure i sposobu ich rozwiązania.
@@ -213,7 +213,7 @@ Niepowodzenie uaktualniania nie może być szybsza niż *HealthCheckWaitDuration
 
 Czas uaktualniania dla domeny uaktualnienia jest ograniczona przez *UpgradeDomainTimeout*.  Jeśli *HealthCheckRetryTimeout* i *HealthCheckStableDuration* są zarówno niezerowy i kondycji aplikacji przechowuje przełączania i z powrotem, a następnie Uaktualnianie ostatecznie upłynie limit czasu na *UpgradeDomainTimeout*. *UpgradeDomainTimeout* odlicza w dół po uaktualnieniu dla rozpoczyna się w bieżącej domenie uaktualnienia.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Uaktualnianie aplikacji za pomocą Visual Studio](service-fabric-application-upgrade-tutorial.md) przeprowadzi Cię przez proces uaktualnienia aplikacji przy użyciu programu Visual Studio.
 
 [Uaktualnienie z aplikacji przy użyciu programu Powershell](service-fabric-application-upgrade-tutorial-powershell.md) przeprowadzi Cię przez proces uaktualnienia aplikacji przy użyciu programu PowerShell.

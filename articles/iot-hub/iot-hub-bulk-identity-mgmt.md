@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: dobett
-ms.openlocfilehash: d2a6660b93fee1e1fc24269eb7075e5243ce88ed
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 699237c68258243b5f654f5dc57e616e3a22177a
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>Zarządzanie tożsamościami urządzenia IoT Hub zbiorcze
 
@@ -49,7 +49,18 @@ JobProperties exportJob = await registryManager.ExportDevicesAsync(containerSasU
 > [!NOTE]
 > Aby użyć **RegistryManager** klasy w kodzie C#, Dodaj **Microsoft.Azure.Devices** pakiet NuGet do projektu. **RegistryManager** klasa znajduje się w **Microsoft.Azure.Devices** przestrzeni nazw.
 
-Można użyć **RegistryManager** klasy do sprawdzania stanu **zadania** przy użyciu zwróconego **JobProperties** metadanych.
+Można użyć **RegistryManager** klasy do sprawdzania stanu **zadania** przy użyciu zwróconego **JobProperties** metadanych. Aby utworzyć wystąpienie **RegistryManager** klasy, należy użyć **CreateFromConnectionString** metody:
+
+```csharp
+RegistryManager registryManager = RegistryManager.CreateFromConnectionString("{your IoT Hub connection string}");
+```
+
+Aby określić parametry połączenia Centrum IoT w portalu Azure:
+
+- Przejdź do Centrum IoT.
+- Wybierz **zasady dostępu współużytkowanego**.
+- Wybierz zasady, biorąc pod uwagę uprawnienia, które są potrzebne.
+- Skopiuj parametry połączenia z panelu po prawej stronie ekranu.
 
 Poniższy fragment kodu C# pokazano, jak wykonać sondowanie co pięć sekund, aby zobaczyć, czy zadanie zostało zakończone, wykonywania:
 

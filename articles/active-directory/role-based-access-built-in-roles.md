@@ -11,15 +11,15 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 01/30/2018
+ms.date: 02/23/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: it-pro
-ms.openlocfilehash: 82fa6d3f04dc528c0e2d95dae82e7a7f8787ea7c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e49f555b2ae972cd3a0437fc44d2331aaeb5e955
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Wbudowanych ról dla kontroli dostępu opartej na rolach na platformie Azure
 Azure opartej na rolach kontroli dostępu (RBAC) zawiera następujące role wbudowane przypisane do użytkowników, grup i usług. Nie można zmodyfikować definicje ról wbudowanych. Można jednak utworzyć [niestandardowych ról w Azure RBAC](role-based-access-control-custom-roles.md) do określonych potrzeb organizacji.
@@ -51,6 +51,7 @@ W tym artykule opisano tylko różne role, które istnieją już dzisiaj. Po prz
 | [BizTalk Contributor](#biztalk-contributor) |Można zarządzać usługi BizTalk services |
 | [Współautor ClearDB MySQL bazy danych](#cleardb-mysql-db-contributor) |Można zarządzać baz danych ClearDB MySQL |
 | [Contributor](#contributor) |Mogą zarządzać wszystkim poza dostępem. |
+| [Rozwiązania cosmos bazy danych konta czytnik roli](#cosmos-db-account-reader-role) |Można odczytać danych konta bazy danych Azure rozwiązania Cosmos |
 | [Współautor fabryki danych](#data-factory-contributor) |Można tworzyć i zarządzać fabryki danych i zasoby podrzędne w nich. |
 | [DevTest Labs użytkownika](#devtest-labs-user) |Można wyświetlić wszystko i połącz start, zamknięcia i ponownego uruchomienia maszyny wirtualnej |
 | [Współautor strefy DNS](#dns-zone-contributor) |Można zarządzać strefy DNS i rekordów |
@@ -307,10 +308,23 @@ Mogą zarządzać wszystkim poza dostępem
 | --- | --- |
 | * |Tworzenie i zarządzanie zasobami wszystkich typów |
 
-| NotActions |  |
+| **NotActions** |  |
 | --- | --- |
 | Microsoft.Authorization/*/Delete |Nie można usuwać role i przypisania ról |
 | Microsoft.Authorization/*/Write |Nie można utworzyć role i przypisania ról |
+
+### <a name="cosmos-db-account-reader-role"></a>Rola czytelnika konta usługi Cosmos DB
+Można odczytać danych konta bazy danych Azure rozwiązania Cosmos. Zobacz [współautora konta usługi DocumentDB](#documentdb-account-contributor) do zarządzania kontami bazy danych Azure rozwiązania Cosmos.
+
+| **Akcje** |  |
+| --- | --- |
+|Microsoft.Authorization/*/read|Role odczytu i przypisania ról można uprawnienia do odczytu do każdego użytkownika|
+|Microsoft.DocumentDB/*/read|Przeczytaj żadnej kolekcji|
+|Microsoft.DocumentDB/databaseAccounts/readonlykeys/action|W okienku klucze tylko do odczytu do odczytu|
+|Microsoft.Insights/Metrics/read|Odczytać metryki konta|
+|Microsoft.Insights/MetricDefinitions/read|Odczytaj definicje metryk|
+|Microsoft.Resources/subscriptions/resourceGroups/read|Odczytanie grup zasobów|
+|Microsoft.Support/*|Tworzenie i zarządzanie biletami pomocy technicznej|
 
 ### <a name="data-factory-contributor"></a>Współautor Data Factory
 Utwórz i Zarządzaj fabryki danych i zasoby podrzędne w nich.
@@ -677,7 +691,7 @@ Można zarządzać baz danych, ale nie ich zasad związanych z zabezpieczeniami
 | Microsoft.Sql/servers/read |Przeczytaj serwerów SQL |
 | Microsoft.Support/* |Tworzenie i zarządzanie biletami pomocy technicznej |
 
-| NotActions |  |
+| **NotActions** |  |
 | --- | --- |
 | Microsoft.Sql/servers/databases/auditingPolicies/* |Nie można edytować zasady inspekcji |
 | Microsoft.Sql/servers/databases/auditingSettings/* |Nie można edytować ustawień inspekcji |
@@ -727,7 +741,7 @@ Można zarządzać serwerami programu SQL Server i baz danych, ale nie ich zasad
 | Microsoft.Sql/servers/* |Tworzenie i zarządzanie serwerami programu SQL Server |
 | Microsoft.Support/* |Tworzenie i zarządzanie biletami pomocy technicznej |
 
-| NotActions |  |
+| **NotActions** |  |
 | --- | --- |
 | Microsoft.Sql/servers/auditingPolicies/* |Nie można edytować zasady inspekcji serwera SQL |
 | Microsoft.Sql/servers/auditingSettings/* |Nie można edytować ustawienia inspekcji serwera SQL |

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 6428c6d9fcb577f18221ee48a61456c460bd8176
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: bd69d3c353c7f44efb37e2359412aa3a9f3e8f8d
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="using-azure-data-lake-store-for-big-data-requirements"></a>Za pomocą usługi Azure Data Lake Store wymagania danych big data
 Istnieją cztery etapy klucza podczas przetwarzania danych big:
@@ -40,8 +40,8 @@ Ta pozycja reprezentuje mniejszych zestawów danych, które są używane do twor
 
 | Źródło danych | Za pomocą pozyskiwania |
 | --- | --- |
-| Komputer lokalny |<ul> <li>[Azure Portal](/data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[Azure CLI wieloplatformowych 2.0](data-lake-store-get-started-cli-2.0.md)</li> <li>[Przy użyciu narzędzi Data Lake Tools dla programu Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
-| Obiektu Blob magazynu Azure |<ul> <li>[Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)</li> <li>[Narzędzie AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[Narzędzia DistCp uruchomiona w klastrze usługi HDInsight](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
+| Komputer lokalny |<ul> <li>[Azure portal](/data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[Azure CLI wieloplatformowych 2.0](data-lake-store-get-started-cli-2.0.md)</li> <li>[Przy użyciu narzędzi Data Lake Tools dla programu Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
+| Azure Storage Blob |<ul> <li>[Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)</li> <li>[Narzędzie AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[Narzędzia DistCp uruchomiona w klastrze usługi HDInsight](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
 
 ### <a name="streamed-data"></a>Strumienia danych
 Reprezentuje dane, które mogą być generowane przez różnych źródeł, takich jak aplikacje, urządzeń, czujników, itp. Te dane mogą pozyskanych do usługi Data Lake Store za pomocą różnych narzędzi. Te narzędzia zazwyczaj będzie przechwytywania i przetwarzania danych na podstawie zdarzeń przez zdarzenie w czasie rzeczywistym, a następnie wpisz zdarzeń w partiach do usługi Data Lake Store, aby mogą być dalej przetwarzane.
@@ -52,7 +52,7 @@ Poniżej przedstawiono narzędzia, których można użyć:
 * [Azure HDInsight Storm](../hdinsight/storm/apache-storm-write-data-lake-store.md) — możesz zapisać dane bezpośrednio do usługi Data Lake Store z klastra Storm.
 * [EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md) — można odbieranie zdarzeń z usługi Event Hubs i zapisać go do usługi Data Lake Store za pomocą [zestawu SDK .NET Data Lake Store](data-lake-store-get-started-net-sdk.md).
 
-### <a name="relational-data"></a>Danych relacyjnych
+### <a name="relational-data"></a>Dane relacyjne
 Może również pobierać dane z relacyjnej bazy danych. W danym okresie czasu relacyjnych baz danych, Zbierz dużych ilości danych, które zapewniają wgląd klucza przetwarzanie przez potok danych big data. Aby przenieść tych danych do usługi Data Lake Store, można użyć następujących narzędzi.
 
 * [Apache Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
@@ -71,8 +71,8 @@ Do przekazywania danych dziennika serwera sieci web, a także do przekazywania i
 ### <a name="data-associated-with-azure-hdinsight-clusters"></a>Dane skojarzone z klastrami Azure HDInsight
 Większość typów klastra usługi HDInsight (Hadoop, HBase, Storm) obsługuje usługi Data Lake Store jako repozytorium magazynu danych. Klastry HDInsight dostęp do danych z usługi Azure blob Storage (WASB). W celu poprawy wydajności można skopiować danych z WASB do konta usługi Data Lake Store skojarzony z klastrem. Aby skopiować dane, można użyć następujących narzędzi.
 
-* [Narzędzia DistCp Apache](data-lake-store-copy-data-wasb-distcp.md)
-* [Usługa AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
+* [Apache DistCp](data-lake-store-copy-data-wasb-distcp.md)
+* [AdlCopy Service](data-lake-store-copy-data-azure-storage-blob.md)
 * [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)
 
 ### <a name="data-stored-in-on-premises-or-iaas-hadoop-clusters"></a>Dane przechowywane w lokalnych lub IaaS Hadoop klastrów
@@ -117,7 +117,7 @@ W takich przypadkach można użyć dowolnego z następujących opcji:
 
 * [Apache Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
 * [Azure Data Factory](../data-factory/copy-activity-overview.md)
-* [Narzędzia DistCp Apache](data-lake-store-copy-data-wasb-distcp.md)
+* [Apache DistCp](data-lake-store-copy-data-wasb-distcp.md)
 
 Następujące metody umożliwia również napisać własny skrypt/aplikację w celu pobierania danych z usługi Data Lake Store.
 

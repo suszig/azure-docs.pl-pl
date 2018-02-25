@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: jeedes
-ms.openlocfilehash: 76bbee514eac36aec8eaf84e8a20f85a27559fc7
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: ad12dfd525afe1bde7026535dceb25556abf0a96
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp-federated-sso"></a>Samouczek: Integracji Azure Active Directory z ADP federacyjnej usługi logowania jednokrotnego
 
@@ -122,7 +122,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Adresy URL i ADP federacyjnego logowania jednokrotnego domeny pojedynczy informacje logowania jednokrotnego](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_url.png)
 
-    W **identyfikator** tekstowym, wpisz adres URL:`https://fed.adp.com/` 
+    W **identyfikator** tekstowym, wpisz adres URL: `https://fed.adp.com/` 
     
 5. Aplikacja ADP federacyjnej usługi logowania jednokrotnego oczekuje potwierdzenia języka SAML w określonym formacie, musisz dodać mapowania atrybutu niestandardowego do konfiguracji atrybuty tokenu SAML. Poniższy zrzut ekranu przedstawia przykład tego. Nazwa oświadczenia będą zawsze miały **"PersonImmutableID"** i których wartość możemy mapować do **identyfikator pracownika**. 
 
@@ -197,9 +197,8 @@ Po otrzymaniu potwierdzenia z przedstawicielem ADP skonfigurować użytkowników
     ![Skonfigurować łącze rejestracji jednokrotnej][4]
 
 7. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **połączonej logowania jednokrotnego** do Połącz swoją aplikację **ADP federacyjnej usługi logowania jednokrotnego**.
-<!---Loc Comment:Sentence "to link your application to ADP Federated SSO." should be concatenated with the previous sentence--->
 
-    ![Single sign-on linked](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linked.png)
+    ![Logowanie jednokrotne połączone](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linked.png)
 
 8. Przejdź do **Konfiguruj adres URL logowania** sekcji, wykonaj następujące czynności:
 

@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: 2b0039c7b90ef6f003641e096521f84885171c26
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 9d1f0eed28a1c1c6776ddba89480adcedfc599a5
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-event-grid-event-schema"></a>Azure schematu zdarzeń siatki zdarzeń
 
@@ -30,7 +30,7 @@ W poniższym przykładzie przedstawiono właściwości, które są używane prze
 [
   {
     "topic": string,
-    "subject": string,    
+    "subject": string,
     "id": string,
     "eventType": string,
     "eventTime": string,
@@ -72,7 +72,7 @@ Na przykład schemat opublikowana na potrzeby zdarzenia magazynu obiektów Blob 
   }
 ]
 ```
- 
+
 ## <a name="event-properties"></a>Właściwości zdarzenia
 
 Wszystkie zdarzenia zawierają tych samych danych najwyższego poziomu następujące:
@@ -92,7 +92,9 @@ Aby dowiedzieć się więcej na temat właściwości w obiekcie danych, zobacz �
 
 * [Subskrypcje platformy Azure (operacje zarządzania)](event-schema-subscriptions.md)
 * [Blob Storage](event-schema-blob-storage.md)
-* [Centra zdarzeń](event-schema-event-hubs.md)
+* [Event Hubs](event-schema-event-hubs.md)
+* [Service Bus](event-schema-service-bus.md)
+* [IoT Hub](event-schema-iot-hub.md)
 * [Grupy zasobów (operacje zarządzania)](event-schema-resource-groups.md)
 
 W przypadku niestandardowych tematów wydawca zdarzeń określa obiekt danych. Danych najwyższego poziomu powinien zawierać te same pola jako standardowych zdarzeń zdefiniowanych zasobów. Podczas publikowania zdarzeń w niestandardowych tematów, należy rozważyć modelowania przedmiotem zdarzeń ułatwiających routingu i filtrowania.

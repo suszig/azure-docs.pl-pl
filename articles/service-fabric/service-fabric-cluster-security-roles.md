@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 85935e60bba4b27972282700e2e9c9a22b403bdb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e71275d437aabdd5699f0d462fddc5a190ff19db
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="role-based-access-control-for-service-fabric-clients"></a>Kontrola dostępu oparta na rolach dla klientów sieci szkieletowej usług
 Sieć szkieletowa usług Azure obsługuje dwa typy kontroli różny dostęp dla klientów, które są podłączone do klastra usługi sieć szkieletowa: administratora i użytkownika. Kontrola dostępu umożliwia administratora klastrów, aby ograniczyć dostęp do pewnych operacji klastra dla różnych grup użytkowników, co klaster bardziej bezpieczne.  
@@ -50,7 +50,7 @@ Typ kontroli dostępu administratora ma pełny dostęp do wszystkich interfejsó
 * **RecoverServicePartitions**: odzyskiwanie partycji usługi                             
 * **RecoverSystemPartitions**: odzyskiwanie partycji usług systemowych                             
 
-### <a name="cluster-operations"></a>Działanie klastra
+### <a name="cluster-operations"></a>Operacje klastra
 * **ProvisionFabric**: MSI i/lub klastra manifestu inicjowania obsługi administracyjnej                             
 * **UpgradeFabric**: uruchomienie uaktualnienia klastra                             
 * **UnprovisionFabric**: MSI i/lub klastra manifestu wstrzymania obsługi administracyjnej                         
@@ -101,7 +101,7 @@ Kontrola dostępu administratora ma też dostęp do poprzedniej operacji.
 ## <a name="changing-default-settings-for-client-roles"></a>Zmiana ustawień domyślnych dla ról klienta
 W pliku manifestu klastra musisz podać możliwości administratora do klienta w razie potrzeby. Ustawienia domyślne można zmienić, przechodząc do **ustawienia sieci szkieletowej** opcję podczas [Tworzenie klastra](service-fabric-cluster-creation-via-portal.md)i zapewnianie poprzedniego ustawienia w **nazwa**,  **Administrator**, **użytkownika**, i **wartość** pól.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Zabezpieczenia klastra sieci szkieletowej usług](service-fabric-cluster-security.md)
 
 [Tworzenie klastra sieci szkieletowej usług](service-fabric-cluster-creation-via-portal.md)

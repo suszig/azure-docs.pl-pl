@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2017
 ms.author: ericrad
-ms.openlocfilehash: af860391d3aa810c2b5cd6d498de302d6f53bd3f
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
-ms.translationtype: HT
+ms.openlocfilehash: c217934f835a3926a3246de881d31601a9d58e04
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Usługa Azure metadanych: Zaplanowanego zdarzenia dla maszyn wirtualnych systemu Windows
 
@@ -27,7 +27,8 @@ Zaplanowane zdarzenia jest usługą metadanych Azure, która zapewnia czasu apli
 
 Informacje o zdarzeniach zaplanowane w systemie Linux, zobacz [zaplanowane zdarzenia dla maszyn wirtualnych systemu Linux](../linux/scheduled-events.md).
 
-[!IMPORTANT] Zaplanowane zdarzenia jest ogólnie dostępna we wszystkich regionach platformy Azure. Zobacz [wersji i dostępność w danym regionie](#version-and-region-availability) uzyskać najnowsze informacje o wersji.
+> [!Note] 
+> Zaplanowane zdarzenia jest ogólnie dostępna we wszystkich regionach platformy Azure. Zobacz [wersji i dostępność w danym regionie](#version-and-region-availability) uzyskać najnowsze informacje o wersji.
 
 ## <a name="why-scheduled-events"></a>Dlaczego zaplanowane zdarzenia?
 

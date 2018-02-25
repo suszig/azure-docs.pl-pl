@@ -15,30 +15,30 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 4c839bf0c39bf10855f8a31770b82a04ed1ca457
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 8bc7767d9903761f3338b7825185171aad74de78
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="compute-context-options-for-r-server-on-hdinsight"></a>Obliczenia bazy danych kontekstu opcje serwera R w usłudze HDInsight
 
 Microsoft R Server w usłudze Azure HDInsight kontroluje sposób wywołania są wykonywane przez ustawienie kontekstu obliczeń. W tym artykule opisano opcje, które są dostępne określić, czy i jak wykonanie jest zarządzana z przetwarzaniem na rdzeni węzła krawędzi lub klastra usługi HDInsight.
 
-Węzeł krawędzi klastra umożliwia wygodne Połącz się z klastrem i uruchamiania skryptów R. Z węzłem krawędzi istnieje możliwość uruchomionych zrównoleglone funkcje rozproszonej ScaleR na rdzeni serwera węzła krawędzi. Można również uruchomić je w węzłach klastra przy użyciu jego ScaleR Hadoop mapy zmniejszyć lub Spark obliczeniowe kontekstach.
+Węzeł krawędzi klastra umożliwia wygodne Połącz się z klastrem i uruchamiania skryptów R. Z węzłem krawędzi istnieje możliwość uruchomionych zrównoleglone funkcje rozproszonej RevoScaleR na rdzeni serwera węzła krawędzi. Można również uruchomić je w węzłach klastra przy użyciu jego RevoScaleR Hadoop mapy zmniejszyć lub Spark obliczeniowe kontekstach.
 
 ## <a name="microsoft-r-server-on-azure-hdinsight"></a>Serwer Microsoft R w usłudze Azure HDInsight
-[Microsoft R Server w usłudze Azure HDInsight](r-server-overview.md) zawiera najnowsze funkcje analizy na podstawie R. Można użyć danych przechowywanych w kontenerze systemu plików HDFS w Twojej [obiektów Blob platformy Azure](../../storage/common/storage-introduction.md "magazynu obiektów Blob Azure") konta magazynu, Data Lake store lub lokalny system plików w systemie Linux. Ponieważ R Server jest zbudowany na typu open source R, można zastosować R aplikacji tworzonych żadnych pakietów 8000 + R typu open source. Można też procedury w [RevoScaleR](https://msdn.microsoft.com/microsoft-r/scaler/scaler), pakiet analizy danych big data firmy Microsoft jest dołączony serwer R.  
+[Microsoft R Server w usłudze Azure HDInsight](r-server-overview.md) zawiera najnowsze funkcje analizy na podstawie R. Można użyć danych przechowywanych w kontenerze systemu plików HDFS w Twojej [obiektów Blob platformy Azure](../../storage/common/storage-introduction.md "magazynu obiektów Blob Azure") konta magazynu, Data Lake store lub lokalny system plików w systemie Linux. Ponieważ R Server jest zbudowany na typu open source R, można zastosować R aplikacji tworzonych żadnych pakietów 8000 + R typu open source. Można też procedury w [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), pakiet analizy danych big data firmy Microsoft jest dołączony serwer R.  
 
 ## <a name="compute-contexts-for-an-edge-node"></a>Obliczenia bazy danych kontekstów dla węzła krawędzi
-Ogólnie rzecz biorąc skrypt języka R, uruchamiany w R Server dla węzła krawędzi jest uruchamiany w ramach interpreter języka R w tym węźle. Wyjątki są te kroki, które wywołują funkcję ScaleR. Wywołania ScaleR uruchomione w środowisku obliczeniowe, które określają sposób ustawiania kontekstu obliczeń ScaleR.  Po uruchomieniu skryptu języka R z węzłem krawędzi, możliwe wartości kontekstu obliczeń to:
+Ogólnie rzecz biorąc skrypt języka R, uruchamiany w R Server dla węzła krawędzi jest uruchamiany w ramach interpreter języka R w tym węźle. Wyjątki są te kroki, które wywołują funkcję RevoScaleR. Wywołania RevoScaleR uruchomione w środowisku obliczeniowe, które określają sposób ustawiania kontekstu obliczeń RevoScaleR.  Po uruchomieniu skryptu języka R z węzłem krawędzi, możliwe wartości kontekstu obliczeń to:
 
 - lokalny sekwencyjnych (*lokalnego*)
 - równoległe lokalnego (*localpar*)
 - Zmniejsz mapy
 - platforma Spark
 
-*Lokalnego* i *localpar* opcje różnią się tylko w sposób **rxExec** wywołania są wykonywane. Oba wykonać inne wywołania funkcji odbierania w sposób równoległy między wszystkie dostępne rdzenie chyba że określono inaczej, za pomocą ScaleR **numCoresToUse** opcji, na przykład `rxOptions(numCoresToUse=6)`. Opcje przetwarzania równoległego oferują optymalną wydajność.
+*Lokalnego* i *localpar* opcje różnią się tylko w sposób **rxExec** wywołania są wykonywane. Oba wykonać inne wywołania funkcji odbierania w sposób równoległy między wszystkie dostępne rdzenie chyba że określono inaczej, za pomocą RevoScaleR **numCoresToUse** opcji, na przykład `rxOptions(numCoresToUse=6)`. Opcje przetwarzania równoległego oferują optymalną wydajność.
 
 W poniższej tabeli przedstawiono różne opcje kontekstu obliczeń ustalenie sposobu wykonywania wywołań:
 
@@ -72,13 +72,13 @@ Podana tych zasad, poniższe sekcje zapewniają pewne ogólne reguły przyjąć 
 * Tylko wtedy, gdy wystąpią porównania problem z kontekstem obliczeń Spark, ponieważ jest ono zazwyczaj wolniej, należy używać kontekstu obliczeń zmniejszyć mapy.  
 
 ## <a name="inline-help-on-rxsetcomputecontext"></a>Wbudowany pomoc na temat rxSetComputeContext
-Dodatkowe informacje i przykłady ScaleR kontekstów obliczeń dla wbudowanego pomoc w R w metodzie rxSetComputeContext, na przykład:
+Dodatkowe informacje i przykłady RevoScaleR kontekstów obliczeń dla wbudowanego pomoc w R w metodzie rxSetComputeContext, na przykład:
 
     > ?rxSetComputeContext
 
-Można także odwoływać się do [przewodnik rozproszonego przetwarzania danych ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-distributed-computing) nie jest dostępna z [R Server w witrynie MSDN](https://msdn.microsoft.com/library/mt674634.aspx) biblioteki.
+Można także odwoływać się do [rozproszonego przetwarzania danych omówienie](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-distributed-computing) w [dokumentacji Machine Learning Server](https://docs.microsoft.com/machine-learning-server/).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 W tym artykule przedstawiono o opcjach, które są dostępne określić, czy i jak wykonanie jest zarządzana z przetwarzaniem na rdzeni węzła krawędzi lub klastra usługi HDInsight. Aby dowiedzieć się więcej o sposobie używania R Server z klastrami usługi HDInsight, zobacz następujące tematy:
 
 * [Omówienie R Server dla usługi Hadoop](r-server-overview.md)
