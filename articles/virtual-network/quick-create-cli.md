@@ -16,21 +16,21 @@ ms.workload: infrastructure
 ms.date: 01/25/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 2cb32ddc67060d9860d172b90cc399622c52b04b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 792b92731f89f3d0bab4f23221223e469ddf9550
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-a-virtual-network-using-the-azure-cli"></a>Utwórz sieć wirtualną przy użyciu wiersza polecenia platformy Azure
 
-W tym artykule należy Dowiedz się, jak utworzyć sieć wirtualną. Po utworzeniu sieci wirtualnej, wdrożenie dwóch maszyn wirtualnych w sieci wirtualnej i prywatnie komunikacji między nimi.
+W tym artykule należy Dowiedz się, jak utworzyć sieć wirtualną. Po utworzeniu sieci wirtualnej, możesz wdrożyć dwóch maszyn wirtualnych w sieci wirtualnej, aby przetestować siecią prywatną komunikację między nimi.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten przewodnik szybkiego startu będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Aby znaleźć zainstalowanej wersji, uruchom `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0](/cli/azure/install-azure-cli). 
+Jeśli do zainstalowania i używania interfejsu wiersza polecenia lokalnie, w tym artykule, wymaga używasz interfejsu wiersza polecenia Azure w wersji 2.0.4 lub nowszej. Aby znaleźć zainstalowanej wersji, uruchom `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0](/cli/azure/install-azure-cli). 
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
@@ -66,11 +66,13 @@ Wszystkie sieci wirtualne mają co najmniej jeden prefiksy adresów do nich przy
 
 Zwrócony inną część informacji **prefiks adresu** z *10.0.0.0/24* dla *domyślne* podsieci określone w poleceniu. Sieć wirtualna zawiera zero lub więcej podsieci. To polecenie utworzyło pojedynczej podsieci o nazwie *domyślne*, ale nie podano żadnych prefiks adresu podsieci. Jeśli dla sieci wirtualnej lub podsieć nie jest określona prefiks adresu, Azure definiuje 10.0.0.0/24 jako prefiksu adresu dla pierwszej podsieci domyślnie. W związku z tym podsieci obejmuje 10.0.0.0-10.0.0.254, ale tylko 10.0.0.4-10.0.0.254 są dostępne, ponieważ Azure rezerwuje pierwsze cztery adresów (0-3) oraz ostatni adres w każdej podsieci.
 
-## <a name="create-virtual-machines"></a>Tworzenie maszyn wirtualnych
+## <a name="test-network-communication"></a>Test łączności sieciowej
 
-Sieć wirtualna umożliwia kilka typów zasobów platformy Azure do prywatnie komunikują się ze sobą. Jeden typ zasobów, które można wdrożyć w sieci wirtualnej jest maszyną wirtualną. Utwórz dwie maszyny wirtualne w sieci wirtualnej, aby można było zweryfikować i zrozumieć sposób działania komunikacji między maszynami wirtualnymi w sieci wirtualnej w kolejnym kroku.
+Sieć wirtualna umożliwia kilka typów zasobów platformy Azure do prywatnie komunikują się ze sobą. Jeden typ zasobów, które można wdrożyć w sieci wirtualnej jest maszyną wirtualną. Utwórz dwie maszyny wirtualne w sieci wirtualnej, aby móc weryfikować prywatnej komunikacji między nimi w kolejnym kroku.
 
-Utwórz maszynę wirtualną z [tworzenia maszyny wirtualnej az](/cli/azure/vm#az_vm_create) polecenia. Poniższy przykład tworzy maszynę wirtualną o nazwie *myVm1*. Jeśli kluczy SSH już nie istnieją w domyślnej lokalizacji klucza, polecenie tworzy je. Aby użyć określonego zestawu kluczy, użyj opcji `--ssh-key-value`. `--no-wait` Opcja tworzy maszynę wirtualną w tle, dzięki czemu można kontynuować do następnego kroku.
+### <a name="create-virtual-machines"></a>Tworzenie maszyn wirtualnych
+
+Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm#az_vm_create). Poniższy przykład tworzy maszynę wirtualną o nazwie *myVm1*. Jeśli kluczy SSH już nie istnieją w domyślnej lokalizacji klucza, polecenie tworzy je. Aby użyć określonego zestawu kluczy, użyj opcji `--ssh-key-value`. `--no-wait` Opcja tworzy maszynę wirtualną w tle, dzięki czemu można kontynuować do następnego kroku.
 
 ```azurecli-interactive 
 az vm create \
@@ -110,7 +112,7 @@ Maszyna wirtualna ma kilka minut na utworzenie. Po utworzeniu maszyny wirtualnej
 
 W tym przykładzie widać, że **elementu privateIpAddress** jest *10.0.0.5*. Azure DHCP automatycznie przypisywany *10.0.0.5* do maszyny wirtualnej powodu następnego dostępnego adresu w *domyślne* podsieci. Zwróć uwagę na **publicznego adresu IP**. Ten adres jest używany na dostęp do maszyny wirtualnej z Internetu w kolejnym kroku. Publiczny adres IP nie jest przypisany od w ramach sieci wirtualnej lub prefiksy adresów podsieci. Publiczne adresy IP są przypisywane z [puli adresów przypisanych do każdego regionu Azure](https://www.microsoft.com/download/details.aspx?id=41653). Azure wie, który publiczny adres IP jest przypisany do maszyny wirtualnej, system operacyjny działający na maszynie wirtualnej nie ma informacji o żadnych publicznego adresu IP, które są przypisane do niej.
 
-## <a name="connect-to-a-virtual-machine"></a>Połącz z maszyną wirtualną
+### <a name="connect-to-a-virtual-machine"></a>Połącz z maszyną wirtualną
 
 Użyj następującego polecenia, aby utworzyć sesję SSH z *myVm2* maszyny wirtualnej. Zastąp `<publicIpAddress>` z publicznym adresem IP maszyny wirtualnej. W powyższym przykładzie adres IP jest *40.68.254.142*.
 
@@ -118,7 +120,7 @@ Użyj następującego polecenia, aby utworzyć sesję SSH z *myVm2* maszyny wirt
 ssh <publicIpAddress>
 ```
 
-## <a name="validate-communication"></a>Sprawdź poprawność komunikacji
+### <a name="validate-communication"></a>Sprawdź poprawność komunikacji
 
 Użyj następującego polecenia, aby potwierdzić komunikację z *myVm1* z *myVm2*:
 
@@ -136,9 +138,11 @@ ping bing.com -c 4
 
 Otrzymasz cztery odpowiedzi z bing.com. Domyślnie ruch wychodzący do Internetu może komunikować się żadnej maszyny wirtualnej w sieci wirtualnej.
 
+Zakończ sesję SSH do maszyny Wirtualnej.
+
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Gdy nie są już potrzebne, można użyć [usunięcie grupy az](/cli/azure/group#az_group_delete) polecenie, aby usunąć grupę zasobów i wszystkie zasoby zawiera. Zakończyć sesję SSH do maszyny Wirtualnej, a następnie usunąć zasoby.
+Gdy nie są już potrzebne, można użyć [usunięcie grupy az](/cli/azure/group#az_group_delete) polecenie, aby usunąć grupę zasobów i wszystkie zasoby zawiera:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes
@@ -146,8 +150,7 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Kolejne kroki
 
-W tym artykule została wdrożona domyślna sieci wirtualnej z jedną podsiecią i dwie maszyny wirtualne. Aby dowiedzieć się, jak utworzyć sieć wirtualną niestandardowe z wieloma podsieciami i wykonywać zadania zarządzania podstawowe, nadal samouczek dotyczący tworzenia niestandardowych sieci wirtualnej i zarządzanie nią.
-
+W tym artykule została wdrożona domyślna sieci wirtualnej z jedną podsiecią. Aby dowiedzieć się, jak utworzyć sieć wirtualną niestandardowe z wieloma podsieciami, nadal samouczek dotyczący tworzenia niestandardowych sieci wirtualnej.
 
 > [!div class="nextstepaction"]
-> [Tworzenie niestandardowych sieci wirtualnej i zarządzanie nim](virtual-networks-create-vnet-arm-pportal.md#azure-cli)
+> [Tworzenie niestandardowych sieci wirtualnej](virtual-networks-create-vnet-arm-pportal.md#azure-cli)

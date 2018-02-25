@@ -9,11 +9,11 @@ ms.author: xshi
 ms.date: 12/06/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 46d9ca0bf6c9ddf95c147fc2eb62d275c973845e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5ed517cf8d70cd279a55b79ad448709116cf511b
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-visual-studio-code-to-debug-a-c-module-with-azure-iot-edge"></a>Debugowanie modułu C# z krawędzią IoT Azure przy użyciu programu Visual Studio Code
 Ten artykuł zawiera szczegółowe instrukcje dotyczące używania [Visual Studio Code](https://code.visualstudio.com/) jako Narzędzia główne programowanie debugowania moduły Azure IoT krawędzi.
@@ -47,7 +47,7 @@ Po zakończeniu samouczka poprzedniego powinny mieć gotowy następujące elemen
 
 2. W `launch.json`, przejdź do **debugowania IoT krawędzi niestandardowego modułu (.NET Core)** sekcji. W obszarze **pipeArgs**, wypełnij `<container_name>`. Powinien być `filtermodule` w tym samouczku.
 
-    ![Zrzut ekranu kodzie VS debugowania okna](./media/how-to-debug-csharp-module/f5-debug-option.png)
+    ![Zrzut ekranu przedstawiający VS kodu launch.json](./media/how-to-debug-csharp-module/add-container-name.png)
 
 3. Przejdź do **Program.cs**. Dodaj punkt przerwania w `method static async Task<MessageResponse> FilterModule(Message message, object userContext)`.
 4. Naciśnij klawisz **F5** ponownie i wybierz można dołączyć do procesu. W tym samouczku powinna być nazwa procesu `FilterModule.dll`.

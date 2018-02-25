@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: vinagara
-ms.openlocfilehash: f6072e4e8a9ab72f677c35e498e31b5218579f1b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 438776e7f0885dbdb0d66ccdd18d854e14beb299
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="log-alerts-in-azure-monitor---alerts-preview"></a>Dziennik alerty w programie Azure Monitor — alerty (wersja zapoznawcza)
 Ten artykuł zawiera szczegółowe informacje, jak alertu reguł w pracach zapytania analityka w alertach Azure (wersja zapoznawcza) i opisano różnice między różnych typów reguł alertów dziennika.
@@ -27,11 +27,20 @@ Obecnie alerty Azure (wersja zapoznawcza), obsługuje rejestrowania alertów dla
 
 > [!WARNING]
 
-> Obecnie alerty dziennika w alertach Azure (wersja zapoznawcza) nie obsługuje zapytań między roboczym lub wielu aplikacji.
+> Obecnie alert dziennika w alertach Azure (wersja zapoznawcza) nie obsługuje zapytań między roboczym lub wielu aplikacji.
+
+Ponadto użytkownicy mogą doskonała ich zapytania w platformie analizy wyboru na platformie Azure, a następnie *zaimportować je do użycia w alertach (wersja zapoznawcza) po zapisaniu zapytania*. Kroki do wykonania:
+- Dla usługi Application Insights: Portal analityka przejdź do weryfikacji zapytań i ich wyników. Następnie zapisz o unikatowej nazwie w *udostępnione zapytania*.
+- W celu wykonania analizy dziennika: Przejdź do wyszukiwania dziennika, kwerendy i wyniki sprawdzenia. Następnie użyj zapisanie o unikatowej nazwie w każdej kategorii.
+
+Następnie po [tworzenia alertu dziennika alertów (wersja zapoznawcza)](monitor-alerts-unified-usage.md), zobacz zapisanego zapytania, które są wyświetlane jako typ sygnału **dziennika (zapisane zapytanie)**; jak pokazano w poniższym przykładzie: ![zapisanego zapytania, które są importowane do alertów](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog-new.png)
+
+> [!NOTE]
+> Przy użyciu **dziennika (zapisane zapytanie)** wynikiem importowania do alertów. Dlatego wszelkie zmiany dokonywane po w module analiz nie będzie odbicia w zapisanych reguł alertów i na odwrót.
 
 ## <a name="log-alert-rules"></a>Reguły alertów dziennika
 
-Alerty są tworzone przez alerty Azure (wersja zapoznawcza) automatycznie uruchamiać zapytania dziennika w regularnych odstępach czasu.  Jeśli wyniki zapytania dziennika spełniających kryteria określonego, tworzony jest rekord alertu. Reguła następnie automatycznie uruchomić co najmniej jednej akcji do aktywnego powiadomienia o alercie lub wywołanie innego procesu, takie jak uruchomione elementy runbook, za pomocą [grupy akcji](monitoring-action-groups.md).  Różnych typów reguł alertów używać różnych logikę do wykonywania tej analizy.
+Alerty są tworzone przez alerty Azure (wersja zapoznawcza) automatycznie uruchamiać zapytania dziennika w regularnych odstępach czasu.  Jeśli wyniki zapytania dziennika spełniających kryteria określonego, tworzony jest rekord alertu. Reguła następnie automatycznie uruchomić co najmniej jednej akcji do aktywnego powiadomienia o alercie lub wywołanie innego procesu, takie jak wysyłanie danych do aplikacji zewnętrznych za pomocą [json na podstawie elementu webhook](monitor-alerts-unified-log-webhook.md)za pomocą [grupy akcji](monitoring-action-groups.md). Różnych typów reguł alertów używać różnych logikę do wykonywania tej analizy.
 
 Reguły alertów są określone przez następujące informacje:
 
@@ -47,24 +56,26 @@ Każdej reguły alertu w analizy dzienników jest jednym z dwóch typów.  Każd
 
 Dostępne są następujące różnice między typami reguły alertów.
 
-- **Liczba wyników** reguły alertu zawsze tworzy pojedynczy alert chwilę **metryki pomiaru** alertu zasada tworzy alert dla każdego obiektu, który przekracza wartość progową.
+- ** Liczba wyników reguły alertów zawsze tworzy pojedynczy alert chwilę **metryki pomiaru** alertu zasada tworzy alert dla każdego obiektu, który przekracza wartość progową.
 - **Liczba wyników** reguły alertów tworzą alert po przekroczeniu progu jeden raz. **Metryki pomiaru** reguły alertów można utworzyć alertu, po przekroczeniu progu określona liczba razy w określonym interwale.
 
 ## <a name="number-of-results-alert-rules"></a>Liczba wyników reguły alertów
-**Liczba wyników** reguły alertów Utwórz pojedynczy alert, kiedy to liczba rekordów zwróconych przez zapytanie wyszukiwania przekraczają określony próg.
+**Liczba wyników** reguły alertów Utwórz pojedynczy alert, kiedy to liczba rekordów zwróconych przez zapytanie wyszukiwania przekraczają określony próg. Ten typ alertu jest idealne rozwiązanie w przypadku pracy z zdarzenia, takie jak dzienniki zdarzeń systemu Windows, Syslog odpowiedzi aplikacji sieci Web i niestandardowe dzienniki.  Możesz utworzyć alert podczas tworzenia pobiera zdarzeń określony błąd, lub wielu zdarzeń błędu są tworzone w ramach okna określony czas.
 
-**Próg**: próg **liczba wyników** reguły alertu jest większa lub mniejsza od określonej wartości.  Jeśli liczba rekordów zwróconych przez wyszukiwanie dziennika zgodna te kryteria, tworzona jest alert.
+**Próg**: próg ** liczba wyników reguły alertu jest większa lub mniejsza od określonej wartości.  Jeśli liczba rekordów zwróconych przez wyszukiwanie dziennika zgodna te kryteria, tworzona jest alert.
 
-### <a name="scenarios"></a>Scenariusze
-
-#### <a name="events"></a>Zdarzenia
-Ten typ alertu jest idealne rozwiązanie w przypadku pracy z zdarzenia, takie jak dzienniki zdarzeń systemu Windows, Syslog, i niestandardowe dzienniki.  Możesz utworzyć alert podczas tworzenia pobiera zdarzeń określony błąd, lub wielu zdarzeń błędu są tworzone w ramach okna określony czas.
-
-Aby alert po wystąpieniu pojedyncze zdarzenie, ustaw liczbę wyników na wartość większą niż 0 i częstotliwość i czas okna do pięciu minut.  Uruchamiające kwerendę co pięć minut i sprawdź, czy wystąpienie jednego zdarzenia, który został utworzony od czasu ostatniego uruchomienia zapytania.  Częstotliwość dłużej może być opóźniona czas między zdarzenia są zbierane i tworzony alert.
-
-Niektóre aplikacje mogą rejestrować okazjonalne błąd, który nie należy koniecznie zgłosi alert.  Na przykład aplikacja może ponów próbę wykonania procesu, który utworzył zdarzenie błędu i powiodło się podczas następnego.  W takim przypadku nie możesz utworzyć alert, jeśli wiele zdarzeń są tworzone w ramach okna określonym czasie.  
+Aby alertów na pojedyncze zdarzenie, ustaw liczbę wyników na wartość większą niż 0 i sprawdź, czy wystąpienie jednego zdarzenia, który został utworzony od czasu ostatniego uruchomienia zapytania. Niektóre aplikacje mogą rejestrować okazjonalne błąd, który nie należy koniecznie zgłosi alert.  Na przykład aplikacja może ponów próbę wykonania procesu, który utworzył zdarzenie błędu i powiodło się podczas następnego.  W takim przypadku nie możesz utworzyć alert, jeśli wiele zdarzeń są tworzone w ramach okna określonym czasie.  
 
 W niektórych przypadkach warto utworzyć alert w przypadku braku zdarzeń.  Na przykład procesu mogą rejestrować regularnego zdarzenia w celu wskazania, że działa prawidłowo.  Jeżeli nie rejestrować jedno z tych zdarzeń w oknie określonym czasie, powinien zostać utworzony alert.  W takim przypadku należy ustawić wartość progową **mniej niż 1**.
+
+### <a name="example"></a>Przykład
+Rozważmy scenariusz, w którym chcesz wiedzieć, kiedy aplikacji opartych na sieci web zapewnia odpowiedzi dla użytkowników z kodem 500 (czyli) wewnętrzny błąd serwera. Należy utworzyć regułę alertu z następującymi szczegółami:  
+**Zapytanie:** żądań | gdzie resultCode == "500"<br>
+**Przedział czasu:** 30 minut<br>
+**Alert częstotliwości:** pięć minut<br>
+**Wartość progowa:** dużą niż 0<br>
+
+Następnie alert może uruchomić kwerendę co 5 minut z 30 minut dane — do wyszukania wszystkich rekordów gdzie kod wyniku: 500. Jeśli zostanie znaleziony nawet jednego takiego zapisu, generowane alertu i wyzwalacza Akcja skonfigurowana.
 
 ## <a name="metric-measurement-alert-rules"></a>Metryki pomiaru reguły alertów
 
@@ -74,7 +85,7 @@ W niektórych przypadkach warto utworzyć alert w przypadku braku zdarzeń.  Na 
 
 > [!NOTE]
 
-> Funkcji agregującej w zapytaniu muszą być o nazwie wywołuje: AggregatedValue i podaj wartość liczbową.
+> Funkcji agregującej w zapytaniu muszą być o nazwie wywołuje: AggregatedValue i podaj wartość liczbową. 
 
 
 **Pole grupy**: zostaje utworzony rekord z zagregowane wartości dla poszczególnych wystąpień tego pola, a alert jest generowany dla każdego.  Na przykład, jeśli chcesz generować alert dla każdego komputera, możesz użyć **przez komputer**   
@@ -84,6 +95,8 @@ W niektórych przypadkach warto utworzyć alert w przypadku braku zdarzeń.  Na 
 > Dla metryki pomiaru reguły alertów, które są oparte na usługi Application Insights można określić pole do grupowania danych. Aby to zrobić, użyj **agregacji na** opcja w definicji reguły.   
 
 **Interwał**: Określa przedział czasu, w którym są agregowane.  Na przykład, jeśli określono **pięć minut**, może zostać utworzony rekord dla każdego wystąpienia pola grupy przez przedział czasu określony dla alertu agregowana co 5 minut.
+> [!NOTE]
+> Funkcja Kosza musi być używany w zapytaniu. Także jeśli przedziały czasu nierówne są tworzone dla przedział czasu, przez użycie funkcji Bin - alertu zamiast tego funkcja bin_at zamiast niego zostanie użyty do upewnij się, że ma stałego punktu
 
 **Próg**: próg metryki pomiaru reguły alertów jest definiowana za pomocą wartości zagregowanej i liczbę naruszeń.  Dowolnego punktu danych w dzienniku wyszukiwania przekracza tę wartość, jest uznawane za naruszenia.  Jeśli liczba naruszeń w dla dowolnego obiektu w wynikach przekracza określoną wartość, alert zostanie utworzony dla tego obiektu.
 
@@ -104,6 +117,8 @@ W tym przykładzie oddzielne alerty zostałyby utworzone dla srv02 i srv03, poni
 
 
 ## <a name="next-steps"></a>Kolejne kroki
+* Zrozumienie [Akcje elementu Webhook dla dziennika alertów](monitor-alerts-unified-log-webhook.md)
 * [Zapoznaj się z omówieniem alerty Azure (wersja zapoznawcza)](monitoring-overview-unified-alerts.md)
 * Dowiedz się więcej o [za pomocą alertów Azure (wersja zapoznawcza)](monitor-alerts-unified-usage.md)
+* Dowiedz się więcej o [usługi Application Insights](../application-insights/app-insights-analytics.md)
 * Dowiedz się więcej o [analizy dzienników](../log-analytics/log-analytics-overview.md).    

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: billmath
-ms.openlocfilehash: cde406bd745fe61757eaa69c9fc0cfc98a42d205
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c10a069f5359dc148b103688355c859bd653b5d7
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Konta i uprawnienia
 Kreator instalacji Azure AD Connect oferuje dwa różne ścieżki:
@@ -43,7 +43,7 @@ W ustawieniach Express Kreator instalacji zapyta o poświadczenia administratora
 
 | Strona kreatora | Poświadczenia zbierane | Wymagane uprawnienia | Używany do |
 | --- | --- | --- | --- |
-| Nie dotyczy |Użytkownik uruchamiający Kreatora instalacji |Administrator serwera lokalnego |<li>Tworzy konta lokalnego, który jest używany jako [konta usługi aparatu synchronizacji](#azure-ad-connect-sync-service-account). |
+| ND |Użytkownik uruchamiający Kreatora instalacji |Administrator serwera lokalnego |<li>Tworzy konta lokalnego, który jest używany jako [konta usługi aparatu synchronizacji](#azure-ad-connect-sync-service-account). |
 | Łączenie z usługą Azure AD |Poświadczenia katalogu usługi Azure AD |Rola administratora globalnego w usłudze Azure AD |<li>Włączanie synchronizacji w katalogu usługi Azure AD.</li>  <li>Tworzenie [konto usługi Azure AD](#azure-ad-service-account) używanego do operacji w toku synchronizacji w usłudze Azure AD.</li> |
 | Łączenie z usługami AD DS |Lokalnych poświadczeń usługi Active Directory |Członek grupy Administratorzy przedsiębiorstwa (EA) w usłudze Active Directory |<li>Tworzy [konta](#active-directory-account) w usłudze Active Directory i przyznaje uprawnienia do niego. Jest to utworzone konto używane do odczytywania i zapisywania informacji o katalogu podczas synchronizacji.</li> |
 
@@ -70,7 +70,7 @@ Azure AD Connect wersji 1.1.524.0 i później ma opcję umożliwiającą program
 
 | Strona kreatora | Poświadczenia zbierane | Wymagane uprawnienia | Używany do |
 | --- | --- | --- | --- |
-| Nie dotyczy |Użytkownik uruchamiający Kreatora instalacji |<li>Administrator serwera lokalnego</li><li>Jeśli przy użyciu pełnego serwera SQL, użytkownik musi być administratora systemu (SA) w programie SQL</li> |Domyślnie tworzy konta lokalnego, który jest używany jako [konta usługi aparatu synchronizacji](#azure-ad-connect-sync-service-account). Konto jest tworzony tylko, gdy administrator określi określonego konta. |
+| ND |Użytkownik uruchamiający Kreatora instalacji |<li>Administrator serwera lokalnego</li><li>Jeśli przy użyciu pełnego serwera SQL, użytkownik musi być administratora systemu (SA) w programie SQL</li> |Domyślnie tworzy konta lokalnego, który jest używany jako [konta usługi aparatu synchronizacji](#azure-ad-connect-sync-service-account). Konto jest tworzony tylko, gdy administrator określi określonego konta. |
 | Zainstaluj usługi synchronizacji i opcji konta usługi |Usługi AD lub poświadczenia konta użytkownika lokalnego |Użytkownik, uprawnienia są udzielane przez Kreatora instalacji |Jeśli administrator określa konto, to konto jest używane jako konto usługi dla usługi synchronizacji. |
 | Łączenie z usługą Azure AD |Poświadczenia katalogu usługi Azure AD |Rola administratora globalnego w usłudze Azure AD |<li>Włączanie synchronizacji w katalogu usługi Azure AD.</li>  <li>Tworzenie [konto usługi Azure AD](#azure-ad-service-account) używanego do operacji w toku synchronizacji w usłudze Azure AD.</li> |
 | Podłączanie katalogów |Lokalnych poświadczeń usługi Active Directory dla każdego lasu, która jest połączona z usługą Azure AD |Uprawnienia zależą od funkcji, które można włączyć i znajdują się w [Tworzenie konta usług AD DS](#create-the-ad-ds-account) |To konto jest używane do odczytywania i zapisywania informacji o katalogu podczas synchronizacji. |
@@ -84,7 +84,7 @@ Konta, określ na **Podłączanie katalogów** strony musi być obecny w usłudz
 
 Uprawnienia wymagane jest zależny od funkcji opcjonalnych można włączyć. Jeśli masz wiele domen, muszą być przyznane uprawnienia dla wszystkich domen w lesie. Jeśli nie włączysz żadnego z tych funkcji, domyślnie **użytkownika domeny** uprawnienia są wystarczające.
 
-| Funkcja | Uprawnienia |
+| Cecha | Uprawnienia |
 | --- | --- |
 | Funkcja msDS-ConsistencyGuid |Uprawnienia do zapisu do atrybutu msDS-ConsistencyGuid udokumentowane w [zagadnienia dotyczące projektowania — przy użyciu msDS-ConsistencyGuid jako sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor). | 
 | Synchronizacja haseł |<li>Replikować zmiany katalogu</li>  <li>Replikowanie katalogu zmienia wszystkie |
@@ -98,7 +98,7 @@ Uprawnienia wymagane jest zależny od funkcji opcjonalnych można włączyć. Je
 Po uaktualnieniu z jednej wersji programu Azure AD Connect do nowej wersji, potrzebne są następujące uprawnienia:
 
 >[!IMPORTANT]
->Począwszy od kompilacji 1.1.484, Azure AD Connect wprowadzono usterki regresji, który wymaga uprawnień administratora systemu do uaktualnienia bazy danych SQL.  Ten błąd jest nadal znajdują się w ostatniej kompilacji 1.1.614.  W przypadku uaktualniania do tej kompilacji, należy najpierw uprawnienia administratora systemu.  Uprawnienia dbo nie są wystarczające.  Próba uaktualnienia bez uprawnień administratora systemu Azure AD Connect uaktualnienie zakończy się niepowodzeniem i Azure AD Connect nie będzie już działać poprawnie później.  Firma Microsoft o tym pamiętać i działa, aby rozwiązać ten problem.
+>Począwszy od kompilacji 1.1.484, Azure AD Connect wprowadzono usterki regresji, który wymaga uprawnień administratora systemu do uaktualnienia bazy danych SQL.  Ten problem został rozwiązany w kompilacji 1.1.647.  W przypadku uaktualniania do tej kompilacji, należy najpierw uprawnienia administratora systemu.  Uprawnienia dbo nie są wystarczające.  Próba uaktualnienia bez uprawnień administratora systemu Azure AD Connect uaktualnienie zakończy się niepowodzeniem i Azure AD Connect nie będzie już działać poprawnie później.  Firma Microsoft o tym pamiętać i działa, aby rozwiązać ten problem.
 
 
 | Podmiot zabezpieczeń | Wymagane uprawnienia | Używany do |
@@ -146,8 +146,8 @@ Legenda:
 | | LocalDB</br>Express | LocalDB/LocalSQL</br>Niestandardowy | Zdalny program SQL</br>Niestandardowy |
 | --- | --- | --- | --- |
 | **komputer autonomicznego/Grupa robocza** | Nieobsługiwane | **VSA**</br>Konto lokalne (2008)</br>Konto lokalne |  Nieobsługiwane |
-| **komputerze przyłączonym do domeny** | **VSA**</br>Konto lokalne (2008) | **VSA**</br>Konto lokalne (2008)</br>Konto lokalne</br>Konto domeny</br>Autonomiczne, gMSA | **gMSA**</br>Konto domeny |
-| **Kontroler domeny** | **Konto domeny** | *gMSA*</br>**Konto domeny**</br>Autonomiczne| *gMSA*</br>**Konto domeny**|
+| **komputerze przyłączonym do domeny** | **VSA**</br>Konto lokalne (2008) | **VSA**</br>Konto lokalne (2008)</br>Konto lokalne</br>Konto domeny</br>sMSA,gMSA | **gMSA**</br>Konto domeny |
+| **Kontroler domeny** | Konto domeny | *gMSA*</br>Konto domeny</br>sMSA| *gMSA*</br>Konto domeny|
 
 #### <a name="virtual-service-account"></a>Konta usług wirtualnych
 Konto usługi wirtualnego jest specjalnym rodzajem konto nie ma hasła, który jest zarządzany przez system Windows.
@@ -191,9 +191,9 @@ Nazwa serwera, którego konto jest używane w można zidentyfikować w drugiej c
 
 Konto usługi jest tworzone długo złożone hasło, które nie wygasa. Ma przyznane uprawnienia roli specjalne **konta synchronizacji katalogu** która ma tylko uprawnienia do wykonywania zadań synchronizacji katalogu. Nie można udzielić tej roli wbudowanych specjalne poza Kreatora programu Azure AD Connect. Azure portal zawiera tego konta z rolą **użytkownika**.
 
-Istnieje limit 20 kont usługi synchronizacji w usłudze Azure AD. Aby uzyskać listę istniejących kont usługi Azure AD w usługi Azure AD, uruchom następujące polecenie cmdlet programu PowerShell usługi Azure AD:`Get-AzureADDirectoryRole | where {$_.DisplayName -eq "Directory Synchronization Accounts"} | Get-AzureADDirectoryRoleMember`
+Istnieje limit 20 kont usługi synchronizacji w usłudze Azure AD. Aby uzyskać listę istniejących kont usługi Azure AD w usługi Azure AD, uruchom następujące polecenie cmdlet programu PowerShell usługi Azure AD: `Get-AzureADDirectoryRole | where {$_.DisplayName -eq "Directory Synchronization Accounts"} | Get-AzureADDirectoryRoleMember`
 
-Aby usunąć nieużywane usługi Azure AD kont usług, uruchom następujące polecenie cmdlet programu PowerShell usługi Azure AD:`Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
+Aby usunąć nieużywane usługi Azure AD kont usług, uruchom następujące polecenie cmdlet programu PowerShell usługi Azure AD: `Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Dowiedz się więcej na temat [integrowania tożsamości lokalnych z usługą Azure Active Directory](../active-directory-aadconnect.md).

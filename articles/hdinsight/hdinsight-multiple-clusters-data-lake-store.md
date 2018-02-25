@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 1fe81286c395a529a14ba87edc26390a2bab3f90
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: c306c66354f34fc945a5fe0ffa11d63bce4d7005
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-store-account"></a>Użyj wielu klastrów usługi HDInsight przy użyciu konta usługi Azure Data Lake Store
 
@@ -42,9 +42,9 @@ Aby włączyć tę strukturę folderów skutecznie używanego przez klastry usł
 
 |Folder  |Uprawnienia  |Użytkownik będący właścicielem  |Grupa będąca właścicielem  | Użytkownik nazwany | Uprawnienia użytkownika o nazwie | Grupa o nazwie | Uprawnienia grupy o nazwie |
 |---------|---------|---------|---------|---------|---------|---------|---------|
-|/ | rwxr-x - x  |Administrator |Administrator  |Nazwy głównej usługi |--x  |FINGRP   |r-x         |
-|/Clusters | rwxr-x - x |Administrator |Administrator |Nazwy głównej usługi |--x  |FINGRP |r-x         |
-|/ klastrów/finance | rwxr-x - t |Administrator |FINGRP  |Nazwy głównej usługi |rwx  |-  |-     |
+|/ | rwxr-x--x  |administrator |administrator  |Jednostka usługi |--x  |FINGRP   |r-x         |
+|/Clusters | rwxr-x--x |administrator |administrator |Jednostka usługi |--x  |FINGRP |r-x         |
+|/ klastrów/finance | rwxr-x--t |administrator |FINGRP  |Jednostka usługi |rwx  |-  |-     |
 
 W tabeli
 
@@ -96,7 +96,7 @@ Zgodnie z JIRA YARN połączone wcześniej, podczas lokalizowania publicznego za
 #### <a name="workaround"></a>Obejście problemu
 Zestaw odczytu-uprawnienia do uruchamiania **innym** w hierarchii, na przykład  **/** , **/klastrów** i   **/klastrów/finance** opisane w powyższej tabeli.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Tworzenie klastra usługi HDInsight z usługą Data Lake Store jako magazyn](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
 

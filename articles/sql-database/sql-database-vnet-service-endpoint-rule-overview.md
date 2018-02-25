@@ -17,11 +17,11 @@ ms.workload: On Demand
 ms.date: 02/20/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 33ce521903265f60715f66220c4d038cf6d86671
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c1bb1698723af60544b89f4b3168c44a32d31afd
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Użyj punktów końcowych usługi sieci wirtualnej i reguł bazy danych SQL Azure
 
@@ -127,6 +127,8 @@ Istnieje możliwość użycia [kontroli dostępu opartej na rolach (RBAC)] [ rba
 ## <a name="limitations"></a>Ograniczenia
 
 Bazy danych SQL Azure funkcja reguł sieć wirtualna ma następujące ograniczenia:
+
+- Aplikacja sieci Web mogą być mapowane do prywatnego adresu IP w podsieci/sieci wirtualnej. Nawet wtedy, gdy punkty końcowe usługi są włączone w danej sieci wirtualnej/podsieci, połączeń z aplikacji sieci Web na serwerze ma źródło IP publicznej Azure nie źródło podsieci/sieci wirtualnej. Aby umożliwić łączność z aplikacji sieci Web na serwerze, który ma reguły zapory w sieci wirtualnej, należy najpierw **Zezwalaj usługom platformy Azure wszystkich** na serwerze.
 
 - W zaporze dla Twojej bazy danych SQL każda reguła sieci wirtualnej odwołuje się do podsieci. Te przywoływanego podsieci muszą być obsługiwane w tym samym regionie geograficznym, który jest hostem bazy danych SQL.
 

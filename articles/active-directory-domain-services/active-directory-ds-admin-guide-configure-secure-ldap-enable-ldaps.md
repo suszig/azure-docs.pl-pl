@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 02/23/2018
 ms.author: maheshu
-ms.openlocfilehash: d55abe651f69e3539e7584b40a7aedf419bccda1
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 8b6c1dec6f97311e5fb92f2adef8685b59cbeb2c
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Konfigurowanie bezpiecznego protokołu LDAP (LDAPS) dla domeny zarządzanej usług domenowych Azure AD
 
@@ -113,7 +113,6 @@ W poniższej tabeli przedstawiono przykład grupy NSG można skonfigurować do b
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 Jeśli masz problemy z połączeniem do domeny zarządzanej przy użyciu bezpiecznego protokołu LDAP, wykonaj następujące kroki:
 * Upewnij się, że łańcucha wystawcy certyfikatu bezpiecznego LDAP jest zaufany na kliencie. Możesz dodać główny urząd certyfikacji do magazynu zaufanych certyfikatów głównych na kliencie, aby ustanowić relację zaufania.
-* Upewnij się, że bezpiecznego certyfikatu LDAP nie jest wystawiany przez urząd certyfikacji pośredniego, który nie jest zaufany domyślnie na maszynę z systemem windows świeże.
 * Sprawdź, czy klient LDAP (na przykład ldp.exe) nawiąże połączenie z bezpiecznego punktu końcowego protokołu LDAP, za pomocą nazwy DNS, a nie adres IP.
 * Sprawdź nazwę DNS, który klient LDAP łączy się jest rozpoznawana jako publiczny adres IP z bezpiecznego protokołu LDAP do domeny zarządzanej.
 * Sprawdź, czy bezpiecznego certyfikatu LDAP do domeny zarządzanej ma nazwę DNS w podmiot lub atrybut nazwy alternatywnej podmiotu.

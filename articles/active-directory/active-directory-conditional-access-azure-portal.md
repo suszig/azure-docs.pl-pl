@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/15/2018
+ms.date: 02/23/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 30c8911105e95860899385caf40f8a250c1c340e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7e4a65d81a7dade9ae63a24657d15a97a3a588b2
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Dostęp warunkowy w usłudze Azure Active Directory
 
@@ -108,7 +108,7 @@ Aby uzyskać więcej informacji, zobacz [skonfigurować usługi SharePoint Onlin
 
 ### <a name="license-requirements-for-using-conditional-access"></a>Wymagania licencyjne dotyczące korzystania z dostępu warunkowego
 
-Korzystanie z dostępu warunkowego wymaga usługi Azure AD Premium / Enterprise Mobility + Security licencji. Aby znaleźć prawa licencyjne do wymagań, zobacz [Enterprise Mobility + cennik opcje zabezpieczeń](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-pricing).
+Przy użyciu dostępu warunkowego wymaga licencji usługi Azure AD Premium. Aby znaleźć prawa licencyjne do wymagań, zobacz [porównanie funkcji ogólnie dostępna bezpłatna, Basic i Premium Edition](https://www.microsoft.com/en-us/cloud-platform/azure-active-directory-features).
 
 
 ## <a name="next-steps"></a>Kolejne kroki

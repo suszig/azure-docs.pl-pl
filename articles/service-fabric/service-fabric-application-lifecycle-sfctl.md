@@ -2,17 +2,17 @@
 title: "Zarządzanie aplikacjami sieć szkieletowa usług Azure przy użyciu interfejsu wiersza polecenia Azure Service Fabric"
 description: "Dowiedz się, jak wdrożyć i usuwać aplikacje z klastra usługi sieć szkieletowa usług Azure przy użyciu interfejsu wiersza polecenia Azure Service Fabric"
 services: service-fabric
-author: samedder
+author: Christina-Kang
 manager: timlt
 ms.service: service-fabric
 ms.topic: article
 ms.date: 08/22/2017
-ms.author: edwardsa
-ms.openlocfilehash: 6c8501e8c863e1240a277bf8064118a2b113a81b
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.author: bikang
+ms.openlocfilehash: 2d330921b66a1c261298601dad46f00f66659037
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli"></a>Zarządzanie aplikacją sieci szkieletowej usług Azure przy użyciu interfejsu wiersza polecenia Azure Service Fabric
 
@@ -75,7 +75,7 @@ Aby usunąć pakiet aplikacji w sklepie obrazu, użyj następującego polecenia:
 sfctl store delete --content-path app_package_dir
 ```
 
-`content-path`musi być nazwą katalogu, który został przekazany podczas tworzenia aplikacji.
+`content-path` musi być nazwą katalogu, który został przekazany podczas tworzenia aplikacji.
 
 ### <a name="create-an-application-from-an-application-type"></a>Utworzenie aplikacji na podstawie typu aplikacji
 
@@ -85,7 +85,7 @@ Po udostępnieniem aplikacji użyj następującego polecenia, aby utworzyć apli
 sfctl application create --app-name fabric:/TestApp --app-type TestAppType --app-version 1.0
 ```
 
-`app-name`jest to nazwa, który ma być używany dla danego wystąpienia aplikacji. W manifeście aplikacji poprzednio udostępnione można uzyskać dodatkowe parametry.
+`app-name` jest to nazwa, który ma być używany dla danego wystąpienia aplikacji. W manifeście aplikacji poprzednio udostępnione można uzyskać dodatkowe parametry.
 
 Nazwa aplikacji musi rozpoczynać się od prefiksu `fabric:/`.
 
@@ -164,7 +164,7 @@ Podczas uaktualniania aplikacji jest w toku, stan można pobrać przy użyciu `s
 
 Ponadto jeśli uaktualnianie jest w toku i musi zostać anulowana, możesz użyć `sfctl application upgrade-rollback` można wycofać uaktualnienie.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Podstawy usługi sieci szkieletowej interfejsu wiersza polecenia](service-fabric-cli.md)
 * [Wprowadzenie do korzystania z usługi Service Fabric w systemie Linux](service-fabric-get-started-linux.md)

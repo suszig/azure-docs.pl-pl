@@ -12,17 +12,17 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2017
+ms.date: 02/22/2018
 ms.author: ponatara
-ms.openlocfilehash: 52b123b598226e7b03ea9a31c40dd192fd76b191
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: b117525a4851dee5366aeda77c8aaefd1fdde375
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="replicate-a-multi-tier-citrix-xenapp-and-xendesktop-deployment-using-azure-site-recovery"></a>Replikowanie wdrażania program Citrix XenApp i XenDesktop wielowarstwową przy użyciu usługi Azure Site Recovery
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 Citrix XenDesktop to rozwiązanie wirtualizacji pulpitu, polegającego na dostarczaniu pulpity i aplikacje jako usługa na żądanie do dowolnego miejsca i użytkownika. Dzięki technologii dostarczania FlexCast XenDesktop można szybko i bezpiecznie dostarczania aplikacji i pulpitów do użytkowników.
 Obecnie program Citrix XenApp nie zapewnia żadnych po awarii możliwości odzyskiwania.
@@ -60,11 +60,11 @@ Na potrzeby tego artykułu Citrix wdrożeń na maszynach wirtualnych VMware zarz
 
 ### <a name="source-and-target"></a>Źródłowa i docelowa
 
-**Scenariusz** | **Do lokacji dodatkowej** | **Na platformie Azure**
+Scenariusz | **Do lokacji dodatkowej** | **Platforma Azure**
 --- | --- | ---
-**Funkcja Hyper-V** | Nie znajduje się w zakresie | Tak
-**VMware** | Nie znajduje się w zakresie | Tak
-**Serwer fizyczny** | Nie znajduje się w zakresie | Tak
+**Funkcja Hyper-V** | Nie znajduje się w zakresie | Yes
+**VMware** | Nie znajduje się w zakresie | Yes
+**Serwer fizyczny** | Nie znajduje się w zakresie | Yes
 
 ### <a name="versions"></a>Wersje
 Klienci mogą wdrożyć program XenApp składniki jako maszynami wirtualnymi funkcji Hyper-V lub programu VMware lub serwerach fizycznych. Usługa Azure Site Recovery może chronić wdrożeń fizycznych i wirtualnych na platformie Azure.
@@ -195,6 +195,6 @@ Postępuj zgodnie z [w tych wskazówkach](site-recovery-test-failover-to-azure.m
 
 Postępuj zgodnie z [w tych wskazówkach](site-recovery-failover.md) podczas wprowadzania trybu failover.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Możesz [więcej](https://aka.ms/citrix-xenapp-xendesktop-with-asr) o replikowanie wdrożenia program Citrix XenApp i XenDesktop w oficjalnym dokumencie. Przyjrzyj się wskazówki dotyczące [replikacji z innych aplikacji](site-recovery-workload.md) przy użyciu usługi Site Recovery.

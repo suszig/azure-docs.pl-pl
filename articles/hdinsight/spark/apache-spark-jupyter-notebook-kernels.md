@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 02/22/2018
 ms.author: nitinme
-ms.openlocfilehash: 2be4477528c9109151c4737eabc16741cc020ce8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 87e60bcc097157c733c1e08356b7cd9ea48bb868
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Jądra dla notesu Jupyter w klastrze Spark w usłudze Azure HDInsight 
 
@@ -135,7 +135,11 @@ Możesz otworzyć **00 — [odczytu w pierwszej kolejności] funkcje jądra Magi
 
 ## <a name="where-are-the-notebooks-stored"></a>Gdzie są przechowywane notebooki?
 
-Notesów Jupyter są zapisywane do konta magazynu skojarzone z klastrem w obszarze **/HdiNotebooks** folderu.  Notesów, pliki tekstowe i folderów tworzonych z wewnątrz Jupyter są dostępne z konta magazynu.  Na przykład, jeśli używasz Jupyter do utworzenia folderu **MójFolder** i notebook **myfolder/mynotebook.ipynb**, można uzyskać dostępu do tego notesu w `/HdiNotebooks/myfolder/mynotebook.ipynb` w ramach konta magazynu.  Występuje również sytuacja odwrotna ma wartość true, to znaczy bezpośrednio do swojego konta magazynu w przypadku przekazywania Notes `/HdiNotebooks/mynotebook1.ipynb`, notesu jest również widoczna w aplikacji Jupyter.  Notesów pozostają na koncie magazynu, nawet po usunięciu klastra.
+Jeśli klaster używa magazynu Azure jako domyślne konto magazynu, notesy Jupyter są zapisywane do konta magazynu w ramach **/HdiNotebooks** folderu.  Notesów, pliki tekstowe i folderów tworzonych z wewnątrz Jupyter są dostępne z konta magazynu.  Na przykład, jeśli używasz Jupyter do utworzenia folderu **MójFolder** i notebook **myfolder/mynotebook.ipynb**, można uzyskać dostępu do tego notesu w `/HdiNotebooks/myfolder/mynotebook.ipynb` w ramach konta magazynu.  Występuje również sytuacja odwrotna ma wartość true, to znaczy bezpośrednio do swojego konta magazynu w przypadku przekazywania Notes `/HdiNotebooks/mynotebook1.ipynb`, notesu jest również widoczna w aplikacji Jupyter.  Notesów pozostają na koncie magazynu, nawet po usunięciu klastra.
+
+> [!NOTE]
+> Klastry HDInsight z usługi Azure Data Lake Store jako domyślny magazyn nie należy przechowywać notesów w powiązanym magazynie.
+>
 
 Sposób notesów są zapisywane na koncie magazynu jest zgodny z systemem plików HDFS. Tak więc, jeśli użytkownik SSH do klastra, których można użyć pliku polecenia zarządzania jak pokazano w poniższy fragment kodu:
 
@@ -143,8 +147,7 @@ Sposób notesów są zapisywane na koncie magazynu jest zgodny z systemem plikó
     hdfs dfs –copyToLocal /HdiNotebooks                    # Download the contents of the HdiNotebooks folder
     hdfs dfs –copyFromLocal example.ipynb /HdiNotebooks   # Upload a notebook example.ipynb to the root folder so it’s visible from Jupyter
 
-
-W przypadku, gdy występują problemy dotyczące uzyskiwania dostępu do konta magazynu dla klastra, notebooki zostały także zapisane w headnode `/var/lib/jupyter`.
+Niezależnie od tego, czy klaster używa magazynu Azure lub usługi Azure Data Lake Store jako domyślne konto magazynu, notebooki zostały także zapisane w headnode klastra na `/var/lib/jupyter`.
 
 ## <a name="supported-browser"></a>Obsługiwana przeglądarka
 

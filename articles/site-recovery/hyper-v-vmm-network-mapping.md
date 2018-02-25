@@ -1,25 +1,24 @@
 ---
-title: "O mapowanie sieci w przypadku replikacji maszyn wirtualnych funkcji Hyper-V w chmurach programu VMM z usługą Site Recovery | Dokumentacja firmy Microsoft"
+title: "O mapowania sieci na platformie Azure przy użyciu usługi Site Recovery replikacji maszyny Wirtualnej funkcji Hyper-V (w programie VMM) | Dokumentacja firmy Microsoft"
 description: "W tym artykule opisano, jak skonfigurować mapowanie sieci w przypadku replikacji maszyn wirtualnych funkcji Hyper-V zarządzane w chmurach VMM z usługą Azure Site Recovery."
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/13/2018
+ms.date: 02/22/2018
 ms.author: raynew
-ms.openlocfilehash: 5b8ebf3bd118a7b082949b3f3c6ef60a07641ba1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 524de918bd24d51680110dc2af213bf328e349fd
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="about-network-mapping-for-hyper-v-vm-with-vmm-replication"></a>Mapowanie sieci dla maszyny Wirtualnej funkcji Hyper-V z replikacji programu VMM — informacje 
+# <a name="prepare-network-mapping-for-hyper-v-vm-replication-to-azure"></a>Przygotowywanie mapowania sieci na potrzeby replikacji maszyny wirtualnej funkcji Hyper-V do platformy Azure
 
 
-Ten artykuł pomaga zrozumieć i Zaplanuj do mapowania sieci podczas replikacji maszyn wirtualnych funkcji Hyper-V w chmurach programu System Center Virtual Machine Manager (VMM) przy użyciu [usługi Azure Site Recovery](site-recovery-overview.md).
+Ten artykuł pomaga zrozumieć i przygotowanie do mapowania sieci podczas replikacji maszyn wirtualnych funkcji Hyper-V w chmurach programu System Center Virtual Machine Manager (VMM) do platformy Azure lub lokacji dodatkowej, przy użyciu [usługi Azure Site Recovery](site-recovery-overview.md) usługi.
 
-Mapowanie sieci jest używany podczas replikowania maszyn wirtualnych funkcji Hyper-V zarządzane w chmurze programu VMM, do dodatkowej chmury VMM lub na platformie Azure.
 
 ## <a name="prepare-network-mapping-for-replication-to-azure"></a>Przygotowanie mapowania sieci dla replikacji do platformy Azure
 
@@ -112,7 +111,7 @@ Maszyny VM2 (repliki VM1) | VMNetwork1-Chicago
 
 Przy użyciu tych ustawień umożliwia przeglądanie, co dzieje się w kilku możliwych scenariuszach.
 
-**Scenariusz** | **Wynik**
+Scenariusz | **Wynik**
 ---|---
 Brak zmian właściwości sieci maszyny Wirtualnej 2 po pracy awaryjnej. | 1 maszyna wirtualna pozostaje połączony z siecią źródła.
 Właściwości sieci maszyny Wirtualnej 2 są zmieniane po pracy awaryjnej i jest odłączony. | 1 maszyna wirtualna jest odłączony.
@@ -123,4 +122,5 @@ Mapowanie sieci VMNetwork1 Chicago zostanie zmieniona. | 1 maszyna wirtualna zos
 
 ## <a name="next-steps"></a>Kolejne kroki
 
-[Dowiedz się więcej o](hyper-v-vmm-networking.md) adresowania IP po przejściu w tryb failover dodatkowej lokacji programu VMM.
+- [Dowiedz się więcej o](hyper-v-vmm-networking.md) adresowania IP po przejściu w tryb failover dodatkowej lokacji programu VMM.
+- [Dowiedz się więcej o](concepts-on-premises-to-azure-networking.md) adresowania IP po trybu failover na platformie Azure.

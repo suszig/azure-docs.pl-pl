@@ -7,13 +7,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 02/22/2018
 ms.author: sujayt
-ms.openlocfilehash: be43e34976682847c4756e062ec5b638ebc26063
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 7292948c40b184a58eb3e27aecac28e2227a29f8
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Rozwiązywanie problemów z replikacją maszyn wirtualnych Azure do platformy Azure
 
@@ -22,7 +22,7 @@ W tym artykule opisano typowych problemów w usłudze Azure Site Recovery podcza
 ## <a name="azure-resource-quota-issues-error-code-150097"></a>Problemy przydziału zasobów platformy Azure (kod błędu 150097)
 Subskrypcja powinny zostać włączone do tworzenia maszyn wirtualnych platformy Azure w region docelowy, który ma być używany jako regionu odzyskiwania po awarii. Ponadto subskrypcji powinny mieć wystarczający przydział umożliwia tworzenie maszyn wirtualnych o określonym rozmiarze. Domyślnie usługa Site Recovery wybiera ten sam rozmiar dla docelowej maszyny Wirtualnej jako źródło maszyny Wirtualnej. Jeśli dopasowania rozmiaru nie jest dostępna, najbliższy rozmiar możliwe jest pobierany automatycznie. Jeśli rozmiar pasującego obsługującego źródła konfiguracji maszyny Wirtualnej nie jest, zostanie wyświetlony ten komunikat o błędzie:
 
-Kod błędu: | **Możliwe przyczyny** | Zalecenia
+**Kod błędu:** | **Możliwe przyczyny** | **Zalecenia**
 --- | --- | ---
 150097<br></br>**Komunikat**: nie można włączyć replikacji dla maszyny wirtualnej VmName. | — Identyfikator subskrypcji nie może być włączone do utworzenia żadnej maszyny wirtualnej w miejscu docelowym regionie.</br></br>— Identyfikator subskrypcji nie może być włączone lub nie ma wystarczającego przydziału do utworzenia określonych rozmiarów maszyn wirtualnych w miejscu docelowym regionie.</br></br>-Odpowiedniego elementu docelowego rozmiar maszyny Wirtualnej, odpowiadający źródła liczba kart interfejsu Sieciowego maszyny Wirtualnej (2) nie zostanie znaleziona dla Identyfikatora subskrypcji w lokalizacji docelowej regionu.| Skontaktuj się z [Azure pomocy dotyczącej rozliczeń](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) umożliwiające tworzenie maszyny Wirtualnej wymagana rozmiarów maszyn wirtualnych w lokalizacji docelowej dla Twojej subskrypcji. Po włączeniu, ponów operację zakończoną niepowodzeniem.
 
@@ -35,7 +35,7 @@ Jeśli lokalizacja docelowa ma ograniczenie pojemności, wyłącz replikację i 
 
 Jeśli wszystkie najnowsze zaufanych certyfikatów głównych nie są dostępne na maszynie Wirtualnej, zadanie "Włącz replikację" może zakończyć się niepowodzeniem. Bez certyfikatów uwierzytelniania i autoryzacji wywołań usługi Site Recovery z maszyny Wirtualnej się nie powieść. Zostanie wyświetlony komunikat o błędzie dotyczący nieudanego zadania usługi Site Recovery "Włącz replikację":
 
-Kod błędu: | **Możliwa przyczyna** | **Zalecenia**
+**Kod błędu:** | **Możliwa przyczyna** | **Zalecenia**
 --- | --- | ---
 151066<br></br>**Komunikat**: Konfiguracja usługi Site Recovery nie powiodła się. | Wymagane zaufanych certyfikatów głównych używany do autoryzacji i uwierzytelniania nie są dostępne na komputerze. | — Dla maszyny Wirtualnej z systemem operacyjnym Windows upewnij się, że zaufanych certyfikatów głównych znajdują się na komputerze. Aby uzyskać informacje, zobacz [Konfigurowanie zaufanych certyfikatów głównych i certyfikatów niedozwolonych](https://technet.microsoft.com/library/dn265983.aspx).<br></br>— Dla maszyny Wirtualnej z systemem operacyjnym Linux postępuj zgodnie ze wskazówkami dla zaufanych certyfikatów głównych opublikowanych przez dystrybutora wersji systemu operacyjnego Linux.
 
@@ -161,7 +161,7 @@ Do listy dozwolonych [odpowiednie adresy URL](azure-to-azure-about-networking.md
 
 Nowy dysk dołączony do maszyny Wirtualnej musi zostać zainicjowany.
 
-Kod błędu: | **Możliwe przyczyny** | **Zalecenia**
+**Kod błędu:** | **Możliwe przyczyny** | **Zalecenia**
 --- | --- | ---
 150039<br></br>**Komunikat**: dysk danych platformy Azure (DiskName) (DiskURI) numer jednostki logicznej (LUN) (LUNValue) nie został zamapowany do odpowiedniego dysku zgłaszane z poziomu maszyny Wirtualnej, który ma taką samą wartość jednostki LUN. | -Nowy dysk danych, był dołączony do maszyny Wirtualnej, ale nie został on zainicjowany.</br></br>-Dysk z danymi w ramach maszyny Wirtualnej nie jest poprawnie zgłaszają wartość jednostki LUN, jaką dysk został dołączony do maszyny Wirtualnej.| Upewnij się, są inicjowane dyski danych, a następnie spróbuj ponownie wykonać operację.</br></br>W systemie Windows: [Attach i zainicjować nowego dysku](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).</br></br>Dla systemu Linux: [inicjowania dysku danych w systemie Linux](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
 

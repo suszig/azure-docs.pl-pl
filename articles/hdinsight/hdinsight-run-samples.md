@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6e4dbf1fa32f916a206e4f8d796218ab809835ad
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: a5aabd2d845f4ff10169640d6316c1029105f608
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="run-hadoop-mapreduce-samples-in-windows-based-hdinsight"></a>Uruchom przykłady MapReduce z Hadoop w HDInsight opartych na systemie Windows
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
@@ -49,7 +49,7 @@ Dzisiaj wiele osób wybiera Hive i Pig na MapReduce.  Aby uzyskać więcej infor
 **Wymagania wstępne**:
 
 * **Subskrypcja platformy Azure**. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **klaster usługi HDInsight**. Aby uzyskać instrukcje na różne sposoby, w których można tworzyć takie klastry, zobacz [klastrów utworzyć Hadoop w HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+* **Klaster usługi HDInsight**. Aby uzyskać instrukcje na różne sposoby, w których można tworzyć takie klastry, zobacz [klastrów utworzyć Hadoop w HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 * **Stacja robocza z programem Azure PowerShell**.
 
     > [!IMPORTANT]
@@ -210,7 +210,7 @@ Trzy zadania są wymagane przez próbki każdego odpowiadającego jednego z prog
                                 -Arguments "-Dmapred.map.tasks=50", "-Dmapred.reduce.tasks=25", "/example/data/10GB-sort-output", "/example/data/10GB-sort-validate"
     ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Z tego artykułu i artykułów w tych przykładach przedstawiono sposób uruchamiania przykładów dołączone klastry usługi HDInsight przy użyciu programu Azure PowerShell. Samouczki dotyczące przy użyciu Pig, Hive i MapReduce z usługą HDInsight zobacz następujące tematy:
 
 * [Rozpocząć korzystanie z usługi Hadoop przy użyciu Hive w usłudze HDInsight do analizy użycia przenośnych słuchawki][hdinsight-get-started]
@@ -519,7 +519,7 @@ implements Mapper<LongWritable, LongWritable, BooleanWritable, LongWritable> {
 //Map method.
 //@param offset samples starting from the (offset+1)th sample.
 //@param size the number of samples for this map
-//@param out output {ture->numInside, false->numOutside}
+//@param out output {true->numInside, false->numOutside}
 //@param reporter
 public void map(LongWritable offset,
 LongWritable size,

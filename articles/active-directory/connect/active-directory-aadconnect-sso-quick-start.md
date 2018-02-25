@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 02/23/2017
 ms.author: billmath
-ms.openlocfilehash: 2d172b22d00f21062237a1af1742bad6a03c864c
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 58ca992f9fcf9a03d917f0dc250a292c4d5f49e5
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory bezproblemowe logowanie jednokrotne: Szybki start
 
@@ -99,7 +99,7 @@ Domyślnie przeglądarka automatycznie oblicza poprawnej strefy Internecie lub i
    - **Nazwa wartości**: programu Azure AD URL gdzie bilety Kerberos są przesyłane dalej.
    - **Wartość** (dane): **1** wskazuje strefy intranetowej.
 
-   Wynik wygląda następująco:
+    Wynik wygląda następująco:
 
     Value: https://autologon.microsoftazuread-sso.com
   
@@ -125,11 +125,11 @@ Domyślnie przeglądarka automatycznie oblicza poprawnej strefy Internecie lub i
 
 #### <a name="mozilla-firefox-all-platforms"></a>Mozilla Firefox (wszystkie platformy)
 
-Mozilla Firefox nie są automatycznie używane uwierzytelnianie Kerberos. Każdy użytkownik musi ręcznie dodać adresy URL usługi Azure AD ustawienia przeglądarki Firefox przy użyciu następujących kroków:
+Mozilla Firefox nie są automatycznie używane uwierzytelnianie Kerberos. Każdy użytkownik musi ręcznie dodać adres URL usługi Azure AD ustawienia przeglądarki Firefox przy użyciu następujących kroków:
 1. Uruchom program Firefox, a następnie wprowadź `about:config` na pasku adresu. Odrzucić żadnych powiadomień, które są wyświetlane.
 2. Wyszukaj **network.negotiate-auth.trusted URI** preferencji. Ta opcja wyświetla listę zaufanych witryn w programie Firefox uwierzytelniania Kerberos.
 3. Kliknij prawym przyciskiem myszy i wybierz **Modyfikuj**.
-4. Enter https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net in the field.
+4. W polu wprowadź https://autologon.microsoftazuread-sso.com.
 5. Wybierz **OK** , a następnie ponownie przeglądarkę.
 
 #### <a name="safari-mac-os"></a>Safari (Mac OS)
@@ -138,7 +138,7 @@ Upewnij się, że maszynę z systemem Mac OS jest dołączona do usługi Azure A
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (wszystkie platformy)
 
-Jeśli masz zastąpiona [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) lub [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) ustawień zasad w środowisku, upewnij się, że dodać adresy URL usługi Azure AD (https:// AutoLogon.microsoftazuread sso.com i https://aadg.windows.net.nsatc.net) dla nich oraz.
+Jeśli masz zastąpiona [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) lub [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) ustawień zasad w środowisku, upewnij się, Dodaj adres URL usługi Azure AD (https://autologon.microsoftazuread-sso.com) do nich również.
 
 #### <a name="google-chrome-mac-os-only"></a>Google Chrome (tylko Mac OS)
 

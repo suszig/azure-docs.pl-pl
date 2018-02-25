@@ -2,23 +2,17 @@
 title: "Tworzenie migawki tylko do odczytu obiektu blob w usłudze Azure Storage | Dokumentacja firmy Microsoft"
 description: "Dowiedz się, jak utworzyć migawki obiektu blob, aby utworzyć kopię zapasową danych obiektów blob w danym momencie w czasie. Dowiedz się, jak są rozliczane migawki i sposób ich użycia, aby zminimalizować koszty pojemności."
 services: storage
-documentationcenter: 
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 3710705d-e127-4b01-8d0f-29853fb06d0d
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: tamram
-ms.openlocfilehash: 7e891018ab110e7506601cd5b9b0460bf61711b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cba28ada79ea806ead4ae9165abba2dc4e04f001
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-a-blob-snapshot"></a>Tworzenie migawki obiektu blob
 
@@ -171,7 +165,7 @@ W scenariuszu 4 podstawowego obiektu blob została całkowicie zaktualizowana i 
 
 ![Zasoby usługi Azure Storage](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Można znaleźć więcej informacji na temat pracy z migawek dysków maszyny wirtualnej (VM) w [kopia zapasowa Azure niezarządzane dysków maszyny Wirtualnej z migawkami przyrostowe](../../virtual-machines/windows/incremental-snapshots.md)
 

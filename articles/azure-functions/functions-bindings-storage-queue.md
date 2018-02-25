@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
 ms.author: glenga
-ms.openlocfilehash: ce28b6eea9843ce423b57e539a844b4dacb552aa
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e2f9c75ba6e43f93aeb742b9eceebf846ec85cbf
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure kolejki magazynu powiązania dla usługi Azure Functions
 
@@ -213,11 +213,11 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 
 |Właściwość Function.JSON | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
-|**Typ** | Nie dotyczy| należy wybrać opcję `queueTrigger`. Ta właściwość ma wartość automatycznie, podczas tworzenia wyzwalacza w portalu Azure.|
+|Typ | Nie dotyczy| należy wybrać opcję `queueTrigger`. Ta właściwość ma wartość automatycznie, podczas tworzenia wyzwalacza w portalu Azure.|
 |**Kierunek**| Nie dotyczy | W *function.json* tylko plików. należy wybrać opcję `in`. Ta właściwość ma wartość automatycznie, podczas tworzenia wyzwalacza w portalu Azure. |
 |**Nazwa** | Nie dotyczy |Nazwa zmiennej, która reprezentuje kolejkę w kodzie funkcji.  | 
 |**queueName** | **QueueName**| Nazwa kolejki do sondowania. | 
-|**połączenia** | **Połączenia** |Nazwa ustawienia aplikacji, która zawiera parametry połączenia magazynu do użycia dla tego powiązania. Jeśli nazwa ustawienia aplikacji rozpoczyna się od "AzureWebJobs", można określić tylko w pozostałej części nazwy w tym miejscu. Na przykład jeśli ustawisz `connection` do "MyStorage" środowisko uruchomieniowe Functions szuka ustawienie aplikacji o nazwie "AzureWebJobsMyStorage." Jeśli opuścisz `connection` pusta, środowisko uruchomieniowe Functions używa domyślnego ciągu połączenia magazynu w ustawieniu aplikacji o nazwie `AzureWebJobsStorage`.|
+|**Połączenia** | **Połączenia** |Nazwa ustawienia aplikacji, która zawiera parametry połączenia magazynu do użycia dla tego powiązania. Jeśli nazwa ustawienia aplikacji rozpoczyna się od "AzureWebJobs", można określić tylko w pozostałej części nazwy w tym miejscu. Na przykład jeśli ustawisz `connection` do "MyStorage" środowisko uruchomieniowe Functions szuka ustawienie aplikacji o nazwie "AzureWebJobsMyStorage." Jeśli opuścisz `connection` pusta, środowisko uruchomieniowe Functions używa domyślnego ciągu połączenia magazynu w ustawieniu aplikacji o nazwie `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -234,16 +234,16 @@ W języku JavaScript, użyj `context.bindings.<name>` do ładunku elementu kolej
 
 ## <a name="trigger---message-metadata"></a>Wyzwalacz - metadanych wiadomości
 
-Wyzwalacz kolejki zawiera kilka właściwości metadanych. Te właściwości mogą służyć jako część wyrażenia powiązania w pozostałych powiązaniach lub parametrów w kodzie. Wartości mają tej samej semantyki jako [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage).
+Wyzwalacz kolejki udostępnia wiele [właściwości metadanych](functions-triggers-bindings.md#binding-expressions---trigger-metadata). Te właściwości mogą służyć jako część wyrażenia powiązania w pozostałych powiązaniach lub parametrów w kodzie. Wartości mają tej samej semantyki jako [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage).
 
 |Właściwość|Typ|Opis|
 |--------|----|-----------|
 |`QueueTrigger`|`string`|Ładunek kolejki (jeśli prawidłowy ciąg). Jeśli kolejka komunikatów ładunek w postaci ciągu, `QueueTrigger` ma taką samą wartość jak zmienna o nazwie `name` właściwości w *function.json*.|
 |`DequeueCount`|`int`|Ile razy ten komunikat został usuniętej.|
-|`ExpirationTime`|`DateTimeOffset?`|Czas wygaśnięcia wiadomości.|
+|`ExpirationTime`|`DateTimeOffset`|Czas wygaśnięcia wiadomości.|
 |`Id`|`string`|Identyfikator kolejki wiadomości.|
-|`InsertionTime`|`DateTimeOffset?`|Godzina dodania wiadomości do kolejki.|
-|`NextVisibleTime`|`DateTimeOffset?`|Czas, który następnie będzie widoczny komunikat.|
+|`InsertionTime`|`DateTimeOffset`|Godzina dodania wiadomości do kolejki.|
+|`NextVisibleTime`|`DateTimeOffset`|Czas, który następnie będzie widoczny komunikat.|
 |`PopReceipt`|`string`|Pop odbieranie komunikatu.|
 
 ## <a name="trigger---poison-messages"></a>Wyzwalacz - skażone wiadomości
@@ -251,6 +251,18 @@ Wyzwalacz kolejki zawiera kilka właściwości metadanych. Te właściwości mog
 Gdy funkcja wyzwalacza kolejki nie powiodło się, usługi Azure Functions ponowi próbę funkcji maksymalnie pięć razy dla danej kolejki wiadomości, czyli pierwszej próby. Jeśli nie wszystkie próby pięć, środowisko uruchomieniowe functions dodaje komunikat do kolejki o nazwie  *&lt;originalqueuename >-skażone*. Można wpisać funkcji do przetwarzania komunikatów z kolejki skażone przez rejestrowania ich lub wysyłania powiadomienia tej uwagi ręczne jest wymagane.
 
 Do obsługi wiadomości, ręcznie, sprawdź [dequeueCount](#trigger---message-metadata) kolejki wiadomości.
+
+## <a name="trigger---polling-algorithm"></a>Wyzwalacz — algorytm sondowania
+
+Wyzwalacz kolejki zaimplementowano losowe wykładniczej wycofywania algorytmu celu ograniczenia wpływu bezczynności kolejki sondowania kosztów transakcji magazynu.  Po znalezieniu komunikatu środowisko uruchomieniowe oczekuje dwóch sekund i następnie sprawdza, czy kolejną wiadomość; Po znalezieniu żaden komunikat czeka około czterech sekund przed ponowną próbą. Po kolejnych nieudanych prób uzyskanie komunikatu w kolejce czas oczekiwania w dalszym ciągu zwiększyć, dopóki nie osiągnie maksymalny czas oczekiwania, domyślnie na jedną minutę. Maksymalny czas oczekiwania jest można konfigurować za pomocą `maxPollingInterval` właściwości w [pliku host.json](functions-host-json.md#queues).
+
+## <a name="trigger---concurrency"></a>Wyzwalacz - współbieżności
+
+W przypadku wielu wiadomości w kolejce oczekiwania wyzwalacza kolejki pobiera partię komunikatów i wywołuje wystąpień funkcji jednocześnie do ich przetworzenia. Domyślnie rozmiar partii to 16. Gdy liczba przetwarzanych pobiera w dół do 8, środowisko uruchomieniowe pobiera inna partia i rozpoczyna przetwarzanie tych wiadomości. Dlatego maksymalną liczbę równoczesnych komunikatów przetwarzanych dla każdej funkcji w jednej maszyny wirtualnej (VM) jest 24. Ten limit dotyczy oddzielnie każdej funkcji wyzwalanych kolejki na każdej maszynie Wirtualnej. Jeśli funkcja aplikacji może obsłużyć się wiele maszyn wirtualnych, każda maszyna wirtualna zostanie poczekaj wyzwalaczy i próba uruchomienia funkcji. Na przykład aplikacji funkcji skaluje się do 3 maszyn wirtualnych, domyślne maksymalną liczbę równoczesnych wystąpień jednej funkcji wyzwalanych kolejki jest 72.
+
+Rozmiar partii i próg uzyskania nowej instancji są konfigurowane w [pliku host.json](functions-host-json.md#queues). Jeśli chcesz zminimalizować równoległe wykonywanie funkcji wyzwalanych przez kolejki w aplikacji funkcji, można ustawić rozmiar partii do 1. To ustawienie eliminuje współbieżności tylko tak długo, jak działa funkcja aplikacji na jednej maszynie wirtualnej (VM). 
+
+Wyzwalacz kolejki automatycznie uniemożliwia funkcji przetwarzania komunikatu w kolejce wiele razy; nie masz funkcje do zapisania jako idempotentności.
 
 ## <a name="trigger---hostjson-properties"></a>Wyzwalacz - host.json właściwości
 
@@ -435,11 +447,11 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 
 |Właściwość Function.JSON | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
-|**Typ** | Nie dotyczy | należy wybrać opcję `queue`. Ta właściwość ma wartość automatycznie, podczas tworzenia wyzwalacza w portalu Azure.|
+|Typ | Nie dotyczy | należy wybrać opcję `queue`. Ta właściwość ma wartość automatycznie, podczas tworzenia wyzwalacza w portalu Azure.|
 |**Kierunek** | Nie dotyczy | należy wybrać opcję `out`. Ta właściwość ma wartość automatycznie, podczas tworzenia wyzwalacza w portalu Azure. |
 |**Nazwa** | Nie dotyczy | Nazwa zmiennej, która reprezentuje kolejkę w kodzie funkcji. Ustaw `$return` odwoływać się do wartości zwracane funkcji.| 
 |**queueName** |**QueueName** | Nazwa kolejki. | 
-|**połączenia** | **Połączenia** |Nazwa ustawienia aplikacji, która zawiera parametry połączenia magazynu do użycia dla tego powiązania. Jeśli nazwa ustawienia aplikacji rozpoczyna się od "AzureWebJobs", można określić tylko w pozostałej części nazwy w tym miejscu. Na przykład jeśli ustawisz `connection` do "MyStorage" środowisko uruchomieniowe Functions szuka ustawienie aplikacji o nazwie "AzureWebJobsMyStorage." Jeśli opuścisz `connection` pusta, środowisko uruchomieniowe Functions używa domyślnego ciągu połączenia magazynu w ustawieniu aplikacji o nazwie `AzureWebJobsStorage`.|
+|**Połączenia** | **Połączenia** |Nazwa ustawienia aplikacji, która zawiera parametry połączenia magazynu do użycia dla tego powiązania. Jeśli nazwa ustawienia aplikacji rozpoczyna się od "AzureWebJobs", można określić tylko w pozostałej części nazwy w tym miejscu. Na przykład jeśli ustawisz `connection` do "MyStorage" środowisko uruchomieniowe Functions szuka ustawienie aplikacji o nazwie "AzureWebJobsMyStorage." Jeśli opuścisz `connection` pusta, środowisko uruchomieniowe Functions używa domyślnego ciągu połączenia magazynu w ustawieniu aplikacji o nazwie `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

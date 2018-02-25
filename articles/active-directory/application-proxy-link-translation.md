@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 02/23/2018
 ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: e4d143b4937a1f6c1c21783ae357dbe617816e73
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: d5d704dac58d65dd7d62bc3eca400f9541714d5d
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Przekieruj zapisane na stałe łącza do aplikacji opublikowanych przy użyciu serwera Proxy aplikacji usługi Azure AD
 
@@ -27,7 +27,7 @@ Serwer Proxy aplikacji usługi Azure AD udostępnia aplikacji lokalnej do użytk
 
 Najlepszym sposobem upewnij się, że łącza działają taki sam zarówno wewnątrz, jak i poza siecią firmową jest skonfigurowanie zewnętrzne adresy URL aplikacji do być taka sama jak ich wewnętrzne adresy URL. Użyj [domen niestandardowych](active-directory-application-proxy-custom-domains.md) do konfigurowania sieci zewnętrzne adresy URL mają nazwę domeny firmowej zamiast domyślnej domeny serwera proxy aplikacji.
 
-Jeśli domen niestandardowych nie można użyć w dzierżawie, funkcja tłumaczenia łączenia serwera proxy aplikacji zachowuje łącza działa niezależnie od tego, gdzie znajdują się użytkownicy. Jeśli masz aplikacje, które wskazują bezpośrednio do wewnętrznych punktów końcowych lub portów, możesz mapować te wewnętrzne adresy URL opublikowanych zewnętrzny URL serwera Proxy aplikacji. Po włączeniu tłumaczenia łącza, i wyszukuje serwer Proxy aplikacji za pomocą kodu HTML, CSS i JavaScript znaczniki dla łączy wewnętrznych opublikowane. Usługa Serwer Proxy aplikacji przetwarza je tak, aby użytkownicy pobierają nieprzerwaną środowisko.
+Jeśli domen niestandardowych nie można użyć w dzierżawie, funkcja tłumaczenia łączenia serwera proxy aplikacji zachowuje łącza działa niezależnie od tego, gdzie znajdują się użytkownicy. Jeśli masz aplikacje, które wskazują bezpośrednio do wewnętrznych punktów końcowych lub portów, możesz mapować te wewnętrzne adresy URL opublikowanych zewnętrzny URL serwera Proxy aplikacji. Po włączeniu tłumaczenia łącza, i serwer Proxy aplikacji przeszukuje HTML i CSS dla łączy wewnętrznych opublikowanych, serwer Proxy aplikacji usługi tłumaczy je tak, aby użytkownicy pobierają nieprzerwaną środowisko.
 
 >[!NOTE]
 >Funkcja tłumaczenia łącze jest dla dzierżawcy, niezależnie od przyczyny, nie można używać niestandardowych domen do mieć tych samych wewnętrznych i zewnętrznych adresów URL dla aplikacji. Przed włączeniem tej funkcji należy sprawdzić, czy [domen niestandardowych w serwera Proxy aplikacji usługi Azure AD](active-directory-application-proxy-custom-domains.md) można skorzystać.
@@ -64,7 +64,7 @@ Po włączeniu tłumaczenia łącze aplikacji korzyści łącza do kosztów i po
 W celu poprawy wydajności i bezpieczeństwa, nie są tłumaczone niektóre łącza:
 
 - Łącza nie wewnątrz znaczników kodu. 
-- Łącza nie w HTML, CSS i JavaScript. 
+- Łącza nie jest w formacie HTML i CSS. 
 - Łączy wewnętrznych otwarty z innych programów. Nie można przetłumaczyć łącza wysyłanych za pośrednictwem poczty e-mail lub wiadomości błyskawicznych lub zawarte w innych dokumentów. Użytkownicy muszą wiedzieć, aby przejść do zewnętrznego adresu URL.
 
 Jeśli potrzebujesz obsługuje jednej z tych dwóch scenariuszy, należy używać tych samych adresów URL wewnętrznych i zewnętrznych zamiast tłumaczenia łącze.  
@@ -84,7 +84,7 @@ Teraz gdy użytkownicy uzyskują dostęp do tej aplikacji, serwer proxy będzie 
 
 ## <a name="send-feedback"></a>Prześlij opinię
 
-Chcemy Twojej pomocy, aby ta funkcja działa w przypadku wszystkich aplikacji. Firma Microsoft wyszukiwania ponad 30 tagów w kodzie HTML i CSS i rozważa którego przypadków JavaScript do obsługi. Przykład wygenerowanego linki, które nie są tłumaczonym, przesyłać fragmentu kodu [opinii serwera Proxy aplikacji](mailto:aadapfeedback@microsoft.com). 
+Chcemy Twojej pomocy, aby ta funkcja działa w przypadku wszystkich aplikacji. Przeszukiwania ponad 30 tagów w kodzie HTML i CSS. Przykład wygenerowanego linki, które nie są tłumaczonym, przesyłać fragmentu kodu [opinii serwera Proxy aplikacji](mailto:aadapfeedback@microsoft.com). 
 
 ## <a name="next-steps"></a>Kolejne kroki
 [Domen niestandardowych za pomocą serwera Proxy aplikacji usługi Azure AD](active-directory-application-proxy-custom-domains.md) mają ten sam adres URL wewnętrznych i zewnętrznych

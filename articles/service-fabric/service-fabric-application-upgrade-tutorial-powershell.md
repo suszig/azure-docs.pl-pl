@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 54ca664a29ed8c6337bb27fe1fa17276e480c911
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 0306a219112a14121fd881a7cc52d58597a073a2
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Uaktualnianie aplikacji sieci szkieletowej usług za pomocą programu PowerShell
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ Najczęściej używane i monitorowanych uaktualnienia stopniowego jest zalecane 
 
 Uaktualnienie monitorowanej aplikacji mogą być wykonywane przy użyciu zarządzanym lub macierzystym interfejsów API środowiska PowerShell i REST. Aby uzyskać instrukcje dotyczące wykonywania uaktualnienia przy użyciu programu Visual Studio, zobacz [uaktualniania aplikacji przy użyciu programu Visual Studio](service-fabric-application-upgrade-tutorial.md).
 
-Stopniowe monitorowania sieci szkieletowej usług administrator aplikacji można skonfigurować zasad oceny kondycji korzystającą z sieci szkieletowej usług w celu ustalenia, czy aplikacja jest w dobrej kondycji. Ponadto administrator może skonfigurować akcji do wykonania, gdy oceny kondycji nie powiodło się (na przykład podczas automatycznego wycofania.) Ta sekcja przeprowadzi Cię przez monitorowanych uaktualnienia dla jednego z przykłady zestawu SDK, które korzysta z programu PowerShell. Następujące Microsoft Virtual Academy wideo również przeprowadzi Cię przez kolejne uaktualnienia aplikacji:<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=OrHJH66yC_6406218965">
+Stopniowe monitorowania sieci szkieletowej usług administrator aplikacji można skonfigurować zasad oceny kondycji korzystającą z sieci szkieletowej usług w celu ustalenia, czy aplikacja jest w dobrej kondycji. Ponadto administrator może skonfigurować akcji do wykonania, gdy oceny kondycji nie powiodło się (na przykład podczas automatycznego wycofania.) Ta sekcja przeprowadzi Cię przez monitorowanych uaktualnienia dla jednego z przykłady zestawu SDK, które korzysta z programu PowerShell. Następujące Microsoft Virtual Academy wideo również przeprowadzi Cię przez kolejne uaktualnienia aplikacji: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=OrHJH66yC_6406218965">
 <img src="./media/service-fabric-application-upgrade-tutorial-powershell/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
 

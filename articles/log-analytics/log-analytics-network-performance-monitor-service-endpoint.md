@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 7eb31b91480b6e57135581cfa2f5503de3189e10
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
-ms.translationtype: HT
+ms.openlocfilehash: ba19a4fc24668bff27c961b5b415f840d1132a34
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="service-endpoint-manager"></a>Service Endpoint Manager
+# <a name="service-endpoint-monitor"></a>Monitor punktu końcowego usługi
 
-Możliwości usługi Menedżer punktu końcowego w [monitora wydajności sieci](log-analytics-network-performance-monitor.md) umożliwia monitorowanie łączność sieciową z dowolnego punktu końcowego, który został otwarty port TCP. Takie punkty końcowe obejmują witryn sieci Web, aplikacji SaaS PaaS aplikacji i baz danych. 
+Funkcja Monitor punktu końcowego usługi w [monitora wydajności sieci](log-analytics-network-performance-monitor.md) umożliwia monitorowanie łączność sieciową z dowolnego punktu końcowego, który został otwarty port TCP. Takie punkty końcowe obejmują witryn sieci Web, aplikacji SaaS PaaS aplikacji i baz danych. 
 
 Można wykonywać następujące funkcje związane z **Monitor punktu końcowego usługi**: 
 

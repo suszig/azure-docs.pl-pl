@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/29/2017
+ms.date: 02/22/2018
 ms.author: asgang
-ms.openlocfilehash: 028aa0f23c3a7c98c4801d9e306c5dcfa35aab80
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 1b63515970f81b1cab679287d84707d531fd102a
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="replicate-applications-running-on-vmware-virtual-machines-to-azure"></a>Replikowanie aplikacji uruchomionych na maszynach wirtualnych VMware do platformy Azure
 
@@ -50,7 +50,7 @@ Podczas replikowania maszyn wirtualnych VMware:
 1. Kliknij kolejno pozycje **Krok 2. Replikowanie aplikacji** > **Źródło**. Po włączeniu replikacji po raz pierwszy kliknij pozycję **+ Replikuj** w magazynie, aby włączyć replikację dla dodatkowych maszyn.
 2. W **źródła** strony > **źródła**, wybierz serwer konfiguracji.
 3. W **komputera typu**, wybierz pozycję **maszyn wirtualnych** lub **maszyn fizycznych**.
-4. W **vCenter/vSphere Hypervisor**, wybierz serwer vCenter, który zarządza hostem vSphere lub wybierz host. To ustawienie nie jest istotne, Jeśli replikujesz maszyny fizyczne.
+4. W obszarze **vCenter/vSphere Hypervisor** wybierz serwer vCenter zarządzający hostem vSphere lub wybierz tego hosta. To ustawienie nie jest istotne, Jeśli replikujesz maszyny fizyczne.
 5. Wybierz serwer przetwarzania, który będzie to nazwa serwera konfiguracji, jeśli nie utworzono żadnych serwerów dodatkowych procesów. Następnie kliknij przycisk **OK**.
 
     ![Włącz źródła replikacji](./media/site-recovery-vmware-to-azure/enable-replication2.png)
@@ -84,7 +84,7 @@ Podczas replikowania maszyn wirtualnych VMware:
     >    * Zbiera maszyn wirtualnych i serwerów fizycznych, aby odzwierciedlały obciążeń. Włączenie spójności wielu maszyn wirtualnych może wpłynąć na wydajność obciążenia. Użyj tylko wtedy, gdy komputery są tego samego obciążenia i wymagana jest spójność.
 
     ![Włączanie replikacji](./media/site-recovery-vmware-to-azure/enable-replication7.png)
-14. Kliknij przycisk **włączyć replikację**. Możesz śledzić postęp **Włącz ochronę** zadania w **ustawienia** > **zadania** > **zadania usługi Site Recovery**. Po uruchomieniu zadania **Sfinalizuj ochronę** maszyna jest gotowa do przejścia w tryb failover.
+14. Kliknij pozycję **Włącz replikację**. Możesz śledzić postęp zadania **Włącz ochronę** w pozycji **Ustawienia** > **Zadania** > **Zadania usługi Site Recovery**. Po uruchomieniu zadania **Sfinalizuj ochronę** maszyna jest gotowa do przejścia w tryb failover.
 
 > [!NOTE]
 > Jeśli komputer jest gotowy do instalacji w trybie wypychania, jest zainstalowany składnik usługi mobilności, po włączeniu ochrony. Po zainstalowaniu na komputerze składnika zadanie ochrony rozpoczyna się i nie powiedzie się. Po awarii musisz ręcznie ponownie uruchomić każdej maszyny. Po uruchomieniu zadania ochrony rozpoczyna się od nowa i następuje Replikacja początkowa.
@@ -119,7 +119,7 @@ Następnie możesz sprawdzić właściwości maszyny źródłowej. Należy pami�
     Na przykład jeśli maszyna źródłowa ma dwie karty sieciowe, a rozmiar maszyny docelowej obsługuje cztery, komputer docelowy ma dwie karty sieciowe. Jeśli maszyna źródłowa ma dwie karty sieciowe, ale rozmiar docelowy obsługiwanych obsługuje tylko jedną, maszyna docelowa ma tylko jedną kartę.
     - Jeśli maszyna wirtualna ma wiele kart sieciowych, wszystkie łączą się z tej samej sieci. Ponadto staje się pierwszą wyświetlane na liście *domyślne* karty sieciowej na maszynie wirtualnej platformy Azure.
 
-### <a name="azure-hybrid-use-benefit"></a>Korzyści Użyj hybrydowe platformy Azure
+### <a name="azure-hybrid-use-benefit"></a>Korzyść użycia hybrydowego platformy Azure
 
 Microsoft Software Assurance klienci mogą użyć korzyści Użyj hybrydowe platformy Azure, do zapisania na licencjonowania kosztów maszyn systemu Windows Server, które są migrowane do platformy Azure lub do użycia podczas odzyskiwania systemu Azure. Jeśli masz prawo do korzystania z Azure hybrydowego Użyj korzyści, można określić przypisane świadczenie maszyny wirtualnej jest tą, która tworzy usługi Azure Site Recovery po przejściu w tryb failover. W tym celu:
 - Przejdź do sekcji właściwości obliczania i sieci zreplikowanej maszyny wirtualnej.
@@ -135,7 +135,7 @@ Dowiedz się więcej o [Azure hybrydowego Użyj korzyści](https://aka.ms/azure-
 * Dysk systemu operacyjnego musi być dyskiem podstawowym i nie dysk dynamiczny.
 * Generacji 2 lub UEFI — nie włączono maszyn wirtualnych rodziny systemów operacyjnych należy systemu Windows i dysku rozruchowego powinien być mniejszy niż 300 GB.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Po zakończeniu ochrony, komputera osiągnęła stan chronionych, możesz spróbować [pracy awaryjnej](site-recovery-failover.md) do sprawdzenia, czy aplikacja pojawia się na platformie Azure lub nie.
 

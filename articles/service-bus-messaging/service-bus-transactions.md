@@ -12,18 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 02/22/2018
 ms.author: sethm
-ms.openlocfilehash: dac0bf117e56c788adf46bc0647f684eccf8cf42
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: d2e3fc7c59e0b57e77d2239ff73368f96426ef39
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Omówienie przetwarzanie transakcji usługi Service Bus
-W tym artykule omówiono możliwości transakcji usługi Azure Service Bus. Znacznie dyskusji zilustrowane [Atomic transakcji z usługi Service Bus próbki](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions). W tym artykule jest ograniczona do przeglądu przetwarzanie transakcji i *wyśle* funkcji w usłudze Service Bus, gdy przykład Atomic transakcji jest bardziej rozbudowaną i bardziej złożonej w zakresie.
+
+W tym artykule omówiono możliwości transakcji usługi Microsoft Azure Service Bus. Znacznie dyskusji zilustrowane [Atomic transakcji z usługi Service Bus próbki](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions). W tym artykule jest ograniczona do przeglądu przetwarzanie transakcji i *wyśle* funkcji w usłudze Service Bus, gdy przykład Atomic transakcji jest bardziej rozbudowaną i bardziej złożonej w zakresie.
 
 ## <a name="transactions-in-service-bus"></a>Transakcje w usłudze Service Bus
+
 A [ *transakcji* ](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions#what-are-transactions) grupowanie dwóch lub więcej operacji w *zakresu wykonywania*. Natury takich transakcji musi zapewnić, że wszystkie operacje należących do danej grupy działań albo powodzenie lub Niepowodzenie w wspólnie. W związku z tym transakcji pełnić jedną jednostkę, która jest często określany jako *niepodzielność*. 
 
 Usługa Service Bus jest brokera wiadomości transakcyjnych i zapewnia integralność transakcyjne dla wszystkich operacji wewnętrznych przed jego magazyny wiadomości. Wszystkie operacje transferu komunikatów wewnątrz usługi Service Bus, takich jak przenoszenie wiadomości do [kolejki utraconych wiadomości](service-bus-dead-letter-queues.md) lub [automatyczne przekazywanie](service-bus-auto-forwarding.md) komunikatów między jednostkami, są transakcyjnych. Tak Jeśli usługi Service Bus akceptuje wiadomości, już został przechowywane i z liczbą sekwencji. Następnie wszelkich transferów komunikatów w ramach usługi Service Bus są skoordynowanej operacji w ramach jednostkami, a nie doprowadzi do utraty (źródła zakończy się pomyślnie i docelowy nie powiedzie się) lub do duplikacji (źródłowego nie powiedzie się i docelowego zakończy się powodzeniem) wiadomości.
@@ -31,6 +33,7 @@ Usługa Service Bus jest brokera wiadomości transakcyjnych i zapewnia integraln
 Usługa Service Bus obsługuje operacje grupowania względem jednej jednostki obsługi komunikatów (kolejki, tematu, subskrypcji) w zakresie transakcji. Na przykład kilka wiadomości można wysyłać do jednej kolejki z w zakresie transakcji, a wiadomości tylko zostaną przekazane do kolejki dziennika, po pomyślnym zakończeniu transakcji.
 
 ## <a name="operations-within-a-transaction-scope"></a>Operacje w zakresie transakcji
+
 Oto operacje, które mogą być wykonywane w zakresie transakcji:
 
 * **[QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient), [MessageSender](/dotnet/api/microsoft.azure.servicebus.core.messagesender), [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)**: wysyłanie SendAsync, SendBatch, SendBatchAsync 
@@ -41,11 +44,13 @@ Odbieranie operacje nie są uwzględnione, ponieważ zakłada się, że aplikacj
 Dyspozycji komunikatu (zakończeniu porzucenia, wiadomości utraconych odroczyć) to występuje w zakresie i zależne od ogólnej wyniku transakcji.
 
 ## <a name="transfers-and-send-via"></a>Transfery i "Wyślij za pośrednictwem"
+
 Aby włączyć transakcyjne przekazania danych z kolejki procesora, a następnie do innej kolejki, Usługa Service Bus obsługuje *transferów*. W operacji przeniesienia nadawca najpierw wysyła komunikat do *kolejce transferu*, i w kolejce transferu na natychmiast przenosi wiadomości w kolejce przeznaczenia przy użyciu tej samej implementacji transferu niezawodne który automatycznie do przodu zależy od możliwości. Komunikat nigdy nie jest zaangażowana w kolejce transferu dziennika w taki sposób, że stają się one widoczne dla użytkowników w kolejce transferu.
 
 Możliwości tej możliwości transakcyjnych stała się oczywista podczas transferu kolejki jest źródłem komunikaty wejściowe nadawcy. Innymi słowy, usługi Service Bus można transferu wiadomości do kolejki docelowej "przez" kolejce transferu na podczas wykonywania pełnego (lub mają być odroczone, lub utraconych) operacji na komunikat wejściowy, wszystko w jednym niepodzielną operację. 
 
 ### <a name="see-it-in-code"></a>Zobacz go w kodzie
+
 Aby skonfigurować przeniesienie, należy utworzyć przeznaczonego do kolejki docelowej za pośrednictwem kolejki transfer nadawcy wiadomości. Masz również odbiornik, który pobiera komunikaty z tej samej kolejki. Na przykład:
 
 ```csharp
@@ -71,7 +76,7 @@ using (scope = new TransactionScope())
 } 
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Zobacz następujące artykuły, aby uzyskać więcej informacji na temat kolejek usługi Service Bus:
 

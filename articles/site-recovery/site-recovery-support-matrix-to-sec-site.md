@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 02/22/2018
 ms.author: raynew
-ms.openlocfilehash: da120d8e325867eaf9eb8b9be1ae8d9152db54c4
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 256bad0c3c06182b6be2b647ae27db90fe69724d
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="support-matrix-for-replication-to-a-secondary-site-with-azure-site-recovery"></a>Tabela wsparcia dla replikacji do lokacji dodatkowej z usługą Azure Site Recovery
 
@@ -49,7 +49,7 @@ W poniższej tabeli przedstawiono obsługę systemu operacyjnego maszyny repliko
 
 **Serwer VMware/fizyczne** | **Funkcja Hyper-V (w programie VMM)**
 --- | ---
-64-bitowego systemu Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 z na co najmniej z dodatkiem SP1<br/><br/> Red Hat Enterprise Linux 6.7, 6.8, 6,9, 7.1, 7.2 <br/><br/> Centos 6.5, 6.6, 6.7, 6.8, 6,9, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4, 6.5, 6.8 systemem Red Hat jądra zgodny lub podzielenie Enterprise jądra wersji 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 z dodatkiem SP3, 11 z dodatkiem SP4  | Gość żadnego systemu operacyjnego [obsługiwane przez funkcję Hyper-V](https://technet.microsoft.com/library/mt126277.aspx)
+64-bitowego systemu Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 z na co najmniej z dodatkiem SP1<br/><br/> Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.1, 7.2 <br/><br/> Centos 6.5, 6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4, 6.5, 6.8 systemem Red Hat jądra zgodny lub podzielenie Enterprise jądra wersji 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3, 11 SP4  | Gość żadnego systemu operacyjnego [obsługiwane przez funkcję Hyper-V](https://technet.microsoft.com/library/mt126277.aspx)
 
 ## <a name="linux-machine-storage"></a>Magazyn maszyny systemu Linux
 
@@ -67,9 +67,9 @@ Mogą być replikowane tylko maszyn z systemem Linux z magazynem następujące:
 
 **Konfiguracja** | **Serwer VMware/fizyczne** | **Funkcja Hyper-V (w programie VMM)**
 --- | --- | ---
-Tworzenie zespołu kart sieciowych | Tak | Tak
-SIECI VLAN | Tak | Tak
-IPv4 | Tak | Tak
+Tworzenie zespołu kart sieciowych | Yes | Yes
+VLAN | Yes | Yes
+Protokół IPv4 | Yes | Yes
 Protokół IPv6 | Nie | Nie
 
 ### <a name="guest-vms"></a>Maszyny wirtualne gości
@@ -77,11 +77,11 @@ Protokół IPv6 | Nie | Nie
 **Konfiguracja** | **Serwer VMware/fizyczne** | **Funkcja Hyper-V (w programie VMM)**
 --- | --- | ---
 Tworzenie zespołu kart sieciowych | Nie | Nie
-IPv4 | Tak | Tak
+Protokół IPv4 | Yes | Yes
 Protokół IPv6 | Nie | Nie
-Statyczny adres IP (z systemem Windows) | Tak | Tak
-Statyczny adres IP (Linux) | Tak | Tak
-Obsługa wielu kart Sieciowych | Tak | Tak
+Statyczny adres IP (z systemem Windows) | Yes | Yes
+Statyczny adres IP (Linux) | Yes | Yes
+Multi-NIC | Yes | Yes
 
 
 ## <a name="storage"></a>Magazyn
@@ -90,30 +90,30 @@ Obsługa wielu kart Sieciowych | Tak | Tak
 
 **Magazyn (hosta)** | **Serwer VMware/fizyczne** | **Funkcja Hyper-V (w programie VMM)**
 --- | --- | ---
-SYSTEMU PLIKÓW NFS | Tak | Nie dotyczy
-SMB 3.0 | Nie dotyczy | Tak
-SIECI SAN (ISCSI) | Tak | Tak
-Wiele ścieżek (MPIO) | Tak | Tak
+NFS | Yes | ND
+SMB 3.0 | ND | Yes
+SAN (ISCSI) | Yes | Yes
+Wiele ścieżek (MPIO) | Yes | Yes
 
 ### <a name="guest-or-physical-server-storage"></a>Gość lub magazynu serwera fizycznego
 
 **Konfiguracja** | **Serwer VMware/fizyczne** | **Funkcja Hyper-V (w programie VMM)**
 --- | --- | ---
-VMDK | Tak | Nie dotyczy
-DYSK VHD/VHDX | Nie dotyczy | Tak (maksymalnie 16 dysków)
-Gł 2 maszyny Wirtualnej | Nie dotyczy | Tak
-Udostępniony dysk klastra | Tak  | Nie
+VMDK | Yes | ND
+VHD/VHDX | ND | Tak (maksymalnie 16 dysków)
+Gł 2 maszyny Wirtualnej | ND | Yes
+Udostępniony dysk klastra | Yes  | Nie
 Zaszyfrowanego dysku | Nie | Nie
-Z INTERFEJSEM UEFI| Tak | Nie dotyczy
-SYSTEMU PLIKÓW NFS | Nie | Nie
+UEFI| Yes | ND
+NFS | Nie | Nie
 SMB 3.0 | Nie | Nie
-DYSK RDM | Tak | Nie dotyczy
-Na dysku > 1 TB | Tak | Tak
-Wolumin dysku rozłożone > 1 TB<br/><br/> LVM | Tak | Tak
-Funkcja miejsca do magazynowania | Nie | Tak
-Dodaj lub usuń gorących dysku | Tak | Nie
-Wykluczanie dysku | Tak | Tak
-Wiele ścieżek (MPIO) | Nie dotyczy | Tak
+RDM | Yes | ND
+Na dysku > 1 TB | Yes | Yes
+Wolumin dysku rozłożone > 1 TB<br/><br/> LVM | Yes | Yes
+Funkcja miejsca do magazynowania | Nie | Yes
+Dodaj lub usuń gorących dysku | Yes | Nie
+Wykluczanie dysku | Yes | Yes
+Wiele ścieżek (MPIO) | ND | Yes
 
 ## <a name="vaults"></a>magazynów
 
@@ -127,10 +127,10 @@ Przenieść magazyn, sieć, maszyn wirtualnych platformy Azure w grupach zasobó
 **Nazwa** | **Opis** | **Najnowsza wersja** | **Szczegóły**
 --- | --- | --- | --- | ---
 **Dostawca usługi Azure Site Recovery** | Współrzędne komunikacji między serwerami lokalnymi i Azure <br/><br/> Zainstalowana na lokalnych serwerach VMM lub na serwerach funkcji Hyper-V, jeśli serwer VMM nie jest | 5.1.19 ([dostępna z portalu](http://aka.ms/downloaddra)) | [Najnowsze funkcje i poprawki](https://support.microsoft.com/kb/3155002)
-**Usługa mobilności** | Koordynuje replikację między serwerami lokalnymi VMware lub serwerów fizycznych i lokacji dodatkowej<br/><br/> Zainstalowana na maszynie Wirtualnej VMware lub serwerów fizycznych, które chcesz replikować  | N/d (dostępne w portalu) | Nie dotyczy
+**Usługa mobilności** | Koordynuje replikację między serwerami lokalnymi VMware lub serwerów fizycznych i lokacji dodatkowej<br/><br/> Zainstalowana na maszynie Wirtualnej VMware lub serwerów fizycznych, które chcesz replikować  | N/d (dostępne w portalu) | ND
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Replikowanie maszyn wirtualnych funkcji Hyper-V w chmurach VMM do lokacji dodatkowej](tutorial-vmm-to-vmm.md)
 - [Replikacja maszyn wirtualnych VMware i serwerów fizycznych do lokacji dodatkowej](tutorial-vmware-to-vmware.md)

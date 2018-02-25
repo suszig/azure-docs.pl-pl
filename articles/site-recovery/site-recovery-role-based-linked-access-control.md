@@ -12,23 +12,23 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 02/22/2018
 ms.author: manayar
-ms.openlocfilehash: ce579bc2844d321e4fbc70726b57120e17e4788d
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 3d561e3ebab886cd4976e5f1c2e8f2ddde3d6c14
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-role-based-access-control-to-manage-azure-site-recovery-deployments"></a>Kontrola dostępu oparta na rolach umożliwia zarządzanie wdrożenia usługi Azure Site Recovery
 
 Kontrola dostępu oparta na rolach (Role-Based Access Control, RBAC) na platformie Azure umożliwia precyzyjne zarządzanie dostępem dla platformy Azure. Przy użyciu funkcji RBAC, można rozdzielenie obowiązków w obrębie organizacji i udzielić tylko określonym dostępu uprawnień użytkownikom do wykonywania określonych zadań.
 
-Usługa Azure Site Recovery zapewnia 3 wbudowane role do kontrolowania operacji zarządzania usługi Site Recovery. Dowiedz się więcej na [wbudowane role Azure RBAC](../active-directory/role-based-access-built-in-roles.md)
+Usługa Azure Site Recovery zapewnia 3 wbudowane role do kontrolowania operacji zarządzania usługi Site Recovery. Aby dowiedzieć się więcej, zobacz [Wbudowane role RBAC na platformie Azure](../active-directory/role-based-access-built-in-roles.md).
 
-* [Lokacja odzyskiwania współautora](../active-directory/role-based-access-built-in-roles.md#site-recovery-contributor) — ta rola ma wszystkie uprawnienia wymagane do zarządzania operacjami usługi Azure Site Recovery w magazynie usług odzyskiwania. Użytkownika z tą rolą, jednak nie można utworzyć lub usuwanie magazynu usług odzyskiwania lub przypisywanie praw dostępu do innych użytkowników. Ta rola jest najbardziej odpowiednie dla administratorów odzyskiwania po awarii można włączyć i zarządzać w przypadku odzyskiwania po awarii dla aplikacji lub w całej organizacji.
-* [Operator odzyskiwania lokacji](../active-directory/role-based-access-built-in-roles.md#site-recovery-operator) — ta rola ma uprawnienia do wykonania i menedżera operacji trybu Failover i powrotu po awarii. Użytkownika z tą rolą nie Włącz lub Wyłącz replikację, utworzyć lub usunąć magazynów, zarejestrować nową infrastrukturę lub przypisywanie praw dostępu do innych użytkowników. Ta rola jest najbardziej odpowiednie dla operatora odzyskiwania po awarii, który można trybu failover maszyny wirtualnej lub przejść do szczegółów aplikacji zaleceniami właściciele aplikacji i Administratorzy systemów informatycznych w sytuacji rzeczywista lub symulowane po awarii, takich jak odzyskiwania po awarii. Post rozpoznawanie po awarii, operator odzyskiwania po awarii można ponownie włączyć ochronę i powrotu po awarii maszyn wirtualnych.
-* [Czytnik odzyskiwania lokacji](../active-directory/role-based-access-built-in-roles.md#site-recovery-reader) — ta rola ma uprawnienia do wyświetlania wszystkich operacji zarządzania usługi Site Recovery. Ta rola jest najbardziej odpowiednie dla zarządu monitorowania IT, który można monitorować bieżący stan ochrony i podnieść biletami pomocy technicznej, jeśli jest to wymagane.
+* [Współautor usługi Site Recovery](../active-directory/role-based-access-built-in-roles.md#site-recovery-contributor) — ta rola ma wszystkie uprawnienia wymagane do zarządzania operacjami usługi Azure Site Recovery w magazynie usługi Recovery Services. Użytkownik z tą rolą nie może jednak tworzyć ani usuwać magazynu usługi Recovery Services, ani przypisywać praw dostępu innym użytkownikom. Ta rola jest najbardziej odpowiednie dla administratorów odzyskiwania po awarii można włączyć i zarządzać w przypadku odzyskiwania po awarii dla aplikacji lub w całej organizacji.
+* [Operator usługi Site Recovery](../active-directory/role-based-access-built-in-roles.md#site-recovery-operator) — ta rola ma uprawnienia do uruchamiania operacji trybu failover i powrotu po awarii oraz zarządzania nimi. Użytkownika z tą rolą nie Włącz lub Wyłącz replikację, utworzyć lub usunąć magazynów, zarejestrować nową infrastrukturę lub przypisywanie praw dostępu do innych użytkowników. Ta rola jest najbardziej odpowiednie dla operatora odzyskiwania po awarii, który można trybu failover maszyny wirtualnej lub przejść do szczegółów aplikacji zaleceniami właściciele aplikacji i Administratorzy systemów informatycznych w sytuacji rzeczywista lub symulowane po awarii, takich jak odzyskiwania po awarii. Post rozpoznawanie po awarii, operator odzyskiwania po awarii można ponownie włączyć ochronę i powrotu po awarii maszyn wirtualnych.
+* [Czytelnik usługi Site Recovery](../active-directory/role-based-access-built-in-roles.md#site-recovery-reader) — ta rola ma uprawnienia do wyświetlania wszystkich operacji zarządzania usługą Site Recovery. Ta rola jest najbardziej odpowiednie dla zarządu monitorowania IT, który można monitorować bieżący stan ochrony i podnieść biletami pomocy technicznej, jeśli jest to wymagane.
 
 Jeśli szukasz definiować własne role, aby uzyskać większą kontrolę, zobacz porady [Tworzenie niestandardowych ról](../active-directory/role-based-access-control-custom-roles.md) na platformie Azure.
 
@@ -45,9 +45,9 @@ Użytkownik wymaga następujących uprawnień do ukończenia replikacji nowej ma
 > [!IMPORTANT]
 >Upewnij się, że odpowiednie uprawnienia są dodawane na model wdrażania (Resource Manager / klasycznego) używany do wdrażania zasobów.
 
-| **Typ zasobu** | **Model wdrażania** | **Uprawnienia** |
+| **Typ zasobu** | Model wdrażania | Uprawnienia |
 | --- | --- | --- |
-| Compute | Resource Manager | Microsoft.Compute/availabilitySets/read |
+| Wystąpienia obliczeniowe | Resource Manager | Microsoft.Compute/availabilitySets/read |
 |  |  | Microsoft.Compute/virtualMachines/read |
 |  |  | Microsoft.Compute/virtualMachines/write |
 |  |  | Microsoft.Compute/virtualMachines/delete |
@@ -75,10 +75,10 @@ Użytkownik wymaga następujących uprawnień do ukończenia replikacji nowej ma
 
 Rozważ użycie "Współautora maszyny wirtualnej" i "Klasycznego współautora maszyny wirtualnej" [wbudowane role](../active-directory/role-based-access-built-in-roles.md) wdrożenia usługi Resource Manager i Model Klasyczny odpowiednio modeli.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Kontrola dostępu oparta na rolach](../active-directory/role-based-access-control-configure.md): rozpoczynanie pracy z RBAC w portalu Azure.
 * Dowiedz się, jak Zarządzaj dostępem za pomocą:
-  * [PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
+  * [Program PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
   * [Interfejs wiersza polecenia platformy Azure](../active-directory/role-based-access-control-manage-access-azure-cli.md)
   * [Interfejs API REST](../active-directory/role-based-access-control-manage-access-rest.md)
 * [Rozwiązywanie kontroli dostępu opartej na rolach](../active-directory/role-based-access-control-troubleshooting.md): Pobierz sugestie dotyczące rozwiązywania typowych problemów.

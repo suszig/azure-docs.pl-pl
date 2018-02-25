@@ -13,13 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: da7b83846418bfe5f95b126d4f5f7b34d3a7b35d
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: f9e023ae8d6c50049b588cf056629cd8d46ee603
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="query-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Analiza dzienników Azure zapytania do monitorowania klastrów usługi HDInsight
 
@@ -150,7 +150,7 @@ Można użyć dowolnego zapytania, który ma być tworzony alert.
 
 6. Z **ustawienia** kliknij przycisk **alerty** do wyświetlenia alertów został utworzony. Można również włączyć lub Wyłącz alert, go edytować lub usunąć go. Aby uzyskać więcej informacji, zobacz [Praca z reguły alertów w analizy dzienników](../log-analytics/log-analytics-alerts-creating.md).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Praca z Operations Management Suite Log Analytics](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
 * [Tworzyć reguły alertów w analizy dzienników](../log-analytics/log-analytics-alerts-creating.md)

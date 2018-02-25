@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
 ms.author: tdykstra
-ms.openlocfilehash: ed26abdb76083b9a18f79276ebf4294b4b6967b1
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 472d61debff016cfd3df79bae1f63e176c14849d
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure powiązania usługi Service Bus dla usługi Azure Functions
 
@@ -56,6 +56,8 @@ public static void Run(
 }
 ```
 
+W tym przykładzie jest przeznaczony dla usługi Azure Functions wersja 1.x; dla 2.x [parametr praw dostępu](#trigger---configuration).
+ 
 ### <a name="trigger---c-script-example"></a>Wyzwalacz — przykładowy skrypt w języku C#
 
 W poniższym przykładzie przedstawiono wyzwalacz usługi Service Bus powiązanie w *function.json* pliku i [funkcji skryptu C#](functions-reference-csharp.md) używającą powiązania. Funkcja rejestruje komunikat z kolejki usługi Service Bus.
@@ -150,7 +152,9 @@ W [bibliotek klas C#](functions-dotnet-class-library.md), umożliwia skonfigurow
 
 * [ServiceBusTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusTriggerAttribute.cs), zdefiniowany w pakiecie NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus)
 
-  Konstruktor atrybutu ma nazwę kolejki lub tematu i subskrypcji. Można również określić prawa dostępu do tego połączenia. Jeśli nie określisz praw dostępu, wartością domyślną jest `Manage`. Jak wybrać ustawienie prawa dostępu zostało wyjaśnione w dokumencie [wyzwalacza — Konfiguracja](#trigger---configuration) sekcji. Oto przykład pokazujący atrybut z parametru ciągu:
+  Konstruktor atrybutu ma nazwę kolejki lub tematu i subskrypcji. W wersji usługi Azure Functions 1.x, można również określić prawa dostępu do tego połączenia. Jeśli nie określisz praw dostępu, wartością domyślną jest `Manage`. Aby uzyskać więcej informacji, zobacz [wyzwalacza — Konfiguracja](#trigger---configuration) sekcji.
+
+  Oto przykład pokazujący atrybut z parametru ciągu:
 
   ```csharp
   [FunctionName("ServiceBusQueueTriggerCSharp")]                    
@@ -207,26 +211,27 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 
 |Właściwość Function.JSON | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
-|**Typ** | Nie dotyczy | Musi być równa "serviceBusTrigger". Ta właściwość ma wartość automatycznie, podczas tworzenia wyzwalacza w portalu Azure.|
+|Typ | Nie dotyczy | Musi być równa "serviceBusTrigger". Ta właściwość ma wartość automatycznie, podczas tworzenia wyzwalacza w portalu Azure.|
 |**Kierunek** | Nie dotyczy | Należy wybrać opcję "w". Ta właściwość ma wartość automatycznie, podczas tworzenia wyzwalacza w portalu Azure. |
 |**Nazwa** | Nie dotyczy | Nazwa zmiennej, która reprezentuje kolejka lub temat komunikat w kodzie funkcji. Wartość "$return" odwołują się do wartości zwracane funkcji. | 
 |**queueName**|**QueueName**|Nazwa kolejki do monitorowania.  Ustawiona tylko wtedy, gdy monitorowania kolejki, a nie dla tematu.
 |**topicName**|**TopicName**|Nazwa tematu do monitorowania. Ustawiona tylko wtedy, gdy monitorowania tematu, nie dla kolejki.|
 |**Nazwa subskrypcji**|**Nazwa subskrypcji**|Nazwa subskrypcji do monitorowania. Ustawiona tylko wtedy, gdy monitorowania tematu, nie dla kolejki.|
-|**połączenia**|**Połączenia**|Nazwa ustawienia aplikacji, która zawiera parametry połączenia magistrali usługi do użycia dla tego powiązania. Jeśli nazwa ustawienia aplikacji rozpoczyna się od "AzureWebJobs", można określić tylko w pozostałej części nazwy. Na przykład jeśli ustawisz `connection` do "MyServiceBus" środowisko uruchomieniowe Functions szuka ustawienie aplikacji o nazwie "AzureWebJobsMyServiceBus." Jeśli opuścisz `connection` pusta, domyślny ciąg połączenia usługi Service Bus używa funkcji środowiska uruchomieniowego w ustawieniu aplikacji o nazwie "AzureWebJobsServiceBus".<br><br>Aby uzyskać ciąg połączenia, wykonaj kroki opisane w [uzyskać poświadczenia zarządzania](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). Parametry połączenia muszą mieć dla przestrzeni nazw usługi Service Bus, nie są ograniczone do określonych kolejka lub temat. |
-|**accessRights**|**Dostęp**|Prawa dostępu do ciągu połączenia. Dostępne wartości to `manage` i `listen`. Wartość domyślna to `manage`, co oznacza, że `connection` ma **Zarządzaj** uprawnienia. Jeśli używasz parametry połączenia, które nie ma **Zarządzaj** zestawu uprawnień, `accessRights` "nasłuchiwanie". W przeciwnym razie środowiska uruchomieniowego może się nie powieść próba wykonania tej operacji, które wymagają funkcji zarządzania prawami.|
+|**Połączenia**|**Połączenia**|Nazwa ustawienia aplikacji, która zawiera parametry połączenia magistrali usługi do użycia dla tego powiązania. Jeśli nazwa ustawienia aplikacji rozpoczyna się od "AzureWebJobs", można określić tylko w pozostałej części nazwy. Na przykład jeśli ustawisz `connection` do "MyServiceBus" środowisko uruchomieniowe Functions szuka ustawienie aplikacji o nazwie "AzureWebJobsMyServiceBus." Jeśli opuścisz `connection` pusta, domyślny ciąg połączenia usługi Service Bus używa funkcji środowiska uruchomieniowego w ustawieniu aplikacji o nazwie "AzureWebJobsServiceBus".<br><br>Aby uzyskać ciąg połączenia, wykonaj kroki opisane w [uzyskać poświadczenia zarządzania](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). Parametry połączenia muszą mieć dla przestrzeni nazw usługi Service Bus, nie są ograniczone do określonych kolejka lub temat. |
+|**accessRights**|**Dostęp**|Prawa dostępu do ciągu połączenia. Dostępne wartości to `manage` i `listen`. Wartość domyślna to `manage`, co oznacza, że `connection` ma **Zarządzaj** uprawnienia. Jeśli używasz parametry połączenia, które nie ma **Zarządzaj** zestawu uprawnień, `accessRights` "nasłuchiwanie". W przeciwnym razie środowiska uruchomieniowego może się nie powieść próba wykonania tej operacji, które wymagają funkcji zarządzania prawami. W wersji usługi Azure Functions 2.x, ta właściwość nie jest dostępna, ponieważ nie obsługuje najnowszej wersji zestawu SDK usługi Magazyn zarządzania operacjami.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="trigger---usage"></a>Wyzwalacz — użycie
 
-W języku C# i skryptu C#, dostęp do kolejki lub tematu wiadomości przy użyciu parametru metody takie jak `string paramName`. W języku C# skryptu `paramName` jest wartością określoną w `name` właściwość *function.json*. Można użyć dowolnego z następujących typów zamiast `string`:
+W języku C# i skryptu C# można użyć następujących typów parametru do kolejki lub tematu wiadomości:
 
-* `byte[]`-Przydatne dla danych binarnych.
+* `string` — Jeśli komunikat jest tekst.
+* `byte[]` -Przydatne dla danych binarnych.
 * Niestandardowy typ — Jeśli komunikat zawiera dane JSON, usługi Azure Functions próbuje deserializowanie danych JSON.
-* `BrokeredMessage`— Umożliwia zdeserializowany wiadomości z [BrokeredMessage.GetBody<T>()](https://msdn.microsoft.com/library/hh144211.aspx) metody.
+* `BrokeredMessage` — Umożliwia zdeserializowany wiadomości z [BrokeredMessage.GetBody<T>()](https://msdn.microsoft.com/library/hh144211.aspx) metody.
 
-W języku JavaScript, dostęp do kolejki lub tematu wiadomości przy użyciu `context.bindings.<name>`. `<name>`wartość jest określona w `name` właściwość *function.json*. Komunikatów usługi Service Bus jest przekazywany do funkcji jako ciąg lub obiekt JSON.
+W języku JavaScript, dostęp do kolejki lub tematu wiadomości przy użyciu `context.bindings.<name from function.json>`. Komunikatów usługi Service Bus jest przekazywany do funkcji jako ciąg lub obiekt JSON.
 
 ## <a name="trigger---poison-messages"></a>Wyzwalacz - skażone wiadomości
 
@@ -445,29 +450,32 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 
 |Właściwość Function.JSON | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
-|**Typ** | Nie dotyczy | Musi być równa "magistrali usług". Ta właściwość ma wartość automatycznie, podczas tworzenia wyzwalacza w portalu Azure.|
+|Typ | Nie dotyczy | Musi być równa "magistrali usług". Ta właściwość ma wartość automatycznie, podczas tworzenia wyzwalacza w portalu Azure.|
 |**Kierunek** | Nie dotyczy | Należy wybrać opcję "out". Ta właściwość ma wartość automatycznie, podczas tworzenia wyzwalacza w portalu Azure. |
 |**Nazwa** | Nie dotyczy | Nazwa zmiennej, która reprezentuje kolejka lub temat w kodzie funkcji. Wartość "$return" odwołują się do wartości zwracane funkcji. | 
 |**queueName**|**QueueName**|Nazwa kolejki.  Ustawiona tylko wtedy, gdy wysyłanie wiadomości w kolejce, nie dla tematu.
 |**topicName**|**TopicName**|Nazwa tematu do monitorowania. Ustawiona tylko wtedy, gdy wysyłanie wiadomości tematu, nie dla kolejki.|
 |**Nazwa subskrypcji**|**Nazwa subskrypcji**|Nazwa subskrypcji do monitorowania. Ustawiona tylko wtedy, gdy wysyłanie wiadomości tematu, nie dla kolejki.|
-|**połączenia**|**Połączenia**|Nazwa ustawienia aplikacji, która zawiera parametry połączenia magistrali usługi do użycia dla tego powiązania. Jeśli nazwa ustawienia aplikacji rozpoczyna się od "AzureWebJobs", można określić tylko w pozostałej części nazwy. Na przykład jeśli ustawisz `connection` do "MyServiceBus" środowisko uruchomieniowe Functions szuka ustawienie aplikacji o nazwie "AzureWebJobsMyServiceBus." Jeśli opuścisz `connection` pusta, domyślny ciąg połączenia usługi Service Bus używa funkcji środowiska uruchomieniowego w ustawieniu aplikacji o nazwie "AzureWebJobsServiceBus".<br><br>Aby uzyskać ciąg połączenia, wykonaj kroki opisane w [uzyskać poświadczenia zarządzania](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). Parametry połączenia muszą mieć dla przestrzeni nazw usługi Service Bus, nie są ograniczone do określonych kolejka lub temat.|
-|**accessRights**|**Dostęp** |Prawa dostępu do ciągu połączenia. Dostępne wartości to "manage" i "nasłuchiwania". Wartość domyślna to "manage", która wskazuje, czy połączenie ma **Zarządzaj** uprawnienia. Jeśli używasz parametry połączenia, które nie ma **Zarządzaj** Ustaw uprawnienia, `accessRights` "nasłuchiwanie". W przeciwnym razie środowiska uruchomieniowego może się nie powieść próba wykonania tej operacji, które wymagają funkcji zarządzania prawami.|
+|**Połączenia**|**Połączenia**|Nazwa ustawienia aplikacji, która zawiera parametry połączenia magistrali usługi do użycia dla tego powiązania. Jeśli nazwa ustawienia aplikacji rozpoczyna się od "AzureWebJobs", można określić tylko w pozostałej części nazwy. Na przykład jeśli ustawisz `connection` do "MyServiceBus" środowisko uruchomieniowe Functions szuka ustawienie aplikacji o nazwie "AzureWebJobsMyServiceBus." Jeśli opuścisz `connection` pusta, domyślny ciąg połączenia usługi Service Bus używa funkcji środowiska uruchomieniowego w ustawieniu aplikacji o nazwie "AzureWebJobsServiceBus".<br><br>Aby uzyskać ciąg połączenia, wykonaj kroki opisane w [uzyskać poświadczenia zarządzania](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). Parametry połączenia muszą mieć dla przestrzeni nazw usługi Service Bus, nie są ograniczone do określonych kolejka lub temat.|
+|**accessRights**|**Dostęp**|Prawa dostępu do ciągu połączenia. Dostępne wartości to `manage` i `listen`. Wartość domyślna to `manage`, co oznacza, że `connection` ma **Zarządzaj** uprawnienia. Jeśli używasz parametry połączenia, które nie ma **Zarządzaj** zestawu uprawnień, `accessRights` "nasłuchiwanie". W przeciwnym razie środowiska uruchomieniowego może się nie powieść próba wykonania tej operacji, które wymagają funkcji zarządzania prawami. W wersji usługi Azure Functions 2.x, ta właściwość nie jest dostępna, ponieważ nie obsługuje najnowszej wersji zestawu SDK usługi Magazyn zarządzania operacjami.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="output---usage"></a>Dane wyjściowe — użycie
 
-W języku C# i skryptu C#, dostęp za pomocą parametru metody, takie jak kolejka lub temat `out string paramName`. W języku C# skryptu `paramName` jest wartością określoną w `name` właściwość *function.json*. Można użyć dowolnej z następujących parametrów:
+W przypadku funkcji Azure 1.x, środowisko uruchomieniowe tworzy kolejkę, jeśli nie istnieje i ma ustawiony `accessRights` do `manage`. Funkcje wersji 2.x, kolejka lub temat musi istnieć; Jeśli określisz kolejka lub temat, który nie istnieje, funkcja zakończy się niepowodzeniem. 
 
-* `out T paramName` - `T`mogą być dowolnego typu serializacji JSON. Jeśli wartość parametru jest równa null, gdy funkcja kończy, funkcje tworzy komunikat z obiektem null.
-* `out string`— Jeśli wartość parametru ma wartość null, gdy funkcja kończy, funkcje nie tworzy komunikat.
-* `out byte[]`— Jeśli wartość parametru ma wartość null, gdy funkcja kończy, funkcje nie tworzy komunikat.
-* `out BrokeredMessage`— Jeśli wartość parametru ma wartość null, gdy funkcja kończy, funkcje nie tworzy komunikat.
+W języku C# i skryptu C# można użyć następujących typów parametru dla powiązania danych wyjściowych:
 
-W przypadku tworzenia wielu wiadomości w języku C# lub funkcji skryptu C#, można użyć `ICollector<T>` lub `IAsyncCollector<T>`. Komunikat jest tworzony podczas wywoływania `Add` metody.
+* `out T paramName` - `T` mogą być dowolnego typu serializacji JSON. Jeśli wartość parametru jest równa null, gdy funkcja kończy, funkcje tworzy komunikat z obiektem null.
+* `out string` — Jeśli wartość parametru ma wartość null, gdy funkcja kończy, funkcje nie tworzy komunikat.
+* `out byte[]` — Jeśli wartość parametru ma wartość null, gdy funkcja kończy, funkcje nie tworzy komunikat.
+* `out BrokeredMessage` — Jeśli wartość parametru ma wartość null, gdy funkcja kończy, funkcje nie tworzy komunikat.
+* `ICollector<T>` lub `IAsyncCollector<T>` — w przypadku tworzenia wielu komunikatów. Komunikat jest tworzony podczas wywoływania `Add` metody.
 
-W języku JavaScript, dostęp do kolejki lub temat przy użyciu `context.bindings.<name>`. `<name>`wartość jest określona w `name` właściwość *function.json*. Ciąg, tablica bajtów lub obiektu Javascript (deserializacji do postaci JSON) można przypisać do `context.binding.<name>`.
+W funkcji asynchronicznych, użyj wartości zwracanej lub `IAsyncCollector` zamiast `out` parametru.
+
+W języku JavaScript, dostęp do kolejki lub temat przy użyciu `context.bindings.<name from function.json>`. Ciąg, tablica bajtów lub obiektu Javascript (deserializacji do postaci JSON) można przypisać do `context.binding.<name>`.
 
 ## <a name="exceptions-and-return-codes"></a>Wyjątki i kody powrotne
 

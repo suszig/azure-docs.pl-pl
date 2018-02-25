@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/31/2018
 ms.author: larryfr
-ms.openlocfilehash: 866dd3abbcca12413d0e02651826365166db616f
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 9e714b1dc97fb12c2994537d33cefd98b5c9cf99
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-apache-kafka-with-storm-on-hdinsight"></a>Używających Apache Kafka Storm w usłudze HDInsight
 
@@ -36,7 +36,7 @@ Kod używany w przykładzie podanym w tym dokumencie jest dostępny na [https://
 
 Aby skompilować ten projekt, należy następującej konfiguracji dla swojego środowiska programowania:
 
-* [Java JDK 1.8](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) lub nowszej. HDInsight w wersji 3.5 lub nowszej wymagają Java 8.
+* [Java JDK 1.8](http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) lub nowszej. HDInsight w wersji 3.5 lub nowszej wymagają Java 8.
 
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 
@@ -46,11 +46,11 @@ Aby skompilować ten projekt, należy następującej konfiguracji dla swojego ś
 
 Po zainstalowaniu na deweloperskiej stacji roboczej Java i zestaw JDK, który można konfigurować następujące zmienne środowiskowe. Jednak należy sprawdzić, czy istnieją i że zawierają one poprawne wartości dla systemu.
 
-* `JAVA_HOME`-powinny wskazywać na katalog, w którym jest zainstalowany zestaw JDK.
-* `PATH`— powinna zawierać następujących ścieżkach:
+* `JAVA_HOME` -powinny wskazywać na katalog, w którym jest zainstalowany zestaw JDK.
+* `PATH` — powinna zawierać następujących ścieżkach:
   
-    * `JAVA_HOME`(lub równoważne ścieżki).
-    * `JAVA_HOME\bin`(lub równoważne ścieżki).
+    * `JAVA_HOME` (lub równoważne ścieżki).
+    * `JAVA_HOME\bin` (lub równoważne ścieżki).
     * Katalog, w którym zainstalowano Maven.
 
 ## <a name="create-the-clusters"></a>Tworzenie klastrów
@@ -121,7 +121,7 @@ Ten projekt zawiera dwie topologie:
     Ta topologia używa Storm HdfsBolt do zapisu danych do magazynu domyślnego dla klastra Storm.
 ### <a name="flux"></a>Flux
 
-Topologie są definiowane przy użyciu [strumień](https://storm.apache.org/releases/1.1.0/flux.html). Strumień została wprowadzona w systemie Storm 0.10.x i umożliwia rozdzielenie konfiguracji topologii z kodu. Dla topologie, wykorzystujące framework strumienia topologia jest zdefiniowany w pliku yaml programu. Może to być plik yaml programu zawarte w ramach topologii. Można także użyć podczas przesyłania topologii autonomiczny plik. Strumień obsługuje również podstawienie zmiennej w czasie wykonywania, który jest używany w tym przykładzie.
+Topologie są definiowane przy użyciu [strumień](https://storm.apache.org/releases/1.1.2/flux.html). Strumień została wprowadzona w systemie Storm 0.10.x i umożliwia rozdzielenie konfiguracji topologii z kodu. Dla topologie, wykorzystujące framework strumienia topologia jest zdefiniowany w pliku yaml programu. Może to być plik yaml programu zawarte w ramach topologii. Można także użyć podczas przesyłania topologii autonomiczny plik. Strumień obsługuje również podstawienie zmiennej w czasie wykonywania, który jest używany w tym przykładzie.
 
 Następujące parametry są ustawione w czasie wykonywania dla tych topologii:
 
@@ -131,7 +131,7 @@ Następujące parametry są ustawione w czasie wykonywania dla tych topologii:
 
 * `${kafka.zookeeper.hosts}`: Hostów, które dozorcy działa na Kafka klastra.
 
-Aby uzyskać więcej informacji dotyczących topologii strumienia, zobacz [https://storm.apache.org/releases/1.1.0/flux.html](https://storm.apache.org/releases/1.1.0/flux.html).
+Aby uzyskać więcej informacji dotyczących topologii strumienia, zobacz [https://storm.apache.org/releases/1.1.2/flux.html](https://storm.apache.org/releases/1.1.2/flux.html).
 
 ## <a name="download-and-compile-the-project"></a>Pobierz i kompilacji projektu
 
@@ -255,7 +255,7 @@ Aby uzyskać więcej informacji dotyczących topologii strumienia, zobacz [https
 
     * `--remote`: Przesyłania topologii do Nimbus. Topologia jest dystrybuowana do węzłów procesu roboczego w klastrze.
 
-    * `-R /writer.yaml`: Użyj `writer.yaml` pliku, aby skonfigurować topologię. `-R`Wskazuje, że ten zasób jest uwzględniona w pliku jar. Znajduje się w folderze głównym jar, więc `/writer.yaml` jest ścieżką do niego.
+    * `-R /writer.yaml`: Użyj `writer.yaml` pliku, aby skonfigurować topologię. `-R` Wskazuje, że ten zasób jest uwzględniona w pliku jar. Znajduje się w folderze głównym jar, więc `/writer.yaml` jest ścieżką do niego.
 
     * `--filter`: Wypełnić wpisów w `writer.yaml` topologię za pomocą wartości w `dev.properties` pliku. Na przykład wartość `kafka.topic` wpis w pliku jest używany do zastępowania `${kafka.topic}` wejścia w definicji topologii.
 

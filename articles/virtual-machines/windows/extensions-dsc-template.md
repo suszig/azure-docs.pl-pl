@@ -1,6 +1,6 @@
 ---
 title: "Żądany stan konfiguracji rozszerzenia przy użyciu szablonów usługi Azure Resource Manager | Dokumentacja firmy Microsoft"
-description: "Definicja szablonu usługi Resource Manager dla żądanego stanu konfiguracji rozszerzenia na platformie Azure"
+description: "Więcej informacji na temat definicji szablonu usługi Resource Manager dla rozszerzenia konfiguracji żądanego stanu (DSC) na platformie Azure."
 services: virtual-machines-windows
 documentationcenter: 
 author: mgreenegit
@@ -16,25 +16,22 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: migreene
-ms.openlocfilehash: f638d1530541526316f6e409f1efd44f136992a5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0f1c53c9eafcd96e49232b75d46ef34537a1160f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Żądany stan rozszerzenia konfiguracji przy użyciu szablonów usługi Azure Resource Manager
+# <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Żądany stan konfiguracji rozszerzenia przy użyciu szablonów usługi Azure Resource Manager
 
-W tym artykule opisano szablonu usługi Azure Resource Manager dla [konfiguracji żądanego stanu rozszerzenia obsługi](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+W tym artykule opisano szablonu usługi Azure Resource Manager dla [konfiguracji żądanego stanu (DSC) rozszerzenia obsługi](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
-*Uwaga: mogą wystąpić schematu nieco inne przykłady. * 
- *Zwolnij wystąpił zmiany w schemacie w października 2016 roku.* 
- *Szczegóły są wymienione w sekcji tej strony zatytułowany*
-*[aktualizacji z poprzedniego formatu](##Updating-from-the-Previous-Format)*.
+> [!NOTE]
+> Może wystąpić schematu nieco inne przykłady. Zmiany w schemacie wystąpił w wersji z października 2016. Aby uzyskać więcej informacji, zobacz [aktualizacji z poprzedniego formatu](#update-from-the-previous-format).
 
 ## <a name="template-example-for-a-windows-vm"></a>Przykład szablonu maszyny wirtualnej systemu Windows
 
-Poniższy fragment przechodzi w sekcji zasobów szablonu.
-Rozszerzenia DSC dziedziczy właściwości domyślne rozszerzenie, zgodnie z opisem w [VirtualMachineExtension — klasa](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet.)
+Poniższy fragment kodu zawiera **zasobów** sekcji szablonu. Rozszerzenia DSC dziedziczy właściwości domyślne rozszerzenie. Aby uzyskać więcej informacji, zobacz [VirtualMachineExtension klasy](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet.).
 
 ```json
             "name": "Microsoft.Powershell.DSC",
@@ -71,11 +68,11 @@ Rozszerzenia DSC dziedziczy właściwości domyślne rozszerzenie, zgodnie z opi
                     }
 ```
 
-## <a name="template-example-for-windows-vmss"></a>Przykład szablonu VMSS systemu Windows
+## <a name="template-example-for-windows-virtual-machine-scale-sets"></a>Ustawia szablonu przykład skalowania maszyny wirtualnej systemu Windows
 
-Węzeł VMSS ma sekcję "właściwości" od "VirtualMachineProfile", "extensionProfile" atrybutu. DSC zostanie dodany w obszarze "rozszerzenia".
+Węzeł zestaw skali maszyny wirtualnej ma **właściwości** sekcja, która ma **VirtualMachineProfile, extensionProfile** atrybutu. W obszarze **rozszerzenia**, Dodaj DSC.
 
-Rozszerzenia DSC dziedziczy właściwości domyślne rozszerzenie, zgodnie z opisem w [VirtualMachineScaleSetExtension klasy](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet).
+Rozszerzenia DSC dziedziczy właściwości domyślne rozszerzenie. Aby uzyskać więcej informacji, zobacz [VirtualMachineScaleSetExtension klasy](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet).
 
 ```json
 "extensionProfile": {
@@ -114,11 +111,9 @@ Rozszerzenia DSC dziedziczy właściwości domyślne rozszerzenie, zgodnie z opi
 
 ## <a name="detailed-settings-information"></a>Informacje szczegółowe ustawienia
 
-Następujące schemat jest przeznaczony dla części ustawień rozszerzenia usługi Konfiguracja DSC Azure w szablonie usługi Azure Resource Manager.
+Użyj następującego schematu w **ustawienia** sekcję rozszerzenia usługi Konfiguracja DSC Azure w szablonie usługi Resource Manager.
 
-*Aby uzyskać listę argumentów dla skryptu konfiguracji domyślnej*
-*znajduje się poniżej sekcji o nazwie*
-*[skryptu konfiguracji domyślnej](##Default-Configuration-Script) *.
+Aby uzyskać listę argumentów, które są dostępne dla skryptu konfiguracji domyślnej, zobacz [domyślne skryptu konfiguracji](#default-configuration-script).
 
 ```json
 
@@ -166,42 +161,39 @@ Następujące schemat jest przeznaczony dla części ustawień rozszerzenia usł
 
 | Nazwa właściwości | Typ | Opis |
 | --- | --- | --- |
-| settings.wmfVersion |ciąg |Określa wersję Windows Management Framework, która ma zostać zainstalowana na maszynie Wirtualnej. Ustawienie tej właściwości "najnowsze" spowoduje zainstalowanie najnowszych wersji platformy WMF. Tylko bieżące możliwe wartości dla tej właściwości to **"4.0", "5.0", "5.0PP' i"r"**. Te wartości można podlegają aktualizacji. Wartość domyślna to "najnowsze". |
-| settings.configuration.url |ciąg |Określa adres URL lokalizacji, z którego można pobrać pliku zip konfiguracji DSC. Podany adres URL wymaga tokenu sygnatury dostępu Współdzielonego w celu uzyskania dostępu, należy ustawić właściwość protectedSettings.configurationUrlSasToken wartość token sygnatury dostępu Współdzielonego. Ta właściwość jest wymagana, jeśli zdefiniowano settings.configuration.script i/lub settings.configuration.function. Jeśli wartość nie podano tych właściwości, rozszerzenie wywoła skryptu konfiguracji domyślnej można ustawić LCM metadanych i argumenty powinny być dostarczane. |
-| settings.configuration.script |ciąg |Określa nazwę pliku skryptu, który zawiera definicję konfiguracji DSC. Ten skrypt musi być w folderze głównym pliku zip pobranego z adresu URL określonego przez właściwość configuration.url. Ta właściwość jest wymagana, jeśli zdefiniowano settings.configuration.url i/lub settings.configuration.script. Jeśli wartość nie podano tych właściwości, rozszerzenie wywoła skryptu konfiguracji domyślnej można ustawić LCM metadanych i argumenty powinny być stosowane. |
-| settings.configuration.function |ciąg |Określa nazwę konfiguracji DSC. Konfigurację o nazwie muszą być zawarte w skrypcie zdefiniowane przez configuration.script. Ta właściwość jest wymagana, jeśli zdefiniowano settings.configuration.url i/lub settings.configuration.function. Jeśli wartość nie podano tych właściwości, rozszerzenie wywoła skryptu konfiguracji domyślnej można ustawić LCM metadanych i argumenty powinny być dostarczane. |
-| settings.configurationArguments |Collection |Definiuje parametry, których chcesz przekazać do konfiguracji DSC. Ta właściwość nie jest zaszyfrowany. |
-| settings.configurationData.url |ciąg |Określa adres URL do pobrania pliku (psd1) danych konfiguracji do użycia jako dane wejściowe dla danej konfiguracji DSC. Podany adres URL wymaga tokenu sygnatury dostępu Współdzielonego w celu uzyskania dostępu, należy ustawić właściwość protectedSettings.configurationDataUrlSasToken wartość token sygnatury dostępu Współdzielonego. |
-| settings.privacy.dataEnabled |ciąg |Włącza lub wyłącza gromadzenia danych telemetrii. Są to tylko możliwe wartości dla tej właściwości **"Włącz", "Wyłączone", ", lub $null**. Puste ani mieć wartości null, pozostawiając ta właściwość umożliwia telemetrii. Wartość domyślna to ". [Więcej informacji](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/) |
-| settings.advancedOptions.downloadMappings |Collection |Definiuje alternatywnej lokalizacji, z których można pobrać WMF. [Więcej informacji](http://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx) |
-| protectedSettings.configurationArguments |Collection |Definiuje parametry, których chcesz przekazać do konfiguracji DSC. Ta właściwość jest zaszyfrowany. |
-| protectedSettings.configurationUrlSasToken |ciąg |Określa tokenu sygnatury dostępu Współdzielonego dostępu do adresu URL, zdefiniowane przez configuration.url. Ta właściwość jest zaszyfrowany. |
-| protectedSettings.configurationDataUrlSasToken |ciąg |Określa tokenu sygnatury dostępu Współdzielonego dostępu do adresu URL, zdefiniowane przez configurationData.url. Ta właściwość jest zaszyfrowany. |
+| settings.wmfVersion |ciąg |Określa wersję programu Windows Management Framework (WMF), który powinien być zainstalowany na maszynie Wirtualnej. Ustawienie tej właściwości na **najnowsze** instaluje najnowszą wersję programu WMF. Obecnie są to tylko możliwe wartości dla tej właściwości **4.0**, **5.0**, **5.0PP**, i **najnowsze**. Te wartości można podlegają aktualizacji. Wartość domyślna to **najnowsze**. |
+| settings.configuration.url |ciąg |Określa lokalizację adres URL, z której można pobrać pliku zip konfiguracji DSC. Jeśli podany adres URL wymaga tokenu sygnatury dostępu Współdzielonego w celu uzyskania dostępu, ustaw **protectedSettings.configurationUrlSasToken** na wartość token sygnatury dostępu Współdzielonego. Ta właściwość jest wymagana, jeśli **settings.configuration.script** lub **settings.configuration.function** są zdefiniowane. Jeśli wartość nie podano tych właściwości, rozszerzenie wywołuje skrypt konfiguracji domyślnej można ustawić metadane lokalizacji Configuration Manager (LCM), a argumenty powinny być dostarczane. |
+| settings.configuration.script |ciąg |Określa nazwę pliku skryptu, który zawiera definicję konfiguracji DSC. Ten skrypt musi być w folderze głównym pliku zip, który jest pobierana z określony przez adres URL **configuration.url** właściwości. Ta właściwość jest wymagana, jeśli **settings.configuration.url** lub **settings.configuration.script** są zdefiniowane. Jeśli wartość nie podano tych właściwości, rozszerzenie wywołuje skrypt konfiguracji domyślnej można ustawić LCM metadanych i argumenty powinny być dostarczane. |
+| settings.configuration.function |ciąg |Określa nazwę konfiguracji DSC. Konfiguracja o nazwie muszą być zawarte w skrypcie który **configuration.script** definiuje. Ta właściwość jest wymagana, jeśli **settings.configuration.url** lub **settings.configuration.function** są zdefiniowane. Jeśli wartość nie podano tych właściwości, rozszerzenie wywołuje skrypt konfiguracji domyślnej można ustawić LCM metadanych i argumenty powinny być dostarczane. |
+| settings.configurationArguments |Collection |Definiuje parametry, które mają być przekazywane do konfiguracji DSC. Ta właściwość nie jest zaszyfrowany. |
+| settings.configurationData.url |ciąg |Określa adres URL do pobrania pliku (psd1) danych konfiguracji do użycia jako dane wejściowe dla danej konfiguracji DSC. Jeśli podany adres URL wymaga tokenu sygnatury dostępu Współdzielonego w celu uzyskania dostępu, ustaw **protectedSettings.configurationDataUrlSasToken** na wartość token sygnatury dostępu Współdzielonego. |
+| settings.privacy.dataEnabled |ciąg |Włącza lub wyłącza gromadzenia danych telemetrii. Są to tylko możliwe wartości dla tej właściwości **włączyć**, **wyłączyć**, **''**, lub **$null**. Puste ani mieć wartości null, pozostawiając ta właściwość umożliwia telemetrii. Wartość domyślna to **''**. Aby uzyskać więcej informacji, zobacz [zbierania danych rozszerzenia usługi Konfiguracja DSC Azure](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/). |
+| settings.advancedOptions.downloadMappings |Collection |Definiuje alternatywnej lokalizacji, z których można pobrać WMF. Aby uzyskać więcej informacji, zobacz [rozszerzenia usługi Konfiguracja DSC Azure 2.8 i sposób odwzorowywania pobieranie zależności rozszerzenia własnej lokalizacji](http://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx). |
+| protectedSettings.configurationArguments |Collection |Definiuje parametry, które mają być przekazywane do konfiguracji DSC. Ta właściwość jest zaszyfrowany. |
+| protectedSettings.configurationUrlSasToken |ciąg |Określa tokenu sygnatury dostępu Współdzielonego na potrzeby dostępu do adresu URL który **configuration.url** definiuje. Ta właściwość jest zaszyfrowany. |
+| protectedSettings.configurationDataUrlSasToken |ciąg |Określa tokenu sygnatury dostępu Współdzielonego na potrzeby dostępu do adresu URL który **configurationData.url** definiuje. Ta właściwość jest zaszyfrowany. |
 
 ## <a name="default-configuration-script"></a>Skrypt konfiguracji domyślnej
 
-Aby uzyskać więcej informacji o tych wartości, zobacz stronę dokumentacji [lokalnego podstawowych ustawień programu Configuration Manager](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig#basic-settings).
-Można skonfigurować za pomocą skryptu konfiguracji domyślnej rozszerzenia DSC są tylko właściwości LCM w poniższej tabeli.
+Aby uzyskać więcej informacji na temat następujące wartości, zobacz [lokalny program Configuration Manager podstawowe ustawienia](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig#basic-settings). Skrypt konfiguracji DSC rozszerzenia domyślna służy do konfigurowania właściwości LCM, które są wymienione w poniższej tabeli.
 
 | Nazwa właściwości | Typ | Opis |
 | --- | --- | --- |
-| settings.configurationArguments.RegistrationKey |SecureString |Wymagana właściwość. Określa klucz służący do węzła, aby zarejestrować w usłudze Automatyzacja Azure jako hasło obiekt poświadczeń PowerShell. Ta wartość może być wykrywane automatycznie przy użyciu metody listkeys względem konta automatyzacji i powinien być zabezpieczony jako ustawienie chronionych. |
-| settings.configurationArguments.RegistrationUrl |ciąg |Wymagana właściwość. Określa adres Url punktu końcowego usługi Automatyzacja Azure, gdzie węzeł będzie podejmować próby zarejestrowania. Tę wartość można automatycznie odnaleźć przy użyciu metody reference względem konta automatyzacji. |
-| settings.configurationArguments.NodeConfigurationName |ciąg |Wymagana właściwość. Określa konfigurację węzła w ramach konta usługi Automatyzacja Azure można przypisać do tego węzła. |
-| settings.configurationArguments.ConfigurationMode |ciąg |Określa tryb dla lokalnego programu Configuration Manager. Prawidłowe opcje to "ApplyOnly", "ApplyandMonitor" i "ApplyandAutoCorrect".  Wartość domyślna to "ApplyandMonitor". |
-| settings.configurationArguments.RefreshFrequencyMins | uint32 | Określa, jak często LCM próbuje skontaktować się z konta automatyzacji aktualizacji.  Wartość domyślna to 30.  Wartość minimalna wynosi 15. |
-| settings.configurationArguments.ConfigurationModeFrequencyMins | uint32 | Określa, jak często LCM sprawdzi poprawność bieżącej konfiguracji.  Wartość domyślna to 15.  Wartość minimalna wynosi 15. |
-| settings.configurationArguments.RebootNodeIfNeeded | wartość logiczna | Określa, czy węzeł może być automatycznie ponownie uruchomiony, jeśli żądanie operacji usługi Konfiguracja DSC.  Wartość domyślna to false. |
-| settings.configurationArguments.ActionAfterReboot | ciąg | Określa, co się stanie po ponownym uruchomieniu podczas stosowania konfiguracji. Prawidłowe opcje to "ContinueConfiguration" i "StopConfiguration". Wartość domyślna to "ContinueConfiguration". |
-| settings.configurationArguments.AllowModuleOverwrite | wartość logiczna | Określa, czy LCM spowoduje zastąpienie istniejących modułów w węźle.  Wartość domyślna to false. |
+| settings.configurationArguments.RegistrationKey |SecureString |Wymagana właściwość. Określa klucz używany do rejestrowania w usłudze Automatyzacja Azure jako hasło obiekt poświadczeń PowerShell dla węzła. Tę wartość można automatycznie odnaleźć za pomocą **listkeys** metody względem konta automatyzacji. Wartość powinien być zabezpieczony jako ustawienie chronionych. |
+| settings.configurationArguments.RegistrationUrl |ciąg |Wymagana właściwość. Określa adres URL punktu końcowego automatyzacji, gdzie węzeł próbuje zarejestrować. Tę wartość można automatycznie odnaleźć za pomocą **odwołania** metody względem konta automatyzacji. |
+| settings.configurationArguments.NodeConfigurationName |ciąg |Wymagana właściwość. Określa konfigurację węzła w ramach konta automatyzacji można przypisać do tego węzła. |
+| settings.configurationArguments.ConfigurationMode |ciąg |Określa tryb LCM. Prawidłowe opcje to **ApplyOnly**, **ApplyandMonitor**, i **ApplyandAutoCorrect**.  Wartość domyślna to **ApplyandMonitor**. |
+| settings.configurationArguments.RefreshFrequencyMins | uint32 | Określa, jak często LCM próbuje skontaktować się z konta automatyzacji aktualizacji.  Wartość domyślna to **30**.  Minimalna wartość to **15**. |
+| settings.configurationArguments.ConfigurationModeFrequencyMins | uint32 | Określa, jak często LCM sprawdza bieżącą konfigurację. Wartość domyślna to **15**. Minimalna wartość to **15**. |
+| settings.configurationArguments.RebootNodeIfNeeded | wartość logiczna | Określa, czy węzeł może być automatycznie ponownie uruchomiony, jeśli żądanie operacji DSC. Wartość domyślna to **false**. |
+| settings.configurationArguments.ActionAfterReboot | ciąg | Określa, co się stanie po ponownym uruchomieniu podczas stosowania konfiguracji. Prawidłowe opcje to **ContinueConfiguration** i **StopConfiguration**. Wartość domyślna to **ContinueConfiguration**. |
+| settings.configurationArguments.AllowModuleOverwrite | wartość logiczna | Określa, czy LCM spowoduje zastąpienie istniejących modułów w węźle. Wartość domyślna to **false**. |
 
 ## <a name="settings-vs-protectedsettings"></a>Ustawienia programu vs. ProtectedSettings
 
-Wszystkie ustawienia są zapisywane w pliku tekstowym ustawień na maszynie Wirtualnej.
-Właściwości w obszarze "ustawienia" są właściwości publiczne, ponieważ nie są szyfrowane w pliku tekstowym ustawienia.
-Właściwości w obszarze "protectedSettings" są szyfrowane przy użyciu certyfikatu i nie są wyświetlane w postaci zwykłego tekstu, w tym pliku na maszynie Wirtualnej.
+Wszystkie ustawienia są zapisywane w pliku tekstowym ustawień na maszynie Wirtualnej. Właściwości wyświetlane w obszarze **ustawienia** nie ma właściwości publicznej. Właściwości publiczne nie są szyfrowane w pliku tekstowym ustawienia. Właściwości wyświetlane w obszarze **protectedSettings** są szyfrowane przy użyciu certyfikatu i nie są wyświetlane w postaci zwykłego tekstu w pliku ustawień na maszynie Wirtualnej.
 
-Jeśli konfiguracja wymaga poświadczeń, mogły one zostać uwzględnione w protectedSettings:
+Konfiguracja wymaga poświadczeń, można używać poświadczeń w **protectedSettings**:
 
 ```json
 "protectedSettings": {
@@ -214,10 +206,9 @@ Jeśli konfiguracja wymaga poświadczeń, mogły one zostać uwzględnione w pro
 }
 ```
 
-## <a name="example"></a>Przykład
+## <a name="example-configuration-script"></a>Przykładowy skrypt konfiguracji
 
-Poniższy przykład jest to zachowanie domyślne dla rozszerzenia DSC, czyli Określ ustawienia metadanych do lokalnego programu Configuration Manager i zarejestrować w usłudze Konfiguracja DSC automatyzacji Azure.
-Argumenty konfiguracji są wymagane i zostaną przekazane do skryptu konfiguracji domyślnej można ustawić LCM metadanych.
+W poniższym przykładzie przedstawiono domyślne zachowanie dla rozszerzenia usługi Konfiguracja DSC jest zapewnienie ustawienia metadanych LCM i zarejestrować w usłudze Konfiguracja DSC automatyzacji. Argumenty konfiguracji są wymagane.  Argumenty konfiguracji są przekazywane do skryptu konfiguracji domyślnej można ustawić LCM metadanych.
 
 ```json
 "settings": {
@@ -240,14 +231,11 @@ Argumenty konfiguracji są wymagane i zostaną przekazane do skryptu konfiguracj
 }
 ```
 
-## <a name="example-using-configuration-script-in-azure-storage"></a>Przykład za pomocą skryptu konfiguracji w usłudze Azure Storage
+## <a name="example-using-the-configuration-script-in-azure-storage"></a>Przykład za pomocą skryptu konfiguracji w usłudze Azure Storage
 
-Poniższy przykład pochodzi z sekcji "Wprowadzenie" [strony Przegląd programu obsługi rozszerzenia DSC](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-W tym przykładzie używane szablony Menedżera zasobów zamiast polecenia cmdlet, aby wdrożyć rozszerzenie.
-Zapisz konfigurację "IisInstall.ps1", umieść ją w. Plik ZIP i przekazać plik w dostępny adres URL.
-W tym przykładzie użyto magazynu obiektów blob platformy Azure, ale istnieje możliwość pobrania. Pliki ZIP z dowolnego miejsca i dowolnego.
+Poniższy przykład pochodzi [Omówienie obsługi rozszerzenia DSC](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). W tym przykładzie używane szablony Menedżera zasobów zamiast polecenia cmdlet, aby wdrożyć rozszerzenie. Zapisz konfigurację IisInstall.ps1, umieść go w formie pliku .zip i następnie przekazać plik w dostępny adres URL. W tym przykładzie użyto magazynu obiektów Blob platformy Azure, ale możesz pobrać z dowolnego miejsca i dowolnego pliki z rozszerzeniem .zip.
 
-W szablonie usługi Azure Resource Manager następujący kod powoduje, że maszyna wirtualna może pobrać poprawnego pliku i uruchom odpowiednią funkcję programu PowerShell:
+W szablonie usługi Resource Manager następujący kod powoduje, że maszyna wirtualna może pobrać właściwy plik, a następnie uruchom odpowiednią funkcję programu PowerShell:
 
 ```json
 "settings": {
@@ -262,11 +250,11 @@ W szablonie usługi Azure Resource Manager następujący kod powoduje, że maszy
 }
 ```
 
-## <a name="updating-from-the-previous-format"></a>Aktualizowanie z poprzedniego formatu
+## <a name="update-from-a-previous-format"></a>Aktualizacja z poprzedniego formatu
 
-Wszystkie ustawienia w poprzednim formacie (zawierający właściwości publiczne ModulesUrl, ConfigurationFunction, właściwości lub SasToken) automatycznie dostosowania do bieżącego formatu i uruchom tak samo jak przed.
+Wszystkie ustawienia w poprzednim formacie rozszerzenia (, których właściwości publiczne **ModulesUrl**, **ConfigurationFunction**, **SasToken**, lub  **Właściwości**) automatycznie dostosowania do bieżącego formatu rozszerzenia. Działają tak samo jak przed.
 
-Następujące schemat jest jakie poprzednie ustawienia schematu wyszukiwanego, takich jak:
+Następującego schematu pokazuje jakie poprzednie ustawienia schemat wyszukiwanego, takich jak:
 
 ```json
 "settings": {
@@ -298,12 +286,12 @@ Następujące schemat jest jakie poprzednie ustawienia schematu wyszukiwanego, t
 
 Oto, jak poprzedni format dostosowuje się do bieżącego formatu:
 
-| Nazwa właściwości | Odpowiednik w poprzednim schematu |
+| Nazwa właściwości | Poprzednie schematu równoważne |
 | --- | --- |
 | settings.wmfVersion |settings.WMFVersion |
 | settings.configuration.url |settings.ModulesUrl |
-| settings.configuration.script |Pierwsza część ustawień. ConfigurationFunction (przed "\\\\") |
-| settings.configuration.function |Druga część ustawień. ConfigurationFunction (po "\\\\") |
+| settings.configuration.script |Pierwsza część ustawień. ConfigurationFunction (przed \\ \\) |
+| settings.configuration.function |Druga część ustawień. ConfigurationFunction (po \\ \\) |
 | settings.configurationArguments |settings.Properties |
 | settings.configurationData.url |protectedSettings.DataBlobUri (bez tokenu sygnatury dostępu Współdzielonego) |
 | settings.privacy.dataEnabled |settings.Privacy.DataEnabled |
@@ -314,9 +302,7 @@ Oto, jak poprzedni format dostosowuje się do bieżącego formatu:
 
 ## <a name="troubleshooting---error-code-1100"></a>Rozwiązywanie problemów — kod błędu: 1100
 
-Kod błędu 1100 wskazuje, że istnieje problem z danych wejściowych użytkownika do rozszerzenia usługi Konfiguracja DSC.
-Tekst tych błędów jest zmienną i mogą ulec zmianie.
-Poniżej przedstawiono niektóre błędy, które może napotkać oraz jak je naprawić.
+Kod błędu: 1100 wskazuje na problem z danych wejściowych użytkownika do rozszerzenia usługi Konfiguracja DSC. Tekst tych błędów zmienia się i mogą ulec zmianie. Oto kilka błędów, które możesz napotkać i jak można je naprawić.
 
 ### <a name="invalid-values"></a>Nieprawidłowe wartości
 
@@ -325,37 +311,33 @@ Tylko możliwe wartości to ","Włącz"i"Wyłącz"".
 "Jest WmfVersion"{0}".
 Tylko możliwe wartości to... i "najnowsze" ".
 
-Problem: Podana wartość nie jest dozwolona.
+**Problem**: podana wartość nie jest dozwolona.
 
-Rozwiązanie: Zmień nieprawidłową wartość na prawidłową wartość.
-Poniższa tabela w sekcji szczegółów.
+**Rozwiązanie**: Zmień nieprawidłową wartość na prawidłową wartość. Aby uzyskać więcej informacji, zobacz tabelę w [szczegóły](#details).
 
 ### <a name="invalid-url"></a>Nieprawidłowy adres URL
 
 "Jest ConfigurationData.url"{0}". Nie jest prawidłowym adresem URL""jest DataBlobUri "{0}". Nie jest prawidłowym adresem URL""jest Configuration.url "{0}". Nie jest prawidłowym adresem URL"
 
-Problem: A pod warunkiem, że adres URL jest nieprawidłowy.
+**Problem**: A podany adres URL jest nieprawidłowy.
 
-Rozwiązanie: Sprawdź wszystkie podane adresami URL.
-Upewnij się, że wszystkie adresy URL rozwiązania do prawidłowej lokalizacji, czy rozszerzenia dostęp do komputera zdalnego.
+**Rozwiązanie**: Sprawdź wszystkie podane adresami URL. Upewnij się, że wszystkie adresy URL rozpoznać jako prawidłowych lokalizacji czy rozszerzenia dostęp do komputera zdalnego.
 
 ### <a name="invalid-configurationargument-type"></a>Nieprawidłowy typ ConfigurationArgument
 
 "ConfigurationArguments nieprawidłowy typ" {0}
 
-Problem: Właściwość ConfigurationArguments nie można rozpoznać obiektu Hashtable.
+**Problem**: *ConfigurationArguments* nie można rozpoznać właściwości **Hashtable** obiektu.
 
-Rozwiązanie: Upewnij się z właściwości ConfigurationArguments obiektu Hashtable.
-Postępuj zgodnie z formatu podano w przykładzie poprzedzających.
-Zwróć uwagę na cudzysłowy, przecinki oraz nawiasy klamrowe.
+**Rozwiązanie**: Wprowadź Twojej *ConfigurationArguments* właściwości **Hashtable**. Postępuj zgodnie z formatu podany w poprzednim przykładzie. Obserwowanie oferty, przecinki i nawiasy.
 
 ### <a name="duplicate-configurationarguments"></a>Duplicate ConfigurationArguments
 
 "Znaleziono zduplikowane argumentów"{0}"w publicznych i chronionych configurationArguments"
 
-Problem: ConfigurationArguments w ustawieniach publicznego i ConfigurationArguments w chronionych ustawień zawiera właściwości o tej samej nazwie.
+**Problem**: *ConfigurationArguments* w ustawieniach publicznego i *ConfigurationArguments* w ustawieniach chronionego ma właściwości o tej samej nazwie.
 
-Rozwiązanie: Usuń jeden z tych właściwości.
+**Rozwiązanie**: Usuń jeden z tych właściwości.
 
 ### <a name="missing-properties"></a>Brak właściwości
 "Configuration.function wymaga configuration.url lub configuration.module określono"
@@ -370,19 +352,16 @@ Rozwiązanie: Usuń jeden z tych właściwości.
 
 "ConfigurationDataUrlSasToken wymaga się, że określono tego configurationData.url"
 
-Problem: Zdefiniowanych właściwości wymaga innej właściwości, która nie istnieje.
+**Problem**: zdefiniowanych właściwości wymaga innej właściwości, których brakuje.
 
-Rozwiązania:
+**Rozwiązania**:
 
 - Podaj brakuje właściwości.
 - Usuń właściwość, która wymaga brakuje właściwości.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
-Dowiedz się więcej o konfiguracji DSC i zestawach skali maszyn wirtualnych [za pomocą zestawów skali maszyny wirtualnej z rozszerzenia DSC Azure](../../virtual-machine-scale-sets/virtual-machine-scale-sets-dsc.md).
-
-Więcej szczegółów znajduje się na [zarządzania poświadczeniami bezpiecznego DSC](extensions-dsc-credentials.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-Aby uzyskać więcej informacji dotyczących obsługi rozszerzenia usługi Konfiguracja DSC Azure, zobacz [wprowadzenie do obsługi rozszerzenia konfiguracji żądanego stanu Azure](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-Aby uzyskać więcej informacji o konfiguracji DSC środowiska PowerShell [odwiedź Centrum dokumentacji programu PowerShell](https://msdn.microsoft.com/powershell/dsc/overview).
+* Dowiedz się więcej o [zestawów za pomocą skalowania maszyny wirtualnej z rozszerzeniem Azure DSC](../../virtual-machine-scale-sets/virtual-machine-scale-sets-dsc.md).
+* Uzyskać więcej informacji na temat [zarządzania poświadczeniami bezpiecznego DSC](extensions-dsc-credentials.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Pobierz [wprowadzenie do obsługi rozszerzenia usługi Konfiguracja DSC Azure](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Aby uzyskać więcej informacji o konfiguracji DSC środowiska PowerShell, przejdź do [Centrum dokumentacji programu PowerShell](https://msdn.microsoft.com/powershell/dsc/overview).

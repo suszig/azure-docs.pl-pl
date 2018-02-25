@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/21/2017
+ms.date: 02/22/2018
 ms.author: asgang
-ms.openlocfilehash: 7a8cd09731ccdf7ad7385f7e707125c3902ebdf2
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 9e0c602646009b20c8d4f8a29d55b7f44a089131
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="troubleshoot-on-premises-vmwarephysical-server-replication-issues"></a>Rozwiązywanie problemów replikacji serwera VMware/fizyczne lokalnej
 W trakcie ochronę sieci maszyn wirtualnych VMware lub serwerów fizycznych za pomocą usługi Azure Site Recovery może zostać wyświetlony komunikat o błędzie. Ten artykuł zawiera szczegóły dotyczące niektórych bardziej typowe komunikaty o błędach napotkano wraz z czynności pozwalające rozwiązać je.
@@ -83,11 +83,11 @@ Jeśli nie możesz się połączyć, sprawdź, czy problem dostępu występuje z
 
   `*.backup.windowsazure.com:` służy do transferowania i organizowania danych replikacji
 
-  `*.blob.core.windows.net:`Używane do uzyskiwania dostępu do konta magazynu, czy magazyny zreplikowanych danych
+  `*.blob.core.windows.net:` Używane do uzyskiwania dostępu do konta magazynu, czy magazyny zreplikowanych danych
 
   `*.hypervrecoverymanager.windowsazure.com:` służy do wykonywania operacji i organizowania zarządzania replikacją
 
-  `time.nist.gov`i `time.windows.com`: użytych do sprawdzenia synchronizacja czasu między systemem a czasem globalnym.
+  `time.nist.gov` i `time.windows.com`: użytych do sprawdzenia synchronizacja czasu między systemem a czasem globalnym.
 
 Adresy URL **chmury Azure dla instytucji rządowych**:
 
@@ -115,5 +115,5 @@ Otwórz go i kliknij akcję > Zmień właściwości. Na karcie Konfiguracja serw
 
 * **Sprawdź, czy ograniczania przepustowości nie jest ograniczane na serwerze przetwarzania**: zwiększyć przepustowość i sprawdź, czy problem nadal występuje.
 
-##<a name="next-steps"></a>Następne kroki
+##<a name="next-steps"></a>Kolejne kroki
 Jeśli potrzebujesz więcej pomocy, opublikuj wpis kwerendy do [forum usługi Azure Site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). Mamy aktywną społeczność i jeden z naszych inżynierów będzie można pomóc.

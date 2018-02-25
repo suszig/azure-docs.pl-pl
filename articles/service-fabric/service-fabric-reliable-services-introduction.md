@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 2/23/2018
 ms.author: masnider;
-ms.openlocfilehash: 601b1c7713c9785d949c1c72000ec7f3f63dd682
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c583d99a63c13a0a2ab351f82a4f5ff6840788a
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="reliable-services-overview"></a>Omówienie usług Reliable Services
 Sieć szkieletowa usług Azure upraszcza zapisywanie i bezstanowe i stanowe niezawodne usługi zarządzania. W tym temacie omówiono:
@@ -40,12 +40,12 @@ Niezawodne usługi zapewnia prosty, zaawansowane, najwyższego poziomu model pro
   * odbieranie powiadomień o zmianach dotyczących konfiguracji i kod
   * Wyszukiwanie i komunikowanie się z innymi usługami
   * (opcjonalnie) użyć [niezawodnej kolekcje](service-fabric-reliable-services-reliable-collections.md)
-  * ...a udzieleniem im dostępu do wielu innych funkcji, wszystkie z pierwszej klasie model programowania w wielu językach programowania.
+  * .. .a udzieleniem im dostępu do wielu innych funkcji, wszystkie z pierwszej klasie model programowania w wielu językach programowania.
 * Prostego modelu do uruchamiania z własnego kodu, który wygląda jak modeli, które są używane do programowania. Kod ma punktu wejścia dobrze zdefiniowany i łatwe do zarządzania cyklem życia.
 * Model podłączany komunikacji. Użyj transportu wybranych przez użytkownika, takich jak HTTP z [interfejsu API sieci Web](service-fabric-reliable-services-communication-webapi.md), Websocket, niestandardowe protokoły TCP lub innych elementów. Niezawodne usługi zapewniają dużą niektóre opcje poza pole można użyć lub Podaj własny.
 * Dla stanowych usług modelu programowania usług niezawodnej pozwala na spójne i niezawodne przechowywanie swój stan wewnątrz usługi przy użyciu [niezawodnej kolekcje](service-fabric-reliable-services-reliable-collections.md). Niezawodne kolekcje są prostym zestawem typu klas kolekcji wysokiej dostępności i niezawodne, znanych dla każdego, kto został użyty kolekcje C#. Tradycyjnie usług niezbędnych systemów zewnętrznych dla zarządzania stanem niezawodne. Z kolekcjami niezawodne można przechowywać swój stan obok obliczeniowych o tej samej wysokiej dostępności i niezawodności, które zostały NAS oczekiwać sklepach zewnętrznych wysokiej dostępności. Ten model również poprawia czas oczekiwania, ponieważ kolokacja obliczeniowych i stan, jaki musi działać.
 
-Obejrzyj ten film Microsoft Virtual Academy omówienie niezawodne usługi:<center>
+Obejrzyj ten film Microsoft Virtual Academy omówienie niezawodne usługi: <center>
 <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=HhD9566yC_4106218965">
 <img src="./media/service-fabric-reliable-services-introduction/ReliableServicesVid.png" WIDTH="360" HEIGHT="244" />
 </a>
@@ -113,7 +113,7 @@ Jedną z następujących czynności scharakteryzowania wymagań usługi aplikacj
 * Aplikacja wymaga przechowywania historii zmian dla jednostki jego stanu.
 * Chcesz rozwijać lub zużywać dostawców innych firm — rozwinięte, niestandardowe stanu.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Niezawodne usługi szybki start](service-fabric-reliable-services-quick-start.md)
 * [Niezawodne usługi advanced użycia](service-fabric-reliable-services-advanced-usage.md)
 * [Model programowania Reliable Actors](service-fabric-reliable-actors-introduction.md)
