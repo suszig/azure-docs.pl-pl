@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/20/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: d96e2e6767ca01c8c16403a8846e3ab9d16796bc
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 89f3ceeb95b4a8b498523e0d73930740bcadd268
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Wymagania dotyczące certyfikatów infrastruktury kluczy publicznych stosu Azure
 Azure stos nie zawiera publicznych infrastruktury sieci przy użyciu dostępne z zewnątrz publiczne adresy IP przypisane do niewielki zestaw usług Azure stosu i prawdopodobnie maszyny wirtualne dzierżawców. Certyfikaty PKI z odpowiedniej nazwy DNS dla tych punktów końcowych infrastruktury publicznych stosu Azure są wymagane podczas wdrażania usługi Azure stosu. Ten artykuł zawiera informacje na temat:
@@ -37,6 +37,7 @@ Poniższa lista zawiera opis wymagań dotyczących certyfikatów, które są wym
 - Algorytm podpisu certyfikatu nie może być SHA1, muszą być silniejsze. 
 - Format certyfikatu musi być PFX, jak klucze publiczne i prywatne są wymagane do zainstalowania stosu Azure. 
 - Pliki pfx certyfikatu musi mieć wartość "Podpis cyfrowy" i "KeyEncipherment" w polu "Użycie klucza".
+- Pliki pfx certyfikatu musi mieć wartości "Uwierzytelnianie serwera (1.3.6.1.5.5.7.3.1)" i "Uwierzytelnianie klienta (1.3.6.1.5.5.7.3.2)" w polu "Ulepszone użycie klucza".
 - Hasła do wszystkich plików pfx certyfikatów muszą być takie same w czasie wdrażania
 - Upewnij się, że nazwy podmiotu i alternatywnej nazwy podmiotu wszystkie certyfikaty są zgodne ze specyfikacjami opisane w tym artykule, aby uniknąć wdrożenia nie powiodło się.
 

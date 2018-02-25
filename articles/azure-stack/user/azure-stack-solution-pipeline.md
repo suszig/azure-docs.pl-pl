@@ -3,7 +3,7 @@ title: "Wdrażanie aplikacji na platformie Azure oraz Azure stosu | Dokumentacja
 description: "Dowiedz się, jak wdrażać aplikacje na platformie Azure oraz Azure stosu z potokiem CI/CD hybrydowego."
 services: azure-stack
 documentationcenter: 
-author: brenduns
+author: jeffgilb
 manager: femila
 editor: 
 ms.service: azure-stack
@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/25/2017
-ms.author: brenduns
-ms.reviewer: 
+ms.date: 02/21/2018
+ms.author: jeffgilb
+ms.reviewer: unknown
 ms.custom: mvc
-ms.openlocfilehash: 6c073376db196b7d6c73c38d6a0a7b2c24949528
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 6292a846a2c3d7e112558ef0d2b62b3a3fdd3c51
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="deploy-apps-to-azure-and-azure-stack"></a>Wdrażanie aplikacji na platformie Azure oraz Azure stosu
 *Dotyczy: Azure stosu zintegrowanych systemów i Azure stosu Development Kit*
@@ -50,7 +50,7 @@ W tym temacie założono również, czy masz pewna znajomość Azure oraz Azure 
  - Wdrażanie [usługi aplikacji](../azure-stack-app-service-deploy.md) PaaS usług Azure stosu.
  - Tworzenie aplikacji sieci Web i konfigurowania jej dla [publikacji FTP](../azure-stack-app-service-enable-ftp.md).  Zanotuj URL nowej aplikacji sieci Web, które jest używane później.  
 
-### <a name="developer-tools"></a>Narzędzia deweloperskie
+### <a name="developer-tools"></a>Narzędzia dla deweloperów
  - Utwórz [obszaru roboczego programu VSTS](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services).  Proces tworzenia konta tworzy projekt o nazwie "MyFirstProject."  
  - [Zainstaluj program Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) i [logowania do programu VSTS](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services#connect-and-share-code-from-visual-studio)
  - Połącz się z projektem i [sklonować lokalnie](https://www.visualstudio.com/docs/git/gitquickstart).
@@ -72,7 +72,7 @@ W tej sekcji możesz utworzyć prostą aplikację ASP.NET i wypchnąć go do us�
 ### <a name="commit-and-push-changes-to-vsts"></a>Zatwierdź i Wypchnij zmiany do programu VSTS
 1.  W programie Visual Studio przy użyciu programu Team Explorer, wybierz z listy rozwijanej, a następnie kliknij przycisk **zmiany**.
 2.  Podaj komunikat zatwierdzenia i wybierz **zatwierdzić wszystkie**. Może pojawić się prośba do zapisywania pliku rozwiązania, kliknij przycisk Tak, aby zapisać wszystkie.
-3.  Po zatwierdzone, Visual Studio oferuje zsynchronizować zmiany do projektu. Wybierz **synchronizacji**.
+3.  Po zatwierdzone, Visual Studio oferuje zsynchronizować zmiany do projektu. Wybierz pozycję **Synchronizuj**.
 
     ![Obraz przedstawiający ekranu zatwierdzania po zakończeniu przekazywania](./media/azure-stack-solution-pipeline/image1.png)
 

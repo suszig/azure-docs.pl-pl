@@ -3,8 +3,8 @@ title: "Rozwiązywanie problemów z Microsoft Azure stosu | Dokumentacja firmy M
 description: "Azure stosu dotyczących rozwiązywania problemów."
 services: azure-stack
 documentationcenter: 
-author: heathl17
-manager: byronr
+author: jeffgilb
+manager: femila
 editor: 
 ms.assetid: a20bea32-3705-45e8-9168-f198cfac51af
 ms.service: azure-stack
@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2017
-ms.author: helaw
-ms.openlocfilehash: 0a8e871a3a44cb14503832d2f3a096712f8112a7
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.date: 02/21/2018
+ms.author: jeffgilb
+ms.reviewer: unknown
+ms.openlocfilehash: 799a7f7ed7e2373e4cf819a34d5deb362c9e6a3f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Rozwiązywanie problemów z Microsoft Azure stosu
 
@@ -26,37 +27,37 @@ ms.lasthandoff: 11/13/2017
 
 Ten dokument zawiera typowe informacje dotyczące rozwiązywania problemów dla stosu Azure. 
 
-Ponieważ Azure stosu techniczne Development Kit jest oferowany jako środowisko oceny, nie jest oficjalną obsługiwane z usług obsługi klienta firmy Microsoft.  Jeśli występuje problem nie opisano, upewnij się sprawdzić [Forum MSDN stosu Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) dalszą pomoc i informacje.  
+Ponieważ Azure stosu techniczne Development Kit jest oferowany jako środowisko oceny, nie jest oficjalną obsługiwane z usług obsługi klienta firmy Microsoft. Jeśli występuje problem nie opisano, upewnij się sprawdzić [Forum MSDN stosu Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) dalszą pomoc i informacje.  
 
 Zalecenia dotyczące rozwiązywania problemów, które zostały opisane w tej sekcji są uzyskiwane z wielu źródeł i może lub nie może rozpoznać określonego problemu. Przykłady kodu są dostarczane, ponieważ jest i nie można zagwarantować oczekiwanych rezultatów. W tej sekcji podlega częste zmiany i aktualizacje zaimplementowanego ulepszenia produktu.
 
 ## <a name="deployment"></a>Wdrożenie
 ### <a name="deployment-failure"></a>Niepowodzenie wdrożenia
-Jeśli wystąpi błąd podczas instalacji, można użyć opcji Uruchom ponownie skrypt wdrożenia ponowne wdrożenie z kroku zakończonego niepowodzeniem.  
+Jeśli wystąpi błąd podczas instalacji, możesz ponownie uruchomić wdrażania z kroku nie powiodło się przy użyciu opcji Uruchom ponownie skrypt wdrożenia.  
 
 
 ### <a name="at-the-end-of-the-deployment-the-powershell-session-is-still-open-and-doesnt-show-any-output"></a>Po zakończeniu wdrożenia sesji programu PowerShell jest wciąż otwarty i nie wyświetla żadnych danych wyjściowych
-To zachowanie jest prawdopodobnie tylko wynik domyślne zachowanie okno poleceń programu PowerShell, gdy została wybrana. Rozwój wdrożenie zestawu faktycznie ma zakończyło się pomyślnie, ale skrypt został wstrzymany, wybierając okna. Możesz sprawdzić, czy jest to możliwe, wyszukując słowa "Wybierz" pasek tytułu okna wiersza polecenia.  Naciśnij klawisz ESC, aby usunąć jej zaznaczenie, a powinien być wyświetlany komunikat o zakończeniu po nim.
+To zachowanie jest prawdopodobnie tylko wynik domyślne zachowanie okno poleceń programu PowerShell, gdy została wybrana. Rozwój wdrożenie zestawu faktycznie ma zakończyło się pomyślnie, ale skrypt został wstrzymany, wybierając okna. Możesz sprawdzić, czy instalacja została ukończona, wyszukując słowa "Wybierz" pasek tytułu okna wiersza polecenia.  Naciśnij klawisz ESC, aby usunąć jej zaznaczenie, a powinien być wyświetlany komunikat o zakończeniu po nim.
 
 ## <a name="virtual-machines"></a>Maszyny wirtualne
 ### <a name="default-image-and-gallery-item"></a>Element domyślny obraz i galerii
-Najpierw należy dodać element obrazu i galerii systemu Windows Server przed wdrożeniem maszyn wirtualnych Azure stosu.
+Przed wdrożeniem maszyn wirtualnych w stosie Azure należy dodać element obrazu i galerii systemu Windows Server.
 
 ### <a name="after-restarting-my-azure-stack-host-some-vms-may-not-automatically-start"></a>Po ponownym uruchomieniu hosta Moje stosu Azure, niektóre maszyny wirtualne nie może automatycznie uruchomić.
 Po jego ponownym uruchomieniu hosta, można zauważyć, że usługi Azure stosu nie są natychmiast dostępne.  Jest to spowodowane stosu Azure [infrastruktury maszyn wirtualnych](azure-stack-architecture.md#virtual-machine-roles) i RPs małego nieco potrwać do sprawdzania spójności, ale ostatecznie rozpocznie się automatycznie.
 
-Ponadto tej dzierżawy maszyn wirtualnych nie automatycznie uruchomić po ponownym uruchomieniu hosta zestawu programowanie stosu Azure.  Jest to znany problem i wymaga kilku ręczne czynności w celu ich Przełącz do trybu online:
+Ponadto tej dzierżawy maszyn wirtualnych nie automatycznie uruchomić po ponownym uruchomieniu hosta zestawu programowanie stosu Azure. Jest to znany problem i wymaga kilku ręczne czynności w celu ich Przełącz do trybu online:
 
 1.  Na hoście zestawu programowanie stosu Azure, należy uruchomić **Menedżera klastra trybu Failover** z Start Menu.
 2.  Wybierz klaster **S Cluster.azurestack.local**.
 3.  Wybierz **ról**.
-4.  Maszyny wirtualne dzierżawców będą wyświetlane w *zapisane* stanu.  Po wszystkich maszyn wirtualnych infrastruktury są uruchomione, kliknij prawym przyciskiem myszy dzierżawione maszyny wirtualne i wybierz **Start** wznowienie maszyny Wirtualnej.
+4.  Maszyny wirtualne dzierżawy są wyświetlane w *zapisane* stanu. Po wszystkich maszyn wirtualnych infrastruktury są uruchomione, kliknij prawym przyciskiem myszy dzierżawione maszyny wirtualne i wybierz **Start** wznowienie maszyny Wirtualnej.
 
 ### <a name="i-have-deleted-some-virtual-machines-but-still-see-the-vhd-files-on-disk-is-this-behavior-expected"></a>Usunięto niektóre maszyny wirtualne, ale również widzieć plików VHD na dysk. Jest to zachowanie oczekiwane?
 Tak, to zachowanie oczekiwane. Ponieważ została zaprojektowana w ten sposób:
 
 * Po usunięciu maszyny Wirtualnej, wirtualne dyski twarde nie są usuwane. Dyski są oddzielne zasoby w grupie zasobów.
-* Konto magazynu zostaje usunięta, usunięcie jest widoczna od razu za pośrednictwem usługi Azure Resource Manager (portal programu PowerShell), ale dyski, które może on zawierać nadal są przechowywane w magazynie do momentu uruchamia wyrzucanie elementów bezużytecznych.
+* Usunięcie konta magazynu pobiera usunięcia jest widoczna od razu za pośrednictwem usługi Azure Resource Manager, ale dyski, które może on zawierać nadal są przechowywane w magazynie do momentu uruchamia wyrzucanie elementów bezużytecznych.
 
 Jeśli widzisz "oddzielony" wirtualne dyski twarde, należy znać, jeśli są one częścią folderu dla konta magazynu, który został usunięty. Jeśli konto magazynu nie została usunięta, jest normalne, że są one nadal istnieje.
 
