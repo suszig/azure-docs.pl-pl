@@ -4,7 +4,7 @@
   items:
     - name: Informacje o usłudze Web Apps
       href: app-service-web-overview.md
-    - name: Informacje o usłudze Web App for Containers
+    - name: Informacje o usłudze App Service w systemie Linux
       href: containers/app-service-linux-intro.md
     - name: Informacje o środowiskach usługi App Service
       href: environment/intro.md
