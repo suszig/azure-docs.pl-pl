@@ -1,6 +1,6 @@
 - name: Dokumentacja użytkownika usługi Azure Stack
   href: index.yml
-- name: Omówienie
+- name: Przegląd
   items:
     - name: Najważniejsze zagadnienia
       href: azure-stack-considerations.md
@@ -39,7 +39,7 @@
           href: azure-stack-considerations.md
         - name: Wystąpienia obliczeniowe
           items:
-            - name: Omówienie
+            - name: Przegląd
               href: azure-stack-compute-overview.md
             - name: Zagadnienia dotyczące maszyn wirtualnych
               href: azure-stack-vm-considerations.md
@@ -47,7 +47,7 @@
               href: azure-stack-manage-vm-disks.md
         - name: Magazyn
           items:
-            - name: Omówienie
+            - name: Przegląd
               href: azure-stack-storage-overview.md
             - name: Zagadnienia dotyczące magazynu
               href: azure-stack-acs-differences.md
@@ -59,7 +59,7 @@
               href: azure-stack-storage-connect-se.md
         - name: Sieć
           items:
-            - name: Omówienie
+            - name: Przegląd
               href: azure-stack-network-overview.md
             - name: Zagadnienia dotyczące pracy w sieci
               href: azure-stack-network-differences.md
@@ -69,7 +69,7 @@
               href: azure-stack-dns.md
         - name: Usługa Key Vault
           items:
-            - name: Omówienie
+            - name: Przegląd
               href: azure-stack-kv-intro.md
             - name: Zarządzanie przy użyciu portalu
               href: azure-stack-kv-manage-portal.md
@@ -115,7 +115,7 @@
               href: azure-stack-deploy-template-powershell.md
             - name: Wdrażanie za pomocą programu Visual Studio
               href: azure-stack-deploy-template-visual-studio.md
-- name: Dokumentacja
+- name: Informacje ogólne
   items:
     - name: Azure Stack PowerShell
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
@@ -127,11 +127,15 @@
       href: /azure/azure-stack/
 - name: Zasoby
   items:
-    - name: Harmonogram działania dla platformy Azure
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Forum MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack'
+    - name: Mapa usługi Azure stosu
+      href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
+    - name: Forum MSDN stosu platformy Azure
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
+    - name: Opinie dotyczące dokumentacji stosu Azure
+      href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: Informacje o cenach
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
     - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-stack'
+    - name: Szkolenia i certyfikacja
+      href: 'https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert'

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/30/2018
+ms.date: 02/22/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: a5b321bc06ef14207eddf5aa77ff983ada1e409f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 27b575a1baa793794480d16e91f0f96355b3d303
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Pobieranie elementów marketplace z platformy Azure do stosu Azure
 
@@ -44,7 +44,7 @@ Jak zdecydujesz zawartość do uwzględnienia w Twojej stosu Azure marketplace, 
 
     ![](media/azure-stack-download-azure-marketplace-item/image03.png)
 
-5. Wybierz element na liście, a następnie kliknij przycisk **Pobierz**. Spowoduje to uruchomienie pobierania obrazu maszyny Wirtualnej dla wybranego elementu. Czasu pobierania różnią się.
+5. Wybierz element na liście, a następnie kliknij przycisk **Pobierz**. Obraz maszyny Wirtualnej dla wybranego elementu rozpocznie pobieranie. Czasu pobierania różnią się.
 
     ![](media/azure-stack-download-azure-marketplace-item/image04.png)
 
@@ -62,7 +62,7 @@ Na komputerze, który ma łączność z Internetem wykonaj następujące kroki, 
 
 1. Otwórz konsolę programu PowerShell jako administrator i [zainstalować określone moduły programu PowerShell Azure stosu](azure-stack-powershell-install.md). Upewnij się, że instalujesz program **środowiska PowerShell w wersji 1.2.11 lub nowszej**.  
 
-2. Dodaj konto platformy Azure, używany do rejestrowania stosu Azure. Aby to zrobić, uruchom **Add-AzureRmAccount** polecenia cmdlet bez parametrów. Zostanie wyświetlony monit o wprowadzenie poświadczeń konta platformy Azure i może być konieczne użycie uwierzytelniania wieloskładnikowego 2 na podstawie konfiguracji Twoje konto.  
+2. Dodaj konto platformy Azure, używany do rejestrowania stosu Azure. Aby dodać konta, uruchom **Add-AzureRmAccount** polecenia cmdlet bez parametrów. Zostanie wyświetlony monit o wprowadzenie poświadczeń konta platformy Azure i może być konieczne użycie uwierzytelniania wieloskładnikowego 2 na podstawie konfiguracji Twoje konto.  
 
 3. Jeśli masz wiele subskrypcji, uruchom następujące polecenie, aby wybrać używanego do rejestracji:  
 
@@ -75,16 +75,16 @@ Na komputerze, który ma łączność z Internetem wykonaj następujące kroki, 
 
    ```PowerShell
    # Download the tools archive.
-   invoke-webrequest https://github.com/Azure/AzureStack-Tools/archive/vnext.zip `
-     -OutFile vnext.zip
+   invoke-webrequest https://github.com/Azure/AzureStack-Tools/archive/master.zip `
+     -OutFile master.zip
 
    # Expand the downloaded files.
-   expand-archive vnext.zip `
+   expand-archive master.zip `
      -DestinationPath . `
      -Force
 
    # Change to the tools directory.
-   cd \AzureStack-Tools-vnext
+   cd \AzureStack-Tools-master
 
    ```
 
@@ -94,7 +94,7 @@ Na komputerze, który ma łączność z Internetem wykonaj następujące kroki, 
    Import-Module .\ Syndication\AzureStack.MarketplaceSyndication.psm1
 
    Sync-AzSOfflineMarketplaceItem `
-     -destination “<Destination folder path>” `
+     -destination "<Destination folder path>" `
      -AzureTenantID $AzureContext.Tenant.TenantId `
      -AzureSubscriptionId $AzureContext.Subscription.Id  
    ```
@@ -103,15 +103,17 @@ Na komputerze, który ma łączność z Internetem wykonaj następujące kroki, 
 
    ![Azure podręcznego elementów Marketplace](./media/azure-stack-download-azure-marketplace-item/image05.png)
 
-7. Wybierz obraz, który chcesz pobrać (możesz wybrać wiele obrazów, przytrzymując klawisz Ctrl) i zanotuj wersję obrazu, ta wersja zostanie użyty do zaimportowania obrazu w następnej sekcji > kliknij **Ok** > Zaakceptuj postanowienia prawne klikając **tak**. Można również filtrować listy obrazów za pomocą **Dodaj kryteria** opcji. Pobieranie zajmie trochę czasu w zależności od rozmiaru obrazu. Raz do pobrania obrazu jest dostępny w ścieżce docelowej podane wcześniej. Pobieranie zawiera elementy plików i galerii wirtualnego dysku twardego w formacie Azpkg.  
+7. Wybierz obraz, który chcesz pobrać i zanotuj wersję obrazu. Możesz wybrać wiele obrazów, przytrzymując klawisz Ctrl. Wersja obrazu służy do importowania obrazu w następnej sekcji.  Następnie kliknij przycisk **Ok**, a następnie zaakceptuj postanowienia prawne, klikając **tak**. Można również filtrować listy obrazów za pomocą **Dodaj kryteria** opcji. 
+
+   Pobieranie zajmie trochę czasu w zależności od rozmiaru obrazu. Raz do pobrania obrazu jest dostępny w ścieżce docelowej podane wcześniej. Pobieranie zawiera elementy plików i galerii wirtualnego dysku twardego w formacie Azpkg.
 
 ### <a name="import-the-image-and-publish-it-to-azure-stack-marketplace"></a>Importowanie obrazu i opublikować ją w stosie Azure marketplace
 
-1. Po pobraniu pakietu obrazu & galerii, zapisz je i zawartość w folderze vnext-AzureStack — narzędzia do stacji dysków wymiennych i skopiować go do środowiska Azure stosu (możesz skopiować go do lokalnie do dowolnej lokalizacji takich jak: "C:\MarketplaceImages".)   
+1. Po pobraniu pakietu obrazu i galerii, zapisz je i zawartość w folderze AzureStack Narzędzia główne, aby dysk wymienny i skopiować go do środowiska Azure stosu (można go skopiować lokalnie do dowolnej lokalizacji takich jak: "C:\MarketplaceImages").   
 
 2. Przed zaimportowaniem obrazu, musisz połączyć środowiska operator stosu Azure przy użyciu procedury opisanej w [konfigurowania środowiska PowerShell Azure stosu operator](azure-stack-powershell-configure-admin.md).  
 
-3. Zaimportuj obraz do stosu Azure za pomocą polecenia cmdlet Add-AzsVMImage. Korzystając z tego polecenia cmdlet, upewnij się zastąpić wydawcy, oferty i inne wartości parametru z wartościami właściwości obrazu, który jest importowany. Możesz uzyskać "publisher", "oferty" i "sku" wartości obrazu z elementu imageReference obiektu pobranego wcześniej pliku Azpkg i wartość "version" w kroku 6 w poprzedniej sekcji.
+3. Zaimportuj obraz do stosu Azure za pomocą polecenia cmdlet Add-AzsVMImage. Korzystając z tego polecenia cmdlet, upewnij się zastąpić *wydawcy*, *oferują*i inne wartości parametru z wartościami właściwości obrazu, który jest importowany. Możesz uzyskać *wydawcy*, *oferują*, i *sku* wartości obrazu z elementu imageReference obiektu pobranego wcześniej pliku Azpkg i  *Wersja* wartość z kroku 6 w poprzedniej sekcji.
 
    ```json
    "imageReference": {
@@ -131,8 +133,8 @@ Na komputerze, który ma łączność z Internetem wykonaj następujące kroki, 
     -offer "WindowsServer" `
     -sku "2016-Datacenter-Server-Core" `
     -osType Windows `
-    -Version "2017.09.25" `
-    -OsDiskLocalPath "C:\AzureStack-Tools-master\Syndication\Microsoft.WindowsServer2016DatacenterServerCore-ARM-Eval.2017.09.25.vhd" `
+    -Version "2016.127.20171215" `
+    -OsDiskLocalPath "C:\AzureStack-Tools-master\Syndication\Windows-Server-2016-DatacenterCore-20171215-en.us-127GB.vhd" `
     -CreateGalleryItem $False `
     -Location Local
    ```
