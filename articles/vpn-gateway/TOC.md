@@ -19,6 +19,8 @@
 ### [Interfejs wiersza polecenia platformy Azure](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 ### [Portal Azure (klasyczny)](vpn-gateway-howto-site-to-site-classic-portal.md)
 
+## [Pobieranie skryptów konfiguracji urządzenia sieci VPN](vpn-gateway-download-vpndevicescript.md)
+
 ## Konfigurowanie połączeń typu punkt-lokacja — natywne uwierzytelnianie certyfikatu platformy Azure
 ### Konfigurowanie sieci VPN typu P2S
 #### [Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)

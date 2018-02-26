@@ -62,6 +62,7 @@
 ### [Zagadnienia do rozważenia dotyczące kolejności zdarzeń](stream-analytics-out-of-order-and-late-events.md)
 ### [Limity czytnika centrum zdarzeń](stream-analytics-event-hub-consumer-groups.md)
 ### [Dzienniki diagnostyczne](stream-analytics-job-diagnostic-logs.md)
+### [Pobieranie nieprawidłowo sformułowanych zdarzeń](stream-analytics-malformed-events.md)
 
 ## Automatyzacja
 ### [Korzystanie z zestawu SDK zarządzania dla platformy .NET](stream-analytics-dotnet-management-sdk.md)

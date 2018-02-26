@@ -48,61 +48,62 @@
           href: security-center-customize-os-security-config.md
         - name: Zasady zabezpieczeń korzystające z zasad platformy Azure
           href: security-center-azure-policy.md
-    - name: Monitoruj kondycję zabezpieczeń
-      href: security-center-monitoring.md
-    - name: Tożsamość i dostęp
-      href: security-center-identity-access.md
     - name: Zalecenia dotyczące implementowania zabezpieczeń
       href: security-center-recommendations.md
-    - name: Bezpieczeństwo obliczeń
-      href: security-center-virtual-machine-recommendations.md
+    - name: Monitoruj kondycję zabezpieczeń
+      href: security-center-monitoring.md
       items:
-        - name: Zastosuj szyfrowanie dysków
-          href: security-center-apply-disk-encryption.md
-        - name: Zastosuj aktualizacje systemu
-          href: security-center-apply-system-updates.md
-        - name: Włączanie szyfrowania dla konta magazynu
-          href: security-center-enable-encryption-for-storage-account.md
-        - name: Włącz agenta maszyny wirtualnej
-          href: security-center-enable-vm-agent.md
-        - name: Zainstaluj punkt końcowy
-          href: security-center-install-endpoint-protection.md
-        - name: Uruchom ponownie po zaktualizowaniu systemu
-          href: 'security-center-apply-system-updates.md#reboot-after-system-updates'
-        - name: Korygowanie konfiguracji zabezpieczeń
-          href: security-center-remediate-os-vulnerabilities.md
-        - name: Aktualizacja wersji systemu operacyjnego
-          href: security-center-update-os-version.md
-        - name: Funkcja oceny luk w zabezpieczeniach nie jest zainstalowana
-          href: security-center-vulnerability-assessment-recommendations.md
-    - name: Bezpieczeństwo sieci
-      href: security-center-network-recommendations.md
-      items:
-        - name: Dodawanie zapory nowej generacji
-          href: security-center-add-next-generation-firewall.md
-        - name: Włączanie sieciowych grup zabezpieczeń
-          href: security-center-enable-network-security-groups.md
-        - name: Ograniczanie dostępu przez punkty końcowe łączące się z Internetem
-          href: security-center-restrict-access-through-internet-facing-endpoints.md
-        - name: Kierowanie ruchu sieciowego tylko za pośrednictwem zapory następnej generacji
-          href: 'security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only'
-    - name: Zabezpieczenia magazynu i danych
-      href: security-center-sql-service-recommendations.md
-      items:
-        - name: Włączanie inspekcji i wykrywania zagrożeń w bazach danych SQL
-          href: security-center-enable-auditing-on-sql-databases.md
-        - name: Włączanie inspekcji i wykrywania zagrożeń na serwerach SQL
-          href: security-center-enable-auditing-on-sql-servers.md
-        - name: Włączanie technologii Transparent Data Encryption
-          href: security-center-enable-transparent-data-encryption.md
-    - name: Zabezpieczenia aplikacji
-      href: security-center-application-recommendations.md
-      items:
-        - name: Dodawanie zapory aplikacji sieci Web
-          href: security-center-add-web-application-firewall.md
-        - name: Finalizowanie ochrony aplikacji
-          href: 'security-center-add-web-application-firewall.md#finalize-application-protection'
-    - name: Zabezpieczenia chmury
+        - name: Bezpieczeństwo obliczeń
+          href: security-center-virtual-machine-recommendations.md
+          items:
+            - name: Zastosuj szyfrowanie dysków
+              href: security-center-apply-disk-encryption.md
+            - name: Zastosuj aktualizacje systemu
+              href: security-center-apply-system-updates.md
+            - name: Włączanie szyfrowania dla konta magazynu
+              href: security-center-enable-encryption-for-storage-account.md
+            - name: Włącz agenta maszyny wirtualnej
+              href: security-center-enable-vm-agent.md
+            - name: Zainstaluj punkt końcowy
+              href: security-center-install-endpoint-protection.md
+            - name: Uruchom ponownie po zaktualizowaniu systemu
+              href: 'security-center-apply-system-updates.md#reboot-after-system-updates'
+            - name: Korygowanie konfiguracji zabezpieczeń
+              href: security-center-remediate-os-vulnerabilities.md
+            - name: Aktualizacja wersji systemu operacyjnego
+              href: security-center-update-os-version.md
+            - name: Funkcja oceny luk w zabezpieczeniach nie jest zainstalowana
+              href: security-center-vulnerability-assessment-recommendations.md
+        - name: Bezpieczeństwo sieci
+          href: security-center-network-recommendations.md
+          items:
+            - name: Dodawanie zapory nowej generacji
+              href: security-center-add-next-generation-firewall.md
+            - name: Włączanie sieciowych grup zabezpieczeń
+              href: security-center-enable-network-security-groups.md
+            - name: Ograniczanie dostępu przez punkty końcowe łączące się z Internetem
+              href: security-center-restrict-access-through-internet-facing-endpoints.md
+            - name: Kierowanie ruchu sieciowego tylko za pośrednictwem zapory następnej generacji
+              href: 'security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only'
+        - name: Zabezpieczenia magazynu i danych
+          href: security-center-sql-service-recommendations.md
+          items:
+            - name: Włączanie inspekcji i wykrywania zagrożeń w bazach danych SQL
+              href: security-center-enable-auditing-on-sql-databases.md
+            - name: Włączanie inspekcji i wykrywania zagrożeń na serwerach SQL
+              href: security-center-enable-auditing-on-sql-servers.md
+            - name: Włączanie technologii Transparent Data Encryption
+              href: security-center-enable-transparent-data-encryption.md
+        - name: Zabezpieczenia aplikacji
+          href: security-center-application-recommendations.md
+          items:
+            - name: Dodawanie zapory aplikacji sieci Web
+              href: security-center-add-web-application-firewall.md
+            - name: Finalizowanie ochrony aplikacji
+              href: 'security-center-add-web-application-firewall.md#finalize-application-protection'
+        - name: Tożsamość i dostęp
+          href: security-center-identity-access.md
+    - name: Stosowanie zabezpieczeń chmury
       items:
         - name: Dostęp dokładnie na czas
           href: security-center-just-in-time.md
@@ -136,7 +137,7 @@
           href: security-center-threat-intel.md
         - name: Badanie
           href: security-center-investigation.md
-    - name: Automatyzowanie i organizowanie
+    - name: Automatyzacja przepływów pracy zabezpieczeń
       items:
         - name: Elementy playbook usługi Logic Apps
           href: security-center-playbooks.md

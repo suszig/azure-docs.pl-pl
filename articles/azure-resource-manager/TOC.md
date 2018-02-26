@@ -3,6 +3,7 @@
 ## [Dostawcy zasobów i ich typy](resource-manager-supported-services.md)
 ## [Wdrażanie za pomocą usługi Resource Manager i klasyczne](resource-manager-deployment-model.md)
 ## [Nadzór subskrypcji](resource-manager-subscription-governance.md)
+## [Organizowanie zasobów przy użyciu grup zarządzania](management-groups-overview.md)
 
 # Rozpoczęcie pracy
 ## [Szablon tworzenia i wdrażania](resource-manager-create-first-template.md)
@@ -45,7 +46,8 @@
 ### [Interfejs API REST](resource-manager-rest-api.md)
 ### [Organizowanie zasobów przy użyciu tagów](resource-group-using-tags.md)
 ### [Przenoszenie zasobów do nowej grupy lub subskrypcji](resource-group-move-resources.md)
-### [Organizowanie subskrypcji przy użyciu grup zarządzania](../billing/billing-enterprise-mgmt-group-overview.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Tworzenie grupy zarządzania](management-groups-create.md)
+### [Zarządzanie grupami zarządzania](management-groups-manage.md)
 ### [Przykłady nadzoru](resource-manager-subscription-examples.md)
 ### [Aplikacje zarządzane](../managed-applications/overview.md)
 

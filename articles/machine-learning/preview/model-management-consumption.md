@@ -4,17 +4,17 @@ description: "W tym dokumencie opisano kroki i koncepcje zaangażowane w korzyst
 services: machine-learning
 author: raymondlaghaeian
 ms.author: raymondl
-manager: neerajkh
-ms.reviewer: garyericson, jasonwhowell, mldocs
+manager: hjerez
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: 120611f98c97fa4c5bfa2a44aece47f246d9ec57
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: b8641cd2d4a34821b7cf0e644345f0904bad294a
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="consuming-web-services"></a>Korzystanie z usług sieci web
 Gdy należy wdrożyć model jako usługę sieci web w czasie rzeczywistym, możesz przesyła dane i uzyskać prognoz z różnych platform i aplikacji. Usługa sieci web czasu rzeczywistego udostępnia interfejs API REST dla pobierania prognoz. Można wysyłać dane do usługi sieci web w formacie jednego lub wielu wierszy można pobrać co najmniej jeden prognoz naraz.
