@@ -42,7 +42,7 @@
 #### [Korzystanie z programu Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md)
 ### [Skalowanie w pionie w zestawie skalowania](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 ### [Automatyczne uaktualnienia systemu operacyjnego](virtual-machine-scale-sets-automatic-upgrade.md)
-### [Uaktualnienia dla zestawów skalowania](virtual-machine-scale-sets-upgrade-scale-set.md)
+### [Modyfikowanie zestawu skalowania](virtual-machine-scale-sets-upgrade-scale-set.md)
 ### [Korzystanie z DSC i zestawy skalowania](virtual-machine-scale-sets-dsc.md)
 ### [Networking for scale sets (Sieć dla zestawów skalowania)](virtual-machine-scale-sets-networking.md)
 ### [Konwertowanie szablonu na dyski zarządzane](virtual-machine-scale-sets-convert-template-to-md.md)

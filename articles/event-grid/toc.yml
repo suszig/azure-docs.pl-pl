@@ -36,14 +36,16 @@
       href: delivery-and-retry.md
 - name: Przewodniki z instrukcjami
   items:
+    - name: Publikowanie w temacie niestandardowym
+      href: post-to-custom-topic.md
     - name: Odbieranie zdarzeń w punkcie końcowym HTTP
       href: receive-events.md
     - name: Strumieniowe przesyłanie danych z usługi Event Hubs do magazynu danych
       href: event-grid-event-hubs-integration.md
     - name: Wysyłanie powiadomień dotyczących zdarzeń usługi IoT Hub
       href: publish-iot-hub-events-to-logic-apps.md
-    - name: Publikowanie w temacie niestandardowym
-      href: post-to-custom-topic.md
+    - name: Nasłuchiwanie zdarzeń usługi Service Bus przy użyciu usług Functions i Logic Apps
+      href: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json
     - name: Szablony subskrypcji zdarzeń
       href: event-subscription-template.md
     - name: Monitorowanie dostarczania zdarzeń
@@ -67,7 +69,7 @@
           href: event-schema-subscriptions.md
         - name: Blob Storage
           href: event-schema-blob-storage.md
-        - name: Usługa Event Hubs
+        - name: Event Hubs
           href: event-schema-event-hubs.md
         - name: Usługa IoT Hub
           href: event-schema-iot-hub.md
