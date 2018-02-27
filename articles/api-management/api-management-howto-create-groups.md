@@ -11,13 +11,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: f377e1aadc126934fb47f6371f12435d2742efa6
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: f4e1f8a701b5584138b92526e0e65e28d45e7c04
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Tworzenie i używanie grup do zarządzania konta dewelopera usługi Azure API Management
 W usłudze API Management grupy służą do zarządzania widocznością produktów dla deweloperów. Produkty są najpierw stają się widoczne dla grup, a następnie deweloperów w tych grupach można wyświetlać i subskrybować produktów, które są skojarzone z grupami. 
@@ -40,7 +40,7 @@ Wykonywanie zadań w tym artykule: [utworzenia wystąpienia usługi Azure API Ma
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="create-group"></a>Utwórz grupę
+## <a name="create-group"> </a>Utwórz grupę
 
 W tej sekcji przedstawiono sposób dodawania nowej grupy z kontem usługi API Management.
 
@@ -55,17 +55,17 @@ Po utworzeniu grupy jest ona dodawana do **grup** listy. <br/>Aby edytować **na
 
 Teraz, gdy grupa nie zostanie utworzona, można ją skojarzyć z produktami i deweloperów.
 
-## <a name="associate-group-product"></a>Skojarzyć grupy z produktem
+## <a name="associate-group-product"> </a>Skojarz grupę z produktem
 
 1. Wybierz **produktów** karcie po lewej stronie.
 2. Kliknij nazwę żądanego produktu.
 3. Naciśnij klawisz **kontrola dostępu**.
 4. Kliknij przycisk **+ Dodaj grupę**.
 
-    ![Dodaj nową grupę](./media/api-management-howto-create-groups/groups002.png)
+    ![Skojarz grupę z produktem](./media/api-management-howto-create-groups/groups002.png)
 5. Wybierz grupę, którą chcesz dodać.
 
-    ![Dodaj nową grupę](./media/api-management-howto-create-groups/groups003.png)
+    ![Skojarz grupę z produktem](./media/api-management-howto-create-groups/groups003.png)
 
     Aby usunąć grupę z produktu, kliknij przycisk **usunąć**.
 
@@ -76,7 +76,7 @@ Jeśli produkt jest skojarzona z grupą, deweloperzy w tej grupie można wyświe
 > [!NOTE]
 > Aby dodać grupy usługi Azure Active Directory, zobacz [sposób autoryzowania konta dewelopera przy użyciu usługi Azure Active Directory w usłudze Azure API Management](api-management-howto-aad.md).
 
-## <a name="associate-group-developer"></a>Kojarzyć grup z deweloperami
+## <a name="associate-group-developer"> </a>Skojarz grupy z deweloperami
 
 W tej sekcji przedstawiono sposób skojarzenia z elementami członkowskimi grupy.
 
@@ -89,10 +89,10 @@ W tej sekcji przedstawiono sposób skojarzenia z elementami członkowskimi grupy
     ![Dodawanie elementu członkowskiego](./media/api-management-howto-create-groups/groups006.png)
 4. Naciśnij klawisz **wybierz**.
 
-
 Po dodaniu skojarzenia między projektanta i grupy, możesz je wyświetlić w **użytkowników** kartę.
 
 ## <a name="next-steps"> </a>Następne kroki
+
 * Po dodaniu do grupy Deweloperzy mogą wyświetlać i subskrybować produktów skojarzonych z tej grupy. Aby uzyskać więcej informacji, zobacz [jak tworzyć i publikować w usłudze Azure API Management produktu][How create and publish a product in Azure API Management],
 * Oprócz tworzenia grup i zarządzanie nimi w portalu wydawcy, można tworzyć i zarządzać przy użyciu interfejsu API REST API zarządzania grupami [grupy](https://msdn.microsoft.com/library/azure/dn776329.aspx) jednostki.
 

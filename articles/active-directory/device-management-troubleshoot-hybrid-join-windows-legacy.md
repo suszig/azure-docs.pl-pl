@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: f1b92c604e20198714e9697bf4d08b3f71f23ae3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 5657df412b1f2b7d4d43d7551289620ae4d77de2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Rozwiązywanie problemów z hybrydowe usługi Azure Active Directory przyłączone do urządzeń niskiego poziomu 
 
@@ -62,7 +62,7 @@ Ten temat zawiera rozwiązania wskazówki dotyczące rozwiązywania potencjalnyc
 
 1. Otwórz wiersz polecenia jako administrator 
 
-2. Typ`"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /i"`
+2. Typ `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /i"`
 
 To polecenie wyświetla okno dialogowe, która udostępnia szczegółowe informacje o stanie sprzężenia.
 
@@ -82,6 +82,18 @@ Jeśli sprzężenie hybrydowe usługi Azure AD nie powiodło się, okno dialogow
 - Użytkownik nie jest zarejestrowany jako użytkownik domeny
 
     ![Dołącz do miejsca pracy dla systemu Windows](./media/active-directory-device-registration-troubleshoot-windows-legacy/03.png)
+    
+    Istnieje kilka przyczyn dlaczego taka sytuacja może wystąpić:
+    
+    1. Jeśli użytkownik zalogował się nie jest użytkownikiem domeny (na przykład użytkownik lokalny). Hybrydowe usługi Azure AD join na niższym poziomie urządzeń jest obsługiwane tylko dla użytkowników domeny.
+    
+    2. Jeśli z jakiegokolwiek powodu, Autoworkplace.exe nie dyskretnie uwierzytelniania za pomocą usługi Azure AD lub AD FS. Kilka możliwych przyczyn mogą być problemy z połączeniem sieciowym powiązania wyjściowego do usługi Azure AD adresów URL (Sprawdź wymagania wstępne) lub czy uwierzytelnianie wieloskładnikowe jest włączone/skonfigurowanego dla użytkownika, ale nie skonfigurowano WIAORMUTLIAUTHN na serwerze federacyjnym (kroki konfiguracji wyboru). Inną możliwością jest stronę odnajdowania (obszaru macierzystego HRD) tego obszaru macierzystego oczekuje do interakcji z użytkownikiem, uniemożliwia Autoworkplace.exe uzyskiwania w trybie dyskretnym 
+    
+    3. Jeśli organizacja korzysta z usługi Azure AD bezproblemowe logowanie jednokrotne, następujące adresy URL nie występują na ustawienia sieci intranet IE urządzenia:
+    - https://autologon.microsoftazuread-sso.com
+    - https://aadg.windows.net.nsatc.net
+    
+    a ustawienie "Zezwalaj na aktualizacje na pasku stanu za pomocą skryptu" musi być włączona dla strefy intranetowej.
 
 - Osiągnięto limit przydziału
 
@@ -107,6 +119,6 @@ Można również znaleźć informacje o stanie w dzienniku zdarzeń w obszarze *
 
   - Użytkownik osiągnął limit urządzeń. 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Odpowiedzi na pytania, zobacz [zarządzanie urządzeniami — często zadawane pytania](device-management-faq.md)  

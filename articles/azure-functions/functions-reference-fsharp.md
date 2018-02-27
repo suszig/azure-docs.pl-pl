@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/09/2016
 ms.author: syclebsc
-ms.openlocfilehash: 314f528a1fcef2c7afb0eedba012023f3bc9502b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 039306b093d92b66883edcca10e42f7b1dbc7245
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-functions-f-developer-reference"></a>Azure Functions dokumentacja dla deweloperów języka F #
 [!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
@@ -172,7 +172,7 @@ Edytor, który obsługuje usługi kompilatora F # nie będą świadomi obszary n
 #r "Microsoft.Azure.WebJobs.Host.dll"
 #endif
 
-open Sytem
+open System
 open Microsoft.Azure.WebJobs.Host
 
 let Run(blob: string, output: byref<string>, log: TraceWriter) =
@@ -184,7 +184,7 @@ Azure Functions wykonuje kodu, przetwarza źródło o `COMPILED` zdefiniowane, w
 <a name="package"></a>
 
 ## <a name="package-management"></a>Pakiet zarządzania
-Aby używać pakietów NuGet w funkcji F #, Dodaj `project.json` pliku do folderu funkcji w systemie plików aplikacji funkcji. Oto przykład `project.json` pliku, który dodaje odwołanie do pakietu NuGet, aby `Microsoft.ProjectOxford.Face` wersji 1.1.0:
+Aby używać pakietów NuGet w funkcji F #, Dodaj `project.json` plik do folderu funkcji w systemie plików aplikacji funkcji. Oto przykład `project.json` pliku, który dodaje odwołanie do pakietu NuGet, aby `Microsoft.ProjectOxford.Face` wersji 1.1.0:
 
 ```json
 {
@@ -258,13 +258,13 @@ let mylog(log: TraceWriter, text: string) =
 
 Zawiera ścieżki do `#load` dyrektywy są powiązane z lokalizacją użytkownika `.fsx` pliku.
 
-* `#load "logger.fsx"`ładuje plik znajduje się w folderze funkcji.
-* `#load "package\logger.fsx"`ładuje plik znajduje się w `package` folderu w folderze funkcji.
-* `#load "..\shared\mylogger.fsx"`ładuje plik znajduje się w `shared` folderu na tym samym poziomie co folder funkcji, bezpośrednio pod `wwwroot`.
+* `#load "logger.fsx"` ładuje plik znajduje się w folderze funkcji.
+* `#load "package\logger.fsx"` ładuje plik znajduje się w `package` folderu w folderze funkcji.
+* `#load "..\shared\mylogger.fsx"` ładuje plik znajduje się w `shared` folderu na tym samym poziomie co folder funkcji, bezpośrednio pod `wwwroot`.
 
 `#load` Dyrektywy działa tylko z `.fsx` plików (F # skrypt), a nie z `.fs` plików.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Więcej informacji zawierają następujące zasoby:
 
 * [Przewodnik F #](/dotnet/articles/fsharp/index)

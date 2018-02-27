@@ -3,7 +3,7 @@ title: "Skonfigurować adresy IP, aby połączyć po przejściu w tryb failover 
 description: "Zawiera opis sposobu konfigurowania adresu IP, adresy połączyć się z maszynami wirtualnymi Azure po pracy awaryjnej z lokalnych z usługą Azure Site Recovery"
 services: site-recovery
 documentationcenter: 
-author: prateek9us
+author: mayanknayar
 manager: carmonm
 editor: 
 ms.assetid: f02cdbea-0940-48bf-9fa5-f38d9e584fae
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/14/2017
-ms.author: pratshar
-ms.openlocfilehash: 5519a965d9828cfa1e73ba12f8acd1d509a36a66
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 02/22/2018
+ms.author: manayar
+ms.openlocfilehash: 9b14f6ea361d3c1d7402d1a8aeb10695a8726edb
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="set-up-ip-addressing-to-connect-after-failover-to-azure"></a>Skonfiguruj adresowanie nawiązania połączenia po przejściu w tryb failover Azure IP
 
@@ -88,7 +88,7 @@ Oprócz połączenia do wirtualnymi, po przejściu w tryb failover Woodgrove mo�
 
 To [wpis w blogu](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) wyjaśniono, jak skonfigurować infrastrukturę sieci Azure, gdy nie trzeba zachować adresy IP po pracy awaryjnej. Go rozpoczyna się od opisu aplikacji wygląda jak skonfigurować sieci lokalnej na platformie Azure i zawiera informacje o uruchamianiu przechodzenia w tryb failover. 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Tryb failover](site-recovery-failover.md)
 
 

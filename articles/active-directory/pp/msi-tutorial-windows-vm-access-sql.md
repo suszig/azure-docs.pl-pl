@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 6e7b431655d84c6371c62bbab83244ac88391442
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: b5bab684a7b188d1dc2e1f1f29a772aab8955e43
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Umożliwia dostęp do usługi Azure SQL systemu Windows maszyny Wirtualnej zarządzane usługi tożsamości (MSI)
 
@@ -45,7 +45,7 @@ Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](http
 
 W tym samouczku utworzymy nową maszynę Wirtualną systemu Windows.  Można również włączyć MSI na istniejącej maszyny Wirtualnej.
 
-1.  Kliknij przycisk **Nowy** znajdujący się w lewym górnym rogu witryny Azure Portal.
+1.  Kliknij przycisk **Utwórz zasób** w lewym górnym rogu portalu Azure.
 2.  Wybierz pozycję **Wystąpienia obliczeniowe**, a następnie wybierz pozycję **Windows Server 2016 Datacenter**. 
 3.  Wprowadź informacje o maszynie wirtualnej. **Username** i **hasło** utworzony, w tym miejscu jest poświadczeń umożliwia logowanie do maszyny wirtualnej.
 4.  Wybierz odpowiednią **subskrypcji** dla maszyny wirtualnej na liście rozwijanej.
@@ -156,7 +156,7 @@ W tym kroku dalej, konieczne będzie [Microsoft SQL Server Management Studio](ht
 1.  Uruchom program SQL Server Management Studio.
 2.  W **Połącz z serwerem** okna dialogowego, wprowadź nazwę serwera SQL w **nazwy serwera** pola.
 3.  W **uwierzytelniania** pól, zaznacz **usługi Active Directory - uniwersalnego z obsługą uwierzytelniania Wieloskładnikowego**.
-4.  W **nazwy użytkownika** wprowadź nazwę konta usługi Azure AD, które można ustawić jako administrator serwera, na przykładhelen@woodgroveonline.com
+4.  W **nazwy użytkownika** wprowadź nazwę konta usługi Azure AD, które można ustawić jako administrator serwera, na przykład helen@woodgroveonline.com
 5.  Kliknij pozycję **Opcje**.
 6.  W **Połącz z bazą danych** wprowadź nazwę bazy danych nie ma systemu do skonfigurowania.
 7.  Kliknij przycisk **Połącz**.  Zakończenie procesu logowania.

@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 53e946bba6bbd882e78b51ee8d222ab0d3ec056a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 38bad0641d97028b435e05458d597bda378a8363
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-database-roles-and-users"></a>Zarządzanie ról bazy danych i użytkowników
 
@@ -124,8 +124,8 @@ W tym przykładzie użytkownik zewnętrzny B2B i grupy są dodawane do roli anal
 |Polecenie cmdlet|Opis|
 |------------|-----------------| 
 |[Dodaj RoleMember](https://msdn.microsoft.com/library/hh510167.aspx)|Dodaj członka do roli bazy danych.| 
-|[Usuń RoleMember](https://msdn.microsoft.com/library/hh510173.aspx)|Usuwanie członka z roli bazy danych.|   
-|[Wywołanie ASCmd](https://msdn.microsoft.com/library/hh479579.aspx)|Wykonanie skryptu TMSL.|
+|[Remove-RoleMember](https://msdn.microsoft.com/library/hh510173.aspx)|Usuwanie członka z roli bazy danych.|   
+|[Invoke-ASCmd](https://msdn.microsoft.com/library/hh479579.aspx)|Wykonanie skryptu TMSL.|
 
 ## <a name="row-filters"></a>Filtrów wierszy  
 Filtry wiersza definiują, które wiersze w tabeli mogą być przeszukiwane przez członków określonej roli. Filtrów wierszy są definiowane dla każdej tabeli w modelu przy użyciu formuły języka DAX.  
@@ -138,7 +138,7 @@ Filtrów wierszy są stosowane do określonych wierszy i powiązane wiersze. Tab
   
 |Tabela|Wyrażenie DAX|  
 |-----------|--------------------|  
-|Region|= Region [Kraj] = "USA"|  
+|Region|=Region[Country]=”USA”|  
 |ProductCategory|= ProductCategory [nazwa] = "Rowerów"|  
 |Transakcje|= Transakcje [rok] = 2016|  
   
@@ -146,7 +146,7 @@ Filtrów wierszy są stosowane do określonych wierszy i powiązane wiersze. Tab
   
  Możesz użyć opcji Filtruj *=FALSE()*, aby odmówić dostępu do wszystkich wierszy dla całej tabeli.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
   [Administratorzy serwerów zarządzania](analysis-services-server-admins.md)   
   [Zarządzanie usług Azure Analysis Services przy użyciu programu PowerShell](analysis-services-powershell.md)  
   [Model tabelaryczny skryptów materiały referencyjne dotyczące języka (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: genemi
-ms.openlocfilehash: dc652b1d0357a815b14820fc837d7a287e5d4ba0
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3bbfdccd020f5efc7510d9688ea38f5e1af4ebde
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Wdrażanie i Eksploruj podzielonej aplikacji wielodostępnych, która używa bazy danych SQL Azure
 
@@ -59,11 +59,11 @@ Do wykonania zadań opisanych w tym samouczku niezbędne jest spełnienie nastę
 
 #### <a name="plan-the-names"></a>Planowanie nazwy
 
-W procedurze w tej sekcji są dwa miejsca, w którym należy wprowadzić nazwy jako *użytkownika* i nowej *grupy zasobów*. Osoby o nazwie *Finley pods*, zalecamy następujące nazwy:
-- *Użytkownik:* &nbsp; **af1** &nbsp; *(jej inicjały plus cyfrę.)*
-- *Grupa zasobów:* &nbsp; **wingtip af1** &nbsp; *(zaleca się tylko małe litery. Dołącz łącznika, a następnie nazwę użytkownika.)*
+W procedurze w tej sekcji, podaj *użytkownika* wartość, która służy do zapewnienia są globalnie unikatowe nazwy zasobów i nazwę *grupy zasobów* zawierającą wszystkie zasoby utworzone przez wdrożenia aplikacji. Osoby o nazwie *Finley pods*, zalecamy:
+- *Użytkownik:* **af1***(jej inicjały oraz cyfry. Użyj innej wartości (np. af2) w przypadku wdrożenia aplikacji po raz drugi.)*
+- *Grupa zasobów:* **wingtip-dpt-af1** *(wingtip dpt wskazuje to aplikacja bazy danych dla dzierżawy. Dołączanie af1 nazwa użytkownika są powiązane z nazwy grupy zasobów z nazw zasobów, które zawiera.)*
 
-Teraz wybierz nazwy, a następnie zapisz je.
+Teraz wybierz nazwy, a następnie zapisz je. 
 
 #### <a name="steps"></a>Kroki
 
@@ -72,7 +72,7 @@ Teraz wybierz nazwy, a następnie zapisz je.
 
     [![Przycisk Wdrażaj na platformie Azure.][image-deploy-to-azure-blue-48d]][link-aka-ms-deploywtp-mtapp-52k]
 
-2. Wprowadź wartości wymaganego parametru dla wdrożenia.
+1. Wprowadź wartości wymaganego parametru dla wdrożenia.
 
     > [!IMPORTANT]
     > Dla tej prezentacji nie należy używać żadnych wcześniej istniejących grup zasobów, serwerami lub pul. Zamiast tego należy wybrać **Utwórz nową grupę zasobów**. Po zakończeniu pracy z aplikacją usuń tę grupę zasobów, aby zatrzymać ich rozliczanie.
@@ -82,12 +82,12 @@ Teraz wybierz nazwy, a następnie zapisz je.
         - Wybierz **lokalizacji** z listy rozwijanej.
     - Dla **użytkownika** — zaleca się, że wybierasz krótki **użytkownika** wartość.
 
-3. **Wdróż aplikację**.
+1. **Wdróż aplikację**.
 
     - Kliknij, aby zaakceptować warunki i postanowienia.
     - Kliknij pozycję **Kup**.
 
-4. Monitorowanie stanu wdrożenia, klikając **powiadomienia**, która jest ikonę dzwonka z prawej strony pola wyszukiwania. Wdrażanie aplikacji Wingtip trwa około pięciu minut.
+1. Monitorowanie stanu wdrożenia, klikając **powiadomienia**, która jest ikonę dzwonka z prawej strony pola wyszukiwania. Wdrażanie aplikacji Wingtip trwa około pięciu minut.
 
    ![wdrażanie zakończyło się pomyślnie](media/saas-multitenantdb-get-started-deploy/succeeded.png)
 
@@ -127,7 +127,7 @@ Każda właściwość pobiera aplikację sieci web spersonalizowane listy ich zd
 Centralnego **Centrum zdarzeń** strony sieci Web zawiera listę łącza do dzierżawców w danego wdrożenia. Wykonaj następujące kroki, aby zgłaszać **Centrum zdarzeń** strony sieci Web i aplikacji sieci web poszczególnych:
 
 1. Otwórz **Centrum zdarzeń** w przeglądarce sieci web:
-    - http://events.Wingtip. &lt;Użytkownika&gt;. trafficmanager.net &nbsp; *(Zastąp &lt;użytkownika&gt; o wartości użytkownika w danym wdrożeniu.)*
+    - http://events.Wingtip-MT.&lt;użytkownika&gt;. trafficmanager.net &nbsp; *(Zastąp &lt;użytkownika&gt; o wartości użytkownika w danym wdrożeniu.)*
 
     ![centrum zdarzeń](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
@@ -139,7 +139,7 @@ Centralnego **Centrum zdarzeń** strony sieci Web zawiera listę łącza do dzie
 
 Aby kontrolować dystrybucję żądań przychodzących, używa aplikacji Wingtip [usługi Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Strona zdarzenia dla każdego dzierżawcy zawiera nazwę dzierżawy w jego adres URL. Każdy adres URL zawiera także wartość określonego użytkownika. Każdy adres URL przestrzega format wyświetlane przy użyciu następujących kroków:
 
-- http://events.wingtip.&lt;USER&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net/*fabrikamjazzclub*
 
 1. Aplikacja zdarzenia analizuje nazwę dzierżawcy z adresu URL. Nazwa dzierżawy to *fabrikamjazzclub* w poprzednim przykładzie adres URL.
 2. Aplikacja następnie skróty nazwę dzierżawcy, aby utworzyć klucz, aby uzyskiwać dostęp za pomocą wykazu [zarządzania mapy niezależnego fragmentu](sql-database-elastic-scale-shard-map-management.md).

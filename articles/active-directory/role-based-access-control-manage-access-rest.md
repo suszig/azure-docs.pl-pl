@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: rolyon
-ms.openlocfilehash: d449b53d348471275cea3c7129245569e2151864
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ba25340e41cefe2b7847a39a6c9182cd0fc057d3
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="manage-role-based-access-control-with-the-rest-api"></a>Zarządzanie kontrolą dostępu opartej na rolach przy użyciu interfejsu API REST
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.lasthandoff: 02/09/2018
 > * [Interfejs wiersza polecenia platformy Azure](role-based-access-control-manage-access-azure-cli.md)
 > * [Interfejs API REST](role-based-access-control-manage-access-rest.md)
 
-Opartej na rolach kontroli dostępu (RBAC) w portalu Azure i interfejsu API usługi Azure Resource Manager ułatwia zarządzanie dostępem do Twojej subskrypcji i zasobów na poziomie szczegółowych. W przypadku tej funkcji mogą udzielać dostępu dla użytkowników, grupy lub podmiotów zabezpieczeń usługi Active Directory, przypisując niektóre role do ich w określonym zakresie.
+Z opartej na rolach kontroli dostępu (RBAC), należy zdefiniować dostęp dla użytkowników, grup i nazwy główne usług poprzez przypisywanie ról w określonym zakresie. W tym artykule opisano, jak zarządzać dostępem przy użyciu interfejsu API REST.
 
 ## <a name="list-all-role-assignments"></a>Wyświetl listę wszystkich przypisań ról
 Wyświetla listę wszystkich przypisań ról w określonym zakresie i subscopes.
@@ -48,9 +48,9 @@ W identyfikatorze URI wprowadź następujące elementy zastępcze, aby dostosowa
 2. Zastąp *{wersja interfejsu api}* z 2015-07-01.
 3. Zastąp *{filtru}* warunek, który chcesz zastosować, aby filtrować listę przypisania roli:
 
-   * Wyświetl listę przypisań ról tylko określony zakres, z wyłączeniem przypisania ról na subscopes:`atScope()`    
-   * Utwórz listę przypisań ról dla określonego użytkownika, grupy lub aplikacji.`principalId%20eq%20'{objectId of user, group, or service principal}'`  
-   * Lista przypisań ról określonego użytkownika, między innymi dziedziczone z grup |`assignedTo('{objectId of user}')`
+   * Wyświetl listę przypisań ról tylko określony zakres, z wyłączeniem przypisania ról na subscopes: `atScope()`    
+   * Utwórz listę przypisań ról dla określonego użytkownika, grupy lub aplikacji. `principalId%20eq%20'{objectId of user, group, or service principal}'`  
+   * Lista przypisań ról określonego użytkownika, między innymi dziedziczone z grup | `assignedTo('{objectId of user}')`
 
 ### <a name="response"></a>Odpowiedź
 Kod stanu: 200
@@ -153,7 +153,7 @@ Treść żądania Podaj wartości w następującym formacie:
 
 | Nazwa elementu | Wymagane | Typ | Opis |
 | --- | --- | --- | --- |
-| wartość roleDefinitionId |Yes |Ciąg |Identyfikator roli. Format identyfikatora jest:`{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
+| wartość roleDefinitionId |Yes |Ciąg |Identyfikator roli. Format identyfikatora jest: `{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
 | principalId |Yes |Ciąg |Identyfikator obiektu głównego usługi Azure AD (użytkownika, grupy lub nazwy głównej usługi), do której przypisano rolę. |
 
 ### <a name="response"></a>Odpowiedź
@@ -238,8 +238,8 @@ W identyfikatorze URI wprowadź następujące elementy zastępcze, aby dostosowa
 2. Zastąp *{wersja interfejsu api}* z 2015-07-01.
 3. Zastąp *{filtru}* warunek, który chcesz zastosować, aby filtrować listę ról:
 
-   * Lista ról dostępne do przypisania w określonym zakresie i w żadnym z jego zakresy podrzędne:`atScopeAndBelow()`
-   * Wyszukaj rolę przy użyciu nazwy wyświetlanej dokładne: `roleName%20eq%20'{role-display-name}'`. Formularz zakodowane w adresie URL nazwę wyświetlaną dokładne roli. Na przykład`$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
+   * Lista ról dostępne do przypisania w określonym zakresie i w żadnym z jego zakresy podrzędne: `atScopeAndBelow()`
+   * Wyszukaj rolę przy użyciu nazwy wyświetlanej dokładne: `roleName%20eq%20'{role-display-name}'`. Formularz zakodowane w adresie URL nazwę wyświetlaną dokładne roli. Na przykład `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
 
 ### <a name="response"></a>Odpowiedź
 Kod stanu: 200

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: crdun
-ms.openlocfilehash: f3d89c627f462c9e34b2ff067972be56f5bed32f
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: e94f08b9b9dad20c6f47367c47eb49aea59f4bd8
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="article-top"></a>Migracji istniejącej usługi mobilnej Azure w usłudze Azure App Service
 Z [ogólnej dostępności usługi Azure App Service], lokacji usług Azure Mobile Services można łatwo migracji w miejscu, aby korzystać ze wszystkich funkcji usługi Azure App Service.  W tym dokumencie opisano, czego można oczekiwać podczas migracji lokacji z usług Azure Mobile Services w usłudze Azure App Service.
@@ -32,7 +32,7 @@ Migracja usługi mobilnej Azure włącza usługi mobilnej do [usłudze Azure App
 Microsoft jest rekomendowania dokonać migracji z usługi mobilnej Azure, aby móc korzystać z funkcji usługi aplikacji Azure, w tym:
 
 * Nowe funkcje hosta, w tym [Webjob] i [niestandardowych nazw domen].
-* Monitorowanie i rozwiązywanie problemów z usługi New Relic lub [usługi Application Insights].
+* Monitorowanie i rozwiązywanie problemów z [usługi Application Insights].
 * Wbudowane narzędzia DevOps, łącznie z [przemieszczania miejsc], wycofywania i w środowisku produkcyjnym testowania.
 * [Automatyczne skalowanie], równoważenie obciążenia, a [monitorowania wydajności].
 
@@ -127,7 +127,7 @@ Plik ustawień publikacji zostanie pobrana do komputera.  Jest to zwykle *sitena
 
 1. Otwórz program Visual Studio i projekt usługi mobilnej Azure.
 2. Kliknij prawym przyciskiem myszy projekt w **Eksploratora rozwiązań** i wybierz **publikowania...**
-3. Kliknij przycisk **importu**
+3. Kliknij pozycję **Importuj**
 4. Kliknij przycisk **Przeglądaj** i wybierz z pobranego pliku ustawień publikowania.  Kliknij przycisk **OK**.
 5. Kliknij przycisk **sprawdzania poprawności połączenia** aby zapewnić działanie ustawień publikowania.
 6. Kliknij przycisk **publikowania** opublikowanie witryny.
@@ -201,7 +201,7 @@ Tabelę można dodać, klikając **Dodaj** przycisk lub dostępu do istniejącyc
 * Czyszczenie zawartości tabeli
 * Usuwanie określonych wierszy w tabeli
 
-### <a name="easyapis"></a>INTERFEJS API
+### <a name="easyapis"></a>API
 *Interfejsu API* karty w usłudze Mobile Services została zastąpiona przez *łatwe interfejsów API* w portalu Azure.  Aby uzyskać dostęp do interfejsów API łatwe:
 
 1. Zaloguj się do witryny [Azure Portal].
@@ -238,7 +238,7 @@ Mobile Services używa centra powiadomień dla powiadomień wypychanych.  Nastę
 | **MS\_PushEntityNamespace** |Namespace Centrum powiadomień |
 | **MS\_NotificationHubName** |Nazwa centrum powiadomień |
 | **MS\_NotificationHubConnectionString** |Parametry połączenia Centrum powiadomień |
-| **MS\_nazwa przestrzeni nazw** |Alias MS_PushEntityNamespace |
+| **MS\_NamespaceName** |Alias MS_PushEntityNamespace |
 
 Centrum powiadomień jest zarządzana za pomocą [Azure Portal].  Zanotuj nazwę Centrum powiadomień (można go znaleźć za pomocą ustawień aplikacji):
 
@@ -269,16 +269,16 @@ Następujące ustawienia dodatkowe aplikacji są migrowane z usługi mobilnej i 
 | Ustawienia aplikacji | Opis |
 |:--- |:--- |
 | **MS\_MobileServiceName** |Nazwa aplikacji |
-| **MS\_MobileServiceDomainSuffix** |Prefiks domeny. tj Azure mobile.net |
+| **MS\_MobileServiceDomainSuffix** |Prefiks domeny. tj azure-mobile.net |
 | **MS\_ApplicationKey** |Klucz aplikacji |
-| **MS\_umożliwia** |Klucz główny aplikacji |
+| **MS\_MasterKey** |Klucz główny aplikacji |
 
 Klucz aplikacji i klucz główny są identyczne z kluczy aplikacji z oryginalnego usługi mobilnej.  W szczególności klucz aplikacji są wysyłane przez klientów mobilnych można sprawdzić poprawności ich stosowania przenośnych interfejsu API.
 
 ### <a name="cliequivalents"></a>Odpowiedniki wiersza polecenia
 Można już używać *azure przenośnych* polecenia do zarządzania witryną usług Azure Mobile Services.  Zamiast tego zostały zastąpione wiele funkcji *usługi azure site* polecenia.  Skorzystaj z poniższej tabeli, aby znaleźć odpowiedniki dla typowych poleceń:
 
-| *Azure Mobile* polecenia | Odpowiednik *usługi Azure Site* polecenia |
+| *Azure Mobile* Command | Odpowiednik *usługi Azure Site* polecenia |
 |:--- |:--- |
 | lokalizacje przenośnych |Lista lokalizacji lokacji |
 | listy dla urządzeń przenośnych |Lista witryn |

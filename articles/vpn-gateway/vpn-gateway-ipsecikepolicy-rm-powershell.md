@@ -1,6 +1,6 @@
 ---
 title: "Konfigurowanie zasad IPsec i IKE dla połączeń sieci VPN S2S lub do wirtualnymi: usługi Azure Resource Manager: programu PowerShell | Dokumentacja firmy Microsoft"
-description: "W tym artykule przedstawiono konfigurowanie zasad IPsec i IKE dla połączeń S2S lub do wirtualnymi przy użyciu bramy sieci VPN platformy Azure przy użyciu usługi Azure Resource Manager i programu PowerShell."
+description: "Skonfiguruj zasady IPsec i IKE dla połączeń S2S lub do wirtualnymi z bramy sieci VPN platformy Azure przy użyciu usługi Azure Resource Manager i programu PowerShell."
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/12/2017
+ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: 323c008f7da833d627b35621a24cc29db1283847
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 19233ccd306f507ef2e36bee878aa9705c115780
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Konfigurowanie zasad IPsec i IKE dla połączeń S2S sieci VPN lub sieć wirtualną do sieci wirtualnej
 

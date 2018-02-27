@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: vinagara
-ms.openlocfilehash: 5e4068cc694b623f67d998f410f207356efd873f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b537bb42d43c4232c100061322e09bf492f2a20f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="create-view-and-manage-alerts-using-azure-monitor---alerts-preview"></a>Utwórz, Wyświetl alerty i zarządzaj nimi za pomocą monitora Azure - alerty (wersja zapoznawcza)
+# <a name="create-view-and-manage-alerts-using-azure-monitor---alerts-preview"></a>Utwórz, Wyświetl i alertami można zarządzać za pomocą monitora Azure - alerty (wersja zapoznawcza)
 
 ## <a name="overview"></a>Przegląd
 W tym artykule przedstawiono sposób konfigurowania alertów za pomocą nowego interfejsu alerty (wersja zapoznawcza) w portalu Azure. Definicja alertu jest trzech części:
@@ -28,14 +28,14 @@ W tym artykule przedstawiono sposób konfigurowania alertów za pomocą nowego i
 - Kryteria: Określony warunek lub logiki który podczas widoczne w sygnału, powinny powodować zgłaszanie akcji
 - Akcja: Wywołań wysyłane do odbiorcy powiadomienia - poczty e-mail, programu SMS, webhook itp.
 
-Alerty (wersja zapoznawcza) używany jest termin **alerty dziennika** do opisywania alerty, gdy sygnał jest niestandardowe kwerendy na podstawie [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md). Metryki możliwości alertów o nazwie [niemal w czasie rzeczywistym Metryka alerty](monitoring-near-real-time-metric-alerts.md) w istniejące alerty środowisko jest określana jako **alerty Metryka** alertów (wersja zapoznawcza). W *alerty Metryka*, niektóre typy zasobów zapewniają [metryki wielowymiarowej](monitoring-metric-charts.md) dla określonych zasobów platformy Azure i dlatego alerty dla tych zasobów można wprowadzić bardziej szczegółowe za pomocą dodatkowe filtry na wymiary; takie alerty są określane jako **alerty Metryka wielowymiarowe**.
+Alert (wersja zapoznawcza) używany jest termin **alerty dziennika** do opisywania alerty, gdy sygnał jest niestandardowe kwerendy na podstawie [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) lub [Azure Application Insights](../application-insights/app-insights-analytics.md). Metryki możliwości alertów o nazwie [niemal w czasie rzeczywistym Metryka alerty](monitoring-near-real-time-metric-alerts.md) w istniejące alerty środowisko jest określana jako **alerty Metryka** alertów (wersja zapoznawcza). W *alerty Metryka*, niektóre typy zasobów zapewniają [metryki wielowymiarowej](monitoring-metric-charts.md) dla określonych zasobów platformy Azure i dlatego alerty dla tych zasobów można wprowadzić bardziej szczegółowe za pomocą dodatkowe filtry na wymiary; takie alerty są określane jako **alerty Metryka wielowymiarowe**.
 Alerty Azure (wersja zapoznawcza) umożliwia także wyświetlanie ujednoliconego reguły alertów i możliwość zarządzania nimi w jednym miejscu; w tym przeglądanie wszystkie nierozwiązane alerty. Dowiedz się więcej o funkcji [Alerts(Preview) Azure — omówienie](monitoring-overview-unified-alerts.md).
 
 > [!NOTE]
-> Gdy alerty Azure (wersja zapoznawcza) oferuje nowe i udoskonalone środowisko do tworzenia alertów w usłudze Azure. Istniejące [alerty Azure](monitoring-overview-alerts.md) środowisko nadal używać
+> Gdy alerty Azure (wersja zapoznawcza) oferuje nowe i udoskonalone środowisko do tworzenia alertów w usłudze Azure. Istniejące [alerty Azure](monitoring-overview-alerts.md) środowisko pozostaje można używać
 >
 
-Szczegółowe po jest przewodnik krok po kroku przy użyciu alertów Azure (wersja zapoznawcza).
+Szczegółowe dalej jest przewodnik krok po kroku przy użyciu alertów Azure (wersja zapoznawcza).
 
 ## <a name="create-an-alert-rule-with-the-azure-portal"></a>Tworzenie reguły alertu z portalu Azure
 1. W [portal](https://portal.azure.com/), wybierz pozycję **Monitor** i w sekcji monitorowanie — wybierz **alertów (wersja zapoznawcza)**.  
@@ -81,16 +81,13 @@ Szczegółowe po jest przewodnik krok po kroku przy użyciu alertów Azure (wers
 
     ![Konfiguruj logikę sygnału metryki wielowymiarowej](./media/monitor-alerts-unified/AlertsPreviewCriteriaMultiDim.png)
 
-8. *Rejestrowania alertów*: Upewnij się, **typu zasobu** jest źródłem analytics, takich jak *analizy dzienników*/*usługi Application Insights*, a następnie raz odpowiednie **zasobów** jest wybrana, kliknij przycisk *gotowe*. Następnie użyj **Dodaj kryteria** przycisk, aby wyświetlić listę sygnału opcje dostępne dla zasobu i z listy sygnału **wyszukiwania dziennika niestandardowego** opcja wybrana dziennika monitora usługi, takiej jak *dziennika Analiza*/*usługi Application Insights*.
+8. *Rejestrowania alertów*: Upewnij się, **typu zasobu** jest źródłem analytics, takich jak *analizy dzienników* lub *usługi Application Insights*, następnie raz właściwe  **zasób** jest wybrana, kliknij przycisk *gotowe*. Następnie użyj **Dodaj kryteria** przycisk, aby wyświetlić listę sygnału opcje dostępne dla zasobu i z listy sygnału **wyszukiwania dziennika niestandardowego** opcja wybrana dziennika monitora usługi, takiej jak *dziennika Analiza* lub *usługi Application Insights*.
 
    ![Wybierz zasób — dziennik niestandardowy wyszukiwania](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog.png)
 
    > [!NOTE]
 
-   > **Podgląd alerty** podczas zasób wybierany jest analizy dzienników dziennika list zapisane wyszukiwania jako typ sygnału - dziennika (zapisane kwerendy).
-   Dzięki czemu można doskonała kwerendy w module analiz, a następnie zapisać je do przyszłego użytku - więcej szczegółów dostępne pod adresem [w analizy dzienników przy użyciu wyszukiwania dziennika](../log-analytics/log-analytics-log-searches.md). Następnie można utworzyć zasady alertu na podstawie tych kwerend bezpośrednio, jak pokazano na poniższym ekranie próbki z zapisane wyszukiwania:
-
-   ![Wybierz zasób — dziennik niestandardowy wyszukiwania](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog-new.png)
+   > Alerty list (wersja zapoznawcza) można zaimportować zapytanie analytics jako typ sygnału — **dziennika (zapisane zapytanie)**, jak pokazano powyżej ilustracji. Użytkownicy mogą doskonała kwerendy w module analiz i zapisaniu ich do użytku w przyszłości w alertach — więcej szczegółowych informacji przy użyciu Zapisywanie zapytań dostępne pod adresem [w analizy dzienników przy użyciu wyszukiwania dziennika](../log-analytics/log-analytics-log-searches.md) lub [udostępnione zapytania w usłudze application insights Analiza](../log-analytics/log-analytics-overview.md). 
 
 9.  *Rejestrowania alertów*: po wybraniu kwerendy alertów może być wyrażona jako **zapytania wyszukiwania** pola; Jeśli składnia kwerendy jest nieprawidłowa, pole zawiera błąd kolorem CZERWONYM. Czy składnia kwerendy jest prawidłowa — dla odwołania do danych historycznych podanego zapytania jest wyświetlany jako wykres z opcją, aby dostosować przedział czasu do ostatniego tygodnia z ostatnich sześciu godzin.
 
@@ -125,7 +122,7 @@ Aby uzyskać **alerty dziennika** alerty mogą być oparte na:
     Aby uzyskać **alerty dziennika** kilka dodatkowych funkcji jest dostępna w celu zastąpienia domyślnych akcji:
 
     - **Powiadomienia e-mail**: podmiot zastąpień w wiadomości e-mail wysyłane za pośrednictwem grupy działań. Nie można zmodyfikować treści wiadomości.
-    - **Uwzględnij niestandardowy ładunek Json**: zastępuje Json używane przez grupy akcji elementu webhook i zamiast tego zastąpić domyślny ładunek niestandardowy ładunek. Więcej szczegółów na webhook formatów, zobacz [akcji elementu webhook dla dziennika alertów](monitor-alerts-unified-log-webhook.md)
+    - **Uwzględnij niestandardowy ładunek Json**: zastępuje Json używane przez grupy akcji elementu webhook i zamiast tego zastąpić domyślny ładunek niestandardowy ładunek. Aby uzyskać więcej informacji na webhook formatów, zobacz [akcji elementu webhook dla dziennika alertów](monitor-alerts-unified-log-webhook.md)
 
         ![Akcja zastąpienia dla dziennika alertów](./media/monitor-alerts-unified/AlertsPreviewOverrideLog.png)
 
@@ -141,7 +138,7 @@ Aby uzyskać **alerty dziennika** alerty mogą być oparte na:
 
 2. **Alerty pulpitu nawigacyjnego (wersja zapoznawcza)** wyświetleniem - którym unified i wyświetlane w liczbie pojedynczej tablicy wszystkie alerty Azure ![alertu pulpitu nawigacyjnego](./media/monitoring-overview-unified/alerts-preview-overview.png)
 3. Z góry od lewej do prawej pulpit nawigacyjny zawiera jeden rzut oka, następujące — które można kliknąć, aby wyświetlić listę szczegółowe:
-    - *Alerty generowane*: Liczba aktualnie alerty, które zostały spełnione logiki i w uruchamiany stanu
+    - *Alerty generowane*: Liczba aktualnie, alerty, które zostały spełnione logiki i w uruchamiany stanu
     - *Łączna liczba reguł alertów*: liczba alertów reguł utworzonych i w subtext, liczba, która jest włączona
 4. Lista wszystkich alertów wypalane jest wyświetlany, które użytkownik może kliknąć, aby wyświetlić szczegóły
 5. Nawiąże w określonych znajdowanie alertów; jeden, można użyć opcji listy rozwijanej na górze do filtrowania określonych *subskrypcji, grupy zasobów i/lub zasób*. Dalsze dla żadnego nierozpoznane alertów, użyj jednego *alert filtru* opcję, aby znaleźć podane słowo kluczowe — konkretnych alertów zgodnego z *nazwy, Alert kryteria, grupy zasobów oraz zasób docelowy*

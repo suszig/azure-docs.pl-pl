@@ -1,9 +1,9 @@
 ---
-title: "Konfigurowanie monitora wydajności sieci dla obwody usługi ExpressRoute Azure (wersja zapoznawcza) | Dokumentacja firmy Microsoft"
-description: "Skonfiguruj NPM obwody usługi Azure ExpressRoute. (Wersja zapoznawcza)"
+title: "Konfigurowanie monitora wydajności sieci dla usługi Azure ExpressRoute obwodów | Dokumentacja firmy Microsoft"
+description: "Konfigurowanie monitorowania sieci opartej na chmurze dla obwodów Azure ExpressRoute."
 documentationcenter: na
 services: expressroute
-author: cherylmc
+author: ajaycode
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/31/2018
-ms.author: pareshmu
-ms.openlocfilehash: 269c2e8a7867521b34128980e33ed97aa7b62a04
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
-ms.translationtype: MT
+ms.date: 02/14/2018
+ms.author: agummadi
+ms.openlocfilehash: 4d5bf1550ecd5982e51c0ae8d3917102d2f7c253
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Konfigurowanie monitora wydajności sieci dla usługi ExpressRoute (wersja zapoznawcza)
+# <a name="configure-network-performance-monitor-for-expressroute"></a>Konfigurowanie monitora wydajności sieci dla usługi ExpressRoute
 
 Monitor wydajności sieci (NPM) jest sieci opartej na chmurze rozwiązanie monitorujące, które monitoruje łączność między wdrożenia chmury Azure i lokalizacje lokalnymi (biurach oddziałów, itp.). NPM wchodzi w skład Microsoft Operations Management Suite (OMS). NPM oferuje rozszerzenie dla usługi ExpressRoute, który umożliwia monitorowanie wydajności sieci za pośrednictwem obwody usługi ExpressRoute, które są skonfigurowane do używania prywatnej komunikacji równorzędnej. Po skonfigurowaniu programu NPM dla usługi ExpressRoute, można wykrywać problemy z siecią do identyfikowania i eliminowania.
 
@@ -49,7 +49,7 @@ Obwody usługi ExpressRoute w dowolnej części świata można monitorować za p
 * Azja Południowo-Wschodnia 
 * Australia Wschodnią Południowa
 
-## <a name="workflow"></a>Przepływ pracy
+## <a name="workflow"></a>przepływ pracy
 
 Monitorowania agenci są zainstalowani na wielu serwerach, zarówno lokalnie i na platformie Azure. Agenci komunikują się ze sobą, ale nie wysyłaj danych, wysyłają pakiety uzgadnianie protokołu TCP. Komunikacja między agentami umożliwia platformie Azure mapy topologii sieci i ścieżkę, którą może zająć ruchu.
 
@@ -62,9 +62,15 @@ Monitorowania agenci są zainstalowani na wielu serwerach, zarówno lokalnie i n
 
 Jeśli korzystasz już z Monitora wydajności sieci do monitorowania innych obiektów lub usługi, a masz już obszar roboczy w jednym z obsługiwanych regionów, można pominąć krok 1 i 2 i rozpocząć konfigurację z kroku 3.
 
-## <a name="configure"></a>Krok 1: Tworzenie obszaru roboczego (w subskrypcji, która ma sieci wirtualne, połączone z ExpressRoute Circuit(s))
+## <a name="configure"></a>Krok 1: Tworzenie obszaru roboczego
+
+Tworzenie obszaru roboczego w subskrypcji, która ma łącze sieci wirtualnych do ExpressRoute circuit(s).
 
 1. W [portalu Azure](https://portal.azure.com), wybierz subskrypcję, która ma sieci wirtualne połączyć za pomocą do obwodu usługi ExpressRoute. Następnie odszukaj na liście usług w **Marketplace** "Monitor wydajności sieci". Powrotu, kliknij, aby otworzyć **monitora wydajności sieci** strony.
+
+>[!NOTE]
+>Może tworzyć nowy obszar roboczy lub użyj istniejącego obszaru roboczego.  Jeśli chcesz korzystać z istniejącym obszarem roboczym, upewnij się, że obszaru roboczego przeprowadzono migrację do nowego języka zapytań. [Więcej informacji...](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-search-upgrade)
+>
 
   ![portal](.\media\how-to-npm\3.png)<br><br>
 2. W dolnej części głównym **monitora wydajności sieci** kliknij przycisk **Utwórz** otworzyć **sieci monitora wydajności — Utwórz nowe rozwiązanie** strony. Kliknij przycisk **obszarem roboczym pakietu OMS — wybierz obszar roboczy** aby otworzyć stronę obszarów roboczych. Kliknij przycisk **+ Utwórz nowy obszar roboczy** aby otworzyć stronę obszaru roboczego.
@@ -79,29 +85,25 @@ Jeśli korzystasz już z Monitora wydajności sieci do monitorowania innych obie
   >[!NOTE]
   >Obwód usługi expressroute może być w dowolnym miejscu na świecie i nie musi znajdować się w tym samym regionie co obszaru roboczego.
   >
-
-
+  
   ![Obszar roboczy](.\media\how-to-npm\4.png)<br><br>
 4. Kliknij przycisk **OK** Aby zapisać i wdrożyć ustawienia szablonu. Po weryfikuje szablonu, kliknij przycisk **Utwórz** do wdrożenia w obszarze roboczym.
 5. Po wdrożeniu obszaru roboczego, przejdź do **NetworkMonitoring(name)** utworzony zasób. Sprawdź poprawność ustawień, a następnie kliknij przycisk **rozwiązanie wymaga dodatkowej konfiguracji**.
 
   ![dodatkowa konfiguracja](.\media\how-to-npm\5.png)
-6. Na **sieci monitora wydajności — Zapraszamy** wybierz pozycję **TCP używany dla transakcji syntetycznych**, następnie kliknij przycisk **przesyłania**. Transakcje TCP są używane tylko do należy przerwać połączenie. Żadne dane nie są wysyłane za pośrednictwem tych połączeń TCP.
-
-  ![TCP dla transakcji syntetycznych](.\media\how-to-npm\6.png)
 
 ## <a name="agents"></a>Krok 2: Instalowanie i konfigurowanie agentów
 
 ### <a name="download"></a>2.1: Pobierz plik Instalatora agenta
 
-1. Na **konfiguracji monitora wydajności sieci — strona instalacji TCP** dla zasobu, w **zainstalować agentów OMS** kliknij agenta, który odpowiada procesora i pobierania serwera plik Instalatora.
+1. Przejdź do **typowe ustawienia** karcie **konfiguracji monitora wydajności sieci** strony dla zasobu. Kliknij agenta, który odpowiada procesora na serwerze z **zainstalować agentów OMS** sekcji i pobranie pliku konfiguracji.
 
   >[!NOTE]
   >Musi być zainstalowany agent w systemie Windows Server (2008 z dodatkiem SP1 lub nowszym). Monitorowanie przy użyciu systemu operacyjnego Windows pulpitu i systemu operacyjnego Linux obwody usługi ExpressRoute nie jest obsługiwane. 
   >
   >
 2. Następnie skopiuj **identyfikator obszaru roboczego** i **klucz podstawowy** do Notatnika.
-3. W **Konfigurowanie agentów** sekcji, Pobierz skrypt programu Powershell. Skrypt programu PowerShell ułatwia otworzyć port zapory odpowiednie dla transakcji protokołu TCP.
+3. Z **Konfigurowanie agentów OMS monitorowania przy użyciu protokołu TCP** sekcji, Pobierz skrypt programu Powershell. Skrypt programu PowerShell ułatwia otworzyć port zapory odpowiednie dla transakcji protokołu TCP.
 
   ![Skrypt programu PowerShell](.\media\how-to-npm\7.png)
 
@@ -211,7 +213,7 @@ Na stronie NPM zawiera stronę usługi ExpressRoute, który zawiera przegląd ko
 
   ![Pulpit nawigacyjny](.\media\how-to-npm\dashboard.png)
 
-### <a name="circuits"></a>Obwody listy
+### <a name="circuits"></a>Lista obwody
 
 Aby wyświetlić listę wszystkich monitorowanych obwody usługi ExpressRoute, wybierz polecenie **obwody usługi ExpressRoute** kafelka. Możesz wybrać obwód i wyświetlić jej stan kondycji, wykresy trendu do utraty pakietów, użycie przepustowości i opóźnień. Wykresy są interaktywne. Możesz wybrać okno czasu niestandardowych do kreślenia wykresy. Na wykresie powiększanie i zobaczyć punkty szczegółowych danych można przeciągnąć myszy nad obszarem.
 
