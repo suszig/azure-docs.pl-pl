@@ -1,35 +1,35 @@
 ---
-title: "Przykładów dla interfejsu wiersza polecenia platformy Azure dla bazy danych Azure dla programu MySQL"
-description: "W tym artykule wymieniono dostępne do interakcji z bazy danych platformy Azure dla programu MySQL przykłady kodu wiersza polecenia platformy Azure."
+title: "Przykłady interfejsu wiersza polecenia platformy Azure dla usługi Azure Database for MySQL"
+description: "W tym artykule wymieniono dostępne przykłady kodu interfejsu wiersza polecenia platformy Azure na potrzeby interakcji z usługą Azure Database for MySQL."
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: jasonwhowell
-ms.service: mysql
+ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 01/11/2018
-ms.openlocfilehash: 89eb523bd30c3223dde5f6099ca2e3f9d5c575c6
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
-ms.translationtype: MT
+ms.openlocfilehash: c43bbbfaf98f1c35631f017bf256b38014a4fd4e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="azure-cli-samples-for-azure-database-for-mysql"></a>Przykładów dla interfejsu wiersza polecenia platformy Azure dla bazy danych Azure dla programu MySQL 
-Poniższa tabela zawiera linki do przykładowe skrypty wiersza polecenia platformy Azure dla bazy danych Azure dla programu MySQL.
+# <a name="azure-cli-samples-for-azure-database-for-mysql"></a>Przykłady interfejsu wiersza polecenia platformy Azure dla usługi Azure Database for MySQL 
+Poniższa tabela zawiera linki do przykładowych skryptów interfejsu wiersza polecenia platformy Azure dla usługi Azure Database for MySQL.
 
 | |  |
 |---|---|
 |**Tworzenie serwera**||
-| [Utwórz regułę serwera i zapory](./scripts/sample-create-server-and-firewall-rule.md?toc=%2fcli%2fazure%2ftoc.json) | Azure CLI skrypt, który tworzy pojedynczej bazy danych Azure dla serwera MySQL i konfiguruje regułę zapory poziomu serwera. |
-|**Skalować serwer**||
-| [Skalować serwer](./scripts/sample-scale-server.md?toc=%2fcli%2fazure%2ftoc.json) | Azure skryptu interfejsu wiersza polecenia, która może obsłużyć pojedynczej bazy danych Azure MySQL serwera w górę lub w dół umożliwiają zmieniających się potrzeb wydajności. |
-|**Zmienianie konfiguracji serwera**||
-| [Zmienianie konfiguracji serwera](./scripts/sample-change-server-configuration.md?toc=%2fcli%2fazure%2ftoc.json) | Azure CLI skrypt, który Zmień konfiguracje pojedynczej bazy danych Azure dla serwera MySQL. |
+| [Tworzenie reguły zapory i serwera](./scripts/sample-create-server-and-firewall-rule.md?toc=%2fcli%2fazure%2ftoc.json) | Skrypt interfejsu wiersza polecenia platformy Azure, który tworzy jeden serwer usługi Azure Database for MySQL i konfiguruje regułę zapory na poziomie serwera. |
+|**Skalowanie serwera**||
+| [Skalowanie serwera](./scripts/sample-scale-server.md?toc=%2fcli%2fazure%2ftoc.json) | Skrypt interfejsu wiersza polecenia platformy Azure, który skaluje jeden serwer usługi Azure Database for MySQL w górę lub w dół, aby spełnić zmieniające się potrzeby związane z wydajnością. |
+|**Zmiana konfiguracji serwera**||
+| [Zmiana konfiguracji serwera](./scripts/sample-change-server-configuration.md?toc=%2fcli%2fazure%2ftoc.json) | Skrypt interfejsu wiersza polecenia platformy Azure, który zmienia konfiguracje jednego serwera usługi Azure Database for MySQL. |
 |**Przywracanie serwera**||
-| [Przywracanie serwera](./scripts/sample-point-in-time-restore.md?toc=%2fcli%2fazure%2ftoc.json) | Azure skryptu interfejsu wiersza polecenia, która przywraca pojedynczej bazy danych Azure MySQL serwera z wcześniejszego punktu w czasie. |
-|**Manipulowanie z dzienników serwera**||
-| [Włącz i Pobierz dzienniki serwera](./scripts/sample-server-logs.md?toc=%2fcli%2fazure%2ftoc.json) | Azure CLI skrypt, który umożliwia i pobierane pliki dzienników serwera jednej bazy danych Azure dla serwera MySQL. |
+| [Przywracanie serwera](./scripts/sample-point-in-time-restore.md?toc=%2fcli%2fazure%2ftoc.json) | Skrypt interfejsu wiersza polecenia platformy Azure, który przywraca jeden serwer usługi Azure Database for MySQL do wcześniejszego punktu w czasie. |
+|**Manipulowanie za pomocą dzienników serwera**||
+| [Włączanie i pobieranie dzienników serwera](./scripts/sample-server-logs.md?toc=%2fcli%2fazure%2ftoc.json) | Skrypt interfejsu wiersza polecenia platformy Azure, który włącza i pobiera dzienniki jednego serwera usługi Azure Database for MySQL. |
 |||

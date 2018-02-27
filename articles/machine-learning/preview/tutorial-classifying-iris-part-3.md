@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/29/2017
-ms.openlocfilehash: 12cbd7d9682e70fc5bc65b2eda5b8eddf6bbb7f0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 54f81a93876549d624cef6c37dd659af084d0b37
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Klasyfikowanie irysów, część 3: wdrażanie modelu
 Usługi Azure Machine Learning (wersja zapoznawcza) stanowią zintegrowane, kompleksowe rozwiązanie do nauki o danych i do analiz zaawansowanych przeznaczone dla profesjonalnych analityków. Pozwala ono analitykom przygotowywać dane, opracowywać eksperymenty i wdrażać modele na skalę chmury.
@@ -198,7 +198,7 @@ Teraz można przystąpić do tworzenia usługi internetowej czasu rzeczywistego.
    * `-n`: nazwa aplikacji, która musi zawierać tylko małe litery.
    * `-f`: nazwa pliku skryptu oceniania.
    * `--model-file`: plik modelu. W tym przypadku jest to plik z pakietu pickle model.pkl.
-   * `-r`: typ modelu. W tym przypadku jest to model języka Python.
+   * `-r`: środowisko uruchomieniowe modelu. W tym przypadku jest to model języka Python. Prawidłowe środowiska uruchomieniowe to `python` i `spark-py`.
    * `--collect-model-data true`: umożliwia zbieranie danych.
    * `-c`: ścieżka do pliku zależności conda, w którym określono dodatkowe pakiety.
 
@@ -285,7 +285,7 @@ W celu przetestowania uruchomienia usługi internetowej **irisapp** użyj rekord
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-2. Odszukaj konta magazynu. W tym celu wybierz przycisk **Więcej usług**.
+2. Odszukaj konta magazynu. W tym celu wybierz pozycję **Wszystkie usługi**.
 
 3. W polu wyszukiwania wprowadź frazę **konta magazynu**, a następnie naciśnij klawisz **Enter**.
 

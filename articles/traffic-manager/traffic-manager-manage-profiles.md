@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: kumud
-ms.openlocfilehash: a5164282264124835692bc72a4ab61891aa7af9d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e19f8f373fed8c7e9ab64f2fc9e34eba182af717
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-an-azure-traffic-manager-profile"></a>Zarządzanie profilem usługi Azure Traffic Manager
 
@@ -31,8 +31,8 @@ Profil usługi Traffic Manager można utworzyć za pomocą witryny Azure Portal.
 ### <a name="to-create-a-traffic-manager-profile"></a>Tworzenie profilu usługi Traffic Manager
 
 1. Z poziomu przeglądarki zaloguj się do witryny [Azure Portal](http://portal.azure.com). Jeśli jeszcze nie masz konta, możesz skorzystać z [bezpłatnej miesięcznej wersji próbnej](https://azure.microsoft.com/free/). 
-2. W menu **Centrum** kliknij pozycje **Nowy** > **Sieć** > **Zobacz wszystkie**, kliknij profil usługi **Traffic Manager**, aby otworzyć blok **Tworzenie profilu usługi Traffic Manager**, a następnie kliknij przycisk **Utwórz**.
-3. W bloku **Tworzenie profilu usługi Traffic Manager** podaj następujące informacje:
+2. Kliknij pozycję **Utwórz zasób** > **Sieć** > **Profil usługi Traffic Manager** > **Utwórz**.
+4. W obszarze **Tworzenie profilu usługi Traffic Manager** podaj następujące informacje:
     1. W polu **Nazwa** podaj nazwę profilu. Ta nazwa musi być unikatowa w obrębie strefy trafficmanager.net. Na jej podstawie zostanie utworzona nazwa DNS <name>, trafficmanager.net służąca do uzyskiwania dostępu do profilu usługi Traffic Manager.
     2. W obszarze **Metoda routingu** wybierz metodę routingu **Priorytet**.
     3. W obszarze **Subskrypcja** wybierz subskrypcję, w ramach której ma zostać utworzony ten profil.
@@ -51,21 +51,23 @@ Istniejący profil można wyłączyć, aby w usłudze Traffic Manager żądania 
 2. Ruch przestanie być kierowany do punktów końcowych za pomocą ustawień profilu usługi Traffic Manager.
 3. Z poziomu przeglądarki zaloguj się do witryny [Azure Portal](http://portal.azure.com).
 2. Korzystając z paska wyszukiwania portalu, wyszukaj nazwę **profilu usługi Traffic Manager**, który chcesz zmodyfikować, a następnie kliknij profil usługi Traffic Manager w wyświetlonych wynikach wyszukiwania.
-3. W bloku **Profil usługi Traffic Manager** kliknij pozycję **Przegląd**. W bloku Przegląd kliknij pozycję **Wyłącz**, a następnie potwierdź wyłączenie profilu usługi Traffic Manager.
+3. Kliknij pozycję **Omówienie** > **Wyłącz**.
+4. Potwierdź, aby wyłączyć profil usługi Traffic Manager.
 
 ### <a name="to-enable-a-profile"></a>Aby włączyć profil
 
 1. Z poziomu przeglądarki zaloguj się do witryny [Azure Portal](http://portal.azure.com).
 2. Korzystając z paska wyszukiwania portalu, wyszukaj nazwę **profilu usługi Traffic Manager**, który chcesz zmodyfikować, a następnie kliknij profil usługi Traffic Manager w wyświetlonych wynikach wyszukiwania.
-3. W bloku **Profil usługi Traffic Manager** kliknij pozycję **Przegląd**, a następnie w bloku Przegląd kliknij pozycję **Włącz**.
-5. Jeśli używasz niestandardowej nazwy domeny, utwórz rekord zasobu CNAME na internetowym serwerze DNS, aby ustawić odwołanie do nazwy domeny profilu usługi Traffic Manager.
-6. Ruch zostanie ponownie skierowany do punktów końcowych.
+3. Kliknij pozycję **Omówienie** > **Włącz**.
+1. Jeśli używasz niestandardowej nazwy domeny, utwórz rekord zasobu CNAME na internetowym serwerze DNS, aby ustawić odwołanie do nazwy domeny profilu usługi Traffic Manager.
+2. Ruch zostanie ponownie skierowany do punktów końcowych.
 
 ### <a name="to-delete-a-profile"></a>Aby usunąć profil
 
 1. Upewnij się, że rekord zasobu DNS na serwerze DNS w sieci Internet nie używa już rekordu zasobu CNAME, który wskazuje nazwę domeny profilu usługi Traffic Manager.
 2. Korzystając z paska wyszukiwania portalu, wyszukaj nazwę **profilu usługi Traffic Manager**, który chcesz zmodyfikować, a następnie kliknij profil usługi Traffic Manager w wyświetlonych wynikach wyszukiwania.
-3. W bloku **Profil usługi Traffic Manager** kliknij pozycję **Przegląd**. W bloku Przegląd kliknij pozycję **Usuń**, a następnie potwierdź usunięcie profilu usługi Traffic Manager.
+3. Kliknij pozycję **Omówienie** > **Usuń**.
+4. Potwierdź, aby usunąć profil usługi Traffic Manager.
 
 ## <a name="next-steps"></a>Następne kroki
 

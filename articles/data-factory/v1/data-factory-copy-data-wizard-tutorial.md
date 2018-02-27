@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: f6fc7e0597176e2c23bc82581c86b951542fbc23
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 462038d21ea061e7cff8322ab4ce12f45844dca7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Samouczek: tworzenie potoku za pomocą działania kopiowania przy użyciu Kreatora kopiowania usługi Fabryka danych
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ Przed wykonaniem instrukcji z tego samouczka wykonaj działania dotyczące wymag
 W tym kroku opisano tworzenie fabryki danych Azure o nazwie **ADFTutorialDataFactory** przy użyciu witryny Azure Portal.
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com).
-2. Kliknij przycisk **+ NOWY** w lewym górnym rogu, kliknij pozycję **Dane i analizy**, a następnie **Fabryka danych**. 
+2. Kliknij polecenie **Utwórz zasób** w lewym górnym rogu, kliknij pozycję **Dane + analiza**, a następnie **Fabryka danych**. 
    
    ![Nowy-> Fabryka danych](./media/data-factory-copy-data-wizard-tutorial/new-data-factory-menu.png)
 2. W bloku **Nowa fabryka danych**:

@@ -1,6 +1,6 @@
 ---
-title: "Kubernetes na Azure samouczek — Kubernetes monitora"
-description: "Samouczek AKS — Kubernetes monitora z Microsoft Operations Management Suite (OMS)"
+title: "Samouczek dla usługi Kubernetes na platformie Azure — monitorowanie usługi Kubernetes"
+description: "Samouczek dla usługi AKS — monitorowanie usługi Kubernetes za pomocą pakietu Microsoft Operations Management Suite (OMS)"
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,58 +9,58 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: b01aa01df198ce75b2f8b66d28a2db68b1c30b87
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: 0f55e368586910b771115b39b5ec9b286f031069
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="monitor-azure-container-service-aks"></a>Monitor usługi kontenera platformy Azure (AKS)
+# <a name="monitor-azure-container-service-aks"></a>Monitorowanie usługi Azure Container Service (AKS)
 
-Monitorowanie sieci klastra Kubernetes i kontenery jest krytyczny, szczególnie w przypadku uruchamiania klastra produkcyjnego na dużą skalę, z wieloma aplikacjami.
+Monitorowanie klastra i kontenerów usługi Kubernetes ma krytyczne znaczenie, szczególnie w przypadku korzystania z klastra produkcyjnego o dużej skali i z wieloma aplikacjami.
 
-W tym samouczku, można skonfigurować monitorowanie swoją AKS klastra przy użyciu [kontenery rozwiązanie do analizy dzienników][log-analytics-containers].
+W tym samouczku przedstawiono konfigurowanie monitorowania klastra usługi AKS przy użyciu [rozwiązania do obsługi kontenerów dla usługi Log Analytics][log-analytics-containers].
 
-Ten samouczek, część 7, 8 obejmuje następujące zadania:
+Ten samouczek (część 7 z 8) obejmuje następujące zadania:
 
 > [!div class="checklist"]
-> * Konfigurowanie kontenera monitorowania rozwiązania
-> * Konfigurowanie monitorowania agentów
-> * Dostęp do monitorowania informacji w portalu Azure
+> * Konfigurowanie rozwiązania do monitorowania kontenerów
+> * Konfigurowanie agentów monitorowania
+> * Dostęp do informacji monitorowania w witrynie Azure Portal
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-W poprzednim samouczki aplikacji zostało umieszczone w kontener obrazów, te obrazy przekazane do rejestru kontenera Azure i klastra Kubernetes utworzone.
+W poprzednich samouczkach aplikacja została spakowana w postaci obrazów kontenera, obrazy zostały przekazane do usługi Azure Container Registry i utworzono klaster usługi Kubernetes.
 
-Jeśli nie zostało wykonane następujące kroki, a następnie zostać z niego skorzystać, wróć do [samouczek 1 — Tworzenie kontenera obrazy][aks-tutorial-prepare-app].
+Jeśli nie wykonano tych kroków, a chcesz kontynuować pracę, wróć do części [Samouczek 1 — tworzenie obrazów kontenera][aks-tutorial-prepare-app].
 
-## <a name="configure-the-monitoring-solution"></a>Konfigurowanie monitorowania rozwiązania
+## <a name="configure-the-monitoring-solution"></a>Konfigurowanie rozwiązania do monitorowania
 
-W portalu Azure wybierz **nowy** i wyszukaj `Container Monitoring Solution`. Po zlokalizowaniu, wybierz **Utwórz**.
+W witrynie Azure Portal wybierz polecenie **Utwórz zasób** i wyszukaj pozycję `Container Monitoring Solution`. Gdy ją znajdziesz, wybierz polecenie **Utwórz**.
 
-![Dodaj rozwiązanie](./media/container-service-tutorial-kubernetes-monitor/add-solution.png)
+![Dodanie rozwiązania](./media/container-service-tutorial-kubernetes-monitor/add-solution.png)
 
-Utwórz nowy obszar roboczy OMS, lub wybierz istniejący. Formularz obszarem roboczym pakietu OMS przeprowadzi Cię przez ten proces.
+Utwórz nowy obszar roboczy pakietu OMS lub wybierz istniejący obszar roboczy. Formularz obszaru roboczego pakietu OMS przeprowadzi Cię przez ten proces.
 
-Podczas tworzenia obszaru roboczego, wybierz **Przypnij do pulpitu nawigacyjnego** ułatwia ich odnalezienie.
+Podczas tworzenia obszaru roboczego wybierz polecenie **Przypnij do pulpitu nawigacyjnego**, co ułatwi dostęp do niego.
 
 ![Obszar roboczy OMS](./media/container-service-tutorial-kubernetes-monitor/oms-workspace.png)
 
-Po zakończeniu wybierz **OK**. Po ukończeniu sprawdzania poprawności, wybierz **Utwórz** można utworzyć kontenera monitorowania rozwiązania.
+Po zakończeniu wybierz polecenie **Zamknij**. Po zakończeniu walidacji wybierz polecenie **Utwórz**, aby utworzyć rozwiązanie do monitorowania kontenerów.
 
-Po utworzeniu obszaru roboczego go są prezentowane w portalu Azure.
+Po utworzeniu obszaru roboczego będzie on dostępny w witrynie Azure Portal.
 
-## <a name="get-workspace-settings"></a>Pobierz ustawienia obszaru roboczego
+## <a name="get-workspace-settings"></a>Pobieranie ustawień obszaru roboczego
 
-Analiza dzienników identyfikator i klucz są potrzebne do konfigurowania agenta rozwiązania w węzłach Kubernetes.
+Identyfikator i klucz obszaru roboczego usługi Log Analytics są wymagane do skonfigurowania agenta rozwiązania w węzłach usługi Kubernetes.
 
-Aby pobrać te wartości, wybierz **obszarem roboczym pakietu OMS** z menu po lewej stronie rozwiązań kontenera. Wybierz **Zaawansowane ustawienia** i zwróć uwagę na **identyfikator obszaru roboczego** i **klucz podstawowy**.
+Aby pobrać te wartości, wybierz pozycję **Obszar roboczy OMS** z menu po lewej stronie rozwiązania do monitorowania kontenerów. Wybierz pozycję **Ustawienia zaawansowane** i zanotuj wartości **IDENTYFIKATOR OBSZARU ROBOCZEGO** i **KLUCZ PODSTAWOWY**.
 
-## <a name="configure-monitoring-agents"></a>Konfigurowanie monitorowania agentów
+## <a name="configure-monitoring-agents"></a>Konfigurowanie agentów monitorowania
 
-Następujący plik manifestu Kubernetes może służyć do konfigurowania kontenera agentów w klastrze Kubernetes monitorowania. Tworzy Kubernetes [DaemonSet][kubernetes-daemonset], która działa pod jednym w każdym węźle klastra.
+Do skonfigurowania agentów monitorowania kontenerów w klastrze Kubernetes można użyć następującego pliku manifestu usługi Kubernetes. Umożliwia on utworzenie elementu [DaemonSet][kubernetes-daemonset] usługi Kubernetes, który uruchamia pojedynczy zasobnik w każdym węźle klastra.
 
-Zapisz poniższy tekst do pliku o nazwie `oms-daemonset.yaml`i zastąp symbole zastępcze dla `WSID` i `KEY` z klucz i identyfikator obszaru roboczego analizy dzienników.
+Zapisz poniższy tekst do pliku o nazwie `oms-daemonset.yaml`, zamieniając symbole zastępcze `WSID` i `KEY` na identyfikator i klucz obszaru roboczego usługi Log Analytics.
 
 ```YAML
 apiVersion: extensions/v1beta1
@@ -131,13 +131,13 @@ spec:
        path: /var/lib/docker/containers/
 ```
 
-Utwórz DaemonSet przy użyciu następującego polecenia:
+Utwórz element DaemonSet przy użyciu następującego polecenia:
 
 ```azurecli-interactive
 kubectl create -f oms-daemonset.yaml
 ```
 
-Aby sprawdzić, czy DaemonSet został utworzony, uruchom polecenie:
+Aby sprawdzić, czy element DaemonSet został utworzony, uruchom polecenie:
 
 ```azurecli-interactive
 kubectl get daemonset
@@ -150,29 +150,29 @@ NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE-SELECTOR 
 omsagent   3         3         3         3            3           beta.kubernetes.io/os=linux   8m
 ```
 
-Po agenci są uruchomione, przyjmuje OMS do pozyskiwania i przetwarzania danych w ciągu kilku minut.
+Po uruchomieniu agentów pozyskanie i przetworzenie danych przez pakiet OMS trwa kilka minut.
 
 ## <a name="access-monitoring-data"></a>Dostęp do danych monitorowania
 
-W portalu Azure wybierz obszar roboczy analizy dzienników, która została przypięta do pulpitu nawigacyjnego portalu. Polecenie **rozwiązanie monitorowanie kontenera** kafelka. W tym miejscu można znaleźć informacje o klastrze AKS i kontenery z klastra.
+W witrynie Azure Portal wybierz obszar roboczy usługi Log Analytics przypięty do pulpitu nawigacyjnego portalu. Kliknij kafelek **Rozwiązanie do monitorowania kontenerów**. Tutaj możesz znaleźć informacje o klastrze usługi AKS i kontenerach w klastrze.
 
 ![Pulpit nawigacyjny](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
 
-Zobacz [dokumentacji usługi Analiza dzienników Azure] [ log-analytics-docs] szczegółowe wskazówki dotyczące zapytań i analizowanie danych monitorowania.
+Szczegółowy przewodnik dotyczący odpytywania i analizowania danych monitorowania znajduje się w [dokumentacji usługi Azure Log Analytics][log-analytics-docs].
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku monitorowane są klastra Kubernetes z usługą OMS. Uwzględnione objętych zadań:
+W tym samouczku przedstawiono sposób monitorowania klastra Kubernetes za pomocą pakietu OMS. Wykonano następujące zadania:
 
 > [!div class="checklist"]
-> * Konfigurowanie kontenera monitorowania rozwiązania
-> * Konfigurowanie monitorowania agentów
-> * Dostęp do monitorowania informacji w portalu Azure
+> * Konfigurowanie rozwiązania do monitorowania kontenerów
+> * Konfigurowanie agentów monitorowania
+> * Dostęp do informacji monitorowania w witrynie Azure Portal
 
-Przejdź do następnego samouczka, aby dowiedzieć się więcej na temat uaktualniania Kubernetes do nowej wersji.
+Przejdź do następnego samouczka, aby dowiedzieć się, jak uaktualnić usługę Kubernetes do nowej wersji.
 
 > [!div class="nextstepaction"]
-> [Uaktualnij Kubernetes][aks-tutorial-upgrade]
+> [Upgrade Kubernetes (Uaktualnianie usługi Kubernetes)][aks-tutorial-upgrade]
 
 <!-- LINKS - external -->
 [kubernetes-daemonset]: https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/

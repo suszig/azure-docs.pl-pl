@@ -15,11 +15,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 12/04/2017
 ms.author: heidist
-ms.openlocfilehash: 098faa777746ac23ce7e88aa01fc727f88d4259c
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 528fd6e82079f37c1e9f907e081a1e918abd241e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>Tworzenie, przeszukiwanie i filtrowanie indeksu usługi Azure Search w portalu
 
@@ -46,7 +46,7 @@ Jeśli nie chcesz od razu aprowizować usługi, możesz obejrzeć 6-minutowy pok
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Otwórz pulpit nawigacyjny usługi Azure Search. Jeśli nie przypniesz kafelka usługi do pulpitu nawigacyjnego, usługę można znaleźć w następujący sposób: 
    
-   * Na pasku przechodzenia kliknij pozycję **Więcej usług** w dolnej części lewego okienka nawigacji.
+   * Na pasku dostępu kliknij pozycję **Wszystkie usługi** w lewym okienku nawigacji.
    * W polu wyszukiwania wpisz łańcuch *search*, aby uzyskać listę usług wyszukiwania dla Twojej subskrypcji. Usługa powinna zostać wyświetlona na liście. 
 
 ## <a name="check-for-space"></a>Sprawdzanie ilości wolnego miejsca

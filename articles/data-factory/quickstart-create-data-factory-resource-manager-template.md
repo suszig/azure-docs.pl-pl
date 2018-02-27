@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: spelluru
-ms.openlocfilehash: 5008d8f0ce36f09ff26bf10fadbf14da6b474ea9
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 77b30610072fb7f573597d035dcc161b4739ec7c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Samouczek: tworzenie fabryki danych na platformie Azure przy użyciu szablonu usługi Azure Resource Manager
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -428,7 +428,7 @@ Wdrożony wyzwalacz jest w stanie zatrzymanym. Można go uruchomić, na przykła
     ```
 
 ## <a name="monitor-the-pipeline"></a>Monitorowanie potoku
-1. Po zalogowaniu się do witryny [Azure Portal](https://portal.azure.com/) kliknij pozycję **Więcej usług**, przeprowadź wyszukiwanie przy użyciu słowa kluczowego, takiego jak **fabryki da**, i wybierz pozycję **Fabryki danych**.
+1. Po zalogowaniu się do witryny [Azure Portal](https://portal.azure.com/) kliknij pozycję **Wszystkie usługi**, przeprowadź wyszukiwanie przy użyciu słowa kluczowego, takiego jak **fabryki da**, i wybierz pozycję **Fabryki danych**.
 
     ![Menu przeglądania fabryk danych](media/quickstart-create-data-factory-resource-manager-template/browse-data-factories-menu.png)
 2. Na stronie **Fabryki danych** kliknij utworzoną fabrykę danych. W razie potrzeby przefiltruj listę, wpisując nazwę fabryki danych.  

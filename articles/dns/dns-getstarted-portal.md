@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: kumud
-ms.openlocfilehash: b2a9a7dbd1fa7da7ebe479ac166602245cdaefde
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 22bf52f7452f182510c3714f7d1c2ca884446953
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-azure-dns-using-the-azure-portal"></a>Rozpoczynanie pracy z usługą Azure DNS przy użyciu witryny Azure Portal
 
 > [!div class="op_single_selector"]
-> * [Witryna Azure Portal](dns-getstarted-portal.md)
-> * [PowerShell](dns-getstarted-powershell.md)
+> * [Azure portal](dns-getstarted-portal.md)
+> * [Program PowerShell](dns-getstarted-powershell.md)
 > * [Interfejs wiersza polecenia platformy Azure 2.0](dns-getstarted-cli.md)
 
 W tym artykule przedstawiono kroki umożliwiające utworzenie po raz pierwszy strefy i rekordu DNS przy użyciu witryny Azure Portal. Te kroki można również wykonać przy użyciu programu Azure PowerShell lub wieloplatformowego interfejsu wiersza polecenia platformy Azure.
@@ -34,8 +34,8 @@ Strefa DNS jest używana do hostowania rekordów DNS dla określonej domeny. Aby
 
 ## <a name="create-a-dns-zone"></a>Tworzenie strefy DNS
 
-1. Logowanie się do witryny Azure Portal
-2. W menu Centrum kliknij pozycję **Nowa > Sieć >**, a następnie kliknij pozycję **Strefa DNS**, aby otworzyć stronę **Tworzenie strefy DNS**.
+1. Zaloguj się do Portalu Azure.
+2. W menu Centrum kliknij pozycję **Utwórz zasób > Sieć >**, a następnie kliknij pozycję **Strefa DNS**, aby otworzyć stronę **Tworzenie strefy DNS**.
 
     ![Strefa DNS](./media/dns-getstarted-portal/openzone650.png)
 

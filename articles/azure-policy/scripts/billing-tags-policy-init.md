@@ -1,6 +1,6 @@
 ---
-title: "Azure przykładowego kodu json zasad - rozliczeń znaczniki inicjatywy zasad | Dokumentacja firmy Microsoft"
-description: "Ten zestaw zasad próbki json wymaga wartości określonego tagu dla Centrum kosztów, nazwa produktu."
+title: "Przykładowy kod JSON dla usługi Azure Policy — inicjatywa zasad tagów rozliczeń | Microsoft Docs"
+description: "Ten przykładowy kod JSON zestawu zasad wymaga określonych wartości tagów centrum kosztu i nazwy produktu."
 services: azure-policy
 documentationcenter: 
 author: bandersmsft
@@ -15,15 +15,15 @@ ms.workload:
 ms.date: 10/30/2017
 ms.author: banders
 ms.custom: mvc
-ms.openlocfilehash: decceb2acc11cc7b3457c6d9364d57ee9c252a4a
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: MT
+ms.openlocfilehash: d9f964ed6d2f04898b649194d0824cb7f3c31e2d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="billing-tags-policy-initiative"></a>Inicjatywy zasad tagi rozliczeń
+# <a name="billing-tags-policy-initiative"></a>Inicjatywa zasad tagów rozliczeń
 
-Ten zestaw zasad wymaga wartości określonego tagu dla Centrum kosztów, nazwa produktu. Używa wbudowanych zasad, aby zastosować i wymuszać wymagane tagi. Możesz określić wymagane wartości tagów.
+Ten zestaw zasad wymaga określonych wartości tagów centrum kosztu i nazwy produktu. Przy użyciu wbudowanych zasad określa wymagane tagi i wymusza ich stosowanie. Wymagane wartości tagów są określane przez Ciebie.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -31,7 +31,7 @@ Ten zestaw zasad wymaga wartości określonego tagu dla Centrum kosztów, nazwa 
 
 [!code-json[main](../../../policy-templates/samples/PolicyInitiatives/multiple-billing-tags/azurepolicyset.json "Billing Tags Policy Initiative")]
 
-Przy użyciu tego szablonu można wdrożyć [portalu Azure](#deploy-with-the-portal) lub [PowerShell](#deploy-with-powershell).
+Można wdrożyć ten szablon przy użyciu [witryny Azure Portal](#deploy-with-the-portal) lub [programu PowerShell](#deploy-with-powershell).
 
 ## <a name="deploy-with-the-portal"></a>Wdrażanie przy użyciu portalu
 
@@ -50,14 +50,35 @@ $policyset= New-AzureRmPolicySetDefinition -Name "multiple-billing-tags" -Displa
 New-AzureRmPolicyAssignment -PolicySetDefinition $policyset -Name <assignmentname> -Scope <scope>  -costCenterValue <required value for Cost Center tag> -productNameValue <required value for product Name tag>  -Sku @{"Name"="A1";"Tier"="Standard"}
 ```
 
-### <a name="clean-up-powershell-deployment"></a>Wyczyść wdrożenia programu PowerShell
+### <a name="clean-up-powershell-deployment"></a>Czyszczenie po wdrożeniu przy użyciu PowerShell
 
-Uruchom następujące polecenie, aby usunąć grupę zasobów, maszyny Wirtualnej i wszystkie powiązane zasoby.
+Uruchom następujące polecenie, aby usunąć grupę zasobów, maszynę wirtualną i wszystkie powiązane zasoby.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
+## <a name="apply-tags-to-existing-resources"></a>Stosowanie tagów do istniejących zasobów
+
+Po przypisaniu zasad możesz uruchomić aktualizację wszystkich istniejących zasobów, aby wymusić stosowanie dodanych zasad tagów. Poniższy skrypt zachowuje wszelkie wcześniej istniejące tagi zasobów:
+
+```powershell
+$group = Get-AzureRmResourceGroup -Name "ExampleGroup" 
+
+$resources = Find-AzureRmResource -ResourceGroupName $group.ResourceGroupName 
+
+foreach($r in $resources)
+{
+    try{
+        $r | Set-AzureRmResource -Tags ($a=if($r.Tags -eq $NULL) { @{}} else {$r.Tags}) -Force -UsePatchSemantics
+    }
+    catch{
+        Write-Host  $r.ResourceId + "can't be updated"
+    }
+}
+```
+
+
 ## <a name="next-steps"></a>Następne kroki
 
-- Dodatkowe przykłady szablonu zasad Azure są [szablony zasad Azure](../json-samples.md).
+- Dodatkowe przykłady szablonów usługi Azure Policy można znaleźć na stronie [Templates for Azure Policy (Szablony dla usługi Azure Policy)](../json-samples.md).

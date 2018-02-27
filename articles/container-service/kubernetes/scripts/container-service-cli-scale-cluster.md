@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI przykładowym skrypcie - skalowanie klastra usługi ACS | Dokumentacja firmy Microsoft"
-description: "Azure CLI przykładowym skrypcie - skalowanie klastra usługi ACS"
+title: "Przykład skryptu interfejsu wiersza polecenia platformy Azure — skalowanie klastra usługi ACS | Microsoft Docs"
+description: "Przykład skryptu interfejsu wiersza polecenia platformy Azure — skalowanie klastra usługi ACS"
 services: container-service
 documentationcenter: 
 author: neilpeterson
@@ -16,15 +16,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: nepeters
-ms.openlocfilehash: 14e9f9d85bc0c1428240f15831632eafe2a0f80e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: d12299d08fa989c0990ae45a41c638470e1075a6
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="scale-an-azure-container-service-cluster"></a>Skalowanie klastra usługi kontenera platformy Azure
+# <a name="scale-an-azure-container-service-cluster"></a>Skalowanie klastra usługi Azure Container Service
 
-Ten przykładowy skali i usługi kontenera platformy Azure. 
+Ten przykład skaluje usługę Azure Container Service. 
 
 [!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 
@@ -38,23 +38,23 @@ az acs scale --resource-group myResourceGroup --name myK8SCluster --new-agent-co
 
 ## <a name="clean-up-deployment"></a>Czyszczenie wdrożenia 
 
-Uruchom następujące polecenie, aby usunąć grupę zasobów, maszyny Wirtualnej i wszystkie powiązane zasoby.
+Uruchom następujące polecenie, aby usunąć grupę zasobów, maszynę wirtualną i wszystkie powiązane zasoby.
 
 ```azurecli
 az group delete --name myResourceGroup
 ```
 
-## <a name="script-explanation"></a>Wyjaśnienie skryptu
+## <a name="script-explanation"></a>Objaśnienia dla skryptu
 
-Ten skrypt używa następujących poleceń w celu utworzenia wdrożenia. Każdy element w tabeli łącza do dokumentacji określonego polecenia.
+Ten skrypt używa następujących poleceń w celu utworzenia wdrożenia. Każda pozycja w tabeli stanowi link do dokumentacji polecenia.
 
 | Polecenie | Uwagi |
 |---|---|
-| [AZ acs skali](/cli/azure/acs#scale) | Skalowanie klastra usługi ACS. |
+| [az acs scale](/cli/azure/acs#az_acs_scale) | Skaluje klaster usługi ACS. |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji dotyczących interfejsu wiersza polecenia Azure, zobacz [dokumentacji interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/overview).
+Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/overview).
 
-Dodatkowe przykłady skryptów wiersza polecenia usługi kontenera platformy Azure można znaleźć w [dokumentacji usługi kontenera platformy Azure](../cli-samples.md).
+Więcej przykładów skryptów interfejsu wiersza polecenia usługi Azure Container Service można znaleźć w [dokumentacji usługi Azure Container Service](../cli-samples.md).
 

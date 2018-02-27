@@ -1,6 +1,6 @@
 ---
-title: "Konfigurowanie chmury inicjowania obsługi usługi Azure IoT Hub urządzenia w portalu | Dokumentacja firmy Microsoft"
-description: "Centrum IoT automatyczne Inicjowanie obsługi administracyjnej urządzeń w portalu Azure"
+title: "Konfigurowanie chmury dla usługi Azure IoT Hub Device Provisioning w portalu | Microsoft Docs"
+description: "Automatyczne aprowizowanie urządzeń usługi IoT Hub w witrynie Azure Portal"
 services: iot-dps
 keywords: 
 author: sethmanheim
@@ -12,21 +12,21 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 088d127521ce89d3a82e30ad8797fe5746ae7e03
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: 247c2155943d651c3be7791571522b652cf63483
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Konfigurowanie zasobów w chmurze do obsługi urządzeń w usłudze IoT Hub urządzeń inicjowania obsługi administracyjnej
+# <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Konfigurowanie zasobów w chmurze pod kątem aprowizowania urządzeń za pomocą usługi IoT Hub Device Provisioning
 
-Ten samouczek pokazuje, jak skonfigurować chmurę dla urządzenia automatycznego inicjowania obsługi usługi IoT Hub urządzeń inicjowania obsługi administracyjnej. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek przedstawia konfigurowanie chmury pod kątem automatycznego aprowizowania urządzeń za pomocą usługi IoT Hub Device Provisioning. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Użyj portalu Azure do tworzenia usługi inicjowania obsługi administracyjnej urządzeniu Centrum IoT i Pobierz identyfikator zakresu
+> * Użycie witryny Azure Portal do utworzenia usługi IoT Hub Device Provisioning i pobrania zakresu identyfikatorów
 > * Tworzenie centrum IoT
-> * Centrum IoT należy połączyć usługę inicjowania obsługi urządzeń
-> * Ustaw zasady alokacji w usłudze inicjowania obsługi urządzeń
+> * Połączenie centrum IoT z usługą Device Provisioning
+> * Ustawienie zasad alokacji w usłudze Device Provisioning
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
 
@@ -34,74 +34,74 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 
-## <a name="create-a-device-provisioning-service-instance-and-get-the-id-scope"></a>Utwórz wystąpienie usługi udostępniania urządzenie i uzyskać identyfikator zakresu
+## <a name="create-a-device-provisioning-service-instance-and-get-the-id-scope"></a>Utworzenie wystąpienia usługi Device Provisioning i uzyskanie zakresu identyfikatorów
 
-Wykonaj następujące kroki, aby utworzyć nowe wystąpienie usługi inicjowania obsługi urządzeń.
+Wykonaj następujące kroki, aby utworzyć nowe wystąpienie usługi Device Provisioning.
 
-1. W lewym górnym rogu portalu Azure kliknij **nowy**.
-2. W polu wyszukiwania wpisz **Inicjowanie obsługi administracyjnej urządzeń**. 
-3. Kliknij przycisk **inicjowania obsługi usługi urządzeń Centrum IoT**.
-4. Wypełnianie **inicjowania obsługi usługi IoT Hub urządzeń** formularza z następującymi informacjami:
+1. W lewym górnym rogu witryny Azure Portal kliknij polecenie **Utwórz zasób**.
+2. W polu wyszukiwania wpisz ciąg **device provisioning**. 
+3. Kliknij pozycję **Usługa IoT Hub Device Provisioning**.
+4. Wypełnij formularz **Usługa IoT Hub Device Provisioning** przy użyciu następujących informacji:
     
    | Ustawienie       | Sugerowana wartość | Opis | 
    | ------------ | ------------------ | ------------------------------------------------- | 
-   | **Nazwa** | Dowolną unikatową nazwę | -- | 
+   | **Nazwa** | Dowolna unikatowa nazwa | -- | 
    | **Subskrypcja** | Twoja subskrypcja  | Aby uzyskać szczegółowe informacje o subskrypcjach, zobacz [Subskrypcje](https://account.windowsazure.com/Subscriptions). |
    | **Grupa zasobów** | myResourceGroup | Prawidłowe nazwy grup zasobów opisano w artykule [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Reguły i ograniczenia nazewnictwa). |
    | **Lokalizacja** | Dowolna prawidłowa lokalizacja | Aby uzyskać informacje na temat regionów, zobacz temat [Regiony systemu Azure](https://azure.microsoft.com/regions/). |   
 
-   ![Podaj podstawowe informacje o Twojej punktu dystrybucji w portalu](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)
+   ![Wprowadzenie podstawowych informacji o usłudze DPS w portalu](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)
 
 5. Kliknij przycisk **Utwórz**.
-6. *Identyfikator zakresu* służy do identyfikowania rejestracji identyfikatorów i zapewnia gwarancję, że identyfikator rejestracji jest unikatowa. Aby uzyskać tę wartość, kliknij przycisk **omówienie** otworzyć **Essentials** strony dla usługi udostępniania urządzeń. Kopiuj **identyfikator zakresu** wartość do lokalizacji tymczasowej na potrzeby późniejszego użycia.
-7. Zwróć również uwagę **punktu końcowego usługi** wartość lub skopiuj go do lokalizacji tymczasowej na potrzeby późniejszego użycia. 
+6. *Zakres identyfikatorów* służy do określania identyfikatorów rejestracji i daje gwarancję, że identyfikator rejestracji jest unikatowy. Aby uzyskać tę wartość, kliknij pozycję **Przegląd**, aby otworzyć stronę **Podstawowe elementy** dla usługi Device Provisioning. Skopiuj wartość **Zakres identyfikatorów** do lokalizacji tymczasowej w celu użycia później.
+7. Zanotuj także wartość **Punkt końcowy usługi** lub skopiuj ją do lokalizacji tymczasowej w celu użycia później. 
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
 Centrum IoT zostało już utworzone i masz nazwę hosta oraz parametry połączenia usługi IoT Hub potrzebne do ukończenia pozostałej części tego samouczka.
 
-## <a name="link-the-device-provisioning-service-to-an-iot-hub"></a>Połącz z usługą inicjowania obsługi urządzeń Centrum IoT
+## <a name="link-the-device-provisioning-service-to-an-iot-hub"></a>Łączenie usługi Device Provisioning z centrum IoT
 
-Następnym krokiem jest połączyć Centrum IoT i urządzenia inicjowania obsługi usługi, dzięki czemu usługa inicjowania obsługi urządzeń Centrum IoT można zarejestrować urządzeń do koncentratora. Usługę można udostępnić tylko urządzenia do koncentratorów IoT, które zostały połączone z usługi udostępniania urządzeń. Wykonaj następujące kroki.
+Następnym krokiem jest połączenie usługi Device Provisioning z centrum IoT w celu umożliwienia usłudze IoT Hub Device Provisioning rejestrowania urządzeń w tym centrum. Usługa może aprowizować urządzenia tylko w centrach IoT połączonych z usługą Device Provisioning. Wykonaj następujące kroki.
 
-1. W **wszystkie zasoby** kliknij przycisk wcześniej utworzone wystąpienie usługi inicjowania obsługi urządzeń.
-2. Na stronie usługi inicjowania obsługi urządzeń, kliknij przycisk **centra IoT połączonego**.
-3. Kliknij pozycję **Dodaj**.
-4. W **Dodaj łącze do Centrum IoT** użyj przycisków radiowych, aby określić, czy połączonego Centrum IoT znajduje się w bieżącej subskrypcji lub w innej subskrypcji. Następnie wybierz nazwę Centrum IoT z **Centrum IoT** pole.
+1. Na stronie **Wszystkie zasoby** kliknij wystąpienie usługi Device Provisioning utworzone wcześniej.
+2. Na stronie Usługa Device Provisioning kliknij pozycję **Połączone centra IoT Hub**.
+3. Kliknij pozycję **Add** (Dodaj).
+4. Na stronie **Dodawanie linku do centrum IoT Hub** użyj przycisków opcji, aby określić, czy połączone centrum IoT znajduje się w bieżącej subskrypcji, czy w innej subskrypcji. Następnie wybierz nazwę centrum IoT w polu **Centrum IoT**.
 5. Kliknij pozycję **Zapisz**.
 
-   ![Łącze nazwy Centrum, aby utworzyć link do punktu dystrybucji w portalu](./media/tutorial-set-up-cloud/link-iot-hub-to-dps-portal.png)
+   ![Łączenie nazwy centrum z usługą DPS w portalu](./media/tutorial-set-up-cloud/link-iot-hub-to-dps-portal.png)
 
-## <a name="set-the-allocation-policy-on-the-device-provisioning-service"></a>Ustaw zasady alokacji w usłudze inicjowania obsługi urządzeń
+## <a name="set-the-allocation-policy-on-the-device-provisioning-service"></a>Ustawienie zasad alokacji w usłudze Device Provisioning
 
-Zasady alokacji jest ustawienie inicjowania obsługi usługi IoT Hub urządzeń, które określa, jak urządzenia są przypisane do Centrum IoT. Istnieją trzy zasady alokacji obsługiwane: 
+Zasady alokacji to ustawienie usługi IoT Hub Device Provisioning określające, w jaki sposób urządzenia są przypisane do centrum IoT. Są obsługiwane trzy zasady alokacji: 
 
-1. **Można uzyskać najmniejsze opóźnienia**: urządzeń są udostępnione do Centrum IoT na podstawie koncentratora o najniższym opóźnieniu na urządzeniu.
-2. **Równomiernie ważone dystrybucji** (domyślnie): centra IoT połączonego prawdopodobnie jednakowo urządzenia udostępnione do nich. Jest to ustawienie domyślne. W przypadku udostępniania urządzeń tylko jedno centrum IoT można zachować to ustawienie. 
-3. **Statyczne konfiguracji za pomocą listy rejestracji**: specyfikacja żądaną Centrum IoT na liście rejestracji ma wyższy priorytet niż zasady alokacji Inicjowanie obsługi administracyjnej urządzeń poziomu usług.
+1. **Najmniejsze opóźnienie**: urządzenia są aprowizowane do centrum IoT z uwzględnieniem centrum z najmniejszym opóźnieniem do urządzenia.
+2. **Dystrybucja z równymi wagami** (domyślnie): aprowizacja do każdego z połączonych centrów IoT jest jednakowo prawdopodobna. Jest to ustawienie domyślne. W przypadku aprowizowania urządzeń tylko do jednego centrum IoT można pozostawić to ustawienie. 
+3. **Konfiguracja statyczna za pośrednictwem listy rejestracji**: określenie żądanego centrum IoT na liście rejestracji ma wyższy priorytet niż zasady alokacji na poziomie usługi Device Provisioning.
 
-Aby ustawić zasady alokacji w kliknij stronę usługi inicjowania obsługi urządzeń **Zarządzanie zasadami alokacji**. Upewnij się, że zasady alokacji ustawiono **równomiernie ważone dystrybucji** (ustawienie domyślne). Jeśli wprowadzisz zmiany, kliknij przycisk **zapisać** gdy wszystko będzie gotowe.
+Aby ustawić zasady alokacji, na stronie Usługa Device Provisioning kliknij pozycję **Zarządzanie zasadami alokacji**. Upewnij się, że dla zasad alokacji ustawiono wartość **Dystrybucja z równymi wagami** (wartość domyślną). Jeśli wprowadzisz zmiany, kliknij polecenie **Zapisz**, gdy wszystko będzie gotowe.
 
 ![Zarządzanie zasadami alokacji](./media/tutorial-set-up-cloud/iot-dps-manage-allocation.png)
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-W tym samouczku zależą od innych samouczków w tej kolekcji. Jeśli planujesz na pracę z kolejnych Szybki Start lub samouczków, nie oczyszczania zapasowej zasobów utworzonej w tym samouczku. Jeśli nie zamierzasz kontynuować, następujące kroki umożliwiają usunąć wszystkie zasoby utworzone przez tego samouczka w portalu Azure.
+Inne samouczki w tej kolekcji zależą od tego samouczka. Jeśli planujesz kontynuować pracę z kolejnymi przewodnikami Szybki start lub samouczkami, nie usuwaj zasobów utworzonych w tym samouczku. Jeśli nie planujesz kontynuowania pracy, wykonaj następujące czynności, aby usunąć wszystkie zasoby utworzone w witrynie Azure Portal w ramach tego samouczka.
 
-1. Z menu po lewej stronie w portalu Azure kliknij **wszystkie zasoby** a następnie wybierz wystąpienie usługi udostępniania urządzenia IoT Hub. W górnej części **wszystkie zasoby** kliknij przycisk **usunąć**.  
-2. W witrynie Azure Portal w menu po lewej stronie kliknij pozycję **Wszystkie zasoby**, a następnie wybierz swoje centrum IoT. W górnej części **wszystkie zasoby** kliknij przycisk **usunąć**.
+1. W witrynie Azure Portal w menu po lewej stronie kliknij pozycję **Wszystkie zasoby**, a następnie wybierz wystąpienie usługi IoT Hub Device Provisioning. U góry strony **Wszystkie zasoby** kliknij polecenie **Usuń**.  
+2. W witrynie Azure Portal w menu po lewej stronie kliknij pozycję **Wszystkie zasoby**, a następnie wybierz swoje centrum IoT. U góry strony **Wszystkie zasoby** kliknij polecenie **Usuń**.
  
 ## <a name="next-steps"></a>Następne kroki
 
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Użyj portalu Azure do tworzenia usługi inicjowania obsługi administracyjnej urządzeniu Centrum IoT i Pobierz identyfikator zakresu
+> * Użycie witryny Azure Portal do utworzenia usługi IoT Hub Device Provisioning i pobrania zakresu identyfikatorów
 > * Tworzenie centrum IoT
-> * Centrum IoT należy połączyć usługę inicjowania obsługi urządzeń
-> * Ustaw zasady alokacji w usłudze inicjowania obsługi urządzeń
+> * Połączenie centrum IoT z usługą Device Provisioning
+> * Ustawienie zasad alokacji w usłudze Device Provisioning
 
-Przejdź do następnego samouczkiem, aby dowiedzieć się, jak skonfigurować urządzenie do inicjowania obsługi.
+Przejdź do następnego samouczka, aby dowiedzieć się, jak skonfigurować urządzenie pod kątem aprowizacji.
 
 > [!div class="nextstepaction"]
-> [Konfigurowanie urządzenia do inicjowania obsługi](tutorial-set-up-device.md)
+> [Set up device for provisioning (Konfigurowanie urządzenia pod kątem aprowizacji)](tutorial-set-up-device.md)

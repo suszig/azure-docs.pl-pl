@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: heidist
-ms.openlocfilehash: 710543b5423d2b651545151eb4a8d426720e28e0
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 286408fb0c3aa2b83cf17a4646f6f7420b6884f4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="import-data-to-azure-search-using-the-portal"></a>Importowanie danych do usługi Azure Search przy użyciu portalu
 W witrynie Azure Portal na pulpicie nawigacyjnym usługi Azure Search znajduje się kreator **Importuj dane**, który umożliwia ładowanie danych do indeksu. 
@@ -49,7 +49,7 @@ Kreator importu danych obsługuje następujące źródła danych:
 Wymaganymi danymi wejściowymi jest spłaszczony zestaw danych. Importu można dokonać tylko z pojedynczej tabeli, widoku bazy danych lub równoważnej struktury danych. Strukturę danych należy utworzyć przed uruchomieniem kreatora.
 
 ## <a name="connect-to-your-data"></a>Nawiązywanie połączenia z danymi
-1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com) i otwórz pulpit nawigacyjny usługi. Możesz kliknąć pozycję **Więcej usług** na pasku dostępu, aby poszukać istniejących usług wyszukiwania w bieżącej subskrypcji. 
+1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com) i otwórz pulpit nawigacyjny usługi. Możesz kliknąć pozycję **Wszystkie usługi** na pasku dostępu, aby poszukać istniejących usług wyszukiwania w bieżącej subskrypcji. 
 2. Kliknij przycisk **Importuj dane** na pasku poleceń, aby otworzyć blok Importuj dane.  
 3. Kliknij pozycję **Połącz z danymi**, aby określić definicję źródła danych, z której będzie korzystać indeksator. W przypadku źródeł danych wewnątrz subskrypcji kreator może zwykle wykrywać i odczytywać informacje o połączeniu, co pozwala zminimalizować wymagania dotyczące konfiguracji.
 

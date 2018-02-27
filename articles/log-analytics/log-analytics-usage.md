@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 9125f3db8929a41f49ff3ae53de9f3a71f5bf051
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 8d6baa6b46290c7a332f5cf780c7f70680fb6a2c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analizowanie użycia danych w usłudze Log Analytics
 Usługa Log Analytics zawiera informacje na temat ilości zebranych danych, systemów, z których zostały one wysyłane, oraz typów danych.  Pulpit nawigacyjny **Użycie usługi Log Analytics** pozwala na sprawdzenie ilości danych wysyłanych do usługi Log Analytics. Na pulpicie nawigacyjnym prezentowana jest ilość danych zebranych przez każde rozwiązanie i ilość danych wysyłanych przez komputery.
@@ -44,13 +44,17 @@ Pulpit nawigacyjny **Użycie usługi Log Analytics** udostępnia następujące i
 ![pulpit nawigacyjny Użycie](./media/log-analytics-usage/usage-dashboard01.png)
 
 ### <a name="to-work-with-usage-data"></a>Aby pracować z danymi użycia
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. W witrynie Azure Portal kliknij pozycję **Więcej usług** w lewym dolnym rogu. Na liście zasobów wpisz **Log Analytics**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Wybierz pozycję **Log Analytics**.<br><br> ![Azure portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
-3. Na liście obszarów roboczych usługi Log Analytics wybierz obszar roboczy.
-4. Z listy w lewym okienku wybierz pozycję **Użycie usługi Log Analytics**.
-5. Na pulpicie nawigacyjnym **Użycie usługi Log Analytics** kliknij pozycję **Czas: ostatnie 24 godziny**, aby zmienić przedział czasu.<br><br> ![przedział czasu](./media/log-analytics-usage/time.png)<br><br>
-6. Wyświetl bloki kategorii użycia pokazujące obszary, które Cię interesują. Wybierz blok, a następnie kliknij w nim pozycję, aby wyświetlić więcej szczegółów w obszarze [Wyszukiwanie w dzienniku](log-analytics-log-searches.md).<br><br> ![przykładowy blok użycia danych](./media/log-analytics-usage/blade.png)<br><br>
-7. Na pulpicie nawigacyjnym wyszukiwania w dzienniku przejrzyj wyniki zwrócone w wyniku wyszukiwania.<br><br> ![przykład wyszukiwania w dzienniku użycia](./media/log-analytics-usage/usage-log-search.png)
+1. Jeśli nie zostało to jeszcze zrobione, zaloguj się do witryny [Azure Portal](https://portal.azure.com) przy użyciu subskrypcji platformy Azure.
+2. Kliknij pozycję **Wszystkie usługi**, a następnie na liście zasobów wpisz wartość **Log Analytics**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Kliknij pozycję **Log Analytics**.  
+    ![Centrum platformy Azure](./media/log-analytics-usage/hub.png)
+3. Pulpit nawigacyjny **Log Analytics** wyświetla listę obszarów roboczych. Wybierz obszar roboczy.
+4. Na pulpicie nawigacyjnym *obszar roboczy* kliknij pozycję **Użycie usługi Log Analytics**.
+5. Na pulpicie nawigacyjnym **Użycie usługi Log Analytics** kliknij pozycję **Czas: ostatnie 24 godziny**, aby zmienić przedział czasu.  
+    ![przedział czasu](./media/log-analytics-usage/time.png)
+6. Wyświetl bloki kategorii użycia pokazujące obszary, które Cię interesują. Wybierz blok, a następnie kliknij w nim pozycję, aby wyświetlić więcej szczegółów w obszarze [Wyszukiwanie w dzienniku](log-analytics-log-searches.md).  
+    ![przykładowy blok użycia danych](./media/log-analytics-usage/blade.png)
+7. Na pulpicie nawigacyjnym wyszukiwania w dzienniku przejrzyj wyniki zwrócone w wyniku wyszukiwania.  
+    ![przykład wyszukiwania w dzienniku użycia](./media/log-analytics-usage/usage-log-search.png)
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>Tworzenie alertu, gdy ilość zebranych danych jest większa od oczekiwanej
 W tej sekcji opisano sposób tworzenia alertu w sytuacji, gdy:

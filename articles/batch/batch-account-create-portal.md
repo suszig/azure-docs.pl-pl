@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 11/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2e1b5ae05429cba34e3ea71f95414417bffd99a6
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5efe804806cb9c14a483e7393f0e8202897d53d6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Tworzenie konta usługi Batch w witrynie Azure Portal
 
@@ -41,7 +41,7 @@ Ogólne informacje o kontach usługi Batch i scenariuszach można znaleźć w [o
 > Podczas tworzenia konta usługi Batch zazwyczaj należy wybrać domyślny tryb **usługi Batch**, w którym pule są przydzielane w tle w subskrypcjach zarządzanych przez platformę Azure. W alternatywnym trybie **subskrypcji użytkownika**, który nie jest już zalecany w przypadku większości scenariuszy, maszyny wirtualne i inne zasoby usługi Batch są tworzone bezpośrednio w Twojej subskrypcji po utworzeniu puli. Aby utworzyć konto usługi Batch w trybie subskrypcji użytkownika, musisz również zarejestrować subskrypcję w usłudze Azure Batch i powiązać konto z usługą Azure Key Vault.
 
 1. Zaloguj się w witrynie [Azure Portal][azure_portal].
-2. Kliknij przycisk **Nowy** i w witrynie Marketplace wyszukaj ciąg **Usługa Batch**.
+2. Kliknij polecenie **Utwórz zasób** i w witrynie Marketplace wyszukaj ciąg **Usługa Batch**.
 
     ![Usługa Batch w witrynie Marketplace][marketplace_portal]
 3. Wybierz pozycję **Usługa Batch**, kliknij przycisk **Utwórz** i wprowadź ustawienia **Nowe konto usługi Batch**. Zobacz następujące szczegóły.

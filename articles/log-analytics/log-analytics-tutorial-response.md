@@ -1,6 +1,6 @@
 ---
-title: "Odpowiadanie na zdarzenia z alertów Analiza dzienników Azure | Dokumentacja firmy Microsoft"
-description: "W tym samouczku pomaga w zrozumieniu alerty w analizy dzienników do identyfikacji ważne informacje zawarte w repozytorium OMS i aktywne powiadamia użytkownika o problemy lub akcji, aby je poprawić."
+title: "Odpowiadanie na zdarzenia przy użyciu alertów usługi Azure Log Analytics | Microsoft Docs"
+description: "Ten samouczek pomaga w zrozumieniu alertów w usłudze Log Analytics, które pomagają identyfikować ważne informacje w repozytorium OMS, oraz aktywnie powiadamiają użytkownika o problemach lub wywołują akcje w celu ich skorygowania."
 services: log-analytics
 documentationcenter: log-analytics
 author: MGoedtel
@@ -15,62 +15,62 @@ ms.topic: tutorial
 ms.date: 09/20/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 3ab8d32eb4b3f2748249f40139de76c8e7f4d971
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
-ms.translationtype: MT
+ms.openlocfilehash: fcfaa849f67ffcfa69672d116837e96d318c2124
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="respond-to-events-with-log-analytics-alerts"></a>Odpowiadanie na zdarzenia z dziennika analizy alerty
-Alerty w analizy dzienników zidentyfikować ważne informacje zawarte w repozytorium analizy dzienników.  Są one tworzone przez reguły alertów, które automatycznie uruchamiać dziennik wyszukiwania w regularnych odstępach czasu, a jeśli wyniki wyszukiwania dziennika spełniających kryteria określonego tworzony jest rekord alertów i może być skonfigurowana do wykonywania automatycznej odpowiedzi.  Ten samouczek stanowi kontynuację [tworzenie i udostępnianie pulpitów nawigacyjnych danych analizy dzienników](log-analytics-tutorial-dashboards.md) samouczka.   
+# <a name="respond-to-events-with-log-analytics-alerts"></a>Odpowiadanie na zdarzenia przy użyciu alertów usługi Log Analytics
+Alerty w usłudze Log Analytics identyfikują ważne informacje w repozytorium usługi Log Analytics. Są one tworzone przy użyciu reguł alertów, które automatycznie uruchamiają przeszukiwanie dzienników w regularnych odstępach czasu. Jeśli wyniki przeszukiwania dzienników pasują do danych kryteriów, zostaje utworzony rekord alertu. Ponadto można go skonfigurować tak, aby wykonywał automatyczną odpowiedź.  Ten samouczek jest kontynuacją samouczka [Tworzenie i udostępnianie pulpitów nawigacyjnych z danymi usługi Log Analytics](log-analytics-tutorial-dashboards.md).   
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie reguły alertu
-> * Skonfiguruj regułę alertu, aby wysłać powiadomienie e-mail
+> * Konfiguracja reguły alertu w celu wysyłania powiadomień e-mail
 
-Aby ukończyć przykład, w tym samouczku, musisz mieć istniejącej maszyny wirtualnej [podłączony do obszaru roboczego analizy dzienników](log-analytics-quick-collect-azurevm.md).  
+Do utworzenia przykładu przedstawionego w tym samouczku potrzebna jest istniejąca maszyna wirtualna [połączona z obszarem roboczym usługi Log Analytics](log-analytics-quick-collect-azurevm.md).  
 
-## <a name="log-in-to-azure-portal"></a>Zaloguj się do portalu Azure
-Zaloguj się do portalu Azure pod adresem [https://portal.azure.com](https://portal.azure.com). 
+## <a name="log-in-to-azure-portal"></a>Logowanie do witryny Azure Portal
+Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-alerts"></a>Tworzenie alertów
 
-Alerty są tworzone przez reguły alertów, które automatycznie uruchamiać dziennik wyszukiwania w regularnych odstępach czasu.  Można tworzyć alertów w oparciu metryki dotyczące wydajności lub gdy określone zdarzenia są tworzone, Brak zdarzenia lub liczba zdarzeń są tworzone w przedziale czasu określonym.  Na przykład alerty mogą służyć do powiadomienie, gdy średnie użycie Procesora przekroczy określony próg lub po określonej usługi systemu Windows jest generowane zdarzenie lub demonów systemu Linux nie jest uruchomiona.   Jeśli wyniki wyszukiwania dziennika spełniających kryteria określonego tworzony jest rekord alertu. Reguła następnie automatycznie uruchomić co najmniej jednej akcji do aktywnego powiadomienia o alercie lub wywołać inny proces. 
+Alerty są tworzone przez reguły alertów, które automatycznie uruchamiają przeszukiwanie dzienników w regularnych odstępach czasu.  Możesz utworzyć alerty w oparciu o konkretne metryki wydajności lub w momencie, w którym zostają utworzone określone zdarzenia, w przypadku braku zdarzenia, a także w sytuacji, w której wiele zdarzeń zostaje utworzonych w danym przedziale czasu.  Na przykład alertów można używać do powiadamiania użytkownika, gdy średnie użycie procesora CPU przekroczy określony próg lub gdy zostanie wygenerowane zdarzenie w sytuacji, w której usługa systemu Windows lub demon systemu Linux nie są uruchomione.   Jeśli wyniki przeszukiwania dzienników pasują do określonych kryteriów, zostaje utworzony rekord alertu. Następnie reguła może automatycznie uruchomić jedną lub kilka akcji, aby aktywnie powiadomić użytkownika o alercie lub wywołać inny proces. 
 
-W poniższym przykładzie utworzymy metryki pomiaru reguły alertu, co spowoduje utworzenie alert dla każdego obiektu komputera w zapytaniu z wartością, która przekracza próg 90%.
+W poniższym przykładzie tworzy się regułę alertu pomiaru metryki, która tworzy alert dla każdego obiektu komputera w zapytaniu o wartości przekraczającej 90% progu.
 
-1. W portalu Azure kliknij **więcej usług** znaleziono w lewym dolnym rogu. Na liście zasobów wpisz **Log Analytics**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Wybierz **dziennika analizy**...
-2. Uruchamianie portalu OMS, wybierając portalu OMS i na **omówienie** wybierz pozycję **wyszukiwania dziennika**.  
-3. Wybierz **ulubione** od góry portalu i w **zapisane wyszukiwania** w okienku po prawej stronie, wybierz zapytanie *maszynach wirtualnych platformy Azure — użycie procesora*.  
-4. Kliknij przycisk **alertu** w górnej części strony, aby otworzyć **Dodaj regułę alertu** ekranu.  
-5. Skonfiguruj reguły alertów z następującymi informacjami:  
-   a. Podaj **nazwa** alertu, takie jak *przekracza wykorzystanie procesora maszyny Wirtualnej > 90*  
-   b. Aby uzyskać **przedział czasu**, określić zakres czasu dla zapytania, takie jak *30*.  Zapytanie zwraca tylko te rekordy, które zostały utworzone w ramach tego zakresu bieżącego czasu.  
-   c. **Alert częstotliwości** Określa, jak często uruchamiać zapytania.  Na przykład określić *5* minut, które będą miały miejsce w naszym przedział czasu określony.  
-   d. Wybierz **metryki pomiaru** , a następnie wprowadź *90* dla **wartości zagregowane** , a następnie wprowadź *3* dla **na podstawie wyzwalania alertu**   
-   e. W obszarze **akcje**, wyłączyć powiadomienia e-mail.
-6. Kliknij przycisk **zapisać** przeprowadzenie reguły alertów. Zostanie ona rozpoczęta natychmiast uruchomiona.<br><br> ![Przykład reguły alertu](media/log-analytics-tutorial-response/log-analytics-alert-01.png)
+1. W witrynie Azure Portal kliknij pozycję **Wszystkie usługi**. Na liście zasobów wpisz **Log Analytics**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Wybierz pozycję **Log Analytics**.
+2. Uruchom portal OMS, wybierając opcję Portal OMS, a następnie na stronie **Omówienie** wybierz opcję **Przeszukiwanie dzienników**.  
+3. Wybierz opcję **Ulubione** w górnej części portalu i w okienku **Zapisane wyszukiwania** po prawej stronie wybierz pozycję *Maszyny wirtualne platformy Azure — użycie procesora*.  
+4. Kliknij opcję **Alert** u góry strony, aby otworzyć ekran **Dodaj regułę alertu**.  
+5. Skonfiguruj regułę alertu przy użyciu następujących informacji:  
+   a. Podaj **Nazwę** alertu, np. *Użycie procesora maszyny wirtualnej przekracza >90*  
+   b. W opcji **Przedział czasu** określ zakres czasu dla zapytania, np. *30*.  Zapytanie zwraca tylko rekordy utworzone w tym zakresie czasu bieżącego.  
+   d. **Częstotliwość alertu** określa częstotliwość, z jaką należy uruchamiać zapytanie.  W tym przykładzie określ wartość *5* min, która będzie występować w naszym określonym przedziale czasu.  
+   d. Wybierz opcję **Pomiar metryki** i wprowadź wartość *90* w pozycji **Wartość zagregowana** oraz wartość *3* w pozycji **Wyzwalaj alert na podstawie**   
+   e. W obszarze **Akcje** wyłącz powiadomienia e-mail.
+6. Kliknij przycisk **Zapisz**, aby zakończyć tworzenie reguły alertu. Rozpoczyna ona działanie od razu.<br><br> ![Przykład reguły alertu](media/log-analytics-tutorial-response/log-analytics-alert-01.png)
 
-Rekordy alertu przez reguły alertów w analizy dzienników mieć typu **Alert** i SourceSystem z **OMS**.<br><br> ![Przykład alertów generowanych zdarzeń](media/log-analytics-tutorial-response/log-analytics-alert-events-01.png)  
+Rekordy alertów utworzone przez reguły alertów w usłudze Log Analytics mają typ **Alert** i system źródłowy **OMS**.<br><br> ![Przykład wygenerowanych zdarzeń alertów](media/log-analytics-tutorial-response/log-analytics-alert-events-01.png)  
 
 ## <a name="alert-actions"></a>Akcje alertów
-Dostępne akcje Zaawansowane z alertami, takie jak tworzenie odpowiednie powiadomienie e-mail, uruchom [elementu runbook automatyzacji](../automation/automation-runbook-types.md), użyj elementu webhook, aby utworzyć rekord zdarzenia w systemie Zarządzanie usługami IT — zarządzanie zdarzeniami lub [IT Rozwiązanie usługi zarządzania łącznika](log-analytics-itsmc-overview.md) jako odpowiedzi po spełnieniu kryteriów alertu.   
+Możesz wykonać zaawansowane akcje przy użyciu alertów, np. utworzyć powiadomienia e-mail, uruchomić [element runbook usługi Automation](../automation/automation-runbook-types.md), użyć elementu webhook do utworzenia rekordu incydentu w systemie zarządzania incydentami ITSM lub przy użyciu [rozwiązania IT Service Management Connector](log-analytics-itsmc-overview.md) w odpowiedzi na spełnienie kryteriów alertu.   
 
-Akcje e-mail Wyślij wiadomość e-mail ze szczegółami alertu do co najmniej jednego adresata. Można określić temat wiadomości e-mail, ale jego zawartość jest standardowym formacie tworzony przez analizy dzienników.  Załóżmy aktualizacji reguły alertu utworzonego wcześniej i skonfigurować go do wiadomości e-mail powiadomienie, zamiast aktywnie monitoruje alertu rekordu wyszukiwania dziennika.     
+Akcje poczty e-mail wysyłają wiadomość e-mail ze szczegółami alertu do co najmniej jednego adresata. Możesz określić temat wiadomości e-mail, ale jej zawartość jest standardowym formatem tworzonym przez usługę Log Analytics.  Zaktualizujmy wcześniej utworzoną regułę alertu i skonfigurujmy ją, aby wysyłać powiadomienia e-mail, zamiast aktywnie monitorować rekord alertu przy użyciu przeszukiwania dzienników.     
 
-1. W portalu OMS z górnego menu wybierz **ustawienia** , a następnie wybierz **alerty**.
-2. Z listy reguł alertów kliknij ikonę ołówka obok alertu utworzony wcześniej.
-3. W obszarze **akcje** sekcji, należy włączyć funkcję powiadomienia e-mail.
-4. Podaj **podmiotu** dla wiadomości e-mail, takich jak *wartości progowej przekracza wykorzystanie procesora > 90*.
-5. Dodaj adresy jednego lub kilku adresatów poczty e-mail w **adresatów** pola.  Jeśli określono więcej niż jeden adres, oddziel adresy średnikiem (;).
-6. Kliknij przycisk **zapisać** przeprowadzenie reguły alertów. Zostanie ona rozpoczęta natychmiast uruchomiona.<br><br> ![Reguła alertu z powiadomienia e-mail](media/log-analytics-tutorial-response/log-analytics-alert-02.png)
+1. W portalu OMS w górnym menu wybierz opcję **Ustawienia**, a następnie wybierz pozycję **Alerty**.
+2. Na liście reguł alertów kliknij ikonę ołówka obok wcześniej utworzonego alertu.
+3. W obszarze **Akcje** włącz powiadomienia e-mail.
+4. Podaj **Temat** wiadomości e-mail, np. *Użycie procesora przekracza próg >90*.
+5. Dodaj adresy dla co najmniej jednego adresata poczty e-mail w polu **Adresaci**.  Jeśli określasz więcej niż jeden adres, oddziel je przy użyciu średnika (;).
+6. Kliknij przycisk **Zapisz**, aby zakończyć tworzenie reguły alertu. Rozpoczyna ona działanie od razu.<br><br> ![Reguła alertu z powiadomieniem e-mail](media/log-analytics-tutorial-response/log-analytics-alert-02.png)
 
 ## <a name="next-steps"></a>Następne kroki
-W tym samouczku przedstawiono, jak alert reguły można aktywne identyfikowanie i odpowiadać na problem podczas uruchamiania dziennika wyszukiwania w zaplanowanych odstępach czasu i określonym kryteriom.  
+W tym samouczku przedstawiono sposób aktywnego identyfikowania i reagowania reguł alertów na problemy podczas uruchamiania przeszukiwania dzienników w zaplanowanych odstępach czasu i w przypadku dopasowania do określonych kryteriów.  
 
-Wykonaj to łącze, aby wyświetlić przykłady skryptów analizy dzienników wbudowanych.  
+Użyj tego linku, aby wyświetlić przykłady wstępnie utworzonych skryptów usługi Log Analytics.  
 
 > [!div class="nextstepaction"]
-> [Zaloguj się przykłady skryptów analityka](powershell-samples.md)
+> [Przykłady skryptów usługi Log Analytics](powershell-samples.md)

@@ -3,22 +3,20 @@ title: "Przekazywanie danych obrazu do chmury za pomocą usługi Azure Storage |
 description: "Przechowywanie danych aplikacji przy użyciu usługi Azure Blob Storage i aplikacji internetowej"
 services: storage
 documentationcenter: 
-author: georgewallace
-manager: timlt
-editor: 
+author: tamram
+manager: jeconnoc
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 09/19/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: eae23bed2792e41f73c22658d238e2b03beba17b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e3c40d0f3db1a33a405a341a714a7ce199908ca4
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>Przekazywanie danych obrazu do chmury za pomocą usługi Azure Storage
 
@@ -67,11 +65,11 @@ az storage account create --name <blob_storage_account> \
  
 ## <a name="create-blob-storage-containers"></a>Tworzenie kontenerów w usłudze Blob Storage
  
-Aplikacja używa dwóch kontenerów w ramach konta usługi Blob Storage. Kontenery są podobne do folderów i służą do przechowywania obiektów blob. Z kontenerem _images_ mamy do czynienia wtedy, gdy aplikacja przekazuje obrazy w pełnej rozdzielczości. W jednej z następnych części serii aplikacja funkcji platformy Azure będzie przekazywać miniatury obrazów o zmienionym rozmiarze do kontenera _thumbs_. 
+Aplikacja używa dwóch kontenerów w ramach konta usługi Blob Storage. Kontenery są podobne do folderów i służą do przechowywania obiektów blob. Z kontenerem _images_ mamy do czynienia wtedy, gdy aplikacja przekazuje obrazy w pełnej rozdzielczości. W dalszej części serii aplikacja funkcji platformy Azure będzie przekazywać miniatury obrazów o zmienionym rozmiarze do kontenera _thumbnails_. 
 
 Pobierz klucz konta magazynu przy użyciu polecenia [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list). Następnie użyj tego klucza do utworzenia dwóch kontenerów za pomocą polecenia [az storage container create](/cli/azure/storage/container#az_storage_container_create).  
  
-W tym przypadku `<blob_storage_account>` jest nazwą utworzonego konta usługi Blob Storage. Dostęp publiczny do kontenera _images_ został ustawiony na wartość `off`, a do kontenera _thumbs_ — na wartość `container`. Ustawienie dostępu publicznego na wartość `container` pozwala na wyświetlanie miniatur przez osoby odwiedzające stronę internetową.
+W tym przypadku `<blob_storage_account>` jest nazwą utworzonego konta usługi Blob Storage. Dostęp publiczny do kontenera _images_ został ustawiony na wartość `off`, a do kontenera _thumbnails_ — na wartość `container`. Ustawienie dostępu publicznego na wartość `container` pozwala na wyświetlanie miniatur przez osoby odwiedzające stronę internetową.
  
 ```azurecli-interactive 
 blobStorageAccount=<blob_storage_account>
@@ -82,7 +80,7 @@ blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
 az storage container create -n images --account-name $blobStorageAccount \
 --account-key $blobStorageAccountKey --public-access off 
 
-az storage container create -n thumbs --account-name $blobStorageAccount \
+az storage container create -n thumbnails --account-name $blobStorageAccount \
 --account-key $blobStorageAccountKey --public-access container
 
 echo "Make a note of your blob storage account key..." 
@@ -135,7 +133,7 @@ W poniższym poleceniu ciąg `<blob_storage_account>` jest nazwą Twojego konta 
 az webapp config appsettings set --name <web_app> --resource-group myResourceGroup \
 --settings AzureStorageConfig__AccountName=<blob_storage_account> \
 AzureStorageConfig__ImageContainer=images  \
-AzureStorageConfig__ThumbnailContainer=thumbs \
+AzureStorageConfig__ThumbnailContainer=thumbnails \
 AzureStorageConfig__AccountKey=<blob_storage_key>  
 ``` 
 
@@ -196,15 +194,15 @@ Sprawdź, czy obraz jest wyświetlany w kontenerze.
 
 W celu przetestowania wyświetlania miniatur należy przekazać obraz do kontenera miniatur, aby zapewnić aplikacji możliwość odczytywania kontenera miniatur.
 
-Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Z menu po lewej stronie wybierz pozycję **Konta magazynu**, a następnie wybierz nazwę swojego konta magazynu. Wybierz pozycję **Kontenery** w obszarze **Blob Service** i wybierz kontener **thumbs**. Wybierz pozycję **Przekaż**, aby otworzyć okienko **Przekazywanie obiektu blob**.
+Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Z menu po lewej stronie wybierz pozycję **Konta magazynu**, a następnie wybierz nazwę swojego konta magazynu. Wybierz pozycję **Kontenery** w obszarze **Blob Service** i wybierz kontener **thumbnails**. Wybierz pozycję **Przekaż**, aby otworzyć okienko **Przekazywanie obiektu blob**.
 
 Wybierz plik za pomocą selektora plików i wybierz pozycję **Przekaż**.
 
-Przejdź z powrotem do aplikacji, aby sprawdzić, czy obraz przekazany do kontenera **thumbs** jest widoczny.
+Przejdź z powrotem do aplikacji, aby sprawdzić, czy obraz przekazany do kontenera **thumbnails** jest widoczny.
 
 ![Widok kontenera obrazów](media/storage-upload-process-images/figure2.png)
 
-W kontenerze **thumbs** w witrynie Azure Portal zaznacz przekazany obraz i wybierz pozycję **Usuń**, aby usunąć obraz. W drugiej części serii zautomatyzujesz proces tworzenia miniatur obrazów, więc ten obraz testowy nie będzie potrzebny.
+W kontenerze **thumbnails** w witrynie Azure Portal zaznacz przekazany obraz i wybierz pozycję **Usuń**, aby usunąć obraz. W drugiej części serii zautomatyzujesz proces tworzenia miniatur obrazów, więc ten obraz testowy nie będzie potrzebny.
 
 W celu buforowania zawartości z konta usługi Azure Storage można włączyć sieć CDN. Ponieważ nie zostało to opisane w tym samouczku, aby dowiedzieć się, jak włączyć sieć CDN dla konta usługi Azure Storage, możesz odwiedzić stronę [Integrate an Azure storage account with Azure CDN (Integrowanie konta usługi Azure Storage z siecią Azure CDN)](../../cdn/cdn-create-a-storage-account-with-cdn.md).
 

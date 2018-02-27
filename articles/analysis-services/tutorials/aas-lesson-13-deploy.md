@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 3442de96f346ef211672064584700a7ce183d929
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 251795f394d30418e1c03ec7b92fec40a75b2c3d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy"></a>Wdrażanie
 
@@ -28,7 +28,7 @@ W tej lekcji skonfigurujemy właściwości wdrożenia, określając docelowy ser
 Szacowany czas trwania lekcji: **5 minut**  
   
 ## <a name="prerequisites"></a>Wymagania wstępne  
-Ten temat stanowi część samouczka modelowania tabelarycznego, który należy wykonać w podanej kolejności. Przed przystąpieniem do wykonywania zadań w tej lekcji należy ukończyć lekcję poprzednią: [Lekcja 12: Analiza w programie Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).  
+Ten artykuł stanowi część samouczka modelowania tabelarycznego, który należy wykonać w podanej kolejności. Przed przystąpieniem do wykonywania zadań w tej lekcji należy ukończyć lekcję poprzednią: [Lekcja 12: Analiza w programie Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).  
 
 > [!IMPORTANT]  
 > Wdrożenie na zdalnym serwerze usług Analysis Services wymaga [uprawnień administratora](../analysis-services-server-admins.md).  
@@ -67,6 +67,9 @@ Ten temat stanowi część samouczka modelowania tabelarycznego, który należy 
   
 3. Po pomyślnym zakończeniu wdrażania kliknij przycisk **Zamknij**.  
   
+
+Ta lekcja przedstawia najpopularniejszą i najłatwiejszą metodę wdrażania modelu tabelarycznego przy użyciu programu SSDT. Zaawansowane opcje wdrażania, na przykład Kreator wdrażania czy automatyzacja z użyciem języków XMLA i AMO, zapewniają większą elastyczność, spójność i możliwość zaplanowanego wdrażania. Aby dowiedzieć się więcej, zobacz [Tabular model solution deployment (Wdrażanie rozwiązania modelu tabelarycznego)](https://docs.microsoft.com/sql/analysis-services/tabular-models/tabular-model-solution-deployment-ssas-tabular).
+
 ## <a name="conclusion"></a>Podsumowanie  
 Gratulacje! Tworzenie i wdrażanie pierwszego modelu tabelarycznego usług Analysis Services zostało ukończone. Ten samouczek pomógł przy wykonywaniu typowych zadań związanych z tworzeniem modelu tabelarycznego. Skoro model Adventure Works Internet Sales został wdrożony, można użyć programu SQL Server Management Studio do zarządzania modelem, a także utworzyć skrypty procesu i plan tworzenia kopii zapasowych. Użytkownicy mogą teraz również łączyć się z modelem, używając aplikacji klienckiej do raportowania (np. Microsoft Excel lub Power BI).  
 

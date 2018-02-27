@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/13/2017
 ms.author: parakhj
-ms.openlocfilehash: 6c1fd08c52f33a062d06e0593cbbe00346bb44f1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a9b9f71d0c11aee238661d57fd2e5246f1bf0842
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="switching-to-your-azure-ad-b2c-tenant"></a>Przełączanie się do dzierżawy usługi Azure AD B2C
 
@@ -34,13 +34,13 @@ Aby przejść do swojej dzierżawy usługi Azure AD B2C, musisz się zalogować 
 
 Witryna Azure Portal zostanie odświeżona.  Od tej chwili kontekstem logowania w witrynie Azure Portal będzie Twoja dzierżawa usługi Azure AD B2C.
 
-## <a name="navigate-to-the-b2c-features-blade"></a>Przechodzenie do bloku funkcji B2C
+## <a name="navigate-to-the-b2c-features-pane"></a>Przejście do okienka funkcji B2C
 
-1. Kliknij pozycję **Przeglądaj** w obszarze nawigacji po lewej stronie.
-1. Kliknij pozycję **> Więcej usług**, a następnie wyszukaj tekst `Azure AD B2C` w okienku nawigacyjnym po lewej stronie.  (Aby przypiąć tę pozycję do tablicy startowej po lewej stronie, kliknij gwiazdkę na lewo od usługi Azure AD B2C)
-1. Kliknij pozycję **Azure AD B2C**, aby otworzyć blok funkcji B2C.
+1. Kliknij polecenie **Przeglądaj** w obszarze nawigacji po lewej stronie.
+1. Kliknij pozycję **Wszystkie usługi**, a następnie wyszukaj tekst `Azure AD B2C` w okienku nawigacji po lewej stronie.  (Aby przypiąć tę pozycję do tablicy startowej po lewej stronie, kliknij gwiazdkę na lewo od usługi Azure AD B2C)
+1. Kliknij pozycję **Azure AD B2C**, aby otworzyć okienko funkcji B2C.
    
-    ![Zrzut ekranu z blokiem przeglądania w poszukiwaniu funkcji B2C](./media/active-directory-b2c-get-started/b2c-browse.png)
+    ![Zrzut ekranu z okienkiem przeglądania w poszukiwaniu funkcji B2C](./media/active-directory-b2c-get-started/b2c-browse.png)
 
 > [!IMPORTANT]
-> Tylko administrator globalny dzierżawy B2C może uzyskiwać dostęp do bloku funkcji B2C. Administrator globalny innej dzierżawy ani użytkownik dowolnej dzierżawy nie mogą uzyskać dostępu do tego bloku.  Na swoją dzierżawę B2C możesz przełączyć się, używając przełącznika dzierżawy w prawym górnym rogu witryny Azure Portal.
+> Tylko administrator globalny dzierżawy B2C może uzyskać dostęp do okienka funkcji B2C. Administrator globalny innej dzierżawy ani użytkownik dowolnej dzierżawy nie mogą uzyskać dostępu do tego bloku.  Na swoją dzierżawę B2C możesz przełączyć się, używając przełącznika dzierżawy w prawym górnym rogu witryny Azure Portal.

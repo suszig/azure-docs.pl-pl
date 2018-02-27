@@ -1,35 +1,33 @@
 ---
-title: Tworzenie konta maszyny Wirtualnej i magazynu dla skalowalnych aplikacji na platformie Azure | Dokumentacja firmy Microsoft
-description: "Dowiedz się, jak wdrożyć maszynę Wirtualną, który ma być używany do uruchomienia skalowalnych aplikacji przy użyciu magazynu obiektów blob platformy Azure"
+title: Tworzenie maszyny wirtualnej i konta magazynu dla skalowalnej aplikacji na platformie Azure | Microsoft Docs
+description: "Dowiedz się, w jaki sposób wdrożyć maszynę wirtualną, na której zostanie uruchomiona skalowalna aplikacja korzystająca z usługi Azure Blob Storage"
 services: storage
 documentationcenter: 
-author: georgewallace
+author: tamram
 manager: jeconnoc
-editor: 
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 12/12/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 0fd1cd93ca6faabcbe0007136fe427028e722733
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
-ms.translationtype: MT
+ms.openlocfilehash: aafb79a021b76b1347314815b1786a23f699be7a
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 02/22/2018
 ---
-# <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>Tworzenie maszyny wirtualnej i konto magazynu na potrzeby skalowalnych aplikacji
+# <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>Tworzenie maszyny wirtualnej i konta magazynu dla skalowalnej aplikacji
 
-W tym samouczku wchodzi w jednej serii. Ten samouczek pokazuje, że wdrożyć aplikację, która przekazuje i Pobierz dużych ilości danych losowe z kontem magazynu platformy Azure. Po zakończeniu, masz działające na maszynie wirtualnej, Przekaż, a następnie Pobierz dużych ilości danych na konto magazynu aplikacji konsoli.
+Niniejszy samouczek jest pierwszą częścią serii. Ten samouczek przedstawia sposób wdrażania aplikacji, która przekazuje i pobiera dużą ilość danych losowych na koncie usługi Azure Storage. Po zakończeniu na maszynie wirtualnej będzie uruchomiona aplikacja konsolowa umożliwiająca przekazywanie dużej ilości danych na konto magazynu i pobieranie ich.
 
-W części jednej serii, możesz dowiedzieć się, jak:
+Część pierwsza serii zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie konta magazynu
 > * Tworzenie maszyny wirtualnej
-> * Skonfiguruj rozszerzenie skryptu niestandardowego
+> * Konfigurowanie rozszerzenia skryptu niestandardowego
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -47,9 +45,9 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-a-storage-account"></a>Tworzenie konta magazynu
  
-Przykład przekazuje 50 dużych plików do kontenera obiektów blob na koncie magazynu Azure. Konto magazynu zapewnia unikatową przestrzeń nazw do przechowywania i udostępniania obiektów danych usługi Azure storage. Utwórz konto magazynu w grupie zasobów został utworzony za pomocą [New-AzureRmStorageAccount](/powershell/module/AzureRM.Storage/New-AzureRmStorageAccount) polecenia.
+Przykład użyty w tym samouczku przekazuje 50 dużych plików do kontenera obiektów blob na koncie usługi Azure Storage. Konto magazynu zapewnia unikatową przestrzeń nazw do przechowywania i umożliwiania dostępu do obiektów danych usługi Azure Storage. Utwórz konto magazynu w grupie zasobów utworzonej przy użyciu polecenia [New-AzureRmStorageAccount](/powershell/module/AzureRM.Storage/New-AzureRmStorageAccount).
 
-W poniższym poleceniu zastąp własne globalnie unikatowej nazwy dla konta magazynu obiektów Blob, w którym można zobaczyć `<blob_storage_account>` symbolu zastępczego.
+W poniższym poleceniu w miejsce symbolu zastępczego `<blob_storage_account>` wstaw swoją własną unikatową w skali globalnej nazwę konta usługi Blob Storage.
 
 ```powershell-interactive
 $storageAccount = New-AzureRmStorageAccount -ResourceGroupName myResourceGroup `
@@ -104,17 +102,17 @@ Write-host "Your public IP address is $($pip.IpAddress)"
 
 ## <a name="deploy-configuration"></a>Wdrażanie konfiguracji
 
-W tym samouczku istnieją wymagania wstępne, które muszą być zainstalowane na maszynie wirtualnej. Niestandardowe rozszerzenie skryptu jest używany do uruchomienia skryptu programu PowerShell, który wykonuje następujące zadania:
+W przypadku tego samouczka istnieją elementy wymagane wstępnie, które należy zainstalować na maszynie wirtualnej. Rozszerzenie skryptu niestandardowego jest używane do uruchomienia skryptu programu PowerShell, który wykonuje następujące zadania:
 
 > [!div class="checklist"]
-> * Zainstaluj oprogramowanie .NET core 2.0
-> * Instalacja chocolatey
-> * Zainstaluj usługę GIT
-> * Klonowanie repozytorium przykładowej
+> * Instalowanie programu .NET Core 2.0
+> * Instalowanie narzędzia chocolatey
+> * Instalowanie oprogramowania GIT
+> * Klonowanie repozytorium przykładowego
 > * Przywracanie pakietów NuGet
-> * Tworzy 50 1 GB pliki z losowe dane
+> * Utworzenie 50 plików o rozmiarze 1 GB z danymi losowymi
 
-Uruchom następujące polecenie cmdlet, aby zakończyć konfigurację maszyny wirtualnej. Ten krok może zająć 5 – 15 minut.
+Uruchom następujące polecenie cmdlet, aby zakończyć konfigurowanie maszyny wirtualnej. Może to zająć 5–15 minut.
 
 ```azurepowershell-interactive
 # Start a CustomScript extension to use a simple PowerShell script to install .NET core, dependencies, and pre-create the files to upload.
@@ -126,16 +124,16 @@ Set-AzureRMVMCustomScriptExtension -ResourceGroupName myResourceGroup `
     -Name DemoScriptExtension
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
-W części jednej serii przedstawiono dotyczące tworzenia konta magazynu, wdrażania maszyny wirtualnej i konfigurowanie maszyny wirtualnej z wymagane wstępne np.:
+W części pierwszej serii opisano tworzenie konta magazynu, wdrażanie maszyny wirtualnej oraz konfigurowanie maszyny wirtualnej przy użyciu odpowiednich wstępnie wymaganych elementów, w tym następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie konta magazynu
 > * Tworzenie maszyny wirtualnej
-> * Skonfiguruj rozszerzenie skryptu niestandardowego
+> * Konfigurowanie rozszerzenia skryptu niestandardowego
 
-Przejdź do części dwóch serii do przekazania na konto magazynu przy użyciu ponawiania wykładniczego i równoległości dużych ilości danych.
+Przejdź do drugiej części serii, która opisuje przekazywanie dużych ilości danych na konto magazynu przy użyciu ponawiania wykładniczego i funkcji równoległości.
 
 > [!div class="nextstepaction"]
-> [Przekaż dużych ilości dużych plików równolegle na konto magazynu](storage-blob-scalable-app-upload-files.md)
+> [Równoległe przekazywanie dużej ilości dużych plików na konto magazynu](storage-blob-scalable-app-upload-files.md)

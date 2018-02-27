@@ -14,13 +14,13 @@ ms.workload: Active
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 01/29/2018
-ms.author: ninarn
-ms.openlocfilehash: 63a16df5f36bba4ffb97529100b878f0a1591127
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.date: 02/16/2018
+ms.author: carlrab
+ms.openlocfilehash: 425e2186d4eba5db358ebb3a014c3563c4443eb5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Tworzenia bazy danych SQL platformy Azure w witrynie Azure Portal
 
@@ -38,7 +38,7 @@ Baza danych Azure SQL jest tworzona ze zdefiniowanym zestawem [zasobów obliczen
 
 Wykonaj te kroki, aby utworzyć bazę danych SQL zawierającą przykładowe dane firmy Adventure Works LT.
 
-1. Kliknij przycisk **Nowy** znajdujący się w lewym górnym rogu witryny Azure Portal.
+1. W lewym górnym rogu witryny Azure Portal kliknij przycisk **Utwórz zasób**.
 
 2. Na stronie **Nowy** wybierz pozycję **Bazy danych**, a następnie na stronie **Nowy** w obszarze **SQL Database** wybierz pozycję **Utwórz**.
 
@@ -84,7 +84,7 @@ Wykonaj te kroki, aby utworzyć bazę danych SQL zawierającą przykładowe dane
    >\* W warstwie Premium ponad 1 TB miejsca do magazynowania jest obecnie dostępny w następujących regionach: Australia Wschodnia, Australia Południowo-Wschodnia, Brazylia Południowa, Kanada Środkowa, Kanada Wschodnia, Środkowe stany USA, Francja Środkowa, Niemcy Środkowe, Japonia Wschodnia, Japonia Zachodnia, Korea Środkowa, Północno-środkowe stany USA, Europa Północna, Południowo-środkowe stany USA, Azja Południowo-Wschodnia, Południowe Zjednoczone Królestwo, Zachodnie Zjednoczone Królestwo, Wschodnie stany USA 2, Zachodnie stany USA, Administracja USA — Wirginia i Europa Zachodnia. Więcej informacji można znaleźć na stronie [bieżących ograniczeń poziomów P11–P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    >
 
-7. Na potrzeby tego samouczka Szybki start wybierz warstwę usługi **Standardowa**, a następnie wybierz za pomocą suwaka **100 jednostek DTU (S3)** i **400** GB miejsca do magazynowania.
+7. Na potrzeby tego samouczka Szybki start wybierz warstwę usługi **Standardowa**, a następnie wybierz za pomocą suwaka **10 jednostek DTU (S0)** i **1** GB miejsca do magazynowania.
 
    ![tworzenie bazy danych s1](./media/sql-database-get-started-portal/create-database-s1.png)
 
@@ -138,17 +138,13 @@ Teraz można połączyć się z serwerem usługi SQL Database i jego bazami dany
 
 Teraz, po utworzeniu przykładowej bazy danych na platformie Azure, użyjemy wbudowanego narzędzia do obsługi zapytań w witrynie Azure Portal, aby potwierdzić, że możesz nawiązać połączenie z bazą danych i wysłać zapytanie dotyczące danych.
 
-1. Na stronie bazy danych SQL dla używanej bazy danych znajdź i kliknij pozycję **Eksplorator danych (wersja zapoznawcza)** w menu po lewej stronie
+1. Na stronie SQL Database dla konkretnej bazy danych kliknij pozycję **Edytor zapytań (wersja zapoznawcza)** w menu po lewej stronie, a następnie kliknij pozycję **Zaloguj się**.
 
-   ![znajdowanie edytora zapytań](./media/sql-database-get-started-portal/find-query-editor.PNG)
+   ![logowanie](./media/sql-database-get-started-portal/query-editor-login.png)
 
-2. Kliknij pozycję **Zaloguj**, przejrzyj informacje logowania, a następnie kliknij przycisk **OK**, aby zalogować się przy użyciu funkcji uwierzytelniania programu SQL Server, korzystając z utworzonych wcześniej nazwy logowania i hasła administratora serwera.
+2. Wybierz opcję uwierzytelniania programu SQL Server, podaj informacje wymagane do zalogowania, a następnie kliknij przycisk **OK**, aby się zalogować.
 
-   ![logowanie](./media/sql-database-get-started-portal/login-menu.png)
-
-3. Kliknij przycisk **OK**, aby się zalogować.
-
-4. Po uwierzytelnieniu się jako **administrator systemu** w okienku edytora zapytań wpisz poniższe zapytanie.
+3. Po uwierzytelnieniu się jako **administrator systemu** w okienku edytora zapytań wpisz poniższe zapytanie.
 
    ```sql
    SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
@@ -157,11 +153,11 @@ Teraz, po utworzeniu przykładowej bazy danych na platformie Azure, użyjemy wbu
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-5. Kliknij pozycję **Uruchom**, a następnie przejrzyj wyniki zapytania w okienku **Wyniki**.
+4. Kliknij pozycję **Uruchom**, a następnie przejrzyj wyniki zapytania w okienku **Wyniki**.
 
    ![wyniki edytora zapytań](./media/sql-database-get-started-portal/query-editor-results.png)
 
-6. Zamknij stronę **Eksplorator danych**, a następnie kliknij przycisk **OK**, aby odrzucić niezapisane zmiany.
+5. Zamknij stronę **Eksplorator danych**, a następnie kliknij przycisk **OK**, aby odrzucić niezapisane zmiany.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 

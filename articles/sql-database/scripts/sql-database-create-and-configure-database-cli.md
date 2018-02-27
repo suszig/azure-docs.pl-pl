@@ -1,6 +1,6 @@
 ---
-title: "Interfejs wiersza polecenia przykład — tworzenie bazy danych Azure SQL | Dokumentacja firmy Microsoft"
-description: "Ten przykładowy skrypt wiersza polecenia platformy Azure umożliwiają utworzenie bazy danych SQL."
+title: "Przykładowy skrypt interfejsu wiersza polecenia — tworzenie bazy danych Azure SQL Database | Microsoft Docs"
+description: "Ten przykładowy skrypt interfejsu wiersza polecenia platformy Azure umożliwia utworzenie bazy danych SQL."
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -16,15 +16,15 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 10/11/2017
 ms.author: janeng
-ms.openlocfilehash: 404d43a6f2fa38276b9517e9542f1e50a4b1980b
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.openlocfilehash: 5824821a2e1f06425cae46cf8b3cf28582e63056
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>Użyj interfejsu wiersza polecenia, aby utworzyć pojedynczej bazy danych Azure SQL i skonfigurować reguły zapory
+# <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>Tworzenie jednej bazy danych Azure SQL Database i konfigurowanie reguły zapory przy użyciu interfejsu wiersza polecenia
 
-W tym przykładzie skrypt wiersza polecenia platformy Azure utworzy bazę danych Azure SQL i skonfigurować regułę zapory poziomu serwera. Po pomyślnym uruchomieniu skryptu bazy danych SQL są dostępne z wszystkich usług platformy Azure i skonfigurowanego adresu IP. 
+Ten przykładowy skrypt interfejsu wiersza polecenia platformy Azure tworzy bazę danych Azure SQL Database i konfiguruje regułę zapory na poziomie serwera. Po pomyślnym wykonaniu tego skryptu można uzyskać dostęp do bazy danych SQL z poziomu wszystkich usług platformy Azure przy użyciu skonfigurowanego adresu IP. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -38,27 +38,27 @@ Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z
 
 ## <a name="clean-up-deployment"></a>Czyszczenie wdrożenia
 
-Po uruchomieniu przykładowy skrypt następującego polecenia można usunąć grupy zasobów i wszystkie zasoby skojarzone z nim.
+Po wykonaniu przykładowego skryptu możesz uruchomić następujące polecenie, aby usunąć grupę zasobów i wszystkie skojarzone z nią zasoby.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 
-## <a name="script-explanation"></a>Wyjaśnienie skryptu
+## <a name="script-explanation"></a>Objaśnienia dla skryptu
 
-Ten skrypt używa następujących poleceń. Każde polecenie w tabeli łącza do dokumentacji określonego polecenia.
+W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanowi link do dokumentacji polecenia.
 
 | Polecenie | Uwagi |
 |---|---|
-| [Tworzenie grupy az](/cli/azure/group#az_group_create) | Tworzy grupę zasobów, w którym przechowywane są wszystkie zasoby. |
-| [Utwórz az programu sql server](/cli/azure/sql/server#az_sql_server_create) | Tworzy serwer logiczny, który jest hostem bazy danych SQL. |
-| [Utwórz zapory serwera sql az](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create) | Tworzy regułę zapory zezwalają na dostęp do wszystkich baz danych na serwerze z wprowadzony zakres adresów IP. |
-| [Tworzenie bazy danych sql az](/cli/azure/sql/db#az_sql_db_create) | Tworzy bazę danych SQL w serwera logicznego. |
-| [Usuwanie grupy az](/cli/azure/resource#delete) | Usuwa grupę zasobów, w tym wszystkich zagnieżdżonych zasobów. |
+| [az group create](/cli/azure/group#az_group_create) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
+| [az sql server create](/cli/azure/sql/server#az_sql_server_create) | Tworzy serwer logiczny hostujący bazę danych SQL. |
+| [az sql server firewall create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create) | Tworzy regułę zapory zezwalającą na dostęp do wszystkich baz danych SQL na serwerze z adresów IP należących do podanego zakresu. |
+| [az sql db create](/cli/azure/sql/db#az_sql_db_create) | Tworzy bazę danych SQL na serwerze logicznym. |
+| [az group delete](/cli/azure/resource#az_resource_delete) | Usuwa grupę zasobów wraz ze wszystkimi zagnieżdżonymi zasobami. |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji dotyczących interfejsu wiersza polecenia Azure, zobacz [dokumentacji interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/overview).
+Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/overview).
 
-Dodatkowe przykłady skryptów bazy danych SQL interfejsu wiersza polecenia można znaleźć w [dokumentacji usługi Azure SQL Database](../sql-database-cli-samples.md).
+Więcej przykładowych skryptów interfejsu wiersza polecenia dla usługi SQL Database można znaleźć w [dokumentacji usługi Azure SQL Database](../sql-database-cli-samples.md).
 

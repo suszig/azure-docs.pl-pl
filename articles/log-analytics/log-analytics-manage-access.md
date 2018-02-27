@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 1549408c6885ee556a142ab7de613ebb1629070d
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 5121535768b7fb430486c1c2c623e1a3a488858f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-workspaces"></a>Zarządzanie obszarami roboczymi
 
@@ -34,7 +34,7 @@ Aby utworzyć obszar roboczy, trzeba:
 ## <a name="determine-the-number-of-workspaces-you-need"></a>Określanie wymaganej liczby obszarów roboczych
 Obszar roboczy jest zasobem platformy Azure w postaci kontenera, w którym dane są zbierane, agregowane, analizowane i przedstawiane w witrynie Azure Portal.
 
-Możesz mieć wiele obszarów roboczych na subskrypcję platformy Azure i dostęp do więcej niż jednego obszaru roboczego. Minimalizacja liczby obszarów roboczych pozwala na wykonywanie zapytań dotyczących większości danych i ich korelowanie, ponieważ nie można wykonywać zapytań w wielu obszarach roboczych. W tej sekcji opisano sytuacje, w których pomocne może być utworzenie więcej niż jednego obszaru roboczego.
+Możesz mieć wiele obszarów roboczych na subskrypcję platformy Azure i dostęp do więcej niż jednego obszaru roboczego. Wcześniej można było tylko analizować dane z bieżącego obszaru roboczego, co ograniczało możliwość wysyłania zapytań w wielu obszarach roboczych zdefiniowanych w subskrypcji. Teraz możesz [wysyłać zapytania w wielu obszarach roboczych](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-cross-workspace-search), co zapewnia wgląd w dane obejmujący cały system. W tej sekcji opisano sytuacje, w których pomocne może być utworzenie więcej niż jednego obszaru roboczego.
 
 Obecnie obszar roboczy oferuje następujące możliwości:
 
@@ -62,10 +62,10 @@ Szczegółowe informacje o obszarze roboczym można wyświetlić w witrynie Azur
 #### <a name="view-workspace-information-in-the-azure-portal"></a>Wyświetlanie informacji o obszarze roboczym w witrynie Azure Portal
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. Kliknij pozycję **Więcej usług** w lewym dolnym rogu witryny Azure Portal.  Na liście zasobów wpisz **Log Analytics**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Kliknij pozycję **Log Analytics**.  
-    ![Centrum platformy Azure](./media/log-analytics-manage-access/hub.png)  
-3. Wybierz obszar roboczy w bloku subskrypcji usługi Log Analytics.
-4. Blok obszaru roboczego zawiera szczegółowe dane dotyczące obszaru roboczego i linki do dodatkowych informacji.  
+2. Kliknij opcję **Wszystkie usługi**.  Na liście zasobów wpisz **Log Analytics**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Kliknij pozycję **Log Analytics**.  
+    ![Zrzut ekranu przedstawiający lewe menu platformy Azure](./media/log-analytics-manage-access/hub.png)  
+3. Wybierz obszar roboczy na stronie subskrypcji usługi Log Analytics.
+4. Strona obszaru roboczego zawiera szczegółowe dane dotyczące obszaru roboczego i linki do dodatkowych informacji.  
     ![szczegóły obszaru roboczego](./media/log-analytics-manage-access/workspace-details.png)  
 
 
@@ -83,8 +83,8 @@ Poniższa tabela zawiera podsumowanie dostępu, który można ustawić za pomoc�
 
 |                          | Portal usługi Log Analytics | Azure Portal | Interfejs API (w tym program PowerShell) |
 |--------------------------|----------------------|--------------|----------------------------|
-| Role użytkownika usługi Log Analytics | Tak                  | Nie           | Nie                         |
-| Dostęp oparty na rolach na platformie Azure  | Tak                  | Tak          | Tak                        |
+| Role użytkownika usługi Log Analytics | Yes                  | Nie           | Nie                         |
+| Dostęp oparty na rolach na platformie Azure  | Yes                  | Yes          | Yes                        |
 
 > [!NOTE]
 > Model uprawnień usługi Log Analytics jest zmieniany na dostęp oparty na rolach platformy Azure, który zastępuje role użytkownika usługi Log Analytics.
@@ -207,7 +207,7 @@ Poniżej przedstawiono procedurę dodawania użytkownika lub grupy do obszaru ro
      >
      >
 4. Wybierz typ użytkownika lub grupy do dodania: **Administrator**, **Współautor** lub **Użytkownik tylko do odczytu**.  
-5. Kliknij pozycję **Dodaj**.
+5. Kliknij pozycję **Add** (Dodaj).
 
    W przypadku dodawania konta Microsoft na podany adres e-mail zostanie wysłane zaproszenie do dołączenia do obszaru roboczego. Gdy użytkownik wykona instrukcje zawarte w zaproszeniu do dołączenia do pakietu OMS, będzie mógł uzyskać dostęp do tego obszaru roboczego.
    W przypadku dodawania konta organizacyjnego użytkownik będzie miał natychmiast dostęp do usługi Log Analytics.  
@@ -259,7 +259,7 @@ Wszystkie obszary robocze utworzone po 26 września 2016 roku muszą być w czas
 ### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-azure-portal"></a>Aby połączyć obszar roboczy z subskrypcją platformy Azure w witrynie Azure Portal
 1. Zaloguj się do [Azure Portal](http://portal.azure.com).
 2. Wyszukaj pozycję **Log Analytics** i wybierz ją.
-3. Zostanie wyświetlona lista istniejących obszarów roboczych. Kliknij pozycję **Dodaj**.  
+3. Zostanie wyświetlona lista istniejących obszarów roboczych. Kliknij pozycję **Add** (Dodaj).  
    ![lista obszarów roboczych](./media/log-analytics-manage-access/manage-access-link-azure01.png)
 4. W obszarze **Obszar roboczy pakietu OMS** kliknij pozycję **Lub połącz istniejący**.  
    ![łączenie istniejącego obszaru roboczego](./media/log-analytics-manage-access/manage-access-link-azure02.png)

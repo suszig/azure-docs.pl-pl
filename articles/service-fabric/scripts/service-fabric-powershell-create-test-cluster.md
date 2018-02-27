@@ -1,6 +1,6 @@
 ---
-title: "Skrypt programu PowerShell Azure przykładowe — Tworzenie klastra sieci szkieletowej usług | Dokumentacja firmy Microsoft"
-description: "Skrypt programu PowerShell Azure przykładowe — Tworzenie klastra sieci szkieletowej usług test trzech węzłów."
+title: "Przykład skryptu programu Azure PowerShell — tworzenie klastra usługi Service Fabric | Microsoft Docs"
+description: "Przykład skryptu programu Azure PowerShell — tworzenie klastra testowego usługi Service Fabric z trzema węzłami."
 services: service-fabric
 documentationcenter: 
 author: rwike77
@@ -12,22 +12,22 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-ms.date: 12/12/2017
+ms.date: 01/29/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 03348efa4ebdaed987df73756c6b57da0cc76fb5
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
-ms.translationtype: MT
+ms.openlocfilehash: fd94a5dd9630cc65dedc180cdfd7aafea83c4866
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-a-three-node-test-service-fabric-cluster"></a>Tworzenie klastra usługi sieć szkieletowa test trzech węzłów
+# <a name="create-a-three-node-test-service-fabric-cluster"></a>Tworzenie klastra testowego usługi Service Fabric z trzema węzłami
 
-Ten przykładowy skrypt tworzy test trzech węzłów klastra usługi sieć szkieletowa zabezpieczone za pomocą certyfikatu X.509. Trzy węzła konfiguracji klastra jest obsługiwana do programowania i testowania, ponieważ można bezpiecznie wykonać uaktualnienia, a po awarii jednego węzła, (o ile nie występują jednocześnie). Zapewnienie odporności na awarie jednoczesnych klastra produkcyjnego wymagany jest pięć lub więcej węzłów.  
+Ten przykładowy skrypt tworzy klaster testowy usługi Service Fabric z trzema węzłami zabezpieczony za pomocą certyfikatu X.509. Konfiguracja klastra z trzema węzłami jest obsługiwana na potrzeby tworzenia i testowania, ponieważ można bezpiecznie wykonywać uaktualnienia i przetrwać awarie pojedynczych węzłów (o ile nie będą się zdarzać jednocześnie). Klaster produkcyjny wymaga co najmniej pięciu węzłów, aby był odporny na jednoczesne awarie.  
 
 Polecenie tworzy certyfikat z podpisem własnym i przekazuje go do nowego magazynu kluczy, który jest tworzony w tej samej grupie zasobów co klaster. Certyfikat jest też kopiowany do katalogu lokalnego.  Ustaw parametr *-OS*, aby wybrać wersję systemu Windows lub Linux działającego w węzłach klastra.  Dostosuj parametry zgodnie z potrzebami.
 
-W razie potrzeby zainstalować program Azure PowerShell przy użyciu instrukcji w [Przewodnik programu Azure PowerShell](/powershell/azure/overview) , a następnie uruchom `Login-AzureRmAccount` można utworzyć połączenia z platformą Azure. 
+W razie potrzeby zainstaluj program Azure PowerShell, korzystając z instrukcji w [przewodniku programu Azure PowerShell](/powershell/azure/overview), a następnie uruchom polecenie `Login-AzureRmAccount`, aby utworzyć połączenie z platformą Azure. 
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
@@ -35,23 +35,23 @@ W razie potrzeby zainstalować program Azure PowerShell przy użyciu instrukcji 
 
 ## <a name="clean-up-deployment"></a>Czyszczenie wdrożenia 
 
-Po uruchomieniu przykładowym skrypcie następującego polecenia można usunąć grupy zasobów klastra i wszystkie powiązane zasoby.
+Po wykonaniu przykładowego skryptu możesz uruchomić następujące polecenie, aby usunąć grupę zasobów, klaster i wszystkie powiązane zasoby.
 
 ```powershell
 $groupname="mysfclustergroup"
 Remove-AzureRmResourceGroup -Name $groupname -Force
 ```
 
-## <a name="script-explanation"></a>Wyjaśnienie skryptu
+## <a name="script-explanation"></a>Objaśnienia dla skryptu
 
-Ten skrypt używa następujących poleceń. Każde polecenie w tabeli łącza do dokumentacji określonego polecenia.
+W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanowi link do dokumentacji polecenia.
 
 | Polecenie | Uwagi |
 |---|---|
-| [Nowe AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) | Tworzy nowy klaster sieci szkieletowej usług. |
+| [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) | Tworzy nowy klaster usługi Service Fabric. |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji dotyczących modułu Azure PowerShell, zobacz [dokumentacji programu Azure PowerShell](/powershell/azure/overview).
+Aby uzyskać więcej informacji na temat modułu Azure PowerShell, zobacz [dokumentację programu Azure PowerShell](/powershell/azure/overview).
 
-Dodatkowe przykłady programu Azure Powershell dla usługi sieć szkieletowa usług Azure można znaleźć w [przykłady programu Azure PowerShell](../service-fabric-powershell-samples.md).
+Więcej przykładów programu Azure PowerShell dla usługi Azure Service Fabric można znaleźć w [przykładach programu Azure PowerShell](../service-fabric-powershell-samples.md).

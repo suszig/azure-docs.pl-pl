@@ -8,11 +8,11 @@ ms.author: tomfitz
 ms.date: 01/30/2018
 ms.topic: hero-article
 ms.service: event-grid
-ms.openlocfilehash: 01472ffc7a98cd2c99793c8675efe2cefffe5558
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f37d496d43bb24c51d6e1c11b77d9ceba48b7b23
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Tworzenie i kierowanie zdarzeń niestandardowych za pomocą witryny Azure Portal i usługi Event Grid
 
@@ -43,7 +43,7 @@ Tematy usługi Event Grid to zasoby platformy Azure i muszą być umieszczone w 
 
 Temat udostępnia zdefiniowany przez użytkownika punkt końcowy, do którego wysyłane są zdarzenia. 
 
-1. Aby utworzyć temat w swojej grupie zasobów, wybierz pozycję **Więcej usług** i wyszukaj frazę *event grid*. Z dostępnych opcji wybierz opcję **Tematy usługi Event Grid**.
+1. Aby utworzyć temat w grupie zasobów, wybierz pozycję **Wszystkie usługi** i wyszukaj frazę *event grid*. Z dostępnych opcji wybierz opcję **Tematy usługi Event Grid**.
 
    ![Tworzenie tematu usługi Event Grid](./media/custom-event-quickstart-portal/create-event-grid-topic.png)
 
@@ -67,7 +67,7 @@ Przed zasubskrybowaniem tematu utwórzmy punkt końcowy dla komunikatów o zdarz
 
 Subskrybowanie tematu ma poinformować usługę Event Grid o tym, które zdarzenia chcesz śledzić. 
 
-1. Aby utworzyć subskrypcję usługi Event Grid, wybierz ponownie pozycję **Więcej usług** i wyszukaj frazę *event grid*. Z dostępnych opcji wybierz opcję **Subskrypcje usługi Event Grid**.
+1. Aby utworzyć subskrypcję usługi Event Grid, wybierz ponownie pozycję **Wszystkie usługi** i wyszukaj frazę *event grid*. Z dostępnych opcji wybierz opcję **Subskrypcje usługi Event Grid**.
 
    ![Tworzenie subskrypcji usługi Event Grid](./media/custom-event-quickstart-portal/create-subscription.png)
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure skryptu interfejsu wiersza polecenia przykładowe — obliczania rozmiaru kontenera obiektu blob | Dokumentacja firmy Microsoft"
-description: "Obliczania rozmiaru kontenera w magazynie obiektów Blob Azure przez sumowanie rozmiar obiektów blob w kontenerze."
+title: "Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — obliczanie rozmiaru kontenera obiektów blob | Microsoft Docs"
+description: "Obliczanie rozmiaru kontenera w usłudze Azure Blob Storage przez zsumowanie rozmiaru obiektów blob w tym kontenerze."
 services: storage
 documentationcenter: na
 author: tamram
@@ -15,22 +15,22 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/28/2017
 ms.author: tamram
-ms.openlocfilehash: 61a553e47a642aead323a19d0724fdccc94a6282
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: MT
+ms.openlocfilehash: f9213018969ab47ce2e78d8c119f22dedaff9452
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="calculate-the-size-of-a-blob-storage-container"></a>Obliczania rozmiaru kontenera magazynu obiektów Blob
+# <a name="calculate-the-size-of-a-blob-storage-container"></a>Obliczanie rozmiaru kontenera w usłudze Blob Storage
 
-Ten skrypt oblicza rozmiar kontenera w magazynie obiektów Blob Azure przez sumowanie rozmiar obiektów blob w kontenerze.
+Ten skrypt oblicza rozmiar kontenera w usłudze Azure Blob Storage przez zsumowanie rozmiaru obiektów blob w tym kontenerze.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 > [!IMPORTANT]
-> Ten skrypt interfejsu wiersza polecenia zawiera szacowany rozmiar kontenera i nie powinna być używana związanych z rozliczeniami obliczeń.
+> Ten skrypt interfejsu wiersza polecenia określa szacunkowy rozmiar kontenera i nie należy go używać w obliczeniach na potrzeby rozliczeń.
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
@@ -38,24 +38,24 @@ Ten skrypt oblicza rozmiar kontenera w magazynie obiektów Blob Azure przez sumo
 
 ## <a name="clean-up-deployment"></a>Czyszczenie wdrożenia 
 
-Uruchom następujące polecenie, aby usunąć grupę zasobów, kontenera i wszystkie powiązane zasoby.
+Uruchom następujące polecenie, aby usunąć grupę zasobów, kontener i wszystkie powiązane zasoby.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 
-## <a name="script-explanation"></a>Wyjaśnienie skryptu
+## <a name="script-explanation"></a>Objaśnienia dla skryptu
 
-Ten skrypt używa następujących poleceń do obliczania rozmiaru kontenera magazynu obiektów Blob. Każdy element w tabeli łącza do dokumentacji specyficzne dla polecenia.
+Ten skrypt zawiera następujące polecenia, służące do obliczenia rozmiaru kontenera w usłudze Blob Storage. Każda pozycja w tabeli stanowi link do dokumentacji polecenia.
 
 | Polecenie | Uwagi |
 |---|---|
-| [Tworzenie grupy az](/cli/azure/group#create) | Tworzy grupę zasobów, w którym przechowywane są wszystkie zasoby. |
-| [Przekazywanie obiektu blob magazynu az](/cli/azure/storage/account#create) | Przekazuje lokalnych plików do kontenera magazynu obiektów Blob platformy Azure. |
-| [AZ magazynu obiektów blob listy](/cli/azure/storage/account/keys#list) | Wyświetla listę obiektów blob w kontenerze magazynu obiektów Blob platformy Azure. |
+| [az group create](/cli/azure/group#az_group_create) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
+| [az storage blob upload](/cli/azure/storage/account#az_storage_account_create) | Przekazuje pliki lokalne do kontenera w usłudze Azure Blob Storage. |
+| [az storage blob list](/cli/azure/storage/account/keys#az_storage_account_keys_list) | Zwraca listę obiektów blob w kontenerze usługi Azure Blob Storage. |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji dotyczących interfejsu wiersza polecenia Azure, zobacz [dokumentacji interfejsu wiersza polecenia Azure](/cli/azure/overview).
+Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](/cli/azure/overview).
 
-Przykłady skryptów dodatkowego magazynu interfejsu wiersza polecenia można znaleźć w [przykłady wiersza polecenia platformy Azure dla magazynu obiektów Blob Azure](../blobs/storage-samples-blobs-cli.md).
+Więcej przykładowych skryptów interfejsu wiersza polecenia dla usługi Storage można znaleźć na stronie [Azure CLI samples for Azure Blob Storage (Przykłady skryptów interfejsu wiersza polecenia platformy Azure dla usługi Azure Blob Storage)](../blobs/storage-samples-blobs-cli.md).

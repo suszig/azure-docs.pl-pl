@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 9919e326613ce81db32f1d72a8cb5e3668992885
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f8082b632e9fef4aa5d46deb35e415f2b1c55dda
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-your-on-premises-identity-infrastructure-and-synchronization-services-in-the-cloud"></a>Monitorowanie lokalnej infrastruktury do obsługi tożsamości i usług synchronizacji w chmurze
 Program Azure Active Directory (Azure AD) Connect Health pomaga monitorować i zdobywać informacje o lokalnej infrastrukturze do obsługi tożsamości oraz usługach synchronizacji. Umożliwia utrzymywanie niezawodnego połączenia z usługami Office 365 i Microsoft Online Services, udostępniając funkcje monitorowania kluczowych składników tożsamości, takich jak serwery usług Active Directory Federation Services (AD FS), serwery programu Azure AD Connect (nazywane także aparatem synchronizacji), kontrolery domeny usługi Active Directory itp. Zapewnia także łatwy dostęp do kluczowych punktów danych dotyczących tych składników, umożliwiając zdobywanie informacji o użyciu i innych istotnych parametrach, co pozwala na świadome podejmowanie decyzji.
@@ -110,7 +110,7 @@ Aby rozpocząć pracę z programem Azure AD Connect Health, należy wykonać nas
 Portal programu Azure AD Connect Health umożliwia wyświetlanie alertów, wyników monitorowania wydajności i analiz użycia. Adres URL https://aka.ms/aadconnecthealth pozwala przejść do głównego bloku programu Azure AD Connect Health. Blok możesz traktować jak okno. W głównym bloku znajduje się przycisk **Szybki start**, usługi dostępne w programie Azure AD Connect Health i dodatkowe opcje konfiguracji. Zobacz poniższy zrzut ekranu i zamieszczone pod nim krótkie objaśnienia. Po wdrożeniu agentów usługa kondycji automatycznie identyfikuje usługi monitorowane przez program Azure AD Connect Health.
 
 > [!NOTE]
-> Aby uzyskać informacje o licencjonowaniu, zobacz [Azure AD Connect — Często zadawane pytania](active-directory-aadconnect-health-faq.md) lub [stronę z cennikiem usługi Azure AD](https://aka.ms/aadpricing).
+> Aby uzyskać informacje o licencjonowaniu, zobacz temat [Azure AD Connect Health FAQ (Program Azure AD Connect Health — często zadawane pytania)](active-directory-aadconnect-health-faq.md) lub [stronę z cennikiem usługi Azure AD](https://aka.ms/aadpricing).
     
 ![Portal programu Azure AD Connect Health](./media/active-directory-aadconnect-health/portal4.png)
 

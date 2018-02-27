@@ -1,6 +1,6 @@
-1. Zaloguj się w witrynie [Azure Portal].
+1. Zaloguj się w [Portalu Azure].
 
-2. Kliknij przycisk **Nowy**.
+2. Kliknij pozycję **Utwórz zasób**.
 
 3. W polu wyszukiwania wpisz **Mobile Apps**.
 
@@ -16,4 +16,4 @@
 [quickstart]: ./media/app-service-mobile-dotnet-backend-create-new-service/search-mobile-apps-quickstart.png
 
 <!-- URLs. -->
-[Azure Portal]: https://portal.azure.com/
+[Portalu Azure]: https://portal.azure.com/

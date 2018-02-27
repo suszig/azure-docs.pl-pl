@@ -2,17 +2,17 @@
 
 Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 
-## <a name="create-a-blank-sql-database"></a>Utwórz pustą bazę danych SQL
+## <a name="create-a-blank-sql-database"></a>Tworzenie pustej bazy danych SQL
 
 Baza danych Azure SQL jest tworzona ze zdefiniowanym zestawem [zasobów obliczeniowych i przechowywania](../articles/sql-database/sql-database-service-tiers.md). Baza danych jest tworzona w [grupie zasobów platformy Azure](../articles/azure-resource-manager/resource-group-overview.md) oraz na [serwerze logicznym bazy danych Azure SQL Database](../articles/sql-database/sql-database-features.md). 
 
-Wykonaj następujące kroki, aby utworzyć pustą bazę danych SQL. 
+Wykonaj poniższe czynności, aby utworzyć pustą bazę danych SQL. 
 
-1. Kliknij przycisk **Nowy** znajdujący się w lewym górnym rogu witryny Azure Portal.
+1. W lewym górnym rogu witryny Azure Portal kliknij przycisk **Utwórz zasób**.
 
 2. Na stronie **Nowy** wybierz pozycję **Bazy danych**, a następnie na stronie **Nowy** w obszarze **SQL Database** wybierz pozycję **Utwórz**.
 
-   ![Tworzenie bazy danych puste](../articles/sql-database/media/sql-database-design-first-database/create-empty-database.png)
+   ![tworzenie pustej bazy danych](../articles/sql-database/media/sql-database-design-first-database/create-empty-database.png)
 
 3. Wypełnij formularz Baza danych SQL w sposób pokazany na wcześniejszej ilustracji, używając następujących informacji:   
 
@@ -21,7 +21,7 @@ Wykonaj następujące kroki, aby utworzyć pustą bazę danych SQL.
    | **Nazwa bazy danych** | mySampleDatabase | Prawidłowe nazwy baz danych opisano w artykule [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identyfikatory baz danych). | 
    | **Subskrypcja** | Twoja subskrypcja  | Aby uzyskać szczegółowe informacje o subskrypcjach, zobacz [Subskrypcje](https://account.windowsazure.com/Subscriptions). |
    | **Grupa zasobów** | myResourceGroup | Prawidłowe nazwy grup zasobów opisano w artykule [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Reguły i ograniczenia nazewnictwa). |
-   | **Wybierz źródło** | Pusta baza danych | Określa, czy można utworzyć pustej bazy danych. |
+   | **Wybierz źródło** | Pusta baza danych | Określa, że ma zostać utworzona pusta baza danych. |
 
 4. Kliknij pozycję **Serwer**, aby utworzyć i skonfigurować nowy serwer dla nowej bazy danych. Wypełnij **formularz nowego serwera**, używając następujących informacji: 
 
@@ -38,7 +38,7 @@ Wykonaj następujące kroki, aby utworzyć pustą bazę danych SQL.
 
 6. Kliknij pozycję **Warstwa cenowa**, aby określić warstwę usługi, liczbę jednostek DTU i ilość miejsca do magazynowania. Przejrzyj opcje liczby jednostek DTU i miejsca do magazynowania dostępne dla poszczególnych warstw usługi. 
 
-7. W tym samouczku, wybierz **standardowe** warstwę usługi, a następnie wybierz za pomocą suwaka **100 Dtu (S3)** i **400** GB miejsca do magazynowania.
+7. Na potrzeby tego samouczka wybierz warstwę usługi **Standardowa**, a następnie wybierz za pomocą suwaka **100 jednostek DTU (S3)** i **400** GB miejsca do magazynowania.
 
    ![tworzenie bazy danych s1](../articles/sql-database/media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
 
@@ -47,14 +47,14 @@ Wykonaj następujące kroki, aby utworzyć pustą bazę danych SQL.
    > [!IMPORTANT]
    > \* Magazyn o rozmiarze większym niż ilość miejsca do magazynowania są dostępne w wersji zapoznawczej dodatkowych kosztów za dodatkową opłatą. Szczegóły można znaleźć w [cenniku usługi SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). 
    >
-   >\*W warstwie Premium więcej niż 1 TB pamięci masowej jest obecnie dostępna w następujących regionach: Australia Wschodnia, Australia Południowo-Wschodnia, Kanada centralnej, Kanada Wschodnia, Francja centralnej, centralnej Niemcy Japonia Wschodnia, centralnej Korei południowo-środkowe USA, Południowo-Wschodnia, Azja, Stany East2 , Europa Zachodnia, zachodnie stany USA i Virginia wersji dla instytucji rządowych Stanów Zjednoczonych. Więcej informacji można znaleźć na stronie [bieżących ograniczeń poziomów P11–P15](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   >\* W warstwie Premium ponad 1 TB miejsca do magazynowania jest obecnie dostępny w następujących regionach: Australia Wschodnia, Australia Południowo-Wschodnia, Kanada Środkowa, Kanada Wschodnia, Francja Środkowa, Niemcy Środkowe, Japonia Wschodnia, Korea Środkowa, Południowo-środkowe stany USA, Azja Południowo-Wschodnia, Wschodnie stany USA 2, Zachodnie stany USA, Administracja USA — Wirginia i Europa Zachodnia. Więcej informacji można znaleźć na stronie [bieżących ograniczeń poziomów P11–P15](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
 9. Po wybraniu warstwy serwera, liczby jednostek DTU i ilości miejsca do magazynowania kliknij przycisk **Zastosuj**.  
 
-10. Wybierz **sortowania** dla pustą bazę danych (w tym samouczku, użyj wartości domyślnej). Aby uzyskać więcej informacji na temat sortowań zobacz [sortowania](https://docs.microsoft.com/sql/t-sql/statements/collations)
+10. Wybierz **sortowanie** dla pustej bazy danych (na potrzeby tego samouczka użyj wartości domyślnej). Aby uzyskać więcej informacji na temat sortowań, zobacz [Sortowania](https://docs.microsoft.com/sql/t-sql/statements/collations)
 
-11. Kliknij pozycję **Utwórz**, aby aprowizować bazę danych. Inicjowanie obsługi administracyjnej ma temat minutę i pół do wykonania. 
+11. Kliknij pozycję **Utwórz**, aby aprowizować bazę danych. Aprowizowanie trwa około półtorej minuty. 
 
 12. Na pasku narzędzi kliknij pozycję **Powiadomienia**, aby monitorować proces wdrażania.
     
@@ -68,13 +68,13 @@ Usługa SQL Database tworzy zaporę na poziomie serwera, która uniemożliwia ze
 > Usługa SQL Database nawiązuje komunikację na porcie 1433. Jeśli próbujesz nawiązać połączenie z sieci firmowej, ruch wychodzący na porcie 1433 może być zablokowany przez firmową zaporę. Jeśli nastąpi taka sytuacja, nie będzie można nawiązać połączenia z serwerem usługi Azure SQL Database, chyba że dział IT otworzy port 1433.
 >
 
-1. Po ukończeniu wdrażania kliknij pozycję **Bazy danych SQL** w menu po lewej stronie i kliknij bazę danych **mySampleDatabase** na stronie **Bazy danych SQL**. Zostanie otwarta strona Przegląd bazy danych, wyświetlając nazwę FQDN serwera (takich jak **mynewserver20170824.database.windows.net**) i udostępnia opcje dla dalszej konfiguracji. 
+1. Po ukończeniu wdrażania kliknij pozycję **Bazy danych SQL** w menu po lewej stronie i kliknij bazę danych **mySampleDatabase** na stronie **Bazy danych SQL**. Zostanie otwarta strona omówienie bazy danych zawierająca w pełni kwalifikowaną nazwę serwera (na przykład **mynewserver20170824.database.windows.net**) i dalsze opcje konfiguracji. 
 
 2. Skopiuj tę w pełni kwalifikowaną nazwę serwera w celu nawiązania połączenia z serwerem i jego bazami danych w kolejnych przewodnikach Szybki start. 
 
    ![nazwa serwera](../articles/sql-database/media/sql-database-get-started-portal/server-name.png) 
 
-3. Kliknij przycisk **ustawić Zapora serwera** na pasku narzędzi. Zostanie otwarta strona **Ustawienia zapory** dla serwera SQL Database. 
+3. Kliknij pozycję **Ustaw zaporę serwera** na pasku narzędzi. Zostanie otwarta strona **Ustawienia zapory** dla serwera SQL Database. 
 
    ![reguła zapory serwera](../articles/sql-database/media/sql-database-get-started-portal/server-firewall-rule.png) 
 

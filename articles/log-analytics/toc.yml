@@ -107,7 +107,7 @@
           href: 'https://docs.loganalytics.io'
         - name: Przechodzenie ze starszego języka
           href: log-analytics-log-search-transition.md
-        - name: Wyszukiwania między obszarami roboczymi
+        - name: Wyszukiwania obejmujące wiele zasobów
           href: log-analytics-cross-workspace-search.md
         - name: Podejmowanie akcji z poziomu wyników wyszukiwania
           href: log-analytics-log-search-takeaction.md

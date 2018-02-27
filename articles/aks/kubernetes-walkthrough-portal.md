@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 11/28/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 734243a28dc59518dc30d9d86064235795e794ab
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: c867f9ed7ede0dddf6b327b212adbbccbf3d64b0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Wdrażanie klastra usługi Azure Container Service (AKS)
 
@@ -51,7 +51,7 @@ Kliknij przycisk **Zapisz** i zanotuj wartość hasła. Hasło jest potrzebne po
 
 ## <a name="create-aks-cluster"></a>Tworzenie klastra AKS
 
-Wybierz pozycję **Nowy** > **Kontenery** > **Azure Container Service — AKS (wersja zapoznawcza)**.
+Wybierz pozycję **Utwórz zasób** > **Kontenery** > **Azure Container Service — AKS (wersja zapoznawcza)**.
 
 Podaj nazwę klastra, prefiks DNS, nazwę grupy zasobów, lokalizację i wersję rozwiązania Kubernetes dla klastra. Zapamiętaj nazwę klastra oraz nazwę grupy zasobów — będą potrzebne podczas nawiązywania połączenia z klastrem.
 

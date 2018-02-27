@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI przykładowym skrypcie - kluczy dostępu do konta magazynu obracania | Dokumentacja firmy Microsoft"
-description: "Tworzenie konta usługi Azure Storage, a następnie pobrać i Obróć klucze dostępu do swojego konta."
+title: "Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — rotowanie kluczy dostępu do konta magazynu | Microsoft Docs"
+description: "Tworzenie konta usługi Azure Storage oraz pobieranie i rotowanie kluczy dostępu do konta."
 services: storage
 documentationcenter: na
 author: tamram
@@ -15,15 +15,15 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/22/2017
 ms.author: tamram
-ms.openlocfilehash: c8c99dd8663eab5b5c1c47d34f110f9dceaace6b
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: MT
+ms.openlocfilehash: 52531d227c61cddabb7e8471f536e6d5786e95a3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>Utwórz konto magazynu i obracania klucze dostępu do swojego konta
+# <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>Tworzenie konta magazynu i rotowanie kluczy dostępu do konta
 
-Ten skrypt tworzy konto usługi Azure Storage, wyświetla klucze dostępu do nowego konta magazynu, a następnie odnowieniu (obraca) kluczy.
+Ten skrypt tworzy konto usługi Azure Storage, wyświetla klucze dostępu do nowego konta magazynu, a następnie odnawia (rotuje) te klucze.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -41,19 +41,19 @@ Uruchom następujące polecenie, aby usunąć grupę zasobów, konto magazynu or
 az group delete --name myResourceGroup
 ```
 
-## <a name="script-explanation"></a>Wyjaśnienie skryptu
+## <a name="script-explanation"></a>Objaśnienia dla skryptu
 
-Ten skrypt używa następujących poleceń do tworzenia konta magazynu i pobrać i Obróć jego klucze dostępu. Każdy element w tabeli łącza do dokumentacji specyficzne dla polecenia.
+Ten skrypt zawiera następujące polecenia, służące do utworzenia konta magazynu oraz pobrania i rotowania kluczy dostępu do tego konta. Każda pozycja w tabeli stanowi link do dokumentacji polecenia.
 
 | Polecenie | Uwagi |
 |---|---|
-| [Tworzenie grupy az](/cli/azure/group#create) | Tworzy grupę zasobów, w którym przechowywane są wszystkie zasoby. |
-| [Tworzenie konta magazynu az](/cli/azure/storage/account#create) | Utworzenie konta usługi Azure Storage w określonej grupy zasobów. |
-| [Lista kluczy kont magazynu az](/cli/azure/storage/account/keys#list) | Wyświetla klucze dostępu do konta magazynu dla określonego konta. |
-| [Odnów klucze konta magazynu az](/cli/azure/storage/account/keys#renew) | Generuje ponownie klucz dostępu do konta magazynu podstawowy lub pomocniczy. |
+| [az group create](/cli/azure/group#az_group_create) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Tworzy konto usługi Azure Storage we wskazanej grupie zasobów. |
+| [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) | Wyświetla klucze dostępu do podanego konta magazynu. |
+| [az storage account keys renew](/cli/azure/storage/account/keys#az_storage_account_keys_renew) | Ponownie generuje podstawowy lub pomocniczy klucz dostępu do konta. |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji dotyczących interfejsu wiersza polecenia Azure, zobacz [dokumentacji interfejsu wiersza polecenia Azure](/cli/azure/overview).
+Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](/cli/azure/overview).
 
-Przykłady skryptów dodatkowego magazynu interfejsu wiersza polecenia można znaleźć w [przykłady wiersza polecenia platformy Azure dla magazynu obiektów Blob Azure](../blobs/storage-samples-blobs-cli.md).
+Więcej przykładowych skryptów interfejsu wiersza polecenia dla usługi Storage można znaleźć na stronie [Azure CLI samples for Azure Blob Storage (Przykłady skryptów interfejsu wiersza polecenia platformy Azure dla usługi Azure Blob Storage)](../blobs/storage-samples-blobs-cli.md).

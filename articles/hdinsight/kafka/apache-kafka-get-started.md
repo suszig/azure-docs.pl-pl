@@ -13,20 +13,17 @@ ms.devlang:
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/18/2018
+ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: 6191d81d6b55f5ffe943f800be542d7ea4614eaf
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: e00ab06a26d60dd5beca11362df58f35812491d9
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="start-with-apache-kafka-on-hdinsight"></a>Wprowadzenie do platformy Apache Kafka w usłudze HDInsight
 
-Dowiedz się, jak utworzyć klaster [Apache Kafka](https://kafka.apache.org) w usłudze Azure HDInsight i używać go. Kafka to rozproszona platforma przesyłania strumieniowego typu „open source”, dostępna z usługą HDInsight. Jest ona często używana jako broker komunikatów, ponieważ oferuje funkcje podobne do kolejki komunikatów dotyczących publikowania i subskrybowania. Platforma Kafka jest często używana z systemami Apache Spark i Apache Storm.
-
-> [!NOTE]
-> Obecnie są dostępne dwie wersje platformy Kafka w usłudze HDInsight: 0.9.0 (HDInsight 3.4) i 0.10.0 (HDInsight 3.5 i 3.6). W procedurach przedstawionych w tym artykule przyjęto założenie, że jest używana platforma Kafka w usłudze HDInsight 3.6.
+Dowiedz się, jak utworzyć klaster [Apache Kafka](https://kafka.apache.org) w usłudze Azure HDInsight i używać go. Kafka to rozproszona platforma przesyłania strumieniowego typu „open source”, dostępna z usługą HDInsight. Jest ona często używana jako broker komunikatów, ponieważ oferuje funkcje podobne do kolejki komunikatów dotyczących publikowania i subskrybowania. Platforma Kafka jest często używana z platformami Apache Spark i Apache Storm do obsługi wiadomości, śledzenia działań, agregacji strumienia lub transformacji danych.
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -40,7 +37,7 @@ Aby utworzyć klaster platformy Kafka w usłudze HDInsight, wykonaj następując
 
 2. W bloku **Podstawowe** wprowadź następujące informacje:
 
-    * **Nazwa klastra**: nazwa klastra usługi HDInsight.
+    * **Nazwa klastra**: nazwa klastra usługi HDInsight. Ta nazwa musi być unikatowa.
     * **Subskrypcja**: wybierz subskrypcję, której chcesz użyć.
     * **Nazwa użytkownika logowania klastra** i **Hasło logowania klastra**: dane logowania podczas uzyskiwania dostępu do klastra przy użyciu protokołu HTTPS. Te poświadczenia umożliwiają dostęp do takich usług jak interfejs użytkownika sieci Web Ambari lub interfejs API REST.
     * **Nazwa użytkownika SSH (Secure Shell)**: nazwa logowania używana podczas uzyskiwania dostępu do klastra za pośrednictwem protokołu SSH. Domyślnie hasło jest takie samo jak hasło logowania klastra.
@@ -77,7 +74,7 @@ Aby utworzyć klaster platformy Kafka w usłudze HDInsight, wykonaj następując
     ![Ustawianie rozmiaru klastra Kafka](./media/apache-kafka-get-started/kafka-cluster-size.png)
 
     > [!IMPORTANT]
-    > Parametr **liczby dysków na węzeł procesu roboczego** pozwala sterować skalowalnością platformy Kafka w usłudze HDInsight. Platforma Kafka w usłudze HDInsight używa dysku lokalnego maszyn wirtualnych w klastrze. Ze względu na duże obciążenie we/wy platformy Kafka używana jest usługa [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md), która zapewnia wysoką przepływność i więcej miejsca do magazynowania w każdym węźle. Można wybrać typ dysku zarządzanego __Standardowy__ (HDD) lub __Premium__ (SSD). Dyski w warstwie Premium są używane przez maszyny wirtualne serii DS i GS. Wszystkie pozostałe typy maszyn wirtualnych korzystają z dysków standardowych.
+    > Parametr **liczby dysków na węzeł procesu roboczego** pozwala konfigurować skalowalność platformy Kafka w usłudze HDInsight. Platforma Kafka w usłudze HDInsight używa dysku lokalnego maszyn wirtualnych w klastrze. Ze względu na duże obciążenie we/wy platformy Kafka używana jest usługa [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md), która zapewnia wysoką przepływność i więcej miejsca do magazynowania w każdym węźle. Można wybrać typ dysku zarządzanego __Standardowy__ (HDD) lub __Premium__ (SSD). Dyski w warstwie Premium są używane przez maszyny wirtualne serii DS i GS. Wszystkie pozostałe typy maszyn wirtualnych korzystają z dysków standardowych.
 
 8. W bloku __Ustawienia zaawansowane__ wybierz przycisk __Dalej__, aby kontynuować.
 
@@ -93,11 +90,9 @@ Aby utworzyć klaster platformy Kafka w usłudze HDInsight, wykonaj następując
 > [!IMPORTANT]
 > Wykonując poniższe kroki, musisz użyć klienta SSH. Aby uzyskać więcej informacji, zobacz dokument [Używanie protokołu SSH w usłudze HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-Na kliencie nawiąż połączenie z klastrem przy użyciu protokołu SSH:
+Aby nawiązać połączenie z klastrem przy użyciu protokołu SSH, musisz podać nazwę konta użytkownika protokołu SSH i nazwę swojego klastra. W poniższym przykładzie zastąp wartości `sshuser` i `clustername` nazwą swojego konta i klastra:
 
-```ssh SSHUSER@CLUSTERNAME-ssh.azurehdinsight.net```
-
-Zamień ciąg **SSHUSER** na nazwę użytkownika SSH podaną podczas tworzenia klastra. Zamień ciąg **CLUSTERNAME** na nazwę klastra.
+```ssh sshuser@clustername-ssh.azurehdinsight.net```
 
 Po wyświetleniu monitu wprowadź hasło, którego użyto dla konta SSH.
 
@@ -105,9 +100,9 @@ Aby uzyskać informacje, zobacz [Używanie protokołu SSH w usłudze HDInsight](
 
 ## <a id="getkafkainfo"></a>Uzyskiwanie informacji dotyczących hosta dozorcy i brokera
 
-Podczas pracy z platformą Kafka musisz znać dwie wartości hostów: *Dozorca* i *Broker*. Te hosty są używane z interfejsem API platformy Kafka i wieloma narzędziami oferowanymi z platformą Kafka.
+Podczas pracy z platformą Kafka musisz znać hosty *Zookeeper* i *Broker*. Te hosty są używane z interfejsem API platformy Kafka i wieloma narzędziami oferowanymi z platformą Kafka.
 
-Poniżej przedstawiono procedurę tworzenia zmiennych środowiskowych z informacjami o hoście. Użyto tych zmiennych środowiskowych w procedurze opisanej w tym dokumencie.
+Poniżej przedstawiono procedurę tworzenia zmiennych środowiskowych z informacjami o hoście:
 
 1. Z poziomu połączenia SSH z klastrem zainstaluj narzędzie `jq` za pomocą poniższego polecenia. To narzędzie służy do analizowania dokumentów JSON i jest przydatne podczas pobierania informacji o hoście brokera:
    
@@ -115,36 +110,52 @@ Poniżej przedstawiono procedurę tworzenia zmiennych środowiskowych z informac
     sudo apt -y install jq
     ```
 
-2. Aby ustawić zmienne środowiskowe przy użyciu informacji pobranych z systemu Ambari, użyj następujących poleceń:
+2. Aby ustawić zmienną środowiskową na nazwę klastra, użyj następującego polecenia:
 
     ```bash
-    CLUSTERNAME='your cluster name'
+    read -p "Enter the HDInsight cluster name: " CLUSTERNAME
+    ```
+
+3. Aby ustawić zmienną środowiskową na informacje hosta Zookeeper, użyj następującego polecenia:
+
+    ```bash
     export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    ```
 
+    Po wyświetleniu monitu wprowadź hasło dla konta logowania klastra (administratora).
+
+4. Aby sprawdzić, czy zmienna środowiskowa jest poprawnie ustawiona, użyj następującego polecenia:
+
+    ```bash
+     echo '$KAFKAZKHOSTS='$KAFKAZKHOSTS
+    ```
+
+    To polecenie zwraca informacje podobne do następującego tekstu:
+
+    `zk0-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk2-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181`
+
+5. Aby ustawić zmienną środowiskową na informacje hosta brokera platformy Kafka, użyj następującego polecenia:
+
+    ```bash
     export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+    ```
 
-    echo '$KAFKAZKHOSTS='$KAFKAZKHOSTS
+    Po wyświetleniu monitu wprowadź hasło dla konta logowania klastra (administratora).
+
+6. Aby sprawdzić, czy zmienna środowiskowa jest poprawnie ustawiona, użyj następującego polecenia:
+
+    ```bash   
     echo '$KAFKABROKERS='$KAFKABROKERS
     ```
 
-    > [!IMPORTANT]
-    > Ustaw nazwę klastra Kafka jako wartość elementu `CLUSTERNAME=`. Po wyświetleniu monitu wprowadź hasło dla konta logowania klastra (administratora).
-
-    Następujący tekst jest przykładem zawartości elementu `$KAFKAZKHOSTS`:
-   
-    `zk0-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk2-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181`
-   
-    Następujący tekst jest przykładem zawartości elementu `$KAFKABROKERS`:
+    To polecenie zwraca informacje podobne do następującego tekstu:
    
     `wn1-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092,wn0-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092`
-
-    > [!NOTE]
-    > Polecenie `cut` umożliwia obcięcie listy hostów do dwóch pozycji. Nie trzeba podawać pełnej listy hostów podczas tworzenia odbiorcy ani producenta platformy Kafka.
    
-    > [!WARNING]
-    > Informacje zwracane z tej sesji nie zawsze są dokładne. Skalowanie klastra powoduje dodanie lub usunięcie nowych brokerów. W przypadku niepowodzenia lub zamiany węzła nazwa hosta węzła może ulec zmianie.
-    >
-    > Pobierz informacje o hostach dozorcy i brokera krótko przed sprawdzeniem, czy masz prawidłowe informacje.
+> [!WARNING]
+> Informacje zwracane z tej sesji nie zawsze są dokładne. Podczas skalowania klastra następuje dodanie lub usunięcie nowych brokerów. W przypadku niepowodzenia lub zamiany węzła nazwa hosta węzła może ulec zmianie.
+>
+> Pobierz informacje o hostach Zookeeper i Broker na krótko przed sprawdzeniem, czy masz prawidłowe informacje.
 
 ## <a name="create-a-topic"></a>Tworzenie tematu
 
@@ -154,13 +165,13 @@ Platforma Kafka przechowuje strumienie danych w kategoriach nazywanych *tematami
 /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
 ```
 
-To polecenie umożliwia nawiązanie połączenia z dozorcą przy użyciu informacji o hoście przechowywanych w elemencie `$KAFKAZKHOSTS`, a następnie utworzenie tematu platformy Kafka o nazwie **test**. Aby sprawdzić, czy temat został utworzony, użyj następującego skryptu w celu wyświetlenia listy tematów:
+To polecenie umożliwia nawiązanie połączenia z hostem Zookeeper przy użyciu informacji o hoście przechowywanych w elemencie `$KAFKAZKHOSTS`. Następnie tworzy ono temat platformy Kafka o nazwie **test**. Aby sprawdzić, czy temat został utworzony, użyj następującego skryptu w celu wyświetlenia listy tematów:
 
 ```bash
 /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $KAFKAZKHOSTS
 ```
 
-To polecenie generuje listę tematów platformy Kafka, która zawiera temat **test**.
+Dane wyjściowe tego polecenia zawierają listę tematów platformy Kafka w klastrze.
 
 ## <a name="produce-and-consume-records"></a>Tworzenie i używanie rekordów
 
@@ -174,9 +185,11 @@ Poniżej przedstawiono procedurę zapisywania rekordów w utworzonym wcześniej 
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic test
     ```
    
-    Po wykonaniu tego polecenia nie następuje powrót do wiersza polecenia. Zamiast tego wpisz kilka komunikatów tekstowych, a następnie użyj klawiszy **Ctrl+C**, aby zatrzymać wysyłanie do tematu. Każdy wiersz jest wysyłany jako oddzielny rekord.
+    Po wykonaniu tego polecenia przejdziesz do pustego wiersza.
 
-2. Odczytaj rekordy z tematu przy użyciu skryptu dostarczonego z platformą Kafka:
+2. Wprowadź wiadomość tekstową do pustego wiersza, a następnie naciśnij klawisz Enter. Wprowadź w ten sposób kilka wiadomości, a następnie użyj kombinacji klawiszy **Ctrl + C**, aby powrócić do normalnego monitu. Każdy wiersz jest wysyłany do tematu platformy Kafka jako oddzielny rekord.
+
+3. Odczytaj rekordy z tematu przy użyciu skryptu dostarczonego z platformą Kafka:
    
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic test --from-beginning
@@ -185,9 +198,9 @@ Poniżej przedstawiono procedurę zapisywania rekordów w utworzonym wcześniej 
     To polecenie umożliwia pobranie rekordów z tematu i ich wyświetlenie. Polecenie `--from-beginning` informuje odbiorcę, aby rozpocząć od początku strumienia w celu pobrania wszystkich rekordów.
 
     > [!NOTE]
-    > Jeśli korzystasz ze starszej wersji platformy Kafka, może być konieczne zastąpienie elementu `--bootstrap-server $KAFKABROKERS` elementem `--zookeeper $KAFKAZKHOSTS`.
+    > Jeśli korzystasz ze starszej wersji platformy Kafka, zastąp element `--bootstrap-server $KAFKABROKERS` elementem `--zookeeper $KAFKAZKHOSTS`.
 
-3. Użyj klawiszy __Ctrl+C__, aby zatrzymać odbiorcę.
+4. Użyj klawiszy __Ctrl+C__, aby zatrzymać odbiorcę.
 
 Producentów i odbiorców można również utworzyć programowo. Przykład korzystania z tego interfejsu API znajduje się w dokumencie [Kafka Producer and Consumer API with HDInsight](apache-kafka-producer-consumer-api.md) (Interfejs API producenta i odbiorcy platformy Kafka w usłudze HDInsight).
 
@@ -198,19 +211,19 @@ Każdy region (lokalizacja) świadczenia usługi Azure udostępnia _domeny błę
 Aby uzyskać informacje dotyczące liczby domen błędów w regionie, zobacz dokument [Availability of Linux virtual machines (Dostępność maszyn wirtualnych z systemem Linux)](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
 > [!IMPORTANT]
-> Zalecamy wybranie regionu świadczenia usługi Azure zawierającego trzy domeny błędów oraz użycie współczynnika replikacji o wartości 3.
+> W miarę możliwości używaj regionu świadczenia usługi Azure zawierającego trzy domeny błędów oraz twórz tematy mające współczynnik replikacji równy 3.
 
-Jeśli musisz wybrać region, który zawiera tylko dwie domeny błędów, użyj współczynnika replikacji o wartości 4, aby równomiernie rozłożyć repliki na dwie domeny błędów.
+Jeśli używasz regionu, który zawiera tylko dwie domeny błędów, użyj współczynnika replikacji o wartości 4, aby równomiernie rozłożyć repliki na dwie domeny błędów.
 
 ### <a name="kafka-and-fault-domains"></a>Platforma Kafka i domeny błędów
 
 Platforma Kafka nie uwzględnia domen błędów. Utworzone repliki partycji tematów mogą nie zostać prawidłowo rozpowszechnione w celu zapewnienia wysokiej dostępności. Aby zapewnić wysoką dostępność, użyj [narzędzia do ponownego równoważenia partycji platformy Kafka](https://github.com/hdinsight/hdinsight-kafka-tools). Narzędzie to należy uruchomić w sesji połączenia SSH z węzłem głównym klastra Kafka.
 
-Aby zapewnić najwyższą dostępność danych na platformie Kafka, należy stosować ponowne równoważenie replik partycji dla tematu w następujących sytuacjach:
+Aby zapewnić najwyższą dostępność danych na platformie Kafka, należy stosować ponowne równoważenie replik partycji dla tematu, gdy:
 
-* Po utworzeniu nowego tematu lub partycji
+* Tworzysz nowy temat lub partycję
 
-* Po przeskalowaniu klastra w górę
+* Skalujesz klaster w górę
 
 ## <a name="delete-the-cluster"></a>Usuwanie klastra
 
@@ -233,3 +246,5 @@ W tym dokumencie przedstawiono podstawowe informacje dotyczące pracy z platform
 * [Use Apache Spark Structured Streaming to move data from Kafka on HDInsight to Cosmos DB](../apache-kafka-spark-structured-streaming-cosmosdb.md) (Korzystanie z przesyłania strumieniowego ze strukturą w systemie Apache Spark w celu przenoszenia danych z platformy Kafka w usłudze HDInsight do usługi Cosmos DB)
 * [Używanie systemu Apache Storm z platformą Kafka w usłudze HDInsight](../hdinsight-apache-storm-with-kafka.md)
 * [Nawiązywanie połączenia z platformą Kafka za pośrednictwem sieci wirtualnej platformy Azure](apache-kafka-connect-vpn-gateway.md)
+* [Używanie usługi Kafka z usługą Azure Container Service](apache-kafka-azure-container-services.md)
+* [Używanie usługi Kafka z aplikacjami funkcji platformy Azure](apache-kafka-azure-functions.md)
