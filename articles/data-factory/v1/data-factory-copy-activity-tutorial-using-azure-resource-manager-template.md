@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 20a2e50fa3e1f81655566d9dfd7fb0cc62a2844c
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 898d3a6fe7b3fa5be6f70eb2e0e7f3a48f82adef
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>Samouczek: korzystanie z szablonu usługi Azure Resource Manager w celu utworzenia potoku kopiowania danych w usłudze Data Factory 
 > [!div class="op_single_selector"]
@@ -340,7 +340,7 @@ Utwórz plik JSON o nazwie **ADFCopyTutorialARM-Parameters.json** zawierający p
 ## <a name="monitor-pipeline"></a>Monitorowanie potoku
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com) przy użyciu konta Azure.
-2. Kliknij pozycję **Fabryki danych** w lewym menu lub kliknij pozycję **Więcej usług**, a następnie pozycję **Fabryki danych** w kategorii **ZBIERANIE DANYCH I ANALIZA**.
+2. Kliknij pozycję **Fabryki danych** w menu po lewej lub pozycję **Wszystkie usługi**, a następnie pozycję **Fabryki danych** w obszarze **ZBIERANIE DANYCH I ANALIZA**.
    
     ![Menu fabryk danych](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factories-menu.png)
 3. Na stronie **Fabryki danych** wyszukaj fabrykę danych (AzureBlobToAzureSQLDatabaseDF). 

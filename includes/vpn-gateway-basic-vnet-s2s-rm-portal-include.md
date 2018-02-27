@@ -6,7 +6,7 @@ Aby utworzyć sieć wirtualną w modelu wdrożenia usługi Resource Manager w wi
 >
 
 1. Przejdź w przeglądarce do witryny [Azure Portal](http://portal.azure.com) i zaloguj się przy użyciu konta platformy Azure.
-2. Kliknij przycisk **Nowy**. W polu **Szukaj w witrynie Marketplace** wpisz „Sieć wirtualna”. Znajdź pozycję **Sieć wirtualna** na liście wyników i kliknij, aby otworzyć stronę **Sieć wirtualna**.
+2. Kliknij pozycję **Utwórz zasób**. W polu **Szukaj w witrynie Marketplace** wpisz „Sieć wirtualna”. Znajdź pozycję **Sieć wirtualna** na liście wyników i kliknij, aby otworzyć stronę **Sieć wirtualna**.
 3. Z listy **Wybierz model wdrożenia** w dolnej części strony Sieć wirtualna wybierz pozycję **Menedżer zasobów**, a następnie kliknij przycisk **Utwórz**. Spowoduje to otwarcie strony „Tworzenie sieci wirtualnej”.
 
     ![Strona Tworzenie sieci wirtualnej](./media/vpn-gateway-basic-vnet-s2s-rm-portal-include/vnet.png "Strona Tworzenie sieci wirtualnej")

@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 00e0f169c7de2521b15b89c2d935967e51b38960
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: e444e46b9044d822731683781112be83c8c6db04
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Konfigurowanie usługi IoT Hub Device Provisioning (wersja zapoznawcza) w witrynie Azure Portal
 
@@ -31,7 +31,7 @@ Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT
 
-1. Kliknij przycisk **Nowy** znajdujący się w lewym górnym rogu witryny Azure Portal.
+1. Kliknij przycisk **Utwórz zasób** (+) znajdujący się w lewym górnym rogu witryny Azure Portal.
 
 2. Wybierz pozycję **Internet rzeczy**, wybierz pozycję **Centrum IoT** i kliknij przycisk **Utwórz**. 
 
@@ -44,9 +44,9 @@ Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-new-instance-for-the-iot-hub-device-provisioning-service"></a>Tworzenie nowego wystąpienia dla usługi IoT Hub Device Provisioning Service
 
-1. Kliknij przycisk **Nowy** znajdujący się w lewym górnym rogu witryny Azure Portal.
+1. Kliknij przycisk **Utwórz zasób** (+) znajdujący się w lewym górnym rogu witryny Azure Portal.
 
-2. *Wyszukaj w witrynie Marketplace* **usługę Device Provisioning Service**. Wybierz pozycję **Usługa IoT Device Provisioning** i kliknij przycisk **Utwórz**. 
+2. *Wyszukaj w witrynie Marketplace* **usługę Device Provisioning Service**. Wybierz pozycję **Usługa IoT Hub Device Provisioning** i kliknij przycisk **Utwórz**. 
 
 3. Nadaj **nazwę** swojemu wystąpieniu usługi Device Provisioning Service. Wybierz subskrypcję, która będzie używana dla tego wystąpienia, i nazwę dla nowej lub istniejącej grupy zasobów. Wybierz lokalizację. Na koniec kliknij pozycję **Utwórz**.
 

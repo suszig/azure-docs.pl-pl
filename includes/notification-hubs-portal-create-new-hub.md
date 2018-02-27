@@ -2,7 +2,7 @@
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-2. Wybierz pozycję **Nowe** > **Sieci Web i mobilność** > **Centrum powiadomień**.
+2. Wybierz kolejno pozycje **Utwórz zasób** > **Sieć Web + aplikacje mobilne** > **Centrum powiadomień**.
    
       ![Azure Portal — tworzenie centrum powiadomień](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-create.png)
       

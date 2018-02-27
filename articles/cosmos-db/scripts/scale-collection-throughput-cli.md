@@ -1,6 +1,6 @@
 ---
-title: "Przepływności kontenera w usłudze Azure DB rozwiązania Cosmos Azure skali skryptu interfejsu wiersza polecenia | Dokumentacja firmy Microsoft"
-description: "Azure CLI przykładowym skrypcie - przepływności contianer bazy danych rozwiązania Cosmos Azure skali"
+title: "Skrypt interfejsu wiersza polecenia platformy Azure — skalowanie przepływności kontenera usługi Azure Cosmos DB | Microsoft Docs"
+description: "Przykład skryptu interfejsu wiersza polecenia platformy Azure — skalowanie przepływności kontenera usługi Azure Cosmos DB"
 services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
@@ -16,15 +16,15 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 06/02/2017
 ms.author: mimig
-ms.openlocfilehash: 4edd3c49d620df6b335bc7ceb1bf1921e3b279a0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: 6cefb98d8ca192c865d4d646df82e8207bed6047
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="scale-azure-cosmos-db-container-throughput-using-the-azure-cli"></a>Przepływność kontenera Azure DB rozwiązania Cosmos skali przy użyciu wiersza polecenia platformy Azure
+# <a name="scale-azure-cosmos-db-container-throughput-using-the-azure-cli"></a>Skalowanie przepływności kontenera usługi Azure Cosmos DB przy użyciu interfejsu wiersza polecenia platformy Azure
 
-W tym przykładzie skaluje przepływność kontener dla dowolnego rodzaju kontenera Azure DB rozwiązania Cosmos.  
+Ten przykład skaluje przepływność dowolnego rodzaju kontenera usługi Azure Cosmos DB.  
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -36,24 +36,24 @@ Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z
 
 ## <a name="clean-up-deployment"></a>Czyszczenie wdrożenia
 
-Po uruchomieniu przykładowy skrypt następującego polecenia można usunąć grupy zasobów i wszystkie zasoby skojarzone z nim.
+Po wykonaniu przykładowego skryptu możesz uruchomić następujące polecenie, aby usunąć grupę zasobów i wszystkie skojarzone z nią zasoby.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 
-## <a name="script-explanation"></a>Wyjaśnienie skryptu
+## <a name="script-explanation"></a>Objaśnienia dla skryptu
 
-Ten skrypt używa następujących poleceń. Każde polecenie w tabeli łącza do dokumentacji określonego polecenia.
+W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanowi link do dokumentacji polecenia.
 
 | Polecenie | Uwagi |
 |---|---|
-| [Tworzenie grupy az](/cli/azure/group#create) | Tworzy grupę zasobów, w którym przechowywane są wszystkie zasoby. |
-| [AZ cosmosdb aktualizacji](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_update) | Aktualizuje konto bazy danych Azure rozwiązania Cosmos. |
-| [Usuwanie grupy az](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Usuwa grupę zasobów, w tym wszystkich zagnieżdżonych zasobów. |
+| [az group create](/cli/azure/group#az_group_create) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
+| [az cosmosdb update](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_update) | Aktualizuje konto usługi Azure Cosmos DB. |
+| [az group delete](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Usuwa grupę zasobów wraz ze wszystkimi zagnieżdżonymi zasobami. |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji dotyczących interfejsu wiersza polecenia Azure, zobacz [dokumentacji interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/overview).
+Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/overview).
 
-Dodatkowe przykłady skryptów wiersza polecenia platformy Azure rozwiązania Cosmos bazy danych można znaleźć w [dokumentacji interfejsu wiersza polecenia Azure rozwiązania Cosmos DB](../cli-samples.md).
+Więcej przykładów skryptów interfejsu wiersza polecenia usługi Azure Cosmos DB można znaleźć w [dokumentacji interfejsu wiersza polecenia usługi Azure Cosmos DB](../cli-samples.md).

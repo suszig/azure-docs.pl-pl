@@ -10,11 +10,11 @@ ms.service: mysql-database
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 11/01/2017
-ms.openlocfilehash: f427b23ca4b48da79759584bdcc98c1002c054c1
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 88fd06d45d0cd966199ce198578eedd349adc2c8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Tworzenie serwera usługi Azure Database for MySQL za pomocą witryny Azure Portal
 Azure Database for MySQL to usługa zarządzana, która umożliwia uruchamianie i skalowanie w chmurze baz danych MySQL o wysokiej dostępności, a także zarządzanie nimi. W tym przewodniku Szybki start przedstawiono, jak utworzyć serwer usługi Azure Database for MySQL za pomocą witryny Azure Portal w ciągu okołu pięciu minut.  
@@ -29,7 +29,7 @@ Serwer usługi Azure Database for MySQL jest tworzony za pomocą zdefiniowanego 
 
 Wykonaj następujące kroki, aby utworzyć serwer usługi Azure Database for MySQL:
 
-1. Wybierz przycisk **Nowy** (+) w lewym górnym rogu portalu.
+1. Wybierz przycisk **Utwórz zasób** (+) w lewym górnym rogu portalu.
 
 2. Wybierz pozycję **Bazy danych** > **Azure Database for MySQL**. Możesz również wpisać hasło **MySQL** w polu wyszukiwania, aby znaleźć tę usługę.
 

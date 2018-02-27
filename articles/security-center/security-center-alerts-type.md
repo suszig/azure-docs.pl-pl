@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2018
+ms.date: 02/21/2018
 ms.author: yurid
-ms.openlocfilehash: 959c0e8693f4bba49488bbe85e334599823ad0ed
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: a5c95fc7ddf78987d8a7b135d54f359eb5c49946
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Informacje o alertach zabezpieczeń w usłudze Azure Security Center
 Ten artykuł ułatwia zapoznanie się z różnymi typami alertów zabezpieczeń i powiązanych szczegółowych informacji dostępnych w usłudze Azure Security Center. Więcej informacji na temat zarządzania alertami i zdarzeniami znajduje się w artykule [Reagowanie na alerty zabezpieczeń i zarządzanie nimi w usłudze Azure Security Center](security-center-managing-and-responding-alerts.md).
@@ -93,16 +93,11 @@ Usługa Security Center używa zaawansowanej analizy w celu identyfikacji zasob�
 * **Wyłączanie i usuwanie plików dziennika usług IIS**: ten alert wskazuje, że pliki dziennika usług IIS zostały wyłączone i/lub usunięte — jest to często stosowane przez osoby atakujące w celu ukrycia śladów ich działania.
 * **Podejrzane usunięcie plików**: ten alert wskazuje na podejrzane usunięcie plików, co może być stosowane przez osobę atakującą w celu usunięcia dowodu istnienia złośliwych plików binarnych.
 * **Wszystkie kopie pliku w tle zostały usunięte**: ten alert wskazuje, że kopie w tle zostały usunięte.
-* **Plik historii został wyczyszczony**: ten alert wskazuje, że plik dziennika historii poleceń został wyczyszczony, na przykład przez osobę atakującą ukrywającą ślady działania.
 * **Podejrzane polecenia czyszczenia pliku**: ten alert wskazuje na użycie kombinacji poleceń systeminfo do przeprowadzenia działania samodzielnego czyszczenia po wystąpieniu naruszenia.  Plik *systeminfo.exe* to autentyczne narzędzie systemu Windows, ale jego uruchomienie dwa razy z rzędu, a następnie użycie polecenia Usuń w opisany tutaj sposób jest rzadkie.
 * **Podejrzane utworzenie konta**: ten alert wskazuje, że zostało utworzone konto bardzo podobne do istniejącego wbudowanego konta z uprawnieniami administracyjnymi. Ta technika może zostać użyta przez osoby atakujące do utworzenia nieautoryzowanego konta bez wykrycia.
-* **Podejrzane działanie logowania**: ten alert wskazuje na nietypowe działanie logowania, które mogłoby oznaczać atak siłowy typu Blok komunikatów serwera (SMB, Server Message Block). Jeśli uwzględniony zasób działa jako serwer usług IIS, ten alert może wynikać z określonej, autentycznej konfiguracji uwierzytelniania usług.
 * **Podejrzane działanie kopiowania woluminu w tle**: ten alert wskazuje na działanie usunięcia kopii w tle w ramach zasobu. Kopiowanie woluminów w tle (VSC, Volume Shadow Copy) to ważny artefakt, który przechowuje migawki danych. To działanie jest zwykle kojarzone z oprogramowaniem wymuszającym okup, ale może być również autentyczne.
 * **Metoda trwałości rejestru systemu Windows**: ten alert wskazuje na próbę utrzymania pliku wykonywalnego w rejestrze systemu Windows. Złośliwe oprogramowanie często używa takiej techniki w celu przetrwania rozruchu.
-* **Zapora systemu Windows została wyłączona**: ten alert wskazuje na wyłączenie Zapory systemu Windows.
 * **Podejrzana nowa reguła zapory**: ten alert wskazuje na to, że dodano nową regułę zapory za pośrednictwem pliku *netsh.exe*, aby zezwolić na ruch z pliku wykonywalnego w podejrzanej lokalizacji.
-* **Nowy użytkownik został dodany do grupy administratorów**: ten alert wskazuje, że nowy użytkownik został dodany do grupy administratorów lokalnych.
-* **Utworzono nową usługę**: ten alert wskazuje, że utworzono nową usługę.
 * **Podejrzane wykonania XCOPY**: ten alert wskazuje na serię wykonań XCOPY, co może oznaczać, że bezpieczeństwo jednej z maszyn zostało naruszone i użyto jej do propagowania złośliwego oprogramowania.
 * **Pomijanie informacji prawnych wyświetlanych dla użytkowników podczas logowania**: ten alert wskazuje na zmianę klucza rejestru, który kontroluje wyświetlanie informacji prawnych dla użytkowników podczas logowania. Jest to typowe działanie podejmowane przez osoby atakujące po naruszeniu bezpieczeństwa hosta.
 * **Wykryto nietypową kombinację wielkich i małych liter w wierszu polecenia**: ten alert wskazuje na użycie kombinacji wielkich i małych liter w wierszu polecenia. Jest to technika stosowana przez osoby atakujące w celu ukrycia się przed regułą uwzględniania wielkości liter lub maszyny opartej na skrótach.
@@ -123,15 +118,10 @@ Usługa Security Center używa zaawansowanej analizy w celu identyfikacji zasob�
 * **Podejrzane zmiany polecenia Set-ExecutionPolicy i usługi WinRM**: ten alert wskazuje na zmiany konfiguracji skojarzone z użyciem złośliwej powłoki internetowej ChinaChopper.
 * **Wyłączenie usług krytycznych**: ten alert wskazuje, że polecenie „net.exe stop” zostało użyte do zatrzymania usług krytycznych, takich jak SharedAccess lub Centrum zabezpieczeń systemu Windows.
 * **Podejrzane użycie przełącznika FTP -s**: ten alert oznacza użycie przełącznika FTP „-s”, który może służyć w złośliwym oprogramowaniu do łączenia się ze zdalnym serwerem FTP i pobierania dodatkowych złośliwych plików binarnych.
-* **Przygotowywanie do eksfiltracji dokumentu za pośrednictwem tylnego wejścia usług IIS**: ten alert wskazuje na to, że dokumenty są zbierane i przygotowywane do eksfiltracji.
 * **Podejrzane wykonanie polecenia VBScript.Encode**: ten alert wskazuje na wykonanie polecenia *VBScript.Encode*, które koduje skrypty do postaci tekstu niemożliwego do odczytania, co utrudnia użytkownikom badanie kodu.
 * **Alokacja obiektu HTTP VBScript**: ten alert wskazuje na utworzenie pliku VBScript przy użyciu wiersza polecenia. Może on służyć do pobierania złośliwych plików.
 * **Atak typu Klawisze trwałe**: ten alert wskazuje, że osoba atakująca może wykorzystać pliki binarne ułatwień dostępu (takich jak klawisze trwałe, klawiatura ekranowa, narrator) w celu zapewnienia sobie tylnego wejścia do systemu.
 * **Wskaźniki oprogramowania wymuszającego okup Petya**: ten alert wskazuje na to, że zaobserwowano techniki skojarzone z oprogramowaniem wymuszającym okup Petya.
-* **Załadowano moduł jądra**: ten alert wskazuje na załadowanie modułu jądra.
-* **Usunięto moduł jądra**: ten alert wskazuje na usunięcie modułu jądra.
-* **Nietypowe logowanie do maszyny**: ten alert wskazuje, że użytkownik zalogował się z adresu IP innego niż zwykle.
-* **Pobrano i wykonano plik**: ten alert wskazuje na to, że plik został pobrany do maszyny, miał nadane uprawnienia do wykonywania, a następnie został wykonany.
 * **Próba wyłączenia interfejsu AMSI**: ten alert wskazuje na próbę wyłączenia interfejsu skanowania w celu ochrony przed złośliwym kodem (AMSI), co spowodowałoby wyłączenie wykrywania ochrony przed złośliwym kodem.
 * **Wskaźniki oprogramowania wymuszającego okup**: ten alert wskazuje na podejrzane działania tradycyjnie kojarzone z oprogramowaniem wymuszającym okup przez blokowanie ekranu i szyfrowanie.
 * **Podejrzany plik wyjściowy zbierania śladów**: ten alert wskazuje na to, że zebrano ślady i umieszczono je jako dane wyjściowe w pliku nietypowego typu.
@@ -145,14 +135,8 @@ Usługa Security Center używa zaawansowanej analizy w celu identyfikacji zasob�
 * **Dynamiczna konstrukcja skryptu programu PS**: ten alert wskazuje na to, że skrypt programu PowerShell jest tworzony dynamicznie. Osoby atakujące używają tej techniki, aby stopniowo kompilować skrypt w celu omijania systemów IDS.
 * **Wskaźniki platformy Metaploit**: ten alert wskazuje na działanie skojarzone z platformą Metasploit, która udostępnia szereg możliwości i narzędzi dla osób atakujących.
 * **Podejrzane działanie na koncie**: ten alert wskazuje na próbę połączenia z maszyną za pomocą konta, którego bezpieczeństwo zostało niedawno naruszone.
-* **Możliwy podejrzany dostęp do planowania zadań**: ten alert wskazuje na wykonanie zadania cron, które może służyć osobom atakującym do wykonywania złośliwych programów zgodnie z harmonogramem.
-* **Możliwy podejrzany dostęp do pliku historii poleceń**: ten alert wskazuje na nietypowy dostęp do pliku historii poleceń.
 * **Tworzenie konta**: ten alert wskazuje na utworzenie nowego konta na maszynie.
-* **Zmiana ustawienia powłoki Bash**: ten alert wskazuje na dostęp do pliku profilu powłoki Bash, co może być dowodem na to, że osoba atakująca próbuje wykonywać złośliwe programy zgodnie z harmonogramem.
-* **Podejrzana sekwencja nieudanych prób użycia programu sudo**: ten alert wskazuje na sekwencję nieudanych prób użycia poleceń programu sudo, co jest często obserwowane w przypadku prób ataków siłowych mających na celu eskalowanie uprawnień przez nieautoryzowanych użytkowników.
-* **Podejrzane udane próby użycia programu sudo**: ten alert wskazuje na sekwencję nieudanych prób użycia programu sudo, po których nastąpiła udana próba użycia tego programu, co jest często obserwowane w przypadku prób ataków siłowych mających na celu eskalowanie uprawnień przez nieautoryzowanych użytkowników.
-* **Nowy użytkownik został dodany do grupy użytkowników programu sudo**: ten alert wskazuje na to, że użytkownik został dodany do grupy użytkowników programu sudo, co umożliwia jego członkom uruchamianie poleceń z uprawnieniami na wysokim poziomie.
-* **Logowanie do sieci przy użyciu poświadczeń w postaci zwykłego tekstu**: ten alert wskazuje na to, że zaobserwowano logowanie do sieci, w przypadku którego hasła zostało wysłane przez sieć w formacie zwykłego tekstu. Jest to typowe, gdy operacje logowania są wykonywane z poziomu skryptu ASP za pomocą interfejsu ADVAPI lub gdy użytkownik loguje się do usług IIS przy użyciu trybu uwierzytelniania podstawowego usług IIS. Nie zaleca się korzystania z uwierzytelniania podstawowego, chyba że w przypadku zawinięcia w warstwie szyfrowania, takiej jak protokół SSL (np. przy użyciu tylko połączeń HTTPS).
+
 
 ### <a name="crash-analysis"></a>Analiza awarii
 
@@ -206,6 +190,8 @@ Jeśli dostępne są dodatkowe informacje, zostaną one wyświetlone w zdarzeniu
 - Zdarzenia czyszczenia dziennika
 - Urządzenie PNP podłączone z nieznanego urządzenia
 - Alerty, względem których nie można wykonać żadnych działań
+- Tworzenie nowego konta
+- Plik zdekodowany przy użyciu narzędzia certutil 
 
 ![Alert o nietypowym dostępie](./media/security-center-alerts-type/security-center-alerts-type-fig20.png)
 

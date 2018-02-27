@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 01/31/2018
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: e705946dca839e6b8e11872ad5431f125b9fb41d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1e52b89cf8ac1a8ddeaa7e08ebd3734d1affe98e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-virtual-network-service-endpoints"></a>Konfigurowanie punktów końcowych usługi sieci wirtualnej
 
@@ -62,8 +62,8 @@ W okresie obowiązywania wersji zapoznawczej funkcja punktów końcowych usługi
 
 1. Otwórz witrynę [Azure Portal](https://portal.azure.com/).
 Zaloguj się do platformy Azure przy użyciu konta Azure. Jeśli nie masz konta platformy Azure, możesz skorzystać z bezpłatnej wersji próbnej. Konto musi mieć niezbędne [uprawnienia](#provisioning) do tworzenia sieci wirtualnej i punktu końcowego usługi.
-2. Kliknij kolejno pozycje +Nowy > Sieć > Sieć wirtualna > +Dodaj.
-3. W oknie „Tworzenie bloku sieci wirtualnej” wprowadź poniższe wartości, a następnie kliknij pozycję Utwórz:
+2. Kliknij kolejno pozycje **Utwórz zasób** > **Sieć** > **Sieć wirtualna** > **+ Dodaj**.
+3. W oknie „Tworzenie sieci wirtualnej” wprowadź poniższe wartości, a następnie kliknij pozycję **Utwórz**:
 
 Ustawienie | Wartość
 ------- | -----

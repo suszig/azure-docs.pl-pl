@@ -1,92 +1,92 @@
 ---
-title: "Przywracanie plików do maszyny Wirtualnej w usłudze Azure Backup | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak przeprowadzić przywracania na poziomie pliku na maszynie Wirtualnej platformy Azure z kopii zapasowej i odzyskiwania usługi."
-services: backup, virtual-machines
+title: "Przywracanie plików na maszynę wirtualną przy użyciu usługi Azure Backup | Microsoft Docs"
+description: "Dowiedz się, jak przeprowadzić przywracanie na poziomie plików na maszynie wirtualnej platformy Azure przy użyciu usług Backup i Recovery Services."
+services: backup
 documentationcenter: virtual-machines
 author: markgalioto
 manager: carmonm
 editor: 
 tags: azure-resource-manager, virtual-machine-backup
 ms.assetid: 
-ms.service: backup, virtual-machines
+ms.service: backup
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/29/2017
+ms.date: 2/14/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: e1bbae56b70c50fcf691db47efd9dc587686e7da
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: MT
+ms.openlocfilehash: 77084c5663f9e12347c243c4e78160657d7443b2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Przywracanie plików na maszynę wirtualną na platformie Azure
-Kopia zapasowa Azure tworzy punkty odzyskiwania, które są przechowywane w magazynach odzyskiwania z magazynu geograficznie nadmiarowego. Po przywróceniu z punktu odzyskiwania, można przywrócić całej maszyny Wirtualnej lub poszczególnych plików. W tym artykule szczegółowo sposób przywracania poszczególnych plików. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Usługa Azure Backup tworzy punkty odzyskiwania przechowywane w geograficznie nadmiarowych magazynach odzyskiwania. Z punktu odzyskiwania można przywrócić całą maszynę wirtualną lub poszczególne pliki. W tym artykule szczegółowo przedstawiono sposób przywracania poszczególnych plików. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Listy i punktów odzyskiwania wybierz
-> * Połączenie z maszyną wirtualną punkt odzyskiwania
-> * Przywróć pliki z punktu odzyskiwania
+> * Wyświetlanie listy i wybieranie punktów odzyskiwania
+> * Łączenie punktu odzyskiwania z maszyną wirtualną
+> * Przywracanie plików z punktu odzyskiwania
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Jeśli wybierzesz do zainstalowania i używania interfejsu wiersza polecenia lokalnie, w tym samouczku wymaga używasz interfejsu wiersza polecenia Azure w wersji 2.0.18 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0](/cli/azure/install-azure-cli). 
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.18 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0](/cli/azure/install-azure-cli). 
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Ten samouczek wymaga systemu Linux maszyny Wirtualnej chronionej przy użyciu kopii zapasowej Azure. Aby symulować pliku przypadkowego usunięcia i proces odzyskiwania, w przypadku usunięcia strony z serwera sieci web. Jeśli potrzebujesz Maszynę wirtualną systemu Linux uruchamia serwer sieci Web, który został objęty ochroną z usługi Kopia zapasowa Azure, zobacz [kopię zapasową maszyny wirtualnej na platformie Azure z poziomu interfejsu wiersza polecenia](quick-backup-vm-cli.md).
+Do wykonania tego samouczka jest wymagana maszyna wirtualna z systemem Linux, chroniona przy użyciu usługi Azure Backup. Aby zasymulować proces przypadkowego usunięcia pliku i odzyskania go, usuniesz stronę z serwera internetowego. Jeśli potrzebujesz maszyny wirtualnej z systemem Linux obsługującej serwer internetowy i chronionej przy użyciu usługi Azure Backup, zobacz [Tworzenie kopii zapasowej maszyny wirtualnej na platformie Azure za pomocą interfejsu wiersza polecenia](quick-backup-vm-cli.md).
 
 
 ## <a name="backup-overview"></a>Omówienie usługi Backup
-Gdy Azure inicjuje kopii zapasowej, kopii zapasowej rozszerzenia na maszynie Wirtualnej, wykonuje migawkę punktu w czasie. Zapasowy numer wewnętrzny jest zainstalowany na maszynie Wirtualnej zleconą pierwszej kopii zapasowej. Kopia zapasowa Azure można również wykonać migawki powiązany magazyn, jeśli maszyna wirtualna nie jest uruchomiona, podczas tworzenia kopii zapasowej.
+Po zainicjowaniu tworzenia kopii zapasowej przez platformę Azure rozszerzenie kopii zapasowej na maszynie wirtualnej tworzy migawkę punktu w czasie. Rozszerzenie kopii zapasowej jest instalowane na maszynie wirtualnej w momencie pierwszego żądania utworzenia kopii zapasowej. Usługa Azure Backup również może utworzyć migawkę bazowego magazynu, jeśli maszyna wirtualna nie jest uruchomiona w momencie tworzenia kopii zapasowej.
 
-Domyślnie kopia zapasowa Azure ma kopia zapasowa spójna systemu plików. Gdy kopia zapasowa Azure przyjmuje migawki, dane są przesyłane do magazynu usług odzyskiwania. Aby zmaksymalizować wydajność, kopia zapasowa Azure identyfikuje i transferuje tylko bloki danych, które uległy zmianie od czasu poprzedniej kopii zapasowej.
+Domyślnie usługa Azure Backup tworzy kopię zapasową spójną na poziomie systemu plików. Po utworzeniu migawki w usłudze Azure Backup dane są przesyłane do magazynu usługi Recovery Services. Aby zmaksymalizować wydajność, usługa Azure Backup rozpoznaje i przesyła jedynie te bloki danych, które uległy zmianie od czasu utworzenia poprzedniej kopii zapasowej.
 
-Po ukończeniu transferu danych migawki zostaną usunięte i utworzenia punktu odzyskiwania.
+Po ukończeniu przesyłania danych migawka jest usuwana, a utworzony zostaje punkt odzyskiwania.
 
 
-## <a name="delete-a-file-from-a-vm"></a>Usuń plik z maszyny Wirtualnej
-Jeśli przypadkowo usunięte lub wprowadzić zmiany w pliku, można przywrócić pojedyncze pliki z punktu odzyskiwania. Ten proces umożliwia przeglądanie plików z kopii zapasowej w punkt odzyskiwania i przywrócić tylko te pliki, które są potrzebne. W tym przykładzie mamy usuwanie pliku z serwera sieci web, aby zademonstrować proces odzyskiwania na poziomie pliku.
+## <a name="delete-a-file-from-a-vm"></a>Usuwanie pliku z maszyny wirtualnej
+Jeśli przypadkowo usuniesz lub zmienisz plik, możesz przywrócić pojedyncze pliki z punktu odzyskiwania. Ten proces umożliwia przeglądanie plików, których kopia zapasowa jest przechowywana w punkcie odzyskiwania, a następnie przywrócenie tylko wybranych plików. W tym przykładzie usuniemy plik z serwera internetowego, aby przedstawić proces odzyskiwania na poziomie pliku.
 
-1. Aby nawiązać połączenie z maszyną Wirtualną, Uzyskaj adres IP maszyny wirtualnej z [az maszyny wirtualnej pokazu](/cli/azure/vm?view=azure-cli-latest#az_vm_show):
+1. Aby nawiązać połączenie z maszyną wirtualną, uzyskaj jej adres IP przy użyciu polecenia [az vm show](/cli/azure/vm?view=azure-cli-latest#az_vm_show):
 
      ```azurecli-interactive
      az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
      ```
 
-2. Aby upewnić się, że witryny sieci web jest obecnie obsługiwane, otwórz przeglądarkę sieci web do publicznego adresu IP maszyny Wirtualnej. Pozostaw otwarte okno przeglądarki sieci web.
+2. Aby sprawdzić, czy witryna internetowa aktualnie działa, otwórz przeglądarkę internetową i przejdź do publicznego adresu IP maszyny wirtualnej. Pozostaw otwarte okno przeglądarki internetowej.
 
-    ![Domyślna strona sieci web NGINX](./media/tutorial-restore-files/nginx-working.png)
+    ![Domyślna strona internetowa serwera NGINX](./media/tutorial-restore-files/nginx-working.png)
 
-3. Połączenie z maszyną Wirtualną przy użyciu protokołu SSH. Zastąp *publicznego adresu IP* z publicznym adresem IP, które zostały uzyskane w poprzednim poleceniu:
+3. Połącz się z maszyną wirtualną przy użyciu protokołu SSH. Zastąp ciąg *publicIpAddress* publicznym adresem IP uzyskanym przy użyciu poprzedniego polecenia:
 
     ```bash
     ssh publicIpAddress
     ```
 
-4. Usuń z serwera sieci web w domyślnej strony */var/www/html/index.nginx-debian.html* w następujący sposób:
+4. Usuń domyślną stronę z lokalizacji */var/www/html/index.nginx-debian.html* na serwerze internetowym, jak pokazano poniżej:
 
     ```bash
     sudo rm /var/www/html/index.nginx-debian.html
     ```
 
-5. W przeglądarce sieci web Odśwież stronę sieci web. Witryna sieci web nie jest już ładuje strony, jak pokazano w poniższym przykładzie:
+5. Odśwież stronę internetową w przeglądarce. Witryna internetowa nie będzie już ładować tej strony, jak pokazano na poniższym przykładzie:
 
-    ![Witryna sieci web NGINX ładuje już domyślną stronę](./media/tutorial-restore-files/nginx-broken.png)
+    ![Witryna internetowa NGINX nie ładuje już strony domyślnej](./media/tutorial-restore-files/nginx-broken.png)
 
-6. Zamknij sesję SSH do maszyny Wirtualnej w następujący sposób:
+6. Zamknij sesję SSH z maszyną wirtualną w następujący sposób:
 
     ```bash
     exit
     ```
 
 
-## <a name="generate-file-recovery-script"></a>Generowanie pliku skryptu odzyskiwania
-Aby przywrócić pliki, kopia zapasowa Azure udostępnia skrypt uruchamiany na maszynie Wirtualnej łączący ten punkt odzyskiwania, jako dysk lokalny. Można przeglądać tego dysku lokalnego, Przywracanie plików do samej maszyny Wirtualnej, a następnie odłącz punktu odzyskiwania. Kopia zapasowa Azure w dalszym ciągu kopii zapasowej danych na podstawie zasad przypisany harmonogram i przechowywania.
+## <a name="generate-file-recovery-script"></a>Generowanie skryptu odzyskiwania plików
+Na potrzeby przywracania plików usługa Azure Backup udostępnia skrypt do uruchomienia na maszynie wirtualnej, który łączy ją z punktem odzyskiwania jako dyskiem lokalnym. Możesz przeglądać zawartość tego dysku lokalnego, przywrócić pliki bezpośrednio na maszynę wirtualną, a następnie zakończyć połączenie z punktem odzyskiwania. Kopia zapasowa danych będzie nadal tworzona w usłudze Azure Backup zgodnie z przypisanymi zasadami harmonogramu i przechowywania.
 
-1. Do listy punktów odzyskiwania dla maszyny Wirtualnej, użyj [az recoverypoint kopii zapasowej listy](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az_backup_recoverypoint_list). W tym przykładzie mamy wybierz najnowszy punkt odzyskiwania dla maszyny Wirtualnej o nazwie *myVM* która jest chroniona w *myRecoveryServicesVault*:
+1. Aby wyświetlić listę punktów odzyskiwania dla maszyny wirtualnej, użyj polecenia [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az_backup_recoverypoint_list). W tym przykładzie wybierzemy najnowszy punkt odzyskiwania dla maszyny wirtualnej o nazwie *myVM*, chronionej w magazynie *myRecoveryServicesVault*:
 
     ```azurecli-interactive
     az backup recoverypoint list \
@@ -98,9 +98,9 @@ Aby przywrócić pliki, kopia zapasowa Azure udostępnia skrypt uruchamiany na m
         --output tsv
     ```
 
-2. Aby uzyskać skrypt, który łączy lub instaluje punkt odzyskiwania do maszyny Wirtualnej, użyj [az przywracania kopii zapasowej plików instalacji rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az_backup_restore_files_mount_rp). Poniższy przykład uzyskuje skryptu dla maszyny Wirtualnej o nazwie *myVM* która jest chroniona w *myRecoveryServicesVault*.
+2. Aby uzyskać skrypt umożliwiający połączenie z punktem odzyskiwania — innymi słowy, zainstalowanie go — na maszynie wirtualnej, użyj polecenia [az backup restore files mount-rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az_backup_restore_files_mount_rp). Poniższy przykład umożliwia uzyskanie skryptu dla maszyny wirtualnej o nazwie *myVM*, chronionej w magazynie *myRecoveryServicesVault*.
 
-    Zastąp *myRecoveryPointName* o nazwie punkt odzyskiwania, które zostały uzyskane w poprzednim poleceniu:
+    Zastąp ciąg *myRecoveryPointName* nazwą punktu odzyskiwania uzyskaną przy użyciu poprzedniego polecenia:
 
     ```azurecli-interactive
     az backup restore files mount-rp \
@@ -111,29 +111,29 @@ Aby przywrócić pliki, kopia zapasowa Azure udostępnia skrypt uruchamiany na m
         --rp-name myRecoveryPointName
     ```
 
-    Skrypt jest pobierany i hasło jest wyświetlane, jak w poniższym przykładzie:
+    Skrypt zostanie pobrany i zostanie wyświetlone hasło, zgodnie z poniższym przykładem:
 
     ```
     File downloaded: myVM_we_1571974050985163527.sh. Use password c068a041ce12465
     ```
 
-3. Aby przesłać skrypt do maszyny Wirtualnej, użyj Secure kopiowania (SCP). Podaj nazwę skryptu pobrane i Zastąp *publicznego adresu IP* z publicznym adresem IP w sieci maszyny wirtualnej. Upewnij się, że możesz wpisać kreskę końcową `:` na końcu punkt połączenia usługi polecenia w następujący sposób:
+3. Aby przesłać skrypt do maszyny wirtualnej, użyj narzędzia Secure Copy (SCP). Podaj nazwę pobranego skryptu i zastąp ciąg *publicIpAddress* publicznym adresem IP maszyny wirtualnej. Pamiętaj o uwzględnieniu końcowego znaku `:` na końcu polecenia SCP, jak pokazano poniżej:
 
     ```bash
     scp myVM_we_1571974050985163527.sh 52.174.241.110:
     ```
 
 
-## <a name="restore-file-to-your-vm"></a>Przywracanie plików do maszyny Wirtualnej
-Przy użyciu skryptu odzyskiwania kopiowane do maszyny Wirtualnej można połączyć z punktu odzyskiwania i przywracania plików.
+## <a name="restore-file-to-your-vm"></a>Przywracanie plików na maszynę wirtualną
+Po skopiowaniu skryptu odzyskiwania na maszynę wirtualną możesz nawiązać połączenie z punktem odzyskiwania i przywrócić pliki.
 
-1. Połączenie z maszyną Wirtualną przy użyciu protokołu SSH. Zastąp *publicznego adresu IP* z publicznym adresem IP w sieci maszyny wirtualnej w następujący sposób:
+1. Połącz się z maszyną wirtualną przy użyciu protokołu SSH. Zastąp ciąg *publicIpAddress* publicznym adresem IP maszyny wirtualnej, jak pokazano poniżej:
 
     ```bash
     ssh publicIpAddress
     ```
 
-2. Aby umożliwić skrypt, aby działała poprawnie, należy dodać uprawnienia z wykonywania **chmod**. Wprowadź nazwę własnego skryptu:
+2. Aby umożliwić prawidłowe wykonanie skryptu, dodaj uprawnienia do wykonywania przy użyciu polecenia **chmod**. Wprowadź nazwę własnego skryptu:
 
     ```bash
     chmod +x myVM_we_1571974050985163527.sh
@@ -145,9 +145,9 @@ Przy użyciu skryptu odzyskiwania kopiowane do maszyny Wirtualnej można połąc
     ./myVM_we_1571974050985163527.sh
     ```
 
-    Jak skrypt jest uruchamiany, wyświetlany jest monit o wprowadzenie hasła w celu uzyskania dostępu do punktu odzyskiwania. Wprowadź hasło wyświetlany w danych wyjściowych z poprzedniej [az przywracania kopii zapasowej plików instalacji rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az_backup_restore_files_mount_rp) polecenia, który wygenerował skryptu odzyskiwania.
+    Po uruchomieniu skryptu zostanie wyświetlony monit o wprowadzenie hasła dostępu do punktu odzyskiwania. Wprowadź hasło wyświetlone w danych wyjściowych polecenia [az backup restore files mount-rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az_backup_restore_files_mount_rp) użytego wcześniej do wygenerowania skryptu odzyskiwania.
 
-    Dane wyjściowe skryptu zawiera ścieżkę dla punktu odzyskiwania. Następujące przykładowe dane wyjściowe pokazuje, że punkt odzyskiwania został zainstalowany w */home/azureuser/myVM-20170919213536/Volume1*:
+    Dane wyjściowe skryptu zawierają ścieżkę punktu odzyskiwania. Dane wyjściowe w poniższym przykładzie wskazują, że punkt odzyskiwania został zainstalowany w lokalizacji */home/azureuser/myVM-20170919213536/Volume1*:
 
     ```
     Microsoft Azure VM Backup - File Recovery
@@ -169,25 +169,25 @@ Przy użyciu skryptu odzyskiwania kopiowane do maszyny Wirtualnej można połąc
     ************ Open File Explorer to browse for files. ************
     ```
 
-4. Użyj **cp** skopiuj NGINX domyślnej strony sieci web z punktu odzyskiwania zainstalowanego z powrotem do oryginalnej lokalizacji pliku. Zastąp */home/azureuser/myVM-20170919213536/Volume1* punktu z własnej lokalizacji instalacji:
+4. Użyj polecenia **cp**, aby skopiować domyślną stronę internetową serwera NGINX z zainstalowanego punktu odzyskiwania z powrotem do pierwotnej lokalizacji pliku. Zastąp lokalizację instalacji */home/azureuser/myVM-20170919213536/Volume1* własną lokalizacją:
 
     ```bash
     sudo cp /home/azureuser/myVM-20170919213536/Volume1/var/www/html/index.nginx-debian.html /var/www/html/
     ```
 
-6. W przeglądarce sieci web Odśwież stronę sieci web. Witryna sieci web teraz ładuje poprawnie ponownie, jak pokazano w poniższym przykładzie:
+6. Odśwież stronę internetową w przeglądarce. Witryna internetowa znów będzie poprawnie ładowana, jak pokazano na poniższym przykładzie:
 
-    ![Witryna sieci web NGINX teraz ładuje poprawnie](./media/tutorial-restore-files/nginx-restored.png)
+    ![Witryna internetowa NGINX jest znów poprawnie ładowana](./media/tutorial-restore-files/nginx-restored.png)
 
-7. Zamknij sesję SSH do maszyny Wirtualnej w następujący sposób:
+7. Zamknij sesję SSH z maszyną wirtualną w następujący sposób:
 
     ```bash
     exit
     ```
 
-8. Odinstaluj punkt odzyskiwania z maszyny Wirtualnej z [az przywracania kopii zapasowej plików odinstalować rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az_backup_restore_files_unmount_rp). Poniższy przykład odinstalowuje punkt odzyskiwania z maszyny Wirtualnej o nazwie *myVM* w *myRecoveryServicesVault*.
+8. Odinstaluj punkt odzyskiwania z maszyny wirtualnej przy użyciu polecenia [az backup restore files unmount-rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az_backup_restore_files_unmount_rp). Poniższy przykład umożliwia odinstalowanie punktu odzyskiwania z maszyny wirtualnej o nazwie *myVM* w magazynie *myRecoveryServicesVault*.
 
-    Zastąp *myRecoveryPointName* o nazwie ten punkt odzyskiwania, uzyskany w powyższych poleceń:
+    Zastąp ciąg *myRecoveryPointName* nazwą punktu odzyskiwania uzyskaną przy użyciu poprzednich poleceń:
     
     ```azurecli-interactive
     az backup restore files unmount-rp \
@@ -199,15 +199,15 @@ Przy użyciu skryptu odzyskiwania kopiowane do maszyny Wirtualnej można połąc
     ```
 
 ## <a name="next-steps"></a>Następne kroki
-W tym samouczku połączony z maszyną Wirtualną punkt odzyskiwania i przywróconych plików dla serwera sieci web. W tym samouczku omówiono:
+Podczas pracy z tym samouczkiem połączono punkt odzyskiwania z maszyną wirtualną i przywrócono pliki serwera internetowego. W tym samouczku omówiono:
 
 > [!div class="checklist"]
-> * Listy i punktów odzyskiwania wybierz
-> * Połączenie z maszyną wirtualną punkt odzyskiwania
-> * Przywróć pliki z punktu odzyskiwania
+> * Wyświetlanie listy i wybieranie punktów odzyskiwania
+> * Łączenie punktu odzyskiwania z maszyną wirtualną
+> * Przywracanie plików z punktu odzyskiwania
 
-Przejście do następnym samouczku, aby dowiedzieć się więcej o tym, jak wykonać kopię zapasową serwera systemu Windows Azure.
+Przejdź do następnego samouczka, aby dowiedzieć się, jak utworzyć kopię zapasową serwera z systemem Windows na platformie Azure.
 
 > [!div class="nextstepaction"]
-> [Utwórz kopię zapasową serwera systemu Windows Azure](tutorial-backup-windows-server-to-azure.md)
+> [Tworzenie kopii zapasowej serwerów z systemem Windows na platformie Azure](tutorial-backup-windows-server-to-azure.md)
 

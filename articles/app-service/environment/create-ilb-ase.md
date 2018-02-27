@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 9f7343102cf7af6d7f2ba6b4b2f08b7b855da6f8
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 7480c1f71a64e31b65cc76f28734df6f424a6b3f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Tworzenie i używanie wewnętrznego modułu równoważenia obciążenia ze środowiskiem App Service Environment #
 
@@ -55,7 +55,7 @@ Pewnych zadań nie można realizować w przypadku używania środowiska ASE z we
 
 Aby utworzyć środowisko ASE z wewnętrznym modułem równoważenia obciążenia:
 
-1. W witrynie Azure Portal wybierz pozycję **Nowy** > **Sieć Web + aplikacje mobilne** > **App Service Environment**.
+1. W witrynie Azure Portal wybierz pozycję **Utwórz zasób** > **Sieć Web + aplikacje mobilne** > **App Service Environment**.
 
 2. Wybierz subskrypcję.
 
@@ -106,7 +106,7 @@ Jeśli dla ustawienia **Typ adresu VIP** została wybrana opcja **Wewnętrzny**,
 
 Aplikację w środowisku ASE z wewnętrznym modułem równoważenia obciążenia tworzy się tak samo jak w normalnym środowisku ASE.
 
-1. W witrynie Azure Portal wybierz pozycję **Nowy** > **Sieć Web + aplikacje mobilne** > **Web**, **Urządzenie przenośne** lub **Aplikacja interfejsu API**.
+1. W witrynie Azure Portal wybierz pozycję **Utwórz zasób** > **Sieć Web + aplikacje mobilne** > **Internet** lub **Urządzenia mobilne** lub **Aplikacja interfejsu API**.
 
 2. Wprowadź nazwę aplikacji.
 

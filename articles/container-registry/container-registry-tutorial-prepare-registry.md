@@ -1,6 +1,6 @@
 ---
-title: "Samouczek rejestru kontenera platformy Azure — przygotowanie rejestru kontenera platformy Azure z replikacją geograficzną"
-description: "Tworzenie rejestru kontenera platformy Azure, skonfiguruj — replikacja geograficzna, przygotować obraz Docker i wdrożyć ją w rejestrze. Części, jeden z trzech części serii."
+title: "Samouczek usługi Azure Container Registry — przygotowywanie rejestru kontenerów platformy Azure z replikacją geograficzną"
+description: "Tworzenie rejestru kontenerów platformy Azure, konfigurowanie replikacji geograficznej, przygotowanie obrazu platformy Docker i wdrożenie go w rejestrze. Pierwsza część trzyczęściowej serii."
 services: container-registry
 author: mmacy
 manager: timlt
@@ -9,116 +9,116 @@ ms.topic: tutorial
 ms.date: 10/26/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 7ae0fbf5f7566bd3f1f6591501b8b004a1e5cb0f
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: b73222d9b31ff840273bdb91a15f7eaf37ad2508
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="prepare-a-geo-replicated-azure-container-registry"></a>Przygotowanie rejestru kontenera platformy Azure z replikacją geograficzną
+# <a name="prepare-a-geo-replicated-azure-container-registry"></a>Przygotowanie rejestru kontenerów platformy Azure z replikacją geograficzną
 
-Rejestr kontenera platformy Azure jest prywatny rejestru Docker wdrożona na platformie Azure, które może być zamknięcie sieci w wdrożenia. W tym zestawie trzy artykułów Samouczek zostanie przedstawiony sposób umożliwia wdrażanie aplikacji sieci web platformy ASP.NET Core uruchomione w kontenerze systemu Linux do dwóch — replikacja geograficzna [aplikacji sieci Web dla kontenerów](../app-service/containers/index.yml) wystąpień. Zobaczysz, jak Azure automatycznie wdraża obraz do każdego wystąpienia aplikacji sieci Web z najbliższego repozytorium replikacją geograficzną.
+Rejestr kontenerów platformy Azure to prywatny rejestr platformy Docker wdrożony na platformie Azure, który można zlokalizować w sieci w pobliżu własnych wdrożeń. Ten zestaw trzech samouczków przedstawia metodę użycia replikacji geograficznej do wdrożenia aplikacji internetowej platformy ASP.NET Core uruchomionej w kontenerze systemu Linux do dwóch wystąpień funkcji [Web Apps for Containers](../app-service/containers/index.yml). Dowiesz się, jak platforma Azure automatycznie wdraża obraz do każdego wystąpienia aplikacji internetowej z najbliższego repozytorium z replikacją geograficzną.
 
-W tym samouczku część w serii trzech części:
+Ten samouczek jest pierwszą częścią trzyczęściowej serii:
 
 > [!div class="checklist"]
-> * Tworzenie rejestru kontenera platformy Azure z replikacją geograficzną
+> * Tworzenie rejestru kontenerów platformy Azure z replikacją geograficzną
 > * Klonowanie kodu źródłowego aplikacji z usługi GitHub
-> * Utwórz Docker kontenera obraz ze źródła aplikacji
-> * Wypychanie obrazu kontenera do rejestru
+> * Tworzenie obrazu kontenera platformy Docker ze źródła aplikacji
+> * Wypchnięcie obrazu kontenera do rejestru
 
-W kolejnych samouczkach wdrożeniem kontenera z rejestru prywatnych w aplikacji sieci web działa w dwóch regionach platformy Azure. Następnie zaktualizuj kod w aplikacji i zaktualizuj oba wystąpienia aplikacji sieci Web za pomocą jednej `docker push` do rejestru.
+W kolejnych samouczkach kontener zostanie wdrożony z prywatnego rejestru do aplikacji internetowej uruchomionej w dwóch regionach platformy Azure. Następnie zostanie zaktualizowany kod w aplikacji, a oba wystąpienia aplikacji internetowej zostaną zaktualizowane za pomocą pojedynczego polecenia `docker push` uruchomionego względem rejestru.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-Ten samouczek wymaga używasz interfejsu wiersza polecenia Azure w wersji 2.0.20 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli).
+Ten samouczek wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0.20 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli).
 
 Ten samouczek zakłada, że masz podstawową wiedzę na temat bazowych koncepcji usługi Docker, takich jak kontenery, obrazy kontenerów i podstawowe polecenia usługi Docker. W razie potrzeby zapoznaj się z tematem [Get starter with Docker (Rozpoczynanie pracy z platformą Docker)]( https://docs.docker.com/get-started/), aby uzyskać podstawowe informacje na temat kontenerów.
 
 Do ukończenia tego samouczka konieczne będzie środowisko programowania Docker. Środowisko Docker zawiera pakiety, które umożliwiają łatwe konfigurowanie platformy Docker w systemie [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) lub [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
 
-Azure powłoki chmury nie zawiera składniki Docker wymagane do ukończenia każdego kroku w tym samouczku. Dlatego zaleca się instalacji lokalnej środowiska deweloperskiego wiersza polecenia platformy Azure i klastrem Docker.
+Usługa Azure Cloud Shell nie zawiera składników platformy Docker wymaganych do ukończenia każdego kroku w tym samouczku. Dlatego zalecamy użycie lokalnej instalacji interfejsu wiersza polecenia platformy Azure i środowiska deweloperskiego platformy Docker.
 
 > [!IMPORTANT]
-> Funkcja — replikacja geograficzna rejestru kontenera Azure jest obecnie w **Podgląd**. Podglądy stają się dostępne dla Ciebie pod warunkiem, że zgadzasz się [uzupełniające warunki użytkowania](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Niektóre aspekty tej funkcji może zmienić przed ogólnodostępnej (GA).
+> Funkcja replikacji geograficznej usługi Azure Container Registry jest aktualnie dostępna w **wersji zapoznawczej**. Wersje zapoznawcze są udostępniane pod warunkiem udzielenia zgody na [dodatkowe warunki użytkowania](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Niektóre cechy funkcji mogą ulec zmianie, zanim stanie się ona ogólnie dostępna.
 >
 
 ## <a name="create-a-container-registry"></a>Tworzenie rejestru kontenerów
 
-Zaloguj się w witrynie [Azure Portal](http://portal.azure.com).
+Zaloguj się w [Portalu Azure](http://portal.azure.com).
 
-Wybierz **nowe** > **kontenery** > **rejestru kontenera platformy Azure**.
+Wybierz pozycję **Utwórz zasób** > **Kontenery** > **Azure Container Registry**.
 
-![Tworzenie rejestru kontenera w portalu Azure][tut-portal-01]
+![Tworzenie rejestru kontenerów w witrynie Azure Portal][tut-portal-01]
 
-Skonfiguruj nowy rejestru z następującymi ustawieniami:
+Skonfiguruj nowy rejestr za pomocą następujących ustawień:
 
-* **Nazwa rejestru**: Utwórz nazwę rejestru jest globalnie unikatowa w obrębie platformy Azure, która zawiera znaki alfanumeryczne 5 – 50
-* **Grupa zasobów**: **Utwórz nowe** > `myResourceGroup`
-* **Lokalizacja**:`West US`
-* **Administrator**: `Enable` (wymagane dla aplikacji sieci Web dla kontenerów do ściągnięcia obrazy)
-* **Jednostka SKU**: `Premium` (wymagane dla replikacji geograficznej)
+* **Nazwa rejestru**: utwórz nazwę rejestru, która jest globalnie unikatowa w obrębie platformy Azure i składa się z od 5 do 50 znaków alfanumerycznych
+* **Grupa zasobów**: **utwórz nową** > `myResourceGroup`
+* **Lokalizacja**: `West US`
+* **Administrator**: `Enable` (wymagane dla funkcji Web App for Containers na potrzeby ściągania obrazów)
+* **Jednostka SKU**: `Premium` (wymagana dla replikacji geograficznej)
 
-Wybierz **Utwórz** wdrażania wystąpienia ACR.
+Wybierz przycisk **Utwórz**, aby wdrożyć wystąpienie usługi ACR.
 
-![Tworzenie rejestru kontenera w portalu Azure][tut-portal-02]
+![Tworzenie rejestru kontenerów w witrynie Azure Portal][tut-portal-02]
 
-W dalszej części tego samouczka, używamy `<acrName>` jako symbol zastępczy kontenera **nazwa rejestru** wybrany.
+W dalszej części tego samouczka wartość `<acrName>` będzie używana jako symbol zastępczy wybranej **nazwy rejestru** kontenerów.
 
 > [!TIP]
-> Ponieważ rejestrów kontenera platformy Azure są typowo długiego okresu życia zasobów, które są używane na wielu hostach kontenera, zaleca się utworzenie rejestru w jego własnej grupy zasobów. Podczas konfigurowania replikacją geograficzną rejestrów i elementów webhook, te dodatkowe zasoby są umieszczane w tej samej grupie zasobów.
+> Ponieważ rejestry kontenerów platformy Azure to zwykle zasoby o długim czasie życia używane na wielu hostach kontenerów, zalecamy utworzenie rejestru w jego własnej grupie zasobów. Podczas konfigurowania rejestrów z replikacją geograficzną i elementów webhook te dodatkowe zasoby są umieszczane w tej samej grupie zasobów.
 >
 
 ## <a name="configure-geo-replication"></a>Konfigurowanie replikacji geograficznej
 
-Teraz, gdy masz rejestru Premium można skonfigurować replikację geograficzną. Aplikacja sieci web, które można skonfigurować w następnym samouczku do uruchamiania w dwóch regionach, mogą następnie kopiować obrazy kontenera z dokładnością rejestru.
+Teraz, gdy masz rejestr w warstwie Premium, możesz skonfigurować replikację geograficzną. Aplikacja internetowa, którą skonfigurujesz w następnym samouczku pod kątem uruchamiania w dwóch regionach, będzie wtedy mogła ściągać obrazy kontenera z najbliższego rejestru.
 
-Przejdź do rejestru nowego kontenera na platformie Azure, portalu i wybierz pozycję **replikacje** w obszarze **usług**:
+Przejdź do nowego rejestru kontenerów w witrynie Azure Portal i wybierz pozycję **Replikacje** w obszarze **USŁUGI**:
 
-![Replikacje w rejestrze kontenera portalu Azure, interfejsu użytkownika][tut-portal-03]
+![Replikacje w interfejsie użytkownika rejestru kontenerów w witrynie Azure Portal][tut-portal-03]
 
-Mapa jest wyświetlany przedstawiający zielony Sześciokąty reprezentujący regiony platformy Azure, które są dostępne dla — replikacja geograficzna:
+Zostanie wyświetlona mapa z zielonymi sześciokątami reprezentującymi regiony platformy Azure dostępne dla replikacji geograficznej:
 
- ![Mapa regionów w portalu Azure][tut-map-01]
+ ![Mapa regionów w witrynie Azure Portal][tut-map-01]
 
-Replikowanie rejestru dla regionu wschodnie stany USA, wybierając jego sześciokąt zielony, a następnie wybierz **Utwórz** w obszarze **utworzyć replikacji**:
+Zreplikuj rejestr do regionu Wschodnie stany USA, wybierając jego zielony sześciokąt, a następnie wybierz polecenie **Utwórz** w obszarze **Utwórz replikację**:
 
- ![Utwórz replikacji interfejsu użytkownika w portalu Azure][tut-portal-04]
+ ![Tworzenie interfejsu użytkownika replikacji w witrynie Azure Portal][tut-portal-04]
 
-Po zakończeniu replikacji portalu odzwierciedla *gotowe* dla obu regionów. Użyj **Odśwież** przycisk, aby odświeżyć stan replikacji; może potrwać kilka minut lub tak dla replik może być utworzona i zsynchronizowana.
+Po zakończeniu replikacji w portalu będzie wyświetlany stan *Gotowe* dla obu regionów. Użyj przycisku **Odśwież**, aby odświeżyć stan replikacji. Utworzenie i zsynchronizowanie replik może trwać około minuty.
 
-![Stan replikacji interfejsu użytkownika w portalu Azure][tut-portal-05]
+![Interfejs użytkownika stanu replikacji w witrynie Azure Portal][tut-portal-05]
 
-## <a name="container-registry-login"></a>Kontener rejestru logowania
+## <a name="container-registry-login"></a>Logowanie do rejestru Container Registry
 
-Po skonfigurowaniu — replikacja geograficzna, Utwórz obraz kontenera i wypchnąć go do rejestru. Należy najpierw zalogować się wystąpieniu ACR przed wypchnięciem obrazów do niego. Z [podstawowa, standardowa i Premium jednostki SKU](container-registry-skus.md), można uwierzytelniać za pomocą tożsamości platformy Azure.
+Po skonfigurowaniu replikacji geograficznej utwórz obraz kontenera i wypchnij go do rejestru. Musisz zalogować się do wystąpienia usługi ACR przed wypchnięciem do niego obrazów. W przypadku [jednostek SKU Podstawowa, Standardowa i Premium](container-registry-skus.md) możesz uwierzytelnić się za pomocą tożsamości platformy Azure.
 
-Użyj [logowania acr az](https://docs.microsoft.com/cli/azure/acr#az_acr_login) polecenia do uwierzytelniania i pamięci podręcznej poświadczeń dla rejestru. Zastąp `<acrName>` o nazwie rejestru utworzone w poprzednich krokach.
+Użyj polecenia [az acr login](https://docs.microsoft.com/cli/azure/acr#az_acr_login), aby przeprowadzić uwierzytelnianie i zapisać poświadczenia dla rejestru w pamięci podręcznej. Zastąp ciąg `<acrName>` nazwą rejestru utworzonego w poprzednich krokach.
 
 ```azurecli
 az acr login --name <acrName>
 ```
 
-Polecenie zwraca `Login Succeeded` po zakończeniu.
+Polecenie zwraca ciąg `Login Succeeded` po zakończeniu.
 
 ## <a name="get-application-code"></a>Pobieranie kodu aplikacji
 
-Przykładowe w tym samouczku obejmują aplikacji sieci web małej skompilowanej za pomocą [platformy ASP.NET Core](http://dot.net). Aplikacja służy strona HTML, która wyświetla region, z którego obraz został wdrożony przez rejestru kontenera platformy Azure.
+Przykład podany w tym samouczku obejmuje małą aplikację internetową utworzoną za pomocą platformy [ASP.NET Core](http://dot.net). Aplikacja udostępnia stronę HTML wyświetlającą region, z którego obraz został wdrożony przez usługę Azure Container Registry.
 
 ![Samouczek aplikacji wyświetlony w przeglądarce][tut-app-01]
 
-Użyj git Pobierz przykład do katalogu lokalnego i `cd` do tego katalogu:
+Użyj narzędzia git, aby pobrać przykład do katalogu lokalnego, a następnie użyj polecenia `cd`, aby przejść do tego katalogu:
 
 ```bash
 git clone https://github.com/Azure-Samples/acr-helloworld.git
 cd acr-helloworld
 ```
 
-## <a name="update-dockerfile"></a>Plik Dockerfile aktualizacji
+## <a name="update-dockerfile"></a>Aktualizacja pliku Dockerfile
 
-Plik Dockerfile zawarte w próbce pokazuje, jak kontenera jest wbudowana. Rozpoczyna od oficjalne [aspnetcore](https://store.docker.com/community/images/microsoft/aspnetcore) obrazu, kopie aplikacji pliki w kontenerze, instaluje zależności, kompiluje dane wyjściowe na podstawie urzędnika [aspnetcore kompilacji](https://store.docker.com/community/images/microsoft/aspnetcore-build) obrazu, a na końcu Tworzy obraz aspnetcore zoptymalizowane.
+Plik Dockerfile dołączony do przykładu przedstawia sposób tworzenia kontenera. Rozpoczyna się ono od oficjalnego obrazu [aspnetcore](https://store.docker.com/community/images/microsoft/aspnetcore), następnie pliki aplikacji są kopiowane do kontenera, instalowane są zależności, dane wyjściowe są kompilowane za pomocą oficjalnego obrazu [aspnetcore-build](https://store.docker.com/community/images/microsoft/aspnetcore-build) i w końcu jest kompilowany zoptymalizowany obraz aspnetcore.
 
-Plik Dockerfile znajduje się pod adresem `./AcrHelloworld/Dockerfile` sklonowany źródła.
+Plik Dockerfile znajduje się w lokalizacji `./AcrHelloworld/Dockerfile` w sklonowanym źródle.
 
 ```dockerfile
 FROM microsoft/aspnetcore:2.0 AS base
@@ -146,9 +146,9 @@ COPY --from=publish /app .
 ENTRYPOINT ["dotnet", "AcrHelloworld.dll"]
 ```
 
-Stosowanie w *acr helloworld* obrazu próbuje określić region, z którego wdrożono jego kontener, odpytując serwer DNS informacje dotyczące serwera logowania w rejestrze. Należy określić adres URL serwera logowania z rejestru w `DOCKER_REGISTRY` zmiennej środowiskowej w plik Dockerfile.
+Aplikacja w obrazie *acr-helloworld* próbuje określić region, z którego wdrożono jej kontener, odpytując usługę DNS o informacje dotyczące serwera logowania rejestru. Musisz określić adres URL serwera logowania rejestru za pomocą zmiennej środowiskowej `DOCKER_REGISTRY` w pliku Dockerfile.
 
-Najpierw pobierz adres URL serwera logowania w rejestrze z `az acr show` polecenia. Zastąp `<acrName>` o nazwie rejestru utworzone w poprzednich krokach.
+Najpierw pobierz adres URL serwera logowania rejestru za pomocą polecenia `az acr show`. Zastąp ciąg `<acrName>` nazwą rejestru utworzonego w poprzednich krokach.
 
 ```azurecli
 az acr show --name <acrName> --query "{acrLoginServer:loginServer}" --output table
@@ -162,21 +162,21 @@ AcrLoginServer
 uniqueregistryname.azurecr.io
 ```
 
-Następnie zaktualizuj `DOCKER_REGISTRY` wiersz zawierający adres URL serwera logowania z rejestru. W tym przykładzie możemy zaktualizować wiersza, aby odzwierciedlić naszym przykładzie nazwa rejestru, *uniqueregistryname*:
+Następnie zaktualizuj wiersz `DOCKER_REGISTRY` przy użyciu adresu URL serwera logowania rejestru. W tym przykładzie aktualizujemy wiersz, aby odzwierciedlić nazwę przykładowego rejestru — *uniqueregistryname*:
 
 ```dockerfile
 ENV DOCKER_REGISTRY uniqueregistryname.azurecr.io
 ```
 
-## <a name="build-container-image"></a>Utwórz obraz kontenera
+## <a name="build-container-image"></a>Tworzenie obrazu kontenera
 
-Po zaktualizowaniu plik Dockerfile z adresem URL rejestr, możesz za pomocą `docker build` do utworzenia obrazu kontenera. Uruchom następujące polecenie, aby utworzyć obraz i oznacz go za pomocą adresu URL prywatnych rejestru, ponownie zastępując `<acrName>` o nazwie rejestru:
+Po zaktualizowaniu pliku Dockerfile za pomocą adresu URL rejestru możesz użyć polecenia `docker build` do utworzenia obrazu kontenera. Uruchom następujące polecenie, aby utworzyć obraz i oznaczyć go za pomocą adresu URL prywatnego rejestru, ponownie zastępując ciąg `<acrName>` nazwą rejestru:
 
 ```bash
 docker build . -f ./AcrHelloworld/Dockerfile -t <acrName>.azurecr.io/acr-helloworld:v1
 ```
 
-Kilka wierszy dane wyjściowe są wyświetlane jako obraz Docker jest tworzony (w tym miejscu pokazywane obcięty):
+Podczas tworzenia obrazu platformy Docker jest wyświetlanych kilka wierszy danych wyjściowych (w tym miejscu są one obcięte):
 
 ```bash
 Sending build context to Docker daemon  523.8kB
@@ -192,7 +192,7 @@ Successfully built c9ca1763cfb1
 Successfully tagged uniqueregistryname.azurecr.io/acr-helloworld:v1
 ```
 
-Użyj `docker images` polecenie, aby wyświetlić wbudowanych obrazu:
+Użyj polecenia `docker images`, aby wyświetlić utworzony obraz:
 
 ```bash
 docker images
@@ -206,15 +206,15 @@ uniqueregistryname.azurecr.io/acr-helloworld    v1     01ac48d5c8cf    About a m
 ...
 ```
 
-## <a name="push-image-to-azure-container-registry"></a>Obraz wypychania do rejestru kontenera platformy Azure
+## <a name="push-image-to-azure-container-registry"></a>Wypychanie obrazu do usługi Azure Container Registry
 
-Na koniec użyj `docker push` polecenie, aby wypchnąć *acr helloworld* obrazu do rejestru. Zastąp `<acrName>` o nazwie rejestru.
+Na koniec użyj polecenia `docker push`, aby wypchnąć obraz *acr-helloworld* do rejestru. Zastąp ciąg `<acrName>` nazwą rejestru.
 
 ```bash
 docker push <acrName>.azurecr.io/acr-helloworld:v1
 ```
 
-Ponieważ skonfigurowaniu rejestru za replikację geograficzną obrazu są automatycznie replikowane do obu *zachodnie stany USA* i *wschodnie stany USA* regionów z tym jednym `docker push` polecenia.
+Ponieważ rejestr skonfigurowano pod kątem replikacji geograficznej, obraz jest automatycznie replikowany do regionów *Zachodnie stany USA* i *Wschodnie stany USA* po użyciu pojedynczego polecenia `docker push`.
 
 Dane wyjściowe:
 
@@ -232,18 +232,18 @@ v1: digest: sha256:0799014f91384bda5b87591170b1242bcd719f07a03d1f9a1ddbae72b3543
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku utworzono rejestru kontenera prywatne i replikacją geograficzną, utworzony obraz kontenera, a następnie wypychana obrazu do rejestru. Wykonując kroki opisane w tym samouczku, można:
+W ramach tego samouczka utworzono prywatny, replikowany geograficznie rejestr kontenerów, utworzono obraz kontenera, a następnie wypchnięto obraz do rejestru. Wykonując kroki opisane w tym samouczku:
 
 > [!div class="checklist"]
-> * Utworzony rejestru kontenera platformy Azure z replikacją geograficzną
-> * Sklonowana aplikacja kodu źródłowego z usługi GitHub
-> * Utworzony obraz kontenera Docker ze źródła aplikacji
-> * Wypychana obrazu kontenera do rejestru
+> * Utworzono rejestr kontenerów platformy Azure z replikacją geograficzną
+> * Sklonowano kod źródłowy aplikacji z usługi GitHub
+> * Utworzono obraz kontenera Docker na podstawie źródła aplikacji
+> * Wypchnięto obraz kontenera do rejestru
 
-Przejdź do następnego samouczek, aby dowiedzieć się więcej o wdrażaniu z kontenera do wielu aplikacji sieci Web dla wystąpień kontenerów do obsługi obrazów lokalnie przy użyciu — replikacja geograficzna.
+Przejdź do następnego samouczka, aby poznać proces wdrażania kontenera do wielu wystąpień funkcji Web Apps for Containers za pomocą replikacji geograficznej w celu udostępniania obrazów lokalnie.
 
 > [!div class="nextstepaction"]
-> [Wdrażanie aplikacji sieci web z rejestru kontenera platformy Azure](container-registry-tutorial-deploy-app.md)
+> [Deploy web app from Azure Container Registry (Wdrażanie aplikacji internetowej z usługi Azure Container Registry)](container-registry-tutorial-deploy-app.md)
 
 <!-- IMAGES -->
 [tut-portal-01]: ./media/container-registry-tutorial-prepare-registry/tut-portal-01.png

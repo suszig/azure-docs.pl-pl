@@ -1,51 +1,51 @@
 ---
-title: "Skryptu interfejsu wiersza polecenia platformy Azure: pobierania do dzienników serwera w bazie danych Azure dla PostgreSQL"
-description: "Ten przykładowy skrypt wiersza polecenia platformy Azure pokazuje, jak włączyć i Pobierz dzienniki serwera bazy danych Azure PostgreSQL serwera."
+title: "Skrypt interfejsu wiersza polecenia platformy Azure: pobieranie dzienników serwera w usłudze Azure Database for PostgreSQL"
+description: "Ten przykładowy skrypt interfejsu wiersza polecenia platformy Azure pokazuje, jak włączyć i pobrać dzienniki serwera usługi Azure Database for PostgreSQL."
 services: postgresql
 author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
 editor: jasonwhowell
-ms.service: postgresql-database
+ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: 8bd6e193ca52401b16e141162a76d39bdef840f1
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
-ms.translationtype: MT
+ms.openlocfilehash: 27dad83546c5f6d5bac18d61a1e223ced1158236
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-postgresql-server-using-azure-cli"></a>Włącz i Pobierz dzienniki powolne kwerendy serwera bazy danych Azure dla serwera PostgreSQL przy użyciu wiersza polecenia platformy Azure
-Ten przykładowy skrypt interfejsu wiersza polecenia umożliwia i pobierane pliki dzienników powolne zapytania jednej bazy danych Azure PostgreSQL serwera.
+# <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-postgresql-server-using-azure-cli"></a>Włączanie i pobieranie dzienników wolnych zapytań serwera usługi Azure Database for PostgreSQL przy użyciu interfejsu wiersza polecenia platformy Azure
+Ten przykładowy skrypt interfejsu wiersza polecenia włącza i pobiera dzienniki wolnych zapytań jednego serwera usługi Azure Database for PostgreSQL.
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
-Jeśli wybierzesz do zainstalowania i używania interfejsu wiersza polecenia lokalnie, w tym przykładzie wymaga, czy korzystasz z wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten przykład będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Przykładowy skrypt
-Ten przykładowy skrypt Zmień wyróżnione wiersze w celu dostosowania nazwa użytkownika i hasło. Zamień < nazwa_pliku_dziennika > w poleceniach monitor az własną nazwę pliku dziennika serwera.
+W tym przykładowym skrypcie zmień wyróżnione wiersze w celu dostosowania nazwy użytkownika i hasła administratora. Zastąp zmienną <log_file_name> w poleceniach az monitor własną nazwą pliku dziennika serwera.
 [!code-azurecli-interactive[main](../../../cli_scripts/postgresql/server-logs/server-logs.sh?highlight=15-16 "Manipulate with server logs.")]
 
 ## <a name="clean-up-deployment"></a>Czyszczenie wdrożenia
-Po uruchomieniu przykładowy skrypt następującego polecenia można usunąć grupy zasobów i wszystkie zasoby skojarzone z nim.
+Po wykonaniu przykładowego skryptu możesz uruchomić następujące polecenie, aby usunąć grupę zasobów i wszystkie skojarzone z nią zasoby.
 [!code-azurecli-interactive[main](../../../cli_scripts/postgresql/server-logs/delete-postgresql.sh  "Delete the resource group.")]
 
-## <a name="script-explanation"></a>Wyjaśnienie skryptu
-Ten skrypt używa następujących poleceń. Każde polecenie w tabeli łącza do dokumentacji określonego polecenia.
+## <a name="script-explanation"></a>Objaśnienia dla skryptu
+W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanowi link do dokumentacji polecenia.
 
 | **Polecenie** | **Uwagi** |
 |---|---|
-| [Tworzenie grupy az](/cli/azure/group#az_group_create) | Tworzy grupę zasobów, w którym przechowywane są wszystkie zasoby. |
-| [utworzenie przez serwer postgres az](/cli/azure/postgres/server#az_msql_server_create) | Tworzy serwer PostgreSQL, który jest hostem bazy danych. |
-| [AZ postgres serwera konfiguracji na liście](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_list) | Lista wartości konfiguracji serwera. |
-| [AZ postgres serwera konfiguracji](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_set) | Zaktualizuj konfigurację serwera. |
-| [Lista dzienników serwera postgres az](/cli/azure/postgres/server-logs#az_postgres_server_logs_list) | Listę plików dziennika dla serwera. |
-| [Pobierz dzienniki serwera az postgres](/cli/azure/postgres/server-logs#az_postgres_server_logs_download) | Pobierz pliki dziennika. |
-| [Usuwanie grupy az](/cli/azure/group#az_group_delete) | Usuwa grupę zasobów, w tym wszystkich zagnieżdżonych zasobów. |
+| [az group create](/cli/azure/group#az_group_create) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
+| [az postgres server create](/cli/azure/postgres/server#az_msql_server_create) | Tworzy serwer PostgreSQL hostujący bazy danych. |
+| [az postgres server configuration list](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_list) | Zwraca listę wartości konfiguracji dla serwera. |
+| [az postgres server configuration set](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_set) | Aktualizuje konfigurację serwera. |
+| [az postgres server-logs list](/cli/azure/postgres/server-logs#az_postgres_server_logs_list) | Zwraca listę plików dziennika dla serwera. |
+| [az postgres server-logs download](/cli/azure/postgres/server-logs#az_postgres_server_logs_download) | Pobiera pliki dziennika. |
+| [az group delete](/cli/azure/group#az_group_delete) | Usuwa grupę zasobów wraz ze wszystkimi zagnieżdżonymi zasobami. |
 
-## <a name="next-steps"></a>Kolejne kroki
-- Przeczytaj więcej informacji na temat interfejsu wiersza polecenia Azure: [dokumentacji interfejsu wiersza polecenia Azure](/cli/azure/overview).
-- Spróbuj dodatkowych skryptów: [przykłady wiersza polecenia platformy Azure dla bazy danych Azure dla PostgreSQL](../sample-scripts-azure-cli.md)
-- [Konfigurowanie i dzienników serwera dostępu w portalu Azure](../howto-configure-server-logs-in-portal.md)
+## <a name="next-steps"></a>Następne kroki
+- Dowiedz się więcej na temat interfejsu wiersza polecenia platformy Azure: [dokumentacja interfejsu wiersza polecenia platformy Azure](/cli/azure/overview).
+- Wypróbuj dodatkowe skrypty: [Przykłady interfejsu wiersza polecenia platformy Azure dla usługi Azure Database for PostgreSQL](../sample-scripts-azure-cli.md)
+- [Konfigurowanie dzienników serwera i uzyskiwanie do nich dostępu w witrynie Azure Portal](../howto-configure-server-logs-in-portal.md)

@@ -1,6 +1,6 @@
 ---
-title: "Samouczek zestawy dostępności dla maszyn wirtualnych systemu Windows na platformie Azure | Dokumentacja firmy Microsoft"
-description: "Informacje na temat zestawów dostępności dla maszyn wirtualnych systemu Windows na platformie Azure."
+title: "Samouczek dotyczący zestawów dostępności dla maszyn wirtualnych z systemem Windows na platformie Azure | Microsoft Docs"
+description: "Uzyskaj informacje na temat zestawów dostępności dla maszyn wirtualnych z systemem Windows na platformie Azure."
 documentationcenter: 
 services: virtual-machines-windows
 author: cynthn
@@ -12,41 +12,43 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: article
-ms.date: 10/05/2017
+ms.topic: tutorial
+ms.date: 02/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2345b434a51b768793c2dea4587dc0a49ab35b70
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.openlocfilehash: 247f86dafe35d69dd742583d246862b739d9fe90
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-use-availability-sets"></a>Jak używać zestawów dostępności
 
-W tym samouczku Dowiedz się jak zwiększyć dostępność i niezawodność rozwiązań maszyny wirtualnej na platformie Azure przy użyciu funkcji o nazwie zestawów dostępności. Zestawy dostępności upewnij się, że maszyny wirtualne, należy wdrożyć na platformie Azure są rozproszone na wielu węzłach izolowanego sprzętu w klastrze. W ten sposób zapewnia, że jeśli awarii sprzętu lub oprogramowania w systemie Azure wykonywany, wpływ na podrzędne zestaw maszyn wirtualnych i który rozwiązania ogólną pozostaje dostępny i działa. 
+W tym samouczku dowiesz się, jak zwiększyć dostępność i niezawodność rozwiązań korzystających z maszyn wirtualnych na platformie Azure przy użyciu funkcji zestawów dostępności. Zestawy dostępności zapewniają rozproszenie maszyn wirtualnych wdrożonych na platformie Azure pomiędzy wieloma izolowanymi węzłami sprzętowymi w klastrze. Dzięki temu ewentualne awarie sprzętowe lub błędy oprogramowania na platformie Azure będą miały wpływ tylko na część maszyn wirtualnych, a całe rozwiązanie nadal będzie dostępne i funkcjonalne. 
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie zestawu dostępności
-> * Tworzenie maszyny Wirtualnej w zestawie dostępności
-> * Sprawdź dostępne rozmiary maszyny Wirtualnej
-> * Sprawdź Azure Advisor
+> * Tworzenie maszyny wirtualnej w zestawie dostępności
+> * Sprawdzanie dostępnych rozmiarów maszyn wirtualnych
+> * Sprawdzanie usługi Azure Advisor
 
-Dla tego samouczka jest wymagany moduł Azure PowerShell w wersji 3.6 lub nowszej. Uruchom polecenie ` Get-Module -ListAvailable AzureRM`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-azurerm-ps).
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-## <a name="availability-set-overview"></a>Omówienie zestawu dostępności
+Jeśli chcesz zainstalować program PowerShell i używać go lokalnie, ten samouczek wymaga modułu Azure PowerShell w wersji 5.3 lub nowszej. Uruchom polecenie `Get-Module -ListAvailable AzureRM`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-azurerm-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie `Login-AzureRmAccount`, aby utworzyć połączenie z platformą Azure. 
 
-Zestawu dostępności jest możliwość grupę logiczną, która na platformie Azure umożliwia Sprawdź, czy zasobów maszyny Wirtualnej, który można umieścić w nim są odizolowane od siebie, gdy są wdrożone w centrum danych Azure. Azure zapewnia, że maszyny wirtualne, umieść w ramach zestawu dostępności uruchamiania na wielu serwerach fizycznych, obliczeniowe stojakami jednostek magazynowych i przełączniki sieciowe. W przypadku sprzętu lub oprogramowania Azure awarii, ma wpływ tylko podzestaw maszyn wirtualnych, a ogólną aplikacji utrzyma się i nadal będzie dostępna dla klientów. Zestawy dostępności są podstawowych możliwości do tworzenia rozwiązań chmur wiarygodne.
+## <a name="availability-set-overview"></a>Zestaw dostępności — omówienie
 
-Zastanówmy typowe rozwiązania oparte na Maszynach którym może mieć 4 serwery frontonu sieci web i korzystać z 2 maszyny wirtualne zaplecza, które hostują bazy danych. Przy użyciu platformy Azure, należy zdefiniować dwa zestawy dostępności, przed wdrożeniem maszyn wirtualnych: jeden zbiór dostępności dla warstwy sieci web i jeden zbiór dostępności dla warstwy bazy danych. Podczas tworzenia nowej maszyny Wirtualnej można określić polecenia Utwórz zestaw jako parametr do maszyny wirtualnej az dostępności i Azure automatycznie upewnia się, że maszyny wirtualne utworzone w zestawie dostępne są izolowane między wieloma zasobami sprzętu fizycznego. Jeśli sprzęt fizyczny wykorzystywany do jednego serwera sieci Web lub maszyn wirtualnych z serwera bazy danych jest uruchomiona na ma problem, wiadomo, że inne wystąpienia serwera sieci Web i bazy danych maszyn wirtualnych będą nadal działać, ponieważ są one na inny komputer.
+Zestaw dostępności to dostępna na platformie Azure funkcja grupowania logicznego, zapewniająca izolację zawartych w tej grupie maszyn wirtualnych wdrożonych w centrum danych platformy Azure. Maszyny wirtualne platformy Azure umieszczone w zestawie dostępności korzystają z wielu serwerów fizycznych, regałów obliczeniowych, jednostek magazynowych i przełączników sieciowych. Ewentualne awarie sprzętowe lub błędy oprogramowania na platformie Azure będą miały wpływ tylko na część maszyn wirtualnych, a cała aplikacja nadal będzie działała i pozostanie dostępna dla klientów. Zestawy dostępności stanowią niezbędną funkcję podczas tworzenia niezawodnych rozwiązań w chmurze.
 
-Użyj zbiorów dostępności Jeśli chcesz wdrożyć niezawodne rozwiązania na podstawie maszyny Wirtualnej na platformie Azure.
+Rozważmy typowe rozwiązanie z użyciem maszyn wirtualnych, obejmujące cztery serwery internetowe frontonu oraz 2 maszyny wirtualne zaplecza, na których jest hostowana baza danych. Przed wdrożeniem maszyn wirtualnych na platformie Azure należałoby w takim przypadku zdefiniować dwa zestawy dostępności: jeden dla warstwy internetowej, a drugi dla warstwy bazy danych. Podczas tworzenia nowej maszyny wirtualnej można określić zestaw dostępności jako parametr polecenia az vm create, a platforma Azure automatycznie zapewni izolację maszyn wirtualnych tworzonych w ramach tego zestawu dostępności na wielu fizycznych zasobach sprzętowych. W przypadku problemu ze sprzętem fizycznym, na którym jest uruchomiona jedna z maszyn wirtualnych serwera internetowego lub serwera bazy danych, masz pewność, że pozostałe wystąpienia maszyn wirtualnych serwera internetowego i bazy danych będą nadal działać, ponieważ korzystają z innego sprzętu.
+
+Zestawy dostępności umożliwiają wdrażanie niezawodnych rozwiązań z użyciem maszyn wirtualnych na platformie Azure.
 
 ## <a name="create-an-availability-set"></a>Tworzenie zestawu dostępności
 
-Możesz utworzyć zestaw przy użyciu danych o dostępności [AzureRmAvailabilitySet nowy](/powershell/module/azurerm.compute/new-azurermavailabilityset). W tym przykładzie umieszczania liczba domen aktualizacji i odporność na *2* dla zestawu o nazwie dostępności *myAvailabilitySet* w *myResourceGroupAvailability* grupy zasobów.
+Aby utworzyć zestaw dostępności, użyj polecenia [New-AzureRmAvailabilitySet](/powershell/module/azurerm.compute/new-azurermavailabilityset). W tym przykładzie należy ustawić liczbę domen aktualizacji i domen błędów na *2* dla zestawu dostępności o nazwie *myAvailabilitySet* w grupie zasobów *myResourceGroupAvailability*.
 
 Utwórz grupę zasobów.
 
@@ -54,144 +56,70 @@ Utwórz grupę zasobów.
 New-AzureRmResourceGroup -Name myResourceGroupAvailability -Location EastUS
 ```
 
-Tworzenie zarządzanego dostępności, ustawić za pomocą [AzureRmAvailabilitySet nowy](/powershell/module/azurerm.compute/new-azurermavailabilityset) z **- sku wyrównane** parametru.
+Utwórz zarządzany zestaw dostępności przy użyciu polecenia [New-AzureRmAvailabilitySet](/powershell/module/azurerm.compute/new-azurermavailabilityset) z parametrem `-sku aligned`.
 
 ```azurepowershell-interactive
 New-AzureRmAvailabilitySet `
-   -Location EastUS `
-   -Name myAvailabilitySet `
-   -ResourceGroupName myResourceGroupAvailability `
-   -sku aligned `
+   -Location "EastUS" `
+   -Name "myAvailabilitySet" `
+   -ResourceGroupName "myResourceGroupAvailability" `
+   -Sku aligned `
    -PlatformFaultDomainCount 2 `
    -PlatformUpdateDomainCount 2
 ```
 
 ## <a name="create-vms-inside-an-availability-set"></a>Tworzenie maszyn wirtualnych w zestawie dostępności
+Aby zapewnić właściwe rozproszenie maszyn wirtualnych na sprzęcie, należy utworzyć je w ramach zestawu dostępności. Nie można dodać istniejącej, wcześniej utworzonej maszyny wirtualnej do zestawu dostępności. 
 
-Maszyny wirtualne muszą być tworzone dostępność ustawioną upewnij się, że są one poprawnie dystrybuowana sprzętu. Nie można dodać istniejącej maszyny Wirtualnej do dostępności po jego utworzeniu. 
+Sprzęt w jednej lokalizacji jest podzielony na wiele domen aktualizacji i domen błędów. **Domena aktualizacji** to grupa maszyn wirtualnych i używanego przez nie sprzętu fizycznego, które mogą być jednocześnie ponownie uruchamiane. Maszyny wirtualne w jednej **domenie błędów** korzystają ze wspólnego magazynu oraz ze wspólnego źródła zasilania i przełącznika sieciowego. 
 
-Sprzęt w lokalizacji jest podzielony na wiele domen aktualizacji i domen błędów. **Domeny aktualizacji** jest grupą maszyn wirtualnych i podstawowym sprzętem fizycznym, który może zostać uruchomiony ponownie w tym samym czasie. Maszyny wirtualne w tej samej **domeny błędów** udostępnianie typowych magazynu, a także wspólnego przełącznik źródła i sieci zasilania. 
+Podczas tworzenia maszyny wirtualnej przy użyciu polecenia [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) parametr `-AvailabilitySetName` umożliwia określenie nazwy zestawu dostępności.
 
-Po utworzeniu konfiguracji maszyny Wirtualnej przy użyciu [AzureRMVMConfig nowy](/powershell/module/azurerm.compute/new-azurermvmconfig) używasz `-AvailabilitySetId` parametr, aby określić identyfikator zestawu dostępności.
-
-Utwórz dwie maszyny wirtualne z [AzureRmVM nowy](/powershell/module/azurerm.compute/new-azurermvm) w zestawie dostępności.
+Najpierw ustaw nazwę użytkownika i hasło administratora maszyny wirtualnej przy użyciu polecenia [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
 ```azurepowershell-interactive
-$availabilitySet = Get-AzureRmAvailabilitySet `
-    -ResourceGroupName myResourceGroupAvailability `
-    -Name myAvailabilitySet
-
-$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
-
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
-    -Name mySubnet `
-    -AddressPrefix 192.168.1.0/24
-$vnet = New-AzureRmVirtualNetwork `
-    -ResourceGroupName myResourceGroupAvailability `
-    -Location EastUS `
-    -Name myVnet `
-    -AddressPrefix 192.168.0.0/16 `
-    -Subnet $subnetConfig
-    
-$nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig `
-    -Name myNetworkSecurityGroupRuleRDP `
-    -Protocol Tcp `
-    -Direction Inbound `
-    -Priority 1000 `
-    -SourceAddressPrefix * `
-    -SourcePortRange * `
-    -DestinationAddressPrefix * `
-    -DestinationPortRange 3389 `
-    -Access Allow
-
-$nsg = New-AzureRmNetworkSecurityGroup `
-    -Location eastus `
-    -Name myNetworkSecurityGroup `
-    -ResourceGroupName myResourceGroupAvailability `
-    -SecurityRules $nsgRuleRDP
-    
-# Apply the network security group to a subnet
-Set-AzureRmVirtualNetworkSubnetConfig `
-    -VirtualNetwork $vnet `
-    -Name mySubnet `
-    -NetworkSecurityGroup $nsg `
-    -AddressPrefix 192.168.1.0/24
-
-# Update the virtual network
-Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
-
-for ($i=1; $i -le 2; $i++)
-{
-   $pip = New-AzureRmPublicIpAddress `
-        -ResourceGroupName myResourceGroupAvailability `
-        -Location EastUS `
-        -Name "mypublicdns$(Get-Random)" `
-        -AllocationMethod Static `
-        -IdleTimeoutInMinutes 4
-
-   $nic = New-AzureRmNetworkInterface `
-        -Name myNic$i `
-        -ResourceGroupName myResourceGroupAvailability `
-        -Location EastUS `
-        -SubnetId $vnet.Subnets[0].Id `
-        -PublicIpAddressId $pip.Id `
-        -NetworkSecurityGroupId $nsg.Id
-
-   # Here is where we specify the availability set
-   $vm = New-AzureRmVMConfig `
-        -VMName myVM$i `
-        -VMSize Standard_D1 `
-        -AvailabilitySetId $availabilitySet.Id
-
-   $vm = Set-AzureRmVMOperatingSystem `
-        -ComputerName myVM$i `
-        -Credential $cred `
-        -VM $vm `
-        -Windows `
-        -EnableAutoUpdate `
-        -ProvisionVMAgent
-   $vm = Set-AzureRmVMSourceImage `
-        -VM $vm `
-        -PublisherName MicrosoftWindowsServer `
-        -Offer WindowsServer `
-        -Skus 2016-Datacenter `
-        -Version latest
-   $vm = Set-AzureRmVMOSDisk `
-        -VM $vm `
-        -Name myOsDisk$i `
-        -DiskSizeInGB 128 `
-        -CreateOption FromImage `
-        -Caching ReadWrite
-   $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
-   New-AzureRmVM `
-        -ResourceGroupName myResourceGroupAvailability `
-        -Location EastUS `
-        -VM $vm
-}
-
+$cred = Get-Credential
 ```
 
-Trwa kilka minut, aby utworzyć i skonfigurować obie maszyny wirtualne. Po zakończeniu będziesz mieć dwie maszyny wirtualne rozproszone na używanego sprzętu. 
+Następnie utwórz dwie maszyny wirtualne w zestawie dostępności, używając polecenia [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
 
-Jeśli przyjrzymy się zestawem dostępności w portalu, przechodząc do grupy zasobów > myResourceGroupAvailability > myAvailabilitySet, należy się w temacie jak maszyny wirtualne rozproszone na 2 błędów i aktualizować domen.
+```azurepowershell-interactive
+for ($i=1; $i -le 2; $i++)
+{
+    New-AzureRmVm `
+        -ResourceGroupName "myResourceGroupAvailability" `
+        -Name "myVM$i" `
+        -Location "East US" `
+        -VirtualNetworkName "myVnet" `
+        -SubnetName "mySubnet" `
+        -SecurityGroupName "myNetworkSecurityGroup" `
+        -PublicIpAddressName "myPublicIpAddress$i" `
+        -AvailabilitySetName "myAvailabilitySet" `
+        -Credential $cred
+}
+```
 
-![Zestawem dostępności w portalu](./media/tutorial-availability-sets/fd-ud.png)
+Parametr `-AsJob` umożliwia tworzenie maszyny wirtualnej w tle, co powoduje powrót do wiersza polecenia programu PowerShell. Możesz wyświetlić szczegóły zadań w tle, używając polecenia cmdlet `Job`. Utworzenie i skonfigurowanie obu maszyn wirtualnych może potrwać kilka minut. Po zakończeniu powstaną dwie maszyny wirtualne rozproszone między wiele elementów sprzętowych. 
 
-## <a name="check-for-available-vm-sizes"></a>Sprawdź, czy dostępne rozmiary maszyny Wirtualnej 
+Możesz wyświetlić zestaw dostępności w portalu, przechodząc do pozycji Grupy zasobów > myResourceGroupAvailability > myAvailabilitySet, aby zobaczyć, w jaki sposób maszyny wirtualne są rozmieszczone w dwóch domenach aktualizacji i błędów.
 
-Możesz dodać więcej maszyn wirtualnych do później zestaw dostępności, ale musisz wiedzieć, jaki rozmiarów maszyn wirtualnych są dostępne na sprzęcie. Użyj [Get AzureRMVMSize](/powershell/module/azurerm.compute/get-azurermvmsize) Aby wyświetlić listę wszystkich dostępnych rozmiarów na sprzęcie klastra dla zestawu dostępności.
+![Zestaw dostępności w portalu](./media/tutorial-availability-sets/fd-ud.png)
+
+## <a name="check-for-available-vm-sizes"></a>Sprawdzanie dostępnych rozmiarów maszyn wirtualnych 
+
+Możesz później dodać więcej maszyn wirtualnych do zestawu dostępności, ale potrzebujesz do tego informacji o rozmiarach maszyn wirtualnych udostępnianych przez sprzęt. Użyj polecenia [Get-AzureRMVMSize](/powershell/module/azurerm.compute/get-azurermvmsize), aby wyświetlić listę wszystkich rozmiarów dostępnych w klastrze sprzętowym zestawu dostępności.
 
 ```azurepowershell-interactive
 Get-AzureRmVMSize `
-   -AvailabilitySetName myAvailabilitySet `
-   -ResourceGroupName myResourceGroupAvailability  
+   -ResourceGroupName "myResourceGroupAvailability" `
+   -AvailabilitySetName "myAvailabilitySet"
 ```
 
-## <a name="check-azure-advisor"></a>Sprawdź Azure Advisor 
+## <a name="check-azure-advisor"></a>Sprawdzanie usługi Azure Advisor 
 
-Aby uzyskać więcej informacji na temat sposobów poprawy dostępności maszyn wirtualnych umożliwia także Azure Advisor. Azure Advisor pomaga należy stosować najlepsze rozwiązania w celu zoptymalizowania wdrożeń platformy Azure. Analizuje konfigurację zasobu i danych telemetrycznych użycia, a następnie zaleca rozwiązania, które ułatwiają zwiększenie opłacalności, wydajność, wysoką dostępność i zabezpieczeń zasobów platformy Azure.
+Możesz także uzyskać dodatkowe informacje na temat sposobów poprawy dostępności maszyn wirtualnych, korzystając z usługi Azure Advisor. Usługa Azure Advisor ułatwia stosowanie najlepszych rozwiązań w celu zoptymalizowania wdrożeń platformy Azure. Analizuje konfigurację zasobów i dane telemetryczne dotyczące użycia, a następnie zaleca rozwiązania, które mogą pomóc w zapewnieniu wysokiej dostępności, bezpieczeństwa, wydajności i efektywności kosztowej zasobów platformy Azure.
 
-Zaloguj się do [portalu Azure](https://portal.azure.com), wybierz pozycję **więcej usług**i wpisz **Advisor**. Pulpit nawigacyjny usługi Advisor wyświetla spersonalizowane zalecenia dla wybranej subskrypcji. Aby uzyskać więcej informacji, zobacz [wprowadzenie do usługi Advisor Azure](../../advisor/advisor-get-started.md).
+Zaloguj się w witrynie [Azure Portal](https://portal.azure.com), wybierz pozycję **Wszystkie usługi**, a następnie wpisz **Advisor**. Pulpit nawigacyjny usługi Advisor będzie zawierał spersonalizowane zalecenia dotyczące wybranej subskrypcji. Aby uzyskać więcej informacji, zobacz [Wprowadzenie do usługi Azure Advisor](../../advisor/advisor-get-started.md).
 
 
 ## <a name="next-steps"></a>Następne kroki
@@ -200,11 +128,11 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 
 > [!div class="checklist"]
 > * Tworzenie zestawu dostępności
-> * Tworzenie maszyny Wirtualnej w zestawie dostępności
-> * Sprawdź dostępne rozmiary maszyny Wirtualnej
-> * Sprawdź Azure Advisor
+> * Tworzenie maszyny wirtualnej w zestawie dostępności
+> * Sprawdzanie dostępnych rozmiarów maszyn wirtualnych
+> * Sprawdzanie usługi Azure Advisor
 
-Przejdź do następnego samouczkiem, aby poznać zestawy skalowania maszyny wirtualnej.
+Przejdź do następnego samouczka, aby poznać zestawy skalowania maszyn wirtualnych.
 
 > [!div class="nextstepaction"]
 > [Tworzenie zestawu skalowania maszyn wirtualnych](tutorial-create-vmss.md)

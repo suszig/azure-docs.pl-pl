@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie funkcji platformy Azure, umożliwiająca nawiązanie połączenia usługi Azure Storage | Dokumentacja firmy Microsoft"
-description: "Azure CLI skrypt przykładowy — Tworzenie funkcji platformy Azure, łączącego się z magazynem Azure"
+title: "Tworzenie funkcji platformy Azure łączącej się z usługą Azure Storage | Microsoft Docs"
+description: "Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — tworzenie funkcji platformy Azure łączącej się z usługą Azure Storage"
 services: functions
 documentationcenter: functions
 author: ggailey777
@@ -16,49 +16,51 @@ ms.workload:
 ms.date: 04/20/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 363a3fd1c80538495658720274840b921baa8675
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: MT
+ms.openlocfilehash: b4dad0bba7a147f294c5d9ce3a1a1aa8e95058f3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="integrate-function-app-into-azure-storage-account"></a>Integrowanie aplikacji funkcji kontem magazynu platformy Azure
+# <a name="create-a-function-app-that-connects-to-an-azure-storage-account"></a>Tworzenie aplikacji funkcji łączącej się z kontem usługi Azure Storage
 
-Ten przykładowy skrypt tworzy aplikację funkcji oraz konto magazynu.
+Ten przykładowy skrypt usługi Azure Functions tworzy aplikację funkcji i łączy funkcję z kontem usługi Azure Storage. Ustawienie utworzonej aplikacji, które zawiera parametry połączenia, może być używane z [wyzwalaczem lub powiązaniem usługi Azure Storage](..\functions-bindings-storage-blob.md). 
+
+[!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Jeśli używasz interfejsu wiersza polecenia lokalnie, upewnij się, że uruchamiasz wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Aby dowiedzieć się, jaka wersja jest używana, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0](/cli/azure/install-azure-cli). 
+Jeśli używasz interfejsu wiersza polecenia lokalnie, upewnij się, że korzystasz z interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Aby dowiedzieć się, jaka wersja jest używana, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0](/cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
-Ten przykład tworzy aplikację funkcji platformy Azure i dodaje parametry połączenia magazynu do ustawienia aplikacji.
+Ten przykładowy skrypt tworzy aplikację funkcji platformy Azure i dodaje do jej ustawień parametry połączenia z usługą Storage.
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-storage/create-function-app-connect-to-storage-account.sh "Integrate Function App into Azure Storage Account")]
 
 
 ## <a name="clean-up-deployment"></a>Czyszczenie wdrożenia
 
-Po uruchomieniu przykładowym skrypcie, uruchom następujące polecenie, aby usunąć grupę zasobów i wszystkie powiązane zasoby:
+Po wykonaniu skryptu przykładowego uruchom następujące polecenie, aby usunąć grupę zasobów i wszystkie powiązane zasoby:
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
-## <a name="script-explanation"></a>Wyjaśnienie skryptu
+## <a name="script-explanation"></a>Objaśnienia dla skryptu
 
-Ten skrypt używa następujących poleceń. Każde polecenie w tabeli łącza do dokumentacji określonego polecenia.
+W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanowi link do dokumentacji polecenia.
 
 | Polecenie | Uwagi |
 |---|---|
-| [AZ logowania](https://docs.microsoft.com/cli/azure/#login) | Logowanie do platformy Azure. |
-| [Tworzenie grupy az](https://docs.microsoft.com/cli/azure/group#az_group_create) | Utwórz grupę zasobów z lokalizacji |
-| [Tworzenie konta magazynu az](https://docs.microsoft.com/cli/azure/storage/account) | Tworzenie konta magazynu |
-| [Utwórz az functionapp](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_create) | Utwórz nową aplikację funkcji |
-| [Usuwanie grupy az](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Czyszczenie |
+| [az login](https://docs.microsoft.com/cli/azure/#az_login) | Loguje się do platformy Azure. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Tworzy grupę zasobów w lokalizacji. |
+| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account) | Tworzenie konta magazynu |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_create) | Tworzy nową aplikację funkcji. |
+| [az group delete](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Czyszczenie |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji dotyczących interfejsu wiersza polecenia Azure, zobacz [dokumentacji interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/overview).
+Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/overview).
 
-Dodatkowe przykłady skryptów wiersza polecenia funkcji platformy Azure można znaleźć w [dokumentacji usługi Azure Functions](../functions-cli-samples.md).
+Więcej przykładowych skryptów interfejsu wiersza polecenia dla usługi Azure Functions można znaleźć w [dokumentacji usługi Azure Functions](../functions-cli-samples.md).

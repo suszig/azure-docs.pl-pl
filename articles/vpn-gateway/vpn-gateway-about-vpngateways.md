@@ -1,10 +1,10 @@
 ---
 title: "Usługa VPN Gateway — omówienie: Tworzenie połączeń VPN obejmujących wiele lokalizacji z sieciami wirtualnymi platformy Azure | Microsoft Docs"
-description: "W omówieniu usługi VPN Gateway wyjaśniono sposoby nawiązywania połączenia z sieciami wirtualnymi platformy Azure przez Internet przy użyciu połączenia VPN. Omówienie zawiera diagramy podstawowych konfiguracji połączeń."
+description: "W tym artykule wyjaśniono czym jest usługa VPN Gateway oraz przedstawiono sposoby nawiązywania połączenia z sieciami wirtualnymi platformy Azure przez Internet przy użyciu połączenia VPN. Omówienie zawiera diagramy podstawowych konfiguracji połączeń."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 2358dd5a-cd76-42c3-baf3-2f35aadc64c8
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/04/2017
+ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: ae8de17c6b2ca8e1b9888612221c7f39b629c1b1
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: ebecbfa3279a71cda005f60c32247e9e95dd6646
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="about-vpn-gateway"></a>VPN Gateway — informacje
 
@@ -27,15 +27,11 @@ Brama sieci VPN jest typem bramy sieci wirtualnej, który wysyła zaszyfrowany r
 
 Każda sieć wirtualna może mieć tylko jedną bramę sieci VPN, jednak można tworzyć wiele połączeń z tą samą bramą sieci VPN. Przykładem może być konfiguracja połączenia obejmującego wiele lokacji. W przypadku utworzenia wielu połączeń z tą samą bramą sieci VPN wszystkie tunele VPN, łącznie z sieciami VPN typu punkt-lokacja, współużytkują przepustowość dostępną dla bramy.
 
-### <a name="whatis"></a>Co to jest brama sieci wirtualnej?
+## <a name="whatis"></a>Co to jest brama sieci wirtualnej?
 
 Brama sieci wirtualnej składa się z co najmniej dwóch maszyn wirtualnych, które są wdrażane w określonej podsieci o nazwie GatewaySubnet. Maszyny wirtualne, które znajdują się w podsieci GatewaySubnet, są tworzone podczas tworzenia bramy sieci wirtualnej. Maszyny wirtualne bramy sieci wirtualnej są skonfigurowane w taki sposób, aby zawierały tabele routingu oraz specyficzne dla siebie usługi bramy. Nie można bezpośrednio skonfigurować maszyn wirtualnych, które są częścią bramy sieci wirtualnej, i nie należy nigdy wdrażać dodatkowych zasobów w podsieci GatewaySubnet.
 
 Podczas tworzenia bramy sieci wirtualnej przy użyciu typu bramy „Vpn” tworzy on określony typ bramy sieci wirtualnej, która szyfruje ruch; jest to brama sieci VPN. Tworzenie bramy sieci VPN może potrwać do 45 minut. Dzieje się tak dlatego, że maszyny wirtualne dla bramy sieci VPN są wdrażane w podsieci GatewaySubnet i konfigurowane przy użyciu określonych przez użytkownika ustawień. Wybrana jednostka SKU bramy określa, jak wydajne są maszyny wirtualne.
-
-## <a name="gwsku"></a>Jednostki SKU bramy
-
-[!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
 ## <a name="configuring"></a>Konfigurowanie bramy VPN Gateway
 
@@ -52,6 +48,10 @@ Możesz rozpocząć tworzenie i konfigurowanie zasobów za pomocą jednego narz�
 ### <a name="models"></a>Model wdrażania
 
 Czynności wykonywane podczas konfigurowania bramy sieci VPN zależą od modelu wdrażania użytego w celu utworzenia sieci wirtualnej. Jeśli na przykład sieć wirtualna została utworzona przy użyciu klasycznego modelu wdrożenia, do tworzenia i konfigurowania ustawień bramy sieci VPN należy użyć wskazówek i instrukcji dotyczących klasycznego modelu wdrażania. Aby uzyskać więcej informacji na temat modeli wdrażania, zobacz [Omówienie modelu wdrażania przy użyciu usługi Resource Manager oraz wdrażania klasycznego](../azure-resource-manager/resource-manager-deployment-model.md).
+
+## <a name="gwsku"></a>Jednostki SKU bramy
+
+[!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
 ## <a name="diagrams"></a>Diagramy topologii połączeń
 

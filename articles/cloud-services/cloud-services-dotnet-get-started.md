@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
-ms.openlocfilehash: f0cdafdb88604b8874a245751246d219e8df3813
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 704391a60b4ba777b8fd2b156db2ea5587498383
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Wprowadzenie do usług Azure Cloud Services i programu ASP.NET
 
@@ -32,7 +32,7 @@ Ta aplikacja to reklamowa tablica ogłoszeń. Aby utworzyć reklamę, użytkowni
 
 ![Lista reklam](./media/cloud-services-dotnet-get-started/list.png)
 
-Aplikacja korzysta z [przetwarzania kolejkowego](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern), aby przekazać obciążające procesor zadania związane z tworzeniem miniatur do procesu zaplecza.
+Aplikacja korzysta z [przetwarzania kolejkowego](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern), aby przekazać obciążające procesor CPU zadania związane z tworzeniem miniatur do procesu zaplecza.
 
 ## <a name="alternative-architecture-websites-and-webjobs"></a>Architektura alternatywna: witryny sieci Web i zadania WebJob
 Ten samouczek pokazuje, jak uruchamiać fronton i zaplecze w usłudze w chmurze Azure. Alternatywą jest uruchomienie frontonu w [witrynie Azure w sieci Web](/services/web-sites/) i używanie funkcji [zadań WebJob](http://go.microsoft.com/fwlink/?LinkId=390226) (obecnie w wersji zapoznawczej) dla zaplecza. Aby zapoznać się z samouczkiem korzystającym z zadań WebJob, zobacz artykuł [Wprowadzenie do zestawu SDK zadań WebJob na platformie Azure](https://github.com/Azure/azure-webjobs-sdk/wiki). Informacje o wybieraniu usług najlepiej spełniających potrzeby scenariusza zawiera artykuł [Porównanie usług Azure: Witryny sieci Web, Cloud Services i Virtual Machines](../app-service/choose-web-site-cloud-service-vm.md).
@@ -116,7 +116,7 @@ Aby uruchomić aplikację w chmurze, należy wykonać następujące kroki:
 Usługa w chmurze Azure to środowisko uruchamiania aplikacji.
 
 1. W przeglądarce otwórz witrynę [Azure Portal](https://portal.azure.com).
-2. Kliknij kolejno pozycje **Nowe > Obliczenia > Usługa w chmurze**.
+2. Kliknij pozycję **Utwórz zasób > Compute > Usługa w chmurze**.
 
 3. W polu wejściowym nazwy DNS wprowadź prefiks adresu URL dla usługi w chmurze.
 
@@ -135,7 +135,7 @@ Usługa w chmurze Azure to środowisko uruchamiania aplikacji.
 ### <a name="create-an-azure-sql-database"></a>Tworzenie bazy danych SQL Azure
 Aplikacja uruchomiona w chmurze będzie używać bazy danych opartej na chmurze.
 
-1. W witrynie [Azure Portal](https://portal.azure.com) kliknij kolejno pozycje **Nowy > Bazy danych > SQL Database**.
+1. W witrynie [Azure Portal](https://portal.azure.com) kliknij pozycję **Utwórz zasób > Bazy danych > SQL Database**.
 2. W polu **Nazwa bazy danych** wprowadź wartość *contosoads*.
 3. W obszarze **Grupa zasobów** kliknij opcję **Użyj istniejącej** i wybierz grupę zasobów używaną dla usługi w chmurze.
 4. Na poniższej ilustracji kliknij pozycje **Serwer — Skonfiguruj wymagane ustawienia** i **Utwórz nowy serwer**.
@@ -162,7 +162,7 @@ Konto magazynu platformy Azure udostępnia zasoby służące do przechowywania d
 
 W rzeczywistych aplikacjach przeważnie tworzy się oddzielne konta dla danych aplikacji porównywanych z danymi rejestrowania oraz oddzielne konta dla danych testowych porównywanych z danymi produkcyjnymi. W tym samouczku będzie używane tylko jedno konto.
 
-1. W witrynie [Azure Portal](https://portal.azure.com) kliknij pozycje **Nowy > Magazyn > Konto magazynu — obiekt blob, plik, tabela, kolejka**.
+1. W witrynie [Azure Portal](https://portal.azure.com) kliknij pozycję **Utwórz zasób > Magazyn > Konto magazynu — obiekt blob, plik, tabela, kolejka**.
 2. W polu **Nazwa** wpisz prefiks adresu URL.
 
     Ten prefiks i tekst wyświetlony w polu będą stanowić unikatowy adres URL konta magazynu. Jeśli wprowadzony prefiks został już użyty przez innego użytkownika, musisz wybrać inny.

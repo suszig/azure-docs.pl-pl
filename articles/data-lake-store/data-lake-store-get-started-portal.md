@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 38a8792588e013a0105ea57b20b2560f0acf02e6
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: c5b0f5250a08915e987a1eb5229f2c4648e660fd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-azure-data-lake-store-using-the-azure-portal"></a>Rozpoczynanie pracy z usługą Azure Data Lake Store za pośrednictwem witryny Azure Portal
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ Przed przystąpieniem do wykonywania kroków opisanych w tym samouczku musisz mi
 ## <a name="create-an-azure-data-lake-store-account"></a>Tworzenie konta usługi Azure Data Lake Store
 
 1. Zaloguj się w nowej witrynie [Azure Portal](https://portal.azure.com).
-2. Kliknij pozycję **NOWY**, pozycję **Dane i magazyn**, a następnie pozycję **Azure Data Lake Store**. Przeczytaj informacje w bloku **Azure Data Lake Store**, a następnie kliknij pozycję **Utwórz** w lewym dolnym rogu bloku.
+2. Kliknij pozycję **Utwórz zasób**, pozycję **Dane + magazyn**, a następnie pozycję **Azure Data Lake Store**. Przeczytaj informacje w bloku **Azure Data Lake Store**, a następnie kliknij pozycję **Utwórz** w lewym dolnym rogu bloku.
 3. W bloku **Nowa usługa Data Lake Store** podaj wartości, jak pokazano na poniższym zrzucie ekranu:
    
     ![Tworzenie nowego konta usługi Azure Data Lake Store](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "Tworzenie nowego konta usługi Azure Data Lake")

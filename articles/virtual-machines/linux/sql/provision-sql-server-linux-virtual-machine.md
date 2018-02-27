@@ -12,11 +12,11 @@ ms.devlang: na
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.technology: database-engine
-ms.openlocfilehash: 8d714718e4fc27f0abbfede8fe6d0e2693698ec1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 4105e0b4038f5dc09c503ac90ba7ad67c2fd93b8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Aprowizowanie maszyny wirtualnej z programem SQL Server w witrynie Azure Portal
 
@@ -41,9 +41,9 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
-1. W okienku po lewej stronie kliknij przycisk **Nowy**.
+1. W okienku po lewej stronie kliknij pozycję **Utwórz zasób**.
 
-1. W okienku **Nowy** kliknij przycisk **Obliczanie**.
+1. W okienku **Tworzenie zasobu** kliknij pozycję **Obliczenia**.
 
 1. Kliknij przycisk **Zobacz wszystko** obok nagłówka **Polecane**.
 

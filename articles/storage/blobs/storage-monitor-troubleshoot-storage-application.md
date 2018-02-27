@@ -1,72 +1,69 @@
 ---
-title: "Monitorowanie i rozwiązywanie problemów aplikacji magazynu w chmurze na platformie Azure | Dokumentacja firmy Microsoft"
-description: "Rozwiązywanie problemów i monitorowanie aplikacji w chmurze, należy użyć narzędzia diagnostyczne, metryki i alerty."
+title: "Monitorowanie i rozwiązywanie problemów aplikacji magazynu w chmurze na platformie Azure | Microsoft Docs"
+description: "Korzystanie z narzędzi diagnostycznych, metryk i alertów w celu rozwiązywania problemów i monitorowania aplikacji w chmurze."
 services: storage
-documentationcenter: 
-author: georgewallace
-manager: timlt
-editor: 
+author: tamram
+manager: jeconnoc
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 09/19/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: db88c331f79d83e0124519f8b6dbb34514b456dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: a1b3a1d4bb397e19f033b8f3bfe68ca6a63725c4
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Monitorowanie i rozwiązywanie problemów aplikacji magazynu w chmurze
 
-Ten samouczek ma cztery i końcowe część serii. Sposób monitorowania i rozwiązywania problemów z aplikacji magazynu w chmurze.
+Ten samouczek to czwarta i ostatnia część serii. Zawiera instrukcje monitorowania aplikacji magazynu w chmurze i rozwiązywania problemów.
 
-W czterech części serii, możesz dowiedzieć się, jak:
+Część czwarta serii zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Włącz rejestrowanie i metryki
-> * Włącz alerty błędów autoryzacji
-> * Uruchom test ruchu z niepoprawne tokeny sygnatury dostępu Współdzielonego
+> * Włączanie rejestrowania i metryk
+> * Włączanie alertów dotyczących błędów autoryzacji
+> * Uruchamianie testowego ruchu z nieprawidłowymi tokenami SAS
 > * Pobieranie i analizowanie dzienników
 
-[Usługa Azure storage analytics](../common/storage-analytics.md) udostępnia dane logowania i metryki dla konta magazynu. Te dane zapewnia wgląd w kondycję Twojego konta magazynu. Aby można było widoczne na koncie magazynu, należy skonfigurować zbierania danych. Ten proces obejmuje włączenie rejestrowania, Konfigurowanie metryki i włączenie alertów.
+[Usługa Azure Storage Analytics](../common/storage-analytics.md) zapewnia dane rejestrowania i metryk dla konta magazynu. Te dane informują o kondycji konta magazynu. Przed uzyskaniem wglądu w konto magazynu należy skonfigurować zbieranie danych. Ten proces polega na włączeniu rejestrowania, skonfigurowaniu metryk i włączeniu alertów.
 
-Rejestrowanie i metryki z konta magazynu są włączone z **diagnostyki** kartę w portalu Azure. Istnieją dwa typy metryki. **Łączny** metryki zbieranie wartości procentowe wejście/wyjście, dostępności, opóźnienia i Powodzenie. Te metryki są agregowane dla obiektu blob, kolejek, tabel i usług plików. **Dla interfejsu API** zbiera ten sam zestaw metryki dla każdej operacji magazynu w interfejsie API usługi Azure Storage. Rejestrowanie magazynu umożliwia rekordów szczegółów dla żądań pomyślnie i niepomyślnie na koncie magazynu. Dzienniki te umożliwiają szczegóły odczytu, zapisu i usuwania operacji względem programu Azure tabel, kolejek i obiektów blob. Umożliwiają one również zobacz przyczyny nieudanych żądań, takich jak przekroczeń limitu czasu, ograniczania i błędów autoryzacji.
+Rejestrowanie i metryki dotyczące konta magazynu można włączyć na karcie **Diagnostyka** w witrynie Azure Portal. Istnieją dwa typy metryk. **Metryki agregacji** zbierają dane dotyczące ruchu przychodzącego/wychodzącego, dostępności, opóźnień i odsetków powodzenia. Te metryki są agregowane dla obiektów blob, kolejek, tabel i usług plików. **Metryki na interfejs API** zbierają ten sam zestaw metryk dla każdej operacji magazynu w interfejsie API usługi Azure Storage. Rejestrowanie danych magazynu umożliwia zarejestrowanie szczegółów dotyczących żądań zakończonych zarówno powodzeniem, jak i niepowodzeniem na koncie magazynu. Te dzienniki przedstawiają szczegółowe informacje o operacjach odczytu, zapisu i usuwania, wykonanych na tabelach, kolejkach i obiektach blob na platformie Azure. Zawierają także przyczyny niepowodzeń żądań, na przykład przekroczenia limitu czasu, ograniczenia i błędy autoryzacji.
 
 ## <a name="log-in-to-the-azure-portal"></a>Logowanie do witryny Azure Portal
 
 Zaloguj się do witryny [Azure Portal](https://portal.azure.com).
 
-## <a name="turn-on-logging-and-metrics"></a>Włącz rejestrowanie i metryki
+## <a name="turn-on-logging-and-metrics"></a>Włączanie rejestrowania i metryk
 
-Wybierz z menu po lewej stronie **grup zasobów**, wybierz pozycję **myResourceGroup**, a następnie wybierz konto magazynu na liście zasobów.
+W menu po lewej stronie wybierz kolejno pozycje **Grupy zasobów** i **myResourceGroup**, a następnie wybierz konto magazynu na liście zasobów.
 
-W obszarze **diagnostyki** ustawić **stan** do **na**. Upewnij się, **obiektu Blob agregacji metryki**, **obiektu Blob dla metryki interfejsu API**, i **obiektu Blob dzienniki** są włączone.
+W obszarze **Diagnostyka** zmień ustawienie **Stan** na **Włączone**. Upewnij się, że **Metryki agregacji obiektów Blob**, **Metryki obiektów Blob na interfejs API** i **Dzienniki obiektów Blob** są włączone.
 
-Po zakończeniu kliknij przycisk **Zapisz**
+Po zakończeniu kliknij przycisk **Zapisz**.
 
 ![Okienko diagnostyki](media/storage-monitor-troubleshoot-storage-application/figure1.png)
 
-## <a name="enable-alerts"></a>Włącz alerty
+## <a name="enable-alerts"></a>Włączanie alertów
 
-Alerty umożliwiają administratorom w wiadomościach e-mail lub wywołać elementu webhook w oparciu metryki naruszenie progu. W tym przykładzie zostanie włączone alertu dotyczącego `SASClientOtherError` metryki.
+Alerty umożliwiają wysłanie wiadomości e-mail do administratora lub wyzwolenie elementu webhook w momencie naruszenia progu przez metrykę. W tym przykładzie włączony zostanie alert dotyczący metryki `SASClientOtherError`.
 
-### <a name="navigate-to-the-storage-account-in-the-azure-portal"></a>Przejdź do konta magazynu w portalu Azure
+### <a name="navigate-to-the-storage-account-in-the-azure-portal"></a>Przechodzenie do konta magazynu w witrynie Azure Portal
 
-Wybierz z menu po lewej stronie **grup zasobów**, wybierz pozycję **myResourceGroup**, a następnie wybierz konto magazynu na liście zasobów.
+W menu po lewej stronie wybierz kolejno pozycje **Grupy zasobów** i **myResourceGroup**, a następnie wybierz konto magazynu na liście zasobów.
 
-W obszarze **monitorowanie** zaznacz **reguły alertów**.
+W sekcji **Monitorowanie** wybierz pozycję **Reguły alertów**.
 
-Wybierz **+ Dodaj alert**w obszarze **dodać regułę alertu**, wprowadź wymagane informacje. Wybierz `SASClientOtherError` z **Metryka** listy rozwijanej.
+Wybierz pozycję **+ Dodaj alert**, a następnie w obszarze **Dodawanie reguły alertów** wprowadź wymagane informacje. Wybierz pozycję `SASClientOtherError` z listy rozwijanej **Metryka**.
 
 ![Okienko diagnostyki](media/storage-monitor-troubleshoot-storage-application/figure2.png)
 
-## <a name="simulate-an-error"></a>Symulacja błędu
+## <a name="simulate-an-error"></a>Symulowanie błędu
 
-Aby symulować prawidłowy alertu, można spróbować żądania nieistniejącego obiektu blob z konta magazynu. Aby to zrobić, Zamień `<incorrect-blob-name>` wartości z wartością, która nie istnieje. Uruchom Poniższy przykładowy kod kilka razy do symulowania nieudane żądania obiektu blob.
+Aby zasymulować prawidłowy alert, można spróbować zażądać nieistniejącego obiektu blob z konta magazynu. W tym celu zamień wartość `<incorrect-blob-name>` na nieistniejącą wartość. Uruchom następujący kod przykładowy kilka razy, aby zasymulować zakończone niepowodzeniem żądania obiektu blob.
 
 ```azurecli-interactive
 sasToken=$(az storage blob generate-sas \
@@ -81,49 +78,49 @@ sasToken=$(az storage blob generate-sas \
 curl https://<storage-account-name>.blob.core.windows.net/<container>/<incorrect-blob-name>?$sasToken
 ```
 
-Poniższa ilustracja jest alert przykład opiera się poza symulowane awarii został uruchomiony z poprzedniego przykładu.
+Poniższa ilustracja przedstawia przykładowy alert utworzony na podstawie symulowanego błędu wywołanego w poprzednim przykładzie.
 
- ![Przykład alertu](media/storage-monitor-troubleshoot-storage-application/alert.png)
+ ![Alert przykładowy](media/storage-monitor-troubleshoot-storage-application/alert.png)
 
-## <a name="download-and-view-logs"></a>Pobierz i Wyświetl dzienniki
+## <a name="download-and-view-logs"></a>Pobieranie i wyświetlanie dzienników
 
-Dzienniki magazynu przechowywania danych w zestawie obiektów blob w kontenerze obiektu blob o nazwie **$logs** na koncie magazynu. Ten kontener nie jest wyświetlany w przypadku listy wszystkich kontenerów obiektów blob na koncie, ale można wyświetlić jego zawartość, jeśli bezpośredni dostęp.
+Dane dzienników magazynu są przechowywane w zestawie obiektów blob w kontenerze obiektów blob o nazwie **$logs** na koncie magazynu. Ten kontener nie jest wyświetlany na liście wszystkich kontenerów obiektów blob na koncie, ale można wyświetlić jego zawartość po uzyskaniu do niego bezpośredniego dostępu.
 
-W tym scenariuszu, należy użyć [programu Microsoft Message Analyzer](http://technet.microsoft.com/library/jj649776.aspx) wchodzić w interakcje z kontem magazynu platformy Azure.
+W tym scenariuszu należy użyć narzędzia [Microsoft Message Analyzer](http://technet.microsoft.com/library/jj649776.aspx) do interakcji z kontem usługi Azure Storage.
 
-### <a name="download-microsoft-message-analyzer"></a>Pobierz program Microsoft Message Analyzer
+### <a name="download-microsoft-message-analyzer"></a>Pobieranie narzędzia Microsoft Message Analyzer
 
-Pobierz [programu Microsoft Message Analyzer](https://www.microsoft.com/download/details.aspx?id=44226) i zainstaluj aplikację.
+Pobierz narzędzie [Microsoft Message Analyzer](https://www.microsoft.com/download/details.aspx?id=44226) i zainstaluj aplikację.
 
-Uruchom aplikację i wybierz **pliku** > **Otwórz** > **z innych źródeł pliku**.
+Uruchom aplikację i wybierz kolejno pozycje **File** (Plik)  >  **Open**  (Otwórz)  >  **From Other File Sources** (Z innych źródeł plików).
 
-W **selektor plików** okno dialogowe, wybierz opcję **+ Dodaj połączenie Azure**. Wprowadź w Twojej **nazwy konta magazynu** i **klucz konta** i kliknij przycisk **OK**.
+W oknie dialogowym **File Selector** (Selektor plików) wybierz opcję **+ Add Azure Connection** (+ Dodaj połączenie Azure). Uzupełnij pola **Storage account name** (Nazwa konta magazynu) i **Account key** (Klucz konta), a następnie kliknij przycisk **OK**.
 
-![Microsoft komunikatów analizatora — Dodawanie magazynu Azure w oknie dialogowym połączenia](media/storage-monitor-troubleshoot-storage-application/figure3.png)
+![Narzędzie Microsoft Message Analyzer — Okno dialogowe Dodawanie połączenia z usługą Azure Storage](media/storage-monitor-troubleshoot-storage-application/figure3.png)
 
-Po nawiązaniu połączenia rozwiń kontenery w drzewie magazynu Widok, aby wyświetlić obiekty BLOB dziennika. Wybierz najnowszy dziennika i kliknij przycisk **OK**.
+Po nawiązaniu połączenia rozwiń kontenery w widoku drzewa magazynu, aby wyświetlić obiekty blob dziennika. Wybierz najnowszy dziennik i kliknij przycisk **OK**.
 
-![Microsoft komunikatów analizatora — Dodawanie magazynu Azure w oknie dialogowym połączenia](media/storage-monitor-troubleshoot-storage-application/figure4.png)
+![Narzędzie Microsoft Message Analyzer — Okno dialogowe Dodawanie połączenia z usługą Azure Storage](media/storage-monitor-troubleshoot-storage-application/figure4.png)
 
-Na **nowej sesji** okna dialogowego, kliknij przycisk **Start** Aby wyświetlić dziennik.
+W oknie dialogowym **New Session** (Nowa sesja) kliknij przycisk **Start** (Uruchom), aby wyświetlić dziennik.
 
-Po otwarciu dziennika można wyświetlać zdarzenia magazynu. Jak widać na poniższej ilustracji, wystąpił `SASClientOtherError` wyzwalane na koncie magazynu. Aby uzyskać dodatkowe informacje na temat rejestrowania magazynu, odwiedź stronę [analityka magazynu](../common/storage-analytics.md).
+Po otwarciu dziennika można wyświetlać zdarzenia magazynu. Jak widać na poniższej ilustracji, na koncie magazynu wystąpiło zdarzenie `SASClientOtherError`. Aby uzyskać dodatkowe informacje na temat rejestrowania danych magazynu, odwiedź stronę [Storage Analytics (Analityka magazynu)](../common/storage-analytics.md).
 
-![Microsoft Message Analyzer — wyświetlanie zdarzeń](media/storage-monitor-troubleshoot-storage-application/figure5.png)
+![Narzędzie Microsoft Message Analyzer — wyświetlanie zdarzeń](media/storage-monitor-troubleshoot-storage-application/figure5.png)
 
-[Eksplorator usługi Storage](https://azure.microsoft.com/features/storage-explorer/) jest innego narzędzia, który może służyć do interakcji z kontami magazynu, w tym **$logs** kontenera i dzienniki, które są zawarte w nim.
+[Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/) to kolejne narzędzie, które może służyć do interakcji z kontami magazynu, w tym z kontenerem **$logs** i dziennikami, które są w nim zawarte.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W części cztery i końcowa część serii przedstawiono sposób monitorowania i rozwiązywania problemów z konta magazynu, np.:
+W czwartej i ostatniej części serii przedstawiono sposób monitorowania konta magazynu i rozwiązywania problemów, w tym następujące czynności:
 
 > [!div class="checklist"]
-> * Włącz rejestrowanie i metryki
-> * Włącz alerty błędów autoryzacji
-> * Uruchom test ruchu z niepoprawne tokeny sygnatury dostępu Współdzielonego
+> * Włączanie rejestrowania i metryk
+> * Włączanie alertów dotyczących błędów autoryzacji
+> * Uruchamianie testowego ruchu z nieprawidłowymi tokenami SAS
 > * Pobieranie i analizowanie dzienników
 
-Wykonaj to łącze, aby wyświetlić przykłady wbudowanych magazynu.
+Kliknij ten link, aby wyświetlić wstępnie skompilowane przykładowe skrypty dla usługi Storage.
 
 > [!div class="nextstepaction"]
-> [Przykłady skryptów magazynu Azure](storage-samples-blobs-cli.md)
+> [Azure storage script samples (Przykładowe skrypty dla usługi Azure Storage)](storage-samples-blobs-cli.md)

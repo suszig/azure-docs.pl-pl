@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/19/2018
 ms.author: mbullwin
-ms.openlocfilehash: 8922759295928a59114fcea55470d113d59b9387
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 198cd5164ce3840503aca359767638e135f164bc
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Konfigurowanie usługi Application Insights dla witryny sieci Web ASP.NET.
 
@@ -28,7 +28,7 @@ Konfiguracja wymaga tylko kilku kliknięć w programie Visual Studio. Masz możl
 ## <a name="prerequisites"></a>Wymagania wstępne
 Aby dodać usługę Application Insights do witryny internetowej:
 
-- Zainstaluj program [Visual Studio 2017](https://www.visualstudio.com/downloads/) z następującymi pakietami roboczymi:
+- Zainstaluj [program Visual Studio 2017 dla systemu Windows](https://www.visualstudio.com/downloads/) z następującymi pakietami roboczymi:
     - Tworzenie aplikacji na platformie ASP.NET i aplikacji internetowych
     - Tworzenie aplikacji na platformie Azure
 

@@ -9,11 +9,11 @@ ms.workload: storage
 ms.topic: get-started-article
 ms.date: 01/17/2018
 ms.author: jirwin
-ms.openlocfilehash: bdbcdc7d46d5395b28cf9ba7066703ce5da900a5
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: aa8704b9991dde639b50a5b6c9a27ad5cd08ad02
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-storage-account-options"></a>Opcje konta usługi Azure Storage
 
@@ -125,7 +125,7 @@ W poniższych przykładach nie można ustawić warstwy dostępu na Archiwum, pon
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-2. W menu Centrum wybierz kolejno pozycje **Nowe** > **Dane i usługa Storage** > **Konto usługi Storage**.
+2. W menu Centrum wybierz kolejno pozycje **Utwórz zasób** > **Dane i usługa Storage** > **Konto usługi Storage**.
 
 3. Wprowadź nazwę konta magazynu.
 
@@ -159,7 +159,7 @@ W poniższych przykładach nie można ustawić warstwy dostępu na Archiwum, pon
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-2. Aby przejść do konta magazynu, zaznacz pozycję Wszystkie zasoby, a następnie wybierz konto magazynu.
+2. Aby przejść do konta magazynu, wybierz pozycję **Wszystkie zasoby**, a następnie wybierz konto magazynu.
 
 3. W sekcji Ustawienia kliknij pozycję **Konfiguracja**.
 
@@ -173,7 +173,7 @@ W poniższych przykładach nie można ustawić warstwy dostępu na Archiwum, pon
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-2. Aby przejść do konta magazynu, zaznacz pozycję Wszystkie zasoby, a następnie wybierz konto magazynu.
+2. Aby przejść do konta magazynu, wybierz pozycję **Wszystkie zasoby**, a następnie wybierz konto magazynu.
 
 3. W bloku Ustawienia kliknij pozycję **Konfiguracja**, aby wyświetlić i/lub zmienić konfigurację konta.
 
@@ -185,7 +185,7 @@ W poniższych przykładach nie można ustawić warstwy dostępu na Archiwum, pon
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-2. Aby przejść do obiektu blob na koncie magazynu, wybierz pozycję Wszystkie zasoby, wybierz konto magazynu, wybierz kontener, a następnie wybierz obiekt blob.
+2. Aby przejść do obiektu blob na koncie magazynu, wybierz pozycję **Wszystkie zasoby**, wybierz konto magazynu, wybierz kontener, a następnie wybierz obiekt blob.
 
 3. W bloku Właściwości obiektu blob kliknij menu rozwijane **Warstwa dostępu**, aby wybrać warstwę magazynowania **Gorąca**, **Chłodna** lub **Archiwum**.
 

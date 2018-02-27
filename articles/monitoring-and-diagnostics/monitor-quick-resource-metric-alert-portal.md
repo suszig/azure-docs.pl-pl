@@ -7,14 +7,14 @@ services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.service: monitoring-and-diagnostics
 ms.topic: quickstart
-ms.date: 09/25/2017
+ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: 08d63d47a99bdf9480299a74634bc0e9a09e691e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c1a6271d0cb2157cb23f1dd4193eadba2c1679b
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>Otrzymywanie powiadomienia w przypadku spełnienia określonego warunku przez wartość metryki
 
@@ -30,11 +30,11 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-logic-app"></a>Tworzenie aplikacji logiki
 
-1. Kliknij przycisk **Nowy** znajdujący się w lewym górnym rogu witryny Azure Portal.
+1. Kliknij przycisk **Utwórz zasób** (+) znajdujący się w lewym górnym rogu witryny Azure Portal.
 
-2. Wyszukaj i wybierz pozycję **Aplikacja logiki**. Utwórz nową grupę zasobów o nazwie **myResourceGroup**, używając lokalizacji domyślnej. Kliknij przycisk **Utwórz**.
+2. Wyszukaj i wybierz pozycję **Aplikacja logiki**. Kliknij przycisk **Utwórz**.
 
-3. Wprowadź dane aplikacji logiki i zaznacz opcję **Przypnij do pulpitu nawigacyjnego**. Na koniec kliknij pozycję **Utwórz**.
+3. Wprowadź informacje na temat aplikacji logiki, które zostały pokazane na poniższej ilustracji.  Użyj domyślnej lokalizacji. Zaznacz opcję **Przypnij do pulpitu nawigacyjnego**.  Na koniec kliknij pozycję **Utwórz**. 
 
     ![Wprowadzanie podstawowych informacji o aplikacji logiki w portalu](./media/monitoring-quick-resource-metric-alert-portal/create-logic-app-portal.png)  
 
@@ -61,6 +61,8 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 12. Kliknij pozycję **Zapisz**.
 
+13. Wykonanie akcji uruchamiania aplikacji logiki może zająć do 5 minut.  
+
 ## <a name="view-metrics-for-your-logic-app"></a>Wyświetlanie metryk aplikacji logiki
 
 1. Kliknij opcję **Monitoruj** w okienku nawigacji po lewej stronie.
@@ -71,7 +73,7 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 4. Zmień **Zakres czasu** na wykresie, aby wyświetlić dane z ostatniej godziny.
 
-5. Powinien być teraz widoczny wykres przedstawiający łączną liczbę przebiegów uruchomionych przez aplikację logiki w ciągu ostatniej godziny.
+5. Powinien być teraz widoczny wykres przedstawiający łączną liczbę przebiegów uruchomionych przez aplikację logiki w ciągu ostatniej godziny. Jeśli nie widać żadnych przebiegów, upewnij się, że od wykonania poprzedniego kroku minęło co najmniej 5 minut. Następnie odśwież przeglądarkę. 
 
     ![Tworzenie wykresu metryki dla zasobu aplikacji logiki](./media/monitoring-quick-resource-metric-alert-portal/logic-app-metric-chart.png)
 

@@ -1,27 +1,28 @@
 ---
-title: "Odnajdywanie i ocenić lokalnych maszyn wirtualnych VMware do migracji na platformie Azure za pomocą migracji Azure | Dokumentacja firmy Microsoft"
-description: "Opisuje sposób odnajdywania i oceny lokalnych maszyn wirtualnych VMware do migracji na platformę Azure przy użyciu usługi Azure migracji."
+title: "Odnajdowanie lokalnych maszyn wirtualnych VMware i ocenianie ich gotowości do migracji na platformę Azure za pomocą usługi Azure Migrate | Microsoft Docs"
+description: "W tym artykule opisano sposób odnajdowania lokalnych maszyn wirtualnych VMware i oceniania ich gotowości do migracji na platformę Azure za pomocą usługi Azure Migrate."
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 01/08/2018
+ms.date: 06/02/2018
 ms.author: raynew
-ms.openlocfilehash: a5019d3f729f2efbd01fca021b0089c7f99b0014
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
-ms.translationtype: MT
+ms.custom: mvc
+ms.openlocfilehash: 0c82eeaeb17fb670b6d277d1b703b44b84343877
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Odnajdywanie i ocenić lokalnych maszyn wirtualnych VMware do migracji do usługi Azure
+# <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Odnajdowanie i ocenianie lokalnych maszyn wirtualnych VMware pod kątem migracji na platformę Azure
 
-[Migracji Azure](migrate-overview.md) usług ocenia obciążeń lokalnych do migracji do usługi Azure.
+Usługa [Azure Migrate](migrate-overview.md) ocenia obciążenia lokalne pod kątem migracji na platformę Azure.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Tworzenie projektu platformy Azure migracji.
-> * Skonfiguruj na lokalnej maszynie wirtualnej modułu zbierającego (VM), do odnajdywania lokalnych maszyn wirtualnych VMware do oceny.
-> * Grupy maszyn wirtualnych i Utwórz ocenę.
+> * Tworzenie projektu w usłudze Azure Migrate.
+> * Konfigurowanie lokalnej maszyny wirtualnej modułu zbierającego w celu odnajdowania lokalnych maszyn wirtualnych VMware do oceny.
+> * Grupowanie maszyn wirtualnych i tworzenie oceny.
 
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/).
@@ -29,162 +30,199 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- **VMware**: maszyny wirtualne, które mają zostać poddane migracji muszą być zarządzane przy użyciu vCenter Server uruchomionej wersji 5.5, 6.0 lub 6.5. Ponadto należy jeden ESXi hosta wersji 5.0 lub nowszej w celu wdrożenia modułu zbierającego maszyny Wirtualnej. 
+- **VMware**: do zarządzania maszynami wirtualnymi, które mają być poddane migracji, musi być używany program vCenter Server w wersji 5.5, 6.0 lub 6.5. Ponadto wymagany jest jeden host ESXi z wersją 5.0 lub nowszą w celu wdrożenia maszyny wirtualnej modułu zbierającego. 
  
 > [!NOTE]
-> Obsługa funkcji Hyper-V znajduje się w naszej plan i zostanie wkrótce włączona. 
+> Obsługa funkcji Hyper-V znajduje się w planach i zostanie włączona wkrótce. 
 
-- **konto serwera vCenter**: konieczne konto tylko do odczytu, aby uzyskać dostęp serwer vCenter. Azure migracji używa tego konta do odnajdywania lokalnych maszyn wirtualnych.
-- **Uprawnienia**: w programie Vcenter Server, musisz mieć uprawnienia do tworzenia maszyny Wirtualnej przez zaimportowanie pliku w. Format komórek jajowych. 
-- **Ustawienia statystyki**: ustawienia statystyki dla serwera vCenter powinien być ustawiony na poziomie 3, przed rozpoczęciem wdrażania. Jeśli niższy niż poziom 3, oceny będą działać, ale nie jest zebrać danych wydajności magazynu i sieci. Żądany rozmiar zalecenia w tym przypadku zostanie to zrobione oparte na dane wydajności dotyczące procesora CPU i pamięci i konfigurację danych kart dysku i sieci. 
+- **Konto serwera vCenter**: wymagane jest konto tylko do odczytu w celu uzyskania dostępu do serwera vCenter. To konto jest używane w usłudze Azure Migrate do odnajdowania lokalnych maszyn wirtualnych.
+- **Uprawnienia**: na serwerze vCenter są wymagane uprawnienia do tworzenia maszyn wirtualnych przez zaimportowanie pliku w formacie OVA. 
+- **Ustawienia statystyk**: przed rozpoczęciem wdrażania należy określić poziom 3 w ustawieniach statystyk serwera vCenter. Jeśli poziom będzie niższy niż 3, ocena zostanie wykonana, ale nie zostaną zebrane dane dotyczące wydajności magazynu i sieci. W takim przypadku zalecenia dotyczące rozmiaru zostaną określone na podstawie danych dotyczących wydajności procesora CPU i pamięci oraz danych konfiguracyjnych dysku i kart sieciowych. 
 
 ## <a name="log-in-to-the-azure-portal"></a>Logowanie do witryny Azure Portal
 Zaloguj się do witryny [Azure Portal](https://portal.azure.com).
 
-## <a name="create-a-project"></a>Utwórz projekt
+## <a name="create-a-project"></a>Tworzenie projektu
 
-1. W portalu Azure kliknij **Utwórz zasób**.
-2. Wyszukaj **migracji Azure**i wybierz usługę **Azure migracji (wersja zapoznawcza)** w wynikach wyszukiwania. Następnie kliknij pozycję **Utwórz**.
-3. Określ nazwę projektu i subskrypcji platformy Azure dla projektu.
+1. W witrynie Azure Portal kliknij pozycję **Utwórz zasób**.
+2. Wyszukaj ciąg **Azure Migrate** i w wynikach wyszukiwania wybierz usługę **Azure Migrate (wersja zapoznawcza)**. Następnie kliknij pozycję **Utwórz**.
+3. Wprowadź nazwę projektu i wybierz subskrypcję platformy Azure używaną na jego potrzeby.
 4. Utwórz nową grupę zasobów.
-5. Określ lokalizację, w której można utworzyć projekt, a następnie kliknij przycisk **Utwórz**. Projekt platformy Azure migracji można utworzyć tylko w regionu zachodnie centralnej nam dla tej wersji zapoznawczej. Można jednak nadal planowania migracji dla dowolnego obiektu docelowego lokalizacji platformy Azure. Lokalizacja określona dla projektu jest używana tylko do przechowywania metadanych zebranych z lokalnych maszyn wirtualnych. 
+5. Określ lokalizację, w której chcesz utworzyć projekt, a następnie kliknij pozycję **Utwórz**. W wersji zapoznawczej usługi Azure Migrate można tworzyć projekty tylko w regionie Środkowo-zachodnie stany USA. Można jednak zaplanować migrację do dowolnej docelowej lokalizacji platformy Azure. Lokalizacja projektu jest używana wyłącznie do przechowywania metadanych zebranych z lokalnych maszyn wirtualnych. 
 
     ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
     
 
 
-## <a name="download-the-collector-appliance"></a>Pobierz moduł zbierający urządzenia
+## <a name="download-the-collector-appliance"></a>Pobieranie urządzenia modułu zbierającego
 
-Azure migracji tworzy lokalnej maszyny Wirtualnej, znany jako urządzenia modułu zbierającego. Tej maszyny Wirtualnej umożliwia odnalezienie lokalnych maszyn wirtualnych VMware i wysyła metadane dotyczące ich do usługi Azure migracji. Aby skonfigurować urządzenia modułu zbierającego, możesz pobrać. Komórki jajowe pliku i zaimportować go do lokalnego serwera vCenter do utworzenia maszyny Wirtualnej.
+Usługa Azure Migrate tworzy lokalną maszynę wirtualną, nazywaną modułem zbierającym. Ta maszyna wirtualna służy do odnajdowania lokalnych maszyn wirtualnych VMware i wysyłania dotyczących ich metadanych do usługi Azure Migrate. Aby skonfigurować urządzenie modułu zbierającego, należy pobrać plik OVA i zaimportować go na lokalny serwer vCenter w celu utworzenia maszyny wirtualnej.
 
-1. W projekcie migracji Azure kliknij **wprowadzenie** > **odnajdź & oceny** > **odnajdywanie maszyn**.
-2. W **Odkryj maszyny**, kliknij przycisk **Pobierz**, aby pobrać. Plik komórek jajowych.
-3. W **skopiuj poświadczenia projektu**, skopiować identyfikator i klucz. Należy je podczas konfigurowania modułu zbierającego.
+1. W projekcie usługi Azure Migrate kliknij pozycję **Wprowadzenie** > **Odnajdź i oceń** > **Odnajdź maszyny**.
+2. W obszarze **Odnajdź maszyny** kliknij pozycję **Pobierz**, aby pobrać plik OVA.
+3. W obszarze **Skopiuj poświadczenia projektu** skopiuj identyfikator projektu i klucz. Będą potrzebne do skonfigurowania modułu zbierającego.
 
-    ![Pobierz plik .ova](./media/tutorial-assessment-vmware/download-ova.png)
+    ![Pobieranie pliku OVA](./media/tutorial-assessment-vmware/download-ova.png)
 
-### <a name="verify-the-collector-appliance"></a>Sprawdź urządzenia modułu zbierającego
+### <a name="verify-the-collector-appliance"></a>Weryfikowanie urządzenia modułu zbierającego
 
-Sprawdź, czy. Plik komórek jajowych jest bezpieczne, przed jego wdrożeniem.
+Przed wdrożeniem pliku OVA sprawdź, czy jest on bezpieczny.
 
-1. Na komputerze, do którego został pobrany plik Otwórz okno polecenia administratora.
-2. Uruchom następujące polecenie, aby wygenerować skrótu dla komórek jajowych:
+1. Na maszynie, na którą pobrano plik, otwórz okno wiersza polecenia administratora.
+2. Uruchom następujące polecenie, aby wygenerować skrót pliku OVA:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Przykład użycia:```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. Skrót wygenerowanego powinna odpowiadać te ustawienia.
+    - Przykład użycia: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+3. Wygenerowany skrót powinien odpowiadać następującym ustawieniom.
     
-    Dla wersji komórek jajowych 1.0.8.49
-    **Algorytm** | **Wartość skrótu**
-    --- | ---
-    MD5 | 8779eea842a1ac465942295c988ac0c7 
-    SHA1 | c136c52a0f785e1fd98865e16479dd103704887d
-    SHA256 | 5143b1144836f01dd4eaf84ff94bc1d2c53f51ad04b1ca43ade0d14a527ac3f9
-
-    W wersji komórek jajowych 1.0.8.40:
+    OVA w wersji 1.0.8.59
 
     **Algorytm** | **Wartość skrótu**
     --- | ---
-    MD5 |afbae5a2e7142829659c21fd8a9def3f
+    MD5 | 71139e24a532ca67669260b3062c3dad
+    SHA1 | 1bdf0666b3c9c9a97a07255743d7c4a2f06d665e
+    SHA256 | 6b886d23b24c543f8fc92ff8426cd782a77efb37750afac397591bda1eab8656  
+
+    OVA w wersji 1.0.8.49
+    **Algorytm** | **Wartość skrótu**
+    --- | ---
+    MD5 | cefd96394198b92870d650c975dbf3b8 
+    SHA1 | 4367a1801cf79104b8cd801e4d17b70596481d6f
+    SHA256 | fda59f076f1d7bd3ebf53c53d1691cc140c7ed54261d0dc4ed0b14d7efef0ed9
+
+    OVA w wersji 1.0.8.40:
+
+    **Algorytm** | **Wartość skrótu**
+    --- | ---
+    MD5 | afbae5a2e7142829659c21fd8a9def3f
     SHA1 | 1751849c1d709cdaef0b02a7350834a754b0e71d
     SHA256 | d093a940aebf6afdc6f616626049e97b1f9f70742a094511277c5f59eacc41ad
 
-## <a name="create-the-collector-vm"></a>Tworzenie modułu zbierającego maszyny Wirtualnej
+## <a name="create-the-collector-vm"></a>Tworzenie maszyny wirtualnej modułu zbierającego
 
-Pobrany plik należy zaimportować do programu vCenter Server.
+Zaimportuj pobrany plik na serwer vCenter.
 
-1. W konsoli klienta vSphere kliknij **pliku** > **wdrażanie szablonu OVF**.
+1. W konsoli klienta vSphere kliknij pozycję **File** (Plik)  >  **Deploy OVF Template** (Wdróż szablon OVF).
 
-    ![Wdrażanie pakietu OVF](./media/tutorial-assessment-vmware/vcenter-wizard.png)
+    ![Wdrażanie pliku OVF](./media/tutorial-assessment-vmware/vcenter-wizard.png)
 
-2. W Kreatorze wdrażania szablonu OVF > **źródła**, określ lokalizację pliku .ova.
-3. W **nazwa** i **lokalizacji**Określ przyjazną nazwę dla modułu zbierającego maszyny Wirtualnej, a obiekt magazynu, w którym będzie hostowana maszyna wirtualna.
-5. W **Host/klaster**, określić hosta lub klastra uruchamiania modułu zbierającego maszyny Wirtualnej.
-7. W magazynie określ miejsce docelowe przechowywania dla modułu zbierającego maszyny Wirtualnej.
-8. W **Format dysku**, określ typ i rozmiar.
-9. W **mapowanie sieci**, określ sieć, z którą połączy się modułu zbierającego maszyny Wirtualnej. Sieć wymaga łączności z Internetem, można wysłać metadanych na platformie Azure. 
-10. Przejrzyj i Potwierdź ustawienia, a następnie kliknij przycisk **Zakończ**.
+2. W kreatorze wdrażania szablonu OVF na stronie **Source** (Źródło) określ lokalizację pliku OVA.
+3. W polach **Name** (Nazwa) i **Location** (Lokalizacja) wprowadź przyjazną nazwę maszyny wirtualnej modułu zbierającego oraz obiekt magazynu, w którym będzie hostowana maszyna wirtualna.
+5. W polu **Host/Cluster** (Host/klaster) określ host lub klaster, na którym będzie działać maszyna wirtualna modułu zbierającego.
+7. W obszarze Magazyn określ docelowy magazyn dla maszyny wirtualnej modułu zbierającego.
+8. W obszarze **Disk Format** (Format dysku) określ typ i rozmiar dysku.
+9. W obszarze **Network Mapping** (Mapowanie sieci) określ sieć, z którą będzie się łączyć maszyna wirtualna modułu zbierającego. Sieć musi mieć połączenie z Internetem w celu wysyłania metadanych do platformy Azure. 
+10. Sprawdź poprawność ustawień, a następnie kliknij pozycję **Finish** (Zakończ).
 
-## <a name="run-the-collector-to-discover-vms"></a>Uruchom moduł zbierający do odnajdywanie maszyn wirtualnych
+## <a name="run-the-collector-to-discover-vms"></a>Uruchamianie modułu zbierającego w celu odnalezienia maszyn wirtualnych
 
-1. W konsoli klienta vSphere, kliknij prawym przyciskiem myszy maszyny Wirtualnej > **Otwórz konsolę**.
-2. Podaj języka, strefa czasowa i hasło preferencje dotyczące urządzenia.
-3. Na pulpicie kliknij **uruchom moduł zbierający** skrótów.
-4. Moduł zbierający Azure migracji, otwórz **konfigurowanie wymagań wstępnych**.
-    - Zaakceptuj postanowienia licencyjne, a odczytać informacji o innych firm.
-    - Moduł zbierający sprawdza, czy maszyna wirtualna ma dostęp do Internetu.
-    - Jeśli maszyna wirtualna uzyskuje dostęp do Internetu za pośrednictwem serwera proxy, kliknij przycisk **ustawienia serwera Proxy**i określić adres serwera proxy i port nasłuchiwania. Określ poświadczenia, jeśli serwer proxy wymaga uwierzytelniania.
+1. W konsoli klienta vSphere kliknij maszynę wirtualną prawym przyciskiem myszy, a następnie kliknij pozycję **Open Console** (Otwórz konsolę).
+2. Określ preferencje dotyczące języka, strefy czasowej i hasła dla urządzenia.
+3. Na pulpicie kliknij skrót **Run collector** (Uruchom moduł zbierający).
+4. W usłudze Azure Migrate Collector otwórz obszar **Set up prerequisites** (Skonfiguruj elementy wymagane wstępnie).
+    - Zaakceptuj postanowienia licencyjne i przeczytaj informacje innych firm.
+    - Moduł zbierający sprawdzi, czy maszyna wirtualna ma dostęp do Internetu.
+    - Jeśli maszyna wirtualna uzyskuje dostęp do Internetu za pośrednictwem serwera proxy, kliknij pozycję **Proxy settings** (Ustawienia serwera proxy) i wprowadź adres serwera proxy oraz port nasłuchujący. Jeśli serwer proxy wymaga uwierzytelnienia, wprowadź poświadczenia.
 
     > [!NOTE]
-    > Adres serwera proxy musi być wprowadzane w postaci http://ProxyIPAddress lub http://ProxyFQDN. Obsługiwane jest tylko serwer proxy HTTP.
+    > Adres serwera proxy należy wprowadzić w formacie http://adres_IP_serwera_proxy lub http://nazwa_FQDN_serwera_proxy. Obsługiwane są tylko serwery proxy HTTP.
 
-    - Moduł zbierający sprawdza, czy collectorservice jest uruchomiona. Usługa jest instalowany domyślnie w module zbierającym maszyny Wirtualnej.
-    - Pobierz i zainstaluj VMware PowerCLI.
+    - Moduł zbierający sprawdzi, czy usługa modułu zbierającego jest uruchomiona. Jest ona instalowana domyślnie na maszynie wirtualnej modułu zbierającego.
+    - Pobierz i zainstaluj interfejs PowerCLI programu VMware.
 
-5. W **Określ szczegóły serwera vCenter**, wykonaj następujące czynności:
-    - Określ nazwę (FQDN) lub adres IP serwera vCenter.
-    - W **nazwy użytkownika** i **hasło**, określ poświadczenia konta tylko do odczytu, które moduł zbierający będzie używane do wykrywania maszyn wirtualnych na serwerze vCenter.
-    - W **zakresu kolekcji**, wybierz zakres odnajdywania maszyny Wirtualnej. Moduł zbierający można tylko odnajdywanie maszyn wirtualnych w podanym zakresie. Można ustawić zakresu na określony folder, w centrum danych lub w klastrze. Nie powinien on zawierać więcej niż 1000 maszyn wirtualnych. 
+5. W obszarze **Specify vCenter Server details** (Określ szczegóły serwera vCenter) wykonaj następujące czynności:
+    - Określ nazwę FQDN lub adres IP serwera vCenter.
+    - W polach **User name** (Nazwa użytkownika) i **Password** (Hasło) wprowadź poświadczenia konta tylko do odczytu, którego moduł zbierający ma użyć do odnalezienia maszyn wirtualnych na serwerze vCenter.
+    - W obszarze **Collection scope** (Zakres zbierania) wybierz zakres odnajdowania maszyn wirtualnych. Moduł zbierający odnajdzie tylko maszyny wirtualne we wskazanym zakresie. Zakresem może być określony folder, centrum danych albo klaster. Zakres nie powinien zawierać więcej niż 1000 maszyn wirtualnych. 
 
-6. W **Określ migrację**, określ identyfikator projektu migracji Azure i klucza skopiowany z portalu. Jeśli nie skopiuj je, otwórz Azure portal z modułu zbierającego maszyny Wirtualnej. W projekcie **omówienie** kliknij przycisk **odnajdywanie maszyn**i skopiuj wartości.  
-7. W **wyświetlić postęp kolekcji**, monitorować odnajdywania i sprawdź, że metadane zbierane z maszyn wirtualnych znajduje się w zakresie. Moduł zbierający zapewnia odnajdywania przybliżony czas.
+6. W obszarze **Specify migration project** (Określ projekt migracji) podaj identyfikator i klucz projektu usługi Azure Migrate, skopiowane z portalu. Jeśli nie zostały skopiowane, otwórz witrynę Azure Portal na maszynie wirtualnej modułu zbierającego. Na stronie **Omówienie** projektu kliknij polecenie **Odnajdź maszyny**, a następnie skopiuj wartości.  
+7. Na stronie **View collection progress** (Wyświetlanie postępu zbierania) możesz monitorować proces odnajdowania i sprawdzić, czy metadane zbierane z maszyn wirtualnych odpowiadają wymaganemu zakresowi. Moduł zbierający informuje o szacowanym czasie odnajdowania.
 
 > [!NOTE]
-> Moduł zbierający obsługuje tylko "Angielski (Stany Zjednoczone)" jako język systemu operacyjnego i język interfejsu modułu zbierającego. Obsługę innych języków będzie dostępna wkrótce.
+> Moduł zbierający obsługuje wyłącznie „Angielski (Stany Zjednoczone)” jako język systemu operacyjnego i język interfejsu modułu zbierającego. Wkrótce zostanie dodana obsługa innych języków.
 
 
-### <a name="verify-vms-in-the-portal"></a>Sprawdź maszyn wirtualnych w portalu
+### <a name="verify-vms-in-the-portal"></a>Weryfikowanie maszyn wirtualnych w portalu
 
-Czas zależy od liczby maszyn wirtualnych odnajdywania odnajdywania. Zwykle 100 maszyn wirtualnych, po zakończeniu przez moduł zbierający, uruchomienie jej trwa około godziny odnajdywania. 
+Czas odnajdowania zależy od liczby odnajdowanych maszyn wirtualnych. Na ogół w przypadku 100 maszyn wirtualnych czas odnajdowania po uruchomieniu modułu zbierającego wynosi około godziny. 
 
-1. Planowanie migracji projektu, kliknij przycisk **Zarządzaj** > **maszyny**.
-2. Sprawdź, czy ma zostać przeprowadzone odnajdywanie maszyn wirtualnych są wyświetlane w portalu.
+1. W projekcie usługi Azure Migrate kliknij pozycję **Zarządzaj** > **Maszyny**.
+2. Sprawdź, czy maszyny wirtualne, które miały zostać odnalezione, są widoczne w portalu.
 
 
-## <a name="create-and-view-an-assessment"></a>Można tworzyć i wyświetlać oceny
+## <a name="create-and-view-an-assessment"></a>Tworzenie i wyświetlanie oceny
 
-Po odnalezieniu maszyn wirtualnych, możesz grupować i utworzyć ocenę. 
+Po odnalezieniu maszyn wirtualnych należy je zgrupować i utworzyć ocenę. 
 
-1. W projekcie **omówienie** kliknij przycisk **+ Utwórz oceny**.
-2. Kliknij przycisk **Wyświetl wszystkie** do przeglądania właściwości oceny.
-3. Utwórz grupy i określ nazwę grupy.
-4. Wybierz maszyny, które chcesz dodać do grupy.
-5. Kliknij przycisk **utworzyć oceny**, aby utworzyć grupy i oceny.
-6. Po utworzeniu oceny wyświetlić w **omówienie** > **pulpitu nawigacyjnego**.
-7. Kliknij przycisk **wyeksportować oceny**, aby pobrać go jako plik programu Excel.
+1. Na stronie **Omówienie** projektu kliknij pozycję **+Utwórz ocenę**.
+2. Kliknij pozycję **Wyświetl wszystko**, aby sprawdzić właściwości oceny.
+3. Utwórz grupę i określ jej nazwę.
+4. Wybierz maszyny wirtualne, które chcesz dodać do grupy.
+5. Kliknij pozycję **Utwórz ocenę**, aby utworzyć grupę i ocenę.
+6. Po utworzeniu oceny możesz wyświetlić ją w obszarze **Omówienie** > **Pulpit nawigacyjny**.
+7. Kliknij polecenie **Eksportuj ocenę**, aby pobrać ocenę jako plik programu Excel.
 
-### <a name="sample-assessment"></a>Ocena próbki
+### <a name="assessment-details"></a>Szczegóły oceny
 
-Oto przykładowy raport oceny. Zawiera ona informacje dotyczące tego, czy maszyny wirtualne są zgodne platformy Azure i szacowane koszty miesięczne. 
+Ocena zawiera informacje na temat tego, czy lokalne maszyny wirtualne są zgodne na platformie Azure, jaki byłyby właściwy rozmiar maszyny wirtualnej do uruchamiania maszyny wirtualnej na platformie Azure oraz miesięczne szacowane koszty platformy Azure. 
 
-![Raport oceny](./media/tutorial-assessment-vmware/assessment-report.png)
+![Raport z oceny](./media/tutorial-assessment-vmware/assessment-report.png)
 
 #### <a name="azure-readiness"></a>Gotowość na platformę Azure
 
-Ten widok przedstawia stan gotowości dla każdego komputera.
+Widok gotowości platformy Azure w ocenie przedstawia stan gotowości każdej maszyny wirtualnej. W zależności od właściwości maszyny wirtualnej każda maszyna wirtualna może być oznaczona jako:
+- Gotowa na platformę Azure
+- Warunkowo gotowa na platformę Azure
+- Niegotowa na platformę Azure
+- Nieznana gotowość 
 
-- Dla maszyn wirtualnych, które są gotowe migracja Azure zaleca dla rozmiaru maszyny Wirtualnej na platformie Azure.
-- Dla maszyn wirtualnych, które nie są gotowe Azure migracji zawiera informacje o przyczynie i proponuje czynności korygujące.
-- Azure migracji sugeruje narzędzia, których można użyć do migracji. Jeśli komputer jest odpowiedni dla migracji przyrostu i shift, usługa Azure Site Recovery jest zalecane. Jeśli jest to maszyna bazy danych, zaleca się usługa migracji bazy danych Azure.
+W przypadku maszyn wirtualnych, które są gotowe do migracji, usługa Azure Migrate wyświetla zalecany rozmiar maszyny wirtualnej na platformie Azure. Zalecenie dotyczące rozmiaru określane przez usługę Azure Migrate zależy od kryterium ustalania rozmiaru określonego we właściwościach oceny. Jeśli kryterium ustalania rozmiaru jest oparte na wydajności, zalecenie dotyczące rozmiaru jest ustalane, biorąc pod uwagę historię wydajności maszyn wirtualnych. Jeśli kryterium ustalania rozmiaru to „jak lokalne”, zalecenie jest określane, analizując lokalnie rozmiar maszyny wirtualnej (ustalanie rozmiaru jaki jest). Dane dotyczące użycia nie są w tym przypadku uwzględniane. [Dowiedz się więcej](concepts-assessment-calculation.md) o sposobie określania rozmiaru w usłudze Azure Migrate. 
 
-  ![Oceny gotowości](./media/tutorial-assessment-vmware/assessment-suitability.png)  
+Dla maszyn wirtualnych, które nie są gotowe lub są warunkowo gotowe na platformę Azure, usługa Azure Migrate opisuje problemy z gotowością i proponuje instrukcje rozwiązania problemu. 
+
+Maszyny wirtualne, dla których usługa Azure Migrate nie może ustalić gotowości na platformę Azure (z powodu niedostępności danych), zostały oznaczone jako nieznana gotowość.
+
+Oprócz gotowości na platformę Azure i ustalenia rozmiaru, usługa Azure Migrate sugeruje również narzędzia, których możesz użyć do migracji maszyny wirtualnej. Jeśli maszyna może zostać poddana migracji metodą „lift and shift”, zalecana jest usługa [Azure Site Recovery]. Jeśli jest to maszyna bazy danych, zalecana jest usługa Azure Database Migration Service.
+
+  ![Ocena gotowości](./media/tutorial-assessment-vmware/assessment-suitability.png)  
 
 #### <a name="monthly-cost-estimate"></a>Szacowany koszt miesięczny
 
-Ten widok przedstawia całkowity obliczeniowych i przestrzeni magazynowej uruchomionych maszyn wirtualnych na platformie Azure oraz szczegóły dotyczące poszczególnych maszyn. Szacowanie kosztów są obliczane przy użyciu zalecenia na podstawie rozmiaru dla komputera i jego dysków i właściwości oceny. 
+Ten widok przedstawia łączne koszty zasobów obliczeniowych i magazynowych w przypadku korzystania z maszyn wirtualnych na platformie Azure oraz szczegóły dla poszczególnych maszyn. Koszty są szacowane na podstawie zalecanego rozmiaru maszyny i jej dysków, obliczonego odpowiednio do jej wydajności, oraz właściwości oceny. 
 
 > [!NOTE]
-> Szacowania kosztów podał Azure migracji jest przeznaczony do uruchamiania maszyn wirtualnych do lokalnego jako Azure infrastruktura jako usługa (IaaS) maszyn wirtualnych. Azure migracji nie należy wziąć pod uwagę wszystkie platformy jako usługa (PaaS) lub oprogramowania jako koszty usługi (SaaS). 
+> Szacowany koszt podany w usłudze Azure Migrate dotyczy korzystania z lokalnych maszyn wirtualnych jako maszyn wirtualnych platformy Azure w ramach rozwiązania typu IaaS (infrastruktura jako usługa). Usługa Azure Migrate nie uwzględnia kosztów rozwiązań typu PaaS (platforma jako usługa) i SaaS (oprogramowanie jako usługa). 
 
-Szacowane koszty miesięczne obliczeniowych i magazynu są agregowane dla wszystkich maszyn wirtualnych w grupie. 
+Szacowany miesięczny koszt zasobów obliczeniowych i magazynowych jest agregowany dla wszystkich maszyn wirtualnych w grupie. 
 
-![Ocena koszt maszyny Wirtualnej](./media/tutorial-assessment-vmware/assessment-vm-cost.png) 
+![Ocena kosztu maszyn wirtualnych](./media/tutorial-assessment-vmware/assessment-vm-cost.png) 
 
-Można następnie przejść do szczegółów można znaleźć określonej maszyny.
+#### <a name="confidence-rating"></a>Ocena zaufania
 
-![Ocena koszt maszyny Wirtualnej](./media/tutorial-assessment-vmware/assessment-vm-drill.png) 
+Każda ocena w usłudze Azure Migrate jest skojarzona z oceną zaufania obejmującą zakres od 1 gwiazdki do 5 gwiazdek (1 gwiazdka to najniższa ocena, 5 gwiazdek — najwyższa). Ocena zaufania jest przypisana do oceny na podstawie dostępności punktów danych potrzebnych do obliczenia oceny. Pomaga to oszacować niezawodność zaleceń dotyczących rozmiaru określanych przez usługę Azure Migrate. 
 
-## <a name="next-steps"></a>Kolejne kroki
+Ocena zaufania jest przydatna podczas ustalania *rozmiaru na podstawie wydajności*, ponieważ nie wszystkie punkty danych mogą być dostępne. W przypadku *ustalania rozmiaru jako lokalnego* ocena zaufania to zawsze 5 gwiazdek, ponieważ usługa Azure Migrate ma wszystkie dane, jakich potrzebuje do ustalenia rozmiaru maszyny wirtualnej. 
 
-- [Dowiedz się](how-to-scale-assessment.md) jak odnajdywać i oceny dużych środowisku VMware.
-- Informacje o tworzeniu grup oceny wysokiego zaufania przy użyciu [mapowania zależności maszyny](how-to-create-group-machine-dependencies.md)
-- [Dowiedz się więcej](concepts-assessment-calculation.md) o obliczania oceny.
+W przypadku ustalania rozmiaru na podstawie wydajności usługa Azure Migrate potrzebuje danych użycia procesora CPU i pamięci. Dla każdego dysku podłączonego do maszyny wirtualnej potrzebuje ona danych o liczbie operacji odczytu/zapisu na sekundę i przepływności do ustalenia rozmiaru na podstawie wydajności. Analogicznie, dla każdej karty sieciowej podłączonej do maszyny wirtualnej usługa Azure Migrate potrzebuje danych o ruchu wchodzącym/wychodzącym sieci do ustalenia rozmiaru na podstawie wydajności. Jeśli którekolwiek z powyższych danych użycia są niedostępne w programie vCenter Server, zalecenie dotyczące rozmiaru określone przez usługę Azure Migrate może nie być wiarygodne. W zależności od wartości procentowej dostępnych punktów danych ocenę zaufania dla oceny określa:
+
+   **Dostępność punktów danych** | **Ocenę zaufania**
+   --- | ---
+   0%–20% | 1 gwiazdka
+   21%–40% | 2 gwiazdki
+   41%–60% | 3 gwiazdki
+   61%–80% | 4 gwiazdki
+   81%–100% | 5 gwiazdek
+
+Ocena może nie mieć dostępnych wszystkich punktów danych z jednego z następujących powodów:
+- Ustawienie statystyk w programie vCenter Server nie jest ustawione na poziom 3 i ocena jako kryterium ustalania rozmiaru ma ustalanie rozmiaru na podstawie wydajności. Jeśli ustawienie statystyk w programie vCenter Server jest mniejsze niż poziom 3, dane o wydajności dysku i sieci nie są zbierane z programu vCenter Server. W takim przypadku zalecenie określane przez usługę Azure Migrate dla dysku i sieci jest oparte tylko na tym, co zostało przydzielone lokalnie. Jako magazyn usługa Azure Migrate zaleca dyski w warstwie Standardowa, ponieważ nie ma sposobu identyfikacji dysku, jeśli ma on dużą liczbę operacji we/wy na sekundę/przepływność i wymaga dysków w warstwie Premium.
+- Ustawienie statystyk w programie vCenter Server zostało ustawione na poziom 3 przez krótki czas przed rozpoczęciem odnajdywania. Jeśli na przykład dzisiaj zmienisz poziom ustawień statystyk na 3 i jutro rozpoczniesz odnajdywanie przy użyciu urządzenia modułu zbierającego (po 24 godzinach), jeśli tworzysz ocenę dla jednego dnia, masz wszystkie punkty danych. Ale jeśli zmieniasz czas trwania wydajności we właściwościach oceny na jeden miesiąc, ocena zaufania spada, ponieważ dane o wydajności dysku i sieci dla ostatniego miesiąca są niedostępne. Jeśli chcesz wziąć pod uwagę dane wydajności za ostatni miesiąc, zaleca się utrzymanie ustawienia statystyk programu vCenter Server na poziomie 3 przez jeden miesiąc przed rozpoczęciem odnajdywania. 
+- Kilka maszyn wirtualnych zostało wyłączonych w czasie, dla którego jest obliczana ocena. Jeśli którakolwiek maszyna wirtualna została odłączona od zasilania na pewien czas, program vCenter Server nie będzie miał danych o wydajności dla tego okresu. 
+- Kilka maszyn wirtualnych zostało utworzonych w czasie, dla którego jest obliczana ocena. Jeśli na przykład tworzysz ocenę dla historii wydajności za ostatni miesiąc, ale kilka maszyn wirtualnych zostało utworzonych w środowisku tylko tydzień temu. W takich przypadkach historia wydajności nowych maszyn wirtualnych nie będzie dotyczyła całego czasu oceny.
+
+> [!NOTE]
+> Jeśli ocena zaufania dowolnej oceny jest poniżej 3 gwiazdek, zalecamy zmianę ustawienia poziomu statystyk programu vCenter Server na 3, odczekanie przez czas, który chcesz wziąć pod uwagę podczas oceny (1 dzień/1 tydzień/1 miesiąc), a następnie przeprowadzenie odnajdywania i oceny. Jeśli nie można wykonać powyższego, ustalanie rozmiaru na podstawie wydajności może nie być wiarygodne i zaleca się, aby przełączyć się na *ustalanie rozmiaru jako lokalnego*, zmieniając właściwości oceny.
+ 
+## <a name="next-steps"></a>Następne kroki
+
+- [Dowiedz się](how-to-scale-assessment.md), jak odnajdować i oceniać maszyny wirtualne w dużym środowisku VMware.
+- Dowiedz się, jak tworzyć grupy o wysokim stopniu pewności na potrzeby oceny za pomocą [mapowania zależności maszyn](how-to-create-group-machine-dependencies.md).
+- [Dowiedz się więcej](concepts-assessment-calculation.md) na temat sposobu obliczania ocen.

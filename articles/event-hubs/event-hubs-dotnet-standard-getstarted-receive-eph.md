@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2017
 ms.author: sethm
-ms.openlocfilehash: 0dd3533ab1556b334c09ba69d096b06c8be85cc8
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 5eb5c2d1f0b85c907f788fb6ac752488601f613a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>Wprowadzenie do odbierania komunikatów za pomocą hosta procesora zdarzeń z biblioteki .NET Standard
 
@@ -42,7 +42,7 @@ Pierwszym krokiem jest skorzystanie z witryny [Azure Portal](https://portal.azur
 ## <a name="create-an-azure-storage-account"></a>Tworzenie konta usługi Azure Storage  
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).  
-2. W lewym okienku nawigacji portalu kliknij kolejno pozycje **Nowy**, **Storage**, a następnie kliknij pozycję **Konto magazynu**.  
+2. W lewym okienku nawigacji portalu kliknij kolejno pozycje **Utwórz zasób**, **Magazyn**, a następnie **Konto magazynu**.  
 3. Wypełnij pola w oknie konta magazynu, a następnie kliknij przycisk **Utwórz**.
 
     ![Tworzenie konta magazynu][1]

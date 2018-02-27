@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/13/2017
-ms.openlocfilehash: 9a2648d800b803bf0d9d565a806e627c49bb1a00
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 1f25e6daa7378be4463bb0322cd702163dff5c3f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-azure-machine-learning-preview-accounts-and-install-azure-machine-learning-workbench"></a>Tworzenie kont usługi Azure Machine Learning w wersji zapoznawczej i instalowanie aplikacji Azure Machine Learning Workbench
 Usługa Azure Machine Learning (wersja zapoznawcza) to zintegrowane, kompleksowe rozwiązanie do nauki o danych i przeprowadzania zaawansowanych analiz. Pomaga ono profesjonalnym analitykom przygotowywać dane, opracowywać eksperymenty i wdrażać modele w skali chmury.
@@ -37,7 +37,7 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-azure-machine-learning-accounts"></a>Tworzenie kont usługi Azure Machine Learning
 Aprowizuj konta usługi Azure Machine Learning za pomocą witryny Azure Portal: 
-1. Wybierz przycisk **Nowy** (+) w lewym górnym rogu portalu.
+1. Wybierz przycisk **Utwórz zasób** (+) w lewym górnym rogu portalu.
 
 2. Wpisz ciąg **Machine Learning** na pasku wyszukiwania. Wybierz wynik wyszukiwania o nazwie **Eksperymentowanie w usłudze Machine Learning (wersja zapoznawcza)**.  Kliknij ikonę gwiazdki, aby dodać tę pozycję do ulubionych w witrynie Azure Portal.
 

@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 6b22e06cc569ff58f4e988a014d39c90245bf260
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 555422356ef16319716a6f54d3ba90082ee25838
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="tutorial-use-azure-portal-to-create-a-data-factory-pipeline-to-copy-data"></a>Samouczek: korzystanie z witryny Azure Portal, aby utworzyć potok usługi Data Factory w celu kopiowania danych 
 > [!div class="op_single_selector"]
@@ -73,7 +73,7 @@ Poniżej przedstawiono kroki do wykonania w ramach tego samouczka:
 
 Fabryka danych może obejmować jeden lub wiele potoków. Potok może obejmować jedno lub wiele działań. Na przykład działanie kopiowania może służyć do skopiowania danych ze źródła do docelowego magazynu danych, a działanie programu Hive w usłudze HDInsight do uruchomienia skryptu programu Hive, który przekształci dane wejściowe w dane wyjściowe produktu. Zacznijmy tworzenie fabryki danych w tym kroku.
 
-1. Po zalogowaniu się w witrynie [Azure Portal](https://portal.azure.com/) kliknij pozycję **Nowy** w menu po lewej stronie, kliknij **Dane + Analiza** i kliknij pozycję **Fabryka danych**. 
+1. Po zalogowaniu się w witrynie [Azure Portal](https://portal.azure.com/) kliknij pozycję **Utwórz zasób** w menu po lewej stronie, a następnie pozycje **Dane + analiza** i **Fabryka danych**. 
    
    ![Nowy-> Fabryka danych](./media/data-factory-copy-activity-tutorial-using-azure-portal/NewDataFactoryMenu.png)    
 2. W bloku **Nowa fabryka danych**:

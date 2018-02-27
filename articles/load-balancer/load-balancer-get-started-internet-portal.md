@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 29c74c2cc58e7cab1364b2fc2c74951440dea0ab
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: ff61008710766830640c0de31bf9fd23198946fd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="creating-an-internet-facing-load-balancer-using-the-azure-portal"></a>Tworzenie modułu równoważenia obciążenia dostępnego z Internetu za pomocą witryny Azure Portal
 
@@ -57,7 +57,7 @@ Więcej informacji o składnikach modułu równoważenia obciążenia tworzonego
 > Jednym z złożeń przyjętych na potrzeby poniższego przykładu jest utworzenie sieci wirtualnej o nazwie **myVNet**. Aby ją utworzyć, zapoznaj się z artykułem o [tworzeniu sieci wirtualnej](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). Kolejnym założeniem jest istnienie podsieci **LB-Subnet-BE** w sieci **myVNet** oraz dwóch maszyn wirtualnych (**web1** i **web2**) w zestawie dostępności o nazwie **myAvailSet** w sieci **myVNet**. Aby dowiedzieć się, jak utworzyć maszynę wirtualną, [kliknij tutaj](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 1. Przejdź w przeglądarce do witryny Azure Portal ([http://portal.azure.com](http://portal.azure.com)) i zaloguj się przy użyciu konta Azure.
-2. Po lewej stronie ekranu wybierz kolejno opcje **Nowy** > **Sieć** > **Moduł równoważenia obciążenia**.
+2. W lewym górnym rogu ekranu wybierz pozycję **Utwórz zasób** > **Sieć** > **Moduł równoważenia obciążenia**.
 3. W bloku **Tworzenie modułu równoważenia obciążenia** wpisz nazwę modułu równoważenia obciążenia. W tym przykładzie ma on nazwę **myLoadBalancer**.
 4. W obszarze **Typ** wybierz opcję **Publiczny**.
 5. W obszarze **Publiczny adres IP** utwórz nowy publiczny adres IP o nazwie **myPublicIP**.

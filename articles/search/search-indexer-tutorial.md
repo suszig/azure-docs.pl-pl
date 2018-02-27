@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 11/10/2017
 ms.author: heidist
-ms.openlocfilehash: bebfdfdf72014019a49a6da0e512e72932b096ac
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 22eeccfd692cca74bc0cf12c3400d717c103332f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Jak przeszukiwać bazę danych Azure SQL Database przy użyciu indeksatorów usługi Azure Search
 
@@ -121,7 +121,7 @@ W poniższym ćwiczeniu założono, że nie ma istniejących serwerów ani baz d
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/). 
 
-2. Kliknij pozycję **Nowy** > **SQL Database**, aby utworzyć bazę danych, serwer i grupę zasobów. Możesz użyć wartości domyślnych i warstwy cenowej najniższego poziomu. Jedną z zalet tworzenia serwera jest możliwość określenia nazwy i hasła użytkownika administratora. Są one niezbędne do utworzenia i załadowania tabel w późniejszym kroku.
+2. Kliknij pozycję **Utwórz zasób** > **SQL Database**, aby utworzyć bazę danych, serwer i grupę zasobów. Możesz użyć wartości domyślnych i warstwy cenowej najniższego poziomu. Jedną z zalet tworzenia serwera jest możliwość określenia nazwy i hasła użytkownika administratora. Są one niezbędne do utworzenia i załadowania tabel w późniejszym kroku.
 
    ![Strona nowej bazy danych](./media/search-indexer-tutorial/indexer-new-sqldb.png)
 

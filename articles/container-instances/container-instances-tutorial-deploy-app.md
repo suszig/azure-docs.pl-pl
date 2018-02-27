@@ -1,84 +1,86 @@
 ---
-title: "Samouczek wystąpień kontenera platformy Azure — wdrażanie aplikacji"
-description: "Samouczek usługi Azure wystąpień kontenera część 3 z 3 - wdrażanie aplikacji"
+title: "Samouczek dotyczący usługi Azure Container Instances — wdrażanie aplikacji"
+description: "Samouczek dotyczący usługi Azure Container Instances, część 3 z 3 — wdrażanie aplikacji"
 services: container-instances
 author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: tutorial
-ms.date: 01/02/2018
+ms.date: 02/20/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 471caa1b24dc7017c70782c072b2068f9635244b
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.openlocfilehash: 250f74b1a05959b93000452c4d5f025311f379d8
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/22/2018
 ---
-# <a name="deploy-a-container-to-azure-container-instances"></a>Wdrażanie kontenera do wystąpień kontenera platformy Azure
+# <a name="deploy-a-container-to-azure-container-instances"></a>Wdrażanie kontenera w usłudze Azure Container Instances
 
-To jest ostatnim samouczek w serii trzech części. Wcześniej w serii, [utworzono obrazów kontenera](container-instances-tutorial-prepare-app.md) i [do rejestru kontenera Azure](container-instances-tutorial-prepare-acr.md). W tym artykule zakończeniu samouczka serii przez wdrożenie kontenera do wystąpień kontenera platformy Azure.
+To jest ostatni samouczek z serii składającej się z trzech części. Wcześniej w tej serii [utworzono obraz kontenera](container-instances-tutorial-prepare-app.md) i [przekazano go do usługi Azure Container Registry](container-instances-tutorial-prepare-acr.md). Ten artykuł stanowi zakończenie serii samouczków i dotyczy wdrażania kontenera w usłudze Azure Container Instances.
 
 W tym samouczku zostały wykonane następujące czynności:
 
 > [!div class="checklist"]
-> * Wdrażanie kontenera z rejestru kontenera Azure za pomocą wiersza polecenia platformy Azure
-> * Wyświetl aplikację w przeglądarce
-> * Sprawdź dzienniki z kontenera
+> * Wdrażanie kontenera z usługi Azure Container Registry przy użyciu interfejsu wiersza polecenia platformy Azure
+> * Wyświetlanie aplikacji w przeglądarce
+> * Wyświetlanie dzienników kontenera
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-Ten samouczek wymaga używasz interfejsu wiersza polecenia Azure w wersji 2.0.23 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli musisz zainstalować lub uaktualnić, zobacz [zainstalować Azure CLI 2.0][azure-cli-install].
+W tym samouczku wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.23 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0][azure-cli-install].
 
-Do ukończenia tego samouczka, należy lokalnie zainstalować Środowisko deweloperskie Docker. Docker zawiera pakiety, które łatwo skonfigurować Docker na dowolnym [Mac][docker-mac], [Windows][docker-windows], lub [Linux] [ docker-linux] systemu.
+Do ukończenia tego samouczka konieczne będzie zainstalowane lokalnie środowisko deweloperskie platformy Docker. Środowisko Docker zawiera pakiety, które umożliwiają łatwe konfigurowanie platformy Docker w systemie [Mac][docker-mac], [Windows][docker-windows] lub [Linux][docker-linux].
 
-Azure powłoki chmury nie zawiera składniki Docker wymagane do ukończenia każdego kroku w tym samouczku. Środowisko projektowe wiersza polecenia platformy Azure i klastrem Docker należy zainstalować na komputerze lokalnym do ukończenia tego samouczka.
+Usługa Azure Cloud Shell nie zawiera składników platformy Docker wymaganych do ukończenia każdego kroku w tym samouczku. Aby ukończyć ten samouczek, należy zainstalować interfejs wiersza polecenia platformy Azure i środowisko deweloperskie platformy Docker na komputerze lokalnym.
 
-## <a name="deploy-the-container-using-the-azure-cli"></a>Wdrażanie kontenera przy użyciu wiersza polecenia platformy Azure
+## <a name="deploy-the-container-using-the-azure-cli"></a>Wdrażanie kontenera przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Interfejsu wiersza polecenia Azure umożliwia wdrożenie kontenera do wystąpień kontenera Azure za pomocą jednego polecenia. Ponieważ obraz kontenera znajduje się w rejestrze prywatnej kontenera platformy Azure, musi zawierać poświadczenia wymagane do niego dostęp. Uzyskaj poświadczenia za pomocą następujących poleceń wiersza polecenia platformy Azure.
+Interfejs wiersza polecenia platformy Azure umożliwia wdrożenie kontenera w usłudze Azure Container Instances za pomocą jednego polecenia. Ponieważ obraz kontenera jest hostowany w prywatnym rejestrze Azure Container Registry, musi zawierać poświadczenia wymagane do uzyskiwania dostępu do niego. Uzyskaj poświadczenia za pomocą poniższych poleceń interfejsu wiersza polecenia platformy Azure.
 
-Kontener rejestru logowania serwera (aktualizacja nazwą rejestru):
+Serwer logowania rejestru kontenerów (zaktualizuj przy użyciu nazwy swojego rejestru):
 
 ```azurecli
 az acr show --name <acrName> --query loginServer
 ```
 
-Kontener rejestru hasło:
+Hasło rejestru kontenerów:
 
 ```azurecli
 az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
-Aby wdrożyć obraz kontenera z rejestru kontenera żądanie zasobu 1 rdzeń procesora CPU i 1 GB pamięci, uruchom następujące polecenie. Zastąp `<acrLoginServer>` i `<acrPassword>` z wartościami uzyskane z poprzednich dwóch poleceń.
+Aby wdrożyć obraz kontenera z rejestru kontenerów przy użyciu żądania zasobu z 1 rdzeniem procesora CPU i 1 GB pamięci, uruchom następujące polecenie. Zastąp elementy `<acrLoginServer>` i `<acrPassword>` wartościami uzyskanymi przy użyciu dwóch poprzednich poleceń. Zastąp wartość `<acrName>` nazwą rejestru kontenerów.
 
 ```azurecli
-az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-password <acrPassword> --ip-address public --ports 80
+az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-username <acrName> --registry-password <acrPassword> --dns-name-label aci-demo --ports 80
 ```
 
-W ciągu kilku sekund powinien zostać wyświetlony początkową odpowiedź z usługi Azure Resource Manager. Aby wyświetlić stan wdrożenia, użyj [Pokaż kontenera az][az-container-show]:
+W ciągu kilku sekund powinna pojawić się początkowa odpowiedź z usługi Azure Resource Manager. Wartość `--dns-name-label` musi być unikatowa w regionie platformy Azure, w którym tworzysz wystąpienia kontenera. Zaktualizuj wartość w poprzednim przykładzie, jeśli podczas wykonywania polecenia zostanie wyświetlony komunikat o błędzie **etykiety nazwy DNS**.
+
+Aby wyświetlić stan wdrożenia, użyj polecenia [az container show][az-container-show]:
 
 ```azurecli
 az container show --resource-group myResourceGroup --name aci-tutorial-app --query instanceView.state
 ```
 
-Powtórz [Pokaż kontenera az] [ az-container-show] poleceń, aż stan zmieni się z *oczekujące* do *systemem*, powinien zająć w kilka minut. Gdy jest kontenera *systemem*, przejdź do następnego kroku.
+Powtarzaj polecenie [az container show][az-container-show], aż stan zmieni się z *Oczekujące* na *Uruchomiono*. Powinno to potrwać krócej niż minutę. Jeśli kontener ma stan *Uruchomiono*, przejdź do następnego kroku.
 
-## <a name="view-the-application-and-container-logs"></a>Wyświetl dzienniki aplikacji i kontenera
+## <a name="view-the-application-and-container-logs"></a>Wyświetlanie dzienników aplikacji i kontenerów
 
-Po pomyślnym wdrożeniu, wyświetlania kontenera na publiczny adres IP z [Pokaż kontenera az] [ az-container-show] polecenia:
+Po pomyślnym wdrożeniu wyświetl w pełni kwalifikowaną nazwę domeny (FQDN) kontenera przy użyciu polecenia [az container show][az-container-show]:
 
 ```bash
-az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.ip
+az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
 ```
 
-Przykład danych wyjściowych:`"13.88.176.27"`
+Przykładowe dane wyjściowe: `"aci-demo.eastus.azurecontainer.io"`
 
-Aby wyświetlić działającej aplikacji, przejdź do publicznego adresu IP w ulubionej przeglądarce.
+Aby wyświetlić działającą aplikację, przejdź do wyświetlonej nazwy DNS w ulubionej przeglądarce:
 
-![Witaj świecie aplikacji w przeglądarce][aci-app-browser]
+![Aplikacja Hello World w przeglądarce][aci-app-browser]
 
-Można również wyświetlić dziennik wyjściowy kontenera:
+Możesz również wyświetlić dane wyjściowe dziennika kontenera:
 
 ```azurecli
 az container logs --resource-group myResourceGroup --name aci-tutorial-app
@@ -94,20 +96,20 @@ listening on port 80
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Jeśli nie ma potrzeby zasobów utworzone w tym samouczku, można wykonywać [usunięcie grupy az] [ az-group-delete] polecenie, aby usunąć grupę zasobów i wszystkie zasoby, które zawiera. To polecenie usuwa rejestr kontenera, który został utworzony, a także uruchomiona kontenera i wszystkie powiązane zasoby.
+Jeśli nie potrzebujesz już zasobów utworzonych w tej serii samouczków, możesz wykonać polecenie [az group delete][az-group-delete], aby usunąć grupę zasobów i wszystkie należące do niej zasoby. To polecenie usuwa utworzony rejestr kontenerów, a także uruchomiony kontener i wszystkie powiązane zasoby.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku wykonaniu procesu wdrażania kontenerów do wystąpień kontenera platformy Azure. Wykonano następujące czynności:
+W tym samouczku wykonaniu przeprowadzono proces wdrażania kontenerów w usłudze Azure Container Instances. Wykonano następujące czynności:
 
 > [!div class="checklist"]
-> * Wdrożony kontener z rejestru kontenera Azure za pomocą wiersza polecenia platformy Azure
-> * Wyświetlanie aplikacji w przeglądarce
-> * Wyświetlanie dzienników kontenera
+> * Wdrożono kontener z usługi Azure Container Registry przy użyciu interfejsu wiersza polecenia platformy Azure
+> * Wyświetlono aplikację w przeglądarce
+> * Wyświetlono dzienniki kontenera
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png

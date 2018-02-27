@@ -1,47 +1,52 @@
 ---
-title: "Wysokiej dostępności danych aplikacji na platformie Azure | Dokumentacja firmy Microsoft"
-description: "Umożliwia dostęp do odczytu magazynu geograficznie nadmiarowego wysokiej dostępności danych aplikacji"
+title: "Uzyskiwanie wysokiej dostępności danych aplikacji na platformie Azure | Microsoft Docs"
+description: "Używanie magazynu geograficznie nadmiarowego do odczytu w celu uzyskania wysokiej dostępności danych aplikacji"
 services: storage
-documentationcenter: 
-author: georgewallace
+author: tamram
 manager: jeconnoc
-editor: 
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 11/15/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 63ca91c2eadf7b003427e9716d99621fca1b1a19
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.openlocfilehash: 7b7625b3250d7e5b4cdb4090f34072eb58dda07c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/22/2018
 ---
-# <a name="make-your-application-data-highly-available-with-azure-storage"></a>Wysokiej dostępności danych aplikacji z usługą Azure storage
+# <a name="make-your-application-data-highly-available-with-azure-storage"></a>Uzyskiwanie wysokiej dostępności danych aplikacji przy użyciu usługi Azure Storage
 
-W tym samouczku wchodzi w jednej serii. W tym samouczku przedstawiono sposób wysokiej dostępności danych aplikacji na platformie Azure. Po zakończeniu, masz operacji przekazywania, który pobiera obiekt blob do aplikacji konsoli .NET core [dostęp do odczytu z magazynu geograficznie nadmiarowego](../common/storage-redundancy.md#read-access-geo-redundant-storage) konta magazynu (RA-GRS). RA-GRS polega na replikowanie transakcji z serwera podstawowego w regionie pomocniczym. Ten proces replikacji gwarantuje, że dane w regionie pomocniczym jest ostatecznie spójna. Aplikacja używa [wyłącznika](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker) wzorzec, aby określić, które punktu końcowego do nawiązania połączenia. Aplikacja przełącza do dodatkowej punktu końcowego, gdy symulacji awarii.
+Ten samouczek to pierwsza część w serii. Przedstawiono w nim sposób uzyskiwania wysokiej dostępności danych aplikacji na platformie Azure. Po zakończeniu będziesz mieć aplikację konsolową, która przekazuje i pobiera obiekt blob do konta magazynu [geograficznie nadmiarowego do odczytu](../common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS). Działanie magazynu RA-GRS polega na replikowaniu transakcji z regionu podstawowego do pomocniczego. Ten proces replikacji gwarantuje, że dane w regionie pomocniczym ostatecznie uzyskają spójność. Aplikacja używa wzorca [wyłącznika](/azure/architecture/patterns/circuit-breaker), aby określić, z którym punktem końcowym nawiązać połączenie. Aplikacja przełącza się do pomocniczego punktu końcowego w przypadku symulacji błędu.
 
-W części jednej serii, możesz dowiedzieć się, jak:
+Część pierwsza serii zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie konta magazynu
 > * Pobierz przykład
 > * Ustawianie parametrów połączenia
-> * Uruchom aplikację konsolową
+> * Uruchamianie aplikacji konsolowej
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 W celu ukończenia tego samouczka:
-
+ 
+# <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
 * Zainstaluj program [Visual Studio 2017](https://www.visualstudio.com/downloads/) z następującymi pakietami roboczymi:
   - **Tworzenie aplikacji na platformie Azure**
 
-  ![Programowanie Azure (znajduje się w sieci Web i w chmurze)](media/storage-create-geo-redundant-storage/workloads.png)
+  ![Tworzenie aplikacji na platformie Azure (w Internecie i w chmurze)](media/storage-create-geo-redundant-storage/workloads.png)
 
-* Pobierz i zainstaluj [Fiddler](https://www.telerik.com/download/fiddler)
+* (Opcjonalnie) Pobierz i zainstaluj program [Fiddler](https://www.telerik.com/download/fiddler)
+ 
+# <a name="python-tabpython"></a>[Python] (#tab/python) 
+
+* Zainstaluj język [Python](https://www.python.org/downloads/)
+* Pobierz i zainstaluj [zestaw SDK usługi Azure Storage dla języka Python](storage-python-how-to-use-blob-storage.md#download-and-install-azure-storage-sdk-for-python)
+* (Opcjonalnie) Pobierz i zainstaluj program [Fiddler](https://www.telerik.com/download/fiddler)
+
+---
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -51,70 +56,95 @@ Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-storage-account"></a>Tworzenie konta magazynu
 
-Konto magazynu zapewnia unikatową przestrzeń nazw do przechowywania i udostępniania obiektów danych usługi Azure storage.
+Konto magazynu zapewnia unikatową przestrzeń nazw do przechowywania i umożliwiania dostępu do obiektów danych usługi Azure Storage.
 
-Wykonaj następujące kroki, aby utworzyć konto magazynu geograficznie nadmiarowego dostęp do odczytu:
+Wykonaj następujące kroki, aby utworzyć konto magazynu geograficznie nadmiarowego do odczytu:
 
-1. Wybierz **nowy** znaleziono przycisku w lewym górnym rogu portalu Azure.
+1. Wybierz przycisk **Utwórz zasób** znajdujący się w lewym górnym rogu witryny Azure Portal.
 
-2. Wybierz **magazynu** z **nowy** i wybrać opcję **konta magazynu — obiekt blob, plików, tabeli, kolejki** w obszarze **proponowanym**.
-3. Wypełnij formularz konta magazynu, z następującymi informacjami, jak pokazano w poniższych obrazu i wybierz **Utwórz**:
+2. Wybierz pozycję **Magazyn** na stronie **Nowy** i wybierz pozycję **Konto magazynu — obiekt blob, plik, tabela, kolejka** w obszarze **Polecane**.
+3. Wypełnij formularz konta magazynu przy użyciu następujących informacji zgodnie z ilustracją i wybierz pozycję **Utwórz**:
 
    | Ustawienie       | Sugerowana wartość | Opis |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Nazwa** | mojekontomagazynu | Unikatową wartość dla konta magazynu |
-   | **Model wdrażania** | Resource Manager  | Menedżer zasobów zawiera najnowsze funkcje.|
-   | **Typ konta** | Zastosowania ogólne | Aby uzyskać więcej informacji dotyczących typów kont, zobacz [typy kont magazynu](../common/storage-introduction.md#types-of-storage-accounts) |
-   | **Wydajność** | Standardowa (Standard) | Standard jest wystarczająca dla przykładowy scenariusz. |
-   | **Replikacja**| Magazyn geograficznie nadmiarowy dostępny do odczytu (RA-GRS) | Jest to konieczne, na przykład działał. |
-   |**Zapewnienia bezpiecznego transferu wymagane** | Disabled (Wyłączony)| Zapewnienia bezpiecznego transferu nie jest wymagane dla tego scenariusza. |
-   |**Subskrypcja** | Subskrypcji |Aby uzyskać szczegółowe informacje o subskrypcjach, zobacz [Subskrypcje](https://account.windowsazure.com/Subscriptions). |
-   |**Grupa zasobów** | myResourceGroup |Prawidłowe nazwy grup zasobów opisano w artykule [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Reguły i ograniczenia nazewnictwa). |
+   | **Nazwa** | mystorageaccount | Unikatowa wartość konta magazynu |
+   | **Model wdrażania** | Resource Manager  | Usługa Resource Manager oferuje najnowsze funkcje.|
+   | **Rodzaj konta** | Zastosowania ogólne | Aby uzyskać więcej informacji na temat typów kont, zobacz [Typy kont magazynu](../common/storage-introduction.md#types-of-storage-accounts) |
+   | **Wydajność** | Standardowa (Standard) | Warstwa Standardowa jest wystarczająca na potrzeby przykładowego scenariusza. |
+   | **Replikacja**| Magazyn geograficznie nadmiarowy dostępny do odczytu (RA-GRS) | Jest to niezbędne do działania przykładu. |
+   |**Wymagany bezpieczny transfer** | Disabled (Wyłączony)| Bezpieczny transfer nie jest wymagany w przypadku tego scenariusza. |
+   |**Subskrypcja** | Twoja subskrypcja |Aby uzyskać szczegółowe informacje o subskrypcjach, zobacz [Subskrypcje](https://account.windowsazure.com/Subscriptions). |
+   |**ResourceGroup** | myResourceGroup |Prawidłowe nazwy grup zasobów opisano w artykule [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Reguły i ograniczenia nazewnictwa). |
    |**Lokalizacja** | Wschodnie stany USA | Wybierz lokalizację. |
 
-![Tworzenie konta magazynu](media/storage-create-geo-redundant-storage/figure1.png)
+![tworzenie konta magazynu](media/storage-create-geo-redundant-storage/figure1.png)
 
 ## <a name="download-the-sample"></a>Pobierz przykład
 
-[Pobierz przykładowy projekt](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip).
+# <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
 
-Wyodrębnij (Rozpakuj) storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.zip pliku.
-Przykładowy projekt zawiera aplikacji konsoli.
+[Pobierz przykładowy projekt](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip) i wyodrębnij (rozpakuj) plik storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.zip file. Możesz również użyć narzędzia [git](https://git-scm.com/), aby pobrać kopię tej aplikacji do swojego środowiska projektowego. Przykładowy projekt zawiera aplikację konsolową.
+
+```bash
+git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.git 
+```
+# <a name="python-tabpython"></a>[Python] (#tab/python) 
+
+[Pobierz przykładowy projekt](https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip) i wyodrębnij (rozpakuj) plik storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.zip. Możesz również użyć narzędzia [git](https://git-scm.com/), aby pobrać kopię tej aplikacji do swojego środowiska projektowego. Przykładowy projekt zawiera podstawową aplikację w języku Python.
+
+```bash
+git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.git
+```
+---
+
 
 ## <a name="set-the-connection-string"></a>Ustawianie parametrów połączenia
 
-W aplikacji należy wprowadzić parametry połączenia konta magazynu. Zaleca się do przechowywania tych parametrów połączenia w zmiennej środowiskowej na komputerze lokalnym działania aplikacji. Wykonaj jedną z przykłady poniżej, w zależności od systemu operacyjnego, można utworzyć zmiennej środowiskowej.
+W aplikacji należy wprowadzić parametry połączenia konta magazynu. Zaleca się do przechowywanie tych parametrów połączenia w zmiennej środowiskowej na maszynie lokalnej, na której uruchomiona jest aplikacja. Postępuj zgodnie z jednym z poniższych przykładów w zależności od używanego systemu operacyjnego, aby utworzyć zmienną środowiskową.
 
-W portalu Azure przejdź do swojego konta magazynu. Wybierz **klucze dostępu** w obszarze **ustawienia** na koncie magazynu. Kopiuj **ciąg połączenia** z klucz podstawowy lub pomocniczy. Zastąp \<yourconnectionstring\> z połączeniem rzeczywiste oparte na ciągach, uruchamiając jeden z następujących poleceń w systemie operacyjnym. To polecenie zapisuje zmienną środowiskową na komputerze lokalnym. W systemie Windows, zmiennej środowiskowej nie jest dostępne do czasu ponownie załadować **wiersza polecenia** lub korzystasz z powłoki. Zastąp  **\<storageConnectionString\>**  w następującym przykładzie:
+W witrynie Azure Portal przejdź do swojego konta magazynu. Wybierz pozycję **Klucze dostępu** w obszarze **Ustawienia** konta magazynu. Kopiuj **ciąg połączenia** z klucza podstawowego lub dodatkowego. Zastąp ciąg \<yourconnectionstring\> rzeczywistymi parametrami połączenia, uruchamiając jedno z poniższych poleceń w systemie operacyjnym. To polecenie zapisuje zmienną środowiskową na maszynie lokalnej. W systemie Windows zmienna środowiskowa nie jest dostępna do czasu ponownego załadowania używanej powłoki lub **wiersza polecenia**. Zastąp ciąg **\<storageConnectionString\>** w następującym przykładzie:
 
-### <a name="linux"></a>Linux
+# <a name="linux-tablinux"></a>[Linux] (#tab/linux) 
+export storageconnectionstring=\<yourconnectionstring\> 
 
-```bash
-export storageconnectionstring=<yourconnectionstring>
-```
+# <a name="windows-tabwindows"></a>[Windows] (#tab/windows) 
+setx storageconnectionstring "\<yourconnectionstring\>"
 
-### <a name="windows"></a>Windows
+---
 
-```cmd
-setx storageconnectionstring "<yourconnectionstring>"
-```
 
-![plik konfiguracji aplikacji](media/storage-create-geo-redundant-storage/figure2.png)
+## <a name="run-the-console-application"></a>Uruchamianie aplikacji konsolowej
 
-## <a name="run-the-console-application"></a>Uruchom aplikację konsolową
+# <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
+W programie Visual Studio naciśnij klawisz **F5** lub wybierz pozycję **Uruchom**, aby rozpocząć debugowanie aplikacji. Program Visual Studio automatycznie przywraca brakujące pakiety NuGet, jeśli zostały skonfigurowane. Więcej szczegółów można znaleźć w temacie [Installing and reinstalling packages with package restore (Instalowanie i ponowne instalowanie pakietów przy użyciu funkcji przywracania pakietów)](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview).
 
-W programie Visual Studio, naciśnij klawisz **F5** lub wybierz **Start** można rozpocząć debugowania aplikacji. Visual studio automatycznie przywracania brakujących pakietów NuGet Jeśli skonfigurowana, odwiedź stronę do [Instalowanie i ponownie zainstalować pakiety z Przywracanie pakietu](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview) Aby dowiedzieć się więcej.
+Zostanie uruchomione okno konsoli i aplikacja zacznie działać. Aplikacja przekazuje obraz **HelloWorld.png** z rozwiązania na konto magazynu. Aplikacja sprawdza, czy obraz został replikowany do pomocniczego punktu końcowego RA-GRS. Następnie rozpoczyna pobieranie obrazu maksymalnie 999 razy. Każdy odczyt jest reprezentowany przez **P** lub **S**. **P** reprezentuje podstawowy punkt końcowy, a **S** — pomocniczy punkt końcowy.
 
-Uruchamia okno konsoli i rozpocznie się aplikacja uruchomiona. Aplikacja wysyła **HelloWorld.png** obrazu z rozwiązania do konta magazynu. Aplikacja sprawdza zapewnienie obraz został zreplikowany do dodatkowej RA-GRS punktu końcowego. Następnie rozpoczyna pobieranie obrazu do 999 razy. Odczyt każdy jest reprezentowany przez **P** lub **S**. Gdzie **P** reprezentuje podstawowy punkt końcowy i **S** reprezentuje punkt końcowy dodatkowej.
+![Uruchomiona aplikacja konsolowa](media/storage-create-geo-redundant-storage/figure3.png)
 
-![Uruchomieniu aplikacji konsoli](media/storage-create-geo-redundant-storage/figure3.png)
+W przykładowym kodzie zadanie `RunCircuitBreakerAsync` w pliku `Program.cs` jest używane do pobierania obrazu z konta magazynu przy użyciu metody [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.downloadtofileasync?view=azure-dotnet). Przed pobraniem definiowany jest element [OperationContext](/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet). Kontekst operacji definiuje procedury obsługi zdarzeń wyzwalane po pomyślnym zakończeniu pobierania lub po niepowodzeniu pobierania i podjęciu jego kolejnej próby.
 
-W przykładowym kodzie `RunCircuitBreakerAsync` zadań w `Program.cs` plik jest używany do pobierania obrazu z konta magazynu przy użyciu [DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet) metody. Przed pobierania [elementu OperationContext](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet) jest zdefiniowany. Kontekst operacji definiuje procedury obsługi zdarzeń, wyzwalać podczas pobierania zostało ukończone pomyślnie, lub jeśli pobieranie kończy się niepowodzeniem i jest ponowną próbą.
+# <a name="python-tabpython"></a>[Python] (#tab/python) 
+Aby uruchomić aplikację w terminalu lub wierszu polecenia, przejdź do katalogu **circuitbreaker.py** i wprowadź wartość `python circuitbreaker.py`. Aplikacja przekazuje obraz **HelloWorld.png** z rozwiązania na konto magazynu. Aplikacja sprawdza, czy obraz został replikowany do pomocniczego punktu końcowego RA-GRS. Następnie rozpoczyna pobieranie obrazu maksymalnie 999 razy. Każdy odczyt jest reprezentowany przez **P** lub **S**. **P** reprezentuje podstawowy punkt końcowy, a **S** — pomocniczy punkt końcowy.
 
-### <a name="retry-event-handler"></a>Ponów próbę wykonania programu obsługi zdarzeń
+![Uruchomiona aplikacja konsolowa](media/storage-create-geo-redundant-storage/figure3.png)
 
-`OperationContextRetrying` Program obsługi zdarzeń jest wywoływana podczas pobierania obrazu nie powiedzie się i jest ustawiona, aby ponowić próbę. Jeśli osiągnięciu maksymalnej liczby ponownych prób, które są zdefiniowane w aplikacji [LocationMode](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) żądania jest zmieniana na `SecondaryOnly`. Ustawienie to wymusza aplikacja próbuje pobrać obrazu z punktu końcowego dodatkowej. Ta konfiguracja ogranicza czas potrzebny na żądanie dotyczące obrazu jako podstawowy punkt końcowy nie podjęta przez nieograniczony czas.
+W przykładowym kodzie metoda `run_circuit_breaker` w pliku `circuitbreaker.py` jest używana do pobierania obrazu z konta magazynu przy użyciu metody [get_blob_to_path](https://azure.github.io/azure-storage-python/ref/azure.storage.blob.baseblobservice.html). 
 
+Funkcja ponawiania obiektu usługi Storage została ustawiona na zasady ponawiania liniowego. Funkcja ponawiania określa, czy należy ponowić próbę żądania, oraz wskazuje liczbę sekund oczekiwania przed ponownym podjęciem próby wykonania żądania. Ustaw pozycję **retry\_to\_secondary** na wartość true, jeśli żądanie powinno być ponawiane w punkcie pomocniczym w przypadku niepowodzenia początkowego żądania w punkcie podstawowym. W przykładowej aplikacji niestandardowe zasady ponawiania zostały zdefiniowane w funkcji `retry_callback` obiektu magazynu.
+ 
+Przed pobraniem definiowana jest funkcja [retry_callback](https://docs.microsoft.com/en-us/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) i [response_callback](https://docs.microsoft.com/en-us/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) obiektu usługi. Te funkcje definiują procedury obsługi zdarzeń wyzwalane po pomyślnym zakończeniu pobierania lub po niepowodzeniu pobierania i podjęciu jego kolejnej próby.  
+
+---
+
+### <a name="retry-event-handler"></a>Procedura obsługi zdarzeń ponawiania
+
+# <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
+
+Procedura obsługi zdarzeń `OperationContextRetrying` jest wywoływana, jeśli pobieranie obrazu nie powiedzie się i zostało ustawiane na ponawianie. W przypadku osiągnięcia maksymalnej liczby ponownych prób zdefiniowanej w aplikacji tryb [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) żądania zmienia się na `SecondaryOnly`. To ustawienie wymusza na aplikacji podjęcie próby pobrania obrazu z pomocniczego punktu końcowego. Ta konfiguracja ogranicza czas żądania obrazu, ponieważ ponowne próby dotyczące podstawowego punktu końcowego nie są podejmowane bez ograniczeń.
+
+W przykładowym kodzie zadanie `RunCircuitBreakerAsync` w pliku `Program.cs` jest używane do pobierania obrazu z konta magazynu przy użyciu metody [DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet). Przed pobraniem definiowany jest element [OperationContext](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet). Kontekst operacji definiuje procedury obsługi zdarzeń wyzwalane po pomyślnym zakończeniu pobierania lub po niepowodzeniu pobierania i podjęciu jego kolejnej próby.
+ 
 ```csharp
 private static void OperationContextRetrying(object sender, RequestEventArgs e)
 {
@@ -139,10 +169,37 @@ private static void OperationContextRetrying(object sender, RequestEventArgs e)
 }
 ```
 
-### <a name="request-completed-event-handler"></a>Program obsługi zdarzeń żądanie zostało ukończone
+# <a name="python-tabpython"></a>[Python] (#tab/python) 
+Procedura obsługi zdarzeń `retry_callback` jest wywoływana, jeśli pobieranie obrazu nie powiedzie się i zostało ustawiane na ponawianie. W przypadku osiągnięcia maksymalnej liczby ponownych prób zdefiniowanej w aplikacji tryb [LocationMode](https://docs.microsoft.com/en-us/python/api/azure.storage.common.models.locationmode?view=azure-python) żądania zmienia się na `SECONDARY`. To ustawienie wymusza na aplikacji podjęcie próby pobrania obrazu z pomocniczego punktu końcowego. Ta konfiguracja ogranicza czas żądania obrazu, ponieważ ponowne próby dotyczące podstawowego punktu końcowego nie są podejmowane bez ograniczeń.  
 
-`OperationContextRequestCompleted` Program obsługi zdarzeń jest wywoływana po pomyślnym zakończeniu operacji pobierania obrazu. Jeśli aplikacja używa dodatkowej punktu końcowego, aplikacja będzie później nadal używać tego punktu końcowego do 20 razy. Po 20 razy zestawów aplikacji [LocationMode](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) do `PrimaryThenSecondary` i ponawia podstawowy punkt końcowy. Jeśli żądanie zakończy się pomyślnie, aplikacja nadal odczytywać podstawowy punkt końcowy.
+```python
+def retry_callback(retry_context):
+    global retry_count
+    retry_count = retry_context.count
+    sys.stdout.write("\nRetrying event because of failure reading the primary. RetryCount= {0}".format(retry_count))
+    sys.stdout.flush()
 
+    # Check if we have more than n-retries in which case switch to secondary
+    if retry_count >= retry_threshold:
+
+        # Check to see if we can fail over to secondary.
+        if blob_client.location_mode != LocationMode.SECONDARY:
+            blob_client.location_mode = LocationMode.SECONDARY
+            retry_count = 0
+        else:
+            raise Exception("Both primary and secondary are unreachable. "
+                            "Check your application's network connection.")
+```
+
+---
+
+
+### <a name="request-completed-event-handler"></a>Procedura obsługi zdarzeń dla ukończonego żądania
+ 
+# <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
+
+Procedura obsługi zdarzeń `OperationContextRequestCompleted` jest wywoływana, jeśli pobieranie obrazu powiedzie się. Jeśli aplikacja używa pomocniczego punktu końcowego, będzie używać go maksymalnie 20 razy. Po 20 razach aplikacja ustawi tryb [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) z powrotem na `PrimaryThenSecondary` i ponowi próbę użycia podstawowego punktu końcowego. Jeśli żądanie zakończy się pomyślnie, aplikacja będzie nadal odczytywać dane z podstawowego punktu końcowego.
+ 
 ```csharp
 private static void OperationContextRequestCompleted(object sender, RequestEventArgs e)
 {
@@ -160,17 +217,36 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
 }
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+# <a name="python-tabpython"></a>[Python] (#tab/python) 
 
-W części jednej serii wiesz o wprowadzaniu aplikacji wysokiej dostępności z kontami magazynu RA-GRS, np.:
+Procedura obsługi zdarzeń `response_callback` jest wywoływana, jeśli pobieranie obrazu powiedzie się. Jeśli aplikacja używa pomocniczego punktu końcowego, będzie używać go maksymalnie 20 razy. Po 20 razach aplikacja ustawi tryb [LocationMode](https://docs.microsoft.com/en-us/python/api/azure.storage.common.models.locationmode?view=azure-python) z powrotem na `PRIMARY` i ponowi próbę użycia podstawowego punktu końcowego. Jeśli żądanie zakończy się pomyślnie, aplikacja będzie nadal odczytywać dane z podstawowego punktu końcowego.
+
+```python
+def response_callback(response):
+    global secondary_read_count
+    if blob_client.location_mode == LocationMode.SECONDARY:
+
+        # You're reading the secondary. Let it read the secondary [secondaryThreshold] times,
+        # then switch back to the primary and see if it is available now.
+        secondary_read_count += 1
+        if secondary_read_count >= secondary_threshold:
+            blob_client.location_mode = LocationMode.PRIMARY
+            secondary_read_count = 0
+```
+
+---
+
+## <a name="next-steps"></a>Następne kroki
+
+W pierwszej części serii omówiono czynności dotyczące uzyskiwania wysokiej dostępności aplikacji przy użyciu kont magazynu RA-GRS, takie jak:
 
 > [!div class="checklist"]
 > * Tworzenie konta magazynu
 > * Pobierz przykład
 > * Ustawianie parametrów połączenia
-> * Uruchom aplikację konsolową
+> * Uruchamianie aplikacji konsolowej
 
-Przejście do dwóch częścią serii, aby dowiedzieć się, jak symulację awarii i wymuszanie aplikacji umożliwiająca użycie dodatkowej RA-GRS punktu końcowego.
+Przejdź do drugiej części serii, aby dowiedzieć się, jak symulować błąd i wymuszać użycie pomocniczego punktu końcowego RA-GRS w aplikacji.
 
 > [!div class="nextstepaction"]
-> [Symulację awarii w powiązaniu z punktu końcowego podstawowego magazynu](storage-simulate-failure-ragrs-account-app.md)
+> [Symulowanie błędu w połączeniu z podstawowym punktem końcowym magazynu](storage-simulate-failure-ragrs-account-app.md)

@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI przykładowym skrypcie - Usuń kontenery według prefiksu | Dokumentacja firmy Microsoft"
-description: "Usuń kontenerów obiektów blob magazynu Azure na podstawie prefiksu nazwy kontenera."
+title: "Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — usuwanie kontenerów na podstawie prefiksu | Microsoft Docs"
+description: "Usuwanie kontenerów obiektów blob w usłudze Azure Storage na podstawie prefiksu nazwy kontenera."
 services: storage
 documentationcenter: na
 author: tamram
@@ -15,15 +15,15 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/22/2017
 ms.author: tamram
-ms.openlocfilehash: d14195abf1c17d11e259ed9edb5112626b063112
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: MT
+ms.openlocfilehash: 3eab1878c2a5f6b1d031ef3208e30a4df19dc41e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="delete-containers-based-on-container-name-prefix"></a>Usuń kontenerów na podstawie prefiksu nazwy kontenera
+# <a name="delete-containers-based-on-container-name-prefix"></a>Usuwanie kontenerów na podstawie prefiksu nazwy kontenera
 
-Ten skrypt najpierw tworzy kilka przykładowych kontenerów w magazynie obiektów Blob platformy Azure, a następnie usuwa niektóre kontenerów na podstawie prefiksu nazwy kontenera.
+Ten skrypt tworzy kilka przykładowych kontenerów w usłudze Azure Blob Storage, a następnie usuwa niektóre z nich na podstawie prefiksu nazwy kontenera.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -35,26 +35,26 @@ Ten skrypt najpierw tworzy kilka przykładowych kontenerów w magazynie obiektó
 
 ## <a name="clean-up-deployment"></a>Czyszczenie wdrożenia 
 
-Uruchom następujące polecenie, aby usunąć grupę zasobów, pozostałe kontenerów, i wszystkich powiązanych zasobów.
+Uruchom następujące polecenie, aby usunąć grupę zasobów, pozostałe kontenery i wszystkie powiązane zasoby.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 
-## <a name="script-explanation"></a>Wyjaśnienie skryptu
+## <a name="script-explanation"></a>Objaśnienia dla skryptu
 
-Ten skrypt używa następujących poleceń do usuwania kontenerów na podstawie prefiksu nazwy kontenera. Każdy element w tabeli łącza do dokumentacji specyficzne dla polecenia.
+Ten skrypt zawiera następujące polecenia służące do usunięcia kontenerów na podstawie prefiksu nazwy kontenera. Każda pozycja w tabeli stanowi link do dokumentacji polecenia.
 
 | Polecenie | Uwagi |
 |---|---|
-| [Tworzenie grupy az](/cli/azure/group#create) | Tworzy grupę zasobów, w którym przechowywane są wszystkie zasoby. |
-| [Tworzenie konta magazynu az](/cli/azure/storage/account#create) | Utworzenie konta usługi Azure Storage w określonej grupy zasobów. |
-| [Tworzenie kontenera magazynu az](/cli/azure/storage/container#create) | Tworzy kontener magazynu obiektów Blob platformy Azure. |
-| [Lista kontenera magazynu az](/cli/azure/storage/container#list) | Wyświetla kontenery konta magazynu Azure. |
-| [usunięcie kontenera magazynu az](/cli/azure/storage/container#delete) | Usuwa kontenery konta magazynu Azure. |
+| [az group create](/cli/azure/group#az_group_create) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Tworzy konto usługi Azure Storage we wskazanej grupie zasobów. |
+| [az storage container create](/cli/azure/storage/container#az_storage_container_create) | Tworzy kontener w usłudze Azure Blob Storage. |
+| [az storage container list](/cli/azure/storage/container#az_storage_container_list) | Zwraca listę kontenerów na koncie usługi Azure Storage. |
+| [az storage container delete](/cli/azure/storage/container#az_storage_container_delete) | Usuwa kontenery z konta usługi Azure Storage. |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji dotyczących interfejsu wiersza polecenia Azure, zobacz [dokumentacji interfejsu wiersza polecenia Azure](/cli/azure/overview).
+Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](/cli/azure/overview).
 
-Przykłady skryptów dodatkowego magazynu interfejsu wiersza polecenia można znaleźć w [próbki wiersza polecenia platformy Azure do usługi Azure Storage](../blobs/storage-samples-blobs-cli.md).
+Więcej przykładowych skryptów interfejsu wiersza polecenia dla usługi Storage można znaleźć na stronie [Azure CLI samples for Azure Storage (Przykłady skryptów interfejsu wiersza polecenia platformy Azure dla usługi Azure Storage)](../blobs/storage-samples-blobs-cli.md).
