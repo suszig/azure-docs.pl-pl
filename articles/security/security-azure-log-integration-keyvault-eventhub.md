@@ -8,18 +8,22 @@ editor: TomShinder
 ms.assetid: 
 ms.service: security
 ms.topic: article
-ms.date: 08/07/2017
+ms.date: 02/16/2018
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: 3cd80817bf8b2ef2f66e9942eddc186a3eb5b5e4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e5bd27c94569228693d1a9c80c6e5362b50c4a44
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Samouczek usługi Azure integracji dziennika: zdarzeń procesu usługi Azure Key Vault za pomocą usługi Event Hubs
 
 Integracja dziennika Azure służy do pobierania zarejestrowane zdarzenia i udostępnić je do systemu zarządzania (SIEM) informacje i zdarzeń zabezpieczeń. W tym samouczku przedstawiono sposób integracji dziennika Azure może służyć do przetworzenia dzienniki, które zostały zakupione w ramach usługi Azure Event Hubs.
+
+>[!IMPORTANT]
+>Preferowaną metodą integrowanie dzienników Azure jest za pomocą łącznika Azure Monitor dostawcą SIEM i wykonując te [instrukcje](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). Jednak jeśli dostawcą SIEM nie łącznika do monitorowania Azure, można korzystać z usługi Azure dziennika integracji jako rozwiązanie tymczasowe (Jeśli system SIEM jest obsługiwana przez integrację dziennika Azure) do czasu udostępnienia łącznika programu.
+
  
 Użyj tego samouczka, aby poznać sposób integracji dziennika Azure i usługi Event Hubs współpracują ze sobą następujące przykładowe kroki i zrozumienie, jak każdy krok obsługuje rozwiązania. Następnie może potrwać co kiedy znasz już w tym miejscu można utworzyć własne kroki, aby obsługiwać unikatowe wymagania firmy.
 
@@ -86,13 +90,13 @@ Aby móc zakończyć kroki opisane w tym artykule, potrzebne są następujące e
 
    ![Okno programu PowerShell](./media/security-azure-log-integration-keyvault-eventhub/login-azurermaccount.png)
 5. Utwórz zmienne do przechowywania wartości, które będą używane później. Wprowadź każdy z poniższych wierszy programu PowerShell. Może być konieczne dostosowanie wartości do danego środowiska.
-    - ```$subscriptionName = ‘Visual Studio Ultimate with MSDN’```(Nazwa Twojej subskrypcji mogą się różnić. Można to sprawdzić w ramach danych wyjściowych poprzednie polecenie.)
-    - ```$location = 'West US'```(Ta zmienna będzie służyć do przekazywania lokalizacji, w którym ma zostać utworzony zasobów. Można zmienić tej zmiennej można w dowolnej lokalizacji wybrane.)
+    - ```$subscriptionName = ‘Visual Studio Ultimate with MSDN’``` (Nazwa Twojej subskrypcji mogą się różnić. Można to sprawdzić w ramach danych wyjściowych poprzednie polecenie.)
+    - ```$location = 'West US'``` (Ta zmienna będzie służyć do przekazywania lokalizacji, w którym ma zostać utworzony zasobów. Można zmienić tej zmiennej można w dowolnej lokalizacji wybrane.)
     - ```$random = Get-Random```
-    - ``` $name = 'azlogtest' + $random```(Nazwa może być dowolna, ale powinien zawierać tylko małe litery i cyfry).
-    - ``` $storageName = $name```(Ta zmienna będzie można używać nazwy konta magazynu).
-    - ```$rgname = $name ```(Ta zmienna będzie służyć do nazwy grupy zasobów.)
-    - ``` $eventHubNameSpaceName = $name```(To jest nazwa przestrzeni nazw Centrum zdarzeń).
+    - ``` $name = 'azlogtest' + $random``` (Nazwa może być dowolna, ale powinien zawierać tylko małe litery i cyfry).
+    - ``` $storageName = $name``` (Ta zmienna będzie można używać nazwy konta magazynu).
+    - ```$rgname = $name ``` (Ta zmienna będzie służyć do nazwy grupy zasobów.)
+    - ``` $eventHubNameSpaceName = $name``` (To jest nazwa przestrzeni nazw Centrum zdarzeń).
 6. Określ subskrypcję, która będzie działać z:
     
     ```Select-AzureRmSubscription -SubscriptionName $subscriptionName```
@@ -175,7 +179,7 @@ Uruchom polecenie AzLog dla każdego Centrum zdarzeń:
 
 Po minucie lub sposób uruchamiania poleceń, ostatnie dwa powinna zostać wyświetlona generowaną pliki w formacie JSON. Możesz sprawdzić, który przez monitorowanie katalogu **C:\users\AzLog\EventHubJson**.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Integracja dzienników Azure — często zadawane pytania](security-azure-log-integration-faq.md)
 - [Wprowadzenie do integracji dziennika Azure](security-azure-log-integration-get-started.md)

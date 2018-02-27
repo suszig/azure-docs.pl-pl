@@ -3,8 +3,8 @@ title: Migrowanie bazy danych programu SQL Server do programu SQL Server na masz
 description: "Dowiedz się więcej na temat przeprowadzania migracji bazy danych użytkowników lokalnych z programem SQL Server w maszynie wirtualnej platformy Azure."
 services: virtual-machines-windows
 documentationcenter: 
-author: sabotta
-manager: jhubbard
+author: rothja
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: 00fd08c6-98fa-4d62-a3b8-ca20aa5246b1
@@ -13,13 +13,13 @@ ms.workload: iaas-sql-server
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
-ms.author: carlasab
-ms.openlocfilehash: 68767534298783083a441aa295611914d0df9db0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/13/2018
+ms.author: jroth
+ms.openlocfilehash: 23538e933c8d1c2165cec1bdf1e9db28e0065801
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>Migrowanie bazy danych programu SQL Server do programu SQL Server na maszynie wirtualnej platformy Azure
 
@@ -35,7 +35,7 @@ Dostępne są następujące metody głównej migracji:
 * Odłącz i następnie skopiuj pliki danych i dziennika do magazynu obiektów blob platformy Azure, a następnie dołącz do programu SQL Server w maszynie Wirtualnej platformy Azure z adresu URL
 * Konwertuj na lokalnej maszynie fizycznej do wirtualnego dysku twardego funkcji Hyper-V, przekazać do magazynu obiektów Blob platformy Azure, a następnie Wdróż zgodnie z nowej maszyny Wirtualnej za pomocą przekazać wirtualnego dysku twardego
 * Wyślij dysk twardy za pomocą usługi Import/Eksport systemu Windows
-* Jeśli masz wdrożenie AlwaysOn lokalnie, należy użyć [Kreatora dodawania repliki Azure](../classic/sql-onprem-availability.md) do utworzenia repliki w Azure, a następnie trybu failover, wskazujący użytkowników do wystąpienia bazy danych platformy Azure
+* Jeśli masz wdrożenie AlwaysOn lokalnie, należy użyć [Kreatora dodawania repliki Azure](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md) do utworzenia repliki w Azure, a następnie trybu failover, wskazujący użytkowników do wystąpienia bazy danych platformy Azure
 * Użyj programu SQL Server [replikacji transakcyjnej](https://msdn.microsoft.com/library/ms151176.aspx) skonfiguruj wystąpienie serwera SQL Azure jako subskrybent i następnie wyłącz replikację, wskazujący użytkowników do wystąpienia bazy danych platformy Azure
 
 > [!TIP]
@@ -60,8 +60,8 @@ Poniższa tabela zawiera listę metod migracji podstawowego oraz omówiono, gdy 
 | [Odłącz i następnie skopiuj pliki danych i dziennika do magazynu obiektów blob platformy Azure, a następnie dołącz do programu SQL Server na maszynie wirtualnej platformy Azure z adresu URL](#detach-and-attach-from-url) |SQL Server 2005 lub nowszy |SQL Server 2014 lub nowszy |[Limit magazynu maszyny Wirtualnej platformy Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Użyj tej metody, gdy planujesz [przechowywania tych plików przy użyciu usługi magazynu obiektów Blob platformy Azure](https://msdn.microsoft.com/library/dn385720.aspx) i dołącz je do programu SQL Server uruchomionego na maszynie Wirtualnej Azure, szczególnie w przypadku bardzo dużych baz danych |
 | [Konwersji lokalne maszyny wirtualne dyski twarde funkcji Hyper-V, przekazać do magazynu obiektów Blob platformy Azure, a następnie wdrożyć maszynę wirtualną przy użyciu przekazywanego wirtualnego dysku twardego](#convert-to-vm-and-upload-to-url-and-deploy-as-new-vm) |SQL Server 2005 lub nowszy |SQL Server 2005 lub nowszy |[Limit magazynu maszyny Wirtualnej platformy Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Używany, gdy [dostarczają licencję programu SQL Server](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md), podczas migracji bazy danych, które zostanie uruchomione na starszej wersji programu SQL Server lub podczas migrowania systemu i użytkownika bazy danych ze sobą w ramach migracji bazy danych jest zależny od innych bazy danych użytkownika i/lub systemowych bazach danych. |
 | [Wyślij dysk twardy za pomocą usługi Import/Eksport systemu Windows](#ship-hard-drive) |SQL Server 2005 lub nowszy |SQL Server 2005 lub nowszy |[Limit magazynu maszyny Wirtualnej platformy Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Użyj [usługi Import/Eksport Windows](../../../storage/common/storage-import-export-service.md) gdy Metoda ręcznego kopiowania jest zbyt wolno, takie jak w przypadku bardzo dużych baz danych |
-| [Użyj repliki Azure Kreator dodawania](../classic/sql-onprem-availability.md) |SQL Server 2012 lub nowszy |SQL Server 2012 lub nowszy |[Limit magazynu maszyny Wirtualnej platformy Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Minimalizuje przestojów, używania wdrożenie lokalnymi (AlwaysOn) |
-| [Użyj Replikacja transakcyjna programu SQL Server](https://msdn.microsoft.com/library/ms151176.aspx) |SQL Server 2005 lub nowszy |SQL Server 2005 lub nowszy |[Limit magazynu maszyny Wirtualnej platformy Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Używać, gdy konieczne w celu zminimalizowania przestojów i nie mają lokalnego wdrożenia (AlwaysOn) |
+| [Użyj repliki Azure Kreator dodawania](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md) |SQL Server 2012 lub nowszy |SQL Server 2012 lub nowszy |[Limit magazynu maszyny Wirtualnej platformy Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Minimalizuje przestojów, używania wdrożenie lokalnymi zawsze włączone |
+| [Użyj Replikacja transakcyjna programu SQL Server](https://msdn.microsoft.com/library/ms151176.aspx) |SQL Server 2005 lub nowszy |SQL Server 2005 lub nowszy |[Limit magazynu maszyny Wirtualnej platformy Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Używać, gdy konieczne w celu zminimalizowania przestojów i nie są zawsze włączone lokalnego wdrożenia |
 
 ## <a name="backup-and-restore"></a>Tworzenie kopii zapasowej i przywracanie
 Utwórz kopię zapasową bazy danych z kompresją pliku kopii zapasowej do maszyny Wirtualnej, a następnie przywróć bazę danych. Jeśli w pliku kopii zapasowej jest większy niż 1 TB, musi paskowych ponieważ maksymalny rozmiar dysku maszyny Wirtualnej wynosi 1 TB. Aby przeprowadzić migrację bazy danych użytkownika za pomocą tej metody ręcznego, należy użyć następujące ogólne czynności:

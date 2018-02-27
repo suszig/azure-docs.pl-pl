@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: eaceab7d0dba7719452000cc4e1bd19baa28af9e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ccbe48e4c7fdb25e003aedc048194e041865710e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Indeks artykułów dotyczących zarządzania aplikacjami w usłudze Azure Active Directory
 Ta strona zawiera pełną listę wszystkich dokumentów zapisywane o różnych funkcjach związanych z aplikacji w usłudze Azure Active Directory (Azure AD).
@@ -53,7 +53,7 @@ Logowania jednokrotnego pozwala użytkownikom na dostęp do różnych aplikacji 
 | Przewodnik artykułu |  |
 |:---:| --- |
 | Wprowadzenie do Federacji i inne typy logowania jednokrotnego |[Logowanie jednokrotne z usługą Azure AD](active-directory-appssoaccess-whatis.md) |
-| Tysiące aplikacji SaaS, które są wstępnie zintegrowane z usługą Azure AD z uproszczony czynności konfiguracyjnych rejestracji jednokrotnej |[Wprowadzenie do korzystania z galerii aplikacji Azure AD](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Pełną listę wstępnie zintegrowanych aplikacji, które obsługują federacyjnego](http://aka.ms/aadfederatedapps)<br /><br />[Jak dodać aplikację do galerii aplikacji Azure AD](active-directory-app-gallery-listing.md) |
+| Tysiące aplikacji SaaS, które są wstępnie zintegrowane z usługą Azure AD z uproszczony czynności konfiguracyjnych rejestracji jednokrotnej |[Wprowadzenie do korzystania z galerii aplikacji Azure AD](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Pełną listę wstępnie zintegrowanych aplikacji, które obsługują federacyjnego](active-directory-saas-tutorial-list.md)<br /><br />[Jak dodać aplikację do galerii aplikacji Azure AD](active-directory-app-gallery-listing.md) |
 | Więcej niż 150 samouczków aplikacji o tym, jak skonfigurować logowanie jednokrotne dla aplikacji takich jak [Salesforce](active-directory-saas-salesforce-tutorial.md), [ServiceNow](active-directory-saas-servicenow-tutorial.md), [usługi Google Apps](active-directory-saas-google-apps-tutorial.md), [produktu Workday](active-directory-saas-workday-tutorial.md)i o wiele więcej. |[Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md) |
 | Jak ręcznie skonfigurować i dostosować jednej konfiguracji logowania jednokrotnego |[Jak można skonfigurować federacyjne logowanie jednokrotne do aplikacji, które nie znajdują się w galerii aplikacji Azure Active Directory](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[Dostosowywanie oświadczeń wydanych w tokenie SAML dla wstępnie zintegrowanych aplikacji](active-directory-saml-claims-customization.md) |
 | Podręcznik rozwiązywania problemów dotyczących aplikacji federacyjnych, które używają protokołu SAML |[Rozwiązywanie problemów z systemem SAML logowania jednokrotnego](active-directory-saml-debugging.md) |

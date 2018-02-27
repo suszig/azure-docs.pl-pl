@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: lbosq
-ms.openlocfilehash: 28f926d8d1f4c6006a348ba9c8289b885aef7641
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 6bae97783b63b76d2de2dbcd5e618f75bc4d701d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-cosmos-db-graph-net-api-download-and-release-notes"></a>Azure rozwiązania Cosmos interfejs API .NET wykresu DB: Pobierz i informacje o wersji
 
@@ -27,10 +27,12 @@ ms.lasthandoff: 12/11/2017
 |**Dokumentacja interfejsu API**|[Dokumentacji interfejsu API platformy .NET](https://aka.ms/acdbgraphapiref)|
 |**Szybki start**|[Azure rozwiązania Cosmos bazy danych: Tworzenie aplikacji wykresu przy użyciu platformy .NET i interfejsu API programu Graph](create-graph-dotnet.md)|
 |**Samouczek**|[Azure CosmosDB: Utworzyć kontener z interfejsu API programu Graph](tutorial-develop-graph-dotnet.md)|
-|**Bieżąca platforma obsługiwane**| [Microsoft .NET Framework 4.6.1](https://www.microsoft.com/en-us/download/details.aspx?id=49981)</br> [Program Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
+|**Bieżąca platforma obsługiwane**| [Microsoft .NET Framework 4.6.1](https://www.microsoft.com/en-us/download/details.aspx?id=49981)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 
 ## <a name="release-notes"></a>Informacje o wersji
+
+Zaleca się za pomocą sterownika Gremlin open source dla platformy .NET, Gremlin.Net. Dowiedz się, jak rozpocząć pracę z [bazy danych Azure rozwiązania Cosmos: tworzenie aplikacji wykresu przy użyciu platformy .NET i interfejsu API programu Graph](create-graph-dotnet.md).
 
 ### <a name="a-name031-preview031-preview"></a><a name="0.3.1-preview"/>0.3.1-Preview
 
@@ -44,8 +46,8 @@ ms.lasthandoff: 12/11/2017
 ### <a name="a-name030-preview030-preview"></a><a name="0.3.0-preview"/>0.3.0-Preview
 
 #### <a name="whats-new"></a>Co nowego
-* Dodano obsługę`.netstandard 1.6`
-  * Wymaga`Microsoft.Azure.DocumentDB.Core >= 1.5.1`
+* Dodano obsługę `.netstandard 1.6`
+  * Wymaga `Microsoft.Azure.DocumentDB.Core >= 1.5.1`
 * Dodano nową `gremlin-groovy` analizatora składni, aby zastąpić istniejącą analizatora. Ten parser obsługuje podzbiór w Tinkerpop `gremlin-groovy` składni i obejmuje:
   * Zwiększona wydajność podczas analizowania x 2.
   * Rozwiązane szereg problemów związanych z znak anulowanie ciągów, obsługi wartości literałów i innych nieprawidłowości w starym analizatora.
@@ -57,10 +59,10 @@ ms.lasthandoff: 12/11/2017
 * Usunięto obsługę .NET Framework 4.5.1
 
 * Nowy analizator składni wyrównana z `gremlin-groovy` gramatyki. W związku z tym niektóre wyrażenia, które działały wcześniej są niejednoznaczne dla nowego analizatora. Jeden przypadek Uwaga:
-  * `in`i `as` są zastrzeżone słowa kluczowe w `gremlin-groovy`, więc te kroki musi być kwalifikowana za `.in()` lub `.as()` w celu uniknięcia błędów składni. Na przykład: `g.V().repeat(in()).times(2)`  ->  _zgłasza błąd składni_  
+  * `in` i `as` są zastrzeżone słowa kluczowe w `gremlin-groovy`, więc te kroki musi być kwalifikowana za `.in()` lub `.as()` w celu uniknięcia błędów składni. Na przykład: `g.V().repeat(in()).times(2)`  ->  _zgłasza błąd składni_  
  `g.V().repeat(__.in()).times(2)` -> _zakończy się powodzeniem_
 
-### <a name="a-name024-preview024-preview"></a><a name="0.2.4-preview"/>0.2.4-Preview
+### <a name="a-name024-preview024-preview"></a><a name="0.2.4-preview"/>0.2.4-preview
 
 ### <a name="a-name022-preview022-preview"></a><a name="0.2.2-preview"/>0.2.2-Preview
 
@@ -84,11 +86,11 @@ Każde żądanie do bazy danych rozwiązania Cosmos Azure przy użyciu wycofane 
 | --- | --- | --- |
 | [0.3.1-Preview](#0.3.1-preview) |17 października 2017 r. |--- |
 | [0.3.0-Preview](#0.3.0-preview) |2 października 2017 r. |--- |
-| [0.2.4-Preview](#0.2.4-preview) |4 sierpnia 2017 r. |--- |
-| [0.2.2-Preview](#0.2.2-preview) |23 czerwca 2017 r. |--- |
-| [0.2.1-Preview](#0.2.2-preview) |8 czerwca 2017 r. |--- |
-| [0.2.0-Preview](#0.2.2-preview) |10 maja 2017 |--- |
-| [0.1.0-Preview](#0.1.0-preview) |8 maja 2017 r. |--- |
+| [0.2.4-preview](#0.2.4-preview) |4 sierpnia 2017 r. |--- |
+| [0.2.2-preview](#0.2.2-preview) |23 czerwca 2017 r. |--- |
+| [0.2.1-preview](#0.2.2-preview) |8 czerwca 2017 r. |--- |
+| [0.2.0-preview](#0.2.2-preview) |10 maja 2017 |--- |
+| [0.1.0-preview](#0.1.0-preview) |8 maja 2017 r. |--- |
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 Aby dowiedzieć się więcej na temat interfejsu API Graph usługi Azure rozwiązania Cosmos bazy danych, zobacz [wprowadzenie do bazy danych Azure rozwiązania Cosmos: interfejs API programu Graph](graph-introduction.md). 

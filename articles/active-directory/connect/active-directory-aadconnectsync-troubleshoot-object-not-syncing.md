@@ -14,15 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 7176ebd0515008147bd3797dcb760f35e2d85d45
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: e68b70ce87a6fedab1b85bf2800a50e512910dea
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Rozwiązywanie problemów z obiektu, której nie można zsynchronizować z usługą Azure AD
 
 Jeśli obiekt nie jest synchronizowane zgodnie z oczekiwaniami do usługi Azure AD, może być z kilku przyczyn. Odebrano wiadomość e-mail błędu z usługi Azure AD lub zostanie wyświetlony błąd w Azure AD Connect Health, następnie odczytywane [Rozwiązywanie problemów z błędami eksportu](active-directory-aadconnect-troubleshoot-sync-errors.md) zamiast tego. Ale jeśli rozwiązywania problemu, gdy obiekt nie jest w usłudze Azure AD, wówczas w tym temacie jest dla Ciebie. Przedstawiono sposób znaleźć błędy synchronizacji Azure AD Connect składnika lokalnymi.
+
+>[!IMPORTANT]
+>Do wdrożenia usługi Azure Active Directory (AAD) Połącz z wersji <verison> lub nowszą, użyj [Rozwiązywanie problemów z zadań](active-directory-aadconnect-troubleshoot-objectsync.md) w kreatorze, aby rozwiązać problemy z synchronizacją obiektu. 
 
 Aby znaleźć błędy, będą wyglądać na kilku różnych miejscach w następującej kolejności:
 
@@ -36,7 +39,7 @@ Uruchom [Menedżera usługi synchronizacji](active-directory-aadconnectsync-serv
 Na karcie operacje Menedżera usługi synchronizacji jest, gdzie należy zacząć Rozwiązywanie problemów. Na karcie operacje pokazuje wyniki od ostatniej operacji.  
 ![Menedżera usługi synchronizacji](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/operations.png)  
 
-Górnej połowie zawiera wszystkie elementy stały. Domyślnie operacje logowania zachowuje informacje dotyczące ostatnich siedmiu dni, ale ustawienie to można zmienić z [harmonogramu](active-directory-aadconnectsync-feature-scheduler.md). Chcesz znaleźć dla dowolnego przebiegu pokazywać stanu Powodzenie. Można zmienić sortowania, klikając nagłówki.
+Górnej połowie zawiera wszystkie elementy w kolejności chronologicznej. Domyślnie operacje logowania zachowuje informacje dotyczące ostatnich siedmiu dni, ale ustawienie to można zmienić z [harmonogramu](active-directory-aadconnectsync-feature-scheduler.md). Chcesz znaleźć dla dowolnego przebiegu pokazywać stanu Powodzenie. Można zmienić sortowania, klikając nagłówki.
 
 **Stan** jest najważniejsze informacje i przedstawia najbardziej poważny problem dla przebiegu. Oto krótkie podsumowanie stanów najczęściej w kolejności priorytetu do sprawdzania, czy (gdzie * wskazać ciągi możliwy błąd kilka).
 
@@ -78,7 +81,7 @@ Jeśli nie można odnaleźć obiektu szukasz, a następnie może spowodowały od
 
 Inne przydatne wyszukiwania, należy wybrać łącznik usługi Azure AD w **zakres** wybierz **oczekującego importowania**i wybierz **Dodaj** wyboru. To wyszukiwanie zapewnia wszystkie synchronizowane obiekty w usłudze Azure AD, która nie może być skojarzony z obiektem lokalnym.  
 ![Łącznik miejsce wyszukiwania oddzielony](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cssearchorphan.png)  
-Te obiekty zostały utworzone przez inny aparat synchronizacji lub aparatem synchronizacji z innej konfiguracji filtrowania. Ten widok znajduje się lista **oddzielony** obiektów nie jest już zarządzany. Należy Przejrzyj tę listę i Rozważ usunięcie tych obiektów przy użyciu [programu Azure AD PowerShell](http://aka.ms/aadposh) polecenia cmdlet.
+Te obiekty zostały utworzone przez inny aparat synchronizacji lub aparatem synchronizacji z innej konfiguracji filtrowania. Ten widok znajduje się lista **oddzielony** obiektów nie jest już zarządzany. Należy Przejrzyj tę listę i Rozważ usunięcie tych obiektów przy użyciu [programu Azure AD PowerShell](https://aka.ms/aadposh) polecenia cmdlet.
 
 ### <a name="cs-import"></a>Importuj CS
 Po otwarciu obiektu cs istnieje kilka kart u góry. **Zaimportować** karcie są wyświetlane dane, które są przygotowywane po zaimportowaniu.  

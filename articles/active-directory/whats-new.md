@@ -14,14 +14,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2017
+ms.date: 02/15/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ccee4fd0359ab9fe8bd025ead9a2d0993bb718f2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
-ms.translationtype: MT
+ms.openlocfilehash: 7cdeb0a996835f976e6c80e9831479a2ff917434
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Nowości w usłudze Azure Active Directory
 
@@ -219,7 +219,7 @@ Aby uzyskać więcej informacji, zobacz [mniejszą liczbę monitów logowania: n
 
 **Typ:** nowej funkcji  
 **Kategoria usług:** warunki użytkowania  
-**Możliwości produktu:** ładu
+**Możliwości produktu:** ładu/zgodności
  
 Opcja dla administratorów wymaga użytkownikom rozwinąć warunki użytkowania, przed rozpoczęciem akceptowania warunków.
 
@@ -494,7 +494,7 @@ Teraz można uwzględnić (lub wykluczyć) macOS jako warunek platformy urządze
 
 Aby uzyskać więcej informacji, zobacz:
 
-- [Tworzenie zasad zgodności urządzeń dla urządzeń macOS przy użyciu usługi Intune](https://aka.ms/macoscompliancepolicy)
+- [Tworzenie zasad zgodności urządzeń dla urządzeń z systemem macOS w usłudze Intune](https://aka.ms/macoscompliancepolicy)
 - [Dostęp warunkowy w usłudze Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
 
 
@@ -666,7 +666,7 @@ Aby uzyskać więcej informacji, zobacz [dokumentacja dotycząca raportowania us
 
 **Typ:** nowej funkcji  
 **Kategoria usług:** warunki użytkowania  
-**Możliwości produktu:** ładu  
+**Możliwości produktu:** ładu/zgodności  
 
 
 
@@ -709,7 +709,7 @@ Aby uzyskać więcej informacji, zobacz [Privileged Identity Management zasobów
 
 **Typ:** nowej funkcji  
 **Kategoria usług:** dostęp do przeglądu  
-**Możliwości produktu:** ładu  
+**Możliwości produktu:** ładu/zgodności  
 
 
 

@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 01/02/2018
 ms.author: larryfr
-ms.openlocfilehash: 19c5f165b47f7de4a014226460f82f3ca12b3eec
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 5d4e9d6ffb7fa0c2e4b69c5b534f0078aec5f68c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-the-beeline-client-with-apache-hive"></a>Apache Hive za pomocą klienta Beeline
 
@@ -29,9 +29,9 @@ Dowiedz się, jak używać [Beeline](https://cwiki.apache.org/confluence/display
 
 Beeline jest klientem Hive, który znajduje się na head węzłów w klastrze usługi HDInsight. Beeline używa JDBC do łączenia się serwera HiveServer2, z usługą hostowaną w klastrze usługi HDInsight. Umożliwia także Beeline do zdalnego dostępu Hive w usłudze HDInsight w Internecie. Poniższe przykłady zapewniają najbardziej typowe parametry połączenia używane do nawiązania połączenia z Beeline HDInsight:
 
-* __Przy użyciu Beeline z połączenia SSH do węzła headnode lub krawędzi__:`-u 'jdbc:hive2://headnodehost:10001/;transportMode=http'`
-* __Na komputerze klienckim, połączenie z usługi HDInsight za pośrednictwem sieci wirtualnej platformy Azure przy użyciu Beeline__:`-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
-* __Na komputerze klienckim, połączenie z usługi HDInsight za pośrednictwem publicznego Internetu przy użyciu Beeline__:`-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password`
+* __Przy użyciu Beeline z połączenia SSH do węzła headnode lub krawędzi__: `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http'`
+* __Na komputerze klienckim, połączenie z usługi HDInsight za pośrednictwem sieci wirtualnej platformy Azure przy użyciu Beeline__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
+* __Na komputerze klienckim, połączenie z usługi HDInsight za pośrednictwem publicznego Internetu przy użyciu Beeline__: `-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password`
 
 > [!NOTE]
 > Zastąp `admin` przy użyciu konta logowania klastra dla klastra.
@@ -44,7 +44,7 @@ Beeline jest klientem Hive, który znajduje się na head węzłów w klastrze us
 
 ## <a id="prereq"></a>Wymagania wstępne
 
-* Opartych na systemie Linux platformą Hadoop w klastrze usługi HDInsight.
+* Opartych na systemie Linux platformą Hadoop w klastrze usługi HDInsight w wersji 3.4 lub większą.
 
   > [!IMPORTANT]
   > Linux jest jedynym systemem operacyjnym używanym w połączeniu z usługą HDInsight w wersji 3.4 lub nowszą. Aby uzyskać więcej informacji, zobacz sekcję [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Wycofanie usługi HDInsight w systemie Windows).
@@ -53,7 +53,7 @@ Beeline jest klientem Hive, który znajduje się na head węzłów w klastrze us
 
     Aby uzyskać więcej informacji o korzystaniu z protokołu SSH, zobacz [używanie SSH z usługą HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a id="beeline"></a>Użyj Beeline
+## <a id="beeline"></a>Uruchamianie zapytań Hive
 
 1. Podczas uruchamiania Beeline, musisz podać parametry połączenia dla serwera HiveServer2 w klastrze usługi HDInsight:
 
@@ -116,25 +116,34 @@ Beeline jest klientem Hive, który znajduje się na head węzłów w klastrze us
 
     ```hiveql
     DROP TABLE log4jLogs;
-    CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
+    CREATE EXTERNAL TABLE log4jLogs (
+        t1 string,
+        t2 string,
+        t3 string,
+        t4 string,
+        t5 string,
+        t6 string,
+        t7 string)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
     STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
-    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
+    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs 
+        WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' 
+        GROUP BY t4;
     ```
 
     Te instrukcje, wykonaj następujące czynności:
 
-    * `DROP TABLE`— Jeśli tabela istnieje, jest usunięta.
+    * `DROP TABLE` — Jeśli tabela istnieje, jest usunięta.
 
-    * `CREATE EXTERNAL TABLE`-Tworzy **zewnętrznych** tabeli w gałęzi rejestru. Tabele zewnętrzne przechowywać tylko definicji tabeli w gałęzi. Dane pozostaną w oryginalnej lokalizacji.
+    * `CREATE EXTERNAL TABLE` -Tworzy **zewnętrznych** tabeli w gałęzi rejestru. Tabele zewnętrzne przechowywać tylko definicji tabeli w gałęzi. Dane pozostaną w oryginalnej lokalizacji.
 
-    * `ROW FORMAT`— Sposób formatowania danych. W takim przypadku pól w każdym dzienniku są oddzielone spacją.
+    * `ROW FORMAT` — Sposób formatowania danych. W takim przypadku pól w każdym dzienniku są oddzielone spacją.
 
-    * `STORED AS TEXTFILE LOCATION`— W przypadku gdy dane są przechowywane i w jaki format pliku.
+    * `STORED AS TEXTFILE LOCATION` — W przypadku gdy dane są przechowywane i w jaki format pliku.
 
-    * `SELECT`-Wybiera liczbę wszystkich wierszy gdzie kolumna **t4** zawiera wartość **[Błąd]**. To zapytanie zwraca wartość **3** są trzy wiersze, które zawierają tę wartość.
+    * `SELECT` -Wybiera liczbę wszystkich wierszy gdzie kolumna **t4** zawiera wartość **[Błąd]**. To zapytanie zwraca wartość **3** są trzy wiersze, które zawierają tę wartość.
 
-    * `INPUT__FILE__NAME LIKE '%.log'`-Hive próbuje stosowane do wszystkich plików w katalogu schematu. W takim przypadku katalog zawiera pliki, które nie pasuje do schematu. Aby zapobiec odzyskiwanie danych w wynikach, tej instrukcji informuje Hive, czy firma Microsoft powinno zwrócić dane tylko z plików w. dziennika.
+    * `INPUT__FILE__NAME LIKE '%.log'` -Hive próbuje stosowane do wszystkich plików w katalogu schematu. W takim przypadku katalog zawiera pliki, które nie pasuje do schematu. Aby zapobiec odzyskiwanie danych w wynikach, tej instrukcji informuje Hive, czy firma Microsoft powinno zwrócić dane tylko z plików w. dziennika.
 
   > [!NOTE]
   > Jeśli oczekujesz zaktualizowania za pomocą zewnętrznego źródła danych, należy użyć tabel zewnętrznych. Na przykład procesu przekazywania danych lub operacja MapReduce.
@@ -167,7 +176,7 @@ Beeline jest klientem Hive, który znajduje się na head węzłów w klastrze us
 
 5. Aby zakończyć Beeline, należy użyć `!exit`.
 
-## <a id="file"></a>Uruchom plik HiveQL za pomocą Beeline
+### <a id="file"></a>Uruchom plik HiveQL za pomocą Beeline
 
 Wykonaj następujące kroki, aby utworzyć plik, a następnie uruchom go za pomocą Beeline.
 
@@ -225,11 +234,11 @@ Wykonaj następujące kroki, aby utworzyć plik, a następnie uruchom go za pomo
 
 Jeśli masz Beeline zainstalowane lokalnie, a połączenie za pośrednictwem publicznej sieci internet, należy użyć poniższych parametrów:
 
-* __Parametry połączenia__:`-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2'`
+* __Parametry połączenia__: `-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2'`
 
-* __Nazwa logowania klastra__:`-n admin`
+* __Nazwa logowania klastra__: `-n admin`
 
-* __Hasło logowania klastra__`-p 'password'`
+* __Hasło logowania klastra__ `-p 'password'`
 
 Zastąp `clustername` w parametrach połączenia z nazwą klastra usługi HDInsight.
 
@@ -237,7 +246,7 @@ Zastąp `admin` z nazwą logowania do klastra i Zastąp `password` hasłem do lo
 
 Jeśli masz Beeline zainstalowane lokalnie, a połączenie za pośrednictwem sieci wirtualnej platformy Azure, należy użyć poniższych parametrów:
 
-* __Parametry połączenia__:`-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
+* __Parametry połączenia__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
 
 Aby znaleźć nazwę FQDN headnode, skorzystaj z informacji w [Zarządzanie HDInsight przy użyciu interfejsu API REST Ambari](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) dokumentu.
 

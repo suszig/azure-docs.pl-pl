@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: b710c324f72fa56a2ebad0d1b35052639611d30d
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: da415f4fb276f3d86d3ff1634a08fa11eabe6e7f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Omówienie powłoki w chmurze Azure
 Powłoki chmury Azure jest interaktywny, dostępny w przeglądarce powłoki zarządzania zasobami platformy Azure.
@@ -69,9 +69,9 @@ Na pierwszego uruchomienia powłoki chmury monituje o Utwórz zasób grupy, kont
 Magazyn lokalnie nadmiarowy (LRS) konta i udział plików Azure można tworzyć w Twoim imieniu. Udział plików Azure będzie używany dla środowisk zarówno Bash, jak i programu PowerShell, jeśli chcesz korzystać z obu. Koszty przechowywania regularne mają zastosowanie.
 
 Trzy zasoby zostaną utworzone w Twoim imieniu:
-1. Grupa zasobów o nazwie:`cloud-shell-storage-<region>`
-2. Konto magazynu o nazwie:`cs<uniqueGuid>`
-3. Udział plików o nazwie:`cs-<user>-<domain>-com-<uniqueGuid>`
+1. Grupa zasobów o nazwie: `cloud-shell-storage-<region>`
+2. Konto magazynu o nazwie: `cs<uniqueGuid>`
+3. Udział plików o nazwie: `cs-<user>-<domain>-com-<uniqueGuid>`
 
 > [!Note]
 > Domyślny obraz dysku 5 GB, aby utrwalić tworzy także bash w chmurze powłoki `$Home`. Wszystkie pliki w katalogu $Home, takie jak klucze SSH są trwale przechowywane w udziale plików na platformę Azure zainstalowanego obrazu dysku użytkownika. Podczas zapisywania plików w katalogu $Home i udziału plików na platformę Azure zainstalowanego mają zastosowanie najlepszych rozwiązań.
@@ -83,7 +83,7 @@ Zaawansowana opcja podano do skojarzenia z istniejącymi zasobami chmury powłok
 Kliknij przycisk "Pokaż zaawansowane ustawienia" w wierszu polecenia instalacji magazynu, aby wyświetlić dodatkowe opcje.
 
 > [!Note]
-> Listę rozwijaną są filtrowane wstępnie przypisany region powłoki w chmurze i kont magazynu LRS/GRS.
+> Listę rozwijaną są filtrowane wstępnie przypisany region powłoki w chmurze i kont magazynu LRS/GRS/ZRS.
 
 [Informacje na temat magazynowania powłoki chmury aktualizowanie udziały plików platformy Azure i przekazywanie pobierania plików.](persisting-shell-storage.md)
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 0e303e2744023711a7648f9a6b29709e549d40e1
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 0f27b6b529c2591e37d48e3386190077fc8efc32
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Odwołanie modelu danych Azure API Management szablonu
 W tym temacie opisano jednostki i typu oświadczenia dla najczęściej używane w modelach danych szablonów portalu deweloperów w usłudze Azure API Management.  
@@ -51,7 +51,7 @@ W tym temacie opisano jednostki i typu oświadczenia dla najczęściej używane 
 -   [Tworzenia konta użytkownika](#UserSignUp)  
   
 ##  <a name="API"></a> API  
- `API` Jednostka ma następujące właściwości.  
+ `API` Jednostka ma następujące właściwości:  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
@@ -62,10 +62,10 @@ W tym temacie opisano jednostki i typu oświadczenia dla najczęściej używane 
 |ścieżka|ciąg|Względny adres URL, który unikatowo identyfikuje ten interfejs API i wszystkie jego ścieżki zasobu w wystąpieniu usługi Zarządzanie interfejsami API. Jest on dołączany do interfejsu API punktu końcowego podstawowy adres URL określony podczas tworzenia wystąpienia usługi do utworzenia publiczny adres URL dla tego interfejsu API.|  
 |protokoły|Tablica numer|Opisuje, na które protokoły można wywołać operacji w tym interfejsie API. Dozwolone wartości to `1 - http` i `2 - https`, lub obie.|  
 |authenticationSettings|[Ustawienia uwierzytelniania serwera autoryzacji](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#AuthenticationSettings)|Kolekcja ustawień uwierzytelniania zawarte w tym interfejsie API.|  
-|subscriptionKeyParameterNames|obiekt|Opcjonalna właściwość, który może służyć do określenia nazwy niestandardowych parametrów zapytania lub nagłówek zawierający klucz subskrypcji. Jeśli ta właściwość ma musi zawierać co najmniej jeden z dwóch następujących właściwości.<br /><br /> `{   "subscriptionKeyParameterNames":   {     "query": “customQueryParameterName",     "header": “customHeaderParameterName"   } }`|  
+|subscriptionKeyParameterNames|obiekt|Opcjonalna właściwość, który może służyć do określenia nazwy niestandardowych parametrów zapytania lub nagłówek zawierający klucz subskrypcji. Gdy ta właściwość jest obecny, musi zawierać co najmniej jeden z dwóch następujących właściwości.<br /><br /> `{   "subscriptionKeyParameterNames":   {     "query": “customQueryParameterName",     "header": “customHeaderParameterName"   } }`|  
   
-##  <a name="APISummary"></a>Podsumowanie interfejsu API  
- `API summary` Jednostka ma następujące właściwości.  
+##  <a name="APISummary">Podsumowanie interfejsu API</a>  
+ `API summary` Jednostka ma następujące właściwości:  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
@@ -73,8 +73,8 @@ W tym temacie opisano jednostki i typu oświadczenia dla najczęściej używane 
 |name|ciąg|Nazwa interfejsu API. Nie może być pusta. Maksymalna długość wynosi 100 znaków.|  
 |description|ciąg|Opis interfejsu API. Nie może być pusta. Może obejmować formatowanie tagów HTML. Maksymalna długość wynosi 1000 znaków.|  
   
-##  <a name="Application"></a>Aplikacji  
- `application` Jednostka ma następujące właściwości.  
+##  <a name="Application">Aplikacji</a>  
+ `application` Jednostka ma następujące właściwości:  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
@@ -85,14 +85,14 @@ W tym temacie opisano jednostki i typu oświadczenia dla najczęściej używane 
 |Wersja|ciąg|Informacje o wersji dla aplikacji.|  
 |Wymagania|ciąg|Opis wymagań dotyczących aplikacji.|  
 |Stan|numer|Bieżący stan aplikacji.<br /><br /> -0 - zarejestrowany<br /><br /> -1 - przesłane<br /><br /> -2 - opublikowane<br /><br /> -3 - odrzucone<br /><br /> -4 - nieopublikowane|  
-|RegistrationDate|Data/godzina|Data i godzina, aplikacja została zarejestrowana.|  
+|RegistrationDate|DateTime|Data i godzina, aplikacja została zarejestrowana.|  
 |CategoryId|numer|Do kategorii aplikacji (Finance, rozrywka itp.)|  
 |DeveloperId|ciąg|Unikatowy identyfikator dewelopera przesłania aplikacji.|  
 |Załączniki|Kolekcja [załącznika](#Attachment) jednostek.|Wszystkie załączniki dla aplikacji, takie jak zrzuty ekranu lub ikony.|  
 |Ikona|[Załącznika](#Attachment)|Ikona dla aplikacji.|  
   
-##  <a name="Attachment"></a>Załącznika  
- `attachment` Jednostka ma następujące właściwości.  
+##  <a name="Attachment">Załącznika</a>  
+ `attachment` Jednostka ma następujące właściwości:  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
@@ -101,7 +101,7 @@ W tym temacie opisano jednostki i typu oświadczenia dla najczęściej używane 
 |Typ|ciąg|Typ załącznika.|  
 |Typ zawartości|ciąg|Typ nośnika załącznika.|  
   
-##  <a name="Sample"></a>Przykładowy kod  
+##  <a name="Sample">Przykładowy kod</a>  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
@@ -118,17 +118,17 @@ W tym temacie opisano jednostki i typu oświadczenia dla najczęściej używane 
 |nagłówki|Kolekcja [nagłówka](#Header) jednostek.|Nagłówki dla tej operacji.|  
 |parameters|Kolekcja [parametru](#Parameter) jednostek.|Parametry, które są zdefiniowane dla tej operacji.|  
   
-##  <a name="Comment"></a>Komentarz  
- `API` Jednostka ma następujące właściwości.  
+##  <a name="Comment">Komentarz</a>  
+ `API` Jednostka ma następujące właściwości:  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
 |Identyfikator|numer|Identyfikator komentarza.|  
 |Commenttext —|ciąg|Treść komentarza. Może obejmować HTML.|  
 |DeveloperCompany|ciąg|Nazwa firmy dewelopera.|  
-|PostedOn|Data/godzina|Data i godzina komentarz został opublikowany.|  
+|PostedOn|DateTime|Data i godzina komentarz został opublikowany.|  
   
-##  <a name="Issue"></a>Problem  
+##  <a name="Issue"></a> Problem  
  `issue` Jednostka ma następujące właściwości.  
   
 |Właściwość|Typ|Opis|  
@@ -139,20 +139,20 @@ W tym temacie opisano jednostki i typu oświadczenia dla najczęściej używane 
 |Opis|ciąg|Opis problemu.|  
 |SubscriptionDeveloperName|ciąg|Imię projektanta, który zgłosił problem.|  
 |IssueState|ciąg|Bieżący stan problemu. Możliwe wartości to proponowany, Opened, zamknięte.|  
-|ReportedOn|Data/godzina|Data i godzina problem został zgłoszony.|  
+|ReportedOn|DateTime|Data i godzina problem został zgłoszony.|  
 |Komentarze|Kolekcja [komentarz](#Comment) jednostek.|Komentarze dotyczące tego problemu.|  
 |Załączniki|Kolekcja [załącznika](api-management-template-data-model-reference.md#Attachment) jednostek.|Załączniki do problemu.|  
 |Usługi|Kolekcja [interfejsu API](#API) jednostek.|Interfejsy API subskrybowana przez użytkownika, który zgłosić problem.|  
   
-##  <a name="Filtering"></a>Filtrowanie  
- `filtering` Jednostka ma następujące właściwości.  
+##  <a name="Filtering">Filtrowanie</a>  
+ `filtering` Jednostka ma następujące właściwości:  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
 |Wzorce|ciąg|Bieżący termin wyszukiwania; lub `null` Jeśli brak szukanego terminu.|  
 |Symbol zastępczy|ciąg|Tekst wyświetlany w polu wyszukiwania, gdy jest brak szukanego terminu określony.|  
   
-##  <a name="Header"></a>Nagłówek  
+##  <a name="Header"></a> Nagłówek  
  W tej sekcji opisano `parameter` reprezentacji.  
   
 |Właściwość|Opis|Typ|  
@@ -165,7 +165,7 @@ W tym temacie opisano jednostki i typu oświadczenia dla najczęściej używane 
 |Wymagane|wartość logiczna|Określa, czy nagłówek jest wymagana.|  
 |Tylko do odczytu|wartość logiczna|Określa, czy nagłówek jest tylko do odczytu.|  
   
-##  <a name="HTTPRequest"></a>Żądania HTTP  
+##  <a name="HTTPRequest">Żądania HTTP</a>  
  W tej sekcji opisano `request` reprezentacji.  
   
 |Właściwość|Typ|Opis|  
@@ -175,7 +175,7 @@ W tym temacie opisano jednostki i typu oświadczenia dla najczęściej używane 
 |parameters|Tablica [parametru](#Parameter)|Kolekcja parametrów żądania operacji.|  
 |oświadczenia|Tablica [reprezentacja](#Representation)|Kolekcja reprezentacje żądania operacji.|  
   
-##  <a name="HTTPResponse"></a>Odpowiedź HTTP  
+##  <a name="HTTPResponse">Odpowiedź HTTP</a>  
  W tej sekcji opisano `response` reprezentacji.  
   
 |Właściwość|Typ|Opis|  
@@ -184,8 +184,8 @@ W tym temacie opisano jednostki i typu oświadczenia dla najczęściej używane 
 |description|ciąg|Opis odpowiedzi operacji.|  
 |oświadczenia|Tablica [reprezentacja](#Representation)|Kolekcja reprezentacje odpowiedzi operacji.|  
   
-##  <a name="Operation"></a>Operacja  
- `operation` Jednostka ma następujące właściwości.  
+##  <a name="Operation"></a> Operacja  
+ `operation` Jednostka ma następujące właściwości:  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
@@ -193,14 +193,14 @@ W tym temacie opisano jednostki i typu oświadczenia dla najczęściej używane 
 |name|ciąg|Nazwa operacji. Nie może być pusta. Maksymalna długość wynosi 100 znaków.|  
 |description|ciąg|Opis operacji. Nie może być pusta. Może obejmować formatowanie tagów HTML. Maksymalna długość wynosi 1000 znaków.|  
 |Schemat|ciąg|Opisuje, na które protokoły można wywołać operacji w tym interfejsie API. Dozwolone wartości to `http`, `https`, lub obie `http` i `https`.|  
-|Obiekt uriTemplate|ciąg|Szablon względny adres URL identyfikujący zasób docelowy dla tej operacji. Mogą zawierać parametrów. Przykład:`customers/{cid}/orders/{oid}/?date={date}`|  
+|Obiekt uriTemplate|ciąg|Szablon względny adres URL identyfikujący zasób docelowy dla tej operacji. Mogą zawierać parametrów. Przykład: `customers/{cid}/orders/{oid}/?date={date}`|  
 |host|ciąg|Brama adres URL interfejsu API zarządzania obsługującego interfejsu API.|  
 |HttpMethod|ciąg|Metoda operacji HTTP.|  
 |Żądanie|[Żądania HTTP](#HTTPRequest)|Obiekt zawierający informacje dotyczące żądania.|  
 |odpowiedzi|Tablica [odpowiedzi HTTP](#HTTPResponse)|Tablica operacji [odpowiedzi HTTP](#HTTPResponse) jednostek.|  
   
-##  <a name="Menu"></a>Operacja menu  
- `operation menu` Jednostka ma następujące właściwości.  
+##  <a name="Menu">Operacja menu</a>  
+ `operation menu` Jednostka ma następujące właściwości:  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
@@ -209,8 +209,8 @@ W tym temacie opisano jednostki i typu oświadczenia dla najczęściej używane 
 |Akcja|ciąg|Typ menu.|  
 |Elementy MenuItem|Kolekcja [element menu operacji](#MenuItem) jednostek.|Operacje dla bieżącego interfejsu API.|  
   
-##  <a name="MenuItem"></a>Operacja elementu menu  
- `operation menu item` Jednostka ma następujące właściwości.  
+##  <a name="MenuItem">Operacja elementu menu</a>  
+ `operation menu item` Jednostka ma następujące właściwości:  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
@@ -218,8 +218,8 @@ W tym temacie opisano jednostki i typu oświadczenia dla najczęściej używane 
 |Stanowisko|ciąg|Opis operacji.|  
 |HttpMethod|ciąg|Metoda Http operacji.|  
   
-##  <a name="Paging"></a>Stronicowania  
- `paging` Jednostka ma następujące właściwości.  
+##  <a name="Paging">Stronicowania</a>  
+ `paging` Jednostka ma następujące właściwości:  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
@@ -229,7 +229,7 @@ W tym temacie opisano jednostki i typu oświadczenia dla najczęściej używane 
 |ShowAll|wartość logiczna|Określa, czy Pokaż wszystko powoduje na jednej stronie.|  
 |PageCount|numer|Liczba stron wyników.|  
   
-##  <a name="Parameter"></a>Parametr  
+##  <a name="Parameter"></a> Parametr  
  W tej sekcji opisano `parameter` reprezentacji.  
   
 |Właściwość|Opis|Typ|  
@@ -242,8 +242,8 @@ W tym temacie opisano jednostki i typu oświadczenia dla najczęściej używane 
 |rodzaj|numer|Określa, czy ten parametr jest parametr path (1) lub parametr querystring (2).|  
 |typeName|ciąg|Typ parametru.|  
   
-##  <a name="Product"></a>Produktu  
- `product` Jednostka ma następujące właściwości.  
+##  <a name="Product">Produktu</a>  
+ `product` Jednostka ma następujące właściwości:  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
@@ -255,8 +255,8 @@ W tym temacie opisano jednostki i typu oświadczenia dla najczęściej używane 
 |AllowMultipleSubscriptions|wartość logiczna|Określa, czy użytkownik może mieć wiele subskrypcji do tego produktu w tym samym czasie.|  
 |MultipleSubscriptionsCount|numer|Maksymalna liczba subskrypcji do tego produktu użytkownik może mieć jednocześnie.|  
   
-##  <a name="Provider"></a>Dostawcy  
- `provider` Jednostka ma następujące właściwości.  
+##  <a name="Provider"></a> Dostawcy  
+ `provider` Jednostka ma następujące właściwości:  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
@@ -264,16 +264,16 @@ W tym temacie opisano jednostki i typu oświadczenia dla najczęściej używane 
 |Typ authenticationType|ciąg|Typ dostawcy. (Azure Active Directory, Facebook logowania, konta Google, Microsoft Account, Twitter).|  
 |Podpis|ciąg|Nazwa wyświetlana dostawcy.|  
   
-##  <a name="Representation"></a>Reprezentacja wartości  
+##  <a name="Representation">Reprezentacja wartości</a>  
  W tej sekcji opisano `representation`.  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
-|Typ zawartości|ciąg|Określa zarejestrowane lub niestandardowy typ zawartości dla tego reprezentacja, np. `application/xml`.|  
+|Typ zawartości|ciąg|Na przykład określa zarejestrowane lub niestandardowy typ zawartości dla tego reprezentacja `application/xml`.|  
 |próbki|ciąg|Przykład reprezentacji.|  
   
-##  <a name="Subscription"></a>Subskrypcji  
- `subscription` Jednostka ma następujące właściwości.  
+##  <a name="Subscription"></a> Subskrypcji  
+ `subscription` Jednostka ma następujące właściwości:  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
@@ -282,10 +282,10 @@ W tym temacie opisano jednostki i typu oświadczenia dla najczęściej używane 
 |ProductTitle|ciąg|Nazwa produktu. Nie może być pusta. Maksymalna długość wynosi 100 znaków.|  
 |ProductDescription|ciąg|Opis produktu. Nie może być pusta. Może obejmować formatowanie tagów HTML. Maksymalna długość wynosi 1000 znaków.|  
 |ProductDetailsUrl|ciąg|Względny adres URL do szczegółów produktu.|  
-|state|ciąg|Stan subskrypcji. Dostępne są następujące stany:<br /><br /> - `0 - suspended`— subskrypcji jest zablokowany i subskrybenta nie można wywołać wszystkie interfejsy API produktu.<br /><br /> - `1 - active`— Subskrypcja jest aktywna.<br /><br /> - `2 - expired`— Subskrypcja osiągnęła daty jego wygaśnięcia i została zdezaktywowana.<br /><br /> - `3 - submitted`— Żądanie subskrypcji przez deweloperów, ale ma nie została jeszcze zatwierdzeniu lub odrzuceniu.<br /><br /> - `4 - rejected`— Żądanie subskrypcji zostało odrzucone przez administratora.<br /><br /> - `5 - cancelled`— Subskrypcja została anulowana przez dewelopera lub administratora.|  
+|state|ciąg|Stan subskrypcji. Dostępne są następujące stany:<br /><br /> - `0 - suspended` — subskrypcji jest zablokowany i subskrybenta nie można wywołać wszystkie interfejsy API produktu.<br /><br /> - `1 - active` — Subskrypcja jest aktywna.<br /><br /> - `2 - expired` — Subskrypcja osiągnęła daty jego wygaśnięcia i została zdezaktywowana.<br /><br /> - `3 - submitted` — Żądanie subskrypcji przez deweloperów, ale ma nie została jeszcze zatwierdzeniu lub odrzuceniu.<br /><br /> - `4 - rejected` — Żądanie subskrypcji zostało odrzucone przez administratora.<br /><br /> - `5 - cancelled` — Subskrypcja została anulowana przez dewelopera lub administratora.|  
 |Nazwa wyświetlana|ciąg|Nazwa wyświetlana subskrypcji.|  
 |CreatedDate|Data i godzina|Data subskrypcji został utworzony, w formacie ISO 8601: `2014-06-24T16:25:00Z`.|  
-|CanBeCancelled|wartość logiczna|Określa, czy subskrypcję można anulować przez bieżącego użytkownika.|  
+|CanBeCancelled|wartość logiczna|Określa, czy subskrypcja mogą zostać anulowane przez bieżącego użytkownika.|  
 |IsAwaitingApproval|wartość logiczna|Określa, czy subskrypcja oczekuje na zatwierdzenie.|  
 |datą rozpoczęcia|Data i godzina|Data rozpoczęcia subskrypcji, w formacie ISO 8601: `2014-06-24T16:25:00Z`.|  
 |ExpirationDate|Data i godzina|Data wygaśnięcia subskrypcji, w formacie ISO 8601: `2014-06-24T16:25:00Z`.|  
@@ -298,16 +298,16 @@ W tym temacie opisano jednostki i typu oświadczenia dla najczęściej używane 
 |CancelUrl|ciąg|Względny adres Url do anulowania subskrypcji.|  
 |RenewUrl|ciąg|Względny adres Url odnowienia subskrypcji.|  
   
-##  <a name="SubscriptionSummary"></a>Podsumowanie subskrypcji  
- `subscription summary` Jednostka ma następujące właściwości.  
+##  <a name="SubscriptionSummary"></a> Podsumowanie subskrypcji  
+ `subscription summary` Jednostka ma następujące właściwości:  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
 |Identyfikator|ciąg|Identyfikator zasobu. Unikatowy identyfikator subskrypcji w ramach bieżącego wystąpienia usługi Zarządzanie interfejsami API. Wartość jest nieprawidłowa względny adres URL w formacie `subscriptions/{sid}` gdzie `{sid}` jest identyfikator subskrypcji. Ta właściwość jest tylko do odczytu.|  
 |Nazwa wyświetlana|ciąg|Nazwa wyświetlana subskrypcji|  
   
-##  <a name="UserAccountInfo"></a>Informacje o koncie użytkownika  
- `user account info` Jednostka ma następujące właściwości.  
+##  <a name="UserAccountInfo"></a> Informacje o koncie użytkownika  
+ `user account info` Jednostka ma następujące właściwości:  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
@@ -319,8 +319,8 @@ W tym temacie opisano jednostki i typu oświadczenia dla najczęściej używane 
 |ProviderName|ciąg|Nazwa dostawcy uwierzytelniania.|  
 |IsBasicAccount|wartość logiczna|Wartość true, jeśli konto zostało zarejestrowane za pomocą poczty e-mail i hasło; wartość false, jeśli konto zostało zarejestrowane za pomocą dostawcy.|  
   
-##  <a name="UseSignIn"></a>Logowanie użytkownika  
- `user sign in` Jednostka ma następujące właściwości.  
+##  <a name="UseSignIn"></a> Logowanie użytkownika  
+ `user sign in` Jednostka ma następujące właściwości:  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
@@ -337,8 +337,8 @@ W tym temacie opisano jednostki i typu oświadczenia dla najczęściej używane 
 |UserRegistrationTerms|ciąg|Warunki, które użytkownik musi wyrazić zgodę na przed zarejestrowaniem się.|  
 |UserRegistrationTermsEnabled|wartość logiczna|Czy warunki są włączone.|  
   
-##  <a name="UserSignUp"></a>Tworzenia konta użytkownika  
- `user sign up` Jednostka ma następujące właściwości.  
+##  <a name="UserSignUp"></a> Tworzenia konta użytkownika  
+ `user sign up` Jednostka ma następujące właściwości:  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  

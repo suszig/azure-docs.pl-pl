@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/30/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 9ba36c4cf932cab2e449b12a307639184feab049
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: c2cbe1c60f67c689a38d1585245610a6fa73bff4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Zainstaluj i skonfiguruj bramę danych lokalnych
 Bramę danych lokalnych jest wymagany, gdy łączą się lokalnych źródeł danych z co najmniej jeden serwer usług Azure Analysis Services, w tym samym regionie. Aby dowiedzieć się więcej o bramie, zobacz [bramy danych lokalnych](analysis-services-gateway.md).
@@ -117,6 +117,6 @@ Po zainstalowaniu i zarejestrować bramę, należy utworzyć zasób bramy w Twoj
 
 To już wszystko. Jeśli trzeba otworzyć porty lub czy rozwiązywania wszelkich problemów, koniecznie zapoznaj się z [bramy danych lokalnych](analysis-services-gateway.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Zarządzanie usług Analysis Services](analysis-services-manage.md)   
 * [Pobieranie danych z usług Azure Analysis Services](analysis-services-connect.md)

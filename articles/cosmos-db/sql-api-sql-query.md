@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: laviswa
-ms.openlocfilehash: 69466b15d2a37bee0353a283c9bab59563f3670e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 8425c9eae1bb7b50edec1d36d4e7c80b49b243ac
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>Zapytania SQL dla bazy danych Azure rozwiązania Cosmos
 
@@ -110,7 +110,7 @@ Teraz spróbujmy kilka zapytań dotyczących tych danych, aby poznać niektóre 
     FROM Families f 
     WHERE f.id = "AndersenFamily"
 
-**Wyniki**
+**Results**
 
     [{
         "id": "AndersenFamily",
@@ -139,7 +139,7 @@ Teraz Rozważmy przypadek, w których należy sformatować dane wyjściowe JSON 
     FROM Families f 
     WHERE f.address.city = f.address.state
 
-**Wyniki**
+**Results**
 
     [{
         "Family": {
@@ -159,7 +159,7 @@ Dalej zapytania zwraca wszystkie nazwy podanej dzieci w rodzinie odpowiada o ide
     WHERE f.id = 'WakefieldFamily'
     ORDER BY f.address.city ASC
 
-**Wyniki**
+**Results**
 
     [
       { "givenName": "Jesse" }, 
@@ -174,7 +174,7 @@ Chcemy zwrócić uwagę na kilka aspektów warte wymienienia DB rozwiązania Cos
 * Rozwiązania cosmos bazy danych obsługuje tylko ścisłe dokumentów JSON. Oznacza to, że system typów i wyrażenia są ograniczone do radzenia tylko z typami JSON. Zapoznaj się [specyfikacji JSON](http://www.json.org/) więcej szczegółów.  
 * Kolekcja DB rozwiązania Cosmos jest kontenerem dokumentów JSON bez schematu. Relacji w danych jednostki w obrębie dokumentów w kolekcji oraz niejawnie są przechwytywane przez zamknięcia, a nie przez klucz podstawowy i relacje klucza obcego. To jest istotnym elementem warto wskazujące świetle sprzężenia wewnątrz dokumentu omówiony w dalszej części tego artykułu.
 
-## <a id="Indexing"></a>Indeksowanie rozwiązania cosmos bazy danych
+## <a id="Indexing"></a> Indeksowanie rozwiązania cosmos bazy danych
 Przed uzyskujemy do składni SQL, warto eksploracji indeksowania projektu w usłudze Azure DB rozwiązania Cosmos. 
 
 Indeksy bazy danych służy do obsługi zapytań w różnych formularzach i kształtów zużycie zasobów minimalną (na przykład procesora CPU i operacjami wejścia/wyjścia) zapewniają dobrą wydajność i małe opóźnienia. Często wybór indeks prawo do wykonywania zapytań w bazie danych wymaga dużo planowania i eksperymenty. Takie podejście stanowi wyzwanie dla baz danych bez schematu, gdzie dane nie są zgodne z ograniczeniami schematu i rozwoju szybko. 
@@ -203,7 +203,7 @@ Co kwerenda składa się z klauzuli SELECT i opcjonalnie FROM i klauzulach WHERE
 
 Zapytanie, takich jak `SELECT * FROM Families` oznacza całą kolekcję rodzin źródła służącym do wyliczenia. Identyfikator specjalne głównego może służyć do reprezentowania kolekcji zamiast nazwę kolekcji. Poniższa lista zawiera reguły, które są wymuszane na zapytanie:
 
-* Kolekcji można używać z aliasem, takich jak `SELECT f.id FROM Families AS f` lub po prostu `SELECT f.id FROM Families f`. W tym miejscu `f` jest odpowiednikiem `Families`. `AS`jest to identyfikator optional-słowo kluczowe do aliasu.
+* Kolekcji można używać z aliasem, takich jak `SELECT f.id FROM Families AS f` lub po prostu `SELECT f.id FROM Families f`. W tym miejscu `f` jest odpowiednikiem `Families`. `AS` jest to identyfikator optional-słowo kluczowe do aliasu.
 * Raz, ponieważ oryginalne źródło nie może być powiązany. Na przykład `SELECT Families.id FROM Families f` ma nieprawidłową składnię, ponieważ już nie można rozpoznać identyfikatora "Rodzin".
 * Wszystkie właściwości, które muszą odwoływać się musi być w pełni kwalifikowana. W przypadku braku schematu ścisłego przestrzegania ta wartość jest wymuszana w celu uniknięcia powiązań niejednoznaczne. W związku z tym `SELECT id FROM Families f` ma nieprawidłową właściwość `id` nie jest powiązany.
 
@@ -215,7 +215,7 @@ Zapytanie, takich jak `SELECT * FROM Families` oznacza całą kolekcję rodzin �
     SELECT * 
     FROM Families.children
 
-**Wyniki**  
+**Results**  
 
     [
       [
@@ -253,7 +253,7 @@ Powyższy przykład tablicy są używane jako źródło, obiektu również mogą
     SELECT * 
     FROM Families.address.state
 
-**Wyniki**
+**Results**
 
     [
       "WA", 
@@ -272,7 +272,7 @@ Następujące zapytanie żądań dokumentów, które zawierają właściwość n
     FROM Families f 
     WHERE f.id = "AndersenFamily"
 
-**Wyniki**
+**Results**
 
     [{
       "address": {
@@ -611,7 +611,7 @@ Poniższy przykład przedstawia typowy zapytania SELECT.
     FROM Families f 
     WHERE f.id = "AndersenFamily"
 
-**Wyniki**
+**Results**
 
     [{
       "address": {
@@ -631,7 +631,7 @@ W poniższym przykładzie mamy projekcji dwie właściwości zagnieżdżonych `f
     FROM Families f 
     WHERE f.id = "AndersenFamily"
 
-**Wyniki**
+**Results**
 
     [{
       "state": "WA", 
@@ -647,7 +647,7 @@ Projekcja obsługuje również wyrażenia JSON, jak pokazano w poniższym przyk�
     FROM Families f 
     WHERE f.id = "AndersenFamily"
 
-**Wyniki**
+**Results**
 
     [{
       "$1": {
@@ -667,7 +667,7 @@ Przyjrzyjmy się rola `$1` tutaj. `SELECT` Klauzuli potrzebuje do utworzenia obi
     FROM Families f 
     WHERE f.id = "AndersenFamily"
 
-**Wyniki**
+**Results**
 
     [{
       "$1": {
@@ -693,7 +693,7 @@ W przypadku, gdy zapytanie zawiera dwie właściwości o tej samej nazwie, nale�
     FROM Families f 
     WHERE f.id = "AndersenFamily"
 
-**Wyniki**
+**Results**
 
     [{
       "AddressInfo": {
@@ -713,7 +713,7 @@ Oprócz odwołań do właściwości w klauzuli SELECT obsługuje również skala
 
     SELECT "Hello World"
 
-**Wyniki**
+**Results**
 
     [{
       "$1": "Hello World"
@@ -726,7 +726,7 @@ Oto przykład bardziej złożone wyrażenie skalarne.
 
     SELECT ((2 + 11 % 7)-2)/3    
 
-**Wyniki**
+**Results**
 
     [{
       "$1": 1.33333
@@ -740,7 +740,7 @@ W poniższym przykładzie wynik wyrażenia skalarne jest wartością logiczną.
     SELECT f.address.city = f.address.state AS AreFromSameCityState
     FROM Families f    
 
-**Wyniki**
+**Results**
 
     [
       {
@@ -760,7 +760,7 @@ Inna funkcja klucza interfejsu API SQL jest tworzenie tablicy i obiektów. W pop
     SELECT [f.address.city, f.address.state] AS CityState 
     FROM Families f    
 
-**Wyniki**  
+**Results**  
 
     [
       {
@@ -784,7 +784,7 @@ Inna funkcja klucza interfejsu API SQL jest tworzenie tablicy i obiektów. W pop
 
     SELECT VALUE "Hello World"
 
-**Wyniki**
+**Results**
 
     [
       "Hello World"
@@ -798,7 +798,7 @@ Następujące zapytanie zwraca wartość JSON bez `"address"` etykiety w wynikac
     SELECT VALUE f.address
     FROM Families f    
 
-**Wyniki**  
+**Results**  
 
     [
       {
@@ -820,7 +820,7 @@ Poniższy przykład rozszerza to demonstrujące sposób zwrócić wartości pier
     SELECT VALUE f.address.state
     FROM Families f    
 
-**Wyniki**
+**Results**
 
     [
       "WA",
@@ -837,7 +837,7 @@ Operator specjalne (*) jest obsługiwane do projektu dokumentu — jest. Gdy jes
     FROM Families f 
     WHERE f.id = "AndersenFamily"
 
-**Wyniki**
+**Results**
 
     [{
         "id": "AndersenFamily",
@@ -865,7 +865,7 @@ Słowo kluczowe TOP pozwala ograniczyć liczbę wartości z zapytania. W GÓRNEJ
     SELECT TOP 1 * 
     FROM Families f 
 
-**Wyniki**
+**Results**
 
     [{
         "id": "AndersenFamily",
@@ -895,7 +895,7 @@ Można również wykonywać agregacji w `SELECT` klauzuli. Funkcje agregujące w
     SELECT COUNT(1) 
     FROM Families f 
 
-**Wyniki**
+**Results**
 
     [{
         "$1": 2
@@ -908,7 +908,7 @@ Można także wrócić przy użyciu wartości skalarnych agregacji `VALUE` — s
     SELECT VALUE COUNT(1) 
     FROM Families f 
 
-**Wyniki**
+**Results**
 
     [ 2 ]
 
@@ -920,11 +920,11 @@ Można również wykonywać wartości zagregowanych w połączeniu z filtrami. N
     FROM Families f
     WHERE f.address.state = "WA" 
 
-**Wyniki**
+**Results**
 
     [ 1 ]
 
-W poniższej tabeli przedstawiono listę obsługiwanych funkcji agregujących w interfejsie API SQL. `SUM`i `AVG` są wykonywane za pośrednictwem wartości liczbowe, podczas gdy `COUNT`, `MIN`, i `MAX` mogą być wykonywane za pośrednictwem liczb i ciągów, wartości logiczne oraz wartości null. 
+W poniższej tabeli przedstawiono listę obsługiwanych funkcji agregujących w interfejsie API SQL. `SUM` i `AVG` są wykonywane za pośrednictwem wartości liczbowe, podczas gdy `COUNT`, `MIN`, i `MAX` mogą być wykonywane za pośrednictwem liczb i ciągów, wartości logiczne oraz wartości null. 
 
 | Sposób użycia | Opis |
 |-------|-------------|
@@ -937,7 +937,7 @@ W poniższej tabeli przedstawiono listę obsługiwanych funkcji agregujących w 
 Można również przeprowadzić agregacje w wynikach iteracji tablicy. Aby uzyskać więcej informacji, zobacz [iteracji tablicy w zapytaniach](#Iteration).
 
 > [!NOTE]
-> Korzystając z Eksploratora zapytań w portalu Azure, należy pamiętać, zapytania agregacji może zwrócić wyników zagregowany częściowo za pośrednictwem strony zapytania. Zestawy SDK tworzy pojedynczej wartości zbiorczej na wszystkich stronach. 
+> Podczas używania Eksploratora danych portalu Azure, należy pamiętać, zapytania agregacji może zwrócić wyników zagregowany częściowo za pośrednictwem strony zapytania. Zestawy SDK tworzy pojedynczej wartości zbiorczej na wszystkich stronach. 
 > 
 > W celu wykonywania zapytań agregacji przy użyciu kodu, potrzebny jest zestaw .NET SDK 1.12.0, zestawu SDK programu .NET Core 1.1.0 lub zestawu Java SDK 1.9.5 lub nowszej.    
 >
@@ -953,7 +953,7 @@ Na przykład w tym miejscu jest kwerendę, która pobiera rodzin w kolejności n
     FROM Families f 
     ORDER BY f.address.city
 
-**Wyniki**
+**Results**
 
     [
       {
@@ -974,7 +974,7 @@ I w tym czasie kwerendę, która pobiera rodzin w kolejności Data utworzenia, k
     FROM Families f 
     ORDER BY f.creationDate DESC
 
-**Wyniki**
+**Results**
 
     [
       {
@@ -997,7 +997,7 @@ Dodano nową konstrukcję za pośrednictwem **IN** — słowo kluczowe w interfe
     SELECT * 
     FROM Families.children
 
-**Wyniki**  
+**Results**  
 
     [
       [
@@ -1031,7 +1031,7 @@ Teraz Przyjrzyjmy się inne zapytanie, który wykonuje iterację na elementy pod
     SELECT * 
     FROM c IN Families.children
 
-**Wyniki**  
+**Results**  
 
     [
       {
@@ -1062,7 +1062,7 @@ To dodatkowe można filtrować według każdego wpisu poszczególnych tablicy, j
     FROM c IN Families.children
     WHERE c.grade = 8
 
-**Wyniki**  
+**Results**  
 
     [{
       "givenName": "Lisa"
@@ -1075,7 +1075,7 @@ Można również wykonywać agregacji na wyniku iteracji tablicy. Na przykład p
     SELECT COUNT(child) 
     FROM child IN Families.children
 
-**Wyniki**  
+**Results**  
 
     [
       { 
@@ -1096,7 +1096,7 @@ W poniższych przykładach pokazano, jak działa klauzuli JOIN. W poniższym prz
     FROM Families f
     JOIN f.NonExistent
 
-**Wyniki**  
+**Results**  
 
     [{
     }]
@@ -1110,7 +1110,7 @@ W poniższym przykładzie sprzężenie jest między głównego dokumentu i `chil
     FROM Families f
     JOIN f.children
 
-**Wyniki**
+**Results**
 
     [
       {
@@ -1130,7 +1130,7 @@ W poniższym przykładzie przedstawiono bardziej z konwencjonalnej sprzężenia:
     FROM Families f
     JOIN c IN f.children 
 
-**Wyniki**
+**Results**
 
     [
       {
@@ -1167,7 +1167,7 @@ Narzędzie rzeczywistych sprzężenia jest krotek formularza z iloczyn wektorowy
     JOIN c IN f.children 
     JOIN p IN c.pets
 
-**Wyniki**
+**Results**
 
     [
       {
@@ -1205,7 +1205,7 @@ W tym przykładzie stanowi naturalne rozszerzenie powyższego przykładu i wykon
         }
     }
 
-`AndersenFamily`ma jeden element podrzędny, który ma jedno zwierzę. Dlatego iloczyn wektorowy zwraca jeden wiersz (1\*1\*1) z tej rodziny. WakefieldFamily, ale zawiera dwa elementy podrzędne, ale tylko jeden element podrzędny "Jesse" ma zwierząt domowych. Jesse jednak ma dwa zwierząt domowych. Dlatego iloczyn wektorowy daje 1\*1\*2 = 2 wierszy z tej rodziny.
+`AndersenFamily` ma jeden element podrzędny, który ma jedno zwierzę. Dlatego iloczyn wektorowy zwraca jeden wiersz (1\*1\*1) z tej rodziny. WakefieldFamily, ale zawiera dwa elementy podrzędne, ale tylko jeden element podrzędny "Jesse" ma zwierząt domowych. Jesse jednak ma dwa zwierząt domowych. Dlatego iloczyn wektorowy daje 1\*1\*2 = 2 wierszy z tej rodziny.
 
 W następnym przykładzie na jest dodatkowy filtr `pet`. Obejmuje to wszystkich krotek, gdzie nazwa pet nie jest "Cienia". Zwróć uwagę, że jesteśmy w stanie Tworzenie spójnych kolekcji z tablic, filtr na jeden z elementów spójnej kolekcji, i dowolną kombinację elementów projektu. 
 
@@ -1221,7 +1221,7 @@ W następnym przykładzie na jest dodatkowy filtr `pet`. Obejmuje to wszystkich 
     JOIN p IN c.pets
     WHERE p.givenName = "Shadow"
 
-**Wyniki**
+**Results**
 
     [
       {
@@ -1271,7 +1271,7 @@ Firma Microsoft mogą teraz używać tej funkcji w zapytaniu w projekcji. Funkcj
     SELECT udf.REGEX_MATCH(Families.address.city, ".*eattle")
     FROM Families
 
-**Wyniki**
+**Results**
 
     [
       {
@@ -1290,7 +1290,7 @@ Funkcję zdefiniowaną przez użytkownika również może być używany w filtrz
     FROM Families
     WHERE udf.REGEX_MATCH(Families.address.city, ".*eattle")
 
-**Wyniki**
+**Results**
 
     [{
         "id": "AndersenFamily",
@@ -1330,7 +1330,7 @@ Poniżej znajduje się przykład sprawdzający funkcję zdefiniowaną przez uży
     SELECT f.address.city, udf.SEALEVEL(f.address.city) AS seaLevel
     FROM Families f    
 
-**Wyniki**
+**Results**
 
      [
       {
@@ -1436,7 +1436,7 @@ Na przykład można teraz uruchomić zapytania podobne do poniższych:
 
     SELECT VALUE ABS(-4)
 
-**Wyniki**
+**Results**
 
     [4]
 
@@ -1491,7 +1491,7 @@ Przy użyciu tych funkcji, można teraz uruchomić zapytania podobne do poniższ
 
     SELECT VALUE IS_NUMBER(-4)
 
-**Wyniki**
+**Results**
 
     [true]
 
@@ -1524,7 +1524,7 @@ Przy użyciu tych funkcji, można teraz uruchomić zapytania podobne do następu
     SELECT VALUE UPPER(Families.id)
     FROM Families
 
-**Wyniki**
+**Results**
 
     [
         "WAKEFIELDFAMILY", 
@@ -1538,7 +1538,7 @@ Lub ciągów podobnie jak w tym przykładzie:
     SELECT Families.id, CONCAT(Families.address.city, ",", Families.address.state) AS location
     FROM Families
 
-**Wyniki**
+**Results**
 
     [{
       "id": "WakefieldFamily",
@@ -1558,7 +1558,7 @@ Funkcje ciągów można również w klauzuli WHERE, które mają być filtrowane
     FROM Families
     WHERE STARTSWITH(Families.id, "Wakefield")
 
-**Wyniki**
+**Results**
 
     [{
       "id": "WakefieldFamily",
@@ -1583,7 +1583,7 @@ Funkcje tablicy może służyć do manipulowania tablicami w formacie JSON. Na p
     FROM Families 
     WHERE ARRAY_CONTAINS(Families.parents, { givenName: "Robin", familyName: "Wakefield" })
 
-**Wyniki**
+**Results**
 
     [{
       "id": "WakefieldFamily"
@@ -1597,7 +1597,7 @@ Można określić fragmentu częściowe dopasowanie elementów w tablicy. Nastę
     FROM Families 
     WHERE ARRAY_CONTAINS(Families.parents, { givenName: "Robin" }, true)
 
-**Wyniki**
+**Results**
 
     [{
       "id": "WakefieldFamily"
@@ -1611,7 +1611,7 @@ Oto przykład innego, który używa ARRAY_LENGTH, aby uzyskać liczbę elementó
     SELECT Families.id, ARRAY_LENGTH(Families.children) AS numberOfChildren
     FROM Families 
 
-**Wyniki**
+**Results**
 
     [{
       "id": "WakefieldFamily",
@@ -1660,7 +1660,7 @@ Funkcje przestrzenne może służyć do wykonywania zapytań zbliżeniowe wzglę
     FROM Families f 
     WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 30000
 
-**Wyniki**
+**Results**
 
     [{
       "id": "WakefieldFamily"
@@ -2012,7 +2012,7 @@ W poniższych przykładach pokazano POST dla zapytania interfejsu API SQL wykona
     }
 
 
-**Wyniki**
+**Results**
 
     HTTP/1.1 200 Ok
     x-ms-activity-id: 8b4678fa-a947-47d3-8dd3-549a40da6eed
@@ -2085,7 +2085,7 @@ W drugim przykładzie bardziej złożoną kwerendę, która zwraca wiele wynikó
     }
 
 
-**Wyniki**
+**Results**
 
     HTTP/1.1 200 Ok
     x-ms-activity-id: 568f34e3-5695-44d3-9b7d-62f8b83e509d
@@ -2212,7 +2212,7 @@ Następna próbka zawiera sprzężenia, wyrazić za pomocą operacja SelectMany 
 
 Klient .NET automatycznie wykonuje iterację na stronach wyników zapytania w blokach foreach zgodnie z powyższym. Opcje zapytania, wprowadzone w sekcji interfejsu API REST są także dostępne przy użyciu zestawu .NET SDK `FeedOptions` i `FeedResponse` klasy w metodzie CreateDocumentQuery. Liczba stron można kontrolować przy użyciu `MaxItemCount` ustawienie. 
 
-Można również jawnie kontrolować stronicowania, tworząc `IDocumentQueryable` przy użyciu `IQueryable` obiektu, a następnie odczytując` ResponseContinuationToken` wartości i przekazywanie ich ponownie jako `RequestContinuationToken` w `FeedOptions`. `EnableScanInQuery`można ustawić tak, aby włączyć skanowanie, gdy zapytanie nie może być obsługiwana przez skonfigurowane zasady indeksowania. Dla kolekcji partycjonowanych, można użyć `PartitionKey` w celu uruchomienia zapytania pojedynczej partycji (chociaż DB rozwiązania Cosmos można automatycznie wyodrębniania to tekst zapytania), i `EnableCrossPartitionQuery` do uruchamiania zapytań, które może trzeba będzie być uruchamiane na wiele partycji. 
+Można również jawnie kontrolować stronicowania, tworząc `IDocumentQueryable` przy użyciu `IQueryable` obiektu, a następnie odczytując` ResponseContinuationToken` wartości i przekazywanie ich ponownie jako `RequestContinuationToken` w `FeedOptions`. `EnableScanInQuery` można ustawić tak, aby włączyć skanowanie, gdy zapytanie nie może być obsługiwana przez skonfigurowane zasady indeksowania. Dla kolekcji partycjonowanych, można użyć `PartitionKey` w celu uruchomienia zapytania pojedynczej partycji (chociaż DB rozwiązania Cosmos można automatycznie wyodrębniania to tekst zapytania), i `EnableCrossPartitionQuery` do uruchamiania zapytań, które może trzeba będzie być uruchamiane na wiele partycji. 
 
 Zapoznaj się [przykłady Azure rozwiązania Cosmos DB .NET](https://github.com/Azure/azure-documentdb-net) dla większej liczby próbek zawierający zapytania. 
 

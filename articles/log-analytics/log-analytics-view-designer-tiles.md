@@ -1,6 +1,6 @@
 ---
-title: "Kafelku odwołanie Widok projektanta w Azure Log Analytics | Dokumentacja firmy Microsoft"
-description: "Widok projektanta w analizy dzienników umożliwia tworzenie niestandardowych widoków w portalu Azure, która zawiera różne wizualizacje danych w obszarze roboczym analizy dzienników. Ten artykuł zawiera odwołanie do ustawienia dla każdego z dostępnych do użycia w niestandardowych widoków Kafelki."
+title: "Podręcznik kafelków Projektant widoków w Azure Log Analytics | Dokumentacja firmy Microsoft"
+description: "Przy użyciu projektanta widoków analizy dzienników, można tworzyć widoki niestandardowe w portalu Azure, w których są wyświetlane różne wizualizacje danych w obszarze roboczym analizy dzienników. W tym artykule jest przewodnik odwołanie do ustawienia dla kafelków, które są dostępne w niestandardowych widoków."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -14,166 +14,168 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: 9512a3f45ba6b03af4b0c9bee444948381f4fdcb
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: a14a6bf196c165bdffa0a9d5d343c0430cff7f29
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="log-analytics-view-designer-tile-reference"></a>Odwołanie kafelka Projektant widoków analizy dziennika
-Projektant widoków w analizy dzienników umożliwia tworzenie niestandardowych widoków w portalu Azure, która zawiera różne wizualizacje danych w obszarze roboczym analizy dzienników. Ten artykuł zawiera odwołanie do ustawienia dla każdego z dostępnych do użycia w niestandardowych widoków Kafelki.
+# <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Podręcznik projektanta widoku kafelków w analizy dzienników
+Przy użyciu projektanta widoków Analiza dzienników Azure, można tworzyć widoki niestandardowe w portalu Azure, która przedstawia różne wizualizacje danych w obszarze roboczym analizy dzienników. W tym artykule jest przewodnik odwołanie do ustawienia dla kafelków, które są dostępne w niestandardowych widoków.
 
-Inne artykuły, które są dostępne dla projektanta widoku są następujące:
+Aby uzyskać więcej informacji na temat Projektant widoków zobacz:
 
-* [Wyświetl projektanta](log-analytics-view-designer.md) — Omówienie projektanta widoków i procedur tworzenia i edytowania widoków niestandardowych.
-* [Odwołanie do części wizualizacji](log-analytics-view-designer-parts.md) — odwołanie do ustawienia dla każdego z dostępnych do użycia w niestandardowych widoków Kafelki.
+* [Wyświetl projektanta](log-analytics-view-designer.md): zawiera omówienie projektanta widoków i procedur tworzenia i edytowania widoków niestandardowych.
+* [Odwołanie do części wizualizacji](log-analytics-view-designer-parts.md): zawiera przewodnik odwołanie do ustawienia dla części wizualizacji, które są dostępne w niestandardowych widoków.
 
->[!NOTE]
-> Jeśli obszaru roboczego został uaktualniony do [języka zapytań nowe analizy dzienników](log-analytics-log-search-upgrade.md), a następnie zapytania we wszystkich widokach musi być napisana w [nowy język kwerendy](https://go.microsoft.com/fwlink/?linkid=856078).  Wszystkie widoki, które zostały utworzone przed obszaru roboczego został uaktualniony będzie automtically przekonwertować.
+> [!NOTE]
+> Jeśli został uaktualniony do obszaru roboczego [języka zapytań nowe analizy dzienników](log-analytics-log-search-upgrade.md), zapytania we wszystkich widokach musi być napisana w [nowy język kwerendy](https://go.microsoft.com/fwlink/?linkid=856078). Wszystkie widoki, które zostały utworzone przed uaktualnieniem obszaru roboczego są konwertowane automatycznie.
 
-W poniższej tabeli wymieniono różne typy dostępnych w Projektancie Widok kafelków.  Poniższe rozdziały zawierają opis każdego typu kafelka w szczegółów i ich właściwości.
+W poniższej tabeli opisano dostępne Kafelki Projektant widoków:  
 
 | Kafelek | Opis |
 |:--- |:--- |
-| [Numer](#number-tile) |Numer pojedynczego przedstawiający liczby rekordów w wyniku zapytania. |
-| [Dwóch liczb](#two-numbers-tile) |Wyświetlanie liczby rekordów z dwóch różnych zapytań dwóch liczb pojedynczego. |
-| [Pierścień](#donut-tile) |Wykres pierścieniowy przedstawiający na podstawie zapytania o wartości podsumowań w Centrum. |
-| [Wykres liniowy & objaśnienia](#line-chart-amp-callout-tile) |Wykres liniowy, na podstawie zapytania i objaśnienie z wartością podsumowania. |
-| [Wykres liniowy](#line-chart-tile) |Wykres liniowy, na podstawie zapytania. |
-| [Dwóch osiach czasu](#two-timelines-tile) |Wykres kolumnowy z dwóch serii, każda oparta na osobne zapytania. |
+| [Numer](#number-tile) |Liczba rekordów w wyniku zapytania. |
+| [Dwóch liczb](#two-numbers-tile) |Liczba rekordów z dwóch różnych zapytań. |
+| [pierścień](#donut-tile) | Wykres opartą na kwerendzie, w Centrum podsumowania wartość. |
+| [Wykres liniowy i objaśnienie](#line-chart-amp-callout-tile) | Wykres liniowy, na podstawie zapytania i objaśnienie z wartością podsumowania. |
+| [Wykres liniowy](#line-chart-tile) |Wykres liniowy, opartą na kwerendzie. |
+| [Dwóch osiach czasu](#two-timelines-tile) | Wykres kolumnowy z dwóch serii każdego na podstawie osobne zapytania. |
+
+Kolejne sekcje opisują typy kafelków i ich właściwości szczegółowo.
 
 ## <a name="number-tile"></a>Liczba kafelka
-**Numer** kafelka zawiera jeden numer przedstawiający liczbę rekordów z zapytaniem dziennika i etykiety.
+**Numer** kafelka Wyświetla liczbę rekordów dziennika zapytania i etykiety.
 
 ![Liczba kafelka](media/log-analytics-view-designer/tile-number.png)
 
 | Ustawienie | Opis |
 |:--- |:--- |
-| Name (Nazwa) |Tekst wyświetlany w górnej części fragmentu. |
-| Opis |Tekst wyświetlany w obszarze Nazwa kafelka. |
-| **Kafelek** | |
-| Legenda |Tekst wyświetlany w obszarze wartość. |
-| Zapytanie |Zapytanie do uruchomienia.  Zostanie wyświetlona liczba rekordów zwróconych przez kwerendę. |
+| Name (Nazwa) |Tekst, który jest wyświetlany w górnej części fragmentu. |
+| Opis |Tekst, który jest wyświetlany w obszarze Nazwa kafelka. |
+| Kafelek | |
+| Legenda |Tekst, który jest wyświetlany w polu wartość. |
+| Zapytanie |Zapytanie, do którego jest uruchamiany. Liczba rekordów, które są zwracane przez zapytanie zostanie wyświetlona. |
 | **Zaawansowane** |**> Weryfikacja przepływu danych** |
-| Enabled (Włączony) |Wybierz, jeśli Weryfikacja przepływu danych powinno być włączone dla fragmentu.  Oferuje komunikat alternatywnego, jeśli dane nie są dostępne dla fragmentu.  Służy to zwykle podać komunikat okresie tymczasowego, gdy widok jest zainstalowany i danych jest dostępne. |
-| Zapytanie |Wyślij zapytanie do uruchomienia, aby sprawdzić, czy dane są dostępne dla widoku.  Jeśli zapytanie nie przynosi efektów, zamiast wartości z główne zapytanie zostanie wyświetlony komunikat. |
-| Komunikat |Komunikat wyświetlany, jeśli zapytanie weryfikacji przepływu danych zwraca żadnych danych.  Jeśli podasz żaden komunikat *wykonywania oceny* jest wyświetlany. |
+| Enabled (Włączony) |Wybierz ten link, jeśli Weryfikacja przepływu danych powinno być włączone dla fragmentu. Metoda ta umożliwia komunikat alternatywnego, jeśli dane są niedostępne. Podejście jest zwykle używane do udostępniania komunikat okresie tymczasowych, gdy widok jest zainstalowany i dane będą dostępne. |
+| Zapytanie |Zapytanie jest uruchomione, aby określić, czy dane są dostępne dla widoku. Jeśli zapytanie nie przynosi efektów, zamiast wartości główne zapytanie zostanie wyświetlony komunikat. |
+| Komunikat |Komunikat, który jest wyświetlana, jeśli zapytanie weryfikacji przepływu danych zwraca żadnych danych. Jeśli podasz żaden komunikat *wykonywania oceny* jest wyświetlany komunikat o stanie. |
 
 
 ## <a name="two-numbers-tile"></a>Kafelek dwóch liczb
-**Dwa numer** kafelka Wyświetla dwóch liczb przedstawiający liczba rekordy z dwóch różnych dziennika zapytań i etykiety dla każdego.
+Ten Kafelek Wyświetla liczbę rekordy z dwóch różnych dziennika zapytań i etykiety dla każdego.
 
 ![Kafelek dwóch liczb](media/log-analytics-view-designer/tile-two-numbers.png)
 
 | Ustawienie | Opis |
 |:--- |:--- |
-| Name (Nazwa) |Tekst wyświetlany w górnej części fragmentu. |
-| Opis |Tekst wyświetlany w obszarze Nazwa kafelka. |
+| Name (Nazwa) |Tekst, który jest wyświetlany w górnej części fragmentu. |
+| Opis |Tekst, który jest wyświetlany w obszarze Nazwa kafelka. |
 | **Pierwszy Kafelek** | |
-| Legenda |Tekst wyświetlany w obszarze wartość. |
-| Zapytanie |Zapytanie do uruchomienia.  Zostanie wyświetlona liczba rekordów zwróconych przez kwerendę. |
+| Legenda |Tekst, który jest wyświetlany w polu wartość. |
+| Zapytanie |Zapytanie, do którego jest uruchamiany. Liczba rekordów, które są zwracane przez zapytanie zostanie wyświetlona. |
 | **Drugi kafelka** | |
-| Legenda |Tekst wyświetlany w obszarze wartość. |
-| Zapytanie |Zapytanie do uruchomienia.  Zostanie wyświetlona liczba rekordów zwróconych przez kwerendę. |
+| Legenda |Tekst, który jest wyświetlany w polu wartość. |
+| Zapytanie |Zapytanie, do którego jest uruchamiany. Liczba rekordów, które są zwracane przez zapytanie zostanie wyświetlona. |
 | **Zaawansowane** |**> Weryfikacja przepływu danych** |
-| Enabled (Włączony) |Wybierz, jeśli Weryfikacja przepływu danych powinno być włączone dla fragmentu.  Oferuje komunikat alternatywnego, jeśli dane nie są dostępne dla fragmentu.  Służy to zwykle podać komunikat okresie tymczasowego, gdy widok jest zainstalowany i danych jest dostępne. |
-| Zapytanie |Wyślij zapytanie do uruchomienia, aby sprawdzić, czy dane są dostępne dla widoku.  Jeśli zapytanie nie przynosi efektów, zamiast wartości z główne zapytanie zostanie wyświetlony komunikat. |
-| Komunikat |Komunikat wyświetlany, jeśli zapytanie weryfikacji przepływu danych zwraca żadnych danych.  Jeśli podasz żaden komunikat *wykonywania oceny* jest wyświetlany. |
+| Enabled (Włączony) |Wybierz ten link, jeśli Weryfikacja przepływu danych powinno być włączone dla fragmentu. Metoda ta umożliwia komunikat alternatywnego, jeśli dane są niedostępne. Podejście jest zwykle używane do udostępniania komunikat okresie tymczasowych, gdy widok jest zainstalowany i dane będą dostępne. |
+| Zapytanie |Zapytanie jest uruchomione, aby określić, czy dane są dostępne dla widoku. Jeśli zapytanie nie przynosi efektów, zamiast wartości główne zapytanie zostanie wyświetlony komunikat. |
+| Komunikat |Komunikat, który jest wyświetlana, jeśli zapytanie weryfikacji przepływu danych zwraca żadnych danych. Jeśli podasz żaden komunikat *wykonywania oceny* jest wyświetlany komunikat o stanie. |
 
 
 ## <a name="donut-tile"></a>Pierścień kafelka
-**Pierścień** kafelka Wyświetla jeden numer podsumowanie z kolumną wartości w zapytaniu dziennika.  Pierścień graficznie wyświetla wyniki top trzy rekordów.
+**Pierścień** kafelka zawiera jeden numer sumującą wartości kolumny w zapytaniu dziennika. Pierścień graficznie wyświetla wyniki top trzy rekordów.
 
 ![Pierścień kafelka](media/log-analytics-view-designer/tile-donut.png)
 
 | Ustawienie | Opis |
 |:--- |:--- |
-| Name (Nazwa) |Tekst wyświetlany w górnej części fragmentu. |
-| Opis |Tekst wyświetlany w obszarze Nazwa kafelka. |
-| **Pierścień** | |
-| Zapytanie |Wyślij zapytanie do uruchamiania dla pierścień.  Pierwszą właściwością powinna być wartość tekstową i drugą właściwością wartość liczbową.  Jest to zazwyczaj kwerendę, która używa **miary** — słowo kluczowe do podsumowania wyników. |
-| **Pierścień** |**> Center** |
-| Tekst |Tekst wyświetlany w obszarze wartość w pierścień. |
-| Operacja |Operacja do wykonania na wartość właściwości Podsumowując pojedyncza wartość.<br><br>-Sumy: Dodaj wartości wszystkich rekordów z wartością właściwości.<br>— Procent: Procent równy określonemu procentowi wartości w rekordach o wartości właściwości w porównaniu z wartościami równy określonemu procentowi wszystkie rekordy. |
-| Wynik wartości używana podczas operacji Centrum |Opcjonalnie kliknij znak plus, aby dodać jedną lub więcej wartości.  Wyniki zapytania będzie ograniczona do rekordów z wartościami właściwości, które określisz.  Jeśli wartości nie zostaną dodane, nie wszystkie rekordy są uwzględnione w zapytaniu. |
-| **Pierścień** |**> Dodatkowe opcje** |
-| Kolory |Kolor, który ma być wyświetlany dla każdej z trzech właściwości top.  Jeśli chcesz określić alternatywne kolory określone wartości właściwości, użyj zaawansowane mapowanie kolorów. |
-| Mapowanie kolorów zaawansowane |Wyświetla kolor określone wartości właściwości.  Jeśli podaną wartość znajduje się w trzech top, alternatywny kolor zostanie wyświetlony standardowy koloru.  Jeśli właściwość nie ma trzy pierwsze, kolor nie jest wyświetlana. |
+| Name (Nazwa) |Tekst, który jest wyświetlany w górnej części fragmentu. |
+| Opis |Tekst, który jest wyświetlany w obszarze Nazwa kafelka. |
+| **pierścień** | |
+| Zapytanie |Zapytanie jest wykonywane dla pierścień. Pierwszą właściwością jest wartość tekstową, a drugą właściwością jest wartość liczbowa. To zapytanie zazwyczaj używa *miary* — słowo kluczowe do podsumowania wyników. |
+| **pierścień** |**> Center** |
+| Tekst |Tekst, który jest wyświetlany w obszarze wartość w pierścień. |
+| Operacja |Operacja, która jest wykonywana dla właściwości value Podsumowując jako pojedyncza wartość.<ul><li>Sum: Dodaj odpowiednie wartości wszystkich rekordów z wartością właściwości.</li><li>Wartość procentowa: Procent równy określonemu procentowi wartości w rekordach o wartości właściwości w porównaniu z wartościami równy określonemu procentowi wszystkie rekordy.</li></ul> |
+| Wynik wartości używana podczas operacji Centrum |Opcjonalnie wybierz znak plus (+), aby dodać jedną lub więcej wartości. Wyniki zapytania są ograniczone do rekordów z wartościami właściwości, które określisz. Jeśli wartości nie zostaną dodane, wszystkie rekordy są uwzględnione w zapytaniu. |
+| **pierścień** |**> Dodatkowe opcje** |
+| Kolory |Kolor, który jest wyświetlany dla każdej z trzech właściwości top. Aby określić alternatywne kolory określone wartości właściwości, należy użyć *zaawansowane mapowanie kolorów*. |
+| Mapowanie kolorów zaawansowane |Wyświetla kolor, który reprezentuje określone wartości właściwości. Jeśli podaną wartość znajduje się w pierwszych trzech, alternatywny kolor zostanie wyświetlony standardowy koloru. Jeśli właściwość nie ma trzy najważniejsze, kolor nie jest wyświetlana. |
 | **Zaawansowane** |**> Weryfikacja przepływu danych** |
-| Enabled (Włączony) |Wybierz, jeśli Weryfikacja przepływu danych powinno być włączone dla fragmentu.  Oferuje komunikat alternatywnego, jeśli dane nie są dostępne dla fragmentu.  Służy to zwykle podać komunikat okresie tymczasowego, gdy widok jest zainstalowany i danych jest dostępne. |
-| Zapytanie |Wyślij zapytanie do uruchomienia, aby sprawdzić, czy dane są dostępne dla widoku.  Jeśli zapytanie nie przynosi efektów, zamiast wartości z główne zapytanie zostanie wyświetlony komunikat. |
-| Komunikat |Komunikat wyświetlany, jeśli zapytanie weryfikacji przepływu danych zwraca żadnych danych.  Jeśli podasz żaden komunikat *wykonywania oceny* jest wyświetlany. |
+| Enabled (Włączony) |Wybierz ten link, jeśli Weryfikacja przepływu danych powinno być włączone dla fragmentu. Metoda ta umożliwia komunikat alternatywnego, jeśli dane są niedostępne. Podejście jest zwykle używane do udostępniania komunikat okresie tymczasowych, gdy widok jest zainstalowany i dane będą dostępne. |
+| Zapytanie |Zapytanie jest uruchomione, aby określić, czy dane są dostępne dla widoku. Jeśli zapytanie nie przynosi efektów, zamiast wartości główne zapytanie zostanie wyświetlony komunikat. |
+| Komunikat |Komunikat, który jest wyświetlana, jeśli zapytanie weryfikacji przepływu danych zwraca żadnych danych. Jeśli podasz żaden komunikat *wykonywania oceny* jest wyświetlany komunikat o stanie. |
 
 
 ## <a name="line-chart-tile"></a>Kafelek wykresu wiersza
-**Wykres liniowy** kafelka Wyświetla wykres liniowy z wielu serii w wyniku zapytania dziennika wraz z upływem czasu.  
+Ten Kafelek jest wykres liniowy, zawierający wiele serii w wyniku zapytania dziennika wraz z upływem czasu. 
 
-![Wykres liniowy & objaśnienia kafelka](media/log-analytics-view-designer/tile-line-chart.png)
+![Kafelek wykresu i objaśnienie wiersza](media/log-analytics-view-designer/tile-line-chart.png)
 
 | Ustawienie | Opis |
 |:--- |:--- |
-| Name (Nazwa) |Tekst wyświetlany w górnej części fragmentu. |
-| Opis |Tekst wyświetlany w obszarze Nazwa kafelka. |
+| Name (Nazwa) |Tekst, który jest wyświetlany w górnej części fragmentu. |
+| Opis |Tekst, który jest wyświetlany w obszarze Nazwa kafelka. |
 | **Wykres liniowy** | |
-| Zapytanie |Zapytania w celu uruchomienia wykresu liniowego.  Pierwszą właściwością powinna być wartość tekstową i drugą właściwością wartość liczbową.  Jest to zazwyczaj kwerendę, która używa **miary** — słowo kluczowe do podsumowania wyników.  Jeśli zapytanie używa **interwał** — słowo kluczowe następnie osi x wykresu użyje tego przedziału czasu.  Jeśli zapytanie nie obejmuje **interwał** interwałów — słowo kluczowe, a następnie co godzinę używanych dla osi x. |
-| **Wykres liniowy** |**> Oś Y** |
-| Użyj skali logarytmicznej |Zaznacz, aby użyć skali logarytmicznej dla osi y. |
-| Jednostki |Określ jednostki dla wartości zwróconych przez kwerendę.  Te informacje jest używany do wyświetlania etykiet na wykresie wskazujący typy wartości i opcjonalnie do konwertowania wartości.  **Typ jednostki** określa kategorię jednostki i definiuje **bieżący typ jednostki** wartości, które są dostępne.  W przypadku wybrania wartości w **Konwertuj na** , a następnie są konwertowane wartości liczbowych **bieżącej jednostce** typ **przekonwertować** typu. |
-| Etykiety niestandardowej |Tekst do wyświetlenia dla osi Y obok etykiety dla tego typu jednostki.  Jeśli etykieta nie jest określony, wyświetlana jest tylko typ jednostki. |
+| Zapytanie |Zapytanie, do którego jest uruchamiany wykresu liniowego. Pierwszą właściwością jest wartość tekstową, a drugą właściwością jest wartość liczbowa. To zapytanie zazwyczaj używa *miary* — słowo kluczowe do podsumowania wyników. Jeśli zapytanie używa *interwał* — słowo kluczowe, osi x używa tego przedziału czasu. Jeśli zapytanie nie używa *interwał* — słowo kluczowe, przedziały co godzinę używa osi x. |
+| **Wykres liniowy** |**> Oś y** |
+| Użyj skali logarytmicznej |Wybierz ten link do użycia skali logarytmicznej dla osi y. |
+| Jednostki |Określ jednostki dla wartości zwróconych przez kwerendę. Te informacje jest używany do wyświetlania etykiet na wykresie wskazujący typy wartości i opcjonalnie do konwertowania wartości. **Typ jednostki** określa kategorię jednostki i definiuje **bieżący typ jednostki** wartości, które są dostępne. W przypadku wybrania wartości w **Konwertuj na** , a następnie są konwertowane wartości liczbowych **bieżącej jednostce** typ **przekonwertować** typu. |
+| Etykiety niestandardowej |Tekst, który jest wyświetlany obok etykiety osi y *jednostki* typu. Jeśli etykieta nie jest określona, tylko *jednostki* typ jest wyświetlany. |
 | **Zaawansowane** |**> Weryfikacja przepływu danych** |
-| Enabled (Włączony) |Wybierz, jeśli Weryfikacja przepływu danych powinno być włączone dla fragmentu.  Oferuje komunikat alternatywnego, jeśli dane nie są dostępne dla fragmentu.  Służy to zwykle podać komunikat okresie tymczasowego, gdy widok jest zainstalowany i danych jest dostępne. |
-| Zapytanie |Wyślij zapytanie do uruchomienia, aby sprawdzić, czy dane są dostępne dla widoku.  Jeśli zapytanie nie przynosi efektów, zamiast wartości z główne zapytanie zostanie wyświetlony komunikat. |
-| Komunikat |Komunikat wyświetlany, jeśli zapytanie weryfikacji przepływu danych zwraca żadnych danych.  Jeśli podasz żaden komunikat *wykonywania oceny* jest wyświetlany. |
+| Enabled (Włączony) |Wybierz ten link, jeśli Weryfikacja przepływu danych powinno być włączone dla fragmentu. Metoda ta umożliwia komunikat alternatywnego, jeśli dane są niedostępne. Podejście jest zwykle używane do udostępniania komunikat okresie tymczasowych, gdy widok jest zainstalowany i dane będą dostępne. |
+| Zapytanie |Zapytanie jest uruchomione, aby określić, czy dane są dostępne dla widoku. Jeśli zapytanie nie przynosi efektów, zamiast wartości główne zapytanie zostanie wyświetlony komunikat. |
+| Komunikat |Komunikat, który jest wyświetlana, jeśli zapytanie weryfikacji przepływu danych zwraca żadnych danych. Jeśli podasz żaden komunikat *wykonywania oceny* jest wyświetlany komunikat o stanie. |
 
 
-## <a name="line-chart--callout-tile"></a>Kafelek linii objaśnienia & wykresu
-**Linii objaśnienia & wykresu** kafelka przedstawia wykres liniowy z wielu serii w wyniku zapytania dziennika przez godzinę i objaśnienie z podsumowaniem wartość.  
+## <a name="line-chart-and-callout-tile"></a>Kafelek wykresu i objaśnienie wiersza
+Ten Kafelek jest zarówno linia, wykres ten przedstawia wielu serii z dziennika zapytanie dotyczące czasu i objaśnienie z podsumowaniem wartości. 
 
-![Wykres liniowy & objaśnienia kafelka](media/log-analytics-view-designer/tile-line-chart-callout.png)
+![Kafelek wykresu i objaśnienie wiersza](media/log-analytics-view-designer/tile-line-chart-callout.png)
 
 | Ustawienie | Opis |
 |:--- |:--- |
-| Name (Nazwa) |Tekst wyświetlany w górnej części fragmentu. |
-| Opis |Tekst wyświetlany w obszarze Nazwa kafelka. |
+| Name (Nazwa) |Tekst, który jest wyświetlany w górnej części fragmentu. |
+| Opis |Tekst, który jest wyświetlany w obszarze Nazwa kafelka. |
 | **Wykres liniowy** | |
-| Zapytanie |Zapytania w celu uruchomienia wykresu liniowego.  Pierwszą właściwością powinna być wartość tekstową i drugą właściwością wartość liczbową.  Jest to zazwyczaj kwerendę, która używa **miary** — słowo kluczowe do podsumowania wyników.  Jeśli zapytanie używa **interwał** — słowo kluczowe następnie osi x wykresu użyje tego przedziału czasu.  Jeśli zapytanie nie obejmuje **interwał** interwałów — słowo kluczowe, a następnie co godzinę używanych dla osi x. |
+| Zapytanie |Zapytanie, do którego jest uruchamiany wykresu liniowego. Pierwszą właściwością jest wartość tekstową, a drugą właściwością jest wartość liczbowa. To zapytanie zazwyczaj używa *miary* — słowo kluczowe do podsumowania wyników. Jeśli zapytanie używa *interwał* — słowo kluczowe, osi x używa tego przedziału czasu. Jeśli zapytanie nie używa *interwał* — słowo kluczowe, przedziały co godzinę używa osi x. |
 | **Wykres liniowy** |**> Objaśnienie** |
-| Objaśnienie |Tytuł tekst do wyświetlenia powyżej wartości objaśnienia. |
-| Nazwa serii |Wartość właściwości serii użyć wartości objaśnienia.  W przypadku serii nie są używane wszystkie rekordy z zapytania. |
-| Operacja |Operacja do wykonania na wartość właściwości Podsumowując pojedyncza wartość objaśnienia.<br>— Średnia: Średnia wartość ze wszystkich rekordów.<br><br>-Liczba: Liczba wszystkich rekordów zwróconych przez kwerendę.<br>-Ostatniej próbki: Wartość od ostatniego interwału uwzględnione na wykresie.<br>-Max: Wartość maksymalna z interwałów uwzględnione na wykresie.<br>-Min: Wartość minimalna z interwałów uwzględnione na wykresie.<br>— Suma: Suma wartość ze wszystkich rekordów. |
-| **Wykres liniowy** |**> Oś Y** |
-| Użyj skali logarytmicznej |Zaznacz, aby użyć skali logarytmicznej dla osi y. |
-| Jednostki |Określ jednostki dla wartości zwróconych przez kwerendę.  Te informacje jest używany do wyświetlania etykiet na wykresie wskazujący typy wartości i opcjonalnie do konwertowania wartości.  **Typ jednostki** określa kategorię jednostki i definiuje **bieżący typ jednostki** wartości, które są dostępne.  W przypadku wybrania wartości w **Konwertuj na** , a następnie są konwertowane wartości liczbowych **bieżącej jednostce** typ **przekonwertować** typu. |
-| Etykiety niestandardowej |Tekst do wyświetlenia dla osi Y obok etykiety dla tego typu jednostki.  Jeśli etykieta nie jest określony, wyświetlana jest tylko typ jednostki. |
+| Tytuł objaśnienia | Tekst, który jest wyświetlany powyżej wartości objaśnienia. |
+| Nazwa serii |Wartość właściwości serii, która ma być używany jako wartość objaśnienia. W przypadku serii nie są używane wszystkie rekordy z zapytania. |
+| Operacja |Operacja, która jest wykonywana dla właściwości value Podsumowując jako pojedyncza wartość objaśnienia.<ul><li>Średnia: Średniej wartości ze wszystkich rekordów.</li><li>Liczba: Liczba wszystkich rekordów, które są zwracane przez zapytanie.</li><li>Ostatnio przykładowe: wartość ostatniego interwału, który znajduje się na wykresie.</li><li>Maksymalna liczba: Maksymalna wartość interwałów, które znajdują się na wykresie.</li><li>Min: Minimalna wartość interwałów, które znajdują się na wykresie.</li><li>Sum: Suma wartości ze wszystkich rekordów.</li></ul> |
+| **Wykres liniowy** |**> Oś y** |
+| Użyj skali logarytmicznej |Wybierz ten link do użycia skali logarytmicznej dla osi y. |
+| Jednostki |Określ jednostki dla wartości zwracanej przez zapytanie. Te informacje są używane do wyświetlania etykiet wykresu, wskazujące typy wartości i, opcjonalnie, aby przekonwertować wartości. *Jednostki* typu określa kategorię jednostki i definiuje dostępnych *bieżącej jednostce* typu wartości. W przypadku wybrania wartości w *Konwertuj na*, wartości liczbowe są konwertowane z *bieżącej jednostce* typ *przekonwertować* typu. |
+| Etykiety niestandardowej |Tekst, który jest wyświetlany obok etykiety osi y *jednostki* typu. Jeśli etykieta nie jest określona, tylko *jednostki* typ jest wyświetlany. |
 | **Zaawansowane** |**> Weryfikacja przepływu danych** |
-| Enabled (Włączony) |Wybierz, jeśli Weryfikacja przepływu danych powinno być włączone dla fragmentu.  Oferuje komunikat alternatywnego, jeśli dane nie są dostępne dla fragmentu.  Służy to zwykle podać komunikat okresie tymczasowego, gdy widok jest zainstalowany i danych jest dostępne. |
-| Zapytanie |Wyślij zapytanie do uruchomienia, aby sprawdzić, czy dane są dostępne dla widoku.  Jeśli zapytanie nie przynosi efektów, zamiast wartości z główne zapytanie zostanie wyświetlony komunikat. |
-| Komunikat |Komunikat wyświetlany, jeśli zapytanie weryfikacji przepływu danych zwraca żadnych danych.  Jeśli podasz żaden komunikat *wykonywania oceny* jest wyświetlany. |
+| Enabled (Włączony) |Wybierz ten link, jeśli Weryfikacja przepływu danych powinno być włączone dla fragmentu. Metoda ta umożliwia komunikat alternatywnego, jeśli dane są niedostępne. Podejście jest zwykle używane do udostępniania komunikat okresie tymczasowych, gdy widok jest zainstalowany i dane będą dostępne. |
+| Zapytanie |Zapytanie jest uruchomione, aby określić, czy dane są dostępne dla widoku. Jeśli zapytanie nie przynosi efektów, zamiast wartości główne zapytanie zostanie wyświetlony komunikat. |
+| Komunikat |Komunikat, który jest wyświetlana, jeśli zapytanie weryfikacji przepływu danych zwraca żadnych danych. Jeśli podasz żaden komunikat *wykonywania oceny* jest wyświetlany komunikat o stanie. |
 
 
 ## <a name="two-timelines-tile"></a>Kafelek dwóch osiach czasu
-**Dwóch osiach czasu** kafelka wyświetla wyniki dwa zapytania dziennika w czasie, gdy wykresy kolumnowe.  Objaśnienie jest wyświetlany dla każdej serii.  
+**Dwóch osiach czasu** kafelka wyświetla wyniki dwa zapytania dziennika w czasie, gdy wykresy kolumnowe. Objaśnienie jest wyświetlany dla każdej serii. 
 
 ![Kafelek dwóch osiach czasu](media/log-analytics-view-designer/tile-two-timelines.png)
 
 | Ustawienie | Opis |
 |:--- |:--- |
-| Name (Nazwa) |Tekst wyświetlany w górnej części fragmentu. |
-| Opis |Tekst wyświetlany w obszarze Nazwa kafelka. |
+| Name (Nazwa) |Tekst, który jest wyświetlany w górnej części fragmentu. |
+| Opis |Tekst, który jest wyświetlany w obszarze Nazwa kafelka. |
 | Pierwszy wykres | |
-| Legenda |Tekst wyświetlany w obszarze objaśnienia pierwszy serii. |
-| Kolor |Kolor używany dla kolumn w pierwszej serii. |
-| Wykres zapytania |Wyślij zapytanie do uruchamiania dla pierwszej serii.  Liczba rekordów przez każdego interwału czasu będą reprezentowane przez kolumny wykresu. |
-| Operacja |Operacja do wykonania na wartość właściwości Podsumowując pojedyncza wartość objaśnienia.<br><br>— Średnia: Średnia wartość ze wszystkich rekordów.<br>-Liczba: Liczba wszystkich rekordów zwróconych przez kwerendę.<br>-Ostatniej próbki: Wartość od ostatniego interwału uwzględnione na wykresie.<br>-Max: Wartość maksymalna z interwałów uwzględnione na wykresie. |
+| Legenda |Tekst, który jest wyświetlany w obszarze objaśnienia pierwszy serii. |
+| Kolor |Kolor, który jest używany dla kolumn w pierwszej serii. |
+| Wykres zapytania |Zapytanie, do którego jest uruchamiany pierwszy serii. Liczba rekordów przez każdego interwału czasu jest reprezentowana przez kolumny wykresu. |
+| Operacja |Operacja, która jest wykonywana dla właściwości value Podsumowując jako pojedyncza wartość objaśnienia.<ul><li>Średnia: Średniej wartości ze wszystkich rekordów.</li><li>Liczba: Liczba wszystkich rekordów, które są zwracane przez zapytanie.</li><li>Ostatnio przykładowe: wartość ostatniego interwału, który znajduje się na wykresie.</li><li>Maksymalna liczba: Maksymalna wartość interwałów, które znajdują się na wykresie.</li></ul> |
 | **Drugi wykresu** | |
-| Legenda |Tekst wyświetlany w obszarze objaśnienia drugi serii. |
-| Kolor |Kolor używany dla kolumn w drugiej serii. |
-| Wykres zapytania |Wyślij zapytanie do uruchamiania dla drugiej serii.  Liczba rekordów przez każdego interwału czasu będą reprezentowane przez kolumny wykresu. |
-| Operacja |Operacja do wykonania na wartość właściwości Podsumowując pojedyncza wartość objaśnienia.<br><br>— Średnia: Średnia wartość ze wszystkich rekordów.<br>-Liczba: Liczba wszystkich rekordów zwróconych przez kwerendę.<br>-Ostatniej próbki: Wartość od ostatniego interwału uwzględnione na wykresie.<br>-Max: Wartość maksymalna z interwałów uwzględnione na wykresie. |
+| Legenda |Tekst, który jest wyświetlany w obszarze objaśnienia drugi serii. |
+| Kolor |Kolor, który jest używany dla kolumn w drugiej serii. |
+| Wykres zapytania |Zapytanie, do którego jest uruchamiany drugi serii. Liczba rekordów przez każdego interwału czasu jest reprezentowana przez kolumny wykresu. |
+| Operacja |Operacja, która jest wykonywana dla właściwości value Podsumowując jako pojedyncza wartość objaśnienia.<ul><li>Średnia: Średniej wartości ze wszystkich rekordów.</li><li>Liczba: Liczba wszystkich rekordów, które są zwracane przez zapytanie.</li><li>Ostatnio przykładowe: wartość ostatniego interwału, który znajduje się na wykresie.</li><li>Maksymalna liczba: Maksymalna wartość interwałów, które znajdują się na wykresie. |
 | **Zaawansowane** |**> Weryfikacja przepływu danych** |
-| Enabled (Włączony) |Wybierz, jeśli Weryfikacja przepływu danych powinno być włączone dla fragmentu.  Oferuje komunikat alternatywnego, jeśli dane nie są dostępne dla fragmentu.  Służy to zwykle podać komunikat okresie tymczasowego, gdy widok jest zainstalowany i danych jest dostępne. |
-| Zapytanie |Wyślij zapytanie do uruchomienia, aby sprawdzić, czy dane są dostępne dla widoku.  Jeśli zapytanie nie przynosi efektów, zamiast wartości z główne zapytanie zostanie wyświetlony komunikat. |
-| Komunikat |Komunikat wyświetlany, jeśli zapytanie weryfikacji przepływu danych zwraca żadnych danych.  Jeśli podasz żaden komunikat *wykonywania oceny* jest wyświetlany. |
+| Enabled (Włączony) |Wybierz ten link, jeśli Weryfikacja przepływu danych powinno być włączone dla fragmentu. Metoda ta umożliwia komunikat alternatywnego, jeśli dane są niedostępne. Podejście jest zwykle używane do udostępniania komunikat okresie tymczasowych, gdy widok jest zainstalowany i dane będą dostępne. |
+| Zapytanie |Zapytanie jest uruchomione, aby określić, czy dane są dostępne dla widoku. Jeśli zapytanie nie przynosi efektów, zamiast wartości główne zapytanie zostanie wyświetlony komunikat. |
+| Komunikat |Komunikat, który jest wyświetlana, jeśli zapytanie weryfikacji przepływu danych zwraca żadnych danych. Jeśli podasz żaden komunikat *wykonywania oceny* jest wyświetlany komunikat o stanie. |
 
 
 ## <a name="next-steps"></a>Kolejne kroki

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/10/2017
 ms.author: makohli
-ms.openlocfilehash: dc89cd29e1e8038f0ff317ff6acee332218ebce7
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
-ms.translationtype: MT
+ms.openlocfilehash: d15f91c91281eae28ddaff52af3ee8e617f142c1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-azure-advisor"></a>Wprowadzenie do usługi Azure Advisor
 
@@ -28,7 +28,7 @@ Dowiedz się, jak uzyskać dostępu do usługi Advisor za pośrednictwem portalu
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-2. W okienku po lewej stronie kliknij **Advisor**.  Jeśli nie ma usługi Advisor w okienku po lewej stronie, kliknij przycisk **więcej usług**.  W okienku usługi menu w obszarze **monitorowanie i zarządzanie**, kliknij przycisk **Advisor**.
+2. W okienku po lewej stronie kliknij **Advisor**.  Jeśli nie ma usługi Advisor w okienku po lewej stronie, kliknij przycisk **wszystkie usługi**.  W okienku usługi menu w obszarze **monitorowanie i zarządzanie**, kliknij przycisk **Advisor**.
  Zostanie wyświetlony pulpit nawigacyjny usługi Advisor.
 
    ![Klasyfikator Azure dostępu przy użyciu portalu Azure](./media/advisor-get-started/advisor-portal-menu.png) 
@@ -128,7 +128,7 @@ Klasyfikator umożliwia pobieranie podsumowanie zalecenia.  Możesz pobrać zale
 
 Opcja pobierania uwzględnia wszystkie filtry, które zostały zastosowane do pulpitu nawigacyjnego usługi Advisor.  Jeśli zostanie wybrana opcja pobierania podczas wyświetlania zalecenie określonych kategorii lub zalecenia, pobranego Podsumowanie zawiera tylko informacje dotyczące tej kategorii lub zalecenia. 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby dowiedzieć się więcej o usłudze Advisor, zobacz:
 * [Wprowadzenie do usługi Advisor Azure](advisor-overview.md)

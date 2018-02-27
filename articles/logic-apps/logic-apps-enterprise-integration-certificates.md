@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 0570aab14283b38f9efcc50636f0c0c1c8e3ed13
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: 0357e67a8920a57b2ab8b79ebd8dd3a64d888478
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="learn-about-certificates-and-enterprise-integration-pack"></a>Informacje na temat certyfikatów i pakietu integracyjnego dla przedsiębiorstw
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Integracja przedsiębiorstwa używa certyfikatów do zabezpieczenia komunikacji B2B. Można użyć dwóch typów certyfikatów, w aplikacjach integracji przedsiębiorstwa:
 
 * Certyfikaty publiczne, które muszą być zakupione od urzędu certyfikacji (CA).
@@ -44,7 +44,7 @@ Przekaż certyfikat, jest dostępny do zabezpieczenia wiadomości B2B podczas de
 
 Poniżej przedstawiono szczegółowe informacje na temat przekazywania certyfikaty publiczne na koncie integracji, po zalogowaniu się do portalu Azure:
 
-1. Wybierz **więcej usług** , a następnie wprowadź **integracji** w polu filtru wyszukiwania. Wybierz **konta integracji** z listy wyników     
+1. Wybierz **wszystkie usługi** , a następnie wprowadź **integracji** w polu filtru wyszukiwania. Wybierz **konta integracji** z listy wyników     
 ![Wybierz opcję Przeglądaj](media/logic-apps-enterprise-integration-certificates/overview-1.png)  
 2. Wybierz konto integracji, do której chcesz dodać certyfikat.  
 ![Wybierz konto integracji, do której chcesz dodać certyfikat](media/logic-apps-enterprise-integration-certificates/overview-3.png)  
@@ -67,7 +67,7 @@ Aby użyć *certyfikatu prywatnego* w aplikacjach logiki z możliwościami B2B, 
 1. [Przekazać klucz prywatny do magazynu klucz](../key-vault/key-vault-get-started.md "więcej informacji na temat usługi Key Vault") i podaj **nazwa klucza** 
    
    > [!TIP]
-   > Musisz zezwolić aplikacji logiki, aby wykonywać operacje na magazyn kluczy. Można przyznać dostęp do nazwy głównej usługi Logic Apps za pomocą następującego polecenia programu PowerShell:`Set-AzureRmKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`  
+   > Musisz zezwolić aplikacji logiki, aby wykonywać operacje na magazyn kluczy. Można przyznać dostęp do nazwy głównej usługi Logic Apps za pomocą następującego polecenia programu PowerShell: `Set-AzureRmKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`  
    > 
    > 
 

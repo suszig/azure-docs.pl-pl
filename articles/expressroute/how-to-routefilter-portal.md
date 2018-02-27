@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: ganesr
-ms.openlocfilehash: 0129a48e43e90001785a5977d4b0d1fd9fa9fd7d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: ab0cd45334581f6f5c6dd6e86939e018df5de074
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Konfigurowanie filtrów trasy dla komunikacji równorzędnej firmy Microsoft: Azure portal
 > [!div class="op_single_selector"]
@@ -51,7 +51,7 @@ Aby można było dołączyć filtry tras z usługami Office 365 na nich, musi mi
 > 
 > 
 
-### <a name="workflow"></a>Przepływ pracy
+### <a name="workflow"></a>przepływ pracy
 
 Aby móc nawiązywać połączeń z usługami za pomocą komunikacji równorzędnej firmy Microsoft, wykonaj następujące kroki konfiguracji:
 
@@ -92,7 +92,7 @@ Tworzenie listy wartości społeczności protokołu BGP, które mają być używ
 Filtr tras może mieć tylko jedną regułę, a reguła musi być typu "Zezwalaj". Ta zasada może mieć listy wartości społeczności BGP skojarzonych z nim.
 
 ### <a name="1-create-a-route-filter"></a>1. Utwórz filtr trasy
-Można utworzyć filtr trasy, wybierając opcję, aby utworzyć nowy zasób. Kliknij przycisk **nowy** > **sieci** > **RouteFilter**, jak pokazano na poniższej ilustracji:
+Można utworzyć filtr trasy, wybierając opcję, aby utworzyć nowy zasób. Kliknij przycisk **Utwórz zasób** > **sieci** > **RouteFilter**, jak pokazano na poniższej ilustracji:
 
 ![Utwórz filtr trasy](.\media\how-to-routefilter-portal\CreateRouteFilter1.png)
 

@@ -4,7 +4,7 @@ description: "W tym samouczku przedstawiono sposób tworzenia programu SQL Serve
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 tags: azure-service-management
 ms.assetid: 08a00342-fee2-4afe-8824-0db1ed4b8fca
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 228ca9ca5fddc493d27bfd6a40df5ee7306d6aa9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 70e483f8b64648200bd6f0898a2877c2bf95e590
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Konfigurowanie zawsze włączonej grupy dostępności w maszynie Wirtualnej platformy Azure ręcznie
 
@@ -40,13 +40,13 @@ W poniższej tabeli wymieniono wymagania wstępne, które należy wykonać przed
 
 |  |Wymaganie |Opis |
 |----- |----- |----- |
-|![kwadratowe](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png) | Dwa serwery SQL | — W zestawie dostępności Azure <br/> — W jednej domenie <br/> -Z zainstalowaną funkcją klastra trybu Failover |
-|![kwadratowe](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | Udział plików dla monitora klastra |  
-|![kwadratowe](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Konto usługi programu SQL Server | Konto domeny |
-|![kwadratowe](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Konto usługi programu SQL Server Agent | Konto domeny |  
-|![kwadratowe](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Otwórz porty zapory | — Program SQL Server: **1433** dla domyślnego wystąpienia <br/> -Dublowania bazy danych punktu końcowego: **5022** lub dowolny dostępny port <br/> -Sondę modułu równoważenia obciążenia azure: **59999** lub dowolny dostępny port |
-|![kwadratowe](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Dodawanie obsługi klastrów pracy awaryjnej | Oba serwery SQL wymagają tej funkcji |
-|![kwadratowe](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Konto domeny instalacji | -Lokalnego administratora na każdym serwerze SQL <br/> -Członek roli serwera sysadmin programu SQL Server dla każdego wystąpienia programu SQL Server  |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png) | Dwa serwery SQL | — W zestawie dostępności Azure <br/> — W jednej domenie <br/> -Z zainstalowaną funkcją klastra trybu Failover |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | Udział plików dla monitora klastra |  
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Konto usługi programu SQL Server | Konto domeny |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Konto usługi programu SQL Server Agent | Konto domeny |  
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Otwórz porty zapory | — Program SQL Server: **1433** dla domyślnego wystąpienia <br/> -Dublowania bazy danych punktu końcowego: **5022** lub dowolny dostępny port <br/> -Sondę modułu równoważenia obciążenia azure: **59999** lub dowolny dostępny port |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Dodawanie obsługi klastrów pracy awaryjnej | Oba serwery SQL wymagają tej funkcji |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Konto domeny instalacji | -Lokalnego administratora na każdym serwerze SQL <br/> -Członek roli serwera sysadmin programu SQL Server dla każdego wystąpienia programu SQL Server  |
 
 
 Przed rozpoczęciem tego samouczka należy [ukończyć wymagania wstępne dotyczące tworzenia zawsze włączonych grup dostępności w maszynach wirtualnych platformy Azure](virtual-machines-windows-portal-sql-availability-group-prereq.md). Jeśli te wymagania wstępne są już wypełnione, można przejść do [tworzenia klastrów](#CreateCluster).
@@ -55,7 +55,7 @@ Przed rozpoczęciem tego samouczka należy [ukończyć wymagania wstępne dotycz
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->
 
 <a name="CreateCluster"></a>
-##Tworzenie klastra
+## Tworzenie klastra
 
 Po ukończeniu wymagania wstępne, pierwszym krokiem jest tworzenie klastra trybu Failover serwera systemu Windows, która zawiera dwa serwery SQL i serwer monitora.  
 
@@ -71,7 +71,7 @@ Po ukończeniu wymagania wstępne, pierwszym krokiem jest tworzenie klastra tryb
 
    | Strona | Ustawienia |
    | --- | --- |
-   | Przed rozpoczęciem |Użyj wartości domyślnych |
+   | Przed rozpoczęciem |Użyj domyślnych |
    | Wybierz serwery |Wpisz nazwę pierwszego serwera SQL w **wprowadź nazwę serwera** i kliknij przycisk **Dodaj**. |
    | Ostrzeżenie dotyczące sprawdzania poprawności |Wybierz **nr nie jest wymagana obsługa firmy Microsoft dla tego klastra i z tego powodu nie chcesz uruchomić testy weryfikacyjne. Po kliknięciu przycisku dalej kontynuować tworzenie klastra**. |
    | Punkt dostępu do administrowania klastrem |Wpisz nazwę klastra, na przykład **SQLAGCluster1** w **nazwy klastra**.|
@@ -221,7 +221,7 @@ Repeat these steps on the second SQL Server.
 7. W **Eksplorator obiektów**, kliknij prawym przyciskiem myszy **baz danych** i kliknij przycisk **nową bazę danych**.
 8. W **Nazwa bazy danych**, typ **MyDB1**, następnie kliknij przycisk **OK**.
 
-### <a name="backupshare"></a>Tworzenie kopii zapasowej udziału
+### <a name="backupshare"></a> Tworzenie kopii zapasowej udziału
 
 1. Na pierwszym serwerze SQL w **Menedżera serwera**, kliknij przycisk **narzędzia**. Otwórz **Zarządzanie komputerem**.
 
@@ -337,7 +337,7 @@ W tym momencie masz grupę dostępności z replik na dwa wystąpienia programu S
 
 <a name="configure-internal-load-balancer"></a>
 
-## <a name="create-an-azure-load-balancer"></a>Tworzenie usługi równoważenia obciążenia Azure
+## <a name="create-an-azure-load-balancer"></a>Tworzenie modułu równoważenia obciążenia na platformie Azure
 
 Na maszynach wirtualnych Azure grupy dostępności programu SQL Server wymaga usługi równoważenia obciążenia. Moduł równoważenia obciążenia zawiera adres IP dla odbiornika grupy dostępności. Ta sekcja zawiera podsumowanie sposobu tworzenia modułu równoważenia obciążenia w portalu Azure.
 
@@ -352,7 +352,7 @@ Na maszynach wirtualnych Azure grupy dostępności programu SQL Server wymaga us
    | Ustawienie | Pole |
    | --- | --- |
    | **Nazwa** |Użyj nazwy tekstu dla usługi równoważenia obciążenia, na przykład **sqlLB**. |
-   | **Typ** |wewnętrzny |
+   | **Typ** |Wewnętrzny |
    | **Sieć wirtualna** |Użyj nazwy sieci wirtualnej platformy Azure. |
    | **Podsieć** |Użyj nazwy podsieci, która znajduje się w maszynie wirtualnej.  |
    | **Przypisywanie adresów IP** |Statyczny |
@@ -381,7 +381,7 @@ Aby skonfigurować usługę równoważenia obciążenia, musisz utworzyć puli w
    | **Nazwa** | Wpisz nazwę tekstu | SQLLBBE
    | **Skojarzony z** | Wybierz z listy | Zestaw dostępności
    | **Zestaw dostępności** | Użyj nazwy maszyn wirtualnych programu SQL Server znajdują się w zestawie dostępności | sqlAvailabilitySet |
-   | **Maszyny wirtualne** |Obie nazwy maszyny Wirtualnej Azure SQL Server | SQLServer-0, sqlserver 1
+   | **Maszyny wirtualne** |Obie nazwy maszyny Wirtualnej Azure SQL Server | sqlserver-0, sqlserver-1
 
 1. Wpisz nazwę puli zaplecza.
 
@@ -431,7 +431,7 @@ Aby skonfigurować usługę równoważenia obciążenia, musisz utworzyć puli w
 
 1. Kliknij przycisk **OK** można ustawić reguły równoważenia obciążenia.
 
-## <a name="configure-listener"></a>Konfigurowanie odbiornika
+## <a name="configure-listener"></a> Konfigurowanie odbiornika
 
 Następnym etapem jest skonfigurować odbiornik grupy dostępności w klastrze pracy awaryjnej.
 
@@ -497,6 +497,6 @@ Połączenia narzędzia SQLCMD automatycznie łączy się z innego wystąpienia 
 
 <!--**Next steps**: *Reiterate what users have done, and give them interesting and useful next steps so they want to go on.*-->
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Dodaj adres IP do modułu równoważenia obciążenia dla drugiej grupy dostępności](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md#Add-IP).

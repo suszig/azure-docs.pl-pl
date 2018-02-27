@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 7f86c5abb47cdd69cf07410570b02ba0076d1c18
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 27b3775d81ec6dc093dae4ee46167c5d5a9c9e19
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Wprowadzenie do programu Storage Explorer (wersja zapoznawcza)
 ## <a name="overview"></a>Przegląd
@@ -28,6 +28,16 @@ Microsoft Azure Storage Explorer (wersja zapoznawcza) jest aplikacją autonomicz
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * [Pobieranie i instalowanie programu Storage Explorer (wersja zapoznawcza)](http://www.storageexplorer.com)
+
+> [!NOTE]
+> Dla dystrybucjach systemu Linux niż Ubuntu 16.04 może być konieczne ręczne zainstalowanie niektórych zależności. Ogólnie rzecz biorąc wymagane są następujące pakiety:
+> * libgconf-2-4
+> * libsecret
+> * Aktualne GCC
+>
+> W zależności od Twojego distro mogą istnieć inne pakiety, które należy zainstalować. Eksplorator magazynu [wersji](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) zawiera etapy niektóre dystrybucjach.
+>
+>
 
 ## <a name="connect-to-a-storage-account-or-service"></a>Łączenie się z usługą lub kontem magazynu
 Program Storage Explorer (wersja zapoznawcza) oferuje kilka sposobów łączenia się z kontem magazynu. Można na przykład:
@@ -110,7 +120,7 @@ Aby udostępnić konta magazynu zewnętrznego, właściciel tego konta musi najp
 
 4. Na liście **kont magazynu**, wybierz odpowiednie konto magazynu.
 
-5. W obszarze **ustawienia**, wybierz pozycję **klucze dostępu**.
+5. W obszarze **Ustawienia** wybierz pozycję **Klucze dostępu**.
 
     ![Opcja Klucze dostępu][7]
 
@@ -240,18 +250,18 @@ Oprócz zarządzania kontami bazy danych rozwiązania Cosmos Azure przy użyciu 
     ![connection-string][22]
 
  ## <a name="connect-to-azure-data-lake-store-by-uri"></a>Połączenie do usługi Azure Data Lake Store przez identyfikator URI
-Jeśli chcesz uzyskać dostęp do zasobów, które nie istnieją w Twojej subskrypcji. Jednak inne przyznać Pobierz identyfikator Uri dla zasobów. W takim przypadku można połączyć do usługi Data Lake Store za pomocą identyfikatora Uri, po zalogowaniu się. Zapoznaj się następujące kroki.
+Jeśli chcesz uzyskać dostęp do zasobów, które nie istnieją w Twojej subskrypcji, ale inne osoby przyznają Ci dostęp do identyfikatora URI zasobów. W takim przypadku możesz nawiązać połączenie z usługą Data Lake Store, używając identyfikatora URI po zalogowaniu się. Przyjrzyj się poniższym krokom.
 1. Otwórz Eksploratora usługi Storage (wersja zapoznawcza).
-2. W okienku po lewej stronie rozwiń **lokalnej i dołączonego**.
-3. Kliknij prawym przyciskiem myszy **usługi Data Lake Store**i z menu kontekstowego — wybierz pozycję **nawiązywanie połączenia z usługą Data Lake Store...** .
+2. W okienku po lewej stronie rozwiń pozycję **Lokalny i dołączony**.
+3. Kliknij prawym przyciskiem myszy pozycję **Data Lake Store** i z menu kontekstowego wybierz pozycję **Połącz z usługą Data Lake Store**.
 
-    ![nawiązać połączenia z menu kontekstowego usługi Data Lake Store](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach.png)
+    ![Menu kontekstowe Połącz z usługą Data Lake Store](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach.png)
 
-4. Wprowadź identyfikator Uri, a następnie narzędzie powoduje przejście do lokalizacji podanej adresu URL.
+4. Wprowadź identyfikator URI. Narzędzie spowoduje przejście do wprowadzonej lokalizacji adresu URL.
 
-    ![Połącz do okna dialogowego kontekstu usługi Data Lake Store](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach-dialog.png)
+    ![Kontekstowe okno dialogowe Łączenie z usługą Data Lake Store](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach-dialog.png)
 
-    ![Połącz do wyniku usługi Data Lake Store](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-attach-finish.png)
+    ![Wynik działania polecenia Połącz z usługą Data Lake Store](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-attach-finish.png)
 
 ## <a name="search-for-storage-accounts"></a>Wyszukiwanie kont magazynu
 Jeśli chcesz znaleźć zasobu magazynu i nie wiadomo, gdzie jest, można użyć pola wyszukiwania w górnej części okienka po lewej stronie do wyszukiwania dla zasobu.

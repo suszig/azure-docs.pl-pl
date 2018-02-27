@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2018
 ms.author: danoble
-ms.openlocfilehash: 2512ba4ea89bd3477c7901cda29ab3682d834195
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4b18ad16338722cc9dbd314eded900fdd554ecec
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Użyj emulatora usługi Azure rozwiązania Cosmos bazy danych dla lokalnych projektowania i testowania
 
@@ -179,7 +179,7 @@ Aby wyświetlić listę opcji, należy wpisać `CosmosDB.Emulator.exe /?` w wier
 <tr>
   <td><strong>Opcja</strong></td>
   <td><strong>Opis</strong></td>
-  <td><strong>polecenie</strong></td>
+  <td><strong>Polecenie</strong></td>
   <td><strong>Argumenty</strong></td>
 </tr>
 <tr>
@@ -255,7 +255,7 @@ Aby wyświetlić listę opcji, należy wpisać `CosmosDB.Emulator.exe /?` w wier
 </tr>
 <tr>
   <td>NoExplorer</td>
-  <td>Nie pokazuj Eksploratora dokumentów przy uruchamianiu.</td>
+  <td>Nie pokazuj Eksploratora danych podczas uruchamiania.</td>
   <td>CosmosDB.Emulator.exe /NoExplorer</td>
   <td></td>
 </tr>

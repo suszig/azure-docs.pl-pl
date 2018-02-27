@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/11/2017
 ms.author: ccompy
-ms.openlocfilehash: b031807073313e9e093dbc7576ecfd3d2a970abe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1e8540409c6174ad02bd2d9d57c53e0279f49871
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Tworzenie aplikacji sieci web w wersji 1 środowiska usługi aplikacji
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 > Ten artykuł dotyczy v1 środowiska usługi aplikacji.  Istnieje nowsza wersja środowiska usługi aplikacji jest łatwiejsza w użyciu, który jest uruchamiany na bardziej zaawansowanych infrastruktury. Aby dowiedzieć się więcej o nowy początek wersji z [wprowadzenie do środowiska usługi aplikacji](intro.md).
 > 
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 W tym samouczku przedstawiono sposób tworzenia aplikacji sieci web i planów usługi App Service w [v1 środowiska usługi aplikacji](app-service-app-service-environment-intro.md) (ASE). 
 
 > [!NOTE]
@@ -38,7 +38,7 @@ W tym samouczku przedstawiono sposób tworzenia aplikacji sieci web i planów us
 W tym samouczku założono, że utworzono środowiska usługi aplikacji. Jeśli użytkownik jeszcze nie, zobacz [tworzenie środowiska usługi aplikacji](app-service-web-how-to-create-an-app-service-environment.md). 
 
 ## <a name="create-a-web-app"></a>Tworzenie aplikacji sieci Web
-1. W [Azure Portal](https://portal.azure.com/), kliknij przycisk **nowe > sieci Web i mobilność > Aplikacja sieci Web**. 
+1. W [Azure Portal](https://portal.azure.com/), kliknij przycisk **tworzenie zasobu > sieci Web i mobilność > Aplikacja sieci Web**. 
    
     ![][1]
 2. Wybierz subskrypcję.  
@@ -47,7 +47,7 @@ W tym samouczku założono, że utworzono środowiska usługi aplikacji. Jeśli 
 3. Wybierz lub utwórz grupę zasobów.
    
     *Grupy zasobów* pozwala na zarządzanie jako jednostka powiązanych zasobów systemu Azure i są przydatne podczas ustanawiania *kontroli dostępu opartej na rolach* reguły (RBAC) dla aplikacji. Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure Resource Manager][ResourceGroups]. 
-4. Wybierz lub Utwórz plan usługi aplikacji.
+4. Wybierz lub utwórz plan usługi App Service.
    
     *Planów usługi App Service* zarządzanych zestawów aplikacji sieci web.  Zwykle po wybraniu cennika, pobierana jest stosowane do planu usług aplikacji, a nie do poszczególnych aplikacji. W elemencie ASE płacisz za wystąpienia obliczeniowe przydzielone do ASE zamiast co zostały wymienione w Twojej aplikacji ASP.  Aby skalować liczbę wystąpień aplikacji sieci web, które skalowanie w górę wystąpień usługi aplikacji planu i ma wpływ na wszystkie aplikacje sieci web w tym planie.  Niektóre funkcje, takie jak witryny gniazda lub integracji sieci Wirtualnej również podlegają ograniczeniom ilość w planie.  Aby uzyskać więcej informacji, zobacz [omówienie planów usługi aplikacji Azure](../azure-web-sites-web-hosting-plans-in-depth-overview.md)
    
@@ -63,7 +63,7 @@ W tym samouczku założono, że utworzono środowiska usługi aplikacji. Jeśli 
     Jeśli Twoje ASE używa wewnętrznego adresu VIP, adres URL aplikacji, w tym jest ASE: [*sitename*]. [ *poddomeny określone podczas tworzenia ASE*]   
     Po wybraniu strona ASP podczas tworzenia ASE zobaczysz poddomeny zaktualizować poniżej **nazwy**
 
-## <a name="createplan"></a>Tworzenie planu usługi aplikacji
+## <a name="createplan"></a> Tworzenie planu usługi aplikacji
 Po utworzeniu planu usługi aplikacji w środowisku usługi aplikacji wybrane opcje procesu roboczego są różne, ponieważ w elemencie ASE nie nie udostępnionego pracowników.  Procesy robocze, które należy użyć są te, które zostały już przydzielone ASE przez administratora.  Oznacza to, że aby utworzyć nowy plan, musisz mieć więcej pracowników przydzielonych do procesu roboczego puli ASE niż całkowita liczba wystąpień dla wszystkich planów już w tej puli procesów roboczych.  Jeśli nie ma wystarczającej liczby procesów roboczych w puli ASE procesu roboczego do utworzenia planu, należy się z administratorem ASE, aby udostępnić je dodać.
 
 Inna różnica z planami usługi aplikacji obsługiwanych przez środowisko usługi aplikacji jest Brak ceny zaznaczenia.  Jeśli masz środowisko usługi aplikacji płatność za zasoby obliczeniowe używaną przez system i nie masz dodano opłat za plany w tym środowisku.  Zwykle podczas tworzenia planu usługi App Service wybrać planu cenowego, która określa rozliczeniowego.  Środowiska usługi aplikacji jest zasadniczo lokalizację prywatnego umożliwiającego utworzenie zawartości.  Płaci się środowiska i nie można udostępnić zawartość.

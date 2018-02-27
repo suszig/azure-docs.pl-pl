@@ -3,7 +3,7 @@ title: "Rozwiązywanie problemów z protokołu Kerberos ograniczonego delegowani
 description: "Rozwiązywanie problemów z protokołu Kerberos ograniczonego delegowania konfiguracji serwera Proxy aplikacji."
 services: active-directory
 documentationcenter: 
-author: daveba
+author: MarkusVi
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 7b31f53e14e3f9a175e5dda95a18eb89dbca99dc
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.date: 02/09/2018
+ms.author: markvi
+ms.reviewer: harshja
+ms.openlocfilehash: a580b0afbd34623986ea8a3f60147a937c423e5e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Rozwiązywanie problemów z protokołu Kerberos ograniczonego delegowania konfiguracji serwera Proxy aplikacji
 
@@ -33,7 +34,7 @@ W tym artykule sprawia, że następujące założenia:
 
 -   Aplikacja docelowa opublikowanych zależy od usług IIS i przez firmę Microsoft implementacja protokołu Kerberos.
 
--   Host serwera i aplikacji znajdują się w jednej domenie usługi Active Directory. Szczegółowe informacje dotyczące wielu domen i lasów scenariuszy znajdują się w [oficjalny dokument KCD](http://aka.ms/KCDPaper).
+-   Host serwera i aplikacji znajdują się w jednej domenie usługi Active Directory. Szczegółowe informacje dotyczące wielu domen i lasów scenariuszy znajdują się w [oficjalny dokument KCD](https://aka.ms/KCDPaper).
 
 -   Aplikacja podmiotu jest publikowana na platformie Azure dzierżawcy z wstępne uwierzytelnianie jest włączone, a użytkownicy mogą uwierzytelniać na platformie Azure przy użyciu uwierzytelniania opartego na formularzach. Scenariusze uwierzytelniania klienta sformatowanego nie są objęte w tym artykule, ale można dodać w pewnym momencie w przyszłości.
 
@@ -51,7 +52,7 @@ Szczególnie sekcję na temat konfigurowania KCD na 2012 R2, jak to wykorzystuje
 
 -   Jeśli to możliwe, należy unikać wprowadzania żadnych aktywnych urządzeń adresy IP/Identyfikatory między hostami łącznika i kontrolery domeny, jak te są czasami za pośrednictwem niepożądanych i zakłócić ruch RPC core
 
-Zaleca się przetestowanie delegowania w najprostszym scenariuszy. Wprowadzenie więcej zmiennych, im bardziej może być konieczne będą konkurować o. Na przykład ograniczając testowanie do pojedynczego łącznika można zapisać cenny czas i dodatkowe łączników można dodać po rozwiązaniu problemów.
+Należy przetestować delegowania w sytuacjach najprostszym. Wprowadzenie więcej zmiennych, im bardziej może być konieczne będą konkurować o. Na przykład ograniczając testowanie do pojedynczego łącznika można zapisać cenny czas i dodatkowe łączników można dodać po rozwiązaniu problemów.
 
 Pewne czynniki środowiska również może być przyczyną problemu. Podczas testowania, zminimalizować architektury do minimum systemu od zera. Aby uniknąć tych czynnikach środowiskowych. Na przykład nie są rzadko nieprawidłowej konfiguracji zapory wewnętrznej listy kontroli dostępu, więc jeśli to możliwe mieć cały ruch z łącznika może bezpośrednio za pomocą kontrolerów domeny i wewnętrznej bazy danych aplikacji. 
 
@@ -79,7 +80,7 @@ Jeśli masz daleko, wówczas główny problem ostatecznie istnieje. Uruchom oddz
 
 **Wstępne uwierzytelnienie klienta** — użytkownika zewnętrznego, uwierzytelnianie na platformie Azure za pośrednictwem przeglądarki.
 
-Możliwość wstępnego uwierzytelniania na platformie Azure jest potrzeby logowania jednokrotnego KCD funkcji. Powinno to przetestowane i skierowana najpierw, jeśli występują problemy. Etap uwierzytelniania wstępnego nie ma związku KCD lub opublikowanej aplikacji. Powinny być dość łatwe naprawić niezgodności przez związane z poprawnością Sprawdzanie konta podmiot istnieje na platformie Azure i że nie jest ono wyłączone/blokowane. Odpowiedzi na błąd w przeglądarce jest dość opisowa, że aby poznać przyczynę. Nasze dokumenty rozwiązywanie można zweryfikować, jeśli nie masz pewności, możesz również sprawdzić.
+Możliwość wstępnego uwierzytelniania na platformie Azure jest potrzeby logowania jednokrotnego KCD funkcji. Należy przetestować i to adres, jeśli występują problemy. Etap uwierzytelniania wstępnego nie ma związku KCD lub opublikowanej aplikacji. Powinny być dość łatwe naprawić niezgodności przez związane z poprawnością Sprawdzanie konta podmiot istnieje na platformie Azure i że nie jest ono wyłączone/blokowane. Odpowiedzi na błąd w przeglądarce jest dość opisowa, że aby poznać przyczynę. Nasze dokumenty rozwiązywanie można zweryfikować, jeśli nie masz pewności, możesz również sprawdzić.
 
 **Delegowanie usługi** — łącznika serwera Proxy Azure uzyskiwanie bilet usługi protokołu Kerberos w Centrum dystrybucji KLUCZY (Centrum dystrybucji protokołu Kerberos), w imieniu użytkowników.
 
@@ -103,13 +104,13 @@ I odpowiednie pozycje widoczne czy dziennik zdarzeń może być traktowany jako 
 
 -   Sprawdź, czy zasady domeny są wymuszane, aby ograniczyć [maksymalny rozmiar wystawionych tokenów Kerberos](https://blogs.technet.microsoft.com/askds/2012/09/12/maxtokensize-and-windows-8-and-windows-server-2012/), jak to zapobiega łącznik Jeśli token jest nadmierne
 
-Wymiany między hostem łącznika i domeny Centrum dystrybucji KLUCZY przechwytywania śledzenia sieci będzie wówczas następnego kroku najlepsze w uzyskaniu więcej szczegółów niskiego poziomu na problemy. Więcej informacji można znaleźć, [nowości papieru rozwiązywanie](https://aka.ms/proxytshootpaper).
+Wymiany między hostem łącznika i domeny Centrum dystrybucji KLUCZY przechwytywania śledzenia sieci będzie wówczas następnego kroku najlepsze w uzyskaniu więcej szczegółów niskiego poziomu na problemy. Aby uzyskać więcej informacji zobacz, [nowości papieru rozwiązywanie](https://aka.ms/proxytshootpaper).
 
-Jeśli biletów wygląda dobrze, powinny pojawić się zdarzenia w dzienniku informujący o tym uwierzytelnianie nie powiodło się z powodu aplikacji zwracanie 401. Zwykle wskazuje, że aplikacja docelowa odrzucenia biletu, więc kontynuować następujące kolejnego etapu.
+Jeśli biletów wygląda dobrze, powinny pojawić się zdarzenia w dzienniku informujący o tym uwierzytelnianie nie powiodło się z powodu aplikacji zwracanie 401. Zwykle wskazuje, że aplikacja docelowa odrzucenia biletu, więc przejść do kolejnego etapu następujące:
 
 **Aplikacji docelowej** -konsumenta biletu Kerberos udostępniane przez łącznik programu
 
-Na tym etapie, którego łącznik powinien wysłali Kerberos usługi biletu z zapleczem jako nagłówek w pierwszym żądaniu aplikacji.
+Na tym etapie łącznik powinien wysłali biletu usługi Kerberos z zapleczem jako nagłówek w pierwszym żądaniu aplikacji.
 
 -   Przy użyciu wewnętrzny adres URL aplikacji zdefiniowano w portalu, zweryfikuj, że aplikacja jest dostępny bezpośrednio z przeglądarki na hoście łącznika. Następnie możesz zalogować się pomyślnie. Szczegółowe informacje o tej czynności można znaleźć na stronie Rozwiązywanie problemów dotyczących łącznika.
 
@@ -125,7 +126,7 @@ Na tym etapie, którego łącznik powinien wysłali Kerberos usługi biletu z za
 
 2.  Z listy dostawców w lokacji i dostępu do aplikacji IIS bezpośrednio z programu Internet Explorer na hoście łącznika tymczasowe usunięcie NTLM. Z uwierzytelniania NTLM nie jest już na liście dostawców można uzyskać dostęp do aplikacji tylko przy użyciu protokołu Kerberos. Jeśli to się nie powiedzie, następnie które sugeruje, że występuje problem z konfiguracją aplikacji i uwierzytelnianie Kerberos nie działa.
 
-Czy protokołu Kerberos nie jest dostępna, negocjowania ustawienia uwierzytelniania aplikacji w usługach IIS, aby upewnić się, czy są dostępne najwyżej z NTLM tuż poniżej. (Nie negocjowania: kerberos lub Negotiate: protokołu PKU2U). Nadal tylko, jeśli protokół Kerberos jest funkcjonalności.
+Czy protokołu Kerberos nie jest dostępna, negocjowania ustawienia uwierzytelniania aplikacji w usługach IIS, aby upewnić się, czy są dostępne najwyżej z NTLM tuż poniżej. (Nie negocjowania: Kerberos lub negocjowania: protokołu PKU2U). Nadal tylko, jeśli protokół Kerberos jest funkcjonalności.
 
    ![Dostawców uwierzytelniania systemu Windows](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic7.png)
    
@@ -141,7 +142,7 @@ Czy protokołu Kerberos nie jest dostępna, negocjowania ustawienia uwierzytelni
 
     ![Okno konfiguracji aplikacji usług IIS](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic9.png)
 
-    Jeśli znasz już tożsamości, należy wydać następujące polecenie w wierszu polecenia, aby upewnić się, że to konto jest ostatecznie skonfigurowany z tej nazwy SPN. Na przykład`setspn –q http/spn.wacketywack.com`
+    Jeśli znasz już tożsamości, należy wydać następujące polecenie w wierszu polecenia, aby upewnić się, że to konto jest ostatecznie skonfigurowany z tej nazwy SPN. Na przykład  `setspn –q http/spn.wacketywack.com`
 
     ![Okno polecenia SetSPN](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic10.png)
 
@@ -152,6 +153,16 @@ Czy protokołu Kerberos nie jest dostępna, negocjowania ustawienia uwierzytelni
 -   Przejdź do usług IIS i wybierz **edytora konfiguracji** opcję dla aplikacji, a następnie przejdź do **system.webServer/security/authentication/windowsAuthentication** się upewnić się, że wartość **UseAppPoolCredentials** jest **wartość True**
 
    ![Opcja credential pul aplikacji konfiguracji usług IIS](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic12.png)
+
+Po zmianie wartości **True**, wszystkie buforowane Kerberos biletów muszą zostać usunięte z serwera wewnętrznej bazy danych. Można to zrobić, uruchamiając następujące polecenie:
+
+```powershell
+Get-WmiObject Win32_LogonSession | Where-Object {$_.AuthenticationPackage -ne 'NTLM'} | ForEach-Object {klist.exe purge -li ([Convert]::ToString($_.LogonId, 16))}
+``` 
+
+Aby uzyskać więcej informacji, zobacz [przeczyścić pamięci podręcznej z biletu Kerberos klienta dla wszystkich sesji](https://gallery.technet.microsoft.com/scriptcenter/Purge-the-Kerberos-client-b56987bf).
+
+
 
 Gdy są przydatne w zwiększanie wydajności operacji protokołu Kerberos, pozostawiając również włączono obsługę trybu jądra powoduje, że bilet żądanej usługi można odszyfrować za pomocą konta komputera. Jest to również system lokalny, więc po to ustawioną wartość true, podziału KCD w przypadku aplikacji znajduje się na wielu serwerach w farmie.
 

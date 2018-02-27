@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2017
 ms.author: vikdesai
-ms.openlocfilehash: 8f75bab7fc795a59dabfedca5a4889622f66b73a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f3f5f974630c4bf1c68599e26612ed729b55bcfc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-reserved-virtual-machine-instances"></a>Zarządzanie wystąpieniami zastrzeżonej maszyny wirtualnej
 
@@ -28,7 +28,7 @@ Po kupisz zastrzeżone wystąpienia maszyny Wirtualnej Azure może chcesz zastos
 
 Aby zaktualizować zakresu zastrzeżenia: 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com).
-2. Wybierz **więcej usług** > **zastrzeżenia**.
+2. Wybierz **wszystkie usługi** > **zastrzeżenia**.
 3. Wybierz.
 4. Wybierz **ustawienia** > **konfiguracji**.
 5. Zmienić zakres. W przypadku zmiany z udostępnionego na pojedynczy zakres, można wybrać tylko te subskrypcje, w której jesteś właścicielem. Można wybrać tylko subskrypcji w tym samym kontekście rozliczeń jako rezerwacji. Kontekst rozliczeń zależy od wybranej podczas rezerwacji został zakupiony subskrypcji. Zakres ma zastosowanie tylko do oferty płatności obejmujące MS-AZR - 0003P subskrypcji i subskrypcje oferta MS-AZR - 0017P przedsiębiorstwa. Dla umowy enterprise i testowania subskrypcji nie są objęte uzyskać rabat rezerwacji.
@@ -69,7 +69,7 @@ Aby można zarządzać dostępem do zastrzeżenia niezależnie z subskrypcji, kt
  
 Aby delegować zarządzanie dostępem dla zastrzeżenie: 
 1.  Zaloguj się do witryny [Azure Portal](https://portal.azure.com).
-2.  Wybierz **więcej usług** > **rezerwacji** do rezerwacji listy, które mają dostęp do.
+2.  Wybierz **wszystkie usługi** > **rezerwacji** do rezerwacji listy, które mają dostęp do.
 3.  Wybierz rezerwacji, który chcesz delegować dostęp do innych użytkowników.
 4.  Wybierz **kontroli dostępu (IAM)** w menu.
 5.  Wybierz **Dodaj** > **roli** > **właściciela** (lub inną rolę, jeśli chcesz przyznać ograniczony dostęp). 

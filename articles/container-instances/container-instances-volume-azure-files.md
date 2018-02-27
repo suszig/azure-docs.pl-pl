@@ -6,14 +6,14 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/02/2018
+ms.date: 02/20/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 37310689881e403aa5e3f4f4d4a18180cbccc05d
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 98be7e65c2280aa58cf904cbca265f87610eff55
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Instalowanie udziału plików na platformę Azure w wystąpień kontenera platformy Azure
 
@@ -74,8 +74,8 @@ Aby zainstalować udział plików na platformę Azure jako wolumin w kontenerze,
 az container create \
     --resource-group $ACI_PERS_RESOURCE_GROUP \
     --name hellofiles \
-    --image seanmckenna/aci-hellofiles \
-    --ip-address Public \
+    --image microsoft/aci-hellofiles \
+    --dns-name-label aci-demo \
     --ports 80 \
     --azure-file-volume-account-name $ACI_PERS_STORAGE_ACCOUNT_NAME \
     --azure-file-volume-account-key $STORAGE_KEY \
@@ -83,12 +83,14 @@ az container create \
     --azure-file-volume-mount-path /aci/logs/
 ```
 
+Wartość `--dns-name-label` musi być unikatowa w regionie platformy Azure, w którym tworzysz wystąpienia kontenera. Zaktualizuj tę wartość w poprzednim poleceniu, jeśli zostanie wyświetlony **etykieta nazwy DNS** komunikat o błędzie podczas wykonywania polecenia.
+
 ## <a name="manage-files-in-mounted-volume"></a>Zarządzanie plikami w woluminie
 
-Po uruchomieniu kontenera, korzystając z aplikacji sieci web proste wdrażane za pomocą [seanmckenna/aci-hellofiles] [ aci-hellofiles] obrazu do zarządzania plików w udziale plików na platformę Azure w określonej ścieżce instalacji. Uzyskaj adres IP dla aplikacji sieci web z [Pokaż kontenera az] [ az-container-show] polecenia:
+Po uruchomieniu kontenera, korzystając z aplikacji sieci web proste wdrażane za pomocą [microsoft/aci-hellofiles] [ aci-hellofiles] obrazu do zarządzania plików w udziale plików na platformę Azure w określonej ścieżce instalacji. Uzyskaj aplikacji sieci web w pełni kwalifikowaną nazwę domeny (FQDN) z [Pokaż kontenera az] [ az-container-show] polecenia:
 
 ```azurecli-interactive
-az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --output table
+az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --query ipAddress.fqdn
 ```
 
 Można użyć [portalu Azure] [ portal] lub narzędzia, takich jak [Eksploratora usługi Microsoft Azure Storage] [ storage-explorer] do pobierania i sprawdź zapisywane w pliku udziału plików.
@@ -142,7 +144,7 @@ Dowiedz się, jak zainstalować inne typy woluminu w wystąpień kontenera platf
 * [Zainstalować tajny woluminu w wystąpień kontenera platformy Azure](container-instances-volume-secret.md)
 
 <!-- LINKS - External -->
-[aci-hellofiles]: https://hub.docker.com/r/seanmckenna/aci-hellofiles/
+[aci-hellofiles]: https://hub.docker.com/r/microsoft/aci-hellofiles/
 [portal]: https://portal.azure.com
 [storage-explorer]: https://storageexplorer.com
 

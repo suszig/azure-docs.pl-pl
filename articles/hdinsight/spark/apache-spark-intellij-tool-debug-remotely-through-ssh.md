@@ -17,11 +17,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/25/2017
 ms.author: jejiang
-ms.openlocfilehash: 6ea6d94453583c6b5ed680f96ebc43d33d0262a0
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: dfffe935cd7e896fb251a3ed40a5493fbf836a6c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Debugowanie aplikacji Spark lokalnie lub zdalnie w klastrze usługi HDInsight narzędzi Azure for IntelliJ za pośrednictwem SSH
 
@@ -57,7 +57,7 @@ Ten artykuł zawiera wskazówki krok po kroku dotyczące sposobu używania narz�
 
       ![Tworzenie projektu debugowania](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-create-projectfor-debug-remotely.png)
 
-   d. Wybierz **dalej**.     
+   d. Wybierz opcję **Dalej**.     
  
 2. W następnej **nowy projekt** okna, wykonaj następujące czynności:
 
@@ -102,7 +102,7 @@ Aby rozwiązać ten problem, [Pobierz plik wykonywalny](http://public-repo-1.hor
 
 1. Aby uzyskać dostęp do **Edytuj konfiguracje** menu, wybierz ikonę w prawym górnym rogu. Z tego menu można utworzyć lub edytować konfiguracji do zdalnego debugowania.
 
-   ![Edycja konfiguracji](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-edit-configurations.png) 
+   ![Edytuj konfiguracje](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-edit-configurations.png) 
 
 2. W **konfiguracji uruchomienia/debugowania** oknie dialogowym wybierz znak plus (**+**). Następnie wybierz **Azure HDInsight Spark zadania** opcji.
 
@@ -153,7 +153,7 @@ Aby rozwiązać ten problem, [Pobierz plik wykonywalny](http://public-repo-1.hor
 
 6. Kliknij prawym przyciskiem myszy docelowy **debugowania** , a następnie wybierz **ustaw wartość**. Następnie wprowadź nową wartość dla zmiennej. Następnie wybierz **Enter** można zapisać wartości. 
 
-   ![Ustaw wartość](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-set-value.png) 
+   ![Ustawiono wartość](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-set-value.png) 
 
 7. Wybierz **Program Wznów** ikonę, aby kontynuować do uruchomienia programu. Tym razem nie jest wyjątek. Widać, że projekt zostanie pomyślnie uruchomiony bez żadnych wyjątków.
 
@@ -170,7 +170,6 @@ Aby rozwiązać ten problem, [Pobierz plik wykonywalny](http://public-repo-1.hor
 * [Platforma Spark w usłudze BI: wykonaj interakcyjna analiza danych przy użyciu platformy Spark w usłudze HDInsight z narzędzi do analizy Biznesowej](apache-spark-use-bi-tools.md)
 * [Platforma Spark przy użyciu Machine Learning: Korzystanie z platformy Spark w usłudze HDInsight do analizy temperatury w budynku z użyciem danych HVAC](apache-spark-ipython-notebook-machine-learning.md)
 * [Platforma Spark i usługa Machine Learning: korzystanie z platformy Spark w usłudze HDInsight do przewidywania wyników kontroli żywności](apache-spark-machine-learning-mllib-ipython.md)
-* [Przesyłanie strumieniowe Spark: Korzystanie z platformy Spark w usłudze HDInsight do tworzenia aplikacji przesyłania strumieniowego w czasie rzeczywistym](apache-spark-eventhub-streaming.md)
 * [Analiza dzienników witryny sieci Web na platformie Spark w usłudze HDInsight](../hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Tworzenie i uruchamianie aplikacji

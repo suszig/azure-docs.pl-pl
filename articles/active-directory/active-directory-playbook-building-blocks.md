@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: bc0bc80b45e97efc048d9a9c26b8dd5d5f39ce8d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b37ca3c6ca528551ef09a90159e92fd31e0fabf2
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory dowód podręcznikowym koncepcji: bloki konstrukcyjne
 
@@ -314,7 +314,7 @@ Przybliżona godzina ukończone: 10 minut
 
 | Krok | Zasoby |
 | --- | --- |
-| Identyfikator grupy, który ma zostać przyznany dostęp do aplikacji i skonfigurować właścicielem danej grupy| [Zarządzanie ustawieniami grupy w usłudze Azure Active Directory](active-directory-groups-settings-azure-portal.md) |
+| Identyfikator grupy, który ma zostać przyznany dostęp do aplikacji i skonfigurować właścicielem danej grupy| [Zarządzanie ustawieniami grupy w usłudze Azure Active Directory ](active-directory-groups-settings-azure-portal.md) |
 | Zaloguj się jako właściciel grupy, zobacz członkostwo w grupach na karcie panelu dostępu | [Strony Zarządzanie grupami w usłudze Active Directory systemu Azure](https://account.activedirectory.windowsazure.com/r/#/groups) |
 | Dodaj Pracownik przetwarzający informacje, które ma zostać przetestowana. |  |
 | Zaloguj się jako pracownik przetwarzający informacje, upewnij się, że Kafelek jest dostępny | [Co to jest Panel dostępu?](active-directory-saas-access-panel-introduction.md) |
@@ -371,7 +371,7 @@ Przybliżona godzina ukończone: 10 minut
 
 Wybrane aplikacje mogą mieć, inicjowanie obsługi wymagań, tak przejście bezpośrednio do aplikacji może spowodować błędy. Jeśli wybrana aplikacja to umożliwia inicjowanie obsługi administracyjnej z usługą azure ad i jest skonfigurowana, tej opcji można użyć jako okazji do wyświetlenia całego przepływu pracy na trasie. Zobacz blokiem [SaaS Federacyjna usługa rejestracji Jednokrotnej w konfiguracji](#saas-federated-sso-configuration) dla dalszego zalecenia
 
-## <a name="self-service-password-reset"></a>Samodzielne resetowanie haseł
+## <a name="self-service-password-reset"></a>Samodzielne resetowanie hasła
 
 Przybliżona godzina ukończone: 15 minut
 
@@ -391,7 +391,7 @@ Przybliżona godzina ukończone: 15 minut
 | Przejdź do portalu zarządzania usługi Azure AD: resetowanie hasła | [Portalu zarządzania usługi Azure AD: Resetowanie hasła](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset) |
 | Określa zasady resetowania hasła. Do celów weryfikacji Koncepcji można użyć połączenia telefonicznego i Q & A. Zalecane jest aby włączyć rejestrację, aby wymagać Zaloguj się do panelu dostępu |  |
 | Wyloguj się i zaloguj się jako pracownik przetwarzający informacje |  |
-| Źródło danych samoobsługowego resetowania hasła, zgodnie z konfiguracją na krok 2 | http://aka.MS/ssprsetup |
+| Źródło danych samoobsługowego resetowania hasła, zgodnie z konfiguracją na krok 2 | https://aka.ms/ssprsetup |
 | Zamknij przeglądarkę |  |
 | Rozpoczęcie procesu logowania jako pracownik przetwarzający informacje używane w kroku 4 |  |
 | Resetowanie hasła | [Zaktualizuj własnego hasła: resetowania hasła](active-directory-passwords-update-your-own-password.md) |
@@ -442,7 +442,7 @@ Przybliżona godzina ukończone: 10 minut
 | Aplikacja SaaS został już skonfigurowany |  |
 | Aby zapewnić użytkownikom są już przypisane do aplikacji |  |
 | Poświadczenia użytkownika fazy weryfikacji Koncepcji są dostępne |  |
-| Aby Zapewnić użytkownik jest zarejestrowany w usłudze MFA. Za pomocą telefonu z dobrym odbioru | http://aka.MS/ssprsetup |
+| Aby Zapewnić użytkownik jest zarejestrowany w usłudze MFA. Za pomocą telefonu z dobrym odbioru | https://aka.ms/ssprsetup |
 | Urządzenia w sieci wewnętrznej. Adres IP skonfigurowany w zakresie wewnętrznym adresem | Znajdowanie adresu ip: https://www.bing.com/search?q=what%27s+my+ip |
 | Urządzenia w sieci zewnętrznej (może to być telefon przy użyciu operatora sieci komórkowej) |  |
 
@@ -508,7 +508,7 @@ Przybliżona godzina ukończone: 20 minut
 | Otwórz tor przeglądarki | [Pobierz Tor przeglądarki](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
 | Zaloguj się do https://myapps.microsoft.com przy użyciu konta użytkownika w fazie weryfikacji Koncepcji | [Azure Active Directory Identity Protection podręcznika dotyczącego: Symulowanie zdarzeń o podwyższonym ryzyku](active-directory-identityprotection-playbook.md#simulating-risk-events) |
 | Zaczekaj 5-7 minut |  |
-| Zaloguj się jako administrator globalny do https://portal.azure.com i otwarcie bloku Identity Protection | https://aka.MS/aadipgetstarted |
+| Zaloguj się jako administrator globalny do https://portal.azure.com i otwarcie bloku Identity Protection | https://aka.ms/aadipgetstarted |
 | Otwiera blok zdarzenia ryzyka. Powinien zostać wyświetlony w obszarze "Logowania z anonimowych adresów IP"  | [Azure Active Directory Identity Protection podręcznika dotyczącego: Symulowanie zdarzeń o podwyższonym ryzyku](active-directory-identityprotection-playbook.md#simulating-risk-events) |
 
 ### <a name="considerations"></a>Zagadnienia do rozważenia
@@ -532,8 +532,8 @@ Przybliżona godzina ukończone: 10 minut
 
 | Krok | Zasoby |
 | --- | --- |
-| Zaloguj się jako administrator globalny do https://portal.azure.com i otwórz blok Identity Protection | https://aka.MS/aadipgetstarted |
-| Włącz zasady logowania ryzyko w następujący sposób:<br/>-Przypisane do: fazy weryfikacji Koncepcji użytkownika<br/>— Warunki: Logowania ryzyka średnia lub nowszej (logowania z anonimowych lokalizacji jest traktowany jako poziom ryzyka średnia)<br/>-Formanty: Wymagają usługi MFA | [Azure Active Directory Identity Protection podręcznika dotyczącego: ryzyka logowania](active-directory-identityprotection-playbook.md#sign-in-risk) |
+| Zaloguj się jako administrator globalny do https://portal.azure.com i otwórz blok Identity Protection | https://aka.ms/aadipgetstarted |
+| Włącz zasady logowania ryzyko w następujący sposób:<br/>-Przypisane do: fazy weryfikacji Koncepcji użytkownika<br/>— Warunki: Logowania ryzyka średnia lub nowszej (logowania z anonimowych lokalizacji jest traktowany jako poziom ryzyka średnia)<br/>-Formanty: Wymagają usługi MFA | [Azure Active Directory Identity Protection podręcznika dotyczącego: ryzyka logowania](active-directory-identityprotection-playbook.md) |
 | Otwórz tor przeglądarki | [Pobierz Tor przeglądarki](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
 | Zaloguj się do https://myapps.microsoft.com przy użyciu konta użytkownika w fazie weryfikacji koncepcji |  |
 | Zwróć uwagę, żądanie uwierzytelniania MFA | [Logowanie napotyka przy użyciu usługi Azure AD Identity Protection: ryzykowne odzyskiwania logowania](active-directory-identityprotection-flows.md#risky-sign-in-recovery)

@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/09/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: e7fdb55ba29fbdc2f3d89fbb19c8b77bf2c05795
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 1011e2c8351839cc8c93fc74a7d6f51f29e52410
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="authentication-and-user-permissions"></a>Uprawnienia do uwierzytelniania i użytkownika
 Azure Analysis Services używa usługi Azure Active Directory (Azure AD) do uwierzytelniania użytkowników i zarządzania tożsamościami. Każdy użytkownik, tworzenia, zarządzania lub nawiązywania połączenia z usług Azure Analysis Services serwer musi mieć tożsamość prawidłowego użytkownika w [dzierżawy usługi Azure AD](../active-directory/active-directory-administer.md) w tej samej subskrypcji.
@@ -80,7 +80,7 @@ Role na tym poziomie dotyczą użytkowników lub kont, które należy wykonać z
   
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Zarządzanie dostępem do zasobów przy użyciu grup usługi Azure Active Directory](../active-directory/active-directory-manage-groups.md)   
 [Zarządzanie ról bazy danych i użytkowników](analysis-services-database-users.md)  

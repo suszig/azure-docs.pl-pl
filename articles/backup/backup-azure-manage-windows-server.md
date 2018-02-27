@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: markgal
-ms.openlocfilehash: 58080d0e045f1825e89287fc421b7e84db36331e
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
-ms.translationtype: MT
+ms.openlocfilehash: 925aa88d32f6f5cea252616cf079faf35857eb8a
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="monitor-and-manage-azure-recovery-services-vaults-and-servers-for-windows-machines"></a>Monitorowanie magazynów i serwerów usługi Azure Recovery Services i zarządzanie nimi dla maszyn z systemem Windows
 
@@ -32,13 +32,11 @@ Ten artykuł zawiera omówienie kopii zapasowej zadania zarządzania i monitorow
 Na pulpicie nawigacyjnym magazynu usług odzyskiwania przedstawia szczegóły lub atrybuty z magazynu usług odzyskiwania.
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/) przy użyciu subskrypcji platformy Azure.
-2. W menu centralnym kliknij **więcej usług**.
-
-    ![Otwórz listę magazynów usług odzyskiwania — krok 1](./media/backup-azure-manage-windows-server/open-rs-vault-list.png) <br/>
+2. Kliknij opcję **Wszystkie usługi**. 
 
 3. Chcesz otworzyć magazyn usług odzyskiwania. W oknie dialogowym zacznij pisać **usług odzyskiwania**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Kliknij przycisk **Magazyny usług odzyskiwania** do wyświetlenia na liście magazynów usług odzyskiwania w ramach subskrypcji.
 
-    ![Tworzenie magazynu usługi Recovery Services — krok 1](./media/backup-azure-manage-windows-server/browse-to-rs-vaults-2.png) <br/>
+     ![Otwórz listę magazynów usług odzyskiwania — krok 1](./media/backup-azure-manage-windows-server/open-rs-vault-list.png) <br/>
 
     Otwiera listę magazynów usług odzyskiwania.
 
@@ -74,9 +72,9 @@ W górnej części pulpitu nawigacyjnego:
 ## <a name="alerts-for-backups-using-azure-backup-agent"></a>Alerty kopii zapasowych za pomocą agenta kopii zapasowej systemu Azure:
 | Poziom alertu | Wysyłania alertów |
 | --- | --- |
-| Krytyczne |Niepowodzenia wykonywania kopii zapasowej, niepowodzenia odzyskiwania |
-| Ostrzeżenie |Kopia zapasowa została ukończona z ostrzeżeniami (jeśli < 100 nie kopii zapasowej plików z powodu problemów uszkodzenia, i pomyślnie kopii zapasowej plików > 1 000 000) |
-| Informacyjny |Brak |
+| Krytyczne | niepowodzenie tworzenia kopii zapasowej, niepowodzenia odzyskiwania i Usuń odroczonego np. po zatrzymaniu ktoś ochronę za pomocą usuwania danych |
+| Ostrzeżenie | do utworzenia kopii zapasowej zostało ukończone z ostrzeżeniami (jeśli < 100 nie kopii zapasowej plików z powodu problemów uszkodzenia, i pomyślnie kopii zapasowej plików > 1 000 000) |
+| Informacyjne | obecnie alerty informacyjne nie są dostępne dla agenta kopii zapasowej systemu Azure |
 
 ## <a name="manage-backup-alerts"></a>Zarządzanie alertami kopii zapasowej
 Kliknij przycisk **alerty kopii zapasowej** Kafelek, aby otworzyć **alerty kopii zapasowej** menu alerty i zarządzaj nimi.
@@ -94,7 +92,7 @@ Z menu alerty kopii zapasowej możesz:
 
 * Wybierz odpowiednie informacje, aby uwzględnić z alertami.
 
-    ![Wybierz kolumny](./media/backup-azure-manage-windows-server/choose-alerts-colunms.png)
+    ![Wybieranie kolumn](./media/backup-azure-manage-windows-server/choose-alerts-colunms.png)
 * Filtrowanie alertów dotyczących ważności, stan i godziny rozpoczęcia/zakończenia.
 
     ![Filtrowanie alertów](./media/backup-azure-manage-windows-server/filter-alerts.png)
@@ -109,8 +107,8 @@ Jeśli **co godzinę szyfrowanego** został wybrany jako **powiadamiania** częs
 Alerty mogą być wysyłane do następujących poziomów ważności:
 
 * Krytyczne
-* Ostrzeżenie
-* Informacje
+* ostrzeżenie
+* informacje
 
 Dezaktywuj alert o **Dezaktywuj** przycisk menu szczegóły zadania. Po kliknięciu Dezaktywuj, możesz podać informacje o rozdzielczości.
 
@@ -141,7 +139,7 @@ Jeśli określony element kopii zapasowej wybierz z listy, zobaczysz istotne szc
 
 ![Elementy kopii zapasowej z ustawień](./media/backup-azure-manage-windows-server/backup-files-and-folders.png)
 
-## <a name="manage-backup-jobs"></a>Zarządzanie zadaniami kopii zapasowej
+## <a name="manage-backup-jobs"></a>Zarządzanie zadaniami tworzenia kopii zapasowych
 Kopia zapasowa zadania na lokalnie, (Jeśli serwer lokalny jest tworzenie kopii zapasowej na platformie Azure) i kopii zapasowych Azure są widoczne na pulpicie nawigacyjnym.
 
 W sekcji kopii zapasowej w pulpicie nawigacyjnym kafelka zadania tworzenia kopii zapasowej pokazuje liczbę zadań:
@@ -282,7 +280,7 @@ Aby włączyć ograniczenie przepustowości:
     ![Planowanie kopii zapasowych serwera systemu Windows](./media/backup-azure-manage-windows-server/finish-exclusions.png)
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
-**1. Stan zadania tworzenia kopii zapasowej jest wyświetlana jako zakończone Azure agenta kopii zapasowej, dlaczego nie go pobrać natychmiast odzwierciedlone w portalu?**
+**Q1. Stan zadania tworzenia kopii zapasowej jest wyświetlana jako zakończone Azure agenta kopii zapasowej, dlaczego nie go pobrać natychmiast odzwierciedlone w portalu?**
 
 Odpowiedź 1. Jest w Maksymalne opóźnienie w ciągu 15 minut między stan zadania tworzenia kopii zapasowej zostaną uwzględnione w agenta kopii zapasowej systemu Azure i portalu Azure.
 
@@ -290,7 +288,7 @@ Odpowiedź 1. Jest w Maksymalne opóźnienie w ciągu 15 minut między stan zada
 
 A.2 alert jest uruchamiany w ciągu 20 minutach niepowodzenia wykonywania kopii zapasowej Azure.
 
-**K3. Jest przypadek, w którym nie będzie wysyłana wiadomość e-mail, jeśli skonfigurowano powiadomienia?**
+**Q3. Jest przypadek, w którym nie będzie wysyłana wiadomość e-mail, jeśli skonfigurowano powiadomienia?**
 
 Odpowiedź 3. Poniżej są przypadkach, gdy nie będą wysyłane powiadomienia w celu zmniejszenia szumu alertu:
 
@@ -307,10 +305,10 @@ Odpowiedź 3. Poniżej są przypadkach, gdy nie będą wysyłane powiadomienia w
 2. Przy założeniu, że proces nie działa, otwórz **Panelu sterowania** , a następnie przejdź na liście usług. Uruchom lub uruchom ponownie **agenta usług odzyskiwania Microsoft Azure w zarządzania**.
 
     Aby uzyskać więcej informacji Przejdź dzienniki na:<br/>
-   `<AzureBackup_agent_install_folder>\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*`Na przykład:<br/>
+   `<AzureBackup_agent_install_folder>\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*` Na przykład:<br/>
    `C:\Program Files\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider0.errlog`
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Przywracanie systemu Windows Server lub klienta systemu Windows z platformy Azure](backup-azure-restore-windows-server.md)
 * Aby dowiedzieć się więcej na temat tworzenia kopii zapasowej Azure, zobacz [Omówienie programu Kopia zapasowa Azure](backup-introduction-to-azure-backup.md)
 * Odwiedź stronę [Forum kopii zapasowej platformy Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933)

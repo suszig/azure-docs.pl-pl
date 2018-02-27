@@ -8,7 +8,7 @@ Zarezerwowane wystąpień maszyn wirtualnych można kupić [portalu Azure](https
 
 ## <a name="buy-a-reserved-virtual-machine-instance"></a>Kup wystąpienia zastrzeżonej maszyny wirtualnej
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com).
-2. Wybierz **więcej usług** > **zastrzeżenia**.
+2. Wybierz **wszystkie usługi** > **zastrzeżenia**.
 3. Wybierz **Dodaj** kupić nowe zastrzeżenie.
 4. Wypełnij wymagane pola. Maszyn wirtualnych uruchomionych wystąpień zgodnych wybrane atrybuty zakwalifikować uzyskać rabat rezerwacji. Rzeczywista liczba wystąpień maszyn wirtualnych, które zawierają rabat są zależne od zakresu i ilość wybrana.
 

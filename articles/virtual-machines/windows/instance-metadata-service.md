@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 2694c25b0db7a4a0b9f527ec67e62fede5de6a80
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 903177506c31ec96452cbbdbade4a3d91dbf7571
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Usługa Azure wystąpienie metadanych
 
@@ -75,8 +75,8 @@ Poniższa tabela jest odwołaniem innych formatów danych, który może obsługi
 
 Interfejs API | Domyślny Format danych | W innych formatach
 --------|---------------------|--------------
-/instance | json | Tekst
-/scheduledevents | json | brak
+/instance | JSON | Tekst
+/scheduledevents | JSON | brak
 
 Aby uzyskać dostęp, format odpowiedzi z systemem innym niż domyślny, określ żądany format jako parametr querystring w żądaniu. Na przykład:
 
@@ -302,7 +302,7 @@ podsieć lub adres. | Adres podsieci maszyny wirtualnej | 2017-04-02
 subnet/prefix | Prefiks podsieci, przykład 24 | 2017-04-02 
 adres IPv6/IP | Lokalny adres IPv6 maszyny wirtualnej | 2017-04-02 
 macAddress | Adres mac dla maszyny Wirtualnej | 2017-04-02 
-scheduledevents | Obecnie w wersji zapoznawczej. Zobacz [zaplanowane zdarzenia](scheduled-events.md) | 2017-03-01
+scheduledevents | Zobacz [zaplanowane zdarzenia](scheduled-events.md) | 2017-03-01
 
 ## <a name="example-scenarios-for-usage"></a>Przykładowe scenariusze użycia  
 
@@ -411,4 +411,4 @@ Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
     
 ## <a name="next-steps"></a>Kolejne kroki
 
-- Dowiedz się więcej o [zaplanowane zdarzenia](scheduled-events.md) interfejsu API **w publicznej wersji zapoznawczej** udostępniony przez usługę wystąpienie metadanych.
+- Dowiedz się więcej o [zaplanowane zdarzenia](scheduled-events.md)

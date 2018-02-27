@@ -3,8 +3,8 @@ title: "Użyj narzędzi Marketplace można tworzyć i publikować elementów mar
 description: "Dowiedz się, jak szybko utworzyć elementów marketplace z publikowaniem Toolkit"
 services: azure-stack
 documentationcenter: 
-author: HeathL17
-manager: ByronR
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 7/14/2017
-ms.author: helaw
-ms.openlocfilehash: 5b2c04d2cbc06e1572dc2e40712f6cf9d886aa1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: jeffgo
+ms.openlocfilehash: 61ee3296429f9641643f1c9268ae89e3691fcfa1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 #  <a name="add-marketplace-items-using-publishing-tool"></a>Dodawanie elementów marketplace za pomocą narzędzia do publikowania
 Dodawanie zawartości do [Azure Marketplace stosu](azure-stack-marketplace.md) udostępnia rozwiązań Tobie i dzierżawcy dla wdrożenia.  Zestaw narzędzi Marketplace tworzy pliki Azure Marketplace pakietów (.azpkg) oparte na szablony Menedżera zasobów Azure IaaS lub rozszerzeń maszyny Wirtualnej.  Umożliwia także Marketplace Toolkit do publikowania plików .azpkg, utworzone przy użyciu narzędzia albo przy użyciu [ręczne](azure-stack-create-and-publish-marketplace-item.md) czynności.  W tym temacie przedstawiono pobrać narzędzie, tworzenie elementu portalu marketplace, na podstawie szablonu maszyny Wirtualnej i opublikować ten element w portalu Azure Marketplace stosu.     
@@ -72,7 +73,7 @@ W tej sekcji publikowania portalu Marketplace z Azure Marketplace stosu.
     
     |Pole|Opis|
     |-----|-----|
-    | Nazwa administratora usługi | Konto administratora usługi.  Przykład:ServiceAdmin@mydomain.onmicrosoft.com |
+    | Nazwa administratora usługi | Konto administratora usługi.  Przykład:  ServiceAdmin@mydomain.onmicrosoft.com |
     | Hasło | Hasło dla konta administratora usługi. |
     | Punkt końcowy interfejsu API | Punktu końcowego platformy Azure stosu usługi Azure Resource Manager.  Przykład: management.local.azurestack.external |
 2.  Kliknij przycisk **publikowania** i nie jest wyświetlany Dziennik publikowania.
@@ -86,10 +87,10 @@ Zestaw Marketplace zawiera *solution.parameters.ps1* służy do tworzenia pliku 
 
 
 ## <a name="support-files"></a>Pliki obsługi
-| Opis | Przykład |
+| Opis | Sample |
 | ----- | ----- |
-| ikona .png 40 x 40 | ![](./media/azure-stack-marketplace-publisher/image1.png) |
-| ikona .png 90 x 90 | ![](./media/azure-stack-marketplace-publisher/image2.png) |
+| 40x40 .png icon | ![](./media/azure-stack-marketplace-publisher/image1.png) |
+| 90x90 .png icon | ![](./media/azure-stack-marketplace-publisher/image2.png) |
 | ikona .png 115 x 115 | ![](./media/azure-stack-marketplace-publisher/image3.png) |
 | ikona .png 255 x 115 | ![](./media/azure-stack-marketplace-publisher/image4.png) |
 | 533 x 324 .png miniatur | ![](./media/azure-stack-marketplace-publisher/image5.png) |
