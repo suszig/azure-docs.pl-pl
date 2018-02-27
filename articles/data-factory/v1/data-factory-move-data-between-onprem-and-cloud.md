@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: e326a512bdb9c30068845b51e86795a410e6c9b3
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 49683da9f03871cbe5c27dd06d27111864eb489e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Przenoszenie danych między lokalnych źródeł i w chmurze z brama zarządzania danymi
 > [!NOTE]
@@ -55,7 +55,7 @@ Przed rozpoczęciem tego przewodnika, musi mieć następujące wymagania wstępn
 W tym kroku, użyj portalu Azure można utworzyć wystąpienia fabryki danych Azure o nazwie **ADFTutorialOnPremDF**.
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com).
-2. Kliknij przycisk **+ nowy**, kliknij przycisk **analizy i analiza**i kliknij przycisk **fabryki danych**.
+2. Kliknij przycisk **Utwórz zasób**, kliknij przycisk **analizy i analiza**i kliknij przycisk **fabryki danych**.
 
    ![Nowy-> Fabryka danych](./media/data-factory-move-data-between-onprem-and-cloud/NewDataFactoryMenu.png)  
 3. W **nowa fabryka danych** wprowadź **ADFTutorialOnPremDF** dla nazwy.
@@ -131,7 +131,7 @@ W tym kroku, użyj portalu Azure można utworzyć wystąpienia fabryki danych Az
    * **Zaplanuj aktualizacje** do zainstalowania w określonym czasie dnia.
    * Widoku, gdy brama została **ostatniej aktualizacji**.
    * Określ czas, w którym można zainstalować aktualizacji z bramą.
-8. Przełącz się do **ustawienia** kartę. Certyfikatu podanego w **certyfikatu** sekcja jest używana do szyfrowania/odszyfrowywania poświadczeń magazynu danych lokalnych, określonym przez użytkownika w portalu. (opcjonalnie) Kliknij przycisk **zmiany** zamiast tego użyć własnego certyfikatu. Domyślnie bramy, używa certyfikatu, który został wygenerowany automatycznie przez usługę fabryki danych.
+8. Przejdź do karty **Ustawienia**. Certyfikatu podanego w **certyfikatu** sekcja jest używana do szyfrowania/odszyfrowywania poświadczeń magazynu danych lokalnych, określonym przez użytkownika w portalu. (opcjonalnie) Kliknij przycisk **zmiany** zamiast tego użyć własnego certyfikatu. Domyślnie bramy, używa certyfikatu, który został wygenerowany automatycznie przez usługę fabryki danych.
 
     ![Konfiguracja certyfikatu bramy](./media/data-factory-move-data-between-onprem-and-cloud/gateway-certificate.png)
 
