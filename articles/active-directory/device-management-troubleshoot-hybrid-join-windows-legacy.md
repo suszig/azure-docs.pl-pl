@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 5657df412b1f2b7d4d43d7551289620ae4d77de2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
-ms.translationtype: HT
+ms.openlocfilehash: ecf77a614922ef58cdfb2b2c8174f66e01ea9b46
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Rozwiązywanie problemów z hybrydowe usługi Azure Active Directory przyłączone do urządzeń niskiego poziomu 
 
@@ -55,7 +55,6 @@ Ten temat zawiera rozwiązania wskazówki dotyczące rozwiązywania potencjalnyc
 
 - Ponowna instalacja systemu operacyjnego lub ręcznego unregister i wykonaj ponowną rejestrację może utworzyć nowej rejestracji w usłudze Azure AD i powoduje wiele wpisów w karcie informacje użytkownika w portalu Azure. 
 
-
 ## <a name="step-1-retrieve-the-registration-status"></a>Krok 1: Pobierz stan rejestracji 
 
 **Aby sprawdzić stan rejestracji:**  
@@ -87,13 +86,14 @@ Jeśli sprzężenie hybrydowe usługi Azure AD nie powiodło się, okno dialogow
     
     1. Jeśli użytkownik zalogował się nie jest użytkownikiem domeny (na przykład użytkownik lokalny). Hybrydowe usługi Azure AD join na niższym poziomie urządzeń jest obsługiwane tylko dla użytkowników domeny.
     
-    2. Jeśli z jakiegokolwiek powodu, Autoworkplace.exe nie dyskretnie uwierzytelniania za pomocą usługi Azure AD lub AD FS. Kilka możliwych przyczyn mogą być problemy z połączeniem sieciowym powiązania wyjściowego do usługi Azure AD adresów URL (Sprawdź wymagania wstępne) lub czy uwierzytelnianie wieloskładnikowe jest włączone/skonfigurowanego dla użytkownika, ale nie skonfigurowano WIAORMUTLIAUTHN na serwerze federacyjnym (kroki konfiguracji wyboru). Inną możliwością jest stronę odnajdowania (obszaru macierzystego HRD) tego obszaru macierzystego oczekuje do interakcji z użytkownikiem, uniemożliwia Autoworkplace.exe uzyskiwania w trybie dyskretnym 
+    2. Jeśli z jakiegokolwiek powodu, Autoworkplace.exe nie dyskretnie uwierzytelniania za pomocą usługi Azure AD lub AD FS. Kilka możliwych przyczyn mogą być problemy z połączeniem sieciowym powiązania wyjściowego do usługi Azure AD adresów URL (Sprawdź wymagania wstępne) lub jeśli uwierzytelnianie wieloskładnikowe jest włączone/skonfigurowanego dla użytkownika, ale nie skonfigurowano WIAORMUTLIAUTHN na serwerze federacyjnym (kroki konfiguracji wyboru). Inną możliwością jest stronę odnajdowania (obszaru macierzystego HRD) tego obszaru macierzystego oczekuje do interakcji z użytkownikiem, uniemożliwia Autoworkplace.exe dyskretnie uzyskiwania tokenu.
     
     3. Jeśli organizacja korzysta z usługi Azure AD bezproblemowe logowanie jednokrotne, następujące adresy URL nie występują na ustawienia sieci intranet IE urządzenia:
-    - https://autologon.microsoftazuread-sso.com
-    - https://aadg.windows.net.nsatc.net
     
-    a ustawienie "Zezwalaj na aktualizacje na pasku stanu za pomocą skryptu" musi być włączona dla strefy intranetowej.
+       - https://autologon.microsoftazuread-sso.com
+       - https://aadg.windows.net.nsatc.net
+    
+       a ustawienie "Zezwalaj na aktualizacje na pasku stanu za pomocą skryptu" musi być włączona dla strefy intranetowej.
 
 - Osiągnięto limit przydziału
 

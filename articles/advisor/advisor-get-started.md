@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/10/2017
 ms.author: makohli
-ms.openlocfilehash: d15f91c91281eae28ddaff52af3ee8e617f142c1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
-ms.translationtype: HT
+ms.openlocfilehash: 5a7864597e50294c8e1227cbab7a3be73dde0a7f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="get-started-with-azure-advisor"></a>Wprowadzenie do usługi Azure Advisor
 
@@ -66,17 +66,17 @@ Można filtrować zaleceń, które następnie przejść do najważniejszych dla 
 
     ![Kryteria filtru wyszukiwania usługi Advisor](./media/advisor-get-started/advisor-filters.png)
 
-## <a name="snooze-or-dismiss-advisor-recommendations"></a>Odłóż lub odrzucić zalecenia doradcy w zakresie
+## <a name="postpone-or-dismiss-advisor-recommendations"></a>Odłóż lub odrzucić zalecenia doradcy w zakresie
 
 1. Zaloguj się do [portalu Azure](https://portal.azure.com), a następnie otwórz [Advisor](https://aka.ms/azureadvisordashboard).
 
-2. Przejdź do zalecenia, które chcesz Odłóż lub odrzucić.
+2. Przejdź do zalecenia, które chcesz odłożyć lub odrzucić.
 
 3. Kliknij zalecenie.
 
-4. Kliknij przycisk **Odłóż**. 
+4. Kliknij przycisk **odłożyć**. 
 
-5. Określ włączenia trybu czuwania przedziale czasu, lub wybierz **nigdy** aby odrzucić zalecenia.
+5. Określ czas Odłóż lub wybierz **nigdy** aby odrzucić zalecenia.
 
 ## <a name="exclude-subscriptions-or-resource-groups-from-advisor"></a>Wyklucz ze Advisor subskrypcji lub grupy zasobów
 

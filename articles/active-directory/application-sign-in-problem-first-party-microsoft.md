@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 880be5f27ca4198004511e01e63cdb3d72f107d5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1dc727f46785d2896544d8ef9098259f9ab994d1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 ## <a name="problems-signing-in-to-a-microsoft-application"></a>Problemy przy logowaniu do aplikacji firmy Microsoft
 
@@ -47,7 +47,7 @@ Poniżej przedstawiono listę obszarów problemów ogólne, które można przej�
 
 ## <a name="steps-to-troubleshoot-microsoft-application-access"></a>Kroki rozwiązywania problemów z Microsoft Application dostępu
 
-Poniżej są niektóre typowe problemy pracowników wystąpiły podczas ich użytkownik nie zaloguje się do aplikacji firmy Microsoft.
+Poniżej przedstawiono kilka typowych problemów, które pracowników wystąpiły podczas ich użytkownik nie zaloguje się do aplikacji firmy Microsoft.
 
 -   Ogólne problemy, aby sprawdzić w pierwszej kolejności
 
@@ -111,11 +111,11 @@ Dostęp do aplikacji mogą zostać zablokowane z powodu problemu z użytkownikie
 
 ### <a name="check-if-a-user-account-exists-in-azure-active-directory"></a>Sprawdź, czy konto użytkownika istnieje w usłudze Azure Active Directory
 
-Aby sprawdzić, czy konto użytkownika jest obecne, wykonaj następujące czynności:
+Aby sprawdzić, czy konto użytkownika jest obecne, wykonaj następujące kroki:
 
-1.  Otwórz [ **Azure Portal** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
+1.  Otwórz [ **portalu Azure** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
 
-2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **więcej usług** u dołu menu nawigacji głównego po lewej stronie.
+2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **wszystkie usługi** w górnej części menu nawigacji po lewej stronie głównej.
 
 3.  Wpisz w **"Azure Active Directory**" w polu wyszukiwania filtr a wybierz **usługi Azure Active Directory** elementu.
 
@@ -129,11 +129,11 @@ Aby sprawdzić, czy konto użytkownika jest obecne, wykonaj następujące czynno
 
 ### <a name="check-a-users-account-status"></a>Sprawdź stan konta użytkownika
 
-Aby sprawdzić stan konta użytkownika, wykonaj następujące czynności:
+Aby sprawdzić stan konta użytkownika, wykonaj następujące kroki:
 
-1.  Otwórz [ **Azure Portal** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
+1.  Otwórz [ **portalu Azure** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
 
-2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **więcej usług** u dołu menu nawigacji głównego po lewej stronie.
+2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **wszystkie usługi** w górnej części menu nawigacji po lewej stronie głównej.
 
 3.  Wpisz w **"Azure Active Directory**" w polu wyszukiwania filtr a wybierz **usługi Azure Active Directory** elementu.
 
@@ -149,11 +149,11 @@ Aby sprawdzić stan konta użytkownika, wykonaj następujące czynności:
 
 ### <a name="reset-a-users-password"></a>Resetowanie hasła użytkownika
 
-Aby zresetować hasło użytkownika, wykonaj następujące czynności:
+Aby zresetować hasło użytkownika, wykonaj następujące kroki:
 
-1.  Otwórz [ **Azure Portal** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
+1.  Otwórz [ **portalu Azure** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
 
-2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **więcej usług** u dołu menu nawigacji głównego po lewej stronie.
+2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **wszystkie usługi** w górnej części menu nawigacji po lewej stronie głównej.
 
 3.  Wpisz w **"Azure Active Directory**" w polu wyszukiwania filtr a wybierz **usługi Azure Active Directory** elementu.
 
@@ -163,9 +163,9 @@ Aby zresetować hasło użytkownika, wykonaj następujące czynności:
 
 6.  **Wyszukiwanie** dla użytkownika planuje się i **kliknij wiersz** do wybrania.
 
-7.  Kliknij przycisk **resetowania hasła** na górze bloku użytkownika.
+7.  Kliknij przycisk **resetowania hasła** w górnej części okienka użytkownika.
 
-8.  Kliknij przycisk **resetowania hasła** znajdującego się na **resetowania hasła** wyświetlonym bloku.
+8.  Kliknij przycisk **resetowania hasła** znajdującego się na **resetowania hasła** okienko zostanie wyświetlone.
 
 9.  Kopiuj **hasło tymczasowe** lub **wprowadź nowe hasło** dla użytkownika.
 
@@ -181,11 +181,11 @@ Aby włączyć samoobsługowe Resetowanie hasła, wykonaj poniższe kroki wdraż
 
 ### <a name="check-a-users-multi-factor-authentication-status"></a>Sprawdź stan usługi Multi-Factor authentication użytkownika
 
-Aby sprawdzić stan usługi Multi-Factor authentication użytkownika, wykonaj następujące czynności:
+Aby sprawdzić stan usługi Multi-Factor authentication użytkownika, wykonaj następujące kroki:
 
-1.  Otwórz [ **Azure Portal** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
+1.  Otwórz [ **portalu Azure** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
 
-2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **więcej usług** u dołu menu nawigacji głównego po lewej stronie.
+2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **wszystkie usługi** w górnej części menu nawigacji po lewej stronie głównej.
 
 3.  Wpisz w **"Azure Active Directory**" w polu wyszukiwania filtr a wybierz **usługi Azure Active Directory** elementu.
 
@@ -193,9 +193,9 @@ Aby sprawdzić stan usługi Multi-Factor authentication użytkownika, wykonaj na
 
 5.  Kliknij przycisk **wszyscy użytkownicy**.
 
-6.  Kliknij przycisk **uwierzytelnianie wieloskładnikowe** u góry bloku.
+6.  Kliknij przycisk **uwierzytelnianie wieloskładnikowe** u góry okienka.
 
-7.  Raz **portalu administracyjnego usługi Multi-Factor Authentication** obciążeń, upewnij się, czy na **użytkowników** kartę.
+7.  Raz **portalu administracyjnego uwierzytelniania wieloskładnikowego** obciążeń, upewnij się, czy na **użytkowników** kartę.
 
 8.  Znajdź użytkownika, na liście użytkowników przez wyszukiwanie, filtrowanie i sortowanie.
 
@@ -205,11 +205,11 @@ Aby sprawdzić stan usługi Multi-Factor authentication użytkownika, wykonaj na
 
 ### <a name="check-a-users-authentication-contact-info"></a>Sprawdź informacje kontaktowe uwierzytelniania użytkownika
 
-Aby sprawdzić informacje kontaktowe uwierzytelniania użytkownika używane do uwierzytelniania wieloskładnikowego, dostępu warunkowego, ochrony tożsamości i resetowania hasła, wykonaj następujące czynności:
+Aby sprawdzić informacje kontaktowe uwierzytelniania użytkownika używane do uwierzytelniania wieloskładnikowego, dostępu warunkowego, ochrony tożsamości i resetowania hasła, wykonaj następujące kroki:
 
-1.  Otwórz [ **Azure Portal** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
+1.  Otwórz [ **portalu Azure** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
 
-2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **więcej usług** u dołu menu nawigacji głównego po lewej stronie.
+2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **wszystkie usługi** w górnej części menu nawigacji po lewej stronie głównej.
 
 3.  Wpisz w **"Azure Active Directory**" w polu wyszukiwania filtr a wybierz **usługi Azure Active Directory** elementu.
 
@@ -227,11 +227,11 @@ Aby sprawdzić informacje kontaktowe uwierzytelniania użytkownika używane do u
 
 ### <a name="check-a-users-group-memberships"></a>Sprawdzanie członkostwa w grupach użytkownika
 
-Aby sprawdzić członkostwa w grupach użytkownika, wykonaj następujące czynności:
+Aby sprawdzić członkostwa w grupach użytkownika, wykonaj następujące kroki:
 
-1.  Otwórz [ **Azure Portal** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
+1.  Otwórz [ **portalu Azure** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
 
-2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **więcej usług** u dołu menu nawigacji głównego po lewej stronie.
+2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **wszystkie usługi** w górnej części menu nawigacji po lewej stronie głównej.
 
 3.  Wpisz w **"Azure Active Directory**" w polu wyszukiwania filtr a wybierz **usługi Azure Active Directory** elementu.
 
@@ -245,11 +245,11 @@ Aby sprawdzić członkostwa w grupach użytkownika, wykonaj następujące czynno
 
 ### <a name="check-a-users-assigned-licenses"></a>Sprawdź przypisane licencje użytkownika
 
-Aby sprawdzić przypisane licencje użytkownika, wykonaj następujące czynności:
+Aby sprawdzić przypisane licencje użytkownika, wykonaj następujące kroki:
 
-1.  Otwórz [ **Azure Portal** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
+1.  Otwórz [ **portalu Azure** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
 
-2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **więcej usług** u dołu menu nawigacji głównego po lewej stronie.
+2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **wszystkie usługi** w górnej części menu nawigacji po lewej stronie głównej.
 
 3.  Wpisz w **"Azure Active Directory**" w polu wyszukiwania filtr a wybierz **usługi Azure Active Directory** elementu.
 
@@ -263,11 +263,11 @@ Aby sprawdzić przypisane licencje użytkownika, wykonaj następujące czynnośc
 
 ### <a name="assign-a-user-a-license"></a>Przypisywanie licencji użytkownika 
 
-Aby przypisać licencję do użytkownika, wykonaj następujące czynności:
+Aby przypisać licencję do użytkownika, wykonaj następujące kroki:
 
-1.  Otwórz [ **Azure Portal** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
+1.  Otwórz [ **portalu Azure** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
 
-2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **więcej usług** u dołu menu nawigacji głównego po lewej stronie.
+2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **wszystkie usługi** w górnej części menu nawigacji po lewej stronie głównej.
 
 3.  Wpisz w **"Azure Active Directory**" w polu wyszukiwania filtr a wybierz **usługi Azure Active Directory** elementu.
 
@@ -303,11 +303,11 @@ Dostęp do aplikacji mogą zostać zablokowane z powodu problemu z grupy, który
 
 ### <a name="check-a-groups-membership"></a>Sprawdź członkostwo w grupie
 
-Aby sprawdzić członkostwa w grupie, wykonaj następujące czynności:
+Aby sprawdzić członkostwa w grupie, wykonaj następujące kroki:
 
-1.  Otwórz [ **Azure Portal** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
+1.  Otwórz [ **portalu Azure** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
 
-2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **więcej usług** u dołu menu nawigacji głównego po lewej stronie.
+2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **wszystkie usługi** w górnej części menu nawigacji po lewej stronie głównej.
 
 3.  Wpisz w **"Azure Active Directory**" w polu wyszukiwania filtr a wybierz **usługi Azure Active Directory** elementu.
 
@@ -321,11 +321,11 @@ Aby sprawdzić członkostwa w grupie, wykonaj następujące czynności:
 
 ### <a name="check-a-dynamic-groups-membership-criteria"></a>Sprawdź kryteria członkostwa grupy dynamicznej 
 
-Aby sprawdzić kryteria członkostwa grupy dynamicznej, wykonaj następujące czynności:
+Aby sprawdzić kryteria członkostwa grupy dynamicznej, wykonaj następujące kroki:
 
-1.  Otwórz [ **Azure Portal** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
+1.  Otwórz [ **portalu Azure** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
 
-2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **więcej usług** u dołu menu nawigacji głównego po lewej stronie.
+2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **wszystkie usługi** w górnej części menu nawigacji po lewej stronie głównej.
 
 3.  Wpisz w **"Azure Active Directory**" w polu wyszukiwania filtr a wybierz **usługi Azure Active Directory** elementu.
 
@@ -341,11 +341,11 @@ Aby sprawdzić kryteria członkostwa grupy dynamicznej, wykonaj następujące cz
 
 ### <a name="check-a-groups-assigned-licenses"></a>Sprawdź grupy przypisane licencje.
 
-Aby sprawdzić grupy przypisane licencje, wykonaj następujące czynności:
+Aby sprawdzić grupy przypisane licencje, wykonaj następujące kroki:
 
-1.  Otwórz [ **Azure Portal** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
+1.  Otwórz [ **portalu Azure** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
 
-2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **więcej usług** u dołu menu nawigacji głównego po lewej stronie.
+2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **wszystkie usługi** w górnej części menu nawigacji po lewej stronie głównej.
 
 3.  Wpisz w **"Azure Active Directory**" w polu wyszukiwania filtr a wybierz **usługi Azure Active Directory** elementu.
 
@@ -359,11 +359,11 @@ Aby sprawdzić grupy przypisane licencje, wykonaj następujące czynności:
 
 ### <a name="reprocess-a-groups-licenses"></a>Ponownie przetworzyć grupy licencji
 
-Aby ponownie przetworzyć grupy przypisane licencje, wykonaj następujące czynności:
+Aby ponownie przetworzyć grupy przypisane licencje, wykonaj następujące kroki:
 
-1.  Otwórz [ **Azure Portal** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
+1.  Otwórz [ **portalu Azure** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
 
-2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **więcej usług** u dołu menu nawigacji głównego po lewej stronie.
+2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **wszystkie usługi** w górnej części menu nawigacji po lewej stronie głównej.
 
 3.  Wpisz w **"Azure Active Directory**" w polu wyszukiwania filtr a wybierz **usługi Azure Active Directory** elementu.
 
@@ -384,11 +384,11 @@ Aby ponownie przetworzyć grupy przypisane licencje, wykonaj następujące czynn
 
 ### <a name="assign-a-group-a-license"></a>Przypisz grupę licencji
 
-Aby przypisać licencję do grupy, wykonaj następujące czynności:
+Aby przypisać licencję do grupy, wykonaj następujące kroki:
 
-1.  Otwórz [ **Azure Portal** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
+1.  Otwórz [ **portalu Azure** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
 
-2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **więcej usług** u dołu menu nawigacji głównego po lewej stronie.
+2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **wszystkie usługi** w górnej części menu nawigacji po lewej stronie głównej.
 
 3.  Wpisz w **"Azure Active Directory**" w polu wyszukiwania filtr a wybierz **usługi Azure Active Directory** elementu.
 
@@ -419,9 +419,9 @@ Aby przypisać licencję do grupy, wykonaj następujące czynności:
 
 Aby sprawdzić lub zweryfikować zasady dostępu warunkowego pojedynczego:
 
-1.  Otwórz [ **Azure Portal** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
+1.  Otwórz [ **portalu Azure** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
 
-2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **więcej usług** u dołu menu nawigacji głównego po lewej stronie.
+2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **wszystkie usługi** w górnej części menu nawigacji po lewej stronie głównej.
 
 3.  Wpisz w **"Azure Active Directory**" w polu wyszukiwania filtr a wybierz **usługi Azure Active Directory** elementu.
 
@@ -442,9 +442,9 @@ Aby sprawdzić lub zweryfikować zasady dostępu warunkowego pojedynczego:
 
 Sprawdź lub sprawdzić poprawności pojedynczej aplikacji aktualnie skonfigurowane zasady dostępu warunkowego:
 
-1.  Otwórz [ **Azure Portal** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
+1.  Otwórz [ **portalu Azure** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
 
-2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **więcej usług** u dołu menu nawigacji głównego po lewej stronie.
+2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **wszystkie usługi** w górnej części menu nawigacji po lewej stronie głównej.
 
 3.  Wpisz w **"Azure Active Directory**" w polu wyszukiwania filtr a wybierz **usługi Azure Active Directory** elementu.
 
@@ -474,9 +474,9 @@ Sprawdź lub sprawdzić poprawności pojedynczej aplikacji aktualnie skonfigurow
 
 Aby sprawdzić lub zweryfikować zasady dostępu warunkowego pojedynczego:
 
-1.  Otwórz [ **Azure Portal** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
+1.  Otwórz [ **portalu Azure** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
 
-2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **więcej usług** u dołu menu nawigacji głównego po lewej stronie.
+2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **wszystkie usługi** w górnej części menu nawigacji po lewej stronie głównej.
 
 3.  Wpisz w **"Azure Active Directory**" w polu wyszukiwania filtr a wybierz **usługi Azure Active Directory** elementu.
 
@@ -514,16 +514,16 @@ Dostęp do aplikacji mogą zostać zablokowane, ponieważ nie przeprowadzono ope
 
 ### <a name="perform-administrator-level-consent-for-a-single-tenant-application"></a>Wykonaj zgody na poziomie administratora dla aplikacji pojedynczej dzierżawy
 
--   Dla **pojedynczej dzierżawy aplikacji** który zażądać uprawnień (np. te opracowujesz lub własny w organizacji), można wykonać **zgody na poziomie administratora** operacji w imieniu wszystkich użytkowników zalogować się jako Administrator globalny i klikając **udzielić uprawnień** przycisk w górnej części **rejestru aplikacji -&gt; wszystkie aplikacje —&gt; wybierz aplikację -&gt; wymagane uprawnienia** bloku.
+-   Dla **aplikacji pojedynczej dzierżawy** który zażądać uprawnień (np. te opracowujesz lub własny w organizacji), można wykonać **zgody na poziomie administracyjnym** operacji imieniu wszystkie użytkownikom zalogować się jako Administrator globalny i klikając **udzielić uprawnień** przycisk w górnej części **rejestru aplikacji -&gt; wszystkie aplikacje —&gt; wybierz aplikację -&gt; Wymagane uprawnienia** okienka.
 
 -   Dla **wszelkie aplikacje opracowane za pomocą modelu aplikacji V1 lub V2**, można wymusić tej zgody poziomie administratora nastąpić, postępując zgodnie z instrukcjami dotyczącymi **poprosić uprawnienia administratora katalogu** sekcji [przy użyciu punktu końcowego zgody administratora](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 
 ### <a name="perform-administrator-level-consent-for-a-multi-tenant-application"></a>Wykonaj zgody na poziomie administratora dla wielodostępnych aplikacji
 
--   Dla **aplikacje wielodostępne** tego zażądać uprawnień (np. aplikacji innej firmy lub firmy Microsoft, które zostały zaakceptowane), można wykonać **zgody na poziomie administracyjnym** operacji. Zaloguj się jako Administrator globalny i klikając **udzielić uprawnień** przycisku w obszarze **aplikacje przedsiębiorstwa -&gt; wszystkie aplikacje —&gt; wybierz aplikację -&gt; uprawnienia** bloku (dostępne wkrótce).
+-   Dla **aplikacje wielodostępne** tego zażądać uprawnień (np. aplikacji innej firmy lub firmy Microsoft, które zostały zaakceptowane), można wykonać **zgody na poziomie administracyjnym** operacji. Zaloguj się jako Administrator globalny i klikając **udzielić uprawnień** przycisku w obszarze **aplikacje przedsiębiorstwa -&gt; wszystkie aplikacje —&gt; wybierz aplikację -&gt; uprawnień**  okienka (dostępne wkrótce).
 
 -   Można również wymusić tej zgody poziomie administratora nastąpić, postępując zgodnie z instrukcjami dotyczącymi **poprosić uprawnienia administratora katalogu** sekcji [przy użyciu punktu końcowego zgody administratora](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Przy użyciu punktu końcowego zgody administratora](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint)
 
