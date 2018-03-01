@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/06/2017
+ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 9b537595fd8224536f67989d7529f6030347bfab
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: fd27837e4b40b34551092be5d75eb770730d97a4
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="create-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Tworzenie klastra usługi Hadoop z kontami magazynu z bezpiecznym transferem w usłudze Azure HDInsight
 
@@ -45,7 +45,7 @@ W tej sekcji tworzysz klaster Hadoop w usłudze HDInsight przy użyciu [szablonu
 
 2. Postępuj zgodnie z instrukcjami, aby utworzyć klaster o następujących specyfikacjach: 
 
-    - Określ wersję usługi HDInsight na 3.6.  Domyślna wersja to 3.5. Wymagana jest wersja 3.6 lub nowsza.
+    - Określ wersję usługi HDInsight na 3.6.  Wymagana jest wersja 3.6 lub nowsza.
     - Określ konto magazynu z włączonym bezpiecznym transferem.
     - Użyj krótkiej nazwy konta magazynu.
     - Konto magazynu i kontener obiektów blob należy utworzyć wcześniej. 
