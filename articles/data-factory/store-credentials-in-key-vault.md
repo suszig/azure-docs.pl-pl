@@ -10,19 +10,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 02/26/2017
 ms.author: jingwang
-ms.openlocfilehash: 42643c73368597d1caea4aba12bc7b64b7440970
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 51318a6bb4f88759984531b005c65712b6817ec0
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Przechowywania poświadczeń w usłudze Azure Key Vault
 
-Można zapisać poświadczeń magazyny danych w [usługi Azure Key Vault](../key-vault/key-vault-whatis.md). Fabryka danych Azure pobiera poświadczeń podczas wykonywania działania, który używa magazynu danych.
+Można zapisać poświadczenia na potrzeby magazynów danych i oblicza w [usługi Azure Key Vault](../key-vault/key-vault-whatis.md). Fabryka danych Azure pobiera poświadczeń podczas wykonywania działanie, które korzysta z magazynu danych/obliczeniowej.
 
-Działanie kopiowania ze wszystkimi typami łączników obsługuje obecnie, ta funkcja — Sprawdź sekcję "połączone właściwości usługi" w [każdego tematu łącznika](copy-activity-overview.md#supported-data-stores-and-formats) szczegółowe informacje. Obsługę innych typów działań i obliczeniowe połączonej usługi będą później.
+Ta funkcja obsługuje obecnie, wszystkie typy działań z wyjątkiem działania niestandardowego. Dla konfiguracji łącznika w szczególności, Sprawdź sekcję "połączone właściwości usługi" [każdego tematu łącznika](copy-activity-overview.md#supported-data-stores-and-formats) szczegółowe informacje.
 
 > [!NOTE]
 > Ten artykuł dotyczy wersji 2 usługi Data Factory, która jest obecnie dostępna w wersji zapoznawczej. Jeśli używasz wersji 1 usługi fabryka danych, która jest ogólnie dostępna (GA), zobacz [dokumentacji dla fabryki danych version1](v1/data-factory-introduction.md).

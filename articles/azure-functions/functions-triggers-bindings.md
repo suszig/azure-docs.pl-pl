@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 02/07/2018
 ms.author: glenga
-ms.openlocfilehash: e7141d92a186bec67c374bd5046ee08047feedec
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: f43132beb0abae3d4bdf0f538de1b437e6099822
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure funkcje wyzwalaczy i powiązań pojęcia
 
@@ -31,7 +31,7 @@ A *wyzwalacza* definiuje sposób wywoływania funkcji. Funkcja musi mieć dokła
 
 Wejście i wyjście *powiązania* Podaj deklaratywne, aby nawiązać połączenie danych z poziomu kodu. Powiązania są opcjonalne i mieć wielu danych wejściowych i wyjściowych powiązania funkcji. 
 
-Wyzwalaczy i powiązań pozwalają uniknąć hardcoding szczegółowe informacje o pracy z usługi. Funkcja użytkownik odbiera dane (na przykład zawartość komunikatu w kolejce) w parametrów funkcji. Wysyłanie danych (na przykład można utworzyć komunikatu w kolejce) przy użyciu funkcji, wartość zwracana `out` parametru lub [obiekt moduł zbierający](functions-reference-csharp.md#writing-multiple-output-values).
+Wyzwalaczy i powiązań pozwalają uniknąć hardcoding szczegółowe informacje o pracy z usługi. Funkcja odbiera dane (na przykład zawartość komunikatu w kolejce) w parametrów funkcji. Wysyłanie danych (na przykład można utworzyć komunikatu w kolejce) przy użyciu funkcji, wartość zwracana `out` parametru lub [obiekt moduł zbierający](functions-reference-csharp.md#writing-multiple-output-values).
 
 Podczas opracowywania funkcji przy użyciu portalu Azure, wyzwalaczy i powiązań są konfigurowane w *function.json* pliku. Portal zawiera interfejsu użytkownika dla tej konfiguracji, ale plik można edytować bezpośrednio przez zmianę na **Zaawansowany edytor**.
 
@@ -42,6 +42,50 @@ Podczas opracowywania funkcji za pomocą programu Visual Studio do tworzenia bib
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
 Aby uzyskać informacje o tym, które są w wersji zapoznawczej powiązań, lub są zatwierdzone do użycia w środowisku produkcyjnym, zobacz [obsługiwanych języków](supported-languages.md).
+
+## <a name="register-binding-extensions"></a>Zarejestruj rozszerzenia powiązania
+
+W wersji 2.x środowiska uruchomieniowego usługi Azure Functions, należy jawnie zarejestrować [powiązanie rozszerzenia](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md) używaną w funkcji aplikacji. 
+
+Rozszerzenia są wyświetlane w postaci pakietów NuGet, których nazwa pakietu zwykle zaczyna się od [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions).  Sposób zainstalowania i zarejestrowania rozszerzenia powiązania zależy od tego, jak w przypadku tworzenia funkcji: 
+
++ [Lokalnie w języku C# za pomocą programu Visual Studio lub kodzie VS](#precompiled-functions-c)
++ [Lokalnie za pomocą narzędzia podstawowych funkcji platformy Azure](#local-development-azure-functions-core-tools)
++ [W portalu Azure](#azure-portal-development) 
+
+Brak podstawowy zestaw powiązania w wersji 2.x, które nie są dostarczane jako rozszerzenia. Nie trzeba rejestrować rozszerzeń dla następujących wyzwalaczy i powiązań: HTTP, zegara i magazynu Azure. 
+
+Informacje dotyczące sposobu konfigurowania aplikacji funkcji w wersji 2.x środowisko uruchomieniowe Functions, zobacz [jak korzystać z wersji środowiska uruchomieniowego usługi Azure Functions](set-runtime-version.md). Wersja 2.x środowisko uruchomieniowe Functions jest obecnie w przeglądzie. 
+
+Wersje pakietów wyświetlany w tej sekcji znajdują się tylko jako przykłady. Sprawdź [lokacji NuGet.org](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions) do określenia, którą wersję danego rozszerzenia są wymagane przez inne zależności w aplikacji funkcji.    
+
+###  <a name="local-c-development-using-visual-studio-or-vs-code"></a>C# wdrożenia lokalnego przy użyciu programu Visual Studio lub kodzie VS 
+
+Jeśli korzystasz z programu Visual Studio lub Visual Studio Code lokalnie tworzenia funkcji w języku C#, należy po prostu Dodaj pakiet nuget służący do rozszerzenia. 
+
++ **Visual Studio**: Użyj narzędzia NuGet Package Manager. Następujące [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) polecenia instaluje rozszerzenie Azure DB rozwiązania Cosmos w konsoli Menedżera pakietów:
+
+    ```
+    Install-Package Microsoft.Azure.WebJobs.Extensions.CosmosDB -Version 3.0.0-beta6 
+    ```
++ **Visual Studio Code**: pakietów można zainstalować z wiersza polecenia przy użyciu [dotnet Dodaj pakiet](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) poleceń w .NET interfejsu wiersza polecenia, w następujący sposób:
+
+    ```
+    dotnet add package Microsoft.Azure.WebJobs.Extensions.CosmosDB --version 3.0.0-beta6 
+    ```
+
+### <a name="local-development-azure-functions-core-tools"></a>Lokalne działania projektowe Azure funkcje podstawowe narzędzia
+
+[!INCLUDE [Full bindings table](../../includes/functions-core-tools-install-extension.md)]
+
+### <a name="azure-portal-development"></a>Programowanie portalu Azure
+
+Podczas tworzenia funkcji lub dodać powiązanie do istniejącej funkcji, zostanie wyświetlony monit, gdy rozszerzenie wyzwalacza lub powiązanie dodawany wymaga rejestracji.   
+
+Po dla określonego rozszerzenia, instalowana pojawi się ostrzeżenie, kliknij przycisk **zainstalować** do zarejestrowania rozszerzenia. Każdego rozszerzenia, należy zainstalować jeden raz dla danej funkcji aplikacji. 
+
+>[!Note] 
+>Plan przez proces instalacji w portalu może zająć do 10 minut.
 
 ## <a name="example-trigger-and-binding"></a>Przykład wyzwalacza i powiązania
 
@@ -70,9 +114,9 @@ Oto *function.json* pliku dla tego scenariusza.
 }
 ```
 
-Pierwszym elementem w `bindings` tablica ma wyzwalacz magazynu kolejki. `type` i `direction` właściwości zidentyfikować wyzwalacza. `name` Właściwość identyfikuje parametru funkcji, które otrzymają zawartość komunikatu w kolejce. Nazwa kolejki, aby monitorować jest `queueName`, i parametry połączenia są identyfikowane przez ustawienie aplikacji `connection`.
+Pierwszym elementem w `bindings` tablica ma wyzwalacz magazynu kolejki. `type` i `direction` właściwości zidentyfikować wyzwalacza. `name` Właściwość identyfikuje parametru funkcji, który odbiera zawartość komunikatu w kolejce. Nazwa kolejki, aby monitorować jest `queueName`, i parametry połączenia są identyfikowane przez ustawienie aplikacji `connection`.
 
-Drugi element w `bindings` tablica jest magazyn tabel Azure powiązania wyjściowego. `type` i `direction` właściwości identyfikacji powiązania. `name` Właściwość określa, jak funkcja zapewni nowego wiersza tabeli, w tym przypadku przy użyciu wartości zwracanej funkcji. Nazwa tabeli jest `tableName`, i parametry połączenia są identyfikowane przez ustawienie aplikacji `connection`.
+Drugi element w `bindings` tablica jest magazyn tabel Azure powiązania wyjściowego. `type` i `direction` właściwości identyfikacji powiązania. `name` Właściwość określa, jak funkcja zapewnia nowy wiersz w tabeli, w tym przypadku za pomocą funkcji zwracają wartość. Nazwa tabeli jest `tableName`, i parametry połączenia są identyfikowane przez ustawienie aplikacji `connection`.
 
 Aby wyświetlić i edytować zawartość *function.json* w portalu Azure kliknij **Zaawansowany edytor** opcja **integracji** kartę funkcji.
 

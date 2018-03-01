@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/26/2016
 ms.author: LADocs; jonfan
-ms.openlocfilehash: 68009b74a410f7e854de675a1d8d0c32e310d2c9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4b1ea9966add3cf0d5f75988f11cda57fa4e4cf6
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="exchange-edifact-messages-for-enterprise-integration-with-logic-apps"></a>Komunikaty Exchange EDIFACT enterprise integracji z usługą logic apps
 
@@ -32,65 +32,63 @@ Przed przystąpieniem do wymiany wiadomości EDIFACT dla usługi Azure Logic App
 
 Oto elementy, które są potrzebne:
 
-* [Konta integracji](../logic-apps/logic-apps-enterprise-integration-accounts.md) który został już zdefiniowany i skojarzone z subskrypcją platformy Azure  
+* [Konta integracji](logic-apps-enterprise-integration-create-integration-account.md) który został już zdefiniowany i skojarzone z subskrypcją platformy Azure  
 * Co najmniej dwa [partnerów](logic-apps-enterprise-integration-partners.md) które już zostały zdefiniowane w ramach konta integracji
 
 > [!NOTE]
 > Podczas tworzenia umowy zawartości w wiadomości, które odbierać lub wysyłać do i od partnera musi odpowiadać typowi umowy.
 
-Po [Tworzenie konta usługi integracji](../logic-apps/logic-apps-enterprise-integration-accounts.md) i [dodać partnerów](logic-apps-enterprise-integration-partners.md), można utworzyć umowy EDIFACT, wykonując następujące kroki.
+Po [Tworzenie konta usługi integracji](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) i [dodać partnerów](logic-apps-enterprise-integration-partners.md), można utworzyć umowy EDIFACT, wykonując następujące kroki.
 
 ## <a name="create-an-edifact-agreement"></a>Tworzenie umów EDIFACT 
 
-1.  Zaloguj się w witrynie [Azure Portal](http://portal.azure.com "Azure Portal"). Wybierz z menu po lewej stronie **wszystkie usługi**.
+1. Zaloguj się w witrynie [Azure Portal](http://portal.azure.com "Azure Portal"). 
 
-    > [!TIP]
-    > Jeśli nie widzisz **wszystkich usług**, trzeba będzie najpierw rozwinąć menu. W górnej części menu zwinięte, wybierz **Pokaż menu**.
+2. W menu głównym Azure wybierz **wszystkie usługi**. W polu wyszukiwania wpisz "integrację", a następnie wybierz **konta integracji**.
 
-    ![W menu po lewej stronie wybierz opcję "Wszystkie usługi"](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
+   ![Znajdź konta integracji](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
 
-2. W polu wyszukiwania wpisz "Integracja" filtru. Na liście wyników wybierz **konta integracji**.
+   > [!TIP]
+   > Jeśli **wszystkie usługi** nie jest wyświetlane, należy najpierw rozwinąć menu. W górnej części menu zwinięte, wybierz **Pokaż tekst etykiety**.
 
-    ![Odfiltruj "integrację", wybierz "Konta integracji"](./media/logic-apps-enterprise-integration-edifact/edifact-1-3.png)
+3. W obszarze **konta integracji**, wybierz konto integracji, w której chcesz utworzyć umowy.
 
-3. W **konta integracji** bloku, który zostanie otwarty, wybierz konto integracji, w której chcesz utworzyć umowy.
-Jeśli nie widzisz kont integracji [utworzyć pierwszy](../logic-apps/logic-apps-enterprise-integration-accounts.md "wszystkiego o konta integracji").  
+   ![Wybierz konto integracji, gdzie można utworzyć umowy](./media/logic-apps-enterprise-integration-edifact/edifact-1-4.png)
 
-    ![Wybierz konto integracji, gdzie można utworzyć umowy](./media/logic-apps-enterprise-integration-edifact/edifact-1-4.png)
+4. Wybierz **umowy**. Jeśli nie masz kafelka umowy, najpierw Dodaj kafelka.   
 
-4. Wybierz **umowy** kafelka. Jeśli nie masz kafelka umowy, najpierw Dodaj kafelka.   
+   ![Wybierz Kafelek "Umów"](./media/logic-apps-enterprise-integration-edifact/edifact-1-5.png)
 
-    ![Wybierz Kafelek "Umów"](./media/logic-apps-enterprise-integration-edifact/edifact-1-5.png)
+5. Na stronie umowy, wybierz **Dodaj**.
 
-5. W bloku umów wybierz **Dodaj**.
-
-    ![Wybierz opcję "Dodaj"](./media/logic-apps-enterprise-integration-edifact/edifact-agreement-2.png)
+   ![Wybierz opcję "Dodaj"](./media/logic-apps-enterprise-integration-edifact/edifact-agreement-2.png)
 
 6. W obszarze **Dodaj**, wprowadź **nazwa** dla umowy. Aby uzyskać **typ umowy**, wybierz pozycję **EDIFACT**. Wybierz **partnera hosta**, **tożsamości hosta**, **partnera gościa**, i **tożsamości gościa** dla umowy.
 
-    ![Podaj szczegóły umowy](./media/logic-apps-enterprise-integration-edifact/edifact-1.png)
+   ![Podaj szczegóły umowy](./media/logic-apps-enterprise-integration-edifact/edifact-1.png)
 
-    | Właściwość | Opis |
-    | --- | --- |
-    | Name (Nazwa) |Nazwa umowy |
-    | Typ umowy | Powinien być EDIFACT |
-    | Partner hosta |Umowa musi mieć partnera zarówno hosta, jak i gościa. Partner hosta reprezentuje organizację, która konfiguruje umowy. |
-    | Tożsamość hosta |Identyfikator partnera hosta |
-    | Partner gościa |Umowa musi mieć partnera zarówno hosta, jak i gościa. Partner gościa reprezentuje organizację, która jest działalność z partnerem hosta. |
-    | Tożsamość gościa |Identyfikator partnera gościa |
-    | Ustawienia odbierania |Te właściwości stosowane do wszystkich komunikatów odebranych przez umowy. |
-    | Ustawienia wysyłania |Te właściwości stosowane do wszystkich wiadomości wysłanych przez umowy. |
+   | Właściwość | Opis |
+   | --- | --- |
+   | Name (Nazwa) |Nazwa umowy |
+   | Typ umowy | Powinien być EDIFACT |
+   | Partner hosta |Umowa musi mieć partnera zarówno hosta, jak i gościa. Partner hosta reprezentuje organizację, która konfiguruje umowy. |
+   | Tożsamość hosta |Identyfikator partnera hosta |
+   | Partner gościa |Umowa musi mieć partnera zarówno hosta, jak i gościa. Partner gościa reprezentuje organizację, która jest działalność z partnerem hosta. |
+   | Tożsamość gościa |Identyfikator partnera gościa |
+   | Ustawienia odbierania |Te właściwości stosowane do wszystkich komunikatów odebranych przez umowy. |
+   | Ustawienia wysyłania |Te właściwości stosowane do wszystkich wiadomości wysłanych przez umowy. |
+   ||| 
 
 ## <a name="configure-how-your-agreement-handles-received-messages"></a>Skonfiguruj sposób dojść do Porozumienia odebrane wiadomości
 
 Teraz, gdy ustawiono właściwości umowy, można skonfigurować sposób identyfikuje niniejszej Umowy oraz obsługi przychodzących komunikatów odebranych od swojego partnera, za pośrednictwem niniejszej Umowy.
 
-1.  W obszarze **Dodaj**, wybierz pozycję **ustawienia odbierania**.
+1. W obszarze **Dodaj**, wybierz pozycję **ustawienia odbierania**.
 Skonfigurować te właściwości, na podstawie Twojej umowy z partnerem, który wymienia wiadomości z Tobą. Opisy właściwości znajdują się w tabelach w tej sekcji.
 
-    **Odbierają ustawienia** jest podzielona na następujące sekcje: identyfikatory, potwierdzenia, schematów, numery kontroli, weryfikacji i ustawienia wewnętrzne.
+   **Odbierają ustawienia** jest podzielona na następujące sekcje: identyfikatory, potwierdzenia, schematów, numery kontroli, weryfikacji i ustawienia wewnętrzne.
 
-    ![Skonfiguruj "Otrzymywać ustawienia"](./media/logic-apps-enterprise-integration-edifact/edifact-2.png)  
+   ![Skonfiguruj "Otrzymywać ustawienia"](./media/logic-apps-enterprise-integration-edifact/edifact-2.png)  
 
 2. Po zakończeniu upewnij się zapisać ustawienia, wybierając **OK**.
 
@@ -211,7 +209,7 @@ Inne niż zestawu znaków, można wprowadzić inny zestaw ograniczników do zast
 | Właściwość | Opis |
 | --- | --- |
 | UNB1.1 (identyfikator systemu) |Wybierz zestaw powinny zostać zastosowane w wychodzących wymiany znaków EDIFACT. |
-| Schemat |Wybierz schemat z listy rozwijanej. Po wykonaniu każdego wiersza, jest automatycznie dodawany nowy wiersz. Dla wybranego schematu wybierz zestaw separatorów, którego chcesz używać, oparte na następujących opisów separatora. |
+| Schemat |Wybierz schemat z listy rozwijanej. Po wykonaniu każdego wiersza, jest automatycznie dodawany nowy wiersz. Dla wybranego schematu wybierz zestaw separatorów, którego chcesz używać, oparte na poniższe opisy separatora. |
 | Typ danych wejściowych |Wybierz typ danych wejściowych z listy rozwijanej. |
 | Separator składników |Do oddzielania elementów danych, wprowadź jeden znak. |
 | Separator elementów danych |Do oddzielania elementów proste danych w ramach elementów danych, wprowadź jeden znak. |
@@ -240,13 +238,13 @@ Po zakończeniu każdego wiersza weryfikacji innego automatycznie jest dodawany.
 
 ## <a name="find-your-created-agreement"></a>Znajdź utworzone umowy
 
-1.  Po zakończeniu ustawienie na wszystkie właściwości umowy, **Dodaj** bloku, wybierz **OK** w stanie zakończyć tworzenia umowy, a następnie wróć do bloku konta usługi z integracji.
+1.  Po zakończeniu ustawienie na wszystkie właściwości umowy, **Dodaj** wybierz pozycję **OK** aby zakończyć tworzenie umowy i wrócić do konta integracji.
 
     Nowo dodany umowy teraz pojawia się w sieci **umowy** listy.
 
-2.  Można również wyświetlić umów w przeglądzie konta integracji. W bloku konta integracji, wybierz **omówienie**, a następnie wybierz pozycję **umowy** kafelka. 
+2.  Można również wyświetlić umów w przeglądzie konta integracji. W menu konta integracji, wybierz **omówienie**, a następnie wybierz pozycję **umowy** kafelka. 
 
-    ![Wybierz Kafelek "Umów", aby wyświetlić wszystkie umowy](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
+    ![Wybierz Kafelek "Umów"](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
 
 ## <a name="view-swagger-file"></a>Plik struktury Swagger widoku
 Aby wyświetlić szczegóły Swagger EDIFACT łącznika, zobacz [EDIFACT](/connectors/edifact/).

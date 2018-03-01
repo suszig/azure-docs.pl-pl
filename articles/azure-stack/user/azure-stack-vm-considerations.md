@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2018
+ms.date: 02/23/2018
 ms.author: brenduns
-ms.openlocfilehash: 59053e4beda48fd8474da675e50e02438c79a98e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2b39ff3665a4cc3aeddf81b83e0c90c7f770da72
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Zagadnienia dotyczące maszyn wirtualnych Azure stosu
 
@@ -41,19 +41,25 @@ Maszyny wirtualne są na żądanie, skalowalnych zasobów obliczeniowych oferowa
 |Zestawy skalowania maszyn wirtualnych|Obsługiwane automatycznego skalowania|Automatycznego skalowania nie jest obsługiwane.<br>Dodaj więcej wystąpień do skali ustawić za pomocą portalu, szablony usługi Resource Manager lub programu PowerShell.
 
 ## <a name="virtual-machine-sizes"></a>Rozmiary maszyn wirtualnych
+Azure nakłada ograniczenia zasobów na kilka sposobów, aby uniknąć nadmierne zużycie zasobów (serwer lokalny i poziomu usług). Bez wprowadzania niektóre limity na zużycie zasobów dzierżawcy, środowisko dzierżawcy mogą występować podczas zakłócenia sąsiada overconsumes zasobów. 
+- Dla sieci ruch wychodzący z maszyny Wirtualnej istnieją ograniczyć przepustowość. Włączony klawisz Caps w stosie Azure odpowiada Wersaliki na platformie Azure.  
+- Dla zasobów magazynu Azure stosu implementuje limity liczby magazynu, aby uniknąć podstawowe nadmierne zużycie zasobów przez dzierżawców na potrzeby dostępu do magazynu. 
+- Dla maszyn wirtualnych z wieloma dyskami dołączonych danych maksymalną przepływność każdy dysk danych poszczególnych jest 500 IOPS dla HHDs i 2300 IOPS dla dysków SSD.
 
-Stos Azure obsługuje następujące wymiary:
+Poniższa tabela zawiera listę maszyn wirtualnych, które są obsługiwane na stosie Azure wraz z ich konfiguracji:
 
-| Typ | Rozmiar | Zakres obsługiwanych rozmiarów. |
-| --- | --- | --- |
-|Zastosowania ogólne |Podstawowa A|A0 - A4|
-|Zastosowania ogólne |Standard A|A0–A7|
-|Zastosowania ogólne |Seria D|D1 - D4|
-|Zastosowania ogólne |Seria Dv2|D1_v2 - D5_v2|
-|Zastosowania ogólne |Seria DS|DS1 - DS4|
-|Zastosowania ogólne |Seria DSv2|DS1_v2 - DS5_v2|
-|Optymalizacja pod kątem pamięci|Seria DS|DS11 - DS14|
-|Optymalizacja pod kątem pamięci |Seria DSv2|DS11_v2 - DS14_v2|
+| Typ           | Rozmiar          | Zakres obsługiwanych rozmiarów. |
+| ---------------| ------------- | ------------------------ |
+|Zastosowania ogólne |Podstawowa A        |[A0 - A4](azure-stack-vm-sizes.md#basic-a)                   |
+|Zastosowania ogólne |Standard A     |[A0 - A7](azure-stack-vm-sizes.md#standard-a)              |
+|Zastosowania ogólne |Seria D       |[D1 - D4](azure-stack-vm-sizes.md#d-series)              |
+|Zastosowania ogólne |Seria Dv2     |[D1_v2 - D5_v2](azure-stack-vm-sizes.md#ds-series)        |
+|Zastosowania ogólne |Seria DS      |[DS1 - DS4](azure-stack-vm-sizes.md#dv2-series)            |
+|Zastosowania ogólne |Seria DSv2    |[DS1_v2 - DS5_v2](azure-stack-vm-sizes.md#dsv2-series)      |
+|Optymalizacja pod kątem pamięci|Seria D       |[D11 - D14](azure-stack-vm-sizes.md#mo-d)            |
+|Optymalizacja pod kątem pamięci|Seria DS      |[DS11 - DS14](azure-stack-vm-sizes.md#mo-ds)|
+|Optymalizacja pod kątem pamięci|Seria Dv2     |[D11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
+|Optymalizacja pod kątem pamięci|Seria DSv2-  |[DS11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
 
 Rozmiary maszyn wirtualnych i ich ilości zasobów są spójne stosu Azure i na platformie Azure. Na przykład ten spójności zawiera ilość pamięci, liczby rdzeni i numer/rozmiaru dysków z danymi, które mogą zostać utworzone. Jednak wydajność ten sam rozmiar maszyny Wirtualnej Azure stosu zależy od podstawowej właściwości określonym środowisku Azure stosu.
 

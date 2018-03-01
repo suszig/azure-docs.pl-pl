@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: ff9a396f09b675e798e2b2a04fdf0fdb0cdaa09d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 4360249367632a01e4357c527f595f8416c7cc38
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="check-traffic-with-a-scheduler-based-logic-app"></a>Sprawdzanie natężenia ruchu za pomocą aplikacji logiki z użyciem harmonogramu
 
@@ -53,7 +53,7 @@ Zaloguj się do <a href="https://portal.azure.com" target="_blank">witryny Azure
 
 ## <a name="create-your-logic-app"></a>Tworzenie aplikacji logiki
 
-1. Z głównego menu platformy Azure wybierz kolejno pozycje **Nowy** > **Integracja dla przedsiębiorstw** > **Aplikacja logiki**.
+1. Z głównego menu platformy Azure wybierz pozycję **Utwórz zasób** > **Integracja dla przedsiębiorstw** > **Aplikacja logiki**.
 
    ![Tworzenie aplikacji logiki](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app.png)
 
@@ -96,8 +96,8 @@ Następnie dodaj [wyzwalacz](../logic-apps/logic-apps-overview.md#logic-app-conc
    | ------- | ----- | ----------- | 
    | **Interwał** | 1 | Liczba interwałów do odczekania między sprawdzaniami | 
    | **Częstotliwość** | Tydzień | Jednostka czasu cyklu | 
-   | **Strefa czasowa** | Brak | Ma zastosowanie tylko, jeśli określisz godzinę rozpoczęcia. Umożliwia określenie innej strefy czasowej niż lokalna. | 
-   | **Godzina rozpoczęcia** | Brak | Umożliwia opóźnienie cyklu do określonej daty i godziny. Aby uzyskać więcej informacji, zobacz [Schedule tasks and workflows that run regularly (Planowanie regularnie uruchamianych zadań i przepływów pracy)](../connectors/connectors-native-recurrence.md). | 
+   | **Strefa czasowa** | None | Ma zastosowanie tylko, jeśli określisz godzinę rozpoczęcia. Umożliwia określenie innej strefy czasowej niż lokalna. | 
+   | **Godzina rozpoczęcia** | None | Umożliwia opóźnienie cyklu do określonej daty i godziny. Aby uzyskać więcej informacji, zobacz [Schedule tasks and workflows that run regularly (Planowanie regularnie uruchamianych zadań i przepływów pracy)](../connectors/connectors-native-recurrence.md). | 
    | **W tych dniach** | poniedziałek,wtorek,środa,czwartek,piątek | Dostępne tylko wtedy, gdy w polu **Częstotliwość** wybrano pozycję Tydzień | 
    | **W tych godzinach** | 7,8,9 | Dostępne tylko wtedy, gdy w polu **Częstotliwość** wybrano pozycję Tydzień lub Dzień. Wybierz, o jakich godzinach ma być uruchamiany cykl. W tym przykładzie jest uruchamiany o 7, 8 i 9. | 
    | **W tych minutach** | 0,15,30,45 | Dostępne tylko wtedy, gdy w polu **Częstotliwość** wybrano pozycję Tydzień lub Dzień. Wybierz, w których minutach dnia ma być uruchamiany cykl. W tym przykładzie jest uruchamiany co 15 minut, rozpoczynając od pełnej godziny. | 
@@ -147,8 +147,8 @@ Po utworzeniu wyzwalacza możesz dodać [akcję](../logic-apps/logic-apps-overvi
    | **Optymalizacja** | timeWithTraffic | Parametr używany do optymalizowania trasy, na przykład odległość, czas podróży z uwzględnieniem aktualnego natężenia ruchu i tak dalej. Wybierz parametr: „timeWithTraffic” | 
    | **Jednostka odległości** | <*według_preferencji*> | Jednostka odległości trasy. W tym artykule używaną jednostką jest mila  | 
    | **Tryb podróży** | Jazda samochodem | Tryb podróży dla trasy. Wybierz tryb „Jazda samochodem” | 
-   | **Transport publiczny — data i godzina** | None | Dotyczy tylko trybu „Transport publiczny” | 
-   | **Rodzaj daty i godziny** | Brak | Dotyczy tylko trybu „Transport publiczny” | 
+   | **Transport publiczny — data i godzina** | Brak | Dotyczy tylko trybu „Transport publiczny” | 
+   | **Rodzaj daty i godziny** | None | Dotyczy tylko trybu „Transport publiczny” | 
    |||| 
 
    Aby uzyskać więcej informacji na temat tych parametrów, zobacz [Calculate route (Obliczanie trasy)](https://msdn.microsoft.com/library/ff701717.aspx).

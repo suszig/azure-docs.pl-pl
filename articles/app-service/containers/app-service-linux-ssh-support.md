@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.openlocfilehash: 5c877222c9ce409ea8758d5830f79e4a8b64fd8f
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 905c257ab40057f05081e54e8680bd818023d886
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Obsługa protokołu SSH dla usługi Azure App Service w systemie Linux
 
@@ -29,7 +29,7 @@ Usługi aplikacji w systemie Linux zapewnia obsługę protokołu SSH w kontenerz
 
 ![Stosy środowiska wykonawczego](./media/app-service-linux-ssh-support/app-service-linux-runtime-stack.png)
 
-Za pomocą protokołu SSH i niestandardowe obrazy usługi Docker przy tym serwer SSH jako część obrazu i jego konfigurowania, zgodnie z opisem w tym temacie.
+Za pomocą protokołu SSH i niestandardowe obrazy usługi Docker przy tym serwer SSH jako część obrazu i jego konfigurowania, zgodnie z opisem w tym artykule.
 
 ## <a name="making-a-client-connection"></a>Połączenia klienta
 
@@ -49,7 +49,7 @@ Jeśli użytkownik nie jest już uwierzytelniony, są wymagane do uwierzytelnian
 
 Aby Docker obrazu niestandardowego do obsługi komunikacji SSH między kontenerem i klienta w portalu Azure wykonaj następujące kroki dla obrazu Docker.
 
-Te kroki są są wyświetlane w repozytorium Azure App Service jako [przykład](https://github.com/Azure-App-Service/node/blob/master/6.9.3/).
+Te kroki są wyświetlane w repozytorium Azure App Service jako [przykład](https://github.com/Azure-App-Service/node/blob/master/6.9.3/).
 
 1. Obejmują `openssh-server` instalacji w [ `RUN` instrukcji](https://docs.docker.com/engine/reference/builder/#run) w plik Dockerfile obrazu i ustaw hasło dla głównego konta `"Docker!"`.
 
@@ -65,7 +65,7 @@ Te kroki są są wyświetlane w repozytorium Azure App Service jako [przykład](
         && echo "root:Docker!" | chpasswd
     ```
 
-1. Dodaj [ `COPY` instrukcji](https://docs.docker.com/engine/reference/builder/#copy) Aby skopiować plik Dockerfile [sshd_config](http://man.openbsd.org/sshd_config) pliku */itp/ssh/* katalogu. Plik konfiguracji powinny być oparte na naszych sshd_config plik w repozytorium GitHub usługi App [tutaj](https://github.com/Azure-App-Service/node/blob/master/8.2.1/sshd_config).
+1. Dodaj [ `COPY` instrukcji](https://docs.docker.com/engine/reference/builder/#copy) Aby skopiować plik Dockerfile [sshd_config](http://man.openbsd.org/sshd_config) pliku */itp/ssh/* katalogu. Plik konfiguracji powinny być oparte na pliku sshd_config w repozytorium GitHub usługi App [tutaj](https://github.com/Azure-App-Service/node/blob/master/8.2.1/sshd_config).
 
     > [!NOTE]
     > *Sshd_config* plik musi zawierać następujące lub połączenie nie powiedzie się: 
@@ -82,26 +82,28 @@ Te kroki są są wyświetlane w repozytorium Azure App Service jako [przykład](
     EXPOSE 2222 80
     ```
 
-1. Upewnij się, że [uruchomić usługi ssh](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh) za pomocą skryptu powłoki w */bin* katalogu.
+1. Upewnij się, że można uruchomić usługi SSH za pomocą skryptu powłoki (Zobacz przykład w [init_container.sh](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh)).
 
     ```bash
     #!/bin/bash
     service ssh start
     ```
 
-Plik Dockerfile używa [ `CMD` instrukcji](https://docs.docker.com/engine/reference/builder/#cmd) do uruchomienia skryptu.
+Plik Dockerfile używa [ `ENTRYPOINT` instrukcji](https://docs.docker.com/engine/reference/builder/#entrypoint) do uruchomienia skryptu.
 
     ```docker
-    COPY init_container.sh /bin/
+    COPY startup /opt/startup
     ...
-    RUN chmod 755 /bin/init_container.sh
+    RUN chmod 755 /opt/startup/init_container.sh
     ...
-    CMD ["/bin/init_container.sh"]
+    ENTRYPOINT ["/opt/startup/init_container.sh"]
     ```
 
 ## <a name="next-steps"></a>Kolejne kroki
 
-Zobacz poniższe łącza, aby uzyskać więcej informacji dotyczących aplikacji sieci Web dla kontenerów. Pytania i uwagi można zamieszczać na [naszym forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
+Pytania i uwagi można umieścić na [Azure forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
+
+Aby uzyskać więcej informacji dotyczących aplikacji sieci Web dla kontenerów zobacz:
 
 * [How to use a custom Docker image for Web App for Containers](quickstart-docker-go.md) (Używanie niestandardowego obrazu platformy Docker dla usługi Web App for Containers)
 * [Using .NET Core in Azure App Service on Linux](quickstart-dotnetcore.md) (Korzystanie z platformy .NET Core w usłudze Azure App Service w systemie Linux)

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 456e5bd722d103f10779aa0cd99bf01fdcf8a7fe
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 2601d386bdacbe005b2930a44db531a0b58fb7b5
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiowanie danych do i z usługi Azure SQL Data Warehouse przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,9 +35,15 @@ Kopiowanie danych z/do usługi Azure SQL Data Warehouse żadnych obsługiwanych 
 
 W szczególności ten łącznik usługi Azure SQL Data Warehouse obsługuje:
 
-- Kopiowanie danych przy użyciu uwierzytelniania SQL.
+- Kopiowanie danych przy użyciu **uwierzytelniania SQL**, i **token uwierzytelniania aplikacji usługi Azure Active Directory** z nazwy głównej usługi lub zarządzane tożsamości usługi (MSI).
 - Jako źródło pobierania danych przy użyciu zapytania SQL lub procedurę składowaną.
 - Jako zbiornika, ładowanie danych przy użyciu **PolyBase** lub wstawiania zbiorczego. Jest **zalecane** w celu poprawy wydajności kopii.
+
+> [!IMPORTANT]
+> Uwaga PolyBase obsługuje tylko SQL authentcation, ale nie uwierzytelniania usługi Azure Active Directory.
+
+> [!IMPORTANT]
+> Po skopiowaniu danych przy użyciu środowiska uruchomieniowego integracji Azure, skonfiguruj [zapory serwera SQL Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) do [Zezwalaj usługom Azure na dostęp do serwera](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Po skopiowaniu danych przy użyciu środowiska uruchomieniowego integracji Self-hosted, należy skonfigurować zapory serwera SQL Azure umożliwiają odpowiedni zakres adresów IP, w tym IP na komputerze, który służy do łączenia z bazą danych SQL Azure.
 
 ## <a name="getting-started"></a>Wprowadzenie
 
@@ -52,14 +58,21 @@ Obsługiwane są następujące właściwości dla usługi Azure SQL Data Warehou
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | type | Właściwość type musi mieć ustawioną: **AzureSqlDW** | Yes |
-| Parametry połączenia |Podaj informacje wymagane do połączenia z wystąpieniem usługi Azure SQL Data Warehouse właściwości connectionString. Obsługiwane jest tylko uwierzytelnianie podstawowe. Zaznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w fabryce danych lub [odwołania klucz tajny przechowywane w usłudze Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
+| Parametry połączenia |Podaj informacje wymagane do połączenia z wystąpieniem usługi Azure SQL Data Warehouse właściwości connectionString. Zaznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w fabryce danych lub [odwołania klucz tajny przechowywane w usłudze Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
+| servicePrincipalId | Określ identyfikator aplikacji klienta. | Tak, podczas korzystania z jednostki usługi uwierzytelniania w usłudze AAD. |
+| servicePrincipalKey | Określ klucz aplikacji. Zaznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w fabryce danych lub [odwołania klucz tajny przechowywane w usłudze Azure Key Vault](store-credentials-in-key-vault.md). | Tak, podczas korzystania z jednostki usługi uwierzytelniania w usłudze AAD. |
+| dzierżawa | Określ informacje dzierżawy (identyfikator nazwy lub dzierżawy domeny), w którym znajduje się aplikacja. Można go pobrać, ustawiając kursor myszy w prawym górnym rogu portalu Azure. | Tak, podczas korzystania z jednostki usługi uwierzytelniania w usłudze AAD. |
 | connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. (Jeśli w magazynie danych znajduje się w sieci prywatnej), można użyć środowiska uruchomieniowego integracji Azure lub Self-hosted integracji w czasie wykonywania. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. |Nie |
 
+Różnymi typami uwierzytelniania można znaleźć w poniższych sekcjach na warunki wstępne i przykłady JSON odpowiednio:
 
-> [!IMPORTANT]
-> Skonfiguruj [zapory magazynu danych SQL Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) i serwer bazy danych do [Zezwalaj usługom Azure na dostęp do serwera](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Ponadto jeśli kopiujesz danych Azure SQL Data Warehouse z poza tym Azure z lokalnych źródeł danych ze środowiskiem uruchomieniowym integracji Self-hosted skonfigurować odpowiedni zakres adresów IP dla komputera, który wysyła dane do danych SQL Azure Magazyn.
+- [Przy użyciu uwierzytelniania programu SQL](#using-sql-authentication)
+- [Przy użyciu uwierzytelniania tokenu usługi AAD aplikacji - nazwy głównej usługi](#using-service-principal-authentication)
+- [Przy użyciu uwierzytelniania tokenu usługi AAD aplikacji - tożsamość usługi zarządzanej](#using-managed-service-identity-authentication)
 
-**Przykład:**
+### <a name="using-sql-authentication"></a>Przy użyciu uwierzytelniania programu SQL
+
+**Przykład połączonej usługi przy użyciu uwierzytelniania programu SQL:**
 
 ```json
 {
@@ -70,6 +83,113 @@ Obsługiwane są następujące właściwości dla usługi Azure SQL Data Warehou
             "connectionString": {
                 "type": "SecureString",
                 "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="using-service-principal-authentication"></a>Przy użyciu uwierzytelniania głównej usługi
+
+Aby użyć usługi głównej na podstawie aplikacji token uwierzytelniania w usłudze AAD, wykonaj następujące kroki:
+
+1. **[Tworzenie aplikacji usługi Azure Active Directory przy użyciu portalu Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application).**  Zanotuj nazwę aplikacji i następujące wartości, których można użyć do zdefiniowania połączonej usługi:
+
+    - Identyfikator aplikacji
+    - Klucz aplikacji
+    - Identyfikator dzierżawy
+
+2. **[Administrator usługi Azure Active Directory do udostępnienia](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)**  dla serwera SQL Azure w portalu Azure, jeśli nie zostało to jeszcze zrobione. Administrator usługi AAD może być AAD użytkownika lub grupy usługi AAD. Przyznanie grupie msi rolę administratora, pomiń krok 3 i 4 poniżej, jak administrator może mieć pełny dostęp do bazy danych.
+
+3. **Utwórz użytkowników zawartej bazy danych dla nazwy głównej usługi**, łącząc w magazynie danych z i do których chcesz skopiować dane za pomocą takich narzędzi jak SSMS przy użyciu usługi AAD tożsamości o co najmniej ALTER żadnych uprawnień i wykonywanie T-SQL . Dowiedz się więcej informacji na temat użytkowników zawartej bazy danych z [tutaj](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
+    
+    ```sql
+    CREATE USER [your application name] FROM EXTERNAL PROVIDER;
+    ```
+
+4. **Przyznaj nazwy głównej usługi wymaganych uprawnień** w zwykły sposób dla użytkowników programu SQL, np., wykonując poniżej:
+
+    ```sql
+    EXEC sp_addrolemember '[your application name]', 'readonlyuser';
+    ```
+
+5. W ADF należy skonfigurować usługę Azure SQL Data Warehouse połączone.
+
+
+**Przykład połączonej usługi przy użyciu uwierzytelniania głównej usługi:**
+
+```json
+{
+    "name": "AzureSqlDWLinkedService",
+    "properties": {
+        "type": "AzureSqlDW",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+            },
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalKey": {
+                "type": "SecureString",
+                "value": "<service principal key>"
+            },
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="using-managed-service-identity-authentication"></a>Uwierzytelnianie tożsamości zarządzanych usług
+
+Fabryka danych może być skojarzony z [zarządzane tożsamości usługi (MSI)](data-factory-service-identity.md), reprezentuje tej fabryki danych. Ta tożsamość usługi służy do uwierzytelniania usługi Azure SQL Data Warehouse, dzięki czemu Ta fabryka wyznaczonych do dostępu i skopiować dane z/do magazynu danych.
+
+Aby użyć MSI na podstawie uwierzytelniania tokenu usługi AAD aplikacji, wykonaj następujące kroki:
+
+1. **Utwórz grupę w usłudze Azure AD i dołącz je fabryki MSI grupy**.
+
+    a. Znajdź tożsamość usługi fabryka danych z portalu Azure. Przejdź z fabryką danych -> Właściwości -> kopiowania **Identyfikatora tożsamości usługi**.
+
+    b. Zainstaluj [programu Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) modułu, zalogować się przy użyciu `Connect-AzureAD` polecenia i uruchom następujące polecenia, aby utworzyć grupę, a następnie dodaj jako członka fabryki danych MSI.
+    ```powershell
+    $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
+    Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
+    ```
+
+2. **[Administrator usługi Azure Active Directory do udostępnienia](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)**  dla serwera SQL Azure w portalu Azure, jeśli nie zostało to jeszcze zrobione.
+
+3. **Utwórz użytkownika zawartej bazy danych dla grupy usługi AAD**, łącząc w magazynie danych z i do których chcesz skopiować dane za pomocą takich narzędzi jak SSMS przy użyciu usługi AAD tożsamości o co najmniej ALTER żadnych uprawnień i wykonywanie T-SQL. Dowiedz się więcej informacji na temat użytkowników zawartej bazy danych z [tutaj](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
+    
+    ```sql
+    CREATE USER [your AAD group name] FROM EXTERNAL PROVIDER;
+    ```
+
+4. **Przyznaj grupie AAD wymaganych uprawnień** w zwykły sposób dla użytkowników programu SQL, np., wykonując poniżej:
+
+    ```sql
+    EXEC sp_addrolemember '[your AAD group name]', 'readonlyuser';
+    ```
+
+5. W ADF należy skonfigurować usługę Azure SQL Data Warehouse połączone.
+
+**Przykład połączonej usługi przy użyciu uwierzytelniania MSI:**
+
+```json
+{
+    "name": "AzureSqlDWLinkedService",
+    "properties": {
+        "type": "AzureSqlDW",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;Connection Timeout=30"
             }
         },
         "connectVia": {
@@ -260,6 +380,9 @@ Przy użyciu  **[PolyBase](https://docs.microsoft.com/sql/relational-databases/p
 * Jeśli źródło danych jest w **obiektów Blob platformy Azure lub usługi Azure Data Lake Store**i format jest zgodny z PolyBase, można skopiować bezpośrednio do usługi Azure SQL Data Warehouse przy użyciu programu PolyBase. Zobacz  **[bezpośrednich kopii przy użyciu programu PolyBase](#direct-copy-using-polybase)**  ze szczegółami.
 * Jeśli Twoje źródła magazynu danych i format nie jest początkowo obsługiwana przez aparat PolyBase, możesz użyć  **[przemieszczane kopiowania przy użyciu programu PolyBase](#staged-copy-using-polybase)**  funkcji zamiast tego. Udostępnia również możesz lepszą przepustowość automatycznie konwersji danych do formatu zgodnego PolyBase i przechowywanie danych w magazynie obiektów Blob platformy Azure. Następnie ładuje dane do usługi SQL Data Warehouse.
 
+> [!IMPORTANT]
+> Uwaga PolyBase obsługuje tylko authentcation SQL magazynu danych SQL Azure, ale nie uwierzytelniania usługi Azure Active Directory.
+
 ### <a name="direct-copy-using-polybase"></a>Bezpośrednie kopiowania przy użyciu programu PolyBase
 
 Aparat PolyBase magazynu danych SQL obsługuje bezpośrednio obiektów Blob platformy Azure i usługi Azure Data Lake Store (przy użyciu nazwy głównej usługi) jako źródło i wymagania format określonego pliku. Jeśli źródło danych spełnia kryteria opisane w tej sekcji, możesz bezpośrednio skopiować z magazynu danych źródła do usługi Azure SQL Data Warehouse przy użyciu programu PolyBase. W przeciwnym razie można użyć [przemieszczane kopiowania przy użyciu programu PolyBase](#staged-copy-using-polybase).
@@ -426,9 +549,9 @@ Podczas kopiowania danych z/na magazyn danych SQL Azure, z typów danych Azure S
 | Binarne |Byte[] |
 | bitowe |Wartość logiczna |
 | char |Ciąg, Char] |
-| data |Data/godzina |
-| Data/godzina |Data/godzina |
-| datetime2 |Data/godzina |
+| data |DateTime |
+| Data/godzina |DateTime |
+| datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
 | Atrybut FILESTREAM (varbinary(max)) |Byte[] |
@@ -442,7 +565,7 @@ Podczas kopiowania danych z/na magazyn danych SQL Azure, z typów danych Azure S
 | nvarchar |Ciąg, Char] |
 | rzeczywiste |Kawaler/panna |
 | ROWVERSION |Byte[] |
-| smalldatetime |Data/godzina |
+| smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Obiekt * |

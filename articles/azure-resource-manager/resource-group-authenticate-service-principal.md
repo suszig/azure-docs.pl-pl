@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/28/2017
 ms.author: tomfitz
-ms.openlocfilehash: 8262162ce73176426057af4654f12614cac85472
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 103e4ca5ffd6c9dfe5043af9d8f75763705eb939
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-to-access-resources"></a>Use Azure PowerShell to create a service principal to access resources (Tworzenie jednostki usługi używanej do uzyskiwania dostępu do zasobów przy użyciu programu Azure PowerShell)
 
@@ -36,7 +36,7 @@ Najłatwiejszym sposobem sprawdzenia, czy Twoje konto ma odpowiednie uprawnienia
 
 Teraz przejdź do sekcji w celu uwierzytelniania z:
 
-* [hasło](#create-service-principal-with-password)
+* [Hasło](#create-service-principal-with-password)
 * [certyfikat z podpisem własnym](#create-service-principal-with-self-signed-certificate)
 * [certyfikat od urzędu certyfikacji](#create-service-principal-with-certificate-from-certificate-authority)
 
@@ -403,7 +403,7 @@ Select-AzureRmProfile -Path c:\Users\exampleuser\profile\exampleSP.json
 > Wygaśnięcia tokenu dostępu, dzięki użyciu zapisywanego profilu działa tylko dla, tak długo, jak token jest prawidłowy.
 >  
 
-Alternatywnie można wywołać operacji REST z programu PowerShell, aby się zalogować. Z odpowiedzi uwierzytelniania można pobrać tokenu dostępu do użycia z innych operacji. Na przykład pobierania tokenu dostępu za pomocą operacji REST, zobacz [generowania tokenu dostępu](resource-manager-rest-api.md#generating-an-access-token).
+Alternatywnie można wywołać operacji REST z programu PowerShell, aby się zalogować. Z odpowiedzi uwierzytelniania można pobrać tokenu dostępu do użycia z innych operacji. Na przykład pobierania tokenu dostępu za pomocą operacji REST, zobacz [utworzenia żądania](/rest/api/#create-the-request).
 
 ## <a name="debug"></a>Debugowanie
 

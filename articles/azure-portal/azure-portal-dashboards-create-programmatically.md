@@ -13,11 +13,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: d9acb58791cb1412d5e67479ca6490e1548be2c8
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: d2131a9fbb8fcb77a00045924169420773893f91
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Programowe tworzenie pulpitów nawigacyjnych Azure
 
@@ -25,9 +25,9 @@ Ten dokument przeprowadzi Cię przez proces programowe tworzenie i publikowanie 
 
 ![przykładowy pulpit nawigacyjny](./media/azure-portal-dashboards-create-programmatically/sample-dashboard.png)
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
-Udostępnionych pulpitów nawigacyjnych w Azure czy [zasobów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) podobnie jak konta magazynu i maszyn wirtualnych.  W związku z tym będą one zarządzane programowo przy użyciu [interfejsów API REST usługi Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-rest-api), [interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/overview), [poleceń programu PowerShell Azure](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.2.0)i wiele [ Azure portal](https://portal.azure.com) funkcje bazując na te interfejsy API, aby ułatwić zarządzanie zasobami.  
+Udostępnionych pulpitów nawigacyjnych w Azure czy [zasobów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) podobnie jak konta magazynu i maszyn wirtualnych.  W związku z tym będą one zarządzane programowo przy użyciu [interfejsów API REST usługi Azure Resource Manager](/rest/api/), [interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/overview), [poleceń programu PowerShell Azure](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.2.0)i wiele [ Azure portal](https://portal.azure.com) funkcje bazując na te interfejsy API, aby ułatwić zarządzanie zasobami.  
 
 Każdy z tych interfejsów API i narzędzia oferuje sposoby tworzenia, wyświetlania list, pobrać, modyfikowanie i usuwanie zasobów.  Ponieważ pulpity nawigacyjne są zasoby, można wybrać ulubiony interfejsu API / narzędzia do użycia.
 

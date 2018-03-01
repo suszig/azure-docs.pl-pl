@@ -21,7 +21,7 @@ Jeśli aplikacja sieci web nie ma jeszcze dodany jako punkt końcowy Menedżera 
    
     ![](./media/custom-dns-web-site/dncmntask-cname-8.png)
 5. Kliknij przycisk **weryfikacji** Aby zapisać konfigurację nazwy domeny.
-6. Po kliknięciu **weryfikacji** Azure będzie rozpocząć wyłączyć weryfikację domeny przepływu pracy. Spowoduje to zaewidencjonowanie własność domeny, a także Hostname Powodzenie dostępności i raportów lub szczegółowe informacje o błędzie z wskazowki porady na temat naprawić błąd.    
+6. Po kliknięciu **weryfikacji** Azure będzie rozpocząć wyłączyć weryfikację domeny przepływu pracy. Spowoduje to zaewidencjonowanie na własność domeny, a także nazwę hosta dostępności i Raport powodzenie lub błąd szczegółowe wskazówki na temat naprawić błąd.    
 7. Po pomyślnym zweryfikowaniem **dodać nazwę hosta** przycisk staną się aktywne i będzie można przypisać nazwy hosta. Teraz przejdź do niestandardowej nazwy domeny w przeglądarce. Powinna zostać wyświetlona Twojej pracy aplikacji przy użyciu niestandardowej nazwy domeny. 
    
    Po zakończeniu konfiguracji niestandardowej nazwy domeny będzie wyświetlane w **nazwy domen** części aplikacji sieci web.

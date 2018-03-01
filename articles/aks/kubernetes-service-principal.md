@@ -6,14 +6,14 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: get-started-article
-ms.date: 11/30/2017
+ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 1bf366d08ba9b8cf28c266aa4ac2d521465db44b
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: a7c80b64a33f4f71c694f80bf3e68f39ecd01828
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>Jednostka usługi Azure Container Service (AKS)
 
@@ -83,7 +83,6 @@ Podczas pracy z jednostkami usług AKS i Azure AD należy pamiętać o poniższy
 * Podczas określania **identyfikatora klienta** jednostki usługi można użyć wartości `appId` (jak pokazano w tym artykule) lub odpowiedniej jednostki usługi `name` (na przykład `https://www.contoso.org/example`).
 * Na głównej maszynie wirtualnej i maszynach wirtualnych węzłów w klastrze Kubernetes poświadczenia jednostki usługi są przechowywane w pliku `/etc/kubernetes/azure.json`.
 * Gdy używasz polecenia `az aks create`, aby automatycznie wygenerować jednostkę usługi, poświadczenia jednostki usługi są zapisywane w pliku `~/.azure/acsServicePrincipal.json` na maszynie użytej do uruchomienia polecenia.
-* Kiedy używasz polecenia `az aks create` do automatycznego wygenerowania jednostki usługi, jednostka usługi może także uwierzytelnić się za pomocą [rejestru Azure Container Registry][acr-intro] utworzonego w tej samej subskrypcji.
 * Usunięcie klastra AKS utworzonego za pomocą polecenia `az aks create` nie powoduje usunięcia automatycznie utworzonej jednostki usługi. Można ją usunąć za pomocą polecenia `az ad sp delete --id $clientID`.
 
 ## <a name="next-steps"></a>Następne kroki
