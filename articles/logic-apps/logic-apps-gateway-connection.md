@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/14/2017
 ms.author: LADocs; millopis; estfan
-ms.openlocfilehash: 216745f9f540235ee48661eae922a5ae0e716e01
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5160913b2f08a04f0a985d8ddadd6641a664b258
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="connect-to-data-sources-on-premises-from-logic-apps-with-on-premises-data-gateway"></a>Nawiązywać połączenia ze źródłami danych lokalnie z aplikacji logiki za pomocą bramy danych lokalnych
 
@@ -75,7 +75,7 @@ Po zainstalowaniu bramy na komputerze lokalnym, należy utworzyć bramy danych j
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com "Azure Portal"). Upewnij się, że korzysta się z tym samym pracy Azure służbowego adresu e-mail używane do instalowania bramy.
 
-2. W menu głównym Azure wybierz **Utwórz zasób** > **integracji przedsiębiorstwa** > **bramy danych lokalnych**:
+2. W menu głównym Azure wybierz **Utwórz zasób** > **integracji przedsiębiorstwa** > **bramy danych lokalnych**.
 
    ![Znajdź "brama lokalna dane"](./media/logic-apps-gateway-connection/find-on-premises-data-gateway.png)
 
@@ -107,9 +107,10 @@ Po zainstalowaniu bramy na komputerze lokalnym, należy utworzyć bramy danych j
 
     ![Podaj szczegóły, aby utworzyć bramę danymi lokalnymi](./media/logic-apps-gateway-connection/createblade.png)
 
-    Aby znaleźć lub wyświetlić bramy danych w dowolnym momencie z menu głównego Azure, przejdź do **więcej usług** > **integracji przedsiębiorstwa** > **bram danych lokalnych** .
+    Aby znaleźć lub wyświetlić bramy danych w dowolnym momencie z menu głównego Azure, wybierz **wszystkie usługi**. 
+    W polu wyszukiwania wpisz "lokalnej bramy danych", a następnie wybierz **bram danych lokalnych**.
 
-    ![Przejdź do "Więcej usług", "Integracji przedsiębiorstwa", "bram danych lokalnych"](./media/logic-apps-gateway-connection/find-on-premises-data-gateway-enterprise-integration.png)
+    ![Znajdź "lokalnej bramy danych"](./media/logic-apps-gateway-connection/find-on-premises-data-gateway-enterprise-integration.png)
 
 <a name="connect-logic-app-gateway"></a>
 

@@ -10,6 +10,8 @@
       href: tutorial-assessment-vmware.md
 - name: Pojęcia
   items:
+    - name: Pojęcia dotyczące modułu zbierającego
+      href: concepts-collector.md
     - name: Obliczenia dotyczące oceny
       href: concepts-assessment-calculation.md
     - name: Wizualizacja zależności

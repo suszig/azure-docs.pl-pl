@@ -77,6 +77,10 @@
       items:
         - name: Używanie pulpitu nawigacyjnego rozwiązania Kubernetes
           href: kubernetes-dashboard.md
+    - name: Rozwiązywanie problemów
+      items:
+        - name: Dostęp do węzła SSH
+          href: aks-ssh.md
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure

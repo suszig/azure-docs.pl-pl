@@ -13,14 +13,14 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 19ab428913517e4f3df156c93782fe23f1cd67ec
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 6abdb15917508152529990c434eb48a9983b9432
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/28/2018
 ---
 #<a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Wprowadzenie do platformy Apache Storm w usłudze HDInsight przy użyciu przykładów z projektu Storm Starter
 
@@ -43,7 +43,7 @@ Apache Storm to skalowalny, odporny na błędy, rozproszony system obliczeniowy 
 
 Aby utworzyć klaster platformy Storm w usłudze HDInsight, wykonaj następujące czynności:
 
-1. W witrynie [Azure Portal](https://portal.azure.com) wybierz pozycję **+ NOWY** i pozycję **Dane i analiza**, a następnie pozycję **HDInsight**.
+1. W witrynie [Azure Portal](https://portal.azure.com) wybierz pozycję **+ Utwórz zasób** i pozycję **Dane + analiza**, a następnie pozycję **HDInsight**.
 
     ![Tworzenie klastra usługi HDInsight](./media/apache-storm-tutorial-get-started-linux/create-hdinsight.png)
 
@@ -65,8 +65,6 @@ Aby utworzyć klaster platformy Storm w usłudze HDInsight, wykonaj następując
     * **System operacyjny**: Linux
 
     * **Wersja**: Storm 1.1.0 (HDI 3.6)
-
-    * **Warstwa klastra**: Standardowa
 
    Zapisz ustawienia przy użyciu przycisku **Wybierz**.
 

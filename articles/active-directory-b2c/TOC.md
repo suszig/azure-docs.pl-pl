@@ -1,3 +1,5 @@
+# [Dokumentacja usługi Azure AD B2C](index.md)
+
 # [Omówienie](active-directory-b2c-overview.md)
 
 # Rozpoczęcie pracy

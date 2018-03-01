@@ -1,8 +1,10 @@
+# [Dokumentacja usługi Mobile Engagement](index.md)
+
 # [Omówienie](mobile-engagement-overview.md)
 ## [Porównanie z pokrewnymi usługami](mobile-engagement-comparison.md)
 ## [Omówienie funkcji](mobile-engagement-key-features.md)
 
-# Wprowadzenie
+# Rozpoczęcie pracy
 ## [Android](mobile-engagement-android-get-started.md)
 ## [Cordova](mobile-engagement-cordova-get-started.md)
 ## [iOS — Objective-C](mobile-engagement-ios-get-started.md)

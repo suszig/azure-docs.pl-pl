@@ -1,3 +1,5 @@
+# [Dokumentacja usługi Azure Active Directory](index.md)
+
 # Omówienie
 ## [Co to jest usługa Azure Active Directory?](active-directory-whatis.md)
 ## [Informacje o zarządzaniu tożsamościami na platformie Azure](identity-fundamentals.md)
@@ -248,6 +250,13 @@
 ##### [Konfiguracja](active-directory-application-config-content-map.md)
 ##### [Logowanie](active-directory-application-sign-in-content-map.md)
 ##### [Aprowizacja](active-directory-application-provisioning-content-map.md)
+###### [Weryfikowanie aprowizacji użytkownika](application-provisioning-when-will-provisioning-finish-specific-user.md)
+###### [Aprowizacja trwa zbyt długo](application-provisioning-when-will-provisioning-finish.md)
+###### [Jak skonfigurować aprowizację użytkowników](application-provisioning-config-how-to.md)
+###### [Problem podczas konfigurowania aprowizacji](application-provisioning-config-problem.md)
+###### [Problem podczas zapisywania poświadczeń administratora](application-provisioning-config-problem-storage-limit.md)
+###### [Żadni użytkownicy nie są aprowizowani](application-provisioning-config-problem-no-users-provisioned.md)
+###### [Aprowizowani są nieprawidłowi użytkownicy](application-provisioning-config-problem-wrong-users-provisioned.md)
 ##### [Zarządzanie dostępem](active-directory-application-access-content-map.md)
 ##### [Panel dostępu](active-directory-application-access-panel-content-map.md)
 ##### [Serwer proxy aplikacji](active-directory-application-proxy-content-map.md)

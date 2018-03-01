@@ -1,4 +1,6 @@
-# Przegląd
+# [Dokumentacja usługi DevTest Labs](index.md)
+
+# Omówienie
 ## [Informacje o usłudze Azure DevTest Labs](devtest-lab-overview.md)
 ## [Pojęcia](devtest-lab-concepts.md)
 ## Scenariusze
@@ -65,7 +67,7 @@
 ## Integrowanie z ciągłą integracją/ciągłym dostarczaniem
 ### [Integrowanie laboratoriów z potokiem ciągłej integracji/ciągłego dostarczania usługi VSTS](devtest-lab-integrate-ci-cd-vsts.md)
 
-# Odwołanie
+# Dokumentacja
 ## [Interfejs wiersza polecenia 2.0](/cli/azure/lab)
 ## [Program PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
 ### [Automatyczne tworzenie lub modyfikowanie laboratoriów](devtest-lab-use-arm-and-powershell-for-lab-resources.md)

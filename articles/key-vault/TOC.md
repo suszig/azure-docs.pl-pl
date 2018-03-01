@@ -1,3 +1,5 @@
+# [Dokumentacja usługi Key Vault](index.md)
+
 # Omówienie
 ## [Co to jest usługa Key Vault?](key-vault-whatis.md)
 ## [Omówienie usługi](https://azure.microsoft.com/services/key-vault/)

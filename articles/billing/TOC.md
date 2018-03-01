@@ -1,4 +1,6 @@
-# Rozpoczynanie pracy
+# [Dokumentacja rozliczeń platformy Azure](index.md)
+
+# Rozpoczęcie pracy
 ## [Zapobieganie powstawaniu nieoczekiwanych kosztów](billing-getting-started.md)
 ## [Tworzenie usług uwzględnionych w ramach bezpłatnego konta](billing-create-free-services-included-free-account.md)
 ## [Unikanie opłat za bezpłatne konto](billing-avoid-charges-free-account.md)

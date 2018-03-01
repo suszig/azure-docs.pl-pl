@@ -1,3 +1,5 @@
+# [Dokumentacja usługi DNS](index.md)
+
 # Omówienie
 
 ## [Co to jest usługa Azure DNS?](dns-overview.md)
@@ -6,27 +8,27 @@
 ## [Często zadawane pytania na temat systemu DNS](dns-faq.md)
 ## [Przy użyciu prywatnych stref DNS](private-dns-overview.md)
 
-# Wprowadzenie
+# Rozpoczęcie pracy
 
 ## Tworzenie rekordu i strefy DNS
-### [Witryna Azure Portal](dns-getstarted-portal.md)
+### [Azure portal](dns-getstarted-portal.md)
 ### [Azure PowerShell](dns-getstarted-powershell.md)
 ### [Interfejs wiersza polecenia platformy Azure](dns-getstarted-cli.md)
 
 ## Tworzenie prywatnego rekordu i strefy DNS
-### [PowerShell](private-dns-getstarted-powershell.md)
+### [Program PowerShell](private-dns-getstarted-powershell.md)
 ## [Delegowanie domeny do usługi Azure DNS](dns-delegate-domain-azure-dns.md)
 ## [Tworzenie niestandardowych rekordów DNS aplikacji sieci Web](dns-web-sites-custom-domain.md)
 
 # Instrukcje
 
 ## Zarządzanie strefami DNS
-### [Witryna Azure Portal](dns-operations-dnszones-portal.md)
+### [Azure portal](dns-operations-dnszones-portal.md)
 ### [Azure PowerShell](dns-operations-dnszones.md)
 ### [Interfejs wiersza polecenia platformy Azure](dns-operations-dnszones-cli.md)
 
 ## Zarządzanie rekordami DNS
-### [Witryna Azure Portal](dns-operations-recordsets-portal.md)
+### [Azure portal](dns-operations-recordsets-portal.md)
 ### [Azure PowerShell](dns-operations-recordsets.md)
 ### [Interfejs wiersza polecenia platformy Azure](dns-operations-recordsets-cli.md)
 

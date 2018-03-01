@@ -12,15 +12,15 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: 5c1f485812918397b5b52e650611032c9058e3ee
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 5b30d3732ff00e5bb79e2d58a9f0b3e5b29dedf8
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="sfctl-service"></a>Usługa sfctl
+# <a name="sfctl-service"></a>sfctl service
 Tworzenie, usuwanie i zarządzanie usługi, typów usług i pakietów usług.
 
 ## <a name="commands"></a>Polecenia
@@ -34,6 +34,7 @@ Tworzenie, usuwanie i zarządzanie usługi, typów usług i pakietów usług.
 |    wdrożone typu  | Pobiera informacje o typie określonej usługi, aplikacji wdrożonych w węźle klastra sieci szkieletowej usług.|
 |    wdrożony typ — listy| Pobiera listę zawierającą informacje o typach usługi z aplikacje wdrożone w węźle klastra sieci szkieletowej usług.|
 |    description    | Pobiera opis istniejącej usługi sieć szkieletowa usług.|
+|Get kontenera — dzienniki| Pobiera kontener dzienniki dla kontenera wdrożone w węźle sieci szkieletowej usług.|
 |    kondycja         | Pobiera kondycji określonej usługi sieć szkieletowa usług.|
 |    Informacje o           | Pobiera informacje o określonej usługi należące do aplikacji sieci szkieletowej usług.|
 |    lista           | Pobiera informacje o wszystkich usług należących do aplikacji określonej przez identyfikator aplikacji.|
@@ -56,7 +57,7 @@ Tworzy określony usługi sieć szkieletowa usług z opisu.
 
 |Argument|Opis|
 | --- | --- |
-| [wymagane] - app-id| Tożsamość aplikacji nadrzędnej. Zazwyczaj jest to pełny identyfikator aplikacji bez "fabric:" schemat identyfikatora URI. Począwszy od wersji 6.0, hierarchicznych nazwy są rozdzielane "~" znaków. Na przykład, jeśli nazwa aplikacji jest "fabric://myapp/app1", tożsamość aplikacji będzie "moja_aplikacja ~ app1" w wersji 6.0 + i "myapp/app1" w poprzednich wersjach.|
+| [wymagane] - app-id| Tożsamość aplikacji nadrzędnej. Zazwyczaj jest to pełny identyfikator aplikacji bez "fabric:" schemat identyfikatora URI. Począwszy od wersji 6.0, hierarchicznych nazwy są rozdzielane "~" znaków. Na przykład, jeśli nazwa aplikacji jest "sieci szkieletowej: / myapp/app1", jest tożsamość aplikacji "moja_aplikacja ~ app1" w wersji 6.0 + i "myapp/app1" w poprzednich wersjach.|
 | --name [wymagane]| Nazwa usługi. Powinno to być elementem podrzędnym identyfikator aplikacji.           Jest to pełny nazwy w tym `fabric:` identyfikatora URI. Na przykład usługi `fabric:/A/B` jest elementem podrzędnym aplikacji `fabric:/A`.|
 | — Typ usługi [wymagane]| Nazwa typu usługi.|
 | --trybie aktywacji     | Tryb aktywacji dla pakietu usług.|
@@ -104,7 +105,7 @@ Usuwa istniejącą usługę sieć szkieletowa usług. Usługa musi zostać utwor
 
 |Argument|Opis|
 | --- | --- |
-| — Identyfikator usługi [wymagane]| Tożsamość usługi. Zazwyczaj jest to pełna nazwa tej usługi bez "fabric:" schemat identyfikatora URI. Począwszy od wersji 6.0, hierarchicznych nazwy są rozdzielane "~" znaków. Na przykład, jeśli nazwa usługi jest fabric://myapp/app1/svc1 ", jest tożsamość usługi" moja_aplikacja ~ app1 ~ svc1 "w wersji 6.0 + i" myapp/app1/svc1"w poprzednich wersjach.|
+| — Identyfikator usługi [wymagane]| Tożsamość usługi. Zazwyczaj jest to pełna nazwa tej usługi bez "fabric:" schemat identyfikatora URI. Począwszy od wersji 6.0, hierarchicznych nazwy są rozdzielane "~" znaków. Na przykład, jeśli nazwa usługi jest fabric: / myapp/app1/svc1 ", będzie tożsamości usługi" moja_aplikacja ~ app1 ~ svc1 "w wersji 6.0 + i" myapp/app1/svc1"w poprzednich wersjach.|
 | --force-remove      | Usuń sieć szkieletowa usług aplikacji lub usługi wymuszone bez pośrednictwa bezpiecznego zamknięcia sekwencji. Ten parametr może służyć do wymuszone usunięcie aplikacji lub usługi, dla których delete jest przekroczeniem limitu czasu z powodu problemów z kodem usługi, który uniemożliwia łagodne zamykanie replik.|
 | limit czasu — -t        | W sekundach limit czasu serwera.  Domyślnie: 60.|
 
@@ -127,7 +128,7 @@ Pobiera opis istniejącej usługi sieć szkieletowa usług. Usługi należy utwo
 
 |Argument|Opis|
 | --- | --- |
-| — Identyfikator usługi [wymagane]| Tożsamość usługi. Zazwyczaj jest to pełna nazwa tej usługi bez "fabric:" schemat identyfikatora URI. Począwszy od wersji 6.0, hierarchicznych nazwy są rozdzielane "~" znaków. Na przykład, jeśli nazwa usługi to "fabric://myapp/app1/svc1", tożsamość usługi będzie "moja_aplikacja ~ app1 ~ svc1" w wersji 6.0 + i "myapp/app1/svc1" w poprzednich wersjach.|
+| — Identyfikator usługi [wymagane]| Tożsamość usługi. Zazwyczaj jest to pełna nazwa tej usługi bez "fabric:" schemat identyfikatora URI. Począwszy od wersji 6.0, hierarchicznych nazwy są rozdzielane "~" znaków. Na przykład, jeśli nazwa usługi jest "fabric: / myapp/app1/svc1", będzie tożsamość usługi "moja_aplikacja ~ app1 ~ svc1" w wersji 6.0 + i "myapp/app1/svc1" w poprzednich wersjach.|
 | limit czasu — -t        | W sekundach limit czasu serwera.  Domyślnie: 60.|
 
 ### <a name="global-arguments"></a>Argumenty globalne
@@ -143,13 +144,13 @@ Pobiera opis istniejącej usługi sieć szkieletowa usług. Usługi należy utwo
 ## <a name="sfctl-service-health"></a>Kondycja usługi sfctl
 Pobiera kondycji określonej usługi sieć szkieletowa usług.
 
-Pobiera informacje o kondycji określonej usługi. Filtr EventsHealthStateFilter umożliwia filtrowanie zbierania zdarzeń kondycji zgłoszonych w usłudze oparte na stanie kondycji. Filtr PartitionsHealthStateFilter używany do filtrowania kolekcji zwrócił partycji. To polecenie cmdlet zwraca błąd, jeśli określono to usługa, która nie istnieje w magazynie kondycji. .
+Pobiera informacje o kondycji określonej usługi. Filtr EventsHealthStateFilter umożliwia filtrowanie zbierania zdarzeń kondycji zgłoszonych w usłudze oparte na stanie kondycji. Filtr PartitionsHealthStateFilter używany do filtrowania kolekcji zwrócił partycji. To polecenie cmdlet zwraca błąd, jeśli określono to usługa, która nie istnieje w magazynie kondycji.
 
 ### <a name="arguments"></a>Argumenty
 
 |Argument|Opis|
 | --- | --- |
-| — Identyfikator usługi [wymagane]| Tożsamość usługi. Zazwyczaj jest to pełna nazwa tej usługi bez "fabric:" schemat identyfikatora URI. Począwszy od wersji 6.0, hierarchicznych nazwy są rozdzielane "~" znaków. Na przykład, jeśli nazwa usługi to "fabric://myapp/app1/svc1", tożsamość usługi będzie "moja_aplikacja ~ app1 ~ svc1" w wersji 6.0 + i "myapp/app1/svc1" w poprzednich wersjach.|
+| — Identyfikator usługi [wymagane]| Tożsamość usługi. Zazwyczaj jest to pełna nazwa tej usługi bez "fabric:" schemat identyfikatora URI. Począwszy od wersji 6.0, hierarchicznych nazwy są rozdzielane "~" znaków. Na przykład, jeśli nazwa usługi jest "fabric: / myapp/app1/svc1", będzie tożsamość usługi "moja_aplikacja ~ app1 ~ svc1" w wersji 6.0 + i "myapp/app1/svc1" w poprzednich wersjach.|
 | --events-health-state-filter | Umożliwia filtrowanie kolekcji zwracanych obiektów HealthEvent oparte na stanie kondycji. Możliwe wartości tego parametru obejmują liczbę całkowitą jednego z następujących stanów kondycji. Zwracane są tylko zdarzenia, które są zgodne z filtrem. Wszystkie zdarzenia są używane do oceny stanu kondycji zagregowanych. Jeśli nie zostanie określona, zwracane są wszystkie wpisy. Wartości stanu są oparte na flagi wyliczenie, może to być kombinacją te wartości uzyskanych przy użyciu bitowego operatora "Lub". Na przykład jeśli podana wartość jest 6 następnie wszystkie zdarzenia o wartości atrybutu HealthState OK (2) i ostrzeżenia (4) są zwracane. -Domyślnie — wartość domyślna. Dopasowuje wszystkie właściwości HealthState. Wartość wynosi zero. -None - filtr, który nie odpowiada żadnej wartości właściwości HealthState. Używany, aby nie zwracała żadnych wyników w danej kolekcji stanów. Wartość to 1. -Ok - filtru, że dopasowań danych wejściowych o wartości atrybutu HealthState Ok. Wartość jest równa 2. — Ostrzeżenie - filtru, że dane wejściowe zgodna z atrybutem HealthState wartość ostrzeżenie. Wartość to 4. -Błąd filtru pasującego do danych wejściowych o wartości atrybutu HealthState błędu. Wartość jest 8. -All - filtru pasującego do danych wejściowych z dowolną wartością właściwości HealthState. Wartość jest 65535.|
 |--exclude-health-statistics     | Wskazuje, czy statystyki kondycji powinny być zwracane w ramach wyniku zapytania. Wartość false, domyślnie. Statystyki zawierają liczbę elementów podrzędnych obiektów w kondycja Ok, ostrzeżeń i błędów.|
 | --partitions-health-state-filter| Umożliwia filtrowanie obiekty stanu kondycji partycje zwrócone w wyniku zapytania kondycji usługi na podstawie ich stanu kondycji. Możliwe wartości tego parametru obejmują liczbę całkowitą jednego z następujących stanów kondycji. Zwracane są tylko partycje, które są zgodne z filtrem. Wszystkie partycje służą do oceny stanu kondycji zagregowanych. Jeśli nie zostanie określona, zwracane są wszystkie wpisy. Wartości stanu są oparte na flagi wyliczenie, może to być kombinacją te wartości uzyskanych przy użyciu bitowego operatora "Lub". Na przykład jeśli podana wartość jest "6" następnie kondycja partycji o wartości atrybutu HealthState OK (2) i ostrzeżenia (4) są zwracane. -Domyślnie — wartość domyślna. Dopasowuje wszystkie właściwości HealthState.                  Wartość wynosi zero. -None - filtr, który nie odpowiada żadnej wartości właściwości HealthState. Używany, aby nie zwracała żadnych wyników w danej kolekcji stanów. Wartość to 1. -Ok - filtru, że dopasowań danych wejściowych o wartości atrybutu HealthState Ok. Wartość jest równa 2. — Ostrzeżenie - filtru, że dane wejściowe zgodna z atrybutem HealthState wartość ostrzeżenie. Wartość to 4. -Błąd filtru pasującego do danych wejściowych o wartości atrybutu HealthState błędu. Wartość jest 8. -All - filtru pasującego do danych wejściowych z dowolną wartością właściwości HealthState. Wartość jest 65535.|
@@ -174,8 +175,8 @@ Zwraca informacje o określonej usługi należące do określonej aplikacji siec
 
 |Argument|Opis|
 | --- | --- |
-| — Identyfikator aplikacji [wymagane]| Tożsamość aplikacji. Zazwyczaj jest to pełna nazwa aplikacji bez "fabric:" schemat identyfikatora URI. Począwszy od wersji 6.0, hierarchicznych nazwy są rozdzielane "~" znaków. Na przykład, jeśli nazwa aplikacji jest "fabric://myapp/app1", tożsamość aplikacji będzie "moja_aplikacja ~ app1" w wersji 6.0 + i "myapp/app1" w poprzednich wersjach.|
-| — Identyfikator usługi [wymagane]| Tożsamość usługi. Zazwyczaj jest to pełna nazwa tej usługi bez "fabric:" schemat identyfikatora URI. Począwszy od wersji 6.0, hierarchicznych nazwy są rozdzielane "~" znaków. Na przykład, jeśli nazwa usługi to "fabric://myapp/app1/svc1", tożsamość usługi będzie "moja_aplikacja ~ app1 ~ svc1" w wersji 6.0 + i "myapp/app1/svc1" w poprzednich wersjach.|
+| — Identyfikator aplikacji [wymagane]| Tożsamość aplikacji. Zazwyczaj jest to pełna nazwa aplikacji bez "fabric:" schemat identyfikatora URI. Począwszy od wersji 6.0, hierarchicznych nazwy są rozdzielane "~" znaków. Na przykład, jeśli nazwa aplikacji jest "fabric: / myapp/app1", jest tożsamość aplikacji "moja_aplikacja ~ app1" w wersji 6.0 + i "myapp/app1" w poprzednich wersjach.|
+| — Identyfikator usługi [wymagane]| Tożsamość usługi. Zazwyczaj jest to pełna nazwa tej usługi bez "fabric:" schemat identyfikatora URI. Począwszy od wersji 6.0, hierarchicznych nazwy są rozdzielane "~" znaków. Na przykład, jeśli nazwa usługi jest "fabric: / myapp/app1/svc1", będzie tożsamość usługi "moja_aplikacja ~ app1 ~ svc1" w wersji 6.0 + i "myapp/app1/svc1" w poprzednich wersjach.|
 | limit czasu — -t            | W sekundach limit czasu serwera.  Domyślnie: 60.|
 
 ### <a name="global-arguments"></a>Argumenty globalne
@@ -197,7 +198,7 @@ Zwraca informacje dotyczące wszystkich usług należących do aplikacji określ
 
 |Argument|Opis|
 | --- | --- |
-| — Identyfikator aplikacji [wymagane]| Tożsamość aplikacji. Zazwyczaj jest to pełna nazwa aplikacji bez "fabric:" schemat identyfikatora URI. Począwszy od wersji 6.0, hierarchicznych nazwy są rozdzielane "~" znaków. Na przykład, jeśli nazwa aplikacji jest "fabric://myapp/app1", tożsamość aplikacji będzie "moja_aplikacja ~ app1" w wersji 6.0 + i "myapp/app1" w poprzednich wersjach.|
+| — Identyfikator aplikacji [wymagane]| Tożsamość aplikacji. Zazwyczaj jest to pełna nazwa aplikacji bez "fabric:" schemat identyfikatora URI. Począwszy od wersji 6.0, hierarchicznych nazwy są rozdzielane "~" znaków. Na przykład, jeśli nazwa aplikacji jest "fabric: / myapp/app1", jest tożsamość aplikacji "moja_aplikacja ~ app1" w wersji 6.0 + i "myapp/app1" w poprzednich wersjach.|
 | --token kontynuacji    | Parametr token kontynuacji służy do uzyskiwania następnej zestaw wyników. Token kontynuacji z wartość pusta jest uwzględniana w odpowiedzi interfejsu API wyników z systemu nie mieszczą się w jednej odpowiedzi. Jeśli ta wartość jest przekazywany do następnego wywołania interfejsu API interfejsu API zwraca następny zestaw wyników. Jeśli nie są dalsze wyniki, token kontynuacji nie zawiera wartości. Wartość tego parametru nie powinny być zakodowane w adresie URL.|
 | --service-type-name     | Nazwa typu usługi używane do filtrowania usług na kwerendę.|
 | limit czasu — -t            | W sekundach limit czasu serwera.  Domyślnie: 60.|
@@ -245,7 +246,7 @@ Wskazuje, aby klaster sieci szkieletowej usług mają podejmować próbę odzysk
 
 |Argument|Opis|
 | --- | --- |
-| — Identyfikator usługi [wymagane]| Tożsamość usługi. Zazwyczaj jest to pełna nazwa tej usługi bez "fabric:" schemat identyfikatora URI. Począwszy od wersji 6.0, hierarchicznych nazwy są rozdzielane "~" znaków. Na przykład, jeśli nazwa usługi jest fabric://myapp/app1/svc1 ", jest tożsamość usługi" moja_aplikacja ~ app1 ~ svc1 "w wersji 6.0 + i" myapp/app1/svc1"w poprzednich wersjach.|
+| — Identyfikator usługi [wymagane]| Tożsamość usługi. Zazwyczaj jest to pełna nazwa tej usługi bez "fabric:" schemat identyfikatora URI. Począwszy od wersji 6.0, hierarchicznych nazwy są rozdzielane "~" znaków. Na przykład, jeśli nazwa usługi jest fabric: / myapp/app1/svc1 ", będzie tożsamości usługi" moja_aplikacja ~ app1 ~ svc1 "w wersji 6.0 + i" myapp/app1/svc1"w poprzednich wersjach.|
 | limit czasu — -t        | W sekundach limit czasu serwera.  Domyślnie: 60.|
 
 ### <a name="global-arguments"></a>Argumenty globalne
@@ -267,7 +268,7 @@ Rozwiąż partycji usługi sieć szkieletowa usług, można pobrać punkty końc
 
 |Argument|Opis|
 | --- | --- |
-| — Identyfikator usługi [wymagane]| Tożsamość usługi. Zazwyczaj jest to pełna nazwa tej usługi bez "fabric:" schemat identyfikatora URI. Począwszy od wersji 6.0, hierarchicznych nazwy są rozdzielane "~" znaków. Na przykład, jeśli nazwa usługi to "fabric://myapp/app1/svc1", tożsamość usługi będzie "moja_aplikacja ~ app1 ~ svc1" w wersji 6.0 + i "myapp/app1/svc1" w poprzednich wersjach.|
+| — Identyfikator usługi [wymagane]| Tożsamość usługi. Zazwyczaj jest to pełna nazwa tej usługi bez "fabric:" schemat identyfikatora URI. Począwszy od wersji 6.0, hierarchicznych nazwy są rozdzielane "~" znaków. Na przykład, jeśli nazwa usługi jest "fabric: / myapp/app1/svc1", będzie tożsamość usługi "moja_aplikacja ~ app1 ~ svc1" w wersji 6.0 + i "myapp/app1/svc1" w poprzednich wersjach.|
 | --partycji klucza typu| Typ klucza partycji. Ten parametr jest wymagany w przypadku Int64Range lub nazwa schematu partycji dla usługi. Możliwe wartości są następujące. -Brak (1) — wskazuje, że nie określono parametru PartitionKeyValue. Jest to prawidłowa dla partycji z partycji schematu jako pojedyncza. Jest to wartość domyślna. Wartość to 1. -Int64Range (2) — wskazuje, że parametr PartitionKeyValue jest kluczem partycji int64. Jest to prawidłowa dla partycji zawierających schemat jako Int64Range partycji. Wartość jest równa 2. -O nazwie (3) — wskazuje, że parametr PartitionKeyValue jest nazwa partycji. Jest to prawidłowa dla partycji zawierających schemat jako nazwa partycji. Wartość to 3.|
 | --wartości kluczy partycji  | Klucz partycji. Jest to wymagane, jeśli Int64Range lub nazwa schematu partycji dla usługi.|
 | --poprzedniej wersji źródło | Wartość w polu wersja odpowiedzi odebrany wcześniej. Jest to wymagane, jeśli użytkownik wie, że wynik, który został uzyskano wcześniej jest przestarzała.|
@@ -290,7 +291,7 @@ Aktualizuje określonej usługi przy użyciu opisu danego aktualizacji.
 
 |Argument|Opis|
 | --- | --- |
-| — Identyfikator usługi [wymagane]| Usługa docelowa do aktualizacji. Zazwyczaj jest to pełny identyfikator usługi bez "fabric:" schemat identyfikatora URI. Począwszy od wersji 6.0, hierarchicznych nazwy są rozdzielane "~" znaków. Na przykład, jeśli nazwa usługi to "fabric://myapp/app1/svc1", tożsamość usługi będzie "moja_aplikacja ~ app1 ~ svc1" w wersji 6.0 + i "myapp/app1/svc1" w poprzednich wersjach.|
+| — Identyfikator usługi [wymagane]| Usługa docelowa do aktualizacji. Zazwyczaj jest to pełny identyfikator usługi bez "fabric:" schemat identyfikatora URI. Począwszy od wersji 6.0, hierarchicznych nazwy są rozdzielane "~" znaków. Na przykład, jeśli nazwa usługi jest ' sieci szkieletowej: / myapp/app1/svc1 ", jest tożsamość usługi" moja_aplikacja ~ app1 ~ svc1 "w wersji 6.0 + i" myapp/app1/svc1"w poprzednich wersjach.|
 | — ograniczenia         | Ograniczenia dotyczące umieszczania jako ciąg. Ograniczenia dotyczące umieszczania są wyrażeń logicznych na właściwości węzła i umożliwiają ograniczenie usługi dla określonych węzłów na podstawie wymagań usługi. Na przykład, aby umieścić usługi na węzłach, gdzie jest niebieska NodeType określ następujące: "NodeColor == niebieski".|
 | --correlated-service  | Nazwa usługi docelowej, aby mieć związek z.|
 | --Korelacja         | Korelowanie usługę za pomocą istniejącej usługi za pomocą koligacji wyrównania.|

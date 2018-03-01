@@ -1,3 +1,5 @@
+# [Dokumentacja komunikatów usługi Service Bus](index.md)
+
 # Omówienie
 ## [Co to są komunikaty usługi Service Bus?](service-bus-messaging-overview.md)
 ## [Podstawy usługi Service Bus](service-bus-fundamentals-hybrid-solutions.md)

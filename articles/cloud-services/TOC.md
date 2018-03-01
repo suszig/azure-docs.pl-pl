@@ -1,3 +1,5 @@
+# [Dokumentacja usług Cloud Services](index.md)
+
 # Omówienie
 ## [Co to jest Cloud Services?](cloud-services-choose-me.md)
 ## [Pliki konfiguracji usługi Cloud Service i tworzenie pakietów](cloud-services-model-and-package.md)

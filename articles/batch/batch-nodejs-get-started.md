@@ -11,11 +11,11 @@ ms.topic: hero-article
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
-ms.openlocfilehash: c48171d8634a651718a0775183414f463c6a468c
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: ce3d6d5aa721f84bda6d8de6eac161deb934a1e5
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Wprowadzenie do zestawu SDK usługi Batch dla środowiska Node.js
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/18/2017
 >
 >
 
-Poznaj podstawy tworzenia klienta usługi Batch w języku Node.js przy użyciu [zestawu SDK usługi Azure Batch dla środowiska Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/). W tym artykule poznamy scenariusz dotyczący aplikacji usługi Batch i sposób jej konfigurowania przy użyciu klienta Node.js.  
+Poznaj podstawy tworzenia klienta usługi Batch w języku Node.js przy użyciu [zestawu SDK usługi Azure Batch dla środowiska Node.js](/javascript/api/overview/azure/batch). W tym artykule poznamy scenariusz dotyczący aplikacji usługi Batch i sposób jej konfigurowania przy użyciu klienta Node.js.  
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 W tym artykule założono, że masz praktyczną wiedzę dotyczącą języka Node.js oraz znasz system Linux. Przyjęto również założenie, że masz skonfigurowane konto platformy Azure z prawami dostępu do tworzenia usług Batch i Storage.
@@ -73,7 +73,7 @@ To polecenie instaluje najnowszą wersję zestawu Node SDK usługi Azure Batch.
 
 ### <a name="step-2-create-an-azure-batch-account"></a>Krok 2. Tworzenie konta usługi Azure Batch
 
-Konto można utworzyć zarówno za pomocą witryny [Azure Portal](batch-account-create-portal.md), jak i wiersza polecenia ([PowerShell](batch-powershell-cmdlets-get-started.md) /[Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/overview)).
+Konto można utworzyć zarówno za pomocą witryny [Azure Portal](batch-account-create-portal.md), jak i wiersza polecenia ([PowerShell](batch-powershell-cmdlets-get-started.md) /[Interfejs wiersza polecenia platformy Azure](/cli/azure/overview)).
 
 Poniżej przedstawiono polecenia, które umożliwiają utworzenie konta za pomocą interfejsu wiersza polecenia platformy Azure.
 
@@ -360,5 +360,5 @@ W witrynie Azure Portal zamieszczono szczegółowe widoki stanów zadań i zada�
 ## <a name="next-steps"></a>Następne kroki
 
 - Przejrzyj artykuł [Overview of Azure Batch features](batch-api-basics.md) (Omówienie funkcji w usłudze Azure Batch), który zalecamy użytkownikom rozpoczynającym korzystanie z tej usługi.
-- Zobacz [Batch Node.js reference](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/) (Dokumentacja języka Node.js dla usługi Batch), aby poznać interfejs API usługi Batch.
+- Zobacz [Batch Node.js reference](/javascript/api/overview/azure/batch) (Dokumentacja języka Node.js dla usługi Batch), aby poznać interfejs API usługi Batch.
 

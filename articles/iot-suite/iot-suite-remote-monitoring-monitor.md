@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 2e6d965d9177a61f974b319a1bd2155c9132533f
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: fe0d936b4ee0d7703222c86c00959869b99f7851
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="perform-advanced-monitoring-using-the-remote-monitoring-solution"></a>Wykonaj zaawansowanego monitorowania przy użyciu zdalnego rozwiązanie monitorowania
 
@@ -99,7 +99,7 @@ Można użyć **alarmy systemu** filtr, aby dopasować przedział czasu dla osta
 
 Można użyć **kluczowy wskaźnik wydajności systemu** filtr, aby dopasować przedział czasu dla agregacji kluczowego wskaźnika wydajności. Domyślnie panelu Wyświetla zagregowane w ciągu ostatniej godziny kluczowych wskaźników wydajności.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym samouczku przedstawiono sposób użycia **pulpitu nawigacyjnego** strony do filtrowania i monitorować pojazdów symulowane, udostępniane w rozwiązaniu monitorowania zdalnego:
 

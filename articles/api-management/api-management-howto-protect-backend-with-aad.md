@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 695db2f5e6ffe794d76d0b9126dc231ed8a87d2c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
-ms.translationtype: MT
+ms.openlocfilehash: b11d80d1837d6474c7ee88f173de43e00fbb6cd5
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Jak zabezpieczyć interfejs API sieci Web wewnętrznej bazy danych z usługi Azure Active Directory i zarządzanie interfejsami API
 Poniższe wideo przedstawia sposób tworzenia zaplecza interfejsu API sieci Web i chronić go przy użyciu protokołu OAuth 2.0 z usługą Azure Active Directory i zarządzanie interfejsami API.  Ten artykuł zawiera omówienie i dodatkowe informacje dotyczące czynności w wideo. To 24 minutę wideo pokazuje, jak do:
@@ -33,7 +33,7 @@ Poniższe wideo przedstawia sposób tworzenia zaplecza interfejsu API sieci Web 
 > 
 
 ## <a name="create-an-azure-ad-directory"></a>Utwórz katalog usługi Azure AD
-Do zabezpieczania serwera interfejsu API sieci Web przy użyciu usługi Azure Active Directory, musisz najpierw mieć dzierżawę usługi AAD. W tym wideo o nazwie dzierżawcy **APIMDemo** jest używany. Aby utworzyć dzierżawę usługi AAD, zaloguj się do [klasycznego portalu Azure](https://manage.windowsazure.com) i kliknij przycisk **nowy**->**usługi aplikacji**->**usługi Active Directory**->**katalogu**->**Utwórz niestandardowy**. 
+Do zabezpieczania serwera interfejsu API sieci Web przy użyciu usługi Azure Active Directory należy najpierw dzierżawę usługi AAD. W tym wideo o nazwie dzierżawcy **APIMDemo** jest używany. Aby utworzyć dzierżawę usługi AAD, zaloguj się do [klasycznego portalu Azure](https://manage.windowsazure.com) i kliknij przycisk **nowy**->**usługi aplikacji**->**usługi Active Directory**->**katalogu**->**Utwórz niestandardowy**. 
 
 ![Usługa Azure Active Directory][api-management-create-aad-menu]
 

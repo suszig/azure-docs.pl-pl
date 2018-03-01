@@ -10,10 +10,10 @@ ms.service: postgresql
 ms.topic: article
 ms.date: 09/26/2017
 ms.openlocfilehash: dbb9f733455fa0492358b24b178c8c637ff08c71
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="explaining-compute-units-in-azure-database-for-postgresql"></a>Wyjaśniający dla PostgreSQL jednostki obliczeń w bazie danych Azure
 Ten temat wyjaśnia pojęcie jednostki obliczeniowe i co się dzieje, gdy obciążenie osiągnie maksymalny poziom obliczeniowe jednostki.
@@ -42,5 +42,5 @@ Jeśli obciążenie osiągnie maksymalną wartością obliczeniowe jednostki lub
 
 Jeśli obciążenie osiągnie limity maksymalną liczbę połączeń, pojawienia się jawne błędy. Aby uzyskać więcej informacji na ograniczenia zasobów, zobacz [ograniczeń w bazie danych Azure PostgreSQL](concepts-limits.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby uzyskać więcej informacji o cenach warstw, zobacz [bazą danych Azure dla PostgreSQL warstw cenowych](./concepts-service-tiers.md).

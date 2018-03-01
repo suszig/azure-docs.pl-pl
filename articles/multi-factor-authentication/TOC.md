@@ -1,3 +1,5 @@
+# [Dokumentacja usługi Multi-factor Authentication](index.md)
+
 # Omówienie
 ## [Co to jest usługa Multi-Factor Authentication platformy Azure?](multi-factor-authentication.md)
 ## [Jak to działa](multi-factor-authentication-how-it-works.md)

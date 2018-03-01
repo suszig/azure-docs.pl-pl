@@ -24,13 +24,13 @@
         - name: Przygotowywanie platformy Azure
           href: tutorial-prepare-azure.md
         - name: Przygotowywanie lokalnego wdrożenia oprogramowania VMware
-          href: tutorial-prepare-on-premises-vmware.md
+          href: vmware-azure-tutorial-prepare-on-premises.md
         - name: Konfigurowanie odzyskiwania po awarii
-          href: tutorial-vmware-to-azure.md
+          href: vmware-azure-tutorial.md
         - name: Uruchamianie próbnego odzyskiwania
           href: tutorial-dr-drill-azure.md
         - name: Uruchamianie trybu failover i powrotu po awarii
-          href: tutorial-vmware-to-azure-failover-failback.md
+          href: vmware-azure-tutorial-failover-failback.md
     - name: Maszyny wirtualne funkcji Hyper-V
       items:
         - name: Przygotowywanie platformy Azure
@@ -50,9 +50,9 @@
         - name: Przygotowanie platformy Azure do replikacji lokalnej
           href: tutorial-prepare-azure.md
         - name: Migrowanie maszyn lokalnych do platformy Azure
-          href: tutorial-migrate-on-premises-to-azure.md
+          href: migrate-tutorial-on-premises-azure.md
         - name: Migrowanie wystąpień usługi AWS na platformę Azure
-          href: tutorial-migrate-aws-to-azure.md
+          href: migrate-tutorial-aws-azure.md
         - name: Migrowanie maszyn wirtualnych platformy Azure do innego regionu
           href: azure-to-azure-tutorial-migrate.md
 - name: Pojęcia
@@ -62,11 +62,11 @@
         - name: Architektura Azure–Azure
           href: azure-to-azure-architecture.md
         - name: Architektura VMware–Azure
-          href: concepts-vmware-to-azure-architecture.md
+          href: vmware-azure-architecture.md
         - name: Architektura Hyper-V–Azure
           href: hyper-v-azure-architecture.md
         - name: Architektura maszyna fizyczna–Azure
-          href: concepts-physical-to-azure-architecture.md
+          href: physical-azure-architecture.md
         - name: Architektura Hyper-V–lokacja dodatkowa
           href: hyper-v-vmm-architecture.md
     - name: Tabela wymagań dotyczących obsługi
@@ -114,11 +114,11 @@
         - name: Odzyskiwanie po awarii maszyn wirtualnych platformy Azure po migracji na platformę Azure
           href: azure-to-azure-replicate-after-migration.md
         - name: Odzyskiwanie po awarii serwerów fizycznych na platformę Azure
-          href: tutorial-physical-to-azure.md
+          href: physical-azure-disaster-recovery.md
         - name: Odzyskiwanie po awarii maszyn wirtualnych funkcji Hyper-V do lokacji dodatkowej
           href: hyper-v-vmm-disaster-recovery.md
         - name: Odzyskiwanie po awarii maszyn wirtualnych VMware i serwerów fizycznych do lokacji dodatkowej
-          href: tutorial-vmware-to-vmware.md
+          href: vmware-physical-secondary-disaster-recovery.md
         - name: Uruchamianie próbnego odzyskiwania na platformie Azure
           href: site-recovery-test-failover-to-azure.md
         - name: Uruchamianie próbnego odzyskiwania po awarii maszyn wirtualnych funkcji Hyper-V do lokacji dodatkowej
@@ -236,7 +236,7 @@
         - name: Konfigurowanie replikacji funkcji Hyper-V na platformie Azure (bez programu VMM) przy użyciu programu PowerShell
           href: hyper-v-azure-powershell-resource-manager.md
         - name: Konfigurowanie replikacji funkcji Hyper-V na platformie Azure (z programem VMM) przy użyciu programu PowerShell
-          href: site-recovery-vmm-to-azure-powershell-resource-manager.md
+          href: hyper-v-vmm-powershell-resource-manager.md
         - name: Konfigurowanie replikacji funkcji Hyper-V w lokacji dodatkowej programu VMM przy użyciu programu PowerShell
           href: hyper-v-vmm-powershell-resource-manager.md
     - name: Obciążenia
@@ -290,7 +290,7 @@
         - name: Problemy z przełączaniem do trybu failover na platformie Azure
           href: site-recovery-failover-to-azure-troubleshoot.md
         - name: Problemy z ponownym włączaniem ochrony i powrotem po awarii
-          href: troubleshoot-failback-reprotect.md
+          href: vmware-azure-troubleshoot-failback-reprotect.md
         - name: Monitorowanie usługi Azure Site Recovery
           href: site-recovery-monitor-and-troubleshoot.md
 - name: Dokumentacja

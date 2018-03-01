@@ -35,7 +35,7 @@ Oto niektóre z funkcji Premium Storage:
 
 * **Dyski magazynu w warstwie Premium**
 
-    Magazyn w warstwie Premium obsługuje dyski maszyn wirtualnych, które można dołączyć do określonego rozmiaru serii maszyn wirtualnych. Magazyn w warstwie Premium obsługuje serii DS, DSv2 serii GS-serii, serie Ls i Fs serii maszyn wirtualnych. Masz do wyboru rozmiary dysków siedem: P4 (32GB) P6 (64GB), P10 (128 MB), P20 (512GB), P30 (1024GB), P40 (2048GB), P50 (4095GB). P4 i rozmiary dysków P6 są jeszcze obsługiwane tylko w przypadku dysków zarządzanych. Rozmiar każdego dysku ma specyfikacjami wydajności. W zależności od wymagań aplikacji można dołączyć jeden lub więcej dysków do maszyny Wirtualnej. Specyfikacje szczegółowo opisano [magazyn w warstwie Premium cele wydajności i skalowalności](#scalability-and-performance-targets).
+    Magazyn w warstwie Premium obsługuje dyski maszyn wirtualnych, które można dołączyć do określonego rozmiaru serii maszyn wirtualnych. Magazyn w warstwie Premium obsługuje serii DS, DSv2 serii GS-series, Ls serii Fs serii i Esv3 serii maszyn wirtualnych. Masz do wyboru rozmiary dysków siedem: P4 (32GB) P6 (64GB), P10 (128 MB), P20 (512GB), P30 (1024GB), P40 (2048GB), P50 (4095GB). P4 i rozmiary dysków P6 są jeszcze obsługiwane tylko w przypadku dysków zarządzanych. Rozmiar każdego dysku ma specyfikacjami wydajności. W zależności od wymagań aplikacji można dołączyć jeden lub więcej dysków do maszyny Wirtualnej. Specyfikacje szczegółowo opisano [magazyn w warstwie Premium cele wydajności i skalowalności](#scalability-and-performance-targets).
 
 * **Stronicowe — wersja Premium**
 
@@ -62,7 +62,7 @@ Oto niektóre z funkcji Premium Storage:
 ## <a name="supported-vms"></a>Obsługiwane maszyny wirtualne
 Magazyn w warstwie Premium obsługuje serii DS, DSv2 serii GS-series, Ls serii Fs serii i B serii maszyn wirtualnych. Z tych typów maszyny Wirtualnej służy dyski magazynu standard i premium. Nie można używać dysków premium magazynu serii maszyn wirtualnych, które nie są Premium zgodnych z magazynu.
 
-Aby uzyskać informacje o typach maszyn wirtualnych i rozmiary Azure dla systemu Windows, zobacz [rozmiarów maszyn wirtualnych systemu Windows](../articles/virtual-machines/windows/sizes.md). Aby uzyskać informacje o typach maszyn wirtualnych i rozmiary na platformie Azure dla systemu Linux, zobacz [rozmiarów maszyn wirtualnych systemu Linux](../articles/virtual-machines/linux/sizes.md).
+Aby uzyskać informacje o typach maszyn wirtualnych i rozmiarach na platformie Azure dla systemu Windows, zobacz [Windows VM sizes (Rozmiary maszyn wirtualnych z systemem Windows)](../articles/virtual-machines/windows/sizes.md). Aby uzyskać informacje o typach maszyn wirtualnych i rozmiarach na platformie Azure dla systemu Linux, zobacz [Linux VM sizes (Rozmiary maszyn wirtualnych z systemem Linux)](../articles/virtual-machines/linux/sizes.md).
 
 Są to niektóre funkcje serii GS: seria DS, DSv2 serii, serie Ls i Fs serii maszyn wirtualnych:
 
@@ -83,7 +83,7 @@ Są to niektóre funkcje serii GS: seria DS, DSv2 serii, serie Ls i Fs serii mas
     >
     > 
 
-* **Pamięć podręczna**
+* **Cache**
 
     Maszyny wirtualne w serii rozmiar, który obsługuje magazyn w warstwie Premium ma unikatowy możliwość buforowania wysokiej przepustowości i opóźnień. Możliwość buforowania przekracza podstawowej wydajności dysku magazynu premium. Można ustawić dysku zasad na dyskach magazynu premium do buforowania **tylko do odczytu**, **ReadWrite**, lub **Brak**. Dysk domyślne zasad buforowania jest **tylko do odczytu** dla wszystkich dysków danych — warstwa premium i **ReadWrite** dysków systemu operacyjnego. Aby uzyskać optymalną wydajność aplikacji użyj ustawienia poprawne pamięci podręcznej. Na przykład dla dysków z danymi ciężki odczytu lub w trybie tylko do odczytu, takich jak pliki danych programu SQL Server, ustaw dysku zasad do buforowania **tylko do odczytu**. Dla danych intensywnie zapisu lub w trybie tylko do zapisu dysków, takich jak pliki dziennika programu SQL Server, ustaw dysku zasad do buforowania **Brak**. Aby dowiedzieć się więcej na temat optymalizacji projektu z magazyn w warstwie Premium, zobacz [projektu dla wydajności z magazyn w warstwie Premium](../articles/virtual-machines/windows/premium-storage-performance.md).
 
@@ -236,10 +236,10 @@ Następujące dystrybucje systemu Linux zostały zatwierdzone dla usługi Azure 
 
 | Dystrybucja | Wersja | Obsługiwane jądra | Szczegóły |
 | --- | --- | --- | --- |
-| Ubuntu | 12.04 | 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-AMD64-Server-20150119-en-us-30GB |
-| Ubuntu | 14.04 | 3.13.0-44.73+ | Ubuntu-14_04_1-LTS-AMD64-Server-20150123-en-us-30GB |
+| Ubuntu | 12.04 | 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
+| Ubuntu | 14.04 | 3.13.0-44.73+ | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |
 | Debian | 7.x, 8.x | 3.16.7-ckt4-1+ | &nbsp; |
-| SUSE | SLES 12| 3.12.36-38.1+| SUSE-sles-12-priorytet v20150213 <br> SUSE-sles-12-v20150213 |
+| SUSE | SLES 12| 3.12.36-38.1+| suse-sles-12-priority-v20150213 <br> suse-sles-12-v20150213 |
 | SUSE | SLES 11 Z DODATKIEM SP4 | 3.0.101-0.63.1+ | &nbsp; |
 | CoreOS | 584.0.0+| 3.18.4+ | CoreOS 584.0.0 |
 | CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [LIS4 wymagane](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Patrz Uwaga w następnej sekcji* |

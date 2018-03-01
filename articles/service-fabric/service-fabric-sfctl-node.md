@@ -12,15 +12,15 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/22/2018
 ms.author: ryanwi
-ms.openlocfilehash: b94c5a7d6c3c74e1dd66559dea288238c35d664c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 50c7fe38d8bf7b14adf437f85c758e465e7d231d
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="sfctl-node"></a>węzeł sfctl
+# <a name="sfctl-node"></a>sfctl node
 Zarządzanie węzły, które tworzą klaster.
 
 ## <a name="commands"></a>Polecenia
@@ -30,13 +30,13 @@ Zarządzanie węzły, które tworzą klaster.
 |    wyłącz       | Dezaktywowanie z docelowa dezaktywacji określonego węzła klastra sieci szkieletowej usług.|
 |    włącz        | Aktywuj węzłem klastra usługi sieć szkieletowa jest obecnie wyłączona.|
 |    kondycja        | Pobiera stan węzła sieci szkieletowej usług.|
-|    Informacje o          | Pobiera listę węzłów w klastrze usługi sieć szkieletowa usług.|
+|    Informacje o          | Pobiera informacje dotyczące określonego węzła w klastrze usługi sieć szkieletowa usług.|
 |    lista          | Pobiera listę węzłów w klastrze usługi sieć szkieletowa usług.|
 |    ładowanie          | Pobiera informacje o obciążenia węzła sieci szkieletowej usług.|
 |    remove-state  | Powiadamia sieci szkieletowej usług, że stan utrwalony na węźle trwale ani nie usunięto utracone.|
 |    report-health | Wysyła raport o kondycji w węźle sieci szkieletowej usług.|
 |    Ponowne uruchomienie       | Ponowne uruchomienie węzła klastra sieci szkieletowej usług.|
-|    przejście    | Uruchomienia lub zatrzymania węzła klastra.|
+|    przejścia    | Uruchomienia lub zatrzymania węzła klastra.|
 |    stan przejścia| Pobiera postęp operacji uruchomiony przy użyciu StartNodeTransition.|
 
 
@@ -50,7 +50,7 @@ Dezaktywowanie z docelowa dezaktywacji określonego węzła klastra sieci szkiel
 |Argument|Opis|
 | --- | --- |
 | --Nazwa węzła [wymagane]| Nazwa węzła.|
-| --docelowa dezaktywacji | Opisuje zamierzone lub powód dezaktywacji węzła. Możliwe wartości są następujące. -Pause — wskazuje, czy można wstrzymać węzeł. Wartość to 1. — Ponowne uruchomienie — wskazuje, że w zamierzeniu węzeł, który ma zostać uruchomiony ponownie po krótkim czasie. Wartość jest równa 2. -RemoveData — wskazuje, że w zamierzeniu węzła do usunięcia danych. Wartość to 3. .|
+| --docelowa dezaktywacji | Opisuje zamierzone lub powód dezaktywacji węzła. |
 | limit czasu — -t       | W sekundach limit czasu serwera.  Domyślnie: 60.|
 
 ### <a name="global-arguments"></a>Argumenty globalne
@@ -109,9 +109,9 @@ Pobiera stan węzła sieci szkieletowej usług. Filtr EventsHealthStateFilter um
 | -verbose                | Zwiększ poziom szczegółowości rejestrowania. Użycie--debugowania dla dzienników debugowania pełna.|
 
 ## <a name="sfctl-node-info"></a>informacje o węźle sfctl
-Pobiera listę węzłów w klastrze usługi sieć szkieletowa usług.
+Pobiera informacje dotyczące określonego węzła w klastrze usługi sieć szkieletowa usług.
 
-Pobiera informacje dotyczące określonego węzła w klastrze usługi sieć szkieletowa usług. Odpowiedź zawierać nazwę, stan, identyfikator, kondycji, czas pracy i inne szczegóły dotyczące węzła.
+Pobiera informacje o określonym węźle Cluster.The sieci szkieletowej usług odpowiedzi to nazwa, stan, identyfikator, kondycji, czas działania i inne szczegóły dotyczące węzła.
 
 ### <a name="arguments"></a>Argumenty
 
@@ -133,14 +133,14 @@ Pobiera informacje dotyczące określonego węzła w klastrze usługi sieć szki
 ## <a name="sfctl-node-list"></a>sfctl węzła listy
 Pobiera listę węzłów w klastrze usługi sieć szkieletowa usług.
 
-Punkt końcowy węzłów zwraca informacje o węzły w klastrze usługi sieć szkieletowa. Odpowiedź zawiera nazwę, stan, identyfikator, kondycji, czas pracy i inne szczegóły dotyczące węzła.
+Pobiera listę węzłów w klastrze usługi sieć szkieletowa usług. Odpowiedź zawierać nazwę, stan, identyfikator, kondycji, czas pracy i inne szczegóły dotyczące węzła.
 
 ### <a name="arguments"></a>Argumenty
 
 |Argument|Opis|
 | --- | --- |
 | --token kontynuacji| Parametr token kontynuacji służy do uzyskiwania następnej zestaw wyników. Token kontynuacji z wartość pusta jest uwzględniana w odpowiedzi interfejsu API wyników z systemu nie mieszczą się w jednej odpowiedzi.      Jeśli ta wartość jest przekazywany do następnego wywołania interfejsu API interfejsu API zwraca następny zestaw wyników. Jeśli nie są dalsze wyniki, token kontynuacji nie zawiera wartości. Wartość tego parametru nie powinny być zakodowane w adresie URL.|
-| --node-status-filter| Umożliwia filtrowanie oparte na NodeStatus węzłów. Zwracane są tylko węzły, które są zgodne z wartością określony filtr. Wartość filtru może być jedną z następujących czynności. — Domyślnie — ta wartość filtru dopasowuje wszystkie węzły z wyjątkiem tych ze stanem jako nieznane lub usunięte. -all - tę wartość filtru pasuje do wszystkich węzłów. Ten filtr - górę — wartość odpowiada węzłów, które są uruchomione. Ten filtr - dół — wartość odpowiada węzły, które nie działają. -Włączanie — ten filtr wartość dopasowań węzłów, które są w trakcie włączania ze stanem jako Włączanie. -Wyłączenie — ten filtr wartość dopasowań węzłów, które są właśnie trwa wyłączanie ze stanem jako wyłączenie. — wyłączone — ten filtr wartość dopasowań węzłów, które są wyłączone. -Nieznany — ta wartość filtru zgodny węzły, których stan jest nieznany. Węzeł będzie w nieznanym stanie, jeśli usługa sieć szkieletowa nie ma autorytatywne informacje o tym węźle. Może to nastąpić, jeśli system uzyskuje informacje o węźle w czasie wykonywania. -usunięte - tego dopasowania węzły wartość filtru którego stan jest usuwany. Są to węzły, które zostały usunięte z klastra przy użyciu interfejsu API RemoveNodeState. .      Domyślne: domyślny.|
+| --node-status-filter| Umożliwia filtrowanie oparte na NodeStatus węzłów. Zwracane są tylko węzły, które są zgodne z wartością określony filtr. Wartość filtru może być jedną z następujących czynności. Domyślne: domyślny.|
 | limit czasu — -t     | W sekundach limit czasu serwera.  Domyślnie: 60.|
 
 ### <a name="global-arguments"></a>Argumenty globalne
@@ -156,7 +156,7 @@ Punkt końcowy węzłów zwraca informacje o węzły w klastrze usługi sieć sz
 ## <a name="sfctl-node-load"></a>sfctl węzła obciążenia
 Pobiera informacje o obciążenia węzła sieci szkieletowej usług.
 
-Pobiera informacje o obciążenia węzła sieci szkieletowej usług.
+Pobiera informacje o obciążenia węzła sieci szkieletowej usług dla wszystkich metryki obciążenia lub zdefiniowano zdolności produkcyjnych.
 
 ### <a name="arguments"></a>Argumenty
 
@@ -203,7 +203,7 @@ Uruchamia ponownie usługi sieć szkieletowa węzła klastra, który jest już u
 Uruchomienia lub zatrzymania węzła klastra.
 
 Uruchomienia lub zatrzymania węzła klastra.  Węzeł klastra jest procesem, nie wystąpienie systemu operacyjnego, samej siebie.
-Do uruchomienia węzła, podaj "Start" dla parametru NodeTransitionType. Aby zatrzymać węzła, podaj "Stop" dla parametru NodeTransitionType. Ten interfejs API rozpoczyna operację — gdy węzeł może nie mieć zakończyło się jeszcze przejście zwraca interfejsu API. Wywołanie GetNodeTransitionProgress z tej samej OperationId uzyskać postęp operacji. .
+Do uruchomienia węzła, podaj "Start" dla parametru NodeTransitionType. Aby zatrzymać węzła, podaj "Stop" dla parametru NodeTransitionType. Ten interfejs API rozpoczyna operację — gdy węzeł może nie mieć zakończyło się jeszcze przejście zwraca interfejsu API. Wywołanie GetNodeTransitionProgress z tej samej OperationId uzyskać postęp operacji. 
 
 ### <a name="arguments"></a>Argumenty
 
@@ -211,7 +211,7 @@ Do uruchomienia węzła, podaj "Start" dla parametru NodeTransitionType. Aby zat
 | --- | --- |
 | --węzeł-— identyfikator wystąpienia [wymagane]| Identyfikator wystąpienia węzła węzeł docelowy. Można to ustalić za pośrednictwem interfejsu API GetNodeInfo.|
 | --Nazwa węzła [wymagane]| Nazwa węzła.|
-| --przejścia typu węzła [wymagane]| Wskazuje typ przejścia do wykonania.                       NodeTransitionType.Start rozpoczyna się węzeł zatrzymana.                       NodeTransitionType.Stop zatrzymuje węzła, który jest włączony. -Nieprawidłowy — zastrzeżone.  Nie są przekazywane do interfejsu API. -Start - przejście zatrzymania węzeł w górę. -Stop - Przejście węzła się na zatrzymane. .|
+| --przejścia typu węzła [wymagane]| Wskazuje typ przejścia do wykonania.                       NodeTransitionType.Start rozpoczyna się węzeł zatrzymana.                       NodeTransitionType. Stop Zatrzymuje węzła, który jest włączony. |
 | — Identyfikator operacji [wymagane]| Identyfikator GUID identyfikujący wywołanie tego interfejsu API.  To jest przekazywany do odpowiedniego interfejsu API GetProgress.|
 | --stop-czas trwania w — sekund [wymagane]| Czas w sekundach, aby zachować węzeł zatrzymana.  Wartość minimalna wynosi 600, wartość maksymalna to 14400. Po upływie tego czasu, węzeł automatycznie wróci do sprawności.|
 | limit czasu — -t                      | W sekundach limit czasu serwera.  Domyślnie: 60.|

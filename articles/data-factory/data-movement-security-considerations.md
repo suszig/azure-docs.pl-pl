@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/26/2018
 ms.author: abnarain
-ms.openlocfilehash: 898e6914a427b2e8864d97a7188eb718811ce263
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: ebe0523849b4709424e2f4bdac00f6bf98bf7cf4
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Fabryka danych Azure — zagadnienia dotyczące zabezpieczeń dla przepływu danych
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -122,7 +122,7 @@ Sieć wirtualna jest logiczną reprezentacja sieci w chmurze. Można połączyć
 
 W poniższej tabeli przedstawiono sieci i zalecenia dotyczące konfiguracji środowiska uruchomieniowego integracji siebie oparte na różnych kombinacji źródłowe i docelowe lokalizacje hybrydowego przenoszenia danych.
 
-| Element źródłowy      | Element docelowy                              | Konfiguracja sieci                    | Ustawienia środowiska uruchomieniowego integracji                |
+| Element źródłowy      | Element docelowy                              | Konfiguracja sieci                    | Instalacja środowiska Integration Runtime                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
 | Lokalnie | Maszyny wirtualne i usługi w chmurze wdrożony w sieci wirtualnych | IPSec VPN (punkt lokacja lub lokacja lokacja) | Hostowanie Samoobsługowe integrację środowiska uruchomieniowego może być zainstalowana lokalnie lub na platformie Azure wirtualnej maszyny (VM) w sieci wirtualnej |
 | Lokalnie | Maszyny wirtualne i usługi w chmurze wdrożony w sieci wirtualnych | ExpressRoute (prywatnej komunikacji równorzędnej)           | Hostowanie Samoobsługowe integrację środowiska uruchomieniowego może być zainstalowana lokalnie lub na maszynie Wirtualnej platformy Azure w sieci wirtualnej |
@@ -150,8 +150,8 @@ W poniższej tabeli przedstawiono **port wyjściowy** i wymagania dotyczące dom
 | `*.servicebus.windows.net`    | 443, 80        | Wymagane przez siebie integrację środowiska uruchomieniowego do nawiązania połączenia usługi przenoszenia danych z fabryki danych |
 | `*.core.windows.net`          | 443            | Używane przez siebie integrację środowiska uruchomieniowego do łączenia się konta magazynu Azure, korzystając z [przemieszczane kopiowania](copy-activity-performance.md#staged-copy) funkcji. |
 | `*.frontend.clouddatahub.net` | 443            | Wymagane przez siebie integrację środowiska uruchomieniowego do nawiązania połączenia usługi fabryka danych Azure. |
-| `*.database.windows.net`      | 1433           | (OPCJONALNIE) wymagane, jeśli folderem docelowym jest baza danych Azure SQL / Azure SQL Data Warehouse. Funkcja kopiowania przemieszczanego skopiować dane do usługi Azure SQL bazy danych/usługi Azure SQL Data Warehouse, bez konieczności otwierania portu 1433. |
-| `*.azuredatalakestore.net`    | 443            | (OPCJONALNIE) potrzebna do folderu docelowego jest Azure Data Lake store |
+| `*.database.windows.net`      | 1433           | (OPCJONALNIE) potrzebne podczas kopiowania/z bazy danych Azure SQL / Azure SQL Data Warehouse. Funkcja kopiowania przemieszczanego skopiować dane do usługi Azure SQL bazy danych/usługi Azure SQL Data Warehouse, bez konieczności otwierania portu 1433. |
+| `*.azuredatalakestore.net`<br>`login.microsoftonline.com/<tenant>/oauth2/token`    | 443            | (OPCJONALNIE) potrzebne podczas kopiowania z/do to Azure Data Lake store |
 
 > [!NOTE] 
 > Może być konieczne zarządzanie portami / listę dozwolonych podobnej domen w firmowej zapory na poziomie zgodnie z wymaganiami źródeł odpowiednich danych. Ta tabela używa tylko bazy danych SQL Azure, Magazyn danych SQL Azure, Azure Data Lake Store jako przykłady.   

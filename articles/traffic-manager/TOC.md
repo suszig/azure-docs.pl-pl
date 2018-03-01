@@ -1,3 +1,5 @@
+# [Dokumentacja usługi Traffic Manager](index.md)
+
 # Omówienie
 ## [Co to jest usługa Traffic Manager?](traffic-manager-overview.md)
 ## [Metody routingu](traffic-manager-routing-methods.md)
@@ -9,7 +11,7 @@
 ## [Widok ruchu](traffic-manager-traffic-view-overview.md)
 ## [Często zadawane pytania](traffic-manager-FAQs.md)
 
-# Wprowadzenie
+# Rozpoczęcie pracy
 ## [Tworzenie profilu usługi Traffic Manager](traffic-manager-create-profile.md)
 
 # Instrukcje
@@ -55,4 +57,4 @@
 ## [Limity usługi](../azure-subscription-service-limits.md#traffic-manager-limits)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=traffic-manager)
 ## [Umowa SLA](https://azure.microsoft.com/support/legal/sla/traffic-manager/)
-## [Filmy wideo](https://azure.microsoft.com/resources/videos/index/?services=traffic-manager)
+## [Wideo](https://azure.microsoft.com/resources/videos/index/?services=traffic-manager)

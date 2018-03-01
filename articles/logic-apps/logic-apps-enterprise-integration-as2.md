@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: LADocs; mandia
-ms.openlocfilehash: fa61bbecc51c4f3163bd1cc077391bb102662297
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8c6dbc507cd1b79fe9424071bc3eb8bf24331a16
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="exchange-as2-messages-for-enterprise-integration-with-logic-apps"></a>Wymiana komunikatów AS2 enterprise integracji z usługą logic apps
 
@@ -40,23 +40,22 @@ Po [Tworzenie konta usługi integracji](../logic-apps/logic-apps-enterprise-inte
 
 1.  Zaloguj się w witrynie [Azure Portal](http://portal.azure.com "Azure Portal").  
 
-2.  Wybierz z menu po lewej stronie **wszystkie usługi**. W polu wyszukiwania wprowadź **integracji** jako filtr. Na liście wyników wybierz **konta integracji**.
+2. W menu głównym Azure wybierz **wszystkie usługi**. W polu wyszukiwania wpisz "integrację", a następnie wybierz **konta integracji**.
 
-    > [!TIP]
-    > Jeśli nie widzisz **wszystkich usług**, trzeba będzie najpierw rozwinąć menu. W górnej części menu zwinięte, wybierz **Pokaż menu**.
+   ![Znajdź konta integracji](./media/logic-apps-enterprise-integration-as2/overview-1.png)
 
-    ![Wszystkie usługi, filtr "integrację", wybierz "Konta integracji"](./media/logic-apps-enterprise-integration-as2/overview-1.png)
+   > [!TIP]
+   > Jeśli nie widzisz **wszystkich usług**, trzeba będzie najpierw rozwinąć menu. W górnej części menu zwinięte, wybierz **Pokaż tekst etykiety**.
 
-3. W **konta integracji** bloku, który zostanie otwarty, wybierz konto integracji, w której chcesz utworzyć umowy.
-Jeśli nie widzisz kont integracji [utworzyć pierwszy](../logic-apps/logic-apps-enterprise-integration-accounts.md "wszystkiego o konta integracji").  
+3. W obszarze **konta integracji**, wybierz konto integracji, w której chcesz utworzyć umowy.
 
-    ![Wybierz konto integracji gdzie utworzyć umowy](./media/logic-apps-enterprise-integration-overview/overview-3.png)
+   ![Wybierz konto integracji gdzie utworzyć umowy](./media/logic-apps-enterprise-integration-overview/overview-3.png)
 
 4. Wybierz **umowy** kafelka. Jeśli nie masz kafelka umowy, najpierw Dodaj kafelka.
 
     ![Wybierz Kafelek "Umów"](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
-5. W bloku umów wybierz **Dodaj**.
+5. W obszarze **umowy**, wybierz **Dodaj**.
 
     ![Wybierz opcję "Dodaj"](./media/logic-apps-enterprise-integration-as2/agreement-2.png)
 
@@ -166,13 +165,13 @@ Umowie jest teraz gotowy do obsługi komunikatów wychodzących, które odpowiad
 
 ## <a name="find-your-created-agreement"></a>Znajdź utworzone umowy
 
-1.  Po zakończeniu ustawienie na wszystkie właściwości umowy, **Dodaj** bloku, wybierz **OK** w stanie zakończyć tworzenia umowy, a następnie wróć do bloku konta usługi z integracji.
+1. Po zakończeniu ustawienie na wszystkie właściwości umowy, **Dodaj** wybierz pozycję **OK** aby zakończyć tworzenie umowy i wrócić do konta integracji.
 
     Nowo dodany umowy teraz pojawia się w sieci **umowy** listy.
 
-2.  Można również wyświetlić umów w przeglądzie konta integracji. W bloku konta integracji, wybierz **omówienie**, a następnie wybierz pozycję **umowy** kafelka. 
+2. Można również wyświetlić umów w przeglądzie konta integracji. W menu konta integracji, wybierz **omówienie**, a następnie wybierz pozycję **umowy** kafelka. 
 
-    ![Wybierz Kafelek "Umów", aby wyświetlić wszystkie umowy](./media/logic-apps-enterprise-integration-as2/agreement-6.png)
+   ![Wybierz Kafelek "Umów", aby wyświetlić wszystkie umowy](./media/logic-apps-enterprise-integration-as2/agreement-6.png)
 
 ## <a name="view-the-swagger"></a>Wyświetlanie struktury swagger
 Zobacz [swagger szczegóły](/connectors/as2/). 

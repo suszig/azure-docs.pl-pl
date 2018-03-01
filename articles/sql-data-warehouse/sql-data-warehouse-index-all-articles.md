@@ -16,16 +16,16 @@ ms.custom: reference
 ms.date: 03/30/2017
 ms.author: barbkess
 ms.openlocfilehash: 9fe41f12960dc099700e01573b4f03ebf63f8749
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="all-topics-for-azure-sql-data-warehouse-service"></a>Wszystkie tematy dotyczące usługi Azure SQL Data Warehouse
 W tym temacie wymieniono co temat, który bezpośrednio dotyczą **SQL Data Warehouse** usługi platformy Azure. Ta strona sieci Web dla słów kluczowych można wyszukiwać za pomocą **Ctrl + F**, aby znaleźć tematy odsetek bieżącego.
 
-## <a name="new"></a>Nowy
-| &nbsp; | Tytuł | Opis |
+## <a name="new"></a>Nowa
+| &nbsp; | Stanowisko | Opis |
 | ---:|:--- |:--- |
 | 1 |[Tworzenie kopii zapasowych SQL Data Warehouse](sql-data-warehouse-backups.md) |Więcej informacji na temat kopii zapasowych wbudowaną bazą danych SQL Data Warehouse, umożliwiające przywracanie Azure SQL Data Warehouse punkt przywracania lub inny region geograficzny. |
 
@@ -38,7 +38,7 @@ Ta sekcja zawiera artykuły, które zostały zaktualizowane, których zainstalow
 | 3 |[Przywrócenie magazynu danych SQL](sql-data-warehouse-restore-database-overview.md) |** Można przywrócić hurtowni danych wstrzymania? ** Aby przywrócić magazynu danych, która jest wstrzymana, należy najpierw objąć ponownie do trybu online. Po powrocie do trybu online w magazynie danych masz siedem dni punktów przywracania do wyboru. ** Przywróć do regionu geograficznie nadmiarowego ** korzystania z magazynu geograficznie nadmiarowego można przywracać w magazynie danych do centrum danych sparowanego w innym regionie geograficznym. Magazyn danych został przywrócony z ostatniej kopii zapasowej codziennie. ** Przywrócić osi czasu ** można przywrócić bazę danych do dowolnego punktu przywracania w ciągu ostatnich siedmiu dni. Migawki Uruchom co cztery do ośmiu godzin i są dostępne na siedem dni. Gdy migawka jest starsza niż siedmiu dni, wygaśnie i jego punktu przywracania nie jest już dostępny. ** Przywrócić kosztów ** którego jest on rozliczany opłata magazynu dla magazynu danych przywróconych z szybkością Azure Premium Storage. Jeśli magazynu przywróconych danych zostanie wstrzymana, są naliczane opłaty za magazyn szybkością Azure Premium Storage. Zaletą wstrzymanie jest się, że nie jesteś opłat |2016-09-29 |
 
 ## <a name="get-started"></a>Rozpoczęcie pracy
-| &nbsp; | Tytuł | Opis |
+| &nbsp; | Stanowisko | Opis |
 | ---:|:--- |:--- |
 | 4 |[Authentication to Azure SQL Data Warehouse](sql-data-warehouse-authentication.md) (Uwierzytelnianie w usłudze Azure SQL Data Warehouse) |Azure Active Directory (AAD) i SQL Server uwierzytelniania usługi Azure SQL Data Warehouse. |
 | 5 |[Najlepsze praktyki dotyczące korzystania z usługi Azure SQL Data Warehouse](sql-data-warehouse-best-practices.md) |Zalecenia i najlepsze praktyki, których stosowanie zaleca się podczas tworzenia rozwiązań dla usługi Azure SQL Data Warehouse. Dzięki nim łatwiej jest odnieść sukces. |
@@ -56,7 +56,7 @@ Ta sekcja zawiera artykuły, które zostały zaktualizowane, których zainstalow
 | 17 |[Tworzenie zapytań względem usługi Azure SQL Data Warehouse (Visual Studio)](sql-data-warehouse-query-visual-studio.md) |Tworzenie zapytań względem usługi SQL Data Warehouse przy użyciu programu Visual Studio. |
 
 ## <a name="develop"></a>Programowanie
-| &nbsp; | Tytuł | Opis |
+| &nbsp; | Stanowisko | Opis |
 | ---:|:--- |:--- |
 | 18 |[Optymalizacja transakcji dla magazynu danych SQL](sql-data-warehouse-develop-best-practices-transactions.md) |Najlepszych rozwiązań o pisaniu aktualizacje wydajne transakcji w magazynie danych SQL Azure |
 | 19 |[Zarządzanie współbieżności i obciążenia w usłudze SQL Data Warehouse](sql-data-warehouse-develop-concurrency.md) |Zrozumienie zarządzania współbieżności i obciążenia w usłudze Azure SQL Data Warehouse związane z opracowywaniem rozwiązań. |
@@ -73,7 +73,7 @@ Ta sekcja zawiera artykuły, które zostały zaktualizowane, których zainstalow
 | 30 |[Decyzje dotyczące projektu i technik programowania dla usługi SQL Data Warehouse](sql-data-warehouse-overview-develop.md) |Pojęcia dotyczące programowania, decyzji projektowych i zalecenia dotyczące technik programowania dla usługi SQL Data Warehouse. |
 
 ## <a name="manage"></a>Zarządzanie
-| &nbsp; | Tytuł | Opis |
+| &nbsp; | Stanowisko | Opis |
 | ---:|:--- |:--- |
 | 31 |[Zarządzanie moc obliczeniową w usłudze Azure SQL Data Warehouse (omówienie)](sql-data-warehouse-manage-compute-overview.md) |Wydajność skalowania możliwości w usłudze Azure SQL Data Warehouse. Skalowanie w poziomie przez dostosowanie wartości dwu lub wstrzymywać i wznawiać zasobów obliczeniowych w celu ograniczenia kosztów. |
 | 32 |[Zarządzanie moc obliczeniową w usłudze Azure SQL Data Warehouse (Azure portal)](sql-data-warehouse-manage-compute-portal.md) |Azure zadania portalu do zarządzania mocy obliczeniowej. Zasoby obliczeniowe skali przez dostosowanie wartości dwu. Wstrzymać lub wznowić zasobów obliczeniowych w celu ograniczenia kosztów. |
@@ -89,7 +89,7 @@ Ta sekcja zawiera artykuły, które zostały zaktualizowane, których zainstalow
 | 42 |[Przywróć magazyn danych Azure SQL (interfejsu API REST)](sql-data-warehouse-restore-database-rest-api.md) |Interfejs API REST zadania przywracania usługi Azure SQL Data Warehouse. |
 
 ## <a name="tables-and-indexes"></a>Tabele i indeksy
-| &nbsp; | Tytuł | Opis |
+| &nbsp; | Stanowisko | Opis |
 | ---:|:--- |:--- |
 | 43 |[Typy danych w przypadku tabel w usłudze SQL Data Warehouse](sql-data-warehouse-tables-data-types.md) |Wprowadzenie do typów danych w przypadku tabel Azure SQL Data Warehouse. |
 | 44 |[Dystrybucja tabel w usłudze SQL Data Warehouse](sql-data-warehouse-tables-distribute.md) |Wprowadzenie do korzystania z dystrybucji tabel w usłudze Azure SQL Data Warehouse. |
@@ -100,7 +100,7 @@ Ta sekcja zawiera artykuły, które zostały zaktualizowane, których zainstalow
 | 49 |[Tabele tymczasowe w usłudze SQL Data Warehouse](sql-data-warehouse-tables-temporary.md) |Wprowadzenie do tabel tymczasowych w usłudze Azure SQL Data Warehouse. |
 
 ## <a name="integrate"></a>Integracja
-| &nbsp; | Tytuł | Opis |
+| &nbsp; | Stanowisko | Opis |
 | ---:|:--- |:--- |
 | 50 |[Użyj fabryki danych Azure z usługą Magazyn danych SQL](sql-data-warehouse-integrate-azure-data-factory.md) |Porady dotyczące przy użyciu fabryki danych Azure (ADF) w usłudze Azure SQL Data Warehouse związane z opracowywaniem rozwiązań. |
 | 51 |[Użyj usługi Azure Machine Learning z usługą Magazyn danych SQL](sql-data-warehouse-integrate-azure-machine-learning.md) |Samouczek korzystania z usługi Azure Machine Learning z usługą Azure SQL Data Warehouse w celu opracowywania rozwiązań. |
@@ -109,7 +109,7 @@ Ta sekcja zawiera artykuły, które zostały zaktualizowane, których zainstalow
 | 54 |[Korzystać z innych usług z usługą Magazyn danych SQL](sql-data-warehouse-overview-integrate.md) |Narzędzia i partnerom rozwiązania, które integrują się z usługą Magazyn danych SQL. |
 
 ## <a name="load"></a>Ładowanie
-| &nbsp; | Tytuł | Opis |
+| &nbsp; | Stanowisko | Opis |
 | ---:|:--- |:--- |
 | 55 |[Ładowanie danych z magazynu obiektów blob platformy Azure do usługi Azure SQL Data Warehouse (fabryka danych Azure)](sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md) |Dowiedz się, jak załadować dane przy użyciu usługi Azure Data Factory |
 | 56 |[Ładowanie danych z magazynu obiektów blob platformy Azure do usługi SQL Data Warehouse (PolyBase)](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) |Dowiedz się, jak używać programu PolyBase do ładowania danych z magazynu obiektów blob platformy Azure do usługi SQL Data Warehouse. Ładowanie kilku tabel z danych publicznej do schematu magazynu danych sprzedaży detalicznej Contoso. |
@@ -123,7 +123,7 @@ Ta sekcja zawiera artykuły, które zostały zaktualizowane, których zainstalow
 | 64 |[Ładowanie danych do usługi Azure SQL Data Warehouse](sql-data-warehouse-overview-load.md) |Dowiedz się typowe scenariusze dotyczące danych ładowania do usługi SQL Data Warehouse. Obejmują one przy użyciu programu PolyBase, magazynu obiektów blob platformy Azure, plików prostych i wysyłania dysku. Można także użyć narzędzi innych firm. |
 
 ## <a name="migrate"></a>Migrate (Migracja)
-| &nbsp; | Tytuł | Opis |
+| &nbsp; | Stanowisko | Opis |
 | ---:|:--- |:--- |
 | 65 |[Migrowanie kodu SQL do SQL Data Warehouse](sql-data-warehouse-migrate-code.md) |Wskazówki dotyczące migrowania kodu SQL Azure SQL Data Warehouse związane z opracowywaniem rozwiązań. |
 | 66 |[Migrowanie danych](sql-data-warehouse-migrate-data.md) |Wskazówki dotyczące migrowania danych Azure SQL Data Warehouse związane z opracowywaniem rozwiązań. |
@@ -132,14 +132,14 @@ Ta sekcja zawiera artykuły, które zostały zaktualizowane, których zainstalow
 | 69 |[Migrowanie rozwiązania do usługi SQL Data Warehouse](sql-data-warehouse-overview-migrate.md) |Wskazówki dotyczące migracji za rozwiązania do platformy Azure SQL Data Warehouse. |
 
 ## <a name="partners"></a>Partnerzy
-| &nbsp; | Tytuł | Opis |
+| &nbsp; | Stanowisko | Opis |
 | ---:|:--- |:--- |
 | 70 |[Partnerów analizy biznesowej usługi SQL Data Warehouse](sql-data-warehouse-partner-business-intelligence.md) |Lista partnerów analizy biznesowej innych firm z rozwiązaniami, które obsługują usługi SQL Data Warehouse. |
 | 71 |[Partnerzy Integracja danych magazynu danych SQL](sql-data-warehouse-partner-data-integration.md) |Listę innych firm partnerom rozwiązań integracji danych, które obsługują usługi Azure SQL Data Warehouse. |
 | 72 |[Partnerzy zarządzania danych magazynu danych SQL](sql-data-warehouse-partner-data-management.md) |Lista partnerów zarządzania innych producentów danych z rozwiązaniami, które obsługują usługi SQL Data Warehouse. |
 
-## <a name="reference"></a>Dokumentacja
-| &nbsp; | Tytuł | Opis |
+## <a name="reference"></a>Informacje ogólne
+| &nbsp; | Stanowisko | Opis |
 | ---:|:--- |:--- |
 | 73 |[Tematy odwołań dla usługi SQL Data Warehouse](sql-data-warehouse-overview-reference.md) |Odwołanie łączy zawartości dla usługi SQL Data Warehouse. |
 | 74 |[Polecenia cmdlet programu PowerShell i interfejsów API REST dla usługi SQL Data Warehouse](sql-data-warehouse-reference-powershell-cmdlets.md) |Znajdź top poleceń cmdlet programu PowerShell dla usługi Azure SQL Data Warehouse, łącznie ze sposobem wstrzymywanie i wznawianie bazy danych. |
@@ -148,7 +148,7 @@ Ta sekcja zawiera artykuły, które zostały zaktualizowane, których zainstalow
 | 77 |[Widoki systemowe](sql-data-warehouse-reference-tsql-system-views.md) |Łącza do systemu widokach zawartości dla usługi SQL Data Warehouse. |
 
 ## <a name="security"></a>Bezpieczeństwo
-| &nbsp; | Tytuł | Opis |
+| &nbsp; | Stanowisko | Opis |
 | ---:|:--- |:--- |
 | 78 |[Obsługa klientów niższych poziomów usługi SQL Data Warehouse — inspekcji i dynamicznego maskowania danych](sql-data-warehouse-auditing-downlevel-clients.md) |Więcej informacji na temat obsługi klientów niższych poziomów usługi SQL Data Warehouse danych inspekcji |
 | 79 |[Inspekcja w magazynie danych Azure SQL](sql-data-warehouse-auditing-overview.md) |Wprowadzenie do inspekcji w usłudze Azure SQL Data Warehouse |
@@ -157,7 +157,7 @@ Ta sekcja zawiera artykuły, które zostały zaktualizowane, których zainstalow
 | 82 |[Zabezpieczanie bazy danych w usłudze SQL Data Warehouse](sql-data-warehouse-overview-manage-security.md) |Porady dotyczące zabezpieczenia bazy danych w usłudze Azure SQL Data Warehouse związane z opracowywaniem rozwiązań. |
 
 ## <a name="miscellaneous"></a>Różne postanowienia
-| &nbsp; | Tytuł | Opis |
+| &nbsp; | Stanowisko | Opis |
 | ---:|:--- |:--- |
 | 83 |[Instalacja programu Visual Studio i narzędzi SSDT dla usługi SQL Data Warehouse](sql-data-warehouse-install-visual-studio.md) |Instalacja programu Visual Studio i narzędzi SQL Server Data Tools (SSDT) dla usługi Azure SQL Data Warehouse |
 | 84 |[Migracja do szczegóły magazynu w warstwie Premium](sql-data-warehouse-migrate-to-premium-storage.md) |Instrukcje dotyczące migrowania istniejącego magazynu danych SQL magazyn w warstwie premium |

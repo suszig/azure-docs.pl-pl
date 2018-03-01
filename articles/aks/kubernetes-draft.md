@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a77e214c1138ce936b2ec6c521950704e5beb3ff
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 803d9e9ea7411c6de4dd15670f495fa8e169a989
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="use-draft-with-azure-container-service-aks"></a>Projekt za pomocą usługi kontenera platformy Azure (AKS)
 
@@ -27,28 +27,7 @@ W krokach szczegółowo opisanych w tym dokumencie założono, że klaster usłu
 
 Należy również prywatnej rejestru Docker w rejestrze kontenera platformy Azure (ACR). Aby uzyskać instrukcje na temat wdrażania wystąpienia ACR, zobacz [Szybki Start Azure kontenera rejestru][acr-quickstart].
 
-## <a name="install-helm"></a>Zainstaluj Helm
-
-Helm interfejsu wiersza polecenia jest klient, który działa w systemie deweloperskim i umożliwia uruchamianie, zatrzymywanie i zarządzania aplikacjami z wykresami Helm.
-
-Aby zainstalować Helm interfejsu wiersza polecenia na komputerze Mac, należy użyć `brew`. Aby uzyskać dodatkowe opcje instalacji, zobacz [instalowanie Helm][install-helm].
-
-```console
-brew install kubernetes-helm
-```
-
-Dane wyjściowe:
-
-```
-==> Downloading https://homebrew.bintray.com/bottles/kubernetes-helm-2.6.2.sierra.bottle.1.tar.gz
-######################################################################## 100.0%
-==> Pouring kubernetes-helm-2.6.2.sierra.bottle.1.tar.gz
-==> Caveats
-Bash completion has been installed to:
-  /usr/local/etc/bash_completion.d
-==> Summary
-🍺  /usr/local/Cellar/kubernetes-helm/2.6.2: 50 files, 132.4MB
-```
+Helm również musi być zainstalowany w klastrze AKS. Aby uzyskać więcej informacji na temat instalowania helm, zobacz [Helm użycia z usługi kontenera platformy Azure (AKS)][aks-helm].
 
 ## <a name="install-draft"></a>Zainstaluj wersję roboczą
 
@@ -227,7 +206,7 @@ Początkowo *IP zewnętrznego* dla usługi pojawia się jako `pending`.
 deadly-squid-java   10.0.141.72   <pending>     80:32150/TCP   14m
 ```
 
-Gdy adres IP zewnętrznego zmienił się z `pending` do `IP address`, użyj `Control+C` można zatrzymać procesu czujki kubectl.
+Po zmianie adresu EXTERNAL-IP z `pending` na `IP address` użyj polecenia `Control+C`, aby zatrzymać proces śledzenia narzędzia kubectl.
 
 ```
 deadly-squid-java   10.0.141.72   52.175.224.118   80:32150/TCP   17m
@@ -297,7 +276,7 @@ Dane wyjściowe:
 Hello World, I'm Java - Draft Rocks!
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby uzyskać więcej informacji o korzystaniu z wersji próbnej zobacz dokumentację projekt w witrynie GitHub.
 
@@ -307,10 +286,10 @@ Aby uzyskać więcej informacji o korzystaniu z wersji próbnej zobacz dokumenta
 <!-- LINKS - external -->
 [draft-documentation]: https://github.com/Azure/draft/tree/master/docs
 [install-draft]: https://github.com/Azure/draft/blob/master/docs/install.md
-[install-helm]: https://github.com/kubernetes/helm/blob/master/docs/install.md
-[kubernetes-ingress]: https://kubernetes.io/docs/concepts/services-networking/ingress/
+[kubernetes-ingress]: ./ingress.md
 [kubernetes-service-loadbalancer]: https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer
 
 <!-- LINKS - internal -->
 [acr-quickstart]: ../container-registry/container-registry-get-started-azure-cli.md
+[aks-helm]: ./kubernetes-helm.md
 [aks-quickstart]: ./kubernetes-walkthrough.md

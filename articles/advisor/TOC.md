@@ -1,3 +1,5 @@
+# [Dokumentacja usługi Azure Advisor](index.md)
+
 # Omówienie
 ## [Co to jest usługa Azure Advisor?](advisor-overview.md)
 

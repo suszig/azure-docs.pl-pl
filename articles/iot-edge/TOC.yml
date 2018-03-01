@@ -5,6 +5,7 @@
     - name: Azure IoT Edge — informacje
       href: how-iot-edge-works.md
 - name: Przewodniki Szybki start
+  expanded: true
   items:
     - name: Wdrażanie na brzegu — system Linux lub Mac
       href: quickstart-linux.md

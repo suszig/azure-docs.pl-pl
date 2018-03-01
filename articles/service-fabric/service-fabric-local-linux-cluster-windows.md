@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/20/2017
 ms.author: suhuruli
-ms.openlocfilehash: f21561269e90e3643ef5d8d48ee28712ee7f611c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: db6ad8b83ce34a8b86de822bc074e8a13345a1b4
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>Konfigurowanie klastra sieci szkieletowej usług systemu Linux na komputerze dewelopera systemu Windows
 
@@ -29,7 +29,6 @@ Opartych na systemie Linux klastrów sieci szkieletowej usług nie należy uruch
 
 * Co najmniej 4 GB pamięci RAM
 * Najnowsza wersja platformy [Docker](https://store.docker.com/editions/community/docker-ce-desktop-windows)
-* Dostęp do jednopunktowego [obrazu](https://hub.docker.com/r/servicefabricoss/service-fabric-onebox/) kontenera Docker usługi Service Fabric
 
 >[!TIP]
 > * Możesz wykonać czynności wymienionych w oficjalnego Docker [dokumentacji](https://store.docker.com/editions/community/docker-ce-desktop-windows/plans/docker-ce-desktop-windows-tier?tab=instructions) do zainstalowania platformy Docker na systemu Windows. 
@@ -42,7 +41,7 @@ Aby skonfigurować lokalny kontener platformy Docker i uruchomić na nim klaster
 1. Ściągnij obraz z repozytorium platformy Docker:
 
     ```powershell
-    docker pull servicefabricoss/service-fabric-onebox
+    docker pull microsoft/service-fabric-onebox
     ```
 
 2. Zaktualizuj konfigurację demona platformy Docker na swoim hoście za pomocą następujących ustawień i ponownie uruchom demona platformy Docker: 
@@ -58,11 +57,11 @@ Aby skonfigurować lokalny kontener platformy Docker i uruchomić na nim klaster
 3. Uruchom jednopunktowe wystąpienie kontenera Docker usługi Service Fabric przy użyciu obrazu:
 
     ```powershell
-    docker run -itd -p 19080:19080 --name sfonebox servicefabricoss/service-fabric-onebox
+    docker run -itd -p 19080:19080 --name sfonebox microsoft/service-fabric-onebox
     ```
     >[!TIP]
     > * Określenie nazwy wystąpienia kontenera pomoże usprawnić jego obsługę. 
-    > * Jeśli Twoja aplikacja nasłuchuje na określonych portach, należy to określić za pomocą dodatkowych tagów -p. Jeśli na przykład aplikacja nasłuchuje na porcie 8080, uruchom polecenie docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox servicefabricoss/service-fabric-onebox
+    > * Jeśli Twoja aplikacja nasłuchuje na określonych portach, należy to określić za pomocą dodatkowych tagów -p. Na przykład jeśli aplikacja nasłuchuje na porcie 8080, uruchom docker Uruchom 8080:8080 -p 19080:19080 - itd -p — nazwę sfonebox microsoft/service — sieci szkieletowej — onebox
 
 4. Zaloguj się do kontenera Docker w trybie interaktywnym ssh:
 
@@ -82,7 +81,7 @@ Aby skonfigurować lokalny kontener platformy Docker i uruchomić na nim klaster
     > [!NOTE]
     > Wtyczka Eclipse obecnie nie jest obsługiwana w systemie Windows. 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Rozpoczynanie pracy z [programu Eclipse](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-eclipse)
 * Zapoznaj się z innymi [przykłady Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 

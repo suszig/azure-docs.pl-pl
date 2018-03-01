@@ -1,4 +1,6 @@
-# Przegląd
+# [Dokumentacja usług Analysis Services](index.md)
+
+# Omówienie
 ## [About Analysis Services (Informacje na temat usług Analysis Services)](analysis-services-overview.md)
 ## [Obsługiwane źródła danych](analysis-services-datasource.md)
 ## [Uwierzytelnianie i uprawnienia użytkownika](analysis-services-manage-users.md)
@@ -14,6 +16,7 @@
 
 # Porady 
 ## [Instalowanie i konfigurowanie bramy danych lokalnych](analysis-services-gateway-install.md)
+## [Importowanie pliku programu Power BI Desktop](analysis-services-import-pbix.md)
 ## [Tworzenie kopii zapasowej i przywracanie](analysis-services-backup.md)
 ## [Odświeżanie za pomocą interfejsu API REST](analysis-services-async-refresh.md)
 ## [Konfigurowanie zwiększania skali w poziomie](analysis-services-scale-out.md)
@@ -30,25 +33,26 @@
 ### [Łączenie z usługą Power BI](analysis-services-connect-pbi.md)
 ### [Tworzenie pliku odc](analysis-services-odc.md)
 ## Samouczki
+### [1 — Tworzenie przykładowego modelu](analysis-services-create-sample-model.md)
 ### [Modelowanie danych — samouczek Adventure Works](tutorials/aas-adventure-works-tutorial.md)
-### [1. Tworzenie projektu modelu tabelarycznego](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)
-### [2. Pobieranie danych](tutorials/aas-lesson-2-get-data.md)
-### [3. Oznaczanie jako tabeli dat](tutorials/aas-lesson-3-mark-as-date-table.md) 
-### [4. Tworzenie relacji](tutorials/aas-lesson-4-create-relationships.md) 
-### [5. Tworzenie kolumn obliczeniowych](tutorials/aas-lesson-5-create-calculated-columns.md)
-### [6. Tworzenie miar](tutorials/aas-lesson-6-create-measures.md)  
-### [7. Tworzenie kluczowych wskaźników wydajności](tutorials/aas-lesson-7-create-key-performance-indicators.md)  
-### [8. Tworzenie perspektyw](tutorials/aas-lesson-8-create-perspectives.md) 
-### [9. Tworzenie hierarchii](tutorials/aas-lesson-9-create-hierarchies.md) 
-### [10. Tworzenie partycji](tutorials/aas-lesson-10-create-partitions.md) 
-### [11. Tworzenie ról](tutorials/aas-lesson-11-create-roles.md)
-### [12. Analiza w programie Excel](tutorials/aas-lesson-12-analyze-in-excel.md)
-### [13. Wdrażanie](tutorials/aas-lesson-13-deploy.md)
-### [Lekcja uzupełniająca — wiersze szczegółów](tutorials/aas-supplemental-lesson-detail-rows.md)
-### [Lekcja uzupełniająca — zabezpieczenia dynamiczne](tutorials/aas-supplemental-lesson-dynamic-security.md)
-### [Lekcja uzupełniająca — niewyrównane hierarchie](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
+#### [1. Tworzenie projektu modelu tabelarycznego](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)
+#### [2. Pobieranie danych](tutorials/aas-lesson-2-get-data.md)
+#### [3. Oznaczanie jako tabeli dat](tutorials/aas-lesson-3-mark-as-date-table.md) 
+#### [4. Tworzenie relacji](tutorials/aas-lesson-4-create-relationships.md) 
+#### [5. Tworzenie kolumn obliczeniowych](tutorials/aas-lesson-5-create-calculated-columns.md)
+#### [6. Tworzenie miar](tutorials/aas-lesson-6-create-measures.md)  
+#### [7. Tworzenie kluczowych wskaźników wydajności](tutorials/aas-lesson-7-create-key-performance-indicators.md)  
+#### [8. Tworzenie perspektyw](tutorials/aas-lesson-8-create-perspectives.md) 
+#### [9. Tworzenie hierarchii](tutorials/aas-lesson-9-create-hierarchies.md) 
+#### [10. Tworzenie partycji](tutorials/aas-lesson-10-create-partitions.md) 
+#### [11. Tworzenie ról](tutorials/aas-lesson-11-create-roles.md)
+#### [12. Analiza w programie Excel](tutorials/aas-lesson-12-analyze-in-excel.md)
+#### [13. Wdrażanie](tutorials/aas-lesson-13-deploy.md)
+#### [Lekcja uzupełniająca — wiersze szczegółów](tutorials/aas-supplemental-lesson-detail-rows.md)
+#### [Lekcja uzupełniająca — zabezpieczenia dynamiczne](tutorials/aas-supplemental-lesson-dynamic-security.md)
+#### [Lekcja uzupełniająca — niewyrównane hierarchie](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
 
-# Odwołanie
+# Dokumentacja
 ## [Azure PowerShell](analysis-services-powershell.md)
 ## [REST](/rest/api/analysisservices)
 ## [DAX](https://msdn.microsoft.com/library/gg413422.aspx)
