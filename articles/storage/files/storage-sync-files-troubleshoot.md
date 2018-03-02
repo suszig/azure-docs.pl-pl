@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 378330149aebc1936846472a522631308fe3eb80
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 506781ac83e75d558badbd3a8842533e314a8dfa
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Rozwiązywanie problemów z synchronizacji plików Azure (wersja zapoznawcza)
 Umożliwia synchronizacji plików Azure (wersja zapoznawcza) scentralizowanie udziałów plików w organizacji w plikach Azure, przy zachowaniu elastyczności, wydajności i zgodności serwera plików lokalnych. Synchronizacja programu Azure pliku przy użyciu systemu Windows Server do szybkiego pamięci podręcznej udziału plików na platformę Azure. Można użyć każdego protokołu, który jest dostępny w systemie Windows Server dostępu do danych lokalnie, w tym protokołu SMB, systemu plików NFS i FTPS. Może mieć dowolną liczbę pamięci podręcznych zgodnie z potrzebami na całym świecie.
@@ -145,15 +145,14 @@ Jeśli synchronizacja nie powiedzie się na serwerze:
 <a id="replica-not-ready"></a>**Synchronizacja nie powiedzie się, z powodu następującego błędu: "0x80c8300f — replika nie jest gotowa do wykonania żądanej operacji"**  
 Ten problem powinien po utworzeniu punktu końcowego w chmurze i użyj udziału plików na platformę Azure, która zawiera dane. Po zakończeniu zadania wykrywania zmian uruchomione w udziale plików na platformę Azure (może potrwać do 24 godzin) synchronizacji należy zacząć działać poprawnie.
 
-<a id="broken-sync-files"></a>**Rozwiązywanie problemów z poszczególnych plików, których nie udało się zsynchronizować**  
-Jeśli pojedynczych plików nie można zsynchronizować:
-1. W Podglądzie zdarzeń przejrzyj dzienniki zdarzeń operacyjnych i diagnostycznych, znajduje się w aplikacji i Services\Microsoft\FileSync\Agent.
-2. Sprawdź, że nie ma żadnych otwarte dojścia do pliku.
 
     > [!NOTE]
-    > Synchronizacja programu Azure plik ma okresowo migawki VSS, aby zsynchronizować pliki, które mają otwarte dojścia.
+    > Azure File Sync periodically takes VSS snapshots to sync files that have open handles.
 
 Obecnie nie obsługujemy przenoszenie zasobów do innej subskrypcji lub, przeniesienie do innej usługi Azure AD dzierżawy.  Jeśli subskrypcja zostanie przeniesiony do innej dzierżawy, udział plików na platformę Azure będą niedostępne do naszej usługi, w oparciu o zmianę własności. Jeśli dzierżawca zostanie zmienione, musisz usunąć punkty końcowe serwera i punktu końcowego w chmurze (zobacz synchronizacji grupy zarządzania sekcji instrukcje jak oczyścić udział plików na platformę Azure, można ponownie użyć) i Utwórz ponownie grupę synchronizacji.
+
+<a id="doesnt-have-enough-free-space"></a>**Ten komputer nie ma wystarczającej ilości wolnego miejsca na błąd**  
+Jeśli portal Wyświetla stan "Ten komputer nie ma wystarczającej ilości wolnego miejsca" problem może być że mniej niż 1 GB wolnego miejsca jest nadal w woluminie.  Na przykład w przypadku woluminu 1,5 GB synchronizacji tylko będzie można wykorzystywać .5GB, jeśli zostanie osiągnięty ten problem, należy zwiększyć rozmiar woluminu używany przez punkt końcowy serwera.
 
 ## <a name="cloud-tiering"></a>Obsługa warstw w chmurze 
 Istnieją dwie ścieżki do błędów w chmurze warstwy:

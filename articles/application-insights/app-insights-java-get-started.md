@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 99c9740e3f19e2a09332317b08e06352ffa8eee7
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 1ec845a6491b406c1aef34609b155a9c3d087427
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Wprowadzenie do usługi Application Insights w projekcie sieci Web w języku Java
 
@@ -70,12 +70,12 @@ Następnie odśwież zależności projektu, aby pliki binarne zostały pobrane.
         <groupId>com.microsoft.azure</groupId>
         <artifactId>applicationinsights-web</artifactId>
         <!-- or applicationinsights-core for bare API -->
-        <version>[1.0,)</version>
+        <version>[2.0,)</version>
       </dependency>
     </dependencies>
 ```
 
-* *Błędy kompilacji lub walidacji sumy kontrolnej?* Spróbuj użyć określonej wersji, np.: `<version>1.0.n</version>`. Najbardziej aktualną wersję z najdziesz w [informacjach o wersji zestawu SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) lub wśród naszych [artefaktów Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Błędy kompilacji lub walidacji sumy kontrolnej?* Spróbuj użyć określonej wersji, np.: `<version>2.0.n</version>`. Najbardziej aktualną wersję z najdziesz w [informacjach o wersji zestawu SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) lub wśród naszych [artefaktów Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Trzeba zaktualizować zestaw SDK?* Odśwież zależności projektu.
 
 #### <a name="if-youre-using-gradle"></a>Jeśli używasz narzędzia Gradle...
@@ -90,19 +90,19 @@ Następnie odśwież zależności projektu, aby pliki binarne zostały pobrane.
     }
 
     dependencies {
-      compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '1.+'
+      compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '2.+'
       // or applicationinsights-core for bare API
     }
 ```
 
-* *Błędy kompilacji lub walidacji sumy kontrolnej? Spróbuj użyć określonej wersji, np.:* `version:'1.0.n'`. *Najbardziej aktualną wersję znajdziesz w [informacjach o wersji zestawu SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
+* *Błędy kompilacji lub walidacji sumy kontrolnej? Spróbuj użyć określonej wersji, np.:* `version:'2.0.n'`. *Najbardziej aktualną wersję znajdziesz w [informacjach o wersji zestawu SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
 * *Aby zaktualizować zestaw SDK*
   * Odśwież zależności projektu.
 
 #### <a name="otherwise-"></a>W innym przypadku...
 Ręcznie dodaj zestaw SDK:
 
-1. Pobierz [Zestaw SDK usługi Application Insights dla środowiska Java](https://aka.ms/aijavasdk).
+1. Pobierz [Zestaw SDK usługi Application Insights dla środowiska Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest).
 2. Wyodrębnij pliki binarne z pliku zip i dodaj je do projektu.
 
 ### <a name="questions"></a>Pytania...
@@ -112,7 +112,7 @@ Ręcznie dodaj zestaw SDK:
   * Element `applicationinsights-web` dostarcza metryki do śledzenia liczby żądań HTTP i czasów odpowiedzi. Możesz pominąć ten składnik, jeśli nie chcesz automatycznie zbierać tych danych telemetrycznych. Na przykład jeśli chcesz zaprogramować zbieranie samodzielnie.
 * *Aby zaktualizować zestaw SDK po opublikowaniu zmian*
 
-  * Pobierz najnowszy [Zestaw SDK usługi Application Insights dla środowiska Java](https://aka.ms/qqkaq6) i zastąp nim stary.
+  * Pobierz najnowszy [Zestaw SDK usługi Application Insights dla środowiska Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) i zastąp nim stary.
   * Zmiany są opisane w [informacjach o wersji zestawu SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
 ## <a name="3-add-an-application-insights-xml-file"></a>3. Dodawanie pliku .xml usługi Application Insights
@@ -323,7 +323,7 @@ Możesz określić dodatkowe liczniki wydajności do zbierania danych.
   * `tabular`: dane licznika wydajności są w formacie wiersza tabeli
 
 #### <a name="windows-performance-counters"></a>Liczniki wydajności systemu Windows
-Każdy [licznik wydajności systemu Windows](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) należy do kategorii (w taki sam sposób, w jaki pole należy do klasy). Kategorie mogą być globalne lub mogą mieć wystąpienia numerowane lub nazwane.
+Każdy [licznik wydajności systemu Windows](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) jest składową kategorii (w taki sam sposób, w jaki pole jest składową klasy). Kategorie mogą być globalne lub mogą mieć wystąpienia numerowane lub nazwane.
 
 ```XML
     <PerformanceCounters>

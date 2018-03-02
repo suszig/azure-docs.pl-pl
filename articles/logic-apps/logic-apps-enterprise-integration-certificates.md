@@ -1,11 +1,11 @@
 ---
-title: "Za pomocą certyfikatów z pakiet integracyjny dla przedsiębiorstw | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak używać certyfikatów z pakiet integracyjny dla przedsiębiorstw | Aplikacje logiki platformy Azure"
+title: "Zabezpieczanie komunikatów B2B z certyfikatami w usłudze Azure Logic Apps | Dokumentacja firmy Microsoft"
+description: "Dodaj certyfikaty do zabezpieczenia wiadomości B2B z pakiet integracyjny dla przedsiębiorstw"
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
 manager: anneta
-editor: cgronlun
+editor: 
 ms.assetid: 4cbffd85-fe8d-4dde-aa5b-24108a7caa7d
 ms.service: logic-apps
 ms.workload: integration
@@ -14,86 +14,108 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 0357e67a8920a57b2ab8b79ebd8dd3a64d888478
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
-ms.translationtype: HT
+ms.openlocfilehash: 708bdcddede71186c48ae7d4034cc9df0bd61391
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="learn-about-certificates-and-enterprise-integration-pack"></a>Informacje na temat certyfikatów i pakietu integracyjnego dla przedsiębiorstw
-## <a name="overview"></a>Przegląd
-Integracja przedsiębiorstwa używa certyfikatów do zabezpieczenia komunikacji B2B. Można użyć dwóch typów certyfikatów, w aplikacjach integracji przedsiębiorstwa:
+# <a name="secure-b2b-messages-with-certificates"></a>Zabezpieczonych wiadomości B2B z certyfikatami
+
+Czasami trzeba zachować poufne komunikacji B2B. Do zabezpieczenia komunikacji B2B w przedsiębiorstwie integracji aplikacji, w szczególności logikę aplikacji, należy dodać certyfikaty do konta integracji. Certyfikaty są dokumentami cyfrowe, które zweryfikować tożsamość uczestników łączności elektronicznej.
+Certyfikaty pomóc zabezpieczyć komunikację w następujący sposób:
+
+* Szyfrowania treści wiadomości
+* Cyfrowe podpisywanie wiadomości  
+
+Korzystanie z tych certyfikatów, w aplikacjach integracji przedsiębiorstwa:
 
 * Certyfikaty publiczne, które muszą być zakupione od urzędu certyfikacji (CA).
 * Certyfikaty prywatne, które można wystawić samodzielnie. Te certyfikaty są czasami określane jako certyfikaty z podpisem własnym.
 
-## <a name="what-are-certificates"></a>Co to są certyfikaty?
-Certyfikaty są cyfrowe dokumenty, który sprawdzić tożsamość uczestników łączności elektronicznej i który również bezpieczna komunikacja elektronicznych.
-
-## <a name="why-use-certificates"></a>Dlaczego warto używać certyfikatów?
-Czasami komunikacji B2B musi poufne. Integracja przedsiębiorstwa używa certyfikatów do zabezpieczenia tej komunikacji na dwa sposoby:
-
-* Zawartość wiadomości są szyfrowane
-* Przez cyfrowego podpisywania wiadomości  
-
 ## <a name="upload-a-public-certificate"></a>Przekaż certyfikat publiczny
 
-Aby użyć *certyfikatu publicznego* w aplikacjach logiki z możliwościami B2B, należy najpierw przekazać certyfikat do swojego konta integracji.  
+Aby użyć *certyfikatu publicznego* w aplikacji logiki, które mają możliwości B2B, należy najpierw przekazać certyfikat do swojego konta integracji. Po zdefiniowaniu właściwości w [umowy](logic-apps-enterprise-integration-agreements.md) że tworzenia, certyfikat jest dostępny do zabezpieczenia wiadomości B2B.
 
-Przekaż certyfikat, jest dostępny do zabezpieczenia wiadomości B2B podczas definiowania ich właściwości [umowy](logic-apps-enterprise-integration-agreements.md) utworzony.  
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-Poniżej przedstawiono szczegółowe informacje na temat przekazywania certyfikaty publiczne na koncie integracji, po zalogowaniu się do portalu Azure:
+2. W menu głównym Azure wybierz **wszystkie usługi**. W polu wyszukiwania wpisz "integrację", a następnie wybierz **konta integracji**.
 
-1. Wybierz **wszystkie usługi** , a następnie wprowadź **integracji** w polu filtru wyszukiwania. Wybierz **konta integracji** z listy wyników     
-![Wybierz opcję Przeglądaj](media/logic-apps-enterprise-integration-certificates/overview-1.png)  
-2. Wybierz konto integracji, do której chcesz dodać certyfikat.  
-![Wybierz konto integracji, do której chcesz dodać certyfikat](media/logic-apps-enterprise-integration-certificates/overview-3.png)  
-3. Wybierz **certyfikaty** kafelka.  
-![Wybierz Kafelek certyfikatów](media/logic-apps-enterprise-integration-certificates/certificate-1.png)
-4. W **certyfikaty** bloku, który zostanie otwarty, wybierz **Dodaj** przycisku.   
-![Kliknij przycisk Dodaj](media/logic-apps-enterprise-integration-certificates/certificate-2.png)
-5. Wprowadź **nazwa** dla Twojego certyfikatu, a następnie wybierz certyfikat wpisać jako **publicznego** z listy rozwijanej.  
-6. Wybierz ikonę folderu w prawej części **certyfikatu** pola tekstowego. Po otwarciu selektor plików, Znajdź i wybierz plik certyfikatu, który chcesz przekazać do konta integracji.
-7. Wybierz certyfikat, a następnie wybierz **OK** w selektora plików. Weryfikuje i wysyła certyfikat do swojego konta integracji.
-8. Na koniec kopii na **Dodaj certyfikat** bloku, wybierz opcję **OK** przycisku.  
-![Kliknij przycisk OK](media/logic-apps-enterprise-integration-certificates/certificate-3.png)  
-9. Wybierz **certyfikaty** kafelka. Powinny pojawić się nowo dodany certyfikat.  
-![Zobacz nowego certyfikatu](media/logic-apps-enterprise-integration-certificates/certificate-4.png)  
+   ![Znajdź konta integracji](media/logic-apps-enterprise-integration-certificates/overview-1.png)  
+
+3. W obszarze **konta integracji**, wybierz konto integracji, w której chcesz dodać certyfikat.
+
+   ![Wybierz konto integracji, do której chcesz dodać certyfikat](media/logic-apps-enterprise-integration-certificates/overview-3.png)  
+
+4. Wybierz **certyfikaty** kafelka.  
+
+   ![Wybierz pozycję "Certyfikaty"](media/logic-apps-enterprise-integration-certificates/certificate-1.png)
+
+5. W obszarze **certyfikaty**, wybierz **Dodaj**.
+
+   ![Wybierz opcję "Dodaj"](media/logic-apps-enterprise-integration-certificates/certificate-2.png)
+
+6. W obszarze **Dodaj certyfikat**, podaj szczegóły certyfikatu.
+   
+   1. Wprowadź swój certyfikat **nazwa**. Typ certyfikatu wybierz **publicznego**.
+
+   2. W prawej części **certyfikatu** wybierz ikonę folderu. 
+   Znajdź i wybierz plik certyfikatu, który chcesz przekazać. 
+   Gdy wszystko będzie gotowe, wybierz pozycję **OK**.
+
+      ![Przekaż certyfikat publiczny](media/logic-apps-enterprise-integration-certificates/certificate-3.png)
+
+   Azure przekazywanie certyfikatu po weryfikacji wybór.
+
+   ![Zobacz nowego certyfikatu](media/logic-apps-enterprise-integration-certificates/certificate-4.png) 
 
 ## <a name="upload-a-private-certificate"></a>Przekaż certyfikat prywatny
 
-Aby użyć *certyfikatu prywatnego* w aplikacjach logiki z możliwościami B2B, można przekazać certyfikatu prywatnego do konta integracji, wykonując następujące czynności
+Aby użyć *certyfikatu prywatnego* w aplikacji logiki, które mają możliwości B2B, należy najpierw przekazać certyfikat do swojego konta integracji. Musisz również mieć klucz prywatny, który najpierw dodać do [usługi Azure Key Vault](../key-vault/key-vault-get-started.md). 
 
-1. [Przekazać klucz prywatny do magazynu klucz](../key-vault/key-vault-get-started.md "więcej informacji na temat usługi Key Vault") i podaj **nazwa klucza** 
+Po zdefiniowaniu właściwości w [umowy](logic-apps-enterprise-integration-agreements.md) że tworzenia, certyfikat jest dostępny do zabezpieczenia wiadomości B2B.
+
+> [!NOTE]
+> Dla prywatnych certyfikatów, upewnij się, że dodać odpowiedni certyfikat publiczny pojawią się w [umowy AS2](logic-apps-enterprise-integration-as2.md) wysyłania i odbierania ustawień podpisywania i szyfrowania wiadomości.
+
+1. [Dodaj klucz prywatny do usługi Azure Key Vault](../key-vault/key-vault-get-started.md#add) i podaj **nazwa klucza**.
    
-   > [!TIP]
-   > Musisz zezwolić aplikacji logiki, aby wykonywać operacje na magazyn kluczy. Można przyznać dostęp do nazwy głównej usługi Logic Apps za pomocą następującego polecenia programu PowerShell: `Set-AzureRmKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`  
-   > 
-   > 
+2. Autoryzacja aplikacje logiki platformy Azure do wykonywania operacji dla usługi Azure Key Vault. Aby udzielić dostępu do nazwy głównej usługi Logic Apps, użyj polecenia PowerShell [Set-AzureRmKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy), na przykład:
 
-Po poprzednim kroku, należy dodać prywatny certyfikatu do konta integracji.
-
-Poniżej przedstawiono szczegółowe informacje na temat przekazywania prywatnej certyfikaty do konta integracji, po zalogowaniu się do portalu Azure:  
+   `Set-AzureRmKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName 
+   '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`
  
-1. Wybierz konto integracji, do której chcesz dodać certyfikat, a następnie wybierz **certyfikaty** kafelka.  
-![Wybierz Kafelek certyfikatów](media/logic-apps-enterprise-integration-certificates/certificate-1.png)  
-2. W **certyfikaty** bloku, który zostanie otwarty, wybierz **Dodaj** przycisku.   
-![Kliknij przycisk Dodaj](media/logic-apps-enterprise-integration-certificates/certificate-2.png)
-3. Wprowadź **nazwa** dla certyfikatu i wybierz typ certyfikatu jako **prywatnej** z listy rozwijanej.   
-4. Wybierz ikonę folderu w prawej części **certyfikatu** pola tekstowego. Po otwarciu selektora plików można znaleźć odpowiedniego certyfikatu publicznego, który chcesz przekazać do konta integracji.   
+3. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+
+4. W menu głównym Azure wybierz **wszystkie usługi**. W polu wyszukiwania wpisz "integrację", a następnie wybierz **konta integracji**.
+
+   ![Znajdź konta integracji](media/logic-apps-enterprise-integration-certificates/overview-1.png) 
+
+5. W obszarze **konta integracji**, wybierz konto integracji, w której chcesz dodać certyfikat.
+
+6. Wybierz **certyfikaty** kafelka.  
+
+   ![Wybierz Kafelek certyfikatów](media/logic-apps-enterprise-integration-certificates/certificate-1.png)
+
+7. W obszarze **certyfikaty**, wybierz **Dodaj**.   
+
+   ![Kliknij przycisk Dodaj](media/logic-apps-enterprise-integration-certificates/certificate-2.png)
+
+8. W obszarze **Dodaj certyfikat**, podaj szczegóły certyfikatu.
    
-   > [!Note]
-   > Podczas dodawania certyfikatu prywatnego ważne jest, aby dodać odpowiedni certyfikat publiczny do wyświetlenia w [umowy AS2](logic-apps-enterprise-integration-as2.md) odbierania i wysyłania ustawień podpisywania i szyfrowania wiadomości.
-   > 
-   >   
+   1. Wprowadź swój certyfikat **nazwa**. Typ certyfikatu wybierz **prywatnej**.
 
-5. Wybierz **grupy zasobów**, **Key Vault**, **nazwa klucza** i wybierz **OK** przycisku.  
-![Dodawanie certyfikatu](media/logic-apps-enterprise-integration-certificates/privatecertificate-1.png)  
-6. Wybierz **certyfikaty** kafelka. Powinny pojawić się nowo dodany certyfikat.
-![Zobacz nowego certyfikatu](media/logic-apps-enterprise-integration-certificates/privatecertificate-2.png)  
+   2. W prawej części **certyfikatu** wybierz ikonę folderu. 
+   Znajdź i wybierz plik certyfikatu, który chcesz przekazać. 
+   Zaznacz również **grupy zasobów**, **Key Vault**, i **nazwa klucza**. 
+   Gdy wszystko będzie gotowe, wybierz pozycję **OK**.
 
+      ![Dodawanie certyfikatu](media/logic-apps-enterprise-integration-certificates/privatecertificate-1.png)
 
+   Azure przekazywanie certyfikatu po weryfikacji wybór.
 
-* [Tworzenie umowy z B2B](logic-apps-enterprise-integration-agreements.md)  
-* [Dowiedz się więcej na temat usługi Key Vault](../key-vault/key-vault-get-started.md "więcej informacji na temat usługi Key Vault")  
+   ![Zobacz nowego certyfikatu](media/logic-apps-enterprise-integration-certificates/privatecertificate-2.png)
 
+## <a name="next-steps"></a>Kolejne kroki
+
+* [Tworzenie umowy z B2B](logic-apps-enterprise-integration-agreements.md)

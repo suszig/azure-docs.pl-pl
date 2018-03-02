@@ -12,15 +12,15 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/22/2018
 ms.author: ryanwi
-ms.openlocfilehash: 9d709a0ec2b7de985ac08fe9ee2935848e7a371c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 01dd1900fe765618e5da20bd289b9c3a021ea9a3
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="sfctl-partition"></a>sfctl partycji
+# <a name="sfctl-partition"></a>sfctl partition
 Zapytanie partycji i zarządzania nimi dla żadnej usługi.
 
 ## <a name="commands"></a>Polecenia
@@ -48,7 +48,7 @@ Zapytanie partycji i zarządzania nimi dla żadnej usługi.
 Pobiera kondycji określonej partycji usługi sieć szkieletowa usług.
 
 Pobiera informacje o kondycji określonej partycji. Filtr EventsHealthStateFilter umożliwia filtrowanie zbierania zdarzeń kondycji zgłoszonych w usłudze oparte na stanie kondycji.
-Filtr ReplicasHealthStateFilter umożliwia filtrowanie kolekcji obiektów ReplicaHealthState na partycji. To polecenie cmdlet zwraca błąd, jeśli określono partycję, która nie istnieje w magazynie kondycji. .
+Filtr ReplicasHealthStateFilter umożliwia filtrowanie kolekcji obiektów ReplicaHealthState na partycji. To polecenie cmdlet zwraca błąd, jeśli określono partycję, która nie istnieje w magazynie kondycji.
 
 ### <a name="arguments"></a>Argumenty
 
@@ -101,7 +101,7 @@ Pobiera listę partycji usługi sieć szkieletowa usług. S Identyfikatora party
 
 |Argument|Opis|
 | --- | --- |
-| — Identyfikator usługi [wymagane]| Tożsamość usługi. Zazwyczaj jest to pełna nazwa tej usługi bez "fabric:" schemat identyfikatora URI. Począwszy od wersji 6.0, hierarchicznych nazwy są rozdzielane "~" znaków. Na przykład, jeśli nazwa usługi to "fabric://myapp/app1/svc1", tożsamość usługi będzie "moja_aplikacja ~ app1 ~ svc1" w wersji 6.0 + i "myapp/app1/svc1" w poprzednich wersjach.|
+| — Identyfikator usługi [wymagane]| Tożsamość usługi. Zazwyczaj jest to pełna nazwa tej usługi bez "fabric:" schemat identyfikatora URI. Począwszy od wersji 6.0, hierarchicznych nazwy są rozdzielane "~" znaków. Na przykład, jeśli nazwa usługi jest "fabric: / myapp/app1/svc1", będzie tożsamość usługi "moja_aplikacja ~ app1 ~ svc1" w wersji 6.0 + i "myapp/app1/svc1" w poprzednich wersjach.|
 | --token kontynuacji| Parametr token kontynuacji służy do uzyskiwania następnej zestaw wyników.         Token kontynuacji z wartość pusta jest uwzględniana w odpowiedzi interfejsu API wyników z systemu nie mieszczą się w jednej odpowiedzi. Jeśli ta wartość jest przekazywany do następnego wywołania interfejsu API interfejsu API zwraca następny zestaw wyników. Jeśli nie są dalsze wyniki, token kontynuacji nie zawiera wartości. Wartość tego parametru nie powinny być zakodowane w adresie URL.|
 | limit czasu — -t        | W sekundach limit czasu serwera.  Domyślnie: 60.|
 
@@ -162,7 +162,7 @@ Wskazuje, aby klaster sieci szkieletowej usług mają podejmować próbę odzysk
 ## <a name="sfctl-partition-restart"></a>ponowne uruchomienie partycji sfctl
 Ten interfejs API ponownego uruchomienia niektórych lub wszystkich replik lub wystąpienia określonej partycji.
 
-Ten interfejs API jest przydatna przy testowaniu trybu failover. Jeśli używane pod kątem partycji usługi bezstanowej, tryb RestartPartitionMode musi być AllReplicasOrInstances. Wywołanie interfejsu API GetPartitionRestartProgress przy użyciu tego samego OperationId uzyskać postęp. .
+Ten interfejs API jest przydatna przy testowaniu trybu failover. Jeśli używane pod kątem partycji usługi bezstanowej, tryb RestartPartitionMode musi być AllReplicasOrInstances. Wywołanie interfejsu API GetPartitionRestartProgress przy użyciu tego samego OperationId uzyskać postęp.
 
 ### <a name="arguments"></a>Argumenty
 
@@ -170,8 +170,8 @@ Ten interfejs API jest przydatna przy testowaniu trybu failover. Jeśli używane
 | --- | --- |
 | — Identyfikator operacji [wymagane]| Identyfikator GUID identyfikujący wywołanie tego interfejsu API.  To jest przekazywany do odpowiedniego interfejsu API GetProgress.|
 | — Identyfikator partycji [wymagane]| Tożsamość partycji.|
-| — ponowne uruchomienie partycji — trybu [wymagane]| -Nieprawidłowy — zastrzeżone.  Nie są przekazywane do interfejsu API. -AllReplicasOrInstances - wszystkie repliki lub wystąpień w partycji są ponownie uruchamiane jednocześnie. -OnlyActiveSecondaries — tylko pomocniczej repliki zostaną ponownie uruchomione. .|
-| — Identyfikator usługi [wymagane]| Tożsamość usługi. Zazwyczaj jest to pełna nazwa tej usługi bez "fabric:" schemat identyfikatora URI. Począwszy od wersji 6.0, hierarchicznych nazwy są rozdzielane "~" znaków. Na przykład, jeśli nazwa usługi to "fabric://myapp/app1/svc1", tożsamość usługi będzie "moja_aplikacja ~ app1 ~ svc1" w wersji 6.0 + i "myapp/app1/svc1" w poprzedniej v ersions.|
+| — ponowne uruchomienie partycji — trybu [wymagane]| Opis partycji do ponownego uruchomienia.|
+| — Identyfikator usługi [wymagane]| Tożsamość usługi. Zazwyczaj jest to pełna nazwa tej usługi bez "fabric:" schemat identyfikatora URI. Począwszy od wersji 6.0, hierarchicznych nazwy są rozdzielane "~" znaków. Na przykład, jeśli nazwa usługi jest "sieci szkieletowej: / myapp/app1/svc1", jest tożsamość usługi "moja_aplikacja ~ app1 ~ svc1" w wersji 6.0 + i "myapp/app1/svc1" w poprzedniej kolejnych rsions.|
 | limit czasu — -t                    | W sekundach limit czasu serwera.  Domyślnie: 60.|
 
 ### <a name="global-arguments"></a>Argumenty globalne

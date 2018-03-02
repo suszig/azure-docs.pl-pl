@@ -1,8 +1,11 @@
+# [Dokumentacja usługi Azure AD Domain Services](index.md)
+
 # Omówienie
 ## [Co to są usługi Azure AD Domain Services?](active-directory-ds-overview.md)
 ## Czy to coś dla Ciebie?
 ### [Porównanie z usługą AD w systemie Windows Server](active-directory-ds-comparison.md)
 ### [Porównanie z dołączeniem do usługi Azure AD](active-directory-ds-compare-with-azure-ad-join.md)
+## [Co nowego?](https://azure.microsoft.com/updates/?product=active-directory-ds)
 ## [Funkcje](active-directory-ds-features.md)
 ## [Scenariusze](active-directory-ds-scenarios.md)
 ## [Jak działa synchronizacja](active-directory-ds-synchronization.md)
@@ -16,6 +19,7 @@
 ## [Zadanie 5. Włączanie synchronizacji haseł](active-directory-ds-getting-started-password-sync.md)
 
 # Instrukcje
+## [Sprawdzanie kondycji domeny zarządzanej](active-directory-ds-check-health.md)
 ## [Korzystanie z usług Azure AD Domain Services w ramach subskrypcji Azure CSP](active-directory-ds-csp.md)
 ## [Włączanie usługi Azure AD Domain Services przy użyciu programu PowerShell](active-directory-ds-enable-using-powershell.md)
 ## Dołączanie do domeny zarządzanej
@@ -28,7 +32,7 @@
 ## Administrowanie domeną zarządzaną
 ### [Administrowanie domeną zarządzaną](active-directory-ds-admin-guide-administer-domain.md)
 ### [Administrowanie systemem DNS w domenie zarządzanej](active-directory-ds-admin-guide-administer-dns.md)
-### [Sprawdzanie kondycji domeny](active-directory-ds-check-health.md)
+
 ### Konfigurowanie protokołu LDAP dla domeny zarządzanej
 #### [Task 1: obtain a certificate for secure LDAP (Zadanie 1. Uzyskiwanie certyfikatu na potrzeby protokołu Secure LDAP)](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [Task 2: export the secure LDAP certificate (Zadanie 2. Eksportowanie certyfikatu protokołu Secure LDAP)](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)

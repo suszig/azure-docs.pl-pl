@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 36b9379f88ce024c1dcbf9977a873d95076d10df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4388a1e933a0ebf211b5a7621c74b0622be41a4c
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="log-analytics-for-azure-load-balancer"></a>Analiza dzienników dotyczących usługi Azure Load Balancer
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 Różne typy dzienników Azure umożliwia zarządzanie i rozwiązywanie problemów z usługi równoważenia obciążenia. Niektóre z tych dzienników jest możliwy za pośrednictwem portalu. Wszystkie dzienniki można wyodrębnić z magazynu obiektów blob platformy Azure i wyświetlane w różnych narzędzi, takich jak program Excel i Power BI. Możesz można dowiedzieć się więcej o różnych typach dzienników z poniższej listy.
 
 * **Dzienniki inspekcji:** można użyć [dzienników inspekcji platformy Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md) (wcześniej znane jako operacyjne dzienniki), aby wyświetlić wszystkie operacje przesyłany do Twojej subskrypcji platformy Azure i ich stan. Dzienniki inspekcji są domyślnie włączone i mogą być wyświetlane w portalu Azure.
-* **Dzienniki zdarzeń alertów:** ten dziennik służy do wyświetlania alertów rasied przez moduł równoważenia obciążenia. Stan usługi równoważenia obciążenia są gromadzone co pięć minut. Ten dziennik napisano tylko, jeśli zdarzenia alertu modułu równoważenia obciążenia jest wywoływane.
+* **Dzienniki zdarzeń alertów:** ten dziennik służy do wyświetlenia alerty wygenerowane przez moduł równoważenia obciążenia. Stan usługi równoważenia obciążenia są gromadzone co pięć minut. Ten dziennik napisano tylko, jeśli zdarzenia alertu modułu równoważenia obciążenia jest wywoływane.
 * **Dzienniki badania kondycji:** ten dziennik służy do wyświetlania problemów wykrytych przez użytkownika sondy kondycji, takie jak liczba wystąpień w puli zaplecza, które nie są odbierane żądań z modułu równoważenia obciążenia z powodu błędów sondy kondycji. Ten dziennik jest zapisywany po zmianie stanu sondy kondycji.
 
 > [!IMPORTANT]
@@ -140,11 +140,11 @@ Należy do łączenia się z kontem magazynu i pobierania JSON wpisów dziennika
 > [!TIP]
 > Jeśli znasz podstawowe koncepcje zmiany wartości stałych i zmiennych w języku C# i Visual Studio, możesz użyć [dziennika narzędzia konwertera](https://github.com/Azure-Samples/networking-dotnet-log-converter) dostępne w serwisie GitHub.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Wizualizuj dzienników inspekcji Azure przy użyciu usługi Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) wpis w blogu.
 * [Wyświetlanie i analizowanie dzienników inspekcji platformy Azure w usłudze Power BI i nie tylko](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) wpis w blogu.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Opis sond modułu równoważenia obciążenia](load-balancer-custom-probe-overview.md)

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/20/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: 89f3ceeb95b4a8b498523e0d73930740bcadd268
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: f2f71372211dcc9db34beb3fa3fd788920f8bd45
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Wymagania dotyczące certyfikatów infrastruktury kluczy publicznych stosu Azure
 Azure stos nie zawiera publicznych infrastruktury sieci przy użyciu dostępne z zewnątrz publiczne adresy IP przypisane do niewielki zestaw usług Azure stosu i prawdopodobnie maszyny wirtualne dzierżawców. Certyfikaty PKI z odpowiedniej nazwy DNS dla tych punktów końcowych infrastruktury publicznych stosu Azure są wymagane podczas wdrażania usługi Azure stosu. Ten artykuł zawiera informacje na temat:
@@ -27,6 +27,7 @@ Azure stos nie zawiera publicznych infrastruktury sieci przy użyciu dostępne z
 - Jakie certyfikaty są wymagane do wdrożenia usługi Azure stosu
 - Uzyskiwanie certyfikatów dopasowania tych specyfikacji procesu
 - Jak przygotować, sprawdzania poprawności i użyć tych certyfikatów podczas wdrażania
+
 > [!NOTE]
 > Podczas wdrażania certyfikatów należy skopiować do folderu wdrożenia, który odpowiada dostawcy tożsamości, które wdrażasz względem (Azure AD lub AD FS). Jeśli używasz jeden certyfikat dla wszystkich punktów końcowych, należy skopiować ten plik certyfikatu do każdego folderu wdrożenia zgodnie z opisem w poniższych tabelach. Struktura folderów wstępnie jest oparty na maszynie wirtualnej wdrożenia i znajduje się w temacie: C:\CloudDeployment\Setup\Certificates. 
 

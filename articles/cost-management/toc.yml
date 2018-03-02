@@ -17,12 +17,12 @@
   items:
     - name: 1 — Przegląd użycia i kosztów
       href: tutorial-review-usage.md
-    - name: 2 —Kontrola dostępu do danych
-      href: tutorial-user-access.md
-    - name: 3 — Prognozowanie wydatków
+    - name: 2 — Prognozowanie wydatków
       href: tutorial-forecast-spending.md
-    - name: 4 — Zarządzanie kosztami
+    - name: 3 — Zarządzanie kosztami
       href: tutorial-manage-costs.md
+    - name: 4 — Kontrola dostępu do danych
+      href: tutorial-user-access.md
 - name: Pojęcia
   items:
     - name: Omówienie raportów kosztów

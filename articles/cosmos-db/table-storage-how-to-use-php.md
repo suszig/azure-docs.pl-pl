@@ -14,18 +14,18 @@ ms.devlang: php
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: mimig
-ms.openlocfilehash: 4965247d77e8a3a9f5dbaa2e70952993b4bdf4ff
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 64ce8206b4b0ab3c831417d6e478f9c059188345
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="how-to-use-azure-storage-table-service-or-cosmos-db-table-api-from-php"></a>Jak używać usługi tabel magazynu Azure lub rozwiązania Cosmos interfejsu API tabeli bazy danych z PHP
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## <a name="overview"></a>Przegląd
-W tym przewodniku przedstawiono sposób wykonywania typowych scenariuszy przy użyciu usługi tabel magazynu Azure i interfejsu API Azure rozwiązania Cosmos bazy danych tabeli. Przykłady są napisane w PHP i użyj [zestaw Azure SDK for PHP][download]. Omówione scenariusze obejmują **tworzenia i usuwania tabeli**, i **Wstawianie, usuwanie i badania jednostek w tabeli**. Aby uzyskać więcej informacji w usłudze tabel Azure, zobacz [następne kroki](#next-steps) sekcji.
+W tym przewodniku przedstawiono sposób wykonywania typowych scenariuszy przy użyciu usługi tabel magazynu Azure i interfejsu API Azure rozwiązania Cosmos bazy danych tabeli. Przykłady są napisane w PHP i użyj [biblioteki klienta usługi Azure Storage tabeli PHP][download]. Omówione scenariusze obejmują **tworzenia i usuwania tabeli**, i **Wstawianie, usuwanie i badania jednostek w tabeli**. Aby uzyskać więcej informacji w usłudze tabel Azure, zobacz [następne kroki](#next-steps) sekcji.
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 

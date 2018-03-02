@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: raynew
 ms.openlocfilehash: 9de0cb3d22a4e500b66640f70f936ae955bbadb8
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Konfigurowanie odzyskiwania po awarii na lokalne maszyny wirtualne VMware lub serwerów fizycznych do lokacji dodatkowej
 
@@ -62,10 +62,10 @@ Zainstaluj aktualizacje w następujący sposób:
 >Wszystkie składniki Scout pliku zaktualizowanej wersji nie może być takie same, w pliku .zip aktualizacji. Starsza wersja wskazują, że nie została zmieniona w składniku od czasu poprzedniej aktualizacji tej aktualizacji.
 
 Pobierz [aktualizacji](https://aka.ms/asr-scout-update6) pliku zip. Plik zawiera następujące składniki: 
-  - RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.GZ
+  - RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz
   - CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe
   - UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
-  - UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+  - UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
   - vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
   - Usługa bits update4 UA systemem RHEL5 OL5, OL6, SUSE 10, SUSE 11: UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
 1. Wyodrębnij pliki z rozszerzeniem .zip.
@@ -93,7 +93,7 @@ Pobierz [aktualizacji](https://aka.ms/asr-scout-update6) pliku zip. Plik zawiera
 
 ## <a name="updates"></a>Aktualizacje
 
-### <a name="site-recovery-scout-801-update-6"></a>Lokacja odzyskiwania Scout 8.0.1 aktualizacji 6 
+### <a name="site-recovery-scout-801-update-6"></a>Site Recovery Scout 8.0.1 Update 6 
 Zaktualizowano: 12 października 2017 r
 
 Pobierz [Scout aktualizacji 6](https://aka.ms/asr-scout-update6).
@@ -104,7 +104,7 @@ Aktualizacja Scout 6 jest aktualizacją zbiorczą. Zawiera wszystkie poprawki z 
 * Dodano obsługę dla źródła systemu Windows Server 2016
 * Dodano obsługę dla następujących systemów operacyjnych Linux:
     - Red Hat Enterprise Linux (RHEL) 6,9
-    - CentOS 6,9
+    - CentOS 6.9
     - Oracle Linux 5.11
     - Oracle Linux 6.8
 * Dodano obsługę dla VMware Center 6.5
@@ -118,13 +118,13 @@ Aktualizacja Scout 6 jest aktualizacją zbiorczą. Zawiera wszystkie poprawki z 
 #### <a name="bug-fixes-and-enhancements"></a>Poprawki błędów i rozszerzenia
 - Powrót po awarii ochrony kończy się niepowodzeniem dla maszyny Wirtualnej systemu Linux z listy dysków, które powinny być replikowane jest pusta, po zakończeniu konfiguracji.
 
-### <a name="site-recovery-scout-801-update-5"></a>Lokacja odzyskiwania Scout 8.0.1 aktualizacji 5
+### <a name="site-recovery-scout-801-update-5"></a>Site Recovery Scout 8.0.1 Update 5
 Aktualizacja Scout 5 jest aktualizacją zbiorczą. Zawiera wszystkie poprawki z zakresu od 1 aktualizacji Update 4 oraz nowe poprawki opisane poniżej.
 - Poprawki z lokacji odzyskiwania Scout aktualizacji 4 do 5 aktualizacji są przeznaczone dla obiekt docelowy i vContinuum składniki.
 - Jeśli serwery źródłowe, główny cel, konfiguracji, proces i serwery RX jest już uruchomiona aktualizacji 4, a następnie zastosować je tylko na głównym serwerze docelowym. 
 
 #### <a name="new-platform-support"></a>Nowa funkcja obsługi platformy
-* SUSE Linux Enterprise Server 11 z dodatkiem Service Pack 4(SP4)
+* SUSE Linux Enterprise Server 11 Service Pack 4(SP4)
 * SLES 11 z dodatkiem SP4 64 bitowej **InMage_UA_8.0.1.0_SLES11-SP4-64_GA_13Apr2017_release.tar.gz** jest dostarczana z pakietem Scout GA podstawowej (**InMage_Scout_Standard_8.0.1 GA.zip**). Pobierz pakiet GA z portalu zgodnie z opisem w [Utwórz magazyn](#create-a-vault).
 
 
@@ -146,7 +146,7 @@ Aktualizacja Scout 5 jest aktualizacją zbiorczą. Zawiera wszystkie poprawki z 
 > * Po ponownym uruchomieniu poprawnego działania serwera źródłowego SLES11 lub SLES11 (za pomocą dowolnego z dodatkiem Service pack), następnie ręcznie oznaczyć **głównego** dysku pary replikacji ponownej synchronizacji. Nie jest prezentowane nie powiadomienie w interfejsie CX. Jeśli nie oznacza dysk głównego ponownej synchronizacji, może pojawić się problemy z integralnością danych.
 
 
-### <a name="azure-site-recovery-scout-801-update-4"></a>Usługi Azure Site Recovery Scout 8.0.1 Update 4
+### <a name="azure-site-recovery-scout-801-update-4"></a>Azure Site Recovery Scout 8.0.1 Update 4
 Aktualizacja Scout 4 jest aktualizacją zbiorczą. Zawiera wszystkie poprawki z zakresu od 1 aktualizacji do wersji Update 3 i nowe poprawki opisane poniżej.
 
 #### <a name="new-platform-support"></a>Nowa funkcja obsługi platformy
@@ -190,7 +190,7 @@ Aktualizacja Scout 4 jest aktualizacją zbiorczą. Zawiera wszystkie poprawki z 
 > * Serwer konfiguracji i aktualizacje ODBIERANIA, nie można obniżyć po zostały zastosowane.
 
 
-### <a name="azure-site-recovery-scout-801-update-3"></a>Usługi Azure Site Recovery Scout 8.0.1 Update 3
+### <a name="azure-site-recovery-scout-801-update-3"></a>Azure Site Recovery Scout 8.0.1 Update 3
 
 Wszystkie aktualizacje usługi Site Recovery kumulują się. Aktualizacja 3 zawiera wszystkie poprawki z Update 1 i Update 2. Aktualizacja 3, które mogą być bezpośrednio stosowane w 8.0.1 po Serwer konfiguracji i aktualizacje ODBIERANIA, nie można obniżyć po zostały zastosowane.
 
@@ -228,7 +228,7 @@ Poprawki w wersji Update 2 obejmują:
 * **Serwer konfiguracji**: problemów, które uniemożliwiają 31-dniowej bezpłatnej pomiaru funkcji działać zgodnie z oczekiwaniami, gdy serwer konfiguracji został zarejestrowany w usłudze Site Recovery.
 * **Unified agent**: Rozwiąż rozwiązuje problem w aktualizacji 1, które spowodowały aktualizacji nie są instalowane na głównym serwerze docelowym, podczas uaktualniania z wersji 8.0 lub 8.0.1.
 
-### <a name="azure-site-recovery-scout-801-update-1"></a>Usługi Azure Site Recovery Scout 8.0.1 Update 1
+### <a name="azure-site-recovery-scout-801-update-1"></a>Azure Site Recovery Scout 8.0.1 Update 1
 Aktualizacja 1 obejmuje następujące poprawki i nowe funkcje:
 
 * 31 dni wolne ochrony dla każdego wystąpienia serwera. Dzięki temu można przetestować funkcje lub skonfigurować Weryfikacja koncepcji.
@@ -238,8 +238,8 @@ Aktualizacja 1 obejmuje następujące poprawki i nowe funkcje:
 * Dodano obsługę dla tych systemów operacyjnych Linux na serwerze źródłowym:
     * RHEL 6 aktualizacji 6
     * RHEL 5 zaktualizować 11
-    * CentOS 6 aktualizacji 6
-    * CentOS 5 aktualizacji 11
+    * CentOS 6 Update 6
+    * CentOS 5 Update 11
 * Wprowadzono poprawki błędów w celu rozwiązania następujących problemów:
   * Rejestracji magazynu w konfiguracji serwera lub serwera RX kończy się niepowodzeniem.
   * Wolumin klastra nie są wyświetlane jako oczekiwanego podczas klastrowane się, że maszyny wirtualne są przełączona do trybu zgodnie z ich wznowienia.

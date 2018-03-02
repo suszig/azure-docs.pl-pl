@@ -1,3 +1,5 @@
+# [Dokumentacja usługi Redis Cache](index.md)
+
 # Omówienie
 ##[Dlaczego warto używać pamięci podręcznej Redis](https://azure.microsoft.com/services/cache/)
 ##[Poznawanie funkcji dostępnych w warstwie Premium](cache-premium-tier-intro.md)

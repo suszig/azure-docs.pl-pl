@@ -7,13 +7,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 02/26/2018
 ms.author: sujayt
-ms.openlocfilehash: 73b8a28fa2f2b432f12a230be9326b6696d3908a
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 4383286285f02bad1645344fab43f8b6bdb145cb
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Azure Site Recovery macierz obsługi replikacji z platformy Azure na platformie Azure
 
@@ -39,14 +39,14 @@ W tym artykule przedstawiono obsługiwane konfiguracje oraz składniki usługi A
 
 **Typ przenoszenia zasobów** | **Obsługiwane / nieobsługiwane** | **Uwagi**  
 --- | --- | ---
-Przenieś magazyn między grupami zasobów | Nieobsługiwane |Nie można przenieść magazyn usług odzyskiwania między grupami zasobów.
+**Przenieś magazyn między grupami zasobów** | Nieobsługiwane |Nie można przenieść magazyn usług odzyskiwania między grupami zasobów.
 **Przenoszenie między grupami zasobów obliczeniowych, magazynu i sieci** | Nieobsługiwane |Jeśli po włączeniu replikacji maszyny wirtualnej (lub jej skojarzone składniki, takie jak magazyn i sieć), należy wyłączyć replikację i włączyć replikację dla maszyny wirtualnej ponownie.
 
 
 
 ## <a name="support-for-deployment-models"></a>Obsługa modeli wdrażania
 
-Model wdrażania | **Obsługiwane / nieobsługiwane** | **Uwagi**  
+**Model wdrażania** | **Obsługiwane / nieobsługiwane** | **Uwagi**  
 --- | --- | ---
 **Wdrożenie klasyczne** | Obsługiwane | Można tylko replikowanie klasyczne maszyny wirtualnej i odzyskać ją jako maszynę wirtualną w klasycznym. Nie można go odzyskać jako maszynę wirtualną Menedżera zasobów. W przypadku wdrożenia klasyczne maszyny Wirtualnej bez sieci wirtualnej i bezpośrednio do regionu platformy Azure, nie jest obsługiwane.
 **Resource Manager** | Obsługiwane |
@@ -93,7 +93,7 @@ Poniżej Obsługa dotyczy dowolne obciążenia uruchomione na wymienione systemu
 
 ### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Obsługiwane wersje jądra Ubuntu maszyn wirtualnych platformy Azure
 
-Zlecenia | **Wersja usługi mobilności** | Wersja jądra |
+**Zlecenia** | **Wersja usługi mobilności** | **Wersja jądra** |
 --- | --- | --- |
 14.04 LTS | 9.10 | 3.13.0-24-Generic do 3.13.0-121-generic,<br/>3.16.0-25-Generic do 3.16.0-77-generic,<br/>3.19.0-18-Generic do 3.19.0-80-generic,<br/>4.2.0-18-Generic do 4.2.0-42-generic,<br/>4.4.0-21-Generic do 4.4.0-81-generic |
 14.04 LTS | 9.11 | 3.13.0-24-Generic do 3.13.0-125-generic,<br/>3.16.0-25-Generic do 3.16.0-77-generic,<br/>3.19.0-18-Generic do 3.19.0-80-generic,<br/>4.2.0-18-Generic do 4.2.0-42-generic,<br/>4.4.0-21-Generic do 4.4.0-83-generic |
@@ -153,8 +153,8 @@ Tymczasowe dysku | Zawsze wyłączone z replikacji | Dysku tymczasowym został w
 Częstotliwość zmian danych na dysku | Maksymalnie 10 MB/s na dysku dla usługi Premium storage i 2 MB/s dla każdego dysku do magazynu w warstwie standardowa | Częstotliwość zmian uśrednianie danych na dysku jest ponad 10 MB/s (dla Premium) i 2 MB/s (standardu) stale, replikacji nie będzie przechwytywać. Jeśli jest serii danych okazjonalne i częstotliwości zmian danych jest większa niż 10 MB/s (w przypadku Premium) i 2 MB/s (standardu) przez pewien czas i zawiera, replikacja będzie przechwytywać. W takim przypadku można napotkać punktów odzyskiwania nieco opóźnione.
 Dyski na kontach magazynu w warstwie standardowa | Obsługiwane |
 Dyski na kontach magazynu w warstwie premium | Obsługiwane | Jeśli maszyna wirtualna zawiera dyski rozmieszczenie do konta magazynu w warstwie standardowa i premium, możesz wybrać inny element docelowy konta magazynu dla każdego dysku upewnić się, czy masz taką samą konfigurację magazynu w docelowym regionie
-Dyski standardowe zarządzane | Nieobsługiwane |  
-Dysków zarządzanych w warstwie Premium | Nieobsługiwane |
+Dyski standardowe zarządzane | Obsługiwane w regionach platformy Azure, w których usługi Azure Site Recovery jest obsługiwana. Rządowych chmury nie są obecnie obsługiwane.  |  
+Dysków zarządzanych w warstwie Premium | Obsługiwane w regionach platformy Azure, w których usługi Azure Site Recovery jest obsługiwana. Rządowych chmury nie są obecnie obsługiwane. |
 Funkcja miejsca do magazynowania | Obsługiwane |         
 Szyfrowanie magazynowanych (SSE) | Obsługiwane | W przypadku kont magazynu pamięci podręcznej i obiekt docelowy można wybrać SSE włączone konta magazynu.     
 Szyfrowanie dysków Azure (ADE) | Nieobsługiwane |

@@ -1,6 +1,8 @@
+# [Dokumentacja usługi Notification Hubs](index.md)
+
 # Omówienie
 ## [Co to jest usługa Azure Notification Hubs](notification-hubs-push-notification-overview.md)
-# Wprowadzenie
+# Rozpoczęcie pracy
 ## [Android (FCM)](notification-hubs-android-push-notification-google-fcm-get-started.md)
 ## [Baidu](notification-hubs-baidu-china-android-notifications-get-started.md)
 ## [Chrome](notification-hubs-chrome-push-notifications-get-started.md)
@@ -72,4 +74,4 @@
 ## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=notification-hubs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-notificationhub)
-## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=notification-hubs)
+## [Wideo](https://azure.microsoft.com/documentation/videos/index/?services=notification-hubs)

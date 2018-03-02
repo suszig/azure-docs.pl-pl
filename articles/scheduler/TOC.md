@@ -1,4 +1,4 @@
-
+# [Dokumentacja usługi Scheduler](index.md)
 
 # Omówienie
 ## [Co to jest Scheduler?](scheduler-intro.md)
@@ -31,7 +31,7 @@
 ## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=scheduler)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-scheduler)
-## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=scheduler)
+## [Wideo](https://azure.microsoft.com/documentation/videos/index/?services=scheduler)
 
 
 

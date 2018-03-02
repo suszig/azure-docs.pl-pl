@@ -1,3 +1,5 @@
+# [Dokumentacja usługi Mobile Apps](index.md)
+
 # Omówienie
 ## [Co to jest usługa Mobile Apps?](app-service-mobile-value-prop.md)
 ## [Plany usługi App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)

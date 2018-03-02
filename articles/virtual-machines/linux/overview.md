@@ -15,11 +15,11 @@ ms.workload: infrastructure
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 8116ba82838cf0ee610c6dadada0d8bfe6106f34
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: cdb2bda0c3f7e73b115c2609c3f229c633093bdc
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-and-linux"></a>Azure i Linux
 Platforma Microsoft Azure to rosnący zbiór zintegrowanych usług publicznych w chmurze, obejmujący usługę Virtual Machines, usługi analityczne, bazodanowe, mobilne, sieciowe, magazynowe oraz internetowe &mdash; — idealne do hostowania rozwiązań.  Microsoft Azure to skalowalna platforma obliczeniowa, która pozwala na płacenie tylko za używane usługi, z których można korzystać w dowolnej chwili — bez konieczności inwestowania w sprzęt lokalny.  Platforma Azure jest gotowa wraz z Tobą do skalowania rozwiązań tak, aby sprostać wymaganiom klientów.
@@ -32,7 +32,7 @@ Zasoby na platformie Microsoft Azure są dystrybuowane w obrębie wielu regionó
 * [Regiony platformy Azure](https://azure.microsoft.com/regions/)
 
 ## <a name="availability"></a>Dostępność
-Platforma Azure oferuje najlepszą w branży umowę dotyczącą poziomu usług gwarantującą dostępność pojedynczego wystąpienia maszyny wirtualnej na poziomie 99,9% pod warunkiem wdrożenia tej maszyny wirtualnej z magazynem Premium dla wszystkich dysków.  Aby wdrożenie kwalifikowało się do standardowej umowy dotyczącej poziomu usług na poziomie 99,95%, należy wdrożyć co najmniej dwie maszyny wirtualne obsługujące obciążenie w zestawie dostępności. Zestaw dostępności gwarantuje, że maszyny wirtualne są rozproszone w wielu domenach błędów w centrach danych platformy Azure oraz wdrożone na hostach z różnymi okresami konserwacji. Pełna treść [umowy SLA dotyczącej usługi Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) wyjaśnia w całości kwestię gwarantowanej dostępności platformy Azure.
+Platforma Azure oferuje najlepszą w branży umowę dotyczącą poziomu usług gwarantującą dostępność pojedynczego wystąpienia maszyny wirtualnej na poziomie 99,9% pod warunkiem wdrożenia tej maszyny wirtualnej z magazynem Premium dla wszystkich dysków.  Aby wdrożenie kwalifikowało się do standardowej umowy dotyczącej poziomu usług na poziomie 99,95%, należy wdrożyć co najmniej dwie maszyny wirtualne obsługujące obciążenie w zestawie dostępności. Zestaw dostępności gwarantuje, że maszyny wirtualne są rozproszone w wielu domenach błędów w centrach danych platformy Azure oraz wdrożone na hostach z różnymi okresami konserwacji. Pełna treść [umowy SLA dotyczącej usługi Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) wyjaśnia w całości kwestię gwarantowanej dostępności platformy Azure.
 
 ## <a name="managed-disks"></a>Managed Disks
 
@@ -114,7 +114,7 @@ Maszyna wirtualna działa teraz na platformie Azure, a Ty możesz już się zalo
 * [Dodawanie dysku do maszyny wirtualnej systemu Linux przy użyciu interfejsu wiersza polecenia platformy Azure](add-disk.md)
 * [Jak dołączyć dysk danych do maszyny wirtualnej w witrynie Azure Portal?](attach-disk-portal.md)
 
-## <a name="networking"></a>Sieć
+## <a name="networking"></a>Networking
 * [Omówienie usługi Virtual Network](../../virtual-network/virtual-networks-overview.md)
 * [Adresy IP na platformie Azure](../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
 * [Otwieranie portów dla maszyny wirtualnej systemu Linux na platformie Azure](nsg-quickstart.md)

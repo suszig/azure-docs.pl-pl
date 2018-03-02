@@ -5,6 +5,7 @@
     - name: Informacje o usłudze Azure Search
       href: search-what-is-azure-search.md
 - name: Przewodniki Szybki start
+  expanded: true
   items:
     - name: Tworzenie usługi
       href: search-create-service-portal.md

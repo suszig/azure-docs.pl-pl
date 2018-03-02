@@ -1,3 +1,5 @@
+# [Dokumentacja usługi Stream Analytics](index.md)
+
 # Omówienie
 ## [Co to jest Stream Analytics?](stream-analytics-introduction.md)
 ## [Porównanie usługi Storm i Stream Analytics](stream-analytics-comparison-storm.md)

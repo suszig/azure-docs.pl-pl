@@ -1,10 +1,11 @@
-- name: Aplikacje zarządzane na platformie Azure
+- name: Dokumentacja usługi Azure Managed Applications
   href: index.yml
-- name: Przegląd
+- name: Omówienie
   items:
     - name: Informacje o aplikacjach zarządzanych
       href: overview.md
 - name: Przewodniki Szybki start
+  expanded: true
   items:
     - name: Tworzenie aplikacji zarządzanej
       href: managed-apps-quickstart-cli.md
@@ -30,7 +31,7 @@
       href: update-managed-resources.md
     - name: Publikowanie za pomocą portalu
       href: publish-portal.md
-- name: Odwołanie
+- name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure
       href: /cli/azure/managedapp

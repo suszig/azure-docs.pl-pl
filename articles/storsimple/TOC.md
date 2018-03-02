@@ -1,3 +1,5 @@
+# [Dokumentacja usługi StorSimple](index.md)
+
 # Macierz wirtualna usługi StorSimple
 
 ## Omówienie

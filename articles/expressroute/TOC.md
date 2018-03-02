@@ -1,3 +1,5 @@
+# [Dokumentacja usługi ExpressRoute](index.md)
+
 # Omówienie
 ## [Co to jest usługa ExpressRoute?](expressroute-introduction.md)
 ## [Usługa ExpressRoute — często zadawane pytania](expressroute-faqs.md)
@@ -8,7 +10,7 @@
 ### [Lokalizacje według dostawcy](expressroute-locations.md)
 ## [Bramy sieci wirtualnej dla usługi ExpressRoute](expressroute-about-virtual-network-gateways.md)
 
-# Wprowadzenie
+# Rozpoczęcie pracy
 ## [Wymagania wstępne](expressroute-prerequisites.md)
 ## [Przepływy pracy](expressroute-workflows.md)
 ## [Wymagania dotyczące routingu](expressroute-routing.md)
@@ -17,24 +19,24 @@
 
 # Instrukcje
 ## Tworzenie i modyfikowanie obwodu
-### [Witryna Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
+### [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-circuit-arm.md)
 ### [Interfejs wiersza polecenia platformy Azure](howto-circuit-cli.md)
 ## Tworzenie i modyfikowanie konfiguracji komunikacji równorzędnej
-### [Witryna Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
+### [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-routing-arm.md)
 ### [Interfejs wiersza polecenia platformy Azure](howto-routing-cli.md)
 ## Łączenie sieci wirtualnej z obwodem usługi ExpressRoute
-### [Witryna Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
+### [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-linkvnet-arm.md)
 ### [Interfejs wiersza polecenia platformy Azure](howto-linkvnet-cli.md)
 ## [Konfigurowanie sieci VPN typu lokacja-lokacja do komunikacji równorzędnej firmy Microsoft](site-to-site-vpn-over-microsoft-peering.md)
 ## Konfigurowanie bramy sieci wirtualnej dla usługi ExpressRoute
-### [Witryna Azure Portal](expressroute-howto-add-gateway-portal-resource-manager.md)
+### [Azure portal](expressroute-howto-add-gateway-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 ## [Konfigurowanie współistniejących połączeń usługi ExpressRoute i połączeń typu lokacja-lokacja](expressroute-howto-coexist-resource-manager.md)
 ## Konfigurowanie filtrów tras dla komunikacji równorzędnej firmy Microsoft
-### [Witryna Azure Portal](how-to-routefilter-portal.md)
+### [Azure portal](how-to-routefilter-portal.md)
 ### [Azure PowerShell](how-to-routefilter-powershell.md)
 ### [Interfejs wiersza polecenia platformy Azure](how-to-routefilter-cli.md)
 ## [Przechodzenie z publicznej komunikacji równorzędnej do komunikacji równorzędnej firmy Microsoft](how-to-move-peering.md)
@@ -87,11 +89,11 @@
 ## [Umowa SLA](https://azure.microsoft.com/support/legal/sla/)
 ## [Limity usług i subskrypcji](../azure-subscription-service-limits.md?toc=%2fazure%2fexpressroute%2ftoc.json)
 ## [Usługa ExpressRoute dla dostawców rozwiązań w chmurze (CSP)](expressroute-for-cloud-solution-providers.md)
-## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=expressroute)
+## [Wideo](https://azure.microsoft.com/documentation/videos/index/?services=expressroute)
 ### [Łączenie bramy sieci wirtualnej z obwodem](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit/)
 ### [Tworzenie sieci wirtualnej dla usługi ExpressRoute](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-virtual-network/)
 ### [Tworzenie bramy sieci wirtualnej dla usługi ExpressRoute](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network/)
-### [Tworzenie obwodu usługi ExpressRoute](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit/)
+### [Create an ExpressRoute circuit (Tworzenie obwodu usługi ExpressRoute)](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit/)
 ### [Rozwijanie infrastruktury sieciowej na potrzeby łączności](https://go.microsoft.com/fwlink/p/?LinkId=615124)
 ### [Jak skonfigurować prywatną komunikację równorzędną dla obwodu](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit/)
 ### [Partnerstwa hybrydowe: obsługa scenariuszy lokalnych](https://go.microsoft.com/fwlink/p/?LinkId=615125)

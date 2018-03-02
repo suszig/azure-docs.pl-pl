@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: 84bc344438d5542cc6409fa50aa6e55eb547c6a8
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
-ms.translationtype: MT
+ms.openlocfilehash: 9759eac01e2db62154cd7f6bf9fcccf13282b4b4
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Ciągłe wdrażanie w aplikacji sieci Web dla kontenerów
 
@@ -41,7 +41,7 @@ W  **[portalu Azure](https://portal.azure.com/)**, kliknij przycisk **usługi ap
 
 Kliknij nazwę aplikacji, który chcesz skonfigurować wdrożenie ciągłe Centrum Docker.
 
-W **ustawień aplikacji**, dodaj aplikację nosi nazwę `DOCKER_ENABLE_CI` z wartością `true`.
+W **kontenera Docker**, wybierz "Na", a następnie naciśnij przycisk Zapisz, aby włączyć ciągłego wdrażania.
 
 ![Wstaw obraz ustawienia aplikacji](./media/app-service-webapp-service-linux-ci-cd/step2.png)
 

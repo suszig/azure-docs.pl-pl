@@ -1,3 +1,5 @@
+# [Dokumentacja usługi Load Balancer](index.md)
+
 # Omówienie
 ## [Co to jest moduł równoważenia obciążenia?](load-balancer-overview.md)
 ## [Co to jest usługa Load Balancer w warstwie Standardowa?](load-balancer-standard-overview.md)
@@ -10,7 +12,7 @@
 ## [Wiele adresów VIP](load-balancer-multivip-overview.md)
 ## [Informacje o połączeniach wychodzących](load-balancer-outbound-connections.md)
 
-# Wprowadzenie
+# Rozpoczęcie pracy
 
 ## [Konfigurowanie wewnętrznego modułu równoważenia obciążenia](load-balancer-get-started-ilb-arm-portal.md)
 ### [Konfigurowanie wewnętrznego modułu równoważenia obciążenia (PowerShell)](load-balancer-get-started-ilb-arm-ps.md)

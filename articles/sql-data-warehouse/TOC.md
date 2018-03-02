@@ -1,3 +1,5 @@
+# [Dokumentacja usługi SQL Data Warehouse](index.md)
+
 # Omówienie
 
 ## [Informacje o usłudze Azure SQL Data Warehouse](sql-data-warehouse-overview-what-is.md)

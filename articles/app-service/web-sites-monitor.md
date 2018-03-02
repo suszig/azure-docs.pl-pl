@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: byvinyal
-ms.openlocfilehash: 72694743a9e1f520211d133dcc0d7f473c087f38
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: fdc4329806d416811352d0d4dbc8dd3bce25aa0b
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>Porady: monitorować aplikacje w usłudze aplikacji Azure
 [Usługi aplikacji](http://go.microsoft.com/fwlink/?LinkId=529714) oferuje wbudowane funkcje monitorowania w [portalu Azure](https://portal.azure.com).
@@ -97,7 +97,7 @@ Aby uzyskać **aplikacji**, są dostępne metryki:
   * Liczba żądań, co powoduje kod stanu HTTP > = 500, ale < 600.
 * **Zestaw roboczy pamięci**
   * Bieżąca ilość pamięci użytej przez aplikację w bazach MIB.
-* **Żądania**
+* **żądania**
   * Całkowita liczba żądań, niezależnie od ich wynikowy kod stanu HTTP.
 
 Aby uzyskać **planu usługi aplikacji**, są dostępne metryki:
@@ -143,7 +143,7 @@ Można sprawdzić stan różnych **przydziały** i **metryki** mające wpływ na
 **Przydziały** znajduje się w obszarze Ustawienia >**przydziały**. Środowiska użytkownika umożliwia przeglądanie: (1) nazwa przydziałów, (2) jego interwał resetowania, (3) jego bieżący limit i (4) bieżącą wartość.
 
 ![][metrics]
-**Metryki** może być dostępu bezpośrednio na stronie zasobów. Można również dostosować wykres przez: (1) **kliknij** i wybierz (2) **Edytuj wykres**.
+**Metryki** mogą uzyskiwać bezpośrednio na stronie zasobów. Można również dostosować wykres przez: (1) **kliknij** i wybierz (2) **Edytuj wykres**.
 W tym miejscu można zmienić (3) **zakres czasu**4 **typ wykresu**i 5 **metryki** do wyświetlenia.  
 
 Dowiedz się więcej o metryki tutaj: [monitorować metryki usługi](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).

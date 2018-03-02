@@ -1,8 +1,10 @@
+# [Dokumentacja usługi SQL Server Stretch Database](index.md)
+
 # Omówienie
 ## [Co to jest funkcja Stretch Database?](/sql/sql-server/stretch-database/stretch-database)
 ## [Ograniczenia i problemy blokujące](/sql/sql-server/stretch-database/limitations-for-stretch-database)
 
-# Wprowadzenie
+# Rozpoczęcie pracy
 ## [Identyfikowanie baz danych i tabel](/sql/sql-server/stretch-database/stretch-database-databases-and-tables-stretch-database-advisor)
 ## [Uruchamianie kreatora](/sql/sql-server/stretch-database/get-started-by-running-the-enable-database-for-stretch-wizard)
 

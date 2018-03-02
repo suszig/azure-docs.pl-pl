@@ -11,10 +11,10 @@ ms.service: postgresql
 ms.topic: article
 ms.date: 11/03/2017
 ms.openlocfilehash: 9de2d93735942903df9320741baadf2c934bd7ab
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-postgresql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Bazy danych platformy Azure dla PostgreSQL opcje i wydajność: Poznaj, co jest dostępne w każdej warstwy cenowej
 Podczas tworzenia bazy danych Azure dla serwera PostgreSQL zdecydujesz się na trzy główne opcje do konfigurowania zasobów przydzielonych dla tego serwera. Te opcje wpływ na wydajność i skalę serwera.
@@ -78,7 +78,7 @@ Obliczenia bazy danych jednostki to miara przepływności przetwarzania procesor
 | Udostępniony serwerowi maksymalna liczba IOPS | IOPS 3000 | IOPS 3000 | IOPS 3000 | IOPS 3000 |
 | Udostępniony serwerowi maksymalna liczba IOPS na GB | Stałe IOPS 3 na GB | Stałe IOPS 3 na GB | Stałe IOPS 3 na GB | Stałe IOPS 3 na GB |
 
-\*Maksymalny rozmiar magazynu serwera odnosi się do rozmiaru pamięci masowej elastycznie serwera.
+\* Maksymalny rozmiar magazynu serwera odnosi się do rozmiaru pamięci masowej elastycznie serwera.
 
 ## <a name="storage"></a>Magazyn 
 Konfiguracja magazynu definiuje ilość dostępnej pojemności do bazy danych Azure PostgreSQL serwera. Magazyn używany przez usługę zawiera pliki bazy danych, pliki tymczasowe, dzienników transakcji i PostgreSQL dzienniki serwera. Należy wziąć pod uwagę rozmiar pamięci masowej niezbędne do obsługi baz danych i wymagania dotyczące wydajności (IOPS), wybierając konfiguracji magazynu.

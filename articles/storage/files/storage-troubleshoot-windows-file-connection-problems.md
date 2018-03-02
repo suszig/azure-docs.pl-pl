@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: genli
-ms.openlocfilehash: 5aacc8a920c9343c5efa89128aabb1505fc2d9aa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 073d163e139c9fd400e4b3177c26d4ddb6228ed0
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Rozwiązywanie problemów plików Azure w systemie Windows
 
@@ -71,7 +71,7 @@ Błąd systemowy 53 lub błąd systemu: 87 może wystąpić, jeśli włączono k
 
 Aby ustalić, czy jest to przyczyną błędu, sprawdź, czy następujący podklucz rejestru jest ustawiony na wartość 3:
 
-**Kluczu HKLM\SYSTEM\CurrentControlSet\Control\Lsa > LmCompatibilityLevel**
+**HKLM\SYSTEM\CurrentControlSet\Control\Lsa > LmCompatibilityLevel**
 
 Aby uzyskać więcej informacji, zobacz [LmCompatibilityLevel](https://technet.microsoft.com/library/cc960646.aspx) temacie w witrynie TechNet.
 
@@ -79,7 +79,7 @@ Aby uzyskać więcej informacji, zobacz [LmCompatibilityLevel](https://technet.m
 
 Przywróć **LmCompatibilityLevel** wartość domyślną 3 w następującym podkluczu rejestru:
 
-  **Kluczu HKLM\SYSTEM\CurrentControlSet\Control\Lsa**
+  **HKLM\SYSTEM\CurrentControlSet\Control\Lsa**
 
 <a id="error1816"></a>
 ## <a name="error-1816-not-enough-quota-is-available-to-process-this-command-when-you-copy-to-an-azure-file-share"></a>Błąd 1816 "za mało zasobów jest niedostępna do przetworzenia tego polecenia" podczas kopiowania do udziału plików na platformę Azure
@@ -164,6 +164,12 @@ Zastosuj jedno z następujących rozwiązań:
 
 -   Zainstaluj dysk z tego samego konta użytkownika, który zawiera aplikację. Można użyć narzędzia, takiego jak narzędzia PsExec.
 - Podaj nazwę konta magazynu i klucz w nazwie użytkownika i hasło Parametry sieci, użyj polecenia.
+- Polecenie cmdkey umożliwia dodawanie poświadczeń do Menedżera poświadczeń. Wykonać z poziomu wiersza polecenia w kontekście konta usługi, za pomocą logowania interaktywnego lub za pomocą polecenia Uruchom jako.
+  
+  `cmdkey /add:<storage-account-name>.file.core.windows.net /user:AZURE\<storage-account-name> /pass:<storage-account-key>`
+- Mapowanie udziału bezpośrednio, bez za pomocą litery dysku zmapowanego. Niektóre aplikacje mogą nie ponownie literę dysku poprawnie, dlatego przy użyciu pełnej ścieżki UNC może być bardziej niezawodne. 
+
+  `net use * \\storage-account-name.file.core.windows.net\share`
 
 Po wykonaniu tych instrukcji, zostanie zgłoszony następujący komunikat o błędzie podczas uruchamiania polecenie net use dla konta usługi systemu i sieci: "Wystąpił błąd systemowy 1312. Określona sesja logowania nie istnieje. Go może została już zakończona." W takim przypadku upewnij się, że nazwa użytkownika, która została przekazana do metody net use zawiera informacje o domenie (na przykład: "[nazwa konta magazynu]. file.core.windows .net").
 
@@ -180,9 +186,9 @@ Aby skopiować pliku za pośrednictwem sieci, należy najpierw musisz go odszyfr
 
 - Użyj **skopiuj /d** polecenia. Umożliwia on zaszyfrowane pliki można zapisać jako zaszyfrowanych plików w lokalizacji docelowej.
 - Należy ustawić następujący klucz rejestru:
-  - Ścieżka = HKLM\Software\Policies\Microsoft\Windows\System
+  - Path = HKLM\Software\Policies\Microsoft\Windows\System
   - Typ wartości = DWORD
-  - Nazwa = CopyFileAllowDecryptedRemoteDestination
+  - Name = CopyFileAllowDecryptedRemoteDestination
   - Wartość = 1
 
 Należy pamiętać, że ustawienie klucza rejestru ma wpływ na wszystkie operacje kopiowania, wprowadzone w udziałach sieciowych.

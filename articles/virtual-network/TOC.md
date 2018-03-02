@@ -1,3 +1,5 @@
+# [Dokumentacja usługi Virtual Network](index.md)
+
 # Omówienie
 ## [Sieci wirtualne](virtual-networks-overview.md)
 ## [Routing](virtual-networks-udr-overview.md)
@@ -8,7 +10,7 @@
 ## [Sieć kontenerów](container-networking.md)
 ## [Ciągłość działalności biznesowej:](virtual-network-disaster-recovery-guidance.md)
 ## [Adresowanie IP](virtual-network-ip-addresses-overview-arm.md)
-## [Ochrona przed atakami DDOS](ddos-protection-overview.md)
+## [DDoS Protection](ddos-protection-overview.md)
 ## [Często zadawane pytania](virtual-networks-faq.md)
 ## Wdrożenie klasyczne
 ### [Adresowanie IP](virtual-network-ip-addresses-overview-classic.md)
@@ -164,7 +166,7 @@
 ### Maszyny wirtualne
 #### [Przenoszenie maszyny wirtualnej do innej podsieci](virtual-networks-move-vm-role-to-subnet.md)
 ### [Publiczne adresy IP](virtual-network-public-ip-address.md)
-### Ochrona przed atakami DDOS
+### DDoS Protection
 #### [Azure portal](ddos-protection-manage-portal.md)
 #### [Azure PowerShell](ddos-protection-manage-ps.md)
 

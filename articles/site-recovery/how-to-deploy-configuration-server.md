@@ -6,21 +6,21 @@ author: AnoopVasudavan
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 02/25/2018
 ms.author: anoopkv
-ms.openlocfilehash: 3b09c11d76d5c88b904afa3c6d256bc475992339
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: f7ec02cb4723d8a4ea0847810b1a1822cf20e957
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="deploy-a-configuration-server"></a>Wdrażanie serwera konfiguracji
 
-Lokalny serwer konfiguracji jest wdrażany, kiedy należy używać [usługi Azure Site Recovery](site-recovery-overview.md) odzyskiwania po awarii maszyn wirtualnych VMware i serwerów fizycznych do platformy Azure. Konfiguracja serwera współrzędnych komunikacji między lokalnymi VMware i na platformie Azure. Umożliwia także zarządzanie replikacji danych. W tym artykule przedstawiono kroki niezbędne do wdrożenia serwera konfiguracji.
+Lokalny serwer konfiguracji jest wdrażany, kiedy należy używać [usługi Azure Site Recovery](site-recovery-overview.md) odzyskiwania po awarii maszyn wirtualnych VMware i serwerów fizycznych do platformy Azure. Konfiguracja serwera współrzędnych komunikacji między lokalnymi VMware i na platformie Azure. Umożliwia także zarządzanie replikacji danych. W tym artykule przedstawiono kroki potrzebne do wdrożenia serwera konfiguracji w przypadku replikacji maszyn wirtualnych VMware do platformy Azure. [Wykonaj w tym artykule](site-recovery-set-up-physical-to-azure.md) Jeśli musisz skonfigurować serwer konfiguracji replikacji serwera fizycznego.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Zaleca się wdrożenie serwera konfiguracji jako wysokiej dostępności maszyny Wirtualnej VMware. Replikacja serwerów fizycznych można skonfigurować serwera konfiguracji na komputerze fizycznym. Minimalne wymagania sprzętowe zostały podsumowane w poniższej tabeli.
+Zaleca się wdrożenie serwera konfiguracji jako wysokiej dostępności maszyny Wirtualnej VMware. Minimalne wymagania sprzętowe zostały podsumowane w poniższej tabeli.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
@@ -118,4 +118,4 @@ Jeśli chcesz dodać dodatkowe kartę Sieciową do konfiguracji serwera, należy
 
 ## <a name="next-steps"></a>Kolejne kroki
 
-Przejrzyj samouczków dotyczących sposobów konfigurowania odzyskiwania po awarii [maszyn wirtualnych VMware](tutorial-vmware-to-azure.md) i [serwerów fizycznych](tutorial-physical-to-azure.md) na platformie Azure.
+Konfigurowanie odzyskiwania po awarii [maszyn wirtualnych VMware](tutorial-vmware-to-azure.md) na platformie Azure.

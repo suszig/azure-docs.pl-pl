@@ -11,17 +11,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 4b2561aa338707567b44237e668e9d6d1a01bfea
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3d48f1f3df7b626ec33b07b6275581821453f626
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Kopiowanie danych z i do usług Salesforce przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Wersja 1 - ogólnie dostępna](v1/data-factory-salesforce-connector.md)
+> * [Wersja 1 — ogólnie dostępna](v1/data-factory-salesforce-connector.md)
 > * [Wersja 2 — wersja zapoznawcza](connector-salesforce.md)
 
 W tym artykule omówiono sposób użycia działanie kopiowania w fabryce danych Azure, aby skopiować dane z i do usług Salesforce. Opiera się na [omówienie działania kopiowania](copy-activity-overview.md) artykułu, który przedstawia ogólne omówienie działania kopiowania.
@@ -187,6 +187,7 @@ Aby skopiować dane z witryny Salesforce, Ustaw typ źródła w przypadku dział
 |:--- |:--- |:--- |
 | type | Musi mieć ustawioną właściwość type źródła działania kopiowania **SalesforceSource**. | Yes |
 | query |Użyj niestandardowych zapytania można odczytać danych. Można użyć zapytania SQL 92 lub [Salesforce obiektu Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) zapytania. Może to być na przykład `select * from MyTable__c`. | Nie (Jeśli określono parametr "Nazwa_tabeli" w zestawie danych) |
+| readBehavior | Wskazuje, czy wysyłać zapytania o istniejące rekordy lub wysyłać zapytania o wszystkie rekordy tym usunięto te. Jeśli nie zostanie określony, domyślne zachowanie to pierwsza. <br>Dozwolone wartości: **zapytania** (ustawienie domyślne), **queryAll**.  | Nie |
 
 > [!IMPORTANT]
 > Część "__c" **Nazwa interfejsu API** jest wymagany dla dowolnych niestandardowych obiektów.
@@ -292,8 +293,8 @@ Kwerenda nietrwałego usuniętych rekordów z Salesforce Kosza, można określi�
 
 Po określeniu zapytania SOQL lub SQL, należy zwrócić uwagę na różnica format daty/godziny. Na przykład:
 
-* **Przykładowe SOQL**:`SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
-* **Przykładowe SQL**:`SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}"`
+* **Przykładowe SOQL**: `SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
+* **Przykładowe SQL**: `SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}"`
 
 ## <a name="data-type-mapping-for-salesforce"></a>Mapowanie dla usług Salesforce typu danych
 
@@ -304,8 +305,8 @@ Po skopiowaniu danych z usług Salesforce następujące mapowania są używane z
 | Automatyczny numer |Ciąg |
 | Pole wyboru |Wartość logiczna |
 | Waluta |Podwójnej precyzji |
-| Date |Data/godzina |
-| Data/godzina |Data/godzina |
+| Date |DateTime |
+| Data/godzina |DateTime |
 | Adres e-mail |Ciąg |
 | Identyfikator |Ciąg |
 | Relacja wyszukiwania |Ciąg |

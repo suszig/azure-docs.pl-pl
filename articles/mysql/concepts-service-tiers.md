@@ -10,10 +10,10 @@ ms.service: mysql-database
 ms.topic: article
 ms.date: 11/03/2017
 ms.openlocfilehash: ae7e57e9b40f5194c15525a48843060bbccaa956
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-mysql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Azure bazy danych MySQL opcje i wydajność: Poznaj, co jest dostępne w każdej warstwy cenowej
 Podczas tworzenia bazy danych Azure dla serwera MySQL zdecydujesz się na trzy główne opcje do konfigurowania zasobów przydzielonych dla tego serwera. Te opcje wpływ na wydajność i skalę serwera.
@@ -36,7 +36,7 @@ Poniższa tabela zawiera przykłady warstw cenowych najlepiej nadaje się do ró
 | Warstwa cenowa | Docelowe obciążenia |
 | :----------- | :----------------|
 | Podstawowa | Najodpowiedniejsza dla małych obciążeń, które wymagają skalowalnych zasobów obliczeniowych i magazynowania, bez zagwarantowania IOPS. Przykłady obejmują serwery używane do tworzenia i testowania lub niewielkie, rzadko używane aplikacje. |
-| Standardowa | Opcja Przejdź do chmury aplikacje wymagające IOPS gwarancja wysokiej przepływności. Przykładami sieci web lub aplikacji analitycznych. |
+| Standardowa (Standard) | Opcja Przejdź do chmury aplikacje wymagające IOPS gwarancja wysokiej przepływności. Przykładami sieci web lub aplikacji analitycznych. |
 | Premium | Najodpowiedniejsza dla obciążeń wymagających małe opóźnienia transakcji i we/wy. Obsługuje najlepsze dla wielu użytkowników równocześnie. Zastosowanie do bazy danych, które obsługują misji kluczowych aplikacji.<br />Warstwa cenowa Premium nie jest dostępne w wersji zapoznawczej. |
 
 Aby zdecydować się na warstwę cenową, najpierw uruchomić przez określenie, czy obciążenie musi gwarancji IOPS. Jeśli tak, użyj warstwa cenowa standardowa.
@@ -45,8 +45,8 @@ Aby zdecydować się na warstwę cenową, najpierw uruchomić przez określenie,
 | :------------------------ | :-------- | :----------- |
 | Maksymalna obliczeń jednostki | 100 | 800 | 
 | Maksymalna całkowita ilość miejsca | 1 TB | 1 TB | 
-| Gwarancji IOPS magazynu | Nie dotyczy | Tak | 
-| Maksymalna przestrzeń magazynowa IOPS | Nie dotyczy | 3,000 | 
+| Gwarancji IOPS magazynu | ND | Yes | 
+| Maksymalna przestrzeń magazynowa IOPS | ND | 3,000 | 
 | Okres przechowywania kopii zapasowych bazy danych | 7 dni | 35 dni | 
 
 W okresie preview nie można zmienić warstwy cenowej po utworzeniu serwera. W przyszłości będzie można rejestrować uaktualnić lub starszą wersję serwera z jedną warstwę cenową do innej warstwy.
@@ -72,12 +72,12 @@ Obliczenia bazy danych jednostki to miara przepływności przetwarzania procesor
 | **Poziom wydajności** | **100** | **200** | **400** | **800** |
 | :-------------------- | :------ | :------ | :------ | :------ |
 | Obliczeniowe maksymalna liczba jednostek | 100 | 200 | 400 | 800 |
-| Rozmiar magazynu dołączone i elastycznie IOPS | 125 GB<br/> 375 IOPS | 125 GB<br/> 375 IOPS | 125 GB<br/> 375 IOPS | 125 GB<br/> 375 IOPS |
+| Rozmiar magazynu dołączone i elastycznie IOPS | 125 GB,<br/> 375 IOPS | 125 GB,<br/> 375 IOPS | 125 GB,<br/> 375 IOPS | 125 GB,<br/> 375 IOPS |
 | Maksymalny rozmiar magazynu serwera\* | 1 TB | 1 TB | 1 TB | 1 TB |
 | Udostępniony serwerowi maksymalna liczba IOPS | IOPS 3000 | IOPS 3000 | IOPS 3000 | IOPS 3000 |
 | Udostępniony serwerowi maksymalna liczba IOPS na GB | Stałe IOPS 3 na GB | Stałe IOPS 3 na GB | Stałe IOPS 3 na GB | Stałe IOPS 3 na GB |
 
-\*Maksymalny rozmiar magazynu serwera odnosi się do rozmiaru pamięci masowej elastycznie serwera.
+\* Maksymalny rozmiar magazynu serwera odnosi się do rozmiaru pamięci masowej elastycznie serwera.
 
 ## <a name="storage"></a>Magazyn 
 Konfiguracja magazynu definiuje ilość dostępnej pojemności do bazy danych MySQL serwera Azure. Magazyn używany przez usługę zawiera pliki bazy danych, dzienników transakcji i MySQL dzienniki serwera. Należy wziąć pod uwagę rozmiar pamięci masowej niezbędne do obsługi baz danych i wymagania dotyczące wydajności (IOPS), wybierając konfiguracji magazynu.
@@ -100,6 +100,6 @@ W tle zmiana poziomu wydajności serwera na nowy poziom wydajności zostanie utw
 
 Czas trwania procesu całej skali zależy od zarówno rozmiar i warstwę cenową serwera przed i po zmianie. Na przykład serwer, który jest zmiana obliczeniowe jednostek w warstwie cenowej standardowa powinno zakończyć w ciągu kilku minut. Nowe właściwości dla serwera nie są stosowane dopiero po zakończeniu zmiany.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - Aby uzyskać więcej informacji o jednostkach obliczeniowe zobacz [wyjaśniający jednostki obliczeniowe](concepts-compute-unit-and-storage.md)
 - Dowiedz się, jak [monitora i skalowania bazy danych Azure programu MySQL serwera przy użyciu wiersza polecenia platformy Azure](scripts/sample-scale-server.md)

@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 02/23/2018
 ms.author: larryfr
-ms.openlocfilehash: 5e9951132ebb46d1053fbf62528b43e82cc76d2e
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 03214f25858ae340908a1d1b7f3ff7f62d545dc9
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="connect-hdinsight-to-your-on-premise-network"></a>HDInsight nawiązać połączenie z siecią lokalną
 
@@ -78,7 +78,7 @@ Do utworzenia maszyny Wirtualnej systemu Linux, który używa [powiązać](https
 
     ![Tworzenie maszyny wirtualnej systemu Ubuntu](./media/connect-on-premises-network/create-ubuntu-vm.png)
 
-2. Z __podstawy__ sekcji, wprowadź następujące informacje:
+2. W sekcji __Podstawowe__ wprowadź następujące informacje:
 
     * __Nazwa__: przyjazną nazwę identyfikującą tej maszyny wirtualnej. Na przykład __DNSProxy__.
     * __Nazwa użytkownika__: Nazwa konta SSH.
@@ -332,7 +332,7 @@ Bezpośrednio z usługi HDInsight za pośrednictwem sieci wirtualnej, wykonaj na
     >
     > Na przykład Ambari jest tylko aktywna na jednym węźle głównym naraz. Jeśli dostęp do narzędzia Ambari w jednym węźle głównym zwraca błąd 404, następnie uruchomiona w innym węźle głównym.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Aby uzyskać więcej informacji na temat używania usługi HDInsight w sieci wirtualnej, zobacz [rozszerzyć HDInsight przy użyciu sieci wirtualnych Azure](./hdinsight-extend-hadoop-virtual-network.md).
 

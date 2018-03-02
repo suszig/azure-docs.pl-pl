@@ -12,30 +12,31 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: 23adc7fa6ee53d1c5edd10b2772f8825dbcef2a8
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 7c8563539ca8507f05fa99fdeffbf511b1540a6a
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="sfctl"></a>sfctl 
-Polecenia do zarządzania klastrami usługi sieci szkieletowej i jednostek. Ta wersja jest zgodna ze środowiskiem uruchomieniowym usługi sieć szkieletowa w wersji 6.0. Polecenia zgodne ze wzorcem czasownik rzeczownik, zobacz następujące podgrupy, aby uzyskać więcej informacji.
+Polecenia do zarządzania klastrami usługi sieci szkieletowej i jednostek. Ta wersja jest zgodna ze środowiskiem uruchomieniowym usługi sieć szkieletowa 6.1. Polecenia zgodne ze wzorcem czasownik rzeczownik, zobacz następujące podgrupy, aby uzyskać więcej informacji.
 
 ## <a name="subgroups"></a>Podgrupy
 |Podgrupy|Opis|
 | --- | --- |
-| [aplikacji](service-fabric-sfctl-application.md)| Tworzenie, usuwanie i zarządzanie aplikacjami i typami aplikacji.|
-| [chaos](service-fabric-sfctl-chaos.md)   | Uruchom, Zatrzymaj, a raport dotyczący usługi testu chaos.|
+| [Aplikacji](service-fabric-sfctl-application.md)| Tworzenie, usuwanie i zarządzanie aplikacjami i typami aplikacji.|
+| [Chaos](service-fabric-sfctl-chaos.md)   | Uruchom, Zatrzymaj, a raport dotyczący usługi testu chaos.|
 | [cluster](service-fabric-sfctl-cluster.md) | Wybierz, zarządzania i obsługi klastrów sieci szkieletowej usług.|
 | [Redagowanie](service-fabric-sfctl-compose.md) | Tworzenie, usuwanie i zarządzania aplikacjami rozwiązania Docker Compose.|
 | [jest](service-fabric-sfctl-is.md)      | Zapytania i wysyłać polecenia do usługi infrastruktury.|
-| [węzeł](service-fabric-sfctl-node.md)    | Zarządzanie węzły, które tworzą klaster.|
-| [partycji](service-fabric-sfctl-partition.md)  | Zapytanie partycji i zarządzania nimi dla żadnej usługi.|
+| [Węzeł](service-fabric-sfctl-node.md)    | Zarządzanie węzły, które tworzą klaster.|
+| [Partycji](service-fabric-sfctl-partition.md)  | Zapytanie partycji i zarządzania nimi dla żadnej usługi.|
+| właściwość  | Właściwości magazynu i zapytań w obszarze nazwy sieci szkieletowej usług.|
 | [rpm](service-fabric-sfctl-rpm.md)        | Zapytania i wysyłać polecenia do naprawy service manager.|
-| [repliki](service-fabric-sfctl-replica.md) | Zarządzanie replik, które należą do partycji usługi.|
-| [usługi](service-fabric-sfctl-service.md) | Tworzenie, usuwanie i zarządzanie usługi, typów usług i pakietów usługi.|
+| [Repliki](service-fabric-sfctl-replica.md) | Zarządzanie replik, które należą do partycji usługi.|
+| [Usługi](service-fabric-sfctl-service.md) | Tworzenie, usuwanie i zarządzanie usługi, typów usług i pakietów usługi.|
 | [Magazyn](service-fabric-sfctl-store.md)   | Wykonywanie operacji poziomu podstawowego pliku magazynu obrazu klastra.|
 
 ## <a name="next-steps"></a>Kolejne kroki

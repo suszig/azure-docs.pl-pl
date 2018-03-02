@@ -1,3 +1,5 @@
+# [Dokumentacja usługi Data Lake Analytics](index.md)
+
 # Omówienie
 ## [Co to jest usługa Data Lake Analytics?](data-lake-analytics-overview.md)
 

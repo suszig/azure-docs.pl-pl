@@ -7,8 +7,10 @@
 - name: Przewodniki Szybki start
   expanded: true
   items:
-    - name: Konfigurowanie automatycznej aprowizacji
+    - name: Konfigurowanie automatycznego aprowizowania — portal
       href: quick-setup-auto-provision.md
+    - name: Konfigurowanie automatycznego aprowizowania — szablon
+      href: quick-setup-auto-provision-rm.md
     - name: Tworzenie symulowanego urządzenia
       items:
         - name: Moduł TPM
@@ -91,6 +93,8 @@
       href: how-to-revoke-device-access-portal.md
     - name: Anulowanie aprowizacji urządzeń
       href: how-to-unprovision-devices.md
+    - name: Sprawdzanie dowodu posiadania dla certyfikatów urzędu certyfikacji X.509
+      href: how-to-verify-certificates.md
     - name: Używanie modułu HSM z zestawem SDK
       href: use-hsm-with-sdk.md
     - name: Kontrola dostępu do usługi Provisioning Service
@@ -99,6 +103,8 @@
       href: how-to-manage-dps-with-cli.md
     - name: Programowanie za pomocą narzędzi zestawu SDK
       href: how-to-use-sdk-tools.md
+    - name: Łączenie z zestawem MXChip IoT DevKit
+      href: how-to-connect-mxchip-iot-devkit.md
 - name: Dokumentacja
   items:
     - name: REST

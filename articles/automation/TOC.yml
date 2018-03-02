@@ -19,7 +19,7 @@
       href: automation-watchers-tutorial.md
     - name: Zarządzanie aktualizacjami maszyny wirtualnej
       href: automation-tutorial-update-management.md
-    - name: Dodawanie aktualizacji i śledzenia zmian
+    - name: Dołączanie aktualizacji i śledzenia zmian za pomocą elementu runbook
       href: automation-onboard-solutions.md
     - name: Identyfikowanie oprogramowania na maszynie wirtualnej
       href: automation-tutorial-installed-software.md
@@ -27,20 +27,24 @@
       href: automation-tutorial-troubleshoot-changes.md
 - name: Instrukcje
   items:
+    - name: Dołączanie
+      items:
+        - name: Dołączanie z maszyny wirtualnej platformy Azure
+          href: automation-onboard-solutions-from-vm.md
+        - name: Dołączanie z konta usługi Automation
+          href: automation-onboard-solutions-from-automation-account.md
     - name: Zarządzanie aktualizacjami
       items:
-        - name: Omówienie
-          href: ../operations-management-suite/oms-solution-update-management.md?toc=%2fazure%2fautomation%2ftoc.json
+        - name: Omówienie rozwiązania Update Management
+          href: automation-update-management.md
         - name: Zarządzanie aktualizacjami dla wielu maszyn wirtualnych
           href: manage-update-multi.md
-        - name: Integracja programu SCCM z programem OMS Update Management
+        - name: Integracja programu SCCM z rozwiązaniem Update Management
           href: oms-solution-updatemgmt-sccmintegration.md
     - name: Śledzenie zmian
       items:
-        - name: Omówienie
-          href: ../log-analytics/log-analytics-change-tracking.md?toc=%2fazure%2fautomation%2ftoc.json
-        - name: Śledzenie zmian w maszynach wirtualnych
-          href: automation-vm-change-tracking.md
+        - name: Omówienie rozwiązania Change Tracking
+          href: automation-change-tracking.md
     - name: Spis
       items:
         - name: Zarządzanie maszyną wirtualną za pomocą kolekcji spisu

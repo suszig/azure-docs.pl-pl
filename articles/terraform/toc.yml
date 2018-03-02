@@ -1,3 +1,5 @@
+- name: Dokumentacja programu Terraform na platformie Azure
+  href: index.yml
 - name: Omówienie
   items:
     - name: Informacje o programie Terraform na platformie Azure

@@ -1,9 +1,11 @@
+# [Dokumentacja usługi Data Catalog](index.md)
+
 # Omówienie
 ## [Co to jest usługa Data Catalog?](data-catalog-what-is-data-catalog.md)
 ## [Typowe scenariusze](data-catalog-common-scenarios.md)
 ## [Obsługiwane źródła danych](data-catalog-dsr.md)
 
-# Wprowadzenie
+# Rozpoczęcie pracy
 ## [Rozpoczynanie pracy z usługą Azure Data Catalog](data-catalog-get-started.md)
 ## [Wdrażanie usługi Azure Data Catalog](data-catalog-adopting-data-catalog.md)
 ## [Wymagania wstępne](data-catalog-prerequisites.md)

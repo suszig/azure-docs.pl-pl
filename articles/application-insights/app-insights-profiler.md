@@ -12,76 +12,82 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: 80792a82adbb93e80c94b4829b704b70d2a8ed23
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: c65ef9141898369b8fcadd4c52972b767aca7cfe
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Profil aplikacji sieci web platformy Azure na żywo za pomocą usługi Application Insights
 
-*Ta funkcja usługi Application Insights jest ogólnie dostępna w usłudze Azure App Service i w zasoby obliczeniowe systemu Azure w wersji zapoznawczej.*
+*Ta funkcja Azure Application Insights jest ogólnie dostępna dla funkcji aplikacji sieci Web w usłudze Azure App Service i w zasoby obliczeniowe systemu Azure w wersji zapoznawczej.*
 
-Sprawdzić, ile jest czas w każdej metodzie aplikacji sieci web na żywo przy użyciu [usługi Application Insights](app-insights-overview.md). Narzędzia profilowania w usłudze Application Insights zamieszczono szczegółowe profilów na żywo żądań, które zostały obsłużone przez aplikację i zaznacza *aktywnej ścieżki* używającą najwięcej czasu. Żądania z czasy odpowiedzi różnych są profilowane na podstawie próbki. Koszty związane z aplikacji jest zminimalizowany, za pomocą różnych technik.
+W tym artykule omówiono ilość czasu poświęcana w każdej metodzie aplikacji sieci web na żywo, gdy używasz [usługi Application Insights](app-insights-overview.md). Narzędzia Application Insights profilera Wyświetla szczegółowe profile bieżących żądań, które zostały obsłużone przez aplikację. Wyróżnia profilera *aktywnej ścieżki* używającą najwięcej czasu. Żądania z różnych czasów odpowiedzi są profilowane na podstawie próbki. Za pomocą różnych technik, można zminimalizować koszty, który został skojarzony z aplikacją.
 
-Profiler jest obecnie obsługiwane dla aplikacji sieci web ASP.NET i ASP.NET Core, systemem w usłudze Azure App Service. **Podstawowe** warstwę usługi lub nowszego jest wymagany do użycia profilera.
+Profiler jest obecnie obsługiwane dla aplikacji sieci web ASP.NET i ASP.NET Core uruchomionych aplikacji sieci Web. Podstawowe warstwę usługi lub nowszego jest wymagane do używania profilera.
 
-## <a id="installation"></a>Włącz profilera dla aplikacji sieci Web usługi aplikacji
-Jeśli już aplikacja opublikowana w usługach aplikacji, ale nie wykonano żadnych czynności w kodzie źródłowym, aby móc używać usługi Application Insights, przejdź do okienka usługi aplikacji w portalu Azure, przejdź do **monitorowanie | Usługa Application Insights**, postępuj zgodnie z instrukcjami w okienku, aby utworzyć nowy zasób, lub wybierz istniejący zasób usługi Application Insights do monitorowania aplikacji sieci Web.
+## <a id="installation"></a> Włącz profilera do aplikacji sieci web aplikacji sieci Web
+Jeśli już zostały opublikowane w aplikacji sieci web aplikacji, ale nie wykonano żadnych czynności w kodzie źródłowym, aby użyć usługi Application Insights, wykonaj następujące czynności:
+1. Przejdź do **usługi aplikacji** okienku w portalu Azure.
+2. W obszarze **monitorowanie**, wybierz pozycję **usługi Application Insights**, a następnie albo postępuj zgodnie z instrukcjami w okienku, aby utworzyć nowy zasób, lub wybierz istniejący zasób usługi Application Insights do monitorowania sieci web aplikacja.
 
-![Włącz Insights aplikacji w portalu usługi aplikacji][appinsights-in-appservices]
+   ![Włącz Insights aplikacji w portalu usługi aplikacji][appinsights-in-appservices]
 
-Jeśli masz dostęp do kodu źródłowego projektu, [instalacji usługi Application Insights](app-insights-asp-net.md). Jeśli jest już zainstalowany, upewnij się, że masz najnowszą wersję. Aby wyszukać najnowszą wersję, w Eksploratorze rozwiązań kliknij projekt prawym przyciskiem myszy, a następnie wybierz **pakiety zarządzania pakietami NuGet** > **aktualizacje** > **Aktualizuj wszystkie pakiety**. Następnie można wdrożyć aplikację.
+3. Jeśli masz dostęp do kodu źródłowego projektu, [instalacji usługi Application Insights](app-insights-asp-net.md).  
+   Jeśli jest już zainstalowany, upewnij się, że masz najnowszą wersję. Aby wyszukać najnowszą wersję, w Eksploratorze rozwiązań kliknij projekt prawym przyciskiem myszy, a następnie wybierz **pakiety zarządzania pakietami NuGet** > **aktualizacje** > **Aktualizuj wszystkie pakiety**. Następnie można wdrożyć aplikację.
 
 Aplikacje platformy ASP.NET Core wymagają zainstalowania 2.1.0-beta6 pakietu Microsoft.ApplicationInsights.AspNetCore NuGet lub nowszej do pracy z profilera. Począwszy od 27 czerwca 2017 wcześniejszych wersji nie są obsługiwane.
 
-W [portalu Azure](https://portal.azure.com), otwórz zasobu usługi Application Insights dla aplikacji sieci web. Wybierz **wydajności** > **włączyć Application Insights profilera**.
+1. W [portalu Azure](https://portal.azure.com), otwórz zasobu usługi Application Insights dla aplikacji sieci web. 
+2. Wybierz **wydajności** > **włączyć Application Insights profilera**.
 
-![Zaznacz opcję Włącz transparent profilera][enable-profiler-banner]
+   ![Zaznacz opcję Włącz transparent profilera][enable-profiler-banner]
 
-Alternatywnie można wybrać **profilera** konfigurację, aby wyświetlić stan i włączanie lub wyłączanie profilera.
+3. Alternatywnie można wybrać **profilera** konfigurację, aby wyświetlić stan i włączanie lub wyłączanie profilera.
 
-![W obszarze wydajność wybierz konfigurację profilera][performance-blade]
+   ![Wybierz konfigurację profilera][performance-blade]
 
-Aplikacje sieci Web, które są skonfigurowane przy użyciu usługi Application Insights są wymienione w **profilera** okienko konfiguracji. Jeśli kroki powyżej zostały wykonane, powinien już zainstalowany agent profilera. Wybierz **włączyć profilera** w **profilera** okienko konfiguracji.
+   Aplikacje sieci Web, które są skonfigurowane przy użyciu usługi Application Insights są wymienione w **profilera** okienko konfiguracji. Po wykonaniu powyższych kroków powinien być zainstalowany agent profilera. 
 
-Wykonaj instrukcje, aby zainstalować agenta profilera, w razie potrzeby. Jeśli żadne aplikacje sieci web zostały skonfigurowane przy użyciu usługi Application Insights, wybierz **Dodaj aplikacje połączone**.
+4. W **profilera** okienko konfiguracji, wybierz opcję **włączyć profilera**.
 
-![Skonfiguruj opcje okienka][linked app services]
+5. W razie potrzeby postępuj zgodnie z instrukcjami, aby zainstalować agenta programu Profiler. Jeśli żadne aplikacje sieci web zostały skonfigurowane przy użyciu usługi Application Insights, wybierz **Dodaj aplikacje połączone**.
 
-W przeciwieństwie do aplikacji sieci web, które znajdują się za pośrednictwem planów usługi App Service aplikacje, które znajdują się w zasoby obliczeniowe systemu Azure (na przykład, maszynach wirtualnych platformy Azure, zestawy skalowania maszyny wirtualnej, sieć szkieletowa usług Azure lub usługi w chmurze Azure) nie są bezpośrednio zarządzane przez usługę Azure. W takim przypadku jest żadnej aplikacji sieci web, aby połączyć. Zamiast łącze do aplikacji, wybierz **włączyć profilera** przycisku.
+   ![Skonfiguruj opcje okienka][linked app services]
 
-### <a name="enable-the-profiler-for-azure-compute-resources-preview"></a>Włącz profilera dla zasobów obliczeniowych Azure (wersja zapoznawcza)
+W przeciwieństwie do aplikacji sieci web, które znajdują się za pomocą planów aplikacji sieci Web aplikacje, które znajdują się w zasoby obliczeniowe systemu Azure (na przykład, maszynach wirtualnych platformy Azure, zestawy skalowania maszyny wirtualnej, sieć szkieletowa usług Azure lub usługi w chmurze Azure) nie są bezpośrednio zarządzane przez usługę Azure. W takim przypadku jest żadnej aplikacji sieci web, aby połączyć. Zamiast łącze do aplikacji, wybierz **włączyć profilera** przycisku.
 
-Uzyskiwanie informacji [wersji zapoznawczej profilera dla zasobów obliczeniowych Azure](https://go.microsoft.com/fwlink/?linkid=848155).
+### <a name="enable-profiler-for-azure-compute-resources-preview"></a>Włącz profilera dla zasobów obliczeniowych Azure (wersja zapoznawcza)
+
+Aby uzyskać informacje, zobacz [wersji zapoznawczej profilera zasoby obliczeniowe systemu Azure](https://go.microsoft.com/fwlink/?linkid=848155).
 
 ## <a name="view-profiler-data"></a>Wyświetlanie danych profilera
 
-**Upewnij się, że aplikacja odbiera ruch.** Jeśli przeprowadzasz eksperyment, można wygenerować żądania przy użyciu aplikacji sieci Web [test wydajności, Application Insights](https://docs.microsoft.com/en-us/vsts/load-test/app-service-web-app-performance-test). Włączenie nowo profilera można uruchomić testu obciążenia krótkich przez 15 minut, które powinien wygenerować ślady profilera. Gdyby profilera już włączone przez pewien czas uruchamia keep pamiętać, że Profiler losowo uruchamia dwa razy co godzinę i czas trwania dwie minuty każdej aktualizacji. Zalecamy najpierw uruchamiania testu obciążenia przez jedną godzinę do upewnij się, że możesz uzyskać przykładowe ślady profilera.
+Upewnij się, że aplikacja odbiera ruch. Jeśli przeprowadzasz eksperyment, można wygenerować żądania do używania aplikacji sieci web [test wydajności, Application Insights](https://docs.microsoft.com/en-us/vsts/load-test/app-service-web-app-performance-test). Jeśli włączono nowo profilera, można uruchomić testu obciążenia krótkich przez 15 minut, które powinien wygenerować ślady profilera. Gdyby profilera już włączone przez pewien czas uruchamia keep pamiętać, że Profiler losowo uruchamia dwa razy co godzinę i czas trwania dwie minuty każdej aktualizacji. Zalecamy najpierw uruchamiania testu obciążenia przez jedną godzinę do upewnij się, że możesz uzyskać przykładowe ślady profilera.
 
-Gdy aplikacja odbiera część ruchu, przejdź do **wydajności** bloku > **podjąć akcje** Aby wyświetlić profilera śladów. Wybierz **ślady profilera** przycisku.
+Gdy aplikacja otrzyma część ruchu, przejdź do **wydajności** okienku wybierz **wykonać akcje** wyświetlić ślady profilera, a następnie wybierz **ślady profilera** przycisku.
 
-![Ślady profilera aplikacji wydajności wgląd w okienku podglądu][performance-blade-v2-examples]
+![Śledzi profilera aplikacji wydajności wgląd w okienku podglądu][performance-blade-v2-examples]
 
-Wybierz przykład do pokazywania podział poziomie kodu czas wykonania żądania.
+Wybierz próbki, aby wyświetlić podział poziomie kodu czas wykonania żądania.
 
 ![Eksplorator śledzenia usługi Application Insights][trace-explorer]
 
 W Eksploratorze śledzenia zawiera następujące informacje:
 
 * **Pokaż ścieżkę aktywną**: Otwiera pośrednictwem powiązanych punktów sprzedaży liść węzła lub co najmniej coś zamknąć. W większości przypadków ten węzeł jest sąsiadujące wąskie gardło.
-* **Etykieta**: nazwę funkcji lub zdarzeń. Drzewo zawiera zarówno kod i zdarzenia (takie jak zdarzenia SQL i HTTP). Górny zdarzeń reprezentuje całkowity czas trwania żądania.
+* **Etykieta**: nazwę funkcji lub zdarzeń. W drzewie wyświetlany zarówno kod i zdarzenia (takie jak zdarzenia SQL i HTTP). Górny zdarzeń reprezentuje całkowity czas trwania żądania.
 * **Upłynął**: interwał czasu rozpoczęcia operacji i koniec operacji.
-* **Gdy**: po funkcji lub zdarzeń była uruchomiona w odniesieniu do innych funkcji.
+* **Gdy**: czas po funkcji lub zdarzeń była uruchomiona w odniesieniu do innych funkcji.
 
 ## <a name="how-to-read-performance-data"></a>Jak można odczytać danych wydajności
 
-Profilera usługi firmy Microsoft używa kombinacji metod próbkowania i instrumentacji do analizowania wydajności aplikacji. Szczegółowe kolekcji jest w toku, profilera usługi przykłady wskaźnik instrukcji poszczególnych procesorów na komputerze co milisekund. Każda próbka przechwytuje stosu wywołań zakończenie wątku, który jest aktualnie wykonywany. Udostępnia szczegółowe informacje na temat tego wątku został czynności, zarówno na wysokim poziomie, jak i na niskim poziomie abstrakcji. Usługa profiler zbiera również inne zdarzenia, aby śledzić korelacji działania i przyczynowości, łącznie z kontekstem przełączania zdarzenia, zdarzenia zadania biblioteki równoległych (TPL) oraz zdarzenia puli wątków.
+Profilera usługi firmy Microsoft używa kombinacji metod próbkowania i instrumentacji do analizowania wydajności aplikacji. Szczegółowe kolekcji jest w toku, profilera usługi przykłady wskaźnik instrukcji procesora każdej maszynie co milisekund. Każda próbka przechwytuje stosu wywołań zakończenie wątku, który jest aktualnie wykonywany. Udostępnia szczegółowe informacje na temat tego wątku został czynności, zarówno na wysokim poziomie, jak i na niskim poziomie abstrakcji. Usługa profiler zbiera również inne zdarzenia, aby śledzić korelacji działania i przyczynowości, łącznie z kontekstem przełączania zdarzenia, zdarzenia zadania biblioteki równoległych (TPL) oraz zdarzenia puli wątków.
 
 Stos wywołań, który jest wyświetlany w widoku osi czasu jest wynikiem próbkowania i instrumentacji. Ponieważ każdy przykład przechwytuje stosu wywołań zakończenie wątku, zawiera kod z programu Microsoft .NET Framework i innych platform, które możesz odwoływać się do.
 
 ### <a id="jitnewobj"></a>Obiekt alokacji (clr! JIT\_nowy lub clr! JIT\_Newarr1)
-**CLR! JIT\_nowy** i **clr! JIT\_Newarr1** są funkcje pomocnicze w programie .NET Framework, które przydzielić pamięci ze sterty zarządzanej. **CLR! JIT\_nowy** jest wywoływane, gdy obiekt jest przydzielony. **CLR! JIT\_Newarr1** jest wywoływane, gdy przydzielone jest Tablica obiektów. Te dwie funkcje są zwykle szybkie i podjąć względnie niewielkich ilości czasu. Jeśli widzisz **clr! JIT\_nowy** lub **clr! JIT\_Newarr1** trwać dość czasu na osi czasu, to wskazanie, czy kod może być Alokacja wiele obiektów i wykorzystywanie znacznych ilości pamięci.
+**CLR! JIT\_nowy** i **clr! JIT\_Newarr1** są funkcje pomocnicze w programie .NET Framework, które przydzielić pamięci ze sterty zarządzanej. **CLR! JIT\_nowy** jest wywoływane, gdy obiekt jest przydzielony. **CLR! JIT\_Newarr1** jest wywoływane, gdy przydzielone jest Tablica obiektów. Te dwie funkcje są zazwyczaj szybkiego i względnie niewielkich ilości czasu. Jeśli widzisz **clr! JIT\_nowy** lub **clr! JIT\_Newarr1** trwać dość czasu na osi czasu, go wskazuje, że kod może być Alokacja wiele obiektów i wykorzystywanie znacznych ilości pamięci.
 
 ### <a id="theprestub"></a>Kod ładujący (clr! ThePreStub)
 **CLR! ThePreStub** jest funkcją pomocnika w programie .NET Framework, który przygotowuje kod do wykonania po raz pierwszy. To zwykle obejmuje, ale nie jest ograniczona do kompilacji just-in-time (JIT). W przypadku każdego C# metody **clr! ThePreStub** powinna być wywoływana co najwyżej raz przez cały okres istnienia procesu.
@@ -89,10 +95,10 @@ Stos wywołań, który jest wyświetlany w widoku osi czasu jest wynikiem próbk
 Jeśli **clr! ThePreStub** trwa dość czasu dla żądania, oznacza to, że żądanie jest pierwszą, która wykonuje tej metody. Czas dla środowiska uruchomieniowego .NET Framework załadować pierwsza metoda jest znacząca. Należy rozważyć przy użyciu procesu rozgrzewania, który wykonuje część kod przed użytkowników do niego dostęp, lub rozważ użycie polecenia Generator obrazu natywnego (ngen.exe) z zestawów.
 
 ### <a id="lockcontention"></a>Zablokuj rywalizacji (clr! JITutil\_MonContention lub clr! JITutil\_MonEnterWorker)
-**CLR! JITutil\_MonContention** lub **clr! JITutil\_MonEnterWorker** wskazuje, że bieżący wątek oczekuje na zwolnienie blokady. To zwykle zostaną wyświetlone podczas wykonywania C# **blokady** instrukcji, podczas wywoływania **Monitor.Enter** metody, lub podczas wywoływania metody z **MethodImplOptions.Synchronized**atrybutu. Rywalizacji blokad zwykle występuje, gdy wątek _A_ uzyskuje blokady i wątku _B_ próbuje uzyskać blokady tego samego przed wątku _A_ zwolnieniem.
+**CLR! JITutil\_MonContention** lub **clr! JITutil\_MonEnterWorker** wskazuje, że bieżący wątek oczekuje na zwolnienie blokady. Ten tekst jest zwykle wyświetlany podczas wykonywania C# **blokady** instrukcji, podczas wywoływania **Monitor.Enter** metody, lub podczas wywoływania metody z **MethodImplOptions.Synchronized** atrybutu. Rywalizacji blokad zwykle występuje, gdy wątek _A_ uzyskuje blokady i wątku _B_ próbuje uzyskać blokady tego samego przed wątku _A_ zwolnieniem.
 
 ### <a id="ngencold"></a>Kod ładujący ([chłodni])
-Jeśli nazwa metody zawiera **[ZIMNYCH]**, takich jak **mscorlib.ni! [COLD]system.Reflection.CustomAttribute.IsDefined**, środowiska uruchomieniowego .NET Framework jest wykonywanie kodu po raz pierwszy, który nie jest zoptymalizowana przez <a href="https://msdn.microsoft.com/library/e7k32f4k.aspx">Optymalizacja sterowana profilem</a>. Dla każdej metody go powinny być widoczne co najwyżej raz przez cały okres istnienia procesu.
+Jeśli nazwa metody zawiera **[ZIMNYCH]**, takich jak **mscorlib.ni! [COLD]system.Reflection.CustomAttribute.IsDefined**, środowiska uruchomieniowego .NET Framework jest wykonywanie kodu po raz pierwszy, który nie jest zoptymalizowana przez <a href="https://msdn.microsoft.com/library/e7k32f4k.aspx">Optymalizacja sterowana profilem</a>. Dla każdej metody powinien zostać wyświetlony co najwyżej raz przez cały okres istnienia procesu.
 
 Jeśli kod ładowania przyjmuje rozległe czas na żądanie, oznacza to, że żądanie jest pierwsza z nich można wykonać zoptymalizowanego część metody. Należy rozważyć użycie procesem rozgrzewania część kodu jest wykonywana przed użytkowników do niego dostęp.
 
@@ -103,7 +109,7 @@ Metod, takich jak **HttpClient.Send** wskazują, że kod czeka na żądania HTTP
 Metod, takich jak **SqlCommand.Execute** wskazują, że kod czeka na zakończenie operacji bazy danych.
 
 ### <a id="await"></a>Oczekiwanie (AWAIT\_czasu)
-**AWAIT\_czasu** wskazuje, że kod czeka na zakończenie innego zadania. Dzieje się to zwykle z języka C# **AWAIT** instrukcji. Jeśli kod jest C# **AWAIT**, wątek cofa i zwraca sterowania do puli wątków i nie nie wątku, który jest zablokowana i czeka na **AWAIT** aby zakończyć. Jednak logicznie, wątek który zostało **AWAIT** "zablokowaniu" i oczekuje na zakończenie operacji. **AWAIT\_czasu** instrukcji wskazuje zablokowanych czasu oczekiwania na zakończenie zadania.
+**AWAIT\_czasu** wskazuje, że kod czeka na zakończenie innego zadania. Zazwyczaj dzieje się to z języka C# **AWAIT** instrukcji. Jeśli kod jest C# **AWAIT**, wątek cofa i zwraca sterowania do puli wątków i nie nie wątku, który jest zablokowana i czeka na **AWAIT** aby zakończyć. Jednak logicznie, wątek który zostało **AWAIT** "zablokowaniu" i oczekuje na zakończenie operacji. **AWAIT\_czasu** instrukcji wskazuje zablokowanych czasu oczekiwania na zakończenie zadania.
 
 ### <a id="block"></a>Czas blokowania
 **BLOCKED_TIME** wskazuje, czy kod jest oczekiwanie na inne zasoby, które mają być dostępne. Na przykład może być oczekiwanie obiektu synchronizacji, wątek był dostępny lub do zakończenia żądania.
@@ -118,25 +124,26 @@ Aplikacja wykonuje operacje dysku.
 Aplikacja jest przeprowadzanie operacji sieciowych.
 
 ### <a id="when"></a>Gdy kolumny
-**Podczas** kolumna jest wizualizację jak włącznie przykłady zbieranych dla węzła w zależności od wraz z upływem czasu. Łączny zakres żądania jest podzielona na 32 przedziałów czasu. Wraz z wartościami granicznymi przykłady dla tego węzła jest zebranych w tych zasobników 32. Zasobnik każdy jest reprezentowany jako pasek. Wysokość paska reprezentuje skalowaną wartość. Dla węzłów oznaczone **CPU_TIME** lub **BLOCKED_TIME**, lub w przypadku relacji oczywiste korzystanie z zasobów (Procesora, dysku, wątek), pasek reprezentuje korzystanie z jednego z tych zasobów w czasie Czas ten zasobnika. Dla tych metryk jest można uzyskać wartość większa niż 100% przez korzystanie z wielu zasobów. Korzystając z średnio dwa procesory przedział czasu, na przykład get 200%.
+**Podczas** kolumna jest wizualizację jak włącznie przykłady zbieranych dla węzła w zależności od wraz z upływem czasu. Łączny zakres żądania jest podzielona na 32 przedziałów czasu. Wraz z wartościami granicznymi przykłady dla tego węzła jest zebranych w tych zasobników 32. Zasobnik każdy jest reprezentowany jako pasek. Wysokość paska reprezentuje skalowaną wartość. Dla węzłów, które są oznaczone jako **CPU_TIME** lub **BLOCKED_TIME**, lub w przypadku relacji widocznych na korzystanie z zasobów (na przykład procesora CPU, dysku lub wątek), pasek reprezentuje użycie jednego z zasoby w okresie tego zasobnika. Dla tych metryk jest można uzyskać wartość większa niż 100 procent za korzystanie z wielu zasobów. Na przykład jeśli używasz, średnio dwa procesory interwale get 200 procent.
 
 ## <a name="limitations"></a>Ograniczenia
 
-Przechowywanie danych domyślny jest pięć dni. Maksymalna danych pozyskanych na dzień wynosi 10 GB.
+Domyślny okres przechowywania danych wynosi pięć dni. Maksymalna dane, które jest pozyskanych na dzień wynosi 10 GB.
 
-Nie ma żadnych opłat za korzystanie z usługi profilera. Aby korzystać z usługi profilera, aplikacji sieci web musi być obsługiwana w warstwie podstawowa usługi Azure App Service.
+Nie ma żadnych opłat za korzystanie z usługi profilera. Można użyć usługi profilera, aplikacji sieci web musi być obsługiwana w warstwie podstawowej aplikacji sieci Web.
 
 ## <a name="overhead-and-sampling-algorithm"></a>Koszty i algorytm pobierania próbek
 
-Profiler losowo uruchamia dwie minuty co godzinę na każdej maszynie wirtualnej hostującego aplikację, która ma włączone do przechwytywania danych śledzenia profilera. Uruchamiając profilera, dodaje między 5 – 15% obciążenie Procesora na serwerze.
-Więcej serwerów, które są dostępne do hostowania aplikacji, mniej wpływ profilera ma na ogólną wydajnością. Jest to spowodowane powoduje algorytm próbkowania profilera systemem jedynie 5% serwerów w dowolnym momencie. Więcej serwerów dostępnych do obsługi żądań sieci web do przesunięcia spowodowane przez uruchomione profilera obciążenie serwera.
+Profiler losowo uruchamia dwie minuty co godzinę na każdej maszynie wirtualnej hostującego aplikację, która ma włączone do przechwytywania danych śledzenia profilera. Kiedy Profiler jest uruchomiona, dodaje od 5 do 15 procent obciążenie Procesora na serwerze.
 
-## <a name="disable-the-profiler"></a>Wyłączanie profilera
-Zatrzymaj lub ponownego uruchomienia profilera dla poszczególnych wystąpień usługi aplikacji, w obszarze **zadania Web Job**, przejdź do zasobu usługi aplikacji. Aby usunąć profilera, przejdź do **rozszerzenia**.
+Więcej serwerów, które są dostępne do hostowania aplikacji, mniej wpływ profilera ma na ogólną wydajnością. Jest to spowodowane powoduje algorytm próbkowania profilera systemem tylko 5 procent serwerów, w dowolnym momencie. Więcej serwerów dostępnych do obsługi żądań sieci web do przesunięcia spowodowane przez uruchomione profilera obciążenie serwera.
 
-![Wyłącz program profilujący do zadania sieci web][disable-profiler-webjob]
+## <a name="disable-profiler"></a>Wyłączanie profilera
+Zatrzymaj lub ponownego uruchomienia profilera dla poszczególnych sieci web wystąpienia aplikacji, w obszarze **zadania Web Job**, przejdź do zasobów aplikacji sieci Web. Aby usunąć profilera, przejdź do **rozszerzenia**.
 
-Zaleca się, że profiler włączona na wszystkich aplikacji sieci web, aby odnaleźć wszystkie problemy z wydajnością tak szybko jak to możliwe.
+![Wyłączanie profilera dla zadanie sieci web][disable-profiler-webjob]
+
+Zaleca się, że Profiler włączona na wszystkich aplikacji sieci web, aby odnaleźć wszystkie problemy z wydajnością możliwie jak najszybciej.
 
 Pakiet WebDeploy można używać do wdrażania zmian do aplikacji sieci web, upewnij się, Wyklucz w folderze App_Data przed usunięciem podczas wdrażania. W przeciwnym razie rozszerzenia profilera pliki zostaną usunięte przy następnym możesz wdrożyć aplikację sieci web na platformie Azure.
 
@@ -151,7 +158,7 @@ Obecnie można włączyć profilera na maksymalnie cztery aplikacji sieci web pl
 
 Profiler jest uruchamiany jako zadanie web ciągły w aplikacji sieci web. Można otworzyć zasobu aplikacji sieci web w [portalu Azure](https://portal.azure.com). W **Webjob** okienka, sprawdź stan **ApplicationInsightsProfiler**. Jeśli nie jest uruchomiony, otwórz **dzienniki** Aby uzyskać więcej informacji.
 
-### <a name="why-cant-i-find-any-stack-examples-even-though-the-profiler-is-running"></a>Dlaczego nie można odnaleźć przykładami stosu, mimo że profiler jest uruchomiona?
+### <a name="why-cant-i-find-any-stack-examples-even-though-profiler-is-running"></a>Dlaczego nie można odnaleźć przykładami stosu, mimo że Profiler jest uruchomiona?
 
 Oto kilka rzeczy, które można sprawdzić:
 
@@ -161,17 +168,17 @@ Oto kilka rzeczy, które można sprawdzić:
 * Upewnij się, że aplikacja sieci web jest uruchomiona na .NET Framework 4.6.
 * Sprawdź, czy aplikacja platformy ASP.NET Core aplikacji sieci web, [wymaganych zależności](#aspnetcore).
 
-Po rozpoczęciu profiler jest okres rozgrzewania krótkie, podczas którego profiler zbiera aktywnie kilka śledzenia wydajności. Po wykonaniu tej profilera zbiera dane śledzenia wydajności dla dwóch minut co godzinę.
+Po rozpoczęciu Profiler jest okres rozgrzewania krótkie, podczas którego Profiler zbiera aktywnie kilka śledzenia wydajności. Po wykonaniu tej Profiler zbiera dane śledzenia wydajności przez dwie minuty co godzinę.
 
-### <a name="i-was-using-azure-service-profiler-what-happened-to-it"></a>Został przy użyciu profilera usługi Azure. Co się stało go?
+### <a name="i-was-using-azure-service-profiler-what-happened-to-it"></a>Został przy użyciu profilera usługi platformy Azure. Co się stało go?
 
-Po włączeniu Application Insights profilera agenta profilera usługi Azure jest wyłączona.
+Po włączeniu Application Insights profilera agentów profiler usługę Azure jest wyłączona.
 
 ### <a id="double-counting"></a>Zliczanie w równoległych wątków o podwójnej precyzji
 
 W niektórych przypadkach w podglądzie stosu Metryka całkowity czas jest większy niż czas trwania żądania.
 
-Taka sytuacja może wystąpić, gdy istnieją dwa lub więcej wątków skojarzone z żądaniem i działają równolegle. W takim przypadku wątku całkowity czas jest większy niż czas, który upłynął. Jeden wątek może być oczekiwanie na drugi, należy wykonać. Podgląd próbuje wykryć i pomija postrzegać czas oczekiwania, ale jego errs boku przedstawiający zbyt dużo zamiast pominięcie, co może być ważnych informacji.
+Taka sytuacja może wystąpić, gdy dwa lub więcej wątków są skojarzone z żądaniem i działają równolegle. W takim przypadku wątku całkowity czas jest większy niż czas, który upłynął. Jeden wątek może być oczekiwanie na drugi, należy wykonać. Podgląd komunikatów o próbuje wykryć i pomija postrzegać czas oczekiwania, ale jego errs boku Wyświetlanie zbyt dużej ilości informacji zamiast pominąć, co może być ważnych informacji.
 
 Po wyświetleniu równoległych wątków w dane śledzenia należy ustalić, które wątków oczekujących, można ustalić ścieżkę krytyczną dla żądania. W większości przypadków szybko przechodzi w stan oczekiwania wątku jest po prostu oczekiwanie na inne wątki. Skoncentrować się na inne wątki i Ignoruj, czas w wątków oczekujących.
 
@@ -180,8 +187,8 @@ Po wyświetleniu równoległych wątków w dane śledzenia należy ustalić, kt�
 Oto kilka rzeczy, które można sprawdzić:
 
 * Jeśli dane, które próbujesz wyświetlić, jest starsza niż kilka tygodni, spróbuj ograniczyć czas filtru i spróbuj ponownie.
-* Sprawdź, czy serwery proxy lub zapora nie zablokowane dostęp do https://gateway.azureserviceprofiler.net.
-* Sprawdź, czy klucz Instrumentacji usługi Application Insights, używanym w aplikacji jest taka sama jak zasobu usługi Application Insights, który został użyty do profilowania włączone. Klucz jest zwykle ApplicationInsights.config, ale może znajdować się w plikach web.config lub app.config.
+* Upewnij się, nie ma serwerów proxy lub zapory zablokował dostęp do https://gateway.azureserviceprofiler.net.
+* Upewnij się, że klucz Instrumentacji usługi Application Insights, używanym w aplikacji jest taka sama jak zasobu usługi Application Insights, który został użyty do profilowania włączone. Klucz zazwyczaj znajduje się w pliku ApplicationInsights.config, ale można ją również w pliku web.config lub app.config.
 
 ### <a name="error-report-in-the-profiling-viewer"></a>Raport o błędach w podglądzie profilowania
 
@@ -189,9 +196,9 @@ Przedstawia biletu pomocy technicznej w portalu. Należy uwzględnić identyfika
 
 ### <a name="deployment-error-directory-not-empty-dhomesitewwwrootappdatajobs"></a>Błąd wdrażania: katalog nie jest pusty "D:\\macierzystego\\lokacji\\wwwroot\\App_Data\\zadań
 
-Jeśli są ponownego wdrażania aplikacji sieci web do zasobu usługi App Service przy użyciu profilera włączone, można napotkać komunikat, który wygląda następująco:
+Jeśli są ponownego wdrażania aplikacji sieci web do zasobów aplikacji sieci Web z profilera włączone, mogą pojawić następujący komunikat:
 
-Katalog nie jest pusty "D:\\macierzystego\\lokacji\\wwwroot\\App_Data\\zadań
+*Katalog nie jest pusty "D:\\macierzystego\\lokacji\\wwwroot\\App_Data\\zadań*
 
 Ten błąd występuje podczas uruchamiania narzędzia Web Deploy ze skryptów lub z potoku wdrożenia usług Team w usłudze Visual Studio. Rozwiązanie to dodaj następujące parametry dodatkowe wdrożenia do zadań narzędzia Web Deploy:
 
@@ -204,93 +211,107 @@ Te parametry Usuń folder, który jest używany przez Profiler Insights aplikacj
 
 ## <a name="manual-installation"></a>Instalacja ręczna
 
-Po skonfigurowaniu profilera uaktualnienia odnoszą się do ustawień aplikacji sieci web. Należy ręcznie zastosować aktualizacje, jeśli dane środowisko wymaga go. Na przykład, jeśli aplikacja działa w środowisku usługi aplikacji dla rozwiązania PowerApps.
+Po skonfigurowaniu profilera uaktualnienia odnoszą się do ustawień aplikacji sieci web. Należy ręcznie zastosować aktualizacje, jeśli dane środowisko wymaga go. Przykładem może być, że aplikacja działa w środowisku aplikacje sieci Web dla rozwiązania PowerApps.
 
-1. W Panelu sterowania aplikacji sieci web, należy otworzyć **ustawienia**.
+1. W **kontroli aplikacji sieci Web** okienku Otwórz **ustawienia**.
 2. Ustaw **.Net Framework w wersji** do **4.6**.
 3. Ustaw **zawsze włączone** do **na**.
-4. Dodaj __APPINSIGHTS_INSTRUMENTATIONKEY__ aplikacji, ustawienia i ustaw wartość do tego samego klucza instrumentacji, która jest używana przez zestaw SDK.
+4. Dodaj **APPINSIGHTS_INSTRUMENTATIONKEY** aplikacji, ustawienia i ustaw wartość na taki sam klucz instrumentacji, która jest używana przez zestaw SDK.
 5. Otwórz **zaawansowane narzędzia**.
 6. Wybierz **Przejdź** otworzyć Kudu witryny sieci Web.
 7. W witrynie sieci Web Kudu, wybierz **lokacji rozszerzenia**.
-8. Zainstaluj __usługi Application Insights__ z galerii aplikacji sieci Web platformy Azure.
+8. Zainstaluj **usługi Application Insights** z galerii aplikacji sieci Web platformy Azure.
 9. Uruchom ponownie aplikację sieci web.
 
-## <a id="profileondemand"></a>Ręcznie uruchomić profilera
-Podczas opracowywania profiler, dodane interfejsu wiersza polecenia, aby firma Microsoft można testować profilera na usługi aplikacji. Przy użyciu tych tych samych użytkowników interface można również dostosować sposób uruchamiania profilera. Na wysokim poziomie profilera używa systemu Kudu usługi aplikacji do zarządzania profilowania w tle. Po zainstalowaniu rozszerzenie usługi Application Insights, utworzymy zadania ciągłego sieci web, które obsługuje profilera. Używamy tej samej technologii, aby utworzyć nowe zadanie sieci web, którą można dostosować do własnych potrzeb.
+## <a id="profileondemand"></a> Ręcznie uruchomić profilera
+Podczas opracowywania Profiler, dodane interfejsu wiersza polecenia, aby firma Microsoft można testować profilera na usługi aplikacji. Przy użyciu tego samego interfejsu, użytkowników można dostosować sposób uruchamiania profilera. Na wysokim poziomie profilera wykorzystuje System Kudu aplikacji sieci Web do zarządzania, profilowania w tle. Po zainstalowaniu rozszerzenie usługi Application Insights, utworzymy zadanie sieci web ciągłego obsługującego profilera. Używamy tej samej technologii, aby utworzyć nowe zadanie sieci web, którą można dostosować do własnych potrzeb.
 
 W tej sekcji opisano sposób:
 
-1. Utwórz zadanie sieci web, które można uruchomić profilera dwie minuty o naciśnięcie przycisku.
-2. Utwórz zadanie sieci web, które można zaplanować profiler do uruchomienia.
-3. Ustaw argumentów profilera.
+* Utwórz zadanie sieci web, które można uruchomić profilera dwie minuty o naciśnięcie przycisku.
+* Utwórz zadanie sieci web, które można zaplanować Profiler do uruchomienia.
+* Ustaw argumentów profilera.
 
 
 ### <a name="set-up"></a>Konfigurowanie
-Pierwszy umożliwia zapoznanie się z pulpitu nawigacyjnego zadanie sieci web. W obszarze Ustawienia kliknij na karcie zadań Webjob.
+Po pierwsze zapoznaj się z pulpitu nawigacyjnego zadanie sieci web. W obszarze **ustawienia**, wybierz pozycję **Webjob** kartę.
 
 ![Blok zadań webjob](./media/app-insights-profiler/webjobs-blade.png)
 
-Jak widać, że ten pulpit nawigacyjny pokazuje wszystkie zadania sieci web, które są aktualnie zainstalowane w witrynie. Widać ApplicationInsightsProfiler2 zadanie sieci web, który ma uruchomione zadanie profilera. Jest to, gdzie możemy przechodzili tworzenie naszego nowego zadania web Job ręczne i zaplanowane profilowania.
+Jak widać, ten pulpit nawigacyjny Wyświetla wszystkie zadania sieci web, które są aktualnie zainstalowane w lokacji. Widać ApplicationInsightsProfiler2 zadanie sieci web, który ma uruchomione zadanie profilera. Jest to, gdzie utworzymy nowe zadania sieci web ręczne i zaplanowane profilowania.
 
-Pierwszy Załóż potrzebujemy plików binarnych.
+Aby uzyskać dane binarne, które są potrzebne, wykonaj następujące czynności:
 
-1.  Przejdź do witryny Kudu. Na karcie Narzędzia Programowanie kliknij kartę "Zaawansowane narzędzia" Kudu logo. Kliknij przycisk "Przejdź". Przejście do nowej lokacji i automatycznie loguje.
-2.  Następnie należy pobierania plików binarnych profilera. Przejdź do Eksploratora plików za pomocą konsoli Debuguj -> CMD znajdujący się w górnej części strony.
-3.  Kliknij w lokacji -> wwwroot -> App_Data -> zadania -> ciągłe. Folder "ApplicationInsightsProfiler2" powinna zostać wyświetlona. Kliknij ikonę pobierania z lewej strony folderu. This downloads "ApplicationInsightsProfiler2.zip" file.
-4.  Spowoduje to pobranie wszystkich plików, które są potrzebne. Najlepiej tworzenie wyczyścić katalogu można przenieść tego archiwum zip do zmiany przed kontynuowaniem.
+1.  Na stronie Kudu na **narzędzi programistycznych** wybierz opcję **zaawansowane narzędzia** Kudu logo, a następnie wybierz **Przejdź**.  
+   Otwiera nową lokację, a użytkownik jest zalogowany automatycznie.
+2.  Aby pobrać pliki binarne profilera, przejdź do Eksploratora plików za pomocą **konsoli debugowania** > **CMD**, który znajduje się w górnej części strony.
+3.  Wybierz **lokacji** > **wwwroot** > **App_Data** > **zadania**  >   **Ciągłe**.  
+   Powinny pojawić się folder o nazwie *ApplicationInsightsProfiler2*. 
+4. Po lewej stronie folderu, wybierz **Pobierz** ikony.  
+   Ta akcja pobiera *ApplicationInsightsProfiler2.zip* pliku. Firma Microsoft zaleca utworzenie wyczyścić katalogu można przenieść tego archiwum zip do.
 
 ### <a name="setting-up-the-web-job-archive"></a>Konfigurowanie zadania archiwum sieci web
-Podczas zasadniczo dodać nowe zadanie sieci web do witryny sieci Web platformy azure, możesz utworzyć archiwum zip z run.cmd wewnątrz. Run.cmd informuje system zadanie sieci web, co należy zrobić, gdy zostanie uruchomione zadanie sieci web.
+Po dodaniu nowego zadania sieci web do witryny sieci Web Azure zasadniczo utworzyć archiwum zip z *run.cmd* pliku wewnątrz. *Run.cmd* pliku informuje system zadanie sieci web, co należy zrobić, gdy zostanie uruchomione zadanie sieci web.
 
-1.  Aby uruchomić Utwórz nowy folder, w naszym przykładzie nosi nazwę "RunProfiler2Minutes".
-2.  Skopiuj pliki z folderu ApplicationInsightProfiler2 wyodrębnione do tego nowego folderu.
-3.  Utwórz nowy plik run.cmd. (Można otworzyć ten folder roboczy w kodzie VS przed rozpoczęciem jako udogodnienie.)
-4.  Dodaj polecenie `ApplicationInsightsProfiler.exe start --engine-mode immediate --single --immediate-profiling-duration 120`i Zapisz plik.
-a.  `start` Polecenie informuje profiler do uruchomienia.
-b.  `--engine-mode immediate`profilera informuje, że chcemy natychmiast uruchomić profilowania.
-c.  `--single`oznacza, że aby uruchomić i zatrzymać następnie automatycznie d.  `--immediate-profiling-duration 120`oznacza, że ma profilera uruchomione przez 120 sekund lub 2 minuty.
-5.  Zapisz ten plik.
-6.  Archiwum tego folderu, można kliknij folder prawym przyciskiem myszy i wybierz polecenie Wyślij do -> folderu skompresowane. Spowoduje to utworzenie pliku .zip przy użyciu nazwy folderu.
+1.  Utwórz nowy folder (na przykład *RunProfiler2Minutes*).
+2.  Skopiuj pliki z wyodrębnionego *ApplicationInsightProfiler2* folderu do tego nowego folderu.
+3.  Utwórz nową *run.cmd* pliku.  
+    Dla wygody można otworzyć folderu roboczego w programie Visual Studio Code przed rozpoczęciem.
+4.  W pliku, należy dodać polecenie `ApplicationInsightsProfiler.exe start --engine-mode immediate --single --immediate-profiling-duration 120`. Polecenia zostały opisane w następujący sposób:
+
+    * `start`: Określa, że Profiler do uruchomienia.  
+    * `--engine-mode immediate`: Określa, że Profiler można rozpocząć profilowania natychmiast.  
+    * `--single`: Określa, że Profiler do uruchomienia, a następnie zatrzymać automatycznie.  
+    * `--immediate-profiling-duration 120`: Określa, że Profiler do uruchomienia przez 120 sekund lub 2 minuty.
+
+5.  Zapisz zmiany.
+6.  Archiwum folder prawym przyciskiem myszy, a następnie wybierając **przesyłają** > **skompresowanego folderu (zip)**.  
+   Ta akcja tworzy plik zip, który używa nazwy folderu.
 
 ![Uruchom polecenia profilera](./media/app-insights-profiler/start-profiler-command.png)
 
-Mamy teraz .zip zadanie sieci web, które możemy użyć, aby skonfigurować zadania sieci web w witrynie.
+Został utworzony plik zip zadanie sieci web, który służy do konfigurowania zadania sieci web w witrynie.
 
 ### <a name="add-a-new-web-job"></a>Dodaj nowe zadanie sieci web
-Następnie możemy dodać nowe zadanie sieci web w witrynie. Ten przykład przedstawia sposób dodawania zadanie ręcznie wyzwalanych sieci web. Po można to zrobić proces jest prawie dokładnie takie same w harmonogramie.
+W tej sekcji możesz dodać nowe zadanie sieci web w witrynie. Poniższy przykład pokazuje, jak dodać zadanie ręcznie wyzwalanych sieci web. Po dodaniu zadanie ręcznie wyzwalanych sieci web, proces jest prawie takie same dla zaplanowane zadanie sieci web.
 
-1.  Przejdź do pulpitu nawigacyjnego zadania sieci web.
-2.  Kliknij polecenie Dodaj z paska narzędzi.
-3.  Nadaj nazwę zadania. Dla jasności może pomóc odpowiadać nazwie archiwum i otwarcie go dla różnych wersji systemu run.cmd.
-4.  W pliku przekazywanie części formularza, kliknij ikonę otwartego pliku i Znajdź plik zip utworzonych powyżej.
-5.  W przypadku tego typu wybierz Triggered.
-6.  Wyzwalacze wybrać ręczny.
-7.  Kliknij przycisk OK, aby zapisać.
+1.  Przejdź do **sieci Web zadania** pulpitu nawigacyjnego.
+2.  Na pasku narzędzi wybierz **Dodaj**.
+3.  Nadaj nazwę zadania.  
+    Dla uzyskania przejrzystości, może pomóc zgodna z nazwą archiwum i otwórz go dla różnych wersji *run.cmd* pliku.
+4.  W **przekazywania pliku** obszaru formularza, wybierz opcję **Otwórz plik** ikonę, a następnie wyszukaj plik zip, który został utworzony w poprzedniej sekcji.
+
+    a.  W **typu** wybierz opcję **Triggered**.  
+    b.  W **wyzwalaczy** wybierz opcję **ręcznego**.
+
+5.  Kliknij przycisk **OK**.
 
 ![Uruchom polecenia profilera](./media/app-insights-profiler/create-webjob.png)
 
-### <a name="run-the-profiler"></a>Uruchom profilera
+### <a name="run-profiler"></a>Uruchom profilera
 
-Teraz, gdy mamy nowe zadanie sieci web, który można ręcznie wyzwalana spróbujemy można go uruchomić.
+Teraz, gdy masz nowe zadanie sieci web, które mogą być uruchamiane ręcznie, możesz uruchomić go zgodnie z instrukcjami w tej sekcji.
 
-1. Zgodnie z projektem może mieć tylko jeden proces ApplicationInsightsProfiler.exe uruchomione na komputerze w danym momencie. Tak, aby rozpocząć, pamiętaj wyłączyć zadania ciągłego sieci web z tego pulpitu nawigacyjnego. Kliknij wiersz, a następnie naciśnij klawisz STOP (Zatrzymaj)". Wybierz odświeżania na pasku narzędzi i upewnij się, że stan wskazuje, że zadanie zostało zatrzymane.
-2. Kliknij wiersz z nowego zadania sieci web dodanych i naciśnij przycisk Uruchom.
-3. Kliknąć nadal wybranego wiersza polecenia dzienniki na pasku narzędzi spada poniżej należy do sieci web pulpitu nawigacyjnego zadań dla zadania sieci web, które zostały uruchomione. Wyświetla listę najnowszych uruchamia i ich wyników.
-4. Polecenie wystąpienie wykonywania tylko uruchomienia.
-5. Jeśli wszystkie poszło dobrze, powinny pojawić się niektórych dzienników diagnostycznych pochodzące z profilera potwierdzenie, że zostały uruchomione, profilowania.
+Zgodnie z projektem, może mieć tylko jeden *ApplicationInsightsProfiler.exe* procesu uruchomionego na komputerze w danym momencie. Dlatego przed rozpoczęciem należy wyłączyć *ciągłe* zadanie sieci web z tego pulpitu nawigacyjnego. 
+1. Zaznacz wiersz nowe zadanie sieci web, a następnie wybierz **zatrzymać**. 
+2. Na pasku narzędzi wybierz **Odśwież**i upewnij się, czy stan wskazuje, że zadanie zostało zatrzymane.
+3. Zaznacz wiersz nowe zadanie sieci web, a następnie wybierz **Uruchom**.
+4. Z zaznaczonym wierszu, na pasku narzędzi wybierz **dzienniki** polecenia.  
+    Ta akcja powoduje otwarcie pulpitu nawigacyjnego zadań sieci web dla nowego zadania sieci web i przedstawia on najnowszych uruchamia i ich wyników.
+5. Wybierz wystąpienie uruchomienia, po prostu uruchomienia.  
+    Jeśli zostało pomyślnie wyzwolone nowe zadanie sieci web, można wyświetlić niektórych dzienników diagnostycznych pochodzące z profilera które upewnij się, że profilowania został uruchomiony.
 
 ### <a name="things-to-consider"></a>Co należy wziąć pod uwagę
 
-Chociaż ta metoda jest stosunkowo prosta, jest kilka rzeczy, należy wziąć pod uwagę.
+Jednak ta metoda jest stosunkowo prosta, Uwzględnij następujące kwestie:
 
-- Ponieważ to nie jest zarządzana przez naszych usług, firma Microsoft nie ma możliwości aktualizowanie plików binarnych agenta dla zadania sieci web. Firma Microsoft aktualnie nie masz strony pobierania stabilna dla naszych danych binarnych więc jedynym sposobem uzyskania najnowszej aktualizacji rozszerzenia i dane z folderu ciągłego, tak jak opisano w poprzednich krokach.
+* Ponieważ zadanie sieci web nie jest zarządzana przez naszych usług, firma Microsoft nie ma możliwości można zaktualizować pliki binarne agenta dla zadania sieci web. Firma Microsoft aktualnie nie masz strony pobierania stabilna dla naszych danych binarnych, dlatego jedynym sposobem pobrania najnowszych plików binarnych aktualizacji rozszerzenia i dane z *ciągłe* folderu podczas jak w poprzednich krokach.
 
-- Ponieważ to jest przy użyciu argumentów wiersza polecenia, które pierwotnie zostały zaprojektowane dla deweloperów użyć zamiast używana przez użytkownika końcowego, argumenty może zmiany w przyszłości, więc po prostu należy pamiętać o który podczas uaktualniania. Nie należy go znacznie problem, ponieważ użytkownik może dodać zadanie sieci web, uruchamianie i test, który działa. Po pewnym czasie zostaną budujemy interfejsu użytkownika do obsługi to bez ręczny proces.
+* Ponieważ ten proces wykorzystuje argumenty wiersza polecenia, które pierwotnie zostały zaprojektowane dla deweloperów, a nie użytkownicy końcowi, argumenty mogą ulec zmianie w przyszłości. Należy pamiętać o ewentualnych zmian podczas uaktualniania. Go nie powinien być taki problem, ponieważ można dodać zadanie sieci web, uruchom go i testy w celu zapewnienia, że działa. Po pewnym czasie zostaną budujemy interfejsu użytkownika do obsługi to bez ręczny proces.
 
-- Funkcja zadania sieci Web dla usług aplikacji jest unikatowa, że po uruchomieniu zadania sieci web gwarantuje, że proces ma tego samego zmienne środowiskowe i ustawienia aplikacji, które witryny sieci web zakończą się o. Oznacza to, że nie należy do przekazania klucza Instrumentacji z wiersza polecenia profilera. Należy go po prostu wybierz klucza instrumentacji ze środowiska. Jednak jeśli chcesz uruchomić profilera z pola deweloperów lub na komputerze poza usługi aplikacji należy podać klucz instrumentacji. Można to zrobić przez przekazywanie w argumencie `--ikey <instrumentation-key>`. Ta wartość musi być zgodna klucza instrumentacji, przez aplikację. W danych wyjściowych dziennika z profilera informuje o tym, które ikey wprowadzenie profilera i jeśli wykryliśmy działania z tego klucza Instrumentacji podczas możemy są profilowania.
+* Funkcja zadania Web Job aplikacji sieci Web jest unikatowa. Po uruchomieniu zadania sieci web gwarantuje to, że proces ma tego samego zmienne środowiskowe i ustawienia aplikacji, które będą miały witryny sieci Web. Oznacza to, że nie należy do przekazania klucza Instrumentacji z wiersza polecenia profilera. Profiler powinien wybierz klucza instrumentacji ze środowiska. Jednak jeśli chcesz uruchomić profilera z pola deweloperów lub na komputerze poza aplikacje sieci Web, należy podać klucz instrumentacji. Możesz to zrobić, przekazując argument `--ikey <instrumentation-key>`. Ta wartość musi być zgodna klucza Instrumentacji używanej aplikacji. Dane wyjściowe dziennika profilera informuje, które ikey wprowadzenie profilera i czy wykryliśmy działania z tego klucza Instrumentacji podczas możemy zostały profilowania.
 
-- Zadania ręczne wyzwalanych sieci web mogą być wyzwalane faktycznie za pośrednictwem sieci Web punktu zaczepienia. Ten adres url można uzyskać przez kliknięcie prawym przyciskiem myszy zadanie sieci web z poziomu pulpitu nawigacyjnego i wyświetlania właściwości. Lub wybierz polecenie Właściwości na pasku narzędzi po wybraniu zadanie sieci web z tabeli. Spowoduje to otwarcie nieskończone możliwości, takie jak wyzwalania profilera z planowaną CI/CD (np. programu VSTS) lub przypominać Flow firmy Microsoft (https://flow.microsoft.com/en-us/). Ostatecznie zależy od sposobu złożonych, która ma być Twojej run.cmd (która może być również run.ps1), ale istnieje już elastyczność.
+* Zadania ręczne wyzwalanych sieci web mogą być wyzwalane za pośrednictwem sieci Web punktu zaczepienia. Ten adres URL można uzyskać przez kliknięcie prawym przyciskiem myszy zadanie sieci web na pulpicie nawigacyjnym, a następnie wyświetlić właściwości. Lub na pasku narzędzi wybierz **właściwości** po wybraniu zadanie sieci web w tabeli. Takie podejście zostanie otwarty nieskończone możliwości, takie jak wyzwalania profilera z planowaną CI/CD (np. programu VSTS) lub przypominać Flow firmy Microsoft (https://flow.microsoft.com/en-us/). Ostatecznie, wybór zależy od sposobu złożonych, która ma być Twojej *run.cmd* pliku (może to również *run.ps1* pliku), ale istnieje już elastyczność.
 
 ## <a name="next-steps"></a>Kolejne kroki
 

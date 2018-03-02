@@ -58,9 +58,7 @@
     - name: Zasoby
       items:
         - name: Warstwy cenowe
-          href: concepts-service-tiers.md
-        - name: Jednostki obliczeniowe
-          href: concepts-compute-unit-and-storage.md
+          href: concepts-pricing-tiers.md
         - name: Limity
           href: concepts-limits.md
     - name: Bezpieczeństwo i dostęp do danych
@@ -69,6 +67,12 @@
           href: concepts-firewall-rules.md
         - name: Konfigurowanie protokołu SSL
           href: concepts-ssl-connection-security.md
+    - name: Ciągłość działalności biznesowej
+      items:
+        - name: Omówienie
+          href: concepts-business-continuity.md
+        - name: Tworzenie kopii zapasowej i przywracanie
+          href: concepts-backup.md
     - name: Monitorowanie
       href: concepts-monitoring.md
     - name: Opracowywanie zawartości
@@ -77,7 +81,9 @@
           href: concepts-connection-libraries.md
 - name: Przewodniki z instrukcjami
   items:
-    - name: Reguły zapory
+    - name: Tworzenie użytkowników
+      href: howto-create-users.md
+    - name: Zarządzanie zaporą
       items:
         - name: Azure Portal
           href: howto-manage-firewall-using-portal.md

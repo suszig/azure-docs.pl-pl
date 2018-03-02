@@ -1,3 +1,5 @@
+# [Dokumentacja usługi Power BI Embedded](index.md)
+
 # Omówienie
 ## [O usłudze Power BI Embedded](what-is-power-bi-embedded.md)
 

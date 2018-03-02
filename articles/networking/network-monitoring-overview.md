@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 6793bd8d2c561554213e9fe645aab018dba7a925
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
-ms.translationtype: HT
+ms.openlocfilehash: 6d93821b59e1f69a48c3d5eeda96dad2edddb188
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="network-monitoring-solutions"></a>Monitorowanie rozwiązań sieci 
 
@@ -44,6 +44,8 @@ Monitor wydajności jest częścią programu NPM i jest monitorowanie sieci dla 
 * Określić określonego segmentu w sieci, która jest odpowiedzialna za pogorszenie wydajności
 * Monitorowanie kondycji sieci, bez konieczności SNMP
 
+![Mapy topologii NPM](./media/network-monitoring-overview/npm-topology-map.png) 
+
 Aby uzyskać więcej informacji Wyświetl następujące artykuły:
 
 * [Konfigurowanie rozwiązania monitora wydajności sieci w analizy dzienników](../log-analytics/log-analytics-network-performance-monitor.md) 
@@ -64,6 +66,22 @@ Aby uzyskać więcej informacji zobacz następujące artykuły:
 
 * [Konfigurowanie monitora wydajności sieci dla usługi ExpressRoute](../expressroute/how-to-npm.md)
 * [wpis w blogu](https://aka.ms/NPMExRmonitorGA)
+
+## <a name="service-endpoint-monitor"></a>Monitor punktu końcowego usługi
+
+Z punktu końcowego usługi monitorowania, można przetestować uzyskiwanie aplikacji i wykrywania wąskich gardeł wydajności między lokalnymi, sieci i centrów danych w chmurze i prywatnego.
+
+* Monitoruje łączność sieciową na trasie do aplikacji
+* Korelowanie dostarczanie aplikacji z wydajność sieci, wykrywanie dokładnej lokalizacji degradacji wzdłuż ścieżki między użytkownikiem i aplikacji
+* Testowanie aplikacji uzyskiwanie z wielu lokalizacji użytkownika na całym świecie
+* Określić strat opóźnienia i pakietów sieciowych dla linii firm i aplikacji SaaS
+* Określić punkty aktywne w sieci, który może powodować niską wydajnością
+* Monitorowanie uzyskiwanie aplikacji usługi Office 365, przy użyciu wbudowanych testów dla usługi Microsoft Office 365, Dynamics 365 Skype dla firm i innych usług firmy Microsoft
+
+Aby uzyskać więcej informacji zobacz następujące artykuły:
+
+* [Konfigurowanie monitora wydajności sieci do monitorowania punktów końcowych usług](https://aka.ms/applicationconnectivitymonitorguide)
+* [wpis w blogu](https://aka.ms/svcendptmonitor)
 
 ## <a name="next-steps"></a>Kolejne kroki
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8a1e0b3e56dab5500d60b0610cddccaf095c8d97
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 86ac3ec390c7aa9bc24a90ef2ee582f97f8b5407
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="virtual-machine-governance-with-azure-cli"></a>Zarządzanie maszyny wirtualnej z wiersza polecenia platformy Azure
 
@@ -55,7 +55,7 @@ Do zarządzania rozwiązań maszyny wirtualnej, istnieją trzy role określonych
 
 Zamiast przypisywać role poszczególnym użytkownikom, łatwiej często [utworzyć grupy usługi Azure Active Directory](../../active-directory/active-directory-groups-create-azure-portal.md) dla użytkowników, którzy potrzebują podjęcia działań podobne. Następnie przypisać do odpowiedniej roli. Aby uprościć w tym artykule, należy utworzyć grupy usługi Azure Active Directory bez członków. Nadal można przypisać tej grupy do roli dla zakresu. 
 
-Poniższy przykład tworzy grupę usługi Azure Active Directory o nazwie *VMDemoContributors* z pseudonim poczty *vmDemoGroup*.
+Poniższy przykład tworzy grupę usługi Azure Active Directory o nazwie *VMDemoContributors* z pseudonim poczty *vmDemoGroup*. Pseudonim poczty służy jako alias dla grupy.
 
 ```azurecli-interactive
 adgroupId=$(az ad group create --display-name VMDemoContributors --mail-nickname vmDemoGroup --query objectId --output tsv)

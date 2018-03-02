@@ -66,9 +66,7 @@
     - name: Zasoby
       items:
         - name: Warstwy cenowe
-          href: concepts-service-tiers.md
-        - name: Jednostki obliczeniowe
-          href: concepts-compute-unit-and-storage.md
+          href: concepts-pricing-tiers.md
         - name: Limity
           href: concepts-limits.md
     - name: Bezpieczeństwo i dostęp do danych
@@ -77,6 +75,12 @@
           href: concepts-firewall-rules.md
         - name: Konfigurowanie protokołu SSL
           href: concepts-ssl-connection-security.md
+    - name: Ciągłość działalności biznesowej
+      items:
+        - name: Omówienie
+          href: concepts-business-continuity.md
+        - name: Tworzenie kopii zapasowej i przywracanie
+          href: concepts-backup.md
     - name: Monitorowanie
       href: concepts-monitoring.md
     - name: Opracowywanie zawartości
@@ -137,6 +141,12 @@
       items:
         - name: Tworzenie alertów dotyczących metryk
           href: howto-alert-on-metric.md
+    - name: Rozwiązywanie problemów
+      items:
+        - name: Rozwiązywanie problemów z wydajnością zapytań
+          href: howto-troubleshoot-query-performance.md
+        - name: Jak używać widoków w schemacie sys
+          href: howto-troubleshoot-sys-schema.md
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure

@@ -1,7 +1,9 @@
+# [Dokumentacja usługi BizTalk Services](index.md)
+
 # Omówienie
 ## [Wersje](biztalk-editions-feature-chart.md)
 
-# Wprowadzenie
+# Rozpoczęcie pracy
 ## [Tworzenie usług BizTalk Services](biztalk-provision-services.md)
 
 # Instrukcje
@@ -11,7 +13,7 @@
 ## Konfigurowanie
 ### [Ograniczanie przepływności](biztalk-throttling-thresholds.md)
 ### [Ustawienia usługi i monitorowania](biztalk-dashboard-monitor-scale-tabs.md)
-## Migracja
+## Migrate (Migracja)
 ### [Rozwiązań EDI serwera BizTalk Server do usługi BizTalk Services](biztalk-migrating-to-edi-guide.md)
 ## Monitorowanie
 ### [Zadania, które zależą od stanu usługi](biztalk-service-state-chart.md)
@@ -30,4 +32,4 @@
 ## [Informacje o wersji](biztalk-release-notes.md)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=biztalk-services)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/biztalk-services)
-## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=biztalk-services)
+## [Wideo](https://azure.microsoft.com/documentation/videos/index/?services=biztalk-services)

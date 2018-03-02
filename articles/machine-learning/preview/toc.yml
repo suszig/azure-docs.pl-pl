@@ -9,17 +9,17 @@
       href: model-management-overview.md
 - name: Przewodniki Szybki start
   items:
-    - name: Instalowanie i tworzenie
+    - name: Instalacja i uruchamianie
       href: quickstart-installation.md
 - name: Samouczki
   items:
-    - name: 1 — Przygotowywanie danych
+    - name: 1. Przygotowywanie danych
       href: tutorial-classifying-iris-part-1.md
-    - name: 2 — Kompilowanie modelu
+    - name: 2. Tworzenie modeli
       href: tutorial-classifying-iris-part-2.md
-    - name: 3 — Wdrażanie modelu
+    - name: 3. Wdrażanie modeli
       href: tutorial-classifying-iris-part-3.md
-    - name: 4 — Zaawansowane przygotowywanie danych
+    - name: 4. Zaawansowane przygotowywanie danych
       href: tutorial-bikeshare-dataprep.md
 - name: Pojęcia
   items:

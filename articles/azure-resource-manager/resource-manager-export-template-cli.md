@@ -11,28 +11,28 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/01/2017
+ms.date: 02/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: e93fe5af62893d361b6cc4adac42a7d172235978
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 15e7e811c7cb1777e34f1bfb629fa24a60f9e5cb
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="export-azure-resource-manager-templates-with-azure-cli"></a>Eksportowanie szablonów usługi Azure Resource Manager z wiersza polecenia platformy Azure
 
 Usługa Resource Manager umożliwia wyeksportowanie szablonu usługi Resource Manager z istniejących zasobów w ramach subskrypcji. Możesz użyć wygenerowanego szablonu, aby dowiedzieć się więcej o składni szablonu lub aby zautomatyzować ponowne wdrożenie rozwiązania, w razie potrzeby.
 
-Należy pamiętać, że istnieją dwa różne sposoby eksportowania szablonu:
+Należy pamiętać, że istnieją dwa różne sposoby, aby wyeksportować szablon:
 
-* Możesz wyeksportować szablon, który faktycznie został użyty na potrzeby wdrożenia. W wyeksportowanym szablonie wszystkie parametry i zmienne występują dokładnie tak, jak w oryginalnym szablonie. Takie podejście jest przydatne, gdy jest potrzebne do pobierania szablonu.
-* Możesz wyeksportować szablon, który reprezentuje bieżący stan grupy zasobów. Wyeksportowany szablon nie jest oparty na żadnym szablonie użytym do wdrożenia. Utworzony szablon będzie stanowić migawkę grupy zasobów. W wyeksportowanym szablonie zawartych jest wiele zakodowanych wartości i prawdopodobnie mniej parametrów, niż się zwykle definiuje. Takie rozwiązanie jest przydatne, gdy zostały zmodyfikowane grupy zasobów. Będzie więc trzeba przechwycić grupę zasobów jako szablon.
+* Możesz wyeksportować **rzeczywiste szablon używany do wdrożenia**. W wyeksportowanym szablonie wszystkie parametry i zmienne występują dokładnie tak, jak w oryginalnym szablonie. Takie podejście jest przydatne, gdy jest potrzebne do pobierania szablonu.
+* Możesz wyeksportować **wygenerowany szablon, który reprezentuje bieżący stan grupy zasobów**. Wyeksportowany szablon nie jest oparty na żadnym szablonie użytym do wdrożenia. Zamiast tego tworzy szablon, który jest "snapshot" lub "Kopia zapasowa" grupy zasobów. W wyeksportowanym szablonie zawartych jest wiele zakodowanych wartości i prawdopodobnie mniej parametrów, niż się zwykle definiuje. Ta opcja umożliwia wdrożenie zasoby do tej samej grupie zasobów. Aby użyć tego szablonu do innej grupy zasobów, może być znacznie zmiany.
 
-W tym temacie opisano obie te metody.
+W tym artykule przedstawiono obie opcje.
 
 ## <a name="deploy-a-solution"></a>Wdrażanie rozwiązania
 
-Aby zilustrować obu podejść eksportowania szablonu, Zacznijmy od wdrażanie rozwiązania do subskrypcji. Jeśli masz już grupę zasobów w ramach subskrypcji, który chcesz wyeksportować, nie trzeba wdrożyć to rozwiązanie. Jednak w dalszej części tego artykułu odwołuje się do szablonu dla tego rozwiązania. Przykładowy skrypt wdraża konta magazynu.
+Aby zilustrować obu podejść eksportowania szablonu, Zacznijmy od wdrażanie rozwiązania do subskrypcji. Jeśli masz już grupę zasobów w ramach subskrypcji, który chcesz wyeksportować, nie trzeba wdrożyć to rozwiązanie. Jednak dalszej części tego artykułu odwołuje się do szablonu dla tego rozwiązania. Przykładowy skrypt wdraża konta magazynu.
 
 ```azurecli
 az group create --name ExampleGroup --location "Central US"
@@ -55,13 +55,13 @@ Zwraca szablonu. Skopiuj kod JSON i Zapisz jako plik. Zwróć uwagę, że jest d
 
 ## <a name="export-resource-group-as-template"></a>Eksportowanie grupy zasobów jako szablon
 
-Zamiast pobierania szablonu z historii wdrażania, można pobrać szablonu, która reprezentuje bieżący stan grupy zasobów za pomocą [eksportowanie grupy az](/cli/azure/group#az_group_export) polecenia. Użyj tego polecenia, gdy wprowadzono wiele zmian w danej grupie zasobów, a nie istniejący szablon reprezentuje wszystkie zmiany.
+Zamiast pobierania szablonu z historii wdrażania, można pobrać szablonu, która reprezentuje bieżący stan grupy zasobów za pomocą [eksportowanie grupy az](/cli/azure/group#az_group_export) polecenia. Użyj tego polecenia, gdy wprowadzono wiele zmian w danej grupie zasobów, a nie istniejący szablon reprezentuje wszystkie zmiany. Jest on przeznaczony jako migawka grupy zasobów, w którym można wdrożyć ponownie do tej samej grupy zasobów. Aby użyć wyeksportowanego szablonu dla innych rozwiązań, można znacznie go zmodyfikować.
 
 ```azurecli
 az group export --name ExampleGroup
 ```
 
-Zwraca szablonu. Skopiuj kod JSON i Zapisz jako plik. Należy zauważyć, że różni się od szablonu w witrynie GitHub. Zawiera różne parametry i żadnych zmiennych. Magazyn jednostki SKU i lokalizacji są zakodowane na stałe wartości. W poniższym przykładzie przedstawiono wyeksportowanego szablonu, ale szablon ma nazwę parametru nieco inne:
+Zwraca szablonu. Skopiuj kod JSON i Zapisz jako plik. Należy zauważyć, że różni się od szablonu w witrynie GitHub. Szablon ma różne parametry i żadnych zmiennych. Magazyn jednostki SKU i lokalizacji są zakodowane na stałe wartości. W poniższym przykładzie przedstawiono wyeksportowanego szablonu, ale szablon ma nazwę parametru nieco inne:
 
 ```json
 {

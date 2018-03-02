@@ -1,3 +1,5 @@
+# [Dokumentacja usługi Virtual Machine Scale Sets](index.md)
+
 # Omówienie
 ## [Co to są zestawy skalowania maszyn wirtualnych?](virtual-machine-scale-sets-overview.md)
 

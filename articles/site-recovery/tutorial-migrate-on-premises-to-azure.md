@@ -9,10 +9,10 @@ ms.date: 02/18/2018
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 406f0890da1ef4123b16082e7371d67f6328ea2c
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrowanie maszyn lokalnych do platformy Azure
 
@@ -42,7 +42,7 @@ Przed rozpoczęciem warto zapoznać się z architekturami [VMware](concepts-vmwa
 Urządzenia eksportowane przez sterowniki parawirtualne nie są obsługiwane.
 
 
-## <a name="create-a-recovery-services-vault"></a>Tworzenie magazynu usługi Recovery Services
+## <a name="create-a-recovery-services-vault"></a>Tworzenie magazynu Usług odzyskiwania
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com) > **Recovery Services**.
 2. Kliknij kolejno pozycje **Utwórz zasób** > **Monitorowanie i zarządzanie** > **Backup and Site Recovery**.

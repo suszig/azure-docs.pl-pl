@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 77c47809a01e9ff2bb851163f9adf987738f98f6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0b34f861b306dc62cbdbf97378a1c370494bbb20
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Zarządzanie systemem Windows klastrów platformy Hadoop w usłudze HDInsight przy użyciu portalu Azure
 
@@ -294,7 +294,7 @@ Konsolę zapytania HDInsight obejmuje następujące funkcje:
     ![Portal usługi HDInsight YARN interfejsu użytkownika](./media/hdinsight-administer-use-management-portal/hdinsight-yarn-ui.png)
 
 ## <a name="run-hive-queries"></a>Uruchamianie zapytań Hive
-Do uruchomienia zadań Hive z portalu, kliknij przycisk **Edytor Hive** w konsoli usługi HDInsight zapytania. Zobacz [konsoli Otwórz zapytanie HDInsight](#open-hdinsight-query-console).
+Do uruchamiania zadań Hive z portalu, kliknij przycisk **Edytor Hive** w konsoli usługi HDInsight zapytania. Zobacz [konsoli Otwórz zapytanie HDInsight](#open-hdinsight-query-console).
 
 ## <a name="monitor-jobs"></a>Monitorowanie zadań
 Aby monitorować zadania z portalu, kliknij przycisk **historii zadań** w konsoli usługi HDInsight zapytania. Zobacz [konsoli Otwórz zapytanie HDInsight](#open-hdinsight-query-console).
@@ -356,7 +356,7 @@ Połącz się z klastrem przy użyciu pulpitu zdalnego i za pomocą wiersza pole
 
     Aby uzyskać więcej informacji o poleceniach Hadoop, zobacz [Hadoop polecenia odwołanie](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html).
 
-W poprzednim zrzucie ekranu Nazwa folderu ma numer wersji usługi Hadoop, osadzonych. Numer wersji można zmienić w zależności od wersji składników Hadoop zainstalowany w klastrze. Zmienne środowiskowe Hadoop służy do odwoływania się do tych folderów. Na przykład:
+W poprzednim zrzucie ekranu Nazwa folderu ma numer wersji usługi Hadoop, osadzonych. Numer wersji można zmieniać w oparciu o wersja składników Hadoop zainstalowany w klastrze. Zmienne środowiskowe Hadoop służy do odwoływania się do tych folderów. Na przykład:
 
     cd %hadoop_home%
     cd %hive_home%

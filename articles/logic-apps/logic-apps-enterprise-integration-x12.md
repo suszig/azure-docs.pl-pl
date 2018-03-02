@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 7a274ad33b7181d238203290cf63937df5f13bbc
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c644dd98d468a8c99625c45bad3f06031ff22b4e
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="exchange-x12-messages-for-enterprise-integration-with-logic-apps"></a>Komunikaty programu Exchange X12 enterprise integracji z usługą logic apps
 
@@ -31,37 +31,34 @@ Przed przystąpieniem do wymiany X12 wiadomości dla usługi Azure Logic Apps, n
 
 Oto elementy, które są potrzebne:
 
-* [Konta integracji](../logic-apps/logic-apps-enterprise-integration-accounts.md) który został już zdefiniowany i skojarzone z subskrypcją platformy Azure
+* [Konta integracji](logic-apps-enterprise-integration-create-integration-account.md) który został już zdefiniowany i skojarzone z subskrypcją platformy Azure
 * Co najmniej dwa [partnerów](../logic-apps/logic-apps-enterprise-integration-partners.md) który są określone w danych konta integracji i skonfigurowano X12 identyfikator w obszarze **tożsamości firm**    
-* Wymaganą [schematu](../logic-apps/logic-apps-enterprise-integration-schemas.md) do przekazywania do Twojej [konta integracji](../logic-apps/logic-apps-enterprise-integration-accounts.md)
+* Wymaganą [schematu](../logic-apps/logic-apps-enterprise-integration-schemas.md) można przekazać go do swojego konta integracji
 
-Po [Tworzenie konta usługi integracji](../logic-apps/logic-apps-enterprise-integration-accounts.md), [dodać partnerów](logic-apps-enterprise-integration-partners.md)i mieć [schematu](../logic-apps/logic-apps-enterprise-integration-schemas.md) czy chcesz użyć, możesz utworzyć X12 umowy, wykonując następujące kroki.
+Po [Tworzenie konta usługi integracji](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), [dodać partnerów](logic-apps-enterprise-integration-partners.md)i mieć [schematu](../logic-apps/logic-apps-enterprise-integration-schemas.md) czy chcesz użyć, możesz utworzyć X12 umowy, wykonując następujące kroki.
 
 ## <a name="create-an-x12-agreement"></a>Utwórz X12 umowy
 
-1.  Zaloguj się w witrynie [Azure Portal](http://portal.azure.com "Azure Portal"). Wybierz z menu po lewej stronie **wszystkie usługi**. 
+1. Zaloguj się w witrynie [Azure Portal](http://portal.azure.com "Azure Portal"). 
 
-    > [!TIP]
-    > Jeśli nie widzisz **wszystkich usług**, trzeba będzie najpierw rozwinąć menu. W górnej części menu zwinięte, wybierz **Pokaż menu**.
+2. Wybierz z menu głównego Azure **wszystkie usługi**. W polu wyszukiwania wpisz "integrację", a następnie wybierz **konta integracji**.  
 
-    ![W menu po lewej stronie wybierz opcję "Wszystkie usługi"](./media/logic-apps-enterprise-integration-x12/account-1.png)
+   ![Znajdź konta integracji](./media/logic-apps-enterprise-integration-x12/account-1.png)
 
-2.  W polu wyszukiwania wpisz "Integracja" jako filtr. Na liście wyników wybierz **konta integracji**.  
+   > [!TIP]
+   > Jeśli **wszystkie usługi** nie jest wyświetlane, należy najpierw rozwinąć menu. W górnej części menu zwinięte, wybierz **Pokaż menu**.
 
-    ![Odfiltruj "integrację", wybierz "Konta integracji"](./media/logic-apps-enterprise-integration-x12/account-2.png)
+3. W obszarze **konta integracji**, wybierz konto integracji, w której chcesz dodać umowy.
 
-3. W **konta integracji** bloku, który zostanie otwarty, wybierz konto integracji, której chcesz dodać umowy.
-Jeśli nie widzisz kont integracji [utworzyć pierwszy](../logic-apps/logic-apps-enterprise-integration-accounts.md "wszystkiego o konta integracji").
-
-    ![Wybierz konto integracji, gdzie można utworzyć umowy](./media/logic-apps-enterprise-integration-x12/account-3.png)
+   ![Wybierz konto integracji, gdzie można utworzyć umowy](./media/logic-apps-enterprise-integration-x12/account-3.png)
 
 4. Wybierz **omówienie**, a następnie wybierz pozycję **umowy** kafelka. Jeśli nie masz kafelka umowy, najpierw Dodaj kafelka. 
 
-    ![Wybierz Kafelek "Umów"](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
+   ![Wybierz Kafelek "Umów"](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
-5. W bloku umów wybierz **Dodaj**.
+5. W obszarze **umowy**, wybierz **Dodaj**.
 
-    ![Wybierz opcję "Dodaj"](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
+   ![Wybierz opcję "Dodaj"](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
 
 6. W obszarze **Dodaj**, wprowadź **nazwa** dla umowy. Wybierz typ umowy **X12**. Wybierz **partnera hosta**, **tożsamości hosta**, **partnera gościa**, i **tożsamości gościa** dla umowy. Więcej szczegółów właściwości Zobacz tabelę w tym kroku.
 
@@ -263,7 +260,7 @@ Inne niż zestawu znaków, można wprowadzić inny zestaw ograniczniki dla każd
 | Właściwość | Opis |
 | --- | --- |
 | Zestaw znaków do użycia |Aby sprawdzić poprawność właściwości, wybierz X12 zestaw znaków. Dostępne opcje to Basic, rozszerzone i UTF8. |
-| Schemat |Wybierz schemat z listy rozwijanej. Po wykonaniu każdego wiersza, jest automatycznie dodawany nowy wiersz. Dla wybranego schematu wybierz zestaw separatorów, którego chcesz używać, oparte na następujących opisów separatora. |
+| Schemat |Wybierz schemat z listy rozwijanej. Po wykonaniu każdego wiersza, jest automatycznie dodawany nowy wiersz. Dla wybranego schematu wybierz zestaw separatorów, którego chcesz używać, oparte na poniższe opisy separatora. |
 | Typ danych wejściowych |Wybierz typ danych wejściowych z listy rozwijanej. |
 | Separator składników |Do oddzielania elementów danych, wprowadź jeden znak. |
 | Separator elementów danych |Do oddzielania elementów proste danych w ramach elementów danych, wprowadź jeden znak. |
@@ -291,13 +288,13 @@ Po zakończeniu każdego wiersza weryfikacji innego automatycznie jest dodawany.
 
 ## <a name="find-your-created-agreement"></a>Znajdź utworzone umowy
 
-1.  Po zakończeniu ustawienie na wszystkie właściwości umowy, **Dodaj** bloku, wybierz **OK** w stanie zakończyć tworzenia umowy, a następnie wróć do bloku konta usługi z integracji.
+1.  Po zakończeniu ustawienie na wszystkie właściwości umowy, **Dodaj** wybierz pozycję **OK** aby zakończyć tworzenie umowy i wrócić do konta integracji.
 
     Nowo dodany umowy teraz pojawia się w sieci **umowy** listy.
 
-2.  Można również wyświetlić umów w przeglądzie konta integracji. W bloku konta integracji, wybierz **omówienie**, a następnie wybierz pozycję **umowy** kafelka.
+2.  Można również wyświetlić umów w przeglądzie konta integracji. W menu konta integracji, wybierz **omówienie**, a następnie wybierz pozycję **umowy** kafelka.
 
-    ![Wybierz Kafelek "Umów", aby wyświetlić wszystkie umowy](./media/logic-apps-enterprise-integration-x12/x12-1-5.png)   
+    ![Wybierz Kafelek "Umów"](./media/logic-apps-enterprise-integration-x12/x12-1-5.png)   
 
 ## <a name="view-the-swagger"></a>Wyświetlanie struktury swagger
 Zobacz [swagger szczegóły](/connectors/x12/). 
