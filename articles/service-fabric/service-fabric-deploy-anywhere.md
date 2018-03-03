@@ -3,7 +3,7 @@ title: "Tworzenie klastrów usługi sieć szkieletowa usług Azure w systemie Wi
 description: "Klastrów sieci szkieletowej usług w systemie Windows Server i Linux, co oznacza, że będziesz mieć możliwość wdrażania i dowolnego miejsca aplikacji sieci szkieletowej usług hosta można uruchomić serwera systemu Windows lub Linux."
 services: service-fabric
 documentationcenter: .net
-author: Chackdan
+author: dkkapur
 manager: timlt
 editor: 
 ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/19/2017
-ms.author: chackdan
-ms.openlocfilehash: e3cfad19e42af24edd68befd7b1eac8cef41a1d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.author: dekapur
+ms.openlocfilehash: 63b7bfa5ca357470f5ed36a4cdf943cee779f0fc
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-service-fabric-clusters-on-windows-server-or-linux"></a>Tworzenie klastrów sieci szkieletowej usług na serwerze z systemem Windows lub Linux
 Klaster sieci szkieletowej usług Azure to zestaw połączonych z siecią maszyn wirtualnych lub fizycznych, w których są wdrożone i zarządzane z mikrousług. Komputer lub maszynę Wirtualną, która jest częścią klastra jest nazywany węzłem klastra. Klastrów można skalować do tysięcy węzłów. Po dodaniu nowych węzłów do klastra usługi sieć szkieletowa rebalances replik partycji usługi i wystąpień przez zwiększenie liczby węzłów. Ogólne poprawia wydajność aplikacji i zmniejsza rywalizacji o dostęp do pamięci. Jeśli nie są wydajnie używane węzłów w klastrze, można zmniejszyć liczbę węzłów w klastrze. Sieć szkieletowa usług ponownie rebalances replik partycji i wystąpień między zmniejszyć liczbę węzłów w celu lepszego wykorzystania sprzętu na każdym węźle.
@@ -33,7 +33,12 @@ Masz możliwość tworzenia klastrów na maszynach wirtualnych z tymi systemami 
 
 * Windows Server 2012 R2
 * Windows Server 2016 
-* Linux Ubuntu 16.04  
+* Windows Server 1709
+* Linux Ubuntu 16.04
+
+> [!NOTE]
+> Jeśli zdecydujesz się wdrożyć sieć szkieletowa usług na 1709 serwera systemu Windows, należy pamiętać, że (1) nie jest długim okresie obsługi gałęzi, więc musisz przenieść wersji w przyszłości i (2) Jeśli wdrażanie kontenerów, kontenery oparty na systemie Windows Server 2016 nie działają w systemie Windows Server  1709 i na odwrót (należy odbudować je, aby wdrożyć je).
+>
 
 ## <a name="create-service-fabric-standalone-clusters-on-premises-or-with-any-cloud-provider"></a>Tworzenie autonomicznej usługi sieć szkieletowa klastrów lokalnymi lub z każdego dostawcy chmury
 Usługa Service Fabric realizuje pakiet instalacyjny do utworzenia autonomicznej usługi sieć szkieletowa klastrów lokalnymi lub u innego dostawcy chmury.
@@ -71,7 +76,7 @@ Działające klastry usługi sieć szkieletowa usług Azure zapewnia opcję zale
 * **Diagnostyka:** na platformie Azure, udostępniamy integracji z diagnostyki Azure i analizy dzienników.
 * **Automatyczne skalowanie:** klastrów na platformie Azure, firma Microsoft udostępnia wbudowaną funkcję skalowania automatycznego z powodu zestawy skalowania maszyny wirtualnej. W lokalnych i dostępnych w innych środowiskach chmury należy do tworzenia własnych automatyczne skalowanie się funkcji lub ręcznie przy użyciu interfejsów API, które udostępnia usługi sieć szkieletowa skalowania klastrów skali.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Tworzenie klastra na maszynach wirtualnych lub komputerach z systemem Windows Server: [tworzenia klastra usługi sieć szkieletowa usług dla systemu Windows Server](service-fabric-cluster-creation-for-windows-server.md)
 * Tworzenie klastra na maszynach wirtualnych lub komputerach z systemem Linux: [utworzyć klaster systemu Linux](service-fabric-cluster-creation-via-portal.md)

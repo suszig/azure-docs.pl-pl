@@ -12,26 +12,26 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 02/22/2018
 ms.author: damaerte
-ms.openlocfilehash: ca11a0db4cdb435aef26e7ae214cca24679c6ea1
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 52ee832b643af573d8236b266df17d36e485ead2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="troubleshooting-azure-cloud-shell"></a>Rozwiązywanie problemów z powłoki w chmurze Azure
+# <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Rozwiązywanie problemów z & ograniczenia Azure Cloud powłoki
 
 Następujące znane rozwiązania problemów w powłoce chmury Azure:
 
-## <a name="general-resolutions"></a>Ogólne rozwiązania
+## <a name="general-troubleshooting"></a>Rozwiązywanie ogólnych
 
 ### <a name="early-timeouts-in-firefox"></a>Wczesne limitów czasu w programie FireFox
 - **Szczegóły**: powłoki chmury wykorzystuje Otwórz websocket do przekazania wejścia/wyjścia do przeglądarki. FireFox ma wstępnie zdefiniowane zasady, które można zamknąć protokół websocket przedwcześnie powoduje wczesne limitów czasu w chmurze powłoki.
 - **Rozdzielczość**: Otwórz przeglądarkę FireFox i przejdź do "o: config" w polu adresu URL. Wyszukaj "network.websocket.timeout.ping.request" i zmień wartość z zakresu od 0 do 10.
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Okno dialogowe magazynu — błąd: 403 RequestDisallowedByPolicy
-- **Szczegóły**: podczas tworzenia konta magazynu za pośrednictwem chmury powłoki, to nie powiodło się z powodu zasad Azure wprowadzane przez administratora. Zawiera komunikat o błędzie:`The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
+- **Szczegóły**: podczas tworzenia konta magazynu za pośrednictwem chmury powłoki, to nie powiodło się z powodu zasad Azure wprowadzane przez administratora. Zawiera komunikat o błędzie: `The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
 - **Rozdzielczość**: Skontaktuj się z administratorem usługi Azure, aby usunąć lub zaktualizować zasady Azure zezwalających na utworzenie magazynu.
 
 ### <a name="storage-dialog---error-400-disallowedoperation"></a>Okno dialogowe magazynu — błąd: 400 DisallowedOperation
@@ -42,7 +42,7 @@ Następujące znane rozwiązania problemów w powłoce chmury Azure:
  - **Szczegóły**: powłoki chmury wymaga możliwość ustanowienia połączenia obiektu websocket infrastruktury chmury powłoki.
  - **Rozdzielczość**: Sprawdź skonfigurowano ustawienia sieci, aby umożliwić wysyłanie żądań https i żądania protokołu websocket do domen na *. console.azure.com.
 
-## <a name="bash-resolutions"></a>Bash rozwiązania
+## <a name="bash-troubleshooting"></a>Bash, rozwiązywanie problemów
 
 ### <a name="cannot-run-az-login"></a>Nie można uruchomić az logowania
 
@@ -54,7 +54,7 @@ Następujące znane rozwiązania problemów w powłoce chmury Azure:
 - **Szczegóły**: powłoki chmury korzysta z kontenera do hostowania środowiska powłoki, w związku z tym systemem demona jest niedozwolone.
 - **Rozdzielczość**: Korzystanie z [docker maszyny](https://docs.docker.com/machine/overview/), który jest instalowany domyślnie, aby zarządzać kontenery docker z hostem zdalnym Docker.
 
-## <a name="powershell-resolutions"></a>Rozwiązania programu PowerShell
+## <a name="powershell-troubleshooting"></a>Rozwiązywanie problemów z programu PowerShell
 
 ### <a name="no-home-directory-persistence"></a>Trwałość katalogu No $Home
 
@@ -71,15 +71,14 @@ Następujące znane rozwiązania problemów w powłoce chmury Azure:
 - **Szczegóły**: Jeśli użytkownik uruchamia aplikację graficznego interfejsu użytkownika, monit nie zwraca. Na przykład gdy użytkownik klonów prywatne repozytorium GitHub, który jest włączone uwierzytelnianie dwuskładnikowe, ukończenia uwierzytelniania dwuskładnikowego zostanie wyświetlone okno dialogowe.  
 - **Rozdzielczość**: Zamknij i ponownie otwórz powłokę.
 
-
 ### <a name="get-help--online-does-not-open-the-help-page"></a>Get-Help - online nie powoduje otwarcia strony pomocy
 
-- **Szczegóły**: Jeśli użytkownik wpisze `Get-Help Find-Module -online`, takich jak jedną zobaczy komunikat o błędzie:`Starting a browser to display online Help failed. No program or browser is associated to open the URI http://go.microsoft.com/fwlink/?LinkID=398574.`
+- **Szczegóły**: Jeśli użytkownik wpisze `Get-Help Find-Module -online`, takich jak jedną zobaczy komunikat o błędzie: `Starting a browser to display online Help failed. No program or browser is associated to open the URI http://go.microsoft.com/fwlink/?LinkID=398574.`
 - **Rozdzielczość**: Skopiuj adres url, a następnie otwórz go ponownie ręcznie w przeglądarce.
 
 ### <a name="troubleshooting-remote-management-of-azure-vms"></a>Rozwiązywanie problemów z zdalne zarządzanie maszynami wirtualnymi platformy Azure
 
-- **Szczegóły**: z powodu domyślne ustawienia zapory systemu Windows dla usługi WinRM użytkownik może się pojawić następujący błąd:`Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
+- **Szczegóły**: z powodu domyślne ustawienia zapory systemu Windows dla usługi WinRM użytkownik może się pojawić następujący błąd: `Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
 - **Rozdzielczość**: Upewnij się, że maszyna wirtualna jest uruchomiona. Można uruchomić `Get-AzureRmVM -Status` Aby sprawdzić stan maszyny Wirtualnej.  Następnie dodaj nową regułę zapory na Maszynie wirtualnej zdalnego umożliwia nawiązywanie połączeń usługi WinRM z dowolnej podsieci, na przykład
 
  ``` Powershell
@@ -93,7 +92,59 @@ Następujące znane rozwiązania problemów w powłoce chmury Azure:
  Get-AzureRmVM -Name MyVM1 -ResourceGroupName MyResourceGroup | Set-AzureRmVMCustomScriptExtension -VMName MyVM1 -FileUri https://mystorageaccount.blob.core.windows.net/mycontainer/addfirerule.ps1 -Run 'addfirerule.ps1' -Name myextension
  ```
 
-### <a name="dir-caches-the-result-in-azure-drive"></a>`dir`buforuje wynik dysku platformy Azure
+### <a name="dir-caches-the-result-in-azure-drive"></a>`dir` buforuje wynik dysku platformy Azure
 
 - **Szczegóły**: wynik `dir` są buforowane na dysku platformy Azure.
 - **Rozdzielczość**: po utworzeniu lub usunięcie zasobu w widoku dysku platformy Azure Uruchom `dir -force` do aktualizacji.
+
+## <a name="general-limitations"></a>Ogólne ograniczenia
+Powłoka chmury Azure ma następujące znane ograniczenia:
+
+### <a name="system-state-and-persistence"></a>Stan systemu i trwałości
+
+Komputer udostępniający sesję powłoki chmury jest tymczasowy i zostanie odtworzony po sesja jest nieaktywny przez 20 minut. Chmura powłoki wymaga udziału plików na platformę Azure ma zostać zainstalowany. W związku z tym subskrypcja musi mieć możliwość skonfigurowany dostęp powłoka chmury zasobów magazynu. Inne zagadnienia dotyczące obejmują:
+
+* Z magazynem zainstalowanym, tylko zmiany w `clouddrive` katalogu są zachowywane. W Bash Twoje `$Home` katalogu również jest trwały.
+* Udziały plików platformy Azure może być instalowany tylko z poziomu programu [przypisane region](persisting-shell-storage.md#mount-a-new-clouddrive).
+  * W Bash, uruchom `env` można znaleźć w Twoim regionie Ustaw jako `ACC_LOCATION`.
+* Usługa pliki Azure obsługuje tylko lokalnie nadmiarowego magazynu i kont magazynu geograficznie nadmiarowego.
+
+### <a name="browser-support"></a>Obsługa przeglądarek
+
+Powłoka chmura obsługuje najnowsze wersje Microsoft Edge, programu Microsoft Internet Explorer, Google Chrome, Mozilla Firefox i Apple Safari. Przeglądarka Safari w trybie prywatnym nie jest obsługiwane.
+
+### <a name="copy-and-paste"></a>Kopiowanie i wklejanie
+
+[!include [copy-paste](../../includes/cloud-shell-copy-paste.md)]
+
+### <a name="for-a-given-user-only-one-shell-can-be-active"></a>Dla danego użytkownika mogą być aktywne tylko jedno powłoki
+
+Użytkownicy mogą uruchamiać tylko jeden typ powłoki w czasie, albo **Bash** lub **PowerShell**. Jednak może istnieć wiele wystąpień uruchomione w tym samym czasie Bash lub programu PowerShell. Wymiany między Bash lub środowiska PowerShell powoduje, że chmury powłoki, aby ponownie uruchomić, które mają zakończenie istniejącej sesji.
+
+### <a name="usage-limits"></a>Limity użycia
+
+Powłoka chmury jest przeznaczony dla przypadków użycia interaktywnego. W związku z tym wszystkie długotrwałe nieinterakcyjnym sesje zostaną zakończone bez ostrzeżenia.
+
+## <a name="bash-limitations"></a>Ograniczenia bash
+
+### <a name="user-permissions"></a>Uprawnienia użytkowników
+
+Uprawnienia zostały ustawione jako normalnych użytkowników bez dostępu do operacji sudo. Każda instalacja poza Twojej `$Home` katalogu nie jest trwały.
+
+### <a name="editing-bashrc"></a>Edytowanie .bashrc
+
+Mają ostrożność w przypadku edycji .bashrc w ten sposób może spowodować nieoczekiwane błędy w chmurze powłoki.
+
+## <a name="powershell-limitations"></a>Ograniczenia programu PowerShell
+
+### <a name="slow-startup-time"></a>Czas uruchamiania powolne
+
+PowerShell w powłoce chmury Azure (wersja zapoznawcza) może potrwać do 60 sekund zainicjować wersji zapoznawczej.
+
+### <a name="default-file-location-when-created-from-azure-drive"></a>Domyślna lokalizacja pliku podczas tworzenia dysku platformy Azure:
+
+Za pomocą poleceń cmdlet programu PowerShell, użytkownicy nie można utworzyć plików w obszarze dysku platformy Azure. Podczas tworzenia nowych plików przy użyciu innych narzędzi, takich jak vim lub nano, pliki są domyślnie zapisywane do folderu C:\Users. 
+
+### <a name="gui-applications-are-not-supported"></a>Graficzny interfejs użytkownika aplikacji nie są obsługiwane.
+
+Jeśli użytkownik uruchamia polecenia, które mogą utworzyć okno dialogowe systemu Windows, takich jak `Connect-AzureAD` lub `Login-AzureRMAccount`, takich jak jedną zobaczy komunikat o błędzie: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.

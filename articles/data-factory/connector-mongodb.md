@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 2c8157e27c608ed08b4bd3c790c232d968ed7109
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: c924640feffea4cbe0372cabc937656d2ec41c7d
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Kopiowanie danych z bazy danych MongoDB przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -153,7 +153,7 @@ Aby skopiować dane z bazy danych MongoDB, należy ustawić typ źródła w przy
         ],
         "typeProperties": {
             "source": {
-                "type": "RelationalSource",
+                "type": "MongoDbSource",
                 "query": "SELECT * FROM MyTable"
             },
             "sink": {
@@ -165,7 +165,7 @@ Aby skopiować dane z bazy danych MongoDB, należy ustawić typ źródła w przy
 ```
 
 > [!TIP]
-> Podczas Określ zapytanie SQL, należy zwrócić uwagę na format daty/godziny. Na przykład: `$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\\'{0:yyyy-MM-dd HH:mm:ss}\\'}} AND LastModifiedDate < {{ts\\'{1:yyyy-MM-dd HH:mm:ss}\\'}}', <datetime parameter>, <datetime parameter>)`
+> Podczas Określ zapytanie SQL, należy zwrócić uwagę na format daty/godziny. Na przykład: `SELECT * FROM Account WHERE LastModifiedDate >= {{ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')}'}} AND LastModifiedDate < {{ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}'}}`
 
 ## <a name="schema-by-data-factory"></a>Schemat fabryka danych
 
@@ -179,7 +179,7 @@ Podczas kopiowania danych z bazy danych MongoDB, następujące mapowania są uż
 |:--- |:--- |
 | Binarny |Byte[] |
 | Wartość logiczna |Wartość logiczna |
-| Date |Data/godzina |
+| Date |DateTime |
 | NumberDouble |Podwójnej precyzji |
 | NumberInt |Int32 |
 | NumberLong |Int64 |

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2017
+ms.date: 02/23/2018
 ms.author: genli
-ms.openlocfilehash: 83d96a2706e879f8817540e85369729289be9456
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3884eec0e65f856be87505d45c25cad7d3742bab
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Rozwiązywanie problemów: Problemów Azure połączenie punkt lokacja
 
@@ -40,7 +40,9 @@ Ten problem występuje, jeśli brakuje certyfikatu klienta **Certyfikaty — bie
 
 Aby rozwiązać ten problem, wykonaj następujące kroki:
 
-1. Upewnij się, że następujące certyfikaty są w poprawnej lokalizacji:
+1. Kliknij przycisk Otwórz Menedżera certyfikatów: **Start**, typu **zarządzanie certyfikatami komputera**, a następnie kliknij przycisk **zarządzanie certyfikatami komputera** w wynikach wyszukiwania.
+
+2. Upewnij się, że następujące certyfikaty są w poprawnej lokalizacji:
 
     | Certyfikat | Lokalizacja |
     | ------------- | ------------- |
@@ -48,7 +50,7 @@ Aby rozwiązać ten problem, wykonaj następujące kroki:
     | Azuregateway-*GUID*.cloudapp.net  | Bieżący User\Trusted główne urzędy certyfikacji|
     | AzureGateway-*GUID*.cloudapp.net, AzureRoot.cer    | Lokalny komputer lokalny\Zaufane główne urzędy certyfikacji|
 
-2. Przejdź do użytkowników\<nazwa użytkownika > \AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID >, ręcznie zainstalować certyfikat (plik *.cer) w magazynie komputera i użytkownika.
+3. Przejdź do użytkowników\<nazwa użytkownika > \AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID >, ręcznie zainstalować certyfikat (plik *.cer) w magazynie komputera i użytkownika.
 
 Aby uzyskać więcej informacji o sposobie instalowania certyfikatu klienta, zobacz [Generowanie i eksportowania certyfikatów połączeń punkt lokacja](vpn-gateway-certificates-point-to-site.md).
 
@@ -335,7 +337,7 @@ Sterownik karty Sieciowej jest nieaktualna.
 Aktualizacja sterownika karty Sieciowej:
 
 1. Kliknij przycisk **Start**, typ **Menedżera urządzeń**i wybierz go z listy wyników. Jeśli zostanie wyświetlony monit o hasło administratora lub potwierdzenie, wpisz hasło lub potwierdź.
-2. W ** karty sieciowe ** kategorii, znaleźć karty Sieciowej, który chcesz zaktualizować.  
+2. W **karty sieciowe** kategorii, znaleźć karty Sieciowej, który chcesz zaktualizować.  
 3. Kliknij dwukrotnie nazwę urządzenia, zaznacz **aktualizacji sterownika**, wybierz pozycję **Wyszukaj automatycznie zaktualizowane sterowniki**.
 4. Jeśli system Windows nie wykrywa nowego sterownika, można spróbuj poszukać na witrynie sieci Web producenta urządzenia i wykonaj instrukcje.
 5. Uruchom ponownie komputer i spróbuj ponownie nawiązać połączenie.

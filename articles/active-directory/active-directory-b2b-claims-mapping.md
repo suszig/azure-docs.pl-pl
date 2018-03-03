@@ -3,7 +3,7 @@ title: "Mapowanie w usłudze Azure Active Directory oświadczeń użytkowników 
 description: "mapowanie odwołania do usługi Azure Active Directory B2B współpracy oświadczeń"
 services: active-directory
 documentationcenter: 
-author: sasubram
+author: twooley
 manager: mtillman
 editor: 
 tags: 
@@ -14,12 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 03/15/2017
-ms.author: sasubram
-ms.openlocfilehash: 439219087d0a5027c729e9d0e0ecb90bd2a9de3c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: twooley
+ms.reviewer: sasubram
+ms.openlocfilehash: 3fe75e96c153a7cbcad638d606d0fbc248bd983a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="b2b-collaboration-user-claims-mapping-in-azure-active-directory"></a>Mapowanie w usłudze Azure Active Directory oświadczeń użytkowników współpracy B2B
 
@@ -36,7 +37,7 @@ Istnieją dwie możliwe przyczyny, dlaczego konieczne może być Edycja oświadc
 Aby uzyskać informacje o tym, jak dodawać i edytować oświadczenia, zapoznaj się z tego artykułu na dostosowanie oświadczenia, [Dostosowywanie oświadczeń wydanych w tokenie SAML dla wstępnie zintegrowanych aplikacji w usłudze Azure Active Directory](develop/active-directory-saml-claims-customization.md). Do współpracy B2B użytkowników mapowania NameID i UPN dzierżawy między będą mogły ze względów bezpieczeństwa.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Zobacz nasze inne artykuły dotyczące współpracy B2B w usłudze Azure AD:
 

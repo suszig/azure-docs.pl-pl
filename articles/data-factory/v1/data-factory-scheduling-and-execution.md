@@ -3,7 +3,7 @@ title: "Planowanie i wykonywanie przy użyciu fabryki danych | Dokumentacja firm
 description: "Dowiedz się, planowania i wykonywania aspektów modelu aplikacji fabryki danych Azure."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: sharonlo101
 manager: jhubbard
 editor: monicar
 ms.assetid: 088a83df-4d1b-4ac1-afb3-0787a9bd1ca5
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
+ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 22005f6b0f655a68dbf8fab600872d8d20102dfe
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: a729b38b2fc0b8ef759037976753e0030557a6fa
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="data-factory-scheduling-and-execution"></a>Planowanie fabryki danych i wykonywania
 > [!NOTE]

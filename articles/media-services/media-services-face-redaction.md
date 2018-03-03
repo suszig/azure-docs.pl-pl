@@ -13,14 +13,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako;
-ms.openlocfilehash: 2e936379968f74eb8bea420916acea2b8d96bb24
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 73d2f7135e85b829b1ecbd9eb0264024df36244a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Redagowanie krojów z analizy multimediów Azure
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 **Azure Media Redactor** jest [analizy multimediów Azure](media-services-analytics-overview.md) procesor multimediów (MP) oferuje skalowalne krój redakcyjne w chmurze. Redakcyjne krój umożliwia modyfikowanie wideo do rozmycia kroje wybrane osoby. Można korzystać z usługi redakcyjne krój w publicznych scenariusze bezpieczeństwa i nośnika wiadomości. Kilka minut najmniejszym zawiera wiele kroje może zająć godzin redagowanie ręcznie, ale z tą usługą krój redakcyjne wymagany wykonanie kilku prostych krokach. Aby uzyskać więcej informacji, zobacz [to](https://azure.microsoft.com/blog/azure-media-redactor/) blogu.
 
 Ten artykuł zawiera szczegółowe informacje o **Azure Media Redactor** i pokazuje, jak z niego korzystać z zestawu SDK usługi Media Services dla platformy .NET.
@@ -52,11 +52,12 @@ To spowoduje utworzenie zredagowanym mp4 automatycznie bez żadnych ręcznego wp
 | --- | --- | --- |
 | Wejściowy zasobów |foo.bar |Wideo w formacie WMV, MPV lub MP4 |
 | Dane wejściowe konfiguracji |Zadania konfiguracji ustawień wstępnych. |{"version": "1.0", "Opcje": {'mode': "analizowanie"}} |
-| Dane wyjściowe zasobów |foo_annotations.JSON |Adnotacja danych lokalizacji krój w formacie JSON. To można edytować przez użytkownika, aby zmodyfikować rozmycia ograniczenia pola. Zobacz poniższy przykład. |
+| Dane wyjściowe zasobów |foo_annotations.json |Adnotacja danych lokalizacji krój w formacie JSON. To można edytować przez użytkownika, aby zmodyfikować rozmycia ograniczenia pola. Zobacz poniższy przykład. |
 | Dane wyjściowe zasobów |foo_thumb%06d.jpg [foo_thumb000001.jpg, foo_thumb000002.jpg] |Przycięty jpg każdego wykryto krój, gdzie numer wskazuje etykiety powierzchni |
 
 #### <a name="output-example"></a>Przykład danych wyjściowych:
 
+```json
     {
       "version": 1,
       "timescale": 24000,
@@ -103,6 +104,7 @@ To spowoduje utworzenie zredagowanym mp4 automatycznie bez żadnych ręcznego wp
             ],
 
     … truncated
+```
 
 ### <a name="redact-mode"></a>Redagowanie tryb
 Drugi przebieg przepływu pracy ma większą liczbę wejść, które muszą być połączone w jeden zasobów.
@@ -114,7 +116,7 @@ Dane wyjściowe z przebiegu analizy nie obejmuje oryginalnego wideo. Wideo musi 
 | Etap | Nazwa pliku | Uwagi |
 | --- | --- | --- |
 | Wejściowy zasobów |foo.bar |Wideo w formacie WMV, MPV lub MP4. Taka sama jak w kroku 1 wideo. |
-| Wejściowy zasobów |foo_annotations.JSON |Plik metadanych adnotacje z fazy, bez modyfikacji opcjonalne. |
+| Wejściowy zasobów |foo_annotations.json |Plik metadanych adnotacje z fazy, bez modyfikacji opcjonalne. |
 | Wejściowy zasobów |foo_IDList.txt (opcjonalnie) |Lista krój identyfikatorów redagowanie rozdzielonych opcjonalne nowy wiersz. Jeśli pole pozostanie puste, to rozmywa wszystkich powierzchni. |
 | Dane wejściowe konfiguracji |Zadania konfiguracji ustawień wstępnych. |{"version": "1.0", "Opcje": {'mode': "redagowanie"}} |
 | Dane wyjściowe zasobów |foo_redacted.mp4 |Wideo z rozmycia stosowane w oparciu adnotacji |
@@ -138,11 +140,13 @@ Przykłady typów rozmycia poniżej można znaleźć.
 
 ### <a name="example-json"></a>Przykład JSON:
 
+```json
     {'version':'1.0', 'options': {'Mode': 'Combined', 'BlurType': 'High'}}
+```
 
-#### <a name="low"></a>Niska
+#### <a name="low"></a>Małe
 
-![Niska](./media/media-services-face-redaction/blur1.png)
+![Małe](./media/media-services-face-redaction/blur1.png)
  
 #### <a name="med"></a>MED
 
@@ -172,8 +176,16 @@ Następujących programów przedstawiono sposób:
 
 1. Utworzenie elementu zawartości i przesyłanie pliku multimediów do elementu zawartości.
 2. Utwórz zadanie z zadaniem redakcyjne krój oparty na pliku konfiguracji, który zawiera następujące ustawienie json: 
-   
-        {'version':'1.0', 'options': {'mode':'combined'}}
+
+    ```json
+            {
+                'version':'1.0',
+                'options': {
+                    'mode':'combined'
+                }
+            }
+    ```
+
 3. Pobierz pliki danych wyjściowych w formacie JSON. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Tworzenie i konfigurowanie projektu programu Visual Studio
@@ -182,7 +194,7 @@ Skonfiguruj środowisko projektowe i wypełnij plik app.config przy użyciu info
 
 #### <a name="example"></a>Przykład
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;
@@ -350,7 +362,7 @@ namespace FaceRedaction
 }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 

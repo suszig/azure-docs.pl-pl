@@ -3,7 +3,7 @@ title: "Azure współpracy B2B usługi Active Directory licencjonowania wskazów
 description: "Azure Active Directory B2B nie wymagają współpracy płatnej licencji usługi Azure AD, ale można również pobrać płatności funkcje dla gości B2B"
 services: active-directory
 documentationcenter: 
-author: sasubram
+author: twooley
 manager: mtillman
 editor: 
 tags: 
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 08/09/2017
-ms.author: curtand
+ms.author: twooley
 ms.reviewer: sasubram
 ms.custom: it-pro
-ms.openlocfilehash: 664398eb71501ff450b785928992729f91740a19
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d4a739e5cb4dc4a6ccafac683fe913592f985ce2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-licensing-guidance"></a>Wskazówki dotyczące licencjonowania funkcji współpracy między firmami przy użyciu usługi Azure Active Directory
 
@@ -69,7 +69,7 @@ Użytkownik-Gość B2B to taki, który jest zaproszenie od organizacji będącej
 
       * Konglomeratu organizacja nie korzysta z usługi Azure AD lub nie ma odpowiedniej licencji: W tym przypadku należy wykonać formuła 1:5, którego układ określa się wcześniej w tym dokumencie.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Zobacz nasze inne artykuły dotyczące współpracy B2B w usłudze Azure AD:
 

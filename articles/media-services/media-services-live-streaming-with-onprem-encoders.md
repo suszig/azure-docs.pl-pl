@@ -14,14 +14,14 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: d7c33dc0a3c1f01cc53a91e05feb33272cb21f47
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 1266c7b6c1539f84eafea1007999fb4360184857
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Transmisja strumieniowa za pomocą koderów lokalnych, które tworzą strumienie o różnych szybkościach transmisji bitów na żywo
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 W usłudze Azure Media Services *kanału* reprezentuje potok przetwarzania zawartości transmisji strumieniowej na żywo. Kanał otrzymuje na żywo wejściowych strumieni w jeden z dwóch sposobów:
 
 * Koder na żywo lokalnymi wysyła wielokrotnej szybkości transmisji bitów RTMP lub Smooth Streaming (pofragmentowany MP4) strumienia do kanału, który nie jest włączony do przeprowadzania kodowania na żywo w usłudze Media Services. Pozyskiwane strumienie są przekazywane za pośrednictwem kanałów bez dalszego przetwarzania. Ta metoda jest wywoływana *przekazywanego*. Koder na żywo może także wysłać strumień o pojedynczej szybkości transmisji bitów do kanału, który nie jest włączona dla kodowanie na żywo, ale nie jest to zalecane. Usługi Media Services dostarcza strumień do klientów, którzy żądają go.
@@ -109,7 +109,7 @@ Adresy URL pozyskiwania można uzyskać po utworzeniu kanału. Umożliwia uzyski
 
 Istnieje opcja wprowadzania pofragmentowane MP4 (Smooth Streaming) strumień na żywo za pośrednictwem połączenia SSL. Pozyskiwanie za pośrednictwem protokołu SSL, upewnij się, że aktualizacja adresu URL pozyskiwania HTTPS. Nie można obecnie pozyskiwania RTMP, za pośrednictwem protokołu SSL.
 
-#### <a id="keyframe_interval"></a>Interwał klatki kluczowej
+#### <a id="keyframe_interval"></a>Keyframe interval
 Podczas korzystania z na lokalny koder na żywo można wygenerować strumień o wielokrotnej szybkości transmisji bitów, interwał klatki kluczowej określa czas trwania grupy obrazów (GOP) jako używane przez tego kodera. Gdy kanał otrzyma tego strumienia przychodzącego, można dostarczyć transmisji strumieniowej na żywo do klienta odtwarzanie aplikacji w jednym z następujących formatów: Smooth Streaming, dynamiczne adaptacyjne przesyłanie strumieniowe za pośrednictwem protokołu HTTP (DASH) i HTTP Live Streaming (HLS). Podczas prowadzenia transmisji strumieniowych na żywo, HLS zawsze jest dostarczana dynamicznie. Domyślnie usługi Media Services automatycznie oblicza stosunek pakowania segment HLS (fragmenty według segmentu) na podstawie interwału klatki kluczowej, które zostały odebrane z kodera na żywo.
 
 W poniższej tabeli przedstawiono sposób obliczania segmentu czas trwania:
@@ -171,29 +171,29 @@ Nawet po zatrzymaniu i usunięciu program, użytkownicy mogą strumieniowo zarch
 ## <a id="states"></a>Stany kanału i rozliczeń
 Możliwe wartości dla bieżącego stanu kanału:
 
-* **Zatrzymano**: jest to stan początkowy kanału po jego utworzeniu. W tym stanie można zaktualizować właściwości kanału, ale przesyłania strumieniowego nie jest dozwolone.
+* **Zatrzymano**: jest to stan początkowy kanału po jego utworzeniu. W tym stanie właściwości kanału mogą być aktualizowane, ale transmisja strumieniowa jest niedozwolona.
 * **Uruchamianie**: kanał jest uruchamiana. W tym stanie nie są dozwolone ani aktualizacje, ani transmisja strumieniowa. Jeśli wystąpi błąd, kanał zwraca **zatrzymane** stanu.
 * **Uruchomiona**: kanału może przetwarzać strumienie na żywo.
 * **Zatrzymywanie**: zatrzymaniu kanału. W tym stanie nie są dozwolone ani aktualizacje, ani transmisja strumieniowa.
 * **Usuwanie**: kanał jest usuwany. W tym stanie nie są dozwolone ani aktualizacje, ani transmisja strumieniowa.
 
-W poniższej tabeli przedstawiono, jak kanału stany mapy do trybu rozliczeń.
+W tabeli poniżej pokazano, jak stany kanału przekładają się na naliczanie opłat.
 
-| Stan kanału | Wskaźniki interfejsu użytkownika portalu | Naliczanie opłat? |
+| Stan kanału | Wskaźniki w interfejsie użytkownika portalu | Naliczanie opłat? |
 | --- | --- | --- | --- |
 | **Uruchamianie** |**Uruchamianie** |Nie (stan przejściowy) |
-| **Uruchomiona** |**Gotowe** (nie uruchomione programy)<p><p>lub<p>**Przesyłanie strumieniowe** (co najmniej jeden uruchomiony program) |Tak |
+| **Running** |**Gotowe** (nie uruchomione programy)<p><p>lub<p>**Przesyłanie strumieniowe** (co najmniej jeden uruchomiony program) |Yes |
 | **Zatrzymywanie** |**Zatrzymywanie** |Nie (stan przejściowy) |
 | **Zatrzymana** |**Zatrzymana** |Nie |
 
 ## <a id="cc_and_ads"></a>Zamknięte wstawiania podpisów i usługi ad
 Poniższa tabela przedstawia obsługiwane standardy dla zamkniętego wstawiania podpisów i usługi ad.
 
-| Standardowa | Uwagi |
+| Standardowa (Standard) | Uwagi |
 | --- | --- |
 | CEA 708 i EIA 608 (708/608) |CEA 708 i EIA 608 są kodowane standardów dla Stanów Zjednoczonych i Kanady.<p><p>Obecnie podpisów jest obsługiwana tylko wtedy, gdy w zakodowanym strumień wejściowy. Należy używać kodera na żywo nośnika, który można wstawić 608 lub 708 podpisów zakodowanego strumienia, który jest wysyłany do usługi Media Services. Usługi Media Services dostarcza zawartość z napisami wstawiony do widzów. |
 | TTML wewnątrz .ismt (Smooth Streaming ścieżek tekstu) |Dynamiczne tworzenie pakietów usługi Media Services umożliwia klientom przesyłanie strumieniowe zawartości w dowolnym z następujących formatów: DASH, HLS lub Smooth Streaming. Jednak jeśli użytkownik pozyskiwania pofragmentowany plik MP4 (Smooth Streaming) z napisami wewnątrz .ismt (Smooth Streaming ścieżek tekstu), można dostarczyć strumienia tylko Smooth Streaming klientów. |
-| SCTE 35 |SCTE 35 to cyfrowy system sygnalizowania, który służy do wstawiania reklam sygnalizacji. Podrzędny odbiornikami umożliwia sygnał splice reklamy w strumieniu wyznaczonym czasie. SCTE 35 należy wysłać jako rozrzedzony śledzenie w strumieniu wejściowym.<p><p>Obecnie obsługiwane tylko strumień wejściowy formatu powoduje, że sygnały ad jest pofragmentowana. MP4 (Smooth Streaming). Jedynym obsługiwanym wyjściowy format jest także Smooth Streaming. |
+| SCTE-35 |SCTE 35 to cyfrowy system sygnalizowania, który służy do wstawiania reklam sygnalizacji. Podrzędny odbiornikami umożliwia sygnał splice reklamy w strumieniu wyznaczonym czasie. SCTE 35 należy wysłać jako rozrzedzony śledzenie w strumieniu wejściowym.<p><p>Obecnie obsługiwane tylko strumień wejściowy formatu powoduje, że sygnały ad jest pofragmentowana. MP4 (Smooth Streaming). Jedynym obsługiwanym wyjściowy format jest także Smooth Streaming. |
 
 ## <a id="considerations"></a>Zagadnienia dotyczące
 Jeśli używasz na lokalny koder na żywo można wysłać strumień o wielokrotnej szybkości transmisji bitów do kanału, zastosuj następujące ograniczenia:
@@ -209,6 +209,10 @@ Jeśli używasz na lokalny koder na żywo można wysłać strumień o wielokrotn
 Oto inne kwestie związane z pracą z kanałów i powiązanych składników:
 
 * Za każdym razem, gdy skonfigurujesz kodera na żywo, wywołaj **zresetować** metody w kanale. Zanim je zresetujesz kanału, należy zatrzymać program. Po zresetowaniu kanału, ponownie uruchom program.
+
+  > [!NOTE]
+  > Po ponownym uruchomieniu program, należy ją skojarzyć z nowego elementu zawartości i utworzyć nowy. 
+  
 * Kanał można zatrzymać tylko wtedy, gdy jest on **systemem** stanu i wszystkie programy na kanale zostały zatrzymane.
 * Domyślnie tylko pięć kanałów można dodać do konta usługi Media Services. Aby uzyskać więcej informacji, zobacz [przydziały i ograniczenia](media-services-quotas-and-limitations.md).
 * Są rozliczane tylko wtedy, gdy kanał w **systemem** stanu. Aby uzyskać więcej informacji, zobacz [kanału stanów i rozliczeń](media-services-live-streaming-with-onprem-encoders.md#states) sekcji.

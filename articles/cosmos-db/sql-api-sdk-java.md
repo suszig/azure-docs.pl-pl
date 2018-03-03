@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 76c818cb48b4691b03ad5cc601d4eab5504945eb
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 979fcebd60d62c714a1c521013cf391ebf18a73c
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure rozwiązania Cosmos DB Java SDK dla interfejsu API SQL: informacje o wersji i zasoby
 > [!div class="op_single_selector"]
@@ -27,6 +27,7 @@ ms.lasthandoff: 12/18/2017
 > * [Źródła danych zmian .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
+> * [Asynchroniczne Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/documentdb/)
@@ -36,6 +37,8 @@ ms.lasthandoff: 12/18/2017
 > 
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+Zestaw SDK Java interfejsu API SQL obsługuje synchronicznych operacji. Obsługa komunikacji asynchronicznej, można użyć [SQL zestawu SDK Java asynchroniczne dla interfejsu API](sql-api-sdk-async-java.md). 
 
 <table>
 
@@ -167,7 +170,7 @@ ms.lasthandoff: 12/18/2017
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * GA SDK
 
-## <a name="release--retirement-dates"></a>Wersja & daty wycofania
+## <a name="release-and-retirement-dates"></a>Wersja i wycofania dat
 Firma Microsoft udostępni powiadomienia co najmniej **12 miesięcy** klienta z wyprzedzeniem wycofanie SDK w celu złagodzenia przejścia do nowszej/nieobsługiwaną wersję.
 
 Nowe funkcje i funkcjonalność i optymalizację, które są dodawane tylko do bieżącego zestawu SDK, w związku jest zalecane, zawsze uaktualnienie SDK najnowszą tak szybko jak to możliwe.
@@ -219,6 +222,6 @@ Każde żądanie do rozwiązania Cosmos bazy danych przy użyciu wycofane zestaw
 ## <a name="faq"></a>Często zadawane pytania
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 Aby dowiedzieć się więcej na temat rozwiązania Cosmos bazy danych, zobacz [bazy danych programu Microsoft Azure rozwiązania Cosmos](https://azure.microsoft.com/services/cosmos-db/) stronę usługi.
 

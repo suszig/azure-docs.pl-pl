@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/11/2017
+ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 88d80271e744d6f00afd1ff1c3df29180565b59e
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 1cd429ed8252573f8e8c3ed11d6c841cba855b52
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Dodawanie niestandardowych raportów kondycji usługi Service Fabric
 Sieć szkieletowa usług Azure wprowadza [model kondycji](service-fabric-health-introduction.md) umożliwiającą Flaga zła klastra i warunki aplikacji na konkretnych obiektów. Model kondycji używa **Raporty kondycji** (składników systemu i watchdogs). Celem jest łatwe i szybkie diagnozowanie i naprawy. Moduły zapisujące usługi należy wziąć pod uwagę góry o kondycji. Wszelkie warunek, który może mieć wpływ na kondycji należy podać, zwłaszcza, jeśli może pomóc problemów flagi bliski katalogu głównego. Informacje o kondycji można oszczędzić czas i wysiłek na analizie i debugowania. Przydatność jest jasne, szczególnie, gdy usługa jest uruchomiona na dużą skalę w chmurze (prywatny czy Azure).
@@ -214,7 +214,7 @@ public static void SendReport(object obj)
 ```
 
 ### <a name="powershell"></a>PowerShell
-Wysyłanie raportów o kondycji z  **ServiceFabric wysyłania*EntityType*HealthReport **.
+Wysyłanie raportów o kondycji z **ServiceFabric wysyłania*EntityType*HealthReport**.
 
 W poniższym przykładzie przedstawiono okresowych raportów na wartościach Procesora w węźle. Raporty mają być wysyłane co 30 sekund i mają czas wygaśnięcia wynosi dwie minuty. Jeśli wygasną, osoby zgłaszającej występują problemy, więc węzeł jest oceniane w błąd. Gdy Procesora jest powyżej wartości progowej, raport ma stan kondycji ostrzeżenia. Jeśli Procesor pozostaje powyżej progu przez ponad skonfigurowanym czasie, będzie zgłaszane jako błąd. W przeciwnym razie reportera, który wysyła kondycję OK.
 

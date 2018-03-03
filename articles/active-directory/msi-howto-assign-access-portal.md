@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 9e88fab3f4250c99c73c8e3e573b6f5c926eeb69
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 6522a5ef7f1e1af89ee70ee74041e1e69614ebca
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="assign-a-managed-service-identity-access-to-a-resource-by-using-the-azure-portal"></a>Przypisywanie dostępu zarządzane tożsamość usługi do zasobu za pomocą portalu Azure
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-Po skonfigurowaniu zasobów platformy Azure z zarządzania usługi tożsamości (MSI), można zapewnić dostęp MSI do innego zasobu, podobnie jak podmiot zabezpieczeń. W tym artykule przedstawiono sposób zapewniają Azure maszyny wirtualnej MSI dostęp do konta magazynu Azure za pomocą portalu Azure.
+Po skonfigurowaniu zasobów platformy Azure z zarządzania usługi tożsamości (MSI), można zapewnić dostęp MSI do innego zasobu, podobnie jak podmiot zabezpieczeń. W tym artykule przedstawiono sposób udzielić dostępu MSI zestaw skali maszyny wirtualnej lub maszyny wirtualnej platformy Azure do konta magazynu platformy Azure przy użyciu portalu Azure.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -31,32 +31,42 @@ Po skonfigurowaniu zasobów platformy Azure z zarządzania usługi tożsamości 
 
 ## <a name="use-rbac-to-assign-the-msi-access-to-another-resource"></a>Użycie funkcji RBAC można przypisać MSI dostęp do innego zasobu
 
-Po włączeniu MSI na zasobów platformy Azure, [takich jak maszyny Wirtualnej platformy Azure](msi-qs-configure-portal-windows-vm.md):
+Po włączeniu MSI na zasobów platformy Azure, takich jak [maszyny Wirtualnej Azure](msi-qs-configure-portal-windows-vm.md) lub [Azure VMSS](msi-qs-configure-portal-windows-vmss.md):
 
 1. Zaloguj się do [portalu Azure](https://portal.azure.com) przy użyciu konta skojarzonego z subskrypcją platformy Azure, w którym skonfigurowano MSI.
 
-2. Przejdź do żądanego zasobu, na którym chcesz zmodyfikować kontroli dostępu. W tym przykładzie udostępniamy możliwość sprawowania dostęp maszyny Wirtualnej platformy Azure na konto magazynu, dlatego firma Microsoft, przejdź do konta magazynu.
+2. Przejdź do żądanego zasobu, na którym chcesz zmodyfikować kontroli dostępu. W tym przykładzie udostępniamy możliwość sprawowania maszyny wirtualnej platformy Azure i Azure zestawu skalowania maszyn wirtualnych dostęp do konta magazynu, dlatego firma Microsoft, przejdź do konta magazynu.
 
-3. Wybierz **(IAM) kontroli dostępu** zasobów, a następnie wybierz **+ Dodaj**. Następnie określ **roli**, **przypisać dostęp do maszyny wirtualnej**i określ odpowiednie **subskrypcji** i **grupy zasobów** gdzie znajduje się zasób. W obszarze kryteria wyszukiwania powinna zostać wyświetlona zasobu. Wybierz zasób, a następnie wybierz **zapisać**. 
+3. Dla maszyny wirtualnej platformy Azure, wybierz **(IAM) kontroli dostępu** zasobów, a następnie wybierz **+ Dodaj**. Następnie określ **roli**, **przypisać dostęp do maszyny wirtualnej**i określ odpowiednie **subskrypcji** i **grupy zasobów** gdzie znajduje się zasób. W obszarze kryteria wyszukiwania powinna zostać wyświetlona zasobu. Wybierz zasób, a następnie wybierz **zapisać**. 
 
    ![Zrzut ekranu (IAM) kontroli dostępu](./media/msi-howto-assign-access-portal/assign-access-control-iam-blade-before.png)  
+   Dla zestawu skalowania maszyny wirtualnej platformy Azure, wybierz **(IAM) kontroli dostępu** zasobów, a następnie wybierz **+ Dodaj**. Następnie określ **roli**, **przypisany dostęp**. W obszarze kryteria wyszukiwania wyszukiwania zestawu skali maszyny wirtualnej. Wybierz zasób, a następnie wybierz **zapisać**.
+   
+   ![Zrzut ekranu (IAM) kontroli dostępu](./media/msi-howto-assign-access-vmss-portal/assign-access-control-vmss-iam-blade-before.png)  
 
-4. Nastąpi powrót do głównego **(IAM) kontroli dostępu** strony, w której występuje nowy wpis msi zasobu. W tym przykładzie ma "SimpleWinVM" maszyny Wirtualnej z grupy zasobów pokaz **współautora** dostęp do konta magazynu.
+4. Nastąpi powrót do głównego **(IAM) kontroli dostępu** strony, w której występuje nowy wpis msi zasobu.
+
+    Maszyna wirtualna platformy Azure:
 
    ![Zrzut ekranu (IAM) kontroli dostępu](./media/msi-howto-assign-access-portal/assign-access-control-iam-blade-after.png)
 
+    Zestaw skali maszyny wirtualnej platformy Azure:
+
+    ![Zrzut ekranu (IAM) kontroli dostępu](./media/msi-howto-assign-access-vmss-portal/assign-access-control-vmss-iam-blade-after.png)
+
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-Jeśli plik MSI dla zasobu nie występuje na liście dostępnych tożsamości, sprawdź, czy MSI została prawidłowo włączona. W tym przypadku firma Microsoft wrócić do maszyny Wirtualnej platformy Azure i sprawdź następujące kwestie:
+Jeśli plik MSI dla zasobu nie występuje na liście dostępnych tożsamości, sprawdź, czy MSI została prawidłowo włączona. W tym przypadku firma Microsoft wrócić do maszyny wirtualnej platformy Azure i sprawdź następujące kwestie:
 
 - Przyjrzyj się **konfiguracji** strony i upewnij się, że wartość **MSI włączone** jest **tak**.
-- Przyjrzyj się **rozszerzenia** strony i upewnij się, że rozszerzenie MSI pomyślnie wdrożone.
+- Przyjrzyj się **rozszerzenia** strony i upewnij się, że rozszerzenie MSI pomyślnie wdrożone (**rozszerzenia** strona nie jest dostępna dla zestawu skalowania maszyny wirtualnej platformy Azure).
 
 Jeśli jest albo nieprawidłowa, może być konieczne ponownie Wdróż ponownie MSI na zasobie oraz rozwiązywania problemów dotyczących niepowodzenia wdrożenia.
 
 ## <a name="related-content"></a>Zawartość pokrewna
 
 - Omówienie MSI, zobacz [omówienie zarządzane tożsamość usługi](msi-overview.md).
-- Aby włączyć MSI w maszynie Wirtualnej platformy Azure, zobacz [skonfigurować Azure VM zarządzane usługi tożsamości (MSI) przy użyciu portalu Azure](msi-qs-configure-portal-windows-vm.md).
+- Aby włączyć MSI w maszynie wirtualnej platformy Azure, zobacz [skonfigurować Azure VM zarządzane usługi tożsamości (MSI) przy użyciu portalu Azure](msi-qs-configure-portal-windows-vm.md).
+- Aby włączyć MSI na podstawie zestawu skali maszyny wirtualnej platformy Azure, zobacz [skonfigurować Azure maszyny wirtualnej skali ustawić zarządzane usługi tożsamości (MSI) przy użyciu portalu Azure](msi-qs-configure-portal-windows-vmss.md)
 
 

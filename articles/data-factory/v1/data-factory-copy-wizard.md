@@ -3,9 +3,9 @@ title: "Łatwo skopiować dane z Kreatora kopiowania - Azure | Dokumentacja firm
 description: "Więcej informacji na temat sposobu korzystania z Kreatora kopiowania fabryki danych można skopiować danych z obsługiwanych źródeł danych do ujścia."
 services: data-factory
 documentationcenter: 
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: linda33wj
+manager: 
+editor: 
 ms.assetid: f904972f-cd33-48db-9755-2b3196ae4168
 ms.service: data-factory
 ms.workload: data-services
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
-ms.author: spelluru
+ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c993b1dfb0055da84751c042efccf42d943375d9
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 8f618c6efd96fd74e88f56a378b9d73cfa47b8da
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Skopiować lub przenieść dane z Kreatora kopiowania fabryki danych Azure
 > [!NOTE]
@@ -45,7 +45,7 @@ Kreator zaprojektowano z danymi big data na uwadze od początku. To proste i efe
 ## <a name="automatic-data-preview"></a>Podgląd danych
 Kreator kopiowania umożliwia przeglądanie część danych z wybranego źródła danych można sprawdzić, czy dane są odpowiednie dane, które chcesz skopiować. Ponadto jeśli źródło danych jest w pliku tekstowym, Kreator kopiowania analizuje pliku tekstowego, aby dowiedzieć się więcej wierszy i kolumn ograniczniki oraz schemat automatycznie. 
 
-![Ustawienia format pliku](./media/data-factory-copy-wizard/file-format-settings.png)
+![Ustawienia formatu pliku](./media/data-factory-copy-wizard/file-format-settings.png)
 
 ## <a name="schema-capture-and-mapping"></a>Przechwytywanie schematu i mapowanie
 Schemat danych wejściowych może nie odpowiadać schemat danych wyjściowych w niektórych przypadkach. W tym scenariuszu należy mapować kolumn z schematu źródła do kolumn z schematu docelowego. 

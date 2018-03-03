@@ -3,9 +3,9 @@ title: "Wywoływanie programów Spark z fabryki danych Azure | Dokumentacja firm
 description: "Dowiedz się, jak wywołać Spark programy z fabryki danych Azure za pomocą działania MapReduce."
 services: data-factory
 documentationcenter: 
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: sharonlo101
+manager: 
+editor: 
 ms.assetid: fd98931c-cab5-4d66-97cb-4c947861255c
 ms.service: data-factory
 ms.workload: data-services
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
+ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f03c3b6e275c0bc97df9e687a20acf45956664d2
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: b39e6012365c426e95a38d5c5a40790f584ba473
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Wywoływanie programów Spark z potoków fabryki danych Azure
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 01/23/2018
 > * [Niestandardowe działanie platformy .NET](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> Ten artykuł dotyczy wersji 1 usługi fabryka danych Azure, która jest ogólnie dostępna. Jeśli używasz wersji 2 usługi fabryka danych, która jest w wersji zapoznawczej, zobacz [Przekształcanie danych za pomocą działania Apache Spark w fabryce danych w wersji 2](../transform-data-using-spark.md).
+> Ten artykuł dotyczy wersji 1 usługi Azure Data Factory, która jest ogólnie dostępna. Jeśli używasz wersji 2 usługi fabryka danych, która jest w wersji zapoznawczej, zobacz [Przekształcanie danych za pomocą działania Apache Spark w fabryce danych w wersji 2](../transform-data-using-spark.md).
 
 ## <a name="introduction"></a>Wprowadzenie
 Działanie Spark jest jednym z [działań przekształcania danych](data-factory-data-transformation-activities.md) obsługiwane przez fabryki danych. To działanie uruchamia określony program Spark w klastrze Spark w usłudze Azure HDInsight. 
@@ -64,31 +64,31 @@ Poniżej przedstawiono typowe etapy, aby utworzyć potok fabryki danych z dział
 4. Przekaż **test.py** do **pyFiles** folderu w **adfspark** kontenera w magazynie obiektów blob. Tworzenie kontenera i folderu, jeśli nie istnieją.
 
 ### <a name="create-a-data-factory"></a>Tworzenie fabryki danych
-Aby utworzyć fabryki danych, wykonaj następujące kroki:
+Aby utworzyć fabrykę danych, wykonaj następujące kroki:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
-2. Wybierz **nowe** > **dane i analiza** > **fabryki danych**.
+2. Wybierz pozycję **Nowy** > **Dane i analiza** > **Fabryka danych**.
 
 3. Na **nowa fabryka danych** bloku, w obszarze **nazwa**, wprowadź **SparkDF**.
 
    > [!IMPORTANT]
-   > Nazwa fabryki danych Azure musi być globalnie unikatowa. Jeśli zostanie wyświetlony błąd "Nazwa fabryki danych SparkDF nie jest dostępna", należy zmienić nazwy fabryki danych. Na przykład użyć yournameSparkDFdate i ponownie utworzyć fabryki danych. Aby uzyskać więcej informacji na reguły nazewnictwa, zobacz [fabryki danych: reguły nazewnictwa](data-factory-naming-rules.md).
+   > Nazwa fabryki danych Azure musi być globalnie unikatowa. Jeśli zostanie wyświetlony błąd "Nazwa fabryki danych SparkDF nie jest dostępna", należy zmienić nazwy fabryki danych. Na przykład użyć yournameSparkDFdate i ponownie utworzyć fabryki danych. Aby uzyskać więcej informacji na temat reguł nazewnictwa, zobacz [Data Factory: Naming rules (Fabryka danych: reguły nazewnictwa)](data-factory-naming-rules.md).
 
-4. W obszarze **subskrypcji**, wybierz subskrypcję platformy Azure, w którym ma fabryki danych ma zostać utworzony.
+4. W obszarze **Subskrypcja** wybierz subskrypcję platformy Azure, w ramach której chcesz utworzyć fabrykę danych.
 
 5. Wybierz istniejącą grupę zasobów lub Utwórz grupę zasobów platformy Azure.
 
-6. Wybierz **Przypnij do pulpitu nawigacyjnego** pole wyboru.
+6. Zaznacz pole wyboru **Przypnij do pulpitu nawigacyjnego**.
 
 7. Wybierz pozycję **Utwórz**.
 
    > [!IMPORTANT]
-   > Aby utworzyć wystąpienia fabryki danych, musi być członkiem [współautora fabryki danych](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) roli na poziomie grupy zasobów subskrypcji.
+   > Aby utworzyć wystąpienia usługi Data Factory, musisz być członkiem roli [współautora usługi Data Factory](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) na poziomie subskrypcji/grupy zasobów.
 
 8. Fabryka danych możesz sprawdzić, jak jest tworzony na pulpicie nawigacyjnym portalu Azure.
 
-9. Po utworzeniu fabryki danych, zobacz **fabryki danych** strony, która pokazuje zawartość fabryki danych. Jeśli nie widzisz **fabryki danych** wybierz Kafelek fabrykę danych na pulpicie nawigacyjnym.
+9. Po utworzeniu fabryki danych zostanie wyświetlona strona **Fabryka danych** z zawartością fabryki danych. Jeśli nie widzisz **fabryki danych** wybierz Kafelek fabrykę danych na pulpicie nawigacyjnym.
 
     ![Blok Fabryka danych](./media/data-factory-spark/data-factory-blade.png)
 
@@ -96,11 +96,11 @@ Aby utworzyć fabryki danych, wykonaj następujące kroki:
 W tym kroku utworzysz dwa połączonych usług. Jedna usługa łączy klastra Spark z fabryką danych, i inne usługi łączy magazyn z fabryką danych. 
 
 #### <a name="create-a-storage-linked-service"></a>Tworzenie połączonej usługi Storage
-W tym kroku możesz połączyć konta magazynu z fabryką danych. Zestaw danych utworzone w kroku później w tym przewodniku odnosi się do tej połączonej usługi. Usługa HDInsight połączone definiowana w następnym kroku odwołuje się do tej połączonej usługi zbyt. 
+W tym kroku opisano łączenie konta magazynu z fabryką danych. Zestaw danych utworzone w kroku później w tym przewodniku odnosi się do tej połączonej usługi. Usługa HDInsight połączone definiowana w następnym kroku odwołuje się do tej połączonej usługi zbyt. 
 
 1. Na **fabryki danych** bloku, wybierz opcję **tworzenie i wdrażanie**. Zostanie wyświetlony Edytor fabryki danych.
 
-2. Wybierz **nowy magazyn danych**i wybierz polecenie **usługi Azure Storage**.
+2. Wybierz pozycję **Nowy magazyn danych**, a następnie opcję **Azure Storage**.
 
    ![Nowy magazyn danych](./media/data-factory-spark/new-data-store-azure-storage-menu.png)
 
@@ -108,11 +108,11 @@ W tym kroku możesz połączyć konta magazynu z fabryką danych. Zestaw danych 
 
    ![AzureStorageLinkedService](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
-4. Zastąp **nazwa konta** i **klucz konta** z nazwy i klucza dostępu konta magazynu. Aby dowiedzieć się, jak uzyskać klucz dostępu do magazynu, zobacz temat jak wyświetlanie, kopiowanie i ponowne generowanie kluczy dostępu do magazynu w [Zarządzanie kontem magazynu](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+4. Zastąp **nazwa konta** i **klucz konta** z nazwy i klucza dostępu konta magazynu. Aby dowiedzieć się, jak uzyskać klucz dostępu do magazynu, zapoznaj się z informacjami na temat sposobów wyświetlania, kopiowania i ponownego generowania kluczy dostępu do magazynu podanymi w sekcji [Zarządzanie kontem magazynu](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
 
-5. Aby wdrożyć połączonej usługi, wybierz **Wdróż** na pasku poleceń. Po pomyślnym wdrożeniu połączonej usługi okno projekt 1 zniknie. Zostanie wyświetlony **AzureStorageLinkedService** w widoku drzewa po lewej stronie.
+5. Aby wdrożyć połączonej usługi, wybierz **Wdróż** na pasku poleceń. Po pomyślnym wdrożeniu połączonej usługi okno Wersja robocza-1 zniknie. W widoku drzewa po lewej stronie pojawi się wartość **AzureStorageLinkedService**.
 
-#### <a name="create-an-hdinsight-linked-service"></a>Tworzenie usługi HDInsight połączone
+#### <a name="create-an-hdinsight-linked-service"></a>Tworzenie połączonej usługi HDInsight
 W tym kroku utworzysz usługi HDInsight połączony do połączenia z klastrem Spark w usłudze HDInsight z fabryką danych. Klaster usługi HDInsight służy do uruchomienia programu Spark określony w działaniu Spark potoku, w tym przykładzie. 
 
 1. W edytorze fabryki danych, wybierz **więcej** > **nowych obliczeń** > **klastra usługi HDInsight**.
@@ -125,7 +125,7 @@ W tym kroku utworzysz usługi HDInsight połączony do połączenia z klastrem S
 
     b. Określ nazwę użytkownika, który ma dostęp do klastra Spark.
 
-    d. Określ hasło dla użytkownika.
+    c. Określ hasło dla użytkownika.
 
     d. Określ połączoną usługą magazynu skojarzonego z klastrem Spark w usłudze HDInsight. W tym przykładzie jest AzureStorageLinkedService.
 
@@ -152,10 +152,10 @@ W tym kroku utworzysz usługi HDInsight połączony do połączenia z klastrem S
 
 3. Aby wdrożyć połączonej usługi, wybierz **Wdróż** na pasku poleceń. 
 
-### <a name="create-the-output-dataset"></a>Tworzenie zestawu danych wyjściowych
+### <a name="create-the-output-dataset"></a>Tworzenie wyjściowego zestawu danych
 Wyjściowy zestaw danych jest podstawę harmonogram (co godzinę, codziennie). W związku z tym należy określić wyjściowy zestaw danych działania Spark w potoku, nawet jeśli działanie nie generuje żadnego wyniku. Określenie zestawem danych wejściowych dla działania jest opcjonalne.
 
-1. W edytorze fabryki danych, wybierz **więcej** > **nowy zestaw danych** > **magazynu obiektów Blob Azure**.
+1. W Edytorze fabryki danych wybierz pozycję **Więcej** > **Nowy zestaw danych** > **Magazyn obiektów blob Azure**.
 
 2. Skopiuj i wklej poniższy fragment kodu do okna Wersja robocza-1. Fragment kodu JSON definiuje zestaw danych o nazwie **OutputDataset**. Ponadto określ że wyniki są przechowywane w kontenerze obiektów blob o nazwie **adfspark** i folder o nazwie **pyFiles/wyjścia**. Jak wspomniano wcześniej, ten zestaw danych jest fikcyjny zestawu danych. Program Spark, w tym przykładzie nie generuje żadnego wyniku. **Dostępności** sekcja określa, że wyjściowy zestaw danych jest tworzony codziennie. 
 
@@ -184,9 +184,9 @@ Wyjściowy zestaw danych jest podstawę harmonogram (co godzinę, codziennie). W
 
 
 ### <a name="create-a-pipeline"></a>Tworzenie potoku
-W tym kroku możesz utworzyć potok z działaniem HDInsightSpark. Wyjściowy zestaw danych jest obecnie podstawę harmonogram, dlatego należy utworzyć wyjściowy zestaw danych, nawet wtedy, gdy działanie nie generuje żadnego wyniku. Jeśli w działaniu nie są używane żadne dane wejściowe, możesz pominąć tworzenie zestawu danych wejściowych. W związku z tym nie wejściowy zestaw danych został określony w tym przykładzie.
+W tym kroku możesz utworzyć potok z działaniem HDInsightSpark. W tym przypadku wyjściowy zestaw danych jest elementem wpływającym na ustawienia harmonogramu, więc musisz utworzyć wyjściowy zestaw danych nawet wtedy, gdy działanie nie generuje żadnych danych wyjściowych. Jeśli w działaniu nie są używane żadne dane wejściowe, możesz pominąć tworzenie zestawu danych wejściowych. W związku z tym nie wejściowy zestaw danych został określony w tym przykładzie.
 
-1. W edytorze fabryki danych, wybierz **więcej** > **nowy potok**.
+1. W Edytorze fabryki danych wybierz pozycję **Więcej** > **Nowy potok**.
 
 2. Zastąp skryptu w oknie Projekt 1 następujący skrypt:
 
@@ -222,7 +222,7 @@ W tym kroku możesz utworzyć potok z działaniem HDInsightSpark. Wyjściowy zes
 
     b. **Właściwość rootPath** właściwość jest ustawiona na **adfspark\\pyFiles** gdzie adfspark jest kontenera obiektów blob, a pyFiles folderu plików w danym kontenerze. W tym przykładzie magazynu obiektów blob jest skojarzony z klastrem Spark. Można przekazać pliku do innego konta magazynu. Jeśli tak zrobisz, Utwórz połączoną usługą magazynu połączyć konto magazynu z fabryką danych. Następnie określ jako wartość dla nazwy połączonej usługi **sparkJobLinkedService** właściwości. Aby uzyskać więcej informacji na temat tej właściwości oraz inne właściwości obsługiwane przez działanie Spark zobacz [Spark właściwości działania](#spark-activity-properties).
 
-    d. **EntryFilePath** właściwość jest ustawiona na **test.py**, czyli plik Python.
+    c. **EntryFilePath** właściwość jest ustawiona na **test.py**, czyli plik Python.
 
     d. **GetDebugInfo** właściwość jest ustawiona na **zawsze**, co oznacza, że pliki dziennika są zawsze generowany (powodzenie lub niepowodzenie).
 
@@ -235,7 +235,7 @@ W tym kroku możesz utworzyć potok z działaniem HDInsightSpark. Wyjściowy zes
 
 3. Aby wdrożyć potok, wybierz **Wdróż** na pasku poleceń.
 
-### <a name="monitor-a-pipeline"></a>Monitor potoku
+### <a name="monitor-a-pipeline"></a>Monitorowanie potoku
 1. Na **fabryki danych** bloku, wybierz opcję **Monitor & Zarządzaj** można uruchomić monitorowania aplikacji w innej karty.
 
     ![Kafelek Monitorowanie i zarządzanie](media/data-factory-spark/monitor-and-manage-tile.png)
@@ -350,7 +350,7 @@ Utwórz następującą strukturę folderów w magazynie obiektów blob przywoły
 | Ścieżka | Opis | Wymagane | Typ |
 | ---- | ----------- | -------- | ---- |
 | . | Ścieżka katalogu głównego zadania Spark w usłudze magazynu połączone. | Yes | Folder |
-| &lt;zdefiniowane przez użytkownika&gt; | Ścieżka, który wskazuje plik wpis zadania Spark. | Yes | Plik |
+| &lt;Zdefiniowane przez użytkownika &gt; | Ścieżka, który wskazuje plik wpis zadania Spark. | Yes | Plik |
 | . / jars | Wszystkie pliki w tym folderze są przekazywane i dotyczącymi klasy Java klastra. | Nie | Folder |
 | . / pyFiles | Wszystkie pliki w tym folderze są przekazywane i dotyczącymi PYTHONPATH klastra. | Nie | Folder |
 | . / pliki | Wszystkie pliki w tym folderze są przekazywane i umieszczane w katalogu roboczego Moduł wykonujący. | Nie | Folder |

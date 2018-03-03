@@ -3,7 +3,7 @@ title: "Działanie procedury przechowywane programu SQL Server"
 description: "Dowiedz się, jak SQL Server działania dotyczącego procedury składowanej umożliwia wywołanie procedury przechowywanej w bazie danych SQL Azure lub usługi Azure SQL Data Warehouse z potoku fabryki danych."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: douglaslMS
 manager: jhubbard
 editor: monicar
 ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
+ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: be0bdf771327e57a75a4f95b513f9e80aeaef5a4
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: f6da8c18c1ac8fbcea217f41c34d50a86b001b11
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="sql-server-stored-procedure-activity"></a>Działanie procedury przechowywane programu SQL Server
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -98,7 +98,7 @@ Poniższe wskazówki używa działania dotyczącego procedury składowanej w pot
 
    ![Nowa fabryka danych](media/data-factory-stored-proc-activity/new-data-factory-blade.png)         
 4. Wybierz użytkownika **subskrypcji platformy Azure**.
-5. Aby uzyskać **grupy zasobów**, wykonaj jedną z następujących czynności:
+5. W obszarze **Grupa zasobów** wykonaj jedną z następujących czynności:
    1. Kliknij przycisk **Utwórz nowy** , a następnie wprowadź nazwę grupy zasobów.
    2. Kliknij przycisk **Użyj istniejącego** i wybierz istniejącą grupę zasobów.  
 6. Na liście **lokalizacja** wybierz lokalizację fabryki danych.
@@ -212,7 +212,7 @@ Zwróć uwagę następujące właściwości:
     ![Diagram kafelka](media/data-factory-stored-proc-activity/data-factory-slices.png)
 4. Gdy wycinek jest **gotowe** stanu, uruchom `select * from sampletable` zapytanie w bazie danych Azure SQL, aby sprawdzić, czy dane dodano do tabeli przez procedurę składowaną.
 
-   ![dane wyjściowe](./media/data-factory-stored-proc-activity/output.png)
+   ![Dane wyjściowe](./media/data-factory-stored-proc-activity/output.png)
 
    Zobacz [monitorować potoku](data-factory-monitor-manage-pipelines.md) szczegółowe informacje o monitorowaniu potoki fabryki danych Azure.  
 

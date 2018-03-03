@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 12/11/2017
+ms.date: 02/28/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 04a60bf021ec6e265a3880264386ad32ec7e8177
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 557b21340a0ba4e5381d7505b14a172aa3478b84
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="build-a-project-in-azure-using-jenkins-and-azure-container-instances"></a>Tworzenie projektu na platformie Azure przy użyciu Wpięć i wystąpień kontenera platformy Azure
 
@@ -51,7 +51,7 @@ Po zainstalowaniu Wpięć na platformie Azure, należy nawiązać połączenia z
 
 [!INCLUDE [jenkins-connect-to-jenkins-server-running-on-azure](../../includes/jenkins-connect-to-jenkins-server-running-on-azure.md)]
 
-## <a name="update-jenkins-dns"></a>Aktualizacja Wpięć DNS
+## <a name="update-jenkins-dns"></a>Update Jenkins DNS
 
 Wpięć musi znać własnego adresu URL, podczas tworzenia łącza do samej siebie. Na przykład adres URL musi zostać użyte podczas Wpięć wysyła wiadomości e-mail zawierających linki bezpośrednie do kompilacji wyników. 
 
@@ -233,7 +233,7 @@ Po zainstalowaniu dodatku agentów kontenera platformy Azure, ta sekcja przeprow
 
     - **Nazwa** — wprowadź `ACI-container`.
     - **Etykiety** — wprowadź `ACI-container`.
-    - **Obraz docker** — wprowadź`cloudbees/jnlp-slave-with-java-build-tools`
+    - **Obraz docker** — wprowadź `cloudbees/jnlp-slave-with-java-build-tools`
 
     ![Definiowanie właściwości obrazu wystąpienie kontenera platformy Azure](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-aci-image-properties.png)
 
@@ -318,8 +318,8 @@ Nadszedł czas, aby skompilować projekt! W tej sekcji wyjaśniono, jak zbudowa�
 ## <a name="clean-up-azure-resources"></a>Oczyszczanie zasobów platformy Azure
 
 W tym samouczku utworzony zasoby zawarte w dwóch grupach zasobów platformy Azure: 
-    - `JenkinsResourceGroup`-Zawiera zasoby platformy Azure dla serwera Wpięć.
-    - `JenkinsAciResourceGroup`-Zawiera zasoby platformy Azure dla agenta Wpięć.
+    - `JenkinsResourceGroup` -Zawiera zasoby platformy Azure dla serwera Wpięć.
+    - `JenkinsAciResourceGroup` -Zawiera zasoby platformy Azure dla agenta Wpięć.
     
 Jeśli nie trzeba używać dowolnych zasobów w grupie zasobów platformy Azure, można usunąć grupy zasobów przy użyciu `az group delete` polecenia w następujący sposób (zastępowanie &lt;grupa zasobów > Symbol zastępczy nazwą grupy zasobów, aby Usuń):
 

@@ -13,17 +13,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: dd422308ed728ed4e8bc35daee3bd50f0f02aaac
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9c391101c82868eb3c9cc92dc55c920fdbd5f4e8
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Wykrywanie ruchów z analizy multimediów Azure
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 **Czujnik ruchu Azure Media** procesor multimediów (MP) umożliwia wydajne zidentyfikować sekcje zawierają informacje przydatne w wideo w innym przypadku długich i procesu. Wykrywanie ruchu można w statycznej kamery sekcje wideo, gdzie występuje ruchu. Generuje plik JSON zawierający metadane z sygnatury czasowe i ograniczający regionu, w którym wystąpiło zdarzenie.
 
-Docelowe do źródła wideo zabezpieczeń, ta technologia jest w stanie kategoryzację ruchu na odpowiednie zdarzenia i fałszywych alarmów, takie jak cieni i zmian oświetlenia. Umożliwia generowanie alertów zabezpieczeń z aparatu fotograficznego źródła danych bez otrzymywania wiadomości-śmieci nieskończone zdarzenia nie ma znaczenia, będąc wyodrębnić chwil płynących z bardzo długi nadzoru wideo.
+Docelowe do źródła wideo zabezpieczeń, ta technologia jest w stanie kategoryzację ruchu na odpowiednie zdarzenia i fałszywych alarmów, takie jak cieni i zmian oświetlenia. Umożliwia generowanie alertów zabezpieczeń z aparatu fotograficznego źródła danych bez otrzymywania wiadomości-śmieci nieskończone zdarzenia nie ma znaczenia, będąc wyodrębnić chwil płynących z wideo długi nadzoru.
 
 **Czujnik ruchu Azure Media** pakiet administracyjny jest obecnie w przeglądzie.
 
@@ -38,15 +38,17 @@ Podczas tworzenia zadania z **czujnik ruchu Azure Media**, należy określić us
 ### <a name="parameters"></a>Parametry
 Można użyć poniższych parametrów:
 
-| Nazwa | Opcje | Opis | Domyślne |
+| Name (Nazwa) | Opcje | Opis | Domyślne |
 | --- | --- | --- | --- |
-| sensitivityLevel |Ciąg: "Niski", "medium',"Wysoki" |Ustawia poziom czułości, na których ruchy został zgłoszony. Dostosuj, aby dostosować liczbę fałszywych alarmów. |"Średni" |
-| frameSamplingValue |Dodatnia liczba całkowita |Określa częstotliwość, w której działa algorytmu. Każdy ramki jest równa 1, 2 oznacza, że każdy ramki 2 i tak dalej. |1 |
-| detectLightChange |Wartość logiczna: "prawda", "fałsz" |Określa, czy zmiany światła są podane w wynikach |"Fałsz" |
-| mergeTimeThreshold |Czas xs: Hh: mm:<br/>Przykład: 00:00:03 |Określa przedział czasu między zdarzeniami ruchu, gdzie łączyć i zgłaszane jako 1 2 zdarzenia. |00:00:00 |
+| sensitivityLevel |Ciąg: "Niski", "medium',"Wysoki" |Ustawia poziom czułości na ruchy, które są zgłaszane. Dostosuj, aby dostosować liczbę fałszywych alarmów. |"Średni" |
+| frameSamplingValue |Dodatnia liczba całkowita |Określa częstotliwość, w której działa algorytmu. Każda ramka jest równa 1, 2 oznacza, że co drugi ramki i tak dalej. |1 |
+| detectLightChange |Boolean:'true', 'false' |Określa, czy zmiany światła są podane w wynikach |"Fałsz" |
+| mergeTimeThreshold |Czas xs: Hh: mm:<br/>Przykład: 00:00:03 |Określa przedział czasu między zdarzeniami ruchu, gdzie są 2 zdarzenia można łączyć i zgłaszane jako 1. |00:00:00 |
 | detectionZones |Tablica wykrywania stref:<br/>-Wykrywania strefy jest tablicą 3 lub więcej punktów<br/>— Punkt jest x i y Współrzędna z zakresu od 0 do 1. |Zawiera opis listy wykrywania wielobocznych stref ma być używany.<br/>Wyniki są zgłaszane z strefy jako Identyfikatora, z których pierwszy z nich jest 'id': 0 |Jednej strefie, która obejmuje całą ramkę. |
 
 ### <a name="json-example"></a>Przykład JSON
+
+```json
     {
       "version": "1.0",
       "options": {
@@ -74,10 +76,10 @@ Można użyć poniższych parametrów:
         ]
       }
     }
-
+```
 
 ## <a name="motion-detector-output-files"></a>Pliki wyjściowe wykrywanie ruchu
-Zadanie wykrywania ruchu zwróci pliku JSON w elementu zawartości wyjściowej, opisuje alerty ruchu i ich w kategorie wideo. Plik będzie zawierać informacje o czas i czas trwania ruchu wykryto wideo.
+Zadanie wykrywania ruchu zwraca plik JSON trwałego dane wyjściowe opisuje alerty ruchu i ich w kategorie wideo. Plik zawiera informacje o czas i czas trwania ruchu wykryto wideo.
 
 Interfejs API wykrywanie ruchu zawiera wskaźniki po obiektów w ruchu w stałej tło w formie wideo (na przykład nadzoru, wideo). Czujnik ruchu jest uczony zmniejszenie fałszywe alarmy, takie jak oświetlenia i zmiany w tle. Bieżące ograniczenia algorytmy obejmują nocy wizji wideo, półprzezroczyste obiektów i małych obiektów.
 
@@ -107,8 +109,9 @@ W poniższej tabeli opisano elementy pliku wyjściowego w formacie JSON.
 | Nawiasy kwadratowe] |Każdy nawiasu reprezentuje jeden interwał w zdarzeniu. Puste nawiasy dla tego przedziału oznacza, że ruch nie została wykryta. |
 | Lokalizacje |Ten nowy wpis w polu zdarzenia wymieniono lokalizacji, w którym wystąpił ruchu. Jest to bardziej szczegółowy niż stref wykrywania. |
 
-Przykład danych wyjściowych JSON
+W poniższym przykładzie JSON przedstawiono dane wyjściowe:
 
+```json
     {
       "version": 2,
       "timescale": 23976,
@@ -150,8 +153,8 @@ Przykład danych wyjściowych JSON
                 "regionId": 0
               }
             ],
+```
 
-    …
 ## <a name="limitations"></a>Ograniczenia
 * Obsługiwane formaty wideo wejściowych obejmują MP4, MOV i WMV.
 * Wykrywanie ruchu jest zoptymalizowana pod kątem wideo nieruchomy tła. Algorytm koncentruje się na zmniejszenie fałszywe alarmy, takie jak zmiany oświetlenia i cieni.
@@ -164,33 +167,36 @@ Następujących programów przedstawiono sposób:
 1. Utworzenie elementu zawartości i przesyłanie pliku multimediów do elementu zawartości.
 2. Utwórz zadanie z zadania wykrywania ruchu na obrazie wideo w zależności od pliku konfiguracji, który zawiera następujące ustawienie json: 
    
-        {
-          "Version": "1.0",
-          "Options": {
-            "SensitivityLevel": "medium",
-            "FrameSamplingValue": 1,
-            "DetectLightChange": "False",
-            "MergeTimeThreshold":
-            "00:00:02",
-            "DetectionZones": [
-              [
-                {"x": 0, "y": 0},
-                {"x": 0.5, "y": 0},
-                {"x": 0, "y": 1}
-               ],
-              [
-                {"x": 0.3, "y": 0.3},
-                {"x": 0.55, "y": 0.3},
-                {"x": 0.8, "y": 0.3},
-                {"x": 0.8, "y": 0.55},
-                {"x": 0.8, "y": 0.8},
-                {"x": 0.55, "y": 0.8},
-                {"x": 0.3, "y": 0.8},
-                {"x": 0.3, "y": 0.55}
-              ]
-            ]
-          }
-        }
+    ```json
+            {
+            "Version": "1.0",
+            "Options": {
+                "SensitivityLevel": "medium",
+                "FrameSamplingValue": 1,
+                "DetectLightChange": "False",
+                "MergeTimeThreshold":
+                "00:00:02",
+                "DetectionZones": [
+                [
+                    {"x": 0, "y": 0},
+                    {"x": 0.5, "y": 0},
+                    {"x": 0, "y": 1}
+                ],
+                [
+                    {"x": 0.3, "y": 0.3},
+                    {"x": 0.55, "y": 0.3},
+                    {"x": 0.8, "y": 0.3},
+                    {"x": 0.8, "y": 0.55},
+                    {"x": 0.8, "y": 0.8},
+                    {"x": 0.55, "y": 0.8},
+                    {"x": 0.3, "y": 0.8},
+                    {"x": 0.3, "y": 0.55}
+                ]
+                ]
+            }
+            }
+    ```
+
 3. Pobierz pliki danych wyjściowych w formacie JSON. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Tworzenie i konfigurowanie projektu programu Visual Studio
@@ -199,7 +205,7 @@ Skonfiguruj środowisko projektowe i wypełnij plik app.config przy użyciu info
 
 #### <a name="example"></a>Przykład
 
-```
+```csharp
 
 using System;
 using System.Configuration;

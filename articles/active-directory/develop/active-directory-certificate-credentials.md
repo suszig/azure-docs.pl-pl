@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 9267a7d2b27930fbcd0aa70ec9e2ddc62b6b0b2a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d05456912324c06a0895cd4cf049b60c9d126904
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Certyfikat poświadczeń do uwierzytelniania aplikacji
 
-Usługi Azure Active Directory umożliwia aplikacji korzystanie własne poświadczenia dla uwierzytelniania, na przykład przepływ udzielania poświadczeń klienta OAuth w 2.0 i przepływu w imieniu-z.
+Azure Active Directory umożliwia aplikacji do własne poświadczenia uwierzytelniania, na przykład przepływu OAuth 2.0 klienta poświadczenia Grant ([v1](active-directory-protocols-oauth-service-to-service.md) [v2](active-directory-v2-protocols-oauth-client-creds.md)), a przepływ w imieniu-z ([v1](active-directory-protocols-oauth-on-behalf-of.md) [v2](active-directory-v2-protocols-oauth-on-behalf-of.md)).
 Jeden formularz poświadczeniami, które mogą być używane jest potwierdzenie Token(JWT) sieci Web JSON, podpisanego przy użyciu certyfikatu, który jest właścicielem aplikacji.
 
 ## <a name="format-of-the-assertion"></a>Format potwierdzenia
@@ -41,7 +41,7 @@ Do obliczenia potwierdzenia, prawdopodobnie chcesz skorzystać z jednej z wielu 
 
 | Parametr |  Uwagi |
 | --- | --- | --- |
-| `aud` | Grupy odbiorców: Powinien być  **https://login.microsoftonline.com/*tenant_Id*  /oauth2/token ** |
+| `aud` | Grupy odbiorców: Powinien być **https://login.microsoftonline.com/*tenant_Id*  /oauth2/token.** |
 | `exp` | Data wygaśnięcia: Data wygaśnięcia tokenu. Czas jest reprezentowany jako liczba sekund od 1 stycznia 1970 (1970-01-01T0:0:0Z) UTC czasu wygaśnięcia ważności tokenu.|
 | `iss` | Wystawca: powinien być client_id (identyfikator aplikacji usługi klienta) |
 | `jti` | Identyfikator GUID: identyfikator JWT |

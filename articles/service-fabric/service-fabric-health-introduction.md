@@ -12,20 +12,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/11/2017
+ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 271d02bf5793ccb4ca8cbc4eeb8a6c5cfdd74f03
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d226b8f8b3252fe82cd5077d235f301cfaa83654
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Wprowadzenie do monitorowania kondycji usługi Service Fabric
 Sieć szkieletowa usług Azure wprowadza modelu kondycji, który zawiera oceny kondycji sformatowanego, elastyczny i rozszerzalny i raportowania. Model pozwala niemal czasie rzeczywistym monitorowania stanu klastra i usługi działające w nim. Można łatwo uzyskać informacje o kondycji i rozwiązać potencjalne problemy przed kaskadowo i spowodować duże awarii. W typowej modelu usług wysyłania raportów opartych na ich lokalnych widoków, a następnie agregowane zapewnienie ogólną informacji klastra poziomie widoku.
 
 Składniki sieci szkieletowej usług służy ten model kondycji sformatowanego do zgłaszania ich bieżącego stanu. Można ten sam mechanizm raportu kondycji z aplikacji. Jeśli poświęcić kondycji wysokiej jakości raportowania, który przechwytuje niestandardowe warunki, można wykrywać i znacznie łatwiejsze Rozwiązywanie problemów w uruchomionej aplikacji.
 
-W poniższym filmie Microsoft Virtual Academy opisano model kondycji sieci szkieletowej usług i sposobie ich użycia:<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
+W poniższym filmie Microsoft Virtual Academy opisano model kondycji sieci szkieletowej usług i sposobie ich użycia: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
 <img src="./media/service-fabric-health-introduction/HealthIntroVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
 
@@ -210,7 +210,7 @@ Aby wysłać dane kondycji w magazynie kondycji, osoby zgłaszającej musi ziden
 * **Właściwość**. A *ciąg* (nie stałej wyliczenia), która umożliwia osoby zgłaszającej kategoryzację zdarzenie kondycji dla konkretnej właściwości jednostki. Na przykład osoby zgłaszającej A może raportować kondycję Node01 właściwość "Magazyn" i osoby zgłaszającej B może raportować kondycję Node01 właściwość "Łączność". W magazynie kondycji te raporty są traktowane jako zdarzenia kondycji osobne jednostki Node01.
 * **Opis elementu**. Ciąg, który umożliwia reportera do zawierają szczegółowe informacje o kondycji zdarzenie. **SourceId**, **właściwości**, i **HealthState** pełni powinna zawierać opis raportu. Opis dodaje czytelny dla człowieka informacje na temat raportu. Tekst ułatwia dla administratorów i użytkowników zrozumieć raport o kondycji.
 * **HealthState**. [Wyliczenie](service-fabric-health-introduction.md#health-states) opisujący stan kondycji raportu. Dopuszczalne wartości to OK, ostrzeżenia i błędu.
-* **Wartość TimeToLive**. Zakres czasu, który wskazuje, jak długo raport o kondycji jest nieprawidłowy. Połączone z **RemoveWhenExpired**, umożliwia magazynu kondycji, wiadomo, jak można obliczyć wygasłe zdarzenia. Domyślnie wartość to nieskończoność, a raport jest prawidłowy w nieskończoność.
+* **TimeToLive**. Zakres czasu, który wskazuje, jak długo raport o kondycji jest nieprawidłowy. Połączone z **RemoveWhenExpired**, umożliwia magazynu kondycji, wiadomo, jak można obliczyć wygasłe zdarzenia. Domyślnie wartość to nieskończoność, a raport jest prawidłowy w nieskończoność.
 * **RemoveWhenExpired**. Wartość logiczna. Jeśli ma wartość true, raport o kondycji wygasłe zostanie automatycznie usunięta z magazynu kondycji i raport bez wpływu na ocenę kondycji jednostki. Użyć, gdy raport jest nieprawidłowy w podanym okresie tylko raz, a osoby zgłaszającej nie trzeba jawnie wyczyszczenie go. Również służy do usuwania raporty z magazynu kondycji (na przykład programu alarmowego zostało zmienione i zatrzymuje wysyłanie raportów o poprzednim źródła i właściwości). Może wysłać raport o krótki TimeToLive wraz z RemoveWhenExpired, aby wyczyścić wszystkie poprzednie stan z magazynu kondycji. Jeśli wartość jest równa false, wygasłych raportu jest traktowana jako błąd po oceny kondycji. Sygnały wartości false w magazynie kondycji, które okresowo Zgłoś źródła dla tej właściwości. W przeciwnym razie należy problem ze programu alarmowego. Kondycji programu alarmowego są przechwytywane z uwzględnieniem zdarzeń jako błąd.
 * **SequenceNumber**. Dodatnia liczba całkowita, która musi być coraz większe, reprezentuje kolejność raporty. W magazynie kondycji służy do wykrywania starych raportów, które są odbierane opóźnienia z powodu opóźnienia sieci lub inne problemy. Raport został odrzucony, jeśli numer sekwencji jest mniejsza niż maksymalne ostatnio zastosowane numer tej samej jednostki źródłowej, a właściwość. Jeśli nie zostanie określony, numer sekwencji jest generowany automatycznie. Należy umieścić w numer sekwencyjny tylko wtedy, gdy raportowanie przy zmianie stanu. W takiej sytuacji źródło musi do zapamiętania raportów, których wysłanie go i Zachowaj informacje odzyskiwania w tryb failover.
 

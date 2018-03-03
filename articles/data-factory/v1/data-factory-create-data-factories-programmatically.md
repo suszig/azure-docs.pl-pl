@@ -3,7 +3,7 @@ title: "Tworzenie potoków danych przy użyciu zestawu Azure .NET SDK | Dokument
 description: "Dowiedz się, jak programowo tworzenia, monitorowania i zarządzania fabryki danych Azure przy użyciu zestawu SDK fabryki danych."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: sharonlo101
 manager: jhubbard
 editor: monicar
 ms.assetid: b0a357be-3040-4789-831e-0d0a32a0bda5
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
-ms.author: spelluru
+ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 35041e148e52e5c567601c53dffac05c88d45ed5
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 1ac3dd85b95e021581fbf86d590f3b43ee1cdacc
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Tworzenie, monitorowanie i zarządzanie przy użyciu zestawu SDK .NET usługi Azure Data Factory fabryki danych Azure
 > [!NOTE]

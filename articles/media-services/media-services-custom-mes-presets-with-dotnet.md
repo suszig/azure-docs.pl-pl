@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: b0391bb627ab899960d38b4eaf4478a6cdb8bd0b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3354b0122b9025c5da2fb55439620a56c6c985d9
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Dostosowywanie Media Encoder Standard ustawienia
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 W tym artykule pokazano, jak przeprowadzić Zaawansowane kodowanie z Media Encoder Standard (rynkowej) przy użyciu animacji niestandardowej. Artykuł będzie używał programu .NET do tworzenia kodowania zadań i zadań, która wykonuje to zadanie.  
 
 W tym artykule przedstawiono sposób dostosować ustawienia domyślne, wykonując [wielu transmisji bitów H264 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) ustawień wstępnych i zmniejsza liczbę warstw. [Ustawienia Dostosowywanie Media Encoder Standard](media-services-advanced-encoding-with-mes.md) artykule przedstawiono ustawienia niestandardowe, które mogą służyć do wykonywania zaawansowanych zadań kodowania.
 
-## <a id="customizing_presets"></a>Dostosowywanie predefiniowanego rynkowej
+## <a id="customizing_presets"></a> Dostosowywanie predefiniowanego rynkowej
 
 ### <a name="original-preset"></a>Oryginalnego ustawienia wstępnego
 
@@ -38,7 +38,7 @@ Zapisz zdefiniowane w formacie JSON [wielu transmisji bitów H264 720p](media-se
 
 Otwórz **CustomPreset_JSON.json** plików i usuń pierwsze trzy warstwy z **H264Layers** tak pliku wygląda następująco.
 
-    
+```json 
     {  
       "Version": 1.0,  
       "Codecs": [  
@@ -107,7 +107,7 @@ Otwórz **CustomPreset_JSON.json** plików i usuń pierwsze trzy warstwy z **H26
         }  
       ]  
     }  
-    
+```
 
 ## <a id="encoding_with_dotnet"></a>Kodowanie w usłudze Media Services zestawu .NET SDK
 
@@ -132,7 +132,7 @@ Skonfiguruj środowisko projektowe i wypełnij plik app.config przy użyciu info
 
 #### <a name="example"></a>Przykład   
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;

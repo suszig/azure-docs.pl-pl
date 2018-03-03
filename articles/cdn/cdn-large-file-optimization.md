@@ -1,5 +1,5 @@
 ---
-title: "Optymalizacja pobierania dużych plików za pomocą usługi Azure Content Delivery Network"
+title: "Optymalizacja pobierania dużych plików za pomocą usługi Azure CDN"
 description: "Optymalizacja wyjaśniono szczegółowo pobieranie dużych plików"
 services: cdn
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
-ms.openlocfilehash: 7a5d5d1d0de24ebb0a5115ede1e572f38454bd78
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6e6266fdaaac6a1a1a5d3a5595c10f79fd9f01a7
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="large-file-download-optimization-via-the-azure-content-delivery-network"></a>Optymalizacja pobierania dużych plików za pomocą usługi Azure Content Delivery Network
+# <a name="large-file-download-optimization-via-azure-cdn"></a>Optymalizacja pobierania dużych plików za pomocą usługi Azure CDN
 
 Rozmiary plików zawartości dostarczane za pośrednictwem Internetu będzie się rozrastać z powodu rozszerzoną funkcjonalność, ulepszonemu i zawartość multimedialną. Wzrostu jest wymuszany przez wiele czynników: penetracji komórkowej łączności szerokopasmowej, większe urządzeń niedrogich magazynów, powszechnie zwiększenia wysokiej rozdzielczości wideo i podłączonej do Internetu urządzeń (IoT). Mechanizm dostarczania szybkich i wydajnych dużych plików jest krytyczne zapewnienie obsługi płynne i jest przyjemne konsumenta.
 
@@ -70,7 +70,7 @@ Optymalizacja dużych plików używa czas buforowania wygaśnięcia różne domy
 |    | Ogólne sieci web | Optymalizacja dużych plików 
 --- | --- | --- 
 Buforowanie: dodatnią <br> HTTP 200, 203, 300, <br> 301, 302 i 410 | 7 dni |1 dzień  
-Buforowanie: ujemna <br> HTTP 204, 305, 404, <br> i 405 | Brak | 1 sekunda 
+Buforowanie: ujemna <br> HTTP 204, 305, 404, <br> i 405 | None | 1 sekunda 
 
 ### <a name="deal-with-origin-failure"></a>Postępowania w przypadku niepowodzenia źródła
 
@@ -84,7 +84,7 @@ W poniższej tabeli wymieniono zestaw kryteriów należy spełnić w celu optyma
 
 Warunek | Wartości 
 --- | --- 
-Obsługiwane typy plików | 3g, 2, 3gp, asf, avi, bz2, dmg, exe, f4v, flv, <br> GZ, hdp, iso, jxr, m4v, mkv, mov, mp4, <br> MPEG, mpg, mts, pkg, qt, rm, swf, tar, <br> tgz, wdp, webm, webp, wma, wmv, zip  
+Obsługiwane typy plików | 3g2, 3gp, asf, avi, bz2, dmg, exe, f4v, flv, <br> gz, hdp, iso, jxr, m4v, mkv, mov, mp4, <br> mpeg, mpg, mts, pkg, qt, rm, swf, tar, <br> tgz, wdp, webm, webp, wma, wmv, zip  
 Minimalny rozmiar pliku | 10 MB 
 Maksymalny rozmiar pliku | 150 GB 
 Właściwości serwera pochodzenia | Musi obsługiwać żądania zakresu bajtów 

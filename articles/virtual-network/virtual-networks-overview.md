@@ -13,21 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/12/2017
+ms.date: 3/1/2018
 ms.author: jdial
-ms.openlocfilehash: 892aa03bd058b50fc4868a225dfe602624ff19ef
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: fadc1994cd930df36387a5bfb302c00d66f74fad
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="azure-virtual-network"></a>Azure Virtual Network
+# <a name="what-is-azure-virtual-network"></a>Co to jest Azure Virtual Network?
 
-Usługa Microsoft Azure Virtual Network umożliwia zasobów platformy Azure do bezpiecznego komunikowania się ze sobą w sieci wirtualnej. Sieć wirtualna jest logiczną izolacją chmury Azure w wersji dedykowanej do subskrypcji. Możesz połączyć sieci wirtualnych do innych sieci wirtualnych lub do sieci lokalnej. Na poniższej ilustracji przedstawiono niektóre możliwości usługi Azure Virtual Network:
+Sieć wirtualna platformy Azure umożliwia zasobów platformy Azure do komunikowania się ze sobą i z Internetu. Sieć wirtualna izoluje zasoby od innych zasobów w chmurze Azure. Możesz połączyć sieci wirtualnych do innych sieci wirtualnych lub do sieci lokalnej. 
 
-![Diagram sieci](./media/virtual-networks-overview/virtual-network-overview.png)
-
-Aby dowiedzieć się więcej o z następujących funkcji sieci wirtualnej platformy Azure, kliknij przycisk możliwości:
+Sieć wirtualna platformy Azure oferuje następujące szerokie możliwości:
 - **[Izolacja:](#isolation)**  sieci wirtualne są odizolowane od siebie. Można utworzyć osobne bloki adresów sieci wirtualnych umożliwiające tworzenie, testowanie i produkcji, które używają tego samego CIDR (na przykład 10.0.0.0/0). Z drugiej strony można utworzyć wiele sieci wirtualnych, które używają różnych bloków adresów CIDR i połączyć ze sobą sieci. Sieć wirtualną można podzielić na wiele podsieci. Platforma Azure udostępnia rozpoznawania nazw wewnętrznych dla zasobów wdrożony w sieci wirtualnej. Jeśli to konieczne, można skonfigurować sieć wirtualną do użycia zamiast rozpoznawania nazw wewnętrznych Azure własne serwery DNS.
 - **[Komunikacja z Internetem:](#internet)**  zasoby, takie jak maszyn wirtualnych wdrożonych w sieci wirtualnej mają dostęp do Internetu, domyślnie. Można również włączyć dostęp przychodzący do określonych zasobów, zgodnie z potrzebami.
 - **[Komunikacja zasobów platformy Azure:](#within-vnet)**  zasobów Azure wdrożony w sieci wirtualnej mogą komunikować się ze sobą przy użyciu prywatnych adresów IP, nawet jeśli zasoby są wdrożone w różnych podsieciach. Platforma Azure udostępnia domyślny routing między podsieciami, połączonych sieci wirtualnych i sieci lokalnej, więc nie trzeba konfigurować i zarządzać nimi trasy. W razie potrzeby można dostosować routingu platformy Azure.
@@ -41,12 +39,12 @@ Aby dowiedzieć się więcej o z następujących funkcji sieci wirtualnej platfo
 Można zaimplementować wiele sieci wirtualnych w każdym Azure [subskrypcji](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) i Azure [region](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region). Każda sieć wirtualna jest odizolowana od innych sieci wirtualnych. Dla każdej sieci wirtualnej można:
 - Określ niestandardowe prywatnych przestrzeni adresów IP przy użyciu prywatnych i publicznych adresów (RFC 1918). Azure przypisuje zasobów w sieci wirtualnej prywatnego adresu IP z przestrzeń adresów, które można przypisać.
 - Segment sieci wirtualnej do co najmniej jednej podsieci i przydzielić część przestrzeni adresowej sieci wirtualnej dla każdej podsieci.
-- Używanie rozpoznawania nazw platformy Azure lub Podaj własny serwer DNS do użytku przez zasobów w sieci wirtualnej. Aby dowiedzieć się więcej na temat rozpoznawania nazw w sieciach wirtualnych, zobacz [rozpoznawanie nazw dla zasobów w sieciach wirtualnych](virtual-networks-name-resolution-for-vms-and-role-instances.md) artykułu.
+- Używanie rozpoznawania nazw platformy Azure lub Podaj własny serwer DNS do użytku przez zasobów w sieci wirtualnej. Aby dowiedzieć się więcej na temat rozpoznawania nazw w sieciach wirtualnych, zobacz [rozpoznawanie nazw dla zasobów w sieciach wirtualnych](virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ## <a name = "internet"></a>Komunikacja z Internetem
-Wszystkie zasoby w sieci wirtualnej mogą komunikować się ruch wychodzący do Internetu. Domyślnie prywatnego adresu IP zasobu jest źródłowy adres sieciowy translacji (SNAT) do publicznego adresu IP wybrana przez infrastrukturę platformy Azure. Aby dowiedzieć się więcej na temat wychodzące połączenie z Internetem, przeczytaj [Opis połączeń wychodzących na platformie Azure](..\load-balancer\load-balancer-outbound-connections.md) artykułu. Aby zapobiec wychodzące połączenie z Internetem, można zaimplementować trasy niestandardowe lub filtrowanie ruchu.
+Wszystkie zasoby w sieci wirtualnej mogą komunikować się ruch wychodzący do Internetu. Domyślnie prywatnego adresu IP zasobu jest źródłowy adres sieciowy translacji (SNAT) do publicznego adresu IP wybrana przez infrastrukturę platformy Azure. Aby dowiedzieć się więcej na temat wychodzące połączenie z Internetem, zobacz [Opis połączeń wychodzących na platformie Azure](..\load-balancer\load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Aby zapobiec wychodzące połączenie z Internetem, można zaimplementować trasy niestandardowe lub filtrowanie ruchu.
 
-Do komunikacji przychodzącej zasobów platformy Azure z Internetu lub komunikacji ruch wychodzący do Internetu bez SNAT, musi on mieć przypisaną publicznego adresu IP. Aby dowiedzieć się więcej na temat publiczne adresy IP, przeczytaj [publicznego adresu IP, adresy](virtual-network-public-ip-address.md) artykułu.
+Do komunikacji przychodzącej zasobów platformy Azure z Internetu lub komunikacji ruch wychodzący do Internetu bez SNAT, musi on mieć przypisaną publicznego adresu IP. Aby dowiedzieć się więcej na temat publiczne adresy IP, zobacz [publicznego adresu IP, adresy](virtual-network-public-ip-address.md).
 
 ## <a name="within-vnet"></a>Zabezpieczenia komunikacji między zasobami Azure
 
@@ -58,7 +56,7 @@ Niektórych zasobów nie można wdrożyć w sieci wirtualnej, ale umożliwiają 
 
 ## <a name="connect-vnets"></a>Łączenie sieci wirtualnej
 
-Sieci wirtualne można połączyć ze sobą, włączanie zasobów w każdej sieci wirtualnej do komunikowania się ze sobą przy użyciu sieci wirtualnej komunikacji równorzędnej. Przepustowości i opóźnień w komunikacji między zasobami w różnych sieciach wirtualnych jest taka sama, jak gdyby zasoby w tej samej sieci wirtualnej. Aby dowiedzieć się więcej na temat komunikacji równorzędnej, przeczytaj [równorzędna sieci wirtualnej](virtual-network-peering-overview.md) artykułu.
+Sieci wirtualne można połączyć ze sobą, włączanie zasobów w każdej sieci wirtualnej do komunikowania się ze sobą przy użyciu sieci wirtualnej komunikacji równorzędnej. Przepustowości i opóźnień w komunikacji między zasobami w różnych sieciach wirtualnych jest taka sama, jak gdyby zasoby w tej samej sieci wirtualnej. Aby dowiedzieć się więcej na temat komunikacji równorzędnej, zobacz [równorzędna sieci wirtualnej](virtual-network-peering-overview.md).
 
 ## <a name="connect-on-premises"></a>Do połączenia z siecią lokalną
 
@@ -77,19 +75,12 @@ Można filtrować ruch sieciowy między podsieciami przy użyciu jednego lub obu
 ## <a name="routing"></a>Kierować ruchem sieciowym
 
 Platforma Azure tworzy tabele tras, które umożliwiają zasoby podłączone do żadnej podsieci w dowolnej sieci wirtualnej do komunikowania się ze sobą i Internet, domyślnie. Można zaimplementować jedną lub obie z poniższych opcji, aby zastąpić trasy domyślne, które tworzy Azure:
-- **Trasy zdefiniowane przez użytkownika:** tworzenia tabel tras niestandardowych trasy tego formantu, których ruch jest kierowany do dla każdej podsieci. Aby dowiedzieć się więcej na temat trasy zdefiniowane przez użytkownika, zobacz [trasy zdefiniowane przez użytkownika](virtual-networks-udr-overview.md#user-defined).
+- **Tabel tras:** tworzenia tabel tras niestandardowych trasy tego formantu, których ruch jest kierowany do dla każdej podsieci. Aby dowiedzieć się więcej na temat niestandardowy routing, zobacz [niestandardowy routing](virtual-networks-udr-overview.md#user-defined).
 - **Trasy protokołu BGP:** czy możesz nawiązać połączenie sieci wirtualnej sieci lokalnej przy użyciu połączenia bramy sieci VPN platformy Azure lub usługi ExpressRoute, można propagować trasy protokołu BGP do sieci wirtualne.
-
-## <a name="pricing"></a>Cennik
-
-Jest bezpłatna dla sieci wirtualnych, podsieci, tabele tras lub sieciowej grupy zabezpieczeń. Wychodzące użycia przepustowości połączenia internetowego, publicznego adresu IP adresów sieci wirtualnej komunikacji równorzędnej, bram sieci VPN i ExpressRoute każdego mają swoje własne cennik struktury. Widok [sieci wirtualnej](https://azure.microsoft.com/pricing/details/virtual-network), [bramy sieci VPN](https://azure.microsoft.com/pricing/details/vpn-gateway), i [ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute) cennik strony, aby uzyskać więcej informacji.
-
-## <a name="faq"></a>Często zadawane pytania
-
-Aby zapoznać się z często zadawane pytania dotyczące sieci wirtualnej platformy Azure, zobacz [sieć wirtualna — często zadawane pytania](virtual-networks-faq.md) artykułu.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Tworzenie pierwszej sieci wirtualnej i wdrażanie kilka maszyn wirtualnych, wykonując kroki opisane w [tworzenie pierwszej sieci wirtualnej](quick-create-portal.md).
-- Utwórz połączenie punkt lokacja sieci wirtualnej, wykonując kroki opisane w [skonfigurować połączenie punkt lokacja](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Dowiedz się więcej o niektóre inne kluczowe [sieci możliwości](../networking/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) platformy Azure.
+Masz teraz omówienie sieci wirtualnej platformy Azure. Dowiedz się, jak korzystać z niektórych funkcji sieci wirtualnej platformy Azure przez tworzenie sieci wirtualnej i wdrażanie w niej niektórych maszyn wirtualnych Azure.
+
+> [!div class="nextstepaction"]
+> [Tworzenie sieci wirtualnej](quick-create-portal.md)

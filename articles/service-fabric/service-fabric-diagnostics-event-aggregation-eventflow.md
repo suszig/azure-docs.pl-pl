@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 69750db615460b3ac69ba9ffe707a970ca8e2e11
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: fd4c28c2317356cbc6e3fd4d46a10509c029d530
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>Agregacja zdarzeń i kolekcji przy użyciu EventFlow
 
@@ -32,12 +32,12 @@ Pliki binarne EventFlow są dostępne jako zestaw pakietów NuGet. Aby dodać Ev
 
 Zostanie wyświetlona lista pakietów różnych wyświetlani, etykietą "Danych wejściowych" i "Generuje". EventFlow obsługuje różne analizatory i rejestrowania różnych dostawców. Usługę hostingu EventFlow powinna zawierać odpowiednie pakiety, w zależności od źródłowego i docelowego dla dzienników aplikacji. Oprócz pakietu ServiceFabric core należy również co najmniej jedno wejście i skonfigurować dane wyjściowe. Na przykład można dodać następujących pakietów wysłanych EventSource zdarzeń do usługi Application Insights:
 
-* `Microsoft.Diagnostics.EventFlow.Input.EventSource`do przechwytywania danych z usługi EventSource — klasa i standardowe EventSources takich jak *usługi ServiceFabric* i *Microsoft-ServiceFabric-podmiotów*)
-* `Microsoft.Diagnostics.EventFlow.Output.ApplicationInsights`(zamierzamy wysłać dzienniki do zasobu usługi Application Insights dla platformy Azure)
+* `Microsoft.Diagnostics.EventFlow.Inputs.EventSource` do przechwytywania danych z usługi EventSource — klasa i standardowe EventSources takich jak *usługi ServiceFabric* i *Microsoft-ServiceFabric-podmiotów*)
+* `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights` (zamierzamy wysłać dzienniki do zasobu usługi Application Insights dla platformy Azure)
 * `Microsoft.Diagnostics.EventFlow.ServiceFabric`(umożliwia inicjowanie potoku EventFlow z konfiguracji usługi sieć szkieletowa usług i raportowanie jakiekolwiek problemy z wysyłania danych diagnostycznych jako raportów o kondycji sieci szkieletowej usług)
 
 >[!NOTE]
->`Microsoft.Diagnostics.EventFlow.Input.EventSource`pakiet wymaga projekt usługi pod kątem .NET Framework 4.6 lub nowszą. Upewnij się, że należy ustawić odpowiednie platformę docelową we właściwościach projektu przed instalacją tego pakietu.
+>`Microsoft.Diagnostics.EventFlow.Inputs.EventSource` pakiet wymaga projekt usługi pod kątem .NET Framework 4.6 lub nowszą. Upewnij się, że należy ustawić odpowiednie platformę docelową we właściwościach projektu przed instalacją tego pakietu.
 
 Po zainstalowaniu wszystkich pakietów, następnym krokiem jest skonfigurować i włączyć EventFlow w usłudze.
 
@@ -147,7 +147,7 @@ EventFlow obsługuje przy użyciu ustawień sieci szkieletowej usług oraz param
 servicefabric:/<section-name>/<setting-name>
 ```
 
-`<section-name>`Nazwa sekcji konfiguracji sieci szkieletowej usług i `<setting-name>` jest ustawienie konfiguracji podawania wartości, która będzie służyć do konfigurowania ustawień EventFlow. Aby przeczytać więcej informacji na temat w tym celu przejdź do [obsługę parametry aplikacji i ustawień sieci szkieletowej usług](https://github.com/Azure/diagnostics-eventflow#support-for-service-fabric-settings-and-application-parameters).
+`<section-name>` Nazwa sekcji konfiguracji sieci szkieletowej usług i `<setting-name>` jest ustawienie konfiguracji podawania wartości, która będzie służyć do konfigurowania ustawień EventFlow. Aby przeczytać więcej informacji na temat w tym celu przejdź do [obsługę parametry aplikacji i ustawień sieci szkieletowej usług](https://github.com/Azure/diagnostics-eventflow#support-for-service-fabric-settings-and-application-parameters).
 
 ## <a name="verification"></a>Weryfikacja
 

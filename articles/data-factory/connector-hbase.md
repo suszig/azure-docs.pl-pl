@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 47a4f6a56c1e5a47f70bb6d6ba2dd980346653ad
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 543d0ec5d0c94b793b1e825d44356039b366908a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>Kopiowanie danych z bazy danych HBase przy użyciu fabryki danych Azure 
 
@@ -45,7 +45,7 @@ HBase połączone usługi, obsługiwane są następujące właściwości:
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | type | Właściwość type musi mieć ustawioną: **HBase** | Yes |
-| host | Adres IP lub hosta nazwę serwera bazy danych HBase. (i.e. 192.168.222.160)  | Yes |
+| host | Adres IP lub hosta nazwę serwera bazy danych HBase. (i.e. 192.168.222.160, [clustername].azurehdinsight.net)  | Yes |
 | port | Port TCP używany przez wystąpienie bazy danych HBase do nasłuchiwania dla połączeń klienta. Wartość domyślna to 9090.  | Nie |
 | httpPath | Adres URL częściowe odpowiadający serwera bazy danych HBase. (tj. /gateway/sandbox/hbase/version)  | Nie |
 | authenticationType | Mechanizm uwierzytelniania na potrzeby łączenia się z serwerem bazy danych HBase. <br/>Dozwolone wartości to: **anonimowe**, **podstawowe** | Yes |
@@ -57,7 +57,7 @@ HBase połączone usługi, obsługiwane są następujące właściwości:
 | allowSelfSignedServerCert | Określa, czy certyfikaty z podpisem własnym z serwera. Wartość domyślna to false.  | Nie |
 | connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. (Jeśli w magazynie danych jest dostępny publicznie) można użyć środowiska uruchomieniowego integracji Self-hosted lub środowiska uruchomieniowego integracji Azure. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. |Nie |
 
-**Przykład:**
+**Przykład HDInsights HBase:**
 
 ```json
 {
@@ -65,9 +65,36 @@ HBase połączone usługi, obsługiwane są następujące właściwości:
     "properties": {
         "type": "HBase",
         "typeProperties": {
-            "host" : "<host>",
+            "host" : "<cluster name>.azurehdinsight.net",
+            "port" : "443",
+            "httpPath" : "<e.g. hbaserest>",
+            "authenticationType" : "Basic",
+            "username" : "<username>",
+            "password": {
+                 "type": "SecureString",
+                 "value": "<password>"
+            },
+            "enableSsl" : true
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Przykład ogólny HBase:**
+
+```json
+{
+    "name": "HBaseLinkedService",
+    "properties": {
+        "type": "HBase",
+        "typeProperties": {
+            "host" : "<host e.g. 192.168.222.160>",
             "port" : "<port>",
-            "httpPath" : "/gateway/sandbox/hbase/version",
+            "httpPath" : "<e.g. /gateway/sandbox/hbase/version>",
             "authenticationType" : "Basic",
             "username" : "<username>",
             "password": {

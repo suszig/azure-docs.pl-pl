@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: 836d56012afa9e5d5bdec35d85c37dd4b0b788ce
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: cdd1015f63e80b7ec51565c18f3440ce1828fb03
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Zmodyfikuj zestaw skali maszyny wirtualnej
 W tym artykule opisano sposób modyfikowania istniejącego zestawu skali. Dotyczy to również sposób zmiany konfiguracji skali ustawić zmienić konfigurację aplikacji uruchomionych na skali zestawu, jak zarządzać dostępności i inne.
@@ -255,7 +255,7 @@ Można również użyć [zestawów SDK usługi Azure](https://azure.microsoft.co
 > Klastrów sieci szkieletowej usług można używać tylko trybu automatycznego, ale aktualizacja przebiega inaczej. Aby uzyskać więcej informacji na aktualizacje sieci szkieletowej usług, zobacz [dokumentacji usługi sieć szkieletowa](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade).
 
 >[!NOTE]
-> Istnieje jeden typ modyfikacji właściwości zestawu skali globalnej, który nie jest zgodna z zasad uaktualniania. Są to zmiany skali ustawić profil systemu operacyjnego (na przykład nazwa użytkownika i hasło). Te zmiany dotyczą tylko maszyny wirtualne utworzone po zmianie w skali modelu. Aby przenieść istniejące maszyny wirtualne, które są aktualne, należy to robić "odtworzenia z obrazu" każdej istniejącej maszyny wirtualnej. Możesz zrobić to odtworzenia z obrazu za pomocą:
+> Istnieje jeden typ modyfikacji właściwości zestawu skali globalnej, który nie jest zgodna z zasad uaktualniania. Są to zmiany skali ustawić profil systemu operacyjnego (na przykład nazwa użytkownika i hasło). Te właściwości można tylko zmienione w wersji interfejsu API 2017-12-01 lub nowszej. Te zmiany dotyczą tylko maszyny wirtualne utworzone po zmianie w skali modelu. Aby przenieść istniejące maszyny wirtualne, które są aktualne, należy to robić "odtworzenia z obrazu" każdej istniejącej maszyny wirtualnej. Możesz zrobić to odtworzenia z obrazu za pomocą:
 
 Interfejs API REST: `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/reimage?api-version={apiVersion}` (Aby uzyskać więcej informacji, zobacz [dokumentacja interfejsu API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/reimage))
 

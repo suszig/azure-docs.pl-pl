@@ -14,20 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: d8e740e969f68c85842f42c109328423da1b4414
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc7748c3058cd2aca907e3bc564b2ad18090db28
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-deliver-an-asset-by-download"></a>Porady: dostarczanie zasobów do pobrania
-W tym temacie opisano opcje dostarczania zasobów nośnika przekazane do usługi Media Services. W wielu scenariuszach aplikacji można dostarczać zawartości Media Services. Można pobrać zasoby media lub uzyskiwać do nich dostęp za pomocą lokalizatora. Możesz wysłać zawartości nośnika do innej aplikacji lub innego dostawcy zawartości. Aby uzyskać lepszą wydajność i skalowalność może również udostępniać zawartość za pomocą sieci dostarczania zawartości (CDN).
+W tym artykule opisano opcje dostarczania zasobów nośnika przekazane do usługi Media Services. W wielu scenariuszach aplikacji można dostarczać zawartości Media Services. Po kodowania, Pobierz zasoby wygenerowanego media lub uzyskiwać do nich dostęp za pomocą Lokalizator przesyłania strumieniowego. Aby uzyskać lepszą wydajność i skalowalność może również udostępniać zawartość za pomocą sieci dostarczania zawartości (CDN).
 
 Ten przykład przedstawia sposób pobierania zasoby nośnika z usługi Media Services na komputerze lokalnym. Kod zapytania zadania skojarzone z kontem usługi Media Services według Identyfikatora zadania i uzyskuje dostęp do jego **OutputMediaAssets** kolekcji (czyli zestaw jeden lub więcej zasobów nośnika danych wyjściowych, który powoduje uruchomienie zadania). W tym przykładzie pokazano, jak pobrać zasoby nośnika danych wyjściowych z zadania, ale można zastosować te same podejście, aby pobrać inne zasoby.
 
 >[!NOTE]
->Limit różnych zasad usługi AMS wynosi 1 000 000 (na przykład zasad lokalizatorów lub ContentKeyAuthorizationPolicy). Należy używać tego samego identyfikatora zasad, jeśli zawsze są używane uprawnienia dotyczące tych samych dni lub tego samego dostępu, na przykład dla lokalizatorów przeznaczonych do długotrwałego stosowania (nieprzekazywanych zasad). Aby uzyskać więcej informacji, zobacz [ten](media-services-dotnet-manage-entities.md#limit-access-policies) temat.
+>Limit różnych zasad usługi AMS wynosi 1 000 000 (na przykład zasad lokalizatorów lub ContentKeyAuthorizationPolicy). Użyj tego samego Identyfikatora zasad, jeśli zawsze korzystają z tej samej dni / dostęp uprawnień, na przykład zasady dla lokalizatorów, które powinny pozostać w miejscu przez długi czas (— przekazywanie zasady). Więcej informacji znajduje się w [tym](media-services-dotnet-manage-entities.md#limit-access-policies) artykule.
 
+```csharp
     // Download the output asset of the specified job to a local folder.
     static IAsset DownloadAssetToLocal( string jobId, string outputFolder)
     {
@@ -76,7 +77,7 @@ Ten przykład przedstawia sposób pobierania zasoby nośnika z usługi Media Ser
     {
         Console.WriteLine(string.Format("{0} % download progress. ", e.Progress));
     }
-
+```
 
 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services

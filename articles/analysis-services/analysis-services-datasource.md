@@ -13,82 +13,95 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/14/2018
+ms.date: 02/27/2018
 ms.author: owend
-ms.openlocfilehash: 33115ee35670407c3b046f70a5fbebc47284b4b9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 9f2a4acdd0a2b29bc1485f62c0049f0065cbf711
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Źródła danych obsługiwane w usłudze Azure Analysis Services
-Azure serwery usług Analysis Services obsługują połączenia ze źródłami danych w chmurze i lokalnie w Twojej organizacji. Dodatkowe obsługiwanych źródeł danych są dodawane przez cały czas. Zaglądaj tu. 
 
-Obecnie obsługiwane są następujące źródła danych:
+Źródła danych i łączniki, Pobierz dane lub Kreatora importu programu Visual Studio są wyświetlane dla usług Azure Analysis Services i SQL Server Analysis Services. Jednak nie wszystkie źródła danych i łączniki, wyświetlane są obsługiwane w usług Azure Analysis Services. Typy źródeł danych, w którym można się połączyć są zależne od wielu czynników, takich jak model, poziom zgodności, łączników dostępnych danych, typ uwierzytelniania, dostawców i obsługę bramy danych lokalnych. 
 
-| Chmura  |
-|---|
-| Azure Blob Storage*  |
-| Azure SQL Database  |
-| Magazyn danych Azure |
+## <a name="azure-data-sources"></a>Źródła danych Azure
 
+|Źródło danych  |W pamięci  |Tryb DirectQuery  |
+|---------|---------|---------|
+|Azure SQL Database     |   Yes      |    Yes      |
+|Azure SQL Data Warehouse     |   Yes      |   Yes       |
+|Azure Blob Storage*     |   Yes       |    Nie      |
+|Azure Table Storage*    |   Yes       |    Nie      |
+|Azure rozwiązania Cosmos bazy danych (Beta) *     |  Yes        |  Nie        |
+|Azure Data Lake Store*     |   Yes       |    Nie      |
+|Azure HDInsight HDFS*     |     Yes     |   Nie       |
+|Azure HDInsight Spark (Beta) *     |   Yes       |   Nie       |
+|Bazy danych platformy Azure dla programu MySQL (wersja zapoznawcza) *     |   Yes       |   Nie      |
+|Bazy danych platformy Azure dla PostgreSQL (wersja zapoznawcza) *     | Yes         |  Nie       |
+||||
 
-| Lokalnie  |   |   |   |
-|---|---|---|---|
-| Dostępu do bazy danych  | Folder* | Baza danych Oracle  | Baza danych programu Teradata |
-| Active Directory *  | Dokument JSON *  | Baza danych Postgre SQL *  |Tabela XML * |
-| Analysis Services  | Wiersze z danych binarnych *  | SAP HANA *  |
-| Analytics Platform System  | Baza danych MySQL  | SAP Business Warehouse *  | |
-| Dynamics CRM*  | Źródła danych OData *  | SharePoint*  |
-| Skoroszyt programu Excel  | Zapytanie ODBC  | SQL Database  |
-| Exchange*  | OLE DB  | Baza danych programu Sybase  |
+\* Tylko modele w 1400 tabelarycznych.
 
-\* Tylko modele w 1400 tabelarycznych. 
+**Dostawcy**   
+W pamięci i modelach zapytania bezpośredniego połączenia ze źródłami danych Azure należy użyć dostawcy danych .NET Framework dla programu SQL Server.
 
-> [!IMPORTANT]
-> Łączenie ze źródłami danych lokalnych wymagają [bramy danych lokalnych](analysis-services-gateway.md) zainstalowany na komputerze w danym środowisku.
+## <a name="on-premises-data-sources"></a>Lokalne źródła danych
 
-## <a name="data-providers"></a>Dostawcy danych
+Łączenie z lokalnych źródeł danych z, a serwer Azure AS wymagają bramy lokalnego. Podczas korzystania z bramy, 64-bitowego dostawcy są wymagane.
 
-Modeli danych z usług Azure Analysis Services może wymagać różnych dostawców podczas nawiązywania połączenia z niektórych źródeł danych. W niektórych przypadkach modeli tabelarycznych łączenie ze źródłami danych przy użyciu macierzystych dostawców, takich jak SQL Server Native Client (SQLNCLI11) może zostać zwrócony błąd.
+### <a name="in-memory-and-directquery"></a>W pamięci i DirectQuery
 
-W przypadku modeli danych, które nawiązania połączenia danych w chmurze źródło takich jak bazy danych SQL Azure, jeśli używasz macierzystych dostawców innych niż SQLOLEDB, może zostać wyświetlony komunikat o błędzie: **"Dostawca"SQLNCLI11.1"nie jest zarejestrowana."** Lub, jeśli masz model zapytania bezpośredniego połączenia ze źródłami danych lokalnych, jeśli używasz macierzystych dostawców może zostać wyświetlony komunikat o błędzie: **"błąd podczas tworzenia zestawu wierszy OLE DB. Błędna składnia w pobliżu "Granica" "**.
-
-Następujący dostawcy źródła danych są obsługiwane w pamięci lub modeli danych zapytania bezpośredniego, podczas nawiązywania połączenia ze źródłami danych w chmurze lub lokalne:
-
-### <a name="cloud"></a>Chmura
-| **Źródło danych** | **W pamięci** | **DirectQuery** |
+|Źródło danych | Dostawca w pamięci | Dostawca zapytania bezpośredniego |
 |  --- | --- | --- |
-| Azure SQL Data Warehouse |.NET framework Data Provider for SQL Server |.NET framework Data Provider for SQL Server |
-| Azure SQL Database |.NET framework Data Provider for SQL Server |.NET framework Data Provider for SQL Server | |
+| Oprogramowanie SQL Server |SQL Server Native Client 11.0, Dostawca Microsoft OLE DB dla programu SQL Server, .NET Framework Data Provider for SQL Server | .NET framework Data Provider for SQL Server |
+| Magazyn danych serwera SQL Server |SQL Server Native Client 11.0, Dostawca Microsoft OLE DB dla programu SQL Server, .NET Framework Data Provider for SQL Server | .NET framework Data Provider for SQL Server |
+| Oracle |Dostawca Microsoft OLE DB dla Oracle, dostawca danych programu Oracle dla platformy .NET |Dostawca danych programu Oracle dla platformy .NET | |
+| Teradata |Dostawca OLE DB dla programu Teradata, dostawca danych programu Teradata dla platformy .NET |Dostawca danych programu Teradata dla platformy .NET | |
+| | | |
 
-### <a name="on-premises-via-gateway"></a>Lokalne (za pośrednictwem bramy)
-|**Źródło danych** | **W pamięci** | **DirectQuery** |
-|  --- | --- | --- |
-| Oprogramowanie SQL Server |SQL Server Native Client 11.0 |.NET framework Data Provider for SQL Server |
-| Oprogramowanie SQL Server |Dostawca Microsoft OLE DB dla programu SQL Server |.NET framework Data Provider for SQL Server | |
-| Oprogramowanie SQL Server |.NET framework Data Provider for SQL Server |.NET framework Data Provider for SQL Server | |
-| Oracle |Dostawca Microsoft OLE DB dla programu Oracle |Dostawca danych programu Oracle dla platformy .NET | |
-| Oracle |Dostawca danych programu Oracle dla platformy .NET |Dostawca danych programu Oracle dla platformy .NET | |
-| Teradata |Dostawca OLE DB dla programu Teradata |Dostawca danych programu Teradata dla platformy .NET | |
-| Teradata |Dostawca danych programu Teradata dla platformy .NET |Dostawca danych programu Teradata dla platformy .NET | |
-| Analytics Platform System |.NET framework Data Provider for SQL Server |.NET framework Data Provider for SQL Server | |
+### <a name="in-memory-only"></a>W pamięci tylko
 
-> [!NOTE]
-> Upewnij się, że zainstalowano dostawców 64-bitowym, podczas korzystania z bramy lokalnej.
-> 
-> 
+|Źródło danych  |  
+|---------|---------|
+|Dostępu do bazy danych     |  
+|Active Directory *     |  
+|Analysis Services     |  
+|Analytics Platform System     |  
+|Dynamics CRM*     |  
+|Skoroszyt programu Excel     |  
+|Exchange*     |  
+|Folder*     | 
+|Dokument JSON *     |  
+|Wiersze z danych binarnych *     | 
+|Baza danych MySQL     | 
+|Źródła danych OData *     |  
+|Zapytanie ODBC     | 
+|OLE DB     |   
+|Baza danych Postgre SQL *    | 
+|SAP HANA *    |  
+|SAP Business Warehouse *    |  
+|SharePoint*     |   
+|Baza danych programu Sybase     |  
+|Tabela XML *    |  
+|||
+ 
+\* Tylko modele w 1400 tabelarycznych.
+
+## <a name="specifying-a-different-provider"></a>Określenie innego dostawcy
+
+Modeli danych z usług Azure Analysis Services może wymagać różnych dostawców podczas nawiązywania połączenia z niektórych źródeł danych. W niektórych przypadkach modeli tabelarycznych łączenie ze źródłami danych przy użyciu macierzystych dostawców, takich jak SQL Server Native Client (SQLNCLI11) może zostać zwrócony błąd. Jeśli przy użyciu macierzystych dostawców innych niż SQLOLEDB, może zostać wyświetlony komunikat o błędzie: **dostawcy "SQLNCLI11.1" nie jest zarejestrowana**. Lub, jeśli masz model zapytania bezpośredniego połączenia ze źródłami danych lokalnie i korzystać z natywnych dostawców, może zostać wyświetlony komunikat o błędzie: **wystąpił błąd podczas tworzenia zestawu wierszy OLE DB. Błędna składnia w pobliżu "Granica"**.
 
 Podczas migrowania lokalnymi modelu tabelarycznego usług SQL Server Analysis Services do usług Azure Analysis Services, może być konieczna zmiana dostawcy.
 
-**Aby określić dostawcę źródła danych**
+**Aby określić dostawcę**
 
 1. Programu SSDT > **Eksplorator modelu tabelarycznego** > **źródeł danych**, kliknij prawym przyciskiem myszy połączenie ze źródłem danych, a następnie kliknij przycisk **Edytuj źródło danych**.
 2. W **Edytuj połączenie**, kliknij przycisk **zaawansowane** aby otworzyć okno właściwości wyprzedzeniem.
 3. W **ustawić właściwości zaawansowane** > **dostawców**, następnie wybierz odpowiedniego dostawcę.
 
 ## <a name="impersonation"></a>Personifikacja
-W niektórych przypadkach może być konieczne określenie konta różnych personifikacji. Można określić konta personifikacji w SSDT lub SSMS.
+W niektórych przypadkach może być konieczne określenie konta różnych personifikacji. W programie Visual Studio (SSDT) lub SSMS można określić konta personifikacji.
 
 Dla lokalnych źródeł danych:
 
@@ -100,6 +113,6 @@ Dla źródeł danych w chmurze:
 * Jeśli uwierzytelnianie SQL personifikacji powinna być konta usługi.
 
 ## <a name="next-steps"></a>Kolejne kroki
-Jeśli masz lokalnych źródeł danych, należy zainstalować [brama lokalna](analysis-services-gateway.md).   
-Aby dowiedzieć się więcej na temat zarządzania serwerem w SSDT lub SSMS, zobacz [Zarządzanie serwerem](analysis-services-manage.md).
+[Brama lokalna](analysis-services-gateway.md)   
+[Zarządzanie serwerem](analysis-services-manage.md)   
 

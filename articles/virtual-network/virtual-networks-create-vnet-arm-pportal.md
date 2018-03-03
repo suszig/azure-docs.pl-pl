@@ -1,239 +1,161 @@
 ---
-title: Tworzenie sieci wirtualnej platformy Azure z wieloma podsieciami | Dokumentacja firmy Microsoft
-description: "Dowiedz się, jak utworzyć sieć wirtualną z wieloma podsieciami na platformie Azure."
+title: "Tworzenie sieci wirtualnej platformy Azure z wieloma podsieciami — Portal | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak utworzyć sieć wirtualną z wieloma podsieciami przy użyciu portalu Azure."
 services: virtual-network
 documentationcenter: 
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
-ms.assetid: 4ad679a4-a959-4e48-a317-d9f5655a442b
+ms.assetid: 
 ms.service: virtual-network
-ms.devlang: NA
-ms.topic: article
+ms.devlang: na
+ms.topic: 
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/26/2017
+ms.date: 03/01/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: f82a95ec9543b2d53ef28bf7f15315e23cf4893a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 201da4e6ec86a6c2a79a9e948245c0d83708c3f9
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="create-a-virtual-network-with-multiple-subnets"></a>Tworzenie sieci wirtualnej z wieloma podsieciami
+# <a name="create-a-virtual-network-with-multiple-subnets-using-the-azure-portal"></a>Tworzenie sieci wirtualnej z wieloma podsieciami przy użyciu portalu Azure
 
-W tym samouczku jak utworzyć podstawowy sieci wirtualnej platformy Azure z oddzielne podsieci publiczne i prywatne. Zasoby w sieci wirtualne mogą komunikować się ze sobą oraz z zasobami w innych sieciach, połączony z siecią wirtualną. W tym samym lub różnych podsieci w sieci wirtualnej można utworzyć zasobów platformy Azure, takich jak maszyny wirtualne, środowiska usługi aplikacji, zestawy skalowania maszyny wirtualnej, Azure HDInsight i usługi w chmurze. Tworzenie zasobów w różnych podsieciach pozwala do filtrowania ruchu sieciowego i z podsieciami niezależnie z [sieciowej grupy zabezpieczeń](virtual-networks-create-nsg-arm-pportal.md), a w [kierować ruchem między podsieciami](virtual-network-create-udr-arm-ps.md) za pośrednictwem sieci Urządzenie wirtualne, takie jak zapory, jeśli chcesz. 
+Sieć wirtualna umożliwia kilka typów zasobów platformy Azure do komunikowania się z Internetem i prywatnie ze sobą. Tworzenie wielu podsieci w sieci wirtualnej umożliwia do segmentu sieci, dzięki czemu można filtrować lub sterowania przepływem ruchu między podsieciami. W tym artykule dowiesz się, jak:
 
-W następujących sekcjach opisano kroki, które należy wykonać, aby utworzyć sieć wirtualną przy użyciu [portalu Azure](#portal), interfejsu wiersza polecenia platformy Azure ([interfejsu wiersza polecenia Azure](#azure-cli)), [programu Azure PowerShell](#powershell)i [szablonu usługi Azure Resource Manager](#resource-manager-template). Wynik jest taki sam, niezależnie od tego, które narzędzie służy do tworzenia sieci wirtualnej. Kliknij łącze narzędzia, aby przejść do tej części samouczka. Dowiedz się więcej na temat wszystkich [sieci wirtualnej](virtual-network-manage-network.md) i [podsieci](virtual-network-manage-subnet.md) ustawienia.
+> [!div class="checklist"]
+> * Tworzenie sieci wirtualnej
+> * Tworzenie podsieci
+> * Test łączności sieciowej między maszynami wirtualnymi
 
-Ten artykuł zawiera kroki, aby utworzyć sieć wirtualną przy użyciu modelu wdrażania Menedżera zasobów, który jest modelem wdrożenia, które firma Microsoft zaleca używanie podczas tworzenia nowej sieci wirtualnej. Jeśli musisz utworzyć sieć wirtualną (klasyczne), zobacz [utworzyć sieć wirtualną (klasyczne)](create-virtual-network-classic.md). Jeśli nie masz doświadczenia w obsłudze modele wdrażania platformy Azure, zobacz [modele wdrażania zrozumieć Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="portal"></a>Azure portal
+## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure. 
 
-1. W przeglądarce sieci Web, przejdź do [portalu Azure](https://portal.azure.com). Zaloguj się za pomocą programu [konta Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Jeśli nie masz konta platformy Azure, możesz skorzystać z [bezpłatnej wersji próbnej](https://azure.microsoft.com/offers/ms-azr-0044p).
-2. W portalu kliknij **+ nowy** > **sieci** > **sieci wirtualnej**.
-3. Na **Utwórz sieć wirtualną** bloku, wprowadź następujące wartości, a następnie kliknij przycisk **Utwórz**:
+Zaloguj się w witrynie Azure Portal pod adresem http://portal.azure.com.
 
-    |Ustawienie|Wartość|
-    |---|---|
-    |Nazwa|myVnet|
-    |Przestrzeń adresowa|10.0.0.0/16|
-    |Nazwa podsieci|Publiczne|
-    |Zakres adresów podsieci|10.0.0.0/24|
-    |Grupa zasobów|Pozostaw **Utwórz nowy** zaznaczone, a następnie wprowadź **myResourceGroup**.|
-    |Subskrypcji i lokalizacji|Wybierz subskrypcji i lokalizacji.
+## <a name="create-a-virtual-network"></a>Tworzenie sieci wirtualnej
 
-    Jeśli jesteś nowym użytkownikiem usługi Azure, Dowiedz się więcej o [grup zasobów](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), [subskrypcje](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription), i [lokalizacje](https://azure.microsoft.com/regions) (zwaną także *regionów*).
-4. W portalu można utworzyć tylko jedną podsieć, podczas tworzenia sieci wirtualnej. W tym samouczku utworzysz drugiej podsieci po utworzeniu sieci wirtualnej. Później można utworzyć Internet dostępnych zasobów w **publicznego** podsieci. Można także utworzyć zasoby, które nie są dostępne z Internetu w **prywatnej** podsieci. Aby utworzyć drugą podsieć w **wyszukiwania zasobów** polu w górnej części strony, wprowadź **myVnet**. W wynikach wyszukiwania kliknij **myVnet**. Jeśli masz wiele sieci wirtualnych o tej samej nazwie w ramach subskrypcji, Sprawdź grupy zasobów, które znajdują się w każdej sieci wirtualnej. Upewnij się, że możesz kliknąć pozycję **myVnet** Wyszukaj wynik, który ma grupy zasobów **myResourceGroup**.
-5. Na **myVnet** bloku, w obszarze **ustawienia**, kliknij przycisk **podsieci**.
-6. Na **myVnet - podsieci** bloku, kliknij przycisk **+ podsieci**.
-7. Na **Dodaj podsieć** bloku dla **nazwa**, wprowadź **prywatnej**. Aby uzyskać **zakres adresów**, wprowadź **10.0.1.0/24**.  Kliknij przycisk **OK**.
-8. Na **myVnet - podsieci** bloku, przejrzyj podsieci. Widać **publicznego** i **prywatnej** podsieci, które zostały utworzone.
-9. **Opcjonalnie:** wykonać dodatkowe samouczki kategorii [następne kroki](#next-steps) do filtrowania ruchu sieciowego i z każdej podsieci z grupami zabezpieczeń sieci, można kierować ruchem między podsieciami przez urządzenie wirtualne sieci , lub aby połączyć sieć wirtualną do innych sieci wirtualnych lub sieciami lokalnymi.
-10. **Opcjonalnie:** usunąć zasoby, które można utworzyć w tym samouczku, wykonując kroki opisane w [zasoby zostaną usunięte](#delete-portal).
+1. Wybierz **+ Utwórz zasób** w górnym lewym rogu portalu Azure.
+2. Wybierz **sieci**, a następnie wybierz **sieci wirtualnej**.
+3. Jak pokazano na poniższej ilustracji, wprowadź *myVirtualNetwork* dla **nazwa**, **myResourceGroup** dla **grupy zasobów**, *Publicznych* dla podsieci **nazwa**, 10.0.0.0/24 dla podsieci **zakres adresów**, wybierz pozycję **lokalizacji** i  **Subskrypcja**Zaakceptuj pozostałe wartości domyślne, a następnie wybierz **Utwórz**:
 
-## <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
+    ![Tworzenie sieci wirtualnej](./media/virtual-networks-create-vnet-arm-pportal/create-virtual-network.png)
 
-Polecenia interfejsu wiersza polecenia platformy Azure są takie same, czy można wykonywać polecenia w systemie Windows, Linux lub macOS. Jednak ma różnic skryptów powłoki systemu operacyjnego. Skrypt w poniższych krokach wykonuje powłoki Bash. 
+    **Przestrzeni adresów** i **zakres adresów** są określone w notacji CIDR. Określony **przestrzeni adresów** obejmuje 10.0.0.0-10.0.255.254 adresów IP. **Zakres adresów** Określona podsieć, musi znajdować się w **przestrzeni adresów** zdefiniowana dla sieci wirtualnej. Azure DHCP przypisuje adresy IP z zakresu adresów podsieci z zasobami wdrożonymi w podsieci. Azure przypisuje 10.0.0.4-10.0.0.254 adresy tylko z zasobami wdrożonymi w **publicznego** podsieci, ponieważ Azure rezerwuje pierwsze cztery adresów (10.0.0.0-10.0.0.3 podsieci, w tym przykładzie) i ostatnich adresów () 10.0.0.255 podsieci, w tym przykładzie) w każdej podsieci.
 
-1. [Instalowanie i Konfigurowanie interfejsu wiersza polecenia Azure](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Upewnij się, że masz najnowszą wersję interfejsu wiersza polecenia Azure zainstalowane. Aby uzyskać pomoc dotyczącą poleceń interfejsu wiersza polecenia, wpisz `az <command> --help`. Zamiast instalowania interfejsu wiersza polecenia i jego wymagania wstępne, można użyć powłoki chmury Azure. Usługa Azure Cloud Shell jest bezpłatną powłoką Bash, którą można uruchamiać bezpośrednio w witrynie Azure Portal. Powłoka chmury ma Azure CLI wstępnie zainstalowane i skonfigurowane do użycia z Twoim kontem. Użycia powłoki chmury, kliknij polecenie Shell chmury (**> _**) u góry [portal](https://portal.azure.com) lub po prostu kliknij *wypróbuj* przycisk w kolejnych krokach. 
-2. Jeśli uruchomiony lokalnie interfejsu wiersza polecenia, zaloguj się do platformy Azure z `az login` polecenia. Jeśli przy użyciu powłoki chmury, użytkownik jest już zalogowany.
-3. Przejrzyj poniższy skrypt i jego komentarzami. W przeglądarce Skopiuj skrypt i wklej go do sesji interfejsu wiersza polecenia:
+## <a name="create-a-subnet"></a>Tworzenie podsieci
 
-    ```azurecli-interactive
-    #!/bin/bash
+1. W **wyszukiwania zasobów, usługi i dokumenty** w górnej części portalu pozycję Rozpocznij wpisywanie *myVirtualNetwork*. Gdy **myVirtualNetwork** pojawia się w wynikach wyszukiwania, wybierz go.
+2. Wybierz **podsieci** , a następnie wybierz **+ podsieci**, jak pokazano na poniższej ilustracji:
+
+     ![Dodaj podsieć](./media/virtual-networks-create-vnet-arm-pportal/add-subnet.png)
+
+3. W **Dodaj podsieć** wyświetlonym, wprowadź *prywatnej* dla **nazwa**, wprowadź *10.0.1.0/24* dla **zakresadresów**, a następnie wybierz **OK**. 
+
+Przed wdrożeniem sieci wirtualnych platformy Azure i podsieci w środowisku produkcyjnym, firma Microsoft zaleca, aby należy dokładnie zapoznać się z przestrzeni adresowej [zagadnienia](virtual-network-manage-network.md#create-a-virtual-network) i [limity sieci wirtualnej](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Gdy zasoby są wdrażane na podsieci, niektóre sieci wirtualnej i zmiany podsieci, takie jak zmiana zakresów adresów, może wymagać ponownego wdrażania istniejących zasobów platformy Azure, wdrażana w obrębie podsieci.
+
+## <a name="test-network-communication"></a>Test łączności sieciowej
+
+Sieć wirtualna umożliwia kilka typów zasobów platformy Azure do komunikowania się z Internetem i prywatnie ze sobą. Jeden typ zasobów, które można wdrożyć w sieci wirtualnej jest maszyną wirtualną. Utwórz dwie maszyny wirtualne w sieci wirtualnej, aby można było sprawdzić komunikację sieciową między nimi i Internetu w kolejnym kroku.
+
+### <a name="create-virtual-machines"></a>Tworzenie maszyn wirtualnych
+
+1. Wybierz **+ Utwórz zasób** w górnym lewym rogu portalu Azure.
+2. Wybierz pozycję **Wystąpienia obliczeniowe**, a następnie wybierz pozycję **Windows Server 2016 Datacenter**. Można wybrać innego systemu operacyjnego, ale pozostałe kroki zakłada się wybrano **systemu Windows Server Datacenter 2016**. 
+3. Wybierz lub wprowadź następujące informacje dotyczące **podstawy**, a następnie wybierz pozycję **OK**:
+    - **Nazwa**: *myVmWeb*
+    - **Grupa zasobów**: Wybierz **Użyj istniejącego** , a następnie wybierz *myResourceGroup*.
+    - **Lokalizacja**: Wybierz *wschodnie stany USA*.
+
+    **Nazwy użytkownika** i **hasło** wprowadzeniu są używane w kolejnym kroku. Hasło musi mieć co najmniej 12 znaków i spełniać [zdefiniowane wymagania dotyczące złożoności](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm). **Lokalizacji** i **subskrypcji** wybrane musi być taka sama jak lokalizacja i sieć wirtualna jest w subskrypcji. Wybierz opcję tej samej grupy zasobów w sieci wirtualnej została utworzona, ale tej samej grupy zasobów jest zaznaczona w tym samouczku nie jest wymagany.
+4. Wybierz rozmiar maszyny Wirtualnej, w obszarze **wybierz rozmiar**.
+5. Wybierz lub wprowadź następujące informacje dotyczące **ustawienia**, a następnie wybierz pozycję **OK**:
+    - **Sieć wirtualna**: Upewnij się, że **myVirtualNetwork** jest zaznaczone. Jeśli nie, wybierz **sieci wirtualnej** , a następnie wybierz **myVirtualNetwork** w obszarze **sieci wirtualnej wybierz**.
+    - **Podsieci**: Upewnij się, że **publicznego** jest zaznaczone. Jeśli nie, wybierz **podsieci** , a następnie wybierz **publicznego** w obszarze **Wybierz podsieć**, jak pokazano na poniższej ilustracji:
     
-    # Create a resource group.
-    az group create \
-      --name myResourceGroup \
-      --location eastus
-    
-    # Create a virtual network with one subnet named Public.
-    az network vnet create \
-      --name myVnet \
-      --resource-group myResourceGroup \
-      --subnet-name Public
-    
-    # Create an additional subnet named Private in the virtual network.
-    az network vnet subnet create \
-      --name Private \
-      --address-prefix 10.0.1.0/24 \
-      --vnet-name myVnet \
-      --resource-group myResourceGroup
+        ![Ustawienia maszyny wirtualnej](./media/virtual-networks-create-vnet-arm-pportal/virtual-machine-settings.png)
+ 
+6. W obszarze **Utwórz** w **Podsumowanie**, wybierz pozycję **Utwórz** rozpocząć wdrażanie maszyny wirtualnej.
+7. Ponownie wykonaj kroki 1 – 6, ale wprowadzić *myVmMgmt* dla **nazwa** maszyny wirtualnej i wybierz **prywatnej** dla **podsieci**.
+
+Maszyny wirtualne potrwać kilka minut, aby utworzyć. Nie Kontynuuj pozostałe kroki aż do utworzenia zarówno maszyn wirtualnych.
+
+### <a name="communicate-between-virtual-machines-and-with-the-internet"></a>Komunikację między maszynami wirtualnymi i z Internetu
+
+1. W *wyszukiwania* w górnej części portalu pozycję Rozpocznij wpisywanie *myVmMgmt*. Gdy **myVmMgmt** pojawia się w wynikach wyszukiwania, wybierz go.
+2. Tworzenie połączenia pulpitu zdalnego z *myVmMgmt* maszynę wirtualną, wybierając **Connect**, jak pokazano na poniższej ilustracji:
+
+    ![Nawiązywanie połączenia z maszyną wirtualną](./media/virtual-networks-create-vnet-arm-pportal/connect-to-virtual-machine.png)  
+
+3. Aby nawiązać połączenie z maszyną Wirtualną, Otwórz pobrany plik RDP. Po wyświetleniu monitu wybierz **Connect**.
+4. Wprowadź nazwę użytkownika i hasło określone podczas tworzenia maszyny wirtualnej (musisz wybrać **więcej opcji**, następnie **korzystała z innego konta**, aby określić podczas obliczania wprowadzone poświadczenia możesz utworzono maszynę wirtualną), następnie wybierz **OK**.
+5. Podczas procesu logowania może pojawić się ostrzeżenie o certyfikacie. Wybierz **tak** Aby nawiązać połączenie.
+6. W kolejnym kroku ping jest używany do komunikacji z *myVmMgmt* maszynę wirtualną z *myVmWeb* maszyny wirtualnej. Polecenie ping używa protokołu ICMP, którego odmówiono przez zaporę systemu Windows, domyślnie. Włącz ICMP przez zaporę systemu Windows, wprowadzając następujące polecenie w wierszu polecenia:
+
     ```
-    
-4. Po zakończeniu skrypt zostanie uruchomiony, przejrzyj podsieci sieci wirtualnej. Skopiuj poniższe polecenie, a następnie wklej go do sesji interfejsu wiersza polecenia:
-
-    ```azurecli
-    az network vnet subnet list --resource-group myResourceGroup --vnet-name myVnet --output table
+    netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
     ```
 
-5. **Opcjonalnie:** wykonać dodatkowe samouczki kategorii [następne kroki](#next-steps) do filtrowania ruchu sieciowego i z każdej podsieci z grupami zabezpieczeń sieci, można kierować ruchem między podsieciami przez urządzenie wirtualne sieci , lub aby połączyć sieć wirtualną do innych sieci wirtualnych lub sieciami lokalnymi.
-6. **Opcjonalne**: usunięcie zasobów, utworzonych w tym samouczku, wykonując kroki opisane w [zasoby zostaną usunięte](#delete-cli).
+    Chociaż ping są używane w tym artykule, nie zaleca się stosowanie protokołu ICMP przez zaporę systemu Windows dla wdrożeń produkcyjnych.
+7. Ze względów bezpieczeństwa jest często, aby ograniczyć liczbę maszyn wirtualnych, które można zdalnie łączyć się w sieci wirtualnej. W tym samouczku *myVmMgmt* maszyny wirtualnej jest używany do zarządzania *myVmWeb* maszyny wirtualnej w sieci wirtualnej. Do usług pulpitu zdalnego do *myVmWeb* maszynę wirtualną z *myVmMgmt* maszyny wirtualnej, wprowadź następujące polecenie w wierszu polecenia:
 
-## <a name="powershell"></a>PowerShell
+    ``` 
+    mstsc /v:myVmWeb
+    ```
+8. Do komunikacji *myVmMgmt* maszynę wirtualną z *myVmWeb* maszyny wirtualnej, wprowadź następujące polecenie w wierszu polecenia:
 
-1. Zainstaluj najnowszą wersję modułu [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) programu PowerShell. Jeśli jesteś nowym użytkownikiem programu Azure PowerShell, zobacz temat [Azure PowerShell overview (Omówienie programu Azure PowerShell)](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
-2. W sesji programu PowerShell, zaloguj się do platformy Azure z Twojej [konta Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account) przy użyciu `login-azurermaccount` polecenia.
+    ```
+    ping myvmmgmt
+    ```
 
-3. Przejrzyj poniższy skrypt i jego komentarzami. W przeglądarce Skopiuj skrypt i wklej go do sesji programu PowerShell:
+    Pojawi się dane wyjściowe podobne do następujących przykładowe dane wyjściowe:
+    
+    ```
+    Pinging myvmmgmt.dar5p44cif3ulfq00wxznl3i3f.bx.internal.cloudapp.net [10.0.1.4] with 32 bytes of data:
+    Reply from 10.0.1.4: bytes=32 time<1ms TTL=128
+    Reply from 10.0.1.4: bytes=32 time<1ms TTL=128
+    Reply from 10.0.1.4: bytes=32 time<1ms TTL=128
+    Reply from 10.0.1.4: bytes=32 time<1ms TTL=128
+    
+    Ping statistics for 10.0.1.4:
+        Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+    Approximate round trip times in milli-seconds:
+        Minimum = 0ms, Maximum = 0ms, Average = 0ms
+    ```
+      
+    Można stwierdzić, że adres *myVmMgmt* 10.0.1.4 jest maszyny wirtualnej. 10.0.1.4 był pierwszy dostępny adres IP z zakresu adresów *prywatnej* podsieci, która została wdrożona *myVmMgmt* maszynę wirtualną w poprzednim kroku.  Zobaczysz, że w pełni kwalifikowaną nazwę maszyny wirtualnej jest *myvmmgmt.dar5p44cif3ulfq00wxznl3i3f.bx.internal.cloudapp.net*. Chociaż *dar5p44cif3ulfq00wxznl3i3f* część nazwy domeny różni się dla maszyny wirtualnej, pozostałej części nazwy domeny są takie same. Domyślnie wszystkie maszyny wirtualne Azure używają domyślna usługa Azure DNS. Wszystkie maszyny wirtualne sieci wirtualnej można rozpoznawania nazw innych maszyn wirtualnych w tej samej sieci wirtualnej przy użyciu usługi DNS domyślne platformy Azure. Zamiast przy użyciu usługi DNS domyślne platformy Azure, możesz użyć serwera DNS lub możliwości prywatnej domeny usługi Azure DNS. Aby uzyskać więcej informacji, zobacz [rozpoznawanie nazw przy użyciu serwera DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) lub [przy użyciu usługi Azure DNS dla domen prywatnej](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+9. Aby zainstalować usługi Internet Information Services (IIS) dla systemu Windows Server na *myVmWeb* maszyny wirtualnej, wprowadź następujące polecenie w sesji programu PowerShell:
 
     ```powershell
-    # Create a resource group.
-    New-AzureRmResourceGroup `
-      -Name myResourceGroup `
-      -Location eastus
-    
-    # Create the public and private subnets.
-    $Subnet1 = New-AzureRmVirtualNetworkSubnetConfig `
-      -Name Public `
-      -AddressPrefix 10.0.0.0/24
-    $Subnet2 = New-AzureRmVirtualNetworkSubnetConfig `
-      -Name Private `
-      -AddressPrefix 10.0.1.0/24
-    
-    # Create a virtual network.
-    $Vnet=New-AzureRmVirtualNetwork `
-      -ResourceGroupName myResourceGroup `
-      -Location eastus `
-      -Name myVnet `
-      -AddressPrefix 10.0.0.0/16 `
-      -Subnet $Subnet1,$Subnet2
+    Install-WindowsFeature -name Web-Server -IncludeManagementTools
     ```
 
-4. Aby wyświetlić podsieci sieci wirtualnej, skopiuj poniższe polecenie, a następnie wklej go do sesji programu PowerShell:
+10. Po ukończeniu instalacji usług IIS, odłącz *myVmWeb* sesji usług pulpitu zdalnego, co spowoduje pozostawienie w *myVmMgmt* sesji usług pulpitu zdalnego. Otwórz przeglądarkę sieci web i przejdź do http://myvmweb. Strona powitalna usług IIS zostanie wyświetlony.
+11. Odłącz *myVmMgmt* sesji usług pulpitu zdalnego.
+12. Próba wyświetlenia strona powitalna usług IIS z komputera użytkownika. Podczas tworzenia Azure *myVmWeb* maszynę wirtualną, publiczny zasób adres IP o nazwie *myVmWeb* została także utworzona i przypisana do maszyny wirtualnej. Widać, że przydzielono 52.170.5.92 *myVmMgmt* maszyny wirtualnej na obrazie w kroku 2. Aby znaleźć publiczny adres IP przypisany do *myVmWeb* maszyny wirtualnej, wyszukiwanie *myVmWeb* w polu wyszukiwania, wybierz go w wynikach wyszukiwania. 
 
-    ```powershell
-    $Vnet.subnets | Format-Table Name, AddressPrefix
-    ```
+    Jeśli maszyna wirtualna nie musi mieć publiczny adres IP przypisane do niej, Azure przypisuje publicznego adresu IP do każdej maszyny wirtualnej, które tworzysz, domyślnie. Aby komunikować się z Internetu na maszynę wirtualną, publiczny adres IP musi można przypisać do maszyny wirtualnej. Wszystkie maszyny wirtualne mogą komunikować się wychodzące z Internetem, czy przypisano publiczny adres IP do maszyny wirtualnej. Aby dowiedzieć się więcej na temat połączenia wychodzące Internet na platformie Azure, zobacz [połączeń wychodzących na platformie Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-5. **Opcjonalnie:** wykonać dodatkowe samouczki kategorii [następne kroki](#next-steps) do filtrowania ruchu sieciowego i z każdej podsieci z grupami zabezpieczeń sieci, można kierować ruchem między podsieciami przez urządzenie wirtualne sieci , lub aby połączyć sieć wirtualną do innych sieci wirtualnych lub sieciami lokalnymi.
-6. **Opcjonalne**: usunięcie zasobów, utworzonych w tym samouczku, wykonując kroki opisane w [zasoby zostaną usunięte](#delete-powershell).
+    Na komputerze użytkownika, przejdź do publicznego adresu IP *myVmWeb* maszyny wirtualnej. Próba wyświetlenia strona powitalna usług IIS z tego komputera nie powiedzie się. Próba nie powiedzie się, ponieważ gdy maszyny wirtualne zostały wdrożone, Azure utworzyć grupę zabezpieczeń sieci dla każdej maszyny wirtualnej domyślnie. 
 
-## <a name="resource-manager-template"></a>Szablon usługi Resource Manager
+    Grupa zabezpieczeń sieci zawiera zasady zabezpieczeń, które dozwolonych lub zablokowanych dla ruchu przychodzącego i wychodzącego ruchu sieciowego przez port i adres IP. Domyślne grupy zabezpieczeń sieci utworzone Azure umożliwia komunikację za pośrednictwem wszystkie porty między zasobami w tej samej sieci wirtualnej. Dla maszyn wirtualnych systemu Windows domyślną grupę zabezpieczeń sieci nie zezwala na cały ruch przychodzący z Internetu przez wszystkie porty, Zaakceptuj portu TCP 3389 (RDP). W związku z tym domyślnie można również RDP bezpośrednio do *myVmWeb* maszyny wirtualnej z Internetu, nawet jeśli nie możesz portu 3389 Otwórz na serwerze sieci web. Ponieważ przeglądanie sieci web komunikuje się za pośrednictwem portu 80, komunikacji nie z Internetu, ponieważ nie istnieje żadna reguła w domyślnej grupie zabezpieczeń sieci zezwala na ruch przez port 80.
 
-Sieć wirtualną można wdrożyć za pomocą szablonu usługi Azure Resource Manager. Aby dowiedzieć się więcej na temat szablonów, zobacz [co to jest Menedżer zasobów](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#template-deployment). Aby uzyskać dostęp do szablonu i zapoznaj się z jego parametrów, zobacz [utworzyć sieć wirtualną z dwiema podsieciami](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/) szablonu. Szablonu można wdrożyć za pomocą [portal](#template-portal), [interfejsu wiersza polecenia Azure](#template-cli), lub [PowerShell](#template-powershell).
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Opcjonalne kroki po wdrożeniu szablonu:
+Gdy nie jest już potrzebny, Usuń grupy zasobów i wszystkie zasoby, które zawiera: 
 
-1. Zakończenie dodatkowe samouczki kategorii [następne kroki](#next-steps) do filtrowania ruchu sieciowego do i z każdej podsieci z grupami zabezpieczeń sieci, można kierować ruchem między podsieciami przez urządzenie wirtualne sieci, lub nawiązać wirtualnego sieć do innych sieci wirtualnych lub sieciami lokalnymi.
-2. Usuwanie zasobów, utworzonych w tym samouczku, wykonując kroki opisane w dowolnym podsekcjach [zasoby zostaną usunięte](#delete).
+1. Wprowadź *myResourceGroup* w **wyszukiwania** pole w górnej części portalu. Po wyświetleniu **myResourceGroup** w wynikach wyszukiwania wybierz go.
+2. Wybierz pozycję **Usuń grupę zasobów**.
+3. Wprowadź *myResourceGroup* dla **typu nazwa grupy zasobów:** i wybierz **usunąć**.
 
-### <a name="template-portal"></a>Azure portal
+## <a name="next-steps"></a>Kolejne kroki
 
-1. W przeglądarce otwórz [strony szablonu](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets).
-2. Kliknij przycisk **wdrażanie na platformie Azure** przycisku. Jeśli jeszcze nie jest zalogowany na platformie Azure, zaloguj się na ekranie logowania do portalu Azure, który pojawia się.
-3. Zaloguj się do portalu przy użyciu programu [konta Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Jeśli nie masz konta platformy Azure, możesz skorzystać z [bezpłatnej wersji próbnej](https://azure.microsoft.com/offers/ms-azr-0044p).
-4. Wprowadź następujące wartości parametrów:
+W tym samouczku przedstawiono sposób wdrażania sieci wirtualnej z wieloma podsieciami. Również wiesz, że podczas tworzenia maszyny wirtualnej systemu Windows Azure tworzy interfejs sieciowy on dołączony do maszyny wirtualnej i tworzy sieciową grupę zabezpieczeń, który tylko zezwala na ruch przez port 3389, z Internetu. Przejście do dalej samouczkiem, aby dowiedzieć się, jak do filtrowania ruchu sieciowego do podsieci, a nie do poszczególnych maszyn wirtualnych.
 
-    |Parametr|Wartość|
-    |---|---|
-    |Subskrypcja|Wybierz subskrypcję|
-    |Grupa zasobów|myResourceGroup|
-    |Lokalizacja|Wybierz lokalizację|
-    |Nazwa sieci wirtualnej|myVnet|
-    |Prefiks adresu sieci wirtualnej|10.0.0.0/16|
-    |Subnet1Prefix|10.0.0.0/24|
-    |Subnet1Name|Publiczne|
-    |Subnet2Prefix|10.0.1.0/24|
-    |Subnet2Name|Prywatne|
-
-5. Akceptuję warunki i postanowienia, a następnie kliknij przycisk **zakupu** do wdrożenia sieci wirtualnej.
-
-### <a name="template-cli"></a>Interfejs wiersza polecenia platformy Azure
-
-1. [Instalowanie i Konfigurowanie interfejsu wiersza polecenia Azure](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Upewnij się, że masz najnowszą wersję interfejsu wiersza polecenia Azure zainstalowane. Aby uzyskać pomoc dotyczącą poleceń interfejsu wiersza polecenia, wpisz `az <command> --help`. Zamiast instalowania interfejsu wiersza polecenia i jego wymagania wstępne, można użyć powłoki chmury Azure. Usługa Azure Cloud Shell jest bezpłatną powłoką Bash, którą można uruchamiać bezpośrednio w witrynie Azure Portal. Powłoka chmury ma Azure CLI wstępnie zainstalowane i skonfigurowane do użycia z Twoim kontem. Użycia powłoki chmury, kliknij polecenie Shell chmury **> _** przycisk w górnej części [portal](https://portal.azure.com), lub kliknij **wypróbuj** przycisk w kolejnych krokach. 
-2. Jeśli uruchomiony lokalnie interfejsu wiersza polecenia, zaloguj się do platformy Azure z `az login` polecenia. Jeśli przy użyciu powłoki chmury, użytkownik jest już zalogowany.
-3. Aby utworzyć grupę zasobów dla sieci wirtualnej, skopiuj poniższe polecenie i wklej go do sesji interfejsu wiersza polecenia:
-
-    ```azurecli-interactive
-    az group create --name myResourceGroup --location eastus
-    ```
-    
-4. Szablonu można wdrożyć przy użyciu jednej z następujących opcji Parametry:
-    - **Domyślne wartości parametrów**. Wprowadź następujące polecenie:
-    
-        ```azurecli-interactive
-        az group deployment create --resource-group myResourceGroup --name VnetTutorial --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vnet-two-subnets/azuredeploy.json`
-        ```
-    - **Wartości parametrów niestandardowych**. Pobierz i zmodyfikować szablon, przed przystąpieniem do wdrażania szablonu. Możesz również wdrożyć szablon przy użyciu parametrów wiersza polecenia lub wdrożyć szablon przy użyciu pliku oddzielne parametrów. Aby pobrać pliki szablonu i parametrów, kliknij przycisk **Przejdź w serwisie GitHub** znajdującego się na [utworzyć sieć wirtualną z dwiema podsieciami](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/) strony szablonu. W usłudze GitHub kliknij **azuredeploy.parameters.json** lub **azuredeploy.json** pliku. Następnie kliknij przycisk **Raw** przycisk, aby wyświetlić plik. W przeglądarce skopiuj zawartość pliku. Zapisz zawartość do pliku na komputerze. Można zmodyfikować wartości parametrów w szablonie, lub wdrożyć szablon przy użyciu pliku oddzielne parametrów.  
-
-    Aby dowiedzieć się więcej na temat sposobu wdrażania szablonów za pomocą tych metod, wpisz `az group deployment create --help`.
-
-### <a name="template-powershell"></a>Środowiska PowerShell
-
-1. Zainstaluj najnowszą wersję modułu [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) programu PowerShell. Jeśli jesteś nowym użytkownikiem programu Azure PowerShell, zobacz temat [Azure PowerShell overview (Omówienie programu Azure PowerShell)](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
-2. W sesji programu PowerShell, aby się zalogować użytkownika [konta Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account), wprowadź `login-azurermaccount`.
-3. Aby utworzyć grupę zasobów dla sieci wirtualnej, wprowadź następujące polecenie:
-
-    ```powershell
-    New-AzureRmResourceGroup -Name myResourceGroup -Location eastus
-    ```
-    
-4. Szablonu można wdrożyć przy użyciu jednej z następujących opcji Parametry:
-    - **Domyślne wartości parametrów**. Wprowadź następujące polecenie:
-    
-        ```powershell
-        New-AzureRmResourceGroupDeployment -Name VnetTutorial -ResourceGroupName myResourceGroup -TemplateUri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vnet-two-subnets/azuredeploy.json
-        ```
-        
-    - **Wartości parametrów niestandardowych**. Pobierz i zmodyfikować szablon przed jego wdrożeniem. Możesz również wdrożyć szablon przy użyciu parametrów wiersza polecenia lub wdrożyć szablon przy użyciu pliku oddzielne parametrów. Aby pobrać pliki szablonu i parametrów, kliknij przycisk **Przejdź w serwisie GitHub** znajdującego się na [utworzyć sieć wirtualną z dwiema podsieciami](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/) strony szablonu. W usłudze GitHub kliknij **azuredeploy.parameters.json** lub **azuredeploy.json** pliku. Następnie kliknij przycisk **Raw** przycisk, aby wyświetlić plik. W przeglądarce skopiuj zawartość pliku. Zapisz zawartość do pliku na komputerze. Można zmodyfikować wartości parametrów w szablonie, lub wdrożyć szablon przy użyciu pliku oddzielne parametrów.  
-
-    Aby dowiedzieć się więcej na temat sposobu wdrażania szablonów za pomocą tych metod, wpisz `Get-Help New-AzureRmResourceGroupDeployment`. 
-
-## <a name="delete"></a>Usuwanie zasobów
-
-Po zakończeniu tego samouczka można usunąć zasoby, które zostały utworzone, tak aby nie wiąże się z opłatami użycia. Usunięcie grupy zasobów powoduje usunięcie wszystkich zasobów, które znajdują się w grupie zasobów.
-
-### <a name="delete-portal"></a>Azure portal
-
-1. W polu wyszukiwania portalu wprowadź **myResourceGroup**. W wynikach wyszukiwania kliknij **myResourceGroup**.
-2. Na **myResourceGroup** bloku, kliknij przycisk **usunąć** ikony.
-3. Aby potwierdzić decyzję, w **typu nazwa grupy zasobów** wprowadź **myResourceGroup**, a następnie kliknij przycisk **usunąć**.
-
-### <a name="delete-cli"></a>Interfejs wiersza polecenia platformy Azure
-
-W sesji interfejsu wiersza polecenia wprowadź następujące polecenie:
-
-```azurecli-interactive
-az group delete --name myResourceGroup --yes
-```
-
-### <a name="delete-powershell"></a>Środowiska PowerShell
-
-W sesji programu PowerShell wpisz następujące polecenie:
-
-```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
-```
-
-## <a name="next-steps"></a>Następne kroki
-
-- Aby dowiedzieć się więcej o wszystkich ustawieniach podsieci i sieci wirtualnej, zobacz [Zarządzanie sieciami wirtualnymi](virtual-network-manage-network.md#view-vnet) i [Zarządzanie podsieci sieci wirtualnej](virtual-network-manage-subnet.md#create-subnet). Istnieją różne opcje dotyczące używania sieci wirtualnych i podsieci w środowisku produkcyjnym, aby spełnić różne wymagania.
-- Filtrowanie ruchu przychodzącego i wychodzącego podsieci, tworząc i stosując [sieciowej grupy zabezpieczeń](virtual-networks-nsg.md) do podsieci.
-- Kierować ruchem między podsieciami przez urządzenie wirtualne sieci, tworząc [trasy zdefiniowane przez użytkownika](virtual-network-create-udr-arm-ps.md) i zastosować trasy do każdej podsieci.
-- Utwórz [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) lub [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) maszyny wirtualnej w ramach istniejącej sieci wirtualnej.
-- Połącz dwie sieci wirtualne, tworząc [sieci wirtualnej komunikacji równorzędnej](virtual-network-peering-overview.md) między sieciami wirtualnymi.
-- Połączyć sieć wirtualną z siecią lokalną przy użyciu [bramy sieci VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) lub [Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json) obwodu.
+> [!div class="nextstepaction"]
+> [Filtrowanie ruchu sieciowego do podsieci](./virtual-networks-create-nsg-arm-pportal.md)

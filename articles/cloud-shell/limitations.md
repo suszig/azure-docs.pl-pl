@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: 21a050373a9901220e106534464a8c13565bb3d8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 245e2e1ca52e7d3c5bd22d5f2569e3e8d7ae6671
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Ograniczenia powłoki w chmurze Azure
 
@@ -54,11 +54,11 @@ Powłoka chmury jest przeznaczony dla przypadków użycia interaktywnego. W zwi�
 
 ### <a name="user-permissions"></a>Uprawnienia użytkowników
 
-Uprawnienia zostały ustawione jako normalnych użytkowników bez dostępu do operacji sudo. Każda instalacja poza Twojej `$Home` lub `clouddrive` katalogu nie jest trwały.
+Uprawnienia zostały ustawione jako normalnych użytkowników bez dostępu do operacji sudo. Każda instalacja poza Twojej `$Home` katalogu nie jest trwały.
 
 ### <a name="editing-bashrc"></a>Edytowanie .bashrc
 
-Mają ostrożność w przypadku edycji .bashrc w ten sposób mogą powodować nieoczekiwane błędy Bash w powłoce chmury.
+Mają ostrożność w przypadku edycji .bashrc w ten sposób może spowodować nieoczekiwane błędy w chmurze powłoki.
 
 ## <a name="powershell-limitations"></a>Ograniczenia programu PowerShell
 
@@ -68,7 +68,7 @@ PowerShell w powłoce chmury Azure (wersja zapoznawcza) może potrwać do 60 sek
 
 ### <a name="no-home-directory-persistence"></a>Trwałość katalogu No $Home
 
-Dane zapisywane w `$Home` przez dowolną aplikację (takich jak: git, vim i inne) nie zachowywane między sesjami programu PowerShell. Obejście tego problemu [widoczną w tym miejscu](troubleshooting.md#powershell-resolutions).
+Dane zapisywane w `$Home` przez dowolną aplikację (takich jak: git, vim i inne) nie zachowywane między sesjami programu PowerShell. Obejście tego problemu [widoczną w tym miejscu](troubleshooting.md#powershell-troubleshooting).
 
 ### <a name="default-file-location-when-created-from-azure-drive"></a>Domyślna lokalizacja pliku podczas tworzenia dysku platformy Azure:
 

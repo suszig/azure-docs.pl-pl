@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/11/2017
+ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: acd3168adc6624e172099c8d62124f7b5ae4839a
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: e73da18ffe146d09b191f1ea5ad1772b36ad8947
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="view-service-fabric-health-reports"></a>Wyświetl raporty dotyczące kondycji sieci szkieletowej usług
 Sieć szkieletowa usług Azure wprowadza [model kondycji](service-fabric-health-introduction.md) z jednostek kondycji, na którym składników systemu i watchdogs można raportu lokalnego warunki, które są monitorowania. [Magazynu kondycji](service-fabric-health-introduction.md#health-store) agreguje wszystkie dane kondycji, aby określić, czy jednostki są w dobrej kondycji.
@@ -1030,26 +1030,26 @@ Jeśli ogólne kwerend zwraca nieznany kondycja jednostki, jest to możliwe, że
 Zapytania, które zawierają **HealthState** dla jednostki to:
 
 * Listy węzłów: zwraca listy węzłów w klastrze (stronicowanej).
-  * Interfejs API: [FabricClient.QueryClient.GetNodeListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getnodelistasync)
-  * Środowiska PowerShell: Get-ServiceFabricNode
+  * API: [FabricClient.QueryClient.GetNodeListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getnodelistasync)
+  * PowerShell: Get-ServiceFabricNode
 * Lista aplikacji: zwraca listę aplikacji w klastrze (stronicowanej).
-  * Interfejs API: [FabricClient.QueryClient.GetApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync)
-  * Środowiska PowerShell: Get-ServiceFabricApplication
+  * API: [FabricClient.QueryClient.GetApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync)
+  * PowerShell: Get-ServiceFabricApplication
 * Lista usług: zwraca listę usług w aplikacji (stronicowanej).
-  * Interfejs API: [FabricClient.QueryClient.GetServiceListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync)
-  * Środowiska PowerShell: Get-ServiceFabricService
+  * API: [FabricClient.QueryClient.GetServiceListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync)
+  * PowerShell: Get-ServiceFabricService
 * Lista partycji: zwraca listę partycji w usłudze (stronicowanej).
-  * Interfejs API: [FabricClient.QueryClient.GetPartitionListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getpartitionlistasync)
-  * Środowiska PowerShell: Get-ServiceFabricPartition
+  * API: [FabricClient.QueryClient.GetPartitionListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getpartitionlistasync)
+  * PowerShell: Get-ServiceFabricPartition
 * Listy replik: zwraca listę replik partycji (stronicowanej).
-  * Interfejs API: [FabricClient.QueryClient.GetReplicaListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getreplicalistasync)
-  * Środowiska PowerShell: Get-ServiceFabricReplica
+  * API: [FabricClient.QueryClient.GetReplicaListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getreplicalistasync)
+  * PowerShell: Get-ServiceFabricReplica
 * Wdrożone listy aplikacji: zwraca listę wdrożonych aplikacji w węźle.
-  * Interfejs API: [FabricClient.QueryClient.GetDeployedApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedapplicationlistasync)
-  * Środowiska PowerShell: Get-ServiceFabricDeployedApplication
+  * API: [FabricClient.QueryClient.GetDeployedApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedapplicationlistasync)
+  * PowerShell: Get-ServiceFabricDeployedApplication
 * Wdrożone usługi listy pakietów: zwraca listę pakietów usług we wdrożonej aplikacji.
-  * Interfejs API: [FabricClient.QueryClient.GetDeployedServicePackageListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedservicepackagelistasync)
-  * Środowiska PowerShell: Get-ServiceFabricDeployedApplication
+  * API: [FabricClient.QueryClient.GetDeployedServicePackageListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedservicepackagelistasync)
+  * PowerShell: Get-ServiceFabricDeployedApplication
 
 > [!NOTE]
 > Niektóre z zapytań Zwróć wyników stronicowania. Powrót z tych kwerend znajduje się lista pochodzące z [PagedList<T>](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1). Jeśli wyniki nie pasują do wiadomości, jest zwracana tylko stronę i ContinuationToken śledzi gdzie wyliczenie zatrzymana. Nadal wywołanie tej samej kwerendy i przekaż token kontynuacji z poprzedniej kwerendy, aby uzyskać wyniki dalej.

@@ -9,16 +9,16 @@ editor:
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
 ms.devlang: java
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2017
 ms.author: rapatchi
-ms.openlocfilehash: 229a2cd7c0bb355006349e80b12b0142de6b5cda
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
-ms.translationtype: HT
+ms.openlocfilehash: 7eac05c859440e868e1a207f0ba0d1bdf41e6e6b
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>Aktualizowanie starszych aplikacji Java usługi Service Fabric w celu pobierania bibliotek z narzędzia Maven
 Ostatnio przenieśliśmy biblioteki Java usługi Service Fabric z zestawu SDK Java usługi Service Fabric do hostingu Maven. Teraz możesz używać repozytorium **mavencentral** do pobierania najnowszych zależności Java usługi Service Fabric. Ten artykuł Szybki start pomaga zaktualizować istniejące aplikacje Java, wcześniej utworzone do użycia z zestawem SDK Java usługi Service Fabric (przy użyciu szablonu Yeoman lub środowiska Eclipse), aby były zgodne z kompilacją bazującą na narzędziu Maven.
@@ -472,7 +472,7 @@ task copyDeps<< {
 }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Create and deploy your first Service Fabric Java application on Linux using Yeoman](service-fabric-create-your-first-linux-application-with-java.md) (Tworzenie i wdrażanie pierwszej aplikacji Java usługi Service Fabric w systemie Linux przy użyciu programu Yeoman)
 * [Create and deploy your first Service Fabric Java application on Linux using Service Fabric Plugin for Eclipse](service-fabric-get-started-eclipse.md) (Tworzenie i wdrażanie pierwszej aplikacji Java usługi Service Fabric w systemie Linux przy użyciu wtyczki usługi Service Fabric dla środowiska Eclipse)

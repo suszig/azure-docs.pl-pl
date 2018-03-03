@@ -1,54 +1,81 @@
 ---
-title: Przywracanie serwera w bazie danych systemu Azure dla programu MySQL | Dokumentacja firmy Microsoft
+title: Przywracanie serwera w bazie danych systemu Azure dla programu MySQL
 description: "W tym artykule opisano sposób przywracania serwera w bazie danych Azure dla programu MySQL przy użyciu portalu Azure."
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 09/15/2017
-ms.openlocfilehash: 6c1c0f8a0c0e59661b70b787b551b8cfdb024cda
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.openlocfilehash: 5bef3f11d0b546fbd6b1161b20d7dfb81e975f99
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Jak wykonać kopię zapasową i przywrócić serwera w bazie danych Azure dla programu MySQL przy użyciu portalu Azure
+# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Jak wykonać kopię zapasową i przywrócić serwer w bazie danych Azure dla programu MySQL przy użyciu portalu Azure
 
 ## <a name="backup-happens-automatically"></a>Kopia zapasowa jest wykonywana automatycznie
-Korzystając z bazy danych platformy Azure dla programu MySQL, usługa bazy danych automatycznie sprawia, że usługa Kopia zapasowa co pięć minut. 
+Bazy danych platformy Azure dla programu MySQL są kopie zapasowe serwerów okresowo do włączania funkcji przywracania. Za pomocą tej funkcji można przywrócić serwer i wszystkie jego bazy danych do wcześniejszych w momencie, na nowym serwerze.
 
-Kopie zapasowe są dostępne przez 7 dni, korzystając z warstwy podstawowej i 35 dni po użyciu warstwy standardowa. Aby uzyskać więcej informacji, zobacz [bazą danych Azure dla warstwy usługi MySQL](concepts-service-tiers.md)
+## <a name="prerequisites"></a>Wymagania wstępne
+Aby ukończyć ten przewodnik, potrzebne są:
+- [Azure bazy danych MySQL serwera i bazy danych](quickstart-create-mysql-server-database-using-azure-portal.md)
 
-Tej funkcji automatycznego tworzenia kopii zapasowej można przywrócić serwer i wszystkie jej baz danych do nowego serwera do wcześniejszego punktu w stanu.
+## <a name="set-backup-configuration"></a>Zestaw kopii zapasowych konfiguracji
 
-## <a name="restore-in-the-azure-portal"></a>Przywracanie w portalu Azure
-Bazy danych platformy Azure dla programu MySQL umożliwia należy przywrócić działanie serwera do określonego punktu w czasie, a do z uprawnieniami do nowego serwera. Aby odzyskać dane, można użyć tego nowego serwera. 
+Należy wybrać opcję konfigurowania serwera na potrzeby kopii zapasowych lokalnie nadmiarowego lub geograficznie nadmiarowy kopii zapasowych na utworzenie serwera, w **warstwy cenowej** okna.
 
-Na przykład jeśli przypadkowo usunięto tabelę w południe dzisiaj, można przywrócić na czas bezpośrednio przed południe i pobieranie Brak tabeli i danych z nową kopię serwera.
+> [!NOTE]
+> Po utworzeniu serwera, rodzaj nadmiarowość, który ma ona geograficznie nadmiarowy vs magazyn lokalnie nadmiarowy, nie zostaną włączone.
+>
 
-Poniższe kroki przywrócić przykładowym serwerem do określonego punktu w czasie:
+Tworząc serwer za pośrednictwem portalu Azure **warstwy cenowej** okno jest, gdzie albo wybierz **magazyn lokalnie nadmiarowy** lub **geograficznie nadmiarowy** kopie zapasowe serwer. To okno jest również, którym można wybrać **okres przechowywania kopii zapasowej** — czas (w dniach) mają być przechowywane dla kopii zapasowych serwera.
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com/)
+   ![Cenowym — wybierz nadmiarowość kopii zapasowej](./media/howto-restore-server-portal/pricing-tier.png)
 
-2. Zlokalizuj bazy danych Azure, aby serwer MySQL. W okienku po lewej stronie wybierz **wszystkie zasoby**, a następnie wybierz serwer z listy.
+Aby uzyskać więcej informacji na temat ustawiania tych wartości podczas tworzenia, zobacz [bazy danych serwera MySQL — Szybki Start Azure](quickstart-create-mysql-server-database-using-azure-portal.md).
 
-3.  W górnej części bloku Omówienie serwera, kliknij przycisk **przywrócić** na pasku narzędzi. Zostanie otwarty blok przywracania.
-![Kliknij przycisk przywracania](./media/howto-restore-server-portal/click-restore-button.png)
+Okres przechowywania kopii zapasowych można zmienić na serwerze przez następujące kroki:
+1. Zaloguj się do [Azure Portal](https://portal.azure.com/).
+2. Wybierz bazy danych Azure, aby serwer MySQL. Ta akcja powoduje otwarcie **omówienie** strony.
+3. Wybierz **warstwy cenowej** z menu, w obszarze **ustawienia**. Za pomocą suwaka można zmienić **okres przechowywania kopii zapasowej** do swoich preferencji od 7 do 35 dni.
+Na poniższym zrzucie ekranu ma została zwiększona do 34 dni.
+![Zwiększona okres przechowywania kopii zapasowych](./media/howto-restore-server-portal/3-increase-backup-days.png)
 
-4. Wypełnij formularz przywracania wymagane informacje:
+4. Kliknij przycisk **OK** aby potwierdzić zmianę.
 
-- **(UTC) punkt przywracania**: za pomocą selektora daty i czasu selektora, wybierz punkt w czasie, aby przywrócić. Określona godzina jest w formacie UTC, więc prawdopodobnie trzeba przekonwertować czasu lokalnego w formacie UTC.
-- **Przywracanie do nowego serwera**: Podaj nową nazwę serwera do istniejącego serwera do przywrócenia.
-- **Lokalizacja**: wybór obszaru automatycznie wypełnia obszaru serwera źródłowego i nie można zmienić.
-- **Warstwa cenowa**: wybór warstwy cenowej automatycznie wypełni z tej samej warstwie cenowej co serwer źródłowy i nie można zmienić w tym miejscu. 
-![Przywracanie PITR](./media/howto-restore-server-portal/pitr-restore.png)
+Okres przechowywania kopii zapasowych decyduje, jak daleko w czasie, które mogą być pobierane w momencie przywracania, ponieważ jest on oparty na kopie zapasowe dostępne. W momencie przywracania jest dalsze opisane w poniższej sekcji. 
 
-5. Kliknij przycisk **OK** Aby przywrócić serwer do określonego punktu w czasie. 
+## <a name="point-in-time-restore-in-the-azure-portal"></a>W momencie przywracania w portalu Azure
+Bazy danych platformy Azure dla programu MySQL umożliwia przywrócenie serwera do punktu w czasie, a do z uprawnieniami do nowego serwera. Użyj tego nowego serwera, aby odzyskać dane lub ma punkt do nowego serwera aplikacji klienta.
 
-6. Po zakończeniu przywracania, zlokalizuj nowy serwer, który został utworzony, a następnie sprawdź, czy baz danych zostały przywrócone zgodnie z oczekiwaniami.
+Na przykład jeśli przypadkowo tabeli w południe dzisiaj, można przywrócenie na czas bezpośrednio przed południe i pobieranie Brak tabeli i danych z tej kopii nowego serwera. W momencie przywracania na serwerze poziomu, nie jest na poziomie bazy danych.
 
-## <a name="next-steps"></a>Następne kroki
-- [Biblioteki połączeń dla bazy danych Azure dla programu MySQL](concepts-connection-libraries.md).
+Poniższe kroki należy przywrócić działanie serwera próbki do punktu w czasie:
+1. W portalu Azure wybierz bazy danych Azure, aby serwer MySQL. 
+
+2. Na pasku narzędzi serwera **omówienie** wybierz pozycję **przywrócić**.
+
+   ![Bazy danych platformy Azure dla przycisku MySQL — Przegląd — przywracania](./media/howto-restore-server-portal/2-server.png)
+
+3. Wypełnij formularz przywracania wymagane informacje:
+
+   ![Bazy danych platformy Azure dla programu MySQL - informacji dotyczące przywracania ](./media/howto-restore-server-portal/3-restore.png)
+  - **Punkt przywracania**: Wybierz w momencie mają zostać przywrócone.
+  - **Serwer docelowy**: Podaj nazwę dla nowego serwera.
+  - **Lokalizacja**: nie można wybrać region. Domyślnie jest taki sam jak serwer źródłowy.
+  - **Warstwa cenowa**: nie można zmienić tych parametrów, podczas przywracania punktu w czasie wykonywania. Jest taka sama jak w przypadku serwera źródłowego. 
+
+4. Kliknij przycisk **OK** do przywrócenia serwera, aby wykonać przywracanie do punktu w czasie. 
+
+5. Po zakończeniu przywracania, zlokalizuj nowy serwer, który jest tworzony w celu sprawdzenia, czy dane została przywrócona, zgodnie z oczekiwaniami.
+
+>[!Note]
+>Należy pamiętać, nowy serwer powstały w momencie przywracania ma taką samą nazwę logowania administratora serwera i wybierz hasło, które jest prawidłowa dla istniejącego serwera w punkcie czasu. Należy zmienić hasło z nowego serwera **omówienie** strony.
+
+## <a name="next-steps"></a>Kolejne kroki
+- Dowiedz się więcej o usłudze [kopii zapasowych](concepts-backup.md).
+- Dowiedz się więcej o [ciągłość prowadzenia działalności biznesowej](concepts-business-continuity.md) opcje.

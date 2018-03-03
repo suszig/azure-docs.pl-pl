@@ -1,5 +1,5 @@
 ---
-title: "Multimediów strumieniowych optymalizacji za pośrednictwem usługi Azure Content Delivery Network"
+title: "Multimediów strumieniowych optymalizacji za pośrednictwem usługi Azure CDN"
 description: "Optymalizacja strumieniowego przesyłania plików multimedialnych w celu dostarczania smooth"
 services: cdn
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
-ms.openlocfilehash: 02cd0fe30a2a14f42a16ed12f714d496bbb23b36
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c42f54a99a85377ebe4df6959237f906d37591b
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="media-streaming-optimization-via-the-azure-content-delivery-network"></a>Multimediów strumieniowych optymalizacji za pośrednictwem usługi Azure Content Delivery Network 
+# <a name="media-streaming-optimization-via-azure-cdn"></a>Multimediów strumieniowych optymalizacji za pośrednictwem usługi Azure CDN 
  
 Użyj wideo wysokiej rozdzielczości zwiększa się w Internecie, co powoduje trudności dla dostarczania dużych plików. Klienci oczekują smooth odtwarzania wideo na żądanie lub live wideo zasobów na różnych klientów i sieci na całym świecie. Mechanizm dostarczania szybkich i wydajnych multimediów strumieniowych plików jest krytyczne zapewnienie obsługi płynne i jest przyjemne konsumenta.  
 
@@ -60,10 +60,10 @@ Jeśli Azure Content Delivery Network zainstalowane from Akamai wykryje, że zas
 Krótki czas buforowania ujemna jest przydatna do odciążania źródła, gdy wielu użytkowników żądają fragmentu, która jeszcze nie istnieje. Przykładem jest strumień na żywo, gdy pakiety nie są dostępne ze źródła tego drugiego. Interwał buforowania już pomaga również w odciążania żądań ze źródła, ponieważ zawartość wideo zwykle nie jest zmodyfikowany.
  
 
-|   | Dostarczanie ogólne sieci web | Ogólne przesyłania strumieniowego multimediów | Przesyłanie strumieniowe multimediów wideo na żądanie  
+|   | Ogólne dostarczanie w sieci Web | Ogólne transmisje strumieniowe multimediów | Przesyłanie strumieniowe multimediów wideo na żądanie  
 --- | --- | --- | ---
 Buforowanie: dodatnią <br> HTTP 200, 203, 300, <br> 301, 302 i 410 | 7 dni |365 dni | 365 dni   
-Buforowanie: ujemna <br> HTTP 204, 305, 404, <br> i 405 | Brak | 1 sekunda | 1 sekunda
+Buforowanie: ujemna <br> HTTP 204, 305, 404, <br> i 405 | None | 1 sekunda | 1 sekunda
  
 ### <a name="deal-with-origin-failure"></a>Postępowania w przypadku niepowodzenia źródła  
 
@@ -81,7 +81,7 @@ Obsługiwane typy przesyłania strumieniowego | Rozszerzenia plików
 --- | ---  
 Apple HLS | m3u8, m3u, m3ub, klucza usług terminalowych, aac
 Adobe obr. / min | f4m, f4x, drmmeta, bootstrap, f4f,<br>Adres URL seg Frag — struktura <br> (dopasowanie wyrażenia regularnego: ^(/.*)Seq(\d+)-Frag(\d+)
-KRESKA | mpd, kreska, divx, ismv, m4s, m4v, mp4, mp4v, <br> sidx, webm, mp4a, m4a, isma
+DASH | mpd, kreska, divx, ismv, m4s, m4v, mp4, mp4v, <br> sidx, webm, mp4a, m4a, isma
 Funkcji Smooth streaming | / manifest/fragmenty/QualityLevels / /
   
 

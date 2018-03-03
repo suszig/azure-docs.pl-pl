@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 1/4/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fa9b11e754ab86f0e4c88923d4b895aa5dd0e271
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: a8869d8a8eead8bdaeda5dc1d6eeb2f81b16928e
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure rozwiązania Cosmos DB Node.js SDK dla interfejsu API SQL: informacje o wersji i zasoby
 > [!div class="op_single_selector"]
@@ -27,6 +27,7 @@ ms.lasthandoff: 01/05/2018
 > * [Źródła danych zmian .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
+> * [Asynchroniczne Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/documentdb/)
@@ -54,7 +55,7 @@ ms.lasthandoff: 01/05/2018
 <tr><td>**Samouczek aplikacji sieci Web**</td><td>[Tworzenie aplikacji sieci web Node.js za pomocą bazy danych Azure rozwiązania Cosmos](sql-api-nodejs-application.md)</td></tr>
 
 <tr><td>**Bieżący obsługiwanych platform**</td><td> 
-[6.x node.js](https://nodejs.org/en/blog/release/v6.10.3/)<br/> 
+[Node.js v6.x](https://nodejs.org/en/blog/release/v6.10.3/)<br/> 
 [Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)<br/> 
 [Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/> 
 [Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/) 

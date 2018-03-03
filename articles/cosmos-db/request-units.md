@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
+ms.date: 02/28/2018
 ms.author: mimig
-ms.openlocfilehash: b63c778f02b88bea4d68206f441aef7b32172c24
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: d263c4f5ad14f6692a7c8f6e66429b439a52a84a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Żądanie jednostki w Azure rozwiązania Cosmos bazy danych
 Teraz dostępne: Azure DB rozwiązania Cosmos [Kalkulator jednostki żądania](https://www.documentdb.com/capacityplanner). Dowiedz się więcej w [Szacowanie przepustowość sieci musi](request-units.md#estimating-throughput-needs).
@@ -55,7 +55,7 @@ Zalecamy rozpoczęcie pracy od obejrzenia poniższego klipu wideo, w którym Ara
 ## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>Określanie pojemność jednostki żądania w usłudze Azure DB rozwiązania Cosmos
 Przy uruchamianiu nową kolekcję, tabeli lub wykres, określ liczbę jednostek żądań na sekundę (RU na sekundę) mają zastrzeżone. Na podstawie udostępnionej przepływności, bazy danych rozwiązania Cosmos Azure przydziela fizycznej partycji do obsługi kolekcji i podziałów/rebalances danych na partycji jako ich przyrostu.
 
-Kontenery DB rozwiązania Cosmos Azure można utworzyć ustalonej lub nieograniczone. Kontenery o stałym rozmiarze mieć maksymalnie 10 GB i 10 000 RU/s przepustowości. Aby utworzyć kontener nieograniczone należy określić minimalnej przepustowości 1 000 RU/s i [klucza partycji](partition-data.md). Ponieważ danych może być konieczne można podzielić na wiele partycji, jest konieczne pobranie klucz partycji, który ma dużej kardynalności (od 100 do milionów unikatowe wartości). Wybierając klucza partycji z wielu różnych wartości upewnieniu się, że żądania i kolekcji/tabeli/graph mogą być skalowane jednolicie Azure DB rozwiązania Cosmos. 
+Kontenery DB rozwiązania Cosmos Azure można utworzyć ustalonej lub nieograniczone. Kontenery o stałym rozmiarze są ograniczone do 10 GB, a ich maksymalna przepływność wynosi 10 000 jednostek żądań na sekundę. Aby utworzyć kontener nieograniczone należy określić minimalnej przepustowości 1 000 RU/s i [klucza partycji](partition-data.md). Ponieważ danych może być konieczne można podzielić na wiele partycji, jest konieczne pobranie klucz partycji, który ma dużej kardynalności (od 100 do milionów unikatowe wartości). Wybierając klucza partycji z wielu różnych wartości upewnieniu się, że żądania i kolekcji/tabeli/graph mogą być skalowane jednolicie Azure DB rozwiązania Cosmos. 
 
 > [!NOTE]
 > Klucz partycji to logiczne granic, a nie jeden fizyczny. W związku z tym nie należy ograniczyć liczbę wartości klucza partycji distinct. W rzeczywistości jest lepiej użyć więcej różne wartości klucza partycji niż mniej, jako bazy danych rozwiązania Cosmos Azure ma więcej opcje równoważenia obciążenia.
@@ -92,6 +92,10 @@ await client.ReplaceOfferAsync(offer);
 ```
 
 Jeśli zmienisz przepływność jest bez zakłócania dostępności z kontenera. Zazwyczaj nowe zarezerwowaną przepływnością obowiązuje w ciągu kilku sekund na stosowanie nowych przepływności.
+
+## <a name="throughput-isolation-in-globally-distributed-databases"></a>Izolacja przepływności w rozproszonych globalnie baz danych
+
+W przypadku bazy danych zostały zreplikowane do więcej niż jeden region, bazy danych Azure rozwiązania Cosmos zapewnia izolację przepływności, aby upewnić się, że użycie RU w jednym regionie nie ma wpływu na RU użycia w innym regionie. Na przykład jeśli zapisu danych do jednego regionu i odczytywanie danych z innego regionu, RUs, używany do wykonywania operacji zapisu w regionie, A nie przyjmują przeciwną RUs używane dla operacji odczytu w regionie, w którym B. RUs nie są dzielone w regionach, w których została wdrożona. Każdego regionu, w której są replikowane bazy danych ma pełne ilość RUs udostępnione. Aby uzyskać więcej informacji na temat globalnej replikacji, zobacz [sposobu dystrybucji danych globalnie z bazy danych Azure rozwiązania Cosmos](distribute-data-globally.md).
 
 ## <a name="request-unit-considerations"></a>Zagadnienia dotyczące jednostki żądania
 Szacowanie liczby jednostek żądania do zarezerwowania dla Twojej bazy danych Azure rozwiązania Cosmos kontenera, należy wziąć pod uwagę następujące zmienne:
@@ -209,7 +213,7 @@ Na przykład:
 6. Oblicz jednostki żądania wymagane podane szacowaną liczbę operacji, które planujesz do uruchomienia w ciągu sekundy.
 
 ## <a id="GetLastRequestStatistics"></a>Za pomocą interfejsu API dla bazy danych MongoDB w GetLastRequestStatistics polecenia
-Interfejs API bazy danych mongodb obsługuje polecenia niestandardowych, *getLastRequestStatistics*, pobierania opłat żądania dla określonej operacji.
+Interfejs API bazy danych MongoDB obsługuje polecenia niestandardowych, *getLastRequestStatistics*, pobierania opłat żądania dla określonej operacji.
 
 Na przykład w powłokę Mongo, należy wykonać chcesz zweryfikować opłata żądania dla operacji.
 ```
@@ -235,10 +239,10 @@ Pamiętając o tym jednej metody w oszacowania zarezerwowaną przepływnością 
 > 
 > 
 
-## <a name="use-api-for-mongodbs-portal-metrics"></a>Za pomocą interfejsu API dla bazy danych MongoDB w portalu metryki
-Najprostszym sposobem, aby uzyskać dobrą szacowania żądania opłat jednostki do interfejsu API jest korzystanie z bazy danych MongoDB [portalu Azure](https://portal.azure.com) metryki. Z *liczba żądań* i *opłat żądania* wykresy, możesz uzyskać oszacowanie liczbę jednostek żądania, każdy zajmuje operacji i liczbę jednostek żądania zużywają względem siebie.
+## <a name="use-mongodb-api-portal-metrics"></a>Użyj portalu metryki interfejsu API bazy danych MongoDB
+Najprostszym sposobem, aby uzyskać dobrą szacowania żądania opłat jednostki bazy danych MongoDB interfejsu API jest użycie [portalu Azure](https://portal.azure.com) metryki. Z *liczba żądań* i *opłat żądania* wykresy, możesz uzyskać oszacowanie liczbę jednostek żądania, każdy zajmuje operacji i liczbę jednostek żądania zużywają względem siebie.
 
-![Interfejs API dla metryki portalu bazy danych MongoDB][6]
+![Metryki portalu API bazy danych MongoDB][6]
 
 ## <a name="a-request-unit-estimation-example"></a>W przykładzie szacowania jednostki żądania
 Należy wziąć pod uwagę następujące dokumentu ~ 1 KB:
@@ -343,8 +347,8 @@ Jeśli używasz zestawu SDK klienta usługi .NET i LINQ zapytania, a następnie 
 
 Jeśli masz więcej niż jednego klienta zbiorczo operacyjnego powyżej liczby żądań domyślne zachowanie ponownych prób nie mogą być niewystarczające, a klient zgłosi DocumentClientException z kodem stanu 429 do aplikacji. W przypadkach, takich jak ta można rozważyć Obsługa zachowanie ponownych prób i logikę w aplikacji Błąd procedury obsługi lub zwiększenie zarezerwowaną przepływnością kontenera.
 
-## <a id="RequestRateTooLargeAPIforMongoDB"></a> Przekraczanie limitów zarezerwowaną przepływnością w interfejsie API, bazy danych mongodb
-Aplikacje, które przekraczają żądania elastycznie jednostki dla kolekcji będzie ograniczony, dopóki częstotliwość spadnie poniżej poziomu zastrzeżone. W przypadku przepustnicy wewnętrznej bazy danych preemptively zakończy się żądanie z *16500* kod błędu: - *zbyt wiele żądań*. Domyślnie interfejsu API dla bazy danych MongoDB automatycznie ponowi próbę maksymalnie 10 razy przed zwróceniem *zbyt wiele żądań* kod błędu. W przypadku otrzymania wiele *zbyt wiele żądań* kody błędów, można rozważyć albo dodanie zachowanie ponownych prób w aplikacji Błąd procedury obsługi lub [zwiększenie zarezerwowaną przepływnością dla kolekcji](set-throughput.md).
+## <a id="RequestRateTooLargeAPIforMongoDB"></a> Przekraczanie limitów zarezerwowaną przepływnością w interfejsie API bazy danych MongoDB
+Aplikacje, które przekraczają żądania elastycznie jednostki dla kolekcji będzie ograniczony, dopóki częstotliwość spadnie poniżej poziomu zastrzeżone. W przypadku przepustnicy wewnętrznej bazy danych preemptively zakończy się żądanie z *16500* kod błędu: - *zbyt wiele żądań*. Domyślnie interfejsu API bazy danych MongoDB ma automatycznie ponawiać próbę maksymalnie 10 razy przed zwróceniem *zbyt wiele żądań* kod błędu. W przypadku otrzymania wiele *zbyt wiele żądań* kody błędów, można rozważyć albo dodanie zachowanie ponownych prób w aplikacji Błąd procedury obsługi lub [zwiększenie zarezerwowaną przepływnością dla kolekcji](set-throughput.md).
 
 ## <a name="next-steps"></a>Kolejne kroki
 Aby dowiedzieć się więcej na temat zarezerwowaną przepływnością z bazami danych bazy danych Azure rozwiązania Cosmos, zapoznaj się z tymi zasobami:

@@ -3,7 +3,7 @@ title: "Przetwarzania dużych zestawów danych przy użyciu fabryki danych i par
 description: "Zawiera opis sposobu przetwarzania dużych ilości danych w potoku fabryki danych Azure przy użyciu równoległego przetwarzania możliwości partii zadań Azure."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: sharonlo101
 manager: jhubbard
 editor: monicar
 ms.assetid: 688b964b-51d0-4faa-91a7-26c7e3150868
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
+ms.author: shlo
 robots: noindex
-ms.openlocfilehash: af2c12cac5846ae1c4bc693bacaf72ab327fb87f
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 3b886babe07a0bd1fa725286b5471055fc626dc1
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Proces dużych zestawów danych przy użyciu fabryki danych i usługi partia zadań
 > [!NOTE]
-> Ten artykuł dotyczy wersji 1 usługi fabryka danych Azure, która jest ogólnie dostępna. Jeśli używasz wersji 2 usługi fabryka danych, która jest w wersji zapoznawczej, zobacz [działań niestandardowych z fabryki danych w wersji 2](../transform-data-using-dotnet-custom-activity.md).
+> Ten artykuł dotyczy wersji 1 usługi Azure Data Factory, która jest ogólnie dostępna. Jeśli używasz wersji 2 usługi fabryka danych, która jest w wersji zapoznawczej, zobacz [działań niestandardowych z fabryki danych w wersji 2](../transform-data-using-dotnet-custom-activity.md).
 
 W tym artykule opisano architekturę rozwiązania próbki, które przenosi i przetwarzania dużych zestawów danych w sposób automatycznego i zaplanowane. Umożliwia także wskazówki end-to-end, aby zaimplementować to rozwiązanie przy użyciu fabryki danych i partii zadań Azure.
 
@@ -113,7 +113,7 @@ Tworzenie puli partii z co najmniej dwóch węzłów obliczeniowych.
 
    b. Określ **systemu Windows Server 2012 R2** dla **rodziny systemów operacyjnych** ustawienie.
 
-   d. Wybierz **warstwę cenową węzła**.
+   c. Wybierz **warstwę cenową węzła**.
 
    d. Wprowadź **2** jako wartość **docelowego w wersji dedykowanej** ustawienie.
 
@@ -130,7 +130,7 @@ Możesz użyć [6 Eksploratora magazynu Azure](https://azurestorageexplorer.code
 
    ![Struktura folderów i podfolderów](./media/data-factory-data-processing-using-batch/image3.png)
 
-   `Inputfolder`i `outputfolder` są folderów najwyższego poziomu w `mycontainer`. `inputfolder` Folder zawiera podfoldery z sygnaturami daty i godziny (RRRR-MM-DD-HH).
+   `Inputfolder` i `outputfolder` są folderów najwyższego poziomu w `mycontainer`. `inputfolder` Folder zawiera podfoldery z sygnaturami daty i godziny (RRRR-MM-DD-HH).
 
    Użycie Eksploratora usługi Storage, w następnym kroku, możesz przekazać pliki z następującymi nazwami: `inputfolder/2015-11-16-00/file.txt`, `inputfolder/2015-11-16-01/file.txt`i tak dalej. Ten krok automatycznie tworzy foldery.
 
@@ -182,7 +182,7 @@ Metoda ma kilka kluczowych składników, które należy zrozumieć:
 
    b. Wybierz kolejno pozycje **Plik** > **Nowy** > **Projekt**.
 
-   d. Rozwiń węzeł **szablony**i wybierz **Visual C\#**. W tym przewodniku, należy użyć serwera C\#, ale żadnego języka .NET umożliwia tworzenie działań niestandardowych.
+   c. Rozwiń węzeł **szablony**i wybierz **Visual C\#**. W tym przewodniku, należy użyć serwera C\#, ale żadnego języka .NET umożliwia tworzenie działań niestandardowych.
 
    d. Wybierz **biblioteki klas** z listy typów projektów po prawej stronie.
 
@@ -530,7 +530,7 @@ Poniższe wskazówki zawiera dodatkowe szczegóły.
 
    b. Wybierz **dane i analiza** na **nowy** bloku.
 
-   d. Wybierz **fabryki danych** na **analizy danych** bloku.
+   c. Wybierz **fabryki danych** na **analizy danych** bloku.
 
 2. Na **nowa fabryka danych** bloku, wprowadź **CustomActivityFactory** dla nazwy. Nazwa fabryki danych musi być globalnie unikatowa. Jeśli wystąpi błąd "Nazwa fabryki danych CustomActivityFactory nie jest dostępna", należy zmienić nazwy fabryki danych. Na przykład użyć yournameCustomActivityFactory i ponownie utworzyć fabryki danych.
 
@@ -556,9 +556,9 @@ Połączone usługi łączenie magazyny danych lub obliczeniowe usług z fabryk�
 
    ![Nowy magazyn danych](./media/data-factory-data-processing-using-batch/image7.png)
 
-3. Zastąp **nazwa konta** z nazwą konta magazynu. Zastąp **klucz konta** z kluczem dostępu konta magazynu. Aby dowiedzieć się, jak uzyskać klucz dostępu do magazynu, zobacz [wyświetlanie, kopiowanie i regenerate magazynu, klucze dostępu](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+3. Zastąp **nazwę konta** nazwą konta magazynu. Zastąp **klucz konta** kluczem dostępu do konta magazynu. Aby dowiedzieć się, jak uzyskać klucz dostępu do magazynu, zobacz [wyświetlanie, kopiowanie i regenerate magazynu, klucze dostępu](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
 
-4. Wybierz **Wdróż** na pasku poleceń, aby wdrożyć połączonej usługi.
+4. Wybierz przycisk **Wdróż** na pasku poleceń, aby wdrożyć połączoną usługę.
 
    ![Wdrażanie](./media/data-factory-data-processing-using-batch/image8.png)
 
@@ -573,7 +573,7 @@ W tym kroku utworzysz połączonej usługi dla konta partii zadań, które jest 
 
    b. Zastąp **klucz dostępu** z kluczem dostępu do konta usługi partia zadań.
 
-   d. Wprowadź identyfikator puli dla **poolName** właściwości. Dla tej właściwości można określić nazwę puli lub identyfikator puli.
+   c. Wprowadź identyfikator puli dla **poolName** właściwości. Dla tej właściwości można określić nazwę puli lub identyfikator puli.
 
    d. Wprowadź identyfikator URI usługi partia zadań dla **batchUri** właściwości JSON.
 
@@ -593,12 +593,12 @@ W tym kroku utworzysz połączonej usługi dla konta partii zadań, które jest 
    
    e. Określ **StorageLinkedService** dla **linkedServiceName** właściwości. Tej połączonej usługi jest utworzony w poprzednim kroku. Ten magazyn jest używany jako obszaru przemieszczania dla plików i dzienników.
 
-3. Wybierz **Wdróż** na pasku poleceń, aby wdrożyć połączonej usługi.
+3. Wybierz przycisk **Wdróż** na pasku poleceń, aby wdrożyć połączoną usługę.
 
 #### <a name="step-3-create-datasets"></a>Krok 3: Tworzenie zestawów danych
 W tym kroku możesz utworzyć zestawy danych do reprezentowania danych wejściowych i wyjściowych.
 
-#### <a name="create-the-input-dataset"></a>Tworzenie zestawu danych wejściowych
+#### <a name="create-the-input-dataset"></a>Tworzenie wejściowego zestawu danych
 1. W edytorze fabryki danych, wybierz **nowy zestaw danych** przycisk na pasku narzędzi. Wybierz **magazynu obiektów Blob Azure** z listy rozwijanej.
 
 2. Zastąp skryptu JSON, w okienku po prawej stronie następujący fragment kodu JSON:
@@ -685,7 +685,7 @@ W tym kroku możesz utworzyć zestawy danych do reprezentowania danych wejściow
 
 3. Wybierz **Wdróż** na pasku narzędzi, aby utworzyć i wdrożyć **InputDataset** tabeli.
 
-#### <a name="create-the-output-dataset"></a>Tworzenie zestawu danych wyjściowych
+#### <a name="create-the-output-dataset"></a>Tworzenie wyjściowego zestawu danych
 W tym kroku utworzysz innego elementu dataset typu AzureBlob do reprezentowania danych wyjściowych.
 
 1. W edytorze fabryki danych, wybierz **nowy zestaw danych** przycisk na pasku narzędzi. Wybierz **magazynu obiektów Blob Azure** z listy rozwijanej.
@@ -803,7 +803,7 @@ W tym kroku możesz utworzyć potok z jednego działania, niestandardowego dzia�
     - **IsPaused** właściwość jest domyślnie ustawiona na wartość false. Potok uruchamia natychmiast w tym przykładzie, ponieważ wycinków rozpoczęcia w przeszłości. Tę właściwość można ustawić, **true** wstrzymania potoku i ustaw ją z powrotem do **false** ponowne uruchomienie.
     -   **Start** i **zakończenia** czasy są od siebie pięć godzin. Wycinki są tworzone co godzinę, więc pięć wycinków są produkowane przez potok.
 
-3. Wybierz **Wdróż** na pasku poleceń, aby wdrożyć potoku.
+3. Wybierz przycisk **Wdróż** na pasku poleceń, aby wdrożyć potok.
 
 #### <a name="step-5-test-the-pipeline"></a>Krok 5: Testowanie potoku
 W tym kroku należy przetestować potoku upuszczanie plików w folderach wejściowego. Rozpocznij od testowania potoku za pomocą jednego pliku dla każdego folderu wejściowego.

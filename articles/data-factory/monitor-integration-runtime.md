@@ -3,21 +3,21 @@ title: "Monitorowanie środowiska uruchomieniowego integracji w fabryce danych A
 description: "Dowiedz się, jak monitorować różne typy środowiska uruchomieniowego integracji w fabryce danych Azure."
 services: data-factory
 documentationcenter: 
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: douglaslMS
+manager: 
+editor: 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2017
-ms.author: spelluru
-ms.openlocfilehash: b243115eef7e59279fbb1df2a3e3c288477a5b8c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: douglasl
+ms.openlocfilehash: 74a4ad6438f9e66331f76e87d20d1eb8b29e8451
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitor środowiska uruchomieniowego integracji w fabryce danych Azure  
 **Integracja środowiska uruchomieniowego** jest używany przez fabryki danych Azure zapewnienie różne funkcje integracji danych w różnych środowiskach sieci infrastruktury obliczeniowej. Istnieją trzy typy środowisk uruchomieniowych integracji oferowane przez fabrykę danych:
@@ -193,7 +193,7 @@ Przykładowe dane wyjściowe (przy założeniu, że istnieją dwa węzły skojar
 | Uruchamianie | Węzły sieci środowiska uruchomieniowego integracji usług SSIS Azure są przydzielone przygotowane i rozliczeń została uruchomiona. |
 | Uruchomiono | Węzły sieci środowiska uruchomieniowego integracji usług SSIS Azure zostały przydzielone przygotowane i są gotowe do wdrożenia/wykonywania pakiety usług SSIS. |
 | Zatrzymywanie  | Zwalnianie węzły Twojego środowiska uruchomieniowego integracji usług SSIS Azure. |
-| Zatrzymane | Węzły Twojego środowiska uruchomieniowego integracji usług SSIS Azure zostały zwolnione i rozliczeń została zatrzymana. |
+| Zatrzymano | Węzły Twojego środowiska uruchomieniowego integracji usług SSIS Azure zostały zwolnione i rozliczeń została zatrzymana. |
 
 Zobacz następujące artykuły, aby dowiedzieć się więcej na temat środowiska uruchomieniowego integracji usług SSIS Azure:
 

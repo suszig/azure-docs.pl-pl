@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: 4032b0f2f72d6c45b9f2233ac0c315bc0db60ed8
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 0f934cc572409462ca1a35ff3cce49be2f82a9bd
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-azure-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Użyj usługi Azure Media Services do dostarczania licencji DRM lub kluczy AES
 Usługa Azure Media Services umożliwia pozyskiwania, kodowania, Dodaj ochrony zawartości i strumienia zawartości. Aby uzyskać więcej informacji, zobacz [Użyj PlayReady i Widevine dynamicznego szyfrowania common encryption](media-services-protect-with-playready-widevine.md). Niektórzy klienci chcą używać usługi Media Services tylko w celu dostarczania licencji i/lub kluczy i kodowania, szyfrowania i przesyłania strumieniowego przy użyciu ich lokalnych serwerów. W tym artykule opisano, jak można użyć usługi Media Services do dostarczania licencji PlayReady i Widevine, ale wykonaj pozostałe z serwerów lokalnych. 
@@ -26,7 +26,7 @@ Usługa Azure Media Services umożliwia pozyskiwania, kodowania, Dodaj ochrony z
 ## <a name="overview"></a>Przegląd
 Usługa Media Services udostępnia usługę dostarczania licencji zarządzania (prawami cyfrowymi DRM) prawami cyfrowymi PlayReady i Widevine i kluczy AES-128. Media Services dostarcza również interfejsy API, które umożliwiają skonfigurowanie uprawnień i ograniczeń, które chcesz środowiska uruchomieniowego DRM wymusić, gdy użytkownik odtwarza zawartości chronionej DRM. Gdy użytkownik zażąda zawartości chronionej, aplikacja odtwarzacza zażąda licencji od usługi licencji Media Services. Jeśli licencja jest autoryzowany, Media Services licencji problemów dotyczących usługi licencję dla odtwarzacza. Licencje PlayReady i Widevine zawiera klucz odszyfrowujący, który może być używany przez odtwarzacz klienta do odszyfrowania i strumieniowego przesyłania zawartości.
 
-Usługa Media Services obsługuje wiele sposobów autoryzacji użytkowników, którzy tworzą licencji lub klucza żądań. Możesz skonfigurować zasady autoryzacji klucza zawartości. Zasady mogą mieć jeden lub więcej ograniczeń. Dostępne opcje to ograniczenie otwarte lub tokenu. Zasady ograniczonej tokenu musi towarzyszyć token wystawiony przez usługę tokenu zabezpieczającego (STS). Usługa Media Services obsługuje tokenów format tokenu Web JSON (JWT) i format simple web token (SWT).
+Usługa Media Services obsługuje wiele sposobów autoryzacji użytkowników, którzy tworzą licencji lub klucza żądań. Możesz skonfigurować zasady autoryzacji klucza zawartości. Zasady mogą mieć jeden lub więcej ograniczeń. Dostępne opcje to ograniczenie otwarte lub tokenu. Zasadom ograniczenia tokenu musi towarzyszyć token wystawiony przez usługę tokenu zabezpieczającego (STS). Usługa Media Services obsługuje tokenów format tokenu Web JSON (JWT) i format simple web token (SWT).
 
 Na poniższym diagramie przedstawiono główne kroki, które należy wykonać na potrzeby usługi Media Services dostarczania licencji PlayReady i Widevine, ale mają rest z serwerami lokalnymi:
 
@@ -37,18 +37,18 @@ Aby pobrać przykładowy opisane w tym artykule, zobacz [użycia usługi Azure M
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Tworzenie i konfigurowanie projektu programu Visual Studio
 
-1. Konfigurowanie środowiska projektowego i wypełnić plik app.config o informacje dotyczące połączenia, zgodnie z opisem w [tworzenia usługi Media Services z platformą .NET](media-services-dotnet-how-to-use.md).
+1. Skonfiguruj środowisko projektowe i umieść w pliku app.config informacje dotyczące połączenia, zgodnie z opisem w sekcji [Projektowanie usługi Media Services na platformie .NET](media-services-dotnet-how-to-use.md).
 
 2. Dodaj następujące elementy do węzła **appSettings** zdefiniowanego w pliku app.config:
 
-    Dodaj klucz = wartość "Wystawcy" = "http://testacs.com" /
+    add key="Issuer" value="http://testacs.com"/
     
-    Dodaj klucz = wartość "Audience" = "urn: test" /
+    add key="Audience" value="urn:test"/
 
 ## <a name="net-code-example"></a>Przykład kodu platformy .NET
 Poniższy przykładowy kod przedstawia sposób tworzenia wspólny klucz zawartości i uzyskiwanie adresów URL pozyskiwania licencji PlayReady lub Widevine. Do skonfigurowania serwera lokalnego, potrzebny jest klucz zawartości klucz identyfikator i adres URL pozyskiwania licencji. Po skonfigurowaniu serwera lokalnego można przesłać strumieniowo z serwera przesyłania strumieniowego. Ponieważ punktów zaszyfrowanych strumienia do usługi Media Services licencji serwera, odtwarzacza żąda licencji z usługi Media Services. Jeśli wybierzesz token uwierzytelniania serwera licencji Media Services weryfikuje token, który wysyłane za pośrednictwem protokołu HTTPS. Jeśli token jest prawidłowy, serwer licencji zapewnia licencji do odtwarzacza. Poniższy przykładowy kod przedstawia tylko tworzenie wspólny klucz zawartości i uzyskiwanie adresów URL pozyskiwania licencji PlayReady lub Widevine. Do dostarczania kluczy AES-128, należy utworzyć klucz zawartości koperty i uzyskać adres URL pozyskiwania kluczy. Aby uzyskać więcej informacji, zobacz [dynamicznego szyfrowania AES-128 użycia i usługi dostarczania klucza](media-services-protect-with-aes128.md).
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Configuration;

@@ -3,7 +3,7 @@ title: "Elementy współpracy B2B zaproszenie — Azure Active Directory | Dokum
 description: "Azure Active Directory B2B współpracy zaproszenia szablon wiadomości e-mail"
 services: active-directory
 documentationcenter: 
-author: sasubram
+author: twooley
 manager: mtillman
 editor: 
 tags: 
@@ -12,12 +12,13 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.date: 05/23/2017
-ms.author: sasubram
-ms.openlocfilehash: d3529397762cdb814e939b53d8c789add4955149
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: twooley
+ms.reviewer: sasubram
+ms.openlocfilehash: 0d26fc4758b2defc3f1b8b5643daafdac4d2baac
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Elementy współpracy B2B zaproszenie — Azure Active Directory
 
@@ -32,7 +33,7 @@ Oto kilka elementów wiadomości e-mail, aby wiedzieć, jak najlepiej używać i
 Temat wiadomości e-mail jest zgodny ze wzorcem następujące: Zapraszamy &lt;tenantname&gt; organizacji
 
 ### <a name="from-address"></a>Adres nadawcy
-Używamy wzorzec przypominającej LinkedIn dla adres nadawcy.  Powinien być Wyczyść, który jest zapraszającej i adres e-mail od firmy oraz wyjaśnić, że wiadomość e-mail pochodzi od firmy Microsoft. Format: &lt;nazwę wyświetlaną zapraszającej&gt; z &lt;tenantname&gt; (za pośrednictwem firmy Microsoft)<invites@microsoft.com>
+Używamy wzorzec przypominającej LinkedIn dla adres nadawcy.  Powinien być Wyczyść, który jest zapraszającej i adres e-mail od firmy oraz wyjaśnić, że wiadomość e-mail pochodzi od firmy Microsoft. Format: &lt;nazwę wyświetlaną zapraszającej&gt; z &lt;tenantname&gt; (za pośrednictwem firmy Microsoft) <invites@microsoft.com>
 
 ### <a name="reply-to"></a>Odpowiedz
 Odpowiedz na wiadomość e-mail ma ustawioną zapraszającej poczty e-mail, jeśli jest dostępna, tak, aby podczas odpowiadania na wiadomości e-mail wysyła wiadomość e-mail z powrotem do zapraszającej.

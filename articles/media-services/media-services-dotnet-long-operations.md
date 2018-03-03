@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: b4e794d8983470efe3ff4eef4947f4654ce2c523
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f9e79542d6acfcbf27a21e058f382bebacf0c2d4
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="delivering-live-streaming-with-azure-media-services"></a>Dostarczanie transmisję strumieniową na żywo za pomocą usługi Azure Media Services
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 Microsoft Azure Media Services udostępnia interfejsy API, które wysyłają żądania do usługi Media Services można uruchomić operacji (na przykład: Utwórz, uruchom, Zatrzymaj lub usuwanie kanału). Operacje te są długotrwałe.
 
@@ -47,7 +47,7 @@ W przykładzie przedstawiono również sposób klient może używać tej klasy.
 
 ### <a name="channeloperations-class-definition"></a>Definicja klasy ChannelOperations
 
-```
+```csharp
 using Microsoft.WindowsAzure.MediaServices.Client;
 using System;
 using System.Collections.Generic;
@@ -192,7 +192,7 @@ public class ChannelOperations
 
 ### <a name="the-client-code"></a>Kod klienta
 
-```
+```csharp
 ChannelOperations channelOperations = new ChannelOperations();
 string opId = channelOperations.StartChannelCreation("MyChannel001");
 

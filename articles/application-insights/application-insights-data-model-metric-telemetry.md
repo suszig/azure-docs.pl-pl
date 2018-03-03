@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: bd09e2a21c25097fa4b378cb2dbe2787edbb1967
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 4139e3675e2202cc42b6b8d7ff7562e9c9d693bb
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Dane telemetryczne metryki: model danych usługi Application Insights
 
@@ -31,7 +31,7 @@ Metryka reprezentujący liczniki systemu i procesu:
 | **Nazwa platformy .NET**             | **Nazwa o niesprecyzowanym platformy** | **Nazwa interfejsu API REST** | **Opis**
 | ------------------------- | -------------------------- | ----------------- | ---------------- 
 | `\Processor(_Total)\% Processor Time` | Praca w toku... | [processorCpuPercentage](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessorCpuPercentage) | Łączna liczba procesorów maszyny
-| `\Memory\Available Bytes`                 | Praca w toku... | [memoryAvailableBytes](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FmemoryAvailableBytes) | ilość pamięci dostępnej na dysku
+| `\Memory\Available Bytes`                 | Praca w toku... | [memoryAvailableBytes](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FmemoryAvailableBytes) | Przedstawia ilość pamięci fizycznej w bajtach dostępnej dla procesów uruchomionych na komputerze. Jest ona obliczana przez zsumowanie ilość miejsca na listach wyzerowana, wolnej i rezerwy pamięci. Ilość wolnej pamięci jest gotowa do użycia; pamięć wyzerowana składa się ze stron pamięci wypełnione zerami procesy późniejsze użytej przez wcześniejsze procesy. rezerwy pamięć to został usunięty z zestawu roboczego procesu (jego pamięci fizycznej) trasie do dysku, ale pozostanie dostępna do przywołania. Zobacz [obiektów pamięci](https://msdn.microsoft.com/library/ms804008.aspx)
 | `\Process(??APP_WIN32_PROC??)\% Processor Time` | Praca w toku... | [processCpuPercentage](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessCpuPercentage) | Procesor CPU procesu hostingu aplikacji
 | `\Process(??APP_WIN32_PROC??)\Private Bytes`      | Praca w toku... | [processPrivateBytes](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessPrivateBytes) | pamięci używanej przez proces obsługujący aplikacji
 | `\Process(??APP_WIN32_PROC??)\IO Data Bytes/sec` | Praca w toku... | [processIOBytesPerSecond](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessIOBytesPerSecond) | Liczba operacji We/Wy jest uruchamiana za procesu hostingu aplikacji
@@ -40,7 +40,7 @@ Metryka reprezentujący liczniki systemu i procesu:
 | `\ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time`   | Praca w toku... | [requestExecutionTime](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestExecutionTime) | Średnia liczba żądań czasu wykonywania
 | `\ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue` | Praca w toku... | [requestsInQueue](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestsInQueue) | Liczba żądań oczekujących do przetworzenia w kolejce
 
-## <a name="name"></a>Nazwa
+## <a name="name"></a>Name (Nazwa)
 
 Nazwa metryki, które chcesz zobaczyć w portalu usługi Application Insights i interfejsu użytkownika. 
 
@@ -52,7 +52,7 @@ Pojedynczej wartości miary. Suma poszczególnych pomiarów podczas agregacji.
 
 Waga metryki zagregowane metryki. Nie powinien mieć ustawionej dla miary.
 
-## <a name="min"></a>Min
+## <a name="min"></a>Minimalnie
 
 Minimalna wartość zagregowane metryki. Nie powinien mieć ustawionej dla miary.
 
@@ -70,7 +70,7 @@ Metryka z właściwości niestandardowej `CustomPerfCounter` ustawioną `true` w
 
 [!INCLUDE [application-insights-data-model-properties](../../includes/application-insights-data-model-properties.md)]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Dowiedz się, jak używać [aplikacji interfejsu API Insights dla niestandardowych zdarzeń i metryk](app-insights-api-custom-events-metrics.md#trackmetric).
 - Zobacz [modelu danych](application-insights-data-model.md) dla modelu danych i typów usługi Application Insights.

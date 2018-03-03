@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/06/2018
 ms.author: sajagtap
-ms.openlocfilehash: 43e22e553b5243d6edc413c7a667089793f95396
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1b473a6aef87e5f4c75be2becbf814ecaaab6f3a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Umożliwia wykrywanie możliwych zawartość dla dorosłych i luksusowych moderatora zawartości multimediów Azure
 
@@ -61,13 +61,13 @@ Dane wyjściowe JSON obejmuje następujące elementy:
 | rozpoczynanie |Czas rozpoczęcia pierwsze zdarzenie parametrem "ticks". |
 | Czas trwania |Długość fragmentu w parametrem "ticks". |
 | interval |Interwał każdego wpisu zdarzeń w obrębie fragmentu, w parametrem "ticks". |
-| [zdarzenia](#events-json-elements) |Każde zdarzenie reprezentuje klipem i klipach zawiera ramek kluczowych wykryte i śledzone w tym czas trwania. Jest tablicą zdarzeń. Zewnętrzne tablicy reprezentuje jeden interwał czasu. Wewnętrzny tablicy składa się z 0 lub więcej zdarzeń, które wystąpiły w danym momencie.|
+| [Zdarzenia](#events-json-elements) |Każde zdarzenie reprezentuje klipem i klipach zawiera ramek kluczowych wykryte i śledzone w tym czas trwania. Jest tablicą zdarzeń. Zewnętrzne tablicy reprezentuje jeden interwał czasu. Wewnętrzny tablicy składa się z 0 lub więcej zdarzeń, które wystąpiły w danym momencie.|
 
 ### <a name="events-json-elements"></a>Elementy JSON zdarzenia
 
 |Element|Opis|
 |---|---|
-| reviewRecommended | `true`lub `false` w zależności od tego, czy **adultScore** lub **racyScore** przekroczenia progów wewnętrznego. |
+| reviewRecommended | `true` lub `false` w zależności od tego, czy **adultScore** lub **racyScore** przekroczenia progów wewnętrznego. |
 | adultScore | Wynik zaufania dla możliwe zawartość dla dorosłych w skali od 0,00 do 0,99. |
 | racyScore | Wynik zaufania możliwe luksusowych zawartości, w skali od 0,00 do 0,99. |
 | indeks | Indeks ramki w skali od pierwszej ramki do ostatniego indeksu indeksu ramki. |
@@ -90,6 +90,7 @@ Poniższy przykład kodu .NET używa SDK .NET usługi Media Services do uruchomi
 Zobacz [moderatora zawartości wideo szybkiego startu](../cognitive-services/Content-Moderator/video-moderation-api.md) pełny kod źródłowy i projekt programu Visual Studio.
 
 
+```csharp
     /// <summary>
     /// Run the Content Moderator job on the designated Asset from local file or blob storage
     /// </summary>
@@ -155,14 +156,14 @@ Zobacz [moderatora zawartości wideo szybkiego startu](../cognitive-services/Con
         DownloadAsset(job.OutputMediaAssets.First(), OUTPUT_FOLDER);
     }
 
-Aby uzyskać pełny kod źródłowy i projekt programu Visual Studio, zapoznaj się [moderatora zawartości wideo szybkiego startu](../cognitive-services/Content-Moderator/video-moderation-api.md).
+For the full source code and the Visual Studio project, check out the [Content Moderator video quickstart](../cognitive-services/Content-Moderator/video-moderation-api.md).
 
-### <a name="json-output"></a>Dane wyjściowe JSON
+### JSON output
 
-Poniższy przykład danych wyjściowych JSON moderatora zawartości została obcięta.
+The following example of a Content Moderator JSON output was truncated.
 
 > [!NOTE]
-> Lokalizacja kluczową w sekundach = sygnatura czasowa/skali czasu
+> Location of a keyframe in seconds = timestamp/timescale
 
     {
     "version": 2,
@@ -213,7 +214,7 @@ Poniższy przykład danych wyjściowych JSON moderatora zawartości została obc
     }
     ]
     }
-
+```
 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

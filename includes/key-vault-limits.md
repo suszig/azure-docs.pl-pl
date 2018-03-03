@@ -13,6 +13,6 @@ Klucze tajne, zarządzane klucze konta magazynu i transakcji magazynu:
 | Wszystkie transakcje |2000 |
 |
 
-Zobacz [usługi Azure Key Vault ograniczania wskazówki](../key-vault/key-vault-ovw-throttling.md) informacji o sposobie obsługi ograniczania przepustowości, gdy zostaną przekroczone następujące limity.
+Zobacz [usługi Azure Key Vault ograniczania wskazówki](../articles/key-vault/key-vault-ovw-throttling.md) informacji o sposobie obsługi ograniczania przepustowości, gdy zostaną przekroczone następujące limity.
 
 <sup>1</sup> jest ograniczona do całej subskrypcji, dla wszystkich typów transakcji, które 5 x limitu magazynu kluczy. Na przykład HSM - inne transakcje dla subskrypcji są ograniczone do 5000 transakcji za 10 sekund na subskrypcję.

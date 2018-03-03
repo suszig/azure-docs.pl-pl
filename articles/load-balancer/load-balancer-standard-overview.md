@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2018
 ms.author: kumud
-ms.openlocfilehash: cf7be370ab0d79be9068534f0c43b88f454bc024
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ddbfb415f062396f022f0f58cb975f6e3a5f1807
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Omówienie usługi Azure Standard modułu równoważenia obciążenia (wersja zapoznawcza)
 
@@ -302,9 +302,11 @@ Jednostki SKU nie jest modyfikowalna. Wykonaj kroki opisane w tej sekcji, aby pr
 
 1. Tworzenie nowego zasobu standardowe (Usługa równoważenia obciążenia i publiczne adresy IP, w razie potrzeby). Ponownie utworzyć reguły i definicje sondowania.
 
-2. Usuń zasoby podstawowy SKU (Usługa równoważenia obciążenia i publiczne adresy IP, jeśli ma zastosowanie) z wszystkich wystąpień maszyn wirtualnych. Należy również usunięcie wszystkich wystąpień maszyn wirtualnych zestawu dostępności.
+2. Utworzyć lub zaktualizować istniejący NSG na karcie Sieciowej lub podsieci do dozwolonego ruchu o zrównoważonym obciążeniu, sondy, a także cały ruch, który chcesz zezwolić.
 
-3. Dołącz wszystkie wystąpienia maszyny Wirtualnej do nowych zasobów standardowy SKU.
+3. Usuń zasoby podstawowy SKU (Usługa równoważenia obciążenia i publiczne adresy IP, jeśli ma zastosowanie) z wszystkich wystąpień maszyn wirtualnych. Należy również usunięcie wszystkich wystąpień maszyn wirtualnych zestawu dostępności.
+
+4. Dołącz wszystkie wystąpienia maszyny Wirtualnej do nowych zasobów standardowy SKU.
 
 ### <a name="migrate-from-standard-to-basic-sku"></a>Migracja z Standard do podstawowy SKU
 
@@ -464,6 +466,7 @@ Następujące ograniczenia obowiązują w czasie Podgląd i mogą ulec zmianie:
 - W kontekście dostępności stref zonal adres publiczny adres IP nie można przenieść z jedną strefę na inny.
 - [Alerty monitora Azure](../monitoring-and-diagnostics/monitoring-overview-alerts.md) nie są obsługiwane w tej chwili.
 - Portal nie obsługuje jeszcze szerokim testowaniu regionów.  Użyj narzędzia klienta, takie jak szablony, Azure CLI w wersji 2.0 lub programu PowerShell, aby uniknąć tego problemu.
+- Operacji przenoszenia subskrypcji nie są obsługiwane.
 
 
 ## <a name="next-steps"></a>Kolejne kroki

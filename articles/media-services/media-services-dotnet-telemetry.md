@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 1f8e22dc5e277407860b7ed31409caed15be59cb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 362773bbefa754fc90aa4dbd471889245b4b6cf5
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="configuring-azure-media-services-telemetry-with-net"></a>Konfigurowanie usługi Azure Media Services dane telemetryczne z platformą .NET
 
@@ -42,19 +42,23 @@ Poniższe kroki są wymagane do włączenia telemetrii:
 - Uzyskiwanie poświadczeń konta usługi Magazyn dołączany do konta usługi Media Services. 
 - Tworzenie punktu końcowego powiadomienia o **EndPointType** ustawioną **AzureTable** i endPointAddress wskazujący tabeli magazynu.
 
+```csharp
         INotificationEndPoint notificationEndPoint = 
                       _context.NotificationEndPoints.Create("monitoring", 
                       NotificationEndPointType.AzureTable,
                       "https://" + _mediaServicesStorageAccountName + ".table.core.windows.net/");
+```
 
 - Tworzenie konfiguracji monitorowania dla usługi, które chcesz monitorować. Dozwolone jest najwyżej jedno ustawienie konfiguracji monitorowania. 
-  
+
+```csharp
         IMonitoringConfiguration monitoringConfiguration = _context.MonitoringConfigurations.Create(notificationEndPoint.Id,
             new List<ComponentMonitoringSetting>()
             {
                 new ComponentMonitoringSetting(MonitoringComponent.Channel, MonitoringLevel.Normal),
                 new ComponentMonitoringSetting(MonitoringComponent.StreamingEndpoint, MonitoringLevel.Normal)
             });
+```
 
 ## <a name="consuming-telemetry-information"></a>Wykorzystywanie informacji telemetrii
 
@@ -66,13 +70,15 @@ Informacji o odbierającą telemetrii, zobacz [to](media-services-telemetry-over
 
 2. Dodaj następujący element do **appSettings** zdefiniowane w pliku app.config:
 
-    <add key="StorageAccountName" value="storage_name" />
+    ```xml
+        <add key="StorageAccountName" value="storage_name" />
+    ```
  
 ## <a name="example"></a>Przykład  
     
 Poniższy przykład przedstawia, jak włączyć dane telemetryczne dla określonego konta usługi AMS i jak wykonać zapytanie metryki przy użyciu zestawu SDK .NET usługi Azure Media Services.  
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -219,7 +225,7 @@ namespace AMSMetrics
 }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 

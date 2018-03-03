@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: glenga
-ms.openlocfilehash: e44261e8ee62ce6a91110da0ec0bc489c426f688
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 6ef2719a100ff65d69caa8d05ccfee23851adbcb
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure powiązania magazynu obiektów Blob dla usługi Azure Functions
 
@@ -32,7 +32,7 @@ W tym artykule opisano sposób pracy z usługi Azure Functions powiązania magaz
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> [Konta magazynu tylko do obiektów blob](../storage/common/storage-create-storage-account.md#blob-storage-accounts) nie są obsługiwane. Obiekt blob magazynu wyzwalaczy i powiązań wymagają konta magazynu ogólnego przeznaczenia. 
+> [Konta magazynu tylko do obiektów blob](../storage/common/storage-create-storage-account.md#blob-storage-accounts) nie są obsługiwane wyzwalacze obiektu blob. Wyzwalacze magazynu obiektów blob wymagają konta magazynu ogólnego przeznaczenia. Dla powiązań wejściowych i wyjściowych można używać tylko do obiektu blob magazynu kont.
 
 ## <a name="trigger"></a>Wyzwalacz
 
@@ -210,7 +210,7 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 
 |Właściwość Function.JSON | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
-|Typ | Nie dotyczy | należy wybrać opcję `blobTrigger`. Ta właściwość ma wartość automatycznie, podczas tworzenia wyzwalacza w portalu Azure.|
+|**Typ** | Nie dotyczy | należy wybrać opcję `blobTrigger`. Ta właściwość ma wartość automatycznie, podczas tworzenia wyzwalacza w portalu Azure.|
 |**Kierunek** | Nie dotyczy | należy wybrać opcję `in`. Ta właściwość ma wartość automatycznie, podczas tworzenia wyzwalacza w portalu Azure. Wyjątki w [użycia](#trigger---usage) sekcji. |
 |**Nazwa** | Nie dotyczy | Nazwa zmiennej, która reprezentuje obiektu blob w kodzie funkcji. | 
 |**Ścieżka** | **BlobPath** |Kontener do monitorowania.  Może być [wzorzec nazwy obiektu blob](#trigger-blob-name-patterns). | 
@@ -509,7 +509,7 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 
 |Właściwość Function.JSON | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
-|Typ | Nie dotyczy | należy wybrać opcję `blob`. |
+|**Typ** | Nie dotyczy | należy wybrać opcję `blob`. |
 |**Kierunek** | Nie dotyczy | należy wybrać opcję `in`. Wyjątki w [użycia](#input---usage) sekcji. |
 |**Nazwa** | Nie dotyczy | Nazwa zmiennej, która reprezentuje obiektu blob w kodzie funkcji.|
 |**Ścieżka** |**BlobPath** | Ścieżka do obiektu blob. | 
@@ -720,7 +720,7 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 
 |Właściwość Function.JSON | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
-|Typ | Nie dotyczy | należy wybrać opcję `blob`. |
+|**Typ** | Nie dotyczy | należy wybrać opcję `blob`. |
 |**Kierunek** | Nie dotyczy | Należy wybrać opcję `out` dla powiązania danych wyjściowych. Wyjątki w [użycia](#output---usage) sekcji. |
 |**Nazwa** | Nie dotyczy | Nazwa zmiennej, która reprezentuje obiektu blob w kodzie funkcji.  Ustaw `$return` odwoływać się do wartości zwracane funkcji.|
 |**Ścieżka** |**BlobPath** | Ścieżka do obiektu blob. | 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 1fd3b2c251860e883519744b11fcfc2b925cd2fa
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 561729e5e495500222ccec5b4b536a3152cb25e3
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="troubleshoot-deployment-issues-with-azure-container-instances"></a>Rozwiązywanie problemów dotyczących wdrożenia z wystąpień kontenera platformy Azure
 
@@ -91,6 +91,10 @@ Dane wyjściowe zawiera właściwości core z kontenera, wraz ze zdarzeń wdroż
 ## <a name="common-deployment-issues"></a>Typowe problemy z wdrażaniem
 
 Istnieje kilka typowych problemów z tego konta dla większości błędy we wdrożeniu.
+
+## <a name="image-version-not-supported"></a>Nieobsługiwana wersja obrazu
+
+Jeśli obraz określono, że nie obsługuje wystąpień kontenera Azure, zostanie zwrócony błąd formularza `ImageVersionNotSupported`. Wartość błędu wyświetli `The version of image '{0}' is not supported.`. Ten błąd obecnie dotyczy obrazów 1709 systemu Windows, aby ograniczyć użycie obrazu systemu Windows LTS. Obsługa obrazów systemu Windows 1709 jest przetwarzane.
 
 ## <a name="unable-to-pull-image"></a>Nie można ściągania obrazu
 
