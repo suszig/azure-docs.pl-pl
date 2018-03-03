@@ -22,6 +22,7 @@
 ## [Sprawdzanie kondycji domeny zarządzanej](active-directory-ds-check-health.md)
 ## [Korzystanie z usług Azure AD Domain Services w ramach subskrypcji Azure CSP](active-directory-ds-csp.md)
 ## [Włączanie usługi Azure AD Domain Services przy użyciu programu PowerShell](active-directory-ds-enable-using-powershell.md)
+## [Sprawdzanie kondycji domeny](active-directory-ds-check-health.md)
 ## Dołączanie do domeny zarządzanej
 ### [Maszyna wirtualna z systemem Windows Server](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [Maszyna wirtualna z systemem Windows Server z szablonu](active-directory-ds-join-windows-vm-template.md)
@@ -32,7 +33,6 @@
 ## Administrowanie domeną zarządzaną
 ### [Administrowanie domeną zarządzaną](active-directory-ds-admin-guide-administer-domain.md)
 ### [Administrowanie systemem DNS w domenie zarządzanej](active-directory-ds-admin-guide-administer-dns.md)
-
 ### Konfigurowanie protokołu LDAP dla domeny zarządzanej
 #### [Task 1: obtain a certificate for secure LDAP (Zadanie 1. Uzyskiwanie certyfikatu na potrzeby protokołu Secure LDAP)](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [Task 2: export the secure LDAP certificate (Zadanie 2. Eksportowanie certyfikatu protokołu Secure LDAP)](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
