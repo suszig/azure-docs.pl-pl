@@ -3,29 +3,30 @@ title: "Azure stosu integracji datacenter — publikować punkty końcowe"
 description: "Dowiedz się, jak publikować punkty końcowe platformy Azure stosu w centrum danych."
 services: azure-stack
 author: jeffgilb
+manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/16/2018
+ms.date: 02/28/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: 
-ms.openlocfilehash: 8af533147f3cc12f2334a43e7b672c69d0d25802
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8dec686b9ccf87009a23cedf6023f15b84a0f155
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure stosu integracji datacenter — publikować punkty końcowe
-Stos Azure konfiguruje wielu wirtualnych adresów IP (VIP) dla jego role infrastruktury. Te adresy VIP są przydzielone z puli publicznych adresów IP. Każdy adres VIP jest zabezpieczony z listy kontroli dostępu (ACL) w warstwie sieci zdefiniowanych przez oprogramowanie. Listy ACL są również używane przez przełączniki fizyczne (torach i BMC) dodatkowo zabezpieczyć rozwiązanie. Wpis DNS jest tworzony dla każdego punktu końcowego w strefie DNS zewnętrznego, który został określony w czasie wdrażania.
+Stos Azure konfiguruje wirtualnych adresów IP (VIP) do jego role infrastruktury. Te adresy VIP są przydzielone z puli publicznych adresów IP. Każdy adres VIP jest zabezpieczony z listy kontroli dostępu (ACL) w warstwie sieci zdefiniowanych przez oprogramowanie. Listy ACL są również używane przez przełączniki fizyczne (torach i BMC) dodatkowo zabezpieczyć rozwiązanie. Wpis DNS jest tworzony dla każdego punktu końcowego w strefie DNS zewnętrznego, który określono w czasie wdrażania.
 
 
 Na poniższym diagramie architektury przedstawiono warstwy inną sieć i listy kontroli dostępu:
 
-![Diagram architektury](media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
+![Obraz strukturalnych](media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
 
 ## <a name="ports-and-protocols-inbound"></a>Porty i protokoły (ruch przychodzący)
 
-Poniżej przedstawiono infrastruktury wirtualne adresy IP, które są wymagane do publikowania stosu Azure punktów końcowych sieci zewnętrznych. Lista zawiera każdego punktu końcowego, wymagany port i protokół. Punkty końcowe wymagane dla dostawców dodatkowych zasobów, takich jak dostawca zasobów SQL i innych osób, znajdują się w dokumentacji wdrażania dostawcy określonego zasobu.
+Zestaw infrastruktury wirtualne adresy IP są wymagane do publikowania stosu Azure punktów końcowych sieci zewnętrznych. *Punktu końcowego (VIP)* tabela pokazuje każde punktu końcowego, wymagany port i protokół. Zapoznaj się z dokumentacją wdrożeniową dostawcy zasobów specyficznych dla punktów końcowych, które wymagają dodatkowych zasobów dostawców, takiego jak dostawca zasobów SQL.
 
 Wewnętrzna infrastruktura adresy VIP nie są wyświetlane, ponieważ nie są one wymagane do publikowania stosu Azure.
 
@@ -70,4 +71,5 @@ Stos Azure obsługuje tylko serwery przezroczystego obiektu pośredniczącego. W
 
 
 ## <a name="next-steps"></a>Kolejne kroki
+
 [Wymagania dotyczące usługi Azure stosu infrastruktury kluczy publicznych](azure-stack-pki-certs.md)

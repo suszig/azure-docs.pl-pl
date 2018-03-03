@@ -3,28 +3,27 @@ title: Wprowadzenie do magazynu Azure stosu
 description: "Więcej informacji na temat magazynu Azure stosu"
 services: azure-stack
 documentationcenter: 
-author: xiaofmao
-manager: 
-editor: 
+author: mattbriggs
+manager: femila
 ms.assetid: 092aba28-04bc-44c0-90e1-e79d82f4ff42
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 9/25/2017
-ms.author: xiaofmao
-ms.openlocfilehash: 8777aa486a627cf8b2d8ba443e115638354d10da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/29/2018
+ms.author: mabrigg
+ms.openlocfilehash: dbc2ffb7540feb91b14c3d502e7f4007a0751ebd
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="introduction-to-azure-stack-storage"></a>Wprowadzenie do magazynu Azure stosu
 
 *Dotyczy: Azure stosu zintegrowanych systemów i Azure stosu Development Kit*
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Magazyn Azure stosu to zbiór obiektów blob, tabel i kolejek, które są zgodne z usług magazynu Azure w tym usługi magazynu w chmurze.
 
 ## <a name="azure-stack-storage-services"></a>Usług Azure stos magazynu
@@ -36,7 +35,7 @@ Usługa Azure storage stosu udostępnia następujące trzy usługi:
 * **Magazyn tabel** 
 
     Table storage przechowuje zestawy danych ze strukturą. Magazyn tabel jest magazynem typu NoSQL zawierającym pary klucz-atrybut, co umożliwia szybkie opracowywanie i szybki dostęp do dużych ilości danych.
-* **Magazyn kolejek** 
+* **Queue Storage** 
 
     Magazyn kolejek umożliwia niezawodną obsługę komunikatów do przetwarzania przepływu pracy i komunikacji między składnikami usług w chmurze.
 
@@ -84,7 +83,7 @@ W przypadku projektowania aplikacji pod kątem skalowania składniki aplikacji s
 
 Konto magazynu może zawierać dowolną liczbę kolejek, a kolejka może zawierać dowolną liczbę komunikatów aż do limitu pojemności konta magazynu. Poszczególne wiadomości mogą mieć maksymalnie 64 KB.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Magazyn Azure spójne: różnice i zagadnienia](azure-stack-acs-differences.md)
 
 * Aby dowiedzieć się więcej na temat usługi Azure Storage, zobacz [wprowadzenie do usługi Magazyn Microsoft Azure](../../storage/common/storage-introduction.md)

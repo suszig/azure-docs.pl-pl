@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/22/2018
+ms.date: 2/28/2018
 ms.author: brenduns
 ms.reviewer: 
-ms.openlocfilehash: 0f3e28f7726afab02211902b5ba2e478ae8065df
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 7f2ec78da38f3c97fde810fb8fc965cfbb6fda08
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Architektura tożsamości Azure stosu
 Przed wybraniem dostawcy tożsamości do użycia z stosu Azure należy poznać istotnych różnic między opcjami usługi Azure Active Directory (Azure AD) i usługi Active Directory federacyjnych (AD FS). 
@@ -86,7 +86,7 @@ Z tej topologii:
 
   Wchodzić w interakcje z usługi AD, interfejsu API programu Graph wymaga poświadczeń użytkownika z usługi AD, które ma uprawnienia tylko do odczytu usługi AD. 
   - Wbudowane usługi AD FS jest oparta na Server 2016. 
-  - Z usług AD FS i AD musi być oparta na Server 2012 lub starszym. 
+  - Z usług AD FS i AD musi być oparta na Server 2012 lub nowszym.  
   
   Między AD a wbudowanych usług AD FS interakcje nie są ograniczone do protokołu OpenID Connect i można użyć dowolnego wzajemnie obsługiwanych protokołów.  
   - Konta użytkowników są tworzone i zarządzane w lokalnej usługi AD.

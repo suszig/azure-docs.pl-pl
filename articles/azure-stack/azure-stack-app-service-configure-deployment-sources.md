@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: brenduns
 ms.reviewer: anwestg
-ms.openlocfilehash: 310bea356ac611a92d9e3899da5d4fb19c50e94e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 277ed277b14886d386e097e0ce4bef8add5d4ba1
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="configure-deployment-sources"></a>Konfigurowanie źródeł wdrożenia
 *Dotyczy: Azure stosu zintegrowanych systemów i Azure stosu Development Kit*
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/21/2018
 
 Usługa aplikacji Azure stosu obsługuje wdrożenia na żądanie z wielu dostawców kontroli źródła. Ta funkcja umożliwia deweloperom aplikacji, wdrażanie bezpośrednio z ich repozytoria kontroli źródła. Jeśli użytkownik chce skonfigurować usługę aplikacji do nawiązania połączenia ich repozytoriów, operatorowi chmury najpierw należy skonfigurować integrację usługi aplikacji Azure stosu i dostawca kontroli źródła.  
 
-Dostawców kontroli źródła poza Git lokalnych, obsługiwane są:
+Oprócz lokalnej Git obsługiwane są następujące dostawców kontroli źródła:
 
 * GitHub
 * BitBucket
@@ -94,7 +94,8 @@ Musi mieć Account Microsoft połączone z kontem usługi OneDrive w celu wykona
 2. W obszarze **aplikacje**, kliknij przycisk **Dodaj aplikację**.
 ![Aplikacje usługi OneDrive][10]
 3. Wprowadź **nazwa** dla nowej rejestracji aplikacji, wprowadź **usługi aplikacji Azure stosu**i kliknij przycisk **tworzenie aplikacji**
-4. Następnym ekranie zawiera listę właściwości nowej aplikacji. Rekord **identyfikator aplikacji**. ![Właściwości aplikacji OneDrive][11]
+4. Następnym ekranie zawiera listę właściwości nowej aplikacji. Rekord **identyfikator aplikacji**.
+![Właściwości aplikacji OneDrive][11]
 5. W obszarze **klucze tajne aplikacji**, kliknij przycisk **wygenerować nowe hasło**. Zanotuj **nowe hasło generowane**. To jest klucz tajny aplikacji i nie jest pobieranie, po kliknięciu **OK** na tym etapie.
 6. W obszarze **platform** kliknij **dodać platformy** i wybierz **Web**.
 7. Wprowadź **identyfikator URI przekierowania**.  We wdrożeniu stosu Azure domyślny identyfikator URI przekierowania jest https://portal.local.azurestack.external/tokenauthorize formularza, jeśli używane do uruchamiania zastępuje inną domenę domenę dla azurestack.local ![aplikacja usługi OneDrive — Dodaj Platforma sieci Web][12]

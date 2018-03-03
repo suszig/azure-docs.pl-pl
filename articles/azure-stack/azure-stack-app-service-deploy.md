@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: brenduns
 ms.reviewer: anwestg
-ms.openlocfilehash: d4394463be02d067b8228099acd30a0421ce4be9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 570ef0b782e073220af8bc7299cc4ad388d47136
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Dodawanie dostawcy zasobów usługi aplikacji Azure stosu
 *Dotyczy: Azure stosu zintegrowanych systemów i Azure stosu Development Kit*
@@ -70,7 +70,7 @@ Aby wdrożyć dostawcy zasobów usługi aplikacji, wykonaj następujące kroki:
 
     ![Instalator usługi aplikacji](media/azure-stack-app-service-deploy/image03.png)
 
-7. Wprowadź informacje dotyczące udziału plików, a następnie kliknij przycisk **dalej**. Adres udziału plików musi używać w pełni kwalifikowanej nazwy domeny serwera plików, na przykład \\\appservicefileserver.local.cloudapp.azurestack.external\websites lub adres IP, na przykład \\\10.0.0.1\websites.
+7. Wprowadź informacje dotyczące udziału plików, a następnie kliknij przycisk **dalej**. Adres udziału plików musi używać w pełni kwalifikowanej nazwy domeny serwera plików lub adres IP. Na przykład \\\appservicefileserver.local.cloudapp.azurestack.external\websites, lub \\\10.0.0.1\websites.
 
     ![Instalator usługi aplikacji](media/azure-stack-app-service-deploy/image04.png)
 
@@ -99,7 +99,7 @@ Aby wdrożyć dostawcy zasobów usługi aplikacji, wykonaj następujące kroki:
 
     ![Instalator usługi aplikacji](media/azure-stack-app-service-deploy/image07.png)    
 
-11. Przejrzyj opcje jednostki SKU i wystąpienia roli. Wartości domyślne są wypełniane przy użyciu minimalną liczbę wystąpień i minimalna jednostki SKU dla każdej roli we wdrożeniu ASDK. Aby ułatwić planowanie rozmieszczenia udostępniane jest podsumowanie wymagań vCPU i pamięci. Po dokonaniu wyboru kliknij przycisk **dalej**.
+11. Przejrzyj opcje jednostki SKU i wystąpienia roli. Minimalna liczba wystąpień i minimalna jednostki SKU dla każdej roli we wdrożeniu ASDK umieścić wartości domyślne. Aby ułatwić planowanie rozmieszczenia udostępniane jest podsumowanie wymagań vCPU i pamięci. Po dokonaniu wyboru kliknij przycisk **dalej**.
 
     > [!NOTE]
     > W przypadku wdrożeń produkcyjnych, postępując zgodnie ze wskazówkami w [zaplanować role serwera usługi Azure App Service w stosie Azure wydajność](azure-stack-app-service-capacity-planning.md).

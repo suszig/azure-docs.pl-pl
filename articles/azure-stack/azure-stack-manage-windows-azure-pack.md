@@ -3,8 +3,8 @@ title: "Zarządzanie maszynami wirtualnymi systemu Windows Azure Pack ze stosu A
 description: "Dowiedz się, jak zarządzać maszynami wirtualnymi systemu Windows Azure Pack (map) z aplikacji portal użytkowników w stosie usługi Azure."
 services: azure-stack
 documentationcenter: 
-author: walterov
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 213c2792-d404-4b44-8340-235adf3f8f0b
 ms.service: azure-stack
@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: walterov
-ms.openlocfilehash: b07a18055d149e20cd605a892063eccecf3df8a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.author: mabrigg
+ms.openlocfilehash: a7e4896c84938b392a86f4d9609c4932324c785d
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="manage-windows-azure-pack-virtual-machines-from-azure-stack"></a>Zarządzanie maszynami wirtualnymi systemu Windows Azure Pack ze stosu Azure
 
@@ -97,7 +97,7 @@ Aby włączyć tryb usługi chmury, musisz Uruchom skrypt AzurePackConnector.ps1
 | -------- | ------------- | ------- |  
 | AzurePackClouds | Identyfikatorów URI systemu Windows Azure Pack łączników. Te identyfikatory URI powinna odpowiadać portali dzierżawy pakietu Windows Azure Pack. | @{CloudName = "AzurePack1"; CloudEndpoint = "https://waptenantportal1:40005"},@{CloudName = "AzurePack2"; CloudEndpoint = "https://waptenantportal2:40005"}<br><br>  (Domyślnie wartość portu jest 40005). |  
 | AzureStackCloudName | Etykieta do reprezentowania lokalnego chmury Azure stosu.| "AzureStack" |
-| DisableMultiCloud | Przełącz, aby wyłączyć tryb usługi chmury.| Nie dotyczy |
+| DisableMultiCloud | Przełącz, aby wyłączyć tryb usługi chmury.| ND |
 | | |
 
 Można uruchomić skryptu AzurePackConnector.ps1 Dodaj natychmiast po wdrożeniu lub nowszej. Aby uruchomić skrypt natychmiast po wdrożeniu, należy użyć tej samej sesji programu Windows PowerShell, gdzie wdrożenia stosu Azure ukończone. W przeciwnym razie można otworzyć sesję programu Windows PowerShell jako administrator (zalogowany jako konto azurestackadmin).
@@ -128,7 +128,7 @@ Można uruchomić skryptu AzurePackConnector.ps1 Dodaj natychmiast po wdrożeniu
     * **AuthenticationIdentityProviderPartner**: zawiera następującą parą wartości:
         * Interfejs API dzierżawcy systemu Windows Azure Pack musi ufać do akceptowania połączeń z rozszerzenia portalu Azure stosu certyfikat podpisywania tokenu uwierzytelniania.
 
-        * "Obszar" skojarzonego z certyfikatem podpisywania. Na przykład: https://adfs.local.azurestack.global.external/adfs/c1d72562-534e-4aa5-92aa-d65df289a107/.
+        * "Obszar" skojarzonego z certyfikatem podpisywania. For example: https://adfs.local.azurestack.global.external/adfs/c1d72562-534e-4aa5-92aa-d65df289a107/.
 
 3.  Przejdź do folderu, który zawiera pliki wyjściowe (\\su1fileserver\SU1_Infrastructure_1\AzurePackConnectorOutput) i skopiuj pliki na komputerze lokalnym. Pliki będą wyglądać podobnie do poniższego: AzurePack-06-27 — 15-50.txt.
 
@@ -163,11 +163,11 @@ W tej wersji zapoznawczej Użyj łącznik usługi Windows Azure Pack tylko w śr
     ```
      d. Przejdź do **c:\inetpub** i sprawdź, czy są zainstalowane trzy nowe witryny:
 
-       * Łącznik MgmtSvc
+       * MgmtSvc-Connector
 
-       * MgmtSvc ConnectorExtension
+       * MgmtSvc-ConnectorExtension
 
-       * MgmtSvc ConnectorController
+       * MgmtSvc-ConnectorController
 
     e. Z tej samej **c:\temp\wapconnector\setup\scripts** folderu Uruchom **Certificates.ps1 Konfiguruj** skrypt w celu zainstalowania certyfikatów. Domyślnie użyje sam certyfikat, który jest dostępny dla witryny portalu dzierżawcy w systemie Windows Azure Pack. Upewnij się, że jest to prawidłowy certyfikat (zaufany dla maszyny wirtualnej Azure stosu AzS-WASP01 i dowolnego komputera klienckiego, który uzyskuje dostęp do portalu Azure stosu). W przeciwnym razie nie będzie działać komunikacji. (Można również jawnie przekazywanej odcisku palca certyfikatu jako parametru za pomocą parametru - odcisk palca.)
 
@@ -183,7 +183,7 @@ W tej wersji zapoznawczej Użyj łącznik usługi Windows Azure Pack tylko w śr
     | -------- | ------------- | ------- |  
     | TenantPortalFQDN | Portal dzierżawcy pakietu Windows Azure Pack nazwy FQDN. | tenant.contoso.com | 
     | TenantAPIFQDN | Windows Azure Pack dzierżawcy interfejsu API nazwę FQDN. | tenantapi.contoso.com  |
-    | AzureStackPortalFQDN | Portal użytkowników stosu Azure nazwy FQDN. | Portal.local.azurestack.external |
+    | AzureStackPortalFQDN | Portal użytkowników stosu Azure nazwy FQDN. | portal.local.azurestack.external |
     | | |
     
      ```powershell
@@ -217,7 +217,7 @@ W tej wersji zapoznawczej Użyj łącznik usługi Windows Azure Pack tylko w śr
     | Parametr | Opis | Przykład |
     | --------- | ------------| ------- |
    | SqlServer | Nazwa programu SQL Server, który zawiera bazę danych Microsoft.MgmtSvc.Store. Ten parametr jest wymagany. | SQLServer | 
-   | Pliku danych | Pliku wyjściowego, który został wygenerowany podczas konfigurowania tryb wielu chmury Azure stosu wcześniej. Ten parametr jest wymagany. | AzurePack-06-27 — 15-50.txt | 
+   | Pliku danych | Pliku wyjściowego, który został wygenerowany podczas konfigurowania tryb wielu chmury Azure stosu wcześniej. Ten parametr jest wymagany. | AzurePack-06-27-15-50.txt | 
    | PromptForSqlCredential | Wskazuje, czy skrypt powinien wyświetlenie monitu interakcyjnego dla poświadczenia uwierzytelniania SQL do użycia podczas połączenia z wystąpieniem programu SQL Server. Podane poświadczenie musi mieć wystarczające uprawnienia do odinstalowania baz danych, schematów i Usuń identyfikatory logowania użytkownika. Jeśli żaden nie jest podany, skrypt przyjęto założenie, że ten bieżącego kontekstu użytkownika ma dostęp. | Wartość nie jest potrzebna. |
    |  |  |
 
@@ -277,5 +277,5 @@ cd C:\temp\WAPConnector\Setup\Scripts
 4. Pod kątem znanych problemów, zobacz [Microsoft Azure stosu Rozwiązywanie problemów z](azure-stack-troubleshooting.md).
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Przy użyciu portali administratora i użytkownika w stosie Azure](azure-stack-manage-portals.md)

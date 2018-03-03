@@ -8,15 +8,15 @@ editor:
 ms.assetid: 
 ms.service: azure-stack
 ms.topic: article
-ms.date: 9/25/2017
+ms.date: 02/28/2018
 ms.author: brenduns
 ms.reviewer: anajod
 keywords: 
-ms.openlocfilehash: 6e4c1145b8ff4665024b4532cf9cc9ac6a0a24a1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: cb8ac5435b7a5c6deb9d4571696c79b2ed15c93a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Udostępnia zestawy skalowania maszyny wirtualnej Azure stosu
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 02/21/2018
 
 Zestawy skalowania maszyny wirtualnej są zasobów obliczeniowych Azure stosu. Można używać ich do wdrażania i zarządzania zestaw wiele identycznych maszyn wirtualnych. Z wszystkie maszyny wirtualne skonfigurowane tak samo, zestawy skalowania nie wymagają wstępnego inicjowania obsługi administracyjnej maszyn wirtualnych. Możliwe jest łatwiejsze tworzenie usług na dużą skalę, przeznaczonych dla dużych obliczeniowych, dane big data i konteneryzowanych obciążeń.
 
-W tym temacie prowadzi użytkownika przez proces, aby udostępnić zestawy skalowania w portalu Azure Marketplace stosu. Po zakończeniu tej procedury użytkownicy mogą dodawać zestawy skalowania maszyny wirtualnej do subskrypcji.
+W tym artykule prowadzi użytkownika przez proces, aby udostępnić zestawy skalowania w portalu Azure Marketplace stosu. Po zakończeniu tej procedury użytkownicy mogą dodawać zestawy skalowania maszyny wirtualnej do subskrypcji.
 
 Zestawy skalowania maszyny wirtualnej na stosie Azure są podobne zestawy skalowania maszyny wirtualnej na platformie Azure. Aby uzyskać więcej informacji zobacz następujące filmy wideo:
 * [Mark Russinovich omawia zestawy skalowania na platformie Azure](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)
@@ -81,7 +81,7 @@ Aby usunąć maszynę wirtualną skalować zestawu z elementem galerii, uruchom 
     Remove-AzsVMSSGalleryItem
 
 > [!NOTE]
-> Nie można bezpośrednio usunąć elementu galerii. Należy odświeżyć portal kilka razy, zanim zostanie usunięte z portalu Marketplace.
+> Nie można bezpośrednio usunąć elementu galerii. Nocy należy odświeżyć portalu kilka razy, aby element będzie wyświetlany jako usunięte z portalu Marketplace.
 
 
 ## <a name="next-steps"></a>Kolejne kroki

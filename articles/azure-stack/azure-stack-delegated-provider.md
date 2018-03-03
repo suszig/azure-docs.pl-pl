@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 02/28/2018
 ms.author: brenduns
 ms.reviewer: alfredop
-ms.openlocfilehash: 06690d5251954b204b28928b3fe670669000aa7c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 287bc04660664facbe99d2cb80ae6c92e41c4111
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="delegate-offers-in-azure-stack"></a>Delegowanie ofert w usłudze Azure Stack
 
@@ -58,7 +58,7 @@ W poniższych sekcjach opisano sposób ustalenia delegowanego dostawcy, delegowa
 
 ## <a name="set-up-roles"></a>Konfigurowanie ról
 
-Aby wyświetlić delegowanego dostawcy w miejscu pracy, należy dodatkowe Azure kont usługi AD oprócz konta operator stosu Azure. Jeśli nie masz je, należy utworzyć dwa konta. Konta mogą należeć do dowolnego użytkownika usługi Azure AD. Nazywamy je dostawcy delegowanego i użytkownika.
+Aby wyświetlić delegowanego dostawcy w miejscu pracy, należy dodatkowe Azure kont usługi AD oprócz konta operator stosu Azure. Jeśli nie masz tych dwóch kont, należy je utworzyć. Konta mogą należeć do dowolnego użytkownika usługi Azure AD i są określane jako dostawca delegowanego i użytkownika.
 
 | **Rola** | **Prawa organizacji** |
 | --- | --- |
@@ -71,9 +71,9 @@ Aby wyświetlić delegowanego dostawcy w miejscu pracy, należy dodatkowe Azure 
 2. Utwórz ofertę, którą użytkownicy mogą stać się delegowanego dostawców:
    
    a.  [Tworzenie planu](azure-stack-create-plan.md).
-       Ten plan powinien obejmować tylko usługi subskrypcji. W tym artykule używamy plan o nazwie **PlanForDelegation**.
+       Ten plan powinien obejmować tylko usługi subskrypcji. W tym artykule wykorzystano plan o nazwie **PlanForDelegation**.
    
-   b.  [Utwórz ofertę](azure-stack-create-offer.md) na podstawie tego planu. W tym artykule używamy ofertę o nazwie **OfferToDP**.
+   b.  [Utwórz ofertę](azure-stack-create-offer.md) na podstawie tego planu. W tym artykule wykorzystano ofertę o nazwie **OfferToDP**.
    
    c.  Po zakończeniu tworzenia oferty dodać dostawcę delegowanego jako subskrybent do tej oferty. To zrobić, wybierając **subskrypcje** > **Dodaj** > **nową subskrypcję dzierżawy**.
    
@@ -86,9 +86,9 @@ Aby wyświetlić delegowanego dostawcy w miejscu pracy, należy dodatkowe Azure 
 
 ## <a name="azure-stack-operator-creates-the-delegated-offer"></a>Azure operator stosu tworzy delegowaną oferty
 
-Teraz ustaleniu delegowanego dostawcy. Następnym krokiem jest utworzenie planu i oferty, który chcesz delegować i który będzie używany przez klientów. Jest dobrym rozwiązaniem jest zdefiniowanie tej oferty, zgodnie z oczekiwaniami klientów, aby go wyświetlić, ponieważ dostawca delegowanego nie będzie mógł zmienić planów i przydziały, którą zawiera.
+Teraz ustaleniu delegowanego dostawcy. Następnym krokiem jest utworzenie planu i oferty, który chcesz delegować i który będzie używany przez klientów. Jest dobrym rozwiązaniem jest zdefiniowanie tej oferty, zgodnie z oczekiwaniami klientów, aby go wyświetlić, ponieważ dostawca delegowanego nie można zmienić planów i przydziały, którą zawiera.
 
-1. Jako operator stosu Azure [Tworzenie planu](azure-stack-create-plan.md) i [ofertę](azure-stack-create-offer.md) na ich podstawie. W tym artykule używamy ofertę o nazwie **DelegatedOffer.**
+1. Jako operator stosu Azure [Tworzenie planu](azure-stack-create-plan.md) i [ofertę](azure-stack-create-offer.md) na ich podstawie. W tym artykule wykorzystano ofertę o nazwie **DelegatedOffer.**
    
    > [!NOTE]
    > Ta oferta nie musi być publiczny. Jeśli wybierzesz, można tworzyć i publicznej. W większości przypadków jednak tylko mają delegowane dostawców ma do niego dostęp. Po prywatnej oferty jest delegowanie, zgodnie z opisem w poniższych krokach, delegowane dostawcy ma do niego dostęp.
@@ -104,14 +104,14 @@ Teraz ustaleniu delegowanego dostawcy. Następnym krokiem jest utworzenie planu 
 
 ## <a name="delegated-provider-customizes-the-offer"></a>Dostawca delegowanego dostosowuje oferty
 
-Zaloguj się do portalu użytkownika jako delegowanego dostawcy. Następnie utwórz nowe oferty za pomocą delegowanego oferta jako szablon.
+Zaloguj się do portalu użytkowników jako dostawca delegowanego, a następnie utwórz nowe oferty za pomocą delegowanego oferta jako szablon.
 
 1. Wybierz **nowe** > **dzierżawy oferuje + plany** > **oferują**.
 
     ![Tworzenie nowej oferty](media/azure-stack-delegated-provider/image5.png)
 
 
-1. Przypisz nazwę do oferty. W tym miejscu wybieramy opcję **ResellerOffer**. Wybierz oferty delegowanego, na którym należy utworzyć ją, a następnie wybierz **Utwórz**.
+1. Przypisz nazwę do oferty. W tym artykule wykorzystano **ResellerOffer**. Wybierz oferty delegowanego, na którym należy utworzyć ją, a następnie wybierz **Utwórz**.
    
    ![Przypisz nazwę](media/azure-stack-delegated-provider/image6.png)
 
@@ -122,7 +122,7 @@ Zaloguj się do portalu użytkownika jako delegowanego dostawcy. Następnie utw�
 
 2. Dostawca delegowanego udostępnia te oferty za pośrednictwem ich własnych portalu adresu URL. Te oferty są widoczne tylko za pośrednictwem portalu delegowanego. Aby znaleźć i zmienić ten adres URL:
    
-    a.  Wybierz **Przeglądaj** > **więcej usług** >  **subskrypcje**. Następnie wybierz subskrypcję delegowanego dostawcy. W naszym przykładzie ma **DPSubscription** > **właściwości**.
+    a.  Wybierz **Przeglądaj** > **więcej usług** > **subskrypcje**. Następnie wybierz subskrypcję delegowanego dostawcy. Na przykład **DPSubscription** > **właściwości**.
    
     b.  Skopiuj portalu adres URL do innej lokalizacji, takiego jak Notatnik.
    
@@ -134,7 +134,7 @@ Zaloguj się do portalu użytkownika jako delegowanego dostawcy. Następnie utw�
 1. W nowym oknie przeglądarki, przejdź do portalu delegowanego adres URL, który został zapisany w poprzednim kroku. Zaloguj się do portalu jako użytkownik. 
    
    >[!NOTE]
-   > Użyj portalu delegowanego dla tego kroku. Delegowanego oferty nie są widoczne w inny sposób.
+   >Delegowane oferty nie są widoczne, chyba że za pomocą delegowanego portalu. 
 
 2. Na pulpicie nawigacyjnym, wybierz **uzyskania subskrypcji**. Zobaczysz, że tylko delegowanego oferty, które zostały utworzone przez dostawcę delegowane są dostarczane do użytkownika:
 

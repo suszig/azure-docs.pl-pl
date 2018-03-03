@@ -3,21 +3,21 @@ title: "Tworzenie nazwy głównej usługi Azure stosu | Dokumentacja firmy Micro
 description: "Opisuje sposób tworzenia nowej nazwy głównej usługi, który może służyć z kontroli dostępu opartej na rolach w usłudze Azure Resource Manager do zarządzania dostępem do zasobów."
 services: azure-resource-manager
 documentationcenter: na
-author: heathl17
-manager: byronr
+author: mattbriggs
+manager: femila
 ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2017
-ms.author: helaw
-ms.openlocfilehash: 96d5cdfc28759fd516eab5fd97c6cf444af08cf6
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.date: 02/25/2018
+ms.author: mabrigg
+ms.openlocfilehash: 64c424ee7045ae20b3fba6433166039580387d76
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Zapewnianie dostępu aplikacji do stosu Azure
 
@@ -57,7 +57,7 @@ Podczas logowania programowo, można użyć Identyfikatora aplikacji i klucz uwi
 
 2. Kopiuj **identyfikator aplikacji** i zapisze go w kodzie aplikacji. Aplikacje w [przykładowe aplikacje](#sample-applications) sekcji odnoszą się do tej wartości jako identyfikator klienta.
 
-     ![Identyfikator klienta](./media/azure-stack-create-service-principal/image12.png)
+     ![identyfikator klienta](./media/azure-stack-create-service-principal/image12.png)
 3. Aby wygenerować klucz uwierzytelniania, wybierz **klucze**.
 
 4. Podaj opis klucza i czas trwania dla klucza. Po zakończeniu wybierz **zapisać**.
@@ -85,7 +85,7 @@ Wymagane są następujące informacje jako dane wejściowe dla parametrów autom
 
 |Parametr|Opis|Przykład|
 |---------|---------|---------|
-|Nazwa|Nazwa SPN konta|Moja_aplikacja|
+|Name (Nazwa)|Nazwa SPN konta|MyAPP|
 |Właściwość ClientCertificates|Tablica obiektów certyfikatu|X509 certyfikatu|
 |ClientRedirectUris<br>(Opcjonalnie)|Identyfikator URI przekierowania aplikacji|         |
 
@@ -160,7 +160,7 @@ Na poziomie subskrypcji, grupy zasobów lub zasobów można ustawić zakresu. Up
 
 Teraz, utworzeniu nazwy głównej usługi i przypisaną rolę, możesz rozpocząć za pomocą tej w aplikacji dostęp do zasobów Azure stosu.  
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Dodawanie użytkowników dla usług AD FS](azure-stack-add-users-adfs.md)
 [Zarządzaj uprawnieniami użytkowników](azure-stack-manage-permissions.md)

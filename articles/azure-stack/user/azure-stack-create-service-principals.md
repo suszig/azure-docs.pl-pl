@@ -3,21 +3,21 @@ title: "Tworzenie nazwy głównej usługi Azure stosu | Dokumentacja firmy Micro
 description: "Opisuje sposób tworzenia nowej nazwy głównej usługi, który może służyć z kontroli dostępu opartej na rolach w usłudze Azure Resource Manager do zarządzania dostępem do zasobów."
 services: azure-resource-manager
 documentationcenter: na
-author: heathl17
-manager: byronr
+author: mattbriggs
+manager: femila
 ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/25/2017
-ms.author: helaw
-ms.openlocfilehash: 058b01a37e2858801895fd22cf73dd6bd342ca04
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.author: mabrigg
+ms.openlocfilehash: 3a22efa4ace8b779f51ca5036b7df536b8c39313
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Zapewnianie dostępu aplikacji do stosu Azure
 
@@ -57,7 +57,7 @@ Podczas logowania programowo, można użyć Identyfikatora aplikacji i klucz uwi
 
 2. Kopiuj **identyfikator aplikacji** i zapisze go w kodzie aplikacji. Aplikacje w [przykładowe aplikacje](#sample-applications) sekcji odnoszą się do tej wartości jako identyfikator klienta.
 
-     ![Identyfikator klienta](./media/azure-stack-create-service-principal/image12.png)
+     ![identyfikator klienta](./media/azure-stack-create-service-principal/image12.png)
 3. Aby wygenerować klucz uwierzytelniania, wybierz **klucze**.
 
 4. Podaj opis klucza i czas trwania dla klucza. Po zakończeniu wybierz **zapisać**.
@@ -137,6 +137,6 @@ Na poziomie subskrypcji, grupy zasobów lub zasobów można ustawić zakresu. Up
 
 Teraz, utworzeniu nazwy głównej usługi i przypisaną rolę, możesz rozpocząć za pomocą tej w aplikacji dostęp do zasobów Azure stosu.  
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Zarządzanie uprawnieniami użytkowników](azure-stack-manage-permissions.md)
