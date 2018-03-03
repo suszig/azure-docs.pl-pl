@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 2/21/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: f0a674daab177d71658c546fa4719892a33ed869
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: c25a0171bd412050a7c94e9b077436cd1ebe893b
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="https-ingress-on-azure-container-service-aks"></a>Ruch przychodzący HTTPS w usłudze kontenera platformy Azure (AKS)
 
 Kontroler transfer danych przychodzących jest oprogramowaniem udostępniający zwrotnego serwera proxy, routingu ruchu można konfigurować i zakończenie TLS Kubernetes usług. Kubernetes wejściowych zasobów są używane do konfigurowania tras dla poszczególnych usług Kubernetes i transfer danych przychodzących reguł. Przy użyciu kontrolera wejściowych i transfer danych przychodzących reguł, pojedynczy adres zewnętrzny można kierować ruchem do wielu usług w klastrze Kubernetes.
 
-Ten dokument przeprowadzi Cię przez wdrożenie próbki [kontrolera wejściowych NGIX] [ nginx-ingress] w klastrze usługi kontenera platformy Azure (AKS). Ponadto [— LEGO KUBE] [ kube-lego] projektu służy do automatycznego generowania i skonfigurować [umożliwia szyfrowanie] [ lets-encrypt] certyfikatów. Na koniec kilka aplikacji są uruchamiane w klastrze AKS, z których każdy jest dostępny za pośrednictwem jednego adresu.
+Ten dokument przeprowadzi Cię przez wdrożenie próbki [kontrolera wejściowych NGINX] [ nginx-ingress] w klastrze usługi kontenera platformy Azure (AKS). Ponadto [— LEGO KUBE] [ kube-lego] projektu służy do automatycznego generowania i skonfigurować [umożliwia szyfrowanie] [ lets-encrypt] certyfikatów. Na koniec kilka aplikacji są uruchamiane w klastrze AKS, z których każdy jest dostępny za pośrednictwem jednego adresu.
 
 ## <a name="install-an-ingress-controller"></a>Instalowanie kontrolera wejściowych
 
@@ -58,8 +58,8 @@ IP="52.224.125.195"
 DNSNAME="demo-aks-ingress"
 
 # Get resource group and public ip name
-RESOURCEGROUP=$(az network public-ip list --query "[?contains(ipAddress, '$IP')].[resourceGroup]" --output tsv)
-PIPNAME=$(az network public-ip list --query "[?contains(ipAddress, '$IP')].[name]" --output tsv)
+RESOURCEGROUP=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '$IP')].[resourceGroup]" --output tsv)
+PIPNAME=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '$IP')].[name]" --output tsv)
 
 # Update public ip address with dns name
 az network public-ip update --resource-group $RESOURCEGROUP --name  $PIPNAME --dns-name $DNSNAME
@@ -68,7 +68,7 @@ az network public-ip update --resource-group $RESOURCEGROUP --name  $PIPNAME --d
 W razie potrzeby, uruchom następujące polecenie, aby pobrać nazwę FQDN. Zaktualizuj wartość adresu IP z tym kontrolerem wejściowych.
 
 ```azurecli
-az network public-ip list --query "[?contains(ipAddress, '52.224.125.195')].[dnsSettings.fqdn]" --output tsv
+az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '52.224.125.195')].[dnsSettings.fqdn]" --output tsv
 ```
 
 Transfer danych przychodzących kontrolera jest teraz dostępny za pomocą nazwy FQDN.

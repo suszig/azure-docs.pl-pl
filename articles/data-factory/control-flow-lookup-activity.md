@@ -5,19 +5,19 @@ services: data-factory
 documentationcenter: 
 author: sharonlo101
 manager: jhubbard
-editor: shlo
+editor: 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
-ms.openlocfilehash: 02e4d7cd062364cae2edad0c76e3a009bb6c1bda
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.author: shlo
+ms.openlocfilehash: 2f551e97b833460c7c4ccd276b0df1dae562c03b
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Działania wyszukiwania w fabryce danych Azure
 Działania wyszukiwania służy do odczytywania lub wyszukania rekordu, nazwę tabeli lub wartość z dowolnego źródła zewnętrznego. Do tych danych wyjściowych mogą także odwoływać się kolejne działania. 
@@ -62,9 +62,9 @@ Maksymalna liczba wierszy zwracanych przez działanie wyszukiwania to **5000**, 
 ## <a name="type-properties"></a>Właściwości typu
 Name (Nazwa) | Opis | Typ | Wymagana?
 ---- | ----------- | ---- | --------
-Zestaw danych | Zawiera odwołania do zestawu danych do wyszukiwania. Obecnie typy obsługiwanych zestawu danych to:<ul><li>`AzureBlobDataset`Aby uzyskać [magazynu obiektów Blob Azure](connector-azure-blob-storage.md#dataset-properties) jako źródło</li><li>`FileShareDataset`Aby uzyskać [systemu plików](connector-file-system.md#dataset-properties) jako źródło</li><li>`AzureSqlTableDataset`Aby uzyskać [bazy danych SQL Azure](connector-azure-sql-database.md#dataset-properties) lub [magazyn danych SQL Azure](connector-azure-sql-data-warehouse.md#dataset-properties) jako źródło</li><li>`SqlServerTable`Aby uzyskać [programu SQL Server](connector-sql-server.md#dataset-properties) jako źródło</li><li>`AzureTableDataset`Aby uzyskać [magazynu tabel Azure](connector-azure-table-storage.md#dataset-properties) jako źródło</li> | Para klucza i wartości | Yes
+Zestaw danych | Zawiera odwołania do zestawu danych do wyszukiwania. Obecnie typy obsługiwanych zestawu danych to:<ul><li>`AzureBlobDataset` Aby uzyskać [magazynu obiektów Blob Azure](connector-azure-blob-storage.md#dataset-properties) jako źródło</li><li>`FileShareDataset` Aby uzyskać [systemu plików](connector-file-system.md#dataset-properties) jako źródło</li><li>`AzureSqlTableDataset` Aby uzyskać [bazy danych SQL Azure](connector-azure-sql-database.md#dataset-properties) lub [magazyn danych SQL Azure](connector-azure-sql-data-warehouse.md#dataset-properties) jako źródło</li><li>`SqlServerTable` Aby uzyskać [programu SQL Server](connector-sql-server.md#dataset-properties) jako źródło</li><li>`AzureTableDataset` Aby uzyskać [magazynu tabel Azure](connector-azure-table-storage.md#dataset-properties) jako źródło</li> | Para klucza i wartości | Yes
 źródło | Zawiera właściwości specyficzne dla zestawu danych źródła, taki sam jak źródło działania kopiowania. Uzyskiwanie szczegółowych informacji w sekcji "Kopiuj właściwości działania" w każdym artykule odpowiedni łącznik. | Para klucza i wartości | Yes
-firstRowOnly | Wskazuje, czy mają być zwracane tylko pierwszy wiersz lub wszystkie wiersze. | Wartość logiczna | Nie. Domyślnie jest `true`.
+firstRowOnly | Wskazuje, czy mają być zwracane tylko pierwszy wiersz lub wszystkie wiersze. | Wartość logiczna | Nie. Wartość domyślna to `true`.
 
 ## <a name="use-the-lookup-activity-result-in-a-subsequent-activity"></a>Użyj wyniku działania wyszukiwania w następnych działań
 

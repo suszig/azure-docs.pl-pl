@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/29/2018
+ms.date: 03/01/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: c2728545aeb202bdd216e00fd4a7e464e483b1da
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 66b2ef53e613a9c61eea17746a25357119cf6900
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>Aktywacja subskrypcji platformy Azure i kont za pomocą usługi Azure Management koszt
 
@@ -56,7 +56,7 @@ Po dodaniu aktualizacji konta subskrypcji, można przyznać dostęp do usługi A
 
 ### <a name="update-a-subscription"></a>Aktualizowanie subskrypcji
 
-1. Jeśli chcesz zaktualizować _nieaktywowani_ subskrypcji, która już istnieje w Azure koszt zarządzania, w przystawce Zarządzanie kontami kliknij symbol ołówka edycji z prawej strony _identyfikator GUID dzierżawy_.
+1. Jeśli chcesz zaktualizować _nieaktywowani_ subskrypcji, która już istnieje w Azure koszt zarządzania, w przystawce Zarządzanie kontami kliknij symbol ołówka edycji z prawej strony nadrzędnej _identyfikator GUID dzierżawy_. Subskrypcje są zgrupowane w dzierżawy nadrzędnej, więc należy unikać indywidualnie aktywowania subskrypcji.
     ![Ponowne odnajdywanie subskrypcji](./media/activate-subs-accounts/existing-sub.png)
 2. W razie potrzeby wprowadź identyfikator dzierżawy. Jeśli nie znasz Identyfikatora dzierżawy, wykonaj następujące kroki, aby ją znaleźć:
     1. Zaloguj się do [portalu Azure](https://portal.azure.com).

@@ -3,9 +3,9 @@ title: Kreator kopiowania Azure fabryki danych | Dokumentacja firmy Microsoft
 description: "Więcej informacji na temat sposobu korzystania z Kreatora kopiowania Azure fabryki danych można skopiować danych z obsługiwanych źródeł danych do ujścia."
 services: data-factory
 documentationcenter: 
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: linda33wj
+manager: 
+editor: 
 ms.assetid: 0974eb40-db98-4149-a50d-48db46817076
 ms.service: data-factory
 ms.workload: data-services
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
-ms.author: spelluru
+ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d9f3fea0db5a08fc91d9e4dc525b48575c512634
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: aeed2b2413f14b60d018ebd4f09293d6c41554d2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Kreator kopiowania fabryki danych Azure
 > [!NOTE]
@@ -44,7 +44,7 @@ Kreator zaprojektowano z danymi big data na uwadze od początku, obsługę róż
 ## <a name="automatic-data-preview"></a>Podgląd danych
 Można wyświetlić podgląd część danych z wybranego źródła danych, aby zweryfikować, czy dane mają zostać skopiowane. Ponadto jeśli źródło danych jest w pliku tekstowym, Kreator kopiowania analizuje pliku tekstowego, aby dowiedzieć się więcej wierszy i kolumn ograniczniki i schemat automatycznie.
 
-![Ustawienia format pliku](./media/data-factory-copy-wizard/file-format-settings.png)
+![Ustawienia formatu pliku](./media/data-factory-copy-wizard/file-format-settings.png)
 
 ## <a name="schema-capture-and-mapping"></a>Przechwytywanie schematu i mapowanie
 Schemat danych wejściowych może nie odpowiadać schemat danych wyjściowych w niektórych przypadkach. W tym scenariuszu należy mapować kolumn z schematu źródła do kolumn z schematu docelowego.

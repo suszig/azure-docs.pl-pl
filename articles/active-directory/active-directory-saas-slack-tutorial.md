@@ -4,20 +4,20 @@ description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej mię
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: ffc5e73f-6c38-4bbb-876a-a7dd269d4e1c
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 02/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 67d95b48520cd990428447dc775d9af22528c0f0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cd0cecde7f98e73911e7dec734cffeeee6f09a72
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-slack"></a>Samouczek: Integracji Azure Active Directory z zapas czasu
 
@@ -110,9 +110,9 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-slack-tutorial/tutorial_slack_url.png)
 
-    a. W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<companyname>.slack.com`
+    a. W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca: `https://<companyname>.slack.com`
 
-    b. W **identyfikator** tekstowym, wpisz adres URL:`https://slack.com`
+    b. W **identyfikator** tekstowym, wpisz adres URL: `https://slack.com`
 
     > [!NOTE] 
     > Wartość nie jest prawdziwe. Należy zaktualizować wartości rzeczywistych logowania na adres URL. Skontaktuj się z [zespołem pomocy technicznej Slack](https://slack.com/help/contact) można uzyskać wartość
@@ -121,14 +121,17 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
     
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-slack-tutorial/tutorial_slack_attribute.png)
 
+    > [!NOTE] 
+    > Jeśli użytkownik ma **adres e-mail** przypisane przy użyciu usługi Office 365, a następnie tylko jego zostaną wypełnione, w przeciwnym razie **adres e-mail** oświadczenia nie będą widoczne w tokenu SAML.
+
 5. W **atrybuty użytkownika** sekcji na **logowanie jednokrotne** okno dialogowe, wybierz opcję **user.mail** jako **identyfikator użytkownika** i dla każdego wiersza w tabeli poniżej, wykonaj następujące czynności:
     
     | Nazwa atrybutu | Wartość atrybutu |
     | --- | --- |
-    | Imię | User.givenName |
-    | nazwisko | User.surname |
+    | first_name | user.givenname |
+    | last_name | user.surname |
     | User.Email | User.mail |  
-    | User.Username | User.userPrincipalName |
+    | User.Username | user.userprincipalname |
 
     a. Polecenie **atrybutu** otworzyć **atrybutu Edytuj** okna dialogowego polu i wykonaj następujące czynności:
 
@@ -137,8 +140,10 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
     a. W **nazwa** tekstowym, wpisz nazwę atrybut wyświetlany dla danego wiersza.
     
     b. Z **wartość** listy, wybierz wartość atrybutu wyświetlany dla danego wiersza.
+
+    c. Pozostaw **Namespace** puste.
     
-    c. Kliknij przycisk **OK**.
+    d. Kliknij przycisk **OK**.
 
 6. Na **certyfikat podpisywania SAML** kliknij **certyfikatu (Base64)** , a następnie zapisz plik certyfikatu na tym komputerze.
 
@@ -262,7 +267,7 @@ W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego log
 
 Po kliknięciu kafelka Slack w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane Slack aplikacji.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)

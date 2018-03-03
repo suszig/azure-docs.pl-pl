@@ -14,14 +14,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 739e80633f828e8c14f024dc22971e7d8858cf78
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 03b9de7374880cdb2741821edae246bffaf3f921
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Umożliwia konwertowanie zawartości tekstowej w plikach wideo na cyfrowe tekst analizy multimediów Azure
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Jeśli potrzebujesz do wyodrębniania zawartości tekstu z plików wideo oraz do generowania edytowalny, wyszukiwanie tekstu cyfrowych, należy użyć Rozpoznawania analizy multimediów Azure (OCR). Ten procesor multimediów Azure wykrywa zawartości tekstowej w plikach wideo i generuje pliki tekstowe do użycia. Rozpoznawania pozwala zautomatyzować wyodrębniania łatwy do rozpoznania metadanych z sygnału wideo multimediów.
 
 Gdy jest używany w połączeniu z aparatu wyszukiwania, możesz łatwo indeksu multimediów tekst i zwiększyć wykrywalność zawartości. Jest to bardzo przydatne w dużej tekstową wideo, takich jak nagrywanie wideo lub Przechwytywanie ekranu prezentacji pokazu slajdów. Procesor multimediów Azure Rozpoznawania jest zoptymalizowana pod kątem cyfrowe tekstu.
@@ -46,11 +46,12 @@ Konfiguracja zadania (ustawienia domyślne). Podczas tworzenia zadania z **Azure
 |AdvancedOutput| Jeśli AdvancedOutput jest ustawiona na wartość true, dane wyjściowe JSON zawierają dane pozycyjnych dla każdego pojedynczego wyrazu (oprócz fraz i regiony). Jeśli nie chcesz wyświetlić szczegółowe informacje, należy ustawić flagę na wartość false. Wartość domyślna to false. Aby uzyskać więcej informacji, zobacz [ten blog](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/).|
 | Język |(opcjonalnie) opisano język tekstu do wyszukania. Jedną z następujących: AutoDetect (ustawienie domyślne), arabskiego, ChineseSimplified, ChineseTraditional, czeski, duński, holenderski, angielski, fiński, francuski, niemiecki, grecki, węgierski, włoski, japoński, koreański, norweski, Polski, portugalski, rumuński, rosyjski, SerbianCyrillic, SerbianLatin, słowacki, hiszpański, szwedzki, turecki. |
 | TextOrientation |(opcjonalnie) opisano orientacji tekstu do wyszukania.  "Lewo" oznacza, że na początku wszystkie litery są skierowane po lewej stronie.  Domyślny tekst (na przykład tych, które można znaleźć w księdze) można wywołać "W górę" orientacji.  Jedną z następujących: AutoDetect (ustawienie domyślne), maksymalnie, prawo, w dół, lewo. |
-| Parametru TimeInterval |(opcjonalnie) opisano próbkowania.  Domyślna to co 1/2 sekundy.<br/>Format JSON — hh: mm:. SSS (00:00:00.500 domyślne)<br/>Format XML — podstawowy czas trwania W3C XSD (domyślnie PT0.5) |
+| TimeInterval |(opcjonalnie) opisano próbkowania.  Domyślna to co 1/2 sekundy.<br/>Format JSON — hh: mm:. SSS (00:00:00.500 domyślne)<br/>Format XML — podstawowy czas trwania W3C XSD (domyślnie PT0.5) |
 | DetectRegions |(opcjonalnie) Tablica obiektów DetectRegion określenie obszarów w ramce wideo, w którym można wykryć tekstu.<br/>Obiekt DetectRegion składa się z następujących wartości całkowitych cztery:<br/>Po lewej — pikseli z lewym marginesie<br/>TOP — pikseli z margines górny<br/>Szerokość — Szerokość regionu w pikselach<br/>Wysokość — wysokość regionu w pikselach |
 
 #### <a name="json-preset-example"></a>Przykład predefiniowanych JSON
 
+```json
     {
         "Version":1.0, 
         "Options": 
@@ -69,8 +70,11 @@ Konfiguracja zadania (ustawienia domyślne). Podczas tworzenia zadania z **Azure
              ]
         }
     }
+```
 
 #### <a name="xml-preset-example"></a>Przykład wstępnie zdefiniowane w pliku XML
+
+```xml
     <?xml version=""1.0"" encoding=""utf-16""?>
     <VideoOcrPreset xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"" Version=""1.0"" xmlns=""http://www.windowsazure.com/media/encoding/Preset/2014/03"">
       <Options>
@@ -88,6 +92,7 @@ Konfiguracja zadania (ustawienia domyślne). Podczas tworzenia zadania z **Azure
        <TextOrientation>Up</TextOrientation>
       </Options>
     </VideoOcrPreset>
+```
 
 ## <a name="ocr-output-files"></a>Pliki wyjściowe Rozpoznawania
 Dane wyjściowe procesor multimediów Rozpoznawania jest to plik JSON.
@@ -118,6 +123,7 @@ Dane wyjściowe zawierają następujące atrybuty:
 ### <a name="json-output-example"></a>Przykład danych wyjściowych JSON
 W poniższym przykładzie danych wyjściowych zawiera informacje ogólne wideo oraz kilka fragmentów wideo. W każdym wideo fragmentu zawiera każdego regionu, który jest wykrywany przez pakiet administracyjny Rozpoznawania język oraz orientacji tekstu. Region zawiera także każdy wiersz programu word w tym regionie tekst wiersza, pozycja wiersza i informacje co word (zawartości programu word, pozycji i zaufania) w tym wierszu. Poniżej przedstawiono przykład i umieścić niektóre wbudowane komentarze.
 
+```json
     {
         "version": 1, 
         "timescale": 90000, 
@@ -170,6 +176,7 @@ W poniższym przykładzie danych wyjściowych zawiera informacje ogólne wideo o
             }
         ]
     }
+```
 
 ## <a name="net-sample-code"></a>.NET przykładowy kod
 
@@ -185,7 +192,7 @@ Skonfiguruj środowisko projektowe i wypełnij plik app.config przy użyciu info
 
 #### <a name="example"></a>Przykład
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;

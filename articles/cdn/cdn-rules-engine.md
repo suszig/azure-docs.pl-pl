@@ -3,8 +3,8 @@ title: "Zastąpienie zachowania HTTP przy użyciu usługi Azure CDN aparatu regu
 description: "Aparat reguł pozwala dostosować sposób obsługi żądań HTTP przez usługi Azure CDN, takich jak blokowanie dostarczania niektórych typów zawartości, definiowania zasad buforowania i modyfikować nagłówki HTTP."
 services: cdn
 documentationcenter: 
-author: zhangmanling
-manager: erikre
+author: dksimpson
+manager: akucer
 editor: 
 ms.assetid: 625a912b-91f2-485d-8991-128cc194ee71
 ms.service: cdn
@@ -12,32 +12,44 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/21/2018
 ms.author: mazha
-ms.openlocfilehash: abfe283476206b181018d187675b47112dc5ad2f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fe3df703f7eb244a52756c4d015e9ea598224ce1
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="override-http-behavior-using-the-azure-cdn-rules-engine"></a>Zastąpienie zachowania HTTP przy użyciu aparatu reguł Azure CDN
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
-## <a name="overview"></a>Omówienie
-Aparat reguł pozwala dostosować sposób obsługi żądań HTTP, takich jak blokowanie dostarczania niektórych typów zawartości, definiowania zasad buforowania i modyfikowanie nagłówków HTTP.  W tym samouczku zostanie pokazują, że tworzenia reguły, która spowoduje zmianę zachowania buforowania zasobów w sieci CDN.  Również jest dostępna w zawartości wideo "[Zobacz też](#see-also)" sekcji.
+## <a name="overview"></a>Przegląd
+Aparat zasad usługi Azure CDN umożliwia dostosowanie, sposób obsługi żądań HTTP. Na przykład blokowanie dostarczania niektórych typów zawartości, definiowania zasad buforowania i modyfikowania nagłówka HTTP. Ten samouczek pokazuje, jak utworzyć regułę, która zmienia zachowanie buforowania zasobów w sieci CDN. Aby uzyskać więcej informacji na temat składni aparatu reguł, zobacz [zasady usługi Azure CDN aparat odwołanie](cdn-rules-engine-reference.md).
 
-   > [!TIP] 
-   > Odwołanie do składni szczegółowo, zobacz [odwołanie do aparatu reguł](cdn-rules-engine-reference.md).
-   > 
+## <a name="access"></a>Dostęp
+Aby uzyskać dostęp do aparatu reguł, należy najpierw wybrać **Zarządzaj** od góry **profilu CDN** stronę, aby uzyskać dostęp do strony zarządzania usługi Azure CDN. W zależności od tego, czy punkt końcowy jest zoptymalizowany do przyspieszania dynamiczne witryny (DSA) aby następnie dostęp do aparatu reguł z zestaw reguł, które są odpowiednie dla danego typu punktu końcowego:
 
+- Punkty końcowe zoptymalizowane pod kątem dostarczania ogólne sieci web lub innych optymalizacji-DSA: 
+    
+    Wybierz **HTTP dużych** , a następnie wybierz **aparatu reguł**.
+
+    ![Aparat reguł dla protokołu HTTP](./media/cdn-rules-engine/cdn-http-rules-engine.png)
+
+- Punkty końcowe zoptymalizowane pod kątem DSA: 
+    
+    Wybierz **sieci ADN** , a następnie wybierz **aparatu reguł**. 
+    
+    Sieci ADN to termin używany przez Verizon do określenia zawartości DSA. Wszystkie reguły tworzone w tym miejscu są ignorowane przez żadnych punktów końcowych w Twoim profilu, które nie są zoptymalizowane pod kątem DSA. 
+
+    ![Aparat reguł dla DSA](./media/cdn-rules-engine/cdn-dsa-rules-engine.png)
 
 ## <a name="tutorial"></a>Samouczek
-1. Blok profilu CDN, kliknij **Zarządzaj** przycisku.
+1. Z **profilu CDN** wybierz pozycję **Zarządzaj**.
    
-    ![Przycisk Zarządzaj blok profilu CDN](./media/cdn-rules-engine/cdn-manage-btn.png)
+    ![Przycisk Zarządzaj profilu CDN](./media/cdn-rules-engine/cdn-manage-btn.png)
    
     Zostanie otwarty w portalu zarządzania usługi CDN.
-2. Polecenie **HTTP dużych** kartę, a następnie **aparatu reguł**.
+2. Wybierz **HTTP dużych** , a następnie wybierz **aparatu reguł**.
    
     Opcje dla nowej reguły są wyświetlane.
    
@@ -46,42 +58,42 @@ Aparat reguł pozwala dostosować sposób obsługi żądań HTTP, takich jak blo
    > [!IMPORTANT]
    > Kolejność, w którym są wyświetlane wiele reguł ma wpływ na sposób obsługi. Kolejne reguły mogą zastąpić akcje określone przez poprzednie reguły.
    > 
-   > 
 3. Wprowadź nazwę w **nazwę / opis** pola tekstowego.
-4. Określ typ żądań, które będą dotyczyć zasady.  Domyślnie **zawsze** wybrano warunek dopasowania.  Użyjesz **zawsze** w tym samouczku, dlatego pozostaw wybrany.
+4. Określ typ żądań, których dotyczy reguła. Użyj domyślnego warunku dopasowania **zawsze**. 
    
-   ![Warunek dopasowania CDN](./media/cdn-rules-engine/cdn-request-type.png)
-   
-   > [!TIP]
-   > Istnieje wiele typów dopasowania warunków dostępnych na liście rozwijanej.  Kliknięcie ikony informacyjny niebieski z lewej strony warunku dopasowania objaśnia aktualnie wybranego warunku szczegółowo.
-   > 
-   >  Pełną listę wyrażeń warunkowych szczegółowo w temacie [wyrażenia warunkowe aparatu reguł](cdn-rules-engine-reference-match-conditions.md).
-   >  
-   > Pełną listę warunków dopasowania szczegółowo w temacie [warunki odpowiada aparatu reguł](cdn-rules-engine-reference-match-conditions.md).
-   > 
-   > 
-5. Kliknij przycisk  **+**  znajdujący się obok **funkcje** można dodać nowych funkcji.  Na liście rozwijanej po lewej stronie wybierz **życie wewnętrzny Max-Age**.  W wyświetlonym polu tekstowym wprowadź **300**.  Pozostaw pozostałe wartości domyślne.
-   
-   ![Funkcja CDN](./media/cdn-rules-engine/cdn-new-feature.png)
+   ![Warunek dopasowania reguły CDN](./media/cdn-rules-engine/cdn-request-type.png)
    
    > [!NOTE]
-   > Jako warunkom dopasowania, klikając niebieski informacyjną ikonę na lewo od nowa funkcja wyświetli szczegóły dotyczące tej funkcji.  W odniesieniu **życie wewnętrzny Max-Age**, możemy są zastępowanie elementu zawartości **Cache-Control** i **Expires** nagłówków, aby kontrolować, kiedy węzła krawędzi CDN odświeży zasobu ze źródła.  Naszym przykładzie 300 sekund oznacza, że węzeł brzegowy CDN będą buforowane zasobów przez 5 minut przed odświeżeniem zawartości ze swoją witryną źródłową.
+   > Użycie wielu warunków dopasowania są dostępne na liście rozwijanej. Aby uzyskać informacje o warunku dopasowania aktualnie zaznaczonego wybierz niebieską ikoną informacyjny po lewej stronie.
    > 
-   > Aby uzyskać pełną listę funkcji, które szczegółowo, zobacz [Szczegóły funkcji aparatu reguł](cdn-rules-engine-reference-features.md).
+   >  Aby uzyskać szczegółową listę wyrażenia warunkowego, zobacz [reguły aparat wyrażeń warunkowych](cdn-rules-engine-reference-match-conditions.md).
+   >  
+   > Aby uzyskać szczegółową listę warunków dopasowania, zobacz [zasady warunków dopasowania aparat](cdn-rules-engine-reference-match-conditions.md).
    > 
    > 
-6. Kliknij przycisk **Dodaj** przycisk, aby zapisać nową regułę.  Nowa reguła teraz oczekuje na zatwierdzenie. Po jej zatwierdzeniu, stan zmieni się z **oczekujące XML** do **Active XML**.
+1. Aby dodać nową funkcję, zaznacz  **+**  znajdujący się obok **funkcji**.  Na liście rozwijanej po lewej stronie wybierz **życie wewnętrzny Max-Age**.  W wyświetlonym polu tekstowym wprowadź **300**. Nie należy zmieniać pozostałe wartości domyślne.
+   
+   ![Funkcja reguły CDN](./media/cdn-rules-engine/cdn-new-feature.png)
+   
+   > [!NOTE]
+   > Wiele funkcji dostępnych na liście rozwijanej. Aby uzyskać informacje o aktualnie wybranej funkcji wybierz niebieską ikoną informacyjny po lewej stronie. 
+   >
+   > Dla **życie wewnętrzny Max-Age**, element zawartości `Cache-Control` i `Expires` nagłówki są zastąpiona w celu kontrolowania, gdy węzeł brzegowy CDN odświeża zasobu ze źródła. W tym przykładzie węzła krawędzi CDN buforuje zasobów przez 300 sekund, czyli 5 minut, przed odświeżania zasobów ze swoją witryną źródłową.
+   > 
+   > Aby uzyskać szczegółową listę funkcji, zobacz [reguły aparat funkcji](cdn-rules-engine-reference-features.md).
+   > 
+   > 
+1. Kliknij przycisk **Dodaj** przycisk, aby zapisać nową regułę.  Nowa reguła teraz oczekuje na zatwierdzenie. Po jej zatwierdzeniu zmiany stanu z **oczekujące XML** do **Active XML**.
    
    > [!IMPORTANT]
    > Zmiany zasad może potrwać do 90 minut propagację za pośrednictwem sieci CDN.
    > 
    > 
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Omówienie usługi Azure CDN](cdn-overview.md)
 * [Odwołanie do aparatu reguł](cdn-rules-engine-reference.md)
 * [Warunki uzgadniania aparatu reguł](cdn-rules-engine-reference-match-conditions.md)
 * [Wyrażenia warunkowe aparatu reguł](cdn-rules-engine-reference-conditional-expressions.md)
 * [Funkcje aparatu reguł](cdn-rules-engine-reference-features.md)
-* [Zastępowanie domyślnego zachowania HTTP przy użyciu aparatu reguł](cdn-rules-engine.md)
-* [Azure piątki: Usługi Azure CDN zaawansowanych nowych funkcji Premium](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (klip wideo)
+* [Azure piątki: Usługi Azure CDN zaawansowanych nowych funkcji premium](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (klip wideo)

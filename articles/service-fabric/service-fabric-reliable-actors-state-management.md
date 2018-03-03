@@ -14,23 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: fae68c9fb40951e3f7a6fce67d75872cecfc52bd
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: f196b2e54efc5ecbbd93e48e1f115edb99e5c858
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="reliable-actors-state-management"></a>Zarządzanie stanem podmiotów niezawodnej
-Reliable Actors są jednowątkowych obiektów hermetyzacji zarówno logiki i stanu. Ponieważ podmioty są uruchamiane na niezawodne usługi, ich niezawodnie zachowują stan, przy użyciu tego samego stanu trwałego i mechanizmów replikacji, które używa niezawodne usługi. W ten sposób złośliwych użytkowników nie utracili ich stanu po awariach po ponownej aktywacji po wyrzucanie elementów bezużytecznych lub po przeniesieniu ich między węzłami w klastrze równoważenia zasobów lub uaktualnień.
+Reliable Actors są jednowątkowych obiektów hermetyzacji zarówno logiki i stanu. Ponieważ podmioty są uruchamiane na niezawodne usługi, ich niezawodnie zachowują stan, przy użyciu tego samego stanu trwałego i mechanizmów replikacji. W ten sposób złośliwych użytkowników nie utracili ich stanu po awariach po ponownej aktywacji po wyrzucanie elementów bezużytecznych lub po przeniesieniu ich między węzłami w klastrze równoważenia zasobów lub uaktualnień.
 
 ## <a name="state-persistence-and-replication"></a>Trwałość stanu i replikacji
 Uwzględniane są wszystkie Reliable Actors *stateful* ponieważ każde wystąpienie aktora jest mapowany na unikatowy identyfikator. Oznacza to, że ten sam identyfikator aktora powtarzane wywołania są kierowane do tego samego wystąpienia aktora. W systemie bezstanowych natomiast wywołań klienta nie ma gwarancji być kierowane do tego samego serwera zawsze. Z tego powodu usługi aktora są zawsze usług stanowych.
 
 Mimo że podmioty są traktowane jako wartość, która oznacza to, że ich musi niezawodne przechowywanie stanu. Złośliwych użytkowników można wybrać poziom trwałości stanu i replikacji na podstawie ich danych wymagania dotyczące magazynu:
 
-* **Stan utrwalony**: stan jest zachowywany na dysku i jest replikowany do replik 3 lub więcej. Jest to najbardziej niezawodna opcji magazynu stanu gdzie stan może się powtarzać, za pośrednictwem awarii całego klastra.
-* **Stan volatile**: stan jest replikowana do replik 3 lub więcej i tylko przechowywany w pamięci. Zapewnia odporność względem awarii węzła i niepowodzenie aktora oraz podczas uaktualniania i równoważenia zasobów. Jednak stan nie jest zachowywany na dysku. Jeśli więc wszystkie repliki zostaną utracone na raz, stan utracone również.
-* **Nie stanu utrwalonego**: stan nie jest replikowany lub zapisany na dysku. Ten poziom jest osób, które nie wymagają po prostu do zarządzania stanem niezawodnie.
+* **Stan utrwalony**: stan jest zachowywany na dysku i jest replikowany do co najmniej trzech replik. Stan utrwalony jest najbardziej niezawodna opcji magazynu stanu, gdzie stan może się powtarzać, za pośrednictwem awarii całego klastra.
+* **Stan volatile**: stan jest replikowana do co najmniej trzech replik i tylko przechowywany w pamięci. Stan volatile gwarantuje odporność względem awarii węzła i niepowodzenie aktora oraz podczas uaktualniania i równoważenia zasobów. Jednak stan nie jest zachowywany na dysku. Jeśli więc wszystkie repliki zostaną utracone na raz, stan utracone również.
+* **Nie stanu utrwalonego**: stan nie jest replikowany lub zapisywane na dysku, używaj tylko dla osób, które nie wymagają do zarządzania stanem niezawodnie.
 
 Każdy poziom trwałości jest po prostu inną *dostawcy stanu* i *replikacji* konfiguracji usługi. Określa, czy stan jest zapisywany na dysku jest zależna od dostawcy stanu — składnik w niezawodnej usługi, która przechowuje stan. Zależy od liczby replikami usługa jest wdrażana z replikacji. Podobnie jak w przypadku niezawodne usługi dostawcy stanu i liczby replik można łatwo skonfigurować ręcznie. Framework aktora udostępnia atrybut, gdy używany na aktora, automatycznie wybiera domyślny dostawca stanu i automatycznie generuje ustawienia liczby replik osiągnięcie jednego z tych trzech ustawień trwałości. Atrybut StatePersistence nie jest dziedziczone przez klasy pochodnej, podać jego poziom StatePersistence każdego typu aktora.
 
@@ -111,7 +111,7 @@ Menedżer stanu klucze muszą być ciągami. Wartości są ogólne i mogą być 
 
 Menedżer stanu przedstawia stan podobne do tych znaleziony w słowniku niezawodnej zarządzania typowe metody słownika.
 
-### <a name="accessing-state"></a>Uzyskiwanie dostępu do stanu
+## <a name="accessing-state"></a>Uzyskiwanie dostępu do stanu
 Stan jest możliwy za pośrednictwem Menedżera stanu według klucza. Metody menedżera stanu są wszystkie asynchronicznego, ponieważ może wymagać We/Wy dysku, gdy podmiotów utrwalonych stanu. Po pierwszym dostępie obiekty stanu są buforowane w pamięci. Powtórz uzyskiwanie dostępu do operacji dostępu do obiektów bezpośrednio z pamięci i zwracany synchronicznie, bez ponoszenia We/Wy dysku lub asynchroniczne przełączania kontekstu. Obiekt stanu zostanie usunięty z pamięci podręcznej w następujących przypadkach:
 
 * Metoda aktora zgłasza nieobsługiwany wyjątek, po jego pobiera obiekt przez menedżera stanu.
@@ -193,7 +193,7 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-### <a name="saving-state"></a>Zapisywanie stanu
+## <a name="saving-state"></a>Zapisywanie stanu
 Metody pobierania stanu Menedżera zwraca odwołanie do obiektu w pamięci lokalnej. Modyfikowanie tego obiektu w pamięci lokalnej wyłącznie nie powoduje jego zapisania trwałym. Gdy obiekt jest pobierane z Menedżera stanu i modyfikować, należy ponownie wstawić do przez menedżera stanu można zapisać trwałym.
 
 Stan można wstawić za pomocą bezwarunkowe *ustawić*, który jest odpowiednikiem `dictionary["key"] = value` składni:
@@ -328,7 +328,7 @@ interface MyActor {
 }
 ```
 
-### <a name="removing-state"></a>Usuwanie stanu
+## <a name="removing-state"></a>Usuwanie stanu
 Możesz usunąć stan trwale z Menedżer stanu aktora wywołując *Usuń* metody. Ta metoda zgłasza `KeyNotFoundException`(C#) lub `NoSuchElementException`(Java) podczas próby usunięcia klucz, który nie istnieje.
 
 ```csharp
@@ -405,7 +405,18 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="best-practices"></a>Najlepsze praktyki
+Poniżej przedstawiono niektóre sugerowane rozwiązania i wskazówki dotyczące rozwiązywania problemów związanych z zarządzaniem Nazwa stanu aktora.
+
+### <a name="make-the-actor-state-as-granular-as-possible"></a>Wprowadź stanu aktora szczegółowe, jak to możliwe
+Jest to szczególnie ważne, wydajności i użycia zasobów aplikacji. Zawsze, gdy istnieje zapisu/zaktualizowanie "o nazwie stanu" aktora, całe wartością odpowiadającą temu Państwu"o nazwie" jest serializowany i przesyłane przez sieć w replikach pomocniczych.  Pomocnicze zapisu na dysku lokalnym i odpowiedzi do repliki podstawowej. Gdy podstawowy otrzyma potwierdzeń z kworum replik pomocniczych, zapisuje stan do jego dysku lokalnym. Na przykład załóżmy, że wartość jest klasa, która ma 20 elementów członkowskich i o rozmiarze 1 MB. Nawet wtedy, gdy jeden z elementów członkowskich klasy, które jest tylko zmodyfikowane rozmiarze 1 KB, koniec się zwracając koszt serializacji i zapisy sieci i dysku do pełnej 1 MB. Podobnie jeśli wartość jest kolekcji (na przykład listy, tablicy lub słownika), płacisz koszt pełną kolekcję nawet wtedy, gdy jeden z jego elementów członkowskich zmodyfikować. Interfejs zabezpiecza klasy aktora jest podobne do słownika. Należy zawsze modelu struktury danych reprezentujący stanu aktora u góry tego słownika.
+ 
+### <a name="correctly-manage-the-actors-life-cycle"></a>Poprawnie Zarządzanie cyklem życia aktora
+Należy dobrze wyczyść zasad dotyczących zarządzania rozmiar stanu w każdej partycji usługi aktora. Usługi aktora powinny mieć stała liczba uczestników i użyj ich ponownie bardzo, jak to możliwe. Jeśli stale utworzyć nowych podmiotów, należy je usunąć po zakończeniu pracy. Framework aktora przechowuje niektóre metadane dotyczące każdego aktora, czy istnieje. Usunięcie stanu aktora nie powoduje usunięcia metadane dotyczące tego aktora. Należy usunąć aktora (zobacz [Usuwanie złośliwych użytkowników i ich stan](service-fabric-reliable-actors-lifecycle.md#deleting-actors-and-their-state)) do usunięcia wszystkich informacji o ona przechowywana w systemie. Jako dodatkowe wyboru, należy wysłać zapytania do usługi aktora (zobacz [wyliczania podmiotów](service-fabric-reliable-actors-platform.md)) okazjonalnie, aby upewnić się, liczba uczestników są oczekiwanego zakresu.
+ 
+Jeśli kiedykolwiek widać, że rozmiar pliku bazy danych usługi aktora zwiększa się poza oczekiwanym rozmiarem, upewnij się, po poprzednim wytyczne. Jeśli są następujące wskazówki i są nadal bazy danych problemów z rozmiarem plików, należy [Otwórz bilet pomocy technicznej](service-fabric-support.md) zespołowi produktu, aby uzyskać pomoc.
+
+## <a name="next-steps"></a>Kolejne kroki
 
 Stan, który jest przechowywany w Reliable Actors musi być serializowany przed zapisany na dysku i replikowany wysokiej dostępności. Dowiedz się więcej o [serializacji typu aktora](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
 

@@ -10,17 +10,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/22/2018
+ms.date: 2/28/2018
 ms.author: rithorn
-ms.openlocfilehash: bc7d98851e8d84d7db8586138608220c838ca776
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 1264bf77b6d922f5beb22177d1ac63efa9386ef2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizowanie zasobów z grupami zarządzania Azure 
 
-Jeśli masz wiele subskrypcji, można je zorganizować w o nazwie "grupy zarządzania" kontenery ułatwiające zarządzanie dostępu, zasad i zgodności wszystkich subskrypcji. Kontenery umożliwiają zarządzanie korporacyjnej na dużą skalę, niezależnie od tego, jakiego rodzaju subskrypcji może być.  
+Jeśli masz wiele subskrypcji, można je zorganizować w o nazwie "grupy zarządzania" kontenery ułatwiające zarządzanie dostępu, zasad i zgodności wszystkich subskrypcji. Grupy zarządzania zapewniają na dużą skalę, niezależnie od tego, jakiego rodzaju subskrypcji może być zarządzania korporacyjnej.  
 
 Funkcja grupy zarządzania jest dostępna w publicznej wersji zapoznawczej. Aby rozpocząć korzystanie z zarządzania grupy, zaloguj się do [portalu Azure](https://portal.azure.com) i wyszukaj **grup zarządzania** w **wszystkie usługi** sekcji. 
 
@@ -70,7 +70,7 @@ Podczas żadnego [wbudowanej roli RBAC](../active-directory/role-based-access-co
 Aby dowiedzieć się więcej na temat grup zarządzania, zobacz: 
 - [Tworzenie grup zarządzania w celu organizowania zasobów platformy Azure](management-groups-create.md)
 - [Jak zmienić, usunąć lub zarządzać grupami zarządzania](management-groups-manage.md)
-- [Zainstaluj moduł Azure Powershell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview)
+- [Zainstaluj moduł Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview)
 - [Przejrzyj specyfikacji interfejsu API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview)
-- [Zainstaluj rozszerzenie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az_extension_list_available)
+- [Zainstaluj rozszerzenie interfejsu wiersza polecenia Azure](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az_extension_list_available)
 

@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 02/20/2018
+ms.date: 02/28/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: dce848d75e2ce89e8e6003108f1cd5371cbb0f31
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: cc3ea7f81a924f3f4baa6fd2866c4e552b7c160e
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Wymuszanie zasad nazewnictwa dla grup usługi Office 365 w usłudze Azure Active Directory (wersja zapoznawcza)
 
@@ -100,7 +100,9 @@ Jeśli zostanie wyświetlony monit o dostępie do niezaufanych repozytorium, wpi
   Import-Module AzureADPreview
   Connect-AzureAD
   ````
-W **Zaloguj się do swojego konta** ekranu, który zostanie otwarty, wprowadź konto administratora i hasło, należy połączyć się z usługą, a następnie wybierz **Zaloguj**.
+  W **Zaloguj się do swojego konta** ekranu, który zostanie otwarty, wprowadź konto administratora i hasło, należy połączyć się z usługą, a następnie wybierz **Zaloguj**.
+
+3. Postępuj zgodnie z instrukcjami [poleceń cmdlet usługi Azure Active Directory do konfigurowania ustawień grupy](active-directory-accessmanagement-groups-settings-cmdlets.md) można utworzyć grupy ustawień dla tej dzierżawy.
 
 ### <a name="view-the-current-settings"></a>Wyświetl bieżące ustawienia
 
@@ -140,7 +142,7 @@ To już wszystko. Został ustawiony zasad nazewnictwa i dodać zablokowanych sł
 
 ## <a name="export-or-import-the-list-of-custom-blocked-words"></a>Eksportowanie lub importowanie listę niestandardowych słów zablokowanych
 
-Aby uzyskać więcej informacji, zobacz artykuł [poleceń cmdlet usługi Azure Active Directory do konfigurowania ustawień grupy](active-directory-accessmanagement-groups-settings-cmdlets.md)
+Aby uzyskać więcej informacji, zobacz artykuł [poleceń cmdlet usługi Azure Active Directory do konfigurowania ustawień grupy](active-directory-accessmanagement-groups-settings-cmdlets.md).
 
 Poniżej przedstawiono przykładowy skrypt programu PowerShell, aby wyeksportować wiele słów zablokowany:
 

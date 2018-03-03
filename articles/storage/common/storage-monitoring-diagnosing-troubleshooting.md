@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
-ms.openlocfilehash: bf6cf780867f9ecf5c5be93dc28fe3e00a0c3f82
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: b89071048594e1e11efb321da3d0b48005824b46
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorowanie, diagnozowanie i rozwiązywanie problemów z usługą Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
 
 ## <a name="overview"></a>Przegląd
-Może być bardziej skomplikowane niż w tradycyjnych środowisk diagnozowania i rozwiązywania problemów w aplikacji rozproszonej hostowanych w środowisku chmury. Aplikacje można wdrażać w infrastrukturze PaaS lub IaaS lokalnie na urządzeniu przenośnym lub w kombinacji tych. Zazwyczaj ruchu sieciowego aplikacji może przechodzić między nimi sieci publicznych i prywatnych aplikacja może korzystać z wielu technologii magazynowania, takich jak Microsoft Azure magazynu tabel, obiektów blob, kolejek i przechowuje pliki oprócz innych danych, takie jak relacyjna i zarządzania dokumentami baz danych.
+Może być bardziej skomplikowane niż w tradycyjnych środowisk diagnozowania i rozwiązywania problemów w aplikacji rozproszonej hostowanych w środowisku chmury. Aplikacje można wdrażać w infrastrukturze PaaS lub IaaS lokalnie na urządzeniu przenośnym lub w kombinacji tych środowisk. Zazwyczaj ruchu sieciowego aplikacji może przechodzić między nimi sieci publicznych i prywatnych aplikacja może korzystać z wielu technologii magazynowania, takich jak Microsoft Azure magazynu tabel, obiektów blob, kolejek i przechowuje pliki oprócz innych danych, takie jak relacyjna i zarządzania dokumentami baz danych.
 
 Do zarządzania pomyślnie takich aplikacji należy je monitorować aktywne i zrozumienie, jak zdiagnozować i rozwiązać wszystkie aspekty je i ich technologie zależne. Jako użytkownik usługi Azure Storage należy stale monitorowanie usług magazynu używanych przez aplikację nieoczekiwane zmiany w zachowaniu (na przykład wolniej niż zwykle reakcje) i używania funkcji rejestrowania do zbierania bardziej szczegółowych danych oraz do analizowania problemu szczegółowo. Informacje diagnostyczne, który można uzyskać od zarówno monitorowanie i rejestrowanie pomoże Ci w celu ustalenia głównej przyczyny problemu, napotkano aplikacji. Następnie można rozwiązać ten problem i określić odpowiednie kroki, które można wykonać w celu jego rozwiązania. Usługa Azure Storage jest podstawowa usługi Azure i stanowi ważną część większość rozwiązań, które klientów wdrożyć infrastrukturę platformy Azure. Magazyn Azure zawiera funkcje, aby uprościć monitorowanie, diagnozowanie i rozwiązywanie problemów z magazynowaniem w aplikacjach opartych na chmurze.
 
 > [!NOTE]
-> Pliki Azure nie obsługuje rejestrowania w tej chwili.
+> Usługa pliki Azure nie obsługuje rejestrowania w tej chwili.
 > 
 
 Przewodnik Podręcznik end-to-end rozwiązywania problemów w aplikacji usługi Azure Storage, zobacz [Rozwiązywanie problemów przy użyciu metryk usługi Azure Storage i rejestrowania, AzCopy i Message Analyzer End-to-End](../storage-e2e-troubleshooting.md).
@@ -66,10 +66,11 @@ Przewodnik Podręcznik end-to-end rozwiązywania problemów w aplikacji usługi 
   * [Klient odbiera komunikaty HTTP 409 (konflikt)]
   * [metryki pokazują PercentSuccess niskim lub wpisy dziennika analytics ma operacji ze stanem transakcji ClientOtherErrors]
   * [Metryki pojemności Pokaż nieoczekiwane zwiększenie wykorzystania pojemności magazynu]
-  * [Występują nieoczekiwane ponowne uruchomienie maszyn wirtualnych, które mają wiele wirtualnych dysków twardych dołączonych]
   * [Problem wynika z przy użyciu emulatora magazynu dla rozwoju lub testowania]
   * [Pojawiły się problemy z instalacją zestawu Azure SDK dla platformy .NET]
   * [Inny problem z usługą magazynu]
+  * [Rozwiązywanie problemów z wirtualnych dysków twardych na maszynach wirtualnych systemu Windows](../../virtual-machines/windows/troubleshoot-vhds.md)   
+  * [Rozwiązywanie problemów z wirtualnych dysków twardych na maszynach wirtualnych systemu Linux](../../virtual-machines/linux/troubleshoot-vhds.md)
   * [Rozwiązywanie problemów plików Azure z systemem Windows](../files/storage-troubleshoot-windows-file-connection-problems.md)   
   * [Rozwiązywanie problemów plików Azure z systemem Linux](../files/storage-troubleshoot-linux-file-connection-problems.md)
 * [dodatki]
@@ -124,12 +125,12 @@ Wykresów na poniższej ilustracji przedstawiono, jak uśrednianie występuje dl
 W pozostałej części tej sekcji opisano metryki, które należy monitorować i dlaczego.
 
 ### <a name="monitoring-service-health">Monitorowanie kondycji usługi</a>
-Można użyć [portalu Azure](https://portal.azure.com) umożliwiających wyświetlenie kondycji usługi magazynu (i innych usług platformy Azure) we wszystkich regionach platformy Azure na świecie. Dzięki temu można zobaczyć natychmiast, jeśli problem poza formantu ma wpływ na usługi magazynu w regionie, w którym można użyć w aplikacji.
+Można użyć [portalu Azure](https://portal.azure.com) umożliwiających wyświetlenie kondycji usługi magazynu (i innych usług platformy Azure) we wszystkich regionach platformy Azure na świecie. Umożliwia monitorowanie można natychmiast zobaczyć, czy problem poza formantu ma wpływ na usługi magazynu w regionie, w którym można użyć w aplikacji.
 
 [Portalu Azure](https://portal.azure.com) można też podać powiadomienia zdarzenia mające wpływ na różne usługi platformy Azure.
 Uwaga: Te informacje wcześniej była dostępna, wraz z danych historycznych w [pulpicie nawigacyjnym usługi Azure](http://status.azure.com).
 
-Gdy [portalu Azure](https://portal.azure.com) zbiera informacje o kondycji z wewnątrz centrach danych platformy Azure (poza wewnątrz monitorowanie), możesz również przyjęcie podejścia zewnątrz do generowania transakcji syntetycznych, które okresowo uzyskują dostęp do aplikacji sieci web hostowanymi na platformie Azure z wielu lokalizacji. Usługami oferowanym przez [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) i przykłady tego podejścia zewnętrznej usługi Application Insights dla programu Visual Studio Team Services. Aby uzyskać więcej informacji dotyczących usługi Application Insights dla programu Visual Studio Team Services, zobacz dodatku "[dodatek 5: monitorowanie za pomocą usługi Application Insights dla programu Visual Studio Team Services](#appendix-5)."
+Gdy [portalu Azure](https://portal.azure.com) zbiera informacje o kondycji z wewnątrz centrach danych platformy Azure (poza wewnątrz monitorowanie), możesz również przyjęcie podejścia zewnątrz do generowania transakcji syntetycznych, które okresowo uzyskują dostęp do aplikacji sieci web hostowanymi na platformie Azure z wielu lokalizacji. Usługami oferowanym przez [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) i usługi Application Insights dla programu Visual Studio Team Services są przykładem. Aby uzyskać więcej informacji dotyczących usługi Application Insights dla programu Visual Studio Team Services, zobacz dodatku "[dodatek 5: monitorowanie za pomocą usługi Application Insights dla programu Visual Studio Team Services](#appendix-5)."
 
 ### <a name="monitoring-capacity">Monitorowanie wydajności</a>
 Ponieważ obiekty BLOB zwykle konta największą część przechowywanych danych metryki magazynu tylko przechowuje metryki pojemności dla usługi obiektów blob (w czasie zapisywania go nie jest możliwe monitorowanie pojemności tabel i kolejek metryki magazynu). Te dane w można znaleźć **$MetricsCapacityBlob** tabeli, jeśli jest włączone monitorowanie usługi Blob. Metryki magazynu rejestruje dane raz dziennie i może używać wartości **RowKey** ustalenie, czy wiersz zawiera jednostki, która odnosi się do danych użytkownika (wartość **danych**) lub dane analityczne (wartość **analytics**). Każdej jednostki przechowywanej zawiera informacje dotyczące ilości miejsca używane (**pojemności** mierzony w bajtach) i bieżącą liczbę kontenerów (**ContainerCount**) i obiektów blob (**ObjectCount**) używany w ramach konta magazynu. Aby uzyskać więcej informacji o metryki pojemności przechowywane w **$MetricsCapacityBlob** tabeli, zobacz [schemat tabeli metryki analityka magazynu](http://msdn.microsoft.com/library/azure/hh343264.aspx).
@@ -164,7 +165,7 @@ W [portalu Azure](https://portal.azure.com), można dodać reguły alertów, pow
 "[wskazówki rozwiązywania problemów]" tego przewodnika opisano niektóre typowe problemy usługi magazynu związanych z wydajnością.
 
 ## <a name="diagnosing-storage-issues">Diagnozowanie problemów z magazynowaniem</a>
-Istnieje wiele sposobów, czy użytkownik może zostaną powiadomieni o problem lub problem w aplikacji, należą:
+Istnieje wiele sposobów, czy użytkownik może zostaną powiadomieni o problem lub problem w aplikacji, w tym:
 
 * Poważnej awarii, który powoduje, że aplikacja do awarii lub przestanie działać.
 * Znaczące zmiany z linii bazowej wartości metryk monitorowania zgodnie z opisem w poprzedniej sekcji "[monitorowania usługi magazynu]."
@@ -181,14 +182,14 @@ Zazwyczaj problemy związane z usług Azure storage należą do jednej z czterec
 W poniższych sekcjach opisano kroki należy wykonać, aby zdiagnozować i rozwiązać problemy w każdej z tych czterech kategorii. Sekcja "[wskazówki rozwiązywania problemów]" dalszej części tego podręcznika zawiera więcej szczegółów dla niektórych typowych problemów, które mogą wystąpić.
 
 ### <a name="service-health-issues">Problemy z usługi kondycji</a>
-Problemy z usługi kondycji są zazwyczaj poza formantu. [Portalu Azure](https://portal.azure.com) zawiera informacje dotyczące bieżących problemów z usługami Azure, takich jak usługi magazynu. Jeśli zostanie wybrana opcja dostęp do odczytu z magazynu geograficznie nadmiarowego magazynu podczas tworzenia konta magazynu, następnie w przypadku danych są niedostępne w lokalizacji głównej aplikacji można przełączyć tymczasowo kopii tylko do odczytu w lokalizacji dodatkowej. Aby to zrobić, aplikacja musi mieć możliwość przełączania się między przy użyciu lokalizacji magazynów podstawowych i pomocniczych i mieć możliwość pracy w trybie ograniczonej funkcjonalności danych tylko do odczytu. Biblioteki klienta magazynu Azure umożliwiają definiowanie zasady ponawiania, który może odczytywać dane z magazynu pomocniczego w przypadku błędu odczytu z magazynu głównego. Aplikacja musi należy pamiętać, że danych w dodatkowej lokalizacji jest ostatecznie spójna. Aby uzyskać więcej informacji, zobacz w blogu [opcje nadmiarowość magazynu Azure i dostęp do odczytu z magazynu geograficznie nadmiarowego magazynu](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
+Problemy z usługi kondycji są zazwyczaj poza formantu. [Portalu Azure](https://portal.azure.com) zawiera informacje dotyczące bieżących problemów z usługami Azure, takich jak usługi magazynu. Jeśli zostanie wybrana opcja dostęp do odczytu z magazynu geograficznie nadmiarowego magazynu podczas tworzenia konta magazynu, następnie jeśli danych przestanie być dostępny w lokalizacji głównej aplikacji można przełączyć tymczasowo kopia tylko do odczytu w lokalizacji dodatkowej. Do odczytu z lokacji dodatkowej, aplikacja musi mieć możliwość przełączania się między przy użyciu lokalizacji magazynów podstawowych i pomocniczych i mieć możliwość pracy w trybie ograniczonej funkcjonalności danych tylko do odczytu. Biblioteki klienta magazynu Azure umożliwiają definiowanie zasady ponawiania, który może odczytywać dane z magazynu pomocniczego w przypadku błędu odczytu z magazynu głównego. Aplikacja musi należy pamiętać, że danych w dodatkowej lokalizacji jest ostatecznie spójna. Aby uzyskać więcej informacji, zobacz w blogu [opcje nadmiarowość magazynu Azure i dostęp do odczytu z magazynu geograficznie nadmiarowego magazynu](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
 
 ### <a name="performance-issues">problemy z wydajnością</a>
 Wydajność aplikacji może być wartością subiektywną, zwłaszcza z punktu widzenia użytkownika. Dlatego należy mieć dostępne metryki linii bazowej, które ułatwiają wykrywanie problemów z wydajnością. Wiele czynników, może mieć wpływ na wydajność usługi magazynu platformy Azure z punktu widzenia aplikacji klienta. Te czynniki mogą działać w usłudze magazynowania, klienta lub infrastruktury sieciowej; Dlatego ważne jest przyjąć strategię identyfikowanie pochodzenia problem z wydajnością.
 
 Po zidentyfikowaniu prawdopodobnie lokalizację przyczynę problem z wydajnością z metryki, następnie służy pliki dziennika można znaleźć szczegółowe informacje, aby zdiagnozować i rozwiązać problem.
 
-Sekcja "[wskazówki rozwiązywania problemów]" dalszej części tego podręcznika zawiera więcej informacji na temat niektórych typowych wydajności związane z problemów, które mogą wystąpić.
+Sekcja "[wskazówki rozwiązywania problemów]" dalszej części tego przewodnika uzyskać więcej informacji o niektórych typowych problemów związanych z wydajnością można napotkać.
 
 ### <a name="diagnosing-errors">Diagnozowanie błędów</a>
 Użytkownicy aplikacji mogą informować o błędów zgłoszonych przez aplikację klienta. Takie jak magazyn metryki liczby typów inny błąd z usług magazynu rejestruje także **NetworkError**, **ClientTimeoutError**, lub **AuthorizationError**. Gdy metryki magazynu rejestruje tylko liczby o różnych typów, można uzyskać szczegółowe informacje o poszczególnych żądań, przeglądając po stronie serwera, po stronie klienta oraz dzienniki sieci. Zazwyczaj kod stanu HTTP zwrócony przez usługę magazynu zapewni wskazanie dlaczego żądanie zawiodło.
@@ -214,7 +215,7 @@ Zestaw Azure SDK zawiera emulator magazynu, które można uruchamiać na dewelop
 ### <a name="storage-logging-tools">Narzędzia rejestrowania magazynu</a>
 Rejestrowanie magazynu zapewnia po stronie serwera rejestrowanie żądań magazynu na koncie magazynu Azure. Aby uzyskać więcej informacji na temat włączania rejestrowania zdarzeń po stronie serwera i uzyskać dostęp do danych dziennika, zobacz [Włączanie rejestrowania magazynu i uzyskiwanie dostępu do danych dziennika](http://go.microsoft.com/fwlink/?LinkId=510867).
 
-Biblioteki klienta usługi Storage dla platformy .NET umożliwia zbieranie danych dziennika po stronie klienta, które odnoszą się do magazynu wykonywany przez aplikację. Aby uzyskać więcej informacji, zobacz [klienta rejestrowaniem za pomocą biblioteki klienta usługi Storage .NET](http://go.microsoft.com/fwlink/?LinkId=510868).
+Biblioteki klienta usługi Storage dla platformy .NET umożliwia zbieranie danych dziennika po stronie klienta, które odnoszą się do magazynu wykonywany przez aplikację. Aby uzyskać więcej informacji, zobacz [Client-side Logging with the .NET Storage Client Library](http://go.microsoft.com/fwlink/?LinkId=510868) (Logowanie po stronie klienta przy użyciu biblioteki klienckiej usługi .NET Storage).
 
 > [!NOTE]
 > W niektórych sytuacjach (np. awarii autoryzacji sygnatury dostępu Współdzielonego) użytkownik może zgłosić błąd, który można znaleźć żadnych danych żądania w dziennikach magazynu po stronie serwera. Można korzystać z funkcji rejestrowania biblioteki klienta magazynu Zbadaj, czy przyczyną problemu jest na kliencie lub użyj narzędzia monitorowania sieci do sprawdzania, czy w sieci.
@@ -245,7 +246,7 @@ Biblioteka klienta magazynu automatycznie generuje identyfikator żądania klien
 * W dzienniku rejestrowania magazynu po stronie serwera Identyfikatora żądania klienta jest wyświetlana w kolumnie identyfikator żądania klienta.
 
 > [!NOTE]
-> Istnieje możliwość dla wielu żądań udostępniać ten sam identyfikator żądania klienta, ponieważ klient może zostać przypisany tej wartości (mimo że biblioteki klienta usługi Storage automatycznie przypisuje nową wartość). W przypadku ponownych prób z klienta wszystkie próby mają ten sam identyfikator żądania klienta W przypadku partii wysłanych z klienta partii ma identyfikator klienta pojedynczego żądania.
+> Istnieje możliwość dla wielu żądań udostępniać ten sam identyfikator żądania klienta, ponieważ klient może zostać przypisany tej wartości (mimo że biblioteki klienta usługi Storage automatycznie przypisuje nową wartość). Gdy klient ponawia próbę, wszystkie próby mają ten sam identyfikator żądania klienta W przypadku partii wysłanych z klienta partii ma identyfikator klienta pojedynczego żądania.
 > 
 > 
 
@@ -298,7 +299,7 @@ catch (StorageException storageException)
 ```
 
 ### <a name="timestamps">Znaczniki czasu</a>
-Znajdź pozycje dziennika powiązane, ale należy zwrócić szczególną uwagę na dowolnym niedokładność zegara między klientem a serwerem, który może istnieć umożliwia także sygnatur czasowych. Powinna przeszukać plus lub minus 15 minut do dopasowania wpisów po stronie serwera, oparte na sygnatury czasowej na komputerze klienckim. Należy pamiętać, że metadane obiektu blob dla obiektów blob zawierający metryki wskazuje zakres czasu dla metryki przechowywane w obiekcie blob; jest to przydatne, jeśli masz wiele metryki obiektów blob dla tego samego minutę lub godzinę.
+Znajdź pozycje dziennika powiązane, ale należy zwrócić szczególną uwagę na dowolnym niedokładność zegara między klientem a serwerem, który może istnieć umożliwia także sygnatur czasowych. Wyszukaj plus lub minus 15 minut do dopasowania wpisów po stronie serwera, oparte na sygnatury czasowej na komputerze klienckim. Należy pamiętać, że metadane obiektu blob dla obiektów blob zawierający metryki wskazuje zakres czasu dla metryki przechowywane w obiekcie blob. Ten zakres czasu jest przydatne, jeśli masz wiele metryki obiektów blob dla tego samego minutę lub godzinę.
 
 ## <a name="troubleshooting-guidance"></a>Wskazówki dotyczące rozwiązywania problemów
 W tej sekcji ułatwiają diagnozowania i rozwiązywania problemów z niektóre typowe problemy dotyczące aplikacji mogą wystąpić podczas korzystania z usług magazynu Azure. Skorzystaj z poniższej listy, aby zlokalizować informacje dotyczące określonego problemu.
@@ -351,7 +352,7 @@ Ilustracja poniżej z [portalu Azure](https://portal.azure.com) narzędzi do mon
 
 ![][4]
 
-Należy pamiętać, że Usługa magazynu tylko w przypadku obliczania metryki **AverageE2ELatency** pomyślnych żądań oraz, w odróżnieniu od **AverageServerLatency**, obejmuje czas przyjmuje klienta do wysyłania danych i odbierania potwierdzenia z usługą Magazyn. W związku z tym różnica między **AverageE2ELatency** i **AverageServerLatency** może być z powodu aplikacji klienckiej powolnych odpowiadać lub z powodu warunków w sieci.
+Usługa magazynu tylko w przypadku obliczania metryki **AverageE2ELatency** pomyślnych żądań oraz, w odróżnieniu od **AverageServerLatency**, obejmuje czas, klient pobiera dane wysyłanie i odbieranie potwierdzenia z usługą Magazyn. W związku z tym różnica między **AverageE2ELatency** i **AverageServerLatency** może być z powodu aplikacji klienckiej powolnych odpowiadać lub z powodu warunków w sieci.
 
 > [!NOTE]
 > Można również wyświetlić **E2ELatency** i **ServerLatency** dane dziennika dla poszczególnych magazynu operacji w rejestrowania magazynu.
@@ -361,7 +362,7 @@ Należy pamiętać, że Usługa magazynu tylko w przypadku obliczania metryki **
 #### <a name="investigating-client-performance-issues"></a>Do badania problemów dotyczących wydajności klienta
 Możliwe przyczyny klienta wolno odpowiadać obejmują o ograniczonej liczby dostępnych połączeń i wątków lub być niedostateczne zasoby, takie jak procesor CPU, pamięć i sieć przepustowości. Można rozwiązać ten problem, zmieniając kod klienta efektywność (na przykład za pomocą wywołania asynchroniczne z usługą Magazyn), lub za pomocą większe maszyny wirtualnej (większej liczby rdzeni i większa ilość pamięci).
 
-Dla tabeli i kolejki usług algorytm Nagle'a może również spowodować wysokiej **AverageE2ELatency** w porównaniu z **AverageServerLatency**: Aby uzyskać więcej informacji, zobacz wpis [nie przyjazną kierunku małych żądań jest algorytm Nagle'a w](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx). Algorytm Nagle'a w kodzie można wyłączyć za pomocą **ServicePointManager —** klasy w **System.Net** przestrzeni nazw. Ten krok należy wykonać przed wprowadzasz wezwań do tabeli lub usługi kolejki w aplikacji, ponieważ nie dotyczy to połączeń znajdujących się już otworzyć. Poniższy przykład pochodzi z **Application_Start** metody w roli procesu roboczego.
+Dla tabeli i kolejki usług algorytm Nagle'a może również spowodować wysokiej **AverageE2ELatency** w porównaniu z **AverageServerLatency**: Aby uzyskać więcej informacji, zobacz wpis [Nagle'a firmy Algorytm jest nie przyjazną kierunku małych żądań](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx). Algorytm Nagle'a w kodzie można wyłączyć za pomocą **ServicePointManager —** klasy w **System.Net** przestrzeni nazw. Ten krok należy wykonać przed wprowadzasz wezwań do tabeli lub usługi kolejki w aplikacji, ponieważ nie dotyczy to połączeń znajdujących się już otworzyć. Poniższy przykład pochodzi z **Application_Start** metody w roli procesu roboczego.
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);
@@ -385,7 +386,7 @@ W tym scenariuszu najbardziej prawdopodobną przyczyną jest opóźnienia podcza
 
 Jedną z możliwych przyczyn klienta opóźnienie wysyłania żądań to Brak ograniczoną liczbę dostępnych połączeń i wątków.
 
-Należy także sprawdzić, czy klient wykonuje wiele ponownych prób, a następnie sprawdź przyczynę, jeśli jest to możliwe. Aby ustalić, czy klient wykonuje wiele ponownych prób, można:
+Również sprawdzić, czy klient wykonuje wiele ponownych prób, a następnie sprawdź przyczynę, jeśli jest. Aby ustalić, czy klient wykonuje wiele ponownych prób, można:
 
 * Sprawdź dzienniki analityka magazynu. Jeśli są wykonywane wiele ponownych prób, pojawi się wiele operacji mających taki sam identyfikator żądania klienta, lecz z innym serwerem żądaniem identyfikatorów.
 * Sprawdź dzienniki klienta. Pełne rejestrowanie wskaże, że nastąpiło ponowna próba.
@@ -398,11 +399,11 @@ Aby uzyskać więcej informacji o rozwiązywaniu problemów z siecią za pomocą
 Aby uzyskać więcej informacji o rozwiązywaniu problemów z siecią za pomocą programu Microsoft Message Analyzer, zobacz "[dodatku 3: do przechwytywania ruchu sieciowego przy użyciu programu Microsoft Message Analyzer]."
 
 ### <a name="metrics-show-high-AverageServerLatency"></a>Metryki pokazują AverageServerLatency wysoka
-W przypadku wysokiej **AverageServerLatency** żądań pobrania obiektu blob, należy używać dzienniki rejestrowania magazynu, czy są powtarzane żądania dla tego samego obiektu blob (lub zestaw obiektów blob). Dla obiektu blob przesyłanie żądań, należy zbadać, jakie bloku używa rozmiaru klienta (na przykład blokuje mniej niż 64 KB rozmiaru może spowodować koszty odczytami znajdują się również w mniej niż 64 KB fragmentów), a wielu klientów przekazywania bloków do tego samego obiektu blob równolegle. Należy także sprawdzić metryki na minutę maksymalnej liczby żądań, które powoduje przekroczenie na drugi wartości docelowe skalowalności: Zobacz też "[metryki spowodować wzrost PercentTimeoutError]."
+W przypadku wysokiej **AverageServerLatency** żądań pobrania obiektu blob, należy używać dzienniki rejestrowania magazynu, czy są powtarzane żądania dla tego samego obiektu blob (lub zestaw obiektów blob). Dla żądań przekazania obiektu blob powinien być sprawdzony jakie bloku rozmiar klienta jest przy użyciu (na przykład bloki fragmentów mniej niż 64 KB rozmiaru może spowodować koszty odczytami znajdują się również w mniej niż 64 KB), a jeśli wielu klientów przekazywany bloków do tego samego obiektu blob w akapit llel. Należy także sprawdzić metryki na minutę maksymalnej liczby żądań, które powoduje przekroczenie na drugi wartości docelowe skalowalności: Zobacz też "[metryki spowodować wzrost PercentTimeoutError]."
 
 Jeśli widzisz wysokiego **AverageServerLatency** do pobrania obiektu blob żądania, gdy są powtarzane żądań tego samego obiektu blob lub zestaw obiektów blob, a następnie należy rozważyć buforowanie tych obiektów blob przy użyciu usługi pamięć podręczna Azure lub sieci dostarczania zawartości (CDN) platformy Azure. Dla żądania przesłania może zwiększyć przepływność przy użyciu większy rozmiar bloku. Dla zapytań do tabel jest również możliwe do zaimplementowania buforowanie po stronie klienta na komputerach klienckich, które wykonują te same operacje kwerend i gdy dane nie zmieniają się często.
 
-Wysoka **AverageServerLatency** wartości mogą też być objawem źle skonstruowane tabel lub kwerend, czy wynik operacji skanowania lub że zgodne ze wzorcem przed dołączania/dołączy. Zobacz "[metryki spowodować wzrost PercentThrottlingError]" Aby uzyskać więcej informacji.
+Wysoka **AverageServerLatency** wartości mogą też być objawem źle skonstruowane tabel lub kwerend, czy wynik operacji skanowania lub że zgodne ze wzorcem przed dołączania/dołączy. Aby uzyskać więcej informacji, zobacz "[metryki spowodować wzrost PercentThrottlingError]".
 
 > [!NOTE]
 > Można znaleźć tutaj kontrolną wydajności kompleksowe Lista kontrolna: [wydajność magazynu Microsoft Azure i listę kontrolną skalowalność](storage-performance-checklist.md).
@@ -415,11 +416,11 @@ Jeśli występują opóźnienia między czasem aplikacji dodaje komunikat do kol
 * Sprawdź, czy aplikacja jest pomyślnie dodanie wiadomości do kolejki. Sprawdź, czy aplikacja nie ponawia **AddMessage** metody kilka razy przed pomyślne. Dzienniki biblioteki klienta usługi Storage zostaną wyświetlone wszystkie kolejne próby operacji magazynu.
 * Sprawdź, nie istnieje żaden zegar pochylenia między roli procesu roboczego, który dodaje komunikat do kolejki i roli procesu roboczego, która odczytuje komunikat z kolejki, która ułatwia pojawiają się tak, jakby to opóźnienie podczas przetwarzania.
 * Sprawdź, czy rola procesu roboczego, która odczytuje wiadomości z kolejki jest możliwe. Jeśli klient kolejki wywołuje **GetMessage** , ale metoda kończy się niepowodzeniem z potwierdzeniem, komunikat pozostanie niewidoczny w kolejce do **invisibilityTimeout** okresu. W tym momencie wiadomości staje się dostępna do przetwarzania ponownie.
-* Sprawdź, czy długość kolejki rośnie w czasie. Może to wystąpić, jeśli nie masz wystarczających pracowników dostępnych do przetwarzania wszystkich komunikatów, które powodują innych pracowników w kolejce. Należy także sprawdzić, czy metryki, aby zobaczyć, czy żądania delete są się niepowodzeniem i liczba kolejki komunikatów, które mogą wskazywać powtarzane próby usunięcia wiadomości nie powiodło się.
+* Sprawdź, czy długość kolejki rośnie w czasie. Może to wystąpić, jeśli nie masz wystarczających pracowników dostępnych do przetwarzania wszystkich komunikatów, które powodują innych pracowników w kolejce. Sprawdź również metryki, aby zobaczyć, czy usunąć żądania kończą się niepowodzeniem i kolejki liczba komunikatów, które mogą wskazywać ponawianie prób nie powiodło się usunięcie komunikatu.
 * Przeanalizuj dzienniki rejestrowania magazynu dla wszystkich operacji kolejki, które mają wyższe niż oczekiwano **E2ELatency** i **ServerLatency** wartości przez dłuższy okres czasu niż zwykle.
 
 ### <a name="metrics-show-an-increase-in-PercentThrottlingError"></a>Metryki spowodować wzrost PercentThrottlingError
-Ograniczenia przepustowości błędy występują w przypadku przekroczenia wartości docelowe skalowalności usługi magazynu. Usługa magazynu jest to, aby upewnić się, że nie jednego klienta lub dzierżawcy mogą używać usługi kosztem innych użytkowników. Aby uzyskać więcej informacji, zobacz [cele dotyczące wydajności i skalowalności magazynu Azure](storage-scalability-targets.md) szczegółowe informacje o wartości docelowe skalowalności w przypadku kont magazynu i cele wydajności dla partycji w ramach konta magazynu.
+Ograniczenia przepustowości błędy występują w przypadku przekroczenia wartości docelowe skalowalności usługi magazynu. Limity usługi magazynu, upewnij się, że nie jednego klienta lub dzierżawcy mogą używać usługi kosztem innych użytkowników. Aby uzyskać więcej informacji, zobacz [cele dotyczące wydajności i skalowalności magazynu Azure](storage-scalability-targets.md) szczegółowe informacje o wartości docelowe skalowalności w przypadku kont magazynu i cele wydajności dla partycji w ramach konta magazynu.
 
 Jeśli **PercentThrottlingError** Metryka spowodować wzrost odsetek żądań, które kończą się niepowodzeniem z powodu błędu ograniczania przepustowości, należy zbadać jednego z dwóch scenariuszy:
 
@@ -429,7 +430,7 @@ Jeśli **PercentThrottlingError** Metryka spowodować wzrost odsetek żądań, k
 Wzrost **PercentThrottlingError** często występuje w tym samym czasie jako wzrost liczby żądań magazynu lub gdy początkowo załadować testowania aplikacji. To może również manifestu się na komputerze klienckim jako "503 serwera zajęty" lub "500 limit czasu operacji" HTTP komunikaty o stanie operacji magazynu.
 
 #### <a name="transient-increase-in-PercentThrottlingError">Przejściowa wzrost PercentThrottlingError</a>
-Jeśli widzisz nagłego wartości **PercentThrottlingError** który pokrywa się z okresy intensywnego działania dla aplikacji, należy zaimplementować wykładniczej (nie liniowej) wycofywania strategii ponownych prób w kliencie: spowoduje to zmniejszenie obciążenia natychmiastowego na partycji i Pomoc aplikacji wygładzanie największego ruchu. Aby uzyskać więcej informacji dotyczących sposobu wdrażania zasad ponawiania za pomocą biblioteki klienta usługi Storage, zobacz [Namespace Microsoft.WindowsAzure.Storage.RetryPolicies](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.retrypolicies.aspx).
+Jeśli widzisz nagłego wartości **PercentThrottlingError** który pokrywa się z okresy intensywnego działania dla aplikacji, wdrożenie wykładniczej (nie liniowej) wycofania strategii ponownych prób w kliencie. Wycofania ponownych prób zmniejszyć obciążenie natychmiastowego partycji i ułatwić aplikacji wygładzanie największego ruchu. Aby uzyskać więcej informacji dotyczących sposobu wdrażania zasad ponawiania za pomocą biblioteki klienta usługi Storage, zobacz [Namespace Microsoft.WindowsAzure.Storage.RetryPolicies](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.retrypolicies.aspx).
 
 > [!NOTE]
 > Może również zostać wyświetlony impulsy wartości **PercentThrottlingError** która nie pokrywa się z okresy intensywnego działania aplikacji: najbardziej prawdopodobną przyczyną jest usługą magazynu, przenoszenie partycji w celu zwiększenia równoważenia obciążenia.
@@ -437,7 +438,7 @@ Jeśli widzisz nagłego wartości **PercentThrottlingError** który pokrywa się
 > 
 
 #### <a name="permanent-increase-in-PercentThrottlingError">Stałe zwiększanie PercentThrottlingError błąd</a>
-Jeśli widzisz wysoką wartość **PercentThrottlingError** stałe wzrostu w woluminach transakcji lub wykonywania początkowej obciążenia testów dla aplikacji, a następnie należy ocenić, jak aplikacja używa partycji magazynu i czy jej zbliża się do wartości docelowe skalowalności dla konta magazynu. Na przykład jeśli widzisz ograniczania błędy w kolejce (który traktowana jako jednej partycji), następnie należy rozważyć przy użyciu dodatkowe kolejki, aby rozłożyć transakcji na wiele partycji. Jeśli widzisz ograniczania błędów w tabeli, należy wziąć pod uwagę, aby rozłożyć transakcji na wiele partycji przy użyciu większej liczby wartości klucza partycji przy użyciu różnych schemat partycjonowania. Jeden typową przyczyną tego problemu jest prepend/dołączanie wzorzec przed gdzie wybierz datę jako klucza partycji, a następnie wszystkie dane w określonym dniu są zapisywane do jednej partycji: pod obciążeniem, może to spowodować wąskie gardło zapisu. Należy wziąć pod uwagę partycjonowania inny projekt lub oceny, czy przy użyciu magazynu obiektów blob może okazać się lepszym rozwiązaniem. Należy sprawdzić, czy występuje ograniczenie wyniku gwałtowny wzrost ruchu i zbadaj sposobów wygładzanie deseniu żądań.
+Jeśli widzisz wysoką wartość **PercentThrottlingError** stałe wzrostu w woluminach transakcji lub wykonywania początkowej obciążenia testów dla aplikacji, a następnie należy ocenić, jak aplikacja używa partycji magazynu i czy jej zbliża się do wartości docelowe skalowalności dla konta magazynu. Na przykład jeśli widzisz ograniczania błędy w kolejce (który traktowana jako jednej partycji), następnie należy rozważyć przy użyciu dodatkowe kolejki, aby rozłożyć transakcji na wiele partycji. Jeśli widzisz ograniczania błędów w tabeli, należy wziąć pod uwagę, aby rozłożyć transakcji na wiele partycji przy użyciu większej liczby wartości klucza partycji przy użyciu różnych schemat partycjonowania. Jeden typową przyczyną tego problemu jest prepend/dołączanie wzorzec przed gdzie wybierz datę jako klucza partycji, a następnie wszystkie dane w określonym dniu są zapisywane do jednej partycji: pod obciążeniem, może to spowodować wąskie gardło zapisu. Rozważ użycie innego projektu partycjonowania albo oceny, czy przy użyciu magazynu obiektów blob może okazać się lepszym rozwiązaniem. Również sprawdzić, czy ograniczania występuje w wyniku gwałtowny wzrost ruchu i zbadaj sposobów wygładzanie deseniu żądań.
 
 Transakcje rozpowszechniają wiele partycji, nadal należy pamiętać o limity skalowalności, ustaw dla konta magazynu. Na przykład jeśli użyto kolejek dziesięć przetwarzania maksymalnie 2000 wiadomości o rozmiarze 1KB na sekundę, można w ogólnym limicie 20 000 komunikatów na sekundę dla konta magazynu. Jeśli potrzebujesz przetwarzać więcej niż 20 000 jednostek na sekundę, należy rozważyć użycie wielu kont magazynu. Możesz również powinien zawierać pamiętać, że rozmiar żądania i jednostek ma wpływ na kiedy usługa magazynu ogranicza klientom: Jeśli masz większą żądań i jednostek może należy wcześniej ograniczany.
 
@@ -465,7 +466,7 @@ Limity czasu serwera wskazują na problem z usługą Magazyn, który wymaga dals
 ### <a name="metrics-show-an-increase-in-PercentNetworkError"></a>Metryki spowodować wzrost PercentNetworkError
 Twoje metryki pokazują wzrost **PercentNetworkError** dla jednej z usług magazynu. **PercentNetworkError** metryka jest agregacją następujące metryki: **NetworkError**, **AnonymousNetworkError**, i **SASNetworkError**. Te wystąpić, gdy Usługa magazynu wykrywa błąd sieci, gdy klient wysyła żądanie magazynu.
 
-Najczęstszą przyczyną tego błędu jest klientem rozłączanie przed upływem limitu czasu w usłudze magazynowania. Kod powinien być sprawdzony na kliencie, aby zrozumieć, kiedy i dlaczego klient odłączy się od usługi magazynu. Umożliwia także Wireshark, Microsoft Message Analyzer ani Tcping do badania problemów z połączeniem sieciowym z klienta. Te narzędzia są opisane w [dodatki].
+Najczęstszą przyczyną tego błędu jest klientem rozłączanie przed upływem limitu czasu w usłudze magazynowania. Sprawdź kod na kliencie, aby zrozumieć, kiedy i dlaczego klient odłączy się od usługi magazynu. Umożliwia także Wireshark, Microsoft Message Analyzer ani Tcping do badania problemów z połączeniem sieciowym z klienta. Te narzędzia są opisane w [dodatki].
 
 ### <a name="the-client-is-receiving-403-messages">Klient odbiera komunikaty HTTP 403 (Dostęp zabroniony)</a>
 Jeśli aplikacja kliencka jest zgłaszanie błędów HTTP 403 (Dostęp zabroniony), prawdopodobną przyczyną jest to klient używa wygasłe dostępu sygnatury dostępu Współdzielonego podczas wysyłania żądania magazynu (chociaż innymi możliwymi przyczynami mogą zegara pochylenia nieprawidłowe klucze i nagłówków puste). Przyczyną jest wygasłe klucza sygnatury dostępu Współdzielonego, nie będą widzieć wszystkie wpisy w danych dziennika rejestrowania magazynu po stronie serwera. W poniższej tabeli przedstawiono przykładowe z dziennika po stronie klienta, generowane przez biblioteki klienta magazynu, która ilustruje ten problem występuje:
@@ -485,11 +486,11 @@ Jeśli aplikacja kliencka jest zgłaszanie błędów HTTP 403 (Dostęp zabronion
 W tym scenariuszu należy zbadać, dlaczego wygasa tokenu sygnatury dostępu Współdzielonego, zanim klient wysyła ten token do serwera:
 
 * Zwykle nie należy ustawić czas rozpoczęcia, podczas tworzenia sygnatury dostępu Współdzielonego dla klienta do używania natychmiast. Jeśli istnieją różnice małych zegara między hostem Generowanie sygnatury dostępu Współdzielonego przy użyciu bieżącego czasu i usługi magazynu, a następnie można usługi magazynu do odbierania sygnatury dostępu Współdzielonego, który nie jest jeszcze ważny.
-* Czas wygaśnięcia bardzo krótki nie należy ustawiać na sygnatury dostępu Współdzielonego. Ponownie zegara małe różnice między hosta Generowanie sygnatury dostępu Współdzielonego i usługi magazynu może prowadzić do sygnatury dostępu Współdzielonego najwyraźniej wygasa wcześniej niż zakładano.
+* Nie ustawiaj czas wygaśnięcia bardzo krótki na sygnatury dostępu Współdzielonego. Ponownie zegara małe różnice między hosta Generowanie sygnatury dostępu Współdzielonego i usługi magazynu może prowadzić do sygnatury dostępu Współdzielonego najwyraźniej wygasa wcześniej niż zakładano.
 * Parametr wersji w klucza sygnatury dostępu Współdzielonego jest (na przykład **sv = 2015-04-05**) zgodna z wersją biblioteki klienta usługi Storage używasz? Firma Microsoft zaleca zawsze używać najnowszej wersji [biblioteki klienta usługi Storage](https://www.nuget.org/packages/WindowsAzure.Storage/).
-* Jeśli ponownego generowania kluczy dostępu do magazynu, to unieważnienie wszystkie istniejące tokeny sygnatury dostępu Współdzielonego. Może to być problem, jeśli Generowanie tokeny sygnatury dostępu Współdzielonego i czas wygaśnięcia długi dla aplikacji klienckich, do pamięci podręcznej.
+* Jeśli ponownego generowania kluczy dostępu do magazynu, wszystkie istniejące tokeny sygnatury dostępu Współdzielonego może unieważniona. Ten problem może wystąpić, jeśli Generowanie tokeny sygnatury dostępu Współdzielonego i czas wygaśnięcia długi dla aplikacji klienckich, do pamięci podręcznej.
 
-Jeśli korzystasz z biblioteki klienta magazynu do generowania tokenów SAS, następnie może łatwo dojść do utworzenia prawidłowego tokenu. Jednak jeśli używasz interfejsu API REST magazynu i tworzenia skojarzeń zabezpieczeń tokeny ręcznie należy uważnie przeczytać temat [Delegowanie dostępu z sygnaturą dostępu współdzielonego](http://msdn.microsoft.com/library/azure/ee395415.aspx).
+Jeśli korzystasz z biblioteki klienta magazynu do generowania tokenów SAS, następnie może łatwo dojść do utworzenia prawidłowego tokenu. Jednak jeśli korzysta z interfejsu API REST magazynu i ręcznie konstruowania tokeny sygnatury dostępu Współdzielonego, zobacz [Delegowanie dostępu z sygnaturą dostępu współdzielonego](http://msdn.microsoft.com/library/azure/ee395415.aspx).
 
 ### <a name="the-client-is-receiving-404-messages">Klient odbiera komunikaty HTTP 404 (nie znaleziono)</a>
 Jeśli aplikacja kliencka odbiera komunikat HTTP 404 (nie znaleziono) z serwera, oznacza to, że obiekt, który klient próbował użyć (np. jednostek, tabeli, obiektów blob, kontenera lub kolejki) nie istnieje w usłudze magazynowania. Istnieje wiele możliwych przyczyn tej, takich jak:
@@ -500,7 +501,7 @@ Jeśli aplikacja kliencka odbiera komunikat HTTP 404 (nie znaleziono) z serwera,
 * [Błąd sieci]
 
 #### <a name="client-previously-deleted-the-object">Klient lub inny proces wcześniej usunięty obiekt</a>
-W scenariuszach, w którym klient próbuje odczytywać, aktualizować lub usuwać dane w usłudze magazynowania jest zwykle łatwo zidentyfikować w dziennikach po stronie serwera poprzedniej operacji po usunięciu danego obiektu z usługi magazynowania. Bardzo często dane dziennika pokazuje, czy inny użytkownik lub proces usunął obiektu. W dzienniku rejestrowania magazynu po stronie serwera typ operacji i żądanego obiektu-kolumn klucza pokazują, gdy klient usunięty obiekt.
+W scenariuszach, w którym klient próbuje odczytywać, aktualizować lub usuwać dane w usłudze magazynowania jest zwykle łatwo zidentyfikować w dziennikach po stronie serwera poprzedniej operacji po usunięciu danego obiektu z usługi magazynowania. Często dane dziennika pokazuje, czy inny użytkownik lub proces usunął obiektu. W dzienniku rejestrowania magazynu po stronie serwera typ operacji i żądanego obiektu-kolumn klucza pokazują, gdy klient usunięty obiekt.
 
 W scenariuszu, w którym klient próbuje wstawienia obiektu może nie być od razu widoczne Dlaczego powoduje to odpowiedzi HTTP 404 (nie znaleziono) biorąc pod uwagę, że klient tworzy nowy obiekt. Jednak klient jest utworzenie obiektu blob musi być w stanie odnaleźć kontenera obiektów blob, jeśli klient jest tworzenia komunikatu musi być w stanie znaleźć kolejki, a klient jest dodawanie wiersza musi być w stanie odnaleźć tabeli.
 
@@ -557,7 +558,7 @@ Wpisy dziennika:
 | de8b1c3c-... |Zasady ponawiania nie zezwala na ponowienie próby. Niepowodzenie z serwera zdalnego zwróciło błąd: (404) nie znaleziono... |
 | e2d06d78-... |Zasady ponawiania nie zezwala na ponowienie próby. Niepowodzenie z serwera zdalnego zwróciło błąd: konflikt (409). |
 
-W tym przykładzie dziennik pokazuje, czy klient jest naprzemiennego wykonywania żądania od **CreateIfNotExists** — metoda (żądania identyfikator e2d06d78...) z żądaniami z **UploadFromStream** — metoda (de8b1c3c-...); zdarza się, ponieważ aplikacja kliencka asynchronicznego wywołania tych metod. Należy zmodyfikować kod asynchroniczny na komputerze klienckim, aby upewnić się, tworzy kontener, przed podjęciem próby przekazania danych do obiektu blob w tym kontenerze. Najlepiej, jeśli należy wcześniej utworzyć wszystkich kontenerów.
+W tym przykładzie dziennik pokazuje, czy klient jest naprzemiennego wykonywania żądania od **CreateIfNotExists** — metoda (żądania identyfikator e2d06d78...) z żądaniami z **UploadFromStream** — metoda (de8b1c3c-...). To z przeplotem wynika z faktu, aplikacja kliencka asynchronicznego wywołania tych metod. Zmodyfikuj asynchroniczne kodu na komputerze klienckim, aby upewnić się, tworzy kontener, przed podjęciem próby przekazania danych do obiektu blob w tym kontenerze. Najlepiej, jeśli należy wcześniej utworzyć wszystkich kontenerów.
 
 #### <a name="SAS-authorization-issue"></a>Problem autoryzacji dostępu sygnatury dostępu Współdzielonego
 Jeśli aplikacja kliencka próbuje użyć klucza sygnatury dostępu Współdzielonego, który nie ma wystarczających uprawnień dla operacji, usługa Magazyn zwraca komunikat HTTP 404 (nie znaleziono) do klienta. W tym samym czasie, pojawi się także wartość niezerową **SASAuthorizationError** w metryki.
@@ -574,11 +575,11 @@ W poniższej tabeli przedstawiono przykładowy komunikat dziennika po stronie se
 | Typ usługi       | Obiekt blob                         |
 | Adres URL żądania        | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
 | &nbsp;                 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
-| Nagłówka identyfikatora żądania  | a1f348d5-8032-4912-93ef-b393e5252a3b |
+| Nagłówka Identyfikatora żądania  | a1f348d5-8032-4912-93ef-b393e5252a3b |
 | Identyfikator żądania klienta  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
 
 
-Należy zbadać, dlaczego aplikacja kliencka próbuje wykonać operacji, które go nie udzielono uprawnienia do.
+Sprawdź, dlaczego aplikacja kliencka próbuje wykonać operacji, dla którego go nie udzielono uprawnienia.
 
 #### <a name="JavaScript-code-does-not-have-permission"></a>Kod JavaScript po stronie klienta nie ma uprawnień dostępu do tego obiektu
 Jeśli używasz klienta języka JavaScript i Usługa magazynu jest zwracania wiadomości HTTP 404, wyszukaj następujące błędy JavaScript w przeglądarce:
@@ -618,7 +619,7 @@ client.SetServiceProperties(sp);
 #### <a name="network-failure"></a>Błąd sieci
 W niektórych sytuacjach pakietów sieciowych utracone może prowadzić do zwracania wiadomości HTTP 404 do klienta usługi magazynu. Na przykład, gdy aplikacja kliencka jest usunięcie jednostki z usługi tabel zostanie wyświetlony klienta throw zgłoszenie wyjątku magazynu "HTTP 404 (nie znaleziono)" komunikat o stanie z usługi tabel. Badanie tabeli w usłudze magazyn tabel, zobacz, czy usługa została usunięta jednostki, zgodnie z wymaganiami.
 
-Szczegóły wyjątku w kliencie zawierają identyfikator żądania (7e84f12d...) przypisany przez usługę tabeli dla żądania: można użyć tych informacji można znaleźć szczegółów żądania w dziennikach magazynu po stronie serwera przez wyszukiwanie w **nagłówka identyfikatora żądania** kolumny w pliku dziennika. Metryki można użyć również do identyfikowania, gdy występują błędów, takich jak ta, a następnie wyszukać pliki dziennika na podstawie czasu metryki rejestrowane tego błędu. Ten wpis dziennika pokazuje, czy usunięcie nie powiodło się z komunikatem o stanie "Client inny błąd HTTP (404)". Tym samym wpis dziennika zawiera także identyfikator żądania wygenerowanych przez klienta w **client-request-id** kolumny (813ea74f...).
+Szczegóły wyjątku w kliencie zawierają identyfikator żądania (7e84f12d...) przypisany przez usługę tabeli dla żądania: można użyć tych informacji można znaleźć szczegółów żądania w dziennikach magazynu po stronie serwera przez wyszukiwanie w **nagłówka identyfikatora żądania**  kolumny w pliku dziennika. Metryki można użyć również do identyfikowania, gdy występują błędów, takich jak ta, a następnie wyszukać pliki dziennika na podstawie czasu metryki rejestrowane tego błędu. Ten wpis dziennika pokazuje, czy usunięcie nie powiodło się z komunikatem o stanie "Client inny błąd HTTP (404)". Tym samym wpis dziennika zawiera także identyfikator żądania wygenerowanych przez klienta w **client-request-id** kolumny (813ea74f...).
 
 Dziennik po stronie serwera zawiera także inny wpis o tej samej **client-request-id** usunięcia wartości (813ea74f...) dla pomyślnego działania dla tej samej jednostki i z tego samego klienta. Operacja usuwania powiodło się wkrótce miało miejsce, aby usunąć nieudane żądania.
 
@@ -627,7 +628,7 @@ Najbardziej prawdopodobną przyczyną tego scenariusza jest, że klienta wysła�
 Jeśli ten problem występuje często, należy zbadać, dlaczego klient nie działa prawidłowo na odebranie potwierdzeń z usługi tabel. Jeśli problem jest tymczasowy, należy wyłapać błąd "Nie można odnaleźć HTTP (404)" i zaloguj się na komputerze klienckim, ale zezwalaj na kliencie kontynuować.
 
 ### <a name="the-client-is-receiving-409-messages"></a>Klient odbiera komunikaty HTTP 409 (konflikt)
-W poniższej tabeli przedstawiono wyodrębniania z dziennika po stronie serwera dla dwóch operacji klienta: **DeleteIfExists** a następnie natychmiast przez **CreateIfNotExists** przy użyciu tej samej nazwy kontenera obiektów blob. Należy pamiętać, że każda operacja klienta powoduje dwa żądania wysyłane na serwer, w pierwszej kolejności **GetContainerProperties** żądania, aby sprawdzić, czy kontener istnieje, a następnie **DeleteContainer** lub **tworzony kontener** żądania.
+W poniższej tabeli przedstawiono wyodrębniania z dziennika po stronie serwera dla dwóch operacji klienta: **DeleteIfExists** a następnie natychmiast przez **CreateIfNotExists** przy użyciu tej samej nazwy kontenera obiektów blob. Każdej operacji klienta powoduje dwa żądania wysyłane na serwer, w pierwszej kolejności **GetContainerProperties** żądania, aby sprawdzić, czy kontener istnieje, a następnie **DeleteContainer** lub  **Tworzony kontener** żądania.
 
 | Sygnatura czasowa | Operacja | Wynik | Nazwa kontenera | Identyfikator żądania klienta |
 | --- | --- | --- | --- | --- |
@@ -654,12 +655,6 @@ Znajduje się lista często występujące kody błędów interfejsu API REST us�
 ### <a name="capacity-metrics-show-an-unexpected-increase"></a>Metryki pojemności Pokaż nieoczekiwane zwiększenie wykorzystania pojemności magazynu
 Jeśli widzisz nagłym, nieoczekiwane wykorzystania pojemności na koncie magazynu można zapoznać się z przyczyn sprawdzając Twoje metryki dostępności; na przykład wzrost liczby żądań może prowadzić do zwiększenia ilości magazynu obiektów blob, używanego jako operacje oczyszczania specyficzne dla aplikacji, oczekiwane może mieć można zwalnianie miejsca może nie działać zgodnie z oczekiwaniami (na przykład usunąć nie powiodło się ponieważ wygasły tokeny sygnatury dostępu Współdzielonego, używany do Zwiększ ilość miejsca).
 
-### <a name="you-are-experiencing-unexpected-reboots"></a>Występują nieoczekiwane ponowne uruchomienie maszyn wirtualnych Azure mających dużej liczby dołączonych dysków VHD
-Maszyny wirtualne Azure (VM) jest duża liczba dołączonych dysków VHD, które znajdują się w tym samym koncie magazynu, może przekraczać wartości docelowe skalowalności konta magazynu powoduje maszyna wirtualna może się nie powieść. Należy sprawdzić minuty metryki dla konta magazynu (**TotalRequests**/**TotalIngress**/**TotalEgress**) maksymalnej, które wykraczają poza wartości docelowe skalowalności dla konta magazynu. Zobacz sekcję "[metryki spowodować wzrost PercentThrottlingError]" Aby uzyskać pomoc w określeniu, czy ograniczania wystąpił na koncie magazynu.
-
-Ogólnie rzecz biorąc, każdej poszczególnych danych wejściowych lub wyjściowych operacji na wirtualny dysk twardy z maszyny wirtualnej przekłada się **Get strony** lub **umieścić strony** operacje na podstawowym stronicowych obiektów blob. W związku z tym umożliwia szacowany IOPS dla danego środowiska Dostosuj liczbę dysków VHD, użytkownik może mieć na koncie magazynu jednego na podstawie określone zachowanie aplikacji. Nie zaleca się o więcej niż 40 dysków na koncie magazynu jednego. Zobacz [cele dotyczące wydajności i skalowalności magazynu Azure](storage-scalability-targets.md) szczegółowe informacje o bieżącej wartości docelowe skalowalności w przypadku kont magazynu, w szczególności całkowita liczba żądań szybkość i całkowitej przepustowości dla typu konta magazynu używasz.
-Jeśli doszło do przekroczenia wartości docelowe skalowalności konta magazynu, należy umieścić dyski VHD w wielu różnych kont magazynu do zredukowania aktywności w poszczególnych indywidualnych kont.
-
 ### <a name="your-issue-arises-from-using-the-storage-emulator"></a>Problem wynika z przy użyciu emulatora magazynu dla rozwoju lub testowania
 Zwykle użyć emulatora magazynu podczas tworzenia i testowania w celu uniknięcia wymaganie dla konta magazynu platformy Azure. Typowe problemy, które mogą wystąpić, gdy używasz emulatora magazynu są:
 
@@ -682,7 +677,7 @@ W tym scenariuszu zwykle występuje, gdy zainstalować i używać najnowszej wer
 #### <a name="storage-emulator-requires-administrative-privileges">Uruchomiony emulator magazynu wymaga uprawnień administracyjnych</a>
 Zostanie wyświetlony monit o poświadczenia administratora po uruchomieniu emulatora magazynu. Dzieje się tak tylko, gdy emulator magazynu są inicjowanie po raz pierwszy. Po już zainicjować emulator magazynu, nie trzeba uprawnienia administracyjne, aby uruchomić go ponownie.
 
-Więcej informacji można znaleźć w temacie [Use the Azure Storage Emulator for Development and Testing](storage-use-emulator.md) (Używanie emulatora usługi Azure Storage do programowania i testowania). Należy pamiętać, że można również zainicjować emulatora magazynu w programie Visual Studio, który będzie również wymagają uprawnień administratora.
+Więcej informacji można znaleźć w temacie [Use the Azure Storage Emulator for Development and Testing](storage-use-emulator.md) (Używanie emulatora usługi Azure Storage do programowania i testowania). Można również zainicjować emulatora magazynu w programie Visual Studio, który będzie również wymagają uprawnień administratora.
 
 ### <a name="you-are-encountering-problems-installing-the-Windows-Azure-SDK"></a>Pojawiły się problemy z instalacją zestawu Azure SDK dla platformy .NET
 Podczas instalowania zestawu SDK, nie jest on spróbujesz zainstalować emulator magazynu na komputerze lokalnym. Dziennik instalacji zawiera jeden z następujących komunikatów:
@@ -755,7 +750,7 @@ WireShark wyróżnione wszelkie błędy, które istnieją w **packetlist** okna.
 
 ![][7]
 
-Można również wyświetlić dane TCP, jak warstwa aplikacji widzi ona danych TCP prawym przyciskiem myszy i wybierając **wykonaj strumieniem TCP**. Jest to szczególnie przydatne, jeśli przechwycić z zrzutu bez pliku przechwytywania. Aby uzyskać więcej informacji, zobacz [następujących strumienie TCP](http://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html).
+Można również wyświetlić dane TCP, jak warstwa aplikacji widzi ona danych TCP prawym przyciskiem myszy i wybierając **wykonaj strumieniem TCP**. Jest to przydatne, jeśli przechwycić z zrzutu bez pliku przechwytywania. Aby uzyskać więcej informacji, zobacz [następujących strumienie TCP](http://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html).
 
 ![][8]
 
@@ -813,7 +808,7 @@ W kroku 1 **Kreatora importu tekstu**, wybierz pozycję **średnik** jako ograni
 Umożliwia także funkcji usługi Application Insights dla programu Visual Studio Team Services jako część wydajności i dostępności monitorowania. To narzędzie można:
 
 * Upewnij się, że usługi sieci web jest dostępna i elastyczny. Czy aplikacja jest witryną sieci web lub aplikacji urządzenia, który używa usługi sieci web, jego test adresu URL co kilka minut z lokalizacji na całym świecie i informacją o tym, jeśli występuje problem.
-* Szybkie diagnozowanie problemów z wydajnością ani wyjątków w usłudze sieci web. Dowiedz się, jeśli są rozciągnięcia procesora CPU lub innych zasobów, odczytać śladów stosu wyjątków i łatwo wyszukiwać dane dziennika śledzenia. Jeżeli wydajność aplikacji spadnie poniżej akceptowalnego limity, firma Microsoft można wysłać wiadomość e-mail. Można monitorować usługi sieci web .NET i Java.
+* Szybkie diagnozowanie problemów z wydajnością ani wyjątków w usłudze sieci web. Dowiedz się, jeśli są rozciągnięcia procesora CPU lub innych zasobów, odczytać śladów stosu wyjątków i łatwo wyszukiwać dane dziennika śledzenia. Jeżeli wydajność aplikacji spadnie poniżej akceptowalnego limity, firma Microsoft może wysyłać Ci wiadomości e-mail. Można monitorować usługi sieci web .NET i Java.
 
 Więcej informacji można znaleźć [co to jest usługa Application Insights](../../application-insights/app-insights-overview.md).
 
@@ -863,7 +858,6 @@ Więcej informacji można znaleźć [co to jest usługa Application Insights](..
 
 [metryki pokazują PercentSuccess niskim lub wpisy dziennika analytics ma operacji ze stanem transakcji ClientOtherErrors]: #metrics-show-low-percent-success
 [Metryki pojemności Pokaż nieoczekiwane zwiększenie wykorzystania pojemności magazynu]: #capacity-metrics-show-an-unexpected-increase
-[Występują nieoczekiwane ponowne uruchomienie maszyn wirtualnych, które mają wiele wirtualnych dysków twardych dołączonych]: #you-are-experiencing-unexpected-reboots
 [Problem wynika z przy użyciu emulatora magazynu dla rozwoju lub testowania]: #your-issue-arises-from-using-the-storage-emulator
 [Funkcja "X" nie działa w emulatorze magazynu]: #feature-X-is-not-working
 [Błąd "wartość dla jednego z nagłówków HTTP nie jest w nieprawidłowym formacie" przy użyciu emulatora magazynu]: #error-HTTP-header-not-correct-format

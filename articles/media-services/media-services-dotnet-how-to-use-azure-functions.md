@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: f99fe340b6cfebaafb04af9dba8abf9cb0f09a2b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 999f2cef7d70c4f1b45076300312664defdeb3f5
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Tworzenie funkcji platformy Azure z programem Media Services
 
@@ -63,11 +63,11 @@ Po wdrożeniu aplikacji funkcji można znaleźć wśród **usługi aplikacji** u
 2. Wybierz **C#** języka i **przetwarzania danych** scenariusza.
 3. Wybierz **BlobTrigger** szablonu. Ta funkcja jest zawsze wyzwalane, gdy obiekt blob jest przekazywany do **wejściowych** kontenera. **Wejściowych** nazwa została określona w **ścieżki**, w następnym kroku.
 
-    ![Pliki](./media/media-services-azure-functions/media-services-azure-functions004.png)
+    ![plików](./media/media-services-azure-functions/media-services-azure-functions004.png)
 
 4. Po wybraniu **BlobTrigger**, niektóre formanty więcej wyświetlane na stronie.
 
-    ![Pliki](./media/media-services-azure-functions/media-services-azure-functions005.png)
+    ![plików](./media/media-services-azure-functions/media-services-azure-functions005.png)
 
 4. Kliknij przycisk **Utwórz**. 
 
@@ -75,9 +75,9 @@ Po wdrożeniu aplikacji funkcji można znaleźć wśród **usługi aplikacji** u
 
 Funkcja Azure jest skojarzony z plików kodu i innych plików, które zostały opisane w tej sekcji. Korzystając z portalu Azure można utworzyć funkcji **function.json** i **run.csx** są tworzone automatycznie. Należy dodać lub Przekaż **project.json** pliku. Pozostałej części tej sekcji zawiera krótki opis każdego pliku i przedstawiono ich definicje.
 
-![Pliki](./media/media-services-azure-functions/media-services-azure-functions003.png)
+![plików](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
-### <a name="functionjson"></a>Function.JSON
+### <a name="functionjson"></a>function.json
 
 Plik function.json definiuje, powiązania funkcji i innych ustawień konfiguracyjnych. Środowisko uruchomieniowe korzysta z tego pliku, aby określić zdarzenia do monitorowania oraz sposób przekazywania danych do i zwracać dane z wykonywania funkcji. Aby uzyskać więcej informacji, zobacz [Azure functions powiązania protokołu HTTP i webhook](../azure-functions/functions-reference.md#function-code).
 
@@ -86,7 +86,7 @@ Plik function.json definiuje, powiązania funkcji i innych ustawień konfiguracy
 
 Zastąp zawartość pliku function.json następującym kodem:
 
-```
+```json
 {
   "bindings": [
     {
@@ -101,13 +101,13 @@ Zastąp zawartość pliku function.json następującym kodem:
 }
 ```
 
-### <a name="projectjson"></a>Project.JSON
+### <a name="projectjson"></a>project.json
 
 Plik project.json zawiera zależności. Oto przykład **project.json** plik zawierający wymagane pakiety platformy .NET usługi Azure Media Services z pakietu Nuget. Należy pamiętać, że numery wersji Zmień z najnowszymi aktualizacjami pakietów, dlatego należy upewnić się, najnowsze wersje. 
 
 Dodaj następującą definicję do pliku project.json. 
 
-```
+```json
 {
   "frameworks": {
     "net46":{
@@ -123,7 +123,7 @@ Dodaj następującą definicję do pliku project.json.
 
 ```
     
-### <a name="runcsx"></a>Run.csx
+### <a name="runcsx"></a>run.csx
 
 To jest kod C# dla funkcji.  Funkcja zdefiniowana poniżej monitorów kontenera konta magazynu o nazwie **wejściowych** (tzn. jak określono w ścieżce) dla nowych plików MP4. Gdy plik zostanie upuszczony do kontenera magazynu, wyzwalacza obiektu blob wykonuje funkcji.
     
@@ -136,7 +136,7 @@ W tym scenariuszu rzeczywistych prawdopodobnie chcesz śledzić postęp zadania,
 
 Zastąp zawartość pliku run.csx następującym kodem: po zakończeniu definiowania funkcji kliknij **Zapisz i uruchom**.
 
-```
+```csharp
 #r "Microsoft.WindowsAzure.Storage"
 #r "Newtonsoft.Json"
 #r "System.Web"
@@ -339,7 +339,7 @@ Aby przetestować funkcję, należy przekazać plik MP4 do **wejściowych** kont
 >[!NOTE]
 > Podczas korzystania z wyzwalacza obiektu blob w planie zużycia, może istnieć maksymalnie 10-minutowych opóźnienia w przetwarzaniu nowe obiekty BLOB po aplikacji funkcji przeszedł bezczynności. Po uruchomieniu aplikacji funkcja obiekty BLOB są przetwarzane natychmiast. Aby uzyskać więcej informacji, zobacz [obiektu Blob magazynu wyzwalaczy i powiązań](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob#blob-storage-triggers-and-bindings).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym momencie można przystąpić do rozpocząć tworzenie aplikacji usługi Media Services. 
  

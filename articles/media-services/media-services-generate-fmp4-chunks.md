@@ -13,22 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 7273e51342f4e9fc68a8b3d3b145d119b4eab122
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f497954f82e209c1547fca0943169d53f4ab517a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 #  <a name="create-an-encoding-task-that-generates-fmp4-chunks"></a>Utwórz zadania kodowania, które generuje fMP4 fragmentów
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 W tym artykule przedstawiono sposób tworzenia zadania kodowania, które generuje pofragmentowane MP4 fragmentów (fMP4) zamiast plików ISO MP4. Aby wygenerować fMP4 fragmentów, użyj **Media Encoder Standard** lub **Media Encoder Premium w przepływie pracy** koder na utworzenie zadania kodowania, a także określić **AssetFormatOption.AdaptiveStreaming**  opcji, jak pokazano w poniższym przykładzie:  
     
+```csharp
     task.OutputAssets.AddNew(@"Output Asset containing fMP4 chunks", 
             options: AssetCreationOptions.None, 
             formatOption: AssetFormatOption.AdaptiveStreaming);
-
+```
 
 ## <a id="encoding_with_dotnet"></a>Kodowanie w usłudze Media Services zestawu .NET SDK
 
@@ -47,7 +48,7 @@ Skonfiguruj środowisko projektowe i wypełnij plik app.config przy użyciu info
 
 #### <a name="example"></a>Przykład
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.Linq;

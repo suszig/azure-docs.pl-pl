@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 2/21/2018
 ms.author: raynew
-ms.openlocfilehash: 886977764517f1fec89eee77fc3263d30ff9ab31
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: bcbb2ace6686e4052149a5dde1ed837a16c36bad
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="dependency-visualization"></a>Wizualizacja zależności
 
@@ -34,6 +34,19 @@ Azure używa migracji [mapy usługi](../operations-management-suite/operations-m
 Aby korzystać z wizualizacji zależności, musisz pobrać i zainstalować agentów na każdej maszynie lokalnej, które mają być analizowane.  
 
 ## <a name="do-i-need-to-pay-for-it"></a>Należy dokonać jego?
+
+Usługa Azure Migrate jest dostępna bez dodatkowych opłat. Korzystanie z funkcji wizualizacji zależności w Azure migracji wymagają mapy usługi. Podczas tworzenia projektu migracji Azure Azure migracji automatycznie utworzy nowy obszar roboczy analizy dzienników w Twoim imieniu.
+
+> [!NOTE]
+> Funkcja wizualizacji zależności używa mapy usługi przy użyciu obszaru roboczego analizy dzienników. Od 28 lutego 2018 z anonsu migracji Azure ogólnie funkcję jest teraz dostępna bez dodatkowych opłat. Musisz utworzyć nowy projekt, aby użyć użycia wolnego obszaru roboczego. Istniejących obszarów roboczych przed availaibility ogólne są nadal chargable, dlatego zalecamy przejście do nowego projektu.
+
+1. Korzystanie z rozwiązań innych niż Mapy usługi w ramach tego obszaru roboczego analizy dzienników będą naliczane standardowe opłaty analizy dzienników. 
+2. Na potrzeby obsługi scenariuszy migracji bez ponoszenia dodatkowych kosztów, rozwiązanie mapy usług nie będą naliczane opłaty na pierwszy okres 180 dni od utworzenia projektu Azure migracji, po upływie którego standardowe opłaty będą stosowane.
+3. Tylko obszaru roboczego, które są tworzone w ramach tworzenia projektu będzie bezpłatnie do użytku.
+
+Podczas rejestrowania agentów do obszaru roboczego, użyj identyfikator i klucz podany przez projekt na stronie kroki instalacji agenta. Nie można użyć istniejący obszar roboczy i skojarzyć go z projektu Azure migracji.
+
+Po usunięciu projektu Azure migracji nie zostanie usunięta wraz z jego obszaru roboczego. Po usunięciu projektu, użycia mapy usług nie będzie wolny, i każdy węzeł zostanie naliczona opłata zgodnie z płatnych warstwy obszaru roboczego analizy dzienników.
 
 Więcej informacji o cenach usługi Azure Migrate można uzyskać [tutaj](https://azure.microsoft.com/pricing/details/azure-migrate/). 
 

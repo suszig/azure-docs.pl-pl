@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: 2bcb012eef84faa7c1e13ed22e88e45e4300ed54
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 979c88b72aba6e054bc507e22f48cae1441957cb
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="publish-azure-media-services-content-using-net"></a>Publikowanie zawartości usługi Azure Media Services przy użyciu platformy .NET
 > [!div class="op_single_selector"]
@@ -57,6 +57,7 @@ Aby utworzyć Lokalizator przesyłania strumieniowego na żądanie i uzyskiwanie
 ### <a name="use-media-services-net-sdk"></a>Użyj usługi Media Services zestawu .NET SDK
 Tworzenie adresy URL przesyłania strumieniowego 
 
+```csharp
     private static void BuildStreamingURLs(IAsset asset)
     {
 
@@ -93,6 +94,7 @@ Tworzenie adresy URL przesyłania strumieniowego
         Console.WriteLine(urlForClientStreaming + "(format=mpd-time-csf)"); 
         Console.WriteLine();
     }
+```
 
 Dane wyjściowe:
 
@@ -111,6 +113,7 @@ Dane wyjściowe:
 
 Tworzenie adresy URL pobierania progresywnego 
 
+```csharp
     private static void BuildProgressiveDownloadURLs(IAsset asset)
     {
         // Create a 30-day readonly access policy. 
@@ -138,7 +141,7 @@ Tworzenie adresy URL pobierania progresywnego
         foreach (var pd in mp4AssetFiles)
             Console.WriteLine(originLocator.Path + pd.Name);
     }
-
+```
 Dane wyjściowe:
 
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
@@ -150,7 +153,7 @@ Dane wyjściowe:
 
 ### <a name="use-media-services-net-sdk-extensions"></a>Użyj rozszerzenia SDK .NET usługi Media Services
 Poniższy kod wywołuje metody rozszerzenia zestawu .NET SDK, które tworzenie lokalizatora i generowanie Smooth Streaming, HLS i MPEG-DASH adresy URL do adaptacyjnego przesyłania strumieniowego.
-
+```csharp
     // Create a loctor.
     _context.Locators.Create(
         LocatorType.OnDemandOrigin,
@@ -166,7 +169,7 @@ Poniższy kod wywołuje metody rozszerzenia zestawu .NET SDK, które tworzenie l
     Console.WriteLine(smoothStreamingUri);
     Console.WriteLine(hlsUri);
     Console.WriteLine(mpegDashUri);
-
+```
 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

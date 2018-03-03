@@ -3,22 +3,16 @@ title: "Przy użyciu Import/Eksport Azure na przesyłanie danych do i z usługi 
 description: "Informacje o sposobie tworzenia importowania i eksportowania zadania w portalu Azure do przesyłania danych do i z usługi Azure Storage."
 author: muralikk
 manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: 
-ms.assetid: 668f53f2-f5a4-48b5-9369-88ec5ea05eb5
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 02/28/2018
 ms.author: muralikk
-ms.openlocfilehash: 0c34b7ce028ef0fae77322513f62557fa9f9929c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e9fce2530bc4e654304b946cea1715ac8e2ce6fa
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Transfer danych do usługi Azure Storage za pomocą usługi Import/Eksport Microsoft Azure
 W tym artykule udostępniamy instrukcje krok po kroku na temat używania usługi Import/Eksport Azure do bezpiecznego przesyłania dużych ilości danych do magazynu obiektów Blob platformy Azure i usługi pliki Azure przez wysyłanie dysków do centrum danych platformy Azure. Ta usługa może również przesyłanie danych z magazynu Azure do dysków twardych i wysłać do lokalnych witryn. Dane z pojedynczej stacji dysków SATA wewnętrzny można zaimportować do magazynu obiektów Blob platformy Azure lub usługi pliki Azure. 
@@ -31,25 +25,34 @@ W tym artykule udostępniamy instrukcje krok po kroku na temat używania usługi
 Wykonaj następujące czynności w przypadku danych na dysku do zaimportowania do usługi Azure Storage.
 ### <a name="step-1-prepare-the-drives-using-waimportexport-tool-and-generate-journal-files"></a>Krok 1: Przygotowanie za pomocą narzędzia WAImportExport dysku/s i Generuj plik dziennika/s.
 
-1.  Identyfikowanie danych mają być zaimportowane do magazynu Azure. Może to być katalogów i plików autonomicznych na serwerze lokalnym lub w udziale sieciowym.
+1.  Identyfikowanie danych mają być zaimportowane do magazynu Azure. Możesz zaimportować katalogów i plików autonomicznych na serwerze lokalnym lub w udziale sieciowym.
 2.  W zależności od całkowity rozmiar danych Uzyskaj wymaganej liczby 2,5 SSD 2,5-calowe lub 3,5" stacje dysków twardych SATA II lub III.
 3.  Dołącz dyski twarde bezpośrednio przy użyciu SATA lub z zewnętrznej karty USB do komputera z systemem windows.
-4.  Utwórz pojedynczy wolumin NTFS na każdy dysk twardy i przypisać literę dysku do woluminu. Nie punkty instalacji.
-5.  Aby włączyć szyfrowanie na komputerze z systemem windows, należy włączyć szyfrowanie skrytki bitowych na woluminie NTFS. Postępuj zgodnie z instrukcjami na https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx.
-6.  Całkowicie skopiować dane do pojedynczego woluminów NTFS te zaszyfrowane na dyskach przy użyciu kopii & Wklej lub przeciągnij & upuszczania lub Robocopy lub takie narzędzie.
+1.  Utwórz pojedynczy wolumin NTFS na każdy dysk twardy i przypisać literę dysku do woluminu. Nie punkty instalacji.
+2.  Aby włączyć szyfrowanie na komputerze z systemem windows, należy włączyć szyfrowanie skrytki bitowych na woluminie NTFS. Postępuj zgodnie z instrukcjami na https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx.
+3.  Całkowicie skopiować dane do pojedynczego woluminów NTFS te zaszyfrowane na dyskach przy użyciu kopii & Wklej lub przeciągnij & upuszczania lub Robocopy lub takie narzędzie.
 7.  Pobierz WAImportExport V1 z https://www.microsoft.com/en-us/download/details.aspx?id=42659
 8.  Rozpakuj do waimportexportv1 folder domyślny. Na przykład C:\WaImportExportV1  
 9.  Uruchom jako Administrator i otworzyć programu PowerShell lub wiersza polecenia i zmień katalog na folder rozpakowane. Na przykład dysk cd C:\WaImportExportV1
-10. Skopiuj następujący wiersz polecenia do Notatnika i edytowanie go w celu utworzenia wiersza polecenia.
-  ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ /skipwrite
+10. Skopiuj następujący wiersz polecenia do edytora tekstu, a następnie edytuj go w celu utworzenia wiersza polecenia:
+
+    ```
+    ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ 
+    ```
     
-    /j: nazwę pliku o nazwie pliku dziennika z rozszerzeniem .jrn. Plik dziennika jest generowany na dysk i dlatego zaleca się Użyj numeru seryjnego dysku jako nazwa pliku dziennika.
-    /SK: klucz konta magazynu azure. / t: Litera dysku do wysłania. Na przykład D /bk: jest to klucz skrytki bit /srcdir dysku: następuje litera dysku do wysłania: \. Na przykład D:\
-    /dstdir: nazwa kontenera magazynu Azure, do którego dane są do zaimportowania.
-    /skipwrite 
-    
-11. Powtórz krok 10 dla każdego dysku, który ma zostać wysłane.
-12. Plik dziennika o nazwie dostarczone z parametrem /j: jest tworzony dla każdego uruchomienia wiersza polecenia.
+    W poniższej tabeli opisano te opcje wiersza polecenia:
+
+    |Opcja  |Opis  |
+    |---------|---------|
+    |/j:     |Nazwa pliku dziennika z rozszerzeniem .jrn. Plik dziennika jest generowany na dysk. Zaleca się użycie numeru seryjnego dysku jako nazwa pliku dziennika.         |
+    |/SK:     |Klucz konta magazynu Azure.         |
+    |/t:     |Litera dysku do wysłania. Na przykład dysk `D`.         |
+    |/bk:     |Klucza funkcji BitLocker dla dysku.         |
+    |/srcdir:     |Litera dysku do wysłania następuje `:\`. Na przykład `D:\`.         |
+    |/dstdir:     |Nazwa kontenera docelowego w usłudze Azure Storage         |
+
+1. Powtórz krok 10 dla każdego dysku, który ma zostać wysłane.
+2. Plik dziennika o nazwie dostarczone z parametrem /j: jest tworzony dla każdego uruchomienia wiersza polecenia.
 
 ### <a name="step-2-create-an-import-job-on-azure-portal"></a>Krok 2: Tworzenie zadania importu z portalu Azure.
 
@@ -88,6 +91,11 @@ W tej sekcji na listę wymagań wstępnych dotyczących tej usługi. Dokładne z
 
 ### <a name="storage-account"></a>Konto magazynu
 Musi mieć istniejącej subskrypcji platformy Azure i co najmniej jedno konto magazynu ma być używana usługa importu i eksportu. Import/Eksport Azure obsługuje tylko klasyczny, konta magazynu obiektów Blob i kont magazynu ogólnego przeznaczenia v1. Każde zadanie może służyć do transferu danych do lub z tylko jedno konto magazynu. Innymi słowy zadanie pojedynczego importu/eksportu nie może obejmować wielu wielu kont magazynu. Aby uzyskać informacje dotyczące tworzenia nowego konta magazynu, zobacz [jak utworzyć konto magazynu](storage-create-storage-account.md#create-a-storage-account).
+
+> [!IMPORTANT] 
+> Usługa Azure Importuj Eksportuj nie obsługuje kont magazynu gdzie [punktów końcowych usługi sieci wirtualnej](../../virtual-network/virtual-network-service-endpoints-overview.md) funkcja została włączona. 
+> 
+> 
 
 ### <a name="data-types"></a>Typy danych
 Usługa Import/Eksport Azure umożliwia kopiowanie danych do **bloku** obiektów blob, **strony** obiektów blob, lub **pliki**. Z drugiej strony, można wyeksportować tylko **bloku** obiektów blob, **strony** obiektów blob lub **Append** obiekty BLOB z usługi Azure storage przy użyciu tej usługi. Usługa obsługuje tylko importowanie plików Azure do usługi Azure storage. Eksportowanie plików Azure nie jest obecnie obsługiwane.

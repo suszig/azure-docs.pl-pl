@@ -17,11 +17,11 @@ ms.topic: troubleshooting
 ms.date: 12/13/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f061197cbe9fd52594d9fb000d8f3bcbd2d5285
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: ff694ee7c2ecf7f8ee5ea89902fa77efad3f501c
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Transfer własności subskrypcji platformy Azure do innego konta
 
@@ -29,7 +29,7 @@ Przenieść subskrypcję do innego użytkownika w Centrum konta, aby zmienić ko
 
 > [!IMPORTANT]
 > 
-> Obecnie nie obsługujemy przenoszenia subskrypcji bezpłatnej wersji próbnej lub [Azure w otwartych (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/) subskrypcji. Obejście tego problemu, zobacz [przenoszenia zasobów do nowej grupy zasobów lub subskrypcji](../azure-resource-manager/resource-group-move-resources.md).
+> W przypadku przeniesienia subskrypcji do nowej usługi Azure AD dzierżawy, wszystkie przypisania roli w [kontroli dostępu opartej na rolach (RBAC)](../active-directory/role-based-access-control-what-is.md) są trwale usuwane z dzierżawy źródła i nie są migrowane do dzierżawy docelowej.
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Transfer własności subskrypcji platformy Azure
 
@@ -49,7 +49,12 @@ Przenieść subskrypcję do innego użytkownika w Centrum konta, aby zmienić ko
    ![Karta subskrypcje konto platformy Azure](./media/billing-subscription-transfer/image1.png)
 1. Określ adresata.
 
+   > [!IMPORTANT]
+   > 
+   > W przypadku przeniesienia subskrypcji do nowej usługi Azure AD dzierżawy, wszystkie przypisania roli w [kontroli dostępu opartej na rolach (RBAC)](../active-directory/role-based-access-control-what-is.md) są trwale usuwane z dzierżawy źródła i nie są migrowane do dzierżawy docelowej.
+
    ![Okno dialogowe transfer subskrypcji](./media/billing-subscription-transfer/image2.PNG)
+
 1. Adresat automatycznie otrzymuje wiadomość e-mail z linkiem umożliwiającym akceptację.
 
    ![E-mail transfer subskrypcji do adresata](./media/billing-subscription-transfer/image3.png)
@@ -80,27 +85,27 @@ Administrator przedsiębiorstwa może przenieść własność subskrypcji w rama
 
 ## <a name="whats-supported"></a>Co to jest obsługiwana:
 
-Przenoszenie Samoobsługa subskrypcji jest dostępna dla oferty lub typów subskrypcji wymienionych w poniższej tabeli. Tak samo, jak transferowania inne subskrypcje [dostęp sponsorowany](https://azure.microsoft.com/offers/ms-azr-0036p/) lub plany, pomocy technicznej [się z pomocą techniczną](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Przenoszenie Samoobsługa subskrypcji jest dostępna dla oferty lub typów subskrypcji wymienionych w poniższej tabeli. Obecnie nie można przenieść bezpłatnej wersji próbnej lub [Azure w otwartych (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/) subskrypcji. Obejście tego problemu, zobacz [przenoszenia zasobów do nowej grupy zasobów lub subskrypcji](../azure-resource-manager/resource-group-move-resources.md). Aby przenieść inne subskrypcje, takich jak [dostęp sponsorowany](https://azure.microsoft.com/offers/ms-azr-0036p/) lub plany, pomocy technicznej [się z pomocą techniczną](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 | Nazwa oferty                                                                             | Numer oferty |
 |----------------------------------------------------------------------------------------|--------------|
-| [Umowa Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)\*|MS-AZR - 0017P        |
-| [Sieci Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/)          | MS-AZR - 0025P        |
-| [Platformy MSDN](https://azure.microsoft.com/offers/ms-azr-0062p/)                     | MS-AZR - 0062P        |
-| [Płatność za rzeczywiste użycie](https://azure.microsoft.com/offers/ms-azr-0003p/)                      | MS-AZR - 0003P        |
-| [Płatność za rzeczywiste użycie: tworzenie i testowanie](https://azure.microsoft.com/offers/ms-azr-0023p/)             | MS-AZR - 0023P        |
-| [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)           | MS-AZR - 0063P        |
-| [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p/) | MS-AZR - 0064P        |
-| [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)         | MS-AZR - 0059P        |
-| [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/)    | MS-AZR - 0060P        |
+| [Umowa Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)\*|MS-AZR-0017P        |
+| [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/)          | MS-AZR-0025P        |
+| [Platformy MSDN](https://azure.microsoft.com/offers/ms-azr-0062p/)                     | MS-AZR-0062P        |
+| [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/)                      | MS-AZR-0003P        |
+| [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/)             | MS-AZR-0023P        |
+| [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)           | MS-AZR-0063P        |
+| [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p/) | MS-AZR-0064P        |
+| [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)         | MS-AZR-0059P        |
+| [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/)    | MS-AZR-0060P        |
 
-\*[EA — za pomocą portalu](#EA)
+\* [W portalu EA](#EA)
 
 <a id="faq"></a>
 
 ## <a name="frequently-asked-questions-faq"></a>Często zadawane pytania
 
-### <a name="whoisaa"></a>Kto jest administratora konta subskrypcji?
+### <a name="whoisaa"></a> Kto jest administratora konta subskrypcji?
 
 Konto administratora jest osobą, która utworzył konto na lub zakupiono subskrypcję platformy Azure. Użytkownik jest uprawniony do dostępu [Centrum konta](https://account.azure.com/Subscriptions) i wykonywać różne zadania zarządzania, jak tworzyć subskrypcje, anulowanie subskrypcji, zmienić rozliczeń w ramach subskrypcji, zmienić administratora usługi. Jeśli nie masz pewności, który jest administratorem konta subskrypcji, aby dowiedzieć się, należy użyć następujące kroki.
 
@@ -112,7 +117,7 @@ Konto administratora jest osobą, która utworzył konto na lub zakupiono subskr
 
 Wszystkie zasoby, takie jak maszyn wirtualnych, dysków i transfer witryn sieci Web dla nowego właściciela. Jednak wszystkie [ról administratora](billing-add-change-azure-subscription-administrator.md) i [kontroli dostępu opartej na rolach (RBAC)](../active-directory/role-based-access-control-configure.md) po skonfigurowaniu zasad nie są przenoszone w różnych katalogach. Ponadto [rejestracji aplikacji](../active-directory//develop/active-directory-integrating-applications.md) i innych usług specyficznego dla dzierżawy nie transfer wzdłuż.
 
-### <a id="no-button"></a>Dlaczego nie widzę przycisku "Przenieść subskrypcję"?
+### <a id="no-button"></a> Dlaczego nie widzę przycisku "Przenieść subskrypcję"?
 
 Niestety przenoszenie Samoobsługa subskrypcji nie jest dostępna dla Twojej oferty lub kraju. Do przeniesienia subskrypcji, [się z pomocą techniczną](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 

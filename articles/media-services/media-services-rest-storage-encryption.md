@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
-ms.openlocfilehash: 3c752573be7c07f800b0dce3d12d4dabd7328922
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 2fd4c91a8151067c0e9cc9000c158e48cb2cd8a5
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>Szyfrowanie zawartości przy użyciu szyfrowania magazynu
 
@@ -29,7 +29,7 @@ Ten artykuł zawiera omówienie usług AMS szyfrowanie magazynu i pokazuje, jak 
 * Utwórz klucz zawartości.
 * Utwórz zasób. Ustaw AssetCreationOption StorageEncryption podczas tworzenia zasobu.
   
-     Zaszyfrowane zasoby ma zostać skojarzony z kluczy zawartości.
+     Zaszyfrowane zasoby są skojarzone z kluczy zawartości.
 * Połącz klucz zawartości do elementu zawartości.  
 * Ustaw parametry związane z szyfrowaniem na jednostkach AssetFile.
 
@@ -44,60 +44,62 @@ Podczas uzyskiwania dostępu do obiektów w usłudze Media Services, należy ust
 Aby uzyskać informacje na temat nawiązywania połączenia z interfejsu API usług AMS, zobacz [dostępu Azure Media Services API przy użyciu uwierzytelniania usługi Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
 ## <a name="storage-encryption-overview"></a>Omówienie szyfrowania magazynu
-Zastosowanie szyfrowania magazynu AMS **Ewidencyjne AES** tryb szyfrowanie całego pliku.  Tryb Ewidencyjne AES jest szyfry blokowe, który można zaszyfrować dane o dowolnej długości bez potrzeby dopełnienia. Działa on tak szyfrując z algorytmu AES, a następnie używać XOR dane wyjściowe AES z danymi można zaszyfrować lub odszyfrować bloku licznika.  Blok licznika używany jest tworzony przez skopiowanie wartości InitializationVector bajtów 0 do 7 wartość licznika i bajtów 8 do 15 wartość licznika jest ustawiana wartość zero. Bloku 16-bajtowych licznik bajtów 8 do 15 (to znaczy najmniej znaczący bajtów) są używane jako proste 64-bitowych unsigned liczba całkowita, która jest zwiększany o jeden dla każdego kolejnych bloków danych przetwarzane i jest przechowywany w sieci kolejności bajtów. Jeśli ta liczba całkowita osiągnie wartość maksymalna (0xFFFFFFFFFFFFFFFF), następnie zwiększenie jego Resetuje licznik bloku (w bajtach 8 do 15) bez wpływu na inne 64-bitowy licznika (to znaczy bajtów 0-7).   Aby zachować bezpieczeństwo szyfrowania tryb Ewidencyjne AES, wartość InitializationVector danym identyfikatorem klucza dla każdego klucza zawartości jest unikatowy dla każdego pliku i plików jest mniejsza niż wartość 2 ^ 64 bloki o długości.  To, aby upewnić się, że wartość licznika nigdy nie jest ponownie z danym kluczem. Aby uzyskać więcej informacji o trybie kont Zobacz [tej strony typu wiki](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) (Artykuł typu wiki używany jest termin "Nonce" zamiast "InitializationVector").
+Zastosowanie szyfrowania magazynu AMS **Ewidencyjne AES** tryb szyfrowanie całego pliku.  Tryb Ewidencyjne AES jest szyfry blokowe, który można zaszyfrować dane o dowolnej długości bez potrzeby dopełnienia. Działa on tak szyfrując z algorytmu AES, a następnie używać XOR dane wyjściowe AES z danymi można zaszyfrować lub odszyfrować bloku licznika.  Blok licznika używany jest tworzony przez skopiowanie wartości InitializationVector bajtów 0 do 7 wartość licznika i bajtów 8 do 15 wartość licznika jest ustawiana wartość zero. Bloku 16-bajtowych licznik bajtów 8 do 15 (to znaczy najmniej znaczący bajtów) są używane jako proste 64-bitowych unsigned liczba całkowita, która jest zwiększany o jeden dla każdego kolejnych bloków danych przetwarzane i jest przechowywany w sieci kolejności bajtów. Jeśli ta liczba całkowita osiągnie wartość maksymalna (0xFFFFFFFFFFFFFFFF), następnie zwiększenie jego Resetuje licznik bloku (w bajtach 8 do 15) bez wpływu na inne 64-bitowy licznika (to znaczy bajtów 0-7).   Aby zachować bezpieczeństwo szyfrowania tryb Ewidencyjne AES, wartość InitializationVector danym identyfikatorem klucza dla każdego klucza zawartości jest unikatowy dla każdego pliku i plików jest mniejsza niż wartość 2 ^ 64 bloki o długości.  Jest to unikatowa wartość aby upewnić się, że wartość licznika nigdy nie jest ponownie z danym kluczem. Aby uzyskać więcej informacji o trybie kont Zobacz [tej strony typu wiki](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) (Artykuł typu wiki używany jest termin "Nonce" zamiast "InitializationVector").
 
 Użyj **szyfrowanie magazynu** do zaszyfrowania zawartości lokalnie przy użyciu standardu AES 256-bitowy szyfrowania i przekaż go do magazynu Azure gdzie jest przechowywana szyfrowane, gdy. Elementy zawartości chronione przy użyciu szyfrowania magazynu są automatycznie odszyfrowywane i umieszczane w systemie szyfrowania plików przed kodowaniem, a następnie opcjonalnie ponownie szyfrowane przed przesłaniem zwrotnym w formie nowego elementu zawartości wyjściowej. Pierwotnym zastosowaniem szyfrowania magazynu jest, gdy chcesz zabezpieczyć Twoje wysokiej jakości multimedialnych plików wejściowych z silne szyfrowanie przechowywanych na dysku.
 
 Aby dostarczyć zasób zaszyfrowanych magazynu, należy skonfigurować zasady dostarczania elementu zawartości będzie wówczas traktował Media Services sposób dostarczania zawartości. Przed zawartości mogą być przesyłane strumieniowo, serwer przesyłania strumieniowego usuwa szyfrowanie magazynu i strumieni zawartości za pomocą zasad określonym dostarczania (na przykład AES, wspólnego szyfrowania lub bez szyfrowania).
 
 ## <a name="create-contentkeys-used-for-encryption"></a>Utwórz ContentKeys używany do szyfrowania
-Zaszyfrowanych zasoby ma zostać skojarzony z klucz szyfrowania magazynu. Należy utworzyć klucz zawartości do użycia dla szyfrowania przed utworzeniem plików zasobów. Ta sekcja zawiera opis sposobu tworzenia klucza zawartości.
+Zaszyfrowane zasoby są skojarzone z kluczy szyfrowania magazynu. Utwórz klucz zawartości do użycia dla szyfrowania przed utworzeniem plików zasobów. Ta sekcja zawiera opis sposobu tworzenia klucza zawartości.
 
 Poniżej przedstawiono ogólne kroki podczas generowania zawartości kluczy, które skojarzysz z zasobów, które mają być szyfrowane. 
 
 1. Do szyfrowania magazynu losowego generowania klucza AES 32 bajtów. 
    
-    Jest to klucz zawartości dla zawartości, co oznacza wszystkie pliki skojarzone z którym zasobów musi używać tego samego klucza zawartości podczas odszyfrowywania. 
+    32-bajtowych klucz AES jest zawartości dla zawartości, co oznacza wszystkie pliki skojarzone z którym zasobów musi używać tego samego klucza zawartości podczas odszyfrowywania. 
 2. Wywołanie [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) i [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) metod, aby uzyskać poprawny certyfikat X.509 używany do szyfrowania klucza zawartości.
 3. Zaszyfrowanie klucza zawartości z kluczem publicznym certyfikatu X.509. 
    
    .NET SDK usługi Media Services używa algorytmu RSA z OAEP podczas operacji szyfrowania.  Widoczny jest przykład .NET w [funkcja EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
 4. Utwórz wartość sumy kontrolnej obliczane przy użyciu klucza identyfikator i klucz zawartości. W poniższym przykładzie .NET oblicza sumę kontrolną, używając identyfikatora GUID części klucza identyfikator i klucz czyszczenie zawartości.
 
-        public static string CalculateChecksum(byte[] contentKey, Guid keyId)
-        {
-            const int ChecksumLength = 8;
-            const int KeyIdLength = 16;
-
-            byte[] encryptedKeyId = null;
-
-            // Checksum is computed by AES-ECB encrypting the KID
-            // with the content key.
-            using (AesCryptoServiceProvider rijndael = new AesCryptoServiceProvider())
+    ```csharp
+            public static string CalculateChecksum(byte[] contentKey, Guid keyId)
             {
-                rijndael.Mode = CipherMode.ECB;
-                rijndael.Key = contentKey;
-                rijndael.Padding = PaddingMode.None;
+                const int ChecksumLength = 8;
+                const int KeyIdLength = 16;
 
-                ICryptoTransform encryptor = rijndael.CreateEncryptor();
-                encryptedKeyId = new byte[KeyIdLength];
-                encryptor.TransformBlock(keyId.ToByteArray(), 0, KeyIdLength, encryptedKeyId, 0);
+                byte[] encryptedKeyId = null;
+
+                // Checksum is computed by AES-ECB encrypting the KID
+                // with the content key.
+                using (AesCryptoServiceProvider rijndael = new AesCryptoServiceProvider())
+                {
+                    rijndael.Mode = CipherMode.ECB;
+                    rijndael.Key = contentKey;
+                    rijndael.Padding = PaddingMode.None;
+
+                    ICryptoTransform encryptor = rijndael.CreateEncryptor();
+                    encryptedKeyId = new byte[KeyIdLength];
+                    encryptor.TransformBlock(keyId.ToByteArray(), 0, KeyIdLength, encryptedKeyId, 0);
+                }
+
+                byte[] retVal = new byte[ChecksumLength];
+                Array.Copy(encryptedKeyId, retVal, ChecksumLength);
+
+                return Convert.ToBase64String(retVal);
             }
+    ```
 
-            byte[] retVal = new byte[ChecksumLength];
-            Array.Copy(encryptedKeyId, retVal, ChecksumLength);
-
-            return Convert.ToBase64String(retVal);
-        }
-
-1. Utwórz klucz zawartości z **EncryptedContentKey** (konwertowana na ciąg kodowany w formacie base64), **ProtectionKeyId**, **ProtectionKeyType**,  **ContentKeyType**, i **sumy kontrolnej** wartości otrzymany w poprzednich krokach.
+5. Utwórz klucz zawartości z **EncryptedContentKey** (konwertowana na ciąg kodowany w formacie base64), **ProtectionKeyId**, **ProtectionKeyType**,  **ContentKeyType**, i **sumy kontrolnej** wartości otrzymany w poprzednich krokach.
 
     Do szyfrowania magazynu powinien znajdować się następujące właściwości, w treści żądania.
 
     Właściwość treść żądania    | Opis
     ---|---
-    Identyfikator | Identyfikator ContentKey, który mamy nad Generowanie w następującym formacie, "nb:kid:UUID:<NEW GUID>".
-    ContentKeyType | Typ klucza zawartości jest liczbą całkowitą dla tego klucza zawartości. Wartość 1 dla szyfrowania magazynu jest przekazywana.
+    Identyfikator | Identyfikator ContentKey jest generowany przy użyciu następującego formatu "nb:kid:UUID:<NEW GUID>".
+    ContentKeyType | Typ klucza zawartości jest liczba całkowita, która definiuje klucz. Format szyfrowania magazynu wartość to 1.
     EncryptedContentKey | Możemy utworzyć nowego klucza wartość zawartości, która jest wartością 256-bitowego (32 bajtów). Klucz jest zaszyfrowany przy użyciu certyfikatu X.509 szyfrowania magazynu, który pobrać z usługi Microsoft Azure Media Services, wykonując żądanie HTTP GET dla GetProtectionKeyId i GetProtectionKey metod. Na przykład zobacz następujący kod .NET: **EncryptSymmetricKeyData** metody zdefiniowanej [tutaj](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
     ProtectionKeyId | To jest identyfikator klucza ochrony dla magazynu certyfikatu X.509 szyfrowania, który został użyty do zaszyfrowania naszych klucz zawartości.
     ProtectionKeyType | Jest to typ szyfrowania dla klucza ochrony, który był używany do szyfrowania klucza zawartości. Ta wartość jest StorageEncryption(1) w naszym przykładzie.
@@ -172,7 +174,7 @@ Odpowiedź:
 ### <a name="create-the-content-key"></a>Utwórz klucz zawartości
 Po pobrać certyfikat X.509 i używać swojego klucza publicznego do szyfrowania klucza zawartości należy utworzyć **ContentKey** jednostki i ustaw jej właściwość odpowiednio wartości.
 
-Jedna z wartości, że należy ustawić podczas tworzenia zawartości klucza jest typem. W przypadku szyfrowania magazynu wartość "1". 
+Jedna z wartości, że należy ustawić podczas tworzenia zawartości klucza jest typem. Podczas korzystania z szyfrowania przestrzeni dyskowej, wartość powinna być równa "1". 
 
 Poniższy przykład przedstawia sposób tworzenia **ContentKey** z **ContentKeyType** ustawić szyfrowania magazynu ("1") i **ProtectionKeyType** ustawioną wartość "0", aby wskazać, że Klucz ochrony identyfikator jest odcisk palca certyfikatu X.509.  
 
@@ -242,7 +244,7 @@ Poniższy przykład pokazuje, jak utworzyć element zawartości.
 
 **Odpowiedź HTTP**
 
-Jeśli to się powiedzie, jest zwracany następujące czynności:
+W przypadku powodzenia następującą odpowiedź jest zwracana:
 
     HTP/1.1 201 Created
     Cache-Control: no-cache
@@ -294,7 +296,7 @@ Odpowiedź:
 ## <a name="create-an-assetfile"></a>Utwórz AssetFile
 [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) jednostki reprezentuje plik wideo lub audio, który jest przechowywany w kontenerze obiektów blob. Plik zasobów zawsze jest skojarzony z zasobem i zasobów może zawierać jeden lub wiele plików zasobów. Zadanie Media Encoder usługi nie powiedzie się, jeśli obiekt pliku zasobu nie jest skojarzony z pliku cyfrowego w kontenerze obiektów blob.
 
-Należy pamiętać, że **AssetFile** wystąpienia oraz plik multimedialna są dwa różne obiekty. Wystąpienia AssetFile zawiera metadanych dotyczących pliku nośnika, a plik nośnika zawiera zawartość multimedialna.
+**AssetFile** wystąpienia oraz plik multimedialna są dwa różne obiekty. Wystąpienia AssetFile zawiera metadanych dotyczących pliku nośnika, a plik nośnika zawiera zawartość multimedialna.
 
 Po przekazaniu pliku nośnika cyfrowego do kontenera obiektów blob, którego użyjesz **scalania** żądania HTTP w celu zaktualizowania AssetFile informacje o pliku nośnika (niewidoczny w tym artykule). 
 

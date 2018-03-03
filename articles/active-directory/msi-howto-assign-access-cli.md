@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/25/2017
 ms.author: daveba
-ms.openlocfilehash: be80065f83e8c80e7c1d6ab383cea04e0d2679a0
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 90a7ec3059b6905e4aa660f538c299f3e8dedaae
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="assign-a-managed-service-identity-msi-access-to-a-resource-using-azure-cli"></a>Przypisywanie dostępu zarządzane tożsamości usługi (MSI) do zasobów przy użyciu wiersza polecenia platformy Azure
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-Po skonfigurowaniu zasobów platformy Azure z Instalatora MSI, możesz zapewnić dostęp MSI do innego zasobu, podobnie jak wszelkie podmiotu zabezpieczeń. Ten przykład przedstawia sposób udzielić dostępu MSI Azure maszyny wirtualnej do konta magazynu platformy Azure, przy użyciu wiersza polecenia platformy Azure.
+Po skonfigurowaniu zasobów platformy Azure z Instalatora MSI, możesz zapewnić dostęp MSI do innego zasobu, podobnie jak wszelkie podmiotu zabezpieczeń. Ten przykład przedstawia sposób udzielić dostępu MSI zestaw skali maszyny wirtualnej lub maszyny wirtualnej platformy Azure na konto magazynu platformy Azure przy użyciu wiersza polecenia platformy Azure.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -39,21 +39,26 @@ Aby uruchomić przykłady skryptów interfejsu wiersza polecenia, masz trzy opcj
 
 ## <a name="use-rbac-to-assign-the-msi-access-to-another-resource"></a>Użycie funkcji RBAC można przypisać MSI dostęp do innego zasobu
 
-Po włączeniu MSI na zasobów platformy Azure, [takich jak maszyny Wirtualnej platformy Azure](msi-qs-configure-cli-windows-vm.md): 
+Po włączeniu MSI na zasobów platformy Azure, takich jak [maszyny wirtualnej platformy Azure](msi-qs-configure-cli-windows-vm.md) lub [zestaw skali maszyny wirtualnej platformy Azure](msi-qs-configure-cli-windows-vmss.md): 
 
-1. Jeśli używasz interfejsu wiersza polecenia Azure w lokalnej konsoli, najpierw zaloguj się do platformy Azure przy użyciu [logowania az](/cli/azure/#az_login). Użyj konta, które jest skojarzone z subskrypcją platformy Azure, w którym chcesz wdrożyć maszyny Wirtualnej:
+1. Jeśli używasz interfejsu wiersza polecenia Azure w lokalnej konsoli, najpierw zaloguj się do platformy Azure przy użyciu [logowania az](/cli/azure/#az_login). Użyj konta, które jest skojarzone z subskrypcją platformy Azure, w którym chcesz wdrożyć zestaw skali maszyny Wirtualnej lub maszyny wirtualnej:
 
    ```azurecli-interactive
    az login
    ```
 
-2. W tym przykładzie udostępniamy możliwość sprawowania maszyny Wirtualnej Azure dostęp do konta magazynu. Najpierw używamy [listę zasobów az](/cli/azure/resource/#az_resource_list) można pobrać nazwy głównej usługi dla maszyny Wirtualnej o nazwie "myVM", który został utworzony po włączeniu możemy MSI w maszynie Wirtualnej:
+2. W tym przykładzie udostępniamy możliwość sprawowania Azure maszynie wirtualnej dostęp do konta magazynu. Najpierw używamy [listę zasobów az](/cli/azure/resource/#az_resource_list) można uzyskać nazwy głównej usługi dla maszyny wirtualnej o nazwie "myVM":
 
    ```azurecli-interactive
    spID=$(az resource list -n myVM --query [*].identity.principalId --out tsv)
    ```
+   Dla zestawu skalowania maszyny wirtualnej platformy Azure polecenie jest taki sam, z wyjątkiem tutaj, uzyskać nazwę główną usługi dla zestawu skalowania maszyny wirtualnej o nazwie "DevTestVMSS":
+   
+   ```azurecli-interactive
+   spID=$(az resource list -n DevTestVMSS --query [*].identity.principalId --out tsv)
+   ```
 
-3. Gdy mamy identyfikator podmiotu zabezpieczeń usługi używamy [utworzenia przypisania roli az](/cli/azure/role/assignment#az_role_assignment_create) umożliwiają Maszynie wirtualnej "Czytnika" dostęp do konta magazynu o nazwie "myStorageAcct":
+3. Po utworzeniu Identyfikatora podmiotu zabezpieczeń usługi, użyj [utworzenia przypisania roli az](/cli/azure/role/assignment#az_role_assignment_create) do maszyny wirtualnej lub skalowania maszyny wirtualnej Ustaw "Czytnika" dostęp do konta magazynu o nazwie "myStorageAcct":
 
    ```azurecli-interactive
    az role assignment create --assignee $spID --role 'Reader' --scope /subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.Storage/storageAccounts/myStorageAcct
@@ -61,17 +66,18 @@ Po włączeniu MSI na zasobów platformy Azure, [takich jak maszyny Wirtualnej p
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-Jeśli plik MSI dla zasobu nie występuje na liście dostępnych tożsamości, sprawdź, czy MSI została prawidłowo włączona. W tym przypadku firma Microsoft wrócić do maszyny Wirtualnej platformy Azure w ramach [portalu Azure](https://portal.azure.com) oraz:
+Jeśli plik MSI dla zasobu nie występuje na liście dostępnych tożsamości, sprawdź, czy MSI została prawidłowo włączona. W tym przypadku firma Microsoft wrócić do maszyny wirtualnej platformy Azure lub skalowania maszyny wirtualnej w [portalu Azure](https://portal.azure.com) oraz:
 
 - Szukaj na stronie "Konfiguracja" i upewnij się, MSI włączone = "Yes".
-- Przyjrzyj się Strona "Rozszerzenia" i upewnij się, z rozszerzeniem MSI pomyślnie wdrożone.
+- Przyjrzyj się Strona "Rozszerzenia" i upewnij się, z rozszerzeniem MSI pomyślnie wdrożone (**rozszerzenia** strona nie jest dostępna dla zestawu skalowania maszyny wirtualnej platformy Azure).
 
 Jeśli jest albo nieprawidłowa, może być konieczne ponownie Wdróż ponownie MSI na zasobie oraz rozwiązywania problemów dotyczących niepowodzenia wdrożenia.
 
 ## <a name="related-content"></a>Zawartość pokrewna
 
 - Omówienie MSI, zobacz [omówienie zarządzane tożsamość usługi](msi-overview.md).
-- Aby włączyć MSI w maszynie Wirtualnej platformy Azure, zobacz [skonfigurować Azure VM zarządzane usługi tożsamości (MSI) przy użyciu interfejsu wiersza polecenia Azure](msi-qs-configure-cli-windows-vm.md).
+- Aby włączyć MSI w maszynie wirtualnej platformy Azure, zobacz [skonfigurować Azure VM zarządzane usługi tożsamości (MSI) przy użyciu interfejsu wiersza polecenia Azure](msi-qs-configure-cli-windows-vm.md).
+- Aby włączyć MSI na podstawie zestawu skali maszyny wirtualnej platformy Azure, zobacz [skonfigurować Azure maszyny wirtualnej skali ustawić zarządzane usługi tożsamości (MSI) przy użyciu portalu Azure](msi-qs-configure-portal-windows-vmss.md)
 
 W poniższej sekcji komentarzy umożliwia wyrazić swoją opinię i pomóc nam dostosować i kształtu zawartość.
 

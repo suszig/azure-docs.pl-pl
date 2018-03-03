@@ -1,24 +1,24 @@
 ---
-title: "Opis koszt raportów w programie Azure kosztów zarządzania | Dokumentacja firmy Microsoft"
-description: "Ten artykuł pomaga w zrozumieniu Cloudyn raportów podstawowej struktury i funkcji."
+title: "Opis raportów zarządzania koszt zarządzania koszt Azure | Dokumentacja firmy Microsoft"
+description: "Ten artykuł pomaga w zrozumieniu Cloudyn kosztów zarządzania raportów podstawowej struktury i funkcji."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 03/01/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 38c1313f42a58403e158cad9c2930b6541da5adc
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4effd63fbd9cb972a0d130826a7347dd34561792
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="understanding-cost-reports"></a>Omówienie raportów kosztów
+# <a name="understanding-cost-management-reports"></a>Raporty zarządzania koszt opis
 
-Ten artykuł pomaga w zrozumieniu Cloudyn raportów podstawowej struktury i funkcji. Większość raportów Cloudyn są intuicyjne i zapewnia jednolite wyglądu i działania. Po przeczytaniu tego artykułu są gotowe do użycia wszystkich raportów. Wiele funkcji dostępnych w całej różne raporty, umożliwiając Przejdź raporty z łatwością. Raporty są można dostosowywać i można wybrać kilka opcji do obliczania i wyświetlania wyników.
+Ten artykuł pomaga w zrozumieniu Cloudyn kosztów zarządzania raportów podstawowej struktury i funkcji. Większość raportów Cloudyn są intuicyjne i zapewnia jednolite wyglądu i działania. Po przeczytaniu tego artykułu są gotowe do użycia. wszystkie raporty zarządzania kosztów. Wiele funkcji dostępnych w całej różne raporty, umożliwiając Przejdź raporty z łatwością. Raporty są można dostosowywać i można wybrać kilka opcji do obliczania i wyświetlania wyników.
 
 ## <a name="report-fields-and-options"></a>Opcje i pola raportu
 
@@ -77,7 +77,7 @@ Poszczególnych numerowane obszar obrazu poprzedniego jest szczegółowo opisane
      - Środowisko
      - Kod kosztów
 
-5. **Filtry**
+5. **filtry**
 
     Użyj filtrów pojedynczego lub wielokrotnego wyboru, aby ustawić zakresy wybranych wartości. Aby ustawić filtr, kliknij przycisk **Dodaj** , a następnie wybierz filtr kategorii i wartości.
 
@@ -131,6 +131,27 @@ Poszczególnych numerowane obszar obrazu poprzedniego jest szczegółowo opisane
 14. **Akcje**
 
     Użyj akcje, aby zapisać, wyeksportować lub ustalania harmonogramu raportu.
+
+## <a name="save-and-schedule-reports"></a>Zapisz i planowania raportów
+
+Po utworzeniu raportu można zapisać go do użytku w przyszłości. Zapisane raporty są dostępne w **Moje narzędzia** > **Moje raporty**. Jeśli wprowadzono zmiany do istniejącego raportu i zapisz go, raport jest zapisywany jako nową wersję. Alternatywnie można zapisać go jako nowy raport.
+
+### <a name="save-a-report-to-the-cloudyn-portal"></a>Zapisywanie raportu do portalu Cloudyn
+
+Podczas wyświetlania wszystkich raportów, kliknij przycisk **akcje** , a następnie wybierz **Zapisz moje raporty**. Nazwę raportu, a następnie dodaj swój własny adres URL lub użyj automatycznie utworzone adresu URL. Można opcjonalnie **udostępnianie** raport publicznie z innymi osobami w organizacji lub można ją udostępnić, do jednostki. Jeśli nie mają raportu, pozostaje osobiste raportu i można tylko wyświetlić. Zapisz raport.
+
+
+### <a name="save-a-report-to-cloud-provider-storage"></a>Zapisywanie raportu do dostawcy magazynu w chmurze
+
+Aby zapisać raport w dostawcy usług w chmurze, musi już skonfigurowano konto magazynu. Podczas wyświetlania wszystkich raportów, kliknij przycisk **akcje** , a następnie wybierz **zaplanować raport**. Nazwę raportu, a następnie dodaj swój własny adres URL lub użyj automatycznie utworzone adresu URL. Wybierz **Zapisz do magazynu** a następnie wybierz konto magazynu lub dodania nowego. Wprowadź prefiks, który pobiera dołączany do nazwy pliku raportu. Wybierz format pliku CSV lub JSON, a następnie Zapisz raport.
+
+### <a name="schedule-a-report"></a>Harmonogram raportu
+
+Można uruchamiać raporty w zaplanowanych odstępach czasu i należy je wysyłane do adresatów listy lub w chmurze dostawcy magazynu konta usługi. Podczas wyświetlania wszystkich raportów, kliknij przycisk **akcje** , a następnie wybierz **zaplanować raport**. Można wysłać raport za pośrednictwem poczty e-mail i zapisać na konto magazynu. W obszarze **harmonogram**, wybierz interwał (codziennie, co tydzień lub co miesiąc). Co tydzień i co miesiąc wybierz dzień lub daty do dostarczania i wybierz godzinę. Zapisz zaplanowany raport. Po wybraniu formatu raport programu Excel, raport jest wysyłany jako załącznik. Po wybraniu formatu zawartości wiadomości e-mail, raportu dotyczącego wyników, które są wyświetlane w formacie wykresu są dostarczane jako wykresu.
+
+### <a name="export-a-report-as-a-csv-file"></a>Raport można wyeksportować do pliku CSV
+
+Podczas wyświetlania wszystkich raportów, kliknij przycisk **akcje** , a następnie wybierz **wyeksportować wszystkie dane raportów**. Zostanie wyświetlone okno podręczne i zostanie pobrany plik CSV.
 
 ## <a name="next-steps"></a>Kolejne kroki
 

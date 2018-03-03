@@ -14,15 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/16/2018
 ms.author: billmath
-ms.openlocfilehash: 843582a980280a14f033c6d27965867c063039e2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 81d08d3d3d08e9cc96b39cbdf2d639e939fdf3d4
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Historia wersji
 Zespół usługi Azure Active Directory (Azure AD) regularnie aktualizuje Azure AD Connect z nowych funkcji. Nie wszystkie dodatki mają zastosowanie do wszystkich grup odbiorców.
-"W tym artykule jest przeznaczona do informacji o wersji, które zostały wydane i zrozumieć, czy należy zaktualizować do najnowszej wersji, czy nie.
+
+W tym artykule jest przeznaczona do informacji o wersji, które zostały wydane i zrozumieć, czy należy zaktualizować do najnowszej wersji, czy nie.
 
 Jest to lista Tematy pokrewne:
 
@@ -36,14 +37,12 @@ Wymagane uprawnienia | Uprawnienia wymagane do zastosowania aktualizacji, zobacz
 Pobierz | [Pobieranie programu Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
 ## <a name="117490"></a>1.1.749.0
-Stan: Wydane do wybranych klientów
-
+Stan: Wydane do wybranych klientów, które tej wersji obecnie jest dystrybuowane w małych i losowe część dzierżawcy programu AADConnect została włączona automatycznej aktualizacji. Firma Microsoft będzie Rozwiń tę grupę, dzierżawców w najbliższych tygodniach aż do 100% automatycznego uaktualnienia klientów otrzymali tej wersji. Po tym będzie ogłoszeniem kompilacji do pobrania ogólne powyżej łącze pobierania — obecnie planowanych do połowy z marca 2018.
 >[!NOTE]
 >Po zakończeniu uaktualniania do tej nowej wersji automatycznie spowodują uruchomienie pełnej synchronizacji i pełny import dla łącznika usługi Azure AD i pełnej synchronizacji dla łącznika usługi AD. Ponieważ może to potrwać pewien czas w zależności od wielkości środowiska Azure AD Connect upewnij się, że wykonaniu czynności niezbędnych do obsługi to lub Wstrzymaj się na temat uaktualniania, aby znaleźć dogodnym momencie w tym celu.
 
 ### <a name="azure-ad-connect"></a>Program Azure AD Connect
 #### <a name="fixed-issues"></a>Rozwiązane problemy
-* Usuń okna czasowego w tle zadań w celu filtrowania partycji strony, gdy
 * Usuń okna czasowego na zadania w tle dla strony filtrowania partycji podczas przełączania do następnej strony.
 
 * Stałe błędu, który spowodował naruszenie zasad dostępu podczas akcji niestandardowej ConfigDB
@@ -59,7 +58,7 @@ Stan: Wydane do wybranych klientów
 
 #### <a name="new-features-and-improvements"></a>Nowe funkcje i ulepszenia
 
-* Dodawanie ustawień prywatności dla daty ogólnej ochrony rozporządzenia (GDPR).  GDPR są nam wskazują rodzaje danych klienta, które są współużytkowane z firmą Microsoft (danych telemetrycznych kondycji, itp.), mają linki do szczegółowych dokumentację w trybie online i umożliwiają naszym klientom zmienić swoje preferencje.  Tego wyboru w dodaje następujące czynności:
+* Dodawanie ustawienia prywatności rozporządzenia ochrony danych ogólne (GDPR).  GDPR są nam wskazują rodzaje danych klienta, które są współużytkowane z firmą Microsoft (danych telemetrycznych kondycji, itp.), mają linki do szczegółowych dokumentację w trybie online i umożliwiają naszym klientom zmienić swoje preferencje.  Tego wyboru w dodaje następujące czynności:
 
 
     - Udostępnianie danych i powiadomienie o prywatności w czystej instalacji strony umowy licencyjnej.

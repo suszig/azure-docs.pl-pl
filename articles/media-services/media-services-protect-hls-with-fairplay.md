@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 2ab743cadf91be05e1d2b2edf3143d8c14ae2bdb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 91f117c3b1b166a069b93c238380140f19e49280
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Ochrona programu HLS zawartości z FairPlay firmy Apple lub Microsoft PlayReady
 Usługa Azure Media Services umożliwia dynamicznego szyfrowania zawartości HTTP Live Streaming (HLS) przy użyciu następujących formatów:  
@@ -89,9 +89,9 @@ Następujący klienci obsługuje HLS z **CBC AES-128** szyfrowania: Safari w sys
 ## <a name="configure-fairplay-dynamic-encryption-and-license-delivery-services"></a>Konfigurowanie FairPlay dynamicznego szyfrowania i licencji dostarczania usług
 Poniżej przedstawiono ogólne kroki do ochrony zasobów z FairPlay przy użyciu usługi dostarczania licencji Media Services, a także za pomocą szyfrowania dynamicznego.
 
-1. Utworzenie elementu zawartości i przekazywanie plików do zawartości.
-2. Kodowanie zawartości, który zawiera plik o adaptacyjnej szybkości bitowej MP4 ustawiona.
-3. Utwórz klucz zawartości i skojarzyć go z zakodowanym elementem zawartości.  
+1. Utwórz element zawartości i przekaż do niego pliki.
+2. Przekoduj element zawartości zawierający plik na zestaw MP4 o adaptacyjnej szybkości bitowej.
+3. Utwórz klucz zawartości i skojarz go z zakodowanym elementem zawartości.  
 4. Skonfiguruj zasady autoryzacji klucza zawartości. Określ następujące ustawienia:
 
    * Metoda dostarczania (w tym przypadku FairPlay).
@@ -116,7 +116,7 @@ Poniżej przedstawiono ogólne kroki do ochrony zasobów z FairPlay przy użyciu
      > * Inny IAssetDeliveryPolicy, aby skonfigurować FairPlay dla protokołu HLS
      >
      >
-6. Utwórz Lokalizator OnDemand w celu uzyskania adresu URL przesyłania strumieniowego.
+6. Utwórz lokalizator OnDemand w celu pobrania adresu URL przesyłania strumieniowego.
 
 ## <a name="use-fairplay-key-delivery-by-player-apps"></a>Aby użyć klucza dostawy FairPlay aplikacji odtwarzacza
 Można programować aplikacje player przy użyciu zestawu SDK dla systemu iOS. Możliwość odtwarzania zawartości FairPlay, należy zaimplementować protokół wymiany licencji. Ten protokół nie jest określony przez firmę Apple. Jest każda aplikacja sposób wysyłania żądań klucza dostawy. Usługi Media Services FairPlay klucza dostawy oczekuje SPC znaleziona jako www-form-url post zakodowany komunikat w następującym formacie:
@@ -146,8 +146,10 @@ Następujące kwestie:
 1. Skonfiguruj środowisko projektowe i wypełnij plik app.config przy użyciu informacji dotyczących połączenia, zgodnie z opisem w sekcji [Projektowanie usługi Media Services na platformie .NET](media-services-dotnet-how-to-use.md). 
 2. Dodaj następujące elementy do węzła **appSettings** zdefiniowanego w pliku app.config:
 
-        <add key="Issuer" value="http://testacs.com"/>
-        <add key="Audience" value="urn:test"/>
+    ```xml
+            <add key="Issuer" value="http://testacs.com"/>
+            <add key="Audience" value="urn:test"/>
+    ```
 
 ## <a name="example"></a>Przykład
 
@@ -156,11 +158,11 @@ W poniższym przykładzie pokazano możliwość używania usługi Media Services
 Zastąp kod w pliku Program.cs kodem przedstawionym w tej sekcji.
 
 >[!NOTE]
->Limit różnych zasad usługi AMS wynosi 1 000 000 (na przykład zasad lokalizatorów lub ContentKeyAuthorizationPolicy). Należy używać tego samego identyfikatora zasad, jeśli zawsze są używane uprawnienia dotyczące tych samych dni lub tego samego dostępu, na przykład dla lokalizatorów przeznaczonych do długotrwałego stosowania (nieprzekazywanych zasad). Aby uzyskać więcej informacji, zobacz [to](media-services-dotnet-manage-entities.md#limit-access-policies) artykułu.
+>Limit różnych zasad usługi AMS wynosi 1 000 000 (na przykład zasad lokalizatorów lub ContentKeyAuthorizationPolicy). Należy używać tego samego identyfikatora zasad, jeśli zawsze są używane uprawnienia dotyczące tych samych dni lub tego samego dostępu, na przykład dla lokalizatorów przeznaczonych do długotrwałego stosowania (nieprzekazywanych zasad). Więcej informacji znajduje się w [tym](media-services-dotnet-manage-entities.md#limit-access-policies) artykule.
 
 Upewnij się, że zaktualizowano zmienne, tak aby wskazywały foldery, w których znajdują się pliki danych wejściowych.
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Configuration;

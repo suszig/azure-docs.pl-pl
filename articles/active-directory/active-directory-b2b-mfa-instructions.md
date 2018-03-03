@@ -3,7 +3,7 @@ title: "Dostęp warunkowy dla usługi Azure Active Directory B2B współpracy u�
 description: "Azure współpracy B2B usługi Active Directory obsługuje uwierzytelnianie wieloskładnikowe (MFA) dla selektywny dostęp do aplikacji firmowych"
 services: active-directory
 documentationcenter: 
-author: sasubram
+author: twooley
 manager: mtillman
 editor: 
 tags: 
@@ -14,12 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 09/11/2017
-ms.author: sasubram
-ms.openlocfilehash: 2f2cfc351d372d665aac054d52d6e1520e1ffe48
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: twooley
+ms.reviewer: sasubram
+ms.openlocfilehash: 4c8827bdf18d59fbe6ba92593513e25e493974b5
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>Dostęp warunkowy dla użytkowników współpracy B2B
 
@@ -104,7 +105,7 @@ Jeśli zaproszenia organizacji jest możliwość tworzenia zaufany zakres adres�
 
 Obecnie zasady oparte na ryzyko logowania nie można zastosować użytkownikom B2B oceny ryzyka jest wykonywana w organizacji macierzystej użytkownika B2B.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Zobacz nasze inne artykuły dotyczące współpracy B2B w usłudze Azure AD:
 

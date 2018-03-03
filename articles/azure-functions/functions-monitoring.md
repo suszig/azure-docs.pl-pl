@@ -1,5 +1,5 @@
 ---
-title: "Monitoruj usługę Azure Functions"
+title: "Monitorowanie usługi Azure Functions"
 description: "Dowiedz się, jak używać usługi Azure Application Insights w środowisku Azure Functions do wykonywania funkcji monitorowania."
 services: functions
 author: tdykstra
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 6f38fe1e99c734bf09a403ea93b6487a71110cac
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: d2a61f5f51e3c4a1de6baa79493cb2c7380c76b6
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="monitor-azure-functions"></a>Monitoruj usługę Azure Functions
+# <a name="monitor-azure-functions"></a>Monitorowanie usługi Azure Functions
 
 ## <a name="overview"></a>Przegląd 
 
@@ -82,7 +82,7 @@ Aby uzyskać informacje o sposobie używania usługi Application Insights, zobac
 
 W [Eksploratora metryk](../application-insights/app-insights-metrics-explorer.md), można utworzyć wykresów i alerty na podstawie metryk takie jak liczba wywołań funkcji, czas wykonywania i Częstotliwość powodzeń.
 
-![Eksploratora metryk](media/functions-monitoring/metrics-explorer.png)
+![Eksplorator metryk](media/functions-monitoring/metrics-explorer.png)
 
 Na [błędów](../application-insights/app-insights-asp-net-exceptions.md) kartę, można utworzyć wykresów i alerty na podstawie błędy funkcji i serwera wyjątki. **Nazwy operacji** jest nazwą funkcji. Błędy w zależności nie są wyświetlane, chyba że zaimplementowaniem [telemetria niestandardowa](#custom-telemetry-in-c-functions) zależności.
 
@@ -160,8 +160,8 @@ Zawiera również usługę Azure functions rejestratora *poziom dziennika* przy 
 |Informacje | 2 |
 |Ostrzeżenie     | 3 |
 |Błąd       | 4 |
-|Krytyczny    | 5 |
-|Brak        | 6 |
+|Krytyczne    | 5 |
+|None        | 6 |
 
 Poziom dziennika `None` znajduje się w następnej sekcji. 
 
@@ -221,7 +221,7 @@ Te dzienniki są wyświetlane jako "żądań" w usłudze Application Insights. W
 
 Wszystkie te dzienniki są zapisywane w `Information` poziomu, tak więc jeśli filtru u `Warning` lub nowszym, nie będą widzieć żadnego z tych danych.
 
-### <a name="category-hostaggregator"></a>Host.Aggregator kategorii
+### <a name="category-hostaggregator"></a>Category Host.Aggregator
 
 Dzienniki te zapewniają liczby i średnie wywołania funkcji za pośrednictwem [można skonfigurować](#configure-the-aggregator) okresu czasu. Domyślny okres to 30 sekund lub wyników 1000, zależnie od zostanie osiągnięty jako pierwszy. 
 
@@ -354,6 +354,7 @@ Poniżej przedstawiono przykładowy kod C#, który używa [niestandardowego inte
 using System;
 using System.Net;
 using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.DataContracts;
 using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.Azure.WebJobs;
 using System.Net.Http;
@@ -370,7 +371,7 @@ namespace functionapp0915
             System.Environment.GetEnvironmentVariable(
                 "APPINSIGHTS_INSTRUMENTATIONKEY", EnvironmentVariableTarget.Process);
 
-        private static TelemetryClient telemetry = 
+        private static TelemetryClient telemetryClient = 
             new TelemetryClient() { InstrumentationKey = key };
 
         [FunctionName("HttpTrigger2")]
@@ -391,35 +392,51 @@ namespace functionapp0915
 
             // Set name to query string or body data
             name = name ?? data?.name;
-
-            telemetry.Context.Operation.Id = context.InvocationId.ToString();
-            telemetry.Context.Operation.Name = "cs-http";
-            if (!String.IsNullOrEmpty(name))
-            {
-                telemetry.Context.User.Id = name;
-            }
-            telemetry.TrackEvent("Function called");
-            telemetry.TrackMetric("Test Metric", DateTime.Now.Millisecond);
-            telemetry.TrackDependency("Test Dependency", 
-                "swapi.co/api/planets/1/", 
-                start, DateTime.UtcNow - start, true);
-
+         
+            // Track an Event
+            var evt = new EventTelemetry("Function called");
+            UpdateTelemetryContext(evt.Context, context, name);
+            telemetryClient.TrackEvent(evt);
+            
+            // Track a Metric
+            var metric = new MetricTelemetry("Test Metric", DateTime.Now.Millisecond);
+            UpdateTelemetryContext(metric.Context, context, name);
+            telemetryClient.TrackMetric(metric);
+            
+            // Track a Dependency
+            var dependency = new DependencyTelemetry
+                {
+                    Name = "GET api/planets/1/",
+                    Target = "swapi.co",
+                    Data = "https://swapi.co/api/planets/1/",
+                    Timestamp = start,
+                    Duration = DateTime.UtcNow - start,
+                    Success = true
+                };
+            UpdateTelemetryContext(dependency.Context, context, name);
+            telemetryClient.TrackDependency(dependency);
+            
             return name == null
                 ? req.CreateResponse(HttpStatusCode.BadRequest, 
                     "Please pass a name on the query string or in the request body")
                 : req.CreateResponse(HttpStatusCode.OK, "Hello " + name);
         }
-    }
+        
+        // This correllates all telemetry with the current Function invocation
+        private static void UpdateTelemetryContext(TelemetryContext context, ExecutionContext functionContext, string userName)
+        {
+            context.Operation.Id = functionContext.InvocationId.ToString();
+            context.Operation.ParentId = functionContext.InvocationId.ToString();
+            context.Operation.Name = functionContext.FunctionName;
+            context.User.Id = userName;
+        }
+    }    
 }
 ```
 
 Nie wywołuj `TrackRequest` lub `StartOperation<RequestTelemetry>`, ponieważ zobaczysz zduplikowane żądania dla wywołania funkcji.  Środowisko uruchomieniowe Functions automatyczne śledzenie żądań.
 
-Ustaw `telemetry.Context.Operation.Id` aby można było wywołać identyfikator każdego uruchomienia funkcji. Umożliwia służące do skorelowania wszystkie elementy danych telemetrycznych dla wywołania danej funkcji.
-
-```cs
-telemetry.Context.Operation.Id = context.InvocationId.ToString();
-```
+Nie należy ustawiać `telemetryClient.Context.Operation.Id`. To jest ustawienie globalne i spowoduje nieprawidłowe correllation, gdy jednocześnie jest uruchomionych wiele funkcji. Zamiast tego utworzyć nowe wystąpienie telemetrii (`DependencyTelemetry`, `EventTelemetry`) i zmodyfikuj jej `Context` właściwości. Następnie przekaż wystąpienie danych telemetrycznych do odpowiadającego `Track` metoda `TelemetryClient` (`TrackDependency()`, `TrackEvent()`). Daje to pewność, że dane telemetryczne ma poprawne correllation szczegóły bieżącego wywołania funkcji.
 
 ## <a name="custom-telemetry-in-javascript-functions"></a>Telemetria niestandardowa w funkcji JavaScript
 
@@ -504,9 +521,13 @@ PS C:\> Get-AzureWebSiteLog -Name <function app name> -Tail
 
 Aby uzyskać więcej informacji, zobacz [sposobu przesyłania strumieniowego dzienników](../app-service/web-sites-enable-diagnostic-log.md#streamlogs).
 
+### <a name="viewing-log-files-locally"></a>Wyświetlanie plików dziennika lokalnie
+
+[!INCLUDE [functions-local-logs-location](../../includes/functions-local-logs-location.md)]
+
 ## <a name="next-steps"></a>Kolejne kroki
 
 Więcej informacji zawierają następujące zasoby:
 
-* [Usługa Application Insights](/azure/application-insights/)
+* [Application Insights](/azure/application-insights/)
 * [Platformy ASP.NET Core rejestrowania](/aspnet/core/fundamentals/logging/)

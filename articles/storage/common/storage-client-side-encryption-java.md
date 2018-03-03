@@ -14,16 +14,16 @@ ms.devlang: java
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: lakasa
-ms.openlocfilehash: 9f9ed8043d3671beacb9fabeb9e96604a8f065ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b4f3814ac2dbc8b74cef8f5fcb0540b7509efa0d
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Szyfrowanie po stronie klienta i usługi Azure Key Vault z językiem Java dla magazynu Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 [Biblioteki klienta usługi Azure Storage dla języka Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) obsługuje szyfrowanie danych w aplikacjach klienckich przed przekazaniem do usługi Azure Storage i odszyfrowywania danych podczas pobierania do klienta. Biblioteka obsługuje również integrację z [usługi Azure Key Vault](https://azure.microsoft.com/services/key-vault/) zarządzania kluczami konta magazynu.
 
 ## <a name="encryption-and-decryption-via-the-envelope-technique"></a>Szyfrowanie i odszyfrowywanie za pomocą techniki koperty
@@ -59,7 +59,7 @@ Podczas szyfrowania biblioteki klienckiej generowania losowego inicjowania wekto
 > 
 > 
 
-Pobieranie zaszyfrowanej blob polega na pobraniu zawartości przy użyciu całego obiektu blob  **Pobierz*/openInputStream** podręczne metody. Opakowana CEK następnie rozpakować i używać razem z IV (przechowywane jako metadane obiektu blob w tym przypadku), aby przywrócić odszyfrowane dane użytkowników.
+Pobieranie zaszyfrowanej blob polega na pobraniu zawartości przy użyciu całego obiektu blob **pobierania * / openInputStream** podręczne metody. Opakowana CEK następnie rozpakować i używać razem z IV (przechowywane jako metadane obiektu blob w tym przypadku), aby przywrócić odszyfrowane dane użytkowników.
 
 Pobieranie z dowolnego zakresu (**downloadRange*** metody) w obiekcie blob zaszyfrowane obejmuje dopasowywanie dostarczone przez użytkowników, aby uzyskać niewielkie dodatkowych danych, które można pomyślnie odszyfrować żądanego zakresu zakres.  
 
@@ -99,6 +99,10 @@ Szyfrowanie danych tabeli działa w następujący sposób:
 W operacji wsadowych tego samego klucza KEK zostanie użyty przez wszystkie wiersze w tej operacji zbiorczej ponieważ biblioteki klienta umożliwia tylko jeden obiekt opcje (i dlatego jednej zasady/KEK) dla operacji zbiorczej. Jednak biblioteka klienta wewnętrznie wygeneruje nowy losowych IV i losowe CEK wierszu w partii. Użytkowników można również zaszyfrować inne właściwości dla każdej operacji w partii, definiując to zachowanie w szyfrowania programu rozpoznawania nazw.
 
 ### <a name="queries"></a>Zapytania
+> [!NOTE]
+> Ponieważ jednostek są szyfrowane, nie można uruchomić zapytania, które filtrować we właściwości zaszyfrowanej.  Jeśli spróbujesz, wyniki będą niepoprawne, ponieważ usługa będzie próby porównania zaszyfrowane dane z niezaszyfrowanych danych.
+> 
+>
 Aby wykonać operacje zapytań, należy określić klucza programu rozpoznawania nazw, która jest w stanie rozwiązać wszystkich kluczy w zestawie wyników. Jeśli nie można rozpoznać jednostki zawarty w wyniku zapytania do dostawcy, biblioteki klienckiej zgłosi błąd. Dla dowolnego zapytania, który wykonuje projekcje po stronie serwera biblioteki klienckiej doda właściwości metadanych szyfrowania specjalne (_ClientEncryptionMetadata1 i _ClientEncryptionMetadata2) domyślnie do zaznaczonych kolumnach.
 
 ## <a name="azure-key-vault"></a>W usłudze Azure Key Vault
@@ -247,7 +251,7 @@ public void setEncryptedProperty1(final String encryptedProperty1) {
 ## <a name="encryption-and-performance"></a>Szyfrowanie i wydajności
 Należy pamiętać, że szyfrowania z magazynu danych spowoduje zmniejszenie wydajności. Musi zostać wygenerowany klucz zawartości i IV, muszą być szyfrowane samej zawartości i dodatkowe metadane muszą być sformatowane i przekazać. Ten narzut będą się różnić w zależności od ilości danych szyfrowany. Zaleca się, że klienci zawsze testują wydajności w czasie projektowania.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Pobierz [biblioteki klienta usługi Azure Storage dla języka Java Maven pakietu](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)  
 * Pobierz [biblioteki klienta magazynu Azure do kodu źródłowego języka Java z usługi GitHub](https://github.com/Azure/azure-storage-java)   
 * Pobierz biblioteki Maven Azure klucza magazynu w przypadku Java Maven pakietów:

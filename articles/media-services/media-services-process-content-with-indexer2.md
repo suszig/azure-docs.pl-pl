@@ -13,14 +13,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: adsolank;juliako;
-ms.openlocfilehash: 075daadae42340dfc9c7510a8010e337210e6e01
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c78a4d2d3a1b0f84d488e7358c875c9708ac6107
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Indeksowanie plików multimedialnych na pliki z podglądem indeksatora 2 multimediów Azure
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 **Azure Media indeksatora 2 w wersji zapoznawczej** procesor multimediów (MP) pozwala na udostępnianie plików multimedialnych i treści wyszukiwanie, a także wygenerować zamkniętego śledzi podpisów. W porównaniu do poprzedniej wersji [Azure Media indeksatora](media-services-index-content.md), **Azure Media indeksatora 2 w wersji zapoznawczej** wykonuje indeksowania szybsze i zapewnia szerszy obsługę języka. Obsługiwane języki angielski, hiszpański, francuski, niemiecki, włoski, chiński (mandaryński, uproszczony), portugalski, arabskiego, rosyjski i japoński.
 
 **Azure Media indeksatora 2 w wersji zapoznawczej** pakiet administracyjny jest obecnie w przeglądzie.
@@ -56,6 +56,7 @@ Podczas tworzenia indeksowania zadań z **Azure Media indeksatora 2 w wersji zap
 
 Następujące JSON ustawia dostępne parametry.
 
+```json
     {
       "version":"1.0",
       "Features":
@@ -69,6 +70,7 @@ Następujące JSON ustawia dostępne parametry.
            "Type":"SpReco"
         }]
     }
+```
 
 ## <a name="supported-languages"></a>Obsługiwane języki
 Wersja zapoznawcza usługi Azure Media indeksatora 2 obsługuje mowy na tekst dla następujących języków (podczas określania nazwy języka w konfiguracji zadań, użyj 4-znakowy kod w nawiasach, jak pokazano poniżej):
@@ -83,7 +85,7 @@ Wersja zapoznawcza usługi Azure Media indeksatora 2 obsługuje mowy na tekst dl
 * Arabski (egipska) [ArEg]
 * Japoński [JaJp]
 * Federacja [RuRu]
-* Angielski (brytyjski) [EnGb]
+* British English [EnGb]
 * Amerykańską [EsMx] 
 
 ## <a name="supported-file-types"></a>Obsługiwane typy plików
@@ -96,20 +98,23 @@ Następujących programów przedstawiono sposób:
 
 1. Utworzenie elementu zawartości i przesyłanie pliku multimediów do elementu zawartości.
 2. Utwórz zadanie zadania indeksowania oparty na pliku konfiguracji, który zawiera następujące ustawienie json:
-   
-        {
-          "version":"1.0",
-          "Features":
-            [
-               {
-               "Options": {
-                    "Formats":["WebVtt","ttml"],
-                    "Language":"enUs",
-                    "Type":"RecoOptions"
-               },
-               "Type":"SpReco"
-            }]
-        }
+
+    ```json
+            {
+            "version":"1.0",
+            "Features":
+                [
+                {
+                "Options": {
+                        "Formats":["WebVtt","ttml"],
+                        "Language":"enUs",
+                        "Type":"RecoOptions"
+                },
+                "Type":"SpReco"
+                }]
+            }
+    ```
+    
 3. Pobierz pliki wyjściowe. 
    
 #### <a name="create-and-configure-a-visual-studio-project"></a>Tworzenie i konfigurowanie projektu programu Visual Studio
@@ -118,7 +123,7 @@ Skonfiguruj środowisko projektowe i wypełnij plik app.config przy użyciu info
 
 #### <a name="example"></a>Przykład
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2017
 ms.author: glenga
-ms.openlocfilehash: f174766d4ab909fea0feea517a17b9d648722c2a
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 2aa35cf814f8de2af89c6f7e0eda1f919301d6a3
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Jak zarządzać aplikacji funkcji w portalu Azure 
 
@@ -66,7 +66,7 @@ Aby uzyskać więcej informacji na temat pracy z ustawieniami usługi aplikacji,
 
 ![Edytor usługi aplikacji](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
 
-### <a name="settings"></a>Ustawienia aplikacji
+### <a name="settings">Ustawienia aplikacji</a>
 
 | | |
 |-|-|
@@ -82,11 +82,11 @@ Aby uzyskać więcej informacji na temat pracy z ustawieniami usługi aplikacji,
 
 ![Funkcja aplikacji konsoli](./media/functions-how-to-use-azure-function-app-settings/configure-function-console.png)
 
-### <a name="kudu"></a>Zaawansowane narzędzia (Kudu)
+### <a name="kudu">Zaawansowane narzędzia (Kudu)</a>
 
 | | |
 |-|-|
-| ![Funkcja aplikacji Kudu w portalu Azure](./media/functions-how-to-use-azure-function-app-settings/function-app-advanced-tools.png) | Zaawansowane narzędzia dla aplikacji usługi (znanej także jako Kudu) zapewniają dostęp do zaawansowanych funkcji administracyjnych funkcji aplikacji. Program Kudu do zarządzania informacje o systemie, ustawienia aplikacji, zmienne środowiskowe, rozszerzenia lokacji, nagłówków HTTP i zmiennych serwera. Można również uruchomić **Kudu** przechodząc do punktu końcowego SCM dla funkcji aplikacji, takie jak`https://<myfunctionapp>.scm.azurewebsites.net/` |
+| ![Funkcja aplikacji Kudu w portalu Azure](./media/functions-how-to-use-azure-function-app-settings/function-app-advanced-tools.png) | Zaawansowane narzędzia dla aplikacji usługi (znanej także jako Kudu) zapewniają dostęp do zaawansowanych funkcji administracyjnych funkcji aplikacji. Program Kudu do zarządzania informacje o systemie, ustawienia aplikacji, zmienne środowiskowe, rozszerzenia lokacji, nagłówków HTTP i zmiennych serwera. Można również uruchomić **Kudu** przechodząc do punktu końcowego SCM dla funkcji aplikacji, takie jak `https://<myfunctionapp>.scm.azurewebsites.net/` |
 
 ![Skonfiguruj Kudu](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-kudu.png)
 
@@ -115,11 +115,11 @@ Aby uzyskać więcej informacji na temat pracy z ustawieniami usługi aplikacji,
 ![Konfigurowanie uwierzytelniania dla aplikacji funkcja](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-authentication.png)
 
 
-### <a name="swagger"></a>Definicja interfejsu API
+### <a name="swagger">Definicja interfejsu API</a>
 
 | | |
 |-|-|
-| ![Funkcja aplikacji z interfejsu API programu swagger definicji w portalu Azure](./media/functions-how-to-use-azure-function-app-settings/function-app-api-definition.png) | Funkcje obsługuje struktury Swagger, aby umożliwić klientom łatwo korzystać z funkcji wyzwalanych przez protokół HTTP. Aby uzyskać więcej informacji na temat tworzenia definicji interfejsu API z programu Swagger, odwiedź stronę [wprowadzenie do programu Swagger na platformie Azure i aplikacji API Apps](../app-service/app-service-web-tutorial-rest-api.md). Umożliwia także funkcje serwera proxy do definiowania pojedynczą powierzchnię interfejsu API dla wielu funkcji. Aby uzyskać więcej informacji, zobacz [Praca z serwerów proxy funkcji Azure](functions-proxies.md). |
+| ![Funkcja aplikacji z interfejsu API programu swagger definicji w portalu Azure](./media/functions-how-to-use-azure-function-app-settings/function-app-api-definition.png) | Funkcje obsługuje struktury Swagger, aby umożliwić klientom łatwo korzystać z funkcji wyzwalanych przez protokół HTTP. Aby uzyskać więcej informacji na temat tworzenia definicji interfejsu API z programu Swagger, odwiedź stronę [hosta interfejsu API RESTful z CORS w usłudze Azure App Service](../app-service/app-service-web-tutorial-rest-api.md). Umożliwia także funkcje serwera proxy do definiowania pojedynczą powierzchnię interfejsu API dla wielu funkcji. Aby uzyskać więcej informacji, zobacz [Praca z serwerów proxy funkcji Azure](functions-proxies.md). |
 
 ![Konfigurowanie funkcji aplikacji interfejsu API](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-apidef.png)
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/08/2017
 ms.author: samacha
-ms.openlocfilehash: 6ac5d3ab2a4df63c429f8478e392d84ac0ea6fd7
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: cb0a948416983f33a4ca8d9211a3a114ba011685
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Zapytanie przykłady typowych wzorców użycia usługi analiza strumienia
 ## <a name="introduction"></a>Wprowadzenie
@@ -461,7 +461,7 @@ Na przykład załóżmy, że usterki spowodowała wszystkich samochodów niepopr
         AND previousWeight > 20000
 ````
 
-**Wyjaśnienie**: Użyj **LAG** do wyświetlania strumień wejściowy przez 24 godziny i poszukaj wystąpień where **StartFault** i **StopFault** są objęte wagi < 20000.
+**Wyjaśnienie**: Użyj **LAG** do wyświetlania strumień wejściowy przez 24 godziny i poszukaj wystąpień where **StartFault** i **StopFault** są łączone za pomocą wag < 20000.
 
 ## <a name="query-example-fill-missing-values"></a>Przykład zapytania: wypełnienie brakujących wartości
 **Opis elementu**: dla tego strumienia zdarzeń, które nie mają wartości tworzy strumień zdarzeń o regularnych odstępach czasu.
@@ -504,6 +504,81 @@ Na przykład generują zdarzenie co 5 sekund, która raportuje najbardziej ostat
 
 
 **Wyjaśnienie**: to zapytanie generuje zdarzenia co 5 sekund i wyprowadza ostatnie zdarzenie odebrany wcześniej. [Okna Hopping](https://msdn.microsoft.com/library/dn835041.aspx "Hopping okno usługi Azure Stream Analytics") czas trwania określa, jak daleko wstecz zapytanie odwołuje się do Znajdź najnowsze zdarzenie (300 sekund w tym przykładzie).
+
+
+## <a name="query-example-correlate-two-event-types-within-the-same-stream"></a>Przykład zapytania: skorelowania dwa typy zdarzeń, w ramach tego samego strumienia
+**Opis elementu**: Czasami musimy generować alerty oparte na wiele typów zdarzeń, które wystąpiły w zakresie czasu.
+Na przykład w scenariuszu IoT dla piekarników macierzystego, chcemy Zgłoś alert, gdy temperatury wentylator jest mniejsza niż 40 i maksymalną moc w ciągu ostatnich 3 minut była mniejsza niż 10.
+
+**Dane wejściowe**:
+
+| time | deviceId | sensorName | wartość |
+| --- | --- | --- | --- |
+| "2018-01-01T16:01:00" | "Oven1" | "temp" |120 |
+| "2018-01-01T16:01:00" | "Oven1" | "power" |15 |
+| "2018-01-01T16:02:00" | "Oven1" | "temp" |100 |
+| "2018-01-01T16:02:00" | "Oven1" | "power" |15 |
+| "2018-01-01T16:03:00" | "Oven1" | "temp" |70 |
+| "2018-01-01T16:03:00" | "Oven1" | "power" |15 |
+| "2018-01-01T16:04:00" | "Oven1" | "temp" |50 |
+| "2018-01-01T16:04:00" | "Oven1" | "power" |15 |
+| "2018-01-01T16:05:00" | "Oven1" | "temp" |30 |
+| "2018-01-01T16:05:00" | "Oven1" | "power" |8 |
+| "2018-01-01T16:06:00" | "Oven1" | "temp" |20 |
+| "2018-01-01T16:06:00" | "Oven1" | "power" |8 |
+| "2018-01-01T16:07:00" | "Oven1" | "temp" |20 |
+| "2018-01-01T16:07:00" | "Oven1" | "power" |8 |
+| "2018-01-01T16:08:00" | "Oven1" | "temp" |20 |
+| "2018-01-01T16:08:00" | "Oven1" | "power" |8 |
+
+**Dane wyjściowe**:
+
+| eventTime | deviceId | Temp | alertMessage | maxPowerDuringLast3mins |
+| --- | --- | --- | --- | --- | 
+| "2018-01-01T16:05:00" | "Oven1" |30 | "Obwód krótkiej elementy grzewcze" |15 |
+| "2018-01-01T16:06:00" | "Oven1" |20 | "Obwód krótkiej elementy grzewcze" |15 |
+| "2018-01-01T16:07:00" | "Oven1" |20 | "Obwód krótkiej elementy grzewcze" |15 |
+
+**Rozwiązanie**:
+
+````
+WITH max_power_during_last_3_mins AS (
+    SELECT 
+        System.TimeStamp AS windowTime,
+        deviceId,
+        max(value) as maxPower
+    FROM
+        input TIMESTAMP BY t
+    WHERE 
+        sensorName = 'power' 
+    GROUP BY 
+        deviceId, 
+        SlidingWindow(minute, 3) 
+)
+
+SELECT 
+    t1.t AS eventTime,
+    t1.deviceId, 
+    t1.value AS temp,
+    'Short circuit heating elements' as alertMessage,
+    t2.maxPower AS maxPowerDuringLast3mins
+    
+INTO resultsr
+
+FROM input t1 TIMESTAMP BY t
+JOIN max_power_during_last_3_mins t2
+    ON t1.deviceId = t2.deviceId 
+    AND t1.t = t2.windowTime
+    AND DATEDIFF(minute,t1,t2) between 0 and 3
+    
+WHERE
+    t1.sensorName = 'temp'
+    AND t1.value <= 40
+    AND t2.maxPower > 10
+````
+
+**Wyjaśnienie**: pierwsza kwerenda `max_power_during_last_3_mins`, używa [okna ruchomej](https://msdn.microsoft.com/en-us/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) można znaleźć maksymalną wartość czujnika zasilania dla każdego urządzenia w ciągu ostatnich 3 minut. Drugiego zapytania jest dołączony do pierwszego zapytania, aby znaleźć wartość zasilania w oknie najnowszych odpowiednie dla bieżącego zdarzenia. A następnie, pod warunkiem warunki są spełnione, alert zostanie wygenerowany dla urządzenia.
+
 
 ## <a name="get-help"></a>Uzyskiwanie pomocy
 Aby uzyskać dodatkową pomoc, spróbuj naszych [forum usługi Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).

@@ -6,13 +6,13 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: d1063d1f2777095c880896b49249f6de4cda6f3a
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: ab66bc9c90950070e69c2486bf09b7664b1c9ad2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="discover-and-assess-a-large-vmware-environment"></a>Odnajdywanie i ocenić dużych środowiska VMware
+# <a name="discover-and-assess-a-large-vmware-environment"></a>Odnajdź i oceń duże środowisko programu VMware
 
 W tym artykule opisano sposób oceny dużej liczby lokalnych maszyn wirtualnych (VM) przy użyciu [migracji Azure](migrate-overview.md). Azure migracji ocenia maszyny, aby sprawdzić, czy są one odpowiednie dla migracji na platformie Azure. Usługa zawiera kosztów i zmiany rozmiaru uzyskać szacunkowe wartości do uruchamiania na komputerach w systemie Azure.
 
@@ -30,15 +30,17 @@ Zaplanuj odnajdywania i oceny na podstawie limitów następujące:
 | **Entity** | **Limit komputera** |
 | ---------- | ----------------- |
 | Project    | 1,500              | 
-| Odnajdowanie  | 1000              |
-| Ocena | 400               |
+| Odnajdowanie  | 1,500              |
+| Ocena | 1,500               |
 
-- Jeśli masz mniej niż 400 maszyny do odnajdywania i oceny należy pojedynczego projektu i jednym odnajdywania. W zależności od wymagań należy ocenić wszystkie maszyny w pojedynczej oceny lub podzielone maszyn ocen wielu. 
-- Jeśli masz maszyny 400 do 1000, aby dowiedzieć się, należy pojedynczego projektu z jednym odnajdywania. Ale konieczne jest posiadanie wielu oceny w celu oceny tych maszyn, ponieważ pojedynczej oceny może przechowywać maksymalnie 400 maszyny.
-- Jeśli masz maszyny 1,001 do 1500 należy pojedynczego projektu z dwóch odnajdywania w nim.
-- Jeśli masz ponad 1500 urządzeń, należy utworzyć wiele projektów i wykonywać wiele operacje odnajdywania, zgodnie z wymaganiami. Na przykład:
-    - Jeśli masz maszyny 3000, można skonfigurować dwa projekty z odnajdywania dwie lub trzy projekty z jednym odnajdywania.
-    - Jeśli masz maszyny 5000, można skonfigurować cztery projekty: trzy z odnajdywania 1500 maszyn i jeden z odnajdywaniem 500 maszyn. Alternatywnie można skonfigurować pięć projektów z jednym odnajdywania w każdej z nich. 
+<!-- 
+- If you have fewer than 400 machines to discover and assess, you need a single project and a single discovery. Depending on your requirements, you can either assess all the machines in a single assessment or split the machines into multiple assessments. 
+- If you have 400 to 1,000 machines to discover, you need a single project with a single discovery. But you will need multiple assessments to assess these machines, because a single assessment can hold up to 400 machines.
+- If you have 1,001 to 1,500 machines, you need a single project with two discoveries in it.
+- If you have more than 1,500 machines, you need to create multiple projects, and perform multiple discoveries, according to your requirements. For example:
+    - If you have 3,000 machines, you can set up two projects with two discoveries, or three projects with a single discovery.
+    - If you have 5,000 machines, you can set up four projects: three with a discovery of 1,500 machines, and one with a discovery of 500 machines. Alternatively, you can set up five projects with a single discovery in each one. 
+-->
 
 ## <a name="plan-multiple-discoveries"></a>Planowanie wielu odnajdywania
 

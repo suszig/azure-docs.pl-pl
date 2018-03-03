@@ -13,36 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: b11d80d1837d6474c7ee88f173de43e00fbb6cd5
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
-ms.translationtype: HT
+ms.openlocfilehash: 2a5be24aba8a675290045b282cc64dda4b7c594e
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Jak zabezpieczyć interfejs API sieci Web wewnętrznej bazy danych z usługi Azure Active Directory i zarządzanie interfejsami API
-Poniższe wideo przedstawia sposób tworzenia zaplecza interfejsu API sieci Web i chronić go przy użyciu protokołu OAuth 2.0 z usługą Azure Active Directory i zarządzanie interfejsami API.  Ten artykuł zawiera omówienie i dodatkowe informacje dotyczące czynności w wideo. To 24 minutę wideo pokazuje, jak do:
 
-* Tworzenie zaplecza interfejsu API sieci Web i zabezpiecz ją przy użyciu usługi AAD — począwszy od 1:30
-* Importowanie interfejsu API zarządzanie interfejsami API — począwszy od 7:10
-* Konfigurowanie portalu dla deweloperów do wywołania interfejsu API — począwszy od 9:09
-* Konfigurowanie aplikacji pulpitu do wywołania interfejsu API — począwszy od 18:08
-* Skonfiguruj zasady sprawdzania poprawności tokenu JWT wstępnie autoryzować żądania — począwszy od 20:47
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Protecting-Web-API-Backend-with-Azure-Active-Directory-and-API-Management/player]
-> 
-> 
+W tym temacie przedstawiono sposób tworzenia zaplecza interfejsu API sieci Web i chronić go z usługą Azure Active Directory i zarządzanie interfejsami API przy użyciu protokołu OAuth 2.0.  
 
 ## <a name="create-an-azure-ad-directory"></a>Utwórz katalog usługi Azure AD
-Do zabezpieczania serwera interfejsu API sieci Web przy użyciu usługi Azure Active Directory należy najpierw dzierżawę usługi AAD. W tym wideo o nazwie dzierżawcy **APIMDemo** jest używany. Aby utworzyć dzierżawę usługi AAD, zaloguj się do [klasycznego portalu Azure](https://manage.windowsazure.com) i kliknij przycisk **nowy**->**usługi aplikacji**->**usługi Active Directory**->**katalogu**->**Utwórz niestandardowy**. 
+Do zabezpieczania serwera interfejsu API sieci Web przy użyciu usługi Azure Active Directory należy najpierw dzierżawę usługi AAD. Aby utworzyć dzierżawę usługi AAD, zaloguj się do [klasycznego portalu Azure](https://manage.windowsazure.com) i kliknij przycisk **nowy**->**usługi aplikacji**->**usługi Active Directory**->**katalogu**->**Utwórz niestandardowy**. 
 
 ![Usługa Azure Active Directory][api-management-create-aad-menu]
 
-W tym przykładzie katalog o nazwie **APIMDemo** jest tworzony z domyślnej domeny o nazwie **DemoAPIM.onmicrosoft.com**. Ten katalog jest używany w całym wideo.
+W tym przykładzie katalog o nazwie **APIMDemo** jest tworzony z domyślnej domeny o nazwie **DemoAPIM.onmicrosoft.com**. 
 
 ![Usługa Azure Active Directory][api-management-create-aad]
 
 ## <a name="create-a-web-api-service-secured-by-azure-active-directory"></a>Tworzenie usługi interfejsu API sieci Web zabezpieczonych przez usługi Azure Active Directory
-W tym kroku zaplecza interfejsu API sieci Web jest tworzony przy użyciu programu Visual Studio 2013. W tym kroku wideo rozpoczyna się od 1:30. Do tworzenia projektu zaplecza interfejsu API sieci Web w programie Visual Studio, kliknij **pliku**->**nowy**->**projektu**i wybierz polecenie **aplikacji sieci Web ASP.NET** z **Web** listy szablonów. W tym wideo projektu o nazwie **APIMAADDemo**. Kliknij przycisk **OK**, aby utworzyć projekt. 
+W tym kroku zaplecza interfejsu API sieci Web jest tworzony przy użyciu programu Visual Studio 2013. Do tworzenia projektu zaplecza interfejsu API sieci Web w programie Visual Studio, kliknij **pliku**->**nowy**->**projektu**i wybierz polecenie **aplikacji sieci Web ASP.NET** z **Web** listy szablonów. 
 
 ![Visual Studio][api-management-new-web-app]
 
@@ -75,7 +66,6 @@ W tym przykładzie nową **planu usługi aplikacji** o nazwie **APIMAADDemo** je
 Kliknij przycisk **OK** do skonfigurowania aplikacji sieci Web i utworzyć projekt.
 
 ## <a name="add-the-code-to-the-web-api-project"></a>Dodaj kod do projektu interfejsu API sieci Web
-Następny krok w wideo dodaje kod do projektu interfejsu API sieci Web. Ten krok zostanie uruchomiony na 4:35.
 
 Interfejs API sieci Web, w tym przykładzie implementuje Kalkulator podstawowe usługi przy użyciu modelu i kontrolera. Aby dodać model dla usługi, kliknij prawym przyciskiem myszy **modele** w **Eksploratora rozwiązań** i wybierz polecenie **Dodaj**, **klasy**. Nazwa klasy `CalcInput` i kliknij przycisk **Dodaj**.
 
@@ -161,14 +151,13 @@ public class CalcController : ApiController
 Naciśnij klawisz **F6** do tworzenia i Zweryfikuj rozwiązanie.
 
 ## <a name="publish-the-project-to-azure"></a>Publikowanie projektu na platformie Azure
-W tym kroku programu Visual Studio projektu została opublikowana na platformie Azure. W tym kroku wideo rozpoczyna się od 5:45.
 
 Aby opublikować projekt na platformie Azure, kliknij prawym przyciskiem myszy **APIMAADDemo** projekt w programie Visual Studio i wybierz pozycję **publikowania**. Zachowaj ustawienia domyślne **publikowanie w sieci Web** okno dialogowe i kliknij przycisk **publikowania**.
 
 ![Publikowanie w sieci Web][api-management-web-publish]
 
 ## <a name="grant-permissions-to-the-azure-ad-backend-service-application"></a>Udzielanie uprawnień do wewnętrznej bazy danych aplikacji usługi Azure AD
-Nową aplikację usługi wewnętrznej bazy danych jest tworzony w katalogu usługi Azure AD jako część procesu konfigurowania i publikowania projektu interfejsu API sieci Web. W tym kroku wideo, zaczynając od 6:13 przyznano uprawnienia do zaplecza interfejsu API sieci Web.
+Nową aplikację usługi wewnętrznej bazy danych jest tworzony w katalogu usługi Azure AD jako część procesu konfigurowania i publikowania projektu interfejsu API sieci Web.
 
 ![Aplikacja][api-management-aad-backend-app]
 
@@ -352,7 +341,7 @@ Wykonaj poniższe kroki, aby skonfigurować Kalkulator interfejsu API.
 Po zaimportowaniu interfejsu API w portalu wydawcy zostanie wyświetlona strona podsumowania dotycząca interfejsu API.
 
 ## <a name="call-the-api-unsuccessfully-from-the-developer-portal"></a>Wywołanie interfejsu API niepomyślnie z portalu dla deweloperów
-W tym momencie interfejsu API został zaimportowany do interfejsu API zarządzania, ale nie jeszcze można wywołać pomyślnie z portalu dla deweloperów, ponieważ usługi wewnętrznej bazy danych jest chroniony za pomocą uwierzytelniania usługi Azure AD. To jest przedstawiona w wideo, zaczynając od 7:40, wykonując następujące kroki.
+W tym momencie interfejsu API został zaimportowany do interfejsu API zarządzania, ale nie jeszcze można wywołać pomyślnie z portalu dla deweloperów, ponieważ usługi wewnętrznej bazy danych jest chroniony za pomocą uwierzytelniania usługi Azure AD. 
 
 Kliknij przycisk **portalu dla deweloperów** z prawym górnym rogu strony portalu wydawcy.
 
@@ -373,9 +362,9 @@ Kliknij przycisk **wysyłania** i zwróć uwagę na stan odpowiedzi **401 nieaut
 Nie ma autoryzacji żądania, ponieważ interfejs API zaplecza jest chroniony przez usługę Azure Active Directory. Przed pomyślnym wywołanie interfejsu API dewelopera portal musi być skonfigurowana do autoryzowania deweloperów korzystających z protokołu OAuth 2.0. Ten proces jest opisane w poniższych sekcjach.
 
 ## <a name="register-the-developer-portal-as-an-aad-application"></a>Zarejestruj portalu dla deweloperów jako aplikację AAD
-Pierwszym etapem konfigurowania portalu dla deweloperów do autoryzacji deweloperów korzystających z protokołu OAuth 2.0 jest zarejestrowanie go jako aplikację AAD portalu dla deweloperów. Jest to wykazać, zaczynając od 8:27 wideo.
+Pierwszym etapem konfigurowania portalu dla deweloperów do autoryzacji deweloperów korzystających z protokołu OAuth 2.0 jest zarejestrowanie go jako aplikację AAD portalu dla deweloperów. 
 
-Przejdź do dzierżawy usługi Azure AD z pierwszym krokiem ten film, w tym przykładzie **APIMDemo** i przejdź do **aplikacji** kartę.
+Przejdź do dzierżawy usługi Azure AD. W tym przykładzie wybierz **APIMDemo** i przejdź do **aplikacji** kartę.
 
 ![Nowa aplikacja][api-management-aad-new-application-devportal]
 
@@ -394,7 +383,7 @@ Aby uzyskać **adres URL identyfikatora aplikacji** wprowadź adres URL usługi 
 ![Nowa aplikacja][api-management-aad-new-application-devportal-2]
 
 ## <a name="configure-an-api-management-oauth-20-authorization-server"></a>Konfigurowanie serwera autoryzacji usługi API Management OAuth 2.0
-Następnym krokiem jest skonfigurowanie serwera autoryzacji OAuth 2.0 w usłudze API Management. Ten krok jest przedstawiona w wideo, zaczynając od 9:43.
+Następnym krokiem jest skonfigurowanie serwera autoryzacji OAuth 2.0 w usłudze API Management. 
 
 Kliknij przycisk **zabezpieczeń** z interfejsu API zarządzania menu po lewej stronie, kliknij przycisk **OAuth 2.0**, a następnie kliknij przycisk **dodać autoryzacji** serwera.
 
@@ -466,7 +455,7 @@ Kliknij przycisk **delegowane uprawnienia** dla **APIMAADDemo** i pole wyboru dl
 ![Dodaj uprawnienia][api-management-aad-add-delegated-permissions]
 
 ## <a name="enable-oauth-20-user-authorization-for-the-calculator-api"></a>Włączanie autoryzacji użytkownika OAuth 2.0 dla interfejsu API Kalkulator
-Teraz, gdy serwer protokołu OAuth 2.0 jest skonfigurowany, możesz je określić ustawienia zabezpieczeń dla interfejsu API. Ten krok jest przedstawiona w wideo, zaczynając od 14:30.
+Teraz, gdy serwer protokołu OAuth 2.0 jest skonfigurowany, możesz je określić ustawienia zabezpieczeń dla interfejsu API. 
 
 Kliknij przycisk **interfejsów API** w menu po lewej stronie, a następnie kliknij przycisk **Kalkulator** Aby wyświetlić i skonfigurować jego ustawienia.
 
@@ -477,7 +466,7 @@ Przejdź do **zabezpieczeń** karcie wyboru **OAuth 2.0** pole wyboru, wybierz s
 ![Kalkulator interfejsu API][api-management-enable-aad-calculator]
 
 ## <a name="successfully-call-the-calculator-api-from-the-developer-portal"></a>Pomyślne wywołanie interfejsu API programu Kalkulator z portalu dla deweloperów
-Teraz, gdy autoryzacji OAuth 2.0 został skonfigurowany w interfejsie API, jego operacji może pomyślnie wywołana z Centrum deweloperów. Ten krok jest przedstawiona w wideo, zaczynając od 15:00.
+Teraz, gdy autoryzacji OAuth 2.0 został skonfigurowany w interfejsie API, jego operacji może pomyślnie wywołana z Centrum deweloperów. 
 
 Przejdź z powrotem do **Dodaj dwie liczb całkowitych** operacji usługi Kalkulator w portalu dla deweloperów i kliknij **wypróbuj**. Należy pamiętać, nowy element w **autoryzacji** sekcji odpowiadający właśnie dodano serwer autoryzacji.
 
@@ -492,10 +481,12 @@ Kliknij przycisk **wysyłania** i zanotuj **stanu odpowiedzi** z **200 OK** i wy
 ![Kalkulator interfejsu API][api-management-devportal-response]
 
 ## <a name="configure-a-desktop-application-to-call-the-api"></a>Konfigurowanie aplikacji pulpitu do wywołania interfejsu API
-Następna procedura wideo rozpoczyna się od 16:30 i konfiguruje prostą aplikację pulpitu do wywołania interfejsu API. Pierwszym krokiem jest zarejestrować aplikację w usłudze Azure AD i nadaj mu dostęp do katalogu i usługi wewnętrznej bazy danych. Na 18:25 istnieje pokaz pulpitu aplikacji podczas wywoływania operacji na Kalkulator interfejsu API.
+
+Skonfiguruj prostą aplikację pulpitu do wywołania interfejsu API. Pierwszym krokiem jest zarejestrować aplikację w usłudze Azure AD i nadaj mu dostęp do katalogu i usługi wewnętrznej bazy danych. 
 
 ## <a name="configure-a-jwt-validation-policy-to-pre-authorize-requests"></a>Skonfiguruj zasady sprawdzania poprawności tokenu JWT wstępnie autoryzować żądania
-Ostatnia procedura wideo rozpoczyna się od 20:48 i przedstawiono sposób użycia [JWT do zweryfikowania](api-management-access-restriction-policies.md#ValidateJWT) zasad do wstępnie autoryzacji żądania, sprawdzając poprawność tokenów dostępu dla każdego żądania przychodzącego. Jeśli żądanie nie jest weryfikowany przez zasady sprawdzania poprawności tokenów JWT, żądanie jest blokowany przez interfejs API zarządzania i nie jest przekazywane do wewnętrznej bazy danych.
+
+Użyj [JWT do zweryfikowania](api-management-access-restriction-policies.md#ValidateJWT) zasad do wstępnie autoryzacji żądania, sprawdzając poprawność tokenów dostępu dla każdego żądania przychodzącego. Jeśli żądanie nie jest weryfikowany przez zasady sprawdzania poprawności tokenów JWT, żądanie jest blokowany przez interfejs API zarządzania i nie jest przekazywane do wewnętrznej bazy danych.
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
@@ -508,7 +499,7 @@ Ostatnia procedura wideo rozpoczyna się od 20:48 i przedstawiono sposób użyci
 </validate-jwt>
 ```
 
-Aby innego demonstracyjne konfigurowania i korzystania z tych zasad, zobacz [177 epizodu obejmują chmury: więcej funkcji interfejsu API zarządzania](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) i szybkie przewijanie do przodu do 13:50. Szybko przewiń do przodu do 15:00, aby wyświetlić zasady skonfigurowane w edytorze zasad, a następnie do 18:50 dla pokaz wywołanie operacji z portalu dla deweloperów zarówno z i bez tokenu autoryzacji wymagane.
+Aby uzyskać więcej informacji, zobacz [177 epizodu obejmują chmury: więcej funkcji zarządzania interfejsu API](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) i szybkie przewijanie do przodu do 13:50. Szybko przewiń do przodu do 15:00, aby wyświetlić zasady skonfigurowane w edytorze zasad, a następnie do 18:50 dla pokaz wywołanie operacji z portalu dla deweloperów zarówno z i bez tokenu autoryzacji wymagane.
 
 ## <a name="next-steps"></a>Kolejne kroki
 * Zapoznaj się z kilku [wideo](https://azure.microsoft.com/documentation/videos/index/?services=api-management) o zarządzanie interfejsami API.

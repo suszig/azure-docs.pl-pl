@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: LADocs; stepsic
-ms.openlocfilehash: 3df59ec172b037daaeed9e3eb69ffb990d70d8a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c7a240bf5b7ed5e7780b90f438d2e336ee79f0b3
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="deploy-and-call-custom-apis-from-logic-app-workflows"></a>Wdrażanie i wywoływania niestandardowych interfejsów API z logiki przepływów pracy aplikacji
 
@@ -35,17 +35,17 @@ Przed niestandardowego interfejsu API można wywołać z aplikacji logiki, nale�
 
 2. W menu aplikacji, który zostanie otwarty, w obszarze **interfejsu API**, wybierz **definicji interfejsu API**. Ustaw **lokalizacji definicji interfejsu API** na adres URL pliku swagger.json OpenAPI.
 
-   Adres URL pojawia się zwykle w następującym formacie:`https://{name}.azurewebsites.net/swagger/docs/v1)`
+   Adres URL pojawia się zwykle w następującym formacie: `https://{name}.azurewebsites.net/swagger/docs/v1)`
 
    ![Łącze do pliku OpenAPI do niestandardowego interfejsu API](./media/logic-apps-custom-api-deploy-call/custom-api-swagger-url.png)
 
-3. W obszarze **interfejsu API**, wybierz **CORS**. Ustawienie zasad CORS dla **dozwolone źródła** do  **"*"** (Zezwalaj na wszystkie).
+3. W obszarze **interfejsu API**, wybierz **CORS**. Ustawienie zasad CORS dla **dozwolone źródła** do **' *'** (Zezwalaj na wszystkie).
 
    Ustawienie to pozwala żądania przy użyciu projektanta aplikacji logiki.
 
    ![Zezwala na żądania z projektanta aplikacji logiki do niestandardowego interfejsu API](./media/logic-apps-custom-api-deploy-call/custom-api-cors.png)
 
-Aby uzyskać więcej informacji, zobacz [kompilacji interfejsu API RESTful środowiska Node.js](../app-service/app-service-web-tutorial-rest-api.md).
+Aby uzyskać więcej informacji, zobacz [hosta interfejsu API RESTful z CORS w usłudze Azure App Service](../app-service/app-service-web-tutorial-rest-api.md).
 
 ## <a name="call-your-custom-api-from-logic-app-workflows"></a>Wywoływanie niestandardowego interfejsu API z logiki przepływów pracy aplikacji
 
@@ -57,6 +57,6 @@ Po skonfigurowaniu właściwości definicji interfejsu API i mechanizmu CORS wyz
 
 *  Aby wywołać jakiegokolwiek interfejsu API, łącznie z interfejsów API, które nie mają lub udostępnić dokument OpenAPI zawsze można utworzyć żądania z [akcji HTTP](../connectors/connectors-native-http.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Łącznik niestandardowy — omówienie](../logic-apps/custom-connector-overview.md)

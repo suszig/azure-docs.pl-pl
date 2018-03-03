@@ -3,7 +3,7 @@ title: "Monitorowanie i zarządzanie nimi w potokach danych - Azure | Dokumentac
 description: "Dowiedz się, jak monitorować i zarządzać nimi fabryki danych Azure i potoki przy użyciu aplikacji zarządzania i monitorowania."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: sharonlo101
 manager: jhubbard
 editor: monicar
 ms.assetid: f3f07bc4-6dc3-4d4d-ac22-0be62189d578
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
+ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 0678e9bf6ea9e4161fc291729f1480ac7082796a
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 4d4371b1372a7ed492faacf16813ae3e3f4c4697
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorowanie i zarządzanie nimi potoki fabryki danych Azure przy użyciu aplikacji monitorowanie i zarządzanie
 > [!div class="op_single_selector"]
@@ -150,10 +150,10 @@ W dolnej części widoku diagramu, zobacz tych przycisków: powiększenia powię
 
 ![Diagram przedstawiający polecenia powiększenia widoku](./media/data-factory-monitor-manage-app/DiagramViewZoomCommands.png)
 
-### <a name="activity-windows-list"></a>Lista działania systemu Windows
+### <a name="activity-windows-list"></a>Lista Okna działania
 Na liście okien działania w dolnej części środkowym okienku zostaną wyświetlone wszystkie okna działania dla zestawu danych, który wybrano w widoku diagramu lub Eksploratora zasobów. Domyślnie lista jest w kolejności malejącej, co oznacza, że wyświetlane najnowsze okna działanie u góry.
 
-![Lista działania systemu Windows](./media/data-factory-monitor-manage-app/ActivityWindowsList.png)
+![Lista Okna działania](./media/data-factory-monitor-manage-app/ActivityWindowsList.png)
 
 Ta lista nie automatycznego odświeżania, należy więc przycisk Odśwież na pasku narzędzi go ręcznie odświeżyć.  
 
@@ -195,7 +195,7 @@ Działanie systemu windows może być w jednym z następujących stanów:
 <td>Okno działania jest przetwarzana.</td>
 </tr>
 <tr>
-<td rowspan="4">Błąd</td><td>Upłynął limit czasu</td><td>Wykonywanie działania trwało dłużej niż jest dozwolonych przez działanie.</td>
+<td rowspan="4">Niepowodzenie</td><td>Upłynął limit czasu</td><td>Wykonywanie działania trwało dłużej niż jest dozwolonych przez działanie.</td>
 </tr>
 <tr>
 <td>Anulowane</td><td>Okno działanie zostało anulowane przez akcję użytkownika.</td>
@@ -326,7 +326,7 @@ Poniższa tabela zawiera listę dostępnych zdarzeń oraz Stany (i podstany).
 | --- | --- | --- |
 | Działanie Uruchom wprowadzenie |Uruchomiono |Uruchamianie |
 | Działanie Uruchom Zakończono |Powodzenie |Powodzenie |
-| Działanie Uruchom Zakończono |Błąd |Alokacja zasobów nie powiodło się<br/><br/>Wykonanie nie powiodło się<br/><br/>Przekroczenie limitu czasu<br/><br/>Sprawdzanie poprawności nie powiodło się<br/><br/>porzucone |
+| Działanie Uruchom Zakończono |Niepowodzenie |Alokacja zasobów nie powiodło się<br/><br/>Wykonanie nie powiodło się<br/><br/>Przekroczenie limitu czasu<br/><br/>Sprawdzanie poprawności nie powiodło się<br/><br/>porzucone |
 | Rozpoczęto tworzenie klastra HDI na żądanie |Uruchomiono |-|
 | Pomyślnie utworzono klaster HDI na żądanie |Powodzenie |-|
 | Usunąć klaster HDI na żądanie |Powodzenie |-|
