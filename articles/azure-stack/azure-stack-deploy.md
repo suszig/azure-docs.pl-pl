@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/08/2017
 ms.author: jeffgilb
-ms.openlocfilehash: 0fa0d00112e731a9f2effd453ba74f5561fca358
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 2410b1a3c3c2856cceda87ced7e66f140ea0c323
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Wymagania wstępne dotyczące wdrożenia usługi Azure Stack
 
@@ -58,7 +58,7 @@ Przed wdrożeniem [Azure stosu Development Kit](azure-stack-poc.md), upewnij si�
 * SSD SAS + HDD SAS
 * NVMe
 
-\*Kontrolerów RAID bez możliwości przekazujący nie można rozpoznać typu nośnika. Takie kontrolery oznaczą zarówno dyski HDD, jak i dyski SSD jako nieokreślone. W takim przypadku dysk SSD będzie używany jako magazyn trwały zamiast buforowania urządzeń. W związku z tym wdrożeniem development kit na tych dyskach SSD.
+\* Kontrolerów RAID bez możliwości przekazujący nie można rozpoznać typu nośnika. Takie kontrolery oznaczą zarówno dyski HDD, jak i dyski SSD jako nieokreślone. W takim przypadku dysk SSD będzie używany jako magazyn trwały zamiast buforowania urządzeń. W związku z tym wdrożeniem development kit na tych dyskach SSD.
 
 **Przykładowe karty HBA**: LSI 9207-8i, LSI-9300-8i lub LSI-9265-8i w trybie przekazywania
 
@@ -90,10 +90,10 @@ Aby wdrożyć stosu Azure przy użyciu konta usługi Azure AD, należy przygotow
    
    | **Konto usługi Azure Active Directory** | **Obsługiwane?** |
    | --- | --- |
-   | Konto służbowe z prawidłową subskrypcją Azure publiczny |Tak |
-   | Konto Microsoft z ważną subskrypcją publicznej platformy Azure |Tak |
-   | Konto służbowe z prawidłową subskrypcją Azure w Chinach |Tak |
-   | Konto służbowe z prawidłową nam dla instytucji rządowych subskrypcji platformy Azure |Tak |
+   | Konto służbowe z prawidłową subskrypcją Azure publiczny |Yes |
+   | Konto Microsoft z ważną subskrypcją publicznej platformy Azure |Yes |
+   | Konto służbowe z prawidłową subskrypcją Azure w Chinach |Yes |
+   | Konto służbowe z prawidłową nam dla instytucji rządowych subskrypcji platformy Azure |Yes |
 
 ## <a name="network"></a>Sieć
 ### <a name="switch"></a>Przełącznik
@@ -122,9 +122,9 @@ Upewnij się, że serwer DHCP jest dostępny w sieci, z którą łączy się kar
 ### <a name="internet-access"></a>Dostęp do Internetu
 Stos Azure wymaga dostępu do Internetu, bezpośrednio lub za pośrednictwem przezroczystego obiektu pośredniczącego. Stos Azure nie obsługuje konfiguracji serwera proxy sieci web, aby umożliwić dostęp do Internetu. IP hosta i nowego adresu IP przypisane do MAS BGPNAT01 (DHCP lub statyczny adres IP) musi mieć możliwość dostępu do Internetu. Porty 80 i 443 są używane w domenach graph.windows.net i login.microsoftonline.com.
 
+Pytanie: czy jest możliwe Uruchom ASDK na maszynie Wirtualnej platformy Azure? Odpowiedź: nie. Obecnie nie jest oficjalnie obsługiwane.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Pobierz pakiet wdrażania zestawu programowanie Azure stosu](https://azure.microsoft.com/overview/azure-stack/try/?v=try)
 
 [Wdrażanie zestaw deweloperski Azure stosu](azure-stack-run-powershell-script.md)
-

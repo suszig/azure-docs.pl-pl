@@ -12,37 +12,37 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/08/2017
+ms.date: 03/01/2018
 ms.author: jeffgilb
 ms.reviewer: comartin
-ms.openlocfilehash: 5cd8d4045764b753c5fdd81ade98d69c72709881
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 87f7157f8ab826553d8fb638b9f28d5594f68ed6
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-stack-telemetry"></a>Azure telemetrii stosu
 
 *Dotyczy: Azure stosu zintegrowanych systemów i Azure stosu Development Kit*
 
-Danych systemu Azure stosu lub dane telemetryczne, automatycznie jest przesyłane do firmy Microsoft za pośrednictwem środowiska użytkownika połączenia. Dane zbierane z telemetrii stosu Azure jest używana przez zespoły firmy Microsoft głównie w celu ulepszenia środowiska naszych klientów, a także analizy zabezpieczeń, jakości, kondycji i wydajności.
+Danych systemu Azure stosu lub dane telemetryczne, automatycznie jest przesyłane do firmy Microsoft za pośrednictwem środowiska użytkownika połączenia. Dane zbierane z telemetrii stosu Azure jest używana przez zespoły firmy Microsoft głównie w celu ulepszenia środowiska klienta i zabezpieczeń, kondycji, jakości i analiza wydajności.
 
 Jako operator stosu Azure telemetrii zapewniają cenne wgląd w przedsiębiorstwach i daje głosu ułatwiający kształtu przyszłych wersji Azure stosu.
 
 > [!NOTE]
 > Stos Azure można również skonfigurować do informacji o użyciu do przodu do platformy Azure dla rozliczeń. Jest to wymagane dla stosu Azure wielowęzłowego klientów, którzy wybierz rozliczeń płatności jako — użytkownik użycia. Raportowanie użycia jest kontrolowany niezależnie od telemetrii i nie jest wymagana dla wielowęzłowego klientów, którzy wybierz model pojemności lub dla użytkowników usługi Azure stosu Development Kit. W tych sytuacjach raportowanie użycia, można wyłączyć [przy użyciu skryptu rejestracji](https://docs.microsoft.com/azure/azure-stack/azure-stack-usage-reporting). 
 
-Azure telemetrii stosu zależy od składnika połączone środowisko użytkownika systemu Windows Server 2016 i dane telemetryczne, który używa [funkcji Śledzenie zdarzeń systemu Windows ()](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) technologii rejestrowania do gromadzenia i przechowywania zdarzeń telemetrii i danych śledzenia. Azure składniki stosu używać tej samej technologii rejestrowania do publikowania zdarzeń i danych, które są zbierane przy użyciu rejestrowania zdarzeń publicznego systemu operacyjnego i śledzenie interfejsów API. Przykładami składniki stosu Azure dostawcy zasobów sieciowych, dostawcy zasobów magazynu, dostawca zasobów monitorowania i aktualizacji dostawcy zasobów. Składnik połączone środowisko użytkownika i dane telemetryczne szyfruje dane przy użyciu protokołu SSL i używa certyfikatu przypinanie do przesyłania danych telemetrycznych za pośrednictwem protokołu HTTPS z usługą zarządzania danymi firmy Microsoft.
+Azure telemetrii stosu zależy od składnika połączone środowisko użytkownika systemu Windows Server 2016 i dane telemetryczne, który używa [funkcji Śledzenie zdarzeń systemu Windows ()](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) technologii rejestrowania do gromadzenia i przechowywania zdarzeń telemetrii i danych śledzenia. Azure składniki stosu używać tej samej technologii rejestrowania do publikowania zdarzeń i danych, które są zbierane przy użyciu rejestrowania zdarzeń publicznego systemu operacyjnego i śledzenie interfejsów API. Przykładami składniki stosu Azure dostawcy zasobów sieciowych, dostawcy zasobów magazynu dostawcy zasobów monitorowania i aktualizacji dostawcy zasobów. Składnik połączone środowisko użytkownika i dane telemetryczne szyfruje dane przy użyciu protokołu SSL i używa certyfikatu przypinanie do przesyłania danych telemetrycznych za pośrednictwem protokołu HTTPS z usługą zarządzania danymi firmy Microsoft.
 
 > [!NOTE]
 > Aby zapewnić obsługę przepływu danych telemetrii, port 443 (HTTPS), należy otworzyć w sieci. Składnik połączone środowisko użytkownika i dane telemetryczne nawiązuje połączenie z usługą zarządzania danymi firmy Microsoft w https://v10.vortex-win.data.microsoft.com. Składnik połączone środowisko użytkownika i dane telemetryczne również łączy się z https://settings-win.data.microsoft.com można pobrać informacji o konfiguracji.
 
 ## <a name="privacy-considerations"></a>Zagadnienia dotyczące ochrony prywatności
-Usługa ETW kieruje dane telemetryczne do magazynu w chmurze chronionej. Zasadą najniższych uprawnieniach przewodniki dostęp do danych telemetrycznych. Tylko personel firmy Microsoft o potrzebach biznesowych prawidłowy mogą uzyskiwać dostęp do danych telemetrycznych. Firma Microsoft udostępnia dane osobowe naszych klientów osobom trzecim, z wyjątkiem uznania klienta lub ograniczona celów opisanych w [Azure stosu — zasady zachowania poufności informacji](http://windows.microsoft.com/windows/preview-privacy-statement). Firma Microsoft udostępnia raporty biznesowe z producentów OEM i partnerów, które obejmują informacje o telemetrii zagregowane, anonimowe. Udostępnianie decyzje danych są wykonywane przez wewnętrzny zespół firmy Microsoft, łącznie z zainteresowanymi stronami zarządzania prywatności, prawne i danych.
+Usługa ETW kieruje dane telemetryczne do magazynu w chmurze chronionej. Zasadą najniższych uprawnieniach przewodniki dostęp do danych telemetrycznych. Tylko personel firmy Microsoft o potrzebach biznesowych prawidłowy mogą uzyskiwać dostęp do danych telemetrycznych. Firma Microsoft udostępnia dane osobiste klienta osobom trzecim, z wyjątkiem uznania klienta lub ograniczona celów opisanych w [zasady zachowania poufności informacji firmy Microsoft](https://privacy.microsoft.com/PrivacyStatement). Raporty biznesowe są udostępniane producentów OEM i partnerów, które obejmują informacje o telemetrii zagregowane, anonimowe. Udostępnianie decyzje danych są wykonywane przez wewnętrzny zespół firmy Microsoft, łącznie z zainteresowanymi stronami zarządzania prywatności, prawne i danych.
 
-Firma Microsoft uznaje w i rozwiązań minimalizacja informacji. Staramy się zebrać tylko te informacje, musimy, czy przechowujemy tylko tak długo jak jest potrzebna do świadczenia usług lub do analizy. Wiele informacji dotyczących sposobu funkcjonowania systemu Azure stosu i usług Azure jest usuwany w ciągu sześciu miesięcy. Podsumowanie lub zagregowane dane będą przechowywane przez dłuższy czas.
+Firma Microsoft uznaje w i rozwiązań minimalizacja informacji. Dokładamy wszelkich starań zebrać informacje potrzebne, a przechowujemy tylko tak długo jak jest potrzebna do świadczenia usług lub do analizy. Wiele informacji dotyczących sposobu funkcjonowania systemu Azure stosu i usług Azure jest usuwany w ciągu sześciu miesięcy. Podsumowanie lub zagregowane dane będą przechowywane przez dłuższy czas.
 
-Zdajemy prywatności i bezpieczeństwa informacji klientów jest bardzo ważne.  Przekierowaliśmy przemyślane i wszechstronne podejście do klienta prywatności i ochrony danych klienta z usługi Azure stosu. Administratorzy IT mogą kontrolki umożliwiające dostosowanie funkcji i ustawień prywatności w dowolnym momencie. Wynika z naszych zobowiązań przezroczystość i zaufania:
+Zdajemy prywatności i bezpieczeństwa informacji klienta jest ważne.  Przekierowaliśmy przemyślane i wszechstronne podejście do klienta prywatności i ochrony danych klienta z usługi Azure stosu. Administratorzy IT mogą kontrolki umożliwiające dostosowanie funkcji i ustawień prywatności w dowolnym momencie. Wynika z naszych zobowiązań przezroczystość i zaufania:
 - Możemy Otwórz za pomocą klientów dotyczące typu danych, które zbieramy.
 - Testujemy przedsiębiorstwa w formancie — można dostosowywać ustawień prywatności.
 - Najpierw testujemy klienta prywatności i bezpieczeństwa.
@@ -59,12 +59,12 @@ Dane telemetryczne pomaga również firmy Microsoft, aby lepiej zrozumieć, jak 
 Oto kilka przykładów użycia przez klientów z kontenerów, magazynu i konfiguracji sieci, które są skojarzone z rolami stosu Azure. Możemy również użyć szczegółowych danych do ulepszenia dysku i analizy na niektóre z naszych zarządzanie i monitorowanie rozwiązań.  Pomaga klientom w celu zdiagnozowania problemów dotyczących jakości i Zapisz pieniądze, wprowadzając obsługę mniejszej liczby wywołań do firmy Microsoft.
 
 ## <a name="manage-telemetry-collection"></a>Zarządzanie gromadzenia danych telemetrii
-Nie zaleca się wyłączenie telemetrii w organizacji jako dane telemetryczne zawiera dane, które dyski produktu ulepszone funkcje i stabilność. Wiemy, że w niektórych przypadkach może to być konieczne. 
+Nie zaleca się wyłączyć telemetrię w organizacji, jak dane telemetryczne zawiera dane, które dyski produktu ulepszone funkcje i stabilność. Wiemy, że w niektórych przypadkach może to być konieczne. 
 
 W takich przypadkach można skonfigurować poziom telemetrii wysyłane do firmy Microsoft przy użyciu przed wdrożeniem ustawień rejestru lub punktów końcowych Telemetrii po wdrożeniu.
 
 ### <a name="asdk-set-telemetry-level-in-the-windows-registry"></a>ASDK: Ustaw poziom telemetrii w rejestrze systemu Windows
-Edytor rejestru systemu Windows należy ręcznie ustawić poziom telemetrii na komputerze hosta fizycznego, przed wdrożeniem stosu Azure. Zasady zarządzania już istnieje, takie jak zasady grupy zastępują następujące ustawienie rejestru. 
+Edytor rejestru systemu Windows należy ręcznie ustawić poziom telemetrii na komputerze hosta fizycznego, przed wdrożeniem stosu Azure. Jeśli zasady zarządzania już istnieje, takie jak zasady grupy zastępuje ustawienie rejestru. 
 
 Przed wdrożeniem stosu Azure na hoście development kit, rozruch w CloudBuilder.vhdx i uruchom następujący skrypt w oknie programu PowerShell z podwyższonym poziomem uprawnień:
 
@@ -92,7 +92,7 @@ Poziomy dane telemetryczne są zbiorcze i kategorie do czterech poziomów (0-3):
  - Magazyn atrybutów, takich jak liczba dysków, typ i rozmiar.
 - **Funkcja telemetrii**, takie jak procent przekazane zdarzenia, porzuconych zdarzeń oraz za ostatni Przekaż czasu.
 - **Informacje dotyczące jakości** który ułatwia opracowywanie podstawową wiedzę na temat sposobu wykonywania jest stos Azure firmy Microsoft. Przykładem jest liczba alertów krytycznych na określoną konfiguracją sprzętu.
-- **Dane zgodności** co pomaga zapewnić zrozumienia o tym, które dostawców zasobów są zainstalowane w systemie i maszyny wirtualnej i identyfikuje potencjalne problemy ze zgodnością.
+- ** Dane zgodności, który zapewnia zrozumienia o tym, które dostawców zasobów są zainstalowane w systemie i maszyny wirtualnej i identyfikuje potencjalne problemy ze zgodnością.
 
 **2 (rozszerzony)**. Dodatkowe informacje szczegółowe, w tym: jak używać systemu operacyjnego i innych usług Azure stosu, jak wykonać dane o niezawodności zaawansowane i danych z poziomu podstawowego i zabezpieczeń. 
 
@@ -101,7 +101,7 @@ Poziomy dane telemetryczne są zbiorcze i kategorie do czterech poziomów (0-3):
 > [!NOTE]
 > Wartość poziomu telemetrii domyślna to 2 (rozszerzony).
 
-Należy pamiętać, że wyłączenie systemu Windows i stosu Azure telemetrii spowoduje również wyłączenie telemetrii SQL. Aby uzyskać dodatkowe informacje o skutki telemetrii systemu Windows Server ustawienia, zapoznaj się z odwołania [Windows Telemetrii w oficjalnym dokumencie](https://aka.ms/winservtelemetry). 
+Wyłączanie telemetrii systemu Windows i stosu Azure wyłącza także telemetrii SQL. Aby uzyskać więcej informacji o skutki ustawieniami telemetrii systemu Windows Server, zobacz [Windows Telemetrii w oficjalnym dokumencie](https://aka.ms/winservtelemetry). 
 
 > [!IMPORTANT]
 > Te poziomy telemetrii dotyczą tylko składniki programu Microsoft Azure stosu. Składniki oprogramowania innych firm i usług, które są uruchomione na hoście cyklu życia sprzętu z dostawców sprzętu będących partnerami stosu Azure może komunikować się z ich usługi w chmurze poza tymi poziomami telemetrii. Powinien współpracować z dostawcy rozwiązań sprzętu stosu Azure, aby zrozumieć ich zasad telemetrii i jak włączyć lub zrezygnować. 
@@ -109,8 +109,8 @@ Należy pamiętać, że wyłączenie systemu Windows i stosu Azure telemetrii sp
 ### <a name="asdk-and-multinode-enable-or-disable-telemetry-after-deployment"></a>ASDK i MultiNode: Włączanie lub wyłączanie telemetrii po wdrożeniu
 
 Aby włączyć lub wyłączyć telemetrii po wdrożeniu, musisz mieć dostęp do uprzywilejowanych punktu końcowego (program ten), który jest narażony na maszynach wirtualnych ERCS.
-1.  Aby włączyć:`Set-Telemetry -Enable`
-2.  Aby wyłączyć:`Set-Telemetry -Disable`
+1.  Aby włączyć: `Set-Telemetry -Enable`
+2.  Aby wyłączyć: `Set-Telemetry -Disable`
 
 PARAMETR szczegółów: 
 > . PARAMETR Enable - Włącz przekazywania danych telemetrii 
@@ -143,7 +143,7 @@ if($psSession)
 }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Pobierz pakiet wdrażania zestawu programowanie Azure stosu](https://azure.microsoft.com/overview/azure-stack/try/?v=try)
 
 [Wdrażanie zestaw deweloperski Azure stosu](azure-stack-run-powershell-script.md)

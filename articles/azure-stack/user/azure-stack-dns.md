@@ -3,22 +3,21 @@ title: DNS w stosie Azure | Dokumentacja firmy Microsoft
 description: "Usługa DNS w usłudze Azure Stack"
 services: azure-stack
 documentationcenter: 
-author: ScottNapolitan
-manager: byronr
-editor: 
+author: mattbriggs
+manager: femila
 ms.assetid: 
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/25/2017
-ms.author: victorh
-ms.openlocfilehash: ac93b5eb4228cef373428b7b69932d5993d54fa0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.author: mabrigg
+ms.openlocfilehash: 394abe5295af4ed99e48d50b5886ac93af87e875
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="dns-in-azure-stack"></a>Usługa DNS w usłudze Azure Stack
 
@@ -68,7 +67,7 @@ Następujące informacje w szczególności dotyczy usługi Azure DNS stosu i ró
 
 Usługa Azure DNS stosu obsługuje przy użyciu usługi Azure Resource Manager tagów zasobów strefy DNS. Nie obsługuje tagi zestawów rekordów DNS, mimo że jako alternatywę "metadanych" jest obsługiwana na zestawów rekordów DNS, jak wyjaśniono dalej.
 
-**Metadane**
+**Metadata**
 
 Alternatywą dla tagów zestawu rekordów DNS stosu Azure obsługuje dodawanie adnotacji do zestawów rekordów przy użyciu "metadanych". Podobnie jak tagi, metadanych umożliwia kojarzenie pary nazwa wartość z każdego zestawu rekordów. Na przykład może to być przydatne do rejestrowania przeznaczenia każdego zestawu rekordów. W przeciwieństwie do tagów metadanych nie może służyć do zapewnienia filtrowany widok rachunku Azure i nie można określić w zasadach usługi Azure Resource Manager.
 
@@ -84,7 +83,7 @@ Na poziomie interfejsu API REST Azure stosu DNS zostały określone elementy eta
 
 | Nagłówek | Zachowanie|
 |--------|---------|
-| Brak   | Umieść zawsze powiedzie się (nie są sprawdzane Etag)|
+| None   | Umieść zawsze powiedzie się (nie są sprawdzane Etag)|
 | IF-match| Umieść powiedzie się tylko, jeśli zasób istnieje i element Etag odpowiada|
 | IF-match *| Umieść powiedzie się tylko, jeśli istnieje zasób|
 | IF-none-match *| Umieść powiedzie się tylko, jeśli zasób nie istnieje.|
@@ -99,5 +98,5 @@ Następujące domyślne limity stosowane podczas korzystania z usługi Azure DNS
 | Zestawy rekordów na strefy| 5000|
 | Rejestruje dla danego zestawu rekordów| 20|
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Introducing Azure stosu międzynarodowych nazw domen.](azure-stack-understanding-dns.md)

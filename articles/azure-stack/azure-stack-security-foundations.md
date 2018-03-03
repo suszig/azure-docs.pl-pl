@@ -3,8 +3,8 @@ title: "Opis formantów zabezpieczeń stosu Azure | Dokumentacja firmy Microsoft
 description: "Administrator usługi więcej informacji na temat opcji zabezpieczeń stosowane do stosu Azure"
 services: azure-stack
 documentationcenter: 
-author: Heathl17
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
 ms.service: azure-stack
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: helaw
-ms.openlocfilehash: 106fcf7b0edc095a52e82d58ad48a73084b65d1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.author: mabrigg
+ms.openlocfilehash: fa0800f03d823769dcd9f01601689122b0d09ec5
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Stan zabezpieczeń infrastruktury w usłudze Azure stosu
 
@@ -31,10 +31,10 @@ W stosie Azure istnieją dwie warstwy stan zabezpieczeń, które współistnieć
 ## <a name="security-approach"></a>Metoda zabezpieczeń
 Stos Azure została zaprojektowana z stan zabezpieczeń obrony pod kątem współczesnych zagrożeń i został utworzony w celu spełnienia wymagań z standardów zgodności głównych. W związku z tym stan zabezpieczeń w infrastrukturze Azure stosu jest oparty na dwóch filarach:
 
- - **Przykładowa naruszenia.** Począwszy od założenia, że nastąpiło już naruszenie systemu, możemy skupić się na *wykrywanie i ograniczanie wpływu naruszenia* i tylko w trakcie przed atakami. 
- - **Wzmocnione zabezpieczenia domyślne.**  Ponieważ infrastruktura działa w dobrze zdefiniowanej sprzętu i oprogramowania, firma Microsoft *włączenia, skonfigurowania i zweryfikować funkcje zabezpieczeń* zwykle pozostało do klientów do wdrożenia.
+ - **Przykładowa naruszenia.** Począwszy od założenia, że nastąpiło już naruszenie systemu, skupić się na *wykrywanie i ograniczanie wpływu naruszenia* i tylko w trakcie przed atakami. 
+ - **Wzmocnione zabezpieczenia domyślne.**  Ponieważ infrastruktura działa w dobrze zdefiniowanej sprzętu i oprogramowania, *włączenia, skonfigurowania i zweryfikować funkcje zabezpieczeń* pozostało do klientów do wdrożenia.
 
-Ponieważ stos Azure jest dostarczane jako zintegrowany system, stan zabezpieczeń w infrastrukturze Azure stosu jest zdefiniowana przez firmę Microsoft.  Podobnie jak na platformie Azure dzierżaw są zobowiązani do definiowania stan zabezpieczeń ich obciążeń dzierżawców. Ten dokument zawiera on podstawowych wiedzy na stan zabezpieczeń w infrastrukturze Azure stosu.
+Ponieważ stos Azure jest dostarczane jako zintegrowany system, stan zabezpieczeń w infrastrukturze Azure stosu jest zdefiniowana przez firmę Microsoft. Podobnie jak na platformie Azure dzierżaw są zobowiązani do definiowania stan zabezpieczeń ich obciążeń dzierżawców. Ten dokument zawiera on podstawowych wiedzy na stan zabezpieczeń w infrastrukturze Azure stosu.
 
 ## <a name="data-at-rest-encryption"></a>Dane na rest szyfrowania
 Wszystkie dane stosu Azure infrastruktury i dzierżawcy jest szyfrowane, gdy za pomocą funkcji Bitlocker. Szyfrowanie chroni przed fizycznych utrata lub kradzież składników magazynu Azure stosu. 
@@ -54,7 +54,7 @@ Pozostałe hasła, które nie są kont usług zarządzanych grupy można obraca�
 ## <a name="code-integrity"></a>Integralność kodu
 Stos Azure korzysta z najnowszych systemu Windows Server 2016 funkcje zabezpieczeń. Jeden z nich jest systemu Windows Defender ochrony urządzeń, zawiera listę dozwolonych aplikacji podobnej i zapewnia, że tylko autoryzowani uruchamia kod w infrastrukturze Azure stosu. 
 
-Autoryzowanego kodu jest podpisany przez firmę Microsoft lub partnerem OEM i znajduje się na liście dozwolonych oprogramowania, które jest określone w zasadach zdefiniowana przez firmę Microsoft. Innymi słowy mogą być wykonywane tylko oprogramowania, które zostały zatwierdzone do uruchamiania w infrastrukturze Azure stosu. Próba wykonania nieautoryzowanego kodu są blokowane, a następnie wygenerowaniu inspekcji.
+Autoryzowanego kodu jest podpisany przez firmę Microsoft lub partnerem OEM i znajduje się na liście dozwolonych oprogramowania, które jest określone w zasadach zdefiniowana przez firmę Microsoft. Innymi słowy mogą być wykonywane tylko oprogramowania, które zostały zatwierdzone do uruchamiania w infrastrukturze Azure stosu. Każda próba wykonania nieautoryzowanego kodu jest zablokowana i wygenerowaniu inspekcji.
 
 Zasady ochrony urządzeń zapobiega także innych agentów lub oprogramowania uruchomionych w infrastrukturze Azure stosu.
 
@@ -71,7 +71,7 @@ Administracja w stosie Azure jest kontrolowany przy użyciu trzech punktów wej�
 3. Z określonymi operacjami niskiego poziomu, na przykład dane Centrum integracji lub obsługi scenariuszy, stos Azure udostępnia punkt końcowy programu PowerShell o nazwie [uprzywilejowanych punktu końcowego](azure-stack-privileged-endpoint.md). Ten punkt końcowy przedstawia tylko białej zestaw poleceń cmdlet i silnie podlega inspekcji.
 
 ## <a name="network-controls"></a>Formanty sieci
-Azure infrastruktury stosu jest dostarczany z wielu warstw List(ACL) kontroli dostępu do sieci.  Listy ACL uniemożliwić nieautoryzowany dostęp do składników infrastruktury i ograniczyć infrastruktury komunikacji do ścieżek, które są wymagane do jego działania. 
+Azure infrastruktury stosu jest dostarczany z wielu warstw List(ACL) kontroli dostępu do sieci. Listy ACL uniemożliwić nieautoryzowany dostęp do składników infrastruktury i ograniczyć infrastruktury komunikacji do ścieżek, które są wymagane do jego działania. 
 
 Listy kontroli dostępu w sieci są wymuszane w trzech warstw:
 1.  Zmienia początku stojak

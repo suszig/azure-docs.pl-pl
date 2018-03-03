@@ -3,17 +3,18 @@ title: Integracja Azure datacenter stosu - DNS
 description: "Dowiedz się, jak zintegrować usługę Azure DNS stosu z centrum danych DNS"
 services: azure-stack
 author: jeffgilb
+manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/28/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: 
-ms.openlocfilehash: 504cbabe6ea4b7ad71601186dac853515f8c4709
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5bdac2f3e6082f9449800fe2d4b303e2d59ade46
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Integracja Azure datacenter stosu - DNS
 Aby można było uzyskać dostępu do punktów końcowych stosu Azure (`portal`, `adminportal`, `management`, `adminmanagement`itp.)  ze stosu poza Azure musisz Integrowanie usług DNS stosu Azure z serwerów DNS, które hostuje stref DNS, który ma być używany w stosie Azure.
@@ -125,8 +126,8 @@ W scenariuszach, w którym określone zewnętrznych strefy DNS stosu Azure, aby 
 
 Przykład:
 
-- Nazwa domeny firmowej usłudze DNS:`contoso.com`
-- Nazwa domeny DNS zewnętrznego stosu Azure:`azurestack.contoso.com`
+- Nazwa domeny firmowej usłudze DNS: `contoso.com`
+- Nazwa domeny DNS zewnętrznego stosu Azure: `azurestack.contoso.com`
 
 ## <a name="delegating-the-external-dns-zone-to-azure-stack"></a>Delegowanie zewnętrznych strefę DNS do stosu Azure
 

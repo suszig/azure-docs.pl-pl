@@ -3,16 +3,17 @@ title: "Sieci Azure stosu: Różnice i zagadnienia dotyczące"
 description: "Więcej informacji na temat różnic i zagadnienia dotyczące podczas pracy z sieci w programie Azure stosu."
 services: azure-stack
 keywords: 
-author: ScottNapolitan
-ms.author: victorh
-ms.date: 9/25/2017
+author: mattbriggs
+manager: femila
+ms.author: mabrigg
+ms.date: 02/28/2018
 ms.topic: article
 ms.service: azure-stack
-ms.openlocfilehash: 3c72c58e63335f1cb440811e283bd742b8124161
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 4c881a5f5e64ddc9fc67060208f3bef6ae0f5028
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Zagadnienia dotyczące sieci Azure stosu
 
@@ -26,7 +27,7 @@ Ten artykuł zawiera omówienie unikatowy zagadnienia dotyczące sieci i jej fun
 
 ## <a name="cheat-sheet-networking-differences"></a>Ściągawka: różnice sieci
 
-|Usługa | Funkcja | Azure (globalna) | Azure Stack |
+|Usługa | Cecha | Azure (globalna) | Azure Stack |
 | --- | --- | --- | --- |
 | DNS | Wielodostępne DNS | Obsługiwane| Nie jest jeszcze obsługiwane|
 | |Rekordów AAAA usługi DNS|Obsługiwane|Nieobsługiwane|
@@ -45,6 +46,6 @@ Ten artykuł zawiera omówienie unikatowy zagadnienia dotyczące sieci i jej fun
 |Traffic Manager|Kierującą ruch przychodzący do aplikacji optymalnej wydajności i niezawodności.|Obsługiwane|Nie jest jeszcze obsługiwane|
 |ExpressRoute|Skonfigurowanie istnieje w przypadku szybkiego połączenia do usług chmurowych firmy Microsoft z zakładzie infrastruktury lub wspólnej lokalizacji lokalnej.|Obsługiwane|Obsługa nawiązywania stosu Azure obwodzie usługi Express Route.|
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Usługa DNS w usłudze Azure Stack](azure-stack-dns.md)

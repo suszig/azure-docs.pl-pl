@@ -3,22 +3,21 @@ title: "Połącz z subskrypcją platformy Azure stosu Eksploratora usługi Stora
 description: "Dowiedz się, jak połączyć Exporer magazynu z subskrypcją platformy Azure stosu"
 services: azure-stack
 documentationcenter: 
-author: xiaofmao
-manager: 
-editor: 
+author: mattbriggs
+manager: femila
 ms.assetid: 
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 9/25/2017
+ms.date: 02/28/2018
 ms.author: xiaofmao
-ms.openlocfilehash: c7e6d70148d39fd74f6409a0a239833f8e9f7614
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: bad4b6b0d829fb68dc25e84406a453071a36476a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription"></a>Połącz z subskrypcją platformy Azure stosu Eksploratora usługi Storage
 
@@ -87,7 +86,7 @@ Teraz można przystąpić do Eksploratora usługi Storage nawiązać połączeni
     * **Punkt końcowy zasobu usługi ARM**: przykłady punktów końcowych zasobów usługi Azure Resource Manager:
 
         * Dla operatora chmury:<br> https://adminmanagement.local.azurestack.external   
-        * Dla dzierżawcy:<br> https://Management.local.azurestack.external
+        * Dla dzierżawcy:<br> https://management.local.azurestack.external
  
     * **Identyfikator dzierżawy**: opcjonalne. Zawiera ono wartość tylko wtedy, gdy należy określić katalog.
 
@@ -98,7 +97,7 @@ Teraz można przystąpić do Eksploratora usługi Storage nawiązać połączeni
 
     ![Lista kont magazynu, w tym kont subskrypcji usługi Azure Stack][31]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Wprowadzenie do Eksploratora usługi Storage (wersja zapoznawcza)](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 * [Magazynu Azure stosu: różnice i zagadnienia dotyczące](azure-stack-acs-differences.md)
 

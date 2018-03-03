@@ -2,17 +2,18 @@
 title: "Azure szkoleń stosu i certyfikatów"
 description: "Więcej informacji na temat możliwości certyfikacji szkolenia Azure stosu"
 services: azure-stack
-author: vhorne
+author: mattbriggs
+manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 9/25/2017
-ms.author: victorh
+ms.date: 02/28/2018
+ms.author: mabrigg
 keywords: 
-ms.openlocfilehash: 50e1a4f5aa1ba5ad901506407d30e04df7449719
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 3ac1d83c4f40bd8bbd072486489b72de73084ade
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-stack-training-and-certification"></a>Azure szkoleń stosu i certyfikatów
 
@@ -26,9 +27,9 @@ Następujące możliwości szkolenia i certyfikacji są dostępne ułatwiające 
 - [edX: Azure szkolenia Online stosu](https://aka.ms/AzureStackMOOC)
 - [Role zadania i ścieżki szkoleniowe dotyczące](https://azure.microsoft.com/en-us/training/learning-paths/)
 
-## <a name="certification"></a>Certyfikat
+## <a name="certification"></a>Certyfikacja
 Azure stosu certyfikaty są obecnie w fazie projektowania. Sprawdzanie dostępności najnowszych aktualizacji.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Dokumentację platformy Azure stosu](https://docs.microsoft.com/azure/azure-stack/)
