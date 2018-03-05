@@ -14,14 +14,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: 92c730addb69bc4d12708ccd789edce0c2336c80
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4f40c9364d02929fe5bb193b4e8eb0a0157d34d2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Umożliwia tworzenie podsumowań wideo miniatur wideo multimediów Azure
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 **Miniatur wideo multimediów Azure** procesor multimediów (MP) umożliwia tworzenie podsumowanie wideo, które są przydatne do klientów, którzy po prostu chcesz przeglądać podsumowanie wideo długo. Na przykład klienci mogą być wyświetlane krótki "Podsumowanie wideo" gdy umieść kursor nad miniatury. Przez dostosowywanie parametry **miniatur wideo multimediów Azure** za pomocą ustawienia domyślne konfiguracji, można użyć MP zaawansowanego zrzut wykrywania i łączenia rozwiązania algorithmically wygenerować subclip opisowy.  
 
 **Miniatur wideo multimediów Azure** pakiet administracyjny jest obecnie w przeglądzie.
@@ -44,7 +44,11 @@ Oto kilka przykładów czynności procesor multimediów miniatur wideo multimedi
 ## <a name="task-configuration-preset"></a>Konfiguracja zadania (ustawienia domyślne)
 Podczas tworzenia zadania miniatur wideo z **miniatur wideo multimediów Azure**, należy określić ustawienia domyślne konfiguracji. Powyższym przykładzie miniatur został utworzony przy użyciu następującej konfiguracji JSON podstawowe:
 
-    {"version":"1.0"}
+```json
+    {
+        "version":"1.0"
+    }
+```
 
 Obecnie można zmienić następujące parametry:
 
@@ -63,6 +67,7 @@ W poniższej tabeli opisano domyślny czas trwania, gdy **maxMotionThumbnailInSe
 
 Następujące JSON ustawia dostępne parametry.
 
+```json
     {
         "version": "1.0",
         "options": {
@@ -71,6 +76,7 @@ Następujące JSON ustawia dostępne parametry.
             "fadeInFadeOut": "true"
         }
     }
+```
 
 ## <a name="net-sample-code"></a>.NET przykładowy kod
 
@@ -78,15 +84,18 @@ Następujących programów przedstawiono sposób:
 
 1. Utworzenie elementu zawartości i przesyłanie pliku multimediów do elementu zawartości.
 2. Tworzy zadanie z zadaniem miniatur wideo oparty na pliku konfiguracji, który zawiera następujące ustawienie json: 
-   
-        {                
-            "version": "1.0",
-            "options": {
-                "outputAudio": "true",
-                "maxMotionThumbnailDurationInSecs": "30",
-                "fadeInFadeOut": "false"
+    
+    ```json
+            {                
+                "version": "1.0",
+                "options": {
+                    "outputAudio": "true",
+                    "maxMotionThumbnailDurationInSecs": "30",
+                    "fadeInFadeOut": "false"
+                }
             }
-        }
+    ```
+
 3. Pobiera pliki danych wyjściowych. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Tworzenie i konfigurowanie projektu programu Visual Studio
@@ -95,6 +104,7 @@ Skonfiguruj środowisko projektowe i wypełnij plik app.config przy użyciu info
 
 #### <a name="example"></a>Przykład
 
+```csharp
     using System;
     using System.Configuration;
     using System.IO;
@@ -262,6 +272,7 @@ Skonfiguruj środowisko projektowe i wypełnij plik app.config przy użyciu info
 
         }
     }
+```
 
 ### <a name="video-thumbnail-output"></a>Wyjście miniatur wideo
 [Wyjście miniatur wideo](http://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Fd06f24dc-bc81-488e-a8d0-348b7dc41b56%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)

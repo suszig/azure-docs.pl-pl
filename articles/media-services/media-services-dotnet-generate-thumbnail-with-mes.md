@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: f7a8b60e26b42668e505b3d466bfc447d0cfb48b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 02bbeafd9cd8ca93f22cf9e1a2c107e01c082ba3
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Generowanie miniatur przy użyciu usługi Media Encoder Standard za pomocą platformy .NET
 
@@ -34,6 +34,7 @@ Następujące ustawienia wstępnego JSON i XML może służyć do tworzenia plik
 
 ### <a name="json-preset"></a>Ustawienie wstępne JSON
 
+```json
     {
       "Version": 1.0,
       "Codecs": [
@@ -58,9 +59,11 @@ Następujące ustawienia wstępnego JSON i XML może służyć do tworzenia plik
         }
       ]
     }
+```
     
 ### <a name="xml-preset"></a>Ustawienie wstępne XML
 
+```xml
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -79,6 +82,7 @@ Następujące ustawienia wstępnego JSON i XML może służyć do tworzenia plik
         </Output>
       </Outputs>
     </Preset>
+```
 
 ## <a name="example-of-a-series-of-jpeg-images-preset"></a>Przykład ustawienie "serii obrazy JPEG"
 
@@ -86,6 +90,7 @@ Następujące ustawienie JSON i XML można utworzyć zestaw 10 obrazów w sygnat
 
 ### <a name="json-preset"></a>Ustawienie wstępne JSON
 
+```json
     {
       "Version": 1.0,
       "Codecs": [
@@ -113,9 +118,11 @@ Następujące ustawienie JSON i XML można utworzyć zestaw 10 obrazów w sygnat
         }
       ]
     }
+```
 
 ### <a name="xml-preset"></a>Ustawienie wstępne XML
     
+```xml
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -135,6 +142,7 @@ Następujące ustawienie JSON i XML można utworzyć zestaw 10 obrazów w sygnat
         </Output>
       </Outputs>
     </Preset>
+```
 
 ## <a name="example-of-a-one-image-at-a-specific-timestamp-preset"></a>Przykład ustawienie "jednego obrazu w określonej sygnatury czasowej"
 
@@ -142,6 +150,7 @@ Następujące ustawienia wstępnego JSON i XML może służyć do tworzenia poje
 
 ### <a name="json-preset"></a>Ustawienie wstępne JSON
 
+```json
     {
       "Version": 1.0,
       "Codecs": [
@@ -169,9 +178,10 @@ Następujące ustawienia wstępnego JSON i XML może służyć do tworzenia poje
         }
       ]
     }
-    
+```
+
 ### <a name="xml-preset"></a>Ustawienie wstępne XML
-    
+```xml
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -191,7 +201,8 @@ Następujące ustawienia wstępnego JSON i XML może służyć do tworzenia poje
         </Output>
       </Outputs>
     </Preset>
-    
+```
+
 ## <a name="example-of-a-thumbnails-at-different-resolutions-preset"></a>Przykład ustawienie "miniatur na inną rozdzielczość"
 
 Następujące ustawienia wstępnego może służyć do generowania miniatur na inną rozdzielczość w jedno zadanie. W tym przykładzie w pozycji % 5 15%,..., 95% wejściowych osi czasu, koder generuje dwa obrazy — jeden w skali 100% wejściowych obsługi wideo i innych na 50%.
@@ -200,6 +211,7 @@ Zwróć uwagę na użycie makra {rozpoznawania} w nazwie pliku; Wskazuje on enco
 
 ### <a name="json-preset"></a>Ustawienie wstępne JSON
 
+```json
     {
       "Version": 1.0,
       "Codecs": [
@@ -234,9 +246,10 @@ Zwróć uwagę na użycie makra {rozpoznawania} w nazwie pliku; Wskazuje on enco
         }
       ]
     }
+```
 
 ### <a name="xml-preset"></a>Ustawienie wstępne XML
-
+```xml
     <?xml version="1.0" encoding="utf-8"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
     <Encoding>
@@ -261,7 +274,8 @@ Zwróć uwagę na użycie makra {rozpoznawania} w nazwie pliku; Wskazuje on enco
       </Output>
     </Outputs>
     </Preset>
-    
+```
+
 ## <a name="example-of-generating-a-thumbnail-while-encoding"></a>Przykład generowania miniaturę podczas kodowania
 
 Gdy wszystkie powyższe przykłady ma już, jak można przesłać zadania kodowania, które tworzy tylko obrazy, można także połączyć kodowanie wideo i audio generacji miniatur. Poinformuj następujące ustawienie JSON i XML **Media Encoder Standard** do generowania miniaturę podczas kodowania.
@@ -269,6 +283,7 @@ Gdy wszystkie powyższe przykłady ma już, jak można przesłać zadania kodowa
 ### <a id="json"></a>Ustawienie wstępne JSON
 Aby uzyskać informacje o schemacie, zobacz [to](https://msdn.microsoft.com/library/mt269962.aspx) artykułu.
 
+```json
     {
       "Version": 1.0,
       "Codecs": [
@@ -328,10 +343,12 @@ Aby uzyskać informacje o schemacie, zobacz [to](https://msdn.microsoft.com/libr
         }
       ]
     }
+```
 
 ### <a id="xml"></a>Ustawienie wstępne XML
 Aby uzyskać informacje o schemacie, zobacz [to](https://msdn.microsoft.com/library/mt269962.aspx) artykułu.
-    
+
+```csharp
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -381,6 +398,7 @@ Aby uzyskać informacje o schemacie, zobacz [to](https://msdn.microsoft.com/libr
         </Output>
       </Outputs>
     </Preset>   
+```
 
 ## <a id="code_sample"></a>Kodowanie wideo i generowanie miniatur z platformą .NET
 
@@ -400,7 +418,7 @@ Poniższy przykład kodu wykorzystuje .NET SDK usługi Media Services do wykonyw
 
 Zobacz [tworzenia usługi Media Services z platformą .NET](media-services-dotnet-how-to-use.md) artykułu, aby uzyskać instrukcje dotyczące sposobu konfigurowania środowiska standardowego.
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;
@@ -542,7 +560,7 @@ Następujące kwestie:
   * Wartości domyślne: Start: {najlepsze}
 * Format danych wyjściowych muszą zostać jawnie dostarczone dla każdego formatu obrazu: BmpFormat-Jpg/Png. Jeśli jest obecny, rynkowej odpowiada JpgVideo do JpgFormat i tak dalej. OutputFormat wprowadza nowe określone makro koder-dekoder obrazów: {indeks}, która musi być zawierają (jeden raz i tylko jeden raz) formatów wyjściowych obrazu.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Możesz sprawdzić [postępu zadania](media-services-check-job-progress.md) podczas oczekujące zadania kodowania.
 
