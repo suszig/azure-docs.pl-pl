@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/04/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: dd3e5904ee21ee74da5adaa65abd7865a82c8b36
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: e48e9f833db86f01d944133c8a32d2c6b27b7b48
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-rest"></a>Uruchamianie zadań MapReduce z Hadoop w usłudze HDInsight za pomocą usługi REST
 
@@ -33,23 +33,46 @@ Dowiedz się, jak za pomocą interfejsu API REST usługi WebHCat do uruchomienia
 ## <a id="prereq"></a>Wymagania wstępne
 
 * Usługi w klastrze usługi HDInsight Hadoop
-* [Narzędzie curl](http://curl.haxx.se/)
-* [jq](http://stedolan.github.io/jq/)
+* Środowisko Windows PowerShell lub [Curl](http://curl.haxx.se/) i [jq](http://stedolan.github.io/jq/)
 
-## <a id="curl"></a>Uruchamianie zadań MapReduce przy użyciu programu Curl
+## <a id="curl"></a>Uruchomienie zadania MapReduce
 
 > [!NOTE]
 > Gdy używasz Curl lub innego połączenia REST z usługą WebHCat, wymagane jest uwierzytelnienie żądania przez podanie nazwy użytkownika administratora klastra usługi HDInsight i hasła. Należy użyć nazwy klastra jako część identyfikatora URI, który służy do wysyłania żądań do serwera.
 >
-> Dla poleceń w tej sekcji należy zastąpić **admin** z użytkownikiem w celu uwierzytelniania w klastrze. Zastąp ciąg **CLUSTERNAME** nazwą klastra. Po wyświetleniu monitu podaj hasło dla konta użytkownika.
->
 > Interfejs API REST jest zabezpieczony za pomocą [uwierzytelniania podstawowego dostępu](http://en.wikipedia.org/wiki/Basic_access_authentication). Należy zawsze tworzyć żądania przy użyciu protokołu HTTPS, aby upewnić się, że poświadczenia są bezpiecznie wysyłane do serwera.
 
-
-1. W wierszu polecenia wpisz następujące polecenie, aby sprawdzić możliwość nawiązania połączenia z klastrem usługi HDInsight:
+1. Aby ustawić logowania do klastra, który jest używany przez skrypty w tym dokumencie, użyj jednego z poleceń followig:
 
     ```bash
-    curl -u admin -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
+    read -p "Enter your cluster login account name: " LOGIN
+    ```
+
+    ```powershell
+    $creds = Get-Credential -UserName admin -Message "Enter the cluster login name and password"
+    ```
+
+2. Aby ustawić nazwę klastra, użyj jednej z następujących poleceń:
+
+    ```bash
+    read -p "Enter the HDInsight cluster name: " CLUSTERNAME
+    ```
+
+    ```powershell
+    $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
+    ```
+
+3. W wierszu polecenia wpisz następujące polecenie, aby sprawdzić możliwość nawiązania połączenia z klastrem usługi HDInsight:
+
+    ```bash
+    curl -u $LOGIN -G https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/status
+    ```
+
+    ```powershell
+    $resp = Invoke-WebRequest -Uri "https://$clustername.azurehdinsight.net/templeton/v1/status" `
+        -Credential $creds `
+        -UseBasicParsing
+    $resp.Content
     ```
 
     Pojawi się odpowiedź podobną do poniższej JSON:
@@ -63,15 +86,33 @@ Dowiedz się, jak za pomocą interfejsu API REST usługi WebHCat do uruchomienia
 
    Początek identyfikatora URI **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, jest taka sama dla wszystkich żądań.
 
-2. Aby przesłać zadania MapReduce, użyj następującego polecenia:
+4. Aby przesłać zadania MapReduce, użyj następującego polecenia:
 
     ```bash
-    curl -u admin -d user.name=admin -d jar=/example/jars/hadoop-mapreduce-examples.jar -d class=wordcount -d arg=/example/data/gutenberg/davinci.txt -d arg=/example/data/CurlOut https://CLUSTERNAME.azurehdinsight.net/templeton/v1/mapreduce/jar
+    JOBID=`curl -u $LOGIN -d user.name=$LOGIN -d jar=/example/jars/hadoop-mapreduce-examples.jar -d class=wordcount -d arg=/example/data/gutenberg/davinci.txt -d arg=/example/data/output https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/mapreduce/jar | jq .id`
+    echo $JOBID
+    ```
+
+    ```powershell
+    $reqParams = @{}
+    $reqParams."user.name" = "admin"
+    $reqParams.jar = "/example/jars/hadoop-mapreduce-examples.jar"
+    $reqParams.class = "wordcount"
+    $reqParams.arg = @()
+    $reqParams.arg += "/example/data/gutenberg/davinci.txt"
+    $reqparams.arg += "/example/data/output"
+    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/mapreduce/jar" `
+       -Credential $creds `
+       -Body $reqParams `
+       -Method POST `
+       -UseBasicParsing
+    $jobID = (ConvertFrom-Json $resp.Content).id
+    $jobID
     ```
 
     Koniec identyfikatora URI (/ mapreduce/jar) określa, że usługi WebHCat to żądanie rozpoczęcia zadania MapReduce z klasy w pliku jar. W tym poleceniu są używane następujące parametry:
 
-   * **-d**: `-G` nie jest używana, więc domyślnie żądania metody POST. `-d`Określa dane, które są wysyłane z żądania.
+   * **-d**: `-G` nie jest używana, więc domyślnie żądania metody POST. `-d` Określa dane, które są wysyłane z żądania.
     * **User.name**: użytkownik, który uruchamia polecenie
     * **JAR**: uruchomiono lokalizacji pliku jar, który zawiera klasę jako
     * **Klasa**: klasa, która zawiera logikę MapReduce
@@ -79,22 +120,32 @@ Dowiedz się, jak za pomocą interfejsu API REST usługi WebHCat do uruchomienia
 
    To polecenie powinny zostać zwrócone identyfikator zadania, który może służyć do sprawdzania stanu zadania:
 
-       {"id":"job_1415651640909_0026"}
+       job_1415651640909_0026
 
-3. Aby sprawdzić stan zadania, użyj następującego polecenia:
+5. Aby sprawdzić stan zadania, użyj następującego polecenia:
 
     ```bash
-    curl -G -u admin -d user.name=admin https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
+    curl -G -u $LOGIN -d user.name=$LOGIN https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/$JOBID | jq .status.state
     ```
 
-    Zastąp **JOBID** o wartości zwracanej w poprzednim kroku. Na przykład, jeśli była zwracana wartość `{"id":"job_1415651640909_0026"}`, następnie będzie identyfikator JOBID `job_1415651640909_0026`.
+    ```powershell
+    $reqParams=@{"user.name"="admin"}
+    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/jobs/$jobID" `
+       -Credential $creds `
+       -Body $reqParams `
+       -UseBasicParsing
+    # ConvertFrom-JSON can't handle duplicate names with different case
+    # So change one to prevent the error
+    $fixDup=$resp.Content.Replace("jobID","job_ID")
+    (ConvertFrom-Json $fixDup).status.state
+    ```
 
     Jeśli zadanie zostało zakończone, zwracany jest stan `SUCCEEDED`.
 
    > [!NOTE]
    > To żądanie Curl zwraca informacje o zadaniu dokumentu JSON. Jq służy do pobierania wartości stan.
 
-4. Gdy stan zadania został zmieniony na `SUCCEEDED`, wyniki zadania można pobrać z magazynu obiektów Blob platformy Azure. `statusdir` Parametr przekazywany z zapytaniem zawiera lokalizację pliku wyjściowego. W tym przykładzie jest lokalizacja `/example/curl`. Ten adres przechowuje dane wyjściowe zadania w magazynie domyślne klastrów w `/example/curl`.
+6. Gdy stan zadania został zmieniony na `SUCCEEDED`, wyniki zadania można pobrać z magazynu obiektów Blob platformy Azure. `statusdir` Parametr przekazywany z zapytaniem zawiera lokalizację pliku wyjściowego. W tym przykładzie jest lokalizacja `/example/curl`. Ten adres przechowuje dane wyjściowe zadania w magazynie domyślne klastrów w `/example/curl`.
 
 Można wyświetlić listę i takie pliki należy pobierać za pomocą [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). Aby uzyskać więcej informacji na temat pracy z obiektami blob z wiersza polecenia platformy Azure, zobacz [przy użyciu 2.0 interfejsu wiersza polecenia platformy Azure z usługą Azure Storage](../../storage/common/storage-azure-cli.md#create-and-manage-blobs) dokumentu.
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
-ms.openlocfilehash: 8576d590568a24df4c3320ec283edba7a28ab032
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 54fbba197f6609731ffaf3ff15143a28e70a955f
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="policies-in-azure-api-management"></a>Zasady w usłudze Azure API Management
 
@@ -27,7 +27,7 @@ Zasady są stosowane wewnątrz bramy, która znajduje się pomiędzy konsumenta 
 
 Wyrażenia zasad mogą służyć jako wartości atrybutów lub wartości tekstowe w dowolnej z zasad usługi API Management, o ile w zasadach nie określono inaczej. Niektóre zasady, takie jak [sterowania przepływem] [ Control flow] i [zmiennej zestaw] [ Set variable] zasady są oparte na wyrażeniach zasad. Aby uzyskać więcej informacji, zobacz [zaawansowane zasady] [ Advanced policies] i [wyrażenie zasad][Policy expressions].
 
-## <a name="sections"></a>Opis zasad konfiguracji
+## <a name="sections"> </a>Opis zasad konfiguracji
 
 Definicja zasad jest proste dokument XML, który opisuje sekwencji instrukcji dla ruchu przychodzącego i wychodzącego. Plik XML można edytować bezpośrednio w oknie definicji. Lista instrukcji znajduje się po prawej stronie i instrukcje mające zastosowanie do bieżącego zakresu są włączone i wyróżnione.
 
@@ -60,7 +60,7 @@ Konfiguracja jest podzielona na `inbound`, `backend`, `outbound`, i `on-error`. 
 
 Jeśli występuje błąd podczas przetwarzania żądania, wszystkie pozostałe kroki `inbound`, `backend`, lub `outbound` sekcje są pomijane i wykonywania przechodzi do instrukcji w `on-error` sekcji. Przez umieszczenie deklaracji zasad w `on-error` możesz przejrzeć kod błędu przy użyciu sekcji `context.LastError` właściwość, sprawdzić i dostosować za pomocą odpowiedzi błędu `set-body` zasad i skonfigurować, co się stanie w przypadku wystąpienia błędu. Brak kody błędów dla wbudowanych kroków i błędy, które mogą wystąpić podczas przetwarzania zasady. Aby uzyskać więcej informacji, zobacz [obsługi błędów w zasad interfejsu API zarządzania](https://msdn.microsoft.com/library/azure/mt629506.aspx).
 
-## <a name="scopes"></a>Sposobu konfigurowania zasad
+## <a name="scopes"> </a>Jak skonfigurować zasady
 
 Aby uzyskać informacje na temat sposobu konfigurowania zasad, zobacz [ustawić lub edytować zasady](set-edit-policies.md).
 
@@ -112,12 +112,6 @@ Ogranicza liczby żądań przychodzących i zaakceptować tylko te z adresu IP 1
     <address>1.2.3.4</address>
 </ip-filter>
 ```
-
-## <a name="video"></a>Połączenia wideo
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Policy-Expressions-in-Azure-API-Management/player]
-> 
-> 
 
 ## <a name="next-steps"></a>Kolejne kroki
 

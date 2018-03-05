@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 273efe0bdef421d753ea51e01060d48351cbe6fc
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 532dd399d2d5fcbab616744dd02f4a95078cbb1b
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="multi-tenant-support-in-azure-site-recovery-for-replicating-vmware-virtual-machines-to-azure-through-csp"></a>Obsługa wielu dzierżawców w usłudze Azure Site Recovery replikację maszyn wirtualnych VMware do platformy Azure za pośrednictwem dostawcy usług Kryptograficznych
 
@@ -115,17 +115,17 @@ Poprzedniej sekcji opisano sposób konfigurowania środowiska z wieloma dzierża
 
 Jak pokazano na poniższym diagramie, architektury różnica w dedykowane rozwiązania hostingu jest, że infrastruktura każdego dzierżawcy jest skonfigurowany dla tej dzierżawy tylko. Ponieważ dzierżaw są izolowane za pomocą osobnych Vcenter, dostawcy hostingu musi nadal zawiera procedura dostawcy usług Kryptograficznych dla udostępniona Usługa hostingu, ale nie trzeba martwić izolacji dzierżawców. Instalator dostawcy usług Kryptograficznych pozostaje niezmieniona.
 
-![Architektura udostępnione hsp](./media/site-recovery-multi-tenant-support-vmware-using-csp/dedicated-hosting-scenario.png)  
+![architecture-shared-hsp](./media/site-recovery-multi-tenant-support-vmware-using-csp/dedicated-hosting-scenario.png)  
 **Dedykowany hostingu scenariusza z wieloma Vcenter**
 
 ### <a name="managed-service-solution"></a>Usługi zarządzane przez rozwiązanie
 
 Jak pokazano na poniższym diagramie, architektury różnica w rozwiązaniu zarządzanych usług jest infrastruktury każdego dzierżawcy jest również fizycznie oddzielona od innych dzierżaw infrastruktury. W tym scenariuszu zwykle występuje, gdy dzierżawa jest właścicielem infrastruktury i chce dostawcę rozwiązania do zarządzania odzyskiwania po awarii. Ponownie ponieważ dzierżaw są fizycznie izolowane za pośrednictwem różnych infrastruktur, konieczność partnera postępuj zgodnie z instrukcjami dostawcy usług Kryptograficznych przewidzianych udostępniona Usługa hostingu, ale nie trzeba martwić izolacji dzierżawców. Inicjowanie obsługi administracyjnej dostawcy usług Kryptograficznych pozostaje niezmieniona.
 
-![Architektura udostępnione hsp](./media/site-recovery-multi-tenant-support-vmware-using-csp/managed-service-scenario.png)  
+![architecture-shared-hsp](./media/site-recovery-multi-tenant-support-vmware-using-csp/managed-service-scenario.png)  
 **Zarządzane usługi scenariusza z wieloma Vcenter**
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Dowiedz się więcej](site-recovery-role-based-linked-access-control.md) o kontroli dostępu opartej na rolach do zarządzania wdrożenia usługi Azure Site Recovery.
 
 [Zarządzanie wielu dzierżawców z dostawcy usług Kryptograficznych](site-recovery-manage-multi-tenancy-with-csp.md)

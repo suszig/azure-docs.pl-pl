@@ -10,11 +10,11 @@ ms.author: dmpechyo
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: f0c466c433701c295bde00258d9ff7fd267b71f7
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 467111978d43d35788276cf7a464496393e4599b
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Rozproszone dostrojenie hyperparameters przy użyciu usługi Azure Machine Learning Workbench
 
@@ -39,19 +39,14 @@ Przy użyciu krzyżowego sprawdzania poprawności wyszukiwania siatki może być
 * Zainstalowana kopia programu [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) następujące [zainstalować i utworzyć szybkiego startu](./quickstart-installation.md) zainstalować Workbench i tworzenia kont.
 * W tym scenariuszu przyjęto założenie, że Workbench uczenia Maszynowego Azure są uruchomione na systemu Windows 10 lub MacOS z aparatem platformy Docker zainstalowane lokalnie. 
 * Do uruchomienia w scenariuszu z kontenerem Docker zdalnego, należy udostępnić Ubuntu danych nauki maszyny wirtualnej (DSVM), postępując [instrukcje](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). Zaleca się używania maszyny wirtualnej z co najmniej 8 rdzeni i 28 Gb pamięci. D4 wystąpień maszyn wirtualnych ma takie wydajności. 
-* Aby uruchomić ten scenariusz z klastrem Spark, należy udostępnić klaster Azure HDInsight wykonując te [instrukcje](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).   
-Zaleca się o klastrze z co najmniej:
-    - sześciu węzłów procesu roboczego
+* Aby uruchomić ten scenariusz z klastrem Spark, wykonując te obsługi administracyjnej klastra Spark w usłudze HDInsight [instrukcje](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). Zalecamy posiadanie zarówno nagłówka i proces roboczy węzłów klastra przy użyciu następującej konfiguracji:
+    - czterech węzłów procesu roboczego
     - osiem rdzeni
-    - 28 Gb pamięci w węzłach zarówno nagłówka i proces roboczy. D4 wystąpień maszyn wirtualnych ma takie wydajności.       
-    - Firma Microsoft zaleca zmianę następujących parametrów, aby zmaksymalizować wydajność klastra:
-        - Spark.Executor.instances
-        - Spark.Executor.cores
-        - Spark.Executor.Memory 
+    - 28 Gb pamięci  
+      
+  D4 wystąpień maszyn wirtualnych ma takie wydajności. 
 
-Możesz wykonać te [instrukcje](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-resource-manager) i edycję definicji w sekcji "spark niestandardowe ustawienia domyślne".
-
-     **Troubleshooting**: Your Azure subscription might have a quota on the number of cores that can be used. The Azure portal does not allow the creation of cluster with the total number of cores exceeding the quota. To find you quota, go in the Azure portal to the Subscriptions section, click on the subscription used to deploy a cluster and then click on **Usage+quotas**. Usually quotas are defined per Azure region and you can choose to deploy the Spark cluster in a region where you have enough free cores. 
+     **Rozwiązywanie problemów z**: subskrypcji Your Azure może być limit przydziału liczby rdzeni, które mogą być używane. Azure portal pozwala na tworzenie klastra z łączną liczbą przekracza limit przydziału rdzeni. Aby znaleźć przydziału, przejdź w portalu Azure w sekcji subskrypcji, kliknij przycisk z subskrypcją użytą do wdrażania klastra, a następnie kliknij polecenie **użycia + przydziały**. Zazwyczaj przydziały są definiowane dla każdego regionu systemu Azure i są dostępne do wdrożenia klastra Spark w regionie, w którym masz wystarczająco dużo wolnego rdzeni. 
 
 * Tworzenie konta magazynu Azure używanego do przechowywania zestawu danych. Postępuj zgodnie z [instrukcje](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) można utworzyć konta magazynu.
 
@@ -112,13 +107,13 @@ W dwóch następnych sekcjach zostanie przedstawiony sposób ukończenia konfigu
 
 z adresu IP adres, nazwę użytkownika i hasło w DSVM. Adres IP DSVM można znaleźć w sekcji Przegląd strony DSVM w portalu Azure:
 
-![IP MASZYNY WIRTUALNEJ](media/scenario-distributed-tuning-of-hyperparameters/vm_ip.png)
+![VM IP](media/scenario-distributed-tuning-of-hyperparameters/vm_ip.png)
 
 #### <a name="configuration-of-spark-cluster"></a>Konfiguracja klastra Spark
 
 Aby skonfigurować środowisko Spark, uruchom w interfejsu wiersza polecenia
 
-    az ml computetarget attach cluster--name spark --address <cluster name>-ssh.azurehdinsight.net  --username <username> --password <password> 
+    az ml computetarget attach cluster --name spark --address <cluster name>-ssh.azurehdinsight.net  --username <username> --password <password> 
 
 z nazwą klastra, nazwa użytkownika SSH klastra i hasło. Wartość domyślna nazwa użytkownika SSH jest `sshuser`, chyba że zostanie zmienione podczas inicjowania obsługi klastra. Nazwa klastra można znaleźć w sekcji właściwości strony klastra w portalu Azure:
 
@@ -126,14 +121,20 @@ z nazwą klastra, nazwa użytkownika SSH klastra i hasło. Wartość domyślna n
 
 Używamy spark sklearn pakietu na środowiska wykonawczego dla rozproszonych dostrojenie hyperparameters Spark. Firma Microsoft zmodyfikowany plik spark_dependencies.yml, aby zainstalować ten pakiet, gdy jest używana platforma Spark środowiska wykonawczego:
 
-    configuration: {}
+    configuration: 
+      #"spark.driver.cores": "8"
+      #"spark.driver.memory": "5200m"
+      #"spark.executor.instances": "128"
+      #"spark.executor.memory": "5200m"  
+      #"spark.executor.cores": "2"
+  
     repositories:
       - "https://mmlspark.azureedge.net/maven"
       - "https://spark-packages.org/packages"
     packages:
       - group: "com.microsoft.ml.spark"
         artifact: "mmlspark_2.11"
-        version: "0.7"
+        version: "0.7.91"
       - group: "databricks"
         artifact: "spark-sklearn"
         version: "0.2.0"
@@ -199,9 +200,9 @@ w oknie interfejsu wiersza polecenia.
 Ponieważ lokalne środowisko jest za mały dla przetwarzania się, że wszystkie zestawy funkcji, możemy Przełącz się do DSVM zdalnego, z większą pamięcią. Wykonanie wewnątrz DSVM odbywa się w kontenerze Docker, który jest zarządzany przez AML Workbench. Za pomocą tego DSVM możemy obliczeniowe wszystkich funkcji i modeli uczenia i dostrajania hyperparameters (zobacz następną sekcję). Plik singleVM.py ma obliczania funkcji pełne i modelowanie kodu. W następnej sekcji zostanie zostanie przedstawiony sposób uruchamiania singleVM.py w DSVM zdalnego. 
 
 ### <a name="tuning-hyperparameters-using-remote-dsvm"></a>Dostrajanie hyperparameters przy użyciu zdalnego DSVM
-Używamy [xgboost](https://anaconda.org/conda-forge/xgboost) zwiększania gradientu drzewa wykonania [1]. Używamy [scikit — Dowiedz się](http://scikit-learn.org/) pakietu, aby dostroić hyperparameters xgboost. Mimo że xgboost nie jest częścią scikit — Dowiedz się pakiet, implementuje scikit — Dowiedz się interfejsu API i dlatego mogą być używane razem z hyperparameter dostrajania funkcji scikit — Dowiedz się więcej. 
+Używamy [xgboost](https://anaconda.org/conda-forge/xgboost) zwiększania gradientu drzewa wykonania [1]. Korzystamy również [scikit — Dowiedz się](http://scikit-learn.org/) pakietu, aby dostroić hyperparameters xgboost. Mimo że xgboost nie jest częścią scikit — Dowiedz się pakiet, implementuje scikit — Dowiedz się interfejsu API i dlatego mogą być używane razem z hyperparameter dostrajania funkcji scikit — Dowiedz się więcej. 
 
-Xgboost ma osiem hyperparameters:
+Xgboost ma osiem hyperparameters, opisane [tutaj](https://github.com/dmlc/xgboost/blob/master/doc/parameter.md):
 * n_estimators
 * max_depth
 * reg_alpha
@@ -210,14 +211,13 @@ Xgboost ma osiem hyperparameters:
 * learning_rate
 * colsample\_by_level
 * podpróbki
-* cel opis tych hyperparameters znajduje się w temacie
-- http://xgboost.readthedocs.IO/en/Latest/Python/python_api.HTML#module-xgboost.sklearn-https://github.com/dmlc/xgboost/blob/master/doc/parameter.md). 
-- 
+* Cel  
+ 
 Początkowo możemy użyć zdalnego DSVM i dostrajania hyperparameters z małych siatki candidate wartości:
 
     tuned_parameters = [{'n_estimators': [300,400], 'max_depth': [3,4], 'objective': ['multi:softprob'], 'reg_alpha': [1], 'reg_lambda': [1], 'colsample_bytree': [1],'learning_rate': [0.1], 'colsample_bylevel': [0.1,], 'subsample': [0.5]}]  
 
-Ta siatka ma cztery kombinacje wartości hyperparameters. Używamy 5-fold krzyżowego sprawdzania poprawności, wynikowy 4 x 5 = 20 działa z xgboost. Do pomiaru wydajności modeli, używamy pomiar utraty ujemna dziennika. Poniższy kod umożliwia znalezienie wartości hyperparameters z siatki, które zmaksymalizować utraty krzyżowego sprawdzania poprawności ujemna dziennika. Kod używa także te wartości do nauczenia modelu końcowego za pośrednictwem zestawu szkoleniowego pełnej:
+Ta siatka ma cztery kombinacje wartości hyperparameters. Używamy 5-fold krzyżowego sprawdzania poprawności co 4 x 5 = 20 działa z xgboost. Do pomiaru wydajności modeli, używamy pomiar utraty ujemna dziennika. Poniższy kod umożliwia znalezienie wartości hyperparameters z siatki, które zmaksymalizować utraty krzyżowego sprawdzania poprawności ujemna dziennika. Kod używa także te wartości do nauczenia modelu końcowego za pośrednictwem zestawu szkoleniowego pełnej:
 
     clf = XGBClassifier(seed=0)
     metric = 'neg_log_loss'
@@ -285,7 +285,7 @@ Używamy klastra Spark do skalowania w poziomie dostrajanie hyperparameters i u�
 
 Ta siatka ma 16 kombinacje wartości hyperparameters. Ponieważ używamy 5-fold krzyżowego sprawdzania poprawności przeprowadzana xgboost 16 x 5 = 80 razy.
 
-scikit — Dowiedz się pakiet nie ma natywnej obsługi programu Dostrajanie hyperparameters przy użyciu klastra Spark. Na szczęście [spark sklearn](https://spark-packages.org/package/databricks/spark-sklearn) pakietu z Databricks wypełnia luki. Ten pakiet zawiera funkcję GridSearchCV, która ma prawie tego samego interfejsu API funkcji GridSearchCV w scikit — Dowiedz się więcej. Użyj spark sklearn i dostrajania hyperparameters przy użyciu Spark musimy połączenia można utworzyć kontekstu Spark
+scikit — Dowiedz się pakiet nie ma natywnej obsługi programu Dostrajanie hyperparameters przy użyciu klastra Spark. Na szczęście [spark sklearn](https://spark-packages.org/package/databricks/spark-sklearn) pakietu z Databricks wypełnia luki. Ten pakiet zawiera funkcję GridSearchCV, która ma prawie tego samego interfejsu API funkcji GridSearchCV w scikit — Dowiedz się więcej. Użyj spark sklearn i dostrajania hyperparameters przy użyciu Spark, należy utworzyć w kontekście Spark
 
     from pyspark import SparkContext
     sc = SparkContext.getOrCreate()

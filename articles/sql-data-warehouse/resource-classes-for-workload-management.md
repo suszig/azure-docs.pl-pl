@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 10/23/2017
 ms.author: joeyong;barbkess;kavithaj
-ms.openlocfilehash: 122646f73b6e4e7c62eb0e6d4b6672b603d8acb2
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: c76fb73c9beda93c407d1af29e157682c7fe58c0
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="resource-classes-for-workload-management"></a>Klasy zasobów do zarządzania obciążenia
 Wskazówki dotyczące liczby równoczesnych zapytań, uruchamiać jednocześnie, które zasoby zapytań w usłudze Azure SQL Data Warehouse obliczeniowe zarządzanie za pomocą klasy zasobów.
@@ -85,6 +85,11 @@ EXEC sp_droprolemember 'largerc', 'loaduser';
 
 Klasa zasobu administratora usługi jest stała i nie można zmienić.  Administrator usługi jest użytkownika utworzonym podczas procesu inicjowania obsługi administracyjnej.
 
+> [!NOTE]
+> Użytkowników lub grup zdefiniowanych jako administratora usługi Active Directory są również administratorami usługi.
+>
+>
+
 ### <a name="default-resource-class"></a>Domyślna klasa zasobów
 Domyślnie każdy użytkownik jest członkiem klasy zasobu małych **smallrc**. 
 
@@ -113,7 +118,7 @@ Poniższe instrukcje są wykluczone z klasy zasobów i są zawsze uruchamiane w 
 * WSTAW WARTOŚCI
 * Wybierz z widoków systemowych i widoków DMV
 * WYJAŚNIĆ
-* POLECENIE DBCC
+* DBCC
 
 <!--
 Removed as these two are not confirmed / supported under SQLDW
@@ -126,7 +131,7 @@ Removed as these two are not confirmed / supported under SQLDW
 Firma Microsoft zaleca się tworzenie użytkownika służącego do uruchamiania określonego typu zapytania lub załadować operacji. Następnie nadaj użytkownika klasę zasobu o stały zamiast klasy zasobów częste zmiany. Biorąc pod uwagę, że klas statycznych zasobów zapewniają większą kontrolę ogólną obciążenia pracą również sugerować się przy użyciu tych pierwszy przed uwzględnieniu klasy zasobu dynamicznego.
 
 ### <a name="resource-classes-for-load-users"></a>Klasy zasobów dla obciążenia użytkownikami
-`CREATE TABLE`używa klastrowane indeksy magazynu kolumn domyślnie. Kompresowanie danych do magazynu kolumn indeksu jest operacją intensywnie pamięci i wykorzystania pamięci może zmniejszyć jakości indeksu. W związku z tym najprawdopodobniej podczas ładowania danych będą musieli wyższej klasy zasobów. Aby zapewnić, że obciążenie ma za mało pamięci, można utworzyć użytkownika, który został wybrany do uruchamiania obciążeń i przypisz tego użytkownika do wyższych klasy zasobów.
+`CREATE TABLE` używa klastrowane indeksy magazynu kolumn domyślnie. Kompresowanie danych do magazynu kolumn indeksu jest operacją intensywnie pamięci i wykorzystania pamięci może zmniejszyć jakości indeksu. W związku z tym najprawdopodobniej podczas ładowania danych będą musieli wyższej klasy zasobów. Aby zapewnić, że obciążenie ma za mało pamięci, można utworzyć użytkownika, który został wybrany do uruchamiania obciążeń i przypisz tego użytkownika do wyższych klasy zasobów.
 
 Pamięci niezbędnego do przetworzenia wydajne obciążenia zależy od charakteru tabeli załadowane i rozmiar danych. Aby uzyskać więcej informacji o ilości pamięci, zobacz [maksymalizacja jakości i](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
@@ -168,9 +173,9 @@ W tym miejscu jest celem tej procedury składowanej:
 ### <a name="usage-example"></a>Przykład użycia:
 Składnia:  
 `EXEC dbo.prc_workload_management_by_DWU @DWU VARCHAR(7), @SCHEMA_NAME VARCHAR(128), @TABLE_NAME VARCHAR(128)`  
-1. @DWU:Należy podać parametr o wartości NULL do wyodrębnienia bieżącej wartości DWU z bazy danych magazynu danych lub podaj wszystkie obsługiwane DWU w postaci "DW100"
-2. @SCHEMA_NAME:Podaj nazwę schematu tabeli
-3. @TABLE_NAME:Podaj nazwę tabeli odsetek
+1. @DWU: Należy podać parametr o wartości NULL do wyodrębnienia bieżącej wartości DWU z bazy danych magazynu danych lub podaj wszystkie obsługiwane DWU w postaci "DW100"
+2. @SCHEMA_NAME: Podaj nazwę schematu tabeli
+3. @TABLE_NAME: Podaj nazwę tabeli odsetek
 
 Przykłady wykonywania tej procedury przechowywanej:  
 ```sql  
@@ -501,7 +506,7 @@ GO
 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby uzyskać więcej informacji o zarządzaniu bazy danych użytkowników i zabezpieczeń, zobacz [Zabezpieczanie bazy danych w usłudze SQL Data Warehouse][Secure a database in SQL Data Warehouse]. Aby uzyskać więcej informacji na temat sposobu większe grupy zasobów może zwiększyć jakość indeksu klastrowanego magazynu kolumn, zobacz [optymalizacji pamięci magazynu kolumn kompresji](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
 <!--Image references-->

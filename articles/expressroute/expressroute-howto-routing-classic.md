@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: 37713db70f3ae837edafc997b78b16b121d0a885
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d6c675d314e96cd0caab7e5eb5c60e3b1458e4a0
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Tworzenie i modyfikowanie komunikacji równorzędnej dla obwodu usługi ExpressRoute (klasyczne)
 > [!div class="op_single_selector"]
@@ -78,10 +78,10 @@ Ta sekcja zawiera instrukcje dotyczące tworzenia, pobierania, aktualizowania i 
 ### <a name="to-create-azure-private-peering"></a>Aby utworzyć prywatną komunikację równorzędną
 1. **Zaimportuj moduł programu PowerShell dla usługi ExpressRoute.**
    
-    Aby rozpocząć korzystanie z poleceń cmdlet usługi ExpressRoute, należy zaimportować moduły Azure i usługi ExpressRoute w sesji programu PowerShell. Uruchom następujące polecenia, aby zaimportować moduły Azure i usługi ExpressRoute do sesji programu PowerShell.  
+    Aby rozpocząć korzystanie z poleceń cmdlet usługi ExpressRoute, należy zaimportować moduły Azure i usługi ExpressRoute w sesji programu PowerShell. Uruchom następujące polecenia, aby zaimportować moduły Azure i usługi ExpressRoute do sesji programu PowerShell. Wersja może się różnić.    
    
-        Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
-        Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
+        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
+        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
 2. **Utworzyć obwodu usługi ExpressRoute.**
    
     Wypełnij instrukcje, aby utworzyć [obwód usługi ExpressRoute](expressroute-howto-circuit-classic.md), który zostanie zainicjowany przez dostawcę połączenia. Jeśli dostawca połączenia oferuje zarządzane usługi warstwy 3, możesz poprosić go o włączenie prywatnej komunikacji równorzędnej Azure. W takiej sytuacji nie trzeba będzie wykonywać instrukcji wymienionych w następnych sekcjach. Jednak jeśli dostawca połączenia nie zarządza routingiem, po utworzeniu obwodu postępuj zgodnie z poniższymi instrukcjami. 
@@ -116,11 +116,11 @@ Ta sekcja zawiera instrukcje dotyczące tworzenia, pobierania, aktualizowania i 
      
     Możesz uruchomić następujące polecenie cmdlet, aby skonfigurować prywatną komunikację równorzędną Azure dla obwodu.
      
-        Nowe AzureBGPPeering - AccessType prywatny - bindingTemplate "***" - PrimaryPeerSubnet "10.0.0.0/30" - SecondaryPeerSubnet "10.0.0.4/30" - PeerAsn 1234 - VlanId 100
+        New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100
      
     Możesz użyć poniższego polecenia cmdlet, jeśli zdecydujesz się używać skrótu MD5.
      
-        Nowe AzureBGPPeering - AccessType prywatny - bindingTemplate "***" - PrimaryPeerSubnet "10.0.0.0/30" - SecondaryPeerSubnet "10.0.0.4/30" - PeerAsn 1234 - VlanId 100 - SharedKey "A1B2C3D4"
+        New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100 -SharedKey "A1B2C3D4"
      
      > [!IMPORTANT]
      > Pamiętaj, aby określić numer AS jako ASN komunikacji równorzędnej, a nie ASN klienta.
@@ -168,10 +168,10 @@ Ta sekcja zawiera instrukcje dotyczące tworzenia, pobierania, aktualizowania i 
 ### <a name="to-create-azure-public-peering"></a>Aby utworzyć publiczną komunikację równorzędną Azure
 1. **Zaimportuj moduł programu PowerShell dla usługi ExpressRoute.**
    
-    Aby rozpocząć korzystanie z poleceń cmdlet usługi ExpressRoute, należy zaimportować moduły Azure i usługi ExpressRoute w sesji programu PowerShell. Uruchom następujące polecenia, aby zaimportować moduły Azure i usługi ExpressRoute do sesji programu PowerShell. 
+    Aby rozpocząć korzystanie z poleceń cmdlet usługi ExpressRoute, należy zaimportować moduły Azure i usługi ExpressRoute w sesji programu PowerShell. Uruchom następujące polecenia, aby zaimportować moduły Azure i usługi ExpressRoute do sesji programu PowerShell. Wersja może się różnić.   
    
-        Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
-        Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
+        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
+        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
 2. **Create an ExpressRoute circuit (Tworzenie obwodu usługi ExpressRoute)**
    
     Wypełnij instrukcje, aby utworzyć [obwód usługi ExpressRoute](expressroute-howto-circuit-classic.md), który zostanie zainicjowany przez dostawcę połączenia. Jeśli dostawca połączenia oferuje zarządzane usługi warstwy 3, możesz poprosić go o włączenie publicznej komunikacji równorzędnej Azure. W takiej sytuacji nie trzeba będzie wykonywać instrukcji wymienionych w następnych sekcjach. Jednak jeśli dostawca połączenia nie zarządza routingiem, po utworzeniu obwodu postępuj zgodnie z poniższymi instrukcjami.
@@ -206,11 +206,11 @@ Ta sekcja zawiera instrukcje dotyczące tworzenia, pobierania, aktualizowania i 
      
     Możesz uruchomić następujące polecenie cmdlet, aby skonfigurować publiczną komunikację równorzędną Azure dla obwodu.
      
-        Nowe AzureBGPPeering - AccessType publicznego - bindingTemplate "***" - PrimaryPeerSubnet "131.107.0.0/30" - SecondaryPeerSubnet "131.107.0.4/30" - PeerAsn 1234 - VlanId 200
+        New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200
      
     Możesz użyć poniższego polecenia cmdlet, jeśli zdecydujesz się używać skrótu MD5.
      
-        Nowe AzureBGPPeering - AccessType publicznego - bindingTemplate "***" - PrimaryPeerSubnet "131.107.0.0/30" - SecondaryPeerSubnet "131.107.0.4/30" - PeerAsn 1234 - VlanId 200 - SharedKey "A1B2C3D4"
+        New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200 -SharedKey "A1B2C3D4"
      
      > [!IMPORTANT]
      > Pamiętaj, aby określić numer AS jako ASN komunikacji równorzędnej, a nie ASN klienta.
@@ -254,10 +254,10 @@ Ta sekcja zawiera instrukcje dotyczące tworzenia, pobierania, aktualizowania i 
 ### <a name="to-create-microsoft-peering"></a>Aby utworzyć komunikację równorzędną Microsoft
 1. **Zaimportuj moduł programu PowerShell dla usługi ExpressRoute.**
    
-    Aby rozpocząć korzystanie z poleceń cmdlet usługi ExpressRoute, należy zaimportować moduły Azure i usługi ExpressRoute w sesji programu PowerShell. Uruchom następujące polecenia, aby zaimportować moduły Azure i usługi ExpressRoute do sesji programu PowerShell.  
+    Aby rozpocząć korzystanie z poleceń cmdlet usługi ExpressRoute, należy zaimportować moduły Azure i usługi ExpressRoute w sesji programu PowerShell. Uruchom następujące polecenia, aby zaimportować moduły Azure i usługi ExpressRoute do sesji programu PowerShell. Wersja może się różnić.   
    
-        Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
-        Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
+        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
+        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
 2. **Create an ExpressRoute circuit (Tworzenie obwodu usługi ExpressRoute)**
    
     Wypełnij instrukcje, aby utworzyć [obwód usługi ExpressRoute](expressroute-howto-circuit-classic.md), który zostanie zainicjowany przez dostawcę połączenia. Jeśli dostawca połączenia oferuje zarządzane usługi warstwy 3, możesz poprosić go o włączenie prywatnej komunikacji równorzędnej Azure. W takiej sytuacji nie trzeba będzie wykonywać instrukcji wymienionych w następnych sekcjach. Jednak jeśli dostawca połączenia nie zarządza routingiem, po utworzeniu obwodu postępuj zgodnie z poniższymi instrukcjami.
@@ -295,7 +295,7 @@ Ta sekcja zawiera instrukcje dotyczące tworzenia, pobierania, aktualizowania i 
      
     Można uruchomić następujące polecenie cmdlet, aby skonfigurować pering firmy Microsoft dla obwodu
      
-        Nowe AzureBGPPeering - AccessType Microsoft - bindingTemplate "***" - PrimaryPeerSubnet "131.107.0.0/30" - SecondaryPeerSubnet "131.107.0.4/30" - VlanId 300 - PeerAsn 1234 - CustomerAsn 2245 - AdvertisedPublicPrefixes " 123.0.0.0/30 "- RoutingRegistryName"ARIN"- SharedKey"A1B2C3D4"
+        New-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
 
 ### <a name="to-view-microsoft-peering-details"></a>Aby wyświetlić szczegóły dotyczące komunikacji równorzędnej firmy Microsoft
 Możesz pobrać szczegóły dotyczące konfiguracji przy użyciu następującego polecenia cmdlet.

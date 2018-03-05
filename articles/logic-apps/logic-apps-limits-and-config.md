@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 8de3cc6665fc3861aedcf4f36cdce4a4a776e80d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
-ms.translationtype: MT
+ms.openlocfilehash: 5c4597ede16f01c36e147dc0d70acf4b4f5635e8
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Ograniczenia aplikacji logiki i konfiguracji
 
@@ -58,15 +58,22 @@ Ograniczenia te dotyczą pojedyncze żądanie HTTP lub wywołanie łącznika.
 
 Te limity mają zastosowanie do aplikacji logiki pojedynczego uruchomienia.
 
-| Name (Nazwa) | Limit | 
-| ---- | ----- | 
-| Czas trwania testu | 90 dni | 
-| Magazyn przechowywania | Godzina rozpoczęcia 90 dni od uruchomienia | 
-| Interwał cyklu min | 1 sekunda </br>Dla aplikacji logiki z planu usługi App Service: 15 sekund | 
-| Maksymalny interwał cyklu | 500 dni | 
-||| 
+| Name (Nazwa) | Domyślne | Limit |
+| ---- | ------- | ----- |
+| Czas trwania testu   | 90 dni | 7 do 90 dni |
+| Magazyn przechowywania | Godzina rozpoczęcia 90 dni od uruchomienia |  Godzina rozpoczęcia 7 do 90 dni od uruchomienia |
+||||
 
 Przekroczenie limitu czas trwania testu lub przechowywania magazynu z przepływu normalnego przetwarzania [skontaktuj się z zespołem produktu](mailto://logicappsemail@microsoft.com) uzyskiwania pomocy z wymaganiami.
+
+
+### <a name="recurrence-interval"></a>Interwał cyklu
+
+| Name (Nazwa) | Limit |
+| ---- | ------- |
+| Interwał cyklu min | 1 sekunda </br>Dla aplikacji logiki z planu usługi App Service: 15 sekund |
+| Maksymalny interwał cyklu | 500 dni |
+|||
 
 ### <a name="looping-and-debatching-limits"></a>Powtarzanie i debatching limity
 
@@ -75,7 +82,7 @@ Te limity mają zastosowanie do aplikacji logiki pojedynczego uruchomienia.
 | Name (Nazwa) | Limit | Uwagi | 
 | ---- | ----- | ----- | 
 | Elementy ForEach | 100,000 | Można użyć [zapytania akcji](../connectors/connectors-native-query.md) do filtrowania większych tablice zgodnie z potrzebami. | 
-| Do iteracji | 5,000 | | 
+| Do iteracji | 5000 | | 
 | Elementy SplitOn | 100,000 | | 
 | Równoległość ForEach | 50 | Wartość domyślna to 20. <p>Określony poziom równoległości w pętli ForEach ustawia `runtimeConfiguration` właściwości w `foreach` akcji. <p>Aby uruchomić sekwencyjnie pętli ForEach, ustaw `operationOptions` właściwości na wartość "Sequential" w `foreach` akcji. | 
 |||| 
@@ -109,10 +116,10 @@ Te limity mają zastosowanie do definicji aplikacji logiki pojedynczego.
 | Liczba zmiennych dla przepływu pracy | 250 | | 
 | Maksymalna liczba znaków w wyrażeniu | 8192 | | 
 | Maksymalna liczba `trackedProperties` w znakach rozmiarze | 16,000 | 
-| `action`/`trigger`limit nazwy | 80 | | 
-| `description`limit długości | 256 | | 
-| `parameters`limit | 50 | | 
-| `outputs`limit | 10 | | 
+| `action`/`trigger` limit nazwy | 80 | | 
+| `description` limit długości | 256 | | 
+| `parameters` Limit | 50 | | 
+| `outputs` Limit | 10 | | 
 |||| 
 
 <a name="custom-connector-limits"></a>

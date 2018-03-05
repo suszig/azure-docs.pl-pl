@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: 33b9c36d4600646c36a519e647bd8cc8b6d68666
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1aa75b87b01417b8864632b7a09539bd6be05d0b
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Instalowanie i konfigurowanie pulpitu zdalnego, aby nawiązać połączenie Maszynę wirtualną systemu Linux na platformie Azure
 Maszyny wirtualne systemu Linux (VM) na platformie Azure zwykle są zarządzane z poziomu wiersza polecenia przy użyciu połączenia bezpiecznej powłoki (SSH). Gdy nowy, Linux lub szybkiego scenariuszach rozwiązywania problemów, użyj pulpitu zdalnego może być łatwiejsze. W tym artykule szczegółowo przedstawiają, jak zainstalować i skonfigurować środowisko pulpitu ([xfce](https://www.xfce.org)) i pulpitu zdalnego ([xrdp](http://www.xrdp.org)) dla maszyny Wirtualnej systemu Linux przy użyciu modelu wdrażania Menedżera zasobów.
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-W tym artykule wymaga istniejącej maszyny Wirtualnej systemu Linux na platformie Azure. Jeśli musisz utworzyć maszyny Wirtualnej, użyj jednej z następujących metod:
+W tym artykule wymaga istniejącego 16.04 LTS maszyny Wirtualnej systemu Ubuntu na platformie Azure. Jeśli musisz utworzyć maszyny Wirtualnej, użyj jednej z następujących metod:
 
 - [Azure CLI 2.0](quick-create-cli.md)
 - [Portalu Azure](quick-create-portal.md)
@@ -34,7 +34,7 @@ W tym artykule wymaga istniejącej maszyny Wirtualnej systemu Linux na platformi
 ## <a name="install-a-desktop-environment-on-your-linux-vm"></a>Zainstaluj środowisko pulpitu na maszynie Wirtualnej systemu Linux
 Większość maszyn wirtualnych systemu Linux na platformie Azure nie masz środowisko pulpitu instalowane domyślnie. Maszyn wirtualnych systemu Linux są często zarządzane za pomocą połączeń SSH, a nie środowiska pulpitu. Istnieją różne środowiska pulpitu w systemie Linux, możesz wybrać następujące opcje. W zależności od wybranych środowiska pulpitu może korzystać z jednego do 2 GB miejsca na dysku i podjąć 5-10 minut, aby zainstalować i skonfigurować wymagane pakiety.
 
-W poniższym przykładzie instalowana niewielka [xfce4](https://www.xfce.org/) środowiska pulpitu na maszynie Wirtualnej systemu Ubuntu. Polecenia dla innych dystrybucje się nieco różnić (Użyj `yum` zainstalować w systemie Red Hat Enterprise Linux i skonfigurować odpowiednie `selinux` reguły lub użyj `zypper` do zainstalowania w systemie SUSE, na przykład).
+W poniższym przykładzie instalowana niewielka [xfce4](https://www.xfce.org/) środowiska pulpitu na maszynie Wirtualnej systemu Ubuntu 16.04 LTS. Polecenia dla innych dystrybucje się nieco różnić (Użyj `yum` zainstalować w systemie Red Hat Enterprise Linux i skonfigurować odpowiednie `selinux` reguły lub użyj `zypper` do zainstalowania w systemie SUSE, na przykład).
 
 Pierwszy, SSH do maszyny Wirtualnej. Poniższy przykład nawiązuje połączenie z maszyną wirtualną o nazwie *myvm.westus.cloudapp.azure.com* nazwy użytkownika *azureuser*:
 

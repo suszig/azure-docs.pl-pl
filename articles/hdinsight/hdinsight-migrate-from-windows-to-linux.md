@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 764a41dc9e890de85c3bfab3d2f78d5a07b39dff
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: dff9eaad252a71942b07212b7cfa9d9ddf346a3f
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Migracji z klastra usługi HDInsight opartej na systemie Windows do klastra z systemem Linux
 
@@ -170,10 +170,10 @@ System Linux klaster plików jest rozmieszczona inaczej niż klastrów usługi H
 
 | Chcę znaleźć... | Jest on umieszczony... |
 | --- | --- |
-| Konfiguracja |`/etc`. Na przykład: `/etc/hadoop/conf/core-site.xml` |
+| Konfigurowanie |`/etc`. Na przykład: `/etc/hadoop/conf/core-site.xml` |
 | Pliki dziennika |`/var/logs` |
 | Hortonworks Data Platform (HDP) |`/usr/hdp`. Istnieją dwa katalogi znajduje się w tym miejscu jest bieżąca wersja HDP i `current`. `current` Katalog zawiera linki symboliczne do plików i katalogów znajduje się w katalogu numeru wersji. `current` Katalogu została podana jako wygodny sposób uzyskiwania dostępu do plików HDP od zmiany numeru wersji jako HDP wersja jest aktualizowana. |
-| hadoop streaming.jar |`/usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar` |
+| hadoop-streaming.jar |`/usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar` |
 
 Ogólnie rzecz biorąc Jeśli znasz nazwę pliku, służy następujące polecenie w sesji SSH można znaleźć ścieżki pliku:
 
@@ -201,10 +201,10 @@ Poniżej znajdują się wskazówki dotyczące migracji obciążeń Hive.
 | Na podstawie systemu Windows, używać... | Na opartych na systemie Linux... |
 | --- | --- |
 | **Edytor hive** |[Widok hive narzędzia Ambari](hadoop/apache-hadoop-use-hive-ambari-view.md) |
-| `set hive.execution.engine=tez;`Aby umożliwić aplikacji Tez |Tez jest domyślny aparat wykonywania opartych na systemie Linux klastrów, więc instrukcji set nie jest już potrzebne. |
+| `set hive.execution.engine=tez;` Aby umożliwić aplikacji Tez |Tez jest domyślny aparat wykonywania opartych na systemie Linux klastrów, więc instrukcji set nie jest już potrzebne. |
 | C# zdefiniowane przez użytkownika funkcji | Aby uzyskać informacje na weryfikacji składniki C# z opartą na systemie Linux usługą HDInsight, zobacz [rozwiązań .NET migracji do usługi HDInsight opartej na systemie Linux](hdinsight-hadoop-migrate-dotnet-to-linux.md) |
 | Pliki CMD lub skryptów na serwerze, który został wywołany jako część zadania Hive |Użyj skrypty powłoki systemowej |
-| `hive`polecenie z pulpitu zdalnego |Użyj [Beeline](hadoop/apache-hadoop-use-hive-beeline.md) lub [Hive w sesji SSH](hdinsight-hadoop-use-hive-ssh.md) |
+| `hive` polecenie z pulpitu zdalnego |Użyj [Beeline](hadoop/apache-hadoop-use-hive-beeline.md) lub [Hive w sesji SSH](hdinsight-hadoop-use-hive-ssh.md) |
 
 ### <a name="pig"></a>Pig
 

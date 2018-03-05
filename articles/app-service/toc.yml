@@ -43,7 +43,7 @@
           href: app-service-web-tutorial-java-mysql.md
         - name: Python z bazą danych PostgreSQL
           href: app-service-web-tutorial-python-postgresql.md
-    - name: 1 — Tworzenie interfejsu API RESTful
+    - name: 1 — Hostowanie interfejsu API RESTful
       href: app-service-web-tutorial-rest-api.md
     - name: 2 — Mapowanie domeny niestandardowej
       href: app-service-web-tutorial-custom-domain.md
@@ -230,7 +230,7 @@
     - name: Podręczniki
       items:
         - name: Architektury referencyjne
-          href: ../guidance/guidance-ra-app-service.md
+          href: /azure/architecture/reference-architectures/app-service-web-app/
         - name: Skrypty wdrażania
           href: 'https://azure.microsoft.com/documentation/scripts/'
     - name: Rozwiązywanie problemów

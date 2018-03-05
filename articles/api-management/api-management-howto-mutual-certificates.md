@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 885315b9f610d5f1703acd0f292f7b3347462b34
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: afa5c6a07432456d703020c0b8c5c3606478b8fe
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Jak zabezpieczyć za pomocą klienta usług zaplecza certyfikatów uwierzytelniania w usłudze Azure API Management
 Zarządzanie interfejsami API umożliwia bezpieczny dostęp do usługi zaplecza interfejsu API przy użyciu certyfikatów klienta. Ten przewodnik zawiera sposobu zarządzania certyfikatami w portalu wydawcy interfejsu API i Konfigurowanie interfejsu API do używania certyfikatu dostęp do jej usługi zaplecza.
 
 Aby uzyskać informacje o zarządzaniu certyfikatami przy użyciu interfejsu API REST zarządzania interfejsu API, zobacz [jednostki certyfikat interfejsu API REST zarządzania interfejsu API platformy Azure][Azure API Management REST API Certificate entity].
 
-## <a name="prerequisites"></a>Wymagania wstępne
+## <a name="prerequisites"> </a>Wymagania wstępne
 W tym przewodniku przedstawiono sposób skonfigurować wystąpienie usługi Zarządzanie interfejsami API do używania uwierzytelniania certyfikatów klienta do uzyskania dostępu do usługi zaplecza interfejsu API. Przed wykonaniem kroków w tym temacie, powinien mieć skonfigurowany na potrzeby uwierzytelniania certyfikatu klienta usługi zaplecza ([do konfigurowania certyfikatów uwierzytelniania w witrynach sieci Web Azure odwoływać się do tego artykułu] [ to configure certificate authentication in Azure WebSites refer to this article]), i mieć dostęp do certyfikat i hasło dla certyfikatu na potrzeby przekazywania w portalu zarządzania interfejsu API wydawcy.
 
-## <a name="step1"></a>Przekazywanie certyfikatu klienta
+## <a name="step1"> </a>Przekaż certyfikat klienta
 Na początku kliknij opcję **Portal wydawcy** w klasycznej witrynie Azure Portal dla usługi API Management. Spowoduje to przejście do portalu wydawcy usługi API Management.
 
 ![Portal wydawcy interfejsu API][api-management-management-console]
@@ -58,7 +58,7 @@ Kliknij przycisk **przekazać** można przekazać certyfikatu.
 > 
 > 
 
-![Przekazany certyfikat][api-management-certificate-uploaded]
+![Przekazano certyfikat][api-management-certificate-uploaded]
 
 Po przesłaniu certyfikatu, pojawi się na **certyfikaty klienta** kartę. Jeśli istnieje wiele certyfikatów, należy Uwaga podmiot lub cztery ostatnie znaki odcisk palca, które są używane, aby wybrać certyfikat, podczas konfigurowania interfejsu API, aby korzystać z certyfikatów, co opisano w następujących [skonfigurować interfejs API do użycia certyfikat klienta na potrzeby uwierzytelniania bramy] [ Configure an API to use a client certificate for gateway authentication] sekcji.
 
@@ -66,7 +66,7 @@ Po przesłaniu certyfikatu, pojawi się na **certyfikaty klienta** kartę. Jeśl
 > 
 > 
 
-## <a name="step1a"></a>Usuwanie certyfikatu klienta
+## <a name="step1a"> </a>Usuń certyfikat klienta
 Aby usunąć certyfikat, kliknij przycisk **usunąć** obok żądanego certyfikatu.
 
 ![Usuń certyfikat][api-management-certificate-delete]
@@ -79,7 +79,7 @@ Jeśli certyfikat jest używany przez interfejs API, a następnie zostanie wyśw
 
 ![Potwierdzenie usunięcia][api-management-confirm-delete-policy]
 
-## <a name="step2"></a>Skonfigurować interfejs API do używania certyfikatu klienta uwierzytelniania bramy
+## <a name="step2"> </a>Skonfiguruj interfejs API do używania certyfikatu klienta uwierzytelniania bramy
 Kliknij przycisk **interfejsów API** z **zarządzanie interfejsami API** menu po lewej stronie kliknij nazwę żądanego interfejsu API, a następnie kliknij przycisk **zabezpieczeń** kartę.
 
 ![Zabezpieczeń interfejsu API][api-management-api-security]
@@ -114,13 +114,6 @@ Jeśli używane są certyfikaty z podpisem własnym, musisz wyłączyć weryfika
 $context = New-AzureRmApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
 New-AzureRmApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
 ```
-
-## <a name="next-steps"></a>Następne kroki
-Aby uzyskać więcej informacji na inne metody zabezpieczania usługi wewnętrznej bazy danych, takich jak HTTP uwierzytelniania podstawowego lub udostępnionego tajne zobacz poniższe wideo.
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Last-mile-Security/player]
-> 
-> 
 
 [api-management-management-console]: ./media/api-management-howto-mutual-certificates/api-management-management-console.png
 [api-management-security-client-certificates]: ./media/api-management-howto-mutual-certificates/api-management-security-client-certificates.png

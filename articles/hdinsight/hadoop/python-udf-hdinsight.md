@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 002072c8eac37ffb1548b44627ec08e941c96a1d
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: f98fe82a9637cfdddf7af1dcb6aaf979bffcad6f
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-python-user-defined-functions-udf-with-hive-and-pig-in-hdinsight"></a>Funkcje (UDF) za pomocą technologii Hive i Pig zdefiniowane przez użytkownika Python użycia w usłudze HDInsight
 
@@ -117,7 +117,7 @@ Dane wyjściowe skryptu jest złączeniem wartości wejściowe dla `devicemake` 
 
 Zobacz [uruchamiania przykładów](#running) instrukcje do uruchomienia tego przykładu w klastrze usługi HDInsight.
 
-## <a name="pigpython"></a>Pig funkcji zdefiniowanej przez użytkownika
+## <a name="pigpython"></a>Pig UDF
 
 Skrypt w języku Python może służyć jako UDF z Pig za pośrednictwem `GENERATE` instrukcji. Można uruchomić skryptu za pomocą Jython lub C Python.
 
@@ -126,8 +126,8 @@ Skrypt w języku Python może służyć jako UDF z Pig za pośrednictwem `GENERA
 
 Aby określić interpreter języka Python, użyj `register` podczas odwoływania się do skryptu języka Python. Poniższe przykłady Zarejestruj skrypty Pig jako `myfuncs`:
 
-* **Aby użyć Jython**:`register '/path/to/pigudf.py' using jython as myfuncs;`
-* **Aby użyć C Python**:`register '/path/to/pigudf.py' using streaming_python as myfuncs;`
+* **Aby użyć Jython**: `register '/path/to/pigudf.py' using jython as myfuncs;`
+* **Aby użyć C Python**: `register '/path/to/pigudf.py' using streaming_python as myfuncs;`
 
 > [!IMPORTANT]
 > Podczas korzystania z Jython, ścieżka do pliku pig_jython może być ścieżką lokalną lub WASB: / / ścieżki. Jednak podczas korzystania z języka Python C, możesz odwoływać pliku w systemie pliku lokalnego węzła, który używasz przesłać zadania programu Pig.
@@ -145,7 +145,7 @@ Oto, co oznacza w tym przykładzie:
 
 1. Pierwszy wiersz ładuje przykładowy plik danych `sample.log` do `LOGS`. Definiuje również każdego rekordu jako `chararray`.
 2. Następnego wiersza odfiltrowuje wszystkie wartości null, wynik operacji do przechowywania `LOG`.
-3. Następnie przechodzi on przez rekordy w `LOG` i używa `GENERATE` do wywołania `create_structure` metody zawarte w skrypcie Python/Jython załadowany jako `myfuncs`. `LINE`Służy do przekazania bieżącego rekordu do funkcji.
+3. Następnie przechodzi on przez rekordy w `LOG` i używa `GENERATE` do wywołania `create_structure` metody zawarte w skrypcie Python/Jython załadowany jako `myfuncs`. `LINE` Służy do przekazania bieżącego rekordu do funkcji.
 4. Na koniec utworzyć zrzutu dane wyjściowe stdout przy użyciu `DUMP` polecenia. To polecenie wyświetla wyniki po zakończeniu operacji.
 
 ### <a name="create-the-pigudfpy-file"></a>Utwórz plik pigudf.py
@@ -191,7 +191,7 @@ Gdy dane są zwracane do Pig, ma schemat spójny, zgodnie z definicją w `@outpu
 > [!IMPORTANT]
 > **SSH** kroki pracować tylko z klastra usługi HDInsight opartej na systemie Linux. **PowerShell** kroki pracy z klastra z systemem Linux lub HDInsight opartych na systemie Windows, ale wymaga klienta systemu Windows.
 
-### <a name="ssh"></a>SSH
+### <a name="ssh"></a>Protokół SSH
 
 Aby uzyskać więcej informacji o korzystaniu z protokołu SSH, zobacz [używanie SSH z usługą HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -381,7 +381,7 @@ Informacje o błędzie (STDERR) oraz wyniku zadania (STDOUT) również są rejes
 | Dla tego zadania... | Przyjrzyj się te pliki w kontenerze obiektów blob |
 | --- | --- |
 | Hive |/ HivePython/stderr<p>/ HivePython/stdout |
-| Pig |/ PigPython/stderr<p>/ PigPython/stdout |
+| Pig |/PigPython/stderr<p>/ PigPython/stdout |
 
 ## <a name="next"></a>Następne kroki
 

@@ -14,6 +14,7 @@
 # Instrukcje
 ## Planowanie i projektowanie
 ### [Zagadnienia dotyczące projektowania](virtual-machine-scale-sets-design-overview.md)
+### [Omówienie identyfikatorów wystąpień](virtual-machine-scale-sets-instance-ids.md)
 
 ## Tworzenie szablonu
 ### [Informacje na temat szablonów zestawów dostępności](virtual-machine-scale-sets-mvss-start.md)

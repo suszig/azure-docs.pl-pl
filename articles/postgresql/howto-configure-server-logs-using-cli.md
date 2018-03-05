@@ -1,20 +1,20 @@
 ---
-title: "Konfigurowanie i uzyskiwać dostęp do dzienników serwera dla PostgreSQL przy użyciu wiersza polecenia platformy Azure | Dokumentacja firmy Microsoft"
+title: "Konfigurowanie i uzyskiwać dostęp do dzienników serwera dla PostgreSQL przy użyciu wiersza polecenia platformy Azure"
 description: "W tym artykule opisano sposób konfigurowania i uzyskiwać dostęp do dzienników serwera w bazie danych Azure dla PostgreSQL przy użyciu wiersza polecenia z wiersza polecenia platformy Azure."
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 11/27/2017
-ms.openlocfilehash: d18ec44ecede44829b488ac9864bbfae2c62883a
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.date: 02/28/2018
+ms.openlocfilehash: e12a8907b641b4591ed5ff9fdd5d8458eb75525e
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="configure-and-access-server-logs-using-azure-cli"></a>Konfigurowanie i uzyskać dostępu do dzienników serwera przy użyciu wiersza polecenia platformy Azure
 Możesz pobrać PostgreSQL dzienniki błędów serwera przy użyciu interfejsu wiersza polecenia (Azure CLI). Jednak dostęp do dzienników transakcji nie jest obsługiwany. 
@@ -35,17 +35,17 @@ Aby uzyskać więcej informacji, zobacz [Dostosowywanie parametry konfiguracji s
 ## <a name="list-logs-for-azure-database-for-postgresql-server"></a>Lista dzienników bazy danych Azure PostgreSQL serwera
 Aby wyświetlić pliki dziennika dostępne na serwerze, uruchom [az postgres dzienniki serwera listy](/cli/azure/postgres/server-logs#az_postgres_server_logs_list) polecenia.
 
-Można wyświetlić listę plików dziennika dla serwera **mypgserver 20170401.postgres.database.azure.com** w grupie zasobów **myresourcegroup**i bezpośrednie jego tekstu w pliku o nazwie **dziennika\_pliki\_lista.txt.**
+Można wyświetlić listę plików dziennika dla serwera **mydemoserver.postgres.database.azure.com** w grupie zasobów **myresourcegroup**i bezpośrednie jego tekstu w pliku o nazwie **dziennika\_ pliki\_lista.txt.**
 ```azurecli-interactive
-az postgres server-logs list --resource-group myresourcegroup --server mypgserver-20170401 > log_files_list.txt
+az postgres server-logs list --resource-group myresourcegroup --server mydemoserver > log_files_list.txt
 ```
 ## <a name="download-logs-locally-from-the-server"></a>Pobierz dzienniki lokalnie z serwera
 [Pobierz dzienniki serwera az postgres](/cli/azure/postgres/server-logs#az_postgres_server_logs_download) polecenie umożliwia pobieranie osobnych plikach dziennika dla serwera. 
 
-W tym przykładzie pliki do pobrania określonego pliku dziennika dla serwera **mypgserver 20170401.postgres.database.azure.com** w grupie zasobów **myresourcegroup** do środowiska lokalnego.
+W tym przykładzie pliki do pobrania określonego pliku dziennika dla serwera **mydemoserver.postgres.database.azure.com** w grupie zasobów **myresourcegroup** do środowiska lokalnego.
 ```azurecli-interactive
-az postgres server-logs download --name 20170414-mypgserver-20170401-postgresql.log --resource-group myresourcegroup --server mypgserver-20170401
+az postgres server-logs download --name 20170414-mydemoserver-postgresql.log --resource-group myresourcegroup --server mydemoserver
 ```
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - Aby dowiedzieć się więcej na temat dzienniki serwera, zobacz [dzienniki serwera w bazie danych PostgreSQL Azure](concepts-server-logs.md)
 - Aby uzyskać więcej informacji na parametry serwera, zobacz [dostosować parametry konfiguracji serwera przy użyciu wiersza polecenia platformy Azure](howto-configure-server-parameters-using-cli.md)

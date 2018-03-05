@@ -12,13 +12,13 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 3d561e3ebab886cd4976e5f1c2e8f2ddde3d6c14
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 9c8745162afebe6690776152b29d8619edc26a42
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-role-based-access-control-to-manage-azure-site-recovery-deployments"></a>Kontrola dostępu oparta na rolach umożliwia zarządzanie wdrożenia usługi Azure Site Recovery
 
@@ -45,7 +45,7 @@ Użytkownik wymaga następujących uprawnień do ukończenia replikacji nowej ma
 > [!IMPORTANT]
 >Upewnij się, że odpowiednie uprawnienia są dodawane na model wdrażania (Resource Manager / klasycznego) używany do wdrażania zasobów.
 
-| **Typ zasobu** | Model wdrażania | Uprawnienia |
+| **Typ zasobu** | **Model wdrażania** | **Uprawnienia** |
 | --- | --- | --- |
 | Wystąpienia obliczeniowe | Resource Manager | Microsoft.Compute/availabilitySets/read |
 |  |  | Microsoft.Compute/virtualMachines/read |

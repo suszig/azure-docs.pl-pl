@@ -1,19 +1,19 @@
 ---
-title: "Minimalizująca przestoje migracji do bazy danych Azure dla programu MySQL | Dokumentacja firmy Microsoft"
+title: "Minimalizująca przestoje migracji do bazy danych Azure dla programu MySQL"
 description: "W tym artykule opisano sposób przeprowadzenia migracji minimalnym czasem przestojów bazy danych programu MySQL do bazy danych platformy Azure dla programu MySQL i konfigurowanie ładowania początkowego i synchronizacji danych ciągłego źródłowej bazy danych do docelowej bazy danych przy użyciu replikacji Attunity firmy Microsoft Migracji."
 services: mysql
 author: HJToland3
 ms.author: jtoland
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 01/04/2018
-ms.openlocfilehash: d23628fd8446f6e7e0e5ed14b98da13c09b2d592
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.date: 02/28/2018
+ms.openlocfilehash: e1be72d97570643cc8a7c6eb05d3d363e96357b6
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-mysql"></a>Minimalizująca przestoje migracji do bazy danych Azure dla programu MySQL
 Przy użyciu replikacji Attunity Migrations Microsoft istniejącej bazy danych MySQL można migrować do bazy danych platformy Azure dla programu MySQL. Replikacja Attunity jest wspólnego z Attunity i firmy Microsoft. Wraz z usługi migracji bazy danych Azure jest uwzględniony bez ponoszenia dodatkowych kosztów do klientów firmy Microsoft. 

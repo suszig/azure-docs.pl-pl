@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/04/2017
 ms.author: jeedes
-ms.openlocfilehash: bb8a81327163513ab721d2ad72da19173b59bc1f
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 43dc50d0a5381ace8bcfeb3cae39e249ba743876
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rollbar"></a>Samouczek: Integracji Azure Active Directory z pałąka zabezpieczającego
 
@@ -108,15 +108,15 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Adresy URL i domeny pałąka zabezpieczającego pojedynczy informacje logowania jednokrotnego](./media/active-directory-saas-rollbar-tutorial/tutorial_rollbar_url.png)
 
-    a. W **identyfikator** tekstowym, wpisz adres URL:`https://saml.rollbar.com`
+    a. W **identyfikator** tekstowym, wpisz adres URL: `https://saml.rollbar.com`
 
-    b. W **adres URL odpowiedzi** tekstowym, wpisz adres URL, używając następującego wzorca:`https://rollbar.com/<accountname>/saml/sso/azure/`
+    b. W **adres URL odpowiedzi** tekstowym, wpisz adres URL, używając następującego wzorca: `https://rollbar.com/<accountname>/saml/sso/azure/`
 
 4. Sprawdź **Pokaż zaawansowane ustawienia adresu URL** i wykonać następujący krok, jeśli chcesz skonfigurować aplikację w **SP** inicjowane tryb:
 
     ![Adresy URL i domeny pałąka zabezpieczającego pojedynczy informacje logowania jednokrotnego](./media/active-directory-saas-rollbar-tutorial/tutorial_rollbar_url1.png)
 
-    W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`https://rollbar.com/<accountname>/saml/login/azure/`
+    W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca: `https://rollbar.com/<accountname>/saml/login/azure/`
      
     > [!NOTE] 
     > Wartości te nie są prawdziwe. Rzeczywisty adres URL odpowiedzi i adres URL logowania, należy zaktualizować te wartości. Skontaktuj się z [zespołem pomocy technicznej klienta pałąka zabezpieczającego](mailto:support@rollbar.com) uzyskać te wartości. 
@@ -147,13 +147,16 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     b. Otwórz w Notatniku plik metadanych, skopiuj zawartość go do Schowka, a następnie wklej go do **metadanych SAML** pola tekstowego.
 
-    d. Kliknij pozycję **Zapisz**.
+    c. Kliknij pozycję **Zapisz**.
 
-11. Po kliknięciu przycisku Zapisz przycisk, jak to będzie ekranu. W tej sekcji, wykonaj następujące czynności:
+11. Po kliknięciu przycisku Zapisz przycisk, ekran jest następujący:
     
     ![Konfigurowanie](./media/active-directory-saas-rollbar-tutorial/configure3.png)
+    > [!NOTE] 
+    > Aby można było wykonać następujący krok, należy najpierw dodać się jako użytkownik do aplikacji pałąka zabezpieczającego na platformie Azure.
+    a. Jeśli chcesz Wymagaj od wszystkich użytkowników do uwierzytelniania za pomocą usługi Azure, a następnie kliknij przycisk **zalogowania się za pośrednictwem dostawcy tożsamości** ponownego uwierzytelnienia za pośrednictwem usługi Azure.  
 
-    a. Wybierz **wymagają logowania za pośrednictwem dostawcy tożsamości SAML** wyboru.
+    b.  Gdy nastąpi powrót do ekranu, wybierz **wymagają logowania za pośrednictwem dostawcy tożsamości SAML** wyboru.
 
     b. Kliknij pozycję **Zapisz**.
 
@@ -188,7 +191,7 @@ Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie 
 
     b. W **nazwy użytkownika** wpisz adres e-mail użytkownika Simona Britta.
 
-    d. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartość, która jest wyświetlana w **hasło** pole.
+    c. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartość, która jest wyświetlana w **hasło** pole.
 
     d. Kliknij przycisk **Utwórz**.
  

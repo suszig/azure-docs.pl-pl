@@ -1,19 +1,19 @@
 ---
-title: "Konfigurowanie i uzyskiwać dostęp do dzienników serwera dla PostgreSQL w portalu Azure | Dokumentacja firmy Microsoft"
+title: "Konfigurowanie i uzyskiwać dostęp do dzienników serwera dla PostgreSQL w portalu Azure"
 description: "W tym artykule opisano sposób konfigurowania i uzyskiwać dostęp do dzienników serwera w bazie danych Azure dla PostgreSQL z portalu Azure."
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 10/19/2017
-ms.openlocfilehash: a2f67b21293a1a0456b27cad9043be01fdd5274a
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.date: 02/28/2018
+ms.openlocfilehash: aa9823c65b342f922ca78a51ecd3055dfac62869
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Konfigurowanie i dzienników serwera dostępu w portalu Azure
 
@@ -36,19 +36,13 @@ Konfigurowanie dostępu do dzienników zapytania i dzienników błędów.
 
 4. Wybierz nagłówek **kliknij tutaj, aby włączyć dzienniki i skonfigurować parametry dziennika** można znaleźć w temacie parametry serwera.
 
-5. Wybierz **Pokaż więcej** expander, aby zobaczyć rozszerzoną listę dostępnych parametrów. 
-
-   Aby uzyskać więcej informacji na definicje parametrów, zobacz dokumentację PostgreSQL na [raportowanie błędów i rejestrowanie](https://www.postgresql.org/docs/current/static/runtime-config-logging.html).
-
-   ![Krótką listę parametrów dziennika. Kliknij przycisk Pokaż więcej dla long](./media/howto-configure-server-logs-in-portal/2-show-more.png)
-
-6. Zmień parametry, które należy skorygować. Wszystkie zmiany wprowadzone w tej sesji są wyróżnione na fioletowo.
+5. Zmień parametry, które należy skorygować. Wszystkie zmiany wprowadzone w tej sesji są wyróżnione na fioletowo.
 
    Po zmianie parametrów, możesz kliknąć **zapisać**. Można także **odrzucić** zmiany. 
 
    ![Długą listę parametrów z Zapisz lub Odrzuć zmiany](./media/howto-configure-server-logs-in-portal/3-save-discard.png)
 
-7. Wróć do listy dzienników, klikając **przycisk Zamknij** (X ikona) na **parametry serwera** strony.
+6. Wróć do listy dzienników, klikając **przycisk Zamknij** (X ikona) na **parametry serwera** strony.
 
 ## <a name="view-list-and-download-logs"></a>Wyświetl listę i Pobierz dzienniki
 Po rozpoczęciu rejestrowania, można wyświetlić listę dostępnych dzienników i pobrać osobnych plikach dziennika w okienku dzienniki serwera. 

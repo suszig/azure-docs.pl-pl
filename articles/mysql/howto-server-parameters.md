@@ -1,19 +1,19 @@
 ---
-title: "Jak skonfigurować parametry serwera w bazie danych systemu Azure dla programu MySQL | Dokumentacja firmy Microsoft"
+title: "Jak skonfigurować parametry serwera w bazie danych systemu Azure dla programu MySQL"
 description: "W tym artykule opisano sposób konfigurowania parametrów serwera MySQL w bazie danych Azure dla programu MySQL przy użyciu portalu Azure."
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 01/25/2018
-ms.openlocfilehash: 59eeed42356a276c259bd8da55890b7ada67d729
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.date: 02/28/2018
+ms.openlocfilehash: b3510c616d2a9ba66cb83cb998c42e03fdbb0f2b
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Jak skonfigurować parametry serwera w bazie danych Azure dla programu MySQL przy użyciu portalu Azure
 
@@ -22,10 +22,14 @@ Bazy danych platformy Azure dla programu MySQL obsługuje konfigurowanie niektó
 ## <a name="navigate-to-server-parameters-on-azure-portal"></a>Przejdź do parametrów serwera w portalu Azure
 1. Zaloguj się do portalu Azure, a następnie zlokalizuj bazy danych Azure, aby serwer MySQL.
 2. W obszarze **ustawienia** kliknij **parametry serwera** aby otworzyć stronę parametry serwera bazy danych Azure dla programu MySQL.
-3. Znajdź wszystkie ustawienia, które należy dostosować. Przegląd **opis** kolumny zrozumienie przeznaczenia i dozwolone wartości. 
-4. Kliknij przycisk **zapisać** Aby zapisać zmiany.
-
 ![Strona parametrów serwera portalu Azure](./media/howto-server-parameters/auzre-portal-server-parameters.png)
+3. Znajdź wszystkie ustawienia, które należy dostosować. Przegląd **opis** kolumny zrozumienie przeznaczenia i dozwolone wartości. 
+![Wyliczanie listy w dół](./media/howto-server-parameters/3-toggle_parameter.png)
+4. Kliknij przycisk **zapisać** Aby zapisać zmiany.
+![Zapisz lub Odrzuć zmiany](./media/howto-server-parameters/4-save_parameters.png)
+5. Zapisanie nowej wartości parametrów można przywrócić wszystko, co do wartości domyślnych, wybierając **Resetuj wszystkie domyślne**.
+![Resetuj wszystkie domyślne](./media/howto-server-parameters/5-reset_parameters.png)
+
 
 ## <a name="list-of-configurable-server-parameters"></a>Lista parametrów można skonfigurować serwera
 
@@ -34,14 +38,27 @@ Lista parametrów obsługiwanym serwerze stale rośnie. Karta serwera parametró
 ## <a name="nonconfigurable-server-parameters"></a>Parametry serwera Nonconfigurable
 Pula buforów InnoDB i maksymalna liczba połączeń nie są konfigurowalne i związane z [warstwy cenowej](concepts-service-tiers.md). 
 
-| **Warstwa cenowa** | **Pula buforów InnoDB (MB)** | **Maksymalna liczba połączeń** |
-| :------------------------ | :-------- | :----------- |
-| Basic 50 | 1024 | 50 | 
-| Basic 100  | 2560 | 100 | 
-| Standardowa 100 | 2560 | 200 | 
-| Standardowa 200 | 5120 | 400 | 
-| Standardowa 400 | 10240 | 800 | 
-| Standardowa 800 | 20480 | 1600 |
+|**Warstwa cenowa**| **Generowanie obliczeniowe**|**vCore(s)**|**Pula buforów InnoDB (MB)**| **Maksymalna liczba połączeń**|
+|---|---|---|---|--|
+|Podstawowa| Gen 4| 1| 1024| 50 |
+|Podstawowa| Gen 4| 2| 2560| 100 |
+|Podstawowa| Gen 5| 1| 1024| 50 |
+|Podstawowa| Gen 5| 2| 2560| 100 |
+|Ogólne zastosowanie| Gen 4| 2| 2560| 200|
+|Ogólne zastosowanie| Gen 4| 4| 5120| 400|
+|Ogólne zastosowanie| Gen 4| 8| 10240| 800|
+|Ogólne zastosowanie| Gen 4| 16| 20480| 1600|
+|Ogólne zastosowanie| Gen 4| 32| 40960| 3200|
+|Ogólne zastosowanie| Gen 5| 2| 2560| 200|
+|Ogólne zastosowanie| Gen 5| 4| 5120| 400|
+|Ogólne zastosowanie| Gen 5| 8| 10240| 800|
+|Ogólne zastosowanie| Gen 5| 16| 20480| 1600|
+|Ogólne zastosowanie| Gen 5| 32| 40960| 3200|
+|Pamięć| Gen 5| 2| 7168| 600|
+|Pamięć| Gen 5| 4| 15360| 1250|
+|Pamięć| Gen 5| 8| 30720| 2500|
+|Pamięć| Gen 5| 16| 62464| 5000|
+|Pamięć| Gen 5| 32| 125952| 10 000| 
 
 Te parametry dodatkowego serwera nie są konfigurowane w systemie:
 

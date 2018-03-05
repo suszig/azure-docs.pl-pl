@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: wielriac
-ms.openlocfilehash: 3834fea5961a9c69243bb8e852631585c26a103f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 56e8c4c9f7ab9b40a210f284960f959a437a4e20
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="unique-features-of-azure-page-blobs"></a>Unikatowe funkcje Azure stronicowych obiektów blob
 
@@ -117,7 +117,7 @@ foreach (PageRange range in pageRanges)
 #### <a name="leasing-a-page-blob"></a>Dzierżawa stronicowych obiektów Blob
 Operacji obiektu Blob dzierżawy ustanawia i zarządza blokadą obiektu blob dla zapisu operacji i usuwania. Ta operacja jest przydatne w scenariuszach, w którym stronicowych obiektów blob jest uzyskiwany z wielu klientów, aby upewnić się, że tylko jeden klient może zapisywać do obiektu blob w czasie. Azure dysków, na przykład wykorzystuje to dzierżawa mechanizm upewnij się, że dysk zarządza tylko jednej maszyny Wirtualnej. Czas trwania blokady może być 15 do 60 sekund lub może być nieskończona. W dokumentacji [tutaj](/rest/api/storageservices/lease-blob) więcej szczegółów.
 
-> Użyj następującego łącza można uzyskać [przykłady kodu](/resources/samples/?service=storage&term=blob&sort=0) w różnych scenariuszach aplikacji. 
+> Użyj następującego łącza można uzyskać [przykłady kodu](/resources/samples/?service=storage&term=blob&sort=0 ) w różnych scenariuszach aplikacji. 
 
 Oprócz zaawansowanych interfejsów API REST stronicowych obiektów blob udostępniają dostępu współdzielonego, trwałości i zwiększonych zabezpieczeń. Omówimy tych korzyści bardziej szczegółowo w następnej akapitów. 
 

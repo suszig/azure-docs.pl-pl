@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2017
+ms.date: 02/27/2018
 ms.author: sethm
-ms.openlocfilehash: 89042badbfefc69582e7979a8379260a7b08d7da
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 07cbdd24368d66104ecdeb263983e3aaf3f219fe
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-relay-faqs"></a>Przekaźnik Azure — często zadawane pytania
 
@@ -76,14 +76,13 @@ Wysyłanie wiadomości do przekaźnika usługi Service Bus jest traktowana jako 
 Przekaźniki, które są otwierane za pomocą **netTCPRelay** wiązania WCF Traktuj wiadomości nie jako pojedyncze wiadomości, ale jako strumień danych przepływających przez system. Korzystając z tego powiązania, tylko nadawcy i odbiornika mieć wgląd w ramek poszczególne wiadomości wysłanych i odebranych. Dla przekazuje używające **netTCPRelay** powiązanie, wszystkie dane jest traktowane jako strumień obliczania rozliczeniowy wiadomości. W takim przypadku Usługa Service Bus oblicza łączną ilość danych wysyłane lub odbierane za pośrednictwem każdej poszczególnych przekazywania na podstawie 5 minut. Następnie dzieli tego całkowitej ilości danych przez 64 KB, aby określić numer rozliczeniowy komunikatów dla tego przekazywania podczas tego okresu.
 
 ## <a name="quotas"></a>Przydziały
-| Nazwa przydziału | Zakres | Typ | Zachowanie po przekroczeniu | Wartość |
-| --- | --- | --- | --- | --- |
-| Współbieżne odbiorników w przekaźnik |Jednostka |Statyczny |Kolejne żądania dla dodatkowych połączeń są odrzucane i wyjątek jest odbierany przez kod wywołujący. |25 |
-| Obiekty nasłuchujące równoczesnych przekazywania |Systemowe |Statyczny |Kolejne żądania dla dodatkowych połączeń są odrzucane i wyjątek jest odbierany przez kod wywołujący. |2,000 |
-| Połączeń współbieżnych przekazywania na wszystkich przekazywania punktów końcowych w przestrzeni nazw usługi |Systemowe |Statyczny |- |5,000 |
-| Punkty końcowe przekazywania na przestrzeni nazw usługi |Systemowe |Statyczny |- |10 000 |
-| Rozmiar komunikatu [NetOnewayRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.netonewayrelaybinding.aspx) i [NetEventRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.neteventrelaybinding.aspx) przekazuje |Systemowe |Statyczny |Wiadomości przychodzących, które przekraczają te przydziały są odrzucane i wyjątek jest odbierany przez kod wywołujący. |64 KB |
-| Rozmiar komunikatu [HttpRelayTransportBindingElement](https://msdn.microsoft.com/library/microsoft.servicebus.httprelaytransportbindingelement.aspx) i [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) przekazuje |Systemowe |Statyczny |- |Nieograniczona liczba |
+| Nazwa przydziału | Zakres |  Uwagi | Wartość |
+| --- | --- | --- | --- |
+| Współbieżne odbiorników w przekaźnik |Jednostka |Kolejne żądania dla dodatkowych połączeń są odrzucane i wyjątek jest odbierany przez kod wywołujący. |25 |
+| Połączeń współbieżnych przekazywania na wszystkich przekazywania punktów końcowych w przestrzeni nazw usługi |Przestrzeń nazw |- |5000 |
+| Punkty końcowe przekazywania na przestrzeni nazw usługi |Przestrzeń nazw |- |10 000 |
+| Rozmiar komunikatu [NetOnewayRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.netonewayrelaybinding.aspx) i [NetEventRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.neteventrelaybinding.aspx) przekazuje |Przestrzeń nazw |Wiadomości przychodzących, które przekraczają te przydziały są odrzucane i wyjątek jest odbierany przez kod wywołujący. |64 KB |
+| Rozmiar komunikatu [HttpRelayTransportBindingElement](https://msdn.microsoft.com/library/microsoft.servicebus.httprelaytransportbindingelement.aspx) i [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) przekazuje |Przestrzeń nazw |Brak limitu rozmiaru dla wiadomości. |Nieograniczona liczba |
 
 ### <a name="does-relay-have-any-usage-quotas"></a>Przekaźnik ma wszelkie przydziały użycia?
 Domyślnie dla dowolnej usługi w chmurze firmy Microsoft ustawia agregacji miesięczne przydział użycia, która jest obliczana dla wszystkich subskrypcji klienta. Rozumiemy, że w czasie potrzeb może przekroczyć tych limitów. Tak możemy zrozumienie potrzeb i odpowiednio dostosować te limity można się z obsługą klienta w dowolnym momencie. Dla usługi Service Bus przydziały użycie agregacji są następujące:

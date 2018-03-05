@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: bc12646840b0a28eee1ea11c40a57e59995bbf75
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 434c7d24f55c20cc763df3b83429e039bb5e8541
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="add-custom-hive-libraries-when-creating-your-hdinsight-cluster"></a>Dodawanie niestandardowych bibliotek technologii Hive, podczas tworzenia klastra usługi HDInsight
 
@@ -41,7 +41,7 @@ Podczas tworzenia klastra, skrypt wylicza pliki, kopiuje je do `/usr/lib/customh
 
 **Lokalizacja skryptu**
 
-Aby uzyskać **opartych na systemie Linux klastrów**: [https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh)
+For **Linux-based clusters**: [https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh)
 
 Aby uzyskać **klastry z systemem Windows**: [https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1](https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1)
 
@@ -76,7 +76,7 @@ Aby uzyskać **klastry z systemem Windows**: [https://hdiconfigactions.blob.core
 
    * **Nazwa**: Wprowadź przyjazną nazwę dla akcji skryptu.
 
-   * **Identyfikator URI skryptu**: https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh
+   * **SCRIPT URI**: https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh
 
    * **HEAD**: Zaznaczenie tego pola wyboru.
 
@@ -96,6 +96,6 @@ Aby uzyskać **klastry z systemem Windows**: [https://hdiconfigactions.blob.core
 
 Po zakończeniu tworzenia klastra, będą mogli używać słoików dodane za pomocą tego skryptu z Hive, bez konieczności używania `ADD JAR` instrukcji.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby uzyskać więcej informacji na temat pracy z Hive, zobacz [używanie Hive z usługą HDInsight](hadoop/hdinsight-use-hive.md)

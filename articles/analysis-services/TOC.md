@@ -33,7 +33,7 @@
 ### [Łączenie z usługą Power BI](analysis-services-connect-pbi.md)
 ### [Tworzenie pliku odc](analysis-services-odc.md)
 ## Samouczki
-### [1 — Tworzenie przykładowego modelu](analysis-services-create-sample-model.md)
+### [1 — Dodawanie przykładowego modelu](analysis-services-create-sample-model.md)
 ### [Modelowanie danych — samouczek Adventure Works](tutorials/aas-adventure-works-tutorial.md)
 #### [1. Tworzenie projektu modelu tabelarycznego](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)
 #### [2. Pobieranie danych](tutorials/aas-lesson-2-get-data.md)

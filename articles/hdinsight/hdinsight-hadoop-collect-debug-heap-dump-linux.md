@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: dcc04e5bba28d0cb32e8633542ab8d3c125003ec
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 2bc7b35a87f3973c59fb36372d4edad86412ea0e
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="enable-heap-dumps-for-hadoop-services-on-linux-based-hdinsight"></a>Włącz zrzuty stosu dla usługi Hadoop w HDInsight opartych na systemie Linux
 
@@ -51,8 +51,8 @@ Każdy skrypt ma Eksport  **\* \_OPTS**, który zawiera opcje przekazane do masz
 
 Mapowanie i zmniejszenie procesy są nieco inne operacje te są Proces podrzędny usługi MapReduce. Każdy mapy lub Zmniejsz proces jest uruchomiony w kontenerze, a dwa wpisy zawierające opcje maszyny wirtualnej Java. Zarówno zawarte w **mapred-site.xml**:
 
-* **mapreduce.Admin.map.child.Java.opts**
-* **mapreduce.Admin.Reduce.child.Java.opts**
+* **mapreduce.admin.map.child.java.opts**
+* **mapreduce.admin.reduce.child.java.opts**
 
 > [!NOTE]
 > Firma Microsoft zaleca, aby zmodyfikować skrypty i ustawienia mapred-site.xml jako dojście Ambari replikowanie zmian w węzłach w klastrze za pomocą narzędzia Ambari. Zobacz [przy użyciu Ambari](#using-ambari) sekcji, aby poznać konkretne kroki.
@@ -63,7 +63,7 @@ Poniższa opcja umożliwia zrzuty stosu po wystąpieniu OutOfMemoryError:
 
     -XX:+HeapDumpOnOutOfMemoryError
 
- **+**  Wskazuje, że ta opcja jest włączona. Domyślnie jest wyłączona.
+ **+**  Wskazuje, że ta opcja jest włączona. Domyślne ustawienie to Wyłączony.
 
 > [!WARNING]
 > Zrzuty stosu nie są włączone dla usługi Hadoop w usłudze HDInsight domyślnie jako pliki zrzutu mogą być duże. Jeśli włączysz ich do rozwiązywania problemów, pamiętaj, aby je wyłączyć, po problemu i zebranych plików zrzutu.

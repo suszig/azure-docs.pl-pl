@@ -1,43 +1,49 @@
 ---
-title: "Ograniczenia dotyczące bazy danych platformy Azure dla programu MySQL | Dokumentacja firmy Microsoft"
-description: W tym artykule opisano ograniczenia wersji zapoznawczej w bazie danych Azure dla programu MySQL.
+title: "Ograniczenia dotyczące bazy danych platformy Azure dla programu MySQL"
+description: "W tym artykule opisano ograniczenia w bazie danych Azure dla programu MySQL, takie jak liczba połączeń i opcje aparatu magazynu."
 services: mysql
-author: jasonh
-ms.author: kamathsun
-manager: jhubbard
+author: kamathsun
+ms.author: sukamat
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 01/11/2018
-ms.openlocfilehash: f0f9a10f987f19d8ae77a07038cffe23446856fd
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.date: 02/28/2018
+ms.openlocfilehash: 85e57170c1cbd977d2de6e7e614916333c79e047
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Ograniczenia dotyczące bazy danych platformy Azure dla programu MySQL
 Jest bazą danych Azure dla usługi MySQL w publicznej wersji zapoznawczej. W poniższych sekcjach opisano pojemności, magazynu aparat obsługę, uprawnień, obsługi instrukcji manipulacji danych oraz limity funkcjonalności usługi bazy danych. Zobacz też [ogólne ograniczenia](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) mające zastosowanie do aparatu bazy danych MySQL.
 
 ## <a name="service-tier-maximums"></a>Maksymalne wartości warstwy usługi
-Bazy danych platformy Azure dla programu MySQL ma wiele warstw do wyboru podczas tworzenia serwera. Aby uzyskać więcej informacji, zobacz [zrozumieć, co jest dostępne w poszczególnych warstwach usług](concepts-service-tiers.md).  
+Bazy danych platformy Azure dla programu MySQL ma wiele warstw do wyboru podczas tworzenia serwera. Aby uzyskać więcej informacji, zobacz [bazy danych Azure dla programu MySQL warstw cenowych](concepts-pricing-tiers.md).  
 
 Jest maksymalna liczba połączeń, obliczeniowe jednostek i magazynu w poszczególnych warstwach usług wersji zapoznawczej, następująca: 
 
-|                            |                   |
-| :------------------------- | :---------------- |
-| **Maksymalna liczba połączeń**        |                   |
-| Podstawowe 50 obliczeniowe jednostki     | połączenia o szybkości 50    |
-| Podstawowe 100 jednostek obliczeń    | 100 połączeń   |
-| Standardowe jednostki 100 obliczeń | połączenia o szybkości 200   |
-| Standardowa 200 obliczeniowe jednostki | 400 połączeń   |
-| Standardowa 400 obliczeniowe jednostki | 800 połączeń   |
-| Standardowa 800 obliczeniowe jednostki | połączenia 1600  |
-| **Obliczeniowe maksymalna liczba jednostek**      |                   |
-| Warstwa Podstawowa usług         | 100 jednostek obliczeń |
-| Warstwa Standardowa usług      | 800 obliczeniowe jednostki |
-| **Maksymalna liczba magazynu**            |                   |
-| Warstwa Podstawowa usług         | 1 TB              |
-| Warstwa Standardowa usług      | 1 TB              |
+|**Warstwa cenowa**| **Generowanie obliczeniowe**|**vCore(s)**| **Maksymalna liczba połączeń**|
+|---|---|---|---|
+|Podstawowa| Gen 4| 1| 50|
+|Podstawowa| Gen 4| 2| 100|
+|Podstawowa| Gen 5| 1| 50|
+|Podstawowa| Gen 5| 2| 100|
+|Ogólne zastosowanie| Gen 4| 2| 200|
+|Ogólne zastosowanie| Gen 4| 4| 400|
+|Ogólne zastosowanie| Gen 4| 8| 800|
+|Ogólne zastosowanie| Gen 4| 16| 1600|
+|Ogólne zastosowanie| Gen 4| 32| 3200|
+|Ogólne zastosowanie| Gen 5| 2| 200|
+|Ogólne zastosowanie| Gen 5| 4| 400|
+|Ogólne zastosowanie| Gen 5| 8| 800|
+|Ogólne zastosowanie| Gen 5| 16| 1600|
+|Ogólne zastosowanie| Gen 5| 32| 3200|
+|Pamięć| Gen 5| 2| 600|
+|Pamięć| Gen 5| 4| 1250|
+|Pamięć| Gen 5| 8| 2500|
+|Pamięć| Gen 5| 16| 5000|
+|Pamięć| Gen 5| 32| 10 000| 
 
 Po osiągnięciu zbyt wiele połączeń, może zostać wyświetlony następujący błąd:
 > Błąd 1040 (08004): Zbyt wiele połączeń
@@ -46,7 +52,7 @@ Po osiągnięciu zbyt wiele połączeń, może zostać wyświetlony następując
 
 ### <a name="supported"></a>Obsługiwane
 - [InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-introduction.html)
-- [PAMIĘCI](https://dev.mysql.com/doc/refman/5.7/en/memory-storage-engine.html)
+- [MEMORY](https://dev.mysql.com/doc/refman/5.7/en/memory-storage-engine.html)
 
 ### <a name="unsupported"></a>Nieobsługiwane
 - [MyISAM](https://dev.mysql.com/doc/refman/5.7/en/myisam-storage-engine.html)
@@ -57,8 +63,8 @@ Po osiągnięciu zbyt wiele połączeń, może zostać wyświetlony następując
 ## <a name="privilege-support"></a>Obsługa uprawnień
 
 ### <a name="unsupported"></a>Nieobsługiwane
-- Administrator roli serwera wiele parametrów i ustawienia mogą przypadkowo obniżają wydajność serwerów lub odwrócić ACID właściwości systemu DBMS. Tak utrzymanie integralności usługi i umowy SLA na poziomie produktu firmy Microsoft firma Microsoft nie ujawniaj roli DBA do klientów. Domyślne konto użytkownika, który jest tworzony podczas tworzenia nowego wystąpienia bazy danych, umożliwia klientom wykonują większość instrukcji DDL i DML w wystąpieniu bazy danych zarządzanych. 
-- SUPER uprawnień podobnie [SUPER uprawnień](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) również jest ograniczony.
+- Administrator roli: wiele parametrów serwera i ustawienia mogą przypadkowo obniżają wydajność serwerów lub odwrócić ACID właściwości systemu DBMS. Tak, aby zachować integralności usługi i umowy SLA na poziomie produktu, tego usługa nie uwidacznia roli Administrator. Domyślne konto użytkownika, który jest tworzony podczas tworzenia nowego wystąpienia bazy danych, umożliwia użytkownikowi wykonują większość instrukcji DDL i DML w wystąpieniu bazy danych zarządzanych. 
+- Uprawnienie administratora: Podobnie [SUPER uprawnień](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) również jest ograniczony.
 
 ## <a name="data-manipulation-statement-support"></a>Obsługa instrukcji manipulacji danych
 
@@ -71,8 +77,7 @@ Po osiągnięciu zbyt wiele połączeń, może zostać wyświetlony następując
 ## <a name="preview-functional-limitations"></a>Ograniczenia funkcjonalności wersji zapoznawczej
 
 ### <a name="scale-operations"></a>Operacje skalowania
-- Dynamiczne skalowanie serwerów w warstwach usług nie jest obecnie obsługiwane. Oznacza to przełączaniu między Basic i Standard warstwy usług.
-- Dynamiczne zwiększanie na żądanie magazynu na serwerze utworzone wcześniej nie jest obecnie obsługiwane.
+- Dynamiczne skalowanie serwerów między warstwa cenowa nie jest obecnie obsługiwane. Oznacza to przełączaniu między Basic, ogólnego przeznaczenia i zoptymalizowanych pod kątem pamięci, warstw cenowych.
 - Zmniejszenie rozmiaru magazynu serwera nie jest obsługiwana.
 
 ### <a name="server-version-upgrades"></a>Uaktualniania wersji
@@ -91,5 +96,5 @@ Po osiągnięciu zbyt wiele połączeń, może zostać wyświetlony następując
 - Wystąpienie serwera MySQL Wyświetla wersję niewłaściwy serwer, po nawiązaniu połączenia. Aby uzyskać z właściwym serwerem versioning wystąpienia, należy użyć wybierz version(); polecenie w wierszu polecenia programu MySQL.
 
 ## <a name="next-steps"></a>Kolejne kroki
-- [Co to jest dostępne w poszczególnych warstwach usług](concepts-service-tiers.md)
+- [Co to jest dostępne w poszczególnych warstwach usług](concepts-pricing-tiers.md)
 - [Obsługiwane wersje bazy danych MySQL](concepts-supported-versions.md)

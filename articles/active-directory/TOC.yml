@@ -52,7 +52,15 @@
           href: msi-qs-configure-template-windows-vm.md
         - name: Korzystanie z zestawu Azure SDK
           href: msi-qs-configure-sdk-windows-vm.md
-    - name: Udzielanie maszynie wirtualnej dostępu tożsamości usługi zarządzanej do usługi Resource Manager
+    - name: Konfigurowanie tożsamości usługi zarządzanej dla usługi Azure VMSS
+      items:
+        - name: Korzystanie z portalu Azure
+          href: msi-qs-configure-portal-windows-vmss.md
+        - name: Korzystanie z interfejsu wiersza polecenia platformy Azure
+          href: msi-qs-configure-cli-windows-vmss.md
+        - name: Korzystanie z szablonu usługi Azure Resource Manager
+          href: msi-qs-configure-template-windows-vmss.md
+    - name: Udzielanie maszynie wirtualnej lub usłudze VMSS dostępu tożsamości usługi zarządzanej do usługi Resource Manager
       items:
         - name: Korzystanie z witryny Azure Portal
           href: msi-howto-assign-access-portal.md

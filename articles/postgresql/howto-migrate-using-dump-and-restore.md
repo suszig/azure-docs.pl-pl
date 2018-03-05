@@ -1,19 +1,19 @@
 ---
-title: "Jak zrzutu i przywrócić w bazie danych Azure PostgreSQL | Dokumentacja firmy Microsoft"
-description: "Opisuje sposób wyodrębnić bazy danych programu PostgreSQL w pliku zrzutu i przywracanie bazy danych PostgreSQL z pliku archiwum utworzone przez pg_dump w bazie danych Azure dla PostgreSQL."
+title: "Jak zrzutu i przywrócić w bazie danych Azure PostgreSQL"
+description: "Opisuje sposób wyodrębnić bazy danych programu PostgreSQL w pliku zrzutu i przywracanie z pliku utworzonego przez pg_dump w bazie danych Azure dla PostgreSQL."
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: 28727117dbd37f9c595b488639a632b4c7404496
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 02/28/2018
+ms.openlocfilehash: 6ea839c10bffc9a024af38132081f2c9bd7dfc0a
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migrowanie bazy danych PostgreSQL przy użyciu zrzutu i przywracania
 Można użyć [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) można wyodrębnić bazy danych programu PostgreSQL w pliku zrzutu i [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) Przywracanie bazy danych programu PostgreSQL z pliku archiwum utworzone przez pg_dump.
@@ -40,10 +40,10 @@ Po utworzeniu docelowej bazy danych, można użyć polecenia pg_restore i -d, pa
 ```bash
 pg_restore -v –-host=<server name> --port=<port> --username=<user@servername> --dbname=<target database name> <database>.dump
 ```
-W tym przykładzie Przywróć dane z pliku zrzutu **testdb.dump** do bazy danych **mypgsqldb** na serwerze docelowym **mypgserver 20170401.postgres.database.azure.com**.
+W tym przykładzie Przywróć dane z pliku zrzutu **testdb.dump** do bazy danych **mypgsqldb** na serwerze docelowym **mydemoserver.postgres.database.azure.com**.
 ```bash
-pg_restore -v --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 --dbname=mypgsqldb testdb.dump
+pg_restore -v --host=mydemoserver.postgres.database.azure.com --port=5432 --username=mylogin@mydemoserver --dbname=mypgsqldb testdb.dump
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - Aby przeprowadzić migrację bazy danych programu PostgreSQL przy użyciu eksportu i importu, zobacz [migracji PostgreSQL bazy danych przy użyciu eksportowania i importowania](howto-migrate-using-export-and-import.md)

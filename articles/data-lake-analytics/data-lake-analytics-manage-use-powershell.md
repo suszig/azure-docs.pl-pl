@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/23/2017
 ms.author: mahi
-ms.openlocfilehash: 65bf5928428b21e98c893a9de8ca596329329411
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd81e9d6c91387b3873593b84e952ca4f2546c57
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Zarządzanie usługą Azure Data Lake Analytics przy użyciu programu Azure PowerShell
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -99,13 +99,13 @@ Uzyskiwanie szczegółowych informacji o koncie.
 Get-AdlAnalyticsAccount -Name $adla
 ```
 
-Sprawdź istnienie określonego konta usługi Data Lake Analytics. Polecenie cmdlet zwraca albo `True` lub `False`.
+Sprawdź istnienie określonego konta usługi Data Lake Analytics. Polecenie cmdlet zwraca albo `$true` lub `$false`.
 
 ```powershell
 Test-AdlAnalyticsAccount -Name $adla
 ```
 
-Sprawdź istnienie określonego konta usługi Data Lake Store. Polecenie cmdlet zwraca albo `True` lub `False`.
+Sprawdź istnienie określonego konta usługi Data Lake Store. Polecenie cmdlet zwraca albo `$true` lub `$false`.
 
 ```powershell
 Test-AdlStoreAccount -Name $adls
@@ -154,8 +154,6 @@ Usuń regułę zapory.
 ```powershell
 Remove-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName
 ```
-
-
 
 Zezwalaj na adresy IP platformy Azure.
 
@@ -239,7 +237,6 @@ $script | Out-File $scriptpath
 Submit-AdlJob -AccountName $adla -Script $script -Name "Demo"
 ```
 
-
 ### <a name="submit-a-file-as-a-u-sql-script"></a>Przesyłanie pliku jako skrypt U-SQL
 
 ```powershell
@@ -258,15 +255,13 @@ Dane wyjściowe obejmują obecnie uruchomione oraz niedawno ukończone zadania.
 Get-AdlJob -Account $adla
 ```
 
+### <a name="list-the-top-n-jobs"></a>Listę zadań pierwszych N
 
-### <a name="list-a-specific-number-of-jobs"></a>Lista określoną liczbę zadań
-
-Domyślnie lista zadań jest sortowane na przedstawia czas. Dlatego ostatnio przesłanych zadania występować jako pierwszy. Domyślnie konto ADLA pamięta zadania na okres 180 dni, ale polecenia cmdlet Ge AdlJob domyślnie zwraca tylko 500 pierwszych. Użyj - Top parametru do listy określoną liczbę zadań.
+Domyślnie lista zadań jest sortowane na przedstawia czas. Dlatego ostatnio przesłanych zadania występować jako pierwszy. Domyślnie konto ADLA pamięta zadania na okres 180 dni, ale polecenia cmdlet Get-AdlJob domyślnie zwraca tylko 500 pierwszych. Użyj - Top parametru do listy określoną liczbę zadań.
 
 ```powershell
 $jobs = Get-AdlJob -Account $adla -Top 10
 ```
-
 
 ### <a name="list-jobs-based-on-the-value-of-job-property"></a>Lista zadań na podstawie wartości właściwości zadania
 
@@ -295,9 +290,9 @@ Get-AdlJob -Account $adla -State Accepted,Compiling,New,Paused,Scheduling,Start
 
 Użyj `-Result` parametr, aby wykryć, czy Zakończono zadania zakończone pomyślnie. Ma ona następujące wartości:
 
-* Anulowane
-* Nie powiodło się
-* Brak
+* Anulowano
+* Niepowodzenie
+* None
 * Powodzenie
 
 ``` powershell
@@ -307,7 +302,6 @@ Get-AdlJob -Account $adla -State Ended -Result Succeeded
 # List Failed jobs.
 Get-AdlJob -Account $adla -State Ended -Result Failed
 ```
-
 
 `-Submitter` Parametr pomagają określić, kto przesłać zadania.
 
@@ -338,7 +332,6 @@ Użyj `Get-AdlJobPipeline` polecenia cmdlet, aby zobaczyć informacje o potoku w
 
 ```powershell
 $pipelines = Get-AdlJobPipeline -Account $adla
-
 $pipeline = Get-AdlJobPipeline -Account $adla -PipelineId "<pipeline ID>"
 ```
 
@@ -682,7 +675,7 @@ Zapisz poniższy tekst jako `.json` pliku, a następnie użyj powyższy skrypt p
 }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Omówienie usługi Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * Wprowadzenie do usługi Data Lake Analytics przy użyciu [portalu Azure](data-lake-analytics-get-started-portal.md) | [programu Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [2.0 interfejsu wiersza polecenia](data-lake-analytics-get-started-cli2.md)
 * Zarządzanie usługą Azure Data Lake Analytics przy użyciu [portalu Azure](data-lake-analytics-manage-use-portal.md) | [programu Azure PowerShell](data-lake-analytics-manage-use-powershell.md) | [interfejsu wiersza polecenia](data-lake-analytics-manage-use-cli.md) 

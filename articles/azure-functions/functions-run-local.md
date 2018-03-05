@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 8b85457c5df9fb15c7eebe8b6fe8fb904f9e6009
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
-ms.translationtype: MT
+ms.openlocfilehash: f19fa1ac4dd970ca3df2c0fdbf8e0778e171c43d
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Kod testu Azure funkcji i lokalnie
 
@@ -105,6 +105,14 @@ Initialized empty Git repository in D:/Code/Playground/MyFunctionProj/.git/
 ```
 
 Aby utworzyć projekt bez lokalnego repozytorium Git, użyj `--no-source-control [-n]` opcji.
+
+## <a name="register-extensions"></a>Rejestrowanie rozszerzeń
+
+W wersji 2.x środowiska uruchomieniowego usługi Azure Functions, należy jawnie zarejestrować [powiązanie rozszerzenia](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md) używaną w funkcji aplikacji. 
+
+[!INCLUDE [Full bindings table](../../includes/functions-core-tools-install-extension.md)]
+
+Aby uzyskać więcej informacji, zobacz [usługi Azure Functions wyzwalaczy i powiązań pojęcia](functions-triggers-bindings.md#register-binding-extensions).
 
 ## <a name="local-settings-file"></a>Plik ustawień lokalnych
 
@@ -311,6 +319,10 @@ Na przykład do wywołania funkcji wyzwalanych przez protokół HTTP i przekaż 
 ```
 func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ```
+
+### <a name="viewing-log-files-locally"></a>Wyświetlanie plików dziennika lokalnie
+
+[!INCLUDE [functions-local-logs-location](../../includes/functions-local-logs-location.md)]
 
 ## <a name="publish"></a>Publikowanie na platformie Azure
 

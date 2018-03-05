@@ -3,7 +3,7 @@ title: "Planowanie środowiska uruchomieniowego integracji Azure SSIS | Dokument
 description: "W tym artykule opisano sposób tworzenia harmonogramu uruchamiania i zatrzymywania ze środowiska uruchomieniowego integracji Azure SSIS przy użyciu usługi Automatyzacja Azure i fabryki danych."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: douglaslMS
 manager: jhubbard
 editor: 
 ms.service: data-factory
@@ -12,12 +12,12 @@ ms.tgt_pltfrm:
 ms.devlang: powershell
 ms.topic: article
 ms.date: 01/25/2018
-ms.author: spelluru
-ms.openlocfilehash: 814ef63f317c2c0c9081579c16a12a908c05ff74
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: douglasl
+ms.openlocfilehash: 522e9b6831c31a90337126380ccc9f2cb6d8713b
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Jak można zaplanować uruchamianie i zatrzymywanie środowiska uruchomieniowego integracji Azure SSIS 
 Uruchomiona środowiska uruchomieniowego integracji SSIS Azure (SQL Server Integration Services) (IR) ma opłat skojarzonych z nim. W związku z tym który chcesz uruchomić IR tylko wtedy, gdy jest to wymagane do uruchamiania pakietów SSIS na platformie Azure i zatrzymaj ją, gdy nie będzie potrzebny. Można użyć interfejsu użytkownika z fabryki danych lub Azure PowerShell do [ręcznie uruchomić lub zatrzymać IR SSIS Azure](manage-azure-ssis-integration-runtime.md)). W tym artykule opisano sposób tworzenia harmonogramu uruchamiania i zatrzymywania Azure SSIS integrację środowiska uruchomieniowego (IR) przy użyciu usługi Automatyzacja Azure i fabryki danych Azure. Poniżej przedstawiono ogólne kroki opisane w tym artykule:
@@ -44,7 +44,7 @@ W tej sekcji należy wykonać następujące kroki:
 ### <a name="create-an-azure-automation-account"></a>Tworzenie konta usługi Azure Automation
 Jeśli nie masz konta usługi Automatyzacja Azure, utwórz je zgodnie z instrukcjami w tym kroku. Aby uzyskać szczegółowe instrukcje, zobacz [utworzyć konto usługi Automatyzacja Azure](../automation/automation-quickstart-create-account.md). W ramach tego kroku, możesz utworzyć **Uruchom jako platformy Azure** konta (podmiotu zabezpieczeń w usłudze Azure Active Directory service) i dodaj go do **współautora** roli subskrypcji platformy Azure. Upewnij się, że jest taki sam jak subskrypcji, która zawiera fabryki danych, która ma podczerwieni Azure SSIS. Automatyzacja Azure używa tego konta do uwierzytelniania w usłudze Azure Resource Manager i działają na Twoich zasobów. 
 
-1. Uruchom **Microsoft Edge** lub **Google Chrome** przeglądarki sieci web. Obecnie interfejsu użytkownika z fabryki danych jest obsługiwane wyłącznie w przeglądarkach sieci web Microsoft Edge i przeglądarki Google Chrome.
+1. Uruchom przeglądarkę internetową **Microsoft Edge** lub **Google Chrome**. Obecnie interfejs użytkownika usługi Data Factory jest obsługiwany tylko przez przeglądarki internetowe Microsoft Edge i Google Chrome.
 2. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).    
 3. Wybierz **nowy** w menu po lewej stronie wybierz **monitorowanie i zarządzanie**i wybierz **automatyzacji**. 
 

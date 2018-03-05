@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 1ad6ba7126b210ddc671026244c4c614d7010000
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 8455a45f1c39c5cb04f742d57a16a81776f850e0
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-c-user-defined-functions-with-hive-and-pig-streaming-on-hadoop-in-hdinsight"></a>C# zdefiniowane przez użytkownika funkcji za pomocą technologii Hive i Pig przesyłania strumieniowego na platformie Hadoop w usłudze HDInsight
 
@@ -49,7 +49,7 @@ Zarówno Hive i Pig można przekazać dane do aplikacji zewnętrznych do przetwa
 
 ## <a name="net-on-hdinsight"></a>.NET w usłudze HDInsight
 
-* __HDInsight opartych na systemie Linux__ klastrów za pomocą [Mono (https://mono-project.com)](https://mono-project.com) na uruchamianie aplikacji .NET. Wersja mono 4.2.1 jest uwzględniona w usłudze HDInsight w wersji 3.5.
+* __HDInsight opartych na systemie Linux__ klastrów za pomocą [Mono (https://mono-project.com)](https://mono-project.com) na uruchamianie aplikacji .NET. Wersja mono 4.2.1 jest uwzględniona w usłudze HDInsight w wersji 3,6.
 
     Aby uzyskać więcej informacji na Mono zgodność z wersji systemu .NET Framework, zobacz [Mono zgodności](http://www.mono-project.com/docs/about-mono/compatibility/).
 
@@ -121,7 +121,7 @@ Aby uzyskać więcej informacji o wersji programu .NET framework i Mono dołącz
 
 3. Skompiluj projekt.
 
-### <a name="pig-udf"></a>Pig funkcji zdefiniowanej przez użytkownika
+### <a name="pig-udf"></a>Pig UDF
 
 1. Otwórz program Visual Studio i utworzyć rozwiązanie. Dla typu projektu, zaznacz **aplikacji konsoli**, a nazwa nowego projektu **PigUDF**.
 
@@ -260,7 +260,7 @@ Aby uzyskać więcej informacji o wersji programu .NET framework i Mono dołącz
         (2012-02-03 20:11:56 SampleClass5 [TRACE] verbose detail for id 1737534798)
         (2012-02-03 20:11:56 SampleClass7 [DEBUG] detail for id 1475865947)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym dokumencie mają pokazaliśmy, jak korzystać z aplikacji .NET Framework z Hive i Pig w usłudze HDInsight. Jeśli chcesz dowiedzieć się, jak używać języka Python z Hive i Pig, zobacz [Użyj Python z Hive i Pig w usłudze HDInsight](python-udf-hdinsight.md).
 

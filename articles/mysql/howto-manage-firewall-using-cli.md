@@ -1,20 +1,20 @@
 ---
-title: "Tworzenie i zarządzanie nimi Azure bazy danych MySQL reguł zapory przy użyciu wiersza polecenia platformy Azure | Dokumentacja firmy Microsoft"
+title: "Tworzenie i zarządzanie nimi Azure bazy danych MySQL reguł zapory przy użyciu wiersza polecenia platformy Azure"
 description: "W tym artykule opisano sposób tworzenia i zarządzania nimi Azure bazy danych MySQL reguł zapory przy użyciu wiersza polecenia wiersza polecenia platformy Azure."
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 02/12/2018
-ms.openlocfilehash: 77254d91bcfa7cbd6070e3baeb98fd7cc5ad44cf
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.date: 02/28/2018
+ms.openlocfilehash: b142d08379f8a8fde20178668a4c1343f08aedbc
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Tworzenie i zarządzanie nimi Azure bazy danych MySQL reguł zapory przy użyciu wiersza polecenia platformy Azure
 Reguły zapory poziomu serwera umożliwiają administratorom zarządzanie dostępem do bazy danych Azure MySQL serwera z określonego adresu IP lub zakresu adresów IP. Za pomocą wygodny poleceń interfejsu wiersza polecenia Azure, możesz utworzyć, zaktualizować, Usuń listę i Pokaż reguły zapory do zarządzania serwerem. Omówienie bazy danych Azure dla zapór MySQL, zobacz [bazą danych Azure dla reguł zapory serwera MySQL](./concepts-firewall-rules.md)
@@ -54,39 +54,38 @@ To polecenie generuje kod, aby użyć w następnym kroku.
 5. Lista baz danych Azure, serwerów MySQL dla Twojej subskrypcji i grupie zasobów, jeśli nie wiesz o nazwach. Użyj [listy serwerów mysql az](/cli/azure/mysql/server#az_mysql_server_list) polecenia.
 
    ```azurecli-interactive
-   az mysql server list --resource-group myResourceGroup
+   az mysql server list --resource-group myresourcegroup
    ```
 
    Należy zwrócić uwagę atrybutu nazwy w liście, należy określić serwer MySQL pracować nad. Jeśli to konieczne, Potwierdź szczegóły dla tego serwera i przy użyciu atrybutu nazwy, aby upewnić się, że jest poprawny. Użyj [Pokaż serwera mysql az](/cli/azure/mysql/server#az_mysql_server_show) polecenia.
 
    ```azurecli-interactive
-   az mysql server show --resource-group myResourceGroup --name mydemoserver
+   az mysql server show --resource-group myresourcegroup --name mydemoserver
    ```
 
 ## <a name="list-firewall-rules-on-azure-database-for-mysql-server"></a>Lista reguł zapory w bazie danych Azure MySQL serwera 
 Przy użyciu nazwy serwera i nazwa grupy zasobów, Wyświetl listę istniejących reguł zapory serwera na serwerze. Użyj [listy zapory serwera mysql az](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_list) polecenia.  Należy zauważyć, że nazwa serwera jest określony w **— serwer** przełącznik, a nie w **— nazwa** przełącznika. 
 ```azurecli-interactive
-az mysql server firewall-rule list --resource-group myResourceGroup --server-name mydemoserver
+az mysql server firewall-rule list --resource-group myresourcegroup --server-name mydemoserver
 ```
 Dane wyjściowe wymieniono reguły, jeśli istnieje, w formacie JSON formatu (domyślnie). Można użyć **--tabeli wyników** przełącznik, aby wyświetlić wyników w bardziej czytelnym formacie tabeli.
 ```azurecli-interactive
-az mysql server firewall-rule list --resource-group myResourceGroup --server-name mydemoserver --output table
+az mysql server firewall-rule list --resource-group myresourcegroup --server-name mydemoserver --output table
 ```
 ## <a name="create-a-firewall-rule-on-azure-database-for-mysql-server"></a>Tworzenie reguły zapory w bazie danych Azure MySQL serwera
 Przy użyciu nazwy serwera Azure MySQL i nazwę grupy zasobów, Utwórz nową regułę zapory na serwerze. Użyj [utworzyć Zapora serwera mysql az](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create) polecenia. Podaj nazwę reguły, a także IP rozpoczęcia i zakończenia IP (w celu zapewnienia dostępu do zakresu adresów IP) reguły.
 ```azurecli-interactive
-az mysql server firewall-rule create --resource-group myResourceGroup --server-name mydemoserver --name FirewallRule1 --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.15
+az mysql server firewall-rule create --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1 --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.15
 ```
 
 Aby zezwolić na dostęp dla jednego adresu IP, należy podać ten sam adres IP jako Start IP i End IP, jak w poniższym przykładzie.
 ```azurecli-interactive
-az mysql server firewall-rule create --resource-group myResourceGroup --server-name mydemoserver --name FirewallRule1 --start-ip-address 1.1.1.1 --end-ip-address 1.1.1.1
+az mysql server firewall-rule create --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1 --start-ip-address 1.1.1.1 --end-ip-address 1.1.1.1
 ```
 
 Aby umożliwić aplikacjom z adresów IP platformy Azure do nawiązania połączenia bazy danych Azure, aby serwer MySQL, podaj adres IP 0.0.0.0 jako Start IP i End IP, jak w poniższym przykładzie.
 ```azurecli-interactive
-az mysql server firewall-rule create --resource-group myResourceGroup  
---server mysql --name "AllowAllWindowsAzureIps" --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+az mysql server firewall-rule create --resource-group myresourcegroup --server mysql --name "AllowAllWindowsAzureIps" --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
 > [!IMPORTANT]
@@ -98,7 +97,7 @@ Po sukces utworzyć każdego polecenia, które dane wyjściowe Wyświetla szczeg
 ## <a name="update-a-firewall-rule-on-azure-database-for-mysql-server"></a>Aktualizuj reguły zapory dla serwera MySQL w bazie danych Azure 
 Przy użyciu nazwy serwera Azure MySQL i nazwę grupy zasobów, zaktualizuj istniejącą regułę zapory na serwerze. Użyj [aktualizacja zapory serwera mysql az](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_update) polecenia. Podaj nazwę istniejącej reguły zapory jako dane wejściowe, a także początek atrybutów IP adresów IP i końcowy do aktualizacji.
 ```azurecli-interactive
-az mysql server firewall-rule update --resource-group myResourceGroup --server-name mydemoserver --name FirewallRule1 --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.1
+az mysql server firewall-rule update --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1 --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.1
 ```
 Na sukces dane wyjściowe polecenia Wyświetla szczegóły reguły zapory, które zostały zaktualizowane w formacie JSON (domyślnie). W przypadku awarii, dane wyjściowe zawierają tekst komunikatu o błędzie zamiast tego.
 
@@ -108,14 +107,14 @@ Na sukces dane wyjściowe polecenia Wyświetla szczegóły reguły zapory, któr
 ## <a name="show-firewall-rule-details-on-azure-database-for-mysql-server"></a>Pokaż zapory szczegóły reguły w bazie danych Azure dla serwera MySQL
 Przy użyciu nazwy serwera Azure MySQL i nazwę grupy zasobów, Pokaż szczegóły reguły z serwera istniejącą zapory. Użyj [az mysql Serwer zapory Pokaż](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_show) polecenia. Podaj nazwę istniejącej reguły zapory jako dane wejściowe.
 ```azurecli-interactive
-az mysql server firewall-rule show --resource-group myResourceGroup --server-name mydemoserver --name FirewallRule1
+az mysql server firewall-rule show --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1
 ```
 Na sukces dane wyjściowe polecenia Wyświetla szczegóły reguły zapory, który został określony, w formacie JSON (domyślnie). W przypadku awarii, dane wyjściowe zawierają tekst komunikatu o błędzie zamiast tego.
 
 ## <a name="delete-a-firewall-rule-on-azure-database-for-mysql-server"></a>Usuwanie reguły zapory w bazie danych Azure MySQL serwera
 Przy użyciu nazwy serwera Azure MySQL i nazwę grupy zasobów, usuń istniejącą regułę zapory z serwera. Użyj [usunąć Zapora serwera mysql az](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_delete) polecenia. Podaj nazwę istniejącej reguły zapory.
 ```azurecli-interactive
-az mysql server firewall-rule delete --resource-group myResourceGroup --server-name mydemoserver --name FirewallRule1
+az mysql server firewall-rule delete --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1
 ```
 Na sukces nie ma żadnych danych wyjściowych. W przypadku awarii Wyświetla tekst komunikatu o błędzie.
 

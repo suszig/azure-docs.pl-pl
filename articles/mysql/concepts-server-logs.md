@@ -1,19 +1,19 @@
 ---
-title: Dzienniki serwera bazy danych Azure dla programu MySQL | Dokumentacja firmy Microsoft
+title: Dzienniki serwera bazy danych Azure dla programu MySQL
 description: "Opisuje dzienników dostępnych w programie Azure bazy danych MySQL i dostępne parametry włączenie rejestrowania różnych poziomów."
 services: mysql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/18/2017
-ms.openlocfilehash: 13b30df82c1a6c4c45a621a1f7a40148a55a7648
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.date: 02/28/2018
+ms.openlocfilehash: ce6b6208b74063ea5d6e9868ca414f833b1a2045
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="server-logs-in-azure-database-for-mysql"></a>Do dzienników serwera w bazie danych systemu Azure dla programu MySQL
 W przypadku bazy danych Azure dla programu MySQL dziennika powolne zapytania jest dostępna dla użytkowników. Dostęp do dziennika transakcji nie jest obsługiwany. Dziennik zapytań powolne może służyć do identyfikowania wąskich gardeł wydajności przy rozwiązywaniu problemów. 

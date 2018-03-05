@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 038cfb72cfc98fdddaca6751b321c11066527e56
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ff2f1dd89796a30d4e0fee0810ff45ff57f5f8bf
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-a-model-in-azure-portal"></a>Tworzenie modelu w portalu Azure
 
@@ -27,15 +27,19 @@ Funkcja projektanta (wersja zapoznawcza) w sieci web usług Azure Analysis Servi
 
 Należy pamiętać, Projektant stron sieci web jest **Podgląd**. Gdy nowych funkcji jest dodawany cały czas w wersji zapoznawczej, funkcje są ograniczone. Do bardziej zaawansowanego modelu programowania i testowania najlepiej jest używać programu Visual Studio (SSDT) i SQL Server Management Studio (SSMS).
 
-## <a name="prerequisites"></a>Wymagania wstępne
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 - Serwer usług Azure Analysis Services w warstwy standardowa lub dewelopera. Nowe modele utworzone przy użyciu narzędzia Projektant sieci Web są zapytania bezpośredniego, obsługiwane tylko przez te warstwy.
 - Baza danych SQL Azure, Magazyn danych SQL Azure lub pliku Power BI Desktop (pbix) jako źródła danych. Nowe modele utworzone na podstawie obsługi plików bazy danych SQL Azure, Magazyn danych SQL Azure, Oracle i Teradata Power BI Desktop źródeł danych.
 - Konto programu SQL Server i hasło do nawiązywania połączenia z bazą danych SQL Azure lub usługi Azure SQL Data Warehouse źródeł danych.
 
+## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
+
+Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+
 ## <a name="to-create-a-new-tabular-model"></a>Aby utworzyć nowy model tabelaryczny
 
-1. Znajdujących się na serwerze **omówienie** bloku > **Projektant stron sieci Web**, kliknij przycisk **Otwórz**.
+1. Na serwerze **omówienie** > **Projektant stron sieci Web**, kliknij przycisk **Otwórz**.
 
     ![Tworzenie modelu w portalu Azure](./media/analysis-services-create-model-portal/aas-create-portal-overview-wd.png)
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: mbullwin
-ms.openlocfilehash: ef813ec3f9f654fb3786fba4135a04e403928e9a
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: fae3269e21d0f760ae77a70333047306c07c2961
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Eksploruj dzienniki śledzenia w usłudze Application Insights w języku Java
 Jeśli używasz Logback lub Log4J (1.2 lub 2.0) śledzenia, może mieć dzienników śledzenia automatycznie przesyłane do usługi Application Insights, gdzie można eksplorować i ich wyszukiwanie.
@@ -42,7 +42,7 @@ Następnie Odśwież zależności projektu, aby uzyskać pobierane pliki binarne
        <dependency>
           <groupId>com.microsoft.azure</groupId>
           <artifactId>applicationinsights-logging-logback</artifactId>
-          <version>[1.0,)</version>
+          <version>[2.0,)</version>
        </dependency>
     </dependencies>
 ```
@@ -55,7 +55,7 @@ Następnie Odśwież zależności projektu, aby uzyskać pobierane pliki binarne
        <dependency>
           <groupId>com.microsoft.azure</groupId>
           <artifactId>applicationinsights-logging-log4j2</artifactId>
-          <version>[1.0,)</version>
+          <version>[2.0,)</version>
        </dependency>
     </dependencies>
 ```
@@ -68,7 +68,7 @@ Następnie Odśwież zależności projektu, aby uzyskać pobierane pliki binarne
        <dependency>
           <groupId>com.microsoft.azure</groupId>
           <artifactId>applicationinsights-logging-log4j1_2</artifactId>
-          <version>[1.0,)</version>
+          <version>[2.0,)</version>
        </dependency>
     </dependencies>
 ```
@@ -82,19 +82,19 @@ Następnie Odśwież zależności projektu, aby uzyskać pobierane pliki binarne
 
 ```
 
-    compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-logback', version: '1.0.+'
+    compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-logback', version: '2.0.+'
 ```
 
 **Log4J v2.0**
 
 ```
-    compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-log4j2', version: '1.0.+'
+    compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-log4j2', version: '2.0.+'
 ```
 
 **1.2 Log4J**
 
 ```
-    compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-log4j1_2', version: '1.0.+'
+    compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-log4j1_2', version: '2.0.+'
 ```
 
 #### <a name="otherwise-"></a>W innym przypadku...

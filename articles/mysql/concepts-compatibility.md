@@ -1,19 +1,19 @@
 ---
-title: "Sterowniki MySQL i zarządzania narzędzi zgodności | Dokumentacja firmy Microsoft"
-description: "Sterowniki MySQL i narzędzia do zarządzania zgodny z bazą danych Azure dla programu MySQL"
+title: "Sterowniki MySQL i zgodność z narzędziami narzędzia do zarządzania"
+description: "W tym artykule opisano sterowniki MySQL i narzędzia do zarządzania, które są zgodne z bazą danych Azure dla programu MySQL."
 services: mysql
-author: seanli1988
-ms.author: seanli
+author: ajlam
+ms.author: andrela
 editor: jasonwhowell
-manager: jhubbard
+manager: kfile
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/27/2017
-ms.openlocfilehash: 7578ae710a3d6c81fdfa2952c53a20c2cdccb6d0
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.date: 02/28/2018
+ms.openlocfilehash: 5fc13ef07b61feb9e9fdd73123a09daa61f6aaf3
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>Sterowniki MySQL i narzędzia do zarządzania zgodny z bazą danych Azure dla programu MySQL
 W tym artykule opisano sterowniki i narzędzia do zarządzania, które są zgodne z bazą danych Azure dla programu MySQL.
@@ -23,19 +23,19 @@ Bazy danych platformy Azure dla programu MySQL używa najpopularniejszych wersja
 
 | **Sterownik** | **Łącza** | **Niezgodne wersje** | **Wersje niezgodną** | **Uwagi** |
 | :-------- | :------------------------ | :----------- | :---------------------- | :--------------------------------------- |
-| PHP | http://PHP.NET/downloads.php | 5.5 5.6 7.x | 5.3 | W przypadku PHP 7.0 połączenia z MySQLi protokołu SSL należy dodać MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT w parametrach połączenia. <br> ```mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, NULL, MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT);```<br> Zestaw PDO: ```PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT``` opcję na wartość false.|
+| PHP | http://php.net/downloads.php | 5.5 5.6 7.x | 5.3 | W przypadku PHP 7.0 połączenia z MySQLi protokołu SSL należy dodać MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT w parametrach połączenia. <br> ```mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, NULL, MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT);```<br> Zestaw PDO: ```PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT``` opcję na wartość false.|
 | .Net | [MySqlConnector w witrynie GitHub](https://github.com/mysql-net/MySqlConnector) <br> [Pakiet instalacyjny z Nuget](https://www.nuget.org/packages/MySqlConnector/) | 0.27 oraz po | 0.26.5 i przed | |
 | Nodejs |  [MySQLjs w witrynie GitHub](https://github.com/mysqljs/mysql/releases) <br> Pakiet instalacyjny z pakietu NPM:<br> Uruchom `npm install mysql` z pakietu NPM | 2.15 | 2.14.1 i przed | |
-| PRZEJDŹ | https://github.com/go-SQL-Driver/MySQL/Releases | 1.3 | 1.2 i przed | Użyj allowNativePasswords = true w parametrach połączenia |
-| Python | https://pypi.Python.org/pypi/MySQL-Connector-Python | 1.2.3, 2.0, 2.1, 2.2 | 1.2.2 i przed | |
-| Java | https://downloads.mariadb.org/Connector-Java/ | 2.1 2.0 1.6 | 1.5.5 i przed | |
+| PRZEJDŹ | https://github.com/go-sql-driver/mysql/releases | 1.3 | 1.2 i przed | Użyj allowNativePasswords = true w parametrach połączenia |
+| Python | https://pypi.python.org/pypi/mysql-connector-python | 1.2.3, 2.0, 2.1, 2.2 | 1.2.2 i przed | |
+| Java | https://downloads.mariadb.org/connector-java/ | 2.1 2.0 1.6 | 1.5.5 i przed | |
 
 ## <a name="management-tools"></a>Narzędzia do zarządzania
 Zaletą zgodności obejmuje również narzędzia do zarządzania bazą danych. Istniejących narzędzi powinno być kontynuowane do pracy z bazą danych Azure dla programu MySQL, jak długo Manipulowanie bazą danych działa w granicach uprawnień użytkownika. Trzy wspólnej bazy danych narzędzia do zarządzania, które zostały przetestowane i jest zgodny z bazą danych Azure MySQL 5.6 i 5.7 są wymienione w poniższej tabeli:
 
 |                                     | **MySQL Workbench 6.x lub nowszego** | **Navicat 12** | **PHPMyAdmin 4.x i nowsze** |
 | :---------------------------------- | :----------------------------- | :------------- | :-------------------------|
-| Tworzenie, aktualizowanie, odczytu, zapisu i usuwania | X | X | X |
+| Create, Update, Read, Write, Delete | X | X | X |
 | Połączenie SSL | X | X | X |
 | SQL kwerendy automatycznego uzupełniania | X | X |  |
 | Importowanie i eksportowanie danych | X | X | X |

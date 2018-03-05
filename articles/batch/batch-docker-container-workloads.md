@@ -8,13 +8,13 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 12/01/2017
+ms.date: 02/26/2018
 ms.author: danlep
-ms.openlocfilehash: 2fa5f9335a4d00f489f11c0db23322ab971a224f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a26d786ffcb74bb28fb9bd065e49398d52d2b662
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Uruchamianie aplikacji kontenera w partii zadań Azure
 
@@ -27,7 +27,7 @@ W tym artykule założono znajomość pojęcia kontenera Docker i tworzenie puli
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Wersje zestawu SDK: wsadowego zestawów SDK pomocy technicznej kontener obrazów w następujących wersjach:
+* Wersje zestawu SDK: wsadowego zestawów SDK pomocy technicznej kontener obrazów z następujących wersji:
     * Interfejs API REST partii wersji 2017-09-01.6.0
     * Wsadowe .NET SDK w wersji 8.0.0
     * Zestaw SDK Python usługi partia zadań w wersji 4.0
@@ -87,7 +87,7 @@ W kodzie aplikacji Podaj odwołanie do obrazu maszyny Wirtualnej do użycia podc
 
     Aby uzyskać ten identyfikator obrazu z portalu Azure, otwórz **wszystkie zasoby**, wybierz obraz niestandardowy i z **omówienie** sekcji bloku obraz należy skopiować ścieżkę w **identyfikator zasobu**.
 
-* Jeśli używasz [portalu Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?page=1&subcategories=windows-based) obraz, podaj grupę parametry opisujące obrazu: typu oferty, wydawca, jednostki SKU i wersję obrazu wymienionych w [listy obrazów maszyny wirtualnej](batch-linux-nodes.md#list-of-virtual-machine-images):
+* Jeśli używasz [portalu Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?page=1&subcategories=windows-based) obraz, podaj grupę parametry opisujące obrazu: wydawcy, typu oferty, jednostki SKU i wersji obrazu na liście [listy obrazów maszyny wirtualnej](batch-linux-nodes.md#list-of-virtual-machine-images):
 
   ```csharp
   // Provide a reference to an Azure Marketplace image for
@@ -239,7 +239,7 @@ CloudTask containerTask = new CloudTask (
 
 ## <a name="next-steps"></a>Kolejne kroki
 
-* Aby uzyskać szczegółowe informacje o partii, zobacz [Programowanie równoległe na dużą skalę obliczeniowe rozwiązań w partii](batch-api-basics.md).
+* Zobacz też [stoczni partii](https://github.com/Azure/batch-shipyard) zestawu narzędzi w celu łatwiejszego wdrażania obciążeń kontenera w partii zadań Azure za pośrednictwem [przepisami stoczni](https://github.com/Azure/batch-shipyard/tree/master/recipes).
 
 * Aby uzyskać więcej informacji o instalowaniu i używaniu Docker CE na systemie Linux, zobacz [Docker](https://docs.docker.com/engine/installation/) dokumentacji.
 

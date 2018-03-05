@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2017
 ms.author: echuvyrov
-ms.openlocfilehash: 8abc98a6f1a222e2533eb9f742fb83f4a23d5e90
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2a6fb8b6b096a029db1ab88bd578461549db9776
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>Tworzenie całej infrastruktury maszyny wirtualnej systemu Linux na platformie Azure z Terraform
 
@@ -49,7 +49,7 @@ Poniższa sekcja tworzy grupę zasobów o nazwie `myResourceGroup` w `eastus` lo
 ```tf
 resource "azurerm_resource_group" "myterraformgroup" {
     name     = "myResourceGroup"
-    location = "East US"
+    location = "eastus"
 
     tags {
         environment = "Terraform Demo"
@@ -66,7 +66,7 @@ Poniższa sekcja tworzy sieć wirtualną o nazwie *myVnet* w *10.0.0.0/16* przes
 resource "azurerm_virtual_network" "myterraformnetwork" {
     name                = "myVnet"
     address_space       = ["10.0.0.0/16"]
-    location            = "East US"
+    location            = "eastus"
     resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
 
     tags {
@@ -92,7 +92,7 @@ Aby uzyskać dostęp do zasobów w Internecie, należy utworzyć i przypisać pu
 ```tf
 resource "azurerm_public_ip" "myterraformpublicip" {
     name                         = "myPublicIP"
-    location                     = "East US"
+    location                     = "eastus"
     resource_group_name          = "${azurerm_resource_group.myterraformgroup.name}"
     public_ip_address_allocation = "dynamic"
 
@@ -109,7 +109,7 @@ Grupy zabezpieczeń sieci sterowanie przepływem ruchu sieciowego do i z maszyn�
 ```tf
 resource "azurerm_network_security_group" "temyterraformpublicipnsg" {
     name                = "myNetworkSecurityGroup"
-    location            = "East US"
+    location            = "eastus"
     resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
     ;
     security_rule {
@@ -137,7 +137,7 @@ Karty interfejsu sieci wirtualnej (NIC) nawiązuje połączenie z maszyną Wirtu
 ```tf
 resource "azurerm_network_interface" "myterraformnic" {
     name                = "myNIC"
-    location            = "East US"
+    location            = "eastus"
     resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
 
     ip_configuration {
@@ -174,7 +174,7 @@ Można teraz utworzyć konta magazynu. Poniższa sekcja tworzy konto magazynu o 
 resource "azurerm_storage_account" "mystorageaccount" {
     name                = "diag${random_id.randomId.hex}"
     resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
-    location            = "East US"
+    location            = "eastus"
     account_replication_type = "LRS"
     account_tier = "Standard"
 
@@ -194,7 +194,7 @@ Ostatnim krokiem jest tworzenie maszyny Wirtualnej i korzystać z zasobów utwor
 ```tf
 resource "azurerm_virtual_machine" "myterraformvm" {
     name                  = "myVM"
-    location              = "East US"
+    location              = "eastus"
     resource_group_name   = "${azurerm_resource_group.myterraformgroup.name}"
     network_interface_ids = ["${azurerm_network_interface.myterraformnic.id}"]
     vm_size               = "Standard_DS1_v2"
@@ -257,7 +257,7 @@ provider "azurerm" {
 # Create a resource group if it doesn’t exist
 resource "azurerm_resource_group" "myterraformgroup" {
     name     = "myResourceGroup"
-    location = "East US"
+    location = "eastus"
 
     tags {
         environment = "Terraform Demo"
@@ -268,7 +268,7 @@ resource "azurerm_resource_group" "myterraformgroup" {
 resource "azurerm_virtual_network" "myterraformnetwork" {
     name                = "myVnet"
     address_space       = ["10.0.0.0/16"]
-    location            = "East US"
+    location            = "eastus"
     resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
 
     tags {
@@ -287,7 +287,7 @@ resource "azurerm_subnet" "myterraformsubnet" {
 # Create public IPs
 resource "azurerm_public_ip" "myterraformpublicip" {
     name                         = "myPublicIP"
-    location                     = "East US"
+    location                     = "eastus"
     resource_group_name          = "${azurerm_resource_group.myterraformgroup.name}"
     public_ip_address_allocation = "dynamic"
 
@@ -299,7 +299,7 @@ resource "azurerm_public_ip" "myterraformpublicip" {
 # Create Network Security Group and rule
 resource "azurerm_network_security_group" "myterraformnsg" {
     name                = "myNetworkSecurityGroup"
-    location            = "East US"
+    location            = "eastus"
     resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
     
     security_rule {
@@ -322,7 +322,7 @@ resource "azurerm_network_security_group" "myterraformnsg" {
 # Create network interface
 resource "azurerm_network_interface" "myterraformnic" {
     name                      = "myNIC"
-    location                  = "East US"
+    location                  = "eastus"
     resource_group_name       = "${azurerm_resource_group.myterraformgroup.name}"
     network_security_group_id = "${azurerm_network_security_group.myterraformnsg.id}"
 
@@ -352,7 +352,7 @@ resource "random_id" "randomId" {
 resource "azurerm_storage_account" "mystorageaccount" {
     name                        = "diag${random_id.randomId.hex}"
     resource_group_name         = "${azurerm_resource_group.myterraformgroup.name}"
-    location                    = "East US"
+    location                    = "eastus"
     account_tier                = "Standard"
     account_replication_type    = "LRS"
 
@@ -364,7 +364,7 @@ resource "azurerm_storage_account" "mystorageaccount" {
 # Create virtual machine
 resource "azurerm_virtual_machine" "myterraformvm" {
     name                  = "myVM"
-    location              = "East US"
+    location              = "eastus"
     resource_group_name   = "${azurerm_resource_group.myterraformgroup.name}"
     network_interface_ids = ["${azurerm_network_interface.myterraformnic.id}"]
     vm_size               = "Standard_DS1_v2"

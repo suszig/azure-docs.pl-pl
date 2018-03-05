@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: bradsev
-ms.openlocfilehash: daf5168ba9a21a56d72fc14649c349b0fb63a167
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 4671493c23bfed72517e436dd6922f4ef8a213b0
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Proces nauki danych zespołu w działaniu: klastrów użycia usługi Azure HDInsight Hadoop
 W tym przewodniku używamy [zespołu danych nauki procesu (TDSP)](overview.md) w scenariuszu end-to-end. Używamy [klastra usługi Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/) do przechowywania, Analizuj i dane funkcji odtwarzania z publicznie dostępnych [rund taksówki NYC](http://www.andresmh.com/nyctaxitrips/) zestawu danych i w dół przykładowych danych. Do obsługi binarnej i wieloklasowej klasyfikacji i regresji predykcyjnej zadania, budujemy modele danych przy użyciu usługi Azure Machine Learning. 
@@ -104,10 +104,10 @@ W tym miejscu możemy opisano, jak używać narzędzia AzCopy do przesyłania pl
 
 W poniższych poleceniach narzędzia AzCopy, Zamień następujące parametry rzeczywistej wartości, które można określić podczas tworzenia klastra usługi Hadoop i rozpakować pliki danych.
 
-* ***&#60; path_to_data_folder >*** katalogu (wraz ze ścieżką) na komputerze, zawierający pliki rozpakowane danych.  
-* ***&#60; nazwa konta magazynu z klastra usługi Hadoop >*** konta magazynu skojarzone z klastrem usługi HDInsight.
-* ***&#60; domyślny kontener klastra usługi Hadoop >*** domyślny kontener używane przez klaster. Należy pamiętać, że nazwa kontenera domyślnego zwykle taką samą nazwę jak samego klastra. Na przykład jeśli klaster jest nazywany "abc123.azurehdinsight.net", domyślny kontener jest abc123.
-* ***&#60; klucz konta magazynu >*** klucza dla konta magazynu używane przez klaster.
+* ***< Path_to_data_folder >*** katalogu (wraz ze ścieżką) na komputerze, zawierający pliki rozpakowane danych.  
+* ***<storage account name of Hadoop cluster>*** Konta magazynu skojarzone z klastrem usługi HDInsight.
+* ***<default container of Hadoop cluster>*** Domyślny kontener używane przez klaster. Należy pamiętać, że nazwa kontenera domyślnego zwykle taką samą nazwę jak samego klastra. Na przykład jeśli klaster jest nazywany "abc123.azurehdinsight.net", domyślny kontener jest abc123.
+* ***<storage account key>*** Klucz dla konta magazynu używane przez klaster.
 
 Z wiersza polecenia lub okno programu Windows PowerShell uruchom następujące dwa polecenia AzCopy.
 
@@ -561,7 +561,7 @@ Aby wyświetlić zawartość określonego pliku, powiedz **000000\_0**, użyj Ha
     hdfs dfs -copyToLocal wasb:///queryoutputdir/000000_0 C:\temp\tempfile
 
 > [!WARNING]
-> `copyToLocal`może być bardzo wolno dla dużych plików, a nie jest zalecane używanie z nimi.  
+> `copyToLocal` może być bardzo wolno dla dużych plików, a nie jest zalecane używanie z nimi.  
 > 
 > 
 

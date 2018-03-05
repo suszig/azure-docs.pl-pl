@@ -1,19 +1,19 @@
 ---
-title: "Migrowanie bazy danych MySQL przy użyciu zrzutu i przywrócić w bazie danych Azure dla programu MySQL | Dokumentacja firmy Microsoft"
+title: "Migrowanie bazy danych MySQL przy użyciu zrzutu i przywrócić w bazie danych Azure dla programu MySQL"
 description: "W tym artykule opisano dwa podstawowe sposoby kopie zapasowe i przywracanie baz danych w bazie danych Azure dla programu MySQL, za pomocą narzędzi, takich jak mysqldump, MySQL Workbench i PHPMyAdmin."
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 11/27/2017
-ms.openlocfilehash: e962fd65244ceebfc7544dc5a1d1956dad811fea
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.date: 02/28/2018
+ms.openlocfilehash: 0c5a6b6d971d434a52bf80da6b34d7f6949589bc
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migrowanie bazy danych MySQL bazą danych Azure dla programu MySQL przy użyciu zrzutu i przywracania
 W tym artykule opisano dwa podstawowe sposoby kopie zapasowe i przywracanie baz danych w bazie danych Azure dla programu MySQL
@@ -101,7 +101,7 @@ mysql -h [hostname] -u [uname] -p[pass] [db_to_restore] < [backupfile.sql]
 ```
 W tym przykładzie należy przywrócić te dane do nowo utworzonej bazy danych w celu Azure bazy danych MySQL serwera.
 ```bash
-$ mysql -h myserver4demo.mysql.database.azure.com -u myadmin@myserver4demo -p testdb < testdb_backup.sql
+$ mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p testdb < testdb_backup.sql
 ```
 
 ## <a name="export-using-phpmyadmin"></a>Eksportowanie przy użyciu PHPMyAdmin
@@ -122,5 +122,5 @@ Importowanie bazy danych jest podobny do eksportowania. Wykonaj następujące cz
 - Użyj **Przeglądaj** przycisk, aby znaleźć plik bazy danych. 
 - Kliknij przycisk **Przejdź** przycisk, aby wyeksportować kopii zapasowej, wykonaj polecenia SQL i ponownie utworzyć bazę danych.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Łączenie aplikacji bazy danych platformy Azure dla programu MySQL](./howto-connection-string.md)

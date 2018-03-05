@@ -1,19 +1,19 @@
 ---
-title: Monitorowanie bazy danych platformy Azure dla programu MySQL | Dokumentacja firmy Microsoft
+title: Monitorowanie bazy danych platformy Azure dla programu MySQL
 description: "W tym artykule opisano metryki monitorowania oraz alertów dla bazy danych Azure dla programu MySQL, łącznie z Procesora, limity magazynu i statystyki."
 services: mysql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/24/2017
-ms.openlocfilehash: 9af447d54faa8ee96e4b79beb274b437eea57626
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.date: 02/28/2018
+ms.openlocfilehash: 7ecfb8151cd81fb588f964fdfa3a74aacab24874
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Monitorowanie bazy danych platformy Azure dla programu MySQL
 Monitorowanie danych dotyczących serwerów ułatwia rozwiązywanie problemów i Optymalizuj dla obciążenia. Bazy danych platformy Azure dla programu MySQL zapewnia różnych metryk, które zapewniają wgląd w zachowanie zasobach obsługujących serwer MySQL. 
@@ -42,9 +42,6 @@ Te metryki są dostępne w bazie danych Azure dla programu MySQL:
 |connections_failed|Całkowita liczba połączeń nie powiodło się|Licznik|Liczba połączeń z serwerem nie powiodło się.|
 
 
-> [!NOTE]
-> Obliczeń jednostki składa się z pamięci i procesora CPU. Procent obliczeniowe jednostki jest maksymalny (% pamięci, procesora CPU wynoszące %). Sprawdź, czy wykresy pamięci i procesora w celu określenia, która wnosi wkład zmiany procent obliczeniowe jednostki. Aby uzyskać więcej informacji, zobacz [obliczeniowe jednostki](concepts-compute-unit-and-storage.md).
-
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - Aby uzyskać instrukcje krok po kroku, zobacz [jak skonfigurować alerty](howto-alert-on-metric.md). 
 - Aby uzyskać więcej informacji na temat dostępu i wyeksportować metryki przy użyciu portalu Azure, interfejsu API REST lub interfejsu wiersza polecenia, zobacz [omówienie metryk usługi Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).

@@ -1,19 +1,19 @@
 ---
-title: "Istniejąca usługa aplikacji Azure połączyć się z bazą danych Azure dla programu MySQL | Dokumentacja firmy Microsoft"
+title: "Istniejąca usługa aplikacji Azure połączyć się z bazą danych Azure dla programu MySQL"
 description: "Instrukcje dotyczące sposobu prawidłowo istniejącej usługi aplikacji Azure połączyć się z bazą danych Azure dla programu MySQL"
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
+author: ajlam
+ms.author: andrela
 editor: jasonwhowell
-manager: jhubbard
+manager: kfile
 ms.service: mysql-database
 ms.topic: article
-ms.date: 09/15/2017
-ms.openlocfilehash: 0028b0c918b573f6884e6f63fa82dbe23079882a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.openlocfilehash: d8b130876e5fa0f2b2322dff82013a409ff7d30e
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="connect-an-existing-azure-app-service-to-azure-database-for-mysql-server"></a>Nawiązać MySQL serwera bazy danych Azure istniejącej usługi aplikacji Azure
 W tym temacie wyjaśniono, jak połączyć istniejącej usługi aplikacji Azure do bazy danych Azure, serwer MySQL.
@@ -60,5 +60,5 @@ Chociaż usługa aplikacji Azure próbuje zachować adresy IP stałej wraz z up�
 ## <a name="ssl-configuration"></a>Konfiguracja protokołu SSL
 Azure bazy danych dla programu MySQL jest domyślnie włączony protokół SSL. Jeśli aplikacja nie używa protokołu SSL do połączenia z bazą danych, należy wyłączyć protokół SSL na serwerze programu MySQL. Aby uzyskać więcej informacji na temat konfigurowania protokołu SSL, zobacz [przy użyciu protokołu SSL z bazą danych Azure dla programu MySQL](howto-configure-ssl.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby uzyskać więcej informacji dotyczących parametrów połączenia, zapoznaj się [parametry połączenia](howto-connection-string.md).

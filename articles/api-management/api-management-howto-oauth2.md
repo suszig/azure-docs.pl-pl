@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: bd8b3d13754e981235cbce39e919f39228820426
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 47011bf2cfde268bb6248e54e98930f3a0b522e4
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Sposób autoryzowania konta dewelopera w usłudze Azure API Management przy użyciu protokołu OAuth 2.0
 Obsługuje wiele interfejsów API [OAuth 2.0](http://oauth.net/2/) Zabezpiecz interfejs API i sprawdź, czy tylko prawidłowe użytkowników i ich tylko dostęp do zasobów, do których jest uprawniony. Aby można było używać interakcyjne konsoli dewelopera usługi Azure API Management z tych interfejsów API, usługę pozwala na skonfigurowanie wystąpienia usługi do pracy z Twojej OAuth 2.0 włączone interfejsu API.
 
-## <a name="prerequisites"></a>Wymagania wstępne
+## <a name="prerequisites"> </a>Wymagania wstępne
 W tym przewodniku opisano sposób skonfigurować wystąpienie usługi Zarządzanie interfejsami API autoryzacji OAuth 2.0 na potrzeby konta dewelopera, ale nie opisano, jak skonfigurować dostawcę uwierzytelniania OAuth 2.0. Różni konfiguracji dla każdego dostawcy OAuth 2.0, mimo że te kroki są podobne, a informacje używane do konfigurowania protokołu OAuth 2.0 w wystąpieniu usługi Zarządzanie interfejsami API wymagane elementy są takie same. W tym temacie przedstawiono przykłady użycia usługi Azure Active Directory jako dostawcy uwierzytelniania OAuth 2.0.
 
 > [!NOTE]
@@ -30,10 +30,10 @@ W tym przewodniku opisano sposób skonfigurować wystąpienie usługi Zarządzan
 > 
 > 
 
-## <a name="step1"></a>Skonfigurować serwer autoryzacji OAuth 2.0 w zarządzanie interfejsami API
+## <a name="step1"> </a>Konfigurowanie serwera autoryzacji OAuth 2.0 w usłudze API Management
 Na początku kliknij opcję **Portal wydawcy** w klasycznej witrynie Azure Portal dla usługi API Management.
 
-![Portal wydawcy][api-management-management-console]
+![Publisher portal][api-management-management-console]
 
 > [!NOTE]
 > Jeśli jeszcze nie utworzono wystąpienie usługi API Management, zobacz [Utwórz wystąpienie usługi Zarządzanie interfejsami API][Create an API Management service instance].
@@ -89,7 +89,7 @@ Jeśli **typy przydziałów kod autoryzacji** ustawiono **hasło właściciela z
 
 Po zakończeniu formularza, kliknij przycisk **zapisać** Aby zapisać konfigurację serwera autoryzacji interfejsu API zarządzania OAuth 2.0. Po zapisaniu konfiguracji serwera, można skonfigurować interfejsów API do używania tej konfiguracji, jak pokazano w następnej sekcji.
 
-## <a name="step2"></a>Skonfigurować interfejs API do używania uwierzytelniania użytkownika OAuth 2.0
+## <a name="step2"> </a>Skonfiguruj interfejs API do używania uwierzytelniania użytkownika OAuth 2.0
 Kliknij przycisk **interfejsów API** z **zarządzanie interfejsami API** menu po lewej stronie, kliknij nazwę żądanego interfejsu API, kliknij przycisk **zabezpieczeń**, a następnie zaznacz pole wyboru, aby uzyskać **OAuth 2.0**.
 
 ![Uwierzytelnianie użytkownika][api-management-user-authorization]
@@ -98,7 +98,7 @@ Wybierz żądaną **serwera autoryzacji** z listy rozwijanej, a następnie klikn
 
 ![Uwierzytelnianie użytkownika][api-management-user-authorization-save]
 
-## <a name="step3"></a>Testowanie autoryzacji użytkownika OAuth 2.0 w portalu dla deweloperów
+## <a name="step3"> </a>Testowanie autoryzacji użytkownika OAuth 2.0 w portalu dla deweloperów
 Po skonfigurowaniu serwera autoryzacji OAuth 2.0 i skonfigurowany interfejs API do używania tego serwera, przetestować go, przechodząc do portalu dla deweloperów i wywoływanie interfejsu API.  Kliknij przycisk **Portal dla deweloperów** w prawym górnym menu.
 
 ![Portal dla deweloperów][api-management-developer-portal-menu]
@@ -131,12 +131,9 @@ Po zalogowaniu, **nagłówki żądań** są wypełniane przy użyciu `Authorizat
 
 W tym momencie można skonfigurować odpowiednie wartości dla pozostałych parametrów i prześlij żądanie. 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby uzyskać więcej informacji o korzystaniu z protokołu OAuth 2.0 i zarządzanie interfejsami API, zobacz następujące tematy wideo i towarzyszące [artykułu](api-management-howto-protect-backend-with-aad.md).
 
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Protecting-Web-API-Backend-with-Azure-Active-Directory-and-API-Management/player]
-> 
-> 
 
 [api-management-management-console]: ./media/api-management-howto-oauth2/api-management-management-console.png
 [api-management-oauth2]: ./media/api-management-howto-oauth2/api-management-oauth2.png
