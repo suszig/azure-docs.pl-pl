@@ -12,20 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/08/2017
+ms.date: 03/02/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 2410b1a3c3c2856cceda87ced7e66f140ea0c323
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 03682e7f5867360cc3d854f0dff2bc5d1c1c9619
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Wymagania wstępne dotyczące wdrożenia usługi Azure Stack
 
 *Dotyczy: Azure stosu Development Kit*
 
-Przed wdrożeniem [Azure stosu Development Kit](azure-stack-poc.md), upewnij się, że komputer spełnia następujące wymagania:
+Przed wdrożeniem [Azure stosu Development Kit (ASDK)](azure-stack-poc.md), upewnij się, że komputer-host zestawu programowanie spełnia wymagania opisane w tym artykule.
 
+> [!NOTE]
+> ASDK musi być zainstalowany na komputerze hosta fizycznego. Instalowanie ASDK na maszynie Wirtualnej platformy Azure nie jest obsługiwane.
 
 ## <a name="hardware"></a>Sprzęt
 | Składnik | Minimalne | Zalecane |
@@ -122,7 +124,6 @@ Upewnij się, że serwer DHCP jest dostępny w sieci, z którą łączy się kar
 ### <a name="internet-access"></a>Dostęp do Internetu
 Stos Azure wymaga dostępu do Internetu, bezpośrednio lub za pośrednictwem przezroczystego obiektu pośredniczącego. Stos Azure nie obsługuje konfiguracji serwera proxy sieci web, aby umożliwić dostęp do Internetu. IP hosta i nowego adresu IP przypisane do MAS BGPNAT01 (DHCP lub statyczny adres IP) musi mieć możliwość dostępu do Internetu. Porty 80 i 443 są używane w domenach graph.windows.net i login.microsoftonline.com.
 
-Pytanie: czy jest możliwe Uruchom ASDK na maszynie Wirtualnej platformy Azure? Odpowiedź: nie. Obecnie nie jest oficjalnie obsługiwane.
 
 ## <a name="next-steps"></a>Kolejne kroki
 [Pobierz pakiet wdrażania zestawu programowanie Azure stosu](https://azure.microsoft.com/overview/azure-stack/try/?v=try)
