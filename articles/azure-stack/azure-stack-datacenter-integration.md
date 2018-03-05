@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 03/02/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: f93fc95d6bed517cae3adb706f690941f97c366e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 25ef6ba9ff105486f39cee8b6181a8c63e64ec13
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Zagadnienia dotyczące integracji centrum danych Azure stosu zintegrowane systemy
 Jeśli interesuje Cię systemu Azure stosu zintegrowane, należy poznać niektóre z najważniejszych kwestii dotyczących planowania wdrożenia i jak system dopasowuje się do centrum danych. Ten artykuł zawiera omówienie te zagadnienia dotyczące ułatwiającym podejmowanie decyzji ważne infrastruktury systemu Azure stosu wieloma węzłami. Opis tych zagadnień pomaga podczas pracy z dostawcą sprzętu OEM zgodnie z wdrożeniem Azure stosu w centrum danych.  
@@ -30,6 +30,15 @@ Jeśli interesuje Cię systemu Azure stosu zintegrowane, należy poznać niektó
 Aby wdrożyć stosu Azure, konieczne jest zapewnienie informacje na temat planowania dostawcy rozwiązań, przed rozpoczęciem wdrażania ułatwić proces Przejdź szybkie i sprawne. Informacje wymagane zakresów w sieci, zabezpieczeń i informacje o tożsamości z wiele istotnych decyzji, które mogą wymagać wiedzy z wielu różnych obszarów i inne osoby podejmujące decyzje. W związku z tym może być konieczne ściągnąć osób z wielu zespoły w organizacji, aby upewnić się, że wszystkie wymagane informacje gotowe, przed rozpoczęciem wdrażania. Ułatwia komunikować się z dostawcą sprzętu podczas zbierania tych informacji, jak mogą pojawić się porady przydatne do tworzenia swoje decyzje dotyczące.
 
 Podczas badania i zbieranie wymaganych informacji, może być konieczne dokonanie pewnych zmian w konfiguracji przed wdrożeniem w środowisku sieciowym. Mogą one obejmować rezerwacji przestrzeni adresów IP dla rozwiązania Azure stosu, konfigurowanie Twojego routery, przełączniki i zapór, aby przygotować się do łączność nowych przełączników rozwiązania Azure stosu. Upewnij się, że ma obszaru podmiotu ekspert wyrównany do pomóc w planowaniu.
+
+## <a name="capacity-planning-considerations"></a>Zagadnienia związane z planowaniem pojemności
+Podczas oceniania rozwiązania stosu Azure nabycia, opcje konfiguracji sprzętu muszą być wprowadzane które mają bezpośredni wpływ na ogólną pojemność ich rozwiązania Azure stosu. Obejmują one klasycznego wyboru procesora CPU, gęstość pamięci konfiguracji magazynu i skalowania rozwiązania ogólnej (np. liczba serwerów). W odróżnieniu od rozwiązanie wirtualizacji tradycyjnych proste operacje arytmetyczne ustalenia pojemności można używać tych składników nie ma zastosowania. Pierwszy dzieje się tak że stosu Azure została zaprojektowana do obsługi składników infrastruktury i zarządzania w ramach samego rozwiązania. Drugi przyczyna jest niektóre pojemności rozwiązania jest zarezerwowana wesprzeć odporności; Aktualizowanie oprogramowania rozwiązania w taki sposób, aby zminimalizować przerwy w świadczeniu obciążeń dzierżawców. 
+
+[Arkusz kalkulacyjny planowania pojemności stosu Azure](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) pomaga wprowadzeniu informacji decyzji odnoszących się do planowania pojemności na dwa sposoby: albo wybierając oferty sprzętu i próby dopasowania połączonych zasobów lub definiując obciążenia Azure stosu jest przeznaczony do uruchomienia, aby wyświetlić dostępne jednostki SKU, które obsługują tę sprzęt. Na koniec arkusz kalkulacyjny służy jako przewodnik dotyczący pomoc w podejmowaniu decyzji związanych z stosu Azure planowania i konfiguracji. 
+
+Arkusz kalkulacyjny nie jest przeznaczony do obsługi zamiast własnych dochodzenia i analizy.  Firma Microsoft nie udziela żadnych oświadczeń ani żadnych gwarancji, lub domniemanych, w odniesieniu do informacji dostępnych w arkuszu kalkulacyjnym.
+
+
 
 ## <a name="management-considerations"></a>Zagadnienia dotyczące zarządzania
 Azure stos jest zapieczętowany system, gdzie infrastruktury jest zablokowana zarówno od uprawnień i sieciowych perspektywy. Listy kontroli dostępu do sieci (ACL) są stosowane do Zablokuj cały ruch przychodzący nieautoryzowanych i wszystkie zbędne komunikacji między składnikami infrastruktury. Utrudnia nieautoryzowanym użytkownikom dostęp do systemu.
