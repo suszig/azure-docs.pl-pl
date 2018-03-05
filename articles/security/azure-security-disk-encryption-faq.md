@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
 ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
-ms.openlocfilehash: 1144533cd64e80ed2b15c70732c94e332ea06c3d
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: f3cb11bc13ad2561e62c096d840c0b8e4471d271
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-disk-encryption-faq"></a>Szyfrowanie dysków Azure — często zadawane pytania
 
@@ -49,10 +49,11 @@ Ten artykuł zawiera odpowiedzi na często zadawane pytania (FAQ) dotyczące Azu
 | --- | --- |--- |
 | Ubuntu | 16.04-DAILY-LTS | Dysk systemu operacyjnego i danych |
 | Ubuntu | 14.04.5-DAILY-LTS | Dysk systemu operacyjnego i danych |
-| RHEL | 7.3 | Dysk systemu operacyjnego i danych |
-| RHEL | 7.2 | Dysk systemu operacyjnego i danych |
-| RHEL | 6.8 | Dysk systemu operacyjnego i danych |
-| RHEL | 6.7 | Dysk z danymi |
+| RHEL | 7.4 | Dane dysku * |
+| RHEL | 7.3 | Dane dysku * |
+| RHEL | 7.2 | Dane dysku * |
+| RHEL | 6.8 | Dane dysku * |
+| RHEL | 6.7 | Dane dysku * |
 | CentOS | 7.3 | Dysk systemu operacyjnego i danych |
 | CentOS | 7.2n | Dysk systemu operacyjnego i danych |
 | CentOS | 6.8 | Dysk systemu operacyjnego i danych |
@@ -67,6 +68,8 @@ Ten artykuł zawiera odpowiedzi na często zadawane pytania (FAQ) dotyczące Azu
 | SLES | HPC 12 | Dysk z danymi |
 | SLES | Priorytet: 11-SP4 | Dysk z danymi |
 | SLES | 11 SP4 | Dysk z danymi |
+
+*__ADE jest obsługiwana przez RHEL dla dysku danych. Bieżąca implementacja ADE działa dla dysku systemu operacyjnego, ale nie jest aktualnie wspólnie obsługiwane. Zarówno firmy Microsoft, jak i Red Hat pracuje nad rozwiązaniem wspólnie obsługiwane. W międzyczasie możesz odwoływać się w dokumencie ADE do szyfrowania dysku systemu operacyjnego Linux [tutaj](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption).__
 
 **Pytanie:** jak umożliwić, za pomocą szyfrowania dysków Azure?
 

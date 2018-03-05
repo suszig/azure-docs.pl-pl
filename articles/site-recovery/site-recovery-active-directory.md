@@ -7,13 +7,13 @@ author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/13/2018
+ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 71e28d7c91526de07e64a294873d3f25fe5378f7
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e07b868883b0154ad38ba2f7f51dd2db663525a0
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Użyj usługi Azure Site Recovery do ochrony usługi Active Directory i DNS
 
@@ -26,7 +26,7 @@ W tym artykule opisano sposób tworzenia rozwiązanie odzyskiwania po awarii dla
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Jeśli przeprowadzasz replikację do platformy Azure, [przygotowanie zasobów Azure](tutorial-prepare-azure.md), włącznie z subskrypcji, sieci wirtualnej platformy Azure, konta magazynu i magazynu usług odzyskiwania.
-* Przegląd [spełnić wymagania dotyczące](site-recovery-support-matrix-to-azure.md) dla wszystkich składników.
+* Zapoznaj się z [wymaganiami dotyczącymi obsługi](site-recovery-support-matrix-to-azure.md) wszystkich składników.
 
 ## <a name="replicate-the-domain-controller"></a>Replikowanie kontrolera domeny
 
@@ -80,7 +80,7 @@ Większość aplikacji wymaga obecności kontrolera domeny lub serwer DNS. Dlate
     ![Sieci testowej Azure](./media/site-recovery-active-directory/azure-test-network.png)
 
     > [!TIP]
-    > Usługa Site Recovery próbuje utworzyć testowych maszyn wirtualnych w podsieci o takiej samej nazwie i przy użyciu tego samego adresu IP, który znajduje się w **obliczenia i sieć** ustawienia maszyny wirtualnej. Jeśli podsieć o tej samej nazwie nie jest dostępny w sieci wirtualnej platformy Azure jest dostępne w celu testowania trybu failover, testowej maszyny wirtualnej jest tworzony w kolejności alfabetycznej pierwszej podsieci. 
+    > Usługa Site Recovery próbuje utworzyć testowych maszyn wirtualnych w podsieci o takiej samej nazwie i przy użyciu tego samego adresu IP, który znajduje się w **obliczenia i sieć** ustawienia maszyny wirtualnej. Jeśli podsieć o tej samej nazwie nie jest dostępny w sieci wirtualnej platformy Azure jest dostępne w celu testowania trybu failover, testowej maszyny wirtualnej jest tworzony w kolejności alfabetycznej pierwszej podsieci.
     >
     > Jeśli docelowy adres IP jest częścią wybranej podsieci, Usługa Site Recovery próbuje utworzyć testowej maszyny wirtualnej w tryb failover przy użyciu docelowy adres IP. Jeśli docelowy adres IP nie jest częścią wybranej podsieci, testową maszynę wirtualną w tryb failover jest tworzony przy użyciu dalej IP dostępne w wybranej podsieci.
     >
@@ -110,7 +110,7 @@ Począwszy od systemu Windows Server 2012, [dodatkowe zabezpieczenia są wbudowa
 
 Gdy **identyfikatora VM-GenerationID** zostanie zresetowana, **InvocationID** wartość bazy danych usług AD DS jest również zresetować. Ponadto puli identyfikatorów RID jest odrzucany i folderu SYSVOL jest oznaczony jako nieautorytatywne. Aby uzyskać więcej informacji, zobacz [wprowadzenie do wirtualizacji usług domenowych w usłudze Active Directory](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) i [bezpiecznie wirtualizacja usługi DFSR](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/).
 
-Awarii na platformie Azure może spowodować **identyfikatora VM-GenerationID** do zresetowania. Resetowanie **identyfikatora VM-GenerationID** dodatkowe zabezpieczenia jest wyzwalane po uruchomieniu maszyny wirtualnej kontrolera domeny na platformie Azure. Może to spowodować *znaczne opóźnienie* w będą mogli logować się do maszyny wirtualnej kontrolera domeny. 
+Awarii na platformie Azure może spowodować **identyfikatora VM-GenerationID** do zresetowania. Resetowanie **identyfikatora VM-GenerationID** dodatkowe zabezpieczenia jest wyzwalane po uruchomieniu maszyny wirtualnej kontrolera domeny na platformie Azure. Może to spowodować *znaczne opóźnienie* w będą mogli logować się do maszyny wirtualnej kontrolera domeny.
 
 Ponieważ ten kontroler domeny jest używany tylko w przypadku testowego trybu failover, zabezpieczenia wirtualizacji nie są konieczne. Aby upewnić się, że **identyfikatora VM-GenerationID** nie zmienia wartość dla maszyny wirtualnej kontrolera domeny, można zmienić wartość DWORD następujące do **4** na lokalnym kontrolerze domeny:
 
@@ -165,20 +165,20 @@ Jeśli po przejściu w tryb failover testu zostają uruchomione zabezpieczenia w
 Jeśli powyższe warunki są spełnione, istnieje prawdopodobieństwo, że kontroler domeny działa poprawnie. Jeśli nie, wykonaj następujące czynności:
 
 1. Czy przywracania autorytatywnego kontrolera domeny. Należy pamiętać, następujące informacje:
-    * Chociaż nie zalecamy [replikacji usługi FRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/), korzystając z replikacji usługi FRS, wykonaj kroki procedury przywracania autorytatywnego. Proces został opisany w [usługi replikacji plików za pomocą klucza rejestru BurFlags](https://support.microsoft.com/kb/290762). 
-    
+    * Chociaż nie zalecamy [replikacji usługi FRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/), korzystając z replikacji usługi FRS, wykonaj kroki procedury przywracania autorytatywnego. Proces został opisany w [usługi replikacji plików za pomocą klucza rejestru BurFlags](https://support.microsoft.com/kb/290762).
+
         Aby uzyskać więcej informacji na temat BurFlags, zobacz we wpisie blogu [D2 i D4: co to jest dla?](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/).
-    * Jeśli używasz replikacji DFSR, wykonaj kroki procedury przywracania autorytatywnego. Proces został opisany w [wymusić synchronizację autorytatywną i nieautorytatywną dla folderu SYSVOL zreplikowanego DFSR (na przykład "D4/D2" w przypadku usługi FRS)](https://support.microsoft.com/kb/2218556). 
-    
+    * Jeśli używasz replikacji DFSR, wykonaj kroki procedury przywracania autorytatywnego. Proces został opisany w [wymusić synchronizację autorytatywną i nieautorytatywną dla folderu SYSVOL zreplikowanego DFSR (na przykład "D4/D2" w przypadku usługi FRS)](https://support.microsoft.com/kb/2218556).
+
         Możesz również użyć funkcji programu PowerShell. Aby uzyskać więcej informacji, zobacz [funkcji programu PowerShell autorytatywne/przywracanie nieautorytatywne DFSR SYSVOL](https://blogs.technet.microsoft.com/thbouche/2013/08/28/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions/).
 
-2. Pominąć wymaganie synchronizacji początkowej przez ustawienie następujący klucz rejestru **0** na lokalnym kontrolerze domeny. Jeśli wartość typu DWORD nie istnieje, można utworzyć go w **parametry** węzła. 
+2. Pominąć wymaganie synchronizacji początkowej przez ustawienie następujący klucz rejestru **0** na lokalnym kontrolerze domeny. Jeśli wartość typu DWORD nie istnieje, można utworzyć go w **parametry** węzła.
 
     `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NTDS\Parameters\Repl Perform Initial Synchronizations`
 
     Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów z 4013 identyfikator zdarzenia DNS: serwer DNS nie może załadować strefy DNS zintegrowane AD](https://support.microsoft.com/kb/2001093).
 
-3. Wyłącz wymagania serwera wykazu globalnego i można do sprawdzania poprawności nazwy logowania użytkownika. W tym celu na lokalnym kontrolerze domeny, należy ustawić następujący klucz rejestru **1**. Jeśli wartość typu DWORD nie istnieje, można utworzyć go w **Lsa** węzła. 
+3. Wyłącz wymagania serwera wykazu globalnego i można do sprawdzania poprawności nazwy logowania użytkownika. W tym celu na lokalnym kontrolerze domeny, należy ustawić następujący klucz rejestru **1**. Jeśli wartość typu DWORD nie istnieje, można utworzyć go w **Lsa** węzła.
 
     `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\IgnoreGCFailures`
 

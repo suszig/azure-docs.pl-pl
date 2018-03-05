@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: a49da33c8038ad467389c66e59727c7e195baf82
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 6dc8b573e66eaae1b5cb923ae72333fb959d0969
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="manage-multi-tenancy-with-the-cloud-solution-provider-csp-program"></a>Zarządzanie wielu dzierżawców z programem Cloud Solution Provider (CSP)
 
@@ -76,7 +76,7 @@ Subskrypcji dzierżawcy mogą dostęp za pośrednictwem pulpitu nawigacyjnego Ce
 
     Kliknięcie przycisku **wszystkie zasoby** udziela dostępu do subskrypcji platformy Azure dzierżawcy. Dostęp można sprawdzić, klikając łącze usługi Azure Active Directory u góry po prawej z portalu Azure.
 
-    ![Azure Active Directory łącza](./media/site-recovery-manage-multi-tenancy-with-csp/aad-admin-display.png)
+    ![Azure Active Directory link](./media/site-recovery-manage-multi-tenancy-with-csp/aad-admin-display.png)
 
 Można teraz wykonywać wszystkie operacje usługi site recovery dla dzierżawcy za pośrednictwem portalu Azure i zarządzanie operacjami odzyskiwania po awarii. Dostęp subskrypcji dzierżawcy za pośrednictwem dostawcy usług Kryptograficznych dla odzyskiwania po awarii zarządzanych, wykonaj proces opisany wcześniej.
 
@@ -121,7 +121,7 @@ Partnerów można również dodać nowego użytkownika do subskrypcji dzierżawc
 
   Usługa Azure Site Recovery ma trzy [wstępnie zdefiniowanych ról użytkownika](site-recovery-role-based-linked-access-control.md) można bardziej ograniczyć poziomów dostępu zgodnie z wymaganiami.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
   [Dowiedz się więcej](site-recovery-role-based-linked-access-control.md) o kontroli dostępu opartej na rolach do zarządzania wdrożenia usługi Azure Site Recovery.
 
   [Zarządzanie wieloma dzierżawcami środowiskach VMware](site-recovery-multi-tenant-support-vmware-using-csp.md)

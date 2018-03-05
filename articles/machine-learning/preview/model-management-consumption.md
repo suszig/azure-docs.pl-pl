@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: b8641cd2d4a34821b7cf0e644345f0904bad294a
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 4d388af3175bce5df6108ff0fd836707cca5040a
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="consuming-web-services"></a>Korzystanie z usług sieci web
 Gdy należy wdrożyć model jako usługę sieci web w czasie rzeczywistym, możesz przesyła dane i uzyskać prognoz z różnych platform i aplikacji. Usługa sieci web czasu rzeczywistego udostępnia interfejs API REST dla pobierania prognoz. Można wysyłać dane do usługi sieci web w formacie jednego lub wielu wierszy można pobrać co najmniej jeden prognoz naraz.
@@ -35,7 +35,7 @@ Można wyświetlić listę aktualnie wdrożonych usług i obrazy usługi Docker 
 Po pomyślnym wdrożeniu usługi sieci web Użyj następującego polecenia, aby uzyskać adres URL usługi i inne szczegóły wywoływania punktu końcowego usługi. 
 
 ```
-az ml service usage realtime -i <service name>
+az ml service usage realtime -i <web service id>
 ```
 
 To polecenie wyświetla się adres URL usługi, nagłówki żądania wymagane, adresu URL struktury swagger i przykładowe dane do wywoływania usługi, jeśli podano schematu interfejsu API usługi w czasie wdrażania.
@@ -43,7 +43,7 @@ To polecenie wyświetla się adres URL usługi, nagłówki żądania wymagane, a
 Można testować usługę bezpośrednio z poziomu interfejsu wiersza polecenia, bez tworzenia żądania HTTP, wprowadzając przykład polecenia interfejsu wiersza polecenia z danych wejściowych:
 
 ```
-az ml service run realtime -i <service name> -d "Your input data"
+az ml service run realtime -i <web service id> -d "Your input data"
 ```
 
 ## <a name="get-the-service-api-key"></a>Pobierz klucz interfejsu API usługi

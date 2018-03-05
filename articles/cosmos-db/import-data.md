@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 02/27/2018
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: 103f4200ea24c34c066a11c7b49676f51f252589
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 036683698c49b8acb8a83117ac823c90fef0b2b3
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure rozwiązania Cosmos bazy danych: Narzędzie migracji danych
 
@@ -61,7 +61,7 @@ Narzędzie do migracji danych jest rozwiązaniem typu open source, który import
 Podczas importowania narzędziu graficznego interfejsu użytkownika (dtui.exe), mogą być określane także z poziomu wiersza polecenia (dt.exe). W rzeczywistości ma opcji output skojarzone polecenie po skonfigurowaniu importu za pośrednictwem interfejsu użytkownika. Tabelaryczne źródła danych (np. programu SQL Server lub plików CSV) można je przekształcać w taki sposób, że relacje hierarchiczne (dokumentów podrzędnych) można utworzyć podczas importowania. Zachowaj odczytu, aby dowiedzieć się więcej o opcjach źródła, przykładowe wiersze polecenia do importowania z każdego źródła, target — opcje i importowanie wyświetlanie wyników.
 
 ## <a id="Install"></a>Instalacja
-Kod źródłowy narzędzie migracji jest dostępne w witrynie GitHub w [to repozytorium](https://github.com/azure/azure-documentdb-datamigrationtool) i jest dostępny w wersji skompilowanej [Microsoft Download Center](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d). Może skompilować rozwiązania lub po prostu pobierać i wyodrębniać skompilowanej wersji do katalogu wybranych przez użytkownika. Następnie uruchom dowolne:
+Kod źródłowy narzędzie migracji jest dostępne w witrynie GitHub w [to repozytorium](https://github.com/azure/azure-documentdb-datamigrationtool). Możesz pobrać i Skompiluj rozwiązanie lokalnie, a następnie uruchom dowolne:
 
 * **Dtui.exe**: wersja interfejsu graficznego narzędzia
 * **DT.exe**: wersja narzędzia wiersza polecenia
@@ -77,7 +77,7 @@ Po zainstalowaniu narzędzia jest czas w celu zaimportowania danych. Jakiego rod
 * [Pliki CSV](#CSV)
 * [Azure Table storage](#AzureTableSource)
 * [Amazon DynamoDB](#DynamoDBSource)
-* [Obiekt blob](#BlobImport)
+* [Blob](#BlobImport)
 * [Kolekcje usługi Azure DB rozwiązania Cosmos](#SQLSource)
 * [HBase](#HBaseSource)
 * [Importowania zbiorczego w usłudze Azure DB rozwiązania Cosmos](#SQLBulkImport)
@@ -167,7 +167,7 @@ Format ciągu połączenia jest standardowy format parametrów połączenia SQL.
 
 Właściwość separatora zagnieżdżenia służy do tworzenia hierarchicznych (podrzędne dokumenty) podczas importowania. Należy wziąć pod uwagę następujące zapytanie SQL:
 
-*Wybierz RZUTOWANIA (BusinessEntityID AS varchar) jako identyfikator, nazwę, typ adresu jako [Address.AddressType], AddressLine1 jako [Address.AddressLine1], miasta jako [Address.Location.City], StateProvinceName jako [Address.Location.StateProvinceName], KodPocztowy jako [Address.PostalCode], CountryRegionName jako [Address.CountryRegionName] z Sales.vStoreWithAddresses gdzie typ adresu = "Urząd główny"*
+*Wybierz RZUTOWANIA (BusinessEntityID AS varchar) jako identyfikator, nazwę, typ adresu jako [Address.AddressType], AddressLine1 jako [Address.AddressLine1], miasta jako [Address.Location.City], StateProvinceName jako [Address.Location.StateProvinceName], KodPocztowy jako [ Address.PostalCode] CountryRegionName jako [Address.CountryRegionName] z Sales.vStoreWithAddresses gdzie typ adresu = "Siedzibą główną"*
 
 Która zwraca następujące wyniki (częściowe):
 
@@ -175,7 +175,7 @@ Która zwraca następujące wyniki (częściowe):
 
 Należy pamiętać, aliasy, takie jak Address.AddressType i Address.Location.StateProvinceName. Określając zagnieżdżenia separatora z ".", narzędzia importu tworzy adres i Address.Location dokumentów podrzędnych podczas importowania. Oto przykład wynikowy dokumentu w usłudze Azure DB rozwiązania Cosmos:
 
-*{"id": "956", "Name": "Bardziej precyzyjną sprzedaży i usługa", "Adres": {"Typ adresu": "Urząd główny", "AddressLine1": "#500 75 O'Connor ulicy", "Lokalizacja": {"Miasto": "Ottawie", "StateProvinceName": "Ontario"}, "KodPocztowy": "K4B 1S2", "CountryRegionName": "Kanada"}}*
+*{"id": "956", "Name": "Bardziej precyzyjną sprzedaży i usługa", "Adres": {"Typ adresu": "Urząd główny", "AddressLine1": "#500 75 O'Connor ulicy", "Lokalizacja": {"Miasto": "Ottawie", "StateProvinceName": "Ontario"}, "KodPocztowy": "K4B 1S2", "CountryRegionName": " Kanada"}}*
 
 Oto niektóre przykłady wiersza polecenia do importowania z programu SQL Server:
 
@@ -549,7 +549,7 @@ Następnie wybierz, czy rejestrować wszystkie, krytyczne, lub żadne komunikaty
    
     ![Zrzut ekranu z Azure rozwiązania Cosmos bazy danych JSON opcji eksportu](./media/import-data/newimport.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym samouczku wykonane następujące zadania:
 

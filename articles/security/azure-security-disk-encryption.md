@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
-ms.openlocfilehash: d6a19334b369c54ff6bad3404b4cf2ffe3b47c70
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: cc609d7c7b28fc4aef6eb1e25ee46fd77edd4102
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Szyfrowanie dysków Azure dla systemu Windows i maszyn wirtualnych systemu Linux IaaS
 Microsoft Azure jest silnie zobowiązane do zapewnienia prywatności danych, suwerenności danych i umożliwia sterowanie platformy Azure hostowanej danych za pomocą wielu zaawansowanych technologii szyfrowania, sterowania i zarządzania kluczami szyfrowania, inspekcji i kontroli dostępu do danych. Klienci Azure zapewnia elastyczność wyboru rozwiązania, które będzie najlepiej odpowiadać ich potrzeb biznesowych. W tym dokumencie firma Microsoft podstawowe informacje na temat nowego rozwiązania technologii "Szyfrowania dysków Azure dla systemu Windows i Linux IaaS maszyny Wirtualnej na" Aby chronić i ochrony danych w celu spełnienia organizacji bezpieczeństwa i zgodności zobowiązań. Papieru zapewnia napotka szczegółowe wskazówki dotyczące sposobu używania funkcji szyfrowania dysków Azure w tym obsługiwane scenariusze i użytkownika.
@@ -141,34 +141,7 @@ Przed włączeniem szyfrowania dysków Azure na maszynach wirtualnych Azure IaaS
 > [!NOTE]
 > Dla systemu Windows Server 2008 R2 musisz mieć zainstalowany przed włączeniem szyfrowania na platformie Azure programu .NET Framework 4.5. Można zainstalować z witryny Windows Update, instalując opcjonalną aktualizację programu Microsoft .NET Framework 4.5.2 dla systemów opartych na x64 systemu Windows Server 2008 R2 ([KB2901983](https://support.microsoft.com/kb/2901983)).
 
-* Szyfrowanie dysków Azure jest obsługiwane na następujących galerii Azure na podstawie dystrybucje systemu Linux serwera i wersji:
-
-| Dystrybucja systemu Linux | Wersja | Typ woluminu obsługiwany w przypadku szyfrowania|
-| --- | --- |--- |
-| Ubuntu | 16.04-DAILY-LTS | Dysk systemu operacyjnego i danych |
-| Ubuntu | 14.04.5-DAILY-LTS | Dysk systemu operacyjnego i danych |
-| Ubuntu | 12.10 | Dysk z danymi |
-| Ubuntu | 12.04 | Dysk z danymi |
-| RHEL | 7.4 | Dysk systemu operacyjnego i danych |
-| RHEL | 7.3 | Dysk systemu operacyjnego i danych |
-| RHEL | LVM 7.3 | Dysk systemu operacyjnego i danych |
-| RHEL | 7.2 | Dysk systemu operacyjnego i danych |
-| RHEL | 6.8 | Dysk systemu operacyjnego i danych |
-| RHEL | 6.7 | Dysk z danymi |
-| CentOS | 7.3 | Dysk systemu operacyjnego i danych |
-| CentOS | 7.2n | Dysk systemu operacyjnego i danych |
-| CentOS | 6.8 | Dysk systemu operacyjnego i danych |
-| CentOS | 7.1 | Dysk z danymi |
-| CentOS | 7.0 | Dysk z danymi |
-| CentOS | 6.7 | Dysk z danymi |
-| CentOS | 6.6 | Dysk z danymi |
-| CentOS | 6.5 | Dysk z danymi |
-| openSUSE | 13.2 | Dysk z danymi |
-| SLES | 12 SP1 | Dysk z danymi |
-| SLES | 12 dodatku SP1 (Premium) | Dysk z danymi |
-| SLES | HPC 12 | Dysk z danymi |
-| SLES | 11-SP4 (Premium) | Dysk z danymi |
-| SLES | 11 SP4 | Dysk z danymi |
+* Szyfrowanie dysków Azure jest tylko obsługiwana w określonych galerii Azure na podstawie dystrybucje systemu Linux serwera i wersje.  Aby uzyskać listę aktualnie obsługiwanych wersji, zapoznaj się [FAQ szyfrowania dysków Azure](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-faq).
 
 * Szyfrowanie dysków Azure wymaga, aby magazyn kluczy i maszyny wirtualne znajdowały się w tym samym regionie Azure i subskrypcji.
 
@@ -792,7 +765,7 @@ Dla systemu Windows Server 2008 R2 należy użyć następującego polecenia:
 
     ServerManagerCmd -install BitLockers
 
-#### <a name="prepare-the-os-volume-for-bitlocker-by-using-bdehdcfg"></a>Przygotowanie woluminu systemu operacyjnego dla funkcji BitLocker przy użyciu`bdehdcfg`
+#### <a name="prepare-the-os-volume-for-bitlocker-by-using-bdehdcfg"></a>Przygotowanie woluminu systemu operacyjnego dla funkcji BitLocker przy użyciu `bdehdcfg`
 Aby skompresować partycji systemu operacyjnego i przygotowuje komputer do używania funkcji BitLocker, uruchom następujące polecenie:
 
     bdehdcfg -target c: shrink -quiet
@@ -1285,9 +1258,6 @@ Po podłączeniu dysku systemu operacyjnego, należy przekazać `$KeyEncryptionK
             -KeyEncryptionKeyVaultId $KeyVault.ResourceId `
             -KeyEncryptionKeyURL $KeyEncryptionKey.Id
 
-## <a name="download-this-guide"></a>Pobierz w tym przewodniku
-Możesz pobrać ten przewodnik z [galerii TechNet](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0).
-
-## <a name="for-more-information"></a>Aby uzyskać więcej informacji
+## <a name="for-more-information"></a>Więcej informacji
 [Eksploruj szyfrowania dysków Azure przy użyciu programu Azure PowerShell — część 1](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/16/explore-azure-disk-encryption-with-azure-powershell.aspx?wa=wsignin1.0)  
 [Eksploruj szyfrowania dysków Azure przy użyciu programu Azure PowerShell — część 2](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx)

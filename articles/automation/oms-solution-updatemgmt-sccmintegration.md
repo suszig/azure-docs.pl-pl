@@ -1,58 +1,57 @@
 ---
-title: "Docelowe aktualizacje przy użyciu kolekcji programu SCCM w zarządzaniu aktualizacjami pakietu OMS | Microsoft Docs"
+title: "Kierowanie aktualizacji przy użyciu kolekcji SCCM automatyzacji Azure — zarządzanie aktualizacjami | Dokumentacja firmy Microsoft"
 description: "Ten artykuł ma na celu ułatwienie konfigurowania programu System Center Configuration Manager za pomocą tego rozwiązania do zarządzania aktualizacjami komputerów zarządzanych przez program SCCM."
-services: operations-management-suite
+services: automation
 documentationcenter: 
 author: georgewallace
 manager: carmonm
 editor: 
 ms.assetid: 
-ms.service: operations-management-suite
+ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 02/28/2018
 ms.author: gwallace
-ms.openlocfilehash: 4696f3b9602c1da01d9706f15f38cdf5bc0f3372
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: c1636ce84f6d0d228dcb15e62af4a88b50fd84bd
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="integrate-system-center-configuration-manager-with-oms-update-management"></a>Integracja programu System Center Configuration Manager z programem OMS Update Management
+# <a name="integrate-system-center-configuration-manager-with-update-management"></a>Integracja programu System Center Configuration Manager z zarządzania aktualizacjami
 
-Klienci, którzy zainwestowali w program System Center Configuration Manager do zarządzania komputerami, serwerami i urządzeniami przenośnymi polegają również na ich sile i dojrzałości w zarządzania aktualizacjami oprogramowania w ramach cyklu zarządzania aktualizacjami oprogramowania (SUM).  
+Klienci, którzy zainwestowali w program System Center Configuration Manager do zarządzania komputerami, serwerami i urządzeniami przenośnymi polegają również na ich sile i dojrzałości w zarządzania aktualizacjami oprogramowania w ramach cyklu zarządzania aktualizacjami oprogramowania (SUM).
 
-Opierając się na istniejącej dzisiaj integracji między pakietem OMS a programem Configuration Manager, możesz zgłaszać i aktualizować zarządzane serwery z systemem Windows, tworząc i wstępnie przemieszczając wdrożenia aktualizacji oprogramowania w programie Configuration Manager, oraz uzyskać szczegółowy stan ukończonych wdrożeń aktualizacji przy użyciu [rozwiązania do zarządzania aktualizacjami](../operations-management-suite/oms-solution-update-management.md). Jeśli używasz programu Configuration Manager do raportowania zgodności aktualizacji, ale nie do zarządzania wdrożeniami aktualizacji za pomocą serwerów z systemem Windows, możesz kontynuować raportowanie do programu Configuration Manager, gdy aktualizacje zabezpieczeń są zarządzane za pomocą rozwiązania do zarządzania aktualizacjami pakietu OMS.
+Raport i zaktualizować zarządzanych systemów Windows Server, tworząc i wstępnie przemieszczania wdrożenia aktualizacji oprogramowania w programie Configuration Manager i uzyskać szczegółowy stan wdrożenia aktualizacji ukończone przy użyciu [rozwiązania do zarządzania aktualizacji](automation-update-management.md). Jeśli używasz programu Configuration Manager do raportowania zgodności aktualizacji, ale nie do zarządzania wdrożeniami aktualizacji z serwerów z systemem Windows, możesz kontynuować raportowania do programu Configuration Manager, podczas gdy aktualizacje zabezpieczeń są zarządzane za pomocą rozwiązania do zarządzania aktualizacji.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Rozwiązanie do zarządzania aktualizacjami](../operations-management-suite/oms-solution-update-management.md) musi być dodane do obszaru roboczego usługi Log Analytics i połączone razem z Twoim kontem usługi Automation w tej samej grupie zasobów i regionie.   
-* Serwery z systemem Windows obecnie zarządzane przez środowisko programu System Center Configuration Manager również muszą się zgłaszać do obszaru roboczego usługi Log Analytics, która także ma włączone rozwiązanie zarządzania aktualizacjami.  
-* Ta funkcja obsługuje program System Center Configuration Manager w wersji Current Branch 1606 i wyższej.  Aby zintegrować swoją centralną lokację administracyjną lub autonomiczną lokację główną programu Configuration Manager z usługą Log Analytics i kolekcjami importowania, zobacz [Connect Configuration Manager to Log Analytics](../log-analytics/log-analytics-sccm.md) (Łączenie programu Configuration Manager z usługą Log Analytics).  
+* Musi mieć [rozwiązania do zarządzania aktualizacjami](automation-update-management.md) dodany do Twojego konta automatyzacji.
+* Serwery z systemem Windows obecnie zarządzane przez środowisko programu System Center Configuration Manager również muszą się zgłaszać do obszaru roboczego usługi Log Analytics, która także ma włączone rozwiązanie zarządzania aktualizacjami.
+* Ta funkcja jest włączona w System Center Configuration Manager bieżącą wersję gałęzi 1606 i wyższych. Aby zintegrować swoją centralną lokację administracyjną lub autonomiczną lokację główną programu Configuration Manager z usługą Log Analytics i kolekcjami importowania, zobacz [Connect Configuration Manager to Log Analytics](../log-analytics/log-analytics-sccm.md) (Łączenie programu Configuration Manager z usługą Log Analytics).  
 * Agenci dla systemu Windows muszą być skonfigurowani do komunikowania się z serwerem Windows Server Update Services (WSUS) albo mieć dostęp do usługi Microsoft Update, jeśli nie otrzymują aktualizacji zabezpieczeń z programu Configuration Manager.   
 
-To, w jaki sposób zarządzasz klientami hostowanymi w usłudze Azure IaaS za pomocą istniejącego środowiska programu Configuration Manager, zależy głównie od połączenia istniejącego między centrami danych platformy Azure a Twoją infrastrukturą. Połączenie to ma wpływ na wszelkie zmiany projektowe, których wprowadzenie do infrastruktury programu Configuration Manager może być konieczne, oraz wpływa na powiązane koszty obsługi tych niezbędnych zmian.  Aby zrozumieć, jakie kwestie planowania należy ocenić przed kontynuowaniem, zobacz [Menedżer konfiguracji Azure — często zadawane pytania](https://docs.microsoft.com/sccm/core/understand/configuration-manager-on-azure#networking).    
+To, w jaki sposób zarządzasz klientami hostowanymi w usłudze Azure IaaS za pomocą istniejącego środowiska programu Configuration Manager, zależy głównie od połączenia istniejącego między centrami danych platformy Azure a Twoją infrastrukturą. Połączenie to ma wpływ na wszelkie zmiany projektowe, których wprowadzenie do infrastruktury programu Configuration Manager może być konieczne, oraz wpływa na powiązane koszty obsługi tych niezbędnych zmian. Aby zrozumieć, jakie kwestie planowania należy ocenić przed kontynuowaniem, zobacz [Menedżer konfiguracji Azure — często zadawane pytania](/sccm/core/understand/configuration-manager-on-azure#networking).
 
 ## <a name="configuration"></a>Konfigurowanie
 
 ### <a name="manage-software-updates-from-configuration-manager"></a>Zarządzanie aktualizacjami oprogramowania z programu Configuration Manager 
 
-Jeśli chcesz kontynuować zarządzanie wdrożeniami aktualizacji z programu Configuration Manager, wykonaj następujące kroki.  Pakiet OMS łączy się z programem Configuration Manager w celu zastosowania aktualizacji na komputerach klienckich podłączonych do Twojego obszaru roboczego usługi Log Analytics. Zawartość aktualizacji jest dostępna w pamięci podręcznej komputera klienckiego tak, jakby wdrożenie było zarządzane przez program Configuration Manager.  
+Jeśli chcesz kontynuować zarządzanie wdrożeniami aktualizacji z programu Configuration Manager, wykonaj następujące kroki. Automatyzacja Azure łączy do programu Configuration Manager do stosowania aktualizacji na komputerach klienckich podłączone do obszaru roboczego analizy dzienników. Zawartość aktualizacji jest dostępna w pamięci podręcznej komputera klienckiego tak, jakby wdrożenie było zarządzane przez program Configuration Manager.
 
-1. Tworzenie wdrożenia aktualizacji oprogramowania z lokacji najwyższego poziomu w hierarchii programu Configuration Manager przy użyciu procesu opisanego w [procesie wdrażania aktualizacji oprogramowania](https://docs.microsoft.com/sccm/sum/deploy-use/deploy-software-updates).  Jedynym ustawieniem, które musi być skonfigurowane inaczej niż dla standardowego wdrożenia, jest opcja **Nie instaluj aktualizacji oprogramowania** służąca do sterowania zachowaniem pakietu wdrożeniowego podczas pobierania. To zachowanie jest zarządzane przez rozwiązanie do zarządzania aktualizacjami pakietu OMS poprzez utworzenie planowego wdrożenia aktualizacji w następnym kroku.  
+1. Tworzenie wdrożenia aktualizacji oprogramowania z lokacji najwyższego poziomu w hierarchii programu Configuration Manager przy użyciu procesu opisanego w [procesie wdrażania aktualizacji oprogramowania](/sccm/sum/deploy-use/deploy-software-updates). Jedynym ustawieniem, które musi być skonfigurowane inaczej niż dla standardowego wdrożenia, jest opcja **Nie instaluj aktualizacji oprogramowania** służąca do sterowania zachowaniem pakietu wdrożeniowego podczas pobierania. To zachowanie jest zarządzana przez rozwiązanie do zarządzania aktualizacji przez tworzenie wdrożenia zaplanowanych aktualizacji w następnym kroku.
 
-1. W portalu pakietu OMS otwórz pulpit nawigacyjny zarządzania aktualizacjami.  Utwórz nowe wdrożenie, postępując zgodnie z krokami opisanymi w temacie [Creating an Update Deployment](../operations-management-suite/oms-solution-update-management.md#creating-an-update-deployment) (Tworzenie wdrożenia aktualizacji), i wybierz z listy rozwijanej odpowiednią kolekcję programu Configuration Manager reprezentowaną jako grupa komputerów pakietu OMS.  Należy pamiętać o następujących ważnych kwestiach:
-    1. Jeśli okno obsługi jest zdefiniowane w wybranej kolekcji urządzeń programu Configuration Manager, składowe kolekcji uznają je zamiast ustawienia **Czas trwania** zdefiniowanego w zaplanowanym wdrożeniu w pakiecie OMS.
-    1. Składowe kolekcji docelowej muszą mieć połączenie z Internetem (bezpośrednio, za pośrednictwem serwera proxy albo za pośrednictwem bramy pakietu OMS).  
+1. W usłudze Automatyzacja Azure, wybierz **zarządzania aktualizacjami**. Utwórz nowe wdrożenie wykonanie kroków opisanych w [tworzenia wdrożenia aktualizacji](automation-tutorial-update-management.md#schedule-an-update-deployment) i wybierz **zaimportowane grupy** na **typu** listy rozwijanej wybierz odpowiednie Kolekcja programu Configuration Manager. Należy pamiętać o następujących kwestiach:. Jeśli okno obsługi jest zdefiniowany w wybranej kolekcji urządzeń programu Configuration Manager, elementy członkowskie kolekcji przestrzegać go zamiast **czas trwania** ustawień zdefiniowanych w zaplanowane wdrożenie.
+    b. Składowe kolekcji docelowej muszą mieć połączenie z Internetem (bezpośrednio, za pośrednictwem serwera proxy albo za pośrednictwem bramy pakietu OMS).
 
-Po zakończeniu wdrażania aktualizacji za pomocą rozwiązania pakietu OMS docelowe komputery będące członkami wybranej grupy komputerów zainstalują aktualizacje o zaplanowanym czasie z ich lokalnej pomięci podręcznej klienta.  Możesz [wyświetlić stan wdrożenia aktualizacji](../operations-management-suite/oms-solution-update-management.md#viewing-update-deployments), aby monitorować wyniki swojego wdrożenia.  
+Po zakończeniu wdrażania aktualizacji za pomocą usługi Automatyzacja Azure, komputerach docelowych, które są elementami członkowskimi grupy wybranego komputera zainstaluje aktualizacje zgodnie z harmonogramem ze swojej lokalnej pamięci podręcznej. Możesz [wyświetlić stan wdrożenia aktualizacji](automation-tutorial-update-management.md#view-results-of-an-update-deployment), aby monitorować wyniki swojego wdrożenia.
 
+### <a name="manage-software-updates-from-azure-automation"></a>Zarządzanie aktualizacjami oprogramowania z usługi Automatyzacja Azure
 
-### <a name="manage-software-updates-from-oms"></a>Zarządzanie aktualizacjami oprogramowania za pomocą pakietu OMS
+Do zarządzania aktualizacjami maszyn wirtualnych z systemem Windows Server, które są klientami programu Configuration Manager, należy skonfigurować zasady klienta, aby wyłączyć funkcję zarządzania aktualizacjami oprogramowania dla wszystkich klientów zarządzanych przez to rozwiązanie. Domyślnie ustawienia klienta dotyczą wszystkich urządzeń w hierarchii. Aby uzyskać więcej informacji na temat tego ustawienia, zasad i sposobu ich konfigurowania, przejrzyj artykuł [Jak skonfigurować ustawienia klienta w programie System Center Configuration Manager](/sccm/core/clients/deploy/configure-client-settings).
 
-Do zarządzania aktualizacjami maszyn wirtualnych z systemem Windows Server, które są klientami programu Configuration Manager, należy skonfigurować zasady klienta, aby wyłączyć funkcję zarządzania aktualizacjami oprogramowania dla wszystkich klientów zarządzanych przez to rozwiązanie.  Domyślnie ustawienia klienta dotyczą wszystkich urządzeń w hierarchii.  Aby uzyskać więcej informacji na temat tego ustawienia, zasad i sposobu ich konfigurowania, przejrzyj artykuł [Jak skonfigurować ustawienia klienta w programie System Center Configuration Manager](https://docs.microsoft.com/sccm/core/clients/deploy/configure-client-settings).  
+Po wykonaniu tej zmiany konfiguracji, należy utworzyć nowe wdrożenie wykonanie kroków opisanych w [tworzenia wdrożenia aktualizacji](automation-tutorial-update-management.md#schedule-an-update-deployment) i wybierz **zaimportowane grupy** na **typu** listy rozwijanej wybierz odpowiednią kolekcję programu Configuration Manager.
 
-Po wprowadzeniu tej zmiany konfiguracji utwórz nowe wdrożenie, postępując zgodnie z krokami opisanymi w temacie [Creating an Update Deployment](../operations-management-suite/oms-solution-update-management.md#creating-an-update-deployment) (Tworzenie wdrożenia aktualizacji), i wybierz z listy rozwijanej odpowiednią kolekcję programu Configuration Manager reprezentowaną jako grupa komputerów pakietu OMS. 
-
+## <a name="next-steps"></a>Kolejne kroki

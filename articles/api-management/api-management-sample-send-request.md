@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 7f3cc81327d1d247fb8e19e256eafb009a5bf162
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d7c32e5ae02e294ee88c19f058e04249c7c9969e
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Za pomocą usług zewnętrznych z usługi Azure API Management
 Zasady dostępne w usłudze Azure API Management należy szeroką gamę przydatne pracy wyłącznie na podstawie żądania przychodzące, Wychodzące odpowiedzi i podstawowe informacje o konfiguracji. Jednak możliwość interakcji z usługami zewnętrznych z interfejsu API zarządzania otwiera wiele możliwości więcej zasad.
@@ -282,11 +282,4 @@ W konfiguracji operacji symbolu zastępczego można skonfigurować zasobów pulp
 
 ## <a name="summary"></a>Podsumowanie
 Usługi Zarządzanie interfejsami API Azure oferuje elastyczne zasady, które można wybiórczo zastosować do ruchu HTTP i umożliwia kompozycji usługi wewnętrznej bazy danych. Czy chcesz zwiększyć bramy interfejsu API z alerty funkcje, weryfikacji i sprawdzania poprawności możliwości lub utworzyć nowe zasoby złożonego na podstawie wielu usług zaplecza, `send-request` i związane z nią zasady Otwórz world możliwości.
-
-## <a name="watch-a-video-overview-of-these-policies"></a>Obejrzyj film poglądowy dotyczący tych zasad
-Aby uzyskać więcej informacji na temat [sposób żądania, Wyślij co w-](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest), [żądanie wysłania](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest), i [odpowiedzi zwracany](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) zasady omówione w tym artykule, obejrzyj film następujące:
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Send-Request-and-Return-Response-Policies/player]
-> 
-> 
 

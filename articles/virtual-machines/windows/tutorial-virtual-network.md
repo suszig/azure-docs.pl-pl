@@ -13,49 +13,52 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 10/12/2017
+ms.date: 02/27/2018
 ms.author: davidmu
 ms.custom: mvc
-ms.openlocfilehash: 21f2d586a4c468071bec55c65005b35baf323fe7
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: 3a59d85ea19ba6670ffbb60aa9b764560a3567a0
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="manage-azure-virtual-networks-and-windows-virtual-machines-with-azure-powershell"></a>Zarządzanie sieciami wirtualnymi platformy Azure i maszyn wirtualnych z systemem Windows przy użyciu programu Azure PowerShell
 
-Maszyny wirtualne platformy Azure używania sieci platformy Azure do komunikacji sieciowej wewnętrznych i zewnętrznych. Ten samouczek przeprowadzi Cię przez wdrożenie dwóch maszyn wirtualnych i konfigurowanie sieci platformy Azure dla tych maszyn wirtualnych. Przykłady w tym samouczku założono, że maszyny wirtualne obsługujące aplikacji sieci web z bazy danych zaplecza, jednak aplikacja nie zostanie wdrożona w samouczku. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Maszyny wirtualne platformy Azure korzystają z sieci platformy Azure do wewnętrznej i zewnętrznej komunikacji sieciowej. Ten samouczek przedstawia proces wdrażania dwóch maszyn wirtualnych i konfigurowania dla nich sieci platformy Azure. W przykładach w tym samouczku założono, że maszyny wirtualne hostują aplikację internetową z zapleczem bazy danych, jednak wdrożenie aplikacji nie jest omówione w samouczku. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie sieci wirtualnej i podsieci
 > * Tworzenie publicznego adresu IP
-> * Tworzenie frontonu maszyny Wirtualnej
+> * Tworzenie maszyny wirtualnej frontonu
 > * Zabezpieczanie ruchu sieciowego
-> * Tworzenie maszyny Wirtualnej z zaplecza
+> * Tworzenie maszyny wirtualnej zaplecza
 
-Podczas wykonywania tego samouczka, można wyświetlić te zasoby utworzone:
 
-![Sieci wirtualnej z dwoma podsieciami](./media/tutorial-virtual-network/networktutorial.png)
 
-- *myVNet* -sieć wirtualna, która maszyn wirtualnych używają do komunikowania się ze sobą i z Internetu.
-- *myFrontendSubnet* -podsieci w *myVNet* używany przez zasoby frontonu.
-- *myPublicIPAddress* -publiczny adres IP używany do dostępu *myFrontendVM* z Internetu.
-- *myFrontentNic* -interfejs sieciowy używany przez *myFrontendVM* do komunikowania się z *myBackendVM*.
-- *myFrontendVM* -maszyny Wirtualnej, używany do komunikacji między z Internetem i *myBackendVM*.
-- *myBackendNSG* -grupy zabezpieczeń sieci, która kontroluje komunikację między *myFrontendVM* i *myBackendVM*.
-- *myBackendSubnet* -podsieci skojarzone z *myBackendNSG* i używany przez zasoby zaplecza.
-- *myBackendNic* -interfejs sieciowy używany przez *myBackendVM* do komunikowania się z *myFrontendVM*.
+Ten samouczek wymaga AzureRM.Compute wersji modułu 4.3.1 lub nowszym. Uruchom polecenie `Get-Module -ListAvailable AzureRM.Compute`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-azurerm-ps).
+
+## <a name="vm-networking-overview"></a>Omówienie sieci maszyn wirtualnych
+
+Sieci wirtualne platformy Azure umożliwiają nawiązywanie bezpiecznych połączeń sieciowych pomiędzy maszynami wirtualnymi, Internetem i innymi usługami platformy Azure, na przykład Azure SQL Database. Sieci wirtualne są podzielone na logiczne segmenty nazywane podsieciami. Podsieci są używane do sterowania przepływem sieciowym oraz pełnią funkcję granicy zabezpieczeń. Wdrażana maszyna wirtualna zwykle zawiera wirtualny interfejs sieciowy dołączony do podsieci.
+
+Podczas pracy z tym samouczkiem zostaną utworzone następujące zasoby:
+
+![Sieć wirtualna z dwiema podsieciami](./media/tutorial-virtual-network/networktutorial.png)
+
+- *myVNet* — sieć wirtualna, której maszyny wirtualne używają do komunikacji między sobą i z Internetem.
+- *myFrontendSubnet* — podsieć w sieci *myVNet* używana przez zasoby frontonu.
+- *myPublicIPAddress* — publiczny adres IP używany do uzyskania dostępu do maszyny *myFrontendVM* za pośrednictwem Internetu.
+- *myFrontentNic* — interfejs sieciowy używany przez maszynę wirtualną *myFrontendVM* do komunikacji z maszyną *myBackendVM*.
+- *myFrontendVM* — maszyna wirtualna używana do komunikacji pomiędzy Internetem a maszyną *myBackendVM*.
+- *myBackendNSG* — sieciowa grupa zabezpieczeń, która kontroluje komunikację między maszyną *myFrontendVM* a maszyną *myBackendVM*.
+- *myBackendSubnet* — podsieć skojarzona z grupą *myBackendNSG* i używana przez zasoby zaplecza.
+- *myBackendNic* — interfejs sieciowy używany przez maszynę wirtualną *myBackendVM* do komunikacji z maszyną *myFrontendVM*.
 - *myBackendVM* -maszynę Wirtualną, która używa portu 1433 do komunikowania się z *myFrontendVM*.
 
-Dla tego samouczka jest wymagany moduł Azure PowerShell w wersji 3.6 lub nowszej. Aby dowiedzieć się, jaka wersja jest używana, uruchom polecenie `Get-Module -ListAvailable AzureRM`. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-azurerm-ps).
-
-## <a name="vm-networking-overview"></a>Omówienie sieci maszyny Wirtualnej
-
-Sieci wirtualnych platformy Azure Włącz bezpiecznych połączeń sieci między maszynami wirtualnymi, internet i innymi usługami Azure, takich jak bazy danych Azure SQL. Sieci wirtualne są podzielone na segmentach logicznej podsieci. Podsieci są używane do sterowania przepływem sieci oraz funkcję granicy zabezpieczeń. Podczas wdrażania maszyny Wirtualnej, zwykle obejmuje interfejs sieci wirtualnej, który jest podłączony do podsieci.
 
 ## <a name="create-a-virtual-network-and-subnet"></a>Tworzenie sieci wirtualnej i podsieci
 
-W tym samouczku jednej sieci wirtualnej jest tworzony z dwoma podsieciami. Podsieci frontonu do obsługi aplikacji sieci web, a podsieć zaplecza dla hostingu serwera bazy danych.
+W tym samouczku zostanie utworzona jedna sieć wirtualna z dwoma podsieciami. Zostanie utworzona podsieć frontonu do hostowania aplikacji internetowej oraz podsieć zaplecza do hostowania serwera bazy danych.
 
 Przed utworzeniem sieci wirtualnej, Utwórz grupę zasobów za pomocą [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Poniższy przykład tworzy grupę zasobów o nazwie *myRGNetwork* w *EastUS* lokalizacji:
 
@@ -94,13 +97,13 @@ $vnet = New-AzureRmVirtualNetwork `
   -Subnet $frontendSubnet, $backendSubnet
 ```
 
-W tym momencie sieci zostało utworzone i podzielone na dwie podsieci, jeden dla usługi frontonu i drugi dla usług zaplecza. W następnej sekcji maszyny wirtualne są tworzone i połączone z tych podsieci.
+W ten sposób utworzono sieć i podzielono ją na dwie podsieci — jedną dla usług frontonu i jedną dla usług zaplecza. W kolejnej sekcji zostaną utworzone maszyny wirtualne połączone z tymi podsieciami.
 
 ## <a name="create-a-public-ip-address"></a>Tworzenie publicznego adresu IP
 
-Publiczny adres IP umożliwia zasobów platformy Azure jako dostępny w Internecie. Metoda alokacji publicznego adresu IP można skonfigurować jako dynamicznej lub statycznej. Domyślnie jest dynamicznie przydzielane publicznego adresu IP. Dynamiczne adresy IP są wydawane po cofnięciu przydziału maszyny Wirtualnej. Ten problem powoduje, że adres IP zmienić podczas żadnej operacji, która obejmuje dezalokacji maszyny Wirtualnej.
+Publiczny adres IP umożliwia dostęp do zasobów platformy Azure w Internecie. Można skonfigurować dynamiczną lub statyczną alokację publicznego adresu IP. Domyślnie publiczny adres IP jest przydzielany dynamicznie. Dynamiczne adresy IP są zwalniane, gdy przydział maszyny wirtualnej zostaje cofnięty. Dlatego adres IP zmienia się podczas każdej operacji, która obejmuje cofnięcie przydziału maszyny wirtualnej.
 
-Metoda alokacji można ustawić jako statyczny, który zapewnia, że adres IP jest przypisana do maszyny Wirtualnej, nawet podczas deallocated stanu. Korzystając z statycznie przydzielony adres IP, nie można określić adres IP. Zamiast tego jest ona przydzielone z puli dostępnych adresów.
+Można też ustawić statyczną metodę alokacji, co gwarantuje, że adres IP pozostanie przydzielony do maszyny wirtualnej nawet wówczas, gdy jej przydział zostanie cofnięty. Podczas korzystania ze statycznie przydzielonych adresów IP nie można określić adresu IP. Zamiast tego jest on przydzielany z puli dostępnych adresów.
 
 Utwórz publiczny adres IP o nazwie *myPublicIPAddress* przy użyciu [AzureRmPublicIpAddress nowy](/powershell/module/azurerm.network/new-azurermpublicipaddress):
 
@@ -114,7 +117,7 @@ $pip = New-AzureRmPublicIpAddress `
 
 Można zmienić parametru - AllocationMethod `Static` można przypisać statycznego publicznego adresu IP.
 
-## <a name="create-a-front-end-vm"></a>Tworzenie frontonu maszyny Wirtualnej
+## <a name="create-a-front-end-vm"></a>Tworzenie maszyny wirtualnej frontonu
 
 Dla maszyny Wirtualnej do komunikowania się w sieci wirtualnej musi on interfejs sieci wirtualnej (NIC). Tworzenie przy użyciu kart [AzureRmNetworkInterface nowy](/powershell/module/azurerm.network/new-azurermnetworkinterface):
 
@@ -122,7 +125,7 @@ Dla maszyny Wirtualnej do komunikowania się w sieci wirtualnej musi on interfej
 $frontendNic = New-AzureRmNetworkInterface `
   -ResourceGroupName myRGNetwork `
   -Location EastUS `
-  -Name myFrontendNic `
+  -Name myFrontend `
   -SubnetId $vnet.Subnets[0].Id `
   -PublicIpAddressId $pip.Id
 ```
@@ -133,55 +136,35 @@ Ustaw nazwę użytkownika i hasło potrzebne do konta administratora na maszynę
 $cred = Get-Credential
 ```
 
-Tworzenie maszyn wirtualnych przy użyciu [AzureRmVMConfig nowy](/powershell/module/azurerm.compute/new-azurermvmconfig), [AzureRmVMOperatingSystem zestaw](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem), [AzureRmVMSourceImage zestaw](/powershell/module/azurerm.compute/set-azurermvmsourceimage), [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk), [Dodać AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface), i [nowe AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm):
+Tworzenie maszyn wirtualnych przy użyciu [AzureRmVM nowy](/powershell/module/azurerm.compute/new-azurermvm).
 
 ```azurepowershell-interactive
-$frontendVM = New-AzureRmVMConfig `
-    -VMName myFrontendVM `
-    -VMSize Standard_D1
-$frontendVM = Set-AzureRmVMOperatingSystem `
-    -VM $frontendVM `
-    -Windows `
-    -ComputerName myFrontendVM `
-    -Credential $cred `
-    -ProvisionVMAgent `
-    -EnableAutoUpdate
-$frontendVM = Set-AzureRmVMSourceImage `
-    -VM $frontendVM `
-    -PublisherName MicrosoftWindowsServer `
-    -Offer WindowsServer `
-    -Skus 2016-Datacenter `
-    -Version latest
-$frontendVM = Set-AzureRmVMOSDisk `
-    -VM $frontendVM `
-    -Name myFrontendOSDisk `
-    -DiskSizeInGB 128 `
-    -CreateOption FromImage `
-    -Caching ReadWrite
-$frontendVM = Add-AzureRmVMNetworkInterface `
-    -VM $frontendVM `
-    -Id $frontendNic.Id
 New-AzureRmVM `
-    -ResourceGroupName myRGNetwork `
-    -Location EastUS `
-    -VM $frontendVM
+   -Credential $cred `
+   -Name myFrontend `
+   -PublicIpAddressName myPublicIPAddress `
+   -ResourceGroupName myRGNetwork `
+   -Location "EastUS" `
+   -Size Standard_D1 `
+   -SubnetName myFrontendSubnet `
+   -VirtualNetworkName myVNet
 ```
 
 ## <a name="secure-network-traffic"></a>Zabezpieczanie ruchu sieciowego
 
-Sieciowa grupa zabezpieczeń (NSG, network security group) zawiera listę reguł zabezpieczeń, które blokują lub zezwalają na ruch sieciowy do zasobów połączonych z usługami Azure Virtual Network (VNet). Grupy NSG można skojarzyć z podsieci lub sieci poszczególnych interfejsów. Grupa NSG jest skojarzona z karty sieciowej, ma zastosowanie tylko skojarzonego VM. Jeśli sieciowa grupa zabezpieczeń jest skojarzona z podsiecią, te reguły są stosowane do wszystkich zasobów połączonych z tą podsiecią.
+Sieciowa grupa zabezpieczeń (NSG, network security group) zawiera listę reguł zabezpieczeń, które blokują lub zezwalają na ruch sieciowy do zasobów połączonych z usługami Azure Virtual Network (VNet). Sieciowe grupy zabezpieczeń można skojarzyć z podsieciami lub pojedynczymi interfejsami sieciowymi. Jeśli sieciowa grupa zabezpieczeń jest skojarzona z interfejsem sieciowym, jest stosowana wyłącznie do powiązanej maszyny wirtualnej. Jeśli sieciowa grupa zabezpieczeń jest skojarzona z podsiecią, te reguły są stosowane do wszystkich zasobów połączonych z tą podsiecią.
 
-### <a name="network-security-group-rules"></a>Reguły grupy zabezpieczeń sieci
+### <a name="network-security-group-rules"></a>Reguły sieciowych grup zabezpieczeń
 
-Reguły NSG definiują portów sieciowych za pośrednictwem których ruch jest dozwolony lub niedozwolony. Zasady mogą obejmować źródłowe i docelowe zakresów adresów IP tak, aby ruch jest kontrolowany między konkretnych systemów lub podsieci. Reguły NSG obejmują także priorytet (od 1 — i 4096). Reguły są sprawdzane według ważności. Reguła o priorytecie 100 jest oceniane przed regułą z priorytetem 200.
+Reguły sieciowych grup zabezpieczeń określają porty sieciowe, dla których ruch jest dozwolony lub niedozwolony. Reguły mogą zawierać zakresy źródłowych lub docelowych adresów IP, umożliwiając kontrolę ruchu pomiędzy określonymi systemami lub podsieciami. Reguły sieciowych grup zabezpieczeń mają również priorytet (od 1 do 4096). Priorytet określa kolejność oceny reguł. Reguła z priorytetem 100 jest oceniana przed regułą z priorytetem 200.
 
 Wszystkie sieciowe grupy zabezpieczeń zawierają zestaw reguł domyślnych. Reguł domyślnych nie można usunąć, ale ponieważ mają przypisany najniższy priorytet, mogą być zastąpione przez tworzone zasady.
 
-- **Sieć wirtualna** — ruch pochodzący i kończenie w sieci wirtualnej jest dozwolony zarówno w kierunkach przychodzących i wychodzących.
-- **Internet** — ruch wychodzący jest dozwolone, ale ruch przychodzący jest zablokowany.
-- **Moduł równoważenia obciążenia** — umożliwia modułowi równoważenia obciążenia Azure badanie kondycji maszyn wirtualnych i wystąpień ról. Tę zasadę można zastąpić, jeśli nie używasz zestawu o zrównoważonym obciążeniu.
+- **Sieć wirtualna** — ruch pochodzący z sieci wirtualnej i kończący się w niej jest dozwolony zarówno w kierunku przychodzącym, jak i wychodzącym.
+- **Internet** — ruch wychodzący jest dozwolony, ale ruch przychodzący jest blokowany.
+- **Moduł równoważenia obciążenia** — umożliwia modułowi równoważenia obciążenia platformy Azure badanie kondycji maszyn wirtualnych i wystąpień ról. Jeśli nie używasz zestawu z równoważeniem obciążenia, możesz przesłonić tę regułę.
 
-### <a name="create-network-security-groups"></a>Utwórz grupy zabezpieczeń sieci
+### <a name="create-network-security-groups"></a>Tworzenie sieciowych grup zabezpieczeń
 
 Utwórz regułę ruchu przychodzącego o nazwie *myFrontendNSGRule* zezwalająca na ruch przychodzący sieci web na *myFrontendVM* przy użyciu [AzureRmNetworkSecurityRuleConfig nowy](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig):
 
@@ -254,7 +237,7 @@ $backendSubnetConfig = Set-AzureRmVirtualNetworkSubnetConfig `
 Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 ```
 
-## <a name="create-a-back-end-vm"></a>Tworzenie maszyny Wirtualnej zaplecza
+## <a name="create-a-back-end-vm"></a>Tworzenie maszyny wirtualnej zaplecza
 
 Najprostszym sposobem tworzenia maszyny Wirtualnej zaplecza na potrzeby tego samouczka jest przy użyciu obrazu programu SQL Server. W tym samouczku tylko tworzy maszynę Wirtualną z serwerem bazy danych, ale nie dostarcza informacji na temat uzyskiwania dostępu do bazy danych.
 
@@ -264,7 +247,7 @@ Utwórz *myBackendNic*:
 $backendNic = New-AzureRmNetworkInterface `
   -ResourceGroupName myRGNetwork `
   -Location EastUS `
-  -Name myBackendNic `
+  -Name myBackend `
   -SubnetId $vnet.Subnets[1].Id
 ```
 
@@ -274,52 +257,31 @@ Ustaw nazwę użytkownika i hasło potrzebne do konta administratora na Maszynie
 $cred = Get-Credential
 ```
 
-Utwórz *myBackendVM*:
+Utwórz *myBackendVM*.
 
 ```azurepowershell-interactive
-$backendVM = New-AzureRmVMConfig `
-  -VMName myBackendVM `
-  -VMSize Standard_D1
-$backendVM = Set-AzureRmVMOperatingSystem `
-  -VM $backendVM `
-  -Windows `
-  -ComputerName myBackendVM `
-  -Credential $cred `
-  -ProvisionVMAgent `
-  -EnableAutoUpdate
-$backendVM = Set-AzureRmVMSourceImage `
-  -VM $backendVM `
-  -PublisherName MicrosoftSQLServer `
-  -Offer SQL2016SP1-WS2016 `
-  -Skus Enterprise `
-  -Version latest
-$backendVM = Set-AzureRmVMOSDisk `
-  -VM $backendVM `
-  -Name myBackendOSDisk `
-  -DiskSizeInGB 128 `
-  -CreateOption FromImage `
-  -Caching ReadWrite
-$backendVM = Add-AzureRmVMNetworkInterface `
-  -VM $backendVM `
-  -Id $backendNic.Id
 New-AzureRmVM `
-  -ResourceGroupName myRGNetwork `
-  -Location EastUS `
-  -VM $backendVM
+   -Credential $cred `
+   -Name myBackend `
+   -ImageName "MicrosoftSQLServer:SQL2016SP1-WS2016:Enterprise:latest" `
+   -ResourceGroupName myRGNetwork `
+   -Location "EastUS" `
+   -SubnetName myFrontendSubnet `
+   -VirtualNetworkName myVNet
 ```
 
 Obraz, który jest użyty zainstalowany program SQL Server, ale nie jest używana w tym samouczku. Należy ono do wyświetlenia, jak można skonfigurować Maszynę wirtualną do obsługi ruchu w sieci web i maszyny Wirtualnej, aby obsłużyć Zarządzanie bazą danych.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
-W tym samouczku zostało utworzone i zabezpieczonej sieci platformy Azure w odniesieniu do maszyn wirtualnych. 
+W tym samouczku utworzono i zabezpieczono sieci platformy Azure na potrzeby maszyn wirtualnych. 
 
 > [!div class="checklist"]
 > * Tworzenie sieci wirtualnej i podsieci
 > * Tworzenie publicznego adresu IP
-> * Tworzenie frontonu maszyny Wirtualnej
+> * Tworzenie maszyny wirtualnej frontonu
 > * Zabezpieczanie ruchu sieciowego
-> * Tworzenie maszyny Wirtualnej zaplecza
+> * Tworzenie maszyny wirtualnej zaplecza
 
 Przejdź do następnego samouczek, aby dowiedzieć się więcej o monitorowaniu Zabezpieczanie danych w przypadku maszyn wirtualnych przy użyciu kopii zapasowej systemu Azure.
 

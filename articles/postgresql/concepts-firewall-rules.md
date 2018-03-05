@@ -1,19 +1,19 @@
 ---
-title: "Bazy danych platformy Azure dla reguł zapory serwera PostgreSQL | Dokumentacja firmy Microsoft"
-description: "Opisuje reguły zapory bazy danych Azure, aby serwer PostgreSQL."
+title: "Bazy danych platformy Azure dla reguł zapory serwera PostgreSQL"
+description: "W tym artykule opisano reguły zapory bazy danych Azure, aby serwer PostgreSQL."
 services: postgresql
-author: jasonwhowell
-ms.author: jasonh
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 2/12/2018
-ms.openlocfilehash: 253cf9a47f04cf551ce8abee216477dedb54a53b
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.date: 02/28/2018
+ms.openlocfilehash: 8a3f5d9fa8f1c36d8468c38f7dda803d3ca1d832
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-postgresql-server-firewall-rules"></a>Bazy danych platformy Azure dla reguł zapory serwera PostgreSQL
 Azure bazy danych dla serwera PostgreSQL zapory uniemożliwia wszystkich dostęp do serwera bazy danych do chwili określenia komputery, które ma uprawnienia. Zapora udziela dostępu do serwera, na podstawie źródłowego adresu IP dla każdego żądania.

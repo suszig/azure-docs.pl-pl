@@ -1,19 +1,19 @@
 ---
-title: "Konfigurowanie alertów metryki dla bazy danych Azure w programie PostgreSQL w portalu Azure | Dokumentacja firmy Microsoft"
+title: "Konfigurowanie alertów metryki dla bazy danych Azure w programie PostgreSQL w portalu Azure"
 description: "W tym artykule opisano sposób konfigurowania i uzyskiwanie dostępu do alertów metryki dla bazy danych Azure dla PostgreSQL z portalu Azure."
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 10/24/2017
-ms.openlocfilehash: 3a09be8131b57381eb470027a134109c116467ed
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.date: 02/28/2018
+ms.openlocfilehash: b4b15998276dd6c32e9c15622aa0251c6c066085
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql"></a>Konfigurowanie alertów dla metryki dla bazy danych Azure dla PostgreSQL za pomocą portalu Azure 
 
@@ -27,8 +27,8 @@ Można skonfigurować alert o konieczności wyzwala, wykonaj następujące czynn
 * Wywołanie elementu webhook.
 
 Można skonfigurować i uzyskać informacje na temat reguł alertów za pomocą:
-* [Witryna Azure Portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
-* [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
+* [Azure portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
+* [Program PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
 * [Interfejs wiersza polecenia (CLI)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
 * [Interfejs API REST Azure monitora](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
@@ -47,9 +47,9 @@ Można skonfigurować i uzyskać informacje na temat reguł alertów za pomocą:
 
    | Ustawienie | Opis  |
    |---------|---------|
-   | Nazwa | Podaj nazwę reguły alertów. Ta wartość jest wysyłane pocztą e-mail powiadomienia o alertach. |
+   | Name (Nazwa) | Podaj nazwę reguły alertów. Ta wartość jest wysyłane pocztą e-mail powiadomienia o alertach. |
    | Opis | Podaj krótki opis reguły alertu. Ta wartość jest wysyłane pocztą e-mail powiadomienia o alertach. |
-   | Alert po wystąpieniu | Wybierz **metryki** dla tego typu alertu. |
+   | Alert dla | Wybierz **metryki** dla tego typu alertu. |
    | Subskrypcja | To pole jest wstępnie wypełnione subskrypcji, który jest hostem bazy danych Azure dla PostgreSQL. |
    | Grupa zasobów | To pole jest wypełniana wstępnie z grupą zasobów bazy danych Azure dla PostgreSQL. |
    | Zasób | To pole jest wypełniana wstępnie o nazwie bazy danych Azure dla PostgreSQL. |
@@ -79,6 +79,6 @@ Po utworzeniu alertu można ją zaznaczyć i wykonywanie następujących czynno�
 * **Edytuj** lub **usunąć** reguły alertów.
 * **Wyłącz** lub **włączyć** alert, jeśli chcesz tymczasowo zatrzymać lub wznowić odbieranie powiadomień.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Dowiedz się więcej o [konfigurowaniu elementów webhook w alertach](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
 * Pobierz [omówienie zbierania metryk](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) się upewnić, że usługa jest dostępna i elastyczny.

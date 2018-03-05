@@ -1,6 +1,6 @@
 ---
-title: "Sposób tworzenia harmonogramów złożone i zaawansowane cyklu z harmonogramem Azure"
-description: "Sposób tworzenia harmonogramów złożone i zaawansowane cyklu z harmonogramem Azure"
+title: "Tworzenie harmonogramów złożone i zaawansowane cyklu z Harmonogram systemu Azure"
+description: "Informacje o sposobie tworzenia harmonogramów złożone i zaawansowane cyklu z Harmonogram systemu Azure."
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
@@ -14,178 +14,173 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-ms.openlocfilehash: e1e45d394a4c442a4fb255ed6d838a589e98860e
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 4293442e13fc4bae871b1f32a3ed4231d9f32632
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="how-to-build-complex-schedules-and-advanced-recurrence-with-azure-scheduler"></a>Sposób tworzenia harmonogramów złożone i zaawansowane cyklu z harmonogramem Azure
-## <a name="overview"></a>Przegląd
-Istotą Harmonogram systemu Azure jest zadanie *harmonogram*. Harmonogram Określa, kiedy i jak planista wykonuje zadanie.
+# <a name="build-complex-schedules-and-advanced-recurrence-with-azure-scheduler"></a>Tworzenie harmonogramów złożone i zaawansowane cyklu z Harmonogram systemu Azure
 
-Harmonogram systemu Azure można określić różne harmonogramy jednorazowe i cyklicznego dla zadania. *Jednorazowe* harmonogramy wyzwalać raz o określonej godzinie — skutecznie znajdują się one *cyklicznego* harmonogramy, które są wykonywane tylko raz. Harmonogramów cyklicznych wyzwalać na wstępnie określoną częstotliwością.
+Podstawowe zadania harmonogramu Azure jest harmonogram. Harmonogram Określa, kiedy i jak harmonogramu wykonuje zadanie. 
 
-Z tego rodzaju elastyczności Harmonogram systemu Azure umożliwia obsługuje wiele różnych scenariuszy biznesowych:
+Można użyć harmonogramu, aby ustawić wiele harmonogramów jednorazowych i cyklicznego dla zadania. Harmonogramów jednorazowych uruchamiają się jeden raz o określonym czasie. Harmonogramów jednorazowych jest harmonogramów cyklicznych, które są wykonywane tylko raz. Harmonogramów cyklicznych wyzwalać na wstępnie określoną częstotliwością.
 
-* Porządkowanie danych okresowe — np. codziennie, Usuń wszystkie tweetów starsze niż 3 miesiące
-* Archiwizacja — np. co miesiąc wypychanie historii faktury do usługi tworzenia kopii zapasowej
-* Żądania dotyczące danych zewnętrznych — np. co 15 minut, pobierają nowe ski prognoza pogody z NOAA
-* Przetwarzanie — np. każdy dzień tygodnia, poza godzinami szczytu obrazu, użyj przetwarzania do skompresowania obrazy przekazać tego dnia w chmurze
+Z tego rodzaju elastyczności można użyć harmonogramu dla różnych scenariuszy biznesowych:
 
-W tym artykule firma Microsoft przeprowadzenie przykład zadań, które można utworzyć z Harmonogram systemu Azure. Firma Microsoft udostępnia dane JSON, który opisano każdy z harmonogramów. Jeśli używasz [interfejsu API REST harmonogramu](https://msdn.microsoft.com/library/mt629143.aspx), można użyć tego samego JSON dla [Tworzenie zadania harmonogramu Azure](https://msdn.microsoft.com/library/mt629145.aspx).
+* **Porządkowanie danych okresowe**. Na przykład codziennie, Usuń wszystkie tweetów, które są starsze niż trzy miesiące.
+* **Archiwizowanie**. Na przykład co miesiąc, Historia faktury wypychania do usługi tworzenia kopii zapasowej.
+* **Żądania dotyczące danych zewnętrznych**. Na przykład co 15 minut, pobierają nowe ski prognoza pogody z NOAA.
+* **Przetwarzanie obrazu**. Na przykład każdy dzień tygodnia, poza godzinami szczytu, użyj chmury obliczeniowej do skompresowania obrazów, które zostały przekazane do danego dnia.
+
+W tym artykule firma Microsoft przeprowadzenie przykład zadań, które można utworzyć za pomocą harmonogramu. Firma Microsoft udostępnia dane JSON, który opisano każdy z harmonogramów. Jeśli używasz [interfejsu API REST harmonogramu](https://msdn.microsoft.com/library/mt629143.aspx), można użyć tego samego JSON do [Tworzenie zadania harmonogramu](https://msdn.microsoft.com/library/mt629145.aspx).
 
 ## <a name="supported-scenarios"></a>Obsługiwane scenariusze
-Wiele przykładów w tym temacie przedstawiono szerokość scenariusze, które obsługuje Harmonogram systemu Azure. Ogólnie te przykłady przedstawiają sposób tworzenia harmonogramów wielu wzorców zachowanie, łącznie z tymi poniżej:
+Przykłady w tym artykule przedstawiono szerokość scenariusze, które obsługuje harmonogramu. Przykłady szeroko przedstawiono sposób tworzenia harmonogramów wielu wzorców zachowanie, w tym:
 
-* Uruchom raz od określonej daty i godziny
-* Uruchom i powtarzanie wiele razy jawne
-* Natychmiastowe uruchomienie i powtarzanie
-* Uruchom i powtarzanie co  *n*  minuty, godziny, dni, tygodnie lub miesiące, począwszy od określonego czasu
-* Uruchom i powtarzanie częstotliwością co tydzień lub co miesiąc, ale tylko w określone dni, określone dni tygodnia lub określone dni miesiąca
-* Uruchom i powtarzanie na wiele razy w okresie — np. ostatni piątek i poniedziałek każdego miesiąca lub 5:15:00 i 17:15:00 każdego dnia
+* Uruchom po określonej dacie i godzinie.
+* Uruchom i powtarzanie określoną liczbę razy.
+* Natychmiastowe uruchomienie i powtarzanie.
+* Uruchom i powtarzanie co  *n*  minuty, godziny, dni, tygodnie lub miesiące, począwszy od określonego czasu.
+* Uruchom i powtarzanie częstotliwością co tydzień lub co miesiąc, ale tylko w określone dni tygodnia lub w określone dni miesiąca.
+* Uruchom i powtarzanie wiele razy w okresie. Na przykład, w ostatni piątek i ostatniego poniedziałku co miesiąc lub w 5:15:00 i 17:15:00 każdego dnia.
 
-## <a name="dates-and-datetimes"></a>Daty i dat i godzin
-Postępuj zgodnie z daty w zadania harmonogramu Azure [specyfikacji ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) i zawierają tylko data.
+## <a name="date-and-date-time"></a>Data i godzina daty
+Data odwołania w wykonaj zadania harmonogramu [specyfikacji ISO 8601](http://en.wikipedia.org/wiki/ISO_8601)i zawierają tylko data.
 
-Postępuj zgodnie z odwołaniami do daty i godziny w Azure harmonogramu zadań [specyfikacji ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) i zawierać części zarówno datę i godzinę. Daty i godziny, która nie określa przesunięcie UTC zakłada się, że czas UTC.  
+Postępuj zgodnie z odwołaniami do daty i godziny w zadania harmonogramu [specyfikacji ISO 8601](http://en.wikipedia.org/wiki/ISO_8601)i zawiera zarówno datę i godzinę. Daty i godziny, która nie określa przesunięcie UTC zakłada się, że czas UTC.  
 
-## <a name="how-to-use-json-and-rest-api-for-creating-schedules"></a>Korzystanie z formatu JSON i interfejsu API REST do tworzenia harmonogramów
-Aby utworzyć przy użyciu prostego harmonogramu [interfejsu API REST harmonogramu Azure](https://msdn.microsoft.com/library/mt629143), pierwszy [zarejestrować subskrypcji u dostawcy zasobów](https://msdn.microsoft.com/library/azure/dn790548.aspx) (nazwy dostawcy dla harmonogramu jest *Microsoft.Scheduler* ), następnie [tworzenie kolekcji zadań](https://msdn.microsoft.com/library/mt629159.aspx), a na końcu [utworzyć zadanie](https://msdn.microsoft.com/library/mt629145.aspx). Podczas tworzenia zadania można określić ustawienia planowania i cyklu przy użyciu formatu JSON, tak jak fragmentem książki poniżej:
+## <a name="use-json-and-the-rest-api-to-create-a-schedule"></a>Użyj formatu JSON i interfejsu API REST, aby utworzyć harmonogram
+Aby utworzyć harmonogram podstawowe za pomocą [interfejsu API REST harmonogramu](https://msdn.microsoft.com/library/mt629143), pierwszy [zarejestrować subskrypcji u dostawcy zasobów](https://msdn.microsoft.com/library/azure/dn790548.aspx). Nazwa dostawcy harmonogramu jest **Microsoft.Scheduler**. Następnie [tworzenie kolekcji zadań](https://msdn.microsoft.com/library/mt629159.aspx). Na koniec [utworzyć zadanie](https://msdn.microsoft.com/library/mt629145.aspx). 
+
+Podczas tworzenia zadania planowania i cyklu można określić za pomocą formatu JSON, tak samo, jak w tym fragmencie:
 
     {
-        "startTime": "2012-08-04T00:00Z", // optional
+        "startTime": "2012-08-04T00:00Z", // Optional
          …
-        "recurrence":                     // optional
+        "recurrence":                     // Optional
         {
-            "frequency": "week",     // can be "year" "month" "day" "week" "hour" "minute"
-            "interval": 1,                // how often to fire
-            "schedule":                   // optional (advanced scheduling specifics)
+            "frequency": "week",     // Can be "year", "month", "day", "week", "hour", or "minute"
+            "interval": 1,                // How often to fire
+            "schedule":                   // Optional (advanced scheduling specifics)
             {
                 "weekDays": ["monday", "wednesday", "friday"],
                 "hours": [10, 22]                      
             },
-            "count": 10,                  // optional (default to recur infinitely)
-            "endTime": "2012-11-04",      // optional (default to recur infinitely)
+            "count": 10,                  // Optional (default to recur infinitely)
+            "endTime": "2012-11-04",      // Optional (default to recur infinitely)
         },
         …
     }
 
-## <a name="overview-job-schema-basics"></a>Omówienie: Zadanie schematu podstawy
-Poniższa tabela zawiera omówienie głównych elementów odnoszące się do ponownego i Planowanie zadania:
+## <a name="job-schema-basics"></a>Podstawowe informacje o zadaniu schematu
+Poniższa tabela zawiera omówienie głównych elementów, które służy do ustawiania cyklu i Planowanie zadania:
 
-| **Nazwy JSON** | **Opis** |
+| Nazwa JSON | Opis |
 |:--- |:--- |
-| ***czas rozpoczęcia*** |*wartość startTime* jest daty i godziny. Proste harmonogramów *startTime* jest pierwsze wystąpienie i złożone harmonogramów, zadanie zostanie uruchomione nie wcześniej niż *startTime*. |
-| ***cyklu*** |*Cyklu* obiektu określa zasady cyklu zadania i cyklu zadanie będzie wykonywane za pomocą. Obiekt cyklu obsługuje elementy *częstotliwości, interwał, endTime, count,* i *harmonogram*. Jeśli *cyklu* jest zdefiniowany, *częstotliwość* jest wymagana; inne elementy *cyklu* są opcjonalne. |
-| ***częstotliwość*** |*Częstotliwość* ciąg reprezentujący jednostkę częstotliwość powtarzania zadania. Obsługiwane wartości to *"min", "Godzina", "day", "tydzień"* lub *"miesiąc".* |
-| ***Interwał*** |*Interwał* jest dodatnią liczbą całkowitą i określa interwał *częstotliwość* określający, jak często zadanie zostanie uruchomione. Na przykład jeśli *interwał* 3 i *częstotliwość* jest "tydzień" zadanie wystąpi co 3 tygodni. Harmonogram systemu Azure obsługuje maksymalnie *interwał* 18 miesięcy do miesięcznej częstotliwości 78 tygodniach częstotliwości co tydzień lub 548 dni dzienną częstotliwość. Godziny i minuty częstotliwość obsługiwanych zakres to 1 < = *interwał* < = 1000. |
-| ***wartość endTime*** |*EndTime* ciąg Określa przeszłości daty i godziny, które nie mają być wykonywane zadania. Nie jest prawidłową ma *endTime* w przeszłości. Jeśli nie *endTime* lub jest określona liczba, zadanie działa nieograniczonej. Zarówno *endTime* i *liczby* nie może zostać uwzględnione w tym samym zadaniu. |
-| ***Liczba*** |<p>*Liczba* jest dodatnią liczbą całkowitą (większe od zera) określa, ile razy to zadanie powinno zostać uruchomione przed zakończeniem.</p><p>*Liczba* reprezentuje liczbę razy, że zadanie będzie uruchamiane przed określane jako ukończone. Na przykład dla zadania, która jest wykonywana codziennie o *liczba* 5 i rozpoczęcie poniedziałek, zadanie zostało ukończone po wykonaniu w piątek. Jeśli data rozpoczęcia przypada w przeszłości, pierwszy wykonywania jest obliczana na podstawie czasu utworzenia.</p><p>Jeśli nie *endTime* lub *liczba* określono, że zadanie będzie uruchamiane nieograniczonej. Zarówno *endTime* i *liczby* nie może zostać uwzględnione w tym samym zadaniu.</p> |
-| ***Harmonogram*** |Zadanie o określonej częstotliwości zmienia jego cyklu na podstawie harmonogramu cyklu. A *harmonogram* zawiera zmiany na podstawie minuty, godziny, dni tygodnia, dni miesiąca i numer tygodnia. |
+| **startTime** |Wartość daty i godziny. Podstawowe harmonogramów **startTime** jest pierwsze wystąpienie. Złożone harmonogramów rozpoczęcia zadania nie wcześniej niż **startTime**. |
+| **recurrence** |Określa zasady cyklu zadania i cyklu, jaką zadanie działa. Obiekt cyklu obsługuje elementy **częstotliwość**, **interwał**, **endTime**, **liczba**, i **harmonogram**. Jeśli **cyklu** jest zdefiniowany, **częstotliwość** jest wymagana. Inne **cyklu** elementy są opcjonalne. |
+| **frequency** |Ciąg, który reprezentuje jednostkę częstotliwość powtarzania zadania. Obsługiwane wartości to "min", "Godzina", "day", "tydzień" i "miesiąc". |
+| **interval** |Dodatnia liczba całkowita. **Interwał** Określa interwał **częstotliwość** wartość, która określa, jak często zadanie działa. Na przykład jeśli **interwał** 3 i **częstotliwość** jest "tydzień" zadanie wystąpi co trzy tygodnie.<br /><br />Harmonogram obsługuje maksymalnie **interwał** 18 miesięczne częstotliwości, 78 częstotliwości co tydzień i 548 częstotliwości codziennie. Godziny i minuty częstotliwość obsługiwanych zakres to 1 < = **interwał** < = 1000. |
+| **endTime** |Ciąg określający daty i godziny, po przekroczeniu którego zadanie nie działa. Można ustawić wartość **endTime** w przeszłości. Jeśli **endTime** i **liczby** nie są określone, zadanie działa nieograniczonej. Nie może zawierać jednocześnie **endTime** i **liczba** w tym samym zadaniu. |
+| **Liczba** |Dodatnią liczbą całkowitą (większe od zera) określa, ile razy zadanie jest uruchamiane przed jego ukończeniem.<br /><br />**Liczba** reprezentuje liczbę razy, że zadanie będzie uruchamiane przed ukończeniem jest ustalony. Na przykład dla zadania, która jest wykonywana codziennie o **liczba** 5 i Data początkowa poniedziałek zadanie zostało ukończone po wykonaniu w piątek. Jeśli data rozpoczęcia przypada w przeszłości, pierwszy wykonywania jest obliczana na podstawie czasu utworzenia.<br /><br />Jeśli nie **endTime** lub **liczba** określono, że zadanie będzie uruchamiane nieograniczonej. Nie może zawierać jednocześnie **endTime** i **liczba** w tym samym zadaniu. |
+| **schedule** |Zadanie o określonej częstotliwości zmienia jego cyklu na podstawie harmonogramu cyklu. A **harmonogram** wartość zawiera zmiany na podstawie minuty, godziny, dni tygodnia, dni miesiąca i numer tygodnia. |
 
-## <a name="overview-job-schema-defaults-limits-and-examples"></a>Omówienie: Zadania wartości domyślne schematu, ograniczenia i przykłady
-Po tym omówieniu omówimy każdego z tych elementów szczegółowo opcji.
+## <a name="job-schema-defaults-limits-and-examples"></a>Wartości domyślne schematu zadania, ograniczenia i przykłady
+W dalszej części tego artykułu omówiono poszczególnych elementów następujące szczegóły:
 
-| **Nazwy JSON** | **Typ wartości** | **Wymagane?** | **Wartość domyślna** | **Prawidłowe wartości** | **Przykład** |
+| Nazwa JSON | Typ wartości | Wymagana? | Wartość domyślna | Prawidłowe wartości | Przykład |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| ***czas rozpoczęcia*** |Ciąg |Nie |Brak |Daty i godziny ISO-8601 |<code>"startTime" : "2013-01-09T09:30:00-08:00"</code> |
-| ***cyklu*** |Obiekt |Nie |None |Obiekt cyklu |<code>"recurrence" : { "frequency" : "monthly", "interval" : 1 }</code> |
-| ***częstotliwość*** |Ciąg |Yes |None |"min", "Godzina", "day", "tydzień", "miesiąc" |<code>"frequency" : "hour"</code> |
-| ***Interwał*** |Liczba |Yes |None |1 do 1000. |<code>"interval":10</code> |
-| ***wartość endTime*** |Ciąg |Nie |None |Wartość daty i godziny reprezentująca godzinę w przyszłości |<code>"endTime" : "2013-02-09T09:30:00-08:00"</code> |
-| ***Liczba*** |Liczba |Nie |None |>= 1 |<code>"count": 5</code> |
-| ***Harmonogram*** |Obiekt |Nie |None |Obiekt harmonogramu |<code>"schedule" : { "minute" : [30], "hour" : [8,17] }</code> |
+| **startTime** |ciąg |Nie |None |ISO 8601-daty i godziny |`"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **recurrence** |obiekt |Nie |None |Obiekt cyklu |`"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **frequency** |ciąg |Yes |None |"min", "Godzina", "day", "tydzień", "miesiąc" |`"frequency" : "hour"` |
+| **interval** |numer |Yes |None |1 – 1000 |`"interval":10` |
+| **endTime** |ciąg |Nie |Brak |Wartość daty i godziny, który reprezentuje czas w przyszłości |`"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **Liczba** |numer |Nie |None |>= 1 |`"count": 5` |
+| **schedule** |obiekt |Nie |Brak |Obiekt harmonogramu |`"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
-## <a name="deep-dive-starttime"></a>Szczegółowe informacje na temat: *startTime*
-W poniższej tabeli sposobu przechwytywania *startTime* kontroluje sposób uruchamiania zadania.
+## <a name="deep-dive-starttime"></a>Szczegółowe informacje: startTime
+W poniższej tabeli opisano sposób **startTime** kontroluje sposób, który uruchamia zadania:
 
-| **wartość startTime** | **Brak cyklu** | **Cyklu. Nie harmonogramu** | **Cyklu z harmonogramem** |
+| Wartość startTime | Brak cyklu | Cykl, bez harmonogramu | Cykl z harmonogramem |
 |:--- |:--- |:--- |:--- |
-| **Brak godziny rozpoczęcia** |Uruchom raz natychmiast |Uruchom raz natychmiast. Uruchom podczas kolejnych wykonań kodu oparte na obliczanie od czasu ostatniego wykonania |<p>Uruchom raz natychmiast</p><p>Kolejne wykonania opierają na harmonogramie cyklu</p> |
-| **Godzina rozpoczęcia w przeszłości** |Uruchom raz natychmiast |<p>Oblicz pierwszy czas wykonania przyszłych po czasie rozpoczęcia, a następnie uruchom w tym czasie</p><p>Uruchom oncalculating podczas kolejnych wykonań kodu na podstawie od czasu ostatniego wykonania</p><p>Zobacz przykład pod tą tabelą, aby uzyskać więcej informacji</p> |<p>Zadania uruchamiania *nie sooner niż* określonym czasie rozpoczęcia. Pierwsze wystąpienie jest na podstawie harmonogramu obliczana na podstawie czasu rozpoczęcia</p><p>Kolejne wykonania opierają na harmonogramie cyklu</p> |
-| **Godzina rozpoczęcia w przyszłości lub obecnie** |Uruchom raz o określonym czasie rozpoczęcia |<p>Uruchom raz o określonym czasie rozpoczęcia</p><p>Uruchom podczas kolejnych wykonań kodu oparte na obliczanie od czasu ostatniego wykonania</p> |<p>Zadania uruchamiania *nie sooner niż* określonym czasie rozpoczęcia. Pierwsze wystąpienie jest na podstawie harmonogramu obliczana na podstawie czasu rozpoczęcia</p><p>Kolejne wykonania opierają na harmonogramie cyklu</p> |
+| **Brak godziny rozpoczęcia** |Uruchom raz natychmiast. |Uruchom raz natychmiast. Uruchom podczas kolejnych wykonań kodu obliczana na podstawie ostatniego wykonania. |Uruchom raz natychmiast.<br /><br />Uruchom podczas kolejnych wykonań kodu na podstawie harmonogramu cyklu. |
+| **Godzina rozpoczęcia w przeszłości** |Uruchom raz natychmiast. |Oblicz przyszłych wykonywania po raz pierwszy po czasie rozpoczęcia i teraz uruchomić.<br /><br />Uruchom podczas kolejnych wykonań kodu obliczana na podstawie ostatniego wykonania. <br /><br />Aby uzyskać więcej informacji zobacz przykład poniżej tej tabeli. |Zadania uruchamiania *nie sooner niż* określonym czasie rozpoczęcia. Pierwsze wystąpienie opiera się na harmonogramie obliczonym na podstawie czasu rozpoczęcia.<br /><br />Uruchom podczas kolejnych wykonań kodu na podstawie harmonogramu cyklu. |
+| **Godzina rozpoczęcia w przyszłości lub bieżący czas** |Uruchom raz o określonym czasie rozpoczęcia. |Uruchom raz o określonym czasie rozpoczęcia.<br /><br />Uruchom podczas kolejnych wykonań kodu obliczana na podstawie ostatniego wykonania.|Zadania uruchamiania *nie sooner niż* określonym czasie rozpoczęcia. Pierwsze wystąpienie jest na podstawie harmonogramu, obliczana na podstawie czasu rozpoczęcia.<br /><br />Uruchom podczas kolejnych wykonań kodu na podstawie harmonogramu cyklu. |
 
-Zobacz przykład co się stanie, gdy *startTime* przypada w przeszłości, z *cyklu* , lecz nie *harmonogram*.  Załóżmy, że bieżący czas jest 2015-04-08 13:00, *startTime* jest 2015-04-07 14:00 i *cyklu* to 2 dni (zdefiniowane z *częstotliwość*: dzień i *interwał*: 2.) Należy pamiętać, że *startTime* przypada w przeszłości i występuje przed bieżącym czasem
+Oto przykład co się stanie, gdy **startTime** przypada w przeszłości w przypadku ponownego wystąpienia, ale bez harmonogramu.  Załóżmy, że bieżący czas jest 2015-04-08 13:00, **startTime** jest 2015-04-07 14:00 i **cyklu** to dwa dni (zdefiniowane z **częstotliwość**: dnia i **interwał**: 2.) Należy pamiętać, że **startTime** przypada w przeszłości i występuje przed bieżącym czasem.
 
-W tych warunkach *wykonanie pierwszej* będzie 2015-04-09 14:00\. Aparat harmonogramu oblicza wystąpienia wykonania od czasu rozpoczęcia.  Wszystkie wystąpienia w przeszłości są odrzucane. Aparat wykorzystuje następne wystąpienie, które ma miejsce w przyszłości.  W tym przypadku *startTime* jest 2015-04-07 godzinie 2:00, więc następne wystąpienie jest 2 dni od tego czasu jest 2015-04-09 2:00 pm.
+W tych warunkach wykonywania pierwszy będzie na 2015-04-09 na 14:00\. Aparat harmonogramu oblicza wystąpienia wykonania od czasu rozpoczęcia. Wszystkie wystąpienia w przeszłości są odrzucane. Aparat wykorzystuje następne wystąpienie, które ma miejsce w przyszłości. W takim przypadku **startTime** jest 2015-04-07 godzinie 2:00, więc następne wystąpienie jest dwa dni od tego momentu, która jest 2015-04-09 w 2:00 PM.
 
-Należy pamiętać, że pierwszy wykonanie może być tym samym, nawet jeśli startTime 2015-04-05 14:00 lub 14:00\ 2015-04-01. Po wykonaniu pierwszej podczas kolejnych wykonań kodu są obliczane przy użyciu zaplanowanego — tak byłyby w 2015-04-11 godzinie 2:00, następnie 2015-04-13 godzinie 2:00, następnie 2015-04-15 godzinie 2:00, itp.
+Należy pamiętać, że pierwszy wykonywania będzie taki sam czy **startTime** jest 2015-04-05-14:00 lub 2015-04-01-14:00\. Po pierwszym wykonaniu kolejne wykonania są obliczane przy użyciu harmonogramu. One zostanie na 2015-04-11 godzinie 2:00, a następnie 2015-04-13 godzinie 2:00, a następnie na 2015-04-15 godzinie 2:00 i tak dalej.
 
-Na koniec gdy zadanie ma harmonogramu, jeśli godziny i/lub minut nie są ustawione w harmonogramie, one domyślnie godzin i/lub minut pierwszy wykonywania odpowiednio.
+Na koniec, po zadanie ma harmonogramu, jeśli godzinach i minutach nie są ustawione w harmonogramie, domyślne wartości na godziny i minuty pierwszy wykonywania odpowiednio.
 
-## <a name="deep-dive-schedule"></a>Szczegółowe informacje na temat: *harmonogramu*
-Z jednej strony *harmonogram* można *limit* Liczba wykonań zadania.  Na przykład, jeśli zadanie o częstotliwości "miesiąc" ma *harmonogram* czy działa tylko dzień 31, zadanie działa tylko miesięcy, które mają 31<sup>st</sup> dnia.
+## <a name="deep-dive-schedule"></a>Nowości: harmonogramu
+Można użyć **harmonogram** do *limit* Liczba wykonań zadania. Na przykład, jeśli zadanie o **częstotliwość** "miesiąca" ma harmonogram, który działa tylko na dzień 31, zadanie będzie uruchamiane tylko w miesiącach, które mają trzydzieści pierwszego dnia.
 
-Z drugiej strony *harmonogram* może również *rozwiń* Liczba wykonań zadania. Na przykład, jeśli zadanie o częstotliwości "miesiąc" ma *harmonogram* czy działa na dni miesiąca 1 i 2, zadanie działa na wartość 1<sup>st</sup> i 2<sup>nd</sup> dni miesiąca, a nie tylko raz w miesiącu.
+Można również użyć **harmonogram** do *rozwiń* Liczba wykonań zadania. Na przykład, jeśli zadanie o **częstotliwość** "miesiąca" ma harmonogram, który jest uruchamiany na dni miesiąca 1 i 2, zadanie działa w pierwszej i drugiej dni miesiąca, a nie tylko raz miesiąca.
 
-Jeśli określonych jest wiele elementów harmonogramu, kolejność jest od największej do najmniejszej — tygodnia number, miesiąc, dzień, dzień tygodnia, godziny i minuty.
+Jeśli określisz wiele elementów harmonogramu, kolejność jest od największej do najmniejszej: numer tygodnia, miesiąc, dzień, dzień tygodnia, godziny i minuty.
 
-W poniższej tabeli opisano *harmonogram* elementy szczegółowo.
+W poniższej tabeli opisano szczegółowo elementy harmonogramu:
 
-| **Nazwy JSON** | **Opis** | **Prawidłowe wartości** |
+| Nazwa JSON | Opis | Prawidłowe wartości |
 |:--- |:--- |:--- |
-| **minut** |Minuty, godziny, o której zadanie zostanie uruchomione |<ul><li>Tablica liczb całkowitych</li></ul> |
-| **godziny** |Godziny, dnia, o której zadanie zostanie uruchomione |<ul><li>Tablica liczb całkowitych</li></ul> |
-| **dni tygodnia** |Dni tygodnia zadanie zostanie uruchomione. Można określić tylko z częstotliwością tygodniową. |<ul><li>Tablica któregokolwiek z poniższych wartości (tablicy maksymalny rozmiar 7)<ul><li>"Poniedziałek"</li><li>"Wtorek"</li><li>"Środa"</li><li>"Czwartek"</li><li>"Piątek"</li><li>"Sobota"</li><li>"Niedziela"</li></ul></li></ul>*Nie* z uwzględnieniem wielkości liter |
-| **monthlyOccurrences** |Określa, które dni miesiąca, zadanie zostanie uruchomione. Można określić tylko z częstotliwością miesięczną. |<ul><li>Tablica obiektów monthlyOccurrence:</li></ul> <pre>{ "day": *day*,<br />  "occurrence": *occurrence*<br />}</pre><p> *dzień* dzień tygodnia zadanie zostanie uruchomione, np. {niedziela} jest niedziela każdego miesiąca. Wymagany.</p><p>Wystąpienie jest *wystąpienie* dzień w miesiącu, np. {niedziela, -1} jest niedzielę ostatniego dnia miesiąca. Opcjonalny.</p> |
-| **monthDays** |Dzień miesiąca, który uruchomi zadanie. Można określić tylko z częstotliwością miesięczną. |<ul><li>Tablica poniżej wartości</li><ul><li>Dowolna wartość < = -1 i > =-31.</li><li>Dowolna wartość > = 1 i < = 31.</li></ul></ul> |
+| **minutes** |Minuty, godziny, o której zadanie działa. |Tablica liczb całkowitych. |
+| **hours** |Godziny, dnia, o której zadanie działa. |Tablica liczb całkowitych. |
+| **weekDays** |Dni tygodnia, zadanie działa. Można określić tylko z częstotliwością co tydzień. |Tablica któregokolwiek z następujących wartości (rozmiar maksymalny tablicy wynosi 7):<br />-"Poniedziałek"<br />-"Wtorek"<br />-"Środa"<br />-"Czwartek"<br />-"Piątek"<br />-"Sobota"<br />-"Niedziela"<br /><br />Bez uwzględniania wielkości liter. |
+| **monthlyOccurrences** |Określa, które dni miesiąca, zadanie działa. Można określić tylko w przypadku miesiąc. |Tablica **monthlyOccurrences** obiektów:<br /> `{ "day": day, "occurrence": occurrence}`<br /><br /> **dzień** dzień tygodnia, zadanie działa. Na przykład *{niedziela}* oznacza niedzielę każdego miesiąca. Wymagany.<br /><br />**wystąpienie** jest wystąpieniem dzień w miesiącu. Na przykład *{niedziela, -1}* jest niedzielę ostatniego dnia miesiąca. Opcjonalny. |
+| **monthDays** |Dzień miesiąca uruchamiania zadania. Można określić tylko w przypadku miesiąc. |Tablica z następujących wartości:<br />-Wszelkie wartość < = -1 i > =-31<br />-Wszelkie wartość > = 1 i < = 31|
 
 ## <a name="examples-recurrence-schedules"></a>Przykłady: Harmonogramy cyklu
-Poniżej przedstawiono przykłady różnych harmonogramów cyklu — koncentrujących się na obiekt harmonogramu i jego elementów podrzędnych.
+W poniższych przykładach pokazano różne harmonogramy cyklu. Przykłady skupić się na obiekt harmonogramu i jego podelementy.
 
-Harmonogramy poniżej wszystkich przyjęto założenie, że *interwał* jest ustawiona na 1\. Ponadto jedną założono prawo częstotliwość zgodnie z nowości w *harmonogram* — np. nie można użyć częstotliwości "day" i ma modyfikację "monthDays" w harmonogramie. Takie ograniczenia opisanych powyżej.
+Te harmonogramy przyjęto założenie, że **interwał** jest ustawiona na 1\. Przykłady założono również odpowiedniego **częstotliwość** wartości dla wartości w **harmonogram**. Na przykład nie można użyć **częstotliwość** z "day" i mieć **monthDays** modyfikacji **harmonogram**. Opisano te ograniczenia we wcześniejszej części tego artykułu.
 
-| **Przykład** | **Opis** |
+| Przykład | Opis |
 |:--- |:--- |
-| <code>{"hours":[5]}</code> |Uruchom na 5: 00 każdego dnia. Harmonogram systemu Azure dopasowania każdej wartości w "Godzina" z każdej wartości w "min", z nich, aby utworzyć listę cały czas, w którym zadanie jest uruchamiana. |
-| <code>{"minutes":[15], "hours":[5]}</code> |Uruchom na 5:15:00 każdego dnia |
-| <code>{"minutes":[15], "hours":[5,17]}</code> |Uruchom na 5:15:00 a 17:15 codziennie |
-| <code>{"minutes":[15,45], "hours":[5,17]}</code> |Uruchom na 5:15:00, 5:45:00, 17:15:00, a 17:45 codziennie |
-| <code>{"minutes":[0,15,30,45]}</code> |Uruchom co 15 minut |
-| <code>{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}</code> |Uruchom co godzinę. To zadanie jest uruchamiane co godzinę. Minuta jest kontrolowany przez *startTime*, jeśli jest określony, lub jeśli nie zostanie określona, w czasie tworzenia. Na przykład, jeśli czas rozpoczęcia i godzina utworzenia (którekolwiek ma zastosowanie) jest godzina 12:25, zadanie będzie uruchamiane w na 00:25, 01:25 02:25,..., 23:25. Harmonogram jest odpowiednikiem o zadanie o *częstotliwość* "Godzina" *interwał* 1 i nie *harmonogram*. Różnica polega na to, że ten harmonogram może zostać wykorzystana z różnymi *częstotliwość* i *interwał* za tworzenie innych zadań. Na przykład jeśli *częstotliwość* zostały "miesiąc", harmonogram może działać tylko raz w miesiącu zamiast codziennie Jeśli *częstotliwość* zostały "dzień" |
-| <code>{minutes:[0]}</code> |Uruchom co godzinę w ciągu godziny. To zadanie jest uruchamiane co godzinę, ale na godzinę (np. 00: 00, 1: 00, 2 AM, itp.) Jest to równoważne zadania z częstotliwością "Godzina", startTime z zero minut, a nie harmonogram częstotliwości zostały "day", ale w przypadku "week" lub "month" częstotliwości harmonogramu jest wykonywany tylko jeden dzień tygodnia lub jeden dzień w miesiącu odpowiednio. |
-| <code>{"minutes":[15]}</code> |Uruchom po 15 minutach Ostatnia godzina co godzinę. Uruchamiany co godzinę, począwszy od 0:15, 1:15 i 2:15, aż do 22:15 i 23:15. |
-| <code>{"hours":[17], "weekDays":["saturday"]}</code> |Jednocześnie 17: 00 w soboty co tydzień |
-| <code>{hours":[17], "weekDays":["monday", "wednesday", "friday"]}</code> |Jednocześnie 17: 00 w poniedziałek, środę i piątek co tydzień |
-| <code>{"minutes":[15,45], "hours":[17], "weekDays":["monday", "wednesday", "friday"]}</code> |Jednocześnie 17:15:00 a: 45 17 w poniedziałek, środę i piątek co tydzień |
-| <code>{"hours":[5,17], "weekDays":["monday", "wednesday", "friday"]}</code> |Uruchom na 5: 00 a 17 w poniedziałek, środę i piątek co tydzień |
-| <code>{"minutes":[15,45], "hours":[5,17], "weekDays":["monday", "wednesday", "friday"]}</code> |Uruchom na 5:15:00, 5:45:00, 17:15:00, a: 45 17 w poniedziałek, środę i piątek co tydzień |
-| <code>{"minutes":[0,15,30,45], "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}</code> |Uruchamiany co 15 minut w dni robocze |
-| <code>{"minutes":[0,15,30,45], "hours": [9, 10, 11, 12, 13, 14, 15, 16] "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}</code> |Uruchom co 15 minut w dni robocze miedzy 9 a 4:45 PM. |
-| <code>{"weekDays":["sunday"]}</code> |Uruchom w niedziele podczas uruchamiania |
-| <code>{"weekDays":["tuesday", "thursday"]}</code> |We wtorki i czwartki podczas uruchamiania |
-| <code>{"minutes":[0], "hours":[6], "monthDays":[28]}</code> |Uruchom o 6: 00 w 28 dnia o co miesiąc (przy założeniu częstotliwość miesiąc) |
-| <code>{"minutes":[0], "hours":[6], "monthDays":[-1]}</code> |Uruchom o 6: 00 ostatniego dnia miesiąca. Jeśli chcesz uruchomić zadanie ostatniego dnia miesiąca, zamiast dnia 28, 29, 30 i 31 -1. |
-| <code>{"minutes":[0], "hours":[6], "monthDays":[1,-1]}</code> |Uruchom o 6: 00 pierwszy i ostatni dzień każdego miesiąca |
-| <code>{monthDays":[1,-1]}</code> |W pierwszym i ostatnim dniu co miesiąc podczas uruchamiania |
-| <code>{monthDays":[1,14]}</code> |Uruchom pierwszy i czternastego dnia każdego miesiąca, w momencie rozpoczęcia |
-| <code>{monthDays":[2]}</code> |Uruchom dnia miesiąca w momencie rozpoczęcia |
-| <code>{"minutes":[0], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1}]}</code> |Uruchom w pierwszym piątek każdego miesiąca o godzinie 5: 00 |
-| <code>{"monthlyOccurrences":[{"day":"friday", "occurrence":1}]}</code> |: Uruchomienie na pierwszy piątek każdego miesiąca w momencie rozpoczęcia |
-| <code>{"monthlyOccurrences":[{"day":"friday", "occurrence":-3}]}</code> |Uruchom na trzeci piątek koniec miesiąca, co miesiąc, w momencie rozpoczęcia |
-| <code>{"minutes":[15], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}</code> |Uruchom na pierwszy i ostatni piątek miesiąca w 5:15:00 |
-| <code>{"monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}</code> |Uruchomienie na pierwszy i ostatni piątek miesiąca w momencie rozpoczęcia |
-| <code>{"monthlyOccurrences":[{"day":"friday", "occurrence":5}]}</code> |Uruchom w piątym piątek co miesiąc podczas uruchamiania. Jeśli w miesiącu nie ma żadnych piątej piątek, to nie zostanie uruchomiony, ponieważ zostało zaplanowane do uruchomienia na tylko piątej piątki. Można rozważyć użycie -1 zamiast 5 dla wystąpienia Jeśli chcesz uruchamiać zadania na ostatniego wystąpienia piątek miesiąca. |
-| <code>{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}</code> |Uruchom co 15 minut na ostatni piątek miesiąca |
-| <code>{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}</code> |Uruchom na 5:15:00, 5:45:00, 17:15:00 i 5:45 PM 3 środę każdego miesiąca |
+| `{"hours":[5]}` |Jednocześnie 5: 00 każdego dnia.<br /><br />Harmonogram dopasowania każdej wartości w "Godzina" z każdej wartości w "min", z nich, aby utworzyć listę cały czas, w którym zadanie działa. |
+| `{"minutes":[15], "hours":[5]}` |Uruchamiany o godz. 5:15 każdego dnia. |
+| `{"minutes":[15], "hours":[5,17]}` |Uruchamiany o godz. 5:15 i 17:15 każdego dnia. |
+| `{"minutes":[15,45], "hours":[5,17]}` |Uruchamiany o godz. 5:15, 5:45, 17:15 i 17:45 każdego dnia. |
+| `{"minutes":[0,15,30,45]}` |Uruchamiany co 15 minut. |
+| `{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}` |Uruchamiany co godzinę.<br /><br />To zadanie jest uruchamiane co godzinę. Minuta jest kontrolowany przez wartość dla **startTime**, jeśli je określono. Jeśli nie **startTime** jest określona, minuty zależy od czasu utworzenia. Na przykład, jeśli czas rozpoczęcia i godzina utworzenia (którekolwiek ma zastosowanie) jest godzina 12:25, zadanie jest uruchamiane w 00:25, 01:25 02:25,..., 23:25.<br /><br />Harmonogram jest odpowiednikiem zadanie o **częstotliwość** "Godzina" **interwał** 1 i nie **harmonogram** wartość. Różnica polega na to, czy można użyć tego harmonogramu z różnymi **częstotliwość** i **interwał** wartości, aby utworzyć inne zadania. Na przykład jeśli **częstotliwość** jest tylko raz w miesiącu zamiast codziennie "miesiąc" działa harmonogram (Jeśli **częstotliwość** jest "dzień"). |
+| `{minutes:[0]}` |Uruchamiany co godzinę o pełnej godzinie.<br /><br />To zadanie jest uruchamiane co godzinę, ale na godzinę (12 AM, 1 AM, 2 AM i tak dalej). Jest to równoważne zadanie o **częstotliwość** "Godzina" **startTime** wartość zero minut, a nie **harmonogram**, jeśli częstotliwość wynosi "dzień". Jednak jeśli **częstotliwość** jest "week" lub "month" harmonogram odpowiednio wykonuje tylko jeden dzień tygodnia lub jeden dzień w miesiącu. |
+| `{"minutes":[15]}` |Uruchom na 15 minut po pełnej godzinie, co godzinę.<br /><br />Jest uruchamiana co godzinę, począwszy od 00:15 AM, 1:15:00, 2:15 AM, i tak dalej. Kończy godzinie 23:15:00. |
+| `{"hours":[17], "weekDays":["saturday"]}` |Jednocześnie 17: 00 w sobotę co tydzień. |
+| `{hours":[17], "weekDays":["monday", "wednesday", "friday"]}` |Jednocześnie 17: 00 w poniedziałek, środę i piątek co tydzień. |
+| `{"minutes":[15,45], "hours":[17], "weekDays":["monday", "wednesday", "friday"]}` |Uruchamiany o godz. 17:15 i 17:45 w każdy poniedziałek, środę i piątek. |
+| `{"hours":[5,17], "weekDays":["monday", "wednesday", "friday"]}` |Uruchom na 5: 00 a 17 w poniedziałek, środę i piątek co tydzień. |
+| `{"minutes":[15,45], "hours":[5,17], "weekDays":["monday", "wednesday", "friday"]}` |Uruchom na 5:15:00, 5:45:00, 17:15:00, a: 45 17 w poniedziałek, środę i piątek co tydzień. |
+| `{"minutes":[0,15,30,45], "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}` |Uruchamiany co 15 minut w dni robocze. |
+| `{"minutes":[0,15,30,45], "hours": [9, 10, 11, 12, 13, 14, 15, 16] "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}` |Uruchom co 15 minut w dni robocze miedzy 9 a 4:45 PM. |
+| `{"weekDays":["sunday"]}` |Uruchom w niedziele podczas uruchamiania. |
+| `{"weekDays":["tuesday", "thursday"]}` |Uruchom we wtorki i czwartki podczas uruchamiania. |
+| `{"minutes":[0], "hours":[6], "monthDays":[28]}` |Uruchom o 6: 00 dwudziestego ósmego dnia każdego miesiąca (przy założeniu **częstotliwość** "miesiąca"). |
+| `{"minutes":[0], "hours":[6], "monthDays":[-1]}` |Uruchom o 6: 00 ostatniego dnia miesiąca.<br /><br />Jeśli chcesz uruchomić zadanie ostatniego dnia miesiąca, zamiast dnia 28, 29, 30 i 31 -1. |
+| `{"minutes":[0], "hours":[6], "monthDays":[1,-1]}` |Uruchom o 6: 00 pierwszy i ostatni dzień każdego miesiąca. |
+| `{monthDays":[1,-1]}` |Uruchom na pierwszy i ostatni dzień co miesiąc podczas uruchamiania. |
+| `{monthDays":[1,14]}` |Uruchom pierwszy i czternastego dnia każdego miesiąca, w momencie rozpoczęcia. |
+| `{monthDays":[2]}` |Uruchom dnia miesiąca w momencie rozpoczęcia. |
+| `{"minutes":[0], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1}]}` |Uruchom w pierwszym piątek każdego miesiąca o godzinie 5: 00. |
+| `{"monthlyOccurrences":[{"day":"friday", "occurrence":1}]}` |Uruchom w pierwszym piątek co miesiąc podczas uruchamiania. |
+| `{"monthlyOccurrences":[{"day":"friday", "occurrence":-3}]}` |Uruchom na trzeci piątek od zakończenia miesiąca, co miesiąc podczas uruchamiania. |
+| `{"minutes":[15], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}` |Uruchamiany w pierwszy i ostatni piątek każdego miesiąca o godz. 5:00. |
+| `{"monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}` |Podczas uruchamiania, należy uruchomić na pierwszy i ostatni piątek miesiąca. |
+| `{"monthlyOccurrences":[{"day":"friday", "occurrence":5}]}` |Uruchom w piątym piątek co miesiąc podczas uruchamiania.<br /><br />Jeśli w miesiącu nie ma żadnych piątej piątek, zadanie nie działa. Należy rozważyć użycie -1 zamiast 5 dla wystąpienia Jeśli chcesz uruchamiać zadania na ostatniego wystąpienia piątek miesiąca. |
+| `{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}` |Uruchamiany co 15 minut w ostatni piątek miesiąca. |
+| `{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}` |Uruchamiany o godz. 5:15, 5:45, 17:15 i 17:45 w trzecią środę każdego miesiąca. |
 
-## <a name="see-also"></a>Zobacz też
- [Co to jest Scheduler?](scheduler-intro.md)
+## <a name="see-also"></a>Zobacz także
 
- [Pojęcia i terminologia dotyczące usługi Azure Scheduler oraz hierarchia jednostek](scheduler-concepts-terms.md)
-
- [Rozpoczynanie pracy z usługą Scheduler w witrynie Azure Portal](scheduler-get-started-portal.md)
-
- [Plany i rozliczenia w usłudze Azure Scheduler](scheduler-plans-billing.md)
-
- [Dokumentacja interfejsu API REST usługi Azure Scheduler](https://msdn.microsoft.com/library/mt629143)
-
- [Dokumentacja poleceń cmdlet programu PowerShell dla usługi Azure Scheduler](scheduler-powershell-reference.md)
-
- [Wysoka dostępność i niezawodność usługi Azure Scheduler](scheduler-high-availability-reliability.md)
-
- [Limity, wartości domyślne i kody błędów usługi Azure Scheduler](scheduler-limits-defaults-errors.md)
-
- [Uwierzytelnianie połączeń wychodzących usługi Azure Scheduler](scheduler-outbound-authentication.md)
+- [Co to jest Scheduler?](scheduler-intro.md)
+- [Pojęcia i terminologia dotyczące usługi Azure Scheduler oraz hierarchia jednostek](scheduler-concepts-terms.md)
+- [Rozpoczynanie pracy z usługą Scheduler w witrynie Azure Portal](scheduler-get-started-portal.md)
+- [Plany i rozliczenia w usłudze Azure Scheduler](scheduler-plans-billing.md)
+- [Dokumentacja interfejsu API REST usługi Azure Scheduler](https://msdn.microsoft.com/library/mt629143)
+- [Dokumentacja poleceń cmdlet programu PowerShell dla usługi Azure Scheduler](scheduler-powershell-reference.md)
+- [Azure harmonogramu wysokiej dostępności i niezawodności](scheduler-high-availability-reliability.md)
+- [Limity, wartości domyślne i kody błędów usługi Azure Scheduler](scheduler-limits-defaults-errors.md)
+- [Uwierzytelnianie połączeń wychodzących usługi Azure Scheduler](scheduler-outbound-authentication.md)
 

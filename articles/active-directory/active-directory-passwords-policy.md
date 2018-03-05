@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: ade7f1d3c868c2ce6ccedbbf11aaf7dc54706cff
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 48ec84cd01126f431f22457a4ace451e4d9bce42
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Ograniczenia w usłudze Azure Active Directory i zasad haseł
 
@@ -46,10 +46,10 @@ Za pomocą zasad dwa bramy administratorzy nie mają możliwość używania pyta
   * Zapisywanie katalogów
   * Administrator globalny lub administrator firmy
   * Administrator usługi programu SharePoint
-  * Administrator zgodności
+  * Administrator do spraw zgodności
   * Administrator aplikacji
   * Administrator zabezpieczeń
-  * Administrator ról uprzywilejowanych
+  * Administrator roli uprzywilejowanej
   * Administratora usługi Microsoft Intune
   * Administrator usługi serwera proxy aplikacji
   * Administrator programu CRM usługi
@@ -86,8 +86,8 @@ Każdego konta użytkownika, który musi się zalogować do usługi Azure AD mus
 | Właściwość | Wymagania dotyczące UserPrincipalName |
 | --- | --- |
 | Znaki są dozwolone |<ul> <li>A-Z</li> <li>- z</li><li>0 – 9</li> <li> . - \_ ! \# ^ \~</li></ul> |
-| Znaki nie są dozwolone |<ul> <li>Wszelkie "@" znak, który nie jest oddzielając nazwy użytkownika w domenie.</li> <li>Nie może zawierać znaku kropki "." bezpośrednio przed "@" — symbol</li></ul> |
-| Ograniczenia długości |<ul> <li>Całkowita długość nie może przekraczać 113 znaków</li><li>Może istnieć maksymalnie 64 znaki, przed "@" — symbol</li><li>Może istnieć maksymalnie 48 znaków po "@" — symbol</li></ul> |
+| Znaki nie są dozwolone |<ul> <li>Wszelkie "\@ \" znak, który nie jest oddzielając nazwy użytkownika w domenie.</li> <li>Nie może zawierać znaku kropki "." bezpośrednio przed "\@ \" symbol</li></ul> |
+| Ograniczenia długości |<ul> <li>Całkowita długość nie może przekraczać 113 znaków</li><li>Może istnieć maksymalnie 64 znaki, przed "\@ \" symbol</li><li>Może istnieć maksymalnie 48 znaków po "\@ \" symbol</li></ul> |
 
 ## <a name="password-policies-that-only-apply-to-cloud-user-accounts"></a>Zasady haseł, które są stosowane tylko do kont użytkowników w chmurze
 
@@ -96,7 +96,7 @@ W poniższej tabeli opisano ustawienia zasad dostępne hasła, które można zas
 | Właściwość | Wymagania |
 | --- | --- |
 | Znaki są dozwolone |<ul><li>A-Z</li><li>- z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
-| Znaki nie są dozwolone |<ul><li>Znaki Unicode.</li><li>Spacje.</li><li> Silne hasła tylko: nie może zawierać znaku kropki "." bezpośrednio przed "@" symbolu.</li></ul> |
+| Znaki nie są dozwolone |<ul><li>Znaki Unicode.</li><li>Spacje.</li><li> Silne hasła tylko: nie może zawierać znaku kropki "." bezpośrednio przed "\@ \" symbolu.</li></ul> |
 | Ograniczenia haseł |<ul><li>Co najmniej 8 znaków i maksymalnie 16 znaków.</li><li>Silne hasła tylko: wymaga trzech spośród czterech następujących:<ul><li>Małe litery.</li><li>Wielkie litery.</li><li>Cyfry (0 – 9).</li><li>Symbole (patrz poprzednie ograniczeń hasła).</li></ul></li></ul> |
 | Okres wygasania haseł |<ul><li>Wartość domyślna: **90** dni.</li><li>Wartość jest można skonfigurować przy użyciu `Set-MsolPasswordPolicy` polecenia cmdlet programu Azure Active Directory modułu dla Windows PowerShell.</li></ul> |
 | Powiadomienie o wygaśnięciu hasła |<ul><li>Wartość domyślna: **14** dni (do wygaśnięcia hasła).</li><li>Wartość jest można skonfigurować przy użyciu `Set-MsolPasswordPolicy` polecenia cmdlet.</li></ul> |
@@ -124,29 +124,29 @@ Aby rozpocząć pracę, musisz [Pobierz i zainstaluj moduł programu PowerShell 
 1. Nawiązać środowiska Windows PowerShell przy użyciu poświadczeń administratora firmy.
 2. Wykonaj jedną z następujących poleceń:
 
-   * Aby sprawdzić, jeśli ustawiono pojedynczego użytkownika, hasło nigdy nie wygasa, uruchom następujące polecenie cmdlet przy użyciu nazwy UPN (na przykład  *aprilr@contoso.onmicrosoft.com* ) lub identyfikator użytkownika, aby sprawdzić użytkownika:`Get-MSOLUser -UserPrincipalName <user ID> | Select PasswordNeverExpires`
-   * Aby wyświetlić **hasło nigdy nie wygasa** ustawienie dla wszystkich użytkowników, uruchom następujące polecenie cmdlet:`Get-MSOLUser | Select UserPrincipalName, PasswordNeverExpires`
+   * Aby sprawdzić, jeśli ustawiono pojedynczego użytkownika, hasło nigdy nie wygasa, uruchom następujące polecenie cmdlet przy użyciu nazwy UPN (na przykład  *aprilr@contoso.onmicrosoft.com* ) lub identyfikator użytkownika, aby sprawdzić użytkownika: `Get-MSOLUser -UserPrincipalName <user ID> | Select PasswordNeverExpires`
+   * Aby wyświetlić **hasło nigdy nie wygasa** ustawienie dla wszystkich użytkowników, uruchom następujące polecenie cmdlet: `Get-MSOLUser | Select UserPrincipalName, PasswordNeverExpires`
 
 ### <a name="set-a-password-to-expire"></a>Ustaw hasło wygaśnie
 
 1. Nawiązać środowiska Windows PowerShell przy użyciu poświadczeń administratora firmy.
 2. Wykonaj jedną z następujących poleceń:
 
-   * Aby ustawić hasło jednego użytkownika tak, aby hasło wygaśnie, uruchom następujące polecenie cmdlet przy użyciu nazwy UPN lub identyfikator użytkownika, użytkownik:`Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $false`
-   * Aby ustawić hasła wszystkich użytkowników w organizacji, co umożliwi wygasną, użyj następującego polecenia cmdlet:`Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $false`
+   * Aby ustawić hasło jednego użytkownika tak, aby hasło wygaśnie, uruchom następujące polecenie cmdlet przy użyciu nazwy UPN lub identyfikator użytkownika, użytkownik: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $false`
+   * Aby ustawić hasła wszystkich użytkowników w organizacji, co umożliwi wygasną, użyj następującego polecenia cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $false`
 
 ### <a name="set-a-password-to-never-expire"></a>Ustaw hasło nigdy nie wygasa
 
 1. Nawiązać środowiska Windows PowerShell przy użyciu poświadczeń administratora firmy.
 2. Wykonaj jedną z następujących poleceń:
 
-   * Aby ustawić hasło nigdy nie wygasa dla wielu użytkowników, uruchom następujące polecenie cmdlet przy użyciu nazwy UPN lub identyfikator użytkownika, użytkownik:`Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
-   * Aby ustawić hasła wszystkich użytkowników w organizacji nigdy nie wygasa, uruchom następujące polecenie cmdlet:`Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
+   * Aby ustawić hasło nigdy nie wygasa dla wielu użytkowników, uruchom następujące polecenie cmdlet przy użyciu nazwy UPN lub identyfikator użytkownika, użytkownik: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
+   * Aby ustawić hasła wszystkich użytkowników w organizacji nigdy nie wygasa, uruchom następujące polecenie cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
 
    > [!WARNING]
    > Ustaw hasła `-PasswordNeverExpires $true` nadal wieku na podstawie `pwdLastSet` atrybutu. Ustaw hasła użytkowników nigdy nie wygasa, przejdź 90 dni wygaśnięcia hasła. Na podstawie `pwdLastSet` atrybutów, w przypadku zmiany ważności do `-PasswordNeverExpires $false`, wszystkie hasła, które mają `pwdLastSet` starsze niż 90 dni wymagają od użytkownika je zmienić przy następnym zalogowaniu. Ta zmiana może mieć wpływ na wielu użytkowników. 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Poniższe artykuły zawierają dodatkowe informacje na temat resetowania za pośrednictwem usługi Azure AD:
 

@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: 01951afa983e7a578281fda38bb4714df6b41891
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 624f706532645034f19af15d10352dbc6db0b6c1
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>Język zapytań Centrum IoT urządzenia twins, zadań i rozsyłania wiadomości
 
@@ -298,27 +298,27 @@ Centrum IoT przyjmuje następujące reprezentacja JSON w nagłówkach wiadomośc
 
 ```json
 {
-    "$messageId": "",
-    "$enqueuedTime": "",
-    "$to": "",
-    "$expiryTimeUtc": "",
-    "$correlationId": "",
-    "$userId": "",
-    "$ack": "",
-    "$connectionDeviceId": "",
-    "$connectionDeviceGenerationId": "",
-    "$connectionAuthMethod": "",
-    "$content-type": "",
-    "$content-encoding": "",
-
-    "userProperty1": "",
-    "userProperty2": ""
+  "message": {
+    "systemProperties": {
+      "contentType": "application/json",
+      "contentEncoding": "utf-8",
+      "iothub-message-source": "deviceMessages",
+      "iothub-enqueuedtime": "2017-05-08T18:55:31.8514657Z"
+    },
+    "appProperties": {
+      "processingPath": "<optional>",
+      "verbose": "<optional>",
+      "severity": "<optional>",
+      "testDevice": "<optional>"
+    },
+    "body": "{\"Weather\":{\"Temperature\":50}}"
+  }
 }
 ```
 
 Właściwości systemu wiadomości są poprzedzane prefiksem `'$'` symbolu.
-Właściwości użytkownika są zawsze dostępne z jego nazwą. Jeśli nazwa właściwości użytkownika pokrywa się z właściwością systemu (takich jak `$to`), właściwości użytkownika są pobierane z `$to` wyrażenia.
-Zawsze dostęp do właściwości systemu za pomocą nawiasów `{}`: na przykład można użyć wyrażenia `{$to}` do dostępu do właściwości systemu `to`. Nazwy właściwości w nawiasach kwadratowych zawsze pobierają odpowiadających im właściwości systemu.
+Właściwości użytkownika są zawsze dostępne z jego nazwą. Jeśli nazwa właściwości użytkownika pokrywa się z właściwością systemu (takich jak `$contentType`), właściwości użytkownika są pobierane z `$contentType` wyrażenia.
+Zawsze dostęp do właściwości systemu za pomocą nawiasów `{}`: na przykład można użyć wyrażenia `{$contentType}` do dostępu do właściwości systemu `contentType`. Nazwy właściwości w nawiasach kwadratowych zawsze pobierają odpowiadających im właściwości systemu.
 
 Należy pamiętać, że nazwy właściwości bez uwzględniania wielkości liter.
 
@@ -350,12 +350,58 @@ Zapoznaj się [wyrażenie i warunki] [ lnk-query-expressions] sekcję, aby pełn
 
 Centrum IoT można kierować tylko oparte na treść komunikatu zawartość, jeśli treść jest poprawnie sformułowany JSON zakodowane w formacie UTF-8, UTF-16 lub UTF-32. Ustaw typ zawartości wiadomości `application/json`. Ustaw zawartość, kodowanie obsługiwane kodowania UTF w nagłówkach wiadomości. Jeśli jeden z nagłówków nie zostanie określony, Centrum IoT nie próbuje ocenić żadnych wyrażenie zapytania dotyczące treści dla komunikatu. Jeśli wiadomość nie jest komunikat JSON lub jeśli wiadomość nie określa typu zawartości i kodowania zawartości, nadal służy rozsyłania wiadomości do rozsyłania wiadomości oparte na nagłówkach wiadomości.
 
+Poniższy przykład pokazuje, jak utworzyć wiadomości o poprawnie sformułowany i zakodowanej treści JSON:
+
+```csharp
+string messageBody = @"{ 
+                            ""Weather"":{ 
+                                ""Temperature"":50, 
+                                ""Time"":""2017-03-09T00:00:00.000Z"", 
+                                ""PrevTemperatures"":[ 
+                                    20, 
+                                    30, 
+                                    40 
+                                ], 
+                                ""IsEnabled"":true, 
+                                ""Location"":{ 
+                                    ""Street"":""One Microsoft Way"", 
+                                    ""City"":""Redmond"", 
+                                    ""State"":""WA"" 
+                                }, 
+                                ""HistoricalData"":[ 
+                                    { 
+                                    ""Month"":""Feb"", 
+                                    ""Temperature"":40 
+                                    }, 
+                                    { 
+                                    ""Month"":""Jan"", 
+                                    ""Temperature"":30 
+                                    } 
+                                ] 
+                            } 
+                        }"; 
+ 
+// Encode message body using UTF-8 
+byte[] messageBytes = Encoding.UTF8.GetBytes(messageBody); 
+ 
+using (var message = new Message(messageBytes)) 
+{ 
+    // Set message body type and content encoding. 
+    message.ContentEncoding = "utf-8"; 
+    message.ContentType = "application/json"; 
+ 
+    // Add other custom application properties.  
+    message.Properties["Status"] = "Active";    
+ 
+    await deviceClient.SendEventAsync(message); 
+}
+```
+
 Można użyć `$body` w wyrażeniu zapytania do rozsyłania wiadomości. Proste treści odwołania, typu odwołania tablicy treści lub wiele odwołań treści można użyć w wyrażeniu zapytania. Wyrażenie zapytania można także połączyć treści odwołanie z odwołaniem nagłówka wiadomości. Na przykład poniżej przedstawiono wszystkie wyrażenia prawidłową kwerendę:
 
 ```sql
-$body.message.Weather.Location.State = 'WA'
 $body.Weather.HistoricalData[0].Month = 'Feb'
-$body.Weather.Temperature = 50 AND $body.message.Weather.IsEnabled
+$body.Weather.Temperature = 50 AND $body.Weather.IsEnabled
 length($body.Weather.Location.State) = 2
 $body.Weather.Temperature = 50 AND Status = 'Active'
 ```
@@ -513,7 +559,7 @@ W warunkach trasy następujące Sprawdzanie typu i rzutowanie funkcje są obsłu
 
 | Funkcja | Opis |
 | -------- | ----------- |
-| AS_NUMBER | Konwertuje ciąg wejściowy liczbą. `noop`Jeśli dane wejściowe jest liczbą; `Undefined` czy ciąg reprezentuje liczbę.|
+| AS_NUMBER | Konwertuje ciąg wejściowy liczbą. `noop` Jeśli dane wejściowe jest liczbą; `Undefined` czy ciąg reprezentuje liczbę.|
 | IS_ARRAY — | Zwraca wartość logiczną wskazującą, czy typ określonego wyrażenia jest typem tablicy. |
 | IS_BOOL | Zwraca wartość logiczną wskazującą, czy typ określonego wyrażenie jest wartością logiczną. |
 | IS_DEFINED | Zwraca wartość Boolean wskazującą, czy właściwość zostanie przypisana wartość. |

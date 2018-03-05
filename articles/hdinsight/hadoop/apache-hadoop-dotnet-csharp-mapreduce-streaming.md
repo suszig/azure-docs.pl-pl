@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: cb07f173a0ff669cc8fa56d1ba37a4a3df8d8753
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 0db3df1666a56ca96af208a4e43f814105de40d5
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-c-with-mapreduce-streaming-on-hadoop-in-hdinsight"></a>Za pomocą języka C# MapReduce, przesyłanie strumieniowe na platformie Hadoop w usłudze HDInsight
 
@@ -33,7 +33,7 @@ Przesyłanie strumieniowe Hadoop to narzędzie, które umożliwia uruchamianie z
 
 ## <a name="net-on-hdinsight"></a>.NET w usłudze HDInsight
 
-__HDInsight opartych na systemie Linux__ klastrów użyj [Mono (https://mono-project.com)](https://mono-project.com) na uruchamianie aplikacji .NET. Wersja mono 4.2.1 jest uwzględniona w usłudze HDInsight w wersji 3.5. Aby uzyskać więcej informacji w wersji Mono dołączone do usługi HDInsight, zobacz [wersji składnika usługi HDInsight](../hdinsight-component-versioning.md). Aby użyć określonej wersji Mono, zobacz [instalacji lub aktualizacji Mono](../hdinsight-hadoop-install-mono.md) dokumentu.
+__HDInsight opartych na systemie Linux__ klastrów użyj [Mono (https://mono-project.com)](https://mono-project.com) na uruchamianie aplikacji .NET. Wersja mono 4.2.1 jest uwzględniona w usłudze HDInsight w wersji 3,6. Aby uzyskać więcej informacji w wersji Mono dołączone do usługi HDInsight, zobacz [wersji składnika usługi HDInsight](../hdinsight-component-versioning.md). Aby użyć określonej wersji Mono, zobacz [instalacji lub aktualizacji Mono](../hdinsight-hadoop-install-mono.md) dokumentu.
 
 Aby uzyskać więcej informacji na Mono zgodność z wersji systemu .NET Framework, zobacz [Mono zgodności](http://www.mono-project.com/docs/about-mono/compatibility/).
 
@@ -238,7 +238,7 @@ Ten skrypt wyświetla monit o podanie nazwy konta logowania klastra i hasła, wr
     yourselves      3
     youth   17
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby uzyskać więcej informacji na temat używania MapReduce z usługą HDInsight, zobacz [Użyj MapReduce z usługą HDInsight](hdinsight-use-mapreduce.md).
 

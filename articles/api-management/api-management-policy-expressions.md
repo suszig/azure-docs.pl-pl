@@ -14,34 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: fb50ba3f292a390c45f1afe6259731d2b92cc335
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: a5bcd03e71a69928fa1e02a5286801c4933d17ef
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="api-management-policy-expressions"></a>Wyrażenie zasad interfejsu API zarządzania
-Zasady składni wyrażeń jest C# w wersji 6.0. Każde wyrażenie ma dostęp do udostępnionego niejawnie [kontekstu](api-management-policy-expressions.md#ContextVariables) zmienną i dozwolonych [podzestawu](api-management-policy-expressions.md#CLRTypes) typów .NET Framework.  
-  
-> [!TIP]
->  Aby uzyskać więcej informacji na temat wyrażenia zasad, zobacz [wyrażenie zasad](https://azure.microsoft.com/documentation/videos/policy-expressions-in-azure-api-management/) wideo.  
->   
->  Aby pokazów konfigurowania zasad przy użyciu wyrażenia zasad, zobacz [177 epizodu obejmują chmury: więcej funkcji zarządzania interfejsu API z Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). Ten film zawiera następujące pokazów wyrażenie zasad:  
->   
->  -   10:30 - informacje o Podaj informacje o kontekście do usługi zaplecza. Użyj [ustawić parametr ciągu zapytania](api-management-transformation-policies.md#SetQueryStringParameter) i [nagłówka HTTP ustawić](api-management-transformation-policies.md#SetHTTPheader) zasad, aby podać te informacje. Po 12:10 jest pokaz wywołanie operacji w portalu dla deweloperów, w którym można zobaczyć te zasady w miejscu pracy.  
-> -   13:50 — zobacz temat jak korzystać [JWT do zweryfikowania](api-management-access-restriction-policies.md#ValidateJWT) zasad do wstępnie autoryzacji dostępu do operacji na podstawie tokenu oświadczeń. Szybko przewiń do przodu do 15:00, aby zobaczyć, jak zasady są konfigurowane w edytorze zasad. W 18:50 zobacz pokaz wywołanie operacji z portalu dla deweloperów zarówno z, jak i bez tokenu autoryzacji wymagane.  
-> -   21:00 - użyj [inspektora interfejsu API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) śledzenia, aby zobaczyć, jak są analizowane zasady i wyniki tych oceny.  
-> -   25:25 — jak używać wyrażenia z [pobrać z pamięci podręcznej](api-management-caching-policies.md#GetFromCache) i [magazynu pamięci podręcznej](api-management-caching-policies.md#StoreToCache) zasad można skonfigurować buforowanie odpowiedzi interfejsu API zarządzania. Ustaw czas trwania, który odpowiada buforowanie odpowiedzi usługi zaplecza określone przez usługę kopii `Cache-Control` dyrektywy.  
-> -   34:30 — Zobacz, jak wykonać filtrowanie zawartości. Usuń elementy danych z odpowiedzi otrzymanych z wewnętrznej bazy danych przy użyciu [sterowania przepływem](api-management-advanced-policies.md#choose) i [ustawić treść](api-management-transformation-policies.md#SetBody) zasad. Rozpocznij od 31:50 wyświetlić przegląd [ciemny niebo prognozy interfejsu API](https://developer.forecast.io/) używane na potrzeby tego pokazu.  
-> -   Aby pobrać deklaracji zasad, używane w tym wideo, zobacz [interfejsu api zarządzania — przykłady/zasadami](https://github.com/Azure/api-management-samples/tree/master/policies) repozytorium github.  
+W tym artykule opisano zasady składnia wyrażeń jest C# w wersji 6.0. Każde wyrażenie ma dostęp do udostępnionego niejawnie [kontekstu](api-management-policy-expressions.md#ContextVariables) zmienną i dozwolonych [podzestawu](api-management-policy-expressions.md#CLRTypes) typów .NET Framework.  
+
+Więcej informacji:
+
+- Informacje o Podaj informacje o kontekście do usługi zaplecza. Użyj [ustawić parametr ciągu zapytania](api-management-transformation-policies.md#SetQueryStringParameter) i [nagłówka HTTP ustawić](api-management-transformation-policies.md#SetHTTPheader) zasad, aby podać te informacje.
+- Jak używać [JWT do zweryfikowania](api-management-access-restriction-policies.md#ValidateJWT) zasad do wstępnie autoryzacji dostępu do operacji na podstawie tokenu oświadczeń.   
+- Jak używać [inspektora interfejsu API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) śledzenia, aby zobaczyć, jak są analizowane zasady i wyniki tych oceny.  
+- Jak używać wyrażenia z [pobrać z pamięci podręcznej](api-management-caching-policies.md#GetFromCache) i [magazynu pamięci podręcznej](api-management-caching-policies.md#StoreToCache) zasad można skonfigurować buforowanie odpowiedzi interfejsu API zarządzania. Ustaw czas trwania, który odpowiada buforowanie odpowiedzi usługi zaplecza określone przez usługę kopii `Cache-Control` dyrektywy.  
+- Zobacz, jak wykonać filtrowanie zawartości. Usuń elementy danych z odpowiedzi otrzymanych z wewnętrznej bazy danych przy użyciu [sterowania przepływem](api-management-advanced-policies.md#choose) i [ustawić treść](api-management-transformation-policies.md#SetBody) zasad. 
+- Aby pobrać deklaracji zasad, zobacz [interfejsu api zarządzania — przykłady/zasadami](https://github.com/Azure/api-management-samples/tree/master/policies) repozytorium github.  
   
   
-##  <a name="Syntax"></a>Składnia  
+##  <a name="Syntax"></a> Składnia  
  Pojedyncza instrukcja wyrażenia są ujęte w `@(expression)`, gdzie `expression` jest poprawnie sformułowanym instrukcji wyrażenia języka C#.  
   
  Wyrażenia instrukcji wielu są ujęte w `@{expression}`. Wszystkie ścieżki kodu w wielu instrukcji wyrażenia musi być zakończona odpowiadającą `return` instrukcji.  
   
-##  <a name="PolicyExpressionsExamples"></a>Przykłady  
+##  <a name="PolicyExpressionsExamples"></a> Przykłady  
   
 ```  
 @(true)  
@@ -67,13 +64,13 @@ Zasady składni wyrażeń jest C# w wersji 6.0. Każde wyrażenie ma dostęp do 
 }  
 ```  
   
-##  <a name="PolicyExpressionsUsage"></a>Użycie  
+##  <a name="PolicyExpressionsUsage"></a> Użycie  
  Wyrażenia mogą być używane jako wartości atrybutu lub tekst w żadnym interfejsu API zarządzania [zasady](api-management-policies.md) (chyba że informacje o zasadach Określa, w przeciwnym razie).  
   
 > [!IMPORTANT]
 >  Użycie wyrażenia zasad, jest tylko ograniczony weryfikacji wyrażenia zasad po zdefiniowaniu zasad. Wyrażenia są wykonywane przez bramę w czasie wykonywania, wszelkie wyjątki generowane przez zasady wyrażenia spowodować błąd w czasie wykonywania.  
   
-##  <a name="CLRTypes"></a>Typy .NET framework dozwolone w wyrażeniach zasad  
+##  <a name="CLRTypes"></a> Typy .NET framework dozwolone w wyrażeniach zasad  
  Poniższa tabela zawiera listę typów .NET Framework i ich elementy członkowskie, które są dozwolone w wyrażeniach zasad.  
   
 |Typ CLR|Obsługiwane metody|  
@@ -167,7 +164,7 @@ Zasady składni wyrażeń jest C# w wersji 6.0. Każde wyrażenie ma dostęp do 
 |System.Xml.Linq.XText|Obsługiwane są wszystkie metody|  
 |System.Xml.XmlNodeType|Wszyscy|  
   
-##  <a name="ContextVariables"></a>Zmienna kontekstu  
+##  <a name="ContextVariables"></a> Zmienna kontekstu  
  Zmiennej o nazwie `context` jest niejawnie dostępne we wszystkich zasadach [wyrażenia](api-management-policy-expressions.md#Syntax). Jej elementów członkowskich zawierają informacje dotyczące `\request`. Wszystkie `context` elementy członkowskie są tylko do odczytu.  
   
 |Zmienna kontekstu|Dozwolone metody, właściwości i wartości parametrów|  
@@ -206,11 +203,8 @@ Zasady składni wyrażeń jest C# w wersji 6.0. Każde wyrażenie ma dostęp do 
 |byte [] odszyfrowywania (wejściowych: tego typu byte [], alg: System.Security.Cryptography.SymmetricAlgorithm)|dane wejściowe - tekst szyfrowania do odszyfrowania<br /><br />alg — algorytm szyfrowania<br /><br />Zwraca w postaci zwykłego tekstu.|
 |byte [] odszyfrowywania (wejściowych: tego typu byte [], alg: System.Security.Cryptography.SymmetricAlgorithm, klucz: byte [], iv:byte[])|Tekst wejściowy - wejściowych - szyfrowania do odszyfrowania<br /><br />alg — algorytm szyfrowania<br /><br />klucz — klucz szyfrowania<br /><br />IV - wektor inicjowania<br /><br />Zwraca w postaci zwykłego tekstu.|
 
-## <a name="video"></a>Połączenia wideo
 
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Policy-Expressions-in-Azure-API-Management/player] 
->
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby uzyskać więcej informacji, Praca z zasad Zobacz:
 

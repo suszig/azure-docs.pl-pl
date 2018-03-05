@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: mimig
-ms.openlocfilehash: 2e49613cf37fa625efc7859802db86780dcb128a
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 2b822794cbafa037d4ab3cb23d2a885914c83607
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/28/2018
 ---
 > [!div class="op_single_selector"]
 > * [Java](performance-tips-java.md)
@@ -97,7 +97,7 @@ Dlatego jeśli "jak poprawić wydajność mojej bazy danych?" należy wziąć po
     Zestawy SDK Azure rozwiązania Cosmos bazy danych jest stale ulepszana aby zapewnić najlepszą wydajność. Zobacz [zestawu SDK usługi Azure rozwiązania Cosmos DB](documentdb-sdk-dotnet.md) strony, aby określić najbardziej aktualnych zestawu SDK i przejrzyj ulepszenia.
 2. **Okres istnienia aplikacji za pomocą klienta pojedyncze bazy danych Azure rozwiązania Cosmos**
 
-    Wystąpienie Efach DocumentClient wątkowo i wykonuje zarządzania wydajność połączenia i adres buforowanie w trybie bezpośredniego. Aby umożliwić zarządzanie połączeniami wydajne i większą wydajność przez DocumentClient, zaleca się używać jednego wystąpienia DocumentClient dla domeny AppDomain przez czas ich istnienia aplikacji.
+    Każde wystąpienie DocumentClient wątkowo i wykonuje zarządzania wydajność połączenia i adres buforowanie w trybie bezpośredniego. Aby umożliwić zarządzanie połączeniami wydajne i większą wydajność przez DocumentClient, zaleca się używać jednego wystąpienia DocumentClient dla domeny AppDomain przez czas ich istnienia aplikacji.
 
    <a id="max-connection"></a>
 3. **Zwiększ System.Net MaxConnections na host w trybie bramy**

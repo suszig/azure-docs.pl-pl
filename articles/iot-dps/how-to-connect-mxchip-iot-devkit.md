@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 697196f725f0cb8ad3054bd8336b588c17dddc3d
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
-ms.translationtype: HT
+ms.openlocfilehash: 77c8a6a5e384d27dca2582cc0fedc2bd23c0592e
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-hub-device-provisioning-service"></a>Zestaw deweloperski IoT MXChip połączyć się z Centrum IoT Azure urządzeniem świadczenie usługi
 
@@ -26,6 +26,8 @@ W tym artykule opisano sposób konfigurowania zestaw deweloperski w celu automat
 * Unikatowy klucz tajny urządzenia (UDS) umożliwia wygenerowanie certyfikatu X.509
 * Rejestrowanie urządzenia
 * Sprawdź, czy urządzenie jest zarejestrowane
+
+[Zestaw deweloperski IoT MXChip](https://aka.ms/iot-devkit) jest w jednym Arduino tablicy zgodny z czujników i sformatowanego urządzenia peryferyjne. Można utworzyć dla niego przy użyciu [rozszerzenia Visual Studio Code Arduino](https://aka.ms/arduino). I pochodzi z rosnącym [katalogu projektów](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) prowadzące prototypu Internetu rzeczy (IoT) rozwiązania, które korzystać z usług Microsoft Azure.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 

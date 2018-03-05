@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/27/2018
 ms.author: rayne
-ms.openlocfilehash: 02f5a7270b5d8b7657a585fce99946cff8ed8d67
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: dbaf1e29fbf4be8ef9432842b7ea4d6511b21cbb
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>Planowanie wydajności i skalowania w przypadku replikacji maszyn wirtualnych VMware z usługą Azure Site Recovery
 
@@ -20,7 +20,7 @@ Użyj w tym artykule, aby zorientować się planowanie pojemności i skalowanie 
 
 ## <a name="how-do-i-start-capacity-planning"></a>Jak rozpocząć planowanie pojemności
 
-Zbierz informacje o środowisku replikacji, uruchamiając [Azure lokacji odzyskiwania wdrożenia Planistę](https://aka.ms/asr-deployment-planner-doc) dla replikacji maszyn wirtualnych VMware. [Dowiedz się więcej](site-recovery-deployment-planner.md) o tym narzędziu. Będzie zbierać informacje o zgodnych i niezgodnych maszyn wirtualnych, dysków dla maszyny Wirtualnej, a danych churn — na dysku. Narzędzie obejmuje również wymagania dotyczące przepustowości sieci i infrastruktury platformy Azure wymagane do pomyślnego replikacji i testowania trybu failover.
+Zbierz informacje o środowisku replikacji, uruchamiając [Azure lokacji odzyskiwania wdrożenia Planistę](https://aka.ms/asr-deployment-planner-doc) dla replikacji maszyn wirtualnych VMware. [Dowiedz się więcej](site-recovery-deployment-planner.md) o tym narzędziu. Będzie zbierać informacje o zgodnych i niezgodnych maszyn wirtualnych, dysków dla maszyny Wirtualnej, a danych churn — na dysku. Narzędzie uwzględnia również wymagania dotyczące przepustowości sieci i infrastruktury platformy Azure potrzebnej do pomyślnej replikacji i testowania trybu failover.
 
 ## <a name="capacity-considerations"></a>Zagadnienia dotyczące wydajności
 
@@ -85,7 +85,7 @@ Po używano [narzędzie wdrożenia Planistę](site-recovery-deployment-planner.m
 2. W przystawce kliknij pozycję **Zmień właściwości**.
 
     ![Zrzut ekranu Azure Backup MMC przystawki opcję, aby zmienić właściwości](./media/site-recovery-vmware-to-azure/throttle1.png)
-3. Na **ograniczania** wybierz opcję **włączyć użycia przepustowości połączenia internetowego do operacji tworzenia kopii zapasowej**. Ustaw limity dla pracy oraz innych niż godziny pracy. Prawidłowy zakres: od 512 Kb/s do 102 Mb/s na sekundę.
+3. Na **ograniczania** wybierz opcję **włączyć użycia przepustowości połączenia internetowego do operacji tworzenia kopii zapasowej**. Ustaw limity dla pracy oraz innych niż godziny pracy. Prawidłowe zakresy są od 512 KB/s do 1023 MB/s na sekundę.
 
     ![Okno dialogowe zrzut ekranu Azure Backup właściwości](./media/site-recovery-vmware-to-azure/throttle2.png)
 

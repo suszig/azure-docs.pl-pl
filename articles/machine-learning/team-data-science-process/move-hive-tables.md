@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: bradsev
-ms.openlocfilehash: 6d9df88d6047fbe674c216dacc6fa01bad8451ec
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 593df249429bf1dcc5a59312830ed78f7cf642e8
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Tworzenie tabel programu Hive i ładowanie danych z magazynu obiektów Blob Azure
 W tym temacie przedstawiono ogólne zapytań Hive, które Tworzenie tabel programu Hive i ładowanie danych z magazynu obiektów blob platformy Azure. Instrukcje dostępne są również na partycje tabele programu Hive i przy użyciu zoptymalizowanych pod kątem wiersza kolumnowy (ORC) formatowanie, aby poprawić wydajność zapytań.
@@ -70,14 +70,14 @@ Istnieją trzy sposoby wysyłanie zapytań programu Hive w wierszu polecenia Had
 #### <a name="submit-hive-queries-directly-in-hadoop-command-line"></a>Wysyłanie zapytań programu Hive bezpośrednio w Hadoop wiersza polecenia.
 Możesz uruchomić polecenie, takie jak `hive -e "<your hive query>;` do przesyłania zapytań programu Hive proste bezpośrednio w Hadoop wiersza polecenia. Oto przykład, gdzie czerwonym prostokątem przedstawiono polecenia, który przesyła zapytanie Hive, a pole zielony przedstawiono dane wyjściowe z zapytania Hive.
 
-![Tworzenie obszaru roboczego](./media/move-hive-tables/run-hive-queries-1.png)
+![Utwórz obszar roboczy](./media/move-hive-tables/run-hive-queries-1.png)
 
 #### <a name="submit-hive-queries-in-hql-files"></a>Wysyłanie zapytań programu Hive w plikach .hql
 Jeśli zapytanie Hive jest bardziej skomplikowany i zawiera wiele wierszy, edytowanie zapytań w wierszu polecenia lub gałęzi konsoli poleceń nie jest praktyczne. Alternatywą jest używany edytor tekstu w węzła głównego klastra usługi Hadoop do zapisania zapytań Hive w pliku .hql w katalogu lokalnym węzła głównego. Następnie można przesłać zapytań Hive w pliku .hql przy użyciu `-f` argument w następujący sposób:
 
     hive -f "<path to the .hql file>"
 
-![Tworzenie obszaru roboczego](./media/move-hive-tables/run-hive-queries-3.png)
+![Utwórz obszar roboczy](./media/move-hive-tables/run-hive-queries-3.png)
 
 **Pomiń postępu stan ekranu drukowania zapytań Hive**
 
@@ -89,7 +89,7 @@ Domyślnie po wysłaniu zapytania Hive w wierszu polecenia Hadoop postęp zadani
 #### <a name="submit-hive-queries-in-hive-command-console"></a>Wysyłanie zapytań programu Hive z konsoli poleceń Hive.
 Można również najpierw wprowadzić konsoli poleceń Hive, uruchamiając polecenie `hive` w wierszu polecenia Hadoop, a następnie wysyłanie zapytań programu Hive z konsoli poleceń Hive. Oto przykład. W tym przykładzie dwa pola czerwone zaznacz polecenia służące do wprowadzania Hive konsoli poleceń i zapytań Hive przesłane w konsoli polecenie gałęzi, odpowiednio. Pole zielony prezentuje dane wyjściowe z zapytania Hive.
 
-![Tworzenie obszaru roboczego](./media/move-hive-tables/run-hive-queries-2.png)
+![Utwórz obszar roboczy](./media/move-hive-tables/run-hive-queries-2.png)
 
 Poprzednich przykładach output bezpośrednio na ekranie wyniki zapytania Hive. Można także zapisywać dane wyjściowe do pliku lokalnego węzła głównego lub do obiektów blob platformy Azure. Następnie można użyć innych narzędzi do dalszej analizy dane wyjściowe zapytań programu Hive.
 
@@ -100,7 +100,7 @@ Można wyświetlić wyników zapytania Hive w lokalnym katalogu w węźle głów
 
 W poniższym przykładzie zapytanie Hive dane wyjściowe są zapisywane do pliku `hivequeryoutput.txt` w katalogu `C:\apps\temp`.
 
-![Tworzenie obszaru roboczego](./media/move-hive-tables/output-hive-results-1.png)
+![Utwórz obszar roboczy](./media/move-hive-tables/output-hive-results-1.png)
 
 **Wyniki zapytania Hive dane wyjściowe do obiektów blob platformy Azure**
 
@@ -110,14 +110,14 @@ Można również output wyników zapytania Hive do obiektów blob platformy Azur
 
 W poniższym przykładzie danych wyjściowych zapytanie Hive są zapisywane do katalogu obiektu blob `queryoutputdir` w domyślnym kontenerze klastra usługi Hadoop. W tym miejscu wystarczy podać nazwę katalogu bez nazwy obiektu blob. Zostanie zgłoszony błąd, jeśli zostaną podane nazwy usługi directory i obiektów blob, takich jak `wasb:///queryoutputdir/queryoutput.txt`.
 
-![Tworzenie obszaru roboczego](./media/move-hive-tables/output-hive-results-2.png)
+![Utwórz obszar roboczy](./media/move-hive-tables/output-hive-results-2.png)
 
 Po otwarciu domyślny kontener klastra usługi Hadoop przy użyciu Eksploratora usługi Storage Azure zostanie wyświetlone dane wyjściowe zapytania Hive, jak pokazano na poniższej ilustracji. Filtr (wyróżniony przez czerwonym prostokątem) może dotyczyć tylko pobieranie obiektu blob o określonej litery w nazwach.
 
-![Tworzenie obszaru roboczego](./media/move-hive-tables/output-hive-results-3.png)
+![Utwórz obszar roboczy](./media/move-hive-tables/output-hive-results-3.png)
 
 ### <a name="hive-editor"></a> 2. Wysyłanie zapytań programu Hive w edytorze Hive
-Umożliwia także konsolę kwerendy (Edytor Hive), wprowadzając adres URL w formacie *https://&#60; Nazwa klastra Hadoop >.azurehdinsight.net/Home/HiveEditor* w przeglądarce sieci web. Musi być rejestrowane widzą tę konsolę i dlatego należy poświadczenia klastra usługi Hadoop.
+Umożliwia także konsolę kwerendy (Edytor Hive), wprowadzając adres URL w formacie *https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor* w przeglądarce sieci web. Musi być rejestrowane widzą tę konsolę i dlatego należy poświadczenia klastra usługi Hadoop.
 
 ### <a name="ps"></a> 3. Wysyłanie zapytań programu Hive z poleceń programu PowerShell Azure
 Można również wysyłanie zapytań programu Hive za pomocą programu PowerShell. Aby uzyskać instrukcje, zobacz [zadania Hive przesyłania przy użyciu programu PowerShell](../../hdinsight/hadoop/apache-hadoop-use-hive-powershell.md).
@@ -142,11 +142,11 @@ Oto zapytania Hive, która tworzy tabeli programu Hive.
 
 Poniżej przedstawiono opisy pola, które należy podłączyć i inne konfiguracje:
 
-* **&#60; Nazwa bazy danych >**: Nazwa bazy danych, który chcesz utworzyć. Jeśli chcesz użyć domyślnej bazy danych, zapytanie *tworzenie bazy danych...*  można pominąć.
-* **&#60; Nazwa tabeli >**: Nazwa tabeli, która ma zostać utworzona w ramach określonej bazy danych. Jeśli chcesz użyć domyślnej bazy danych, tabeli może być bezpośrednio odwołuje się *&#60; Nazwa tabeli >* bez &#60; Nazwa bazy danych >.
-* **&#60; separator pola >**: separator ograniczającego pól w pliku danych do przekazania do tabeli Hive.
-* **&#60; linii separatora >**: separator ograniczającego wierszy w pliku danych.
-* **&#60; lokalizacja magazynu >**: lokalizację magazynu Azure, aby zapisać dane tabele programu Hive. Jeśli nie określisz *lokalizacji &#60; lokalizacja magazynu >*, bazy danych i tabele są przechowywane w *gałęzi/magazynu/* katalogu w domyślnym kontenerze klastra gałąź domyślną. Jeśli chcesz określić lokalizację magazynu, lokalizacja magazynu musi być w kontenerze domyślna bazy danych i tabele. Tej lokalizacji musi być określony jako lokalizacji względnej wobec domyślny kontener klastra w formacie *"wasb: / / / &#60; katalogu 1 > /"* lub *"wasb: / / / &#60; katalogu 1 > / &#60; katalog 2 > / "*itp. Po wykonaniu zapytania względną katalogi są tworzone w ramach kontenera domyślnego.
+* **<database name>**: Nazwa bazy danych, który chcesz utworzyć. Jeśli chcesz użyć domyślnej bazy danych, zapytanie *tworzenie bazy danych...*  można pominąć.
+* **<table name>**: Nazwa tabeli, która ma zostać utworzona w ramach określonej bazy danych. Jeśli chcesz użyć domyślnej bazy danych, tabeli może być bezpośrednio odwołuje się  *<table name>*  bez <database name>.
+* **<field separator>**: separator ograniczającego pól w pliku danych do przekazania do tabeli Hive.
+* **<line separator>**: separator ograniczającego wierszy w pliku danych.
+* **<storage location>**: lokalizację magazynu Azure, aby zapisać dane tabele programu Hive. Jeśli nie określisz *lokalizacji <storage location>* , bazy danych i tabele są przechowywane w *gałęzi/magazynu/* katalogu w domyślnym kontenerze klastra gałąź domyślną. Jeśli chcesz określić lokalizację magazynu, lokalizacja magazynu musi być w kontenerze domyślna bazy danych i tabele. Tej lokalizacji musi być określony jako lokalizacji względnej wobec domyślny kontener klastra w formacie *"wasb: / / / < katalog 1 > /"* lub *"wasb: / / / < katalog 1 > / < katalog 2 > /"*itp. Po wykonaniu zapytania względną katalogi są tworzone w ramach kontenera domyślnego.
 * **TBLPROPERTIES("SKIP.Header.line.Count"="1")**: Jeśli plik danych ma wiersz nagłówka, należy dodać tę właściwość **na końcu** z *Utwórz tabelę* zapytania. W przeciwnym razie wiersz nagłówka jest załadowany jako rekordu do tabeli. Jeśli plik danych nie ma wiersz nagłówka, można pominąć tej konfiguracji w zapytaniu.
 
 ## <a name="load-data"></a>Ładowanie danych do tabele programu Hive
@@ -154,7 +154,7 @@ Oto zapytania Hive, który ładuje dane do tabeli programu Hive.
 
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 
-* **&#60; ścieżka do danych obiektów blob >**: Jeśli plik obiektu blob do przekazania do tabeli Hive znajduje się w domyślnym kontenerze klastra usługi HDInsight Hadoop *&#60; ścieżka do danych obiektów blob >* powinien być w formacie *" wasb: / / / &#60; katalog, w tym kontenerze > / &#60; nazwa pliku obiektu blob > "*. Można też pliku obiektu blob w kontenerze dodatkowe klastra usługi HDInsight Hadoop. W takim przypadku *&#60; ścieżka do danych obiektów blob >* powinien być w formacie *"wasb: / / &#60; nazwa kontenera > @&#60; nazwa konta magazynu >.blob.core.windows.net/ &#60; nazwa pliku obiektu blob >"*.
+* **<path to blob data>**: Jeśli plik obiektu blob do przekazania do tabeli Hive znajduje się w domyślnym kontenerze klastra usługi HDInsight Hadoop  *<path to blob data>*  powinien być w formacie *"wasb: / / /<directory in this container> / <blob file name>'*. Można też pliku obiektu blob w kontenerze dodatkowe klastra usługi HDInsight Hadoop. W takim przypadku  *<path to blob data>*  powinien być w formacie *"wasb: / /<container name><storage account name>.blob.core.windows.net/<blob file name>"*.
 
   > [!NOTE]
   > Dane obiektu blob do przekazania do tabeli Hive musi się znajdować w domyślnych lub dodatkowego kontenera konta magazynu dla klastra usługi Hadoop. W przeciwnym razie *danych obciążenia* działanie nie powiodło się Strona skarżąca, że nie można uzyskać dostępu do danych.
@@ -221,7 +221,7 @@ Wybierz dane z tabeli zewnętrznej w kroku 1 i Wstaw do tabeli ORC
             SELECT * FROM <database name>.<external textfile table name>;
 
 > [!NOTE]
-> Jeśli w tabeli TEXTFILE *&#60; Nazwa bazy danych >. &#60; Nazwa tabeli zewnętrznej textfile >* zawiera partycje, w KROKU 3 `SELECT * FROM <database name>.<external textfile table name>` polecenia wybiera zmiennej partycji jako pole w zestawie danych zwracanych. Wstawianie do *&#60; Nazwa bazy danych >. &#60; Nazwa tabeli ORC >* nie powiedzie się, ponieważ *&#60; Nazwa bazy danych >. &#60; Nazwa tabeli ORC >* nie ma partycji zmiennej jako pola w schemacie tabeli. W takim przypadku należy wybrać pola, które ma zostać wstawiony do *&#60; Nazwa bazy danych >. &#60; Nazwa tabeli ORC >* w następujący sposób:
+> Jeśli w tabeli TEXTFILE  *<database name>.<external textfile table name>* zawiera partycje, w KROKU 3 `SELECT * FROM <database name>.<external textfile table name>` polecenia wybiera zmiennej partycji jako pole w zestawie danych zwracanych. Wstawianie do  *<database name>.<ORC table name>* kończy się niepowodzeniem, ponieważ  *<database name>.<ORC table name>* nie ma partycji zmiennej jako pole schemat tabeli. W takim przypadku należy wybrać pola, które ma zostać wstawiony do  *<database name>.<ORC table name>* w następujący sposób:
 >
 >
 
@@ -230,7 +230,7 @@ Wybierz dane z tabeli zewnętrznej w kroku 1 i Wstaw do tabeli ORC
            FROM <database name>.<external textfile table name>
            WHERE <partition variable>=<partition value>;
 
-Można bezpiecznie usunąć *&#60; Nazwa tabeli zewnętrznej textfile >* po po wszystkich danych za pomocą następującej kwerendy został wstawiony do *&#60; Nazwa bazy danych >. &#60; Nazwa tabeli ORC >*:
+Można bezpiecznie usunąć  *<external textfile table name>*  po po wszystkich danych za pomocą następującej kwerendy został wstawiony do  *<database name>.<ORC table name>* :
 
         DROP TABLE IF EXISTS <database name>.<external textfile table name>;
 

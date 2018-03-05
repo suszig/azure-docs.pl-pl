@@ -12,13 +12,13 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 02/27/2018
 ms.author: billmath
-ms.openlocfilehash: 9a4f85b88959fb90f156779d09d168e0ddbe3da5
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 8003951fb0c80bda56de4718cbe94526dc118b61
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologie obsługiwane w programie Azure AD Connect
 W tym artykule opisano różne lokalnymi i topologii usługi Azure Active Directory (Azure AD), używające synchronizacja programu Azure AD Connect jako rozwiązanie integracji klucza. W tym artykule opisano zarówno obsługiwane i nieobsługiwane konfiguracje.
@@ -144,7 +144,9 @@ W tej topologii jeden serwer synchronizacji Azure AD Connect jest podłączona d
 
 Domena DNS może być zarejestrowany w tylko jednej dzierżawy usługi Azure AD. Nazwy UPN użytkowników w lokalnym wystąpieniu usługi Active Directory również należy użyć oddzielnych przestrzeni nazw. Na przykład na powyższej ilustracji trzech oddzielnych sufiksy są zarejestrowane w lokalnym wystąpieniem usługi Active Directory: contoso.com, fabrikam.com i nadrzędnych. Użytkownicy w każdej domenie usługi Active Directory lokalnymi używać różnych przestrzeni nazw.
 
-Nie istnieje żadne usługi GALSync między wystąpieniami dzierżawy usługi Azure AD. Książka adresowa w usłudze Exchange Online i Skype dla firm pokazuje tylko użytkownicy w tej samej dzierżawy.
+>[!NOTE]
+>Synchronizacji listy adresów (usługi GalSync) nie jest wykonywana automatycznie w tej topologii i wymaga dodatkowych niestandardowych implementacji MIM do upewnij się, że poszczególne dzierżawy zawierają pełny globalnego adresu listy (GAL) w usłudze Exchange Online i Skype dla firm Online.
+
 
 Ta topologia ma następujące ograniczenia w inny sposób obsługiwane scenariusze:
 

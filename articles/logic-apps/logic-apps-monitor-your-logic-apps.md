@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: f0376070a8bec7d97f54e9a198d5d67a9751334c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0dc8bc81ca6125d40d1784ce39fd0facaf9e736a
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Monitorowanie stanu, konfigurowanie rejestrowania diagnostyki i Włącz alerty dla usługi Azure Logic Apps
 
@@ -97,7 +97,7 @@ Przed rozpoczęciem, musisz mieć obszarem roboczym pakietu OMS. Dowiedz się [j
    3. W obszarze **obszarów roboczych OMS**, wybierz obszar roboczy OMS na potrzeby rejestrowania.
    4. W obszarze **dziennika**, wybierz pozycję **WorkflowRuntime** kategorii.
    5. Interwał metryki.
-   6. Gdy wszystko będzie gotowe, wybierz pozycję **zapisać**.
+   6. Gdy wszystko będzie gotowe, wybierz pozycję **Zapisz**.
 
    ![Wybierz obszar roboczy OMS i dane dotyczące rejestrowania](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
 
@@ -131,7 +131,7 @@ Aby znaleźć i wyświetlić zdarzenia w aplikacji logiki, takie jak wyzwolenia 
 
 5. W polu wyszukiwania określ pola, które chcesz odnaleźć, a następnie naciśnij klawisz **Enter**. Po rozpoczęciu wprowadzania, OMS pokazuje, pasujących i operacje, które są dostępne. 
 
-   Na przykład, aby znaleźć zdarzenia pierwszych 10, które wystąpiły, wprowadź i wybierz tego zapytania wyszukiwania: **kategorii = WorkflowRuntime | 10 pierwszych**
+   Na przykład, aby znaleźć zdarzenia pierwszych 10, które wystąpiły, wprowadź i wybierz tego zapytania wyszukiwania: **wyszukiwania kategorii == "WorkflowRuntime" | ograniczyć 10**
 
    ![Wprowadź ciąg wyszukiwania](media/logic-apps-monitor-your-logic-apps/oms-start-query.png)
 

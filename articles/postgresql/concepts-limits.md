@@ -1,66 +1,71 @@
 ---
-title: "Ograniczenia dotyczące bazy danych platformy Azure dla PostgreSQL | Dokumentacja firmy Microsoft"
-description: "Opis ograniczeń w bazie danych Azure PostgreSQL."
+title: "Ograniczenia dotyczące bazy danych platformy Azure dla PostgreSQL"
+description: "W tym artykule opisano ograniczeń w bazie danych Azure PostgreSQL, takie jak liczba połączeń i opcje aparatu magazynu."
 services: postgresql
 author: kamathsun
 ms.author: sukamat
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
-ms.custom: mvc
 ms.topic: article
-ms.date: 12/04/2017
-ms.openlocfilehash: 6dbed1a834d74047178a9f996683d65520047e66
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.date: 02/28/2018
+ms.openlocfilehash: ba05308039e9743dd207333476e61a45c0ca166a
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Ograniczenia dotyczące bazy danych platformy Azure dla PostgreSQL
 Baza danych Azure PostgreSQL usługi jest w wersji zapoznawczej. W poniższych sekcjach opisano pojemności i limity funkcjonalności usługi bazy danych.
 
-## <a name="service-tier-maximums"></a>Maksymalne wartości warstwy usługi
-Bazy danych platformy Azure dla PostgreSQL ma wiele warstw usług, które można wybrać podczas tworzenia serwera. Aby uzyskać więcej informacji, zobacz [zrozumieć, co jest dostępne w poszczególnych warstwach usług](concepts-service-tiers.md).  
+## <a name="pricing-tier-maximums"></a>Maksymalne wartości warstwy cenowej
+Bazy danych platformy Azure dla PostgreSQL ma wiele warstw cenowych, które można wybrać podczas tworzenia serwera. Aby uzyskać więcej informacji, zobacz [warstw cenowych w bazie danych Azure dla PostgreSQL](concepts-pricing-tiers.md).  
 
-Istnieje następująca maksymalną liczbę połączeń, jednostek obliczeniowych i magazynu w poszczególnych warstwach usług w wersji zapoznawczej usługi: 
+Istnieje maksymalna liczba połączeń, jednostek obliczeniowych i magazynu w każdej warstwy cenowej w następujący sposób: 
 
-| | |
-| :------------------------- | :---------------- |
-| **Maksymalna liczba połączeń**        |                   |
-| Podstawowe 50 obliczeniowe jednostki     | 55 połączeń    |
-| Podstawowe 100 jednostek obliczeń    | 105 połączeń   |
-| Standardowe jednostki 100 obliczeń | 150 połączeń   |
-| Standardowa 200 obliczeniowe jednostki | 250 połączeń   |
-| Standardowa 400 obliczeniowe jednostki | 480 połączeń   |
-| Standardowa 800 obliczeniowe jednostki | 950 połączeń   |
-| **Obliczeniowe maksymalna liczba jednostek**      |                   |
-| Warstwa Podstawowa usług         | 100 jednostek obliczeń |
-| Warstwa Standardowa usług      | 800 obliczeniowe jednostki |
-| **Maksymalna liczba magazynu**            |                   |
-| Warstwa Podstawowa usług         | 1 TB              |
-| Warstwa Standardowa usług      | 1 TB              |
+|Warstwa cenowa| Generowanie obliczeniowe| vCore(s)| Maksymalna liczba połączeń |
+|---|---|---|---|
+|Podstawowa| Gen 4| 1| 50 |
+|Podstawowa| Gen 4| 2| 100 |
+|Podstawowa| Gen 5| 1| 50 |
+|Podstawowa| Gen 5| 2| 100 |
+|Ogólne zastosowanie| Gen 4| 2| 150|
+|Ogólne zastosowanie| Gen 4| 4| 250|
+|Ogólne zastosowanie| Gen 4| 8| 480|
+|Ogólne zastosowanie| Gen 4| 16| 950|
+|Ogólne zastosowanie| Gen 4| 32| 1500|
+|Ogólne zastosowanie| Gen 5| 2| 150|
+|Ogólne zastosowanie| Gen 5| 4| 250|
+|Ogólne zastosowanie| Gen 5| 8| 480|
+|Ogólne zastosowanie| Gen 5| 16| 950|
+|Ogólne zastosowanie| Gen 5| 32| 1500|
+|Pamięć| Gen 5| 2| 150|
+|Pamięć| Gen 5| 4| 250|
+|Pamięć| Gen 5| 8| 480|
+|Pamięć| Gen 5| 16| 950|
+|Pamięć| Gen 5| 32| 1900|
 
-Azure system wymaga pięciu połączeń do monitorowania PostgreSQL serwera bazy danych Azure. Po osiągnięciu zbyt wiele połączeń, może zostać wyświetlony następujący błąd:
+Gdy połączenia przekracza limit, może zostać wyświetlony następujący błąd:
 > Błąd krytyczny: Niestety, jeszcze zbyt wielu klientów
 
+Azure system wymaga pięciu połączeń do monitorowania PostgreSQL serwera bazy danych Azure. 
 
-## <a name="preview-functional-limitations"></a>Ograniczenia funkcjonalności wersji zapoznawczej
+## <a name="functional-limitations"></a>Ograniczenia funkcjonalności
 ### <a name="scale-operations"></a>Operacje skalowania
-1.  Dynamiczne skalowanie serwerów w warstwach usług nie jest obecnie obsługiwane. Oznacza to przełączaniu między Basic i Standard warstwy usług.
-2.  Dynamiczne zwiększanie na żądanie magazynu na serwerze utworzone wcześniej nie jest obecnie obsługiwane.
-3.  Zmniejszenie rozmiaru magazynu serwera nie jest obsługiwana.
+1.  Dynamiczne skalowanie serwerów między warstwa cenowa nie jest obecnie obsługiwane. Oznacza to przełączaniu między warstwy Basic, ogólnego przeznaczenia lub zoptymalizowanych pod kątem pamięci.
+2.  Zmniejszenie rozmiaru magazynu serwera nie jest obecnie obsługiwane.
 
 ### <a name="server-version-upgrades"></a>Uaktualniania wersji
 - Automatycznej migracji między wersjami aparatu bazy danych głównych nie jest obecnie obsługiwane.
 
 ### <a name="subscription-management"></a>Zarządzanie subskrypcjami
-- Dynamicznie przenoszenie serwerów wstępnie utworzone w subskrypcji i grupy zasobów nie jest obecnie obsługiwane.
+- Dynamicznie przenoszenie serwerów w subskrypcji i grup zasobów nie jest obecnie obsługiwane.
 
-### <a name="point-in-time-restore"></a>Przywracanie do punktu w czasie
-1.  Przywracanie do warstwy z innej usługi i/lub jednostki obliczeniowe i rozmiaru magazynu nie jest dozwolone.
-2.  Przywracanie usuniętej serwera nie jest obsługiwane.
+### <a name="point-in-time-restore-pitr"></a>Punkt w — czas restore (PITR)
+1.  Podczas korzystania z funkcji PITR tworzona jest nowy serwer jako serwer, który jest oparty na takie same konfiguracje.
+2.  Przywracanie usuniętych serwera nie jest obsługiwane.
 
 ## <a name="next-steps"></a>Kolejne kroki
-- Zrozumienie [co jest dostępne w każdej warstwy cenowej](concepts-service-tiers.md)
-- Zrozumienie [obsługiwane wersje PostgreSQL bazy danych](concepts-supported-versions.md)
+- Zrozumienie [co jest dostępne w każdej warstwy cenowej](concepts-pricing-tiers.md)
+- Dowiedz się więcej o [obsługiwane wersje PostgreSQL bazy danych](concepts-supported-versions.md)
 - Przegląd [jak kopii zapasowej i przywracania serwera w bazie danych Azure dla PostgreSQL przy użyciu portalu Azure](howto-restore-server-portal.md)

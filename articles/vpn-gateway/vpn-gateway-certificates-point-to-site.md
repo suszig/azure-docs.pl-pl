@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2018
 ms.author: cherylmc
-ms.openlocfilehash: ff590ecb5091695d6105b510f563251fe43412fe
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 410fe05e0a545905024f223e6f7297066b326d14
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-powershell-on-windows-10-or-windows-server-2016"></a>Generowanie i eksportowania certyfikatów połączeń punkt-lokacja za pomocą programu PowerShell w systemie Windows 10 lub Windows Server 2016
 
@@ -34,12 +34,11 @@ Połączenia punkt-lokacja używa certyfikatów w celu uwierzytelniania. W tym a
 > 
 > 
 
-
 Należy wykonać kroki opisane w tym artykule na komputerze z systemem Windows 10 lub Windows Server 2016. Polecenia cmdlet programu PowerShell, które służy do generowania certyfikatów są częścią systemu operacyjnego i nie działają w innych wersjach systemu Windows. Komputer z systemem Windows 10 lub Windows Server 2016 tylko jest potrzebny do generowania certyfikatów. Po wygenerowaniu certyfikaty, można przekazać je lub je zainstalować w dowolnym systemie operacyjnym klienta obsługiwanych. 
 
 Jeśli nie masz dostępu do komputera z systemem Windows 10 lub Windows Server 2016, możesz użyć [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) do generowania certyfikatów. Certyfikaty, które można wygenerować za pomocą jednej z metod można instalować na żadnym [obsługiwane](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq) kliencki system operacyjny.
 
-## <a name="rootcert"></a>Utwórz certyfikat z podpisem własnym głównego
+## <a name="rootcert"></a>1. Utwórz certyfikat z podpisem własnym głównego
 
 Utwórz certyfikat z podpisem własnym głównego za pomocą polecenia cmdlet New-SelfSignedCertificate. Dodatkowy parametr informacji, zobacz [SelfSignedCertificate nowy](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
@@ -53,17 +52,7 @@ Utwórz certyfikat z podpisem własnym głównego za pomocą polecenia cmdlet Ne
   -CertStoreLocation "Cert:\CurrentUser\My" -KeyUsageProperty Sign -KeyUsage CertSign
   ```
 
-### <a name="cer"></a>Wyeksportuj klucz publiczny (.cer)
-
-[!INCLUDE [Export public key](../../includes/vpn-gateway-certificates-export-public-key-include.md)]
-
-Plik exported.cer, należy przekazać do platformy Azure. Aby uzyskać instrukcje, zobacz [skonfigurować połączenie punkt-lokacja](vpn-gateway-howto-point-to-site-rm-ps.md#upload). Aby dodać dodatkowe zaufany certyfikat główny, [w tej sekcji](vpn-gateway-howto-point-to-site-rm-ps.md#addremovecert) artykułu.
-
-### <a name="export-the-self-signed-root-certificate-and-public-key-to-store-it-optional"></a>Wyeksportuj certyfikat główny z podpisem własnym i klucz publiczny, zapisz go (opcjonalnie)
-
-Można wyeksportować certyfikat główny z podpisem własnym i zapisze go w bezpieczne. Jeśli musisz być później zainstalować ją na innym komputerze i generować więcej certyfikaty klienta lub wyeksportować innego pliku .cer. Aby wyeksportować certyfikat główny z podpisem własnym jako pliku PFX, wybierz certyfikat główny i Zastosuj te same kroki, zgodnie z opisem w [wyeksportować certyfikat klienta](#clientexport).
-
-## <a name="clientcert"></a>Generuj certyfikat klienta
+## <a name="clientcert"></a>2. Generowanie certyfikatu klienta
 
 Na każdym komputerze klienckim nawiązującym połączenie z siecią wirtualną za pomocą połączenia typu punkt-lokacja musi być zainstalowany certyfikat klienta w celu uwierzytelniania. Wygeneruj certyfikat klienta z certyfikatu głównego z podpisem własnym i wyeksportować i instalowania certyfikatu klienta. Jeśli certyfikat klienta nie jest zainstalowany, uwierzytelnianie nie powiedzie się. 
 
@@ -123,19 +112,30 @@ Jeśli tworzysz dodatkowych certyfikatów lub nie korzystają z tej samej sesji 
   -Signer $cert -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
   ```
 
-## <a name="clientexport"></a>Eksportowanie certyfikatu klienta   
+## <a name="cer"></a>3. Wyeksportować klucz publiczny certyfikatu głównego (.cer)
+
+[!INCLUDE [Export public key](../../includes/vpn-gateway-certificates-export-public-key-include.md)]
+
+
+### <a name="export-the-self-signed-root-certificate-and-private-key-to-store-it-optional"></a>Wyeksportuj certyfikat główny z podpisem własnym i klucza prywatnego, zapisz go (opcjonalnie)
+
+Można wyeksportować certyfikat główny z podpisem własnym i zapisz go w bezpieczne w kopii zapasowej. Jeśli taka potrzeba, można później zainstalować ją na innym komputerze i generować więcej certifiates klienta. Aby wyeksportować certyfikat główny z podpisem własnym jako pliku PFX, wybierz certyfikat główny i Zastosuj te same kroki, zgodnie z opisem w [wyeksportować certyfikat klienta](#clientexport).
+
+## <a name="clientexport"></a>4. Eksportowanie certyfikatu klienta
 
 [!INCLUDE [Export client certificate](../../includes/vpn-gateway-certificates-export-client-cert-include.md)]
 
-## <a name="install"></a>Zainstaluj certyfikat wyeksportowany klienta
+
+## <a name="install"></a>5. Instalowanie wyeksportowanego certyfikatu klienta
+
+Każdy klient łączący się do sieci wirtualnej za pomocą połączeń P2S wymaga certyfikatu klienta mają być zainstalowane lokalnie.
 
 Aby zainstalować certyfikat klienta, zobacz [zainstalować certyfikat klienta na potrzeby połączenia punkt-lokacja](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="install"></a>6. Wykonaj kroki konfiguracji P2S
 
 Kontynuuj konfigurację punkt-lokacja.
 
 * Dla **Resource Manager** kroków modelu wdrażania, zobacz [P2S skonfigurować przy użyciu uwierzytelniania certyfikatu Azure natywnego](vpn-gateway-howto-point-to-site-resource-manager-portal.md). 
 * Dla **klasycznego** kroków modelu wdrażania, zobacz [skonfigurować połączenie sieci VPN typu punkt-lokacja sieci wirtualnej (klasyczne)](vpn-gateway-howto-point-to-site-classic-azure-portal.md).
-
-Aby P2S Rozwiązywanie problemów z informacji, zobacz [połączenia punkt lokacja Azure Rozwiązywanie problemów z](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
+* Aby P2S Rozwiązywanie problemów z informacji, zobacz [połączenia punkt lokacja Azure Rozwiązywanie problemów z](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

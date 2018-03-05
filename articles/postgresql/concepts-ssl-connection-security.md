@@ -1,23 +1,23 @@
 ---
-title: "Konfiguracja połączenia SSL w bazie danych Azure dla PostgreSQL | Dokumentacja firmy Microsoft"
+title: "Konfiguracja połączenia SSL w bazie danych Azure dla PostgreSQL"
 description: "Instrukcje i informacje do konfigurowania bazy danych Azure do PostgreSQL i skojarzone aplikacje prawidłowe korzystanie z połączeń SSL."
 services: postgresql
 author: JasonMAnderson
 ms.author: janders
 editor: jasonwhowell
-manager: jhubbard
+manager: kfile
 ms.service: postgresql
 ms.custom: 
 ms.topic: article
-ms.date: 11/01/2017
-ms.openlocfilehash: d84a9fd45f2e6e44218ebd36d19c6a6c5f3438ce
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.date: 02/28/2018
+ms.openlocfilehash: 0a4a7041a905470f895921cfedf2bd94e8466966
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>Konfiguracja połączenia SSL w bazie danych Azure dla PostgreSQL
-Bazy danych platformy Azure dla PostgreSQL preferowany, połączenie klienta aplikacji w usłudze PostgreSQL przy użyciu protokołu Secure Sockets Layer (SSL). Wymuszanie połączenia SSL między serwerem bazy danych i aplikacji klienckich pomaga chronić przed atakami "man w środku" szyfrując strumienia danych między serwerem i aplikacji.
+Bazy danych platformy Azure dla PostgreSQL preferowany, połączenie klienta aplikacji w usłudze PostgreSQL przy użyciu protokołu Secure Sockets Layer (SSL). Wymuszanie połączeń SSL między serwerem bazy danych a aplikacją kliencką ułatwia ochronę przed atakami typu man-in-the-middle dzięki szyfrowaniu strumienia danych między serwerem a aplikacją.
 
 Domyślnie usługa bazy danych PostgreSQL skonfigurowano wymagają połączenia SSL. Opcjonalnie możesz wyłączyć wymaganie protokołu SSL w celu łączenia się z usługą baza danych, jeśli aplikacja kliencka nie obsługuje łączności SSL. 
 
@@ -40,7 +40,7 @@ Można potwierdzić ustawienia przeglądając **omówienie** stronę, aby zobacz
 Można włączyć lub wyłączyć **wymuszania ssl** przy użyciu parametru `Enabled` lub `Disabled` odpowiednio wartości wiersza polecenia platformy Azure.
 
 ```azurecli
-az postgres server update --resource-group myresourcegroup --name mypgserver-20170401 --ssl-enforcement Enabled
+az postgres server update --resource-group myresourcegroup --name mydemoserver --ssl-enforcement Enabled
 ```
 
 ## <a name="ensure-your-application-or-framework-supports-ssl-connections"></a>Upewnij się, obsługuje Twojej aplikacji lub struktury połączeń SSL
@@ -56,7 +56,7 @@ Certyfikat potrzebne do komunikowania się za pośrednictwem protokołu SSL z ba
 ### <a name="download-and-install-openssl-on-your-machine"></a>Pobierz i zainstaluj biblioteki OpenSSL na tym komputerze 
 Zdekodować plik certyfikatu, wymagane bezpieczne połączenie z serwerem bazy danych aplikacji, musisz zainstalować biblioteki OpenSSL na komputerze lokalnym.
 
-#### <a name="for-linux-os-x-or-unix"></a>Dla systemu Linux, Unix lub OS X
+#### <a name="for-linux-os-x-or-unix"></a>For Linux, OS X, or Unix
 Biblioteki OpenSSL znajdują się w kodzie źródłowym bezpośrednio z [Foundation oprogramowania biblioteki OpenSSL](http://www.openssl.org). Poniższe instrukcje pomagają przez kroki niezbędne do zainstalowania biblioteki OpenSSL na komputerze z systemem Linux. W tym artykule używa poleceń znane pracować nad Ubuntu 12.04 i wyższych.
 
 Otwórz sesję terminala i Pobierz biblioteki OpenSSL.
@@ -116,11 +116,11 @@ Poniższy przykład pokazuje, jak nawiązywać połączeń z serwerem PostgreSQL
 
 Przy użyciu interfejsu wiersza polecenia PostgreSQL, uruchom następujące polecenie:
 ```bash
-psql "sslmode=verify-ca sslrootcert=root.crt host=mypgserver-20170401.postgres.database.azure.com dbname=postgres user=mylogin@mypgserver-20170401"
+psql "sslmode=verify-ca sslrootcert=root.crt host=mydemoserver.postgres.database.azure.com dbname=postgres user=mylogin@mydemoserver"
 ```
 W razie powodzenia pojawi się następujące dane wyjściowe:
 ```bash
-Password for user mylogin@mypgserver-20170401:
+Password for user mylogin@mydemoserver:
 psql (9.6.2)
 WARNING: Console code page (437) differs from Windows code page (1252)
      8-bit characters might not work correctly. See psql reference
@@ -136,5 +136,5 @@ Konfigurowanie pgAdmin 4 do bezpieczne łączenie się za pośrednictwem protoko
 
 ![Zrzut ekranu przedstawiający pgAdmin — połączenie — tryb SSL wymagają](./media/concepts-ssl-connection-security/2-pgadmin-ssl.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Przegląd różnych opcji łączności aplikacji po [biblioteki połączeń dla bazy danych Azure dla PostgreSQL](concepts-connection-libraries.md).

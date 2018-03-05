@@ -1,19 +1,19 @@
 ---
-title: "Przy użyciu rozszerzeń PostgreSQL w bazie danych Azure dla PostgreSQL | Dokumentacja firmy Microsoft"
+title: "Używanie rozszerzeń PostgreSQL w bazie danych Azure dla PostgreSQL"
 description: "Zawiera opis możliwości rozszerzania funkcji bazy danych dla PostgreSQL przy użyciu rozszerzeń w bazie danych Azure."
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/28/2017
-ms.openlocfilehash: f02588495e7107b34dac7e076cf3612de12b51d4
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.date: 02/28/2018
+ms.openlocfilehash: 0b4150fcd7d32c823173c3e2676e226634346a2b
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql"></a>Rozszerzenia PostgreSQL w bazie danych PostgreSQL Azure
 PostgreSQL pozwala, aby rozszerzyć funkcjonalność programu bazy danych przy użyciu rozszerzeń. Rozszerzenia umożliwiają grupowanie wielu powiązanych obiektów SQL razem w jednym pakiecie, który może być załadowany lub usunięte z bazy danych za pomocą jednego polecenia. Po ładowany w bazie danych, rozszerzenia może działać tak jak wbudowane funkcje. Aby uzyskać więcej informacji o rozszerzeniach PostgreSQL, zobacz [pakowania obiektów pokrewnych do rozszerzenia](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
@@ -33,9 +33,9 @@ W poniższych tabelach przedstawiono standardowe rozszerzenia PostgreSQL, które
 |---|---|
 | [chkpass](https://www.postgresql.org/docs/9.6/static/chkpass.html) | Zawiera typ danych dla hasła szyfrowane automatycznie. |
 | [citext](https://www.postgresql.org/docs/9.6/static/citext.html) | Miejsce na wpisanie ciągu znaków bez uwzględniania wielkości liter. |
-| [Moduł](https://www.postgresql.org/docs/9.6/static/cube.html) | Zawiera typ danych wielowymiarowych modułów. |
+| [cube](https://www.postgresql.org/docs/9.6/static/cube.html) | Zawiera typ danych wielowymiarowych modułów. |
 | [hstore](https://www.postgresql.org/docs/9.6/static/hstore.html) | Zawiera typ danych do przechowywania zestawy par klucz/wartość. |
-| [nie jest](https://www.postgresql.org/docs/9.6/static/isn.html) | Udostępnia typy danych dla produktu międzynarodowych numerów standardów. |
+| [isn](https://www.postgresql.org/docs/9.6/static/isn.html) | Udostępnia typy danych dla produktu międzynarodowych numerów standardów. |
 | [ltree](https://www.postgresql.org/docs/9.6/static/ltree.html) | Zawiera typ danych dla hierarchicznych struktur drzewa. |
 
 ### <a name="functions-extensions"></a>Funkcje rozszerzeń
@@ -48,9 +48,9 @@ W poniższych tabelach przedstawiono standardowe rozszerzenia PostgreSQL, które
 | [intarray](https://www.postgresql.org/docs/9.6/static/intarray.html) | Udostępnia funkcje i operatory do manipulowania bez null tablice liczb całkowitych. |
 | [pgcrypto](https://www.postgresql.org/docs/9.6/static/pgcrypto.html) | Udostępnia funkcje kryptograficzne. |
 | [PG\_partman](https://pgxn.org/dist/pg_partman/doc/pg_partman.html) | Zarządza partycjonowane tabele według czasu lub identyfikator. |
-| [PG\_trgm](https://www.postgresql.org/docs/9.6/static/pgtrgm.html) | Udostępnia funkcje i operatory określania podobieństwa alfanumeryczne w oparciu o dopasowanie trigram. |
+| [pg\_trgm](https://www.postgresql.org/docs/9.6/static/pgtrgm.html) | Udostępnia funkcje i operatory określania podobieństwa alfanumeryczne w oparciu o dopasowanie trigram. |
 | [tablefunc](https://www.postgresql.org/docs/9.6/static/tablefunc.html) | Udostępnia funkcje, które manipulowania całe tabele, w tym raporcie krzyżowym. |
-| [Identyfikator UUID ossp](https://www.postgresql.org/docs/9.6/static/uuid-ossp.html) | Generuje powszechnie unikatowe identyfikatory (UUID). |
+| [uuid-ossp](https://www.postgresql.org/docs/9.6/static/uuid-ossp.html) | Generuje powszechnie unikatowe identyfikatory (UUID). |
 
 ### <a name="full-text-search-extensions"></a>Wyszukiwanie pełnotekstowe rozszerzeń
 
@@ -65,8 +65,8 @@ W poniższych tabelach przedstawiono standardowe rozszerzenia PostgreSQL, które
 > [!div class="mx-tableFixed"]
 | **Rozszerzenia** | **Opis** |
 |---|---|
-| [BTree\_gin](https://www.postgresql.org/docs/9.6/static/btree-gin.html) | Udostępnia przykładowy GIN operator klasy, które implementuje B-drzewa, takich jak zachowanie dla określonych typów danych. |
-| [BTree\_gist](https://www.postgresql.org/docs/9.6/static/btree-gist.html) | Udostępnia klasy operatora indeksu GiST, które implementuje B-drzewa. |
+| [btree\_gin](https://www.postgresql.org/docs/9.6/static/btree-gin.html) | Udostępnia przykładowy GIN operator klasy, które implementuje B-drzewa, takich jak zachowanie dla określonych typów danych. |
+| [btree\_gist](https://www.postgresql.org/docs/9.6/static/btree-gist.html) | Udostępnia klasy operatora indeksu GiST, które implementuje B-drzewa. |
 
 ### <a name="language-extensions"></a>Rozszerzenia językowe
 
@@ -80,7 +80,7 @@ W poniższych tabelach przedstawiono standardowe rozszerzenia PostgreSQL, które
 > [!div class="mx-tableFixed"]
 | **Rozszerzenia** | **Opis** |
 |---|---|
-| [PG\_buffercache](https://www.postgresql.org/docs/9.6/static/pgbuffercache.html) | Zapewnia to badania, co dzieje się w pamięci podręcznej udostępnionego buforu w czasie rzeczywistym. |
+| [pg\_buffercache](https://www.postgresql.org/docs/9.6/static/pgbuffercache.html) | Zapewnia to badania, co dzieje się w pamięci podręcznej udostępnionego buforu w czasie rzeczywistym. |
 | [PG\_prewarm](https://www.postgresql.org/docs/9.6/static/pgprewarm.html) | Umożliwia ładowanie danych relacji do buforu pamięci podręcznej. |
 | [PG\_stat\_— instrukcje](https://www.postgresql.org/docs/9.6/static/pgstatstatements.html) | Zapewnia możliwość śledzenia statystyki wykonania wszystkich instrukcji SQL wykonane przez serwer. |
 | [pgrowlocks](https://www.postgresql.org/docs/9.6/static/pgrowlocks.html) | Umożliwia wyświetlanie informacji blokowania na poziomie wiersza. |
@@ -96,5 +96,5 @@ W poniższych tabelach przedstawiono standardowe rozszerzenia PostgreSQL, które
 | adres\_standardizer, adres\_standardizer\_danych\_nam | Używany do analizowania adresu do elementów składowych. Używany do obsługi geokodowanie adres normalizacji kroku. |
 | [pgrouting](http://pgrouting.org/) | Rozszerza PostGIS / funkcje routingu bazą danych PostgreSQL dane geograficzne zapewnienie dane geograficzne. |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Jeśli nie widzisz rozszerzenie, które chcesz użyć, Daj nam znać. Zagłosuj na istniejących żądań lub utworzyć nowy opinii i żądań w naszym [forum opinii klientów](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).

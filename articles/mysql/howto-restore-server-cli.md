@@ -1,20 +1,20 @@
 ---
-title: "Jak utworzyć kopii zapasowej i przywracania serwera w bazie danych Azure dla programu MySQL | Dokumentacja firmy Microsoft"
+title: "Jak utworzyć kopii zapasowej i przywracania serwera w bazie danych Azure dla programu MySQL"
 description: "Dowiedz się, jak wykonywanie kopii zapasowych i przywracania serwera w bazie danych Azure dla programu MySQL przy użyciu wiersza polecenia platformy Azure."
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 11/28/2017
-ms.openlocfilehash: 44b3c68b8df4006d3fe087e5ad4118d7616d3d9a
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.date: 02/28/2018
+ms.openlocfilehash: b954e26c9ecb1767b971117fc9102e8573beaaac
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-by-using-the-azure-cli"></a>Jak wykonywanie kopii zapasowych i przywracania serwera w bazie danych Azure dla programu MySQL przy użyciu wiersza polecenia platformy Azure
 
@@ -32,7 +32,7 @@ Aby ukończyć ten przewodnik, potrzebne są:
 ## <a name="backup-happens-automatically"></a>Kopia zapasowa jest wykonywana automatycznie
 Korzystając z bazy danych platformy Azure dla programu MySQL, usługa bazy danych automatycznie tworzy kopię zapasową usługi co 5 minut. 
 
-Dla warstwy Basic kopie zapasowe są dostępne przez 7 dni. Dla warstwy standardowa kopie zapasowe są dostępne dla 35 dni. Aby uzyskać więcej informacji, zobacz [bazy danych Azure dla programu MySQL warstw cenowych](concepts-service-tiers.md).
+Dla warstwy Basic kopie zapasowe są dostępne przez 7 dni. Dla warstwy standardowa kopie zapasowe są dostępne dla 35 dni. Aby uzyskać więcej informacji, zobacz [bazy danych Azure dla programu MySQL warstw cenowych](concepts-pricing-tiers.md).
 
 Z automatycznej funkcji Kopia zapasowa Przywróć serwera i jej baz danych do wcześniejszego stanu lub punktu w czasie.
 
@@ -46,16 +46,16 @@ Aby przywrócić działanie serwera, należy użyć interfejsu wiersza polecenia
 Aby przywrócić serwer, w wierszu polecenia interfejsu wiersza polecenia Azure, wprowadź następujące polecenie:
 
 ```azurecli-interactive
-az mysql server restore --resource-group myResourceGroup --name myserver-restored --restore-point-in-time 2017-04-13T13:59:00Z --source-server myserver4demo
+az mysql server restore --resource-group myresourcegroup --name myserver-restored --restore-point-in-time 2017-04-13T13:59:00Z --source-server mydemoserver
 ```
 
 `az mysql server restore` Polecenie wymaga następujących parametrów:
 | Ustawienie | Sugerowana wartość | Opis  |
 | --- | --- | --- |
-| grupy zasobów | myResourceGroup |  Grupy zasobów, w której serwer źródłowy istnieje.  |
-| name | przywrócona MójSerwer | Nazwa nowego serwera, który jest tworzony przez polecenie restore. |
+| resource-group | myresourcegroup |  Grupy zasobów, w której serwer źródłowy istnieje.  |
+| name | myserver-restored | Nazwa nowego serwera, który jest tworzony przez polecenie restore. |
 | Przywracanie punktu w czasie | 2017-04-13T13:59:00Z | Wybierz punkt w czasie, aby przywrócić. Ta data i godzina musi być w okresie przechowywania kopii zapasowej serwera źródłowego. Użyj formatu ISO8601 daty i godziny. Na przykład można własnej lokalnej strefie czasowej, takich jak `2017-04-13T05:59:00-08:00`. Można też używać formatu UTC Zulu, na przykład `2017-04-13T13:59:00Z`. |
-| Serwer źródłowy | myserver4demo | Nazwa lub identyfikator serwera źródłowego, aby przywrócić z. |
+| source-server | mydemoserver | Nazwa lub identyfikator serwera źródłowego, aby przywrócić z. |
 
 Po przywróceniu serwera do wcześniejszego punktu w czasie, jest tworzony nowy serwer. Oryginalny serwer i jej baz danych z określonego punktu w czasie są kopiowane do nowego serwera.
 
@@ -65,5 +65,5 @@ Lokalizacji i wartości warstwy cenowej przywróconej serwera pozostać taka sam
 
 Po ukończeniu procesu przywracania, zlokalizuj nowy serwer i sprawdź, czy dane są przywracane zgodnie z oczekiwaniami.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Biblioteki połączeń dla bazy danych Azure dla programu MySQL](concepts-connection-libraries.md)

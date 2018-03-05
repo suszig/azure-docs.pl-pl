@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 372e9465eec1a373ff2b59209673e65fa1f994b6
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 4449dfa1b189f51292d24af884ba9d2addf1fe24
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informacje dotyczące korzystania z usługi HDInsight w systemie Linux
 
@@ -35,7 +35,7 @@ Wiele z tych kroków w tym dokumencie, użyj następujących narzędzi, które m
 
 * [cURL](https://curl.haxx.se/) — używanych do komunikowania się z usługami sieci web
 * [jq](https://stedolan.github.io/jq/) — używane do analizowania dokumentów JSON
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) (wersja zapoznawcza) — umożliwia zdalne zarządzanie usługami platformy Azure
+* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) — umożliwia zdalne zarządzanie usługami platformy Azure
 
 ## <a name="users"></a>Użytkownicy
 
@@ -100,7 +100,7 @@ Pliki związane z Hadoop znajdują się w węzłach klastra w `/usr/hdp`. Ten ka
 * **2.2.4.9-1**: Nazwa katalogu jest wersja platformie Hortonworks Data Platform używane przez usługi HDInsight. Numer w klastrze mogą być inne niż wymienione w tym miejscu.
 * **bieżący**: ten katalog zawiera łącza do podkatalogów w obszarze **2.2.4.9-1** katalogu. Ten katalog istnieje, dzięki czemu nie trzeba pamiętać o numer wersji.
 
-Przykładowe dane i pliki JAR znajduje się na rozproszonego systemu plików Hadoop w `/example` i`/HdiSamples`
+Przykładowe dane i pliki JAR znajduje się na rozproszonego systemu plików Hadoop w `/example` i `/HdiSamples`
 
 ## <a name="hdfs-azure-storage-and-data-lake-store"></a>System plików HDFS, magazynu Azure i usługi Data Lake Store
 
@@ -151,11 +151,11 @@ Ambari służy do pobierania domyślnej konfiguracji magazynu klastra. Użyj nas
 
 To polecenie zwraca wartość podobne do następujących identyfikatorów URI:
 
-* `wasb://<container-name>@<account-name>.blob.core.windows.net`Jeśli przy użyciu konta usługi Azure Storage.
+* `wasb://<container-name>@<account-name>.blob.core.windows.net` Jeśli przy użyciu konta usługi Azure Storage.
 
     Nazwa konta jest nazwa konta usługi Magazyn Azure. Nazwa kontenera jest kontenera obiektów blob, który jest elementem głównym magazynie klastra.
 
-* `adl://home`Jeśli przy użyciu usługi Azure Data Lake Store. Aby uzyskać nazwę usługi Data Lake Store, użyj następujące wywołanie REST:
+* `adl://home` Jeśli przy użyciu usługi Azure Data Lake Store. Aby uzyskać nazwę usługi Data Lake Store, użyj następujące wywołanie REST:
 
     ```curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["dfs.adls.home.hostname"] | select(. != null)'```
 
@@ -194,7 +194,7 @@ Jeśli przy użyciu __usługi Azure Storage__, zobacz następujące linki dotycz
 Jeśli przy użyciu __Azure Data Lake Store__, zobacz następujące linki dotyczące metod, że można uzyskać dostępu do danych:
 
 * [Przeglądarki sieci Web](../data-lake-store/data-lake-store-get-started-portal.md)
-* [PowerShell](../data-lake-store/data-lake-store-get-started-powershell.md)
+* [Program PowerShell](../data-lake-store/data-lake-store-get-started-powershell.md)
 * [Interfejs wiersza polecenia platformy Azure 2.0](../data-lake-store/data-lake-store-get-started-cli-2.0.md)
 * [Interfejsu API REST WebHDFS](../data-lake-store/data-lake-store-get-started-rest-api.md)
 * [Narzędzia Data Lake Tools dla programu Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504)
@@ -275,7 +275,7 @@ Aby użyć innej wersji składnika, Przekaż wersji, należy go i użyć go w za
 >
 > Niestandardowe składniki otrzymywanie pomocy uzasadnione ekonomicznie ułatwiające aby dalej rozwiązywać ten problem. Może to spowodować w rozwiązaniu problemu lub monitem o Uwzględnij dostępnych kanałów dla technologiach typu open source wykryto głębokie doświadczenia z tej technologii. Na przykład istnieje wiele witryn społeczności, które mogą być używane, takie jak: [forum MSDN dla usługi HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Projekty Apache mieć witryny projektu na [http://apache.org](http://apache.org), na przykład: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Migracja z usługi HDInsight opartej na systemie Windows do opartych na systemie Linux](hdinsight-migrate-from-windows-to-linux.md)
 * [Korzystanie z programu Hive z usługą HDInsight](hadoop/hdinsight-use-hive.md)

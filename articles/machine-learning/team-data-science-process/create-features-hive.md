@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: hangzh;bradsev
-ms.openlocfilehash: 91ea23b732f520b02af7e9a9dd77ee62190a520c
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: d72e10332263fac0b0ca0f937d394d2832d88781
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Tworzenie funkcji danych klastra usługi Hadoop przy użyciu zapytań programu Hive
 Ten dokument przedstawia sposób tworzenia funkcji danych przechowywanych w klastrze usługi Azure HDInsight Hadoop za pomocą zapytań Hive. Te zapytania Hive funkcji osadzonych Hive User-Defined (UDF), skryptów, dla której są dostarczane.
@@ -93,14 +93,14 @@ Gałąź jest dostarczany z zestawem funkcji UDF przetwarzania pól daty i godzi
         select day(<datetime field>), month(<datetime field>)
         from <databasename>.<tablename>;
 
-To zapytanie Hive przy założeniu, że *&#60; pole Data i godzina >* jest w formacie daty/godziny domyślne.
+To zapytanie Hive przy założeniu, że  *<datetime field>*  jest w formacie daty/godziny domyślne.
 
 Pole daty i godziny nie ma domyślnego formatu, należy najpierw przekonwertuj pole daty/godziny na sygnatury czasowej systemu Unix, a następnie wykonać konwersję sygnaturę czasową Unix ciąg daty i godziny w formacie domyślne. W przypadku datę i godzinę w domyślnym formacie, użytkownicy mogą stosować osadzonych funkcji UDF, aby wyodrębnić funkcji daty/godziny.
 
         select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime field>'))
         from <databasename>.<tablename>;
 
-W tym zapytaniu Jeśli *&#60; pole daty/godziny >* ma wzorzec, takich jak *2015-03-26 12:04:39*, *"&#60; wzorzec pola datetime >"* powinien być `'MM/dd/yyyy HH:mm:ss'`. Aby ją przetestować, użytkownicy mogą uruchamiać
+W tym zapytaniu Jeśli  *<datetime field>*  ma wzorzec, takich jak *2015-03-26 12:04:39*,  *<pattern of the datetime field>"* powinien być `'MM/dd/yyyy HH:mm:ss'`. Aby ją przetestować, użytkownicy mogą uruchamiać
 
         select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
         from hivesampletable limit 1;
@@ -136,11 +136,11 @@ Pola, które są używane w tym zapytaniu są współrzędne GPS odbiór i dropo
 
 Równania matematyczne, które obliczyć odległość między dwoma współrzędne GPS można znaleźć w <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">skryptów typu ruchome</a> lokacji utworzone przez Lapisu Peterowi. W języku Javascript, ta funkcja `toRad()` jest po prostu *lat_or_lon*pi/180 *, który Konwertuje stopnie na radiany. W tym miejscu *lat_or_lon* jest zakres lub długość geograficzną. Ponieważ gałąź nie zawiera funkcji `atan2`, ale udostępnia funkcję `atan`, `atan2` funkcji jest implementowany przez `atan` funkcji w powyższym zapytaniu gałęzi przy użyciu definicji w <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
 
-![Tworzenie obszaru roboczego](./media/create-features-hive/atan2new.png)
+![Utwórz obszar roboczy](./media/create-features-hive/atan2new.png)
 
 Pełną listę gałęzi funkcji UDF embedded znajdują się w **wbudowanych funkcji** sekcji na <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Apache Hive wiki</a>).  
 
-## <a name="tuning"></a>Tematy zaawansowane: parametry strojenia gałęzi do zwiększenia szybkości zapytania
+## <a name="tuning"></a> Tematy zaawansowane: parametry strojenia gałęzi do zwiększenia szybkości zapytania
 Domyślne ustawienia parametru gałęzi klastra może nie być odpowiednie dla zapytań Hive i dane, które są przetwarzania zapytania. W tej sekcji omówiono niektóre parametry, które użytkownicy można dostosować w celu poprawy wydajności zapytań programu Hive. Użytkownicy muszą dodać parametr strojenia kwerendy przed zapytania przetwarzania danych.
 
 1. **Miejsce na stercie Java**: dla zapytań obejmujących dołączenie dużych zestawów danych lub przetwarzania rekordów długi **kończy się wolne miejsce na stercie** jest jednym z typowych błędów. Tego błędu można uniknąć przez ustawienie parametrów *mapreduce.map.java.opts* i *mapreduce.task.io.sort.mb* do żądanej wartości. Oto przykład:
