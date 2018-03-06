@@ -174,7 +174,7 @@ Możesz sprawdzić, czy dane zostały poprawnie wyeksportowane, otwierając nowy
 > 
 
 ## <a name="next-steps"></a>Następne kroki
-Aby zaprojektować proces ładowania, zobacz [Omówienie ładowania](sql-data-warehouse-design-elt-data-loading].  
+Aby zaprojektować proces ładowania, zobacz [Omówienie ładowania](sql-data-warehouse-design-elt-data-loading.md).  
 
 
 
