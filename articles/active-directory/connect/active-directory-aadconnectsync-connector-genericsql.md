@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/19/2017
 ms.author: billmath
 ms.openlocfilehash: 66e3559c244a76101be7b7d944a48cd6dd99bd4c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="generic-sql-connector-technical-reference"></a>Ogólne informacje techniczne Łącznik usług SQL
 W tym artykule opisano ogólny łącznik SQL. Artykuł dotyczy następujących produktów:
@@ -250,9 +250,9 @@ Wykonaj następujące czynności:
 
 * Jeśli masz dużą ilość danych, zaleca się wdrożenie podział na strony z własnych procedur przechowywanych.
 * Dla procedury przechowywane do obsługi podział na strony musisz podać Start zakończenia indeks i. Zobacz: [wydajnie stronicowania z dużą ilością danych](https://msdn.microsoft.com/library/bb445504.aspx).
-* @StartIndexi @EndIndex zastąpione w czasie wykonywania wartość rozmiaru strony odpowiednich skonfigurowanych na **kroku skonfigurować** strony. Na przykład, gdy łącznik pobiera pierwszej strony i rozmiar strony ma wartość 500, w takiej sytuacji @StartIndex 1 i @EndIndex 500. Zwiększenie tych wartości, gdy łącznik pobiera kolejnych stronach i zmień @StartIndex & @EndIndex wartość.
+* @StartIndex i @EndIndex zastąpione w czasie wykonywania wartość rozmiaru strony odpowiednich skonfigurowanych na **kroku skonfigurować** strony. Na przykład, gdy łącznik pobiera pierwszej strony i rozmiar strony ma wartość 500, w takiej sytuacji @StartIndex 1 i @EndIndex 500. Zwiększenie tych wartości, gdy łącznik pobiera kolejnych stronach i zmień @StartIndex & @EndIndex wartość.
 * Aby wykonać procedury składowanej sparametryzowane, należy podać parametry w `[Name]:[Direction]:[Value]` format. Wprowadź każdy parametr w osobnym wierszu (Użyj klawiszy Ctrl + Enter, aby uzyskać nowy wiersz).
-* Ogólny Łącznik usług SQL obsługuje również operacji importu z połączonych serwerów w programie Microsoft SQL Server. Jeśli mają być pobrane informacje z tabeli w połączonej serwera, tabeli, powinny być podawane w formacie:`[ServerName].[Database].[Schema].[TableName]`
+* Ogólny Łącznik usług SQL obsługuje również operacji importu z połączonych serwerów w programie Microsoft SQL Server. Jeśli mają być pobrane informacje z tabeli w połączonej serwera, tabeli, powinny być podawane w formacie: `[ServerName].[Database].[Schema].[TableName]`
 * Ogólny łącznik SQL obsługuje tylko te obiekty, które mają podobną strukturę (zarówno alias nazwę i typ danych) między wykonanie kroków wykrywania informacji i schematu. Jeśli wybrany obiekt ze schematu oraz informacje podane podczas wykonywania czynności jest inny, Łącznik usług SQL jest nie obsługuje tego typu scenariuszy.
 
 **Zapytanie SQL**  
@@ -269,7 +269,7 @@ Wykonaj następujące czynności:
 Konfiguracja importu zmian wymaga pewnych dodatkowych czynności konfiguracyjnych w porównaniu z pełny Import.
 
 * Jeśli wybierzesz wyzwalacza lub migawki podejście do śledzenia zmian różnicowych, należy podać tabeli historii lub migawki bazy danych w **nazwę bazy danych lub tabeli historii migawki** pole.
-* Należy również podać warunek sprzężenia między tabelą historii i tabelą nadrzędną, na przykład`Employee.ID=History.EmployeeID`
+* Należy również podać warunek sprzężenia między tabelą historii i tabelą nadrzędną, na przykład `Employee.ID=History.EmployeeID`
 * Aby śledzić tabeli historii transakcji w tabeli nadrzędnej, należy podać nazwę kolumny, który zawiera informacje o operacji (Dodaj/aktualizowania/usuwania).
 * Jeśli wybierzesz znaku wodnego, aby śledzić zmiany różnicowe, należy podać nazwę kolumny, który zawiera informacje o operacji w **nazwa kolumny znacznik limitu górnego**.
 * **Zmienić atrybut typu** kolumny jest wymagana dla typu zmiany. W tej kolumnie mapuje zmiany, która występuje w tabeli podstawowej lub tabela wielu wartości na typ zmiany w widoku delta. Ta kolumna zawiera typ zmiany Modify_Attribute Zmień poziom atrybutu lub dodawanie, modyfikowanie, lub usuń zmienić typu dla typu zmiany na poziomie obiektu. Jeśli jest inny niż wartość domyślna dodawania, modyfikowania, lub przycisk Usuń, a następnie można zdefiniować te wartości przy użyciu tej opcji.
@@ -306,7 +306,7 @@ Jeśli wybierzesz opcję zapytania SQL eksportu wymaga trzy różne zapytania w 
 * **Wstaw kwerendę**: to zapytanie jest uruchamiany, jeśli dowolny obiekt jest dostarczany do łącznika do wstawienia w odpowiedniej tabeli.
 * **Zaktualizuj zapytanie**: to zapytanie jest uruchamiany, jeśli dowolny obiekt zawiera łącznik na aktualizację w odpowiedniej tabeli.
 * **Usuń kwerendę**: to zapytanie jest uruchamiany, jeśli dowolny obiekt jest dostarczany do łącznika do usunięcia w odpowiedniej tabeli.
-* Atrybut wybrane ze schematu używane jako wartości parametru do zapytania, na przykład`Insert into Employee (ID, Name) Values (@ID, @EmployeeName)`
+* Atrybut wybrane ze schematu używane jako wartości parametru do zapytania, na przykład `Insert into Employee (ID, Name) Values (@ID, @EmployeeName)`
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 * Aby uzyskać informacje o tym, jak włączyć rejestrowanie rozwiązywać problemy z łącznika, zobacz [jak włączyć ETW Tracing łączników](http://go.microsoft.com/fwlink/?LinkId=335731).

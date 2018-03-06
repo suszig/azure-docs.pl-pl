@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: genli
 ms.openlocfilehash: f15875610e2035c6f4c10c36e19c02f3e045b3ea
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="how-to-use-perfinsights"></a>Jak używać PerfInsights 
 
@@ -57,7 +57,7 @@ To jest pasywny zbiór informacje, które nie powinny mieć wpływ na system.
 >[!Note]
 >Ten scenariusz jest automatycznie uwzględnione w każdym z poniższych scenariuszy.
 
-### <a name="benchmarking"></a>Przeprowadzenia testów porównawczych
+### <a name="benchmarking"></a>Benchmarking
 
 W tym scenariuszu uruchamia [Diskspd](https://github.com/Microsoft/diskspd) testu (IOPS i MB/s) dla wszystkich dysków dołączonych do maszyny Wirtualnej. 
 
@@ -89,15 +89,15 @@ W tym scenariuszu uruchamia przechwytywania licznika wydajności specjalne wraz 
 | Opóźnienie      | Średnia liczba żądań danych/s         |
 |              | Średni czas odczytu s                 |
 |              | Średni czas zapisu s                |
-| Rozmiar operacji We/Wy      | Średni Bajty/danych żądania       |
-|              | Średni Bajty odczytu               |
-|              | Średni Bajty/zapisu              |
+| Rozmiar operacji We/Wy      | Avg. Bajty/danych żądania       |
+|              | Avg. Bajty odczytu               |
+|              | Avg. Bajty/zapisu              |
 | Przepływność   | Dane bajty/s                |
 |              | Odczytu dysku/s                |
 |              | Bajty zapisane/s               |
-| Długość kolejki | Średni Długość kolejki odczytu        |
-|              | Średni Długość kolejki zapisu       |
-|              | Średni Długość kolejki danych        |
+| Długość kolejki | Avg. Długość kolejki odczytu        |
+|              | Avg. Długość kolejki zapisu       |
+|              | Avg. Długość kolejki danych        |
 
 ### <a name="custom-slow-vm-analysis"></a>Niestandardowe powolne analizy maszyny Wirtualnej 
 
@@ -113,28 +113,28 @@ Rejestruje informacje dotyczące maszyny Wirtualnej systemu Windows, dyski lub k
 
 |Zebrane dane                              |  |  | Scenariusze wydajności |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                              | Zbierz dane o konfiguracji podstawowej | Przeprowadzenia testów porównawczych | Powolne analizy maszyny Wirtualnej | Powolne analizy maszyny Wirtualnej i testowania wydajności | Azure analizy plików | Niestandardowe powolne analizy maszyny Wirtualnej |
-| Informacje z dzienników zdarzeń      | Tak                        | Tak                                | Tak                      | Tak                            | Tak                  | Tak                  |
-| Informacje o systemie               | Tak                        | Tak                                | Tak                      | Tak                            | Tak                  | Tak                  |
-| Mapa woluminu                       | Tak                        | Tak                                | Tak                      | Tak                            | Tak                  | Tak                  |
-| Mapy dysku                         | Tak                        | Tak                                | Tak                      | Tak                            | Tak                  | Tak                  |
-| Uruchomione zadania                    | Tak                        | Tak                                | Tak                      | Tak                            | Tak                  | Tak                  |
-| Liczniki niezawodności magazynu     | Tak                        | Tak                                | Tak                      | Tak                            | Tak                  | Tak                  |
-| Informacje o magazynu              | Tak                        | Tak                                | Tak                      | Tak                            | Tak                  | Tak                  |
-| Dane wyjściowe fsutil                    | Tak                        | Tak                                | Tak                      | Tak                            | Tak                  | Tak                  |
-| Informacje dotyczące sterownik filtru               | Tak                        | Tak                                | Tak                      | Tak                            | Tak                  | Tak                  |
-| Dane wyjściowe polecenia netstat                   | Tak                        | Tak                                | Tak                      | Tak                            | Tak                  | Tak                  |
-| Konfiguracja sieci            | Tak                        | Tak                                | Tak                      | Tak                            | Tak                  | Tak                  |
-| Konfiguracja zapory           | Tak                        | Tak                                | Tak                      | Tak                            | Tak                  | Tak                  |
-| Konfiguracja programu SQL Server         | Tak                        | Tak                                | Tak                      | Tak                            | Tak                  | Tak                  |
-| Dane wydajności diagnostyki śledzenia * | Tak                        | Tak                                | Tak                      |                                | Tak                  | Tak                  |
-| Śledzenia licznika wydajności **     |                            |                                    |                          |                                |                      | Tak                  |
-| SMB licznika śledzenia **             |                            |                                    |                          |                                | Tak                  |                      |
-| SQL Server licznika śledzenia **      |                            |                                    |                          |                                |                      | Tak                  |
-| Program XPerf śledzenia                      |                            |                                    |                          |                                |                      | Tak                  |
-| StorPort śledzenia                   |                            |                                    |                          |                                |                      | Tak                  |
-| Śledzenie sieci                    |                            |                                    |                          |                                | Tak                  | Tak                  |
-| Śledzenia testu narzędzia Diskspd ***      |                            | Tak                                |                          | Tak                            |                      |                      |
+|                              | Zbierz dane o konfiguracji podstawowej | Benchmarking | Powolne analizy maszyny Wirtualnej | Powolne analizy maszyny Wirtualnej i testowania wydajności | Azure analizy plików | Niestandardowe powolne analizy maszyny Wirtualnej |
+| Informacje z dzienników zdarzeń      | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
+| Informacje o systemie               | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
+| Mapa woluminu                       | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
+| Mapy dysku                         | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
+| Uruchamianie zadań                    | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
+| Liczniki niezawodności magazynu     | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
+| Informacje o magazynu              | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
+| Dane wyjściowe fsutil                    | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
+| Informacje dotyczące sterownik filtru               | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
+| Dane wyjściowe polecenia netstat                   | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
+| Konfiguracja sieci            | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
+| Konfiguracja zapory           | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
+| Konfiguracja programu SQL Server         | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
+| Dane wydajności diagnostyki śledzenia * | Yes                        | Yes                                | Yes                      |                                | Yes                  | Yes                  |
+| Śledzenia licznika wydajności **     |                            |                                    |                          |                                |                      | Yes                  |
+| SMB licznika śledzenia **             |                            |                                    |                          |                                | Yes                  |                      |
+| SQL Server licznika śledzenia **      |                            |                                    |                          |                                |                      | Yes                  |
+| Program XPerf śledzenia                      |                            |                                    |                          |                                |                      | Yes                  |
+| StorPort śledzenia                   |                            |                                    |                          |                                |                      | Yes                  |
+| Śledzenie sieci                    |                            |                                    |                          |                                | Yes                  | Yes                  |
+| Śledzenia testu narzędzia Diskspd ***      |                            | Yes                                |                          | Yes                            |                      |                      |
 |       |                            |                         |                                                   |                      |                      |
 
 ### <a name="performance-diagnostics-trace-"></a>Diagnostyka wydajności śledzenia (*)
@@ -222,7 +222,7 @@ Aby uruchomić skrypt PerfInsights, wykonaj następujące kroki:
 
     ![Zrzut ekranu ogłoszenia i zgody okno dialogowe](media/how-to-use-perfInsights/disclaimer.png)
 
-5.  Przedstawia liczbę przypadków, jeśli jest dostępny, po uruchomieniu skryptu. Następnie wybierz **OK**.
+5.  Przedstawia liczbę przypadków, jeśli jest dostępny, po uruchomieniu skryptu. Następnie wybierz przycisk **OK**.
     
     ![Zrzut ekranu przedstawiający okno dialogowe Identyfikatora pomocy technicznej](media/how-to-use-perfInsights/enter-support-number.png)
 
@@ -332,11 +332,11 @@ Karty dla określonego wystąpienia programu SQL Server zawierają ogólne sekcj
 
 Diskspd jest magazynu obciążenia generator i wydajności testu narzędzie firmy Microsoft. Aby uzyskać więcej informacji, zobacz [Diskspd](https://github.com/Microsoft/diskspd).
 
-### <a name="xperf"></a>Program XPerf
+### <a name="xperf"></a>Xperf
 
 Program XPerf jest narzędziem wiersza polecenia do przechwytywania danych śledzenia z zestawu narzędzi wydajności systemu Windows. Aby uzyskać więcej informacji, zobacz [Toolkit wydajności systemu Windows — program Xperf](https://blogs.msdn.microsoft.com/ntdebugging/2008/04/03/windows-performance-toolkit-xperf/).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Możesz przekazać dzienników diagnostyki i raporty do firmy Microsoft Support do dalszej analizy. Obsługa może zażądać, aby przesyłać dane wyjściowe, który jest generowany przez PerfInsights, aby ułatwić proces rozwiązywania problemów.
 
