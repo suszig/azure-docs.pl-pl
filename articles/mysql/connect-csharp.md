@@ -1,21 +1,21 @@
 ---
-title: "Nawiązywanie połączeń z usługą Azure Database for MySQL za pomocą języka C# | Microsoft Docs"
+title: "Nawiązywanie połączeń z usługą Azure Database for MySQL za pomocą języka C#"
 description: "Ten przewodnik Szybki start zawiera przykład kodu w języku C# (.NET), którego można używać do nawiązywania połączeń z danymi usługi Azure Database for MySQL i wykonywania zapytań względem nich."
 services: MySQL
-author: seanli1988
-ms.author: seal
-manager: janders
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.custom: mvc
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 09/22/2017
-ms.openlocfilehash: 1e93303865ecd278f2b40cfa4313b4f8a385f3f1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.date: 02/28/2018
+ms.openlocfilehash: 040585d3dee4821e6b150b1ba41574aa8436ba75
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-mysql-use-net-c-to-connect-and-query-data"></a>Usługa Azure Database for MySQL: nawiązywanie połączeń z danymi i wykonywanie na nich zapytań przy użyciu platformy .NET (języka C#)
 Ten przewodnik Szybki start przedstawia sposób nawiązywania połączeń z usługą Azure Database for MySQL przy użyciu aplikacji języka C#. Pokazano w nim, jak używać instrukcji języka SQL w celu wysyłania zapytań o dane oraz wstawiania, aktualizowania i usuwania danych w bazie danych. W tym temacie założono, że wiesz już, jak opracowywać zawartość za pomocą języka C#, i dopiero zaczynasz pracę z usługą Azure Database for MySQL.
@@ -28,227 +28,247 @@ Ten przewodnik Szybki start jako punktu wyjścia używa zasobów utworzonych w j
 Należy również:
 - Zainstalować program [.NET](https://www.microsoft.com/net/download). Postępuj zgodnie z instrukcjami z połączonego artykułu, aby zainstalować program .NET dla danej platformy (Windows, Ubuntu Linux lub macOS). 
 - Zainstalować program [Visual Studio](https://www.visualstudio.com/downloads/).
-- Zainstalować [sterownik ODBC dla programu MySQL](https://dev.mysql.com/downloads/connector/odbc/).
+
+## <a name="create-a-c-project"></a>Tworzenie projektu języka C#
+W wierszu polecenia uruchom następujące polecenie:
+
+```
+mkdir AzureMySqlExample
+cd AzureMySqlExample
+dotnet new console
+dotnet add package MySqlConnector
+```
 
 ## <a name="get-connection-information"></a>Pobieranie informacji o połączeniu
 Pobierz informacje o połączeniu potrzebne do nawiązania połączenia z usługą Azure Database for MySQL. Potrzebna jest w pełni kwalifikowana nazwa serwera i poświadczenia logowania.
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
-2. W menu po lewej stronie w witrynie Azure Portal kliknij pozycję **Wszystkie zasoby** i wyszukaj utworzony serwer, taki jak **myserver4demo**.
+2. W menu po lewej stronie w witrynie Azure Portal kliknij pozycję **Wszystkie zasoby** i wyszukaj utworzony serwer, taki jak **mydemoserver**.
 3. Kliknij nazwę serwera.
-4. Wybierz stronę **Właściwości** serwera, a następnie zanotuj **nazwę serwera** i **nazwę logowania administratora serwera**.
- ![Nazwa serwera usługi Azure Database for MySQL](./media/connect-csharp/1_server-properties-name-login.png)
-5. Jeśli nie pamiętasz informacji logowania do serwera, przejdź do strony **Przegląd**, aby wyświetlić nazwę logowania administratora serwera oraz w razie konieczności zresetować hasło.
+4. Po przejściu do panelu **Przegląd** serwera zanotuj **nazwę serwera** i **nazwę logowania administratora serwera**. Jeśli zapomnisz hasła, możesz również je zresetować z poziomu tego panelu.
+ ![Nazwa serwera usługi Azure Database for MySQL](./media/connect-csharp/1_server-overview-name-login.png)
 
 ## <a name="connect-create-table-and-insert-data"></a>Nawiązywanie połączenia, tworzenie tabeli i wstawianie danych
-Użyj poniższego kodu, aby nawiązać połączenie i załadować dane przy użyciu instrukcji **CREATE TABLE** i **INSERT INTO** języka SQL. Kod używa klasy ODBC z metodą [Open()](https://msdn.microsoft.com/library/system.data.odbc.odbcconnection.open(v=vs.110).aspx) w celu ustanowienia połączenia z programem MySQL. Następnie kod używa metody [CreateCommand()](https://msdn.microsoft.com/library/system.data.odbc.odbcconnection.createcommand(v=vs.110).aspx), ustawia właściwość CommandText i wywołuje metodę [ExecuteNonQuery()](https://msdn.microsoft.com/library/system.data.odbc.odbccommand.executenonquery(v=vs.110).aspx), aby uruchamiać polecenia bazy danych. 
+Użyj następującego kodu, aby nawiązać połączenie i załadować dane za pomocą instrukcji języka SQL `CREATE TABLE` i `INSERT INTO`. Kod używa klasy `MySqlConnection` w metodzie [OpenAsync()](https://docs.microsoft.com/en-us/dotnet/api/system.data.common.dbconnection.openasync#System_Data_Common_DbConnection_OpenAsync) w celu nawiązania połączenia z usługą MySQL. Następnie kod używa metody [CreateCommand()](https://docs.microsoft.com/en-us/dotnet/api/system.data.common.dbconnection.createcommand), ustawia właściwość CommandText i wywołuje metodę [ExecuteNonQueryAsync()](https://docs.microsoft.com/en-us/dotnet/api/system.data.common.dbcommand.executenonqueryasync), aby uruchomić polecenia bazy danych. 
 
-Zastąp parametry hosta, nazwy bazy danych, użytkownika i hasła wartościami, które zostały określone podczas tworzenia serwera i bazy danych. 
+Zastąp parametry `Server`, `Database`, `UserID` i `Password` wartościami określonymi podczas tworzenia serwera i bazy danych. 
 
 ```csharp
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using MySql.Data;
-using System.Data.Odbc;
+using MySql.Data.MySqlClient;
 
-namespace driver
+namespace AzureMySqlExample
 {
-    class MySQLCreate
+    class MySqlCreate
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            var conn = new OdbcConnection("DRIVER={MySQL ODBC 5.3 unicode Driver}; Server=myserver4demo.mysql.database.azure.com; Port=3306;" +
-            " Database=quickstartdb; Uid=myadmin@myserver4demo; Pwd=server_admin_password; sslverify=0; Option=3;MULTI_STATEMENTS=1");
+            var builder = new MySqlConnectionStringBuilder
+            {
+                Server = "YOUR-SERVER.mysql.database.azure.com",
+                Database = "YOUR-DATABASE",
+                UserID = "USER@YOUR-SERVER",
+                Password = "PASSWORD",
+                SslMode = MySqlSslMode.Required,
+            };
 
-            Console.Out.WriteLine("Opening connection");
-            conn.Open();
+            using (var conn = new MySqlConnection(builder.ConnectionString))
+            {
+                Console.WriteLine("Opening connection");
+                await conn.OpenAsync();
 
-            var command = conn.CreateCommand();
-            command.CommandText = "DROP TABLE IF EXISTS inventory;";
-            command.ExecuteNonQuery();
-            Console.Out.WriteLine("Finished dropping table (if existed)");
+                using (var command = conn.CreateCommand())
+                {
+                    command.CommandText = "DROP TABLE IF EXISTS inventory;";
+                    await command.ExecuteNonQueryAsync();
+                    Console.WriteLine("Finished dropping table (if existed)");
 
-            command.CommandText = "CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);";
-            command.ExecuteNonQuery();
-            Console.Out.WriteLine("Finished creating table");
+                    command.CommandText = "CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);";
+                    await command.ExecuteNonQueryAsync();
+                    Console.WriteLine("Finished creating table");
 
-            command.CommandText =
-                String.Format(
-                    @"INSERT INTO inventory (name, quantity) VALUES ({0}, {1});
-                    INSERT INTO inventory (name, quantity) VALUES ({2}, {3});
-                    INSERT INTO inventory (name, quantity) VALUES ({4}, {5});",
-                    "\'banana\'", 150,
-                    "\'orange\'", 154,
-                    "\'apple\'", 100
-                    );
+                    command.CommandText = @"INSERT INTO inventory (name, quantity) VALUES (@name1, @quantity1),
+                        (@name2, @quantity2), (@name3, @quantity3);";
+                    command.Parameters.AddWithValue("@name1", "banana");
+                    command.Parameters.AddWithValue("@quantity1", 150);
+                    command.Parameters.AddWithValue("@name2", "orange");
+                    command.Parameters.AddWithValue("@quantity2", 154);
+                    command.Parameters.AddWithValue("@name3", "apple");
+                    command.Parameters.AddWithValue("@quantity3", 100);
 
-            int nRows = command.ExecuteNonQuery();
-            Console.Out.WriteLine(String.Format("Number of rows inserted={0}", nRows));
+                    int rowCount = await command.ExecuteNonQueryAsync();
+                    Console.WriteLine(String.Format("Number of rows inserted={0}", rowCount));
+                }
 
-            Console.Out.WriteLine("Closing connection");
-            conn.Close();
+                // connection will be closed by the 'using' block
+                Console.WriteLine("Closing connection");
+            }
 
             Console.WriteLine("Press RETURN to exit");
             Console.ReadLine();
         }
-
     }
 }
-
 ```
 
 ## <a name="read-data"></a>Odczyt danych
 
-Użyj poniższego kodu, aby nawiązać połączenie i odczytać dane za pomocą instrukcji **SELECT** języka SQL. Kod używa klasy ODBC z metodą [Open()](https://msdn.microsoft.com/library/system.data.odbc.odbcconnection.open(v=vs.110).aspx) w celu ustanowienia połączenia z programem MySQL. Następnie kod używa metody [CreateCommand()](https://msdn.microsoft.com/library/system.data.odbc.odbcconnection.createcommand(v=vs.110).aspx) i metody [Executereader()](https://msdn.microsoft.com/library/system.data.odbc.odbccommand.executereader(v=vs.110).aspx), aby uruchamiać polecenia bazy danych. W kolejnym kroku kod używa metody [Read()](https://msdn.microsoft.com/library/system.data.odbc.odbcdatareader.read(v=vs.110).aspx) w celu przechodzenia do rekordów w wynikach. Następnie kod używa metod GetInt32() i GetString() w celu przeanalizowania wartości w rekordzie.
+Przy użyciu następującego kodu nawiąż połączenie i odczytaj dane za pomocą instrukcji `SELECT` języka SQL. Kod używa klasy `MySqlConnection` w metodzie [OpenAsync()](https://docs.microsoft.com/en-us/dotnet/api/system.data.common.dbconnection.openasync#System_Data_Common_DbConnection_OpenAsync) w celu nawiązania połączenia z usługą MySQL. Następnie kod używa metody [CreateCommand()](https://docs.microsoft.com/en-us/dotnet/api/system.data.common.dbconnection.createcommand) i metody [ExecuteReaderAsync()](https://docs.microsoft.com/en-us/dotnet/api/system.data.common.dbcommand.executereaderasync), aby uruchomić polecenia bazy danych. W kolejnym kroku kod używa metody [ReadAsync()](https://docs.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader.readasync#System_Data_Common_DbDataReader_ReadAsync) w celu przechodzenia do rekordów w wynikach. Następnie kod używa metod GetInt32() i GetString() w celu przeanalizowania wartości w rekordzie.
 
-Zastąp parametry hosta, nazwy bazy danych, użytkownika i hasła wartościami, które zostały określone podczas tworzenia serwera i bazy danych. 
+Zastąp parametry `Server`, `Database`, `UserID` i `Password` wartościami określonymi podczas tworzenia serwera i bazy danych. 
 
 ```csharp
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using MySql.Data;
-using System.Data.Odbc;
+using MySql.Data.MySqlClient;
 
-
-namespace driver
+namespace AzureMySqlExample
 {
-    class MySQLRead
+    class MySqlRead
     {
-
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            var conn = new OdbcConnection("DRIVER={MySQL ODBC 5.3 unicode Driver}; Server=myserver4demo.mysql.database.azure.com; Port=3306;" +
-            " Database=quickstartdb; Uid=myadmin@myserver4demo; Pwd=server_admin_password; sslverify=0; Option=3;MULTI_STATEMENTS=1");
-
-            Console.Out.WriteLine("Opening connection");
-            conn.Open();
-
-            var command = conn.CreateCommand();
-            command.CommandText = "SELECT * FROM inventory;";
-
-            var reader = command.ExecuteReader();
-            while (reader.Read())
+            var builder = new MySqlConnectionStringBuilder
             {
-                Console.WriteLine(
-                    string.Format(
-                        "Reading from table=({0}, {1}, {2})",
-                        reader.GetInt32(0).ToString(),
-                        reader.GetString(1),
-                        reader.GetInt32(2).ToString()
-                        )
-                    );
-            }
+                Server = "YOUR-SERVER.mysql.database.azure.com",
+                Database = "YOUR-DATABASE",
+                UserID = "USER@YOUR-SERVER",
+                Password = "PASSWORD",
+                SslMode = MySqlSslMode.Required,
+            };
 
-            Console.Out.WriteLine("Closing connection");
-            conn.Close();
+            using (var conn = new MySqlConnection(builder.ConnectionString))
+            {
+                Console.WriteLine("Opening connection");
+                await conn.OpenAsync();
+
+                using (var command = conn.CreateCommand())
+                {
+                    command.CommandText = "SELECT * FROM inventory;";
+
+                    using (var reader = await command.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            Console.WriteLine(string.Format(
+                                "Reading from table=({0}, {1}, {2})",
+                                reader.GetInt32(0),
+                                reader.GetString(1),
+                                reader.GetInt32(2)));
+                        }
+                    }
+                }
+
+                Console.WriteLine("Closing connection");
+            }
 
             Console.WriteLine("Press RETURN to exit");
             Console.ReadLine();
         }
     }
 }
-
-
 ```
 
 ## <a name="update-data"></a>Aktualizowanie danych
-Użyj poniższego kodu, aby nawiązać połączenie i odczytać dane za pomocą instrukcji **UPDATE** języka SQL. Kod używa klasy ODBC z metodą [Open()](https://msdn.microsoft.com/library/system.data.odbc.odbcconnection.open(v=vs.110).aspx) w celu ustanowienia połączenia z programem MySQL. Następnie kod używa metody [CreateCommand()](https://msdn.microsoft.com/library/system.data.odbc.odbcconnection.createcommand(v=vs.110).aspx), ustawia właściwość CommandText i wywołuje metodę [ExecuteNonQuery()](https://msdn.microsoft.com/library/system.data.odbc.odbccommand.executenonquery(v=vs.110).aspx), aby uruchamiać polecenia bazy danych.
+Przy użyciu następującego kodu nawiąż połączenie i odczytaj dane za pomocą instrukcji `UPDATE` języka SQL. Kod używa klasy `MySqlConnection` w metodzie [OpenAsync()](https://docs.microsoft.com/en-us/dotnet/api/system.data.common.dbconnection.openasync#System_Data_Common_DbConnection_OpenAsync) w celu nawiązania połączenia z usługą MySQL. Następnie kod używa metody [CreateCommand()](https://docs.microsoft.com/en-us/dotnet/api/system.data.common.dbconnection.createcommand), ustawia właściwość CommandText i wywołuje metodę [ExecuteNonQueryAsync()](https://docs.microsoft.com/en-us/dotnet/api/system.data.common.dbcommand.executenonqueryasync), aby uruchomić polecenia bazy danych. 
 
-Zastąp parametry hosta, nazwy bazy danych, użytkownika i hasła wartościami, które zostały określone podczas tworzenia serwera i bazy danych. 
+Zastąp parametry `Server`, `Database`, `UserID` i `Password` wartościami określonymi podczas tworzenia serwera i bazy danych. 
 
 ```csharp
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using System.Data.Odbc;
+using MySql.Data.MySqlClient;
 
-namespace driver
+namespace AzureMySqlExample
 {
-    class MySQLUpdate
+    class MySqlUpdate
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            var conn = new OdbcConnection("DRIVER={MySQL ODBC 5.3 unicode Driver}; Server=myserver4demo.mysql.database.azure.com; Port=3306;" +
-            " Database=quickstartdb; Uid=myadmin@myserver4demo; Pwd=server_admin_password; sslverify=0; Option=3;MULTI_STATEMENTS=1");
+            var builder = new MySqlConnectionStringBuilder
+            {
+                Server = "YOUR-SERVER.mysql.database.azure.com",
+                Database = "YOUR-DATABASE",
+                UserID = "USER@YOUR-SERVER",
+                Password = "PASSWORD",
+                SslMode = MySqlSslMode.Required,
+            };
 
-            Console.Out.WriteLine("Opening connection");
-            conn.Open();
+            using (var conn = new MySqlConnection(builder.ConnectionString))
+            {
+                Console.WriteLine("Opening connection");
+                await conn.OpenAsync();
 
-            var command = conn.CreateCommand();
-            command.CommandText =
-            String.Format("UPDATE inventory SET quantity = {0} WHERE name = {1};",
-                200,
-                "\'banana\'"
-                );
+                using (var command = conn.CreateCommand())
+                {
+                    command.CommandText = "UPDATE inventory SET quantity = @quantity WHERE name = @name;";
+                    command.Parameters.AddWithValue("@quantity", 200);
+                    command.Parameters.AddWithValue("@name", "banana");
 
-            int nRows = command.ExecuteNonQuery();
-            Console.Out.WriteLine(String.Format("Number of rows updated={0}", nRows));
+                    int rowCount = await command.ExecuteNonQueryAsync();
+                    Console.WriteLine(String.Format("Number of rows updated={0}", rowCount));
+                }
 
-            Console.Out.WriteLine("Closing connection");
-            conn.Close();
+                Console.WriteLine("Closing connection");
+            }
 
             Console.WriteLine("Press RETURN to exit");
             Console.ReadLine();
         }
     }
 }
-
-
-
 ```
 
-
 ## <a name="delete-data"></a>Usuwanie danych
-Użyj poniższego kodu, aby nawiązać połączenie i usunąć dane za pomocą instrukcji **DELETE** języka SQL. 
+Przy użyciu następującego kodu nawiąż połączenie i usuń dane za pomocą instrukcji `DELETE` języka SQL. 
 
-Kod używa klasy ODBC z metodą [Open()](https://msdn.microsoft.com/library/system.data.odbc.odbcconnection.open(v=vs.110).aspx) w celu ustanowienia połączenia z programem MySQL. Następnie kod używa metody [CreateCommand()](https://msdn.microsoft.com/library/system.data.odbc.odbcconnection.createcommand(v=vs.110).aspx), ustawia właściwość CommandText i wywołuje metodę [ExecuteNonQuery()](https://msdn.microsoft.com/library/system.data.odbc.odbccommand.executenonquery(v=vs.110).aspx), aby uruchamiać polecenia bazy danych.
+Kod używa klasy `MySqlConnection` w metodzie [OpenAsync()](https://docs.microsoft.com/en-us/dotnet/api/system.data.common.dbconnection.openasync#System_Data_Common_DbConnection_OpenAsync) w celu nawiązania połączenia z usługą MySQL. Następnie kod używa metody [CreateCommand()](https://docs.microsoft.com/en-us/dotnet/api/system.data.common.dbconnection.createcommand), ustawia właściwość CommandText i wywołuje metodę [ExecuteNonQueryAsync()](https://docs.microsoft.com/en-us/dotnet/api/system.data.common.dbcommand.executenonqueryasync), aby uruchomić polecenia bazy danych. 
 
-Zastąp parametry hosta, nazwy bazy danych, użytkownika i hasła wartościami, które zostały określone podczas tworzenia serwera i bazy danych. 
+Zastąp parametry `Server`, `Database`, `UserID` i `Password` wartościami określonymi podczas tworzenia serwera i bazy danych. 
 
 ```csharp
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using System.Data.Odbc;
+using MySql.Data.MySqlClient;
 
-namespace driver
+namespace AzureMySqlExample
 {
-    class MySQLDelete
+    class MySqlDelete
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            var conn = new OdbcConnection("DRIVER={MySQL ODBC 5.3 unicode Driver}; Server=myserver4demo.mysql.database.azure.com; Port=3306;" +
-            " Database=quickstartdb; Uid=myadmin@myserver4demo; Pwd=server_admin_password; sslverify=0; Option=3;MULTI_STATEMENTS=1");
+            var builder = new MySqlConnectionStringBuilder
+            {
+                Server = "YOUR-SERVER.mysql.database.azure.com",
+                Database = "YOUR-DATABASE",
+                UserID = "USER@YOUR-SERVER",
+                Password = "PASSWORD",
+                SslMode = MySqlSslMode.Required,
+            };
 
-            Console.Out.WriteLine("Opening connection");
-            conn.Open();
+            using (var conn = new MySqlConnection(builder.ConnectionString))
+            {
+                Console.WriteLine("Opening connection");
+                await conn.OpenAsync();
 
-            var command = conn.CreateCommand();
-            command.CommandText =
-                String.Format("DELETE FROM inventory WHERE name = {0};",
-                    "\'orange\'");
-            int nRows = command.ExecuteNonQuery();
-            Console.Out.WriteLine(String.Format("Number of rows deleted={0}", nRows));
+                using (var command = conn.CreateCommand())
+                {
+                    command.CommandText = "DELETE FROM inventory WHERE name = @name;";
+                    command.Parameters.AddWithValue("@name", "orange");
 
-            Console.Out.WriteLine("Closing connection");
-            conn.Close();
+                    int rowCount = await command.ExecuteNonQueryAsync();
+                    Console.WriteLine(String.Format("Number of rows deleted={0}", rowCount));
+                }
+
+                Console.WriteLine("Closing connection");
+            }
 
             Console.WriteLine("Press RETURN to exit");
             Console.ReadLine();
         }
     }
 }
-
 ```
 
 ## <a name="next-steps"></a>Następne kroki

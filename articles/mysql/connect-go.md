@@ -1,24 +1,24 @@
 ---
-title: "Nawiązywanie połączeń z usługą Azure Database for MySQL za pomocą języka Go | Microsoft Docs"
+title: "Nawiązywanie połączeń z usługą Azure Database for MySQL za pomocą języka Go"
 description: "Ten przewodnik Szybki start zawiera kilka przykładów kodu Go, których można używać do nawiązywania połączeń z danymi usługi Azure Database for MySQL i wykonywania zapytań względem nich."
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 01/24/2018
-ms.openlocfilehash: 44011c4b1ac5da686954a87bbf17a54b963ff6d8
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.date: 02/28/2018
+ms.openlocfilehash: af4027835ca503c0875d098d0daf7a98bdef44fb
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-mysql-use-go-language-to-connect-and-query-data"></a>Usługa Azure Database for MySQL: nawiązywanie połączeń z danymi i wykonywanie względem nich zapytań za pomocą języka Go
-Ten przewodnik Szybki start przedstawia sposób nawiązywania połączeń z usługą Azure Database for MySQL przy użyciu kodu napisanego w języku [Go](https://golang.org/) na platformach Windows, Ubuntu Linux i Apple macOS. Pokazano w nim, jak używać instrukcji języka SQL w celu wysyłania zapytań o dane oraz wstawiania, aktualizowania i usuwania danych w bazie danych. W tym artykule założono, że wiesz już, jak opracowywać zawartość za pomocą języka Go, i dopiero zaczynasz pracę z usługą Azure Database for MySQL.
+Ten przewodnik Szybki start przedstawia sposób nawiązywania połączeń z usługą Azure Database for MySQL przy użyciu kodu napisanego w języku [Go](https://golang.org/) na platformach Windows, Ubuntu Linux i Apple macOS. Pokazano w nim, jak używać instrukcji języka SQL w celu wysyłania zapytań o dane oraz wstawiania, aktualizowania i usuwania danych w bazie danych. W tym temacie założono, że wiesz już, jak opracowywać zawartość za pomocą języka Go, i dopiero zaczynasz pracę z usługą Azure Database for MySQL.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Ten przewodnik Szybki start jako punktu wyjścia używa zasobów utworzonych w jednym z tych przewodników:
@@ -26,7 +26,7 @@ Ten przewodnik Szybki start jako punktu wyjścia używa zasobów utworzonych w j
 - [Tworzenie serwera usługi Azure Database for MySQL za pomocą interfejsu wiersza polecenia platformy Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ## <a name="install-go-and-mysql-connector"></a>Instalowanie środowiska języka Go i łącznika bazy danych MySQL
-Zainstaluj środowisko języka [Go](https://golang.org/doc/install) i sterownik [go-sql-driver dla bazy danych MySQL](https://github.com/go-sql-driver/mysql#installation) co najmniej w wersji 1.3 na swoim komputerze. W zależności od używanej platformy wykonaj kroki w odpowiedniej sekcji:
+Zainstaluj środowisko języka [Go](https://golang.org/doc/install) i sterownik [go-sql-driver dla bazy danych MySQL](https://github.com/go-sql-driver/mysql#installation) na swoim komputerze. W zależności od używanej platformy wykonaj kroki w odpowiedniej sekcji:
 
 ### <a name="windows"></a>Windows
 1. [Pobierz](https://golang.org/dl/) i zainstaluj środowisko języka Go dla systemu Microsoft Windows zgodnie z [instrukcjami dotyczącymi instalacji](https://golang.org/doc/install).
@@ -34,7 +34,7 @@ Zainstaluj środowisko języka [Go](https://golang.org/doc/install) i sterownik 
 3. Utwórz folder dla projektu, np. `mkdir  %USERPROFILE%\go\src\mysqlgo`.
 4. Przejdź do folderu projektu, np. `cd %USERPROFILE%\go\src\mysqlgo`.
 5. Ustaw zmienną środowiskową GOPATH, aby wskazywała katalog kodu źródłowego. `set GOPATH=%USERPROFILE%\go`.
-6. Zainstaluj sterownik [go-sql-driver dla bazy danych MySQL](https://github.com/go-sql-driver/mysql#installation), uruchamiając polecenie `go get github.com/go-sql-driver/mysql`. Minimalna wymagana wersja to 1.3.
+6. Zainstaluj sterownik [go-sql-driver dla bazy danych MySQL](https://github.com/go-sql-driver/mysql#installation), uruchamiając polecenie `go get github.com/go-sql-driver/mysql`.
 
    Podsumowując: zainstaluj środowisko języka Go, a następnie uruchom następujące polecenia w wierszu polecenia:
    ```cmd
@@ -50,7 +50,7 @@ Zainstaluj środowisko języka [Go](https://golang.org/doc/install) i sterownik 
 3. Utwórz folder dla projektu w katalogu macierzystym, np. `mkdir -p ~/go/src/mysqlgo/`.
 4. Przejdź do tego folderu, np. `cd ~/go/src/mysqlgo/`.
 5. Ustaw zmienną środowiskową GOPATH tak, aby wskazywała prawidłowy katalog źródłowy, np. folder go w bieżącym katalogu macierzystym. W powłoce Bash uruchom polecenie `export GOPATH=~/go`, aby dodać katalog go jako zmienną GOPATH dla bieżącej sesji powłoki.
-6. Zainstaluj sterownik [go-sql-driver dla bazy danych MySQL](https://github.com/go-sql-driver/mysql#installation), uruchamiając polecenie `go get github.com/go-sql-driver/mysql`. Minimalna wymagana wersja to 1.3.
+6. Zainstaluj sterownik [go-sql-driver dla bazy danych MySQL](https://github.com/go-sql-driver/mysql#installation), uruchamiając polecenie `go get github.com/go-sql-driver/mysql`.
 
    Podsumowując: uruchom te polecenia programu Bash:
    ```bash
@@ -67,7 +67,7 @@ Zainstaluj środowisko języka [Go](https://golang.org/doc/install) i sterownik 
 3. Utwórz folder dla projektu w katalogu macierzystym, np. `mkdir -p ~/go/src/mysqlgo/`.
 4. Przejdź do tego folderu, np. `cd ~/go/src/mysqlgo/`.
 5. Ustaw zmienną środowiskową GOPATH tak, aby wskazywała prawidłowy katalog źródłowy, np. folder go w bieżącym katalogu macierzystym. W powłoce Bash uruchom polecenie `export GOPATH=~/go`, aby dodać katalog go jako zmienną GOPATH dla bieżącej sesji powłoki.
-6. Zainstaluj sterownik [go-sql-driver dla bazy danych MySQL](https://github.com/go-sql-driver/mysql#installation), uruchamiając polecenie `go get github.com/go-sql-driver/mysql`. Minimalna wymagana wersja to 1.3.
+6. Zainstaluj sterownik [go-sql-driver dla bazy danych MySQL](https://github.com/go-sql-driver/mysql#installation), uruchamiając polecenie `go get github.com/go-sql-driver/mysql`.
 
    Podsumowując: zainstaluj środowisko języka Go, następnie uruchom te polecenia programu Bash:
    ```bash
@@ -81,11 +81,10 @@ Zainstaluj środowisko języka [Go](https://golang.org/doc/install) i sterownik 
 Pobierz informacje o połączeniu potrzebne do nawiązania połączenia z usługą Azure Database for MySQL. Potrzebna jest w pełni kwalifikowana nazwa serwera i poświadczenia logowania.
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
-2. W menu po lewej stronie w witrynie Azure Portal kliknij pozycję **Wszystkie zasoby** i wyszukaj utworzony serwer, taki jak **myserver4demo**.
-3. Kliknij nazwę serwera **myserver4demo**.
-4. Wybierz stronę **Właściwości** serwera, a następnie zanotuj **nazwę serwera** i **nazwę logowania administratora serwera**.
- ![Azure Database for MySQL — dane logowania administratora serwera](./media/connect-go/1_server-properties-name-login.png)
-5. Jeśli nie pamiętasz informacji logowania do serwera, przejdź do strony **Przegląd**, aby wyświetlić nazwę logowania administratora serwera oraz w razie konieczności zresetować hasło.
+2. W menu po lewej stronie w witrynie Azure Portal kliknij pozycję **Wszystkie zasoby** i wyszukaj utworzony serwer, taki jak **mydemoserver**.
+3. Kliknij nazwę serwera.
+4. Po przejściu do panelu **Przegląd** serwera zanotuj **nazwę serwera** i **nazwę logowania administratora serwera**. Jeśli zapomnisz hasła, możesz również je zresetować z poziomu tego panelu.
+ ![Nazwa serwera usługi Azure Database for MySQL](./media/connect-go/1_server-overview-name-login.png)
    
 
 ## <a name="build-and-run-go-code"></a>Kompilowanie i uruchamianie kodu języka Go 
@@ -116,9 +115,9 @@ import (
 )
 
 const (
-    host     = "myserver4demo.mysql.database.azure.com"
+    host     = "mydemoserver.mysql.database.azure.com"
     database = "quickstartdb"
-    user     = "myadmin@myserver4demo"
+    user     = "myadmin@mydemoserver"
     password = "yourpassword"
 )
 
@@ -193,9 +192,9 @@ import (
 )
 
 const (
-    host     = "myserver4demo.mysql.database.azure.com"
+    host     = "mydemoserver.mysql.database.azure.com"
     database = "quickstartdb"
-    user     = "myadmin@myserver4demo"
+    user     = "myadmin@mydemoserver"
     password = "yourpassword"
 )
 
@@ -262,9 +261,9 @@ import (
 )
 
 const (
-    host     = "myserver4demo.mysql.database.azure.com"
+    host     = "mydemoserver.mysql.database.azure.com"
     database = "quickstartdb"
-    user     = "myadmin@myserver4demo"
+    user     = "myadmin@mydemoserver"
     password = "yourpassword"
 )
 
@@ -316,9 +315,9 @@ import (
 )
 
 const (
-    host     = "myserver4demo.mysql.database.azure.com"
+    host     = "mydemoserver.mysql.database.azure.com"
     database = "quickstartdb"
-    user     = "myadmin@myserver4demo"
+    user     = "myadmin@mydemoserver"
     password = "yourpassword"
 )
 

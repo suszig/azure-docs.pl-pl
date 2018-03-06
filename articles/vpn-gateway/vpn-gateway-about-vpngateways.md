@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/14/2018
+ms.date: 02/16/2018
 ms.author: cherylmc
-ms.openlocfilehash: ebecbfa3279a71cda005f60c32247e9e95dd6646
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: dadddeaac2a7856f8e249db981b018de070e1f3f
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="about-vpn-gateway"></a>VPN Gateway — informacje
 
@@ -49,6 +49,13 @@ Możesz rozpocząć tworzenie i konfigurowanie zasobów za pomocą jednego narz�
 
 Czynności wykonywane podczas konfigurowania bramy sieci VPN zależą od modelu wdrażania użytego w celu utworzenia sieci wirtualnej. Jeśli na przykład sieć wirtualna została utworzona przy użyciu klasycznego modelu wdrożenia, do tworzenia i konfigurowania ustawień bramy sieci VPN należy użyć wskazówek i instrukcji dotyczących klasycznego modelu wdrażania. Aby uzyskać więcej informacji na temat modeli wdrażania, zobacz [Omówienie modelu wdrażania przy użyciu usługi Resource Manager oraz wdrażania klasycznego](../azure-resource-manager/resource-manager-deployment-model.md).
 
+### <a name="planningtable"></a>Tabela planowania
+
+W poniższej tabeli znajdują się informacje pomocne podczas podejmowania decyzji co do najlepszej opcji łączności dla rozwiązania.
+
+[!INCLUDE [vpn-gateway-cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
+
+
 ## <a name="gwsku"></a>Jednostki SKU bramy
 
 [!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
@@ -67,7 +74,7 @@ Przedstawione diagramy i opisy mogą ułatwić wybór topologii połączenia dos
 
 ### <a name="S2S"></a>Lokacja-lokacja
 
-Połączenie bramy sieci VPN typu lokacja-lokacja to połączenie nawiązywane za pośrednictwem tunelu sieci VPN wykorzystującego protokół IPsec/IKE (IKEv1 lub IKEv2). Połączenie typu lokacja-lokacja wymaga, aby urządzenie sieci VPN znajdowało się w środowisku lokalnym, miało przypisany publiczny adres IP i nie znajdowało się za translatorem adresów sieciowych. Z połączeń typu lokacja-lokacja (S2S) można korzystać w ramach konfiguracji hybrydowych i obejmujących wiele lokalizacji.   
+Połączenie bramy sieci VPN typu lokacja-lokacja to połączenie nawiązywane za pośrednictwem tunelu sieci VPN wykorzystującego protokół IPsec/IKE (IKEv1 lub IKEv2). Z połączeń typu lokacja-lokacja (S2S) można korzystać w ramach konfiguracji hybrydowych i obejmujących wiele lokalizacji. Połączenie typu lokacja-lokacja wymaga, aby urządzenie sieci VPN znajdowało się w środowisku lokalnym, miało przypisany publiczny adres IP i nie znajdowało się za translatorem adresów sieciowych. Aby uzyskać informacje o wybieraniu urządzenia VPN, zobacz [Brama VPN Gateway — często zadawane pytania dotyczące urządzeń VPN](/vpn-gateway-vpn-faq.md#s2s).
 
 ![Przykład połączenia typu lokacja-lokacja w usłudze Azure VPN Gateway](./media/vpn-gateway-about-vpngateways/vpngateway-site-to-site-connection-diagram.png)
 

@@ -1,6 +1,6 @@
 ---
-title: "Uaktualnij środowisko uruchomieniowe usługi sieć szkieletowa usług Azure | Dokumentacja firmy Microsoft"
-description: "Informacje o sposobie uaktualniania środowiska uruchomieniowego klastra sieci szkieletowej usług hostowanymi na platformie Azure przy użyciu programu PowerShell."
+title: "Uaktualnianie środowiska uruchomieniowego usługi Azure Service Fabric | Microsoft Docs"
+description: "W ramach tego samouczka dowiesz się, jak przy użyciu programu PowerShell uaktualnić środowisko uruchomieniowe klastra usługi Service Fabric hostowanego na platformie Azure."
 services: service-fabric
 documentationcenter: .net
 author: Thraka
@@ -15,44 +15,44 @@ ms.workload: NA
 ms.date: 11/28/2017
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: faf134bc0952da913e90a93bc872a53f5f2369ff
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.openlocfilehash: 49211a88e004bbcbcc41b6674a34934db39513c7
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="upgrade-the-runtime-of-a-service-fabric-cluster"></a>Uaktualnienie środowiska uruchomieniowego klastra sieci szkieletowej usług
+# <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster"></a>Samouczek: uaktualnianie środowiska uruchomieniowego klastra usługi Service Fabric
 
-W tym samouczku jest częścią trzy serii i opisano sposób uaktualniania środowiska uruchomieniowego platformy Service Fabric w klastrze usługi sieć szkieletowa usług Azure. Tej części samouczka jest przeznaczony dla klastrów sieci szkieletowej usług działających na platformie Azure i nie ma zastosowania do autonomicznej usługi sieć szkieletowa klastrów.
+Ten samouczek to trzecia część serii. Przedstawia on sposób uaktualniania środowiska uruchomieniowego usługi Service Fabric w klastrze usługi Azure Service Fabric. Tę część samouczka opracowano pod kątem klastrów usługi Service Fabric działających na platformie Azure. Nie dotyczy ona autonomicznych klastrów usługi Service Fabric.
 
 > [!WARNING]
-> Tej części samouczka wymaga środowiska PowerShell. Obsługa uaktualniania środowiska uruchomieniowego klastra nie jest jeszcze obsługiwana za pomocą narzędzi wiersza polecenia platformy Azure. Alternatywnie można uaktualnić klaster w portalu. Aby uzyskać więcej informacji, zobacz [uaktualnienia klastra usługi sieć szkieletowa usług Azure](service-fabric-cluster-upgrade.md).
+> Na potrzeby tej części samouczka wymagany jest program PowerShell. Uaktualnianie środowiska uruchomieniowego klastra nie jest jeszcze obsługiwane przez narzędzia interfejsu wiersza polecenia platformy Azure. Alternatywnie klaster możesz uaktualnić w portalu. Aby uzyskać więcej informacji, zobacz [Uaktualnianie klastra usługi Azure Service Fabric](service-fabric-cluster-upgrade.md).
 
-Jeśli klaster jest już uruchomiona najnowsze środowisko uruchomieniowe usługi sieć szkieletowa, nie trzeba wykonać ten krok. W tym artykule można jednak zainstalować wszystkie obsługiwane środowisko uruchomieniowe w klastrze usługi sieć szkieletowa usług Azure.
+Jeśli w klastrze działa już najnowsze środowisko uruchomieniowe usługi Service Fabric, nie trzeba wykonywać tego kroku. Jednak korzystając z tego artykułu, możesz zainstalować dowolne obsługiwane środowisko uruchomieniowe w klastrze usługi Azure Service Fabric.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Wersja klastra do odczytu
-> * Ustaw wersję klastra
+> * Odczytywanie wersji klastra
+> * Ustawianie wersji klastra
 
-W tym samouczku dowiesz się, jak:
+Ta seria samouczków zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
-> * Tworzenie bezpiecznej [klastra systemu Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) lub [klaster systemu Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) na platformie Azure przy użyciu szablonu
-> * [Skalowanie klastra przychodzący lub wychodzący](service-fabric-tutorial-scale-cluster.md)
-> * Uaktualnienie środowiska uruchomieniowego klastra
-> * [Wdrażanie interfejsu API zarządzania za pomocą sieci szkieletowej usług](service-fabric-tutorial-deploy-api-management.md)
+> * Tworzenie bezpiecznego [klastra systemu Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) lub [klastra systemu Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) na platformie Azure przy użyciu szablonu
+> * [Skalowanie klastra na zewnątrz lub do wewnątrz](service-fabric-tutorial-scale-cluster.md)
+> * Uaktualnianie środowiska uruchomieniowego klastra
+> * [Wdrażanie usługi API Management z usługą Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Przed rozpoczęciem tego samouczka:
-- Jeśli nie masz subskrypcji platformy Azure, Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- Zainstaluj [programu Azure Powershell w wersji modułu 4.1 lub wyższej](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) lub [Azure CLI 2.0](/cli/azure/install-azure-cli).
-- Tworzenie bezpiecznej [klastra systemu Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) lub [klaster systemu Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) na platformie Azure
-- W przypadku wdrażania klastra systemu Windows, konfigurowanie środowiska projektowego systemu Windows. Zainstaluj [programu Visual Studio 2017](http://www.visualstudio.com) i **Azure programowanie**, **ASP.NET i sieć web development**, i **aplikacji dla wielu platform .NET Core**obciążeń.  Następnie skonfiguruj [środowiska programowania .NET](service-fabric-get-started.md).
-- Jeśli w przypadku wdrażania klastra Linux należy skonfigurować środowisko projektowe Java na [Linux](service-fabric-get-started-linux.md) lub [MacOS](service-fabric-get-started-mac.md).  Zainstaluj [usługi sieci szkieletowej interfejsu wiersza polecenia](service-fabric-cli.md). 
+- Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Zainstaluj [moduł Azure PowerShell w wersji 4.1 lub nowszej](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) albo [interfejs wiersza polecenia platformy Azure 2.0](/cli/azure/install-azure-cli).
+- Utwórz bezpieczny [klaster systemu Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) lub [klaster systemu Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) na platformie Azure.
+- W przypadku wdrażania klastra systemu Windows skonfiguruj środowisko deweloperskie w systemie Windows. Zainstaluj program [Visual Studio 2017](http://www.visualstudio.com), a następnie zainstaluj obciążenia **Programowanie na platformie Azure**, **Tworzenie aplikacji na platformie ASP.NET i aplikacji internetowych** oraz **Programowanie dla wielu platform w środowisku .NET Core**.  Następnie skonfiguruj [środowisko deweloperskie platformy .NET](service-fabric-get-started.md).
+- W przypadku wdrażania klastra systemu Linux skonfiguruj środowisko projektowe Java w systemie [Linux](service-fabric-get-started-linux.md) lub [MacOS](service-fabric-get-started-mac.md).  Zainstaluj [interfejs wiersza polecenia usługi Service Fabric](service-fabric-cli.md). 
 
 ### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
-Zaloguj się na konto Azure Wybierz subskrypcję, przed wykonaniem polecenia platformy Azure.
+Przed wykonaniem poleceń platformy Azure zaloguj się na konto platformy Azure i wybierz subskrypcję.
 
 ```powershell
 Login-AzureRmAccount
@@ -60,32 +60,32 @@ Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 ```
 
-## <a name="get-the-runtime-version"></a>Pobierz wersję środowiska uruchomieniowego
+## <a name="get-the-runtime-version"></a>Uzyskiwanie wersji środowiska uruchomieniowego
 
-Po podłączeniu do platformy Azure, należy wybrać subskrypcję, zawierającą klaster sieci szkieletowej usług, można uzyskać wersji środowiska uruchomieniowego klastra.
+Po nawiązaniu połączenia z platformą Azure i wybraniu subskrypcji zawierającej klaster usługi Service Fabric możesz uzyskać wersję środowiska uruchomieniowego klastra.
 
 ```powershell
 Get-AzureRmServiceFabricCluster -ResourceGroupName SFCLUSTERTUTORIALGROUP -Name aztestcluster `
     | Select-Object ClusterCodeVersion
 ```
 
-Lub tylko pobranie listy wszystkich klastrów w ramach subskrypcji z następujących czynności:
+Alternatywnie uzyskaj listę wszystkich klastrów w subskrypcji za pomocą następującego polecenia:
 
 ```powershell
 Get-AzureRmServiceFabricCluster | Select-Object Name, ClusterCodeVersion
 ```
 
-Uwaga **ClusterCodeVersion** wartości. Ta wartość będzie używana w następnej sekcji.
+Zanotuj wartość **ClusterCodeVersion**. Będzie ona używana w następnej sekcji.
 
-## <a name="upgrade-the-runtime"></a>Uaktualnienie środowiska uruchomieniowego
+## <a name="upgrade-the-runtime"></a>Uaktualnianie środowiska uruchomieniowego
 
-Należy użyć wartości **ClusterCodeVersion** z poprzedniej sekcji za `Get-ServiceFabricRuntimeUpgradeVersion` polecenia cmdlet, aby dowiedzieć się, jakie wersje są dostępne do uaktualnienia do. To polecenie cmdlet można uruchamiać tylko na komputerze, który został połączony z Internetem. Na przykład, jeśli chcesz zobaczyć wersji środowiska uruchomieniowego można uaktualnienia do wersji `5.7.198.9494`, użyj następującego polecenia:
+Podaj wartość **ClusterCodeVersion** z poprzedniej sekcji w poleceniu cmdlet `Get-ServiceFabricRuntimeUpgradeVersion`, aby dowiedzieć się, do jakich wersji możesz uaktualnić. To polecenie cmdlet możesz uruchomić tylko na komputerze, który został połączony z Internetem. Jeśli na przykład chcesz zobaczyć wersje środowiska uruchomieniowego, do których można uaktualnić wersję `5.7.198.9494`, użyj następującego polecenia:
 
 ```powershell
 Get-ServiceFabricRuntimeUpgradeVersion -BaseVersion "5.7.198.9494"
 ```
 
-Listę wersji można określić klastra usługi sieć szkieletowa usług Azure do uaktualnienia do nowszej środowiska wykonawczego. Na przykład jeśli wersja `6.0.219.9494` można uaktualnić do, użyj następującego polecenia w celu uaktualnienia klastra.
+Dysponując listą wersji, możesz wydać klastrowi usługi Azure Service Fabric polecenie uaktualnienia do nowszej wersji środowiska uruchomieniowego. Jeśli na przykład na potrzeby uaktualnienia jest dostępna wersja `6.0.219.9494`, użyj następującego polecenia w celu uaktualnienia klastra.
 
 ```powershell
 Set-AzureRmServiceFabricUpgradeType -ResourceGroupName SFCLUSTERTUTORIALGROUP `
@@ -95,11 +95,11 @@ Set-AzureRmServiceFabricUpgradeType -ResourceGroupName SFCLUSTERTUTORIALGROUP `
 ```
 
 > [!IMPORTANT]
-> Uaktualnienie środowiska uruchomieniowego klastra może potrwać bardzo długo. PowerShell jest blokowane podczas uaktualniania. Aby sprawdzić stan uaktualnienia, można użyć innej sesji programu PowerShell.
+> Uaktualnienie środowiska uruchomieniowego klastra może zająć dużo czasu. Program PowerShell jest zablokowany podczas uaktualniania. Stan uaktualnienia możesz sprawdzić za pomocą innej sesji programu PowerShell.
 
-Stan uaktualnienia można monitorować przy użyciu albo programu PowerShell lub `sfctl` interfejsu wiersza polecenia.
+Stan uaktualnienia możesz monitorować przy użyciu programu PowerShell lub interfejsu wiersza polecenia `sfctl`.
 
-Najpierw połącz się z klastrem przy użyciu certyfikatu SSL utworzony w pierwszej części samouczka. Użyj `Connect-ServiceFabricCluster` polecenia cmdlet lub `sfctl cluster upgrade-status`.
+Najpierw połącz się z klastrem przy użyciu certyfikatu SSL utworzonego w pierwszej części samouczka. Użyj polecenia cmdlet `Connect-ServiceFabricCluster` lub polecenia `sfctl cluster upgrade-status`.
 
 ```powershell
 $endpoint = "<mycluster>.southcentralus.cloudapp.azure.com:19000"
@@ -117,7 +117,7 @@ sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.az
 --pem ./aztestcluster201709151446.pem --no-verify
 ```
 
-Następnie użyj `Get-ServiceFabricClusterUpgrade` lub `sfctl cluster upgrade-status` Aby wyświetlić stan. Podobny do następującego wyniku jest wyświetlana.
+Następnie użyj polecenia `Get-ServiceFabricClusterUpgrade` lub `sfctl cluster upgrade-status`, aby wyświetlić stan. Zostanie wyświetlony wynik podobny do następującego.
 
 ```powershell
 Get-ServiceFabricClusterUpgrade
@@ -195,10 +195,10 @@ sfctl cluster upgrade-status
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Pobierz wersję środowiska uruchomieniowego klastra
-> * Uaktualnienie środowiska uruchomieniowego klastra
-> * Monitor uaktualnienia
+> * Uzyskiwanie wersji środowiska uruchomieniowego klastra
+> * Uaktualnianie środowiska uruchomieniowego klastra
+> * Monitorowanie uaktualnienia
 
-Następnie przejdź do samouczka następujące informacje na temat wdrażania interfejsu API zarządzania z klastrem usługi sieć szkieletowa usług.
+Przejdź do kolejnego samouczka, aby dowiedzieć się, jak wdrożyć usługę API Management z klastrem usługi Service Fabric.
 > [!div class="nextstepaction"]
-> [Wdrażanie interfejsu API zarządzania za pomocą sieci szkieletowej usług](service-fabric-tutorial-deploy-api-management.md)
+> [Wdrażanie usługi API Management z usługą Service Fabric](service-fabric-tutorial-deploy-api-management.md)

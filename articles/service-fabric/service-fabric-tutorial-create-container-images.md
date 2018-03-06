@@ -1,6 +1,6 @@
 ---
 title: "Tworzenie obrazów kontenerów dla usługi Azure Service Fabric | Microsoft Docs"
-description: "Informacje o sposobie tworzenia obrazów kontenerów dla aplikacji obsługującej wiele kontenerów usługi Service Fabric."
+description: "Z tego samouczka dowiesz się, jak utworzyć obrazy kontenerów dla aplikacji obsługującej wiele kontenerów usługi Service Fabric."
 services: service-fabric
 documentationcenter: 
 author: suhuruli
@@ -16,13 +16,13 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: eb7a357369b605464b9986123f3c026fd1595a6f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 13cf13ce4a1456731d08f356ca405119ce1a6480
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="create-container-images-for-service-fabric"></a>Tworzenie obrazów kontenerów dla usługi Service Fabric
+# <a name="tutorial-create-container-images-for-service-fabric"></a>Samouczek: tworzenie obrazów kontenerów dla usługi Service Fabric
 
 Ten samouczek jest częścią serii samouczków demonstrujących sposób korzystania z kontenerów w klastrze usługi Service Fabric w systemie Linux. W tym samouczku aplikacja obsługująca wiele kontenerów jest przygotowywana do użycia z usługą Service Fabric. W kolejnych samouczkach te obrazy są używane jako część aplikacji usługi Service Fabric. Ten samouczek zawiera informacje na temat wykonywania następujących czynności: 
 

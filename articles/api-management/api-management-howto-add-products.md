@@ -1,6 +1,6 @@
 ---
-title: "Jak tworzyć i publikować w usłudze Azure API Management produktu"
-description: "Dowiedz się, jak tworzyć i publikować w usłudze Azure API Management produktów."
+title: "Jak tworzyć i publikować produkt w usłudze Azure API Management"
+description: "Dowiedz się, jak tworzyć i publikować produkty w usłudze Azure API Management."
 services: api-management
 documentationcenter: 
 author: juliako
@@ -14,15 +14,15 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: e6b11145506780f9a08799c4c9daf55ba17b366d
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
-ms.translationtype: MT
+ms.openlocfilehash: b9e3127a6b055a1fe013fa91714676a7c56686c5
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-and-publish-a-product"></a>Tworzenie i publikowanie produktu  
 
-W systemie Azure API Management produkt zawiera jeden lub więcej interfejsów API, a także przydział użycia i warunki użytkowania. Po opublikowaniu produktu deweloperzy mogą subskrybować produktu i rozpocząć przy użyciu interfejsów API produktu.  
+W usłudze Azure API Management produkt zawiera co najmniej jeden interfejs API oraz limit przydziału użycia i warunki użytkowania. Po opublikowaniu produktu deweloperzy mogą go zasubskrybować i zacząć korzystać z jego interfejsów API.  
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -30,65 +30,59 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Tworzenie i publikowanie produktu
 > * Dodawanie interfejsu API do produktu
 
-![Dodano produktu](media/api-management-howto-add-products/added-product.png)
+![dodany produkt](media/api-management-howto-add-products/added-product.png)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-+ Ukończenie następujących Szybki Start: [utworzenia wystąpienia usługi Azure API Management](get-started-create-service-instance.md).
-+ Ponadto Ukończ samouczek następujących: [Import i opublikować swój pierwszy interfejs API](import-and-publish.md).
++ Wykonaj procedury przedstawione w następującym przewodniku Szybki start: [Tworzenie wystąpienia usługi Azure API Management](get-started-create-service-instance.md).
++ Ponadto wykonaj zadania z następującego samouczka: [Importowanie i publikowanie pierwszego interfejsu API](import-and-publish.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## <a name="create-and-publish-a-product"></a>Tworzenie i publikowanie produktu
 
-1. Polecenie **produktów** w menu po lewej stronie, aby wyświetlić **produktów** strony.
-2. Kliknij przycisk **+ produktu**.
+1. Kliknij pozycję **Produkty** w menu po lewej stronie, aby wyświetlić stronę **Produkty**.
+2. Kliknij pozycję **+Produkt**.
 
-    ![Dodano produktu](media/api-management-howto-add-products/add-product.png)
+    ![dodany produkt](media/api-management-howto-add-products/add-product.png)
 
-    Po dodaniu produkt, należy podać następujące informacje: 
+    Podczas dodawania produktu należy podać następujące informacje: 
 
     |Name (Nazwa)|Opis|
     |---|---|
-    |Nazwa wyświetlana|Nazwa jako użytkownik ma do pokazania w **portalu dla deweloperów**.|
-    |Name (Nazwa)|Opisową nazwę produktu.|
-    |Opis|**Opis** pole umożliwia zawierają szczegółowe informacje o produkcie, takie jak jego przeznaczenie, zapewnia dostęp do interfejsów API i inne przydatne informacje.|
-    |Stan|Naciśnij klawisz **opublikowano** Jeśli chcesz opublikować produktu. Aby można było wywołać interfejsów API w produkcie, musi zostać opublikowany produktu. Domyślnie są nieopublikowane nowych produktów i są widoczne tylko dla **Administratorzy** grupy.|
-    |Wymaga zatwierdzenia|Sprawdź **wymagają zatwierdzenia subskrypcji** Jeśli chcesz, aby administrator, aby przejrzeć i zaakceptować lub odrzucić prób subskrypcję do tego produktu. Jeśli pole jest zaznaczona, prób subskrypcji są automatycznie zatwierdzone. |
-    |Limit liczby subskrypcji|Aby ograniczyć liczbę wiele równoczesnych subskrypcji, wprowadź limit subskrypcji. |
-    |Postanowienia prawne|Mogą obejmować warunki użytkowania produktów, którzy użytkownicy muszą zaakceptować, aby korzystać z produktu.|
-    |Interfejsy API|Produkty są skojarzenia jeden lub więcej interfejsów API. Można zawierają wiele interfejsów API i ich oferty dla deweloperów za pośrednictwem portalu dla deweloperów. <br/> Podczas tworzenia produktu można dodać istniejącego interfejsu API. Interfejs API można dodać do niego później, albo z produktów **ustawienia** strony lub podczas tworzenia interfejsu API.|<br/>Deweloperzy muszą najpierw subskrybować produktu, aby uzyskać dostęp do interfejsu API. Gdy subskrybujesz one, otrzymują klucz subskrypcji, który ułatwia jakiegokolwiek interfejsu API w tym produkcie.<br/> Jeśli utworzono wystąpienie APIM jesteś administratorem już, aby zasubskrybować każdego produktu domyślnie.|
+    |Nazwa wyświetlana|Nazwa, która ma być wyświetlana w **portalu deweloperów**.|
+    |Name (Nazwa)|Opisowa nazwa produktu.|
+    |Opis|W polu **Opis** możliwe jest podanie szczegółów dotyczących produktu, takich jak jego przeznaczenie, interfejsy API, do których zapewnia dostęp, oraz innych przydatnych informacji.|
+    |Stan|Naciśnij pozycję **Opublikowano**, jeśli chcesz opublikować produkt. Aby możliwe było wywołanie interfejsów API w produkcie, produkt musi zostać najpierw opublikowany. Domyślnie nowe produkty są nieopublikowane i widoczne tylko dla użytkowników w grupie **Administratorzy**.|
+    |Wymaga zatwierdzenia|Zaznacz pole wyboru **Wymagaj zatwierdzenia subskrypcji**, jeśli chcesz, aby administrator przeglądał i akceptował lub odrzucał próby subskrypcji tego produktu. Jeśli to pole wyboru nie jest zaznaczone, próby subskrypcji będą zatwierdzane automatycznie. |
+    |Limit liczby subskrypcji|Aby ograniczyć liczby wielu równoczesnych subskrypcji, wprowadź limit subskrypcji. |
+    |Postanowienia prawne|Możesz uwzględnić warunki użytkowania produktu, które jego subskrybenci muszą zaakceptować, aby z niego korzystać.|
+    |Interfejsy API|Produkty to skojarzenia co najmniej jednego interfejsu API. Możesz uwzględnić wiele interfejsów API i zaoferować je deweloperom za pośrednictwem portalu deweloperów. <br/> Podczas tworzenia produktu możesz dodać istniejący interfejs API. Interfejs API możesz dodać do produktu później — z poziomu strony **Ustawienia** produktów lub podczas jego tworzenia.|<br/>Przed uzyskaniem dostępu do interfejsu API deweloperzy muszą najpierw zasubskrybować produkt. Podczas subskrybowania otrzymują oni klucz subskrypcji działający dla każdego interfejsu API w tym produkcie.<br/> Jeśli utworzono wystąpienie usługi APIM, oznacza to, że użytkownik jest już administratorem, więc domyślnie posiada subskrypcję każdego produktu.|
 
-3. Kliknij przycisk **Utwórz** do tworzenia nowych produktów.
+3. Kliknij pozycję **Utwórz**, aby utworzyć nowy produkt.
 
-### <a name="add-more-configurations"></a>Dodaj więcej konfiguracji
+### <a name="add-more-configurations"></a>Dodawanie dodatkowych konfiguracji
 
-Można kontynuować konfigurowanie produktu po zapisaniu go, wybierając **ustawienia** kartę. 
+Możesz kontynuować konfigurowanie produktu po zapisaniu go, wybierając kartę **Ustawienia**. 
 
-Wyświetlić/dodać subskrybentów produktu z **subskrypcje** kartę.
+Wyświetl lub dodaj subskrybentów produktu z poziomu karty **Subskrypcje**.
 
-Ustawienie widoczności produktu dla deweloperów lub gościa z **kontrola dostępu** kartę.
+Ustaw widoczność produktu dla deweloperów lub gości z poziomu karty **Kontrola dostępu**.
 
-## <a name="add-apis"></a>Dodaj interfejsów API do produktu
+## <a name="add-apis"> </a>Dodawanie interfejsów API do produktu
 
-Produkty są skojarzenia jeden lub więcej interfejsów API. Można zawierają wiele interfejsów API i ich oferty dla deweloperów za pośrednictwem portalu dla deweloperów. Podczas tworzenia produktu można dodać istniejącego interfejsu API. Interfejs API można dodać do niego później, albo z produktów **ustawienia** strony lub podczas tworzenia interfejsu API.
+Produkty to skojarzenia co najmniej jednego interfejsu API. Możesz uwzględnić wiele interfejsów API i zaoferować je deweloperom za pośrednictwem portalu deweloperów. Podczas tworzenia produktu możesz dodać istniejący interfejs API. Interfejs API możesz dodać do produktu później — z poziomu strony **Ustawienia** produktów lub podczas jego tworzenia.
 
-Deweloperzy muszą najpierw subskrybować produktu, aby uzyskać dostęp do interfejsu API. Gdy subskrybujesz one, otrzymują klucz subskrypcji, który ułatwia jakiegokolwiek interfejsu API w tym produkcie. Jeśli utworzono wystąpienie APIM jesteś administratorem już, aby zasubskrybować każdego produktu domyślnie.
+Przed uzyskaniem dostępu do interfejsu API deweloperzy muszą najpierw zasubskrybować produkt. Podczas subskrybowania otrzymują oni klucz subskrypcji działający dla każdego interfejsu API w tym produkcie. Jeśli utworzono wystąpienie usługi APIM, oznacza to, że użytkownik jest już administratorem, więc domyślnie posiada subskrypcję każdego produktu.
 
-### <a name="add-an-api-to-an-existing-product"></a>Dodaj interfejs API do istniejącego produktu
+### <a name="add-an-api-to-an-existing-product"></a>Dodawanie interfejsu API do istniejącego produktu
 
 1. Wybierz produkt.
-2. Wybierz kartę interfejsów API.
-3. Kliknij przycisk **i interfejs API**.
+2. Wybierz kartę Interfejsy API.
+3. Kliknij pozycję **+Interfejs API**.
 4. Wybierz interfejs API, a następnie kliknij przycisk **Utwórz**.
 
-## <a name="video"></a>Połączenia wideo
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Using-Products/player]
-> 
-> 
-
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
@@ -96,7 +90,7 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 > * Tworzenie i publikowanie produktu
 > * Dodawanie interfejsu API do produktu
 
-Przejdź do następnego samouczek:
+Przejdź do następnego samouczka:
 
 > [!div class="nextstepaction"]
-> [Utwórz puste interfejsu API i mock odpowiedzi interfejsu API](mock-api-responses.md)
+> [Tworzenie pustego interfejsu API i testowanie odpowiedzi interfejsu API](mock-api-responses.md)

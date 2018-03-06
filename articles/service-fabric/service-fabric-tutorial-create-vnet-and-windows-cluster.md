@@ -1,6 +1,6 @@
 ---
 title: "Tworzenie klastra usługi Service Fabric z systemem Windows na platformie Azure | Microsoft Docs"
-description: "Dowiedz się, jak wdrożyć klaster usługi Service Fabric z systemem Windows w istniejącej sieci wirtualnej platformy Azure za pomocą programu PowerShell."
+description: "Z tego samouczka dowiesz się, jak wdrożyć klaster usługi Service Fabric z systemem Windows w istniejącej sieci wirtualnej platformy Azure za pomocą programu PowerShell."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 01/22/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 76fcdff6804cd1fa66c846597218d351eb6f4c77
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7418e0420b14f044bac253046a8971d1263e45b3
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Wdrażanie klastra usługi Service Fabric z systemem Windows w sieci wirtualnej platformy Azure
+# <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Samouczek: wdrażanie klastra usługi Service Fabric z systemem Windows w sieci wirtualnej platformy Azure
 Niniejszy samouczek jest pierwszą częścią serii. Dowiesz się w nim, jak wdrożyć klaster usługi Service Fabric, na którym działa system Windows w [sieci wirtualnej platformy Azure](../virtual-network/virtual-networks-overview.md) i [sieciowej grupie zabezpieczeń](../virtual-network/virtual-networks-nsg.md) za pomocą programu PowerShell i szablonu. Po wykonaniu tych czynności powstanie działający w chmurze klaster, w którym można będzie wdrażać aplikacje.  Aby utworzyć klaster z systemem Linux za pomocą interfejsu wiersza polecenia platformy Azure, zobacz [Tworzenie bezpiecznego klastra z systemem Linux na platformie Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 W tym samouczku opisano scenariusz produkcyjny.  Jeśli chcesz szybko utworzyć niewielki klaster do celów testowych, zobacz [Tworzenie klastra testowego z trzema węzłami](./scripts/service-fabric-powershell-create-test-cluster.md).

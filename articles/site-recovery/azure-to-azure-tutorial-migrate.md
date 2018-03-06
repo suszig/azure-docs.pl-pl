@@ -5,13 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 01/07/2018
+ms.date: 02/27/2018
 ms.author: raynew
-ms.openlocfilehash: cb815f7d9c0556efcce58b53d6037e3fc8ed9c78
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.custom: MVC
+ms.openlocfilehash: abae7cbd21a2c7f49dc1fe85711b80dc43a10517
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>Migrowanie maszyn wirtualnych platformy Azure do innego regionu
 
@@ -123,7 +124,8 @@ Usługa Site Recovery pobiera listę maszyn wirtualnych skojarzonych z subskrypc
 2. W obszarze **Tryb failover** wybierz pozycję **Najnowsze**. Ustawienie klucza szyfrowania nie ma znaczenia w przypadku tego scenariusza.
 3. Wybierz pozycję **Zamknij maszynę przed rozpoczęciem pracy w trybie failover**. Usługa Site Recovery próbuje zamknąć źródłową maszynę wirtualną przed wyzwoleniem trybu failover. Przełączanie do trybu failover będzie kontynuowane, nawet jeśli zamknięcie nie powiedzie się. Na stronie **Zadania** można śledzić postęp trybu failover.
 4. Sprawdź, czy maszyna wirtualna Azure jest wyświetlana na platformie Azure zgodnie z oczekiwaniami.
-5. W obszarze **Replikowane elementy** kliknij prawym przyciskiem myszy maszynę wirtualną > **Zakończ migrację**. Spowoduje to zakończenie procesu migracji i zatrzymanie replikacji maszyny wirtualnej.
+5. W obszarze **Replikowane elementy** kliknij prawym przyciskiem myszy maszynę wirtualną, a następnie kliknij pozycję **Zatwierdź**. Spowoduje to zakończenie procesu migracji.
+6. Po zakończeniu zatwierdzania kliknij pozycję **Wyłącz replikację**.  Spowoduje to zatrzymanie replikacji maszyny wirtualnej.
 
 
 

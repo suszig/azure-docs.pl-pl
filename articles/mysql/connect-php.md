@@ -1,20 +1,20 @@
 ---
-title: "Nawiązywanie połączeń z usługą Azure Database for MySQL za pomocą języka PHP | Microsoft Docs"
+title: "Nawiązywanie połączeń z usługą Azure Database for MySQL za pomocą języka PHP"
 description: "Ten przewodnik Szybki start zawiera kilka przykładów kodu PHP, których można używać do nawiązywania połączeń z danymi usługi Azure Database for MySQL i wykonywania zapytań względem nich."
 services: mysql
 author: mswutao
 ms.author: wuta
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 09/22/2017
-ms.openlocfilehash: 5c4f718809a95831ec6927d4f7b206d76c87b224
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.date: 02/28/2018
+ms.openlocfilehash: d20aaf8a4cabd4e013e7ff43010c0f463eaccb79
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-mysql-use-php-to-connect-and-query-data"></a>Usługa Azure Database for MySQL: nawiązywanie połączeń z danymi i wykonywanie na nich zapytań za pomocą języka PHP
 Ten przewodnik Szybki start przedstawia sposób nawiązywania połączeń z usługą Azure Database for MySQL przy użyciu aplikacji języka [PHP](http://php.net/manual/intro-whatis.php). Pokazano w nim, jak używać instrukcji języka SQL w celu wysyłania zapytań o dane oraz wstawiania, aktualizowania i usuwania danych w bazie danych. W tym temacie założono, że wiesz już, jak opracowywać zawartość za pomocą języka PHP, i dopiero zaczynasz pracę z usługą Azure Database for MySQL.
@@ -43,11 +43,10 @@ Zainstaluj język PHP na własnym serwerze lub utwórz [aplikację internetową]
 Pobierz informacje o połączeniu potrzebne do nawiązania połączenia z usługą Azure Database for MySQL. Potrzebna jest w pełni kwalifikowana nazwa serwera i poświadczenia logowania.
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
-2. W lewym okienku kliknij pozycję **Wszystkie zasoby**, a następnie wyszukaj utworzony serwer (na przykład **myserver4demo**).
+2. W menu po lewej stronie w witrynie Azure Portal kliknij pozycję **Wszystkie zasoby** i wyszukaj utworzony serwer, taki jak **mydemoserver**.
 3. Kliknij nazwę serwera.
-4. Wybierz stronę **Właściwości** serwera, a następnie zanotuj **nazwę serwera** i **nazwę logowania administratora serwera**.
- ![Nazwa serwera usługi Azure Database for MySQL](./media/connect-php/1_server-properties-name-login.png)
-5. Jeśli nie pamiętasz informacji logowania do serwera, przejdź do strony **Przegląd**, aby wyświetlić nazwę logowania administratora serwera oraz w razie konieczności zresetować hasło.
+4. Po przejściu do panelu **Przegląd** serwera zanotuj **nazwę serwera** i **nazwę logowania administratora serwera**. Jeśli zapomnisz hasła, możesz również je zresetować z poziomu tego panelu.
+ ![Nazwa serwera usługi Azure Database for MySQL](./media/connect-php/1_server-overview-name-login.png)
 
 ## <a name="connect-and-create-a-table"></a>Łączenie i tworzenie tabeli
 Użyj poniższego kodu w celu nawiązania połączenia i utworzenia tabeli za pomocą instrukcji **CREATE TABLE** języka SQL. 
@@ -58,8 +57,8 @@ Zastąp parametry hosta, nazwy użytkownika, hasła i nazwy bazy danych własnym
 
 ```php
 <?php
-$host = 'myserver4demo.mysql.database.azure.com';
-$username = 'myadmin@myserver4demo';
+$host = 'mydemoserver.mysql.database.azure.com';
+$username = 'myadmin@mydemoserver';
 $password = 'your_password';
 $db_name = 'your_database';
 
@@ -97,8 +96,8 @@ Zastąp parametry hosta, nazwy użytkownika, hasła i nazwy bazy danych własnym
 
 ```php
 <?php
-$host = 'myserver4demo.mysql.database.azure.com';
-$username = 'myadmin@myserver4demo';
+$host = 'mydemoserver.mysql.database.azure.com';
+$username = 'myadmin@mydemoserver';
 $password = 'your_password';
 $db_name = 'your_database';
 
@@ -132,8 +131,8 @@ Zastąp parametry hosta, nazwy użytkownika, hasła i nazwy bazy danych własnym
 
 ```php
 <?php
-$host = 'myserver4demo.mysql.database.azure.com';
-$username = 'myadmin@myserver4demo';
+$host = 'mydemoserver.mysql.database.azure.com';
+$username = 'myadmin@mydemoserver';
 $password = 'your_password';
 $db_name = 'your_database';
 
@@ -165,8 +164,8 @@ Zastąp parametry hosta, nazwy użytkownika, hasła i nazwy bazy danych własnym
 
 ```php
 <?php
-$host = 'myserver4demo.mysql.database.azure.com';
-$username = 'myadmin@myserver4demo';
+$host = 'mydemoserver.mysql.database.azure.com';
+$username = 'myadmin@mydemoserver';
 $password = 'your_password';
 $db_name = 'your_database';
 
@@ -203,8 +202,8 @@ Zastąp parametry hosta, nazwy użytkownika, hasła i nazwy bazy danych własnym
 
 ```php
 <?php
-$host = 'myserver4demo.mysql.database.azure.com';
-$username = 'myadmin@myserver4demo';
+$host = 'mydemoserver.mysql.database.azure.com';
+$username = 'myadmin@mydemoserver';
 $password = 'your_password';
 $db_name = 'your_database';
 

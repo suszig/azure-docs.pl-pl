@@ -2,17 +2,17 @@
 title: "Wprowadzenie do interfejsu wiersza polecenia usługi Azure Service Fabric"
 description: "Dowiedz się, jak korzystać z interfejsu wiersza polecenia usługi Azure Service Fabric. Dowiedz się, jak nawiązać połączenie z klastrem i zarządzać aplikacjami."
 services: service-fabric
-author: samedder
+author: Christina-Kang
 manager: timlt
 ms.service: service-fabric
 ms.topic: get-started-article
 ms.date: 10/20/2017
-ms.author: edwardsa
-ms.openlocfilehash: 3d7c79e00d2b41669296d08250cb73434000cbb2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: bikang
+ms.openlocfilehash: 9ad1286ffdf0c45a73b0f4a472bc0de683d20ee5
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-service-fabric-cli"></a>Interfejs wiersza polecenia usługi Azure Service Fabric
 
@@ -32,7 +32,8 @@ Interfejs wiersza polecenia usługi Service Fabric jest przeznaczony do obsługi
 
 | Wersja interfejsu wiersza polecenia   | Obsługiwana wersja środowiska uruchomieniowego |
 |---------------|---------------------------|
-| Najnowsza (~=3)  | Najnowsza (~=6.0)            |
+| Najnowsza (~=4)  | Najnowsza (~=6.1)            |
+| 3.0.0         | 6.0                       |
 | 1.1.0         | 5.6, 5.7                  |
 
 Opcjonalnie można określić docelową wersję interfejsu wiersza polecenia do zainstalowania, dodając do polecenia `pip install` sufiks z wersją `==<version>`. Na przykład składnia dla wersji 1.1.0 będzie następująca:

@@ -1,6 +1,6 @@
 ---
 title: "Tworzenie klastra usługi Service Fabric systemu Linux na platformie Azure | Microsoft Docs"
-description: "Dowiedz się, jak wdrożyć klaster usługi Service Fabric systemu Linux w istniejącej sieci wirtualnej platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure."
+description: "Z tego samouczka dowiesz się, jak wdrożyć klaster usługi Service Fabric systemu Linux w istniejącej sieci wirtualnej platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 01/22/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 3b09e676a26336d1ef1e744f9e45066c4815fe21
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: e6cbc8c3c7e1a9ebe9684efb0fa6ffa0717240ea
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="deploy-a-service-fabric-linux-cluster-into-an-azure-virtual-network"></a>Wdrażanie klastra usługi Service Fabric systemu Linux w sieci wirtualnej platformy Azure
+# <a name="tutorial-deploy-a-service-fabric-linux-cluster-into-an-azure-virtual-network"></a>Samouczek: wdrażanie klastra usługi Service Fabric systemu Linux w sieci wirtualnej platformy Azure
 Niniejszy samouczek jest pierwszą częścią serii. Dowiesz się w nim, jak wdrożyć klaster usługi Service Fabric systemu Linux w [sieci wirtualnej (VNET) platformy Azure](../virtual-network/virtual-networks-overview.md) i [sieciowej grupie zabezpieczeń](../virtual-network/virtual-networks-nsg.md) za pomocą szablonu i interfejsu wiersza polecenia platformy Azure. Po wykonaniu tych czynności powstanie działający w chmurze klaster, w którym można będzie wdrażać aplikacje. Aby utworzyć klaster systemu Windows za pomocą programu PowerShell, zobacz [Tworzenie bezpiecznego klastra systemu Windows na platformie Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
@@ -119,7 +119,7 @@ Plik parametrów [vnet-cluster.parameters.json][parameters] deklaruje wiele wart
 |---|---||
 |adminUserName|vmadmin| Nazwa użytkownika będącego administratorem maszyn wirtualnych klastra. |
 |adminPassword|Haslo#1234| Hasło administratora maszyn wirtualnych klastra.|
-|clusterName|mysfcluster123| Nazwa klastra. |
+|clusterName|mojklastersf123| Nazwa klastra. |
 |location|southcentralus| Lokalizacja klastra. |
 |certificateThumbprint|| <p>W przypadku tworzenia certyfikatu z podpisem własnym lub podania pliku certyfikatu ta wartość powinna być pusta.</p><p>Aby użyć istniejącego certyfikatu, który został wcześniej przekazany do magazynu kluczy, wprowadź wartość odcisku palca certyfikatu. Na przykład „6190390162C988701DB5676EB81083EA608DCCF3”. </p>| 
 |certificateUrlValue|| <p>W przypadku tworzenia certyfikatu z podpisem własnym lub podania pliku certyfikatu ta wartość powinna być pusta.</p><p>Aby użyć istniejącego certyfikatu, który został wcześniej przekazany do magazynu kluczy, wprowadź adres URL certyfikatu. Na przykład „https://mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346”.</p>|

@@ -1,6 +1,6 @@
 ---
-title: "Wykonaj kopię zapasową maszyn wirtualnych systemu Linux platformy Azure | Dokumentacja firmy Microsoft"
-description: "Ochrona maszyn wirtualnych systemu Linux przez tworzenie ich kopii zapasowych za pomocą usługi Kopia zapasowa Azure."
+title: Tworzenie kopii zapasowych maszyn wirtualnych z systemem Linux na platformie Azure | Microsoft Docs
+description: "Ochroń swoje maszyny wirtualne z systemem Linux, tworząc ich kopie zapasowe przy użyciu usługi Azure Backup."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,30 +16,30 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2eb0958169b175813b0dca775e9250da1cb364d4
-ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
-ms.translationtype: MT
+ms.openlocfilehash: 1c07fa40964fdcbae6ec1cbbbf77094753956cf1
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/23/2018
 ---
-# <a name="back-up-linux--virtual-machines-in-azure"></a>Tworzenie kopii zapasowych maszyn wirtualnych systemu Linux na platformie Azure
+# <a name="back-up-linux--virtual-machines-in-azure"></a>Tworzenie kopii zapasowych maszyn wirtualnych z systemem Linux na platformie Azure
 
-Możesz chronić swoje dane, tworząc kopie zapasowe w regularnych odstępach czasu. Kopia zapasowa Azure tworzy punkty odzyskiwania, które są przechowywane w magazynach odzyskiwania z magazynu geograficznie nadmiarowego. Po przywróceniu z punktu odzyskiwania, można przywrócić całej maszyny Wirtualnej lub po prostu określonych plików. W tym artykule opisano sposób przywracania jednego pliku do maszyny Wirtualnej systemu Linux uruchomiony nginx. Jeśli nie masz jeszcze maszynę Wirtualną do obsługi, możesz utworzyć go przy użyciu [szybkiego startu Linux](quick-create-cli.md). Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Możesz chronić swoje dane, tworząc kopie zapasowe w regularnych odstępach czasu. Usługa Azure Backup tworzy punkty odzyskiwania przechowywane w geograficznie nadmiarowych magazynach odzyskiwania. Z punktu odzyskiwania można przywrócić całą maszynę wirtualną lub tylko poszczególne pliki. W tym artykule opisano sposób przywracania pojedynczego pliku na maszynę wirtualną z systemem Linux i uruchomionym serwerem nginx. Jeśli nie masz jeszcze maszyny wirtualnej gotowej do użycia, możesz ją utworzyć, korzystając z [przewodnika Szybki start dla systemu Linux](quick-create-cli.md). Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Utwórz kopię zapasową maszyny Wirtualnej
-> * Harmonogram tworzenia codziennej kopii zapasowej
-> * Przywróć plik z kopii zapasowej
+> * Tworzenie kopii zapasowej maszyny wirtualnej
+> * Harmonogram codziennego wykonywania kopii zapasowej
+> * Przywracanie pliku z kopii zapasowej
 
 
 
 ## <a name="backup-overview"></a>Omówienie usługi Backup
 
-Gdy usługa Azure Backup Inicjuje kopii zapasowej, wyzwala zapasowy numer wewnętrzny do tworzenia migawki punktu w czasie. Używa usługi Azure Backup _VMSnapshotLinux_ rozszerzenia w systemie Linux. Rozszerzenie jest zainstalowany podczas pierwszego tworzenia kopii zapasowej maszyny Wirtualnej, jeśli maszyna wirtualna jest uruchomiona. Jeśli maszyna wirtualna nie działa, usługa Kopia zapasowa tworzy migawkę powiązany magazyn (ponieważ nie zapisy aplikacji są wykonywane, gdy maszyna wirtualna zostanie zatrzymana).
+Gdy usługa Azure Backup inicjuje kopię zapasową, wyzwala rozszerzenie kopii zapasowej, aby utworzyć migawkę punktu w czasie. Usługa Azure Backup używa rozszerzenia _VMSnapshotLinux_ w systemie Linux. Rozszerzenie jest instalowane podczas tworzenia pierwszej kopii zapasowej maszyny wirtualnej, jeśli maszyna wirtualna jest uruchomiona. Jeśli maszyna wirtualna nie jest uruchomiona, usługa Backup utworzy migawkę powiązanego magazynu (ponieważ gdy maszyna wirtualna jest zatrzymana, nie występują zapisy aplikacji).
 
-Domyślnie kopia zapasowa Azure przyjmuje kopia zapasowa spójna systemu plików dla maszyny Wirtualnej systemu Linux, ale może być skonfigurowana do podjęcia [przy użyciu platformy skryptów przed i po skrypt kopii zapasowej spójnej aplikacji](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent). Gdy usługa Kopia zapasowa Azure przyjmuje migawki, dane są przesyłane do magazynu. Aby zmaksymalizować wydajność, usługa identyfikuje i transferuje tylko bloki danych, które uległy zmianie od czasu poprzedniej kopii zapasowej.
+Domyślnie usługa Azure Backup tworzy kopię zapasową maszyny wirtualnej z systemem Linux spójną pod względem systemu plików, ale można ją skonfigurować do tworzenia [kopii zapasowej spójnej pod względem aplikacji przy użyciu struktury skryptów poprzedzających i skryptów używanych po utworzeniu kopii zapasowej](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent). Po utworzeniu migawki w usłudze Azure Backup dane są przesyłane do magazynu. Aby zmaksymalizować wydajność, usługa rozpoznaje i przesyła jedynie te bloki danych, które uległy zmianie od czasu utworzenia poprzedniej kopii zapasowej.
 
-Po ukończeniu transferu danych migawki zostaną usunięte i utworzenia punktu odzyskiwania.
+Po ukończeniu przesyłania danych migawka jest usuwana, a utworzony zostaje punkt odzyskiwania.
 
 
 ## <a name="create-a-backup"></a>Tworzenie kopii zapasowej
@@ -48,81 +48,81 @@ Utwórz prostą, zaplanowaną, codzienną operację tworzenia kopii zapasowych w
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 2. W menu po lewej stronie wybierz pozycję **Maszyny wirtualne**. 
 3. Z listy wybierz maszynę wirtualną do utworzenia kopii zapasowej.
-4. W bloku maszyny Wirtualnej w **ustawienia** kliknij **kopii zapasowej**. **Kopii zapasowej Włącz** zostanie otwarty blok.
-5. W **magazyn usług odzyskiwania i**, kliknij przycisk **Utwórz nowy** i podaj nazwę dla nowego magazynu. Nowy magazyn jest tworzony w tej samej lokalizacji co maszyna wirtualna i grupy zasobów.
-6. Kliknij przycisk **kopii zapasowej zasad**. W tym przykładzie należy zachować ustawienia domyślne, a następnie kliknij przycisk **OK**.
-7. Na **kopii zapasowej Włącz** bloku, kliknij przycisk **Włącz kopię zapasową**. Spowoduje to utworzenie kopii zapasowej codziennie na podstawie harmonogramu domyślnego.
-10. Tworzenie punktu odzyskiwania początkowej na **kopii zapasowej** kliknij bloku **wykonaj kopię zapasową teraz**.
-11. Na **Utwórz kopię zapasową teraz** bloku, kliknij ikonę kalendarza, użyj formant kalendarza, aby wybrać ostatni dzień tego punktu odzyskiwania jest zachowywana, a następnie kliknij przycisk **kopii zapasowej**.
-12. W **kopii zapasowej** bloku dla maszyny Wirtualnej, zobaczysz liczbę punktów odzyskiwania, które są spełnione.
+4. W bloku maszyny wirtualnej w sekcji **Ustawienia** kliknij pozycję **Kopia zapasowa**. Spowoduje to otwarcie bloku **Włącz kopię zapasową**.
+5. W **Magazynie usługi Recovery Services** kliknij pozycję **Utwórz nowy** i podaj nazwę nowego magazynu. Nowy magazyn zostanie utworzony w tej samej lokalizacji i tej samej grupie zasobów co maszyna wirtualna.
+6. Kliknij opcję **Zasady tworzenia kopii zapasowych**. W tym przykładzie zachowaj ustawienia domyślne i kliknij przycisk **OK**.
+7. W bloku **Włącz kopię zapasową** kliknij pozycję **Włącz kopię zapasową**. Spowoduje to codzienne tworzenie kopii zapasowej na podstawie harmonogramu domyślnego.
+10. Aby utworzyć początkowy punkt odzyskiwania, w bloku **Kopia zapasowa** kliknij opcję **Utwórz kopię zapasową teraz**.
+11. W bloku **Utwórz kopię zapasową teraz** kliknij ikonę kalendarza, wybierz ostatni dzień okresu zachowywania tego punktu odzyskiwania przy użyciu kontrolki kalendarza, a następnie kliknij pozycję **Kopia zapasowa**.
+12. W bloku **Kopia zapasowa** dla maszyny wirtualnej zobaczysz liczbę ukończonych punktów odzyskiwania.
 
     ![Punkty odzyskiwania](./media/tutorial-backup-vms/backup-complete.png)
 
-Pierwszej kopii zapasowej trwa około 20 minut. Po zakończeniu tworzenia kopii zapasowej, należy przejść do następnej części tego samouczka.
+Tworzenie pierwszej kopii zapasowej zajmuje około 20 minut. Przejdź do następnej części tego samouczka po utworzeniu kopii zapasowej.
 
-## <a name="restore-a-file"></a>Przywróć plik
+## <a name="restore-a-file"></a>Przywracanie pliku
 
-Jeśli przypadkowo usunięte lub wprowadzić zmiany w pliku, możesz użyć odzyskiwania plików, aby odzyskać plik z magazynu kopii zapasowej. Odzyskiwanie plików używa skryptu uruchamianego na maszynie Wirtualnej, należy zainstalować punkt odzyskiwania jako dysk lokalny. Dyski te pozostanie zainstalowanego na 12 godzin, co może kopiować pliki z punktu odzyskiwania i przywrócić je do maszyny Wirtualnej.  
+Jeżeli przypadkowo usuniesz plik lub wprowadzisz w nim zmiany, możesz użyć opcji odzyskiwania plików, aby odzyskać plik z magazynu kopii zapasowej. Odzyskiwanie plików używa skryptu uruchamianego na maszynie wirtualnej, aby zainstalować punkt odzyskiwania jako dysk lokalny. Dyski te pozostaną zainstalowane przez 12 godzin, więc możesz kopiować pliki z punktu odzyskiwania i przywracać je na maszynę wirtualną.  
 
-W tym przykładzie zostanie przedstawiony sposób odzyskiwania /var/www/html/index.nginx-debian.html strony sieci web nginx domyślne. Publiczny adres IP w naszym maszyny wirtualnej w tym przykładzie jest *13.69.75.209*. Można znaleźć adres IP za pomocą maszyny wirtualnej:
+W tym przykładzie przedstawiono sposób odzyskiwania domyślnej strony internetowej serwera nginx /var/www/html/index.nginx-debian.html. Publiczny adres IP maszyny wirtualnej w tym przykładzie to *13.69.75.209*. Możesz znaleźć adres IP maszyny wirtualnej w następujący sposób:
 
  ```bash 
  az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
  ```
 
  
-1. Na komputerze lokalnym otwórz przeglądarkę i typ publiczny adres IP sieci maszyny wirtualnej, aby zobaczyć domyślnej strony sieci web nginx.
+1. Na komputerze lokalnym otwórz przeglądarkę internetową i wpisz publiczny adres IP maszyny wirtualnej, aby wyświetlić domyślną stronę internetową serwera nginx.
 
-    ![Domyślna strona sieci web nginx](./media/tutorial-backup-vms/nginx-working.png)
+    ![Domyślna strona internetowa serwera nginx](./media/tutorial-backup-vms/nginx-working.png)
 
-1. Nawiąż połączenie z maszyną Wirtualną.
+1. Połącz się z maszyną wirtualną za pośrednictwem protokołu SSH.
 
     ```bash
     ssh 13.69.75.209
     ```
-2. Usuń /var/www/html/index.nginx-debian.html.
+2. Usuń plik /var/www/html/index.nginx-debian.html.
 
     ```bash
     sudo rm /var/www/html/index.nginx-debian.html
     ```
     
-4. Na komputerze lokalnym należy odświeżyć przeglądarkę przez naciśnięcie klawiszy CTRL + F5, aby zobaczyć, że domyślna strona nginx został usunięty.
+4. Na komputerze lokalnym odśwież przeglądarkę, naciskając klawisze CTRL + F5, aby zobaczyć, że domyślna strona serwera nginx została usunięta.
 
-    ![Domyślna strona sieci web nginx](./media/tutorial-backup-vms/nginx-broken.png)
+    ![Domyślna strona internetowa serwera nginx](./media/tutorial-backup-vms/nginx-broken.png)
     
-1. Na komputerze lokalnym, zaloguj się do [portalu Azure](https://portal.azure.com/).
+1. Na komputerze lokalnym zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 6. W menu po lewej stronie wybierz pozycję **Maszyny wirtualne**. 
-7. Z listy wybierz maszynę Wirtualną.
-8. W bloku maszyny Wirtualnej w **ustawienia** kliknij **kopii zapasowej**. **Kopii zapasowej** zostanie otwarty blok. 
-9. Wybierz z menu w górnej części bloku **odzyskiwanie plików**. **Odzyskiwanie plików** zostanie otwarty blok.
-10. W **krok 1: Wybierz punkt odzyskiwania**, wybierz punkt odzyskiwania z listy rozwijanej.
-11. W **krok 2: Pobieranie skryptu, aby przeglądać i odzyskiwanie plików**, kliknij przycisk **Pobierz plik wykonywalny** przycisku. Zapisz pobrany plik na komputerze lokalnym.
-7. Kliknij przycisk **pobrać skryptu** pobrać lokalnie plik skryptu.
-8. Otwórz wiersz Bash i wpisz następujące polecenie, zastępując *Linux_myVM_05-05-2017.sh* z poprawną ścieżkę i nazwę pliku skryptu, który został pobrany, *azureuser* z nazwą użytkownika dla maszyny Wirtualnej i *13.69.75.209* z publicznym adresem IP dla maszyny Wirtualnej.
+7. Z listy wybierz maszynę wirtualną.
+8. W bloku maszyny wirtualnej w sekcji **Ustawienia** kliknij pozycję **Kopia zapasowa**. Zostanie otwarty blok **Kopia zapasowa**. 
+9. W menu w górnej części bloku wybierz opcję **Odzyskiwanie pliku**. Zostanie otwarty blok **Odzyskiwanie plików**.
+10. W obszarze **Krok 1. Wybieranie punktu odzyskiwania** wybierz punkt odzyskiwania z listy rozwijanej.
+11. W obszarze **Krok 2. Pobieranie skryptu na potrzeby przeglądania i odzyskiwania plików** kliknij przycisk **Pobierz plik wykonywalny**. Zapisz pobrany plik na komputerze lokalnym.
+7. Kliknij przycisk **Pobierz skrypt**, aby pobrać lokalnie plik skryptu.
+8. Otwórz wiersz Bash i wpisz następujące polecenie, zastępując fragmenty *Linux_myVM_05-05-2017.sh* prawidłową ścieżką i nazwą pliku pobranego skryptu, *azureuser* nazwą użytkownika maszyny wirtualnej oraz *13.69.75.209* publicznym adresem IP maszyny wirtualnej.
     
     ```bash
     scp Linux_myVM_05-05-2017.sh azureuser@13.69.75.209:
     ```
     
-9. Na komputerze lokalnym należy otworzyć połączenie SSH maszyny Wirtualnej.
+9. Na komputerze lokalnym otwórz połączenie SSH z maszyną wirtualną.
 
     ```bash
     ssh 13.69.75.209
     ```
     
-10. Na maszynie Wirtualnej, należy dodać uprawnienia do pliku skryptu do wykonywania.
+10. Na maszynie wirtualnej dodaj uprawnienia do wykonywania do pliku skryptu.
 
     ```bash
     chmod +x Linux_myVM_05-05-2017.sh
     ```
     
-11. Na maszynie Wirtualnej należy uruchomić skrypt w celu punktu odzyskiwania jako system plików instalacji.
+11. Na maszynie wirtualnej uruchom skrypt, aby zainstalować punkt odzyskiwania jako system plików.
 
     ```bash
     ./Linux_myVM_05-05-2017.sh
     ```
     
-12. Dane wyjściowe skryptu zawiera ścieżkę punktu instalacji. Dane wyjściowe wygląda podobnie do następującej:
+12. Dane wyjściowe skryptu zawierają ścieżkę punktu instalacji. Dane wyjściowe wyglądają podobnie do następujących:
 
     ```bash
     Microsoft Azure VM Backup - File Recovery
@@ -147,30 +147,30 @@ W tym przykładzie zostanie przedstawiony sposób odzyskiwania /var/www/html/ind
     Please enter 'q/Q' to exit...
     ```
 
-12. Na maszynie Wirtualnej należy skopiować domyślnej strony sieci web nginx z punktu instalacji, do której usunąć plik.
+12. Na maszynie wirtualnej skopiuj domyślną stronę internetową serwera nginx z punktu instalacji z powrotem do miejsca, z którego usunięto plik.
 
     ```bash
     sudo cp ~/myVM-20170505191055/Volume1/var/www/html/index.nginx-debian.html /var/www/html/
     ```
     
-17. Na komputerze lokalnym otwórz kartę przeglądarki, w której są podłączone do adresu IP maszyny wirtualnej przedstawiający nginx domyślnej strony. Naciśnij klawisze CTRL + F5, aby odświeżyć stronę przeglądarki. Powinna zostać wyświetlona domyślna strona działa ponownie.
+17. Na komputerze lokalnym otwórz kartę przeglądarki internetowej, na której nawiązano połączenie z adresem IP maszyny wirtualnej i wyświetlono domyślną stronę serwera nginx. Naciśnij klawisze CTRL + F5, aby odświeżyć stronę przeglądarki. Teraz można zobaczyć, że strona domyślna ponownie działa.
 
-    ![Domyślna strona sieci web nginx](./media/tutorial-backup-vms/nginx-working.png)
+    ![Domyślna strona internetowa serwera nginx](./media/tutorial-backup-vms/nginx-working.png)
 
-18. Na komputerze lokalnym, wróć do karty przeglądarki dla portalu Azure i w **krok 3: odinstaluj dyski po odzyskaniu** kliknij **odinstalować dyski** przycisku. Jeśli zapomnisz wykonać ten krok, połączenie punktu instalacji zostaje automatycznie zamknięty po 12 godzinach. Po tych 12 godzin należy pobrać nowe skryptu można utworzyć nowego punktu instalacji.
+18. Na komputerze lokalnym wróć do karty przeglądarki internetowej z witryną Azure Portal i w obszarze **Krok 3. Odinstalowanie dysków po odzyskiwaniu** kliknij przycisk **Odinstaluj dyski**. Jeśli pominiesz ten krok, połączenie z punktem instalacji zostanie automatycznie zamknięte po 12 godzinach. Po upłynięciu tych 12 godzin musisz pobrać nowy skrypt, aby utworzyć nowy punkt instalacji.
 
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Utwórz kopię zapasową maszyny Wirtualnej
-> * Harmonogram tworzenia codziennej kopii zapasowej
-> * Przywróć plik z kopii zapasowej
+> * Tworzenie kopii zapasowej maszyny wirtualnej
+> * Harmonogram codziennego wykonywania kopii zapasowej
+> * Przywracanie pliku z kopii zapasowej
 
-Przejdź do następnego samouczka, aby dowiedzieć się więcej na temat monitorowania maszyn wirtualnych.
+Przejdź do następnego samouczka, aby uzyskać informacje o monitorowaniu maszyn wirtualnych.
 
 > [!div class="nextstepaction"]
-> [Monitorowanie maszyn wirtualnych](tutorial-monitoring.md)
+> [Zarządzanie maszynami wirtualnymi](tutorial-govern-resources.md)
 

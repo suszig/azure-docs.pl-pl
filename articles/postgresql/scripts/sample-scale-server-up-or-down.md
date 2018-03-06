@@ -1,48 +1,48 @@
 ---
-title: Azure CLI Azure skali skryptu bazy danych PostgreSQL | Dokumentacja firmy Microsoft
-description: "Przykładowym skrypcie usługi Azure CLI - skalowania bazy danych Azure PostgreSQL serwera do poziomu wydajności różnych po zapytań metryki."
+title: "Skryptu interfejsu wiersza polecenia platformy Azure — skalowanie bazy danych Azure Database for PostgreSQL"
+description: "Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — skalowanie serwera usługi Azure Database for PostgreSQL na inny poziom wydajności po wykonaniu zapytania względem metryk."
 services: postgresql
-author: salonisonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.custom: mvc
 ms.topic: sample
-ms.date: 11/27/2017
-ms.openlocfilehash: a5a24e9aeea193df28bd49d5c428a72b5ec75d1b
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
-ms.translationtype: MT
+ms.date: 02/28/2018
+ms.openlocfilehash: 21021485a7fe5f9bf32da76b507360290b8cfe66
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="monitor-and-scale-a-single-postgresql-server-using-azure-cli"></a>Monitorowanie i skalować pojedynczy serwer PostgreSQL przy użyciu wiersza polecenia platformy Azure
-Ten przykładowy skrypt CLI skaluje pojedynczej bazy danych Azure PostgreSQL serwera do poziomu wydajności różnych po zapytań metryki. 
+# <a name="monitor-and-scale-a-single-postgresql-server-using-azure-cli"></a>Monitorowanie i skalowanie pojedynczego serwera PostgreSQL za pomocą interfejsu wiersza polecenia platformy Azure
+Ten przykładowy skrypt interfejsu wiersza polecenia służy do skalowania pojedynczego serwera usługi Azure Database for PostgreSQL na inny poziom wydajności po wykonaniu zapytania względem metryk. 
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten artykuł będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
+Jeśli zdecydujesz się uruchomić interfejs wiersza polecenia lokalnie, na potrzeby tego artykułu wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Sprawdź wersję, uruchamiając polecenie `az --version`. Aby zainstalować lub uaktualnić wersję interfejsu wiersza polecenia platformy Azure, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Przykładowy skrypt
-Ten przykładowy skrypt Zmień wyróżnione wiersze w celu dostosowania nazwa użytkownika i hasło. Zastąp identyfikator subskrypcji używane w poleceniach monitor az z identyfikatorem subskrypcji.
-[!code-azurecli-interactive[main](../../../cli_scripts/postgresql/scale-postgresql-server/scale-postgresql-server.sh?highlight=15-16 "Create and scale Azure Database for PostgreSQL.")]
+W tym przykładowym skrypcie dokonaj edycji wyróżnionych wierszy w celu zmiany nazwy użytkownika i hasła administratora na swoje własne. Zastąp identyfikator subskrypcji używany w poleceniach `az monitor` własnym identyfikatorem subskrypcji.
+[!code-azurecli-interactive[main](../../../cli_scripts/postgresql/scale-postgresql-server/scale-postgresql-server.sh?highlight=18-19 "Create and scale Azure Database for PostgreSQL.")]
 
 ## <a name="clean-up-deployment"></a>Czyszczenie wdrożenia
-Po uruchomieniu przykładowy skrypt następującego polecenia można usunąć grupy zasobów i wszystkie zasoby skojarzone z nim.
+Po uruchomieniu skryptu użyj następującego polecenia, aby usunąć grupę zasobów i wszystkie skojarzone z nią zasoby. 
 [!code-azurecli-interactive[main](../../../cli_scripts/postgresql/scale-postgresql-server/delete-postgresql.sh "Delete the resource group.")]
 
-## <a name="script-explanation"></a>Wyjaśnienie skryptu
-Ten skrypt używa następujących poleceń. Każde polecenie w tabeli łącza do dokumentacji określonego polecenia.
+## <a name="script-explanation"></a>Objaśnienia dla skryptu
+Ten skrypt używa poleceń opisanych w poniższej tabeli:
 
 | **Polecenie** | **Uwagi** |
 |---|---|
-| [Tworzenie grupy az](/cli/azure/group#az_group_create) | Tworzy grupę zasobów, w którym przechowywane są wszystkie zasoby. |
-| [utworzenie przez serwer postgres az](/cli/azure/postgres/server#az_postgres_server_create) | Tworzy serwer PostgreSQL, który jest hostem bazy danych. |
-| [Lista metryki monitor az](/cli/azure/monitor/metrics#az_monitor_metrics_list) | Wyświetl listę wartość metryki dla zasobów. |
-| [Usuwanie grupy az](/cli/azure/group#az_group_delete) | Usuwa grupę zasobów, w tym wszystkich zagnieżdżonych zasobów. |
+| [az group create](/cli/azure/group#az_group_create) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
+| [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create) | Tworzy serwer PostgreSQL hostujący bazy danych. |
+| [az monitor metrics list](/cli/azure/monitor/metrics#az_monitor_metrics_list) | Zwraca wartość metryki dla zasobów. |
+| [az group delete](/cli/azure/group#az_group_delete) | Usuwa grupę zasobów wraz ze wszystkimi zagnieżdżonymi zasobami. |
 
 ## <a name="next-steps"></a>Następne kroki
-- Przeczytaj więcej informacji na temat interfejsu wiersza polecenia Azure: [dokumentacji interfejsu wiersza polecenia Azure](/cli/azure/overview)
-- Spróbuj dodatkowych skryptów: [przykłady wiersza polecenia platformy Azure dla bazy danych Azure dla PostgreSQL](../sample-scripts-azure-cli.md)
-- Przeczytaj więcej na temat skalowania: [warstwy usług](../concepts-service-tiers.md) i [obliczeniowe i jednostek magazynu](../concepts-compute-unit-and-storage.md)
+- Dowiedz się więcej na temat interfejsu wiersza polecenia platformy Azure: [dokumentacja interfejsu wiersza polecenia platformy Azure](/cli/azure/overview)
+- Wypróbuj dodatkowe skrypty: [Przykłady interfejsu wiersza polecenia platformy Azure dla usługi Azure Database for PostgreSQL](../sample-scripts-azure-cli.md)
+- Dowiedz się więcej na temat skalowania: [Warstwy usług](../concepts-service-tiers.md) i [Jednostki obliczeniowe i jednostki magazynu](../concepts-compute-unit-and-storage.md)

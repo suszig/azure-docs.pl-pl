@@ -1,31 +1,27 @@
 ---
-title: "Szybki start platformy Azure — Transferowanie obiektów do i z usługi Azure Blob Storage za pomocą platformy .NET | Microsoft Docs"
-description: "Skrócona instrukcja transferowania obiektów do i z usługi Azure Blob Storage za pomocą platformy .NET"
+title: "Azure Quickstart — przekazywanie, pobieranie i wyświetlanie listy obiektów blob w usłudze Azure Storage za pomocą platformy .NET | Microsoft Docs"
+description: "W tym przewodniku Szybki start utworzysz konto magazynu i kontener. Następnie przy użyciu biblioteki klienta platformy .NET przekażesz obiekt blob do usługi Azure Storage, pobierzesz obiekt blob i wyświetlisz listę obiektów blob w kontenerze."
 services: storage
-documentationcenter: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 12/04/2017
+ms.date: 02/22/2018
 ms.author: tamram
-ms.openlocfilehash: 5020f070a8eb9215f175fc3ff3a905cff28ce37f
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 265691ff189c628156f234083645a4b2ca4b637b
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-net"></a>Transferowanie obiektów do i z usługi Azure Blob Storage za pomocą platformy .NET
+# <a name="quickstart-upload-download-and-list-blobs-using-net"></a>Szybki start: przekazywanie, pobieranie i wyświetlanie listy obiektów blob za pomocą platformy .NET
 
 Dzięki temu przewodnikowi Szybki start dowiesz się, w jaki sposób za pomocą biblioteki klienckiej platformy .NET dla usługi Azure Storage przekazywać, pobierać i wyświetlać listę blokowych obiektów blob w kontenerze.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby ukończyć ten przewodnik Szybki Start:
+Aby ukończyć ten przewodnik Szybki start:
 
 * Zainstaluj program .NET Core 2.0 dla systemu [Linux](/dotnet/core/linux-prerequisites?tabs=netcore2x) lub [Windows](/dotnet/core/windows-prerequisites?tabs=netcore2x)
 
@@ -237,4 +233,4 @@ W tym przewodniku Szybki start przedstawiono metodę transferowania plików mię
 
 Nasza lista [przykładów usługi Azure Storage korzystających z platformy .NET](../common/storage-samples-dotnet.md) zawiera dodatkowe przykłady kodu usługi Azure Storage, które można pobierać i uruchamiać.
 
-Aby uzyskać więcej informacji na temat Eksploratora usługi Storage i obiektów blob, zapoznaj się artykułem [Manage Azure Blob storage resources with Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) (Zarządzanie zasobami usługi Azure Blob Storage za pomocą Eksploratora usługi Microsoft Azure Storage).
+Aby uzyskać więcej informacji na temat Eksploratora usługi Storage i obiektów blob, zapoznaj się artykułem [Manage Azure Blob storage resources with Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) (Zarządzanie zasobami usługi Azure Blob Storage za pomocą Eksploratora usługi Storage).

@@ -1,22 +1,22 @@
 ---
-title: "Szybki start platformy Azure — Transferowanie obiektów do i z usługi Azure Blob Storage za pomocą języka Ruby | Microsoft Docs"
-description: "Skrócona instrukcja transferowania obiektów do i z usługi Azure Blob Storage za pomocą języka Ruby"
+title: "Azure Quickstart — przekazywanie, pobieranie i wyświetlanie listy obiektów blob w usłudze Azure Storage za pomocą języka Ruby | Microsoft Docs"
+description: "W tym przewodniku Szybki start utworzysz konto magazynu i kontener. Następnie przy użyciu biblioteki klienta języka Ruby przekażesz obiekt blob do usługi Azure Storage, pobierzesz obiekt blob i wyświetlisz listę obiektów blob w kontenerze."
 services: storage
-author: ruthogunnnaike
+author: tamram
 manager: jeconnoc
+ms.custom: mvc
 ms.service: storage
-ms.tgt_pltfrm: na
-ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 01/18/2018
+ms.date: 02/22/2018
 ms.author: seguler
-ms.openlocfilehash: 649099f045639c8c506fb4a4be65736626044fe6
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: df885849e879317be6379767a09dd30a93687902
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/24/2018
 ---
-#  <a name="transfer-objects-tofrom-azure-blob-storage-using-ruby"></a>Transferowanie obiektów do i z usługi Azure Blob Storage za pomocą języka Ruby
+# <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>Szybki start: przekazywanie, pobieranie i wyświetlanie listy obiektów blob za pomocą języka Ruby
+
 Dzięki tej skróconej instrukcji dowiesz się, w jaki sposób za pomocą języka Ruby przekazywać, pobierać i wyświetlać listę blokowych obiektów blob w kontenerze usługi Azure Blob Storage. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne

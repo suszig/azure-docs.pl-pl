@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: saysa
-ms.openlocfilehash: 328b2778a68e32d95b666124bf7bba969a5f52a6
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 4ac26c02e1893097c858380c07f520e6570fd3db
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Konfigurowanie środowiska projektowego w systemie Mac OS X
 > [!div class="op_single_selector"]
@@ -35,7 +35,6 @@ Usługa Azure Service Fabric nie działa natywnie w systemie Mac OS X. Aby możn
 
 * Co najmniej 4 GB pamięci RAM.
 * Najnowsza wersja platformy [Docker](https://www.docker.com/).
-* Dostęp do [jednopunktowego obrazu kontenera platformy Docker](https://hub.docker.com/r/servicefabricoss/service-fabric-onebox/) usługi Service Fabric.
 
 >[!TIP]
 >
@@ -45,10 +44,10 @@ Usługa Azure Service Fabric nie działa natywnie w systemie Mac OS X. Aby możn
 ## <a name="create-a-local-container-and-set-up-service-fabric"></a>Tworzenie kontenera lokalnego i konfigurowanie usługi Service Fabric
 Aby skonfigurować lokalny kontener platformy Docker i uruchomić w nim klaster usługi Service Fabric, wykonaj następujące czynności:
 
-1. Ściągnij jednopunktowy obraz kontenera usługi Service Fabric z repozytorium Docker Hub:
+1. Ściągnij obraz kontenera usługi Service Fabric obejmujący jeden host z repozytorium usługi Docker Hub. Domyślnie zostanie ściągnięty obraz z najnowszą wersją usługi Service Fabric. Poszczególne wersje są dostępne na stronie [usługi Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/).
 
     ```bash
-    docker pull servicefabricoss/service-fabric-onebox
+    docker pull microsoft/service-fabric-onebox
     ```
 
 2. Zaktualizuj konfigurację demona platformy Docker na swoim hoście za pomocą następujących ustawień i ponownie uruchom demona platformy Docker: 
@@ -71,14 +70,14 @@ Aby skonfigurować lokalny kontener platformy Docker i uruchomić w nim klaster 
 3. Uruchom jednopunktowe wystąpienie kontenera usługi Service Fabric i użyj obrazu ściągniętego w pierwszym kroku:
 
     ```bash
-    docker run -itd -p 19080:19080 --name sfonebox servicefabricoss/service-fabric-onebox
+    docker run -itd -p 19080:19080 --name sfonebox microsoft/service-fabric-onebox
     ```
     >[!TIP]
     >Określ nazwę wystąpienia kontenera, aby usprawnić jego obsługę. 
     >
     >Jeśli Twoja aplikacja nasłuchuje na określonych portach, należy je określić za pomocą dodatkowych tagów `-p`. Jeśli na przykład aplikacja nasłuchuje na porcie 8080, dodaj następujący tag `-p`:
     >
-    >`run docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox servicefabricoss/service-fabric-onebox`
+    >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox microsoft/service-fabric-onebox`
     >
 
 4. Zaloguj się do kontenera platformy Docker w trybie interakcyjnym SSH:
@@ -160,7 +159,7 @@ Usługa Azure Service Fabric udostępnia wtyczkę środowiska Eclipse Neon dla �
 Ostatnim krokiem jest utworzenie wystąpienia kontenera ze ścieżką współużytkowaną z hostem. Wtyczka wymaga tego typu wystąpienia na potrzeby pracy z kontenerem platformy Docker na komputerze Mac. Na przykład:
 
 ```bash
-docker run -itd -p 19080:19080 -v /Users/sayantan/work/workspaces/mySFWorkspace:/tmp/mySFWorkspace --name sfonebox servicefabricoss/service-fabric-onebox
+docker run -itd -p 19080:19080 -v /Users/sayantan/work/workspaces/mySFWorkspace:/tmp/mySFWorkspace --name sfonebox microsoft/service-fabric-onebox
 ```
 
 Zdefiniowane są następujące atrybuty:

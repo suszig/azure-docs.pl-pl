@@ -1,6 +1,6 @@
 ---
 title: "Tworzenie aplikacji platformy .NET w usłudze Service Fabric na platformie Azure | Microsoft Docs"
-description: "Tworzenie aplikacji platformy .NET dla platformy Azure przy użyciu usługi Service Fabric — przykład Szybki start."
+description: "W ramach tego przewodnika Szybki start utworzysz aplikację .NET dla platformy Azure za pomocą aplikacji przykładowej niezawodnych usług usługi Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 01/25/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ff9860ee2313c20b4a30e1b4410327e03e6dfcc6
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: ea0d32674aa770b5f25b0b62eb69007f3fd6bf5c
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="create-a-net-service-fabric-application-in-azure"></a>Tworzenie aplikacji platformy .NET w usłudze Service Fabric na platformie Azure
+# <a name="quickstart-create-a-net-service-fabric-application-in-azure"></a>Szybki start: tworzenie aplikacji platformy .NET w usłudze Service Fabric na platformie Azure
 Usługa Azure Service Fabric to platforma systemów rozproszonych ułatwiająca pakowanie i wdrażanie skalowalnych oraz niezawodnych mikrousług i kontenerów, a także zarządzanie nimi. 
 
 W tym przewodniku Szybki start pokazano, jak wdrożyć pierwszą aplikację platformy .NET w usłudze Service Fabric. Po zakończeniu będziesz mieć aplikację do głosowania z usługą internetową frontonu ASP.NET Core, która zapisuje wyniki głosowania w stanowej usłudze zaplecza w klastrze.

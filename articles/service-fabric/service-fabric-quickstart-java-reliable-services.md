@@ -1,6 +1,6 @@
 ---
 title: "Tworzenie aplikacji Java usługi Azure Service Fabric | Microsoft Docs"
-description: "Tworzenie aplikacji Java dla platformy Azure przy użyciu usługi Service Fabric — przykład Szybki start."
+description: "W ramach tego przewodnika Szybki start utworzysz aplikację Java dla platformy Azure za pomocą aplikacji przykładowej niezawodnych usług usługi Service Fabric."
 services: service-fabric
 documentationcenter: java
 author: suhuruli
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 8f4d121ba76d63b70fa6976125457942a0e98aa9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0b284194abbbdd38524c0ae74ab7e05977d6883f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="create-a-java-application"></a>Tworzenie aplikacji Java
+# <a name="quickstart-deploy-a-java-service-fabric-reliable-services-application-to-azure"></a>Szybki start: wdrażanie aplikacji niezawodnych usług usługi Java Service Fabric na platformie Azure
 Usługa Azure Service Fabric to platforma systemów rozproszonych umożliwiająca wdrażanie mikrousług i kontenerów, a także zarządzanie nimi. 
 
 W tym przewodniku Szybki start przedstawiono wdrażanie pierwszej aplikacji Java w usłudze Service Fabric za pomocą środowiska Eclipse IDE na komputerze programistycznym z systemem Linux. Po zakończeniu pracy będziesz mieć aplikację do głosowania z frontonem internetowym w języku Java, która zapisuje wyniki głosowania w stanowej usłudze zaplecza w klastrze.

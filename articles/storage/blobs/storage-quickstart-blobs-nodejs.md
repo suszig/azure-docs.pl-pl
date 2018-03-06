@@ -1,21 +1,21 @@
 ---
-title: "Szybki start platformy Azure — Transferowanie obiektów do i z usługi Azure Blob Storage za pomocą środowiska Node.js | Microsoft Docs"
-description: "Skrócona instrukcja transferowania obiektów do i z usługi Azure Blob Storage za pomocą środowiska Node.js"
+title: "Azure Quickstart — przekazywanie, pobieranie i wyświetlanie listy obiektów blob w usłudze Azure Storage przy użyciu platformy Node.js | Microsoft Docs"
+description: "W tym przewodniku Szybki start utworzysz konto magazynu i kontener. Następnie przy użyciu biblioteki klienta platformy Node.js przekażesz obiekt blob do usługi Azure Storage, pobierzesz obiekt blob i wyświetlisz listę obiektów blob w kontenerze."
 services: storage
-author: tamram
+author: craigshoemaker
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/06/2018
-ms.author: tamram
-ms.openlocfilehash: 07845d0e1917c00dbd6098ef2bfbd9dcbbf2f97b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.date: 02/22/2018
+ms.author: cshoe
+ms.openlocfilehash: ad0d4a2242aef99e0307f732175e0c50010580ce
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-nodejs"></a>Transferowanie obiektów do i z usługi Azure Blob Storage za pomocą środowiska Node.js
+# <a name="quickstart-upload-download-and-list-blobs-using-nodejs"></a>Szybki start: przekazywanie, pobieranie i wyświetlanie listy obiektów blob przy użyciu platformy Node.js
 
 Dzięki temu przewodnikowi Szybki start dowiesz się, w jaki sposób za pomocą środowiska Node.js przekazywać, pobierać i wyświetlać listę blokowych obiektów blob w kontenerze usługi Azure Blob Storage.
 

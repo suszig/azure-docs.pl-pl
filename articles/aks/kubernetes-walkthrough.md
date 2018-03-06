@@ -6,14 +6,14 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 03/20/2018
+ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 63fb091166dcb3773354221e6c6628f6205bb308
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 8e64ab3214633ae2f34234514dca5e7bb7b1896e
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Wdrażanie klastra usługi Azure Container Service (AKS)
 
@@ -39,6 +39,7 @@ Po zarejestrowaniu możesz przystąpić do tworzenia klastra Kubernetes za pomoc
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
 Utwórz grupę zasobów za pomocą polecenia [az group create][az-group-create]. Grupa zasobów platformy Azure to logiczna grupa przeznaczona do wdrażania zasobów platformy Azure i zarządzania nimi.
+Podczas tworzenia grupy zasobów zostanie wyświetlony monit o określenie lokalizacji, czyli miejsca na platformie Azure, w którym będą znajdować się zasoby. W usłudze AKS w wersji zapoznawczej są dostępne tylko niektóre opcje lokalizacji. Są to: `eastus, westeurope, centralus, canadacentral, canadaeast`.
 
 Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myResourceGroup* w lokalizacji *eastus*.
 
@@ -88,7 +89,7 @@ Aby skonfigurować narzędzie kubectl w celu łączenia się z klastrem Kubernet
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Aby sprawdzić połączenie z klastrem, użyj polecenia [kubectl get][kubectl-get], aby powrócić do listy węzłów klastra.
+Aby sprawdzić połączenie z klastrem, użyj polecenia [kubectl get][kubectl-get], aby powrócić do listy węzłów klastra. Pamiętaj, że może to potrwać kilka minut.
 
 ```azurecli-interactive
 kubectl get nodes
@@ -103,9 +104,9 @@ k8s-myAKSCluster-36346190-0   Ready     agent     2m        v1.7.7
 
 ## <a name="run-the-application"></a>Uruchamianie aplikacji
 
-Plik manifestu rozwiązania Kubernetes definiuje żądany stan klastra, w tym informacje o obrazach kontenera, które powinny zostać uruchomione. W tym przykładzie manifest służy do tworzenia wszystkich obiektów potrzebnych do uruchomienia aplikacji Azure Vote.
+Plik manifestu rozwiązania Kubernetes definiuje żądany stan klastra, w tym informacje o obrazach kontenera, które powinny zostać uruchomione. W tym przykładzie manifest służy do tworzenia wszystkich obiektów potrzebnych do uruchomienia aplikacji Azure Vote. Pokazany obraz to przykładowa aplikacja, ale możesz dowiedzieć się więcej na temat [tworzenia obrazu](https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-prepare-app) i [wdrażania w usłudze Azure Container Registry](https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-prepare-acr), aby użyć własnego obrazu.
 
-Utwórz plik o nazwie `azure-vote.yaml` i skopiuj go do poniższego kodu YAML. Jeśli pracujesz w usłudze Azure Cloud Shell, ten plik można utworzyć przy użyciu serwera vi lub Nano tak jak podczas pracy w systemie wirtualnym lub fizycznym.
+Utwórz plik o nazwie `azure-vote.yaml` i skopiuj go do poniższego kodu YAML. Jeśli pracujesz w usłudze Azure Cloud Shell, ten plik można utworzyć przy użyciu serwera vi lub Nano tak jak podczas pracy w systemie wirtualnym lub fizycznym. Jeśli pracujesz w środowisku lokalnym, możesz utworzyć ten plik w programie Visual Studio Code, uruchamiając plik `code azure-vote.yaml`.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -231,7 +232,7 @@ W tym przewodniku Szybki start wdrożono klaster Kubernetes oraz wdrożono w nim
 Aby dowiedzieć się więcej o usłudze AKS i poznać dokładnie proces od kompletnego kodu do wdrożenia, przejdź do samouczka dotyczącego klastra Kubernetes.
 
 > [!div class="nextstepaction"]
-> [Zarządzanie klastrem AKS][aks-tutorial]:
+> [Samouczek dotyczący usługi AKS][aks-tutorial]:
 
 <!-- LINKS - external -->
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
