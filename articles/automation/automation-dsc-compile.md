@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: na
-ms.date: 02/07/2017
+ms.date: 03/02/2018
 ms.author: magoedte; gwallace
-ms.openlocfilehash: c84f1671d8e23e5ff222455192e020700f1ff51e
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: b267f64a836851e1142475568556eebf74adf2dd
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Kompilowanie konfiguracji DSC automatyzacji Azure
 
@@ -58,7 +58,7 @@ Można użyć [ `Start-AzureRmAutomationDscCompilationJob` ](/powershell/module/
 Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "SampleConfig"
 ```
 
-`Start-AzureRmAutomationDscCompilationJob`Zwraca obiekt zadania kompilacji, który można śledzić jego stan. Następnie można użyć tego obiektu zadania kompilacji [ `Get-AzureRmAutomationDscCompilationJob` ](/powershell/module/azurerm.automation/get-azurermautomationdsccompilationjob) do określenia stanu zadania kompilacji i [ `Get-AzureRmAutomationDscCompilationJobOutput` ](/powershell/module/azurerm.automation/get-azurermautomationdsccompilationjoboutput) Aby wyświetlić jego strumieni (dane wyjściowe). Następujący przykładowy kod uruchamia kompilacji **SampleConfig** konfiguracji, czeka, dopóki nie zostało ukończone, a następnie wyświetla jego strumieni.
+`Start-AzureRmAutomationDscCompilationJob` Zwraca obiekt zadania kompilacji, który można śledzić jego stan. Następnie można użyć tego obiektu zadania kompilacji [ `Get-AzureRmAutomationDscCompilationJob` ](/powershell/module/azurerm.automation/get-azurermautomationdsccompilationjob) do określenia stanu zadania kompilacji i [ `Get-AzureRmAutomationDscCompilationJobOutput` ](/powershell/module/azurerm.automation/get-azurermautomationdsccompilationjoboutput) Aby wyświetlić jego strumieni (dane wyjściowe). Następujący przykładowy kod uruchamia kompilacji **SampleConfig** konfiguracji, czeka, dopóki nie zostało ukończone, a następnie wyświetla jego strumieni.
 
 ```powershell
 $CompilationJob = Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "SampleConfig"
@@ -238,7 +238,7 @@ Odwołania do zasobów są takie same, w konfiguracji DSC automatyzacji Azure i 
 
 ### <a name="credential-assets"></a>Zasoby poświadczeń
 
-Podczas konfiguracji DSC automatyzacji Azure mogą odwoływać się zasoby poświadczeń przy użyciu **Get-AzureRmAutomationCredential**, zasoby poświadczeń może również zostać przekazane za za pomocą parametrów, w razie potrzeby. Jeśli konfiguracja przyjmuje parametr **PSCredential** typ, a następnie trzeba przekazać nazwę ciągu elementu zasób poświadczenia usługi Automatyzacja Azure jako wartość tego parametru, a nie obiektu PSCredential. W tle zasób poświadczeń usługi Automatyzacja Azure o tej nazwie jest pobierany i przekazywane do konfiguracji.
+Podczas konfiguracji DSC automatyzacji Azure mogą odwoływać się zasoby poświadczeń przy użyciu **Get-AutomationPSCredential**, zasoby poświadczeń może również zostać przekazane za za pomocą parametrów, w razie potrzeby. Jeśli konfiguracja przyjmuje parametr **PSCredential** typ, a następnie trzeba przekazać nazwę ciągu elementu zasób poświadczenia usługi Automatyzacja Azure jako wartość tego parametru, a nie obiektu PSCredential. W tle zasób poświadczeń usługi Automatyzacja Azure o tej nazwie jest pobierany i przekazywane do konfiguracji.
 
 Przechowywanie poświadczeń zabezpieczone w konfiguracji węzłów (MOF konfiguracji dokumenty) wymaga szyfrowania poświadczeń w pliku MOF konfiguracji węzła. Automatyzacja Azure dalsze przyjmuje jednym kroku i szyfrowanie całego pliku MOF. Jednak obecnie musi wskazujemy DSC środowiska PowerShell jest poprawny dla poświadczeń do wyprodukowania w postaci zwykłego tekstu podczas generowania MOF konfiguracji węzła, ponieważ DSC programu PowerShell nie może ustalić, czy usługi Automatyzacja Azure będzie można szyfrowanie całego pliku MOF po jej generacji za pomocą zadania kompilacji.
 
@@ -249,7 +249,7 @@ Poniższy przykład przedstawia konfiguracji DSC, która używa zasób poświadc
 ```powershell
 Configuration CredentialSample
 {
-    $Cred = Get-AzureRmAutomationCredential -ResourceGroupName "ResourceGroup01" -AutomationAccountName "AutomationAcct" -Name "SomeCredentialAsset"
+    $Cred = Get-AutomationPSCredential "SomeCredentialAsset"
 
     Node $AllNodes.NodeName
     {

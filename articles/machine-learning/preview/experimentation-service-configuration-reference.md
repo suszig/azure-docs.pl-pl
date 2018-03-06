@@ -5,16 +5,16 @@ services: machine-learning
 author: gokhanuluderya-msft
 ms.author: gokhanu
 manager: haining
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: aaa9705aed59b5cf78100eda9997bb1ca74845b9
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 00e98ff07d144db791fcf074699614f1e664634b
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>Pliki konfiguracji w usłudze Azure Machine Learning eksperymenty usługi
 
@@ -29,12 +29,12 @@ Poniżej przedstawiono istotne pliki w tym folderze:
     - \<Uruchom Nazwa konfiguracji > .runconfig
 
 >[!NOTE]
->Zazwyczaj plik docelowy obliczeń i uruchom plik konfiguracji dla każdego elementu docelowego obliczeniowe utworzone. Można jednak niezależnie tworzenia tych plików i wielu plików konfigurację uruchomieniową wskaż tej samej wartości docelowej obliczeń.
+>Zazwyczaj plik docelowy obliczeń i uruchom plik konfiguracji dla każdego elementu docelowego obliczeniowe utworzone. Można jednak niezależnie tworzenia tych plików i wielu plików konfigurację uruchomieniową wskazujące na ten sam cel obliczeń.
 
 ## <a name="condadependenciesyml"></a>conda_dependencies.yml
-Ten plik jest [conda środowiska pliku](https://conda.io/docs/using/envs.html#create-environment-file-by-hand) , który określa wersję środowiska uruchomieniowego języka Python i pakiety, które zależy od kodu. Podczas Azure ML Workbench skryptu w kontenerze Docker lub klastra usługi HDInsight, tworzy [środowiska conda](https://conda.io/docs/using/envs.html) skryptu do uruchomienia. 
+Ten plik jest [conda środowiska pliku](https://conda.io/docs/using/envs.html#create-environment-file-by-hand) , który określa wersję środowiska uruchomieniowego języka Python i pakiety, które zależy od kodu. Podczas Azure ML Workbench skryptu w kontenerze Docker lub klastra usługi HDInsight, tworzy [środowiska conda](https://conda.io/docs/using/envs.html) skryptu do uruchomienia na. 
 
-W tym pliku należy określić pakietów języka Python, potrzebne do wykonania skryptu. Usługa Azure eksperymenty ML powoduje utworzenie środowiska conda obrazka Docker listę zależności. Na liście pakietów musi być osiągalna przez aparat wykonywania. Z tego powodu pakiety muszą być wymienione w kanałów, takich jak:
+W tym pliku należy określić pakietów języka Python, potrzebne do wykonania skryptu. Usługa Azure eksperymenty ML powoduje utworzenie środowiska conda zgodnie z listy zależności. Pakiety wymienione w tym miejscu musi być osiągalna przez aparat wykonywania kanałami takich jak:
 
 * [continuum.io](https://anaconda.org/conda-forge/repo)
 * [PyPI](https://pypi.python.org/pypi)
@@ -43,7 +43,7 @@ W tym pliku należy określić pakietów języka Python, potrzebne do wykonania 
 * inne dostępne przez aparat wykonywania
 
 >[!NOTE]
->Podczas uruchamiania w klastrze usługi HDInsight, Azure ML Workbench tworzy środowisku conda tylko do uruchomienia programu. Dzięki temu różnych użytkownikom na uruchamianie na środowiska python różnych na tym samym klastrze.  
+>Podczas uruchamiania w klastrze usługi HDInsight, Azure ML Workbench tworzy środowisku conda dla użytkownika określonego przebiegu. Dzięki temu różnych użytkownikom na uruchamianie na środowiska python różnych na tym samym klastrze.  
 
 Oto przykład typowe **conda_dependencies.yml** pliku.
 ```yaml
@@ -68,13 +68,13 @@ dependencies:
      - C:\temp\my_private_python_pkg.whl
 ```
 
-Azure ML Workbench używa tego samego środowiska conda bez odbudowywania tak długo, jak **conda_dependencies.yml** pozostanie niezmieniona. Jednak jeśli dowolne zmiany w tym pliku jej wynikiem Odbuduj obrazu Docker.
+Azure ML Workbench używa tego samego środowiska conda bez ponownie skompilować tak długo, jak **conda_dependencies.yml** jest taka sama. Będzie go odbudować środowiska zależności zmiany.
 
 >[!NOTE]
 >W przypadku skierowania miało zostać wykonane _lokalnego_ obliczeniowe kontekście **conda_dependencies.yml** plik jest **nie** używane. Zależności pakietów dla lokalnego środowiska Python Workbench uczenia Maszynowego Azure należy zainstalować ręcznie.
 
 ## <a name="sparkdependenciesyml"></a>spark_dependencies.yml
-Ten plik Określa nazwę aplikacji Spark podczas przesyłania skryptu PySpark i Spark pakietów, które mają zostać zainstalowane. Można również określić wszelkie publicznego repozytorium Maven, a także Spark pakiet, który znajduje się w tych repozytoria Maven.
+Ten plik Określa nazwę aplikacji Spark podczas przesyłania skryptu PySpark i Spark pakietów, które muszą być zainstalowane. Można również określić publicznego repozytorium Maven, a także Spark pakiety, które znajdują się w tych repozytoria Maven.
 
 Oto przykład:
 
@@ -103,13 +103,13 @@ packages:
 ```
 
 >[!NOTE]
->Klaster dostrajanie parametrów, takich jak rozmiar procesu roboczego, rdzenie należy przejść do sekcji "Konfiguracja" w pliku spark_dependecies.yml 
+>Dostrajanie parametrów, takich jak rozmiar procesu roboczego i rdzeni klastra powinien znajdować się w sekcji "Konfiguracja" w pliku spark_dependecies.yml 
 
 >[!NOTE]
->Jeśli skrypt są wykonywane w środowisku Python *spark_dependencies.yml* plik zostanie zignorowany. Ma tylko efektu, jeśli są uruchomione przed Spark (albo Docker lub do klastra usługi HDInsight).
+>Jeśli skrypt są wykonywane w środowisku Python *spark_dependencies.yml* plik zostanie zignorowany. Jest używany tylko w przypadku korzystania z platformy Spark (albo Docker lub do klastra usługi HDInsight).
 
 ## <a name="run-configuration"></a>Uruchom konfigurację
-Aby określić określoną konfigurację uruchamiania, parę plików jest wymagane. Zwykle są one generowane przy użyciu polecenia interfejsu wiersza polecenia. Jednak również sklonować Kończenie te, zmień ich nazwy i je edytować.
+Aby określić określoną konfigurację uruchamiania, należy oraz plik .compute .runconfig. Te są zwykle generowane przy użyciu polecenia interfejsu wiersza polecenia. Można również sklonować Kończenie te, zmień ich nazwy i edytować.
 
 ```azurecli
 # create a compute target pointing to a VM via SSH
@@ -125,10 +125,11 @@ To polecenie tworzy parę plików w oparciu o docelowy obliczeń określony. Za�
 > _lokalne_ lub _docker_ nazwy dla dowolnego są pliki konfiguracji uruchamiania. Azure ML Workbench dodaje się, że te dwa Uruchom konfiguracji podczas tworzenia pustego projektu dla Twojej wygody. Można zmienić nazwy "<run configuration name>.runconfig" pliki, które pochodzą z szablonem projektu lub Utwórz nowe z dowolną nazwę.
 
 ### <a name="compute-target-namecompute"></a>\<Nazwa docelowego obliczeniowe > .compute
-_\<Nazwa docelowego obliczeniowe > .compute_ plik Określa połączenia i informacje konfiguracyjne dla elementu docelowego obliczeń. Znajduje się lista par nazwa wartość. Oto są obsługiwane ustawienia.
+_\<Nazwa docelowego obliczeniowe > .compute_ plik Określa połączenia i informacje konfiguracyjne dla elementu docelowego obliczeń. Znajduje się lista par nazwa wartość. Poniżej przedstawiono obsługiwane ustawienia:
 
 **Typ**: Typ środowiska obliczeniowego. Obsługiwane są następujące wartości:
   - lokalne
+  - Zdalne
   - Docker
   - remotedocker
   - klaster
@@ -147,8 +148,10 @@ _\<Nazwa docelowego obliczeniowe > .compute_ plik Określa połączenia i inform
 
 **nativeSharedDirectory**: Ta właściwość określa podstawowego katalogu (na przykład: _~/.azureml/share/_) w celu udostępnienia w którym można zapisać plików działa na tej samej wartości docelowej obliczeń. Jeśli to ustawienie jest używane, gdy uruchomione w kontenerze Docker _sharedVolumes_ musi być ustawiona na wartość true. W przeciwnym razie wykonanie nie powiedzie się.
 
+**userManagedEnvironment**: Ta właściwość określa, czy ten element docelowy obliczeniowe jest zarządzane bezpośrednio przez użytkownika lub zarządzanych za pomocą usługi eksperymenty.  
+
 ### <a name="run-configuration-namerunconfig"></a>\<Uruchom Nazwa konfiguracji > .runconfig
-_\<Uruchom Nazwa konfiguracji > .runconfig_ określa sposób wykonywania eksperymentu uczenia Maszynowego Azure. Można skonfigurować wykonywania zachowań, takich jak Historia uruchomień śledzenia lub co obliczeniowe docelowych do użycia oraz wiele innych. Nazwy plików konfiguracji uruchamiania są używane do wypełnienia listy rozwijanej kontekstu wykonywania w aplikacji pulpitu Workbench uczenia Maszynowego Azure.
+_\<Uruchom Nazwa konfiguracji > .runconfig_ określa sposób wykonywania eksperymentu uczenia Maszynowego Azure. Można skonfigurować sposób wykonywania takich jak Historia uruchomień śledzenia lub co obliczeniowe docelowych do użycia oraz wiele innych. Nazwy plików konfiguracji uruchamiania są używane do wypełnienia listy rozwijanej kontekstu wykonywania w aplikacji pulpitu Workbench uczenia Maszynowego Azure.
 
 **ArgumentVector**: Ta sekcja określa skryptu do uruchomienia w ramach to wykonanie i Parametry skryptu. Na przykład, jeśli masz poniższy fragment kodu w sieci "<run configuration name>.runconfig" pliku 
 
@@ -170,7 +173,7 @@ EnvironmentVariables:
   "EXAMPLE_ENV_VAR2": "Example Value2"
 ```
 
-Te zmienne środowiskowe są dostępne w kodzie użytkownika. Na przykład ten kod phyton Wyświetla zmienną środowiskową o nazwie "EXAMPLE_ENV_VAR"
+Te zmienne środowiskowe są dostępne w kodzie użytkownika. Na przykład ten kod języka Python Wyświetla zmienną środowiskową o nazwie "EXAMPLE_ENV_VAR"
 ```
 print(os.environ.get("EXAMPLE_ENV_VAR1"))
 ```

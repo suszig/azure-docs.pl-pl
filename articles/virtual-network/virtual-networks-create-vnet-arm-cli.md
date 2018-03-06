@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: a4cb309a9fd07e842193b0ce4b023fab8c08e035
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: feb8fb218b8bde88ba7fbdc3419e32c9313c7885
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="create-a-virtual-network-with-multiple-subnets-using-the-azure-cli"></a>Tworzenie sieci wirtualnej z wieloma podsieciami przy użyciu wiersza polecenia platformy Azure
 
@@ -126,6 +126,8 @@ Maszyna wirtualna ma kilka minut na utworzenie. Po utworzeniu maszyny wirtualnej
 W przykładowe dane wyjściowe, zobaczysz, że **elementu privateIpAddress** jest *10.0.1.4*. Azure utworzony [interfejsu sieciowego](virtual-network-network-interface.md), on dołączony do maszyny wirtualnej, przypisany prywatny adres IP interfejsu sieciowego i **macAddress**. Azure DHCP automatycznie przypisać 10.0.1.4 do interfejsu sieciowego, ponieważ jest pierwszy dostępny adres IP w *prywatnej* podsieci. Prywatne adresy IP i MAC pozostają przypisane do interfejsu sieciowego, aż do usunięcia interfejsu sieciowego. 
 
 Zwróć uwagę na **publicznego adresu IP**. Ten adres jest używany na dostęp do maszyny wirtualnej z Internetu w kolejnym kroku. Jeśli maszyna wirtualna nie musi mieć publiczny adres IP przypisane do niej, Azure przypisuje publicznego adresu IP do każdej maszyny wirtualnej, które tworzysz, domyślnie. Aby komunikować się z Internetu na maszynę wirtualną, publiczny adres IP musi można przypisać do maszyny wirtualnej. Wszystkie maszyny wirtualne mogą komunikować się wychodzące z Internetem, czy przypisano publiczny adres IP do maszyny wirtualnej. Aby dowiedzieć się więcej na temat połączenia wychodzące Internet na platformie Azure, zobacz [połączeń wychodzących na platformie Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+Maszyny wirtualne utworzone w tym artykule istnieje [interfejs sieciowy](virtual-network-network-interface.md) z jednym adresem IP, który jest przypisywany dynamicznie do interfejsu sieciowego. Po wdrożeniu maszyny Wirtualnej, można [dodać wiele prywatnych i publicznych adresów IP lub zmień metoda przypisywania adresów IP statycznej](virtual-network-network-interface-addresses.md#add-ip-addresses). Możesz [dodać interfejsów sieciowych](virtual-network-network-interface-vm.md#vm-add-nic), w granicach obsługiwane przez [rozmiar maszyny Wirtualnej](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) wybranym podczas tworzenia maszyny wirtualnej. Możesz również [Włącz wirtualizację we/wy pojedynczego elementu głównego (SR-IOV)](create-vm-accelerated-networking-cli.md) dla maszyny Wirtualnej, ale tylko wtedy, gdy tworzenie maszyny Wirtualnej z rozmiar maszyny Wirtualnej, która obsługuje możliwości.
 
 ### <a name="communicate-between-virtual-machines-and-with-the-internet"></a>Komunikację między maszynami wirtualnymi i z Internetu
 

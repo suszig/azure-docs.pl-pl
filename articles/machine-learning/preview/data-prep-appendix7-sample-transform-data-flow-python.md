@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 8146c2a41a2b8fc241131a42ec74227795867609
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: aa213a3b1a8949f0fca5e4bbb7ec5a6a775ae6ec
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="sample-of-custom-data-flow-transforms-python"></a>Przykładowe dane niestandardowe przepływ przekształcenia (Python) 
 Nazwa przekształcenie w menu jest **przekształcenie przepływu danych (skrypt)**. Przed przeczytaniem tego dodatku odczytu [Przegląd rozszerzalności języka Python](data-prep-python-extensibility-overview.md).
@@ -42,8 +42,8 @@ Reformulates dane spełniają formułę zmniejszenie wartości oddalone w kolumn
 
 ## <a name="transform-data-flow"></a>Przekształć przepływu danych
 ### <a name="fill-down"></a>Wypełnij w dół 
-Wypełnienie w dół wymaga dwóch transformacji. Przyjęto założenie, danych, która wygląda następująco:
 
+Wypełnienie w dół wymaga dwóch transformacji. Przyjęto założenie, danych, która wygląda podobnie do poniższej tabeli:
 
 |Stan         |Miasto       |
 |--------------|-----------|
@@ -58,16 +58,17 @@ Wypełnienie w dół wymaga dwóch transformacji. Przyjęto założenie, danych,
 |              |San Antonio|
 |              |Houston    |
 
-Najpierw należy utworzyć transformacji Dodawanie kolumny (skrypt), zawierający następujący kod:
+1. Utwórz transformacji "Dodaj kolumny (skrypt)", używając następującego kodu:
 ```python
     row['State'] if len(row['State']) > 0 else None
 ```
-Teraz utworzyć transformacji przekształcenie przepływ danych (skrypt), zawierający następujący kod:
+
+2. Utwórz transformacji "Przekształcenia przepływ danych (skrypt)", zawierający następujący kod:
 ```python
     df = df.fillna( method='pad')
 ```
 
-Dane teraz wygląda następująco:
+Dane teraz wygląda w poniższej tabeli:
 
 |Stan         |newState         |Miasto       |
 |--------------|--------------|-----------|

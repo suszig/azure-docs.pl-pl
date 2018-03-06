@@ -1,46 +1,80 @@
-
+---
+title: Plik dyrektywy include
+description: Plik dyrektywy include
+services: virtual-machines-windows, virtual-machines-linux
+author: dlepow
+ms.service: multiple
+ms.topic: include
+ms.date: 03/01/2018
+ms.author: danlep
+ms.custom: include file
+ms.openlocfilehash: 34b38ff02d401e87be10f1f72cb2025b66317c9e
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/05/2018
+---
 Procesor GPU zoptymalizowanych pod kątem maszyny Wirtualnej są dostępne z jednego lub wielu procesorów graficznych NVIDIA specjalne maszyn wirtualnych. Rozmiary są przeznaczone dla obciążeń obliczeniowych, dużą ilością grafiki i wizualizacji. Ten artykuł zawiera informacje o liczbę i typ procesorów graficznych, Vcpu, dyski danych i karty sieciowe, jak również przepustowości przepływności i sieć magazynu dla każdego rozmiaru w tej metodzie grupowania. 
 
-* **NC, NCv2 i ND** rozmiary są optymalizowane dla aplikacji obliczeniowych i obciążenie sieci i algorytmy, w tym aplikacji opartych na CUDA i OpenCL oraz symulacje, AI i uczenie się bezpośrednich. 
+* **NC, NCv2 NCv3 i ND** rozmiary są optymalizowane dla aplikacji obliczeniowych i obciążenie sieci i algorytmy, w tym aplikacji opartych na CUDA i OpenCL oraz symulacje, AI i uczenie się bezpośrednich. 
 * **Trwałym** rozmiary są zoptymalizowane i przeznaczony dla zdalnego wizualizacji, przesyłania strumieniowego, gier, kodowanie i scenariuszy VDI przy użyciu platform, takich jak OpenGL i DirectX.  
 
 
-## <a name="nc-instances"></a>Wystąpienia NC
+## <a name="nc-series"></a>Seria NC
 
-Wystąpienia NC są obsługiwane przez [K80 tesla — NVIDIA](http://images.nvidia.com/content/pdf/kepler/Tesla-K80-BoardSpec-07317-001-v05.pdf) karty. Użytkownicy mogą wykonywać za pomocą danych szybsze dzięki wykorzystaniu CUDA dla aplikacji eksploracji energii, symulacji awarii, ray śledzonych renderowania, głębokie uczenie i inne. Konfiguracja NC24r zapewnia małe opóźnienia wysokiej przepustowości sieciowej zoptymalizowane pod kątem silnie sprzężonego równoległego przetwarzania obciążeń.
+Maszyny wirtualne z serii NC są obsługiwane przez [K80 tesla — NVIDIA](http://images.nvidia.com/content/pdf/kepler/Tesla-K80-BoardSpec-07317-001-v05.pdf) karty. Użytkownicy mogą wykonywać za pomocą danych szybsze dzięki wykorzystaniu CUDA dla aplikacji eksploracji energii, symulacji awarii, ray śledzonych renderowania, głębokie uczenie i inne. Konfiguracja NC24r zapewnia małe opóźnienia wysokiej przepustowości sieciowej zoptymalizowane pod kątem silnie sprzężonego równoległego przetwarzania obciążeń.
 
 
-| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Procesory GPU | Maksymalna liczba dysków danych |
-| --- | --- | --- | --- | --- | --- |
-| Standardowa_NC6 |6 |56 | 380 | 1 | 24 |
-| Standardowa_NC12 |12 |112 | 680 | 2 | 48 |
-| Standardowa_NC24 |24 |224 | 1440 | 4 | 64 |
-| Standardowa_NC24r* |24 |224 | 1440 | 4 | 64 |
+| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Procesory GPU | Maks. liczba dysków danych | Maksymalna liczba kart sieciowych |
+| --- | --- | --- | --- | --- | --- | --- |
+| Standardowa_NC6 |6 |56 | 380 | 1 | 24 | 1 |
+| Standardowa_NC12 |12 |112 | 680 | 2 | 48 | 2 |
+| Standardowa_NC24 |24 |224 | 1440 | 4 | 64 | 4 |
+| Standardowa_NC24r* |24 |224 | 1440 | 4 | 64 | 4 |
 
 1 procesor GPU = połowa karty K80.
 
 * Obsługa technologii RDMA
 
-## <a name="ncv2-instances"></a>NCv2 wystąpień
+## <a name="ncv2-series"></a>Seria NCv2
 
-NCv2 wystąpienia są generacji maszyn serii NC, obsługiwane przez [P100 tesla — NVIDIA](http://images.nvidia.com/content/tesla/pdf/nvidia-tesla-p100-datasheet.pdf) GPU. Te jednostki GPU zapewniają więcej niż 2 x obliczeniowej bieżącej serii NC. Klienci mogą wykorzystać te GPU zaktualizowane dla tradycyjnych obciążeń HPC, takich jak modelowania zbiornika, DNS sekwencjonowania białka analizy, Symulacje Monte Carlo i inne. Podobnie jak serii NC serii NCv2 oferuje konfiguracji z niskim opóźnieniem, wysokiej przepustowości sieciowej zoptymalizowane pod kątem silnie sprzężonego równoległego przetwarzania obciążeń.
+Maszyny wirtualne z serii NCv2 są obsługiwane przez [P100 tesla — NVIDIA](http://images.nvidia.com/content/tesla/pdf/nvidia-tesla-p100-datasheet.pdf) GPU. Te jednostki GPU zapewniają więcej niż 2 x obliczeniowej NC serii. Klienci mogą wykorzystać te GPU zaktualizowane dla tradycyjnych obciążeń HPC, takich jak modelowania zbiornika, DNS sekwencjonowania białka analizy, Symulacje Monte Carlo i inne. Konfiguracja v2 NC24rs zapewnia małe opóźnienia wysokiej przepustowości sieciowej zoptymalizowane pod kątem silnie sprzężonego równoległego przetwarzania obciążeń.
 
 > [!IMPORTANT]
 > Dla tej rodziny rozmiar przydziału vCPU (podstawowe) w subskrypcji jest początkowo równa 0 w każdym regionie. [Zażądać zwiększenia limitu przydziału vCPU](../articles/azure-supportability/resource-manager-core-quotas-request.md) tej rodziny w [dostępny region](https://azure.microsoft.com/regions/services/).
 >
 
-| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Procesory GPU | Maksymalna liczba dysków danych |
-| --- | --- | --- | --- | --- | --- |
-| Standard_NC6s_v2 |6 |112 | 336 | 1 | 12 |
-| Standard_NC12s_v2 |12 |224 | 672 | 2 | 24 |
-| Standard_NC24s_v2 |24 |448 | 1344 | 4 | 32 |
-| Standard_NC24rs_v2 * |24 |448 | 1344 | 4 | 32 |
+| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Procesory GPU | Maks. liczba dysków danych | Maksymalna liczba kart sieciowych |
+| --- | --- | --- | --- | --- | --- | ---  |
+| Standard_NC6s_v2 |6 |112 | 336 | 1 | 12 | 4 |
+| Standard_NC12s_v2 |12 |224 | 672 | 2 | 24 | 8 |
+| Standard_NC24s_v2 |24 |448 | 1344 | 4 | 32 | 8 |
+| Standard_NC24rs_v2 * |24 |448 | 1344 | 4 | 32 | 8 |
 
 Procesor GPU 1 = co karta P100.
 
 * Obsługa technologii RDMA
 
-## <a name="nd-instances"></a>ND wystąpień
+## <a name="ncv3-series"></a>Seria NCv3
+
+Maszyny wirtualne z serii NCv3 są obsługiwane przez [V100 tesla — NVIDIA](http://www.nvidia.com/content/PDF/Volta-Datasheet.pdf) GPU. Te jednostki GPU zapewniają 1,5 x obliczeniowej NCv2 serii. Klienci mogą wykorzystać te GPU zaktualizowane dla tradycyjnych obciążeń HPC, takich jak modelowania zbiornika, DNS sekwencjonowania białka analizy, Symulacje Monte Carlo i inne. Konfiguracja v3 NC24rs zapewnia małe opóźnienia wysokiej przepustowości sieciowej zoptymalizowane pod kątem silnie sprzężonego równoległego przetwarzania obciążeń.
+
+> [!IMPORTANT]
+> Dla tej rodziny rozmiar przydziału vCPU (podstawowe) w subskrypcji jest początkowo równa 0 w każdym regionie. [Zażądać zwiększenia limitu przydziału vCPU](../articles/azure-supportability/resource-manager-core-quotas-request.md) tej rodziny w [dostępny region](https://azure.microsoft.com/regions/services/).
+>
+
+| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Procesory GPU | Maks. liczba dysków danych | Maksymalna liczba kart sieciowych |
+| --- | --- | --- | --- | --- | --- | --- |
+| Standard_NC6s_v3 |6 |112 | 336 | 1 | 12 | 4 |
+| Standard_NC12s_v3 |12 |224 | 672 | 2 | 24 | 8 |
+| Standard_NC24s_v3 |24 |448 | 1344 | 4 | 32 | 8 | 
+| Standard_NC24rs_v3 * |24 |448 | 1344 | 4 | 32 | 8 |
+
+Procesor GPU 1 = co karta V100.
+
+* Obsługa technologii RDMA
+
+## <a name="nd-series"></a>Seria ND
 
 Maszyny wirtualne ND serii są nowe uzupełnienie rodziny procesora GPU, przeznaczone dla obciążeń AI i uczenie się bezpośrednich. Oferują one doskonałą wydajność dla szkolenia i wnioskowania. ND wystąpienia są obsługiwane przez [P40 tesla — NVIDIA](http://images.nvidia.com/content/pdf/tesla/184427-Tesla-P40-Datasheet-NV-Final-Letter-Web.pdf) GPU. Te wystąpienia zapewnić doskonałą wydajność dla pojedynczej precyzji operacje zmiennoprzecinkowe, AI obciążeń przy użyciu kognitywnych zestaw narzędzi firmy Microsoft, TensorFlow Caffe i innych platform. Seria ND oferuje także dużo pojemniejszą pamięć procesora GPU (24 GB) mieszczącą znacznie większe modele sieci neuronowych. Jak NC serii serii ND oferuje konfiguracji dodatkowej małym opóźnieniu i dużej przepustowości sieci przez funkcję RDMA i łączność InfiniBand, więc można uruchamiać zadania na dużą skalę szkolenia obejmujących wiele procesorów graficznych.
 
@@ -48,28 +82,26 @@ Maszyny wirtualne ND serii są nowe uzupełnienie rodziny procesora GPU, przezna
 > Dla tej rodziny rozmiar przydziału vCPU (podstawowe) na region w ramach subskrypcji początkowo jest równa 0. [Zażądać zwiększenia limitu przydziału vCPU](../articles/azure-supportability/resource-manager-core-quotas-request.md) tej rodziny w [dostępny region](https://azure.microsoft.com/regions/services/).
 >
 
-| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Procesory GPU | Maksymalna liczba dysków danych |
-| --- | --- | --- | --- | --- | --- |
-| Standard_ND6s |6 |112 | 336 | 1 | 12 |
-| Standard_ND12s |12 |224 | 672 | 2 | 24 |
-| Standard_ND24s |24 |448 | 1344 | 4 | 32 |
-| Standard_ND24rs * |24 |1448 | 1344 | 4 | 32 |
+| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Procesory GPU | Maks. liczba dysków danych | Maksymalna liczba kart sieciowych |
+| --- | --- | --- | --- | --- | --- | --- |
+| Standard_ND6s |6 |112 | 336 | 1 | 12 | 4 |
+| Standard_ND12s |12 |224 | 672 | 2 | 24 | 8 | 
+| Standard_ND24s |24 |448 | 1344 | 4 | 32 | 8 |
+| Standard_ND24rs * |24 |1448 | 1344 | 4 | 32 | 8 |
 
 Procesor GPU 1 = co karta P40.
 
 * Obsługa technologii RDMA
 
-## <a name="nv-instances"></a>Wystąpienia NV
+## <a name="nv-series"></a>Seria NV
 
+Serii wirtualizacją sieci są obsługiwane przez [M60 tesla — NVIDIA ](http://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU i siatki NVIDIA technologii pulpitu przyspieszony aplikacji i pulpitów wirtualnych gdzie klienci mogą się wizualizacji ich danych lub symulacji. Użytkownicy będą mogli wizualizacji w wystąpieniach wirtualizacją sieci, aby uzyskać możliwość wyższego poziomu grafiki i dodatkowo uruchamiania obciążeń pojedynczej precyzji, takie jak kodowanie i renderowania znacznym przepływy pracy ich grafiki. 
 
-
-Wystąpień wirtualizacją sieci są obsługiwane przez [M60 tesla — NVIDIA ](http://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU i siatki NVIDIA technologii pulpitu przyspieszony aplikacji i pulpitów wirtualnych gdzie klienci mogą się wizualizacji ich danych lub symulacji. Użytkownicy będą mogli wizualizacji w wystąpieniach wirtualizacją sieci, aby uzyskać możliwość wyższego poziomu grafiki i dodatkowo uruchamiania obciążeń pojedynczej precyzji, takie jak kodowanie i renderowania znacznym przepływy pracy ich grafiki. 
-
-| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Procesory GPU | Maksymalna liczba dysków danych |
-| --- | --- | --- | --- | --- | --- |
-| Standardowa_NV6 |6 |56 |380 | 1 | 24 |
-| Standardowa_NV12 |12 |112 |680 | 2 | 48 |
-| Standardowa_NV24 |24 |224 |1440 | 4 | 64 |
+| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Procesory GPU | Maks. liczba dysków danych | Maksymalna liczba kart sieciowych |
+| --- | --- | --- | --- | --- | --- | --- |
+| Standardowa_NV6 |6 |56 |380 | 1 | 24 | 1 |
+| Standardowa_NV12 |12 |112 |680 | 2 | 48 | 2 |
+| Standardowa_NV24 |24 |224 |1440 | 4 | 64 | 4 |
 
 1 procesor GPU = połowa karty M60.
 

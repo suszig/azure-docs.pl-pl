@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: 02850243caaa66a354f06b650a5505a79d7aee54
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 82c01419d65e00ddf27dfeb8fd444d5d3d81803c
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-redis-cache-faq"></a>Azure Redis Cache — często zadawane pytania
 Dowiedz się odpowiedzi na często zadawane pytania, wzorców i najlepszych rozwiązań dla pamięci podręcznej Redis Azure.
@@ -135,7 +135,7 @@ Z tej tabeli firma Microsoft może wykonywać Rysowanie następujących wnioskó
 | Warstwa cenowa | Rozmiar | Rdzenie procesora CPU | Dostępna przepustowość | Rozmiar wartości 1 KB | Rozmiar wartości 1 KB |
 | --- | --- | --- | --- | --- | --- |
 | **Rozmiary standardowe pamięci podręcznej** | | |**Megabity na sekundę (Mb/s) / MB na sekundę (MB/s)** |**Liczba żądań na drugim (RPS) bez protokołu SSL** |**Liczba żądań na drugi SSL (RPS)** |
-| C0 |250 MB |Udostępniona |100 / 12.5 |15,000 |7,500 |
+| C0 |250 MB |Udostępniona |100 / 12.5 |15,000 |7500 |
 | C1 |1 GB |1 |500 / 62.5 |38,000 |20,720 |
 | C2 |2,5 GB |2 |500 / 62.5 |41,000 |37,000 |
 | C3 |6 GB |4 |1000 / 125 |100,000 |90,000 |
@@ -246,9 +246,7 @@ Można użyć dowolnego z poleceń w [Redis polecenia](http://redis.io/commands#
 * Umożliwia także narzędzi wiersza polecenia w pamięci podręcznej Redis. Aby korzystać z nich, wykonaj następujące czynności:
 * Pobierz [Redis narzędzia wiersza polecenia](https://github.com/MSOpenTech/redis/releases/).
 * Połącz przy użyciu pamięci podręcznej `redis-cli.exe`. Przekaż w pamięci podręcznej punktu końcowego za pomocą przełącznika -h i klucz przy użyciu jak pokazano w poniższym przykładzie:
-* `redis-cli -h <your cache="" name="">
-  .redis.cache.windows.net -a <key>
-  `
+* `redis-cli -h <redis cache name>.redis.cache.windows.net -a <key>`
 
 > [!NOTE]
 > Narzędzia wiersza polecenia Redis nie działa z portem SSL, ale można użyć narzędzia, takie jak `stunnel` nawiązać bezpiecznego narzędzia SSL port przez zgodnie z instrukcjami w [Announcing ASP.NET dostawcę stanu sesji dla wersji zapoznawczej Redis](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) wpis w blogu.
@@ -270,7 +268,7 @@ Tak, aby użyć pamięci podręcznej Redis Azure jako pamięci podręcznej sesji
 >
 > `session.save_path = "tcp://mycache.redis.cache.windows.net:6379?auth=<url encoded primary or secondary key here>";`
 >
-> Jeśli klucz nie jest kodowany adres URL, może zostać wyświetlony wyjątek z następującym komunikatem, takich jak:`Failed to parse session.save_path`
+> Jeśli klucz nie jest kodowany adres URL, może zostać wyświetlony wyjątek z następującym komunikatem, takich jak: `Failed to parse session.save_path`
 >
 >
 

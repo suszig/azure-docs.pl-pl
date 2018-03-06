@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: f550af298b37afa388b6fd860578863738510a5e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 1453dca453aa045752ea2300b9d7039c1bdd6542
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="create-a-virtual-network-with-multiple-subnets-using-powershell"></a>Tworzenie sieci wirtualnej z wieloma podsieciami przy użyciu programu PowerShell
 
@@ -119,6 +119,8 @@ New-AzureRmVm `
 Maszyna wirtualna ma kilka minut na utworzenie. Chociaż w dane wyjściowe, Azure nieprzypisany 10.0.1.4 jako prywatny adres IP maszyny wirtualnej, ponieważ 10.0.1.4 jest pierwszy dostępny adres IP w *prywatnej* podsieć *myVirtualNetwork*. 
 
 Nie Kontynuuj pozostałe kroki dopiero po utworzeniu maszyny wirtualnej i programu PowerShell zwraca dane wyjściowe.
+
+Maszyny wirtualne utworzone w tym artykule istnieje [interfejs sieciowy](virtual-network-network-interface.md) z jednym adresem IP, który jest przypisywany dynamicznie do interfejsu sieciowego. Po wdrożeniu maszyny Wirtualnej, można [dodać wiele prywatnych i publicznych adresów IP lub zmień metoda przypisywania adresów IP statycznej](virtual-network-network-interface-addresses.md#add-ip-addresses). Możesz [dodać interfejsów sieciowych](virtual-network-network-interface-vm.md#vm-add-nic), w granicach obsługiwane przez [rozmiar maszyny Wirtualnej](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) wybranym podczas tworzenia maszyny wirtualnej. Możesz również [Włącz wirtualizację we/wy pojedynczego elementu głównego (SR-IOV)](create-vm-accelerated-networking-powershell.md) dla maszyny Wirtualnej, ale tylko wtedy, gdy tworzenie maszyny Wirtualnej z rozmiar maszyny Wirtualnej, która obsługuje możliwości.
 
 ### <a name="communicate-between-virtual-machines-and-with-the-internet"></a>Komunikację między maszynami wirtualnymi i z Internetu
 

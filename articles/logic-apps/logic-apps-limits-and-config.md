@@ -2,7 +2,7 @@
 title: "Limity i konfiguracji — usługi Azure Logic Apps | Dokumentacja firmy Microsoft"
 description: "Limity usług i wartości konfiguracji dla usługi Azure Logic Apps"
 services: logic-apps
-documentationcenter: .net,nodejs,java
+documentationcenter: 
 author: jeffhollan
 manager: anneta
 editor: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 5c4597ede16f01c36e147dc0d70acf4b4f5635e8
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
-ms.translationtype: HT
+ms.openlocfilehash: 54a35607e107a09188373cc5f71bb3068b4c6bab
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Ograniczenia aplikacji logiki i konfiguracji
 
@@ -28,13 +28,13 @@ W tym artykule opisano limity bieżący oraz szczegóły dotyczące konfiguracji
 
 ### <a name="http-request-limits"></a>Limity żądań HTTP
 
-Ograniczenia te dotyczą pojedyncze żądanie HTTP lub wywołanie łącznika.
+Poniżej przedstawiono limity dla pojedynczego żądania HTTP lub wywołanie łącznika:
 
 #### <a name="timeout"></a>Limit czasu
 
 | Name (Nazwa) | Limit | Uwagi | 
 | ---- | ----- | ----- | 
-| Limit czasu żądania | 120 sekund | [Wzorca asynchronicznego](../logic-apps/logic-apps-create-api-app.md) lub [do pętli](logic-apps-loops-and-scopes.md) można wyrównania w razie potrzeby |
+| Limit czasu żądania | 120 sekund | [Wzorca asynchronicznego](../logic-apps/logic-apps-create-api-app.md) lub [do pętli](logic-apps-control-flow-loops.md) można wyrównania w razie potrzeby | 
 |||| 
 
 #### <a name="message-size"></a>Rozmiar komunikatu
@@ -56,28 +56,21 @@ Ograniczenia te dotyczą pojedyncze żądanie HTTP lub wywołanie łącznika.
 
 ### <a name="run-duration-and-retention"></a>Czas trwania testu i przechowywania
 
-Te limity mają zastosowanie do aplikacji logiki pojedynczego uruchomienia.
+Poniżej przedstawiono limity aplikacji logiki pojedynczego uruchomienia:
 
-| Name (Nazwa) | Domyślne | Limit |
-| ---- | ------- | ----- |
-| Czas trwania testu   | 90 dni | 7 do 90 dni |
-| Magazyn przechowywania | Godzina rozpoczęcia 90 dni od uruchomienia |  Godzina rozpoczęcia 7 do 90 dni od uruchomienia |
-||||
+| Name (Nazwa) | Limit | 
+| ---- | ----- | 
+| Czas trwania testu | 90 dni | 
+| Magazyn przechowywania | Godzina rozpoczęcia 90 dni od uruchomienia | 
+| Interwał cyklu min | 1 sekunda </br>Dla aplikacji logiki z planu usługi App Service: 15 sekund | 
+| Maksymalny interwał cyklu | 500 dni | 
+||| 
 
-Przekroczenie limitu czas trwania testu lub przechowywania magazynu z przepływu normalnego przetwarzania [skontaktuj się z zespołem produktu](mailto://logicappsemail@microsoft.com) uzyskiwania pomocy z wymaganiami.
-
-
-### <a name="recurrence-interval"></a>Interwał cyklu
-
-| Name (Nazwa) | Limit |
-| ---- | ------- |
-| Interwał cyklu min | 1 sekunda </br>Dla aplikacji logiki z planu usługi App Service: 15 sekund |
-| Maksymalny interwał cyklu | 500 dni |
-|||
+Przekroczenie limitu czas trwania testu lub przechowywania magazynu z przepływu normalnego przetwarzania [skontaktuj się z zespołem Logic Apps](mailto://logicappsemail@microsoft.com) Aby uzyskać pomoc dotyczącą wymagań.
 
 ### <a name="looping-and-debatching-limits"></a>Powtarzanie i debatching limity
 
-Te limity mają zastosowanie do aplikacji logiki pojedynczego uruchomienia.
+Poniżej przedstawiono limity aplikacji logiki pojedynczego uruchomienia:
 
 | Name (Nazwa) | Limit | Uwagi | 
 | ---- | ----- | ----- | 
@@ -89,22 +82,22 @@ Te limity mają zastosowanie do aplikacji logiki pojedynczego uruchomienia.
 
 ### <a name="throughput-limits"></a>Limity przepustowości
 
-Te limity mają zastosowanie do aplikacji logiki pojedynczego zasobu.
+Poniżej przedstawiono limity dla logiki pojedynczego wystąpienia aplikacji:
 
 | Name (Nazwa) | Limit | Uwagi | 
 | ----- | ----- | ----- | 
-| Wykonania akcji na 5 minut | 100,000 |<p>Można zwiększyć limit do 300 000, uruchamiając aplikację logiki `High Througput` tryb. Tryb wysokiej przepływności można skonfigurować przez ustawienie `operationOptions` właściwości w`runtimeConfiguration` zasobu przepływu pracy, aby `OptimizedForHighThroughput`. <p>Należy pamiętać, że w trybie wysokiej przepływności jest w wersji zapoznawczej. Także obciążenia mogą być rozproszone na wielu aplikacji, zgodnie z potrzebami. | 
+| Wykonania akcji na 5 minut | 100,000 | Aby zwiększyć limit 300 000, możesz uruchomić aplikację logiki w `High Througput` tryb. Aby skonfigurować tryb wysokiej przepływności, w obszarze `runtimeConfiguration` zasobu przepływu pracy, należy ustawić `operationOptions` właściwości `OptimizedForHighThroughput`. <p>**Uwaga**: Tryb wysokiej przepływności jest w wersji zapoznawczej. Ponadto można rozpowszechniać obciążenia pracą wielu aplikacjom w razie potrzeby. | 
 | Akcje równoczesnych połączeń wychodzących | ~2,500 | Można zmniejszyć liczbę jednoczesnych żądań lub skrócić czas trwania, zgodnie z potrzebami. | 
 | Punkt końcowy środowiska wykonawczego: równoczesnych połączeń przychodzących |~1,000 | Można zmniejszyć liczbę jednoczesnych żądań lub skrócić czas trwania, zgodnie z potrzebami. | 
 | Środowisko uruchomieniowe punkt końcowy: wywołania na 5 minut do odczytu  | 60,000 | Można rozpowszechniać obciążenia pracą wielu aplikacjom zgodnie z potrzebami. | 
 | Środowisko uruchomieniowe punkt końcowy: wywołania wywołań na 5 minut| 45,000 |Można rozpowszechniać obciążenia pracą wielu aplikacjom zgodnie z potrzebami. | 
 |||| 
 
-Przekroczenie tych ograniczeń normalnego przetwarzania lub obciążenia wykonywania testów, które może przekroczyć te limity [skontaktuj się z zespołem produktu](mailto://logicappsemail@microsoft.com) uzyskiwania pomocy z wymaganiami.
+Przekroczenie tych ograniczeń normalnego przetwarzania lub obciążenia wykonywania testów, które może przekroczyć te limity [skontaktuj się z zespołem Logic Apps](mailto://logicappsemail@microsoft.com) Aby uzyskać pomoc dotyczącą wymagań.
 
 ### <a name="logic-app-definition-limits"></a>Limity definicji aplikacji logiki
 
-Te limity mają zastosowanie do definicji aplikacji logiki pojedynczego.
+Poniżej przedstawiono limity dla definicji aplikacji logiki pojedynczego:
 
 | Name (Nazwa) | Limit | Uwagi | 
 | ---- | ----- | ----- | 
@@ -136,7 +129,7 @@ Ograniczenia te dotyczą łączników niestandardowych, które można utworzyć 
 
 ### <a name="integration-account-limits"></a>Limity konta integracji
 
-Te limity mają zastosowanie do artefaktów, które można dodać do konta integracji.
+Poniżej przedstawiono limity artefaktów, które można dodać do konta integracji.
 
 | Name (Nazwa) | Limit | Uwagi | 
 | ---- | ----- | ----- | 
@@ -155,7 +148,7 @@ Ograniczenia te dotyczą liczbę artefaktów, które można dodać do konta inte
 | Name (Nazwa) | Limit | Uwagi | 
 | ---- | ----- | ----- | 
 | Umowy | 10 | | 
-| Inne typy artefaktów | 25 |Typy artefaktu zawierają partnerów, schematów, certyfikaty i mapy. Każdy typ może zawierać maksymalnie maksymalną liczbę artefaktów. | 
+| Inne typy artefaktów | 25 | Typy artefaktu zawierają partnerów, schematów, certyfikaty i mapy. Każdy typ może zawierać maksymalnie maksymalną liczbę artefaktów. | 
 |||| 
 
 #### <a name="standard-pricing-tier"></a>Warstwa cenowa standardowa
@@ -167,7 +160,7 @@ Ograniczenia te dotyczą liczbę artefaktów, które można dodać do konta inte
 
 ### <a name="b2b-protocols-as2-x12-edifact-message-size"></a>Rozmiar wiadomości protokoły B2B (AS2, X12, EDIFACT)
 
-Ograniczenia te dotyczą protokoły B2B.
+Poniżej przedstawiono ograniczeń, które dotyczą protokoły B2B:
 
 | Name (Nazwa) | Limit | Uwagi | 
 | ---- | ----- | ----- | 

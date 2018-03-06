@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
-ms.author: LADocs; jehollan
-ms.openlocfilehash: dab336da4e010d0a78de9a2bdd62536d8fdd9bf1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: klam; LADocs
+ms.openlocfilehash: de4f4ee086fbf3799fcac1f1b008d9237b5e7a09
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>Wywołaj wyzwalacz, lub zagnieżdżania przepływy pracy z punktów końcowych HTTP w aplikacji logiki
 
@@ -30,12 +30,12 @@ Do utworzenia punktów końcowych HTTP, można dodać te wyzwalacze, dzięki cze
 
 * [Żądanie](../connectors/connectors-native-reqres.md)
 
-* [Element Webhook połączenia interfejsu API](logic-apps-workflow-actions-triggers.md#api-connection-trigger)
+* [Element Webhook połączenia interfejsu API](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnection-trigger)
 
 * [Element webhook protokołu HTTP](../connectors/connectors-native-webhook.md)
 
    > [!NOTE]
-   > Mimo że naszych przykładach użyto **żądania** wyzwalacza, można użyć dowolnego z wymienionych wyzwalaczy HTTP, a wszystkie zasady tak samo dotyczą innych typów wyzwalacza.
+   > Chociaż te przykłady użycia **żądania** wyzwalacza, można użyć dowolnego z wymienionych wyzwalaczy HTTP, a wszystkie zasady tak samo dotyczą innych typów wyzwalacza.
 
 ## <a name="set-up-an-http-endpoint-for-your-logic-app"></a>Konfigurowanie punktu końcowego HTTP dla aplikacji logiki
 
@@ -157,7 +157,7 @@ Adres URL punktu końcowego HTTP, aby zaakceptować parametrów, należy dostoso
 
     Adres URL punktu końcowego HTTP zawiera teraz ścieżki względnej, na przykład: 
 
-    HTTPS & # 58;//prod-00.southcentralus.logic.azure.com/workflows/f90cb66c52ea4e9cabe0abf4e197deff/triggers/manual/paths/invoke/customers/{customerID}...
+    https&#58;//prod-00.southcentralus.logic.azure.com/workflows/f90cb66c52ea4e9cabe0abf4e197deff/triggers/manual/paths/invoke/customers/{customerID}...
 
 7. Aby przetestować punktu końcowego HTTP, skopiuj i wklej adres URL zaktualizowane w innym oknie przeglądarki, ale zastępuje `{customerID}` z `123456`, i naciśnij klawisz Enter.
 
@@ -166,6 +166,7 @@ Adres URL punktu końcowego HTTP, aby zaakceptować parametrów, należy dostoso
     `Hello 123456`
 
 <a name="generated-tokens"></a>
+
 ### <a name="tokens-generated-from-json-schemas-for-your-logic-app"></a>Tokeny generowane na podstawie schematów JSON aplikacji logiki
 
 Jeśli podasz schematu JSON w Twojej **żądania** wyzwalacza, Projektant aplikacji logiki generuje tokeny na potrzeby właściwości w tym schemacie. Można następnie użyć tych tokenów przekazywania danych za pomocą przepływu pracy aplikacji logiki.
@@ -206,6 +207,9 @@ Przepływy pracy można zagnieździć w aplikacji logiki przez dodanie innych ap
 
 Po utworzeniu punktu końcowego HTTP, możesz wyzwolić aplikację logiki za pośrednictwem `POST` metodę pełny adres URL. Aplikacje logiki mają wbudowaną obsługę dostęp bezpośredni punktów końcowych.
 
+> [!NOTE] 
+> Aby ręcznie uruchomić aplikację logiki w dowolnym momencie, na pasku narzędzi Projektanta aplikacji logiki lub widoku kodu aplikacji logiki, wybierz **Uruchom**.
+
 ## <a name="reference-content-from-an-incoming-request"></a>Odwołanie do zawartości z przychodzącego żądania
 
 Jeśli typ zawartości jest `application/json`, możesz odwoływać właściwości z żądania przychodzącego. W przeciwnym razie zawartość jest traktowany jako pojedyncza jednostka binarne, które można przekazać do innych interfejsów API. Aby odwołać tej zawartości w przepływie pracy, należy przekonwertować tej zawartości. Na przykład w przypadku przekazania `application/xml` zawartości, można użyć `@xpath()` do wyodrębnienia XPath lub `@json()` do konwertowania XML do formatu JSON. Dowiedz się więcej o [Praca z typami zawartości](../logic-apps/logic-apps-content-type.md).
@@ -234,7 +238,7 @@ Możesz chcieć odpowiadają na określone żądania, które uruchamiają aplika
 
 ### <a name="construct-the-response"></a>Konstrukcja odpowiedzi
 
-W treści odpowiedzi może zawierać więcej niż jeden nagłówek i dowolnego typu zawartości. W naszym przykładzie odpowiedzi, nagłówek Określa, czy odpowiedź ma typ zawartości `application/json`. i treść zawiera `title` i `name`na schematu JSON wcześniej zaktualizowane na podstawie **żądania** wyzwalacza.
+W treści odpowiedzi może zawierać więcej niż jeden nagłówek i dowolnego typu zawartości. W odpowiedzi na przykład nagłówek Określa, czy odpowiedź ma typ zawartości `application/json`. i treść zawiera `title` i `name`na schematu JSON wcześniej zaktualizowane na podstawie **żądania** wyzwalacza.
 
 ![Akcja odpowiedzi HTTP][3]
 
@@ -243,8 +247,8 @@ Odpowiedzi ma następujące właściwości:
 | Właściwość | Opis |
 | --- | --- |
 | statusCode |Określa kod stanu HTTP dla odpowiada na żądania przychodzącego. Ten kod może być prawidłowym stanem kodu, który rozpoczyna się od 2xx, 4xx lub 5xx. Kody stanu 3xx nie są dozwolone. |
-| Nagłówki |Definiuje dowolną liczbę nagłówków do uwzględnienia w odpowiedzi. |
-| Treści |Określa obiekt treści, która może być ciągiem, obiekt JSON lub nawet binarny zawartości przywoływanej z poprzedniego kroku. |
+| nagłówki |Definiuje dowolną liczbę nagłówków do uwzględnienia w odpowiedzi. |
+| treść |Określa obiekt treści, która może być ciągiem, obiekt JSON lub nawet binarny zawartości przywoływanej z poprzedniego kroku. |
 
 Oto co schematu JSON wygląda teraz **odpowiedzi** akcji:
 
@@ -300,7 +304,7 @@ Odpowiedź: w tym miejscu znajduje się podsumowanie dotyczące tych zmian:
 | Skonfiguruj uwierzytelnianie podstawowe lub OAuth |za pomocą interfejsu API zarządzania |
 | Skonfiguruj HTTP — metoda |W obszarze **Pokaż zaawansowane opcje**, wybierz metodę HTTP |
 | Konfigurowanie ścieżki względnej |W obszarze **Pokaż zaawansowane opcje**, Dodaj ścieżkę względną |
-| Treść przychodzących przez odwołanie`@triggerOutputs().body.Content` |Odwołanie za pośrednictwem`@triggerOutputs().body` |
+| Treść przychodzących przez odwołanie `@triggerOutputs().body.Content` |Odwołanie za pośrednictwem `@triggerOutputs().body` |
 | **Wyślij odpowiedź HTTP** akcji na odbiornik HTTP |Kliknij przycisk **odpowiadać na żądania HTTP** (wymagane dla żadnej aplikacji interfejsu API) |
 
 ## <a name="get-help"></a>Uzyskiwanie pomocy
@@ -309,7 +313,7 @@ Aby zadawać pytania, odpowiadać na nie i patrzeć, co robią inni użytkownicy
 
 Aby pomóc w ulepszaniu usługi Azure Logic Apps, przesyłaj pomysły lub głosuj na nie w [witrynie opinii użytkowników usługi Azure Logic Apps](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Tworzenie definicji aplikacji logiki](./logic-apps-author-definitions.md)
 * [Obsługa błędów i wyjątków](./logic-apps-exception-handling.md)

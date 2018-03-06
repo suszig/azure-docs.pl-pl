@@ -12,13 +12,13 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 03/01/2018
 ms.author: danlep
-ms.openlocfilehash: 181e9bd7c17e4618edd63dd92d70947a61c68758
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 5a73e926b5979e573ccb0402ff2d23eae2463232
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>Użyj wystąpień z funkcją RDMA lub włączone procesora GPU w pulach partii
 
@@ -33,11 +33,11 @@ Ten artykuł zawiera wskazówki i przykłady korzystać z niektórych rozmiarów
 
 ## <a name="subscription-and-account-limits"></a>Subskrypcja oraz limity konta
 
-* **Przydziały i limity** - [limit przydziału rdzeni dedykowanych na konto usługi partia zadań](batch-quota-limit.md#resource-quotas) może ograniczyć liczbę lub typ węzły, które można dodać do puli partii. Jest bardziej prawdopodobne do osiągnięcia przydziału po wybraniu wielordzeniowych rozmiarów maszyn wirtualnych z funkcją RDMA, włączone GPU lub inne. Oddzielne przydział dotyczy [maszyn wirtualnych niskiego priorytetu](batch-low-pri-vms.md), jeśli są używane. 
+* **Przydziały i limity** - [limit przydziału rdzeni na konto usługi partia zadań](batch-quota-limit.md#resource-quotas) można ograniczyć liczbę węzłów dany rozmiar można dodać do puli partii. Jest bardziej prawdopodobne do osiągnięcia przydziału po wybraniu wielordzeniowych rozmiarów maszyn wirtualnych z funkcją RDMA, włączone GPU lub inne. 
 
-  Ponadto używać niektórych rodzin maszyn wirtualnych na koncie usługi partia zadań, takich jak NCv2 i ND, jest ograniczony z powodu ograniczonej pojemności. Użyj tych rodzin jest dostępna tylko przez żądanie zwiększenia limitu przydziału w domyślnej liczby rdzeni (0).  
+  Ponadto używać niektórych rodzin maszyn wirtualnych na koncie usługi partia zadań, takich jak NCv2, NCv3 i ND, jest ograniczony z powodu ograniczonej pojemności. Użyj tych rodzin jest dostępna tylko przez żądanie zwiększenia limitu przydziału w domyślnej liczby rdzeni (0).  
 
-  Jeśli musisz zażądać zwiększenia limitu przydziału, otwórz [żądania obsługi online klienta](../azure-supportability/how-to-create-azure-support-request.md) bez dodatkowych opłat.
+  Jeśli to konieczne, [zażądać zwiększenia limitu przydziału](batch-quota-limit.md#increase-a-quota) bez dodatkowych opłat.
 
 * **Dostępność w danym regionie** — obliczeniowych maszyn wirtualnych mogą nie być dostępne w regionach, gdzie tworzenie konta usługi partia zadań. Aby sprawdzić, czy rozmiar jest dostępny, zobacz [produkty, które są dostępne w regionie](https://azure.microsoft.com/regions/services/).
 
@@ -52,10 +52,10 @@ RDMA i procesora GPU możliwości obliczeniowych rozmiary są obsługiwane tylko
 | Rozmiar | Możliwości | Systemy operacyjne | Wymagane oprogramowanie | Ustawienia puli |
 | -------- | -------- | ----- |  -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances) | RDMA | Ubuntu 16.04 LTS,<br/>SUSE Linux Enterprise Server 12 HPC, or<br/>Na podstawie centOS HPC<br/>(Azure Marketplace) | Intel MPI 5 | Włącz komunikację między węzłami, uniemożliwić wykonywanie zadań jednoczesnych |
-| [NC, NCv2, ND serii *](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms) | NVIDIA tesla — GPU (zależnie od serii) | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 lub 7.4, lub<br/>CentOS 7.3 lub 7.4<br/>(Azure Marketplace) | Sterowniki NVIDIA CUDA Toolkit | ND | 
-| [Seria wirtualizacją sieci](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, lub<br/>CentOS 7.3<br/>(Azure Marketplace) | Sterowniki NVIDIA siatki | ND |
+| [NCv3 NC, NCv2, ND serii *](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA tesla — GPU (zależnie od serii) | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 lub 7.4, lub<br/>CentOS 7.3 lub 7.4<br/>(Azure Marketplace) | Sterowniki NVIDIA CUDA Toolkit | ND | 
+| [Seria wirtualizacją sieci](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, lub<br/>CentOS 7.3<br/>(Azure Marketplace) | Sterowniki NVIDIA siatki | ND |
 
-* Łączność RDMA NC24r, NC24rs_v2 i ND24r maszyn wirtualnych jest obsługiwana w LTS 16.04 Ubuntu (z portalu Azure Marketplace) z Intel MPI.
+* Mogą wymagać łączności RDMA na maszynach wirtualnych z funkcją RDMA N-series [dodatkowe czynności konfiguracyjne](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) która jest zależna od dystrybucji.
 
 
 
@@ -64,10 +64,10 @@ RDMA i procesora GPU możliwości obliczeniowych rozmiary są obsługiwane tylko
 | Rozmiar | Możliwości | Systemy operacyjne | Wymagane oprogramowanie | Ustawienia puli |
 | -------- | ------ | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2016, 2012 R2 lub<br/>2012 (azure Marketplace) | Microsoft MPI 2012 R2 lub nowszym, lub<br/> Intel MPI 5<br/><br/>Rozszerzenia maszyny Wirtualnej Azure HpcVMDrivers | Włącz komunikację między węzłami, uniemożliwić wykonywanie zadań jednoczesnych |
-| [NC, NCv2, ND serii *](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA tesla — GPU (zależnie od serii) | Windows Server 2016 lub <br/>2012 R2 (Azure Marketplace) | Tesla — NVIDIA sterowników lub sterowników CUDA Toolkit| ND | 
+| [NCv3 NC, NCv2, ND serii *](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA tesla — GPU (zależnie od serii) | Windows Server 2016 lub <br/>2012 R2 (Azure Marketplace) | Tesla — NVIDIA sterowników lub sterowników CUDA Toolkit| ND | 
 | [Seria wirtualizacją sieci](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Windows Server 2016 lub<br/>2012 R2 (Azure Marketplace) | Sterowniki NVIDIA siatki | ND |
 
-* Łączność RDMA NC24r, NC24rs_v2 i ND24rs maszyn wirtualnych jest obsługiwana w systemie Windows Server 2016 lub Windows Server 2012 R2 (z portalu Azure Marketplace) z rozszerzeniem HpcVMDrivers i MPI firmy Microsoft lub Intel MPI.
+* Łączność RDMA na maszynach wirtualnych z funkcją RDMA N-series jest obsługiwana w systemie Windows Server 2016 lub Windows Server 2012 R2 (z portalu Azure Marketplace) z rozszerzeniem HpcVMDrivers i MPI firmy Microsoft lub Intel MPI.
 
 ### <a name="windows-pools---cloud-services-configuration"></a>Pule systemu Windows — Konfiguracja usług w chmurze
 
@@ -123,8 +123,8 @@ Do uruchamiania aplikacji systemu Windows MPI w puli węzłów Azure A8, należy
 
 Do uruchamiania aplikacji CUDA w puli węzłów Linux NC, musisz zainstalować CUDA Toolkit 9.0 w węzłach. Zestaw narzędzi instaluje niezbędne sterowniki NVIDIA tesla — GPU. Poniżej przedstawiono przykładowe kroki w celu wdrożenia niestandardowego obrazu Ubuntu 16.04 LTS sterowników procesora GPU:
 
-1. Wdrażanie maszyny Wirtualnej platformy Azure NC6 systemem Ubuntu 16.04 LTS. Na przykład utworzyć maszynę Wirtualną w regionie nam Południowa centralnej. Upewnij się, utwórz maszynę Wirtualną z dyskiem zarządzanym.
-2. Wykonaj kroki, aby nawiązać połączenie z maszyną Wirtualną i [zainstalować sterowniki CUDA](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms).
+1. Wdrożenie usługi Azure serii NC maszyny Wirtualnej z systemem Ubuntu 16.04 LTS. Na przykład utworzyć maszynę Wirtualną w regionie nam Południowa centralnej. Upewnij się, utwórz maszynę Wirtualną z dyskiem zarządzanym.
+2. Wykonaj kroki, aby nawiązać połączenie z maszyną Wirtualną i [zainstalować sterowniki CUDA](../virtual-machines/linux/n-series-driver-setup.md).
 3. Anulowanie zastrzeżenia agenta systemu Linux, a następnie [Przechwyć obraz maszyny Wirtualnej systemu Linux](../virtual-machines/linux/capture-image.md).
 4. Tworzenie konta usługi partia zadań w obszarze obsługującego NC maszyn wirtualnych.
 5. Za pomocą interfejsów API partii lub portalu Azure, Utwórz pulę [przy użyciu niestandardowego obrazu](batch-custom-images.md) i z odpowiednią liczbę węzłów i skali. W poniższej tabeli przedstawiono przykładowe ustawienia puli obrazu:
@@ -132,7 +132,7 @@ Do uruchamiania aplikacji CUDA w puli węzłów Linux NC, musisz zainstalować C
 | Ustawienie | Wartość |
 | ---- | ---- |
 | **Typ obrazu** | Obraz niestandardowy |
-| Obraz niestandardowy | Nazwa obrazu |
+| **Obraz niestandardowy** | Nazwa obrazu |
 | **Agent węzła jednostki SKU** | batch.node.ubuntu 16.04 |
 | **Rozmiaru węzła** | NC6 Standard |
 

@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 6c4f96ee34d59102ae289e99733216fe0b145e93
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 36814d238aabd12e7cc6947809c135130002eb46
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="execute-data-sources-and-data-preparations-packages-from-python"></a>Wykonanie pakietów źródła danych i przygotowania danych w języku Python
 
@@ -33,9 +33,9 @@ Ta akcja tworzy krótki skrypt w języku Python, który wykonuje pakietu i zwrac
 ## <a name="data-sources"></a>Źródła danych
 
 `azureml.dataprep.datasource` Moduł zawiera jednej funkcji do wykonywania źródła danych i zwracać dataframe: `load_datasource(path, secrets=None, spark=None)`.
-- `path`to ścieżka do źródła danych (plik .dsource).
-- `secrets`jest opcjonalne słownik mapujący klucze do kluczy tajnych.
-- `spark`jest opcjonalna wartość logiczna określająca, czy mają być zwracane Spark dataframe lub Pandas dataframe. Domyślnie program Azure Machine Learning Workbench Określa, jakiego rodzaju dataframe zwracać w czasie wykonywania na podstawie kontekstu.
+- `path` to ścieżka do źródła danych (plik .dsource).
+- `secrets` jest opcjonalne słownik mapujący klucze do kluczy tajnych.
+- `spark` jest opcjonalna wartość logiczna określająca, czy mają być zwracane Spark dataframe lub Pandas dataframe. Domyślnie program Azure Machine Learning Workbench Określa, jakiego rodzaju dataframe zwracać w czasie wykonywania na podstawie kontekstu.
 
 ## <a name="data-preparations-packages"></a>Pakiety przygotowań danych
 
@@ -43,13 +43,13 @@ Ta akcja tworzy krótki skrypt w języku Python, który wykonuje pakietu i zwrac
 
 ### <a name="execution-functions"></a>Wykonanie funkcji
 
-- `submit(package_path, dataflow_idx=0, secrets=None, spark=None)`przesyła przepływ danych określony dla wykonywania, ale nie zwraca dataframe.
-- `run(package_path, dataflow_idx=0, secrets=None, spark=None)`uruchamia przepływ określone dane i zwraca wynik jako dataframe.
-- `run_on_data(user_config, package_path, dataflow_idx=0, secrets=None, spark=None)`uruchamia przepływ określone dane na podstawie źródła danych w pamięci i zwraca wynik jako dataframe. `user_config` Argument jest słownik, który mapuje bezwzględna ścieżka źródła danych (plik .dsource) reprezentowane jako listę list źródłu danych w pamięci.
+- `submit(package_path, dataflow_idx=0, secrets=None, spark=None)` przesyła przepływ danych określony dla wykonywania, ale nie zwraca dataframe.
+- `run(package_path, dataflow_idx=0, secrets=None, spark=None)` uruchamia przepływ określone dane i zwraca wynik jako dataframe.
+- `run_on_data(user_config, package_path, dataflow_idx=0, secrets=None, spark=None)` uruchamia przepływ określone dane na podstawie źródła danych w pamięci i zwraca wynik jako dataframe. `user_config` Argument jest słownik, który mapuje bezwzględna ścieżka źródła danych (plik .dsource) reprezentowane jako listę list źródłu danych w pamięci.
 
 ### <a name="common-arguments"></a>Typowe argumentów
 
-- `package_path`to ścieżka do pakiecie przygotowań danych (plik .dprep).
-- `dataflow_idx`jest liczony od zera indeks, który przepływu danych w pakiecie w celu wykonania. Jeśli przepływ określonych danych odwołuje się do innych przepływów danych lub źródeł danych, wykonywane są również.
-- `secrets`jest opcjonalne słownik mapujący klucze do kluczy tajnych.
-- `spark`jest opcjonalna wartość logiczna określająca, czy mają być zwracane Spark dataframe lub Pandas dataframe. Domyślnie Workbench Określa, jakiego rodzaju dataframe zwracać w czasie wykonywania na podstawie kontekstu.
+- `package_path` to ścieżka do pakiecie przygotowań danych (plik .dprep).
+- `dataflow_idx` jest liczony od zera indeks, który przepływu danych w pakiecie w celu wykonania. Jeśli przepływ określonych danych odwołuje się do innych przepływów danych lub źródeł danych, wykonywane są również.
+- `secrets` jest opcjonalne słownik mapujący klucze do kluczy tajnych.
+- `spark` jest opcjonalna wartość logiczna określająca, czy mają być zwracane Spark dataframe lub Pandas dataframe. Domyślnie Workbench Określa, jakiego rodzaju dataframe zwracać w czasie wykonywania na podstawie kontekstu.

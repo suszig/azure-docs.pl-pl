@@ -7,7 +7,7 @@
 | Pule na konto usługi Batch | 20 - 100 | 2500 |
 
 > [!NOTE]
-> Domyślne limity różnią się zależnie od typu subskrypcji, który jest używany do utworzenia konta usługi partia zadań. Przydziały rdzeni wyświetlane są przeznaczone dla konta usługi partia zadań w trybie wsadowym usługi.
+> Domyślne limity różnią się zależnie od typu subskrypcji, który jest używany do utworzenia konta usługi partia zadań. Przydziały rdzeni wyświetlane są przeznaczone dla konta usługi partia zadań w trybie wsadowym usługi. [Wyświetl przydziały na koncie wsadowym](../articles/batch/batch-quota-limit.md#view-batch-quotas). 
 
 <sup>1</sup> Liczba dedykowanych rdzeni na konto usługi partia zadań można zwiększyć, ale maksymalna liczba jest nieokreślony. Skontaktuj się z pomocą techniczną platformy Azure omówimy zwiększyć opcje.
 

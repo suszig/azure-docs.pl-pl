@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 9384752c7f12074aae6ff165241e954eb2a4a01e
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 0dead955f9eb723dfa232d3ce751498a09ce1b29
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/05/2018
 ---
-# <a name="schedule-tasks-and-workflows-that-run-regularly-with-logic-apps"></a>Harmonogram zadań i przepływy pracy uruchamiane regularnie z usługą logic apps
+# <a name="create-and-schedule-regularly-running-tasks-with-azure-logic-apps"></a>Tworzenie i planowanie regularnie uruchomionych zadań za pomocą usługi Azure Logic Apps
 
 Aby zaplanować zadania, akcje, obciążeń lub procesy, które regularnego uruchamiania, można utworzyć przepływu pracy aplikacji logiki, który rozpoczyna się od **harmonogram - cyklu** [wyzwalacza](../logic-apps/logic-apps-overview.md#logic-app-concepts). Z tego wyzwalacza można ustawić datę i godzinę uruchomienia cyklu i harmonogram cyklu do wykonywania zadań, takich jak te przykłady i inne:
 
@@ -34,8 +34,8 @@ Aby zaplanować zadania, akcje, obciążeń lub procesy, które regularnego uruc
 
 Wyzwalacz obsługuje wielu wzorców, na przykład:
 
-* Natychmiastowe uruchomienie i Powtórz co  *n*  liczba sekundy, minuty, godziny, dni, tygodnie lub miesiące.
-* Uruchom w określonym czasie, a następnie uruchom i Powtórz co  *n*  liczba sekund, minuty, godziny, dni, tygodnie lub miesiące.
+* Natychmiastowe uruchomienie i Powtórz co *n* liczba sekundy, minuty, godziny, dni, tygodnie lub miesiące.
+* Uruchom w określonym czasie, a następnie uruchom i Powtórz co *n* liczba sekund, minuty, godziny, dni, tygodnie lub miesiące.
 * Uruchom i powtórz na jeden lub więcej razy dziennie, na przykład na 8:00 AM a 17:00.
 * Uruchom i Powtórz co tydzień, ale tylko dla określonych dni, takich jak sobota i niedziela.
 * Uruchom i Powtórz co tydzień, ale tylko dla określonych dni i godziny, na przykład od poniedziałku do piątku w 8:00 AM a 17:00.
@@ -99,17 +99,17 @@ Można skonfigurować te właściwości dla wyzwalacza cyklu.
 | Name (Nazwa) | Wymagane | Nazwa właściwości | Typ | Opis | 
 |----- | -------- | ------------- | ---- | ----------- | 
 | **Częstotliwość** | Yes | frequency | Ciąg | Jednostka czasu w cyklu: **drugi**, **minutę**, **godzina**, **dzień**, **tygodnia**, lub  **Miesiąc** | 
-| **Interval** | Yes | interval | Liczba całkowita | Dodatnia liczba całkowita, w tym artykule opisano, jak często uruchamia przepływ pracy na podstawie częstotliwości. <p>Domyślny interwał wynosi 1. Poniżej przedstawiono minimalne i maksymalne odstępach czasu: <p>-Miesięczny: 1-16 miesięcy </br>-Dniowego: 1-500 dni </br>-Godzinnym: 1-12 000 godzin </br>-Minutowy: 1-72,000 minut </br>-Drugi: 1-9,999,999 sekund<p>Na przykład jeśli interwał to 6 i częstotliwości jest "Miesiąc", cykl jest co 6 miesięcy. | 
+| **Interwał** | Yes | interval | Liczba całkowita | Dodatnia liczba całkowita, w tym artykule opisano, jak często uruchamia przepływ pracy na podstawie częstotliwości. <p>Domyślny interwał wynosi 1. Poniżej przedstawiono minimalne i maksymalne odstępach czasu: <p>-Miesięczny: 1-16 miesięcy </br>-Dniowego: 1-500 dni </br>-Godzinnym: 1-12 000 godzin </br>-Minutowy: 1-72,000 minut </br>-Drugi: 1-9,999,999 sekund<p>Na przykład jeśli interwał to 6 i częstotliwości jest "Miesiąc", cykl jest co 6 miesięcy. | 
 | **Strefa czasowa** | Nie | timeZone | Ciąg | Dotyczy tylko po określeniu godziny rozpoczęcia, ponieważ wyzwalacz nie akceptuje [przesunięcie UTC](https://en.wikipedia.org/wiki/UTC_offset). Wybierz strefę czasową, który chcesz zastosować. | 
 | **Godzina rozpoczęcia** | Nie | startTime | Ciąg | Podaj godzinę rozpoczęcia w następującym formacie: <p>RRRR-MM-Ddtgg w przypadku wybrania strefy czasowej <p>— lub — <p>RRRR-MM-Ddtgg, jeśli nie zaznaczysz strefy czasowej <p>Tak na przykład, jeśli chcesz 18 września 2017 godzinie 2:00, określ "2017-09-18T14:00:00" i wybierz strefę czasową, takie jak czas pacyficzny. Alternatywnie można wskazać "2017-09-18T14:00:00Z" bez strefę czasową. <p>**Uwaga:** ta godzina rozpoczęcia musi występować po [ISO 8601 daty czasu specyfikacji](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) w [format daty i godziny UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), ale bez [przesunięcie UTC](https://en.wikipedia.org/wiki/UTC_offset). Jeśli nie zaznaczysz strefy czasowej, należy dodać litery "Z" na końcu bez spacji. To "Z" odwołuje się do jego odpowiednik [milową czas](https://en.wikipedia.org/wiki/Nautical_time). <p>Proste harmonogramów, godzina rozpoczęcia jest pierwsze wystąpienie, natomiast w przypadku złożonych harmonogramy wyzwalacz nie wyzwalać żadnych wcześniej niż czas rozpoczęcia. [*Jakie są sposoby, że można używać datę i godzinę?*](#start-time) | 
-| **W następujące dni** | Nie | weekDays | Ciąg lub tablicę ciągów | Jeśli wybierzesz "Tydzień", można wybrać co najmniej jeden dzień, jeśli chcesz uruchomić przepływ pracy: **poniedziałek**, **wtorek**, **środa**, **czwartek** , **Piątek**, **sobota**, i **niedziela** | 
+| **W tych dniach** | Nie | weekDays | Ciąg lub tablicę ciągów | Jeśli wybierzesz "Tydzień", można wybrać co najmniej jeden dzień, jeśli chcesz uruchomić przepływ pracy: **poniedziałek**, **wtorek**, **środa**, **czwartek** , **Piątek**, **sobota**, i **niedziela** | 
 | **W tych godzinach** | Nie | hours | Liczba całkowita lub tablicy liczba całkowita | W przypadku wybrania "Day" lub "Tydzień", można wybrać jeden lub więcej liczb całkowitych od 0 do 23 godzin dnia, gdy chcesz uruchomić przepływ pracy. <p>Na przykład jeśli określisz "10", "12" i "14" możesz uzyskać 10 AM, 12 PM i 14: 00 jako znaki godzinę. | 
 | **W tych minutach** | Nie | minutes | Liczba całkowita lub tablicy liczba całkowita | W przypadku wybrania "Day" lub "Tydzień", można wybrać co najmniej jeden liczby całkowite z zakresu od 0 do 59 jako minuty, godziny, jeśli chcesz uruchomić przepływ pracy. <p>Na przykład "30" można określić jako minuta znaku i w poprzednim przykładzie, godziny, dnia, możesz uzyskać godziny 10:30, 12:30:00 i 14:30:00. | 
 ||||| 
 
 ## <a name="json-example"></a>Przykład JSON
 
-Oto przykład cyklu wyzwalacza definicji:
+Oto przykład [definicję wyzwalacza cyklu](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger):
 
 ``` json
 {

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: tamram
-ms.openlocfilehash: 7d86d5e8547d977c07cfbb0597b74382172a8472
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 13aee7bbbe58c0a4183eddc0881aaed8cbebd956
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Użyć emulatora magazynu Azure do programowania i testowania
 
@@ -43,6 +43,14 @@ Emulator magazynu łączy do programu SQL Server lub LocalDB przy użyciu uwierz
 Istnieją pewne różnice w działaniu między emulatora magazynu i usług Azure storage. Aby uzyskać więcej informacji na temat tych różnic, zobacz [różnice między emulatora magazynu i usługi Azure Storage](#differences-between-the-storage-emulator-and-azure-storage) sekcji w dalszej części tego artykułu.
 
 ## <a name="start-and-initialize-the-storage-emulator"></a>Uruchom i zainicjować emulator magazynu
+
+### <a name="run-the-azure-storage-emulator-in-dockerhttpshubdockercomrmicrosoftazure-storage-emulator"></a>[Uruchamianie emulatora magazynu Azure w rozwiązaniu Docker](https://hub.docker.com/r/microsoft/azure-storage-emulator/)
+```
+docker run -p 10000:10000 -p 10001:10001 -p 10002:10002 microsoft/azure-storage-emulator
+```
+
+### <a name="using-sdk"></a>Przy użyciu zestawu SDK
+
 Aby uruchomić emulatora magazynu Azure:
 1. Wybierz **Start** przycisk lub naciśnij przycisk **Windows** klucza.
 1. Rozpocznij wpisywanie `Azure Storage Emulator`.
@@ -140,9 +148,9 @@ Na przykład następujący adres może być używane do uzyskiwania dostępu do 
 
 Punkty końcowe usługi dla emulatora magazynu są:
 
-* Usługa blob:`http://127.0.0.1:10000/<account-name>/<resource-path>`
-* Usługa kolejki:`http://127.0.0.1:10001/<account-name>/<resource-path>`
-* Usługa tabel:`http://127.0.0.1:10002/<account-name>/<resource-path>`
+* Usługa blob: `http://127.0.0.1:10000/<account-name>/<resource-path>`
+* Usługa kolejki: `http://127.0.0.1:10001/<account-name>/<resource-path>`
+* Usługa tabel: `http://127.0.0.1:10002/<account-name>/<resource-path>`
 
 ### <a name="addressing-the-account-secondary-with-ra-grs"></a>Adresy pomocniczego z RA-GRS konta
 Począwszy od wersji 3.1 emulator magazynu obsługuje dostęp do odczytu Replikacja geograficznie nadmiarowego (RA-GRS). Dla zasobów magazynowania zarówno w chmurze, jak i w lokalnym emulatorze, można uzyskać dostępu do lokalizacji dodatkowej dołączanie przez - dodatkowej do nazwy konta. Na przykład następujący adres może być używane do uzyskiwania dostępu do obiektu blob przy użyciu pomocniczego tylko do odczytu w emulatorze magazynu:
@@ -260,7 +268,7 @@ Nie ma żadnych różnic specyficzne dla magazynu kolejek w emulatorze.
 * Skryptowy interfejs wiersza polecenia jest zastąpiona magazynu emulatora graficznego interfejsu użytkownika. Szczegółowe informacje dotyczące interfejsu wiersza polecenia Zobacz dotyczące narzędzia wiersza polecenia emulatora magazynu. Interfejs graficzny będzie znajdować się w wersji 3.0 lub nowszej, ale jego można uzyskać tylko po zainstalowaniu emulatora obliczeniowe przez kliknięcie prawym przyciskiem myszy na ikonie na pasku zadań systemu i wybierając polecenie Pokaż magazynu interfejs użytkownika emulatora.
 * W wersji 2013-08-15 usług magazynu Azure teraz jest w pełni obsługiwany. (Wcześniej tej wersji jest obsługiwana tylko przez Emulator magazynu wersji 2.2.1 wersji zapoznawczej.)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Ocena emulatora magazynu i platform, obsługiwane społeczności typu open source [Azurite](https://github.com/arafato/azurite). 
 * [Przykładów dla magazynu platformy Azure przy użyciu platformy .NET](../storage-samples-dotnet.md) zawiera linki do kilka przykładów kodu, można użyć podczas tworzenia aplikacji.

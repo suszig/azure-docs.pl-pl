@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
-ms.openlocfilehash: 5484f0422e67c75320cc76ffcf08a2b8d6cc6108
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e143ed1e6bcece7efac9126c8e46408e7a88a5c0
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Optymalizowanie maszyny wirtualnej systemu Linux na platformie Azure
 Tworzenie maszyny wirtualnej systemu Linux (VM) to łatwo zrobić z wiersza polecenia lub w portalu. W tym samouczku przedstawiono sposób zapewnienia skonfigurowaniu go w celu zoptymalizowania wydajności jej na platformie Microsoft Azure. W tym temacie korzysta z maszyny Wirtualnej systemu Ubuntu Server, ale można również utworzyć maszynę wirtualną systemu Linux przy użyciu [obrazów jako szablon](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -58,7 +58,7 @@ Na Ubuntu chmury obrazów należy użyć do skonfigurowania partycji wymiany ini
 
 W przypadku obrazów nie obsługują init chmury obrazów maszyn wirtualnych wdrożonych w witrynie Azure Marketplace ma agenta systemu Linux maszyny Wirtualnej zintegrowane z systemem operacyjnym. Ten agent umożliwia maszyny Wirtualnej do interakcji z różnymi usługami platformy Azure. Zakładając, że wdrożono standardowy obraz z portalu Azure Marketplace, należy wykonać następujące czynności, aby poprawnie skonfigurować ustawienia plików wymiany Linux:
 
-Zlokalizuj i zmodyfikować dwóch wpisów w **/etc/waagent.conf** pliku. Decydować, istnieje plik wymiany dedykowanych i rozmiar pliku wymiany. Chcesz zmodyfikować parametry są `ResourceDisk.EnableSwap=N` i`ResourceDisk.SwapSizeMB=0` 
+Zlokalizuj i zmodyfikować dwóch wpisów w **/etc/waagent.conf** pliku. Decydować, istnieje plik wymiany dedykowanych i rozmiar pliku wymiany. Chcesz zmodyfikować parametry są `ResourceDisk.EnableSwap=N` i `ResourceDisk.SwapSizeMB=0` 
 
 Zmień parametry następujące ustawienia:
 
@@ -131,8 +131,7 @@ Należy pamiętać, jak z wszystkich dyskusji optymalizacji, należy przeprowadz
 
 Niektóre przydatne łącza do dodatkowych zasobów: 
 
-* [Premium Storage: magazyn o wysokiej wydajności dla obciążeń maszyn wirtualnych platformy Azure](../windows/premium-storage.md)
-* [Podręcznik użytkownika Azure agenta systemu Linux](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Optymalizacja wydajności MySQL na maszynach wirtualnych systemu Linux platformy Azure](classic/optimize-mysql.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [Należy skonfigurować oprogramowanie RAID w systemie Linux](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
+* [Premium Storage: magazyn o wysokiej wydajności dla obciążeń maszyn wirtualnych platformy Azure](premium-storage.md)
+* [Podręcznik użytkownika Azure agenta systemu Linux](agent-user-guide.md)
+* [Optymalizacja wydajności MySQL na maszynach wirtualnych systemu Linux platformy Azure](classic/optimize-mysql.md)
+* [Należy skonfigurować oprogramowanie RAID w systemie Linux](configure-raid.md)

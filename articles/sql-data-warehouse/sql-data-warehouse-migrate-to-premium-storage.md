@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 11/29/2016
 ms.author: elbutter;barbkess
-ms.openlocfilehash: 1e3cdb4aa3af3067b27b6a85212e2a3d27542cc3
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 751f553c277cec579327771beb2f3256664452b1
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="migrate-your-data-warehouse-to-premium-storage"></a>Migracja magazynu danych do magazynu w warstwie premium
 Usługa Azure SQL Data Warehouse niedawno wprowadzone [magazyn w warstwie premium dla większej wydajności przewidywalności][premium storage for greater performance predictability]. Teraz można migrować istniejące magazynów danych obecnie na magazynu w warstwie standardowa do magazyn w warstwie premium. Możesz korzystać z automatycznych migracji, lub jeśli wolisz decyduje o migracji (która jest związana z przestój), migrację można wykonać samodzielnie.
@@ -116,7 +116,7 @@ W przypadku zmiany do magazynu w warstwie premium masz również zwiększonej li
 **Wymagania wstępne:**
 
 - Magazyn danych powinno być ono uruchomione i jednostki magazynu danych 1000 lub nowszą (zobacz [mocy obliczeniowej skali][scale compute power]).
-- Musi należeć do użytkownika wykonywania skryptu [roli mediumrc] [ mediumrc role] lub nowszej. Aby dodać użytkownika do tej roli, wykonaj następujące czynności:````EXEC sp_addrolemember 'xlargerc', 'MyUser'````
+- Musi należeć do użytkownika wykonywania skryptu [roli mediumrc] [ mediumrc role] lub nowszej. Aby dodać użytkownika do tej roli, wykonaj następujące czynności: ````EXEC sp_addrolemember 'xlargerc', 'MyUser'````
 
 ````sql
 -------------------------------------------------------------------------------
@@ -173,7 +173,7 @@ Jeśli wystąpią problemy z magazynem danych, [Utwórz bilet pomocy technicznej
 [Pause]: sql-data-warehouse-manage-compute-portal.md
 [Restore]: sql-data-warehouse-restore-database-portal.md
 [steps to rename during migration]: #optional-steps-to-rename-during-migration
-[scale compute power]: sql-data-warehouse-manage-compute-portal.md#scale-compute-power
+[scale compute power]: quickstart-scale-compute-portal.md
 [mediumrc role]: sql-data-warehouse-develop-concurrency.md
 
 <!--MSDN references-->

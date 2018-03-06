@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: pajosh
-ms.openlocfilehash: 8ef9ddc345fb553b93815022dc3e6a796cae8b3a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f856303d4abf05178eb11a242b87390ff1484e1b
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Funkcje zabezpieczeń w celu ochrony kopii zapasowych hybrydowych, korzystających z usługi Kopia zapasowa Azure
 Coraz więcej problemów dotyczących problemów z zabezpieczeniami, takich jak złośliwego oprogramowania, ransomware i nieautoryzowanego dostępu. Te problemy zabezpieczeń może być kosztowne zarówno oszczędność pieniędzy i danych. Ochrona przed takimi atakami, kopia zapasowa Azure udostępnia funkcje zabezpieczeń w celu ochrony kopii zapasowych hybrydowego. W tym artykule omówiono sposobu włączania i używania tych funkcji, za pomocą agenta usług odzyskiwania Azure i serwer kopii zapasowej Azure. Te funkcje obejmują:
@@ -111,9 +111,9 @@ Funkcje zabezpieczeń wymienione w niniejszym artykule zapewniają mechanizmy ob
 | --- | --- | --- |
 | Zmiana zasad |Nie można modyfikować zasady tworzenia kopii zapasowej. Błąd: Bieżąca operacja nie powiodła się z powodu wewnętrznego błędu usługi [0x29834]. Spróbuj wykonać ponownie operację za jakiś czas. Jeśli problem będzie nadal występować, skontaktuj się z pomocą techniczną firmy Microsoft. |**Przyczyna:**<br/>Ten błąd jest dostarczany podczas ustawienia zabezpieczeń zostały włączone, spróbuj zmniejszyć zakres przechowywania, poniżej wartości minimalnej wymienione powyżej i znajdują się na nieobsługiwaną wersję (obsługiwane wersje są określone w pierwszym należy wziąć pod uwagę w tym artykule). <br/>**Zalecana akcja:**<br/> W takim przypadku należy ustawić okresu przechowywania powyżej minimalne przechowywania podanego okresu (siedem dni codziennie, czterech tygodni, przez co tydzień, trzy tygodnie, co miesiąc lub rok dla corocznej) kontynuowanie zasady dotyczące aktualizacji. Opcjonalnie preferowane rozwiązanie byłoby zaktualizować agenta kopii zapasowej serwera kopii zapasowej Azure i/lub pakietem zbiorczym aktualizacji programu DPM wykorzystać wszystkie aktualizacje zabezpieczeń. |
 | Zmień hasło |Zabezpieczenia wprowadzony numer PIN jest niepoprawny. (IDENTYFIKATOR: 100130) Podaj poprawny numer PIN zabezpieczeń, aby wykonać tę operację. |**Przyczyna:**<br/> Ten błąd jest dostarczany podczas wprowadzania numeru PIN zabezpieczeń nieważny lub wygasły podczas wykonywania krytycznej operacji (jak zmienić hasło). <br/>**Zalecana akcja:**<br/> Aby ukończyć operację, wprowadź prawidłowy kod PIN zabezpieczeń. Aby uzyskać numer PIN, zaloguj się do portalu Azure i przejdź do magazynu usług odzyskiwania > Ustawienia > Właściwości > Generowanie kodu PIN zabezpieczeń. Ten numer PIN umożliwia zmianę hasła. |
-| Zmień hasło |Operacja nie powiodła się. IDENTYFIKATOR: 120002 |**Przyczyna:**<br/>Ten błąd jest dostarczany podczas próby zmiany hasła, ustawienia zabezpieczeń zostały włączone, a na nieobsługiwaną wersję (prawidłowe wersje określone w pierwszym należy wziąć pod uwagę w tym artykule).<br/>**Zalecana akcja:**<br/> Aby zmienić hasło, należy najpierw zaktualizować agenta kopii zapasowej do minimalna wersja minimalna 2.0.9052, kopia zapasowa Azure serwerowi minimalnej aktualizacji 1, i/lub DPM ma minimalną programu DPM 2012 R2 UR12 lub UR2 2016 programu DPM (poniżej łącza pobierania), wprowadź prawidłowy kod PIN zabezpieczeń. Aby uzyskać numer PIN, zaloguj się do portalu Azure i przejdź do magazynu usług odzyskiwania > Ustawienia > Właściwości > Generowanie kodu PIN zabezpieczeń. Ten numer PIN umożliwia zmianę hasła. |
+| Zmień hasło |Operacja nie powiodła się. ID: 120002 |**Przyczyna:**<br/>Ten błąd jest dostarczany podczas próby zmiany hasła, ustawienia zabezpieczeń zostały włączone, a na nieobsługiwaną wersję (prawidłowe wersje określone w pierwszym należy wziąć pod uwagę w tym artykule).<br/>**Zalecana akcja:**<br/> Aby zmienić hasło, należy najpierw zaktualizować agenta kopii zapasowej do minimalna wersja minimalna 2.0.9052, kopia zapasowa Azure serwerowi minimalnej aktualizacji 1, i/lub DPM ma minimalną programu DPM 2012 R2 UR12 lub UR2 2016 programu DPM (poniżej łącza pobierania), wprowadź prawidłowy kod PIN zabezpieczeń. Aby uzyskać numer PIN, zaloguj się do portalu Azure i przejdź do magazynu usług odzyskiwania > Ustawienia > Właściwości > Generowanie kodu PIN zabezpieczeń. Ten numer PIN umożliwia zmianę hasła. |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Wprowadzenie do magazynu usług odzyskiwania Azure](backup-azure-vms-first-look-arm.md) Aby włączyć te funkcje.
 * [Pobierz najnowszą wersję agenta usług odzyskiwania Azure](http://aka.ms/azurebackup_agent) Aby chronić komputery z systemem Windows i ochronę danych przed atakami.
 * [Pobierz najnowsze serwera kopii zapasowej Azure](https://aka.ms/latest_azurebackupserver) ułatwia ochronę obciążeń i ochronę danych przed atakami.

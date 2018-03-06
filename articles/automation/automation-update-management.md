@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: gwallace
-ms.openlocfilehash: bb20137cc3ac8daf82ee21300be6981e09ce3fe0
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
-ms.translationtype: HT
+ms.openlocfilehash: 9280925cdd5cccf8d1d2f2b33a7de8523a07cd14
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Aktualizacja rozwiązania do zarządzania na platformie Azure
 
@@ -56,8 +56,8 @@ W poniższej tabeli przedstawiono listę obsługiwanych systemów operacyjnych:
 
 |System operacyjny  |Uwagi  |
 |---------|---------|
-|Windows Server 2008 lub nowszy     | Obsługuje tylko zaktualizować ocen         |
-|Windows Server 2008 R2 z dodatkiem SP1 lub nowszy     |.NET framework 4.5 i WMF 5.0 lub nowszej, które są potrzebne dla systemu Windows Server 2008 R2 z dodatkiem SP1<br>Nano Server nie jest obsługiwane         |
+|Windows Server 2008, Windows Server 2008 R2 RTM    | Obsługuje tylko zaktualizować ocen         |
+|Windows Server 2008 R2 z dodatkiem SP1 lub nowszy     |.NET framework 4.5 i WMF 5.0 lub nowszej, które są potrzebne dla systemu Windows Server 2008 R2 z dodatkiem SP1        |
 |CentOS 6 (x86/x64) i 7 (x64)      | Agenci dla systemu Linux muszą mieć dostęp do repozytorium aktualizacji.        |
 |Red Hat Enterprise 6 (x86/x64) i 7 (x64)     | Agenci dla systemu Linux muszą mieć dostęp do repozytorium aktualizacji.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) i 12 (x64)     | Agenci dla systemu Linux muszą mieć dostęp do repozytorium aktualizacji.        |
@@ -70,7 +70,7 @@ W poniższej tabeli wymieniono systemy operacyjne, które nie są obsługiwane:
 |System operacyjny  |Uwagi  |
 |---------|---------|
 |Klient systemu Windows     | Klienckie systemy operacyjne (Windows 7, Windows 10, itp.) nie są obsługiwane.        |
-|Nano Server     | Nano server jest częścią systemu Windows 2016.        |
+|Windows Server 2016 Nano Server     | Nieobsługiwane       |
 
 ### <a name="client-requirements"></a>Wymagania dotyczące klienta
 

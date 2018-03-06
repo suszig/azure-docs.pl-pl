@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 201da4e6ec86a6c2a79a9e948245c0d83708c3f9
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: c89b455212ad428dbe67d7f1d95517072c220d8e
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="create-a-virtual-network-with-multiple-subnets-using-the-azure-portal"></a>Tworzenie sieci wirtualnej z wieloma podsieciami przy użyciu portalu Azure
 
@@ -53,8 +53,8 @@ Zaloguj się w witrynie Azure Portal pod adresem http://portal.azure.com.
 2. Wybierz **podsieci** , a następnie wybierz **+ podsieci**, jak pokazano na poniższej ilustracji:
 
      ![Dodaj podsieć](./media/virtual-networks-create-vnet-arm-pportal/add-subnet.png)
-
-3. W **Dodaj podsieć** wyświetlonym, wprowadź *prywatnej* dla **nazwa**, wprowadź *10.0.1.0/24* dla **zakresadresów**, a następnie wybierz **OK**. 
+     
+3. W **Dodaj podsieć** wyświetlonym, wprowadź *prywatnej* dla **nazwa**, wprowadź *10.0.1.0/24* dla **zakresadresów**, a następnie wybierz **OK**.  Zakres adresów podsieci nie może nakładać się na zakresy adresów innych podsieci w sieci wirtualnej. 
 
 Przed wdrożeniem sieci wirtualnych platformy Azure i podsieci w środowisku produkcyjnym, firma Microsoft zaleca, aby należy dokładnie zapoznać się z przestrzeni adresowej [zagadnienia](virtual-network-manage-network.md#create-a-virtual-network) i [limity sieci wirtualnej](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Gdy zasoby są wdrażane na podsieci, niektóre sieci wirtualnej i zmiany podsieci, takie jak zmiana zakresów adresów, może wymagać ponownego wdrażania istniejących zasobów platformy Azure, wdrażana w obrębie podsieci.
 
@@ -83,6 +83,8 @@ Sieć wirtualna umożliwia kilka typów zasobów platformy Azure do komunikowani
 7. Ponownie wykonaj kroki 1 – 6, ale wprowadzić *myVmMgmt* dla **nazwa** maszyny wirtualnej i wybierz **prywatnej** dla **podsieci**.
 
 Maszyny wirtualne potrwać kilka minut, aby utworzyć. Nie Kontynuuj pozostałe kroki aż do utworzenia zarówno maszyn wirtualnych.
+
+Maszyny wirtualne utworzone w tym artykule istnieje [interfejs sieciowy](virtual-network-network-interface.md) z jednym adresem IP, który jest przypisywany dynamicznie do interfejsu sieciowego. Po wdrożeniu maszyny Wirtualnej, można [dodać wiele prywatnych i publicznych adresów IP lub zmień metoda przypisywania adresów IP statycznej](virtual-network-network-interface-addresses.md#add-ip-addresses). Możesz [dodać interfejsów sieciowych](virtual-network-network-interface-vm.md#vm-add-nic), w granicach obsługiwane przez [rozmiar maszyny Wirtualnej](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) wybranym podczas tworzenia maszyny wirtualnej. Możesz również [Włącz wirtualizację we/wy pojedynczego elementu głównego (SR-IOV)](create-vm-accelerated-networking-powershell.md) dla maszyny Wirtualnej, ale tylko wtedy, gdy tworzenie maszyny Wirtualnej z rozmiar maszyny Wirtualnej, która obsługuje możliwości.
 
 ### <a name="communicate-between-virtual-machines-and-with-the-internet"></a>Komunikację między maszynami wirtualnymi i z Internetu
 
@@ -127,7 +129,9 @@ Maszyny wirtualne potrwać kilka minut, aby utworzyć. Nie Kontynuuj pozostałe 
         Minimum = 0ms, Maximum = 0ms, Average = 0ms
     ```
       
-    Można stwierdzić, że adres *myVmMgmt* 10.0.1.4 jest maszyny wirtualnej. 10.0.1.4 był pierwszy dostępny adres IP z zakresu adresów *prywatnej* podsieci, która została wdrożona *myVmMgmt* maszynę wirtualną w poprzednim kroku.  Zobaczysz, że w pełni kwalifikowaną nazwę maszyny wirtualnej jest *myvmmgmt.dar5p44cif3ulfq00wxznl3i3f.bx.internal.cloudapp.net*. Chociaż *dar5p44cif3ulfq00wxznl3i3f* część nazwy domeny różni się dla maszyny wirtualnej, pozostałej części nazwy domeny są takie same. Domyślnie wszystkie maszyny wirtualne Azure używają domyślna usługa Azure DNS. Wszystkie maszyny wirtualne sieci wirtualnej można rozpoznawania nazw innych maszyn wirtualnych w tej samej sieci wirtualnej przy użyciu usługi DNS domyślne platformy Azure. Zamiast przy użyciu usługi DNS domyślne platformy Azure, możesz użyć serwera DNS lub możliwości prywatnej domeny usługi Azure DNS. Aby uzyskać więcej informacji, zobacz [rozpoznawanie nazw przy użyciu serwera DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) lub [przy użyciu usługi Azure DNS dla domen prywatnej](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    Można stwierdzić, że adres *myVmMgmt* 10.0.1.4 jest maszyny wirtualnej. 10.0.1.4 był pierwszy dostępny adres IP z zakresu adresów *prywatnej* podsieci, która została wdrożona *myVmMgmt* maszynę wirtualną w poprzednim kroku.  Zobaczysz, że w pełni kwalifikowaną nazwę maszyny wirtualnej jest *myvmmgmt.dar5p44cif3ulfq00wxznl3i3f.bx.internal.cloudapp.net*. Chociaż *dar5p44cif3ulfq00wxznl3i3f* część nazwy domeny różni się dla maszyny wirtualnej, pozostałej części nazwy domeny są takie same. 
+
+    Domyślnie wszystkie maszyny wirtualne Azure używają domyślna usługa Azure DNS. Wszystkie maszyny wirtualne sieci wirtualnej można rozpoznawania nazw innych maszyn wirtualnych w tej samej sieci wirtualnej przy użyciu usługi DNS domyślne platformy Azure. Zamiast przy użyciu usługi DNS domyślne platformy Azure, możesz użyć serwera DNS lub możliwości prywatnej domeny usługi Azure DNS. Aby uzyskać więcej informacji, zobacz [rozpoznawanie nazw przy użyciu serwera DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) lub [przy użyciu usługi Azure DNS dla domen prywatnej](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 9. Aby zainstalować usługi Internet Information Services (IIS) dla systemu Windows Server na *myVmWeb* maszyny wirtualnej, wprowadź następujące polecenie w sesji programu PowerShell:
 
@@ -137,13 +141,12 @@ Maszyny wirtualne potrwać kilka minut, aby utworzyć. Nie Kontynuuj pozostałe 
 
 10. Po ukończeniu instalacji usług IIS, odłącz *myVmWeb* sesji usług pulpitu zdalnego, co spowoduje pozostawienie w *myVmMgmt* sesji usług pulpitu zdalnego. Otwórz przeglądarkę sieci web i przejdź do http://myvmweb. Strona powitalna usług IIS zostanie wyświetlony.
 11. Odłącz *myVmMgmt* sesji usług pulpitu zdalnego.
-12. Próba wyświetlenia strona powitalna usług IIS z komputera użytkownika. Podczas tworzenia Azure *myVmWeb* maszynę wirtualną, publiczny zasób adres IP o nazwie *myVmWeb* została także utworzona i przypisana do maszyny wirtualnej. Widać, że przydzielono 52.170.5.92 *myVmMgmt* maszyny wirtualnej na obrazie w kroku 2. Aby znaleźć publiczny adres IP przypisany do *myVmWeb* maszyny wirtualnej, wyszukiwanie *myVmWeb* w polu wyszukiwania, wybierz go w wynikach wyszukiwania. 
+12. Znajdź publicznego adresu IP *myVmWeb* maszyny wirtualnej. Podczas tworzenia Azure *myVmWeb* maszynę wirtualną, publiczny zasób adres IP o nazwie *myVmWeb* została także utworzona i przypisana do maszyny wirtualnej. Widać, że 52.170.5.92 została przypisana do **publicznego adresu IP** do *myVmMgmt* maszyny wirtualnej na obrazie w kroku 2. Aby znaleźć publiczny adres IP przypisany do *myVmWeb* maszyny wirtualnej, wyszukiwanie *myVmWeb* w polu wyszukiwania portalu, wybierz go w wynikach wyszukiwania.
 
     Jeśli maszyna wirtualna nie musi mieć publiczny adres IP przypisane do niej, Azure przypisuje publicznego adresu IP do każdej maszyny wirtualnej, które tworzysz, domyślnie. Aby komunikować się z Internetu na maszynę wirtualną, publiczny adres IP musi można przypisać do maszyny wirtualnej. Wszystkie maszyny wirtualne mogą komunikować się wychodzące z Internetem, czy przypisano publiczny adres IP do maszyny wirtualnej. Aby dowiedzieć się więcej na temat połączenia wychodzące Internet na platformie Azure, zobacz [połączeń wychodzących na platformie Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+13. Na komputerze użytkownika, przejdź do publicznego adresu IP *myVmWeb* maszyny wirtualnej. Próba wyświetlenia strona powitalna usług IIS z tego komputera nie powiedzie się. Próba nie powiedzie się, ponieważ gdy maszyny wirtualne zostały wdrożone, Azure utworzyć grupę zabezpieczeń sieci dla każdej maszyny wirtualnej domyślnie. 
 
-    Na komputerze użytkownika, przejdź do publicznego adresu IP *myVmWeb* maszyny wirtualnej. Próba wyświetlenia strona powitalna usług IIS z tego komputera nie powiedzie się. Próba nie powiedzie się, ponieważ gdy maszyny wirtualne zostały wdrożone, Azure utworzyć grupę zabezpieczeń sieci dla każdej maszyny wirtualnej domyślnie. 
-
-    Grupa zabezpieczeń sieci zawiera zasady zabezpieczeń, które dozwolonych lub zablokowanych dla ruchu przychodzącego i wychodzącego ruchu sieciowego przez port i adres IP. Domyślne grupy zabezpieczeń sieci utworzone Azure umożliwia komunikację za pośrednictwem wszystkie porty między zasobami w tej samej sieci wirtualnej. Dla maszyn wirtualnych systemu Windows domyślną grupę zabezpieczeń sieci nie zezwala na cały ruch przychodzący z Internetu przez wszystkie porty, Zaakceptuj portu TCP 3389 (RDP). W związku z tym domyślnie można również RDP bezpośrednio do *myVmWeb* maszyny wirtualnej z Internetu, nawet jeśli nie możesz portu 3389 Otwórz na serwerze sieci web. Ponieważ przeglądanie sieci web komunikuje się za pośrednictwem portu 80, komunikacji nie z Internetu, ponieważ nie istnieje żadna reguła w domyślnej grupie zabezpieczeń sieci zezwala na ruch przez port 80.
+     Grupa zabezpieczeń sieci zawiera zasady zabezpieczeń, które dozwolonych lub zablokowanych dla ruchu przychodzącego i wychodzącego ruchu sieciowego przez port i adres IP. Domyślne grupy zabezpieczeń sieci utworzone Azure umożliwia komunikację za pośrednictwem wszystkie porty między zasobami w tej samej sieci wirtualnej. Dla maszyn wirtualnych systemu Windows domyślną grupę zabezpieczeń sieci nie zezwala na cały ruch przychodzący z Internetu przez wszystkie porty, Zaakceptuj portu TCP 3389 (RDP). W związku z tym domyślnie można również RDP bezpośrednio do *myVmWeb* maszyny wirtualnej z Internetu, nawet jeśli nie możesz portu 3389 Otwórz na serwerze sieci web. Ponieważ przeglądanie sieci web komunikuje się za pośrednictwem portu 80, komunikacji nie z Internetu, ponieważ nie istnieje żadna reguła w domyślnej grupie zabezpieczeń sieci zezwala na ruch przez port 80.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 

@@ -4,18 +4,18 @@ description: "Odwołanie do usługi Azure Machine Learning Model danych kolekcji
 services: machine-learning
 author: aashishb
 ms.author: aashishb
-manager: neerajkh
-ms.reviewer: garyericson, jasonwhowell, mldocs
+manager: hjerez
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 7a0fda8a44d13bcaba84b4124d9b693c05874154
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2de5e8bc8880fea5e7f57c88590e32a9fbb60ac6
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-machine-learning-model-data-collection-api-reference"></a>Odwołanie do usługi Azure Machine Learning Model danych kolekcji API
 
@@ -52,23 +52,23 @@ DC = ModelDataCollector (nazwa_modelu, identyfikator = "default", feature_names 
 
 Zobacz szczegóły klasy i parametr:
 
-### <a name="class"></a>Klasy
-| Nazwa | Opis |
+### <a name="class"></a>Klasa
+| Name (Nazwa) | Opis |
 |--------------------|--------------------|
 | ModelDataCollector | Klasa w azureml.datacollector przestrzeni nazw. Wystąpienie tej klasy będzie służyć do zbierania danych modelu. Pojedynczy plik oceniania może zawierać wiele ModelDataCollectors. Każde wystąpienie powinna być używana do zbierania danych w jednej lokalizacji odrębny w pliku wyników, dzięki czemu schematu zebranych danych pozostaje spójna (to, że dane wejściowe i prognozowanie)|
 
 
 ### <a name="parameters"></a>Parametry
 
-| Nazwa | Typ | Opis |
+| Name (Nazwa) | Typ | Opis |
 |-------------|------------|-------------------------|
-| nazwa_modelu | Ciąg | Nazwa modelu zbieranych danych na |
-| Identyfikator | Ciąg | Lokalizacja w kodzie, który identyfikuje te dane, np. "RawInput" lub "Prognozowania" |
+| model_name | ciąg | Nazwa modelu zbieranych danych na |
+| identyfikator | ciąg | Lokalizacja w kodzie, który identyfikuje te dane, np. "RawInput" lub "Prognozowania" |
 | feature_names | Lista ciągów | Lista nazw funkcji, które stają się nagłówek csv, gdy podane |
-| model_management_account_id | Ciąg | Identyfikator modelu konto zarządzania przechowywania tego modelu. To jest wypełniana automatycznie podczas modeli są operationalized za pośrednictwem AML |
-| webservice_name | Ciąg | Nazwa usługi sieci Web, na którym ten model jest obecnie wdrożona. To jest wypełniana automatycznie podczas modeli są operationalized za pośrednictwem AML |
-| model_id | Ciąg | Unikatowy identyfikator dla tego modelu w kontekście konta zarządzania modelu. to jest wypełniana automatycznie podczas modeli są operationalized za pośrednictwem AML |
-| model_version | Ciąg | numer wersji tego modelu w kontekście konta zarządzania modelu. To jest wypełniana automatycznie podczas modeli są operationalized za pośrednictwem AML |
+| model_management_account_id | ciąg | Identyfikator modelu konto zarządzania przechowywania tego modelu. to jest wypełniana automatycznie podczas modeli są operationalized za pośrednictwem AML |
+| webservice_name | ciąg | Nazwa usługi sieci Web, na którym ten model jest obecnie wdrożona. to jest wypełniana automatycznie podczas modeli są operationalized za pośrednictwem AML |
+| model_id | ciąg | Unikatowy identyfikator dla tego modelu w kontekście konta zarządzania modelu. to jest wypełniana automatycznie podczas modeli są operationalized za pośrednictwem AML |
+| model_version | ciąg | numer wersji tego modelu w kontekście konta zarządzania modelu. to jest wypełniana automatycznie podczas modeli są operationalized za pośrednictwem AML |
 
 
 
@@ -83,15 +83,15 @@ Można zbierać dane modelu za pomocą wystąpienia ModelDataCollector utworzone
 Szczegółowe informacje można znaleźć metody i parametr:
 
 ### <a name="method"></a>Metoda
-| Nazwa | Opis |
+| Name (Nazwa) | Opis |
 |--------------------|--------------------|
 | zbieranie | Używany do gromadzenia danych dla modelu danych wejściowych lub prognozowania|
 
 
 ### <a name="parameters"></a>Parametry
 
-| Nazwa | Typ | Opis |
+| Name (Nazwa) | Typ | Opis |
 |-------------|------------|-------------------------|
 | input_data | wiele typów | dane do zebrania (obecnie akceptuje listy typów, numpy.array, pandas. DataFrame, pyspark.sql.DataFrame). Dla typów dataframe Jeśli istnieje nagłówek o nazwach funkcji tych informacji znajduje się w miejsce docelowe danych (bez konieczności jawnego przesłania nazwy funkcji w Konstruktorze ModelDataCollector) |
-| user_correlation_id | Ciąg | Identyfikator korelacji opcjonalne, który może być udostępniane przez użytkownika służące do skorelowania tego prognozowania |
+| user_correlation_id | ciąg | Identyfikator korelacji opcjonalne, który może być udostępniane przez użytkownika służące do skorelowania tego prognozowania |
 

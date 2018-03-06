@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: a402c1ab3b4e481cb75ec291949c6f523e162103
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: def4f1cdcd173e26964f9be11266d0e1a20fcafa
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Używanie raportów kondycji systemu do rozwiązywania problemów
 Składniki sieci szkieletowej usług Azure udostępnia raporty kondycji systemu na wszystkich jednostek w klastrze dodatkowych zabiegów. [Magazynu kondycji](service-fabric-health-introduction.md#health-store) tworzy i usuwa jednostki na podstawie raportów systemu. Również organizuje ona je w hierarchii, która przechwytuje interakcje jednostki.
@@ -31,7 +31,7 @@ Składniki sieci szkieletowej usług Azure udostępnia raporty kondycji systemu 
 Raportów o kondycji systemu zapewniają wgląd w klastrze i funkcjonalność aplikacji i flagi problemów. Dla aplikacji i usług systemowych raportów kondycji Sprawdź, czy jednostki są zaimplementowane i są działa prawidłowo z punktu widzenia sieci szkieletowej usług. Raporty nie zawierają żadnych monitorowanie kondycji logiki biznesowej usługi lub wykrywania zawieszone procesy. Usługi użytkownik może uzupełnić dane kondycji z użyciem informacji specyficznych ich logiki.
 
 > [!NOTE]
-> Wysyłany przez użytkownika watchdogs raportów o kondycji są widoczne tylko *po* składników systemu Tworzenie jednostki. Po usunięciu jednostki magazynu kondycji spowoduje automatyczne usunięcie wszystkich skojarzonych z nim raportów kondycji. To samo dotyczy po utworzeniu nowego wystąpienia jednostki, na przykład, gdy nowy stateful utrwalone usługi repliki jest tworzone wystąpienie. Wszystkie raporty skojarzone z wystąpieniem stare usunąć i wyczyścić ze sklepu.
+> Wysyłany przez użytkownika watchdogs raportów o kondycji są widoczne tylko *po* składników systemu Tworzenie jednostki. Po usunięciu jednostki magazynu kondycji spowoduje automatyczne usunięcie wszystkich skojarzonych z nim raportów kondycji. Dotyczy to po utworzeniu nowego wystąpienia jednostki. Przykładem jest po utworzeniu nowego wystąpienia repliki usługi stanowej utrwalonych. Wszystkie raporty skojarzone z wystąpieniem stare usunąć i wyczyścić ze sklepu.
 > 
 > 
 
@@ -40,7 +40,7 @@ Składnik systemu raporty są identyfikowane przez źródło, w którym rozpoczy
 Oto niektóre raporty systemu, aby zrozumieć, co ich wyzwala i Dowiedz się, jak rozwiązać potencjalne problemy, które reprezentują.
 
 > [!NOTE]
-> Sieć szkieletowa usług jest nadal dodawać raporty warunków odsetek zwiększających wgląd w działania wykonywane w klastrze, a aplikacje istniejące raporty mogą być dołączane więcej szczegółów, aby ułatwić rozwiązanie problemu szybciej.
+> Sieć szkieletowa usług w dalszym ciągu Dodaj raporty warunków odsetek zwiększających wgląd w działania wykonywane w klastrze i aplikacje. Istniejące raporty mogą być dołączane więcej szczegółów, aby ułatwić rozwiązanie problemu szybciej.
 > 
 > 
 
@@ -54,22 +54,25 @@ Raport określa limit czasu globalnego dzierżawy jako czas wygaśnięcia (TTL).
 
 * **SourceId**: System.Federation
 * **Właściwość**: rozpoczyna się od **otoczenie** i zawiera informacje na węźle.
-* **Następne kroki**: Sprawdź, dlaczego otoczenie zostaną utracone, na przykład, Sprawdź komunikację między węzłami klastra.
+* **Następne kroki**: Sprawdź, dlaczego otoczenie zostaną utracone. Na przykład sprawdzić komunikację między węzłami klastra.
 
 ### <a name="rebuild"></a>Kompiluj ponownie
 
-**Menedżera trybu Failover** usługi (**FM**) zarządza informacjami o węzłach klastra. FM utraci swoje dane i przechodzi do utraty danych, który go nie może zagwarantować, że ma najnowszych informacji o węzłach klastra. W takim przypadku system przechodzi przez **odbudować**, i **System.FM** zbiera dane ze wszystkich węzłów w klastrze, aby można było odbudować jego stanu. Czasami z powodu sieci lub zagadnienia węzła Odbuduj można pobrać zablokował lub zablokowany. Taki sam może się zdarzyć z **główny menedżer trybu Failover** usługi (**FMM**). **FMM** jest usługi bezstanowej system, który śledzi where wszystkie **FMs** znajdują się w klastrze. **FMMs** podstawowy jest zawsze węzeł o identyfikatorze najbliżej 0. Jeśli ten węzeł zostanie porzucone, **odbudować** zostanie wywołany.
-Gdy wystąpi jeden z powyższych warunków, **System.FM** lub **System.FMM** Flaga go za pośrednictwem raportów o błędach. Ponowna kompilacja może zostać zatrzymane w jednym z dwóch faz:
+Usługa menedżera trybu Failover (FM) zarządza informacjami o węzłach klastra. Gdy FM utracie danych i przechodzi do utraty danych, nie może zagwarantować ma najnowszych informacji o węzłach klastra. W takim przypadku system przechodzi przez kompilowania i System.FM zbiera dane ze wszystkich węzłów w klastrze w celu odbudowania jego stanu. Czasami z powodu sieci lub zagadnienia węzła Odbuduj można uzyskać zatrzymane lub wstrzymane. Taki sam może nastąpić z usługą Failover Manager głównego (FMM). FMM to usługa systemu bezstanowych, która śledzi ścieżkę, z których wszystkie FMs w klastrze. Podstawowy FMM jest zawsze węzeł o identyfikatorze najbliżej 0. Jeśli ten węzeł zostanie porzucone, zostanie wywołany odbudowie.
+W przypadku jednego z powyższych warunków **System.FM** lub **System.FMM** flagi go za pośrednictwem raportów o błędach. Ponowna kompilacja mogła zostać zablokowana na jeden z dwóch faz:
 
-* Oczekiwanie na emisji: **FM/FMM** czeka na odpowiedź emisji komunikatów w innych węzłach. **Następne kroki:** Sprawdź, czy istnieje problem z połączeniem sieci między węzłami.   
-* Oczekiwanie na węzłach: **FM/FMM** już odebrał odpowiedź emisji z innych węzłów i czeka na odpowiedź od określonych węzłów. Raport o kondycji zawiera węzły, dla którego **FM/FMM** czeka na odpowiedź. **Następne kroki:** Sprawdź połączenie sieciowe między **FM/FMM** i listy węzłów. Sprawdź każdy węzeł wymienionych w przypadku innych możliwych problemów.
+* **Oczekiwanie na emisji**: FM/FMM czeka na odpowiedź emisji komunikatów w innych węzłach.
+
+  * **Następne kroki**: Sprawdź, czy istnieje problem z połączeniem sieci między węzłami.
+* **Oczekiwanie na węzłach**: FM/FMM już odebrał odpowiedź emisji z innych węzłów i czeka na odpowiedź od określonych węzłów. Raport o kondycji zawiera listę węzłów, dla których FM/FMM czeka na odpowiedź.
+   * **Następne kroki**: Sprawdź połączenie sieciowe między FM/FMM i listy węzłów. Sprawdź każdy węzeł wymienionych w przypadku innych możliwych problemów.
 
 * **SourceID**: System.FM lub System.FMM
 * **Właściwość**: Skompiluj ponownie.
 * **Następne kroki**: Sprawdź połączenie sieciowe między węzły, a także stan określonych węzłów, które są wyświetlane na opis raport o kondycji.
 
 ## <a name="node-system-health-reports"></a>Węzeł systemowych raportów kondycji
-**System.FM**, który reprezentuje usługę Menedżer trybu Failover jest urzędu, który zarządza informacjami o węzłach klastra. Każdy węzeł powinien mieć jeden raport z System.FM przedstawiający jego stanu. Jednostek node zostaną usunięte po usunięciu stan węzła. Aby uzyskać więcej informacji, zobacz [RemoveNodeStateAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync).
+System.FM, reprezentujący usługą Failover Manager service jest urzędu, który zarządza informacjami o węzłach klastra. Każdy węzeł powinien mieć jeden raport z System.FM przedstawiający jego stanu. Jednostek node zostaną usunięte po usunięciu stan węzła. Aby uzyskać więcej informacji, zobacz [RemoveNodeStateAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync).
 
 ### <a name="node-updown"></a>Węzeł w górę lub w dół
 System.FM raportów jako OK, gdy węzeł dołączy pierścień (jest uruchomiona). Zgłasza błąd, gdy węzeł odjazdem pierścienia (działa, albo do uaktualnienia lub po prostu ponieważ nie powiodła się). Hierarchii kondycji utworzony przez magazynu kondycji działa na jednostkach wdrożonej w korelacji z System.FM raportów węzłów. Traktuje węzła nadrzędnego wirtualnego wszystkich wdrożonych jednostek. Jednostek wdrożonych w tym węźle dostępnych za pośrednictwem zapytania, jeśli węzeł został zgłoszony jako czas przez System.FM z tego samego wystąpienia jako wystąpienie skojarzone z jednostkami. Gdy System.FM zgłasza, że węzeł jest wyłączony lub ponownie uruchomiony jako nowe wystąpienie magazynu kondycji automatycznie oczyszcza wdrożonej jednostek, które może istnieć tylko na dół węzła lub poprzednie wystąpienie węzła.
@@ -115,21 +118,21 @@ Usługa równoważenia obciążenia sieci szkieletowej zgłosi ostrzeżenie po w
 * **Następne kroki**: Sprawdź podane metryki i wyświetlić w węźle pojemność bieżąca.
 
 ### <a name="node-capacity-mismatch-for-resource-governance-metrics"></a>Węzeł Niezgodność pojemności dla zasobu metryki ładu
-Raporty System.Hosting ostrzeżenie, jeśli zdefiniowano możliwości węzła w manifeście klastra są większe niż pojemności rzeczywistych węzła dla zasobu metryki ładu (rdzenie procesora i pamięci). Raport o kondycji będą wyświetlane po pierwszym pakiet usługi, która używa [ładu zasobów](service-fabric-resource-governance.md) rejestruje w określonym węźle.
+System.Hosting raporty, ostrzeżenie, jeśli zdefiniowano możliwości węzła w manifeście klastra są większe niż pojemności rzeczywistych węzła dla zasobu ładu metryki (rdzeni Procesora i pamięci). Raport o kondycji jest wyświetlany, gdy pierwszy pakiet usługi, która używa [ładu zasobów](service-fabric-resource-governance.md) rejestruje w określonym węźle.
 
 * **SourceId**: System.Hosting
-* **Właściwość**: ResourceGovernance
-* **Następne kroki**: może to być spowodowane problemem, jak Zarząd pakietów usługi nie będą wymuszane, zgodnie z oczekiwaniami i [ładu zasobów](service-fabric-resource-governance.md) nie będzie działać prawidłowo. Aktualizowanie manifestu klastra z węzła poprawne pojemności dla tych metryk lub nie określaj je na wszystkich i let sieci szkieletowej usług, aby automatycznie wykrywać dostępnych zasobów.
+* **Właściwość**: **ResourceGovernance**.
+* **Następne kroki**: ten problem może to stanowić problem, ponieważ Zarząd pakietów usługi nie są wymuszane, zgodnie z oczekiwaniami i [ładu zasobów](service-fabric-resource-governance.md) nie działa prawidłowo. Zaktualizować manifestu klastra o pojemności poprawny węzeł dla tych metryk lub nie określ je i umożliwić automatycznie Wykryj dostępne zasoby sieci szkieletowej usług.
 
 ## <a name="application-system-health-reports"></a>Aplikacja systemowych raportów kondycji
-**System.CM**, który reprezentuje usługę Menedżer klastra jest urzędu, który zarządza informacjami o aplikacji.
+System.CM, reprezentujący usługę Menedżer klastra jest urzędu, który zarządza informacjami o aplikacji.
 
 ### <a name="state"></a>Stan
 System.CM raportów, jako OK gdy aplikacji została utworzona lub zaktualizowana. Informuje magazynu kondycji po usunięciu aplikacji, dzięki czemu może być usunięty z magazynu.
 
 * **SourceId**: System.CM
 * **Właściwość**: stan.
-* **Następne kroki**: Jeśli aplikacja została utworzona lub aktualizowane, powinny zawierać raport o kondycji Menedżera klastra. W przeciwnym razie sprawdź stan aplikacji, wysyłając kwerendy, na przykład polecenia cmdlet programu PowerShell **Get ServiceFabricApplication - ApplicationName** *applicationName*.
+* **Następne kroki**: Jeśli aplikacja została utworzona lub aktualizowane, powinny zawierać raport o kondycji Menedżera klastra. W przeciwnym razie sprawdź stan aplikacji, wysyłając zapytanie. Na przykład użyć polecenia cmdlet programu PowerShell **Get ServiceFabricApplication - ApplicationName** *applicationName*.
 
 W poniższym przykładzie przedstawiono zdarzenia stanu na **fabric: / WordCount** aplikacji:
 
@@ -155,7 +158,7 @@ HealthEvents                    :
 ```
 
 ## <a name="service-system-health-reports"></a>Usługa systemowych raportów kondycji
-**System.FM**, który reprezentuje usługę Menedżer trybu Failover jest urzędu, który zarządza informacjami o usługach.
+System.FM, reprezentujący usługą Failover Manager service jest urzędu, który zarządza informacjami o usługach.
 
 ### <a name="state"></a>Stan
 System.FM raporty jako OK po utworzeniu usługi. Usuwa obiekt z magazynu kondycji po usunięciu usługi.
@@ -193,11 +196,11 @@ HealthEvents          :
 **System.PLB** zgłasza błąd, jeśli wykryje, czy uaktualnianie usługi są skorelowane z innej usługi, który tworzy łańcuch koligacji. Raport jest wyczyszczone po pomyślnej aktualizacji.
 
 * **SourceId**: System.PLB
-* **Właściwość**: ServiceDescription.
+* **Właściwość**: **ServiceDescription**.
 * **Następne kroki**: Sprawdź opisy skorelowane usług.
 
 ## <a name="partition-system-health-reports"></a>Partycja systemowych raportów kondycji
-**System.FM**, reprezentuje usługą Failover Manager service jest urzędu, który zarządza informacjami o partycji usługi.
+System.FM, reprezentujący usługą Failover Manager service jest urzędu, który zarządza informacjami o partycji usługi.
 
 ### <a name="state"></a>Stan
 System.FM raportów, jako OK, gdy partycja został utworzony i działa prawidłowo. Usuwa obiekt z magazynu kondycji po usunięciu partycji.
@@ -407,7 +410,7 @@ HealthEvents          :
 ### <a name="replicaopenstatus-replicaclosestatus-replicachangerolestatus"></a>ReplicaOpenStatus, ReplicaCloseStatus, ReplicaChangeRoleStatus
 Ta właściwość służy do wskazania ostrzeżenia i błędy podczas próby otwarcia repliki, zamknij repliki lub przejście repliki z jednej roli do innego. Aby uzyskać więcej informacji, zobacz [cyklu życia repliki](service-fabric-concepts-replica-lifecycle.md). Błędy mogą być wyjątków zgłaszanych przez wywołania interfejsu API lub awarie procesu hosta usługi, w tym czasie. Na wypadek awarii ze względu na wywołania interfejsu API z kodu C# usługi Service Fabric dodaje do raport o kondycji wyjątku i ślad stosu.
 
-Tych ostrzeżeń są wywoływane po ponowieniu próby akcji lokalnie pewną liczbę razy (w zależności od zasad). Sieć szkieletowa usług ponowi próbę akcji do maksymalnej wartości progowej. Po osiągnięciu progu maksymalny, spróbuj do działania, aby naprawić tę sytuację. Ta próba może spowodować błąd tych ostrzeżeń, które zostanie wyczyszczony, ponieważ zrezygnuje akcji w tym węźle. Na przykład jeśli replika nie powiodło się otwarcie w węźle, usługi sieć szkieletowa zgłasza ostrzeżenie kondycji. Jeśli replika nadal nie można otworzyć, Service Fabric działa własnym naprawić. Ta akcja może obejmować w trakcie tej samej operacji w innym węźle. Powoduje to ostrzeżenie wywoływane dla tej repliki do wyczyszczenia. 
+Tych ostrzeżeń są wywoływane po ponowieniu próby akcji lokalnie pewną liczbę razy (w zależności od zasad). Sieć szkieletowa usług ponowi próbę akcji do maksymalnej wartości progowej. Po osiągnięciu maksymalnej wartości progowej, spróbuj do działania, aby naprawić tę sytuację. Ta próba może spowodować błąd tych ostrzeżeń, które zostanie wyczyszczony, ponieważ zrezygnuje akcji w tym węźle. Na przykład jeśli replika nie powiodło się otwarcie w węźle, usługi sieć szkieletowa zgłasza ostrzeżenie kondycji. Jeśli replika nadal nie można otworzyć, Service Fabric działa własnym naprawić. Ta akcja może obejmować w trakcie tej samej operacji w innym węźle. Ta próba powoduje, że ostrzeżenia dla tej repliki do wyczyszczenia. 
 
 * **SourceId**: System.RA
 * **Właściwość**: **ReplicaOpenStatus**, **ReplicaCloseStatus**, i **ReplicaChangeRoleStatus**.
@@ -506,7 +509,7 @@ Ponownej konfiguracji może zostać zatrzymane dla jednego z następujących pow
 W rzadkich przypadkach ponownej konfiguracji może zostać zatrzymane z powodu komunikacji lub inne problemy między ten węzeł i usługą Failover Manager service.
 
 * **SourceId**: System.RA
-* **Właściwość**: **ponownej konfiguracji**.
+* **Właściwość**: ponownej konfiguracji.
 * **Następne kroki**: badanie replik lokalnych lub zdalnych, w zależności od opis raport o kondycji.
 
 W poniższym przykładzie przedstawiono raport o kondycji, w której zmiana konfiguracji jest zablokowana dla lokalnej repliki. W tym przykładzie on się z powodu usługi nie ramach token anulowania.
@@ -622,7 +625,7 @@ HealthEvents          :
                         
 ```
 
-Właściwości i tekst wskazują, które interfejs API został zablokowany. Następne kroki do wykonania dla różnych zablokowane interfejsów API różni się. Jakiegokolwiek interfejsu API na *IStatefulServiceReplica* lub *IStatelessServiceInstance* jest zazwyczaj na usterkę w kodzie usługi. W poniższej sekcji opisano, jak te przełożyć na [modelu niezawodne usługi](service-fabric-reliable-services-lifecycle.md):
+Właściwości i tekst wskazują, które interfejs API został zablokowany. Następne kroki do wykonania dla różnych zablokowane interfejsy API są różne. Jakiegokolwiek interfejsu API na *IStatefulServiceReplica* lub *IStatelessServiceInstance* jest zazwyczaj na usterkę w kodzie usługi. W poniższej sekcji opisano, jak te przełożyć na [modelu niezawodne usługi](service-fabric-reliable-services-lifecycle.md):
 
 - **IStatefulServiceReplica.Open**: ostrzeżenie wskazuje, że wywołanie `CreateServiceInstanceListeners`, `ICommunicationListener.OpenAsync`, lub jeśli została zastąpiona, `OnOpenAsync` jest zablokowana.
 
@@ -634,7 +637,7 @@ Właściwości i tekst wskazują, które interfejs API został zablokowany. Nast
 
 Inne wywołania interfejsu API, które mogą zostać zablokowane znajdują się na **IReplicator** interfejsu. Na przykład:
 
-- **IReplicator.CatchupReplicaSet**: to ostrzeżenie oznacza jedną z następujących operacji. Albo ma za mało zapasową replik, które można określić sprawdzając stan repliki replik partycji lub raport o kondycji System.FM zablokowane zmiany konfiguracji. Lub replik nie potwierdza operacji. Polecenie programu PowerShell-let `Get-ServiceFabricDeployedReplicaDetail` może służyć do określenia postępu wszystkich replik. Problem jest związany z replikami którego `LastAppliedReplicationSequenceNumber` znajduje się za serwerem podstawowym `CommittedSequenceNumber`.
+- **IReplicator.CatchupReplicaSet**: to ostrzeżenie oznacza jedną z następujących operacji. Brak wystarczających zapasową replik. Aby zobaczyć, jeśli jest to możliwe, sprawdź stan repliki replik partycji lub raport o kondycji System.FM zablokowane zmiany konfiguracji. Lub replik nie potwierdza operacji. Polecenia cmdlet programu PowerShell `Get-ServiceFabricDeployedReplicaDetail` może służyć do określenia postępu wszystkich replik. Problem jest związany z replikami którego `LastAppliedReplicationSequenceNumber` wartość znajduje się za serwerem podstawowym `CommittedSequenceNumber` wartość.
 
 - **IReplicator.BuildReplica (<Remote ReplicaId>)**: ostrzeżenie wskazuje na problem w procesie kompilacji. Aby uzyskać więcej informacji, zobacz [cyklu życia repliki](service-fabric-concepts-replica-lifecycle.md). Może to wynikać z konfiguracji adresów replikatora. Aby uzyskać więcej informacji, zobacz [skonfigurować niezawodne usługi stanowej](service-fabric-reliable-services-configuration.md) i [określić zasobów w manifeście usługi](service-fabric-service-manifest-resources.md). Może to być również problem w węźle zdalnym.
 
@@ -644,14 +647,14 @@ Inne wywołania interfejsu API, które mogą zostać zablokowane znajdują się 
 
 * **SourceId**: System.Replicator
 * **Właściwość**: **PrimaryReplicationQueueStatus** lub **SecondaryReplicationQueueStatus**w zależności od roli repliki.
-* **Następne kroki**: w przypadku raportu na serwerze podstawowym, sprawdź połączenie między węzłami w klastrze. Jeżeli wszystkie połączenia są w dobrej kondycji, może to być co najmniej jednej pomocniczej powolne z opóźnieniem dysku, aby zastosować operacji. W przypadku raportu na serwerze pomocniczym, sprawdź wykorzystanie dysku i wydajność w węźle najpierw, a następnie wychodzące połączenie z powolne węzła do serwera podstawowego.
+* **Następne kroki**: w przypadku raportu na serwerze podstawowym, sprawdź połączenie między węzłami w klastrze. Jeśli wszystkie połączenia są w dobrej kondycji, może to być co najmniej jednej pomocniczej powolne z opóźnieniem dysku, aby zastosować operacji. W przypadku raportu na serwerze pomocniczym, sprawdzenia użycia dysku i wydajność w węźle. Następnie zaznacz wychodzące połączenie z powolne węzła do serwera podstawowego.
 
 **RemoteReplicatorConnectionStatus:**
-**System.Replicator** w replice podstawowej zgłosi ostrzeżenie, gdy połączenie dodatkowej replikatora (zdalnego) nie jest w dobrej kondycji. Adres zdalnego replikatora jest widoczny w komunikacie raportu, dzięki czemu wygodniejsze do wykrywania, czy przekazano zły konfiguracji lub występują problemy z siecią między replikatorów.
+**System.Replicator** w replice podstawowej zgłosi ostrzeżenie, gdy połączenie dodatkowej replikatora (zdalnego) nie jest w dobrej kondycji. Adres zdalnego replikatora jest widoczny w komunikacie raportu, dzięki czemu wygodniej jest sprawdzane, czy przekazano nieprawidłową konfigurację, lub jeśli występują problemy z siecią między replikatorów.
 
 * **SourceId**: System.Replicator
-* **Właściwość**: **RemoteReplicatorConnectionStatus**
-* **Następne kroki**: Sprawdź komunikat o błędzie i upewnij się, że jest poprawnie skonfigurowany adres zdalny replikatora (na przykład, jeśli replikatora zdalnego jest otwarty adres nasłuchiwania "localhost", nie jest dostępny z zewnątrz). Jeśli adres wygląda poprawnie, sprawdź połączenie między węzła podstawowego i adres zdalny można znaleźć potencjalnych problemów z siecią.
+* **Właściwość**: **RemoteReplicatorConnectionStatus**.
+* **Następne kroki**: komunikat o błędzie i upewnij się, adres zdalny replikatora jest poprawnie skonfigurowany. Na przykład po otwarciu zdalnej replikatora z adresem nasłuchiwania "localhost" nie jest dostępny z zewnątrz. Jeśli adres jest poprawny, sprawdź połączenie między węzła podstawowego i adres zdalny można znaleźć potencjalnych problemów z siecią.
 
 ### <a name="replication-queue-full"></a>Kolejka replikacji jest pełna
 **System.Replicator** zgłosi ostrzeżenie, gdy kolejka replikacji jest pełna. Na serwerze podstawowym kolejki replikacji zazwyczaj zapełni, ponieważ co najmniej jeden replikach pomocniczych są przetwarzane wolno potwierdzić operacji. Na serwerze pomocniczym zwykle dzieje się tak, gdy usługa jest powolne zastosować operacji. To ostrzeżenie zostanie wyczyszczona po kolejki nie jest już pełna.
@@ -660,10 +663,10 @@ Inne wywołania interfejsu API, które mogą zostać zablokowane znajdują się 
 * **Właściwość**: **PrimaryReplicationQueueStatus** lub **SecondaryReplicationQueueStatus**w zależności od roli repliki.
 
 ### <a name="slow-naming-operations"></a>Powolne operacje nazewnictwa
-**System.NamingService** raportów kondycji na jego repliką podstawową, gdy operacja nazewnictwa trwa dłużej niż dopuszczalne. Przykłady operacji nazewnictwa [CreateServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) lub [DeleteServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync). Więcej metod można znaleźć w obszarze klienta fabricclient z rolą, na przykład w obszarze [usługi metod zarządzania](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient) lub [metod zarządzania właściwości](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.propertymanagementclient).
+**System.NamingService** raportów kondycji na jego repliką podstawową, gdy operacja nazewnictwa trwa dłużej niż dopuszczalne. Przykłady operacji nazewnictwa [CreateServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) lub [DeleteServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync). Więcej metod znajdują się w obszarze klienta fabricclient z rolą. Na przykład można go znaleźć w [usługi metod zarządzania](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient) lub [metod zarządzania właściwości](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.propertymanagementclient).
 
 > [!NOTE]
-> Usługa nazewnictwa rozpoznawania nazw usługi do lokalizacji w klastrze i umożliwia użytkownikom zarządzanie nazwy usługi i właściwości. Jest podzielona na partycje utrwalony usługi sieci szkieletowej usług. Reprezentuje jedną z partycji *Authority Owner*, który zawiera metadane dotyczące wszystkich nazw usługi Service Fabric i usług. Nazwy sieci szkieletowej usług są zamapowane do różnych partycji o nazwie *właściciela* partycji, dlatego usługa jest rozszerzalny. Przeczytaj więcej na temat [Naming service](service-fabric-architecture.md).
+> Usługa nazewnictwa rozpoznawania nazw usługi do lokalizacji w klastrze. Użytkownicy służy do zarządzania nazw usługi i właściwości. Jest podzielona na partycje utrwalony usługi sieci szkieletowej usług. Reprezentuje jedną z partycji *Authority Owner*, który zawiera metadane dotyczące wszystkich nazw usługi Service Fabric i usług. Nazwy sieci szkieletowej usług są zamapowane do różnych partycji o nazwie *właściciela* partycji, dlatego usługa jest rozszerzalny. Przeczytaj więcej na temat [Naming service](service-fabric-architecture.md).
 > 
 > 
 
@@ -671,7 +674,7 @@ Podczas operacji nazewnictwa trwa dłużej, niż oczekiwano, operacja oflagowane
 
 * **SourceId**: System.NamingService
 * **Właściwość**: rozpoczyna się od prefiksu "**Duration_**" i identyfikuje wolne działanie i nazwa sieci szkieletowej usług, dla którego jest stosowana operacji. Na przykład jeśli Tworzenie usługi pod nazwą **fabric: / MyApp/Moja_usługa** trwa zbyt długo, ta właściwość jest **Duration_AOCreateService.fabric:/MyApp/MyService**. "AO" wskazuje rolą partycji nazewnictwa dla tej nazwy i operację.
-* **Następne kroki**: Sprawdź, dlaczego nazewnictwa kończy się niepowodzeniem. Każda operacja mogą mieć różnych przyczyn. Na przykład usługi delete mogła zostać zablokowana. Usługa może zostać zatrzymane, ponieważ hosta aplikacji przechowuje awarii w węźle z powodu błędu użytkownika w kodzie usługi.
+* **Następne kroki**: Sprawdź, dlaczego nazewnictwa kończy się niepowodzeniem. Każda operacja mogą mieć różnych przyczyn. Na przykład usługi delete mogła zostać zablokowana. Usługa mogła zostać zablokowana, ponieważ host aplikacji przechowuje awarii w węźle z powodu błędu użytkownika w kodzie usługi.
 
 Poniższy przykład przedstawia tworzenie operacji usługi. Operacja trwało dłużej niż skonfigurowany czas trwania. "AO" ponawia próbę i wysyła pracy do "No". "Nie" zakończona z limitem czasu ostatniej operacji. W takim przypadku samej repliki jest kluczem podstawowym "AO" i "NO" ról.
 
@@ -723,11 +726,11 @@ HealthEvents          :
 ## <a name="deployedapplication-system-health-reports"></a>DeployedApplication systemowych raportów kondycji
 **System.Hosting** urzędu na wdrożonym jednostek.
 
-### <a name="activation"></a>Uaktywnienie
+### <a name="activation"></a>Aktywacja
 System.Hosting raportów, jako OK gdy aplikacji został pomyślnie uaktywniony na węźle. W przeciwnym razie go zgłasza błąd.
 
 * **SourceId**: System.Hosting
-* **Właściwość**: aktywacji, łącznie z wersją wdrożenia.
+* **Właściwość**: **aktywacji**, łącznie z wersją wdrożenia.
 * **Następne kroki**: Jeśli aplikacja jest zła, zbadać, dlaczego aktywacja nie powiodła się.
 
 W poniższym przykładzie przedstawiono pomyślnej aktywacji:
@@ -762,7 +765,7 @@ HealthEvents                       :
 System.Hosting zgłasza błąd, jeśli pobieranie pakietu aplikacji nie powiedzie się.
 
 * **SourceId**: System.Hosting
-* **Właściwość**: **pobrać: *** RolloutVersion*.
+* **Właściwość**: **Pobierz**, łącznie z wersją wdrożenia.
 * **Następne kroki**: Sprawdź, dlaczego pobieranie nie powiodło się w węźle.
 
 ## <a name="deployedservicepackage-system-health-reports"></a>DeployedServicePackage systemowych raportów kondycji
@@ -779,7 +782,7 @@ System.Hosting raporty jako OK, jeżeli usługa aktywacji pakietu w węźle zako
 System.Hosting raporty jako OK dla każdego pakietu kodu Jeśli aktywacja zakończy się pomyślnie. W przypadku niepowodzenia aktywacji zgłosi ostrzeżenie zgodnie z konfiguracją. Jeśli **elementu CodePackage** nie może aktywować lub kończy się z powodu błędu większy niż skonfigurowany **CodePackageHealthErrorThreshold**, hosting zgłasza błąd. Jeśli pakiet usługi zawiera wiele pakietów kodu, aktywacji raport jest generowany dla każdego z nich.
 
 * **SourceId**: System.Hosting
-* **Właściwość**: używa prefiksu **CodePackageActivation** i zawiera nazwę pakietu kodu i punktu wejścia jako **CodePackageActivation: *** CodePackageName*: *Element SetupEntryPoint/EntryPoint*. Na przykład **CodePackageActivation:Code:SetupEntryPoint**.
+* **Właściwość**: używa prefiksu **CodePackageActivation** i zawiera nazwę pakietu kodu i punktu wejścia jako *CodePackageActivation:CodePackageName:SetupEntryPoint / EntryPoint*. Na przykład **CodePackageActivation:Code:SetupEntryPoint**.
 
 ### <a name="service-type-registration"></a>Rejestracja typu usługi
 Jako OK System.Hosting raportów, jeśli typ usługi został pomyślnie zarejestrowany. Zgłasza błąd, jeśli nie przeprowadzono rejestracji w czasie, zgodnie z konfiguracją przy użyciu **ServiceTypeRegistrationTimeout**. Jeśli środowisko uruchomieniowe jest zamknięty, typ usługi jest zarejestrowany z węzła i hosting zgłosi ostrzeżenie.
@@ -840,7 +843,7 @@ HealthEvents               :
 System.Hosting zgłasza błąd, jeśli pobieranie pakietu usługi nie powiedzie się.
 
 * **SourceId**: System.Hosting
-* **Właściwość**: **pobrać: *** RolloutVersion*.
+* **Właściwość**: **Pobierz**, łącznie z wersją wdrożenia.
 * **Następne kroki**: Sprawdź, dlaczego pobieranie nie powiodło się w węźle.
 
 ### <a name="upgrade-validation"></a>Weryfikacja uaktualnienia
@@ -851,18 +854,18 @@ System.Hosting zgłasza błąd, jeśli sprawdzanie poprawności podczas uaktualn
 * **Opis elementu**: wskazuje wystąpił błąd.
 
 ### <a name="undefined-node-capacity-for-resource-governance-metrics"></a>Niezdefiniowany węzła pojemności dla zasobu metryki ładu
-System.Hosting zgłosi ostrzeżenie, jeśli węzeł pojemności nie są zdefiniowane w manifeście klastra i konfiguracji automatycznego wykrywania jest wyłączona. Sieć szkieletowa usług zgłosi ostrzeżenie kondycji zawsze, gdy pakiet usługi, która używa [ładu zasobów](service-fabric-resource-governance.md) rejestruje w określonym węźle.
+System.Hosting zgłosi ostrzeżenie, jeśli węzeł pojemności nie są zdefiniowane w manifeście klastra i Konfiguracja wykrywania automatycznego jest wyłączona. Sieć szkieletowa usług zgłasza kondycji ostrzeżenie, gdy pakiet usługi, która używa [ładu zasobów](service-fabric-resource-governance.md) rejestruje w określonym węźle.
 
 * **SourceId**: System.Hosting
-* **Właściwość**: ResourceGovernance
-* **Następne kroki**: jest preferowany sposób, aby rozwiązać ten problem, aby zmienić manifest klastra, aby umożliwić automatyczne wykrywanie dostępnych zasobów. Innym sposobem jest uaktualnianie prawidłowo określony węzeł pojemności dla tych metryk manifestu klastra.
+* **Właściwość**: **ResourceGovernance**.
+* **Następne kroki**: jest preferowany sposób, aby rozwiązać ten problem, aby zmienić manifest klastra, aby umożliwić automatyczne wykrywanie dostępnych zasobów. Innym sposobem jest można zaktualizować manifestu klastra o pojemności prawidłowo określony węzeł dla tych metryk.
 
 ## <a name="next-steps"></a>Kolejne kroki
-[Wyświetl raporty dotyczące kondycji sieci szkieletowej usług](service-fabric-view-entities-aggregated-health.md)
+* [Wyświetl raporty dotyczące kondycji sieci szkieletowej usług](service-fabric-view-entities-aggregated-health.md)
 
-[Jak zgłosić i Sprawdź kondycję usług](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
+* [Jak zgłosić i Sprawdź kondycję usług](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
 
-[Monitorowanie i diagnozowania usług lokalnie](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+* [Monitorowanie i diagnozowania usług lokalnie](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
-[Uaktualnianie aplikacji sieci szkieletowej usług](service-fabric-application-upgrade.md)
+* [Uaktualnianie aplikacji sieci szkieletowej usług](service-fabric-application-upgrade.md)
 

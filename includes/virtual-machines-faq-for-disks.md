@@ -141,7 +141,7 @@ Tak, możesz przełączyć się awaryjnie na maszynę Wirtualną za pomocą zarz
 
 **Znajduje wszystkie wpływ migracji na maszynach wirtualnych Azure chronione przez odzyskiwania lokacji Azure (ASR) za pomocą replikacji Azure do platformy Azure?**
 
-Tak. Funkcja automatycznego odzyskiwania systemu Azure do platformy Azure ochrona nie jest obsługiwana dla maszyn wirtualnych z zarządzania dyskami. Ma to być obsługiwana przez koniec CY2018 P1. 
+Tak. Obecnie funkcja automatycznego odzyskiwania systemu Azure do platformy Azure ochrony dla maszyn wirtualnych z dyskami zarządzane jest dostępne tylko jako usługa publicznej wersji zapoznawczej.
 
 **Czy można migrować maszyny wirtualne z dyskami niezarządzane, które znajdują się na kontach magazynu, które są lub wcześniej były szyfrowane do zarządzanych dysków**
 

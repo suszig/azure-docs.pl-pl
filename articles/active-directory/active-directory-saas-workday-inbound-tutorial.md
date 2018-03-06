@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
 ms.openlocfilehash: 2db9e60fe2807b1aa8ed7cab7eed6f7db8059a89
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie produktu Workday do inicjowania obsługi użytkowników
 
@@ -43,9 +43,9 @@ Dzień roboczy użytkownika inicjowania obsługi administracyjnej przepływów p
 
 * **Aktualizacje atrybutu i profilu pracownika** — po rekordu pracownika jest aktualizowany w pracy (takie jak ich nazwy, tytuł lub manager), ich konta użytkownika zostanie automatycznie zaktualizowana w usłudze Active Directory, usługi Azure Active Directory i opcjonalnie usługi Office 365 i [innych aplikacji SaaS obsługiwane przez usługę Azure AD](active-directory-saas-app-provisioning.md).
 
-* **Liczba przerwanych pracownika** — gdy pracownik zostaje zakończone w pracy, ich konta użytkownika jest automatycznie wyłączana w usłudze Active Directory, usługi Azure Active Directory i opcjonalnie usługi Office 365 i [innych aplikacji SaaS obsługiwane przez usługę Azure AD](active-directory-saas-app-provisioning.md).
+* **Liczba przerwanych pracownika** — gdy pracownik zostaje zakończone w pracy, ich konta użytkownika jest automatycznie wyłączana w usłudze Active Directory, usługi Azure Active Directory i opcjonalnie usługi Office 365 i [innych aplikacji SaaS obsługiwany przez platformę Azure AD](active-directory-saas-app-provisioning.md).
 
-* **Pracownik ponownie wynajmuje** — gdy pracownik jest rehired w pracy, ich stare konto może być automatycznie ponownie uaktywnić lub ponownie zainicjowano obsługę administracyjną (w zależności od swoich preferencji) do usługi Active Directory, usługi Azure Active Directory i opcjonalnie usługi Office 365 i [innych aplikacji SaaS obsługiwane przez usługę Azure AD](active-directory-saas-app-provisioning.md).
+* **Pracownik ponownie wynajmuje** — gdy pracownik jest rehired w pracy, ich stare konto może być automatycznie ponownie uaktywnić lub ponownie zainicjowano obsługę administracyjną (w zależności od swoich preferencji) do usługi Active Directory, Azure Active Directory i opcjonalnie usługi Office 365 i [innych aplikacji SaaS obsługiwane przez usługę Azure AD](active-directory-saas-app-provisioning.md).
 
 
 ## <a name="planning-your-solution"></a>Planowanie rozwiązania
@@ -105,7 +105,7 @@ W celu ułatwienia tych wiele przepływów pracy w wielu systemach źródłowych
 
 * **WORKDAY do udostępniania usługi Active Directory** -ta aplikacja ułatwia konta Inicjowanie obsługi użytkowników z produktu Workday do jednego lasu usługi Active Directory. Jeśli masz wiele lasów, możesz dodać jedno wystąpienie tej aplikacji z galerii aplikacji Azure AD dla każdego lasu usługi Active Directory, które należy udostępnić do.
 
-* **WORKDAY do usługi Azure AD inicjowania obsługi administracyjnej** — gdy AAD Connect to narzędzie, które mają być używane do synchronizacji usługi Active Directory użytkowników do usługi Azure Active Directory, ta aplikacja może służyć do ułatwienia obsługi tylko w chmurze użytkowników z produktu Workday do pojedynczej dzierżawy usługi Azure Active Directory.
+* **WORKDAY do usługi Azure AD inicjowania obsługi administracyjnej** — gdy AAD Connect to narzędzie, które mają być używane do synchronizacji usługi Active Directory użytkowników do usługi Azure Active Directory, ta aplikacja może służyć do ułatwienia obsługi tylko w chmurze użytkowników z produktu Workday do pojedynczego Azure Dzierżawy usługi Active Directory.
 
 * **Zapisywanie zwrotne WORKDAY** -ta aplikacja umożliwia zapisywanie zwrotne adresu e-mail użytkownika z usługi Azure Active Directory do produktu Workday.
 
@@ -229,7 +229,7 @@ Wykonaj te instrukcje, aby skonfigurować konto użytkownika, inicjowania obsłu
 
 **Aby skonfigurować produktu Workday do inicjowania obsługi usługi Active Directory:**
 
-1.  Przejdź do <https://portal.azure.com>
+1.  Przejdź do strony <https://portal.azure.com>
 
 2.  Na pasku nawigacyjnym po lewej stronie wybierz **usługi Azure Active Directory**
 
@@ -245,7 +245,7 @@ Wykonaj te instrukcje, aby skonfigurować konto użytkownika, inicjowania obsłu
 
 8.  Zakończenie **poświadczeń administratora** sekcji w następujący sposób:
 
-   * **Nazwa użytkownika administratora** — wprowadź nazwę użytkownika konta systemu integracji produktu Workday, z dołączoną nazwą domeny dzierżawy. **Powinien wyglądać mniej więcej tak:username@contoso4**
+   * **Nazwa użytkownika administratora** — wprowadź nazwę użytkownika konta systemu integracji produktu Workday, z dołączoną nazwą domeny dzierżawy. **Powinien wyglądać mniej więcej tak: username@contoso4**
 
    * **Hasło administratora —** wprowadź hasło do konta produktu Workday integracji systemu
 
@@ -346,14 +346,14 @@ W tej sekcji skonfigurujesz, jak dane użytkownika wypływających z produktu Wo
 | **WorkSpaceReference** | physicalDeliveryOfficeName    |     |  Tworzenie i aktualizowanie |
 | **PostalCode**  |   postalCode  |     | Tworzenie i aktualizowanie |
 | **LocalReference** |  preferredLanguage  |     |  Tworzenie i aktualizowanie |
-| **Zastąp (Mid (Zastąp (\[identyfikator pracownika\],, "(\[ \\ \\ / \\ \\ \\ \\ \\ \\\[\\\\\]\\\\:\\\\;\\ \\|\\\\=\\\\,\\\\+\\\\\*\\ \\? \\ \\ &lt; \\ \\ &gt; \]) "," ",), 1, 20)," ([\\\\.) \* \$] (file:///\\.) *$)", , "", , )**      |    sAMAccountName            |     |         Napisane przy tworzeniu tylko |
+| **Zastąp (Mid (Zastąp (\[identyfikator pracownika\],, "(\[ \\ \\ / \\ \\ \\ \\ \\ \\ \[\\\\\]\\\\:\\\\;\\ \\|\\\\=\\\\,\\\\+\\\\\*\\ \\? \\ \\ &lt; \\ \\ &gt; \]) "," ",), 1, 20)," ([\\\\.) \* \$] (file:///\\.) *$)", , "", , )**      |    sAMAccountName            |     |         Napisane przy tworzeniu tylko |
 | **Nazwisko**   |   SN   |     |  Tworzenie i aktualizowanie |
 | **CountryRegionReference** |  st     |     | Tworzenie i aktualizowanie |
 | **AddressLineData**    |  streetAddress  |     |   Tworzenie i aktualizowanie |
 | **PrimaryWorkTelephone**  |  TelephoneNumber   |     | Tworzenie i aktualizowanie |
 | **BusinessTitle**   |  tytuł     |     |  Tworzenie i aktualizowanie |
-| **Join("@",Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Join(".", [FirstName], [LastName]), , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])" ,, "m",), "([ñńňÑŃŇN])", "n",), "([öòőõôóÖÒŐÕÔÓO])", "o",), "[P]", "p",), "([Q])", "q",), "([řŘR])", "r",), "([ßšśŠŚS])", "s",), "([TŤť])", "t",), "([üùûúůűÜÙÛÚŮŰU])", "u",), "([V])", "v",), "([W])", "w",), "([ýÿýŸÝY])", "y",), "([źžżŹŽŻZ])", "z",), "",,, "",), "contoso.com")**   | userPrincipalName     |     | Napisane przy tworzeniu tylko                                                   
-| **Przełącznika (\[jednostki administracyjnej\], "jednostki Organizacyjnej użytkowników standardowych, OU = użytkowników, OU = domyślne, OU = lokalizacjach, DC = = contoso, DC = com", "Dallas", "jednostki Organizacyjnej użytkowników standardowych, OU = użytkowników, OU = Dallas, OU = lokalizacjach, DC = = contoso, DC = com", "Austin", "jednostki Organizacyjnej użytkowników standardowych, OU = użytkowników, OU = Austin, OU = lokalizacjach, DC = = contoso, DC = com", "Seattle", "jednostki Organizacyjnej użytkowników standardowych, OU = użytkowników, OU = Seattle, OU = lokalizacjach, DC = = contoso, DC = com", "Londyn", "jednostki Organizacyjnej = użytkownicy w wersji Standard Jednostki Organizacyjnej użytkowników, OU = Londyn, OU = = lokalizacjach, DC = contoso, DC = com ")**  | parentDistinguishedName     |     |  Tworzenie i aktualizowanie |
+| **Dołącz ("@", Zastąp (Zastąp (Zastąp (Zastąp (Zastąp (Zastąp (Zastąp (Zastąp (Zastąp (tekst (Zastąp (Zastąp (Zastąp (Zastąp (Zastąp (Zastąp (Zastąp (Zastąp (Zastąp (Zastąp (Zastąp (Zastąp (Zastąp (Zastąp (Zastąp (Zastąp (Zastąp ( Zastąp (Join (".", [Imię], [Nazwisko]), "([Øø])", "oe",), "[Ææ]", "ae",), "([äãàâãåáąÄÃÀÂÃÅÁĄA])", "",), "[B]", "b",), "([CçčćÇČĆ])", "c",), "([ďĎD])", "d",), "([ëèéêęěËÈÉÊĘĚE])", "e",), "[F]", "f",), "([G])" ,, "g",), "([H])", "h",), "([ïîìíÏÎÌÍI])", "i",), "[J]", "j",), "([K])", "k",), "([ľłŁĽL])", "l",), "[M]", "m",), "([ñńňÑŃŇN])", "n",), "([öòőõôóÖÒŐÕÔÓO])", "o",), "[P]", "p",), "([Q])", "q",),  "([ŘŘR])", "r",), "([ßšśŠŚS])", "s",), "([TŤť])", "t",), "([üùûúůűÜÙÛÚŮŰU])", "u",), "([V])", "v",), "([W])", "w",), "([ýÿýŸÝY])", "y",), "([źžżŹŽŻZ])", "z",), "",,, "",), "contoso.com")**   | userPrincipalName     |     | Napisane przy tworzeniu tylko                                                   
+| **Przełącznik (\[jednostki administracyjnej\], "jednostki Organizacyjnej użytkowników standardowych, OU = użytkowników, OU = domyślne, OU = lokalizacjach, DC = = contoso, DC = com", "Dallas", "jednostki Organizacyjnej użytkowników standardowych, OU = użytkowników, OU = Dallas, OU = lokalizacjach, DC = = contoso, DC = com", "Austin", "jednostki Organizacyjnej użytkowników standardowych, OU = Użytkownicy, OU = Austin, OU = lokalizacjach, DC = = contoso, DC = com ","Seattle"," jednostki Organizacyjnej użytkowników standardowych, OU = użytkowników, OU = Seattle, OU = lokalizacjach, DC = = contoso, DC = com ","Londyn"," jednostki Organizacyjnej użytkowników standardowych, OU = użytkowników, OU = Londyn, OU = lokalizacjach, DC = = contoso, DC = com ")**  | parentDistinguishedName     |     |  Tworzenie i aktualizowanie |
   
 ### <a name="part-3-configure-the-on-premises-synchronization-agent"></a>Część 3: Konfigurowanie agenta synchronizacji lokalnej
 
@@ -484,7 +484,7 @@ W poniższych sekcjach opisano konfigurowanie połączenia między produktu Work
 
 **Aby skonfigurować produktu Workday do usługi Azure Active Directory inicjowania obsługi administracyjnej dla użytkowników tylko w chmurze:**
 
-1.  Przejdź do <https://portal.azure.com>.
+1.  Przejdź do pozycji <https://portal.azure.com> (Plik > Nowy > Inny).
 
 2.  Na pasku nawigacyjnym po lewej stronie wybierz **usługi Azure Active Directory**
 
@@ -500,7 +500,7 @@ W poniższych sekcjach opisano konfigurowanie połączenia między produktu Work
 
 8.  Zakończenie **poświadczeń administratora** sekcji w następujący sposób:
 
-   * **Nazwa użytkownika administratora** — wprowadź nazwę użytkownika konta systemu integracji produktu Workday, z dołączoną nazwą domeny dzierżawy. Powinien wyglądać mniej więcej tak:username@contoso4
+   * **Nazwa użytkownika administratora** — wprowadź nazwę użytkownika konta systemu integracji produktu Workday, z dołączoną nazwą domeny dzierżawy. Powinien wyglądać mniej więcej tak: username@contoso4
 
    * **Hasło administratora —** wprowadź hasło do konta produktu Workday integracji systemu
 
@@ -589,7 +589,7 @@ Wykonaj te instrukcje, aby skonfigurować zapisywanie zwrotne adresu e-mail uży
 
 **Aby skonfigurować produktu Workday do inicjowania obsługi usługi Active Directory:**
 
-1.  Przejdź do <https://portal.azure.com>
+1.  Przejdź do strony <https://portal.azure.com>
 
 2.  Na pasku nawigacyjnym po lewej stronie wybierz **usługi Azure Active Directory**
 
@@ -605,7 +605,7 @@ Wykonaj te instrukcje, aby skonfigurować zapisywanie zwrotne adresu e-mail uży
 
 8.  Zakończenie **poświadczeń administratora** sekcji w następujący sposób:
 
-   * **Nazwa użytkownika administratora** — wprowadź nazwę użytkownika konta systemu integracji produktu Workday, z dołączoną nazwą domeny dzierżawy. Powinien wyglądać mniej więcej tak:username@contoso4
+   * **Nazwa użytkownika administratora** — wprowadź nazwę użytkownika konta systemu integracji produktu Workday, z dołączoną nazwą domeny dzierżawy. Powinien wyglądać mniej więcej tak: username@contoso4
 
    * **Hasło administratora —** wprowadź hasło do konta produktu Workday integracji systemu
 
@@ -743,7 +743,7 @@ Aby to zrobić, należy użyć [Studio produktu Workday](https://community.workd
 
 8. Dla **typu**, wybierz typ odpowiadający odpowiednio do atrybutu (**ciąg** jest najbardziej typowych).
 
-9. Aby uzyskać **wyrażenie interfejsu API**, wprowadź wyrażenie XPath, które zostały skopiowane z produktu Workday Studio. Przykład:`wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Birth_Date/text()`
+9. Aby uzyskać **wyrażenie interfejsu API**, wprowadź wyrażenie XPath, które zostały skopiowane z produktu Workday Studio. Przykład: `wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Birth_Date/text()`
 
 10. Wybierz **Dodaj atrybut**.
 

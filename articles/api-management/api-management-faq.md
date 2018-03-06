@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 1903655a262583f1ba78b728bf404a81278e2275
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 091cfaaf8fa1cccf2f8b819732946bbbd08fd426
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-api-management-faqs"></a>Często zadawane pytania usługi Azure API Management
 Odpowiedzi na często zadawane pytania, wzorców i najlepsze rozwiązania dotyczące usługi Azure API Management.
@@ -122,7 +122,7 @@ Na stronie dzierżawy w portalu Azure, możesz uzyskać adres IP (lub adresy we 
 Aby dowiedzieć się, jak skonfigurować serwer autoryzacji OAuth 2.0 z zabezpieczeń usługi Active Directory Federation Services (AD FS), zobacz [za pomocą usług AD FS w usłudze API Management](https://phvbaars.wordpress.com/2016/02/06/using-adfs-in-api-management/).
 
 ### <a name="what-routing-method-does-api-management-use-in-deployments-to-multiple-geographic-locations"></a>W przypadku wdrożeń w wielu lokalizacjach geograficznych jakie metody routingu program używa interfejsu API zarządzania?
-Zarządzanie interfejsami API używa [wydajności Metoda routingu ruchu](../traffic-manager/traffic-manager-routing-methods.md#priority) w przypadku wdrożeń w wielu lokalizacjach geograficznych. Przychodzący ruch jest kierowany do najbliższego bramy interfejsu API. Jeśli jeden region przejdzie do trybu offline, ruch przychodzący automatycznie jest kierowany do następnego najbliższego bramy. Dowiedz się więcej na temat metody routingu w [metody routingu ruchu Menedżera](../traffic-manager/traffic-manager-routing-methods.md).
+Zarządzanie interfejsami API używa [wydajności Metoda routingu ruchu](../traffic-manager/traffic-manager-routing-methods.md#performance) w przypadku wdrożeń w wielu lokalizacjach geograficznych. Przychodzący ruch jest kierowany do najbliższego bramy interfejsu API. Jeśli jeden region przejdzie do trybu offline, ruch przychodzący automatycznie jest kierowany do następnego najbliższego bramy. Dowiedz się więcej na temat metody routingu w [metody routingu ruchu Menedżera](../traffic-manager/traffic-manager-routing-methods.md).
 
 ### <a name="can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance"></a>Aby utworzyć wystąpienie usługi Zarządzanie interfejsami API mogą używać szablonu usługi Azure Resource Manager?
 Tak. Zobacz [usługi Azure API Management](http://aka.ms/apimtemplate) szablony szybkiego startu.

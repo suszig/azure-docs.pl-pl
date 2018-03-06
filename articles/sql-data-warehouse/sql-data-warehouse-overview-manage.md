@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
-ms.openlocfilehash: d7b81c12c31fe7de40acca6baa8972e65c306ee0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: acf521bdc15dfab4c7e43081159bc1385768838e
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="manage-databases-in-azure-sql-data-warehouse"></a>Zarządzanie bazami danych w magazynie danych SQL Azure
 Usługa SQL Data Warehouse automatyzuje wiele aspektów Zarządzanie bazami danych. Na przykład do skalowania wydajności tylko należy dostosować i opłacać odpowiedni poziom zasoby obliczeniowe, a następnie zezwolić wykonywać wszystkie zadania, skalowanie w poziomie oraz skalowanie wstecz usługi SQL Data Warehouse.
@@ -40,7 +40,7 @@ To omówienie dotyczy aspektami zarządzania magazynu danych SQL.
 Można użyć różnych narzędzi do zarządzania bazami danych w magazynie danych programu SQL. W przypadku zarządzania bazami danych, użytkownik opracuje preferencji narzędzia dla każdego typu zadania, które należy wykonać.
 
 ### <a name="azure-portal"></a>Azure Portal
-[Portalu Azure] [ Azure portal] jest oparte na sieci web portalu, gdzie możesz tworzenie, aktualizowanie i usuwanie baz danych i monitorowania zasobów bazy danych. To narzędzie jest doskonałym rozwiązaniem jest, jeśli tylko rozpoczniesz pracę z platformą Azure, zarządzanie niewielkiej liczby baz danych magazynu danych lub konieczne szybko czymś.
+[Portalu Azure] [ Azure portal] jest oparte na sieci web portalu, gdzie możesz tworzenie, aktualizowanie i usuwanie baz danych i monitorowania zasobów bazy danych. To narzędzie jest doskonałym właśnie rozpoczniesz pracę z platformą Azure, zarządzanie niewielkiej liczby danych bazy danych magazynu, czy trzeba szybko czymś.
 
 Aby zacząć korzystać z portalu Azure, zobacz [Utwórz magazyn danych SQL (Azure portal)][Create a SQL Data Warehouse (Azure portal)].
 
@@ -59,7 +59,7 @@ Widoków DMV są chleb masła i zarządzania magazynu danych SQL. Prawie wszystk
 
 Aby rozpocząć, zobacz [Connect i zapytania przy użyciu narzędzia sqlcmd][Connect and query with sqlcmd], i [Utwórz bazę danych (PowerShell)][Create a database (PowerShell)].
 
-## <a name="scale-compute"></a>Skalowanie możliwości obliczeniowych
+## <a name="scale-compute"></a>Skalowanie zasobów obliczeniowych
 W usłudze SQL Data Warehouse można szybko skalować wydajności lub ponownie według zwiększenie lub zmniejszenie zasoby obliczeniowe procesora CPU, pamięci i przepustowość we/wy. Do skalowania wydajności, należy wykonać jest Dostosuj liczbę jednostek magazynu danych (dwu) przydzielanych przez Magazyn danych SQL z bazą danych. Usługa SQL Data Warehouse szybkie sprawia, że zmiany i obsługuje wszystkie podstawowej zmiany sprzętu lub oprogramowania.
 
 Aby dowiedzieć się więcej na temat skalowania jednostek dwu, zobacz [skalowanie wydajności].
@@ -84,10 +84,10 @@ Aby zachować bezpieczny system, muszą być o alercie i chronią przed nieautor
 
 Informacje na temat zarządzania zabezpieczeniami, przejdź do [Omówienie zabezpieczeń][Security overview].
 
-## <a name="backup-and-restore"></a>Tworzenie kopii zapasowej i przywracanie
-Posiadanie niezawodnej backps danych jest integralną część żadnych produkcyjną bazę danych. Usługa SQL Data Warehouse chroni dane przez automatyczne tworzenie kopii zapasowej active baz danych w regularnych odstępach czasu. Te kopie zapasowe umożliwiają odzyskanie scenariuszy, w którym uszkodzone dane lub przypadkowo usunięty, danych lub bazy danych.  Dla harmonogramu tworzenia kopii zapasowej danych zasad przechowywania i przywracanie bazy danych, zobacz [Przywracanie z migawki][Restore from snapshot].
+## <a name="back-up-and-restore"></a>Tworzenie kopii zapasowej i przywracanie
+Niezawodne kopie zapasowe danych jest integralną część żadnych produkcyjną bazę danych. Usługa SQL Data Warehouse chroni dane przez automatyczne tworzenie kopii zapasowej active baz danych w regularnych odstępach czasu. Te kopie zapasowe umożliwiają odzyskanie scenariuszy, w którym uszkodzone dane lub przypadkowo usunięty, danych lub bazy danych.  Dla harmonogramu tworzenia kopii zapasowej danych zasad przechowywania i przywracanie bazy danych, zobacz [Przywracanie z migawki][Restore from snapshot].
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Przy użyciu bazy danych dobrym projektowy zasad ułatwi zarządzanie bazami danych w usłudze SQL Data Warehouse. Aby dowiedzieć się więcej, przejdź do [omówienie tworzenia][Development overview].
 
 <!--Image references-->
@@ -100,10 +100,10 @@ Przy użyciu bazy danych dobrym projektowy zasad ułatwi zarządzanie bazami dan
 [Connect and query with sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
 [Development overview]: sql-data-warehouse-overview-develop.md
 [Monitor your workload using DMVs]: sql-data-warehouse-manage-monitor.md
-[Pause compute]: sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
+[Pause compute]: pause-and-resume-compute-portal.md#pause-compute
 [Restore from snapshot]: sql-data-warehouse-restore-database-overview.md
-[Resume compute]: sql-data-warehouse-manage-compute-overview.md#resume-compute-bk
-[skalowanie wydajności]: sql-data-warehouse-manage-compute-overview.md#scale-compute
+[Resume compute]: pause-and-resume-compute-portal.md#resume-compute
+[skalowanie wydajności]: quickstart-scale-compute-portal.md#scale-compute
 [Security overview]: sql-data-warehouse-overview-manage-security.md
 [SQL Data Warehouse Best Practices]: sql-data-warehouse-best-practices.md
 [SQL Data Warehouse system views]: sql-data-warehouse-reference-tsql-system-views.md

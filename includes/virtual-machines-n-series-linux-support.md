@@ -1,7 +1,22 @@
+---
+title: Plik dyrektywy include
+description: Plik dyrektywy include
+services: virtual-machines-linux
+author: dlepow
+ms.service: virtual-machines-linux
+ms.topic: include
+ms.date: 03/01/2018
+ms.author: danlep
+ms.custom: include file
+ms.openlocfilehash: 22d37ca30f1319f46a52b96be1c527f6f56719ab
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/05/2018
+---
 ## <a name="supported-distributions-and-drivers"></a>Obsługiwane dystrybucje i sterowniki
 
-
-### <a name="nc-ncv2-and-nd-instances---nvidia-cuda-drivers"></a>Wystąpienia NC, NCv2 i ND - NVIDIA CUDA sterowniki
+### <a name="nc-ncv2-ncv3-and-nd-series---nvidia-cuda-drivers"></a>NC, NCv2 NCv3 i serii ND - NVIDIA CUDA sterowniki
 | Dystrybucja | Sterownik |
 | --- | --- | 
 | Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3 lub 7.4<br/><br/> CentOS 7.3 lub 7.4 | NVIDIA CUDA 9.1, sterownika gałęzi R390 |
@@ -10,8 +25,7 @@
 > Upewnij się, czy instalacji lub uaktualnienia do najnowszej wersji sterowników CUDA dla dystrybucji. Sterowniki starsza niż wersja R390 mogą wystąpić problemy z zaktualizowane jądra systemu Linux.
 >
 
-### <a name="nv-instances---nvidia-grid-drivers"></a>Wystąpienia NV — sterowniki NVIDIA GRID
-
+### <a name="nv-series---nvidia-grid-drivers"></a>Serii Trwałym - sterowniki NVIDIA siatki
 
 | Dystrybucja | Sterownik |
 | --- | --- | 
