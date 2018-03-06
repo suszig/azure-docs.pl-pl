@@ -16,10 +16,10 @@ ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.openlocfilehash: 85b45a828dbb06325b6a1c9453117849f48a27c8
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Praca z istniejącym lokalnych serwerów proxy
 
@@ -108,13 +108,13 @@ Istnieją cztery aspektów, które należy wziąć pod uwagę w przypadku serwer
 #### <a name="proxy-outbound-rules"></a>Reguły ruchu wychodzącego serwera proxy
 Zezwalaj na dostęp do następujących punktów końcowych do łącznika usługi:
 
-* *. msappproxy.net
-* *. servicebus.windows.net
+* *.msappproxy.net
+* *.servicebus.windows.net
 
 Początkowe rejestracyjny można zezwolić na dostęp do następujących punktów końcowych:
 
 * login.windows.net
-* Login.microsoftonline.com
+* login.microsoftonline.com
 
 Jeśli nie umożliwiają nawiązywanie połączeń przez nazwę FQDN, a zamiast tego określ zakresy adresów IP, korzystać z tych opcji:
 

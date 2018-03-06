@@ -17,10 +17,10 @@ ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
 ms.openlocfilehash: 3ece2326a19e32666f46e8b737d15a48e335de6a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Utwórz zasady na podstawie atrybutów dynamiczne członkostwo w grupie w usłudze Azure Active Directory
 W usłudze Azure Active Directory (Azure AD) można utworzyć reguł zaawansowanych, aby włączyć złożonych opartych na atrybutach dynamiczne zarządzanie członkostwem w grupach. W tym artykule szczegółowo atrybuty i składni, aby utworzyć reguły członkostwa dynamicznych dla użytkowników lub urządzeń.
@@ -88,7 +88,7 @@ W poniższej tabeli wymieniono wszystkie operatory obsługiwane wyrażenie regu�
 | Contains |-zawiera |
 | Nie pasują do siebie |-notMatch |
 | dopasowanie |-zgodne |
-| W | -w |
+| W | -in |
 | Nie w | -notIn |
 
 ## <a name="operator-precedence"></a>Kolejność wykonywania działań
@@ -139,8 +139,8 @@ Dozwolonych operatorów
 
 | Właściwości | Dozwolone wartości | Sposób użycia |
 | --- | --- | --- |
-| AccountEnabled |wartość true, false |true - eq user.accountEnabled |
-| DirSyncEnabled |wartość true, false |true - eq user.dirSyncEnabled |
+| accountEnabled |wartość true, false |true - eq user.accountEnabled |
+| dirSyncEnabled |wartość true, false |true - eq user.dirSyncEnabled |
 
 ### <a name="properties-of-type-string"></a>Właściwości typu String
 Dozwolonych operatorów
@@ -153,20 +153,20 @@ Dozwolonych operatorów
 * -notContains
 * -zgodne
 * -notMatch
-* -w
+* -in
 * -notIn
 
 | Właściwości | Dozwolone wartości | Sposób użycia |
 | --- | --- | --- |
 | city |Dowolną wartość ciągu lub *wartości null* |(user.city - eq "value") |
 | Kraju |Dowolną wartość ciągu lub *wartości null* |(user.country - eq "value") |
-| Nazwa firmy | Dowolną wartość ciągu lub *wartości null* | (user.companyName - eq "value") |
+| companyName | Dowolną wartość ciągu lub *wartości null* | (user.companyName - eq "value") |
 | Dział |Dowolną wartość ciągu lub *wartości null* |(user.department - eq "value") |
 | Nazwa wyświetlana |Dowolną wartością ciągu |(user.displayName - eq "value") |
 | Identyfikator pracownika |Dowolną wartością ciągu |(user.employeeId - eq "value")<br>(user.employeeId - ne *null*) |
 | facsimileTelephoneNumber |Dowolną wartość ciągu lub *wartości null* |(user.facsimileTelephoneNumber - eq "value") |
-| Imię |Dowolną wartość ciągu lub *wartości null* |(user.givenName - eq "value") |
-| Stanowisko |Dowolną wartość ciągu lub *wartości null* |(user.jobTitle - eq "value") |
+| givenName |Dowolną wartość ciągu lub *wartości null* |(user.givenName - eq "value") |
+| jobTitle |Dowolną wartość ciągu lub *wartości null* |(user.jobTitle - eq "value") |
 | Poczty |Dowolną wartość ciągu lub *null* (adresu SMTP użytkownika) |(user.mail - eq "value") |
 | mailNickName |Dowolną wartość ciągu (poczty alias użytkownika) |(user.mailNickName - eq "value") |
 | Telefon komórkowy |Dowolną wartość ciągu lub *wartości null* |(user.mobile - eq "value") |
@@ -174,12 +174,12 @@ Dozwolonych operatorów
 | onPremisesSecurityIdentifier | Lokalny identyfikator zabezpieczeń (SID) dla użytkowników, którzy zostały zsynchronizowane z lokalnymi do chmury. |(user.onPremisesSecurityIdentifier - eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
 | passwordPolicies |Brak DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies - eq "DisableStrongPassword") |
 | physicalDeliveryOfficeName |Dowolną wartość ciągu lub *wartości null* |(user.physicalDeliveryOfficeName - eq "value") |
-| KodPocztowy |Dowolną wartość ciągu lub *wartości null* |(user.postalCode - eq "value") |
+| postalCode |Dowolną wartość ciągu lub *wartości null* |(user.postalCode - eq "value") |
 | preferredLanguage |Kod ISO 639-1 |(user.preferredLanguage - eq "pl pl") |
 | sipProxyAddress |Dowolną wartość ciągu lub *wartości null* |(user.sipProxyAddress - eq "value") |
 | state |Dowolną wartość ciągu lub *wartości null* |(user.state - eq "value") |
-| Adres |Dowolną wartość ciągu lub *wartości null* |(user.streetAddress - eq "value") |
-| nazwisko |Dowolną wartość ciągu lub *wartości null* |(user.surname - eq "value") |
+| streetAddress |Dowolną wartość ciągu lub *wartości null* |(user.streetAddress - eq "value") |
+| surname |Dowolną wartość ciągu lub *wartości null* |(user.surname - eq "value") |
 | TelephoneNumber |Dowolną wartość ciągu lub *wartości null* |(user.telephoneNumber - eq "value") |
 | usageLocation |Kod kraju własną literą dwóch |(user.usageLocation - eq "PL") |
 | userPrincipalName |Dowolną wartością ciągu |(user.userPrincipalName - eq "alias@domain") |
@@ -194,7 +194,7 @@ Dozwolonych operatorów
 | Właściwości | Dozwolone wartości | Sposób użycia |
 | --- | --- | --- |
 | otherMails |Dowolną wartością ciągu |(user.otherMails — zawiera "alias@domain") |
-| proxyAddresses |SMTP: alias@domain smtp:alias@domain |(user.proxyAddresses — zawiera "SMTP: alias@domain") |
+| proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses — zawiera "SMTP: alias@domain") |
 
 ## <a name="multi-value-properties"></a>Właściwości wielu wartości
 Dozwolonych operatorów
@@ -272,21 +272,21 @@ Można również utworzyć regułę, która wybiera obiekty urządzeń do człon
 
  Atrybut urządzenia  | Wartości | Przykład
  ----- | ----- | ----------------
- AccountEnabled | wartość true, false | (device.accountEnabled - eq true)
+ accountEnabled | wartość true, false | (device.accountEnabled - eq true)
  Nazwa wyświetlana | Dowolną wartością ciągu |(device.displayName - eq "Tomasz Iphone")
- DeviceOSType | Dowolną wartością ciągu | (device.deviceOSType - eq "iPad")- lub (device.deviceOSType - eq "iPhone")
+ deviceOSType | Dowolną wartością ciągu | (device.deviceOSType - eq "iPad")- lub (device.deviceOSType - eq "iPhone")
  DeviceOSVersion | Dowolną wartością ciągu | (urządzenia. OSVersion - eq "9.1")
  deviceCategory | Nazwa kategorii prawidłowe urządzenie | (device.deviceCategory - eq "BYOD")
- DeviceManufacturer | Dowolną wartością ciągu | (device.deviceManufacturer - eq "Samsung")
- DeviceModel | Dowolną wartością ciągu | (device.deviceModel - eq "iPad lotniczego")
+ deviceManufacturer | Dowolną wartością ciągu | (device.deviceManufacturer - eq "Samsung")
+ deviceModel | Dowolną wartością ciągu | (device.deviceModel - eq "iPad lotniczego")
  deviceOwnership | Osobiste, firma, nieznane | (device.deviceOwnership - eq "Firmy")
  domainName | Dowolną wartością ciągu | (device.domainName - eq "contoso.com")
  enrollmentProfileName | Nazwa profilu rejestracji urządzeń firmy Apple | (device.enrollmentProfileName - eq "DEP iPhone")
  isRooted | wartość true, false | (device.isRooted - eq true)
  managementType | Zarządzanie urządzeniami Przenośnymi (dla urządzeń przenośnych)<br>Komputer (w przypadku komputerów zarządzanych przez agenta Komputerami z usługą Intune) | (device.managementType - eq "MDM")
- Jednostka organizacyjna | dowolną wartością ciągu pasującego do nazwy jednostki organizacyjnej, ustawione przez lokalnej usługi Active Directory | (device.organizationalUnit - eq "Komputerów Stanów Zjednoczonych")
+ organizationalUnit | dowolną wartością ciągu pasującego do nazwy jednostki organizacyjnej, ustawione przez lokalnej usługi Active Directory | (device.organizationalUnit -eq "US PCs")
  deviceId | prawidłowy identyfikator urządzenia usługi Azure AD | (device.deviceId - eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
- Identyfikator obiektu | Identyfikator obiektu: nieprawidłowy usługi Azure AD |  (device.objectId 76ad43c9-32c5-45e8-a272-7b58b58f596d - eq")
+ Identyfikator obiektu | Identyfikator obiektu: nieprawidłowy usługi Azure AD |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
 
 
 
@@ -357,7 +357,7 @@ Aby grupy dynamicznej:
 ```
 ConvertStaticGroupToDynamic "a58913b2-eee4-44f9-beb2-e381c375058f" "user.displayName -startsWith ""Peter"""
 ```
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Te artykuły zawierają dodatkowe informacje o grupach w usłudze Azure Active Directory.
 
 * [Zobacz istniejących grup](active-directory-groups-view-azure-portal.md)

@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 05/09/2017
 ms.author: jasonzio
 ms.openlocfilehash: 1eae6d302827c977b9258174dec68fd8f3009a11
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Rozszerzenie diagnostycznych Linux służy do monitorowania, metryki i dzienniki
 
@@ -189,8 +189,8 @@ Wersja 3.0 rozszerzenia diagnostycznych Linux obsługuje dwa typy zbiornika: Eve
 
 Wpis "sasURL" zawiera pełny adres URL tokenu sygnatury dostępu Współdzielonego, w tym Centrum zdarzeń, do którego powinien zostać opublikowany, dane. LAD wymaga sygnatury dostępu Współdzielonego nazewnictwa zasad, która umożliwia wysyłanie oświadczeń. Przykład:
 
-* Tworzenie przestrzeni nazw usługi Event Hubs, o nazwie`contosohub`
-* Tworzenie Centrum zdarzeń w obszarze nazw o nazwie`syslogmsgs`
+* Tworzenie przestrzeni nazw usługi Event Hubs, o nazwie `contosohub`
+* Tworzenie Centrum zdarzeń w obszarze nazw o nazwie `syslogmsgs`
 * Tworzenie zasad dostępu współużytkowanego w Centrum zdarzeń o nazwie `writer` , który umożliwia wysyłanie oświadczeń
 
 Jeśli utworzono sygnatury dostępu Współdzielonego dobra do północy czasu UTC 1 stycznia 2018 wartość sasURL może być:
@@ -313,7 +313,7 @@ Element | Wartość
 ------- | -----
 sink — obiekty | (opcjonalnie) Rozdzielana przecinkami lista nazw wychwytywanie, do których LAD wysyła zagregowane metryki wyników. Wszystkie metryki zagregowane są publikowane do każdej z wymienionych ujścia. Zobacz [sinksConfig](#sinksconfig). Przykład: `"EHsink1, myjsonsink"`.
 type | Określa dostawcę rzeczywiste metryki.
-klasa | Wraz z "licznika" identyfikuje określonej metryki w obszarze nazw dostawcy.
+class | Wraz z "licznika" identyfikuje określonej metryki w obszarze nazw dostawcy.
 Licznik | Wraz z "class" identyfikuje określonej metryki w obszarze nazw dostawcy.
 counterSpecifier | Identyfikuje określonej metryki w obszarze nazw metryki Azure.
 warunek | (opcjonalnie) Wybiera konkretne wystąpienie obiektu do którego Metryka stosuje lub wybiera agregacji we wszystkich wystąpieniach tego obiektu. Aby uzyskać więcej informacji, zobacz [ `builtin` definicji metryk](#metrics-supported-by-builtin).
@@ -323,9 +323,9 @@ Nazwa wyświetlana | Etykieta (w języku określonym przez ustawienie skojarzone
 
 CounterSpecifier jest umownym identyfikatorem. Konsumenci metryki, Azure portalu wykresów, takich jak i alerty funkcji, użyj counterSpecifier jako "klucza", który identyfikuje metrykę lub wystąpienia metryki. Aby uzyskać `builtin` metryki, zalecane jest użycie counterSpecifier wartości, które zaczynają się od `/builtin/`. Określone wystąpienie metryki są zbierane, firma Microsoft zaleca się, że możesz dołączyć do wartości counterSpecifier identyfikator wystąpienia. Oto niektóre przykłady:
 
-* `/builtin/Processor/PercentIdleTime`-Bezczynności uśredniona wszystkie Vcpu
-* `/builtin/Disk/FreeSpace(/mnt)`-Wolnego miejsca w systemie plików w katalogu/mnt
-* `/builtin/Disk/FreeSpace`— Wolne miejsce uśredniona wszystkie zainstalowane systemy plików
+* `/builtin/Processor/PercentIdleTime` -Bezczynności uśredniona wszystkie Vcpu
+* `/builtin/Disk/FreeSpace(/mnt)` -Wolnego miejsca w systemie plików w katalogu/mnt
+* `/builtin/Disk/FreeSpace` — Wolne miejsce uśredniona wszystkie zainstalowane systemy plików
 
 Portalu Azure ani LAD oczekuje, że wartość counterSpecifier na zgodny z żadnym wzorcem. Być zgodne w konstrukcji counterSpecifier wartości.
 
