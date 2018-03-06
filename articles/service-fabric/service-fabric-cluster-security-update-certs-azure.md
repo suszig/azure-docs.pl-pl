@@ -1,24 +1,8 @@
----
-title: "Zarządzanie certyfikatami w klastrze usługi sieć szkieletowa usług Azure | Dokumentacja firmy Microsoft"
-description: "Opisuje sposób dodawać nowe certyfikaty, certyfikat przerzucania i Usuń certyfikat do lub z klastra sieci szkieletowej usług."
-services: service-fabric
-documentationcenter: .net
-author: ChackDan
-manager: timlt
-editor: 
-ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74
-ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/09/2017
-ms.author: chackdan
-ms.openlocfilehash: c433e8683755e454f9561f094269c3daccf78a62
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+--Tytuł: Zarządzanie certyfikatami w klastrze usługi sieć szkieletowa usług Azure | Opis elementu Microsoft Docs: opisano, jak dodawać nowe certyfikaty, certyfikat przerzucania i Usuń certyfikat do lub z klastra sieci szkieletowej usług.
+usługi: documentationcenter sieci szkieletowej usług: Autor .net: Menedżer ChackDan: Edytor timlt: "
+
+ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74 ms.service: service-fabric ms.devlang: dotnet ms.topic: article ms.tgt_pltfrm: na ms.workload: na ms.date: 02/23/2018 ms.author: chackdan
+
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Dodaj lub Usuń certyfikaty dla klastra usługi sieć szkieletowa na platformie Azure
 Zalecane jest, zapoznaj się z używaniu certyfikatów X.509 w sieci szkieletowej usług, a następnie należy zapoznać się z [klastra scenariusze zabezpieczeń](service-fabric-cluster-security.md). Trzeba zrozumieć, jakie certyfikat klastra jest i do czego służy, przed przejściem dalej.
@@ -49,6 +33,8 @@ Aby usunąć dodatkowego certyfikatu z używany do zabezpieczenia klastra, przej
 Jeśli Twoje zamierzeniu można usunąć certyfikatu, który jest oznaczony jako podstawowy, następnie należy najpierw wymiany z lokacji dodatkowej, a następnie usuń pomocniczą po zakończeniu uaktualniania.
 
 ## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>Dodania dodatkowego certyfikatu przy użyciu programu Powershell Menedżera zasobów
+> [! Aktualizacja] mamy teraz sposób lepsze i łatwiejsze do dodania dodatkowego certyfikatu przy użyciu [AzureRmServiceFabricClusterCertificate Dodaj](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate?view=azurermps-5.3.0). Nie trzeba wykonaj pozostałe kroki w tej sekcji, jeśli używasz AzureRmServiceFabricClusterCertificate Dodaj.
+
 
 Tych krokach przyjęto założenie, zapoznali się z działania Menedżera zasobów i zostaną wdrożone co najmniej jeden klaster sieci szkieletowej usług za pomocą szablonu usługi Resource Manager i szablon, który został użyty do skonfigurowania klastra pod ręką. Zakłada się również, że masz doświadczenia, za pomocą formatu JSON.
 
@@ -297,7 +283,7 @@ Aby usunąć dodatkowego certyfikatu z używany do zabezpieczenia klastra, przej
 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Przeczytaj następujące artykuły, aby uzyskać więcej informacji na temat zarządzania klastrem:
 
 * [Proces uaktualniania klastra sieci szkieletowej usług oraz oczekiwań od użytkownika](service-fabric-cluster-upgrade.md)

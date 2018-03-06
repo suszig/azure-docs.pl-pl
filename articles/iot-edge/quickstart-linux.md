@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 440b70f4d04728973d77e54e7f6303e1ad7fcd89
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 827fe91c14a44cbaf8a9bb5921e5c9962d984414
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-or-mac-device---preview"></a>Szybki Start: Wdrażanie modułu IoT krawędź pierwszego na urządzeniu z systemem Linux lub Mac — wersja zapoznawcza
 
@@ -27,7 +27,7 @@ Ta opcja szybkiego startu korzysta z komputera lub maszyny wirtualnej, takie jak
 
 * Python pip, aby zainstalować środowisko uruchomieniowe IoT krawędzi.
    * Linux: `sudo apt-get install python-pip`.
-   * System MacOS: `sudo easy_install pip`.
+   * MacOS: `sudo easy_install pip`.
 * Docker do uruchamiania krawędzi IoT modułów
    * [Zainstaluj dla systemu Linux Docker] [ lnk-docker-ubuntu] i upewnij się, że jest uruchomiona. 
    * [Zainstaluj Docker dla komputerów Mac] [ lnk-docker-mac] i upewnij się, że jest uruchomiona. 
@@ -70,22 +70,22 @@ Tworzenie tożsamości urządzenia symulowane urządzenie, dzięki czemu może k
 Środowisko uruchomieniowe krawędzi IoT jest wdrażana na wszystkich urządzeniach IoT krawędzi. Zawiera dwa moduły. Najpierw agenta krawędzi IoT ułatwia wdrażanie i monitorowanie modułów na urządzeniu IoT krawędzi. Po drugie Centrum IoT krawędzi zarządza komunikacji między modułami na urządzeniu IoT krawędzi i między urządzeniami a Centrum IoT. 
 
 Na komputerze, na którym będzie uruchamiane urządzenie brzegowe IoT Pobierz skrypt kontroli krawędzi IoT:
-```cmd
+```bash
 sudo pip install -U azure-iot-edge-runtime-ctl
 ```
 
 Skonfiguruj środowisko uruchomieniowe za pomocą parametrów połączenia urządzenia IoT krawędzi z poprzedniej sekcji:
-```cmd
+```bash
 sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
 ```
 
 Uruchom środowisko uruchomieniowe:
-```cmd
+```bash
 sudo iotedgectl start
 ```
 
 Docker wyboru, aby zobaczyć, czy agent krawędzi IoT jest uruchomiony jako moduł:
-```cmd
+```bash
 sudo docker ps
 ```
 
@@ -101,7 +101,7 @@ W tego przewodnika Szybki Start utworzyć nowe urządzenie brzegowe IoT, a na ni
 
 Otwórz wiersz polecenia na komputerze z uruchomionym symulowane urządzenie ponownie. Upewnij się, że moduł wdrożonych w chmurze jest uruchomiona na urządzeniu IoT krawędzi:
 
-```cmd
+```bash
 sudo docker ps
 ```
 
@@ -109,7 +109,7 @@ sudo docker ps
 
 Wyświetl komunikaty wysyłane z modułu tempSensor do chmury:
 
-```cmd
+```bash
 sudo docker logs -f tempSensor
 ```
 
@@ -118,6 +118,12 @@ sudo docker logs -f tempSensor
 Można również wyświetlić dane telemetryczne, wysyła urządzenia przy użyciu [narzędzia explorer Centrum IoT][lnk-iothub-explorer]. 
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+
+Jeśli chcesz usunąć symulowane urządzenie, które zostały utworzone, oraz kontenerów Docker, które zostały uruchomione dla każdego modułu, użyj następującego polecenia: 
+
+```bash
+sudo iotedgectl uninstall
+```
 
 Podczas tworzenia Centrum IoT nie są już potrzebne, można użyć [usuwania Centrum iot az] [ lnk-delete] polecenie, aby usunąć zasób i wszystkie skojarzone z nią urządzenia:
 

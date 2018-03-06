@@ -12,17 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 03/01/2018
 ms.author: jodehavi;stgriffi
-ms.openlocfilehash: 793f35bfd2e5e6b22e0804f01a69c0c20990d211
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: edc9a870257536235c2bef139dc4d1ead7dd7a8f
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>Konfigurowanie kompleksowej wymiany i inspekcji kluczy w usłudze Azure Key Vault
 ## <a name="introduction"></a>Wprowadzenie
 Po utworzeniu magazynu kluczy, można uruchomić za pomocą tego magazynu do przechowywania kluczy i kluczy tajnych. Aplikacji nie jest już należy do utrwalenia z kluczy lub kluczy tajnych, ale raczej zażąda je z magazynu kluczy zgodnie z potrzebami. Dzięki temu można zaktualizować kluczy i kluczy tajnych bez wpływu na zachowanie aplikacji, która otwiera szerokości możliwości wokół klucza, a tajny zarządzania.
+
+>[!IMPORTANT]
+> Przykłady w tym artykule znajdują się wyłącznie dla celów ilustracyjnych. Nie są przeznaczone do użycia w środowisku produkcyjnym. 
 
 W tym artykule przedstawiono przykład użycia usługi Azure Key Vault do przechowywania klucza tajnego, w tym przypadku klucz konta magazynu Azure, który jest dostępny przez aplikację. Ilustruje też implementacji zaplanowane obrotu tego klucza konta magazynu. Na koniec przeprowadzi przez pokaz do monitorowania dzienników inspekcji magazynu kluczy i zgłaszanie alertów po nieoczekiwany żądań.
 

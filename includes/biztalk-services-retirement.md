@@ -1,10 +1,27 @@
+---
+title: Plik dyrektywy include
+description: Plik dyrektywy include
+services: biztalk-services
+author: MandiOhlinger
+ms.service: biztalk-services
+ms.topic: include
+ms.date: 11/09/2017
+ms.author: mandia
+ms.custom: include file
+ms.openlocfilehash: 81e053c8258d24177d5c7ea499595c4dd4a3b0f0
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/05/2018
+---
 > [!IMPORTANT]
-> Usługa Microsoft Azure BizTalk Services (MABS) została wycofana i zastąpiona usługą Azure Logic Apps. Jeśli obecnie używasz usługi MABS, to w temacie [Move from BizTalk Services to Logic Apps (Przejście z usługi BizTalk Services do usługi Logic Apps)](../articles/logic-apps/logic-apps-move-from-mabs.md) znajdują się wskazówki dotyczące przenoszenia rozwiązań integracji do usługi Logic Apps. 
+> Microsoft Azure BizTalk usług (MABS) jest wycofana i zastąpione Azure Logic Apps.
+> Jeśli obecnie używasz MABS, przejrzeć ten artykuł, aby uzyskać wskazówki dotyczące migrowania rozwiązań integracji do aplikacji logiki: [Logic Apps przenieść z usługi BizTalk Services](../articles/logic-apps/logic-apps-move-from-mabs.md) 
 > 
-> Jeśli dopiero zaczynasz korzystać z usługi Logic Apps, sugerujemy: 
+> Jeśli jesteś nowym użytkownikiem Logic Apps, spróbuj uruchamiania tutaj: 
 > 
-> - [Dowiedzieć się, co to są aplikacje logiki](../articles/logic-apps/logic-apps-what-are-logic-apps.md)  
+> * [Co to jest Azure Logic Apps?](../articles/logic-apps/logic-apps-overview.md)  
 > 
-> - [Utworzyć swoją pierwszą aplikację logiki](../articles/logic-apps/logic-apps-create-a-logic-app.md) lub szybko rozpocząć pracę przy użyciu [wstępnie utworzonego szablonu](../articles/logic-apps/logic-apps-use-logic-app-templates.md)  
+> * [Tworzenie pierwszej aplikacji logiki](../articles/logic-apps/quickstart-create-first-logic-app-workflow.md), lub szybkie rozpoczęcie pracy z [wcześniej utworzonego szablonu](../articles/logic-apps/logic-apps-use-logic-app-templates.md).
 > 
-> - [Wyświetlić wszystkie dostępne łączniki](../articles/connectors/apis-list.md), których można używać w aplikacji logiki
+> * [Przejrzyj wszystkie łączniki](../articles/connectors/apis-list.md) używanego w aplikacji logiki.

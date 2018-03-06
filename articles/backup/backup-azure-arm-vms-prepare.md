@@ -13,26 +13,24 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/21/2017
+ms.date: 3/1/2018
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 568509eba47facfc5966d06dff5a1b32dce1008f
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 62e047d706bdc42abbe44340c87267e59eb84369
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Przygotowywanie środowiska do tworzenia kopii zapasowych maszyn wirtualnych wdrożonych przez program Resource Manager
 
-Ten artykuł zawiera kroki przygotowania środowiska do utworzenia kopii zapasowej maszyny wirtualnej (VM) wdrożone usługi Azure Resource Manager. Kroki opisane w procedurach za pomocą portalu Azure.  
-
-Usługa Kopia zapasowa Azure ma dwa typy magazynów ochrony maszyn wirtualnych: magazynów kopii zapasowych i magazyny usług odzyskiwania. Magazyn kopii zapasowych pomaga w ochronie maszyn wirtualnych wdrożonych za pośrednictwem klasycznego modelu wdrażania. Magazyn usług odzyskiwania pomaga w ochronie *maszyn wirtualnych zarówno wdrożone w klasycznej i wdrożeniu usługi Resource Manager*. Jeśli chcesz chronić maszyny Wirtualnej wdrożone usługi Resource Manager, należy użyć magazynu usług odzyskiwania.
+Ten artykuł zawiera kroki przygotowania środowiska do utworzenia kopii zapasowej maszyny wirtualnej (VM) wdrożone usługi Azure Resource Manager. Kroki opisane w procedurach za pomocą portalu Azure. Przechowywanie danych kopii zapasowej maszyny wirtualnej w magazynie usług odzyskiwania. Magazyn przechowuje dane kopii zapasowej dla maszyn wirtualnych klasycznego i wdrożeniu usługi Resource Manager.
 
 > [!NOTE]
 > Platforma Azure ma dwa modele wdrażania związane z tworzeniem i pracą z zasobami: [Resource Manager i Model Klasyczny](../azure-resource-manager/resource-manager-deployment-model.md).
 
-Zanim można chronić lub utworzyć kopię zapasową maszyny wirtualnej wdrożone usługi Resource Manager, upewnij się, że istnieją następujące wymagania wstępne:
+Przed ochrony (lub utworzyć kopię zapasową) maszyny wirtualnej wdrożone usługi Resource Manager, upewnij się, że istnieją następujące wymagania wstępne:
 
-* Tworzenie magazynu usług odzyskiwania (lub Zidentyfikuj istniejącego magazynu usług odzyskiwania) *w tej samej lokalizacji co maszyna wirtualna*.
+* Tworzenie magazynu usług odzyskiwania (lub Zidentyfikuj istniejącego magazynu usług odzyskiwania) *w tym samym regionie co maszyna wirtualna*.
 * Wybierz scenariusz, definiowanie zasad tworzenia kopii zapasowej i zdefiniuj elementy do ochrony.
 * Sprawdź instalację agenta maszyny Wirtualnej na maszynie wirtualnej.
 * Sprawdź łączność sieciową.
@@ -44,7 +42,7 @@ Jeśli te warunki istnieje już w danym środowisku, przejdź do [kopii zapasowy
  * **Linux**: kopia zapasowa Azure obsługuje [listę dystrybucji, które zatwierdza Azure](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), z wyjątkiem CoreOS Linux. 
  
     > [!NOTE] 
-    > Inne Przełącz your właścicielem-dystrybucje systemu Linux może działać, dopóki agent maszyny Wirtualnej jest dostępne na maszynie wirtualnej i obsługę języka Python istnieje. Jednak firma Microsoft nie zatwierdza tych dystrybucji dla kopii zapasowej.
+    > Innych bring-your — właścicielem — dystrybucje systemu Linux może działać, dopóki agent maszyny Wirtualnej jest dostępne na maszynie wirtualnej, a także obsługę języka Python istnieje. Jednak te dystrybucji nie są obsługiwane.
  * **Windows Server**: wersje starsze niż Windows Server 2008 R2 nie są obsługiwane.
 
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>Ograniczenia w przypadku tworzenia kopii zapasowej i przywracanie maszyny Wirtualnej
@@ -54,16 +52,17 @@ Aby przygotować środowisko, należy zrozumieć następujące ograniczenia:
 * Tworzenie kopii zapasowych maszyn wirtualnych z danymi dysku o rozmiarze przekraczającym 1,023 GB nie jest obsługiwane.
 
   > [!NOTE]
-  > Mamy prywatnej wersji zapoznawczej do obsługi kopii zapasowych maszyn wirtualnych z dyskami > 1TB. Aby uzyskać więcej informacji, zapoznaj się [prywatnej wersji zapoznawczej do obsługi kopii zapasowych maszyn wirtualnych dużych dysków](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
+  > Mamy prywatnej wersji zapoznawczej do obsługi kopii zapasowych maszyn wirtualnych z więcej niż jednego dysków TB. Aby uzyskać więcej informacji, zapoznaj się [prywatnej wersji zapoznawczej do obsługi kopii zapasowych maszyn wirtualnych dużych dysków](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
   >
 
 * Tworzenie kopii zapasowych maszyn wirtualnych z zastrzeżonego adresu IP i nie zdefiniowanych punktów końcowych nie jest obsługiwane.
-* Tworzenie kopii zapasowych maszyn wirtualnych zaszyfrowane za pomocą właśnie klucza szyfrowania funkcją BitLocker (BEK) nie jest obsługiwana. Tworzenie kopii zapasowych maszyn wirtualnych systemu Linux zaszyfrowany za pomocą szyfrowania Linux Unified klucz instalacji (LUKS) nie jest obsługiwana.
+* Tworzenie kopii zapasowych maszyn wirtualnych systemu Linux zaszyfrowany za pomocą szyfrowania Linux Unified klucz instalacji (LUKS) nie jest obsługiwana.
 * Nie zaleca się tworzenie kopii zapasowych maszyn wirtualnych, które zawierają konfigurację udostępnionych woluminów klastra (CSV) lub serwera plików skalowalnego w poziomie. Wymagają one, obejmujące wszystkich maszyn wirtualnych uwzględnione w konfiguracji klastra podczas zadania migawki. Kopia zapasowa Azure nie obsługuje wielu maszyn wirtualnych. 
 * Dane kopii zapasowej nie zawiera dyski sieciowe zainstalowane dołączony do maszyny Wirtualnej.
 * Zamiana istniejącej maszyny wirtualnej podczas przywracania nie jest obsługiwana. Jeśli podjęto próbę przywrócenia maszyny Wirtualnej, gdy maszyna wirtualna istnieje, operacja przywracania kończy się niepowodzeniem.
-* Region między kopii zapasowej i przywracania nie są obsługiwane.
-* Kopia zapasowa i przywracanie z maszyn wirtualnych za pomocą niezarządzanych dysków na kontach magazynu przy użyciu reguł sieciowej stosowane obecnie nie jest obsługiwane. Podczas konfigurowania kopii zapasowej, upewnij się, że ustawienia "Zapory i sieci wirtualne" dla konta magazynu jest dozwolony dostęp z "Wszystkie sieci."
+* Region między tworzenie kopii zapasowej i przywracania nie są obsługiwane.
+* Tworzenie kopii zapasowej i przywracanie maszyn wirtualnych za pomocą niezarządzanych dysków na kontach magazynu przy użyciu reguł sieciowej zastosowane, nie jest obsługiwana. 
+* Podczas konfigurowania kopii zapasowej, upewnij się, że **zapory i sieci wirtualne** ustawienia konta magazynu jest dozwolony dostęp z wszystkich sieci.
 * Można tworzyć kopie zapasowe maszyn wirtualnych we wszystkich regionach publicznej platformy Azure. (Zobacz [Lista kontrolna](https://azure.microsoft.com/regions/#services) obsługiwanych regionów.) Jeśli obecnie jest obsługiwany region, którego szukasz, nie zostanie wyświetlony na liście rozwijanej podczas tworzenia magazynu.
 * Przywracanie kontrolera domeny (DC) maszyny Wirtualnej, która jest częścią konfiguracji kontrolera domeny na wielu jest obsługiwane tylko za pomocą programu PowerShell. Aby dowiedzieć się więcej, zobacz [Przywracanie kontrolera domeny, kontrolera domeny na wielu](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
 * Przywracanie maszyn wirtualnych, które mają następujące konfiguracje sieciowe specjalne jest obsługiwane tylko za pomocą programu PowerShell. Maszyny wirtualne utworzone za pomocą przepływu pracy przywracania w interfejsie użytkownika nie będą miały te konfiguracje sieci po zakończeniu operacji przywracania. Aby dowiedzieć się więcej, zobacz [przywracanie maszyn wirtualnych z konfiguracjami sieci specjalne](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).
@@ -106,7 +105,7 @@ Aby utworzyć magazyn Usług odzyskiwania:
 Magazyn został już utworzony, więc teraz zajmiemy się skonfigurowaniem jego replikacji.
 
 ## <a name="set-storage-replication"></a>Ustaw replikację magazynu
-Dla opcji replikacji magazynu umożliwia wybór między magazynu geograficznie nadmiarowego i lokalnie nadmiarowego magazynu. Domyślnie magazyn jest nadmiarowy geograficznie. Pozostaw tę opcję ustawioną na magazyn geograficznie nadmiarowy, jeśli jest to Twoja podstawowa kopia zapasowa. Wybierz magazyn lokalnie nadmiarowy, jeśli chcesz skorzystać z tańszej, ale mniej trwałej opcji.
+Dla opcji replikacji magazynu umożliwia wybór między magazynu geograficznie nadmiarowego i lokalnie nadmiarowego magazynu. Domyślnie magazyn jest nadmiarowy geograficznie. Pozostaw ustawienie opcji jako magazynu geograficznie nadmiarowego dla Twoja podstawowa kopia zapasowa. Jeśli chcesz tańsze opcja, która nie jest trwałej, wybierz magazyn lokalnie nadmiarowy.
 
 Aby edytować ustawienia replikacji magazynu:
 
@@ -126,9 +125,7 @@ Aby edytować ustawienia replikacji magazynu:
 Po wybraniu opcji magazynu dla magazynu możesz skojarzyć maszynę Wirtualną z magazynu. Aby rozpocząć kojarzenie, należy odnaleźć i zarejestrować maszyny wirtualne Azure.
 
 ## <a name="select-a-backup-goal-set-policy-and-define-items-to-protect"></a>Wybierz cel kopii zapasowej, ustawienie zasad i zdefiniuj elementy do ochrony
-Przed zarejestrowaniem maszyny Wirtualnej w magazynie Uruchom proces wykrywania, aby upewnić się, że wszelkie nowe maszyny wirtualne, które zostały dodane do subskrypcji są identyfikowane. Proces przeszukuje Azure listę maszyn wirtualnych w ramach subskrypcji wraz z informacjami, takie jak nazwa usługi w chmurze i region. 
-
-W portalu Azure *scenariusza* odwołuje się do co należy umieścić w magazynie usług odzyskiwania. *Zasady* jest harmonogram kiedy i jak często są pobierane punktów odzyskiwania. Zasady zawierają także zakres przechowywania dla punktów odzyskiwania.
+Przed zarejestrowaniem maszyny wirtualnej z magazynu usług odzyskiwania, należy uruchomić proces wykrywania, aby zidentyfikować wszelkie nowe maszyny wirtualne, które są dodawane do subskrypcji. Proces odnajdywania kwerendy Azure o listę maszyn wirtualnych w ramach subskrypcji. W przypadku znalezienia nowych maszyn wirtualnych portalu Wyświetla nazwa usługi w chmurze i region skojarzone. W portalu Azure *scenariusza* wprowadzić w magazynie usług odzyskiwania. *Zasady* jest harmonogram kiedy i jak często są pobierane punktów odzyskiwania. Zasady zawierają także zakres przechowywania dla punktów odzyskiwania.
 
 1. Jeśli Twój magazyn Usług odzyskiwania jest już otwarty, przejdź do kroku 2. Jeśli nie masz magazyn usług odzyskiwania, Otwórz, otwórz [portalu Azure](https://portal.azure.com/). Na **Centrum** menu, wybierz opcję **więcej usług**.
 
@@ -151,7 +148,7 @@ W portalu Azure *scenariusza* odwołuje się do co należy umieścić w magazyni
 
    **Kopii zapasowej** i **cel kopii zapasowej** Otwórz okienka.
 
-3. Na **celu kopii zapasowej** ustawić okienku **gdzie działa Twoje obciążenie?** do **Azure** i **co chcesz utworzyć kopię zapasową?** do  **Maszyna wirtualna**. Następnie wybierz **OK**.
+3. Na **celu kopii zapasowej** ustawić okienku **gdzie działa Twoje obciążenie?** jako **Azure** i **co chcesz utworzyć kopię zapasową?** jako  **Maszyna wirtualna**. Następnie wybierz przycisk **OK**.
 
    ![Cel kopii zapasowej i kopii zapasowych okienka](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
 
@@ -170,7 +167,7 @@ W portalu Azure *scenariusza* odwołuje się do co należy umieścić w magazyni
 
    !["Wybierz maszyny wirtualne" okienko](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
-   Wybrana maszyna wirtualna jest weryfikowana. Jeśli nie widzisz maszyn wirtualnych, które powinny być widoczne, sprawdź istnieje w tej samej lokalizacji platformy Azure, co magazyn usług odzyskiwania i nie są już chronione w innym magazynie. Pulpit nawigacyjny magazynu zawiera lokalizację magazynu usług odzyskiwania.
+   Wybrana maszyna wirtualna jest weryfikowana. Jeśli nie widzisz oczekiwanego maszyny wirtualnej, sprawdź, czy maszyny wirtualne w tym samym regionie Azure, co magazyn usług odzyskiwania. Jeśli nadal nie widać maszyny wirtualnej, sprawdź, czy nie są już chronione w innym magazynie. Pulpitem nawigacyjnym magazynu zawiera region, gdzie istnieje magazyn usług odzyskiwania.
 
 6. Teraz, gdy chcesz zdefiniować wszystkie ustawienia magazynu, w **kopii zapasowej** okienku wybierz **kopii zapasowej Włącz**. Ten krok wdraża zasady dla magazynu i maszyn wirtualnych. Ten krok nie powoduje utworzenia początkowego punktu odzyskiwania dla maszyny wirtualnej.
 

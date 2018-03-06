@@ -5,21 +5,21 @@ services: machine-learning
 author: gokhanuluderya-msft
 ms.author: gokhanu
 manager: haining
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: bd152cc79c08124a1acab2aefc8652c7d162ea2c
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: f93c74d0c2f66e6a5001289efca07f074e3d3c5a
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="configuring-azure-machine-learning-experimentation-service"></a>Konfigurowanie usługi Azure Machine Learning eksperymenty usługi
 
-## <a name="overview"></a>Omówienie
-Azure Machine Learning eksperymenty usługi umożliwia danych służące do wykonywania eksperymentów, ich przy użyciu usługi Azure Machine Learning wykonywania i uruchom możliwości zarządzania. Zapewnia to struktura agile eksperymenty z szybkiego iteracji. Azure Machine Learning Workbench służy do uruchomienia z lokalnych przebiegów na tym komputerze i zapewnia łatwe ścieżkę skalowania w górę i innych środowiskach, takich jak zdalny maszyn wirtualnych nauki danych z procesora GPU lub systemem Spark w usłudze Hdinsight.
+## <a name="overview"></a>Przegląd
+Azure Machine Learning eksperymenty usługi umożliwia danych służące do wykonywania eksperymentów, ich przy użyciu usługi Azure Machine Learning wykonywania i uruchom możliwości zarządzania. Zapewnia to struktura agile eksperymenty z szybkiego iteracji. Azure Machine Learning Workbench służy do uruchomienia z lokalnym działa na komputerze, a także łatwe ścieżki skalowania w górę i innych środowiskach, takich jak zdalny maszyn wirtualnych nauki danych z procesora GPU lub systemem Spark w usłudze Hdinsight.
 
 Usługa eksperymenty zaprojektowano pod kątem dostarczanie izolowanym, powtarzalnych i spójne uruchomień eksperymentów. Pomaga zarządzać celów obliczeń środowisk wykonywania i uruchom konfiguracje. Przy użyciu usługi Azure Machine Learning Workbench wykonywania i możliwości zarządzania wykonywania, można łatwo przenosić między różnych środowiskach. 
 
@@ -27,9 +27,10 @@ Można wykonać skryptu Python lub PySpark w projekcie Workbench lokalnie lub na
 
 Skrypty można uruchomić na: 
 
-* Środowisko Python (3.5.2) na komputerze lokalnym, instalowane przez Workbench.
+* Środowisko Python (3.5.2) na komputerze lokalnym, instalowane przez Workbench
 * Środowisko Conda Python wewnątrz kontenera Docker na komputerze lokalnym
-* Środowisko Conda Python wewnątrz kontenera Docker na zdalnym komputerze systemu Linux. Na przykład [systemem Ubuntu DSVM na platformie Azure](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)
+* W środowisku Python, który należy do użytkownika i zarządzanie nimi na zdalnym komputerze systemu Linux
+* Środowisko Conda Python wewnątrz kontenera Docker na zdalnym komputerze systemu Linux. Na przykład [systemem Ubuntu DSVM na platformie Azure] (https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)
 * [HDInsight dla Spark](https://azure.microsoft.com/services/hdinsight/apache-spark/) na platformie Azure
 
 >[!IMPORTANT]
@@ -47,6 +48,7 @@ _Dołącz az ml computetarget_ polecenia interfejsu wiersza polecenia umożliwia
 Obiekty docelowe obliczeniowe obsługiwane są następujące:
 * Lokalne środowisko Python (3.5.2) na komputerze, który został zainstalowany przez Workbench.
 * Docker lokalnego na komputerze
+* Zarządzana przez użytkownika, środowiska Python w zdalnym Linux Ubuntu maszyn wirtualnych. Na przykład [systemem Ubuntu DSVM na platformie Azure](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)
 * Zdalne Docker na maszynach wirtualnych Linux Ubuntu. Na przykład [systemem Ubuntu DSVM na platformie Azure](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)
 * [HDInsight dla klastra Spark](https://azure.microsoft.com/services/hdinsight/apache-spark/) na platformie Azure
 
@@ -64,19 +66,19 @@ Conda służy do zarządzania Docker lokalnego i zdalnego wykonaniami Docker, a 
 
 **Obsługiwanych środowisk uruchomieniowych w środowiskach wykonywania są:**
 * Python 3.5.2
-* Platforma Spark 2.1.11
+* Spark 2.1.11
 
 ### <a name="run-configuration"></a>Uruchom konfigurację
 Oprócz środowiska docelowego i wykonywanie obliczeń, usługi Azure Machine Learning zapewnia platformę do definiowania i zmienić *Uruchom konfiguracje*. Różnych wykonaniami eksperymentu mogą wymagać różnych konfiguracji jako część eksperymenty iteracji. Możesz może być zmiennymi zakresy innym parametrem przy użyciu różnych źródeł danych i dostrajanie parametrów spark. Usługa eksperymenty zapewnia platformę do zarządzania konfiguracjami wykonywania.
 
-Uruchomiona _dołączyć az ml computetarget_ polecenie tworzy dwa pliki w Twojej **aml_config** folder w projekcie: .compute i .runconfig po tę Konwencję: _< your_ computetarget_name > .compute_ i _.runconfig < your_computetarget_name >_. Plik .runconfig automatycznie jest tworzony dla Twojej wygody, podczas tworzenia obiektu docelowego obliczeń. Można utworzyć i zarządzać nimi inne konfiguracje wykonywania przy użyciu _az ml runconfigurations_ w interfejsu wiersza polecenia. Można również tworzyć i edytować je w systemie plików.
+Uruchomiona _dołączyć az ml computetarget_ polecenie tworzy dwa pliki w Twojej **aml_config** folder w projekcie: ".compute" i ".runconfig" po tę Konwencję: _< your_ computetarget_name > .compute_ i _.runconfig < your_computetarget_name >_. Plik .runconfig automatycznie jest tworzony dla Twojej wygody, podczas tworzenia obiektu docelowego obliczeń. Można utworzyć i zarządzać nimi inne konfiguracje wykonywania przy użyciu _az ml runconfigurations_ w interfejsu wiersza polecenia. Można również tworzyć i edytować je w systemie plików.
 
 Konfigurację uruchomieniową w Workbench można również określić zmiennych środowiskowych. Można określić zmienne środowiskowe i ich używać w kodzie, dodając w poniższej sekcji w pliku .runconfig. 
 
 ```
 EnvironmentVariables:
-"EXAMPLE_ENV_VAR1": "Example Value1"
-"EXAMPLE_ENV_VAR2": "Example Value2"
+    "EXAMPLE_ENV_VAR1": "Example Value1"
+    "EXAMPLE_ENV_VAR2": "Example Value2"
 ```
 
 Te zmienne środowiskowe są dostępne w kodzie. Na przykład następujący fragment kodu phyton Wyświetla zmienną środowiskową o nazwie "EXAMPLE_ENV_VAR1"
@@ -101,7 +103,7 @@ Prosty sposób uruchamiania interfejsu wiersza polecenia jest otwarcie projektu 
 To polecenie uruchamia okno terminalu, w którym należy wprowadzić poleceń do wykonania skryptów w folderze bieżącego projektu. To okno terminalu skonfigurowano środowisku Python 3.5.2, który jest instalowany przez Workbench.
 
 >[!NOTE]
-> Podczas wykonywania żadnego _az ml_ polecenie w oknie polecenia muszą być uwierzytelniani Azure. Interfejsu wiersza polecenia używa pamięci podręcznej niezależne uwierzytelniania, a następnie aplikacja klasyczna oraz sposób logowanie się do środowiska roboczego nie oznacza, że użytkownik jest uwierzytelniony w danym środowisku interfejsu wiersza polecenia. Na potrzeby uwierzytelniania, wykonaj poniższe kroki. Token uwierzytelniania są buforowane lokalnie w danym okresie czasu, dlatego trzeba Powtórz te czynności, po wygaśnięciu tokenu. Po wygaśnięciu tokenu lub pojawia się błędy uwierzytelniania, wykonaj następujące polecenia:
+> Podczas wykonywania żadnego _az ml_ polecenie w oknie polecenia muszą być uwierzytelniani Azure. Interfejsu wiersza polecenia używa pamięci podręcznej niezależne uwierzytelniania, a następnie aplikacja klasyczna oraz sposób logowanie się do środowiska roboczego nie oznacza, że użytkownik jest uwierzytelniony w danym środowisku interfejsu wiersza polecenia. Na potrzeby uwierzytelniania, należy korzystać z następujących czynności. Token uwierzytelniania są buforowane lokalnie w danym okresie czasu, dlatego trzeba Powtórz te czynności, po wygaśnięciu tokenu. Po wygaśnięciu tokenu lub pojawia się błędy uwierzytelniania, wykonaj następujące polecenia:
 
 ```
 # to authenticate 
@@ -124,7 +126,7 @@ $ az account show
 ## <a name="running-scripts-and-experiments"></a>Uruchamianie skryptów i eksperymenty
 Z Workbench, można wykonać programu Python i skrypty PySpark o różnych obliczeniowe obiektów docelowych za pomocą _przesłać eksperymentu uczenia maszynowego az_ polecenia. To polecenie wymaga definicji konfiguracji uruchamiania. 
 
-Workbench tworzy plik .runconfig utworzyć cel obliczeń, ale można utworzyć dodatkowe konfiguracje wykonywania przy użyciu _az ml runconfiguration utworzyć_ polecenia. Można też ręcznie modyfikować pliki konfiguracyjne wykonywania.
+Workbench tworzy plik runconfig utworzyć cel obliczeń, ale można utworzyć dodatkowe konfiguracje wykonywania przy użyciu _az ml runconfiguration utworzyć_ polecenia. Można też ręcznie modyfikować pliki konfiguracyjne wykonywania.
 
 Konfiguracje wykonywania wyświetlane jako część eksperymentu uruchomienie środowisko w narzędzia Workbench. 
 
@@ -213,16 +215,57 @@ Proces konstrukcji Docker zdalnego maszyn wirtualnych jest dokładnie taka sama 
 >[!TIP]
 >Jeśli wolisz uniknąć opóźnienia wynikające z tworzenia obrazu Docker dla Twojego pierwszego uruchomienia służy następujące polecenie przygotować docelowy obliczeń przed wykonaniem skryptu. eksperymentu uczenia maszynowego az przygotowanie remotedocker - c
 
-
 _**Omówienie zdalnego maszyny wirtualnej wykonanie skryptu Python:**_
 ![](media/experimentation-service-configuration/remote-vm-run.png)
+
+## <a name="running-a-script-on-a-remote-vm-targeting-user-managed-environments"></a>Uruchomienie skryptu na maszynie Wirtualnej zdalnego przeznaczonych dla środowisk zarządzana przez użytkownika
+Usługa eksperymenty obsługuje również uruchamiania skryptu środowiska Python przez użytkownika wewnątrz maszyny wirtualnej systemu Ubuntu zdalnego. Dzięki temu można zarządzać środowiska do wykonania i nadal korzystać z możliwości usługi Azure Machine Learning. 
+
+Wykonaj poniższe kroki, aby uruchomić skrypt w środowisku.
+* Przygotowanie środowiska Python w zdalnej maszyny Wirtualnej systemu Ubuntu lub DSVM, instalowanie zależności.
+* Zainstaluj wymagania dotyczące usługi Azure Machine Learning przy użyciu następującego polecenia.
+
+```
+pip install -I --index-url https://azuremldownloads.azureedge.net/python-repository/preview --extra-index-url https://pypi.python.org/simple azureml-requirements
+```
+
+>[!TIP]
+>W niektórych przypadkach może być konieczne uruchomienie tego polecenia w trybie sudo w zależności od Twoje uprawnienia. 
+```
+sudo pip install -I --index-url https://azuremldownloads.azureedge.net/python-repository/preview --extra-index-url https://pypi.python.org/simple azureml-requirements
+```
+ 
+* Użyj następującego polecenia, aby utworzyć definicja docelowego obliczeń i konfigurację uruchomieniową dla przebiegów zarządzana przez użytkownika na zdalnym wykonaniami maszyny Wirtualnej.
+```
+az ml computetarget attach remote --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --password "sshpassword" 
+```
+>[!NOTE]
+>Spowoduje to ustawienie parametru "userManagedEnvironment" w pliku konfiguracyjnym .compute na wartość true.
+
+* Ustaw lokalizację Twoje środowisko uruchomieniowe języka Python pliku wykonywalnego w pliku .compute. Należy zapoznać się do pełnej ścieżki programu wykonywalnego python. 
+```
+pythonLocation: python3
+```
+
+Po skonfigurowaniu docelowego obliczeń służy następujące polecenie do uruchomienia skryptu.
+```
+$ az ml experiment submit -c remotevm myscript.py
+```
+
+>[!NOTE]
+> Po uruchomieniu na DSVM, należy użyć następujących poleceń
+
+Jeśli chcesz uruchamiać bezpośrednio na DSVM w środowisku python globalnych, uruchom to polecenie.
+```
+sudo /anaconda/envs/py35/bin/pip install <package>
+```
 
 
 ## <a name="running-a-script-on-an-hdinsight-cluster"></a>Uruchamianie skryptu w klastrze usługi HDInsight
 HDInsight to platforma popularnych analizy danych big data obsługi Apache Spark. Workbench umożliwia eksperymenty danych big Data z użyciem klastrów HDInsight Spark. 
 
 >[!NOTE]
->Klaster usługi HDInsight, musisz użyć obiektów Blob platformy Azure jako magazynu głównego. Korzystanie z magazynu usługi Azure Data Lake nie jest jeszcze obsługiwane.
+>Klaster usługi HDInsight musi używać usługi Azure Blob Storage jako magazynu głównego. Korzystanie z magazynu usługi Azure Data Lake nie jest jeszcze obsługiwane.
 
 Można utworzyć cel obliczeń i uruchomić konfigurację klastra Spark w usłudze HDInsight przy użyciu następującego polecenia:
 
@@ -279,6 +322,6 @@ az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP
 az ml experiment prepare -c remotevm
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Utwórz i zainstaluj usługi Azure Machine Learning](quickstart-installation.md)
 * [Model administracyjny](model-management-overview.md)

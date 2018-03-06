@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 11/10/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1c6cc4ba95f440f09f11a93927fd67873f8813e8
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: f51d85da1bda0d9483883301b71c20e405724b9b
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="configure-azure-backup-reports"></a>Konfigurowanie raportów usługi Azure Backup
 Ten artykuł zawiera informacje o procedurę konfigurowania raportów dla usługi Kopia zapasowa Azure przy użyciu magazynu usług odzyskiwania oraz dostęp do tych raportów za pomocą usługi Power BI. Po wykonaniu tych kroków, można przejść bezpośrednio do usługi Power BI do wyświetlania wszystkich raportów, dostosowywania i tworzenia raportów. 
@@ -123,7 +123,7 @@ Po Konfigurowanie konta magazynu dla raportów, za pomocą magazynu usług odzys
 
 2. **Co to jest częstotliwość wypychanie danych do konta magazynu i pakiet zawartości usługi Kopia zapasowa Azure w usłudze Power BI?**
 
-   Dla użytkowników od dnia 0 wymagałoby około 24 godzinach przekazywaniu danych do konta magazynu. Po tej początkowej wypychania compelete, dane są odświeżane przy częstotliwości następujące pokazano na poniższej ilustracji. 
+   Dla użytkowników od dnia 0 wymagałoby około 24 godzinach przekazywaniu danych do konta magazynu. Po wykonaniu tej początkowej wypychane dane są odświeżane przy częstotliwości następujące pokazano na poniższej ilustracji. 
       * Dane powiązane z **zadań, alerty, elementy kopii zapasowej, magazynów, chronionych serwerów i zasady** zostanie przypisany do konta magazynu klienta, jak i przy rejestrowaniu.
       * Dane powiązane z **magazynu** zostanie przypisany do konta magazynu klienta co 24 godziny.
    

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3f8b5e8b8af4be85e830bde8eb0587c632a9dd1f
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 6a1d56a270ae0c44db18f26091cc3c550a37e420
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Przenoszenie zasobów do nowej grupy zasobów lub subskrypcji
 
@@ -178,7 +178,7 @@ Dyski zarządzane nie obsługują przenoszenia. To ograniczenie oznacza, że kil
 * Migawek utworzonych z dysków zarządzanych
 * Zestawy dostępności z maszynami wirtualnymi z dyskami zarządzanych
 
-Nie można przenieść maszyny wirtualne utworzone na podstawie zasobów Marketplace różnych subskrypcji. Anulowanie zastrzeżenia maszynę wirtualną w bieżącej subskrypcji i Wdróż ponownie w nowej subskrypcji.
+Nie można przenieść maszyny wirtualne utworzone na podstawie zasobów Marketplace z planami dołączony między grupami zasobów lub subskrypcji. Anulowanie zastrzeżenia maszynę wirtualną w bieżącej subskrypcji i Wdróż ponownie w nowej subskrypcji.
 
 Maszyny wirtualne z certyfikatem przechowywane w magazynie kluczy, mogą zostać przeniesione do nowej grupy zasobów w tej samej subskrypcji, ale nie w subskrypcjach.
 
@@ -365,7 +365,7 @@ az resource move --destination-group newgroup --ids $webapp $plan
 
 Aby przejść do nowej subskrypcji, należy podać `--destination-subscription-id` parametru.
 
-## <a name="use-rest-api"></a>Używanie interfejsu API REST
+## <a name="use-rest-api"></a>Korzystanie z interfejsu API REST
 
 Aby przenieść istniejące zasoby do innej grupy zasobów lub subskrypcji, uruchom polecenie:
 

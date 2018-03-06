@@ -113,6 +113,7 @@
 #### [Konfigurowanie nazwanych lokalizacji](active-directory-named-locations.md)
 #### [Znajdowanie raportów aktywności](active-directory-reporting-migration.md)
 #### [Używanie pakietu zawartości usługi Power BI dla usługi Azure Active Directory](active-directory-reporting-power-bi-content-pack-how-to.md)
+#### [Korygowanie użytkowników oflagowanych w związku z ryzykiem](active-directory-report-security-user-at-risk-remediation.md)
 ### Dokumentacja
 #### [Przechowywanie](active-directory-reporting-retention.md)
 #### [Czasy oczekiwania](active-directory-reporting-latencies-azure-portal.md)

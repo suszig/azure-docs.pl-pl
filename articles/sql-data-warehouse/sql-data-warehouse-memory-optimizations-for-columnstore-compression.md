@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 10/23/2017
 ms.author: barbkess
-ms.openlocfilehash: 0476afb875616ed0758835aa52fb2334b63959a9
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 6640ed8958f6b05c015fb6c61d07aeea95b18022
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maksymalizacja jakości i dla magazynu kolumn
 
@@ -122,7 +122,7 @@ Bazy danych może mieć przydział pamięci dla zapytania wśród wszystkich ope
 
 Projektowanie zapytania ładowania skupić się tylko na podczas ładowania zapytania. Jeśli musisz uruchomić przekształcenia danych, należy uruchomić je oddzielnie od zapytania obciążenia. Na przykład przemieszczanie danych w tabeli sterty, uruchom przekształceń, a następnie załadować do indeksu magazynu kolumn tabeli przemieszczania. Można również najpierw załadować dane, a następnie używać systemu MPP do przekształcania danych.
 
-### <a name="adjust-maxdop"></a>Dostosuj MAXDOP
+### <a name="adjust-maxdop"></a>Adjust MAXDOP
 
 Każdy dystrybucji kompresuje rowgroups do magazynu kolumn równoległe, gdy jest dostępna więcej niż jednego rdzenia procesora CPU na dystrybucji. Równoległość wymaga dodatkowych zasobów pamięci, co może prowadzić do wykorzystania pamięci i przycinanie grupy wierszy.
 
@@ -139,7 +139,7 @@ OPTION (MAXDOP 1);
 
 Rozmiar wartości DWU i klasa zasobów użytkownika razem określić ilość pamięci dostępnej dla zapytania użytkownika. Aby zwiększyć przydział pamięci dla zapytania obciążenia, należy zwiększyć liczbę jednostek dwu lub zwiększ klasy zasobów.
 
-- Aby zwiększyć liczbę jednostek dwu, zobacz [sposób skalowania wydajności?](sql-data-warehouse-manage-compute-overview.md#scale-compute)
+- Aby zwiększyć liczbę jednostek dwu, zobacz [sposób skalowania wydajności?](quickstart-scale-compute-portal.md)
 - Aby zmienić klasy zasobów dla zapytania, zobacz [zmienić przykład klasy zasobów użytkownika](sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example).
 
 Na przykład na DWU 100 użytkownika w klasie zasobu smallrc służy 100 MB pamięci dla poszczególnych dystrybucji. Aby uzyskać więcej informacji, zobacz [współbieżność w usłudze SQL Data Warehouse](sql-data-warehouse-develop-concurrency.md).
@@ -150,7 +150,7 @@ Załóżmy, że należy określić, czy potrzebujesz 700 MB pamięci można pobr
 - Korzystając z DWU 600 i largerc, Twoje przydział pamięci jest 800 MB.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby znaleźć więcej sposobów poprawy wydajności w usłudze SQL Data Warehouse, zobacz [wydajności — omówienie](sql-data-warehouse-overview-manage-user-queries.md).
 

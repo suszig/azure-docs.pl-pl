@@ -1,18 +1,43 @@
-### <a name="prerequisites"></a>Wymagania wstępne
-* A [GitHub](http://GitHub.com) konta 
+---
+title: Plik dyrektywy include
+description: Plik dyrektywy include
+services: logic-apps
+author: MandiOhlinger
+ms.service: logic-apps
+ms.topic: include
+ms.date: 03/02/2018
+ms.author: mandia
+ms.custom: include file
+ms.openlocfilehash: ec5b3ca9ccd139cbdf17768056eb1d835336e7a7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/05/2018
+---
+1. W [portalu Azure](https://portal.azure.com), tworzenie aplikacji logiki puste. 
 
-Zanim użyjesz konto GitHub w aplikacji logiki, należy zezwolić aplikacji logiki do łączenia się z kontem usługi GitHub. Na szczęście można w tym z aplikacji logiki w portalu Azure. 
+2. W Projektancie aplikacji logiki wprowadź "github" jako filtr. 
 
-Poniżej przedstawiono kroki, aby zezwolić aplikacji logiki do łączenia się z kontem usługi GitHub:
+3. Wybierz łącznik usługi GitHub i wyzwalaczy, które chcesz użyć.
 
-1. Aby utworzyć połączenie do usługi GitHub, w Projektancie aplikacji logiki, wybierz **Pokaż Microsoft zarządzanych interfejsów API** na liście rozwijanej wprowadź *GitHub* w polu wyszukiwania. Wybierz wyzwalacz lub akcja będzie chcesz użyć:  
-   ![](./media/connectors-create-api-github/github-1.png)
-2. Jeśli nie utworzono wszystkie połączenia z usługi GitHub przed będzie zostanie wyświetlony monit o podanie poświadczeń użytkownika usługi GitHub. Te poświadczenia będą używane do autoryzacji aplikację logiki, aby nawiązać połączenie i dostęp do danych na koncie usługi GitHub:  
-   ![](./media/connectors-create-api-github/github-2.png)
-3. Podaj nazwę użytkownika usługi GitHub i hasło, aby zezwolić aplikacji logiki:  
-   ![](./media/connectors-create-api-github/github-3.png)   
-4. Potwierdzenie zamiaru:  
-   ![](./media/connectors-create-api-github/github-4.png)   
-5. Należy zauważyć, że utworzono połączenie w portalu. Można teraz kontynuować tworzenie aplikacji logiki i korzystanie z usługi GitHub w niej:   
-   ![](./media/connectors-create-api-github/github-5.png)   
+   ![Wybierz łącznik usługi GitHub i wyzwalacz](./media/connectors-create-api-github/github-connector.png)
+
+   > [!NOTE]
+   > Wszystkie przepływy pracy aplikacji logiki musi rozpoczynać się od wyzwalacza. Akcje można wybrać tylko wtedy, gdy przepływ pracy logiki już rozpoczyna się od wyzwalacza. 
+
+4. Jeśli wcześniej nie utworzono połączenia, wybierz **Zaloguj** , możesz podać swoje poświadczenia usługi GitHub po wyświetleniu monitu.  
+
+   ![Zaloguj się przy użyciu poświadczeń usługi GitHub](./media/connectors-create-api-github/github-connector-sign-in-credentials.png)
+
+   Aplikację logiki używa tych poświadczeń do autoryzacji połączenie i dostęp do danych na koncie usługi GitHub. 
+
+5. Podaj swoją nazwę użytkownika usługi GitHub i hasło, a następnie potwierdź autoryzację.
+
+   ![Podaj poświadczenia, a następnie potwierdź autoryzacji](./media/connectors-create-api-github/github-connector-authorize.png)   
+
+   Połączenie jest utworzone w portalu Azure i jest gotowy do użycia.
+
+6. Nadal definiujący przepływ pracy aplikacji logiki.
+
+   ![Dodaj więcej działań do przepływu pracy aplikacji logiki](./media/connectors-create-api-github/github-connector-logic-app.png)
 

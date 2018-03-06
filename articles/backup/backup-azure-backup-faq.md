@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: da589905babd20b46ea7bc0baba753415b3b5d5b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2e829ae90aa0366964f96b3c43f88503c7f3e894
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Pytania dotyczące usługi Azure Backup
 Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące składników usługi Kopia zapasowa Azure. W niektórych odpowiedziach znajdują się linki do artykułów zawierających szczegółowe informacje. Aby zadać pytanie dotyczące usługi Azure Backup, kliknij pozycję **Komentarze** (po prawej stronie). Komentarze są wyświetlane na dole tego artykułu. Aby komentować, musisz mieć konto Livefyre. Pytania dotyczące usługi Azure Backup można również zadawać na [forum dyskusyjnym](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -30,7 +30,7 @@ Aby szybko przeskanować sekcje znajdujące się w tym artykule, użyj linków z
 ## <a name="recovery-services-vault"></a>Magazyn usługi Recovery Services
 
 ### <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription-br"></a>Czy istnieje ograniczenie liczby magazynów, które można utworzyć w poszczególnych subskrypcjach platformy Azure? <br/>
-Tak. Począwszy od września 2016 r. Możesz utworzyć 25 Magazyny usług odzyskiwania na subskrypcję. Maksymalnie można utworzyć 25 magazynów usługi Recovery Services na obsługiwany region usługi Azure Backup dla każdej subskrypcji. Jeśli potrzebna jest większa liczba magazynów, należy utworzyć dodatkową subskrypcję.
+Tak. Począwszy od stycznia 2018 możesz utworzyć maksymalnie 25 Magazyny usług odzyskiwania, na region obsługiwane usługi Azure Backup na subskrypcję. Jeśli potrzebna jest większa liczba magazynów, należy utworzyć dodatkową subskrypcję.
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>Czy istnieją ograniczenia dotyczące liczby serwerów/maszyn, które można zarejestrować w każdym magazynie? <br/>
 Możesz zarejestrować maksymalnie 200 maszyn wirtualnych platformy Azure dla magazynu. Jeśli używasz MAB agenta można zarejestrować maksymalnie 50 MAB agentów na magazynie. I możesz zarejestrować 50 MAB serwerów/serwerów programu DPM do magazynu.
@@ -164,7 +164,7 @@ Nie ma ograniczenia liczby operacji odzyskiwania z usługi Azure Backup.
 Nie. Operacje odzyskiwania są bezpłatne i nie są naliczane opłaty za ruch wyjściowy.
 
 ### <a name="what-happens-when-i-change-my-backup-policy"></a>Co się stanie po zmianie Moje zasad tworzenia kopii zapasowej?
-Podczas stosowania nowych zasad, harmonogram i przechowywania nowych zasad jest zakończony. Jeśli przechowywania zostanie rozszerzony, istniejące punkty odzyskiwania są oznaczone zachować je zgodnie z harmonogramem nowych zasad. W przypadku przechowywania, są oznaczone do oczyszczania w ramach następnego zadania oczyszczania i usuwane.
+Podczas stosowania nowych zasad, harmonogram i przechowywania nowych zasad jest zakończony. Jeśli okres przechowywania zostanie przedłużony, istniejące punkty odzyskiwania zostaną oznaczone, aby przechowywać je zgodnie z nowymi zasadami. W przypadku skrócenia okresu przechowywania zostaną one oznaczone do oczyszczenia w ramach następnego zadania oczyszczania, a następnie usunięte.
 
 ## <a name="azure-backup-encryption"></a>Szyfrowanie w usłudze Azure Backup
 ### <a name="is-the-data-sent-to-azure-encrypted-br"></a>Czy dane wysyłane do platformy Azure są szyfrowane? <br/>

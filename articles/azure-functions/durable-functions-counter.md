@@ -14,13 +14,16 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 05099e868e62f612be0a3354eb8b339507ac7e4a
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 46cdd8523117e1100e7ce2a29ade9eb2dc0afe75
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="stateful-singletons-in-durable-functions---counter-sample"></a>Stanowe pojedynczych wystąpień w funkcjach trwałe - próbka licznika
+
+> [!NOTE]
+> Firma Microsoft ponowne zapisywanie w tym przykładzie. Wstawki kodu zostały usunięte, a nowy artykuł nowe próbki zostanie ono zamienione.
 
 Stanowe pojedynczych są długotrwałe (potencjalnie eternal) orchestrator funkcje, które można przechowywać stanu i można wywołać i żądanych przez inne funkcje. Stanowe pojedynczych są podobne do [modelu aktora](https://en.wikipedia.org/wiki/Actor_model) w przetwarzania rozproszonego.
 
@@ -55,11 +58,11 @@ W poniższych sekcjach opisano kod, który jest używany do tworzenia aplikacji 
 
 Plik function.json:
 
-[!code-json[Main](~/samples-durable-functions/samples/csx/E3_Counter/function.json)]
+<!-- [!code-json[Main](~/samples-durable-functions/samples/csx/E3_Counter/function.json)] -->
 
 Plik run.csx:
 
-[!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Counter/run.csx)]
+<!-- [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Counter/run.csx)] -->
 
 ### <a name="precompiled-c"></a>Prekompilowane C# 
 
@@ -67,7 +70,7 @@ W poniższych sekcjach opisano kod, który jest używany do tworzenia aplikacji 
 
 Oto kod, który implementuje funkcję programu orchestrator:
 
-[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Counter.cs)]
+<!-- [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Counter.cs)] -->
 
 ### <a name="explanation-of-the-code"></a>Wyjaśnienie kodu
 
@@ -85,7 +88,7 @@ Jeden unikatowy charakterystyczne dla tej funkcji programu orchestrator jest, ż
 > [!NOTE]
 > `ContinueAsNew` Metoda ma inne przypadki użycia, oprócz eternal orchestrations. Aby uzyskać więcej informacji, zobacz [Eternal Orchestrations](durable-functions-eternal-orchestrations.md).
 
-## <a name="run-the-sample"></a>Uruchom próbki
+## <a name="run-the-sample"></a>Uruchamianie aplikacji przykładowej
 
 Orchestration można uruchomić poprzez wysłanie następujące żądania HTTP POST. Aby umożliwić `counterState` do rozpoczynają się od zera (wartość domyślna dla `int`), Brak zawartości w tym żądaniu.
 
@@ -150,7 +153,7 @@ Można kontynuować wysyłanie nowych operacji w tym wystąpieniu i obserwować,
 > [!WARNING]
 > W czasie zapisywania, istnieją znane wyścigu podczas wywoływania metody `ContinueAsNew` podczas współbieżnego przetwarzania komunikaty, takie jak zewnętrzny zdarzenia lub żądania zakończenia. Aby uzyskać najnowsze informacje dotyczące tych wyścigu, zobacz ten [problem GitHub](https://github.com/Azure/azure-functions-durable-extension/issues/67).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym przykładzie wykazała sposób obsługi [zdarzenia zewnętrzne](durable-functions-external-events.md) i wdrożenie [eternal orchestrations](durable-functions-eternal-orchestrations.md) w [stanowe pojedynczych](durable-functions-singletons.md). Następny przykład przedstawia sposób użycia zdarzenia zewnętrzne i [trwałe czasomierze](durable-functions-timers.md) do obsługi człowieka.
 

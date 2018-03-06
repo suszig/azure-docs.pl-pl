@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: bd93b3473143f425b47f141efb3af3007614794f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 312980ded8fad84f2ea4a41078597dd3a6cb8ca7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health — często zadawane pytania
 Ten artykuł zawiera odpowiedzi na często zadawane pytania (FAQ) dotyczące usługi Azure Active Directory (Azure AD) Connect Health. Te często zadawane pytania dotyczące pokrycia pytania dotyczące sposobu korzystania z usługi, w tym modelu rozliczeń możliwości, ograniczeń i pomocy technicznej.
@@ -128,12 +128,7 @@ Agent kondycji może zakończyć się niepowodzeniem do rejestrowania z powodu n
 
 **Pytanie: czy mogę am uzyskiwanie alertów czy "dane usługi kondycji nie jest aktualny." Jak rozwiązać ten problem?**
 
-Azure AD Connect Health generuje alert, gdy nie otrzyma punktów danych z serwera w ciągu ostatnich dwóch godzin. Może istnieć wiele przyczyn, dla tego alertu.
-
-* Agent nie może komunikować się z wymagane punkty końcowe, ponieważ Zapora blokuje ruch. Jest to szczególnie wspólnej na serwerach proxy aplikacji sieci web. Upewnij się, że zezwolono komunikacji wychodzącej do wymaganych punktów końcowych i portów. Zobacz [sekcji wymagania](active-directory-aadconnect-health-agent-install.md#requirements) szczegółowe informacje.
-* Komunikacji wychodzącej podlega kontroli SSL przez warstwę sieci. Powoduje to, że certyfikat używany przez agenta mają zostać zastąpione przez serwer inspekcji na jednostkę, a proces nie można przekazać dane do usługi Azure AD Connect Health.
-* Możesz użyć polecenia łączności wbudowanych w agencie. [Dowiedz się więcej](active-directory-aadconnect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service).
-* Agenci obsługują także łączność wychodząca za pośrednictwem nieuwierzytelnione serwer HTTP Proxy. [Dowiedz się więcej](active-directory-aadconnect-health-agent-install.md##configure-azure-ad-connect-health-agents-to-use-http-proxy).
+Azure AD Connect Health generuje alert, gdy nie otrzyma punktów danych z serwera w ciągu ostatnich dwóch godzin. [Dowiedz się więcej](active-directory-aadconnect-health-data-freshness.md).
 
 ## <a name="operations-questions"></a>Pytania dotyczące działań
 **Pytanie: należy włączyć inspekcję na serwerach proxy aplikacji sieci web?**

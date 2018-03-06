@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: logic-apps
-ms.date: 09/13/2017
+ms.date: 01/31/18
 ms.author: LADocs; jehollan
-ms.openlocfilehash: b88d0c1ccb7a729c95299bcdc3cba5fd73fcdeac
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: b979096731caa7513c02a9fb398c14da4d4819ae
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Typowe scenariusze, przykłady samouczki i wskazówki dla usługi Azure Logic Apps
 
@@ -63,14 +63,15 @@ Dla systemów i usług, które mogą nie mieć opublikowane łączników można 
 * [Odpowiadanie na zdarzenia zewnętrzne i działania z elementów webhook](../logic-apps/logic-apps-create-api-app.md)
 * [Wywołaj wyzwalacz, lub zagnieżdżania przepływy pracy synchronicznej odpowiedzi na żądania HTTP](../logic-apps/logic-apps-http-endpoint.md)
 * [Samouczek: Zasilane AI społecznościowych pulpit nawigacyjny kompilacji w minutach, z Logic Apps i usługi Power BI](http://aka.ms/logicappsdemo)
-* [Samouczek: Odpowiadanie na elementów webhook SMS usługi Twilio i wysyłania odpowiedzi tekstu](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
+* [Wideo: Odpowiadanie na elementów webhook SMS usługi Twilio i wysyłania odpowiedzi tekstu](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
 
 ## <a name="control-flow-error-handling-and-logging-capabilities"></a>Przepływ sterowania, obsługa błędów oraz możliwości rejestrowania zdarzeń
 
 Aplikacje logiki to rozbudowane możliwości przepływu sterowania zaawansowanych, takich jak warunki, przełączniki, pętli i zakresów. Aby zapewnić odporność rozwiązania, można też wdrożyć błąd i obsługa wyjątków w przepływów pracy. Dla powiadomień i dzienników diagnostycznych dla przepływu pracy stan uruchomienia Azure Logic Apps oferuje również monitorowanie i alerty.
 
-* [Proces elementów w kolekcji z pętli i partie w aplikacjach logiki i tablic](../logic-apps/logic-apps-loops-and-scopes.md)
-* [Wykonaj różne akcje w instrukcjach przełącznika](../logic-apps/logic-apps-switch-case.md)
+* Wykonaj różne akcje na podstawie [warunkowe instrukcje](../logic-apps/logic-apps-control-flow-conditional-statement.md) i [przełącznika — instrukcje](../logic-apps/logic-apps-control-flow-switch-statement.md)
+* [Powtórz kroki lub proces elementów w kolekcji z pętli i tablic](../logic-apps/logic-apps-control-flow-loops.md)
+* [Akcje grupy razem z zakresów](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
 * [Błąd tworzenie i obsługa wyjątków w przepływie pracy](../logic-apps/logic-apps-exception-handling.md)
 * [Przypadek użycia: jak opieki zdrowotnej firma korzysta z obsługi dla przepływów pracy HL7 FHIR wyjątków aplikacji logiki](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 * [Włącz monitorowanie, rejestrowanie i alerty dla istniejących aplikacji logiki](../logic-apps/logic-apps-monitor-your-logic-apps.md)
@@ -89,7 +90,7 @@ Pełni mogą tworzyć i wdrażać aplikacje logiki z programu Visual Studio, Vis
 Dostęp, konwersji i przekształcanie wiele typów zawartości za pomocą wielu funkcji w usłudze Azure Logic Apps [język definicji przepływu pracy](http://aka.ms/logicappsdocs). Na przykład można konwertować między ciągu, JSON i XML z `@json()` i `@xml()` wyrażeń przepływu pracy. Aparat Logic Apps zachowuje typy zawartości do obsługi transferu zawartości w sposób bezstratny między usługami.
 
 * [Sposób działania wyrażeń przepływu pracy w aplikacji logiki](../logic-apps/logic-apps-author-definitions.md)
-* [Obsługi typów zawartości bez JSON](../logic-apps/logic-apps-content-type.md), takiej jak `application/xml`, `application/octet-stream`, i`multipart/formdata`
+* [Obsługi typów zawartości bez JSON](../logic-apps/logic-apps-content-type.md), takiej jak `application/xml`, `application/octet-stream`, i `multipart/formdata`
 * [Odwołanie: Język definicji przepływu pracy aplikacje logiki platformy Azure](http://aka.ms/logicappsdocs)
 
 ## <a name="other-integrations-and-capabilities"></a>Inne integracji i możliwości
@@ -98,15 +99,22 @@ Usługa Logic apps oferuje także integrację z wielu usług, takich jak usługi
 
 * [Tworzenie w czasie rzeczywistym społecznościowych pulpitu nawigacyjnego z Niekorzystającą Azure](../logic-apps/logic-apps-scenario-social-serverless.md)
 * [Wywołanie usługi Azure Functions w aplikacjach logic apps](../logic-apps/logic-apps-azure-functions.md)
-* [Scenariusz: Aplikacje logiki wyzwalacza w środowisku Azure Functions](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
+* [Samouczek: Aplikacje logiki wyzwalacza w środowisku Azure Functions](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
+* [Samouczek: Monitorowane zmian maszyny wirtualnej Azure zdarzeń siatki i Logic Apps](../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md)
+* [Samouczek: Tworzenie funkcji, która integruje się z usługą Azure Logic Apps i wskaźniki nastrojów klientów post kognitywnych usług firmy Microsoft do analizowania Twitter](../azure-functions/functions-twitter-email.md)
+* [Samouczek: Monitorowania zdalnego IoT i powiadomienia przy użyciu usługi Azure Logic Apps łączenia z Centrum IoT i skrzynek pocztowych](../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 * [Blog: Wywołanie punktów końcowych SOAP z aplikacji logiki](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
 
 ## <a name="end-to-end-scenarios"></a>Kompleksowe scenariusze
 
-* [Oficjalny dokument: Enterprise end-to-end wielkość zarządzanie integracją z usługami Azure, takich jak aplikacje logiki](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps)
+* [Oficjalny dokument: End-to-end wielkość zarządzania integracji z usługami Azure, takich jak aplikacje logiki](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps)
+
+## <a name="customer-stories"></a>Historie klientów
+
+Dowiedz się, jak usługi Azure Logic Apps wraz z innych usług platformy Azure i produktów firmy Microsoft, pomogła [te firmy](https://aka.ms/logic-apps-customer-stories) zwiększyć ich elastyczność i skoncentrować się na ich firm core w uproszczeniu, organizowanie automatyzacji i organizowanie złożonych procesów.
 
 ## <a name="next-steps"></a>Kolejne kroki
 
-* [Tworzenie definicji przepływu pracy przy użyciu języka definicji przepływu pracy](../logic-apps/logic-apps-author-definitions.md)
+* [Tworzenie w definicji aplikacji logiki JSON](../logic-apps/logic-apps-author-definitions.md)
 * [Obsługa błędów i wyjątków w aplikacji logiki](../logic-apps/logic-apps-exception-handling.md)
-* [Przesyłanie komentarzy, pytania, opinie i sugestie dla jak możemy ulepszyć aplikacje logiki platformy Azure](https://feedback.azure.com/forums/287593-logic-apps)
+* [Przesyłanie komentarzy, pytania, opinie i sugestie dotyczące poprawy usługi Azure Logic Apps](https://feedback.azure.com/forums/287593-logic-apps)

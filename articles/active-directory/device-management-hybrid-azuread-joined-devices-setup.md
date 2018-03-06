@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 5eb53d13ed85093616f43b79b58d43ba62ffbd67
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 203e36b198186db63b7e902db296adeaa9ffb4ee
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Konfigurowanie hybrydowego urządzeń przyłączonych do usługi Azure Active Directory
 
@@ -33,6 +33,8 @@ Jeśli masz w lokalnym środowisku Active Directory i chcesz przyłączyć urzą
 Przed rozpoczęciem konfigurowania urządzeń usługi Azure AD przyłączone do hybrydowych w danym środowisku, należy zapoznać się z obsługiwanych scenariuszach i ograniczeniach.  
 
 Jeśli używasz [narzędzie przygotowywania systemu (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10)), upewnij się, tworzenie obrazów z instalacji systemu Windows, która nie została jeszcze zarejestrowana z usługą Azure AD.
+
+Wszystkie urządzenia przyłączone do domeny uruchomiony system Windows 10 Anniversary Update i Windows Server 2016 automatycznego rejestrowania z usługą Azure AD na ponowne uruchomienie urządzenia lub użytkownika logowania po zakończeniu kroków konfiguracji wymienione poniżej. To zachowanie automatyczne rejestru nie jest preferowany lub wymagane jest kontrolowany przez wdrożenie, wykonaj instrukcje w poniższej sekcji kontroli wdrożenia i wdrożenie najpierw selektywnie włączyć lub wyłączyć automatyczne wdrażanie przed wykonaniem innych czynności konfiguracyjne.  
 
 Aby zwiększyć czytelność opisy, w tym temacie używa następujących termin: 
 
@@ -204,7 +206,7 @@ Definicja pomaga Sprawdź, czy wartości są obecne lub należy je utworzyć.
 
 ### <a name="issue-account-type-claim"></a>Problem konta typu oświadczenia
 
-**`http://schemas.microsoft.com/ws/2012/01/accounttype`**— To oświadczenie musi zawierać wartość **DJ**, które identyfikują urządzenie jako komputer przyłączony do domeny. W usługach AD FS można dodawać reguł przekształcania wystawiania, która wygląda następująco:
+**`http://schemas.microsoft.com/ws/2012/01/accounttype`** — To oświadczenie musi zawierać wartość **DJ**, które identyfikują urządzenie jako komputer przyłączony do domeny. W usługach AD FS można dodawać reguł przekształcania wystawiania, która wygląda następująco:
 
     @RuleName = "Issue account type for domain-joined computers"
     c:[
@@ -219,7 +221,7 @@ Definicja pomaga Sprawdź, czy wartości są obecne lub należy je utworzyć.
 
 ### <a name="issue-objectguid-of-the-computer-account-on-premises"></a>Wystawiać objectGUID komputera konta lokalnego
 
-**`http://schemas.microsoft.com/identity/claims/onpremobjectguid`**— To oświadczenie musi zawierać **objectGUID** wartość Konto komputera lokalnego. W usługach AD FS można dodawać reguł przekształcania wystawiania, która wygląda następująco:
+**`http://schemas.microsoft.com/identity/claims/onpremobjectguid`** — To oświadczenie musi zawierać **objectGUID** wartość Konto komputera lokalnego. W usługach AD FS można dodawać reguł przekształcania wystawiania, która wygląda następująco:
 
     @RuleName = "Issue object GUID for domain-joined computers"
     c1:[
@@ -241,7 +243,7 @@ Definicja pomaga Sprawdź, czy wartości są obecne lub należy je utworzyć.
  
 ### <a name="issue-objectsid-of-the-computer-account-on-premises"></a>Wystawiać objectSID komputera konta lokalnego
 
-**`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`**— To oświadczenie musi zawierać **objectSid** wartość Konto komputera lokalnego. W usługach AD FS można dodawać reguł przekształcania wystawiania, która wygląda następująco:
+**`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`** — To oświadczenie musi zawierać **objectSid** wartość Konto komputera lokalnego. W usługach AD FS można dodawać reguł przekształcania wystawiania, która wygląda następująco:
 
     @RuleName = "Issue objectSID for domain-joined computers"
     c1:[
@@ -258,7 +260,7 @@ Definicja pomaga Sprawdź, czy wartości są obecne lub należy je utworzyć.
 
 ### <a name="issue-issuerid-for-computer-when-multiple-verified-domain-names-in-azure-ad"></a>Wystawiać issuerID dla komputera, gdy wiele zweryfikować nazwy domeny w usłudze Azure AD
 
-**`http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid`**— To oświadczenie musi zawierać jednolity identyfikator zasobów (URI) dowolnej nazwy domeny zweryfikowane, łączących się z usługą federacyjną lokalnego (AD FS lub strona 3) wystawiania tokenu. W usługach AD FS można dodać reguły przekształcania wystawiania przypominających widocznych poniżej w tej kolejności, po nich powyżej. Należy pamiętać, że konieczne jest tym co najmniej jedna reguła jawnie wystawiania reguły dla użytkowników. W poniższych reguł dodawany jest pierwsza reguła identyfikacji użytkownika, a uwierzytelnianie komputera.
+**`http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid`** — To oświadczenie musi zawierać jednolity identyfikator zasobów (URI) dowolnej nazwy domeny zweryfikowane, łączących się z usługą federacyjną lokalnego (AD FS lub strona 3) wystawiania tokenu. W usługach AD FS można dodać reguły przekształcania wystawiania przypominających widocznych poniżej w tej kolejności, po nich powyżej. Należy pamiętać, że konieczne jest tym co najmniej jedna reguła jawnie wystawiania reguły dla użytkowników. W poniższych reguł dodawany jest pierwsza reguła identyfikacji użytkownika, a uwierzytelnianie komputera.
 
     @RuleName = "Issue account type with the value User when its not a computer"
     NOT EXISTS(
@@ -304,7 +306,7 @@ Definicja pomaga Sprawdź, czy wartości są obecne lub należy je utworzyć.
 
 W powyższym oświadczeń
 
-- `<verified-domain-name>`jest to symbol zastępczy, który należy zastąpić nazwy domeny zweryfikowane w usłudze Azure AD. Na przykład, wartość = "http://contoso.com/adfs/services/trust/"
+- `<verified-domain-name>` jest to symbol zastępczy, który należy zastąpić nazwy domeny zweryfikowane w usłudze Azure AD. Na przykład, wartość = "http://contoso.com/adfs/services/trust/"
 
 
 
@@ -315,7 +317,7 @@ Aby uzyskać listę domeny zweryfikowane firmy, można użyć [Get-MsolDomain](/
 
 ### <a name="issue-immutableid-for-computer-when-one-for-users-exist-eg-alternate-login-id-is-set"></a>Wystawiać nazwę ImmutableID dla komputera, gdy istnieje jeden dla użytkowników (np. alternatywny logowania identyfikatora)
 
-**`http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`**— To oświadczenie musi zawierać prawidłową wartość dla komputerów. W usługach AD FS można utworzyć reguły przekształcania wystawiania w następujący sposób:
+**`http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`** — To oświadczenie musi zawierać prawidłową wartość dla komputerów. W usługach AD FS można utworzyć reguły przekształcania wystawiania w następujący sposób:
 
     @RuleName = "Issue ImmutableID for computers"
     c1:[
@@ -512,7 +514,7 @@ W usługach AD FS należy dodać reguły przekształcania wystawiania, który pr
 2. Kliknij prawym przyciskiem myszy obiekt zaufania jednostki uzależnionej strony platformy tożsamości pakietu Microsoft Office 365, a następnie wybierz **Edycja reguł oświadczeń**.
 3. Na **reguły przekształcania wystawiania** wybierz opcję **Dodaj regułę**.
 4. W **reguły oświadczeń** szablon z listy wybierz **wysyłanie oświadczeń przy użyciu reguły niestandardowej**.
-5. Wybierz **dalej**.
+5. Wybierz opcję **Dalej**.
 6. W **nazwy reguły oświadczeń** wpisz **reguły oświadczeń metody uwierzytelniania**.
 7. W **reguły oświadczeń** wpisz następującą regułę:
 
@@ -566,7 +568,8 @@ Aby kontrolować dystrybucję bieżącego komputerów z systemem Windows, należ
    > [!NOTE]
    > Ten szablon zasad grupy została zmieniona z wcześniejszych wersji konsoli zarządzania zasadami grupy. Jeśli używasz starszej wersji konsoli przejdź do `Computer Configuration > Policies > Administrative Templates > Windows Components > Workplace Join > Automatically workplace join client computers`. 
 
-7. Wybierz **włączone**, a następnie kliknij przycisk **Zastosuj**.
+7. Wybierz **włączone**, a następnie kliknij przycisk **Zastosuj**. Musisz wybrać **wyłączone** Jeśli chcesz, aby zasady blokowania urządzeń kontrolowane przez zasady grupy z automatycznego rejestrowania za pomocą usługi Azure AD.
+
 8. Kliknij przycisk **OK**.
 9. Połącz obiekt zasad grupy z wybraną lokalizację. Na przykład można je połączyć do określonej jednostki organizacyjnej. Możesz również można połączyć go do grupy zabezpieczeń określonych komputerów, które automatycznie dołączyć za pomocą usługi Azure AD. Aby ustawić te zasady dla wszystkich przyłączonych do domeny systemu Windows 10 i Windows Server 2016 komputerów w organizacji, należy połączyć obiekt zasad grupy do domeny.
 

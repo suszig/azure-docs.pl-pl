@@ -5,17 +5,17 @@ services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 528d7ff5f74948fd1ae7b829d4b2fc38fa2f1109
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 469fefa48ea795a56b0e7525f99634c5149a780f
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="combine-columns-by-example-transformation"></a>Łączenie kolumn w przykładzie transformacja
 Ta transformacja umożliwia użytkownikowi Dodaj nową kolumnę przez połączenie wartości z wielu kolumn. Użytkownika można określić separatora lub zawierają przykłady połączonych wartości do wykonania tej transformacji. Podczas użytkownika zawiera przykłady kombinacja, transformacja jest obsługiwana przez ten sam **przez przykład** aparatu, który jest używany w **kolumny pochodzi przykładzie** transformacji.
@@ -66,7 +66,7 @@ Przecinek następuje spacja jest używany jako separator w tym przykładzie poł
 
 Wartość w **bold** podano w przykładzie.
 
-|Date|Miesiąc|Rok|Godzina|Minuta|Drugi|Połączona kolumna|
+|Date|Miesiąc|Rok|Godzina|Minuta|Sekunda|Połączona kolumna|
 |:----|:----|:----|:----|:----|:----|:----|
 |13|Paź|2016|15|01|23|**13-Oct — 2016 15:01:23 PDT**|
 |16|Paź|2016|16|22|33|16-Oct — 2016 15:01:33 PDT|

@@ -1,8 +1,8 @@
 ---
-title: "Łącznik usługi GitHub w programie Azure Logic Apps | Dokumentacja firmy Microsoft"
-description: "Tworzenie aplikacji logiki z usługi aplikacji Azure. GitHub to repozytorium Git opartych na sieci web usługi hosta. Zapewnia ona wszystkich wersji rozproszonej i kontroli źródła kodu zarządzania (SCM) funkcji Git, a także dodawanie własnych funkcji."
+title: "Nawiązać połączenia z usługi GitHub z usługą Azure Logic Apps | Dokumentacja firmy Microsoft"
+description: "Automatyczne przepływy pracy dla usługi GitHub z usługi Azure Logic Apps"
 services: logic-apps
-documentationcenter: .net,nodejs,java
+documentationcenter: 
 author: MandiOhlinger
 manager: anneta
 editor: 
@@ -13,34 +13,37 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 08/18/2016
+ms.date: 03/02/2018
 ms.author: mandia; ladocs
-ms.openlocfilehash: c9120babaa5f6da4f33bd60ba27434e24cb2f45e
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: cd7cd3babbfb7efc5917d3a7ec5b9d10112ba791
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/05/2018
 ---
-# <a name="get-started-with-the-github-connector"></a>Rozpoczynanie pracy z łącznikiem usługi GitHub
-GitHub to repozytorium Git opartych na sieci web usługi hosta. Zapewnia ona wszystkich wersji rozproszonej i kontroli źródła kodu zarządzania (SCM) funkcji Git, a także dodawanie własnych funkcji.
+# <a name="connect-to-github"></a>Nawiązać połączenia z usługi GitHub
 
-Rozpoczynanie pracy przez teraz tworzenie aplikacji logiki, zobacz [tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+GitHub jest oparte na sieci web Git repozytorium hostingu usługi, która oferuje wszystkie kontrolki rozproszonej poprawki i funkcje zarządzania (SCM) kodu źródłowego w usłudze Git i inne funkcje.
+
+Aby rozpocząć pracę z łącznikiem usługi GitHub [najpierw utworzyć aplikację logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-github"></a>Utwórz połączenie z usługi GitHub
-Do tworzenia aplikacji logiki z usługi GitHub, należy najpierw utworzyć **połączenia** następnie podaj szczegóły następujące właściwości: 
 
-| Właściwość | Wymagane | Opis |
-| --- | --- | --- |
-| Token |Yes |Podaj poświadczenia GitHub |
+Do korzystania z łącznika usługi GitHub w aplikacji logiki, należy najpierw utworzyć *połączenia* , a następnie podaj szczegóły tych właściwości: 
 
-Po utworzeniu połączenia, można go wykonać akcje i będzie nasłuchiwać wyzwalaczy opisane w tym artykule. 
+| Właściwość | Wymagane | Opis | 
+| -------- | -------- | ----------- | 
+| Token | Yes | Wprowadź swoje poświadczenia usługi GitHub. |
+
+Po utworzeniu połączenia, można wykonać akcje i nasłuchiwania wyzwalaczy opisane w tym artykule.
 
 > [!INCLUDE [Steps to create a connection to GitHub](../../includes/connectors-create-api-github.md)]
 > 
 
 ## <a name="connector-specific-details"></a>Szczegóły dotyczące łącznika
 
-Wyświetl wszystkie wyzwalacze i akcje zdefiniowane w swagger i zobacz też żadnych limitów w [szczegóły łącznika](/connectors/github/).
+Wyzwalacze i akcje zdefiniowane w Swagger i żadnych limitów Przejrzyj [szczegóły łącznika](/connectors/github/).
 
-## <a name="more-connectors"></a>Więcej łączników
-Wróć do [listy interfejsów API](apis-list.md).
+## <a name="find-more-connectors"></a>Znajdź więcej łączników
+
+* Przegląd [lista łączników](apis-list.md).

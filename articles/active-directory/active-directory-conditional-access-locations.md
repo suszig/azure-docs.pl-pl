@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/11/2018
+ms.date: 03/01/2018
 ms.author: markvi
-ms.reviewer: nigu
-ms.openlocfilehash: 028a3f4411e6984b70e0f98c5cf3284e5be1c3b2
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.reviewer: calebb
+ms.openlocfilehash: c9712cf0cf20bbcfc089eb18896370f9e02eb571
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="location-conditions-in-azure-active-directory-conditional-access"></a>Lokalizacja warunki dostępu warunkowego w usłudze Azure Active Directory 
 
@@ -120,9 +120,12 @@ Po wybraniu tej opcji można wybrać co najmniej jedna lokalizacja nazwanego. To
 
 Zasady dostępu warunkowego są oceniane po: 
 
-- Początkowo zalogowaniu użytkownika 
+- Początkowo zalogowaniu użytkownika do aplikacji sieci web app, telefon komórkowy lub pulpitu. 
 
-- Usługa Azure AD wystawia token dla ustawione zasady dostępu warunkowego w aplikacji w chmurze. 
+- Aplikacji mobilnych lub komputerowych, który używa nowoczesnego uwierzytelniania, używa token odświeżania, aby uzyskać nowy token dostępu. Domyślnie jest to raz godzinę. 
+
+Oznacza to, że dla urządzeń przenośnych i aplikacji korzystających z nowoczesnego uwierzytelniania zmiana lokalizacji można wykryć w ciągu godziny zmiany lokalizacji sieciowej. Dla aplikacji mobilnych i klasycznych, które nie używają nowoczesnego uwierzytelniania zasady są stosowane na każde żądanie tokenu. Częstotliwość żądania mogą się różnić w zależności od aplikacji. Podobnie dla aplikacji sieci web, zasada zostanie zastosowane w początkowej logowania i dotyczy okresu istnienia sesji w aplikacji sieci web. Z powodu różnic w okresy istnienia sesji w aplikacjach różnią się również czas między oceny zasad. Za każdym żądaniem aplikacji nowy token logowania, zasady są stosowane.
+
 
 Domyślnie program Azure AD wystawia token co godzinę. Po przeniesieniu poza siecią firmową, w ciągu godziny zasady są wymuszane dla aplikacji korzystających z nowoczesnego uwierzytelniania.
 

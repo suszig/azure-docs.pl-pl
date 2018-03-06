@@ -4,19 +4,19 @@ description: "W tym artykule opisano kroki dotyczące tworzenia obrazu Docker dl
 services: machine-learning
 author: chhavib
 ms.author: chhavib
-manager: neerajkh
+manager: hjerez
 editor: jasonwhowell
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 134971e4a663baefa4e1051f087038d3debcb969
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: f7f9cbd34d84f89d6ce193daf79531617c97ddd3
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-machine-learning-model-management-account-api-reference"></a>Odwołanie do usługi Azure Machine Learning Model zarządzania konta API
 
@@ -71,17 +71,17 @@ W kroku rejestracji modelu rejestruje modelu uczenia maszynowego z utworzonego k
 
 | Metoda | Identyfikator URI żądania |
 |------------|------------|
-| POST |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / modeli 
+| POST |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/models 
  |
 ### <a name="description"></a>Opis
 Rejestruje modelu.
 
 ### <a name="parameters"></a>Parametry
-| Name (Nazwa) | Lokalizacja | Opis | Wymagane | Schemat
+| Name (Nazwa) | Znajduje się w | Opis | Wymagane | Schemat
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | ścieżka | Identyfikator subskrypcji platformy Azure. | Yes | ciąg |
-| Grupy zasobów o nazwie | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Yes | ciąg |
-| Nazwa konta | ścieżka | Nazwa konta zarządzania modelu. | Yes | ciąg |
+| resourceGroupName | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Yes | ciąg |
+| accountName | ścieżka | Nazwa konta zarządzania modelu. | Yes | ciąg |
 | wersja interfejsu API | query | Wersja interfejsu API do używania dostawcy zasobów Microsoft.Machine.Learning. | Yes | ciąg |
 | Autoryzacja | nagłówek | Token autoryzacji. Powinien być podobny do ciągu "Bearer XXXXXX". | Yes | ciąg |
 | model | treść | Ładunek, który służy do rejestrowania modelu. | Yes | [Model](#model) |
@@ -91,27 +91,27 @@ Rejestruje modelu.
 | Kod | Opis | Schemat |
 |--------------------|--------------------|--------------------|
 | 200 | OK. Rejestracja modelu zakończyło się pomyślnie. | [Model](#model) |
-| domyślnie | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse) |
+| domyślny | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse) |
 
 ## <a name="query-the-list-of-models-in-an-account"></a>Zapytanie listy modeli konta
 ### <a name="request"></a>Żądanie
 | Metoda | Identyfikator URI żądania |
 |------------|------------|
-| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / modeli 
+| GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/models 
  |
 ### <a name="description"></a>Opis
 Wysyła zapytanie do listy modeli w ramach konta. Można filtrować listę wyników tagu i nazwę. Jeśli filtr nie zostanie przekazany, zapytanie Wyświetla listę wszystkich modeli w ramach konta. Jest podzielony na zwracanej liście strony, a liczba elementów w każdej z nich jest parametrem opcjonalnym.
 
 ### <a name="parameters"></a>Parametry
-| Name (Nazwa) | Lokalizacja | Opis | Wymagane | Schemat
+| Name (Nazwa) | Znajduje się w | Opis | Wymagane | Schemat
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | ścieżka | Identyfikator subskrypcji platformy Azure. | Yes | ciąg |
-| Grupy zasobów o nazwie | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Yes | ciąg |
-| Nazwa konta | ścieżka | Nazwa konta zarządzania modelu. | Yes | ciąg |
+| resourceGroupName | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Yes | ciąg |
+| accountName | ścieżka | Nazwa konta zarządzania modelu. | Yes | ciąg |
 | wersja interfejsu API | query | Wersja interfejsu API do używania dostawcy zasobów Microsoft.Machine.Learning. | Yes | ciąg |
 | Autoryzacja | nagłówek | Token autoryzacji. Powinien być podobny do ciągu "Bearer XXXXXX". | Yes | ciąg |
 | name | query | Nazwa obiektu. | Nie | ciąg |
-| Tag | query | Tag modelu. | Nie | ciąg |
+| tag | query | Tag modelu. | Nie | ciąg |
 | liczba | query | Liczba elementów do pobrania na stronie. | Nie | ciąg |
 | $skipToken | query | Token kontynuacji do pobrania następnej strony. | Nie | ciąg |
 
@@ -119,24 +119,24 @@ Wysyła zapytanie do listy modeli w ramach konta. Można filtrować listę wynik
 | Kod | Opis | Schemat |
 |--------------------|--------------------|--------------------|
 | 200 | Powodzenie. | [PaginatedModelList](#paginatedmodellist) |
-| domyślnie | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse) |
+| domyślny | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse) |
 
 ## <a name="get-model-details"></a>Uzyskiwanie szczegółów modelu
 ### <a name="request"></a>Żądanie
 | Metoda | Identyfikator URI żądania |
 |------------|------------|
-| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} {accountName} /accounts/ /models/ {id}  
+| GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/models/{id}  
  |
 
 ### <a name="description"></a>Opis
 Pobiera model według identyfikatora.
 
 ### <a name="parameters"></a>Parametry
-| Name (Nazwa) | Lokalizacja | Opis | Wymagane | Schemat
+| Name (Nazwa) | Znajduje się w | Opis | Wymagane | Schemat
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | ścieżka | Identyfikator subskrypcji platformy Azure. | Yes | ciąg |
-| Grupy zasobów o nazwie | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Yes | ciąg |
-| Nazwa konta | ścieżka | Nazwa konta zarządzania modelu. | Yes | ciąg |
+| resourceGroupName | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Yes | ciąg |
+| accountName | ścieżka | Nazwa konta zarządzania modelu. | Yes | ciąg |
 | id | ścieżka | Identyfikator obiektu. | Yes | ciąg |
 | wersja interfejsu API | query | Wersja interfejsu API do używania dostawcy zasobów Microsoft.Machine.Learning. | Yes | ciąg |
 | Autoryzacja | nagłówek | Token autoryzacji. Powinien być podobny do ciągu "Bearer XXXXXX". | Yes | ciąg |
@@ -145,24 +145,24 @@ Pobiera model według identyfikatora.
 | Kod | Opis | Schemat |
 |--------------------|--------------------|--------------------|
 | 200 | Powodzenie. | [Model](#model) |
-| domyślnie | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse) |
+| domyślny | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse) |
 
 ## <a name="register-a-manifest-with-the-registered-model-and-all-dependencies"></a>Zarejestruj manifestu zarejestrowanego modelu i wszystkie zależności
 
 ### <a name="request"></a>Żądanie
 | Metoda | Identyfikator URI żądania |
 |------------|------------|
-| POST |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / manifesty | 
+| POST |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/manifests | 
 
 ### <a name="description"></a>Opis
 Rejestruje manifestu z zarejestrowanego modelu i wszystkie jego zależności.
 
 ### <a name="parameters"></a>Parametry
-| Name (Nazwa) | Lokalizacja | Opis | Wymagane | Schemat
+| Name (Nazwa) | Znajduje się w | Opis | Wymagane | Schemat
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | ścieżka | Identyfikator subskrypcji platformy Azure. | Yes | ciąg |
-| Grupy zasobów o nazwie | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Yes | ciąg |
-| Nazwa konta | ścieżka | Nazwa konta zarządzania modelu. | Yes | ciąg |
+| resourceGroupName | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Yes | ciąg |
+| accountName | ścieżka | Nazwa konta zarządzania modelu. | Yes | ciąg |
 | wersja interfejsu API | query | Wersja interfejsu API do używania dostawcy zasobów Microsoft.Machine.Learning. | Yes | ciąg |
 | Autoryzacja | nagłówek | Token autoryzacji. Powinien być podobny do ciągu "Bearer XXXXXX". | Yes | ciąg |
 | manifestRequest | treść | Ładunek, który służy do rejestrowania manifestu. | Yes | [Manifest](#manifest) |
@@ -171,28 +171,28 @@ Rejestruje manifestu z zarejestrowanego modelu i wszystkie jego zależności.
 | Kod | Opis | Schemat |
 |--------------------|--------------------|--------------------|
 | 200 | Manifestu rejestracja powiodła się. | [Manifest](#manifest) |
-| domyślnie | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse) |
+| domyślny | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse) |
 
 ## <a name="query-the-list-of-manifests-in-an-account"></a>Zapytanie listy manifestów konta
 
 ### <a name="request"></a>Żądanie
 | Metoda | Identyfikator URI żądania |
 |------------|------------|
-| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / manifesty | 
+| GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/manifests | 
 
 ### <a name="description"></a>Opis
 Wysyła zapytanie do listy manifestów konta. Można filtrować listę wyników przez model identyfikator i nazwa manifestu. Jeśli filtr nie zostanie przekazany, zapytanie Wyświetla listę wszystkich manifestów w ramach konta. Jest podzielony na zwracanej liście strony, a liczba elementów w każdej z nich jest parametrem opcjonalnym.
 
 ### <a name="parameters"></a>Parametry
-| Name (Nazwa) | Lokalizacja | Opis | Wymagane | Schemat
+| Name (Nazwa) | Znajduje się w | Opis | Wymagane | Schemat
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | ścieżka | Identyfikator subskrypcji platformy Azure. | Yes | ciąg |
-| Grupy zasobów o nazwie | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Yes | ciąg |
-| Nazwa konta | ścieżka | Nazwa konta zarządzania modelu. | Yes | ciąg |
+| resourceGroupName | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Yes | ciąg |
+| accountName | ścieżka | Nazwa konta zarządzania modelu. | Yes | ciąg |
 | wersja interfejsu API | query | Wersja interfejsu API do używania dostawcy zasobów Microsoft.Machine.Learning. | Yes | ciąg |
 | Autoryzacja | nagłówek | Token autoryzacji. Powinien być podobny do ciągu "Bearer XXXXXX". | Yes | ciąg |
 | modelId | query | Identyfikator modelu. | Nie | ciąg |
-| ManifestName | query | Nazwa manifestu. | Nie | ciąg |
+| manifestName | query | Nazwa manifestu. | Nie | ciąg |
 | liczba | query | Liczba elementów do pobrania na stronie. | Nie | ciąg |
 | $skipToken | query | Token kontynuacji do pobrania następnej strony. | Nie | ciąg |
 
@@ -200,24 +200,24 @@ Wysyła zapytanie do listy manifestów konta. Można filtrować listę wyników 
 | Kod | Opis | Schemat |
 |--------------------|--------------------|--------------------|
 | 200 | Powodzenie. | [PaginatedManifestList](#paginatedmanifestlist) |
-| domyślnie | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse) |
+| domyślny | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse) |
 
 ## <a name="get-manifest-details"></a>Uzyskiwanie szczegółowych informacji manifestu
 
 ### <a name="request"></a>Żądanie
 | Metoda | Identyfikator URI żądania |
 |------------|------------|
-| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} {accountName} /accounts/ /manifests/ {id} | 
+| GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/manifests/{id} | 
 
 ### <a name="description"></a>Opis
 Pobiera manifest według identyfikatora.
 
 ### <a name="parameters"></a>Parametry
-| Name (Nazwa) | Lokalizacja | Opis | Wymagane | Schemat
+| Name (Nazwa) | Znajduje się w | Opis | Wymagane | Schemat
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | ścieżka | Identyfikator subskrypcji platformy Azure. | Yes | ciąg |
-| Grupy zasobów o nazwie | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Yes | ciąg |
-| Nazwa konta | ścieżka | Nazwa konta zarządzania modelu. | Yes | ciąg |
+| resourceGroupName | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Yes | ciąg |
+| accountName | ścieżka | Nazwa konta zarządzania modelu. | Yes | ciąg |
 | id | ścieżka | Identyfikator obiektu. | Yes | ciąg |
 | wersja interfejsu API | query | Wersja interfejsu API do używania dostawcy zasobów Microsoft.Machine.Learning. | Yes | ciąg |
 | Autoryzacja | nagłówek | Token autoryzacji. Powinien być podobny do ciągu "Bearer XXXXXX". | Yes | ciąg |
@@ -226,24 +226,24 @@ Pobiera manifest według identyfikatora.
 | Kod | Opis | Schemat |
 |--------------------|--------------------|--------------------|
 | 200 | Powodzenie. | [Manifest](#manifest) |
-| domyślnie | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse) |
+| domyślny | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse) |
 
 ## <a name="create-an-image"></a>Tworzenie obrazu
 
 ### <a name="request"></a>Żądanie
 | Metoda | Identyfikator URI żądania |
 |------------|------------|
-| POST |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / obrazy | 
+| POST |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/images | 
 
 ### <a name="description"></a>Opis
 Tworzy obraz jako obraz Docker w rejestrze kontenera platformy Azure.
 
 ### <a name="parameters"></a>Parametry
-| Name (Nazwa) | Lokalizacja | Opis | Wymagane | Schemat
+| Name (Nazwa) | Znajduje się w | Opis | Wymagane | Schemat
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | ścieżka | Identyfikator subskrypcji platformy Azure. | Yes | ciąg |
-| Grupy zasobów o nazwie | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Yes | ciąg |
-| Nazwa konta | ścieżka | Nazwa konta zarządzania modelu. | Yes | ciąg |
+| resourceGroupName | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Yes | ciąg |
+| accountName | ścieżka | Nazwa konta zarządzania modelu. | Yes | ciąg |
 | wersja interfejsu API | query | Wersja interfejsu API do używania dostawcy zasobów Microsoft.Machine.Learning. | Yes | ciąg |
 | Autoryzacja | nagłówek | Token autoryzacji. Powinien być podobny do ciągu "Bearer XXXXXX". | Yes | ciąg |
 | imageRequest | treść | Ładunek, który jest używany do utworzenia obrazu. | Yes | [ImageRequest](#imagerequest) |
@@ -252,28 +252,28 @@ Tworzy obraz jako obraz Docker w rejestrze kontenera platformy Azure.
 | Kod | Opis | Nagłówki | Schemat |
 |--------------------|--------------------|--------------------|--------------------|
 | 202 | Adres URL lokalizacji operacji asynchronicznej. Wywołanie GET Pokaż stan zadania tworzenia obrazu. | Operacja lokalizacji |
-| domyślnie | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse) |
+| domyślny | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse) |
 
 ## <a name="query-the-list-of-images-in-an-account"></a>Listy obrazów w ramach konta kwerendy
 
 ### <a name="request"></a>Żądanie
 | Metoda | Identyfikator URI żądania |
 |------------|------------|
-| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / obrazy | 
+| GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/images | 
 
 ### <a name="description"></a>Opis
 Wysyła zapytanie do listy obrazów w ramach konta. Można filtrować listę wyników według Identyfikatora manifestu i nazwę. Jeśli niepowodzenie bez filtru w zapytaniu przedstawiono wszystkie obrazy w ramach konta. Jest podzielony na zwracanej liście strony, a liczba elementów w każdej z nich jest parametrem opcjonalnym.
 
 ### <a name="parameters"></a>Parametry
-| Name (Nazwa) | Lokalizacja | Opis | Wymagane | Schemat
+| Name (Nazwa) | Znajduje się w | Opis | Wymagane | Schemat
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | ścieżka | Identyfikator subskrypcji platformy Azure. | Yes | ciąg |
-| Grupy zasobów o nazwie | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Yes | ciąg |
-| Nazwa konta | ścieżka | Nazwa konta zarządzania modelu. | Yes | ciąg |
+| resourceGroupName | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Yes | ciąg |
+| accountName | ścieżka | Nazwa konta zarządzania modelu. | Yes | ciąg |
 | wersja interfejsu API | query | Wersja interfejsu API do używania dostawcy zasobów Microsoft.Machine.Learning. | Yes | ciąg |
 | Autoryzacja | nagłówek | Token autoryzacji. Powinien być podobny do ciągu "Bearer XXXXXX". | Yes | ciąg |
-| Identyfikator manifestu | query | Identyfikator manifestu. | Nie | ciąg |
-| ManifestName | query | Nazwa manifestu. | Nie | ciąg |
+| manifestId | query | Identyfikator manifestu. | Nie | ciąg |
+| manifestName | query | Nazwa manifestu. | Nie | ciąg |
 | liczba | query | Liczba elementów do pobrania na stronie. | Nie | ciąg |
 | $skipToken | query | Token kontynuacji do pobrania następnej strony. | Nie | ciąg |
 
@@ -281,24 +281,24 @@ Wysyła zapytanie do listy obrazów w ramach konta. Można filtrować listę wyn
 | Kod | Opis | Schemat |
 |--------------------|--------------------|--------------------|
 | 200 | Powodzenie. | [PaginatedImageList](#paginatedimagelist) |
-| domyślnie | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse) |
+| domyślny | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse) |
 
 ## <a name="get-image-details"></a>Uzyskiwanie szczegółów obrazu
 
 ### <a name="request"></a>Żądanie
 | Metoda | Identyfikator URI żądania |
 |------------|------------|
-| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} {accountName} /accounts/ /images/ {id} | 
+| GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/images/{id} | 
 
 ### <a name="description"></a>Opis
 Pobiera obraz według identyfikatora.
 
 ### <a name="parameters"></a>Parametry
-| Name (Nazwa) | Lokalizacja | Opis | Wymagane | Schemat
+| Name (Nazwa) | Znajduje się w | Opis | Wymagane | Schemat
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | ścieżka | Identyfikator subskrypcji platformy Azure. | Yes | ciąg |
-| Grupy zasobów o nazwie | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Yes | ciąg |
-| Nazwa konta | ścieżka | Nazwa konta zarządzania modelu. | Yes | ciąg |
+| resourceGroupName | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Yes | ciąg |
+| accountName | ścieżka | Nazwa konta zarządzania modelu. | Yes | ciąg |
 | id | ścieżka | Identyfikator obrazu. | Yes | ciąg |
 | wersja interfejsu API | query | Wersja interfejsu API do używania dostawcy zasobów Microsoft.Machine.Learning. | Yes | ciąg |
 | Autoryzacja | nagłówek | Token autoryzacji. Powinien być podobny do ciągu "Bearer XXXXXX". | Yes | ciąg |
@@ -307,7 +307,7 @@ Pobiera obraz według identyfikatora.
 | Kod | Opis | Schemat |
 |--------------------|--------------------|--------------------|
 | 200 | Powodzenie. | [Obraz](#image) |
-| domyślnie | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse) |
+| domyślny | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse) |
 
 
 ## <a name="create-a-service"></a>Tworzenie usługi
@@ -315,17 +315,17 @@ Pobiera obraz według identyfikatora.
 ### <a name="request"></a>Żądanie
 | Metoda | Identyfikator URI żądania |
 |------------|------------|
-| POST |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / usługi | 
+| POST |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/services | 
 
 ### <a name="description"></a>Opis
 Tworzy usługę z obrazu.
 
 ### <a name="parameters"></a>Parametry
-| Name (Nazwa) | Lokalizacja | Opis | Wymagane | Schemat
+| Name (Nazwa) | Znajduje się w | Opis | Wymagane | Schemat
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | ścieżka | Identyfikator subskrypcji platformy Azure. | Yes | ciąg |
-| Grupy zasobów o nazwie | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Yes | ciąg |
-| Nazwa konta | ścieżka | Nazwa konta zarządzania modelu. | Yes | ciąg |
+| resourceGroupName | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Yes | ciąg |
+| accountName | ścieżka | Nazwa konta zarządzania modelu. | Yes | ciąg |
 | wersja interfejsu API | query | Wersja interfejsu API do używania dostawcy zasobów Microsoft.Machine.Learning. | Yes | ciąg |
 | Autoryzacja | nagłówek | Token autoryzacji. Powinien być podobny do ciągu "Bearer XXXXXX". | Yes | ciąg |
 | żądania obsługi | treść | Ładunek, który służy do tworzenia usługi. | Yes | [ServiceCreateRequest](#servicecreaterequest) |
@@ -335,31 +335,31 @@ Tworzy usługę z obrazu.
 |--------------------|--------------------|--------------------|--------------------|
 | 202 | Adres URL lokalizacji operacji asynchronicznej. Wywołanie GET Pokaż stan zadania tworzenia usługi. | Operacja lokalizacji |
 | 409 | Usługa o określonej nazwie już istnieje. |
-| domyślnie | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse) |
+| domyślny | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse) |
 
 ## <a name="query-the-list-of-services-in-an-account"></a>Lista usług w ramach konta kwerendy
 
 ### <a name="request"></a>Żądanie
 | Metoda | Identyfikator URI żądania |
 |------------|------------|
-| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / usługi | 
+| GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/services | 
 
 ### <a name="description"></a>Opis
 Wysyła zapytanie do listy usług dla konta. Można filtrować listę wyników Identyfikatora nazwy modelu, manifestu nazwa, identyfikator obrazu, nazwa usługi lub Machine Learning obliczeń z identyfikatorem zasobu. Jeśli filtr nie zostanie przekazany, zapytanie Wyświetla listę wszystkich usług w ramach konta. Jest podzielony na zwracanej liście strony, a liczba elementów w każdej z nich jest parametrem opcjonalnym.
 
 ### <a name="parameters"></a>Parametry
-| Name (Nazwa) | Lokalizacja | Opis | Wymagane | Schemat
+| Name (Nazwa) | Znajduje się w | Opis | Wymagane | Schemat
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | ścieżka | Identyfikator subskrypcji platformy Azure. | Yes | ciąg |
-| Grupy zasobów o nazwie | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Yes | ciąg |
-| Nazwa konta | ścieżka | Nazwa konta zarządzania modelu. | Yes | ciąg |
+| resourceGroupName | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Yes | ciąg |
+| accountName | ścieżka | Nazwa konta zarządzania modelu. | Yes | ciąg |
 | wersja interfejsu API | query | Wersja interfejsu API do używania dostawcy zasobów Microsoft.Machine.Learning. | Yes | ciąg |
 | Autoryzacja | nagłówek | Token autoryzacji. Powinien być podobny do ciągu "Bearer XXXXXX". | Yes | ciąg |
-| ServiceName | query | Nazwa usługi. | Nie | ciąg |
+| serviceName | query | Nazwa usługi. | Nie | ciąg |
 | modelId | query | Nazwa modelu. | Nie | ciąg |
 | modelName | query | Identyfikator modelu. | Nie | ciąg |
-| Identyfikator manifestu | query | Identyfikator manifestu. | Nie | ciąg |
-| ManifestName | query | Nazwa manifestu. | Nie | ciąg |
+| manifestId | query | Identyfikator manifestu. | Nie | ciąg |
+| manifestName | query | Nazwa manifestu. | Nie | ciąg |
 | imageId | query | Identyfikator obrazu. | Nie | ciąg |
 | computeResourceId | query | Machine Learning obliczeń identyfikator zasobu. | Nie | ciąg |
 | liczba | query | Liczba elementów do pobrania na stronie. | Nie | ciąg |
@@ -369,24 +369,24 @@ Wysyła zapytanie do listy usług dla konta. Można filtrować listę wyników I
 | Kod | Opis | Schemat |
 |--------------------|--------------------|--------------------|
 | 200 | Powodzenie. | [PaginatedServiceList](#paginatedservicelist) |
-| domyślnie | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse) |
+| domyślny | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse) |
 
 ## <a name="get-service-details"></a>Pobierz szczegóły usługi
 
 ### <a name="request"></a>Żądanie
 | Metoda | Identyfikator URI żądania |
 |------------|------------|
-| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} {accountName} /accounts/ /services/ {id} | 
+| GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/services/{id} | 
 
 ### <a name="description"></a>Opis
 Pobiera usługę według identyfikatora.
 
 ### <a name="parameters"></a>Parametry
-| Name (Nazwa) | Lokalizacja | Opis | Wymagane | Schemat
+| Name (Nazwa) | Znajduje się w | Opis | Wymagane | Schemat
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | ścieżka | Identyfikator subskrypcji platformy Azure. | Yes | ciąg |
-| Grupy zasobów o nazwie | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Yes | ciąg |
-| Nazwa konta | ścieżka | Nazwa konta zarządzania modelu. | Yes | ciąg |
+| resourceGroupName | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Yes | ciąg |
+| accountName | ścieżka | Nazwa konta zarządzania modelu. | Yes | ciąg |
 | id | ścieżka | Identyfikator obiektu. | Yes | ciąg |
 | wersja interfejsu API | query | Wersja interfejsu API do używania dostawcy zasobów Microsoft.Machine.Learning. | Yes | ciąg |
 | Autoryzacja | nagłówek | Token autoryzacji. Powinien być podobny do ciągu "Bearer XXXXXX". | Yes | ciąg |
@@ -395,24 +395,24 @@ Pobiera usługę według identyfikatora.
 | Kod | Opis | Schemat |
 |--------------------|--------------------|--------------------|
 | 200 | Powodzenie. | [ServiceResponse](#serviceresponse) |
-| domyślnie | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse)
+| domyślny | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse)
 
 ## <a name="update-a-service"></a>Aktualizowanie usługi
 
 ### <a name="request"></a>Żądanie
 | Metoda | Identyfikator URI żądania |
 |------------|------------|
-| PUT |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} {accountName} /accounts/ /services/ {id} | 
+| UMIEŚĆ |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/services/{id} | 
 
 ### <a name="description"></a>Opis
 Aktualizuje istniejącą usługę.
 
 ### <a name="parameters"></a>Parametry
-| Name (Nazwa) | Lokalizacja | Opis | Wymagane | Schemat
+| Name (Nazwa) | Znajduje się w | Opis | Wymagane | Schemat
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | ścieżka | Identyfikator subskrypcji platformy Azure. | Yes | ciąg |
-| Grupy zasobów o nazwie | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Yes | ciąg |
-| Nazwa konta | ścieżka | Nazwa konta zarządzania modelu. | Yes | ciąg |
+| resourceGroupName | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Yes | ciąg |
+| accountName | ścieżka | Nazwa konta zarządzania modelu. | Yes | ciąg |
 | id | ścieżka | Identyfikator obiektu. | Yes | ciąg |
 | wersja interfejsu API | query | Wersja interfejsu API do używania dostawcy zasobów Microsoft.Machine.Learning. | Yes | ciąg |
 | Autoryzacja | nagłówek | Token autoryzacji. Powinien być podobny do ciągu "Bearer XXXXXX". | Yes | ciąg |
@@ -423,24 +423,24 @@ Aktualizuje istniejącą usługę.
 |--------------------|--------------------|--------------------|--------------------|
 | 202 | Adres URL lokalizacji operacji asynchronicznej. Wywołanie GET Pokaż stan zadania aktualizacji usługi. | Operacja lokalizacji |
 | 404 | Usługa o określonym identyfikatorze nie istnieje. |
-| domyślnie | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse)
+| domyślny | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse)
 
 ## <a name="delete-a-service"></a>Usuwanie usługi
 
 ### <a name="request"></a>Żądanie
 | Metoda | Identyfikator URI żądania |
 |------------|------------|
-| DELETE |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} {accountName} /accounts/ /services/ {id} | 
+| DELETE |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/services/{id} | 
 
 ### <a name="description"></a>Opis
 Usuwa usługę.
 
 ### <a name="parameters"></a>Parametry
-| Name (Nazwa) | Lokalizacja | Opis | Wymagane | Schemat
+| Name (Nazwa) | Znajduje się w | Opis | Wymagane | Schemat
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | ścieżka | Identyfikator subskrypcji platformy Azure. | Yes | ciąg |
-| Grupy zasobów o nazwie | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Yes | ciąg |
-| Nazwa konta | ścieżka | Nazwa konta zarządzania modelu. | Yes | ciąg |
+| resourceGroupName | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Yes | ciąg |
+| accountName | ścieżka | Nazwa konta zarządzania modelu. | Yes | ciąg |
 | id | ścieżka | Identyfikator obiektu. | Yes | ciąg |
 | wersja interfejsu API | query | Wersja interfejsu API do używania dostawcy zasobów Microsoft.Machine.Learning. | Yes | ciąg |
 | Autoryzacja | nagłówek | Token autoryzacji. Powinien być podobny do ciągu "Bearer XXXXXX". | Yes | ciąg |
@@ -450,24 +450,24 @@ Usuwa usługę.
 |--------------------|--------------------|--------------------|
 | 200 | Powodzenie. |  |
 | 204 | Usługa o określonym identyfikatorze nie istnieje. |
-| domyślnie | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse)
+| domyślny | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse)
 
 ## <a name="get-service-keys"></a>Pobieranie kluczy usługi
 
 ### <a name="request"></a>Żądanie
 | Metoda | Identyfikator URI żądania |
 |------------|------------|
-| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} {accountName} /accounts/ /services/ {id} / klucze | 
+| GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/services/{id}/keys | 
 
 ### <a name="description"></a>Opis
 Pobiera klucze usługi.
 
 ### <a name="parameters"></a>Parametry
-| Name (Nazwa) | Lokalizacja | Opis | Wymagane | Schemat
+| Name (Nazwa) | Znajduje się w | Opis | Wymagane | Schemat
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | ścieżka | Identyfikator subskrypcji platformy Azure. | Yes | ciąg |
-| Grupy zasobów o nazwie | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Yes | ciąg |
-| Nazwa konta | ścieżka | Nazwa konta zarządzania modelu. | Yes | ciąg |
+| resourceGroupName | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Yes | ciąg |
+| accountName | ścieżka | Nazwa konta zarządzania modelu. | Yes | ciąg |
 | id | ścieżka | Identyfikator usługi. | Yes | ciąg |
 | wersja interfejsu API | query | Wersja interfejsu API do używania dostawcy zasobów Microsoft.Machine.Learning. | Yes | ciąg |
 | Autoryzacja | nagłówek | Token autoryzacji. Powinien być podobny do ciągu "Bearer XXXXXX". | Yes | ciąg |
@@ -483,17 +483,17 @@ Pobiera klucze usługi.
 ### <a name="request"></a>Żądanie
 | Metoda | Identyfikator URI żądania |
 |------------|------------|
-| POST |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} {accountName} /accounts/ /services/ {id} / klucze | 
+| POST |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/services/{id}/keys | 
 
 ### <a name="description"></a>Opis
 Generuje ponownie klucze usługi i zwraca je.
 
 ### <a name="parameters"></a>Parametry
-| Name (Nazwa) | Lokalizacja | Opis | Wymagane | Schemat
+| Name (Nazwa) | Znajduje się w | Opis | Wymagane | Schemat
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | ścieżka | Identyfikator subskrypcji platformy Azure. | Yes | ciąg |
-| Grupy zasobów o nazwie | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Yes | ciąg |
-| Nazwa konta | ścieżka | Nazwa konta zarządzania modelu. | Yes | ciąg |
+| resourceGroupName | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Yes | ciąg |
+| accountName | ścieżka | Nazwa konta zarządzania modelu. | Yes | ciąg |
 | id | ścieżka | Identyfikator usługi. | Yes | ciąg |
 | wersja interfejsu API | query | Wersja interfejsu API do używania dostawcy zasobów Microsoft.Machine.Learning. | Yes | ciąg |
 | Autoryzacja | nagłówek | Token autoryzacji. Powinien być podobny do ciągu "Bearer XXXXXX". | Yes | ciąg |
@@ -510,17 +510,17 @@ Generuje ponownie klucze usługi i zwraca je.
 ### <a name="request"></a>Żądanie
 | Metoda | Identyfikator URI żądania |
 |------------|------------|
-| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / wdrożenia | 
+| GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/deployments | 
 
 ### <a name="description"></a>Opis
 Wysyła zapytanie do listy wdrożeń w ramach konta. Można filtrować listę wyników według Identyfikatora usługi, która będzie zwracać tylko wdrożenia, które są tworzone dla określonej usługi. Jeśli niepowodzenie bez filtru w zapytaniu przedstawiono wszystkie wdrożenia w ramach konta.
 
 ### <a name="parameters"></a>Parametry
-| Name (Nazwa) | Lokalizacja | Opis | Wymagane | Schemat
+| Name (Nazwa) | Znajduje się w | Opis | Wymagane | Schemat
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | ścieżka | Identyfikator subskrypcji platformy Azure. | Yes | ciąg |
-| Grupy zasobów o nazwie | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Yes | ciąg |
-| Nazwa konta | ścieżka | Nazwa konta zarządzania modelu. | Yes | ciąg |
+| resourceGroupName | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Yes | ciąg |
+| accountName | ścieżka | Nazwa konta zarządzania modelu. | Yes | ciąg |
 | wersja interfejsu API | query | Wersja interfejsu API do używania dostawcy zasobów Microsoft.Machine.Learning. | Yes | ciąg |
 | Autoryzacja | nagłówek | Token autoryzacji. Powinien być podobny do ciągu "Bearer XXXXXX". | Yes | ciąg |
 | serviceId | query | Identyfikator usługi. | Nie | ciąg |
@@ -536,17 +536,17 @@ Wysyła zapytanie do listy wdrożeń w ramach konta. Można filtrować listę wy
 ### <a name="request"></a>Żądanie
 | Metoda | Identyfikator URI żądania |
 |------------|------------|
-| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} {accountName} /accounts/ /deployments/ {id} | 
+| GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/deployments/{id} | 
 
 ### <a name="description"></a>Opis
 Pobiera wdrożenia według identyfikatora.
 
 ### <a name="parameters"></a>Parametry
-| Name (Nazwa) | Lokalizacja | Opis | Wymagane | Schemat
+| Name (Nazwa) | Znajduje się w | Opis | Wymagane | Schemat
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | ścieżka | Identyfikator subskrypcji platformy Azure. | Yes | ciąg |
-| Grupy zasobów o nazwie | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Yes | ciąg |
-| Nazwa konta | ścieżka | Nazwa konta zarządzania modelu. | Yes | ciąg |
+| resourceGroupName | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Yes | ciąg |
+| accountName | ścieżka | Nazwa konta zarządzania modelu. | Yes | ciąg |
 | id | ścieżka | Identyfikator wdrożenia. | Yes | ciąg |
 | wersja interfejsu API | query | Wersja interfejsu API do używania dostawcy zasobów Microsoft.Machine.Learning. | Yes | ciąg |
 | Autoryzacja | nagłówek | Token autoryzacji. Powinien być podobny do ciągu "Bearer XXXXXX". | Yes | ciąg |
@@ -562,17 +562,17 @@ Pobiera wdrożenia według identyfikatora.
 ### <a name="request"></a>Żądanie
 | Metoda | Identyfikator URI żądania |
 |------------|------------|
-| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} {accountName} /accounts/ /operations/ {id} | 
+| GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/operations/{id} | 
 
 ### <a name="description"></a>Opis
 Pobiera stan operacji asynchronicznej według identyfikatora operacji.
 
 ### <a name="parameters"></a>Parametry
-| Name (Nazwa) | Lokalizacja | Opis | Wymagane | Schemat
+| Name (Nazwa) | Znajduje się w | Opis | Wymagane | Schemat
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | ścieżka | Identyfikator subskrypcji platformy Azure. | Yes | ciąg |
-| Grupy zasobów o nazwie | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Yes | ciąg |
-| Nazwa konta | ścieżka | Nazwa konta zarządzania modelu. | Yes | ciąg |
+| resourceGroupName | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Yes | ciąg |
+| accountName | ścieżka | Nazwa konta zarządzania modelu. | Yes | ciąg |
 | id | ścieżka | Identyfikator operacji. | Yes | ciąg |
 | wersja interfejsu API | query | Wersja interfejsu API do używania dostawcy zasobów Microsoft.Machine.Learning. | Yes | ciąg |
 | Autoryzacja | nagłówek | Token autoryzacji. Powinien być podobny do ciągu "Bearer XXXXXX". | Yes | ciąg |
@@ -595,10 +595,10 @@ Obiekt zasobów, który będzie wymagany podczas tworzenia obrazu Docker.
 
 |Name (Nazwa)|Opis|Schemat|
 |---|---|---|
-|**Identyfikator**  <br>*opcjonalne*|Identyfikator zasobu.|ciąg|
-|**mimeType**  <br>*opcjonalne*|Typ MIME zawartości modelu. Aby uzyskać więcej informacji o typie MIME, zobacz [listę typów nośników IANA](https://www.iana.org/assignments/media-types/media-types.xhtml).|ciąg|
-|**Rozpakowywanie**  <br>*opcjonalne*|Wskazuje, gdzie musimy rozpakuj zawartość podczas tworzenia obrazu Docker.|wartość logiczna|
-|**adres URL**  <br>*opcjonalne*|Adres URL lokalizacji zasobów.|ciąg|
+|**id**  <br>*Opcjonalne*|Identyfikator zasobu.|ciąg|
+|**mimeType**  <br>*Opcjonalne*|Typ MIME zawartości modelu. Aby uzyskać więcej informacji o typie MIME, zobacz [listę typów nośników IANA](https://www.iana.org/assignments/media-types/media-types.xhtml).|ciąg|
+|**unpack**  <br>*Opcjonalne*|Wskazuje, gdzie musimy rozpakuj zawartość podczas tworzenia obrazu Docker.|wartość logiczna|
+|**adres URL**  <br>*Opcjonalne*|Adres URL lokalizacji zasobów.|ciąg|
 
 
 <a name="asyncoperationstate"></a>
@@ -615,13 +615,13 @@ Stan operacji.
 
 |Name (Nazwa)|Opis|Schemat|
 |---|---|---|
-|**createdTime**  <br>*opcjonalne*  <br>*tylko do odczytu*|Czas utworzenia operacji asynchronicznych (UTC).|ciąg (daty i godziny)|
-|**wartość endTime**  <br>*opcjonalne*  <br>*tylko do odczytu*|Czas zakończenia operacji asynchronicznych (UTC).|ciąg (daty i godziny)|
-|**Błąd**  <br>*opcjonalne*||[Errorresponse języka](#errorresponse)|
-|**Identyfikator**  <br>*opcjonalne*|Identyfikator operacji asynchronicznej|ciąg|
-|**Typ operacji**  <br>*opcjonalne*|Typ operacji asynchronicznej.|wyliczenia (obraz, usługa)|
-|**resourceLocation**  <br>*opcjonalne*|Zasób tworzony lub aktualizowany przez operacji asynchronicznej.|ciąg|
-|**Stan**  <br>*opcjonalne*||[AsyncOperationState](#asyncoperationstate)|
+|**createdTime**  <br>*Opcjonalne*  <br>*read-only*|Czas utworzenia operacji asynchronicznych (UTC).|ciąg (daty i godziny)|
+|**endTime**  <br>*Opcjonalne*  <br>*read-only*|Czas zakończenia operacji asynchronicznych (UTC).|ciąg (daty i godziny)|
+|**Błąd**  <br>*Opcjonalne*||[Errorresponse języka](#errorresponse)|
+|**id**  <br>*Opcjonalne*|Identyfikator operacji asynchronicznej|ciąg|
+|**Typ operacji**  <br>*Opcjonalne*|Typ operacji asynchronicznej.|wyliczenia (obraz, usługa)|
+|**resourceLocation**  <br>*Opcjonalne*|Zasób tworzony lub aktualizowany przez operacji asynchronicznej.|ciąg|
+|**state**  <br>*Opcjonalne*||[AsyncOperationState](#asyncoperationstate)|
 
 
 <a name="authkeys"></a>
@@ -631,8 +631,8 @@ Klucze uwierzytelniania dla usługi.
 
 |Name (Nazwa)|Opis|Schemat|
 |---|---|---|
-|**primaryKey**  <br>*opcjonalne*|Klucz podstawowy.|ciąg|
-|**Klucz pomocniczy**  <br>*opcjonalne*|Klucz pomocniczy.|ciąg|
+|**primaryKey**  <br>*Opcjonalne*|Klucz podstawowy.|ciąg|
+|**secondaryKey**  <br>*Opcjonalne*|Klucz pomocniczy.|ciąg|
 
 
 <a name="autoscaler"></a>
@@ -642,11 +642,11 @@ Ustawienia dla autoscaler.
 
 |Name (Nazwa)|Opis|Schemat|
 |---|---|---|
-|**autoscaleEnabled**  <br>*opcjonalne*|Włącz lub wyłącz autoscaler.|wartość logiczna|
-|**maxReplicas**  <br>*opcjonalne*|Maksymalna liczba replik pod do skalowania.  <br>**Minimalna wartość**:`1`|liczba całkowita|
-|**minReplicas**  <br>*opcjonalne*|Minimalna liczba replik pod można skalować do.  <br>**Minimalna wartość**:`0`|liczba całkowita|
-|**refreshPeriodInSeconds**  <br>*opcjonalne*|Odśwież czasu dla wyzwalacza Skalowanie automatyczne.  <br>**Minimalna wartość**:`1`|liczba całkowita|
-|**targetUtilization**  <br>*opcjonalne*|Procent użycia, które wyzwala Skalowanie automatyczne.  <br>**Minimalna wartość**:`0`  <br>**Maksymalna wartość**:`100`|liczba całkowita|
+|**autoscaleEnabled**  <br>*Opcjonalne*|Włącz lub wyłącz autoscaler.|wartość logiczna|
+|**maxReplicas**  <br>*Opcjonalne*|Maksymalna liczba replik pod do skalowania.  <br>**Minimalna wartość**: `1`|integer|
+|**minReplicas**  <br>*Opcjonalne*|Minimalna liczba replik pod można skalować do.  <br>**Minimalna wartość**: `0`|integer|
+|**refreshPeriodInSeconds**  <br>*Opcjonalne*|Odśwież czasu dla wyzwalacza Skalowanie automatyczne.  <br>**Minimalna wartość**: `1`|integer|
+|**targetUtilization**  <br>*Opcjonalne*|Procent użycia, które wyzwala Skalowanie automatyczne.  <br>**Minimalna wartość**: `0`  <br>**Maksymalna wartość**: `100`|integer|
 
 
 <a name="computeresource"></a>
@@ -656,8 +656,8 @@ Uczenie maszynowe zasobów obliczeniowych.
 
 |Name (Nazwa)|Opis|Schemat|
 |---|---|---|
-|**Identyfikator**  <br>*opcjonalne*|Identyfikator zasobu.|ciąg|
-|**Typ**  <br>*opcjonalne*|Typ zasobu.|wyliczenia (klaster)|
+|**id**  <br>*Opcjonalne*|Identyfikator zasobu.|ciąg|
+|**Typ**  <br>*Opcjonalne*|Typ zasobu.|wyliczenia (klaster)|
 
 
 <a name="containerresourcereservation"></a>
@@ -667,8 +667,8 @@ Konfiguracja zarezerwować zasobów dla kontenera w klastrze.
 
 |Name (Nazwa)|Opis|Schemat|
 |---|---|---|
-|**Procesor CPU**  <br>*opcjonalne*|Określa zastrzeżenie procesora CPU. Format Kubernetes: zobacz [znaczenie Procesora](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#meaning-of-cpu).|ciąg|
-|**pamięci**  <br>*opcjonalne*|Określa zastrzeżenie pamięci. Format Kubernetes: zobacz [znaczenie pamięci](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#meaning-of-memory).|ciąg|
+|**cpu**  <br>*Opcjonalne*|Określa zastrzeżenie procesora CPU. Format Kubernetes: zobacz [znaczenie Procesora](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#meaning-of-cpu).|ciąg|
+|**memory**  <br>*Opcjonalne*|Określa zastrzeżenie pamięci. Format Kubernetes: zobacz [znaczenie pamięci](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#meaning-of-memory).|ciąg|
 
 
 <a name="deployment"></a>
@@ -678,12 +678,12 @@ Wystąpienia wdrożenia usługi Azure Machine Learning.
 
 |Name (Nazwa)|Opis|Schemat|
 |---|---|---|
-|**createdAt**  <br>*opcjonalne*  <br>*tylko do odczytu*|Czas utworzenia wdrożenia (UTC).|ciąg (daty i godziny)|
-|**expiredAt**  <br>*opcjonalne*  <br>*tylko do odczytu*|Ważność wdrożenia czasu (UTC).|ciąg (daty i godziny)|
-|**Identyfikator**  <br>*opcjonalne*|Identyfikator wdrożenia.|ciąg|
-|**imageId**  <br>*opcjonalne*|Identyfikator obrazu skojarzonego z tym wdrożeniem.|ciąg|
-|**serviceName**  <br>*opcjonalne*|Nazwa usługi.|ciąg|
-|**Stan**  <br>*opcjonalne*|Bieżący stan wdrożenia.|ciąg|
+|**createdAt**  <br>*Opcjonalne*  <br>*read-only*|Czas utworzenia wdrożenia (UTC).|ciąg (daty i godziny)|
+|**expiredAt**  <br>*Opcjonalne*  <br>*read-only*|Ważność wdrożenia czasu (UTC).|ciąg (daty i godziny)|
+|**id**  <br>*Opcjonalne*|Identyfikator wdrożenia.|ciąg|
+|**imageId**  <br>*Opcjonalne*|Identyfikator obrazu skojarzonego z tym wdrożeniem.|ciąg|
+|**serviceName**  <br>*Opcjonalne*|Nazwa usługi.|ciąg|
+|**status**  <br>*Opcjonalne*|Bieżący stan wdrożenia.|ciąg|
 
 
 <a name="deploymentlist"></a>
@@ -712,9 +712,9 @@ Obiekt błąd usługi zarządzania w modelu.
 |Name (Nazwa)|Opis|Schemat|
 |---|---|---|
 |**Kod**  <br>*Wymagane*|Kod błędu.|ciąg|
-|**Szczegóły**  <br>*opcjonalne*|Tablica obiektów szczegółów błędu.|<[ErrorDetail](#errordetail)> tablicy|
+|**Szczegóły**  <br>*Opcjonalne*|Tablica obiektów szczegółów błędu.|<[ErrorDetail](#errordetail)> tablicy|
 |**Komunikat**  <br>*Wymagane*|Komunikat o błędzie.|ciąg|
-|**statusCode**  <br>*opcjonalne*|Kod stanu HTTP.|liczba całkowita|
+|**statusCode**  <br>*Opcjonalne*|Kod stanu HTTP.|integer|
 
 
 <a name="image"></a>
@@ -724,31 +724,31 @@ Obraz usługi Azure Machine Learning.
 
 |Name (Nazwa)|Opis|Schemat|
 |---|---|---|
-|**computeResourceId**  <br>*opcjonalne*|Identyfikator środowiska utworzone w zasób obliczeniowy uczenia maszynowego.|ciąg|
-|**createdTime**  <br>*opcjonalne*|Czas utworzenia obrazu (UTC).|ciąg (daty i godziny)|
-|**creationState**  <br>*opcjonalne*||[AsyncOperationState](#asyncoperationstate)|
-|**Opis elementu**  <br>*opcjonalne*|Opis obrazu.|ciąg|
-|**Błąd**  <br>*opcjonalne*||[Errorresponse języka](#errorresponse)|
-|**Identyfikator**  <br>*opcjonalne*|Identyfikator obrazu.|ciąg|
-|**imageBuildLogUri**  <br>*opcjonalne*|Identyfikator URI przekazanych dzienników z kompilacji obrazu.|ciąg|
-|**Element imageLocation**  <br>*opcjonalne*|Ciąg lokalizacji Azure rejestru kontenera utworzony obraz.|ciąg|
-|**imageType**  <br>*opcjonalne*||[ImageType](#imagetype)|
-|**Manifest**  <br>*opcjonalne*||[Manifest](#manifest)|
-|**Nazwa**  <br>*opcjonalne*|Nazwa obrazu.|ciąg|
-|**Wersja**  <br>*opcjonalne*|Wersja obrazu ustawiony przez usługę zarządzania modelu.|liczba całkowita|
+|**computeResourceId**  <br>*Opcjonalne*|Identyfikator środowiska utworzone w zasób obliczeniowy uczenia maszynowego.|ciąg|
+|**createdTime**  <br>*Opcjonalne*|Czas utworzenia obrazu (UTC).|ciąg (daty i godziny)|
+|**creationState**  <br>*Opcjonalne*||[AsyncOperationState](#asyncoperationstate)|
+|**Opis elementu**  <br>*Opcjonalne*|Opis obrazu.|ciąg|
+|**Błąd**  <br>*Opcjonalne*||[Errorresponse języka](#errorresponse)|
+|**id**  <br>*Opcjonalne*|Identyfikator obrazu.|ciąg|
+|**imageBuildLogUri**  <br>*Opcjonalne*|Identyfikator URI przekazanych dzienników z kompilacji obrazu.|ciąg|
+|**imageLocation**  <br>*Opcjonalne*|Ciąg lokalizacji Azure rejestru kontenera utworzony obraz.|ciąg|
+|**imageType**  <br>*Opcjonalne*||[ImageType](#imagetype)|
+|**manifest**  <br>*Opcjonalne*||[Manifest](#manifest)|
+|**Nazwa**  <br>*Opcjonalne*|Nazwa obrazu.|ciąg|
+|**Wersja**  <br>*Opcjonalne*|Wersja obrazu ustawiony przez usługę zarządzania modelu.|integer|
 
 
 <a name="imagerequest"></a>
-### <a name="imagerequest"></a>imageRequest
+### <a name="imagerequest"></a>ImageRequest
 Żądanie utworzenia obrazu usługi Azure Machine Learning.
 
 
 |Name (Nazwa)|Opis|Schemat|
 |---|---|---|
 |**computeResourceId**  <br>*Wymagane*|Identyfikator środowiska utworzone w zasób obliczeniowy uczenia maszynowego.|ciąg|
-|**Opis elementu**  <br>*opcjonalne*|Opis obrazu.|ciąg|
+|**Opis elementu**  <br>*Opcjonalne*|Opis obrazu.|ciąg|
 |**imageType**  <br>*Wymagane*||[ImageType](#imagetype)|
-|**Identyfikator manifestu**  <br>*Wymagane*|Identyfikator manifestu, w którym zostanie utworzony obraz.|ciąg|
+|**manifestId**  <br>*Wymagane*|Identyfikator manifestu, w którym zostanie utworzony obraz.|ciąg|
 |**Nazwa**  <br>*Wymagane*|Nazwa obrazu.|ciąg|
 
 
@@ -766,17 +766,17 @@ Uczenie maszynowe Azure manifestu.
 
 |Name (Nazwa)|Opis|Schemat|
 |---|---|---|
-|**zasoby**  <br>*Wymagane*|Lista zasobów.|<[Zasobów](#asset)> tablicy|
-|**createdTime**  <br>*opcjonalne*  <br>*tylko do odczytu*|Manifest godzina utworzenia (UTC).|ciąg (daty i godziny)|
-|**Opis elementu**  <br>*opcjonalne*|Manifest tekst opisu.|ciąg|
+|**Zasoby**  <br>*Wymagane*|Lista zasobów.|<[Zasobów](#asset)> tablicy|
+|**createdTime**  <br>*Opcjonalne*  <br>*read-only*|Manifest godzina utworzenia (UTC).|ciąg (daty i godziny)|
+|**Opis elementu**  <br>*Opcjonalne*|Manifest tekst opisu.|ciąg|
 |**driverProgram**  <br>*Wymagane*|Sterownik programu manifestu.|ciąg|
-|**Identyfikator**  <br>*opcjonalne*|Identyfikator manifestu.|ciąg|
-|**modelIds**  <br>*opcjonalne*|Lista identyfikatorów modelu w zarejestrowany modeli. Żądanie zakończy się niepowodzeniem, jeśli dowolnego dołączone modelu nie zostały zarejestrowane.|<string>Tablica|
-|**modelType**  <br>*opcjonalne*|Określa, że modele są już zarejestrowane w usłudze zarządzania modelu.|wyliczenia (zarejestrowane)|
+|**id**  <br>*Opcjonalne*|Identyfikator manifestu.|ciąg|
+|**modelIds**  <br>*Opcjonalne*|Lista identyfikatorów modelu w zarejestrowany modeli. Żądanie zakończy się niepowodzeniem, jeśli dowolnego dołączone modelu nie zostały zarejestrowane.|<string> Tablica|
+|**modelType**  <br>*Opcjonalne*|Określa, że modele są już zarejestrowane w usłudze zarządzania modelu.|wyliczenia (zarejestrowane)|
 |**Nazwa**  <br>*Wymagane*|Nazwa manifestu.|ciąg|
-|**targetRuntime**  <br>*Wymagane*||[TargetRuntime](#targetruntime)|
-|**Wersja**  <br>*opcjonalne*  <br>*tylko do odczytu*|Wersja manifestu przypisany przez usługę zarządzania modelu.|liczba całkowita|
-|**webserviceType**  <br>*opcjonalne*|Określa typ żądanej usługi sieci web, która zostanie utworzona w manifeście.|wyliczenia (w czasie rzeczywistym)|
+|**TargetRuntime**  <br>*Wymagane*||[TargetRuntime](#targetruntime)|
+|**Wersja**  <br>*Opcjonalne*  <br>*read-only*|Wersja manifestu przypisany przez usługę zarządzania modelu.|integer|
+|**webserviceType**  <br>*Opcjonalne*|Określa typ żądanej usługi sieci web, która zostanie utworzona w manifeście.|wyliczenia (w czasie rzeczywistym)|
 
 
 <a name="model"></a>
@@ -786,15 +786,15 @@ Wystąpienie modelu uczenia maszynowego Azure.
 
 |Name (Nazwa)|Opis|Schemat|
 |---|---|---|
-|**createdAt**  <br>*opcjonalne*  <br>*tylko do odczytu*|Czas utworzenia modelu (UTC).|ciąg (daty i godziny)|
-|**Opis elementu**  <br>*opcjonalne*|Opis modelu.|ciąg|
-|**Identyfikator**  <br>*opcjonalne*  <br>*tylko do odczytu*|Identyfikator modelu.|ciąg|
+|**createdAt**  <br>*Opcjonalne*  <br>*read-only*|Czas utworzenia modelu (UTC).|ciąg (daty i godziny)|
+|**Opis elementu**  <br>*Opcjonalne*|Opis modelu.|ciąg|
+|**id**  <br>*Opcjonalne*  <br>*read-only*|Identyfikator modelu.|ciąg|
 |**mimeType**  <br>*Wymagane*|Typ MIME zawartości modelu. Aby uzyskać więcej informacji o typie MIME, zobacz [listę typów nośników IANA](https://www.iana.org/assignments/media-types/media-types.xhtml).|ciąg|
 |**Nazwa**  <br>*Wymagane*|Nazwa modelu.|ciąg|
-|**tagów**  <br>*opcjonalne*|Lista znaczników modelu.|<string>Tablica|
-|**Rozpakowywanie**  <br>*opcjonalne*|Wskazuje, czy musimy Rozpakuj modelu podczas tworzenia obrazu Docker.|wartość logiczna|
+|**tagów**  <br>*Opcjonalne*|Lista znaczników modelu.|<string> Tablica|
+|**unpack**  <br>*Opcjonalne*|Wskazuje, czy musimy Rozpakuj modelu podczas tworzenia obrazu Docker.|wartość logiczna|
 |**adres URL**  <br>*Wymagane*|Adres URL modelu. Zazwyczaj testujemy adres URL sygnatury dostępu współdzielonego w tym miejscu.|ciąg|
-|**Wersja**  <br>*opcjonalne*  <br>*tylko do odczytu*|Wersja modelu przypisany przez usługę zarządzania modelu.|liczba całkowita|
+|**Wersja**  <br>*Opcjonalne*  <br>*read-only*|Wersja modelu przypisany przez usługę zarządzania modelu.|integer|
 
 
 <a name="modeldatacollection"></a>
@@ -804,8 +804,8 @@ Informacje o modelu danych kolekcji.
 
 |Name (Nazwa)|Opis|Schemat|
 |---|---|---|
-|**eventHubEnabled**  <br>*opcjonalne*|Włącz Centrum zdarzeń dla usługi.|wartość logiczna|
-|**storageEnabled**  <br>*opcjonalne*|Włącz magazyn dla usługi.|wartość logiczna|
+|**eventHubEnabled**  <br>*Opcjonalne*|Włącz Centrum zdarzeń dla usługi.|wartość logiczna|
+|**storageEnabled**  <br>*Opcjonalne*|Włącz magazyn dla usługi.|wartość logiczna|
 
 
 <a name="paginatedimagelist"></a>
@@ -815,8 +815,8 @@ Na liście obrazów.
 
 |Name (Nazwa)|Opis|Schemat|
 |---|---|---|
-|**nextLink**  <br>*opcjonalne*|Łącze kontynuacji (bezwzględny identyfikator URI) do następnej strony wyników na liście.|ciąg|
-|**wartość**  <br>*opcjonalne*|Tablica obiektów modelu.|<[Obraz](#image)> tablicy|
+|**nextLink**  <br>*Opcjonalne*|Łącze kontynuacji (bezwzględny identyfikator URI) do następnej strony wyników na liście.|ciąg|
+|**Wartość**  <br>*Opcjonalne*|Tablica obiektów modelu.|<[Obraz](#image)> tablicy|
 
 
 <a name="paginatedmanifestlist"></a>
@@ -826,8 +826,8 @@ Lista podzieloną manifestów.
 
 |Name (Nazwa)|Opis|Schemat|
 |---|---|---|
-|**nextLink**  <br>*opcjonalne*|Łącze kontynuacji (bezwzględny identyfikator URI) do następnej strony wyników na liście.|ciąg|
-|**wartość**  <br>*opcjonalne*|Tablica obiektów manifestu.|<[Manifest](#manifest)> tablicy|
+|**nextLink**  <br>*Opcjonalne*|Łącze kontynuacji (bezwzględny identyfikator URI) do następnej strony wyników na liście.|ciąg|
+|**Wartość**  <br>*Opcjonalne*|Tablica obiektów manifestu.|<[Manifest](#manifest)> tablicy|
 
 
 <a name="paginatedmodellist"></a>
@@ -837,8 +837,8 @@ Na listę modeli.
 
 |Name (Nazwa)|Opis|Schemat|
 |---|---|---|
-|**nextLink**  <br>*opcjonalne*|Łącze kontynuacji (bezwzględny identyfikator URI) do następnej strony wyników na liście.|ciąg|
-|**wartość**  <br>*opcjonalne*|Tablica obiektów modelu.|<[Model](#model)> tablicy|
+|**nextLink**  <br>*Opcjonalne*|Łącze kontynuacji (bezwzględny identyfikator URI) do następnej strony wyników na liście.|ciąg|
+|**Wartość**  <br>*Opcjonalne*|Tablica obiektów modelu.|<[Model](#model)> tablicy|
 
 
 <a name="paginatedservicelist"></a>
@@ -848,8 +848,8 @@ Na liście usług.
 
 |Name (Nazwa)|Opis|Schemat|
 |---|---|---|
-|**nextLink**  <br>*opcjonalne*|Łącze kontynuacji (bezwzględny identyfikator URI) do następnej strony wyników na liście.|ciąg|
-|**wartość**  <br>*opcjonalne*|Tablica obiektów usługi.|<[ServiceResponse](#serviceresponse)> tablicy|
+|**nextLink**  <br>*Opcjonalne*|Łącze kontynuacji (bezwzględny identyfikator URI) do następnej strony wyników na liście.|ciąg|
+|**Wartość**  <br>*Opcjonalne*|Tablica obiektów usługi.|<[ServiceResponse](#serviceresponse)> tablicy|
 
 
 <a name="servicecreaterequest"></a>
@@ -859,15 +859,15 @@ Na liście usług.
 
 |Name (Nazwa)|Opis|Schemat|
 |---|---|---|
-|**appInsightsEnabled**  <br>*opcjonalne*|Włącz usługę application insights dla usługi.|wartość logiczna|
-|**autoScaler**  <br>*opcjonalne*||[AutoScaler](#autoscaler)|
+|**appInsightsEnabled**  <br>*Opcjonalne*|Włącz usługę application insights dla usługi.|wartość logiczna|
+|**autoScaler**  <br>*Opcjonalne*||[AutoScaler](#autoscaler)|
 |**computeResource**  <br>*Wymagane*||[ComputeResource](#computeresource)|
-|**containerResourceReservation**  <br>*opcjonalne*||[ContainerResourceReservation](#containerresourcereservation)|
-|**Klasa dataCollection**  <br>*opcjonalne*||[ModelDataCollection](#modeldatacollection)|
+|**containerResourceReservation**  <br>*Opcjonalne*||[ContainerResourceReservation](#containerresourcereservation)|
+|**dataCollection**  <br>*Opcjonalne*||[ModelDataCollection](#modeldatacollection)|
 |**imageId**  <br>*Wymagane*|Obraz, aby utworzyć usługę.|ciąg|
-|**maxConcurrentRequestsPerContainer**  <br>*opcjonalne*|Maksymalna liczba równoczesnych żądań.  <br>**Minimalna wartość**:`1`|liczba całkowita|
+|**maxConcurrentRequestsPerContainer**  <br>*Opcjonalne*|Maksymalna liczba równoczesnych żądań.  <br>**Minimalna wartość**: `1`|integer|
 |**Nazwa**  <br>*Wymagane*|Nazwa usługi.|ciąg|
-|**numReplicas**  <br>*opcjonalne*|Liczba replik pod uruchomiony w dowolnym momencie. Nie można określić, czy Autoscaler jest włączone.  <br>**Minimalna wartość**:`0`|liczba całkowita|
+|**numReplicas**  <br>*Opcjonalne*|Liczba replik pod uruchomiony w dowolnym momencie. Nie można określić, czy Autoscaler jest włączone.  <br>**Minimalna wartość**: `0`|integer|
 
 
 <a name="serviceregeneratekeyrequest"></a>
@@ -877,7 +877,7 @@ Na liście usług.
 
 |Name (Nazwa)|Opis|Schemat|
 |---|---|---|
-|**Właściwość keyType**  <br>*opcjonalne*|Określa klucz, do którego można ponownie wygenerować.|wyliczenia (podstawowe, pomocniczy)|
+|**keyType**  <br>*Opcjonalne*|Określa klucz, do którego można ponownie wygenerować.|wyliczenia (podstawowe, pomocniczy)|
 
 
 <a name="serviceresponse"></a>
@@ -887,39 +887,39 @@ Szczegółowy stan usługi.
 
 |Name (Nazwa)|Opis|Schemat|
 |---|---|---|
-|**createdAt**  <br>*opcjonalne*|Tworzenie usługi godzina (UTC).|ciąg (daty i godziny)|
-|**Identyfikator**  <br>*opcjonalne*|Identyfikator usługi.|ciąg|
-|**Obraz**  <br>*opcjonalne*||[Obraz](#image)|
-|**Manifest**  <br>*opcjonalne*||[Manifest](#manifest)|
-|**modele**  <br>*opcjonalne*|Lista modeli.|<[Model](#model)> tablicy|
-|**Nazwa**  <br>*opcjonalne*|Nazwa usługi.|ciąg|
-|**scoringUri**  <br>*opcjonalne*|Identyfikator URI dla oceniania usługi.|ciąg|
-|**Stan**  <br>*opcjonalne*||[AsyncOperationState](#asyncoperationstate)|
-|**updatedAt**  <br>*opcjonalne*|Data ostatniej aktualizacji (UTC).|ciąg (daty i godziny)|
-|**appInsightsEnabled**  <br>*opcjonalne*|Włącz usługę application insights dla usługi.|wartość logiczna|
-|**autoScaler**  <br>*opcjonalne*||[AutoScaler](#autoscaler)|
+|**createdAt**  <br>*Opcjonalne*|Tworzenie usługi godzina (UTC).|ciąg (daty i godziny)|
+|**Identyfikator**  <br>*Opcjonalne*|Identyfikator usługi.|ciąg|
+|**image**  <br>*Opcjonalne*||[Obraz](#image)|
+|**manifest**  <br>*Opcjonalne*||[Manifest](#manifest)|
+|**Modele**  <br>*Opcjonalne*|Lista modeli.|<[Model](#model)> tablicy|
+|**Nazwa**  <br>*Opcjonalne*|Nazwa usługi.|ciąg|
+|**scoringUri**  <br>*Opcjonalne*|Identyfikator URI dla oceniania usługi.|ciąg|
+|**state**  <br>*Opcjonalne*||[AsyncOperationState](#asyncoperationstate)|
+|**updatedAt**  <br>*Opcjonalne*|Data ostatniej aktualizacji (UTC).|ciąg (daty i godziny)|
+|**appInsightsEnabled**  <br>*Opcjonalne*|Włącz usługę application insights dla usługi.|wartość logiczna|
+|**autoScaler**  <br>*Opcjonalne*||[AutoScaler](#autoscaler)|
 |**computeResource**  <br>*Wymagane*||[ComputeResource](#computeresource)|
-|**containerResourceReservation**  <br>*opcjonalne*||[ContainerResourceReservation](#containerresourcereservation)|
-|**Klasa dataCollection**  <br>*opcjonalne*||[ModelDataCollection](#modeldatacollection)|
-|**maxConcurrentRequestsPerContainer**  <br>*opcjonalne*|Maksymalna liczba równoczesnych żądań.  <br>**Minimalna wartość**:`1`|liczba całkowita|
-|**numReplicas**  <br>*opcjonalne*|Liczba replik pod uruchomiony w dowolnym momencie. Nie można określić, czy Autoscaler jest włączone.  <br>**Minimalna wartość**:`0`|liczba całkowita|
-|**Błąd**  <br>*opcjonalne*||[Errorresponse języka](#errorresponse)|
+|**containerResourceReservation**  <br>*Opcjonalne*||[ContainerResourceReservation](#containerresourcereservation)|
+|**dataCollection**  <br>*Opcjonalne*||[ModelDataCollection](#modeldatacollection)|
+|**maxConcurrentRequestsPerContainer**  <br>*Opcjonalne*|Maksymalna liczba równoczesnych żądań.  <br>**Minimalna wartość**: `1`|integer|
+|**numReplicas**  <br>*Opcjonalne*|Liczba replik pod uruchomiony w dowolnym momencie. Nie można określić, czy Autoscaler jest włączone.  <br>**Minimalna wartość**: `0`|integer|
+|**Błąd**  <br>*Opcjonalne*||[Errorresponse języka](#errorresponse)|
 
 
 <a name="serviceupdaterequest"></a>
-### <a name="serviceupdaterequest"></a>serviceUpdateRequest
+### <a name="serviceupdaterequest"></a>ServiceUpdateRequest
 Żądanie aktualizacji usługi.
 
 
 |Name (Nazwa)|Opis|Schemat|
 |---|---|---|
-|**appInsightsEnabled**  <br>*opcjonalne*|Włącz usługę application insights dla usługi.|wartość logiczna|
-|**autoScaler**  <br>*opcjonalne*||[AutoScaler](#autoscaler)|
-|**containerResourceReservation**  <br>*opcjonalne*||[ContainerResourceReservation](#containerresourcereservation)|
-|**Klasa dataCollection**  <br>*opcjonalne*||[ModelDataCollection](#modeldatacollection)|
-|**imageId**  <br>*opcjonalne*|Obraz, aby utworzyć usługę.|ciąg|
-|**maxConcurrentRequestsPerContainer**  <br>*opcjonalne*|Maksymalna liczba równoczesnych żądań.  <br>**Minimalna wartość**:`1`|liczba całkowita|
-|**numReplicas**  <br>*opcjonalne*|Liczba replik pod uruchomiony w dowolnym momencie. Nie można określić, czy Autoscaler jest włączone.  <br>**Minimalna wartość**:`0`|liczba całkowita|
+|**appInsightsEnabled**  <br>*Opcjonalne*|Włącz usługę application insights dla usługi.|wartość logiczna|
+|**autoScaler**  <br>*Opcjonalne*||[AutoScaler](#autoscaler)|
+|**containerResourceReservation**  <br>*Opcjonalne*||[ContainerResourceReservation](#containerresourcereservation)|
+|**dataCollection**  <br>*Opcjonalne*||[ModelDataCollection](#modeldatacollection)|
+|**imageId**  <br>*Opcjonalne*|Obraz, aby utworzyć usługę.|ciąg|
+|**maxConcurrentRequestsPerContainer**  <br>*Opcjonalne*|Maksymalna liczba równoczesnych żądań.  <br>**Minimalna wartość**: `1`|integer|
+|**numReplicas**  <br>*Opcjonalne*|Liczba replik pod uruchomiony w dowolnym momencie. Nie można określić, czy Autoscaler jest włączone.  <br>**Minimalna wartość**: `0`|integer|
 
 
 <a name="targetruntime"></a>

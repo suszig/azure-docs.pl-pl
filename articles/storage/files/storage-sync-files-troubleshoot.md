@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 506781ac83e75d558badbd3a8842533e314a8dfa
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 5558a69756075dd83f890d5e9e00c9944d841591
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Rozwiązywanie problemów z synchronizacji plików Azure (wersja zapoznawcza)
 Umożliwia synchronizacji plików Azure (wersja zapoznawcza) scentralizowanie udziałów plików w organizacji w plikach Azure, przy zachowaniu elastyczności, wydajności i zgodności serwera plików lokalnych. Synchronizacja programu Azure pliku przy użyciu systemu Windows Server do szybkiego pamięci podręcznej udziału plików na platformę Azure. Można użyć każdego protokołu, który jest dostępny w systemie Windows Server dostępu do danych lokalnie, w tym protokołu SMB, systemu plików NFS i FTPS. Może mieć dowolną liczbę pamięci podręcznych zgodnie z potrzebami na całym świecie.
@@ -29,6 +29,9 @@ W tym artykule zaprojektowano w celu ułatwienia rozwiązywania oraz usuwania pr
 2. [Forum usługi Azure Storage](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 3. [Azure pliki UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
 4. Pomoc techniczna firmy Microsoft. Aby utworzyć nowe żądanie pomocy technicznej, w portalu Azure na **pomocy** wybierz opcję **Pomoc i obsługa techniczna** przycisk, a następnie wybierz **nowy obsługuje żądania**.
+
+## <a name="storage-sync-service-object-management"></a>Magazyn usługi synchronizacji obiektu zarządzania
+Jeśli to zrobisz przeniesienie zasobów z jedną subskrypcję do innej subskrypcji zasobów synchronizacji (usługa synchronizacji magazynu) plików zostanie zablokowane przenoszony. 
 
 ## <a name="agent-installation-and-server-registration"></a>Agent instalacji i serwera rejestracji
 <a id="agent-installation-failures"></a>**Rozwiązywanie problemów z niepowodzeniem instalacji agenta**  

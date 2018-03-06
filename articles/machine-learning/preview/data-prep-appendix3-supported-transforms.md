@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: d91985849bd2483e8a28a01d63d253960190829d
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 9cd6e6cdf8d8dc2b1872d6f7b76821122fd427fa
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="use-data-transforms-for-data-preparation-in-azure-machine-learning"></a>Przekształcenia danych użycia w celu przygotowania danych w usłudze Azure Machine Learning
 
@@ -48,7 +48,7 @@ Można wybrać kolumny przed wywołaniem transformacji. Po otwarciu edytora prze
 Aby uzyskać bardziej szczegółowy opis **pochodnych kolumny przykładzie** przekształcenia wraz z większej liczby próbek, zobacz [pochodzi kolumny przez odwołanie przykład](data-prep-derive-column-by-example.md).  
 
 ## <a name="split-column-by-example"></a>Podział kolumny według przykładu
-Tej transformacji przyjmuje istniejącej kolumny i przy użyciu aparatu "Według przykładu", próbuje podziału kolumny w  *n*  innych kolumn. Podziel automatycznie można uruchamiać na kolejnych wygenerowanego kolumn.
+Tej transformacji przyjmuje istniejącej kolumny i przy użyciu aparatu "Według przykładu", próbuje podziału kolumny w *n* innych kolumn. Podziel automatycznie można uruchamiać na kolejnych wygenerowanego kolumn.
 
 Aby uzyskać bardziej szczegółowy opis **podzielona kolumna przykładzie** przekształcenia wraz z większej liczby próbek, zobacz [kolumny podzielone przez odwołanie przykład](data-prep-split-column-by-example.md).
 

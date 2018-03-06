@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: cynthn
-ms.openlocfilehash: d8f457569ef1e9dfe400266982596ab53ec4f10d
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 9aa316e59fb78373cc044f8e18f5d24ea9c5258f
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Często zadawane pytania dotyczące maszyn wirtualnych systemu Windows
 W tym artykule opisano często zadawane pytania dotyczące maszyn wirtualnych systemu Windows utworzonych na platformie Azure przy użyciu modelu wdrażania Menedżera zasobów. W tym temacie w wersji systemu Linux [— często zadawane pytania dotyczące maszyn wirtualnych systemu Linux](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -78,7 +78,7 @@ Tak, obecnie jest to możliwe. Maszyna wirtualna musi zostać zatrzymana dealloc
 Tak. Nazwa komputera może zawierać maksymalnie 15 znaków. Zobacz [nazewnictwa konwencje reguły i ograniczenia](/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) uzyskać więcej informacji dotyczących nazw zasobów.
 
 ## <a name="are-there-any-resource-group-name-requirements"></a>Czy istnieją dowolnego zasobu wymagania dotyczące nazw grupy?
-Tak. Nazwa grupy zasobów może zawierać maksymalnie 90 znaków długości. Zobacz [nazewnictwa konwencje reguły i ograniczenia](/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) Aby uzyskać więcej informacji na temat grup zasobów.
+Tak. Nazwa grupy zasobów może zawierać maksymalnie 90 znaków długości. Zobacz [nazewnictwa konwencje reguły i ograniczenia](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions) Aby uzyskać więcej informacji na temat grup zasobów.
 
 ## <a name="what-are-the-username-requirements-when-creating-a-vm"></a>Jakie są wymagania dotyczące nazwy użytkownika podczas tworzenia maszyny Wirtualnej?
 
@@ -88,27 +88,27 @@ Nazwy użytkowników nie może przekraczać 20 znaków długości i nie może ko
 Następujące nazwy użytkowników nie są dozwolone:
 <table>
     <tr>
-        <td style="text-align:center">Administrator </td><td style="text-align:center"> Administrator </td><td style="text-align:center"> Użytkownika </td><td style="text-align:center"> Użytkownik1</td>
+        <td style="text-align:center">administrator </td><td style="text-align:center"> administrator </td><td style="text-align:center"> użytkownik </td><td style="text-align:center"> Użytkownik1</td>
     </tr>
     <tr>
-        <td style="text-align:center">Test </td><td style="text-align:center"> UŻYTKOWNIK2 </td><td style="text-align:center"> Test1 </td><td style="text-align:center"> UŻYTKOWNIK3</td>
+        <td style="text-align:center">testowanie </td><td style="text-align:center"> UŻYTKOWNIK2 </td><td style="text-align:center"> test1 </td><td style="text-align:center"> UŻYTKOWNIK3</td>
     </tr>    <tr>
-        <td style="text-align:center">admin1 </td><td style="text-align:center"> 1 </td><td style="text-align:center"> 123 </td><td style="text-align:center"> A</td>
+        <td style="text-align:center">admin1 </td><td style="text-align:center"> 1 </td><td style="text-align:center"> 123 </td><td style="text-align:center"> a</td>
     </tr>
     <tr>
-        <td style="text-align:center">actuser  </td><td style="text-align:center"> usługi adm </td><td style="text-align:center"> admin2 </td><td style="text-align:center"> ASPNET</td>
+        <td style="text-align:center">actuser  </td><td style="text-align:center"> adm </td><td style="text-align:center"> admin2 </td><td style="text-align:center"> aspnet</td>
     </tr>
     <tr>
         <td style="text-align:center">kopia zapasowa </td><td style="text-align:center"> Konsoli </td><td style="text-align:center"> ADAM </td><td style="text-align:center"> Gość</td>
     </tr>
     <tr>
-        <td style="text-align:center">Jan </td><td style="text-align:center"> Właściciel </td><td style="text-align:center"> główny </td><td style="text-align:center"> serwer</td>
+        <td style="text-align:center">Jan </td><td style="text-align:center"> właściciel </td><td style="text-align:center"> główny </td><td style="text-align:center"> serwer</td>
     </tr>
     <tr>
-        <td style="text-align:center">SQL </td><td style="text-align:center"> Obsługa </td><td style="text-align:center"> support_388945a0 </td><td style="text-align:center"> sys</td>
+        <td style="text-align:center">sql </td><td style="text-align:center"> pomoc techniczna </td><td style="text-align:center"> support_388945a0 </td><td style="text-align:center"> sys</td>
     </tr>
     <tr>
-        <td style="text-align:center">Test2 </td><td style="text-align:center"> test3 </td><td style="text-align:center"> user4 </td><td style="text-align:center"> user5</td>
+        <td style="text-align:center">test2 </td><td style="text-align:center"> test3 </td><td style="text-align:center"> user4 </td><td style="text-align:center"> user5</td>
     </tr>
 </table>
 
@@ -128,7 +128,7 @@ Następujące hasła nie są dozwolone:
         <td>P@$$w0rd </td>
         <td>P@ssw0rd </td>
         <td>P@ssword123 </td>
-        <td>Pa$ $word </td>
+        <td>Pa$$word </td>
     </tr>
     <tr>
         <td>pass@word1 </td>

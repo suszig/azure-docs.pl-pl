@@ -5,17 +5,17 @@ services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 7ee5a720b12152c27a96ee18f1b11e5fc03a531a
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 3eaf42f8d0bdad274ec92f5790fe79878500a1b2
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="derive-column-by-example-transformation"></a>Pochodzi kolumny przez przykład przekształcania
 
@@ -115,9 +115,9 @@ Liczba przykłady, które były wymagane dla tego przypadku: 3
 |Drzewo LAUROWE ZAPI & APISZ OAKDALE;  HORSHAM; Stacja 352; 2015-12-10 @ 16:46:48;|Horsham|
 |COLLEGEVILLE usług pulpitu zdalnego i usług pulpitu zdalnego LYWISKI;  SKIPPACK; Stacja 336; 2015-12-10 @ 16:17:05;|Skippack|
 |MAIN ST & SZCZUPAK SUMNEYTOWN stary;  NIŻSZE SALFORD; Stacja 344; 2015-12-10 @ 16:51:42;|Niższe Salford|
-|BLUEROUTE & NB I476 NARASTANIA DO CHEMICZNYCH USŁUG PULPITU ZDALNEGO; PLYMOUTH; 2015-12-10 @ 17:35:41;|Plymouth|
-|RT202 PKWY & KNAPP USŁUG PULPITU ZDALNEGO; MONTGOMERY; 2015-12-10 @ 17:33:50;|Montgomery|
-|ŹRÓDLANY USŁUG PULPITU ZDALNEGO & COLWELL LN; PLYMOUTH; 2015-12-10 @ 16:32:10;|Plymouth|
+|BLUEROUTE &AMP; NB I476 NARASTANIA DO CHEMICZNYCH USŁUG PULPITU ZDALNEGO; PLYMOUTH; 2015-12-10 @ 17:35:41;|Plymouth|
+|RT202 PKWY &AMP; KNAPP USŁUG PULPITU ZDALNEGO; MONTGOMERY; 2015-12-10 @ 17:33:50;|Montgomery|
+|ŹRÓDLANY USŁUG PULPITU ZDALNEGO &AMP; COLWELL LN; PLYMOUTH; 2015-12-10 @ 16:32:10;|Plymouth|
 
 ### <a name="s3-date-format-manipulation-during-string-extraction"></a>S3. Format daty manipulacji podczas wyodrębniania ciągu
 
@@ -127,10 +127,10 @@ Liczba przykłady, które były wymagane dla tego przypadku: 1
 |:-----|:-----|
 |MONTGOMERY ZAPI & WOODSIDE usług pulpitu zdalnego;  NIŻSZE MERION; Stacja 313; 2015-12-11 @ 04:11:35;|**12 listopada 2015 4: 00**|
 |DREYCOTT LN z & APISZ LANCASTER W;  NIŻSZE MERION; Stacja 313; 2015-12-11 @ 01:29:52;|12 listopada 2015 1: 00|
-|E LEVERING MILL USŁUG PULPITU ZDALNEGO & CONSHOHOCKEN STANU USŁUG PULPITU ZDALNEGO; NIŻSZE MERION; 2015-12-11 @ 07:29:58;|12 listopada 2015 7: 00|
+|E LEVERING MILL USŁUG PULPITU ZDALNEGO &AMP; CONSHOHOCKEN STANU USŁUG PULPITU ZDALNEGO; NIŻSZE MERION; 2015-12-11 @ 07:29:58;|12 listopada 2015 7: 00|
 |PENN DOLINY usług pulpitu zdalnego i usług pulpitu zdalnego MANOR;  NIŻSZE MERION; Stacja 313; 2015-12-10 @ 20:53:30;|12 2015 Oct 20: 00|
-|BELMONT ZAPI & OVERHILL USŁUG PULPITU ZDALNEGO; NIŻSZE MERION; 2015-12-10 @ 23:02:27;|12 2015 Oct 23: 00|
-|W MONTGOMERY ZAPI & PENNSWOOD USŁUG PULPITU ZDALNEGO; NIŻSZE MERION; 2015-12-10 @ 19:25:22;|12 2015 Oct 19: 00|
+|BELMONT ZAPI &AMP; OVERHILL USŁUG PULPITU ZDALNEGO; NIŻSZE MERION; 2015-12-10 @ 23:02:27;|12 2015 Oct 23: 00|
+|W MONTGOMERY ZAPI &AMP; PENNSWOOD USŁUG PULPITU ZDALNEGO; NIŻSZE MERION; 2015-12-10 @ 19:25:22;|12 2015 Oct 19: 00|
 |ROSEMONT ZAPI & ZAKOŃCZONE NIEPOMYŚLNIE;  NIŻSZE MERION; Stacja 313; 2015-12-10 @ 18:43:07;|12 2015 Oct 18: 00|
 |AVIGNON DR & ZAKOŃCZONE NIEPOMYŚLNIE; NIŻSZE MERION; 2015-12-10 @ 20:01:29 — stacji: STA24;|12 2015 Oct 20: 00|
 
@@ -152,7 +152,7 @@ Liczba przykłady, które były wymagane dla tego przypadku: 1
 |Anne-Marie|W|Kowalski|Anne-Marie·W·Jones|
 |Rico||Ropp|Rico··Ropp|
 |Może Lauren||Fullmer|Lauren May·· Fullmer|
-|Wytłoków|W|Maine|Marc· T· Maine|
+|Wytłoków|tln|Maine|Marc· T· Maine|
 |Angie||Adelman|Angie··Adelman|
 |John-Paul||Smith|John-Paul··Smith|
 |Utworu|W|Staller|Song·W·Staller|
@@ -290,7 +290,7 @@ Liczba przykłady, które były wymagane dla tego przypadku: 1
 
 Te części daty zostały wyodrębnione przy użyciu różnych przez przykład przekształcenia na tym samym zestawie danych. Ciągi Bold reprezentuje przykłady, które zostały podane w ich odpowiednich transformacji.
 
-|Data/godzina|dzień tygodnia|Date|Miesiąc|Rok|Godzina|Minuta|Drugi|
+|DateTime|dzień tygodnia|Date|Miesiąc|Rok|Godzina|Minuta|Sekunda|
 |-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|
 |31-Jan-2031 05:54:18|**PT**|**31**|**Jan**|**2031**|**5**|**54**|**18**|
 |17-Jan-1990 13:32:01|Śr|17|Sty|1990|13|32|01|
@@ -307,7 +307,7 @@ Te części daty zostały wyodrębnione przy użyciu różnych przez przykład p
 |28-Nov-2006 14:19:15|Wt|28|Lis|2006|14|19|15|
 |29-Apr-2031 04:59:45|Wt|29|Kwi|2031|4|59|45|
 |29-Jan-2032 02:38:36|Cz|29|Sty|2032|2|38|36|
-|2028-11-maja 15:31:52|Cz|11|maj|2028|15|31|52|
+|2028-11-maja 15:31:52|Cz|11|Maj|2028|15|31|52|
 |15-lip-1977 12:45:39|Pt|15|Lip|1977|12|45|39|
 |27-Jan-2029 05:55:41|So|27|Sty|2029|5|55|41|
 |2024-03-marca 10:17:49|N|3|Mar|2024|10|17|49|
@@ -317,7 +317,7 @@ Te części daty zostały wyodrębnione przy użyciu różnych przez przykład p
 
 Te formattings Data zostały wykonane przy użyciu różnych przez przykład przekształcenia na tym samym zestawie danych. Ciągi Bold reprezentuje przykłady, które zostały podane w ich odpowiednich transformacji.
 
-|Data/godzina|Format1|Format2|Format3|Format4|Format5|
+|DateTime|Format1|Format2|Format3|Format4|Format5|
 |-----:|-----:|-----:|-----:|-----:|-----:|
 |31-Jan-2031 05:54:18|**1/31/2031**|**Piątek, 31 stycznia 2031**|**01312031 5:54**|**31/1/2031 5:54:00**|**Q1 2031**|
 |17-Jan-1990 13:32:01|1/17/1990|Środa, 17 stycznia 1990|01171990 13:32|17/1/1990 1:32 PM.|K1 1990|
@@ -345,7 +345,7 @@ Te formattings Data zostały wykonane przy użyciu różnych przez przykład prz
 
 Te wartości Datetimes okresu mapowań zostały wykonane przy użyciu różnych przez przykład przekształcenia na tym samym zestawie danych. Ciągi Bold reprezentuje przykłady, które zostały podane w ich odpowiednich transformacji.
 
-|Data/godzina|Period(seconds)|Period(minutes)|Okres (2 godziny)|Okres (30 minut)|
+|DateTime|Period(seconds)|Period(minutes)|Okres (2 godziny)|Okres (30 minut)|
 |-----:|-----:|-----:|-----:|-----:|
 |31-Jan-2031 05:54:18|**0-20**|**45-60**|**5AM-7AM**|**5:30-6:00**|
 |17-Jan-1990 13:32:01|**0-20**|30-45|13: 00 - 15: 00|13:30-14:00|

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/17/2017
+ms.date: 03/02/2018
 ms.author: sethm
-ms.openlocfilehash: aa9fc3b03e24d0b4d1a7ecd9a945b67d8d182492
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: aaedb8ed2be85017b17a2015ff2fcaaf76c20058
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="event-hubs-features-overview"></a>Omówienie funkcji usługi Event Hubs
 
@@ -36,7 +36,7 @@ Zdarzenie można opublikować za pośrednictwem protokołu AMQP 1.0 lub HTTPS. U
 
 Decyzja o korzystaniu z protokołu AMQP lub HTTPS jest specyficzna dla scenariusza użycia. Protokół AMQP wymaga ustanowienia trwałego gniazda dwukierunkowego oprócz protokołu TLS lub SSL/ TLS. Protokół AMQP zużywa więcej zasobów sieciowych przy inicjowaniu sesji, jednak protokół HTTPS wymaga dla każdego żądania dodatkowego narzutu na protokół SSL. Protokół AMQP charakteryzują się wyższą wydajnością dla częstych wydawców.
 
-![Usługa Event Hubs](./media/event-hubs-features/partition_keys.png)
+![Event Hubs](./media/event-hubs-features/partition_keys.png)
 
 Usługa Event Hubs zapewnia, że wszystkie zdarzenia współużytkujące wartość klucza partycji są poprawnie dostarczane na tę samą partycję. Jeśli klucze partycji są używane wraz z zasadami wydawcy, to tożsamość wydawcy i wartość klucza partycji muszą być zgodne. W przeciwnym razie wystąpi błąd.
 
@@ -52,7 +52,7 @@ Nie jest konieczne wcześniejsze tworzenie nazw wydawców, ale muszą one być z
 
 ## <a name="capture"></a>Przechwytywanie
 
-[Przechwyć centra zdarzeń](event-hubs-capture-overview.md) umożliwia automatycznie przechwytywania dane przesyłane strumieniowo w centra zdarzeń i zapisz go na wybranym koncie magazynu obiektów Blob lub konta usługi Azure Data Lake usługi. Można włączyć przechwytywania w portalu Azure, a następnie określ minimalny rozmiar i przedział czasu, aby wykonać przechwytywania. Przy użyciu przechwytywania centra zdarzeń, określ własne konta magazynu obiektów Blob Azure i kontener lub konta usługi Azure Data Lake usługi, które jest używane do przechowywania przechwyconych danych. Przechwycone dane są zapisywane w formacie Apache Avro.
+[Przechwyć centra zdarzeń](event-hubs-capture-overview.md) umożliwia automatycznie przechwytywania dane przesyłane strumieniowo w centra zdarzeń i zapisz go na wybranym koncie magazynu obiektów Blob lub konta usługi Azure Data Lake usługi. Można włączyć przechwytywania w portalu Azure, a następnie określ minimalny rozmiar i przedział czasu, aby wykonać przechwytywania. Przy użyciu przechwytywania centra zdarzeń, określ własne konta magazynu obiektów Blob Azure i kontener lub konta usługi Azure Data Lake usługi, z których jeden jest używany do przechowywania przechwyconych danych. Przechwycone dane są zapisywane w formacie Apache Avro.
 
 ## <a name="partitions"></a>Partycje
 
@@ -60,11 +60,11 @@ Usługa Event Hubs udostępnia funkcję transmisji strumieniowej komunikatów za
 
 Partycja to uporządkowana sekwencja zdarzeń przechowywana w centrum zdarzeń. Po nadejściu nowszych zdarzeń są one dodawane na końcu sekwencji. Partycję można traktować jako „dziennik zatwierdzania”.
 
-![Usługa Event Hubs](./media/event-hubs-features/partition.png)
+![Event Hubs](./media/event-hubs-features/partition.png)
 
 Centra zdarzeń przechowuje dane przez skonfigurowany czas przechowywania, która dotyczy wszystkich partycji w zdarzeniu Centrum. Zdarzenia wygasają czasowo — nie można ich jawnie usunąć. Ponieważ partycje są niezależne i zawierają własne sekwencje danych, często rosną z różną szybkością.
 
-![Usługa Event Hubs](./media/event-hubs-features/multiple_partitions.png)
+![Event Hubs](./media/event-hubs-features/multiple_partitions.png)
 
 Liczba partycji jest określana podczas tworzenia i musi należeć do zakresu od 2 do 32. Liczby partycji nie można zmieniać, dlatego ustawiając liczbę partycji, trzeba planować długoterminowo. Partycje stanowią mechanizm organizacji danych powiązany z równoległością podrzędną wymaganą w aplikacjach korzystających z tych danych. Liczba partycji w centrum zdarzeń jest bezpośrednio związana z oczekiwaną liczbą jednoczesnych czytników. Możesz zwiększyć liczbę partycji ponad 32, kontaktując się z zespołem ds. usługi Event Hubs.
 
@@ -103,13 +103,13 @@ Oto przykłady konwencji identyfikatora URI grupy odbiorców:
 
 Na poniższym rysunku przedstawiono architekturę przetwarzania strumienia usługi Event Hubs:
 
-![Usługa Event Hubs](./media/event-hubs-features/event_hubs_architecture.png)
+![Event Hubs](./media/event-hubs-features/event_hubs_architecture.png)
 
 ### <a name="stream-offsets"></a>Przesunięcia strumienia
 
 *Przesunięcie* to pozycja zdarzenia w partycji. Przesunięcie można traktować jako kursor po stronie klienta. Przesunięcie to numer bajtu zdarzenia. To przesunięcie umożliwi odbiorcy zdarzeń (czytnikowi) określenie punktu w strumieniu zdarzeń, od którego ma zostać rozpoczęte odczytywanie zdarzeń. Przesunięcie można określić jako sygnaturę czasową lub wartość przesunięcia. Odbiorcy są zobowiązani do przechowywania własnych wartości przesunięcia poza usługą Event Hubs. W ramach partycji każde zdarzenie zawiera przesunięcie.
 
-![Usługa Event Hubs](./media/event-hubs-features/partition_offset.png)
+![Event Hubs](./media/event-hubs-features/partition_offset.png)
 
 ### <a name="checkpointing"></a>Tworzenie punktów kontrolnych
 
@@ -159,7 +159,7 @@ Zaleca się, że Równoważenie jednostek przepływności i partycji w celu osi�
 
 Aby uzyskać szczegółowe informacje o cenach za korzystanie z usługi Event Hubs, zobacz [Usługa Event Hubs — cennik](https://azure.microsoft.com/pricing/details/event-hubs/).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby uzyskać więcej informacji na temat usługi Event Hubs, skorzystaj z następujących linków:
 
