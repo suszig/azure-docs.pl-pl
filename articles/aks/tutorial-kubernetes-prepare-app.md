@@ -1,78 +1,78 @@
 ---
-title: "Kubernetes na Azure samouczek — przygotowanie aplikacji"
-description: "Samouczek AKS — przygotowanie aplikacji"
+title: "Samouczek dotyczący usługi Kubernetes na platformie Azure — przygotowywanie aplikacji"
+description: "Samouczek dotyczący usługi AKS — przygotowywanie aplikacji"
 services: container-service
 author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 10/24/2017
+ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 60e0feb1e45ac5d9f35eac9667eaf9004d77e86a
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.openlocfilehash: 0c4a1459a49fb60578f9f38ea65cd1400b538382
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="prepare-application-for-azure-container-service-aks"></a>Przygotowanie aplikacji dla usługi kontenera platformy Azure (AKS)
+# <a name="prepare-application-for-azure-container-service-aks"></a>Przygotowywanie aplikacji dla usługi Azure Container Service (AKS)
 
-W tym samouczku części ośmiu aplikacji kontenera wielu jest gotowy do użycia w Kubernetes. Ukończono kroki obejmują:  
+Ten samouczek, część 1 z 8, obejmuje przygotowanie aplikacji z wieloma kontenerami do użycia w usłudze Kubernetes. Wykonano następujące czynności:  
 
 > [!div class="checklist"]
 > * Klonowanie źródła aplikacji z usługi GitHub  
 > * Tworzenie obrazu kontenera ze źródła aplikacji
-> * Testowanie aplikacji w środowisku lokalnym Docker
+> * Testowanie aplikacji w lokalnym środowisku usługi Docker
 
-Po wykonaniu następującej aplikacji jest dostępny w środowisku projektowania lokalnego.
+Po zakończeniu następująca aplikacja będzie dostępna w lokalnym środowisku programistycznym.
 
 ![Obraz przedstawiający klaster Kubernetes na platformie Azure](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
 
-W kolejnych samouczkach obrazu kontenera jest przekazywane do rejestru kontenera platformy Azure, a następnie uruchom AKS klastra.
+W kolejnych samouczkach obraz kontenera zostanie przekazany do usługi Azure Container Registry, a następnie uruchomiony w klastrze usługi AKS.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-Ten samouczek zakłada, że masz podstawową wiedzę na temat bazowych koncepcji usługi Docker, takich jak kontenery, obrazy kontenerów i podstawowe polecenia usługi Docker. Jeśli to konieczne, zobacz [Rozpoczynanie pracy z rozwiązaniem Docker] [ docker-get-started] dla Elementarz na podstawy kontenera. 
+Ten samouczek zakłada, że masz podstawową wiedzę na temat bazowych koncepcji usługi Docker, takich jak kontenery, obrazy kontenerów i podstawowe polecenia usługi Docker. W razie potrzeby zapoznaj się z tematem [Get started with Docker (Rozpoczynanie pracy z platformą Docker)][docker-get-started], aby uzyskać podstawowe informacje na temat kontenerów. 
 
-Do ukończenia tego samouczka konieczne będzie środowisko programowania Docker. Docker zawiera pakiety, które łatwo skonfigurować Docker na dowolnym [Mac][docker-for-mac], [Windows][docker-for-windows], lub [Linux] [ docker-for-linux] systemu.
+Do ukończenia tego samouczka konieczne będzie środowisko programowania Docker. Środowisko Docker zawiera pakiety, które umożliwiają łatwe konfigurowanie platformy Docker w systemie [Mac][docker-for-mac], [Windows][docker-for-windows] lub [Linux][docker-for-linux].
 
-Azure powłoki chmury nie zawiera składniki Docker wymagane do ukończenia każdego kroku w tym samouczku. Dlatego zaleca się używanie pełnego środowiska projektowania Docker.
+Usługa Azure Cloud Shell nie zawiera składników platformy Docker wymaganych do ukończenia każdego kroku w tym samouczku. Dlatego zalecamy używanie pełnego środowiska programistycznego usługi Docker.
 
 ## <a name="get-application-code"></a>Pobieranie kodu aplikacji
 
-Przykładowa aplikacja używana w tym samouczku jest podstawowa aplikacja głosu. Aplikacja składa się z składników frontonu sieci web oraz wystąpienia pamięci podręcznej Redis zaplecza. Części sieci web jest dostarczana w obraz niestandardowy kontenera. Wystąpienie pamięci podręcznej Redis używa niezmodyfikowanego obrazu z Centrum Docker.  
+W tym samouczku jest używana przykładowa prosta aplikacja do głosowania. Ta aplikacja składa się ze składnika internetowego frontonu oraz działającego na zapleczu wystąpienia usługi Redis. Składnik internetowy znajduje się w pakiecie niestandardowego obrazu kontenera. Wystąpienie usługi Redis używa niezmodyfikowanego obrazu z usługi Docker Hub.  
 
-Użyj git, aby pobrać kopię aplikacji w środowisku deweloperskim.
+Użyj narzędzia git, aby pobrać kopię tej aplikacji do swojego środowiska projektowego.
 
 ```console
 git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
 ```
 
-Zmień katalogi, dzięki czemu użytkownik pracuje z katalogu sklonowany.
+Zmień katalogi, aby pracować w sklonowanym katalogu.
 
 ```console
 cd azure-voting-app-redis
 ```
 
-W tym katalogu jest kodu źródłowego aplikacji, wstępnie utworzone rozwiązania Docker compose plików i Kubernetes pliku manifestu. Te pliki są używane w całym zestawie samouczka. 
+W tym katalogu znajduje się kod źródłowy aplikacji, wstępnie utworzony plik redagowania usługi Docker i plik manifestu usługi Kubernetes. Te pliki są używane w całym zestawie samouczków. 
 
-## <a name="create-container-images"></a>Tworzenie kontenera obrazów
+## <a name="create-container-images"></a>Tworzenie obrazów kontenerów
 
-[Rozwiązania docker Compose] [ docker-compose] może służyć do automatyzowania kompilacji poza kontener obrazów i wdrożenia usługi kontenera aplikacji.
+Program [Docker Compose][docker-compose] umożliwia automatyzowanie tworzenia obrazów poza kontenerem i wdrażanie aplikacji wielokontenerowych.
 
-Uruchom `docker-compose.yaml` plik, aby utworzyć obraz kontenera, pobranie obrazu do pamięci podręcznej Redis i uruchomić aplikację.
+Uruchom plik `docker-compose.yaml`, aby utworzyć obraz kontenera, pobrać obraz usługi Redis i uruchomić aplikację.
 
 ```console
 docker-compose up -d
 ```
 
-Po zakończeniu użyj [obrazy usługi docker] [ docker-images] polecenie, aby wyświetlić utworzony obrazów.
+Po zakończeniu użyj polecenia [docker images][docker-images] w celu wyświetlenia utworzonych obrazów.
 
 ```console
 docker images
 ```
 
-Zwróć uwagę, że zostały pobrane lub utworzone trzy obrazy. `azure-vote-front` Obraz zawiera aplikację i używa `nginx-flask` obrazu jako podstawy. `redis` Obrazu są używane do uruchamiania wystąpienia pamięci podręcznej Redis.
+Zwróć uwagę, że zostały pobrane lub utworzone trzy obrazy. Obraz `azure-vote-front` zawiera aplikację i używa obrazu `nginx-flask` jako podstawy. Obraz `redis` jest używany do uruchomienia wystąpienia usługi Redis.
 
 ```
 REPOSITORY                   TAG        IMAGE ID            CREATED             SIZE
@@ -81,7 +81,7 @@ redis                        latest     a1b99da73d05        7 days ago          
 tiangolo/uwsgi-nginx-flask   flask      788ca94b2313        9 months ago        694MB
 ```
 
-Uruchom [docker ps] [ docker-ps] polecenie, aby wyświetlić uruchomionych kontenerów.
+Uruchom polecenie [docker ps][docker-ps], aby wyświetlić uruchomione kontenery.
 
 ```console
 docker ps
@@ -95,43 +95,43 @@ CONTAINER ID        IMAGE             COMMAND                  CREATED          
 b68fed4b66b6        redis             "docker-entrypoint..."   57 seconds ago      Up 30 seconds       0.0.0.0:6379->6379/tcp          azure-vote-back
 ```
 
-## <a name="test-application-locally"></a>Testowanie aplikacji lokalnie
+## <a name="test-application-locally"></a>Testowanie aplikacji w środowisku lokalnym
 
-Przejdź do adresem http://localhost: 8080, aby zobaczyć działającej aplikacji.
+Przejdź do adresu http://localhost:8080, aby wyświetlić uruchomioną aplikację.
 
 ![Obraz przedstawiający klaster Kubernetes na platformie Azure](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Teraz, funkcjonalność aplikacji została zweryfikowana, uruchomionych kontenerów można zatrzymać i usunięte. Nie należy usuwać obrazy kontenera. `azure-vote-front` Obraz jest przekazywany do wystąpienia rejestru kontenera platformy Azure w następnym samouczku.
+Teraz, po zweryfikowaniu funkcjonalności aplikacji, uruchomione kontenery można zatrzymać i usunąć. Nie należy usuwać obrazów kontenera. Obraz `azure-vote-front` zostanie przekazany do wystąpienia usługi Azure Container Registry w następnym samouczku.
 
-Uruchom następujące polecenie, aby zatrzymać uruchomionych kontenerów.
+Uruchom następujące polecenie, aby zatrzymać uruchomione kontenery.
 
 ```console
 docker-compose stop
 ```
 
-Usuń zatrzymane kontenery i zasobów przy użyciu następującego polecenia.
+Usuń zatrzymane kontenery i zasoby przy użyciu następującego polecenia.
 
 ```console
 docker-compose down
 ```
 
-Po ukończeniu masz obraz kontenera, który zawiera aplikację Azure głos.
+Po zakończeniu będzie dostępny obraz kontenera zawierający aplikację Azure Vote.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przetestowano aplikacji i kontener obrazów utworzonych dla aplikacji. Wykonano następujące czynności:
+W tym samouczku przetestowano aplikację i obrazy kontenera utworzone dla aplikacji. Wykonano następujące czynności:
 
 > [!div class="checklist"]
 > * Klonowanie źródła aplikacji z usługi GitHub  
-> * Utworzony obraz kontenera ze źródła aplikacji
-> * Przetestowany aplikacji w lokalnym środowisku Docker
+> * Tworzenie obrazu kontenera ze źródła aplikacji
+> * Testowanie aplikacji w lokalnym środowisku usługi Docker
 
 Przejdź do kolejnego samouczka, aby dowiedzieć się więcej o przechowywaniu obrazów kontenera w usłudze Azure Container Registry.
 
 > [!div class="nextstepaction"]
-> [Wypychanie obrazów do rejestru kontenera platformy Azure][aks-tutorial-prepare-acr]
+> [Wypychanie obrazów do usługi Azure Container Registry][aks-tutorial-prepare-acr]
 
 <!-- LINKS - external -->
 [docker-compose]: https://docs.docker.com/compose/

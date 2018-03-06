@@ -1,27 +1,34 @@
 ---
-title: "Prognozowanie wydatków przy użyciu usługi Azure Cost Management | Microsoft Docs"
-description: "Możesz prognozować wydatki na podstawie historycznych danych o użyciu usług i wydatkach."
+title: "Samouczek — prognozowanie wydatków przy użyciu usługi Azure Cost Management | Microsoft Docs"
+description: "W tym samouczku przedstawiono sposób prognozowania wydatków za pomocą historycznych danych użycia i wydatków."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 02/27/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 03624efc419efe46aef472007b438442ce22eb9c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 35142cb40560db848c71da266bbaa1881f12e15d
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="forecast-future-spending"></a>Prognozowanie wydatków w przyszłości
+# <a name="tutorial-forecast-future-spending"></a>Samouczek: prognozowanie wydatków w przyszłości
 
 Usługa Azure Cost Management firmy Cloudyn umożliwia prognozowanie wydatków w przyszłości na podstawie historycznych danych o użyciu usług i wydatkach. Raporty usługi Cloudyn zawierają wszystkie dane dotyczące przewidywanych kosztów. Korzystając z przykładów w tym samouczku, zapoznasz się z przewidywanymi kosztami przy użyciu tych raportów. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Prognozowanie wydatków w przyszłości
+
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+- Musisz mieć konto platformy Azure.
+- Musisz mieć rejestrację próbną lub płatną subskrypcję usługi Azure Cost Management.
 
 ## <a name="forecast-future-spending"></a>Prognozowanie wydatków w przyszłości
 

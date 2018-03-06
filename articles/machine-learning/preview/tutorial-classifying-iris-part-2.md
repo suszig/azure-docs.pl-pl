@@ -1,23 +1,23 @@
 ---
-title: "Budowanie modelu na potrzeby usługi Azure Machine Learning (wersja zapoznawcza) | Microsoft Docs"
+title: "Samouczek budowania modelu na potrzeby usługi Azure Machine Learning (wersja zapoznawcza) | Microsoft Docs"
 description: "W całej serii tego samouczka kompleksowo przedstawiono sposób korzystania z usługi Azure Machine Learning (wersja zapoznawcza). To jest część druga, w której omówiono eksperymenty."
 services: machine-learning
 author: hning86
-ms.author: haining
+ms.author: haining, j-martens
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/06/2017
-ms.openlocfilehash: 3337ba9fa6845deb98813259821f77ff713f9eb1
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.date: 02/28/2018
+ms.openlocfilehash: f52d4268c3983b419a6393bbd651301022688029
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="classify-iris-part-2-build-a-model"></a>Klasyfikowanie irysów, część 2: budowanie modelu
+# <a name="tutorial-classify-iris-part-2---build-a-model"></a>Samouczek: klasyfikowanie irysów, część 2 — budowanie modelu
 Usługa Azure Machine Learning (wersja zapoznawcza) stanowi zintegrowane, kompleksowe rozwiązanie do nauki o danych i do analiz zaawansowanych przeznaczone dla profesjonalnych analityków, którzy będą z niego korzystać w celu przygotowywania danych, opracowywania eksperymentów i wdrażania modeli na skalę chmury.
 
 Niniejszy samouczek jest drugą częścią trzyczęściowej serii. W tej części samouczka użyjesz usługi Azure Machine Learning (wersja zapoznawcza), aby:
@@ -33,6 +33,8 @@ Niniejszy samouczek jest drugą częścią trzyczęściowej serii. W tej częśc
 > * wykonywać skrypty w środowisku usługi Azure HDInsight w chmurze.
 
 W tym samouczku wykorzystywany jest ponadczasowy [zbiór danych na temat irysów](https://en.wikipedia.org/wiki/Iris_flower_data_set). Zrzuty ekranu dotyczą systemu Windows, ale działanie na komputerach z systemem operacyjnym Mac OS jest niemal identyczne.
+
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Ukończ pierwszą część z tej serii samouczka. Przed rozpoczęciem niniejszego samouczka najpierw prześledź [samouczek dotyczący przygotowywania danych](tutorial-classifying-iris-part-1.md), aby utworzyć zasoby usługi Azure Machine Learning i zainstalować aplikację Azure Machine Learning Workbench.
@@ -374,6 +376,10 @@ Ten skrypt można również uruchomić w klastrze usługi HDInsight Spark. Dowie
    >W przypadku wykonywania względem zdalnego klastra usługi HDInsight możesz również wyświetlić szczegóły wykonania zadania YARN (Yet Another Resource Negotiator) pod adresem `https://<cluster_name>.azurehdinsight.net/yarnui`, korzystając z konta użytkownika `admin`.
 
 
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+
+[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
+
 ## <a name="next-steps"></a>Następne kroki
 Po zapoznaniu się z drugą częścią trzyczęściowej serii samouczka wiesz już, jak używać usługi Azure Machine Learning, aby:
 > [!div class="checklist"]
@@ -389,4 +395,4 @@ Po zapoznaniu się z drugą częścią trzyczęściowej serii samouczka wiesz ju
 Możesz teraz przejść do trzeciej części tej serii. Utworzyliśmy model regresji logistycznej, a teraz wdrożymy go jako usługę internetową czasu rzeczywistego.
 
 > [!div class="nextstepaction"]
-> [Wdrażanie modelu](tutorial-classifying-iris-part-3.md)
+> [Samouczek 3 — klasyfikowanie irysów: wdrażanie modeli](tutorial-classifying-iris-part-3.md)

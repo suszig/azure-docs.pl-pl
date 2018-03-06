@@ -1,6 +1,6 @@
 ---
 title: "Skalowanie klastra usługi Azure Service Fabric | Microsoft Docs"
-description: "Dowiedz się, jak szybko przeskalować klaster usługi Service Fabric."
+description: "Z tego samouczka dowiesz się, jak szybko skalować klaster usługi Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: Thraka
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 02/06/2018
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: bbbb31687ab0980d62b35d627c4b1708b7ae8288
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 21ef6d1981464d5943338c20fb06a218fc0e447d
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="scale-a-service-fabric-cluster"></a>Skalowanie klastra usługi Service Fabric
+# <a name="tutorial-scale-a-service-fabric-cluster"></a>Samouczek: skalowanie klastra usługi Service Fabric
 
 Niniejszy samouczek jest drugą częścią serii. Przedstawiono w nim skalowanie istniejącego klastra w poziomie i w pionie. Ukończenie tego samouczka pozwoli Ci uzyskać wiedzę na temat skalowania klastra i czyszczenia pozostałych zasobów.
 

@@ -5,15 +5,15 @@ services: automation
 keywords: "zmiana, śledzenie, automatyzacja"
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 12/14/2017
+ms.date: 02/28/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 0aefa175d676bd7e98841d3a1e9ff5a8c90b7deb
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
-ms.translationtype: MT
+ms.openlocfilehash: f0af493036740b854609cea07e01136aac808579
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Rozwiązywanie problemów ze zmianami we własnym środowisku
 
@@ -47,37 +47,19 @@ Zaloguj się w witrynie Azure Portal pod adresem http://portal.azure.com.
 Najpierw musisz włączyć śledzenie zmian i spisu dla maszyny wirtualnej w tym samouczku. Jeśli inne rozwiązanie automatyzacji zostało wcześniej włączone dla maszyny wirtualnej, ten krok nie jest konieczny.
 
 1. W menu po lewej stronie wybierz pozycję **Maszyny wirtualne** i wybierz z listy maszynę wirtualną
-1. W menu po lewej stronie w obszarze **Operacje** kliknij pozycję **Spis**. Zostanie otwarta strona **Włączanie śledzenia zmian i spisu**.
+1. W menu po lewej stronie w sekcji **OPERACJE** kliknij pozycję **Spis**. Zostanie otwarta strona **Śledzenie zmian**.
 
-Jest przeprowadzana walidacja w celu ustalenia, czy śledzenie zmian i spis są włączone dla tej maszyny wirtualnej.
-Walidacja obejmuje kontrole obszaru roboczego usługi Log Analytics i powiązanego konta usługi Automation i tego, czy rozwiązanie znajduje się w obszarze roboczym.
+![Włączanie zmian](./media/automation-tutorial-troubleshoot-changes/enableinventory.png) Zostanie otwarty ekran **Śledzenie zmian**. Skonfiguruj lokalizację, obszar roboczy usługi Log Analytics i konto usługi Automation, a następnie kliknij pozycję **Włącz**. Jeśli pola są wygaszone, oznacza to, że inne rozwiązanie automatyzacji jest włączone dla maszyny wirtualnej, a tym samym należy użyć tego samego obszaru roboczego i konta automatyzacji.
 
 Obszar roboczy usługi [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) służy do zbierania danych generowanych przez funkcje i usługi, takie jak spis.
 Obszar roboczy zawiera pojedynczą lokalizację do przeglądania i analizowania danych z wielu źródeł.
 
-Proces walidacji sprawdza również, czy maszyna wirtualna jest aprowizowana za pomocą programu Microsoft Monitoring Agent (MMA) i hybrydowego procesu roboczego.
+Podczas dołączania maszyna wirtualna jest aprowizowana za pomocą programu Microsoft Monitoring Agent (MMA) i hybrydowego procesu roboczego.
 Ten agent jest używany do komunikacji z maszyną wirtualną i uzyskiwania informacji dotyczących zainstalowanego oprogramowania.
-Proces walidacji sprawdza również, czy maszyna wirtualna jest aprowizowana za pomocą programu Microsoft Monitoring Agent (MMA) i hybrydowego procesu roboczego elementu Runbook usługi Automation.
-
-Jeśli te wymagania wstępne nie są spełnione, zostanie wyświetlony transparent zawierający opcję włączenia rozwiązania.
-
-![Transparent konfiguracji dołączony do śledzenia zmian i spisu](./media/automation-tutorial-troubleshoot-changes/enableinventory.png)
-
-Kliknij transparent, aby włączyć rozwiązanie.
-Jeśli którekolwiek z następujących wymagań wstępnych nie będzie występować po walidacji, zostanie ono automatycznie dodane:
-
-* Obszar roboczy usługi [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json)
-* [Automatyzacja](./automation-offering-get-started.md)
-* [Hybrydowy proces roboczy elementu Runbook](./automation-hybrid-runbook-worker.md) jest włączony na maszynie wirtualnej
-
-Został otwarty ekran **Śledzenie zmian i spis**. Skonfiguruj lokalizację, obszar roboczy usługi Log Analytics i konto usługi Automation, a następnie kliknij pozycję **Włącz**. Jeśli pola są wygaszone, oznacza to, że inne rozwiązanie automatyzacji jest włączone dla maszyny wirtualnej, a tym samym należy użyć tego samego obszaru roboczego i konta automatyzacji.
-
-![Okno włączania rozwiązania do śledzenia zmian](./media/automation-tutorial-troubleshoot-changes/installed-software-enable.png)
 
 Włączanie rozwiązania może potrwać do 15 minut. W tym czasie nie należy zamykać okna przeglądarki.
 Po włączeniu rozwiązania informacje dotyczące zainstalowanego oprogramowania i zmian w maszynie wirtualnej są przekazywane do usługi Log Analytics.
 Udostępnienie danych do analizy może potrwać od 30 minut do 6 godzin.
-
 
 ## <a name="using-change-tracking-in-log-analytics"></a>Używanie śledzenia zmian w usłudze Log Analytics
 
@@ -107,40 +89,47 @@ W oknie **Konfiguracja obszaru roboczego** dodaj klucze rejestru systemu Windows
 1. Na karcie **Rejestr systemu Windows** wybierz opcję **Dodaj**.
     Zostanie otwarte okno **Dodawanie rejestru systemu Windows dla śledzenia zmian**.
 
-   ![Śledzenie zmian dodawania do rejestru](./media/automation-vm-change-tracking/change-add-registry.png)
+3. Na stronie **Dodawanie rejestru systemu Windows do śledzenia zmian** wprowadź informacje o kluczu, który ma być śledzony, i kliknij przycisk **Zapisz**
 
-2. W obszarze **Włączone** wybierz pozycję **Prawda**.
-3. W polu **Nazwa elementu** wprowadź przyjazną nazwę.
-4. (Opcjonalnie) W polu **Grupa** wprowadź nazwę grupy.
-5. W polu **Klucz rejestru systemu Windows** wpisz nazwę klucza rejestru, który ma być śledzony.
-6. Wybierz pozycję **Zapisz**.
+|Właściwość  |Opis  |
+|---------|---------|
+|Enabled (Włączony)     | Określa, czy ustawienie jest stosowane        |
+|Nazwa elementu     | Przyjazna nazwa pliku, który ma być śledzony        |
+|Grupa     | Nazwa grupy do logicznego grupowania plików        |
+|Klucz rejestru systemu Windows   | Ścieżka do sprawdzania pliku, na przykład: „HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup”      |
 
 ### <a name="add-a-windows-file"></a>Dodawanie pliku systemu Windows
 
 1. Na karcie **Pliki systemu Windows** wybierz opcję **Dodaj**. Zostanie otwarte okno **Dodawanie pliku systemu Windows dla śledzenia zmian**.
 
-   ![Śledzenie zmian dodawania pliku systemu Windows](./media/automation-vm-change-tracking/change-add-win-file.png)
+1. Na stronie **Dodawanie pliku systemu Windows do śledzenia zmian** wprowadź informacje o pliku lub katalogu, który ma być śledzony, i kliknij przycisk **Zapisz**
 
-2. W obszarze **Włączone** wybierz pozycję **Prawda**.
-3. W polu **Nazwa elementu** wprowadź przyjazną nazwę.
-4. (Opcjonalnie) W polu **Grupa** wprowadź nazwę grupy.
-5. W polu **Wprowadź ścieżkę** wprowadź pełną ścieżkę i nazwę pliku, który ma być śledzony.
-6. Wybierz pozycję **Zapisz**.
+|Właściwość  |Opis  |
+|---------|---------|
+|Enabled (Włączony)     | Określa, czy ustawienie jest stosowane        |
+|Nazwa elementu     | Przyjazna nazwa pliku, który ma być śledzony        |
+|Grupa     | Nazwa grupy do logicznego grupowania plików        |
+|Wprowadzanie ścieżki     | Ścieżka do sprawdzania pliku, na przykład: „c:\temp\mojplik.txt”       |
 
 ### <a name="add-a-linux-file"></a>Dodawanie pliku systemu Linux
 
 1. Na karcie **Pliki systemu Linux** wybierz opcję **Dodaj**. Zostanie otwarte okno **Dodawanie pliku systemu Linux dla śledzenia zmian**.
 
-   ![Śledzenie zmian dodawania pliku systemu Linux](./media/automation-vm-change-tracking/change-add-linux-file.png)
+1. Na stronie **Dodawanie pliku systemu Linux do śledzenia zmian** wprowadź informacje o pliku lub katalogu, który ma być śledzony, i kliknij przycisk **Zapisz**.
 
-2. W obszarze **Włączone** wybierz pozycję **Prawda**.
-3. W polu **Nazwa elementu** wprowadź przyjazną nazwę.
-4. (Opcjonalnie) W polu **Grupa** wprowadź nazwę grupy.
-5. W polu **Wprowadź ścieżkę** wprowadź pełną ścieżkę i nazwę pliku, który ma być śledzony.
-6. W polu **Typ ścieżki** wybierz pozycję **Plik** albo **Katalog**.
-7. W obszarze **Rekursja**, aby śledzić zmiany na określonej ścieżce oraz wszystkich plikach i ścieżkach poniżej niej, wybierz pozycję **Wł**. Aby śledzić tylko wybraną ścieżkę lub plik, wybierz pozycję **Wył**.
-8. W obszarze **Użyj Sudo**, aby śledzić pliki, które wymagają wydania polecenia `sudo` do uzyskania dostępu, wybierz polecenie **Wł**. W przeciwnym razie wybierz **Wył**.
-9. Wybierz pozycję **Zapisz**.
+|Właściwość  |Opis  |
+|---------|---------|
+|Enabled (Włączony)     | Określa, czy ustawienie jest stosowane        |
+|Nazwa elementu     | Przyjazna nazwa pliku, który ma być śledzony        |
+|Grupa     | Nazwa grupy do logicznego grupowania plików        |
+|Wprowadzanie ścieżki     | Ścieżka do sprawdzania pliku, na przykład: „/etc/*.conf”       |
+|Typ ścieżki     | Typ elementu, który ma być monitorowany; możliwe wartości to Plik i Katalog        |
+|Rekursja     | Określa, czy podczas wyszukiwania elementu, który ma być śledzony, ma być używana rekursja.        |
+|Użyj polecenia Sudo     | To ustawienie określa, czy podczas sprawdzania elementu jest używane polecenie sudo.         |
+|Linki     | To ustawienie określa, w jaki sposób są obsługiwane linki symboliczne podczas przechodzenia między katalogami.<br> **Ignoruj** — ignoruje linki symboliczne i nie uwzględnia plików/katalogów, do których się odwołują<br>**Śledź** — śledzi linki symboliczne podczas rekursji i uwzględnia również pliki/katalogi, do których się odwołują<br>**Zarządzaj** — śledzi linki symboliczne i umożliwia obsługę zwracanej zawartości      |
+
+   > [!NOTE]   
+   > Opcja linków „Zarządzaj” nie jest zalecana. Pobieranie zawartości plików nie jest obsługiwane.
 
 ## <a name="enable-activity-log-connection"></a>Włączanie połączenia dziennika aktywności
 
@@ -158,7 +147,7 @@ Po włączeniu rozwiązania śledzenia zmian i spisu możesz wyświetlić wyniki
 
 W ramach maszyny wirtualnej zaznacz pozycję **Śledzenie zmian** w obszarze **OPERACJE**.
 
-![Zrzut ekranu pokazujący listy zmian do maszyny Wirtualnej](./media/automation-tutorial-troubleshoot-changes/change-tracking-list.png)
+![Zrzut ekranu przedstawiający listę zmian dotyczących maszyny wirtualnej](./media/automation-tutorial-troubleshoot-changes/change-tracking-list.png)
 
 Wykres pokazuje zmiany, które wystąpiły w czasie.
 Po dodaniu połączenia dziennika aktywności wykres liniowy u góry wyświetla zdarzenia dziennika aktywności platformy Azure.
@@ -188,4 +177,4 @@ W tym samouczku zawarto informacje na temat wykonywania następujących czynnoś
 Przejdź do omówienia rozwiązania śledzenia zmian i spisu, aby uzyskać więcej informacji.
 
 > [!div class="nextstepaction"]
-> [Change management and Inventory solution](../log-analytics/log-analytics-change-tracking.md?toc=%2fazure%2fautomation%2ftoc.json) (Rozwiązanie zarządzania zmianami i spisem)
+> [Change management and Inventory solution](automation-change-tracking.md) (Rozwiązanie zarządzania zmianami i spisem)

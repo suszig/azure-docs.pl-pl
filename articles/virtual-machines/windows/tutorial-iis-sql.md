@@ -1,59 +1,66 @@
 ---
-title: "Tworzenie maszyn wirtualnych pracujących SQL &#92; IIS &#92;. Stos sieci na platformie Azure | Dokumentacja firmy Microsoft"
-description: "Samouczek - install Azure SQL, usługi IIS, platformy .NET stosu na maszynach wirtualnych systemu Windows."
+title: "Tworzenie maszyn wirtualnych uruchamiających stos SQL&#92;IIS&#92;.NET na platformie Azure| Microsoft Docs"
+description: "Samouczek — Instalowanie stosu SQL, IIS i .NET platformy Azure na maszynach wirtualnych z systemem Windows."
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 10/24/2017
+ms.date: 02/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6533ab205e07243e2f757ea0a66028e1d140c52b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: MT
+ms.openlocfilehash: ad84d6e8f74fa184ac2359ff7f08e6c8143d419a
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="install-a-sql92iis92net-stack-in-azure"></a>Instalacja programu SQL &#92; IIS &#92;. Stos sieci na platformie Azure
+# <a name="install-a-sql92iis92net-stack-in-azure"></a>Instalacja stosu SQL&#92;IIS&#92;.NET na platformie Azure
 
-W tym samouczku instalujemy program SQL &#92; IIS &#92;. Stos sieci przy użyciu programu Azure PowerShell. Ten stos składa się z dwóch maszyn wirtualnych z systemem Windows Server 2016 z usług IIS i platformy .NET, a druga z programem SQL Server.
+W tym samouczku instalujemy stos SQL&#92;IIS&#92;.NET przy użyciu programu Azure PowerShell. Ten stos składa się z dwóch maszyn wirtualnych z systemem Windows Server 2016 — jednej z usługami IIS i platformą .NET oraz drugiej z programem SQL Server.
 
 > [!div class="checklist"]
-> * Utwórz maszynę Wirtualną przy użyciu nowego AzVM
-> * Zainstaluj usługi IIS i platformy .NET Core SDK w maszynie Wirtualnej
-> * Tworzenie maszyny Wirtualnej z uruchomionym programem SQL Server
-> * Zainstaluj rozszerzenie programu SQL Server
+> * Tworzenie maszyny wirtualnej 
+> * Instalacja usługi IIS i zestawu .NET Core SDK na maszynie wirtualnej
+> * Tworzenie maszyny wirtualnej z programem SQL Server
+> * Instalacja rozszerzenia programu SQL Server
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Jeśli postanowisz zainstalować program PowerShell i używać go lokalnie, ten samouczek wymaga modułu Azure PowerShell w wersji 5.1.1 lub nowszej. Uruchom polecenie ` Get-Module -ListAvailable AzureRM`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-azurerm-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie `Login-AzureRmAccount`, aby utworzyć połączenie z platformą Azure.
+Ten samouczek wymaga modułu AzureRM.Compute w wersji 4.3.1 lub nowszej. Uruchom polecenie `Get-Module -ListAvailable AzureRM.Compute`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
-## <a name="create-a-iis-vm"></a>Tworzenie maszyny Wirtualnej usług IIS 
+## <a name="create-a-iis-vm"></a>Tworzenie maszyny wirtualnej usług IIS 
 
-W tym przykładzie używamy [AzVM nowy](https://www.powershellgallery.com/packages/AzureRM.Compute.Experiments) polecenia cmdlet w powłoce PowerShell chmury szybko utworzyć Maszynę wirtualną systemu Windows Server 2016, a następnie zainstalować usługi IIS i .NET Framework. Usług IIS i maszyn wirtualnych SQL udostępnianie grupy zasobów i sieci wirtualnej, dlatego utworzymy zmienne dla nazwy.
+W tym przykładzie polecenie cmdlet [New-AzureRMVM](/powershell/module/azurerm.compute/new-azurermvm) w programie PowerShell w usłudze Cloud Shell jest używane w celu szybkiego utworzenia maszyny wirtualnej systemu Windows Server 2016, a następnie zainstalowania usług IIS i platformy .NET Framework. Maszyny wirtualne usług IIS i programu SQL współużytkują grupę zasobów i sieć wirtualną, dlatego tworzone są zmienne dla tych nazw.
 
-Polecenie **spróbuj on** przycisk, aby prawym górnym rogu bloku kodu do uruchomienia powłoki w chmurze w tym oknie. Użytkownik jest proszony o podanie poświadczeń dla maszyny wirtualnej w wierszu polecenia.
 
 ```azurepowershell-interactive
-$vmName = "IISVM$(Get-Random)"
+$vmName = "IISVM"
 $vNetName = "myIISSQLvNet"
 $resourceGroup = "myIISSQLGroup"
-New-AzureRMVm -Name $vmName -ResourceGroupName $resourceGroup -VirtualNetworkName $vNetName 
+New-AzureRmVm `
+    -ResourceGroupName $resourceGroup `
+    -Name $vmName `
+    -Location "East US" `
+    -VirtualNetworkName $vNetName `
+    -SubnetName "myIISSubnet" `
+    -SecurityGroupName "myNetworkSecurityGroup" `
+    -AddressPrefix 192.168.0.0/16 `
+    -PublicIpAddressName "myIISPublicIpAddress" `
+    -OpenPorts 80,3389 
 ```
 
-Zainstaluj usługi IIS i .NET framework za pomocą niestandardowego rozszerzenia skryptu.
+Zainstaluj usługi IIS i platformę .NET przy użyciu niestandardowego rozszerzenia skryptu.
 
 ```azurepowershell-interactive
-
-Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
+Set-AzureRmVMExtension `
+    -ResourceGroupName $resourceGroup `
     -ExtensionName IIS `
     -VMName $vmName `
     -Publisher Microsoft.Compute `
@@ -63,67 +70,73 @@ Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
     -Location EastUS
 ```
 
-## <a name="azure-sql-vm"></a>Maszyna wirtualna platformy Azure SQL
+## <a name="create-another-subnet"></a>Tworzenie innej podsieci
 
-Używamy obrazu wstępnie skonfigurowane witrynę Azure marketplace, programu SQL server do utworzenia maszyny Wirtualnej SQL. Najpierw utworzymy maszyny Wirtualnej, a następnie Trwa instalowanie rozszerzenia serwera SQL na maszynie Wirtualnej. 
+Utwórz drugą podsieć dla maszyny wirtualnej programu SQL. Pobierz moduł vNet polecenia [Get-AzureRmVirtualNetwork]{/powershell/module/azurerm.network/get-azurermvirtualnetwork}.
+
+```azurepowershell-interactive
+$vNet = Get-AzureRmVirtualNetwork `
+   -Name $vNetName `
+   -ResourceGroupName $resourceGroup
+```
+
+Utwórz konfigurację podsieci przy użyciu polecenia [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig).
 
 
 ```azurepowershell-interactive
-# Create user object. You get a pop-up prompting you to enter the credentials for the VM.
-$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
-
-# Create a subnet configuration
-$vNet = Get-AzureRmVirtualNetwork -Name $vNetName -ResourceGroupName $resourceGroup
-Add-AzureRmVirtualNetworkSubnetConfig -Name mySQLSubnet -VirtualNetwork $vNet -AddressPrefix "192.168.2.0/24"
-Set-AzureRmVirtualNetwork -VirtualNetwork $vNet
-
-
-# Create a public IP address and specify a DNS name
-$pip = New-AzureRmPublicIpAddress -ResourceGroupName $resourceGroup -Location eastus `
-  -Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
-
-# Create an inbound network security group rule for port 3389
-$nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
-  -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
-  -DestinationPortRange 3389 -Access Allow
-
-
-# Create a network security group
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location eastus `
-  -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP
-
-# Create a virtual network card and associate with public IP address and NSG
-$nic = New-AzureRmNetworkInterface -Name mySQLNic -ResourceGroupName $resourceGroup -Location eastus `
-  -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
-
-# Create a virtual machine configuration
-$vmConfig = New-AzureRmVMConfig -VMName mySQLVM -VMSize Standard_D1 | `
-Set-AzureRmVMOperatingSystem -Windows -ComputerName mySQLVM -Credential $cred | `
-Set-AzureRmVMSourceImage -PublisherName MicrosoftSQLServer -Offer SQL2014SP2-WS2012R2 -Skus Enterprise -Version latest | `
-Add-AzureRmVMNetworkInterface -Id $nic.Id
-
-# Create the VM
-New-AzureRmVM -ResourceGroupName $resourceGroup -Location eastus -VM $vmConfig
+Add-AzureRmVirtualNetworkSubnetConfig `
+   -AddressPrefix 192.168.0.0/24 `
+   -Name mySQLSubnet `
+   -VirtualNetwork $vNet `
+   -ServiceEndpoint Microsoft.Sql
 ```
 
-Użyj [AzureRmVMSqlServerExtension zestaw](/powershell/module/azurerm.compute/set-azurermvmsqlserverextension) można dodać [rozszerzenia SQL Server](/sql/virtual-machines-windows-sql-server-agent-extension.md) do maszyny Wirtualnej SQL.
+Zaktualizuj moduł vNet przy użyciu informacji o nowej podsieci za pomocą polecenia [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork)
+   
+```azurepowershell-interactive   
+$vNet | Set-AzureRmVirtualNetwork
+```
+
+## <a name="azure-sql-vm"></a>Maszyna wirtualna Azure SQL
+
+Użyj wstępnie skonfigurowanego obrazu serwera SQL z platformy handlowej Azure, aby utworzyć maszynę wirtualną programu SQL. Należy najpierw utworzyć maszynę wirtualną, a następnie zainstalować rozszerzenie programu SQL Server na maszynie wirtualnej. 
+
 
 ```azurepowershell-interactive
-Set-AzureRmVMSqlServerExtension -ResourceGroupName $resourceGroup -VMName mySQLVM -name "SQLExtension"
+New-AzureRmVm `
+    -ResourceGroupName $resourceGroup `
+    -Name "mySQLVM" `
+    -ImageName "MicrosoftSQLServer:SQL2016SP1-WS2016:Enterprise:latest" `
+    -Location eastus `
+    -VirtualNetworkName $vNetName `
+    -SubnetName "mySQLSubnet" `
+    -SecurityGroupName "myNetworkSecurityGroup" `
+    -PublicIpAddressName "mySQLPublicIpAddress" `
+    -OpenPorts 3389,1401 
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+Użyj polecenia [Set-AzureRmVMSqlServerExtension](/powershell/module/azurerm.compute/set-azurermvmsqlserverextension), aby dodać [rozszerzenie programu SQL Server](/sql/virtual-machines-windows-sql-server-agent-extension.md) do maszyny wirtualnej SQL.
 
-W tym samouczku został zainstalowany SQL &#92; IIS &#92;. Stos sieci przy użyciu programu Azure PowerShell. W tym samouczku omówiono:
+```azurepowershell-interactive
+Set-AzureRmVMSqlServerExtension `
+   -ResourceGroupName $resourceGroup  `
+   -VMName mySQLVM `
+   -Name "SQLExtension" `
+   -Location "EastUS"
+```
+
+## <a name="next-steps"></a>Następne kroki
+
+W tym samouczku zainstalowano stos SQL&#92;IIS&#92;.NET przy użyciu programu Azure PowerShell. W tym samouczku omówiono:
 
 > [!div class="checklist"]
-> * Utwórz maszynę Wirtualną przy użyciu nowego AzVM
-> * Zainstaluj usługi IIS i platformy .NET Core SDK w maszynie Wirtualnej
-> * Tworzenie maszyny Wirtualnej z uruchomionym programem SQL Server
-> * Zainstaluj rozszerzenie programu SQL Server
+> * Tworzenie maszyny wirtualnej 
+> * Instalacja usługi IIS i zestawu .NET Core SDK na maszynie wirtualnej
+> * Tworzenie maszyny wirtualnej z programem SQL Server
+> * Instalacja rozszerzenia programu SQL Server
 
-Przejdź do następnego samouczkiem, aby dowiedzieć się, jak zabezpieczyć serwer sieci web usług IIS z certyfikatów SSL.
+Przejdź do następnego samouczka, aby dowiedzieć się, jak zabezpieczyć serwer internetowy usług IIS przy użyciu certyfikatów SSL.
 
 > [!div class="nextstepaction"]
-> [Zabezpieczenia serwera sieci web usług IIS z certyfikatów SSL](tutorial-secure-web-server.md)
+> [Zabezpieczanie serwera internetowego usług IIS przy użyciu certyfikatów SSL](tutorial-secure-web-server.md)
 

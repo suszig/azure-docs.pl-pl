@@ -10,11 +10,11 @@ ms.date: 2/21/2018
 ms.topic: tutorial
 ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: ce4e53b3fa839bfc2da6bedecca0b4f730a6adbe
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 3bc259245df86406e23418bac598c8b1e062d512
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="troubleshoot-problems-backing-up-azure-files"></a>Rozwiązywanie problemów związanych z tworzeniem kopii zapasowej w usłudze Azure Files
 
@@ -26,8 +26,14 @@ Usługa Azure Files jest w wersji zapoznawczej. Następujące scenariusze tworze
 - Ochrona udziałów plików w ramach kont magazynu, które mają włączone sieci wirtualne.
 - Tworzenie kopii zapasowej w usłudze Azure Files za pomocą programu PowerShell lub interfejsu wiersza polecenia.
 
+### <a name="limitations"></a>Ograniczenia
+- Maksymalna liczba zaplanowanych kopii zapasowych na dzień wynosi 1.
+- Maksymalna liczba kopii zapasowych na żądanie na dzień wynosi 4.
+- Aby zapobiec przypadkowemu usunięciu kopii zapasowych z magazynu usługi Recovery Services, użyj blokad zasobów na koncie magazynu.
+- Nie usuwaj migawek utworzonych przy użyciu usługi Azure Backup. Usunięcie migawek może spowodować utratę punktów odzyskiwania i/lub błędy przywracania
+
 ## <a name="configuring-backup"></a>Konfigurowanie kopii zapasowej
-Poniższa tabela dotyczy konfigurowania kopii zapasowej.
+Poniższa tabela dotyczy konfigurowania kopii zapasowej:
 
 | Konfigurowanie kopii zapasowej | Wskazówki dotyczące obejść lub rozwiązań |
 | ------------------ | ----------------------------- |
@@ -54,7 +60,7 @@ Poniższa tabela dotyczy konfigurowania kopii zapasowej.
 | Odzyskiwanie nie powiodło się, ponieważ żaden plik nie mógł zostać odzyskany. | <ul><li> Przyczyny niepowodzenia odzyskiwania są wymienione w pliku (ścieżka jest podana w szczegółach zadania). Usuń przyczyny niepowodzenia, a następnie spróbuj ponownie wykonać operację przywracania tylko dla plików zakończonych niepowodzeniem. <li> Typowe przyczyny błędów przywracania plików: <br/> -pliki zakończone niepowodzeniem są używane <br/> -w katalogu nadrzędnym istnieje katalog o tej samej nazwie, co plik zakończony niepowodzeniem |
 | Przywracanie nie powiodło się, ponieważ jeden z plików w źródle nie istnieje. | <ul><li> Wybrane elementy nie istnieją w danych punktu odzyskiwania. Aby odzyskać pliki, udostępnij poprawną listę plików. <li> Migawka udziału plików odpowiadająca punktowi odzyskiwania została ręcznie usunięta. Wybierz inny punkt odzyskiwania, a następnie spróbuj ponownie wykonać operację przywracania. |
 | Zadanie odzyskiwania jest w trakcie przetwarzania do tego samego miejsca docelowego. | <ul><li>Kopia zapasowa udziału plików nie obsługuje odzyskiwania równoległego do tego samego docelowego udziału plików. <li>Poczekaj na zakończenie trwającej operacji odzyskiwania, a następnie spróbuj ponownie. Jeśli zadanie odzyskiwania nie zostanie odnalezione w magazynie usługi Recovery Services, wybierz inne magazyny usługi Recovery Services w ramach tej samej subskrypcji. |
-| Operacja przywracania nie powiodła się, ponieważ docelowy udział plików jest pełny. | Zwiększ rozmiar przydziału docelowego udziału plików w celu pomieszczenia przywracanych danych, a następnie spróbuj ponownie wykonać operację. |
+| Operacja przywracania nie powiodła się, ponieważ docelowy udział plików jest pełny. | Zwiększ limit przydziału rozmiaru docelowego udziału plików w celu pomieszczenia przywracanych danych, a następnie spróbuj ponownie wykonać operację. |
 | Odzyskanie co najmniej jednego pliku zakończyło się niepowodzeniem. Aby uzyskać więcej informacji, sprawdź listę plików zakończonych niepowodzeniem w ramach podanej powyżej ścieżki. | <ul> <li> Przyczyny niepowodzenia odzyskiwania są wymienione w pliku (ścieżka jest podana w szczegółach zadania). Usuń przyczyny niepowodzenia, a następnie spróbuj ponownie wykonać operację przywracania tylko dla plików zakończonych niepowodzeniem. <li> Typowe przyczyny błędów przywracania plików: <br/> - pliki zakończone niepowodzeniem są używane <br/> -w katalogu nadrzędnym istnieje katalog o tej samej nazwie, co plik zakończony niepowodzeniem |
 
 ## <a name="see-also"></a>Zobacz też

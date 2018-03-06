@@ -1,6 +1,6 @@
 ---
-title: "Dołączenia aktualizacji i rozwiązań zmian do automatyzacji Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak dołączyć aktualizacji i rozwiązań zmian do automatyzacji Azure."
+title: "Dołączanie rozwiązań aktualizacji i śledzenia zmian do usługi Azure Automation | Microsoft Docs"
+description: "Dowiedz się, jak dołączać rozwiązania aktualizacji i śledzenia zmian w usłudze Azure Automation."
 services: automation
 documentationcenter: 
 author: eamonoreilly
@@ -12,141 +12,141 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/11/2017
+ms.date: 02/28/2018
 ms.author: eamono
 ms.custom: mvc
-ms.openlocfilehash: e277aa44dfe625780d72a78010f0638c73a6b182
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
-ms.translationtype: MT
+ms.openlocfilehash: 4c97cda2f16c769d0510b6a661bd03b20f488b62
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="onboard-update-and-change-tracking-solutions-to-azure-automation"></a>Dołączenia aktualizacji i rozwiązań zmian do usługi Automatyzacja Azure
+# <a name="onboard-update-and-change-tracking-solutions-to-azure-automation"></a>Dołączanie rozwiązań aktualizacji i śledzenia zmian w usłudze Azure Automation
 
-Z tego samouczka, dowiesz się, jak automatycznie dołączyć rozwiązań aktualizacji, śledzenia zmian i magazynu dla maszyn wirtualnych do usługi Automatyzacja Azure:
+W ramach tego samouczka nauczysz się automatycznie dołączać rozwiązania aktualizacji, śledzenia zmian i spisu dla maszyn wirtualnych do usługi Azure Automation:
 
 > [!div class="checklist"]
-> * Dołączyć maszyny Wirtualnej platformy Azure
-> * Włącz rozwiązania
+> * Dołączanie maszyny wirtualnej platformy Azure
+> * Włączanie rozwiązań
 > * Instalowanie i aktualizowanie modułów
-> * Zaimportuj element runbook dołączania
-> * Uruchomić element runbook
+> * Importowanie elementu runbook dołączania
+> * Uruchamianie elementu runbook
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Do ukończenia tego samouczka wymagane są następujące elementy:
+Do wykonania czynności przedstawionych w tym samouczku są wymagane następujące elementy:
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, możesz [aktywować korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Konto automatyzacji](automation-offering-get-started.md) do zarządzania maszynami.
+* [Konto usługi Automation](automation-offering-get-started.md) do zarządzania maszynami.
 * [Maszyna wirtualna](../virtual-machines/windows/quick-create-portal.md) do dołączenia.
 
-## <a name="onboard-an-azure-vm"></a>Dołączyć maszyny Wirtualnej platformy Azure
+## <a name="onboard-an-azure-vm"></a>Dołączanie maszyny wirtualnej platformy Azure
 
-Aby dołączyć maszyn wirtualnych Azure automatycznie, istniejącej maszyny Wirtualnej, musi być został załadowany z śledzenia zmian lub rozwiązania do zarządzania aktualizacji. W tym kroku, możesz dołączyć maszynę wirtualną z zarządzania aktualizacjami i śledzenie zmian.
+Istnieje wiele sposobów dołączania maszyn. Rozwiązanie można dołączyć [z maszyny wirtualnej](automation-onboard-solutions-from-vm.md), [z konta usługi Automation](automation-onboard-solutions-from-automation-account.md) lub przy użyciu elementu runbook. W tym samouczki przedstawiono procedurę włączania rozwiązania Update Management przy użyciu elementu runbook. Aby można było dołączać maszyny wirtualne platformy Azure na dużą skalę, do istniejącej maszyny wirtualnej należy dołączyć rozwiązanie Change tracking lub Update management. W tym kroku dołączysz maszynę wirtualną z rozwiązaniami Update management i Change tracking.
 
-### <a name="enable-change-tracking-and-inventory"></a>Włączanie śledzenia zmian i magazynu
+### <a name="enable-change-tracking-and-inventory"></a>Włączanie rozwiązania Change Tracking and Inventory
 
-Śledzenie zmian i spisu rozwiązanie zapewnia możliwość [śledzenia zmian](automation-vm-change-tracking.md) i [spisu](automation-vm-inventory.md) na maszynach wirtualnych. W tym kroku należy włączyć rozwiązania na maszynie wirtualnej.
+Rozwiązanie Change Tracking and Inventory umożliwia [śledzenie zmian](automation-vm-change-tracking.md) i tworzenie [spisu](automation-vm-inventory.md) na maszynach wirtualnych. W tym kroku włączysz rozwiązanie na maszynie wirtualnej.
 
-1. Wybierz z menu po lewej stronie **kont automatyzacji**, a następnie wybierz konto Automatyzacja na liście.
-1. Wybierz **spisu** w obszarze **zarządzania konfiguracją**.
-1. Wybierz istniejący obszar roboczy analizy dzienników lub utworzyć nowy. Kliknij przycisk **włączyć** przycisku.
+1. W menu po lewej stronie wybierz pozycję **Konta usługi Automation**, a następnie wybierz konto usługi Automation z listy.
+1. Wybierz pozycję **Spis** w obszarze **ZARZĄDZANIE KONFIGURACJĄ**.
+1. Wybierz istniejący obszar roboczy usługi Log Analytics lub utwórz nowy. Kliknij przycisk **Włącz**.
 
-![Dodaj rozwiązanie aktualizacji](media/automation-onboard-solutions/inventory-onboard.png)
+![Dołączanie rozwiązania Update](media/automation-onboard-solutions/inventory-onboard.png)
 
-Po zakończeniu śledzenia i spisu rozwiązania dołączania powiadomienia o zmianie, kliknij **zarządzania aktualizacjami** w obszarze **zarządzania konfiguracją**.
+Po zakończeniu powiadomienia o dołączeniu rozwiązania do śledzenia zmian i spisu kliknij pozycję **Update Management** w obszarze **ZARZĄDZANIE KONFIGURACJĄ**.
 
-### <a name="enable-update-management"></a>Włącz zarządzanie aktualizacjami
+### <a name="enable-update-management"></a>Włączanie rozwiązania Update Management
 
-Rozwiązanie do zarządzania aktualizacji umożliwia zarządzanie aktualizacje i poprawki dla maszyn wirtualnych systemu Windows Azure. Można ocenić stan dostępne aktualizacje, harmonogram instalacji wymaganych aktualizacji i przegląd wyników wdrożenia Sprawdź aktualizacje zostały pomyślnie zastosowane do maszyny Wirtualnej. W tym kroku zostanie włączone rozwiązania dla maszyny Wirtualnej.
+Rozwiązanie Update Management umożliwia zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych z systemem Windows platformy Azure. Można ocenić stan dostępnych aktualizacji, zaplanować instalację wymaganych aktualizacji i przejrzeć wyniki wdrażania, aby sprawdzić, czy aktualizacje zostały zastosowane pomyślnie do maszyny wirtualnej. W tym kroku włączysz rozwiązanie dla maszyny wirtualnej.
 
-1. Twoje konto usługi Automatyzacja, zaznacz **zarządzanie aktualizacjami** w obszarze **zarządzania AKTUALIZACJAMI**.
-1. Obszar roboczy analizy dzienników, które zostały wybrane jest tym samym obszarze roboczym w poprzednim kroku. Kliknij przycisk **włączyć** dołączyć rozwiązania do zarządzania aktualizacji.
+1. Z poziomu konta usługi Automation wybierz pozycję **Update management** w obszarze **UPDATE MANAGEMENT**.
+1. Wybrany obszar roboczy usługi Log Analytics jest tym samym obszarem roboczym, który był używany w poprzednim kroku. Kliknij przycisk **Włącz**, aby dołączyć rozwiązanie Update management.
 
-![Dodaj rozwiązanie aktualizacji](media/automation-onboard-solutions/update-onboard.png)
+![Dołączanie rozwiązania Update](media/automation-onboard-solutions/update-onboard.png)
 
-Podczas instalowania aktualizacji rozwiązania do zarządzania, jest wyświetlany transparent niebieski. Po włączeniu rozwiązania wybierz **śledzenie zmian** w obszarze **zarządzania konfiguracją** przejść do następnego kroku.
+Podczas instalowania rozwiązania Update management jest wyświetlany niebieski baner. Po włączeniu rozwiązania wybierz pozycję **Change tracking** w obszarze **ZARZĄDZANIE KONFIGURACJĄ**, aby przejść do następnego kroku.
 
-### <a name="select-azure-vm-to-be-managed"></a>Wybierz maszynę Wirtualną Azure mają być zarządzane
+### <a name="select-azure-vm-to-be-managed"></a>Wybieranie maszyny wirtualnej platformy Azure, która ma być zarządzana
 
-Teraz, gdy rozwiązania są włączone, aby rozpocząć korzystanie z tych rozwiązań można dodać maszyny Wirtualnej platformy Azure.
+Teraz, gdy rozwiązania są włączone, można dołączyć maszynę wirtualną platformy Azure do tych rozwiązań.
 
-1. Z Twojego konta automatyzacji na **śledzenie zmian** wybierz pozycję **+ Dodaj maszyny Wirtualnej Azure** można dodać maszyny wirtualnej.
+1. Na koncie usługi Automation na stronie **Śledzenie zmian** wybierz pozycję **+ Dodaj maszynę wirtualną platformy Azure**, aby dodać maszynę wirtualną.
 
-1. Wybierz maszyny Wirtualnej z listy i wybierz **włączyć**. Ta akcja umożliwia śledzenia zmian i rozwiązanie magazynu dla maszyny wirtualnej.
+1. Wybierz maszynę wirtualną z listy i wybierz przycisk **Włącz**. Ta akcja powoduje włączenie rozwiązania Change tracking and Inventory dla maszyny wirtualnej.
 
-   ![Włącz rozwiązanie aktualizacji dla maszyny wirtualnej](media/automation-onboard-solutions/enable-change-tracking.png)
+   ![Włączanie rozwiązania Update dla maszyny wirtualnej](media/automation-onboard-solutions/enable-change-tracking.png)
 
-1. Po powiadomień dołączania maszyny Wirtualnej zakończeniu z Twojego konta automatyzacji wybierz opcję **zarządzanie aktualizacjami** w obszarze **zarządzania AKTUALIZACJAMI**.
+1. Po zakończeniu powiadomienia o dołączeniu maszyny wirtualnej z poziomu konta usługi Automation wybierz pozycję **Update management** w obszarze **UPDATE MANAGEMENT**.
 
-1. Wybierz **+ Dodaj maszyny Wirtualnej Azure** można dodać maszyny wirtualnej.
+1. Wybierz pozycję **+ Dodaj maszynę wirtualną platformy Azure**, aby dodać maszynę wirtualną.
 
-1. Wybierz maszyny Wirtualnej z listy i wybierz **włączyć**. Ta akcja umożliwia rozwiązanie do zarządzania aktualizacji dla maszyny wirtualnej.
+1. Wybierz maszynę wirtualną z listy i wybierz przycisk **Włącz**. Ta akcja powoduje włączenie rozwiązania Update management dla maszyny wirtualnej.
 
-   ![Włącz rozwiązanie aktualizacji dla maszyny wirtualnej](media/automation-onboard-solutions/enable-update.png)
+   ![Włączanie rozwiązania Update dla maszyny wirtualnej](media/automation-onboard-solutions/enable-update.png)
 
 > [!NOTE]
-> Aby nie czekać inne rozwiązanie, aby ukończyć, podczas włączania kolejne rozwiązanie zostanie wyświetlony komunikat z informacją: *instalacji inne rozwiązanie jest w toku na tym serwerze lub inną maszynę wirtualną. Po zakończeniu instalacji jest włączony przycisk włączania i mogą żądać instalacji rozwiązania na tej maszynie wirtualnej.*
+> Jeśli użytkownik nie zaczeka na zakończenie instalacji innego rozwiązania przed włączeniem kolejnego rozwiązania, zostanie wyświetlony komunikat z informacją: *Trwa instalacja innego rozwiązania na tej lub innej maszynie wirtualnej. Po zakończeniu instalacji zostanie włączony przycisk Włącz i można zażądać instalacji rozwiązania na tej maszynie wirtualnej.*
 
 ## <a name="install-and-update-modules"></a>Instalowanie i aktualizowanie modułów
 
-Jest wymagany do aktualizacji do najnowszej modułów Azure i zaimportować `AzureRM.OperationalInsights` pomyślnie zautomatyzować przy dołączaniu rozwiązania.
+Wymagana jest aktualizacja do najnowszych modułów platformy Azure i zaimportowanie modułu `AzureRM.OperationalInsights` w celu pomyślnej automatyzacji dołączania rozwiązań.
 
-## <a name="update-azure-modules"></a>Zaktualizuj Azure modułów
+## <a name="update-azure-modules"></a>Aktualizowanie modułów platformy Azure
 
-Twoje konto usługi Automatyzacja, zaznacz **modułów** w obszarze **UDOSTĘPNIONE zasoby**. Wybierz **aktualizacji modułów Azure** aktualizacji modułów Azure do najnowszej wersji. Wybierz **tak** na monit o aktualizację wszystkich istniejących modułów Azure do najnowszej wersji.
+Z poziomu konta usługi Automation wybierz pozycję **Moduły** w obszarze **WSPÓŁDZIELONE ZASOBY**. Wybierz pozycję **Aktualizuj moduły platformy Azure**, aby zaktualizować moduły platformy Azure do najnowszej wersji. Wybierz przycisk **Tak** w monicie, aby zaktualizować wszystkie istniejące moduły platformy Azure do najnowszej wersji.
 
-![Moduły aktualizacji](media/automation-onboard-solutions/update-modules.png)
+![Aktualizowanie modułów](media/automation-onboard-solutions/update-modules.png)
 
-### <a name="install-azurermoperationalinsights-module"></a>Zainstaluj moduł AzureRM.OperationalInsights
+### <a name="install-azurermoperationalinsights-module"></a>Instalacja modułu AzureRM.OperationalInsights
 
-Z **modułów** wybierz pozycję **galerii przeglądania** otwarcie Galerii modułu. Wyszukaj AzureRM.OperationalInsights i zaimportować tego modułu do konta automatyzacji.
+Na stronie **Moduły** wybierz pozycję **Przeglądaj galerię**, aby otworzyć moduł galerii. Wyszukaj moduł AzureRM.OperationalInsights i zaimportuj ten moduł na konto usługi Automation.
 
-![Zaimportuj moduł OperationalInsights](media/automation-onboard-solutions/import-operational-insights-module.png)
+![Importowanie modułu OperationalInsights](media/automation-onboard-solutions/import-operational-insights-module.png)
 
-## <a name="import-the-onboarding-runbook"></a>Zaimportuj element runbook dołączania
+## <a name="import-the-onboarding-runbook"></a>Importowanie elementu runbook dołączania
 
-1. Twoje konto usługi Automatyzacja, zaznacz na **Runbook** w obszarze **AUTOMATYZACJI procesu**.
-1. Wybierz **galerii przeglądania**.
-1. Wyszukaj **aktualizacji i śledzenie zmian**, kliknij element runbook i wybierz **importu** na **Wyświetl źródło** strony. Wybierz **OK** można zaimportować elementu runbook do konta automatyzacji.
+1. Z poziomu konta usługi Automation wybierz pozycję **Elementy runbook** w obszarze **AUTOMATYZACJA PROCESÓW**.
+1. Wybierz pozycję **Przeglądaj galerię**.
+1. Wyszukaj frazę **update and change tracking**, kliknij element runbook i wybierz pozycję **Importuj** na stronie **Wyświetlanie źródła**. Wybierz przycisk **OK**, aby zaimportować element runbook na konto usługi Automation.
 
   ![Importowanie elementu runbook dołączania](media/automation-onboard-solutions/import-from-gallery.png)
 
-1. Na **Runbook** wybierz pozycję **Edytuj**, a następnie wybierz pozycję **publikowania**. Na **publikowania elementu Runbook** okno dialogowe, wybierz opcję **tak** opublikować elementu runbook.
+1. Na stronie **Element runbook** wybierz pozycję **Edytuj**, a następnie wybierz pozycję **Publikuj**. W oknie dialogowym **Publikowanie elementu runbook** wybierz przycisk **Tak**, aby opublikować element runbook.
 
-## <a name="start-the-runbook"></a>Uruchomić element runbook
+## <a name="start-the-runbook"></a>Uruchamianie elementu runbook
 
-Musi mieć został załadowany, śledzenie zmian albo zaktualizuj rozwiązań do maszyny Wirtualnej platformy Azure, aby można było uruchomić ten element runbook. Wymaga istniejącej maszyny wirtualnej i grupy zasobów z został załadowany rozwiązania dla parametrów.
+Aby można było uruchomić ten element runbook, musi być dołączone rozwiązanie śledzenia zmian lub aktualizacji. Wymaga istniejącej maszyny wirtualnej i grupy zasobów z rozwiązaniem dołączonym dla parametrów.
 
-1. Otwórz element runbook MultipleSolution Włącz.
+1. Otwórz element runbook Enable-MultipleSolution.
 
-   ![Wiele elementów runbook rozwiązania](media/automation-onboard-solutions/runbook-overview.png)
+   ![Wiele elementów runbook rozwiązań](media/automation-onboard-solutions/runbook-overview.png)
 
-1. Kliknij przycisk start, a następnie wprowadź następujące wartości dla parametrów.
+1. Kliknij przycisk Start i wprowadź następujące wartości dla parametrów.
 
-   * **VMNAME** -pozostaw to pole puste. Nazwa istniejącej maszyny Wirtualnej do dołączenia do aktualizacji lub zmień śledzenie rozwiązania. Tę wartość należy pozostawić pusty, wszystkie maszyny wirtualne w grupie zasobów są został załadowany.
-   * **VMRESOURCEGROUP** — Nazwa grupy zasobów dla maszyn wirtualnych je dołączyć.
-   * **Identyfikator SUBSKRYPCJI** -pozostaw to pole puste. Identyfikator subskrypcji nowej maszyny Wirtualnej został załadowany. Jeśli pole pozostanie puste, subskrypcja obszaru roboczego jest używany. Jeśli podano identyfikator innej subskrypcji, konto Uruchom jako dla tego konta automatyzacji należy dołączyć jako współautora dla tej subskrypcji również.
-   * **ALREADYONBOARDEDVM** -Nazwa maszyny wirtualnej, która została ręcznie został załadowany do śledzenia zmian lub aktualizacji rozwiązania.
-   * **ALREADYONBOARDEDVMRESOURCEGROUP** — Nazwa grupy zasobów, do której należy maszyna wirtualna.
-   * **SOLUTIONTYPE** — wprowadź **aktualizacje** lub **śledzenia zmian**
+   * **VMNAME** — pozostaw puste. Nazwa istniejącej maszyny wirtualnej do dołączenia do rozwiązania aktualizacji lub śledzenia zmian. Pozostawienie tej wartości pustej spowoduje dołączenie wszystkich maszyn wirtualnych w grupie zasobów.
+   * **VMRESOURCEGROUP** — nazwa grupy zasobów dla maszyn wirtualnych, które mają zostać dołączone.
+   * **SUBSCRIPTIONID** — pozostaw puste. Identyfikator subskrypcji nowej maszyny wirtualnej, która ma zostać dołączona. Jeśli to pole pozostawiono puste, używana jest subskrypcja obszaru roboczego. Jeśli podano inny identyfikator subskrypcji, konto Uruchom jako dla tego konta należy dodać jako współautora również dla tej subskrypcji.
+   * **ALREADYONBOARDEDVM** — nazwa maszyny wirtualnej, która została ręcznie dołączona do rozwiązania Updates lub ChangeTracking.
+   * **ALREADYONBOARDEDVMRESOURCEGROUP** — nazwa grupy zasobów, do której należy maszyna wirtualna.
+   * **SOLUTIONTYPE** — wprowadź wartość **Updates** lub **ChangeTracking**
 
-   ![Włącz MultipleSolution parametrów elementu runbook](media/automation-onboard-solutions/runbook-parameters.png)
+   ![Parametry elementu runbook Enable-MultipleSolution](media/automation-onboard-solutions/runbook-parameters.png)
 
-1. Wybierz **OK** można uruchomić zadania elementu runbook.
+1. Wybierz przycisk **OK**, aby uruchomić zadanie elementu runbook.
 1. Monitoruj postęp oraz wszelkie błędy na stronie zadania elementu runbook.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Dołączyć maszynę wirtualną platformy Azure ręcznie.
-> * Instalowanie i aktualizowanie wymagane moduły Azure.
-> * Zaimportuj element runbook tego onboards maszynach wirtualnych platformy Azure.
-> * Element runbook tego onboards maszynach wirtualnych platformy Azure automatycznie uruchomiony.
+> * Ręczne dołączanie maszyny wirtualnej platformy Azure.
+> * Instalowanie i aktualizowanie wymaganych modułów platformy Azure.
+> * Importowanie elementu runbook, który służy do dołączania maszyn wirtualnych platformy Azure.
+> * Uruchamianie elementu runbook, który automatycznie dołącza maszyny wirtualne platformy Azure.
 
-Wykonaj to łącze, aby dowiedzieć się więcej na temat planowania elementów runbook.
+Skorzystaj z tego linku, aby dowiedzieć się więcej o planowaniu elementów runbook.
 
 > [!div class="nextstepaction"]
 > [Planowanie elementów runbook](automation-schedules.md).

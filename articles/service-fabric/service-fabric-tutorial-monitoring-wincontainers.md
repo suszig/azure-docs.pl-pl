@@ -1,6 +1,6 @@
 ---
-title: "Monitorowania i diagnostyki dla kontenerów systemu Windows na platformie Azure Service Fabric | Dokumentacja firmy Microsoft"
-description: "Konfigurowanie monitorowania i diagnostyki dla kontenera systemu Windows zorkiestrowana na sieć szkieletowa usług Azure."
+title: "Monitorowanie i diagnostyka kontenerów systemu Windows w usłudze Azure Service Fabric | Microsoft Docs"
+description: "W ramach tego scenariusza skonfigurujesz monitorowanie i diagnostykę kontenerów systemu Windows zorganizowanych w usłudze Azure Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -15,39 +15,39 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 8fe3266cfcb7141684f9e1b5dfa74d6569c23b24
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: de77d10e4875173c7a067e945e473887d3cc7422
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="monitor-windows-containers-on-service-fabric-using-oms"></a>Monitor kontenery systemu Windows w sieci szkieletowej usług za pomocą pakietu OMS
+# <a name="tutorial-monitor-windows-containers-on-service-fabric-using-oms"></a>Samouczek: monitorowanie kontenerów systemu Windows w usłudze Service Fabric przy użyciu pakietu OMS
 
-Jest to część trzy samouczka i przeprowadzi Cię przez proces konfigurowania OMS do monitorowania kontenerów Windows zorkiestrowana w sieci szkieletowej usług.
+Niniejszy samouczek jest trzecią częścią serii i umożliwia przeprowadzenie konfiguracji pakietu OMS na potrzeby monitorowania kontenerów systemu Windows zorganizowanych w usłudze Service Fabric.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Skonfiguruj OMS dla klastra sieci szkieletowej usług
-> * Umożliwia wyświetlanie obszarem roboczym pakietu OMS i rejestruje zapytania z kontenerów i węzłów
-> * Konfigurowanie agenta pakietu OMS do pobrania kontenera i metryki węzła
+> * Konfigurowanie pakietu OMS dla klastra usługi Service Fabric
+> * Używanie obszaru roboczego pakietu OMS w celu wyświetlania dzienników i wykonywania zapytań względem nich z poziomu kontenerów i węzłów
+> * Konfigurowanie agenta pakietu OMS na potrzeby pobierania metryk kontenerów i węzłów
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Przed rozpoczęciem tego samouczka, wykonaj następujące czynności:
-- Klaster na platformie Azure, lub [utworzyć w tym samouczku](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-- [Wdrażanie aplikacji konteneryzowanych do niego](service-fabric-host-app-in-a-container.md)
+Przed rozpoczęciem tego samouczka należy:
+- Mieć klaster na platformie Azure lub [utworzyć go za pomocą tego samouczka](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+- [Wdrożyć w nim konteneryzowaną aplikację](service-fabric-host-app-in-a-container.md)
 
-## <a name="setting-up-oms-with-your-cluster-in-the-resource-manager-template"></a>Konfigurowanie OMS z klastrem w szablonie usługi Resource Manager
+## <a name="setting-up-oms-with-your-cluster-in-the-resource-manager-template"></a>Konfigurowanie pakietu OMS na potrzeby klastra w szablonie usługi Resource Manager
 
-W przypadku gdy używasz [dostarczonego szablonu](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Tutorial) w pierwszej części tego samouczka, powinny zawierać następujące dodatki do ogólnego szablonu usługi sieć szkieletowa usługi Azure Resource Manager. W przypadku przypadku posiadania klastra własne tego chcesz skonfigurowanej na potrzeby monitorowania kontenerów OMS:
+Jeśli używasz [szablonu](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Tutorial) dostarczonego w pierwszej części tego samouczka, powinien on zawierać następujące dodatki do ogólnego szablonu usługi Azure Resource Manager w ramach usługi Service Fabric. Jeśli masz własny klaster, który chcesz skonfigurować w celu monitorowania kontenerów za pomocą pakietu OMS:
 * Wprowadź następujące zmiany w szablonie usługi Resource Manager.
-* Wdróż je za pomocą programu PowerShell do uaktualnienia klastra przez [wdrażanie szablonu](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm). Usługa Azure Resource Manager realizuje, czy zasób istnieje, więc będzie wprowadzana jego uaktualnienie.
+* Wdróż je przy użyciu programu PowerShell w celu uaktualnienia klastra przez [wdrożenie szablonu](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm). Usługa Azure Resource Manager potrafi rozpoznać istniejący zasób, więc wdroży go jako uaktualnienie.
 
-### <a name="adding-oms-to-your-cluster-template"></a>Dodawanie do szablonu klastra OMS
+### <a name="adding-oms-to-your-cluster-template"></a>Dodawanie pakietu OMS do szablonu klastra
 
-Wprowadź następujące zmiany w Twojej *template.json*:
+Wprowadź następujące zmiany w szablonie *template.json*:
 
-1. Dodaj lokalizację obszar roboczy OMS i nazw użytkownika *parametry* sekcji:
+1. Dodaj lokalizację i nazwę obszaru roboczego pakietu OMS w sekcji *parameters*:
     
     ```json
     "omsWorkspacename": {
@@ -71,16 +71,16 @@ Wprowadź następujące zmiany w Twojej *template.json*:
     }
     ```
 
-    Aby zmienić wartość używaną do albo dodać takie same parametry dla Twojego *template.parameters.json* i zmień wartości używane.
+    Aby zmienić wartość dla dowolnego z tych elementów, dodaj te same parametry do pliku *template.parameters.json* i zmień używane w nim wartości.
 
-2. Dodaj nazwę rozwiązania i rozwiązania pod kątem Twojej *zmienne*: 
+2. Dodaj nazwę rozwiązania oraz rozwiązanie do sekcji *variables*: 
     
     ```json
     "omsSolutionName": "[Concat('ServiceFabric', '(', parameters('omsWorkspacename'), ')')]",
     "omsSolution": "ServiceFabric"
     ```
 
-3. Dodaj OMS Microsoft Monitoring Agent jako rozszerzenie maszyny wirtualnej. Znajdowanie zasobów zestawach skali maszyn wirtualnych: *zasobów* > *"apiVersion": "[variables('vmssApiVersion')]"*. W obszarze *właściwości* > *virtualMachineProfile* > *extensionProfile* > *rozszerzenia*, Dodaj następujący opis rozszerzenia w obszarze *ServiceFabricNode* rozszerzenia: 
+3. Dodaj program Microsoft Monitoring Agent pakietu OMS jako rozszerzenie maszyny wirtualnej. Znajdź zasób zestawów skalowania maszyn wirtualnych: *resources* > *"apiVersion": "[variables('vmssApiVersion')]"*. W obszarze *properties* > *virtualMachineProfile* > *extensionProfile* > *extensions* dodaj następujący opis w ramach rozszerzenia *ServiceFabricNode*: 
     
     ```json
     {
@@ -100,7 +100,7 @@ Wprowadź następujące zmiany w Twojej *template.json*:
     },
     ```
 
-4. Dodaj obszar roboczy OMS jako pojedynczego zasobu. W *zasobów*po skali maszyny wirtualnej ustawia zasobów, Dodaj następujący kod:
+4. Dodaj obszar roboczy pakietu OMS jako pojedynczy zasób. W obszarze *resources* po zasobie zestawów skalowania maszyn wirtualnych dodaj następujący kod:
     
     ```json
     {
@@ -180,52 +180,52 @@ Wprowadź następujące zmiany w Twojej *template.json*:
     },
     ```
 
-[W tym miejscu](https://github.com/ChackDan/Service-Fabric/blob/master/ARM%20Templates/Tutorial/azuredeploy.json) jest to szablon próbki (używanych w części, jeden z tego samouczka), który zawiera wszystkie te zmiany, które mogą odwoływać się zgodnie z potrzebami. Te zmiany zostaną dodane obszaru roboczego analizy dzienników OMS do grupy zasobów. Obszar roboczy zostanie skonfigurowana w celu odebrania zdarzeń platformy sieci szkieletowej usług z magazynu tabel skonfigurowano [Windows Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) agenta. Agent pakietu OMS (Microsoft Monitoring Agent) również został dodany do każdego węzła w klastrze jako rozszerzenie maszyny wirtualnej - oznacza to, że skalowanie klastra agenta jest automatycznie skonfigurowana na każdej maszynie i podłączonymi do tego samego obszaru roboczego.
+[W tym miejscu](https://github.com/ChackDan/Service-Fabric/blob/master/ARM%20Templates/Tutorial/azuredeploy.json) znajduje się przykładowy szablon (używany w pierwszej części tego samouczka) zawierający wszystkie wprowadzone zmiany, do których można się odwołać w razie potrzeby. Te zmiany spowodują dodanie obszaru roboczego pakietu OMS usługi Log Analytics do grupy zasobów. Obszar roboczy zostanie skonfigurowany w celu korzystania ze zdarzeń platformy usługi Service Fabric z poziomu tabel magazynu skonfigurowanych za pomocą agenta [Microsoft Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md). Agent pakietu OMS (Microsoft Monitoring Agent) został również dodany do każdego węzła w klastrze jako rozszerzenie maszyny wirtualnej. Oznacza to, że podczas skalowania klastra agent jest automatycznie konfigurowany na każdej maszynie i podłączany do tego samego obszaru roboczego.
 
-Wdrażanie szablonu z nowe zmiany, aby uaktualnić bieżącego klastra. Po zakończeniu to powinna zostać wyświetlona OMS zasoby w grupie zasobów. Gdy klaster będzie gotowy, wdrażania konteneryzowanych aplikacji do niego. W następnym kroku skonfigurujemy monitorowania kontenerów.
+Wdróż szablon z wprowadzonymi zmianami, aby uaktualnić bieżący klaster. Po zakończeniu w grupie zasobów powinny zostać wyświetlone zasoby pakietu OMS. Gdy klaster będzie gotowy, wdróż w nim konteneryzowaną aplikację. W następnym kroku zostanie skonfigurowane monitorowanie kontenerów.
 
-## <a name="add-the-container-monitoring-solution-to-your-oms-workspace"></a>Dodaj rozwiązanie monitorowanie kontenera na obszar roboczy OMS
+## <a name="add-the-container-monitoring-solution-to-your-oms-workspace"></a>Dodawanie rozwiązania do monitorowania kontenerów do obszaru roboczego pakietu OMS
 
-Aby skonfigurować rozwiązanie kontenera, w obszarze roboczym, wyszukaj *rozwiązanie monitorowanie kontenera* i Utwórz zasób kontenerów (w obszarze monitorowanie i zarządzanie kategorii).
+Aby skonfigurować rozwiązanie kontenera w obszarze roboczym, wyszukaj wyrażenie *Rozwiązanie do monitorowania kontenerów* i utwórz zasób kontenerów (w kategorii Monitorowanie + zarządzanie).
 
 ![Dodawanie rozwiązania kontenerów](./media/service-fabric-tutorial-monitoring-wincontainers/containers-solution.png)
 
-Po wyświetleniu monitu o *obszarem roboczym pakietu OMS*, wybierz obszar roboczy, który został utworzony w grupie zasobów i kliknij przycisk **Utwórz**. Spowoduje to dodanie *rozwiązanie monitorowanie kontenera* do swojego obszaru roboczego, automatycznie spowoduje agent pakietu OMS wdrożone przez szablon rozpocząć zbieranie dzienników docker i statystyki. 
+Po wyświetleniu monitu o *obszar roboczy pakietu OMS* wybierz obszar roboczy, który został utworzony w grupie zasobów, i kliknij pozycję **Utwórz**. Spowoduje to dodanie *rozwiązania do monitorowania kontenerów* do obszaru roboczego, co wywoła automatyczne zbieranie dzienników i statystyk platformy Docker przez agenta pakietu OMS wdrożonego w ramach szablonu. 
 
-Przejdź z powrotem do użytkownika *grupy zasobów*, gdzie powinien zostać wyświetlony nowo dodanego rozwiązanie monitorowania. Jeśli klikniesz przycisk do niego, strona docelowa powinny być widoczne można liczbę obrazów kontenera masz uruchomiony. 
+Przejdź z powrotem do *grupy zasobów*, gdzie powinno zostać wyświetlone nowo dodane rozwiązanie do monitorowania. Po jego kliknięciu na stronie docelowej powinna wyświetlić się liczba uruchomionych obrazów kontenera. 
 
-*Należy pamiętać, że został uruchomiony 5 wystąpień kontenera mojej firmy fabrikam z [część druga](service-fabric-host-app-in-a-container.md) samouczka*
+*Zwróć uwagę, że zostało uruchomionych 5 wystąpień kontenera fabrikam z [części drugiej](service-fabric-host-app-in-a-container.md) samouczka*
 
 ![Strona docelowa rozwiązania kontenera](./media/service-fabric-tutorial-monitoring-wincontainers/solution-landing.png)
 
-Kliknięcie przycisku do **kontenera monitory** spowoduje przejście do bardziej szczegółowych pulpitu nawigacyjnego, dzięki czemu można przewijać wielu panele, a także wykonywać zapytania w analizy dzienników. 
+Po kliknięciu pozycji **Rozwiązanie do monitorowania kontenerów** nastąpi przejście do bardziej szczegółowego pulpitu nawigacyjnego, który umożliwia przewijanie wielu paneli, a także uruchamianie zapytań w usłudze w Log Analytics. 
 
-*Należy pamiętać, że począwszy od września 2017 r. rozwiązania przechodzi przez niektóre aktualizacje - Ignoruj wszystkie błędy, które mogą wystąpić o zdarzeniach Kubernetes możemy pracy dotyczące integrowania wielu orchestrators w tym samym rozwiązaniu.*
+*Pamiętaj, że od września 2017 r. w rozwiązaniu są wprowadzane aktualizacje. W związku z tym ignoruj wszelkie błędy dotyczące zdarzeń Kubernetes, które mogą wystąpić, ponieważ trwają prace nad zintegrowaniem wielu orkiestratorów w jednym rozwiązaniu.*
 
-Ponieważ agent jest pobieranie dzienników docker, domyślne przedstawiający *stdout* i *stderr*. Przewiń w prawo, zobaczysz kontener obrazu spisu, stanu, metryki i przykładowe zapytania, które można uruchomić, aby uzyskać bardziej użyteczne dane. 
+W związku z tym, że agent pobiera dzienniki platformy Docker, domyślnie wyświetla elementy *stdout* i *stderr*. Po przewinięciu w prawo zostanie wyświetlony spis obrazów kontenera, stan, metryki i przykładowe zapytania, które można uruchomić, aby uzyskać bardziej użyteczne dane. 
 
 ![Pulpit nawigacyjny rozwiązania kontenera](./media/service-fabric-tutorial-monitoring-wincontainers/container-metrics.png)
 
-Klikając pozycję w każdym z tych zespołów spowoduje przejście do zapytania analizy dzienników, które generuje wartość wyświetlana. Zmień zapytanie w celu  *\**  aby zobaczyć wszystkie rodzaje dzienników, które są odbierany. W tym miejscu można wysyłać zapytania filtra dla kontenera, wydajność, dzienniki, lub Sprawdź zdarzenia platformy Service Fabric. Agentów są również stale emitowanie pulsu z każdego węzła, który można przyjrzeć się upewnić, że dane są nadal zbierane z wszystkich maszynach w przypadku zmiany konfiguracji klastra.   
+Po kliknięciu jednego z tych paneli nastąpi przeniesienie do zapytania usługi Log Analytics, które generuje wyświetlaną wartość. Zmień zapytanie na *\**, aby zobaczyć wszystkie rodzaje zbieranych dzienników. W tym miejscu można wysyłać zapytania dotyczące wydajności kontenerów i dzienników lub filtrować je albo wyszukiwać zdarzenia platformy usługi Service Fabric. Poza tym agenci stale emitują puls z każdego widocznego węzła, aby upewnić się, że dane ze wszystkich maszyn są zbierane nawet w przypadku zmiany konfiguracji klastra.   
 
-![Kontener zapytania](./media/service-fabric-tutorial-monitoring-wincontainers/query-sample.png)
+![Zapytanie dotyczące kontenera](./media/service-fabric-tutorial-monitoring-wincontainers/query-sample.png)
 
-## <a name="configure-oms-agent-to-pick-up-performance-counters"></a>Konfigurowanie agenta pakietu OMS do pobrania liczniki wydajności
+## <a name="configure-oms-agent-to-pick-up-performance-counters"></a>Konfigurowanie agenta pakietu OMS w celu zbierania liczników wydajności
 
-Inną zaletą używania agent pakietu OMS jest możliwość zmiany do odebrania przez możliwości interfejsu użytkownika pakietu OMS liczniki wydajności, zamiast konieczności skonfigurowania agenta diagnostyki Azure i wykonaj Menedżera zasobów na podstawie szablonu uaktualnienia zawsze. Aby to zrobić, kliknij **portalu OMS** na strony docelowej rozwiązania monitorowanie kontenera (lub usługi sieć szkieletowa).
+Kolejną zaletą korzystania z agenta pakietu OMS jest możliwość zmiany liczników wydajności pobieranych za pośrednictwem interfejsu użytkownika pakietu OMS bez konieczności konfigurowania agenta funkcji Diagnostyka Azure i każdorazowego uaktualniania opartego na szablonie usługi Resource Manager. Aby to zrobić, kliknij pozycję **Portal OMS** na stronie docelowej rozwiązania do monitorowania kontenerów (lub usługi Service Fabric).
 
 ![Portal pakietu OMS](./media/service-fabric-tutorial-monitoring-wincontainers/oms-portal.png)
 
-To spowoduje przejście do obszaru roboczego w portalu OMS, w którym można wyświetlać rozwiązań, tworzyć niestandardowe pulpity nawigacyjne, a także skonfigurować agent pakietu OMS. 
-* Polecenie **kółka koło zębate** w prawym górnym rogu ekranu, aby otworzyć *ustawienia* menu.
-* Polecenie **połączonych źródeł** > **serwerów z systemem Windows** Aby sprawdzić, czy masz *połączone 5 komputerów z systemem Windows*.
-* Polecenie **danych** > **liczników wydajności systemu Windows** do wyszukiwania i dodać nowe liczniki wydajności. W tym miejscu zostanie wyświetlona lista zaleceń z usługą OMS liczników wydajności, można zebrać, a także opcję, aby wyszukać innych liczników. Kliknij przycisk **Dodaj wybrane liczniki wydajności** aby rozpocząć zbieranie metryk sugerowane.
+Spowoduje to przejście do obszaru roboczego w portalu OMS, w którym można wyświetlać rozwiązania, tworzyć niestandardowe pulpity nawigacyjne, a także konfigurować agenta pakietu OMS. 
+* Kliknij **koło zębate** w prawym górnym rogu ekranu, aby otworzyć menu *Ustawienia*.
+* Kliknij pozycję **Połączone źródła** > **Serwery z systemem Windows**, aby upewnić się, że *Połączono komputery z systemem Windows (5)*.
+* Kliknij pozycję **Dane** > **Liczniki wydajności systemu Windows**, aby wyszukać i dodać nowe liczniki wydajności. W tym miejscu zostanie wyświetlona lista zaleceń pakietu OMS dotycząca liczników wydajności, które można zbierać, a także opcję wyszukiwania innych liczników. Kliknij pozycję **Dodaj wybrane liczniki wydajności**, aby rozpocząć zbieranie zalecanych metryk.
 
     ![Liczniki wydajności](./media/service-fabric-tutorial-monitoring-wincontainers/perf-counters.png)
 
-W portalu Azure **Odśwież** rozwiązania monitorowanie kontenera w kilka minut, a użytkownik powinien rozpoczynać się w temacie *wydajność komputera* dane o użyciu. Pomoże to zrozumieć, jak są używane zasoby. Można również użyć tych metryk podjęcie odpowiednich decyzji dotyczących skalowanie klastra lub upewnij się, jeśli klaster jest równoważenia obciążenia, zgodnie z oczekiwaniami.
+W witrynie Azure Portal po kilku minutach **odśwież** rozwiązanie do monitorowania kontenerów, aby wyświetlić dane przychodzące dotyczące *wydajności komputera*. Pomoże to zrozumieć, w jaki sposób zasoby są używane. Tych metryk można również używać na potrzeby podejmowania odpowiednich decyzji dotyczących skalowania klastra lub potwierdzania, że klaster równoważy obciążenie zgodnie z oczekiwaniami.
 
-*Uwaga: Upewnij się, że filtry czasu są ustawione właściwie można korzystać z tych metryk.* 
+*Uwaga: upewnij się, że filtry czasu zostały odpowiednio ustawione i umożliwiają korzystanie z tych metryk.* 
 
 ![Liczniki wydajności 2](./media/service-fabric-tutorial-monitoring-wincontainers/perf-counters2.png)
 
@@ -235,13 +235,13 @@ W portalu Azure **Odśwież** rozwiązania monitorowanie kontenera w kilka minut
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Skonfiguruj OMS dla klastra sieci szkieletowej usług
-> * Umożliwia wyświetlanie obszarem roboczym pakietu OMS i rejestruje zapytania z kontenerów i węzłów
-> * Konfigurowanie agenta pakietu OMS do pobrania kontenera i metryki węzła
+> * Konfigurowanie pakietu OMS dla klastra usługi Service Fabric
+> * Używanie obszaru roboczego pakietu OMS w celu wyświetlania dzienników i wykonywania zapytań względem nich z poziomu kontenerów i węzłów
+> * Konfigurowanie agenta pakietu OMS na potrzeby pobierania metryk kontenerów i węzłów
 
-Teraz, gdy zdefiniowano monitorowania konteneryzowanych aplikacji, wykonaj następujące czynności:
+Po skonfigurowaniu monitorowania konteneryzowanej aplikacji spróbuj wykonać następujące czynności:
 
-* Konfigurowanie OMS przez klaster systemu Linux następujące kroki podobnie jak powyżej. Odwołanie [ten szablon](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux) Aby wprowadzić zmiany w szablonie usługi Resource Manager.
-* Skonfiguruj OMS, aby skonfigurować [automatycznego alerty](../log-analytics/log-analytics-alerts.md) do pomocy w wykrywaniu i informacji diagnostycznych.
-* Eksplorowanie usługi sieć szkieletowa lista [zalecane liczniki wydajności](service-fabric-diagnostics-event-generation-perf.md) można skonfigurować dla klastrów.
-* Pobierz zapoznaniu się z [wyszukiwania i badania dziennika](../log-analytics/log-analytics-log-searches.md) funkcje dostępne w ramach analizy dzienników.
+* Skonfiguruj pakiet OMS dla klastra systemu Linux, wykonując czynności podobne do tych opisanych powyżej. Utwórz odwołanie do [tego szablonu](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux), aby wprowadzić zmiany w szablonie usługi Resource Manager.
+* Skonfiguruj pakiet OMS, aby skonfigurować [automatyczne alerty](../log-analytics/log-analytics-alerts.md) ułatwiające wykrywanie i przeprowadzanie diagnostyki.
+* Zapoznaj się z listą [zalecanych liczników wydajności](service-fabric-diagnostics-event-generation-perf.md) usługi Service Fabric w celu skonfigurowania ich na potrzeby klastrów.
+* Zapoznaj się z funkcjami [przeszukiwania dzienników i wykonywania zapytań względem nich](../log-analytics/log-analytics-log-searches.md) dostępnymi w ramach usługi Log Analytics.

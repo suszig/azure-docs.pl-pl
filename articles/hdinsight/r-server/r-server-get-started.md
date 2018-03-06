@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/14/2017
 ms.author: bradsev
-ms.openlocfilehash: e688068efb41cdccbeb23de3c8ad7a09021e5b3f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: aa7f2e6f44036738756391ecaa265c57c093c42c
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="get-started-with-r-server-on-hdinsight"></a>Wprowadzenie do oprogramowania R Server w usłudze HDInsight
 
@@ -61,7 +61,7 @@ Aby zautomatyzować tworzenie wystąpień oprogramowania HDInsight R Server, mo�
 4. Wybierz pozycję **Typ klastra**, aby otworzyć okienko **Konfiguracja klastra**. W okienku **Konfiguracja klastra** wybierz następujące opcje:
 
     * **Typ klastra**: wybierz pozycję **R Server**.
-    * **Wersja**: wybierz wersję oprogramowania R Server do zainstalowania w klastrze. Aktualnie dostępna jest wersja **R Server 9.1 (HDI 3.6)**. Informacje o wersji dotyczące dostępnych wersji oprogramowania R Server można znaleźć w witrynie [MSDN](https://msdn.microsoft.com/microsoft-r/notes/r-server-notes).
+    * **Wersja**: wybierz wersję oprogramowania R Server do zainstalowania w klastrze. Aktualnie dostępna jest wersja **R Server 9.1 (HDI 3.6)**. Informacje o wersji dotyczące dostępnych wersji oprogramowania R Server można znaleźć w witrynie [docs.microsoft.com](https://docs.microsoft.com/machine-learning-server/whats-new-in-r-server#r-server-91).
     * **Program R Studio Community Edition for R Server**: to środowisko IDE oparte na przeglądarce, które jest instalowane domyślnie w węźle brzegowym. Jeśli nie chcesz go instalować, wyczyść pole wyboru. Jeśli wybierzesz opcję instalacji, adres URL umożliwiający logowanie do programu RStudio Server będzie dostępny w oknie aplikacji portalu dla utworzonego klastra.
     * Pozostaw wartości domyślne innych opcji i za pomocą przycisku **Wybierz** zapisz typ klastra.
 
@@ -102,7 +102,7 @@ Aby zautomatyzować tworzenie wystąpień oprogramowania HDInsight R Server, mo�
 
         ssh –i <private-key-filename> remoteuser@<hostname public ip>
 
-      Ewentualnie użyj pliku klucza prywatnego jako części definicji kontekstu obliczeniowego aparatu Spark usługi Hadoop dla oprogramowania R Server na kliencie. Aby uzyskać więcej informacji, zobacz [Create a Compute Context for Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started) (Tworzenie kontekstu obliczeniowego dla aparatu Spark).
+      Ewentualnie użyj pliku klucza prywatnego jako części definicji kontekstu obliczeniowego aparatu Spark usługi Hadoop dla oprogramowania R Server na kliencie. Aby uzyskać więcej informacji, zobacz [Create a Compute Context for Spark](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark) (Tworzenie kontekstu obliczeniowego dla aparatu Spark).
 
 8. Funkcja szybkiego tworzenia przeniesie Cię do okienka **Magazyn**. Możesz w nim wybrać ustawienia konta magazynu do użycia dla lokalizacji głównej systemu plików HDFS używanego przez klaster. Wybierz nowe lub istniejące konto usługi Azure Storage lub istniejące konto usługi Azure Data Lake Store.
 
@@ -379,7 +379,7 @@ Pamiętaj, że nowo dodani użytkownicy nie mają uprawnień użytkownika root w
 
 ## <a name="use-r-server-on-hdi-from-a-remote-instance-of-microsoft-r-server-or-microsoft-r-client"></a>Używanie oprogramowania R Server w usłudze HDI ze zdalnego wystąpienia oprogramowania Microsoft R Server lub programu Microsoft R Client
 
-Możliwe jest skonfigurowanie dostępu do kontekstu obliczeniowego aparatu Spark usługi Hadoop w usłudze HDI ze zdalnego wystąpienia programu Microsoft R Server lub programu Microsoft R Client uruchomionego na komputerze stacjonarnym lub przenośnym. Aby uzyskać więcej informacji, zobacz sekcję Using Microsoft R Server as a Hadoop Client (Używanie oprogramowania Microsoft R Server jako klienta usługi Hadoop) tematu [Create a Compute Context for Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started.md) (Tworzenie kontekstu obliczeniowego dla aparatu Spark). W tym celu określ następujące opcje podczas definiowania kontekstu obliczeniowego programu RxSpark na komputerze przenośnym: hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches i sshProfileScript. Oto przykład:
+Możliwe jest skonfigurowanie dostępu do kontekstu obliczeniowego aparatu Spark usługi Hadoop w usłudze HDI ze zdalnego wystąpienia programu Microsoft R Server lub programu Microsoft R Client uruchomionego na komputerze stacjonarnym lub przenośnym. Aby uzyskać więcej informacji, zobacz sekcję Using Microsoft R Server as a Hadoop Client (Używanie oprogramowania Microsoft R Server jako klienta usługi Hadoop) tematu [Create a Compute Context for Spark](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios) (Tworzenie kontekstu obliczeniowego dla aparatu Spark). W tym celu określ następujące opcje podczas definiowania kontekstu obliczeniowego programu RxSpark na komputerze przenośnym: hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches i sshProfileScript. Oto przykład:
 
 
     myNameNode <- "default"
@@ -705,7 +705,7 @@ Po zakończeniu modelowania danych możesz zopernacjonalizować model, aby wykon
     rxSparkConnect(reset = TRUE)
 
 
-Na tym etapie konfiguracja operacjonalizacji jest ukończona. Teraz za pomocą pakietu mrsdeploy w programie R Client można nawiązywać połączenia z funkcją operacjonalizacji w węźle brzegowym. Można rozpocząć korzystanie z jej funkcji, takich jak [zdalne wykonywanie](https://msdn.microsoft.com/microsoft-r/operationalize/remote-execution) i [usługi internetowe](https://msdn.microsoft.com/microsoft-r/mrsdeploy/mrsdeploy-websrv-vignette). W zależności od tego, czy klaster został skonfigurowany w sieci wirtualnej, może być konieczne skonfigurowanie tunelowania przekierowania portów za pomocą logowania SSH.
+Na tym etapie konfiguracja operacjonalizacji jest ukończona. Teraz za pomocą pakietu mrsdeploy w programie R Client można nawiązywać połączenia z funkcją operacjonalizacji w węźle brzegowym. Można rozpocząć korzystanie z jej funkcji, takich jak [zdalne wykonywanie](https://docs.microsoft.com/machine-learning-server/r/how-to-execute-code-remotely) i [usługi internetowe](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services). W zależności od tego, czy klaster został skonfigurowany w sieci wirtualnej, może być konieczne skonfigurowanie tunelowania przekierowania portów za pomocą logowania SSH.
 
 ### <a name="r-server-cluster-on-a-virtual-network"></a>Klaster oprogramowania R Server w sieci wirtualnej
 

@@ -1,6 +1,6 @@
 ---
 title: "Monitorowanie i diagnostyka usług platformy ASP.NET Core w usłudze Azure Service Fabric | Microsoft Docs"
-description: "Dowiedz się, jak skonfigurować monitorowanie i diagnostykę dla aplikacji platformy ASP.NET Core w usłudze Azure Service Fabric."
+description: "Z tego samouczka dowiesz się, jak skonfigurować monitorowanie i diagnostykę dla aplikacji platformy ASP.NET Core w usłudze Azure Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: bb6aca8d99e32948b8a01a2f893bcf40d160a76c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 26cca3604faa46e7398b24a2e8c25a6ad9650c18
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>Monitorowanie i diagnozowanie aplikacji platformy ASP.NET Core w usłudze Service Fabric
+# <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>Samouczek: monitorowanie i diagnozowanie aplikacji platformy ASP.NET Core w usłudze Service Fabric
 Niniejszy samouczek jest czwartą częścią serii. Przeprowadza on przez proces konfiguracji monitorowania i diagnostyki dla aplikacji platformy ASP.NET Core działającej w klastrze usługi Service Fabric za pomocą usługi Application Insights. Będziemy zbierać dane telemetryczne z aplikacji opracowanej w pierwszej części samouczka: [Tworzenie aplikacji platformy .NET w usłudze Service Fabric](service-fabric-tutorial-create-dotnet-app.md). 
 
 W czwartej części serii samouczków zawarto informacje na temat wykonywania następujących czynności:

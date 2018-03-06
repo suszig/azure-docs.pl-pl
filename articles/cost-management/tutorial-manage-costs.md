@@ -1,22 +1,22 @@
 ---
-title: "Zarządzanie kosztami przy użyciu usługi Azure Cost Management | Microsoft Docs"
-description: "Zarządzaj kosztami przy użyciu przydzielania kosztów oraz raportów przewidywanych kosztów i obciążeń zwrotnych."
+title: "Samouczek — zarządzanie kosztami przy użyciu usługi Azure Cost Management | Microsoft Docs"
+description: "Ten samouczek przedstawia zarządzanie kosztami metodą przydzielania kosztów oraz przy użyciu raportów przewidywanych kosztów i obciążeń zwrotnych."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 02/27/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 804b50d6ba054bbb0eb60b659c98f161ea5272ee
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7e9f11e702dbbe8864f8a0c307777c922e5f028d
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="manage-costs-by-using-azure-cost-management"></a>Zarządzanie kosztami przy użyciu usługi Azure Cost Management
+# <a name="tutorial-manage-costs-by-using-azure-cost-management"></a>Samouczek: zarządzanie kosztami przy użyciu usługi Azure Cost Management
 
 Usługa Azure Cost Management firmy Cloudyn umożliwia zarządzanie kosztami i tworzenie raportów przewidywanych kosztów przez przydzielanie kosztów na podstawie tagów. W procesie przydzielania kosztów do wykorzystywanych zasobów w chmurze przypisywane są koszty. Koszty są w pełni przydzielone, gdy wszystkie zasoby są skategoryzowane przy użyciu tagów. Po przydzieleniu kosztów można udostępnić użytkownikom analizę przewidywanych kosztów i obciążeń zwrotnych za pomocą pulpitów nawigacyjnych i raportów. Jednak na początku korzystania z usługi Cost Management wiele zasobów może nie mieć przypisanych tagów lub przypisanie im tagów może być niemożliwe.
 
@@ -27,6 +27,13 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > [!div class="checklist"]
 > * Przydzielanie kosztów za pomocą tagów niestandardowych.
 > * Tworzenie raportów przewidywanych kosztów i obciążeń zwrotnych.
+
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+- Musisz mieć konto platformy Azure.
+- Musisz mieć rejestrację próbną lub płatną subskrypcję usługi Azure Cost Management.
 
 ## <a name="use-custom-tags-to-allocate-costs"></a>Przydzielanie kosztów za pomocą tagów niestandardowych
 
@@ -122,7 +129,7 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 
 
 
-Aby dowiedzieć się więcej na temat rozpoczynania pracy z usługą Cloudyn i używania jej funkcji, przejdź do dokumentacji usługi Cloudyn.
+Przejdź do następnego samouczka, aby dowiedzieć się więcej na temat kontrolowania dostępu do danych.
 
 > [!div class="nextstepaction"]
-> [Dokumentacja usługi Cloudyn](https://support.cloudyn.com/hc/)
+> [Kontrola dostępu do danych](tutorial-user-access.md)

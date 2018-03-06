@@ -1,22 +1,22 @@
 ---
-title: "Szybki start platformy Azure — Transferowanie obiektów do i z usługi Azure Blob Storage za pomocą języka Python | Microsoft Docs"
-description: "Skrócona instrukcja transferowania obiektów do i z usługi Azure Blob Storage za pomocą języka Python"
+title: "Azure Quickstart — przekazywanie, pobieranie i wyświetlanie listy obiektów blob w usłudze Azure Storage przy użyciu języka Python | Microsoft Docs"
+description: "W tym przewodniku Szybki start utworzysz konto magazynu i kontener. Następnie przy użyciu biblioteki klienta języka Python przekażesz obiekt blob do usługi Azure Storage, pobierzesz obiekt blob i wyświetlisz listę obiektów blob w kontenerze."
 services: storage
-author: ruthogunnnaike
+author: tamram
 manager: jeconnoc
+ms.custom: mvc
 ms.service: storage
-ms.tgt_pltfrm: na
-ms.devlang: python
 ms.topic: quickstart
-ms.date: 10/12/2017
-ms.author: v-ruogun
-ms.openlocfilehash: 50f43e6ef9ee60cbf489bb8d0c1c64ca61a393e1
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.date: 02/22/2018
+ms.author: tamram
+ms.openlocfilehash: a82ec92449730a784e7cd36d7f364a9a4516c15f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/24/2018
 ---
-#  <a name="transfer-objects-tofrom-azure-blob-storage-using-python"></a>Transferowanie obiektów do i z usługi Azure Blob Storage za pomocą języka Python
+# <a name="quickstart-upload-download-and-list-blobs-using-python"></a>Szybki start: przekazywanie, pobieranie i wyświetlanie listy obiektów blob przy użyciu języka Python
+
 Dzięki temu przewodnikowi Szybki start dowiesz się, w jaki sposób za pomocą języka Python przekazywać, pobierać i wyświetlać listę blokowych obiektów blob w kontenerze usługi Azure Blob Storage. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -41,14 +41,14 @@ git clone https://github.com/Azure-Samples/storage-blobs-python-quickstart.git
 To polecenie klonuje repozytorium do lokalnego folderu git. Aby otworzyć program Python, odszukaj folder storage-blobs-python-quickstart i plik example.py.  
 
 ## <a name="configure-your-storage-connection-string"></a>Konfigurowanie parametrów połączenia magazynu
-W aplikacji należy podać nazwę konta magazynu i klucz konta, aby utworzyć obiekt `BlockBlobService`. Otwórz plik `example.py` w Eksploratorze rozwiązań w środowisku IDE. Zastąp wartości **accountname** i **accountkey** za pomocą swojej nazwy konta i swojego klucza. 
+W aplikacji należy podać nazwę konta magazynu i klucz konta, aby utworzyć obiekt `BlockBlobService`. Otwórz plik `example.py` w Eksploratorze rozwiązań w środowisku IDE. Zastąp wartości **accountname** i **accountkey** własną nazwą konta i własnym kluczem. 
 
 ```python 
 block_blob_service = BlockBlobService(account_name='accountname', account_key='accountkey') 
 ```
 
 ## <a name="run-the-sample"></a>Uruchamianie aplikacji przykładowej
-Ta aplikacja przykładowa tworzy plik testowy w folderze Dokumenty. Aplikacja przykładowa przesyła plik testowy do usługi Blob Storage, umieszcza listę obiektów blob w kontenerze i pobiera plik z nową nazwą. 
+Ta aplikacja przykładowa tworzy plik testowy w folderze „Documents”. Aplikacja przykładowa przesyła plik testowy do usługi Blob Storage, wyświetla listę obiektów blob w kontenerze i pobiera plik z nową nazwą. 
 
 Uruchom przykład. Poniższej przedstawiono przykładowe dane wyjściowe zwracane po uruchomieniu aplikacji:
   
@@ -62,7 +62,7 @@ List blobs in the container
 
 Downloading blob to C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078_DOWNLOADED.txt
 ```
-Po naciśnięciu dowolnego klawisza w celu kontynuowania aplikacja przykładowa usunie kontener magazynu i pliki. Przed kontynuowaniem sprawdź, czy w folderze Dokumenty znajdują się te dwa pliki. Możesz je otworzyć i sprawdzić, czy są identyczne.
+Po naciśnięciu dowolnego klawisza w celu kontynuowania aplikacja przykładowa usunie kontener magazynu i pliki. Przed kontynuowaniem sprawdź, czy w folderze „Documents” znajdują się te dwa pliki. Możesz je otworzyć i sprawdzić, czy są identyczne.
 
 Możesz również wyświetlić pliki w usłudze Blob Storage za pomocą narzędzia takiego jak [Eksplorator usługi Azure Storage](http://storageexplorer.com). Eksplorator usługi Azure Storage to darmowe narzędzie międzyplatformowe, które umożliwia dostęp do informacji na koncie magazynu. 
 

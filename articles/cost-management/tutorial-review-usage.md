@@ -1,22 +1,25 @@
 ---
-title: "Przeglądanie użycia i kosztów w usłudze Azure Cost Management | Microsoft Docs"
-description: "Przeglądaj użycie i koszty w celu śledzenia trendów, wykrywania niewydajności i tworzenia alertów."
+title: "Samouczek — przeglądanie użycia i kosztów w usłudze Azure Cost Management | Microsoft Docs"
+description: "Ten samouczek przedstawia przeglądanie użycia i kosztów w celu śledzenia trendów, wykrywania niewydajności i tworzenia alertów."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 02/27/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 72c5c9ff13577e7b4008c42133742d8de4904ae0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e8f09a90ae9a4dd54d81335de2494f0dcbe09485
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="review-usage-and-costs"></a>Przeglądanie użycia i kosztów
+<!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
+-->
+
+# <a name="tutorial-review-usage-and-costs"></a>Samouczek: przeglądanie użycia i kosztów
 
 Usługa Azure Cost Management firmy Cloudyn umożliwia przeglądanie użycia i kosztów w celu śledzenia trendów, wykrywania niewydajności i tworzenia alertów. Wszystkie dane użycia i kosztów są wyświetlane na pulpitach nawigacyjnych i w raportach usługi Cloudyn. Przykłady w tym samouczku ilustrują przeglądanie użycia i kosztów za pomocą pulpitów nawigacyjnych i raportów. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -25,7 +28,12 @@ Usługa Azure Cost Management firmy Cloudyn umożliwia przeglądanie użycia i k
 > * Wykrywanie przypadków niewydajnego użycia
 > * Tworzenie alertów dotyczących nietypowych wydatków i przekraczania wydatków
 
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
+## <a name="prerequisites"></a>Wymagania wstępne
+
+- Musisz mieć konto platformy Azure.
+- Musisz mieć rejestrację próbną lub płatną subskrypcję usługi Azure Cost Management.
 
 ## <a name="open-the-cloudyn-portal"></a>Otwieranie portalu Cloudyn
 
@@ -98,7 +106,7 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 > * Tworzenie alertów dotyczących nietypowych wydatków i przekraczania wydatków
 
 
-Przejdź do następnego samouczka, aby dowiedzieć się więcej na temat kontrolowania dostępu do danych.
+Przejdź do następnego samouczka, aby dowiedzieć się, jak prognozować wydatki przy użyciu danych historycznych.
 
 > [!div class="nextstepaction"]
-> [Kontrola dostępu do danych](tutorial-user-access.md)
+> [Prognozowanie wydatków w przyszłości](tutorial-forecast-spending.md)

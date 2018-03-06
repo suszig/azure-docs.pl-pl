@@ -1,6 +1,6 @@
 ---
-title: "Samouczek wystąpień kontenera platformy Azure — przygotowanie aplikacji"
-description: "Azure wystąpień kontenera samouczek część 1 z 3 — Przygotowanie aplikacji do wdrożenia do wystąpień kontenera platformy Azure"
+title: "Samouczek usługi Azure Container Instances — przygotowywanie aplikacji"
+description: "Samouczek usługi Azure Container Instances, część 1 z 3 — przygotowywanie aplikacji do wdrożenia w usłudze Azure Container Instances"
 services: container-instances
 author: seanmck
 manager: timlt
@@ -9,38 +9,38 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: fc16be80e776d1472be775fa32354ba157d16545
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.openlocfilehash: 5012412ec642a04102836274caea253635376efb
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="create-container-for-deployment-to-azure-container-instances"></a>Tworzenie kontenera do wdrożenia w usłudze Azure Container Instances
 
-Usługa Azure Container Instances umożliwia wdrażanie kontenerów Docker w infrastrukturze platformy Azure bez aprowizowania maszyn wirtualnych ani adaptowania usług wyższego poziomu. W tym samouczku tworzenie aplikacji sieci web małe w środowisku Node.js i pakiet go w kontenerze, który można uruchomić za pomocą wystąpień kontenera platformy Azure.
+Usługa Azure Container Instances umożliwia wdrażanie kontenerów Docker w infrastrukturze platformy Azure bez aprowizowania maszyn wirtualnych ani adaptowania usług wyższego poziomu. Podczas pracy z tym samouczkiem utworzysz małą aplikację internetową w środowisku Node.js i spakujesz ją w postaci kontenera, który można uruchomić za pomocą usługi Azure Container Instances.
 
-W tym artykule, należy do jednej serii, możesz:
+W tym artykule, który jest pierwszą częścią trzyczęściowej serii, wykonasz następujące działania:
 
 > [!div class="checklist"]
 > * Klonowanie kodu źródłowego aplikacji z usługi GitHub
 > * Tworzenie obrazu kontenera ze źródła aplikacji
-> * Testowanie w środowisku lokalnym Docker obrazu
+> * Testowanie obrazu w lokalnym środowisku Docker
 
-W kolejnych samouczkach przekazywanie obrazu w rejestrze kontenera platformy Azure, a następnie wdrożyć do wystąpień kontenera platformy Azure.
+Podczas pracy z kolejnymi samouczkami przekażesz obraz do usługi Azure Container Registry, a następnie wdrożysz go w usłudze Azure Container Instances.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-Ten samouczek wymaga używasz interfejsu wiersza polecenia Azure w wersji 2.0.23 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli musisz zainstalować lub uaktualnić, zobacz [zainstalować Azure CLI 2.0][azure-cli-install].
+W tym samouczku wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.23 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0][azure-cli-install].
 
-Ten samouczek zakłada podstawową wiedzę na temat podstawowych pojęć Docker takich jak kontenery, kontener obrazów i podstawowe `docker` poleceń. Jeśli to konieczne, zobacz [Rozpoczynanie pracy z rozwiązaniem Docker] [ docker-get-started] dla Elementarz na podstawy kontenera.
+Ten samouczek zakłada, że masz podstawową wiedzę na temat najważniejszych pojęć usługi Docker, takich jak kontenery, obrazy kontenera i podstawowe polecenia `docker`. W razie potrzeby zapoznaj się z tematem [Get started with Docker (Rozpoczynanie pracy z platformą Docker)][docker-get-started], aby uzyskać podstawowe informacje na temat kontenerów.
 
-Do ukończenia tego samouczka, należy lokalnie zainstalować Środowisko deweloperskie Docker. Docker zawiera pakiety, które łatwo skonfigurować Docker na dowolnym [Mac][docker-mac], [Windows][docker-windows], lub [Linux] [ docker-linux] systemu.
+Do ukończenia tego samouczka konieczne będzie zainstalowane lokalnie środowisko deweloperskie platformy Docker. Środowisko Docker zawiera pakiety, które umożliwiają łatwe konfigurowanie platformy Docker w systemie [Mac][docker-mac], [Windows][docker-windows] lub [Linux][docker-linux].
 
-Azure powłoki chmury nie zawiera składniki Docker wymagane do ukończenia każdego kroku w tym samouczku. Środowisko projektowe wiersza polecenia platformy Azure i klastrem Docker należy zainstalować na komputerze lokalnym do ukończenia tego samouczka.
+Usługa Azure Cloud Shell nie zawiera składników platformy Docker wymaganych do ukończenia każdego kroku w tym samouczku. Aby ukończyć ten samouczek, należy zainstalować interfejs wiersza polecenia platformy Azure i środowisko deweloperskie platformy Docker na komputerze lokalnym.
 
 ## <a name="get-application-code"></a>Pobieranie kodu aplikacji
 
-Przykładowe w tym samouczku obejmuje prostą aplikację sieci web wbudowane [Node.js][nodejs]. Aplikacja obsługuje statyczną stronę HTML i wygląda następująco:
+Przykład podany w tym samouczku obejmuje prostą aplikację internetową utworzoną za pomocą oprogramowania [Node.js][nodejs]. Aplikacja obsługuje statyczną stronę HTML i wygląda następująco:
 
 ![Samouczek aplikacji wyświetlony w przeglądarce][aci-tutorial-app]
 
@@ -52,24 +52,24 @@ git clone https://github.com/Azure-Samples/aci-helloworld.git
 
 ## <a name="build-the-container-image"></a>Kompilowanie obrazu kontenera
 
-Plik Dockerfile znajdujący się w przykładowym repozytorium przedstawia sposób kompilowania kontenera. Rozpoczyna od [oficjalnego obrazu Node.js] [ docker-hub-nodeimage] na podstawie [Alpine Linux][alpine-linux], mała dystrybucji, które dobrze nadają się do użycia z kontenery. Kolejny krok to skopiowanie plików aplikacji do kontenera, zainstalowanie zależności za pomocą programu Node Package Manager i na koniec uruchomienie aplikacji.
+Plik Dockerfile znajdujący się w przykładowym repozytorium przedstawia sposób kompilowania kontenera. Praca rozpoczyna się od [oficjalnego obrazu oprogramowania Node.js][docker-hub-nodeimage] opartego na systemie [Alpine Linux][alpine-linux], małej dystrybucji, która dobrze nadaje się do korzystania z kontenerów. Kolejny krok to skopiowanie plików aplikacji do kontenera, zainstalowanie zależności za pomocą programu Node Package Manager i na koniec uruchomienie aplikacji.
 
 ```Dockerfile
 FROM node:8.9.3-alpine
 RUN mkdir -p /usr/src/app
-COPY ./app/* /usr/src/app/
+COPY ./app/ /usr/src/app/
 WORKDIR /usr/src/app
 RUN npm install
 CMD node /usr/src/app/index.js
 ```
 
-Użyj [kompilacji docker] [ docker-build] polecenie, aby utworzyć obraz kontenera, oznaczanie go jako *aci samouczek aplikacji*:
+Użyj polecenia [docker build][docker-build], aby utworzyć obraz kontenera, oznaczając go jako *aci-tutorial-app*:
 
 ```bash
 docker build ./aci-helloworld -t aci-tutorial-app
 ```
 
-Dane wyjściowe z [kompilacji docker] [ docker-build] polecenie jest podobne do następujących (obcięty dla czytelności):
+Dane wyjściowe polecenia [docker build][docker-build] są podobne do następujących (tutaj obcięto je dla zwiększenia czytelności):
 
 ```bash
 Sending build context to Docker daemon  119.3kB
@@ -90,7 +90,7 @@ Successfully built 6edad76d09e9
 Successfully tagged aci-tutorial-app:latest
 ```
 
-Użyj [obrazy usługi docker] [ docker-images] polecenie, aby wyświetlić wbudowanych obrazu:
+Użyj polecenia [docker images][docker-images], aby wyświetlić utworzony obraz:
 
 ```bash
 docker images
@@ -115,14 +115,14 @@ Otwórz przeglądarkę z adresem http://localhost:8080, aby potwierdzić, że ko
 
 ![Uruchamianie aplikacji lokalnie w przeglądarce][aci-tutorial-app-local]
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Podczas pracy z samouczkiem utworzono obraz kontenera, który można wdrożyć w usłudze Azure Container Instances. Wykonano następujące czynności:
 
 > [!div class="checklist"]
-> * Sklonowany źródłowy aplikacji z usługi GitHub
-> * Obrazy utworzone kontenera ze źródła aplikacji
-> * Przetestowane kontenera lokalnie
+> * Klonowanie źródła aplikacji z usługi GitHub
+> * Tworzenie obrazu kontenera z poziomu źródła aplikacji
+> * Testowanie kontenera w środowisku lokalnym
 
 Przejdź do kolejnego samouczka, aby dowiedzieć się więcej o przechowywaniu obrazów kontenera w usłudze Azure Container Registry.
 

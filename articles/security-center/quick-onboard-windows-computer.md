@@ -1,6 +1,6 @@
 ---
-title: "Centrum zabezpieczeń Azure — Szybki Start - dołączeniu komputerów z systemem Windows do Centrum zabezpieczeń | Dokumentacja firmy Microsoft"
-description: "Ta opcja szybkiego startu przedstawia udostępnianie programu Microsoft Monitoring Agent na komputerze z systemem Windows."
+title: "Szybki start: Azure Security Center — dołączanie komputerów z systemem Windows do usługi Security Center | Microsoft Docs"
+description: "Ten przewodnik Szybki start przedstawia sposób aprowizowania agenta Microsoft Monitoring Agent na komputerze z systemem Windows."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -9,84 +9,85 @@ editor:
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
+ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2018
+ms.date: 02/22/2018
 ms.author: terrylan
-ms.openlocfilehash: 50cbbca9181d67bc41632a4650c76b9636a72356
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
-ms.translationtype: MT
+ms.openlocfilehash: 8d9b0fcc8b72f947cbc64c6ac9a428ac29f8dfd2
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Szybki Start: Dodać komputery do Centrum zabezpieczeń Azure
-Po dołączeniu subskrypcji Azure, można włączyć Centrum zabezpieczeń Zasoby z uruchomionym poza platformą Azure, na przykład lokalnie lub w innych chmur przez Inicjowanie obsługi programu Microsoft Monitoring Agent.
+# <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Szybki start: dołączanie komputerów z systemem Windows do usługi Azure Security Center
+Po dołączeniu subskrypcji platformy Azure możesz włączyć usługę Security Center dla zasobów uruchomionych poza platformą Azure, np. lokalnych lub znajdujących się w innych chmurach, aprowizując agenta Microsoft Monitoring Agent.
 
-Ta opcja szybkiego startu przedstawia sposób instalowania programu Microsoft Monitoring Agent na komputerze z systemem Windows.
+Ten przewodnik Szybki start przedstawia sposób instalowania agenta Microsoft Monitoring Agent na komputerze z systemem Windows.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Do rozpoczęcia korzystania z usługi Security Center wymagana jest subskrypcja usługi Microsoft Azure. Jeśli nie masz subskrypcji, możesz zarejestrować się, aby uzyskać dostęp do [bezpłatnego konta](https://azure.microsoft.com/pricing/free-trial/).
 
-Przed uruchomieniem tego przewodnika Szybki Start, musi być w Centrum zabezpieczeń warstwy cenowej standardowa. Zobacz [Onboard subskrypcją Azure Security Center Standard](security-center-get-started.md) instrukcje uaktualniania. Możesz spróbować Standard Centrum zabezpieczeń bezpłatnie przez pierwsze 60 dni.
+Musisz korzystać z warstwy cenowej Standardowa usługi Security Center przed rozpoczęciem tego przewodnika Szybki start. Zobacz [Dołączanie subskrypcji platformy Azure do usługi Security Center w warstwie Standardowa](security-center-get-started.md), aby uzyskać instrukcje dotyczące uaktualnienia. Warstwę Standardowa usługi Security Center możesz wypróbować bezpłatnie przez pierwsze 60 dni.
 
-## <a name="add-new-windows-computer"></a>Dodaj nowy komputer z systemem Windows
+## <a name="add-new-windows-computer"></a>Dodawanie nowego komputera z systemem Windows
 
 1. Zaloguj się do [Azure Portal](https://azure.microsoft.com/features/azure-portal/).
-2. W menu platformy **Microsoft Azure** wybierz pozycję **Security Center**. **Centrum zabezpieczeń — omówienie** otwiera.
+2. W menu platformy **Microsoft Azure** wybierz pozycję **Security Center**. Zostanie otwarte okno **Security Center — Przegląd**.
 
- ![Omówienie Centrum zabezpieczeń][2]
+ ![Security Center — Przegląd][2]
 
-3. W menu głównym Centrum zabezpieczeń, wybierz **dołączania do zaawansowanych zabezpieczeń**.
-4. Wybierz **czy chcesz dodać komputery z systemem innym niż Azure**.
+3. W menu głównym usługi Security Center wybierz pozycję **Dołączanie do zabezpieczeń zaawansowanych**.
+4. Wybierz pozycję **Czy chcesz dodać komputery spoza platformy Azure**.
 
-   ![Rozpocząć korzystanie z zaawansowanych zabezpieczeń][3]
+   ![Dołączanie do zabezpieczeń zaawansowanych][3]
 
-5. Na **dodać nowe komputery z systemem innym niż Azure**, przedstawiono listę obszarów roboczych analizy dzienników. Lista zawiera, jeśli to konieczne, domyślny obszar roboczy utworzony przez Centrum zabezpieczeń podczas automatycznego inicjowania obsługi administracyjnej został włączony. Wybierz ten obszar roboczy lub innego obszaru roboczego, który ma zostać użyty.
+5. W oknie **Dodawanie nowych komputerów spoza platformy Azure** jest wyświetlana lista obszarów roboczych usługi Log Analytics. Jeśli ma to zastosowanie, lista zawiera domyślny obszar roboczy utworzony przez usługę Security Center po włączeniu automatycznej aprowizacji. Wybierz ten obszar roboczy lub inny obszar roboczy, którego chcesz użyć.
 
-    ![Dodać komputer z systemem innym niż Azure][4]
+    ![Dodawanie komputera spoza platformy Azure][4]
 
-  **Bezpośredniego agenta** bloku, w łącze do pobierania agenta systemu Windows i klucze dla Identyfikatora obszaru roboczego do użycia podczas konfigurowania agenta.
+  Zostanie otwarty blok **Agent bezpośredni** z linkiem umożliwiającym pobieranie agenta systemu Windows i kluczami identyfikatora obszaru roboczego do użycia podczas konfigurowania agenta.
 
-6.  Wybierz **Pobierz agenta systemu Windows** łącze mające zastosowanie do typu procesora komputera można pobrać pliku ustawień.
+6.  Wybierz link **Pobierz agenta systemu Windows** odpowiadający typowi procesora komputera, aby pobrać plik instalacji.
 
-7.  Po prawej stronie **identyfikator obszaru roboczego**, wybierz ikonę kopiowania i wklejania identyfikator do Notatnika.
+7.  Po prawej stronie **identyfikatora obszaru roboczego** wybierz ikonę kopiowania i wklej identyfikator do Notatnika.
 
-8.  Po prawej stronie **klucz podstawowy**, wybierz ikonę kopiowania i wklejania klucza do Notatnika.
+8.  Po prawej stronie **klucza podstawowego** wybierz ikonę kopiowania i wklej klucz do Notatnika.
 
-## <a name="install-the-agent"></a>Zainstaluj agenta
-Teraz należy zainstalować pobrany plik na komputerze docelowym.
+## <a name="install-the-agent"></a>Instalowanie agenta
+Teraz musisz zainstalować pobrany plik na komputerze docelowym.
 
 1. Skopiuj plik na komputerze docelowym i uruchom Instalatora.
-2. Na **powitalnej** wybierz pozycję **dalej**.
-3. Na **postanowień licencyjnych** strony, przeczytaj licencji, a następnie wybierz **zgadzam się**.
-4. Na **Folder docelowy** strony, zmienić lub zachować domyślny folder instalacji, a następnie wybierz **dalej**.
-5. Na **opcje instalacji agenta** wybierz Połącz agenta z do Analiza dzienników Azure (OMS), a następnie wybierz pozycję **dalej**.
-6. Na **Azure Log Analytics** strony, Wklej **identyfikator obszaru roboczego** i **klucz obszaru roboczego (klucz podstawowy)** skopiowany do Notatnika w poprzedniej procedurze.
-7. Jeśli komputer należy zgłosić obszaru roboczego analizy dzienników w chmurze Azure dla instytucji rządowych, wybierz **Azure instytucji rządowych Stanów Zjednoczonych** formularza **chmury Azure** listy rozwijanej.  Jeśli komputer musi komunikować się za pośrednictwem serwera proxy z usługą analizy dzienników, wybierz **zaawansowane** i podaj adres URL i numer portu serwera proxy.
-8. Wybierz **dalej** po zakończeniu, podając wymagane ustawienia konfiguracyjne.
+2. Na **stronie powitalnej** wybierz pozycję **Dalej**.
+3. Na stronie **Postanowienia licencyjne** zapoznaj się z postanowieniami licencyjnymi, a następnie wybierz pozycję **Zgadzam się**.
+4. Na stronie **Folder docelowy** zmień lub pozostaw domyślny folder instalacji, a następnie wybierz pozycję **Dalej**.
+5. Na stronie **Opcje instalacji agenta** wybierz połączenie agenta z usługą Azure Log Analytics (OMS), a następnie wybierz pozycję **Dalej**.
+6. Na stronie **Azure Log Analytics** wklej **identyfikator obszaru roboczego** i **klucz obszaru roboczego (klucz podstawowy)** skopiowany do Notatnika w ramach poprzedniej procedury.
+7. Jeśli komputer powinien wysyłać raporty do obszaru roboczego usługi Log Analytics w chmurze Azure dla instytucji rządowych, wybierz pozycję **Azure — instytucje rządowe USA** z listy rozwijanej **Azure Cloud**.  Jeśli komputer musi komunikować się z usługą Log Analytics za pośrednictwem serwera proxy, wybierz pozycję **Zaawansowane** i podaj adres URL i numer portu serwera proxy.
+8. Po zdefiniowaniu niezbędnych ustawień konfiguracji wybierz pozycję **Dalej**.
 
-  ![Zainstaluj agenta][5]
+  ![Instalowanie agenta][5]
 
-9. Na **gotowy do instalacji** Przejrzyj wybrane opcje, a następnie wybierz **zainstalować**.
-10. Na **konfiguracji została ukończona pomyślnie** wybierz pozycję **Zakończ**
+9. Na stronie **Gotowe do zainstalowania** przejrzyj wybrane opcje, a następnie wybierz pozycję **Zainstaluj**.
+10. Na stronie **Konfiguracja została zakończona pomyślnie** wybierz pozycję **Zakończ**.
 
-Po ukończeniu instalacji program **Microsoft Monitoring Agent** będzie wyświetlany w **Panelu sterowania**. Można sprawdzić konfigurację istnieje i sprawdź, czy agent jest połączony.
+Po ukończeniu instalacji program **Microsoft Monitoring Agent** będzie wyświetlany w **Panelu sterowania**. Możesz tam przejrzeć konfigurację i sprawdzić, czy agent został połączony.
 
-Aby uzyskać więcej informacji na temat instalowania i konfigurowania agenta, zobacz [połączyć komputery](../log-analytics/log-analytics-agent-windows.md#install-the-agent-using-setup).
+Aby uzyskać więcej informacji na temat instalowania i konfigurowania agenta, zobacz [Connect Windows computers (Łączenie komputerów z systemem Windows)](../log-analytics/log-analytics-agent-windows.md#install-the-agent-using-setup-wizard).
 
-Teraz można monitorować z maszynami wirtualnymi Azure i komputerów z systemem innym niż Azure w jednym miejscu. W obszarze **obliczeniowe**, masz przegląd wszystkich maszyn wirtualnych i komputerach wraz z zaleceniami. Każda kolumna reprezentuje jeden zestaw zaleceń. Kolor reprezentuje maszyny Wirtualnej lub komputera bieżący stan zabezpieczeń dla tego zalecenia. Centrum zabezpieczeń udostępnia również wszystkie wykrywania dla tych komputerów w alertów zabezpieczeń.
+Teraz możesz monitorować maszyny wirtualne platformy Azure oraz komputery spoza platformy Azure w jednym miejscu. W obszarze **Obliczanie** zawarto przegląd wszystkich maszyn wirtualnych i komputerów wraz z zaleceniami. Każda kolumna reprezentuje jeden zestaw zaleceń. Kolor reprezentuje bieżący stan zabezpieczeń maszyny wirtualnej lub komputera dla tego zalecenia. Ponadto usługa Security Center przedstawia wszelkie wykrycia dotyczące tych komputerów w alertach zabezpieczeń.
 
-  ![Obliczenia bazy danych bloku][6]
+  ![Blok Obliczanie][6]
 
-Istnieją dwa typy ikon reprezentowane na **obliczeniowe** bloku:
+Istnieją dwa typy ikon przedstawianych w bloku **Obliczanie**:
 
-![icon1](./media/quick-onboard-windows-computer/security-center-monitoring-icon1.png) Komputer bez Azure
+![icon1](./media/quick-onboard-windows-computer/security-center-monitoring-icon1.png) Komputer spoza platformy Azure
 
 ![icon2](./media/quick-onboard-windows-computer/security-center-monitoring-icon2.png) Maszyna wirtualna platformy Azure
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
-Gdy nie są już potrzebne, można usunąć agenta z komputera z systemem Windows.
+Gdy agent nie jest już potrzebny, można usunąć go z komputera z systemem Windows.
 
 Aby usunąć agenta:
 
@@ -94,11 +95,11 @@ Aby usunąć agenta:
 2. Otwórz aplet **Programy i funkcje**.
 3. W obszarze **Programy i funkcje** wybierz pozycję **Microsoft Monitoring Agent** i kliknij przycisk **Odinstaluj**.
 
-## <a name="next-steps"></a>Kolejne kroki
-W tym szybkiego startu obsługi administracyjnej programu Microsoft Monitoring Agent na komputerze z systemem Windows. Aby dowiedzieć się więcej na temat sposobu korzystania z Centrum zabezpieczeń, nadal samouczek do konfigurowania zasad zabezpieczeń i oceny zabezpieczeń zasobów.
+## <a name="next-steps"></a>Następne kroki
+W tym przewodniku Szybki start aprowizowano agenta Microsoft Monitoring Agent na komputerze z systemem Windows. Aby dowiedzieć się więcej na temat sposobu korzystania z usługi Security Center, przejdź do samouczka konfigurowania zasad zabezpieczeń i oceniania zabezpieczeń Twoich zasobów.
 
 > [!div class="nextstepaction"]
-> [Samouczek: Definiowanie i oceny zasad zabezpieczeń](tutorial-security-policy.md)
+> [Samouczek: Definiowanie i ocenianie zasad zabezpieczeń](tutorial-security-policy.md)
 
 <!--Image references-->
 [2]: ./media/quick-onboard-windows-computer/overview.png

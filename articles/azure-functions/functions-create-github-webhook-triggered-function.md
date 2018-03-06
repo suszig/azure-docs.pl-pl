@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: cdfb5db7b304a18d6945328abc0ca7ebf2f9ec6a
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 98632c3276e7d9cccf29d05b903c2fac62a7d68e
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>Tworzenie funkcji wyzwalanej przez element webhook GitHub
 
@@ -67,7 +67,7 @@ W następnym kroku zostanie utworzony element webhook w repozytorium GitHub.
 
 ## <a name="configure-the-webhook"></a>Konfigurowanie elementu webhook
 
-1. W usłudze GitHub przejdź do repozytorium, którego jesteś właścicielem. Możesz też użyć dowolnego rozwidlonego repozytorium. Jeśli konieczne będzie rozwidlenie repozytorium, skorzystaj z informacji pod adresem <https://github.com/Azure-Samples/functions-quickstart>.
+1. W usłudze GitHub przejdź do repozytorium, którego jesteś właścicielem. Możesz też użyć dowolnego rozwidlonego repozytorium. Jeśli potrzebujesz rozwidlić repozytorium, zobacz <https://github.com/Azure-Samples/functions-quickstart>.
 
 1. Kliknij kolejno pozycje **Ustawienia**, **Elementy webhook** i **Dodaj element webhook**.
 
@@ -80,8 +80,8 @@ W następnym kroku zostanie utworzony element webhook w repozytorium GitHub.
 | Ustawienie | Sugerowana wartość | Opis |
 |---|---|---|
 | **Adres URL ładunku** | Skopiowana wartość | Użyj wartości zwróconej po kliknięciu pozycji **</> Pobierz adres URL funkcji**. |
-| **Wpis tajny**   | Skopiowana wartość | Użyj wartości zwróconej po kliknięciu pozycji **</> Pobierz wpis tajny usługi GitHub**. |
 | **Typ zawartości** | application/json | Funkcja oczekuje ładunku JSON. |
+| **Wpis tajny**   | Skopiowana wartość | Użyj wartości zwróconej po kliknięciu pozycji **</> Pobierz wpis tajny usługi GitHub**. |
 | Wyzwalacze zdarzeń | Pozwól mi wybrać pojedyncze zdarzenia | Wyzwalacz ma być uruchamiany tylko w przypadku zdarzeń z komentarzami dotyczącymi problemów.  |
 | | Komentarz dotyczący problemu |  |
 
@@ -107,7 +107,7 @@ Element webhook został skonfigurowany do wyzwolenia funkcji po dodaniu nowego k
 
 ## <a name="next-steps"></a>Następne kroki
 
-Utworzono funkcję, która jest uruchamiana w momencie otrzymania żądania od elementu webhook GitHub.
+Utworzono funkcję wyzwalaną w momencie otrzymania żądania od elementu webhook usługi GitHub.
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 

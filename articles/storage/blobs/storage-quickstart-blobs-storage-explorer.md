@@ -1,21 +1,21 @@
 ---
-title: "Szybki start platformy Azure — Transferowanie obiektów do usługi Azure Blob Storage i z niej za pomocą Eksploratora usługi Azure Storage | Microsoft Docs"
-description: "Skrócona instrukcja transferowania obiektów do usługi Azure Blob Storage i z niej za pomocą Eksploratora usługi Azure Storage"
+title: "Szybki Start Azure — przekazywanie, pobieranie i wyświetlanie obiektów blob w usłudze Azure Storage za pomocą Eksploratora usługi Azure Storage | Microsoft Docs"
+description: "W tym przewodniku Szybki start utworzysz konto magazynu i kontener za pomocą Eksploratora usługi Azure Storage. Następnie przy użyciu Eksploratora usługi Storage przekażesz obiekt blob do usługi Azure Storage, pobierzesz obiekt blob i wyświetlisz obiekty blob w kontenerze."
 services: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/20/2018
+ms.date: 02/22/2018
 ms.author: tamram
-ms.openlocfilehash: 5a91a39a340f20197e49a8045f0ee65c924469cb
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 72503dd0216d9d987d1222491c6e11d46a4d38a3
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-azure-storage-explorer"></a>Transferowanie obiektów do usługi Azure Blob Storage i z niej za pomocą Eksploratora usługi Azure Storage
+# <a name="quickstart-upload-download-and-list-blobs-using-azure-storage-explorer"></a>Szybki Start: przekazywanie, pobieranie i wyświetlanie obiektów blob za pomocą Eksploratora usługi Azure Storage
 
 [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/) to wieloplatformowy interfejs użytkownika służący do zarządzania zawartością kont magazynu. Ten przewodnik zawiera informacje na temat używania Eksploratora usługi Azure Storage do transferowania plików między dyskiem lokalnym i usługą Azure Blob Storage.
 

@@ -1,6 +1,6 @@
 ---
 title: "Samouczek dotyczący uwierzytelniania użytkowników za pomocą usługi Azure Active Directory B2C w aplikacji internetowej platformy ASP.NET"
-description: "Samouczek dotyczący używania usługi Azure Active Directory B2C do logowania i rejestracji użytkowników w aplikacji internetowej platformy ASP.NET."
+description: "Samouczek dotyczący sposobu użycia usługi Azure Active Directory B2C w celu określenia nazwy logowania użytkownika na potrzeby aplikacji internetowej platformy ASP.NET."
 services: active-directory-b2c
 author: PatAltimore
 ms.author: patricka
@@ -9,11 +9,11 @@ ms.date: 1/23/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
-ms.openlocfilehash: ee006476f9e40e9d1a6e7213cb1881ca46ea75c2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1d1e0ce51d86ebcdbf0a2a423ff64b3814413d86
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="tutorial-authenticate-users-with-azure-active-directory-b2c-in-an-aspnet-web-app"></a>Samouczek: Uwierzytelnianie użytkowników za pomocą usługi Azure Active Directory B2C w aplikacji internetowej platformy ASP.NET
 
@@ -45,7 +45,7 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/) jako administr
 
 2. W ustawieniach usługi B2C kliknij pozycję **Aplikacje**, a następnie kliknij pozycję **Dodaj**.
 
-    Aby zarejestrować przykładową aplikację internetową w dzierżawie, użyj następujących ustawień.
+    Aby zarejestrować przykładową aplikację internetową w dzierżawie, użyj następujących ustawień:
 
     ![Dodawanie nowej aplikacji](media/active-directory-b2c-tutorials-web-app/web-app-registration.png)
 
@@ -147,9 +147,9 @@ Przykładowa aplikacja internetowa platformy ASP.NET to prosta aplikacja z list�
 
 Przykładowe rozwiązanie zawiera dwa projekty:
 
-**Przykładowa aplikacja internetowa (TaskWebApp):** aplikacja internetowa do tworzenia i edytowania listy zadań. Ta aplikacja internetowa używa **zasad rejestracji lub logowania**, aby rejestrować lub logować użytkowników za pomocą adresu e-mail.
+**Przykładowa aplikacja internetowa (TaskWebApp):** aplikacja internetowa do tworzenia i edytowania listy zadań. Ta aplikacja internetowa używa zasad **rejestracji lub logowania** na potrzeby rejestrowania lub logowania użytkowników.
 
-**Przykładowa aplikacja internetowego interfejsu API (TaskService):** Internetowy interfejs API, który obsługuje funkcje listy zadań: tworzenie, odczytywanie, aktualizowanie i usuwanie. Internetowy interfejs API jest chroniony przez usługę Azure AD B2C i wywoływany przez aplikację internetową.
+**Przykładowa aplikacja internetowego interfejsu API (TaskService):** internetowy interfejs API, który obsługuje następujące funkcje listy zadań: tworzenie, odczytywanie, aktualizowanie i usuwanie. Internetowy interfejs API jest chroniony przez usługę Azure AD B2C i wywoływany przez aplikację internetową.
 
 Należy zmodyfikować aplikację tak, aby korzystała z rejestracji aplikacji w Twojej dzierżawie. Należy też skonfigurować utworzone zasady. Przykładowa aplikacja internetowa definiuje wartości konfiguracji jako ustawienia aplikacji w pliku Web.config. Aby zmienić ustawienia aplikacji:
 
@@ -178,7 +178,7 @@ W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt **TaskWebAp
 
 Naciśnij klawisz **F5**, aby uruchomić aplikację internetową. Zostanie uruchomiona domyślna przeglądarka z adresem lokalnej witryny internetowej `https://localhost:44316/`. 
 
-Przykładowa aplikacja obsługuje rejestrację, logowanie, edytowanie profilów i resetowanie haseł. Poniżej przedstawiono, jak użytkownik rejestruje się w celu korzystania z aplikacji przy użyciu adresu e-mail. Możesz samodzielnie wypróbować inne scenariusze.
+Przykładowa aplikacja obsługuje rejestrację, logowanie, edytowanie profilów i resetowanie haseł. Ten samouczek przedstawia proces logowania użytkownika przy użyciu adresu e-mail w celu użycia aplikacji. Możesz samodzielnie wypróbować inne scenariusze.
 
 ### <a name="sign-up-using-an-email-address"></a>Rejestrowanie się przy użyciu adresu e-mail
 
@@ -205,4 +205,4 @@ Jeśli planujesz wypróbować inne samouczki usługi Azure AD B2C, możesz uży�
 W tym samouczku przedstawiono, jak utworzyć dzierżawę usługi Azure AD B2C, utworzyć zasady i zaktualizować przykładową aplikację internetową w celu korzystania z dzierżawy usługi Azure AD B2C. Przejdź do następnego samouczka, aby dowiedzieć się, jak zarejestrować, skonfigurować i wywoływać internetowy interfejs API platformy ASP.NET chroniony przez dzierżawę usługi Azure AD B2C.
 
 > [!div class="nextstepaction"]
-> [Chronienie internetowego interfejsu API platformy ASP.NET za pomocą usługi Azure Active Directory B2C](active-directory-b2c-tutorials-web-api.md)
+> [Samouczek: chronienie internetowego interfejsu API platformy ASP.NET za pomocą usługi Azure Active Directory B2C](active-directory-b2c-tutorials-web-api.md)

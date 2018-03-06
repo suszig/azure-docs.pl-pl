@@ -1,22 +1,22 @@
 ---
-title: "Przypisywanie dostępu w usłudze Azure Cost Management | Microsoft Docs"
-description: "Przypisywanie dostępu do danych rozwiązania Cost Management przy użyciu kont użytkowników w celu zdefiniowania poziomów dostępu do jednostek."
+title: "Samouczek — przypisywanie dostępu w usłudze Azure Cost Management | Microsoft Docs"
+description: "Ten samouczek zawiera informacje na temat przypisywania dostępu do danych rozwiązania Cost Management przy użyciu kont użytkowników w celu zdefiniowania poziomów dostępu do jednostek."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 02/27/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 89639e6d9c06edf110dc8432fbefe1fbfd1298c9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0e2edc946c5d6ada1049fbd6a960ec138f7088f2
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="assign-access-to-cost-management-data"></a>Przypisywanie dostępu do danych rozwiązania Cost Management
+# <a name="tutorial-assign-access-to-cost-management-data"></a>Samouczek: przypisywanie dostępu do danych rozwiązania Cost Management
 
 Prawa dostępu do danych rozwiązania Cost Management są przyznawane za pośrednictwem funkcji zarządzania użytkownikami lub jednostkami. Konta użytkowników platformy Cloudyn określają dostęp do *jednostek* i funkcji administracyjnych. Istnieją dwa typy dostępu: administratora i użytkownika. O ile nie zmodyfikowano ich dla poszczególnych użytkowników, prawa dostępu administratora umożliwiają użytkownikowi nieograniczone korzystanie ze wszystkich funkcji w portalu Cloudyn, w tym z funkcji, takich jak: zarządzanie użytkownikami, zarządzanie listami adresatów oraz dostęp jednostki głównej do danych wszystkich jednostek. Dostęp użytkownika jest przeznaczony dla użytkowników końcowych i umożliwia im wyświetlanie raportów oraz tworzenie raportów przy użyciu dostępu do danych jednostki.
 
@@ -29,7 +29,12 @@ Zarejestrowanie konta lub umowy dotyczącej platformy Azure spowodowało utworze
 > * Tworzenie użytkownika z prawami dostępu użytkownika
 > * Tworzenie jednostek
 
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
+## <a name="prerequisites"></a>Wymagania wstępne
+
+- Musisz mieć konto platformy Azure.
+- Musisz mieć rejestrację próbną lub płatną subskrypcję usługi Azure Cost Management.
 
 ## <a name="create-a-user-with-admin-access"></a>Tworzenie użytkownika z prawami dostępu administratora
 
@@ -83,7 +88,7 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 > * Tworzenie użytkownika z prawami dostępu użytkownika
 > * Tworzenie jednostek
 
-Przejdź do następnego samouczka, aby dowiedzieć się, jak prognozować wydatki przy użyciu danych historycznych.
+Jeśli dostęp do interfejsu API usługi Azure Resource Manager nie został jeszcze włączony dla Twoich kont, przejdź do następującego artykułu.
 
 > [!div class="nextstepaction"]
-> [Prognozowanie wydatków w przyszłości](tutorial-forecast-spending.md)
+> [Aktywowanie subskrypcji i kont platformy Azure](activate-subs-accounts.md)
