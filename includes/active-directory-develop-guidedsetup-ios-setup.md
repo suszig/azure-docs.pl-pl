@@ -12,7 +12,7 @@ Menedżer pakietów Carthage jest używana w okresie Podgląd MSAL — integruje
 
 ## <a name="creating-your-application"></a>Tworzenie aplikacji
 
-1.  Otwórz środowisko Xcode i wybierz pozycję`Create a new Xcode project`
+1.  Otwórz środowisko Xcode i wybierz pozycję `Create a new Xcode project`
 2.  Wybierz `iOS`  >  `Single view Application` i kliknij przycisk *dalej*
 3.  Nadaj nazwę produktu, a następnie kliknij przycisk *dalej*
 4.  Wybierz folder do utworzenia aplikacji, a następnie kliknij przycisk *Utwórz*
@@ -42,10 +42,10 @@ carthage update
 
 ## <a name="add-the-msal-framework-to-your-application"></a>Dodaj platformę MSAL do aplikacji
 1.  W środowisku Xcode Otwórz `General` kartę
-2.  Przejdź do `Linked Frameworks and Libraries` sekcji, a następnie kliknij przycisk`+`
+2.  Przejdź do `Linked Frameworks and Libraries` sekcji, a następnie kliknij przycisk `+`
 3.  Wybierz pozycję `Add other…`
 4.  Wybierz: `Carthage`  >  `Build`  >  `iOS`  >  `MSAL.framework` i kliknij przycisk *Otwórz*. Powinny pojawić się `MSAL.framework` dodany do listy.
-5.  Przejdź do `Build Phases` , a następnie kliknij pozycję `+` ikony, wybierz pozycję`New Run Script Phase`
+5.  Przejdź do `Build Phases` , a następnie kliknij pozycję `+` ikony, wybierz pozycję `New Run Script Phase`
 6.  Dodaj następującą zawartość do *skryptu obszaru*:
 
 ```text
@@ -66,7 +66,7 @@ $(SRCROOT)/Carthage/Build/iOS/MSAL.framework
 ## <a name="creating-your-applications-ui"></a>Tworzenie aplikacji interfejsu użytkownika
 Plik Main.storyboard należy utworzyć automatycznie w ramach szablonu projektu. Postępuj zgodnie z instrukcjami poniżej, aby utworzyć aplikację interfejsu użytkownika:
 
-1.  Kontrolowanie i kliknięcia `Main.storyboard` wyświetlić menu kontekstowe, a następnie kliknij przycisk:`Open As` > `Source Code`
+1.  Kontrolowanie i kliknięcia `Main.storyboard` wyświetlić menu kontekstowe, a następnie kliknij przycisk: `Open As` > `Source Code`
 2.  Zastąp `<scenes>` węzła przy użyciu poniższego kodu:
 
 ```xml
