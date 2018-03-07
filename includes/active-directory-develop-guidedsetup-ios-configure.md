@@ -11,7 +11,7 @@ Teraz musisz zarejestrować aplikację w *portalu rejestracji aplikacji Microsof
 1.  Przejdź do [portalu rejestracji aplikacji firmy Microsoft](https://apps.dev.microsoft.com/portal/register-app)
 2.  Wprowadź nazwę aplikacji i poczty e-mail
 3.  Upewnij się, że jest zaznaczona opcja instrukcje konfiguracji
-4.  Kliknij przycisk `Add Platform`, a następnie wybierz pozycję `Native Application` i kliknij przycisk`Save`
+4.  Kliknij przycisk `Add Platform`, a następnie wybierz pozycję `Native Application` i kliknij przycisk `Save`
 5.  Wróć do Xcode. W `ViewController.swift`, Zastąp wiersz rozpoczynający się "`let kClientID`" z Identyfikatorem aplikacji został zarejestrowany:
 
 ```swift
@@ -21,7 +21,7 @@ let kClientID = "Your_Application_Id_Here"
 <!-- Workaround for Docs conversion bug -->
 <ol start="6">
 <li>
-Kontrolowanie i kliknięcia, <code>Info.plist</code> wyświetlić menu kontekstowe, a następnie kliknij przycisk: <code>Open As</code>> <code>Source Code</code>
+Kontrolowanie i kliknięcia <code>Info.plist</code> wyświetlić menu kontekstowe, a następnie kliknij przycisk: <code>Open As</code> > <code>Source Code</code>
 </li>
 <li>
 W obszarze <code>dict</code> węzła głównego, należy dodać następujące:

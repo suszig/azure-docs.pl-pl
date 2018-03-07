@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/16/2017
 ms.author: jdial
 ms.openlocfilehash: 0319029277091611673f15c94604604850cbfcbe
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="create-a-user-defined-route---azure-portal"></a>Tworzenie trasy zdefiniowane przez użytkownika - portalu Azure
 
@@ -32,7 +32,7 @@ W tym samouczku utworzysz sieć wirtualną z publiczne, prywatne i strefą DMZ p
 
 ![Trasy definiowane przez użytkownika](./media/create-user-defined-route/user-defined-routes.png)
 
-Ten artykuł zawiera kroki umożliwiające utworzenie trasy zdefiniowanej przez użytkownika za pośrednictwem modelu wdrażania usługi Resource Manager, który jest modelem wdrożenia, które firma Microsoft zaleca używanie podczas tworzenia tras zdefiniowanych przez użytkownika. Jeśli konieczne jest utworzenie trasy zdefiniowanej przez użytkownika (klasyczne), zobacz [utworzenie trasy zdefiniowanej przez użytkownika (klasyczne)](virtual-network-create-udr-classic-ps.md). Jeśli nie masz doświadczenia w obsłudze modele wdrażania platformy Azure, zobacz [modele wdrażania zrozumieć Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Aby dowiedzieć się więcej na temat trasy zdefiniowane przez użytkownika, zobacz [trasy zdefiniowane przez użytkownika — omówienie](virtual-networks-udr-overview.md#user-defined).
+Ten artykuł zawiera kroki umożliwiające utworzenie trasy zdefiniowanej przez użytkownika za pośrednictwem modelu wdrażania usługi Resource Manager, który jest modelem wdrożenia, które firma Microsoft zaleca używanie podczas tworzenia tras zdefiniowanych przez użytkownika. Jeśli konieczne jest utworzenie trasy zdefiniowanej przez użytkownika (klasyczne), zobacz [utworzenie trasy zdefiniowanej przez użytkownika (klasyczne)](virtual-network-create-udr-classic-ps.md). Jeśli nie masz doświadczenia w obsłudze modele wdrażania platformy Azure, zobacz [modele wdrażania zrozumieć Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Aby dowiedzieć się więcej o trasach definiowanych przez użytkownika, zobacz [User-defined routes overview](virtual-networks-udr-overview.md#user-defined) (Omówienie tras definiowanych przez użytkownika).
 
 ## <a name="create-routes-and-network-virtual-appliance"></a>Tworzenie trasy i urządzenie wirtualne sieci
 
@@ -53,7 +53,7 @@ Ten artykuł zawiera kroki umożliwiające utworzenie trasy zdefiniowanej przez 
 
         |Ustawienie|Wartość|
         |-----|-----|
-        |Nazwa|DMZ|
+        |Name (Nazwa)|DMZ|
         |Zakres adresów (blok CIDR)|10.0.2.0/24|
 
 6. Utwórz maszynę wirtualną urządzenie wirtualne sieci:
@@ -63,8 +63,8 @@ Ten artykuł zawiera kroki umożliwiające utworzenie trasy zdefiniowanej przez 
 
         |Ustawienie|Wartość|
         |---|---|
-        |Nazwa|analizę Nva myVm|
-        |Nazwa użytkownika|azureuser|
+        |Name (Nazwa)|myVm-Nva|
+        |Nazwa użytkownika|użytkownik_azure|
         |Hasło i Potwierdź hasło|Hasło wybrane|
         |Subskrypcja|Wybierz subskrypcję|
         |Grupa zasobów|Kliknij przycisk **Użyj istniejącego**, a następnie wybierz pozycję **myResourceGroup**|
@@ -82,7 +82,7 @@ Ten artykuł zawiera kroki umożliwiające utworzenie trasy zdefiniowanej przez 
     - Na **wyszukiwania zasobów** polu w górnej części strony, wprowadź *myVm Nva*.
     - Kliknij przycisk **myVm Nva** po wyświetleniu w wynikach wyszukiwania.
     - Kliknij przycisk **sieci** w obszarze **ustawienia** po lewej stronie.
-    - Kliknij nazwę interfejsu sieciowego w obszarze **interfejsy sieciowe myVm Nva -**. Nazwa jest **myvm nva***X*, gdzie *X* to numer przypisany przez portal.
+    - Kliknij nazwę interfejsu sieciowego w obszarze **interfejsy sieciowe myVm Nva -**. Nazwa jest **myvm nva *** X*, gdzie *X* to numer przypisany przez portal.
     - Kliknij przycisk **konfiguracje adresów IP** w obszarze **ustawienia** dla interfejsu sieciowego, jak pokazano na poniższej ilustracji:
 
         ![Ustawienia interfejsu sieciowego](./media/create-user-defined-route/network-interface-settings.png)
@@ -102,7 +102,7 @@ Ten artykuł zawiera kroki umożliwiające utworzenie trasy zdefiniowanej przez 
 
         |Ustawienie|Wartość|
         |---|---|
-        |Nazwa|myRouteTable publicznego|
+        |Name (Nazwa)|myRouteTable-Public|
         |Subskrypcja|Wybierz subskrypcję|
         |Grupa zasobów|Wybierz **Użyj istniejącego**, a następnie wybierz pozycję **myResourceGroup**|
         |Lokalizacja|Wschodnie stany USA|
@@ -327,7 +327,7 @@ Po zakończeniu tego samouczka można usunąć zasoby, które zostały utworzone
 2. Na **myResourceGroup** bloku, kliknij przycisk **usunąć** ikony.
 3. Aby potwierdzić decyzję, w **typu nazwa grupy zasobów** wprowadź **myResourceGroup**, a następnie kliknij przycisk **usunąć**.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Utwórz [urządzenie wirtualne wysokiej dostępności sieci](/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Urządzenie wirtualne sieci często mają wiele interfejsów sieciowych i adresów IP przypisanych do nich. Dowiedz się, jak [dodać interfejsów sieciowych do istniejącej maszyny wirtualnej](virtual-network-network-interface-vm.md#vm-add-nic) i [dodać adresy IP do istniejącego interfejsu sieciowego](virtual-network-network-interface-addresses.md#add-ip-addresses). Chociaż wszystkich rozmiarów maszyn wirtualnych może mieć co najmniej dwa interfejsy sieci dołączone, każdego rozmiaru maszyny wirtualnej obsługuje maksymalna liczba interfejsów sieciowych. Aby dowiedzieć się, jak wiele interfejsów sieciowych każdego wirtualnego komputera obsługuje rozmiaru, zobacz [Windows](../virtual-machines/windows/sizes.md?toc=%2Fazure%2Fvirtual-network%2Ftoc.json) i [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) rozmiarów maszyn wirtualnych. 

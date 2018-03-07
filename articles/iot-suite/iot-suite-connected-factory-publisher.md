@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/14/2017
 ms.author: dobett
 ms.openlocfilehash: 934f4deb3139c136c871ab0125ba45267e1d1b05
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="opc-publisher-for-azure-iot-edge"></a>Wydawca OPC Edge IoT Azure
 
@@ -131,9 +131,9 @@ Aby wyświetlić pełną użycia aplikacji, użyj `--help` opcji wiersza polecen
 OpcPublisher.exe <applicationname> [<IoT Hubconnectionstring>] [<options>]
 ```
 
-`applicationname`jest to nazwa aplikacji OPC UA do użycia. Ten parametr jest wymagany. Nazwa aplikacji służy również do rejestrowania wydawcy w rejestrze urządzeń Centrum IoT.
+`applicationname` jest to nazwa aplikacji OPC UA do użycia. Ten parametr jest wymagany. Nazwa aplikacji służy również do rejestrowania wydawcy w rejestrze urządzeń Centrum IoT.
 
-`IoT Hubconnectionstring`to Centrum IoT ciąg połączenia właściciela. Ten parametr jest opcjonalny.
+`IoT Hubconnectionstring` to Centrum IoT ciąg połączenia właściciela. Ten parametr jest opcjonalny.
 
 Obsługiwane są następujące opcje:
 
@@ -468,6 +468,6 @@ Teraz możesz rozpocząć debugowanie przy użyciu następującego polecenia w o
 DebugAdapterHost.Launch /LaunchJson:"<path-to-the-launch.json-file-you-saved>"
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 A sugerowane, następnym krokiem jest, aby dowiedzieć się, jak [wdrożyć bramę Windows lub Linux dla połączonych fabryki wstępnie skonfigurowane rozwiązanie](iot-suite-connected-factory-gateway-deployment.md).
