@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 54b9c38d1122d898dd584a189b9ea2e3405dc6f5
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 91461af20cdb189ab23671fee0f3dea182ec0bb1
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-playready-andor-widevine-dynamic-common-encryption"></a>Używanie dynamicznego szyfrowania Common Encryption w usługach PlayReady i Widevine
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 01/10/2018
 > Aby uzyskać najnowszą wersję zestawu SDK języka Java i zacząć programować w języku Java, zobacz [Rozpoczynanie korzystania z zestawu SDK klienta Java dla usług Azure Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
 > Aby pobrać najnowszy zestaw SDK języka PHP dla usługi Media Services, poszukaj wersji 0.5.7 pakietu Microsoft/WindowsAzure w [repozytorium Packagist](https://packagist.org/packages/microsoft/windowsazure#v0.5.7). 
 
-## <a name="overview"></a>Przegląd
+## <a name="overview"></a>Omówienie
 
  Usługa Media Services umożliwia dostarczanie strumieni MPEG-DASH, Smooth Streaming i HTTP Live Streaming (HLS) chronionych przy użyciu [usługi zarządzania prawami cyfrowymi (DRM) PlayReady](https://www.microsoft.com/playready/overview/). Można też dostarczać zaszyfrowane strumienie DASH korzystające z licencji Widevine DRM. Obie usługi, PlayReady i Widevine, szyfrują dane zgodnie ze specyfikacją Common Encryption (ISO/IEC CENC 23001-7). Aby skorzystać z usługi Widevine, można skonfigurować obiekt AssetDeliveryConfiguration przy użyciu zestawu [Media Services .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (począwszy od wersji 3.5.1) lub interfejsu API REST.
 
@@ -74,7 +74,7 @@ Wykonaj następujące czynności ogólne w przypadku ochrony elementów zawarto�
 
     Podczas tworzenia zasad autoryzacji klucza zawartości należy określić metodę dostarczania (PlayReady lub Widevine) i ograniczenia (otwarte lub tokenu). Należy też określić informacje specyficzne dla typu klucza dostarczania, które definiują sposób dostarczania klucza do klienta (szablon licencji [PlayReady](media-services-playready-license-template-overview.md) lub [Widevine](media-services-widevine-license-template-overview.md)).
 
-5. Skonfiguruj zasady dostarczania elementu zawartości. Konfiguracja zasad dostarczania obejmuje protokół dostarczania (na przykład MPEG-DASH, HLS, Smooth Streaming lub wszystkie). Konfiguracja obejmuje również typ szyfrowania dynamicznego (na przykład Common Encryption) oraz adres URL pozyskiwania licencji PlayReady lub Widevine.
+5. Skonfiguruj zasadę dostarczania elementu zawartości. Konfiguracja zasad dostarczania obejmuje protokół dostarczania (na przykład MPEG-DASH, HLS, Smooth Streaming lub wszystkie). Konfiguracja obejmuje również typ szyfrowania dynamicznego (na przykład Common Encryption) oraz adres URL pozyskiwania licencji PlayReady lub Widevine.
 
     Dla każdego protokołu dotyczącego danego elementu zawartości można stosować inne zasady. Na przykład dla protokołu Smooth/DASH można zastosować szyfrowanie PlayReady, zaś dla protokołu HLS — szyfrowanie AES Envelope. Protokoły, które nie są zdefiniowane w zasadach dostarczania (na przykład w przypadku dodania jednych zasad, które określają tylko protokół HLS), nie mogą być używane w przesyłaniu strumieniowym. Wyjątkiem jest przypadek, w którym nie zdefiniowano żadnych zasad dostarczania elementów zawartości. Wówczas są dozwolone wszystkie protokoły.
 
@@ -135,6 +135,7 @@ Aby uzyskać instrukcje dotyczące sposobu publikowania elementów zawartości i
 ## <a name="get-a-test-token"></a>Pobieranie tokenu testowego
 Pobierz token testowy, uwzględniając ograniczenia tokenu wybrane w zasadach autoryzacji klucza.
 
+```csharp
     // Deserializes a string containing an XML representation of a TokenRestrictionTemplate
     // back into a TokenRestrictionTemplate class instance.
     TokenRestrictionTemplate tokenTemplate =
@@ -145,7 +146,7 @@ Pobierz token testowy, uwzględniając ograniczenia tokenu wybrane w zasadach au
     //so you have to add it in front of the token string.
     string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate);
     Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
-
+```
 
 Możesz przetestować strumień za pomocą usługi [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
@@ -155,8 +156,10 @@ Możesz przetestować strumień za pomocą usługi [Azure Media Services Player]
 
 2. Dodaj następujące elementy do węzła **appSettings** zdefiniowanego w pliku app.config:
 
+```xml
         <add key="Issuer" value="http://testacs.com"/>
         <add key="Audience" value="urn:test"/>
+```
 
 ## <a name="example"></a>Przykład
 
@@ -171,7 +174,7 @@ Aby uzyskać więcej informacji, zobacz [Zarządzanie zasobami i powiązanymi je
 
 Upewnij się, że zaktualizowano zmienne, tak aby wskazywały foldery, w których znajdują się pliki danych wejściowych.
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Configuration;

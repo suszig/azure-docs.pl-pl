@@ -15,11 +15,11 @@ ms.devlang: JavaScript
 ms.topic: hero-article
 ms.date: 10/03/2016
 ms.author: yuaxu
-ms.openlocfilehash: 376348c3af0ff97162f1b2ed865a5edd47f52546
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 33ef17f1556822c78783cc56b8ea7867eef2ec71
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="send-push-notifications-to-chrome-apps-with-azure-notification-hubs"></a>Wysyłanie powiadomień wypychanych do aplikacji dla programu Chrome przy użyciu usługi Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -71,7 +71,7 @@ Sposób konfigurowania usługi GCM i Azure Notification Hubs jest taki sam jak w
         ![Azure Notification Hubs — Google (GCM)](./media/notification-hubs-android-get-started/notification-hubs-gcm-api.png)
 
 ## <a id="connect-app"></a>Łączenie aplikacji dla programu Chrome z centrum powiadomień
-Twoje centrum powiadomień jest teraz skonfigurowane do pracy z usługą GCM i uzyskano parametry połączenia do rejestrowania aplikacji w celu odbierania i wysyłania powiadomień wypychanych. LK
+Twoje centrum powiadomień jest teraz skonfigurowane do pracy z usługą GCM i uzyskano parametry połączenia do rejestrowania aplikacji w celu odbierania i wysyłania powiadomień wypychanych.
 
 ### <a name="create-a-new-chrome-app"></a>Tworzenie nowej aplikacji dla programu Chrome
 Poniższy przykład jest oparty na [przykładzie usługi GCM dla aplikacji dla programu Chrome] i przedstawiono w nim zalecany sposób tworzenia aplikacji dla programu Chrome. W tej sekcji opisano kroki, które są specyficzne dla usługi Azure Notification Hubs. 
