@@ -3,9 +3,9 @@ title: Tworzenie pierwszej fabryki danych (Azure Portal) | Microsoft Docs
 description: "W tym samouczku przedstawiono instrukcje tworzenia przykładowego potoku usługi Azure Data Factory przy użyciu Edytora fabryki danych w witrynie Azure Portal."
 services: data-factory
 documentationcenter: 
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: sharonlo101
+manager: 
+editor: 
 ms.assetid: d5b14e9e-e358-45be-943c-5297435d402d
 ms.service: data-factory
 ms.workload: data-services
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/22/2018
-ms.author: spelluru
+ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 995abf497e7267434b5e87132d30183e3c293af3
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: c4fe0e01936ebc131b10f011b98e9d0c1782179b
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Samouczek: tworzenie pierwszej fabryki danych przy użyciu witryny Azure Portal
 > [!div class="op_single_selector"]
@@ -425,7 +425,7 @@ Do monitorowania potoków możesz też użyć aplikacji Monitorowanie i zarządz
 ## <a name="summary"></a>Podsumowanie
 W tym samouczku opisano tworzenie fabryki danych do przetwarzania danych przez uruchomienie skryptu programu Hive w klastrze platformy Hadoop w usłudze HDInsight. Użyto Edytora fabryki danych w witrynie Azure Portal, aby:  
 
-* Utworzyć fabrykę danych.
+* Tworzenie fabryki danych.
 * Utworzyć dwie połączone usługi:
    * Połączoną usługę Storage w celu połączenia magazynu obiektów blob, w którym przechowywane są pliki wejściowe/wyjściowe, z fabryką danych.
    * Połączoną usługę HDInsight na żądanie w celu połączenia klastra platformy Hadoop na żądanie w usłudze HDInsight z fabryką danych. Usługa Data Factory tworzy klaster just in time platformy Hadoop w usłudze HDInsight, aby przetwarzać dane wejściowe i generować dane wyjściowe.
