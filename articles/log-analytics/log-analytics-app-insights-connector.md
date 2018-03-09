@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: magoedte
-ms.openlocfilehash: bf3259909a84e1e1f5325ff4e39d5c10f1abc831
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 1556e91710990351d6723325789201afa99b1943
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Rozwiązania do zarządzania łącznika Insights aplikacji (wersja zapoznawcza)
 
@@ -64,7 +64,7 @@ W ciągu 30 minut dane będą dostępne, i na kafelku usługi Application Insigh
 Inne punkty, które należy wziąć pod uwagę:
 
 - Aplikacje usługi Application Insights można połączyć tylko jednego obszaru roboczego analizy dzienników.
-- Można połączyć tylko [Standard lub Premium Application Insights zasobów](https://azure.microsoft.com/pricing/details/application-insights) do analizy dzienników. Można jednak użyć warstwę bezpłatna analizy dziennika.
+- Można połączyć tylko [Basic lub Enterprise Application Insights zasobów](https://azure.microsoft.com/pricing/details/application-insights) do analizy dzienników. Można jednak użyć warstwę bezpłatna analizy dziennika.
 
 ## <a name="management-packs"></a>Pakiety administracyjne
 
@@ -86,7 +86,7 @@ Pulpit nawigacyjny zawiera bloki z tabelą. Każdy blok zawiera maksymalnie 10 e
 
 [!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
-| Kolumny | **Opis** |
+| **Kolumny** | **Opis** |
 | --- | --- |
 | Aplikacje — liczba aplikacji | Przedstawia liczbę aplikacji w zasobów aplikacji. Zawiera także listę nazw aplikacji i dla każdej liczby rekordów w aplikacji. Kliknij liczbę do uruchamiania wyszukiwania dziennika <code>Type=ApplicationInsights &#124; measure sum(SampledCount) by ApplicationName</code> <br><br>  Kliknij nazwę aplikacji, aby uruchomić wyszukiwanie dziennika dla aplikacji, która zawiera rekordy aplikacji według hosta, rekordów typu telemetrii i wszystkie dane według typu (na podstawie ostatniego dnia). |
 | Ilość danych — obsługuje wysyłanie danych | Pokazuje liczbę komputerów hostów, które wysyłają dane. Zawiera także listę hostów komputera i liczba rekordów dla każdego hosta. Kliknij liczbę do uruchamiania wyszukiwania dziennika <code>Type=ApplicationInsights &#124; measure sum(SampledCount) by Host</code> <br><br> Kliknij nazwę komputera, aby uruchomić wyszukiwanie dziennika dla hosta, który zawiera rekordy aplikacji według hosta, rekordów typu telemetrii i wszystkie dane według typu (na podstawie ostatniego dnia). |
@@ -117,7 +117,7 @@ Po kliknięciu dowolnej lokalizacji w **wyjątki** bloku, zobacz wizualizacji do
 
 ![Application Insights wyjątki bloku](./media/log-analytics-app-insights-connector/exceptions-blade-drill-search.png)
 
-Niezależnie od tego, czy można kliknąć element jedną **Application Insights łącznik** pulpitu nawigacyjnego, poziomu **wyszukiwania** strony, każde zapytanie zwraca dane usługi Application Insights zawiera perspektywę usługi Application Insights. Na przykład, jeśli można przeglądać dane usługi Application Insights **&#42;** zapytanie wyświetla również karcie perspektywy, podobnie jak na poniższej ilustracji:
+Niezależnie od tego, czy można kliknąć element jedną **Application Insights łącznik** pulpitu nawigacyjnego, poziomu **wyszukiwania** strony, każde zapytanie zwraca dane usługi Application Insights zawiera perspektywę usługi Application Insights. Na przykład, jeśli można przeglądać dane usługi Application Insights  **&#42;**  zapytanie wyświetla również karcie perspektywy, podobnie jak na poniższej ilustracji:
 
 ![Application Insights ](./media/log-analytics-app-insights-connector/app-insights-search.png)
 

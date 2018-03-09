@@ -14,13 +14,13 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 03/04/2018
 ms.author: tdykstra
-ms.openlocfilehash: f613e480f6699b323c18402f01873e565768f10f
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 0a436a929696f759cdbe9807faa2a15902b7ce6d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Przewodnik dewelopera usługi Azure funkcji JavaScript
 [!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
@@ -120,7 +120,7 @@ Umożliwia pisanie w dziennikach konsoli przesyłania strumieniowego na poziomie
 | ---------------------- | ------------------------------------------ |
 | **Błąd (_komunikat_)**   | Zapisuje poziom błędu rejestrowanie lub niższy.   |
 | **Ostrzegaj (_komunikat_)**    | Zapisuje poziom ostrzeżeń rejestrowanie lub niższy. |
-| **informacje o (_komunikat_)**    | Zapisuje informacje o poziomie rejestrowanie lub niższy.    |
+| **info(_message_)**    | Zapisuje informacje o poziomie rejestrowanie lub niższy.    |
 | **pełne (_komunikat_)** | Zapisuje pełne rejestrowanie na poziomie.           |
 
 Poniższe przykładowe polecenie zapisuje konsoli na poziomie śledzenia ostrzeżenia:
@@ -208,12 +208,12 @@ HTTP i wyzwalaczy elementu webhook HTTP wyjściowe i powiązania reprezentują w
 
 | Właściwość      | Opis                                                    |
 | ------------- | -------------------------------------------------------------- |
-| _treści_        | Obiekt, który zawiera treść żądania.               |
-| _nagłówki_     | Obiekt, który zawiera nagłówki żądania.                   |
+| _body_        | Obiekt, który zawiera treść żądania.               |
+| _Nagłówki_     | Obiekt, który zawiera nagłówki żądania.                   |
 | _— Metoda_      | Metoda HTTP żądania.                                |
 | _originalUrl_ | Adres URL żądania.                                        |
 | _Parametry_      | Obiekt zawierający parametry routingu żądania. |
-| _zapytania_       | Obiekt zawierający parametry zapytania.                  |
+| _Zapytania_       | Obiekt zawierający parametry zapytania.                  |
 | _rawBody_     | Treść komunikatu jako ciąg.                           |
 
 
@@ -223,10 +223,10 @@ HTTP i wyzwalaczy elementu webhook HTTP wyjściowe i powiązania reprezentują w
 
 | Właściwość  | Opis                                               |
 | --------- | --------------------------------------------------------- |
-| _treści_    | Obiekt, który zawiera treść odpowiedzi.         |
-| _nagłówki_ | Obiekt, który zawiera nagłówki odpowiedzi.             |
+| _body_    | Obiekt, który zawiera treść odpowiedzi.         |
+| _Nagłówki_ | Obiekt, który zawiera nagłówki odpowiedzi.             |
 | _isRaw_   | Wskazuje, że formatowanie zostało pominięte dla odpowiedzi.    |
-| _Stan_  | Kod stanu HTTP odpowiedzi.                     |
+| _status_  | Kod stanu HTTP odpowiedzi.                     |
 
 ### <a name="accessing-the-request-and-response"></a>Uzyskiwanie dostępu do żądania i odpowiedzi 
 
@@ -265,7 +265,15 @@ Podczas pracy z wyzwalaczy HTTP, aby dostęp do obiektów żądań i odpowiedzi 
     ```  
 
 ## <a name="node-version-and-package-management"></a>Zarządzanie version i package węzła
-Wersja węzła jest obecnie zablokowana na `6.5.0`. Firma Microsoft badanie włączenie obsługi więcej wersji i co można skonfigurować.
+
+W poniższej tabeli przedstawiono wersji środowiska Node.js używane przez każdego wersji głównej funkcji środowiska uruchomieniowego:
+
+| Funkcje wersji | Wersja Node.js | 
+|---|---|
+| 1.x | 6.11.2 (zablokowane przez środowisko uruchomieniowe) |
+| 2.x  |> = 8.4.0 z bieżącym LTS 8.9.4 zalecane. Ustaw wersję za pomocą WEBSITE_DEFAULT_NODE_VERSION [ustawienie aplikacji](functions-how-to-use-azure-function-app-settings.md#settings).|
+
+Można wyświetlić bieżącą wersję środowiska uruchomieniowego używanej przez usługę Drukowanie `process.version` z dowolnej funkcji.
 
 Poniższe kroki umożliwiają dodanie pakietów w aplikacji funkcji: 
 
@@ -324,7 +332,7 @@ Podczas tworzenia aplikacji funkcji, który używa plan usługi aplikacji, zalec
 ### <a name="typescript-and-coffeescript-support"></a>Obsługa języka typeScript i CoffeeScript
 Ponieważ wsparcia bezpośredniego jeszcze nie istnieje maszynie lub CoffeeScript kompilowanie automatycznie za pomocą środowiska uruchomieniowego, wsparcie takie musi do obsługi poza środowisko uruchomieniowe, w czasie wdrażania. 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Więcej informacji zawierają następujące zasoby:
 
 * [Najlepsze rozwiązania dotyczące usługi Azure Functions](functions-best-practices.md)

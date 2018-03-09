@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/23/2018
 ms.author: larryfr
-ms.openlocfilehash: 03214f25858ae340908a1d1b7f3ff7f62d545dc9
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 9470e052b4f57e52fa140b53fa7c32d199c58e1e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="connect-hdinsight-to-your-on-premise-network"></a>HDInsight nawiązać połączenie z siecią lokalną
 
@@ -273,13 +273,13 @@ Grupy zabezpieczeń sieci (NSG) lub trasy zdefiniowane przez użytkownika (przez
 
 > [!WARNING]
 > HDInsight wymaga dostępu ruchu przychodzącego z określonych adresów IP w chmurze Azure i nieograniczony dostęp ruchu wychodzącego. Za pomocą grup NSG lub Udr kontroli ruchu, należy wykonać następujące czynności:
->
-> 1. Znajdowanie adresów IP do lokalizacji zawierającej sieci wirtualnej. Aby uzyskać listę wymaganych adresów IP według lokalizacji, zobacz [adresów IP wymagana](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip).
->
-> 2. Zezwalaj na ruch przychodzący z adresów IP.
->
->    * __Grupa NSG__: Zezwalaj na __przychodzących__ ruch na porcie __443__ z __Internet__.
->    * __PRZEZ__: Ustaw __następnego przeskoku__ typu trasy do __Internet__.
+
+1. Znajdowanie adresów IP do lokalizacji zawierającej sieci wirtualnej. Aby uzyskać listę wymaganych adresów IP według lokalizacji, zobacz [adresów IP wymagana](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip).
+
+2. Dla adresów IP w kroku 1, Zezwalaj na ruch przychodzący z tego adresu IP adresów.
+
+   * Jeśli używasz __NSG__: Zezwalaj na __przychodzących__ ruch na porcie __443__ dla adresu IP adresów.
+   * Jeśli używasz __przez__: Ustaw __następnego przeskoku__ typu trasy do __Internet__ dla adresu IP adresów.
 
 Na przykład do tworzenia grup NSG za pomocą programu Azure PowerShell lub interfejsu wiersza polecenia Azure, zobacz [rozszerzenie usługi HDInsight za pomocą sieci wirtualnych Azure](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-nsg) dokumentu.
 

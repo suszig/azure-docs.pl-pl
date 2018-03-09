@@ -3,8 +3,8 @@ title: "Zarządzanie regionu Azure stosu | Dokumentacja firmy Microsoft"
 description: "Omówienie zarządzania regionu Azure stosu."
 services: azure-stack
 documentationcenter: 
-author: efemmano
-manager: dsavage
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: e94775d5-d473-4c03-9f4e-ae2eada67c6c
 ms.service: azure-stack
@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: efemmano
-ms.openlocfilehash: d1310f0cb9a820366ab8712a782785e955a24134
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/27/2018
+ms.author: brenduns
+ms.reviewer: efemmano
+ms.openlocfilehash: 0a19490ce276eec9a46bc0ea4343e3449a9dc93c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="region-management-in-azure-stack"></a>Zarządzanie regionu Azure stosu
 
@@ -41,19 +42,13 @@ Stos Azure ma zestaw możliwości zarządzania regionu są dostępne w **zarząd
 
 2. **Alerty**. Ten Kafelek zawiera listę całego systemu alerty, a także szczegółowe informacje na każdym z tych alertów.
 
-3. **Aktualizacje**. W tym kafelku można wyświetlić bieżącej wersji infrastruktury Azure stosu.
+3. **Aktualizacje**. W tym kafelku można wyświetlić bieżącej wersji infrastruktury Azure stosu, dostępne aktualizacje i historię aktualizacji. Należy również zaktualizować zintegrowanego systemu.
 
-4. **Dostawcy zasobów**. Dostawcy zasobów jest używana do zarządzania funkcjami dzierżawy oferowane przez składniki wymagane do uruchomienia stosu Azure. Każdy dostawca zasobów zawiera środowisko administracyjne. To środowisko może obejmować alerty dla określonego dostawcy, metryki i innych funkcji zarządzania specyficzne dla dostawcy zasobów.
- 
-5. **Role infrastruktury**. Infrastruktura role są składniki niezbędne do uruchomienia stosu Azure. Tylko role infrastruktury, które zgłosiły alerty są wyświetlane. Klikając rolę, można wyświetlić alertów skojarzonych z określonych ról i wystąpień ról, którym jest uruchomiona ta rola. Mimo że istnieje możliwość uruchomienia, uruchom ponownie, lub zamknij wystąpienie roli infrastruktury, wykonaj **nie** to zrobić w środowisku deweloperskim zestaw. Te opcje są przeznaczone tylko dla środowisku z wieloma węzłami, gdy istnieje więcej niż jedno wystąpienie roli dla każdej roli infrastruktury. Ponowne uruchomienie wystąpienia roli (szczególnie Xrp01 AzS) w zestawie powoduje niestabilność systemu.
+4. **Dostawcy zasobów**. Dostawcy zasobów jest używana do zarządzania funkcjami użytkownika oferowane przez składniki wymagane do uruchomienia stosu Azure. Każdy dostawca zasobów zawiera środowisko administracyjne. To środowisko może obejmować alerty dla określonego dostawcy, metryki i innych funkcji zarządzania specyficzne dla dostawcy zasobów.
 
-## <a name="next-steps"></a>Następne kroki
+5. **Role infrastruktury**. Infrastruktura role są składniki niezbędne do uruchomienia stosu Azure. Tylko role infrastruktury, które zgłosiły alerty są wyświetlane. Klikając rolę, można wyświetlić alertów skojarzonych z określonych ról i wystąpień ról, którym jest uruchomiona ta rola.
+
+## <a name="next-steps"></a>Kolejne kroki
 [Monitorowanie kondycji i alertów w stosie Azure](azure-stack-monitor-health.md)
 
 [Zarządzanie aktualizacjami w stosie Azure](azure-stack-updates.md)
-
-
-
-
-
-

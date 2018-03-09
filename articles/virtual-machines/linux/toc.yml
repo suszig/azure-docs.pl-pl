@@ -203,8 +203,6 @@
           href: maintenance-notifications.md
         - name: Ograniczanie ryzyka związanego z wykonywaniem spekulatywnym
           href: mitigate-se.md
-        - name: Przyspieszona konserwacja — często zadawane pytania
-          href: accelerated-maintenance.md
         - name: Zaplanowane zdarzenia
           href: scheduled-events.md
         - name: Monitorowanie metadanych

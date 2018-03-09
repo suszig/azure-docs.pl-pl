@@ -18,11 +18,11 @@ ms.author: Joe.Sack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
-ms.openlocfilehash: b65236fb2d11473d626ee2602237ed4a49380702
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: ee1d847e04e1f1fa0472d8702c7022d622b9fe0f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Nowy model DBA w chmurze — zarządzania bazą danych w bazie danych SQL Azure
 
@@ -44,10 +44,10 @@ Możliwości odzyskiwania ciągłości i odzyskiwaniem po awarii firm umożliwia
 ### <a name="how-do-i-create-and-manage-backups-on-sql-database"></a>Jak tworzyć i zarządzać kopiami zapasowymi w bazie danych SQL
 Nie twórz kopie zapasowe dla bazy danych SQL Azure i to, ponieważ nie masz. Baza danych SQL automatycznie kopie zapasowe baz danych, więc możesz już musi martwić planowania, pobieranie i zarządzanie kopiami zapasowymi. Platforma trwa pełna kopia zapasowa co tydzień, różnicowej kopii zapasowej co kilka godzin i dziennika kopii zapasowej co 5 minut, aby upewnić się, że odzyskiwania po awarii jest wydajne i minimalnej utracie danych. Pierwsza pełna kopia zapasowa odbywa się, jak utworzyć bazę danych. Te kopie zapasowe są dostępne na pewien okres o nazwie "Okres przechowywania" i zależy od wybranej warstwy wydajności.  Baza danych SQL udostępnia możliwość przywracania do dowolnego punktu w czasie, w tym przechowywania okresu przy użyciu [punktu w czasie odzyskiwania (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore).
 
-|Warstwę wydajności|Okres przechowywania w dniach|
+|Konfiguruj wydajność|Okres przechowywania w dniach|
 |---|:---:|
 |Podstawowa|7|
-|Standardowa|35|
+|Standardowa (Standard)|35|
 |Premium|35|
 |||
 
@@ -167,8 +167,8 @@ Na poniższym diagramie przedstawiono opcje magazynu kluczy dla kluczy głównyc
 ### <a name="how-can-i-optimize-and-secure-the-traffic-between-my-organization-and-sql-database"></a>Jak zoptymalizować i ochronę ruchu między mojej organizacji i bazy danych SQL?
 Ruch sieciowy między organizacji i bazy danych SQL czy pobrać zazwyczaj kierowane za pośrednictwem sieci publicznej. Jednak jeśli chcesz zoptymalizować tę ścieżkę i bezpieczniejsze, mogą zobaczyć w Express Route. Usługi Express route umożliwia zasadniczo rozszerzona platformy Azure z siecią firmową za pośrednictwem połączenia prywatnego. W ten sposób nie przejść za pośrednictwem publicznej sieci Internet. Możesz również uzyskać wyższy poziom zabezpieczeń, niezawodności i optymalizacji routingu, który tłumaczy do dolnej opóźnienia sieci i prędkości szybciej, niż można zwykle doświadczenie przez publicznego Internetu. Jeśli planujesz przesyłania znaczących fragmentów danych między organizacji i Azure, przy użyciu Express Route mogą spowodować oszczędności. Są dostępne trzy modele innego połączenia dla połączenia z Twojej organizacji do platformy Azure: 
 - [Kolokacja chmury programu Exchange](../expressroute/expressroute-connectivity-models.md#CloudExchange)
-- [Dowolny z każdym](../expressroute/expressroute-connectivity-models.md#IPVPN)
-- [Punkt-punkt](../expressroute/expressroute-connectivity-models.md#Ethernet)
+- [Any-to-any](../expressroute/expressroute-connectivity-models.md#IPVPN)
+- [Point-to-Point](../expressroute/expressroute-connectivity-models.md#Ethernet)
 
 Usługi Express Route umożliwia również serii maksymalnie 2 x limit przepustowości, zakupu bez dodatkowych opłat. Istnieje również możliwość konfigurowania cross łączności region przy użyciu Express route. Aby wyświetlić listę dostawców łączności ER, zobacz: [Express partnerów trasy i lokalizacje równorzędna](../expressroute/expressroute-locations.md). Poniższe artykuły zawierają Express Route bardziej szczegółowo:
 - [Wprowadzenie na Express Route](../expressroute/expressroute-introduction.md)
@@ -210,7 +210,7 @@ W bazie danych SQL można wykorzystać inteligentnego szczegółowych danych pla
 
 Z tego wykresu można również skonfigurować alerty przez zasób. Te alerty pozwalają na odpowiadanie na warunkach zasobów z wiadomości e-mail, zapisać punktu końcowego HTTPS/HTTP lub wykonania akcji. Zobacz [monitorowanie wydajności bazy danych w bazie danych SQL](sql-database-single-database-monitor.md) szczegółowe informacje.
 
-- **Dynamicznych widoków zarządzania**: można zbadać [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) dynamiczny widok zarządzania do zwrócenia historii statystyk zużycia zasobów z ostatniej godziny i [sys.resource_stats ](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) widoku wykazu systemu do zwrócenia historii przez ostatnie 14 dni.
+- **Dynamicznych widoków zarządzania**: można zbadać [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) dynamiczny widok zarządzania do zwrócenia historii statystyk zużycia zasobów z ostatniej godziny i [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) widoku wykazu systemu do zwrócenia historii przez ostatnie 14 dni.
 - **Szczegółowe informacje o wydajności zapytań**: [szczegółowe informacje o wydajności zapytań](sql-database-query-performance.md) umożliwia wyświetlenie historii najważniejszych zapytań korzystanie z zasobów i długotrwałe zapytania dotyczące określonej bazy danych. Umożliwi szybkie identyfikowanie najważniejszych zapytań przez wykorzystanie zasobów, czas trwania i częstotliwość wykonywania. Można śledzić zapytania i wykrywania regresji. Ta funkcja wymaga [magazyn zapytań](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) być włączone i aktywnej bazy danych.
 
    ![Szczegółowe informacje o wydajności zapytań](./media/sql-database-manage-after-migration/query-performance-insight.png)
@@ -260,8 +260,8 @@ Baza danych SQL używa niektóre techniki inteligentne, umożliwiające obsług�
 ### <a name="how-do-i-synchronize-data-between-sql-database-and-sql-server"></a>Sposób synchronizacji danych między bazą danych SQL i programu SQL Server?
 Istnieje kilka sposobów osiągnięcia tego: 
 - **[Synchronizacja danych](sql-database-sync-data.md)**  — ta funkcja pomaga w synchronizacji danych dwukierunkowo między wieloma lokalnych baz danych programu SQL Server i bazy danych SQL. Synchronizacja lokalnych baz danych programu SQL Server, należy zainstalować i skonfigurować synchronizację agenta na komputerze lokalnym i otwórz wychodzący port TCP 1433.
-- **[Transakcja replikacji](https://azure.microsoft.com/en-us/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)**  — w przypadku replikacji transakcji można synchronizować dane z lokalnej bazy danych SQL Azure z lokalnego wydawcy i subskrybencie są bazy danych SQL Azure. Obecnie jest obsługiwany tylko w tej instalacji. Aby uzyskać więcej informacji na temat migracji danych z lokalnego do usługi Azure SQL z minimalnym czasem przestojów, zobacz: [użycie transakcji replikacji](sql-database-cloud-migrate.md#method-2-use-transactional-replication)
+- **[Transakcja replikacji](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)**  — w przypadku replikacji transakcji można synchronizować dane z lokalnej bazy danych SQL Azure z lokalnego wydawcy i subskrybencie są bazy danych SQL Azure. Obecnie jest obsługiwany tylko w tej instalacji. Aby uzyskać więcej informacji na temat migracji danych z lokalnego do usługi Azure SQL z minimalnym czasem przestojów, zobacz: [użycie transakcji replikacji](sql-database-cloud-migrate.md#method-2-use-transactional-replication)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Dowiedz się więcej o [bazy danych SQL](sql-database-technical-overview.md).
 

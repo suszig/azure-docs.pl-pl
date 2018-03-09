@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 03/05/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8604863b9394c5af9494c47f821601441ecee308
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 888740b434292c2ccc36fc90e0a9baaec96e2033
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure rozwiązania Cosmos DB .NET Core SDK dla interfejsu API SQL: informacje o wersji i zasoby
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/02/2018
 > * [Źródła danych zmian .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
-> * [Asynchroniczne Java](sql-api-sdk-async-java.md)
+> * [Java (asynchroniczny)](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/documentdb/)
@@ -37,6 +37,8 @@ ms.lasthandoff: 03/02/2018
 > 
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+Ten pakiet został przestarzałe i zastępowane Microsoft.Azure.DocumentDB https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/
 
 <table>
 
@@ -59,6 +61,12 @@ Azure rozwiązania Cosmos DB .NET Core SDK ma parzystość funkcji z najnowszej 
 
 > [!NOTE] 
 > Azure rozwiązania Cosmos DB .NET Core SDK nie jest jeszcze zgodne z aplikacjami systemu Windows platformy Uniwersalnej. Jeśli interesuje Cię .NET Core SDK, który obsługuje aplikacje platformy uniwersalnej systemu Windows, Wyślij wiadomość e-mail do [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com).
+
+### <a name="a-name190190"></a><a name="1.9.0"/>1.9.0
+
+* Ten pakiet został przestarzałe i zastępowane Microsoft.Azure.DocumentDB https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/
+* Stała KeyNotFoundException dla innej kolejności partycji w zapytaniach w sytuacjach wyjątkowych.
+* Stały usterki, którym nie został trwa honorowane atrybutu JsonPropery w klauzuli select do kwerend LINQ.
 
 ### <a name="a-name182182"></a><a name="1.8.2"/>1.8.2
 
@@ -170,6 +178,7 @@ Jeśli masz pytania dotyczące tego zestawu SDK, opublikuj wpis na [StackOverflo
 
 | Wersja | Data wydania | Dacie wycofania |
 | --- | --- | --- |
+| [1.9.0](#1.9.0) |05 marca 2018 |--- |
 | [1.8.2](#1.8.2) |21 lutego 2018 r. |--- |
 | [1.8.1](#1.8.1) |05 lutego 2018 |--- |
 | [1.7.1](#1.7.1) |16 listopada 2017 r. |--- |

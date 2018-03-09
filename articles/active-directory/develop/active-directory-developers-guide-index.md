@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/19/2017
+ms.date: 02/27/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: b6190f64633034bb5fc28a1caf7ffa6c09215ef1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d3b22927017e445ee3b6cea3e92edc0fb786cd8c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="articles-in-the-azure-ad-developer-guide"></a>Artykuły w przewodniku deweloperów usługi Azure AD
 Poniżej znajduje się lista wszystkich tematów w przewodniku deweloperów usługi Azure Active Directory.
@@ -41,10 +41,11 @@ Te artykuły zawierają określonych koncepcji i funkcji usługi Azure Active Di
 | [Certyfikacja usługi AppSource](active-directory-devhowto-appsource-certified.md)                                                     | Jak opublikować aplikację na AppSource firmy Microsoft |
 | [Galeria aplikacji usługi Azure AD](active-directory-app-gallery-listing.md)                                                                 |Sposób publikowania aplikacji w galerii aplikacji Azure AD|
 | [Pulpit nawigacyjny sprzedawcy usługi Office 365](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)               | Jak opublikować aplikację na pulpicie nawigacyjnym sprzedawcy usługi Office 365 |
-| [Visual Studio połączone usługi](vs-active-directory-dotnet-getting-started.md)                                               | Jak używać integracji z usługą Azure AD z projektów MVC programu Visual Studio |
+| [Visual Studio Connected Services](vs-active-directory-dotnet-getting-started.md)                                               | Jak używać integracji z usługą Azure AD z projektów MVC programu Visual Studio |
 | [Usługi ADFS systemu Windows Server](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers) | Integracja z lokalną usługą Active Directory za pomocą usług AD FS |
+| [Najlepsze praktyki dotyczące obsługi błędów dla biblioteki ADAL](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-adal-error-handling) | Integracja z lokalną usługą Active Directory za pomocą usług AD FS |
 
-## <a name="reference"></a>Dokumentacja
+## <a name="reference"></a>Informacje ogólne
 Te artykuły zawierają podstawę REST i biblioteki uwierzytelniania interfejsów API, protokołów, błędów, przykładów kodu i punktów końcowych.
 
 |                                                                                     | |

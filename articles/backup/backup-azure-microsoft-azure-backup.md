@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/20/2017
+ms.date: 3/5/2018
 ms.author: masaran;trinadhk;pullabhk;markgal;adigan
-ms.openlocfilehash: addb4312ce1eb57ce86afae449eb3d31d0037418
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: c33cea62dac1c06dd1cb4031897af8c822e61661
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Przygotowywanie do tworzenia kopii zapasowych obciążeń przy użyciu usługi Azure Backup Server
 > [!div class="op_single_selector"]
@@ -44,11 +44,11 @@ Można również chronić infrastrukturę jako obciążeń usługę (IaaS), taki
 
 Serwer kopii zapasowej systemu Azure dziedziczy wiele funkcji tworzenia kopii zapasowej obciążeń z programu Data Protection Manager (DPM). Ten artykuł zawiera łącza do dokumentacji programu DPM wyjaśnienie niektórych funkcji udostępnionych. Jednak serwer kopia zapasowa Azure udostępnia wiele funkcji programu DPM. Serwer kopii zapasowej systemu Azure nie obsługuje tworzenia kopii na taśmie, ani nie jest zintegrowana z programem System Center.
 
-## <a name="1-choose-an-installation-platform"></a>1. Wybierz platformy instalacji
+## <a name="choose-an-installation-platform"></a>Wybierz platformy instalacji
 Pierwszy krok w kierunku uruchamianie serwera kopii zapasowej Azure i przeprowadzanie jest można skonfigurować konta systemu Windows Server. Serwer może być w Azure lub lokalnie.
 
 ### <a name="using-a-server-in-azure"></a>Przy użyciu serwera w systemie Azure
-W przypadku wybierania serwera do uruchamiania serwera usługi Kopia zapasowa Azure, zalecane jest początkowo galerii systemu Windows Server 2012 R2 Datacenter. Artykuł [tworzenie pierwszej maszyny wirtualnej systemu Windows w portalu Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), zapewnia samouczek na temat rozpoczynania pracy z zalecanych maszyny wirtualnej platformy Azure, nawet jeśli nie znasz Azure przed. Zalecane minimalne wymagania dotyczące serwera maszyny wirtualnej (VM) powinny być: A2 standardowo dwa rdzenie i 3.5 GB pamięci RAM.
+W przypadku wybierania serwera do uruchamiania serwera usługi Kopia zapasowa Azure, zalecane jest start z obrazem galerii systemu Windows Server 2012 R2 Datacenter lub Windows Server 2016 Datacenter. Artykuł [tworzenie pierwszej maszyny wirtualnej systemu Windows w portalu Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), zapewnia samouczek na temat rozpoczynania pracy z zalecanych maszyny wirtualnej platformy Azure, nawet jeśli nie znasz Azure przed. Zalecane minimalne wymagania dotyczące serwera maszyny wirtualnej (VM) powinny być: A2 standardowo dwa rdzenie i 3.5 GB pamięci RAM.
 
 Ochrona obciążenia za pomocą serwera usługi Kopia zapasowa Azure ma wiele wszystkie szczegóły. Artykuł [zainstalować program DPM jako maszyny wirtualnej platformy Azure](https://technet.microsoft.com/library/jj852163.aspx), pomaga opisano te wszystkie szczegóły. Przed wdrożeniem komputera należy całkowicie odczytane w tym artykule.
 
@@ -75,7 +75,7 @@ Użytkownik może deduplikacja magazynu programu DPM, za pomocą deduplikacji se
 
 Zawsze przyłączyć serwer kopii zapasowej Azure do domeny. Jeśli zamierzasz przenieść serwer do innej domeny, zaleca się dołączyć serwer do nowej domeny, przed zainstalowaniem serwera kopii zapasowej Azure. Przeniesienie istniejącej maszyny serwera kopii zapasowej Azure do nowej domeny, po wdrożenia *nieobsługiwane*.
 
-## <a name="2-recovery-services-vault"></a>2. Magazyn usługi Recovery Services
+## <a name="recovery-services-vault"></a>Magazyn usługi Recovery Services
 Wyślij dane kopii zapasowej na platformie Azure lub schowaj lokalnie, oprogramowanie musi być podłączony do platformy Azure. Bardziej szczegółowe, z maszyną serwera kopii zapasowej Azure musi zostać zarejestrowany w magazynie usług odzyskiwania.
 
 Aby utworzyć magazyn usługi Recovery Services:
@@ -112,7 +112,7 @@ Aby edytować ustawienia replikacji magazynu:
 
     Po wybraniu opcji magazynu dla swojego magazynu możesz skojarzyć z nim maszynę wirtualną. Aby rozpocząć kojarzenie, należy odnaleźć i zarejestrować maszyny wirtualne Azure.
 
-## <a name="3-software-package"></a>3. Pakiet oprogramowania
+## <a name="software-package"></a>Pakiet oprogramowania
 ### <a name="downloading-the-software-package"></a>Pobieranie pakietu oprogramowania
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 2. Jeśli masz już Otwórz magazyn usług odzyskiwania, przejdź do kroku 3. Jeśli Twój magazyn Usług odzyskiwania nie jest otwarty, ale w portalu Azure są takie magazyny, w menu Centrum kliknij opcję **Przeglądaj**.
@@ -137,7 +137,7 @@ Aby edytować ustawienia replikacji magazynu:
 
     W **wprowadzenie do korzystania z kopii zapasowej** bloku, który zostanie otwarty, **celów tworzenia kopii zapasowej** zostanie wybrana automatycznie.
 
-    ![Kopia zapasowa cele — domyślna otwieranych](./media/backup-azure-microsoft-azure-backup/getting-started.png)
+    ![Backup-goals-default-opened](./media/backup-azure-microsoft-azure-backup/getting-started.png)
 
 5. W **cel kopii zapasowej** bloku z **gdzie działa Twoje obciążenie** menu, wybierz opcję **lokalnymi**.
 
@@ -231,7 +231,7 @@ Pierwszej kopii zapasowej jest przechowywany w magazynie dołączonym do serwera
 >
 >
 
-## <a name="4-network-connectivity"></a>4. Połączenie sieciowe
+## <a name="network-connectivity"></a>Połączenie sieciowe
 Serwer kopii zapasowej systemu Azure wymaga połączenia z usługą kopia zapasowa Azure produktu działało poprawnie. Aby zweryfikować, czy komputer ma łączność z platformy Azure, użyj ```Get-DPMCloudConnection``` polecenia cmdlet w konsoli programu PowerShell serwera kopii zapasowej Azure. Jeśli dane wyjściowe polecenia cmdlet ma wartość PRAWDA, a następnie istnieje połączenie, #else nie ma żadnej łączności.
 
 W tym samym czasie subskrypcji platformy Azure musi być w dobrej kondycji. Aby sprawdzić stan subskrypcji i zarządzania nim, zaloguj się do [portal subskrypcji](https://account.windowsazure.com/Subscriptions).
@@ -240,12 +240,12 @@ Znając stanu łączności Azure i subskrypcji Azure, można użyć w poniższej
 
 | Stan łączności | Subskrypcja platformy Azure | Tworzenie kopii zapasowych Azure | Kopia zapasowa na dysku | Przywróć z platformy Azure | Przywróć z dysku |
 | --- | --- | --- | --- | --- | --- |
-| Połączone |Aktywne |Dopuszczeni |Dopuszczeni |Dopuszczeni |Dopuszczeni |
-| Połączone |Wygasły |Zatrzymane |Zatrzymane |Dopuszczeni |Dopuszczeni |
-| Połączone |Anulowana |Zatrzymane |Zatrzymane |Punkty odzyskiwania zatrzymane, a Azure usunięte |Zatrzymane |
-| Utratą połączenia > 15 dni |Aktywne |Zatrzymane |Zatrzymane |Dopuszczeni |Dopuszczeni |
-| Utratą połączenia > 15 dni |Wygasły |Zatrzymane |Zatrzymane |Dopuszczeni |Dopuszczeni |
-| Utratą połączenia > 15 dni |Anulowana |Zatrzymane |Zatrzymane |Punkty odzyskiwania zatrzymane, a Azure usunięte |Zatrzymane |
+| Połączony |Aktywne |Dozwolone |Dozwolone |Dozwolone |Dozwolone |
+| Połączony |Wygasłe |Zatrzymano |Zatrzymano |Dozwolone |Dozwolone |
+| Połączony |Anulowana |Zatrzymano |Zatrzymano |Punkty odzyskiwania zatrzymane, a Azure usunięte |Zatrzymano |
+| Utratą połączenia > 15 dni |Aktywne |Zatrzymano |Zatrzymano |Dozwolone |Dozwolone |
+| Utratą połączenia > 15 dni |Wygasłe |Zatrzymano |Zatrzymano |Dozwolone |Dozwolone |
+| Utratą połączenia > 15 dni |Anulowana |Zatrzymano |Zatrzymano |Punkty odzyskiwania zatrzymane, a Azure usunięte |Zatrzymano |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Odzyskiwanie z utraty połączenia
 Jeśli zapora lub serwer proxy, który uniemożliwia dostęp do platformy Azure, musisz dozwolonych następujące adresy domeny w profilu zapory/serwera proxy:

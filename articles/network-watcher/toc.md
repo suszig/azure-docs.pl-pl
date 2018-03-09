@@ -73,6 +73,7 @@
 ### [Wizualizowanie wzorców ruchu sieciowego za pomocą narzędzi typu „open source”](network-watcher-using-open-source-tools.md)
 ## Analizowanie dzienników przepływu sieciowych grup zabezpieczeń
 ### [Read NSG flow logs (Odczytywanie dzienników przepływu sieciowych grup zabezpieczeń)](network-watcher-read-nsg-flow-logs.md)
+### [Korzystanie z analizy ruchu](traffic-analytics.md)
 ### [Korzystanie z usługi Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 ### [Korzystanie z elastycznego stosu](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 ### [Korzystanie z narzędzia Grafana](network-watcher-nsg-grafana.md)

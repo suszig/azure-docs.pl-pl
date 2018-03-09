@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 6daf69574d45eeb1c91508d082bd7294b6e40f70
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 6829ca9ad5ef76b6a96eed1f2cc461d32c0e51cf
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Tworzenie, zmienianie lub usuwanie sieci wirtualnej
 
@@ -41,7 +41,7 @@ Przed wykonaniem kroków w żadnej sekcji tego artykułu, należy wykonać nast�
 
 ## <a name="create-a-virtual-network"></a>Tworzenie sieci wirtualnej
 
-1. Wybierz **+ nowy** > **sieci** > **sieci wirtualnej**.
+1. Wybierz **+ Utwórz zasób** > **sieci** > **sieci wirtualnej**.
 2. Wprowadź lub wybierz wartości poniższych ustawień, a następnie wybierz **Utwórz**:
     - **Nazwa**: Nazwa musi być unikatowa w [grupy zasobów](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) umożliwia tworzenie sieci wirtualnej w. Nie można zmienić nazwy po utworzeniu sieci wirtualnej. Wraz z upływem czasu, można utworzyć wiele sieci wirtualnych. Nazewnictwa sugestii, zobacz [konwencje nazewnictwa](/azure/architecture/best-practices/naming-conventions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-rules-and-restrictions). Po konwencji nazewnictwa może pomóc ułatwiają zarządzanie wieloma sieciami wirtualnymi.
     - **Przestrzeń adresowa**: przestrzeni adresowej dla sieci wirtualnej składa się z co najmniej jeden-nakładających się zakresów adresów, które są określone w notacji CIDR. Zakres adresów, które należy zdefiniować można publicznych lub prywatnych (RFC 1918). Czy można zdefiniować zakres adresów jako publicznych lub prywatnych, zakres adresów jest dostępny tylko w ramach sieci wirtualnej z połączonych sieci wirtualnych i sieciami lokalnymi podłączonych do sieci wirtualnej. Nie można dodać następujących zakresów adresów:
@@ -179,5 +179,5 @@ Do wykonywania zadań w sieciach wirtualnych, Twoje konto musi mieć przypisaną
 
 - Aby utworzyć Maszynę wirtualną, a następnie podłącz je do sieci wirtualnej, zobacz [utworzyć sieć wirtualną i połączyć maszyny wirtualne](quick-create-portal.md#create-virtual-machines).
 - Aby filtrować ruch sieciowy między podsieciami sieci wirtualnej, zobacz [Utwórz grupy zabezpieczeń sieci](virtual-networks-create-nsg-arm-pportal.md).
-- -To-peer sieci wirtualnej do innej sieci wirtualnej, zobacz [tworzenie sieci wirtualnej komunikacji równorzędnej](virtual-network-create-peering.md#portal).
+- -To-peer sieci wirtualnej do innej sieci wirtualnej, zobacz [tworzenie sieci wirtualnej komunikacji równorzędnej](tutorial-connect-virtual-networks-portal.md).
 - Aby dowiedzieć się więcej o opcjach sieci wirtualnej nawiązywania połączenia z siecią lokalną, zobacz [o bramy sieci VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#diagrams).

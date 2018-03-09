@@ -8,6 +8,8 @@
       href: overview.md
     - name: Co to jest maszyna wirtualna do uczenia głębokiego?
       href: deep-learning-dsvm-overview.md
+    - name: Co to jest maszyna wirtualna analizy danych geograficznych ze sztuczną inteligencją?
+      href: geo-ai-dsvm-overview.md
 - name: Rozpoczęcie pracy
   items:
     - name: Tworzenie maszyny wirtualnej do analizy danych z systemem Windows
@@ -18,6 +20,8 @@
       href: linux-dsvm-intro.md
     - name: Tworzenie maszyny wirtualnej do uczenia głębokiego
       href: provision-deep-learning-dsvm.md
+    - name: Tworzenie maszyny wirtualnej analizy danych geograficznych ze sztuczną inteligencją
+      href: provision-geo-ai-dsvm.md
 - name: Instrukcje
   items:
     - name: Używanie maszyny wirtualnej do analizy danych z systemem Windows
@@ -26,6 +30,8 @@
       href: linux-dsvm-walkthrough.md
     - name: Używanie maszyny wirtualnej do uczenia głębokiego
       href: use-deep-learning-dsvm.md
+    - name: Używanie maszyny wirtualnej analizy danych geograficznych ze sztuczną inteligencją
+      href: use-geo-ai-dsvm.md
 - name: Dokumentacja
   expanded: true
   items:

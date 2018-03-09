@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
-ms.openlocfilehash: ec9258a123774607ffee8705a1bc5391525567f5
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 26df11bb010414ba979077c45d01e66f17f6b12e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Środowisko Azure Functions Tools for Visual Studio  
 
@@ -46,20 +46,21 @@ Tworzenie i wdrażanie funkcji, należy również:
 
 * Aktywna subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, [wolnego konta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) są dostępne.
 
-* Konto magazynu Azure. Aby utworzyć konto magazynu, zobacz [Utwórz konto magazynu](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+* Konto usługi Azure Storage. Aby utworzyć konto magazynu, zobacz [Utwórz konto magazynu](../storage/common/storage-create-storage-account.md#create-a-storage-account).
 
 ## <a name="create-an-azure-functions-project"></a>Tworzenie projektu usługi Azure Functions 
 
 [!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]
 
-
-## <a name="configure-the-project-for-local-development"></a>Konfigurowanie projektu dla rozwoju lokalnych
-
-Podczas tworzenia nowego projektu przy użyciu szablonu usługi Azure Functions, otrzymasz pusty C# projekt, który zawiera następujące pliki:
+Szablon projektu spowoduje utworzenie projektu C#, instaluje `Microsoft.NET.Sdk.Functions` pakietu NuGet i ustawia platformy docelowej. Funkcje 1.x obiektów docelowych programu .NET Framework, a funkcje cele 2.x .NET Standard. Nowy projekt zawiera następujące pliki:
 
 * **Host.JSON**: umożliwia skonfigurowanie hostów funkcji. Te ustawienia dotyczą zarówno podczas uruchamiania lokalnie i na platformie Azure. Aby uzyskać więcej informacji, zobacz [odwołania host.json](functions-host-json.md).
     
 * **Local.Settings.JSON**: przechowuje ustawienia używane podczas uruchamiania lokalnego funkcji. Te ustawienia nie są używane przez platformę Azure, są one używane przez [Azure funkcje podstawowe narzędzia](functions-run-local.md). Użyj tego pliku, aby określić ustawienia, takie jak parametry połączenia do innych usług platformy Azure. Dodaj nowy klucz do **wartości** tablicy dla każdego połączenia wymagany przez funkcje w projekcie. Aby uzyskać więcej informacji, zobacz [pliku ustawień lokalnych](functions-run-local.md#local-settings-file) w temacie Azure funkcje podstawowe narzędzia.
+
+Aby uzyskać więcej informacji, zobacz [projektu biblioteki klas funkcji](functions-dotnet-class-library.md#functions-class-library-project).
+
+## <a name="configure-the-project-for-local-development"></a>Konfigurowanie projektu dla rozwoju lokalnych
 
 Środowisko uruchomieniowe Functions używa konta usługi Azure Storage wewnętrznie. W przypadku wyzwolenia wszystkich typów innych niż HTTP i elementów webhook, należy skonfigurować **Values.AzureWebJobsStorage** klucza do prawidłowego ciągu połączenia konta magazynu Azure. 
 
@@ -147,5 +148,6 @@ Można również zarządzać ustawienia aplikacji w jednym z tych inne sposoby:
 
 Aby uzyskać więcej informacji na temat narzędzi funkcji Azure, zobacz sekcję Często zadawane pytania [2017 Visual Studio Tools dla usługi Azure Functions](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/) wpis w blogu.
 
-Aby dowiedzieć się więcej o podstawowych narzędzi funkcji platformy Azure, zobacz [kodu i przetestuj usługę Azure functions lokalnie](functions-run-local.md).  
+Aby dowiedzieć się więcej o podstawowych narzędzi funkcji platformy Azure, zobacz [kodu i przetestuj usługę Azure functions lokalnie](functions-run-local.md).
+
 Aby dowiedzieć się więcej o wdrażaniu funkcji jako biblioteki klas .NET, zobacz [dokumentacja dla deweloperów Azure funkcje C#](functions-dotnet-class-library.md). Ten temat zawiera również linki do przykłady tego, jak używać atrybutów, aby zadeklarować różnych typów powiązania obsługiwane przez usługi Azure Functions.    

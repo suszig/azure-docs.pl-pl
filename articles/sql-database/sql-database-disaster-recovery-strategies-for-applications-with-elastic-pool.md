@@ -12,15 +12,15 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.date: 12/13/2017
+ms.workload: Inactive
+ms.date: 03/05/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.workload: Inactive
-ms.openlocfilehash: 9d12fb8a7dbd3bb763e42fd0981d7ef18b57248b
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: b2a8f897130c2bf21321366a727ce2e2ae9d1d99
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Strategie odzyskiwania po awarii dla aplikacji wykorzystujących pule elastyczne bazy danych SQL
 Całościowo ma dowiedzieliśmy się, że usługi w chmurze nie są niezawodne i stanie krytycznego zdarzenia. Baza danych SQL oferuje kilka możliwości do zapewnienia ciągłości biznesowej aplikacji, gdy zdarzenia te występują. [Pule elastyczne](sql-database-elastic-pool.md) i pojedynczych baz danych obsługują tego samego rodzaju możliwości odzyskiwania po awarii. W tym artykule opisano kilka strategii odzyskiwania po awarii dla pul elastyczna korzystać z tych funkcjach ciągłości biznesowej bazy danych SQL.
@@ -30,6 +30,9 @@ W tym artykule korzysta ze wzorca następujących aplikacji SaaS niezależnego d
 <i>Aplikacja sieci web opartej na chmurze nowoczesnych inicjuje jednej bazy danych SQL dla każdego użytkownika końcowego. Niezależny dostawca oprogramowania ma wielu klientów i w związku z tym używa wielu baz danych, nazywane dzierżawy baz danych. Ponieważ baz danych dzierżawy mają zwykle działania nieprzewidywalnych wzorców, niezależnego dostawcy oprogramowania używa puli elastycznej, aby baza danych, kosztów bardzo przewidywalną przez dłuższy czas. Puli elastycznej także upraszcza zarządzanie wydajności, gdy wzrósł aktywności użytkownika. Oprócz baz danych dzierżawy aplikacja używa wielu baz danych do zarządzania profilami użytkowników, zabezpieczeń, zbieranie wzorców użycia itd. Dostępność poszczególnych dzierżawców nie wpływa na dostępność aplikacji jako całość. Jednak dostępności i wydajności bazy danych zarządzania jest szczególnie ważne dla funkcji aplikacji i jeśli bazy danych zarządzania znajdują się w trybie offline całej aplikacji jest w trybie offline.</i>  
 
 W tym artykule omówiono strategii odzyskiwania po awarii, obejmujących szereg scenariuszy z koszt poufnych uruchamiania aplikacji, aby te wymagania rygorystyczne dostępności.
+
+> [!NOTE]
+> Jeśli używasz bazy danych — warstwa Premium i pule można wprowadzać odporność na awarie regionalnych konwertując je do konfiguracji wdrożenia nadmiarowe strefy (obecnie w wersji zapoznawczej). Zobacz [Strefowo nadmiarowy baz danych](sql-database-high-availability.md).
 
 ## <a name="scenario-1-cost-sensitive-startup"></a>Scenariusz 1. Koszt poufnych uruchamiania
 <i>I am firm uruchamiania i bardzo jestem koszt poufnych.  Chcę, aby uprościć wdrażanie i zarządzanie aplikacji i I ma ograniczone umowy SLA dla poszczególnych odbiorców. Ale chcę upewnić się, aplikacja jako całość nigdy nie jest w trybie offline.</i>
@@ -109,7 +112,7 @@ Gdy regionu podstawowego zostaną odzyskane przy Azure *po* została przywrócon
 Klucz **korzystać** tej strategii jest najwyższym umowy SLA dla klientów płatniczych. Gwarantuje również to nowe wersje próbne są odblokowane, natychmiast po utworzeniu puli DR wersji próbnej. **Zależność** otrzymuje czy taka konfiguracja zwiększa całkowity koszt baz danych dzierżawy przez koszt dodatkowej puli odzyskiwania po awarii dla klientów. Ponadto jeśli pula dodatkowej ma inny rozmiar, rzeczywistych klientów wydajność niższe po w tryb failover do czasu ukończenia uaktualniania puli w regionie odzyskiwania po awarii. 
 
 ## <a name="scenario-3-geographically-distributed-application-with-tiered-service"></a>Scenariusz 3. Geograficznie rozproszonych aplikacji przy użyciu usługi warstwowej
-<i>Masz dojrzałe aplikacji SaaS z ofertami warstwowych usługi. Chcę, aby oferować bardzo agresywnie SLA płatną klientów i ograniczyć ryzyko wpływ w przypadku wystąpienia awarii, ponieważ nawet krótki przerwania może spowodować niezadowolenie klienta. Bardzo ważne, czy płatniczych klienci mają zawsze dostęp do swoich danych jest. Wersje próbne są wolne i umowa SLA nie jest oferowany podczas okresu próbnego.</i> 
+<i>Masz dojrzałe aplikacji SaaS z ofertami warstwowych usługi. Chcę, aby oferować bardzo agresywnie SLA płatną klientów i ograniczyć ryzyko wpływ w przypadku wystąpienia awarii, ponieważ nawet krótki przerwania może spowodować niezadowolenie klienta. Bardzo ważne, czy płatniczych klienci mają zawsze dostęp do swoich danych jest. Wersje próbne są wolne i umowa SLA nie jest oferowany podczas okresu próbnego. </i> 
 
 Do obsługi tego scenariusza, należy użyć trzech oddzielnych elastyczne pule. Udostępnić dwie pule taki sam rozmiar o wysokiej Edtu na bazę danych w dwóch różnych regionach zawiera klientów płatną dzierżawcy z bazy danych. Trzeci puli zawierającej próbne może mieć niższy jednostek Edtu na bazę danych i udostępniane w jednym z dwóch regionach.
 
@@ -166,7 +169,7 @@ Głównym **kompromisy** są:
 ## <a name="summary"></a>Podsumowanie
 Ten artykuł skupia się na strategii odzyskiwania po awarii dla warstwy bazy danych używana przez aplikację wielodostępne SaaS niezależnego dostawcy oprogramowania. Strategia wybrane opiera się na potrzeby aplikacji, takich jak model biznesowy, umowy dotyczącej poziomu usług, aby oferować klientom, budżetu ograniczenia itp. Każdej strategii opisane przedstawiono zalety i zależność, można podjąć świadomej decyzji. Określonych aplikacji może także inne składniki platformy Azure. Aby przejrzeć ich wskazówki ciągłości biznesowej i organizowania odzyskiwania warstwy bazy danych z nimi. Aby dowiedzieć się więcej o zarządzaniu odzyskiwania bazy danych aplikacji na platformie Azure, zobacz [projektowania rozwiązań chmury odzyskiwania po awarii](sql-database-designing-cloud-solutions-for-disaster-recovery.md).  
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Aby dowiedzieć się więcej na temat usługi Azure SQL bazy danych automatycznego tworzenia kopii zapasowych, zobacz [bazy danych SQL automatycznego tworzenia kopii zapasowych](sql-database-automated-backups.md).
 * Omówienie ciągłości działalności biznesowej i scenariuszy, zobacz [omówienie ciągłości działalności biznesowej](sql-database-business-continuity.md).
 * Aby dowiedzieć się więcej o używaniu kopie zapasowe automatycznego odzyskiwania, zobacz [przywrócić bazę danych z kopii zapasowych inicjowane przez usługę](sql-database-recovery-using-backups.md).

@@ -27,7 +27,8 @@
 ### [Sieciowe grupy zabezpieczeń](virtual-networks-nsg.md)
 
 ## Wdrażanie
-### [Sieci wirtualne](virtual-networks-create-vnet-arm-pportal.md)
+### Sieci wirtualne
+#### [Azure portal](virtual-networks-create-vnet-arm-pportal.md)
 #### [Azure PowerShell](virtual-networks-create-vnet-arm-ps.md)
 #### [Interfejs wiersza polecenia platformy Azure](virtual-networks-create-vnet-arm-cli.md)
 #### [Szablon](virtual-networks-create-vnet-arm-template-click.md)
@@ -42,17 +43,20 @@
 ##### [Azure PowerShell](virtual-networks-create-nsg-classic-ps.md)
 ##### [Interfejs wiersza polecenia platformy Azure 1.0](virtual-networks-create-nsg-classic-cli.md)
 
-### Trasy definiowane przez użytkownika
-#### [Azure portal](create-user-defined-route-portal.md)
-#### [Azure PowerShell](virtual-network-create-udr-arm-ps.md)
-#### [Interfejs wiersza polecenia platformy Azure](virtual-network-create-udr-arm-cli.md)
+### Tabele tras
+#### [Azure portal](tutorial-create-route-table-portal.md)
+#### [Azure PowerShell](tutorial-create-route-table-powershell.md)
+#### [Interfejs wiersza polecenia platformy Azure](tutorial-create-route-table-cli.md)
 #### [Szablon](virtual-network-create-udr-arm-template.md)
 #### Wdrożenie klasyczne
 ##### [Azure PowerShell](virtual-network-create-udr-classic-ps.md)
 ##### [Interfejs wiersza polecenia platformy Azure](virtual-network-create-udr-classic-cli.md)
 
 ### Wirtualne sieci równorzędne
-#### [Same deployment model - same subscription (Ten sam model wdrażania — ta sama subskrypcja)](virtual-network-create-peering.md)
+#### Ten sam model wdrażania — ta sama subskrypcja
+##### [Azure portal](tutorial-connect-virtual-networks-portal.md)
+##### [Azure PowerShell](tutorial-connect-virtual-networks-powershell.md)
+##### [Interfejs wiersza polecenia platformy Azure](tutorial-connect-virtual-networks-cli.md)
 #### [Same deployment model - different subscriptions (Ten sam model wdrażania — różne subskrypcje)](create-peering-different-subscriptions.md)
 #### [Different deployment models - same subscription (Różne modele wdrażania — ta sama subskrypcja)](create-peering-different-deployment-models.md)
 #### [Different deployment models - different subscriptions (Różne modele wdrażania — różne subskrypcje)](create-peering-different-deployment-models-subscriptions.md)

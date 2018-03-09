@@ -3,7 +3,7 @@ title: "Konfigurowanie usługi Azure AD Privileged Identity Management | Dokumen
 description: "Temat, który objaśnia, co to jest Azure AD Privileged Identity Management i sposobu użycia usługi PIM, aby zwiększyć bezpieczeństwo chmury."
 services: active-directory
 documentationcenter: 
-author: barclayn
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: c548ed2e-06e3-4eaf-a63d-0f02ee72da25
@@ -12,21 +12,29 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
-ms.author: barclayn
+ms.date: 03/07/2018
+ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 94855cf102764532fa0a6718541beffe93230fd1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 827e3521be8918f4de00113fd9eaf4e01679cac5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Co to jest Azure AD Privileged Identity Management?
 
 Aplikacja Azure Active Directory (AD) Privileged Identity Management umożliwia kontrolę i monitorowanie dostępu, a także zarządzanie nim w ramach danej organizacji. Obejmuje to dostęp do zasobów w usłudze Azure AD, zasobów Azure (wersja zapoznawcza) i innych usług Online firmy Microsoft, takich jak usługi Office 365 lub Microsoft Intune.
 
 > [!NOTE]
-> Zarządzanie tożsamościami uprzywilejowanymi jest dostępne w całej organizacji, gdy licencji Administratorzy w Twojej organizacji z usługi Azure Active Directory w wersji Premium P2. Aby uzyskać więcej informacji, zobacz [Wersje usługi Azure Active Directory](active-directory-editions.md).
+> Po włączeniu Privileged Identity Management dla swojej dzierżawy, prawidłowy Azure AD Premium P2 lub Enterprise Mobility + Security E5 płatnej lub dla każdego użytkownika, który współdziała z lub odbiera korzyści z usługi wymagana jest licencja próbna. Przykłady obejmują użytkowników/użytkowników w > grupy, które są:
+>
+>- Przypisane do roli Administrator ról uprzywilejowanych 
+>- Przypisany jako kwalifikujący się do innych ról katalogu można zarządzać za pomocą usługi PIM 
+>- Możliwość zatwierdzanie odrzucanie żądań w PIM 
+>- Przypisane do roli zasobów platformy Azure z tylko w czasie lub bezpośredniego przypisania (na podstawie czasu)  
+>- Przypisane do dostępu do przeglądu
+>
+>Aby uzyskać więcej informacji, zobacz [Wersje usługi Azure Active Directory](active-directory-editions.md).
 
 Organizacje chcesz ograniczyć liczbę użytkowników, którzy mają dostęp do bezpiecznego informacji lub zasobów, ponieważ, która ogranicza ryzyko złośliwemu użytkownikowi uzyskiwanie dostępu lub autoryzowanym użytkownikiem przypadkowo wpływające na poufnych zasobów.  Jednak użytkownicy nadal muszą wykonywać operacje uprzywilejowane w usłudze Azure AD, Azure, Office 365 lub SaaS aplikacji. Organizacje zapewnić użytkownikom uprzywilejowanego dostępu do zasobów platformy Azure, takich jak subskrypcje i Azure AD. Istnieje potrzeba nadzoru dla tych użytkowników, robią z ich uprawnieniami administratora. Azure AD Privileged Identity Management pomaga ograniczyć ryzyko nadmiernego, zbędne lub niewłaściwego użycia praw dostępu.
 
@@ -54,7 +62,7 @@ Możesz rozpocząć korzystanie z usługi Azure AD Privileged Identity Managemen
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/) jako administrator globalny katalogu.
 2. Jeśli organizacja dysponuje więcej niż jednym katalogiem, wybierz swoją nazwę użytkownika w prawym górnym rogu witryny Azure Portal. Wybierz katalog, w którym będziesz używać usługi Azure AD Privileged Identity Management.
-3. Wybierz **wszystkie usługi** i użyj polu tekstowym filtru w celu wyszukania **Azure AD Privileged Identity Management**.
+3. Wybierz pozycję **Wszystkie usługi** i użyj pola tekstowego filtru, aby wyszukać usługę **Azure AD Privileged Identity Management**.
 4. Zaznacz opcję **Przypnij do pulpitu nawigacyjnego**, a następnie kliknij pozycję **Utwórz**. Nastąpi otwarcie aplikacji Privileged Identity Management.
 
 Jeśli jesteś pierwszą osobą, aby użyć usługi Azure AD Privileged Identity Management w katalogu, przejdź do usługi Azure AD directory ról, a następnie przejdź do ról katalogu usługi Azure AD, [Kreator zabezpieczeń](active-directory-privileged-identity-management-security-wizard.md) przeprowadzi Cię przez początkowy etap przypisania. Po wykonaniu tej automatycznie staje się pierwszym **administrator zabezpieczeń** i **administrator ról uprzywilejowanych** katalogu.

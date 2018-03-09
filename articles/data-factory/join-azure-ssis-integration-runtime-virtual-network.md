@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: 3a5b68729d587e1365c42125108e610705965c86
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 4f1100b7e4fa2250baf282b53ef83c5f1aaa1c0e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Dołącz do środowiska uruchomieniowego integracji usług SSIS Azure do sieci wirtualnej
 Dołącz do programu Azure SSIS integracji runtime (IR) do sieci wirtualnej platformy Azure w następujących scenariuszach: 
@@ -176,7 +176,9 @@ Należy skonfigurować sieć wirtualną, zanim dołączysz IR Azure SSIS do nieg
 # Register to the Azure Batch resource provider
 if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 {
-    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName "MicrosoftAzureBatch").Id
+    $BatchApplicationId = "ddbf3205-c6bd-46ae-8127-60eb93363864"
+    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName $BatchApplicationId).Id
+
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
     while(!(Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
     {
@@ -211,6 +213,11 @@ $AzureSSISName = "<Specify Azure-SSIS IR name>"
 $VnetId = "<Name of your Azure virtual network>"
 $SubnetName = "<Name of the subnet in the virtual network>"
 ```
+
+#### <a name="guidelines-for-selecting-a-subnet"></a>Wskazówki dotyczące wybierania podsieci
+-   Nie wybieraj GatewaySubnet wdrażania środowiska uruchomieniowego integracji usług SSIS Azure, ponieważ jest przeznaczony dla bram sieci wirtualnej.
+-   Upewnij się, że podsieci, którą wybierzesz ma wystarczającą ilość miejsca dostępnego adresu na IR Azure SSIS do użycia. Pozostaw co najmniej 2 * numer węzła IR w dostępnych adresów IP. Azure rezerwuje niektórych adresów IP w każdej podsieci, a nie można użyć tych adresów. Imię i nazwisko adresów IP podsieci są zastrzeżone dla protokołu zgodność, wraz z trzech więcej adresów używanych na potrzeby usług Azure. Aby uzyskać więcej informacji, zobacz [istnieją wszystkie ograniczenia dotyczące używania adresów IP w ramach tych podsieci?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets).
+
 
 ### <a name="stop-the-azure-ssis-ir"></a>Zatrzymaj IR Azure SSIS
 Zatrzymać środowiska uruchomieniowego integracji usług SSIS Azure, zanim można było przyłączyć ją do sieci wirtualnej. To polecenie zwalnia wszystkich jego węzłów i zatrzymuje rozliczeń:
@@ -264,6 +271,22 @@ Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupNa
 
 ```
 To polecenie pobiera 20-30 minut.
+
+## <a name="use-azure-expressroute-with-the-azure-ssis-ir"></a>Użyj usługi Azure ExpressRoute IR Azure SSIS
+
+Możesz połączyć [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) obwód do infrastruktury sieci wirtualnej rozszerzenie sieci lokalnej na platformie Azure. 
+
+Typowa konfiguracja jest użycie tunelowania wymuszonego (anonsowanie trasy protokołu BGP, 0.0.0.0/0 do sieci wirtualnej) który wymusza wychodzący ruch internetowy pochodzący z przepływów sieci wirtualnej do lokalnego urządzenia sieci inspekcji i rejestrowania. Ten przepływ ruchu dzieli łączność między IR Azure SSIS w sieci wirtualnej z usług zależnych usługi fabryka danych Azure. Rozwiązanie jest określenie jednego (lub więcej) [trasy zdefiniowane przez użytkownika (Udr)](../virtual-network/virtual-networks-udr-overview.md) w podsieci, która zawiera podczerwieni Azure SSIS. PRZEZ definiuje tras specyficzne dla podsieci, które są honorowane zamiast trasy protokołu BGP.
+
+Jeśli to możliwe należy użyć następującej konfiguracji:
+-   Konfiguracji usługi ExpressRoute anonsuje 0.0.0.0/0 i przez domyślny force tuneli cały ruch wychodzący lokalnie.
+-   PRZEZ stosowana do podsieci, zawierający IR Azure SSIS definiuje 0.0.0.0/0 trasa o typ następnego przeskoku "Internet".
+- 
+Łączna te kroki powoduje, że przez poziomie podsieci ma pierwszeństwo przed ExpressRoute, wymuszone tunelowanie, w związku z tym zapewnienie wychodzący dostęp do Internetu z IR. Azure SSIS
+
+Jeśli masz obawy utraty możliwości inspekcji wychodzący ruch internetowy pochodzący od tej podsieci, można również dodać reguły NSG podsieci ruchu wychodzącego miejsca docelowe, aby ograniczyć [adresy IP centrum danych Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+
+Zobacz [ten skrypt programu PowerShell](https://gallery.technet.microsoft.com/scriptcenter/Adds-Azure-Datacenter-IP-dbeebe0c) przykład. Należy uruchomić skrypt co tydzień w celu zapewnienia aktualności listy adresów IP centrum danych Azure.
 
 ## <a name="next-steps"></a>Kolejne kroki
 Aby uzyskać informacje o środowisku uruchomieniowym usług SSIS Azure zobacz następujące tematy: 

@@ -6,30 +6,30 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 03/05/2018
 ms.author: rajanaki
-ms.openlocfilehash: d24376c57c468a562fc6d6dd52b4e9b01b53c3da
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 47056c85c6cb66a7fa28d623a4472b827d970dab
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Ponownej ochrony nie powiodła się na maszynach wirtualnych platformy Azure, w regionie podstawowym
 
 
 >[!NOTE]
 >
-> Replikacja odzyskiwania lokacji dla maszyn wirtualnych platformy Azure jest obecnie w przeglądzie.
+> Replikacja usługi Site Recovery na potrzeby maszyn wirtualnych platformy Azure jest obecnie dostępna w wersji zapoznawczej.
 
 
 
 Gdy możesz [awaryjnie](site-recovery-failover.md) maszynach wirtualnych platformy Azure z jednego regionu przy użyciu [usługi Azure Site Recovery](site-recovery-overview.md), rozruchu maszyn wirtualnych w regionie pomocniczym, w stanie niechronionym. Niepowodzenie maszyn wirtualnych z powrotem do regionu podstawowego, należy wykonać następujące czynności:
 
-- Włącz ponownie ochronę maszyn wirtualnych w regionie pomocniczym, dzięki czemu rozpoczęciu replikowanie do regionu podstawowego. 
+- Włącz ponownie ochronę maszyn wirtualnych w regionie pomocniczym, dzięki czemu rozpoczęciu replikowanie w regionie podstawowym. 
 - Po zakończeniu przełączonej i replikowania maszyn wirtualnych, użytkownik może przełączyć je z lokacji dodatkowej do regionu podstawowego.
 
 > [!WARNING]
-> Jeśli znasz [migracji](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration) maszyny z serwera podstawowego w regionie pomocniczym, przenieść maszynę Wirtualną do innej grupy zasobów albo usunąć maszyny Wirtualnej Azure, nie Włącz ponownie ochronę maszyny Wirtualnej lub jej wykonaj powrót po awarii.
+> Jeśli znasz [migracji](migrate-overview.md#what-do-we-mean-by-migration) maszyny z serwera podstawowego w regionie pomocniczym, przenieść maszynę Wirtualną do innej grupy zasobów albo usunąć maszyny Wirtualnej Azure, nie Włącz ponownie ochronę maszyny Wirtualnej lub jej wykonaj powrót po awarii.
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne

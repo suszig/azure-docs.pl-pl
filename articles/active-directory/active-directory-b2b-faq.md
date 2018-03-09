@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 01/08/2018
+ms.date: 03/06/2018
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 21511b37eba2cd2e87d8720f3e9cfe453b50d88c
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 409bb14635afbfc6d31efd853837677c74851b41
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure współpracy B2B usługi Active Directory — często zadawane pytania
 
@@ -84,8 +84,8 @@ Tak. Poniżej przedstawiono istotne szczegóły dotyczące samoobsługowego rese
 ### <a name="is-password-reset-available-for-guest-users-in-a-just-in-time-jit-or-viral-tenant-who-accepted-invitations-with-a-work-or-school-email-address-but-who-didnt-have-a-pre-existing-azure-ad-account"></a>Jest resetowania hasła dostępne dla gości w just-in-time (JIT) lub "wirusa" dzierżawy, którzy zaakceptowali zaproszeń do skorzystania z pracą lub służbowego adresu e-mail, ale który nie ma istniejące konto usługi Azure AD?
 Tak. Wiadomości resetowania hasła można wysyłać, która umożliwia użytkownikowi resetowania hasła w dzierżawy JIT.
 
-### <a name="does-microsoft-dynamics-crm-provide-online-support-for-azure-ad-b2b-collaboration"></a>Microsoft Dynamics CRM oferuje pomocy online do współpracy B2B usługi Azure AD?
-Obecnie programu Microsoft Dynamics CRM nie zapewnia pomoc online współpracy B2B usługi Azure AD. Jednak firma Microsoft planuje obsługiwać to w przyszłości.
+### <a name="does-microsoft-dynamics-365-provide-online-support-for-azure-ad-b2b-collaboration"></a>Microsoft Dynamics 365 oferuje pomocy online do współpracy B2B usługi Azure AD?
+Tak, Dynamics 365 (online) zapewnia obsługę współpracy B2B usługi Azure AD. Aby uzyskać więcej informacji, zobacz artykuł Dynamics 365 [zaprosić użytkowników o współpracy B2B usługi Azure AD](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration).
 
 ### <a name="what-is-the-lifetime-of-an-initial-password-for-a-newly-created-b2b-collaboration-user"></a>Co to jest okres istnienia hasła początkowego dla nowo utworzonego użytkownika współpracy B2B?
 Usługa Azure AD ma ustalony zbiór znaków, siły hasła i konto, które konta użytkowników w chmurze blokady wymagania, które są stosowane jednakowo do wszystkich usługi Azure AD. Konta użytkowników w chmurze są kontami, które nie są Sfederowane przy użyciu innego dostawcy tożsamości, na przykład 

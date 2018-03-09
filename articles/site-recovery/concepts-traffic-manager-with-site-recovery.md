@@ -5,20 +5,15 @@ services: site-recovery
 documentationcenter: 
 author: mayanknayar
 manager: rochakm
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/05/2018
 ms.author: manayar
-ms.openlocfilehash: 3192c67938fe118e79aa68ee6194e76f21d65d98
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 8305a354588875926cab52a55d99d3a29bcfb509
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-traffic-manager-with-azure-site-recovery"></a>Usługa Azure Traffic Manager z usługą Azure Site Recovery
 
@@ -49,11 +44,11 @@ W przypadku awarii, mogą wyzwalać firmy A [pracy awaryjnej](site-recovery-fail
 
 W zależności od wymagań biznesowych **firmy A** można wybrać wyższy lub niższy [częstotliwość sondowania](../traffic-manager/traffic-manager-monitoring.md) można przełączać się między lokalnymi na platformie Azure w przypadku awarii i upewnij się, minimalnym czasem przestoju dla użytkowników.
 
-Znajdujące się po awarii, **firmy A** można powrotu po awarii z platformy Azure do jej w środowisku lokalnym ([VMware](site-recovery-how-to-failback-azure-to-vmware.md) lub [funkcji Hyper-V](site-recovery-failback-from-azure-to-hyper-v.md)) przy użyciu usługi Azure Site Recovery. Teraz, kiedy usługi Traffic Manager wykrycia, że **głównej** punktu końcowego jest w dobrej kondycji ponownie, automatycznie wykorzystuje **głównej** punkt końcowy w odpowiedzi DNS.
+Znajdujące się po awarii, **firmy A** można powrotu po awarii z platformy Azure do jej w środowisku lokalnym ([VMware](vmware-azure-failback.md) lub [funkcji Hyper-V](hyper-v-azure-failback.md)) przy użyciu usługi Azure Site Recovery. Teraz, kiedy usługi Traffic Manager wykrycia, że **głównej** punktu końcowego jest w dobrej kondycji ponownie, automatycznie wykorzystuje **głównej** punkt końcowy w odpowiedzi DNS.
 
 ## <a name="on-premises-to-azure-migration"></a>Dane lokalne na Azure migracji
 
-Oprócz odzyskiwania po awarii, umożliwia również usługi Azure Site Recovery [migracje Azure](site-recovery-migrate-to-azure.md). Przy użyciu usługi Azure Site Recovery zaawansowanych test trybu failover, klienci mogą ocenić wydajność aplikacji na platformie Azure bez wpływu na ich w środowisku lokalnym. I gdy klienci będą gotowe do migracji, można wybrać migrację obciążeń całego razem lub wybrać do migracji i stopniowo skalowania.
+Oprócz odzyskiwania po awarii, umożliwia również usługi Azure Site Recovery [migracje Azure](migrate-overview.md). Przy użyciu usługi Azure Site Recovery zaawansowanych test trybu failover, klienci mogą ocenić wydajność aplikacji na platformie Azure bez wpływu na ich w środowisku lokalnym. I gdy klienci będą gotowe do migracji, można wybrać migrację obciążeń całego razem lub wybrać do migracji i stopniowo skalowania.
 
 Azure Menedżera ruchu [ważone](../traffic-manager/traffic-manager-configure-weighted-routing-method.md) metody routingu mogą służyć do kierowania część ruchu przychodzącego na platformie Azure podczas kierowania większość do środowiska lokalnego. Takie podejście może pomóc w ocenie skalowania wydajności, jak można kontynuować zwiększenie waga przypisana do platformy Azure, podczas migracji i więcej obciążeń na platformie Azure.
 

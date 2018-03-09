@@ -5,14 +5,14 @@ services: virtual-machines-windows, virtual-machines-linux
 author: dlepow
 ms.service: multiple
 ms.topic: include
-ms.date: 03/01/2018
+ms.date: 03/05/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 34b38ff02d401e87be10f1f72cb2025b66317c9e
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 8614fa7a52c91419c66782f7434692228e6b18d2
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 Procesor GPU zoptymalizowanych pod kątem maszyny Wirtualnej są dostępne z jednego lub wielu procesorów graficznych NVIDIA specjalne maszyn wirtualnych. Rozmiary są przeznaczone dla obciążeń obliczeniowych, dużą ilością grafiki i wizualizacji. Ten artykuł zawiera informacje o liczbę i typ procesorów graficznych, Vcpu, dyski danych i karty sieciowe, jak również przepustowości przepływności i sieć magazynu dla każdego rozmiaru w tej metodzie grupowania. 
 
@@ -95,14 +95,16 @@ Procesor GPU 1 = co karta P40.
 
 ## <a name="nv-series"></a>Seria NV
 
-Serii wirtualizacją sieci są obsługiwane przez [M60 tesla — NVIDIA ](http://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU i siatki NVIDIA technologii pulpitu przyspieszony aplikacji i pulpitów wirtualnych gdzie klienci mogą się wizualizacji ich danych lub symulacji. Użytkownicy będą mogli wizualizacji w wystąpieniach wirtualizacją sieci, aby uzyskać możliwość wyższego poziomu grafiki i dodatkowo uruchamiania obciążeń pojedynczej precyzji, takie jak kodowanie i renderowania znacznym przepływy pracy ich grafiki. 
+Serii wirtualizacją sieci maszyn wirtualnych są obsługiwane przez [M60 tesla — NVIDIA](http://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU i siatki NVIDIA technologii pulpitu przyspieszony aplikacji i pulpitów wirtualnych gdzie klienci mogą się wizualizacji ich danych lub symulacji. Użytkownicy będą mogli wizualizacji w wystąpieniach wirtualizacją sieci, aby uzyskać możliwość wyższego poziomu grafiki i dodatkowo uruchamiania obciążeń pojedynczej precyzji, takie jak kodowanie i renderowania znacznym przepływy pracy ich grafiki. 
 
-| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Procesory GPU | Maks. liczba dysków danych | Maksymalna liczba kart sieciowych |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standardowa_NV6 |6 |56 |380 | 1 | 24 | 1 |
-| Standardowa_NV12 |12 |112 |680 | 2 | 48 | 2 |
-| Standardowa_NV24 |24 |224 |1440 | 4 | 64 | 4 |
+Każdy procesor GPU w Trwałym wystąpień pochodzi z licencją siatki. Ta licencja zapewnia elastyczność być wystąpienia wirtualizacją sieci wirtualnych stacji roboczej dla jednego użytkownika lub 25 równoczesnych użytkownicy mogą łączyć się maszyna wirtualna dla scenariusza aplikacji wirtualnej.
+
+| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Procesory GPU | Maks. liczba dysków danych | Maksymalna liczba kart sieciowych | Wirtualne stacje robocze | Aplikacje wirtualne | 
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Standardowa_NV6 |6 |56 |380 | 1 | 24 | 1 | 1 | 25 |
+| Standardowa_NV12 |12 |112 |680 | 2 | 48 | 2 | 2 | 50 |
+| Standardowa_NV24 |24 |224 |1440 | 4 | 64 | 4 | 4 | 100 |
 
 1 procesor GPU = połowa karty M60.
 
-
+ 

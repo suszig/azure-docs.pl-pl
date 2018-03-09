@@ -13,19 +13,22 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.date: 12/13/2017
 ms.workload: On Demand
+ms.date: 03/07/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 3d6ad95c1ca316b2e7c3f722315d2ddec03a3716
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: aa6a032a9d42038502cf074ef8aeff8e2e8b0b31
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="designing-highly-available-services-using-azure-sql-database"></a>Projektowanie usługi wysokiej dostępności przy użyciu bazy danych SQL Azure
 
 Podczas tworzenia i wdrażania usług wysokiej dostępności w bazie danych SQL Azure, użyj [trybu failover grupy i aktywna replikacja geograficzna](sql-database-geo-replication-overview.md) zapewnienie odporności na awarie regionalnych i poważnej awarii. Umożliwia również szybkie odzyskiwanie do dodatkowej baz danych. Ten artykuł skupia się na typowe wzorce aplikacji i omówiono korzyści i kompromisy każdej z nich. Informacje aktywna replikacja geograficzna z pule elastyczne, zobacz [strategii odzyskiwania danych w puli elastycznej](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+
+> [!NOTE]
+> Jeśli używasz bazy danych — warstwa Premium i pule można wprowadzać odporność na awarie regionalnych konwertując je do konfiguracji wdrożenia nadmiarowe strefy (obecnie w wersji zapoznawczej). Zobacz [Strefowo nadmiarowy baz danych](sql-database-high-availability.md).  
 
 ## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>Scenariusz 1: Za pomocą dwóch regionach platformy Azure dla ciągłość prowadzenia działalności biznesowej z minimalnym czasem przestojów
 W tym scenariuszu aplikacje mają następującą charakterystykę: 
@@ -47,8 +50,7 @@ Na poniższym diagramie przedstawiono tę konfigurację przed awarii:
 Po awarii w regionie podstawowym usługi SQL Database wykrywa, że podstawowa baza danych nie jest dostępny i wyzwala trybu failover w regionie pomocniczym, na podstawie parametrów zasady automatycznej pracy awaryjnej (1). W zależności od Twojego umowy SLA dla aplikacji można skonfigurować okres prolongaty, kontrolujące czas między wykrywania awarii i trybu failover, do samej siebie. Istnieje możliwość, aby Menedżer ruchu inicjuje trybu failover punktu końcowego przed grupy pracy awaryjnej wyzwala trybu failover bazy danych. W takim przypadku aplikacja sieci web nie może od razu ponownie z bazą danych. Jednak ponowne łączenie będą automatycznie pomyślne zaraz po zakończeniu trybu failover bazy danych. W przypadku przywrócić i w trybie online nie powiodło się region stary serwer podstawowy automatycznie połączy się ponownie jako nowym serwerem pomocniczym. Poniższy diagram przedstawia konfigurację po pracy awaryjnej.
  
 > [!NOTE]
-> Wszystkie transakcje zatwierdzone po przejściu w tryb failover zostaną utracone podczas ponownego łączenia. Po zakończeniu pracy awaryjnej aplikacji w regionie B jest w stanie ponownie połączyć i uruchom ponownie przetwarzanie żądania użytkownika. Zarówno aplikacji sieci web, jak i podstawowej bazy danych są dostępne w regionie B i pozostają wspólnie. 
-n>
+> Wszystkie transakcje zatwierdzone po przejściu w tryb failover zostaną utracone podczas ponownego łączenia. Po zakończeniu pracy awaryjnej aplikacji w regionie B jest w stanie ponownie połączyć i uruchom ponownie przetwarzanie żądania użytkownika. Zarówno aplikacji sieci web, jak i podstawowej bazy danych są dostępne w regionie B i pozostają wspólnie. n>
 
 ![Scenariusz 1. Konfiguracja po trybu failover](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario1-b.png)
 
@@ -152,7 +154,7 @@ Brak niektórych, ale **wady i zalety**:
 ## <a name="business-continuity-planning-choose-an-application-design-for-cloud-disaster-recovery"></a>Planowanie ciągłości biznesowej: Wybierz projekt aplikacji do chmury odzyskiwania po awarii
 Strategię odzyskiwania po awarii określonej chmury można łączyć lub rozszerzyć te wzorce projektowe, aby najlepiej odpowiadać potrzebom aplikacji.  Jak wspomniano wcześniej, strategii wybrane opiera się na umowie SLA chcesz zaoferować klientom i topologii wdrożenia aplikacji. W celu ułatwienia decyzji w poniższej tabeli porównano opcje, w zależności od celu punktu odzyskiwania (RPO) i odzyskiwania szacowany czas (Wstaw).
 
-| Wzorce | CEL PUNKTU ODZYSKIWANIA | WSTAW |
+| Wzorce | RPO | ERT |
 |:--- |:--- |:--- |
 | Aktywny / pasywny wdrożenia dla odzyskiwania po awarii z dostępem do tej samej lokalizacji bazy danych |Dostęp do odczytu zapisu < 5 s |Czas wykrywania awarii + czas wygaśnięcia DNS |
 | Aktywny aktywny wdrożenia aplikacji Równoważenie obciążenia sieciowego |Dostęp do odczytu zapisu < 5 s |Czas wykrywania awarii + czas wygaśnięcia DNS |
@@ -160,7 +162,7 @@ Strategię odzyskiwania po awarii określonej chmury można łączyć lub rozsze
 ||Dostęp do odczytu zapisu = zero | Dostęp do odczytu zapisu = czas wykrycia błędu + okres prolongaty przy utracie danych |
 |||
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Omówienie ciągłości działalności biznesowej i scenariuszy, zobacz [omówienie ciągłości działalności biznesowej](sql-database-business-continuity.md)
 * Aby dowiedzieć się więcej o grupach — replikacja geograficzna i trybu failover, zobacz [aktywna replikacja geograficzna](sql-database-geo-replication-overview.md)  
 * Informacje aktywna replikacja geograficzna z pule elastyczne, zobacz [strategii odzyskiwania danych w puli elastycznej](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).

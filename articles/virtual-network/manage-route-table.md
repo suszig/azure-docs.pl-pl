@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 7edc73f337a72c24fd24d94468ee590b75dfa7df
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: f976832a857a35e9e0cea7a0eb731cb00492023f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Tworzenie, zmienianie lub usuwanie tabeli tras
 
-Azure automatycznie kieruje ruchem między podsieciami Azure, sieci wirtualnych i sieciami lokalnymi. Jeśli chcesz zmienić domyślne Azure routingu, możesz to zrobić, tworząc tabelę tras. Jeśli nie znasz z routingiem platformy Azure, zaleca się odczytu [Omówienie routingu](virtual-networks-udr-overview.md) i wykonując [kierować ruchem sieciowym z tabelą tras](create-user-defined-route-portal.md) samouczek, przed wykonaniem zadania w tym artykule.
+Azure automatycznie kieruje ruchem między podsieciami Azure, sieci wirtualnych i sieciami lokalnymi. Jeśli chcesz zmienić domyślne Azure routingu, możesz to zrobić, tworząc tabelę tras. Jeśli nie znasz z routingiem platformy Azure, zaleca się odczytu [Omówienie routingu](virtual-networks-udr-overview.md) i wykonując [kierować ruchem sieciowym z tabelą tras](tutorial-create-route-table-portal.md) samouczek, przed wykonaniem zadania w tym artykule.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2017
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 91839d8f547340d55f6badb3350a393a48a13c7d
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 661bfadfe1094271ad2ab672ad3f755c0fd24f02
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Uruchom zadania w tle z zadań Webjob w usłudze Azure App Service
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Zadania Webjob jest funkcją [usłudze Azure App Service](https://docs.microsoft.com/azure/app-service/) który umożliwia uruchamianie programu lub skryptu w tym samym kontekście jako aplikacji sieci web, aplikacji mobilnej lub aplikacji interfejsu API. Nie ma żadnych dodatkowych kosztów, aby użyć zadań Webjob.
 
 W tym artykule pokazano, jak wdrażanie przy użyciu zadań Webjob [portalu Azure](https://portal.azure.com) można przekazać plik wykonywalny lub skrypt. Aby uzyskać informacje o sposobie tworzenia i wdrażania zadań Webjob za pomocą programu Visual Studio, zobacz [wdrażanie przy użyciu programu Visual Studio zadań Webjob](websites-dotnet-deploy-webjobs.md).
@@ -57,7 +57,7 @@ Obsługiwane są następujące typy plików:
 * js (przy użyciu środowiska Node.js)
 * JAR (przy użyciu języka Java)
 
-## <a name="CreateContinuous"></a>Utwórz ciągłe zadanie WebJob
+## <a name="CreateContinuous"></a> Utwórz ciągłe zadanie WebJob
 
 <!-- 
 Several steps in the three "Create..." sections are identical; 
@@ -95,7 +95,7 @@ when making changes in one don't forget the other two.
 
     ![Zatrzymaj ciągłe zadanie WebJob](./media/web-sites-create-web-jobs/continuousstop.png)
 
-## <a name="CreateOnDemand"></a>Utwórz ręcznie wyzwalanych zadania WebJob
+## <a name="CreateOnDemand"></a> Utwórz ręcznie wyzwalanych zadania WebJob
 
 <!-- 
 Several steps in the three "Create..." sections are identical; 
@@ -133,7 +133,7 @@ when making changes in one don't forget the other two.
    
     ![Uruchamianie zadania WebJob](./media/web-sites-create-web-jobs/runondemand.png)
 
-## <a name="CreateScheduledCRON"></a>Utwórz zaplanowane zadania WebJob
+## <a name="CreateScheduledCRON"></a> Utwórz zaplanowane zadania WebJob
 
 <!-- 
 Several steps in the three "Create..." sections are identical; 
@@ -159,7 +159,7 @@ when making changes in one don't forget the other two.
    | **Nazwa** | myScheduledWebJob | Nazwa, która jest unikatowa w obrębie aplikacji usługi aplikacji. Musi rozpoczynać się literą lub cyfrą i nie może zawierać znaków specjalnych innych niż "-" i "_". |
    | **Przekazywanie pliku** | ConsoleApp.zip | A *zip* plik, który zawiera plik wykonywalny lub skrypt, a także wszelkie pliki pomocnicze potrzebne do uruchomienia tego programu lub skryptu. Obsługiwane typy plików plik wykonywalny lub skrypt są wymienione w [obsługiwanych typów plików](#acceptablefiles) sekcji. |
    | **Typ** | Wyzwolone | [Typy zadań WebJob](#webjob-types) są opisane w tym artykule. |
-   | **Wyzwalacze** | Zaplanowano | Podczas planowania działała prawidłowo, należy włączyć funkcję zawsze włączone. Zawsze włączone jest dostępna tylko w podstawowa, standardowa i Premium warstw cenowych.|
+   | **Wyzwalacze** | Zaplanowane | Podczas planowania działała prawidłowo, należy włączyć funkcję zawsze włączone. Zawsze włączone jest dostępna tylko w podstawowa, standardowa i Premium warstw cenowych.|
    | **Wyrażenie usługi CRON** | 0 0/20 * * * * | [Wyrażenia CRON](#cron-expressions) są opisane w poniższej sekcji. |
 
 4. Kliknij przycisk **OK**.
@@ -172,11 +172,11 @@ when making changes in one don't forget the other two.
 
 A [wyrażenie CRON](https://en.wikipedia.org/wiki/Cron) składa się z sześciu pola: `{second} {minute} {hour} {day} {month} {day of the week}`.  Oto kilka przykładów:
 
-* Co 15 minut:`0 */15 * * * *`
-* Co godzinę (gdy liczba minut wynosi 0):`0 0 * * * *` 
-* Co godzinę z 9 AM do 17: 00:`0 0 9-17 * * *` 
-* W 9:30 AM codziennie:`0 30 9 * * *`
-* W 9:30 AM każdy dzień tygodnia:`0 30 9 * * 1-5`
+* Co 15 minut: `0 */15 * * * *`
+* Co godzinę (gdy liczba minut wynosi 0): `0 0 * * * *` 
+* Co godzinę z 9 AM do 17: 00: `0 0 9-17 * * *` 
+* W 9:30 AM codziennie: `0 30 9 * * *`
+* W 9:30 AM każdy dzień tygodnia: `0 30 9 * * 1-5`
 
 Można wprowadzić wyrażenie CRON w portalu lub zawierać `settings.job` pliku w katalogu głównym WebJob *.zip* plików, jak w poniższym przykładzie:
 
@@ -189,7 +189,7 @@ Można wprowadzić wyrażenie CRON w portalu lub zawierać `settings.job` pliku 
 > [!NOTE]
 > Podczas wdrażania zadanie WebJob z programu Visual Studio, oznacz Twojej `settings.job` właściwości jako pliku **Kopiuj, jeśli nowszy**.
 
-## <a name="ViewJobHistory"></a>Wyświetlanie historii zadań
+## <a name="ViewJobHistory"></a> Wyświetlanie historii zadań
 
 1. Wybierz zadania WebJob, aby wyświetlić historię, a następnie wybierz **dzienniki** przycisku.
    
@@ -213,4 +213,4 @@ Można wprowadzić wyrażenie CRON w portalu lub zawierać `settings.job` pliku 
    
 ## <a name="NextSteps"></a> Następne kroki
 
-Zestaw SDK zadań Webjob Azure pozwala z zadań Webjob uprościć wiele zadań programistycznych. Aby uzyskać więcej informacji, zobacz [co to jest zestaw SDK zadań Webjob](https://github.com/Azure/azure-webjobs-sdk/wiki).
+Zestaw SDK zadań Webjob Azure pozwala z zadań Webjob uprościć wiele zadań programistycznych. Aby uzyskać więcej informacji, zobacz [co to jest zestaw SDK zadań Webjob](https://github.com/Azure/azure-webjobs-sdk/wiki) i [szybkie odwołanie do zestawu SDK zadań Webjob](./media/web-sites-create-web-jobs/webjobs-sdk-quick-reference.png).

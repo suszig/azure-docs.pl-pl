@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/19/2018
+ms.date: 03/05/2018
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a22c20a26ee4750c79c23fbba69de72a0084dfe7
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 9acda980583319414cc9e8668424907947a257db
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Komunikować się z Centrum IoT przy użyciu protokołu MQTT
 
@@ -100,6 +100,8 @@ Jeśli urządzenia nie można używać urządzeń zestawów SDK, nadal można po
 
 MQTT łączyć i Odłącz pakietów, Centrum IoT problemy zdarzenia na **operacje monitorowania** kanału. To zdarzenie zawiera dodatkowe informacje, które pomaga rozwiązywać problemy z połączeniem.
 
+Można określić aplikacji urządzenia **będzie** komunikatów w **CONNECT** pakietów. Należy użyć aplikacji urządzenia `devices/{device_id}/messages/events/{property_bag}` lub `devices/{device_id}/messages/events/{property_bag}` jako **będzie** nazwę tematu, aby zdefiniować **będzie** mają być przekazywane jako wiadomość telemetrii wiadomości. W tym przypadku jeśli połączenie sieciowe jest zamknięty, ale **ROZŁĄCZENIA** pakietów nie otrzymano wcześniej z urządzenia, a następnie wysyła Centrum IoT **będzie** wiadomość dostarczona w **CONNECT** pakietów w kanale danych telemetrycznych. Kanał danych telemetrycznych może być albo domyślnie **zdarzenia** punktu końcowego lub punkt końcowy niestandardowe zdefiniowane przez Centrum IoT routingu. Komunikat ma **MessageType Centrum iothub** właściwość z wartością **będzie** przypisane do niej.
+
 ### <a name="tlsssl-configuration"></a>Konfiguracja protokołu TLS/SSL
 
 Aby użyć MQTT protokołu bezpośrednio, klient *musi* nawiązywać połączenia za pomocą protokołu TLS/SSL. Próby, Pomiń ten krok się niepowodzeniem z błędami połączenia.
@@ -165,7 +167,7 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 > [!NOTE]
 > To `{property_bag}` element używa tego samego kodu dla ciągów zapytań w protokole HTTPS.
 
-Aplikacji urządzenia można również użyć `devices/{device_id}/messages/events/{property_bag}` jako **nazwa tematu zostanie** do definiowania *będzie wiadomości* mają być przekazywane jako wiadomość telemetrii.
+Poniżej przedstawiono listę zachowania konkretnej implementacji Centrum IoT:
 
 * Centrum IoT nie obsługuje komunikaty QoS 2. Jeśli aplikacja urządzenia publikuje komunikat z **QoS 2**, Centrum IoT zamyka połączenie sieciowe.
 * Centrum IoT nie jest trwały Zachowaj wiadomości. Jeśli urządzenie wysyła wiadomość z **Zachowaj** Flaga ustawiona na 1, dodaje Centrum IoT **x-opt — Zachowaj** właściwości aplikacji do wiadomości. W takim przypadku zamiast utrwalanie komunikat Zachowaj, Centrum IoT przekazuje ją do wewnętrznej bazy danych aplikacji.

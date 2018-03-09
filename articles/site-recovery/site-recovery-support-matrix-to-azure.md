@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/06/2018
+ms.date: 03/07/2018
 ms.author: rajanaki
-ms.openlocfilehash: a17d0918ea5938daf81c469fd6402a7dc9764831
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 9c52ef47992474465111f106fc15779cadd825be
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Azure Site Recovery macierz obsługi replikacji z lokalnych do platformy Azure
 
@@ -82,7 +82,7 @@ W poniższej tabeli przedstawiono obsługę systemu operacyjnego replikowanych w
 
 ### <a name="supported-ubuntu-kernel-versions-for-vmwarephysical-servers"></a>Ubuntu wersji jądra programu VMware/serwery fizyczne
 
-**Zlecenia** | **Wersja usługi mobilności** | Wersja jądra |
+**Zlecenia** | **Wersja usługi mobilności** | **Wersja jądra** |
 --- | --- | --- |
 14.04 LTS | 9.10 | 3.13.0-24-Generic do 3.13.0-121-generic,<br/>3.16.0-25-Generic do 3.16.0-77-generic,<br/>3.19.0-18-Generic do 3.19.0-80-generic,<br/>4.2.0-18-Generic do 4.2.0-42-generic,<br/>4.4.0-21-Generic do 4.4.0-81-generic |
 14.04 LTS | 9.11 | 3.13.0-24-Generic do 3.13.0-128-generic,<br/>3.16.0-25-Generic do 3.16.0-77-generic,<br/>3.19.0-18-Generic do 3.19.0-80-generic,<br/>4.2.0-18-Generic do 4.2.0-42-generic,<br/>4.4.0-21-Generic do 4.4.0-91-generic |
@@ -96,9 +96,8 @@ W poniższej tabeli przedstawiono obsługę systemu operacyjnego replikowanych w
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-linux-vmwarephysical-servers"></a>Systemy plików obsługiwanych i konfiguracje magazynu gościa w systemie Linux (VMware/serwery fizyczne)
 
 Poniższe systemy plików i magazynu konfiguracji oprogramowania są obsługiwane na serwerach Linux działających na serwerach programu VMware lub fizycznych:
-* Systemy plików: ext3 ext4, ReiserFS (Suse Linux Enterprise Server tylko), XFS
+* Systemy plików: ext3 ext40, XFS
 * Menedżer woluminów: LVM2
-* Oprogramowanie wielościeżkowego: mapowania urządzenia
 
 Parawirtualnego systemu magazynu (urządzenia wyeksportowane przez sterowniki parawirtualnego systemu) nie są obsługiwane.<br/>
 Urządzenia We/Wy bloku wielu kolejki nie są obsługiwane.<br/>
@@ -134,7 +133,7 @@ Multi-NIC | Yes | Yes
 
 ### <a name="failed-over-azure-vm-network-configuration"></a>Konfiguracja sieci maszyny Wirtualnej Azure przełączona w tryb failover
 
-Sieć platformy Azure | **Serwer VMware/fizyczne** | **Funkcja Hyper-V (z/bez programu Virtual Machine Manager)**
+**Sieć platformy Azure** | **Serwer VMware/fizyczne** | **Funkcja Hyper-V (z/bez programu Virtual Machine Manager)**
 --- | --- | ---
 ExpressRoute | Yes | Yes
 Wewnętrzny moduł równoważenia obciążenia | Yes | Yes
@@ -215,21 +214,21 @@ Dyski zarządzane | Yes | Yes<br/><br/>Powrót po awarii do środowiska lokalneg
 
 Możesz wdrożyć usługę Site Recovery, aby replikować maszyny wirtualne i serwery fizyczne z dowolnym systemem operacyjnym obsługiwanym przez platformę Azure. Jest to większość wersji systemów Windows i Linux. Lokalna Usługa maszyn wirtualnych, które chcesz replikować muszą być zgodne z następującymi wymaganiami Azure podczas replikacji do platformy Azure.
 
-**Entity** | Wymagania | **Szczegóły**
+**Entity** | **Wymagania** | **Szczegóły**
 --- | --- | ---
-System operacyjny gościa | Funkcja Hyper-V Azure replikacji: Usługa Site Recovery obsługuje wszystkich systemów operacyjnych, które są [obsługiwany przez platformę Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). <br/><br/> VMware i replikacji na serwerze fizycznym: sprawdzanie systemu Windows i Linux [wymagania wstępne](site-recovery-vmware-to-azure-classic.md) | Sprawdzanie wymagań wstępnych zakończy się niepowodzeniem, jeśli jest nieobsługiwany.
+**System operacyjny gościa** | Funkcja Hyper-V Azure replikacji: Usługa Site Recovery obsługuje wszystkich systemów operacyjnych, które są [obsługiwany przez platformę Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). <br/><br/> VMware i replikacji na serwerze fizycznym: sprawdzanie systemu Windows i Linux [wymagania wstępne](site-recovery-vmware-to-azure-classic.md) | Sprawdzanie wymagań wstępnych zakończy się niepowodzeniem, jeśli jest nieobsługiwany.
 **Architektura systemu operacyjnego gościa** | 64-bitowa | Sprawdzanie wymagań wstępnych zakończy się niepowodzeniem, jeśli nieobsługiwane
 **Rozmiar dysku systemu operacyjnego** | 2048 GB, jeśli jest replikowana **maszyn wirtualnych VMware lub serwerów fizycznych do platformy Azure**.<br/><br/>Maksymalnie 2048 GB dla **funkcji Hyper-V generacji 1** maszyn wirtualnych.<br/><br/>Maksymalnie 300 GB dla **maszyn wirtualnych funkcji Hyper-V generacji 2**.  | Sprawdzanie wymagań wstępnych zakończy się niepowodzeniem, jeśli nieobsługiwane
 **Liczba dysków systemu operacyjnego** | 1 | Sprawdzanie wymagań wstępnych zakończy się niepowodzeniem, jeśli jest nieobsługiwany.
 **Liczba dysków danych** | Replikowanie 64 lub mniej, jeśli **maszyn wirtualnych VMware do platformy Azure**; 16 lub mniej przypadku replikowania **maszyn wirtualnych funkcji Hyper-V w systemie Azure** | Sprawdzanie wymagań wstępnych zakończy się niepowodzeniem, jeśli nieobsługiwane
 **Rozmiar wirtualnego dysku twardego dysku danych** | Do 4095 GB | Sprawdzanie wymagań wstępnych zakończy się niepowodzeniem, jeśli nieobsługiwane
-**Karty sieciowe** | Wiele kart sieciowych są obsługiwane. |
+**Karty sieciowe** | Obsługiwana jest konfiguracja z wieloma kartami sieciowymi |
 **Udostępniony wirtualny dysk twardy** | Nieobsługiwane | Sprawdzanie wymagań wstępnych zakończy się niepowodzeniem, jeśli nieobsługiwane
-**FC dysku** | Nieobsługiwane | Sprawdzanie wymagań wstępnych zakończy się niepowodzeniem, jeśli nieobsługiwane
-**Format dysku twardego** | WIRTUALNEGO DYSKU TWARDEGO <br/><br/> VHDX | Chociaż VHDX nie jest obecnie obsługiwany na platformie Azure, Usługa Site Recovery automatycznie konwertuje VHDX do wirtualnego dysku twardego, gdy awaryjnie na platformie Azure. Gdy nie powiedzie się do lokalnych maszyn wirtualnych w dalszym ciągu korzystać z formatu VHDX.
+**Dysk FC** | Nieobsługiwane | Sprawdzanie wymagań wstępnych zakończy się niepowodzeniem, jeśli nieobsługiwane
+**Format dysku twardego** | WIRTUALNEGO DYSKU TWARDEGO <br/><br/> VHDX | Chociaż pliki VHDX nie są obecnie obsługiwane na platformie Azure, usługa Site Recovery automatycznie konwertuje pliki VHDX na wirtualne dyski twarde w przypadku trybu failover na platformie Azure. Gdy nie powiedzie się do lokalnych maszyn wirtualnych w dalszym ciągu korzystać z formatu VHDX.
 **Bitlocker** | Nieobsługiwane | Przed rozpoczęciem ochrony maszyny wirtualnej, należy wyłączyć funkcję BitLocker.
-**Nazwa maszyny Wirtualnej** | Od 1 do 63 znaków. Ograniczone do litery, cyfry i łączniki. Nazwa maszyny Wirtualnej musi zaczynać i kończyć literą lub cyfrą. | Zaktualizuj wartość we właściwościach maszyny wirtualnej w usłudze Site Recovery.
-**Typu maszyny Wirtualnej** | Generacja 1<br/><br/> Generacja 2 — systemu Windows | Maszyny wirtualne generacji 2 z typem dysku systemu operacyjnego, Basic (zawierającej co najmniej dwa woluminy danych w formacie VHDX) i mniejsza niż 300 GB miejsca na dysku są obsługiwane.<br></br>Maszyn wirtualnych systemu Linux generacji 2 nie są obsługiwane. [Dowiedz się więcej](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)|
+**Nazwa maszyny wirtualnej** | Od 1 do 63 znaków. Ograniczone do liter, cyfr i łączników. Nazwa maszyny wirtualnej musi zaczynać się i kończyć literą lub cyfrą. | Zaktualizuj wartość we właściwościach maszyny wirtualnej w usłudze Site Recovery.
+**Typ maszyny wirtualnej** | Generacja 1<br/><br/> Generacja 2 — systemu Windows | Maszyny wirtualne generacji 2 z typem dysku systemu operacyjnego, Basic (zawierającej co najmniej dwa woluminy danych w formacie VHDX) i mniejsza niż 300 GB miejsca na dysku są obsługiwane.<br></br>Maszyn wirtualnych systemu Linux generacji 2 nie są obsługiwane. [Dowiedz się więcej](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)|
 
 ## <a name="support-for-recovery-services-vault-actions"></a>Wspieranie działań magazyn usług odzyskiwania
 

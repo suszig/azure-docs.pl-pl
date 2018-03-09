@@ -11,13 +11,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/26/2018
 ms.author: mabrigg
-ms.openlocfilehash: 53ef19628b40c4a008143c867c9e7867ac91854d
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 4f86397d4db5a0e67b294befd92087166d6b8109
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>Uruchomienie testu poprawności Azure stosu
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 01/12/2018
  
 Można sprawdzić stan stosu Azure. Jeśli masz problem, skontaktuj się z pomocą techniczną usługi firmy Microsoft. Obsługa prośba do uruchamiania testów AzureStack z węźle zarządzania. Test weryfikacji izoluje awarii. Obsługa można następnie analizować szczegółowe dzienniki, skupić się na obszarze, w którym wystąpił błąd i pracy z Tobą w rozwiązaniu problemu.
 
-## <a name="run-test-azurestack"></a>Uruchom Test AzureStack
+## <a name="run-test-azurestack"></a>Run Test-AzureStack
 
 Jeśli masz problem, skontaktuj się z pomocą techniczną usługi firmy Microsoft, a następnie uruchom **Uruchom Test-AzureStack**.
 
@@ -35,8 +35,8 @@ Jeśli masz problem, skontaktuj się z pomocą techniczną usługi firmy Microso
     1. Dostęp uprzywilejowany punktu końcowego. Aby uzyskać instrukcje, zobacz [przy użyciu punktu końcowego uprzywilejowanych w stosie Azure](azure-stack-privileged-endpoint.md). 
     2. Zaloguj się jako **AzureStack\CloudAdmin** na hosta zarządzania.
     3. Otwórz program PowerShell jako administrator.
-    4. Uruchom:`Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint`
-    5. Uruchom:`Test-AzureStack`
+    4. Uruchom: `Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint`
+    5. Uruchom: `Test-AzureStack`
 4. Jeśli żadnych testów zgłosić błąd, uruchom: `Get-AzureStackLog -FilterByRole SeedRing -OutputPath <Log output path>` polecenia cmdlet zbiera dzienniki z AzureStack testu. Aby uzyskać więcej informacji na temat dzienników diagnostycznych, zobacz [narzędzia diagnostyki Azure stosu](azure-stack-diagnostics.md).
 5. Wyślij **SeedRing** dzienniki w celu obsługi usług klienta firmy Microsoft. Usługi techniczną firmy Microsoft współpracuje z Tobą w celu rozwiązania problemu.
 
@@ -44,7 +44,7 @@ Jeśli masz problem, skontaktuj się z pomocą techniczną usługi firmy Microso
 
 Ta sekcja zawiera omówienie dla polecenia cmdlet Test-AzureStack i podsumowanie z raportu sprawdzania poprawności.
 
-### <a name="test-azurestack"></a>AzureStack testu
+### <a name="test-azurestack"></a>Test-AzureStack
 
 Sprawdza stan stosu Azure. Polecenie cmdlet informuje o stanie stosu Azure sprzętu i oprogramowania. Pracownikami działu pomocy technicznej można użyć tego raportu, aby skrócić czas do rozwiązania Azure stos obsługi przypadków.
 
@@ -62,10 +62,10 @@ Sprawdza stan stosu Azure. Polecenie cmdlet informuje o stanie stosu Azure sprz�
 | Parametr               | Wartość           | Wymagane | Domyślne |
 | ---                     | ---             | ---      | ---     |
 | ServiceAdminCredentials | PSCredential    | Nie       | WARTOŚĆ FALSE   |
-| DoNotDeployTenantVm     | Parametr przełącznika | Nie       | WARTOŚĆ FALSE   |
+| DoNotDeployTenantVm     | SwitchParameter | Nie       | WARTOŚĆ FALSE   |
 | AdminCredential         | PSCredential    | Nie       | Nie dotyczy      |
-| StorageConnectionString | Ciąg          | Nie       | Nie dotyczy      |
-| List                    | Parametr przełącznika | Nie       | WARTOŚĆ FALSE   |
+<!-- | StorageConnectionString | Ciąg          | Nie       | Nie dotyczy      | nieobsługiwane w 1802-->
+| List                    | SwitchParameter | Nie       | WARTOŚĆ FALSE   |
 | Zignoruj                  | Ciąg          | Nie       | Nie dotyczy      |
 | Uwzględnij                 | Ciąg          | Nie       | Nie dotyczy      |
 
@@ -154,7 +154,7 @@ Poniższa tabela zawiera podsumowanie testy weryfikacyjne, uruchamiając AzureSt
 | Podsumowanie dotyczące usług magazynu Azure stosu                                                                                              |
 | Podsumowanie wystąpienia roli infrastruktury Azure stosu                                                                                  |
 | Hostingu wykorzystanie infrastruktury w chmurze Azure stosu                                                                              |
-| Pojemność infrastruktury Azure stosu                                                                                               |
+| Azure Stack Infrastructure Capacity                                                                                               |
 | Portal Azure stosu oraz podsumowanie interfejsu API                                                                                                |
 | Azure stosu Podsumowanie certyfikatu w usłudze Azure Resource Manager                                                                                               |
 | Kontroler zarządzania infrastruktury, kontrolera sieci usług magazynu i punktu końcowego uprzywilejowanych ról infrastruktury          |

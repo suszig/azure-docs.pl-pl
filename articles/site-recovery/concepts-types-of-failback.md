@@ -2,25 +2,20 @@
 title: "Powrót po awarii w usłudze Azure Site Recovery | Dokumentacja firmy Microsoft"
 description: "Ten artykuł zawiera omówienie różnych typów powrotu po awarii i ostrzeżenia wziąć pod uwagę podczas niepowodzenie wstecz do lokalnego z usługą Azure Site Recovery."
 services: site-recovery
-documentationcenter: 
 author: rajani-janaki-ram
 manager: guaravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 03/05/2018
 ms.author: rajanki
-ms.openlocfilehash: 07dc05c0bd89e69b6bfcff7577919494647efed0
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 372a7867b47960338d7a1bf7e646fb9fffbe72e1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="overview-of-failback"></a>Omówienie powrotu po awarii
+
 Po za pośrednictwem powiodły się do platformy Azure, może zakończyć się niepowodzeniem, powrót do lokacji lokalnej. Istnieją dwa różne typy powrotu po awarii, które są możliwe za pomocą usługi Azure Site Recovery: 
 
 - Powrót po awarii do oryginalnej lokalizacji 
@@ -55,5 +50,5 @@ Jeśli nie istnieje na lokalnej maszynie wirtualnej przed ponownej ochrony maszy
 
 ## <a name="next-steps"></a>Kolejne kroki
 
-Wykonaj kroki do wykonania [operacja powrotu po awarii](site-recovery-how-to-failback-azure-to-vmware.md).
+Wykonaj kroki do wykonania [operacja powrotu po awarii](vmware-azure-failback.md).
 

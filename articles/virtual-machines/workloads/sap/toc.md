@@ -14,7 +14,11 @@
 ## [Instalacja SAP HANA z jednym wystąpieniem](hana-get-started.md)
 ## [Rozwiązanie S/4 HANA lub BW/4 HANA SAP CAL — podręcznik wdrażania](cal-s4h.md)
 ## [Przewodnik obsługi oprogramowania SAP HANA na platformie Azure](hana-vm-operations.md)
-## [Wysoka dostępność oprogramowania SAP HANA na maszynach wirtualnych platformy Azure](sap-hana-high-availability.md)
+## Dostępność rozwiązania SAP HANA w usłudze Azure Virtual Machines
+### [Przegląd dostępności rozwiązania SAP HANA na platformie Azure](sap-hana-availability-overview.md)
+### [Dostępność rozwiązania SAP HANA na platformie Azure w ramach jednego regionu świadczenia usługi Azure](sap-hana-availability-one-region.md)
+### [Dostępność rozwiązania SAP HANA na platformie Azure w wielu regionach świadczenia usługi Azure](sap-hana-availability-across-regions.md)
+## [Konfigurowanie replikacji systemu SAP HANA na maszynach wirtualnych platformy Azure](sap-hana-high-availability.md)
 ## [Omówienie kopii zapasowych oprogramowania SAP HANA](sap-hana-backup-guide.md)
 ## [Kopia zapasowa oprogramowania SAP HANA na poziomie plików](sap-hana-backup-file-level.md)
 ## [Kopie zapasowe migawek magazynu oprogramowania SAP HANA](sap-hana-backup-storage-snapshots.md)

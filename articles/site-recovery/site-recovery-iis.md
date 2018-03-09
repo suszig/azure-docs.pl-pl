@@ -2,25 +2,19 @@
 title: "Replikowanie wielowarstwowych aplikacji usług IIS na podstawie sieci web przy użyciu usługi Azure Site Recovery | Dokumentacja firmy Microsoft"
 description: "Dowiedz się, jak replikowanie IIS sieci web farmy maszyn wirtualnych przy użyciu usługi Azure Site Recovery."
 services: site-recovery
-documentationcenter: 
 author: nsoneji
 manager: gauravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/05/2018
 ms.author: nisoneji
-ms.openlocfilehash: a4a8ea14fecac73b187c9c7d3f9ca318bb2671c5
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 1ed0184ac76b5fb3e607458559327da5e8fe90c5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="replicate-a-multi-tier-iis-based-web-application-by-using-site-recovery"></a>Replikowanie aplikacji wielowarstwowej usługi sieci web usług IIS na podstawie przy użyciu usługi Site Recovery
+# <a name="replicate-a-multi-tier-iis-based-web-application"></a>Replikowanie wielowarstwowych aplikacji usług IIS na podstawie sieci web
 
 Oprogramowanie to aparat wydajności biznesowej w organizacji. Różne aplikacje sieci web może obsługiwać różnych celów w organizacji. Niektóre aplikacje, takie jak aplikacje używane do przetwarzania płacowego, aplikacje finansowe i witryn sieci Web skierowane do klienta, może być krytyczne znaczenie dla organizacji. Aby zapobiec zmniejszeniu wydajności pracy, jest ważne dla organizacji, aby te aplikacje stale do pracy. Co ważniejsze o te aplikacje stale dostępne może pomóc chronić markę lub obrazu w organizacji.
 
@@ -36,7 +30,7 @@ W tym artykule opisano, jak chronić aplikacji sieci web, w której jest oparty 
 
 Przed rozpoczęciem upewnij się, że należy znać sposób wykonywania następujących zadań:
 
-* [Replikacja maszyny wirtualnej do platformy Azure](site-recovery-vmware-to-azure.md)
+* [Replikacja maszyny wirtualnej do platformy Azure](vmware-azure-tutorial.md)
 * [Projektowanie sieci odzyskiwania](site-recovery-network-design.md)
 * [Wykonaj test trybu failover na platformie Azure](site-recovery-test-failover-to-azure.md)
 * [Czy tryb failover na platformie Azure](site-recovery-failover.md)
@@ -75,7 +69,7 @@ Azure|Nie dotyczy|Yes
 
 Aby rozpocząć replikację wszystkich usług IIS sieci web farmy maszyn wirtualnych do platformy Azure, postępuj zgodnie ze wskazówkami w [testowy tryb failover na platformie Azure w usłudze Site Recovery](site-recovery-test-failover-to-azure.md).
 
-Jeśli używasz statycznego adresu IP, można określić adres IP, który ma maszynę wirtualną do wykonania. Aby ustawić adres IP, przejdź do **obliczeniowe i ustawień sieciowych** > [**DOCELOWY adres IP**](./site-recovery-replicate-vmware-to-azure.md#view-and-manage-vm-properties).
+Jeśli używasz statycznego adresu IP, można określić adres IP, który ma maszynę wirtualną do wykonania. Aby ustawić adres IP, przejdź do **obliczeniowe i ustawień sieciowych** > **DOCELOWY adres IP**.
 
 ![Zrzut ekranu pokazujący sposób ustawić docelowy adres IP w okienku obliczeniowe odzyskiwania lokacji i sieci](./media/site-recovery-active-directory/dns-target-ip.png)
 

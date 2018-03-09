@@ -4,7 +4,7 @@ description: "Jak używać funkcji zdefiniowanej przez użytkownika i uczenia ma
 keywords: 
 documentationcenter: 
 services: stream-analytics
-author: samacha
+author: SnehaGunda
 manager: jhubbard
 editor: cgronlun
 ms.assetid: cfced01f-ccaa-4bc6-81e2-c03d1470a7a2
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 07/06/2017
-ms.author: samacha
-ms.openlocfilehash: d06681c687f5cd3eb10d375499266c7e78be1558
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.date: 03/01/2018
+ms.author: sngun
+ms.openlocfilehash: 10d514aeb50dcd24f28ed879875b23b25578cebb
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Wykonywanie analiz wskaźniki nastrojów klientów przy użyciu usługi Azure Stream Analytics i usługi Azure Machine Learning
 W tym artykule opisano, jak szybko skonfigurować proste zadanie usługi analiza strumienia Azure, której zintegrowano usługi Azure Machine Learning. Umożliwia modelu uczenia maszynowego analytics wskaźniki nastrojów klientów z Cortana Intelligence Gallery analizować dane przesyłane strumieniowo tekstu i określić wynik wskaźniki nastrojów klientów w czasie rzeczywistym. Przy użyciu pakietu Cortana Intelligence Suite pozwala wykonać to zadanie, nie martwiąc się o mogli dokładnie zapoznać się tworzenia modelu analizy wskaźniki nastrojów klientów.
@@ -57,9 +57,7 @@ Na wysokim poziomie Aby wykonać zadania zostało to pokazane w tym artykule wyk
 ## <a name="create-a-storage-container-and-upload-the-csv-input-file"></a>Tworzenie kontenera magazynu i przekazywanie pliku wejściowego CSV
 W tym kroku można użyć dowolnego pliku CSV, takie jak dostępne z usługi GitHub.
 
-1. W portalu Azure kliknij **Utwórz zasób** &gt; **magazynu** &gt; **konta magazynu**.
-
-   ![Utwórz nowe konto magazynu](./media/stream-analytics-machine-learning-integration-tutorial/azure-portal-create-storage-account.png)
+1. W portalu Azure kliknij **Utwórz zasób** > **magazynu** > **konta magazynu**.
 
 2. Podaj nazwę (`samldemo` w przykładzie). Nazwę można użyć tylko małe litery i cyfry, i między Azure musi być unikatowa. 
 
@@ -81,9 +79,7 @@ W tym kroku można użyć dowolnego pliku CSV, takie jak dostępne z usługi Git
 
     ![Przekaż przycisk kontenera](./media/stream-analytics-machine-learning-integration-tutorial/create-sa-upload-button.png)
 
-8. W **przekazywanie obiektu blob** bloku, określ plik CSV, który ma być używany na potrzeby tego samouczka. Dla **typu obiektu Blob**, wybierz pozycję **blokowych obiektów blob** i ustaw rozmiar bloku 4 MB, co wystarcza w tym samouczku.
-
-    ![Przekaż plik obiektu blob](./media/stream-analytics-machine-learning-integration-tutorial/create-sa4.png)
+8. W **przekazywanie obiektu blob** bloku, Przekaż **sampleinput.csv** wcześniej pobranego pliku. Dla **typu obiektu Blob**, wybierz pozycję **blokowych obiektów blob** i ustaw rozmiar bloku 4 MB, co wystarcza w tym samouczku.
 
 9. Kliknij przycisk **przekazać** przycisk w dolnej części bloku.
 
@@ -130,8 +126,6 @@ Można teraz utworzyć zadanie usługi Stream Analytics odczytujący tweetów pr
 
 2. Kliknij przycisk **Utwórz zasób** > **Internetu rzeczy** > **zadanie usługi Stream Analytics**. 
 
-   ![Ścieżki portalu platformy Azure dla pobierania do nowego zadania usługi analiza strumienia](./media/stream-analytics-machine-learning-integration-tutorial/azure-portal-new-iot-sa-job.png)
-   
 3. Nazwa zadania `azure-sa-ml-demo`, określ subskrypcję, określ istniejącą grupę zasobów lub Utwórz nową i wybierz lokalizację dla zadania.
 
    ![Określ ustawienia nowego zadania usługi analiza strumienia](./media/stream-analytics-machine-learning-integration-tutorial/create-job-1.png)
@@ -140,46 +134,43 @@ Można teraz utworzyć zadanie usługi Stream Analytics odczytujący tweetów pr
 ### <a name="configure-the-job-input"></a>Konfigurowanie danych wejściowych zadania
 To zadanie pobiera jej danych wejściowych z pliku CSV, który został wcześniej przekazany do magazynu obiektów blob.
 
-1. Po utworzeniu zadania, w obszarze **topologii zadania** w bloku zadania kliknij **dane wejściowe** pole.  
+1. Po utworzeniu zadania, w obszarze **topologii zadania** w bloku zadania kliknij **dane wejściowe** opcji.    
+
+2. W **dane wejściowe** bloku, kliknij przycisk **Dodawanie elementu wejściowego strumienia** >**magazynu obiektów Blob**
+
+3. Wypełnianie **magazynu obiektów Blob** bloku następującymi wartościami:
+
    
-   ![Pole "Dane wejściowe" w bloku zadania usługi analiza strumienia](./media/stream-analytics-machine-learning-integration-tutorial/create-job-add-input.png)  
+   |Pole  |Wartość  |
+   |---------|---------|
+   |**Alias wejściowy** | Użyj nazwy `datainput` i wybierz **wybierz obiektu blob magazynu z subskrypcji**       |
+   |**Konto magazynu**  |  Wybierz utworzone wcześniej konto magazynu.  |
+   |**Kontener**  | Wybierz kontener utworzonym wcześniej (`azuresamldemoblob`)        |
+   |**Format serializacji zdarzeń**  |  Wybierz **CSV**       |
 
-2. W **dane wejściowe** bloku, kliknij przycisk **+ Dodaj**.
+   ![Ustawienia dla nowego zadania danych wejściowych.](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
 
-   ![Przycisk "Dodaj" Dodawanie danych wejściowych do zadania usługi analiza strumienia](./media/stream-analytics-machine-learning-integration-tutorial/create-job-add-input-button.png)  
-
-3. Wypełnianie **wprowadzania nowych** bloku następującymi wartościami:
-
-    * **Alias wejściowy**: Użyj nazwy `datainput`.
-    * **Typ źródła**: Wybierz **strumienia danych**.
-    * **Źródło**: Wybierz **magazynu obiektów Blob**.
-    * **Opcji importowania**: Wybierz **Użyj magazynu obiektów blob z bieżącej subskrypcji**. 
-    * **Konto magazynu**. Wybierz utworzone wcześniej konto magazynu.
-    * **Kontener**. Wybierz kontener utworzonym wcześniej (`azuresamldemoblob`).
-    * **Format serializacji zdarzeń**. Wybierz **CSV**.
-
-    ![Ustawienia dla nowego zadania danych wejściowych.](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
-
-4. Kliknij przycisk **Utwórz**.
+4. Kliknij pozycję **Zapisz**.
 
 ### <a name="configure-the-job-output"></a>Skonfiguruj dane wyjściowe zadania
 Zadanie wysyła wyniki do tego samego magazynu obiektów blob, których pobiera dane wejściowe. 
 
-1. W obszarze **topologii zadania** w bloku zadania kliknij **dane wyjściowe** pole.  
-  
-   ![Utwórz nowe dane wyjściowe zadania przesyłania strumieniowego usługi analiza](./media/stream-analytics-machine-learning-integration-tutorial/create-output.png)  
+1. W obszarze **topologii zadania** w bloku zadania kliknij **dane wyjściowe** opcji.  
 
-2. W **dane wyjściowe** bloku, kliknij przycisk **+ Dodaj**, a następnie dodaj wyjście z aliasem `datamloutput`. 
+2. W **dane wyjściowe** bloku, kliknij przycisk **Dodaj** >**magazynu obiektów Blob**, a następnie dodaj wyjście z aliasem `datamloutput`. 
 
-3. Aby uzyskać **Sink**, wybierz pozycję **magazynu obiektów Blob**. Następnie wypełnij pozostałe ustawienia danych wyjściowych przy użyciu tej samej wartości, używane do przechowywania obiektów blob dla danych wejściowych:
+3. Wypełnianie **magazynu obiektów Blob** bloku następującymi wartościami:
 
-    * **Konto magazynu**. Wybierz utworzone wcześniej konto magazynu.
-    * **Kontener**. Wybierz kontener utworzonym wcześniej (`azuresamldemoblob`).
-    * **Format serializacji zdarzeń**. Wybierz **CSV**.
+   |Pole  |Wartość  |
+   |---------|---------|
+   |**Alias wyjściowy** | Użyj nazwy `datainput` i wybierz **wybierz obiektu blob magazynu z subskrypcji**       |
+   |**Konto magazynu**  |  Wybierz utworzone wcześniej konto magazynu.  |
+   |**Kontener**  | Wybierz kontener utworzonym wcześniej (`azuresamldemoblob`)        |
+   |**Format serializacji zdarzeń**  |  Wybierz **CSV**       |
 
    ![Ustawienia dla nowego dane wyjściowe zadania](./media/stream-analytics-machine-learning-integration-tutorial/create-output2.png) 
 
-4. Kliknij przycisk **Utwórz**.   
+4. Kliknij pozycję **Zapisz**.   
 
 
 ### <a name="add-the-machine-learning-function"></a>Dodawanie funkcji Machine Learning 
@@ -189,22 +180,19 @@ W tej części samouczka można zdefiniować funkcję zadanie analizy strumienia
 
 1. Upewnij się, że masz adres sieci web usługi adresu URL i klucz API pobranego wcześniej w skoroszycie programu Excel.
 
-2. Wróć do bloku omówienie zadania.
+2. Przejdź do bloku z zadania > **funkcje** > **+ Dodaj** > **uczenie maszynowe Azure**
 
-3. W obszarze **ustawienia**, wybierz pozycję **funkcje** , a następnie kliknij przycisk **+ Dodaj**.
+3. Wypełnianie **funkcji usługi Azure Machine Learning** bloku następującymi wartościami:
 
-   ![Dodawanie funkcji do zadania usługi analiza strumienia](./media/stream-analytics-machine-learning-integration-tutorial/create-function1.png) 
-
-4. Wprowadź `sentiment` jako alias funkcji i wypełnij reszty bloku przy użyciu następujących wartości:
-
-    * **Typ funkcji**: Wybierz **uczenie Maszynowe Azure**.
-    * **Opcji importowania**: Wybierz **importu z innej subskrypcji**. Zapewnia możliwość wprowadź adres URL i klucza.
-    * **Adres URL**: Wklej adres URL usługi sieci web.
-    * **Klucz**: Wklej klucz interfejsu API.
+   |Pole  |Wartość  |
+   |---------|---------|
+   | **Alias — funkcja** | Użyj nazwy `sentiment` i wybierz **ustawień funkcji Podaj usługi Azure Machine Learning ręcznie** które zapewnia opcję, aby wprowadzić adres URL i klucza.      |
+   | **Adres URL**| Wklej adres URL usługi sieci web.|
+   |**Klucz** | Wklej klucz interfejsu API. |
   
-    ![Ustawienia dla Dodawanie funkcji Machine Learning do zadania usługi analiza strumienia](./media/stream-analytics-machine-learning-integration-tutorial/add-function.png)  
+   ![Ustawienia dla Dodawanie funkcji Machine Learning do zadania usługi analiza strumienia](./media/stream-analytics-machine-learning-integration-tutorial/add-function.png)  
     
-5. Kliknij przycisk **Utwórz**.
+4. Kliknij pozycję **Zapisz**.
 
 ### <a name="create-a-query-to-transform-the-data"></a>Utwórz kwerendę do przekształcania danych
 
@@ -213,8 +201,6 @@ Analiza strumienia używa deklaratywne, SQL na podstawie zapytania do badania da
 1. Wróć do bloku omówienie zadania.
 
 2.  W obszarze **topologii zadania**, kliknij przycisk **zapytania** pole.
-
-    ![Utwórz zapytanie dotyczące zadanie analizy przesyłania strumieniowego](./media/stream-analytics-machine-learning-integration-tutorial/create-query.png)  
 
 3. Wprowadź następujące zapytanie:
 
@@ -241,8 +227,6 @@ Można teraz uruchomić zadania Stream Analytics.
 1. Wróć do bloku omówienie zadania.
 
 2. Kliknij przycisk **Start** w górnej części bloku.
-
-    ![Utwórz zapytanie dotyczące zadanie analizy przesyłania strumieniowego](./media/stream-analytics-machine-learning-integration-tutorial/start-job.png)  
 
 3. W **rozpoczęcia zadania**, wybierz pozycję **niestandardowe**, a następnie wybierz jeden dzień przed po przekazaniu pliku CSV do magazynu obiektów blob. Gdy wszystko będzie gotowe, kliknij przycisk **Start**.  
 

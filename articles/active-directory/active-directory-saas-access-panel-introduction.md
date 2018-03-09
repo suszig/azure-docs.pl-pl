@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 03/06/2018
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c9069cb0b46ddc1155c64bd63a7fcd8a685abbad
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: c9b647e8f731995537a8797ab28248a1c42b6460
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="what-is-the-access-panel"></a>Co to jest panel dostępu?
 
@@ -67,6 +67,9 @@ Gdy użytkownik jest uwierzytelniony, mogą współdziałać z aplikacjami, któ
 ## <a name="web-browser-requirements"></a>Wymagania dotyczące przeglądarki sieci Web
 
 Co najmniej panelu dostępu wymaga przeglądarki obsługującej JavaScript i włączył CSS. Zalogowani do aplikacji za pomocą opartego na hasłach rejestracji jednokrotnej (SSO), musi mieć rozszerzenie panelu dostępu, które są zainstalowane w przeglądarce. Rozszerzenie jest pobierany automatycznie po wybraniu aplikacji, która jest skonfigurowana do opartego na hasłach logowania jednokrotnego.
+
+Instalator jest architektury. Po kliknięciu łącza pobierania tylko Pobierz Instalator dla architektury systemu operacyjnego, które są obecnie uruchomione na. Jeśli jesteś administratorem wdrożenia aplikacji, upewnij się, skorzystaj z łącza pobierania z 64-bitowe i 32-bitowych urządzenie, aby oba pliki instalacyjne.
+
 
 Rozszerzenie panelu dostępu jest obecnie dostępny dla:
 - **Krawędź**: w systemie Windows 10 Anniversary Edition lub nowszy. 

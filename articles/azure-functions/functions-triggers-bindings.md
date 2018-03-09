@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/07/2018
 ms.author: glenga
-ms.openlocfilehash: f43132beb0abae3d4bdf0f538de1b437e6099822
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 559cfee1a8116703371a5641cf4534b7ad6f7578
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure funkcje wyzwalaczy i powiązań pojęcia
 
@@ -53,7 +53,7 @@ Rozszerzenia są wyświetlane w postaci pakietów NuGet, których nazwa pakietu 
 + [Lokalnie za pomocą narzędzia podstawowych funkcji platformy Azure](#local-development-azure-functions-core-tools)
 + [W portalu Azure](#azure-portal-development) 
 
-Brak podstawowy zestaw powiązania w wersji 2.x, które nie są dostarczane jako rozszerzenia. Nie trzeba rejestrować rozszerzeń dla następujących wyzwalaczy i powiązań: HTTP, zegara i magazynu Azure. 
+Brak podstawowego zestawu powiązania w wersji 2.x, które nie są dostarczane jako rozszerzenia. Nie trzeba rejestrować rozszerzeń dla następujących wyzwalaczy i powiązań: HTTP, zegara i magazynu Azure. 
 
 Informacje dotyczące sposobu konfigurowania aplikacji funkcji w wersji 2.x środowisko uruchomieniowe Functions, zobacz [jak korzystać z wersji środowiska uruchomieniowego usługi Azure Functions](set-runtime-version.md). Wersja 2.x środowisko uruchomieniowe Functions jest obecnie w przeglądzie. 
 

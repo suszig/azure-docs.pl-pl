@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/13/2018
+ms.date: 3/05/2018
 ms.author: johnkem
-ms.openlocfilehash: d449be98cd59756e2bafc584e0501b8c83c594eb
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 1b1c50f106be8848fb1f32deefa6cb9acb7a298a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Azure strumienia danych do Centrum zdarzeń do użycia przez monitorowania przez narzędzie zewnętrzne
 
@@ -36,7 +36,18 @@ W środowisku platformy Azure istnieje kilka "warstwy" danych monitorowania i me
 
 Dane z dowolnej warstwy mogą być wysyłane do Centrum zdarzeń, gdzie mogą być pobierane do narzędzia partnera. Kolejne sekcje opisują sposób dane z każdej warstwy strumieniowe przesyłanie do Centrum zdarzeń można skonfigurować. W krokach założono już mieć zasobów w danej warstwie do monitorowania.
 
-Przed rozpoczęciem należy [tworzenia Centrum centra zdarzeń w przestrzeni nazw i zdarzenia](../event-hubs/event-hubs-create.md). Ta przestrzeń nazw i zdarzeń Centrum jest miejscem docelowym dla wszystkich danych monitorowania.
+## <a name="set-up-an-event-hubs-namespace"></a>Konfigurowanie przestrzeni nazw usługi Event Hubs
+
+Przed rozpoczęciem należy [tworzenia Centrum centra zdarzeń w przestrzeni nazw i zdarzenia](../event-hubs/event-hubs-create.md). Ta przestrzeń nazw i zdarzeń Centrum jest miejscem docelowym dla wszystkich danych monitorowania. Przestrzeń nazw usługi Event Hubs to logiczne grupowanie centra zdarzeń, które używają tych samych zasad dostępu, podobnie jak magazynu konto ma poszczególne obiekty BLOB w ramach tego konta magazynu. Należy pamiętać, kilka szczegóły dotyczące nazw centra zdarzeń i centra zdarzeń, które możesz utworzyć:
+* Firma Microsoft zaleca używanie standardowych centra zdarzeń w przestrzeni nazw.
+* Zazwyczaj konieczne jest tylko jedną jednostkę przepływności. Aby skalować w miarę wzrostu użycia z dziennika należy zawsze ręcznie zwiększyć liczbę jednostek przepływności dla przestrzeni nazw później lub Włącz automatyczne inflacji.
+* Liczba jednostek przepływności pozwala zwiększyć przepływność skali centrów zdarzeń. Liczba partycji umożliwia parallelize zużycie przez wielu użytkowników. Możliwość jednej partycji do 20MBps lub około 20 000 komunikatów na sekundę. W zależności od narzędzia konsumowania danych może lub nie obsługuje korzystanie z wielu partycji. Jeśli nie masz pewności, o liczbie partycji można ustawić, zalecamy Rozpoczynanie od cztery partycje.
+* Zalecane ustawienia przechowywania komunikatów w Centrum zdarzeń do 7 dni. Jeśli narzędzie odbierającą przestanie działać na więcej niż jeden dzień, zapewnia to narzędzie można odebrania miejsca, w którym (zdarzeń maksymalnie 7 dni).
+* Zalecamy używanie domyślna grupa odbiorców Centrum zdarzeń. Nie istnieje potrzeba do tworzenia innych grup odbiorców lub użyj grupy oddzielne klientów, chyba że zostaną umieszczone dwóch różnych narzędzi, korzystać z tych samych danych z tego samego Centrum zdarzeń.
+* Dla dziennika aktywności platformy Azure wybierz przestrzeń nazw usługi Event Hubs i Azure Monitor tworzy Centrum zdarzeń w tej przestrzeni nazw o nazwie "insights dzienniki operationallogs." Dla innych typów dziennika można wybrać istniejący Centrum zdarzeń (dzięki czemu można ponownie użyć tego samego Centrum zdarzeń insights — dzienniki operationallogs) lub Azure monitorów tworzenia Centrum zdarzeń według kategorii dziennika.
+* Zazwyczaj należy otworzyć port 5671 i 5672 na maszynie konsumowania danych z Centrum zdarzeń.
+
+Można również znaleźć [często zadawane pytania dotyczące usługi Azure zdarzeń koncentratory](../event-hubs/event-hubs-faq.md).
 
 ## <a name="how-do-i-set-up-azure-platform-monitoring-data-to-be-streamed-to-an-event-hub"></a>Sposób konfigurowania platformy Azure danych monitorowania strumieniowe przesyłanie do Centrum zdarzeń
 

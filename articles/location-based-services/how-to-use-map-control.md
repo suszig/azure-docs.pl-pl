@@ -2,18 +2,18 @@
 title: "Jak używać usługi Azure lokalizacji na podstawie usług formantu mapy | Dokumentacja firmy Microsoft"
 description: "Dowiedz się, jak używać biblioteki Javascript po stronie klienta formantu mapy usług na podstawie lokalizacji platformy Azure."
 services: location-based-services
-keywords: "Nie dodawaj lub Edytuj słowa kluczowe bez konsultacji z ekspert od optymalizacji pod kątem Wyszukiwarek."
-author: philmea
-ms.author: philmea
+keywords: "Nie dodawaj ani nie edytuj słów kluczowych bez konsultacji z ekspertem SEO."
+author: kgremban
+ms.author: kgremban
 ms.date: 11/22/2017
 ms.topic: article
 ms.service: location-based-services
 manager: timlt
-ms.openlocfilehash: 494a8308a5ed4ae37ed9561d051155e7433e6193
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 9843387a9e4f3b5751bafceb48d6fc949dff7e23
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-use-the-azure-location-based-services-map-control"></a>Jak używać usługi Azure lokalizacji na podstawie usług formantu mapy
 Biblioteka języka Javascript po stronie klienta formantu mapy umożliwia renderowanie mapy i osadzone funkcje usług na podstawie lokalizacji platformy Azure w sieci web lub aplikacji mobilnej. 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 02/15/2018
 ms.author: billmath
-ms.openlocfilehash: 0a28cd9016588d266670aa5a7fcbdd854d7ebce0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9d17a4038f2171b74c8ba1dbc21e8335e6893691
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory bezproblemowe logowanie jednokrotne: techniczne nowości
 
@@ -26,9 +26,10 @@ Ten artykuł zawiera szczegółowe informacje techniczne, w sposób działania f
 
 ## <a name="how-does-seamless-sso-work"></a>Jak działa bezproblemowe logowanie Jednokrotne
 
-Ta sekcja zawiera on dwie części:
+Ta sekcja zawiera trzy części go:
 1. Ustawienia funkcji bezproblemowe logowania jednokrotnego.
-2. Jak pojedynczego użytkownika logowania transakcji współpracuje z bezproblemowe logowania jednokrotnego.
+2. Jak transakcji pojedynczego użytkownika logowania w przeglądarce sieci web współpracuje z bezproblemowe logowania jednokrotnego.
+3. Jak pojedynczego użytkownika logowania transakcji na komputerze klienckim natywnej współpracuje z bezproblemowe logowania jednokrotnego.
 
 ### <a name="how-does-set-up-work"></a>Jak skonfigurować pracy?
 
@@ -43,32 +44,54 @@ Bezproblemowe rejestracji Jednokrotnej jest włączone, za pomocą usługi Azure
 >[!IMPORTANT]
 >Zdecydowanie zalecamy, aby użytkownik [Przerzuć klucz odszyfrowujący Kerberos](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account) z `AZUREADSSOACC` konta komputera co najmniej 30 dni.
 
-### <a name="how-does-sign-in-with-seamless-sso-work"></a>Jak logowanie SSO bezproblemowe pracy?
+Po zakończeniu konfiguracji bezproblemowe logowanie Jednokrotne działa tak samo, jak wszystkie inne logowania, która używa zintegrowanego uwierzytelniania systemu Windows (IWA).
 
-Po zakończeniu konfiguracji bezproblemowe logowanie Jednokrotne działa tak samo, jak wszystkie inne logowania, która używa zintegrowanego uwierzytelniania systemu Windows (IWA). Przepływ wygląda następująco:
+### <a name="how-does-sign-in-on-a-web-browser-with-seamless-sso-work"></a>Sposób logowania w przeglądarce sieci web z pracą bezproblemowe logowanie Jednokrotne?
 
-1. Użytkownik próbuje uzyskać dostęp do aplikacji (na przykład Outlook Web App - https://outlook.office365.com/owa/) z urządzenia firmowe przyłączonych do domeny w sieci firmowej.
+Przepływ logowania w przeglądarce sieci web jest następujący:
+
+1. Użytkownik próbuje uzyskać dostęp do aplikacji sieci web (na przykład Outlook Web App - https://outlook.office365.com/owa/) z urządzenia firmowe przyłączonych do domeny w sieci firmowej.
 2. Jeśli użytkownik nie jest już zalogowany, użytkownik jest przekierowany do strony logowania usługi Azure AD.
+3. Użytkownik wpisze nazwy użytkownika do strony logowania usługi Azure AD.
 
   >[!NOTE]
-  >Jeśli żądanie logowania w usłudze Azure AD zawiera `domain_hint` (identyfikowanie dzierżawy — na przykład, contoso.onmicrosoft.com) lub `login_hint` (identyfikowanie użytkownika — na przykład user@contoso.onmicrosoft.com lub user@contoso.com) parametr, a następnie w kroku 2 jest pomijana.
+  >Aby uzyskać [określonych aplikacji](./active-directory-aadconnect-sso-faq.md#what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso), są pomijane kroki 2 i 3.
 
-3. Użytkownik wpisze nazwy użytkownika do strony logowania usługi Azure AD.
 4. Przy użyciu języka JavaScript w tle, usługa Azure AD będzie wymagał przeglądarki, za pośrednictwem nieautoryzowanego odpowiedzi 401, aby zapewnić biletu protokołu Kerberos.
 5. Z kolei przeglądarki, żąda biletu z usługi Active Directory dla `AZUREADSSOACC` konta komputera (co reprezentuje usługi Azure AD).
 6. Usługi Active Directory lokalizuje konto komputera i zwraca biletu protokołu Kerberos w przeglądarce zaszyfrowane za pomocą hasła do konta komputera.
-7. Przeglądarka przekazuje uzyskał biletu Kerberos z usługi Active Directory do usługi Azure AD (na jednym z [Azure AD adresy URL wcześniej dodane do ustawienia strefy Intranet w przeglądarce](active-directory-aadconnect-sso-quick-start.md#step-3-roll-out-the-feature)).
+7. Przeglądarka przekazuje biletu Kerberos, który uzyskał z usługi Active Directory do usługi Azure AD.
 8. Usługi Azure AD odszyfrowuje biletu Kerberos, w tym tożsamości użytkownika zalogowaniem się do urządzeń firmowych, przy użyciu klucza wcześniej udostępniony.
 9. Po dokonaniu oceny usługi Azure AD zwraca token do aplikacji lub z monitem o wykonania dodatkowych dowodów, takich jak uwierzytelnianie wieloskładnikowe.
 10. Jeśli logowanie użytkowników zostanie nawiązane, użytkownik jest w stanie uzyskać dostęp do aplikacji.
 
 Na poniższym diagramie przedstawiono wszystkie składniki i kroki do wykonania.
 
-![Bezproblemowe logowanie jednokrotne](./media/active-directory-aadconnect-sso/sso2.png)
+![Bezproblemowe Single Sign On - Web przepływu aplikacji](./media/active-directory-aadconnect-sso/sso2.png)
 
 Bezproblemowe rejestracji Jednokrotnej jest oportunistyczne, co oznacza, że w przypadku niepowodzenia logowania w usługach powraca do regularnych zachowanie - tj, użytkownik musi wprowadzić hasło do logowania.
 
-## <a name="next-steps"></a>Następne kroki
+### <a name="how-does-sign-in-on-a-native-client-with-seamless-sso-work"></a>Sposób logowania na komputerze klienckim natywnej z pracą bezproblemowe logowanie Jednokrotne?
+
+Przepływ logowania na komputerze klienckim natywnej wygląda następująco:
+
+1. Użytkownik próbuje uzyskać dostęp do aplikacji natywnej (na przykład klient programu Outlook) z urządzenia firmowe przyłączonych do domeny w sieci firmowej.
+2. Jeśli użytkownik nie jest już zalogowany, aplikacji natywnej pobiera nazwa użytkownika z sesji urządzenia z systemem Windows.
+3. Aplikacja wysyła nazwę użytkownika do usługi Azure AD i pobiera punktu końcowego MEX WS-Trust swojej dzierżawy.
+4. Następnie aplikacji za pośrednictwem punktu końcowego MEX WS-Trust, aby sprawdzić, czy zintegrowane uwierzytelnianie punkt końcowy jest dostępny.
+5. Jeśli krok 4 zakończy się powodzeniem, zgłaszany jest żądanie protokołu Kerberos.
+6. Jeśli aplikacja będzie mogła pobrać biletu Kerberos, przekazuje je do punktu końcowego zintegrowane uwierzytelnianie usługi Azure AD.
+7. Usługi Azure AD odszyfrowuje biletu Kerberos, a następnie zweryfikuje go.
+8. Usługi Azure AD podpisuje użytkownika w i wystawia SAML token do aplikacji.
+9. Aplikacja przesyła następnie tokenu SAML token punktu końcowego usługi Azure AD OAuth2.
+10. Usługi Azure AD sprawdza poprawność tokenu SAML, a token dostępu i token odświeżania dla określonego zasobu oraz identyfikator tokenu jest używany do aplikacji.
+11. Użytkownik uzyskuje dostęp do zasobów aplikacji.
+
+Na poniższym diagramie przedstawiono wszystkie składniki i kroki do wykonania.
+
+![Bezproblemowe pojedynczego logowania - przepływu aplikacji natywnej](./media/active-directory-aadconnect-sso/sso14.png)
+
+## <a name="next-steps"></a>Kolejne kroki
 
 - [**Szybki Start** ](active-directory-aadconnect-sso-quick-start.md) — Uzyskaj i systemem Azure AD bezproblemowe Usługa rejestracji Jednokrotnej.
 - [**Często zadawane pytania** ](active-directory-aadconnect-sso-faq.md) — odpowiedzi na często zadawane pytania.

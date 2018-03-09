@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 2f0f6578b14b2fdd3807303eb94df077df92ba77
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f6e05d410a8018f0a88a378e767f7a7e6fde6f0c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-cosmos-db-database-security"></a>Zabezpieczenia bazy danych w usłudze Azure DB rozwiązania Cosmos
 
@@ -69,7 +69,7 @@ Umożliwia pracę na każdej z nich szczegółowo.
 |Autoryzacja|Azure DB rozwiązania Cosmos używa kod uwierzytelniania wiadomości oparty na skrótu (HMAC) do autoryzacji. <br><br>Każdego żądania jest generowany skrót przy użyciu klucza tajnego konta, a kolejne skrótu zakodowanego base-64 wysyłane w przypadku każdego wywołania do bazy danych Azure rozwiązania Cosmos. Aby zatwierdzić żądanie, usługa bazy danych Azure rozwiązania Cosmos używa poprawny klucz tajny i właściwości do generowania wartości skrótu, a następnie porównuje wartości z elementem w żądaniu. Jeśli dwie wartości są takie same, operacja jest autoryzowany pomyślnie i przetworzyć żądania, w przeciwnym razie braku autoryzacji i żądanie zostało odrzucone.<br><br>Możesz użyć dowolnej [klucza głównego](secure-access-to-data.md#master-keys), lub [token zasobu](secure-access-to-data.md#resource-tokens) stosowanie szczegółowych dostęp do zasobów, takich jak dokumentu.<br><br>Dowiedz się więcej w [zabezpieczanie dostępu do zasobów bazy danych Azure rozwiązania Cosmos](secure-access-to-data.md).|
 |Uprawnienia użytkowników i|Przy użyciu [klucza głównego](#master-key) dla konta, można utworzyć zasobów użytkowników i uprawnienia dla jednej bazy danych. A [token zasobu](#resource-token) jest skojarzony z uprawnień w bazie danych i określa, czy użytkownik ma dostęp (Odczyt i zapis, tylko do odczytu, lub Brak dostępu) do zasobów aplikacji w bazie danych. Zasoby aplikacji obejmują kolekcje, dokumenty, załączniki, procedur składowanych, wyzwalaczy i funkcji UDF. Token zasobu jest następnie używany podczas uwierzytelniania w celu świadczenia usług lub odmówić dostępu do zasobu.<br><br>Dowiedz się więcej w [zabezpieczanie dostępu do zasobów bazy danych Azure rozwiązania Cosmos](secure-access-to-data.md).|
 |Integracja usługi Active directory (RBAC)| Można również zapewniają dostęp do konta bazy danych za pomocą kontroli dostępu (IAM) w portalu Azure, jak pokazano na zrzucie ekranu poniżej tej tabeli. IAM umożliwia kontroli dostępu opartej na rolach i integruje się z usługą Active Directory. Role wbudowane lub role niestandardowe można użyć dla użytkowników indywidualnych i grup, jak pokazano na poniższej ilustracji.|
-|Globalne replikacji|Azure DB rozwiązania Cosmos oferuje gotowe globalne dystrybucji, który umożliwia replikowanie danych do dowolnego centrów danych na całym świecie platformy Azure z kliknięcie przycisku. Globalne replikacji umożliwia globalne skalowanie i małych opóźnieniach dostęp do danych na całym świecie.<br><br>W kontekście zabezpieczeń globalnych replikacji temu ochronę danych przed regionalnymi awariami.<br><br>Dowiedz się więcej w [globalnie dystrybucji danych](distribute-data-globally.md).|
+|Globalne replikacji|Azure DB rozwiązania Cosmos oferuje gotowe globalne dystrybucji, który umożliwia replikowanie danych do dowolnego centrów danych na całym świecie platformy Azure z kliknięcie przycisku. Globalne replikacji umożliwia globalne skalowanie i małych opóźnieniach dostęp do danych na całym świecie.<br><br>W kontekście zabezpieczeń globalnych Replikacja zapewnia ochronę danych przed regionalnymi awariami.<br><br>Dowiedz się więcej w [globalnie dystrybucji danych](distribute-data-globally.md).|
 |Regionalnej pracy w trybie Failover|Jeśli zostały zreplikowane dane w więcej niż jednego centrum danych, bazy danych rozwiązania Cosmos Azure automatycznie najedzie na operacje powinny centrum danych regionalnych przejścia do trybu offline. Można utworzyć listę regionów trybu failover przy użyciu regionów, w których dane są replikowane z określonymi priorytetami. <br><br>Dowiedz się więcej w [regionalnej pracy w trybie Failover w usłudze Azure DB rozwiązania Cosmos](regional-failover.md).|
 |Lokalnej replikacji|Nawet w ramach jednego centrum danych, bazy danych rozwiązania Cosmos Azure automatycznie replikuje dane dotyczące wysokiej dostępności, umożliwiając wybór [poziomy spójności](consistency-levels.md). Gwarantuje to 99,99% [dostępność](https://azure.microsoft.com/support/legal/sla/cosmos-db) dla wszystkich kont w pojedynczym regionie i wszystkich kont w przypadku z rozluźnić spójności i 99,999% odczytu dostępności na wszystkich kontach w przypadku bazy danych.|
 |Automatyczne kopie zapasowe online|Azure DB rozwiązania Cosmos baz danych są regularnie wykonywana kopia zapasowa i przechowywane w magazynie georedundant. <br><br>Dowiedz się więcej w [automatyczne kopie zapasowe online i przywracania bazy danych Azure rozwiązania Cosmos](online-backup-and-restore.md).|
@@ -89,7 +89,7 @@ Poniższy zrzut ekranu przedstawia integracji usługi Active directory (RBAC) za
 
 Poniższy zrzut ekranu pokazuje, jak za pomocą dzienników inspekcji rejestrowania i działania monitorowania konta: ![działania w dziennikach bazy danych Azure rozwiązania Cosmos](./media/database-security/nosql-database-security-application-logging.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby uzyskać więcej informacji na temat kluczy głównych i tokenów zasobów zobacz [zabezpieczanie dostępu do danych bazy danych Azure rozwiązania Cosmos](secure-access-to-data.md).
 

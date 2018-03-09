@@ -1,6 +1,6 @@
 ---
 title: Odnajdywanie, identyfikowanie i klasyfikowania danych osobowych w Microsoft Azure | Dokumentacja firmy Microsoft
-description: "Więcej informacji na temat wyszukiwania, klasyfikacji, odnajdywania i identyfikowanie danych"
+description: "wyszukiwanie, klasyfikacji, odnajdywania i identyfikowanie danych na platformie Azure mogą pomóc zgodne z ogólnych danych ochrony rozporządzenia (GDPR)"
 services: security
 documentationcenter: na
 author: barclayn
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 011fe26c297ff991af1282c1ff3914031a99f1e4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 21308faf5d3efd3908eccab4f37acb0cfccdcb8e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>Wykryj, identyfikowanie i klasyfikowania danych osobowych w Microsoft Azure
 
-Ten artykuł zawiera wskazówki dotyczące odnajdywania, identyfikowanie i klasyfikowania danych osobowych w kilku narzędzi Azure i usługi, w tym za pomocą wykazu danych Azure, Azure Active Directory, baza danych SQL, dodatku Power Query dla klastrów platformy Hadoop w usłudze Azure HDInsight Azure Information Protection, usługi Azure Search i SQL kwerendy dla bazy danych Azure rozwiązania Cosmos.
+Ten artykuł zawiera wskazówki dotyczące odnajdywania, identyfikowanie i klasyfikowania danych osobowych w kilku narzędzi Azure i usługi, w tym za pomocą wykazu danych Azure, Azure Active Directory, baza danych SQL, dodatku Power Query dla klastrów platformy Hadoop w usłudze Azure HDInsight Azure Information Protection, usługi Azure Search i SQL kwerendy dla bazy danych Azure rozwiązania Cosmos. Te narzędzia i procesy może służyć do wykonania z ogólnych danych ochrony rozporządzenia (GDPR)
 
 ## <a name="scenario-problem-statement-and-goal"></a>Scenariusz, opis problemu i cel
 
@@ -114,7 +114,7 @@ Aby dowiedzieć się, jak utworzyć bazę danych w ten sposób, odwiedź stronę
 >[!Note]
 Często administratorzy systemu Windows przy użyciu programu PowerShell, ale niektóre z nich użyć wiersza polecenia platformy Azure.
 
-### <a name="how-do-i-search-for-personal-data-in-sql-database-in-the-azure-portal"></a>Jak wyszukać danych osobowych w bazie danych SQL w portalu Azure? **
+### <a name="how-do-i-search-for-personal-data-in-sql-database-in-the-azure-portal"></a>Jak wyszukiwać dane osobowe w bazie danych SQL w portalu Azure
 
 Można użyć narzędzia Edytora wbudowaną kwerendę w portalu Azure, aby wyszukiwać dane osobiste. Będzie zalogować się za pomocą swój identyfikator logowania administratora serwera SQL i hasło, a następnie wprowadź kwerendę.
 

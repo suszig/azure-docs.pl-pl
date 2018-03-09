@@ -16,17 +16,17 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 02/05/2018
 ms.author: v-daljep
-ms.openlocfilehash: a1b10c1a12d9a9215022cc77615901a0e4d144f8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 611c30639b5fb36bb08ebd3e73c90f8aa2bd09d4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>Powiadomienia e-mail dotyczące automatycznego dostrajania
 
 Baza danych SQL dostrajania zalecenia są generowane przez bazę danych SQL Azure [automatycznego dostrajania](sql-database-automatic-tuning.md). To rozwiązanie stale monitoruje i analizuje obciążeń udostępniania bazy danych SQL, dostosowane dostrajanie zalecenia dotyczące każdej poszczególne bazy danych związanych z Tworzenie indeksu i usuwania indeksu oraz optymalizacji planów wykonania zapytania.
 
-Dostrajanie zalecenia SQL bazy danych automatycznego można wyświetlić w [portalu Azure](sql-database-advisor-portal.md), pobrane z [interfejsu API REST](https://docs.microsoft.com/en-us/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor) wywołuje lub przy użyciu [T-SQL](https://azure.microsoft.com/en-us/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) i [ PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaserecommendedaction) poleceń. W tym artykule jest oparta na użyciu skryptu programu PowerShell do pobrania automatycznego dostrajania zalecenia.
+Dostrajanie zalecenia SQL bazy danych automatycznego można wyświetlić w [portalu Azure](sql-database-advisor-portal.md), pobrane z [interfejsu API REST](https://docs.microsoft.com/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor) wywołuje lub przy użyciu [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) i [ PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaserecommendedaction) poleceń. W tym artykule jest oparta na użyciu skryptu programu PowerShell do pobrania automatycznego dostrajania zalecenia.
 
 ## <a name="automate-email-notifications-for-automatic-tuning-recommendations"></a>Powiadomienia e-mail dotyczące automatycznego dostrajania zalecenia dotyczące automatyzacji
 
@@ -34,7 +34,7 @@ Następujące rozwiązania automatyzuje wysyłania powiadomień e-mail zawieraj�
 
 ## <a name="create-azure-automation-account"></a>Utwórz konto usługi Automatyzacja Azure
 
-Aby korzystać z usługi Automatyzacja Azure, pierwszym krokiem jest utworzyć konto usługi Automatyzacja i skonfigurować go z zasobów platformy Azure na potrzeby wykonywania skryptu środowiska PowerShell. Aby dowiedzieć się więcej na temat usługi Automatyzacja Azure i jej możliwości, zobacz [wprowadzenie do korzystania z usługi Automatyzacja Azure](https://docs.microsoft.com/en-us/azure/automation/automation-offering-get-started).
+Aby korzystać z usługi Automatyzacja Azure, pierwszym krokiem jest utworzyć konto usługi Automatyzacja i skonfigurować go z zasobów platformy Azure na potrzeby wykonywania skryptu środowiska PowerShell. Aby dowiedzieć się więcej na temat usługi Automatyzacja Azure i jej możliwości, zobacz [wprowadzenie do korzystania z usługi Automatyzacja Azure](https://docs.microsoft.com/azure/automation/automation-offering-get-started).
 
 Wykonaj następujące kroki, aby utworzyć konto usługi Automatyzacja Azure za pomocą metody wybranie i skonfigurowanie automatyzacja aplikacji z portalu Marketplace:
 
@@ -47,7 +47,7 @@ Wykonaj następujące kroki, aby utworzyć konto usługi Automatyzacja Azure za 
 
 - Raz kliknij w okienku "Utwórz konto automatyzacji" na "**Utwórz**"
 - Wypełnij wymagane informacje: Wprowadź nazwę dla tego konta automatyzacji, wybierz zasobów identyfikator i Azure subskrypcji platformy Azure do zastosowania w przypadku wykonywania skryptów programu PowerShell
-- Dla "**tworzenia konta Uruchom jako Azure**" Wybierz **tak** skonfigurować typ konta, w których PowerShell skrypt jest uruchamiany za pomocą usługi Automatyzacja Azure. Aby dowiedzieć się więcej na temat typów kont, zobacz [konta Uruchom jako](https://docs.microsoft.com/en-us/azure/automation/automation-create-runas-account)
+- Dla "**tworzenia konta Uruchom jako Azure**" Wybierz **tak** skonfigurować typ konta, w których PowerShell skrypt jest uruchamiany za pomocą usługi Automatyzacja Azure. Aby dowiedzieć się więcej na temat typów kont, zobacz [konta Uruchom jako](https://docs.microsoft.com/azure/automation/automation-create-runas-account)
 - Kończenie tworzenia konta automatyzacji przez kliknięcie **Utwórz**
 
 > [!TIP]
@@ -58,7 +58,7 @@ Jeśli masz wiele subskrypcji platformy Azure, dla których chcesz tworzenie aut
 
 ## <a name="update-azure-automation-modules"></a>Aktualizuj moduły usługi Automatyzacja Azure
 
-Skrypt programu PowerShell do pobrania automatycznego dostrajania zalecenie używa [Get-AzureRmResource](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Resources/Get-AzureRmResource) i [Get AzureRmSqlDatabaseRecommendedAction](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Sql/Get-AzureRmSqlDatabaseRecommendedAction) poleceń, dla których aktualizacji modułów Azure w wersji 4 lub nowszy jest wymagany.
+Skrypt programu PowerShell do pobrania automatycznego dostrajania zalecenie używa [Get-AzureRmResource](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Get-AzureRmResource) i [Get AzureRmSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Get-AzureRmSqlDatabaseRecommendedAction) poleceń, dla których aktualizacji modułów Azure w wersji 4 lub nowszy jest wymagany.
 
 Wykonaj następujące kroki, aby zaktualizować modułów programu Azure PowerShell:
 
@@ -195,7 +195,7 @@ Do ukończenia rozwiązanie, co stanowi ostatni krok, należy utworzyć przepły
 2. "**Usługi Automatyzacja azure - dane wyjściowe zadania Get**" — używane do pobierania danych wyjściowych z wykonanie skryptu PowerShell
 3. "**Office 365 Outlook — Wyślij usługi poczty e-mail**" — używane do wysyłania wiadomości e-mail. Wiadomości e-mail są wysyłane przy użyciu konta usługi Office 365, osoby, której Tworzenie przepływu.
 
-Aby dowiedzieć się więcej o możliwościach Flow firmy Microsoft, zobacz [wprowadzenie Microsoft Flow](https://docs.microsoft.com/en-us/flow/getting-started).
+Aby dowiedzieć się więcej o możliwościach Flow firmy Microsoft, zobacz [wprowadzenie Microsoft Flow](https://docs.microsoft.com/flow/getting-started).
 
 Warunkiem wstępnym tego kroku jest do zarejestrowania się w [Microsoft Flow](https://flow.microsoft.com) konta i zalogowania. Raz wewnątrz rozwiązania, wykonaj następujące kroki, aby skonfigurować **nowy przepływ**:
 

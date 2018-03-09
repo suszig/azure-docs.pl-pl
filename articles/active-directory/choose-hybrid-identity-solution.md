@@ -6,18 +6,18 @@ author: jeffgilb
 manager: mtillman
 ms.reviewer: jsnow
 ms.author: billmath
-ms.date: 01/03/2018
+ms.date: 03/02/2018
 ms.topic: article
 ms.prod: 
 ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.openlocfilehash: 78813cfbfc9d28e9578f1970083e17d423e071b5
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 9f9099c0ebd65ba84e171314e6f04d858648a805
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="microsoft-hybrid-identity-solutions"></a>Microsoft hybrydowych rozwiązań tożsamości
 [Microsoft Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) hybrydowych rozwiązań tożsamości umożliwiają do synchronizowania obiektów katalogu lokalnego z usługą Azure AD nadal użytkowników lokalnej i zarządzania nimi. Pierwsza decyzja, aby podczas planowania do synchronizowania lokalnej systemu Windows serwer usługi Active Directory z usługą Azure AD jest Określa, czy ma być używany do synchronizacji tożsamości lub tożsamości federacyjnych. Tożsamości synchronizowane i opcjonalnie skrótów haseł, użytkownicy będą używać tego samego hasła dostępu do zarówno lokalnie, jak i oparte na chmurze zasobów organizacji. Bardziej zaawansowane wymagań scenariusza, takich jak-jednokrotnej (SSO) lub lokalnej usługi MFA należy wdrożyć usługi Active Directory Federation Services (AD FS), możliwości utworzenia federacji tożsamości. 
@@ -51,9 +51,6 @@ Przekazywanego uwierzytelniania jest skonfigurowane z programem Azure AD Connect
 - Windows Server 2012 R2 lub nowszy
 - Przyłączony do domeny w lesie, za pomocą którego użytkownicy są weryfikowane
 
-Przekazywanego uwierzytelniania nie jest obecnie obsługiwane, gdy przy użyciu urządzeń z systemem Windows 10 dołączone do usługi Azure AD. Jednak synchronizacji skrótu hasła można użyć jako automatycznego powrotu do obsługi systemu Windows 10 i wspomniano starszych klientów. W wersji zapoznawczej synchronizacji skrótu hasła jest domyślnie włączona po wybraniu uwierzytelnianie przekazywane jako opcja logowania w programie Azure AD Connect.
-
-
 ## <a name="federated-identity-ad-fs"></a>Tożsamości federacyjnych (AD FS)
 Aby uzyskać większą kontrolę nad dostęp użytkowników usługi Office 365 i innych usług w chmurze, można skonfigurować synchronizacji katalogów z logowaniem jednokrotnym (SSO) przy użyciu [Active Directory Federation Services (AD FS)](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/whats-new-active-directory-federation-services-windows-server-2016). Federowania logowania użytkownika z usługami AD FS deleguje uwierzytelniania do serwera lokalnego, która weryfikuje poświadczenia użytkownika. W tym modelu lokalnej usługi Active Directory poświadczenia nigdy nie są przekazywane do usługi Azure AD.
 
@@ -68,7 +65,7 @@ Zwanej również Federacją tożsamości, ta metoda logowania gwarantuje, że ws
 ## <a name="common-scenarios-and-recommendations"></a>Typowe scenariusze i zalecenia
 Poniżej przedstawiono kilka typowych hybrydowego tożsamościami i dostępem zarządzania scenariuszy wraz z zaleceniami klienckiemu, który hybrydowego opcja tożsamości (lub opcji) mogą być odpowiednie dla każdego.
 
-|Należy:|PWS i logowania jednokrotnego<sup>1</sup>| PTA i logowania jednokrotnego<sup>2</sup> | USŁUGI AD FS<sup>3</sup>|
+|Należy:|PWS i logowania jednokrotnego<sup>1</sup>| PTA i logowania jednokrotnego<sup>2</sup> | AD FS<sup>3</sup>|
 |-----|-----|-----|-----|
 |Synchronizacja nowych, skontaktuj się z pomocą, konta użytkowników i grup tworzone automatycznie w mojej lokalnej usługi Active Directory do chmury.|![Zalecane](./media/choose-hybrid-identity-solution/ic195031.png)| ![Zalecane](./media/choose-hybrid-identity-solution/ic195031.png) |![Zalecane](./media/choose-hybrid-identity-solution/ic195031.png)|
 |Skonfiguruj moje dzierżawy w scenariuszach hybrydowych usługi Office 365|![Zalecane](./media/choose-hybrid-identity-solution/ic195031.png)| ![Zalecane](./media/choose-hybrid-identity-solution/ic195031.png) |![Zalecane](./media/choose-hybrid-identity-solution/ic195031.png)|

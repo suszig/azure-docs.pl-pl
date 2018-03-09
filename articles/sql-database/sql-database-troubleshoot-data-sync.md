@@ -8,11 +8,11 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 50cabbaa584671e52c1ea7efbd2ad990b8438272
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: c174f5120ba2e5bf8018cce0f0e34c1fc3f8eb3f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync-preview"></a>Rozwiązywanie problemów z synchronizacją danych SQL (wersja zapoznawcza)
 
@@ -124,8 +124,8 @@ Wiele scenariuszy mogą być przyczyną tego błędu. Aby ustalić przyczynę ok
 
 Aby znaleźć określone przyczynę niepowodzenia, generowanie i znaleźć w dziennikach Instalatora Windows. Można włączyć rejestrowanie w wierszu polecenia. Na przykład jeśli pobrany plik AgentServiceSetup.msi LocalAgentHost.msi, generowanie i przejrzyj pliki dziennika przy użyciu następujących wierszy polecenia:
 
--   Do instalacji:`msiexec.exe /i SQLDataSyncAgent-Preview-ENU.msi /l\*v LocalAgentSetup.InstallLog`
--   Aby uzyskać odinstalowuje:`msiexec.exe /x SQLDataSyncAgent-se-ENU.msi /l\*v LocalAgentSetup.InstallLog`
+-   Do instalacji: `msiexec.exe /i SQLDataSyncAgent-Preview-ENU.msi /l\*v LocalAgentSetup.InstallLog`
+-   Aby uzyskać odinstalowuje: `msiexec.exe /x SQLDataSyncAgent-se-ENU.msi /l\*v LocalAgentSetup.InstallLog`
 
 Można również włączyć rejestrowanie dla wszystkich instalacji, które są wykonywane przez Instalatora Windows. W artykule bazy wiedzy Microsoft Knowledge Base [włączania rejestrowania Instalatora Windows](https://support.microsoft.com/help/223300/how-to-enable-windows-installer-logging) zapewnia rozwiązanie jednego kliknięcia, aby włączyć rejestrowanie dla Instalatora Windows. Umożliwia także lokalizacji dzienników.
 
@@ -240,8 +240,8 @@ Przed kontynuowaniem sprawdź następujące warunki:
 -   Usługa synchronizacji danych SQL (wersja zapoznawcza) systemu Windows jest uruchomiona.  
 -   Konto usługi dla usługi systemu Windows w wersji zapoznawczej synchronizacji danych SQL (wersja zapoznawcza) ma dostęp do sieci.    
 -   Agent klienta można skontaktować się z usługą lokalizatora. Sprawdź, czy następujący klucz rejestru ma wartość https://locator.sync.azure.com/LocatorServiceApi.svc:  
-    -   Na x86 komputera:`HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`  
-    -   Na x64 komputera:`HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Wow6432Node\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`
+    -   Na x86 komputera: `HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`  
+    -   Na x64 komputera: `HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Wow6432Node\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`
 
 #### <a name="cause"></a>Przyczyna
 
@@ -435,7 +435,7 @@ Nie można usunąć grupy synchronizacji w ciągu trzech minut Odinstalowywanie 
 
 W przypadku utraty lub uszkodzenia bazy danych można przywrócić z kopii zapasowej, może być nonconvergence danych w grupach synchronizacji, do których należy bazy danych.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby uzyskać więcej informacji na temat synchronizacji danych SQL (wersja zapoznawcza) zobacz:
 
 -   [Synchronizowanie danych w wielu w chmurze i lokalnych baz danych z synchronizacji danych SQL Azure (wersja zapoznawcza)](sql-database-sync-data.md)  

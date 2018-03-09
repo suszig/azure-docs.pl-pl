@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 8f20e8d4329d815351147f90b598180839ce917a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 341ace1d9792aba3d6d525a2cde0d9b74367d214
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planowanie wdrożenia synchronizacji plików Azure (wersja zapoznawcza)
 Umożliwia synchronizacji plików Azure (wersja zapoznawcza) scentralizowanie udziałów plików w organizacji w plikach Azure, przy zachowaniu elastyczności, wydajności i zgodności serwera plików lokalnych. Synchronizacja programu Azure pliku przy użyciu systemu Windows Server do szybkiego pamięci podręcznej udziału plików na platformę Azure. Można użyć każdego protokołu, który jest dostępny w systemie Windows Server dostępu do danych lokalnie, w tym protokołu SMB, systemu plików NFS i FTPS. Może mieć dowolną liczbę pamięci podręcznych zgodnie z potrzebami na całym świecie.
@@ -92,7 +92,7 @@ Przyszłych wersji systemu Windows Server zostanie dodana po ich wydaniu. Wcześ
 | Punkty ponownej analizy | Pominięto | |
 | Kompresja NTFS | W pełni obsługiwane | |
 | Plików rozrzedzonych | W pełni obsługiwane | Synchronizacja plików rozrzedzonych (nie są blokowane), ale synchronizacji w chmurze jako całego pliku. Zawartość pliku zmiany w chmurze (lub na innym serwerze), plik nie jest już rozrzedzony, gdy zmiana zostały pobrane. |
-| Alternatywne strumienie danych (AD) | Zachowane, ale nie zsynchronizowano | |
+| Alternatywne strumienie danych (AD) | Zachowane, ale nie zsynchronizowano | Na przykład tagów klasyfikacji utworzonych przez infrastrukturę klasyfikacji plików nie są zsynchronizowane. Istniejące znaczniki klasyfikacji plików na każdym serwerze punkty końcowe są lewej bez zmian. |
 
 > [!Note]  
 > Obsługiwane są tylko woluminy NTFS. System plików reFS, systemie plików FAT, FAT32 i innych systemów plików nie są obsługiwane.
@@ -142,7 +142,7 @@ Na przykład oprogramowania antywirusowego rozwiązań tworzenia kopii zapasowyc
 Obsługa szyfrowania rozwiązań zależy od sposobu implementacji. Synchronizacja programu Azure pliku jest znany do pracy z:
 
 - Szyfrowanie funkcją BitLocker
-- Azure Rights Management Services (Azure RMS) (i starszych Active Directory RMS)
+- Azure Information Protection, Azure Rights Management Services (Azure RMS) i usługi Active Directory RMS
 
 Synchronizacja programu Azure pliku wiadomo, że nie będą działać z:
 

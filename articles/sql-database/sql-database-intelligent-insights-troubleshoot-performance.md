@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: cce112929ff2f4fb48c2c6e2ddc2d4eee743b790
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 0efb8b80bc98931f33991dc67f8f4aa1953bb491
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Baza danych SQL Azure Rozwiązywanie problemów z wydajnością z informacjami dotyczącymi inteligentnego
 
@@ -40,11 +40,11 @@ Inteligentnego Insights automatycznie wykrywa problemy z wydajnością z bazą d
 | [Wykorzystanie pamięci](sql-database-intelligent-insights-troubleshoot-performance.md#memory-pressure) | Pracownicy, którzy zażądali przyznaje pamięci musi czekać do przydzielania pamięci statystycznie znacznej ilości czasu. Lub istnieje zwiększona akumulacji pracowników, którzy zażądali przyznaje pamięci, co ma wpływ na wydajność bazy danych SQL. |
 | [Blokowanie](sql-database-intelligent-insights-troubleshoot-performance.md#locking) | Blokowanie nadmiernego bazy danych został wykryty, co ma wpływ na wydajność bazy danych SQL. |
 | [Zwiększona MAXDOP](sql-database-intelligent-insights-troubleshoot-performance.md#increased-maxdop) | Maksymalny stopień równoległości opcji (MAXDOP) została zmieniona, a ma to wpływ na wydajność wykonywania zapytań. |
-| [Pagelatch rywalizacji](sql-database-intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | Wykryto rywalizacji Pagelatch, co ma wpływ na wydajność bazy danych SQL. Wiele wątków jednocześnie próba uzyskania dostępu tej samej strony buforu danych w pamięci. Powoduje to czasy oczekiwania zwiększona, co ma wpływ na wydajność bazy danych SQL. |
+| [Pagelatch Contention](sql-database-intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | Wykryto rywalizacji Pagelatch, co ma wpływ na wydajność bazy danych SQL. Wiele wątków jednocześnie próba uzyskania dostępu tej samej strony buforu danych w pamięci. Powoduje to czasy oczekiwania zwiększona, co ma wpływ na wydajność bazy danych SQL. |
 | [Brak indeksu](sql-database-intelligent-insights-troubleshoot-performance.md#missing-index) | Brak indeksu wykrycia problemu, co ma wpływ na wydajność bazy danych SQL. |
 | [Nowe zapytanie](sql-database-intelligent-insights-troubleshoot-performance.md#new-query) | Wykryto nowe zapytanie, co ma wpływ na ogólną wydajność bazy danych SQL. |
 | [Statystyka nietypowe zachowanie podczas oczekiwania](sql-database-intelligent-insights-troubleshoot-performance.md#unusual-wait-statistic) | Czasy oczekiwania nietypowe bazy danych zostały wykryte, co ma wpływ na wydajność bazy danych SQL. |
-| [Bazy danych TempDB rywalizacji](sql-database-intelligent-insights-troubleshoot-performance.md#tempdb-contention) | Wiele wątków próbuje uzyskać dostępu do tych samych zasobów bazy danych tempDB, co powoduje, że "wąskie gardło", który ma wpływ na wydajność bazy danych SQL. |
+| [TempDB Contention](sql-database-intelligent-insights-troubleshoot-performance.md#tempdb-contention) | Wiele wątków próbuje uzyskać dostępu do tych samych zasobów bazy danych tempDB, co powoduje, że "wąskie gardło", który ma wpływ na wydajność bazy danych SQL. |
 | [Brak jednostek DTU puli elastycznej](sql-database-intelligent-insights-troubleshoot-performance.md#elastic-pool-dtu-shortage) | Braku dostępnych jednostek Edtu w puli elastycznej wpływa na wydajność bazy danych SQL. |
 | [Planowanie regresji](sql-database-intelligent-insights-troubleshoot-performance.md#plan-regression) | Opcje nowego planu lub zmiana obciążenie istniejący plan został wykryty, co ma wpływ na wydajność bazy danych SQL. |
 | [Zmiana wartości o zakresie bazy danych konfiguracji](sql-database-intelligent-insights-troubleshoot-performance.md#database-scoped-configuration-value-change) | Zmiana konfiguracji w bazie danych wpływa na wydajność bazy danych SQL. |
@@ -129,7 +129,7 @@ Dziennik diagnostyki generuje blokowania szczegóły, które służy jako podsta
 
 Najprostsza i najbezpieczniejszy sposób ograniczyć problem jest zachować krótki transakcji i ograniczyć wpływ blokady najdroższych zapytań. Można podzielić dużych partii operacje na mniejsze operacje. Dobrym rozwiązaniem jest, aby ograniczyć wpływ blokady kwerendy poprzez jak najbardziej efektywne zapytania. Zmniejszenia dużych skanowania, ponieważ zwiększyć ryzyko zakleszczenia i negatywnie wpłynąć na ogólną wydajność bazy danych. Dla określonych zapytań, które powodują blokowanie można utworzyć nowe indeksy lub dodać kolumny do istniejącego indeksu, aby uniknąć skanowania tabeli. 
 
-Aby uzyskać więcej wskazówek, zobacz [sposobu rozwiązywania problemów z blokowaniem spowodowanych przez eskalacji blokady w programie SQL Server](https://support.microsoft.com/en-us/help/323630/how-to-resolve-blocking-problems-that-are-caused-by-lock-escalation-in).
+Aby uzyskać więcej wskazówek, zobacz [sposobu rozwiązywania problemów z blokowaniem spowodowanych przez eskalacji blokady w programie SQL Server](https://support.microsoft.com/help/323630/how-to-resolve-blocking-problems-that-are-caused-by-lock-escalation-in).
 
 ## <a name="increased-maxdop"></a>Zwiększona MAXDOP
 
@@ -149,7 +149,7 @@ Po pierwsze Optymalizacja lub Uprość złożonych zapytań. Dobrym rozwiązanie
 
 Ustawienie serwera MAXDOP opcji konfiguracji na zero (0), jako wartość domyślną oznacza bazy danych SQL za pomocą wszystkie dostępne rdzenie Procesora logicznego parallelize wątków wykonywania pojedynczego zapytania. Ustawienie MAXDOP do jednego (1) oznacza, że tylko jeden rdzeń może służyć do wykonywania pojedynczego zapytania. W praktyce oznacza to, że równoległości jest wyłączona. W zależności od przypadku na podstawie dostępne rdzenie do bazy danych i informacji diagnostycznych rejestrowania informacji, można dostosować w opcji MAXDOP liczby rdzeni używany do wykonywania zapytania równoległe, która może rozwiązać problem w Twoim przypadku.
 
-## <a name="pagelatch-contention"></a>Pagelatch rywalizacji
+## <a name="pagelatch-contention"></a>Pagelatch Contention
 
 ### <a name="what-is-happening"></a>Co się dzieje
 
@@ -289,7 +289,7 @@ Zmiany w konfiguracji o zakresie bazy danych można ustawić dla każdego poszcz
 
 Dane wyjściowe o zakresie bazy danych zmian konfiguracji, które zostały niedawno wprowadzone powodujące spadek wydajności w porównaniu do poprzednich zachowania obciążeń siedmiu dni dziennika diagnostyki. Możesz przywrócić do poprzedniej wartości zmiany konfiguracji. Wartości przez wartość można również dostosować w aż do osiągnięcia poziomu żądaną wydajność. Możesz skopiować wartości z zakresu bazy danych konfiguracji z podobnych bazy danych z zadowalającą wydajność. Jeśli nie możesz się Rozwiązywanie problemów z wydajnością, Przywróć wartości domyślne domyślna baza danych SQL i próbę dopasowania, począwszy od tej linii bazowej.
 
-Aby uzyskać więcej informacji na optymalizowanie o zakresie bazy danych konfiguracji i składnia T-SQL w zmiany konfiguracji, zobacz [Alter o zakresie bazy danych konfiguracji (Transact-SQL)](https://msdn.microsoft.com/en-us/library/mt629158.aspx).
+Aby uzyskać więcej informacji na optymalizowanie o zakresie bazy danych konfiguracji i składnia T-SQL w zmiany konfiguracji, zobacz [Alter o zakresie bazy danych konfiguracji (Transact-SQL)](https://msdn.microsoft.com/library/mt629158.aspx).
 
 ## <a name="slow-client"></a>Powolna klienta
 
@@ -330,7 +330,7 @@ Insights inteligentnego dostęp za pośrednictwem portalu Azure, przechodząc do
 
 Insights inteligentnego musi zazwyczaj jedna godzina czas na przeprowadzenie analiza głównych przyczyn problem z wydajnością. Jeśli nie można zlokalizować problem w usłudze inteligentnego Insights i jest bardzo istotne dla Ciebie, umożliwia ręcznie Określ przyczynę problemu z wydajnością magazynu zapytań. (Zwykle tych problemów są mniej niż co godzinę). Aby uzyskać więcej informacji, zobacz [monitorowania wydajności przy użyciu magazynu zapytań](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - Dowiedz się [Insights inteligentnego](sql-database-intelligent-insights.md) pojęcia.
 - Użyj [dziennika diagnostyki wydajności inteligentnego bazy danych SQL Azure Insights](sql-database-intelligent-insights-use-diagnostics-log.md).
 - Monitor [bazy danych SQL Azure za pomocą usługi Azure SQL Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).

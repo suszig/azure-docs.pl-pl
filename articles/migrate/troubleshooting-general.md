@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: troubleshooting
 ms.date: 02/21/2018
 ms.author: raynew
-ms.openlocfilehash: 249de45dbd9bedf1b3c2d2a5957acf31d6c0d243
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: e1e7a1a57f780ef477379dfb1ceaead0c8654970
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-azure-migrate"></a>Rozwiązywanie problemów z usługą Azure Migrate
 
@@ -126,5 +126,23 @@ Aby zbierać zdarzenia śledzenia systemu Windows, wykonaj następujące czynno�
 7. Zamknij narzędzia dla deweloperów.
  
 
+## <a name="vcenter-errors"></a>błędy vCenter
 
+### <a name="error-unhandledexception-internal-error-occured-systemiofilenotfoundexception"></a>Wystąpił błąd wewnętrzny UnhandledException: System.IO.FileNotFoundException
+
+Jest to problem w wersji modułu zbierającego mniej niż 1.0.9.5. Jeśli używany jest moduł zbierający wersji 1.0.9.2 lub wersji pre-GA, takich jak 1.0.8.59, będą występować ten problem. Postępuj zgodnie z [link podany tutaj, aby fora szczegółowe odpowiedzi](https://social.msdn.microsoft.com/Forums/azure/en-US/c1f59456-7ba1-45e7-9d96-bae18112fb52/azure-migrate-connect-to-vcenter-server-error?forum=AzureMigrate).
+
+[Uaktualnienie z modułu zbierającego, aby rozwiązać problem](https://aka.ms/migrate/col/checkforupdates).
+
+### <a name="error-unabletoconnecttoserver"></a>Błąd UnableToConnectToServer
+
+Nie można nawiązać połączenia z programem vCenter Server "Servername.com:9443" z powodu błędu: nie znaleziono żadnego punktu końcowego nasłuchiwania na https://Servername.com:9443/sdk, który mógłby odebrać komunikat.
+
+Dzieje się tak, gdy moduł zbierający maszyny nie może rozpoznać podana nazwa serwera vCenter lub speficified portu jest nieprawidłowy. Domyślnie jeśli port nie jest określony, moduł zbierający będzie spróbują połączyć się z numerem portu 443.
+
+1. Spróbuj wykonać polecenie ping Servername.com z komputera modułu zbierającego.
+2. Jeśli krok 1 nie powiedzie się, spróbuj połączyć się z serwerem vCenter za pośrednictwem adresu IP.
+3. Określ poprawny numer portu nawiązać połączenia z programem vCenter.
+4. Na koniec sprawdź, czy serwer vCenter jest uruchomiona.
+ 
 

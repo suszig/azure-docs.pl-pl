@@ -5,13 +5,13 @@ services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/18/2018
+ms.date: 03/05/2018
 ms.author: anoopkv
-ms.openlocfilehash: 7fe68f072ef438e21f3e6d3d52aee9e86e537687
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 2fdccade577788d3fc5bc076604547b2ab6690d9
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Zarządzanie serwera konfiguracji na potrzeby odzyskiwania po awarii serwera fizycznego
 
@@ -36,7 +36,7 @@ W tabeli przedstawiono wymagania wstępne dotyczące wdrażania na lokalnej masz
 | IIS | -Brak istniejącego domyślnej witryny sieci Web <br> -Włącz [uwierzytelnianie anonimowe](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Włącz [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) ustawienie  <br> -Brak istniejącego witryny sieci Web/aplikacja nasłuchuje na porcie 443<br>|
 | Typ karty Sieciowej | VMXNET3 (jeśli są wdrażane jako maszyny Wirtualnej VMware) |
 | Typ adresu IP | Statyczny |
-| Dostęp do Internetu | Serwer musi mieć dostęp do tych adresów URL: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (nie jest to wymagane w przypadku serwerów przetwarzania używanych do skalowania w poziomie) <br> - time.nist.gov <br> - time.windows.com |
+| Dostęp do Internetu | Serwer musi mieć dostęp do tych adresów URL: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - dc.services.visualstudio.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (nie jest to wymagane w przypadku serwerów przetwarzania używanych do skalowania w poziomie) <br> - time.nist.gov <br> - time.windows.com |
 | Porty | 443 (organizowanie kanału sterowania)<br>9443 (transport danych)|
 
 ## <a name="download-the-latest-installation-file"></a>Pobierz najnowszy plik instalacyjny
@@ -164,7 +164,7 @@ Ustawienia serwera proxy dla komputera serwera konfiguracji można zmodyfikować
   ```
 
   >[!WARNING]
-  Jeśli masz serwery dodatkowych procesów podłączone do serwera konfiguracji należy [Popraw ustawienia serwera proxy na wszystkich serwerach proces skalowania w poziomie](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#modifying-proxy-settings-for-scale-out-process-server) w danym wdrożeniu.
+  Jeśli masz serwery dodatkowych procesów podłączone do serwera konfiguracji należy [Popraw ustawienia serwera proxy na wszystkich serwerach proces skalowania w poziomie](vmware-azure-manage-process-server.md#modify-proxy-settings-for-an-on-premises-process-server) w danym wdrożeniu.
 
 ## <a name="reregister-a-configuration-server-with-the-same-vault"></a>Zarejestruj ponownie serwer konfiguracji, w tym samym magazynie
   1. Zaloguj się do serwera konfiguracji.
@@ -184,7 +184,7 @@ Ustawienia serwera proxy dla komputera serwera konfiguracji można zmodyfikować
       ```
 
   >[!WARNING]
-  Jeśli masz wiele serwerów procesu należy [ponownie je zarejestrować](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#re-registering-a-scale-out-process-server).
+  Jeśli masz wiele serwerów procesu należy [ponownie je zarejestrować](vmware-azure-manage-process-server.md#reregister-a-process-server).
 
 ## <a name="register-a-configuration-server-with-a-different-vault"></a>Zarejestruj serwer konfiguracji w innym magazynie
 
@@ -233,8 +233,8 @@ Uaktualnij serwer w następujący sposób:
 > [!WARNING]
 > Upewnij się przed rozpoczęciem likwidowania serwera konfiguracji.
 > 1. [Wyłącz ochronę](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) dla wszystkich maszyn wirtualnych na tym serwerze konfiguracji.
-> 2. [Usuń skojarzenie](site-recovery-setup-replication-settings-vmware.md#dissociate-a-configuration-server-from-a-replication-policy) i [usunąć](site-recovery-setup-replication-settings-vmware.md#delete-a-replication-policy) wszystkie zasady replikacji z serwera konfiguracji.
-> 3. [Usuń](site-recovery-vmware-to-azure-manage-vCenter.md#delete-a-vcenter-in-azure-site-recovery) wszystkie hosty serwerów/vSphere Vcenter, które są skojarzone z serwerem konfiguracji.
+> 2. [Usuń skojarzenie](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) i [usunąć](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) wszystkie zasady replikacji z serwera konfiguracji.
+> 3. [Usuń](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) wszystkie hosty serwerów/vSphere Vcenter, które są skojarzone z serwerem konfiguracji.
 
 
 ### <a name="delete-the-configuration-server-from-azure-portal"></a>Usuń serwer konfiguracji z portalu Azure

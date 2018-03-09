@@ -9,11 +9,11 @@ ms.author: kgremban, ebertrams
 ms.date: 02/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4b66a699e4c58662cadd799cf6aec83b9d34b7e6
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: ce3c3abd00dba23887b5f811af6cab8d2c83323d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="store-data-at-the-edge-with-sql-server-databases"></a>Przechowywanie danych na krawędzi, z baz danych programu SQL Server
 
@@ -48,7 +48,7 @@ Zarówno systemu Windows i Linux kontenery x64 architektury procesora działa w 
 
 ## <a name="deploy-a-sql-server-container"></a>Wdrażanie kontenera programu SQL Server
 
-W tej sekcji możesz dodać bazy danych MS SQL symulowane urządzenie brzegowe IoT. Użyj programu SQL Server 2017 docker kontenera obrazu, dostępne w [Windows](https://hub.docker.com/r/microsoft/mssql-server-windows-developer/) i [Linux](https://hub.docker.com/r/microsoft/mssql-server-linux/). 
+W tej sekcji możesz dodać bazy danych MS SQL symulowane urządzenie brzegowe IoT. Użyj programu SQL Server 2017 docker kontener obrazu, dostępne jako [Windows](https://hub.docker.com/r/microsoft/mssql-server-windows-developer/) kontenera i jako [Linux](https://hub.docker.com/r/microsoft/mssql-server-linux/) kontenera. 
 
 ### <a name="deploy-sql-server-2017"></a>Wdrażanie programu SQL Server 2017
 
@@ -100,14 +100,14 @@ W kroku 3, możesz dodać utworzyć opcje do kontenera programu SQL Server, któ
 
       ```json
       "image": "microsoft/mssql-server-windows-developer",
-      "createOptions": "{\r\n\t"Env": [\r\n\t\t"ACCEPT_EULA=Y",\r\n\t\t"sa_password=Strong!Passw0rd"\r\n\t],\r\n\t"HostConfig": {\r\n\t\t"Mounts": [{\r\n\t\t\t"Target": "C:\\\\mssql",\r\n\t\t\t"Source": "sqlVolume",\r\n\t\t\t"Type": "volume"\r\n\t\t}],\r\n\t\t"PortBindings": {\r\n\t\t\t"1433/tcp": [{\r\n\t\t\t\t"HostPort": "1401"\r\n\t\t\t}]\r\n\t\t}\r\n\t}\r\n}"
+      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"C:\\\\mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}"
       ```
 
    * Linux:
 
       ```json
       "image": "microsoft/mssql-server-linux:2017-latest",
-      "createOptions": "{\r\n\t"Env": [\r\n\t\t"ACCEPT_EULA=Y",\r\n\t\t"MSSQL_SA_PASSWORD=Strong!Passw0rd"\r\n\t],\r\n\t"HostConfig": {\r\n\t\t"Mounts": [{\r\n\t\t\t"Target": "/var/opt/mssql",\r\n\t\t\t"Source": "sqlVolume",\r\n\t\t\t"Type": "volume"\r\n\t\t}],\r\n\t\t"PortBindings": {\r\n\t\t\t"1433/tcp": [{\r\n\t\t\t\t"HostPort": "1401"\r\n\t\t\t}]\r\n\t\t}\r\n\t}\r\n}"
+      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"/var/opt/mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
       ```
 
 4. Zapisz plik. 
@@ -125,31 +125,31 @@ Ta sekcja przeprowadzi Cię przez ustawienie bazy danych SQL do przechowywania d
 
 W narzędziu wiersza polecenia połączenia z bazą danych: 
 
-* Windows
+* Kontener systemu Windows
    ```cmd
-   Docker exec -it sql cmd
+   docker exec -it sql cmd
    ```
 
-* Linux    
+* Kontener systemu Linux
    ```bash
-   Docker exec -it sql 'bash'
+   docker exec -it sql bash
    ```
 
 Otwórz narzędzie polecenia SQL: 
 
-* Windows
+* Kontener systemu Windows
    ```cmd
    sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
 
-* Linux
+* Kontener systemu Linux
    ```bash
    /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
 
 Tworzenie bazy danych: 
 
-* Windows
+* Kontener systemu Windows
    ```sql
    CREATE DATABASE MeasurementsDB
    ON
@@ -157,7 +157,7 @@ Tworzenie bazy danych:
    GO
    ```
 
-* Linux
+* Kontener systemu Linux
    ```sql
    CREATE DATABASE MeasurementsDB
    ON
@@ -302,24 +302,24 @@ Po ponownie uruchomić kontenerów, danych otrzymywanych z czujnikami temperatur
 
 W narzędziu wiersza polecenia połączenia z bazą danych: 
 
-* Windows
+* Kontener systemu Windows
    ```cmd
-   Docker exec -it sql cmd
+   docker exec -it sql cmd
    ```
 
-* Linux    
+* Kontener systemu Linux
    ```bash
-   Docker exec -it sql 'bash'
+   docker exec -it sql bash
    ```
 
 Otwórz narzędzie polecenia SQL: 
 
-* Windows
+* Kontener systemu Windows
    ```cmd
    sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
 
-* Linux
+* Kontener systemu Linux
    ```bash
    /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
@@ -327,7 +327,7 @@ Otwórz narzędzie polecenia SQL:
 Zostaną wyświetlone dane: 
 
    ```sql
-   Select * FROM MeasurementsDB.dbo.TemperatureMeasurements
+   SELECT * FROM MeasurementsDB.dbo.TemperatureMeasurements
    GO
    ```
 

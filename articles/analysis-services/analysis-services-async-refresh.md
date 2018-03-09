@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/14/2018
+ms.date: 03/05/2018
 ms.author: owend
-ms.openlocfilehash: 1f31c05554db16d604a9825ef9b1317a0f281456
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4c317736af30b4181fa975713258a41b42ed0da3
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Odświeżanie asynchroniczne przy użyciu interfejsu API REST
 Przy użyciu języka programowania, który obsługuje wywołania REST, można wykonywać operacje asynchroniczne odświeżanie danych w sieci modele tabelaryczne usług Azure Analysis Services. W tym synchronizacji repliki tylko do odczytu dla zapytania skalowania w poziomie. 
@@ -67,8 +67,11 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 Wszystkie wywołania musi zostać uwierzytelniony z prawidłowym tokenem usługi Azure Active Directory (OAuth 2) w nagłówku autoryzacji i musi spełniać następujące wymagania:
 
 - Token musi być token użytkownika lub nazwy głównej usługi aplikacji.
-- Użytkownik lub aplikacja musi mieć wystarczające uprawnienia na serwerze lub modelu do żądanego wywoływania. Poziom uprawnień zależy od ról w modelu lub grupy administratorów na serwerze.
 - Token musi mieć poprawną odbiorców ustawioną `https://*.asazure.windows.net`.
+- Użytkownik lub aplikacja musi mieć wystarczające uprawnienia na serwerze lub modelu do żądanego wywoływania. Poziom uprawnień zależy od ról w modelu lub grupy administratorów na serwerze.
+
+    > [!IMPORTANT]
+    > Obecnie **administratora serwera** wymagane są uprawnienia roli.
 
 ## <a name="post-refreshes"></a>POST /refreshes
 

@@ -7,13 +7,13 @@ author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/05/2018
 ms.author: manayar
-ms.openlocfilehash: e07b868883b0154ad38ba2f7f51dd2db663525a0
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: df5f40a49aa7359c082b0feb9e047818a642a871
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Użyj usługi Azure Site Recovery do ochrony usługi Active Directory i DNS
 
@@ -73,7 +73,7 @@ Aby uniknąć wpływu na obciążeń produkcyjnych, test pracy awaryjnej w sieci
 
 Większość aplikacji wymaga obecności kontrolera domeny lub serwer DNS. Dlatego przed aplikacji wirtualnej w tryb failover, należy utworzyć kontroler domeny w sieci izolowanej służący do testowania trybu failover. Najprostszym sposobem, w tym celu jest użycie usługi Site Recovery do replikacji maszyny wirtualnej, która obsługuje kontrolera domeny lub DNS. Następnie uruchom test trybu failover maszyny wirtualnej kontrolera domeny przed uruchomieniem testowy tryb failover planu odzyskiwania dla aplikacji. Oto jak to zrobić:
 
-1. Użyj usługi Site Recovery do [replikować](site-recovery-replicate-vmware-to-azure.md) maszynę wirtualną, która obsługuje kontrolera domeny lub DNS.
+1. Użyj usługi Site Recovery do [replikować](vmware-azure-tutorial.md) maszynę wirtualną, która obsługuje kontrolera domeny lub DNS.
 2. Utwórz izolowaną sieć. Sieci wirtualnej, które są tworzone w usłudze Azure jest odizolowany od innych sieci domyślnie. Zaleca się, że używasz tego samego zakresu adresów IP dla tej sieci używanej w sieci produkcyjnej. Nie włączaj połączenie lokacja lokacja w tej sieci.
 3. Podaj adres IP serwera DNS w sieci izolowanej. Użyj adresu IP, który spodziewasz się maszyny wirtualnej DNS, aby uzyskać. Jeśli przeprowadzasz replikację do platformy Azure, podaj adres IP dla maszyny wirtualnej, który jest używany w tryb failover. Aby wprowadzić adres IP w maszynie wirtualnej zreplikowanej w **obliczenia i sieć** ustawienia, wybierz opcję **docelowy adres IP** ustawienia.
 

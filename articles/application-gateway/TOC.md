@@ -62,6 +62,7 @@
 ### [Azure PowerShell](application-gateway-create-probe-ps.md)
 ## [Integracja z usługą Azure Security Center](application-gateway-integration-security-center.md)
 ## [Łączenie usług równoważenia obciążenia](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)
+## [Konfigurowanie kompleksowej usługi SSL](application-gateway-end-to-end-ssl-powershell.md)
 ## Rozwiązywanie problemów
 ### [Rozwiązywanie problemów z błędami w usłudze Application Gateway](application-gateway-troubleshooting-502.md)
 ### [Rejestrowanie i metryki diagnostyki](application-gateway-diagnostics.md)

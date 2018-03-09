@@ -1,2 +1,4 @@
 > [!NOTE]
-> Nowe jednostki SKU bramy sieci VPN (VpnGw1, VpnGw2 i VpnGw3) są obsługiwane tylko dla modelu wdrażania usługi Menedżer zasobów. Klasyczne sieci wirtualne powinny nadal używać starych jednostek SKU. Aby uzyskać więcej informacji o starych jednostkach SKU bramy, zobacz artykuł [Working with virtual network gateway SKUs (old)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md) (Praca z jednostkami SKU (starymi) bramy sieci wirtualnej).
+> Nowe jednostki SKU bramy sieci VPN (VpnGw1, VpnGw2 i VpnGw3) są obsługiwane tylko dla modelu wdrażania usługi Menedżer zasobów. Klasyczne sieci wirtualne powinny nadal używać starych jednostek SKU. Aby uzyskać więcej informacji o starych jednostkach SKU bramy, zobacz artykuł [Working with virtual network gateway SKUs (old)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md) (Praca z jednostkami SKU (starymi) bramy sieci wirtualnej). Jeśli szukasz dla jednostki SKU bramy ExpressRoute, zobacz [bramy sieci wirtualnej dla usługi ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md).
+>
+>

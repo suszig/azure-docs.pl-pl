@@ -1,128 +1,164 @@
 ---
-title: "Szyfrowanie usługi Magazyn Azure przy użyciu klienta zarządzane klucze w usłudze Azure Key Vault | Dokumentacja firmy Microsoft"
-description: "Szyfrowanie usługi magazynu obiektów Blob Azure na stronie usługi, gdy dane są przechowywane przy użyciu funkcji szyfrowanie usługi Magazyn Azure, a go odszyfrować podczas pobierania danych przy użyciu klienta zarządzanych kluczy."
+title: "Szyfrowanie usługi Magazyn Azure przy użyciu kluczy zarządzany przez klienta w usłudze Azure Key Vault | Dokumentacja firmy Microsoft"
+description: "Szyfrowanie usługi magazynu obiektów Blob Azure na stronie usługi, gdy dane są przechowywane przy użyciu funkcji szyfrowanie usługi Magazyn Azure, a go odszyfrować podczas pobierania danych przy użyciu kluczy zarządzany przez klienta."
 services: storage
-documentationcenter: .net
 author: lakasa
-manager: jahogg
-editor: tysonn
-ms.assetid: 
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 03/07/2018
 ms.author: lakasa
-ms.openlocfilehash: 0a05a0d28899cc3db11f8fda8aec5bd6ed9bd5f8
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b40858640d10e5661be420976520774bd50837cb
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Szyfrowanie usługi Magazyn przy użyciu klienta zarządzane klucze w usłudze Azure Key Vault
+# <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Szyfrowanie usługi Magazyn przy użyciu kluczy zarządzany przez klienta w usłudze Azure Key Vault
 
-Microsoft Azure jest zaangażowana ochrony i ochrony danych w celu spełnienia organizacji bezpieczeństwa i zgodności zobowiązań.  Jednym ze sposobów może chronić dane w stanie spoczynku jest magazynu usługi szyfrowania (SSE), które automatycznie szyfruje dane podczas zapisywania go do magazynu i odszyfrowuje dane podczas pobierania go używać. Szyfrowanie i odszyfrowywanie jest automatyczne, całkowicie niewidoczne i używa 256-bitowego [szyfrowania AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), jednego bloku najwyższy szyfrów dostępne.
+Microsoft Azure jest zaangażowana ochrony i ochrony danych w celu spełnienia organizacji bezpieczeństwa i zgodności zobowiązań. Jednym ze sposobów czy usługi Azure Storage chroni dane jest za pomocą magazynu usługi szyfrowania (SSE), który szyfruje dane podczas zapisywania go do magazynu i odszyfrowuje dane podczas pobierania go. Szyfrowanie i odszyfrowywanie jest automatyczne, przezroczysty i używa 256-bitowego [szyfrowania AES](https://wikipedia.org/wiki/Advanced_Encryption_Standard), jednego bloku najwyższy szyfrów dostępne.
 
-Klucze szyfrowania zarządzany przez firmę Microsoft można używać z SSE lub skorzystać z kluczy szyfrowania. W tym artykule omówiono te ostatnie. Aby uzyskać więcej informacji o użyciu kluczy zarządzany przez firmę Microsoft lub o SSE ogólnie, zobacz [szyfrowanie usługi Magazyn danych magazynowanych](../storage-service-encryption.md).
+Klucze szyfrowania zarządzany przez firmę Microsoft można używać z SSE lub skorzystać z kluczy szyfrowania. W tym artykule opisano sposób używania kluczy szyfrowania. Aby uzyskać więcej informacji o użyciu kluczy zarządzany przez firmę Microsoft lub o SSE ogólnie, zobacz [szyfrowanie usługi Magazyn danych magazynowanych](storage-service-encryption.md).
 
-Aby zapewnić możliwość korzystania z kluczy szyfrowania, SSE dla magazynu obiektów Blob jest zintegrowana z magazynu kluczy Azure (AKV). Można utworzyć kluczy szyfrowania i przechowywać je w AKV lub interfejsów API firmy AKV służy do generowania kluczy szyfrowania. Nie tylko czy AKV pozwala na zarządzanie i sterowanie klucze, umożliwia również inspekcji użycie klucza. 
+SSE magazynu obiektów Blob i plik jest zintegrowana z usługą Azure Key Vault, dzięki czemu magazynu kluczy umożliwia zarządzanie kluczami szyfrowania. Można utworzyć kluczy szyfrowania i przechowywać je w magazynie kluczy lub interfejsów API usługi Azure Key Vault służy do generowania kluczy szyfrowania. Z usługi Azure Key Vault można zarządzać i kontrolować klucze i również przeprowadzać inspekcję użycie klucza.
 
-Dlaczego czy chcesz utworzyć własne klucze? Udostępnia bardziej elastyczne, umożliwiając tworzenie, obracanie, wyłącz i zdefiniuj kontroli dostępu. Umożliwia on również przeprowadzać inspekcję kluczy szyfrowania używany do ochrony danych.
+Dlaczego warto utworzyć własne klucze? Niestandardowe klucze zapewniają większą elastyczność, dzięki czemu można utworzyć, obracanie, wyłącz i zdefiniuj kontroli dostępu. Niestandardowe klucze umożliwiają również przeprowadzać inspekcję kluczy szyfrowania używany do ochrony danych.
 
-## <a name="sse-with-customer-managed-keys-preview"></a>SSE z customer preview zarządzanych kluczy
+## <a name="get-started-with-customer-managed-keys"></a>Rozpoczynanie pracy z kluczami zarządzany przez klienta
 
-Ta funkcja jest obecnie dostępna w wersji zapoznawczej. Aby użyć tej funkcji, musisz utworzyć nowe konto magazynu. Możesz utworzyć nowego magazynu kluczy oraz klucz lub użyć istniejącego magazynu kluczy oraz klucz. Konto magazynu i magazynu kluczy musi być w tym samym regionie, ale można je w ramach różnych subskrypcji.
+Aby używać kluczy zarządzany przez klienta z SSE, możesz utworzyć nowego magazynu kluczy oraz klucz lub użyć istniejącego magazynu kluczy oraz klucz. Konto magazynu i magazynu kluczy musi być w tym samym regionie, ale można je w ramach różnych subskrypcji. 
 
-Aby wziąć udział w wersji zapoznawczej, skontaktuj się z [ ssediscussions@microsoft.com ](mailto:ssediscussions@microsoft.com). Firma Microsoft udostępni specjalne łącze do udziału w wersji zapoznawczej.
+### <a name="step-1-create-a-storage-account"></a>Krok 1: Utwórz konto magazynu
 
-Aby dowiedzieć się więcej, zapoznaj się [— często zadawane pytania](#frequently-asked-questions-about-storage-service-encryption-for-data-at-rest).
+Najpierw należy utworzyć konto magazynu, jeśli nie masz już. Aby uzyskać więcej informacji, zobacz [Utwórz nowe konto magazynu](storage-quickstart-create-account.md).
 
-> [!IMPORTANT]
-> Możesz zarejestrować się, aby podgląd przed wykonać kroki opisane w tym artykule. Bez dostępu do wersji zapoznawczej nie będzie można włączyć tę funkcję w portalu.
+### <a name="step-2-enable-sse-for-blob-and-file-storage"></a>Krok 2: Włączanie SSE magazynu obiektów Blob i plików
 
-## <a name="getting-started"></a>Wprowadzenie
-## <a name="step-1-create-a-new-storage-accountstorage-create-storage-accountmd"></a>Krok 1: [Utwórz nowe konto magazynu](../storage-create-storage-account.md)
+Aby włączyć SSE przy użyciu kluczy zarządzany przez klienta, dwie funkcje ochrony kluczy, Usuń elastyczne i przeczyszczanie, również musi być włączony. Te ustawienia upewnij się, że klucze nie może być przypadkowo lub celowo usuniętymi. Maksymalny okres przechowywania kluczy wynosi 90 dni, ochrona użytkowników względem złośliwych osób lub ransomware ataki.
 
-## <a name="step-2-enable-encryption"></a>Krok 2: Włączanie szyfrowania
-SSE można włączyć dla konta magazynu za pomocą [portalu Azure](https://portal.azure.com). W bloku ustawień dla konta magazynu Wyszukaj sekcję usługi obiektów Blob, jak pokazano na poniższej ilustracji, a następnie kliknij przycisk szyfrowania.
+Jeśli chcesz programowo włączyć klucze zarządzany przez klienta dla SSE, można użyć [interfejsu API REST dostawcy zasobów magazynu Azure](https://docs.microsoft.com/rest/api/storagerp), [biblioteki klienta dostawcy zasobów magazynu dla platformy .NET](https://docs.microsoft.com/dotnet/api), [ Program Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), lub [Azure CLI](https://docs.microsoft.com/azure/storage/storage-azure-cli).
+
+Aby używać kluczy zarządzany przez klienta z SSE, należy przypisać tożsamość konta magazynu do konta magazynu. Można ustawić tożsamości, wykonując następujące polecenie programu PowerShell:
+
+```powershell
+Set-AzureRmStorageAccount -ResourceGroupName \$resourceGroup -Name \$accountName -AssignIdentity
+```
+
+Usuń elastyczne i przeczyszczanie można włączyć, wykonując następujące polecenia programu PowerShell:
+
+```powershell
+($resource = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -VaultName
+$vaultName).ResourceId).Properties | Add-Member -MemberType NoteProperty -Name
+enableSoftDelete -Value 'True'
+
+Set-AzureRmResource -resourceid $resource.ResourceId -Properties
+$resource.Properties
+
+($resource = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -VaultName
+$vaultName).ResourceId).Properties | Add-Member -MemberType NoteProperty -Name
+enablePurgeProtection -Value 'True'
+
+Set-AzureRmResource -resourceid $resource.ResourceId -Properties
+$resource.Properties
+```
+
+### <a name="step-3-enable-encryption-with-customer-managed-keys"></a>Krok 3: Włączenie szyfrowania za pomocą kluczy zarządzany przez klienta
+
+Domyślnie SSE używa kluczy zarządzany przez firmę Microsoft. Można włączyć SSE z kluczami zarządzany przez klienta dla konta magazynu za pomocą [portalu Azure](https://portal.azure.com/). Na **ustawienia** bloku dla konta magazynu, kliknij przycisk **szyfrowania**. Wybierz **Użyj własnego klucza** opcji, jak pokazano na poniższej ilustracji.
 
 ![Opcja szyfrowania portalu zrzut ekranu przedstawiający](./media/storage-service-encryption-customer-managed-keys/ssecmk1.png)
-<br/>*Włącz SSE dla usługi Blob*
 
-Jeśli chcesz, aby programowo włączyć lub wyłączyć szyfrowanie usługi Magazyn na koncie magazynu, możesz użyć [interfejsu API REST dostawcy zasobów magazynu Azure](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN), [biblioteki klienta dostawcy zasobów magazynu dla platformy .NET](https://docs.microsoft.com/dotnet/api/?redirectedfrom=MSDN), [programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.0.0), lub [interfejsu wiersza polecenia Azure](https://docs.microsoft.com/azure/storage/storage-azure-cli).
+### <a name="step-4-select-your-key"></a>Krok 4: Wybierz klucz
 
-Na tym ekranie Jeśli nie jest widoczne pole wyboru "Użyj własnego klucza", możesz nie zostały zatwierdzone skorzystania z wersji zapoznawczej. Wyślij wiadomość e-mail do [ ssediscussions@microsoft.com ](mailto:ssediscussions@microsoft.com) i zażądać zatwierdzenia.
+Klucz można określić jako identyfikatora URI lub wybierając klucz z magazynu kluczy.
 
-![Portal zrzut ekranu przedstawiający podgląd szyfrowania](./media/storage-service-encryption-customer-managed-keys/ssecmk1.png)
+#### <a name="specify-a-key-as-a-uri"></a>Określ klucz jako identyfikatora URI
 
-Domyślnie SSE używa kluczy zarządzany przez firmę Microsoft. Aby korzystać z własnych kluczy, zaznacz pole wyboru. Następnie można określić klucz identyfikatora URI, lub wybierz klucz i Key Vault z próbnika.
+Aby określić klucz z identyfikatora URI, wykonaj następujące kroki:
 
-## <a name="step-3-select-your-key"></a>Krok 3: Wybierz klucz
+1. Wybierz **klawisza Enter URI** opcji.  
+2. W **identyfikator URI klucza** pola, określ identyfikator URI.
 
-![Szyfrowanie zrzut ekranu przedstawiający Portal opcja własnego klucza](./media/storage-service-encryption-customer-managed-keys/ssecmk2.png)
+    ![Portalu zrzut ekranu przedstawiający szyfrowania z wprowadź identyfikator uri klucza opcji](./media/storage-service-encryption-customer-managed-keys/ssecmk2.png)
 
-![Portalu zrzut ekranu przedstawiający szyfrowania z wprowadź identyfikator uri klucza opcji](./media/storage-service-encryption-customer-managed-keys/ssecmk3.png)
+#### <a name="specify-a-key-from-a-key-vault"></a>Określ klucz z magazynu kluczy 
 
-Jeśli konto magazynu nie ma dostępu do magazynu kluczy, można uruchomić następujące polecenie, aby udzielić dostępu do konta magazynu do magazynu kluczy wymagane przy użyciu programu Azure Powershell.
+Aby określić klucz z magazynu kluczy, wykonaj następujące kroki:
+
+1. Wybierz **wybierać Key Vault** opcji.  
+2. Wybierz magazyn kluczy, zawierającego klucz, który ma być używany.
+3. Wybierz klucz z magazynu kluczy.
+
+    ![Szyfrowanie zrzut ekranu przedstawiający Portal opcja własnego klucza](./media/storage-service-encryption-customer-managed-keys/ssecmk3.png)
+
+Konto magazynu nie ma dostępu do magazynu kluczy, po uruchomieniu polecenia programu Azure PowerShell pokazano na poniższej ilustracji, aby udzielić dostępu.
 
 ![Portal zrzut ekranu przedstawiający odmowa dostępu do magazynu kluczy](./media/storage-service-encryption-customer-managed-keys/ssecmk4.png)
 
 Można również przyznać dostęp za pośrednictwem portalu Azure, przechodząc do usługi Azure Key Vault w portalu Azure i udzielanie dostępu do konta magazynu.
 
-## <a name="step-4-copy-data-to-storage-account"></a>Krok 4: Kopiowanie danych do konta magazynu
-Jeśli chcesz przenieść dane do nowego konta magazynu, dzięki czemu jest on zaszyfrowany, zapoznaj się [krok 3 z wprowadzenie w szyfrowanie usługi Magazyn danych magazynowanych](https://docs.microsoft.com/azure/storage/storage-service-encryption#step-3-copy-data-to-storage-account).
+### <a name="step-5-copy-data-to-storage-account"></a>Krok 5: Kopiowanie danych do konta magazynu
 
-## <a name="step-5-query-the-status-of-the-encrypted-data"></a>Krok 5: Zapytać o stan zaszyfrowanych danych
-Aby zbadać stan zaszyfrowanych danych, zobacz [kroku 4 z wprowadzenie w szyfrowanie usługi Magazyn danych magazynowanych](https://docs.microsoft.com/azure/storage/storage-service-encryption#step-4-query-the-status-of-the-encrypted-data).
+Aby przenieść dane do nowego konta magazynu, dzięki czemu jest on zaszyfrowany, należy zapoznać się z kroku 3 [wprowadzenie w szyfrowanie usługi Magazyn danych magazynowanych](storage-service-encryption.md#step-3-copy-data-to-storage-account).
 
-## <a name="frequently-asked-questions-about-storage-service-encryption-for-data-at-rest"></a>Często zadawane pytania dotyczące szyfrowanie usługi Magazyn danych w stanie spoczynku
-**Pytanie: czy używany Magazyn w warstwie Premium; z kluczami zarządzanego klienta można używać SSE?**
+### <a name="step-6-query-the-status-of-the-encrypted-data"></a>Krok 6: Zapytać o stan zaszyfrowanych danych
 
-A: tak, SSE z zarządzanego przez firmę Microsoft i klientów zarządzanych kluczy jest obsługiwany w standardowych magazynu i Magazyn w warstwie Premium. 
+Aby zbadać stan zaszyfrowanych danych, należy zapoznać się z kroku 4 [wprowadzenie w szyfrowanie usługi Magazyn danych magazynowanych](storage-service-encryption.md#step-4-query-the-status-of-the-encrypted-data).
 
-**Pytanie: czy można utworzyć nowego konta magazynu z SSE z kluczami klientów zarządzanych włączyć za pomocą programu Azure PowerShell i interfejsu wiersza polecenia Azure?**
+## <a name="faq-for-sse-with-customer-managed-keys"></a>Często zadawane pytania dotyczące SSE z klientów zarządzanych — klawisze
+
+**Pytanie: czy używany Magazyn w warstwie Premium; Czy można używać kluczy zarządzany przez klienta z SSE?**
+
+A: tak SSE z kluczami zarządzany przez firmę Microsoft i zarządzany przez klienta jest obsługiwany w standardowych magazynu i Magazyn w warstwie Premium.
+
+**Pytanie: czy można utworzyć nowego konta magazynu z SSE z kluczami zarządzany przez klienta, włączyć za pomocą programu Azure PowerShell i interfejsu wiersza polecenia Azure?**
 
 Odpowiedź: tak.
 
-**Pytanie: jak dużo więcej pojawia się koszt usługi Azure Storage SSE klientowi zarządzanych kluczy jest włączone?**
+**Pytanie: jak bardziej usługi Azure Storage kosztów korzystania z kluczy zarządzany przez klienta z SSE?**
 
-Odpowiedź: Brak koszt skojarzony przy użyciu usługi Azure Key Vault. Więcej informacji można znaleźć [klucza magazynu cennik](https://azure.microsoft.com/en-us/pricing/details/key-vault/). Nie ma żadnych dodatkowych kosztów stosowania SSE.
+Odpowiedź: Brak koszt skojarzony przy użyciu usługi Azure Key Vault. Aby uzyskać więcej informacji, odwiedź stronę [klucza magazynu cennik](https://azure.microsoft.com/pricing/details/key-vault/). Nie ma żadnych dodatkowych kosztów dla SSE, który jest włączona dla wszystkich kont magazynu.
 
 **Pytanie: czy czy można odwołać dostęp do kluczy szyfrowania?**
 
-Odpowiedź: tak, w dowolnym momencie można odwołać dostęp. Istnieje kilka sposobów, aby odwołać dostęp do kluczy. Zapoznaj się [PowerShell magazynu kluczy Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-4.0.0) i [interfejsu wiersza polecenia Azure Key Vault](https://docs.microsoft.com/cli/azure/keyvault) więcej szczegółów. Odbieranie prawa dostępu zablokuje skutecznie dostęp do wszystkich obiektów blob na koncie magazynu jako konto klucz szyfrowania jest niedostępne dla magazynu Azure.
+Odpowiedź: tak, w dowolnym momencie można odwołać dostęp. Istnieje kilka sposobów, aby odwołać dostęp do kluczy. Zapoznaj się [PowerShell magazynu kluczy Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) i [interfejsu wiersza polecenia Azure Key Vault](https://docs.microsoft.com/cli/azure/keyvault) więcej szczegółów. Odbieranie prawa dostępu zablokuje skutecznie dostęp do wszystkich obiektów blob na koncie magazynu jako konto klucz szyfrowania jest niedostępne dla magazynu Azure.
 
 **Pytanie: czy można utworzyć konta magazynu i klucza w innym regionie?**
 
-A: nie, konto magazynu i klucza/magazynu kluczy muszą znajdować się w tym samym regionie. 
+A: nie, konta magazynu i usługi Azure Key Vault i klucz muszą znajdować się w tym samym regionie.
 
-**Pytanie: czy można włączyć SSE z klientów zarządzanych kluczy podczas tworzenia konta magazynu?**
+**Pytanie: czy można włączyć klucze zarządzany przez klienta dla SSE podczas tworzenia konta magazynu?**
 
-Odpowiedź: nie. Po włączeniu SSE podczas tworzenia konta magazynu, można używać tylko klucze zarządzany przez firmę Microsoft. Jeśli chcesz używać kluczy klienta zarządzane, należy zaktualizować właściwości konta magazynu. Użyj REST lub jednej z bibliotek klienckich magazynu, aby programowo zaktualizować konta magazynu lub aktualizowanie właściwości konta magazynu przy użyciu portalu Azure po utworzeniu konta.
+Odpowiedź: nie. Po utworzeniu konta magazynu, klucze tylko zarządzany przez firmę Microsoft są dostępne dla SSE. Aby używać kluczy zarządzany przez klienta, należy zaktualizować właściwości konta magazynu. Użyj REST lub jednej z bibliotek klienckich magazynu, aby programowo zaktualizować konta magazynu lub aktualizowanie właściwości konta magazynu przy użyciu portalu Azure po utworzeniu konta.
 
-**Pytanie: czy szyfrowanie można wyłączyć podczas z klienta przy użyciu SSE zarządzane klucze?**
+**Pytanie: czy można wyłączyć szyfrowania podczas korzystania z SSE kluczy zarządzany przez klienta?**
 
-A: nie, nie można wyłączyć szyfrowania, gdy z klienta przy użyciu SSE zarządzanych kluczy. Aby wyłączyć szyfrowanie, musisz przełączyć się przy użyciu kluczy zarządzany przez firmę Microsoft. Można to zrobić za pomocą portalu Azure lub programu PowerShell.
+Odpowiedź: nie, nie można wyłączyć szyfrowania. Szyfrowanie jest włączone domyślnie dla wszystkich usług — obiekt Blob, plików, tabel i kolejek magazynu. Opcjonalnie można przełączyć się z klawiszy zarządzany przez firmę Microsoft przy użyciu kluczy zarządzany przez klienta i na odwrót.
 
 **Pytanie: jest SSE domyślnie włączona, tworząc nowe konto magazynu?**
 
-Odpowiedź: SSE nie jest włączona domyślnie; Aby je włączyć, można użyć portalu Azure. Można również programowo włączyć tę funkcję za pomocą interfejsu API REST dostawcy zasobów magazynu. 
+Odpowiedź: SSE jest włączone domyślnie dla wszystkich kont magazynu i wszystkie magazyny usług — obiekt Blob, plików, tabel i kolejek.
 
-**Pytanie: nie można włączyć szyfrowanie na moim koncie magazynu.**
+**Pytanie: nie można włączyć SSE za pomocą klawiszy zarządzany przez klienta na moim koncie magazynu.**
 
-A: to konto magazynu Resource Manager? Klasycznych kont magazynu nie są obsługiwane. SSE z kluczami klientów zarządzanych także można włączyć tylko na nowo utworzonych kont magazynu Menedżera zasobów.
+A: to konto magazynu platformy Azure Resource Manager? Klasycznych kont magazynu nie są obsługiwane z kluczami zarządzany przez klienta. SSE z kluczami zarządzany przez klienta można włączyć tylko dla kont magazynu Menedżera zasobów.
 
-**Pytanie: SSE jest klientowi zarządzane klucze dozwolone tylko w określonych regionach?**
+**Pytanie: jaka jest usuwania nietrwałego i przeczyszczanie? Należy włączyć to ustawienie, aby użyć SSE z kluczami zarządzany przez klienta?**
 
-Odpowiedź: SSE jest dostępny w tylko niektóre regiony dla magazynu obiektów Blob dla tej wersji zapoznawczej. Wiadomości e-mail [ ssediscussions@microsoft.com ](mailto:ssediscussions@microsoft.com) do sprawdzenia dostępności i szczegółowe informacje o wersji zapoznawczej. 
+A: usunąć soft i przeczyszczanie musi być włączona SSE za pomocą kluczy zarządzany przez klienta. Te ustawienia upewnij się, że klucz nie jest ani przypadkowo lub celowo usuniętymi. Maksymalny okres przechowywania kluczy wynosi 90 dni, ochrona użytkowników przed atakami ransomware i złośliwych osób. Nie można wyłączyć to ustawienie.
+
+**Pytanie: jest SSE z kluczami zarządzany przez klienta, dozwolone tylko w określonych regionach?**
+
+Odpowiedź: SSE z kluczami zarządzany przez klienta jest dostępna we wszystkich regionach magazynu obiektów Blob i plików.
 
 **Pytanie: jak można skontaktować się z osobą czy wystąpienia jakichkolwiek problemów lub chcesz wyrazić swoją opinię?**
 
-Odpowiedź: kontaktu [ ssediscussions@microsoft.com ](mailto:ssediscussions@microsoft.com) wszelkie problemy związane z magazynu usługi szyfrowania. 
+Odpowiedź: kontaktu [ ssediscussions@microsoft.com ](mailto:ssediscussions@microsoft.com) wszelkie problemy związane z magazynu usługi szyfrowania.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
-*   Aby uzyskać więcej informacji na rozbudowany zestaw zabezpieczeń możliwości, które ułatwiają deweloperom tworzenie bezpiecznych aplikacji, zobacz [przewodnik zabezpieczeń magazynu](https://docs.microsoft.com/azure/storage/storage-security-guide).
-*   Aby uzyskać przegląd informacji dotyczących usługi Azure Key Vault, zobacz [co to jest usługa Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)?
-*   W ramach wprowadzenia usługi Azure Key Vault, zobacz [wprowadzenie do korzystania z usługi Azure Key Vault](../../key-vault/key-vault-get-started.md).
+-   Aby uzyskać więcej informacji na rozbudowany zestaw zabezpieczeń możliwości, które ułatwiają deweloperom tworzenie bezpiecznych aplikacji, zobacz [przewodnik zabezpieczeń magazynu](storage-security-guide.md).
+
+-   Aby uzyskać przegląd informacji dotyczących usługi Azure Key Vault, zobacz [co to jest usługa Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)?
+
+-   W ramach wprowadzenia usługi Azure Key Vault, zobacz [wprowadzenie do korzystania z usługi Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started).

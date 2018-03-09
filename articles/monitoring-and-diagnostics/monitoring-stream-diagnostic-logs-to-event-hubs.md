@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2017
+ms.date: 03/06/2018
 ms.author: johnkem
-ms.openlocfilehash: bcb9fcb2371217e7082d96ddbba4a095e6d9a00f
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 72876e38f77aa7a13c0dd9a8cdf9479e058f4a0d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Dzienniki diagnostyczne strumienia Azure do Centrum zdarzeń
 **[Azure dzienników diagnostycznych](monitoring-overview-of-diagnostic-logs.md)**  mogą być przesyłane strumieniowo w najbliższym czasie rzeczywistym do aplikacji przy użyciu wbudowanych opcji "Eksportuj do usługi Event Hubs", w portalu lub przez włączenie identyfikator reguły autoryzacji Centrum zdarzeń w ustawienie diagnostyczne za pośrednictwem platformy Azure Polecenia cmdlet programu PowerShell lub Azure CLI.
@@ -83,10 +83,10 @@ Po kilku chwilach nowe ustawienie jest wyświetlane na liście ustawień dla teg
 Przesyłania strumieniowego za pośrednictwem [poleceń cmdlet programu PowerShell Azure](insights-powershell-samples.md), można użyć `Set-AzureRmDiagnosticSetting` polecenia cmdlet z następującymi parametrami:
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -ServiceBusRuleId [your Service Bus rule ID] -Enabled $true
+Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -EventHubAuthorizationRuleId [your Event Hub namespace auth rule ID] -Enabled $true
 ```
 
-Identyfikator reguły magistrali usług jest ciąg w formacie: `{Service Bus resource ID}/authorizationrules/{key name}`, na przykład `/subscriptions/{subscription ID}/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/{Service Bus namespace}/authorizationrules/RootManageSharedAccessKey`. Obecnie nie można wybrać nazwę koncentratora określonego zdarzenia przy użyciu programu PowerShell.
+Identyfikator reguły autoryzacji Centrum zdarzeń jest ciągiem o następującym formacie: `{Event Hub namespace resource ID}/authorizationrules/{key name}`, na przykład `/subscriptions/{subscription ID}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/RootManageSharedAccessKey`. Obecnie nie można wybrać nazwę koncentratora określonego zdarzenia przy użyciu programu PowerShell.
 
 ### <a name="via-azure-cli"></a>Za pomocą interfejsu wiersza polecenia platformy Azure
 Do przesyłania strumieniowego za pośrednictwem [interfejsu wiersza polecenia Azure](insights-cli-samples.md), można użyć `insights diagnostic set` polecenia w następujący sposób:
@@ -95,7 +95,7 @@ Do przesyłania strumieniowego za pośrednictwem [interfejsu wiersza polecenia A
 azure insights diagnostic set --resourceId <resourceID> --serviceBusRuleId <serviceBusRuleID> --enabled true
 ```
 
-Użyj tego samego formatu dla identyfikator reguły magistrali usług, zgodnie z objaśnieniem dla polecenia Cmdlet programu PowerShell. Obecnie nie można wybrać określonego zdarzenia nazwę Centrum z wiersza polecenia platformy Azure.
+Użyj tego samego formatu dla identyfikator reguły autoryzacji Centrum zdarzeń, zgodnie z objaśnieniem dla polecenia Cmdlet programu PowerShell. Obecnie nie można wybrać określonego zdarzenia nazwę Centrum z wiersza polecenia platformy Azure.
 
 ## <a name="how-do-i-consume-the-log-data-from-event-hubs"></a>Jak korzystać z danych dziennika z usługi Event Hubs?
 Oto przykładowe dane wyjściowe dane z centrów zdarzeń:

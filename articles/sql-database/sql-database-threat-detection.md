@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 06/19/2017
 ms.author: ronmat
-ms.openlocfilehash: 889f65a796aee20d7902964b8c47af46dd9149cb
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: a01721b10305ac45082943fbe4fb7fb199a0e49f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="sql-database-threat-detection"></a>Wykrywanie zagrożeń bazy danych SQL
 
@@ -30,7 +30,7 @@ Wykrywanie zagrożeń SQL zawiera nową warstwę zabezpieczeń, co umożliwia kl
 
 Na przykład iniekcja kodu SQL jest jednym z typowych problemów zabezpieczeń aplikacji sieci Web w Internecie, używane do ataków opartych na danych aplikacji. Osoby atakujące wykorzystać luki w zabezpieczeniach aplikacji do dodania złośliwego instrukcje SQL do pola wejścia aplikacji, naruszenia lub modyfikowanie danych w bazie danych.
 
-Wykrywanie zagrożeń SQL integruje alerty z [Centrum zabezpieczeń Azure](https://azure.microsoft.com/en-us/services/security-center/), i jest on rozliczany każdego chronionego serwera bazy danych SQL w tej samej cenie warstwy standardowa Centrum zabezpieczeń Azure, w $15 węzła/miesięcznie, gdzie każdy chronione bazy danych SQL serwer jest liczone jako jeden węzeł.  
+Wykrywanie zagrożeń SQL integruje alerty z [Centrum zabezpieczeń Azure](https://azure.microsoft.com/services/security-center/), i jest on rozliczany każdego chronionego serwera bazy danych SQL w tej samej cenie warstwy standardowa Centrum zabezpieczeń Azure, w $15 węzła/miesięcznie, gdzie każdy chronione bazy danych SQL serwer jest liczone jako jeden węzeł.  
 
 ## <a name="set-up-threat-detection-for-your-database-in-the-azure-portal"></a>Skonfiguruj wykrywanie zagrożeń dla bazy danych w portalu Azure
 1. Uruchamianie portalu Azure pod adresem [https://portal.azure.com](https://portal.azure.com).
@@ -54,13 +54,13 @@ Na przykład skryptu, zobacz [konfigurowania inspekcji i wykrywania zagrożeń p
    Wiadomości e-mail zawiera informacje dotyczące zdarzeń podejrzane zabezpieczeń, w tym charakter nietypowych działań, nazwa bazy danych, nazwę serwera, nazwa aplikacji i czas trwania zdarzenia. Ponadto wiadomości e-mail zawiera informacje na temat możliwych przyczyn i zalecane akcje do sprawdzania i ograniczyć potencjalne zagrożenia w bazie danych.<br/>
      
     ![Okienko nawigacji][4]
-2. Alerty e-mail zawiera łącze do dziennika inspekcji SQL. Kliknięcie tego łącza spowoduje uruchomienie portalu Azure i otwiera rekordów inspekcji SQL w czasie zbliżonym do podejrzane zdarzenia. Rekord inspekcji, aby wyświetlić więcej szczegółów na działania podejrzane bazy danych, co ułatwia znajdowanie instrukcji SQL, które zostały wykonane, kliknij polecenie (kto uzyskiwał dostęp do, co zostało i kiedy) i określenie, czy zdarzenie uzasadnionych lub złośliwymi (np. aplikacji na wstrzyknięciu kodu SQL luki, kogoś naruszone poufnych danych itp.).<br/>
+2. Alerty e-mail zawiera łącze do dziennika inspekcji SQL. Kliknięcie tego łącza spowoduje uruchomienie portalu Azure i otwiera rekordów inspekcji SQL w czasie zbliżonym do podejrzane zdarzenia. Rekord inspekcji, aby wyświetlić więcej informacji na działania podejrzane bazy danych, co ułatwia znajdowanie instrukcji SQL, które zostały wykonane, kliknij polecenie (kto uzyskiwał dostęp do, co zostało i kiedy) i określenie, czy zdarzenie uzasadnionych lub złośliwymi (np. aplikacji Aby iniekcja kodu SQL luki, kogoś naruszone poufnych danych itp.).<br/>
    ![Okienko nawigacji][5]
 
 
 ## <a name="explore-threat-detection-alerts-for-your-database-in-the-azure-portal"></a>Eksploruj alertów wykrywania zagrożeń dla bazy danych w portalu Azure
 
-Wykrywanie zagrożeń bazy danych SQL integruje się jego alerty z [Centrum zabezpieczeń Azure](https://azure.microsoft.com/en-us/services/security-center/). Na żywo Kafelek zabezpieczenia SQL, na stronie bazy danych w portalu Azure śledzi stan aktywny zagrożeń. 
+Wykrywanie zagrożeń bazy danych SQL integruje się jego alerty z [Centrum zabezpieczeń Azure](https://azure.microsoft.com/services/security-center/). Na żywo Kafelek zabezpieczenia SQL, na stronie bazy danych w portalu Azure śledzi stan aktywny zagrożeń. 
 
    ![Okienko nawigacji][6]
    
@@ -75,10 +75,10 @@ Wykrywanie zagrożeń bazy danych SQL integruje się jego alerty z [Centrum zabe
 
 ## <a name="next-steps"></a>Kolejne kroki
 
-* Dowiedz się więcej o wykrywanie zagrożeń, odwiedź stronę [Azure blog](https://azure.microsoft.com/en-us/blog/azure-sql-database-threat-detection-general-availability-in-spring-2017/) 
+* Dowiedz się więcej o wykrywanie zagrożeń, odwiedź stronę [Azure blog](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-general-availability-in-spring-2017/) 
 * Dowiedz się więcej o [inspekcja bazy danych SQL Azure](sql-database-auditing.md)
 * Dowiedz się więcej o [Centrum zabezpieczeń Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
-* Aby uzyskać więcej informacji o cenach, zobacz [stronie cennika bazy danych SQL](https://azure.microsoft.com/en-us/pricing/details/sql-database/)  
+* Aby uzyskać więcej informacji o cenach, zobacz [stronie cennika bazy danych SQL](https://azure.microsoft.com/pricing/details/sql-database/)  
 * Na przykład skryptu programu PowerShell, zobacz [konfigurowania inspekcji i wykrywania zagrożeń przy użyciu programu PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md)
 
 

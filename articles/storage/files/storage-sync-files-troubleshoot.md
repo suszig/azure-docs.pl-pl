@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 5558a69756075dd83f890d5e9e00c9944d841591
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 4f022bf227c8d460d014ea9bbc5dc426f0ada511
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Rozwiązywanie problemów z synchronizacji plików Azure (wersja zapoznawcza)
 Umożliwia synchronizacji plików Azure (wersja zapoznawcza) scentralizowanie udziałów plików w organizacji w plikach Azure, przy zachowaniu elastyczności, wydajności i zgodności serwera plików lokalnych. Synchronizacja programu Azure pliku przy użyciu systemu Windows Server do szybkiego pamięci podręcznej udziału plików na platformę Azure. Można użyć każdego protokołu, który jest dostępny w systemie Windows Server dostępu do danych lokalnie, w tym protokołu SMB, systemu plików NFS i FTPS. Może mieć dowolną liczbę pamięci podręcznych zgodnie z potrzebami na całym świecie.
@@ -51,7 +51,7 @@ Przejrzyj installer.log, aby ustalić przyczynę niepowodzenia instalacji.
 Aby rozwiązać, Przenieś rolę podstawowego kontrolera domeny do innej domeny kontrolera uruchomionego systemu Windows Server 2012 R2 lub nowszej, a następnie zainstalować synchronizacji.
 
 <a id="agent-installation-websitename-failure"></a>**Instalacja agenta zakończy się niepowodzeniem z powodu następującego błędu: "Magazynu synchronizacji agenta przedwcześnie zakończył"**  
-Ten problem może wystąpić, jeśli zostanie zmieniona nazwa domyślnej witryny sieci Web usług IIS. Aby obejść ten problem, Zmień nazwę domyślna witryna sieci Web IIS jako "Default Web Site", a następnie ponów próbę instalacji. Problem zostanie rozwiązany w przyszłej aktualizacji agenta. 
+Ten problem może wystąpić sytuacja wersja 1.x agenta i jeśli nazwa domyślnej witryny sieci Web usług IIS zostanie zmieniona. Aby obejść ten problem, należy użyć naszych 2.0.11+ agenta.
 
 <a id="server-registration-missing"></a>**Serwer nie jest wyszczególniony w obszarze zarejestrowane serwery w portalu Azure**  
 Jeśli serwer nie jest wymieniony w obszarze **zarejestrowanych serwerów** dla usługi synchronizacji magazynu:

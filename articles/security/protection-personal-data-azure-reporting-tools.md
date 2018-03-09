@@ -1,6 +1,6 @@
 ---
 title: "Ochrona danych osobowych dokumentu przy użyciu narzędzi do raportowania platformy Azure | Dokumentacja firmy Microsoft"
-description: "jak używać raportowania usług platformy Azure i technologii, aby lepiej chronić prywatność danych osobowych."
+description: "Umożliwia Azure usługi reporting services, aby chronić prywatność danych osobowych w inicjatyw zgodne z ogólnych danych ochrony rozporządzenia (GDPR)."
 services: security
 documentationcenter: na
 author: barclayn
@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 397161cf2eaea9712fec352a45f5fc49e8da486c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 2c677a1dea001c6a414304fbaa683c3787b355b1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="document-protection-of-personal-data-with-azure-reporting-tools"></a>Ochrona danych osobowych dokumentu przy użyciu narzędzi do raportowania platformy Azure
 
-W tym artykule będzie omawiać temat Użyj raportowania usług platformy Azure i technologie, aby lepiej chronić prywatność danych osobowych.
-
+W tym artykule będzie omawiać temat Użyj raportowania usług platformy Azure i technologie, aby lepiej chronić prywatność danych osobowych. Te informacje można użyć w celu zapewnienia przestrzegania przepisów branżowych i rządowych takich jak ogólne dane ochrony rozporządzenia (GDPR).
 ## <a name="scenario"></a>Scenariusz
 
 Firma rejs dużych, siedzibą w Stanach Zjednoczonych rozwija operacjach oferowanie trasy w DS, Adriatyku i Bałtyckiego mórz, jak również brytyjskich. Aby ułatwić tych działań, ustawił mniejszych rejs wiersze na podstawie we Włoszech, Niemczech, Dania i Zjednoczone Królestwo

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: magoedte
-ms.openlocfilehash: daf3cc236ef04ae27731e023d35cfe2aa82fc70a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 10422af5a57fc4da77958f15af5b2db61c023e40
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>Łączenie komputerów bez dostępu do Internetu za pomocą bramy OMS
 W tym dokumencie opisano sposób konfigurowania komunikacji przy użyciu automatyzacji Azure i analizy dzienników przy użyciu bramy OMS, gdy bezpośrednie połączenia lub Operations Manager monitorowane komputery nie mają dostępu do Internetu.  Brama OMS, czyli protokołu HTTP do przodu serwera proxy, który obsługuje tunelowania przy użyciu połączenia HTTP polecenia HTTP, można zbierać dane i przesyła do automatyzacji Azure i analizy dzienników w ich imieniu.  
@@ -82,7 +82,7 @@ Brama OMS jest dostępna w następujących językach:
 Brama OMS obsługuje tylko zabezpieczeń TLS (Transport Layer) 1.0, 1.1 i 1.2.  Nie obsługuje protokołu Secure Sockets Layer (SSL).
 
 ### <a name="supported-number-of-agent-connections"></a>Obsługiwana liczba połączeń agenta
-Poniższa tabela prezentuje obsługiwanej liczby agentów komunikację z serwerem bramy.  Ta obsługa jest oparta na agentów przekazywania ~ 200KB danych co 6 sekund. Ilość danych na badane agenta jest około 2.7GB na dzień.
+W poniższej tabeli wymieniono obsługiwane liczby agentów komunikację z serwerem bramy.  Ta obsługa jest oparta na agentów przekazywania ~ 200KB danych co 6 sekund. Ilość danych na badane agenta jest około 2.7GB na dzień.
 
 |Brama |Szacunkowa liczba agentów obsługiwane|  
 |--------|----------------------------------|  
@@ -289,7 +289,7 @@ W poniższej tabeli przedstawiono identyfikatory zdarzeń i opisy zdarzeń w dzi
 | 103 |Odebrano polecenie połączenia HTTP z klienta |
 | 104 |Nie poleceń POŁĄCZYĆ HTTP |
 | 105 |Serwer docelowy nie jest na liście dozwolonych lub port docelowy nie jest bezpieczny port (port 443) <br> <br> Upewnij się, że agent MMA na serwerze bramy i agenci komunikowania się z bramą są podłączone do tego samego obszaru roboczego analizy dzienników. |
-| 105 |Błąd TcpConnection — nieprawidłowy certyfikat: CN = bramy <br><br> Upewnij się, że: <br>    <br> &#149; Korzystania z bramy z numerem wersji 1.0.395.0 lub nowszej. <br> &#149; Agent MMA na serwerze bramy oraz agentów komunikowania się z bramą są podłączone do tego samego obszaru roboczego analizy dzienników. |
+| 105 |Błąd TcpConnection — nieprawidłowy certyfikat: CN = bramy <br><br> Upewnij się, że: <br>    <br> &#149;Korzystania z bramy z numerem wersji 1.0.395.0 lub nowszej. <br> &#149;Agent MMA na serwerze bramy oraz agentów komunikowania się z bramą są podłączone do tego samego obszaru roboczego analizy dzienników. |
 | 106 |Brama OMS obsługuje tylko protokołu TLS 1.0, TLS 1.1 i 1.2.  Nie obsługuje protokołu SSL. Dla dowolnego nieobsługiwanej wersji protokołu TLS/SSL bramy OMS generuje 106 identyfikator zdarzenia.|
 | 107 |Zweryfikowano sesji protokołu TLS |
 

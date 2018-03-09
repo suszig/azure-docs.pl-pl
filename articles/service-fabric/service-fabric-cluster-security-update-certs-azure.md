@@ -1,8 +1,24 @@
---Tytuł: Zarządzanie certyfikatami w klastrze usługi sieć szkieletowa usług Azure | Opis elementu Microsoft Docs: opisano, jak dodawać nowe certyfikaty, certyfikat przerzucania i Usuń certyfikat do lub z klastra sieci szkieletowej usług.
-usługi: documentationcenter sieci szkieletowej usług: Autor .net: Menedżer ChackDan: Edytor timlt: "
-
-ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74 ms.service: service-fabric ms.devlang: dotnet ms.topic: article ms.tgt_pltfrm: na ms.workload: na ms.date: 02/23/2018 ms.author: chackdan
-
+---
+title: "Zarządzanie certyfikatami w klastrze usługi sieć szkieletowa usług Azure | Dokumentacja firmy Microsoft"
+description: "Opisuje sposób dodawać nowe certyfikaty, certyfikat przerzucania i Usuń certyfikat do lub z klastra sieci szkieletowej usług."
+services: service-fabric
+documentationcenter: .net
+author: ChackDan
+manager: timlt
+editor: 
+ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 02/23/2018
+ms.author: chackdan
+ms.openlocfilehash: 68654bd9b14857661b627bf6d6b1dfe2483019a4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Dodaj lub Usuń certyfikaty dla klastra usługi sieć szkieletowa na platformie Azure
 Zalecane jest, zapoznaj się z używaniu certyfikatów X.509 w sieci szkieletowej usług, a następnie należy zapoznać się z [klastra scenariusze zabezpieczeń](service-fabric-cluster-security.md). Trzeba zrozumieć, jakie certyfikat klastra jest i do czego służy, przed przejściem dalej.

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 03/05/2018
 ms.author: billmath
-ms.openlocfilehash: 1d935b73e1087d5ad858bdbee9af68dd1cf5cd1e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: d3c1c080c1198fd75916a119d4bb08c8db50a05d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Synchronizacja programu Azure AD Connect: atrybuty synchronizowane z usługą Azure Active Directory
 Ten temat zawiera listę atrybutów, które są synchronizowane przez synchronizacja programu Azure AD Connect.  
@@ -87,7 +87,7 @@ W takim przypadku zaczynać się na liście atrybutów w tym temacie i zidentyfi
 | l |X |X | | |
 | legacyExchangeDN |X |X |X | |
 | mailNickname |X |X |X | |
-| Zarządzane | | |X | |
+| managedBy | | |X | |
 | manager |X |X | | |
 | Element członkowski | | |X | |
 | Telefon komórkowy |X |X | | |
@@ -211,7 +211,7 @@ W takim przypadku zaczynać się na liście atrybutów w tym temacie i zidentyfi
 | l |X |X | | |
 | Poczty |X |X |X | |
 | mailnickname |X |X |X | |
-| Zarządzane | | |X | |
+| managedBy | | |X | |
 | manager |X |X | | |
 | Element członkowski | | |X | |
 | middleName |X |X | | |
@@ -271,7 +271,7 @@ W takim przypadku zaczynać się na liście atrybutów w tym temacie i zidentyfi
 | l |X |X | | |
 | Poczty |X |X |X | |
 | mailNickname |X |X |X | |
-| Zarządzane | | |X | |
+| managedBy | | |X | |
 | manager |X |X | | |
 | Element członkowski | | |X | |
 | Telefon komórkowy |X |X | | |
@@ -318,7 +318,7 @@ W takim przypadku zaczynać się na liście atrybutów w tym temacie i zidentyfi
 | usageLocation |X | | |tych właściwości. Kraju użytkownika. Używany do przypisywania licencji. |
 | userPrincipalName |X | | |Ta nazwa UPN jest identyfikator logowania dla użytkownika. W większości przypadków taki sam jak [poczty] wartości. |
 
-## <a name="intune"></a>Intune
+## <a name="intune"></a>Usługa Intune
 | Nazwa atrybutu | Użytkownik | Kontakt | Grupa | Komentarz |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Określa, czy konto jest włączone. |
@@ -351,7 +351,7 @@ W takim przypadku zaczynać się na liście atrybutów w tym temacie i zidentyfi
 | facsimiletelephonenumber |X |X | | |
 | givenName |X |X | | |
 | l |X |X | | |
-| Zarządzane | | |X | |
+| managedBy | | |X | |
 | manager |X |X | | |
 | Element członkowski | | |X | |
 | Telefon komórkowy |X |X | | |
@@ -385,7 +385,7 @@ Ta grupa jest zestaw atrybutów, które mogą być używane, jeśli katalog usł
 | Nazwa wyświetlana |X |X |X | |
 | givenName |X |X | | |
 | Poczty |X | |X | |
-| Zarządzane | | |X | |
+| managedBy | | |X | |
 | mailNickName |X |X |X | |
 | Element członkowski | | |X | |
 | objectSID |X | | |tych właściwości. Identyfikator użytkownika AD służy do utrzymywania synchronizacji między Azure AD i usługi AD. |
@@ -421,17 +421,17 @@ Te atrybuty **użytkownika** są oprócz wybrano inne aplikacje.
 ## <a name="exchange-hybrid-writeback"></a>Zapisywanie zwrotne hybrydowego programu Exchange
 Te atrybuty są zapisywane z usługi Azure AD do lokalnej usługi Active Directory po wybraniu umożliwiające **hybrydowym programu Exchange**. W zależności od używanej wersji programu Exchange mogą być synchronizowani mniej atrybutów.
 
-| Nazwa atrybutu | Użytkownik | Kontakt | Grupa | Komentarz |
-| --- |:---:|:---:|:---:| --- |
-| msDS-ExternalDirectoryObjectID |X | | |Pochodną cloudAnchor w usłudze Azure AD. Ten atrybut jest nowa w programie Exchange 2016 i Windows Server 2016 AD. |
-| msExchArchiveStatus |X | | |Archiwum online: Umożliwia klientom archiwum poczty. |
-| msExchBlockedSendersHash |X | | |Filtrowanie: Zapisuje ponownie filtrowania lokalne i dane online nadawcy bezpieczne i zablokowane od klientów. |
-| msExchSafeRecipientsHash |X | | |Filtrowanie: Zapisuje ponownie filtrowania lokalne i dane online nadawcy bezpieczne i zablokowane od klientów. |
-| msExchSafeSendersHash |X | | |Filtrowanie: Zapisuje ponownie filtrowania lokalne i dane online nadawcy bezpieczne i zablokowane od klientów. |
-| msExchUCVoiceMailSettings |X | | |Włącz Unified Messaging (UM) — Poczta głosowa Online: używany przez program Microsoft Lync Server integracji w celu wskazania Lync Server lokalnie czy użytkownik ma poczty głosowej w usługach online. |
-| msExchUserHoldPolicies |X | | |Postępowań blokady: Usługi w chmurze umożliwia ustalenie użytkowników, którzy są w ramach postępowań przechowywania. |
-| proxyAddresses |X |X |X |Tylko x500 dodaje się adres w usłudze Exchange Online. |
-| publicDelegates |X | | |Umożliwia pocztowa usługi Exchange Online otrzymać SendOnBehalfTo prawa do użytkowników z lokalnej skrzynek pocztowych programu Exchange. Wymaga usługi Azure AD Connect kompilacji 1.1.552.0 lub po. |
+| Atrybut Name (łączenie interfejsu użytkownika) |Atrybut Name (lokalnej usłudze AD) | Użytkownik | Kontakt | Grupa | Komentarz |
+| --- |:---:|:---:|:---:| --- |---|
+| msDS-ExternalDirectoryObjectID| ms-DS-External-Directory-Object-Id |X | | |Pochodną cloudAnchor w usłudze Azure AD. Ten atrybut jest nowa w programie Exchange 2016 i Windows Server 2016 AD. |
+| msExchArchiveStatus| ms-Exch-ArchiveStatus |X | | |Archiwum online: Umożliwia klientom archiwum poczty. |
+| msExchBlockedSendersHash| ms-Exch-BlockedSendersHash |X | | |Filtrowanie: Zapisuje ponownie filtrowania lokalne i dane online nadawcy bezpieczne i zablokowane od klientów. |
+| msExchSafeRecipientsHash| ms-Exch-SafeRecipientsHash  |X | | |Filtrowanie: Zapisuje ponownie filtrowania lokalne i dane online nadawcy bezpieczne i zablokowane od klientów. |
+| msExchSafeSendersHash| ms-Exch-SafeSendersHash  |X | | |Filtrowanie: Zapisuje ponownie filtrowania lokalne i dane online nadawcy bezpieczne i zablokowane od klientów. |
+| msExchUCVoiceMailSettings| ms-Exch-UCVoiceMailSettings |X | | |Włącz Unified Messaging (UM) — Poczta głosowa Online: używany przez program Microsoft Lync Server integracji w celu wskazania Lync Server lokalnie czy użytkownik ma poczty głosowej w usługach online. |
+| msExchUserHoldPolicies| ms-Exc-hUserHoldPolicies |X | | |Postępowań blokady: Usługi w chmurze umożliwia ustalenie użytkowników, którzy są w ramach postępowań przechowywania. |
+| proxyAddresses| proxyAddresses |X |X |X |Tylko x500 dodaje się adres w usłudze Exchange Online. |
+| publicDelegates| ms-Exch-Public-Delegates  |X | | |Umożliwia pocztowa usługi Exchange Online otrzymać SendOnBehalfTo prawa do użytkowników z lokalnej skrzynek pocztowych programu Exchange. Wymaga usługi Azure AD Connect kompilacji 1.1.552.0 lub po. |
 
 ## <a name="exchange-mail-public-folder"></a>Folder publiczny poczty programu Exchange
 Te atrybuty są synchronizowane z lokalnej usługi Active Directory do usługi Azure AD po wybraniu opcji Włącz **folderu publicznego poczty programu Exchange**.

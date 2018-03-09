@@ -1,6 +1,6 @@
 ---
 title: Azure ochrona danych osobowych magazynowane z szyfrowaniem | Dokumentacja firmy Microsoft
-description: "W tym artykule jest częścią serii, pomaga Azure umożliwia ochronę danych osobowych"
+description: "W tym artykule może służyć w effforts zgodnie z wymaganiami branżowych i rządowych takich jak ogólne dane ochrony rozporządzenia (GDPR)."
 services: security
 documentationcenter: na
 author: Barclayn
@@ -12,21 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/31/2017
+ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 31e41f9befd9319115e5d147b473756486100c6e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 37da3d91df4be871d6647b6290768ea4999a5010
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-encryption-technologies-protect-personal-data-at-rest-with-encryption"></a>Technologii szyfrowania Azure: ochrony danych osobowych w stanie spoczynku z szyfrowaniem
 
 Ten artykuł pomaga w zrozumieniu i użytkowaniu technologii szyfrowania Azure do zabezpieczania danych w stanie spoczynku.
 
-Szyfrowanie danych magazynowanych jest najlepszym rozwiązaniem do ochrony danych poufnych i osobistych i spełniać wymagania dotyczące zachowania poufności danych i zgodności.
-Szyfrowanie magazynowanych zaprojektowano w celu uniemożliwić osobie atakującej dostęp do niezaszyfrowane dane przez zapewnienie im dane są szyfrowane, gdy na dysku.
+Szyfrowanie danych magazynowanych jest najlepszym rozwiązaniem do ochrony danych poufnych i osobistych i spełniać wymagania dotyczące zachowania poufności danych i zgodności. Szyfrowanie magazynowanych zaprojektowano w celu uniemożliwić osobie atakującej dostęp do niezaszyfrowane dane przez zapewnienie im dane są szyfrowane, gdy na dysku. Informacje zawarte w tym artykule może służyć do zgodne z ogólnych danych ochrony rozporządzenia (GDPR).
 
 ## <a name="scenario"></a>Scenariusz 
 
@@ -167,7 +166,7 @@ Firmy mogą wykonywać jego celem szyfrowania danych osobowych, przechowywane w 
 
 Do ochrony kluczy, które są używane do szyfrowania danych na platformie Azure, firma może używać usługi Azure Key Vault. Usprawnia proces zarządzania kluczami i umożliwia firmie, aby zachować kontrolę nad kluczami, które dostępu i szyfrowanie danych osobistych.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Przewodnik rozwiązywania problemów szyfrowania dysków Azure](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-tsg)
 

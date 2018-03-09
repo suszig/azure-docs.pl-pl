@@ -6,22 +6,22 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: article
-ms.date: 1/04/2018
+ms.date: 03/06/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: ce37cfdd70f95822a912f6ea71b9e4a3f9a30a14
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 1bcaf350fc6c1ba4a5f998c35f0c3a9d351c9c4d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="persistent-volumes-with-azure-files"></a>Woluminy trwałe pliki Azure
 
-Trwały wolumin reprezentuje fragment magazynu, które zostały udostępnione do użycia w klastrze Kubernetes. Trwały wolumin mogą być używane przez jedną lub wiele stanowiskami i można za dynamicznie lub statycznie. Ten dokument zawiera szczegóły dotyczące dynamicznego inicjowania obsługi administracyjnej udziału plików na platformę Azure jako trwały wolumin Kubernetes AKS klastra. 
+Trwały wolumin reprezentuje fragment magazynu, które zostały udostępnione do użycia w klastrze Kubernetes. Trwały wolumin mogą być używane przez jedną lub wiele stanowiskami i można za dynamicznie, czy statycznie. Ten dokument zawiera szczegóły dotyczące dynamicznego inicjowania obsługi administracyjnej udziału plików na platformę Azure jako trwały wolumin Kubernetes AKS klastra. 
 
 Aby uzyskać więcej informacji na woluminach trwałe Kubernetes, zobacz [woluminy trwałe Kubernetes][kubernetes-volumes].
 
-## <a name="prerequisites"></a>Wymagania wstępne
+## <a name="create-storage-account"></a>Tworzenie konta magazynu
 
 Podczas dynamicznego inicjowania obsługi administracyjnej udziału plików na platformę Azure jako wolumin Kubernetes dowolne konto magazynu może służyć tak długo, jak są zawarte w tej samej grupie zasobów co klaster AKS. Jeśli to konieczne, Utwórz konto magazynu w tej samej grupie zasobów co klaster AKS. 
 
@@ -31,7 +31,7 @@ Aby zidentyfikować grupę odpowiednich zasobów, użyj [listy grup az] [ az-gro
 az group list --output table
 ```
 
-Następujące przykładowe dane wyjściowe zawiera grupy zasobów, zarówno skojarzony z klastrem AKS. Grupa zasobów o nazwie, takich jak *MC_myAKSCluster_myAKSCluster_eastus* zawiera AKS zasobów klastra i gdzie konta magazynu musi zostać utworzona. 
+Szukasz grupy zasobów o nazwie podobny do `MC_clustername_clustername_locaton`, gdzie clustername jest nazwą klastra AKS i lokalizacja jest region platformy Azure, w którym została wdrożona klastra.
 
 ```
 Name                                 Location    Status
@@ -40,17 +40,21 @@ MC_myAKSCluster_myAKSCluster_eastus  eastus      Succeeded
 myAKSCluster                         eastus      Succeeded
 ```
 
-Po zidentyfikowaniu grupy zasobów należy utworzyć konta magazynu z [Tworzenie konta magazynu az] [ az-storage-account-create] polecenia.
+Użyj [Tworzenie konta magazynu az] [ az-storage-account-create] polecenie, aby utworzyć konto magazynu. 
+
+Za pomocą tego przykładu, zaktualizuj `--resource-group` z nazwą grupy zasobów i `--name` na wybraną nazwę.
 
 ```azurecli-interactive
-az storage account create --resource-group  MC_myAKSCluster_myAKSCluster_eastus --name mystorageaccount --location eastus --sku Standard_LRS
+az storage account create --resource-group MC_myAKSCluster_myAKSCluster_eastus --name mystorageaccount --location eastus --sku Standard_LRS
 ```
 
 ## <a name="create-storage-class"></a>Tworzenie klasy magazynu
 
-Klasa magazynu jest używany do definiowania sposobu skonfigurowania trwały wolumin utworzony dynamicznie. Elementy, takie jak nazwa konta magazynu platformy Azure, jednostki SKU i region są definiowane w obiekcie klasy magazynu. Aby uzyskać więcej informacji na Kubernetes klasy magazynu, zobacz [klasy magazynu Kubernetes][kubernetes-storage-classes].
+Klasa magazynu jest używany do definiowania sposobu tworzenia udziału plików na platformę Azure. Można określić konto magazynu określonego w klasie. Jeśli nie określono konta magazynu, `skuName` i `location` musi być określona, i wszystkich kont magazynu w grupie zasobów są oceniane pod kątem dopasowania.
 
-Poniższy przykład pokazuje, że wszystkie konta magazynu dla jednostki SKU typu `Standard_LRS` w `eastus` region może być używane podczas żądania magazynu. 
+Aby uzyskać więcej informacji na Kubernetes klasy magazynu plików Azure, zobacz [klasy magazynu Kubernetes][kubernetes-storage-classes].
+
+Utwórz plik o nazwie `azure-file-sc.yaml` i skopiuj następujące manifestu. Aktualizacja `storageAccount` z nazwą konta magazynu docelowego.
 
 ```yaml
 kind: StorageClass
@@ -59,29 +63,22 @@ metadata:
   name: azurefile
 provisioner: kubernetes.io/azure-file
 parameters:
-  skuName: Standard_LRS
+  storageAccount: mystorageaccount
 ```
 
-Aby użyć konta określonego magazynu, `storageAccount` parametr może zostać użyty.
+Utwórz klasę magazynu z [utworzyć kubectl] [ kubectl-create] polecenia.
 
-```yaml
-kind: StorageClass
-apiVersion: storage.k8s.io/v1
-metadata:
-  name: azurefile
-provisioner: kubernetes.io/azure-file
-parameters:
-  storageAccount: azure_storage_account_name
+```azurecli-interactive
+kubectl create -f azure-file-sc.yaml
 ```
 
 ## <a name="create-persistent-volume-claim"></a>Tworzenie oświadczeń trwały wolumin
 
-Oświadczenie trwały wolumin używa obiektu klasy magazynu, aby dynamicznie inicjują obsługę część magazynu. Podczas korzystania z usługi pliki Azure, tworzenie udziału plików Azure na koncie magazynu wybrany lub określony w obiekcie klasy magazynu.
+Oświadczenie trwały wolumin (PVC) używa obiektu klasy magazynu, aby dynamicznie inicjują obsługę udziału plików na platformę Azure. 
 
->  [!NOTE]
->   Upewnij się, że konto magazynu odpowiednie zostało utworzone wcześniej w tej samej grupie zasobów co AKS zasobów klastra. Ta grupa zasobów ma nazwę, takich jak *MC_myAKSCluster_myAKSCluster_eastus*. Oświadczenia trwały wolumin nie będzie można udostępnić udziału plików na platformę Azure, jeśli konto magazynu nie jest dostępna. 
+Manifest następujące może służyć do tworzenia oświadczeń trwały wolumin `5GB` rozmiaru w `ReadWriteOnce` dostępu.
 
-Manifest następujące może służyć do tworzenia oświadczeń trwały wolumin `5GB` rozmiaru w `ReadWriteOnce` dostępu. Aby uzyskać więcej informacji na PVC tryby dostępu, zobacz [tryby dostępu do][access-modes].
+Utwórz plik o nazwie `azure-file-pvc.yaml` i skopiuj następujące manifestu. Upewnij się, że `storageClassName` odpowiada klasy magazynowania utworzone w ostatnim kroku.
 
 ```yaml
 apiVersion: v1
@@ -97,9 +94,19 @@ spec:
       storage: 5Gi
 ```
 
+Tworzenie oświadczenia trwały wolumin o [utworzyć kubectl] [ kubectl-create] polecenia.
+
+```azurecli-interactive
+kubectl create -f azure-file-sc.yaml
+```
+
+Po ukończeniu będzie można utworzyć udziału plików. Klucz tajny Kubernetes tworzona jest również zawierający informacje o połączeniu oraz poświadczenia.
+
 ## <a name="using-the-persistent-volume"></a>Przy użyciu trwały wolumin
 
-Po oświadczeń trwały wolumin został utworzony, a Magazyn pomyślnie zainicjowano obsługę administracyjną, pod można tworzyć z dostępem do woluminu. Manifest następujących tworzy pod, używającej oświadczeń trwały wolumin `azurefile` Aby zainstalować udział plików na platformę Azure w `/var/www/html` ścieżki. 
+Manifest następujących tworzy pod, używającej oświadczeń trwały wolumin `azurefile` Aby zainstalować udział plików na platformę Azure w `/mnt/azure` ścieżki.
+
+Utwórz plik o nazwie `azure-pvc-files.yaml`i skopiuj następujące manifestu. Upewnij się, że `claimName` odpowiada PVC utworzone w ostatnim kroku.
 
 ```yaml
 kind: Pod
@@ -111,7 +118,7 @@ spec:
     - name: myfrontend
       image: nginx
       volumeMounts:
-      - mountPath: "/var/www/html"
+      - mountPath: "/mnt/azure"
         name: volume
   volumes:
     - name: volume
@@ -119,36 +126,13 @@ spec:
         claimName: azurefile
 ```
 
-## <a name="mount-options"></a>Opcje instalacji
+Utwórz pod z [utworzyć kubectl] [ kubectl-create] polecenia.
 
-Domyślną wartością parametru fileMode i dirMode wartości różnią się między wersjami Kubernetes zgodnie z opisem w poniższej tabeli. 
-
-| wersja | wartość |
-| ---- | ---- |
-| v1.6.x, v1.7.x | 0777 |
-| v1.8.0-v1.8.5 | 0700 |
-| V1.8.6 lub nowszy | 0755 |
-| v1.9.0 | 0700 |
-| V1.9.1 lub nowszy | 0755 |
-
-Jeśli przy użyciu klastra wersji 1.8.5 lub nowszego instalacji można określić opcji dla obiekt klasy magazynu. W poniższym przykładzie `0777`. 
-
-```yaml
-kind: StorageClass
-apiVersion: storage.k8s.io/v1
-metadata:
-  name: azurefile
-provisioner: kubernetes.io/azure-file
-mountOptions:
-  - dir_mode=0777
-  - file_mode=0777
-  - uid=1000
-  - gid=1000
-parameters:
-  skuName: Standard_LRS
+```azurecli-interactive
+kubectl create -f azure-pvc-files.yaml
 ```
 
-Jeśli przy użyciu klastra wersji 1.8.0 - 1.8.4, za pomocą można określić kontekstu zabezpieczeń `runAsUser` wartość `0`. Aby uzyskać więcej informacji na Pod kontekstu zabezpieczeń, zobacz [skonfigurować kontekstu zabezpieczeń][kubernetes-security-context].
+Masz teraz pod uruchomiona z dysku platformy Azure, zamontowane w `/mnt/azure` katalogu. Widać instalacji podczas sprawdzania z pod za pośrednictwem woluminu `kubectl describe pod mypod`.
 
 ## <a name="next-steps"></a>Kolejne kroki
 
@@ -164,7 +148,7 @@ Dowiedz się więcej o Kubernetes woluminów trwałego za pomocą usługi pliki 
 [kubernetes-files]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_file/README.md
 [kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
 [kubernetes-security-context]: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
-[kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/
+[kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/#azure-file
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
 
 <!-- LINKS - internal -->

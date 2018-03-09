@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: c89b455212ad428dbe67d7f1d95517072c220d8e
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: d317d35e2b4e1a0cebb354e3b2b2e75fd9ca6976
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-a-virtual-network-with-multiple-subnets-using-the-azure-portal"></a>Tworzenie sieci wirtualnej z wieloma podsieciami przy użyciu portalu Azure
 
@@ -41,7 +41,7 @@ Zaloguj się w witrynie Azure Portal pod adresem http://portal.azure.com.
 
 1. Wybierz **+ Utwórz zasób** w górnym lewym rogu portalu Azure.
 2. Wybierz **sieci**, a następnie wybierz **sieci wirtualnej**.
-3. Jak pokazano na poniższej ilustracji, wprowadź *myVirtualNetwork* dla **nazwa**, **myResourceGroup** dla **grupy zasobów**, *Publicznych* dla podsieci **nazwa**, 10.0.0.0/24 dla podsieci **zakres adresów**, wybierz pozycję **lokalizacji** i  **Subskrypcja**Zaakceptuj pozostałe wartości domyślne, a następnie wybierz **Utwórz**:
+3. Jak pokazano na poniższej ilustracji, wprowadź *myVirtualNetwork* dla **nazwa**, *10.0.0.0/16* dla **przestrzeni adresów**,  **myResourceGroup** dla **grupy zasobów**, *publicznego* dla podsieci **nazwa**, 10.0.0.0/24 dla podsieci **zakresadresów**, wybierz pozycję **lokalizacji** i **subskrypcji**Zaakceptuj pozostałe wartości domyślne, a następnie wybierz **Utwórz**:
 
     ![Tworzenie sieci wirtualnej](./media/virtual-networks-create-vnet-arm-pportal/create-virtual-network.png)
 
@@ -146,7 +146,7 @@ Maszyny wirtualne utworzone w tym artykule istnieje [interfejs sieciowy](virtual
     Jeśli maszyna wirtualna nie musi mieć publiczny adres IP przypisane do niej, Azure przypisuje publicznego adresu IP do każdej maszyny wirtualnej, które tworzysz, domyślnie. Aby komunikować się z Internetu na maszynę wirtualną, publiczny adres IP musi można przypisać do maszyny wirtualnej. Wszystkie maszyny wirtualne mogą komunikować się wychodzące z Internetem, czy przypisano publiczny adres IP do maszyny wirtualnej. Aby dowiedzieć się więcej na temat połączenia wychodzące Internet na platformie Azure, zobacz [połączeń wychodzących na platformie Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 13. Na komputerze użytkownika, przejdź do publicznego adresu IP *myVmWeb* maszyny wirtualnej. Próba wyświetlenia strona powitalna usług IIS z tego komputera nie powiedzie się. Próba nie powiedzie się, ponieważ gdy maszyny wirtualne zostały wdrożone, Azure utworzyć grupę zabezpieczeń sieci dla każdej maszyny wirtualnej domyślnie. 
 
-     Grupa zabezpieczeń sieci zawiera zasady zabezpieczeń, które dozwolonych lub zablokowanych dla ruchu przychodzącego i wychodzącego ruchu sieciowego przez port i adres IP. Domyślne grupy zabezpieczeń sieci utworzone Azure umożliwia komunikację za pośrednictwem wszystkie porty między zasobami w tej samej sieci wirtualnej. Dla maszyn wirtualnych systemu Windows domyślną grupę zabezpieczeń sieci nie zezwala na cały ruch przychodzący z Internetu przez wszystkie porty, Zaakceptuj portu TCP 3389 (RDP). W związku z tym domyślnie można również RDP bezpośrednio do *myVmWeb* maszyny wirtualnej z Internetu, nawet jeśli nie możesz portu 3389 Otwórz na serwerze sieci web. Ponieważ przeglądanie sieci web komunikuje się za pośrednictwem portu 80, komunikacji nie z Internetu, ponieważ nie istnieje żadna reguła w domyślnej grupie zabezpieczeń sieci zezwala na ruch przez port 80.
+     Grupa zabezpieczeń sieci zawiera zasady zabezpieczeń, które dozwolonych lub zablokowanych dla ruchu przychodzącego i wychodzącego ruchu sieciowego przez port i adres IP. Domyślne grupy zabezpieczeń sieci utworzone Azure umożliwia komunikację za pośrednictwem wszystkie porty między zasobami w tej samej sieci wirtualnej. Dla maszyn wirtualnych systemu Windows domyślną grupę zabezpieczeń sieci nie zezwala na cały ruch przychodzący z Internetu przez wszystkie porty, z wyjątkiem portu TCP 3389 (RDP). W związku z tym domyślnie można również RDP bezpośrednio do *myVmWeb* maszyny wirtualnej z Internetu, nawet jeśli nie możesz portu 3389 Otwórz na serwerze sieci web. Ponieważ przeglądanie sieci web komunikuje się za pośrednictwem portu 80, komunikacji nie z Internetu, ponieważ nie istnieje żadna reguła w domyślnej grupie zabezpieczeń sieci zezwala na ruch przez port 80.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: juluk
-ms.openlocfilehash: 69431979769a03b62a7f9fd7760e6eb614e37cd6
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3f605645e7a53f285cb7e508034ebab0daa0d335
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Szybki Start dla Bash w chmurze Azure powłoki
 
@@ -65,7 +65,7 @@ Nazwa użytkownika na tej maszynie Wirtualnej zostanie nazwy użytkownika używa
 
 ### <a name="ssh-into-your-linux-vm"></a>SSH do maszyny Wirtualnej systemu Linux
 1. Wyszukaj nazwę maszyny Wirtualnej na pasku wyszukiwania portalu Azure
-2. Kliknij przycisk "Połącz", a następnie uruchom:`ssh username@ipaddress`
+2. Kliknij przycisk "Połącz", a następnie uruchom: `ssh username@ipaddress`
 
 ![](media/quickstart/sshcmd-copy.png)
 

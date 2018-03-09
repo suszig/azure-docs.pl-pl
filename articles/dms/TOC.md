@@ -6,6 +6,7 @@
 
 # Samouczki
 ## [Migrowanie programu SQL Server do usługi Azure SQL DB](tutorial-sql-server-to-azure-sql.md)
+## [Migrowanie programu SQL Server do zarządzanego wystąpienia usługi SQL DB](tutorial-sql-server-to-managed-instance.md)
 
 # Przewodniki z instrukcjami
 ## [Używanie programu PowerShell do migrowania programu SQL Server](howto-sql-server-to-azure-sql-powershell.md)
@@ -19,4 +20,4 @@
 ## [Przegląd wymagań wstępnych](pre-reqs.md)
 ## [Często zadawane pytania](faq.md)
 ## [Aktualizacje usług](https://azure.microsoft.com/en-us/updates/?product=database-migration)
-
+## [Topologie sieci na potrzeby migracji wystąpienia zarządzanego usługi Azure SQL DB](resource-network-topologies.md)

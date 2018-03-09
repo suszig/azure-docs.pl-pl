@@ -14,25 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2018
 ms.author: chackdan
-ms.openlocfilehash: 8e2fceaf7e8a0d6c177d3122bd07de5b8c11f295
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: ad5f396cd71eb0136fe683bbccb9360291be2d59
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Zagadnienia związane z planowaniem pojemności klastra sieci szkieletowej usług
 Wszystkie wdrożenia produkcyjnego planowania pojemności jest ważnym krokiem. Poniżej przedstawiono niektóre elementy, które należy wziąć pod uwagę w ramach tego procesu.
 
 * Liczba typów węzeł klastra musi zaczynać
 * Właściwości każdego typu węzła (rozmiar, podstawową, internetowy, liczba maszyn wirtualnych itd.)
-* Niezawodność i trwałość właściwości klastra
+* Charakterystyka niezawodności i trwałości klastra
 
 Daj nam krótko Sprawdź każdy z tych elementów.
 
 ## <a name="the-number-of-node-types-your-cluster-needs-to-start-out-with"></a>Liczba typów węzeł klastra musi zaczynać
 Najpierw należy ustalić klastra, które tworzysz przechodzi do zastosowania w przypadku i jakiego rodzaju aplikacje planowane jest wdrożenie w tym klastrze. Jeśli nie jest jasne celowo klastra, możesz najprawdopodobniej nie została jeszcze gotowy do wprowadź wydajność procesu planowania.
 
-Ustal liczbę typy węzeł klastra musi zaczynać.  Każdy typ węzła jest zamapowane do zestawu skalowania maszyn wirtualnych. Każdy typ węzła następnie można skalować w lub w dół niezależnie, mają różne zestawy otwartych portów i może mieć metryki pojemności różnych. Tak decyzji liczba typów węzła zasadniczo zawiera przedstawione poniżej zagadnienia:
+Ustal liczbę typy węzeł klastra musi zaczynać.  Każdy typ węzła jest zamapowane do zestawu skalowania maszyn wirtualnych. Następnie każdy typ węzła może być niezależnie skalowany w górę lub w dół oraz może mieć różne zestawy otwartych portów i różne metryki pojemności. Tak decyzji liczba typów węzła zasadniczo zawiera przedstawione poniżej zagadnienia:
 
 * Aplikacja ma wiele usług i ich wymaga jednak publicznego lub Internetem? Typowe aplikacje zawierają usługi frontonu bramy, który odbiera dane wejściowe z klienta i co najmniej jeden zaplecza usług, które komunikują się z usługi frontonu. Dlatego w tym przypadku na końcu mających co najmniej dwa typy węzłów.
 * Usługi (wchodzące w skład aplikacji), czy mają potrzeb różnych infrastruktury, takich większa ilość pamięci RAM lub wyższej cykli Procesora? Na przykład Poinformuj nas założono, że aplikacja, która ma zostać wdrożona zawiera usługi frontonu i zaplecza. Usługi frontonu może działać na mniejsze maszyn wirtualnych (na przykład D2 rozmiarów maszyn wirtualnych), które mają porty niezbędne do Internetu.  Usługi zaplecza, jednak jest wymagające obliczenia i do uruchamiania na większych maszyn wirtualnych (o rozmiarów maszyn wirtualnych, takie jak D15 D4, D6,), które nie są internet skierowane.
@@ -88,10 +88,11 @@ Otrzymasz wybierz poziom trwałości dla każdego z typów węzłów. Można wyb
  
 1. Wdrożenia do zestawu skalowania maszyn wirtualnych i inne powiązane zasoby Azure) mogą być opóźnione, można przekroczyło limit czasu lub mogą zostać zablokowane całkowicie przez problemy w klastrze lub na poziomie infrastruktury. 
 2. Zwiększa liczbę [zdarzenia cyklu życia repliki](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle ) (na przykład podstawowego zamiany) ze względu na automatyczne deactivations węzła podczas operacji infrastruktury platformy Azure.
+3. Pobiera węzły poza usługi dla okresów podczas aktualizacji oprogramowania platformy Azure lub konserwacji sprzętu, które są wykonywane działania. Węzły o stanie wyłączona lub wyłączenie może pojawić się podczas tych czynności. Tymczasowo zmniejsza pojemność klastra, ale nie powinny mieć wpływ na dostępność klastra lub aplikacji.
 
 ### <a name="recommendations-on-when-to-use-silver-or-gold-durability-levels"></a>Zalecenia dotyczące użycie Silver lub złota poziom trwałości
 
-Użyj trwałości Silver lub Gold dla wszystkich typów węzłów zawierających usługi stanowej spodziewasz się w skali (zmniejszyć liczbę wystąpień maszyny Wirtualnej) często i wolisz opóźniony operacje wdrażania na rzecz uproszczenia tych operacji skalowania. Scenariusze skalowalnego w poziomie (Dodawanie wystąpień maszyn wirtualnych) nie są odtwarzane w wybranym warstwa trwałości, tylko skali w jest.
+Użyj trwałości Silver lub Gold dla wszystkich typów węzłów zawierających usługi stanowej spodziewasz się w skali (zmniejszyć liczbę wystąpień maszyny Wirtualnej) często, i chcesz użyć opóźniony operacje wdrażania i pojemności należy zmniejszyć na rzecz uproszczenia te skalowania w operacje. Scenariusze skalowalnego w poziomie (Dodawanie wystąpień maszyn wirtualnych) nie są odtwarzane w wybranym warstwa trwałości, tylko skali w jest.
 
 ### <a name="changing-durability-levels"></a>Zmienianie poziomów trwałości
 - Typy węzłów o poziomie trwałości Silver lub złota nie można zmienić na brązowa.

@@ -5,13 +5,13 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/05/2018
 ms.author: raynew
-ms.openlocfilehash: bbad2a0ea1a58834eaf32e0d3286f6e8a794d364
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 8a3328e8aa42876f48960f7ccd32a5c819435019
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Tryb failover i niepowodzeniem ponownie fizycznych serwerów zreplikowanej w systemie Azure
 
@@ -41,7 +41,7 @@ Sprawdź właściwości serwera i upewnij się, że spełnia on [wymagania dotyc
 
 ## <a name="run-a-failover-to-azure"></a>Przełączanie do trybu failover na platformie Azure
 
-1. W **ustawienia** > **elementy replikowane** kliknij maszynę > **pracy awaryjnej**.
+1. W obszarze **Ustawienia** > **Zreplikowane elementy** kliknij maszynę wirtualną > **Tryb failover**.
 2. W obszarze **Tryb failover** wybierz **Punkt odzyskiwania**, którego chcesz użyć do przełączenia do trybu failover. Możesz użyć jednej z następujących opcji:
    - **Najnowszy** (domyślna): ta opcja najpierw przetwarza wszystkie dane wysyłane do usługi Site Recovery. Zapewnia najniższą wartość celu puntu odzyskiwania, ponieważ maszyna wirtualna platformy Azure utworzona po przejściu do trybu failover zawiera wszystkie dane, które zostały zreplikowane w usłudze Site Recovery do momentu włączenia trybu failover.
    - **Najnowsze przetworzone**: Ta opcja nie powiedzie się za pośrednictwem maszyny do ostatniego punktu odzyskiwania przetworzone przez usługę Site Recovery. Ta opcja zapewnia niską wartość celu czasu odzyskiwania, ponieważ nie wymaga przetwarzania nieprzetworzonych danych.
@@ -62,7 +62,7 @@ Serwer przetwarzania otrzymuje dane z maszyny wirtualnej Azure i wysyła je do l
 
 - Jeśli masz połączenie Azure ExpressRoute, możesz użyć do celów testowych lokalnego serwera przetwarzania, który jest automatycznie instalowany na serwerze konfiguracji.
 - Jeśli masz połączenie VPN lub jeśli przeprowadzasz powrót po awarii w środowisku produkcyjnym, musisz na potrzeby powrotu po awarii skonfigurować maszynę wirtualną Azure jako serwer przetwarzania na platformie Azure.
-- Postępuj zgodnie z instrukcjami [w tym artykule](site-recovery-vmware-setup-azure-ps-resource-manager.md) Aby skonfigurować serwer przetwarzania na platformie Azure.
+- Postępuj zgodnie z instrukcjami [w tym artykule](vmware-azure-set-up-process-server-azure.md) Aby skonfigurować serwer przetwarzania na platformie Azure.
 
 ## <a name="configure-the-master-target-server"></a>Konfigurowanie głównego serwera docelowego
 

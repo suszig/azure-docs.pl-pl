@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 03/05/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bc82b41554eff4e9cdefa1a3848a4a11c954d33c
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 24873c685ee16520e6a8b8af9abeab84639613d7
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure SDK .NET dla interfejsu API SQL rozwiązania Cosmos DB: Pobierz i informacje o wersji
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/02/2018
 > * [Źródła danych zmian .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
-> * [Asynchroniczne Java](sql-api-sdk-async-java.md)
+> * [Java (asynchroniczny)](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/documentdb/)
@@ -54,6 +54,12 @@ ms.lasthandoff: 03/02/2018
 </table></br>
 
 ## <a name="release-notes"></a>Informacje o wersji
+### <a name="a-name12101210"></a><a name="1.21.0"/>1.21.0
+
+* Pojedynczy pakiet NuGet programu .NET Framework i .NET Standard. [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/) pakietu jest przestarzała. 
+* Stała KeyNotFoundException dla innej kolejności partycji w zapytaniach w sytuacjach wyjątkowych.
+* Stały usterki, którym nie został trwa honorowane atrybutu JsonPropery w klauzuli select do kwerend LINQ.
+
 ### <a name="a-name12021202"></a><a name="1.20.2"/>1.20.2
 
 * Stałe usterkę, która zostaje trafiony w niektórych warunkach wyścigu, powodujące sporadyczne "Microsoft.Azure.Documents.NotFoundException: odczytu sesji nie jest dostępna dla tokenu sesji wejściowy" błędy podczas korzystania z poziomu spójności sesji.
@@ -290,7 +296,7 @@ Wszystkie żądania dotyczące bazy danych rozwiązania Cosmos Azure przy użyci
 
 | Wersja | Data wydania | Dacie wycofania |
 | --- | --- | --- |
-| [1.20.2](#1.20.2) |21 lutego 2018 r. |--- |
+| [1.21.0](#1.21.0) |05 marca 2018 |--- |
 | [1.20.1](#1.20.1) |05 lutego 2018 |--- |
 | [1.19.1](#1.19.1) |16 listopada 2017 r. |--- |
 | [1.19.0](#1.19.0) |10 listopada 2017 r. |--- |

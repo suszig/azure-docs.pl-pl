@@ -16,11 +16,11 @@ ms.date: 07/20/2017
 ms.author: billmath
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: eaf9e7088c8c88140ea690c13ff7e0c7026b8f86
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 568bf5f0a4cf3eb77b528af2550d9729dcc59878
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Można skonfigurować tokenu okresy istnienia w usłudze Azure Active Directory (publicznej wersji zapoznawczej)
 Można określić okres istnienia token wystawiony przez usługę Azure Active Directory (Azure AD). Można ustawić tokenu okresy istnienia dla wszystkich aplikacji w organizacji, dla wielodostępnych aplikacji (wielu organizacji) lub nazwy głównej usługi określonego w organizacji.
@@ -34,6 +34,11 @@ W usłudze Azure AD obiekt zasad reprezentuje zestaw reguł, które są wymuszan
 
 Zasady można wyznaczyć jako domyślne zasady dla Twojej organizacji. Zasady są stosowane do aplikacji w organizacji, dopóki nie zostanie on przesłonięty przez zasady z wyższym priorytetem. Można również przypisać zasady do określonych aplikacji. Według priorytetu zależy od typu zasad.
 
+> [!NOTE]
+> Zasad można skonfigurować okres istnienia tokenu nie jest obsługiwana dla usługi SharePoint Online.  Mimo że masz możliwość tworzenia tych zasad za pomocą programu PowerShell usługi SharePoint Online nie potwierdzi tych zasad. Zapoznaj się [blogu usługi SharePoint Online](https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/ba-p/119208) Aby dowiedzieć się więcej o konfigurowaniu limitów czasu bezczynności sesji.
+>* Domyślny okres istnienia tokenu dostępu usługi SharePoint Online jest 1 godzina. 
+>* Maksymalny czas nieaktywności domyślne usługi SharePoint Online token odświeżania wynosi 90 dni.
+>
 
 ## <a name="token-types"></a>Typy tokenów
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 05/27/2016
 ms.author: torsteng
-ms.openlocfilehash: 012fc38075285b898599517f3e6ed5a3c9eb854d
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 4441cdef3bc97aab35451720753e437e24702fd9
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Transakcje rozproszone w bazach danych w chmurze
 Transakcji elastycznej bazy danych dla usługi Azure SQL Database (baza danych SQL) pozwala na uruchamianie transakcje obejmujące wiele baz danych w bazie danych SQL. Transakcji elastycznej bazy danych dla bazy danych SQL są dostępne dla aplikacji .NET przy użyciu ADO .NET oraz integrują się z znanych programowania środowisko przy użyciu [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) klasy. Aby pobrać bibliotekę, zobacz [.NET Framework 4.6.1 (Instalator internetowy)](https://www.microsoft.com/download/details.aspx?id=49981).
@@ -133,9 +133,9 @@ Użyj dynamicznych widoków zarządzania (widoków DMV) w bazie danych SQL do mo
 
 Tych widoków DMV jest szczególnie przydatna:
 
-* **sys.DM\_tran\_active\_transakcji**: Wyświetla listę obecnie aktywnych transakcji i ich stan. Kolumna UOW (jednostka pracy) można zidentyfikować transakcji inny podrzędny, które należą do tej samej transakcji rozproszonej. Wszystkie transakcje w ramach jednej transakcji rozproszonej posiadać taką samą wartość UOW. Zobacz [dokumentacji DMV](https://msdn.microsoft.com/library/ms174302.aspx) więcej szczegółów.
-* **sys.DM\_tran\_bazy danych\_transakcji**: udostępnia dodatkowe informacje o transakcji, takich jak umieszczania transakcji w dzienniku. Zobacz [dokumentacji DMV](https://msdn.microsoft.com/library/ms186957.aspx) więcej szczegółów.
-* **sys.DM\_tran\_blokad**: zawiera informacje o blokad, które są obecnie przechowywane w bieżących transakcji. Zobacz [dokumentacji DMV](https://msdn.microsoft.com/library/ms190345.aspx) więcej szczegółów.
+* **sys.DM\_tran\_active\_transakcji**: Wyświetla listę obecnie aktywnych transakcji i ich stan. Kolumna UOW (jednostka pracy) można zidentyfikować transakcji inny podrzędny, które należą do tej samej transakcji rozproszonej. Wszystkie transakcje w ramach jednej transakcji rozproszonej posiadać taką samą wartość UOW. Zobacz [dokumentacji DMV](https://msdn.microsoft.com/library/ms174302.aspx) Aby uzyskać więcej informacji.
+* **sys.DM\_tran\_bazy danych\_transakcji**: udostępnia dodatkowe informacje o transakcji, takich jak umieszczania transakcji w dzienniku. Zobacz [dokumentacji DMV](https://msdn.microsoft.com/library/ms186957.aspx) Aby uzyskać więcej informacji.
+* **sys.DM\_tran\_blokad**: zawiera informacje o blokad, które są obecnie przechowywane w bieżących transakcji. Zobacz [dokumentacji DMV](https://msdn.microsoft.com/library/ms190345.aspx) Aby uzyskać więcej informacji.
 
 ## <a name="limitations"></a>Ograniczenia
 Do transakcji elastycznej bazy danych w bazie danych SQL obecnie obowiązują następujące ograniczenia:
@@ -144,7 +144,7 @@ Do transakcji elastycznej bazy danych w bazie danych SQL obecnie obowiązują na
 * Tylko koordynowane klienta transakcje z aplikacji .NET są obsługiwane. Obsługa po stronie serwera T-SQL, takich jak rozpocząć transakcji ROZPROSZONYCH jest planowane, ale nie jest jeszcze dostępna. 
 * Transakcje w usługach WCF nie są obsługiwane. Na przykład masz metody usługi WCF, która wykonuje transakcji. Otaczający wywołanie w zakresie transakcji nie powiedzie się jako [System.ServiceModel.ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Odpowiedzi na pytania, proszę dotrzeć do nas na [forum bazy danych SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) i funkcja żądań, dodaj je do [forum opinii bazy danych SQL](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->

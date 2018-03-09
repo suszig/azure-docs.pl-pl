@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: fcf6d2bf13af785eae26ff60035a4754f6ec702e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 49f3d5ba55a9c1abfcd6dcb50058ed7a001a2eec
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="collector-appliance"></a>Moduł zbierający urządzenia
 
@@ -23,9 +23,23 @@ ms.lasthandoff: 03/02/2018
 
 Moduł zbierający migracji Azure jest urządzenia lighweight, który może służyć do wykrywania w lokalnym środowisku vCenter. Urządzenie umożliwia odnalezienie lokalnych maszyn VMware i wysyła metadane dotyczące ich do usługi Azure migracji.
 
-Urządzenia moduł zbierający jest OVF pobieranych z Azure migracji projektu. Metoda tworzy maszynę wirtualną VMware o 4 rdzenie, 8 GB pamięci RAM i jeden dysk 80 GB. System operacyjny urządzenia jest Windows Server 2012 R2 (64-bitowy)
+Urządzenia moduł zbierający jest OVF pobieranych z Azure migracji projektu. Metoda tworzy maszynę wirtualną VMware o 4 rdzenie, 8 GB pamięci RAM i jeden dysk 80 GB. System operacyjny urządzenia jest Windows Server 2012 R2 (64-bitowe).
 
 Można utworzyć modułu zbierającego, wykonując kroki opisane w tym miejscu - [sposób utworzyć maszynę Wirtualną modułu zbierającego](tutorial-assessment-vmware.md#create-the-collector-vm).
+
+## <a name="collector-communication-diagram"></a>Moduł zbierający komunikacji diagramu
+
+![Moduł zbierający komunikacji diagramu](./media/tutorial-assessment-vmware/portdiagram.PNG)
+
+
+| Składnik      | Element docelowy komunikacji   | Wymagany port                            | Przyczyna                                   |
+| -------------- | --------------------- | ---------------------------------------- | ---------------------------------------- |
+| Moduł zbierający      | Usługa Azure Migrate | TCP 443                                  | Moduł zbierający powinny mieć możliwość komunikacji z usługą za pośrednictwem portu SSL 443 |
+| Moduł zbierający      | Program vCenter Server        | Domyślne 443                             | Moduł zbierający powinno być możliwe do komunikacji z serwerem vCenter. Łączy się vCenter na 443 domyślnie. Jeśli vCenter nasłuchuje na innym porcie, ten port powinny być dostępne jako port wychodzący modułu zbierającego |
+| Moduł zbierający      | RDP|   | TCP 3389 | Można mieć możliwość RDP do komputera modułu zbierającego |
+
+
+
 
 
 ## <a name="collector-pre-requisites"></a>Moduł zbierający wymagania wstępne
@@ -158,6 +172,32 @@ W poniższej tabeli wymieniono liczniki wydajności, które są zbierane, a tak�
 Moduł zbierający tylko umożliwia odnalezienie danych komputera i wysyła je do projektu. Projekt może zająć dodatkowy czas przed odnalezione dane są wyświetlane w portalu i rozpoczęciem tworzenia ocenę.
 
 Na podstawie liczby maszyn wirtualnych w wybranym zakresie, trwa maksymalnie 15 minut do wysyłania statycznych metadanych do projektu. Po statycznych metadane są dostępne w portalu, możesz zapoznać się z listą maszyn w portalu i rozpocząć tworzenie grupy. Nie można utworzyć oceny, dopiero po zakończeniu zadania zbierania i projektu zostało przetworzone dane. Raz zadanie pobierania zostało ukończone w module zbierającym, może potrwać maksymalnie jedną godzinę dane dotyczące wydajności są dostępne w portalu, zależy od liczby maszyn wirtualnych w wybranym zakresie.
+
+## <a name="how-to-upgrade-collector"></a>Jak uaktualnić moduł zbierający
+
+Moduł zbierający można uaktualnić do najnowszej wersji, bez pobierania komórki jajowe jeszcze raz.
+
+1. Pobierz najnowszą [pakiet uaktualniający](https://aka.ms/migrate/col/latestupgrade).
+2. W celu zapewnienia bezpiecznego pobrany poprawki, Otwórz okno polecenia administratora i uruchom następujące polecenie, aby wygenerować skrótu dla pliku ZIP. Skrót wygenerowanego powinno być zgodne z skrótu wymienionych dla określonej wersji:
+
+    ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
+    
+    (example usage C:\>CertUtil -HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.5.zip SHA256)
+3. Skopiuj plik zip do migracji Azure modułu zbierającego maszyny wirtualnej (moduł zbierający urządzenia).
+4. Kliknij prawym przyciskiem myszy w pliku zip, a następnie wybierz Wyodrębnij wszystkie.
+5. Kliknij prawym przyciskiem myszy na Setup.ps1 i wybierz polecenie Uruchom przy użyciu programu PowerShell i postępuj zgodnie z instrukcjami na ekranie, aby zainstalować aktualizację.
+
+### <a name="list-of-updates"></a>Lista aktualizacji
+
+#### <a name="upgrade-to-version-1095"></a>Uaktualnienie do wersji 1.0.9.5
+
+W celu uaktualnienia do wersji 1.0.9.5 pobierania [pakietu](https://aka.ms/migrate/col/upgrade_9_5)
+
+**Algorytm** | **Wartość skrótu**
+--- | ---
+MD5 | d969ebf3bdacc3952df0310d8891ffdf
+SHA1 | f96cc428eaa49d597eb77e51721dec600af19d53
+SHA256 | 07c03abaac686faca1e82aef8b80e8ad8eca39067f1f80b4038967be1dc86fa1
 
 ## <a name="next-steps"></a>Kolejne kroki
 
