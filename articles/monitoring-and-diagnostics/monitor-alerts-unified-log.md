@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: vinagara
-ms.openlocfilehash: 438776e7f0885dbdb0d66ccdd18d854e14beb299
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0cee8bf77e0facc12159b823152b8859ce5cedd8
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="log-alerts-in-azure-monitor---alerts-preview"></a>Dziennik alerty w programie Azure Monitor — alerty (wersja zapoznawcza)
-Ten artykuł zawiera szczegółowe informacje, jak alertu reguł w pracach zapytania analityka w alertach Azure (wersja zapoznawcza) i opisano różnice między różnych typów reguł alertów dziennika.
+Ten artykuł zawiera szczegółowe informacje, jak alertu reguł w pracach zapytania analityka w alertach Azure (wersja zapoznawcza) i opisano różnice między różnych typów reguł alertów dziennika. Aby uzyskać więcej informacji o alertach Metryka przy użyciu dzienników, zapoznaj się [niemal alerty metryki czasu rzeczywistego](monitoring-near-real-time-metric-alerts.md)
 
 Obecnie alerty Azure (wersja zapoznawcza), obsługuje rejestrowania alertów dla zapytań z [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) i [usługi Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events).
 
@@ -40,12 +40,12 @@ Następnie po [tworzenia alertu dziennika alertów (wersja zapoznawcza)](monitor
 
 ## <a name="log-alert-rules"></a>Reguły alertów dziennika
 
-Alerty są tworzone przez alerty Azure (wersja zapoznawcza) automatycznie uruchamiać zapytania dziennika w regularnych odstępach czasu.  Jeśli wyniki zapytania dziennika spełniających kryteria określonego, tworzony jest rekord alertu. Reguła następnie automatycznie uruchomić co najmniej jednej akcji do aktywnego powiadomienia o alercie lub wywołanie innego procesu, takie jak wysyłanie danych do aplikacji zewnętrznych za pomocą [json na podstawie elementu webhook](monitor-alerts-unified-log-webhook.md)za pomocą [grupy akcji](monitoring-action-groups.md). Różnych typów reguł alertów używać różnych logikę do wykonywania tej analizy.
+Alerty są tworzone dzięki alertom w usłudze Azure (wersja zapoznawcza), aby automatycznie uruchomić dziennika zapytań w regularnych odstępach czasu.  Jeśli wyniki zapytania dziennika spełniających kryteria określonego, tworzony jest rekord alertu. Reguła następnie automatycznie uruchomić co najmniej jednej akcji do aktywnego powiadomienia o alercie lub wywołanie innego procesu, takie jak wysyłanie danych do aplikacji zewnętrznych za pomocą [json na podstawie elementu webhook](monitor-alerts-unified-log-webhook.md)za pomocą [grupy akcji](monitoring-action-groups.md). Różnych typów reguł alertów używać różnych logikę do wykonywania tej analizy.
 
 Reguły alertów są określone przez następujące informacje:
 
 - **Zaloguj się zapytania**.  Zapytanie, do którego jest uruchamiany za każdym razem, gdy generowane reguły alertów.  Rekordów zwróconych przez to zapytanie są używane do określenia, czy alert jest tworzony.
-- **Przedział czasu**.  Określa przedział czasu dla zapytania.  Zapytanie zwraca tylko te rekordy, które zostały utworzone w ramach tego zakresu bieżącego czasu.  Przedział czasu może mieć dowolną wartość od 5 minut do 1440 minut lub 24 godziny. Na przykład jeśli przedział czasu jest ustawiona na 60 minut, a godzina 13:15 będzie uruchomieniu kwerendy, jest zwracana tylko rekordy między 12:15:00 a 13:15:00.
+- **Przedział czasu**.  Określa przedział czasu dla zapytania.  Zapytanie zwraca tylko rekordy utworzone w tym zakresie czasu bieżącego.  Przedział czasu może mieć dowolną wartość od 5 minut do 1440 minut lub 24 godziny. Na przykład jeśli przedział czasu jest ustawiona na 60 minut, a godzina 13:15 będzie uruchomieniu kwerendy, jest zwracana tylko rekordy między 12:15:00 a 13:15:00.
 - **Częstotliwość**.  Określa, jak często mają być uruchamiane zapytania. Może być dowolną wartość z zakresu od 5 minut do 24 godzin. Powinna być równa lub mniejsza niż przedział czasu.  Jeśli wartość jest większa niż przedział czasu, istnieje ryzyko rekordów jest pominięte.<br>Rozważmy na przykład okno czasu 30 minut i częstotliwość 60 minut.  Jeśli zapytanie jest uruchomione 1:00, zwraca rekordów między 12:30 i 1:00 PM.  Przy następnym uruchom zapytanie to 2:00 po zwróci rekordów między 1:30 i 2:00.  Nigdy nie będzie można obliczyć wszystkie rekordy między 1:00 i 1:30.
 - **Próg**.  Wyniki wyszukiwania dziennika są oszacowywane, aby określić, czy można utworzyć alertu.  Próg jest różne dla różnych typów reguł alertów.
 
@@ -75,7 +75,7 @@ Rozważmy scenariusz, w którym chcesz wiedzieć, kiedy aplikacji opartych na si
 **Alert częstotliwości:** pięć minut<br>
 **Wartość progowa:** dużą niż 0<br>
 
-Następnie alert może uruchomić kwerendę co 5 minut z 30 minut dane — do wyszukania wszystkich rekordów gdzie kod wyniku: 500. Jeśli zostanie znaleziony nawet jednego takiego zapisu, generowane alertu i wyzwalacza Akcja skonfigurowana.
+Następnie alert może uruchomić kwerendę co 5 minut z 30 minut dane — do wyszukania wszystkich rekordów gdzie kod wyniku: 500. Jeśli zostanie znaleziony nawet jednego takiego zapisu, generowane alert i wyzwala Akcja skonfigurowana.
 
 ## <a name="metric-measurement-alert-rules"></a>Metryki pomiaru reguły alertów
 
@@ -96,7 +96,7 @@ Następnie alert może uruchomić kwerendę co 5 minut z 30 minut dane — do wy
 
 **Interwał**: Określa przedział czasu, w którym są agregowane.  Na przykład, jeśli określono **pięć minut**, może zostać utworzony rekord dla każdego wystąpienia pola grupy przez przedział czasu określony dla alertu agregowana co 5 minut.
 > [!NOTE]
-> Funkcja Kosza musi być używany w zapytaniu. Także jeśli przedziały czasu nierówne są tworzone dla przedział czasu, przez użycie funkcji Bin - alertu zamiast tego funkcja bin_at zamiast niego zostanie użyty do upewnij się, że ma stałego punktu
+> Funkcja Kosza musi być używany w zapytaniu. Jak bin() może spowodować przedziały czasu nierówne — Alert będzie zamiast tego funkcja bin_at z właściwym czasie w czasie wykonywania, zapewnić wyniki ze stałym punktem
 
 **Próg**: próg metryki pomiaru reguły alertów jest definiowana za pomocą wartości zagregowanej i liczbę naruszeń.  Dowolnego punktu danych w dzienniku wyszukiwania przekracza tę wartość, jest uznawane za naruszenia.  Jeśli liczba naruszeń w dla dowolnego obiektu w wynikach przekracza określoną wartość, alert zostanie utworzony dla tego obiektu.
 

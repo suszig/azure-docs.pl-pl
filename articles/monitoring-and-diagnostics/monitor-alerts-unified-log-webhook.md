@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/2/2018
 ms.author: vinagara
-ms.openlocfilehash: ee7bdf03c96e078d0d64eeaaffc38ff61596d837
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 5852eb099f6620656aa69e5085447c2a8b4e0c01
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Akcje elementu Webhook dla dziennika reguły alertów
 Gdy [alert jest tworzony na platformie Azure (wersja zapoznawcza)](monitor-alerts-unified-usage.md), masz możliwość [konfigurowania za pomocą grup akcji](monitoring-action-groups.md) do wykonywania co najmniej jednej akcji.  W tym artykule opisano webhook różne akcje, które są dostępne i szczegółowe informacje na temat konfigurowania niestandardowego elementu webhook opartych na formacie JSON.
@@ -170,7 +170,7 @@ Poniżej przedstawiono przykładowe ładunku dla akcji niestandardowej elementu 
     
 
     {
-    "AlertRuleName":"AcmeRule","IncludeSearchResults":true,
+    "alertname":"AcmeRule","IncludeSearchResults":true,
     "SearchResult":
         {
         "tables":[

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/07/2018
 ms.author: jingwang
-ms.openlocfilehash: c924640feffea4cbe0372cabc937656d2ec41c7d
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: b12477b855dad28976989e694888667fd0cb6b20
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Kopiowanie danych z bazy danych MongoDB przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,7 +41,7 @@ W szczególności ten łącznik bazy danych MongoDB obsługuje:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skopiować dane z bazy danych MongoDB, który nie jest dostępny publicznie, należy skonfigurować środowisko uruchomieniowe Self-hosted integracji. Zobacz [środowiska uruchomieniowego integracji Self-hosted](create-self-hosted-integration-runtime.md) artykuł, aby poznać szczegóły. Środowiska uruchomieniowego integracji zawiera wbudowane sterownik bazy danych MongoDB, dlatego nie trzeba ręcznie zainstalowania sterownika podczas kopiowania danych z/do bazy danych MongoDB.
+Aby skopiować dane z bazy danych MongoDB, który nie jest dostępny publicznie, należy skonfigurować środowisko uruchomieniowe Self-hosted integracji. Zobacz [środowiska uruchomieniowego integracji Self-hosted](create-self-hosted-integration-runtime.md) artykuł, aby poznać szczegóły. Środowiska uruchomieniowego integracji oferuje wbudowane sterownik bazy danych MongoDB, dlatego nie trzeba ręcznie zainstalowania sterownika podczas kopiowania danych z bazy danych MongoDB.
 
 ## <a name="getting-started"></a>Wprowadzenie
 
@@ -177,7 +177,7 @@ Podczas kopiowania danych z bazy danych MongoDB, następujące mapowania są uż
 
 | Typ danych MongoDB | Typ danych tymczasowych fabryki danych |
 |:--- |:--- |
-| Binarny |Byte[] |
+| Binarne |Byte[] |
 | Wartość logiczna |Wartość logiczna |
 | Date |DateTime |
 | NumberDouble |Podwójnej precyzji |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: garye;raymondl
-ms.openlocfilehash: 93e75a2864d9aef266b16f8dd7dcc3411b24864b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: raymondl
+ms.openlocfilehash: f7efa647fa6afc247509cd4a52066c0459f75ca3
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="consume-an-azure-machine-learning-web-service-by-using-a-web-app-template"></a>Korzystać z usługi sieci web uczenie maszynowe Azure przy użyciu szablonu aplikacji sieci web
 
@@ -119,7 +119,7 @@ Wartości wejściowe dla usługi sieci web wykonywania wsadowego mogą pochodzi�
 
 Aplikacja sieci web wyświetla stronę o stanie zadania. Po zakończeniu zadania można pobrać lokalizacji wyników w magazynie obiektów Blob Azure. Istnieje również możliwość pobierania wyniki do pliku lokalnego.
 
-## <a name="for-more-information"></a>Aby uzyskać więcej informacji
+## <a name="for-more-information"></a>Więcej informacji
 Aby dowiedzieć się więcej o:
 
 * Tworzenie eksperymentu uczenia maszynowego o usłudze Machine Learning Studio, zobacz [Tworzenie pierwszego eksperymentu w usłudze Azure Machine Learning Studio](create-experiment.md).

@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: byvinyal
-ms.openlocfilehash: 551f34436dfeac14bb6e8676dd7c9b10d30a3af3
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 72416cfcd05767b223cc92ac28bd0e736516ddf6
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-app-service-static-ip-restrictions"></a>Usługa aplikacji Azure ograniczenia statycznego adresu IP #
 
@@ -32,7 +32,7 @@ Ograniczenia adresów IP są oceniane na tym samym wystąpieniach planu usługi 
 
 Aby dodać regułę ograniczeń adresu IP do aplikacji, użyj menu można otworzyć **sieci**>**ograniczenia adresów IP** i kliknij przycisk **skonfigurować ograniczenia adresów IP**
 
-! [Ograniczenia adresów IP] (media/app-service-ip-restrictions/ip-restrictions.png)
+![Ograniczenia adresów IP](media/app-service-ip-restrictions/ip-restrictions.png)  
 
 W tym miejscu można przejrzeć na liście reguł ograniczeń IP zdefiniowane dla aplikacji.
 

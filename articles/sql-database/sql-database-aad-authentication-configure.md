@@ -1,25 +1,21 @@
 ---
 title: "Konfigurowanie uwierzytelniania usługi Azure Active Directory - SQL | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak łączyć się z bazą danych SQL i SQL Data Warehouse przy użyciu usługi Azure uwierzytelnianie usługi Active Directory — po skonfigurowaniu usługi Azure AD."
+description: "Dowiedz się, jak nawiązać połączenie bazy danych SQL, zarządzane wystąpienia i SQL Data Warehouse przy użyciu usługi Azure uwierzytelnianie usługi Active Directory — po skonfigurowaniu usługi Azure AD."
 services: sql-database
 author: GithubMirek
 manager: johammer
-ms.assetid: 7e2508a1-347e-4f15-b060-d46602c5ce7e
 ms.service: sql-database
 ms.custom: security
-ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: 
-ms.workload: Active
-ms.date: 01/09/2018
+ms.date: 03/07/2018
 ms.author: mireks
-ms.openlocfilehash: 93fb39770a0b0c63011c05505be411c7470fea0a
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 00b5be9863e2bff9e5b82845f99d6829e1bcdf13
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-or-sql-data-warehouse"></a>Konfigurowanie i zarządzanie nimi uwierzytelniania usługi Azure Active Directory z bazą danych SQL lub SQL Data Warehouse
+# <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>Konfigurowanie i zarządzanie nimi uwierzytelniania usługi Azure Active Directory z bazy danych SQL, zarządzane wystąpienia lub SQL Data Warehouse
 
 W tym artykule przedstawiono sposób tworzenia i wypełniania usługi Azure AD, a następnie użyj usługi Azure AD z bazy danych SQL Azure i SQL Data Warehouse. Aby uzyskać ogólne informacje, zobacz [uwierzytelniania usługi Azure Active Directory](sql-database-aad-authentication.md).
 
@@ -47,22 +43,74 @@ Jeśli używasz usługi Azure Active Directory z replikacja geograficzna, admini
 > Użytkownicy, którzy nie są oparte na koncie usługi Azure AD (łącznie z konta administratora serwera Azure SQL), nie można utworzyć usługi Azure AD użytkownicy, ponieważ nie mają uprawnień do weryfikowania użytkowników bazą danych z usługą Azure AD.
 > 
 
-## <a name="provision-an-azure-active-directory-administrator-for-your-azure-sql-server"></a>Zapewnij administrator usługi Azure Active Directory dla serwera Azure SQL
+## <a name="provision-an-azure-active-directory-administrator-for-your-managed-instance"></a>Administrator usługi Azure Active Directory dla wystąpienia zarządzane udostępniania
+
+> [!IMPORTANT]
+> Tylko wykonaj następujące kroki w przypadku udostępniania wystąpienia programu zarządzane. Ta operacja może być wykonywane tylko przez administratora globalnego/firmy w usłudze Azure AD. Poniżej opisano proces przyznawania uprawnień dla użytkowników z różnych uprawnień w katalogu.
+
+Zarządzane wystąpienia wymaga uprawnień do odczytu do usługi Azure AD pomyślnie wykonywanie zadań takich jak uwierzytelnianie użytkowników za pośrednictwem przynależności do grupy zabezpieczeń lub tworzenia nowych użytkowników. Aby to zrobić należy udzielić uprawnień do zarządzanego wystąpienia odczytać usługi Azure AD. Istnieją dwa sposoby to zrobić: z portalu i programu PowerShell. Następujące kroki obu metod.
+
+1. W portalu Azure, w prawym górnym rogu kliknij połączenie na liście rozwijanej listę możliwych usług Active Directory. 
+2. Wybierz prawidłowe usługi Active Directory jako domyślnej usługi Azure AD. 
+
+   Ten krok łączy subskrypcję skojarzoną z usługi Active Directory z wystąpieniem zarządzane, upewniając się, że tej samej subskrypcji jest używana zarówno dla usługi Azure AD i zarządzane wystąpienia.
+3. Przejdź do wystąpienia zarządzane i wybierz jedną, który ma być używany dla integracji z usługą Azure AD.
+
+   ![usługi AAD](./media/sql-database-aad-authentication/aad.png)
+
+4.  Kliknij na transparencie na górze strony administratora usługi Active Directory. Jeśli użytkownik jest zalogowany jako administrator globalny/firmy w usłudze Azure AD, możesz to zrobić z portalu Azure lub przy użyciu programu PowerShell.
+
+    ![Udziel uprawnień portalu](./media/sql-database-aad-authentication/grant-permissions.png)
+
+    ![Udziel uprawnień powershell](./media/sql-database-aad-authentication/grant-permissions-powershell.png)
+    
+    Jeśli użytkownik jest zalogowany jako administrator globalny/firmy w usłudze Azure AD, możesz to zrobić w portalu Azure lub skrypt programu PowerShell.
+
+5. Po pomyślnym zakończeniu operacji następujące powiadomienia będą widoczne w prawym górnym rogu:
+
+    ![powodzenie](./media/sql-database-aad-authentication/success.png)
+
+6.  Teraz możesz administratora usługi Azure AD dla swojego wystąpienia zarządzane. W tym na stronie administratora usługi Active Directory kliknij **ustawić administratora** polecenia.
+
+    ![set-admin](./media/sql-database-aad-authentication/set-admin.png)
+
+7. Na stronie Administracja Dodaj wyszukiwania dla użytkownika, wybierz użytkownika lub grupy jako administrator, a następnie kliknij przycisk **wybierz**. 
+
+   Strona Administrator usługi Active Directory zawiera wszystkie elementy członkowskie i grup usługi Active Directory. Nie można wybrać użytkowników lub grup, które są wygaszone, ponieważ nie są obsługiwane jako administratorów usługi Azure AD. Zobacz listę obsługiwanych Administratorzy w [funkcje usługi Azure AD i ograniczenia](sql-database-aad-authentication.md#azure-ad-features-and-limitations). Kontrola dostępu oparta na rolach (RBAC) ma zastosowanie tylko do portalu Azure i nie są propagowane do programu SQL Server.
+
+    ![add-admin](./media/sql-database-aad-authentication/add-admin.png)
+
+8. W górnej części strony administratora usługi Active Directory, kliknij przycisk **zapisać**.
+
+    ![zapisz](./media/sql-database-aad-authentication/save.png)
+
+    Proces zmiany administrator może potrwać kilka minut. Następnie w polu administratora usługi Active Directory pojawi się nowego administratora.
+
+> [!IMPORTANT]
+> Podczas konfigurowania usługi Azure AD administratora, Nowa nazwa administratora (użytkownik lub grupa) nie może być już dostępne w bazie danych master wirtualnego jako użytkownik uwierzytelniania programu SQL Server. Jeśli jest obecny, spowoduje to niepowodzenie instalacji administratora usługi Azure AD i wycofywanie jej tworzenia i wskazujący, że takie jak administrator (nazwa) już istnieje. Ponieważ taki użytkownik uwierzytelniania programu SQL Server nie jest częścią usługi Azure AD, próbuje połączyć się z serwerem przy użyciu uwierzytelniania usługi Azure AD nie powiedzie się.
+
+> [!TIP]
+> Aby później usunąć administratora, w górnej części strony administratora usługi Active Directory, kliknij przycisk **usunąć administratora**, a następnie kliknij przycisk **zapisać**.
+ 
+## <a name="provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server"></a>Zapewnij administrator usługi Azure Active Directory dla serwera bazy danych SQL Azure
+
+> [!IMPORTANT]
+> Tylko wykonaj następujące kroki w przypadku udostępniania serwera bazy danych SQL Azure lub magazynu danych.
 
 Poniższe dwie procedury pokazują, jak udostępnić administratorem serwera Azure SQL w portalu Azure i przy użyciu programu PowerShell usługi Azure Active Directory.
 
 ### <a name="azure-portal"></a>Azure Portal
 1. W [portalu Azure](https://portal.azure.com/), w prawym górnym rogu kliknij połączenie na liście rozwijanej listę możliwych usług Active Directory. Wybierz prawidłowe usługi Active Directory jako domyślnej usługi Azure AD. Ten krok łącza skojarzenia subskrypcji z usługi Active Directory z serwerem Azure SQL, upewniając się, że tej samej subskrypcji jest używana zarówno dla usługi Azure AD i programu SQL Server. (Serwer Azure SQL można obsługiwać, baza danych SQL Azure lub usługi Azure SQL Data Warehouse.)   
-    ![Wybierz ad][8]   
+    ![choose-ad][8]   
     
-2. Na transparencie po lewej stronie wybierz **serwerów SQL**, wybierz pozycję z **programu SQL server**, a następnie w **programu SQL Server** bloku, kliknij przycisk **administratora usługi Active Directory** .   
-3. W **administratora usługi Active Directory** bloku, kliknij przycisk **ustawić administratora**.   
+2. Na transparencie po lewej stronie wybierz **serwerów SQL**, wybierz pozycję z **programu SQL server**, a następnie w **programu SQL Server** kliknij przycisk **administratora usługi Active Directory**.   
+3. W **administratora usługi Active Directory** kliknij przycisk **ustawić administratora**.   
     ![Wybierz usługi active directory](./media/sql-database-aad-authentication/select-active-directory.png)  
     
-4. W **dodać administratora** bloku, Wyszukaj użytkownika, wybierz użytkownika lub grupę, aby administrator, a następnie kliknij przycisk **wybierz**. (Bloku administratora usługi Active Directory zawiera wszystkie elementy członkowskie i grup usługi Active Directory. Nie można wybrać użytkowników lub grup, które są wygaszone, ponieważ nie są obsługiwane jako administratorów usługi Azure AD. (Zobacz listę obsługiwanych Administratorzy w **funkcje usługi Azure AD i ograniczenia** sekcji [Użyj Azure uwierzytelnianie usługi Active Directory do uwierzytelniania przy użyciu bazy danych SQL lub SQL Data Warehouse](sql-database-aad-authentication.md).) Kontrola dostępu oparta na rolach (RBAC) ma zastosowanie tylko do portalu i nie są propagowane do programu SQL Server.   
+4. W **dodać administratora** , Wyszukaj użytkownika, wybierz użytkownika lub grupy jako administrator, a następnie kliknij przycisk **wybierz**. (Strony administratora usługi Active Directory zawiera wszystkie elementy członkowskie i grup usługi Active Directory. Nie można wybrać użytkowników lub grup, które są wygaszone, ponieważ nie są obsługiwane jako administratorów usługi Azure AD. (Zobacz listę obsługiwanych Administratorzy w **funkcje usługi Azure AD i ograniczenia** sekcji [Użyj Azure uwierzytelnianie usługi Active Directory do uwierzytelniania przy użyciu bazy danych SQL lub SQL Data Warehouse](sql-database-aad-authentication.md).) Kontrola dostępu oparta na rolach (RBAC) ma zastosowanie tylko do portalu i nie są propagowane do programu SQL Server.   
     ![Wybierz administratora](./media/sql-database-aad-authentication/select-admin.png)  
     
-5. W górnej części **administratora usługi Active Directory** bloku, kliknij przycisk **ZAPISAĆ**.   
+5. W górnej części **administratora usługi Active Directory** kliknij przycisk **ZAPISAĆ**.   
     ![Zapisz administratora](./media/sql-database-aad-authentication/save-admin.png)   
 
 Proces zmiany administrator może potrwać kilka minut. Następnie nowego administratora jest wyświetlana w **administratora usługi Active Directory** pole.
@@ -72,7 +120,7 @@ Proces zmiany administrator może potrwać kilka minut. Następnie nowego admini
    > 
 
 
-Aby później usunąć administratora, w górnej części **administratora usługi Active Directory** bloku, kliknij przycisk **usunąć administratora**, a następnie kliknij przycisk **zapisać**.
+Aby później usunąć administratora, w górnej części **administratora usługi Active Directory** kliknij przycisk **usunąć administratora**, a następnie kliknij przycisk **zapisać**.
 
 ### <a name="powershell"></a>PowerShell
 Do uruchamiania poleceń cmdlet programu PowerShell, należy mieć programu Azure PowerShell zainstalowany i uruchomiony. Aby uzyskać szczegółowe informacje, zobacz artykuł [How to install and configure Azure PowerShell](/powershell/azure/overview) (Instalowanie i konfigurowanie programu Azure PowerShell).
@@ -80,17 +128,17 @@ Do uruchamiania poleceń cmdlet programu PowerShell, należy mieć programu Azur
 Aby udostępnić administrator usługi Azure AD, wykonaj następujące polecenia programu PowerShell systemu Azure:
 
 * Add-AzureRmAccount
-* SELECT-AzureRmSubscription
+* Select-AzureRmSubscription
 
 Polecenia cmdlet używane do udostępniania i zarządzania nimi administratora usługi Azure AD:
 
 | Nazwa polecenia cmdlet | Opis |
 | --- | --- |
-| [Zestaw AzureRmSqlServerActiveDirectoryAdministrator](/powershell/module/azurerm.sql/set-azurermsqlserveractivedirectoryadministrator) |Inicjuje administrator usługi Azure Active Directory dla serwera Azure SQL lub usługi Azure SQL Data Warehouse. (Musi być z bieżącej subskrypcji). |
-| [Usuń AzureRmSqlServerActiveDirectoryAdministrator](/powershell/module/azurerm.sql/remove-azurermsqlserveractivedirectoryadministrator) |Usuwa administratora usługi Azure Active Directory dla serwera Azure SQL lub usługi Azure SQL Data Warehouse. |
+| [Set-AzureRmSqlServerActiveDirectoryAdministrator](/powershell/module/azurerm.sql/set-azurermsqlserveractivedirectoryadministrator) |Inicjuje administrator usługi Azure Active Directory dla serwera Azure SQL lub usługi Azure SQL Data Warehouse. (Musi być z bieżącej subskrypcji). |
+| [Remove-AzureRmSqlServerActiveDirectoryAdministrator](/powershell/module/azurerm.sql/remove-azurermsqlserveractivedirectoryadministrator) |Usuwa administratora usługi Azure Active Directory dla serwera Azure SQL lub usługi Azure SQL Data Warehouse. |
 | [Get-AzureRmSqlServerActiveDirectoryAdministrator](/powershell/module/azurerm.sql/get-azurermsqlserveractivedirectoryadministrator) |Zwraca informacje o obecnie skonfigurowane dla serwera Azure SQL lub usługi Azure SQL Data Warehouse administratora usługi Azure Active Directory. |
 
-Użyj polecenia PowerShell get-help, aby zobaczyć więcej szczegółów dla każdego z tych poleceń, na przykład ``get-help Set-AzureRmSqlServerActiveDirectoryAdministrator``.
+Użyj polecenia PowerShell get-help, aby uzyskać więcej informacji dla każdego z tych poleceń, na przykład ``get-help Set-AzureRmSqlServerActiveDirectoryAdministrator``.
 
 Poniższy skrypt postanowienia o nazwie grupy administratorów usługi Azure AD **DBA_Group** (identyfikator obiektu `40b79501-b343-44ed-9ce7-da4c8cc7353f`) dla **demo_server** serwera w grupie zasobów o nazwie **grupy-23**:
 

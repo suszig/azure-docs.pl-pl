@@ -3,7 +3,7 @@ title: "Zarządzanie kontami magazynu Azure stosu | Dokumentacja firmy Microsoft
 description: "Dowiedz się, jak znaleźć, zarządzania, odzyskiwania i odzyskania konta magazynu Azure stosu"
 services: azure-stack
 documentationcenter: 
-author: brenduns
+author: mattbriggs
 manager: femila
 editor: 
 ms.assetid: 627d355b-4812-45cb-bc1e-ce62476dab34
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 4/6/2017
-ms.author: brenduns
+ms.date: 02/22/2018
+ms.author: mabrigg
 ms.reviewer: anirudha
-ms.openlocfilehash: 3ef9a66095d0ed5fc865dc3c22961f9f7bdcedd9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 395cd113e21bf747c796ff28026f552f30656b47
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Zarządzanie kontami magazynu Azure stosu
 Dowiedz się, jak zarządzać kontami magazynu Azure stosu, odzyskiwanie, a odzyskać pojemność magazynu, w zależności od potrzeb biznesowych.
@@ -29,13 +29,13 @@ Lista kont magazynu w regionie można wyświetlić w stosie Azure przez:
 
 1. W przeglądarce sieci Web przejdź do https://adminportal.local.azurestack.external.
 2. Zaloguj się do portalu administracyjnego stosu Azure jako chmury operatora (przy użyciu poświadczeń, których podana podczas wdrażania)
-3. Na pulpicie nawigacyjnym domyślny — Znajdź **Region zarządzania** listy i kliknij region skorzystać. Na przykład **(lokalnego**).
+3. Na pulpicie nawigacyjnym domyślny — Znajdź **zarządzania Region** listy i kliknij region chcesz się dowiedzieć, na przykład **(lokalnego**).
    
    ![](media/azure-stack-manage-storage-accounts/image1.png)
 4. Wybierz **magazynu** z **dostawców zasobów** listy.
    
    ![](media/azure-stack-manage-storage-accounts/image2.png)
-5. Teraz, w bloku administrator dostawcy zasobów magazynu — przewiń w dół do **kont magazynu** i kliknij ją.
+5. Teraz, w okienku administrator dostawcy zasobów magazynu — przewiń w dół do **kont magazynu** i kliknij ją.
    
    ![](media/azure-stack-manage-storage-accounts/image3.png)
    
@@ -52,34 +52,34 @@ Jeśli interesuje Cię na koncie magazynu określonym — możesz **filtrowania 
 
 **Aby filtrować kont:**
 
-1. Kliknij przycisk **filtru** w górnej części bloku.
-2. W bloku filtru pozwala na określenie **nazwa konta**, **identyfikator subskrypcji** lub **stan** można dostosować listę kont magazynu, który będzie wyświetlany. Użyj ich, zależnie od potrzeb.
+1. Kliknij przycisk **filtru** u góry okienka.
+2. W okienku filtru go służy do określenia **nazwa konta**, ** identyfikator subskrypcji lub **stan** można dostosować listę kont magazynu, który będzie wyświetlany. Użyj ich, zależnie od potrzeb.
 3. Kliknij przycisk **aktualizacji**. W związku z tym odświeżenia listy.
    
     ![](media/azure-stack-manage-storage-accounts/image5.png)
 4. Aby zresetować filtr: kliknij **filtru**, wyczyszczenie zaznaczenia i aktualizować.
 
-Pole tekstowe wyszukiwania (w górnej części bloku listy kont magazynu) umożliwia wyróżnianie tekstu zaznaczonego w listy kont. Jest to naprawdę przydatne w przypadku, gdy pełna nazwa lub identyfikator nie jest łatwo dostępny.
+Pole tekstowe wyszukiwania (w górnej części okienka listy kont magazynu) umożliwia wyróżnianie tekstu zaznaczonego w listy kont. Umożliwia to, gdy pełna nazwa lub identyfikator nie jest łatwo dostępny.
 
 Dowolny tekst tutaj służy do znajdowania konta, które planuje się.
 
 ![](media/azure-stack-manage-storage-accounts/image6.png)
 
 ## <a name="look-at-account-details"></a>Sprawdź szczegóły konta
-Po przejściu do kont, które jest wyświetlane, możesz kliknąć szczególną uwagę, aby wyświetlić niektóre szczegóły. Zostanie otwarty nowy blok ze szczegółowymi informacjami konta takich jak: typ konta, czas utworzenia, lokalizacji itp.
+Po przejściu do kont, które jest wyświetlane, możesz kliknąć szczególną uwagę, aby wyświetlić niektóre szczegóły. Nowe okienko Otwiera szczegóły konta, takich jak: typ konta, czas utworzenia, lokalizacji itp.
 
 ![](media/azure-stack-manage-storage-accounts/image7.png)
 
 ## <a name="recover-a-deleted-account"></a>Odzyskiwanie usuniętego konta
 Można w sytuacji, gdy trzeba przywrócić usuniętego konta.
 
-W stosie Azure jest bardzo prosty sposób, w tym:
+W stosie Azure jest prosty sposób, w tym:
 
 1. Przejdź do listy kont magazynu. Zobacz [znaleźć konta magazynu](#find) w tym temacie, aby uzyskać więcej informacji.
 2. Znajdź tego konkretnego konta na liście. Konieczne może być filtru.
 3. Sprawdź *stanu* konta. Powinny przekazać komunikat **usunięte**.
-4. Kliknij konto, które umożliwia otwarcie bloku szczegóły konta.
-5. U góry tego bloku zlokalizować **odzyskać** przycisk i kliknij ją.
+4. Kliknij konto, które umożliwia otwarcie okienka szczegółów konta.
+5. U góry w tym okienku, zlokalizuj **odzyskać** przycisk i kliknij ją.
 6. Kliknij przycisk **Tak**, aby potwierdzić.
    
    ![](media/azure-stack-manage-storage-accounts/image8.png)
@@ -93,10 +93,10 @@ W stosie Azure jest bardzo prosty sposób, w tym:
 ### <a name="some-gotchas"></a>Niektóre pytań
 * Twoje konto usunięte pokazuje stan jako **poza przechowywania**.
   
-  Oznacza to, że usunięto konto przekroczył okres przechowywania i może nie być możliwe do odzyskania.
+  Poza sposób przechowywania czy usuniętego konta przekroczył okres przechowywania i może nie być możliwe do odzyskania.
 * Usunięto konta nie są wyświetlane na liście kont.
   
-  Może to oznaczać, że usuniętego konta została już bezużytecznych. W takim przypadku nie można odzyskać. Zobacz [odzyskiwania pojemności](#reclaim) w tym temacie.
+  Twoje konto nie mogą być wyświetlane na liście kont podczas usuniętego konta została już bezużytecznych. W takim przypadku nie można odzyskać. Zobacz [odzyskiwania pojemności](#reclaim) w tym temacie.
 
 ## <a name="set-the-retention-period"></a>Ustaw okres przechowywania
 Ustawienie okresu przechowywania umożliwia operatorowi chmury określić okres czasu w dni (od 0 do 9999 dni), w których wszystkie usuniętego konta potencjalnie mogą zostać odzyskane. Domyślny okres przechowywania wynosi 15 dni. Ustawienie wartości "0" oznacza, że wszystkie konta usuniętego natychmiast Brak przechowywania i oznaczone do okresowego wyrzucanie elementów bezużytecznych.
@@ -107,7 +107,7 @@ Ustawienie okresu przechowywania umożliwia operatorowi chmury określić okres 
 2. Zaloguj się do portalu administracyjnego stosu Azure jako chmury operatora (przy użyciu poświadczeń, których podana podczas wdrażania)
 3. Na pulpicie nawigacyjnym domyślny — Znajdź **zarządzania Region** listy i kliknij go, aby eksplorować — na przykład **(lokalnego**).
 4. Wybierz **magazynu** z **dostawców zasobów** listy.
-5. Kliknij przycisk **ustawienia** u góry, aby otworzyć blok ustawienie.
+5. Kliknij przycisk **ustawienia** u góry, aby otworzyć okienko ustawienia.
 6. Kliknij przycisk **konfiguracji** następnie Edytuj wartość okresu przechowywania.
 
    Ustaw liczbę dni, a następnie zapisz go.
@@ -122,8 +122,8 @@ Jednym z efektami ubocznymi mające okres przechowywania jest usuniętego konta 
 Można odzyskać pojemności za pomocą portalu lub programu PowerShell.
 
 **Aby odzyskać pojemności przy użyciu portalu:**
-1. Przejdź do bloku kont magazynu. Zobacz [znaleźć konta magazynu](#find).
-2. Kliknij przycisk **odzyskać miejsce** w górnej części bloku.
+1. Przejdź do okienka kont magazynu. Zobacz [znaleźć konta magazynu](#find).
+2. Kliknij przycisk **odzyskać miejsce** u góry okienka.
 3. Przeczytaj komunikat, a następnie kliknij przycisk **OK**.
 
     ![](media/azure-stack-manage-storage-accounts/image11.png)
@@ -148,7 +148,7 @@ Można również jawnie przesłonić okres przechowywania przy użyciu programu 
         Clear-ACSStorageAccount -ResourceGroupName system.local -FarmName <farm ID>
 
 
-Aby uzyskać więcej informacji, zapoznaj się [dokumentacji programu powershell Azure stosu.](https://msdn.microsoft.com/library/mt637964.aspx)
+Aby uzyskać więcej informacji, zobacz [dokumentacji programu powershell Azure stosu.](https://msdn.microsoft.com/library/mt637964.aspx)
  
 
 ## <a name="migrate-a-container"></a>Migrowanie kontenera
@@ -187,7 +187,7 @@ Należy użyć programu PowerShell do migracji kontenerów.
     `$destinationshares`
 
     ![](media/azure-stack-manage-storage-accounts/image14.png)
-6. Rozpocząć poza migracji dla kontenera, należy zauważyć, że jest implementacja asynchroniczne, dlatego jeden pętli wszystkich kontenerów w udziale i śledzić stan za pomocą identyfikatora zadania zwrócony.
+6. Rozpocząć poza migracji dla kontenera, należy zauważyć, że jest implementacja asynchroniczne, dlatego jeden pętli wszystkich kontenerów w udziale i śledzenie stanu przy użyciu identyfikatora zwrócone zadania.
 
     `$jobId = Start-ACSContainerMigration -ResourceGroupName system.local -FarmName $farm.farmname -ContainerToMigrate $containers[1] -DestinationShareUncPath $destinationshares.UncPath`
 
@@ -197,7 +197,7 @@ Należy użyć programu PowerShell do migracji kontenerów.
    $jobId
    d1d5277f-6b8d-4923-9db3-8bb00fa61b65
    ```
-7. Sprawdź stan zadania migracji za pomocą jego identyfikatora zadania. Po zakończeniu migracji kontenera MigrationStatus jest ustawiona na "Ukończone".
+7. Sprawdź stan zadania migracji przez jego identyfikator zadania. Po zakończeniu migracji kontenera MigrationStatus ma ustawioną wartość "Completed".
 
     `Get-ACSContainerMigrationStatus -ResourceGroupName system.local -FarmName $farm.farmname -JobId $jobId`
 
@@ -209,7 +209,7 @@ Należy użyć programu PowerShell do migracji kontenerów.
 
     ![](media/azure-stack-manage-storage-accounts/image16.png)
 
-    Można ponownie sprawdzić stan Anuluj migracji:
+    Można sprawdzić, czy stany migracji ponownie anulować:
 
     `Get-ACSContainerMigrationStatus-ResourceGroupName system.local -FarmName $farm.farmname -JobId $jobId`
 

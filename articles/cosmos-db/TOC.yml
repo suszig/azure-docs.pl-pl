@@ -260,6 +260,8 @@
               href: mongodb-mongoose.md
             - name: Korzystanie z preferencji odczytu
               href: mongodb-readpreference.md
+            - name: Indeksowanie
+              href: mongodb-indexing.md
             - name: Obsługa funkcji bazy danych MongoDB
               href: mongodb-feature-support.md
             - name: Angular — seria samouczków

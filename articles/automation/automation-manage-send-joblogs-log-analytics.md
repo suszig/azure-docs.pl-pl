@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 0319a7b9248dec9d7cdabba9c18a25463d94284b
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 47cca0c3b6b7010323dd816cdb863c652516bfe5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics-oms"></a>Przekazuj strumienie zadania i stan zadania z automatyzacji analizy dzienników (OMS)
 Automatyzacja może wysyłać runbook strumieni zadania stanu i zadania do swojego obszaru roboczego analizy dzienników programu Microsoft Operations Management Suite (OMS). Rejestruje zadania i strumieni zadania są widoczne w portalu Azure lub przy użyciu programu PowerShell, dla poszczególnych zadań i to umożliwia wykonywanie prostych dochodzenia. Teraz przy użyciu analizy dzienników można:
@@ -69,7 +69,7 @@ Jeśli trzeba znaleźć *nazwa* Twojego konta automatyzacji w portalu Azure wybi
 
 Po uruchomieniu tego skryptu, zobaczysz rekordów w analizy dzienników w ciągu 10 minut nowe JobLogs lub JobStreams zapisywana.
 
-Aby wyświetlić dzienniki, uruchom następujące zapytanie w wyszukiwania dziennika analizy dzienników:`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION""`
+Aby wyświetlić dzienniki, uruchom następujące zapytanie w wyszukiwania dziennika analizy dzienników: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="verify-configuration"></a>Weryfikowanie konfiguracji
 Aby upewnić się, że Twoje konto usługi Automatyzacja jest wysyłania dzienników do swojego obszaru roboczego analizy dzienników, sprawdź, czy diagnostyki są prawidłowo skonfigurowane na koncie automatyzacji za pomocą programu PowerShell następujące:
@@ -101,7 +101,7 @@ Diagnostyka usługi Automatyzacja Azure tworzy dwa typy rekordów w analizy dzie
 | SourceSystem | Jak analizy dzienników zbierane dane. Zawsze *Azure* diagnostyki Azure. |
 | ResultDescription |Opisuje stan wyniku zadania elementu Runbook. Możliwe wartości:<br>— Zadanie jest uruchomione<br>— Zadanie nie powiodło się<br>— Zadanie zostało ukończone |
 | CorrelationId |Identyfikator GUID, który jest identyfikatorem korelacji zadania elementu Runbook. |
-| Identyfikator zasobu |Określa identyfikator zasobu konto usługi Automatyzacja Azure elementu runbook. |
+| ResourceId |Określa identyfikator zasobu konto usługi Automatyzacja Azure elementu runbook. |
 | SubscriptionId | Subskrypcja platformy Azure identyfikatora (GUID) dla konta automatyzacji. |
 | ResourceGroup | Nazwa grupy zasobów dla konta automatyzacji. |
 | ResourceProvider | FIRMY MICROSOFT. AUTOMATYZACJA |
@@ -124,7 +124,7 @@ Diagnostyka usługi Automatyzacja Azure tworzy dwa typy rekordów w analizy dzie
 | SourceSystem | Jak analizy dzienników zbierane dane. Zawsze *Azure* diagnostyki Azure. |
 | ResultDescription |Obejmuje strumień wyjściowy z elementu Runbook. |
 | CorrelationId |Identyfikator GUID, który jest identyfikatorem korelacji zadania elementu Runbook. |
-| Identyfikator zasobu |Określa identyfikator zasobu konto usługi Automatyzacja Azure elementu runbook. |
+| ResourceId |Określa identyfikator zasobu konto usługi Automatyzacja Azure elementu runbook. |
 | SubscriptionId | Subskrypcja platformy Azure identyfikatora (GUID) dla konta automatyzacji. |
 | ResourceGroup | Nazwa grupy zasobów dla konta automatyzacji. |
 | ResourceProvider | FIRMY MICROSOFT. AUTOMATYZACJA |
@@ -133,7 +133,7 @@ Diagnostyka usługi Automatyzacja Azure tworzy dwa typy rekordów w analizy dzie
 ## <a name="viewing-automation-logs-in-log-analytics"></a>Wyświetlanie automatyzacji loguje analizy dzienników
 Teraz, gdy rozpoczęto wysyłanie dzienników zadania automatyzacji do analizy dzienników, zobacz, co można zrobić za pomocą tych dzienników wewnątrz analizy dzienników.
 
-Aby wyświetlić dzienniki, uruchom następujące zapytanie:`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
+Aby wyświetlić dzienniki, uruchom następujące zapytanie: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="send-an-email-when-a-runbook-job-fails-or-suspends"></a>Wyślij wiadomość e-mail, gdy zadanie elementu runbook nie powiodło się lub wstrzymuje
 Jeden z najwyższym odbiorcy zapyta, jest możliwość wysyłania wiadomości e-mail lub tekstu w przypadku wystąpienia problemów z zadanie elementu runbook.   
@@ -141,7 +141,7 @@ Jeden z najwyższym odbiorcy zapyta, jest możliwość wysyłania wiadomości e-
 Aby utworzyć regułę alertu, rozpoczyna się od utworzenia dziennika wyszukiwanie rekordów zadań elementu runbook, które powinny wywoływać alert. Kliknij przycisk **Alert** przycisk, aby utworzyć i skonfigurować regułę alertu.
 
 1. Na stronie Przegląd analizy dziennika kliknij **wyszukiwania dziennika**.
-2. Utwórz kwerendę wyszukiwania dziennika dla alertu przez wpisanie następującego wyszukiwania w polu zapytania: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")` można także grupować według RunbookName przy użyciu:`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
+2. Utwórz kwerendę wyszukiwania dziennika dla alertu przez wpisanie następującego wyszukiwania w polu zapytania: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")` można także grupować według RunbookName przy użyciu: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
    Jeśli konfigurujesz dzienniki z więcej niż jednego konta automatyzacji lub subskrypcji do swojego obszaru roboczego, można grupować alerty subskrypcji i konto automatyzacji. Nazwa konta automatyzacji znajduje się w polu zasobu w wyszukiwaniu JobLogs.
 1. Aby otworzyć **Dodaj regułę alertu** kliknij **alertu** w górnej części strony. Aby uzyskać więcej informacji na temat opcji, aby skonfigurować alert, zobacz [alertów w analizy dzienników](../log-analytics/log-analytics-alerts.md#alert-rules).
@@ -170,7 +170,7 @@ Wysyłając automatyzacji zadań stan strumienia danych i do analizy dzienników
 
 Analiza dzienników zapewnia lepszą widoczność operacyjnej do automatyzacji zadań i może ułatwić adres zdarzenia szybciej.  
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Aby dowiedzieć się więcej na temat sposobu konstruowania różne zapytania i przejrzyj dzienniki zadania automatyzacji z analizy dzienników, zobacz [Zaloguj wyszukiwania analizy dzienników](../log-analytics/log-analytics-log-searches.md).
 * Aby poznać sposób tworzenia i pobrać dane wyjściowe i komunikaty o błędach z elementów runbook, zobacz [Runbook dane wyjściowe i komunikaty](automation-runbook-output-and-messages.md).
 * Aby dowiedzieć się więcej o wykonywaniu elementów runbook, sposobie monitorowania zadań elementów runbook i innych szczegółach technicznych, zobacz [Track a runbook job](automation-runbook-execution.md) (Śledzenie zadania elementu runbook).

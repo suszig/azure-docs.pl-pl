@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 9222fcebd51ff13e797f40f3fdb0ddaa955d2611
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: a291aaf8456fd800edcf5a2df5d68c386d9f87c1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Usługa Azure wystąpienie metadanych
 
@@ -26,20 +26,20 @@ ms.lasthandoff: 02/23/2018
 Usługę Azure wystąpienie metadanych dostarcza informacji o uruchomionych wystąpień maszyn wirtualnych, które mogą służyć do zarządzania i skonfigurować maszyny wirtualne.
 Dotyczy to również informacje, takie jak jednostka SKU, konfiguracji sieci i zdarzeń planowanych konserwacji. Aby uzyskać więcej informacji na jakie rodzaje informacji jest dostępnych w temacie [kategorie metadanych](#instance-metadata-data-categories).
 
-Usługa metadanych wystąpienia platformy Azure jest punkt końcowy REST jest dostępny dla wszystkich maszyn wirtualnych IaaS utworzony za pośrednictwem [usługi Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/). Punkt końcowy jest dostępny w dobrze znanego adresu IP bez obsługi routingu (`169.254.169.254`) który jest możliwy tylko z poziomu maszyny Wirtualnej.
+Usługa metadanych wystąpienia platformy Azure jest punkt końcowy REST dostępne dla maszyn wirtualnych IaaS utworzony za pośrednictwem [usługi Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/). Punkt końcowy jest dostępny w dobrze znanego adresu IP bez obsługi routingu (`169.254.169.254`) który jest możliwy tylko z poziomu maszyny Wirtualnej.
 
 > [!IMPORTANT]
-> Ta usługa jest **ogólnie dostępna** we wszystkich regionach platformy Azure.  Regularnie odbiera aktualizacje, aby udostępnić nowe informacje o wystąpieniu maszyny wirtualnej. Ta strona odzwierciedla aktualne [kategorii danych](#instance-metadata-data-categories) dostępne.
+> Ta usługa jest **ogólnie dostępna** w regionach platformy Azure.  Regularnie odbiera aktualizacje, aby udostępnić nowe informacje o wystąpieniu maszyny wirtualnej. Ta strona odzwierciedla aktualne [kategorii danych](#instance-metadata-data-categories) dostępne.
 
 ## <a name="service-availability"></a>Dostępność usług
-Usługa jest dostępna w wszystkich ogólnie dostępna wszystkie regiony platformy Azure. Nie wszystkie wersja interfejsu API mogą być dostępne we wszystkich regionach platformy Azure.
+Usługa jest dostępna w ogólnie dostępne regiony platformy Azure. Nie wszystkie wersja interfejsu API mogą być dostępne we wszystkich regionach platformy Azure.
 
 Regiony                                        | Dostępność?                                 | Obsługiwane wersje
 -----------------------------------------------|-----------------------------------------------|-----------------
-[Wszystkie ogólnie dostępna globalne regiony platformy Azure](https://azure.microsoft.com/regions/)     | Ogólnie dostępna   | 2017-04-02, 2017-08-01
-[Azure dla instytucji rządowych](https://azure.microsoft.com/overview/clouds/government/)              | Ogólnie dostępna | 2017-04-02
-[Chin Azure](https://www.azure.cn/)                                                           | Ogólnie dostępna | 2017-04-02
-[Niemcy Azure](https://azure.microsoft.com/overview/clouds/germany/)                    | Ogólnie dostępna | 2017-04-02
+[Wszystkie ogólnie dostępna globalne regiony platformy Azure](https://azure.microsoft.com/regions/)     | Ogólnie dostępna   | 2017-04-02 2017-08-01, 2017-12-01(This version is not available in UK regions)
+[Azure dla instytucji rządowych](https://azure.microsoft.com/overview/clouds/government/)              | Ogólnie dostępna | 2017-04-02,2017-08-01
+[Chin Azure](https://www.azure.cn/)                                                           | Ogólnie dostępna | 2017-04-02,2017-08-01
+[Niemcy Azure](https://azure.microsoft.com/overview/clouds/germany/)                    | Ogólnie dostępna | 2017-04-02,2017-08-01
 
 Ta tabela jest aktualizowany, gdy są dostępne aktualizacje usługi i/lub są dostępne nowe wersje obsługiwane
 
@@ -48,12 +48,12 @@ Wypróbowanie usługi metadanych wystąpienia, należy utworzyć Maszynę wirtua
 ## <a name="usage"></a>Sposób użycia
 
 ### <a name="versioning"></a>Obsługa wersji
-Wystąpienie usługi metadanych jest kontrolą wersji. Wersje są obowiązkowe i bieżąca wersja globalne Azure to `2017-08-01`. Bieżący obsługiwane wersje to (2017-04-02, 2017-08-01)
+Wystąpienie usługi metadanych jest kontrolą wersji. Wersje są obowiązkowe i bieżąca wersja globalne Azure to `2017-12-01`. Bieżący obsługiwane wersje to (2017-04-02, 2017-08-01,2017-12-01)
 
 > [!NOTE] 
 > Poprzednie wersje Podgląd zdarzeń zaplanowane {najnowszych} obsługiwana jako wersja interfejsu api. Ten format jest już obsługiwane i zostaną wycofane w przyszłości.
 
-Przy wdrażaniu nowsze wersje, starsze wersje nadal będą dostępne dla zgodności czy skrypty są zależne formatów określonych danych. Jednak należy pamiętać, że poprzednie version(2017-03-01) Podgląd mogą nie być dostępne po usługi jest ogólnie dostępna.
+Miarę dodawania nowszych wersji, starsze wersje nadal będą dostępne dla zgodności czy skrypty są zależne formatów określonych danych. Jednak nie mogą być dostępne poprzedniej wersji zapoznawczej (2017-03-01), gdy usługa jest ogólnie dostępna.
 
 ### <a name="using-headers"></a>Korzystanie z nagłówków
 Kwerenda usługi metadanych wystąpienia, należy określić nagłówek `Metadata: true` aby upewnić się, żądanie nie zostało przekierowane przypadkowo.
@@ -62,8 +62,8 @@ Kwerenda usługi metadanych wystąpienia, należy określić nagłówek `Metadat
 
 Wystąpienie metadanych jest dostępna do uruchamiania maszyny wirtualne utworzone/zarządzane przy użyciu [usługi Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/). Dostęp do wszystkich kategorii danych dla wystąpienia maszyny wirtualnej za pomocą następujących żądania:
 
-```
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02"
+```bash
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01"
 ```
 
 > [!NOTE] 
@@ -80,13 +80,13 @@ Interfejs API | Domyślny Format danych | W innych formatach
 
 Aby uzyskać dostęp, format odpowiedzi z systemem innym niż domyślny, określ żądany format jako parametr querystring w żądaniu. Na przykład:
 
-```
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02&format=text"
+```bash
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
 
 ### <a name="security"></a>Bezpieczeństwo
 Punkt końcowy usługi metadanych wystąpienia jest dostępny tylko w obrębie uruchomione wystąpienie maszyny wirtualnej bez obsługi routingu adresu IP. Ponadto wszelkie żądania z `X-Forwarded-For` nagłówek został odrzucony przez usługę.
-Wymagamy żądania zawiera `Metadata: true` nagłówka, aby upewnić się, że rzeczywistego żądania bezpośrednio był zamierzony i nie jest częścią niezamierzonych przekierowania. 
+Żądania musi zawierać `Metadata: true` nagłówka, aby upewnić się, że rzeczywistego żądania bezpośrednio był zamierzony i nie jest częścią niezamierzonych przekierowania. 
 
 ### <a name="error"></a>Błąd
 Jeśli istnieje element danych nie można odnaleźć lub źle sformułowane żądanie, wystąpienie usługi metadanych zwraca standardowe komunikaty o błędach HTTP. Na przykład:
@@ -109,7 +109,7 @@ Błąd usługi 500     | Spróbuj ponownie za jakiś czas
 
 **Żądanie**
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01"
 ```
 
@@ -118,7 +118,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-vers
 > [!NOTE] 
 > Odpowiedź jest ciągu JSON. Następujący przykład odpowiedzi jest drukowany pretty dla czytelności.
 
-```
+```json
 {
   "interface": [
     {
@@ -148,16 +148,16 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-vers
 
 #### <a name="retrieving-public-ip-address"></a>Trwa pobieranie publicznego adresu IP
 
-```
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-04-02&format=text"
+```bash
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text"
 ```
 
 #### <a name="retrieving-all-metadata-for-an-instance"></a>Pobieranie wszystkich metadanych dla wystąpienia
 
 **Żądanie**
 
-```
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01"
+```bash
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-12-01"
 ```
 
 **Odpowiedź**
@@ -165,7 +165,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 > [!NOTE] 
 > Odpowiedź jest ciągu JSON. Następujący przykład odpowiedzi jest drukowany pretty dla czytelności.
 
-```
+```json
 {
   "compute": {
     "location": "westus",
@@ -182,7 +182,9 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
     "tags": "",
     "version": "16.04.201708030",
     "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
-    "vmSize": "Standard_D1"
+    "vmScaleSetName": "",
+    "vmSize": "Standard_D1",
+    "zone": "1"
   },
   "network": {
     "interface": [
@@ -217,14 +219,14 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 
 W systemie Windows można pobrać metadanych wystąpienia za pomocą programu PowerShell narzędzia `curl`: 
 
-```
-curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2017-04-02 | select -ExpandProperty Content
+```bash
+curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2017-08-01 | select -ExpandProperty Content
 ```
 
 Lub za pomocą `Invoke-RestMethod` polecenia cmdlet:
     
-```
-Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2017-04-02 -Method get 
+```powershell
+Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2017-08-01 -Method get 
 ```
 
 **Odpowiedź**
@@ -232,7 +234,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 > [!NOTE] 
 > Odpowiedź jest ciągu JSON. Następujący przykład odpowiedzi jest drukowany pretty dla czytelności.
 
-```
+```json
 {
   "compute": {
     "location": "westus",
@@ -296,13 +298,15 @@ subscriptionId | Subskrypcja platformy Azure dla maszyny wirtualnej | 2017-08-01
 tags | [Tagi](../../azure-resource-manager/resource-group-using-tags.md) dla maszyny wirtualnej  | 2017-08-01
 resourceGroupName | [Grupa zasobów](../../azure-resource-manager/resource-group-overview.md) dla maszyny wirtualnej | 2017-08-01
 placementGroupId | [Grupy umieszczania](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) Twojego skali maszyny wirtualnej ustawić | 2017-08-01
+vmScaleSetName | [Nazwa maszyny wirtualnej ScaleSet] (.. /.. / virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) z skali maszyny wirtualnej ustawić | 2017-12-01
+strefa | [Dostępność strefy](../../availability-zones/az-overview.md) maszyny wirtualnej | 2017-12-01 
 ipv4/privateIpAddress | Lokalny adres IPv4 maszyny wirtualnej | 2017-04-02
 ipv4/publicIpAddress | Publiczny adres IPv4 maszyny wirtualnej | 2017-04-02
 podsieć lub adres. | Adres podsieci maszyny wirtualnej | 2017-04-02 
 subnet/prefix | Prefiks podsieci, przykład 24 | 2017-04-02 
 adres IPv6/IP | Lokalny adres IPv6 maszyny wirtualnej | 2017-04-02 
 macAddress | Adres mac dla maszyny Wirtualnej | 2017-04-02 
-scheduledevents | Zobacz [scheduledevents](scheduled-events.md) | 2017-03-01
+scheduledevents | Zobacz [zaplanowane zdarzenia](scheduled-events.md) | 2017-08-01
 
 ## <a name="example-scenarios-for-usage"></a>Przykładowe scenariusze użycia  
 
@@ -312,8 +316,8 @@ Jako dostawcę usług może wymagać śledzić liczbę maszyn wirtualnych z opro
 
 **Żądanie**
 
-```
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-04-02&format=text"
+```bash
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-08-01&format=text"
 ```
 
 **Odpowiedź**
@@ -325,12 +329,12 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api
 ### <a name="placement-of-containers-data-partitions-based-faultupdate-domain"></a>Umieszczania kontenery, partycje danych na podstawie domen błędów lub zaktualizowania 
 
 Dla niektórych scenariuszy, umieszczania repliki danych różnych znaczenie ma. Na przykład [umieszczania repliki systemu plików HDFS](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps) lub położenia kontenera za pomocą [orchestrator](https://kubernetes.io/docs/user-guide/node-selection/) może wymagać wiedzieć `platformFaultDomain` i `platformUpdateDomain` maszyna wirtualna jest uruchomiona na.
-Umożliwia wysyłanie zapytań tych danych bezpośrednio za pomocą wystąpienia usługi metadanych.
+Można też skorzystać [stref dostępności](../../availability-zones/az-overview.md) wystąpień podejmowanie tych decyzji. Umożliwia wysyłanie zapytań tych danych bezpośrednio za pomocą wystąpienia usługi metadanych.
 
 **Żądanie**
 
-```
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-04-02&format=text" 
+```bash
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-08-01&format=text" 
 ```
 
 **Odpowiedź**
@@ -345,8 +349,8 @@ Jako dostawcę usług mogą wystąpić pomocy technicznej gdzie chcesz dowiedzie
 
 **Żądanie**
 
-```
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-version=2017-04-02"
+```bash
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-version=2017-08-01"
 ```
 
 **Odpowiedź**
@@ -354,7 +358,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 > [!NOTE] 
 > Odpowiedź jest ciągu JSON. Następujący przykład odpowiedzi jest drukowany pretty dla czytelności.
 
-```
+```json
 {
   "compute": {
     "location": "CentralUS",
@@ -393,8 +397,8 @@ Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 1. Pojawia się błąd `400 Bad Request, Required metadata header not specified`. Co to znaczy?
    * Wystąpienie usługi metadanych wymaga nagłówka `Metadata: true` , należy przesłać żądanie. Przekazywanie tego nagłówka w wywołaniu REST umożliwia dostęp do wystąpienia usługi metadanych. 
 2. Dlaczego nie występują obliczeniowe informacji Moje maszyny wirtualnej?
-   * Obecnie usługa metadanych wystąpienie obsługuje tylko wystąpienia utworzone za pomocą Menedżera zasobów Azure. Firma Microsoft może w przyszłości, Dodaj obsługę maszyn wirtualnych usługi w chmurze.
-3. Napisany wcześniej utworzony Moje maszyny wirtualnej za pomocą usługi Azure Resource Manager. Dlaczego mam nie informacji o metadanych z obliczeń oglądanie?
+   * Obecnie usługa metadanych wystąpienie obsługuje tylko wystąpienia utworzone za pomocą Menedżera zasobów Azure. W przyszłości Obsługa maszyn wirtualnych usługi w chmurze mogą być dodane.
+3. Napisany wcześniej utworzony Moje maszyny wirtualnej za pomocą usługi Azure Resource Manager. Dlaczego mam nie zawiera compute metadane?
    * Wszystkie maszyny wirtualne utworzone po wrz 2016, można dodać [Tag](../../azure-resource-manager/resource-group-using-tags.md) aby zacząć wyświetlać obliczeniowe metadanych. Dla starszych maszyn wirtualnych (utworzone przed 2016 wrz) Dodaj/Usuń rozszerzenia lub danych dysków do maszyny Wirtualnej, aby odświeżyć metadane.
 4. Nie są wyświetlane wszystkie dane wypełnione dla nowej wersji 2017-08-01
    * Wszystkie maszyny wirtualne utworzone po wrz 2016, można dodać [Tag](../../azure-resource-manager/resource-group-using-tags.md) aby zacząć wyświetlać obliczeniowe metadanych. Dla starszych maszyn wirtualnych (utworzone przed 2016 wrz) Dodaj/Usuń rozszerzenia lub danych dysków do maszyny Wirtualnej, aby odświeżyć metadane.
@@ -405,10 +409,11 @@ Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 7. Czy to pomoże dla wystąpienia ustawić skali maszyny wirtualnej?
    * Tak, usługa metadanych jest dostępna dla wystąpień ustawić skali. 
 8. Jak uzyskać pomoc techniczną dla usługi?
-   * Aby uzyskać pomoc techniczną dla usługi, Utwórz żądanie obsługi w portalu Azure dla maszyny Wirtualnej, gdy nie jest możliwe uzyskanie odpowiedzi metadanych mimo ponownych prób długa 
+   * Aby uzyskać pomoc techniczną dla usługi, utworzyć problem pomocy technicznej w portalu Azure dla maszyny Wirtualnej, gdy nie jest możliwe uzyskanie odpowiedzi metadanych mimo ponownych prób długa 
 
    ![Obsługa metadanych wystąpienia](./media/instance-metadata-service/InstanceMetadata-support.png)
     
 ## <a name="next-steps"></a>Kolejne kroki
 
-- Dowiedz się więcej o [zaplanowane zdarzenia](scheduled-events.md).
+- Dowiedz się więcej o [zaplanowane zdarzenia](scheduled-events.md)
+

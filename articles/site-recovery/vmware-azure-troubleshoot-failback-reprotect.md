@@ -7,13 +7,13 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 03/05/2017
 ms.author: rajanaki
-ms.openlocfilehash: 9b1156884a78eb7d68dc9680765b3c1436c0606a
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 1c54ae96273880caede1f50f3a0705c41f15f26e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-failback-from-azure-to-vmware"></a>Rozwiązywanie problemów z powrotu po awarii z platformy Azure do programu VMware
 
@@ -61,8 +61,8 @@ Włączyć ją ponownie nieudanej za pośrednictwem maszyny Wirtualnej, musi by�
 ### <a name="error-code-8061"></a>Kod błędu 8061
 
 **Magazyn danych jest niedostępny z hosta ESXi.**
-
-Sprawdź [wzorca wymagania wstępne docelowej](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server) i [obsługiwane datastores](site-recovery-how-to-reprotect.md#what-datastore-types-are-supported-on-the-on-premises-esxi-host-during-failback) powrotu po awarii.
+ 
+Sprawdź [wzorca docelowego wymagania wstępne i obsługiwane magazyny danych](vmware-azure-reprotect.md#deploy-a-separate-master-target-server) powrotu po awarii.
 
 
 ## <a name="troubleshoot-failback-errors"></a>Rozwiązywanie problemów w przypadku powrotu po awarii

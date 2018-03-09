@@ -63,6 +63,10 @@
 ### [Kompresja plików](cdn-troubleshoot-compression.md)
 
 # Dokumentacja
+##  [Dokumentacja aparatu reguł](cdn-rules-engine-reference.md)
+### [Wyrażenia warunkowe aparatu reguł](cdn-rules-engine-reference-conditional-expressions.md)
+### [Warunki dopasowań aparatu reguł](cdn-rules-engine-reference-match-conditions.md)
+### [Funkcje aparatu reguł](cdn-rules-engine-reference-features.md)
 ## [Przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=cdn)
 ## [Azure PowerShell](/powershell/module/azurerm.cdn)
 ## [.NET](/dotnet/api/microsoft.azure.management.cdn)
@@ -70,10 +74,6 @@
 ## [REST](/rest/api/cdn/)
 
 # Zasoby
-##  [Dokumentacja aparatu reguł](cdn-rules-engine-reference.md)
-### [Wyrażenia warunkowe aparatu reguł](cdn-rules-engine-reference-conditional-expressions.md)
-### [Funkcje aparatu reguł](cdn-rules-engine-reference-features.md)
-### [Warunki dopasowań aparatu reguł](cdn-rules-engine-reference-match-conditions.md)
 ## [Lokalizacje POP usługi Azure CDN](cdn-pop-locations.md)
 ## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)

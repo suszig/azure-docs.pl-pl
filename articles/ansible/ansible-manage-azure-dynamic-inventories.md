@@ -8,14 +8,14 @@ manager: routlaw
 ms.author: tarcher
 ms.date: 01/14/2018
 ms.topic: article
-ms.openlocfilehash: 8753d039582abdf22f105bf7f139a35c224e7c59
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 799be6d2bb521de38af952376bf8ee14a18846de
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="use-ansible-to-manage-your-azure-dynamic-inventories"></a>Umożliwia zarządzanie sieci Azure spisów dynamiczne Ansible
-Ansible może służyć do pobierania informacji o spisie z różnych źródeł (w tym chmury źródeł, takich jak Azure) do *dynamiczne spisu*. W tym artykule używamy [powłoki chmury Azure](./ansible-run-playbook-in-cloudshell.md) Aby skonfigurować spis dynamiczne Ansible Azure w którym można utworzyć dwie maszyny wirtualne, tagów jednego tych maszyn wirtualnych i zainstalować Nginx na oznakowanych maszyny wirtualnej.
+Ansible może służyć do pobierania informacji o spisie z różnych źródeł (w tym chmury źródeł, takich jak Azure) do *dynamiczne spisu*. W tym artykule używamy [powłoki chmury Azure](./ansible-run-playbook-in-cloudshell.md) Aby skonfigurować spis dynamiczne Ansible Azure w którym można utworzyć dwie maszyny wirtualne, tagów jednego z tych maszyn wirtualnych i zainstalować Nginx na oznakowanych maszyny wirtualnej.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -59,11 +59,11 @@ Możesz [używaj tagów do organizowania zasobów platformy Azure](https://docs.
 Wprowadź następujące [tag zasobu az](/cli/azure/resource?view=azure-cli-latest.md#az_resource_tag) polecenie, aby oznaczyć maszyny wirtualnej `ansible-inventory-test-vm1` z kluczem `nginx`:
 
 ```azurecli-interactive
-az resource tag --tags nginx --id /subscriptions/&lt;YourAzureSubscriptionID>/resourceGroups/ansible-inventory-test-rg/providers/Microsoft.Compute/virtualMachines/ansible-inventory-test-vm1
+az resource tag --tags nginx --id /subscriptions/<YourAzureSubscriptionID>/resourceGroups/ansible-inventory-test-rg/providers/Microsoft.Compute/virtualMachines/ansible-inventory-test-vm1
 ```
 
 ## <a name="generate-a-dynamic-inventory"></a>Generowanie spisu dynamiczne
-Po utworzeniu maszyn wirtualnych zdefiniowane (i oznakowany), jest Generowanie spisu dynamicznych. Ansible zawiera skrypt w języku Python o nazwie [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) generujący dynamiczne spisu zasobów platformy Azure poprzez żądania interfejsu API z Menedżerem zasobów Azure. Poniższe kroki umożliwia przeprowadzenie przy użyciu `azure_rm.py` skrypt, aby połączyć się z dwóch testowej maszyny wirtualnej platformy Azure:
+Po utworzeniu maszyn wirtualnych zdefiniowane (i oznakowany), jest Generowanie spisu dynamicznych. Ansible zawiera skrypt w języku Python o nazwie [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) generujący dynamiczne spisu zasobów platformy Azure poprzez żądania interfejsu API z Menedżerem zasobów Azure. Poniższe kroki umożliwia przeprowadzenie przy użyciu `azure_rm.py` skrypt, aby połączyć się z dwóch testów maszyn wirtualnych platformy Azure:
 
 1. Użyj GNU `wget` polecenie, aby pobrać `azure_rm.py` skryptu:
 

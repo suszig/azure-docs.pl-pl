@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: vinagara
-ms.openlocfilehash: b537bb42d43c4232c100061322e09bf492f2a20f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 60f6c45b7dacd26e0dea7b8b69c52534dcb5fec9
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor---alerts-preview"></a>Utwórz, Wyświetl i alertami można zarządzać za pomocą monitora Azure - alerty (wersja zapoznawcza)
 
@@ -71,7 +71,7 @@ Szczegółowe dalej jest przewodnik krok po kroku przy użyciu alertów Azure (w
 
     > [!NOTE]
 
-    > Nowe funkcje metryki wprowadzonej szybkiego tylko alerty znajdują się w typy sygnału jako metryki z usługi platformy
+    >  Wszystkie [alertów w czasie rzeczywistym w pobliżu](monitoring-near-real-time-metric-alerts.md) stanie zasoby są przedstawione z usługą monitora **platformy** i sygnalizuje typu jako **metryki**
 
 6. *Alerty metryki*: po wybraniu sygnału, należy podać logiki alertów. Odwołania, historyczne dane sygnału są wyświetlane z opcją, aby dostosować przy użyciu okna czasu **Pokaż historię**, różnej od ostatnich sześciu godzin do ostatniego tygodnia. Z wizualizacji w miejscu **alertu logiki** można wybierać z wyświetlane opcje warunku, agregacji i na koniec wartości progowej. Jako wersja zapoznawcza logiki pod warunkiem warunek jest wyświetlany w wizualizacji wraz z historii sygnału wskazująca, czy ma wyzwolenia alertu. Wskaż, jakie czas trwania alertu należy znaleźć określony warunek, wybierając z **okres** opcji oraz jak często Alert ma być uruchamiany przez wybranie **częstotliwość**.
 

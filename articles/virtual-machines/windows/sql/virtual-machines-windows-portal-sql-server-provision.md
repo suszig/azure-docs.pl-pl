@@ -14,17 +14,20 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: 23a1f008e2c51325b7e9c7676847d55d7ccb7d44
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7e55227773820af26435100b11dfefce058e7e78
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Udostępnianie maszynę wirtualną systemu Windows programu SQL Server w portalu Azure
 
 Ten przewodnik zawiera szczegółowe informacje o różnych opcjach dostępnych podczas tworzenia maszyny wirtualnej systemu Windows programu SQL Server w portalu Azure. W tym artykule omówiono więcej opcji konfiguracji niż [maszyny Wirtualnej serwera SQL — Szybki Start](quickstart-sql-vm-create-portal.md), które wykraczają więcej za pomocą możliwą inicjowania obsługi zadań. 
 
 Ten przewodnik umożliwia tworzenie własnych maszyn wirtualnych serwera SQL. Można również używać go jako odwołanie opcje dostępne w portalu Azure.
+
+> [!TIP]
+> Jeśli masz pytania dotyczące maszyn wirtualnych programu SQL Server, zobacz [— często zadawane pytania](virtual-machines-windows-sql-server-iaas-faq.md).
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -34,7 +37,7 @@ Podczas tworzenia maszyny wirtualnej programu SQL Server, można wybrać jeden z
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com) przy użyciu swojego konta.
 
-1. W portalu Azure, kliknij polecenie **Utwórz zasób**. Portal otworzy okno **Nowe**.
+1. W witrynie Azure Portal kliknij pozycję **Utwórz zasób**. Portal otworzy okno **Nowe**.
 
 1. W oknie **Nowe** kliknij grupę **Obliczenia**, a następnie kliknij pozycję **Zobacz wszystko**.
 

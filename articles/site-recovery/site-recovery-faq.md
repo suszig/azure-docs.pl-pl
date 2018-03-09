@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/18/2018
+ms.date: 03/05/2018
 ms.author: raynew
-ms.openlocfilehash: 1a7d57c1f1f84e7ce3b931c2911ae7394b066f8d
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 8c6f577560442f28204b633d5f45f6d4c46ea4b8
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: często zadawane pytania (FAQ)
+# <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Usługa Azure Site Recovery: często zadawane pytania (FAQ)
 Ten artykuł zawiera często zadawane pytania dotyczące usługi Azure Site Recovery. Jeśli masz pytania po przeczytaniu tego artykułu, opublikuj je na [Forum usług odzyskiwania Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
 
 ## <a name="general"></a>Ogólne
@@ -106,8 +106,9 @@ Podczas regularnej replikacji dane są replikowane do magazynu geograficznie nad
 ### <a name="can-i-automate-site-recovery-scenarios-with-an-sdk"></a>Czy można zautomatyzować scenariuszy odzyskiwania lokacji przy użyciu zestawu SDK?
 Tak. Przepływy pracy usługi Site Recovery można zautomatyzować przy użyciu interfejsu API REST, programu PowerShell lub zestawu SDK platformy Azure. Aktualnie obsługiwanych scenariuszach wdrażania usługi Site Recovery przy użyciu programu PowerShell:
 
-* [Replikowanie maszyn wirtualnych funkcji Hyper-V w chmurach VMMs do Menedżera zasobów Azure PowerShell](site-recovery-vmm-to-azure-powershell-resource-manager.md)
-* [Replikowanie maszyn wirtualnych funkcji Hyper-V bez programu VMM do Menedżera zasobów Azure PowerShell](site-recovery-deploy-with-powershell-resource-manager.md)
+* [Replikowanie maszyn wirtualnych funkcji Hyper-V w chmurach VMMs do Menedżera zasobów Azure PowerShell](hyper-v-vmm-powershell-resource-manager.md)
+* [Replikowanie maszyn wirtualnych funkcji Hyper-V bez programu VMM do Menedżera zasobów Azure PowerShell](hyper-v-azure-powershell-resource-manager.md)
+* [Replikacja VMware do platformy Azure za pomocą Menedżera zasobów programu PowerShell](vmware-azure-disaster-recovery-powershell.md)
 
 ### <a name="if-i-replicate-to-azure-what-kind-of-storage-account-do-i-need"></a>Jeśli przeprowadzam replikację do platformy Azure, jakiego konta magazynu potrzebuję?
 Potrzebujesz konta magazynu LRS lub GRS. Zalecamy użycie konta GRS, dzięki czemu dane będą odporne w przypadku regionalnej awarii lub sytuacji, w której nie można odzyskać regionu podstawowego. Konto musi znajdować się w tym samym regionie co magazyn Usług odzyskiwania. Magazyn w warstwie Premium jest obsługiwana dla maszyny Wirtualnej VMware, maszyna wirtualna funkcji Hyper-V i replikacji serwera fizycznego, podczas wdrażania usługi Site Recovery w portalu Azure.
@@ -123,7 +124,7 @@ Replikacja rozszerzona lub łańcuchowa nie jest obsługiwana. Żądanie tę fun
 Ta funkcja nie jest obsługiwana. Żądanie tę funkcję w [forum opinii](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
 
 ### <a name="can-i-exclude-specific-disks-from-replication"></a>Czy z replikacji można wykluczyć określone dyski?
-Jest to obsługiwane, gdy jesteś [replikowanie maszyn wirtualnych VMware i maszyn wirtualnych funkcji Hyper-V](site-recovery-exclude-disk.md) na platformie Azure, przy użyciu portalu Azure.
+Jest to obsługiwane w przypadku replikacji maszyn wirtualnych VMware i maszyn wirtualnych funkcji Hyper-V w systemie Azure przy użyciu portalu Azure.
 
 ### <a name="can-i-replicate-virtual-machines-with-dynamic-disks"></a>Czy można replikować maszyny wirtualne z dyskami dynamicznymi?
 Dyski dynamiczne są obsługiwane w przypadku replikacji maszyn wirtualnych funkcji Hyper-V. Są one również obsługiwane podczas replikowania maszyn wirtualnych VMware i maszyn fizycznych do platformy Azure. Dysk systemu operacyjnego musi być dyskiem podstawowym.

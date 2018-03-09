@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 87f513ffd2e8854085d9dfcd399148082de37698
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: dba7a6fcf936e9610a5f1f04e367d32e9aae6643
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Synchronizacja programu Azure AD Connect: opis konfiguracji domyślnej
 W tym artykule opisano reguły konfiguracji out-of-box. Dokumenty go zasady i wpływ tych reguł konfiguracji. On również przeprowadzi Cię przez domyślną konfigurację synchronizacji usługi Azure AD Connect. Celem jest czytnik rozumie, jak model konfiguracji o nazwie aprowizacją deklaratywną działa w przykładzie rzeczywistych. W tym artykule założono, że zainstalowano i skonfiguruj synchronizację programu Azure AD Connect przy użyciu Kreatora instalacji.
@@ -50,7 +50,7 @@ Następujące obiekty użytkownika są **nie** synchronizowane z usługą Azure 
 * Nie są synchronizowane obiekty, które nie będzie działać w programie Exchange Online.
   `CBool(IIF(IsPresent([msExchRecipientTypeDetails]),BitAnd([msExchRecipientTypeDetails],&H21C07000) > 0,NULL))`  
   Ta maska bitowa (& H21C07000) filtruje się następujące obiekty:
-  * Folder publiczny z włączoną obsługą poczty
+  * (W wersji zapoznawczej począwszy od wersji 1.1.524.0) folderu publicznego obsługujące pocztę
   * System towarzyszącej skrzynki pocztowej
   * Skrzynka pocztowa bazy danych skrzynki pocztowej (Skrzynka pocztowa systemu)
   * Uniwersalna grupa zabezpieczeń (nie odnoszą się do użytkownika, ale jest stosowany w przypadku starszych powodów)

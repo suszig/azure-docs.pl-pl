@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.openlocfilehash: 6f933c75d4829e3b2c5198aeee324f15490d8a93
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 9f01ba69f6511a3f9a7f99e379522be3c00554f5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Aprowizowanie maszyny wirtualnej nauki danych systemu Windows, na platformie Azure
 Maszyna wirtualna nauki danych firmy Microsoft znajduje się obraz maszyny wirtualnej (VM) systemu Windows Azure wstępnie zainstalowany i skonfigurowany z kilku popularnych narzędzi, które są często używane do analizy danych i uczenia maszynowego. Narzędzia uwzględnione są:
@@ -39,8 +39,7 @@ Maszyna wirtualna nauki danych firmy Microsoft znajduje się obraz maszyny wirtu
   * [Weka](http://www.cs.waikato.ac.nz/ml/weka/) : wyszukiwania danych wizualnych i oprogramowania w języku Java uczenia maszynowego.
   * [Przechodzenie do szczegółów Apache](https://drill.apache.org/): aparatu zapytań SQL bez schematu dla platformy Hadoop, NoSQL i magazynu w chmurze.  Obsługuje interfejsy ODBC i JDBC, aby umożliwić wykonywanie zapytania NoSQL i pliki ze standardowych narzędzi do analizy Biznesowej, takich jak usługi Power BI, Excel, Tableau.
 * Biblioteki języka R i Python dla programu uczenie maszynowe Azure i innych usług Azure
-* W tym Git Bash do pracy z tym GitHub, Visual Studio Team Services repozytoriach kodów źródłowych Git
-* Porty Windows kilku popularnych Linux narzędzia wiersza polecenia (w tym awk mniejszyć, perl, grep, Znajdź, wget, curl, itp.) dostępny za pośrednictwem wiersza polecenia. 
+* Git tym Git Bash do pracy z tym GitHub, Visual Studio Team Services repozytoriach kodów źródłowych i udostępnia kilka popularnych Linux narzędzia wiersza polecenia (w tym awk mniejszyć, perl, grep, Znajdź, wget, curl, itp.) dostępny zarówno z git bash i poleceń wiersz. 
 
 Podczas analizy danych obejmuje iteracja w sekwencji zadań:
 
@@ -73,7 +72,7 @@ Aby utworzyć wystąpienie programu Microsoft Data nauki maszyny wirtualnej, wyk
    1. **Podstawy**
       
       1. **Nazwa**: Nazwa serwera nauki danych tworzona.
-      2. **Typ dysku maszyny Wirtualnej**: wybór między dysków SSD i HDD. Dla procesora GPU (NC serii), wybierz **HDD** jako typ dysku. 
+      2. **Typ dysku maszyny Wirtualnej**: wybór między dysków SSD i HDD. Procesor GPU NC_v1 wystąpienia (na podstawie K80 tesla — NVidia), wybierz **HDD** jako typ dysku. 
       3. **Nazwa użytkownika**: identyfikator logowania konta administratora.
       4. **Hasło**: hasło konta administratora.
       5. **Subskrypcja**: Jeśli masz więcej niż jedną subskrypcję, wybierz jedną, na którym maszyna ma być utworzony i są rozliczane.
@@ -99,35 +98,28 @@ Gdy maszyna wirtualna jest utworzone i udostępnione, można przystąpić do uru
 
 ## <a name="tools-installed-on-the-microsoft-data-science-virtual-machine"></a>Narzędzi zainstalowanych w Microsoft danych nauki maszyny wirtualnej
 
-### <a name="azure-machine-learning-workbench"></a>Środowisko robocze usługi Azure Machine Learning
 
-Azure Machine Learning Workbench jest aplikacją i interfejsu wiersza polecenia. Workbench ma przygotowanie wbudowanych danych, która uzyskuje informacje o etapów przygotowywania danych je wykonywać. Umożliwia także zarządzanie projektami, uruchom historii i integracji notesu możliwość niemal wydajność pracy. Użytkownik może skorzystać z najlepszych struktur open source, w tym TensorFlow, kognitywnych Toolkit Spark ML i scikit — Dowiedz się, jak tworzenie modeli. Na DSVM udostępniamy ikony pulpitu (InstallAMLFromLocal), aby lokalnie Wyodrębnij workbench uczenie maszynowe Azure do katalogu % LOCALAPPDATA % każdego użytkownika. Każdy użytkownik, który musi używać Workbench musi jedynie na czas działania dwukrotne kliknięcie ikony pulpitu InstallAMLFromLocal zainstalowanie ich wystąpienia Workbench. Usługa Azure Machine Learning również tworzone i używane środowisko Python dla poszczególnych użytkowników, które są wyodrębniane w % LOCALAPPDATA%\amlworkbench\python.
 
 ### <a name="microsoft-ml-server-developer-edition"></a>Microsoft ML Server Developer Edition
 Jeśli chcesz korzystać z Microsoft enterprise bibliotek skalowalne R lub Python do analizy sieci, czy maszyna wirtualna ma Microsoft ML Server Developer (wcześniej znane jako Microsoft R Server) zainstalowanej wersji. Microsoft ML Server jest platformie analizy szeroko można wdrożyć klasy korporacyjnej dostępny na R i Python i skalowalne, komercyjnie obsługiwane i bezpieczna. Obsługa różnych statystyk danych big data, modelowania predykcyjnego i możliwości uczenia maszynowego, ML serwer obsługuje pełną gamę analytics — eksploracji, analizy wizualizacji i modelowania. Dzięki użyciu i rozszerzanie typu open source R i Python, Microsoft ML Server jest w pełni zgodny z R / skrypty języka Python, funkcje i sieci CRAN / narzędzia pip / skalować Conda pakietów, do analizowania danych w przedsiębiorstwie. Dotyczy również ograniczenia w pamięci Otwórz R źródło przez dodanie przetwarzanie równoległe i podzielony danych. Umożliwia to uruchamianie analizy danych niż co mieści się w pamięci głównej.  Visual Studio Community Edition uwzględnione na maszynie Wirtualnej zawiera narzędzia R do narzędzi Visual Studio i języka Python dla rozszerzenia Visual Studio, który zapewnia pełne IDE do pracy z R lub Python. Firma Microsoft udostępnia również inne IDEs także takie jak [programu RStudio](http://www.rstudio.com) i [PyCharm Community edition](https://www.jetbrains.com/pycharm/) na maszynie Wirtualnej. 
 
 ### <a name="python"></a>Python
-Do tworzenia aplikacji przy użyciu języka Python dystrybucja Anaconda Python 2.7 i 3.5 została zainstalowana. Rozkład ten zawiera podstawowe języka Python oraz około 300 najbardziej popularnych pakietów analytics matematyczne, inżynieria i danych. Można użyć narzędzia Python Tools dla programu Visual Studio (PTVS) zainstalowanej w wersji Visual Studio 2015 Community lub jednego z IDEs powiązane z Anaconda bezczynności lub Spyder. Można uruchomić te według wyszukiwania na pasku wyszukiwania (**Win** + **S** klucza).
+Do tworzenia aplikacji przy użyciu języka Python dystrybucja Anaconda Python 2.7 i 3,6 została zainstalowana. Rozkład ten zawiera podstawowe języka Python oraz około 300 najbardziej popularnych pakietów analytics matematyczne, inżynieria i danych. Można użyć narzędzia Python Tools dla programu Visual Studio (PTVS) zainstalowanej w wersji Visual Studio 2017 Community lub jednego z IDEs powiązane z Anaconda bezczynności lub Spyder. Można uruchomić te według wyszukiwania na pasku wyszukiwania (**Win** + **S** klucza).
 
 > [!NOTE]
-> Aby punkt narzędzi Python Tools for Visual Studio na Anaconda Python 2.7 i 3.5, należy utworzyć niestandardowego środowiska dla każdej wersji. Aby ustawić te ścieżki środowiska Visual Studio 2015 Community Edition, przejdź do **narzędzia** -> **narzędzi Python Tools** -> **środowiska Python**, a następnie kliknij przycisk **+ niestandardowe**. 
+> Aby punkt narzędzi Python Tools for Visual Studio na Anaconda Python 2.7, należy utworzyć niestandardowego środowiska dla każdej wersji. Aby ustawić te ścieżki środowiska Visual Studio 2017 Community Edition, przejdź do **narzędzia** -> **narzędzi Python Tools** -> **środowiska Python**, a następnie kliknij przycisk **+ niestandardowe**. 
 > 
 > 
 
-Anaconda Python 2.7 jest zainstalowana w C:\Anaconda i Anaconda Python 3.5 jest zainstalowana w c:\Anaconda\envs\py35. Zobacz [dokumentacji PTVS](/visualstudio/python/python-environments.md#selecting-and-installing-python-interpreters) szczegółowy opis kroków. 
+Python anaconda 3,6 jest instalowane w obszarze C:\Anaconda oraz Anaconda Python 2.7 w obszarze c:\Anaconda\envs\python2. Zobacz [dokumentacji PTVS](/visualstudio/python/python-environments.md#selecting-and-installing-python-interpreters) szczegółowy opis kroków. 
 
 ### <a name="jupyter-notebook"></a>Jupyter Notebook
-Dystrybucji anaconda zawiera również notesu Jupyter, środowisko, aby udostępnić kodu i analizy. Serwer notesu Jupyter został wstępnie skonfigurowany z użyciem jądra Python 2.7, Python, 3.5, PySpark, Julia i R. Brak ikony pulpitu o nazwie "Notesu Jupyter", aby uruchomić serwera Jupyter i uruchomienie przeglądarki do uzyskiwania dostępu do serwera notesu. 
-
-> [!NOTE]
-> Kontynuuj, jeśli możesz uzyskać wyświetlania ostrzeżeń dotyczących certyfikatów. 
-> 
-> 
+Dystrybucji anaconda zawiera również notesu Jupyter, środowisko, aby udostępnić kodu i analizy. Serwer notesu Jupyter został wstępnie skonfigurowany z użyciem języka Python 2.7, Python 3.x, jądra PySpark, Julia i R. Brak ikony pulpitu o nazwie "Notesu Jupyter", aby uruchomić serwera Jupyter i uruchomienie przeglądarki do uzyskiwania dostępu do serwera notesu. 
 
 Firma Microsoft ma spakowane kilka przykładowych notesów w języku Python i w języku R. Z notesów Jupyter pokazują, jak pracować z Microsoft ML Server, SQL Server ML Services (analityka w bazie danych), Python, kognitywnych zestaw narzędzi firmy Microsoft, Tensorflow i innych technologii Azure po otwarciu Jupyter. Na stronie głównej notesu można zobaczyć łącza do próbek, po uwierzytelniania notesu Jupyter przy użyciu hasła utworzonego w poprzednim kroku. 
 
 ### <a name="visual-studio-2017-community-edition"></a>Program Visual Studio 2017 Community edition
-Program Visual Studio Community edition zainstalowany na maszynie Wirtualnej. Jest to bezpłatna wersja popularnych IDE firmy Microsoft, który służy do celów ewaluacyjnych i dla małych zespołów. Postanowienia licencyjne można wyewidencjonować [tutaj](https://www.visualstudio.com/support/legal/mt171547).  Otwórz program Visual Studio przez dwukrotne kliknięcie ikony pulpitu lub **Start** menu. Możesz również wyszukać programy z **Win** + **S** i wprowadzając "Visual Studio". Gdy można tworzyć projektów w językach C#, Python, R, transport, node.js. Wtyczki instalowane są również wchodzące wygodny do pracy z usługami Azure, takich jak Azure Data Catalog, Azure HDInsight (Hadoop, Spark) i usługi Azure Data Lake. 
+Program Visual Studio Community edition zainstalowany na maszynie Wirtualnej. Jest to bezpłatna wersja popularnych IDE firmy Microsoft, który służy do celów ewaluacyjnych i dla małych zespołów. Postanowienia licencyjne można wyewidencjonować [tutaj](https://www.visualstudio.com/support/legal/mt171547).  Otwórz program Visual Studio przez dwukrotne kliknięcie ikony pulpitu lub **Start** menu. Możesz również wyszukać programy z **Win** + **S** i wprowadzając "Visual Studio". Gdy można tworzyć projektów w językach C#, Python, R, transport, node.js. Wtyczki instalowane są również wchodzące wygodny do pracy z usługami Azure, takich jak Azure Data Catalog, Azure HDInsight (Hadoop, Spark) i usługi Azure Data Lake. Obecnie jest również dodatku o nazwie ```Visual Studio Tools for AI``` bezproblemowo integruje się do usługi Azure Machine Learning i pomaga szybko aplikacji AI kompilacji. 
 
 > [!NOTE]
 > Może wystąpić komunikat informujący, że okres próbny minął. Wprowadź poświadczenia konta Microsoft lub Utwórz nowe konto wolnego uzyskać dostęp do programu Visual Studio Community Edition. 
@@ -170,6 +162,10 @@ Do tworzenia pulpitów nawigacyjnych i wspaniałych wizualizacji **Power BI Desk
 > 
 > 
 
+### <a name="azure-machine-learning-workbench"></a>Środowisko robocze usługi Azure Machine Learning
+
+Azure Machine Learning Workbench jest aplikacją i interfejsu wiersza polecenia. Workbench ma przygotowanie wbudowanych danych, która uzyskuje informacje o etapów przygotowywania danych je wykonywać. Umożliwia także zarządzanie projektami, uruchom historii i integracji notesu możliwość niemal wydajność pracy. Użytkownik może skorzystać z najlepszych struktur open source, w tym TensorFlow, kognitywnych Toolkit Spark ML i scikit — Dowiedz się, jak tworzenie modeli. Na DSVM udostępniamy ikony pulpitu, aby zainstalować workbench uczenie maszynowe Azure w katalogu % LOCALAPPDATA % dla poszczególnych użytkowników. Każdy użytkownik, który musi używać Workbench musi jedynie na czas działania dwukrotnie ```AzureML Workbench Setup``` ikony pulpitu, aby zainstalować ich wystąpienia środowiska roboczego. Usługa Azure Machine Learning również tworzone i używane środowisko Python dla poszczególnych użytkowników, które są wyodrębniane w % LOCALAPPDATA%\amlworkbench\python.
+
 ## <a name="additional-microsoft-development-tools"></a>Dodatkowe narzędzi programistycznych firmy Microsoft
 [ **Instalatora platformy sieci Web firmy Microsoft** ](https://www.microsoft.com/web/downloads/platform.aspx) może służyć do odnajdywania i Pobierz innych narzędzi programistycznych firmy Microsoft. Istnieje również skrót do narzędzia na pulpicie maszyny wirtualnej nauki danych firmy Microsoft.  
 
@@ -177,10 +173,10 @@ Do tworzenia pulpitów nawigacyjnych i wspaniałych wizualizacji **Power BI Desk
 | Element | Katalog |
 | --- | --- |
 | Konfiguracje serwera notesu Jupyter |C:\ProgramData\jupyter |
-| Katalog macierzysty przykłady notesu Jupyter |c:\dsvm\notebooks |
+| Katalog macierzysty przykłady notesu Jupyter |c:\dsvm\notebooks i c:\users\<nazwa użytkownika > \notebooks|
 | Inne przykłady |c:\dsvm\samples |
-| Anaconda (domyślne: Python 2.7) |c:\Anaconda |
-| Środowisko Python 3.5 anaconda |c:\Anaconda\envs\py35 |
+| Anaconda (domyślne: Python 3,6) |c:\Anaconda |
+| Środowisko Python 2.7 anaconda |c:\Anaconda\envs\python2 |
 | Microsoft ML Server autonomiczny Python  | C:\Program Files\Microsoft\ML Server\PYTHON_SERVER |
 | Wystąpienie domyślne R (ML serwer autonomiczny) |C:\Program Files\Microsoft\ML Server\R_SERVER |
 | Katalog wystąpień w bazie danych SQL usługi uczenia Maszynowego |C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER |
@@ -188,7 +184,7 @@ Do tworzenia pulpitów nawigacyjnych i wspaniałych wizualizacji **Power BI Desk
 | Różne narzędzia |c:\dsvm\tools |
 
 > [!NOTE]
-> Wystąpienia programu Microsoft danych nauki maszyny wirtualnej utworzone przed 1.5.0 (przed 3 września 2016) używane struktury katalogów nieco inne niż określone w powyższej tabeli. 
+> W wersji Windows Server 2012 przed 2018 marca wersji DSVM i Windows Server 2016 domyślnym środowisku Anaconda jest Python 2.7. Środowisko dodatkowej jest znajdującym się w c:\Anaconda\envs\py35 3.5 Python. 
 > 
 > 
 

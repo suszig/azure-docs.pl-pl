@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 1a57d26e0f1188a2dea29beba52fde090aa82ca8
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0723f2c7c09029e99335f3a459c0ac86d84f9487
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>Azure DB rozwiązania Cosmos powiązania dla usługi Azure Functions
 
@@ -150,7 +150,7 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 
 |Właściwość Function.JSON | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
-|Typ || należy wybrać opcję `cosmosDBTrigger`. |
+|**Typ** || należy wybrać opcję `cosmosDBTrigger`. |
 |**Kierunek** || należy wybrać opcję `in`. Ten parametr jest ustawiany automatycznie, podczas tworzenia wyzwalacza w portalu Azure. |
 |**Nazwa** || Nazwa zmiennej używany w funkcji kod, który reprezentuje listy dokumentów o zmiany. | 
 |**connectionStringSetting**|**ConnectionStringSetting** | Nazwa ustawienia aplikacji, które zawiera parametry połączenia używane do nawiązania połączenia konta bazy danych Azure rozwiązania Cosmos monitorowane. |
@@ -160,7 +160,7 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 |**leaseDatabaseName** |**LeaseDatabaseName** | (Opcjonalnie) Nazwa bazy danych, która przechowuje kolekcji używany do przechowywania dzierżawy. Gdy nie są ustawione, wartość `databaseName` ustawienie jest używane. Ten parametr ma wartość automatycznie, podczas tworzenia powiązania w portalu. |
 |**leaseCollectionName** | **LeaseCollectionName** | (Opcjonalnie) Nazwa kolekcji używany do przechowywania dzierżawy. Gdy nie są ustawione, wartość `leases` jest używany. |
 |**createLeaseCollectionIfNotExists** | **CreateLeaseCollectionIfNotExists** | (Opcjonalnie) Jeśli wartość `true`, kolekcji dzierżawy jest tworzony automatycznie podczas już nie istnieje. Wartość domyślna to `false`. |
-|**leasesCollectionThroughput**| **LeasesCollectionThroughput**| (Opcjonalnie) Definiuje liczbę jednostek żądań można przypisać podczas tworzenia kolekcji dzierżawy. To ustawienie jest tylko do użycia podczas `createLeaseCollectionIfNotExists` ma ustawioną wartość `true`. Ten parametr ma wartość automatycznie, podczas tworzenia powiązania za pomocą portalu.
+|**LeasesCollectionThroughput**| **LeasesCollectionThroughput**| (Opcjonalnie) Definiuje liczbę jednostek żądań można przypisać podczas tworzenia kolekcji dzierżawy. To ustawienie jest tylko do użycia podczas `createLeaseCollectionIfNotExists` ma ustawioną wartość `true`. Ten parametr ma wartość automatycznie, podczas tworzenia powiązania za pomocą portalu.
 | |**LeaseOptions** | Skonfiguruj opcje dzierżawy przez ustawienie właściwości w wystąpieniu [ChangeFeedHostOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.changefeedprocessor.changefeedhostoptions) klasy.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -318,7 +318,7 @@ W tym miejscu jest powiązanie danych *function.json* pliku:
 
 ```json
 {
-    "name": "inputDocument",
+    "name": "inputDocumentIn",
     "type": "documentDB",
     "databaseName": "MyDatabase",
     "collectionName": "MyCollection",
@@ -326,6 +326,16 @@ W tym miejscu jest powiązanie danych *function.json* pliku:
     "partitionKey": "{queueTrigger_payload_property}",
     "connection": "MyAccount_COSMOSDB",     
     "direction": "in"
+},
+{
+    "name": "inputDocumentOut",
+    "type": "documentDB",
+    "databaseName": "MyDatabase",
+    "collectionName": "MyCollection",
+    "createIfNotExists": false,
+    "partitionKey": "{queueTrigger_payload_property}",
+    "connection": "MyAccount_COSMOSDB",
+    "direction": "out"
 }
 ```
 [Konfiguracji](#input---configuration) sekcji opisano te właściwości.
@@ -455,7 +465,7 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 
 |Właściwość Function.JSON | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
-|Typ     || należy wybrać opcję `documentdb`.        |
+|**Typ**     || należy wybrać opcję `documentdb`.        |
 |**Kierunek**     || należy wybrać opcję `in`.         |
 |**Nazwa**     || Nazwa parametru powiązania, który reprezentuje dokument w funkcji.  |
 |**databaseName** |**DatabaseName** |Baza danych zawierająca dokumentu.        |
@@ -727,14 +737,14 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 
 |Właściwość Function.JSON | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
-|Typ     || należy wybrać opcję `documentdb`.        |
+|**Typ**     || należy wybrać opcję `documentdb`.        |
 |**Kierunek**     || należy wybrać opcję `out`.         |
 |**Nazwa**     || Nazwa parametru powiązania, który reprezentuje dokument w funkcji.  |
 |**databaseName** | **DatabaseName**|Baza danych zawierający kolekcję, do której jest tworzony dokumentu.     |
 |**CollectionName** |**CollectionName**  | Nazwa kolekcji, których tworzone jest dokumentu. |
-|**createIfNotExists**  |**CreateIfNotExists**    | Wartość logiczna wskazująca, czy kolekcja jest tworzony, gdy nie istnieje. Wartość domyślna to *false* ponieważ nowe kolekcje są tworzone z zarezerwowaną przepływnością, co ma koszt skutki. Aby uzyskać więcej informacji, odwiedź [stronę cennika](https://azure.microsoft.com/pricing/details/documentdb/).  |
+|**CreateIfNotExists**  |**CreateIfNotExists**    | Wartość logiczna wskazująca, czy kolekcja jest tworzony, gdy nie istnieje. Wartość domyślna to *false* ponieważ nowe kolekcje są tworzone z zarezerwowaną przepływnością, co ma koszt skutki. Aby uzyskać więcej informacji, odwiedź [stronę cennika](https://azure.microsoft.com/pricing/details/documentdb/).  |
 |**PartitionKey**|**PartitionKey** |Gdy `CreateIfNotExists` ma wartość true, określa ścieżkę klucza partycji dla utworzonej kolekcji.|
-|**collectionThroughput**|**CollectionThroughput**| Gdy `CreateIfNotExists` ma wartość true, określa [przepływności](../cosmos-db/set-throughput.md) utworzonej kolekcji.|
+|**CollectionThroughput**|**CollectionThroughput**| Gdy `CreateIfNotExists` ma wartość true, określa [przepływności](../cosmos-db/set-throughput.md) utworzonej kolekcji.|
 |**Połączenia**    |**ConnectionStringSetting** |Nazwa ustawienia aplikacji zawierający parametry połączenia bazy danych Azure rozwiązania Cosmos.        |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

@@ -1,6 +1,6 @@
 ---
 title: Ochrona danych osobowych w Microsoft Azure | Dokumentacja firmy Microsoft
-description: "Pierwszego artykułu serii artykuły ułatwiają korzystanie z platformy Azure do ochrony danych osobowych"
+description: "W tym artykule powinien pomagają w używaniu platformy Azure do ochrony danych osobowych i być zgodne z ogólnych danych ochrony rozporządzenia (GDPR)"
 services: security
 documentationcenter: na
 author: Barclayn
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 4dbdb2dc11bdc515fb3856dd45203868122c7726
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 741fb17be315faacef6483cbaaa565136622cb45
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="protect-personal-data-in-microsoft-azure"></a>Ochrona danych osobowych w Microsoft Azure
 
-W tym artykule przedstawiono serię artykuły, które ułatwiają użyć usług i technologii zabezpieczeń platformy Azure do ochrony danych osobowych. Jest to decydujące znaczenie dla wielu firmowych i inicjatyw zgodności i nadzór nad branżowych. Scenariusz, problem instrukcji i firmy cele są uwzględniane w tutaj.
+W tym artykule przedstawiono serię artykuły, które ułatwiają użyć usług i technologii zabezpieczeń platformy Azure do ochrony danych osobowych. Jest to decydujące znaczenie dla wielu firmowych i inicjatyw zgodności i nadzór nad branżowych. Na przykład można użyć informacji dostępnych w tej serii artykułów zgodnej z ogólnych danych ochrony rozporządzenia (GDPR). Scenariusz, problem instrukcji i firmy cele są uwzględniane w tutaj.
 
 ## <a name="scenario-and-problem-statement"></a>Scenariusz i problem — instrukcja
 
@@ -66,7 +66,7 @@ Poniższe artykuły zawierają wskazówki porad techniczne, które mogą pomóc 
 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Witryna informacji zabezpieczeń platformy Azure](https://aka.ms/AzureSecInfo)
 

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 03/05/2018
 ms.author: brenduns
 ms.reviewer: 
-ms.openlocfilehash: 7e2b98391bab5806b59d8a16ec7dc24295a0d224
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 5b117a9b174f5d2419ff596cc90436e4b9d21645
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="overview-of-offering-services-in-azure-stack"></a>Przegląd oferty usług Azure stosu
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/02/2018
 
 [Microsoft Azure stosu](azure-stack-poc.md) platforma chmury hybrydowej, która umożliwia świadczenie usług z centrum danych. Dostawcy usług mają możliwość oferowania usług dzierżawcom. W firmie lub agencji rządowych Stanów Zjednoczonych możesz zaoferować lokalnych usług pracownikom. Usługi, które można dostarczać obejmują, ale nie są ograniczone do:
 
-- Usługi aplikacji, aplikacje mobilne, aplikacje interfejsu API, funkcje interfejsu API, SQL, MySQL, takich jak platforma jako usługa (PaaS) usługi.
+- Usługi aplikacji, aplikacje interfejsu API, funkcje interfejsu API, SQL, MySQL, takich jak platforma jako usługa (PaaS) usługi.
 
 Można nawet łączyć usług integracji do tworzenia złożonych rozwiązań dla różnych użytkowników.
 
@@ -39,7 +39,7 @@ Podczas planujesz Twojej oferty, należy uwzględnić następujące kwestie:
 
 **Próbnych**: próbnych umożliwia przyciągania nowych użytkowników, które następnie można uaktualnić do dodatkowych usług. Wersja próbna, utworzyć małą [planu podstawowego](azure-stack-plan-offer-quota-overview.md#base-plan) z większego planu dodatek opcjonalne.
 
-**Planowanie pojemności**: może być użytkowników Przechwytywanie dużych ilości zasobów i zapychaniem systemu dla wszystkich użytkowników. Aby ułatwić wydajności, można [skonfigurować przydziały planów](azure-stack-plan-offer-quota-overview.md#plans) z użyciem centralnych zasad dostępu.
+**Planowanie pojemności**: może być użytkowników, które pobrania dużych ilości zasobów i zapychaniem systemu dla wszystkich użytkowników. Aby ułatwić wydajności, można [skonfigurować przydziały planów](azure-stack-plan-offer-quota-overview.md#plans) z użyciem centralnych zasad dostępu.
 
 **Delegowane dostawców**: można przyznać innym możliwość tworzenia oferty w danym środowisku. Na przykład jeśli jesteś dostawcą usług, możesz [delegować](azure-stack-delegated-provider.md) możliwość Twojej odsprzedawców. Lub, w przypadku organizacji, możesz delegować do innych działów/zależnych.
 

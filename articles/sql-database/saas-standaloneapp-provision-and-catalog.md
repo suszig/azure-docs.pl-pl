@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: billgib
-ms.openlocfilehash: a13eeb79320360da078ee19a61cc32a2e1f35354
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: dd43ede94d6f219f3b551091fc6e4b59f56386d1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Dostarczanie i katalogu nowi dzierżawcy przy użyciu aplikacji dla poszczególnych dzierżawców wzorzec SaaS
 
@@ -31,7 +31,7 @@ Ten artykuł zawiera dwie główne części:
     * W samouczku aplikacji SaaS biletów Wingtip próbki, dostosowane do aplikacji autonomicznej na wzorzec dzierżawy.
 
 ## <a name="standalone-application-per-tenant-pattern"></a>Aplikacja autonomiczna na wzorzec dzierżawy
-Aplikacji autonomicznej na wzorzec dzierżawy jest jednym z kilku dla wielodostępnych aplikacji SaaS.  W tym wzorcu aplikacji autonomicznej zostanie zainicjowana dla każdego dzierżawcy. Aplikacja składa się z poziomu składniki aplikacji i bazy danych SQL.  Każdej dzierżawy aplikacji można wdrożyć w dostawcy subskrypcji.  Alternatywnie Azure oferuje [zarządzanych aplikacji program](https://docs.microsoft.com/en-us/azure/managed-applications/overview) aplikacji może być wdrożonych w subskrypcji dzierżawcy i zarządzane przez dostawcę w imieniu dzierżawcy. 
+Aplikacji autonomicznej na wzorzec dzierżawy jest jednym z kilku dla wielodostępnych aplikacji SaaS.  W tym wzorcu aplikacji autonomicznej zostanie zainicjowana dla każdego dzierżawcy. Aplikacja składa się z poziomu składniki aplikacji i bazy danych SQL.  Każdej dzierżawy aplikacji można wdrożyć w dostawcy subskrypcji.  Alternatywnie Azure oferuje [zarządzanych aplikacji program](https://docs.microsoft.com/azure/managed-applications/overview) aplikacji może być wdrożonych w subskrypcji dzierżawcy i zarządzane przez dostawcę w imieniu dzierżawcy. 
 
    ![wzorzec aplikacji na dzierżawy](media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern.png)
 
@@ -45,7 +45,7 @@ Podczas każdego dzierżawcy aplikacji i bazy danych są całkowicie odizolowane
 Katalog dzierżawy przechowuje mapowanie między identyfikator dzierżawy i dzierżawy bazy danych, umożliwiając identyfikator, aby rozpoznać serwera i nazwę bazy danych.  W aplikacji Wingtip SaaS identyfikator dzierżawy jest obliczana jako skrót nazwę dzierżawcy, mimo że można użyć innych systemów.  Gdy aplikacje autonomiczne nie ma potrzeby katalog do zarządzania połączeniami, katalogu może służyć do określania zakresu inne akcje na zestaw baz danych dzierżawy. Na przykład kwerendy elastycznej służy katalogu do określania zestawu baz danych, w których kwerendy są dystrybuowane do raportowania między dzierżawy.
 
 ## <a name="elastic-database-client-library"></a>Biblioteka kliencka Elastic Database
-W przykładowej aplikacji Wingtip katalogu jest implementowany przez niezależnego fragmentu funkcji do zarządzania [elastycznej bazy danych klienta biblioteki](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-elastic-database-client-library) (EDCL).  Biblioteka włącza aplikację do tworzenia, zarządzania i użyć mapy niezależnego fragmentu, który jest przechowywany w bazie danych. W przykładowym biletów Wingtip katalogu są przechowywane w *katalogu dzierżawcy* bazy danych.  Identyfikator niezależnego fragmentu mapuje klucz dzierżawy, aby niezależnego fragmentu (baza danych), w którym są przechowywane dane tej dzierżawy.  EDCL funkcje zarządzania *mapy globalne niezależnych* przechowywane w tabelach w *katalogu dzierżawcy* bazy danych i *mapy lokalnego niezależnych* przechowywanych w każdej niezależnego fragmentu.
+W przykładowej aplikacji Wingtip katalogu jest implementowany przez niezależnego fragmentu funkcji do zarządzania [elastycznej bazy danych klienta biblioteki](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-client-library) (EDCL).  Biblioteka włącza aplikację do tworzenia, zarządzania i użyć mapy niezależnego fragmentu, który jest przechowywany w bazie danych. W przykładowym biletów Wingtip katalogu są przechowywane w *katalogu dzierżawcy* bazy danych.  Identyfikator niezależnego fragmentu mapuje klucz dzierżawy, aby niezależnego fragmentu (baza danych), w którym są przechowywane dane tej dzierżawy.  EDCL funkcje zarządzania *mapy globalne niezależnych* przechowywane w tabelach w *katalogu dzierżawcy* bazy danych i *mapy lokalnego niezależnych* przechowywanych w każdej niezależnego fragmentu.
 
 Funkcje EDCL może zostać wywołana z aplikacji i skryptów programu PowerShell do tworzenia i zarządzania nimi wpisy w mapie niezależnego fragmentu. Inne funkcje EDCL może służyć do pobierania zestawu odłamków lub połączenia z poprawną bazą danych dla danego klucza dzierżawy. 
     
@@ -69,7 +69,7 @@ Na końcu tego samouczka masz zestawu autonomicznego dzierżawy aplikacji, z ka�
 ## <a name="prerequisites"></a>Wymagania wstępne
 Do wykonania zadań opisanych w tym samouczku niezbędne jest spełnienie następujących wymagań wstępnych: 
 * Zainstalowany jest program Azure PowerShell. Aby uzyskać szczegółowe informacje, zobacz [Rozpoczynanie pracy z programem Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
-* Trzy przykładowych aplikacji dzierżawy są wdrażane. Do wdrożenia tych aplikacji w mniej niż 5 minut, zobacz [Wdróż i eksplorowanie wzorzec aplikacji autonomicznej SaaS biletów Wingtip](https://docs.microsoft.com/en-us/azure/sql-database/saas-standaloneapp-get-started-deploy).
+* Trzy przykładowych aplikacji dzierżawy są wdrażane. Do wdrożenia tych aplikacji w mniej niż 5 minut, zobacz [Wdróż i eksplorowanie wzorzec aplikacji autonomicznej SaaS biletów Wingtip](https://docs.microsoft.com/azure/sql-database/saas-standaloneapp-get-started-deploy).
 
 ## <a name="provision-the-catalog"></a>Udostępnianie katalogu
 W tym zadaniu Dowiedz się udostępnianie katalogu używane do rejestrowania wszystkich baz danych dzierżawy. Wykonasz następujące zadania: 
@@ -149,4 +149,4 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Temat serwerów i baz danych, które tworzą aplikacji.
 > * Jak usunąć przykładowych zasobów, aby zatrzymać rozliczeń powiązanego.
 
-Można sprawdzić, jak katalog jest używany do obsługi różnych scenariuszy dzierżawy między za pomocą wersji bazy danych dla dzierżawy [aplikacji SaaS biletów Wingtip](https://docs.microsoft.com/en-us/azure/sql-database/saas-dbpertenant-wingtip-app-overview).  
+Można sprawdzić, jak katalog jest używany do obsługi różnych scenariuszy dzierżawy między za pomocą wersji bazy danych dla dzierżawy [aplikacji SaaS biletów Wingtip](https://docs.microsoft.com/azure/sql-database/saas-dbpertenant-wingtip-app-overview).  

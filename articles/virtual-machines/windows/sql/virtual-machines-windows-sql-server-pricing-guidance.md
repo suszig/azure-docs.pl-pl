@@ -13,17 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 10/17/2017
+ms.date: 02/20/2018
 ms.author: jroth
-ms.openlocfilehash: fe04aa382a3e829b201dbe92442f841fb29fff15
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3103ca2c659e40fd945b597ed4671fe96daf1905
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Wskazówek dotyczących ceny dla maszyn wirtualnych Azure, programu SQL Server
 
-Ten artykuł zawiera wskazówek dotyczących ceny dla maszyn wirtualnych programu SQL Server na platformie Azure. Dostępnych jest kilka opcji, które mają wpływ na koszty i ważne jest, aby wybrać prawego obrazu, który równoważy koszt z wymaganiami biznesowymi.
+Ten artykuł zawiera cenową wskazówki dotyczące [maszyn wirtualnych programu SQL Server](virtual-machines-windows-sql-server-iaas-overview.md) na platformie Azure. Dostępnych jest kilka opcji, które mają wpływ na koszty i ważne jest, aby wybrać prawego obrazu, który równoważy koszt z wymaganiami biznesowymi.
+
+> [!TIP]
+> Jeśli trzeba sprawdzić szacowania kosztów dla określonej kombinacji wersji programu SQL Server, a rozmiar maszyny wirtualnej, zobacz [cennikiem](https://azure.microsoft.com/pricing/details/virtual-machines/windows). Wybierz system operacyjny i wersji programu SQL Server z **systemu operacyjnego/oprogramowania** listy.
+>
+> ![Interfejs użytkownika na stronie cennika maszyny Wirtualnej](./media/virtual-machines-windows-sql-server-pricing-guidance/virtual-machines-pricing-ui.png)
+>
+> Lub użyj [Kalkulator cen](https://azure.microsoft.com/pricing/#explore-cost) Aby dodać i skonfigurować maszynę wirtualną. 
 
 ## <a name="free-licensed-sql-server-editions"></a>Zwolnij licencjonowane wersje programu SQL Server
 
@@ -56,7 +63,7 @@ Dostępne są dwie opcje w celu opłacenia licencjonowania programu SQL Server d
 
 ### <a name="pay-per-usage"></a>Należy zwrócić na użycie
 
-**Płatności licencji programu SQL Server na użycie** oznacza, że koszt na minutę maszyny Wirtualnej Azure zawiera koszt licencji programu SQL Server. Cennik o różnych wersjach programu SQL Server (sieci Web, Standard i Enterprise) można zobaczyć w [maszyny Wirtualnej Azure cennikiem](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-standard). Koszt jest taka sama dla wszystkich wersji programu SQL Server (2012 z dodatkiem SP3 2017). Podobnie jak w przypadku licencjonowania programu SQL Server ogólnie rzecz biorąc, kosztów licencjonowania na minutę zależy od liczby rdzeni maszyny Wirtualnej.
+**Płatności licencji programu SQL Server na użycie** oznacza, że koszt na minutę maszyny Wirtualnej Azure zawiera koszt licencji programu SQL Server. Cennik o różnych wersjach programu SQL Server (sieci Web, Standard i Enterprise) można zobaczyć w [maszyny Wirtualnej Azure cennikiem](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). Koszt jest taka sama dla wszystkich wersji programu SQL Server (2012 z dodatkiem SP3 2017). Podobnie jak w przypadku licencjonowania programu SQL Server ogólnie rzecz biorąc, kosztów licencjonowania na minutę zależy od liczby rdzeni maszyny Wirtualnej.
 
 Płatności programu SQL Server licencjonowania na użycie jest zalecane w przypadku:
 
@@ -147,6 +154,6 @@ Dla innych przepływów pracy, należy wziąć pod uwagę automatycznie zamykani
 
 Ogólne Azure cennik wskazówki, zobacz [uniknąć kosztów nieoczekiwany rozliczenia Azure i kosztów zarządzania](../../../billing/billing-getting-started.md).
 
-Dla maszyn wirtualnych najnowsze cennika, w tym program SQL Server, zobacz [maszyny Wirtualnej Azure cennikiem](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-standard).
+Dla maszyn wirtualnych najnowsze cennika, w tym program SQL Server, zobacz [maszyny Wirtualnej Azure cennikiem](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).
 
 Dowiedz się więcej o maszynach wirtualnych programu SQL Server dla obu [maszyn wirtualnych systemu Windows Server SQL](virtual-machines-windows-sql-server-iaas-overview.md) i [maszyn wirtualnych systemu Linux serwera SQL](../../linux/sql/sql-server-linux-virtual-machines-overview.md).

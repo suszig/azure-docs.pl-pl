@@ -1,6 +1,6 @@
 ---
 title: "Ochrona danych osobowych z funkcjami zabezpieczeń sieci platformy Azure | Dokumentacja firmy Microsoft"
-description: "Ochrona danych osobowych przy użyciu funkcji zabezpieczeń sieci platformy Azure"
+description: "Ochrona danych osobowych przy użyciu funkcji zabezpieczeń sieci platformy Azure. To może służyć do wykonania z ogólnych danych ochrony rozporządzenia (GDPR)"
 services: security
 documentationcenter: na
 author: Barclayn
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 2510a4aed34b6a156cc9a9da6215de5956aac023
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 54aeb22a501e248105931df341d23e524448155a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="protect-personal-data-with-network-security-features-azure-application-gateway-and-network-security-groups"></a>Ochrona danych osobowych z funkcjami zabezpieczeń sieci: Brama aplikacji w usłudze Azure i grup zabezpieczeń sieci
 
-Ten artykuł zawiera informacje i procedury, które pomogą Ci użyć bramy aplikacji Azure i grup zabezpieczeń sieci do ochrony danych osobowych.
+Ten artykuł zawiera informacje i procedury, które pomogą Ci użyć bramy aplikacji Azure i grup zabezpieczeń sieci do ochrony danych osobowych. Te informacje mogą być pomocne w wysiłków w celu zachowania zgodności z ogólnych danych ochrony rozporządzenia (GDPR).
 
 Ważnym elementem strategii zabezpieczeń wielowarstwowy, aby chronić prywatność danych osobowych jest ochrona przed wspólnej luki w zabezpieczeniach luki w zabezpieczeniach takich jak iniekcja kodu SQL lub skryptów między witrynami. Utrzymywanie ruchu sieciowego niechciane poza Azure sieci wirtualnej pomaga w ochronie przed potencjalne naruszenie zabezpieczeń danych poufnych i Microsoft Azure oferuje narzędzia ułatwiające ochronę danych przed atakami.
 

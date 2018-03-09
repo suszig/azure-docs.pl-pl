@@ -2,17 +2,17 @@
 title: "Sposób wyszukiwania adresu przy użyciu usługi wyszukiwanie Azure usługi na podstawie lokalizacji (wersja zapoznawcza) | Dokumentacja firmy Microsoft"
 description: "Dowiedz się, jak wyszukiwanie adresu przy użyciu lokalizacji na podstawie usług Azure (wersja zapoznawcza) usługi wyszukiwania"
 services: location-based-services
-keywords: "Nie dodawaj lub Edytuj słowa kluczowe bez konsultacji z ekspert od optymalizacji pod kątem Wyszukiwarek."
-author: philmea
-ms.author: philmea
+keywords: "Nie dodawaj ani nie edytuj słów kluczowych bez konsultacji z ekspertem SEO."
+author: kgremban
+ms.author: kgremban
 ms.date: 11/29/2017
 ms.topic: article
 ms.service: location-based-services
-ms.openlocfilehash: cacaaab869d3a7752b5a750f01bbfbdaf79814f7
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: dd8026c55d71f6e421b976d8e7ae12f1cfd679a1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Jak znaleźć adres przy użyciu usługi wyszukiwanie Azure usługi na podstawie lokalizacji (wersja zapoznawcza)
 Usługa wyszukiwania jest RESTful zestaw interfejsów API przeznaczone dla deweloperów wyszukać adresy, miejsca, punkty zainteresowań, listy biznesowych i innych informacji geograficznych. Usługa wyszukiwania przypisuje szerokości geograficznej/długości określonego adresu, krzyżowego ulicy, geograficzne funkcji lub z interesujących (POI). Współrzędne geograficzne wartości zwracane przez usługę wyszukiwania interfejsów API mogą być używane jako parametry w innych Azure lokalizacji na podstawie usług takich jak API przepływ ruchu i trasy.
@@ -119,7 +119,7 @@ Można przekazywać ulicę pełną lub częściową API adres wyszukiwania i odb
 
     | Klucz | Wartość |
     |-----|------------|
-    | typeahead | prawda |
+    | typeahead | true |
 
     **Typeahead** flagi informuje interfejsu API Search adres Traktuj zapytania jako częściowe dane wejściowe i zwraca tablicę wartości predykcyjnej.
 
@@ -154,7 +154,7 @@ Można przekazywać ulicę pełną lub częściową API adres wyszukiwania i odb
 
     | Klucz | Wartość |
     |-----|------------|
-    | numer | prawda |
+    | numer | true |
 
     Jeśli [numer](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parametru zapytania są wysyłane z żądania, odpowiedzi może zawierać części ulicy (prawej/lewej strony), a także przesunięcia pozycji dla tego numeru.
     
@@ -162,7 +162,7 @@ Można przekazywać ulicę pełną lub częściową API adres wyszukiwania i odb
 
     | Klucz | Wartość |
     |-----|------------|
-    | spatialKeys | prawda |
+    | spatialKeys | true |
 
     Gdy [spatialKeys](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parametru zapytania jest ustawiona, odpowiedź zawiera zastrzeżonych przestrzennych geograficznie najważniejsze informacje dla określonej lokalizacji.
 
@@ -170,7 +170,7 @@ Można przekazywać ulicę pełną lub częściową API adres wyszukiwania i odb
 
     | Klucz | Wartość |
     |-----|------------|
-    | returnSpeedLimit | prawda |
+    | returnSpeedLimit | true |
     
     Gdy [returnSpeedLimit](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parametru zapytania jest ustawiona, zwracają oczekujących na opublikowanie limit szybkości odpowiedzi.
 
@@ -178,7 +178,7 @@ Można przekazywać ulicę pełną lub częściową API adres wyszukiwania i odb
 
     | Klucz | Wartość |
     |-----|------------|
-    | returnRoadUse | prawda |
+    | returnRoadUse | true |
 
     Gdy [returnRoadUse](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parametru zapytania jest ustawiona, użyj tablicy array drogowej dla reversegeocodes na poziomie ulicy zwraca odpowiedź.
 
@@ -186,7 +186,7 @@ Można przekazywać ulicę pełną lub częściową API adres wyszukiwania i odb
 
     | Klucz | Wartość |
     |-----|------------|
-    | roadUse | prawda |
+    | roadUse | true |
 
     Zapytanie wsteczne geocode można ograniczyć do określonego typu drogowej użycia za pomocą [roadUse](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parametr zapytania.
     

@@ -12,36 +12,41 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: aa28431c5926656ae97ded3f23b83f2a91c60487
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 6e81ea9f98733b1b7e0c9bf7466ac844a37b6046
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Rozwiązywanie problemów z usługi Azure Active Directory bezproblemowe logowanie jednokrotne
 
 Ten artykuł pomaga informacje o typowych problemów dotyczących usługi Azure Active Directory (Azure AD) bezproblemowe logowanie jednokrotne (SSO bezproblemowe).
 
-## <a name="known-problems"></a>Znane problemy
+## <a name="known-issues"></a>Znane problemy
 
 - W niektórych przypadkach włączenie logowania jednokrotnego bezproblemowe może potrwać do 30 minut.
 - Jeśli Wyłącz i ponownie włącz bezproblemowe logowanie Jednokrotne dzierżawy, użytkownicy nie otrzymywali pojedynczego środowisko logowania, dopóki wygasły pamięci podręcznej bilet protokołu Kerberos, zwykle dotyczy 10 godzin.
 - Obsługa przeglądarki Edge nie jest dostępna.
-- Uruchamianie klientom pakietu Office, szczególnie w sytuacjach współużytkowanego komputera, powoduje, że monity bardzo logowania dla użytkowników. Użytkownicy muszą wprowadzić często ich nazw użytkowników, ale nie ich hasła.
 - Jeśli bezproblemowe logowanie Jednokrotne zakończy się powodzeniem, użytkownik nie ma możliwość wybierz **wylogowuj mnie**. Ze względu na to zachowanie scenariuszy mapowania programu SharePoint i usługi OneDrive nie działają.
+- Klienci Office poniżej 16.0.8730.xxxx wersji nie obsługują nieinterakcyjnym logowania z bezproblemowe logowania jednokrotnego. Na tych klientach użytkownicy muszą wprowadzić ich nazw użytkowników, ale nie hasła do logowania.
 - Bezproblemowe logowanie Jednokrotne nie działa w trybie przeglądania prywatnym w programie Firefox.
 - Bezproblemowe logowanie Jednokrotne nie działa w programie Internet Explorer, gdy jest włączony tryb rozszerzony chronione.
 - Bezproblemowe logowanie Jednokrotne nie działa w przeglądarkach dla urządzeń przenośnych w systemach iOS i Android.
 - Jeśli synchronizacja 30 lub większą liczbą lasów usługi Active Directory, nie można włączyć bezproblemowe logowania jednokrotnego za pośrednictwem usługi Azure AD Connect. Jako rozwiązanie alternatywne można [ręcznie włączyć](#manual-reset-of-azure-ad-seamless-sso) tę funkcję na dzierżawy.
-- Dodawanie adresów URL usługi Azure AD (https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net) do strefy Zaufane witryny zamiast lokalnej strefy intranetowej *uniemożliwia użytkownikom logowanie*.
+- Dodawanie adresu URL usługi Azure AD (https://autologon.microsoftazuread-sso.com) do strefy Zaufane witryny zamiast lokalnej strefy intranetowej *uniemożliwia użytkownikom logowanie*.
+- Wyłączanie korzystania z **RC4_HMAC_MD5** typ szyfrowania dla protokołu Kerberos w ustawieniach usługi Active Directory spowoduje przerwanie bezproblemowe logowania jednokrotnego. W narzędziu do Edytora zarządzania zasadami grupy upewnij się, że wartość **RC4_HMAC_MD5** w obszarze **Konfiguracja komputera -> Ustawienia systemu Windows -> Ustawienia zabezpieczeń -> Zasady lokalne -> Opcje zabezpieczeń — > "Zabezpieczenia sieci: Konfigurowanie typów szyfrowania dozwolone dla protokołu Kerberos"** jest "Enabled".
 
-## <a name="check-the-status-of-the-feature"></a>Sprawdź stan funkcji
+## <a name="check-status-of-feature"></a>Sprawdź stan funkcji
 
 Sprawdź, czy funkcja logowania jednokrotnego bezproblemowe jest nadal **włączone** w dzierżawie. Stan można sprawdzić, przechodząc do **Azure AD Connect** okienka w [Centrum administracyjnego usługi Azure Active Directory](https://aad.portal.azure.com/).
 
 ![Centrum administracyjne usługi Azure Active Directory: okienko Azure AD Connect](./media/active-directory-aadconnect-sso/sso10.png)
+
+Kliknij, aby wyświetlić wszystkich lasów usługi AD, które zostały włączone dla bezproblemowego logowania jednokrotnego.
+
+![Centrum administracyjne usługi Azure Active Directory: okienko bezproblemowe logowanie Jednokrotne](./media/active-directory-aadconnect-sso/sso13.png)
 
 ## <a name="sign-in-failure-reasons-in-the-azure-active-directory-admin-center-needs-a-premium-license"></a>Przyczyny niepowodzenia logowania w Centrum administracyjnym usługi Azure Active Directory (wymaga licencji Premium)
 
@@ -70,7 +75,7 @@ Poniższa lista kontrolna umożliwia rozwiązywanie problemów bezproblemowe rej
 
 - Upewnij się, że funkcja bezproblemowe logowanie Jednokrotne jest włączona w programie Azure AD Connect. Jeśli nie można włączyć funkcję (na przykład z powodu zablokowanych port), upewnij się, że masz wszystkie [wymagania wstępne](active-directory-aadconnect-sso-quick-start.md#step-1-check-the-prerequisites) w miejscu.
 - Jeśli włączono zarówno [Azure AD Join](../active-directory-azureadjoin-overview.md) i bezproblemowe logowanie Jednokrotne w dzierżawie, upewnij się, że problem nie jest z usługi Azure AD Join. Usługa rejestracji Jednokrotnej z usługi Azure AD Join mają pierwszeństwo przed bezproblemowe logowanie Jednokrotne Jeśli urządzenie jest zarejestrowane w usłudze Azure AD i przyłączonych do domeny. Z logowania jednokrotnego z usługi Azure AD Join użytkownik widzi kafelka logowania, stwierdzający "Podłączone do systemu Windows".
-- Upewnij się, że obie te usługi Azure AD URL (https://autologon.microsoftazuread-sso.com i https://aadg.windows.net.nsatc.net) należą ustawienia strefy Intranet użytkownika.
+- Upewnij się, że adres URL usługi Azure AD (https://autologon.microsoftazuread-sso.com) jest częścią ustawień strefy Intranet.
 - Upewnij się, że urządzeń firmowych jest przyłączony do domeny usługi Active Directory.
 - Upewnij się, że użytkownik jest zalogowany na urządzeniu w ramach konta domeny usługi Active Directory.
 - Upewnij się, że konto użytkownika z lasu usługi Active Directory, gdzie zostały bezproblemowe logowanie Jednokrotne skonfigurowano.

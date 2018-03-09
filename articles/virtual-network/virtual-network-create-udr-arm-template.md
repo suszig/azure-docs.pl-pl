@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
-ms.openlocfilehash: b2c962d5449d18b51cfd84b0e1992695b54d1c48
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a00b908f9811822f262d2c6113e3ff5fc364b1b4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-user-defined-routes-udr-using-a-template"></a>Tworzenie trasy zdefiniowane przez użytkownika (przez) przy użyciu szablonu
 
 > [!div class="op_single_selector"]
-> * [Program PowerShell](virtual-network-create-udr-arm-ps.md)
-> * [Interfejs wiersza polecenia platformy Azure](virtual-network-create-udr-arm-cli.md)
+> * [Program PowerShell](tutorial-create-route-table-powershell.md)
+> * [Interfejs wiersza polecenia platformy Azure](tutorial-create-route-table-cli.md)
 > * [Szablon](virtual-network-create-udr-arm-template.md)
 > * [PowerShell (klasyczny)](virtual-network-create-udr-classic-ps.md)
 > * [Interfejs wiersza polecenia (klasyczny)](virtual-network-create-udr-classic-cli.md)
@@ -75,7 +75,7 @@ Aby skojarzyć przez podsieci frontonu, masz definicji podsieci w szablonie, a n
 
 Zwróć uwagę, same wykonywana w ramach grupy NSG zaplecza i podsieć zaplecza w szablonie.
 
-Należy również upewnić się, że **FW1** maszyna wirtualna ma adres IP przekazywania właściwości włączony na karcie Sieciowej, która będzie służyć do pobierania i przekazywać pakiety. Poniższa sekcja przedstawia definicję karty interfejsu sieciowego dla FW1 w pliku azuredeploy-nsg-udr.json, oparta na scenariuszu powyżej.
+Należy również upewnić się, że **FW1** maszyna wirtualna ma adres IP przekazywania właściwości włączony na karcie Sieciowej, która będzie służyć do pobierania i przekazywać pakiety. Poniższa sekcja przedstawia definicję karty interfejsu sieciowego dla FW1 w pliku azuredeploy-nsg-udr.json, oparta na scenariuszu.
 
     "apiVersion": "2015-06-15",
     "type": "Microsoft.Network/networkInterfaces",
@@ -112,7 +112,7 @@ Należy również upewnić się, że **FW1** maszyna wirtualna ma adres IP przek
     }
 
 ## <a name="deploy-the-template-by-using-click-to-deploy"></a>Wdrażanie szablonu przy użyciu metody „kliknij, aby wdrożyć”
-Przykładowy szablon dostępny w repozytorium publicznym korzysta z pliku parametrów zawierającego wartości domyślne używane do generowania scenariusza opisanego powyżej. Aby wdrożyć ten szablon przy użyciu metody „kliknij, aby wdrożyć”, kliknij [ten link](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR), kliknij przycisk **Deploy to Azure** (Wdróż na platformie Azure), w razie potrzeby zastąp wartości domyślne parametrów i postępuj zgodnie z instrukcjami podanymi w portalu.
+Przykładowy szablon dostępne w publicznych repozytorium używa parametru plik zawierający domyślne wartości używane do generowania scenariusz opisany wcześniej. Aby wdrożyć ten szablon przy użyciu metody „kliknij, aby wdrożyć”, kliknij [ten link](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR), kliknij przycisk **Deploy to Azure** (Wdróż na platformie Azure), w razie potrzeby zastąp wartości domyślne parametrów i postępuj zgodnie z instrukcjami podanymi w portalu.
 
 1. Jeśli nie znasz programu Azure PowerShell, zapoznaj się z artykułem [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview) i postępuj zgodnie z instrukcjami aż do momentu logowania się w programie Azure i wyboru subskrypcji.
 2. Uruchom poniższe polecenie, aby utworzyć grupę zasobów:
@@ -173,7 +173,7 @@ Przykładowy szablon dostępny w repozytorium publicznym korzysta z pliku parame
 
 ## <a name="deploy-the-template-by-using-the-azure-cli"></a>Wdrażanie szablonu przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Aby wdrożyć szablon ARM przy użyciu wiersza polecenia platformy Azure, wykonaj następujące kroki:
+Aby wdrożyć szablon Menedżera zasobów Azure przy użyciu wiersza polecenia platformy Azure, wykonaj następujące kroki:
 
 1. Jeśli po raz pierwszy używasz interfejsu wiersza polecenia Azure, zobacz artykuł [Instalowanie i konfigurowania interfejsu wiersza polecenia Azure](../cli-install-nodejs.md) i postępuj zgodnie z instrukcjami aż do punktu, w którym należy wybrać konto platformy Azure i subskrypcję.
 2. Uruchom następujące polecenie, aby włączyć tryb Resource Manager:
@@ -182,11 +182,11 @@ Aby wdrożyć szablon ARM przy użyciu wiersza polecenia platformy Azure, wykona
     azure config mode arm
     ```
 
-    Oto oczekiwane dane wyjściowe po wprowadzeniu powyższego polecenia:
+    Oto oczekiwane dane wyjściowe poprzedniego polecenia:
 
         info:    New mode is arm
 
-3. W przeglądarce przejdź do **https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, a następnie skopiuj zawartość pliku json i wkleić do nowego pliku w sieci komputer. W tym scenariuszu może być skopiowanie wartości poniżej w pliku o nazwie **c:\udr\azuredeploy.parameters.json**.
+3. W przeglądarce przejdź do **https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, a następnie skopiuj zawartość pliku json i wkleić do nowego pliku w sieci komputer. W tym scenariuszu, skopiuj następujące wartości w pliku o nazwie **c:\udr\azuredeploy.parameters.json**.
 
     ```json
         {
@@ -206,7 +206,7 @@ Aby wdrożyć szablon ARM przy użyciu wiersza polecenia platformy Azure, wykona
         }
     ```
 
-4. Uruchom następujące polecenie, aby wdrożyć nową sieć wirtualną przy użyciu szablonu i parametr plików pobranego i zmodyfikowanego:
+4. Uruchom następujące polecenie, aby wdrożyć nową sieć wirtualną przy użyciu szablonu i parametr pliki pobrane i wcześniej zmodyfikowane:
 
     ```azurecli
     azure group create -n TestRG -l westus --template-uri 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.json' -e 'c:\udr\azuredeploy.parameters.json'
@@ -404,5 +404,5 @@ Aby wdrożyć szablon ARM przy użyciu wiersza polecenia platformy Azure, wykona
             info:    group show command OK
 
 > [!TIP]
-> Jeśli nie ma wszystkich zasobów, uruchom `azure group deployment show` polecenie, aby upewnić się, stan inicjowania wdrożenia jest *Succeded*.
+> Jeśli nie ma wszystkich zasobów, uruchom `azure group deployment show` polecenie, aby upewnić się, stan inicjowania wdrożenia jest *zakończyło się pomyślnie*.
 > 

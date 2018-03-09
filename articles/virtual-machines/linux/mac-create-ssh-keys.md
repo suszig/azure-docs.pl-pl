@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: a37bfa01343527a60193d893c7913e4e9c50d210
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ecd3a01ee5591cb09140edb1b1290ff2d4510200
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-create-and-use-an-ssh-public-and-private-key-pair-for-linux-vms-in-azure"></a>Jak utworzyć parę publicznych i prywatnych kluczy SSH dla maszyn wirtualnych z systemem Linux i używać ich
 Para kluczy Secure Shell (SSH) umożliwia tworzenie na platformie Azure maszyn wirtualnych, które używają kluczy SSH do uwierzytelniania, eliminując konieczność logowania przy użyciu haseł. W tym artykule przedstawiono sposób szybkiego generowania i używania pary plików prywatnych i publicznych kluczy RSA protokołu SSH w wersji 2 dla maszyn wirtualnych z systemem Linux. Można wykonać te czynności przy użyciu usługi Azure Cloud Shell, hosta z systemem macOS lub Linux albo podsystemu Windows dla systemu Linux. Aby uzyskać bardziej szczegółowe instrukcje i dodatkowe przykłady, zobacz [szczegółowe instrukcje dotyczące tworzenia par kluczy SSH i certyfikatów](create-ssh-keys-detailed.md).
 
 ## <a name="create-an-ssh-key-pair"></a>Tworzenie pary kluczy SSH
-Przy użyciu polecenia `ssh-keygen` utwórz pliki publicznych i prywatnych kluczy SSH. Pliki te są zazwyczaj tworzone w katalogu `~/.ssh`, ale gdy zostanie wyświetlony monit, możesz określić inną lokalizację oraz dodatkowe hasło (umożliwiające dostęp do pliku klucza prywatnego). Uruchom następujące polecenie z poziomu powłoki Bash, podając własne informacje w odpowiedzi na monity.
+Użyj `ssh-keygen` polecenie, aby utworzyć SSH publicznego i prywatnego klucza pliki, które są domyślnie tworzone w `~/.ssh` katalogu. Można określić inną lokalizację i hasło dodatkowe (hasło dostępu do pliku klucza prywatnego) po wyświetleniu monitu. Jeśli istnieje parę kluczy SSH w bieżącej lokalizacji, zostaną zastąpione.
 
 ```bash
 ssh-keygen -t rsa -b 2048

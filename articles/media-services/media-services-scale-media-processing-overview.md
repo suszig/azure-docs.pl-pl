@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/04/2017
 ms.author: juliako
-ms.openlocfilehash: a82481c4995bfb078e88d7096dff37b52312a296
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c80bddfe1896b0b99319ef007c25718b5a754005
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="scaling-media-processing-overview"></a>Skalowanie przetwarzania multimediów — omówienie
 Ta strona zawiera podstawowe informacje o i dlaczego skalowania przetwarzania multimediów. 
@@ -44,8 +44,6 @@ Poniższa tabela ułatwia podjęcie decyzji, wybierając między różnych szybk
 
 * Zastrzeżone jednostki działa w przypadku parallelizing przetwarzania nośnika, w tym Indeksowanie zadań za pomocą usługi Azure Media indeksatora.  Jednak w przeciwieństwie do kodowania zadania indeksowania nie są przetwarzane szybciej przy użyciu szybszych jednostek zarezerwowanych.
 * Jeśli za pomocą współużytkowanej puli, oznacza to, bez żadnych jednostek zarezerwowanego, zadań Koduj mieć tego samego wydajności tak jak w przypadku S1 RUs. Niestety nie są nie górną granicę do chwili poświęcić zadań w kolejce stanu i w dowolnym momencie, będą uruchomione co najwyżej tylko jedno zadanie.
-* Następujących centrach danych nie oferują **S2** zastrzeżone typ jednostki: Brazylia Południowe i Indie Zachodnie.
-* Następujące centrum danych nie oferuje **S3** zastrzeżone typ jednostki: Indie Zachodnie.
 
 ## <a name="billing"></a>Rozliczenia
 

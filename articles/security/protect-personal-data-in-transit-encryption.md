@@ -1,6 +1,6 @@
 ---
 title: "Ochrona danych osobowych podczas przesyłania przy użyciu szyfrowania na platformie Azure | Dokumentacja firmy Microsoft"
-description: "Ochrona danych osobowych, za pomocą szyfrowania na platformie Azure"
+description: "informacje dotyczące szyfrowania Azure do ochrony danych osobowych mogą być pomocne w wysiłków w celu zachowania zgodności z ogólnych danych ochrony rozporządzenia (GDPR)."
 services: security
 documentationcenter: na
 author: Barclayn
@@ -12,20 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 461ddfda796bfe6639e27f6c4cd53e82b4e397d1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6975358d40206a497a53de16731d16ef374db905
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-encryption-technologies-protect-personal-data-in-transit-with-encryption"></a>Technologii szyfrowania Azure: ochrony danych osobowych podczas przesyłania przy użyciu szyfrowania
 
-Ten artykuł pomoże zrozumieć i użyć technologii szyfrowania Azure do zabezpieczania danych podczas przesyłania. 
-
-Ochrona prywatności danych osobowych podczas przekazywania przez sieć jest integralną część strategii zabezpieczeń obrony zabezpieczeń wielowarstwowy. Szyfrowanie podczas przesyłania zaprojektowano w celu zapobieżenia osoba atakująca przechwytuje transmisji mogli wyświetlić lub użyć danych.
+Ten artykuł pomoże zrozumieć i użyć technologii szyfrowania Azure do zabezpieczania danych podczas przesyłania. Ochrona prywatności danych osobowych podczas przekazywania przez sieć jest integralną część strategii zabezpieczeń obrony zabezpieczeń wielowarstwowy. Szyfrowanie podczas przesyłania zaprojektowano w celu zapobieżenia osoba atakująca przechwytuje transmisji mogli wyświetlić lub użyć danych. Informacje zawarte w tym artykule mogą być użyteczne podczas próby organizacji są zgodne z ogólnych danych ochrony rozporządzenia (GDPR).
 
 ## <a name="scenario"></a>Scenariusz
 
@@ -103,7 +101,7 @@ Aby uzyskać szczegółowe instrukcje, łącznie ze sposobem programowo włączy
 
 Szyfrowanie danych przesyłanych z [Azure File Storage](https://docs.microsoft.com/azure/storage/storage-file-how-to-use-files-portal), można użyć protokołu SMB 3.x z systemu Windows 8, 8.1 i 10 i Windows Server 2012 R2 i Windows Server 2016. Usługa pliki Azure jest używana, każde połączenie bez szyfrowania nie powiedzie się po włączeniu "Bezpieczny transfer wymagane". W tym scenariuszy przy użyciu protokołu SMB 2.1, SMB 3.0 bez szyfrowania i niektórych odmian klient protokołu SMB w systemie Linux.
 
-#### <a name="azure-client-side-encryption"></a>Azure szyfrowania po stronie klienta
+#### <a name="azure-client-side-encryption"></a>Azure Client-Side Encryption
 
 Inną opcją w przypadku ochrony danych osobowych, gdy są przesyłane między aplikacji klienckiej i usługi Azure Storage jest [szyfrowania po stronie klienta](https://docs.microsoft.com/azure/storage/storage-client-side-encryption). Dane są szyfrowane przed przesyłane do usługi Azure Storage, a podczas pobierania danych z usługi Azure Storage, dane zostaną odszyfrowane po odebraniu po stronie klienta.
 
@@ -167,7 +165,7 @@ Sieć VPN punkt-lokacja tworzy bezpieczne połączenie z komputera klienckiego d
 
 Aby uzyskać szczegółowe instrukcje, zobacz [skonfigurować połączenie punkt-lokacja sieci wirtualnej przy użyciu uwierzytelniania certyfikatów: Azure Portal.](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal)
 
-### <a name="ssltls"></a>PROTOKÓŁ SSL/TLS
+### <a name="ssltls"></a>SSL/TLS
 
 Firma Microsoft zaleca używanie protokołów SSL/TLS do wymiany danych w różnych lokalizacjach. Organizacje, które chce używać [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) przenoszenia dużych zestawów danych za pośrednictwem dedykowanej sieci WAN o dużej szybkości łącza można również zaszyfrować dane na poziomie aplikacji przy użyciu protokołu SSL/TLS lub innymi protokołami dla dodano ochronę.
 
@@ -185,7 +183,7 @@ Przesyłane dane są zawsze szyfrowane w [Data Lake Store] (https://docs.microso
 
 Firmy mogą wykonywać jego celem ochrony danych osobowych i prywatności takich danych, wymuszając połączenia HTTPS z usługi Azure Storage, przy użyciu sygnatury dostępu współdzielonego i umożliwiające bezpieczny Transfer wymagane dla kont magazynu. Mogą one również chronić dane osobiste przy użyciu połączenia protokołu SMB 3.0 i implementowanie szyfrowania po stronie klienta. Połączenia sieci VPN lokacja lokacja z sieci firmowej do sieci wirtualnej platformy Azure i połączeń sieci VPN punkt lokacja z poszczególnych użytkowników będzie tworzenia bezpiecznego tunelu za pośrednictwem której można bezpiecznie przesyłane dane osobowe. Rozwiązania szyfrowania domyślna firmy Microsoft będzie jeszcze lepiej chronić prywatność danych osobowych.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Dobre praktyki dotyczące zabezpieczeń danych platformy Azure i szyfrowania](https://docs.microsoft.com/azure/security/azure-security-data-encryption-best-practices)
 

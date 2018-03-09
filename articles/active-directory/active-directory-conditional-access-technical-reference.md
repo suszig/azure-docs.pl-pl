@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: fd82d77e79f05a67f8e818095753b8dc22ccf314
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 66e3207898d6ad8ca9af2b969942e38321c191a5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Informacje dotyczące ustawień dostępu warunkowego w usłudze Azure Active Directory
 
@@ -137,8 +137,11 @@ To ustawienie działa z przeglądarki. Jednak do zaspokojenia zasad urządzenia,
 
 
 > [!NOTE]
-> Obsługa Chrome, należy użyć systemu Windows 10 twórców aktualizację (wersja 1703) lub nowszym.<br>
-> Można zainstalować [to rozszerzenie](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+> Obsługa Chrome w systemie Windows 10 twórców aktualizacji (wersja 1703) lub nowszym, można zainstalować [to rozszerzenie](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).<br>
+> Obsługę Chrome w 7 i Windows 8.1, utwórz następujący klucz rejestru **HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls** <br>
+> Nazwa: 1<br>
+> Typ: REG_SZ (ciąg)<br>
+> Data: {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}
 
 Te przeglądarki obsługuje uwierzytelnianie urządzenia, umożliwiając urządzenia można zidentyfikować ani weryfikowana pod kątem zasad. Sprawdzanie urządzenia kończy się niepowodzeniem, jeśli przeglądarka jest uruchomiony w trybie prywatnym. 
 

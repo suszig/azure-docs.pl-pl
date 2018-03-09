@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Azure Active Directory integracji z programem SCM Andromeda | Dokumentacja firmy Microsoft'
-description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i Andromeda SCM."
+title: 'Samouczek: Integracji Azure Active Directory z Andromeda | Dokumentacja firmy Microsoft'
+description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i Andromeda."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,32 +12,32 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/07/2018
 ms.author: jeedes
-ms.openlocfilehash: 72b66eec34995c334c6d65a1d03637fe21b9dc80
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 7e2a140ba6dc4825283801ed4f3435136b307153
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="tutorial-azure-active-directory-integration-with-andromeda-scm"></a>Samouczek: Azure Active Directory integracji z programem SCM Andromeda
+# <a name="tutorial-azure-active-directory-integration-with-andromeda"></a>Samouczek: Integracji Azure Active Directory z Andromeda
 
-Z tego samouczka dowiesz się integrowanie Andromeda SCM z usługi Azure Active Directory (Azure AD).
+Z tego samouczka dowiesz się integrowanie Andromeda z usługi Azure Active Directory (Azure AD).
 
-Integracja z usługą Azure AD Andromeda SCM zapewnia następujące korzyści:
+Integracja z usługą Azure AD Andromeda zapewnia następujące korzyści:
 
-- Można kontrolować w usłudze Azure AD, który ma dostęp do Andromeda SCM.
-- Umożliwia użytkownikom automatycznie pobrać zalogowane SCM Andromeda (logowanie jednokrotne) z konta usługi Azure AD.
+- Można kontrolować w usłudze Azure AD, który ma dostęp do Andromeda.
+- Umożliwia użytkownikom automatycznie pobrać zalogowane do Andromeda (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD.
 - Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure.
 
 Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z Andromeda SCM, potrzebne są następujące elementy:
+Aby skonfigurować integrację usługi Azure AD z Andromeda, potrzebne są następujące elementy:
 
 - Subskrypcję usługi Azure AD
-- Menedżer sterowania usługami Andromeda logowanie jednokrotne włączone subskrypcji
+- Andromeda logowanie jednokrotne włączone subskrypcji
 
 > [!NOTE]
 > Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
@@ -50,13 +50,13 @@ Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
 ## <a name="scenario-description"></a>Opis scenariusza
 W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodawanie Andromeda SCM z galerii
+1. Dodawanie Andromeda z galerii
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
-## <a name="adding-andromeda-scm-from-the-gallery"></a>Dodawanie Andromeda SCM z galerii
-Aby skonfigurować integrację usługi Azure AD Andromeda SCM, należy dodać Andromeda SCM z galerii do listy zarządzanych aplikacji SaaS.
+## <a name="adding-andromeda-from-the-gallery"></a>Dodawanie Andromeda z galerii
+Aby skonfigurować integrację usługi Azure AD Andromeda, należy dodać Andromeda z galerii do listy zarządzanych aplikacji SaaS.
 
-**Aby dodać Andromeda SCM z galerii, wykonaj następujące czynności:**
+**Aby dodać Andromeda z galerii, wykonaj następujące czynności:**
 
 1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
 
@@ -70,31 +70,31 @@ Aby skonfigurować integrację usługi Azure AD Andromeda SCM, należy dodać An
 
     ![Nowy przycisk aplikacji][3]
 
-4. W polu wyszukiwania wpisz **Andromeda SCM**, wybierz pozycję **Andromeda SCM** z panelu wyników kliknięcie **Dodaj** przycisk, aby dodać aplikację.
+4. W polu wyszukiwania wpisz **Andromeda**, wybierz pozycję **Andromeda** z panelu wyników kliknięcie **Dodaj** przycisk, aby dodać aplikację.
 
-    ![Menedżer sterowania usługami Andromeda na liście wyników](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_addfromgallery.png)
+    ![Andromeda na liście wyników](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfiguracja i testowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z programem SCM Andromeda w oparciu o nazwie "Britta Simona" użytkownika testowego.
+W tej sekcji skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Andromeda w oparciu o nazwie "Britta Simona" użytkownika testowego.
 
-Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w Andromeda SCM jest dla użytkownika, w usłudze Azure AD. Innymi słowy link relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w Andromeda SCM musi się.
+Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w Andromeda jest dla użytkownika, w usłudze Azure AD. Innymi słowy link relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w Andromeda musi się.
 
-Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z programem SCM Andromeda, należy wykonać poniższe bloki konstrukcyjne:
+Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Andromeda, należy wykonać poniższe bloki konstrukcyjne:
 
 1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configure-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
 2. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego Andromeda SCM](#create-an-andromeda-scm-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta Andromeda SCM, połączonej z usługi Azure AD reprezentację użytkownika.
+3. **[Tworzenie użytkownika testowego Andromeda](#create-an-andromeda-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta Andromeda połączonego z usługi Azure AD reprezentację użytkownika.
 4. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
 5. **[Test rejestracji jednokrotnej](#test-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w aplikacji Andromeda SCM.
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w aplikacji Andromeda.
 
-**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z Andromeda SCM, wykonaj następujące czynności:**
+**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z Andromeda, wykonaj następujące czynności:**
 
-1. W portalu Azure na **Andromeda SCM** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
+1. W portalu Azure na **Andromeda** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
     ![Skonfigurować łącze rejestracji jednokrotnej][4]
 
@@ -102,24 +102,24 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
  
     ![Okno dialogowe rejestracji jednokrotnej](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_samlbase.png)
 
-3. Na **Andromeda SCM domeny i adres URL** sekcji, wykonaj następujące kroki, aby skonfigurować aplikację w **IDP** inicjowane tryb:
+3. Na **Andromeda domeny i adres URL** sekcji, wykonaj następujące kroki, aby skonfigurować aplikację w **IDP** inicjowane tryb:
 
-    ![Adresy URL i domeny SCM Andromeda pojedynczy informacje logowania jednokrotnego](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_url.png)
+    ![Adresy URL i domeny Andromeda pojedynczy informacje logowania jednokrotnego](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_url.png)
 
-    a. W **identyfikator** tekstowym, wpisz adres URL, używając następującego wzorca: `https://<tenantURL>`
+    a. W **identyfikator** tekstowym, wpisz adres URL, używając następującego wzorca: `https://<tenantURL>.ngcxpress.com/`
 
-    b. W **adres URL odpowiedzi** tekstowym, wpisz adres URL, używając następującego wzorca: `https://<tenantURL>`
+    b. W **adres URL odpowiedzi** tekstowym, wpisz adres URL, używając następującego wzorca: `https://<tenantURL>.ngcxpress.com/SAMLConsumer.aspx`
 
 4. Sprawdź **Pokaż zaawansowane ustawienia adresu URL** i wykonać następujący krok, jeśli chcesz skonfigurować aplikację w **SP** inicjowane tryb:
 
-    ![Adresy URL i domeny SCM Andromeda pojedynczy informacje logowania jednokrotnego](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_url1.png)
+    ![Adresy URL i domeny Andromeda pojedynczy informacje logowania jednokrotnego](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_url1.png)
 
-    W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca: `https://<tenantURL>/SAMLLogon.aspx`
+    W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca: `https://<tenantURL>.ngcxpress.com/SAMLLogon.aspx`
      
     > [!NOTE] 
     > Powyższe nie jest rzeczywistą wartość. Wartość spowoduje zaktualizowanie o rzeczywisty identyfikator, adres URL odpowiedzi i URL logowania jednokrotnego, który znajduje się w dalszej części tego samouczka.
 
-5. Aplikacja Andromeda SCM oczekuje potwierdzenia języka SAML w określonym formacie. Skonfiguruj następujące oświadczeń dla tej aplikacji. Możesz zarządzać wartości tych atrybutów z **atrybuty użytkownika** sekcji na stronie integracji aplikacji. Poniższy zrzut ekranu przedstawia przykład tego.
+5. Aplikacja Andromeda oczekuje potwierdzenia języka SAML w określonym formacie. Skonfiguruj następujące oświadczeń dla tej aplikacji. Możesz zarządzać wartości tych atrybutów z **atrybuty użytkownika** sekcji na stronie integracji aplikacji. Poniższy zrzut ekranu przedstawia przykład tego.
     
     ![Konfigurowanie rejestracji jednokrotnej attb](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_attribute.png)
 
@@ -129,10 +129,10 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 6. W **atrybuty użytkownika** sekcji na **logowanie jednokrotne** okna dialogowego, skonfiguruj atrybut tokenu SAML, jak pokazano w obrazie i wykonaj następujące czynności:
     
     | Nazwa atrybutu | Wartość atrybutu |
-    | ------------------- | -------------------- |    
-    | rola        | DEMO |
-    | type        | DOMYŚLNE |
-    | Firmy       | COMP02    |
+    | -------------- | -------------------- |    
+    | rola        | Określonej roli aplikacji |
+    | type        | Typ aplikacji |
+    | Firmy       | CompanyName    |
 
     > [!NOTE]
     > Nie ma wartości rzeczywistych. Te wartości są tylko w celu demonstracyjnej, użyj ról w Twojej organizacji.
@@ -159,31 +159,31 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Skonfiguruj przycisk pojedynczego logowania jednokrotnego Zapisz](./media/active-directory-saas-andromedascm-tutorial/tutorial_general_400.png)
     
-9. Na **konfiguracji SCM Andromeda** , kliknij przycisk **skonfigurować SCM Andromeda** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.**
+9. Na **konfiguracji Andromeda** , kliknij przycisk **skonfigurować Andromeda** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.**
 
-    ![Andromeda SCM konfiguracji](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_configure.png)
+    ![Konfiguracja Andromeda](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_configure.png)
 
-10. Logowanie do witryny firmy Andromeda SCM jako administrator.
+10. Logowanie do witryny firmy Andromeda jako administrator.
 
 11. W górnej części pasku menu kliknij **Admin** i przejdź do **administracji**.
 
-    ![Administrator Andromeda SCM](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_admin.png)
+    ![Administrator Andromeda](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_admin.png)
 
 12. Po lewej stronie paska narzędzi w obszarze **interfejsów** kliknij **Konfiguracja SAML**.
 
-    ![Menedżer sterowania usługami Andromeda saml](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_saml.png)
+    ![Andromeda saml](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_saml.png)
 
 13. Na **Konfiguracja SAML** sekcji strony, należy wykonać następujące czynności:
 
-    ![Menedżer sterowania usługami Andromeda konfiguracji](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_config.png)
+    ![Andromeda konfiguracji](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_config.png)
 
     a. Sprawdź **włączenia funkcji logowania jednokrotnego z SAML**.
 
-    b. W obszarze **informacji Andromeda** sekcji, skopiuj **tożsamości SP** i wklej go do **identyfikator** pole tekstowe z **Andromeda SCM domeny i adres URL** sekcji.
+    b. W obszarze **informacji Andromeda** sekcji, skopiuj **tożsamości SP** i wklej go do **identyfikator** pole tekstowe z **Andromeda domeny i adres URL** sekcji.
 
-    c. Kopiuj **adres URL klienta** i wklej go do **adres URL odpowiedzi** pole tekstowe z **Andromeda SCM domeny i adres URL** sekcji.
+    c. Kopiuj **adres URL klienta** i wklej go do **adres URL odpowiedzi** pole tekstowe z **Andromeda domeny i adres URL** sekcji.
 
-    d. Kopiuj **adres URL logowania** i wklej go do **adres URL logowania** pole tekstowe z **Andromeda SCM domeny i adres URL** sekcji.
+    d. Kopiuj **adres URL logowania** i wklej go do **adres URL logowania** pole tekstowe z **Andromeda domeny i adres URL** sekcji.
 
     e. W obszarze **dostawca tożsamości SAML** sekcji, wpisz nazwę dostawców tożsamości.
 
@@ -191,9 +191,9 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     g. Otwórz pobrany **certyfikatu szyfrowania Base64** z portalu Azure w programie Notatnik, wklej ją do **certyfikat X 509** pola tekstowego.
     
-    h. Mapowanie następujące atrybuty z odpowiednią wartość w celu ułatwienia logowania SSO z usługi Azure AD. **Identyfikator użytkownika** atrybut jest wymagany do logowania. Do inicjowania obsługi, **E-mail**, **firmy**, **UserType** i **roli** są wymagane. W tej sekcji zdefiniowano atrybutów mapowania (nazwy i wartości) które skorelowania zdefiniowane w portalu Azure
+    h. Mapowanie następujące atrybuty z odpowiednią wartość w celu ułatwienia logowania SSO z usługi Azure AD. **Identyfikator użytkownika** atrybut jest wymagany do logowania. Do inicjowania obsługi, **E-mail**, **firmy**, **UserType**, i **roli** są wymagane. W tej sekcji zdefiniowano atrybutów mapowania (nazwy i wartości) które skorelowania zdefiniowane w portalu Azure
 
-    ![Menedżer sterowania usługami Andromeda attbmap](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_attbmap.png)
+    ![Andromeda attbmap](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_attbmap.png)
 
     i. Kliknij pozycję **Zapisz**.
 
@@ -232,28 +232,28 @@ Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie 
 
     d. Kliknij przycisk **Utwórz**.
  
-### <a name="create-an-andromeda-scm-test-user"></a>Tworzenie użytkownika testowego Andromeda SCM
+### <a name="create-an-andromeda-test-user"></a>Tworzenie użytkownika testowego Andromeda
 
-Celem tej sekcji jest utworzenie użytkownika o nazwie Simona Britta w Andromeda SCM. Andromeda SCM obsługę w czasie, który jest domyślnie włączone. Nie ma elementu akcji można w tej sekcji. Nowy użytkownik został utworzony podczas próby dostępu Andromeda SCM, jeśli go jeszcze nie istnieje.
+Celem tej sekcji jest utworzenie użytkownika o nazwie Simona Britta w Andromeda. Andromeda obsługę w czasie, który jest domyślnie włączone. Nie ma elementu akcji można w tej sekcji. Nowy użytkownik został utworzony podczas próby dostępu Andromeda, jeśli go jeszcze nie istnieje.
 
 >[!Note]
->Jeśli trzeba ręcznie utworzyć użytkownika, skontaktuj się z [zespołem pomocy technicznej klienta SCM Andromeda](https://www.ngcsoftware.com/support/).
+>Jeśli trzeba ręcznie utworzyć użytkownika, skontaktuj się z [zespołem pomocy technicznej klienta Andromeda](https://www.ngcsoftware.com/support/).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisz użytkownika testowego usługi Azure AD
 
-W tej sekcji można włączyć Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu Andromeda SCM.
+W tej sekcji można włączyć Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu Andromeda.
 
 ![Przypisanie roli użytkownika][200] 
 
-**Aby przypisać Simona Britta Andromeda SCM, wykonaj następujące czynności:**
+**Aby przypisać Simona Britta Andromeda, wykonaj następujące czynności:**
 
 1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
 
     ![Przypisz użytkownika][201] 
 
-2. Na liście aplikacji zaznacz **Andromeda SCM**.
+2. Na liście aplikacji zaznacz **Andromeda**.
 
-    ![Łącze Andromeda SCM na liście aplikacji](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_app.png)  
+    ![Łącze Andromeda na liście aplikacji](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_app.png)  
 
 3. W menu po lewej stronie kliknij **użytkowników i grup**.
 
@@ -273,7 +273,7 @@ W tej sekcji można włączyć Simona Britta do używania Azure logowania jednok
 
 W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.
 
-Po kliknięciu kafelka Andromeda SCM w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do aplikacji Andromeda SCM.
+Po kliknięciu kafelka Andromeda w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do aplikacji Andromeda.
 Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
@@ -296,4 +296,3 @@ Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie d
 [201]: ./media/active-directory-saas-andromedascm-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-andromedascm-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-andromedascm-tutorial/tutorial_general_203.png
-

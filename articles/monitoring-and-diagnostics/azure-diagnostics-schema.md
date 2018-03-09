@@ -1,5 +1,5 @@
 ---
-title: "Azure wersji schematu konfiguracji rozszerzenie diagnostyki i historię | Dokumentacja firmy Microsoft"
+title: "Azure wersji schematu konfiguracji rozszerzenia diagnostyki i historię | Dokumentacja firmy Microsoft"
 description: "Właściwe dla zbierania liczników wydajności w maszynach wirtualnych platformy Azure, zestawy skalowania maszyny Wirtualnej, sieci szkieletowej usług i usługi w chmurze."
 services: monitoring-and-diagnostics
 documentationcenter: .net
@@ -14,13 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: robb
-ms.openlocfilehash: 119e8a237f24cdc80a1ab8e376f2b308c9eada05
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 45a092452bc702a6a593cd6c21a8d2eaf4ff44bd
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="azure-diagnostics-extention-configuration-schema-versions-and-history"></a>Azure wersji schematu konfiguracji rozszerzenie diagnostyki i historii
+# <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Azure wersji schematu konfiguracji rozszerzenia diagnostyki i historii
 Indeksy tej strony wersji schematu rozszerzenia diagnostyki Azure dostarczana jako część zestawu SDK platformy Microsoft Azure.  
 
 > [!NOTE]
@@ -39,8 +39,8 @@ Rozszerzenia Azure Diagnostics jest używany z innymi produktami firmy Microsoft
 
 |Wersja zestawu SDK platformy Azure | Wersja rozszerzenia diagnostyki | Model|  
 |------------------|-------------------------------|------|  
-|1.x               |1.0                            |wtyczki|  
-|2.0 - 2.4         |1.0                            |wtyczki|  
+|1.x               |1.0                            |plug-in|  
+|2.0 - 2.4         |1.0                            |plug-in|  
 |2.5               |1.2                            |Rozszerzenia|  
 |2.6               |1.3                            |"|  
 |2.7               |1.4                            |"|  
@@ -135,18 +135,18 @@ Dodaje element wychwytywanie i umożliwia wysyłanie danych diagnostycznych [us�
 ### <a name="azure-sdk-26-and-diagnostics-extension-13"></a>2.6 zestawu SDK i informacji diagnostycznych rozszerzenie Azure 1.3 
 Usługi w chmurze projektów programu Visual Studio wprowadzono następujące zmiany. (Te zmiany również dotyczyć nowsze wersje zestawu SDK platformy Azure.)
 
-* Lokalne emulatora obsługuje teraz diagnostyki. Oznacza to, można zbierać dane diagnostyczne i upewnij się, że aplikacja tworzy prawo śladów podczas tworzenia i testowania w programie Visual Studio. Parametry połączenia `UseDevelopmentStorage=true` umożliwia zbieranie danych diagnostycznych, gdy używasz projekt usługi w chmurze w programie Visual Studio przy użyciu emulatora magazynu Azure. Wszystkie dane diagnostyczne są zbierane w ramach konta magazynu (Programowanie magazynu).
+* Lokalne emulatora obsługuje teraz diagnostyki. Ta zmiana oznacza, że można zbierać dane diagnostyczne i upewnij się, że aplikacja tworzy prawo śladów podczas tworzenia i testowania w programie Visual Studio. Parametry połączenia `UseDevelopmentStorage=true` umożliwia zbieranie danych diagnostycznych, gdy używasz projekt usługi w chmurze w programie Visual Studio przy użyciu emulatora magazynu Azure. Wszystkie dane diagnostyczne są zbierane w ramach konta magazynu (Programowanie magazynu).
 * Parametry połączenia konta magazynu diagnostyki (Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString) znajduje się jeszcze raz w pliku konfiguracji (cscfg) usługi. W systemie Azure SDK 2.5 konto magazynu diagnostyki została określona w pliku diagnostics.wadcfgx.
 
 Istnieją pewne ważne różnice między jak parametry połączenia działał w 2.4 zestawu SDK platformy Azure i starszych i jak działa w Azure SDK w wersji 2.6 lub nowszej.
 
-* W 2.4 zestawu SDK platformy Azure i starszych parametry połączenia została użyta jako środowisko uruchomieniowe dodatek diagnostyki można pobrać informacji o koncie magazynu przesyłania dzienników diagnostycznych.
-* W Azure SDK w wersji 2.6 lub nowszej ciąg połączenia diagnostyki jest używany przez program Visual Studio Aby skonfigurować rozszerzenie diagnostyki magazynu odpowiednie informacje o koncie podczas publikowania. Parametry połączenia umożliwia definiowanie różnych kont magazynu dla konfiguracji innej usługi, które Visual Studio będzie korzystać w przypadku publikowania. Jednak ponieważ wtyczki Diagnostyka nie jest już dostępny (po 2.5 zestawu SDK platformy Azure), plik .cscfg samodzielnie nie można włączyć rozszerzenia diagnostyki. Należy włączyć rozszerzenie z osobna za pomocą narzędzi, takich jak Visual Studio lub programu PowerShell.
+* W 2.4 zestawu SDK platformy Azure i starszych ciąg połączenia był używany w czasie wykonywania w dodatku diagnostyki można pobrać informacji o koncie magazynu przesyłania dzienników diagnostycznych.
+* W Azure SDK w wersji 2.6 lub nowszej Visual Studio używa diagnostyki parametry połączenia do konfigurowania rozszerzenia diagnostyki magazynu odpowiednie informacje o koncie podczas publikowania. Parametry połączenia umożliwia definiowanie różnych kont magazynu dla konfiguracji innej usługi, które Visual Studio będzie korzystać w przypadku publikowania. Jednak ponieważ wtyczki Diagnostyka nie jest już dostępny (po 2.5 zestawu SDK platformy Azure), plik .cscfg samodzielnie nie można włączyć rozszerzenia diagnostyki. Należy włączyć rozszerzenie z osobna za pomocą narzędzi, takich jak Visual Studio lub programu PowerShell.
 * Aby uprościć proces konfigurowania rozszerzenia diagnostyki przy użyciu programu PowerShell, dane wyjściowe pakietu z programu Visual Studio zawiera publicznej konfiguracji XML dla rozszerzenia diagnostyki dla każdej roli. Visual Studio będzie korzystać diagnostyki parametry połączenia do wypełniania informacji o koncie magazynu, które są obecne w publicznej konfiguracji. Pliki konfiguracji publicznego są tworzone w folderze rozszerzenia i postępuj zgodnie ze wzorcem PaaSDiagnostics. <RoleName>. PubConfig.xml. Wszystkie wdrożenia na podstawie programu PowerShell można użyć tego wzorca do mapowania każdej konfiguracji do roli.
 * Parametry połączenia w pliku .cscfg służy również w portalu Azure do uzyskiwania dostępu do danych diagnostycznych, może występować w **monitorowanie** kartę. Ciąg połączenia jest potrzebne do skonfigurowania usługi, aby wyświetlić pełne dane monitorowania w portalu.
 
 #### <a name="migrating-projects-to-azure-sdk-26-and-later"></a>Migrowanie projektów Azure SDK w wersji 2.6 lub nowszego
-Podczas migracji z 2.5 zestawu SDK platformy Azure do usługi Azure SDK w wersji 2.6 lub nowszej, jeśli masz konto magazynu diagnostyki określone w pliku .wadcfgx, następnie pozostanie on istnieje. Aby móc korzystać z elastyczność przy użyciu różnych kont magazynu dla konfiguracji innego magazynu, musisz ręcznie dodać parametry połączenia do projektu. W przypadku migrowania projektu z Azure SDK 2.4 lub jego starszej wersji 2.6 zestawu SDK platformy Azure, Diagnostyka parametry połączenia zostaną zachowane. Pamiętaj jednak zmiany w sposób parametry połączenia są traktowane w Azure SDK w wersji 2.6 określone w poprzedniej sekcji.
+Podczas migracji z 2.5 zestawu SDK platformy Azure do usługi Azure SDK w wersji 2.6 lub nowszej, jeśli masz konto magazynu diagnostyki określone w pliku .wadcfgx, następnie pozostanie on istnieje. Aby móc korzystać z elastyczność przy użyciu różnych kont magazynu dla konfiguracji innego magazynu, musisz ręcznie dodać parametry połączenia do projektu. W przypadku migrowania projektu z Azure SDK 2.4 lub jego starszej wersji 2.6 zestawu SDK platformy Azure, Diagnostyka parametry połączenia zostaną zachowane. Pamiętaj jednak, zmiany w sposób parametry połączenia są traktowane w Azure SDK w wersji 2.6 określone w poprzedniej sekcji.
 
 #### <a name="how-visual-studio-determines-the-diagnostics-storage-account"></a>Jak Visual Studio Określa konto magazynu diagnostyki
 * Jeśli parametry połączenia diagnostyki jest określone w pliku .cscfg, Visual Studio używa go do konfigurowania rozszerzenia diagnostyki podczas publikowania i podczas generowania publicznej konfiguracji plików xml podczas pakowania.

@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 02/22/2018
 ms.author: asgang
 ms.openlocfilehash: 1b63515970f81b1cab679287d84707d531fd102a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/07/2018
 ---
 # <a name="replicate-applications-running-on-vmware-virtual-machines-to-azure"></a>Replikowanie aplikacji uruchomionych na maszynach wirtualnych VMware do platformy Azure
 
@@ -67,7 +67,7 @@ Podczas replikowania maszyn wirtualnych VMware:
 8. Wybierz sieć platformy Azure i podsieć, z którą nawiążą połączenie maszyny wirtualne Azure, gdy zostaną uruchomione po przejściu do trybu failover. Sieć musi znajdować się w tym samym regionie co magazyn Usług odzyskiwania. Wybierz opcję **Konfiguruj teraz dla wybranych maszyn**, aby zastosować ustawienia sieci do wszystkich maszyn wybranych do ochrony. Wybierz opcję **Konfiguruj później**, aby wybrać sieć platformy Azure dla poszczególnych maszyn. Jeśli nie masz sieci, należy [utworzyć](#set-up-an-azure-network). Aby utworzyć sieć przy użyciu usługi Resource Manager, kliknij przycisk **Utwórz nowy**. Jeśli chcesz utworzyć sieć przy użyciu modelu klasycznego, tym [w portalu Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Wybierz podsieć, jeśli ma to zastosowanie, a następnie kliknij przycisk **OK**.
 
     ![Włącz ustawienie docelowego replikacji](./media/site-recovery-vmware-to-azure/enable-rep3.png)
-9. W **maszyn wirtualnych** > **wybierz maszyny wirtualne**, wybierz poszczególne maszyny, które mają być replikowane. Możesz wybrać tylko te maszyny, dla których można włączyć replikację. Następnie kliknij przycisk **OK**.
+9. W pozycji **Maszyny wirtualne** > **Wybierz maszyny wirtualne** wybierz każdą maszynę, którą chcesz replikować. Możesz wybrać tylko te maszyny, dla których można włączyć replikację. Następnie kliknij przycisk **OK**.
 
     ![Włącz replikację wybierz maszyny wirtualne](./media/site-recovery-vmware-to-azure/enable-replication5.png)
 10. W **właściwości** > **skonfigurować właściwości**, wybierz konto używane przez serwer przetwarzania, aby automatycznie zainstalować usługi mobilności na maszynie.  
@@ -75,7 +75,7 @@ Podczas replikowania maszyn wirtualnych VMware:
 
     ![Włącz replikację skonfigurować właściwości](./media/site-recovery-vmware-to-azure/enable-replication6.png)
 
-12. W **ustawienia replikacji** > **Konfigurowanie ustawień replikacji**, sprawdź, czy jest wybrane zasady replikacji poprawne. Można modyfikować ustawień zasad replikacji w **ustawienia** > **zasady replikacji** > (nazwa zasady) > **Edytuj ustawienia**. Dotyczą również zmiany dotyczą zasady replikacji i nowe maszyny.
+12. W obszarze **Ustawienia replikacji** > **Konfigurowanie ustawień replikacji** sprawdź, czy wybrano właściwe zasady replikacji. Można modyfikować ustawień zasad replikacji w **ustawienia** > **zasady replikacji** > (nazwa zasady) > **Edytuj ustawienia**. Dotyczą również zmiany dotyczą zasady replikacji i nowe maszyny.
 13. Włącz **spójności wielu maszyn wirtualnych** Aby zebrać maszyny do grupy replikacji. Określ nazwę grupy, a następnie kliknij przycisk **OK**. 
 
     > [!NOTE]

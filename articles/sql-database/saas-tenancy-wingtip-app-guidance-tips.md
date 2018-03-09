@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: genemi
-ms.openlocfilehash: ebf1c4948816746fa02b867d1ea66afc64b882b0
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 13ac12377887684143d32d08e4bd5de107183105
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Ogólne wskazówki dotyczące pracy z biletów Wingtip przykładowej aplikacji SaaS
 
@@ -28,9 +28,9 @@ Ten artykuł zawiera ogólne wskazówki dotyczące uruchamiania aplikacji SaaS p
 Zawartość pliku wykonywalnego (skrypty, biblioteki dll) mogą być blokowane przez system Windows, gdy pliki zip są pobierane z zewnętrznego źródła i wyodrębnione. Podczas wyodrębniania pliku zip skrypty **wykonaj poniższe kroki, aby odblokować plik zip przed wyodrębniania**. Dzięki temu można uruchamiać skrypty.
 
 1. Przejdź do repozytorium SaaS GitHub biletów Wingtip dla wzorca dzierżawy bazy danych, które chcesz zapoznać: 
-    - [WingtipTicketsSaaS StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp)
-    - [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant)
-    - [WingtipTicketsSaaS MultiTenantDb](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb)
+    - [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp)
+    - [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant)
+    - [WingtipTicketsSaaS-MultiTenantDb](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb)
 2. Kliknij przycisk **klonowania lub pobierania**.
 3. Kliknij przycisk **Pobierz zip** i Zapisz plik.
 4. Kliknij prawym przyciskiem myszy plik zip, a następnie wybierz **właściwości**. Nazwa pliku zip odpowiada nazwie repozytorium. (np. _WingtipTicketsSaaS-DbPerTenant-master.zip_)
@@ -86,8 +86,8 @@ Wdrożenie ma początkowo dzierżawców i serwerów wykazu bazy danych SQL do na
 W celu zapewnienia połączenia pokaz pomyślne, wszystkie serwery mają [reguły zapory](sql-database-firewall-configure.md) stosowanie wszystkich adresów IP za pośrednictwem.
 
 
-1. Otwórz *SSMS* i połącz się z dzierżawcami. Nazwa serwera jest zależna od wzorzec dzierżawy bazy danych, wybranych (patrz pod kątem specyfiki):
-    - **Aplikacja autonomiczna:** serwerów poszczególnych dzierżawców (np. *contosoconcerthall -&lt;użytkownika&gt;. database.windows.net*) 
+1. Otwórz *SSMS* i połącz się dzierżawcy. Nazwa serwera jest zależna od wzorzec dzierżawy bazy danych, wybranych (patrz pod kątem specyfiki):
+    - **Aplikacja autonomiczna:** serwerów poszczególnych dzierżawców (np. *contosoconcerthall-&lt;User&gt;.database.windows.net*) 
     - **Bazy danych dla poszczególnych dzierżawców:** *tenants1-dpt -&lt;użytkownika&gt;. database.windows.net*
     - **Wielodostępne bazy danych:** *tenants1-mt -&lt;użytkownika&gt;. database.windows.net* 
 2. Kliknij kolejno opcje **Połącz** > **Aparat bazy danych...** :
@@ -97,7 +97,7 @@ W celu zapewnienia połączenia pokaz pomyślne, wszystkie serwery mają [reguł
 3. W wersji demonstracyjnej są używane następujące poświadczenia: Nazwa logowania = *developer*, hasło =*P@ssword1*
 
     Na poniższym obrazie przedstawiono dane logowania dla *bazy danych dla każdego dzierżawcy* wzorca. 
-    ![połączenia](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)
+    ![Połączenia](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)
     
    
 
@@ -115,7 +115,7 @@ Na poniższym obrazie przedstawiono w dzienniku w *bazy danych dla każdego dzie
 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - [Wdrażanie aplikacji SaaS autonomiczny biletów Wingtip](saas-standaloneapp-get-started-deploy.md)
 - [Wdrażania bazy danych SaaS biletów Wingtip każdej dzierżawy aplikacji](saas-dbpertenant-get-started-deploy.md)
 - [Wdrażanie aplikacji Wingtip biletów SaaS wielodostępne w bazie danych](saas-multitenantdb-get-started-deploy.md)

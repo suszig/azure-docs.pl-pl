@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 10e82c13dc2bb8461fb628435484a3a6e1877aa8
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 0f23216c6aced60dc651a0f10179281bc9a29c2c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="apply-updates-in-azure-stack"></a>Stosowanie aktualizacji w stosie Azure
 
@@ -67,14 +67,14 @@ Poniższa procedura przedstawia sposób importowania i instalowania pakietów ak
  
     ![Wskazuje, gdzie można przekazać pliku każdego pakietu](media/azure-stack-apply-updates/ApplyUpdates6.png)
 
-8. Powtórz kroki 6 i 7 dla *PackageName*bin i pliki Metadata.xml. 
+8. Powtórz kroki 6 i 7 dla *PackageName*bin i pliki Metadata.xml. Nie należy importować plik Notice.txt uzupełniające, jeśli uwzględniona.
 9. Na koniec można przejrzeć powiadomienia (ikonę dzwonka w prawym górnym rogu portalu). Powiadomienia powinny wskazywać, że przekazywania została ukończona. 
 10. Przejdź z powrotem do aktualizacji kafelka na pulpicie nawigacyjnym. Kafelek powinny wskazywać, że dostępna jest aktualizacja. Kliknij Kafelek, aby przejrzeć pakietu aktualizacji nowo dodany.
 11. Aby zainstalować tę aktualizację, wybierz pakiet, który jest oznaczony jako **gotowe** i albo kliknij prawym przyciskiem myszy pakiet i wybierz **Aktualizuj**, lub kliknij przycisk **Aktualizuj** akcji u góry .
 12. Po kliknięciu instalowania pakietu aktualizacji, można wyświetlić stan w **szczegóły uruchomienia aktualizacji** obszaru. W tym miejscu możesz także kliknąć **pobrać dzienniki pełnej** do pobierania plików dziennika.
 13. Po ukończeniu aktualizacji kafelka aktualizacji zawiera zaktualizowaną wersję stosu Azure.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Zarządzanie aktualizacjami w stosie Azure — omówienie](azure-stack-updates.md)
 - [Azure stos obsługi zasad](azure-stack-servicing-policy.md)

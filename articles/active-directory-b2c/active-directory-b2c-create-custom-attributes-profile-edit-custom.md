@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: joroja
-ms.openlocfilehash: 0d4ee064c15c914eea7353900c6bb5a77b3e3b3b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 33c9e4322444895a3affc16e11af5443f2db6b6d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-b2c-creating-and-using-custom-attributes-in-a-custom-profile-edit-policy"></a>Usługa Azure Active Directory B2C: Tworzenie i używanie niestandardowych atrybutów w profilu niestandardowego edytowanie zasad
 
@@ -57,7 +57,7 @@ Właściwości rozszerzenia istnieje tylko w kontekście zarejestrowaną aplikac
 1. Podaj następujące wpisy zalecane:
   * Określ nazwę dla aplikacji sieci web: **aplikacji sieci Web-GraphAPI-DirectoryExtensions**
   * Typ aplikacji: aplikacja/interfejs API sieci Web
-  * URL:https://{tenantName}.onmicrosoft.com/WebApp-GraphAPI-DirectoryExtensions logowania jednokrotnego
+  * Sign-on URL:https://{tenantName}.onmicrosoft.com/WebApp-GraphAPI-DirectoryExtensions
 1. Wybierz ** utworzyć. Pomyślne zakończenie pojawia się w **powiadomienia**
 1. Wybierz aplikację sieci web nowo utworzony: **aplikacji sieci Web-GraphAPI-DirectoryExtensions**
 1. Wybierz ustawienia: **wymagane uprawnienia**
@@ -65,8 +65,8 @@ Właściwości rozszerzenia istnieje tylko w kontekście zarejestrowaną aplikac
 1. Należy zaznaczyć uprawnienia aplikacji: **Odczyt i zapis danych katalogu**, i **Zapisz**
 1. Wybierz **udzielić uprawnień** i Potwierdź **tak**.
 1. Skopiuj do Schowka i Zapisz następujące identyfikatory z aplikacji sieci Web-GraphAPI-DirectoryExtensions > Ustawienia > Właściwości >
-*  **Identyfikator aplikacji** . Przykład:`103ee0e6-f92d-4183-b576-8c3739027780`
-* **Obiekt o identyfikatorze**. Przykład:`80d8296a-da0a-49ee-b6ab-fd232aa45201`
+*  **Identyfikator aplikacji** . Przykład: `103ee0e6-f92d-4183-b576-8c3739027780`
+* **Obiekt o identyfikatorze**. Przykład: `80d8296a-da0a-49ee-b6ab-fd232aa45201`
 
 
 
@@ -96,7 +96,7 @@ Właściwości rozszerzenia istnieje tylko w kontekście zarejestrowaną aplikac
 ```
 
 >[!NOTE]
-><TechnicalProfile Id="AAD-Common"> Jest określana jako "wspólne", ponieważ jego elementy są uwzględnione w i użyć ponownie w wszystkie usługi Azure Active Directory TechnicalProfiles przy użyciu elementu:`<IncludeTechnicalProfile ReferenceId="AAD-Common" />`
+><TechnicalProfile Id="AAD-Common"> Jest określana jako "wspólne", ponieważ jego elementy są uwzględnione w i użyć ponownie w wszystkie usługi Azure Active Directory TechnicalProfiles przy użyciu elementu: `<IncludeTechnicalProfile ReferenceId="AAD-Common" />`
 
 >[!NOTE]
 >Podczas TechnicalProfile zapisuje po raz pierwszy właściwość nowo utworzonego rozszerzenia, może wystąpić błąd jednorazowego.  Właściwość rozszerzenia jest tworzony podczas pierwszego, który jest używany.  
@@ -152,7 +152,7 @@ Właściwości rozszerzenia istnieje tylko w kontekście zarejestrowaną aplikac
             <InputClaim ClaimTypeReferenceId="userPrincipalName" />
 
             <!-- Optional claims. These claims are collected from the user and can be modified. Any claim added here should be updated in the
-                 ValidationTechnicalProfile referenced below so it can be written to directory after being updateed by the user, i.e. AAD-UserWriteProfileUsingObjectId. -->
+                 ValidationTechnicalProfile referenced below so it can be written to directory after being updated by the user, i.e. AAD-UserWriteProfileUsingObjectId. -->
             <InputClaim ClaimTypeReferenceId="givenName" />
             <InputClaim ClaimTypeReferenceId="surname" />
             <InputClaim ClaimTypeReferenceId="extension_loyaltyId"/>
@@ -162,7 +162,7 @@ Właściwości rozszerzenia istnieje tylko w kontekście zarejestrowaną aplikac
             <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
 
             <!-- Optional claims. These claims are collected from the user and can be modified. Any claim added here should be updated in the
-                 ValidationTechnicalProfile referenced below so it can be written to directory after being updateed by the user, i.e. AAD-UserWriteProfileUsingObjectId. -->
+                 ValidationTechnicalProfile referenced below so it can be written to directory after being updated by the user, i.e. AAD-UserWriteProfileUsingObjectId. -->
             <OutputClaim ClaimTypeReferenceId="givenName" />
             <OutputClaim ClaimTypeReferenceId="surname" />
             <OutputClaim ClaimTypeReferenceId="extension_loyaltyId"/>
@@ -251,7 +251,7 @@ Token identyfikatora wysyłane powrót do aplikacji zawiera nową właściwość
 }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 ### <a name="add-the-new-claim-to-the-flows-for-social-account-logins-by-changing-the-technicalprofiles-listed-below-these-two-technicalprofiles-are-used-by-socialfederated-account-logins-to-write-and-read-the-user-data-using-the-alternativesecurityid-as-the-locator-of-the-user-object"></a>Dodaj nowe oświadczenie do przepływów dla logowania do kont społecznościowych, zmieniając TechnicalProfiles wymienionych poniżej. Te dwie TechnicalProfiles są używane przez federacyjne/społecznego konto logowania do zapisu i odczytu danych użytkownika za pomocą alternativeSecurityId jako lokalizacji obiektu użytkownika.
 ```xml
@@ -289,7 +289,7 @@ extension_<app-guid>_ActivationStatus via the Graph API.
 ```
 
 
-## <a name="reference"></a>Dokumentacja
+## <a name="reference"></a>Informacje ogólne
 
 * A **techniczne profilu (TP)** jest typem elementu, który można traktować jako *funkcja* definiuje nazwę punktu końcowego, jego metadanych, protokół, a szczegóły programu exchange oświadczeń który tożsamości Należy wykonać czynności Framework.  Gdy to *funkcja* jest wywoływana w kroku aranżacji lub z innego TechnicalProfile, InputClaims i OutputClaims są przekazywane jako parametry przez obiekt wywołujący.
 

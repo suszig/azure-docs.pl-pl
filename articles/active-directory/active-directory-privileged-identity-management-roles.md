@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/31/2017
+ms.date: 03/04/2018
 ms.author: billmath
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: bba26a947607a3679d191a2cd8164d27f61e2ba1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 500fb11627fa0ce7ac838c650a582dd9d49b598c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="different-administrative-role-in-azure-active-directory-pim"></a>Innej roli administracyjnej w usłudze Azure Active Directory PIM
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -50,7 +50,7 @@ Zarządzanie tożsamościami uprzywilejowanymi umożliwia przypisywanie użytkow
   > 
 * **Administrator zarządzania użytkownikami** Resetuje hasła, monitoruje kondycję usługi oraz zarządza kontami użytkowników, grup użytkowników i żądań obsługi. Administrator zarządzania użytkownika nie można usunąć administratora globalnego, tworzenia innych ról administratora ani resetowania haseł dla rozliczeń, globalnych i administratorów usługi.
 * **Administrator programu Exchange** ma dostęp administracyjny do usługi Exchange Online za pośrednictwem Centrum administracyjnego programu Exchange (EAC) i można wykonać prawie wszystkie zadania w usłudze Exchange Online.
-* **Administrator programu SharePoint** ma dostęp administracyjny do usługi SharePoint Online za pomocą Centrum administracyjnego usługi SharePoint Online i można wykonać prawie wszystkie zadania w usłudze SharePoint Online.
+* **Administrator programu SharePoint (wersja zapoznawcza)** ma dostęp administracyjny do usługi SharePoint Online za pomocą Centrum administracyjnego usługi SharePoint Online i można wykonać prawie wszystkie zadania w usłudze SharePoint Online. Ta rola jest obecnie w przeglądzie. Uprawnionych użytkowników mogą wystąpić opóźnienia, po aktywowaniu w PIM za pomocą tej roli w ramach programu SharePoint.
 * **Skype dla firm administratora** ma dostęp administracyjny do usługi Skype dla firm za pomocą programu Skype dla firm Centrum administracyjnego, a można wykonać prawie wszystkie zadania w programie Skype dla firm Online.
 
 Przeczytaj następujące artykuły, aby uzyskać więcej informacji na temat [przypisywanie ról administratorów w usłudze Azure AD](active-directory-assign-admin-roles-azure-portal.md) i [przypisywanie ról administratora w usłudze Office 365](https://support.office.com/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504).
@@ -89,6 +89,6 @@ Dostęp do usług Online firmy Microsoft mogą wymagać użytkownika również n
 8. Kliknij przycisk **przypisać** przycisku.  Użytkownik może teraz logować się do platformy Azure.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 

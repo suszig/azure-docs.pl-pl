@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 1e0d40b996e181a606d16d26633f890b9169ecbb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 85447809cbc803c13ad731b5328e94a1b03abba8
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="managing-devices-using-the-azure-portal"></a>Zarządzanie urządzeniami przy użyciu portalu Azure
 
@@ -112,6 +112,7 @@ Z obu opcji, aby przejść do widoku który:
 
 ![Wszystkie urządzenia](./media/device-management-azure-portal/51.png)
 
+Dla niektórych urządzeń z systemem iOS zawierające apostrofów nazwy urządzenia mogą za pomocą różnych znaki wyglądają jak apostrofy. Dlatego wyszukiwanie takich urządzeń jest nieco trudnych — Jeśli nie widzisz wyniki wyszukiwania prawidłowo, upewnij się, że ciąg wyszukiwania zawiera pasującego apostrof.
 
 ## <a name="device-management-tasks"></a>Zadania dotyczące zarządzania urządzeniami
 
@@ -229,14 +230,14 @@ Aby zawęzić zgłaszane dane do odpowiedniego poziomu, możesz odfiltrować dan
 - Typ zasobu działania
 - Działanie
 - Zakres dat
-- Obiekt docelowy
-- Zainicjowane przez (aktora)
+- Środowisko docelowe
+- Zainicjowane przez (aktor)
 
 Oprócz filtrów możesz wyszukać wybrane wpisy.
 
 ![Dzienniki inspekcji](./media/device-management-azure-portal/65.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Wprowadzenie do zarządzania urządzeniami w usłudze Azure Active Directory](device-management-introduction.md)
 

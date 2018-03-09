@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 12/20/2017
 ms.author: pullabhk;markgal
-ms.openlocfilehash: d1ebda145b7e355bd9763025dece742d2a23239b
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 0fce38db010a77ac61145ef63f616e0e466c95e2
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Odzyskiwanie plików z kopii zapasowej maszyny wirtualnej platformy Azure
 
 Kopia zapasowa Azure udostępnia możliwość przywracania [maszyn wirtualnych platformy Azure (maszyny wirtualne) oraz dyski](./backup-azure-arm-restore-vms.md) z kopii zapasowych maszyny Wirtualnej platformy Azure, nazywane również przywrócić punkty. W tym artykule opisano sposób odzyskiwanie plików i folderów z kopii zapasowej maszyny Wirtualnej platformy Azure. Przywracanie plików i folderów jest dostępna tylko dla maszyn wirtualnych platformy Azure wdrażane za pomocą modelu usługi Resource Manager i chronione w magazynie usług odzyskiwania.
 
 > [!Note]
+> Ta funkcja jest dostępna dla maszyn wirtualnych platformy Azure wdrażane za pomocą modelu usługi Resource Manager i chronione w magazynie usług odzyskiwania.
 > Odzyskiwanie plików z zaszyfrowanej kopii zapasowej maszyny Wirtualnej nie jest obsługiwane.
 >
 
@@ -154,7 +155,7 @@ Polecenie wyświetla szczegółowe informacje o wszystkich dysków raid.
 ```
 $ mdadm –detail –scan
 ```
- Odpowiedni dysk RAID jest wyświetlany jako`/dev/mdm/<RAID array name in the protected VM>`
+ Odpowiedni dysk RAID jest wyświetlany jako `/dev/mdm/<RAID array name in the protected VM>`
 
 Jeśli na dysku RAID woluminy fizyczne za pomocą polecenia instalacji.
 ```
@@ -196,7 +197,7 @@ Skrypt wymaga również Python i bash składników do wykonywania i bezpieczne �
 | --------------- | ---- |
 | Bash | 4 i nowsze |
 | python | 2.6.6 i powyżej.  |
-| Protokół TLS | 1.2 powinny być obsługiwane.  |
+| TLS | 1.2 powinny być obsługiwane.  |
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 

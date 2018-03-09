@@ -13,19 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/12/2017
+ms.date: 03/05/2018
 ms.author: cherylmc
-ms.openlocfilehash: d265c72cfc02710afb630f3b8258602c936d1ebc
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: e4f02e2b001b6821e732cead660aa0b758f1133e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Ustawienia konfiguracji bramy sieci VPN — informacje
 
 Brama sieci VPN jest typu bramy sieci wirtualnej, która wysyła szyfrowanego ruchu sieciowego między sieci wirtualnej i Twojej lokalizacji lokalnej przez publicznego połączenia. Umożliwia także bramy sieci VPN na wysyłanie ruchu między sieciami wirtualnymi w Azure sieci szkieletowej.
 
 Połączenie bramy sieci VPN zależy od konfiguracji wielu zasobów, z których każdy zawiera konfigurowalnych ustawień. Informacje zawarte w tym artykule omówiono w nim, zasoby i ustawienia, które odnoszą się do bramy sieci VPN do sieci wirtualnej utworzonej w modelu wdrażania usługi Resource Manager. Możesz znaleźć opisy i diagramy topologii dla każdego rozwiązania połączenia w [o bramy sieci VPN](vpn-gateway-about-vpngateways.md) artykułu.
+
+>[!NOTE]
+> Wartości w tym artykule dotyczą bram sieci wirtualnej, używających - elementu GatewayType "Vpn". Jest to, dlaczego są one określane jako bramy sieci VPN. Wartości, które są stosowane do - elementu GatewayType "ExpressRoute", zobacz [bramy sieci wirtualnej dla usługi ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md). Wartości dla bram usługi ExpressRoute nie są takie same wartości, które używają dla bram sieci VPN.
+>
+>
 
 ## <a name="gwtype"></a>Typy bramy
 
@@ -120,7 +125,7 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 Przed utworzeniem bramy sieci VPN, należy utworzyć podsieć bramy. Podsieć bramy zawiera adresy IP, których bramy sieci wirtualnej maszyn wirtualnych i usług. Podczas tworzenia bramy sieci wirtualnej maszyny wirtualne bramy są wdrażane do podsieci bramy i skonfigurowane wymagane ustawienia bramy sieci VPN. Do podsieci bramy nigdy nie należy wdrożyć cokolwiek innego (na przykład kolejnych maszyn wirtualnych). Podsieć bramy musi być o nazwie "GatewaySubnet" działała poprawnie. Nazw podsieci bramy "GatewaySubnet" umożliwia wiedzieli, że jest to podsieci w celu wdrożenia bramy sieci wirtualnej maszyn wirtualnych i usług Azure.
 
-Podczas tworzenia podsieci bramy należy określić liczbę zawartych w niej adresów IP. Adresy IP w podsieci bramy są przydzielone do usługi bramy i maszyny wirtualne bramy. Niektóre konfiguracje wymagają więcej adresów IP od innych. Przyjrzyj się instrukcje dotyczące konfiguracji, który chcesz utworzyć i sprawdź, czy podsieci bramy, w której chcesz utworzyć spełnia te wymagania. Można ponadto upewnij się, że podsieć bramy zawiera za mało adresów IP w celu uwzględnienia możliwych przyszłych dodatkowe konfiguracje. Podczas tworzenia podsieci bramy jak /29, zaleca się utworzenie podsieć bramy /28 i większych (/ 28, /27, /26 itp.). W ten sposób dodania funkcji w przyszłości, nie trzeba usunąć bramy, a następnie usuń i Utwórz ponownie podsieć bramy, aby umożliwić więcej adresów IP.
+Podczas tworzenia podsieci bramy należy określić liczbę zawartych w niej adresów IP. Adresy IP w podsieci bramy są przydzielone do usługi bramy i maszyny wirtualne bramy. Niektóre konfiguracje wymagają większej liczby adresów IP niż inne. Przyjrzyj się instrukcje dotyczące konfiguracji, który chcesz utworzyć i sprawdź, czy podsieci bramy, w której chcesz utworzyć spełnia te wymagania. Można ponadto upewnij się, że podsieć bramy zawiera za mało adresów IP w celu uwzględnienia możliwych przyszłych dodatkowe konfiguracje. Podczas tworzenia podsieci bramy jak /29, zaleca się utworzenie podsieć bramy /28 i większych (/ 28, /27, /26 itp.). W ten sposób dodania funkcji w przyszłości, nie trzeba usunąć bramy, a następnie usuń i Utwórz ponownie podsieć bramy, aby umożliwić więcej adresów IP.
 
 W poniższym przykładzie programu PowerShell Menedżera zasobów zawiera podsieć bramy o nazwie GatewaySubnet. Można zauważyć, że w notacji CIDR określa /27, co umożliwia obsługę za mało adresów IP w przypadku większości konfiguracji, które obecnie istnieją.
 
@@ -151,10 +156,10 @@ Dodatkowe zasoby techniczne i wymagania określonej składni, korzystając z int
 
 | **Wdrożenie klasyczne** | **Resource Manager** |
 | --- | --- |
-| [PowerShell](/powershell/module/azure#networking) |[PowerShell](/powershell/module/azurerm.network#vpn) |
+| [Program PowerShell](/powershell/module/azure#networking) |[Program PowerShell](/powershell/module/azurerm.network#vpn) |
 | [Interfejs API REST](https://msdn.microsoft.com/library/jj154113) |[Interfejs API REST](/rest/api/network/virtualnetworkgateways) |
 | Nieobsługiwane | [Interfejs wiersza polecenia platformy Azure](/cli/azure/network/vnet-gateway)|
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby uzyskać więcej informacji o konfiguracjach dostępnych połączeń, zobacz [o bramy sieci VPN](vpn-gateway-about-vpngateways.md).

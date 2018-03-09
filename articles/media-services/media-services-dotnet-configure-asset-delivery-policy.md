@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/13/2017
-ms.author: juliako;mingfeiy
-ms.openlocfilehash: 515467fefe9b318900ed64979d950b0ab783fd4a
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.date: 03/05/2018
+ms.author: juliako
+ms.openlocfilehash: 8fe78d2d8cef1ee5484bcdcd83b00afe8e5b30ce
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="configure-asset-delivery-policies-with-net-sdk"></a>Skonfiguruj zasady dostarczania zasobów przy użyciu zestawu .NET SDK
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
@@ -32,7 +32,6 @@ W tym artykule omówiono dlaczego i jak utworzyć i skonfigurować zasady dostar
 >Po utworzeniu konta usługi AMS zostanie do niego dodany **domyślny** punkt końcowy przesyłania strumieniowego mający stan **Zatrzymany**. Aby rozpocząć przesyłanie strumieniowe zawartości oraz korzystać z dynamicznego tworzenia pakietów i szyfrowania dynamicznego, punkt końcowy przesyłania strumieniowego, z którego chcesz strumieniowo przesyłać zawartość, musi mieć stan **Uruchomiony**. 
 >
 >Ponadto aby można było korzystać z dynamicznego tworzenia pakietów i dynamicznego szyfrowania zawartości musi zawierać zestaw o adaptacyjnej szybkości bitowej MP4s lub pliki Smooth Streaming adaptacyjną szybkością transmisji bitów.
-
 
 Różnych zasad można zastosować do tego samego zasobu. Na przykład można zastosować szyfrowanie PlayReady do szyfrowania Smooth Streaming i szyfrowanie AES Envelope MPEG DASH i HLS. Protokoły, które nie są zdefiniowane w zasadzie dostarczania (można na przykład dodać jedną zasadę, która określa tylko protokół HLS), nie mogą korzystać z przesyłania strumieniowego. Wyjątkiem jest przypadek, w którym nie zdefiniowano żadnych zasad dostarczania elementów zawartości. Wówczas wszystkie protokoły mogą być przesyłane bez zabezpieczeń.
 
@@ -54,9 +53,8 @@ MPEG DASH
 
 {name}.streaming.mediaservices.windows.net/{locator konta usługi media Nazwa punktu końcowego ID}/{filename}.ism/Manifest(format=mpd-time-csf) przesyłania strumieniowego
 
-
 ## <a name="considerations"></a>Zagadnienia do rozważenia
-* Nie można usunąć AssetDeliveryPolicy skojarzone z zasobów, gdy Lokalizator OnDemand (streaming) istnieje dla tego zasobu. Zalecane jest, aby usunąć zasady z zasobu przed usunięciem zasad.
+* Przed usunięciem AssetDeliveryPolicy, należy usunąć wszystkie lokalizatory przesyłania strumieniowego, skojarzone z elementu zawartości. Później można utworzyć nowego lokalizatory przesyłania strumieniowego, w razie potrzeby z nowego AssetDeliveryPolicy.
 * Nie można utworzyć Lokalizator przesyłania strumieniowego magazynu trwałego zaszyfrowane, jeśli ustawiono nie zasad dostarczania elementów zawartości.  Jeśli element zawartości nie jest szyfrowany w magazynie, system będzie umożliwiają tworzenie lokalizatora i strumienia zasobów w zwykłym bez zasad dostarczania elementów zawartości.
 * Może mieć wiele zasady dostarczania zasobów skojarzonych z pojedynczego zasobu, ale można określić tylko jeden sposób obsługi danego AssetDeliveryProtocol.  Co oznacza, spróbuj połączyć dwie zasady dostarczania, które określają protokół AssetDeliveryProtocol.SmoothStreaming, który spowoduje błąd, ponieważ system nie może określić, które co ma to zastosowanie, gdy klient przesyła żądanie Smooth Streaming.
 * Jeśli masz zasób z istniejących Lokalizator przesyłania strumieniowego nie może połączyć nowe zasady w zasobie (możesz odłączyć istniejące zasady z zasobu, lub zaktualizowania zasad dostarczania skojarzone z elementu zawartości).  Należy najpierw usuń Lokalizator przesyłania strumieniowego, Dostosuj zasady, a następnie ponownie utwórz Lokalizator przesyłania strumieniowego.  Można użyć tego samego locatorId podczas ponownego tworzenia Lokalizator przesyłania strumieniowego, ale należy upewnić się, że nie będzie powodować problemy dla klientów od zawartości mogą być buforowane źródła lub podrzędne CDN.

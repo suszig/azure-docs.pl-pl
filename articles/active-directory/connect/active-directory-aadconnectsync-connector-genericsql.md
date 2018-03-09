@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2017
 ms.author: billmath
-ms.openlocfilehash: 66e3559c244a76101be7b7d944a48cd6dd99bd4c
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 5ac8aff7e302a255efb86606416131ecf8088137
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/06/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="generic-sql-connector-technical-reference"></a>Ogólne informacje techniczne Łącznik usług SQL
 W tym artykule opisano ogólny łącznik SQL. Artykuł dotyczy następujących produktów:
@@ -152,7 +152,7 @@ Począwszy od aktualizacji 2017 marca jest teraz opcję "*", kiedy ta opcja jest
 ![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/any-option.png)
 
 >[!IMPORTANT]
- Począwszy od 2017 maja "*" alias **każda opcja** został zmieniony na obsługuje importowania i eksportowania przepływu. Jeśli chcesz użyć tej opcji wielowartościowe tabeli/widoku powinien mieć atrybut, który zawiera typ obiektu.
+ Począwszy od 2017 maja "\*" alias **każda opcja** został zmieniony na obsługuje importowania i eksportowania przepływu. Jeśli chcesz użyć tej opcji wielowartościowe tabeli/widoku powinien mieć atrybut, który zawiera typ obiektu.
 
 ![](./media/active-directory-aadconnectsync-connector-genericsql/any-02.png)
 

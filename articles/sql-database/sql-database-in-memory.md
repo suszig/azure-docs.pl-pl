@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: jodebrui
-ms.openlocfilehash: 23b313a473b93ba0eab7fc4cf97a5d26bfa31505
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 98b4a0b4bcb271a68880359b1bb04655cae8d003
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Optymalizacja wydajności za pomocą technologii w pamięci w bazie danych SQL
 
@@ -44,7 +44,7 @@ Baza danych SQL Azure zawiera następujące technologie w pamięci:
 
 - *OLTP w pamięci* zwiększa przepustowość i zmniejsza opóźnienia przetwarzania transakcji. Scenariusze, w których warto skorzystać z OLTP w pamięci są: przetwarzanie takich jak handlowych i gier, wprowadzanie danych z urządzeń IoT, buforowanie ładowania danych i tabeli tymczasowej i scenariusze zmiennej tabeli lub zdarzenia transakcji wysokiej przepustowości.
 - *Klastrowane indeksy magazynu kolumn* ograniczyć wpływ sieci magazynowania (maksymalnie 10 razy) i zwiększyć wydajność dla raportowania i zapytań analiz. Możesz może być używany z tabel faktów w Twojej składnic danych programów do dopasowania większej ilości danych w bazie danych i zwiększyć wydajność. Ponadto służy go z danych historycznych w operacyjnej bazie danych do archiwizacji i można zbadać maksymalnie 10 razy więcej danych.
-- *Klastrowanych indeksów magazynu kolumn* HTAP pomocy można uzyskać wgląd w czasie rzeczywistym w firmie za pomocą zapytań operacyjnej bazy danych bezpośrednio, bez potrzeby uruchamiania kosztowne wyodrębniania, przekształcania i ładowania (ETL) proces i poczekaj, aż hurtowni danych, który będzie zapełniony. Klastrowanych indeksów magazynu kolumn bardzo szybkie wykonywanie zapytania analityczne w bazie danych OLTP, przy jednoczesnym umożliwianiu zmniejsza wpływ na obciążenie operacyjną.
+- *Klastrowanych indeksów magazynu kolumn* HTAP pomocy można uzyskać wgląd w czasie rzeczywistym w firmie za pomocą zapytań operacyjnej bazy danych bezpośrednio, bez potrzeby uruchamiania kosztowne wyodrębniania, przekształcania i ładowania (ETL) proces i poczekaj, aż Magazyn danych, który będzie zapełniony. Klastrowanych indeksów magazynu kolumn bardzo szybkie wykonywanie zapytania analityczne w bazie danych OLTP, przy jednoczesnym umożliwianiu zmniejsza wpływ na obciążenie operacyjną.
 - Można również mieć kombinację tabeli zoptymalizowanej pod kątem pamięci z indeksem magazynu kolumn. To połączenie umożliwia przetwarzanie transakcji bardzo szybko, a *jednocześnie* bardzo szybko uruchomić zapytania analityczne na tych samych danych.
 
 Zarówno indeksy magazynu kolumn i OLTP w pamięci zostały część produktu SQL Server od 2012 i 2014 r. odpowiednio. Azure SQL Database i programu SQL Server udostępnianie tego samego wykonania technologii w pamięci. Idąc dalej, nowych funkcji do tych technologii są wydawane w bazie danych SQL Azure, przed wprowadzeniem w programie SQL Server.
@@ -229,8 +229,8 @@ SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
 
 Jedyną różnicą między dwa *procedur składowanych* Pierwsza procedura używa wersji tabel zoptymalizowanych pod kątem pamięci, a druga procedura wykorzystuje zwykłych tabelach na dysku:
 
-- SalesLT**.** usp_InsertSalesOrder**_inmem**
-- SalesLT**.** usp_InsertSalesOrder**_ondisk**
+- SalesLT**.**usp_InsertSalesOrder**_inmem**
+- SalesLT**.**usp_InsertSalesOrder**_ondisk**
 
 
 W tej sekcji, zobacz sposób użycia przydatną **ostress.exe** narzędzie do wykonywania dwóch procedur składowanych na poziomach stressful. Możesz porównać, jak długo trwa dla przebiegów dwóch obciążenia zakończyć.
@@ -493,7 +493,7 @@ W bazie danych z warstwy cenowej P2 może spodziewać się o dziewięciokrotnie 
 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Szybki Start 1: Technologii OLTP w pamięci, aby zwiększyć wydajność T-SQL](http://msdn.microsoft.com/library/mt694156.aspx)
 
@@ -502,7 +502,7 @@ W bazie danych z warstwy cenowej P2 może spodziewać się o dziewięciokrotnie 
 - [Monitor OLTP w pamięci magazynu](sql-database-in-memory-oltp-monitoring.md) dla OLTP w pamięci
 
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 #### <a name="deeper-information"></a>Więcej informacji
 
@@ -526,7 +526,7 @@ W bazie danych z warstwy cenowej P2 może spodziewać się o dziewięciokrotnie 
 
 #### <a name="tools"></a>Narzędzia
 
-- [Witryna Azure Portal](https://portal.azure.com/)
+- [Azure portal](https://portal.azure.com/)
 
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 

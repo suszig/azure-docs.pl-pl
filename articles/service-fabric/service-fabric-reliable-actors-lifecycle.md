@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: d49afd9e5cfe80ddc2d919c76eaa0cb168280c15
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: dd45acd75e1cf263029c869d88c87b28f56d50cc
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Cykl życia aktora, automatyczne wyrzucanie elementów bezużytecznych i ręcznego usuwania
 Aktor jest uaktywniany przy pierwszym uruchomieniu połączenie jest nawiązywane w przypadku dowolnej metody. Aktor jest dezaktywowany (odzyskiwanie zebranych przez środowisko uruchomieniowe złośliwych użytkowników), jeśli nie jest on używany przez można skonfigurować czas. Aktor i stanu można również zostaną usunięte ręcznie w dowolnym momencie.
@@ -48,7 +48,7 @@ Gdy aktora jest dezaktywowana, odwołania do obiektu aktora są wydawane i może
 Co to jest traktowana jako "jest używane" na potrzeby dezaktywacji i wyrzucanie elementów bezużytecznych?
 
 * Odbieranie wywołania
-* `IRemindable.ReceiveReminderAsync`Metoda wywoływana (ma zastosowanie tylko wtedy, gdy aktor używa przypomnienia)
+* `IRemindable.ReceiveReminderAsync` Metoda wywoływana (ma zastosowanie tylko wtedy, gdy aktor używa przypomnienia)
 
 > [!NOTE]
 > Jeśli aktora używa czasomierze i jej wywołanie zwrotne czasomierza jest wywoływana, nie **nie** liczby jako "jest używane".
@@ -144,13 +144,13 @@ Usuwanie aktora ma następujące skutki w zależności od tego, czy aktora jest 
 
 Należy pamiętać, że nie można wywołać aktora usunąć na samym sobie z jednego z jego metody aktora, ponieważ aktora nie można usunąć podczas wykonywania w kontekście wywołań aktora, w którym środowiska uruchomieniowego uzyskał blokady wokół wymuszenia dostępu jednowątkowe wywołanie aktora.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Czasomierze aktora i przypomnieniami](service-fabric-reliable-actors-timers-reminders.md)
 * [Zdarzenia aktora](service-fabric-reliable-actors-events.md)
 * [Wielobieżność aktora](service-fabric-reliable-actors-reentrancy.md)
 * [Aktora Diagnostyka i monitorowanie wydajności](service-fabric-reliable-actors-diagnostics.md)
 * [Dokumentację referencyjną aktora interfejsu API](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [C# przykładowy kod](https://github.com/Azure/servicefabric-samples)
+* [C# przykładowy kod](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Java przykładowy kod](http://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->

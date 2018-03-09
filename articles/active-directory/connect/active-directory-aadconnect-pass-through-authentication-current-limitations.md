@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: aee90f278476a899e0d47fc572c4f375bf926de2
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: ac085bf972885819f7c79996b0f6638fc01fc00d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Usługi Azure Active Directory przekazywanego uwierzytelniania: Bieżące ograniczenia
 
@@ -31,18 +31,18 @@ Pełni są obsługiwane następujące scenariusze:
 
 - Logowania użytkownika do wszystkich aplikacji opartej na przeglądarce sieci web
 - Logowania użytkownika do aplikacji pakietu Office, które obsługują [nowoczesnego uwierzytelniania](https://aka.ms/modernauthga): pakiet Office 2016 i Office 2013 _z_ nowoczesnego uwierzytelniania
+- Logowania użytkowników do klientów programu Outlook przy użyciu starszej wersji protokołów, takich jak program Exchange ActiveSync, SMTP, POP i IMAP.
 - Użytkownik logowania do usługi Skype dla firm tego Obsługa nowoczesnego uwierzytelniania, w tym Online i hybrydowych topologii. Dowiedz się więcej na temat obsługiwanych topologii [tutaj](https://technet.microsoft.com/library/mt803262.aspx).
 - Dołącza domenowych Azure AD dla urządzeń z systemem Windows 10
-- Obsługa programu Exchange ActiveSync
+- Hasła aplikacji w usłudze Multi-Factor Authentication.
 
 ## <a name="unsupported-scenarios"></a>Nieobsługiwane scenariusze
 
 Poniższe scenariusze są _nie_ obsługiwane:
 
-- Logowania użytkownika do starszych aplikacjach klienckich pakietu Office: pakiet Office 2010 i Office 2013 _bez_ nowoczesnego uwierzytelniania. Organizacje zaleca się przełączyć do nowoczesnego uwierzytelniania, jeśli to możliwe. Umożliwia obsługę uwierzytelniania przekazywanego nowoczesnego uwierzytelniania. Pomaga również Zabezpieczanie kont użytkowników przy użyciu [dostępu warunkowego](../active-directory-conditional-access-azure-portal.md) funkcje, takie jak uwierzytelnianie wieloskładnikowe Azure.
+- Logowania użytkownika do starszych aplikacjach klienckich pakietu Office, z wyjątkiem programu Outlook: pakiet Office 2010 i Office 2013 _bez_ nowoczesnego uwierzytelniania. Organizacje zaleca się przełączyć do nowoczesnego uwierzytelniania, jeśli to możliwe. Umożliwia obsługę uwierzytelniania przekazywanego nowoczesnego uwierzytelniania. Pomaga również Zabezpieczanie kont użytkowników przy użyciu [dostępu warunkowego](../active-directory-conditional-access-azure-portal.md) funkcje, takie jak uwierzytelnianie wieloskładnikowe Azure.
 - Użytkownik logowania do usługi Skype dla firm aplikacje klienckie _bez_ nowoczesnego uwierzytelniania.
 - Użytkownik logowania do programu PowerShell w wersji 1.0. Firma Microsoft zaleca użycie programu PowerShell w wersji 2.0.
-- Hasła aplikacji w usłudze Multi-Factor Authentication.
 - Wykrywanie użytkownikom [ujawnione poświadczenia](../active-directory-reporting-risk-events.md#leaked-credentials).
 - Usługi domenowe Azure AD wymaga synchronizacji skrótu hasła w dzierżawie. W związku z tym dzierżawcami, które korzystają z uwierzytelniania przekazywanego _tylko_ nie działa w przypadku scenariuszy, które wymagają usług domenowych Azure AD.
 - Przekazywanego uwierzytelniania nie jest zintegrowany z [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md).
@@ -63,4 +63,3 @@ Włączanie synchronizacji skrótów haseł umożliwia uwierzytelnianie trybu fa
 - [Nowości zabezpieczeń](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md): uzyskiwanie informacji głębokość technicznych dotyczących funkcji uwierzytelniania przekazywanego.
 - [Azure AD SSO bezproblemowe](active-directory-aadconnect-sso.md): Dowiedz się więcej o tej funkcji uzupełniające.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): plik nowego żądania funkcji za pomocą na Forum usługi Azure Active Directory.
-

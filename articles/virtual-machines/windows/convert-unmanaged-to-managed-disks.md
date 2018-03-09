@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: cynthn
-ms.openlocfilehash: dd9ebaf9a1c8b3112623af4228efa0d9063c1e52
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 92168ba5605e119d42ba40ee694cebb3ad116041
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Konwertuj maszynę wirtualną systemu Windows z dysków niezarządzanych do zarządzanych dysków
 
@@ -50,17 +50,12 @@ W tej sekcji omówiono sposób konwertowania maszyn wirtualnych Azure jednym wys
   Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
   ```
 
-2. Konwertuj maszynę Wirtualną do zarządzanych dysków za pomocą [ConvertTo-AzureRmVMManagedDisk](/powershell/module/azurerm.compute/convertto-azurermvmmanageddisk) polecenia cmdlet. Następujący proces konwertuje poprzedniej maszyny Wirtualnej, w tym dysku systemu operacyjnego i dysków z danymi:
+2. Konwertuj maszynę Wirtualną do zarządzanych dysków za pomocą [ConvertTo-AzureRmVMManagedDisk](/powershell/module/azurerm.compute/convertto-azurermvmmanageddisk) polecenia cmdlet. Następujący proces konwertuje poprzedniej maszyny Wirtualnej, w tym dysku systemu operacyjnego i wszelkie dyski danych i uruchomienie maszyny wirtualnej:
 
   ```azurepowershell-interactive
   ConvertTo-AzureRmVMManagedDisk -ResourceGroupName $rgName -VMName $vmName
   ```
 
-3. Uruchom maszynę Wirtualną po konwersji do dysków zarządzanych za pomocą [Start AzureRmVM](/powershell/module/azurerm.compute/start-azurermvm). Poniższy przykład ponowne uruchomienie poprzedniego maszyny Wirtualnej:
-
-  ```azurepowershell-interactive
-  Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
-  ```
 
 
 ## <a name="convert-vms-in-an-availability-set"></a>Konwertuj maszyn wirtualnych w zestawie dostępności
@@ -84,7 +79,7 @@ Jeśli maszyny wirtualne, które ma zostać przekonwertowany na zarządzany dysk
   Update-AzureRmAvailabilitySet -AvailabilitySet $avSet -Sku Aligned
   ```
 
-2. Cofnięcie przydziału i przekonwertować maszyny wirtualne w zestawie dostępności. Poniższy skrypt cofa alokację każdej maszyny Wirtualnej za pomocą [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm) konwertuje go za pomocą polecenia cmdlet, [ConvertTo-AzureRmVMManagedDisk](/powershell/module/azurerm.compute/convertto-azurermvmmanageddisk)i ponownie go uruchamia przy użyciu [Start-AzureRmVM](/powershell/module/azurerm.compute/start-azurermvm):
+2. Cofnięcie przydziału i przekonwertować maszyny wirtualne w zestawie dostępności. Poniższy skrypt cofa alokację każdej maszyny Wirtualnej za pomocą [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm) konwertuje go za pomocą polecenia cmdlet, [ConvertTo-AzureRmVMManagedDisk](/powershell/module/azurerm.compute/convertto-azurermvmmanageddisk)i ponownie go uruchamia automatycznie jako od siebie procesu konwersji :
 
   ```azurepowershell-interactive
   $avSet = Get-AzureRmAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
@@ -94,7 +89,6 @@ Jeśli maszyny wirtualne, które ma zostać przekonwertowany na zarządzany dysk
      $vm = Get-AzureRmVM -ResourceGroupName $rgName | Where-Object {$_.Id -eq $vmInfo.id}
      Stop-AzureRmVM -ResourceGroupName $rgName -Name $vm.Name -Force
      ConvertTo-AzureRmVMManagedDisk -ResourceGroupName $rgName -VMName $vm.Name
-     Start-AzureRmVM -ResourceGroupName $rgName -Name $vm.Name
   }
   ```
 

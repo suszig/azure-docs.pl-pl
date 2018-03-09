@@ -1,10 +1,10 @@
 ---
-title: "Wdrażanie usługi aplikacji w środowisku w trybie offline: stosu Azure | Dokumentacja firmy Microsoft"
+title: "Wdrażanie usługi aplikacji w środowisku w trybie offline w stosie Azure | Dokumentacja firmy Microsoft"
 description: "Szczegółowe instrukcje dotyczące wdrażania usługi aplikacji w środowisku bez połączenia stosu Azure zabezpieczonej przez usługi AD FS."
 services: azure-stack
 documentationcenter: 
-author: brenduns
-manager: femila
+author: apwestgarth
+manager: stefsch
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -12,19 +12,20 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
-ms.author: brenduns
-ms.reviewer: anwestg
-ms.openlocfilehash: c42aaabd27afeb9e7fdd0b9add3de62a2d00eeaf
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.date: 03/07/2018
+ms.author: anwestg
+ms.openlocfilehash: 042ebb0acc82a0cecabac7f2bc7c3b68e3ed362f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Dodaj dostawcy zasobów usługi aplikacji w środowisku bez połączenia stosu Azure zabezpieczonej przez usługi AD FS
+
 *Dotyczy: Azure stosu zintegrowanych systemów i Azure stosu Development Kit*
 
 Postępując zgodnie z instrukcjami w tym artykule, można zainstalować [dostawcy zasobów usługi aplikacji](azure-stack-app-service-overview.md) do środowiska Azure stosu:
+
 - nie jest połączony z Internetem
 - zabezpieczone przez usługi Active Directory Federation Services (AD FS).
 
@@ -43,60 +44,72 @@ Wdrożenie usługi aplikacji w środowisku bez połączenia, należy najpierw ut
 
 2. Kliknij przycisk **zaawansowane** > **pakietu instalacyjnego w trybie offline Utwórz**.
 
-    ![Instalator usługi aplikacji](media/azure-stack-app-service-deploy-offline/image01.png)   
+    ![Instalator usługi aplikacji][1]
 
 3. Instalator usługi aplikacji — tworzy pakiet instalacji w trybie offline i wyświetla ścieżkę do niego. Możesz kliknąć **Otwórz folder** aby otworzyć folder w sieci Eksploratora plików.
 
-    ![Instalator usługi aplikacji](media/azure-stack-app-service-deploy-offline/image02.png)   
+    ![Instalator usługi aplikacji](media/azure-stack-app-service-deploy-offline/image02.png)
 
 4. Skopiuj Instalatora (AppService.exe) i pakietu instalacyjnego w trybie offline do komputera-hosta Azure stosu.
 
 ## <a name="complete-the-offline-installation-of-app-service-on-azure-stack"></a>Zakończenie instalacji w trybie offline usługi aplikacji Azure stosu
 
-1. Na komputerze bez połączenia hosta stosu Azure Uruchom appservice.exe jako azurestack\clouadmin.
+1. Uruchom appservice.exe jako administrator na komputerze, który można osiągnąć punktu końcowego zarządzania zasobami Azure stosu administratora platformy Azure.
 
 2. Kliknij przycisk **zaawansowane** > **ukończyć instalację w trybie offline**.
 
-    ![Instalator usługi aplikacji](media/azure-stack-app-service-deploy-offline/image03.png)   
+    ![Instalator usługi aplikacji][2]
 
 3. Przejdź do lokalizacji pakietu instalacyjnego w trybie offline, została wcześniej utworzona, a następnie kliknij przycisk **dalej**.
 
-    ![Instalator usługi aplikacji](media/azure-stack-app-service-deploy-offline/image04.png)   
+    ![Instalator usługi aplikacji](media/azure-stack-app-service-deploy-offline/image04.png)
 
 4. Przejrzyj i zaakceptuj postanowienia licencyjne dotyczące oprogramowania firmy Microsoft, a następnie kliknij przycisk **dalej**.
 
-5. Przejrzyj i zaakceptuj postanowienia licencyjne innych firm, a następnie kliknij przycisk **dalej**.
+5. Przejrzyj i zaakceptuj postanowienia licencyjne innych firm, a następnie kliknij **dalej**.
 
-6. Upewnij się, że informacje o konfiguracji chmury usługi aplikacji jest prawidłowa. Jeśli domyślne ustawienia są używane podczas wdrażania usługi Azure stosu Development Kit, można zaakceptować wartości domyślne w tym miejscu. Jednak po wdrożeniu stosu Azure po dostosowaniu opcji, należy edytować wartości w tym oknie, aby odzwierciedlić który. Na przykład jeśli używasz mycloud.com sufiks domeny punktu końcowego musi zmienić na management.mycloud.com. Po upewnieniu się informacje, kliknij przycisk **dalej**.
+6. Upewnij się, że informacje o konfiguracji chmury usługi aplikacji jest prawidłowa. Jeśli domyślne ustawienia są używane podczas wdrażania usługi Azure stosu Development Kit, można zaakceptować wartości domyślne w tym miejscu. Jednak jeśli dostosowany opcje podczas wdrażania usługi Azure stos lub są wdrażane na zintegrowany system, należy edytować wartości w tym oknie, aby odzwierciedlić, który. Na przykład jeśli używasz mycloud.com sufiks domeny punktu końcowego Azure stosu dzierżawy usługi Azure Resource Manager musi zmienić do zarządzania. <region>. mycloud.com. Po upewnieniu się informacje, kliknij przycisk **dalej**.
 
-    ![Instalator usługi aplikacji](media/azure-stack-app-service-deploy/image02.png)
+    ![Instalator usługi aplikacji][3]
 
 7. Na następnej stronie:
     1. Kliknij przycisk **Connect** znajdujący się obok **subskrypcji platformy Azure stosu** pole.
-        - Jeśli używasz usługi Azure Active Directory (Azure AD), wprowadź konto administratora usługi Azure AD i hasło podane podczas wdrażania usługi Azure stosu. Kliknij przycisk **Zaloguj**.
-        - Jeśli używasz programu Active Directory Federation Services (AD FS), podaj konto administratora. Na przykład cloudadmin@azurestack.local. Wprowadź hasło, a następnie kliknij przycisk **logowania**.
+        - Podaj konto administratora. Na przykład cloudadmin@azurestack.local. Wprowadź hasło, a następnie kliknij przycisk **logowania**.
     2. W **subskrypcji platformy Azure stosu** Wybierz subskrypcję.
     3. W **lokalizacji stosu Azure** wybierz lokalizację, do której odnosi się do regionu jest wdrażany do. Na przykład wybierz **lokalnego** Jeśli wdrażanie Azure stosu Development Kit.
-    4. Wprowadź **Nazwa grupy zasobów** wdrożenia usługi aplikacji. Domyślnie jest ustawiona **APPSERVICE lokalnego**.
-    5. Wprowadź **nazwy konta magazynu** , które mają usługi aplikacji, aby utworzyć jako część instalacji. Domyślnie jest ustawiona **appsvclocalstor**.
-    6. Kliknij przycisk **Dalej**.
+    4. Kliknij przycisk **Dalej**.
 
-    ![Instalator usługi aplikacji](media/azure-stack-app-service-deploy/image03.png)
+    ![Instalator usługi aplikacji][4]
 
-8. Wprowadź informacje dotyczące udziału plików, a następnie kliknij przycisk **dalej**. Adres udziału plików należy użyć w pełni kwalifikowanej nazwy domeny serwera plików lub adres IP. Na przykład \\\appservicefileserver.local.cloudapp.azurestack.external\websites, lub \\\10.0.0.1\websites.
+8. Masz teraz możliwość wdrożenia do istniejącej sieci wirtualnej, zgodnie z konfiguracją kroków [tutaj](azure-stack-app-service-before-you-get-started.md#virtual-network), lub zezwolić Instalator usługi aplikacji do tworzenia sieci wirtualnej i skojarzonych podsieci.
+    1. Wybierz **Utwórz sieć wirtualną przy użyciu ustawień domyślnych**, zaakceptuj ustawienia domyślne, a następnie kliknij przycisk **dalej**, lub;
+    2. Wybierz **użyć istniejącej sieci wirtualnej i podsieci**.
+        1. Wybierz **grupy zasobów** zawierający sieci wirtualnej.
+        2. Wybierz poprawny **sieci wirtualnej** nazwę chcesz wdrożyć w;
+        3. Wybierz poprawny **podsieci** wartości dla każdej podsieci roli wymagane;
+        4. Kliknij przycisk **Dalej**
 
-    ![Instalator usługi aplikacji](media/azure-stack-app-service-deploy/image04.png)
+    ![Instalator usługi aplikacji][5]
 
-9. Na następnej stronie:
-    1. W **identyfikator aplikacji tożsamości** wprowadź identyfikator GUID dla aplikacji, używane dla tożsamości.
+9. Wprowadź informacje dotyczące udziału plików, a następnie kliknij przycisk **dalej**. Adres udziału plików korzystać w pełni kwalifikowana nazwa domeny lub adres IP serwera plików. Na przykład \\\appservicefileserver.local.cloudapp.azurestack.external\websites, lub \\\10.0.0.1\websites.
+
+> [!NOTE]
+> Instalator podejmuje próbę Testuj łączność z udziałem plików przed kontynuowaniem.  Jednak jeśli wybierzesz do wdrożenia w ramach istniejącej sieci wirtualnej, Instalator może nie móc nawiązać połączenia z udziałem plików i wyświetla ostrzeżenie, pytaniem, czy chcesz kontynuować.  Sprawdź informacje dotyczące udziału plików i Kontynuuj, jeśli są poprawne.
+>
+>
+
+   ![Instalator usługi aplikacji][8]
+
+10. Na następnej stronie:
+    1. W **identyfikator aplikacji tożsamości** wprowadź identyfikator GUID dla aplikacji, używane dla tożsamości (z usługi Azure AD).
     2. W **pliku certyfikatu tożsamości aplikacji** wprowadź (lub przejdź do) lokalizację pliku certyfikatu.
     3. W **hasło certyfikatu tożsamości aplikacji** wprowadź hasło dla certyfikatu. To hasło jest wprowadzone należy wziąć pod uwagę, gdy skrypt jest używany do tworzenia certyfikatów.
     4. W **plik certyfikatu głównego usługi Azure Resource Manager** wprowadź (lub przejdź do) lokalizację pliku certyfikatu.
     5. Kliknij przycisk **Dalej**.
 
-    ![Instalator usługi aplikacji](media/azure-stack-app-service-deploy/image05.png)
+    ![Instalator usługi aplikacji][10]
 
-10. Dla każdego z trzech pól pliku certyfikatu, kliknij przycisk **Przeglądaj** i przejdź do pliku odpowiedniego certyfikatu i wpisz hasło. Te certyfikaty są tymi, które zostały utworzone w [tworzenia wymaganych certyfikatów krok](azure-stack-app-service-deploy.md). Kliknij przycisk **dalej** po wprowadzeniu wszystkich informacji.
+11. Dla każdego z trzech pól pliku certyfikatu, kliknij przycisk **Przeglądaj** , a następnie przejdź do pliku odpowiedni certyfikat. Podaj hasło dla każdego certyfikatu. Te certyfikaty są tymi, które zostały utworzone w [tworzenia wymaganych certyfikatów krok](azure-stack-app-service-before-you-get-started.md#get-certificates). Kliknij przycisk **dalej** po wprowadzeniu wszystkich informacji.
 
     | Box | Przykład nazwy pliku certyfikatu |
     | --- | --- |
@@ -106,16 +119,21 @@ Wdrożenie usługi aplikacji w środowisku bez połączenia, należy najpierw ut
 
     Jeśli sufiks domeny różnych są używane podczas tworzenia certyfikatów, nie używaj nazwy pliku certyfikatu *lokalnego. AzureStack.external*. Zamiast tego należy używać Twoich informacji domeny niestandardowej.
 
-    ![Instalator usługi aplikacji](media/azure-stack-app-service-deploy/image06.png)    
+    ![Instalator usługi aplikacji][11]
 
-11. Podaj szczegóły programu SQL Server dla wystąpienia serwera, używane do obsługi baz danych dostawcy zasobów usługi aplikacji, a następnie kliknij przycisk **dalej**. Instalator sprawdza właściwości połączenia SQL.
+12. Podaj szczegóły programu SQL Server dla wystąpienia serwera, używane do obsługi baz danych dostawcy zasobów usługi aplikacji, a następnie kliknij przycisk **dalej**. Instalator sprawdza właściwości połączenia SQL.
 
-    ![Instalator usługi aplikacji](media/azure-stack-app-service-deploy/image07.png)    
+> [!NOTE]
+> Instalator podejmuje próbę przetestowanie łączności z serwerem SQl Server przed kontynuowaniem.  Jednak jeśli wybierzesz do wdrożenia w ramach istniejącej sieci wirtualnej, Instalator może nie móc połączyć się z serwerem SQL i wyświetla ostrzeżenie z pytaniem, czy chcesz kontynuować.  Sprawdź informacje dotyczące programu SQL Server i Kontynuuj, jeśli są poprawne.
+>
+>
+   
+   ![Instalator usługi aplikacji][12]
 
-12. Przejrzyj opcje jednostki SKU i wystąpienia roli. Wartości domyślne są wypełniane przy użyciu minimalną liczbę wystąpień i minimalna jednostki SKU dla każdej roli we wdrożeniu ASDK. Aby ułatwić planowanie rozmieszczenia udostępniane jest podsumowanie wymagań vCPU i pamięci. Po dokonaniu wyboru kliknij przycisk **dalej**.
+13. Przejrzyj opcje jednostki SKU i wystąpienia roli. Wartości domyślne są wypełniane przy użyciu minimalną liczbę wystąpień i minimalna jednostki SKU dla każdej roli we wdrożeniu ASDK. Aby ułatwić planowanie rozmieszczenia udostępniane jest podsumowanie wymagań vCPU i pamięci. Po dokonaniu wyboru kliknij przycisk **dalej**.
 
      > [!NOTE]
-     > W przypadku wdrożeń produkcyjnych, postępując zgodnie ze wskazówkami w [zaplanować role serwera usługi Azure App Service w stosie Azure wydajność](azure-stack-app-service-capacity-planning.md).
+     > W przypadku wdrożeń produkcyjnych, postępuj zgodnie ze wskazówkami w [zaplanować role serwera usługi Azure App Service w stosie Azure wydajność](azure-stack-app-service-capacity-planning.md).
      >
      >
 
@@ -127,33 +145,32 @@ Wdrożenie usługi aplikacji w środowisku bez połączenia, należy najpierw ut
     | FrontEnd | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Kieruje żądania do aplikacji usługi aplikacji. |
     | Udostępnionego procesu roboczego | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Hosty aplikacji sieci web lub aplikacji interfejsu API i usługi Azure Functions. Można dodać więcej wystąpień. Uprawnienia operatora można zdefiniować Twojej oferty i wybierz warstwę wszystkie jednostki SKU. Warstw musi mieć co najmniej jeden vCPU. |
 
-    ![Instalator usługi aplikacji](media/azure-stack-app-service-deploy/image08.png)    
+    ![Instalator usługi aplikacji][14]
 
     > [!NOTE]
-    > **Podstawowy Windows Server 2016 nie jest obrazem obsługiwanych platform do użycia z usługi Azure App Service na stosie Azure**.
+    > **Podstawowy Windows Server 2016 nie jest obrazem obsługiwanych platform do użycia z usługi Azure App Service na stosie Azure.  Nie należy używać obrazów oceny wdrożeń produkcyjnych.**
 
-13. W **wybierz obrazu platformy** wybierz obraz maszyny wirtualnej wdrażania systemu Windows Server 2016 z tych, które są dostępne w dostawcy zasobów obliczeniowych w chmurze usługi aplikacji. Kliknij przycisk **Dalej**.
+14. W **wybierz obrazu platformy** wybierz obraz maszyny wirtualnej wdrażania systemu Windows Server 2016 z tych, które są dostępne w dostawcy zasobów obliczeniowych w chmurze usługi aplikacji. Kliknij przycisk **Dalej**.
 
-14. Na następnej stronie:
+15. Na następnej stronie:
      1. Wprowadź hasło i nazwa użytkownika administratora maszyny wirtualnej w roli procesu roboczego.
      2. Wprowadź nazwę użytkownika administratora maszyny wirtualnej inne role i hasło.
      3. Kliknij przycisk **Dalej**.
 
-    ![Instalator usługi aplikacji](media/azure-stack-app-service-deploy/image09.png)    
+    ![Instalator usługi aplikacji][16]
 
-15. Na stronie Podsumowanie:
+16. Na stronie Podsumowanie:
     1. Sprawdź wybrane opcje wprowadzone. Aby wprowadzić zmiany, należy użyć **Wstecz** przycisków, aby przejść do poprzedniej strony.
     2. Jeśli konfiguracje są poprawne, zaznacz pole wyboru.
     3. Aby uruchomić wdrożenie, kliknij przycisk **dalej**.
 
-    ![Instalator usługi aplikacji](media/azure-stack-app-service-deploy/image10.png)    
+    ![Instalator usługi aplikacji][17]
 
-16. Na następnej stronie:
+17. Na następnej stronie:
     1. Śledź postęp instalacji. Usługi aplikacji Azure stosu trwa około 60 minut do wdrożenia na podstawie wybranych domyślne.
     2. Po pomyślnym zakończeniu Instalatora, kliknij przycisk **zakończenia**.
 
-    ![Instalator usługi aplikacji](media/azure-stack-app-service-deploy/image11.png)    
-
+    ![Instalator usługi aplikacji][18]
 
 ## <a name="validate-the-app-service-on-azure-stack-installation"></a>Sprawdź poprawność usługi aplikacji Azure stosu instalacji
 
@@ -161,8 +178,7 @@ Wdrożenie usługi aplikacji w środowisku bez połączenia, należy najpierw ut
 
 2. W przeglądzie w stanie, sprawdź, który **stan** pokazuje **wszystkie role są gotowe**.
 
-    ![Zarządzanie usługami aplikacji](media/azure-stack-app-service-deploy/image12.png)    
-
+    ![Zarządzanie usługami aplikacji](media/azure-stack-app-service-deploy/image12.png)
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>Przetestuj aplikację usługi Azure stosu
 
@@ -210,3 +226,23 @@ Możesz również wypróbować innych [platforma jako usługa (PaaS) usługi](az
 [Azure_Stack_App_Service_preview_installer]: http://go.microsoft.com/fwlink/?LinkID=717531
 [App_Service_Deployment]: http://go.microsoft.com/fwlink/?LinkId=723982
 [AppServiceHelperScripts]: http://go.microsoft.com/fwlink/?LinkId=733525
+
+<!--Image references-->
+[1]: ./media/azure-stack-app-service-deploy-offline/app-service-exe-advanced-create-package.png
+[2]: ./media/azure-stack-app-service-deploy-offline/app-service-exe-advanced-complete-offline.png
+[3]: ./media/azure-stack-app-service-deploy-offline/app-service-azure-stack-arm-endpoints.png
+[4]: ./media/azure-stack-app-service-deploy-offline/app-service-azure-stack-subscription-information.png
+[5]: ./media/azure-stack-app-service-deploy-offline/app-service-default-VNET-config.png
+[6]: ./media/azure-stack-app-service-deploy-offline/app-service-custom-VNET-config.png
+[7]: ./media/azure-stack-app-service-deploy-offline/app-service-custom-VNET-config-with-values.png
+[8]: ./media/azure-stack-app-service-deploy-offline/app-service-fileshare-configuration.png
+[9]: ./media/azure-stack-app-service-deploy-offline/app-service-fileshare-configuration-error.png
+[10]: ./media/azure-stack-app-service-deploy-offline/app-service-identity-app.png
+[11]: ./media/azure-stack-app-service-deploy-offline/app-service-certificates.png
+[12]: ./media/azure-stack-app-service-deploy-offline/app-service-sql-configuration.png
+[13]: ./media/azure-stack-app-service-deploy-offline/app-service-sql-configuration-error.png
+[14]: ./media/azure-stack-app-service-deploy-offline/app-service-cloud-quantities.png
+[15]: ./media/azure-stack-app-service-deploy-offline/app-service-windows-image-selection.png
+[16]: ./media/azure-stack-app-service-deploy-offline/app-service-role-credentials.png
+[17]: ./media/azure-stack-app-service-deploy-offline/app-service-azure-stack-deployment-summary.png
+[18]: ./media/azure-stack-app-service-deploy-offline/app-service-deployment-progress.png

@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
+ms.date: 03/05/2018
 ms.author: sujie
-ms.openlocfilehash: b06eae6b85f2ca41390955cde2499af2531e2e12
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 71e7247226f9432b3f9590ca87ac33883ea576ce
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="use-azure-stream-analytics-tools-for-visual-studio"></a>Użyj usługi Azure Stream Analytics tools dla programu Visual Studio
 Azure Stream Analytics tools dla programu Visual Studio są teraz ogólnie dostępna. Te narzędzia Włącz rozbudowanej Stream Analytics użytkownikom Rozwiązywanie problemów, a także zapisać złożonych kwerend i nawet pisać zapytania lokalnie. Zadanie usługi Stream Analytics można również wyeksportować do projektu programu Visual Studio.
 
 ## <a name="introduction"></a>Wprowadzenie
-W tym samouczku Dowiedz się jak używać usługi Stream Analytics tools dla Visual Studio do tworzenia, tworzenie, testowanie lokalnie, zarządzania i debugowania z zadania usługi analiza strumienia. 
+W tym samouczku Dowiedz się jak używać usługi Stream Analytics tools dla Visual Studio do tworzenia, tworzenie, testowanie lokalnie, zarządzania i debugowania z zadania usługi analiza strumienia. Po utworzeniu zadania ciągłej integracji i wdrażania procesu na platformie Azure można skonfigurować przy użyciu pakietu Nuget CI/CD, aby dowiedzieć się więcej dotyczą [Stream Analytics VS narzędzi do konfigurowania potoku CI/CD](stream-analytics-tools-for-visual-studio-cicd.md) artykułu.
 
 Po ukończeniu tego samouczka, będą mieć możliwość:
 
@@ -39,7 +39,7 @@ Po ukończeniu tego samouczka, będą mieć możliwość:
 Potrzebne są następujące wymagania wstępne do ukończenia tego samouczka:
 
 * Zakończ kroki do "Utwórz zadanie usługi analiza strumienia" samouczka [tworzenia rozwiązania IoT przy użyciu usługi Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics). 
-* Zainstaluj program Visual Studio 2017, programu Visual Studio 2015 lub Visual Studio 2013 Update 4. Enterprise (Ultimate/Premium), Professional i społeczności wersje są obsługiwane. Express edition nie jest obsługiwane. 
+* Install Visual Studio 2017, Visual Studio 2015, or Visual Studio 2013 Update 4. Enterprise (Ultimate/Premium), Professional i społeczności wersje są obsługiwane. Express edition nie jest obsługiwane. 
 * Postępuj zgodnie z [instrukcje dotyczące instalacji](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install) do zainstalowania narzędzia do analizy strumienia dla programu Visual Studio.
 
 ## <a name="create-a-stream-analytics-project"></a>Tworzenie projektu usługi analiza strumienia
@@ -58,7 +58,7 @@ Projekt **przez** jest generowana w **Eksploratora rozwiązań**.
 2. Zaloguj się przy użyciu konta platformy Azure. 
 
 ## <a name="define-input-sources"></a>Definiowanie źródeł dla wejścia
-1. W **Eksploratora rozwiązań**, rozwiń węzeł **dane wejściowe** węzła i Zmień nazwę **Input.json** do **EntryStream.json**. Kliknij dwukrotnie **EntryStream.json**.
+1. W **Eksploratora rozwiązań**, rozwiń węzeł **dane wejściowe** węzła i Zmień nazwę **Input.json** do **EntryStream.json**. Double-click **EntryStream.json**.
 
 2. Aby uzyskać **Alias wejściowy**, wprowadź **EntryStream**. Należy pamiętać, że alias wejściowy jest używana w skrypcie zapytania.
 
@@ -137,13 +137,13 @@ Aby uzyskać więcej informacji, przeczytaj o [czas zarządzania](https://msdn.m
 
 Teraz, pierwszego zapytania Stream Analytics, musieli napisać, przetestować go przy użyciu przykładowych plików danych znajdujących się w folderze TollApp w następującej ścieżce:
 
-**.. \TollApp\TollApp\Data**
+**..\TollApp\TollApp\Data**
 
 Ten folder zawiera następujące pliki:
 
-* Entry.JSON
-* Exit.JSON
-* Registration.JSON
+* Entry.json
+* Exit.json
+* Registration.json
 
 ## <a name="question-number-of-vehicles-entering-a-toll-booth"></a>Pytanie: Liczba pojazdów stoisku przez
 W projekcie, kliknij dwukrotnie **Script.asaql** można otworzyć skryptu w edytorze. Wklej skrypt w poprzedniej sekcji do edytora. Edytor zapytań obsługuje IntelliSense, kolorowanie składni i znacznik błędu.
@@ -264,7 +264,7 @@ Istnieją dwa sposoby istniejącego zadania można wyeksportować do projektu.
 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Wprowadzenie do usługi Azure Stream Analytics](stream-analytics-introduction.md)
 * [Rozpoczynanie pracy przy użyciu usługi Azure Stream Analytics](stream-analytics-get-started.md)
 * [Scale Azure Stream Analytics jobs (Skalowanie zadań usługi Azure Stream Analytics)](stream-analytics-scale-jobs.md)

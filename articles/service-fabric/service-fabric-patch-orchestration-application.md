@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/16/2018
+ms.date: 3/07/2018
 ms.author: nachandr
-ms.openlocfilehash: bb3afdd3afa81664589f738945a63d20013d5291
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 43a0675b1613e7bcf338537c1203de7df9a02fc4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Poprawka systemu operacyjnego Windows w klastrze usługi sieć szkieletowa
 
@@ -136,7 +136,9 @@ Aktualizacje automatyczne systemu Windows, mogą spowodować utratę dostępnoś
 
 ## <a name="download-the-app-package"></a>Pobierz pakiet aplikacji
 
-Pobierz aplikację z [pobrać link](https://go.microsoft.com/fwlink/P/?linkid=849590).
+Można pobrać z aplikacji oraz skrypty instalacyjne [łącze archiwum](https://go.microsoft.com/fwlink/?linkid=869566).
+
+Aplikacja w formacie sfpkg można pobrać z [łącze sfpkg](https://go.microsoft.com/fwlink/?linkid=869567). Jeśli źródłem jest przydatna do [wdrożenia aplikacji na podstawie usługi Azure Resource Manager](service-fabric-application-arm-resource.md).
 
 ## <a name="configure-the-app"></a>Konfigurowanie aplikacji
 
@@ -361,8 +363,12 @@ Administrator musi interweniować, aby ustalić, dlaczego aplikacja lub klastra 
 ### <a name="version-111"></a>Wersja 1.1.1
 - Rozwiązane usterki w SetupEntryPoint z NodeAgentService uniemożliwiający instalacji NodeAgentNTService.
 
-### <a name="version-120-latest"></a>Wersji 1.2.0 (Najnowsza wersja)
+### <a name="version-120"></a>Wersji 1.2.0
 
 - Poprawki błędów wokół systemu ponownie uruchomić przepływ pracy.
 - Poprawka błędu podczas tworzenia zadania Menedżera zasobów z powodu którego kondycji wyboru podczas przygotowywania zadań naprawy nie wykonywane zgodnie z oczekiwaniami.
 - Zmienić trybu uruchamiania usługi systemu windows POANodeSvc z automatycznego na opóźnione auto.
+
+### <a name="version-121-latest"></a>Wersji 1.2.1 (Najnowsza wersja)
+
+- Poprawka błędu w dół klastra w przepływie pracy. Wprowadzono logikę kolekcji garbage POA naprawy zadania należące do nieistniejącego węzłów.

@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/27/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: d5b77bb43c48bd286708ca96699b20be0f761baa
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: cb9575cb7bb3d8d3f3a18a1f5577ff0330bda24c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="register-azure-stack-with-azure"></a>Zarejestruj stosu Azure przy użyciu platformy Azure
 Stos Azure można zarejestrować przy użyciu platformy Azure, aby pobrać elementów marketplace z platformy Azure i ustaw commerce dane raportowania z powrotem do firmy Microsoft. Po zarejestrowaniu stosu Azure użycia jest zgłaszane do handlu platformy Azure. Można to sprawdzić w ramach subskrypcji, używanego do rejestracji.
@@ -54,6 +54,7 @@ Repozytorium GitHub narzędzia stosu Azure zawiera moduły programu PowerShell A
 cd \
 
 # Download the tools archive.
+  [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
   invoke-webrequest `
   https://github.com/Azure/AzureStack-Tools/archive/master.zip `
   -OutFile master.zip
@@ -167,7 +168,7 @@ Opcjonalnie możesz użyć polecenia cmdlet Get-Content wskaż plik, który zawi
 
 ## <a name="verify-azure-stack-registration"></a>Weryfikuj rejestrację Azure stosu
 Wykonaj następujące czynności, aby sprawdzić, czy Azure stos został pomyślnie zarejestrowany przy użyciu platformy Azure.
-1. Zaloguj się do stosu Azure [portalu administratora](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal): https &#58; / / adminportal. *&lt;region >. &lt;fqdn >*.
+1. Zaloguj się do stosu Azure [portalu administratora](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal): https&#58;/ / adminportal. *&lt;region >. &lt;fqdn >*.
 2. Kliknij przycisk **więcej usług** > **zarządzania Marketplace** > **dodać z platformy Azure**.
 
 Jeśli zobaczysz listę dostępnych z platformy Azure (na przykład WordPress) elementów, proces aktywacji zakończyło się pomyślnie.

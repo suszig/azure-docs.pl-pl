@@ -1,5 +1,5 @@
 ---
-title: "Samouczek: Integracji Azure Active Directory z E sprzedaży Menedżera Remix | Dokumentacja firmy Microsoft"
+title: "Samouczek: Integrowanie usługi Azure Active Directory z Remix kierownik E | Dokumentacja firmy Microsoft"
 description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i E sprzedaży Menedżera Remix."
 services: active-directory
 documentationCenter: na
@@ -14,188 +14,186 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 56c2860b6aeac9fdc66f2b1fdd1ed9126bf77d3f
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 200d87b950ac76c85513bc11da2798562e48bec3
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="tutorial-azure-active-directory-integration-with-e-sales-manager-remix"></a>Samouczek: Integracji Azure Active Directory z Remix Menedżera sprzedaży E
+# <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Integrowanie usługi Azure Active Directory z Remix kierownik E
 
-Z tego samouczka dowiesz się integrowanie E sprzedaży Menedżera Remix w usłudze Azure Active Directory (Azure AD).
+Z tego samouczka dowiesz Integrowanie usługi Azure Active Directory (Azure AD) z E sprzedaży Menedżera Remix.
 
-Integrowanie E sprzedaży Menedżera Remix z usługą Azure AD zapewnia następujące korzyści:
+Integrowanie usługi Azure AD z Remix Menedżera sprzedaży E, można uzyskać następujące korzyści:
 
 - Można kontrolować w usłudze Azure AD, kto ma dostęp do E sprzedaży Menedżera Remix.
-- Umożliwia użytkownikom automatycznie pobrać zalogowane do E sprzedaży Menedżera Remix (logowanie jednokrotne) z konta usługi Azure AD.
-- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure.
+- Można umożliwić użytkownikom uzyskać zalogowany automatycznie Remix Menedżera sprzedaży E, (logowanie jednokrotne lub logowania jednokrotnego) przy użyciu ich kont usługi Azure AD.
+- Możesz zarządzać kont w jednej centralnej lokalizacji, portalu Azure.
 
-Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Aby dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby skonfigurować integrację usługi Azure AD z Remix Menedżera sprzedaży E, potrzebne są następujące elementy:
 
 - Subskrypcję usługi Azure AD
-- E sprzedaży Menedżera Remix logowanie jednokrotne włączone subskrypcji
+- Włączone E sprzedaży Menedżera Remix SSO subskrypcji
 
 > [!NOTE]
-> Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
+> Podczas testowania czynności w tym samouczku, zaleca się wykonanie *nie* za pomocą środowiska produkcyjnego.
 
-Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
+Aby przetestować kroki opisane w tym samouczku, wykonaj te zalecenia:
 
 - Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.
 - Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz [uzyskać miesięczna wersja próbna](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
-W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
+W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. 
 
-1. Dodawanie E sprzedaży Menedżera Remix z galerii
-2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
+Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
 
-## <a name="adding-e-sales-manager-remix-from-the-gallery"></a>Dodawanie E sprzedaży Menedżera Remix z galerii
-Aby skonfigurować integrację E sprzedaży Menedżera Remix do usługi Azure AD, należy dodać E sprzedaży Menedżera Remix z galerii do listy zarządzanych aplikacji SaaS.
+* Dodawanie E sprzedaży Menedżera Remix z galerii
+* Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
-**Aby dodać E sprzedaży Menedżera Remix z galerii, wykonaj następujące czynności:**
+## <a name="add-e-sales-manager-remix-from-the-gallery"></a>Dodaj E sprzedaży Menedżera Remix z galerii
+Aby skonfigurować integrację usługi Azure AD z Remix Menedżera sprzedaży E, Dodaj E sprzedaży Menedżera Remix z galerii do listy zarządzane aplikacje SaaS w następujący sposób:
 
-1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
+1. W [portalu Azure](https://portal.azure.com), w okienku po lewej stronie wybierz **usługi Azure Active Directory**. 
 
     ![Przycisk usługi Azure Active Directory][1]
 
-2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
+2. Wybierz **aplikacje dla przedsiębiorstw** > **wszystkie aplikacje**.
 
-    ![Blok aplikacje przedsiębiorstwa][2]
+    ![Okno "Aplikacje przedsiębiorstwa"][2]
     
-3. Aby dodać nową aplikację, kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.
+3. Aby dodać nową aplikację, zaznacz **nowej aplikacji** w górnej części okna.
 
     ![Nowy przycisk aplikacji][3]
 
-4. W polu wyszukiwania wpisz **E sprzedaży Menedżera Remix**, wybierz pozycję **E sprzedaży Menedżera Remix** z panelu wyników kliknięcie **Dodaj** przycisk, aby dodać aplikację.
+4. W polu wyszukiwania wpisz **E sprzedaży Menedżera Remix**, wybierz pozycję **E sprzedaży Menedżera Remix** w lista wyników, a następnie wybierz **Dodaj**.
 
     ![E sprzedaży Menedżera Remix na liście wyników](./media/active-directory-saas-esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfiguracja i testowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z E sprzedaży Menedżera Remix w oparciu o nazwie "Britta Simona" użytkownika testowego.
+W tej sekcji możesz skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z E sprzedaży Menedżera Remix, na podstawie użytkownika testowego, nazywany "Britta Simona".
 
-Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w E sprzedaży Menedżera Remix jest dla użytkownika, w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i danemu użytkownikowi w E sprzedaży Menedżera Remix musi określone.
+Dla rejestracji jednokrotnej do pracy usługi Azure AD musi zidentyfikować E sprzedaży Menedżera Remix użytkownik i jego odpowiednik w usłudze Azure AD. Innymi słowy można ustanowić relacji łącza między użytkownika usługi Azure AD i tego samego użytkownika w E sprzedaży Menedżera Remix.
 
-Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Remix Menedżera sprzedaży E, należy wykonać poniższe bloki konstrukcyjne:
-
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configure-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego E sprzedaży Menedżera Remix](#create-an-e-sales-manager-remix-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta E sprzedaży Menedżera Remix połączonego z usługi Azure AD reprezentację użytkownika.
-4. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
-5. **[Test rejestracji jednokrotnej](#test-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
+Do konfigurowania i testowania usługi Azure AD rejestracji jednokrotnej z Remix Menedżera sprzedaży E, wykonaj bloków konstrukcyjnych w następnych pięciu sekcjach:
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w E sprzedaży Menedżera Remix aplikacji.
+Włączanie usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w aplikacji E sprzedaży Menedżera Remix w następujący sposób:
 
-**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z Remix Menedżera sprzedaży E, wykonaj następujące czynności:**
+1. W portalu Azure na **E sprzedaży Menedżera Remix** strona integracji aplikacji, wybierz opcję **logowanie jednokrotne**.
 
-1. W portalu Azure na **E sprzedaży Menedżera Remix** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
+    ![Łącze "Logowanie jednokrotne"][4]
 
-    ![Skonfigurować łącze rejestracji jednokrotnej][4]
-
-2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
+2. W **logowanie jednokrotne** okna w **tryb rejestracji jednokrotnej** wybierz opcję **na języku SAML logowania jednokrotnego**.
  
-    ![Okno dialogowe rejestracji jednokrotnej](./media/active-directory-saas-esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_samlbase.png)
+    ![Okno "Logowanie jednokrotne"](./media/active-directory-saas-esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_samlbase.png)
 
-3. Na **E sprzedaży Menedżera Remix domeny i adres URL** sekcji, wykonaj następujące czynności:
+3. W obszarze **E sprzedaży Menedżera Remix domeny i adres URL**, wykonaj następujące czynności:
 
     ![Adresy URL i E sprzedaży Menedżera Remix domeny pojedynczy informacje logowania jednokrotnego](./media/active-directory-saas-esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_url.png)
 
-    a. W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca: `https://<Server-Based-URL>/<sub-domain>/esales-pc`
+    a. W **adres URL logowania** wpisz adres URL w następującym formacie: *https://\<— na podstawie — adres URL serwera > /\<domeny podrzędnej > / esales pc*.
 
-    b. W **identyfikator** tekstowym, wpisz adres URL, używając następującego wzorca: `https://<Server-Based-URL>/<sub-domain>/`
+    b. W **identyfikator** wpisz adres URL w następującym formacie: *https://\<— na podstawie — adres URL serwera > /\<domeny podrzędnej > /*.
 
-    c. Kopiuj **identyfikator** wartość w Notatniku. Wartość identyfikatora zostanie użyta w dalszej części tego samouczka.
+    c. Uwaga **identyfikator** wartości do użycia w tym samouczku.
     
     > [!NOTE] 
-    > Wartości te nie są prawdziwe. Rzeczywisty adres URL logowania i identyfikator, należy zaktualizować te wartości. Skontaktuj się z [zespołem pomocy technicznej klienta Remix E sprzedaży Menedżera](mailto:esupport@softbrain.co.jp) uzyskać te wartości.
+    > Poprzednie wartości nie są prawdziwe. Zaktualizuj je z rzeczywistego logowania URL i identyfikator. Aby uzyskać wartości, skontaktuj się z [zespołem pomocy technicznej klienta Remix E sprzedaży Menedżera](mailto:esupport@softbrain.co.jp).
 
-4. Na **certyfikat podpisywania SAML** kliknij **Certificate(Base64)** , a następnie zapisz plik certyfikatu na tym komputerze.
+4. W obszarze **SAML certyfikat podpisywania**, wybierz pozycję **certyfikatu (Base64)**, a następnie zapisz plik certyfikatu na komputerze.
 
-    ![Łącze pobierania certyfikatu](./media/active-directory-saas-esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_certificate.png) 
+    ![Łącze pobierania certyfikatu (Base64)](./media/active-directory-saas-esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_certificate.png) 
 
-5. Wybierz **widoku i edytować wszystkie atrybuty użytkowników** i wybierz polecenie **emailaddress** atrybutu.
+5. Wybierz **widoku i edytować wszystkie atrybuty użytkowników** pole wyboru, a następnie wybierz **emailaddress** atrybutu.
     
-    ![Konfiguracja Remix kierownik E](./media/active-directory-saas-esalesmanagerremix-tutorial/configure1.png)
+    ![Okno atrybutów użytkownika](./media/active-directory-saas-esalesmanagerremix-tutorial/configure1.png)
 
-6. Kopiuj **Namespace** i **nazwa** wartość w polu tekstowym. Generowanie wartości we wzorcu następujące - `<Namespace>/<Name>`. Ta wartość zostanie użyta w dalszej części tego samouczka.
+    **Atrybutu Edytuj** zostanie otwarte okno.
 
-    ![Konfiguracja Remix kierownik E](./media/active-directory-saas-esalesmanagerremix-tutorial/configure2.png)
+6. Kopiuj **Namespace** i **nazwa** wartości. Generowanie wartości we wzorcu  *\<Namespace > /\<Name >*i zapisz go do użycia w tym samouczku.
 
-7. Na **E sprzedaży Menedżera konfiguracji Remix** , kliknij przycisk **skonfigurować Remix Menedżera sprzedaży E** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **Sign-Out adresu URL i SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.**
+    ![Okno edycji atrybucie](./media/active-directory-saas-esalesmanagerremix-tutorial/configure2.png)
+
+7. W obszarze **E sprzedaży Menedżera konfiguracji Remix**, wybierz pozycję **skonfigurować Remix Menedżera sprzedaży E**.
 
     ![Konfiguracja Remix kierownik E](./media/active-directory-saas-esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_configure.png) 
 
-8. Kliknij przycisk **zapisać** przycisku.
+    **Konfigurowanie logowania jednokrotnego** zostanie otwarte okno.
 
-    ![Skonfiguruj przycisk pojedynczego logowania jednokrotnego Zapisz](./media/active-directory-saas-esalesmanagerremix-tutorial/tutorial_general_400.png)
+8. W **krótkimi opisami** sekcji, skopiuj adres URL wylogowania i adres URL usługi rejestracji jednokrotnej SAML.
 
-9. Zaloguj się do aplikacji E sprzedaży Menedżera Remix jako administrator.
+9. Wybierz pozycję **Zapisz**.
 
-10. Wybierz **do Menu administratora** w menu u góry po prawej.
+    ![Przycisk Zapisz](./media/active-directory-saas-esalesmanagerremix-tutorial/tutorial_general_400.png)
 
-    ![Konfiguracja Remix kierownik E](./media/active-directory-saas-esalesmanagerremix-tutorial/configure4.png)
+10. Zaloguj się do aplikacji E sprzedaży Menedżera Remix jako administrator.
 
-11. Wybierz **ustawienia systemu**>**współpracy z systemu zewnętrznego**
+11. U góry po prawej stronie, zaznacz pole wyboru **do Menu administratora**.
 
-    ![Konfiguracja Remix kierownik E](./media/active-directory-saas-esalesmanagerremix-tutorial/configure5.png)
+    ![Polecenie "Menu administratora"](./media/active-directory-saas-esalesmanagerremix-tutorial/configure4.png)
+
+12. W okienku po lewej stronie wybierz **ustawienia systemu** > **współpracy z systemu zewnętrznego**.
+
+    !["System ustawienia" i "Współpracy z systemu zewnętrznego" łącza](./media/active-directory-saas-esalesmanagerremix-tutorial/configure5.png)
     
-12. Wybierz **SAML**
+13. W **współpracy z systemu zewnętrznego** wybierz **SAML**.
 
-    ![Konfiguracja Remix kierownik E](./media/active-directory-saas-esalesmanagerremix-tutorial/configure6.png)
+    ![Okno "Współpracy z systemu zewnętrznego"](./media/active-directory-saas-esalesmanagerremix-tutorial/configure6.png)
 
-13. W **ustawienia uwierzytelniania SAML** sekcji, wykonaj następujące czynności:
+14. W obszarze **ustawienia uwierzytelniania SAML**, wykonaj następujące czynności:
 
-    ![Konfiguracja Remix kierownik E](./media/active-directory-saas-esalesmanagerremix-tutorial/configure3.png)
+    ![W sekcji "Ustawienia uwierzytelniania SAML"](./media/active-directory-saas-esalesmanagerremix-tutorial/configure3.png)
     
-    a. Wybierz **wersji**
+    a. Wybierz **wersji** pole wyboru.
     
-    b. Wybierz **e-mail** z listy rozwijanej we współpracy element sekcji.
+    b. W **elementu współpracy** sekcji, na liście rozwijanej wybierz **e-mail**.
 
-    c. W polu tekstowym elementu współpracy Wklej **wartości oświadczenia** skopiowanego z Azure tj portalu `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
+    c. W **elementu współpracy** Wklej wartość oświadczenia, które wcześniej zostały skopiowane z portalu Azure (czyli **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**).
 
-    d. W **wystawcy (identyfikator jednostki)** pole tekstowe, Wklej **identyfikator** wartość, która została skopiowana z portalu Azure z **E sprzedaży Menedżera Remix domeny i adres URL** sekcji.
+    d. W **wystawcy (identyfikator podmiot)** Wklej wartość identyfikatora, które wcześniej zostały skopiowane z **E sprzedaży Menedżera Remix domeny i adres URL** części portalu Azure.
 
-    e. Aby przekazać z pobranego **certyfikatu** z portalu Azure, wybierz **pliku wybór**.
+    e. Aby przekazać certyfikat pobrany z portalu Azure, wybierz **pliku wybór**.
 
-    f. W **adres URL logowania dostawcy identyfikator** pole tekstowe, Wklej **SAML pojedynczy znak na adres URL usługi** skopiowanego z portalu Azure.
+    f. W **adres URL logowania dostawcy identyfikator** Wklej adres URL usługi rejestracji jednokrotnej SAML skopiowanego wcześniej w portalu Azure.
 
-    g. W **adres URL wylogowania dostawcy tożsamości** pole tekstowe, Wklej **Sign-Out URL** wartość, która została skopiowana z portalu Azure.
+    g. W **adres URL wylogowania dostawcy tożsamości** Wklej wylogowania wartość adresu URL skopiowanego wcześniej w portalu Azure.
 
-    h. Kliknij przycisk **ustawienie ukończone**
+    h. Wybierz **ustawienie pełną**.
 
 > [!TIP]
-> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Jak podczas konfigurowania aplikacji, możesz przeczytać zwięzły wersji poprzednich instrukcji w [portalu Azure](https://portal.azure.com). Po dodaniu aplikacji w **usługi Active Directory** > **aplikacje dla przedsiębiorstw** zaznacz **rejestracji jednokrotnej** karcie, a następnie przejść osadzone w dokumentacji **konfiguracji** sekcji u dołu. Aby uzyskać więcej informacji o funkcji osadzonych dokumentacji, zobacz [usługi Azure AD osadzonych dokumentacji]( https://go.microsoft.com/fwlink/?linkid=845985).
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
-Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie Simona Britta.
+W tej sekcji możesz tworzyć użytkownika testowego Simona Britta w portalu Azure w następujący sposób:
 
-   ![Tworzenie użytkownika testowego usługi Azure AD][100]
+![Tworzenie użytkownika testowego usługi Azure AD][100]
 
-**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
+1. W portalu Azure, w lewym okienku wybierz **usługi Azure Active Directory**.
 
-1. W portalu Azure, w okienku po lewej stronie kliknij **usługi Azure Active Directory** przycisku.
+    ![Łącze usługi Azure Active Directory](./media/active-directory-saas-paloaltoadmin-tutorial/create_aaduser_01.png)
 
-    ![Przycisk usługi Azure Active Directory](./media/active-directory-saas-esalesmanagerremix-tutorial/create_aaduser_01.png)
+2. Aby wyświetlić listę bieżących użytkowników, wybierz **użytkowników i grup** > **wszyscy użytkownicy**.
 
-2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup**, a następnie kliknij przycisk **wszyscy użytkownicy**.
+    !["Użytkownicy i grupy" i "Wszyscy użytkownicy" łącza](./media/active-directory-saas-paloaltoadmin-tutorial/create_aaduser_02.png)
 
-    !["Użytkownicy i grupy" i "Wszyscy użytkownicy" łącza](./media/active-directory-saas-esalesmanagerremix-tutorial/create_aaduser_02.png)
+3. W górnej części **wszyscy użytkownicy** wybierz **Dodaj**.
 
-3. Aby otworzyć **użytkownika** okno dialogowe, kliknij przycisk **Dodaj** w górnej części **wszyscy użytkownicy** okno dialogowe.
+    ![Przycisk Dodaj](./media/active-directory-saas-paloaltoadmin-tutorial/create_aaduser_03.png)
+    
+    **Użytkownika** zostanie otwarte okno.
 
-    ![Przycisk Dodaj](./media/active-directory-saas-esalesmanagerremix-tutorial/create_aaduser_03.png)
+4. W **użytkownika** okna, wykonaj następujące czynności:
 
-4. W **użytkownika** okna dialogowego wykonaj następujące czynności:
-
-    ![Okno dialogowe użytkownika](./media/active-directory-saas-esalesmanagerremix-tutorial/create_aaduser_04.png)
+    ![Okno użytkownika](./media/active-directory-saas-paloaltoadmin-tutorial/create_aaduser_04.png)
 
     a. W **nazwa** wpisz **BrittaSimon**.
 
@@ -203,7 +201,7 @@ Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie 
 
     c. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartość, która jest wyświetlana w **hasło** pole.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Wybierz pozycję **Utwórz**.
  
 ### <a name="create-an-e-sales-manager-remix-test-user"></a>Tworzenie użytkownika testowego Remix Menedżera sprzedaży E
 
@@ -213,66 +211,65 @@ Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie 
 
     ![Konfiguracja Remix kierownik E](./media/active-directory-saas-esalesmanagerremix-tutorial/configure4.png)
 
-3. Wybierz **ustawień firmy**>**konserwacji działów i pracownicy** i wybierz **pracowników w zarejestrowany**.
+3. Wybierz **ustawienia firmy** > **konserwacji działów i pracownicy**, a następnie wybierz **pracowników w zarejestrowany**.
 
-    ![Użytkownik](./media/active-directory-saas-esalesmanagerremix-tutorial/user1.png)
+    ![Na karcie "Zarejestrowany pracowników"](./media/active-directory-saas-esalesmanagerremix-tutorial/user1.png)
 
 4. W **nowej rejestracji pracownika** sekcji, wykonaj następujące czynności:
     
-    ![Użytkownik](./media/active-directory-saas-esalesmanagerremix-tutorial/user2.png)
+    !["Rejestracja nowych pracowników" sekcji](./media/active-directory-saas-esalesmanagerremix-tutorial/user2.png)
 
-    a. W **nazwa pracownika** tekstowym, wpisz nazwę użytkownika, takich jak Britta.
+    a. W **nazwa pracownika** wpisz nazwę użytkownika (na przykład **Britta**).
 
-    b. Wypełnienie wszystkich odpowiednich wymaganych pól informacji użytkownika.
+    b. Wykonaj pozostałe wymagane pola.
     
-    c. Jeśli włączysz SAML, administrator nie będzie mógł zalogować się na ekranie logowania, więc przyznać administratora uprawnień logowania dla użytkownika, wybierając **identyfikator logowania administratora**
+    c. Jeśli włączysz SAML, administrator nie można zalogować się na stronie logowania. Uprawnienia logowania administratora GRANT dla użytkownika, wybierając **logowania administratora** pole wyboru.
 
-    d. Kliknij przycisk **rejestracji**
+    d. Wybierz **rejestracji**.
 
-5. W przyszłości, jeśli chcesz zalogować się jako administrator, zalogować się użytkownik, który został udzielony uprawnienia administratora i kliknij przycisk **do Menu administratora** w menu u góry po prawej.
+5. W przyszłości, aby zalogować się jako administrator, zaloguj się jako użytkownik, który ma uprawnienia administratora, a następnie u góry po prawej, wybierz **do Menu administratora**.
 
-    ![Użytkownik](./media/active-directory-saas-esalesmanagerremix-tutorial/configure4.png)
+    ![Polecenie "Menu administratora"](./media/active-directory-saas-esalesmanagerremix-tutorial/configure4.png)
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisz użytkownika testowego usługi Azure AD
 
-W tej sekcji można włączyć Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu do E sprzedaży Menedżera Remix.
+W tej sekcji możesz umożliwić użytkownikowi Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu do E sprzedaży Menedżera Remix. Aby to zrobić, wykonaj następujące czynności: 
 
 ![Przypisanie roli użytkownika][200] 
 
-**Aby przypisać Simona Britta Remix Menedżera sprzedaży E, wykonaj następujące czynności:**
+1. W portalu Azure Otwórz **aplikacji** widok, przejdź do **katalogu** wyświetlić, a następnie wybierz **aplikacje dla przedsiębiorstw** > **wszystkie aplikacje**.
 
-1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
+    !["Aplikacje przedsiębiorstwa" i "Wszystkie aplikacje" łącza][201] 
 
-    ![Przypisz użytkownika][201] 
+2. W **aplikacji** listy, wybierz **E sprzedaży Menedżera Remix**.
 
-2. Na liście aplikacji zaznacz **E sprzedaży Menedżera Remix**.
+    ![Łącze Remix Menedżera sprzedaży E](./media/active-directory-saas-esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_app.png)  
 
-    ![E sprzedaży Menedżera Remix łącza na liście aplikacji](./media/active-directory-saas-esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_app.png)  
-
-3. W menu po lewej stronie kliknij **użytkowników i grup**.
+3. W okienku po lewej stronie wybierz **użytkowników i grup**.
 
     ![Łącze "Użytkownicy i grupy"][202]
 
-4. Kliknij przycisk **Dodaj** przycisku. Następnie wybierz **użytkowników i grup** na **Dodaj przydziału** okna dialogowego.
+4. Wybierz **Dodaj** , a następnie w **Dodaj przydziału** okienku wybierz **użytkowników i grup**.
 
     ![W okienku Dodaj przydziału][203]
 
-5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
+5. W **użytkowników i grup** okna w **użytkowników** listy, wybierz **Simona Britta**.
 
-6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
+6. Wybierz **wybierz** przycisku.
 
-7. Kliknij przycisk **przypisać** znajdującego się na **Dodaj przydziału** okna dialogowego.
+7. W **Dodaj przydziału** wybierz **przypisać**.
     
 ### <a name="test-single-sign-on"></a>Test rejestracji jednokrotnej
 
 W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.
 
-Po kliknięciu kafelka E sprzedaży Menedżera Remix w panelu dostępu należy należy pobrać automatycznie zalogowane E sprzedaży Menedżera Remix aplikacji.
+Po wybraniu kafelka E sprzedaży Menedżera Remix w panelu dostępu należy powinny być podpisane automatycznie do aplikacji E sprzedaży Menedżera Remix.
+
 Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
-* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczki dotyczące integracji aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

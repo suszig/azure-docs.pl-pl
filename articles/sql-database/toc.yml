@@ -45,12 +45,14 @@
       href: sql-database-design-first-database.md
     - name: 1 — Projektowanie bazy danych przy użyciu programu .NET
       href: sql-database-design-first-database-csharp.md
-    - name: 2 — Migracja bazy danych SQL Server
+    - name: 2 — Migracja do bazy danych programu SQL Server
       href: sql-database-migrate-your-sql-server-database.md
     - name: 3 — Zabezpieczanie bazy danych SQL
       href: sql-database-security-tutorial.md
     - name: 4 — Implementowanie rozproszonej geograficznie bazy danych
       href: sql-database-implement-geo-distributed-database.md
+    - name: 5 — Tworzenie wystąpienia zarządzanego
+      href: sql-database-managed-instance-tutorial-portal.md
 - name: Przykłady
   items:
     - name: Przykłady kodu
@@ -61,26 +63,26 @@
       href: sql-database-powershell-samples.md
 - name: Pojęcia
   items:
-    - name: Usługa bazy danych
-      items:
-        - name: Serwery i bazy danych
-          href: sql-database-servers-databases.md
-        - name: Warstwy usług
-          href: sql-database-service-tiers.md
-        - name: Limity zasobów
-          href: sql-database-resource-limits.md
-        - name: Pojedyncze bazy danych
-          href: sql-database-single-database-resources.md
-        - name: Pule elastyczne
-          href: sql-database-elastic-pool.md
-        - name: Architektura łączności
-          href: sql-database-connectivity-architecture.md
-        - name: Jednostki DTU i eDTU
-          href: sql-database-what-is-a-dtu.md
-        - name: Test porównawczy jednostek DTU
-          href: sql-database-benchmark-overview.md
-        - name: Popularne funkcje programu SQL Server
-          href: sql-database-features.md
+    - name: Serwery i bazy danych
+      href: sql-database-servers-databases.md
+    - name: Wystąpienie zarządzane
+      href: sql-database-managed-instance.md
+    - name: Warstwy usług
+      href: sql-database-service-tiers.md
+    - name: Limity zasobów
+      href: sql-database-resource-limits.md
+    - name: Pojedyncze bazy danych
+      href: sql-database-single-database-resources.md
+    - name: Pule elastyczne
+      href: sql-database-elastic-pool.md
+    - name: Architektura łączności
+      href: sql-database-connectivity-architecture.md
+    - name: Jednostki DTU i eDTU
+      href: sql-database-what-is-a-dtu.md
+    - name: Test porównawczy jednostek DTU
+      href: sql-database-benchmark-overview.md
+    - name: Popularne funkcje programu SQL Server
+      href: sql-database-features.md
     - name: Wysoka dostępność
       href: sql-database-high-availability.md
     - name: Bezpieczeństwo
@@ -101,8 +103,10 @@
           href: sql-database-ssms-mfa-authentication.md
         - name: Inspekcja
           href: sql-database-auditing.md
-        - name: Wykrywanie zagrożeń
+        - name: Wykrywanie zagrożeń — usługa SQL Database
           href: sql-database-threat-detection.md
+        - name: Wykrywanie zagrożeń — wystąpienie zarządzane
+          href: sql-database-managed-instance-threat-detection.md
         - name: Inspekcje tabel i protokół TDS
           href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
         - name: Dynamiczne maskowanie danych
@@ -137,11 +141,15 @@
           href: sql-database-disaster-recovery-drills.md
     - name: Migracja do bazy danych SQL
       items:
-        - name: Omówienie
+        - name: Migracja do bazy danych SQL
           href: sql-database-cloud-migrate.md
-        - name: Zmiany języka T-SQL
+        - name: Migrowanie do wystąpienia zarządzanego
+          href: sql-database-managed-instance-migrate.md
+        - name: Szczegóły języka T-SQL w usłudze SQL Database
           href: sql-database-transact-sql-information.md
-        - name: Zarządzanie bazą danych po migracji
+        - name: Szczegóły języka T-SQL w wystąpieniu zarządzanym
+          href: sql-database-managed-instance-transact-sql-information.md
+        - name: Zarządzanie usługą SQL Database po migracji
           href: sql-database-manage-after-migration.md
     - name: Ładowanie i przenoszenie danych
       items:
@@ -265,6 +273,16 @@
           href: sql-database-elastic-query-horizontal-partitioning.md
         - name: Wykonywanie zapytań względem tabel z różnymi schematami
           href: sql-database-elastic-query-vertical-partitioning.md
+    - name: Wystąpienie zarządzane
+      items:
+        - name: Konfiguracja sieci wirtualnej
+          href: sql-database-managed-instance-vnet-configuration.md
+        - name: Niestandardowe DNS
+          href: sql-database-managed-instance-custom-dns.md
+        - name: Łączenie aplikacji
+          href: sql-database-managed-instance-connect-app.md
+        - name: Synchronizacja konfiguracji sieci
+          href: sql-database-managed-instance-sync-network-configuration.md
     - name: Bezpieczeństwo
       items:
         - name: Konfigurowanie uwierzytelniania usługi Azure AD
@@ -472,4 +490,4 @@
     - name: Centrum architektury
       href: /azure/architecture/
     - name: Historie klientów
-      href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc'
+      href: 'https://customers.microsoft.com/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc'

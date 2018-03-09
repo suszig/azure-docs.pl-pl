@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 66023a501360a8d73f88e2fe9682c1bf8f207a07
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 2a5e6367cef02b53cb0e24d644b7e3e8025e19ab
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="configure-service-map-in-azure"></a>Konfigurowanie mapy usługi na platformie Azure
 Mapa usługi automatycznie odnajduje składniki aplikacji w systemach Windows i Linux oraz mapuje komunikację między usługami. Służy on do wyświetlania serwerów jako traktować ich — jako połączonych systemy, które dostarczają usług krytycznych. Mapy usług zawiera połączeń między serwerami, procesów i portów w dowolnej architekturze połączenia TCP z konfiguracja nie jest wymagane, innego niż instalacji agenta.
@@ -147,7 +147,7 @@ Aby wdrożyć rozszerzenie maszyny Wirtualnej Azure za pomocą programu PowerShe
 # Deploy the Dependency Agent to every VM in a Resource Group
 #
 
-$version = "9.3"
+$version = "9.4"
 $ExtPublisher = "Microsoft.Azure.Monitoring.DependencyAgent"
 $OsExtensionMap = @{ "Windows" = "DependencyAgentWindows"; "Linux" = "DependencyAgentLinux" }
 $rmgroup = "<Your Resource Group Here>"
@@ -180,7 +180,7 @@ ForEach-Object {
 "properties": {
     "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
     "type": "DependencyAgentWindows",
-    "typeHandlerVersion": "9.3",
+    "typeHandlerVersion": "9.4",
     "autoUpgradeMinorVersion": true
 }
 

@@ -4,7 +4,7 @@
 | Zasób | Limit domyślny | 
 | --- | --- | 
 | Konta usługi Azure Media Services (AMS) w jednej subskrypcji | 25 (stały) |
-| Jednostki zarezerwowane multimediów na konto AMS |25 (S1, S2)<br/>10 (S3) <sup>(1)</sup> | 
+| Jednostki zarezerwowane multimediów na konto AMS |25 (S1)<br/>10 (S2, S3) <sup>(1)</sup> | 
 | Zadania na konto AMS | 50,000<sup>(2)</sup> |
 | Łańcuchowe zadania podrzędne na zadanie | 30 (stały) |
 | Elementy zawartości na konto AMS | 1 000 000|
@@ -20,7 +20,7 @@
 | Zasady | 1 000 000<sup>(6)</sup> |
 | Rozmiar pliku| W niektórych scenariuszach istnieje limit na maksymalny obsługiwany rozmiar pliku do przetwarzania w usłudze Media Services. <sup>7</sup> |
   
-<sup>1</sup> Jednostki zarezerwowane S3 nie są dostępne w regionie Indie Zachodnie. Jeśli zmienisz typ (np. z S2 do S1) maksymalny limit RU są zerowane.
+<sup>1</sup> Jeśli zmienisz typ (np. z S2 do S1) maksymalny limit RU są resetowane.
 
 <sup>2</sup> Ta liczba obejmuje zadania umieszczone w kolejce, zakończone, aktywne i anulowane. Nie obejmuje usuniętych zadań. Stare zadania możesz usunąć za pomocą funkcji **IJob.Delete** lub żądania HTTP **DELETE**.
 

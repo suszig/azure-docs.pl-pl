@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: f8b60a27e760ae74c7f068844fad1ae0d4324366
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 27918e1d0b335613ea578a815fb3ae00df73ebaa
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Dodawanie, zmienianie lub usuwanie podsieć sieci wirtualnej
 
@@ -44,7 +44,7 @@ Przed wykonaniem kroków w żadnej sekcji tego artykułu, należy wykonać nast�
     - **Nazwa**: Nazwa musi być unikatowa w ramach sieci wirtualnej.
     - **Zakres adresów**: zakres musi być unikatowa w ramach przestrzeni adresowej dla sieci wirtualnej. Zakres nie może nakładać się na inne zakresy adresów podsieci w sieci wirtualnej. Przestrzeń adresowa należy określić przy użyciu notacji Classless Inter-Domain Routing (CIDR). Na przykład w sieci wirtualnej z 10.0.0.0/16 przestrzeni adresów, można zdefiniować przestrzeni adresowej podsieci 10.0.0.0/24. Najmniejszą zakres, który można określić jest /29, co umożliwia osiem adresów IP podsieci. Azure rezerwuje pierwszy i ostatni adres w każdej podsieci dla zgodności protokołu. Trzy dodatkowe adresy są zarezerwowane do użycia usługi Azure. W związku z tym Definiowanie podsieci z /29 adresów zakresu wyników w trzech można używać adresów IP w podsieci. Jeśli planowane jest połączenie wirtualnej sieci do bramy sieci VPN, należy utworzyć podsieć bramy. Dowiedz się więcej o [zagadnienia dotyczące zakresu określonego adresu podsieci bramy](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). Po dodaniu podsieci w określonych warunkach, można zmienić zakresu adresów. Aby dowiedzieć się, jak zmienić zakres adresów podsieci, zobacz [zmienić ustawienia podsieci](#change-subnet-settings).
     - **Grupy zabezpieczeń sieci**: można skojarzyć zero lub jedną istniejącą sieciową grupę zabezpieczeń do podsieci do filtrowania ruchu sieciowego przychodzącego i wychodzącego do podsieci. Grupy zabezpieczeń sieci musi istnieć w tej samej subskrypcji i lokalizacji co sieć wirtualna. Dowiedz się więcej o [sieciowej grupy zabezpieczeń](security-overview.md) i [jak utworzyć grupę zabezpieczeń sieci](virtual-networks-create-nsg-arm-pportal.md).
-    - **Tabela tras**: można skojarzyć zero lub jedną istniejącą tabelę tras do podsieci, aby kontrolować routingu ruchu sieciowego z innymi sieciami. Tabela tras musi istnieć w tej samej subskrypcji i lokalizacji co sieć wirtualna. Dowiedz się więcej o [Azure routingu](virtual-networks-udr-overview.md) i [jak utworzyć tabelę tras](create-user-defined-route-portal.md)
+    - **Tabela tras**: można skojarzyć zero lub jedną istniejącą tabelę tras do podsieci, aby kontrolować routingu ruchu sieciowego z innymi sieciami. Tabela tras musi istnieć w tej samej subskrypcji i lokalizacji co sieć wirtualna. Dowiedz się więcej o [Azure routingu](virtual-networks-udr-overview.md) i [jak utworzyć tabelę tras](tutorial-create-route-table-portal.md)
     - **Punkty końcowe usługi:** podsieci może być zerowy lub ma wiele punktów końcowych usługi włączyć dla niego. Aby włączyć punkt końcowy usługi dla usługi, wybierz usługę lub usługi, które chcesz włączyć usługi punktów końcowych z **usług** listy. Aby usunąć punkt końcowy usługi, usuń zaznaczenie ma zostać usunięty punkt końcowy usługi dla usługi. Aby dowiedzieć się więcej na temat punktów końcowych usług, zobacz [Omówienie punktów końcowych usługi sieci wirtualnej](virtual-network-service-endpoints-overview.md). Po włączeniu punktu końcowego usługi, musisz również włączyć dostęp do sieci dla podsieci zasobu utworzone za pomocą usługi. Na przykład po włączeniu punktu końcowego usługi *Microsoft.Storage*, należy również włączyć dostęp do sieci do wszystkich kont usługi Azure Storage chcesz przyznać dostęp do sieci. Aby uzyskać więcej informacji na temat dostępu do sieci z podsieciami, które punkt końcowy usługi jest włączone, aby włączyć, można znaleźć w dokumentacji dla poszczególnych usług są włączone dla punktu końcowego usługi.
 6. Aby dodać podsieci do wybranej sieci wirtualnej, wybierz **OK**.
 

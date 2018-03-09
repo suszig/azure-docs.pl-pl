@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/26/2018
+ms.date: 03/06/2018
 ms.author: terrylan
-ms.openlocfilehash: a15857f0df5c967031aed00d89e71b3199eed0c4
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: f1ea31d1081bc263cf85cf4dcc3d73d4cc0b842d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="manage-virtual-machine-access-using-just-in-time-preview"></a>Zarządzanie dostępem do maszyny wirtualnej przy użyciu tylko w czasie (wersja zapoznawcza)
+# <a name="manage-virtual-machine-access-using-just-in-time"></a>Zarządzanie dostępem do maszyny wirtualnej przy użyciu tylko w czasie
 
 Tylko w czasie maszyny wirtualnej (VM) dostępu może służyć do blokowania ruchu przychodzącego na maszynach wirtualnych platformy Azure, ograniczenia narażenia na ataki, zapewniając łatwy dostęp do nawiązania połączenia maszyn wirtualnych w razie potrzeby.
 
 > [!NOTE]
-> Tylko w czasie jest funkcja w wersji zapoznawczej i dostępne w warstwie standardowa Centrum zabezpieczeń.  Zobacz [cennik](security-center-pricing.md) Aby dowiedzieć się więcej na temat Centrum zabezpieczeń firmy ceny warstw.
+> Tylko w czasie funkcja jest dostępna w warstwie standardowa Centrum zabezpieczeń.  Zobacz [cennik](security-center-pricing.md) Aby dowiedzieć się więcej na temat Centrum zabezpieczeń firmy ceny warstw.
 >
 >
 
@@ -33,7 +33,7 @@ Tylko w czasie maszyny wirtualnej (VM) dostępu może służyć do blokowania ru
 
 Atak siłowy ataków często porty docelowe zarządzania w celu uzyskania dostępu do maszyny Wirtualnej. Jeśli to się powiedzie, osoba atakująca może przejąć kontrolę nad maszyny Wirtualnej i nawiązywać stopień do środowiska.
 
-Jednym ze sposobów zmniejszyć ryzyko ataków siłowych jest ograniczyć czas, który port jest otwarty. Porty zarządzania nie muszą być otwarte przez cały czas. Tylko muszą być otwarte, gdy są połączone z maszyną wirtualną, na przykład w celu wykonywania zadań zarządzania i konserwacji. Gdy tylko w czasie jest włączona, Centrum zabezpieczeń używa [sieciowej grupy zabezpieczeń](../virtual-network/virtual-networks-nsg.md) reguły (NSG), które ograniczanie dostępu do portów zarządzania, więc nie może być wskazywane przez osoby atakujące.
+Jednym ze sposobów zmniejszyć ryzyko ataków siłowych jest ograniczyć czas, który port jest otwarty. Porty zarządzania nie muszą być otwarte przez cały czas. Muszą być otwarte tylko wtedy, gdy nawiązano połączenie z maszyną wirtualną, np. aby wykonać zadania związane z zarządzaniem lub konserwacją. Gdy tylko w czasie jest włączona, Centrum zabezpieczeń używa [sieciowej grupy zabezpieczeń](../virtual-network/virtual-networks-nsg.md) reguły (NSG), które ograniczanie dostępu do portów zarządzania, więc nie może być wskazywane przez osoby atakujące.
 
 ![Tylko w scenariuszu czasu][1]
 
@@ -60,14 +60,14 @@ Gdy użytkownik żąda dostępu do maszyny Wirtualnej, Centrum zabezpieczeń spr
 
 ![Tylko w czasie dostępu do maszyny Wirtualnej kafelka][10]
 
-**Na wszelki dostęp do maszyny Wirtualnej czasu** zawiera informacje o stanie maszyn wirtualnych:
+**Dostęp just in time do maszyny wirtualnej** zapewnia informacje o stanie maszyn wirtualnych:
 
-- **Skonfigurowane** -maszyn wirtualnych, które zostały skonfigurowane do obsługi tylko w dostęp maszyny Wirtualnej. Dane prezentowane jest ostatniego tygodnia i zawiera dla każdej maszyny Wirtualnej liczbę żądań zatwierdzonych, Data ostatniego dostępu i czas i użytkownika, który ostatnio.
-- **Zalecane** -maszyn wirtualnych, które obsługują tylko w dostęp maszyny Wirtualnej, ale nie został skonfigurowany do. Zaleca się włączenie tylko w kontroli dostępu wirtualna czasu dla tych maszyn wirtualnych. Zobacz [Konfigurowanie tylko w zasadach dostępu czas](#configuring-a-just-in-time-access-policy).
-- **Brak rekomendacji** -przyczyny, które mogą spowodować maszyny Wirtualnej, aby nie zaleca się to:
-  - Brak grupy NSG — tylko w czasie rozwiązanie wymaga grupy NSG w miejscu.
-  - Klasycznym VM - Centrum zabezpieczeń na wszelki dostęp do maszyny Wirtualnej czasu aktualnie obsługuje tylko maszyn wirtualnych wdrożonych za pośrednictwem usługi Azure Resource Manager. Wdrożenie klasyczne nie jest obsługiwana przez tylko w rozwiązaniu czasu.
-  - Inne - maszyny Wirtualnej jest w tej kategorii jeśli tylko w czasie rozwiązania jest wyłączona w zasadach zabezpieczeń subskrypcji lub grupy zasobów bądź czy maszyna wirtualna nie ma publicznego adresu IP i nie ma grupy NSG w miejscu.
+- **Skonfigurowane** — maszyny wirtualne, które zostały skonfigurowane pod kątem dostępu just in time do maszyn wirtualnych. Dane prezentowane jest ostatniego tygodnia i zawiera dla każdej maszyny Wirtualnej liczbę żądań zatwierdzonych, Data ostatniego dostępu i czas i użytkownika, który ostatnio.
+- **Zalecane** — maszyny wirtualne, które mogą obsługiwać dostęp just in time, ale nie zostały skonfigurowane pod tym kątem. Zaleca się włączenie tylko w kontroli dostępu wirtualna czasu dla tych maszyn wirtualnych. Zobacz [Konfigurowanie tylko w zasadach dostępu czas](#configuring-a-just-in-time-access-policy).
+- **Brak zaleceń** — powody, dla których maszyna wirtualna może nie mieć zaleceń:
+  - Brak sieciowej grupy zabezpieczeń — rozwiązanie just in time wymaga sieciowej grupy zabezpieczeń.
+  - Klasyczna maszyna wirtualna — dostęp just in time do maszyn wirtualnych usługi Security Center obecnie obsługuje tylko maszyny wirtualne wdrożone przy użyciu usługi Azure Resource Manager. Wdrożenie klasyczne nie jest obsługiwana przez tylko w rozwiązaniu czasu.
+  - Inne — maszyna wirtualna znajduje się w tej kategorii, jeżeli rozwiązanie just in time jest wyłączone w zasadach zabezpieczeń subskrypcji lub grupy zasobów albo jeśli maszyna wirtualna nie ma publicznego adresu IP i sieciowej grupy zabezpieczeń.
 
 ## <a name="configuring-a-just-in-time-access-policy"></a>Konfigurowanie tylko w czasie zasad dostępu
 

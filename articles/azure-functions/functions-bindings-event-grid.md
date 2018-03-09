@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/26/2018
 ms.author: tdykstra
-ms.openlocfilehash: 2a6fe85c2c3d6d4f44dc197db6c28ebbc2b1d431
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: a1ffd9311f6ff171502efe64557463abc49ad636
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Wyzwalacz siatki zdarzeń dla usługi Azure Functions
 
@@ -33,6 +33,16 @@ Jeśli wolisz, można użyć wyzwalacza HTTP do obsługi zdarzeń siatki zdarze�
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
+## <a name="packages"></a>Pakiety
+
+Wyzwalacz zdarzenia siatki znajduje się w [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) pakietu NuGet. Kod źródłowy dla pakietu jest w [eventgrid rozszerzenie, azure funkcji w-](https://github.com/Azure/azure-functions-eventgrid-extension) repozytorium GitHub.
+
+Pakiet jest używana do [programowanie biblioteki klas C#](functions-triggers-bindings.md#local-c-development-using-visual-studio-or-vs-code) i [funkcje rejestracji rozszerzenia powiązania v2](functions-triggers-bindings.md#local-development-azure-functions-core-tools).
+
+<!--
+If you want to bind to the `Microsoft.Azure.EventGrid.Models.EventGridEvent` type instead of `JObject`, install the [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) package.
+-->
+
 ## <a name="example"></a>Przykład
 
 Zobacz przykład specyficzny dla języka wyzwalacz siatki zdarzeń:
@@ -45,24 +55,58 @@ Na przykład wyzwalacza HTTP, zobacz [sposób użycia wyzwalacza HTTP](#use-an-h
 
 ### <a name="c-example"></a>Przykład C#
 
-W poniższym przykładzie przedstawiono [C# funkcja](functions-dotnet-class-library.md) który niektóre pola, które są wspólne dla wszystkich zdarzeń i wszystkie dane specyficzne dla zdarzenia logowania.
+W poniższym przykładzie przedstawiono [C# funkcja](functions-dotnet-class-library.md) który wiąże `JObject`:
 
 ```cs
-[FunctionName("EventGridTest")]
-public static void EventGridTest([EventGridTrigger] EventGridEvent eventGridEvent, TraceWriter log)
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
+namespace Company.Function
 {
-    log.Info("C# Event Grid function processed a request.");
-    log.Info($"Subject: {eventGridEvent.Subject}");
-    log.Info($"Time: {eventGridEvent.EventTime}");
-    log.Info($"Data: {eventGridEvent.Data.ToString()}");
+    public static class EventGridTriggerCSharp
+    {
+        [FunctionName("EventGridTriggerCSharp")]
+        public static void Run([EventGridTrigger]JObject eventGridEvent, TraceWriter log)
+        {
+            log.Info(eventGridEvent.ToString(Formatting.Indented));
+        }
+    }
 }
 ```
 
-`EventGridTrigger` Atrybut jest zdefiniowany w pakiecie NuGet [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid).
+<!--
+The following example shows a [C# function](functions-dotnet-class-library.md) that binds to `EventGridEvent`:
+
+```cs
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+
+namespace Company.Function
+{
+    public static class EventGridTriggerCSharp
+    {
+        [FunctionName("EventGridTest")]
+            public static void EventGridTest([EventGridTrigger] Microsoft.Azure.EventGrid.Models.EventGridEvent eventGridEvent, TraceWriter log)
+        {
+            log.Info("C# Event Grid function processed a request.");
+            log.Info($"Subject: {eventGridEvent.Subject}");
+            log.Info($"Time: {eventGridEvent.EventTime}");
+            log.Info($"Data: {eventGridEvent.Data.ToString()}");
+        }
+    }
+}
+```
+-->
+
+Aby uzyskać więcej informacji, zobacz [pakiety](#packages), [atrybuty](#attributes), [konfiguracji](#configuration), i [użycia](#usage).
 
 ### <a name="c-script-example"></a>Przykładowy skrypt w języku C#
 
-W poniższym przykładzie przedstawiono powiązanie wyzwalacza w *function.json* pliku i [funkcji skryptu C#](functions-reference-csharp.md) używającą powiązania. Funkcja rejestruje niektóre pola, które są wspólne dla wszystkich zdarzeń i wszystkie dane specyficzne dla zdarzenia.
+W poniższym przykładzie przedstawiono powiązanie wyzwalacza w *function.json* pliku i [funkcji skryptu C#](functions-reference-csharp.md) używającą powiązania.
 
 W tym miejscu jest powiązanie danych *function.json* pliku:
 
@@ -79,12 +123,30 @@ W tym miejscu jest powiązanie danych *function.json* pliku:
 }
 ```
 
-Oto kod skryptu C#:
+Oto C# kodu skryptu, który jest powiązany z `JObject`:
+
+```cs
+#r "Newtonsoft.Json"
+
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
+public static void Run(JObject eventGridEvent, TraceWriter log)
+{
+    log.Info(eventGridEvent.ToString(Formatting.Indented));
+}
+```
+
+<!--
+Here's C# script code that binds to `EventGridEvent`:
 
 ```csharp
 #r "Newtonsoft.Json"
 #r "Microsoft.Azure.WebJobs.Extensions.EventGrid"
+#r "Microsoft.Azure.EventGrid"
+
 using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+Using Microsoft.Azure.EventGrid.Models;
 
 public static void Run(EventGridEvent eventGridEvent, TraceWriter log)
 {
@@ -94,10 +156,13 @@ public static void Run(EventGridEvent eventGridEvent, TraceWriter log)
     log.Info($"Data: {eventGridEvent.Data.ToString()}");
 }
 ```
+-->
+
+Aby uzyskać więcej informacji, zobacz [pakiety](#packages), [atrybuty](#attributes), [konfiguracji](#configuration), i [użycia](#usage).
 
 ### <a name="javascript-example"></a>Przykład JavaScript
 
-W poniższym przykładzie przedstawiono powiązanie wyzwalacza w *function.json* pliku i [funkcji JavaScript](functions-reference-node.md) używającą powiązania. Funkcja rejestruje niektóre pola, które są wspólne dla wszystkich zdarzeń i wszystkie dane specyficzne dla zdarzenia.
+W poniższym przykładzie przedstawiono powiązanie wyzwalacza w *function.json* pliku i [funkcji JavaScript](functions-reference-node.md) używającą powiązania.
 
 W tym miejscu jest powiązanie danych *function.json* pliku:
 
@@ -128,13 +193,13 @@ module.exports = function (context, eventGridEvent) {
      
 ## <a name="attributes"></a>Atrybuty
 
-W [bibliotek klas C#](functions-dotnet-class-library.md), użyj [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/EventGridTriggerAttribute.cs) zdefiniowanego w pakiecie NuGet atrybutu [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid).
+W [bibliotek klas C#](functions-dotnet-class-library.md), użyj [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/EventGridTriggerAttribute.cs) atrybutu.
 
 Oto `EventGridTrigger` atrybutu w podpisie metody:
 
 ```csharp
 [FunctionName("EventGridTest")]
-public static void EventGridTest([EventGridTrigger] EventGridEvent eventGridEvent, TraceWriter log)
+public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, TraceWriter log)
 {
     ...
 }
@@ -154,7 +219,11 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 
 ## <a name="usage"></a>Sposób użycia
 
-Dla funkcji języka C# i F #, należy zadeklarować typ danych wejściowych jako wyzwalacz `EventGridEvent` lub typu niestandardowego. W przypadku typu niestandardowego środowisko uruchomieniowe Functions próbuje przeanalizować zdarzeń JSON można ustawić właściwości obiektu.
+C# i F # funkcji można użyć następujących typów parametru wyzwalacza siatki zdarzeń:
+
+* `JObject`
+* `string`
+* `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`-Definiuje właściwości pól, które są wspólne dla wszystkich typów zdarzeń. **Ten typ jest przestarzałe**, ale jego wymiany nie jest publikowana w NuGet jeszcze.
 
 Dla funkcji JavaScript, parametr o nazwie *function.json* `name` właściwość zawiera odwołanie do obiektu zdarzenia.
 
@@ -315,7 +384,7 @@ Za pomocą narzędzia, takie jak [Postman](https://www.getpostman.com/) lub [cur
 * POST na adres URL funkcji wyzwalacza zdarzenia siatki, przy użyciu następującego wzorca:
 
 ```
-http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={methodname}
+http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={functionname}
 ``` 
 
 `functionName` Parametr musi być nazwa określona w `FunctionName` atrybutu.
@@ -376,7 +445,7 @@ Adres URL ngrok nie poznasz specjalnej obsługi siatki zdarzeń, dzięki czemu f
 Utwórz subskrypcję siatki zdarzeń typu, który ma zostać przetestowana i nadaj mu ngrok punktu końcowego, przy użyciu następującego wzorca:
 
 ```
-https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={methodname}
+https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={functionname}
 ``` 
 
 `functionName` Parametr musi być nazwa określona w `FunctionName` atrybutu.

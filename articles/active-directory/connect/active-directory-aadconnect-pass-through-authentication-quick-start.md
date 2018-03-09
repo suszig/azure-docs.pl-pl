@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: 1da7c064030501b5c6547b65c091b1a50da93899
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b592eb8ca43e5bf3eebe2b0c47d8f17dbec7b238
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Usługi Azure Active Directory przekazywanego uwierzytelniania: Szybki start
 
@@ -116,22 +116,40 @@ Na tym etapie użytkowników ze wszystkich domen zarządzanych w Twojej dzierża
 
 ## <a name="step-5-ensure-high-availability"></a>Krok 5: Zapewni to wysoką dostępność
 
-Jeśli planujesz wdrożenie uwierzytelniania przekazywanego w środowisku produkcyjnym, należy zainstalować autonomiczny Agent uwierzytelniania. Zainstaluj agenta tego drugiego uwierzytelniania na serwerze _innych_ niż jednym systemem Azure AD Connect i agentem pierwszego uwierzytelniania. Ten Instalator zawiera o wysokiej dostępności dla żądań do logowania. Wykonaj te instrukcje dotyczące wdrażania autonomicznej Agent uwierzytelniania:
+Jeśli planujesz wdrożenie uwierzytelniania przekazywanego w środowisku produkcyjnym, należy zainstalować co najmniej jednej autonomicznej więcej Agent uwierzytelniania. Zainstaluj tych agentów uwierzytelniania na serwerach _innych_ niż jednym systemem Azure AD Connect. Ta konfiguracja zapewnia wysoka dostępność dla żądań logowania użytkownika.
 
-1. Pobierz najnowszą wersję agenta uwierzytelniania (wersja 1.5.193.0 lub nowsza). Zaloguj się do [Centrum administracyjnego usługi Azure Active Directory](https://aad.portal.azure.com) przy użyciu poświadczeń administratora globalnego Twojej dzierżawy.
+Wykonaj te instrukcje, aby pobrać oprogramowanie pośredniczące uwierzytelniania:
+
+1. Aby pobrać najnowszą wersję agenta uwierzytelniania (wersja 1.5.193.0 lub nowsza), zaloguj się do [Centrum administracyjnego usługi Azure Active Directory](https://aad.portal.azure.com) przy użyciu poświadczeń administratora globalnego Twojej dzierżawy.
 2. Wybierz **usługi Azure Active Directory** w okienku po lewej stronie.
 3. Wybierz **Azure AD Connect**, wybierz pozycję **uwierzytelniania przekazywanego**, a następnie wybierz **Pobierz agenta**.
 4. Wybierz **zaakceptować & pobieranie** przycisku.
-5. Zainstaluj najnowszą wersję agenta uwierzytelniania, uruchamiając plik wykonywalny, który został pobrany w poprzednim kroku. Podaj poświadczenia administratora globalnego Twojej dzierżawy, po wyświetleniu monitu.
 
 ![Centrum administracyjne usługi Azure Active Directory: przycisk Pobierz agenta uwierzytelniania](./media/active-directory-aadconnect-pass-through-authentication/pta9.png)
 
 ![Centrum administracyjne usługi Azure Active Directory: Pobierz agenta okienko](./media/active-directory-aadconnect-pass-through-authentication/pta10.png)
 
 >[!NOTE]
->Możesz również pobrać [Agent uwierzytelniania usługi Azure Active Directory](https://aka.ms/getauthagent). Sprawdź, czy Przejrzyj i zaakceptuj Agent uwierzytelniania [warunki świadczenia usługi](https://aka.ms/authagenteula) _przed_ instalacji.
+>Można również bezpośrednio pobrać oprogramowanie pośredniczące uwierzytelniania [tutaj](https://aka.ms/getauthagent). Przejrzyj i zaakceptuj Agent uwierzytelniania [warunki świadczenia usługi](https://aka.ms/authagenteula) _przed_ instalacji.
 
-## <a name="next-steps"></a>Następne kroki
+Istnieją dwa sposoby wdrożenia autonomicznego Agent uwierzytelniania:
+
+Po pierwsze możesz zrobić to interaktywnie przez właśnie uruchomienie pobranego pliku wykonywalnego Agent uwierzytelniania i podawania poświadczeń administratora globalnego Twojej dzierżawy, po wyświetleniu monitu.
+
+Po drugie można tworzyć i uruchom skrypt instalacji nienadzorowanej wdrożenia. Jest to przydatne, gdy chcesz jednocześnie wdrażać wielu agentów uwierzytelniania lub zainstaluj agentów uwierzytelniania na serwerach systemu Windows, które nie mają włączone interfejsu użytkownika, lub nie masz dostępu przy użyciu pulpitu zdalnego. Oto instrukcje dotyczące sposobu używania tej metody:
+
+1. Uruchom następujące polecenie, aby zainstalować agenta uwierzytelniania: `AADConnectAuthAgentSetup.exe REGISTERCONNECTOR="false" /q`.
+2. Agent uwierzytelniania można zarejestrować naszej usługi przy użyciu programu Windows PowerShell. Utwórz obiekt poświadczeń PowerShell `$cred` zawierający nazwę i hasło użytkownika administratora globalnego dla dzierżawy. Uruchom następujące polecenie, zastępując  *\<username\>*  i  *\<hasło\>*:
+   
+        $User = "<username>"
+        $PlainPassword = '<password>'
+        $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
+        $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
+3. Przejdź do **agenta: C:\Program Files\Microsoft Azure AD Connect uwierzytelniania** i uruchomić następujący skrypt przy użyciu `$cred` obiekt, który został utworzony:
+   
+        RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
+
+## <a name="next-steps"></a>Kolejne kroki
 - [Inteligentne blokady](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): informacje o sposobie konfigurowania funkcji blokady inteligentnej na swojej dzierżawy, aby chronić kont użytkowników.
 - [Bieżące ograniczenia](active-directory-aadconnect-pass-through-authentication-current-limitations.md): Dowiedz się, jakie scenariusze są obsługiwane przy użyciu uwierzytelniania przekazywanego i te, które nie są.
 - [Nowości techniczne](active-directory-aadconnect-pass-through-authentication-how-it-works.md): zrozumieć sposób działania funkcji uwierzytelniania przekazywanego.

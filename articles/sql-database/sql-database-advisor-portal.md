@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: sstein
-ms.openlocfilehash: fe76be59d6ee09049ed8c1343d1a91e42646c262
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 32071522bbe069e68bdaed181f64b814eb70b84c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Znajdź i stosować zalecenia wydajności
 
@@ -52,7 +52,7 @@ Zalecenia są sortowane według ich potencjalny wpływ na wydajność na następ
 > Baza danych SQL Azure należy monitorować działania przynajmniej przez jeden dzień w celu identyfikacji kilka zaleceń. Baza danych SQL Azure łatwiej można zoptymalizować wzorców spójne zapytania nie może uzyskać losowe spotty seria działań. Jeśli zalecenia nie są obecnie dostępne, **wydajności zalecenie** strona zawiera komunikat wyjaśniający, dlaczego.
 > 
 
-Można również wyświetlić stan historyczne operacje. Wybierz zalecenie lub stan, aby zobaczyć więcej szczegółów.
+Można również wyświetlić stan historyczne operacje. Wybierz zalecenie lub stan, aby uzyskać więcej informacji.
 
 Oto przykład "Create index" zalecenia w portalu Azure.
 
@@ -130,7 +130,7 @@ Zalecamy stosowanie może odbywa się natychmiast. Portal zawiera szczegóły do
 | Cofanie |Zalecenie została zastosowana, ale został uznany za z systemem innym niż wydajność i zostanie automatycznie przywrócony. |
 | Cofnięte |Zalecenie została przywrócona. |
 
-Kliknij zalecenie w trakcie z listy, aby zobaczyć więcej szczegółów:
+Kliknij zalecenie w trakcie z listy, aby uzyskać więcej informacji:
 
 ![Zalecane indeksy](./media/sql-database-advisor-portal/operations.png)
 

@@ -7,13 +7,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 11/21/2017
+ms.date: 03/07/2018
 ms.author: jingwang
-ms.openlocfilehash: e583c6952e02c4a93f56594f6392f1d9a260dce0
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 26f29355f53a586ea21551831f48ddf8898d3c9f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Obsługiwane formaty plików i kodery-dekodery kompresji w fabryce danych Azure
 
@@ -90,7 +90,7 @@ Aby **importu/eksportu pliku JSON jako — jest do/z bazy danych Azure rozwiąza
 
 Jeśli chcesz przeanalizować pliku JSON lub zapisać dane w formacie JSON, ustaw `type` właściwości w `format` sekcji do **JsonFormat**. Ponadto możesz określić następujące **opcjonalne** właściwości w sekcji `format`. Aby uzyskać informacje na temat sposobu konfigurowania, zobacz sekcję [Przykład formatu JsonFormat](#jsonformat-example).
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 | --- | --- | --- |
 | filePattern |Wskazuje wzorzec danych przechowywanych w każdym pliku JSON. Dozwolone wartości to: **setOfObjects** i **arrayOfObjects**. Wartością **domyślną** jest **setOfObjects**. Aby uzyskać szczegółowe informacje o tych wzorcach, zobacz sekcję [Wzorce plików JSON](#json-file-patterns). |Nie |
 | jsonNodeReference | Jeśli chcesz wykonać iterację i ekstrakcję danych z obiektów wewnątrz pola tablicy o tym samym wzorcu, określ ścieżkę JSON tej tablicy. Ta właściwość jest obsługiwana tylko podczas kopiowania danych z plików JSON. | Nie |
@@ -307,7 +307,7 @@ i chcesz ją skopiować do tabeli Azure SQL w następującym formacie, spłaszcz
 Zestaw danych wejściowych typu **JsonFormat** jest zdefiniowany następująco: (częściowa definicja zawierająca tylko stosowne fragmenty). Więcej szczegółów:
 
 - Sekcja `structure` definiuje niestandardowe nazwy kolumn i odpowiedni typ danych podczas konwersji na dane tabelaryczne. Ta sekcja jest **opcjonalna**, o ile nie trzeba wykonać mapowania kolumn. Aby uzyskać więcej informacji, zobacz [mapują kolumnach dataset źródła kolumny zestawu danych docelowego](copy-activity-schema-and-type-mapping.md).
-- `jsonNodeReference`Wskazuje, aby przejść i wyodrębniania danych z obiektów o takim wzorcu w obszarze **tablicy** `orderlines`.
+- `jsonNodeReference` Wskazuje, aby przejść i wyodrębniania danych z obiektów o takim wzorcu w obszarze **tablicy** `orderlines`.
 - Właściwość `jsonPathDefinition` określa ścieżkę JSON dla każdej kolumny, wskazując, skąd mają zostać wyodrębnione dane. W tym przykładzie `ordernumber`, `orderdate`, i `city` podlegają główny obiekt z JSON począwszy ścieżki `$.`, podczas `order_pd` i `order_price` są zdefiniowane z pochodzi od elementu tablicy bez ścieżki `$.` .
 
 ```json
@@ -436,7 +436,7 @@ Jeśli chcesz analizować pliki ORC lub zapisywać dane w formacie ORC, ustaw w�
 ```
 
 > [!IMPORTANT]
-> Jeśli nie kopiujesz plików ORC **w niezmienionej postaci** między lokalnymi i chmurowymi magazynami danych, musisz zainstalować środowisko JRE 8 (Java Runtime Environment) na maszynie bramy. Brama 64-bitowa wymaga 64-bitowego środowiska JRE, natomiast brama 32-bitowa — 32-bitowego środowiska JRE. Obie wersje można znaleźć [tutaj](http://go.microsoft.com/fwlink/?LinkId=808605). Wybierz odpowiednią.
+> Dla kopiowania upoważnionych przez środowisko uruchomieniowe integracji Self-hosted np. między lokalnymi i w chmurze są przechowywane dane, jeśli nie kopiowania plików ORC **jako — jest**, należy zainstalować na komputerze IR 8 środowiska JRE (Java Runtime Environment). IR 64-bitowego wymaga 64-bitowego środowiska JRE. Obie wersje można znaleźć [tutaj](http://go.microsoft.com/fwlink/?LinkId=808605).
 >
 
 Pamiętaj o następujących kwestiach:
@@ -456,7 +456,7 @@ Jeśli chcesz analizować pliki Parquet lub zapisywać dane w formacie Parquet, 
 ```
 
 > [!IMPORTANT]
-> Jeśli nie kopiujesz plików Parquet **w niezmienionej postaci** między lokalnymi i chmurowymi magazynami danych, musisz zainstalować środowisko JRE 8 (Java Runtime Environment) na maszynie bramy. Brama 64-bitowa wymaga 64-bitowego środowiska JRE, natomiast brama 32-bitowa — 32-bitowego środowiska JRE. Obie wersje można znaleźć [tutaj](http://go.microsoft.com/fwlink/?LinkId=808605). Wybierz odpowiednią.
+> Dla kopiowania upoważnionych przez środowisko uruchomieniowe integracji Self-hosted np. między lokalnymi i w chmurze są przechowywane dane, jeśli nie są kopiowane pliki Parquet **jako — jest**, należy zainstalować na komputerze IR 8 środowiska JRE (Java Runtime Environment). IR 64-bitowego wymaga 64-bitowego środowiska JRE. Obie wersje można znaleźć [tutaj](http://go.microsoft.com/fwlink/?LinkId=808605).
 >
 
 Pamiętaj o następujących kwestiach:
@@ -512,7 +512,7 @@ Aby określić kompresji dla zestawu danych, użyj **kompresji** właściwość 
 > [!NOTE]
 > Ustawienia kompresji nie są obsługiwane dla danych w **AvroFormat**, **OrcFormat**, lub **ParquetFormat**. Podczas odczytywania plików w tych formatach, fabryki danych wykrywa i używa koder-dekoder kompresji w metadanych. Podczas zapisywania plików w tych formatach, fabryki danych wybiera domyślny koder-dekoder kompresji w tym formacie. Na przykład ZLIB OrcFormat i SNAPPY dla ParquetFormat.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Zobacz następujące artykuły dla magazynów danych obsługiwane przez usługi fabryka danych Azure:
 

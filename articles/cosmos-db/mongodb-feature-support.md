@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: e955aa1c3985e540246d964b4dce88d15fb85949
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 9f1b6359d9fb58ad66b4d314f2bb14da34b98613
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>Obsługa interfejsu API bazy danych MongoDB funkcji bazy danych MongoDB i składni
 
@@ -36,7 +36,7 @@ Interfejs API Azure rozwiązania Cosmos bazy danych MongoDB zapewnia obsługę k
 Azure DB rozwiązania Cosmos obsługuje następujące polecenia bazy danych na wszystkich kontach API bazy danych MongoDB. 
 
 ### <a name="query-and-write-operation-commands"></a>Polecenia operacji zapytania i zapisu
-- usuwanie
+- usuń
 - Znajdź
 - findAndModify
 - getLastError
@@ -235,7 +235,7 @@ $regex | ``` { "Volcano Name": { $regex: "^Rain"} } ```|  | -
 
 W zapytaniach $regex zakotwiczony lewej strony wyrażenia Zezwalaj indeksu wyszukiwania. Jednak za pomocą "i" modyfikator (Ignorowanie) i 'M ' modyfikator (multiline) powoduje, że skanowanie kolekcji w wszystkie wyrażenia.
 Gdy istnieje potrzeba zawierają "$" lub "|", zaleca się tworzenie zapytań regex dwie (lub więcej). Na przykład podane następujące oryginalne zapytanie: ```find({x:{$regex: /^abc$/})```, musi on być modyfikowany w następujący sposób: ```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```.
-Pierwsza część użyje ograniczyć wyszukiwanie do tych dokumentów, począwszy od indeksu ^ abc i drugiej części będą zgodne dokładne wpisów. Pasek operator "|" działa jako funkcję "lub" - zapytanie ```find({x:{$regex: /^abc|^def/})``` odpowiada whin dokumenty, które pola "x" ma wartość, która rozpoczyna się od "abc" albo "def". Korzystanie z indeksu, zaleca się break zapytanie na dwie różne połączonych $lub operator: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
+Pierwsza część użyje ograniczyć wyszukiwanie do tych dokumentów, począwszy od indeksu ^ abc i drugiej części będą zgodne dokładne wpisów. Pasek operator "|" działa jako funkcję "lub" - zapytanie ```find({x:{$regex: /^abc|^def/})``` odpowiada dokumentów, w którym polu "x" zawiera wartości, które zaczynają się od "abc" albo "def". Korzystanie z indeksu, zaleca się break zapytanie na dwie różne połączonych $lub operator: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
 
 ### <a name="update-operators"></a>Operatory aktualizacji
 

@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 03/07/2018
 ms.author: maquaran
-ms.openlocfilehash: 962ad3aca82e34fa22da925a274a1e82e2086e03
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7e53cf67bc6e03a5f45de5ad4e23ff91624874f4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Procesor kanału informacyjnego zmiany .NET SDK: Pobierz i informacje o wersji
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/02/2018
 > * [Źródła danych zmian .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
-> * [Asynchroniczne Java](sql-api-sdk-async-java.md)
+> * [Java (asynchroniczny)](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/documentdb/)
@@ -43,6 +43,11 @@ ms.lasthandoff: 03/02/2018
 |**Bieżąca platforma obsługiwane**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 ## <a name="release-notes"></a>Informacje o wersji
+
+### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
+* Ulepszenia.
+* Obsługa ręczne tworzenie punktów kontrolnych.
+* Zgodny z [zestawu .NET SDK SQL](sql-api-sdk-dotnet.md) wersji 1.21 i powyżej.
 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
 * Dodaje obsługę platformy .NET Standard 2.0. Pakiet obsługuje teraz `netstandard2.0` i `net451` monikerów framework.
@@ -72,6 +77,7 @@ Każde żądanie do rozwiązania Cosmos bazy danych przy użyciu wycofane zestaw
 
 | Wersja | Data wydania | Dacie wycofania |
 | --- | --- | --- |
+| [1.3.0](#1.3.0) |07 marca 2018 |--- |
 | [1.2.0](#1.2.0) |31 października 2017 r. |--- |
 | [1.1.1](#1.1.1) |29 sierpnia 2017 r. |--- |
 | [1.1.0](#1.1.0) |13 sierpnia 2017 r. |--- |

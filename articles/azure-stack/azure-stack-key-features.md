@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 02/27/2018
 ms.author: jeffgilb
-ms.reviewer: unknown
-ms.openlocfilehash: 6c02ec42874e4e3221c53e6d6e85378bbe2e414a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.reviewer: 
+ms.openlocfilehash: b773ddc5da12f92960ef3378decac8569dac9ab9
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Najważniejsze funkcje i pojęcia dotyczące stosu Azure
 
@@ -91,6 +91,7 @@ Subskrypcje pomocy dostawców organizowanie i dostępu do zasobów w chmurze i u
 
 Dla administratora domyślny dostawca subskrypcji jest tworzony podczas wdrażania. Ta subskrypcja może służyć do zarządzania Azure stosu, wdrożyć dodatkowe dostawców zasobów oraz tworzenie planów i oferty dla dzierżawcy. Nie można stosować do uruchamiania obciążeń klientów i aplikacji. 
 
+
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 Za pomocą usługi Azure Resource Manager, może współpracować z zasobami infrastruktury w na podstawie szablonu, deklaratywny model.   Zapewnia jeden interfejs, który służy do wdrażania i zarządzania nimi składniki rozwiązania. Aby uzyskać pełne informacje i wskazówki, zobacz [Omówienie usługi Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
@@ -127,6 +128,25 @@ Usługa Azure Queue Storage umożliwia przesyłanie komunikatów za pomocą chmu
 
 ### <a name="keyvault"></a>KeyVault
 KeyVault RP oferuje zarządzania i inspekcję tajemnice, takie jak hasła i certyfikatów. Na przykład dzierżawcy umożliwia KeyVault RP podać hasło administratora lub kluczy podczas wdrażania maszyny Wirtualnej.
+
+## <a name="high-availability-for-azure-stack"></a>Wysoka dostępność dla stosu Azure
+*Dotyczy: Azure 1802 stosu lub nowszych wersji*
+
+Aby osiągnąć wysoką dostępność systemów produkcyjnych wielu maszyn wirtualnych na platformie Azure, maszyny wirtualne są umieszczane w zestawie dostępności, której przedstawiciele rozprzestrzeniają je w wielu domenach awarii i Aktualizacja domeny. W ten sposób [maszyn wirtualnych wdrożonych w zestawach dostępności](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) fizycznie izolowane od siebie na osobnym serwerze stojakami umożliwiające odporności awarii, jak pokazano na poniższym diagramie:
+
+  ![Azure stosu wysokiej dostępności.](media/azure-stack-key-features/high-availability.png)
+
+### <a name="availablity-sets-in-azure-stack"></a>Zestawy dostępności w stosie Azure
+Podczas infrastruktury stosu Azure jest już odporność na awarie, podstawową technologią (klastra trybu failover) nadal wiąże się pewien przestój dla maszyn wirtualnych na wpływ na serwerze fizycznym w przypadku awarii sprzętu. Stos Azure obsługuje o zbiór składającą się z maksymalnie trzech domen błędów, aby były spójne z usługi Azure dostępności.
+
+- **Odporność domen**. Maszyny wirtualne, umieszczone w zestawie dostępności będzie fizycznie odizolowane od siebie możliwie najbardziej równomiernie się je za pośrednictwem wielu domen błędów (węzły stosu Azure). W przypadku awarii sprzętu maszyny wirtualne z domeny nie powiodło się błędów zostanie uruchomiony ponownie w innych domenach awarii, ale, jeśli to możliwe, znajdującej się w domenach awarii oddzielne z innych maszyn wirtualnych w tym samym zestawie dostępności. Gdy sprzęt wraca do trybu online, maszyny wirtualne będą rebalanced do obsługi wysokiej dostępności. 
+ 
+- **Aktualizowanie domeny**. Aktualizacja domeny są innego koncepcji Azure, który zapewnia wysoką dostępność w zestawach dostępności. Domena aktualizacji jest logicznej grupy używany sprzęt, który może zostać poddane konserwacji w tym samym czasie. Maszyny wirtualne znajdujące się w tej samej domenie aktualizacji zostanie uruchomiony ponownie ze sobą podczas zaplanowanej konserwacji. Jak dzierżawcom Tworzenie maszyn wirtualnych w zestawie dostępności, platformy Azure automatycznie dystrybuuje maszyny wirtualne na tych domen aktualizacji. W stosie Azure maszyny wirtualne są aktywne migracji w trybie online hosty w klastrze, przed zaktualizowaniem ich odpowiedniego hosta. Ponieważ podczas aktualizowania hosta nie bez przestojów dzierżawy, funkcji domeny aktualizacji na stosie Azure występuje tylko w przypadku szablonu zgodności z platformą Azure. 
+
+### <a name="upgrade-scenarios"></a>Scenariuszy uaktualniania 
+Maszyny wirtualne w zestawach dostępności utworzone przed stosu Azure w wersji 1802 podano domyślną liczbę usterek i aktualizację domeny (1 do 1 odpowiednio). Do osiągnięcia wysokiej dostępności dla maszyn wirtualnych w tych wstępnie istniejące zestawy dostępności, należy najpierw usunąć istniejące maszyny wirtualne i następnie ponownie wdrożyć je do nowego zestawu z poprawną liczbą usterek i Aktualizacja domeny, zgodnie z opisem w dostępności [zmiany zbiór dostępności dla maszyny Wirtualnej systemu Windows](https://docs.microsoft.com/azure/virtual-machines/windows/change-availability-set). 
+
+Zestawy skalowania maszyny Wirtualnej, aby uzyskać zestaw dostępności jest utworzone wewnętrznie z domyślnej domeny i aktualizacji liczba domen błędów (3 i 5 odpowiednio). Zestawy utworzone przed aktualizacji 1802 zostaną umieszczone w zestawie z liczbą domyślne usterek i Aktualizacja domeny dostępności skalować żadnej maszyny Wirtualnej (1 do 1 odpowiednio). Aby zaktualizować te wystąpienia zestawu skali maszyny Wirtualnej do osiągnięcia nowszej rozpowszechniania, skalowanie w poziomie zestawy skalowania maszyny Wirtualnej według liczby wystąpień, które były obecne przed aktualizacją 1802, a następnie usuń starsze wystąpień zestawy skalowania maszyny Wirtualnej. 
 
 ## <a name="role-based-access-control-rbac"></a>Oparta na rolach kontrola dostępu (RBAC)
 Za użycie funkcji RBAC można udzielić dostępu do systemu do autoryzowanych użytkowników, grup i usług przez przypisywanie ich role w subskrypcji, grupy zasobów lub pojedynczych zasobów. Każda rola określa poziom dostępu przez użytkownika, grupy lub usługi Microsoft Azure stosu zasobów.

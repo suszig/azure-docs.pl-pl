@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9c3f47739f28e0b0b2a24fcea61b055071cba7d5
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: c532657951d6d0241a5d8d25a56bb237ad481567
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Przykład wskazówki infrastruktury platformy Azure dla maszyn wirtualnych systemu Windows
 W tym artykule przedstawiono zbudowaniu przykład infrastruktury aplikacji. Firma Microsoft szczegółowo projektowania infrastruktury dla prostego Sklep internetowy zgromadzono wskazówki i decyzji dotyczących konwencji nazewnictwa, zestawów dostępności, sieci wirtualnych i usług równoważenia obciążenia i faktycznie wdrażania maszyn wirtualnych (VM).
@@ -61,7 +61,7 @@ Wszystkie powyższe wykonaj te konwencji nazewnictwa:
 Firma Adventure Works Cycles używa ich subskrypcji Enterprise, o nazwie Adventure Works Enterprise subskrypcji, zapewnienie rozliczeń dla tej obciążenia IT.
 
 ## <a name="storage"></a>Magazyn
-Firma Adventure Works Cycles ustalić, czy powinny używać dysków zarządzanych Azure. Podczas tworzenia maszyn wirtualnych, są używane zarówno warstw magazynowania dostępne magazynu:
+Firma Adventure Works Cycles ustalić, czy powinny używać dysków zarządzanych Azure. Podczas tworzenia maszyn wirtualnych, są używane zarówno warstw magazynowania dostępne:
 
 * **Magazynu w warstwie standardowa** dla serwerów sieci web, serwerów aplikacji i kontrolerów domeny i dysków z danymi.
 * **Magazyn w warstwie Premium** dla maszyn wirtualnych serwera SQL i dysków z danymi.

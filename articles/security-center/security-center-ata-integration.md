@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
+ms.date: 03/05/2018
 ms.author: yurid
-ms.openlocfilehash: e1b9e598af3b55c1d9591e5c1e529a80ae3319ca
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 02e14315018f6586644eb560894785e6b6eb022e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="connecting-microsoft-advanced-threat-analytics-to-azure-security-center"></a>Łączącego Microsoft Advanced Threat Analytics do Centrum zabezpieczeń Azure
 Ten dokument pomaga skonfigurować integrację Centrum zabezpieczeń Azure i Microsoft Advanced Threat Analytics.
@@ -52,7 +52,7 @@ Przy założeniu, że masz już instalacji usługi ATA i działa prawidłowo lok
 
 10. W **Dodaj nowy komputer z systemem innym niż Azure** wybierz obszar roboczy.
 
-    ![Innych niż Azure](./media/security-center-ata-integration/security-center-ata-integration-fig5.png)
+    ![Non-Azure](./media/security-center-ata-integration/security-center-ata-integration-fig5.png)
 
 11. W **bezpośredniego agenta** strony, Pobierz odpowiedniego agenta systemu Windows i zanotować **identyfikator obszaru roboczego** i **klucz podstawowy**.
 
@@ -61,9 +61,9 @@ Przy założeniu, że masz już instalacji usługi ATA i działa prawidłowo lok
 12. Zainstaluj agenta w Centrum usługi ATA. Podczas instalacji, upewnij się, że opcja **Połącz agenta z do Analiza dzienników Azure (OMS)**i podaj *identyfikator obszaru roboczego*, i *klucz podstawowy* na żądanie .
 
 
-Po zakończeniu instalacji, zakończeniu integracji i można zobaczyć nowe alerty wysyłane z usługi ATA do Centrum zabezpieczeń w **alerty zabezpieczeń** i **wyszukiwania**. Rozwiązanie wydaje w **rozwiązań zabezpieczeń** w obszarze **połączone rozwiązań**. 
+Po zakończeniu instalacji, zakończeniu integracji i można zobaczyć nowe alerty wysyłane z usługi ATA do Centrum zabezpieczeń w **wyszukiwania** wynik. Rozwiązanie wydaje w **rozwiązań zabezpieczeń** w obszarze **połączone rozwiązań**. 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 W tym dokumencie przedstawiono sposób Microsoft ATA nawiązać połączenia z Centrum zabezpieczeń. Aby dowiedzieć się więcej na temat usługi Security Center, zobacz następujące artykuły:
 
 * [Connecting Azure Active Directory Identity Protection to Azure Security Center (Łączenie usługi Azure Active Directory Identity Protection z usługą Azure Security Center)](security-center-aadip-integration.md)

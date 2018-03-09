@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 82a0a336e8315d7fe9862e22e47a6847f94bfcb1
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 91adff331d9a9a79af0869fda6392fc52c78cac2
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Utwórz maszynę wirtualną systemu Linux za pomocą przyspieszony sieci
 
 > [!IMPORTANT] 
-> Maszyny wirtualne muszą być tworzone przyspieszony sieci włączone. Nie można włączyć tę funkcję w istniejących maszyn wirtualnych. Można wykonać poniższe kroki, aby włączyć przyspieszony sieci:
+> Maszyny wirtualne muszą być tworzone przyspieszony sieci włączone. Nie można włączyć tę funkcję w istniejących maszyn wirtualnych. Wykonaj poniższe kroki, aby włączyć przyspieszony sieci:
 >   1. Usuń maszynę wirtualną.
 >   2. Ponownie utwórz maszynę wirtualną za pomocą przyspieszony sieci włączone.
 >
@@ -65,6 +65,8 @@ Podczas przy użyciu tej możliwości istnieją następujące ograniczenia:
 * **Tworzenie interfejsu sieci:** akcelerowanego sieci można włączyć tylko dla nowych kart sieciowych. Nie można włączyć dla istniejącej karty sieciowej.
 * **Tworzenie maszyny Wirtualnej:** A kart interfejsu Sieciowego z włączoną obsługą przyspieszonego sieci może zostać dołączona tyko do maszyny Wirtualnej po utworzeniu maszyny Wirtualnej. Nie można dołączyć karty Sieciowej do istniejącej maszyny Wirtualnej. Jeśli dodawanie maszyny Wirtualnej do istniejących danych o dostępności, wszystkich maszyn wirtualnych w zestawie dostępności muszą również przyspieszyć sieci włączone.
 * **Tylko wdrożenia za pośrednictwem usługi Azure Resource Manager:** maszyn wirtualnych (klasyczne) nie można wdrożyć za pomocą przyspieszony sieci.
+
+Chociaż ten artykuł zawiera kroki, aby utworzyć maszynę wirtualną z przyspieszonego w sieci przy użyciu wiersza polecenia platformy Azure, możesz również [Utwórz maszynę wirtualną z przyspieszonego w sieci przy użyciu portalu Azure](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Podczas tworzenia maszyny wirtualnej przy użyciu obsługiwany system operacyjny i rozmiar maszyny Wirtualnej w portalu, w obszarze **ustawienia**, wybierz pozycję **włączone** w obszarze **przyspieszony sieci**. Po utworzeniu maszyny wirtualnej, należy wykonać instrukcje [Potwierdź, że jest włączona przyspieszonego sieci](#confirm-that-accelerated-networking-is-enabled).
 
 ## <a name="create-a-virtual-network"></a>Tworzenie sieci wirtualnej
 

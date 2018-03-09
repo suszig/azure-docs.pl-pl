@@ -5,16 +5,16 @@ services: machine-learning
 author: hning86
 ms.author: haining
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/10/2017
-ms.openlocfilehash: f5c75b95d9019c15bb402313ce7407fa9abb81d4
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 099ff69b396c35730471d684b59115f03ccf67d9
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="persisting-changes-and-working-with-large-files"></a>Utrwalanie zmian i Praca z dużymi plikami
 W usłudze Azure Machine Learning eksperymenty można skonfigurować różne realizacji celów. Niektóre elementy docelowe są lokalne, na przykład komputer lokalny lub kontener Docker na komputerze lokalnym. Inne są zdalnego, takich jak kontener Docker na komputerze zdalnym lub klastra usługi HDInsight. Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure Machine Learning eksperymentu usługi wykonywania](experimentation-service-configuration.md). 
@@ -194,6 +194,6 @@ attach_storage_container(spark, "<storage account name>", "<storage key>”)
 ## <a name="conclusion"></a>Podsumowanie
 Ponieważ usługi Azure Machine Learning wykonuje skryptów przez skopiowanie folderu całego projektu do kontekstu obliczeń docelowej, należy zwrócić szczególną uwagę o dużych danych wejściowych, wyjściowych i pośredniczących plików. W przypadku dużych plików transakcji można użyć folderze specjalne wyjścia folderu udostępnionego, który jest dostępny za pośrednictwem `AZUREML_NATIVE_SHARE_DIRECTORY` zmiennej środowiskowej lub trwałego magazynu zewnętrznego. 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - Przegląd [pliki konfiguracji usługi Azure Machine Learning Workbench wykonywania](experimentation-service-configuration-reference.md) artykułu.
 - Zobacz jak [klasyfikowania Iris](tutorial-classifying-iris-part-1.md) projekt samouczka używa folderu danych wyjściowych do utrwalenia uczonego modelu.

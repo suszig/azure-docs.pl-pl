@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2017
+ms.date: 02/27/2017
 ms.custom: 
-ms.openlocfilehash: 275ab65569a1861f046c8ee77914e0859d41d5f7
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 082953eb860197d2188851f6c8be260797d6ce6d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Błąd podczas obsługi najlepsze rozwiązania dla klientów interfejsów Azure Active Directory Authentication Library (ADAL)
 
@@ -49,7 +49,7 @@ Istnieje zestaw o błędach wygenerowanych przez system operacyjny, który może
 
 Zasadniczo istnieją dwa przypadki AcquireTokenSilent błędów:
 
-| Przypadek | Opis |
+| Case | Opis |
 |------|-------------|
 | **Przypadek 1**: błąd jest rozpoznawalna przy interakcyjnego logowania | Błędy spowodowane brakiem prawidłowych tokenów interakcyjne żądanie jest konieczne. W szczególności wyszukiwania w pamięci podręcznej i token odświeżania nieprawidłowy/wygasły wymagają wywołanie AcquireToken do rozpoznania.<br><br>W takich przypadkach użytkownik końcowy musi zostać wyświetlony monit o zalogowanie. Aplikację można czy interaktywnych żądań natychmiast, po interakcje użytkownika końcowego (na przykład naciśnięcie przycisku logowania) lub nowszym. Wybór zależy od żądanego zachowania aplikacji.<br><br>Zobacz kod w poniższej sekcji tym konkretnym przypadku i błędy, które diagnozowanie go.|
 | **Przypadek 2**: błąd nie jest rozpoznawalna przy interakcyjnego logowania | Sieci i przejściowy/tymczasowe błędy lub inne błędy wykonywanie interakcyjne żądania AcquireToken nie rozwiązać problem. Niepotrzebne interakcyjnego logowania monity również może frustrować użytkowników końcowych. Biblioteka ADAL automatycznie podejmie pojedynczego ponownych prób dla większości błędów na AcquireTokenSilent błędów.<br><br>Aplikacja kliencka może również podejmować ponowna próba w pewnym momencie nowsze, ale kiedy i jak to zrobić, jest zależna od zachowanie aplikacji oraz żądany przez użytkownika końcowego. Na przykład aplikacja może wykonać AcquireTokenSilent spróbuj ponownie za kilka minut lub w odpowiedzi na akcję użytkownika końcowego. Natychmiastowego ponawiania spowoduje aplikacja ograniczane i nie są sprawdzane.<br><br>Kolejne ponowna próba niepowodzeniem z powodu błędu tego samego oznacza to, że klient zrobić interakcyjne żądania przy użyciu AcquireToken, nie jest rozpoznawany błędu.<br><br>Zobacz kod w poniższej sekcji tym konkretnym przypadku i błędy, które diagnozowanie go. |
@@ -479,6 +479,9 @@ Firma Microsoft został skompilowany [kompletnego przykładu](https://github.com
 
 ## <a name="error-and-logging-reference"></a>Odwołanie do rejestrowania błędów i
 
+### <a name="logging-personal-identifiable-information-pii--organizational-identifiable-information-oii"></a>Dane osobowe rejestrowania (dane osobowe) i informacje umożliwiające identyfikację użytkowników w organizacji (OII)
+Domyślnie rejestrowanie ADAL przechwytywania lub nie rejestrować wszystkie dane osobowe lub OII. Biblioteka umożliwia deweloperom aplikacji włączenie tej funkcji za pomocą metody ustawiającej klasy rejestratora. Przez włączenie dane osobowe lub OII, aplikacja bierze odpowiedzialność za bezpiecznie Obsługa bardzo ważne dane i wszelkich wymagań przepisami.
+
 ### <a name="net"></a>.NET
 
 #### <a name="adal-library-errors"></a>Błędy biblioteki ADAL
@@ -487,7 +490,7 @@ Aby zapoznać się z określonych błędów ADAL kodu źródłowego w [repozytor
 
 #### <a name="guidance-for-error-logging-code"></a>Wskazówki dotyczące kod błędu rejestrowania:
 
-Rejestrowanie ADAL .NET zmian w zależności od platformy wykorzystywanej na. Zapoznaj się [dokumentacji rejestrowania](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet#diagnostics) dla kodu na temat włączania rejestrowania.
+Rejestrowanie ADAL .NET zmian w zależności od platformy wykorzystywanej na. Zapoznaj się [wiki rejestrowania](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Logging-in-ADAL.Net) dla kodu na temat włączania rejestrowania.
 
 ### <a name="android"></a>Android
 
@@ -497,14 +500,9 @@ Aby zapoznać się z określonych błędów ADAL kodu źródłowego w [repozytor
 
 #### <a name="operating-system-errors"></a>Błędy systemu operacyjnego
 
-Android błędy systemu operacyjnego są dostępne za pośrednictwem authenticationexception — w ADAL, są oznaczone jako "SERVER_INVALID_REQUEST" i może być dalsze szczegółowe za pośrednictwem opisów błędów. Są dwa komunikaty wyraźne, może wybrać aplikację, można wyświetlić interfejsu użytkownika:
+Android błędy systemu operacyjnego są dostępne za pośrednictwem authenticationexception — w ADAL, są oznaczone jako "SERVER_INVALID_REQUEST" i może być dalsze szczegółowe za pośrednictwem opisów błędów. 
 
-- Błędy protokołu SSL 
-  - [Użytkownik końcowy używa Chrome 53](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/SSL-Certificate-Validation-Issue)
-  - [Łańcuch certyfikatów ma cert oznaczony jako dodatkowy Pobierz (użytkownik musi skontaktować się z administratorem IT)](https://vkbexternal.partners.extranet.microsoft.com/VKBWebService/ViewContent.aspx?scid=KB;EN-US;3203929)
-  - Główny urząd certyfikacji nie jest zaufany przez urządzenia. Skontaktuj się z administratorem IT. 
-- Powiązane błędy sieciowe 
-  - [Sieci problem potencjalnie powiązane z weryfikacją certyfikatów SSL](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/SSL-Certificate-Validation-Issue), można pojedynczego ponowi próbę
+Aby uzyskać pełną listę typowych błędów i jakie kroki w sytuacji, gdy aplikację lub użytkownicy końcowi napotkania ich odwoływać się do [ADAL dla systemu Android typu Wiki](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki). 
 
 #### <a name="guidance-for-error-logging-code"></a>Wskazówki dotyczące kod błędu rejestrowania:
 
@@ -522,6 +520,15 @@ Logger.getInstance().setExternalLogger(new ILogger() {
 // 2. Set the log level
 Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
 
+// By default, the `Logger` does not capture any PII or OII
+
+// PII or OII will be logged
+Logger.getInstance().setEnablePII(true);
+
+// PII or OII will NOT be logged
+Logger.getInstance().setEnablePII(false);
+
+
 // 3. Send logs to logcat.
 adb logcat > "C:\logmsg\logfile.txt";
 ```
@@ -536,7 +543,7 @@ Aby zapoznać się z określonych błędów ADAL kodu źródłowego w [repozytor
 
 iOS błędy mogą wystąpić podczas podczas logowania, gdy użytkownicy używają widoki sieci web i rodzaj uwierzytelniania. Może to być spowodowane warunków, takich jak błędy protokołu SSL, limity czasu lub błędy sieci:
 
-- Uprawnienia udostępniania logowania nie są trwałe i pamięci podręcznej jest pusta. Można rozwiązać, dodając następujący wiersz kodu do łańcucha kluczy:`[[ADAuthenticationSettings sharedInstance] setSharedCacheKeychainGroup:nil];`
+- Uprawnienia udostępniania logowania nie są trwałe i pamięci podręcznej jest pusta. Można rozwiązać, dodając następujący wiersz kodu do łańcucha kluczy: `[[ADAuthenticationSettings sharedInstance] setSharedCacheKeychainGroup:nil];`
 - Dla zestawu NsUrlDomain błędów akcji zmienia się zależnie od logiki aplikacji. Zobacz [NSURLErrorDomain dokumentacji](https://developer.apple.com/documentation/foundation/nsurlerrordomain#declarations) dla określonych wystąpień, które są obsługiwane.
 - Zobacz [ADAL Obj C typowych problemów z](https://github.com/AzureAD/azure-activedirectory-library-for-objc#adauthenticationerror) listę typowych błędów obsługiwanego przez zespół ADAL Objective-C.
 

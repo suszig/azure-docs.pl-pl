@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: cynthn
-ms.openlocfilehash: d802ba16ecb4e32e2adb7be3a8e99c72a1625841
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e78ecf6bd281bd5d30f59413789eb1e6fc7b5bc
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Przekazywanie uogólniony wirtualny dysk twardy i umożliwia tworzenie nowych maszyn wirtualnych na platformie Azure
 
@@ -164,6 +164,12 @@ Możesz również przekazywać dysku VHD do konta magazynu przy użyciu jednej z
 -   Zaleca się za pomocą usługi Import/eksport, jeśli szacowany czas przekazywania jest dłuższa niż 7 dni. Można użyć [DataTransferSpeedCalculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html) oszacowanie godzinę z jednostki rozmiaru i transferu danych. 
     Narzędzie importu/eksportu może służyć do skopiowania do konta magazynu w warstwie standardowa. Należy skopiować z magazynu w warstwie standardowa do konta magazynu premium za pomocą narzędzia, takiego jak narzędzie AzCopy.
 
+> [!IMPORTANT]
+> Jeśli używasz narzędzia AzCopy przekazywania dysk VHD na platformę Azure, upewnij się, ustawiono [/BlobType:page](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy#blobtypeblock--page--append) przed uruchomieniem Przekaż skryptu. Jeśli obiektem docelowym jest obiektu blob, a ta opcja nie jest określona, domyślnie AzCopy tworzy blokowych obiektów blob.
+> 
+> 
+
+
 
 ## <a name="create-a-managed-image-from-the-uploaded-vhd"></a>Tworzenie zarządzanego obrazu z przekazanego wirtualnego dysku twardego 
 
@@ -304,7 +310,7 @@ Po zakończeniu powinien zostać wyświetlony nowo utworzony maszyny Wirtualnej 
     $vmList.Name
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby zalogować się do nowej maszyny wirtualnej, przejdź do maszyny Wirtualnej w [portal](https://portal.azure.com), kliknij przycisk **Connect**i Otwórz plik RDP pulpitu zdalnego. Korzystać z poświadczeń konta oryginalnego maszyny wirtualnej, aby zalogować się do nowej maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [jak połączenia i zaloguj się do maszyny wirtualnej platformy Azure systemem Windows](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 

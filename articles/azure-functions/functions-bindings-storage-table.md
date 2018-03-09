@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: c132baad4d26fe481fa022329da32815b6994ad7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7f82083cd18f762d1037da2ccf43e9d0c220fe09
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure tabeli powiązania magazynu dla usługi Azure Functions
 
@@ -89,7 +89,7 @@ public class TableStorage
     {
         foreach (MyPoco poco in pocos)
         {
-            log.Info($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}";
+            log.Info($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}");
         }
     }
 }
@@ -352,11 +352,11 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 |**Kierunek** | Nie dotyczy | należy wybrać opcję `in`. Ta właściwość ma wartość automatycznie, podczas tworzenia powiązania w portalu Azure. |
 |**Nazwa** | Nie dotyczy | Nazwa zmiennej, która reprezentuje tabeli lub obiektu kodu funkcji. | 
 |**tableName** | **TableName** | Nazwa tabeli.| 
-|**partitionKey** | **PartitionKey** |Opcjonalny. Klucz partycji tabeli jednostki do odczytu. Zobacz [użycia](#input---usage) sekcji, aby uzyskać wskazówki dotyczące sposobu używania tej właściwości.| 
+|**PartitionKey** | **PartitionKey** |Opcjonalny. Klucz partycji tabeli jednostki do odczytu. Zobacz [użycia](#input---usage) sekcji, aby uzyskać wskazówki dotyczące sposobu używania tej właściwości.| 
 |**rowKey** |**RowKey** | Opcjonalny. Klucz wiersza jednostki tabeli do odczytu. Zobacz [użycia](#input---usage) sekcji, aby uzyskać wskazówki dotyczące sposobu używania tej właściwości.| 
-|**podejmij** |**Podejmij** | Opcjonalny. Maksymalna liczba jednostek do odczytu w języku JavaScript. Zobacz [użycia](#input---usage) sekcji, aby uzyskać wskazówki dotyczące sposobu używania tej właściwości.| 
+|**podejmij** |**podejmij** | Opcjonalny. Maksymalna liczba jednostek do odczytu w języku JavaScript. Zobacz [użycia](#input---usage) sekcji, aby uzyskać wskazówki dotyczące sposobu używania tej właściwości.| 
 |**Filtr** |**Filtr** | Opcjonalny. Wyrażenie filtru OData dla tabeli danych wejściowych w języku JavaScript. Zobacz [użycia](#input---usage) sekcji, aby uzyskać wskazówki dotyczące sposobu używania tej właściwości.| 
-|**połączenia** |**Połączenia** | Nazwa ustawienia aplikacji, która zawiera parametry połączenia magazynu do użycia dla tego powiązania. Jeśli nazwa ustawienia aplikacji rozpoczyna się od "AzureWebJobs", można określić tylko w pozostałej części nazwy w tym miejscu. Na przykład jeśli ustawisz `connection` do "MyStorage" środowisko uruchomieniowe Functions szuka ustawienie aplikacji o nazwie "AzureWebJobsMyStorage." Jeśli opuścisz `connection` pusta, środowisko uruchomieniowe Functions używa domyślnego ciągu połączenia magazynu w ustawieniu aplikacji o nazwie `AzureWebJobsStorage`.|
+|**Połączenia** |**Połączenia** | Nazwa ustawienia aplikacji, która zawiera parametry połączenia magazynu do użycia dla tego powiązania. Jeśli nazwa ustawienia aplikacji rozpoczyna się od "AzureWebJobs", można określić tylko w pozostałej części nazwy w tym miejscu. Na przykład jeśli ustawisz `connection` do "MyStorage" środowisko uruchomieniowe Functions szuka ustawienie aplikacji o nazwie "AzureWebJobsMyStorage." Jeśli opuścisz `connection` pusta, środowisko uruchomieniowe Functions używa domyślnego ciągu połączenia magazynu w ustawieniu aplikacji o nazwie `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -366,16 +366,14 @@ Powiązania wejściowego magazyn tabel obsługuje następujące scenariusze:
 
 * **Przeczytaj jeden wiersz w języku C# lub skryptu C#**
 
-  Ustaw `partitionKey` i `rowKey`. Dostęp do danych tabeli za pomocą parametru metody `T <paramName>`. W języku C# skryptu `paramName` jest wartością określoną w `name` właściwość *function.json*. `T`Zazwyczaj jest typu, który implementuje `ITableEntity` pochodną `TableEntity`. `filter` i `take` właściwości nie są używane w tym scenariuszu. 
+  Ustaw `partitionKey` i `rowKey`. Dostęp do danych tabeli za pomocą parametru metody `T <paramName>`. W języku C# skryptu `paramName` jest wartością określoną w `name` właściwość *function.json*. `T` Zazwyczaj jest typu, który implementuje `ITableEntity` pochodną `TableEntity`. `filter` i `take` właściwości nie są używane w tym scenariuszu. 
 
 * **Przeczytaj, co najmniej jeden wiersz w języku C# lub skryptu C#**
 
-  Dostęp do danych tabeli za pomocą parametru metody `IQueryable<T> <paramName>`. W języku C# skryptu `paramName` jest wartością określoną w `name` właściwość *function.json*. `T`musi być typu, który implementuje `ITableEntity` pochodną `TableEntity`. Można użyć `IQueryable` metody do dowolnego filtrowanie wymagane. `partitionKey`, `rowKey`, `filter`, I `take` właściwości nie są używane w tym scenariuszu.  
+  Dostęp do danych tabeli za pomocą parametru metody `IQueryable<T> <paramName>`. W języku C# skryptu `paramName` jest wartością określoną w `name` właściwość *function.json*. `T` musi być typu, który implementuje `ITableEntity` pochodną `TableEntity`. Można użyć `IQueryable` metody do dowolnego filtrowanie wymagane. `partitionKey`, `rowKey`, `filter`, I `take` właściwości nie są używane w tym scenariuszu.  
 
 > [!NOTE]
-> `IQueryable`nie działa w .NET Core, dlatego nie działa w [środowisko uruchomieniowe Functions v2](functions-versions.md).
-
-  Alternatywą jest użycie `CloudTable paramName` parametru metody, aby odczytać tabeli za pomocą zestawu SDK usługi Magazyn Azure.
+> `IQueryable` nie jest obsługiwany w [środowisko uruchomieniowe Functions v2](functions-versions.md). Alternatywą jest [użyć parametru metody paramName CloudTable](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) odczytać tabeli za pomocą zestawu SDK usługi Magazyn Azure.
 
 * **Co najmniej jeden wiersz w języku JavaScript do odczytu**
 
@@ -611,9 +609,9 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 |**Kierunek** | Nie dotyczy | należy wybrać opcję `out`. Ta właściwość ma wartość automatycznie, podczas tworzenia powiązania w portalu Azure. |
 |**Nazwa** | Nie dotyczy | Nazwa zmiennej używany w funkcji kod, który reprezentuje tabelę lub jednostki. Ustaw `$return` odwoływać się do wartości zwracane funkcji.| 
 |**tableName** |**TableName** | Nazwa tabeli.| 
-|**partitionKey** |**PartitionKey** | Klucz partycji tabeli jednostki do zapisania. Zobacz [sekcji użycia](#output---usage) wskazówki dotyczące sposobu używania tej właściwości.| 
+|**PartitionKey** |**PartitionKey** | Klucz partycji tabeli jednostki do zapisania. Zobacz [sekcji użycia](#output---usage) wskazówki dotyczące sposobu używania tej właściwości.| 
 |**rowKey** |**RowKey** | Klucz wiersza jednostki tabeli do zapisu. Zobacz [sekcji użycia](#output---usage) wskazówki dotyczące sposobu używania tej właściwości.| 
-|**połączenia** |**Połączenia** | Nazwa ustawienia aplikacji, która zawiera parametry połączenia magazynu do użycia dla tego powiązania. Jeśli nazwa ustawienia aplikacji rozpoczyna się od "AzureWebJobs", można określić tylko w pozostałej części nazwy w tym miejscu. Na przykład jeśli ustawisz `connection` do "MyStorage" środowisko uruchomieniowe Functions szuka ustawienie aplikacji o nazwie "AzureWebJobsMyStorage." Jeśli opuścisz `connection` pusta, środowisko uruchomieniowe Functions używa domyślnego ciągu połączenia magazynu w ustawieniu aplikacji o nazwie `AzureWebJobsStorage`.|
+|**Połączenia** |**Połączenia** | Nazwa ustawienia aplikacji, która zawiera parametry połączenia magazynu do użycia dla tego powiązania. Jeśli nazwa ustawienia aplikacji rozpoczyna się od "AzureWebJobs", można określić tylko w pozostałej części nazwy w tym miejscu. Na przykład jeśli ustawisz `connection` do "MyStorage" środowisko uruchomieniowe Functions szuka ustawienie aplikacji o nazwie "AzureWebJobsMyStorage." Jeśli opuścisz `connection` pusta, środowisko uruchomieniowe Functions używa domyślnego ciągu połączenia magazynu w ustawieniu aplikacji o nazwie `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -623,11 +621,11 @@ Magazyn tabel danych wyjściowych powiązanie obsługuje następujące scenarius
 
 * **Zapisanie jednego wiersza w dowolnym języku**
 
-  W języku C# i skryptu C#, dostęp do jednostki tabeli danych wyjściowych przy użyciu parametru metody takie jak `out T paramName` ani funkcja zwracanej wartości. W języku C# skryptu `paramName` jest wartością określoną w `name` właściwość *function.json*. `T`mogą być dowolnego typu serializacji, jeśli klucz partycji i klucz wiersza są dostarczane przez *function.json* pliku lub `Table` atrybutu. W przeciwnym razie `T` musi być typem, który zawiera `PartitionKey` i `RowKey` właściwości. W tym scenariuszu `T` zwykle implementuje `ITableEntity` lub pochodzi z `TableEntity`, ale nie ma.
+  W języku C# i skryptu C#, dostęp do jednostki tabeli danych wyjściowych przy użyciu parametru metody takie jak `out T paramName` ani funkcja zwracanej wartości. W języku C# skryptu `paramName` jest wartością określoną w `name` właściwość *function.json*. `T` mogą być dowolnego typu serializacji, jeśli klucz partycji i klucz wiersza są dostarczane przez *function.json* pliku lub `Table` atrybutu. W przeciwnym razie `T` musi być typem, który zawiera `PartitionKey` i `RowKey` właściwości. W tym scenariuszu `T` zwykle implementuje `ITableEntity` lub pochodzi z `TableEntity`, ale nie ma.
 
 * **Wpisz jeden lub więcej wierszy w C# lub języka C#**
 
-  W języku C# i skryptu C#, dostęp do jednostki tabeli danych wyjściowych przy użyciu parametru metody `ICollector<T> paramName` lub `ICollectorAsync<T> paramName`. W języku C# skryptu `paramName` jest wartością określoną w `name` właściwość *function.json*. `T`Określa schemat jednostek, które chcesz dodać. Zazwyczaj `T` pochodzi z `TableEntity` lub implementuje `ITableEntity`, ale nie ma. Klucz partycji i wiersza wartości w klucza *function.json* lub `Table` konstruktora atrybutów nie są używane w tym scenariuszu.
+  W języku C# i skryptu C#, dostęp do jednostki tabeli danych wyjściowych przy użyciu parametru metody `ICollector<T> paramName` lub `ICollectorAsync<T> paramName`. W języku C# skryptu `paramName` jest wartością określoną w `name` właściwość *function.json*. `T` Określa schemat jednostek, które chcesz dodać. Zazwyczaj `T` pochodzi z `TableEntity` lub implementuje `ITableEntity`, ale nie ma. Klucz partycji i wiersza wartości w klucza *function.json* lub `Table` konstruktora atrybutów nie są używane w tym scenariuszu.
 
   Alternatywą jest użycie `CloudTable paramName` parametru metody, aby zapisać go do tabeli przy użyciu zestawu SDK usługi Magazyn Azure.
 

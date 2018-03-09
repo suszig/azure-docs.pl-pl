@@ -1,5 +1,5 @@
 ---
-title: "Pasujące do aparatu reguł Azure CDN | Dokumentacja firmy Microsoft"
+title: "Aparat dopasowania warunki zasady usługi Azure CDN | Dokumentacja firmy Microsoft"
 description: "Dokumentacja referencyjna dla usługi Azure Content Delivery Network zasady warunków dopasowania aparatu."
 services: cdn
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: 08845355be0bfb7e7dde52d19949fee4a68ed54b
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: e4b7113f27e5e15d69dfdd1efd13e255ef4a8ab7
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="match-conditions-for-the-azure-cdn-rules-engine"></a>Warunki dopasowania dla aparatu reguł Azure CDN
+# <a name="azure-cdn-rules-engine-match-conditions"></a>Pasujące aparatu reguł usługi Azure CDN 
 W tym artykule przedstawiono szczegółowe opisy warunki dopasowania dostępne dla usługi Azure sieci dostarczania zawartości (CDN) [aparatu reguł](cdn-rules-engine.md).
 
 Druga część reguły jest warunkiem dopasowania. Warunek dopasowania identyfikuje określone typy żądań, dla których będą wykonywane zestawem funkcji.
@@ -61,7 +61,7 @@ Warunki dopasowania pochodzenia zidentyfikować żądań, które wskazują serwe
 
 Name (Nazwa) | Przeznaczenie
 -----|--------
-[Źródła usługi CDN](#cdn-origin) | Identyfikuje żądania dotyczące zawartości przechowywanej w magazynie sieci dostarczania zawartości.
+[CDN Origin](#cdn-origin) | Identyfikuje żądania dotyczące zawartości przechowywanej w magazynie sieci dostarczania zawartości.
 [Pochodzenie klienta](#customer-origin) | Identyfikuje żądania dotyczące zawartości przechowywanej na serwerze źródłowym określonego klienta.
 
 ## <a name="request-match-conditions"></a>Warunki dopasowania żądania
@@ -73,7 +73,7 @@ Name (Nazwa) | Przeznaczenie
 [Adres IP klienta](#client-ip-address) | Identyfikuje żądań pochodzących z określonego adresu IP.
 [Parametr pliku cookie](#cookie-parameter) | Sprawdza, czy pliki cookie skojarzone z każdym żądaniem określoną wartość.
 [Wyrażenie regularne parametru pliku cookie](#cookie-parameter-regex) | Sprawdza, czy pliki cookie skojarzone z każdym żądaniem dla określonego wyrażenia regularnego.
-[Krawędź Cname](#edge-cname) | Identyfikuje żądań, które wskazują określonej krawędzi CNAME.
+[Edge Cname](#edge-cname) | Identyfikuje żądań, które wskazują określonej krawędzi CNAME.
 [Odwoływanie domeny](#referring-domain) | Identyfikuje żądań, które zostały przekazane z nazw określonych hostów.
 [Literał nagłówka żądania](#request-header-literal) | Identyfikuje żądań zawierających określony nagłówek równa określonej wartości.
 [Wyrażenie regularne nagłówka żądania](#request-header-regex) | Identyfikuje żądań zawierających określony nagłówek ustawioną wartość, która odpowiada określonemu wyrażeniu regularnemu.
@@ -321,26 +321,26 @@ W poniższej tabeli wymieniono możliwości WURFL oraz ich zmienne dla aparatu r
 
 Możliwości | Zmienna | Opis | Przykładowe wartości
 -----------|----------|-------------|----------------
-Nazwa marki | % {wurfl_cap_brand_name} | Ciąg, który wskazuje nazwę urządzenia. | Samsung
-System operacyjny urządzenia | % {wurfl_cap_device_os} | Ciąg, który wskazuje system operacyjny zainstalowany na urządzeniu. | iOS
-Wersja systemu operacyjnego urządzenia | % {wurfl_cap_device_os_version} | Ciąg, który wskazuje numer wersji systemu operacyjnego zainstalowanego na urządzeniu. | 1.0.1
-Podwójna orientacji | % {wurfl_cap_dual_orientation} | Wartość logiczna, która wskazuje, czy urządzenie obsługuje dwa orientacji. | prawda
-HTML preferowane DTD | % {wurfl_cap_html_preferred_dtd} | Ciąg, który wskazuje definicja typu dokumentu preferowanych urządzeń przenośnych (DTD) dla zawartości HTML. | brak<br/>xhtml_basic<br/>HTML5
-Obraz ze Śródwierszowaniem | % {wurfl_cap_image_inlining} | Wartość logiczna wskazująca, czy urządzenie obsługuje Base64 zakodowany obrazów. | fałsz
-Jest systemu Android | % {wurfl_vcap_is_android} | Wartość logiczna, która wskazuje, czy urządzenie używa system operacyjny Android. | prawda
-IOS | % {wurfl_vcap_is_ios} | Wartość logiczna wskazująca, czy urządzenie korzysta z systemem iOS. | fałsz
-Jest inteligentne TV | % {wurfl_cap_is_smarttv} | Wartość logiczna wskazująca, czy urządzenie jest inteligentne TV. | fałsz
-Jest Smartphone | % {wurfl_vcap_is_smartphone} | Wartość logiczna wskazująca, czy urządzenie jest smartfona. | prawda
-Jest typu Tablet | % {wurfl_cap_is_tablet} | Wartość logiczna wskazująca, czy urządzenie jest na komputerze typu tablet. Ten opis jest niezależny od systemu operacyjnego. | prawda
-To urządzenie sieci bezprzewodowej | % {wurfl_cap_is_wireless_device} | Wartość logiczna wskazująca, czy urządzenie jest uznawane za urządzeniem sieci bezprzewodowej. | prawda
-Nazwa Marketing | % {wurfl_cap_marketing_name} | Ciąg, który wskazuje nazwę marketing dla urządzenia. | Perłowej blackBerry 8100
-Przeglądarkę dla telefonów | % {wurfl_cap_mobile_browser} | Ciąg, który wskazuje przeglądarki, która służy do żądania zawartości od urządzenia. | Chrome
-Wersja przenośnego przeglądarki | % {wurfl_cap_mobile_browser_version} | Ciąg, który wskazuje wersję przeglądarki, która służy do żądania zawartości od urządzenia. | 31
-Nazwa modelu | % {wurfl_cap_model_name} | Ciąg, który wskazuje nazwę modelu urządzenia. | S3
-Pobierania progresywnego | % {wurfl_cap_progressive_download} | Wartość logiczna, która wskazuje, czy urządzenie obsługuje odtwarzania audio i wideo, gdy nadal są pobierane. | prawda
-Data wydania | % {wurfl_cap_release_date} | Ciąg, który wskazuje rok i miesiąc dodawania do bazy danych WURFL urządzenia.<br/><br/>Format:`yyyy_mm` | 2013_december
-Wysokość rozwiązania | % {wurfl_cap_resolution_height} | Liczba całkowita, która wskazuje urządzenia wysokość w pikselach. | 768
-Szerokość rozwiązania | % {wurfl_cap_resolution_width} | Liczba całkowita, która wskazuje szerokość urządzenia w pikselach. | 1024
+Nazwa marki | %{wurfl_cap_brand_name} | Ciąg, który wskazuje nazwę urządzenia. | Samsung
+System operacyjny urządzenia | %{wurfl_cap_device_os} | Ciąg, który wskazuje system operacyjny zainstalowany na urządzeniu. | IOS
+Wersja systemu operacyjnego urządzenia | %{wurfl_cap_device_os_version} | Ciąg, który wskazuje numer wersji systemu operacyjnego zainstalowanego na urządzeniu. | 1.0.1
+Podwójna orientacji | %{wurfl_cap_dual_orientation} | Wartość logiczna, która wskazuje, czy urządzenie obsługuje dwa orientacji. | true
+HTML preferowane DTD | %{wurfl_cap_html_preferred_dtd} | Ciąg, który wskazuje definicja typu dokumentu preferowanych urządzeń przenośnych (DTD) dla zawartości HTML. | brak<br/>xhtml_basic<br/>html5
+Obraz ze Śródwierszowaniem | %{wurfl_cap_image_inlining} | Wartość logiczna wskazująca, czy urządzenie obsługuje Base64 zakodowany obrazów. | false
+Is Android | %{wurfl_vcap_is_android} | Wartość logiczna, która wskazuje, czy urządzenie używa system operacyjny Android. | true
+Is IOS | %{wurfl_vcap_is_ios} | Wartość logiczna wskazująca, czy urządzenie korzysta z systemem iOS. | false
+Jest inteligentne TV | %{wurfl_cap_is_smarttv} | Wartość logiczna wskazująca, czy urządzenie jest inteligentne TV. | false
+Jest Smartphone | %{wurfl_vcap_is_smartphone} | Wartość logiczna wskazująca, czy urządzenie jest smartfona. | true
+Jest typu Tablet | %{wurfl_cap_is_tablet} | Wartość logiczna wskazująca, czy urządzenie jest na komputerze typu tablet. Ten opis jest niezależny od systemu operacyjnego. | true
+To urządzenie sieci bezprzewodowej | %{wurfl_cap_is_wireless_device} | Wartość logiczna wskazująca, czy urządzenie jest uznawane za urządzeniem sieci bezprzewodowej. | true
+Nazwa Marketing | %{wurfl_cap_marketing_name} | Ciąg, który wskazuje nazwę marketing dla urządzenia. | Perłowej blackBerry 8100
+Przeglądarkę dla telefonów | %{wurfl_cap_mobile_browser} | Ciąg, który wskazuje przeglądarki, która służy do żądania zawartości od urządzenia. | Chrome
+Wersja przenośnego przeglądarki | %{wurfl_cap_mobile_browser_version} | Ciąg, który wskazuje wersję przeglądarki, która służy do żądania zawartości od urządzenia. | 31
+Nazwa modelu | %{wurfl_cap_model_name} | Ciąg, który wskazuje nazwę modelu urządzenia. | s3
+Pobierania progresywnego | %{wurfl_cap_progressive_download} | Wartość logiczna, która wskazuje, czy urządzenie obsługuje odtwarzania audio i wideo, gdy nadal są pobierane. | true
+Data wydania | %{wurfl_cap_release_date} | Ciąg, który wskazuje rok i miesiąc dodawania do bazy danych WURFL urządzenia.<br/><br/>Format: `yyyy_mm` | 2013_december
+Wysokość rozwiązania | %{wurfl_cap_resolution_height} | Liczba całkowita, która wskazuje urządzenia wysokość w pikselach. | 768
+Szerokość rozwiązania | %{wurfl_cap_resolution_width} | Liczba całkowita, która wskazuje szerokość urządzenia w pikselach. | 1024
 
 [Powrót do początku](#match-conditions-for-the-azure-cdn-rules-engine)
 
@@ -470,7 +470,7 @@ Metoda żądania dopasowania warunek jest spełniony, tylko wtedy, gdy zasoby s�
 - HEAD 
 - POST 
 - OPCJE 
-- PUT 
+- UMIEŚĆ 
 - DELETE 
 - ŚLEDZENIA 
 - POŁĄCZ 
@@ -592,8 +592,8 @@ Wartość specyfikacji: asp aspx php html
 Ten warunek dopasowanie jest spełniony, gdy znajdzie adresów URL, które kończą się z następującymi rozszerzeniami:
 - ASP
 - .aspx
-- PHP
-- .HTML
+- .php
+- .html
 
 [Powrót do początku](#match-conditions-for-the-azure-cdn-rules-engine)
 
@@ -753,7 +753,7 @@ Przykładowych konfiguracji w tabeli poniżej założono spełnienia tego warunk
 
 Wartość                   | Względem    | Wynik 
 ------------------------|----------------|-------
-*/Test.HTML */test.php  | Główny lub punkt początkowy | Ten wzorzec jest uwzględniony przez żądania dotyczące zasobów o nazwie "test.html" lub "test.php" w dowolnym folderze.
+*/test.html */test.php  | Główny lub punkt początkowy | Ten wzorzec jest uwzględniony przez żądania dotyczące zasobów o nazwie "test.html" lub "test.php" w dowolnym folderze.
 / 80ABCD/pochodzenia/tekstu / *   | Katalog główny           | Ten wzorzec jest zgodny, gdy żądanych zasobów spełnia następujące kryteria: <br />-Musi znajdować się w źródle klienta o nazwie "origin". <br />— Ścieżka względna musi rozpoczynać się od folder o nazwie "text". Oznacza to żądanych zasobów albo może znajdować się w folderze "text" lub jednej z jego podfolderach cyklicznego.
 */CSS/* */js/*          | Główny lub punkt początkowy | Ten wzorzec jest uwzględniony przez wszystkie CDN lub krawędzi adresy URL CNAME, który zawiera folder css i js.
 *.jpg *.gif *.png       | Główny lub punkt początkowy | Ten wzorzec jest uwzględniony przez wszystkie CDN lub krawędzi CNAME adresy URL kończą się ciągiem jpg, GIF lub PNG. Alternatywny sposób Określ ten wzorzec jest z [rozszerzenie ścieżki adresu URL zgodne z warunkiem](#url-path-extension).
@@ -783,8 +783,8 @@ Informacje o kluczu:
 
    Znak | Kodowanie adresu URL
    ----------|---------
-   Spacja     | % 20
-   &         | % 25
+   Spacja     | %20
+   &         | %25
 
 - Ze względu na sposób, w których pamięci podręcznej ustawienia są śledzone ten warunek dopasowania jest niezgodny z następujących funkcji:
    - Zakończenie wypełnienie pamięci podręcznej
@@ -819,8 +819,8 @@ Informacje o kluczu:
 
        Znak | Kodowanie adresu URL
        ----------|---------
-       Spacja     | % 20
-       &         | % 25
+       Spacja     | %20
+       &         | %25
 
 - Oddzielającego każdej z nich z jednego miejsca, aby określić wiele wartości parametru ciągu zapytania. To dopasowanie warunek jest spełniony, jeśli żądanie zawiera jedną z kombinacji określona nazwa/wartość.
 
@@ -896,8 +896,8 @@ Informacje o kluczu:
 
    Znak | Kodowanie adresu URL | Wartość
    ----------|--------------|------
-   Spacja     | % 20          | \%20
-   &         | % 25          | \%25
+   Spacja     | %20          | \%20
+   &         | %25          | \%25
 
    Należy pamiętać, że należy zastosować ucieczkę procent symboli.
 
@@ -938,8 +938,8 @@ Informacje o kluczu:
 
      Znak | Kodowanie adresu URL
      ----------|---------
-     Spacja     | % 20
-     &         | % 25
+     Spacja     | %20
+     &         | %25
 
 - Oddzielającego każdej z nich z jednego miejsca, aby określić wiele wartości.
 
@@ -961,8 +961,8 @@ W poniższym przykładzie pokazano, jak ta opcja działa w następujących sytua
 
  Name (Nazwa)                 | Opis
  ---------------------|------------
-Użytkownik = Jan              | Ten wzorzec jest zgodny, gdy ciąg zapytania dla żądanego adresu URL jest "? użytkownika = Jan."
-\*Użytkownik =\* \*optout =\* | Ten wzorzec jest zgodny, gdy zapytanie adresu URL CDN zawiera użytkownika lub parametru optout.
+user=joe              | Ten wzorzec jest zgodny, gdy ciąg zapytania dla żądanego adresu URL jest "? użytkownika = Jan."
+\*user=\* \*optout=\* | Ten wzorzec jest zgodny, gdy zapytanie adresu URL CDN zawiera użytkownika lub parametru optout.
 
 [Powrót do początku](#match-conditions-for-the-azure-cdn-rules-engine)
 

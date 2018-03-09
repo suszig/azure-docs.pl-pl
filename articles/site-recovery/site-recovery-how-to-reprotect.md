@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 02/06/2018
 ms.author: rajanaki
 ms.openlocfilehash: c336966f9a785707e76bc6a10c4a9283d797d064
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/07/2018
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>Włącz ponownie ochronę z platformy Azure do lokacji lokalnej
 
@@ -203,8 +203,8 @@ To replicate back to on-premises, you will need a failback policy. This policy g
 3. W **główny serwer docelowy** i **serwera przetwarzania**, wybierz lokalny główny serwer docelowy i serwera przetwarzania.
 4. Aby uzyskać **Datastore**, wybierz magazyn danych, do której chcesz odzyskać dyski lokalną. Ta opcja jest używana, gdy na lokalnej maszynie wirtualnej zostanie usunięta, a następnie musisz utworzyć nowe dyski. Ta opcja jest ignorowana, jeśli dyski już istnieje, ale nadal należy określić wartość.
 5. Wybierz dysk przechowywania.
-6. Zasady powrotu po awarii jest automatycznie wybierany.
-7. Kliknij przycisk **OK** zacząć zastosowania. Zadanie rozpoczyna się replikacja maszyny wirtualnej z platformy Azure do lokacji lokalnej. Postęp można śledzić na **zadania** kartę.
+6. Zasady powrotu po awarii są wybierane automatycznie.
+7. Kliknij przycisk **OK**, aby rozpocząć ponowne włączanie ochrony. Zadanie zaczyna replikować maszynę wirtualną z platformy Azure do lokacji lokalnej. Na karcie **Zadania** można śledzić postęp.
 
 Jeśli chcesz odzyskać do lokalizacji alternatywnej (po usunięciu na lokalnej maszynie wirtualnej), wybierz dysk przechowywania i magazynu danych skonfigurowanego dla głównego serwera docelowego. Gdy użytkownik powrót po awarii do lokacji lokalnej, w przypadku powrotu po awarii plan ochrony maszyn wirtualnych VMware Użyj tego samego magazynu danych jako główny serwer docelowy. W programie vCenter zostanie utworzona nowa maszyna wirtualna.
 
@@ -214,7 +214,7 @@ Jeśli chcesz odzyskać maszynę wirtualną na platformie Azure do istniejących
 Można również Obejmij ochroną na poziomie planu odzyskiwania. Grupa replikacji może przełączona do trybu tylko do planu odzyskiwania. Gdy użytkownik zacznij ponownie chronić przy użyciu planu odzyskiwania, musisz podać wartości dla każdego chronionego komputera.
 
 > [!NOTE]
-> Użyj tego samego serwera głównego celu włączyć ją ponownie do grupy replikacji. Użycie innego głównego serwera docelowego do Włącz ponownie ochronę grupy replikacji, serwer nie może dostarczyć wspólnego punktu w czasie.
+> Użyj tego samego głównego serwera docelowego do ponownego włączenia ochrony grupy replikacji. Użycie innego głównego serwera docelowego do ponownego włączenia ochrony grupy replikacji spowoduje, że serwer nie będzie mógł zapewnić wspólnego punktu w czasie.
 
 > [!NOTE]
 > Na lokalnej maszynie wirtualnej jest wyłączony podczas zastosowania. Pomaga to zapewnić spójność danych podczas replikacji. Nie należy włączać maszyny wirtualnej, po zakończeniu zastosowania.

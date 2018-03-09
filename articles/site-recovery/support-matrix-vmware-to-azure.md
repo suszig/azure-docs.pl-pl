@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/11/2018
+ms.date: 03/07/2018
 ms.author: raynew
-ms.openlocfilehash: 31754cd765c90b9e36d16dc766b0a3546e6fd93e
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 10d7db60ef584632a45fd7cdc5877461fa45af03
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Tabela wsparcia dla VMware i replikacja serwerów fizycznych do platformy Azure
 
@@ -22,14 +22,14 @@ Ten artykuł zawiera podsumowanie obsługiwanych składników i ustawienia odzys
 
 ## <a name="supported-scenarios"></a>Obsługiwane scenariusze
 
-Scenariusz | **Szczegóły**
+**Scenariusz** | **Szczegóły**
 --- | ---
 **Maszyny wirtualne VMware** | Można wykonać odzyskiwania po awarii do platformy Azure dla maszyn wirtualnych VMware lokalnymi. Można wdrożyć ten scenariusz, w portalu Azure lub za pomocą programu PowerShell.
 **Serwerów fizycznych** | Można wykonać odzyskiwania po awarii do platformy Azure dla lokalnych serwerów fizycznych systemu Windows i Linux. Można wdrożyć ten scenariusz, w portalu Azure.
 
 ## <a name="on-premises-virtualization-servers"></a>Lokalnych serwerów wirtualizacji
 
-**Serwer** | Wymagania | **Szczegóły**
+**Serwer** | **Wymagania** | **Szczegóły**
 --- | --- | ---
 **VMware** | vCenter Server 6.5 w wersji 6.0 lub 5.5 lub vSphere 6.5, 6.0 lub 5.5 | Firma Microsoft zaleca użycie serwera vCenter.
 **Serwerów fizycznych** | ND
@@ -70,13 +70,13 @@ System operacyjny maszyny (Linux) | Red Hat Enterprise Linux: 5.2-5.11, 6.1-6.9,
 
 **Składnik** | **Obsługiwane**
 --- | ---
-systemy plików | ext3, ext4, ReiserFS (tylko w systemie Suse Linux Enterprise Server), XFS
+systemy plików | ext3 ext4, XFS
 Menedżer woluminów | LVM2
-Oprogramowanie wielościeżkowego | Mapowanie urządzeń
-Urządzenia magazynujące parawirtualnego systemu | Wyeksportowane przez parawirtualnego systemu sterowników urządzeń nie są obsługiwane.
+Urządzenia magazynujące parawirtualnego systemu | Urządzenia eksportowane przez sterowniki parawirtualne nie są obsługiwane.
 Blokuj wielu kolejki We/Wy urządzenia | Nieobsługiwane.
 Serwery fizyczne z kontrolera magazynu HP CCISS | Nieobsługiwane.
 Katalogi | Te katalogi (jeśli skonfigurowany jako osobne partycje /-systemów plików) musi składać się na tym samym dysku systemu operacyjnego na serwerze źródłowym: / (root), / Boot usr, /usr/local, /var, etc. </br></br> Jeśli / (root) wolumin jest LVM, a następnie/Boot musi znajdować się na innej partycji na tym samym dysku i nie jest woluminem LVM.<br/><br/>
+|Wymagania dotyczące wolnego miejsca| 2 GB na partycji/root <br/>250 MB na folder instalacji
 XFSv5 | Funkcje XFSv5 na XFS systemów plików, takich jak metadanych sumy kontrolnej, są obsługiwane z 9.10 wersji usługi mobilności i nowszych. Użyj narzędzia xfs_info, aby sprawdzić superblock XFS dla partycji. Jeśli ftype jest ustawiona na 1, XFSv5 funkcje są w użyciu.
 
 
@@ -169,9 +169,9 @@ Dyski zarządzane | Yes
 
 Lokalnych maszyn wirtualnych, które są replikowane do platformy Azure musi spełniać wymagania maszyny Wirtualnej Azure podsumowaniem w poniższej tabeli.
 
-**Składnik** | Wymagania | **Szczegóły**
+**Składnik** | **Wymagania** | **Szczegóły**
 --- | --- | ---
-System operacyjny gościa | Sprawdź [obsługiwanych systemów operacyjnych](#replicated machines). | Sprawdzanie wymagań wstępnych kończy się niepowodzeniem, jeśli jest nieobsługiwany.
+**System operacyjny gościa** | Sprawdź [obsługiwanych systemów operacyjnych](#replicated machines). | Sprawdzanie wymagań wstępnych kończy się niepowodzeniem, jeśli jest nieobsługiwany.
 **Architektura systemu operacyjnego gościa** | 64-bitowa | Sprawdzanie wymagań wstępnych kończy się niepowodzeniem, jeśli jest nieobsługiwany.
 **Rozmiar dysku systemu operacyjnego** | Do 2048 GB | Sprawdzanie wymagań wstępnych kończy się niepowodzeniem, jeśli jest nieobsługiwany.
 **Liczba dysków systemu operacyjnego** | 1 | Sprawdzanie wymagań wstępnych kończy się niepowodzeniem, jeśli jest nieobsługiwany.
@@ -198,7 +198,7 @@ Przenieść magazyn, sieć, maszyn wirtualnych platformy Azure w grupach zasobó
 **Nazwa** | **Opis** | **Najnowsza wersja** | **Szczegóły**
 --- | --- | --- | --- | ---
 **Instalator Unified usługi Azure Site Recovery** | Współrzędne komunikacji między serwerami lokalnymi VMware i Azure <br/><br/> Zainstalowana na lokalnych serwerach VMware | 9.12.4653.1 (dostępne w portalu) | [Najnowsze funkcje i poprawki](https://aka.ms/latest_asr_updates)
-Usługa mobilności | Koordynuje replikację między lokalnymi VMware serwerów/serwery fizyczne i Azure/dodatkowej lokacji<br/><br/> Zainstalowana na maszynie Wirtualnej VMware lub serwerów fizycznych, które chcesz replikować | 9.12.4653.1 (dostępne w portalu) | [Najnowsze funkcje i poprawki](https://aka.ms/latest_asr_updates)
+**Usługa mobilności** | Koordynuje replikację między lokalnymi VMware serwerów/serwery fizyczne i Azure/dodatkowej lokacji<br/><br/> Zainstalowana na maszynie Wirtualnej VMware lub serwerów fizycznych, które chcesz replikować | 9.12.4653.1 (dostępne w portalu) | [Najnowsze funkcje i poprawki](https://aka.ms/latest_asr_updates)
 
 
 ## <a name="next-steps"></a>Kolejne kroki

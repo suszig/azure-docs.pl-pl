@@ -69,6 +69,8 @@
           href: physical-azure-architecture.md
         - name: Architektura Hyper-V–lokacja dodatkowa
           href: hyper-v-vmm-architecture.md
+        - name: Omówienie obsługi wielodostępu przy odzyskiwaniu po awarii programu VMware
+          href: vmware-azure-multi-tenant-overview.md
     - name: Tabela wymagań dotyczących obsługi
       items:
         - name: Tabela obsługi replikacji Azure–Azure
@@ -84,7 +86,7 @@
         - name: Odzyskiwanie po awarii dla obciążeń
           href: site-recovery-workload.md
         - name: Migracja na platformę Azure
-          href: site-recovery-migrate-to-azure.md
+          href: migrate-overview.md
     - name: Uprawnienia dostępu oparte na rolach
       href: site-recovery-role-based-linked-access-control.md
     - name: Usługa Azure Traffic Manager z usługą Azure Site Recovery
@@ -101,7 +103,7 @@
           href: azure-to-azure-network-mapping.md
         - name: Konfigurowanie adresów IP po przełączeniu maszyny wirtualnej platformy Azure do trybu failover
           href: site-recovery-retain-ip-azure-vm-failover.md
-        - name: Zarządzanie interfejsami sieciowymi na potrzeby odzyskiwania po awarii ze środowiska lokalnego na platformę Azure
+        - name: Zarządzanie interfejsami sieciowymi na potrzeby replikacji ze środowiska lokalnego na platformę Azure
           href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
         - name: Przygotowywanie mapowania sieciowego na potrzeby odzyskiwania po awarii maszyny wirtualnej funkcji Hyper-V
           href: hyper-v-vmm-network-mapping.md
@@ -123,8 +125,8 @@
           href: site-recovery-test-failover-to-azure.md
         - name: Uruchamianie próbnego odzyskiwania po awarii maszyn wirtualnych funkcji Hyper-V do lokacji dodatkowej
           href: hyper-v-vmm-test-failover.md
-        - name: Odzyskiwanie po awarii maszyn wirtualnych oprogramowania VMware z obsługą wielodostępu do platformy Azure
-          href: site-recovery-multi-tenant-support-vmware-using-csp.md
+        - name: Odzyskiwanie po awarii maszyn wirtualnych programu VMware z obsługą wielodostępu i dostawcą usług w chmurze
+          href: vmware-azure-multi-tenant-csp-disaster-recovery.md
     - name: Przechodzenie do trybu failover i powrót po awarii
       items:
         - name: Konfigurowanie planów odzyskiwania
@@ -133,6 +135,8 @@
           href: site-recovery-runbook-automation.md
         - name: Dodawanie skryptów programu VMM do planów odzyskiwania
           href: hyper-v-vmm-recovery-script.md
+        - name: Konfigurowanie serwerów przetwarzania na platformie Azure i zarządzanie nimi na potrzeby powrotu po awarii
+          href: vmware-azure-set-up-process-server-azure.md
         - name: Tryb failover
           items:
             - name: Informacje o trybie failover
@@ -146,19 +150,19 @@
             - name: Ponowne włączanie ochrony po przejściu z regionu pomocniczego platformy Azure do podstawowego
               href: azure-to-azure-how-to-reprotect.md
             - name: Ponowne włączanie ochrony po przejściu z platformy Azure do środowiska lokalnego
-              href: site-recovery-how-to-reprotect.md
+              href: vmware-azure-reprotect.md
         - name: Powrót po awarii z platformy Azure
           items:
             - name: Powrót po awarii z platformy Azure do programu VMware
-              href: site-recovery-how-to-failback-azure-to-vmware.md
+              href: vmware-azure-failback.md
             - name: Powrót po awarii z platformy Azure do programu Hyper-V
               href: hyper-v-azure-failback.md
         - name: Konfigurowanie głównego serwera docelowego z systemem Linux na potrzeby powrotu po awarii
-          href: site-recovery-how-to-install-linux-master-target.md
+          href: vmware-azure-install-linux-master-target.md
     - name: Migrate (Migracja)
       items:
         - name: Informacje o migracji
-          href: site-recovery-migrate-to-azure.md
+          href: migrate-overview.md
         - name: Replikowanie maszyn wirtualnych platformy Azure po zakończeniu migracji do innego regionu
           href: azure-to-azure-replicate-after-migration.md
     - name: Wydajność i skalowanie
@@ -177,7 +181,7 @@
             - name: Analizowanie raportu szacowania kosztów
               href: site-recovery-vmware-deployment-planner-cost-estimation.md
         - name: Skalowanie serwerów przetwarzania do wewnątrz na potrzeby replikacji oprogramowania VMware
-          href: site-recovery-vmware-to-azure-manage-scaleout-process-server.md
+          href: vmware-azure-set-up-process-server-scale.md
         - name: Narzędzie Planista wdrażania na potrzeby replikacji funkcji Hyper-V do platformy Azure
           href: null
           items:
@@ -196,23 +200,23 @@
         - name: Konfigurowanie środowiska źródłowego
           items:
             - name: Środowisko źródłowe dla replikacji VMware–Azure
-              href: site-recovery-set-up-vmware-to-azure.md
+              href: vmware-azure-set-up-source.md
             - name: Wdrażanie serwera konfiguracji na potrzeby odzyskiwania po awarii programu VMware
-              href: how-to-deploy-configuration-server.md
+              href: vmware-azure-deploy-configuration-server.md
             - name: Środowisko źródłowe dla replikacji maszyna fizyczna–Azure
-              href: site-recovery-set-up-physical-to-azure.md
+              href: physical-azure-set-up-source.md
         - name: Konfigurowanie środowiska docelowego
           items:
             - name: Środowisko docelowe dla replikacji VMware–Azure
-              href: site-recovery-prepare-target-vmware-to-azure.md
+              href: vmware-azure-set-up-target.md
             - name: Środowisko docelowe dla replikacji maszyna fizyczna–Azure
-              href: site-recovery-prepare-target-physical-to-azure.md
+              href: physical-azure-set-up-target.md
         - name: Konfigurowanie ustawień replikacji
           items:
             - name: Konfigurowanie ustawień replikacji oprogramowania VMware na platformie Azure
-              href: site-recovery-setup-replication-settings-vmware.md
+              href: vmware-azure-set-up-replication.md
             - name: Wykluczanie dysków z replikacji VMware–Azure
-              href: site-recovery-exclude-disk.md
+              href: vmware-azure-exclude-disk.md
             - name: Wykluczanie dysków z replikacji Hyper-V–Azure
               href: hyper-v-exclude-disk.md
         - name: Włączanie replikacji
@@ -220,19 +224,19 @@
             - name: Włączanie replikacji Azure–Azure
               href: azure-to-azure-how-to-enable-replication.md
             - name: Włączanie replikacji VMware–Azure
-              href: site-recovery-replicate-vmware-to-azure.md
+              href: vmware-azure-enable-replication.md
         - name: Wdrażanie usługi mobilności dla oprogramowania VMware
           items:
             - name: Informacje o usłudze mobilności
-              href: site-recovery-vmware-to-azure-install-mob-svc.md
+              href: vmware-azure-install-mobility-service.md
             - name: Wdrażanie usługi mobilności za pomocą programu System Center Configuration Manager
-              href: site-recovery-install-mobility-service-using-sccm.md
+              href: vmware-azure-mobility-install-configuration-mgr.md
             - name: Wdrażanie usługi mobilności przy użyciu usługi Azure Automation DSC
-              href: site-recovery-automate-mobility-service-install.md
+              href: vmware-azure-mobility-deploy-automation-dsc.md
     - name: Automatyzacja
       items:
         - name: Replikowanie maszyn wirtualnych programu VMware na platformę Azure za pomocą programu PowerShell
-          href: site-recovery-vmware-to-azure-powershell.md
+          href: vmware-azure-disaster-recovery-powershell.md
         - name: Konfigurowanie replikacji funkcji Hyper-V na platformie Azure (bez programu VMM) przy użyciu programu PowerShell
           href: hyper-v-azure-powershell-resource-manager.md
         - name: Konfigurowanie replikacji funkcji Hyper-V na platformie Azure (z programem VMM) przy użyciu programu PowerShell
@@ -265,31 +269,29 @@
           href: 'site-recovery-workload.md#workload-summary'
     - name: Zarządzanie
       items:
-        - name: Zarządzanie serwerami przetwarzania na platformie Azure
-          href: site-recovery-vmware-setup-azure-ps-resource-manager.md
         - name: Zarządzanie serwerem konfiguracji na potrzeby odzyskiwania po awarii programu VMware
-          href: site-recovery-vmware-to-azure-manage-configuration-server.md
+          href: vmware-azure-manage-configuration-server.md
         - name: Zarządzanie serwerem konfiguracji na potrzeby odzyskiwania po awarii maszyny fizycznej
           href: physical-manage-configuration-server.md
         - name: Zarządzanie serwerami vCenter
-          href: site-recovery-vmware-to-azure-manage-vCenter.md
-        - name: Zarządzanie wielodostępnością za pomocą programu CSP
-          href: site-recovery-manage-multi-tenancy-with-csp.md
+          href: vmware-azure-manage-vcenter.md
+        - name: Zarządzanie serwerami przetwarzania
+          href: vmware-azure-manage-process-server.md
         - name: Usuwanie serwerów i wyłączanie ochrony
           href: site-recovery-manage-registration-and-protection.md
         - name: Usuwanie magazynu
           href: delete-vault.md
     - name: Monitorowanie i rozwiązywanie problemów
       items:
-        - name: Problemy z replikacją Azure–Azure
+        - name: Rozwiązywanie problemów z replikacją Azure-Azure
           href: azure-to-azure-troubleshoot-errors.md
-        - name: Problemy dotyczące replikacji ze środowiska lokalnego do platformy Azure
-          href: site-recovery-vmware-to-azure-protection-troubleshoot.md
-        - name: Problemy dotyczące usługi mobilności
-          href: site-recovery-vmware-to-azure-push-install-error-codes.md
-        - name: Problemy z przełączaniem do trybu failover na platformie Azure
+        - name: Rozwiązywanie problemów z replikacją VMware-Azure
+          href: vmware-azure-troubleshoot-replication.md
+        - name: Rozwiązywanie problemów z usługą mobilności przy replikacji programu VMware i serwera fizycznego
+          href: vmware-azure-troubleshoot-push-install.md
+        - name: Rozwiązywanie problemów z przełączaniem do trybu failover na platformę Azure
           href: site-recovery-failover-to-azure-troubleshoot.md
-        - name: Problemy z ponownym włączaniem ochrony i powrotem po awarii
+        - name: Rozwiązywanie problemów z włączaniem ponownej ochrony i powrotem po awarii maszyn wirtualnych programu VMware z platformy Azure
           href: vmware-azure-troubleshoot-failback-reprotect.md
         - name: Monitorowanie usługi Azure Site Recovery
           href: site-recovery-monitor-and-troubleshoot.md

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: billgib; sstein
-ms.openlocfilehash: 90510520e5f6bbfa8aea4026d7437a4a4881984f
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 7747092d5613a40fa0aff09cfbdfb9b786b37954
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="set-up-and-use-log-analytics-oms-with-a-multi-tenant-azure-sql-database-saas-app"></a>Konfigurowanie i używanie analizy dzienników (OMS) z wielodostępnych aplikacji SaaS bazy danych SQL Azure
 
@@ -132,7 +132,7 @@ W portalu OMS można eksplorować dane dziennika i metryki w obszarze roboczym d
 
 Monitorowanie i alerty analizy dzienników i OMS na podstawie kwerend danych w obszarze roboczym, w odróżnieniu od alerty zdefiniowane na każdy zasób w portalu Azure. Użycie alerty dla zapytań, można określić pojedynczy alert, która wygląda przez wszystkie bazy danych, a nie definiującego po jednym dla każdej bazy danych. Zapytania są ograniczone tylko przez ilość danych dostępnych w obszarze roboczym.
 
-Aby uzyskać więcej informacji na temat używania OMS zapytań, Ustaw alerty Zobacz, [Praca z reguły alertów w analizy dzienników](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-alerts-creating).
+Aby uzyskać więcej informacji na temat używania OMS zapytań, Ustaw alerty Zobacz, [Praca z reguły alertów w analizy dzienników](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts-creating).
 
 Opłaty za programy Log Analytics i SQL Database zależą od ilości danych w obszarze roboczym. W tym samouczku utworzono obszar roboczy wolne, która jest ograniczona do 500 MB na dzień. Po osiągnięciu tego limitu danych jest już dodany do obszaru roboczego.
 

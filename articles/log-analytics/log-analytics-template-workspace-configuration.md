@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 03/05/2018
 ms.author: richrund
-ms.openlocfilehash: cea25429dc6e5f9f12f472d17e8743d272135257
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: db9b941e84c018a3a56dd683c118e47ee808259d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Zarządzanie za pomocą szablonów usługi Azure Resource Manager analizy dzienników
 Można użyć [szablonów usługi Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) do tworzenia i konfigurowania analizy dzienników obszarów roboczych. Zadania, które można wykonywać za pomocą szablonów należą:
@@ -31,7 +31,6 @@ Można użyć [szablonów usługi Azure Resource Manager](../azure-resource-mana
 * Zebrać liczników wydajności z komputerów z systemami Linux i Windows
 * Zbierać zdarzenia z dziennika systemowego na komputerach z systemem Linux 
 * Zbieranie zdarzeń z dzienników zdarzeń systemu Windows
-* Zbieranie dzienników zdarzeń niestandardowych
 * Dodaj agenta analizy dziennika do maszyny wirtualnej platformy Azure
 * Konfigurowanie analizy dzienników do indeksowania danych zbieranych za pomocą diagnostyki Azure
 
@@ -60,7 +59,6 @@ Poniższy przykład szablonu ilustruje sposób:
 7. Zbieraj zdarzenia dziennika systemowego z komputerów z systemem Linux
 8. Zbieranie zdarzeń błędu i ostrzeżenia w dzienniku zdarzeń aplikacji z komputerów z systemem Windows
 9. Zbieraj dane licznika wydajności dostępna pamięć (MB) z komputerów z systemem Windows
-10. Zbieranie dzienników niestandardowych 
 11. Zbieranie dzienników usług IIS i dzienniki zdarzeń systemu Windows zapisywane przez diagnostycznych platformy Azure na konto magazynu
 
 ```json
@@ -295,61 +293,6 @@ Poniższy przykład szablonu ilustruje sposób:
         },
         {
           "apiVersion": "2015-11-01-preview",
-          "type": "datasources",
-          "name": "sampleCustomLog1",
-          "dependsOn": [
-            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
-          ],
-          "kind": "CustomLog",
-          "properties": {
-            "customLogName": "sampleCustomLog1",
-            "description": "test custom log datasources",
-            "inputs": [
-              {
-                "location": {
-                  "fileSystemLocations": {
-                    "windowsFileTypeLogPaths": [ "e:\\iis5\\*.log" ],
-                    "linuxFileTypeLogPaths": [ "/var/logs" ]
-                  }
-                },
-                "recordDelimiter": {
-                  "regexDelimiter": {
-                    "pattern": "\\n",
-                    "matchIndex": 0,
-                    "matchIndexSpecified": true,
-                    "numberedGroup": null
-                  }
-                }
-              }
-            ],
-            "extractions": [
-              {
-                "extractionName": "TimeGenerated",
-                "extractionType": "DateTime",
-                "extractionProperties": {
-                  "dateTimeExtraction": {
-                    "regex": null,
-                    "joinStringRegex": null
-                  }
-                }
-              }
-            ]
-          }
-        },
-        {
-          "apiVersion": "2015-11-01-preview",
-          "type": "datasources",
-          "name": "sampleCustomLogCollection1",
-          "dependsOn": [
-            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
-          ],
-          "kind": "CustomLogCollection",
-          "properties": {
-            "state": "LinuxLogsEnabled"
-          }
-        },
-        {
-          "apiVersion": "2015-11-01-preview",
           "name": "[concat(parameters('applicationDiagnosticsStorageAccountName'),parameters('workspaceName'))]",
           "type": "storageinsightconfigs",
           "dependsOn": [
@@ -464,7 +407,7 @@ Poniższy przykład szablonu ilustruje sposób:
 ### <a name="deploying-the-sample-template"></a>Wdrażanie przykładowy szablon
 Aby wdrożyć przykładowy szablon:
 
-1. Na przykład zapisać przykładowe dołączone w pliku,`azuredeploy.json` 
+1. Na przykład zapisać przykładowe dołączone w pliku, `azuredeploy.json` 
 2. Edytuj szablon do konfiguracji, który ma
 3. Użyj programu PowerShell lub wiersza polecenia do wdrożenia szablonu
 

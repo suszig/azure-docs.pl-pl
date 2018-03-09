@@ -47,9 +47,13 @@
           href: delete-cluster.md
     - name: Konfigurowanie woluminów danych
       items:
-        - name: Azure Disks
+        - name: Wolumin Kubernetes — dyski
+          href: azure-disk-volume.md
+        - name: Wolumin Kubernetes — pliki
+          href: azure-files-volume.md
+        - name: Trwały wolumin — dyski
           href: azure-disks-dynamic-pv.md
-        - name: Azure Files
+        - name: Trwały wolumin — pliki
           href: azure-files-dynamic-pv.md
     - name: Konfigurowanie sieci
       items:
@@ -73,6 +77,8 @@
           href: integrate-azure.md
         - name: Ciągłe wdrażanie przy użyciu usługi Jenkins
           href: jenkins-continuous-deployment.md
+        - name: Używanie usługi OpenFaaS z usługą AKS
+          href: openfaas.md
     - name: Podstawy platformy Kubernetes
       items:
         - name: Używanie pulpitu nawigacyjnego rozwiązania Kubernetes

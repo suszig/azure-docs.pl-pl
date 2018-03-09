@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: jroth
-ms.openlocfilehash: 23538e933c8d1c2165cec1bdf1e9db28e0065801
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 64245a968eca94518d2e4238b4bc5c93c952563a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>Migrowanie bazy danych programu SQL Server do programu SQL Server na maszynie wirtualnej platformy Azure
 
@@ -96,6 +96,9 @@ Użyj [usługi Import/Eksport Windows metody](../../../storage/common/storage-im
 
 ## <a name="next-steps"></a>Następne kroki
 Aby uzyskać więcej informacji na temat uruchamiania programu SQL Server na maszynach wirtualnych platformy Azure, zobacz [programu SQL Server na maszynach wirtualnych platformy Azure — omówienie](virtual-machines-windows-sql-server-iaas-overview.md).
+
+> [!TIP]
+> Jeśli masz pytania dotyczące maszyn wirtualnych programu SQL Server, zobacz [— często zadawane pytania](virtual-machines-windows-sql-server-iaas-faq.md).
 
 Aby uzyskać instrukcje dotyczące tworzenia maszyny wirtualnej Azure SQL Server z przechwyconego obrazu, zobacz [porady i sztuczki w klonowania maszyn wirtualnych Azure SQL z przechwyconych obrazów](https://blogs.msdn.microsoft.com/psssql/2016/07/06/tips-tricks-on-cloning-azure-sql-virtual-machines-from-captured-images/) na blogu inżynierów serwera SQL CSS.
 

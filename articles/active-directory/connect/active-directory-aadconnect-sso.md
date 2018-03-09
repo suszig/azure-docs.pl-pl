@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: b71a2f19fee370ab1d732becd1c3b644505e2233
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 14018db3cbe34c9eca9048ceaf376ff3a06a4353
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Usługa Azure Active Directory bezproblemowe logowanie jednokrotne
 
@@ -51,6 +51,8 @@ Bezproblemowe logowanie Jednokrotne można łączyć z jedną [synchronizacji sk
 - Nazwa logowania użytkownika może być albo lokalnymi domyślna nazwa użytkownika (`userPrincipalName`) lub inny atrybut skonfigurowane w programie Azure AD Connect (`Alternate ID`). Użyć obu przypadkach pracy, ponieważ używa bezproblemowe logowania jednokrotnego `securityIdentifier` oświadczeń w bilecie protokołu Kerberos w celu wyszukania odpowiedniego obiektu użytkownika w usłudze Azure AD.
 - Bezproblemowe rejestracji Jednokrotnej jest funkcją oportunistyczne. Jeśli go nie powiedzie się z jakiegokolwiek powodu, środowisko logowania użytkownika Przechodzi wstecz na nim - tj, użytkownik musi wprowadzić swoje hasło na stronie logowania.
 - Jeśli aplikacja przekazuje `domain_hint` (OpenID Connect) lub `whr` parametr (SAML) - identyfikujący dzierżawy, lub `login_hint` parametru - identyfikacji użytkownika, w jego usługi Azure AD żądania logowania, użytkownicy zostaną automatycznie wylogowani bez ich wprowadzania nazwy użytkownika i hasła.
+- Wyloguj jest obsługiwana. Dzięki temu użytkownicy mogą wybrać inne konto usługi Azure AD do zalogowania, zamiast automatycznie podpisywana przy użyciu logowania jednokrotnego bezproblemowe automatycznie.
+- Klienci Office 365 (16.0.8730.xxxx i nowsze) są obsługiwane przy użyciu podejścia nieinterakcyjnego przepływu.
 - Można ją włączyć za pomocą usługi Azure AD Connect.
 - Jest bezpłatna funkcji i nie wymagają żadnych wersji płatnej usługi Azure AD z niego korzystać.
 - Jest obsługiwana na klientach przeglądarki sieci web i klientom pakietu Office, które obsługują [nowoczesnego uwierzytelniania](https://aka.ms/modernauthga) na różnych platformach i przeglądarki umożliwia uwierzytelnianie Kerberos:

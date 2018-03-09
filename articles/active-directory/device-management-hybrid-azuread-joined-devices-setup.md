@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 203e36b198186db63b7e902db296adeaa9ffb4ee
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 188f02aa69d7b39bc5bc4873b437825107a7ae4e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Konfigurowanie hybrydowego urządzeń przyłączonych do usługi Azure Active Directory
 
@@ -34,7 +34,7 @@ Przed rozpoczęciem konfigurowania urządzeń usługi Azure AD przyłączone do 
 
 Jeśli używasz [narzędzie przygotowywania systemu (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10)), upewnij się, tworzenie obrazów z instalacji systemu Windows, która nie została jeszcze zarejestrowana z usługą Azure AD.
 
-Wszystkie urządzenia przyłączone do domeny uruchomiony system Windows 10 Anniversary Update i Windows Server 2016 automatycznego rejestrowania z usługą Azure AD na ponowne uruchomienie urządzenia lub użytkownika logowania po zakończeniu kroków konfiguracji wymienione poniżej. To zachowanie automatyczne rejestru nie jest preferowany lub wymagane jest kontrolowany przez wdrożenie, wykonaj instrukcje w poniższej sekcji kontroli wdrożenia i wdrożenie najpierw selektywnie włączyć lub wyłączyć automatyczne wdrażanie przed wykonaniem innych czynności konfiguracyjne.  
+Wszystkie urządzenia przyłączone do domeny uruchomiony system Windows 10 Anniversary Update i Windows Server 2016 automatycznego rejestrowania z usługą Azure AD na ponowne uruchomienie urządzenia lub użytkownika logowania po zakończeniu kroków konfiguracji wymienione poniżej. **Jeśli to zachowanie automatyczne rejestru nie jest preferowana, lub jeśli wymagane jest kontrolowany przez wdrożenie**, wykonaj instrukcje podane w sekcji "Krok 4: kontroli i wdrażania" poniżej, aby selektywnie włączać lub wyłączać automatyczną wdrożenia przed następujące kroki konfiguracji.  
 
 Aby zwiększyć czytelność opisy, w tym temacie używa następujących termin: 
 
@@ -542,7 +542,7 @@ Po wykonaniu czynności wymagane urządzenia przyłączone do domeny są gotowe 
 
 ### <a name="remarks"></a>Uwagi
 
-- Obiekt zasad grupy umożliwia kontrolować dystrybucję automatycznej rejestracji systemu Windows 10 i komputerów przyłączonych do domeny systemu Windows Server 2016.
+- Obiekt zasad grupy umożliwia kontrolować dystrybucję automatycznej rejestracji systemu Windows 10 i komputerów przyłączonych do domeny systemu Windows Server 2016. **Jeśli nie chcesz, aby te urządzenia do automatycznego rejestrowania w usłudze Azure AD lub chcesz kontrolować rejestracji**, a następnie musi wprowadzana wyłączanie automatycznej rejestracji na tych urządzeniach, przed rozpoczęciem z konfiguracją zasad grupy kroki. Po zakończeniu konfigurowania, i gdy wszystko będzie gotowe do testowania, należy wdrożyć zasady grupy Włączenie automatycznej rejestracji tylko do urządzeń testowych, a następnie do wszystkich urządzeń podczas wybierz pozycję.
 
 - Windows 10 listopada 2015 aktualizacja automatycznie tworzy sprzężenie z usługą Azure AD **tylko** Jeśli obiekt zasad grupy wdrożenia jest ustawiony.
 

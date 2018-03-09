@@ -3,8 +3,8 @@ title: "Usługi na podstawie zapotrzebowania ruchu w lokalizacji platformy Azure
 description: "Dowiedz się więcej o ruchu usługi na podstawie zapotrzebowania w lokalizacji platformy Azure"
 services: location-based-services
 keywords: 
-author: dsk-2015
-ms.author: dkshir
+author: kgremban
+ms.author: kgremban
 ms.date: 11/28/2017
 ms.topic: article
 ms.service: location-based-services
@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 5bfda1cd211eb08f80527aa0116815023ff93931
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 251c736e0f607ffeea144639f437900eb337b6ea
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-location-based-services---traffic-coverage"></a>Lokalizacja platformy Azure na podstawie usług - pokrycia ruchu
 
@@ -42,7 +42,7 @@ Azure lokalizacji na podstawie usług (kg) zawiera informacje sformatowanego ruc
 |Finlandia     |✓         |✓         |
 |+ Wyspy Åland      |✓         |✓         |
 |Francja     |✓         |✓         |
-|+ Monaco     |✓         |✓         |
+|+Monaco     |✓         |✓         |
 |Niemcy     |✓         |✓         |
 |Grecja     |✓         |✓         |
 |Hongkong SAR     |✓         |✓         |
@@ -52,10 +52,10 @@ Azure lokalizacji na podstawie usług (kg) zawiera informacje sformatowanego ruc
 |Irlandii (Republika)     |✓         |✓         |
 |Izrael     |         |✓         |
 |Włochy     |✓         |✓        |
-|+ San Marino     |✓         |✓         |
+|+San Marino     |✓         |✓         |
 |Kuwejt     |✓         |✓         |
 |Łotwa     |         |✓         |
-|Lesoto     |✓         |✓         |
+|Lesotho     |✓         |✓         |
 |Litwa     |         |✓         |
 |Luksemburg     |✓         |✓         |
 |Makau SAR     |         |✓         |
@@ -82,10 +82,10 @@ Azure lokalizacji na podstawie usług (kg) zawiera informacje sformatowanego ruc
 |+ Andory     |✓         |✓         |
 |+ Baleary     |✓         |✓         |
 |+ Element Canary Wyspy     |✓         |✓         |
-|+ Gibraltaru     |✓         |✓         |
+|+Gibraltar     |✓         |✓         |
 |Szwecja     |✓         |✓         |
 |Szwajcaria     |✓         |✓        |
-|+ Liechtenstein      |✓         |✓         |
+|+Liechtenstein      |✓         |✓         |
 |Tajwan     |✓         |✓        |
 |Tajlandia     |✓         |✓        |
 |Turcja     |✓         |✓         |
@@ -95,4 +95,4 @@ Azure lokalizacji na podstawie usług (kg) zawiera informacje sformatowanego ruc
 |(Guernsey & Jersey)     |✓         |✓         |
 |Wyspa Man     |✓         |✓         |
 |Stany Zjednoczone     |✓         |✓        |
-|+ Portoryko     |✓         |✓         |
+|+Puerto Rico     |✓         |✓         |

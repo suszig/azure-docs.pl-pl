@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 52a03624b8e3841f559caef564712ff74a614365
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8037942cb3700f8e46d3be24b5fed04004333335
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-configure-security-alerts-in-azure-ad-privileged-identity-management"></a>Jak skonfigurować alerty zabezpieczeń w usłudze Azure AD Privileged Identity Management
 ## <a name="security-alerts"></a>Alerty zabezpieczeń
@@ -27,13 +27,18 @@ Azure Privileged Identity zarządzania (PIM) generuje alerty w przypadku podejrz
 
 ![Alerty zabezpieczeń pulpitu nawigacyjnego PIM — zrzut ekranu][1]
 
-| Alerty | Wyzwalacz | Zalecenie |
-| --- | --- | --- |
-| **Role są przypisywane poza usługą PIM** |Administrator trwale został przypisany do roli, poza interfejsu usługi PIM. |Przejrzyj nowe przypisanie roli. Ponieważ inne usługi można przypisać tylko administratorami trwałymi, zmień ją na kwalifikujące się przypisania w razie potrzeby. |
-| **Role są aktywowane zbyt często** |Znaleziono zbyt wiele reaktywacje z tego samego elementu role w określonym terminie w ustawieniach. |Skontaktuj się z użytkownika, aby zobaczyć, dlaczego ich uaktywniono rolę tak wiele razy. Być może limit czasu jest zbyt krótka dla ich do wykonywania swoich zadań lub może być one używane skrypty do automatycznie aktywować rolę. |
-| **Role nie wymagają uwierzytelniania wieloskładnikowego w celu aktywacji** |Dostępne są role bez włączone w ustawieniach usługi MFA. |Firma Microsoft uwierzytelniania MFA można wymagać dla ról najbardziej wysoko uprzywilejowane, ale zdecydowanie zaleca się włączenie usługi MFA do aktywacji wszystkich ról. |
-| **Administratorzy nie są używane role uprzywilejowane** |Brak kwalifikujących się Administratorzy, które nie zostały ostatnio aktywowane ich ról. |Uruchom Przegląd dostępu, aby określić użytkowników, którzy nie potrzebują już dostępu. |
-| **Istnieje zbyt wiele administratorów globalnych** |Brak administratorów globalnych niż zalecane. |Jeśli masz dużą liczbę administratorów globalnych, istnieje prawdopodobieństwo, że użytkownicy uzyskują więcej uprawnień niż jest to wymagane. Przenieść użytkowników do ról uprzywilejowanych mniej lub upewnij niektóre z nich kwalifikuje się do roli zamiast trwale przypisana. |
+| Alerty | Ważność | Wyzwalacz | Zalecenie |
+| --- | --- | --- | --- |
+| **Role są przypisywane poza usługą PIM** |Wysoka |Użytkownik trwale przypisano rolę uprzywilejowaną, poza interfejsu usługi PIM. |Przejrzyj użytkowników na liście i anulowanie przypisania je z uprzywilejowany role przypisane poza usługą PIM. |
+| **Role są aktywowane zbyt często** |Medium |Znaleziono zbyt wiele reaktywacje z tego samego elementu role w określonym terminie w ustawieniach. |Skontaktuj się z użytkownika, aby zobaczyć, dlaczego ich uaktywniono rolę tak wiele razy. Być może limit czasu jest zbyt krótka dla ich do wykonywania swoich zadań lub może być one używane skrypty do automatycznie aktywować rolę. Upewnij się, że czas trwania aktywacji dla roli ich ustawiono wystarczająco długo, aby je do wykonywania swoich zadań. |
+| **Role nie wymagają uwierzytelniania wieloskładnikowego w celu aktywacji** |Medium |Dostępne są role bez włączone w ustawieniach usługi MFA. |Firma Microsoft uwierzytelniania MFA można wymagać dla ról najbardziej wysoko uprzywilejowane, ale zdecydowanie zaleca się włączenie usługi MFA do aktywacji wszystkich ról. |
+| **Użytkownicy nie są przy użyciu ich ról uprzywilejowanych** |Małe |Brak kwalifikujących się Administratorzy, które nie zostały ostatnio aktywowane ich ról. |Uruchom Przegląd dostępu, aby określić użytkowników, którzy nie potrzebują już dostępu. |
+| **Istnieje zbyt wiele administratorów globalnych** |Małe |Brak administratorów globalnych niż zalecane. |Jeśli masz dużą liczbę administratorów globalnych, istnieje prawdopodobieństwo, że użytkownicy uzyskują więcej uprawnień niż jest to wymagane. Przenieść użytkowników do ról uprzywilejowanych mniej lub upewnij niektóre z nich kwalifikuje się do roli zamiast trwale przypisana. |
+
+### <a name="severity"></a>Ważność
+* **Wysoka**: wymaga natychmiastowego działania z powodu naruszenia zasad. 
+* **Średnia liczba godzin**: nie wymagać natychmiastowego działania, ale sygnalizuje potencjalne naruszenie zasad.
+* **Niski**: nie wymagać natychmiastowego działania, ale sugeruje zmianę preferrable zasady.
 
 ## <a name="configure-security-alert-settings"></a>Konfigurowanie ustawień alertów zabezpieczeń
 Niektóre alerty zabezpieczeń w PIM do pracy z własnego środowiska i cele zabezpieczeń można dostosować. Wykonaj następujące kroki, aby osiągnąć bloku ustawienia:
@@ -60,7 +65,7 @@ Ten alert wyzwala, jeśli użytkownik przejdzie do pewnego czasu bez uaktywniani
 
 * **Liczba dni**: Określ liczbę dni z zakresu od 0 do 100, które użytkownik może przejść bez uaktywniania roli.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
 <!--Image references-->

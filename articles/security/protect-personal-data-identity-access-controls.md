@@ -1,6 +1,6 @@
 ---
 title: "Ochrona danych osobowych z Azure formanty tożsamościami i dostępem | Dokumentacja firmy Microsoft"
-description: "Za pomocą usługi Azure tożsamościami i dostępem Określa, aby pomóc w ochronie danych osobistych"
+description: "Tożsamość platformy Azure i dostęp kontroluje pomocy ochrony danych osobowych i mogą być pomocne, zgodnych z ogólnych danych ochrony rozporządzenia (GDPR)"
 services: security
 documentationcenter: na
 author: Barclayn
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/13/2017
+ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: e6de9526a1a72cfc81caca51207e000f8b3673cc
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: fd3beb57cda4993f922fb935263b0e962b38da6a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-and-multi-factor-authentication-protect-personal-data-with-identity-and-access-controls"></a>Azure Active Directory i uwierzytelniania wieloskładnikowego: ochrony danych osobowych z formantami tożsamościami i dostępem
 
-Ten artykuł zawiera informacje i procedury, których można użyć do ochrony danych osobowych za pomocą usługi i funkcje zabezpieczeń uwierzytelniania usługi Azure Active Directory i usługi Multi-Factor.
+Ten artykuł zawiera informacje i procedury, których można użyć do ochrony danych osobowych za pomocą usługi i funkcje zabezpieczeń uwierzytelniania usługi Azure Active Directory i usługi Multi-Factor. Informacje zawarte w tym artykule mogą być pomocne w przypadku wysiłków w celu zachowania zgodności z ogólnych danych ochrony rozporządzenia (GDPR).
 
 ## <a name="scenario"></a>Scenariusz
 
@@ -178,7 +178,7 @@ Aby włączyć uwierzytelnianie wieloskładnikowe Azure za pomocą zasad dostęp
 
 Aby uzyskać informacje na temat konfigurowania ustawień usługi Azure MFA do konfigurowania alertów oszustwa, tworzenie jednorazowe obejście, użyj niestandardowe wiadomości głosowe, skonfigurować buforowanie, określ listę zaufanych adresów IP, tworzenie haseł aplikacji Włącz zapamiętywanie MFA dla urządzeń, które ufają użytkowników, a następnie wybierz metody weryfikacji, zobacz [Konfigurowanie ustawień uwierzytelnianie wieloskładnikowe Azure.](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-whats-next)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Zabezpieczanie uprzywilejowanego dostępu w usłudze Azure AD](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/active-directory-securing-privileged-access)
 

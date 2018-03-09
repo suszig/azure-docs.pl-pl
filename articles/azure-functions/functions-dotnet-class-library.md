@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 9e9aa8a36d363ce28d61c5ba3cfe758520a626cf
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 70c4d6276970a781517fe49ec47e9b2ddb884c78
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure dokumentacja dla deweloperów funkcje C#
 
@@ -134,7 +134,50 @@ Wygenerowany *function.json* plik zawiera `configurationSource` właściwość, 
 }
 ```
 
-*Function.json* generowania plików jest wykonywane przez pakiet NuGet [Microsoft\.NET\.Sdk\.funkcji](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). Kod źródłowy jest dostępny w repozytorium GitHub [azure\-funkcje\-vs\-kompilacji\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
+### <a name="microsoftnetsdkfunctions-nuget-package"></a>Microsoft.NET.Sdk.Functions NuGet package
+
+*Function.json* generowania plików jest wykonywane przez pakiet NuGet [Microsoft\.NET\.Sdk\.funkcji](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
+
+Tego samego pakietu jest używany w obu wersji 1.x i 2.x funkcji aparatu plików wykonywalnych. Platforma docelowa jest, co odróżnia 1.x projektu z projektu 2.x. Poniżej przedstawiono odpowiednich części *.csproj* docelowych pliki pokazywanie różnych platform i tym samym `Sdk` pakietu:
+
+**Funkcje 1.x**
+
+```xml
+<PropertyGroup>
+  <TargetFramework>net461</TargetFramework>
+</PropertyGroup>
+<ItemGroup>
+  <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.8" />
+</ItemGroup>
+```
+
+**Funkcje 2.x**
+
+```xml
+<PropertyGroup>
+  <TargetFramework>netstandard2.0</TargetFramework>
+  <AzureFunctionsVersion>v2</AzureFunctionsVersion>
+</PropertyGroup>
+<ItemGroup>
+  <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.8" />
+</ItemGroup>
+```
+
+Wśród `Sdk` zależności pakietów są wyzwalaczy i powiązań. Projekt 1.x odwołuje się do 1.x wyzwalaczy i powiązań, ponieważ te dla środowiska .NET Framework, podczas gdy 2.x wyzwalaczy i powiązań docelowego .NET Core.
+
+`Sdk` Pakietu zależy również od [Newtonsoft.Json](http://www.nuget.org/packages/Newtonsoft.Json), a pośrednio na [WindowsAzure.Storage](http://www.nuget.org/packages/WindowsAzure.Storage). Te zależności, upewnij się, że projekt używa wersji tych pakietów, które korzystać z funkcji wersji środowiska uruchomieniowego który elementy docelowe projektu. Na przykład `Newtonsoft.Json` ma w wersji 11 dla programu .NET Framework 4.6.1, ale środowisko uruchomieniowe Functions, przeznaczonego dla platformy .NET Framework 4.6.1 jest zgodna tylko z `Newtonsoft.Json` 9.0.1. Dzięki funkcji kodu w tym projekcie ma również użyć `Newtonsoft.Json` 9.0.1.
+
+Kod źródłowy `Microsoft.NET.Sdk.Functions` jest dostępny w repozytorium GitHub [azure\-funkcje\-vs\-kompilacji\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
+
+### <a name="runtime-version"></a>Wersja środowiska uruchomieniowego
+
+Visual Studio będzie korzystać [Azure funkcje podstawowe narzędzia](functions-run-local.md#install-the-azure-functions-core-tools) do uruchomienia projektów funkcji. Podstawowe narzędzia jest interfejs wiersza polecenia do obsługi funkcji.
+
+W przypadku instalowania narzędzi Core za pomocą programu npm, który nie ma wpływu na wersji podstawowe narzędzia używane przez program Visual Studio. Funkcje wersji środowiska uruchomieniowego 1.x, Visual Studio przechowuje podstawowe narzędzia wersji w *%USERPROFILE%\AppData\Local\Azure.Functions.Cli* i używa najnowszej wersji przechowywane. Dla funkcji 2.x, podstawowe narzędzia znajdują się w **narzędzia zadania sieci Web i usługi Azure Functions** rozszerzenia. 1.x i 2.x możesz zobaczyć, jakie jest używana wersja w danych wyjściowych konsoli po uruchomieniu projektu funkcje:
+
+```terminal
+[3/1/2018 9:59:53 AM] Starting Host (HostId=contoso2-1518597420, Version=2.0.11353.0, ProcessId=22020, Debug=False, Attempt=0, FunctionsExtensionVersion=)
+```
 
 ## <a name="supported-types-for-bindings"></a>Obsługiwane typy dla powiązania
 

@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: e821a640d3d75e712c022bd681eb07b83da91911
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 5d4abbf8194d633305877275e3dd273352906ad3
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Korelacji telemetrii w usłudze Application Insights
 
@@ -57,8 +57,8 @@ Uwagi widoku wyników, że wszystkie elementy telemetrii udostępnić katalog g�
 |------------|---------------------------|--------------|--------------------|--------------|
 | Widok strony   | Strona standardowych                |              | STYz               | STYz         |
 | zależności | GET /Home/Stock           | qJSXU        | STYz               | STYz         |
-| Żądanie    | Strona główna GET/Stock            | KqKwlrSt9PA = | qJSXU              | STYz         |
-| zależności | Pobierz /api/stock/value      | bBrf2L7mm2g = | KqKwlrSt9PA =       | STYz         |
+| Żądanie    | Strona główna GET/Stock            | KqKwlrSt9PA= | qJSXU              | STYz         |
+| zależności | Pobierz /api/stock/value      | bBrf2L7mm2g= | KqKwlrSt9PA=       | STYz         |
 
 Teraz po wywołaniu `GET /api/stock/value` do zewnętrznej usługi ma muszą znać tożsamość tego serwera. Można ustawić `dependency.target` odpowiednio do pola. Gdy zewnętrzna usługa nie obsługuje monitorowania - `target` jest ustawiona na nazwę hosta usługi, takiej jak `stock-prices-api.com`. Jednak jeśli czy usługa identyfikuje zwracając wstępnie zdefiniowanej nagłówka HTTP - `target` zawiera tożsamości usługi, która umożliwia usługi Application Insights do tworzenia rozproszonych śledzenia badając dane telemetryczne z tej usługi. 
 
@@ -66,8 +66,8 @@ Teraz po wywołaniu `GET /api/stock/value` do zewnętrznej usługi ma muszą zna
 
 Pracujemy nad RFC propozycję [korelacji protokołu HTTP](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v1.md). Propozycja ta definiuje dwa nagłówki:
 
-- `Request-Id`przenoszenia globalnie unikatowy identyfikator wywołania
-- `Correlation-Context`-zawiera kolekcję par wartości nazwy właściwości rozproszonej śledzenia
+- `Request-Id` przenoszenia globalnie unikatowy identyfikator wywołania
+- `Correlation-Context` -zawiera kolekcję par wartości nazwy właściwości rozproszonej śledzenia
 
 Standardowe definiuje również dwa schematy `Request-Id` generowania - płaski i hierarchicznej. Ze schematem płaskiej jest dobrze znanym `Id` klucz zdefiniowany dla `Correlation-Context` kolekcji.
 
@@ -77,11 +77,11 @@ Definiuje usługi Application Insights [rozszerzenia](https://github.com/lmolkov
 
 [Otwórz śledzenie](http://opentracing.io/) i wygląda modeli danych usługi Application Insights 
 
-- `request`, `pageView` mapuje **zakres** z`span.kind = server`
-- `dependency`mapuje **zakres** z`span.kind = client`
-- `id`z `request` i `dependency` mapuje **Span.Id**
-- `operation_Id`mapuje **TraceId**
-- `operation_ParentId`mapuje **odwołania** typu`ChildOf`
+- `request`, `pageView` mapuje **zakres** z `span.kind = server`
+- `dependency` mapuje **zakres** z `span.kind = client`
+- `id` z `request` i `dependency` mapuje **Span.Id**
+- `operation_Id` mapuje **TraceId**
+- `operation_ParentId` mapuje **odwołania** typu `ChildOf`
 
 Zobacz [modelu danych](application-insights-data-model.md) dla modelu danych i typów usługi Application Insights.
 
@@ -90,21 +90,21 @@ Zobacz [specyfikacji](https://github.com/opentracing/specification/blob/master/s
 
 ## <a name="telemetry-correlation-in-net"></a>Korelacja telemetrii w .NET
 
-Wraz z upływem czasu .NET zdefiniowane kilka sposobów, aby skorelować danych telemetrycznych i diagnostycznych dzienników. Brak `System.Diagnostics.CorrelationManager` umożliwiający śledzenie [LogicalOperationStack i ActivityId](https://msdn.microsoft.com/library/system.diagnostics.correlationmanager.aspx). `System.Diagnostics.Tracing.EventSource`i Windows ETW definiują metodę [SetCurrentThreadActivityId](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid.aspx). `ILogger`używa [zakresy dziennika](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-scopes). Usługi WCF i Http podczas transmisji się "bieżący" propagacji kontekstu.
+Wraz z upływem czasu .NET zdefiniowane kilka sposobów, aby skorelować danych telemetrycznych i diagnostycznych dzienników. Brak `System.Diagnostics.CorrelationManager` umożliwiający śledzenie [LogicalOperationStack i ActivityId](https://msdn.microsoft.com/library/system.diagnostics.correlationmanager.aspx). `System.Diagnostics.Tracing.EventSource` i Windows ETW definiują metodę [SetCurrentThreadActivityId](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid.aspx). `ILogger` używa [zakresy dziennika](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-scopes). Usługi WCF i Http podczas transmisji się "bieżący" propagacji kontekstu.
 
-Jednak tych metod nie umożliwia automatycznego śledzenia rozproszonych. `DiagnosticsSource`sposób obsługi odbywa się automatycznie cross korelacji maszyny. Biblioteki .NET obsługuje źródła diagnostyki i Zezwalaj na automatyczne cross propagacji maszyny kontekstu korelacji za pomocą transportu, takich jak http.
+Jednak tych metod nie umożliwia automatycznego śledzenia rozproszonych. `DiagnosticsSource` sposób obsługi odbywa się automatycznie cross korelacji maszyny. Biblioteki .NET obsługuje źródła diagnostyki i Zezwalaj na automatyczne cross propagacji maszyny kontekstu korelacji za pomocą transportu, takich jak http.
 
 [Przewodnik dotyczący działań](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) w źródle diagnostyki przedstawiono podstawowe śledzenie działań. 
 
 Platformy ASP.NET Core 2.0 obsługuje wyodrębniania nagłówków Http i uruchamianie nowe działanie. 
 
-`System.Net.HttpClient`wersję początkową `<fill in>` obsługuje automatyczne uruchomienie korelacji nagłówków Http i śledzenie wywołanie http jako działania.
+`System.Net.HttpClient` wersję początkową `4.1.0` obsługuje automatyczne uruchomienie korelacji nagłówków Http i śledzenie wywołanie http jako działania.
 
 Moduł Http jest nowy [Microsoft.AspNet.TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/) klasycznego ASP.NET. Ten moduł stanowi wdrożenie przy użyciu DiagnosticsSource korelacji telemetrii. Rozpoczyna działania od nagłówków żądań przychodzących. Są również powiązane dane telemetryczne z różnych etapów przetwarzania żądania. Nawet w przypadku przypadków po uruchomieniu każdego etapu przetwarzania usług IIS w wątkach różnych zarządzanie.
 
 Wersję początkową aplikacji zestawu SDK Insights `2.4.0-beta1` używa DiagnosticsSource i działania do zbierania danych telemetrycznych i skojarzyć go z bieżącego działania. 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Telemetria niestandardowa zapisu](app-insights-api-custom-events-metrics.md)
 - Dołączyć wszystkie składniki usługi micro na usługi Application Insights. Zapoznaj się z [obsługiwanych platform](app-insights-platforms.md).

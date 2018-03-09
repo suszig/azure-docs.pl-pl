@@ -14,17 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 02/26/2018
+ms.date: 02/28/2018
 ms.author: carlrab
-ms.openlocfilehash: b36af32d900f9426424dd08c43946e7dcb5b39b9
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: ebfd44098a81b4a9d8863623458460ceb25f0d5d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>Co to są warstwach usług bazy danych SQL Azure?
 
-[Baza danych SQL Azure](sql-database-technical-overview.md) oferuje **podstawowe**, **standardowe**, i **Premium** warstw usług dla obu [baz danych z jednym](sql-database-single-database-resources.md) i [pule elastyczne](sql-database-elastic-pool.md). Warstwy usług są zróżnicowane głównie przez zakres poziom wydajności i opcje rozmiaru magazynu i cenę.  Wszystkie warstwy usług zapewniają elastyczność w Zmiana wydajności poziom i rozmiaru magazynu.  Pojedyncze bazy danych i pul elastycznych są rozliczane co godzinę na podstawie warstwy usług, poziom wydajności i rozmiar magazynu.   
+[Baza danych SQL Azure](sql-database-technical-overview.md) oferuje **podstawowe**, **standardowe**, i **Premium** warstw usług dla obu [baz danych z jednym](sql-database-single-database-resources.md) i [pule elastyczne](sql-database-elastic-pool.md). Baza danych SQL oferuje warstwy usług ogólnego przeznaczenia [wystąpienia zarządzane bazy danych SQL Azure](sql-database-managed-instance.md#managed-instance-service-tier). Warstwy usług są zróżnicowane głównie przez zakres poziom wydajności i opcje rozmiaru magazynu i cenę.  Wszystkie warstwy usług zapewniają elastyczność w Zmiana wydajności poziom i rozmiaru magazynu.  Pojedyncze bazy danych i pul elastycznych są rozliczane co godzinę na podstawie warstwy usług, poziom wydajności i rozmiar magazynu.   
+
+> [!IMPORTANT]
+> Wystąpienia zarządzane bazy danych SQL w publicznej wersji zapoznawczej, oferuje warstwy pojedynczego usług ogólnego przeznaczenia. Aby uzyskać więcej informacji, zobacz [wystąpienia zarządzane bazy danych SQL Azure](sql-database-managed-instance.md). W dalszej części tego artykułu, nie ma zastosowania do zarządzanego wystąpienia.
 
 ## <a name="choosing-a-service-tier"></a>Wybieranie warstwy usług
 
@@ -42,7 +45,7 @@ Wybór warstwy usług zależy przede wszystkim ciągłość prowadzenia działal
 
 ## <a name="performance-level-and-storage-size-limits"></a>Poziom wydajności i magazynu limity rozmiaru
 
-Poziomy wydajności są wyrażane pod względem jednostki transakcji bazy danych (Dtu) dla pojedynczej bazy danych i jednostek transakcji elastycznej bazy danych (Edtu) dla puli elastycznej. Aby uzyskać więcej informacji na temat jednostek Dtu a Edtu, zobacz [co to są Dtu a Edtu?](sql-database-what-is-a-dtu.md)
+Poziomy wydajności są wyrażane jako liczba jednostek DTU (Database Transaction Unit) dla pojedynczych baz danych oraz jako liczba jednostek eDTU (elastic Database Transaction Unit) dla pul elastycznych. Aby uzyskać więcej informacji na temat jednostek Dtu a Edtu, zobacz [co to są Dtu a Edtu?](sql-database-what-is-a-dtu.md)
 
 ### <a name="single-databases"></a>Pojedyncze bazy danych
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
-ms.openlocfilehash: 01a2bb6d99776feec936315bc882c3097ce832d4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 205e554fa42b1c28ed78add3e84c046855875872
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="use-cli-20-to-create-an-aad-app-and-configure-it-to-access-azure-media-services-api"></a>Użyj 2.0 interfejsu wiersza polecenia, aby utworzyć aplikację AAD i skonfigurować go, aby uzyskać dostępu do interfejsu API usługi Azure Media Services
 
@@ -42,7 +42,7 @@ Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure Cloud powłoki
 ```azurecli
 az login
 az ad sp create-for-rbac --name <appName> --password <strong password>
-az role assignment create -- assignee < user/app id> --role Contributor --scope <subscription/subscription id>
+az role assignment create --assignee < user/app id> --role Contributor --scope <subscription/subscription id>
 ```
 
 Na przykład:
@@ -63,6 +63,6 @@ Aby uzyskać więcej informacji, zobacz [Tworzenie nazwy głównej usługi platf
 
 Zobacz też [Manage Role-Based kontroli dostępu przy użyciu interfejsu wiersza polecenia platformy Azure](../active-directory/role-based-access-control-manage-access-azure-cli.md). 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Rozpoczynanie pracy z [przekazywanie plików do konta](media-services-portal-upload-files.md).

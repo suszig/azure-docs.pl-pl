@@ -14,11 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: mimig
-ms.openlocfilehash: 2c8c7dc6d3bdb6ba34818d7e36739297cffbe2d2
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 455479c9eb77093dd5611263fe5bdcf699b9d026
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="get-started-with-azure-table-storage-using-python"></a>Rozpoczynanie pracy z magazynem tabel Azure przy użyciu języka Python
 
@@ -42,7 +42,7 @@ Podczas pracy nad scenariusze w tym samouczku, można odwoływać się do [Azure
 Do pomyślnego ukończenia samouczka niezbędne są:
 
 - [Python](https://www.python.org/downloads/) 2.7, 3.3, 3.4, 3.5 lub 3,6
-- [Rozwiązania Cosmos Azure DB tabeli elementu 1.01 zestawu SDK dla języka Python](https://pypi.python.org/pypi/azure-cosmosdb-table/). Zestaw SDK połączy się z magazynu tabel Azure i interfejsu API Azure rozwiązania Cosmos bazy danych tabeli.
+- [Rozwiązania Cosmos Azure DB tabeli zestawu SDK dla języka Python](https://pypi.python.org/pypi/azure-cosmosdb-table/). Zestaw SDK połączy się z magazynu tabel Azure i interfejsu API Azure rozwiązania Cosmos bazy danych tabeli.
 - [Konto usługi Azure Storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account#create-a-storage-account) lub [konta bazy danych Azure rozwiązania Cosmos](https://azure.microsoft.com/en-us/try/cosmosdb/)
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2017
+ms.date: 03/05/2018
 ms.author: sethm
-ms.openlocfilehash: e037d0e291384849739825ae7ad59064a135db95
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: a581b7039a3631b7f1dc35816175242f892bd7dd
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="event-hubs-samples"></a>Przykłady centra zdarzeń 
 
@@ -61,10 +61,6 @@ Te przykłady pokazują różnych funkcji usługi Azure Event hubs, przeznaczony
 
 [Skalowania przetwarzania zdarzeń](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3) przykładzie pokazano sposób użycia [hosta procesora zdarzeń](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/) do dystrybucji obciążenia zużycia strumienia usługi Event Hubs. Widoczny jest sposób wykonania **EventProcessor** i **EventProcessorFactory** obiekty do zarządzania strumienia zdarzeń. 
 
-### <a name="pull-web-data-into-an-event-hub"></a>Ściąganie danych sieci web do Centrum zdarzeń 
-
-[Importuj dane z sieci web](https://github.com/Azure-Samples/event-hubs-dotnet-importfromweb) przykładowych pokazano, jak dane z publicznego źródła danych (na przykład dział transportu podawanie informacji ruchu) i wypchnąć go do Centrum zdarzeń.
-
 ## <a name="next-steps"></a>Kolejne kroki
 
 Więcej informacji na temat wersji systemu .NET Framework, przechodząc na stronę następujących łączy:
@@ -75,5 +71,5 @@ Więcej informacji na temat wersji systemu .NET Framework, przechodząc na stron
 Użytkownik może dowiedzieć się więcej o centra zdarzeń w następujących artykułach:
 
 - [Omówienie usługi Event Hubs](event-hubs-what-is-event-hubs.md)
-- [Tworzenie centrum zdarzeń](event-hubs-create.md)
+- [Funkcje usługi Event Hubs](event-hubs-features.md)
 - [Event Hubs — często zadawane pytania](event-hubs-faq.md)
