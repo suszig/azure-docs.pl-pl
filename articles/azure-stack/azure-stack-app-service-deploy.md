@@ -12,17 +12,22 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/09/2018
 ms.author: anwestg
-ms.openlocfilehash: b053d515949e71fcb5f1e520f6d3d5375cc27dcb
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 2d26aedf37727a4e3d687cdc6c748268d546f60f
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Dodawanie dostawcy zasobów usługi aplikacji Azure stosu
 
 *Dotyczy: Azure stosu zintegrowanych systemów i Azure stosu Development Kit*
+
+> [!IMPORTANT]
+> Zastosowanie aktualizacji 1802 systemu Azure stosu zintegrowane lub wdrożyć najnowszy zestaw deweloperski stosu Azure przed wdrożeniem usługi Azure App Service.
+>
+>
 
 Jako operator chmury Azure stosu można zapewnić użytkownikom możliwość tworzenia sieci web i aplikacji interfejsu API. Aby to zrobić, należy najpierw dodać [dostawcy zasobów usługi aplikacji](azure-stack-app-service-overview.md) do wdrożenia stosu Azure zgodnie z opisem w tym artykule. Po zainstalowaniu dostawcy zasobów usługi aplikacji, można dołączyć ją w Twojej oferty i planów. Użytkownicy mogą następnie subskrybować pobrać usługi i rozpocząć tworzenie aplikacji.
 

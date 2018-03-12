@@ -12,17 +12,22 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2018
+ms.date: 03/09/2018
 ms.author: anwestg
-ms.openlocfilehash: f400180bc71efc6766b73b098c1f82542eec86f7
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 3261a312cde9ebdf41f6dadb82c14d108715f8f7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Przed rozpoczęciem pracy z usługi aplikacji Azure stosu
 
 *Dotyczy: Azure stosu zintegrowanych systemów i Azure stosu Development Kit*
+
+> [!IMPORTANT]
+> Zastosowanie aktualizacji 1802 systemu Azure stosu zintegrowane lub wdrożyć najnowszy zestaw deweloperski stosu Azure przed wdrożeniem usługi Azure App Service.
+>
+>
 
 Przed wdrożeniem usługi Azure App Service na stosie Azure musi spełnić wymagania wstępne w tym artykule.
 
@@ -40,11 +45,11 @@ Przed wdrożeniem usługi Azure App Service na stosie Azure musi spełnić wymag
    - Moduły
      - GraphAPI.psm1
 
-## <a name="prepare-for-high-availability"></a>Przygotowanie wysokiej dostępności
+## <a name="high-availability"></a>Wysoka dostępność
 
-Usługa aplikacji Azure na stosie Azure nie może obecnie oferty wysokiej dostępności, ponieważ stos Azure wdraża obciążeń do tylko jednej domeny błędów.
+Z powodu wersji 1802 Azure stosu, w którym dodano obsługę domen błędów, nowe wdrożenia usługi Azure App Service na stosie Azure będą dystrybuowane między domenami usterek i zapewnienia odporności na uszkodzenia.  Aby uzyskać istniejące wdrożenia usługi Azure App Service na stosie Azure, które zostały wdrożone przed wydaniem 1802 aktualizacji, można znaleźć w dokumentacji (azure-stack-app-service-fault-domain-update.md), jak przeprowadzić ponowne równoważenie wdrożenia.
 
-Aby przygotować usłudze Azure App Service na stosie Azure wysokiej dostępności, Wdróż wymaganego pliku serwer i wystąpienie programu SQL Server w konfiguracji o wysokiej dostępności. Gdy stos Azure obsługuje wiele domen błędów, będzie można wskazówki dotyczące włączania usługi Azure App Service na stosie Azure w konfiguracji o wysokiej dostępności.
+Ponadto usługi Azure App Service na stosie Azure wysokiej dostępności, Wdróż wymaganego pliku serwer i wystąpienie programu SQL Server w konfiguracji o wysokiej dostępności. 
 
 ## <a name="get-certificates"></a>Uzyskanie certyfikatów
 
@@ -127,13 +132,17 @@ Certyfikat tożsamości musi zawierać którego podmiot odpowiada następujący 
 
 ## <a name="virtual-network"></a>Virtual Network
 
-Usługa aplikacji Azure na stosie Azure umożliwia wdrażanie dostawcy zasobów w ramach istniejącej sieci wirtualnej.  Umożliwia to korzystanie z wewnętrznych adresów IP do nawiązania połączenia przez serwer plików i programu SQL server wymagane przez usługę Azure App Service na stosie Azure.  Sieć wirtualna musi być skonfigurowany z następujące podsieci i zakres adresów, przed zainstalowaniem usługi Azure App Service na stosie Azure:
+Usługa aplikacji Azure na stosie Azure umożliwia wdrażanie dostawcy zasobów do albo istniejącej sieci wirtualnej lub usługi aplikacji — zostanie utworzona jako część wdrożenia.  Za pomocą istniejącej sieci wirtualnej umożliwia korzystanie z wewnętrznych adresów IP do nawiązania połączenia przez serwer plików i programu SQL server wymagane przez usługę Azure App Service na stosie Azure.  Sieć wirtualna musi być skonfigurowany z następujące podsieci i zakres adresów, przed zainstalowaniem usługi Azure App Service na stosie Azure:
 
 Sieć wirtualna — / 16 do /
 
 Podsieci
 
-ControllersSubnet prefiksie/24 ManagementServersSubnet prefiksie/24 FrontEndsSubnet prefiksie/24 PublishersSubnet prefiksie/24 WorkersSubnet /21
+* ControllersSubnet prefiksie/24
+* ManagementServersSubnet /24
+* FrontEndsSubnet prefiksie/24
+* PublishersSubnet /24
+* WorkersSubnet /21
 
 ## <a name="prepare-the-file-server"></a>Przygotowywanie serwera plików
 

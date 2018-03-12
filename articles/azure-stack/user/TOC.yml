@@ -119,6 +119,8 @@
               href: azure-stack-deploy-template-powershell.md
             - name: Wdrażanie za pomocą programu Visual Studio
               href: azure-stack-deploy-template-visual-studio.md
+    - name: Włącz dostawcy usług w chmurze
+      href: azure-stack-csp-enable-billing-usage-tracking.md
 - name: Informacje ogólne
   items:
     - name: Azure Stack PowerShell

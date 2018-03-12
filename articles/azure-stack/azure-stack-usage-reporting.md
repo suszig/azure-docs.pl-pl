@@ -6,25 +6,25 @@ documentationcenter:
 author: mattbriggs
 manager: femila
 editor: 
-ms.assetid: 2A397C83-1A6C-4290-B0EF-FDC34EE290CD
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
-ms.author: mabrigg;AlfredoPizzirani
-ms.openlocfilehash: 451e8c604e48d9cfc42284f2413fa5ed4fea03bc
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.date: 02/22/2018
+ms.author: mabrigg
+ms.reviewer: alfredop
+ms.openlocfilehash: 29d53f63bf3d551823ca27df04f0e385a92cdec7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Raport danych użycia usługi Azure stosu na platformie Azure 
 
 Dane użycia, nazywany również dane dotyczące zużycia, reprezentuje ilość zasobów używanych. 
 
-Azure systemów wielowęzłowego stosu, które używają modelu rozliczeń na podstawie zużycia powinni zgłaszać dane użycia na platformie Azure związanych z rozliczeniami cel.  Operatory stosu Azure należy skonfigurować ich wystąpienia stosu Azure raportować dane użycia na platformie Azure.
+Azure systemów wielowęzłowego stosu, które używają modelu rozliczeń na podstawie zużycia powinni zgłaszać dane użycia do platformy Azure na potrzeby rozliczeń.  Operatory stosu Azure należy skonfigurować ich wystąpienia stosu Azure raportować dane użycia na platformie Azure.
 
 > [!NOTE]
 > Raportowanie danych użycia jest wymagana dla użytkowników wielowęzłowego stosu Azure licencji, zgodnie z modelem płatności jako — użytkownik użycia. Opcjonalne dla klientów, którzy licencji, zgodnie z modelem pojemności (zobacz [jak kupić strony](https://azure.microsoft.com/overview/azure-stack/how-to-buy/ to learn more about pricing in Azure Stack)). Dla użytkowników usługi Azure stosu Development Kit operatory stosu Azure raport danych użycia i przetestować tę funkcję. Jednak użytkownicy nie zostanie obciążona dla bez użycia, które wiążą się. 
@@ -103,8 +103,9 @@ Użytkownicy mogą zobaczyć stos Azure dane użycia w pliku szczegóły użycia
 
 Zawsze jest delaybetween danych użycia zgłoszonych przez wykorzystanie stosu Azure interfejsów API i danych użycia zgłoszonych przez Centrum konta platformy Azure. Opóźnienie to czas potrzebny do przekazywania danych użycia ze stosu Azure do handlu Azure. Ze względu na to opóźnienie użycia, która występuje tuż przed północy może wyświetlane w usłudze Azure następnego dnia. Jeśli używasz [interfejsów API usługi Azure stosu użycia](azure-stack-provider-resource-api.md)i porównywania wyników do użycia w portalu Azure rozliczeń, zobaczysz różnicy.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Interfejs API użycia dostawcy](azure-stack-provider-resource-api.md)  
 * [Interfejs API użycia dzierżawy](azure-stack-tenant-resource-usage-api.md)
 * [Często zadawane pytania na temat użycia](azure-stack-usage-related-faq.md)
+* [Zarządzanie użycia i rozliczeń jako dostawcy usług w chmurze](azure-stack-add-manage-billing-as-a-csp.md)
