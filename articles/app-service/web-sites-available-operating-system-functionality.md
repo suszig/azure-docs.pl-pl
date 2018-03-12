@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
 ms.openlocfilehash: 6b5939341ad05fb8f80415c5335c24d216fc2555
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funkcje systemu operacyjnego w usłudze Azure App Service
 W tym artykule opisano typowe funkcje systemu operacyjnego linii bazowej, która jest dostępna dla wszystkich aplikacji uruchomionych na [usłudze Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Ta funkcja zawiera plik, sieci i dostępu do rejestru i dzienników diagnostyki i zdarzeń. 
@@ -79,7 +79,7 @@ Katalog macierzysty zawiera zawartość aplikacji, a kod aplikacji może zapisyw
 <a id="NetworkAccess"></a>
 
 ## <a name="network-access"></a>Dostęp do sieci
-Kod aplikacji można używać protokołu TCP/IP i protokołów UDP, na podstawie dokonanie wychodzących sieci połączeń z Internetu dostępne punkty końcowe, które ujawnia usług zewnętrznych. Aplikacje można użyć tych tych samych protokołów łączenie się z usługami w ramach Azure & #151, na przykład przez ustanowienie połączenia HTTPS z bazą danych SQL.
+Kod aplikacji można używać protokołu TCP/IP i protokołów UDP, na podstawie dokonanie wychodzących sieci połączeń z Internetu dostępne punkty końcowe, które ujawnia usług zewnętrznych. Aplikacje można użyć tych tych samych protokołów łączenie się z usługami w systemie Azure&#151;na przykład, ustanawiając połączenia HTTPS z bazą danych SQL.
 
 Istnieje również ograniczone możliwości aplikacje do ustanowienia jednego połączenia lokalnego sprzężenia zwrotnego i aplikacji nasłuchiwać tego gniazda lokalnego sprzężenia zwrotnego. Ta funkcja istnieje przede wszystkim, aby włączyć aplikacje, które nasłuchują na sockets lokalnego sprzężenia zwrotnego w ramach ich funkcji. Należy pamiętać, że każda aplikacja widzi połączenie "prywatny" sprzężenia zwrotnego. Aplikacja "A" nie może nasłuchiwać z gniazdem lokalnego sprzężenia zwrotnego ustanowionych przez aplikację "B".
 
