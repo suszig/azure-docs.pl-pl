@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 12/11/2017
 ms.author: genli
 ms.openlocfilehash: 916fbb436806c64ded9ebf9fdd9c57c42d0809f0
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Konfigurowanie i zarządzanie problemy dotyczące usług Azure Cloud Services: często zadawane pytania (FAQ)
 
@@ -279,7 +279,7 @@ Ustawienia dziennika są niemożliwą do skonfigurowania, więc nie można wył�
 Można włączyć rozszerzenia ochrony przed złośliwym kodem przy użyciu skryptu programu PowerShell w ramach zadania uruchamiania. Wykonaj kroki opisane w następujących artykułach do zaimplementowania go: 
  
 - [Utwórz zadanie uruchamiania programu PowerShell](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)
-- [Zestaw AzureServiceAntimalwareExtension](https://docs.microsoft.com/powershell/module/Azure/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
+- [Set-AzureServiceAntimalwareExtension](https://docs.microsoft.com/powershell/module/Azure/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
 
 Aby uzyskać więcej informacji na temat scenariuszy wdrażania ochrony przed złośliwym oprogramowaniem i jak włączyć go w portalu, zobacz [scenariuszy wdrażania ochrony przed złośliwym kodem](../security/azure-security-antimalware.md#antimalware-deployment-scenarios).
 
