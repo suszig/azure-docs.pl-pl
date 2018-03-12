@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: c791f335bfa9ec6073eb83149068571ceb253f82
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b54aba19ecb92867bc817cbbb921f4e6537ef70c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Kopiowanie danych do lub z bazy danych rozwiązania Cosmos Azure przy użyciu fabryki danych Azure
 
@@ -125,7 +125,7 @@ Aby skopiować dane z bazy danych rozwiązania Cosmos platformy Azure, należy u
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **DocumentDbCollectionSource** |Yes |
-| query |Określ zapytanie DB rozwiązania Cosmos można odczytać danych.<br/><br/>Przykład:`SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Nie <br/><br/>Jeśli nie zostanie określony, która zostanie wykonana instrukcja SQL:`select <columns defined in structure> from mycollection` |
+| query |Określ zapytanie DB rozwiązania Cosmos można odczytać danych.<br/><br/>Przykład: `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Nie <br/><br/>Jeśli nie zostanie określony, która zostanie wykonana instrukcja SQL: `select <columns defined in structure> from mycollection` |
 | nestingSeparator |Znaki specjalne w celu wskazania, że dokument jest zagnieżdżony i jak do flattern zestaw wyników.<br/><br/>Na przykład, jeśli zapytanie DB rozwiązania Cosmos zwraca wynik zagnieżdżonych `"Name": {"First": "John"}`, działanie kopiowania określi nazwy kolumny jako "Name.First" o wartości "Jan" po nestedSeparator kropki. |Nie (domyślnie jest kropka `.`) |
 
 **Przykład:**
@@ -162,7 +162,7 @@ Aby skopiować dane z bazy danych rozwiązania Cosmos platformy Azure, należy u
 
 ### <a name="azure-cosmos-db-as-sink"></a>Azure DB rozwiązania Cosmos jako odbioru
 
-Aby skopiować dane z bazy danych usługi Azure rozwiązania Cosmos, Ustaw typ ujścia w działaniu kopiowania do **DocumentDbCollectionSink**. Następujące właściwości są obsługiwane w przypadku działania kopiowania **źródła** sekcji:
+Aby skopiować dane do bazy danych rozwiązania Cosmos Azure, należy ustawić typ ujścia w działaniu kopiowania do **DocumentDbCollectionSink**. Następujące właściwości są obsługiwane w przypadku działania kopiowania **źródła** sekcji:
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |

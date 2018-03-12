@@ -1,16 +1,16 @@
-| Zasób | Bezpłatna | Współdzielona (wersja zapoznawcza) | Podstawowa | Standardowa | Premium (wersja zapoznawcza)</th> |
+| Zasób | Bezpłatna | Współdzielona (wersja zapoznawcza) | Podstawowa | Standardowa (Standard) | Premium </th> |
 | --- | --- | --- | --- | --- | --- |
-| [Aplikacje sieci Web, mobilnych lub interfejsu API](https://azure.microsoft.com/services/app-service/) na [planu usługi aplikacji](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)<sup>1</sup> |10 |100 |Nieograniczone<sup>2</sup> |Nieograniczone<sup>2</sup> |Nieograniczone<sup>2</sup> |
+| [Aplikacje sieci Web, mobilnych lub interfejsu API](https://azure.microsoft.com/services/app-service/) na [planu usługi aplikacji](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)<sup>1</sup> |10 |100 |Unlimited<sup>2</sup> |Unlimited<sup>2</sup> |Unlimited<sup>2</sup> |
 | [Aplikacje logiki](https://azure.microsoft.com/services/app-service/logic/) na [planu usługi aplikacji](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)</a><sup>1</sup> |10 |10 |10 |20 na podstawowe |20 na podstawowe |
 | [Plan usługi App Service](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) |1 na region |10 dla grupy zasobów |100 dla każdej grupy zasobów |100 dla każdej grupy zasobów |100 dla każdej grupy zasobów |
 | Wystąpienie typu obliczania |Udostępniona |Udostępniona |W wersji dedykowanej<sup>3</sup> |W wersji dedykowanej<sup>3</sup> |W wersji dedykowanej<sup>3</sup></p> |
 | [Skalowalny w poziomie](../articles/app-service/web-sites-scale.md) (maksymalnej liczby wystąpień) |1 udostępnionego |1 udostępnionego |3 w wersji dedykowanej<sup>3</sup> |10 w wersji dedykowanej<sup>3</sup> |(50 w ASE) w wersji dedykowanej 20<sup>3,4</sup> |
-| Magazyn<sup>5</sup> |1 GB<sup>5</sup> |1 GB<sup>5</sup> |10 GB<sup>5</sup> |50 GB<sup>5</sup> |500 GB<sup>4,5</sup></p> |
+| Storage<sup>5</sup> |1 GB<sup>5</sup> |1 GB<sup>5</sup> |10 GB<sup>5</sup> |50 GB<sup>5</sup> |500 GB<sup>4,5</sup></p> |
 | Czas procesora CPU (5 min)<sup>6</sup> |3 minuty |3 minuty |Nieograniczone, płatności na standardowy [stawki](https://azure.microsoft.com/pricing/details/app-service/)</a> |Bez ograniczeń, płatności stawkami standardowymi |Bez ograniczeń, płatności stawkami standardowymi |
 | Czas procesora CPU (dzień)<sup>6</sup> |60 minut |240 minut |Nieograniczone, płatności na standardowy [stawki](https://azure.microsoft.com/pricing/details/app-service/)</a> |Bez ograniczeń, płatności stawkami standardowymi |Bez ograniczeń, płatności stawkami standardowymi |
-| Pamięć (1 godz.) |1024 MB na plan usługi aplikacji |1024 MB dla aplikacji |Nie dotyczy |Nie dotyczy |Nie dotyczy |
+| Pamięć (1 godz.) |1024 MB na plan usługi aplikacji |1024 MB dla aplikacji |ND |ND |ND |
 | Przepustowość |165 MB |Nieograniczone, [szybkości transferu danych](https://azure.microsoft.com/pricing/details/data-transfers/) Zastosuj |Bez ograniczeń, transfer danych, które opłaty |Bez ograniczeń, transfer danych, które opłaty |Bez ograniczeń, transfer danych, które opłaty |
-| Architektura aplikacji |32-bitowy |32-bitowy |32-bitowe/64-bitowych |32-bitowe/64-bitowych |32-bitowe/64-bitowych |
+| Architektura aplikacji |32-bitowa |32-bitowa |32-bitowe/64-bitowych |32-bitowe/64-bitowych |32-bitowe/64-bitowych |
 | Dla każdego wystąpienia w sieci Web Sockets<sup>7</sup> |5 |35 |350 |Nieograniczona liczba |Nieograniczona liczba |
 | Współbieżne [debugera połączeń](../articles/app-service/web-sites-dotnet-troubleshoot-visual-studio.md) według aplikacji |1 |1 |1 |5 |5 |
 | [poddomeny azurewebsites.NET FTP/S i protokołu SSL](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |X |X |X |X |X |

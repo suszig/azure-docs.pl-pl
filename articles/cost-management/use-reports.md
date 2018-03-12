@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 0a4f6a5940ccffe897a5609b837ddaeea98d87aa
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8078591b1e2ad120190a23dd29800bd0f1ae33ea
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="use-cost-management-reports"></a>Korzystanie z raportów rozwiązania Cost Management
 
@@ -152,7 +152,7 @@ Raport koszt w czasie do:
 3. Dodaj grupy.
 4. Wybierz wcześniej utworzony model kosztów.
 5. Wybierz rzeczywistych kosztów lub amortyzowanego kosztów.
-6. Określ, czy do zastosowania reguły do widoku rozliczeń widoku danych pierwotnych lub do obliczenia kosztu przez Cloudyn widoku.
+6. Określ, czy do zastosowania reguły do widoku rozliczeń widoku danych pierwotnych lub do obliczenia kosztu widoku.
 
 Oto przykład raportu.
 

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2018
 ms.author: nitinme
-ms.openlocfilehash: 212789e8189abf362bb8eaf12e4c551b113b7adb
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 8e4213813ff23586ac683556d4a3c0c587edea58
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
-# <a name="use-databricks-cli-from-azure-cloud-shell"></a>Użyj interfejsu wiersza polecenia Databricks z powłoki w chmurze Azure
+# <a name="use-databricks-cli-from-azure-cloud-shell"></a>Używanie interfejsu wiersza polecenia Databricks z poziomu usługi Azure Cloud Shell
 
 Dowiedz się, jak używać do wykonywania operacji na Databricks Databricks interfejsu wiersza polecenia z powłoki chmury Azure.
 
@@ -84,7 +84,7 @@ Aby uzyskać pełną dokumentację poleceń, zobacz [Databricks interfejsu wiers
 ## <a name="next-steps"></a>Kolejne kroki
 
 * Aby dowiedzieć się więcej na temat interfejsu wiersza polecenia Azure, zobacz [wiersza polecenia platformy Azure — omówienie](../cloud-shell/overview.md)
-* Aby wyświetlić listę poleceń interfejsu wiersza polecenia Azure, zobacz [odwołanie do wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
+* Aby wyświetlić listę poleceń interfejsu wiersza polecenia Azure, zobacz [odwołanie do wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest)
 * Aby wyświetlić listę poleceń interfejsu wiersza polecenia Databricks, zobacz [Databricks interfejsu wiersza polecenia](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html)
 
 

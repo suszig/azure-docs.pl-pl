@@ -2,23 +2,17 @@
 title: "Planowanie wdrożenia usługi pliki Azure | Dokumentacja firmy Microsoft"
 description: "Dowiedz się, co należy wziąć pod uwagę podczas planowania wdrożenia usługi pliki Azure."
 services: storage
-documentationcenter: 
 author: wmgries
-manager: klaasl
-editor: jgerend
-ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 03/06/2018
 ms.author: wgries
-ms.openlocfilehash: 590bc459a71b8691741f7f33d2d70b0ba4474591
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 017dd79e2d15fdd98ea020c686857d282bad244e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planowanie wdrażania usługi Pliki Azure
 [Usługa pliki Azure](storage-files-introduction.md) oferuje pełni zarządzanych udziałów plików w chmurze, które są dostępne przy użyciu standardowego protokołu SMB. Ponieważ pliki Azure jest pełna, jego wdrożeniem w środowisku produkcyjnym scenariuszach jest znacznie prostsze niż wdrażania i zarządzania nimi serwera plików lub urządzenie NAS. W tym artykule opisano tematy wziąć pod uwagę podczas wdrażania udziału plików platformy Azure do użytku produkcyjnego w ramach danej organizacji.
@@ -45,7 +39,7 @@ ms.lasthandoff: 01/29/2018
 ## <a name="data-access-method"></a>Metoda dostępu do danych
 Azure pliki ofert dwóch metod, której można oddzielnie lub w połączeniu ze sobą, aby uzyskać dostęp do danych dostępu do danych wbudowanych i wygodny:
 
-1. **Bezpośredni dostęp do chmury**: udziału dowolnego pliku Azure może być instalowany przez [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md), i/lub [Linux](storage-how-to-use-files-linux.md) with (Server Message Block standardowe branży Protokół SMB) lub za pośrednictwem interfejsu API REST pliku. Z protokołem SMB Odczyt i zapis do plików w udziale są dokonywane bezpośrednio na udział plików na platformie Azure. Aby zainstalować przez maszynę Wirtualną na platformie Azure, klient protokołu SMB w systemie operacyjnym musi obsługiwać co najmniej SMB 2.1. Do zainstalowania lokalnie, takie jak na stacji roboczej użytkownika, klient protokołu SMB, obsługiwane przez stacji roboczej musi obsługiwać co najmniej SMB 3.0 (przy użyciu szyfrowania). Oprócz protokołu SMB nowych aplikacji lub usług może bezpośrednio dostęp do udziału plików za pośrednictwem interfejsu REST pliku, która zapewnia interfejs programowania aplikacji łatwego i skalowalnego do rozwoju oprogramowania.
+1. **Bezpośredni dostęp do chmury**: udziału dowolnego pliku Azure może być instalowany przez [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md), i/lub [Linux](storage-how-to-use-files-linux.md) z branży standardowego bloku komunikatów serwera (SMB) Protokół lub za pośrednictwem interfejsu API REST pliku. Z protokołem SMB Odczyt i zapis do plików w udziale są dokonywane bezpośrednio na udział plików na platformie Azure. Aby zainstalować przez maszynę Wirtualną na platformie Azure, klient protokołu SMB w systemie operacyjnym musi obsługiwać co najmniej SMB 2.1. Do zainstalowania lokalnie, takie jak na stacji roboczej użytkownika, klient protokołu SMB, obsługiwane przez stacji roboczej musi obsługiwać co najmniej SMB 3.0 (przy użyciu szyfrowania). Oprócz protokołu SMB nowych aplikacji lub usług może bezpośrednio dostęp do udziału plików za pośrednictwem interfejsu REST pliku, która zapewnia interfejs programowania aplikacji łatwego i skalowalnego do rozwoju oprogramowania.
 2. **Synchronizacja programu Azure pliku** (wersja zapoznawcza): Azure synchronizacji plików, udziały mogą być replikowane do serwerów z systemem Windows lokalnego lub na platformie Azure. Użytkownicy będą dostęp do udziału plików, za pośrednictwem systemu Windows Server, takich jak za pośrednictwem protokołu SMB lub NFS w udziale. Jest to przydatne w scenariuszach, w których danych można uzyskać dostępu do i zmodyfikować daleko od centrum danych Azure, takich jak w przypadku oddziału firmy. Dane mogą być replikowane między wiele systemu Windows Server punktów końcowych, takich jak między wielu oddziałów. Na koniec danych może należeć do warstwy do usługi pliki Azure, tak, aby wszystkie dane są nadal dostępne za pośrednictwem serwera, ale serwer nie ma pełną kopię danych. Zamiast dane są bezproblemowo wywoływane po otwarciu przez użytkownika.
 
 W poniższej tabeli przedstawiono, jak użytkowników i aplikacji dostęp do udziału plików platformy Azure:
@@ -63,7 +57,7 @@ Usługa pliki Azure zawiera kilka wbudowanych opcji równoczesnym zapewnieniu be
     * Klientów, które obsługuje szyfrowanie protokołu SMB 3.0 wysyłać i odbierać dane za pośrednictwem kanału szyfrowanego.
     * Klienci, którzy nie obsługują protokołu SMB 3.0 mogą komunikować się centrum danych wewnątrz przez protokół SMB 2.1 lub SMB 3.0 bez szyfrowania. Należy pamiętać, że klienci nie są dozwolone do komunikacji między centrum danych za pośrednictwem protokołu SMB 2.1 lub SMB 3.0 bez szyfrowania.
     * Klienci mogą komunikować się za pośrednictwem pliku REST z protokołu HTTP lub HTTPS.
-* Szyfrowanie na rest ([szyfrowanie usługi Magazyn Azure](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): Trwa włączanie szyfrowanie usługi Magazyn (SSE) na platformie Azure Storage podstawowej. Oznacza to, że szyfrowanie zostanie włączona domyślnie dla wszystkich kont magazynu. W przypadku tworzenia nowego konta magazynu w regionie z szyfrowania podczas spoczynku na domyślnych, nie trzeba wykonywać żadnych czynności, aby włączyć. Dane na rest jest szyfrowana za pełni zarządzanych kluczy. Szyfrowanie na rest zwiększenie kosztów magazynowania lub nie zmniejszyć wydajność. 
+* Szyfrowanie na rest ([szyfrowanie usługi Magazyn Azure](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): szyfrowanie usługi Magazyn (SSE) jest domyślnie włączona dla wszystkich kont magazynu. Dane na rest jest szyfrowana za pełni zarządzanych kluczy. Szyfrowanie na rest zwiększenie kosztów magazynowania lub nie zmniejszyć wydajność. 
 * Opcjonalne wymagania zaszyfrowanych danych podczas przesyłania: po wybraniu plików Azure odrzuca dostępu do danych za pośrednictwem nieszyfrowanego kanałów. W szczególności są dozwolone tylko protokołu HTTPS i SMB 3.0 z szyfrowania połączenia. 
 
     > [!Important]  

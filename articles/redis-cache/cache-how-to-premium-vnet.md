@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: wesmc
-ms.openlocfilehash: 5ed5af627fa8ec8007f095face2cbf115ead4b27
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ba3a7ccc059dd5036753f471b762e27f22a179af
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-redis-cache"></a>Jak skonfigurować obsługę sieci wirtualnych dla podręczna Redis Azure Premium
 Pamięć podręczna Redis Azure ma inną pamięci podręcznej oferty, które zapewniają elastyczność w wyborze rozmiar pamięci podręcznej i funkcji, łącznie z funkcji warstwy Premium, takich jak klastrowanie, trwałości i obsługi sieci wirtualnej. Sieci wirtualnej jest ona prywatną siecią w chmurze. Po skonfigurowaniu wystąpienia pamięci podręcznej Redis Azure z sieci wirtualnej nie jest publicznie adresowana i jest możliwy tylko z maszyn wirtualnych i aplikacji w sieci wirtualnej. W tym artykule opisano sposób konfigurowania obsługi sieci wirtualnej dla wystąpienia pamięci podręcznej Redis Azure premium.
@@ -38,7 +38,7 @@ Obsługa usługi Virtual Network (VNet) jest skonfigurowany na **nowa pamięć p
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
-Po wybraniu warstwie cenowej premium można skonfigurować integracji Redis sieci wirtualnej, wybierając sieć wirtualną, która znajduje się w tej samej subskrypcji i lokalizacji co pamięć podręczną. Aby korzystać z nowej sieci wirtualnej, utwórz go najpierw wykonując kroki opisane w [utworzyć sieć wirtualną przy użyciu portalu Azure](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) lub [utworzyć sieć wirtualną (klasyczne) przy użyciu portalu Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) , a następnie wróć do **nowa pamięć podręczna Redis** bloku, aby utworzyć i skonfigurować pamięć podręczną premium.
+Po wybraniu warstwie cenowej premium można skonfigurować integracji Redis sieci wirtualnej, wybierając sieć wirtualną, która znajduje się w tej samej subskrypcji i lokalizacji co pamięć podręczną. Aby korzystać z nowej sieci wirtualnej, utwórz go najpierw wykonując kroki opisane w [utworzyć sieć wirtualną przy użyciu portalu Azure](../virtual-network/manage-virtual-network.md#create-a-virtual-network) lub [utworzyć sieć wirtualną (klasyczne) przy użyciu portalu Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) , a następnie wróć do **nowa pamięć podręczna Redis** bloku, aby utworzyć i skonfigurować pamięć podręczną premium.
 
 Kliknij, aby skonfigurować sieć wirtualną dla nowej pamięci podręcznej **sieci wirtualnej** na **nowa pamięć podręczna Redis** bloku, a następnie wybierz odpowiednią sieć wirtualną z listy rozwijanej.
 

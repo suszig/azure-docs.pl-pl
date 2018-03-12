@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: danlep
 ms.custom: 
-ms.openlocfilehash: 280c31d00acc074653b6594235f78e4d569464b4
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e31eb02fda7ade027225c428c5b15804ebc6f182
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Utwórz maszynę wirtualną systemu Linux w strefie dostępności z wiersza polecenia platformy Azure
 
@@ -28,7 +28,7 @@ Ta procedura artykułu przy użyciu wiersza polecenia platformy Azure, aby utwor
 
 [!INCLUDE [availability-zones-preview-statement.md](../../../includes/availability-zones-preview-statement.md)]
 
-Upewnij się, że zainstalowano najnowszą [Azure CLI 2.0](/cli/azure/install-az-cli2) i zalogowany do konta platformy Azure z [logowania az](/cli/azure/#az_login).
+Upewnij się, że zainstalowano najnowszą [Azure CLI 2.0](/cli/azure/install-az-cli2) i zalogowany do konta platformy Azure z [logowania az](/cli/azure/reference-index#az_login).
 
 
 ## <a name="check-vm-sku-availability"></a>Sprawdzanie dostępności jednostki SKU maszyny wirtualnej
@@ -63,7 +63,7 @@ virtualMachines   eastus2    Standard_E4_v3     Standard   E4_v3    1,2,3
 
 Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#az_group_create).  
 
-Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Grupy zasobów musi zostać utworzone przed maszyny wirtualnej. W tym przykładzie grupy zasobów o nazwie *myResourceGroupVM* jest tworzony w *eastus2* regionu. East US 2 (Wschodnie stany USA 2) jest jednym z regionów świadczenia usługi Azure, które obsługują strefy dostępności w wersji zapoznawczej.
+Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Grupę zasobów należy utworzyć przed maszyną wirtualną. W tym przykładzie grupy zasobów o nazwie *myResourceGroupVM* jest tworzony w *eastus2* regionu. East US 2 (Wschodnie stany USA 2) jest jednym z regionów świadczenia usługi Azure, które obsługują strefy dostępności w wersji zapoznawczej.
 
 ```azurecli-interactive 
 az group create --name myResourceGroupVM --location eastus2
@@ -73,15 +73,15 @@ Grupa zasobów jest określony, podczas tworzenia lub modyfikowania maszyn wirtu
 
 ## <a name="create-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
-Utwórz maszynę wirtualną z [tworzenia maszyny wirtualnej az](/cli/azure/vm#az_vm_create) polecenia. 
+Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm#az_vm_create). 
 
-Podczas tworzenia maszyny wirtualnej, takich jak obraz systemu operacyjnego, dysku zmiany rozmiaru i administracyjnych poświadczeń jest kilka opcji. W tym przykładzie utworzono maszynę wirtualną o nazwie *myVM* systemem Ubuntu Server. Maszyna wirtualna jest tworzony w strefie dostępności *1*. Domyślnie maszyny Wirtualnej jest tworzona w *Standard_DS1_v2* rozmiar. Ten rozmiar jest obsługiwany w wersji zapoznawczej stref dostępności.
+Podczas tworzenia maszyny wirtualnej masz dostęp do kilku opcji, takich jak obraz systemu operacyjnego, ustalanie rozmiaru dysku i poświadczenia administracyjne. W tym przykładzie tworzona jest maszyna wirtualna o nazwie *myVM* z systemem Ubuntu Server. Maszyna wirtualna jest tworzony w strefie dostępności *1*. Domyślnie maszyny Wirtualnej jest tworzona w *Standard_DS1_v2* rozmiar. Ten rozmiar jest obsługiwany w wersji zapoznawczej stref dostępności.
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys --zone 1
 ```
 
-Może upłynąć kilka minut, aby utworzyć maszynę Wirtualną. Po utworzeniu maszyny Wirtualnej, interfejsu wiersza polecenia Azure generuje informacje o maszynie Wirtualnej. Zwróć uwagę na `zones` wartość, która zawiera strefy dostępności, w którym jest uruchomiona maszyna wirtualna. 
+Tworzenie maszyny wirtualnej może potrwać kilka minut. Po utworzeniu maszyny wirtualnej interfejs wiersza polecenia platformy Azure wyświetla informacje o maszynie wirtualnej. Zwróć uwagę na `zones` wartość, która zawiera strefy dostępności, w którym jest uruchomiona maszyna wirtualna. 
 
 ```azurecli-interactive 
 {
@@ -148,7 +148,7 @@ Dane wyjściowe zawierają, czy adres IP jest w tej samej strefie dostępności 
 }
 ```
 
-Podobnie Sprawdź, czy dysków zarządzanych w maszyny Wirtualnej jest w strefie dostępności. Użyj [az maszyny wirtualnej pokazu](/cli/azure/vm#az_vm_show) poleceniu, aby uzyskać identyfikator dysku. W tym przykładzie identyfikator dysku są przechowywane w zmiennej używanej w kolejnym kroku. 
+Podobnie Sprawdź, czy dysków zarządzanych w maszyny Wirtualnej jest w strefie dostępności. Za pomocą polecenia [az vm show](/cli/azure/vm#az_vm_show) wyświetl identyfikator dysku. W tym przykładzie identyfikator dysku są przechowywane w zmiennej używanej w kolejnym kroku. 
 
 ```azurecli-interactive
 osdiskname=$(az vm show -g myResourceGroupVM -n myVM --query "storageProfile.osDisk.name" -o tsv)

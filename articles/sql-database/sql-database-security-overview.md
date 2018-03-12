@@ -16,11 +16,11 @@ ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 01/29/2018
 ms.author: giladm
-ms.openlocfilehash: cf105dbc366b96dbb49484bffce9b81960cf41f4
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 41051944af863c4c50595ea843e2adf3513b3a12
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="securing-your-sql-database"></a>Zabezpieczanie bazy danych SQL
 
@@ -31,7 +31,7 @@ Pełne omówienie funkcji zabezpieczeń dostępnych we wszystkich wersjach bazy 
 ## <a name="protect-data"></a>Ochrona danych
 
 ### <a name="encryption"></a>Szyfrowanie
-Baza danych SQL zabezpieczenie danych przez zapewnienie szyfrowanie danych w ruchu z [Transport Layer Security](https://support.microsoft.com/kb/3135244), dla danych magazynowanych z [przezroczystego szyfrowania danych](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)i dla danych w użyciu [ Zawsze zaszyfrowane](https://msdn.microsoft.com/library/mt163865.aspx). 
+Baza danych SQL zabezpiecza dane przez zapewnienie szyfrowanie danych w ruchu z [Transport Layer Security](https://support.microsoft.com/kb/3135244), dla danych magazynowanych z [przezroczystego szyfrowania danych](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)i dla danych w użyciu [ Zawsze zaszyfrowane](https://msdn.microsoft.com/library/mt163865.aspx). 
 
 > [!IMPORTANT]
 >Wszystkie połączenia z usługą Azure SQL Database wymagają szyfrowania (SSL/TLS) podczas całego okresu, w którym dane są przesyłane do i z bazy danych. W parametrach połączenia aplikacji, należy określić parametry do szyfrowania połączenia oraz *nie* zaufania certyfikatu serwera (odbywa się automatycznie po skopiowaniu parametrów połączenia z portalu Azure), w przeciwnym razie połączenie nie weryfikuje tożsamość serwera i jest narażony na ataki "man-in--middle". Na przykład w przypadku sterownika ADO.NET te parametry połączenia mają wartość **Encrypt = True** i **TrustServerCertificate = False**. 

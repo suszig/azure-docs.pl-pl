@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 03/07/2018
 ms.author: jovanpop
 manager: cguyer
-ms.openlocfilehash: 6ecb6600e5e1462cce9d49ecd9a4ed2e43e2c455
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 699ac303c553e1f3b78f13fc12163f47a1e77941
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL bazy danych zarządzanych wystąpienia T-SQL różnice z programu SQL Server 
 
@@ -57,7 +57,7 @@ Aby uzyskać więcej informacji, zobacz:
 ### <a name="backup"></a>Backup 
 
 Zarządzane wystąpienia ma automatycznego tworzenia kopii zapasowych i umożliwia użytkownikom tworzenie pełnej bazy danych `COPY_ONLY` kopii zapasowych. Różnice, log oraz kopii zapasowych migawki pliku nie są obsługiwane.  
-- Zarządzane wystąpienia można utworzyć kopię zapasową bazy danych tylko na koncie magazynu obiektów Blob Azure: 
+- Zarządzane wystąpienia można kopię zapasową bazy danych tylko konta magazynu obiektów Blob Azure: 
  - Tylko `BACKUP TO URL` jest obsługiwane 
  - `FILE`, `TAPE`, i urządzenia kopii zapasowej nie są obsługiwane.  
 - Większość ogólne `WITH` opcje są obsługiwane. 
@@ -67,11 +67,11 @@ Zarządzane wystąpienia ma automatycznego tworzenia kopii zapasowych i umożliw
  - Opcje dziennika: `NORECOVERY`, `STANDBY`, i `NO_TRUNCATE` nie są obsługiwane 
  
 Ograniczenia:  
-- Zarządzane wystąpienie można utworzyć kopię zapasową bazy danych do kopii zapasowej z maksymalnie 32 rozkłada, której jest wystarczająca dla baz danych do 4 TB.
-- Maksymalny rozmiar kopii zapasowej stripe jest 195 GB (rozmiar obiektu blob strony). Zwiększ liczbę rozkłada w kopii zapasowej polecenia do dystrybucji rozmiary przeplotu. 
+- Zarządzane wystąpienie można utworzyć kopię zapasową bazy danych do kopii zapasowej z maksymalnie 32 rozkłada, której jest wystarczająca dla baz danych do 4 TB, jeśli kompresja kopii zapasowej jest używany.
+- Maksymalny rozmiar kopii zapasowej stripe jest 195 GB (rozmiar maksymalny obiektów blob). Zwiększ liczbę rozkłada w poleceniu kopii zapasowej, aby zmniejszyć rozmiar poszczególnych stripe i pozostać w ten limit. 
 
 > [!TIP]
-> Aby obejść to ograniczenie lokalnymi, tworzenie kopii zapasowej na `DISK` zamiast kopii zapasowej `URL`, Przekaż plik kopii zapasowej do obiektu blob, a następnie przywrócić. Przywrócić pliki większe obsługi, ponieważ jest używany typ inny obiektu blob.  
+> Aby obejść to ograniczenie lokalnymi, tworzenie kopii zapasowej na `DISK` zamiast kopii zapasowej `URL`, Przekaż plik kopii zapasowej do obiektu blob, a następnie przywrócić. Przywrócić pliki większe obsługuje, ponieważ jest używany typ inny obiektu blob.  
 
 ### <a name="buffer-pool-extension"></a>Rozszerzenie puli buforów 
  
@@ -136,9 +136,9 @@ Sortowania serwera jest `SQL_Latin1_General_CP1_CI_AS` i nie można zmienić. Zo
  
 - Wiele plików dziennika nie są obsługiwane. 
 - Obiekty w pamięci nie są obsługiwane w warstwie usług ogólnego przeznaczenia.  
-- Ma limitu 280 plików dla każdego wystąpienia, co oznacza maksymalny 280 plików na bazę danych. Plików dziennika i dane są obliczane względem tego limitu.  
-- Baza danych nie może zawierać grup plików zawierających dane strumienia pliku.  Przywracanie zakończy się niepowodzeniem, jeśli zawiera bak `FILESTREAM` danych.  
-- Każdy plik znajduje się na oddzielnym dysku Azure Premium. We/Wy i przepływności zależy rozmiar każdego pliku. Zobacz [wydajności dysków Azure — warstwa Premium](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)  
+- Ma limitu 280 plików dla każdego wystąpienia, co oznacza maksymalny 280 plików na bazę danych. Plików dziennika i dane są wliczane do tego limitu.  
+- Baza danych nie może zawierać grup plików zawierających dane filestream.  Przywracanie zakończy się niepowodzeniem, jeśli zawiera bak `FILESTREAM` danych.  
+- Każdy plik znajduje się w magazynie Azure Premium. We/Wy i przepływności na plik są zależne od rozmiar każdego pliku, w taki sam sposób jak w przypadku dysków Azure Premium Storage. Zobacz [wydajności dysków Azure — warstwa Premium](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)  
  
 #### <a name="create-database-statement"></a>Instrukcja CREATE DATABASE
 
@@ -217,7 +217,7 @@ W — baza danych R i Python zewnętrznej biblioteki nie są jeszcze obsługiwan
 
 ### <a name="filestream-and-filetable"></a>FILESTREAM i Filetable
 
-- Dane strumienia pliku nie jest obsługiwana. 
+- danych FILESTREAM nie jest obsługiwane. 
 - Baza danych nie może zawierać grupy plików z `FILESTREAM` danych
 - `FILETABLE` nie jest obsługiwane
 - Tabele nie mogą mieć `FILESTREAM` typów
@@ -237,7 +237,7 @@ Aby uzyskać więcej informacji, zobacz [FILESTREAM](https://docs.microsoft.com/
 ### <a name="linked-servers"></a>Serwery połączone
  
 Połączone serwery w wystąpieniu zarządzane obsługują ograniczoną liczbę elementów docelowych: 
-- Obsługiwane elementy docelowe: SQL Server, zarządzane wystąpienia bazy danych SQL i programu SQL Server na maszynie wirtualnej.
+- Obsługiwane elementy docelowe: SQL Server, bazy danych SQL, zarządzane wystąpienia i serwera SQL na maszynie wirtualnej.
 - Nieobsługiwane elementy docelowe: pliki usług Analysis Services i innych RDBMS.
 
 Operacje
@@ -277,23 +277,23 @@ Replikacja nie jest jeszcze obsługiwana. Aby uzyskać informacje o replikacji, 
  - `FROM URL` (Magazyn obiektów blob platformy azure) jest tylko obsługiwaną opcją.
  - `FROM DISK`/`TAPE`/ urządzenie kopii zapasowej nie jest obsługiwane.
  - Zestawy kopii zapasowych nie są obsługiwane. 
-- `WITH` Opcje nie są obsługiwane (nie istnieje, `STATS`itp.)     
-- `ASYNC RESTORE` -Restore będzie kontynuowane, nawet w przypadku przerwania połączenia klienta. W przypadku utraty połączenia, można sprawdzić `sys.dm_operation_status` widok stanu operacji przywracania (a także tworzenie i PORZUCENIA bazy danych). See [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database).  
+- `WITH` Opcje nie są obsługiwane (nr `DIFFERENTIAL`, `STATS`itp.)     
+- `ASYNC RESTORE` -Restore będzie kontynuowane, nawet w przypadku przerwania połączenia klienta. Jeśli połączenie zostanie porzucone, można sprawdzić `sys.dm_operation_status` widok stanu operacji przywracania (a także tworzenie i PORZUCENIA bazy danych). See [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database).  
  
-Następujących opcji bazy danych, które zostały zastąpione/zestawu i nie można zmienić później:  
+Następujące opcje bazy danych są zastąpione/zestawu i nie można zmienić później:  
 - `NEW_BROKER` (Jeśli plik bak nie jest włączony broker)  
 - `ENABLE_BROKER` (Jeśli plik bak nie jest włączony broker)  
 - `AUTO_CLOSE=OFF` (jeśli bazy danych w pliku bak jest `AUTO_CLOSE=ON`)  
 - `RECOVERY FULL` (jeśli bazy danych w pliku bak jest `SIMPLE` lub `BULK_LOGGED` trybie odzyskiwania)
-- Grupy plików zoptymalizowanych pod kątem pamięci zostanie dodany i wywołuje XTP, jeśli nie był plik bak źródła  
+- Grupa plików zoptymalizowanych pod kątem pamięci zostanie dodany i wywołuje XTP, jeśli nie był plik bak źródła  
 - Wszystkie istniejące grupy plików zoptymalizowanych pod kątem pamięci jest zmieniana na XTP  
 - `SINGLE_USER` i `RESTRICTED_USER` opcje są konwertowane na `MULTI_USER`   
 Ograniczenia:  
 - `.BAK` Nie można przywrócić pliki zawierające wiele zestawów kopii zapasowych. 
 - `.BAK` Nie można przywrócić pliki zawierające wiele plików dziennika. 
 - Przywracanie zakończy się niepowodzeniem, jeśli zawiera bak `FILESTREAM` danych.
-- Obecnie nie można przywrócić kopii zapasowych baz danych OLTP w pamięci active obiektów zawierających.  
-- Obecnie nie można przywrócić kopii zapasowych zawierający baz danych, gdy w pewnym momencie się, że istnieje obiektów w pamięci.   
+- Obecnie nie można przywrócić kopii zapasowych zawierający baz danych, które obiekty były aktywne w pamięci.  
+- Kopie zapasowe baz danych, gdzie w pewnym momencie obiektów w pamięci istniał zawierający obecnie nie można przywrócić.   
 - Obecnie nie można przywrócić kopii zapasowych zawierający baz danych w trybie tylko do odczytu. Wkrótce zostaną usunięte tego ograniczenia.   
  
 Aby uzyskać informacje na temat instrukcji Restore, zobacz [PRZYWRÓCIĆ instrukcje](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql).
@@ -381,21 +381,21 @@ Następujące zmienne, funkcje i widoki zwraca różne wyniki:
 - `@@SERVICENAME` Zwraca wartość NULL, ponieważ nie ma sensu w środowisku zarządzane wystąpienia. Zobacz [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).   
 - `SUSER_ID` jest obsługiwana. Zwraca wartość NULL, jeśli logowanie usługi AAD nie jest sys.syslogins. Zobacz [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql).  
 - `SUSER_SID` nie jest obsługiwane. Zwraca nieodpowiedniego (tymczasowego znany problem). Zobacz [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql). 
-- `GETDATE()` zawsze zwraca datę w strefie czasowej UTC. Zobacz [GETDATE](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql).
+- `GETDATE()` i inne funkcje wbudowane daty/godziny zawsze zwraca czas w strefie czasowej UTC. Zobacz [GETDATE](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql).
 
 ## <a name="Issues"></a> Znane problemy i ograniczenia
 
 ### <a name="tempdb-size"></a>Rozmiar bazy danych TEMPDB
 
-`tempdb` dzieli się na 12 pliki z maksymalny rozmiar 14 GB na plik. Nie można zmienić tego maksymalny rozmiar każdego pliku i nie można dodać nowe pliki do `tempdb`. Wkrótce zostaną usunięte tego ograniczenia. Niektóre zapytania mogą zwracać błąd, jeśli `tempdb` wymaga więcej niż 168 GB.
+`tempdb` dzieli się na 12 pliki z maksymalny rozmiar 14 GB na plik. Nie można zmienić tego maksymalny rozmiar każdego pliku i nie można dodać nowe pliki do `tempdb`. Wkrótce zostaną usunięte tego ograniczenia. Niektórych kwerend może zwrócić błąd, jeśli potrzebna jest więcej niż 168 GB `tempdb`.
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Powyżej miejsca do magazynowania z plikami małych baz danych
 
-Każde wystąpienie zarządzane ma się do 35 TB zarezerwowane miejsce do magazynowania i wszystkich plików bazy danych znajduje się w jednostce alokacji magazynu 128 GB. Bazy danych o wiele małych plików może znajdować się na jednostkach 128 GB, które łącznie przekracza limit 35 TB. W takim przypadku nowych baz danych nie można utworzyć ani przywrócenia, nawet jeśli całkowity rozmiar wszystkich baz danych osiągnięto limit rozmiaru wystąpienia. Błąd, który jest zwracany nie może być Wyczyść.
+Każde wystąpienie zarządzane ma się do 35 TB zarezerwowane miejsce do magazynowania i każdego pliku bazy danych jest początkowo umieszczona na jednostce alokacji 128 GB pamięci masowej. Bazy danych o wiele małych plików może znajdować się na jednostkach 128 GB, które łącznie przekracza limit 35 TB. W takim przypadku nowych baz danych nie można utworzyć ani przywrócenia, nawet jeśli całkowity rozmiar wszystkich baz danych osiągnięto limit rozmiaru wystąpienia. Błąd, który jest zwracany w takiej sytuacji może nie być Wyczyść.
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>Przywróć niepoprawnej konfiguracji klucza sygnatury dostępu Współdzielonego w bazie danych
 
-`RESTORE DATABASE` czy odczytuje plik bak może być stale ponów próbę, aby odczytać plik bak i zwróciła błąd od dłuższego czasu, jeśli sygnatura dostępu współdzielonego w `CREDENTIAL` jest niepoprawny. Wykonaj Przywracanie HEADERONLY przed przywróceniem bazy danych należy upewnić się, że klucz sygnatury dostępu Współdzielonego jest poprawna.
+`RESTORE DATABASE` które odczytuje plik bak może być stale ponawianie próby odczytać plik bak i zwróciła błąd od dłuższego czasu, jeśli sygnatura dostępu współdzielonego w `CREDENTIAL` jest niepoprawny. Wykonaj Przywracanie HEADERONLY przed przywróceniem bazy danych należy upewnić się, że klucz sygnatury dostępu Współdzielonego jest poprawna.
 Upewnij się, że po usunięciu wiodące `?` z klucza sygnatury dostępu Współdzielonego wygenerowanych przy użyciu portalu Azure.
 
 ### <a name="tooling"></a>Narzędzia

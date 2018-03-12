@@ -28,10 +28,7 @@
 #### [Tworzenie strefowo nadmiarowej usługi Load Balancer w warstwie Podstawowa przy użyciu programu PowerShell](../load-balancer/load-balancer-get-started-internet-az-powershell.md)
 #### [Tworzenie strefowo nadmiarowej publicznej usługi Load Balancer w warstwie Podstawowa przy użyciu interfejsu wiersza polecenia](../load-balancer/load-balancer-get-started-internet-az-cli.md)
 
-### Publiczny adres IP
-#### [Tworzenie publicznego adresu IP w strefie dostępności przy użyciu witryny Azure Portal](../virtual-network/create-public-ip-availability-zone-portal.md)
-#### [Tworzenie publicznego adresu IP w strefie dostępności przy użyciu programu PowerShell](../virtual-network/create-public-ip-availability-zone-powershell.md)
-#### [Tworzenie publicznego adresu IP w strefie dostępności przy użyciu interfejsu wiersza polecenia](../virtual-network/create-public-ip-availability-zone-cli.md)
+### [Publiczny adres IP](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
 
 ### SQL Database
 #### [Strefy dostępności z usługą SQL Database](../sql-database/sql-database-high-availability.md#availability-zones)

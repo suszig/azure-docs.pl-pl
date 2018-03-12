@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: agummadi
-ms.openlocfilehash: 4f3edb6879ff256b1b50a1437fe349084fe7de41
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 36cd2f106c39f1a6bdcb6ee33b96209974a06336
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Konfigurowanie monitora wydajności sieci dla usługi ExpressRoute
 
@@ -102,10 +102,7 @@ Tworzenie obszaru roboczego w subskrypcji, która ma łącze sieci wirtualnych d
 
 1. Przejdź do **typowe ustawienia** karcie **konfiguracji monitora wydajności sieci** strony dla zasobu. Kliknij agenta, który odpowiada procesora na serwerze z **zainstalować agentów OMS** sekcji i pobranie pliku konfiguracji.
 
-  >[!NOTE]
-  >Musi być zainstalowany agent w systemie Windows Server (2008 z dodatkiem SP1 lub nowszym). Monitorowanie przy użyciu systemu operacyjnego Windows pulpitu i systemu operacyjnego Linux obwody usługi ExpressRoute nie jest obsługiwane. 
-  >
-  >
+ 
 2. Następnie skopiuj **identyfikator obszaru roboczego** i **klucz podstawowy** do Notatnika.
 3. Z **Konfigurowanie agentów OMS monitorowania przy użyciu protokołu TCP** sekcji, Pobierz skrypt programu Powershell. Skrypt programu PowerShell ułatwia otworzyć port zapory odpowiednie dla transakcji protokołu TCP.
 
@@ -114,6 +111,16 @@ Tworzenie obszaru roboczego w subskrypcji, która ma łącze sieci wirtualnych d
 ### <a name="installagent"></a>2.2: Zainstaluj agenta monitorowania na każdym serwerze monitorowania (w każdej sieci Wirtualnej, który chcesz monitorować)
 
 Zaleca się zainstalowanie co najmniej dwóch agentów po obu stronach połączenia ExpressRoute (tj. w infrastrukturze lokalnej, sieci wirtualnych platformy Azure) nadmiarowości. Aby zainstalować agentów, wykonaj następujące kroki:
+  
+  >[!NOTE]
+  >Musi być zainstalowany agent w systemie Windows Server (2008 z dodatkiem SP1 lub nowszym). Monitorowanie przy użyciu systemu operacyjnego Windows pulpitu i systemu operacyjnego Linux obwody usługi ExpressRoute nie jest obsługiwane. 
+  >
+  >
+  
+  >[!NOTE]
+  >Agenci programu SCOM nie może być spójnie wykryć, czy są one hostowane na platformie Azure.  Firma Microsoft zaleca, aby używać SCOM agentów w sieci wirtualnych platformy Azure do monitorowania usługi ExpressRoute.
+  >
+  >
 
 1. Uruchom **Instalator** do zainstalowania agenta na każdym serwerze, który ma być używany do monitorowania usługi ExpressRoute. Używanego do monitorowania serwera może być maszyny Wirtualnej lub lokalnymi i musi mieć dostęp do Internetu. Należy zainstalować co najmniej jeden lokalny agent i jednego agenta w każdym segmencie sieci, które mają być monitorowane na platformie Azure.
 2. Na **stronie powitalnej** kliknij przycisk **Dalej**.

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a59ea7c9e111f8ae5b0d9bd620faa5495c3924b7
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: bb096f64a6bc41ad2e75c058c7a9f00bbe480207
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-virtual-network-using-an-azure-resource-manager-template"></a>Utwórz sieć wirtualną przy użyciu szablonu usługi Azure Resource Manager
 
@@ -31,9 +31,9 @@ Platforma Azure ma dwa modele wdrażania: usługa Azure Resource Manager i wersj
 W tym artykule wyjaśniono, jak utworzyć sieć wirtualną przy użyciu modelu wdrażania usługi Resource Manager przy użyciu szablonu usługi Azure Resource Manager. Sieć wirtualną można również utworzyć w usłudze Resource Manager przy użyciu innych narzędzi albo za pośrednictwem klasycznego modelu wdrożenia, wybierając inną opcję z poniższej listy:
 
 > [!div class="op_single_selector"]
-- [Portal](virtual-networks-create-vnet-arm-pportal.md)
-- [Program PowerShell](virtual-networks-create-vnet-arm-ps.md)
-- [Interfejs wiersza polecenia](virtual-networks-create-vnet-arm-cli.md)
+- [Portal](quick-create-portal.md)
+- [Program PowerShell](quick-create-powershell.md)
+- [Interfejs wiersza polecenia](quick-create-cli.md)
 - [Szablon](virtual-networks-create-vnet-arm-template-click.md)
 - [Portal (klasyczny)](virtual-networks-create-vnet-classic-pportal.md)
 - [PowerShell (klasyczny)](virtual-networks-create-vnet-classic-netcfg-ps.md)
@@ -56,7 +56,6 @@ Możesz pobrać istniejący szablon do tworzenia sieci wirtualnej z dwoma podsie
    
    | Parametr | Opis |
    | --- | --- |
-   | **location** |Region platformy Azure, w którym utworzona sieć wirtualna |
    | **vnetName** |Nazwa nowej sieci wirtualnej |
    | **addressPrefix** |Przestrzeń adresowa sieci wirtualnej w formacie CIDR |
    | **subnet1Name** |Nazwa pierwszej sieci wirtualnej |
@@ -80,9 +79,6 @@ Możesz pobrać istniejący szablon do tworzenia sieci wirtualnej z dwoma podsie
 
     ```json
         {
-          "location": {
-            "value": "Central US"
-          },
           "vnetName": {
               "value": "TestVNet"
           },

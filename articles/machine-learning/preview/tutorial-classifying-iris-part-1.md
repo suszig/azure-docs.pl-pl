@@ -11,24 +11,24 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/28/2018
-ms.openlocfilehash: 0bef557ee1394e3c786fd2c54e821b5dea28fabf
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 12cba3d4acf0e6018cea6e76df9208bcf380d976
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="tutorial-classify-iris-part-1---preparing-the-data"></a>Samouczek: klasyfikowanie irysów, część 1 — przygotowanie danych
 
 Usługa Azure Machine Learning (wersja zapoznawcza) stanowi zintegrowane, kompleksowe rozwiązanie do nauki o danych i do analiz zaawansowanych przeznaczone dla profesjonalnych analityków, którzy będą z niego korzystać w celu przygotowywania danych, opracowywania eksperymentów i wdrażania modeli na skalę chmury.
 
-Niniejszy samouczek jest pierwszą częścią trzyczęściowej serii. W tym samouczku poznamy podstawowe zagadnienia z zakresu usług Azure Machine Learning (wersja zapoznawcza). Omawiane kwestie:
+Niniejszy samouczek jest **pierwszą częścią trzyczęściowej serii**. W tym samouczku poznasz podstawowe zagadnienia z zakresu usług Azure Machine Learning (wersja zapoznawcza) i sposoby wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie projektu w aplikacji Azure Machine Learning Workbench
 > * Tworzenie pakietu przygotowywania danych
 > * Generowanie kodu Python/PySpark w celu wywołania pakietu przygotowywania danych
 
-W tym samouczku wykorzystywany jest ponadczasowy [zbiór danych na temat irysów](https://en.wikipedia.org/wiki/Iris_flower_data_set). Zrzuty ekranu dotyczą systemu Windows, ale działanie na komputerach z systemem operacyjnym macOS jest niemal identyczne.
+W tym samouczku wykorzystywany jest ponadczasowy [zbiór danych na temat irysów](https://en.wikipedia.org/wiki/Iris_flower_data_set). 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -38,7 +38,7 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
 - Konto Eksperymentowanie w usłudze Azure Machine Learning
 - Zainstalowana aplikacja Azure Machine Learning Workbench
 
-Jeśli nie zostało to jeszcze zrobione, postępuj zgodnie z instrukcjami w artykule [Szybki start: instalacja i uruchamianie](quickstart-installation.md), aby skonfigurować to konto i zainstalować aplikację Azure Machine Learning Workbench. 
+Jeśli te wymagania wstępne nie zostały jeszcze spełnione, postępuj zgodnie z instrukcjami w artykule [Szybki start: instalacja i uruchamianie](quickstart-installation.md), aby skonfigurować Twoje konta i zainstalować aplikację Azure Machine Learning Workbench. 
 
 ## <a name="create-a-new-project-in-workbench"></a>Tworzenie nowego projektu w aplikacji Workbench
 
@@ -60,7 +60,7 @@ Jeśli wykonywano kroki z artykułu [Szybki start: instalacja i uruchamianie](qu
    Project name (Nazwa projektu) | myIris |Wprowadź unikatową nazwę, która identyfikuje Twoje konto. Możesz użyć własnej nazwy albo nazwy działu lub projektu, która najlepiej identyfikuje eksperyment. Nazwa powinna mieć od 2 do 32 znaków. Powinna ona zawierać tylko znaki alfanumeryczne i znak łącznika (-). 
    Katalog projektu | c:\Temp\ | Określ katalog, w którym zostanie utworzony projekt.
    Opis projektu | _Pozostaw puste_ | Pole opcjonalne przydatne do opisywania projektów.
-   Visualstudio.com |_Pozostaw puste_ | Pole opcjonalne. Projekt może być opcjonalnie skojarzony z repozytorium Git w usłudze Visual Studio Team Services na potrzeby kontroli źródła i współpracy. [Dowiedz się, jak to skonfigurować](https://docs.microsoft.com/en-us/azure/machine-learning/preview/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
+   Visualstudio.com |_Pozostaw puste_ | Pole opcjonalne. Możesz skojarzyć projekt z repozytorium Git w usłudze Visual Studio Team Services na potrzeby kontroli źródła i współpracy. [Dowiedz się, jak to skonfigurować](https://docs.microsoft.com/en-us/azure/machine-learning/preview/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
    Obszar roboczy | IrisGarden (jeśli istnieje) | Wybierz obszar roboczy utworzony dla konta Eksperymentowania w witrynie Azure Portal. <br/>Jeśli samouczek Szybki start był wykonywany, powinien już istnieć obszar roboczy o nazwie IrisGarden. W przeciwnym razie wybierz obszar roboczy utworzony podczas tworzenia konta Eksperymentowania lub dowolny inny, którego chcesz użyć.
    Szablon projektu | Classifying Iris | Szablony zawierają skrypty i dane, których można użyć, aby zapoznać się z produktem. Ten szablon zawiera skrypty i dane potrzebne w tym samouczku Szybki start oraz innych samouczkach w tej witrynie dokumentacji. 
 
@@ -68,35 +68,38 @@ Jeśli wykonywano kroki z artykułu [Szybki start: instalacja i uruchamianie](qu
  
  Utworzony zostanie nowy projekt i otworzy się pulpit nawigacyjny projektu z tym projektem. Teraz możesz eksplorować stronę główną projektu, źródła danych, notesy i pliki kodu źródłowego. 
 
+   ![Otwieranie projektu](media/tutorial-classifying-iris/project-open.png)
+ 
+
 ## <a name="create-a-data-preparation-package"></a>Tworzenie pakietu przygotowywania danych
 
-W tej części samouczka będzie miało miejsce eksplorowanie danych i rozpoczęcie procesu przygotowywania danych. Podczas przygotowywania danych w aplikacji Azure Machine Learning Workbench reprezentacja JSON wykonywanych transformacji jest zapisywana w lokalnym pakiecie przygotowywania danych (plik dprep). Ten pakiet przygotowywania danych jest podstawowym kontenerem na potrzeby operacji związanych z przygotowywaniem danych w aplikacji Workbench.
+W dalszej kolejności możesz przeglądać dane i rozpocząć ich przygotowywanie w aplikacji Azure Machine Learning Workbench. Każde przekształcenie wykonywane w aplikacji Workbench jest przechowywane w formacie JSON w lokalnym pakiecie przygotowywania danych (plik *.dprep). Ten pakiet przygotowywania danych jest podstawowym kontenerem na potrzeby operacji związanych z przygotowywaniem danych w aplikacji Workbench.
 
-Można go przekazać w celu wykonania do środowiska uruchomieniowego, takiego jak lokalne środowisko C#/CoreCLR, Scala/Spark lub Scala/HDI. gdzie kod jest generowany dla odpowiedniego środowiska uruchomieniowego w celu wykonania. 
+Można go przekazać później do środowiska uruchomieniowego, takiego jak lokalne środowisko C#/CoreCLR, Scala/Spark lub Scala/HDI. 
 
 1. Wybierz ikonę folderu, aby otworzyć widok plików, a następnie wybierz plik **iris.csv** w celu jego otwarcia.  
 
-   Ten plik jest tabelą z 5 kolumnami i 150 wierszami. Zawiera cztery kolumny elementów liczbowych i docelową kolumnę ciągów. Nie zawiera nagłówków kolumn.
+   Ten plik zawiera tabelę składającą się z 5 kolumn i 50 wierszy. Cztery kolumny są kolumnami funkcji liczbowych. Piąta kolumna jest kolumną docelową ciągu. Żadna z tych kolumn nie ma nazwy nagłówka.
 
    ![iris.csv](media/tutorial-classifying-iris/show_iris_csv.png)
 
    >[!NOTE]
-   > Nie dołączaj plików danych do folderu projektu, szczególnie w przypadku, gdy rozmiar pliku jest duży. Dołączamy plik **iris.csv** do tego szablonu w celach demonstracyjnych, ponieważ ten plik jest niewielki. Aby uzyskać więcej informacji, zobacz [How to read and write large data files (Jak odczytywać i zapisywać duże pliki danych)](how-to-read-write-files.md).
+   > Nie dołączaj plików danych do folderu projektu, szczególnie w przypadku, gdy rozmiar pliku jest duży. Ponieważ plik danych **iris.csv** ma niewielki rozmiar, dla celów demonstracyjnych został on uwzględniony w tym szablonie. Aby uzyskać więcej informacji, zobacz [How to read and write large data files (Jak odczytywać i zapisywać duże pliki danych)](how-to-read-write-files.md).
 
 2. W obszarze **Widok danych** wybierz znak plus (**+**), aby dodać nowe źródło danych. Zostanie otwarta strona **Dodawanie źródła danych**. 
 
-   ![Widok danych](media/tutorial-classifying-iris/data_view.png)
+   ![Widok danych w aplikacji Azure Machine Learning Workbench](media/tutorial-classifying-iris/data_view.png)
 
 3. Wybierz pozycję **Pliki tekstowe(*.csv, .json, .txt, ...)** i kliknij przycisk **Dalej**.
-   ![Źródło danych](media/tutorial-classifying-iris/data-source.png)
+   ![Źródło danych w aplikacji Azure Machine Learning Workbench](media/tutorial-classifying-iris/data-source.png)
    
 
 4. Wskaż plik **iris.csv** i kliknij przycisk **Dalej**.  
- 
-   ![Wybierz iris](media/tutorial-classifying-iris/select_iris_csv.png)
 
    >[!IMPORTANT]
    >Na potrzeby tego ćwiczenia wybierz plik **iris.csv** z bieżącego katalogu projektu. W przeciwnym razie dalsze kroki mogą zakończyć się niepowodzeniem.
+ 
+   ![Wybierz iris](media/tutorial-classifying-iris/select_iris_csv.png)
    
 5. Pozostaw wartości domyślne i kliknij przycisk **Zakończ**.
 
@@ -106,45 +109,68 @@ Można go przekazać w celu wykonania do środowiska uruchomieniowego, takiego j
 
    ![Widok danych irysów](media/tutorial-classifying-iris/iris_data_view.png)
 
-7. Wybierz przycisk **Metryki**. Przyjrzyj się histogramom. Dla każdej kolumny został obliczony kompletny zestaw statystyk. Możesz również wybrać przycisk **Dane**, aby ponownie wyświetlić dane. 
+1. Wybierz przycisk **Metryki**. Spowoduje to wygenerowanie histogramów i wyświetlenie ich na ekranie.
+
+   Wróć do widoku danych, naciskając przycisk **Dane**. 
+   
+   ![Widok danych irysów](media/tutorial-classifying-iris/iris_data_view_metrics.png)
+
+1. Przyjrzyj się histogramom. Dla każdej kolumny został obliczony kompletny zestaw statystyk. 
 
    ![Widok danych irysów](media/tutorial-classifying-iris/iris_metrics_view.png)
 
-8. Wybierz przycisk **Przygotuj**. Zostanie otwarte okno dialogowe **Przygotowywanie**. 
+8. Rozpocznij tworzenie pakietu przygotowywania danych, naciskając przycisk **Przygotowywanie**. Zostanie otwarte okno dialogowe **Przygotowywanie**. 
 
-   Przykładowy projekt zawiera plik **iris.dprep**. Domyślnie prosi o utworzenie nowego przepływu danych w istniejącym pakiecie przygotowywania danych **iris.dprep**. 
+   Przykładowy projekt zawiera domyślnie plik przygotowywania danych **iris.dprep**. 
 
-   Z menu rozwijanego wybierz polecenie **+ New Data Preparation Package** (+ Nowy pakiet przygotowywania danych), wprowadź nową wartość dla nazwy pakietu (**iris-1**), a następnie wybierz polecenie **OK**.
+   ![Widok danych irysów](media/tutorial-classifying-iris/prepare.png)
 
-   ![Widok danych irysów](media/tutorial-classifying-iris/new_dprep.png)
+1. Utwórz nowy pakiet przygotowywania danych, wybierając pozycję **+ Nowy pakiet przygotowywania danych** z menu rozwijanego.
+
+   ![Widok danych irysów](media/tutorial-classifying-iris/prepare_new.png)
+
+1. Wprowadź nową wartość nazwy pakietu (użyj nazwy **iris 1**), a następnie wybierz pozycję **OK**.
 
    Nowy pakiet przygotowania danych o nazwie **iris-1.dprep** zostanie utworzony i otwarty w edytorze przygotowywania danych.
 
-9. Teraz wykonajmy kilka podstawowych operacji przygotowania danych. Zaznacz poszczególne nagłówki kolumn, aby przystąpić do ich edycji, a następnie zmień nazwę każdej kolumny w następujący sposób: 
+   ![Widok danych irysów](media/tutorial-classifying-iris/prepare_iris-1.png)
+
+   Teraz wykonajmy kilka podstawowych operacji przygotowania danych. 
+
+1. Zaznacz poszczególne nagłówki kolumn, aby przystąpić do ich edycji. Następnie zmień nazwę każdej kolumny w następujący sposób: 
 
    W podanej kolejności wprowadź wartości **Długość słupka**, **Szerokość słupka**, **Długość płatka**, **Szerokość płatka** i **Gatunek** odpowiednio w pięciu kolumnach.
 
    ![Zmienianie nazw kolumn](media/tutorial-classifying-iris/rename_column.png)
 
-10. Aby obliczyć różne wartości, wybierz kolumnę **Gatunek** i zaznacz ją, klikając prawym przyciskiem myszy. Z menu rozwijanego wybierz pozycję **Liczba wartości**. 
+1. Zlicz unikatowe wartości:
+   1. Wybierz kolumnę **Gatunki**.
+   1. Kliknij prawym przyciskiem myszy, aby ją zaznaczyć. 
+   1. Z menu rozwijanego wybierz pozycję **Liczba wartości**. 
 
-   Ta akcja powoduje otwarcie okienka **Inspektorzy** poniżej danych. Zostanie wyświetlony histogram z czterema słupkami. Kolumna docelowa ma trzy różne wartości: **Iris_virginica**, **Iris_versicolor**, **Iris-setosa** i wartość **(null)**.
+   Poniżej danych zostanie otwarte okienko **Inspektorzy**. Zostanie wyświetlony histogram z czterema słupkami. Kolumna docelowa ma trzy różne wartości: **Iris_virginica**, **Iris_versicolor**, **Iris-setosa** i wartość **(null)**.
 
    ![Wybieranie pozycji Liczba wartości](media/tutorial-classifying-iris/value_count.png)
 
-11. Aby odfiltrować wartości null, wybierz etykietę „Null”, a następnie wybierz znak minus (**-**). Po chwili wiersz o wartości null zmieni kolor na szary w celu wskazania, że został on odfiltrowany. 
-
    ![Histogram liczby wartości](media/tutorial-classifying-iris/filter_out.png)
 
-12. Poszczególne kroki zostały szczegółowo przedstawione w okienku **KROKI**. Każda akcja dotycząca zmiany nazw kolumn i filtrowania wierszy z wartością null została zarejestrowana jako krok przygotowywania danych. Poszczególne kroki można edytować, aby dostosować ustawienia, zmienić kolejność kroków i usunąć kroki.
+1. Aby odfiltrować wartości null, wybierz słupek „(null)”, a następnie wybierz znak minus (**-**). 
+
+   Po chwili wiersz o wartości (null) zmieni kolor na szary w celu wskazania, że został on odfiltrowany. 
+
+   ![Filtrowanie wartości null](media/tutorial-classifying-iris/filter_out2.png)
+
+1. Zwróć uwagę na poszczególne etapy przygotowywania danych, które zostały szczegółowo opisane w okienku **KROKI**. Każda akcja dotycząca zmiany nazw kolumn i filtrowania wierszy z wartością null została zarejestrowana jako krok przygotowywania danych. Poszczególne kroki można edytować, aby dostosować ustawienia, zmienić kolejność kroków i usunąć kroki.
 
    ![Kroki](media/tutorial-classifying-iris/steps.png)
 
-13. Zamknij Kreatora przygotowywania danych. Wybierz polecenie **Zamknij** (x) na karcie **iris-1** oznaczonej ikoną wykresu. Twoja praca zostanie automatycznie zapisana w pliku **iris-1.dprep** wyświetlanym w obszarze oznaczonym nagłówkiem **Przygotowywanie danych**.
+1. Zamknij Kreatora przygotowywania danych. Wybierz ikonę x na karcie **iris-1** z ikoną wykresu, aby zamknąć kartę. Twoja praca zostanie automatycznie zapisana w pliku **iris-1.dprep** wyświetlanym w obszarze oznaczonym nagłówkiem **Przygotowywanie danych**.
+
+   ![Zamykanie](media/tutorial-classifying-iris/close.png)
 
 ## <a name="generate-pythonpyspark-code-to-invoke-a-data-preparation-package"></a>Generowanie kodu Python/PySpark w celu wywołania pakietu przygotowywania danych
 
-<!-- The output/results of a Package can be explored in Python or via a Jupyter Notebook. A Package can be executed across multiple runtimes including local Python, Spark (including in Docker), and HDInsight. A Package contains one or more Dataflows that are the steps and transforms applied to the data. A Package may use another Package as a Data Source (referred to as a Reference Data Flow). -->
+ Dane wyjściowe pakietu przygotowywania danych można eksplorować bezpośrednio w języku Python lub w notesie Jupyter. Pakiety mogą być wykonywane w różnych środowiskach uruchomieniowych, między innymi w lokalnych środowiskach języka Python, aparatu Spark (w tym Docker) i usługi HDInsight. 
 
 1. Znajdź plik **iris-1.dprep** na karcie Przygotowywanie danych.
 
@@ -171,9 +197,11 @@ Można go przekazać w celu wykonania do środowiska uruchomieniowego, takiego j
    df.head(10)
    ```
 
-   W zależności od kontekstu uruchamiania kodu element `df` reprezentuje różne rodzaje ramek danych. Element [pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html) w przypadku wykonywania w środowisku uruchomieniowym języka Python, a element [Spark DataFrame](https://spark.apache.org/docs/latest/sql-programming-guide.html) — w przypadku wykonywane w kontekście usługi Spark. 
+   W zależności od kontekstu uruchamiania kodu element `df` reprezentuje rodzaj ramki danych. 
+   + Podczas wykonywania w środowisku uruchomieniowym języka Python jest używana ramka danych [pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html).
+   + Podczas wykonywania w kontekście aparatu Spark jest używana ramka danych [Spark DataFrame](https://spark.apache.org/docs/latest/sql-programming-guide.html). 
    
-   Aby dowiedzieć się, jak przygotowywać dane w aplikacji Azure Machine Learning Workbench, zapoznaj się z przewodnikiem [Wprowadzenie do przygotowywania danych](data-prep-getting-started.md).
+   Aby dowiedzieć się więcej na temat przygotowywania danych w aplikacji Azure Machine Learning Workbench, zapoznaj się z przewodnikiem [Get started with data preparation (Wprowadzenie do przygotowywania danych)](data-prep-getting-started.md).
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 

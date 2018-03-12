@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: mahender
-ms.openlocfilehash: 45fcbc3af02dd8afbd9581e8bc38ad10369a2747
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 736a82d282e5769fb403c66ffd5d44107c6d3218
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Jak używać Azure zarządzanych tożsamości usługi (publicznej wersji zapoznawczej) w aplikacji usługi i usługi Azure Functions
 
@@ -56,7 +56,7 @@ Aby skonfigurować tożsamość usługi zarządzanej przy użyciu wiersza polece
 
 Poniższe kroki przeprowadzi użytkownika przez proces tworzenia aplikacji sieci web i przypisywania jej tożsamość za pomocą interfejsu wiersza polecenia:
 
-1. Jeśli używasz interfejsu wiersza polecenia Azure w lokalnej konsoli, najpierw zaloguj się do platformy Azure przy użyciu [logowania az](/cli/azure/#az_login). Użyj konta, które jest skojarzone z subskrypcją platformy Azure, w której chcesz wdrożyć aplikację:
+1. Jeśli używasz interfejsu wiersza polecenia Azure w lokalnej konsoli, najpierw zaloguj się do platformy Azure przy użyciu [logowania az](/cli/azure/reference-index#az_login). Użyj konta, które jest skojarzone z subskrypcją platformy Azure, w której chcesz wdrożyć aplikację:
 
     ```azurecli-interactive
     az login
@@ -126,13 +126,13 @@ Gdzie `<TENANTID>` i `<PRINCIPALID>` są zamieniane na GUID. Właściwość iden
 Aplikacja może być uzyskiwać tokeny do innych zasobów chronionych przez usługi AAD, takich jak usługi Azure Key Vault jego tożsamość. Tokeny te stanowią aplikacji dostęp do zasobów i nie każdy użytkownik określonych aplikacji. 
 
 > [!IMPORTANT]
-> Może być konieczne skonfigurowanie zasobu docelowego, aby zezwolić na dostęp z poziomu aplikacji. Na przykład jeśli żądanie jest token do magazynu kluczy, musisz upewnij się, że dodano zasad dostępu, która obejmuje tożsamości aplikacji. W przeciwnym razie wywołaniami magazynu kluczy zostanie odrzucone, nawet jeśli zawierają one tokenu. Aby dowiedzieć się więcej o zasobach, które obsługuje tokenów tożsamości usługi zarządzane, zobacz [uwierzytelniania pomocy technicznej usługi Azure AD z usług Azure](../active-directory/msi-overview.md#which-azure-services-support-managed-service-identity).
+> Może być konieczne skonfigurowanie zasobu docelowego, aby zezwolić na dostęp z poziomu aplikacji. Na przykład jeśli żądanie jest token do magazynu kluczy, musisz upewnij się, że dodano zasad dostępu, która obejmuje tożsamości aplikacji. W przeciwnym razie wywołaniami magazynu kluczy zostanie odrzucone, nawet jeśli zawierają one tokenu. Aby dowiedzieć się więcej o zasobach, które obsługuje tokenów tożsamości usługi zarządzane, zobacz [uwierzytelniania pomocy technicznej usługi Azure AD z usług Azure](../active-directory/pp/msi-overview.md#which-azure-services-support-managed-service-identity).
 
 Brak prostego protokołu REST do uzyskania tokenu usługi aplikacji i usługi Azure Functions. W przypadku aplikacji .NET biblioteki Microsoft.Azure.Services.AppAuthentication udostępnia abstrakcję za pośrednictwem protokołu i obsługuje środowisko rozwoju lokalnego.
 
 ### <a name="asal"></a>Za pomocą biblioteki Microsoft.Azure.Services.AppAuthentication dla platformy .NET
 
-Dla aplikacji .NET oraz funkcji Najprostszym sposobem pracy za pomocą tożsamości zarządzanych usług jest za pomocą pakietu Microsoft.Azure.Services.AppAuthentication. Ta biblioteka będzie pozwalają również do testowania kodu lokalnie na komputerze deweloperskim, przy użyciu konta użytkownika z programu Visual Studio, [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest), lub zintegrowane uwierzytelnianie usługi Active Directory. Aby uzyskać więcej informacji na temat opcji wdrożenia lokalnego z tej biblioteki, zobacz [odwołania Microsoft.Azure.Services.AppAuthentication]. W tej sekcji przedstawiono, jak rozpocząć pracę z biblioteką w kodzie.
+Dla aplikacji .NET oraz funkcji Najprostszym sposobem pracy za pomocą tożsamości zarządzanych usług jest za pomocą pakietu Microsoft.Azure.Services.AppAuthentication. Ta biblioteka będzie pozwalają również do testowania kodu lokalnie na komputerze deweloperskim, przy użyciu konta użytkownika z programu Visual Studio, [Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest), lub zintegrowane uwierzytelnianie usługi Active Directory. Aby uzyskać więcej informacji na temat opcji wdrożenia lokalnego z tej biblioteki, zobacz [odwołania Microsoft.Azure.Services.AppAuthentication]. W tej sekcji przedstawiono, jak rozpocząć pracę z biblioteką w kodzie.
 
 1. Dodaj odwołania do [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) i [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) pakietów NuGet do aplikacji.
 

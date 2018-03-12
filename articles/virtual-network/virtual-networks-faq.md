@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: jdial
-ms.openlocfilehash: 8800dc59306c349daba8f4d9703e0c713eed06ec
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: a5b4bac9e0d8bc10defaff251557129a70d8a022
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Sieć wirtualna platformy Azure — często zadawane pytania (FAQ)
 
@@ -57,7 +57,7 @@ Następujące narzędzia służy do tworzenia lub konfigurowania sieci wirtualne
 Wszelkie zakres adresów IP zdefiniowanych w [RFC 1918](http://tools.ietf.org/html/rfc1918). Na przykład 10.0.0.0/16.
 
 ### <a name="can-i-have-public-ip-addresses-in-my-vnets"></a>Czy można mieć publicznych adresów IP w mojej sieci wirtualnych
-Tak. Aby uzyskać więcej informacji na temat zakresy publicznych adresów IP, zobacz [utworzyć sieć wirtualną](virtual-network-manage-network.md#create-a-virtual-network). Publiczne adresy IP nie są dostępne bezpośrednio z Internetu.
+Tak. Aby uzyskać więcej informacji na temat zakresy publicznych adresów IP, zobacz [utworzyć sieć wirtualną](manage-virtual-network.md#create-a-virtual-network). Publiczne adresy IP nie są dostępne bezpośrednio z Internetu.
 
 ### <a name="is-there-a-limit-to-the-number-of-subnets-in-my-vnet"></a>Czy istnieje ograniczona liczba podsieci w mojej sieci wirtualnej?
 Tak. Zobacz [Azure ogranicza](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) szczegółowe informacje. Przestrzeni adresowej podsieci nie może nakładać się wzajemnie.
@@ -151,7 +151,7 @@ Tak. Wszystkich interfejsów sieciowych (NIC) dołączona do maszyny Wirtualnej 
 Nie. Nie można zarezerwować prywatnego adresu IP. Jeśli dostępny jest prywatny adres IP, jest przypisany do maszyny Wirtualnej lub roli wystąpienia przez serwer DHCP. Maszyna wirtualna może lub nie może być jedną, która ma przypisany prywatny adres IP. Można jednak zmienić prywatnego adresu IP maszyny wirtualnej utworzone, wszystkie dostępne prywatny adres IP.
 
 ### <a name="do-private-ip-addresses-change-for-vms-in-a-vnet"></a>Czy prywatnej zmiany adresów IP dla maszyn wirtualnych w sieci wirtualnej?
-To zależy. Jeśli maszyna wirtualna została wdrożona za pośrednictwem Menedżera zasobów nie, niezależnie od tego, czy został przypisany adres IP za pomocą metody statyczne lub dynamiczne alokacji. Jeśli maszyna wirtualna została wdrożona za pośrednictwem klasycznego modelu wdrażania, dynamicznych adresów IP można zmienić po uruchomieniu maszyny Wirtualnej po przejściu w stan zatrzymania (cofnięciu przydziału). Ten adres jest zwalniany z maszyny Wirtualnej wdrożone za pośrednictwem albo model wdrażania, gdy maszyna wirtualna zostanie usunięta.
+To zależy. Jeśli maszyna wirtualna została wdrożona za pomocą Menedżera zasobów nie, niezależnie od tego, czy został przypisany adres IP za pomocą metody statyczne lub dynamiczne alokacji. Jeśli maszyna wirtualna została wdrożona za pośrednictwem klasycznego modelu wdrażania, dynamicznych adresów IP można zmienić po uruchomieniu maszyny Wirtualnej po przejściu w stan zatrzymania (cofnięciu przydziału). Ten adres jest zwalniany z maszyny Wirtualnej wdrożone za pośrednictwem albo model wdrażania, gdy maszyna wirtualna zostanie usunięta.
 
 ### <a name="can-i-manually-assign-ip-addresses-to-nics-within-the-vm-operating-system"></a>Można ręcznie przypisać adresy IP do karty sieciowe w systemie operacyjnym maszyny Wirtualnej?
 Tak, ale nie jest zalecane, chyba że niezbędne, np. gdy przypisywanie wielu adresów IP do maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [Dodawanie wielu IP adresów do maszyny wirtualnej](virtual-network-multiple-ip-addresses-portal.md#os-config). Dołączenia adresu IP przypisanego do usługi Azure karty Sieciowej do maszyny Wirtualnej zmian i adresu IP w systemie operacyjnym maszyny Wirtualnej jest inny, utracić łączność z maszyną wirtualną.
@@ -218,6 +218,6 @@ Tak. Można użyć interfejsów API REST dla sieci wirtualnych w [usługi Azure 
 
 ### <a name="is-there-tooling-support-for-vnets"></a>Istnieje już obsługę narzędzi dla sieci wirtualnych?
 Tak. Dowiedz się więcej o korzystaniu z:
-- Portalu Azure, aby wdrożyć sieci wirtualnych za pośrednictwem [usługi Azure Resource Manager](virtual-networks-create-vnet-arm-pportal.md) i [klasycznego](virtual-networks-create-vnet-classic-pportal.md) modele wdrażania.
+- Portalu Azure, aby wdrożyć sieci wirtualnych za pośrednictwem [usługi Azure Resource Manager](manage-virtual-network.md#create-a-virtual-network) i [klasycznego](virtual-networks-create-vnet-classic-pportal.md) modele wdrażania.
 - PowerShell do zarządzania sieciami wirtualnymi, wdrażać przy użyciu [Resource Manager](/powershell/module/azurerm.network) i [klasycznego](/powershell/module/azure/?view=azuresmps-3.7.0) modele wdrażania.
 - Azure interfejsu wiersza polecenia (CLI) do wdrażania i zarządzania wdrożone za pośrednictwem sieci wirtualnych [Resource Manager](/cli/azure/network/vnet) i [klasycznego](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-commands-to-manage-network-resources) modele wdrażania.  

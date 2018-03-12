@@ -13,24 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/05/2018
+ms.date: 03/07/2018
 ms.author: jroth
-ms.openlocfilehash: ae722b4da9131d98e6dc3424fcd6b50e77ae672b
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 398e682db6c42bd7f4864113ddf10a6a75e2b65b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Automatyczne stosowanie poprawek dla programu SQL Server w usłudze Azure Virtual Machines (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Resource Manager](virtual-machines-windows-sql-automated-patching.md)
 > * [Wdrożenie klasyczne](../sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md)
 
-Automatyczne Patching ustanawia okna obsługi dla maszyny wirtualnej platformy Azure działa program SQL Server. Automatyczne aktualizacje można zainstalować tylko w tym oknie obsługi. Dla programu SQL Server to rescriction gwarantuje, że aktualizacje systemu i ponowne uruchomienia, skojarzone są wykonywane w najlepiej czasie dla bazy danych. Automatyczne Patching jest zależna od [rozszerzenia agenta programu SQL Server IaaS](virtual-machines-windows-sql-server-agent-extension.md).
+Automatyczne Patching ustanawia okna obsługi dla maszyny wirtualnej platformy Azure działa program SQL Server. Automatyczne aktualizacje można zainstalować tylko w tym oknie obsługi. Dla programu SQL Server to rescriction gwarantuje, że aktualizacje systemu i ponowne uruchomienia, skojarzone są wykonywane w najlepiej czasie dla bazy danych. 
 
-[!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
+> [!IMPORTANT]
+> Tylko aktualizacje systemu Windows oznaczone **ważne** są zainstalowane. Inne aktualizacje programu SQL Server, takich jak aktualizacje zbiorcze, należy zainstalować ręcznie. 
 
-Aby wyświetlić klasycznej wersji w tym artykule, zobacz [automatyczne stosowanie poprawek dla programu SQL Server w klasycznym maszyny wirtualne Azure](../sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md).
+Automatyczne Patching jest zależna od [rozszerzenia agenta programu SQL Server IaaS](virtual-machines-windows-sql-server-agent-extension.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Aby użyć automatyczne stosowanie poprawek, należy wziąć pod uwagę następujące wymagania wstępne:
@@ -65,7 +66,7 @@ W poniższej tabeli opisano opcje, które można skonfigurować dla automatyczne
 | **Harmonogram konserwacji** |Codziennie, poniedziałek, Wtorek, środę, czwartek, piątek, sobota, niedziela |Harmonogram pobieranie i instalowanie aktualizacji systemu Windows, programu SQL Server i Microsoft dla maszyny wirtualnej. |
 | **Godzina rozpoczęcia konserwacji** |0-24 |Godzina rozpoczęcia lokalnego można zaktualizować maszyny wirtualnej. |
 | **Czas trwania okna obsługi** |30-180 |Liczba minut uprawnienia do pobierania i instalacji aktualizacji. |
-| **Patch Category** |Ważne |Kategoria aktualizacje do pobrania i zainstalowania. |
+| **Patch Category** |Ważne | Kategoria aktualizacji systemu Windows, aby pobrać i zainstalować.|
 
 ## <a name="configuration-in-the-portal"></a>Konfiguracja w portalu
 Aby skonfigurować automatyczne stosowanie poprawek, podczas udostępniania lub dla istniejących maszyn wirtualnych, można użyć portalu Azure.
@@ -100,7 +101,7 @@ Jeśli włączasz automatyczne stosowanie poprawek po raz pierwszy, Azure konfig
 ## <a name="configuration-with-powershell"></a>Konfiguracja przy użyciu programu PowerShell
 Po aprowizacji maszyny Wirtualnej SQL, skonfiguruj automatyczne stosowanie poprawek za pomocą programu PowerShell.
 
-W poniższym przykładzie programu PowerShell służy do konfigurowania automatyczne stosowanie poprawek na istniejącej maszyny Wirtualnej programu SQL Server. **AzureRM.Compute\New AzureVMSqlServerAutoPatchingConfig** polecenie konfiguruje nowe okno obsługi, aktualizacje automatyczne.
+W poniższym przykładzie programu PowerShell służy do konfigurowania automatyczne stosowanie poprawek na istniejącej maszyny Wirtualnej programu SQL Server. **AzureRM.Compute\New AzureRmVMSqlServerAutoPatchingConfig** polecenie konfiguruje nowe okno obsługi, aktualizacje automatyczne.
 
     $vmname = "vmname"
     $resourcegroupname = "resourcegroupname"
@@ -118,11 +119,11 @@ Na podstawie tego przykładu, w poniższej tabeli opisano praktyczne wpływa na 
 | **DayOfWeek** |Każdy czwartek zainstalowanych poprawek. |
 | **MaintenanceWindowStartingHour** |Aktualizacje BEGIN o 11:00. |
 | **MaintenanceWindowsDuration** |Poprawki muszą być zainstalowane w ciągu 120 minut. Na podstawie czasu rozpoczęcia, użytkownicy muszą wykonać przez 1:00 pm. |
-| **PatchCategory** |Jedyną możliwą ustawienie tego parametru to **ważne**. |
+| **PatchCategory** |Jedyną możliwą ustawienie tego parametru to **ważne**. Spowoduje to zainstalowanie usługi Windows update oznaczone jako ważne; nie instaluje wszystkie aktualizacje programu SQL Server, które nie znajdują się w tej kategorii. |
 
 Go może potrwać kilka minut, aby zainstalować i skonfigurować agenta programu SQL Server IaaS.
 
-Aby wyłączyć automatyczne stosowanie poprawek, uruchom ten sam skrypt bez **-Włącz** parametr **AzureRM.Compute\New AzureVMSqlServerAutoPatchingConfig**. Brak **-Włącz** parametru sygnały polecenie, aby wyłączyć funkcję.
+Aby wyłączyć automatyczne stosowanie poprawek, uruchom ten sam skrypt bez **-Włącz** parametr **AzureRM.Compute\New AzureRmVMSqlServerAutoPatchingConfig**. Brak **-Włącz** parametru sygnały polecenie, aby wyłączyć funkcję.
 
 ## <a name="next-steps"></a>Kolejne kroki
 Informacje o innych zadaniach automatyzacji dostępny, zobacz [rozszerzenia agenta programu SQL Server IaaS](virtual-machines-windows-sql-server-agent-extension.md).

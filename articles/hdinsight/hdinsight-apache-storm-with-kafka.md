@@ -13,13 +13,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/26/2018
+ms.date: 03/08/2018
 ms.author: larryfr
-ms.openlocfilehash: eca3f95b672a7334d77ac027b4774addf4efed2c
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 0c74e46f37319a9d1eb0ea1587087e24312de451
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="use-apache-kafka-with-storm-on-hdinsight"></a>Używających Apache Kafka Storm w usłudze HDInsight
 
@@ -66,9 +66,9 @@ Podczas tworzenia sieci wirtualnej platformy Azure, Kafka, i ręcznie klastrów 
 
 1. Poniższy przycisk umożliwia logowanie do platformy Azure i otwórz szablon w portalu Azure.
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-storm-cluster-in-vnet-v2.json" target="_blank"><img src="./media/hdinsight-apache-storm-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-storm-java-kafka%2Fmaster%2Fcreate-kafka-storm-clusters-in-vnet.json" target="_blank"><img src="./media/hdinsight-apache-storm-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
-    Szablon usługi Azure Resource Manager znajduje się pod adresem **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-storm-cluster-in-vnet-v2.json**. Tworzy następujące zasoby:
+    Szablon usługi Azure Resource Manager znajduje się pod adresem **https://github.com/Azure-Samples/hdinsight-storm-java-kafka/blob/master/create-kafka-storm-clusters-in-vnet.json**. Tworzy następujące zasoby:
     
     * Grupa zasobów platformy Azure
     * Azure Virtual Network
@@ -155,7 +155,7 @@ Aby uzyskać więcej informacji dotyczących topologii strumienia, zobacz [https
 
 ## <a name="configure-the-topology"></a>Konfigurowanie topologii
 
-1. Użyj jednej z następujących metod odnajdywania hostów brokera Kafka:
+1. Jedną z następujących metod używane do wykrywania hostów brokera Kafka dla **Kafka** w klastrze usługi HDInsight:
 
     ```powershell
     $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
@@ -167,12 +167,12 @@ Aby uzyskać więcej informacji dotyczących topologii strumienia, zobacz [https
     ($brokerHosts -join ":9092,") + ":9092"
     ```
 
+    > [!IMPORTANT]
+    > W poniższym przykładzie Bash, przy założeniu, że `$CLUSTERNAME` zawiera nazwę __Kafka__ nazwy klastra. Założono również, że [jq](https://stedolan.github.io/jq/) jest zainstalowany w wersji 1.5 lub nowszego. Po wyświetleniu monitu wprowadź hasło dla konta logowania klastra.
+
     ```bash
     curl -su admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2
     ```
-
-    > [!IMPORTANT]
-    > W przykładzie Bash, przy założeniu, że `$CLUSTERNAME` zawiera nazwę klastra usługi HDInsight. Założono również, że [jq](https://stedolan.github.io/jq/) jest zainstalowany w wersji 1.5 lub nowszego. Po wyświetleniu monitu wprowadź hasło dla konta logowania klastra.
 
     Wartość zwracana jest podobny do następującego tekstu:
 
@@ -181,7 +181,7 @@ Aby uzyskać więcej informacji dotyczących topologii strumienia, zobacz [https
     > [!IMPORTANT]
     > Może być więcej niż dwa hosty broker dla klastra, nie trzeba zapewniają pełną listę wszystkich hostów do klientów. Jedno lub dwa jest wystarczająca.
 
-2. Użyj jednej z następujących metod odnajdywania hostów dozorcy Kafka:
+2. Użyj jednej z następujących metod, aby dowiedzieć się, dozorcy obsługuje dla __Kafka__ w klastrze usługi HDInsight:
 
     ```powershell
     $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
@@ -193,12 +193,12 @@ Aby uzyskać więcej informacji dotyczących topologii strumienia, zobacz [https
     ($zookeeperHosts -join ":2181,") + ":2181"
     ```
 
+    > [!IMPORTANT]
+    > W poniższym przykładzie Bash, przy założeniu, że `$CLUSTERNAME` zawiera nazwę __Kafka__ klastra. Założono również, że [jq](https://stedolan.github.io/jq/) jest zainstalowany. Po wyświetleniu monitu wprowadź hasło dla konta logowania klastra.
+
     ```bash
     curl -su admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2
     ```
-
-    > [!IMPORTANT]
-    > W przykładzie Bash, przy założeniu, że `$CLUSTERNAME` zawiera nazwę klastra usługi HDInsight. Założono również, że [jq](https://stedolan.github.io/jq/) jest zainstalowany. Po wyświetleniu monitu wprowadź hasło dla konta logowania klastra.
 
     Wartość zwracana jest podobny do następującego tekstu:
 
@@ -209,13 +209,13 @@ Aby uzyskać więcej informacji dotyczących topologii strumienia, zobacz [https
 
     Zapisz tę wartość, ponieważ jest używana później.
 
-3. Edytuj `dev.properties` w katalogu głównym projektu. Dodaj informacje hostów brokera i dozorcy do zgodnych wierszy w tym pliku. Poniższy przykład jest konfigurowana przy użyciu przykładowe wartości z poprzednich kroków:
+3. Edytuj `dev.properties` w katalogu głównym projektu. Dodaj informacje o hostach brokera i dozorcy dla __Kafka__ klastra zgodnych wierszy w tym pliku. Poniższy przykład jest konfigurowana przy użyciu przykładowe wartości z poprzednich kroków:
 
         kafka.zookeeper.hosts: zk0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,zk2-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181
         kafka.broker.hosts: wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
         kafka.topic: stormtopic
 
-4. Zapisz `dev.properties` pliku, a następnie przekaż go do klastra Storm za pomocą następującego polecenia:
+4. Zapisz `dev.properties` plik, a następnie użyj następującego polecenia w celu przekazania go do **Storm** klastra:
 
      ```bash
     scp dev.properties USERNAME@storm-BASENAME-ssh.azurehdinsight.net:dev.properties
@@ -225,7 +225,12 @@ Aby uzyskać więcej informacji dotyczących topologii strumienia, zobacz [https
 
 ## <a name="start-the-writer"></a>Uruchom moduł zapisujący
 
-1. Użyj następującego polecenia do nawiązania połączenia z klastrem Storm przy użyciu protokołu SSH. Zastąp **USERNAME** przy użyciu nazwy użytkownika SSH używany podczas tworzenia klastra. Zastąp **nazwę BAZOWĄ** o nazwie podstawowej używany podczas tworzenia klastra.
+> [!IMPORTANT]
+> Kroki opisane w tej sekcji założono, aby tworzenie klastrów Storm i Kafka używane łącze szablonu usługi Azure Resource Manager w tym dokumencie. Ten szablon umożliwia automatyczne tworzenie tematów Kafka klastra.
+>
+> Domyślnie Kafka w usłudze HDInsight nie zezwalaj na automatyczne tworzenie tematów, dlatego jeśli używasz innej metody tworzenia klastra Kafka, należy ręcznie utworzyć temat. Informacje dotyczące ręcznego tworzenia temat, zobacz [rozpoczynać Kafka w usłudze HDInsight](./kafka/apache-kafka-get-started.md) dokumentu.
+
+1. Do nawiązania połączenia należy użyć następującego **Storm** klastra przy użyciu protokołu SSH. Zastąp **USERNAME** przy użyciu nazwy użytkownika SSH używany podczas tworzenia klastra. Zastąp **nazwę BAZOWĄ** o nazwie podstawowej używany podczas tworzenia klastra.
 
   ```bash
   ssh USERNAME@storm-BASENAME-ssh.azurehdinsight.net
@@ -234,14 +239,6 @@ Aby uzyskać więcej informacji dotyczących topologii strumienia, zobacz [https
     Po wyświetleniu monitu wprowadź hasło, które zostały użyte podczas tworzenia klastrów.
    
     Aby uzyskać informacje, zobacz [Używanie protokołu SSH w usłudze HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
-
-2. Z połączenia SSH wpisz następujące polecenie do utworzenia tematu Kafka używane przez topologii:
-
-    ```bash
-    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic stormtopic --zookeeper $KAFKAZKHOSTS
-    ```
-
-    Zastąp `$KAFKAZKHOSTS` z dozorcy hosta informacji pobrany w poprzedniej sekcji.
 
 2. Połączenie SSH z klastrem Storm Użyj następującego polecenia można uruchomić modułu zapisującego topologii:
 
@@ -261,11 +258,12 @@ Aby uzyskać więcej informacji dotyczących topologii strumienia, zobacz [https
 
 5. Po rozpoczęciu topologii, użyj następującego polecenia, aby sprawdzić, czy jest zapisywania danych do tematu Kafka:
 
+    > [!IMPORTANT]
+    > Zastąp `$KAFKAZKHOSTS` z dozorcy hosta informacji o __Kafka__ klastra.
+
   ```bash
   /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $KAFKAZKHOSTS --from-beginning --topic stormtopic
   ```
-
-    Zastąp `$KAFKAZKHOSTS` z dozorcy hosta informacji pobrany w poprzedniej sekcji.
 
     To polecenie używa skryptu dostarczone z Kafka do monitorowania tematu. Po chwili należy uruchomić, zwracanie losowe zdania, które zostały zapisane w temacie. Dane wyjściowe są podobne do poniższego przykładu:
 

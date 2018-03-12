@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: a6f0089f13de10ba8bc1f9a656a2d21f9c559047
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: eee7905db4faedef3217118e8d491e2cb019fa30
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Zagadnienia dotyczące sieci dla usług domenowych Azure AD
 ## <a name="how-to-select-an-azure-virtual-network"></a>Jak wybrać sieć wirtualną platformy Azure
@@ -53,6 +53,7 @@ Poniższe wskazówki ułatwiają wybieranie sieci wirtualnej do korzystania z us
 * Nie dotyczą grup NSG podsieci dedykowane dla domeny zarządzanej. Jeśli należy zastosować grupy NSG do podsieci dedykowanych, upewnij się, możesz **nie blokować porty wymagane do usługi i zarządzać domenę**.
 * Nie ograniczaj zbyt liczba adresów IP dostępne w ramach dedykowanej podsieci dla domeny zarządzanej. To ograniczenie uniemożliwia udostępnianie dwa kontrolery domeny do domeny zarządzanej usługi.
 * **Usługi domenowe Azure AD w podsieci bramy nie należy włączać** z sieci wirtualnej.
+* Nie należy blokować dostęp ruchu wychodzącego z podsieci, w którym włączono domeny zarządzanej.
 
 > [!WARNING]
 > Po skojarzeniu grupy NSG z podsiecią, w którym usługi domenowe Azure AD jest włączona, może zakłócić zdolność firmy Microsoft do usługi i Zarządzanie domeną. Ponadto synchronizacja dzierżawy usługi Azure AD i domeny zarządzanej jest zakłócona. **Umowa SLA nie ma zastosowania do wdrożeń, w którym grupy NSG zastosowano blokujący usług domenowych Azure AD z aktualizacji i Zarządzanie domeną.**
@@ -89,6 +90,8 @@ Następujące porty są wymagane dla usług domenowych Azure AD do usługi i obs
 * Służy do włączyć bezpieczny dostęp LDAP do domeny zarządzanej za pośrednictwem Internetu.
 * Otwarcie tego portu za pośrednictwem sieci NSG jest opcjonalne. Otwórz port tylko wtedy, gdy masz bezpiecznego dostępu LDAP w Internecie włączone.
 * Do tego portu źródłowych adresów IP, z których można było się spodziewać nawiązywać połączeń za pośrednictwem bezpiecznego protokołu LDAP, można ograniczyć dostęp dla ruchu przychodzącego.
+
+**Wychodzący dostęp** usług domenowych w usłudze AAD musi wychodzący dostęp do różnych innych usług platformy Azure w celu zarządzania, kopii zapasowej i monitorować domeny zarządzanej. Nie należy blokować wychodzący dostęp z dedykowanych podsieci, w którym włączono domeny zarządzanej.
 
 
 ## <a name="network-security-groups"></a>Grupy zabezpieczeń sieci

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: feb8fb218b8bde88ba7fbdc3419e32c9313c7885
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 0b0bfae02147910d98231d7c93f5ab260f26364f
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-virtual-network-with-multiple-subnets-using-the-azure-cli"></a>Tworzenie sieci wirtualnej z wieloma podsieciami przy użyciu wiersza polecenia platformy Azure
 
@@ -70,7 +70,7 @@ az network vnet subnet create \
   --address-prefix 10.0.1.0/24
 ```
 
-Przed wdrożeniem sieci wirtualnych platformy Azure i podsieci w środowisku produkcyjnym, firma Microsoft zaleca, aby należy dokładnie zapoznać się z przestrzeni adresowej [zagadnienia](virtual-network-manage-network.md#create-a-virtual-network) i [limity sieci wirtualnej](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Gdy zasoby są wdrażane na podsieci, niektóre sieci wirtualnej i zmiany podsieci, takie jak zmiana zakresów adresów, może wymagać ponownego wdrażania istniejących zasobów platformy Azure, wdrażana w obrębie podsieci.
+Przed wdrożeniem sieci wirtualnych platformy Azure i podsieci w środowisku produkcyjnym, zalecane jest, że należy dokładnie zapoznać się z przestrzeni adresowej [zagadnienia](manage-virtual-network.md#create-a-virtual-network) i [limity sieci wirtualnej](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Gdy zasoby są wdrażane na podsieci, niektóre sieci wirtualnej i zmiany podsieci, takie jak zmiana zakresów adresów, może wymagać ponownego wdrażania istniejących zasobów platformy Azure, wdrażana w obrębie podsieci.
 
 ## <a name="test-network-communication"></a>Test łączności sieciowej
 

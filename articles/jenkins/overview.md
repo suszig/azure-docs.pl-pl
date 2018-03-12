@@ -11,11 +11,11 @@ ms.workload: na
 ms.date: 08/22/2017
 ms.author: routlaw
 ms.custom: mvc
-ms.openlocfilehash: 69bb79a1f02e601b9ed0104dde00211612473adc
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 08906939ecc80999de94ad7e7141081f959fb6f2
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-and-jenkins"></a>Azure i Wpięć
 
@@ -31,7 +31,7 @@ Wpięć hosta na platformie Azure do centralizacji automatyzacji programu kompil
 - [Maszyny wirtualne platformy Azure](/azure/virtual-machines/linux/overview). Zobacz nasze [samouczek](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd) można utworzyć wystąpienia elementu Wpięć na maszynie Wirtualnej.
 - Na Kubernetes klastra z systemem [usługi kontenera platformy Azure](/azure/container-service/kubernetes/container-service-kubernetes-walkthrough), zobacz nasze [porad](/azure/container-service/kubernetes/container-service-kubernetes-jenkins).
 
-Monitorowanie i zarządzanie nimi z Wpięć Azure wdrożenia przy użyciu [analizy dzienników](/azure/log-analytics/log-analytics-overview), [Operations Management Suite](/azure/operations-management-suite/operations-management-suite-overview), a [Azure CLI] (/ Przegląd-interfejsu wiersza polecenia/azure).
+Monitorowanie i zarządzanie nimi z Wpięć Azure wdrożenia przy użyciu [analizy dzienników](/azure/log-analytics/log-analytics-overview), [Operations Management Suite](/azure/operations-management-suite/operations-management-suite-overview)i [interfejsu wiersza polecenia Azure](/cli/azure).
 
 ## <a name="scale-your-build-automation-on-demand"></a>Skalowanie programu automatyzacji kompilacji na żądanie
 

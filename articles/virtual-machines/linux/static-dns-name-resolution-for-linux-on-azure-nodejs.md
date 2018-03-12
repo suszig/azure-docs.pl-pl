@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2016
 ms.author: v-livech
-ms.openlocfilehash: bfba2cf38a0624e8480a32bf153f391d820da5a1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e73e780123f4582c9fa78975324e7904c85f87be
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="using-internal-dns-for-vm-name-resolution-on-azure"></a>Przy użyciu wewnętrznego serwera DNS do rozpoznawania nazw maszyny Wirtualnej na platformie Azure
 
@@ -94,7 +94,7 @@ azure group create myResourceGroup \
 
 ## <a name="create-the-vnet"></a>Tworzenie sieci wirtualnej
 
-Pierwszym krokiem jest kompilacji do uruchamiania maszyn wirtualnych do sieci wirtualnej.  Sieć wirtualna zawiera jedną podsieć w ramach tego przewodnika.  Aby uzyskać więcej informacji o sieci wirtualnych platformy Azure, zobacz [utworzyć sieć wirtualną przy użyciu wiersza polecenia platformy Azure](../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+Pierwszym krokiem jest kompilacji do uruchamiania maszyn wirtualnych do sieci wirtualnej.  Sieć wirtualna zawiera jedną podsieć w ramach tego przewodnika.  Aby uzyskać więcej informacji o sieci wirtualnych platformy Azure, zobacz [tworzenie sieci wirtualnej](../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network)
 
 ```azurecli
 azure network vnet create myVNet \
@@ -180,6 +180,6 @@ azure vm create jenkins \
 
 Za pomocą flag interfejsu wiersza polecenia do wyróżnienia istniejących zasobów, poinstruuj firma Microsoft Azure, aby wdrożyć maszynę Wirtualną w istniejącej sieci.  Aby przywołują, po wdrożeniu sieci wirtualnej i podsieci, możesz je zostawić jako statyczne ani stałe zasoby w Twoim regionie Azure.  
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Tworzenie niestandardowego środowiska dla maszyny wirtualnej z systemem Linux poprzez bezpośrednie użycie poleceń interfejsu wiersza polecenia platformy Azure](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Utwórz Maszynę wirtualną systemu Linux na platformie Azure za pomocą szablonów](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

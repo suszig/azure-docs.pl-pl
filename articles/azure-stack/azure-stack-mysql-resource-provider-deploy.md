@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 03/07/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
-ms.openlocfilehash: 067e478548ba840ece14737cdf3e6d5d4da28be0
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 15a1648193555ecc5847170ab65f48dfa4f6417b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Użyj bazy danych MySQL na Microsoft Azure stosu
 
@@ -162,7 +162,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
  ```
 
 
-### <a name="deploysqlproviderps1-parameters"></a>Parametry DeploySqlProvider.ps1
+### <a name="deploymysqlproviderps1-parameters"></a>Parametry DeployMySqlProvider.ps1
 Te parametry można określić w wierszu polecenia. Jeśli nie chcesz, lub jeśli wszystkich parametrów sprawdzania poprawności zakończy się niepowodzeniem, zostanie wyświetlony monit o zapewnić wymagane parametry.
 
 | Nazwa parametru | Opis | Wartość domyślna lub komentarz |
@@ -266,11 +266,15 @@ Hasło można modyfikować, zmieniając go pierwszym wystąpieniu serwera MySQL.
 ![Zaktualizuj hasło administratora](./media/azure-stack-mysql-rp-deploy/mysql-update-password.png)
 
 ## <a name="update-the-mysql-resource-provider-adapter-multi-node-only-builds-1710-and-later"></a>Zaktualizuj kartę Dostawca zasobów MySQL (wielowęzłowego tylko kompilacje 1710 i nowsze)
-Nowa karta dostawcy zasobów SQL może zostać zwolniony, po zaktualizowaniu stosu Azure kompilacji. Gdy istniejącej karty nadal działać, zaleca się jak najszybciej aktualizacja do nowszej kompilacji. 
+Nowa karta dostawcy zasobów programu SQL może być zwolnione po zaktualizowaniu kompilacje stosu Azure. Gdy istniejącej karty nadal działać, zaleca się jak najszybciej aktualizacja do nowszej kompilacji. 
 
-Proces aktualizacji jest podobny do procesu instalacji, który został opisany wcześniej. Utworzeniu nowej maszyny Wirtualnej za pomocą najnowszej kod dostawcy zasobów. Następnie przeprowadzana jest migracja ustawień dla tego nowego wystąpienia, łącznie z bazy danych i obsługi informacji o serwerze. Można również migrację niezbędnych rekordów DNS.
+Do aktualizacji, należy użyć dostawcy zasobów *UpdateMySQLProvider.ps1* skryptu. Proces jest podobny do procesu używane do instalowania dostawcy zasobów, zgodnie z opisem w [wdrażanie dostawcy zasobów](#deploy-the-resource-provider) sekcji tego artykułu. Skrypt jest dołączana do pobierania dostawcy zasobów.
 
-Za pomocą skryptu UpdateMySQLProvider.ps1 te same argumenty, które zostały opisane wcześniej. Podaj certyfikat tutaj również.
+*UpdateMySQLProvider.ps1* skrypt tworzy nową maszynę Wirtualną z najnowszą kod dostawcy zasobów i przeprowadzanie migracji ustawień za pomocą starego maszyny Wirtualnej do nowej maszyny Wirtualnej. Ustawienia do zmigrowania obejmują bazy danych i informacji o serwerze hosting i rekordu DNS niezbędne.
+
+Skrypt wymaga użycia te same argumenty, które są opisane DeployMySqlProvider.ps1 skryptu. Podaj certyfikat tutaj również. 
+
+Poniżej przedstawiono przykład *UpdateMySQLProvider.ps1* skrypt, który można uruchomić w wierszu polecenia programu PowerShell. Pamiętaj zmienić informacje o koncie i hasła w razie potrzeby: 
 
 > [!NOTE]
 > Proces aktualizacji dotyczy tylko systemów zintegrowanego.

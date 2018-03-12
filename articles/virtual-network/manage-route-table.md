@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: f976832a857a35e9e0cea7a0eb731cb00492023f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7630fd82cf62f1fcb0df80cec5b5e0030da81a85
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Tworzenie, zmienianie lub usuwanie tabeli tras
 
@@ -38,7 +38,7 @@ Przed wykonaniem kroków w żadnej sekcji tego artykułu, należy wykonać nast�
 
 Istnieje limit liczby tabel tras, można utworzyć dla każdej lokalizacji platformy Azure i subskrypcji. Aby uzyskać więcej informacji, zobacz [Azure limits (Ograniczenia platformy Azure)](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-1. W lewym górnym rogu portalu, wybierz **+ nowy**.
+1. W lewym górnym rogu portalu, wybierz **+ Utwórz zasób**.
 2. Wybierz **sieci**, a następnie wybierz pozycję **tabeli tras**.
 3. Wprowadź **nazwa** dla tabeli tras, wybierz użytkownika **subskrypcji**, Utwórz nową **grupy zasobów**, lub wybierz istniejącą grupę zasobów, wybierz pozycję **lokalizacji** , a następnie wybierz pozycję **Utwórz**. **Propagowania tras Wyłącz protokół BGP** opcja zapobiega o lokalnych trasach propagowanie do sieci wirtualnej platformy Azure za pomocą protokołu BGP. Jeśli w Twojej sieci wirtualnej nie jest podłączony do bramy sieci platformy Azure (sieci VPN lub ExpressRoute), pozostaw tę opcję *wyłączone*. 
 

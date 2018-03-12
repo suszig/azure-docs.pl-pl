@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: ramach
-ms.openlocfilehash: 278d8241ddd67b6df64b7280d4a17c6d3152f223
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: a24695f7bbb5fb0546e27c934319a60a3418b9e1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="enable-application-insights-profiler-for-azure-vms-service-fabric-and-azure-cloud-services"></a>Włącz Application Insights profilera dla maszyn wirtualnych platformy Azure, usługi Service Fabric i usług w chmurze Azure
 
@@ -46,8 +46,7 @@ Aby w pełni włączyć profilera, należy zmienić konfigurację w trzech miejs
 
    ![Lokalizacja klucza Instrumentacji](./media/enable-profiler-compute/CopyAIKey.png)
 
-3. Aby zakończyć konfigurowanie wystąpienie usługi Application Insights dla profilera, wykonaj procedurę opisaną w [włączyć profilera](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-profiler).  
-    Nie musisz połączyć aplikacji sieci web, ponieważ kroki są specyficzne dla zasobów usługi aplikacji. Upewnij się, że Profiler jest włączona w **skonfiguruj profilera** okienka.
+3. Aby zakończyć konfigurowanie wystąpienie usługi Application Insights dla profilera, wykonaj procedurę opisaną w [Włącz profilera. Nie musisz połączyć aplikacji sieci web, ponieważ kroki są specyficzne dla zasobów usługi aplikacji. Upewnij się, że Profiler jest włączona w **skonfiguruj profilera** okienka.
 
 
 ## <a name="set-up-the-application-source-code"></a>Konfigurowanie kodu źródłowego aplikacji
@@ -157,6 +156,8 @@ Aby skonfigurować środowisko, wykonaj następujące czynności:
 
       Uzyskać informacji na temat dodawania rozszerzenia diagnostyki w szablonie wdrożenia, zobacz [Użyj monitorowania i diagnostyki z szablonów maszyny Wirtualnej systemu Windows i usługi Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
+> [!TIP]
+> Dla maszyn wirtualnych ma Przejdź w portalu Azure, aby zamiast powyższe kroki json na podstawie **maszyn wirtualnych** > **ustawień diagnostycznych**  >   **Wychwytywanie** > Set Wyślij dane diagnostyczne do usługi Application Insights do **włączone** i wybierz konto usługi Application Insights lub określonych ikey.
 
 ### <a name="azure-cloud-services"></a>usług Azure Cloud Services
 
@@ -196,7 +197,7 @@ Aby skonfigurować środowisko, wykonaj następujące czynności:
 
 1. Wdrożenia zmodyfikowane środowiska definicji wdrożenia.  
 
-   Aby zastosować zmiany, zwykle obejmują pełny szablon wdrożenia lub usługi w chmurze opublikowane za pomocą poleceń cmdlet programu PowerShell lub programu Visual Studio.  
+   Aby zastosować te zmiany zwykle obejmuje pełny szablon wdrożenia lub chmurę usługi na podstawie opublikowane za pomocą poleceń cmdlet programu PowerShell lub programu Visual Studio.  
 
    Poniżej znajduje się alternatywne metody dla istniejących maszyn wirtualnych, która go dotyka tylko rozszerzenia diagnostyki Azure:  
 

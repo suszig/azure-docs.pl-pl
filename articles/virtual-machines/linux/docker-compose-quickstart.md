@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: 9f8c9a32be9b889ced4fdc7065acd09e6700afd5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 387f3095e8eebce3fa6c2f47ffc87995e65bfe2b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Rozpoczynanie pracy z Docker i wysyłanych do definiowania i uruchomić aplikację usługi kontenera platformy Azure
 Z [Redaguj](http://github.com/docker/compose), zdefiniuj aplikacja składająca się z wielu kontenerów Docker przy użyciu pliku zwykły tekst. Następnie pokrętła się na aplikację za pomocą jednego polecenia, który wykonuje wszystkie informacje niezbędne do wdrożenia środowiska zdefiniowane. Na przykład w tym artykule przedstawiono sposób szybko skonfigurować bloga WordPress z bazy danych MariaDB SQL na maszynie Wirtualnej systemu Ubuntu wewnętrznej bazie danych. Redaguj umożliwia również skonfigurowanie bardziej złożonych aplikacji.
@@ -32,7 +32,7 @@ Gdy używasz rozszerzenia maszyny Wirtualnej platformy Docker maszyny Wirtualnej
 
 
 ### <a name="create-docker-host-with-azure-cli-20"></a>Utwórz hosta Docker 2.0 interfejsu wiersza polecenia platformy Azure
-Zainstaluj najnowszą [Azure CLI 2.0](/cli/azure/install-az-cli2) i zaloguj się do platformy Azure konta przy użyciu [logowania az](/cli/azure/#az_login).
+Zainstaluj najnowszą [Azure CLI 2.0](/cli/azure/install-az-cli2) i zaloguj się do platformy Azure konta przy użyciu [logowania az](/cli/azure/reference-index#az_login).
 
 Najpierw utwórz grupę zasobów dla danego środowiska Docker [Tworzenie grupy az](/cli/azure/group#az_group_create). W poniższym przykładzie pokazano tworzenie grupy zasobów o nazwie *myResourceGroup* w lokalizacji *eastus*:
 

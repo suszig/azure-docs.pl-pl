@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2018
+ms.date: 03/07/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 66e3207898d6ad8ca9af2b969942e38321c191a5
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ba93e1b597bb6bdb752563f2873b8e0c5f7a8181
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Informacje dotyczące ustawień dostępu warunkowego w usłudze Azure Active Directory
 
@@ -136,12 +136,19 @@ To ustawienie działa z przeglądarki. Jednak do zaspokojenia zasad urządzenia,
 | macOS                  | Chrome, Safari                      | ![Zaznacz][1] |
 
 
-> [!NOTE]
-> Obsługa Chrome w systemie Windows 10 twórców aktualizacji (wersja 1703) lub nowszym, można zainstalować [to rozszerzenie](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).<br>
-> Obsługę Chrome w 7 i Windows 8.1, utwórz następujący klucz rejestru **HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls** <br>
-> Nazwa: 1<br>
-> Typ: REG_SZ (ciąg)<br>
-> Data: {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}
+
+#### <a name="chrome-support"></a>Obsługa programu Chrome
+
+Chrome działu pomocy technicznej w **systemu Windows 10 twórców aktualizację (wersja 1703)** lub później, zainstaluj [to rozszerzenie](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+
+Chrome działu pomocy technicznej w **7 i Windows 8.1**, utwórz następujący klucz rejestru:
+
+|    |    |
+|--- | ---|
+|Ścieżka | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+|Name (Nazwa) | 1 |
+|Typ | REG_SZ (String) |
+|Dane | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}|
 
 Te przeglądarki obsługuje uwierzytelnianie urządzenia, umożliwiając urządzenia można zidentyfikować ani weryfikowana pod kątem zasad. Sprawdzanie urządzenia kończy się niepowodzeniem, jeśli przeglądarka jest uruchomiony w trybie prywatnym. 
 
@@ -186,6 +193,10 @@ Zasady dostępu warunkowego można wymagać, czy dostęp jest próba aplikacji w
 To ustawienie dotyczy następujących aplikacji klienta:
 
 
+- Usługa Microsoft Intune Managed Browser
+- Microsoft PowerBI
+- Microsoft Invoicing
+- Microsoft Launcher
 - Microsoft Azure Information Protection
 - Microsoft Excel
 - Microsoft Kaizala 

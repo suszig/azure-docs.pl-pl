@@ -3,8 +3,8 @@ title: "Skalowanie w poziomie roli proces roboczy w usługach App - stosu Azure 
 description: "Szczegółowe wskazówki dotyczące skalowania usługi aplikacji Azure stosu"
 services: azure-stack
 documentationcenter: 
-author: brenduns
-manager: femila
+author: apwestgarth
+manager: stefsch
 editor: 
 ms.assetid: 3cbe87bd-8ae2-47dc-a367-51e67ed4b3c0
 ms.service: azure-stack
@@ -12,22 +12,23 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
-ms.author: brenduns
-ms.reviewer: anwestg
-ms.openlocfilehash: ddd9820715e964218db8b88fb5211b3725c808b9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.date: 03/08/2018
+ms.author: anwestg
+ms.reviewer: brenduns
+ms.openlocfilehash: d6471796863a80e69fdaf740b68fb27d59503453
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>Usługi aplikacji Azure stosu: Dodaj więcej ról infrastruktury lub procesu roboczego
+
 *Dotyczy: Azure stosu zintegrowanych systemów i Azure stosu Development Kit*  
 
 Ten dokument zawiera instrukcje dotyczące sposobu skalowania usługi aplikacji Azure stosu ról infrastruktury i proces roboczy. Zawiera ona procedury służące do tworzenia ról dodatkowych procesów roboczych do obsługi aplikacji o dowolnym rozmiarze.
 
 > [!NOTE]
-> Jeśli środowiska Azure stos nie zawiera więcej niż 96 GB pamięci RAM mogą mieć trudności dodanie dodatkowej pojemności.
+> Jeśli środowiska Azure stosu nie ma więcej niż 96 GB pamięci RAM, mogą mieć trudności dodanie dodatkowej pojemności.
 
 Usługi aplikacji Azure stosu, domyślnie obsługuje warstw bezpłatne i udostępniane procesu roboczego. Aby dodać inne warstw procesu roboczego, należy dodać jedną rolę procesu roboczego.
 
@@ -35,37 +36,83 @@ Jeśli nie masz pewności, jaka została wdrożona przy użyciu domyślnego usł
 
 Usługa aplikacji Azure na stosie Azure wdraża wszystkich ról przy użyciu zestawy skalowania maszyny wirtualnej i jako takie korzysta z możliwości skalowania danego obciążenia. W związku z tym wszystkie skalowania warstwy procesu roboczego odbywa się za pośrednictwem administratora aplikacji usługi.
 
-Dodawanie dodatkowych pracowników bezpośrednio z poziomu administratora dostawcy zasobów usługi aplikacji.
+> [!IMPORTANT]
+> Obecnie nie jest możliwe skalowanie zestawy skalowania maszyny wirtualnej w portalu określonej w informacjach o wersji stosu Azure, dlatego należy używać w przykładzie programu PowerShell do skalowania w poziomie.
+>
+>
 
-1. Zaloguj się do portalu administracyjnego platformy Azure stosu jako administratora usługi.
+## <a name="add-additional-workers-with-powershell"></a>Dodawanie dodatkowych pracowników przy użyciu programu PowerShell
 
-2. Przejdź do **usługi aplikacji**.
+1. [Konfigurowanie środowiska Azure stosu administratora w programie PowerShell](azure-stack-powershell-configure-admin.md)
+2. W tym przykładzie umożliwiają skalowanie w poziomie zestaw skali:
+   ```powershell
+   
+    ##### Scale out the AppService Role instances ######
+   
+    # Set context to AzureStack admin.
+    Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+                                                 
+    ## Name of the Resource group where AppService is deployed.
+    $AppServiceResourceGroupName = "AppService.local"
+
+    ## Name of the ScaleSet : e.g. FrontEndsScaleSet, ManagementServersScaleSet, PublishersScaleSet , LargeWorkerTierScaleSet,      MediumWorkerTierScaleSet, SmallWorkerTierScaleSet, SharedWorkerTierScaleSet
+    $ScaleSetName = "SharedWorkerTierScaleSet"
+
+    ## TotalCapacity is sum of the instances needed at the end of operation. 
+    ## e.g. if you VMSS has 1 instance(s) currently and you need 1 more the TotalCapacity should be set to 2
+    $TotalCapacity = 2  
+
+    # Get current scale set
+    $vmss = Get-AzureRmVmss -ResourceGroupName $AppServiceResourceGroupName -VMScaleSetName $ScaleSetName
+
+    # Set and update the capacity
+    $vmss.sku.capacity = $TotalCapacity
+    Update-AzureRmVmss -ResourceGroupName $AppServiceResourceGroupName -Name $ScaleSetName -VirtualMachineScaleSet $vmss 
+  
+    '''
+
+> [!NOTE]
+> This step can take a number of hours to complete depending on the type of role and the number of instances.
+>
+>
+
+3. Monitor the status of the new role instances in the App Service Administration, to check the status of an individual role instance click the role type in the list.
+
+## Add additional workers directly within the App Service Resource Provider Admin.
+
+1. Log in to the Azure Stack administration portal as the service administrator.
+
+2. Browse to **App Services**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image01.png)
 
-3. Kliknij przycisk **ról**. W tym miejscu wyświetlić podział wszystkich ról usług aplikacji wdrożone.
+3. Click **Roles**. Here you see the breakdown of all App Service roles deployed.
 
-4. Kliknij prawym przyciskiem myszy w wierszu typu, aby skalować, a następnie kliknij przycisk **ScaleSet**.
+4. Right click on the row of the type you want to scale and then click **ScaleSet**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image02.png)
 
-5. Kliknij przycisk **skalowanie**, wybierz liczbę wystąpień chcesz skalować, a następnie kliknij przycisk **zapisać**.
+5. Click **Scaling**, select the number of instances you want to scale to, and then click **Save**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image03.png)
 
-6. Usługi aplikacji Azure stosu będzie teraz Dodawanie dodatkowych maszyn wirtualnych, skonfigurować ich zainstalowania wymaganego oprogramowania i oznaczyć je jako gotowy, po zakończeniu tego procesu. Ten proces może potrwać około minuty 80.
+6. App Service on Azure Stack will now add the additional VMs, configure them, install all the required software, and mark them as ready when this process is complete. This process can take approximately 80 minutes.
 
-7. Postęp gotowość nowe role można monitorować, wyświetlając pracowników w **ról** bloku.
+7. You can monitor the progress of the readiness of the new roles by viewing the workers in the **Roles** blade.
 
-Po umieszczeniu ich w pełni wdrożone i gotowe, pracownicy stają się dostępne dla użytkowników wdrożyć swoje obciążeń na nich. Poniżej pokazano przykład wielu dostępne warstwy cenowe domyślnie. Jeśli nie ma żadnych dostępnych pracowników dla warstwy określonego procesu roboczego, może wybrać odpowiedniego warstwa cenowa jest niedostępna.
+## Result
+
+After they are fully deployed and ready, the workers become available for users to deploy their workload onto them. The following shows an example of the multiple pricing tiers available by default. If there are no available workers for a particular worker tier, the option to choose the corresponding pricing tier is unavailable.
 
 ![](media/azure-stack-app-service-add-worker-roles/image04.png)
 
 >[!NOTE]
-> Do skalowania w poziomie zarządzania, role frontonu lub wydawcy dodać musi skalowanie w poziomie odpowiedni zestaw skalowania maszyny Wirtualnej. Dodamy możliwość skalowania tych ról za pośrednictwem funkcji zarządzania usługi App Service w przyszłej wersji.
+> To scale out Management, Front End or Publisher roles add you must scale out the corresponding role type. 
+>
+>
 
-Do skalowania w poziomie zarządzania, frontonu lub role wydawcy, wykonaj te same czynności, wybierając typ odpowiednią rolę. Kontrolery nie są wdrażane jako zestawy skalowania i w związku z tym dwóch powinny zostać wdrożone w czasie instalacji dla wszystkich wdrożeń produkcyjnych.
+To scale out Management, Front End, or Publisher roles, follow the same steps selecting the appropriate role type. Controllers are not deployed as Scale Sets and therefore two should be deployed at Installation time for all production deployments.
 
-### <a name="next-steps"></a>Kolejne kroki
+### Next steps
 
-[Konfigurowanie źródeł wdrożenia](azure-stack-app-service-configure-deployment-sources.md)
+[Configure deployment sources](azure-stack-app-service-configure-deployment-sources.md)

@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 3cbc25099b99499a6186e57c155d195e75bd61bf
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 15ad240ea9b635cd7995bfae403a93e0b392850a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Jak utworzyć obraz maszyny wirtualnej lub wirtualnego dysku twardego
 
@@ -37,7 +37,7 @@ Upewnij się, że zostały spełnione następujące wymagania wstępne:
 
 * Należy maszyny Wirtualnej platformy Azure utworzonych w modelu wdrażania usługi Resource Manager za pomocą dysków zarządzanych. Jeśli nie utworzono Maszynę wirtualną systemu Linux, możesz użyć [portal](quick-create-portal.md), [interfejsu wiersza polecenia Azure](quick-create-cli.md), lub [szablonów Resource Manager](create-ssh-secured-vm-from-template.md). Konfigurowanie maszyny Wirtualnej, zgodnie z potrzebami. Na przykład [Dodaj dyski danych](add-disk.md), stosowania aktualizacji i zainstalować aplikacje. 
 
-* Musisz również mieć najnowszej [Azure CLI 2.0](/cli/azure/install-az-cli2) zainstalowane i zalogować się do konta platformy Azure przy użyciu [logowania az](/cli/azure/#az_login).
+* Musisz również mieć najnowszej [Azure CLI 2.0](/cli/azure/install-az-cli2) zainstalowane i zalogować się do konta platformy Azure przy użyciu [logowania az](/cli/azure/reference-index#az_login).
 
 ## <a name="quick-commands"></a>Szybkie polecenia
 
@@ -45,7 +45,7 @@ Uproszczona wersja tego tematu, testowania, obliczenia lub informacje o maszynac
 
 
 ## <a name="step-1-deprovision-the-vm"></a>Krok 1: Anulowanie zastrzeżenia maszyny Wirtualnej
-Możesz anulowanie zastrzeżenia maszyny Wirtualnej przy użyciu agenta maszyny Wirtualnej platformy Azure, aby usunąć maszynę określonych plików i danych. Użyj `waagent` z *-deprovision + użytkownika* parametru w źródle maszyny Wirtualnej systemu Linux. Aby uzyskać więcej informacji, zobacz [Podręcznik użytkownika agenta systemu Linux Azure](../windows/agent-user-guide.md).
+Możesz anulowanie zastrzeżenia maszyny Wirtualnej przy użyciu agenta maszyny Wirtualnej platformy Azure, aby usunąć maszynę określonych plików i danych. Użyj `waagent` z *-deprovision + użytkownika* parametru w źródle maszyny Wirtualnej systemu Linux. Aby uzyskać więcej informacji, zobacz [Przewodnik użytkownika Agenta platformy Azure dla systemu Linux](../windows/agent-user-guide.md).
 
 1. Podłącz do sieci maszyny Wirtualnej systemu Linux przy użyciu klienta SSH.
 2. W oknie SSH wpisz następujące polecenie:
@@ -143,4 +143,4 @@ Możesz utworzyć wiele maszyn wirtualnych z obrazu maszyny Wirtualnej źródło
 - Wykonaj kroki ponownie anulowanie zastrzeżenia, deallocate generalize i tworzenie obrazu.
 - Skorzystaj z tego nowego obrazu dla przyszłych wdrożeń. W razie potrzeby usuń oryginalny obraz.
 
-Aby uzyskać więcej informacji na temat zarządzania maszyn wirtualnych z poziomu interfejsu wiersza polecenia, zobacz [Azure CLI 2.0](/cli/azure/overview).
+Aby uzyskać więcej informacji na temat zarządzania maszyn wirtualnych z poziomu interfejsu wiersza polecenia, zobacz [Azure CLI 2.0](/cli/azure).

@@ -15,31 +15,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: 55c023e8f6b41c17e85ba441f862a7682b2f2599
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 18f6ef3997ba60f588040f641ebe9e9aca8d091a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Konfigurowanie środowisk w usłudze Azure App Service przejściowych
 <a name="Overview"></a>
 
-Podczas wdrażania aplikację sieci web, aplikacji sieci web w systemie Linux, przenośne zaplecza i aplikacji interfejsu API [usługi aplikacji](http://go.microsoft.com/fwlink/?LinkId=529714), można wdrożyć na miejsce wdrożenia oddzielne zamiast domyślnego gniazda produkcyjnego podczas uruchamiania **standardowe** lub **Premium** tryb planu usługi aplikacji. Miejsca wdrożenia są faktycznie na żywo aplikacji za pomocą ich własnych nazwy hostów. Elementy zawartości i konfiguracji aplikacji może być zamieniona między dwóch miejsc wdrożenia, w tym miejsca produkcji. Wdrażanie aplikacji w miejscu wdrożenia ma następujące zalety:
+Podczas wdrażania aplikację sieci web, aplikacji sieci web w systemie Linux, przenośne zaplecza i aplikacji interfejsu API [usługi aplikacji](http://go.microsoft.com/fwlink/?LinkId=529714), można wdrożyć na miejsce wdrożenia oddzielne zamiast domyślnego gniazda produkcyjnego podczas uruchamiania **standardowe** lub **Premium** warstwy planu usługi aplikacji. Miejsca wdrożenia są faktycznie na żywo aplikacji za pomocą ich własnych nazwy hostów. Elementy zawartości i konfiguracji aplikacji może być zamieniona między dwóch miejsc wdrożenia, w tym miejsca produkcji. Wdrażanie aplikacji w miejscu wdrożenia ma następujące zalety:
 
 * Zmiany przemieszczania miejsce wdrożenia aplikacji może sprawdzać przed zamienienie go z miejscem produkcyjnym.
 * Wdrażanie aplikacji na gnieździe najpierw i zamienienie go w środowisku produkcyjnym gwarantuje, że wszystkie wystąpienia gniazda są przygotowaniu miejsca przed wymieniane w środowisku produkcyjnym. Eliminuje to czas przestoju, podczas wdrażania aplikacji. Przekierowywanie ruchu jest łatwego i żadne żądania są usuwane w wyniku operacji wymiany. Ta całego przepływu pracy można zautomatyzować poprzez skonfigurowanie [automatycznej wymiany](#Auto-Swap) podczas weryfikacji przed wymiany nie jest wymagana.
 * Po wymiany gniazda z wcześniej przygotowanych aplikacji ma poprzedniej aplikacji produkcyjnej. Jeśli zmiany miejscami do miejsca produkcji są niezgodne z oczekiwaniami, można wykonać tego samego wymiany od razu do pobrania "ostatniej znanej dobrej witryny" ponownie.
 
-Każdego trybu planu usługi aplikacji obsługuje różne liczby miejsc wdrożenia. Aby dowiedzieć się, liczba gniazd obsługuje tryb aplikacji, zobacz [App Service — ceny](https://azure.microsoft.com/pricing/details/app-service/).
+Każda warstwa planu usługi aplikacji obsługuje różne liczby miejsc wdrożenia. Aby dowiedzieć się, liczba gniazd obsługuje warstwy aplikacji, zobacz [App Service — ceny](https://azure.microsoft.com/pricing/details/app-service/).
 
-* Gdy aplikacja ma wiele miejsc, nie można zmienić trybu.
+* Gdy aplikacja ma wiele miejsc, nie można zmienić warstwy.
 * Skalowanie jest niedostępna dla gniazda nieprodukcyjnych.
-* Zarządzanie połączonego zasobu nie jest obsługiwane dla gniazda nieprodukcyjnych. W [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) , można uniknąć ten potencjalny wpływ na gnieździe produkcyjnym przenosząc tymczasowo nieprodukcyjnych miejsca do innego trybu planu usługi aplikacji. Należy pamiętać, że gniazdo nieprodukcyjnych ponownie muszą współdzielić ten sam tryb z miejscem produkcyjnym, przed można wymienić dwóch miejsc.
+* Zarządzanie połączonego zasobu nie jest obsługiwane dla gniazda nieprodukcyjnych. W [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) , można uniknąć ten potencjalny wpływ na gnieździe produkcyjnym przenosząc tymczasowo miejsca nieprodukcyjnych z inną warstwą planu usługi aplikacji. Należy pamiętać, że gniazdo nieprodukcyjnych musi ponownie udostępnić tej samej warstwie gniazda produkcyjnego przed można wymienić dwóch miejsc.
 
 <a name="Add"></a>
 
 ## <a name="add-a-deployment-slot"></a>Dodaj miejsce wdrożenia
-Aplikacja musi być uruchomiona **standardowe** lub **Premium** trybu w kolejności, aby włączyć wielu miejsc wdrożenia.
+Aplikacja musi być uruchomiona **standardowe** lub **Premium** warstwy w kolejności, aby włączyć wielu miejsc wdrożenia.
 
 1. W [Azure Portal](https://portal.azure.com/), otwórz aplikacji [bloku zasobów](../azure-resource-manager/resource-group-portal.md#manage-resources).
 2. Wybierz **miejsc wdrożenia** opcji, a następnie kliknij przycisk **Dodaj miejsce**.
@@ -47,7 +47,7 @@ Aplikacja musi być uruchomiona **standardowe** lub **Premium** trybu w kolejno�
     ![Dodaj nowe miejsce wdrożenia][QGAddNewDeploymentSlot]
    
    > [!NOTE]
-   > Jeśli aplikacja nie jest już w **standardowe** lub **Premium** tryb, zostanie wyświetlony komunikat informujący o obsługiwanych trybów umożliwiających publikowanie przemieszczane. W tym momencie masz możliwość wybrania **uaktualnienia** i przejdź do **skali** kartę aplikacji przed kontynuowaniem.
+   > Jeśli aplikacja nie jest już w **standardowe** lub **Premium** warstwy, zostanie wyświetlony komunikat informujący o obsługiwanych warstw umożliwiających publikowanie przemieszczane. W tym momencie masz możliwość wybrania **uaktualnienia** i przejdź do **skali** kartę aplikacji przed kontynuowaniem.
    > 
    > 
 3. W **dodać gniazdo** bloku, nazwę miejsca i wybierz, czy Klonuj konfiguracji aplikacji z innego istniejącego miejsca wdrożenia. Kliknij znacznik wyboru, aby kontynuować.

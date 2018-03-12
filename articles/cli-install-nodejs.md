@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: rasquill
-ms.openlocfilehash: 67aa5bb122b277e998119506bb2a574d6b4fde5e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a1ca71a81f4fa6dd36b9ed3a2b16fcca0e29601c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="install-the-azure-cli-10"></a>Zainstaluj Azure CLI 1.0
 > [!div class="op_single_selector"]
@@ -29,9 +29,9 @@ ms.lasthandoff: 12/21/2017
 
 > [!IMPORTANT]
 > W tym temacie opisano sposób instalowania 1.0 interfejsu wiersza polecenia platformy Azure. Ten interfejs wiersza polecenia jest przestarzała i stosować tylko do obsługi w modelu usługi Azure Service Management (ASM) z zasobami "klasycznym".
-> W przypadku wdrożeń usługi Azure Resource Manager (ARM), użyj [Azure CLI 2.0](/cli/azure/overview).
+> W przypadku wdrożeń usługi Azure Resource Manager, użyj [Azure CLI 2.0](/cli/azure).
 
-Szybko zainstalować interfejs wiersza polecenia platformy Azure (Azure CLI 1.0) Aby użyć zestawu open source oparty na powłoce poleceń do tworzenia i zarządzania zasobami na platformie Microsoft Azure. Istnieje kilka opcji, aby zainstalować te narzędzia i platform na komputerze:
+Szybko zainstaluj interfejs wiersza polecenia platformy Azure (Azure CLI 1.0), aby móc skorzystać z zestawu opartych na powłoce poleceń typu open source umożliwiających tworzenie zasobów na platformie Microsoft Azure i zarządzanie nimi. Istnieje kilka opcji, aby zainstalować te narzędzia i platform na komputerze:
 
 * **Pakiet npm** — Uruchom npm (Menedżer pakietów dla języka JavaScript), aby zainstalować najnowszy pakiet Azure CLI 1.0 na dystrybucji systemu Linux lub OS. Wymaga środowiska node.js i npm na tym komputerze.
 * **Instalator** — Pobierz Instalator prosta instalacja na Mac lub Windows.

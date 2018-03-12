@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/9/2018
 ms.author: shlo
-ms.openlocfilehash: 81b97bb6b6abb5431bedd4efec5f807fa577c4e4
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 209afba99ac2b43c252d93c32930908ec1f957f9
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Tworzenie Visual w fabryce danych Azure
 Fabryka danych Azure użytkownika interfejsu środowisko (UX) pozwala wizualnie tworzyć i wdrażać zasobów dla fabrykę danych bez konieczności pisania kodu. Można przeciągnij działania kanwy potoku, wykonaj uruchomień testów, wielokrotnie powtarzane, debugowanie i wdrażanie i monitorowanie sekwencji potoku. Istnieją dwa podejścia do wykonywania visual tworzenia przy użyciu środowiska użytkownika:
@@ -39,6 +39,9 @@ Jeśli używasz środowiska użytkownika **tworzenia obszaru roboczego** można 
 
 ## <a name="author-with-vsts-git-integration"></a>Autor z integracji programu VSTS Git
 Tworzenie Visual z integracji programu VSTS Git obsługuje kontroli źródła i współpracy pracy z potoków fabryki danych. Fabryka danych można skojarzyć z repozytorium Git programu VSTS konta dla kontroli źródła, współpracy, przechowywanie wersji i tak dalej. Jednego konta usługi VSTS Git może mieć wielu repozytoriów, ale repozytorium Git programu VSTS może być skojarzona z fabryką danych tylko jeden. Jeśli nie masz konta usługi VSTS lub repozytorium, wykonaj [tych instrukcji](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student) można utworzyć zasoby.
+
+> [!NOTE]
+> Potok fabryki danych nie może uzyskać dostępu do plików przechowywanych w repozytorium Git programu VSTS. W związku z tym nie można przechowywać pliki, które są używane przez działania potoku fabryki danych — na przykład, plików danych i plików skryptów — w repozytorium Git programu VSTS.
 
 ### <a name="configure-a-vsts-git-repository-with-azure-data-factory"></a>Konfigurowanie repozytorium Git programu VSTS z fabryką danych Azure
 Repozytorium GIT programu VSTS z fabryką danych można skonfigurować za pomocą dwóch metod.

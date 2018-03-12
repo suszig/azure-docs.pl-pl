@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: brenduns
 ms.reviewer: 
-ms.openlocfilehash: 8ec733c01b19f01951d0b53265daaef32c3afe73
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 544fc1bcc9212fd38938d58447f5050df2a08796
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="connect-azure-stack-to-azure-using-expressroute"></a>Stos Azure połączenia z platformą Azure za pomocą usługi ExpressRoute
 
@@ -273,7 +273,7 @@ Przykład infrastruktury sieci platformy Azure jest konfigurowana w następując
 3. Utwórz gwiazdy zakres adresów sieci wirtualnej i podsieci przy użyciu 10.100.0.0/16.
 
 
-Aby uzyskać więcej informacji na temat tworzenia sieci wirtualnych na platformie Azure, zobacz [tworzenie sieci wirtualnej z wieloma podsieciami](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+Aby uzyskać więcej informacji na temat tworzenia sieci wirtualnych na platformie Azure, zobacz [utworzyć sieć wirtualną](../virtual-network/manage-virtual-network.md#create-a-virtual-network).
 
 ### <a name="configure-an-expressroute-circuit"></a>Skonfigurować obwód usługi ExpressRoute
 

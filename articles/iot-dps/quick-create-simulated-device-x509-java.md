@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: d966a1ce5f30531668c05e68bfe709057c6dee35
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7e4ad361df8a37d4a82c1bc50c6fb134a1ad5159
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-sdk-for-iot-hub-device-provisioning-service"></a>Tworzenie i aprowizowanie symulowanego urządzenia X.509 za pomocą zestawu SDK urządzenia Java dla usługi IoT Hub Device Provisioning
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -76,6 +76,9 @@ Pamiętaj, aby wcześniej wykonać kroki przedstawione w części [Konfigurowani
 
         1. Wprowadź **Y** w odpowiedzi na pytanie _Czy chcesz wprowadzić kod weryfikacyjny_ i nie zamykaj programu, ponieważ będzie on używany w dalszej części przewodnika Szybki start. Zanotuj wartości _Certyfikat klienta_, _Klucz prywatny certyfikatu klienta_, _Certyfikat osoby podpisującej_ i _Certyfikat główny_.
 
+        > [!NOTE]
+        > Wartość `Root Cert` powyżej ma zastosowanie tylko do certyfikatów utworzonych w danych wyjściowych konsoli i nie może służyć do podpisywania dodatkowych certyfikatów klienta. Jeśli potrzebujesz bardziej niezawodnego zestawu certyfikatów testowania, zobacz [Managing CA Certificates Sample (Przykład zarządzania certyfikatami urzędu certyfikacji)](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md).
+        >
 
 ## <a name="create-a-device-enrollment-entry"></a>Tworzenie wpisu rejestracji urządzenia
 
@@ -189,7 +192,7 @@ Pamiętaj, aby wcześniej wykonać kroki przedstawione w części [Konfigurowani
             String rootPem = "<Your Root Certificate here>";
                 
             signerCertificates.add(intermediatePem);
-            signerCertificates.add(root);
+            signerCertificates.add(rootPem);
             ```
     
             - Aby uwzględnić wartości certyfikatów, użyj następującego formatu:

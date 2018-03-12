@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/27/2017
+ms.date: 03/08/2018
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: d3b22927017e445ee3b6cea3e92edc0fb786cd8c
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ccad1f12e4f99074763f116596b4467e822d9f35
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="articles-in-the-azure-ad-developer-guide"></a>Artykuły w przewodniku deweloperów usługi Azure AD
 Poniżej znajduje się lista wszystkich tematów w przewodniku deweloperów usługi Azure Active Directory.
@@ -43,7 +43,7 @@ Te artykuły zawierają określonych koncepcji i funkcji usługi Azure Active Di
 | [Pulpit nawigacyjny sprzedawcy usługi Office 365](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)               | Jak opublikować aplikację na pulpicie nawigacyjnym sprzedawcy usługi Office 365 |
 | [Visual Studio Connected Services](vs-active-directory-dotnet-getting-started.md)                                               | Jak używać integracji z usługą Azure AD z projektów MVC programu Visual Studio |
 | [Usługi ADFS systemu Windows Server](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers) | Integracja z lokalną usługą Active Directory za pomocą usług AD FS |
-| [Najlepsze praktyki dotyczące obsługi błędów dla biblioteki ADAL](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-adal-error-handling) | Integracja z lokalną usługą Active Directory za pomocą usług AD FS |
+| [Najlepsze praktyki dotyczące obsługi błędów dla biblioteki ADAL](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-adal-error-handling) | Sposób obsługi błędów odporność kompilacji i włączenie rejestrowania |
 
 ## <a name="reference"></a>Informacje ogólne
 Te artykuły zawierają podstawę REST i biblioteki uwierzytelniania interfejsów API, protokołów, błędów, przykładów kodu i punktów końcowych.

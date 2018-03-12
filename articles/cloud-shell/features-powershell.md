@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: damaerte
-ms.openlocfilehash: 9f089b5c5d573bf469d6920f9144b7cc5c97c03a
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 03706914db2b6b09ff31d5ed4b25871e7a53298a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Funkcje i narzędzia dla środowiska PowerShell w powłoce chmury Azure (wersja zapoznawcza)
 
@@ -57,7 +57,7 @@ Wszelkie zmiany wprowadzone do zasobów platformy Azure, albo bezpośrednio w po
 
     ![](media/features-powershell/resource-group-autocomplete.png)
 
-- **Get-AzureRmCommand**: to polecenie cmdlet zwraca listę poleceń zastosowania w kontekście lokalizacji, w obszarze dysk Azure (`Azure:`). Na przykład tylko polecenia związane z magazynowaniem będzie wyświetlana, gdy użytkownik jest w obszarze`Azure:\<subscription name>\StorageAccounts`
+- **Get-AzureRmCommand**: to polecenie cmdlet zwraca listę poleceń zastosowania w kontekście lokalizacji, w obszarze dysk Azure (`Azure:`). Na przykład tylko polecenia związane z magazynowaniem będzie wyświetlana, gdy użytkownik jest w obszarze `Azure:\<subscription name>\StorageAccounts`
 
     ![](media/features-powershell/get-azurermcommand.png)
 
@@ -90,7 +90,7 @@ Te polecenia są wbudowane obsługę zdalną środowiska PowerShell i wymaga po�
 
 |**Kategoria**    |**Nazwa**                                 |
 |----------------|-----------------------------------------|
-|Narzędzia platformy Azure     |[Azure PowerShell (5.2.0)](https://docs.microsoft.com/powershell/azure/overview)<br> [Azure CLI (2.0.26)](https://docs.microsoft.com/cli/azure/overview)|
+|Narzędzia platformy Azure     |[Azure PowerShell (5.2.0)](https://docs.microsoft.com/powershell/azure/overview)<br> [Azure CLI (2.0.26)](https://docs.microsoft.com/cli/azure)|
 |Edytory tekstów    |vim<br> nano                             |
 |Menedżer pakietów |PowerShellGet<br> PackageManagement<br> npm<br> PIP |
 |Kontrola źródła  |git                                      |

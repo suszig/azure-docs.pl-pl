@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: maheshu
-ms.openlocfilehash: 7c84ac3318bbd63129b04711c62dc441b9d35285
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 858adf2b0a0431078561a6f0edf80860927f8233
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Włączanie usługi Azure Active Directory Domain Services przy użyciu portalu Azure
 
@@ -49,7 +49,7 @@ Następne zadanie konfiguracji to aby utworzyć sieć wirtualną platformy Azure
   > [!WARNING]
   > Upewnij się, że wybierz przestrzeń adresów, która znajduje się w prywatnej przestrzeń adresów IP. Adresy IP, które nie ma, które znajdują się w przestrzeni adresów publicznych powodować błędy w ramach usług domenowych Azure AD.
 
-5. **Istniejącej sieci wirtualnej:** Jeśli planowane jest pobranie istniejącej sieci wirtualnej, [Utwórz dedykowane podsieć przy użyciu rozszerzenia sieci wirtualnych](../virtual-network/virtual-networks-create-vnet-arm-pportal.md), a następnie wybierz tej podsieci. Kliknij przycisk **sieci wirtualnej** do wybrania istniejącej sieci wirtualnej. Kliknij przycisk **podsieci** pobrania dedykowanych podsieci w istniejącej sieci wirtualnej, w którym można włączyć nowe domeny zarządzanej. Kliknij przycisk **OK** po zakończeniu.
+5. **Istniejącej sieci wirtualnej:** Jeśli planowane jest pobranie istniejącej sieci wirtualnej, [Utwórz dedykowane podsieć przy użyciu rozszerzenia sieci wirtualnych](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet), a następnie wybierz tej podsieci. Kliknij przycisk **sieci wirtualnej** do wybrania istniejącej sieci wirtualnej. Kliknij przycisk **podsieci** pobrania dedykowanych podsieci w istniejącej sieci wirtualnej, w którym można włączyć nowe domeny zarządzanej. Kliknij przycisk **OK** po zakończeniu.
 
     ![Wybierz podsieć w sieci wirtualnej](./media/getting-started/domain-services-blade-network-pick-subnet.png)
 

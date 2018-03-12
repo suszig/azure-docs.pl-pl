@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: 726799e5d885f144d6e24ab88aaa022f95f0bdd8
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 5eca18ca2f34097d98ce947c61c635abc6ab27b8
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Filtrowanie ruchu sieciowego przy użyciu sieciowych grup zabezpieczeń
 
@@ -32,7 +32,7 @@ Sieciowe grupy zabezpieczeń obejmują następujące właściwości:
 
 | Właściwość | Opis | Ograniczenia | Zagadnienia do rozważenia |
 | --- | --- | --- | --- |
-| Nazwa |Nazwa sieciowej grupy zabezpieczeń |Musi być unikatowa w obrębie regionu.<br/>Może zawierać litery, cyfry, podkreślenia, kropki i łączniki.<br/>Musi zaczynać się literą lub cyfrą.<br/>Musi kończyć się literą, cyfrą lub podkreśleniem.<br/>Nie może przekraczać 80 znaków. |Ponieważ może być konieczne utworzenie kilku sieciowych grup zabezpieczeń, upewnij się, że dysponujesz konwencją nazewnictwa, która pozwala łatwo identyfikować ich funkcję. |
+| Name (Nazwa) |Nazwa sieciowej grupy zabezpieczeń |Musi być unikatowa w obrębie regionu.<br/>Może zawierać litery, cyfry, podkreślenia, kropki i łączniki.<br/>Musi zaczynać się literą lub cyfrą.<br/>Musi kończyć się literą, cyfrą lub podkreśleniem.<br/>Nie może przekraczać 80 znaków. |Ponieważ może być konieczne utworzenie kilku sieciowych grup zabezpieczeń, upewnij się, że dysponujesz konwencją nazewnictwa, która pozwala łatwo identyfikować ich funkcję. |
 | Region |[Region](https://azure.microsoft.com/regions) świadczenia usługi Azure, w którym jest tworzona sieciowa grupa zabezpieczeń. |Sieciowe grupy zabezpieczeń można kojarzyć tylko z zasobami znajdującymi się w tym samym regionie co sieciowa grupa zabezpieczeń. |Aby się dowiedzieć, ile sieciowych grup zabezpieczeń może się znajdować w jednym regionie, przeczytaj artykuł dotyczący [limitów platformy Azure](../azure-subscription-service-limits.md#virtual-networking-limits-classic).|
 | Grupa zasobów |[Grupa zasobów](../azure-resource-manager/resource-group-overview.md#resource-groups), w której istnieje sieciowa grupa zabezpieczeń. |Chociaż sieciowa grupa zabezpieczeń istnieje w grupie zasobów, może być skojarzona z zasobami w dowolnej grupie zasobów, jeśli tylko zasób jest częścią tego samego regionu świadczenia usługi Azure co sieciowa grupa zabezpieczeń. |Grupy zasobów służą do zarządzania wieloma zasobami równocześnie w ramach jednostki wdrożenia.<br/>Można rozważyć zgrupowanie sieciowej grupy zabezpieczeń z zasobami, z którymi jest ona skojarzona. |
 | Reguły |Reguły ruchu przychodzącego i wychodzącego określające, jaki ruch jest dozwolony lub zablokowany. | |Zobacz sekcję [Reguły sieciowej grupy zabezpieczeń](#Nsg-rules) w tym artykule. |
@@ -66,7 +66,7 @@ Na wcześniejszym rysunku przedstawiono, jak są przetwarzane reguły sieciowej 
 Znaczniki domyślne są dostarczanymi przez system identyfikatorami określającymi kategorię adresów IP. Można użyć znaczników domyślnych we właściwościach **prefiksu adresu źródłowego** i **prefiksu adresu docelowego** dowolnej reguły. Istnieją trzy znaczniki domyślne, których można użyć:
 
 * **VirtualNetwork** (model usługi Resource Manager) (**VIRTUAL_NETWORK** — model klasyczny): ten znacznik obejmuje przestrzeń adresową sieci wirtualnej (zakresy CIDR określone na platformie Azure), wszystkie połączone lokalne przestrzenie adresowe i połączone sieci wirtualne Azure (sieci lokalne).
-* **AzureLoadBalancer** (model usługi Resource Manager) (**AZURE_LOADBALANCER** — model klasyczny): ten znacznik określa moduł równoważenia obciążenia infrastruktury platformy Azure. Ten znacznik przekłada się na adres IP centrum danych Azure, z którego pochodzą sondy kondycji Azure.
+* **AzureLoadBalancer** (model usługi Resource Manager) (**AZURE_LOADBALANCER** — model klasyczny): ten znacznik określa moduł równoważenia obciążenia infrastruktury platformy Azure. Ten znacznik przekłada się na adres IP centrum danych Azure, z którego pochodzą sondy kondycji usługi Azure Load Balancer.
 * **Internet** (model usługi Resource Manager) (**INTERNET** — model klasyczny): ten znacznik określa przestrzeń adresów IP, która znajduje się poza siecią wirtualną i do której można uzyskać dostęp w publicznym Internecie. Ten zakres obejmuje [publiczną przestrzeń adresów IP należącą do Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ### <a name="default-rules"></a>Reguły domyślne
@@ -75,11 +75,11 @@ Wszystkie sieciowe grupy zabezpieczeń zawierają zestaw reguł domyślnych. Reg
 Reguły domyślne zezwalają na ruch i blokują go w następujący sposób:
 - **Sieć wirtualna:** ruch pochodzący z sieci wirtualnej i kończący się w niej jest dozwolony zarówno w kierunku przychodzącym, jak i wychodzącym.
 - **Internet:** ruch wychodzący jest dozwolony, ale ruch przychodzący jest blokowany.
-- **Moduł równoważenia obciążenia:** umożliwia modułowi równoważenia obciążenia Azure badanie kondycji maszyn wirtualnych i wystąpień ról. Jeśli nie używa się zestawu z równoważeniem obciążenia, tę zasadę można zastąpić.
+- **Moduł równoważenia obciążenia:** umożliwia usłudze Azure Load Balancer badanie kondycji maszyn wirtualnych i wystąpień ról. Jeśli zastąpisz tę zasadę, działanie sond kondycji usługi Azure Load Balancer zakończy się niepowodzeniem, co może mieć wpływ na Twoją usługę.
 
 **Reguły domyślne ruchu przychodzącego**
 
-| Nazwa | Priorytet | Źródłowy adres IP | Port źródłowy | Docelowy adres IP | Port docelowy | Protokół | Dostęp |
+| Name (Nazwa) | Priorytet | Źródłowy adres IP | Port źródłowy | Docelowy adres IP | Port docelowy | Protokół | Dostęp |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | AllowVNetInBound |65000 | VirtualNetwork | * | VirtualNetwork | * | * | Zezwalaj |
 | AllowAzureLoadBalancerInBound | 65001 | AzureLoadBalancer | * | * | * | * | Zezwalaj |
@@ -87,7 +87,7 @@ Reguły domyślne zezwalają na ruch i blokują go w następujący sposób:
 
 **Domyślne reguły ruchu wychodzącego**
 
-| Nazwa | Priorytet | Źródłowy adres IP | Port źródłowy | Docelowy adres IP | Port docelowy | Protokół | Dostęp |
+| Name (Nazwa) | Priorytet | Źródłowy adres IP | Port źródłowy | Docelowy adres IP | Port docelowy | Protokół | Dostęp |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | AllowVnetOutBound | 65000 | VirtualNetwork | * | VirtualNetwork | * | * | Zezwalaj |
 | AllowInternetOutBound | 65001 | * | * | Internet | * | * | Zezwalaj |
@@ -132,7 +132,7 @@ Sieciowe grupy zabezpieczeń można wdrożyć w modelach wdrażania: usługi Res
 ## <a name="planning"></a>Planowanie
 Przed wdrożeniem sieciowych grup zabezpieczeń należy odpowiedzieć na następujące pytania:
 
-1. Do jakich lub z jakich typów zasobów chcesz filtrować ruch? Możesz podłączyć zasoby, takie jak karty sieciowe, (model usługi Resource Manager), maszyny wirtualne (model klasyczny), usługi Cloud Services, środowiska usług aplikacji i zestawy skalowania maszyn wirtualnych. 
+1. Do jakich lub z jakich typów zasobów chcesz filtrować ruch? Możesz podłączyć zasoby, takie jak karty sieciowe, (model usługi Resource Manager), maszyny wirtualne (model klasyczny), usługi Cloud Services, środowiska usług aplikacji i usługa VM Scale Sets. 
 2. Czy zasoby, do i z których chcesz filtrować ruch, są połączone z podsieciami w istniejących sieciach wirtualnych?
 
 Aby uzyskać więcej informacji na temat planowania zabezpieczeń sieciowych na platformie Azure, przeczytaj artykuł o [usługach w chmurze i zabezpieczeniach sieciowych](../best-practices-network-security.md). 
@@ -163,7 +163,8 @@ Bieżące reguły sieciowej grupy zabezpieczeń uwzględniają tylko protokoły 
 ### <a name="load-balancers"></a>Moduły równoważenia obciążenia
 * Należy rozważyć użycie reguł równoważenia obciążenia i translatora adresów sieciowych dla każdego modułu równoważenia obciążenia używanego przez poszczególne obciążenia. Reguły translatora adresów sieciowych są powiązane z pulą zaplecza zawierającą wystąpienia ról kart sieciowych (model usługi Resource Manager) lub maszyn wirtualnych/usług Cloud Services (model klasyczny). Należy rozważyć utworzenie sieciowej grupy zabezpieczeń dla każdej puli zaplecza, zezwalającej tylko na ruch mapowany za pomocą reguł wdrożonych w modułach równoważenia obciążenia. Utworzenie sieciowej grupy zabezpieczeń dla każdej puli zaplecza pozwala zagwarantować, że ruch przychodzący bezpośrednio do puli zaplecza (z pominięciem modułu równoważenia obciążenia) jest również filtrowany.
 * We wdrożeniach klasycznych tworzy się punkty końcowe, które mapują porty w module równoważenia obciążenia na porty na maszynach wirtualnych lub w wystąpieniach ról. Można również utworzyć osobisty publiczny moduł równoważenia obciążenia za pomocą usługi Resource Manager. Port docelowy dla ruchu przychodzącego to rzeczywisty port maszyny wirtualnej lub wystąpienie roli, a nie port udostępniany przez moduł równoważenia obciążenia. Port źródłowy i adres dla połączenia z maszyną wirtualną to port i adres na komputerze zdalnym w Internecie, a nie port i adres udostępniane przez moduł równoważenia obciążenia.
-* Podczas tworzenia sieciowych grup zabezpieczeń do filtrowania ruchu przechodzącego przez wewnętrzny moduł równoważenia obciążenia zastosowany port źródłowy i zakres adresów dotyczą komputera źródłowego, a nie modułu równoważnia obciążenia. Port docelowy i zakres adresów dotyczą komputera docelowego, a nie modułu równoważenia obciążenia.
+* Podczas tworzenia sieciowych grup zabezpieczeń do filtrowania ruchu przechodzącego przez usługę Azure Load Balancer zastosowany port źródłowy i zakres adresów dotyczą komputera źródłowego, a nie frontonu modułu równoważnia obciążenia. Port docelowy i zakres adresów dotyczą komputera docelowego, a nie frontonu modułu równoważenia obciążenia.
+* Jeśli zablokujesz tag AzureLoadBalancer, działanie sond kondycji usługi Azure Load Balancer zakończy się niepowodzeniem, co może mieć wpływ na Twoją usługę.
 
 ### <a name="other"></a>Inne
 * Listy kontroli dostępu (ACL) oparte na punktach końcowych i sieciowe grupy zabezpieczeń nie są obsługiwane w tym samym wystąpieniu maszyny wirtualnej. Jeśli chcesz użyć sieciowej grupy zabezpieczeń, a masz już listę ACL punktów końcowych, najpierw usuń listę ACL punktów końcowych. Informacje o sposobie usuwania listy ACL punktów końcowych zawiera artykuł [Manage endpoint ACLs](virtual-networks-acl-powershell.md) (Zarządzanie listami ACL opartymi na punktach końcowych).
@@ -229,7 +230,7 @@ Następujące sieciowe grupy zabezpieczeń są tworzone i wiązane z kartami sie
 | Allow-Inbound-HTTP-Internet | Zezwalaj | 200 | Internet | * | * | 80 | TCP |
 
 > [!NOTE]
-> Zakresem adresów źródłowych dla poprzednich reguł jest **Internet**, a nie wirtualny adres IP modułu równoważenia obciążenia. Port źródłowy ma wartość *, a nie 500001. Reguły NAT dla modułu równoważenia obciążenia nie są takie same jak reguły zabezpieczeń sieciowej grupy zabezpieczeń. Reguły zabezpieczeń sieciowej grupy zabezpieczeń są zawsze powiązane z oryginalnym źródłem i ostatecznym miejscem przeznaczenia ruchu, a **nie** z modułem równoważenia obciążenia między nimi. 
+> Zakresem adresów źródłowych dla poprzednich reguł jest **Internet**, a nie wirtualny adres IP modułu równoważenia obciążenia. Port źródłowy ma wartość *, a nie 500001. Reguły NAT dla modułu równoważenia obciążenia nie są takie same jak reguły zabezpieczeń sieciowej grupy zabezpieczeń. Reguły zabezpieczeń sieciowej grupy zabezpieczeń są zawsze powiązane z oryginalnym źródłem i ostatecznym miejscem przeznaczenia ruchu, a **nie** z modułem równoważenia obciążenia między nimi. Usługa Azure Load Balancer zawsze zachowuje źródłowy adres IP i port.
 > 
 > 
 

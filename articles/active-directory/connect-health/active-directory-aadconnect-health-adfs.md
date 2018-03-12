@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 834dbbd0be30181de1a71df05d2867be0e1c59b4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4928364ffd732f587e41a788c4d834e91339a7fc
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Monitorowanie usług AD FS za pomocą programu Azure AD Connect Health
 Poniższa dokumentacja dotyczy monitorowania infrastruktury usług AD FS przy użyciu programu Azure AD Connect Health. Aby uzyskać informacje na temat monitorowania programu Azure AD Connect (synchronizacja) za pomocą programu Azure AD Connect Health, zobacz [Używanie programu Azure AD Connect Health w celu synchronizacji](active-directory-aadconnect-health-sync.md). Ponadto, aby uzyskać informacje na temat monitorowania Usług domenowych Active Directory za pomocą programu Azure AD Connect Health, zobacz [Używanie programu Azure AD Connect Health z usługami AD DS](active-directory-aadconnect-health-adds.md).
@@ -95,7 +95,7 @@ Ten raport daje łatwy dostęp do następujących informacji:
 * Łączna liczba nieudanych żądań z błędną nazwą użytkownika lub błędnym hasłem w ciągu ostatnich 30 dni.
 * Średnia dzienna liczba użytkowników, którzy popełnili błędy podczas logowania się w wyniku podania nieprawidłowej nazwy użytkownika lub nieprawidłowego hasła.
 
-Kliknięcie tej części przenosi do głównego bloku raportu z dodatkowymi informacjami. Ten blok zawiera wykres z informacjami o trendach, który ułatwia ustalenie linii bazowej dotyczącej żądań z nieprawidłową nazwą użytkownika lub hasłem. Zawiera również listę 50 użytkowników o największej liczbie nieudanych prób.
+Kliknięcie tej części przenosi do głównego bloku raportu z dodatkowymi informacjami. Ten blok zawiera wykres z informacjami o trendach, który ułatwia ustalenie linii bazowej dotyczącej żądań z nieprawidłową nazwą użytkownika lub hasłem. Zawiera również listę 50 użytkowników o największej liczbie nieudanych prób w ciągu ostatniego tygodnia.
 
 Wykres udostępnia następujące informacje:
 
@@ -115,7 +115,7 @@ Raport zawiera następujące informacje:
 | Adres IP ostatniej nieudanej próby |Wyświetla adres IP klienta dla ostatniego złego żądania. |
 
 > [!NOTE]
-> Ten raport jest aktualizowany automatycznie co dwie godziny o nowe informacje, które pojawiły się w tym czasie. W rezultacie próby logowania z ostatnich dwóch godzin mogą nie zostać zawarte w raporcie.
+> Ten raport jest aktualizowany automatycznie co 12 godzin o nowe informacje, które pojawiły się w tym czasie. W rezultacie próby logowania z ostatnich dwóch godzin mogą nie zostać zawarte w raporcie.
 >
 >
 

@@ -16,11 +16,11 @@ ms.date: 11/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 3f7624d588e958985a73c5b40e8010e18e8879cb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f4e64fbc6c2fda026297b69bd54471d49b6785a1
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="install-a-replica-active-directory-domain-controller-in-an-azure-virtual-network"></a>Instalowanie repliki kontrolera domeny usługi Active Directory w sieci wirtualnej platformy Azure
 W tym artykule omówiono sposób instalowania dodatkowych kontrolerów domeny (DC) do użycia jako replik kontrolerów domeny dla domeny usługi Active Directory lokalnego na maszynach wirtualnych platformy Azure (VM) w sieci wirtualnej platformy Azure. Możesz również [zainstalować lasu usługi Active Directory systemu Windows Server w sieci wirtualnej platformy Azure](active-directory-new-forest-virtual-machine.md). Dla instalacji usług domenowych w usłudze Active Directory (AD DS) w sieci wirtualnej platformy Azure, zobacz [wskazówki dotyczące wdrażania systemu Windows Server Active Directory na maszynach wirtualnych Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx).
@@ -62,7 +62,7 @@ Zaloguj się do maszyny Wirtualnej i sprawdź, czy istnieje połączenie przez p
 
 ## <a name="reconfigure-dns-server-for-the-virtual-network"></a>Ponownie skonfiguruj serwer DNS dla sieci wirtualnej
 1. W celu uzyskania listy nazw sieci wirtualnej w [portalu Azure](https://portal.azure.com), wyszukaj *sieci wirtualnych*, a następnie wybierz pozycję **sieci wirtualnych** do wyświetlania listy. 
-2. Otwórz sieci wirtualnej, którymi chcesz zarządzać, a następnie [zmienić konfigurację adresów IP serwerów DNS dla sieci wirtualnej](../virtual-network/virtual-network-manage-network.md#dns-servers) do używania statycznych adresów IP przypisanych do replik kontrolerów domeny zamiast adresów IP dla lokalnych serwerów DNS.
+2. Otwórz sieci wirtualnej, którymi chcesz zarządzać, a następnie [zmienić konfigurację adresów IP serwerów DNS dla sieci wirtualnej](../virtual-network/manage-virtual-network.md#change-dns-servers) do używania statycznych adresów IP przypisanych do replik kontrolerów domeny zamiast adresów IP dla lokalnych serwerów DNS.
 3. Zapewnienie, że wszystkie repliki kontrolera domeny maszyn wirtualnych w sieci wirtualnej skonfigurowano do korzystania z serwerów DNS w sieci wirtualnej:
   1. Wybierz **maszyn wirtualnych**.
   2. Wybierz maszyny wirtualne, a następnie wybierz **ponownego uruchomienia**. 
@@ -83,9 +83,9 @@ Po udostępnieniu każdej maszyny Wirtualnej, zaloguj się i przyłączyć go do
 1. W **Menedżera serwera** &gt; **lokalnego serwera** &gt; **grupy roboczej** &gt; **zmian...** , wybierz pozycję **domeny**.
 2. Wprowadź nazwę domeny lokalnej. 
 3. Podaj poświadczenia użytkownika domeny.
-4. Uruchom ponownie maszynę Wirtualną.
+4. Uruchom ponownie maszynę wirtualną.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * Aby uzyskać więcej informacji o korzystaniu z programu Windows PowerShell, zobacz [wprowadzenie do poleceń cmdlet Azure](/powershell/azure/overview) i [dokumentacji poleceń Cmdlet Azure](/powershell/azure/get-started-azureps).
 * [Wskazówki dotyczące wdrażania systemu Windows serwer usługi Active Directory na maszynach wirtualnych Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)

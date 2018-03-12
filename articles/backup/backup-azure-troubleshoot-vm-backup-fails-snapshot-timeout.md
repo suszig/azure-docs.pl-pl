@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: c205023b025a477ee05ddcbfc536573f31426167
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: a18718aba3ef7f70caa541c6eb56311082d02bed
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Rozwiązywanie problemów z usługi Kopia zapasowa Azure awarii: problemy z agentem lub rozszerzenia
 
@@ -30,9 +30,6 @@ Ten artykuł zawiera kroki rozwiązywania problemów, które mogą pomóc rozwi�
 ## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>Agent maszyny Wirtualnej nie może nawiązać komunikacji z usługą kopia zapasowa Azure
 
 Komunikat o błędzie: "Agent maszyny Wirtualnej nie można nawiązać połączenia z kopii zapasowej systemu Azure"
-
-> [!NOTE]
-> Jeśli kopie zapasowe Azure maszyny Wirtualnej systemu Linux nie powiedzie się z powodu następującego błędu od 4 stycznia 2018, uruchom następujące polecenie w maszynie Wirtualnej, a następnie ponów tworzenie kopii zapasowych:`sudo rm -f /var/lib/waagent/*.[0-9]*.xml`
 
 Po zarejestrować i zaplanować maszyny Wirtualnej dla usługi tworzenia kopii zapasowej, kopia zapasowa inicjuje zadania komunikując się z migawki w chwili agenta maszyny Wirtualnej. Jeden z następujących warunków może uniemożliwić migawki są wyzwalane. Po wyzwoleniu nie jest migawka kopii zapasowej może zakończyć się niepowodzeniem. Wykonaj następujące kroki rozwiązywania problemów w podanej kolejności, a następnie ponów próbę wykonania operacji:
 
@@ -58,9 +55,8 @@ Komunikat o błędzie: "VMSnapshot rozszerzenia operacja nie powiodła się."
 Po zarejestrować i zaplanować maszyny Wirtualnej dla usługi Kopia zapasowa Azure kopii zapasowej inicjuje zadania komunikując się z rozszerzenia kopii zapasowej maszyny Wirtualnej do tworzenia migawki punktu w czasie. Jeden z następujących warunków może uniemożliwić migawki są wyzwalane. Jeśli migawka nie jest wyzwalany, może wystąpić błąd tworzenia kopii zapasowej. Wykonaj następujące kroki rozwiązywania problemów w podanej kolejności, a następnie ponów próbę wykonania operacji:  
 **Przyczyna 1: [nie można pobrać stanu migawki lub migawka nie można pobrać](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **Przyczyny 2: [zapasowy numer wewnętrzny nie może zaktualizować lub załadować](#the-backup-extension-fails-to-update-or-load)**  
-**Przyczyny 3: [maszyny Wirtualnej nie ma dostępu do Internetu](#the-vm-has-no-internet-access)**  
-**Przyczyna 4: [agent jest zainstalowany na Maszynie wirtualnej, ale odpowiadać (dla maszyn wirtualnych systemu Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
-**Przyczyny 5: [agent zainstalowany na maszynie wirtualnej są nieaktualne (dla maszyn wirtualnych systemu Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
+**Przyczyny 3: [agent jest zainstalowany na Maszynie wirtualnej, ale odpowiadać (dla maszyn wirtualnych systemu Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
+**Przyczyna 4: [agent zainstalowany na maszynie wirtualnej są nieaktualne (dla maszyn wirtualnych systemu Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
 
 ## <a name="backup-fails-because-the-vm-agent-is-unresponsive"></a>Kopii zapasowej nie powiedzie się, ponieważ nie odpowiada, agent maszyny Wirtualnej
 
@@ -151,12 +147,12 @@ Najbardziej związane z agenta lub rozszerzenie błędów dla maszyn wirtualnych
  > [!NOTE]
  > Firma Microsoft *zdecydowanie zaleca się* zaktualizowanie agenta tylko za pośrednictwem repozytorium dystrybucji. Nie zaleca się pobierania kodu agenta bezpośrednio z witryny GitHub i zaktualizowaniem go. Jeśli najnowsza wersja agenta dla dystrybucji nie jest dostępny, skontaktuj się z dystrybucji obsługę instrukcje dotyczące sposobu jego instalacji. Aby sprawdzić najnowsze agenta, przejdź do [agenta Windows Azure w systemie Linux](https://github.com/Azure/WALinuxAgent/releases) strony w repozytorium GitHub.
 
-2. Upewnij się, że agent programu Azure działa na maszynie Wirtualnej, uruchamiając następujące polecenie:`ps -e`
+2. Upewnij się, że agent programu Azure działa na maszynie Wirtualnej, uruchamiając następujące polecenie: `ps -e`
 
  Jeśli nie jest uruchomiony proces, uruchom go ponownie za pomocą następujących poleceń:
 
- * Dla Ubuntu:`service walinuxagent start`
- * Inne dystrybucji:`service waagent start`
+ * Dla Ubuntu: `service walinuxagent start`
+ * Inne dystrybucji: `service waagent start`
 
 3. [Konfigurowanie automatycznego ponownego uruchomienia agenta](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
 4. Uruchom nową kopię zapasową testu. Jeśli błąd będzie się powtarzać, zbierz dzienniki następujące maszyny Wirtualnej:
@@ -168,7 +164,7 @@ Najbardziej związane z agenta lub rozszerzenie błędów dla maszyn wirtualnych
 Jeśli wymagane pełne rejestrowanie dla agenta waagent, wykonaj następujące kroki:
 
 1. W pliku /etc/waagent.conf Znajdź następujący wiersz: **Włącz pełne rejestrowanie (y | n)**
-2. Zmień **Logs.Verbose** wartość z  *n*  do *y*.
+2. Zmień **Logs.Verbose** wartość z *n* do *y*.
 3. Zapisz zmiany, a następnie ponownie uruchom agenta waagent, wykonując kroki opisane wcześniej w tej sekcji.
 
 ###  <a name="the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Nie można pobrać stanu migawki lub migawka nie można pobrać
@@ -179,7 +175,6 @@ Poniższe warunki może spowodować awarię zadania migawki:
 
 | Przyczyna | Rozwiązanie |
 | --- | --- |
-| Maszyna wirtualna ma skonfigurowano kopii zapasowej programu SQL Server. | Domyślnie kopii zapasowej maszyny Wirtualnej jest uruchamiane usługi kopii tle woluminu (VSS) pełnej kopii zapasowej na maszynach wirtualnych systemu Windows. Na maszynach wirtualnych, które działają na serwerach programu SQL Server i programem SQL Server kopia zapasowa została skonfigurowana, mogą występować opóźnienia z powodu wykonywania migawki.<br><br>Jeśli wystąpią niepowodzenia wykonywania kopii zapasowej z powodu problemu z migawki, należy ustawić następujący klucz rejestru:<br><br>**[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT] "USEVSSCOPYBACKUP"="TRUE"** |
 | Stan maszyny Wirtualnej jest zgłaszana niepoprawnie, ponieważ maszyna wirtualna jest zamknięta w protokołu RDP (Remote Desktop). | Jeśli wyłączysz maszyny Wirtualnej w ramach protokołu RDP, sprawdź portalu, aby ustalić, czy stan maszyny Wirtualnej jest prawidłowa. Jeśli nie jest poprawny, należy wyłączyć maszynę Wirtualną w portalu przy użyciu **zamknięcia** opcji na pulpicie maszyny Wirtualnej. |
 | Maszyna wirtualna nie można pobrać adresu hosta lub z sieci szkieletowej z serwera DHCP. | DHCP musi być włączona na gościu przeznaczonego na kopie zapasowe maszyn wirtualnych IaaS do pracy. Jeśli maszyna wirtualna nie może pobrać adres hosta lub z sieci szkieletowej z odpowiedzi DHCP 245, go nie można pobrać lub uruchomić wszystkich rozszerzeń. Jeśli potrzebujesz statycznego prywatnego adresu IP, należy skonfigurować za pomocą platformy. Opcja DHCP w ramach maszyny Wirtualnej powinna być włączona w lewo. Aby uzyskać więcej informacji, zobacz [ustawić wewnętrzny statycznego prywatnego adresu IP](../virtual-network/virtual-networks-reserved-private-ip.md). |
 
@@ -188,12 +183,7 @@ Jeśli nie można załadować rozszerzeń, tworzenia kopii zapasowej nie powiedz
 
 #### <a name="solution"></a>Rozwiązanie
 
-**Dla gości systemu Windows:** Sprawdź, czy usługa iaasvmprovider jest włączony i ma określony typ uruchamiania *automatyczne*. Jeśli usługa nie jest skonfigurowana w ten sposób, należy włączyć usługę, aby określić, czy następną kopią zapasową powiedzie się.
-
-**Dla systemu Linux gości:** Sprawdź, czy 1.0.91.0 najnowszą wersję VMSnapshot dla systemu Linux (rozszerzenia używane przez kopię zapasową).<br>
-
-
-Jeśli zapasowy numer wewnętrzny nadal nie można zaktualizować lub obciążenia, należy odinstalować rozszerzenia, aby wymusić ponowne załadowanie rozszerzenia VMSnapshot. Następnej próbie kopii zapasowej ponowne załadowanie rozszerzenia.
+Odinstaluj rozszerzenie wymuszenie rozszerzenia VMSnapshot, aby załadować ponownie. Następnej próbie kopii zapasowej ponowne załadowanie rozszerzenia.
 
 Aby odinstalować rozszerzenia:
 
@@ -220,7 +210,7 @@ Aby rozwiązać ten problem, wykonaj następujące kroki, aby usunąć kolekcję
 4. Pobierz kolekcję punkt przywracania, do której odnosi się do maszyny Wirtualnej: <br>
     `.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
 
-    Przykład:`.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
+    Przykład: `.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
 5. Usuń kolekcję punkt przywracania: <br>
     `.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
 6. Następnego zaplanowanego tworzenia kopii zapasowej automatycznie tworzy kolekcję punktu przywracania i nowych punktów przywracania.

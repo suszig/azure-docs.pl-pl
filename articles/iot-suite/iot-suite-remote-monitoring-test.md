@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 9f51c35be09af6f3a8dde7061dcf57a9c4cc9fdb
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 563a5a1c177b1f18be18d9b3cc9f3f9a7ee8ae4a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-new-simulated-device"></a>Utwórz nowy symulowane urządzenie
 
@@ -24,7 +24,7 @@ Ten samouczek przedstawia sposób dostosowywania mikrousługi symulator urządze
 
 W pierwszego scenariusza firma Contoso chce przetestować nowe urządzenie żarówka inteligentne. Aby wykonać testów, należy utworzyć nowe symulowane urządzenie o następującej charakterystyce:
 
-*Właściwości*
+*właściwości*
 
 | Name (Nazwa)                     | Wartości                      |
 | ------------------------ | --------------------------- |
@@ -104,7 +104,7 @@ Wykonaj następujące zadania w celu przygotowania środowiska deweloperskiego d
 
 Podczas tworzenia rozwiązania monitorowania zdalnego na [www.azureiotsuite.com](https://www.azureiotsuite.com), wybrana nazwa rozwiązania. Nazwa rozwiązania staje się nazwa grupy zasobów platformy Azure, która zawiera różne wdrożone zasoby używane przez rozwiązanie. W poniższych poleceniach zastosowano grupę zasobów o nazwie **Contoso-01**, należy zastąpić **Contoso-01** z nazwą grupy zasobów.
 
-Następujące polecenia, użyj `az` polecenie [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest). Zainstaluj na komputerze deweloperskim 2.0 interfejsu wiersza polecenia Azure, lub użyj [powłoki chmury](https://docs.microsoft.com/azure/cloud-shell/overview) w [portalu Azure](http://portal.azure.com). Azure CLI 2.0 jest wstępnie zainstalowane w powłoce chmury.
+Następujące polecenia, użyj `az` polecenie [Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest). Zainstaluj na komputerze deweloperskim 2.0 interfejsu wiersza polecenia Azure, lub użyj [powłoki chmury](https://docs.microsoft.com/azure/cloud-shell/overview) w [portalu Azure](http://portal.azure.com). Azure CLI 2.0 jest wstępnie zainstalowane w powłoce chmury.
 
 1. Aby sprawdzić nazwę grupy zasobów, która zawiera monitorowania zasobów zdalnych, uruchom następujące polecenie:
 

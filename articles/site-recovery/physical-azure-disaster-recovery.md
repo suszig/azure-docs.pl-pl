@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/08/2018
 ms.author: raynew
-ms.openlocfilehash: d4c8dc8083fbffc46e94673230241075b763b444
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: d460da197c6e9f0bface402d83d4788f8164cc9c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Konfigurowanie odzyskiwania po awarii do platformy Azure dla lokalnych serwerów fizycznych
 
@@ -32,8 +32,8 @@ W tym samouczku przedstawiono sposób konfigurowania odzyskiwania po awarii loka
 W celu ukończenia tego samouczka:
 
 - Przeanalizuj informacje o [składnikach i architekturze scenariusza](physical-azure-architecture.md).
-- Zapoznaj się z [wymaganiami dotyczącymi obsługi](site-recovery-support-matrix-to-azure.md) wszystkich składników.
-- Upewnij się, że spełniają serwerów, które chcesz replikować [wymagania maszyny Wirtualnej Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+- Zapoznaj się z [wymaganiami dotyczącymi obsługi](vmware-physical-secondary-support-matrix.md) wszystkich składników.
+- Upewnij się, że spełniają serwerów, które chcesz replikować [wymagania maszyny Wirtualnej Azure](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 - Przygotuj Azure. Potrzebujesz subskrypcji platformy Azure, sieć wirtualną platformy Azure i konto magazynu.
 - Przygotowanie konta do automatycznej instalacji usługi mobilności na każdym serwerze, który chcesz replikować.
 
@@ -171,7 +171,7 @@ Włącz replikację dla każdego serwera.
 8. Wybierz opcję **Konfiguruj teraz dla wybranych maszyn**, aby zastosować ustawienia sieci do wszystkich maszyn wybranych do ochrony. Wybierz opcję **Konfiguruj później**, aby wybrać sieć platformy Azure dla poszczególnych maszyn. 
 9. W **maszyn fizycznych**i kliknij przycisk **+ maszyny fizycznej**. Określ nazwę i adres IP. Wybierz system operacyjny maszyny, które mają być replikowane. Trwa kilka minut, aż serwery odnalezione i wyświetlane. 
 10. W **właściwości** > **skonfigurować właściwości**, wybierz konto, które będzie używane przez serwer przetwarzania Aby automatycznie zainstalować usługi mobilności na maszynie.
-11. W **ustawienia replikacji** > **Konfigurowanie ustawień replikacji**, sprawdź, czy jest wybrane zasady replikacji poprawne. 
+11. W obszarze **Ustawienia replikacji** > **Konfigurowanie ustawień replikacji** sprawdź, czy wybrano właściwe zasady replikacji. 
 12. Kliknij pozycję **Włącz replikację**. Możesz śledzić postęp zadania **Włącz ochronę** w pozycji **Ustawienia** > **Zadania** > **Zadania usługi Site Recovery**. Po uruchomieniu zadania **Sfinalizuj ochronę** maszyna jest gotowa do przejścia w tryb failover.
 
 

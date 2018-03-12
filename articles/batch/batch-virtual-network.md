@@ -8,11 +8,11 @@ ms.service: batch
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: danlep
-ms.openlocfilehash: 9748ae5cc58c64412ab6e51e6cd502abc3505c51
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 5a06ad5086a42bb00147e085227f3c71c357544e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Tworzenie puli partii zadań Azure w sieci wirtualnej
 
@@ -32,7 +32,7 @@ Puli partii zadań Azure zawiera ustawienia umożliwiające programowi węzłów
 
 * **Uwierzytelnianie**. Aby użyć sieci wirtualnej platformy Azure, interfejs API klienta usługi Batch musi korzystać z uwierzytelniania usługi Azure Active Directory (AD). Obsługa usługi Azure Batch dla usługi Azure AD jest udokumentowana w temacie [Authenticate Batch service solutions with Active Directory (Uwierzytelnianie rozwiązań usługi Batch za pomocą usługi Active Directory)](batch-aad-auth.md). 
 
-* **Sieci wirtualnej platformy Azure**. Aby przygotować sieć wirtualną z jednej lub kilku podsieci z wyprzedzeniem, można użyć portalu Azure, programu Azure PowerShell, interfejsu wiersza polecenia platformy Azure (CLI) lub innych metod. Aby utworzyć sieć wirtualną platformy Azure Resource Manager, zobacz [tworzenie sieci wirtualnej z wieloma podsieciami](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). Tworzenie klasycznej sieci wirtualnej, zobacz [tworzenie sieci wirtualnej (wdrożenia klasyczne) z wieloma podsieciami](../virtual-network/create-virtual-network-classic.md).
+* **Sieci wirtualnej platformy Azure**. Aby przygotować sieć wirtualną z jednej lub kilku podsieci z wyprzedzeniem, można użyć portalu Azure, programu Azure PowerShell, interfejsu wiersza polecenia platformy Azure (CLI) lub innych metod. Aby utworzyć sieć wirtualną platformy Azure Resource Manager, zobacz [utworzyć sieć wirtualną](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Tworzenie klasycznej sieci wirtualnej, zobacz [tworzenie sieci wirtualnej (wdrożenia klasyczne) z wieloma podsieciami](../virtual-network/create-virtual-network-classic.md).
 
 ### <a name="vnet-requirements"></a>Wymagania dotyczące sieci wirtualnej
 [!INCLUDE [batch-virtual-network-ports](../../includes/batch-virtual-network-ports.md)]

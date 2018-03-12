@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: rclaus
-ms.openlocfilehash: 463cb6f320db1a3fab675a35211334c87e411f0f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: c99023d794dfb3b78b26ef721d89302e126f5cb1
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementowanie Oracle Golden bramy na Azure maszyny Wirtualnej systemu Linux 
 
@@ -50,7 +50,7 @@ Poniżej znajduje się podsumowanie konfiguracji środowiska:
 
 ### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure 
 
-Zaloguj się do Twojej subskrypcji platformy Azure z [logowania az](/cli/azure/#az_login) polecenia. Następnie postępuj zgodnie z wyświetlanymi instrukcjami.
+Zaloguj się do Twojej subskrypcji platformy Azure z [logowania az](/cli/azure/reference-index#az_login) polecenia. Następnie postępuj zgodnie z wyświetlanymi instrukcjami.
 
 ```azurecli
 az login

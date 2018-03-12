@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 48b4e5f2429ce2bd8a875b084694f83e467b5575
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 484e23f7f5800faf4a1d83c2386e0c766c3a1f2d
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="redeploy-linux-virtual-machine-to-new-azure-node"></a>Wdrożenie maszyny wirtualnej systemu Linux do nowego węzła Azure
 Jeśli pokonywaniu trudności Rozwiązywanie problemów z SSH lub aplikacji dostęp do maszyny wirtualnej systemu Linux (VM) na platformie Azure, ponownego wdrażania maszyny Wirtualnej może pomóc. Podczas ponownego wdrażania maszyny Wirtualnej maszyny Wirtualnej są przenoszone do nowego węzła w ramach infrastruktury platformy Azure i uprawnień go ponownie. Opcje konfiguracji i skojarzonych zasobów są zachowywane. W tym artykule przedstawiono sposób ponownego wdrażania maszyny Wirtualnej przy użyciu wiersza polecenia platformy Azure lub w portalu Azure.
@@ -30,10 +30,10 @@ Można wdrożyć ponownie Maszynę wirtualną przy użyciu jednej z następując
 
 - [Interfejs wiersza polecenia platformy Azure 2.0](#azure-cli-20)
 - [Interfejs wiersza polecenia platformy Azure 1.0](#azure-cli-10)
-- [Azure portal](#using-azure-portal)
+- [Azure Portal](#using-azure-portal)
 
 ## <a name="use-the-azure-cli-20"></a>Użyj Azure CLI 2.0
-Zainstaluj najnowszą [Azure CLI 2.0](/cli/azure/install-az-cli2) i zaloguj się do platformy Azure konta przy użyciu [logowania az](/cli/azure/#az_login).
+Zainstaluj najnowszą [Azure CLI 2.0](/cli/azure/install-az-cli2) i zaloguj się do platformy Azure konta przy użyciu [logowania az](/cli/azure/reference-index#az_login).
 
 Wdrożenie maszyny Wirtualnej z [ponownego wdrażania maszyny wirtualnej az](/cli/azure/vm#az_vm_redeploy). Poniższy przykład wdraża ponownie maszyny Wirtualnej o nazwie *myVM* w grupie zasobów o nazwie *myResourceGroup*:
 

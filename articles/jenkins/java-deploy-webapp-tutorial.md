@@ -11,11 +11,11 @@ ms.workload: web
 ms.date: 08/02/2017
 ms.author: routlaw
 ms.custom: Jenkins, devcenter
-ms.openlocfilehash: 40d7e822b586e6f6b4addcd7d4e107eda9f4ab11
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b2606acba341d4cfbc16314048e134fa30ff8606
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-continuous-integration-and-deployment-to-azure-app-service-with-jenkins"></a>Konfigurowanie ciągłej integracji i wdrażania w usłudze Azure App Service z Wpięć
 
@@ -36,8 +36,8 @@ W tym samouczku wykonasz następujące zadania:
 Do ukończenia tego samouczka niezbędne są następujące elementy:
 
 * [Wpięć](https://jenkins.io/) narzędzia JDK i Maven, które są skonfigurowane. Jeśli nie masz system Wpięć, utwórz ją teraz na platformie Azure z [szablon rozwiązania Wpięć](/azure/jenkins/install-jenkins-solution-template).
-* A [GitHub](https://github.com) konta.
-* [Azure CLI 2.0](/cli/azure/overview), z sieci lokalnej wiersza polecenia lub w [powłoki chmury Azure](/azure/cloud-shell/overview)
+* Konto usługi [GitHub](https://github.com).
+* [Azure CLI 2.0](/cli/azure), z sieci lokalnej wiersza polecenia lub w [powłoki chmury Azure](/azure/cloud-shell/overview)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -48,7 +48,7 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
 3. Wyszukaj, a następnie zaznacz pole wyboru obok następujące wtyczki:   
 
     - [Usługa aplikacji Azure wtyczki](https://plugins.jenkins.io/azure-app-service)
-    - [Dodatek źródła gałęzi GitHub](https://plugins.jenkins.io/github-branch-source)
+    - [GitHub Branch Source Plug-in](https://plugins.jenkins.io/github-branch-source)
 
     Jeśli dodatki nie są wyświetlane, upewnij się, nie są zainstalowane sprawdzając **zainstalowana** kartę.
 
@@ -75,7 +75,7 @@ Konfiguracja Wpięć do odbierania [elementów webhook GitHub](https://developer
     ![Nowy projekt dowolne Wpięć](media/jenkins-java-quickstart/jenkins_freestyle.png)
 2. W obszarze **ogólne** zaznacz **GitHub** projektu, a następnie wprowadź adres URL repozytorium rozwidlonych, takich jak https://github.com/raisa/gs-spring-boot-docker
 3. W obszarze **źródła zarządzania kodem** zaznacz **Git**, wprowadź Twojego repozytorium rozwidlonych `.git` adres URL, takie jak https://github.com/raisa/gs-spring-boot-docker.git
-4. W obszarze **kompilacji wyzwalaczy** zaznacz **wyzwalacza haku GitHub dla sondowania GITscm**.
+4. W sekcji **Kompilowanie wyzwalaczy** wybierz pozycję **Wyzwalacz punktu zaczepienia GitHub na potrzeby sondowania GITscm**.
 5. W obszarze **kompilacji** zaznacz **kroku kompilacji Dodaj** i wybierz polecenie **wywołania najwyższego poziomu celów Maven**. Wprowadź `package` w **cele** pola.
 6. Wybierz pozycję **Zapisz**. Zadania można przetestować, wybierając **kompilacji teraz** ze strony projektu.
 
@@ -180,7 +180,7 @@ Konfiguracja Wpięć do odbierania [elementów webhook GitHub](https://developer
 3. Uruchamia nową kompilację w Wpięć wyzwalane przez nowe zatwierdzenia na `master` gałęzi repozytorium. Po zakończeniu instalacji należy ponownie załadować aplikacji na platformie Azure.     
       ![Wyświetlanie wdrożonej aplikacji na platformie Azure](media/jenkins-java-quickstart/hello_docker_world.png)
   
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Użyj maszyn wirtualnych platformy Azure zgodnie z agentów kompilacji](/azure/jenkins/jenkins-azure-vm-agents)
 - [Zarządzanie zasobami w zadań i potoków z wiersza polecenia platformy Azure](/azure/jenkins/execute-cli-jenkins-pipeline)

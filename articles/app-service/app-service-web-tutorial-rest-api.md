@@ -1,305 +1,210 @@
 ---
-title: "Aplikacja interfejsu API środowiska Node.js w usłudze Azure App Service | Microsoft Docs"
-description: "Dowiedz się, jak utworzyć interfejs API RESTful środowiska Node.js, a następnie wdrożyć go w aplikacji interfejsu API w usłudze Azure App Service."
+title: "Interfejs API RESTful z obsługą mechanizmu CORS w usłudze Azure App Service | Microsoft Docs"
+description: "Dowiedz się, w jaki sposób usługa Azure App Service umożliwia hostowanie interfejsów API RESTful z obsługą mechanizmu CORS."
 services: app-service\api
-documentationcenter: node
-author: bradygaster
-manager: erikre
+documentationcenter: dotnet
+author: cephalin
+manager: cfowler
 editor: 
 ms.assetid: a820e400-06af-4852-8627-12b3db4a8e70
-ms.service: app-service-api
+ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: nodejs
+ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 06/13/2017
-ms.author: rachelap
+ms.date: 02/28/2018
+ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 81d08e047a3689d110195f2325b52c6c0457e644
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
-ms.translationtype: MT
+ms.openlocfilehash: 7420e92bc929808f074e9be00dfbcb7d8476654a
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/05/2018
 ---
-# <a name="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure"></a>Kompilowanie interfejsu API RESTful środowiska Node.js i wdrażanie go w aplikacji interfejsu API na platformie Azure
+# <a name="host-a-restful-api-with-cors-in-azure-app-service"></a>Hostowanie interfejsu API RESTful z mechanizmem CORS w usłudze Azure App Service
 
-W tym przewodniku Szybki start pokazano, jak utworzyć interfejs API REST napisany w języku Node.js platformy [Express](http://expressjs.com/) za pomocą definicji [Swagger](http://swagger.io/) i wdrożyć go na platformie Azure. Aplikację tworzy się za pomocą narzędzi wiersza polecenia, następnie konfiguruje zasoby przy użyciu [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) i wdraża aplikację za pomocą usługi Git.  Gdy wszystko będzie gotowe, uzyskasz funkcjonalny interfejs API REST działający na platformie Azure.
+Usługa [Azure App Service](app-service-web-overview.md) oferuje wysoce skalowalną i samonaprawialną usługę hostingu w Internecie. Usługa App Service ma dodatkowo wbudowaną obsługę mechanizmu [współużytkowania zasobów między źródłami (CORS, Cross-Origin Resource Sharing)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing) dla interfejsów API RESTful. Ten samouczek pokazuje, w jaki sposób wdrożyć aplikację interfejsu API platformy ASP.NET Core w usłudze App Service z obsługą mechanizmu CORS. Aplikacja zostanie skonfigurowana przy użyciu narzędzi wiersza polecenia i wdrożona za pomocą narzędzia Git. 
 
-## <a name="prerequisites"></a>Wymagania wstępne
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
-* [Git](https://git-scm.com/)
-* [Node.js i NPM](https://nodejs.org/)
+> [!div class="checklist"]
+> * Tworzenie zasobów usługi App Service przy użyciu interfejsu wiersza polecenia platformy Azure
+> * Wdrażanie interfejsu API RESTful na platformie Azure za pomocą narzędzia Git
+> * Włączanie obsługi mechanizmu CORS w usłudze App Service
+
+Kroki opisane w tym samouczku można wykonać w systemie macOS, Linux i Windows.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten temat będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
+W celu ukończenia tego samouczka:
 
-## <a name="prepare-your-environment"></a>Przygotowywanie środowiska
+* [Zainstaluj oprogramowanie Git](https://git-scm.com/).
+* [Zainstaluj platformę .NET Core](https://www.microsoft.com/net/core/).
 
-1. W oknie terminala uruchom następujące polecenie, aby sklonować przykład na maszynę lokalną.
+## <a name="create-local-aspnet-core-app"></a>Tworzenie lokalnej aplikacji ASP.NET Core
 
-    ```bash
-    git clone https://github.com/Azure-Samples/app-service-api-node-contact-list
-    ```
+Ten krok umożliwia skonfigurowanie lokalnego projektu platformy ASP.NET Core. Usługa App Service obsługuje ten sam przepływ pracy w przypadku interfejsów API napisanych w innych językach.
 
-2. Przejdź do katalogu, który zawiera przykładowy kod.
+### <a name="clone-the-sample-application"></a>Klonowanie przykładowej aplikacji
 
-    ```bash
-    cd app-service-api-node-contact-list
-    ```
+W oknie terminalu dodaj element `cd` do katalogu roboczego.  
 
-3. Zainstaluj [narzędzie Swaggerize](https://www.npmjs.com/package/swaggerize-express) na maszynie lokalnej. Swaggerize to narzędzie generujące kod Node.js dla interfejsu API REST na podstawie definicji Swagger.
-
-    ```bash
-    npm install -g yo
-    npm install -g generator-swaggerize
-    ```
-
-## <a name="generate-nodejs-code"></a>Generowanie kodu Node.js 
-
-W tej sekcji samouczka przedstawiono sposób modelowania przepływu pracy programowania, w którym najpierw następuje utworzenie metadanych struktury Swagger, a następnie użycie ich do tworzenia szkieletu (automatycznego generowania) kodu serwera dla interfejsu API. 
-
-Zmień katalog na folder *start*, a następnie uruchom polecenie `yo swaggerize`. Narzędzie Swaggerize utworzy projekt Node.js dla Twojego interfejsu API na podstawie definicji Swagger w pliku *api.json*.
+Uruchom następujące polecenie w celu sklonowania przykładowego repozytorium. 
 
 ```bash
-cd start
-yo swaggerize --apiPath api.json --framework express
+git clone https://github.com/Azure-Samples/dotnet-core-api
 ```
 
-Kiedy w narzędziu Swaggerize zostanie wyświetlony monit o podanie nazwy projektu, użyj nazwy *ContactList*.
-   
-   ```bash
-   Swaggerize Generator
-   Tell us a bit about your application
-   ? What would you like to call this project: ContactList
-   ? Your name: Francis Totten
-   ? Your github user name: fabfrank
-   ? Your email: frank@fabrikam.net
-   ```
-   
-## <a name="customize-the-project-code"></a>Dostosowywanie kodu projektu
+To repozytorium zawiera aplikację utworzoną na podstawie następującego samouczka: [ASP.NET Core Web API help pages using Swagger (Strony pomocy internetowego interfejsu API platformy ASP.NET Core korzystające ze struktury Swagger)](/aspnet/core/tutorials/web-api-help-pages-using-swagger?tabs=visual-studio). Używa ona generatora struktury Swagger, aby obsłużyć [interfejs użytkownika struktury Swagger](https://swagger.io/swagger-ui/) oraz punkt końcowy JSON struktury Swagger.
 
-1. Skopiuj folder *lib* do folderu *ContactList* utworzonego przez polecenie `yo swaggerize`, a następnie zmień katalog na *ContactList*.
+### <a name="run-the-application"></a>Uruchamianie aplikacji
 
-    ```bash
-    cp -r lib ContactList/
-    cd ContactList
-    ```
+Uruchom następujące polecenia, aby zainstalować wymagane pakiety, uruchom migracje baz danych i uruchom aplikację.
 
-2. Zainstaluj moduły NPM `jsonpath` i `swaggerize-ui`. 
+```bash
+cd dotnet-core-api
+dotnet restore
+dotnet run
+```
 
-    ```bash
-    npm install --save jsonpath swaggerize-ui
-    ```
+Przejdź do adresu `http://localhost:5000/swagger` w przeglądarce, aby przetestować interfejs użytkownika struktury Swagger.
 
-3. Zastąp kod w pliku *handlers/contacts.js* następującym kodem: 
-    ```javascript
-    'use strict';
+![Interfejs API platformy ASP.NET Core uruchomiony lokalnie](./media/app-service-web-tutorial-rest-api/local-run.png)
 
-    var repository = require('../lib/contactRepository');
+Przejdź do adresu `http://localhost:5000/api/todo`, aby wyświetlić listę zadań w formacie JSON.
 
-    module.exports = {
-        get: function contacts_get(req, res) {
-            res.json(repository.all())
-        }
-    };
-    ```
-    Ten kod korzysta z danych JSON przechowywanych w pliku *lib/contacts.json* obsługiwanym przez plik *lib/contactRepository.js*. Nowy kod *contacts.js* zwraca wszystkie kontakty w repozytorium jako ładunek JSON. 
+Przejdź do adresu `http://localhost:5000`, aby przetestować aplikację przeglądarki. Później wskażesz aplikacji przeglądarki zdalny interfejs API w usłudze App Service, aby przetestować działanie mechanizmu CORS. Kod aplikacji przeglądarki znajduje się w katalogu _wwwroot_ repozytorium.
 
-4. Zastąp kod w pliku **handlers/contacts/{id}.js** następującym kodem:
+Aby zatrzymać platformę ASP.NET Core w dowolnym momencie, naciśnij kombinację klawiszy `Ctrl+C` w terminalu.
 
-    ```javascript
-    'use strict';
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-    var repository = require('../../lib/contactRepository');
+## <a name="deploy-app-to-azure"></a>Wdrażanie aplikacji na platformie Azure
 
-    module.exports = {
-        get: function contacts_get(req, res) {
-            res.json(repository.get(req.params['id']));
-        }    
-    };
-    ```
+W tym kroku wdrożysz aplikację .NET Core połączoną z bazą danych SQL Database w usłudze App Service.
 
-    Ten kod pozwala użyć zmiennej ścieżki w celu zwrócenia tylko kontaktu o podanym identyfikatorze.
+### <a name="configure-local-git-deployment"></a>Konfigurowanie lokalnego wdrożenia narzędzia Git
 
-5. Zastąp kod w pliku **server.js** następującym kodem:
+[!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
 
-    ```javascript
-    'use strict';
+### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-    var port = process.env.PORT || 8000; 
+[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-no-h.md)]
 
-    var http = require('http');
-    var express = require('express');
-    var bodyParser = require('body-parser');
-    var swaggerize = require('swaggerize-express');
-    var swaggerUi = require('swaggerize-ui'); 
-    var path = require('path');
-    var fs = require("fs");
-    
-    fs.existsSync = fs.existsSync || require('path').existsSync;
+### <a name="create-an-app-service-plan"></a>Tworzenie planu usługi App Service
 
-    var app = express();
+[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-no-h.md)]
 
-    var server = http.createServer(app);
+### <a name="create-a-web-app"></a>Tworzenie aplikacji sieci Web
 
-    app.use(bodyParser.json());
+[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-dotnetcore-win-no-h.md)] 
 
-    app.use(swaggerize({
-        api: path.resolve('./config/swagger.json'),
-        handlers: path.resolve('./handlers'),
-        docspath: '/swagger' 
-    }));
+### <a name="push-to-azure-from-git"></a>Wypychanie z narzędzia Git na platformę Azure
 
-    // change four
-    app.use('/docs', swaggerUi({
-        docs: '/swagger'  
-    }));
+[!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
-    server.listen(port, function () { 
-    });
-    ```   
+```bash
+Counting objects: 98, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (92/92), done.
+Writing objects: 100% (98/98), 524.98 KiB | 5.58 MiB/s, done.
+Total 98 (delta 8), reused 0 (delta 0)
+remote: Updating branch 'master'.
+remote: .
+remote: Updating submodules.
+remote: Preparing deployment for commit id '0c497633b8'.
+remote: Generating deployment script.
+remote: Project file path: ./DotNetCoreSqlDb.csproj
+remote: Generated deployment script files
+remote: Running deployment command...
+remote: Handling ASP.NET Core Web Application deployment.
+remote: .
+remote: .
+remote: .
+remote: Finished successfully.
+remote: Running post deployment command(s)...
+remote: Deployment successful.
+remote: App container will begin restart within 10 seconds.
+To https://<app_name>.scm.azurewebsites.net/<app_name>.git
+ * [new branch]      master -> master
+```
 
-    Ten kod wprowadza niewielkie zmiany umożliwiające pracę z usługą Azure App Service i ujawniające interaktywny interfejs internetowy dla Twojego interfejsu API.
+### <a name="browse-to-the-azure-web-app"></a>Przechodzenie do aplikacji internetowej platformy Azure
 
-### <a name="test-the-api-locally"></a>Testowanie interfejsu API lokalnie
+Przejdź do adresu `http://<app_name>.azurewebsites.net/swagger` w przeglądarce, aby przetestować interfejs użytkownika struktury Swagger.
 
-1. Uruchamianie aplikacji Node.js
-    ```bash
-    npm start
-    ```
-    
-2. Przejdź pod adres http://localhost:8000/contacts w celu wyświetlenia danych JSON dla całej listy kontaktów.
-   
-   ```json
-    {
-        "id": 1,
-        "name": "Barney Poland",
-        "email": "barney@contoso.com"
-    },
-    {
-        "id": 2,
-        "name": "Lacy Barrera",
-        "email": "lacy@contoso.com"
-    },
-    {
-        "id": 3,
-        "name": "Lora Riggs",
-        "email": "lora@contoso.com"
-    }
-   ```
+![Interfejs API platformy ASP.NET Core uruchomiony w usłudze Azure App Service](./media/app-service-web-tutorial-rest-api/azure-run.png)
 
-3. Przejdź pod adres http://localhost:8000/contacts/2 w celu wyświetlenia kontaktu o wartości `id` równej 2.
-   
-    ```json
-    { 
-        "id": 2,
-        "name": "Lacy Barrera",
-        "email": "lacy@contoso.com"
-    }
-    ```
+Przejdź do adresu `http://<app_name>.azurewebsites.net/swagger/v1/swagger.json`, aby wyświetlić plik _swagger.json_ wdrożonego interfejsu API.
 
-4. Przetestuj interfejs API za pomocą interfejsu internetowego struktury Swagger pod adresem http://localhost:8000/docs.
-   
-    ![Interfejs sieci web struktury Swagger](media/app-service-web-tutorial-rest-api/swagger-ui.png)
+Przejdź do adresu `http://<app_name>.azurewebsites.net/api/todo`, aby wyświetlić działający wdrożony interfejs API.
 
-## <a id="createapiapp"></a> Tworzenie aplikacji interfejsu API
+## <a name="add-cors-functionality"></a>Dodawanie funkcji obsługi mechanizmu CORS
 
-W tej sekcji interfejs wiersza polecenia platformy Azure w wersji 2.0 zostanie użyty do utworzenia zasobów, które będą hostować interfejs API w usłudze Azure App Service. 
+Następnie włącz wbudowaną obsługę mechanizmu CORS w usłudze App Service dla interfejsu API.
 
-1.  Zaloguj się do subskrypcji platformy Azure za pomocą polecenia [az login](/cli/azure/?view=azure-cli-latest#az_login) i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie.
+### <a name="test-cors-in-sample-app"></a>Testowanie mechanizmu CORS w aplikacji przykładowej
 
-    ```azurecli-interactive
-    az login
-    ```
+W lokalnym repozytorium otwórz plik _wwwroot/index.html_.
 
-2. Jeśli masz wiele subskrypcji platformy Azure, zmień domyślną subskrypcję na żądaną.
+W wierszu 51 ustaw zmienną `apiEndpoint` na adres URL wdrożonego interfejsu API (`http://<app_name>.azurewebsites.net`). Zastąp zmienną _\<app_name>_ własną nazwą aplikacji w usłudze App Service.
 
-    ````azurecli-interactive
-    az account set --subscription <name or id>
-    ````
+W lokalnym oknie terminala ponownie uruchom aplikację przykładową.
 
-3. [!INCLUDE [Create resource group](../../includes/app-service-api-create-resource-group.md)] 
+```bash
+dotnet run
+```
 
-4. [!INCLUDE [Create app service plan](../../includes/app-service-api-create-app-service-plan.md)]
+Przejdź do aplikacji przeglądarki pod adresem `http://localhost:5000`. Otwórz okno narzędzi programistycznych w przeglądarce (`Ctrl`+`Shift`+`i` w przeglądarce Chrome dla systemu Windows) i sprawdź kartę **Konsola**. Powinien teraz być widoczny komunikat o błędzie `No 'Access-Control-Allow-Origin' header is present on the requested resource`.
 
-5. [!INCLUDE [Create API app](../../includes/app-service-api-create-api-app.md)] 
+![Błąd mechanizmu CORS w kliencie przeglądarki](./media/app-service-web-tutorial-rest-api/cors-error.png)
 
+Ze względu na niezgodność domeny aplikacji przeglądarki (`http://localhost:5000`) i zdalnego zasobu (`http://<app_name>.azurewebsites.net`) oraz z uwagi na fakt, że interfejs API usługi App Service nie wysyła nagłówka `Access-Control-Allow-Origin`, przeglądarka uniemożliwiła ładowanie zawartości między domenami w aplikacji przeglądarki.
 
-## <a name="deploy-the-api-with-git"></a>Wdrażanie interfejsu API za pomocą usługi Git
+W środowisku produkcyjnym aplikacja przeglądarki miałaby publiczny adres URL zamiast adresu URL hosta lokalnego, ale sposób włączania mechanizmu CORS dla adresu URL hosta lokalnego jest taki sam, jak dla publicznego adresu URL.
 
-Wdróż swój kod w aplikacji interfejsu API, wypychając zatwierdzenia z lokalnego repozytorium Git do usługi Azure App Service.
+### <a name="enable-cors"></a>Włączanie mechanizmu CORS 
 
-1. [!INCLUDE [Configure your deployment credentials](../../includes/configure-deployment-user-no-h.md)] 
-
-2. Zainicjuj nowe repozytorium w katalogu *ContactList*. 
-
-    ```bash
-    git init .
-    ```
-
-3. Wyklucz z usługi Git katalog *node_modules* utworzony przez narzędzie npm we wcześniejszym kroku samouczka. Utwórz nowy plik `.gitignore` w bieżącym katalogu i dodaj następujący tekst w nowym wierszu w dowolnym miejscu pliku.
-
-    ```
-    node_modules/
-    ```
-    Upewnij się, że folder `node_modules` jest ignorowany, używając polecenia `git status`.
-    
-4. Dodaj następujące wiersze do `package.json`. Kod, który jest generowany przez narzędzia Swaggerize nie Określ wersję aparatu Node.js. Bez specyfikacji wersji Azure używa domyślnej wersji `0.10.18`, który nie jest zgodny z wygenerowanego kodu.
-
-    ```javascript
-    "engines": {
-        "node": "~0.10.22"
-    },
-    ```
-
-5. Zatwierdź zmiany w repozytorium.
-    ```bash
-    git add .
-    git commit -m "initial version"
-    ```
-
-6. [!INCLUDE [Push to Azure](../../includes/app-service-api-git-push-to-azure.md)]  
- 
-## <a name="test-the-api--in-azure"></a>Testowanie interfejsu API na platformie Azure
-
-1. Otwórz w przeglądarce adres http://nazwa_aplikacji.azurewebsites.net/contacts. Zwrócone zostaną te same dane JSON, co przy wykonywaniu żądania lokalnie we wcześniejszej części tego samouczka.
-
-   ```json
-   {
-       "id": 1,
-       "name": "Barney Poland",
-       "email": "barney@contoso.com"
-   },
-   {
-       "id": 2,
-       "name": "Lacy Barrera",
-       "email": "lacy@contoso.com"
-   },
-   {
-       "id": 3,
-       "name": "Lora Riggs",
-       "email": "lora@contoso.com"
-   }
-   ```
-
-2. W przeglądarce przejdź do punktu końcowego `http://app_name.azurewebsites.net/docs`, aby wypróbować interfejs użytkownika struktury Swagger działający na platformie Azure.
-
-    ![Swagger Ii](media/app-service-web-tutorial-rest-api/swagger-azure-ui.png)
-
-    Teraz możesz wdrażać aktualizacje do przykładowej aplikacji API na platformie Azure przez proste wypychanie zatwierdzeń do repozytorium Git platformy Azure.
-
-## <a name="clean-up"></a>Czyszczenie
-
-Aby wyczyścić wszystkie zasoby utworzone w tym przewodniku szybkiego startu, uruchom następujące polecenie interfejsu wiersza polecenia platformy Azure:
+W usłudze Cloud Shell włącz mechanizm CORS dla adresu URL klienta przy użyciu polecenia [`az resource update`](/cli/azure/resource#az_resource_update). Zastąp symbol zastępczy _&lt;appname>_.
 
 ```azurecli-interactive
-az group delete --name myResourceGroup
+az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.cors.allowedOrigins="['http://localhost:5000']" --api-version 2015-06-01
 ```
 
-## <a name="next-step"></a>Następny krok 
+W parametrze `properties.cors.allowedOrigins` możesz określić więcej niż jeden adres URL klienta (`"['URL1','URL2',...]"`). Możesz również włączyć adresy URL wszystkich klientów za pomocą wartości `"['*']"`.
+
+### <a name="test-cors-again"></a>Ponowne testowanie mechanizmu CORS
+
+Odśwież aplikację przeglądarki pod adresem `http://localhost:5000`. Komunikat o błędzie w oknie **Konsola** zniknął i możesz wyświetlić dane z wdrożonego interfejsu API oraz z nich korzystać. Zdalny interfejs API obsługuje teraz mechanizm CORS w aplikacji przeglądarki uruchomionej lokalnie. 
+
+![Powodzenie mechanizmu CORS w kliencie przeglądarki](./media/app-service-web-tutorial-rest-api/cors-success.png)
+
+Gratulacje. Używasz interfejsu API w usłudze Azure App Service z obsługą mechanizmu CORS.
+
+## <a name="app-service-cors-vs-your-cors"></a>Porównanie mechanizmu CORS usługi App Service z własnym mechanizmem CORS
+
+W celu uzyskania większej elastyczności możesz korzystać z narzędzi własnego mechanizmu CORS zamiast mechanizmu CORS usługi App Service. Możesz na przykład potrzebować określenia różnych dozwolonych źródeł dla różnych tras lub metod. Ponieważ mechanizm CORS usługi App Service umożliwia określenie jednego zestawu zaakceptowanych źródeł dla wszystkich tras i metod interfejsu API, lepsze może okazać się użycie własnego kodu mechanizmu CORS. Zobacz, jak to działa na platformie ASP.NET Core, w temacie [Enabling Cross-Origin Requests (CORS) (Włączanie żądań między źródłami [CORS])](/aspnet/core/security/cors).
+
+> [!NOTE]
+> Nie próbuj używać jednocześnie mechanizmu CORS usługi App Service i własnego kodu mechanizmu CORS. W takim przypadku mechanizm CORS usługi App Service ma pierwszeństwo, a Twój kod mechanizmu CORS jest nieskuteczny.
+>
+>
+
+[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
+
+<a name="next"></a>
+## <a name="next-steps"></a>Następne kroki
+
+Które czynności umiesz wykonać:
+
+> [!div class="checklist"]
+> * Tworzenie zasobów usługi App Service przy użyciu interfejsu wiersza polecenia platformy Azure
+> * Wdrażanie interfejsu API RESTful na platformie Azure za pomocą narzędzia Git
+> * Włączanie obsługi mechanizmu CORS w usłudze App Service
+
+Przejdź do następnego samouczka, aby dowiedzieć się, jak zmapować niestandardową nazwę DNS na aplikację internetową.
+
 > [!div class="nextstepaction"]
 > [Map an existing custom DNS name to Azure Web Apps (Mapowanie istniejącej niestandardowej nazwy DNS na aplikacje internetowe platformy Azure)](app-service-web-tutorial-custom-domain.md)
-

@@ -4,7 +4,7 @@ description: "Dowiedz się, jak zaplanować i zaprojektować sieci wirtualnych n
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 3a4a9aea-7608-4d2e-bb3c-40de2e537200
 ms.service: virtual-network
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2016
 ms.author: jdial
-ms.openlocfilehash: 9a0126235c9ff3fec05d7709bdee95ab4832a33b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ecdc3a847821fd83718f9cfc42308667460feabc
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="plan-and-design-azure-virtual-networks"></a>Planowanie i projektowanie sieci wirtualnych Azure
-Tworzenie sieci wirtualnej do eksperymentów z jest dość proste, ale prawdopodobnie, wdrażania wielu sieci wirtualnych w czasie, aby obsługiwały produkcyjnym wymagania organizacji. Z pewnego planowania i projektowania będzie mógł wdrożyć sieci wirtualnych i połączyć zasoby, których potrzebujesz bardziej efektywnie. Jeśli nie masz doświadczenia z sieciami wirtualnymi, jest zalecane możesz [Dowiedz się więcej o sieci wirtualnych](virtual-networks-overview.md) i [wdrażanie](virtual-networks-create-vnet-arm-pportal.md) jeden przed kontynuowaniem.
+Tworzenie sieci wirtualnej do eksperymentów z jest dość proste, ale prawdopodobnie, wdrażania wielu sieci wirtualnych w czasie, aby obsługiwały produkcyjnym wymagania organizacji. Z pewnego planowania i projektowania będzie mógł wdrożyć sieci wirtualnych i połączyć zasoby, których potrzebujesz bardziej efektywnie. Jeśli nie masz doświadczenia z sieciami wirtualnymi, jest zalecane możesz [Dowiedz się więcej o sieci wirtualnych](virtual-networks-overview.md) i [wdrażanie](quick-create-portal.md) jeden przed kontynuowaniem.
 
 ## <a name="plan"></a>Planowanie
 Dokładne zrozumienie subskrypcji platformy Azure, regiony i zasobów sieciowych jest szczególnie ważne w przypadku powodzenia. Lista zagadnień poniżej służy jako punkt początkowy. Po zrozumieniu tych zagadnień można zdefiniować wymagania dla projektu sieci.
@@ -62,8 +62,8 @@ Sieci wirtualne obejmują następujące właściwości.
 | --- | --- | --- |
 | **Nazwa** |Nazwa sieci wirtualnej |Ciąg do 80 znaków. Może zawierać litery, cyfry, podkreślenia, kropki i łączniki. Musi zaczynać się literą lub cyfrą. Musi kończyć się literą, cyfrą lub podkreśleniem. Można zawiera wielkich i małych liter. |
 | **location** |Lokalizacja platformy Azure (zwaną także regionu). |Musi mieć jedną z prawidłowych lokalizacji platformy Azure. |
-| **Element addressSpace** |Kolekcja prefiksów adresów, które tworzą sieci wirtualnej w notacji CIDR. |Musi być tablicą prawidłowy bloków adresów CIDR, w tym zakresy publicznych adresów IP. |
-| **podsieci** |Kolekcja podsieci, które tworzą sieci wirtualnej |znajdują się w poniższej tabeli właściwości podsieci. |
+| **addressSpace** |Kolekcja prefiksów adresów, które tworzą sieci wirtualnej w notacji CIDR. |Musi być tablicą prawidłowy bloków adresów CIDR, w tym zakresy publicznych adresów IP. |
+| **subnets** |Kolekcja podsieci, które tworzą sieci wirtualnej |znajdują się w poniższej tabeli właściwości podsieci. |
 | **dhcpOptions** |Obiekt, który zawiera jednej wymaganej właściwości o nazwie **dnsServers**. | |
 | **dnsServers** |Tablica serwery DNS używane przez sieci wirtualnej. Jeśli nie zostanie podana, rozpoznawania nazw wewnętrznych Azure jest używana. |Musi być tablicą maksymalnie 10 serwerów DNS, za pomocą adresu IP. |
 
@@ -76,9 +76,9 @@ Podsieci obejmują następujące właściwości.
 | **Nazwa** |Nazwa podsieci |Ciąg do 80 znaków. Może zawierać litery, cyfry, podkreślenia, kropki i łączniki. Musi zaczynać się literą lub cyfrą. Musi kończyć się literą, cyfrą lub podkreśleniem. Można zawiera wielkich i małych liter. |
 | **location** |Lokalizacja platformy Azure (zwaną także regionu). |Musi mieć jedną z prawidłowych lokalizacji platformy Azure. |
 | **addressPrefix** |Prefiks pojedynczy adres, który tworzą podsieci w notacji CIDR |Musi być jeden blok CIDR, który wchodzi w skład jednej z przestrzeni adresów sieci wirtualnej. |
-| **grupy networkSecurityGroup** |Grupa NSG stosowana do podsieci | |
-| **Stan** |Tabela tras stosowane do podsieci | |
-| **elementy Ipconfiguration** |Kolekcja obiektów konfiguracji IP używane przez karty sieciowe podłączone do podsieci | |
+| **networkSecurityGroup** |Grupa NSG stosowana do podsieci | |
+| **routeTable** |Tabela tras stosowane do podsieci | |
+| **ipConfigurations** |Kolekcja obiektów konfiguracji IP używane przez karty sieciowe podłączone do podsieci | |
 
 ### <a name="name-resolution"></a>Rozpoznawanie nazw
 Domyślnie korzysta z sieci wirtualnej [rozpoznawania nazw platformy Azure](virtual-networks-name-resolution-for-vms-and-role-instances.md) do rozpoznawania nazw w sieci wirtualnej, a w publicznej sieci Internet. Jednak jeśli łączysz się z sieciami wirtualnymi w centrach danych w sieci lokalnej, należy podać [serwer DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md) do rozpoznawania nazw między sieci.  
@@ -112,10 +112,10 @@ W poniższej tabeli przedstawiono niektóre typowe wzorce projektowe dotyczące 
 
 | Scenariusz | Diagram | Specjaliści | Wady |
 | --- | --- | --- | --- |
-| Jedną subskrypcją, dwie sieci wirtualne dla aplikacji |![Jedną subskrypcją](./media/virtual-network-vnet-plan-design-arm/figure1.png) |Tylko jedna Subskrypcja do zarządzania. |Maksymalna liczba sieci wirtualnych na region platformy Azure. Potrzebujesz więcej subskrypcji po tym. Przegląd [Azure ogranicza](../azure-subscription-service-limits.md#networking-limits) artykułu, aby uzyskać szczegółowe informacje. |
-| Z jedną subskrypcją jednej aplikacji, dwie sieci wirtualne dla aplikacji |![Jedną subskrypcją](./media/virtual-network-vnet-plan-design-arm/figure2.png) |Używa tylko dwie sieci wirtualne na subskrypcję. |Trudne do zarządzania, gdy istnieją zbyt wiele aplikacji. |
-| Z jedną subskrypcją jednej jednostki biznesowej, dwie sieci wirtualne dla aplikacji. |![Jedną subskrypcją](./media/virtual-network-vnet-plan-design-arm/figure3.png) |Równowaga między liczbę subskrypcji i sieci wirtualnych. |Maksymalna liczba sieci wirtualnych na jednostki biznesowej (subscription). Przegląd [Azure ogranicza](../azure-subscription-service-limits.md#networking-limits) artykułu, aby uzyskać szczegółowe informacje. |
-| Z jedną subskrypcją jednej jednostki biznesowej, dwie sieci wirtualne dla każdej grupy aplikacji. |![Jedną subskrypcją](./media/virtual-network-vnet-plan-design-arm/figure4.png) |Równowaga między liczbę subskrypcji i sieci wirtualnych. |Aplikacje muszą występować samodzielnie za pomocą podsieci i grup NSG. |
+| Jedną subskrypcją, dwie sieci wirtualne dla aplikacji |![Pojedyncza subskrypcja](./media/virtual-network-vnet-plan-design-arm/figure1.png) |Tylko jedna Subskrypcja do zarządzania. |Maksymalna liczba sieci wirtualnych na region platformy Azure. Potrzebujesz więcej subskrypcji po tym. Przegląd [Azure ogranicza](../azure-subscription-service-limits.md#networking-limits) artykułu, aby uzyskać szczegółowe informacje. |
+| Z jedną subskrypcją jednej aplikacji, dwie sieci wirtualne dla aplikacji |![Pojedyncza subskrypcja](./media/virtual-network-vnet-plan-design-arm/figure2.png) |Używa tylko dwie sieci wirtualne na subskrypcję. |Trudne do zarządzania, gdy istnieją zbyt wiele aplikacji. |
+| Z jedną subskrypcją jednej jednostki biznesowej, dwie sieci wirtualne dla aplikacji. |![Pojedyncza subskrypcja](./media/virtual-network-vnet-plan-design-arm/figure3.png) |Równowaga między liczbę subskrypcji i sieci wirtualnych. |Maksymalna liczba sieci wirtualnych na jednostki biznesowej (subscription). Przegląd [Azure ogranicza](../azure-subscription-service-limits.md#networking-limits) artykułu, aby uzyskać szczegółowe informacje. |
+| Z jedną subskrypcją jednej jednostki biznesowej, dwie sieci wirtualne dla każdej grupy aplikacji. |![Pojedyncza subskrypcja](./media/virtual-network-vnet-plan-design-arm/figure4.png) |Równowaga między liczbę subskrypcji i sieci wirtualnych. |Aplikacje muszą występować samodzielnie za pomocą podsieci i grup NSG. |
 
 ### <a name="number-of-subnets"></a>Liczba podsieci
 Należy rozważyć wiele podsieci w sieci wirtualnej w następujących scenariuszach:
@@ -202,7 +202,7 @@ Następujące wymagania odnoszą się do subskrypcji i sieci wirtualnych:
 
 Na podstawie tych wymagań, musisz mieć subskrypcję dla poszczególnych jednostek biznesowych. W ten sposób zużycia zasobów przy użyciu jednostki biznesowe zostaną nie wchodzą w skład limity dla innych jednostek biznesowych. I ponieważ chcesz ograniczyć liczbę sieci wirtualnych, należy rozważyć użycie **z jedną subskrypcją jednej jednostki biznesowej, dwie sieci wirtualne dla każdej grupy aplikacji** wzorca, jak pokazano poniżej.
 
-![Jedną subskrypcją](./media/virtual-network-vnet-plan-design-arm/figure9.png)
+![Pojedyncza subskrypcja](./media/virtual-network-vnet-plan-design-arm/figure9.png)
 
 Należy również określić dla każdej sieci wirtualnej przestrzeni adresowej. Ponieważ należy połączenie między danych lokalnych w centrach regiony platformy Azure, przestrzeni adresowej używane dla sieci wirtualnych platformy Azure nie mogą powodować konfliktów z sieci lokalnej i używane przez każdego sieci wirtualnej przestrzeni adresowej powinien nie mogą powodować konfliktów z innych istniejących sieci wirtualnych. Przestrzenie adresowe w poniższej tabeli można użyć do spełnienia tych wymagań.  
 
@@ -247,7 +247,7 @@ Poniższe wymagania dotyczą kontrola dostępu:
 
 Na podstawie tych wymagań, można dodać użytkowników z sieci zespołu do wbudowanych **współautora sieci** roli w każdej subskrypcji; i utworzyć niestandardową rolę dla deweloperów aplikacji w każdej subskrypcji, zapewniając im prawa do dodawania maszyn wirtualnych do istniejących podsieci.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Wdrażanie sieci wirtualnej](virtual-networks-create-vnet-arm-template-click.md) oparta na scenariuszu.
 * Zrozumienie sposobu [równoważenia obciążenia](../load-balancer/load-balancer-overview.md) maszyny wirtualne IaaS i [Zarządzanie routingu w wielu regionach platformy Azure](../traffic-manager/traffic-manager-overview.md).
 * Dowiedz się więcej o [grupy NSG oraz sposób planowania i projektowania](virtual-networks-nsg.md) rozwiązania NSG.

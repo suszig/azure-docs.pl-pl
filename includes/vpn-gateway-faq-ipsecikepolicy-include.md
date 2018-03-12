@@ -38,7 +38,7 @@ Konfiguracja lokalnego urządzenia sieci VPN musi być zgodna z następującymi 
 * Algorytm szyfrowania IPsec
 * Algorytm integralności IPsec
 * Grupa PFS
-* Selektor ruchu (*)
+* Selektor ruchu (\*)
 
 Okresy istnienia skojarzenia zabezpieczeń są tylko specyfikacjami lokalnymi i nie muszą być zgodne.
 

@@ -16,15 +16,15 @@ ms.workload: infrastructure
 ms.date: 01/25/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 3c040f677aa25656148081d533e87cc55f1e22e7
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 8b6a4abdb7677417462392feade0c7cfdf99246f
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-virtual-network-using-the-azure-portal"></a>Tworzenie sieci wirtualnej przy użyciu witryny Azure Portal
 
-W tym artykule należy Dowiedz się, jak utworzyć sieć wirtualną. Po utworzeniu sieci wirtualnej, możesz wdrożyć dwóch maszyn wirtualnych w sieci wirtualnej, aby przetestować siecią prywatną komunikację między nimi.
+W tym artykule należy Dowiedz się, jak utworzyć sieć wirtualną. Po utworzeniu sieci wirtualnej, wdrożenie dwóch maszyn wirtualnych w sieci wirtualnej i prywatnie komunikacji między nimi, a z Internetem.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -36,77 +36,83 @@ Zaloguj się w witrynie Azure Portal pod adresem http://portal.azure.com.
 
 1. Wybierz **+ Utwórz zasób** w górnym lewym rogu portalu Azure.
 2. Wybierz **sieci**, a następnie wybierz **sieci wirtualnej**.
-3. Jak pokazano na poniższej ilustracji, wprowadź *myVirtualNetwork* dla **nazwa**, *myResourceGroup* dla **grupy zasobów**, wybierz  **Lokalizacja** i **subskrypcji**Zaakceptuj pozostałe wartości domyślne, a następnie wybierz **Utwórz**. 
+3. Wprowadź, lub wybierz poniższe informacje, a następnie wybierz **Utwórz**:
+    - **Nazwa**: *myVirtualNetwork*
+    - **Przestrzeń adresowa**: zaakceptuj wartość domyślną. Przestrzeń adresowa jest określone w notacji CIDR.
+    - **Subskrypcja**: Wybierz subskrypcję.
+    - **Grupa zasobów**: Wybierz **Utwórz nowy** , a następnie wprowadź *myResourceGroup*.
+    - **Lokalizacja**: Wybierz * wschodnie stany USA **.
+    - **Nazwa podsieci**: zaakceptuj wartość domyślną.
+    - **Podsieci, zakresu adresów**: zaakceptuj wartość domyślną.
+    - **Punkty końcowe usługi**: zaakceptuj wartość domyślną.
 
     ![Podaj podstawowe informacje o sieci wirtualnej](./media/quick-create-portal/virtual-network.png)
 
-    **Przestrzeni adresów** jest określone w notacji CIDR. 10.0.0.0/16 przestrzeni adresowej obejmuje 10.0.0.0-10.0.255.254. Sieć wirtualna zawiera zero lub więcej podsieci. Określona podsieć **zakres adresów** obejmuje 10.0.0.0-10.0.0.255 adresów IP. Tylko 10.0.0.4-10.0.0.254 są dostępne, ponieważ Azure rezerwuje pierwsze cztery adresów (0-3) oraz ostatni adres w każdej podsieci. Dostępne adresy IP są przypisywane z zasobami wdrożonymi w sieci wirtualnej.
+## <a name="create-virtual-machines"></a>Tworzenie maszyn wirtualnych
 
-## <a name="test-network-communication"></a>Test łączności sieciowej
-
-Sieć wirtualna umożliwia kilka typów zasobów platformy Azure do prywatnie komunikują się ze sobą. Jeden typ zasobów, które można wdrożyć w sieci wirtualnej jest maszyną wirtualną. Utwórz dwie maszyny wirtualne w sieci wirtualnej, aby móc weryfikować prywatnej komunikacji między nimi w kolejnym kroku.
-
-### <a name="create-virtual-machines"></a>Tworzenie maszyn wirtualnych
+Sieć wirtualna umożliwia kilka typów zasobów platformy Azure do prywatnie komunikowania się ze sobą i z Internetu. Jeden typ zasobów, które można wdrożyć w sieci wirtualnej jest maszyną wirtualną.
 
 1. Wybierz **+ Utwórz zasób** na górnego, lewego rogu portalu Azure.
 2. Wybierz pozycję **Wystąpienia obliczeniowe**, a następnie wybierz pozycję **Windows Server 2016 Datacenter**.
-3. Wprowadź informacje o maszynie wirtualnej pokazany na rysunku poniżej. **Nazwy użytkownika** i **hasło** wprowadzeniu są używane do logowania do maszyny wirtualnej w kolejnym kroku. Hasło musi mieć co najmniej 12 znaków i spełniać [zdefiniowane wymagania dotyczące złożoności](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm). Wybierz użytkownika **subskrypcji**, wybierz opcję wykorzystania istniejącego *myResourceGroup* zasobów, a następnie upewnij się, że **lokalizacji** jest tej samej lokalizacji został utworzony sieć wirtualną w. Po zakończeniu wybierz **OK**.
+3. Wprowadź, lub wybierz następujące informacje, a następnie wybierz **OK**:
+    - **Nazwa**: *myVm1*
+    - **Nazwa użytkownika**: Wprowadź nazwę użytkownika wybrane.
+    - **Hasło**: Wprowadź hasło wybrane. Hasło musi mieć co najmniej 12 znaków i spełniać [zdefiniowane wymagania dotyczące złożoności](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
+    - **Subskrypcja**: Wybierz subskrypcję.
+    - **Grupa zasobów**: Wybierz **Użyj istniejącego** i wybierz **myResourceGroup**.
+    - **Lokalizacja**: Wybierz *wschodnie stany USA*.
 
     ![Podaj podstawowe informacje o maszynie wirtualnej](./media/quick-create-portal/virtual-machine-basics.png)
-4. Wybierz rozmiar maszyny wirtualnej, a następnie wybierz **wybierz**. Aby wyświetlić więcej rozmiarów, wybierz pozycje **Wyświetl wszystkie** lub zmień filtr **Obsługiwany typ dysku**. Rozmiary, które pojawiają się automatycznie mogą być inne niż w poniższym przykładzie: 
-
-    ![Wybierz rozmiar maszyny wirtualnej](./media/quick-create-portal/virtual-machine-size.png)
+4. Wybierz rozmiar maszyny wirtualnej, a następnie wybierz **wybierz**.
 5. W obszarze **ustawienia**, *myVirtualNetwork* powinna już być zaznaczona dla **sieci wirtualnej**, ale jeśli nie, wybierz **sieci wirtualnej** , następnie wybierz *myVirtualNetwork*. Pozostaw *domyślne* wybranego dla **podsieci**, a następnie wybierz **OK**.
 
     ![Wybierz sieć wirtualną](./media/quick-create-portal/virtual-machine-network-settings.png)
-6. Na **Podsumowanie** wybierz pozycję **Utwórz** rozpocząć wdrażanie maszyny wirtualnej. 
-7. Maszyna wirtualna ma kilka minut na utworzenie. Po utworzeniu maszyna wirtualna jest przypięta do pulpitu nawigacyjnego portalu Azure i automatycznie otwiera podsumowanie maszyny wirtualnej. Wybierz **sieci**.
+6. Na **Podsumowanie** wybierz pozycję **Utwórz** rozpocząć wdrażanie maszyny wirtualnej. Maszyna wirtualna zajmuje kilka minut, aby wdrożyć. 
+7. Wykonaj kroki 1 – 6 ponownie, ale w kroku 3, Nazwa maszyny wirtualnej *myVm2*.
 
-    ![Informacje o sieci maszyny wirtualnej](./media/quick-create-portal/virtual-machine-networking.png)
+## <a name="connect-to-a-virtual-machine"></a>Połącz z maszyną wirtualną
 
-    Zostanie wyświetlony **prywatnego adresu IP** adres jest *10.0.0.4*. W kroku 5, w obszarze **ustawienia**, wybrano *myVirtualNetwork* sieci wirtualnej i akceptowanie podsieci o nazwie *domyślne* dla **podsieci**. Gdy możesz [utworzona sieć wirtualna](#create-a-virtual-network), zaakceptowane domyślna wartość 10.0.0.0/24 dla podsieci **zakres adresów**. Serwer DHCP systemu Azure przypisuje pierwszy dostępny adres dla wybranej podsieci maszyny wirtualnej. Ponieważ Azure rezerwuje pierwsze cztery adresów (0-3) z każdej podsieci, 10.0.0.4 jest pierwszy dostępny adres IP dostępne dla tej podsieci.
-
-    **Publicznego adresu IP** adres przypisany jest inny niż adres przypisany do maszyny wirtualnej. Domyślnie Azure przypisuje publiczny, adres IP routingu internetowego każdej maszyny wirtualnej. Publiczny adres IP jest przypisany do maszyny wirtualnej z [puli adresów przypisanych do każdego regionu Azure](https://www.microsoft.com/download/details.aspx?id=41653). Azure wie, który publiczny adres IP jest przypisany do maszyny wirtualnej, system operacyjny działający na maszynie wirtualnej nie ma informacji o żadnych publicznego adresu IP, które są przypisane do niej.
-8. Wykonaj kroki 1-7 ponownie, ale w kroku 3, Nazwa maszyny wirtualnej *myVm2*. 
-9. Po utworzeniu maszyny wirtualnej, wybierz **sieci**, ponieważ użytkownik w kroku nr 7. Zostanie wyświetlony **prywatnego adresu IP** adres jest *10.0.0.5*. Ponieważ Azure wcześniej przypisywany pierwszy adres można używać *10.0.0.4* w podsieci, aby *myVm1* maszyny wirtualnej, przypisane *10.0.0.5* do  *myVm2* maszyny wirtualnej, ponieważ był następnego dostępnego adresu w podsieci.
-
-### <a name="connect-to-a-virtual-machine"></a>Połącz z maszyną wirtualną
-
-1. Zdalnie łącz się z *myVm1* maszyny wirtualnej. W górnej części portalu Azure, wprowadź *myVm1*. Gdy **myVm1** pojawia się w wynikach wyszukiwania, wybierz go. Wybierz **Connect** przycisku.
+1. Po *myVm1* jest tworzony zdalnie nawiązać z nim. W górnej części portalu Azure, wprowadź *myVm1*. Gdy **myVm1** pojawia się w wynikach wyszukiwania, wybierz go. Wybierz **Connect** przycisku.
 
     ![Omówienie maszyny wirtualnej](./media/quick-create-portal/virtual-machine-overview.png)
+
 2. Po wybraniu **Connect** przycisku pliku Remote Desktop Protocol (RDP) jest tworzony i pobrana na komputer.  
-3. Otwórz plik rdp pobranego. Po wyświetleniu monitu wybierz **Connect**. Wprowadź nazwę użytkownika i hasło określone podczas tworzenia maszyny wirtualnej, a następnie wybierz **OK**. Podczas procesu logowania może pojawić się ostrzeżenie o certyfikacie. Wybierz **tak** lub **Kontynuuj** Aby nawiązać połączenie.
+3. Otwórz plik rdp pobranego. Po wyświetleniu monitu wybierz **Connect**. Wprowadź nazwę użytkownika i hasło określone podczas tworzenia maszyny wirtualnej (musisz wybrać **więcej opcji**, następnie **korzystała z innego konta**, aby określić podczas obliczania wprowadzone poświadczenia możesz utworzono maszynę wirtualną), wybierz przycisk OK. Podczas procesu logowania może pojawić się ostrzeżenie o certyfikacie. Wybierz **tak** lub **Kontynuuj** Aby nawiązać połączenie.
 
-### <a name="validate-communication"></a>Sprawdź poprawność komunikacji
+## <a name="communicate-between-vms"></a>Komunikację między maszynami wirtualnymi
 
-Próba ping systemu Windows maszyny wirtualnej nie powiedzie się, ponieważ domyślnie ping nie jest dozwolone przez zaporę systemu Windows. Aby umożliwić polecenia ping, aby *myVm1*, wprowadź następujące polecenie w wierszu polecenia:
+1. W wierszu polecenia wprowadź `ping myvm2`. Polecenie ping nie powiedzie się, ponieważ używa polecenia ping protokołu ICMP i ICMP nie jest dozwolone przy użyciu systemu Windows, zapory, domyślnie. Aby umożliwić *myVm2* na polecenie ping *myVm1* w kolejnym kroku, wprowadź następujące polecenie w wierszu polecenia:
 
-```
-netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
-```
+    ```
+    netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
+    ```
 
-Aby sprawdzić poprawność komunikację z *myVm2*, wprowadź następujące polecenie w wierszu polecenia *myVm1* maszyny wirtualnej. Podaj poświadczenia, które zostały użyte podczas tworzenia maszyny wirtualnej, a następnie ukończ połączenia:
+2. Zamknij Podłączanie pulpitu zdalnego do *myVm1*. 
 
-```
-mstsc /v:myVm2
-```
+3. Wykonaj kroki [nawiązywanie połączenia z maszyną wirtualną](#connect-to-a-virtual-machine), ale nawiązać *myVm2*. W wierszu polecenia wprowadź `ping myvm1`.
 
-Podłączanie pulpitu zdalnego zakończy się pomyślnie, ponieważ obie maszyny wirtualne mają przypisane z prywatnych adresów IP *domyślne* podsieci i dlatego pulpitu zdalnego jest otwarty przez zaporę systemu Windows, domyślnie. Możesz połączyć się z *myVm2* przez hosta o nazwie, ponieważ platforma Azure automatycznie udostępnia rozpoznawanie nazw DNS dla wszystkich hostów w sieci wirtualnej. W wierszu polecenia polecenie ping *myVm1*, z *myVm2*.
+    Możesz pomyślnie wykonać polecenie ping *myVm1* maszynę wirtualną z *myVm2* maszyny wirtualnej ponieważ:
 
-```
-ping myvm1
-```
+    - Protokół ICMP jest dozwolone przez zaporę systemu Windows na *myVm1* maszyny wirtualnej w poprzednim kroku.
+    - Domyślnie program Azure umożliwia cały ruch sieciowy między zasobami w tej samej sieci wirtualnej.
 
-Polecenie ping zakończy się pomyślnie, ponieważ jego dozwolone przez zaporę systemu Windows na *myVm1* maszyny wirtualnej w poprzednim kroku. Aby potwierdzić wychodzącego komunikację z Internetem, wprowadź następujące polecenie:
+## <a name="communicate-to-the-internet"></a>Komunikować się z Internetem
 
-```
-ping bing.com
-```
+1. Podczas nadal połączony *myVm2* maszyny wirtualnej, w wierszu polecenia wprowadź `ping bing.com`.
 
-Otrzymasz cztery odpowiedzi z bing.com. Domyślnie ruch wychodzący do Internetu może komunikować się żadnej maszyny wirtualnej w sieci wirtualnej. 
+    Otrzymasz cztery odpowiedzi z bing.com. 
 
-Zakończenia sesji usług pulpitu zdalnego.
+    Możesz pomyślnie wykonać polecenie ping z zasobu internetowego *myVm2* maszyny wirtualnej, ponieważ wszystkie maszyny wirtualne mogą komunikować się ruch wychodzący do Internetu, domyślnie.
+
+2. Zakończenia sesji usług pulpitu zdalnego.
+
+## <a name="communicate-from-the-internet"></a>Komunikować się z Internetu
+
+1. Pobierz publiczny adres IP *myVm1* maszyny wirtualnej. Obraz wyświetlany w obszarze krok 1 [nawiązywanie połączenia z maszyną wirtualną](#connect-to-a-virtual-machine), zobacz publicznego adresu IP. Na ilustracji adres jest *13.90.241.247*. Adres dla maszyny wirtualnej jest inny. 
+
+2. Z komputera, zbadaj publiczny adres IP Twojego *myVm1* maszyny wirtualnej. Polecenie ping nie powiedzie się, nawet jeśli ICMP jest otwarty przez zaporę systemu Windows.
+
+    Polecenie ping nie powiedzie się, ponieważ cały ruch do maszyn wirtualnych systemu Windows, z wyjątkiem połączeń pulpitu zdalnego za pośrednictwem portu 3389, jest odmowa przez platformę Azure, domyślnie. 
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 

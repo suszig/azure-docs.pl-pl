@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 341ace1d9792aba3d6d525a2cde0d9b74367d214
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 5f42bee31e3bc1a23c9b0c6de9d6748e23c94713
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planowanie wdrożenia synchronizacji plików Azure (wersja zapoznawcza)
 Umożliwia synchronizacji plików Azure (wersja zapoznawcza) scentralizowanie udziałów plików w organizacji w plikach Azure, przy zachowaniu elastyczności, wydajności i zgodności serwera plików lokalnych. Synchronizacja programu Azure pliku przy użyciu systemu Windows Server do szybkiego pamięci podręcznej udziału plików na platformę Azure. Można użyć każdego protokołu, który jest dostępny w systemie Windows Server dostępu do danych lokalnie, w tym protokołu SMB, systemu plików NFS i FTPS. Może mieć dowolną liczbę pamięci podręcznych zgodnie z potrzebami na całym świecie.
@@ -49,7 +49,7 @@ Agent synchronizacji plików Azure jest pobrania pakietu, który umożliwia syst
 Punkt końcowy serwera reprezentuje konkretnej lokalizacji na zarejestrowanego serwera, takie jak folder na serwerze woluminu. Może istnieć wiele punktów końcowych serwera na tym samym woluminie, jeśli ich przestrzenie nazw nie mogą się pokrywać (na przykład `F:\sync1` i `F:\sync2`). Można skonfigurować zasady warstw chmury indywidualnie dla każdego punktu końcowego serwera. Obecnie nie jest możliwe utworzenie punktu końcowego serwera dla katalogu głównego woluminu (na przykład `F:\` lub `C:\myvolume`, jeśli wolumin jest zainstalowany jako punkt instalacji).
 
 > [!Note]  
-> Punkt końcowy serwera może znajdować się na woluminie systemu Windows. Chmura obsługi nie jest obsługiwana w woluminie systemowym.
+> Obsługiwane są tylko woluminy z systemem innym niż wymienne.  Dyski mapowane z udziału zdalnego nie są obsługiwane dla punktu końcowego ścieżki serwera.  Ponadto punktu końcowego serwera może znajdować się w systemie Windows, wolumin systemowy jednak chmury warstwy nie jest obsługiwana w woluminie systemowym.
 
 Jeśli dodasz lokalizacji serwera, która ma istniejącego zestawu plików jako punktu końcowego serwera do grupy synchronizacji te pliki są łączone z innymi plikami, które znajdują się już na innych punktów końcowych w grupie synchronizacji.
 

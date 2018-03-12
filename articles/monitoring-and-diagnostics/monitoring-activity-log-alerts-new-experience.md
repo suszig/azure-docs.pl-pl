@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/05/2018
 ms.author: v-jysur
 ms.custom: 
-ms.openlocfilehash: afdd82617c47f0dee22c229feba87bdf79b90a69
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 44e1a7fe17515e23fcfd32c37c1ef4837ea8140c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-activity-log-alerts-using-the-new-alerts-preview-experience"></a>Utwórz dziennik aktywności, które występować alertów za pomocą nowych alertów (wersja zapoznawcza)
 
@@ -89,7 +89,7 @@ Postępuj zgodnie z następującą procedurą:
 
      ![Wybierz element docelowy](./media/monitoring-activity-log-alerts-new-experience/select-target.png)
 
-    - W obszarze ** kryteria docelowych, kliknij przycisk **Dodaj kryteria** wybierz typ sygnału jako **dziennik aktywności**.
+    - W obszarze **kryteria docelowej**, kliknij przycisk **Dodaj kryteria** wybierz typ sygnału jako **dziennik aktywności**.
 
     - Wybierz sygnał z wyświetlonej listy.
 

@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/28/2018
-ms.openlocfilehash: d7e07104153aed36a3e426e053847551d2b2093c
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 761e7193cc64699e8aa25a1fd625ba45f65eed88
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="tutorial-classify-iris-part-3-deploy-a-model"></a>Samouczek: klasyfikowanie irysów, część 3: wdrażanie modelu
 Usługa Azure Machine Learning (wersja zapoznawcza) to zintegrowane, kompleksowe rozwiązanie do nauki o danych i do analiz zaawansowanych przeznaczone dla profesjonalnych analityków. Pozwala ono analitykom przygotowywać dane, opracowywać eksperymenty i wdrażać modele na skalę chmury.
 
-Niniejszy samouczek jest trzecią częścią trzyczęściowej serii. W tej części samouczka użyjesz usługi Machine Learning (wersja zapoznawcza) do wykonywania następujących czynności:
+Niniejszy samouczek jest **trzecią częścią trzyczęściowej serii**. W tej części samouczka użyjesz usługi Machine Learning (wersja zapoznawcza) do wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Lokalizowanie pliku modelu.
