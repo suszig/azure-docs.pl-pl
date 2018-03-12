@@ -12,17 +12,22 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/09/2018
 ms.author: anwestg
-ms.openlocfilehash: 042ebb0acc82a0cecabac7f2bc7c3b68e3ed362f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7a44c5d182aa3c66c07c3dad8c82e171429f2ee4
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Dodaj dostawcy zasobów usługi aplikacji w środowisku bez połączenia stosu Azure zabezpieczonej przez usługi AD FS
 
 *Dotyczy: Azure stosu zintegrowanych systemów i Azure stosu Development Kit*
+
+> [!IMPORTANT]
+> Zastosowanie aktualizacji 1802 systemu Azure stosu zintegrowane lub wdrożyć najnowszy zestaw deweloperski stosu Azure przed wdrożeniem usługi Azure App Service.
+>
+>
 
 Postępując zgodnie z instrukcjami w tym artykule, można zainstalować [dostawcy zasobów usługi aplikacji](azure-stack-app-service-overview.md) do środowiska Azure stosu:
 

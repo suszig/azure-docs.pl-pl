@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 02/27/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: cb9575cb7bb3d8d3f3a18a1f5577ff0330bda24c
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 27bd44f936e19890526c0834e14084647dcec086
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="register-azure-stack-with-azure"></a>Zarejestruj stosu Azure przy użyciu platformy Azure
-Stos Azure można zarejestrować przy użyciu platformy Azure, aby pobrać elementów marketplace z platformy Azure i ustaw commerce dane raportowania z powrotem do firmy Microsoft. Po zarejestrowaniu stosu Azure użycia jest zgłaszane do handlu platformy Azure. Można to sprawdzić w ramach subskrypcji, używanego do rejestracji.
+Stos Azure można zarejestrować przy użyciu platformy Azure, aby pobrać elementów marketplace z platformy Azure i ustaw commerce dane raportowania z powrotem do firmy Microsoft. Po zarejestrowaniu stosu Azure użycia jest zgłaszane do handlu Azure. Można to sprawdzić w ramach subskrypcji, używanego do rejestracji.
 
 > [!IMPORTANT]
 > Rejestracja jest wymagane, jeśli wybierzesz modelu rozliczeń płatności jako — użytkownik użycia. W przeciwnym razie będzie do naruszenia postanowień licencyjnych dotyczących wdrożenia stosu Azure zgodnie z użycia w przeciwnym razie nie będzie raportowana.

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 03/07/2018
 ms.author: bonova
-ms.openlocfilehash: 721e94f2848a219c999c6bc6e5bba1fc49afa799
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
-ms.translationtype: HT
+ms.openlocfilehash: dc3c93a1a13f3e10f9159d26411d6337c0269722
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Co to jest wystąpienie zarządzane (wersja zapoznawcza)?
 
@@ -200,4 +200,4 @@ Zarządzane wystąpienia Włącz administratorowi systemu skupić się na co jes
 
 - Dla funkcji i listy porównanie, zobacz [wspólne funkcje SQL](sql-database-features.md).
 - Samouczek, która tworzy wystąpienie zarządzane i przywrócenie bazy danych z pliku kopii zapasowej, zobacz [utworzyć wystąpienia zarządzanego](sql-database-managed-instance-tutorial-portal.md).
-- Samouczek przy użyciu usługi migracji bazy danych Azure (DMS) do migracji Zobacz [migracja wystąpienia zarządzane przy użyciu DMS](../dms/tutorial-sql-server-to-managed-instance.md).
+- Samouczek przy użyciu usługi migracji bazy danych Azure (DMS) do migracji, zobacz [migracji wystąpienia zarządzane przy użyciu DMS](../dms/tutorial-sql-server-to-managed-instance.md).

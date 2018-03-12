@@ -264,14 +264,24 @@
           items:
             - name: Przegląd
               href: azure-stack-billing-and-chargeback.md
-            - name: Raportowanie danych użycia
-              href: azure-stack-usage-reporting.md
-            - name: Interfejs API użycia dostawcy
-              href: azure-stack-provider-resource-api.md
-            - name: Interfejs API użycia dzierżawy
-              href: azure-stack-tenant-resource-usage-api.md
-            - name: Często zadawane pytania na temat użycia
-              href: azure-stack-usage-related-faq.md
+            - name: Zarządzanie użycia i rozliczeń jako dostawcy usług Kryptograficznych
+              href: azure-stack-add-manage-billing-as-a-csp.md
+            - name: Dodaj dzierżaw użycia i rozliczeń
+              href: azure-stack-csp-howto-register-tenants.md
+            - name: Zarządzanie rejestracją dzierżawy
+              href: azure-stack-csp-ref-operations.md
+            - name: Odwołanie do rozliczeń i zużycia
+              items:
+                - name: Raportowanie danych użycia
+                  href: azure-stack-usage-reporting.md
+                - name: Użycie raportowanie infrastruktury dla dostawcy usług w chmurze
+                  href: azure-stack-csp-ref-infrastructure.md
+                - name: Interfejs API użycia dostawcy
+                  href: azure-stack-provider-resource-api.md
+                - name: Interfejs API użycia dzierżawy
+                  href: azure-stack-tenant-resource-usage-api.md
+                - name: Często zadawane pytania na temat użycia
+                  href: azure-stack-usage-related-faq.md
         - name: Nawiązywanie połączenia z usługą Azure
           items:
             - name: Nawiązywanie połączenia przy użyciu sieci VPN

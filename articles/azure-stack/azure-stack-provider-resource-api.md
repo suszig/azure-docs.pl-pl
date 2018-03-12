@@ -3,22 +3,22 @@ title: "Użycie zasobów dostawcy interfejsu API | Dokumentacja firmy Microsoft"
 description: "Odwołania do interfejsu API, użycie zasobów, który pobiera informacje o użyciu stosu Azure"
 services: azure-stack
 documentationcenter: 
-author: AlfredoPizzirani
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
-ms.assetid: b6055923-b6a6-45f0-8979-225b713150ae
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
-ms.author: alfredop
-ms.openlocfilehash: 0c45ce3bc93945ed8700464beebabcda07e8d77c
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.date: 02/22/2018
+ms.author: mabrigg
+ms.reviewer: alfredop
+ms.openlocfilehash: 763b0af9c258a70392e8c7ebbb4c107e94fce5b2
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="provider-resource-usage-api"></a>Interfejs API użycia zasobów dostawcy
 Termin *dostawcy* stosuje się do administratora usługi i wszystkich dostawców delegowanego. Azure operatorów stosu i dostawców delegowanego służy użycia dostawcy interfejsu API do wyświetlania użycia bezpośredniego dzierżawcom. Na przykład pokazany na rysunku P0 można wywołać dostawcy interfejsu API, aby uzyskać użycia informacji o jego P1 i P2 przez bezpośredniego użycia i P1 można wywołać użycie informacji na temat P3 i P4.
@@ -33,7 +33,7 @@ Ten interfejs API użycia jest dostawcy interfejsu API, aby obiekt wywołujący 
 
 | **— Metoda** | **Identyfikator URI żądania** |
 | --- | --- |
-| POBIERZ |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce/subscriberUsageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}& subscriberId = {sub1.1} & api-version = 2015-06-01-preview & continuationToken = {wartości tokenu} |
+| GET |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce/subscriberUsageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&subscriberId={sub1.1}&api-version=2015-06-01-preview&continuationToken={token-value} |
 
 ### <a name="arguments"></a>Argumenty
 | **Argument** | **Opis** |
@@ -79,17 +79,29 @@ meterID1",
 ### <a name="response-details"></a>Szczegóły odpowiedzi
 | **Argument** | **Opis** |
 | --- | --- |
-| *Identyfikator* |Unikatowy identyfikator użycia agregacji. |
+| *id* |Unikatowy identyfikator użycia agregacji. |
 | *Nazwa* |Nazwa wartości zagregowanej użycia. |
 | *Typ* |Definicja zasobu. |
-| *Identyfikator subskrypcji* |Identyfikator subskrypcji użytkownika stosu Azure. |
+| *subscriptionId* |Identyfikator subskrypcji użytkownika stosu Azure. |
 | *usageStartTime* |Czas UTC uruchomienie zasobnika użycia, do którego należy ta wartość zagregowana użycia.|
 | *usageEndTime* |Godzina zakończenia UTC zasobnika użycia, do którego należy ta wartość zagregowana użycia. |
 | *instanceData* |Pary klucz wartość Szczegóły wystąpienia (w formacie nowych):<br> *resourceUri*: identyfikator zasobu, który obejmuje grup zasobów i nazwę wystąpienia w pełni kwalifikowana. <br> *Lokalizacja*: regionu, w którym uruchomiono tę usługę. <br> *tagi*: tagi zasobów, które są określone przez użytkownika. <br> *części informacje dodatkowe aby*: więcej szczegółowych informacji o zasobu, który został wykorzystany, na przykład typ wersji lub obrazu systemu operacyjnego. |
-| *ilość* |Ilość zużycia zasobów, które wystąpiły w tym przedziale czasu. |
+| *Ilość* |Ilość zużycia zasobów, które wystąpiły w tym przedziale czasu. |
 | *meterId* |Unikatowy identyfikator zasobu, który został wykorzystany (nazywane również *ResourceID*). |
 
-## <a name="next-steps"></a>Następne kroki
+
+## <a name="retrieve-usage-information"></a>Pobieranie informacji o użyciu
+
+Do generowania danych użycia, powinien mieć zasobów, które są uruchomione i aktywnie za pomocą systemu, na przykład, aktywnej maszyny wirtualnej lub konto magazynu zawierające niektórych danych itp. Jeśli nie masz pewności czy dysponuje danymi umieszczonymi w Azure Marketplace stosu, wdrożyć maszynę wirtualną (VM) i sprawdzić, maszyna wirtualna monitorowania bloku, aby upewnić się, że działa. Aby wyświetlić dane użycia, użyj następujących poleceń cmdlet programu PowerShell:
+
+1. [Instalowanie programu PowerShell Azure stosu.](azure-stack-powershell-install.md)
+2. [Skonfiguruj użytkownika stosu Azure](user/azure-stack-powershell-configure-user.md) lub [stosu Azure operator](azure-stack-powershell-configure-admin.md) środowiska PowerShell 
+3. Aby pobrać dane użycia, należy użyć [Get-UsageAggregates](/powershell/module/azurerm.usageaggregates/get-usageaggregates) polecenia cmdlet programu PowerShell:
+```powershell
+Get-UsageAggregates -ReportedStartTime "<Start time for usage reporting>" -ReportedEndTime "<end time for usage reporting>" -AggregationGranularity <Hourly or Daily>
+```
+
+## <a name="next-steps"></a>Kolejne kroki
 [Dokumentacja interfejsu API użycia zasobów przez dzierżawcę](azure-stack-tenant-resource-usage-api.md)
 
 [Często zadawane pytania dotyczące wykorzystania](azure-stack-usage-related-faq.md)
