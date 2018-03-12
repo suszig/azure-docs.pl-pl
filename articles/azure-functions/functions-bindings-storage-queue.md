@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
 ms.author: glenga
-ms.openlocfilehash: e2f9c75ba6e43f93aeb742b9eceebf846ec85cbf
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b139fbadb03ae2893331e763bc49b249c0dd05d7
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure kolejki magazynu powiązania dla usługi Azure Functions
 
@@ -58,7 +58,7 @@ public static class QueueFunctions
 
 ### <a name="trigger---c-script-example"></a>Wyzwalacz — przykładowy skrypt w języku C#
 
-W poniższym przykładzie przedstawiono wyzwalacza obiektu blob powiązanie w *function.json* pliku i [skryptu C# (csx)](functions-reference-csharp.md) kodu korzystającego z powiązania. Funkcja sond `myqueue-items` kolejki i zapisuje dziennik za każdym razem, jest przetwarzany element kolejki.
+W poniższym przykładzie przedstawiono wyzwalacz kolejki powiązanie w *function.json* pliku i [skryptu C# (csx)](functions-reference-csharp.md) kodu korzystającego z powiązania. Funkcja sond `myqueue-items` kolejki i zapisuje dziennik za każdym razem, jest przetwarzany element kolejki.
 
 Oto *function.json* pliku:
 
@@ -112,7 +112,7 @@ public static void Run(CloudQueueMessage myQueueItem,
 
 ### <a name="trigger---javascript-example"></a>Wyzwalacz — przykład JavaScript
 
-W poniższym przykładzie przedstawiono wyzwalacza obiektu blob powiązanie w *function.json* pliku i [funkcji JavaScript](functions-reference-node.md) używającą powiązania. Funkcja sond `myqueue-items` kolejki i zapisuje dziennik za każdym razem, jest przetwarzany element kolejki.
+W poniższym przykładzie przedstawiono wyzwalacz kolejki powiązanie w *function.json* pliku i [funkcji JavaScript](functions-reference-node.md) używającą powiązania. Funkcja sond `myqueue-items` kolejki i zapisuje dziennik za każdym razem, jest przetwarzany element kolejki.
 
 Oto *function.json* pliku:
 
@@ -213,7 +213,7 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 
 |Właściwość Function.JSON | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
-|Typ | Nie dotyczy| należy wybrać opcję `queueTrigger`. Ta właściwość ma wartość automatycznie, podczas tworzenia wyzwalacza w portalu Azure.|
+|**Typ** | Nie dotyczy| należy wybrać opcję `queueTrigger`. Ta właściwość ma wartość automatycznie, podczas tworzenia wyzwalacza w portalu Azure.|
 |**Kierunek**| Nie dotyczy | W *function.json* tylko plików. należy wybrać opcję `in`. Ta właściwość ma wartość automatycznie, podczas tworzenia wyzwalacza w portalu Azure. |
 |**Nazwa** | Nie dotyczy |Nazwa zmiennej, która reprezentuje kolejkę w kodzie funkcji.  | 
 |**queueName** | **QueueName**| Nazwa kolejki do sondowania. | 
@@ -223,9 +223,9 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 
 ## <a name="trigger---usage"></a>Wyzwalacz — użycie
  
-W języku C# i skryptu C#, dostęp do danych obiektów blob za pomocą parametru metody, takie jak `Stream paramName`. W języku C# skryptu `paramName` jest wartością określoną w `name` właściwość *function.json*. Można powiązać żadnego z następujących typów:
+W języku C# i skryptu C#, dostęp do danych komunikatów za pomocą parametru metody, takie jak `string paramName`. W języku C# skryptu `paramName` jest wartością określoną w `name` właściwość *function.json*. Można powiązać żadnego z następujących typów:
 
-* Obiektów POCO — środowisko uruchomieniowe Functions następuje deserializacja obiektu ładunek JSON na obiekt POCO. 
+* Obiekt - funkcji środowiska uruchomieniowego deserializuje ładunek JSON do wystąpienia klasy dowolnego zdefiniowane w kodzie. 
 * `string`
 * `byte[]`
 * [CloudQueueMessage]
@@ -302,7 +302,7 @@ public static class QueueFunctions
 
 ### <a name="output---c-script-example"></a>Dane wyjściowe — przykładowy skrypt w języku C#
 
-W poniższym przykładzie przedstawiono wyzwalacza obiektu blob powiązanie w *function.json* pliku i [skryptu C# (csx)](functions-reference-csharp.md) kodu korzystającego z powiązania. Funkcja tworzy element kolejki z ładunku POCO dla każdego żądania HTTP odebrane.
+W poniższym przykładzie przedstawiono wyzwalacza HTTP powiązanie w *function.json* pliku i [skryptu C# (csx)](functions-reference-csharp.md) kodu korzystającego z powiązania. Funkcja tworzy element kolejki o **CustomQueueMessage** ładunek obiekt dla każdego żądania HTTP odebrane.
 
 Oto *function.json* pliku:
 
@@ -353,17 +353,17 @@ Wiele wiadomości można wysyłać jednocześnie za pomocą `ICollector` lub `IA
 ```cs
 public static void Run(
     CustomQueueMessage input, 
-    ICollector<CustomQueueMessage> myQueueItem, 
+    ICollector<CustomQueueMessage> myQueueItems, 
     TraceWriter log)
 {
-    myQueueItem.Add(input);
-    myQueueItem.Add(new CustomQueueMessage { PersonName = "You", Title = "None" });
+    myQueueItems.Add(input);
+    myQueueItems.Add(new CustomQueueMessage { PersonName = "You", Title = "None" });
 }
 ```
 
 ### <a name="output---javascript-example"></a>Dane wyjściowe — przykład JavaScript
 
-W poniższym przykładzie przedstawiono wyzwalacza obiektu blob powiązanie w *function.json* pliku i [funkcji JavaScript](functions-reference-node.md) używającą powiązania. Funkcja tworzy element kolejki dla każdego żądania HTTP odebrane.
+W poniższym przykładzie przedstawiono wyzwalacza HTTP powiązanie w *function.json* pliku i [funkcji JavaScript](functions-reference-node.md) używającą powiązania. Funkcja tworzy element kolejki dla każdego żądania HTTP odebrane.
 
 Oto *function.json* pliku:
 
@@ -447,7 +447,7 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 
 |Właściwość Function.JSON | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
-|Typ | Nie dotyczy | należy wybrać opcję `queue`. Ta właściwość ma wartość automatycznie, podczas tworzenia wyzwalacza w portalu Azure.|
+|**Typ** | Nie dotyczy | należy wybrać opcję `queue`. Ta właściwość ma wartość automatycznie, podczas tworzenia wyzwalacza w portalu Azure.|
 |**Kierunek** | Nie dotyczy | należy wybrać opcję `out`. Ta właściwość ma wartość automatycznie, podczas tworzenia wyzwalacza w portalu Azure. |
 |**Nazwa** | Nie dotyczy | Nazwa zmiennej, która reprezentuje kolejkę w kodzie funkcji. Ustaw `$return` odwoływać się do wartości zwracane funkcji.| 
 |**queueName** |**QueueName** | Nazwa kolejki. | 
@@ -459,7 +459,7 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
  
 W języku C# i skryptu C#, należy zapisać pojedynczy komunikat z kolejki przy użyciu parametru metody takie jak `out T paramName`. W języku C# skryptu `paramName` jest wartością określoną w `name` właściwość *function.json*. Można użyć zwracany typ metody zamiast `out` parametru i `T` może być dowolny z następujących typów:
 
-* POCO do serializacji w formacie JSON
+* Obiekt możliwy do serializacji w formacie JSON
 * `string`
 * `byte[]`
 * [CloudQueueMessage] 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2017
 ms.author: kyliel
-ms.openlocfilehash: 5e6927b0bfa4591089657e36caddb442156457e5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0bed776526e3e2f3ee4cdce596c591d0b8419030
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-use-freebsds-packet-filter-to-create-a-secure-firewall-in-azure"></a>Jak używać filtr pakietów FreeBSD na utworzenie bezpiecznego zapory na platformie Azure
 W tym artykule przedstawiono sposób wdrażania zapory NAT. przy użyciu filtru pakujący FreeBSD firmy przy użyciu szablonu usługi Azure Resource Manager dla typowego scenariusza serwera sieci web.
@@ -34,7 +34,7 @@ Szablon usługi Azure Resource Manager skonfigurować FreeBSD maszyny wirtualnej
 ![pf_topology](./media/freebsd-pf-nat/pf_topology.jpg)
     
 ### <a name="deploy-through-azure-cli"></a>Wdrażanie za pośrednictwem interfejsu wiersza polecenia platformy Azure
-Należy najnowszej [Azure CLI 2.0](/cli/azure/install-az-cli2) zainstalowane i zalogowany do konta platformy Azure przy użyciu [logowania az](/cli/azure/#az_login). Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#az_group_create). Poniższy przykład tworzy nazwę grupy zasobów `myResourceGroup` w `West US` lokalizacji.
+Należy najnowszej [Azure CLI 2.0](/cli/azure/install-az-cli2) zainstalowane i zalogowany do konta platformy Azure przy użyciu [logowania az](/cli/azure/reference-index#az_login). Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#az_group_create). Poniższy przykład tworzy nazwę grupy zasobów `myResourceGroup` w `West US` lokalizacji.
 
 ```azurecli
 az group create --name myResourceGroup --location westus

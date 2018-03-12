@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 510efc4ae6674a3987c2bb5d7cd155ea8c710c83
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 179a669e4c9567950d22ed76a693ec6ab7a2db8d
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Zagadnienia dotyczące projektowania
 Celem tego tematu jest do opisywania obszarów, które muszą być uważane za pośrednictwem podczas projektu implementacji programu Azure AD Connect. Ten temat jest nowości w niektórych obszarach i tych pojęć krótko opisano w innych tematach również.
@@ -42,7 +42,7 @@ Wartość atrybutu, należy wykonać następujące reguły:
 
 * Zawierać mniej niż 60 znaków
   * Kodowania i liczone jak znaki 3 znaki nie są a-z, A-Z i 0-9
-* Zawiera znaki specjalne: &#92;! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " @ _
+* Zawiera znaki specjalne: &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " @ _
 * Musi być globalnie unikatowa
 * Musi być ciągiem, liczbą całkowitą lub danych binarnych
 * Nie powinna być oparta na nazwę użytkownika, te zmiany
@@ -178,7 +178,7 @@ Podczas integracji katalogu lokalnego z usługą Azure AD, ważne jest, aby zroz
 ### <a name="choosing-the-attribute-for-userprincipalname"></a>Wybieranie atrybutu userPrincipalName
 Podczas wybierania atrybutu zapewniające powinno wartość UPN do użycia w przypadku platformy Azure
 
-* Wartości atrybutów odpowiada składni UPN (RFC 822), który znajduje się powinna mieć ona formatusername@domain
+* Wartości atrybutów odpowiada składni UPN (RFC 822), który znajduje się powinna mieć ona format username@domain
 * Sufiks w wartości pasuje do jednej z zweryfikowanych domen niestandardowych w usłudze Azure AD
 
 W ustawieniach ekspresowych zakładanego wybór dla atrybutu jest userPrincipalName. Jeśli atrybut userPrincipalName nie zawiera wartości chcesz użytkownikom logowanie do platformy Azure, a następnie należy wybrać **Instalacja niestandardowa**.
@@ -195,5 +195,5 @@ Odczyt [Dodawanie niestandardowej nazwy domeny do usługi Azure Active Directory
 
 Wykrywa Azure AD Connect, jeśli są uruchomione w środowisku domeny bez obsługi routingu i będzie odpowiednio ostrzegać z wyprzedzeniem korzystanie z ustawień ekspresowych. Jeśli pracujesz w domenie bez obsługi routingu, następnie prawdopodobnie nazwy UPN użytkowników zbyt ma sufiksy bez obsługi routingu. Na przykład, jeśli używane do uruchamiania contoso.local, Azure AD Connect sugeruje można użyć ustawienia niestandardowe, a nie przy użyciu ustawień ekspresowych. Za pomocą ustawień niestandardowych, będą mogli określać atrybut, które mają być używane jako nazwy UPN do logowania do platformy Azure po zsynchronizowaniu użytkowników do usługi Azure AD.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Dowiedz się więcej na temat [integrowania tożsamości lokalnych z usługą Azure Active Directory](active-directory-aadconnect.md).

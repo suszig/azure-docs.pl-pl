@@ -1,6 +1,6 @@
 ---
 title: "Tworzenie niezawodnej usługi Azure Service Fabric w języku C#"
-description: "Twórz, wdrażaj i debuguj aplikację niezawodnej usługi skompilowaną w usłudze Azure Service Fabric przy użyciu programu Visual Studio."
+description: "Twórz, wdrażaj i debuguj aplikację usług Reliable Services skompilowaną w usłudze Azure Service Fabric przy użyciu programu Visual Studio."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -14,134 +14,130 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 2ecb8f8068043936d00f2c9752666490137414e3
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 43f77a1a2e1bbe28bb646aa23c28c253c20e8dda
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>Tworzenie pierwszej aplikacji niezawodnych usług stanowych w usłudze Service Fabric w języku C#
+# <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>Tworzenie pierwszej aplikacji stanowych usług Reliable Services w usłudze Service Fabric w języku C#
 
-Dowiedz się, jak wdrożyć pierwszą aplikację usługi Service Fabric dla platformy .NET w systemie Windows w ciągu kilku minut. Po zakończeniu będziesz mieć uruchomiony lokalny klaster z aplikacją niezawodnej usługi.
+Dowiedz się, jak wdrożyć pierwszą aplikację usługi Azure Service Fabric dla platformy .NET w systemie Windows w ciągu kilku minut. Po zakończeniu będziesz mieć lokalny klaster uruchamiany z aplikacją usług Reliable Services.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed rozpoczęciem upewnij się, że masz [skonfigurowane środowisko programowania](service-fabric-get-started.md). Obejmuje to również zainstalowanie zestawu SDK usługi Service Fabric i programu Visual Studio 2017 lub 2015.
+Przed rozpoczęciem upewnij się, że masz [skonfigurowane środowisko programowania](service-fabric-get-started.md). Ten proces obejmuje również zainstalowanie zestawu SDK usługi Service Fabric i programu Visual Studio 2017 lub 2015.
 
 ## <a name="create-the-application"></a>Tworzenie aplikacji
 
-Uruchom program Visual Studio jako **administrator**.
+1. Uruchom program Visual Studio jako administrator.
 
-Tworzenie projektu przy użyciu klawiszy `CTRL`+`SHIFT`+`N`
+2. Utwórz projekt, naciskając klawisze Ctrl+Shift+N.
 
-W oknie dialogowym **Nowy projekt** wybierz kolejno pozycje **Chmura > Aplikacja usługi Service Fabric**.
+3. W oknie dialogowym **Nowy projekt** wybierz pozycję **Chmura** > **Aplikacja usługi Service Fabric**.
 
-Nazwij aplikację **MyApplication** i naciśnij przycisk **OK**.
+4. Nazwij aplikację **MyApplication**. Następnie wybierz przycisk **OK**.
 
-   
-![Okno dialogowe nowego projektu w programie Visual Studio][1]
+   ![Okno dialogowe nowego projektu w programie Visual Studio][1]
 
-W następnym oknie dialogowym można utworzyć aplikację usługi Service Fabric dowolnego typu. Na potrzeby tego przewodnika Szybki start wybierz pozycję **Usługa stanowa**.
+5. W następnym oknie dialogowym można utworzyć aplikację usługi Service Fabric dowolnego typu. Na potrzeby tego przewodnika Szybki start wybierz pozycję **Usługa stanowa**.
 
-Nazwij usługę **MyStatefulService** i naciśnij przycisk **OK**.
+6. Nazwij usługę **MyStatefulService**. Następnie wybierz przycisk **OK**.
 
-![Okno dialogowe nowej usługi w programie Visual Studio][2]
+    ![Okno dialogowe nowej usługi w programie Visual Studio][2]
 
+    Program Visual Studio tworzy projekt aplikacji i projekt usługi stanowej. Następnie wyświetla je w Eksploratorze rozwiązań.
 
-Program Visual Studio utworzy projekt aplikacji i projekt usługi stanowej, a następnie wyświetli je w Eksploratorze rozwiązań.
+    ![Eksplorator rozwiązań po utworzeniu aplikacji z usługą stanową][3]
 
-![Eksplorator rozwiązań po utworzeniu aplikacji z usługą stanową][3]
+    Projekt aplikacji (**MyApplication**) nie zawiera żadnego kodu. Zamiast tego odwołuje się do zestawu projektów usług. Ma także trzy inne typy zawartości:
 
-Projekt aplikacji (**MyApplication**) nie zawiera bezpośrednio żadnego kodu. Zamiast tego odwołuje się do zestawu projektów usług. Ponadto zawiera trzy inne typy zawartości:
+    * **Profile publikowania**  
+    Profile na potrzeby wdrażania w różnych środowiskach.
 
-* **Profile publikowania**  
-Profile na potrzeby wdrażania w różnych środowiskach.
+    * **Skrypty**  
+    Skrypty programu PowerShell przeznaczone do wdrażania i uaktualniania aplikacji.
 
-* **Skrypty**  
-Skrypt programu PowerShell przeznaczony do wdrażania/uaktualniania aplikacji.
-
-* **Definicja aplikacji**  
-W obszarze *ApplicationPackageRoot* znajduje się plik ApplicationManifest.xml, który opisuje kompozycję aplikacji. Skojarzone pliki parametrów aplikacji znajdują się w obszarze *ApplicationParameters* i mogą służyć do określania parametrów związanych z danym środowiskiem. Program Visual Studio wybiera plik parametrów aplikacji określony w skojarzonym profilu publikowania podczas wdrażania w danym środowisku.
+    * **Definicja aplikacji**  
+W obszarze *ApplicationPackageRoot* znajduje się plik ApplicationManifest.xml, który opisuje kompozycję aplikacji. Skojarzone pliki parametrów aplikacji znajdują się w obszarze *ApplicationParameters* i mogą służyć do określania parametrów związanych z danym środowiskiem. Program Visual Studio wybiera plik parametrów aplikacji określony w skojarzonym profilu publikowania.
     
 Aby zapoznać się z omówieniem zawartości projektu usługi, zobacz [Pierwsze kroki z usługami Reliable Services](service-fabric-reliable-services-quick-start.md).
 
 ## <a name="deploy-and-debug-the-application"></a>Wdrażanie i debugowanie aplikacji
 
-Teraz, gdy masz już aplikację, uruchom ją.
+Teraz, gdy już masz aplikację, przeprowadź jej uruchamianie, wdrażanie i debugowanie, wykonując poniższe kroki.
 
-W programie Visual Studio naciśnij klawisz `F5`, aby wdrożyć aplikację do debugowania.
+1. W programie Visual Studio naciśnij klawisz F5, aby wdrożyć aplikację do debugowania.
 
->[!NOTE]
->Przy pierwszym uruchamianiu i wdrażaniu aplikacji w środowisku lokalnym program Visual Studio tworzy lokalny klaster na potrzeby debugowania. Może to potrwać jakiś czas. Stan tworzenia klastra jest wyświetlany w oknie danych wyjściowych programu Visual Studio.
+    >[!NOTE]
+    >Przy pierwszym uruchamianiu i wdrażaniu aplikacji w środowisku lokalnym program Visual Studio tworzy lokalny klaster na potrzeby debugowania. Może to potrwać jakiś czas. Stan tworzenia klastra jest wyświetlany w oknie danych wyjściowych programu Visual Studio.
 
-Gdy klaster jest gotowy, z aplikacji znajdującej się w zestawie SDK otrzymasz powiadomienie menedżera paska zadań klastra lokalnego.
+    Gdy klaster jest gotowy, z aplikacji znajdującej się w zestawie SDK otrzymasz powiadomienie menedżera paska zadań klastra lokalnego.
+    
+    ![Powiadomienie klastra lokalnego na pasku zadań][4]
+
+    Po uruchomieniu aplikacji program Visual Studio automatycznie wyświetla okno podglądu zdarzeń diagnostycznych, w którym można zobaczyć wyniki śledzenia usług.
+    
+    ![Podgląd zdarzeń diagnostycznych][5]
+
+    >[!NOTE]
+    >Zdarzenia powinny automatycznie uruchamiać śledzenie w Podglądzie zdarzeń diagnostycznych. Jeśli Podgląd zdarzeń diagnostycznych wymaga ręcznego skonfigurowania, najpierw otwórz plik `ServiceEventSource.cs` znajdujący się w projekcie **MyStatefulService**. Skopiuj wartość atrybutu `EventSource` u góry klasy `ServiceEventSource`. W poniższym przykładzie źródło zdarzenia ma nazwę `"MyCompany-MyApplication-MyStatefulService"` (u Ciebie może ona być inna).
+>
+    >![Lokalizowanie nazwy źródła zdarzeń usługi][service-event-source-name]
+
+
+2. W dalszej kolejności otwórz okno dialogowe **Dostawcy ETW**. Następnie wybierz ikonę koła zębatego, która znajduje się na karcie **Zdarzenia diagnostyczne**. Wklej nazwę skopiowanego źródła zdarzeń do pola wejściowego **Dostawcy ETW**. Następnie naciśnij przycisk **Zastosuj**. To spowoduje automatyczne rozpoczęcie śledzenia zdarzeń.
+
+    ![Ustawianie nazwy źródła zdarzeń diagnostycznych][setting-event-source-name]
+
+    W oknie Zdarzenia diagnostyczne powinny się teraz zacząć pojawiać zdarzenia.
+
+    Szablon usługi stanowej przedstawia wartość licznika, która zwiększa się w metodzie `RunAsync` w pliku **MyStatefulService.cs**.
+
+3. Rozwiń jedno ze zdarzeń, aby zobaczyć więcej szczegółów, w tym węzeł, w którym wykonywany jest kod. W tym przypadku jest to węzeł **\_Node\_0**, ale może się to różnić w zależności od maszyny.
    
-![Powiadomienie klastra lokalnego na pasku zadań][4]
+    ![Szczegóły w podglądzie zdarzeń diagnostycznych][6]
 
-Po uruchomieniu aplikacji program Visual Studio automatycznie wyświetla okno **podglądu zdarzeń diagnostycznych**, w którym można zobaczyć wyniki śledzenia usług.
-   
-![Podgląd zdarzeń diagnostycznych][5]
+4. Klaster lokalny zawiera pięć węzłów, które są hostowane na jednej maszynie. W środowisku produkcyjnym każdy węzeł jest hostowany na odrębnej maszynie fizycznej lub wirtualnej. Wyłączmy jeden z węzłów w klastrze lokalnym, aby zasymulować utratę maszyny w czasie działania debugera programu Visual Studio.
 
->[!NOTE]
->Zdarzenia powinny automatycznie rozpocząć śledzenie w Podglądzie zdarzeń diagnostycznych, ale jeśli konieczne się okaże ich ręczne skonfigurowanie, najpierw otwórz plik `ServiceEventSource.cs` znajdujący się w projekcie **MyStatefulService**. Skopiuj wartość atrybutu `EventSource` u góry klasy `ServiceEventSource`. W przykładzie poniżej źródło zdarzenia ma nazwę `"MyCompany-MyApplication-MyStatefulService"` (u Ciebie może ona być inna).
->
->![Lokalizowanie nazwy źródła zdarzeń usługi][service-event-source-name]
->
->Następnie kliknij ikonę koła zębatego zlokalizowaną na karcie Podgląd zdarzeń diagnostycznych w celu otworzenia okna dialogowego **Dostawcy ETW**. Wklej nazwę właśnie skopiowanego źródła zdarzeń do pola wejściowego **Dostawcy ETW**. Następnie kliknij przycisk **Zastosuj**. To spowoduje automatyczne rozpoczęcie śledzenia zdarzeń.
->
->![Ustawianie nazwy źródła zdarzeń diagnostycznych][setting-event-source-name]
->
->W oknie Zdarzenia diagnostyczne powinny się teraz zacząć pojawiać zdarzenia.
+5. W oknie **Eksplorator rozwiązań** otwórz plik **MyStatefulService.cs**. 
 
-Używany szablon usługi stanowej przedstawia wartość licznika, która zwiększa się w metodzie `RunAsync` w pliku **MyStatefulService.cs**.
+6. Znajdź metodę `RunAsync`, a następnie ustaw punkt przerwania w pierwszym wierszu metody.
 
-Rozwiń jedno ze zdarzeń, aby zobaczyć więcej szczegółów, w tym węzeł, w którym wykonywany jest kod. W tym przypadku jest to węzeł \_Node\_0, ale może się to różnić w zależności od maszyny.
-   
-![Szczegóły w podglądzie zdarzeń diagnostycznych][6]
+    ![Punkt przerwania w metodzie RunAsync usługi stanowej][7]
 
-Klaster lokalny zawiera pięć węzłów, które są hostowane na jednej maszynie. W środowisku produkcyjnym każdy węzeł jest hostowany na odrębnej maszynie fizycznej lub wirtualnej. Wyłączmy jeden z węzłów w klastrze lokalnym, aby zasymulować utratę maszyny przy jednoczesnym działaniu debugera programu Visual Studio.
+7. Uruchom narzędzie Service Fabric Explorer, klikając prawym przyciskiem myszy aplikację **Menedżer klastra lokalnego** na pasku zadań, a następnie wybierając polecenie **Zarządzaj klastrem lokalnym**.
 
-W oknie **Eksplorator rozwiązań** otwórz plik **MyStatefulService.cs**. 
+    ![Uruchamianie narzędzia Service Fabric Explorer z menedżera klastra lokalnego][systray-launch-sfx]
 
-Znajdź metodę `RunAsync` i ustaw punkt przerwania w pierwszym wierszu metody.
+    Narzędzie [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) oferuje wizualną reprezentację klastra. Zawiera ono zestaw aplikacji wdrożonych w klastrze oraz zestaw składających się na niego węzłów fizycznych.
 
-![Punkt przerwania w metodzie RunAsync usługi stanowej][7]
+8. W lewym okienku rozwiń pozycje **Klaster** > **Węzły** i znajdź węzeł, w którym wykonywany jest kod. Następnie, aby zasymulować ponowne uruchomienie maszyny, wybierz pozycję **Akcje** > **Dezaktywuj (ponowne uruchomienie)**.
 
-Aby uruchomić narzędzie **Service Fabric Explorer**, kliknij prawym przyciskiem myszy aplikację **Menedżer klastra lokalnego** na pasku zadań i wybierz polecenie **Zarządzaj klastrem lokalnym**.
+    ![Zatrzymanie węzła w narzędziu Service Fabric Explorer][sfx-stop-node]
 
-![Uruchamianie narzędzia Service Fabric Explorer z menedżera klastra lokalnego][systray-launch-sfx]
+    Chwilowo powinien być widoczny trafiony punkt przerwania w programie Visual Studio, gdy obliczenia wykonywane w jednym węźle zostaną awaryjnie przełączone na inny węzeł.
 
-Narzędzie [**Service Fabric Explorer**](service-fabric-visualizing-your-cluster.md) oferuje wizualną reprezentację klastra. Zawiera ono zestaw aplikacji wdrożonych w klastrze oraz zestaw składających się na niego węzłów fizycznych.
+9. Następnie wróć do podglądu zdarzeń diagnostycznych i sprawdź komunikaty. Wartość licznika nadal wzrastała, mimo że zdarzenia w rzeczywistości pochodzą z innego węzła.
 
-W lewym okienku rozwiń opcje **Klaster > Węzły** i znajdź węzeł, w którym wykonywany jest kod.
+    ![Szczegóły w podglądzie zdarzeń diagnostycznych po przełączeniu do trybu failover][diagnostic-events-viewer-detail-post-failover]
 
-Kliknij pozycje **Akcje > Dezaktywuj (ponowne uruchomienie)**, aby zasymulować ponowne uruchomienie maszyny.
-
-![Zatrzymanie węzła w narzędziu Service Fabric Explorer][sfx-stop-node]
-
-Chwilowo powinien być widoczny trafiony punkt przerwania w programie Visual Studio, gdy obliczenia wykonywane w jednym węźle zostaną awaryjnie przełączone na inny węzeł.
-
-
-Następnie wróć do podglądu zdarzeń diagnostycznych i sprawdź komunikaty. Wartość licznika nadal wzrastała, mimo że zdarzenia w rzeczywistości pochodzą z innego węzła.
-
-![Szczegóły w podglądzie zdarzeń diagnostycznych po przełączeniu do trybu failover][diagnostic-events-viewer-detail-post-failover]
-
-## <a name="cleaning-up-the-local-cluster-optional"></a>Czyszczenie klastra lokalnego (opcjonalnie)
+## <a name="clean-up-the-local-cluster-optional"></a>Czyszczenie klastra lokalnego (opcjonalnie)
 
 Pamiętaj, że ten klaster lokalny to klaster rzeczywisty. Zatrzymanie debugera powoduje usunięcie wystąpienia aplikacji i wyrejestrowanie typu aplikacji. Klaster będzie jednak nadal uruchomiony w tle. Jeśli chcesz zatrzymać klaster lokalny, możesz to zrobić na kilka sposobów.
 
 ### <a name="keep-application-and-trace-data"></a>Przechowywanie danych aplikacji i śledzenia
 
-Aby zamknąć klaster, kliknij prawym przyciskiem myszy aplikację **Menedżer klastra lokalnego** na pasku zadań i wybierz polecenie **Stop Local Cluster** (Zatrzymaj klaster lokalny).
+Zamknij klaster, klikając prawym przyciskiem myszy aplikację **Menedżer klastra lokalnego** na pasku zadań, a następnie wybierając polecenie **Zatrzymaj klaster lokalny**.
 
 ### <a name="delete-the-cluster-and-all-data"></a>Usuwanie klastra i wszystkich danych
 
-Aby usunąć klaster, kliknij prawym przyciskiem myszy aplikację **Menedżer klastra lokalnego** na pasku zadań i wybierz polecenie **Remove Local Cluster** (Usuń klaster lokalny). 
+Usuń klaster, klikając prawym przyciskiem myszy aplikację **Menedżer klastra lokalnego** na pasku zadań. Następnie wybierz pozycję **Usuń klaster lokalny**. 
 
 Jeśli wybierzesz tę opcję, program Visual Studio ponownie wdroży klaster po następnym uruchomieniu aplikacji. Wybierz tę opcję tylko wtedy, gdy nie będziesz używać klastra lokalnego przez pewien czas lub gdy chcesz odzyskać zasoby.
 
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się więcej o [niezawodnych usługach](service-fabric-reliable-services-introduction.md).
+Dowiedz się więcej o usługach [Reliable Services](service-fabric-reliable-services-introduction.md).
 <!-- Image References -->
 
 [1]: ./media/service-fabric-create-your-first-application-in-visual-studio/new-project-dialog.png
@@ -155,6 +151,10 @@ Dowiedz się więcej o [niezawodnych usługach](service-fabric-reliable-services
 [systray-launch-sfx]: ./media/service-fabric-create-your-first-application-in-visual-studio/launch-sfx.png
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
+[switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png
+[cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
+[service-event-source-name]: ./media/service-fabric-create-your-first-application-in-visual-studio/event-source-attribute-value.png
+[setting-event-source-name]: ./media/service-fabric-create-your-first-application-in-visual-studio/setting-event-source-name.png
 [switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png
 [cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
 [service-event-source-name]: ./media/service-fabric-create-your-first-application-in-visual-studio/event-source-attribute-value.png

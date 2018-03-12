@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: glenga
-ms.openlocfilehash: c87455f43c6e580c52b3f772a1cbe0c1ac9c9f5b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6fc84642050f4b7acfa2e3c5b4518135d6a97171
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Jak korzystać z usługi Azure Functions wersji środowiska uruchomieniowego
 
@@ -74,7 +74,7 @@ az functionapp config appsettings set --name <function_app> \
 ```
 W tym kodzie Zamień `<function_app>` z nazwą funkcji aplikacji. Zastąp również `<my_resource_group>` z nazwą grupy zasobów dla aplikacji funkcja. Zastąp `<version>` z prawidłową wersją środowiska uruchomieniowego 1.x lub `beta` w wersji 2.0. 
 
-Możesz uruchomić to polecenie z [powłoki chmury Azure](../cloud-shell/overview.md) , wybierając **wypróbuj** w poprzednim przykładzie kodu. Można również użyć [lokalnie interfejsu wiersza polecenia Azure](/cli/azure/install-azure-cli) do wykonywania tego polecenia po wykonaniu [logowania az](/cli/azure#az_login) do logowania.
+Możesz uruchomić to polecenie z [powłoki chmury Azure](../cloud-shell/overview.md) , wybierając **wypróbuj** w poprzednim przykładzie kodu. Można również użyć [lokalnie interfejsu wiersza polecenia Azure](/cli/azure/install-azure-cli) do wykonywania tego polecenia po wykonaniu [logowania az](/cli/azure/reference-index#az_login) do logowania.
 
 ## <a name="next-steps"></a>Kolejne kroki
 

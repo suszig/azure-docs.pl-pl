@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: 1963931f30808e861445c9555a04f933514239c3
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 1cfd0570315d5a1c6587ade164edf0a837453406
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services: Często zadawane pytania (FAQ)
 Ta strona zawiera odpowiedzi na często zadawane pytania dotyczące usługi Azure Active Directory Domain Services. Sprawdzanie wstecz do aktualizacji.
@@ -39,7 +39,7 @@ Nie można obecnie. Firma Microsoft będzie dostarczać mechanizm do migracji is
 ### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-csp-cloud-solution-provider-subscription"></a>Można włączyć usługi domenowe Azure AD w subskrypcji platformy Azure dostawcy usług Kryptograficznych (Cloud Solution Provider)?
 Tak. Zobacz, jak można włączyć [usług domenowych Azure AD w ramach subskrypcji platformy Azure dostawcy usług Kryptograficznych](active-directory-ds-csp.md).
 
-### <a name="can-i-enable-azure-ad-domain-services-in-a-federated-azure-ad-directory-i-use-adfs-to-authenticate-users-for-access-to-office-365-and-do-not-synchronize-password-hashes-to-azure-ad-can-i-enable-azure-ad-domain-services-for-this-directory"></a>Można włączyć usługi domenowe Azure AD w federacyjnych Azure AD directory? I używać usług AD FS do uwierzytelniania użytkowników w celu uzyskania dostępu do usługi Office 365 i nie synchronizacji skrótów haseł do usługi Azure AD. Można włączyć usługi domenowe Azure AD dla katalogu?
+### <a name="can-i-enable-azure-ad-domain-services-in-a-federated-azure-ad-directory-i-do-not-synchronize-password-hashes-to-azure-ad-can-i-enable-azure-ad-domain-services-for-this-directory"></a>Można włączyć usługi domenowe Azure AD w federacyjnych Azure AD directory? Nie synchronizacji skrótów haseł do usługi Azure AD. Można włączyć usługi domenowe Azure AD dla katalogu?
 Nie. Usługi domenowe Azure AD musi mieć dostęp do wartości skrótów haseł kont użytkowników, do uwierzytelniania użytkowników za pomocą protokołu NTLM lub Kerberos. W katalogu federacyjnych skrótów haseł nie są przechowywane w katalogu usługi Azure AD. W związku z tym usługi domenowe Azure AD nie działa z tych katalogów usługi Azure AD.
 
 ### <a name="can-i-make-azure-ad-domain-services-available-in-multiple-virtual-networks-within-my-subscription"></a>Czy można utworzyć usługi domenowe Azure AD dostępne w wielu sieci wirtualnych w mojej subskrypcji?
@@ -53,6 +53,9 @@ Tak. Zobacz [sposób, aby włączyć domenowych Azure AD usług przy użyciu pro
 
 ### <a name="can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain"></a>Kontrolery domeny można dodać do domeny zarządzanej usług domenowych Azure AD?
 Nie. Domena udostępniane przez usługi domenowe Azure AD jest domeną zarządzaną. Nie trzeba było możliwe, konfigurowania i inaczej Zarządzanie kontrolerami domeny dla tej domeny — te działania zarządzania są obsługiwane jako usługa przez firmę Microsoft. W związku z tym nie można dodać dodatkowe kontrolery domeny (odczytu i zapisu lub tylko do odczytu) dla domeny zarządzanej.
+
+### <a name="can-guest-users-invited-to-my-directory-use-azure-ad-domain-services"></a>Goście zaproszenie do katalogu Moje można użyć usług domenowych Azure AD?
+Nie. Goście zaproszenie do używania usługi Azure AD directory [B2B usługi Azure AD](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) zaproszenia procesu są sycned do domeny zarządzanej usług domenowych Azure AD. Hasła dla tych użytkowników nie są przechowywane w katalogu usługi Azure AD. W związku z tym usługi domenowe Azure AD nie ma możliwości synchronizacji NTLM i Kerberos, tworzy skrót dla tych użytkowników do domeny zarządzanej. W związku z tym takich użytkowników nie może zalogować się do domeny zarządzanej lub komputerów przyłączenia do domeny zarządzanej.
 
 ## <a name="administration-and-operations"></a>Administracja i operacje
 ### <a name="can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop"></a>Można podłączyć do kontrolera domeny dla mojej domeny zarządzanej przy użyciu pulpitu zdalnego?
@@ -75,6 +78,9 @@ Nie. Schemat jest zarządzany przez firmę Microsoft do domeny zarządzanej. Roz
 
 ### <a name="can-i-modify-or-add-dns-records-in-my-managed-domain"></a>Można zmodyfikować lub dodać rekordy DNS w mojej domeny zarządzanej?
 Tak. Członków grupy "Administratorzy kontrolera domeny usługi AAD" są przyznawane uprawnienia administratora DNS, do modyfikowania rekordów DNS w domenie zarządzanej. Do zarządzania DNS użyciem konsoli Menedżera DNS na komputerze z systemem Windows Server przyłączony do domeny zarządzanej. Przy użyciu konsoli Menedżera DNS, należy zainstalować "Narzędzia serwera DNS", który jest częścią funkcji opcjonalnych "Narzędzia administracji zdalnej serwera" na serwerze. Więcej informacji na temat [narzędzia do zarządzania, monitorowania i rozwiązywania problemów DNS](https://technet.microsoft.com/library/cc753579.aspx) jest dostępna w witrynie TechNet.
+
+### <a name="what-is-the-password-lifetime-policy-on-a-managed-domain"></a>Co to jest okres istnienia zasad haseł w domenie zarządzanej?
+Domyślny okres istnienia hasła w domenie AD Azure domeny zarządzanej usług to 90 dni. Okres istnienia tego hasła nie jest zsynchronizowany z okresu istnienia hasło skonfigurowane w usłudze Azure AD. W związku z tym może być sytuacja, gdy wygaśnie po upływie domeny zarządzanej hasła użytkowników, ale są nadal ważne w usłudze Azure AD. W takich sytuacjach użytkownicy będą musieli zmienić swoje hasło w usłudze Azure AD i nowe hasło będzie synchronizować do domeny zarządzanej. Ponadto 'hasło — czy — nie wygasa' i "user-must-change-password-at-next-logon" atrybuty dla kont użytkowników nie są zsynchronizowane do domeny zarządzanej.
 
 ## <a name="billing-and-availability"></a>Rozliczeń i dostępności
 ### <a name="is-azure-ad-domain-services-a-paid-service"></a>Jest usługą płatną usług domenowych Azure AD?

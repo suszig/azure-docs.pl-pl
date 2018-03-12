@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: robinsh
-ms.openlocfilehash: f94febfa1610795cd46b4315bbbbe56aa2bca861
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 7bd8d17d5a2c918f2bef770c224398e7332785f9
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Używanie programu Azure PowerShell z usługą Azure Storage
 
@@ -136,8 +136,6 @@ Aby zmienić ustawienia konta magazynu, należy użyć [Set-AzureRmStorageAccoun
 * **SKU** jest ustawienie replikacji dla konta magazynu, takich jak LRS lokalnie nadmiarowego magazynu. Na przykład można zmienić zgodne ze standardem\_LRS, Standard\_GRS lub Standard\_RAGRS. Należy pamiętać, że nie można zmienić Standard\_ZRS lub Premium\_LRS na inne wersje, lub zmień te inne wersje.
 
 * **Warstwy dostępu** dla konta magazynu obiektów Blob. Ustawiono wartość dla warstwy dostępu **gorących** lub **chłodnych**, i pozwala zminimalizować koszty, wybierając warstwy dostępu, aby była zgodna z jak używasz konta magazynu. Aby uzyskać więcej informacji, zobacz [Hot, ostudzić oraz archiwum warstw magazynowania](../blobs/storage-blob-storage-tiers.md).
-
-* Ustawienia szyfrowania usługi magazynu do magazynu obiektów blob i/lub magazynu plików. Aby uzyskać więcej informacji na temat SSE, zobacz [szyfrowanie usługi Magazyn](storage-service-encryption.md).
 
 * Zezwalaj tylko na ruch protokołu HTTPS. 
 

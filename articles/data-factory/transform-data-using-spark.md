@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 4aed91696b5853b56ab17d69753d20081c79cdf7
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: e4cc412f9c6e37d6e6c3b030a934d572a7319011
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Przekształcanie danych za pomocą działania Spark w usłudze fabryka danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -71,7 +71,7 @@ W poniższej tabeli opisano właściwości JSON używane w definicji JSON:
 | description           | Tekst opisujący działanie robi.  | Nie       |
 | type                  | Dla działania Spark typ działania jest HDInsightSpark. | Yes      |
 | linkedServiceName     | Nazwa usługi HDInsight Spark połączonej usługi, na którym jest uruchomiony Spark program. Aby dowiedzieć się więcej na temat tej połączonej usługi, zobacz [obliczeniowe połączonych usług](compute-linked-services.md) artykułu. | Yes      |
-| SparkJobLinkedService | Magazyn Azure połączone usługi, która ma Spark plik zadania, zależności i dzienniki.  Jeśli nie określisz wartości dla tej właściwości, Magazyn skojarzony z klastrem usługi HDInsight jest używany. | Nie       |
+| SparkJobLinkedService | Magazyn Azure połączone usługi, która ma Spark plik zadania, zależności i dzienniki.  Jeśli nie określisz wartości dla tej właściwości, Magazyn skojarzony z klastrem usługi HDInsight jest używany. Wartość tej właściwości można tylko połączoną usługą magazynu Azure. | Nie       |
 | rootPath              | Kontener obiektów Blob platformy Azure i folder zawierający plik Spark. Nazwa pliku jest rozróżniana wielkość liter. Odwoływać się do struktury folderów sekcji (dalej) Aby uzyskać szczegółowe informacje o strukturze tego folderu. | Yes      |
 | entryFilePath         | Ścieżka względna do folderu głównego Spark kodu/pakietu. | Yes      |
 | className             | Klasy głównym aplikacji Java/Spark      | Nie       |
@@ -87,8 +87,8 @@ Utwórz następującą strukturę folderów w magazynie obiektów Blob platformy
 
 | Ścieżka                  | Opis                              | Wymagane | Typ   |
 | --------------------- | ---------------------------------------- | -------- | ------ |
-| `.`(root)            | Ścieżka katalogu głównego zadania Spark w połączonej usługi magazynu | Yes      | Folder |
-| &lt;zdefiniowane przez użytkownika&gt; | Ścieżka do pliku wpisu zadania Spark | Yes      | Plik   |
+| `.` (root)            | Ścieżka katalogu głównego zadania Spark w połączonej usługi magazynu | Yes      | Folder |
+| &lt;Zdefiniowane przez użytkownika &gt; | Ścieżka do pliku wpisu zadania Spark | Yes      | Plik   |
 | . / jars                | Wszystkie pliki w tym folderze są przekazywane i dotyczącymi klasy java klastra | Nie       | Folder |
 | . / pyFiles             | Wszystkie pliki w tym folderze są przekazywane i dotyczącymi PYTHONPATH klastra | Nie       | Folder |
 | . / pliki               | Wszystkie pliki w tym folderze są przekazywane i dotyczącymi Moduł wykonujący katalog roboczy | Nie       | Folder |

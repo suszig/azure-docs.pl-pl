@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte
-ms.openlocfilehash: 624c861db9bb318c368cef04965da0a73dd028d8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5fb7fd0be8b131ee098689b06c34c4e7c333801e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Monitorowanie bazy danych SQL Azure przy użyciu analiza SQL Azure (wersja zapoznawcza) w analizy dzienników
 
@@ -103,7 +103,7 @@ Polecenie **analiza SQL Azure** Kafelek, aby otworzyć pulpitu nawigacyjnego Azu
 
 Wybranie dowolnego elementu Kafelki, zostanie otwarty raport przechodzenia do określonych perspektywy. Po wybraniu perspektywy raport przechodzenia jest otwarty.
 
-![Limity czasu Analytics Azure SQL](./media/log-analytics-azure-sql/azure-sql-sol-timeouts.png)
+![Limity czasu Analytics Azure SQL](./media/log-analytics-azure-sql/azure-sql-sol-metrics.png)
 
 Dla każdej perspektywy umożliwia podsumowania subskrypcji, serwer puli elastycznej i poziom bazy danych. Ponadto każdy perspektywy zawiera perspektywę specyficzne dla raportu po prawej stronie. Wybierając z listy subskrypcję, serwera, puli lub bazy danych nadal rozwijanie szczegółów.
 
@@ -148,13 +148,19 @@ Można łatwo tworzyć alerty o dane pochodzące z zasobów bazy danych SQL Azur
 *Wysoka DTU na bazę danych Azure SQL*
 
 ```
-AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/DATABASES/" and MetricName=="dtu_consumption_percent" | summarize avg(Maximum) by ResourceId
+AzureMetrics 
+| where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/DATABASES/" and MetricName=="dtu_consumption_percent" 
+| summarize AggregatedValue = max(Maximum) by bin(TimeGenerated, 5m)
+| render timechart
 ```
 
 *Wysoka jednostek DTU w puli elastycznej bazy danych Azure SQL*
 
 ```
-AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/ELASTICPOOLS/" and MetricName=="dtu_consumption_percent" | summarize avg(Maximum) by ResourceId
+AzureMetrics 
+| where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/ELASTICPOOLS/" and MetricName=="dtu_consumption_percent" 
+| summarize AggregatedValue = max(Maximum) by bin(TimeGenerated, 5m)
+| render timechart
 ```
 
 Można tych zapytań na podstawie alertu alert po wystąpieniu określone progi dla bazy danych SQL Azure i elastyczne pule. Aby skonfigurować alert dla obszaru roboczego analizy dzienników:
@@ -167,7 +173,7 @@ Można tych zapytań na podstawie alertu alert po wystąpieniu określone progi 
 4. Uruchom jedno z przykładowych zapytań.
 5. W wyszukiwaniu dziennik, kliknij przycisk **alertu**.  
 ![Utwórz alert podczas wyszukiwania.](./media/log-analytics-azure-sql/create-alert01.png)
-6. Na **Dodaj regułę alertu** Ustaw odpowiednie właściwości i określone progi, które mają, a następnie kliknij przycisk **zapisać**.  
+6. Na **Dodaj regułę alertu** Ustaw odpowiednie właściwości i określone progi, które mają, a następnie kliknij przycisk **zapisać**. 
 ![Dodaj regułę alertów](./media/log-analytics-azure-sql/create-alert02.png)
 
 ## <a name="next-steps"></a>Kolejne kroki

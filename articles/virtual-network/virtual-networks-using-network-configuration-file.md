@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: f1e3ae26b6525f2235a6b0d53546b334dc027b94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1bb75b8bd1d525f3104fb517cb4a09b2e33caaca
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>Skonfiguruj sieć wirtualną (klasyczne) przy użyciu pliku konfiguracji sieci
 > [!IMPORTANT]
@@ -56,7 +56,7 @@ Aby wyeksportować plik konfiguracji sieci, można użyć programu PowerShell lu
 
 ## <a name="create-or-modify-a-network-configuration-file"></a>Utwórz lub zmodyfikuj plik konfiguracji sieci
 
-Plik konfiguracji sieci jest plik XML (w przypadku używania programu PowerShell) lub plik json (w przypadku używania interfejsu wiersza polecenia Azure). Można edytować plik w dowolnym tekstu lub edytora XML/json. [Ustawienia schematu pliku konfiguracji sieci](https://msdn.microsoft.com/library/azure/jj157100.aspx) artykuł zawiera szczegółowe informacje o wszystkich ustawieniach. Opis dodatkowych ustawień, zobacz [wyświetlić sieci wirtualnych i ustawienia](virtual-network-manage-network.md#view-vnet). Zmiany wprowadzone w pliku:
+Plik konfiguracji sieci jest plik XML (w przypadku używania programu PowerShell) lub plik json (w przypadku używania interfejsu wiersza polecenia Azure). Można edytować plik w dowolnym tekstu lub edytora XML/json. [Ustawienia schematu pliku konfiguracji sieci](https://msdn.microsoft.com/library/azure/jj157100.aspx) artykuł zawiera szczegółowe informacje o wszystkich ustawieniach. Opis dodatkowych ustawień, zobacz [wyświetlić sieci wirtualnych i ustawienia](manage-virtual-network.md#view-virtual-networks-and-settings). Zmiany wprowadzone w pliku:
 
 - Musi być zgodne z schematu lub importowanie niepowodzenia pliku konfiguracji sieci.
 - Zastąp wszystkie istniejące ustawienia sieci dla Twojej subskrypcji, dlatego należy zachować wyjątkową ostrożność podczas wprowadzania zmian. Na przykład odwołanie pliki konfiguracyjne przykład sieci, które należy wykonać. Powiedz oryginalny plik zawiera dwa **VirtualNetworkSite** wystąpienia, a uległ zmianie, jak przedstawiono w przykładach. Podczas importowania pliku Azure usuwa sieć wirtualną **VirtualNetworkSite** wystąpienia usunięte w pliku. W tym scenariuszu uproszczony przyjęto zostały żadnych zasobów w sieci wirtualnej, jak w przypadku, nie można usunąć sieci wirtualnej, a import nie powiedzie się.

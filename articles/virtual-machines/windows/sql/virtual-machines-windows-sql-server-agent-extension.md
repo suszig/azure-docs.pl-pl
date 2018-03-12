@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/05/2018
+ms.date: 03/07/2018
 ms.author: jroth
-ms.openlocfilehash: 6510c4205234f5dfb98a7463af61b1293061bb4e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: dd32975e085a0f67d66f2949d4757a974bd9a616
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>Automatyzacji zadań zarządzania na maszynach wirtualnych Azure z rozszerzeniem agenta serwera SQL (Resource Manager)
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ Rozszerzenie agenta programu SQL Server IaaS obsługuje następujące zadania:
 | Funkcja administracji | Opis |
 | --- | --- |
 | **Automatyczna usługa Backup SQL** |Automatyzuje Planowanie kopii zapasowych dla wszystkich baz danych dla domyślnego wystąpienia programu SQL Server w maszynie Wirtualnej. Aby uzyskać więcej informacji, zobacz [automatycznego tworzenia kopii zapasowej dla programu SQL Server w maszynach wirtualnych platformy Azure (Resource Manager)](virtual-machines-windows-sql-automated-backup.md). |
-| **Automatyczne stosowanie poprawek SQL** |Konfiguruje okno obsługi, w którym do maszyny Wirtualnej można przeprowadzać aktualizacje, aby uniknąć aktualizacje w godzinach szczytu dla obciążenia. Aby uzyskać więcej informacji, zobacz [automatyczne stosowanie poprawek dla programu SQL Server w maszynach wirtualnych platformy Azure (Resource Manager)](virtual-machines-windows-sql-automated-patching.md). |
+| **Automatyczne stosowanie poprawek SQL** |Konfiguruje okno obsługi, w którym ważne aktualizacje systemu Windows do maszyny Wirtualnej może mieć miejsce, aby uniknąć aktualizacje w godzinach szczytu dla obciążenia. Aby uzyskać więcej informacji, zobacz [automatyczne stosowanie poprawek dla programu SQL Server w maszynach wirtualnych platformy Azure (Resource Manager)](virtual-machines-windows-sql-automated-patching.md). |
 | **Integracja z usługą Azure Key Vault** |Umożliwia automatyczne instalowanie i konfigurowanie usługi Azure Key Vault na maszyną Wirtualną programu SQL Server. Aby uzyskać więcej informacji, zobacz [Konfigurowanie integracji magazynu kluczy Azure dla programu SQL Server na maszynach wirtualnych Azure (Resource Manager)](virtual-machines-windows-ps-sql-keyvault.md). |
 
 Po zainstalowaniu i uruchomione, rozszerzenie agenta programu SQL Server IaaS udostępnia te funkcje administracyjne na panelu programu SQL Server na maszynie wirtualnej w portalu Azure i przy użyciu programu Azure PowerShell dla obrazów w witrynie marketplace programu SQL Server i za pośrednictwem platformy Azure PowerShell w przypadku ręcznej instalacji rozszerzenia. 

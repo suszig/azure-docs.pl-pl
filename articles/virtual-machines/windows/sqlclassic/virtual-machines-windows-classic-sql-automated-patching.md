@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/05/2017
+ms.date: 03/07/2018
 ms.author: jroth
-ms.openlocfilehash: 42be8c814a7b4c0bb1bd2f88d2e610d20442048e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1da89bbf88e9f1f2105e7afab5c3fdabcecdbc64
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>Automatyczne stosowanie poprawek dla programu SQL Server na maszynach wirtualnych platformy Azure (klasyczne)
 > [!div class="op_single_selector"]
@@ -28,7 +28,12 @@ ms.lasthandoff: 02/21/2018
 > 
 > 
 
-Automatyczne Patching ustanawia okna obsługi dla maszyny wirtualnej platformy Azure działa program SQL Server. Automatyczne aktualizacje można zainstalować tylko w tym oknie obsługi. Dla programu SQL Server zapewnia, że aktualizacje systemu i ponowne uruchomienia, skojarzone są wykonywane w najlepiej czasie dla bazy danych. Automatyczne Patching jest zależna od [rozszerzenia agenta programu SQL Server IaaS](../classic/sql-server-agent-extension.md).
+Automatyczne Patching ustanawia okna obsługi dla maszyny wirtualnej platformy Azure działa program SQL Server. Automatyczne aktualizacje można zainstalować tylko w tym oknie obsługi. Dla programu SQL Server zapewnia, że aktualizacje systemu i ponowne uruchomienia, skojarzone są wykonywane w najlepiej czasie dla bazy danych. 
+
+> [!IMPORTANT]
+> Tylko aktualizacje systemu Windows oznaczone **ważne** są zainstalowane. Inne aktualizacje programu SQL Server, takich jak aktualizacje zbiorcze, należy zainstalować ręcznie. 
+
+Automatyczne Patching jest zależna od [rozszerzenia agenta programu SQL Server IaaS](../classic/sql-server-agent-extension.md).
 
 > [!IMPORTANT] 
 > Platforma Azure ma dwa różne modele wdrażania do tworzenia i pracy z zasobami: [Resource Manager i Model Klasyczny](../../../azure-resource-manager/resource-manager-deployment-model.md). W tym artykule omówiono przy użyciu klasycznego modelu wdrożenia. Firma Microsoft zaleca, aby w przypadku większości nowych wdrożeń korzystać z modelu opartego na programie Resource Manager. Aby wyświetlić wersję usługi Resource Manager w tym artykule, zobacz [automatyczne stosowanie poprawek dla programu SQL Server w Menedżerze zasobów maszyn wirtualnych Azure](../sql/virtual-machines-windows-sql-automated-patching.md).

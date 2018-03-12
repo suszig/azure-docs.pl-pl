@@ -6,17 +6,17 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 03/08/2018
 ms.author: raynew
-ms.openlocfilehash: bf6d7c8b831e670db9fff28218c8f36391a73c9b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 13dcc0794c1d89bd27c79cbe6636397da4f008f9
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Konfigurowanie odzyskiwania po awarii dla maszyn wirtualnych funkcji Hyper-V do lokacji dodatkowej lokalnymi
 
-[Usługi Azure Site Recovery](site-recovery-overview.md) usługi przyczynia się do strategii odzyskiwania po awarii poprzez organizowanie replikacji, trybu failover i powrotu po awarii maszyn lokalnych i Azure maszynach wirtualnych (VM) i zarządzanie nimi.
+Usługa [Azure Site Recovery](site-recovery-overview.md) przyczynia się do realizacji strategii odzyskiwania po awarii przez zarządzanie replikacją, przełączaniem do trybu failover i powrotem po awarii maszyn lokalnych i maszyn wirtualnych platformy Azure oraz koordynowanie tych procesów.
 
 W tym artykule przedstawiono sposób konfigurowania odzyskiwania po awarii lokacji dodatkowej, dla maszyn wirtualnych funkcji Hyper-V lokalnego zarządzane w chmurach programu System Center Virtual Machine Manager (VMM). W tym artykule dowiesz się, jak:
 
@@ -26,16 +26,15 @@ W tym artykule przedstawiono sposób konfigurowania odzyskiwania po awarii lokac
 > * Ustaw źródła i docelowymi środowisk replikacji. 
 > * Skonfigurowanie mapowania sieci 
 > * Tworzenie zasad replikacji
-> * Włącz replikację dla maszyny Wirtualnej
+> * Włączanie replikacji maszyny wirtualnej
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby ukończyć ten scenariusz:
 
 - Przegląd [architektura scenariusza i składniki](hyper-v-vmm-architecture.md).
-- Przegląd [spełnić wymagania dotyczące](site-recovery-support-matrix-to-sec-site.md) dla wszystkich składników.
-- Upewnij się, że serwery VMM i hosty funkcji Hyper-V są zgodne z [spełnić wymagania dotyczące](site-recovery-support-matrix-to-sec-site.md).
-- Sprawdź, czy mają być replikowane maszyny wirtualne są zgodne z [replikowane maszyny Obsługa](site-recovery-support-matrix-to-sec-site.md#support-for-replicated-machine-os-versions).
+- Upewnij się, że serwery VMM i hosty funkcji Hyper-V są zgodne z [spełnić wymagania dotyczące](hyper-v-vmm-secondary-support-matrix.md).
+- Sprawdź, czy mają być replikowane maszyny wirtualne są zgodne z [replikowane maszyny Obsługa](hyper-v-vmm-secondary-support-matrix.md#replicated-vm-support).
 - Przygotowanie serwerów programu VMM do mapowania sieci.
 
 ### <a name="prepare-for-network-mapping"></a>Przygotowanie do mapowania sieci
@@ -115,7 +114,7 @@ Wybierz docelowy serwer programu VMM oraz chmury:
 1. Kliknij przycisk **przygotowanie infrastruktury** > **docelowego**i wybierz docelowy serwer programu VMM.
 2. Chmur programu VMM, które są synchronizowane z usługą Site Recovery są wyświetlane. Wybierz chmurę docelową.
 
-   ![Obiekt docelowy](./media/hyper-v-vmm-disaster-recovery/target-vmm.png)
+   ![Środowisko docelowe](./media/hyper-v-vmm-disaster-recovery/target-vmm.png)
 
 
 ## <a name="set-up-a-replication-policy"></a>Konfigurowanie zasad replikacji
@@ -145,13 +144,13 @@ Przed rozpoczęciem upewnij się, że wszystkie hosty przy użyciu zasad mają t
 
 ## <a name="enable-replication"></a>Włączanie replikacji
 
-1. Kliknij przycisk **Replikowanie aplikacji** > **źródła**. 
+1. Kliknij kolejno pozycje **Replikowanie aplikacji** > **Źródło**. 
 2. W **źródła**, wybierz serwer programu VMM oraz chmury, w którym znajdują się hosty funkcji Hyper-V mają być replikowane. Następnie kliknij przycisk **OK**.
 3. W **docelowego**, sprawdź pomocniczy serwer programu VMM i w chmurze.
 4. W **maszyn wirtualnych**, wybierz maszyny wirtualne, które chcesz chronić z listy.
 
 
-Możesz śledzić postęp **Włącz ochronę** akcji w **zadania** > **zadania usługi Site Recovery**. Po **zakończenia ochrony** zadanie zostało ukończone, Replikacja początkowa została zakończona i maszyna wirtualna jest gotowa do pracy awaryjnej.
+Możesz śledzić postępy akcji **Włącz ochronę** w obszarze **Zadania** > **Zadania usługi Site Recovery**. Po **zakończenia ochrony** zadanie zostało ukończone, Replikacja początkowa została zakończona i maszyna wirtualna jest gotowa do pracy awaryjnej.
 
 ## <a name="next-steps"></a>Kolejne kroki
 

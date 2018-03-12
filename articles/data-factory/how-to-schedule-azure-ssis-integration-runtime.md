@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 522e9b6831c31a90337126380ccc9f2cb6d8713b
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 69eae46dc554911e0caadcf0aafbaec9e39f727d
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Jak można zaplanować uruchamianie i zatrzymywanie środowiska uruchomieniowego integracji Azure SSIS 
 Uruchomiona środowiska uruchomieniowego integracji SSIS Azure (SQL Server Integration Services) (IR) ma opłat skojarzonych z nim. W związku z tym który chcesz uruchomić IR tylko wtedy, gdy jest to wymagane do uruchamiania pakietów SSIS na platformie Azure i zatrzymaj ją, gdy nie będzie potrzebny. Można użyć interfejsu użytkownika z fabryki danych lub Azure PowerShell do [ręcznie uruchomić lub zatrzymać IR SSIS Azure](manage-azure-ssis-integration-runtime.md)). W tym artykule opisano sposób tworzenia harmonogramu uruchamiania i zatrzymywania Azure SSIS integrację środowiska uruchomieniowego (IR) przy użyciu usługi Automatyzacja Azure i fabryki danych Azure. Poniżej przedstawiono ogólne kroki opisane w tym artykule:
@@ -279,11 +279,6 @@ Po utworzeniu i przetestować potoku utworzyć wyzwalacza harmonogram i skojarzy
     3. Aby uzyskać **treści**, wprowadź `{"message":"hello world"}`. 
    
         ![Pierwsze działanie sieci Web — karta ustawień](./media/how-to-schedule-azure-ssis-integration-runtime/first-web-activity-settnigs-tab.png)
-4. W **działania** przybornika, rozwiń węzeł **iteracji & warunków**i przeciągnij upuść **oczekiwania** działania na powierzchnię projektanta potoku. W **ogólne** Zmień nazwę działania do **WaitFor30Minutes**. 
-5. Przełącz się do **ustawienia** karcie **właściwości** okna. Aby uzyskać **czas oczekiwania w sekundach**, wprowadź **1800**. 
-6. Połącz **Web** działania i **oczekiwania** działania. Aby połączyć je, uruchom przeciąganie na zielone pole kwadratowy dołączone do działania w sieci Web do działania oczekiwania. 
-
-    ![Połączenia sieci Web, a następnie zaczekaj](./media/how-to-schedule-azure-ssis-integration-runtime/connect-web-wait.png)
 5. Przeciągnij i upuść działania procedury składowanej z **ogólne** sekcji **działania** przybornika. Ustaw nazwę działania do **RunSSISPackage**. 
 6. Przełącz się do **konto SQL** karcie **właściwości** okna. 
 7. Aby uzyskać **połączona usługa**, kliknij przycisk **+ nowy**.
@@ -296,7 +291,7 @@ Po utworzeniu i przetestować potoku utworzyć wyzwalacza harmonogram i skojarzy
     5. Aby uzyskać **hasło**, wprowadź hasło użytkownika. 
     6. Testowanie połączenia z bazą danych, klikając **połączenie testowe** przycisku.
     7. Zapisz połączonej usługi, klikając **zapisać** przycisku.
-1. W **właściwości** okna, Przełącz do **procedury składowanej** karcie z **konto SQL** , i wykonaj następujące czynności: 
+9. W **właściwości** okna, Przełącz do **procedury składowanej** karcie z **konto SQL** , i wykonaj następujące czynności: 
 
     1. Dla **nazwę procedury przechowywane**, wybierz pozycję **Edytuj** opcji, a następnie wprowadź **sp_executesql**. 
     2. Wybierz **+ nowy** w **parametry procedury przechowywane** sekcji. 
@@ -307,12 +302,37 @@ Po utworzeniu i przetestować potoku utworzyć wyzwalacza harmonogram i skojarzy
         W zapytaniu SQL określ wartości prawo **nazwa_folderu**, **project_name**, i **nazwa_pakietu** parametrów. 
 
         ```sql
-        DECLARE @return_value INT, @exe_id BIGINT, @err_msg NVARCHAR(150)    EXEC @return_value=[SSISDB].[catalog].[create_execution] @folder_name=N'<FOLDER name in SSIS Catalog>', @project_name=N'<PROJECT name in SSIS Catalog>', @package_name=N'<PACKAGE name>.dtsx', @use32bitruntime=0, @runinscaleout=1, @useanyworker=1, @execution_id=@exe_id OUTPUT    EXEC [SSISDB].[catalog].[set_execution_parameter_value] @exe_id, @object_type=50, @parameter_name=N'SYNCHRONIZED', @parameter_value=1    EXEC [SSISDB].[catalog].[start_execution] @execution_id=@exe_id, @retry_count=0    IF(SELECT [status] FROM [SSISDB].[catalog].[executions] WHERE execution_id=@exe_id)<>7 BEGIN SET @err_msg=N'Your package execution did not succeed for execution ID: ' + CAST(@exe_id AS NVARCHAR(20)) RAISERROR(@err_msg,15,1) END   
-        ```
-10. Połącz **oczekiwania** działanie **procedury składowanej** działania. 
+        DECLARE       @return_value int, @exe_id bigint, @err_msg nvarchar(150)
 
-    ![Połącz działania oczekiwania i procedury składowanej](./media/how-to-schedule-azure-ssis-integration-runtime/connect-wait-sproc.png)
-11. Przeciągnij i upuść **Web** działania z prawej strony **procedury składowanej** działania. Ustaw nazwę działania do **StopIR**. 
+        -- Wait until Azure-SSIS IR is started
+        WHILE NOT EXISTS (SELECT * FROM [SSISDB].[catalog].[worker_agents] WHERE IsEnabled = 1 AND LastOnlineTime > DATEADD(MINUTE, -10, SYSDATETIMEOFFSET()))
+        BEGIN
+            WAITFOR DELAY '00:00:01';
+        END
+
+        EXEC @return_value = [SSISDB].[catalog].[create_execution] @folder_name=N'YourFolder',
+            @project_name=N'YourProject', @package_name=N'YourPackage',
+            @use32bitruntime=0, @runincluster=1, @useanyworker=1,
+            @execution_id=@exe_id OUTPUT 
+
+        EXEC [SSISDB].[catalog].[set_execution_parameter_value] @exe_id, @object_type=50, @parameter_name=N'SYNCHRONIZED', @parameter_value=1
+
+        EXEC [SSISDB].[catalog].[start_execution] @execution_id = @exe_id, @retry_count = 0
+
+        -- Raise an error for unsuccessful package execution, check package execution status = created (1)/running (2)/canceled (3)/failed (4)/
+        -- pending (5)/ended unexpectedly (6)/succeeded (7)/stopping (8)/completed (9) 
+        IF (SELECT [status] FROM [SSISDB].[catalog].[executions] WHERE execution_id = @exe_id) <> 7 
+        BEGIN
+            SET @err_msg=N'Your package execution did not succeed for execution ID: '+ CAST(@execution_id as nvarchar(20))
+            RAISERROR(@err_msg, 15, 1)
+        END
+
+        ```
+10. Połącz **Web** działanie **procedury składowanej** działania. 
+
+    ![Połącz działań w sieci Web i procedury składowanej](./media/how-to-schedule-azure-ssis-integration-runtime/connect-web-sproc.png)
+
+11. Przeciągnij upuść innego **Web** działania z prawej strony **procedury składowanej** działania. Ustaw nazwę działania do **StopIR**. 
 12. Przełącz się do **ustawienia** karcie **właściwości** okna, i wykonaj następujące czynności: 
 
     1. Aby uzyskać **adres URL**, wklej adres URL elementu webhook, która kończy się podczerwieni Azure SSIS. 

@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2018
+ms.date: 03/07/2018
 ms.author: mimig
-ms.openlocfilehash: 0d76e3bea8b3d24c4232c699354320f6b873722e
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f647387b4e80c36339a456b8e9a2cfade7ac8102
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure DB rozwiązania Cosmos rejestrowania diagnostycznego
 
@@ -31,6 +31,13 @@ Przed uzyskujemy do monitorowania konta bazy danych rozwiązania Cosmos Azure um
 Na poniższej ilustracji przedstawiono różne rodzaje dostępnych dzienników Azure.
 
 ![Różne rodzaje dzienników Azure](./media/logging/azurelogging.png)
+
+Na powyższej ilustracji **zasoby obliczeniowe** reprezentują zasobów platformy Azure, dla których można uzyskać dostępu do systemu operacyjnego gościa. Na przykład zestawach skali maszyn wirtualnych w usłudze Azure Virtual Machines, itp. Usługa kontenera platformy Azure są uważane za zasoby obliczeniowe. Obliczenia bazy danych zasobów generować Dzienniki aktywności, dzienniki aplikacji i dzienników diagnostycznych. Aby dowiedzieć się więcej, zapoznaj się [monitorowania Azure — zasoby obliczeniowe](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#azure-monitor-sources---compute-subset) artykułu.
+
+**Zasoby obliczeniowe bez** zasobów, której nie można uzyskać dostępu do podstawowego systemu operacyjnego i pracować bezpośrednio z zasobów. Na przykład grupy zabezpieczeń sieciowych, Logic Apps itp. **Rozwiązania cosmos DB** zasobów obliczeniowych nie jest. Dzienniki dla zasobów obliczeniowych nie jest widoczny w dzienniku aktywności lub włączenie opcji dzienników diagnostycznych w portalu. Aby dowiedzieć się więcej, zapoznaj się [monitorowania Azure — zasoby obliczeniowe bez](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#azure-monitor-sources---everything-else) artykułu.
+
+Dziennik aktywności rejestruje operacje na poziomie subskrypcji dla rozwiązania Cosmos DB, operacje, takie jak ListKeys itp zapisu DatabaseAccounts są rejestrowane. Dzienniki diagnostyczne Podaj bardziej szczegółowe rejestrowanie i pozwala zalogować DataPlaneRequests (tworzenia, odczytu, kwerendy... ) i MongoRequests.
+
 
 Nasze omówienie pozwala skupić się na działanie usługi Azure, Azure Diagnotic i metryki. Dlatego jaka jest różnica między te trzy dzienniki? 
 

@@ -11,11 +11,11 @@ ms.devlang: azure-cli
 ms.topic: quickstart
 ms.date: 02/28/2018
 ms.custom: mvc
-ms.openlocfilehash: a2efce07dac65eb8af59e6bc1bd5a51bfc62d69e
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 2cd867f09550f922479955b885f10ff329715c1c
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-an-azure-database-for-mysql-server-using-azure-cli"></a>Tworzenie serwera usługi Azure Database for MySQL za pomocą interfejsu wiersza polecenia platformy Azure
 W tym przewodniku Szybki start opisano, jak utworzyć serwer usługi Azure Database for MySQL w grupie zasobów platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure w czasie około pięciu minut. Interfejs wiersza polecenia platformy Azure umożliwia tworzenie zasobów Azure i zarządzanie nimi z poziomu wiersza polecenia lub skryptów.
@@ -45,6 +45,25 @@ Dodaj zaktualizowane rozszerzenie zarządzania usługi Azure Database for MySQL 
 ```azurecli-interactive
 az extension add --name rdbms
 ``` 
+
+Sprawdź, czy masz zainstalowaną poprawną wersję rozszerzenia. 
+```azurecli-interactive
+az extension list
+```
+
+Zwracany kod JSON powinien zawierać następujące informacje: 
+```json
+{
+    "extensionType": "whl",
+    "name": "rdbms",
+    "version": "0.0.3"
+}
+```
+
+Jeśli nie jest zwracana wersja 0.0.3, uruchom następujące polecenie, aby zaktualizować rozszerzenie: 
+```azurecli-interactive
+az extension update --name rdbms
+```
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>Tworzenie serwera usługi Azure Database for MySQL
 Utwórz serwer usługi Azure Database for MySQL za pomocą polecenia **[az mysql server create](/cli/azure/mysql/server#az_mysql_server_create)**. Serwer umożliwia zarządzanie wieloma bazami danych. Zwykle dla każdego projektu lub użytkownika używana jest oddzielna baza danych.
@@ -201,7 +220,7 @@ Jeśli te zasoby nie są Ci potrzebne do pracy z innym przewodnikiem Szybki star
 az group delete --name myresourcegroup
 ```
 
-Jeśli po prostu chcesz usunąć jeden z nowo utworzonych serwerów, możesz uruchomić polecenie [az mysql server delete](/cli/azure/mysql/server#az_mysql_server_delete).
+Jeśli po prostu chcesz usunąć jeden z nowo utworzonych serwerów, możesz uruchomić polecenie **[az mysql server delete](/cli/azure/mysql/server#az_mysql_server_delete)**.
 ```azurecli-interactive
 az mysql server delete --resource-group myresourcegroup --name mydemoserver
 ```

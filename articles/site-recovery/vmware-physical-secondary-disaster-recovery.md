@@ -8,13 +8,13 @@ ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/08/2018
 ms.author: raynew
-ms.openlocfilehash: c83f6142e70103ff4d99d9d2871c4ab747af8d99
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 7d172b89a0846c8ccf19896400e127a3bec0b55e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Konfigurowanie odzyskiwania po awarii na lokalne maszyny wirtualne VMware lub serwerów fizycznych do lokacji dodatkowej
 
@@ -25,8 +25,8 @@ InMage Scout w [usługi Azure Site Recovery](site-recovery-overview.md) udostęp
 
 W celu ukończenia tego samouczka:
 
-- [Przegląd](site-recovery-support-matrix-to-sec-site.md) wymagania dotyczące pomocy technicznej dla wszystkich składników.
-- Upewnij się, że spełniają maszyn, które mają być replikowane [replikowane maszyny Obsługa](site-recovery-support-matrix-to-sec-site.md#support-for-replicated-machine-os-versions).
+- [Przegląd](vmware-physical-secondary-support-matrix.md) wymagania dotyczące pomocy technicznej dla wszystkich składników.
+- Upewnij się, że spełniają maszyn, które mają być replikowane [replikowane maszyny Obsługa](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 
 
 ## <a name="create-a-vault"></a>Tworzenie magazynu

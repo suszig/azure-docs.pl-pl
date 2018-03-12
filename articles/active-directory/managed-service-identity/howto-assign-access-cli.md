@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/25/2017
 ms.author: daveba
-ms.openlocfilehash: 9e5a10531ac919fd54785666e9a66fb4b4431f42
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ca228a99eec1d376e456f5730aaaf8c569620f43
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="assign-a-managed-service-identity-msi-access-to-a-resource-using-azure-cli"></a>Przypisywanie dostępu zarządzane tożsamości usługi (MSI) do zasobów przy użyciu wiersza polecenia platformy Azure
 
@@ -41,7 +41,7 @@ Aby uruchomić przykłady skryptów interfejsu wiersza polecenia, masz trzy opcj
 
 Po włączeniu MSI na zasobów platformy Azure, takich jak [maszyny wirtualnej platformy Azure](qs-configure-cli-windows-vm.md) lub [zestaw skali maszyny wirtualnej platformy Azure](qs-configure-cli-windows-vmss.md): 
 
-1. Jeśli używasz interfejsu wiersza polecenia Azure w lokalnej konsoli, najpierw zaloguj się do platformy Azure przy użyciu [logowania az](/cli/azure/#az_login). Użyj konta, które jest skojarzone z subskrypcją platformy Azure, w którym chcesz wdrożyć zestaw skali maszyny Wirtualnej lub maszyny wirtualnej:
+1. Jeśli używasz interfejsu wiersza polecenia Azure w lokalnej konsoli, najpierw zaloguj się do platformy Azure przy użyciu [logowania az](/cli/azure/reference-index#az_login). Użyj konta, które jest skojarzone z subskrypcją platformy Azure, w którym chcesz wdrożyć zestaw skali maszyny Wirtualnej lub maszyny wirtualnej:
 
    ```azurecli-interactive
    az login

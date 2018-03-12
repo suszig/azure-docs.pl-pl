@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 11/16/2017
+ms.date: 02/28/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c8bbb06fd511321a67e01772caeaa316ddb6e2a
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: c53007530fe80f03cefbf138193cfad4b0e8292a
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Tworzenie rozbudowanych rozwiązań przetwarzania równoległego przy użyciu usługi Batch
 
@@ -171,13 +171,9 @@ Aby uzyskać informacje dotyczące cen węzłów obliczeniowych o niskim prioryt
 
 ### <a name="size-of-the-compute-nodes"></a>Rozmiar węzłów obliczeniowych
 
-Lista rozmiarów węzłów obliczeniowych **konfiguracji usług Cloud Serivces** znajduje się w temacie [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md) (Rozmiary dla usługi Cloud Services). Usługa Batch obsługuje wszystkie rozmiary usług Cloud Services oprócz `ExtraSmall`, `STANDARD_A1_V2` i `STANDARD_A2_V2`.
+Podczas tworzenia puli usługi Azure Batch możesz wybierać spośród prawie wszystkich rodzin i rozmiarów maszyn wirtualnych dostępnych na platformie Azure. Platforma Azure oferuje szereg rozmiarów maszyn wirtualnych dla różnych obciążeń, w tym specjalizowane rozmiary maszyn wirtualnych [HPC](../virtual-machines/linux/sizes-hpc.md) lub [z obsługą procesorów GPU](../virtual-machines/linux/sizes-gpu.md). 
 
-Listę rozmiarów obliczeniowych **konfiguracji usługi Virtual Machines** można znaleźć w tematach [Sizes for virtual machines in Azure](../virtual-machines/linux/sizes.md) (Linux) (Rozmiary maszyn wirtualnych na platformie Azure) (Linux) and [Sizes for virtual machines in Azure](../virtual-machines/windows/sizes.md) (Windows) (Rozmiary maszyn wirtualnych na platformie Azure) (Windows). Usługa Batch obsługuje wszystkie rozmiary maszyn wirtualnych platformy Azure oprócz `STANDARD_A0` i maszyn z usługi Premium Storage (seria `STANDARD_GS`, `STANDARD_DS` i `STANDARD_DSV2`).
-
-Podczas wybierania rozmiaru węzła obliczeniowego należy wziąć pod uwagę charakterystyki i wymagania aplikacji, które będą uruchamiane w poszczególnych węzłach. Takie czynniki jak to, czy aplikacja jest wielowątkowa oraz ile pamięci zużywa, mogą pomóc w wyborze najbardziej odpowiedniego i ekonomicznego rozmiar węzła. Rozmiar węzła jest zazwyczaj wybierany w oparciu o założenie, że w węźle będzie uruchamiane w danym momencie jedno zadanie. Podczas wykonywania zadania można jednak [równolegle uruchomić](batch-parallel-node-tasks.md) wiele zadań podrzędnych, a co za tym idzie — wielu wystąpień aplikacji. W takiej sytuacji zwykle wybiera się większy rozmiar węzła w celu sprostania zwiększonemu zapotrzebowaniu na równoległe wykonywanie zadań podrzędnych. Aby uzyskać więcej informacji, zobacz [Zasady planowania zadań podrzędnych](#task-scheduling-policy).
-
-Wszystkie węzły w puli mają taki sam rozmiar. Jeśli planujesz uruchamiać aplikacje z różnymi wymaganiami systemowymi i/lub poziomami obciążenia, zalecamy użycie oddzielnych pul.
+Aby uzyskać więcej informacji, zobacz [wybierz rozmiar maszyny wirtualnej dla węzłów obliczeniowych w puli usługi Azure Batch](batch-pool-vm-sizes.md).
 
 ### <a name="scaling-policy"></a>Zasady skalowania
 

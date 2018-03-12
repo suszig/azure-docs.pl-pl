@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/06/2018
 ms.author: mabrigg
-ms.openlocfilehash: fa0800f03d823769dcd9f01601689122b0d09ec5
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: c1d92f8f2ed9e8ab504afc65bab861e1f7bb3689
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Stan zabezpieczeń infrastruktury w usłudze Azure stosu
 
@@ -31,8 +31,12 @@ W stosie Azure istnieją dwie warstwy stan zabezpieczeń, które współistnieć
 ## <a name="security-approach"></a>Metoda zabezpieczeń
 Stos Azure została zaprojektowana z stan zabezpieczeń obrony pod kątem współczesnych zagrożeń i został utworzony w celu spełnienia wymagań z standardów zgodności głównych. W związku z tym stan zabezpieczeń w infrastrukturze Azure stosu jest oparty na dwóch filarach:
 
- - **Przykładowa naruszenia.** Począwszy od założenia, że nastąpiło już naruszenie systemu, skupić się na *wykrywanie i ograniczanie wpływu naruszenia* i tylko w trakcie przed atakami. 
- - **Wzmocnione zabezpieczenia domyślne.**  Ponieważ infrastruktura działa w dobrze zdefiniowanej sprzętu i oprogramowania, *włączenia, skonfigurowania i zweryfikować funkcje zabezpieczeń* pozostało do klientów do wdrożenia.
+ - **Przykładowa naruszenia.**  
+Począwszy od założenia, że nastąpiło już naruszenie systemu, skupić się na *wykrywanie i ograniczanie wpływu naruszenia* i tylko w trakcie przed atakami. 
+ - **Wzmocnione zabezpieczenia domyślne.**  
+Ponieważ infrastruktura działa w dobrze zdefiniowanej sprzętu i oprogramowania, firma Microsoft *włączenia, skonfigurowania i zweryfikować wszystkie funkcje zabezpieczeń* domyślnie.
+
+
 
 Ponieważ stos Azure jest dostarczane jako zintegrowany system, stan zabezpieczeń w infrastrukturze Azure stosu jest zdefiniowana przez firmę Microsoft. Podobnie jak na platformie Azure dzierżaw są zobowiązani do definiowania stan zabezpieczeń ich obciążeń dzierżawców. Ten dokument zawiera on podstawowych wiedzy na stan zabezpieczeń w infrastrukturze Azure stosu.
 

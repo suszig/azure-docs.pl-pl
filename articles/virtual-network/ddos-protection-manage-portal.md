@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: jdial
-ms.openlocfilehash: ee418537fb52dbfb3eacca6e99d8572152a60910
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 6a5ab1ba44197c0103e1e7d353a116dc01dfc163
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Zarządzanie Azure DDoS ochrony standardowe przy użyciu portalu Azure
 
@@ -31,9 +31,9 @@ Dowiedz się, jak włączyć i wyłączyć atakach typu protection service (DDoS
 ## <a name="enable-ddos-protection-standard---new-virtual-network"></a>Włącz Standard ochrony przed atakami DDoS — nowej sieci wirtualnej
 
 1. Zaloguj się w witrynie Azure Portal pod adresem http://portal.azure.com. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-2. Kliknij przycisk **Utwórz zasób** w lewym górnym rogu portalu Azure.
+2. W lewym górnym rogu witryny Azure Portal kliknij przycisk **Utwórz zasób**.
 3. Wybierz **sieci**, a następnie wybierz **sieci wirtualnej**.
-4. Tworzenie sieci wirtualnej z wybranego ustawienia. Aby uzyskać więcej informacji na temat tworzenia sieci wirtualnych, zobacz [utworzyć sieć wirtualną](virtual-networks-create-vnet-arm-pportal.md). W obszarze **ochrona przed atakami DDoS**, kliknij przycisk **włączone**, a następnie kliknij przycisk **Utwórz**. Jeśli nie widzisz **ochrona przed atakami DDoS**, prawdopodobną przyczyną jest, że subskrypcja nie jest zarejestrowany dla funkcji. Należy wykonać [rejestracji](http://aka.ms/ddosprotection), otrzymasz powiadomienie, które subskrypcji została włączona dla funkcji, przed **ochrona przed atakami DDoS** pojawi się.
+4. Tworzenie sieci wirtualnej z wybranego ustawienia. Aby uzyskać więcej informacji na temat tworzenia sieci wirtualnych, zobacz [utworzyć sieć wirtualną](manage-virtual-network.md#create-a-virtual-network). W obszarze **ochrona przed atakami DDoS**, kliknij przycisk **włączone**, a następnie kliknij przycisk **Utwórz**. Jeśli nie widzisz **ochrona przed atakami DDoS**, prawdopodobną przyczyną jest, że subskrypcja nie jest zarejestrowany dla funkcji. Należy wykonać [rejestracji](http://aka.ms/ddosprotection), otrzymasz powiadomienie, które subskrypcji została włączona dla funkcji, przed **ochrona przed atakami DDoS** pojawi się.
 
     ![Tworzenie sieci wirtualnej](./media/ddos-protection-manage-portal/ddos-create-vnet.png)   
 
@@ -66,7 +66,7 @@ Można wybrać jedną z dostępnymi metrykami ochrona przed atakami DDoS alertu,
 3. Kliknij, aby skonfigurować alerty e-mail dla metryki **Dodaj alert metryki**. Alerty w wiadomościach e-mail mogą być tworzone na wszystkie metryki, ale jest najbardziej oczywisty Metryka **DDoS w ramach ataku lub nie**. Jest to wartość logiczna, 1 lub 0. A **1** oznacza podlegają ataku. A **0** oznacza, że nie jesteś zaatakowane.
 4. W celu przesłania pocztą e-mail w ramach ataku, ustawienia metryki dla **DDoS w ramach ataku lub nie** i **warunek na wartość większą niż zero (0) w ciągu ostatnich 5 minut**. Podobne alerty można skonfigurować dla innych metryk.
 
-    ![Skonfiguruj metrykę](./media/ddos-protection-manage-portal/ddos-metrics.png)
+    ![Konfigurowanie metryk](./media/ddos-protection-manage-portal/ddos-metrics.png)
 
     W ciągu kilku minut wykrywanie ataków użytkownik jest powiadamiany, przy użyciu metryk Azure Monitor.
 

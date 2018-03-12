@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: e2f4601daf9aa3537f9170c3516d62ab1bd602e5
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: e96003de4a0dd4a5d8b060bb5883e51291827316
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight"></a>Używanie Sqoop z platformą Hadoop w usłudze HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -49,13 +49,13 @@ Klaster usługi HDInsight jest dostarczany z przykładowymi danymi. Można uży�
   | --- | --- |
   | ClientID |ciąg |
   | querytime |ciąg |
-  | rynku |ciąg |
+  | market |ciąg |
   | deviceplatform |ciąg |
   | devicemake |ciąg |
   | devicemodel |ciąg |
   | state |ciąg |
   | Kraju |ciąg |
-  | querydwelltime |liczba podwójnej precyzji |
+  | querydwelltime |O podwójnej precyzji |
   | Identyfikator sesji |bigint |
   | sessionpagevieworder |bigint |
 
@@ -96,9 +96,9 @@ Jeśli wolisz korzystać z programu Azure PowerShell do tworzenia klastra i bazy
         
         |Name (Nazwa)|Wartość|
         |----|-----|
-        | Domyślna nazwa konta magazynu | &lt;CluterName > przechowywania |
-        | Nazwa serwera bazy danych SQL Azure | &lt;ClusterName > dbserver |
-        | Nazwa bazy danych SQL Azure | &lt;ClusterName > bazy danych |
+        | Domyślna nazwa konta magazynu | &lt;CluterName>store |
+        | Nazwa serwera bazy danych SQL Azure | &lt;ClusterName>dbserver |
+        | Nazwa bazy danych SQL Azure | &lt;ClusterName>db |
      
 3. Wybierz **akceptuję warunki i postanowienia, o których wspomniano**.
 4. Kliknij pozycję **Kup**. Zostanie wyświetlony nowy Kafelek zatytułowany Submitting deployment dla wdrożenia szablonu. Utworzenie klastra i bazy danych SQL trwa około 20 minut.
@@ -118,7 +118,7 @@ Jeśli chcesz użyć istniejącej bazy danych Azure SQL lub programu Microsoft S
   > 
   > 
   
-  * Aby utworzyć i skonfigurować sieć wirtualną, zobacz [utworzyć sieć wirtualną przy użyciu portalu Azure](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+  * Aby utworzyć i skonfigurować sieć wirtualną, zobacz [utworzyć sieć wirtualną przy użyciu portalu Azure](../../virtual-network/quick-create-portal.md).
     
     * Jeśli używasz programu SQL Server w centrum danych, należy skonfigurować sieci wirtualnej co *lokacja lokacja* lub *punkt lokacja*.
       

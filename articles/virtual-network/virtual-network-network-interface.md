@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: e8a6722c74f044b5310ce0fcb937002f5a1e8fa2
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 6c3fb08a43bce6193aa0094992616a290129bac8
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Tworzenie, zmienianie lub usuwanie interfejsu sieciowego
 
@@ -39,7 +39,7 @@ Przed wykonaniem kroków w żadnej sekcji tego artykułu, należy wykonać nast�
 
 ## <a name="create-a-network-interface"></a>Tworzenie interfejsu sieciowego
 
-Podczas tworzenia maszyny wirtualnej przy użyciu portalu Azure, portal tworzy interfejs sieciowy z ustawieniami domyślnymi dla Ciebie. Jeśli wolisz określić wszystkie ustawienia interfejsu sieciowego, można utworzyć niestandardowe ustawienia interfejsu sieciowego i dołączyć interfejsu sieciowego z maszyną wirtualną, podczas tworzenia maszyny wirtualnej (przy użyciu programu PowerShell lub interfejsu wiersza polecenia Azure). Można również utworzyć interfejsu sieciowego i dodać go do istniejącej maszyny wirtualnej (przy użyciu programu PowerShell lub interfejsu wiersza polecenia Azure). Aby dowiedzieć się, jak utworzyć maszynę wirtualną z istniejącego interfejsu sieciowego lub Dodaj do lub usuwanie interfejsów sieciowych z istniejących maszyn wirtualnych, przeczytaj [Dodawanie lub usuwanie interfejsów sieciowych](virtual-network-network-interface-vm.md) artykułu. Przed utworzeniem karty sieciowej, musisz mieć istniejące [sieci wirtualnej](virtual-networks-create-vnet-arm-pportal.md) w tej samej subskrypcji i lokalizacji tworzenia interfejsu sieciowego w.
+Podczas tworzenia maszyny wirtualnej przy użyciu portalu Azure, portal tworzy interfejs sieciowy z ustawieniami domyślnymi dla Ciebie. Jeśli wolisz określić wszystkie ustawienia interfejsu sieciowego, można utworzyć niestandardowe ustawienia interfejsu sieciowego i dołączyć interfejsu sieciowego z maszyną wirtualną, podczas tworzenia maszyny wirtualnej (przy użyciu programu PowerShell lub interfejsu wiersza polecenia Azure). Można również utworzyć interfejsu sieciowego i dodać go do istniejącej maszyny wirtualnej (przy użyciu programu PowerShell lub interfejsu wiersza polecenia Azure). Aby dowiedzieć się, jak utworzyć maszynę wirtualną z istniejącego interfejsu sieciowego lub Dodaj do lub usuwanie interfejsów sieciowych z istniejących maszyn wirtualnych, przeczytaj [Dodawanie lub usuwanie interfejsów sieciowych](virtual-network-network-interface-vm.md) artykułu. Przed utworzeniem karty sieciowej, musisz mieć istniejące [sieci wirtualnej](manage-virtual-network.md#create-a-virtual-network) w tej samej subskrypcji i lokalizacji tworzenia interfejsu sieciowego w.
 
 1. Zaloguj się do [portalu Azure](https://portal.azure.com) przy użyciu konta, który jest przypisane (co najmniej) uprawnienia roli współautora sieci dla Twojej subskrypcji. Odczyt [wbudowanych ról dla kontroli dostępu opartej na rolach na platformie Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) artykuł, aby dowiedzieć się więcej o przypisywanie ról i uprawnień do kont.
 2. W polu zawierająca tekst, który *wyszukiwania zasobów* w górnej części portalu Azure, wpisz *interfejsy sieciowe*. Gdy **interfejsy sieciowe** pojawia się w wynikach wyszukiwania kliknij ją.

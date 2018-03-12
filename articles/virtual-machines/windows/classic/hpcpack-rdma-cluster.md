@@ -4,7 +4,7 @@ description: "Dowiedz się, jak utworzyć klaster Windows HPC Pack o rozmiarze H
 services: virtual-machines-windows
 documentationcenter: 
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-service-management,hpc-pack
 ms.assetid: 7d9f5bc8-012f-48dd-b290-db81c7592215
@@ -13,28 +13,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 06/01/2017
+ms.date: 03/06/2018
 ms.author: danlep
-ms.openlocfilehash: 19be1d693fe13af0f6c1ab0cb6f7bc829b9fad5a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 437c475735ec3823de51c5f9e996a5303fe9cfa7
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-a-windows-rdma-cluster-with-hpc-pack-to-run-mpi-applications"></a>Konfigurowanie klastra RDMA systemu Windows z pakietem HPC do uruchamiania aplikacji MPI
-Konfigurowanie klastra RDMA systemu Windows na platformie Azure z [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) i [wysokiej wydajności obliczeniowe rozmiarów maszyn wirtualnych](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) na uruchamianie równoległe aplikacji komunikat interfejsu (Passing Interface). Po skonfigurowaniu z funkcją RDMA, opartych na systemie Windows Server węzłów w klastrze HPC Pack aplikacji MPI wydajnie komunikacji za pośrednictwem nieznaczne opóźnienia, uzyskać wysoką przepustowość sieci na platformie Azure, oparty na technologii dostępu do (pamięci RDMA) zdalnego pamięci.
+Konfigurowanie klastra RDMA systemu Windows na platformie Azure z [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) i [rozmiarów z funkcją RDMA HPC maszyn wirtualnych](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#rdma-capable-instances) na uruchamianie równoległe aplikacji komunikat interfejsu (Passing Interface). Po skonfigurowaniu z funkcją RDMA, opartych na systemie Windows Server węzłów w klastrze HPC Pack aplikacji MPI wydajnie komunikacji za pośrednictwem nieznaczne opóźnienia, uzyskać wysoką przepustowość sieci na platformie Azure, oparty na technologii dostępu do (pamięci RDMA) zdalnego pamięci.
 
 Jeśli chcesz uruchamiać MPI obciążenia na maszynach wirtualnych systemu Linux, które uzyskują dostęp do sieci Azure RDMA, zobacz [Konfigurowanie klastra Linux RDMA na uruchamianie aplikacji MPI](../../linux/classic/rdma-cluster.md).
 
 ## <a name="hpc-pack-cluster-deployment-options"></a>Opcje wdrażania klastra HPC Pack
 Microsoft HPC Pack to narzędzie, bez ponoszenia dodatkowych kosztów można utworzyć HPC klastrów lokalnie lub na platformie Azure na uruchamianie aplikacji systemu Windows lub Linux HPC. HPC Pack zawiera środowiska uruchomieniowego dla przez firmę Microsoft implementacją komunikat przekazywanie interfejsu systemu Windows (MS-MPI). W przypadku użycia z funkcją RDMA wystąpień uruchomiony obsługiwany system operacyjny Windows Server, HPC Pack zapewnia wydajne opcję uruchamiania aplikacji MPI systemu Windows, które uzyskują dostęp do sieci Azure RDMA. 
 
-W tym artykule przedstawiono dwa scenariusze i linki do szczegółowych wskazówek, aby skonfigurować klaster RDMA systemu Windows z pakietem Microsoft HPC. 
+W tym artykule przedstawiono dwa scenariusze i linki do szczegółowych wskazówek, aby skonfigurować klaster Windows RDMA o Microsoft HPC Pack 2012 R2. 
 
 * Scenariusz 1. Wdrażanie wystąpień roli procesu roboczego obliczeniowych (PaaS)
 * Scenariusz 2. Wdrażanie węzłów obliczeniowych w obliczeniowych maszyn wirtualnych (IaaS)
-
-Aby uzyskać ogólne wymagania wstępne do użycia obliczeniowych wystąpień z systemem Windows, zobacz [wysokiej wydajności obliczeniowe rozmiarów maszyn wirtualnych](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="scenario-1-deploy-compute-intensive-worker-role-instances-paas"></a>Scenariusz 1: Wdrażanie wystąpień roli procesu roboczego obliczeniowych (PaaS)
 Z istniejącego klastra HPC Pack należy dodać zasoby obliczeniowe dodatkowe w wystąpień roli procesu roboczego platformy Azure (Azure węzłów) w chmurze usługa (PaaS). Ta funkcja, nazywane również "serii Azure" z HPC Pack obsługuje zakres rozmiarów dla wystąpień roli procesu roboczego. Podczas dodawania węzłów Azure, określ jedną z funkcją RDMA rozmiary.
@@ -51,13 +49,14 @@ Poniżej przedstawiono zagadnienia i czynności, aby zwiększania możliwości z
 ### <a name="steps"></a>Kroki
 1. **Wdrażanie i konfigurowanie węzłem głównym HPC Pack 2012 R2**
    
-    Pobierz najnowszy pakiet instalacyjny HPC Pack z [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=49922). Wymagania i instrukcje dotyczące przygotowania do wdrożenia serii Azure, zobacz [serii do wystąpień procesu roboczego platformy Azure z pakietem Microsoft HPC](https://technet.microsoft.com/library/gg481749.aspx).
+    Aby pobrać pakiet instalacyjny HPC Pack z [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=49922). Wymagania i instrukcje dotyczące przygotowania do wdrożenia serii Azure, zobacz [serii do wystąpień procesu roboczego platformy Azure z pakietem Microsoft HPC](https://technet.microsoft.com/library/gg481749.aspx).
 2. **Konfigurowanie certyfikatu zarządzania w subskrypcji platformy Azure**
    
     Konfigurowanie certyfikatu do zabezpieczenia połączenia między węzłem głównym i platformą Azure. Opcje i procedury, zobacz [scenariuszami, aby skonfigurować certyfikat zarządzania platformy Azure dla HPC Pack](http://technet.microsoft.com/library/gg481759.aspx). W przypadku wdrożeń testowych HPC Pack instaluje domyślne Microsoft HPC certyfikat zarządzania platformy Azure możesz szybko przekazać do subskrypcji platformy Azure.
 3. **Utwórz nową usługę w chmurze i konto magazynu**
    
-    Użyj portalu Azure, aby utworzyć usługi w chmurze i konto magazynu dla wdrożenia w regionie, w którym będą dostępne wystąpienia z funkcją RDMA.
+    Użyj portalu Azure można utworzyć usługi w chmurze (klasyczne) i konto magazynu (klasyczne) do wdrożenia. Utwórz następujące zasoby w regionie, w którym jest dostępny rozmiar serii H A8 i A9, którego chcesz użyć. Zobacz [produkty Azure według regionu](https://azure.microsoft.com/regions/services/).
+
 4. **Tworzenie szablonu Azure węzła**
    
     Użyj węzła Kreator tworzenia szablonu w Menedżerze klastra HPC. Aby uzyskać instrukcje, zobacz [utworzyć szablon Azure węzła](http://technet.microsoft.com/library/gg481758.aspx#BKMK_Templ) w "Kroki do wdrożenia usługi Azure węzłów z Microsoft HPC Pack".
@@ -91,19 +90,20 @@ W tym scenariuszu wdrażania węzłem głównym HPC Pack i węzły obliczeniowe 
 ### <a name="steps"></a>Kroki
 1. **Tworzenie węzła głównego klastra i obliczeniowe węzła maszyn wirtualnych, uruchamiając skrypt wdrożenia HPC Pack IaaS na komputerze klienckim**
    
-    Pobierz skrypt wdrożenia IaaS pakietu HPC z [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=49922).
+    Pobierz skrypt wdrożenia IaaS pakietu HPC z [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=44949).
    
     Aby przygotować komputer kliencki, tworzenia pliku skryptu konfiguracji, a następnie uruchom skrypt, zobacz [utworzyć klaster HPC z skrypt wdrożenia HPC Pack IaaS](hpcpack-cluster-powershell-script.md). 
    
-    Aby wdrożyć węzły obliczeniowe z funkcją RDMA, należy uwzględnić następujące dodatkowe zagadnienia:
+    Aby kwestie dotyczące wdrażania z funkcją RDMA węzły obliczeniowe, zobacz [wysokiej wydajności obliczeniowe rozmiarów maszyn wirtualnych](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#rdma-capable-instances) i należy uwzględnić następujące informacje:
    
-   * **Sieć wirtualna**: Określ nową sieć wirtualną w regionie, w której chcesz używać z funkcją RDMA rozmiar wystąpienia jest dostępny.
-   * **System operacyjny Windows Server**: do obsługi połączeń RDMA, określ system operacyjny Windows Server 2012 R2 lub Windows Server 2012 dla węzła obliczeniowego maszyn wirtualnych.
-   * **Usługi w chmurze**: zalecamy wdrożenie z węzła głównego w usłudze w chmurze jednego i węzłów obliczeniowych w innej usługi chmury.
+   * **Sieć wirtualna**: Określ nową sieć wirtualną w regionie, w której chcesz użyć rozmiaru H-series A8 i A9 jest dostępny. Zobacz [produkty Azure według regionu](https://azure.microsoft.com/regions/services/).
+
+   * **System operacyjny Windows Server**: do obsługi połączeń RDMA, określić zgodne systemu Windows Server system operacyjny, takie jak Windows Server 2012 R2 dla węzła obliczeniowego maszyn wirtualnych.
+   * **Usługi w chmurze**: ponieważ skrypt używa klasycznego modelu wdrażania, maszyn wirtualnych klastra są wdrażane za pomocą usług w chmurze Azure (`ServiceName` ustawień w pliku konfiguracji). Zaleca się wdrożenie z węzła głównego w jednej usłudze w chmurze i węzłów obliczeniowych w innej usługi chmury. 
    * **HEAD rozmiaru węzła**: W tym scenariuszu należy wziąć pod uwagę o rozmiarze co najmniej A4 (bardzo duży) dla węzła głównego.
    * **Rozszerzenie HpcVmDrivers**: skrypt wdrożenia instaluje agenta maszyny Wirtualnej platformy Azure i rozszerzenie HpcVmDrivers automatycznie podczas wdrażania rozmiar A8 i A9 węzły obliczeniowe z systemem operacyjnym Windows Server. HpcVmDrivers instaluje sterowniki w węźle obliczeń maszyn wirtualnych, aby umożliwić im połączenie z siecią RDMA. Na maszynach wirtualnych z funkcją RDMA H-series należy ręcznie zainstalować rozszerzenie HpcVmDrivers. Zobacz [wysokiej wydajności obliczeniowe rozmiarów maszyn wirtualnych](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
    * **Konfiguracja sieci klastra**: skrypt wdrożenia automatycznie konfiguruje klastra HPC Pack w topologii 5 (we wszystkich węzłach w sieci firmowej). Ta topologia jest wymagany dla wszystkich wdrożeń klastrów HPC Pack na maszynach wirtualnych. Nie należy zmieniać topologii sieci klastra później.
-2. **Przełącz do uruchomienia zadań węzłów obliczeniowych w trybie online**
+1. **Przełącz do uruchomienia zadań węzłów obliczeniowych w trybie online**
    
     Wybierz węzły i użyj **przejdź do trybu Online** akcji w Menedżerze klastra HPC. Węzły są gotowe do uruchomienia zadania.
 3. **Przesyłanie zadań do klastra**
@@ -182,7 +182,7 @@ Poniżej przedstawiono zagadnienia dotyczące uruchamiania aplikacji MPI pakiete
 * Zadań MPI nie można uruchomić w wystąpieniach platformy Azure, które zostały wdrożone w różnych usług w chmurze (na przykład w serii do wdrożeń platformy Azure z szablonów inny węzeł lub węzły obliczeniowe maszyny Wirtualnej Azure wdrożyć w wielu usług w chmurze). Jeśli masz wielu wdrożeń węzła Azure, które są uruchamiane z szablonami inny węzeł zadań MPI należy uruchomić na tylko jeden zestaw węzłów Azure.
 * Gdy dodać węzły platformy Azure do klastra, a ich Przełącz do trybu online, usługa harmonogramu zadań HPC natychmiast próbuje uruchamiać zadania na węzłach. Jeśli tylko część obciążenia można uruchomić na platformie Azure, upewnij się, możesz zaktualizować lub tworzenia szablonów zadań, aby określić, jakie typy zadań można uruchamiać na platformie Azure. Na przykład aby upewnić się, że zadania przekazane za pomocą szablonu zadania wykonywany wyłącznie na węzłach Azure, Dodaj właściwość węzła grupy do szablonu zadania i wybierz AzureNodes jako wymagana wartość. Tworzenie niestandardowych grup węzły platformy Azure, należy użyć polecenia cmdlet środowiska PowerShell klastra HPC HpcGroup Dodaj.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Alternatywą wobec przy użyciu pakietu HPC opracowywania usługi partia zadań Azure do uruchamiania aplikacji MPI na zarządzana pula węzły obliczeniowe na platformie Azure. Zobacz [korzystać z zadań w wielu wystąpieniach na uruchamianie aplikacji komunikat interfejsu (Passing Interface) w partii zadań Azure](../../../batch/batch-mpi.md).
 * Jeśli chcesz uruchamiać Linux MPI aplikacje, które uzyskują dostęp do sieci Azure RDMA, zobacz [Konfigurowanie klastra Linux RDMA na uruchamianie aplikacji MPI](../../linux/classic/rdma-cluster.md).
 

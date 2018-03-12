@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 01/29/2018
 ms.author: carlrab
-ms.openlocfilehash: 5c5402c89091b84cd3b49815d892c9fa0d59e22a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 52ec8afa693e6ac3c8c73f070f748a01116ec68f
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="design-your-first-azure-sql-database"></a>Projektowanie pierwszej bazy danych Azure SQL Database
 
@@ -139,7 +139,7 @@ Teraz można połączyć się z serwerem usługi SQL Database i jego bazami dany
 Pobierz w pełni kwalifikowaną nazwę serwera dla serwera Azure SQL Database w witrynie Azure Portal. W pełni kwalifikowanej nazwy serwera używa się do nawiązywania połączenia z serwerem przy użyciu programu SQL Server Management Studio.
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
-2. Wybierz opcję **Bazy danych SQL** z menu po lewej stronie, a następnie kliknij bazę danych na stronie **Bazy danych SQL**. 
+2. Wybierz pozycję **Bazy danych SQL** z menu po lewej stronie, a następnie kliknij bazę danych na stronie **Bazy danych SQL**. 
 3. W okienku **Essentials** na stronie bazy danych w witrynie Azure Portal zlokalizuj i skopiuj **nazwę serwera**.
 
    ![informacje o połączeniu](./media/sql-database-get-started-portal/server-name.png)

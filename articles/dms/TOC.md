@@ -13,11 +13,11 @@
 
 # Zasoby
 ## [Opinie użytkowników w witrynie User Voice](https://feedback.azure.com/forums/906100-azure-database-migration-service)
-## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/en-us/roadmap/)
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
 ## [Przewodnik po migracji bazy danych](https://aka.ms/datamigration)
 ## [Asystent migracji danych](https://aka.ms/dma)
 ## [Cennik](https://aka.ms/dms-pricing)
 ## [Przegląd wymagań wstępnych](pre-reqs.md)
 ## [Często zadawane pytania](faq.md)
-## [Aktualizacje usług](https://azure.microsoft.com/en-us/updates/?product=database-migration)
+## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=database-migration)
 ## [Topologie sieci na potrzeby migracji wystąpienia zarządzanego usługi Azure SQL DB](resource-network-topologies.md)

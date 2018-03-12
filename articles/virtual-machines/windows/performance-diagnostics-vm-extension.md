@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/29/2017
 ms.author: genli
-ms.openlocfilehash: 5a7dc313f1d6453562e4d5a11ceca03e4459b043
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 8f6f3fc8325fb2587dc09b982efa52fbe663e2a9
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Rozszerzenia maszyny Wirtualnej diagnostyki Azure wydajności dla systemu Windows
 
@@ -29,7 +29,7 @@ Rozszerzenie maszyny Wirtualnej diagnostyki wydajności Azure pomaga diagnostycz
 To rozszerzenie można zainstalować na Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 i Windows Server 2016. Można go również zainstalować na Windows 8.1 i Windows 10.
 
 ## <a name="extension-schema"></a>Rozszerzenie schematu
-Następujące JSON zawiera schemat rozszerzenia maszyny Wirtualnej systemu Azure wydajności diagnostyki. To rozszerzenie wymaga nazwy i klucza konta magazynu do przechowywania danych wyjściowych diagnostyki i raportów. Te wartości są poufne i powinien być przechowywany w chronionym konfiguracji. Azure VM ustawienie rozszerzenia chronione dane są szyfrowane, a jest odszyfrowane tylko na docelowej maszynie wirtualnej. Należy pamiętać, że **storageAccountName** i **storageAccountKey** jest rozróżniana wielkość liter. Inne wymagane parametry są wymienione w poniższej sekcji.
+Następujące JSON zawiera schemat rozszerzenia maszyny Wirtualnej systemu Azure wydajności diagnostyki. To rozszerzenie wymaga nazwy i klucza konta magazynu do przechowywania danych wyjściowych diagnostyki i raportów. Te wartości są ważne. Klucz konta magazynu powinny być przechowywane w chronionej konfiguracji. Azure VM ustawienie rozszerzenia chronione dane są szyfrowane, a jest odszyfrowane tylko na docelowej maszynie wirtualnej. Należy pamiętać, że **storageAccountName** i **storageAccountKey** jest rozróżniana wielkość liter. Inne wymagane parametry są wymienione w poniższej sekcji.
 
 ```JSON
     {
@@ -43,19 +43,19 @@ Następujące JSON zawiera schemat rozszerzenia maszyny Wirtualnej systemu Azure
         "typeHandlerVersion": "1.0",
         "autoUpgradeMinorVersion": true,
         "settings": {
+            "storageAccountName": "[parameters('storageAccountName')]",
             "performanceScenario": "[parameters('performanceScenario')]",
-                  "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-                  "perfCounterTrace": "[parameters('perfCounterTrace')]",
-                  "networkTrace": "[parameters('networkTrace')]",
-                  "xperfTrace": "[parameters('xperfTrace')]",
-                  "storPortTrace": "[parameters('storPortTrace')]",
+            "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
+            "perfCounterTrace": "[parameters('perfCounterTrace')]",
+            "networkTrace": "[parameters('networkTrace')]",
+            "xperfTrace": "[parameters('xperfTrace')]",
+            "storPortTrace": "[parameters('storPortTrace')]",
             "srNumber": "[parameters('srNumber')]",
             "requestTimeUtc":  "[parameters('requestTimeUtc')]"
         },
-          "protectedSettings": {
-            "storageAccountName": "[parameters('storageAccountName')]",
+        "protectedSettings": {
             "storageAccountKey": "[parameters('storageAccountKey')]"        
-            }
+        }
       }
     }
 ```
@@ -65,24 +65,25 @@ Następujące JSON zawiera schemat rozszerzenia maszyny Wirtualnej systemu Azure
 |   **Nazwa**   |**Wartość / przykład**|       **Opis**      |
 |--------------|-------------------|----------------------------|
 |apiVersion|2015-06-15|Wersja interfejsu API.
-|Wydawcy|Microsoft.Azure.Performance.Diagnostics|Przestrzeń nazw wydawcy rozszerzenia.
+|publisher|Microsoft.Azure.Performance.Diagnostics|Przestrzeń nazw wydawcy rozszerzenia.
 |type|AzurePerformanceDiagnostics|Typ rozszerzenia maszyny Wirtualnej.
 |typeHandlerVersion|1.0|Wersja rozszerzenia obsługi.
 |performanceScenario|podstawowe|Scenariusz wydajności, dla której do przechwytywania danych. Prawidłowe wartości to: **podstawowe**, **vmslow**, **azurefiles**, i **niestandardowych**.
 |traceDurationInSeconds|300|Czas trwania śledzenia, jeśli nie wybrano opcji śledzenia.
-|perfCounterTrace|P|Opcję w celu włączenia śledzenia licznika wydajności. Prawidłowe wartości to **p** lub wartość pusta. Jeśli nie chcesz przechwytywać ślad, pozostaw wartość jako pusty.
-|networkTrace|n|Opcję w celu włączenia śledzenia ścieżek połączeń sieciowych. Prawidłowe wartości to  **n**  lub wartość pusta. Jeśli nie chcesz przechwytywać ślad, pozostaw wartość jako pusty.
+|perfCounterTrace|p|Opcję w celu włączenia śledzenia licznika wydajności. Prawidłowe wartości to **p** lub wartość pusta. Jeśli nie chcesz przechwytywać ślad, pozostaw wartość jako pusty.
+|networkTrace|n|Opcję w celu włączenia śledzenia ścieżek połączeń sieciowych. Prawidłowe wartości to **n** lub wartość pusta. Jeśli nie chcesz przechwytywać ślad, pozostaw wartość jako pusty.
 |xperfTrace|x|Opcję, aby włączyć program XPerf śledzenia. Prawidłowe wartości to **x** lub wartość pusta. Jeśli nie chcesz przechwytywać ślad, pozostaw wartość jako pusty.
 |storPortTrace|s|Opcję, aby włączyć StorPort śledzenia. Prawidłowe wartości to **s** lub wartość pusta. Jeśli nie chcesz przechwytywać ślad, pozostaw wartość jako pusty.
 |srNumber|123452016365929|Numer biletu pomocy technicznej, jeśli jest dostępna. Pozostaw wartość jako pusty, jeśli go nie masz.
-|storageAccountName|mojekontomagazynu|Nazwa konta magazynu do przechowywania dzienników diagnostyki i wyników.
-|storageAccountKey|lDuVvxuZB28NNP... hAiRF3voADxLBTcc ==|Klucz konta magazynu.
+|requestTimeUtc|2017-09-28T22:08:53.736Z|Bieżąca data i godzina w formacie Utc. Jeśli używasz portalu można zainstalować tego rozszerzenia, nie trzeba podać tę wartość.
+|storageAccountName|mystorageaccount|Nazwa konta magazynu do przechowywania dzienników diagnostyki i wyników.
+|storageAccountKey|lDuVvxuZB28NNP…hAiRF3voADxLBTcc==|Klucz konta magazynu.
 
 ## <a name="install-the-extension"></a>Instalowanie rozszerzenia
 
-Wykonaj następujące kroki, aby zainstalować rozszerzenie na maszynach wirtualnych systemu Windows:
+Wykonaj te instrukcje, aby zainstalować rozszerzenie na maszynach wirtualnych systemu Windows:
 
-1. Zaloguj się w witrynie [Azure Portal](http://portal.azure.com).
+1. Zaloguj się w [Portalu Azure](http://portal.azure.com).
 2. Wybierz maszynę wirtualną, której chcesz zainstalować tego rozszerzenia.
 
     ![Zrzut ekranu Azure portalu, z wyróżnionym maszyny wirtualne](media/performance-diagnostics-vm-extension/select-the-virtual-machine.png)
@@ -182,19 +183,19 @@ Rozszerzenia maszyny wirtualnej platformy Azure można wdrożyć przy użyciu sz
         "typeHandlerVersion": "1.0",
         "autoUpgradeMinorVersion": true,
         "settings": {
+            "storageAccountName": "[parameters('storageAccountName')]",
             "performanceScenario": "[parameters('performanceScenario')]",
-                  "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-                  "perfCounterTrace": "[parameters('perfCounterTrace')]",
-                  "networkTrace": "[parameters('networkTrace')]",
-                  "xperfTrace": "[parameters('xperfTrace')]",
-                  "storPortTrace": "[parameters('storPortTrace')]",
+            "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
+            "perfCounterTrace": "[parameters('perfCounterTrace')]",
+            "networkTrace": "[parameters('networkTrace')]",
+            "xperfTrace": "[parameters('xperfTrace')]",
+            "storPortTrace": "[parameters('storPortTrace')]",
             "srNumber": "[parameters('srNumber')]",
             "requestTimeUtc":  "[parameters('requestTimeUtc')]"
         },
-          "protectedSettings": {
-            "storageAccountName": "[parameters('storageAccountName')]",
+        "protectedSettings": {            
             "storageAccountKey": "[parameters('storageAccountKey')]"        
-            }
+        }
       }
     }
   ]
@@ -202,13 +203,13 @@ Rozszerzenia maszyny wirtualnej platformy Azure można wdrożyć przy użyciu sz
 ````
 
 ## <a name="powershell-deployment"></a>Wdrożenie programu PowerShell
-`Set-AzureRmVMExtension` Polecenia mogą być używane do wdrażania rozszerzenia maszyny Wirtualnej systemu Azure wydajności diagnostyki do istniejącej maszyny wirtualnej. Przed uruchomieniem polecenia należy przechowywać konfiguracje publiczne i prywatne w tablicy skrótów programu PowerShell.
+`Set-AzureRmVMExtension` Polecenia mogą być używane do wdrażania rozszerzenia maszyny Wirtualnej systemu Azure wydajności diagnostyki do istniejącej maszyny wirtualnej.
 
 PowerShell
 
 ````
-$PublicSettings = @{ "performanceScenario":"basic","traceDurationInSeconds":300,"perfCounterTrace":"p","networkTrace":"","xperfTrace":"","storPortTrace":"","srNumber":"","requestTimeUtc":"2017-09-28T22:08:53.736Z" }
-$ProtectedSettings = @{"storageAccountName":"mystorageaccount","storageAccountKey":"mystoragekey"}
+$PublicSettings = @{ "storageAccountName"="mystorageaccount";"performanceScenario"="basic";"traceDurationInSeconds"=300;"perfCounterTrace"="p";"networkTrace"="";"xperfTrace"="";"storPortTrace"="";"srNumber"="";"requestTimeUtc"="2017-09-28T22:08:53.736Z" }
+$ProtectedSettings = @{"storageAccountKey"="mystoragekey" }
 
 Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     -ResourceGroupName "myResourceGroup" `
@@ -218,7 +219,7 @@ Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     -TypeHandlerVersion 1.0 `
     -Settings $PublicSettings `
     -ProtectedSettings $ProtectedSettings `
-    -Location WestUS `
+    -Location WestUS
 ````
 
 ## <a name="information-on-the-data-captured"></a>Informacje na temat danych przechwyconych
@@ -234,7 +235,7 @@ Ułatwiających z pracownikiem pomocy technicznej pracuje biletu pomocy technicz
 
 Aby wyświetlić raport, Wyodrębnij plik zip, a następnie otwórz **PerfInsights Report.html** pliku.
 
-Można również pobrać plik zip bezpośrednio z portalu, wybierając rozszerzenie.
+Należy również można pobrać plik zip bezpośrednio z portalu, wybierając rozszerzenie.
 
 ![Zrzut ekranu wydajności diagnostyki szczegółowy stan](media/performance-diagnostics-vm-extension/view-detailed-status.png)
 

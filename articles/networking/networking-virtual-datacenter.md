@@ -1,26 +1,13 @@
 ---
-title: Wirtualne centrum danych platformy Microsoft Azure | Dokumentacja firmy Microsoft
-description: "Dowiedz się, jak utworzyć centrum danych wirtualnych na platformie Azure"
-services: networking
-author: tracsman
-manager: rossort
-tags: azure-resource-manager
-ms.service: virtual-network
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/26/2017
-ms.author: jonor
-ms.openlocfilehash: 7dcc6b77bde8b8a7b485525105c1a07c53301f8e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+Tytuł: "Microsoft Azure wirtualnego Datacenter: A sieci perspektywy" | Opis Docs firmy Microsoft: Dowiedz się, jak utworzyć centrum danych wirtualnego w usługach Azure: Autor sieci: Menedżer tracsman: tagi rossort: Menedżera zasobów azure
+
+MS.Service: ms.tgt_pltfrm sieci wirtualnej: na ms.devlang: na ms.topic: artykuł ms.date: 05/26/2017 ms.author: jonor
 ---
-# <a name="microsoft-azure-virtual-data-center"></a>Wirtualne centrum danych platformy Microsoft Azure
+
+# <a name="microsoft-azure-virtual-datacenter-a-network-perspective"></a>Wirtualne centrum danych platformy Microsoft Azure: Perspektywy sieci
 **Microsoft Azure**: szybszą, oszczędności, integracja danych i aplikacji lokalnych
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Migrowanie aplikacji lokalnej na platformie Azure, nawet bez wprowadzania żadnych znaczących zmian (podejście jest ogólnie znana jako "przyrostu i przesunięcia"), pozwala organizacjom zalet infrastruktury zabezpieczonych i ekonomiczny sposób. Jednak aby umożliwić większości elastyczność z rozwiązań w chmurze, przedsiębiorstw powinien rozwijać ich architektury, aby móc korzystać z funkcji platformy Azure. Microsoft Azure oferuje hiperskali usług i infrastruktury, funkcje klasy korporacyjnej i niezawodność oraz wiele opcji na potrzeby łączności hybrydowej. Klienci mogą wybrać dostępu do tych usług chmury, za pośrednictwem Internetu lub z usługi Azure ExpressRoute, który zapewnia łączność w sieci prywatnej. Platforma Microsoft Azure umożliwia klientom bezproblemowo rozszerzają infrastruktury do chmury i tworzenia wielu architektur. Ponadto partnerów firmy Microsoft zawiera udoskonalone funkcje za oferty usług zabezpieczeń i wirtualnych urządzeń, które są zoptymalizowane do uruchamiania na platformie Azure.
 
 Ten artykuł zawiera omówienie wzorców i projekty, które mogą służyć do rozwiązywania problemów architektury skali, wydajności i zabezpieczeń wiele stojących przed klientami w przypadku o czasie masse przenoszeniu do chmury. Omówienie jak dostosować różnych organizacji ról do zarządzania i nadzór nad systemu jest również omówione wyróżnieniem do wymagań dotyczących zabezpieczeń i kosztów optymalizacji.
@@ -189,8 +176,8 @@ Składniki infrastruktury zawiera następujące funkcje:
 
 -   [**Tożsamości i usługi katalogowe**][AAD]. Dostęp do wszystkich typów zasobów na platformie Azure jest kontrolowany przez tożsamości przechowywane w usłudze katalogowej. Usługa katalogowa przechowuje nie tylko listę użytkowników, ale również prawa dostępu do zasobów w określonej subskrypcji platformy Azure. Te usługi może istnieć tylko na chmurze lub mogą być synchronizowane z tożsamością lokalnie przechowywane w usłudze Active Directory.
 -   [**Sieć wirtualna**][VPN]. Sieci wirtualne są jednym z głównych składników vDC i umożliwiają tworzenie granic izolacji ruchu na platformie Azure. Sieć wirtualna składa się z jednym lub wielu segmentach sieci wirtualnej, każda z określonego adresu IP prefiksu sieci (podsieci). Sieci wirtualnej definiuje obszar obwodowej wewnętrznego, gdy maszyny wirtualne IaaS i PaaS usługi może nawiązać komunikacji prywatnej. Maszyny wirtualne (i usługi PaaS) w jednej sieci wirtualnej nie może komunikować się bezpośrednio do maszyn wirtualnych (i usługi PaaS) w innej sieci wirtualnej, nawet jeśli obie sieci wirtualne są tworzone przez tego samego klienta w ramach tej samej subskrypcji. Izolacja jest krytyczne właściwość, która zapewnia klienta maszyn wirtualnych i komunikacja pozostanie prywatnej sieci wirtualnej.
--   [**PRZEZ**][UDR]. Ruch w sieci wirtualnej jest kierowany przez domyślne na podstawie tabeli routingu systemu. Zdefiniuj użytkownika trasy jest niestandardowe tabele routingu, które administratorzy sieci można kojarzyć z co najmniej jednej podsieci, aby zastąpić zachowania tabeli routingu systemu oraz zdefiniować ścieżki komunikacji w ramach sieci wirtualnej. Obecność Udr gwarancje ruch wychodzący z przesyłania gwiazdy przez określone niestandardowe maszyny wirtualne i/lub wirtualnych urządzeń sieciowych i występuje w Centrum i klienci usługi równoważenia obciążenia.
--   [**GRUPA NSG**][NSG]. Grupa zabezpieczeń sieci znajduje się lista reguł zabezpieczeń, które działają jako ruchu filtrowania portów IP źródła, docelowego adresu IP, protokołów, portów IP źródłowego i docelowego adresu IP. Grupy NSG można zastosować do podsieci, karty wirtualnej karty Sieciowej, skojarzonych z maszyny Wirtualnej platformy Azure lub oba. Grupy NSG są niezbędne do zaimplementowania kontroli prawidłowego przepływu w Centrum i klienci. Poziom zabezpieczeń oferowanych przez grupa NSG jest funkcja otwierania portów i w jaki celu. Klienci powinni zastosować filtry wirtualna dodatkowych zapór oparta na hoście, takie jak IPtables lub Zapora systemu Windows.
+-   [**UDR**][UDR]. Ruch w sieci wirtualnej jest kierowany przez domyślne na podstawie tabeli routingu systemu. Zdefiniuj użytkownika trasy jest niestandardowe tabele routingu, które administratorzy sieci można kojarzyć z co najmniej jednej podsieci, aby zastąpić zachowania tabeli routingu systemu oraz zdefiniować ścieżki komunikacji w ramach sieci wirtualnej. Obecność Udr gwarancje ruch wychodzący z przesyłania gwiazdy przez określone niestandardowe maszyny wirtualne i/lub wirtualnych urządzeń sieciowych i występuje w Centrum i klienci usługi równoważenia obciążenia.
+-   [**NSG**][NSG]. Grupa zabezpieczeń sieci znajduje się lista reguł zabezpieczeń, które działają jako ruchu filtrowania portów IP źródła, docelowego adresu IP, protokołów, portów IP źródłowego i docelowego adresu IP. Grupy NSG można zastosować do podsieci, karty wirtualnej karty Sieciowej, skojarzonych z maszyny Wirtualnej platformy Azure lub oba. Grupy NSG są niezbędne do zaimplementowania kontroli prawidłowego przepływu w Centrum i klienci. Poziom zabezpieczeń oferowanych przez grupa NSG jest funkcja otwierania portów i w jaki celu. Klienci powinni zastosować filtry wirtualna dodatkowych zapór oparta na hoście, takie jak IPtables lub Zapora systemu Windows.
 -   **DNS**. Rozpoznawanie nazw zasobów w sieci wirtualnych z vDC podano przy użyciu systemu DNS. Zakres rozpoznawania nazw DNS domyślnej jest ograniczona do sieci wirtualnej. Zazwyczaj niestandardowe usługi DNS musi zostać wdrożony w Centrum w ramach wspólnych usług, ale głównego korzystającym z usługi DNS znajdują się w gwiazdy. Jeśli to konieczne, klienci mogą tworzyć strukturę hierarchiczną DNS z delegowania strefy DNS, aby klienci.
 -   [** Subskrypcji] [ SubMgmt] i [zarządzania grupy zasobów][RGMgmt]**. Subskrypcja definiuje fizycznych granic można utworzyć wiele grup zasobów na platformie Azure. Zasobów w subskrypcji są łączone ze sobą w kontenerach logiczną o nazwie grupy zasobów. Grupa zasobów reprezentuje grupę logiczną do organizowania zasobów vDC.
 -   [**RBAC**][RBAC]. Za pomocą RBAC jest możliwość mapy ról organizacyjnych wraz z prawa dostępu do określonych zasobów Azure, umożliwiając Ogranicz użytkowników do pewnych podzestaw akcje. Z RBAC można przyznać dostęp, przypisując odpowiednią rolę dla użytkowników, grup i aplikacji w obrębie odpowiedniego zakresu. Zakres przypisania roli może być pojedynczego zasobu, grupy zasobów lub subskrypcji platformy Azure. RBAC umożliwia dziedziczenie uprawnień. Rola przypisana w zakresie nadrzędnej również udziela dostępu do podrzędnych w nim zawarte. Przy użyciu funkcji RBAC, można rozdzielenie obowiązków i udzielić tylko takiego dostępu dla użytkowników, które są niezbędne do wykonywania swoich zadań. Na przykład użycie funkcji RBAC, aby umożliwić jednego pracownika zarządzać maszyn wirtualnych w ramach subskrypcji, gdy inny Zarządzanie bazami danych SQL w ramach tej samej subskrypcji.
@@ -203,7 +190,7 @@ Pakiety przychodzące powinny przepływać przez urządzenia zabezpieczeń w Cen
 
 Składniki sieci obwodowej zapewniają następujące funkcje:
 
--   [Sieci wirtualne][VNet], [przez][UDR], [NSG][NSG]
+-   [Virtual Networks][VNet], [UDR][UDR], [NSG][NSG]
 -   [Urządzenie wirtualne sieci][NVA]
 -   [Usługa równoważenia obciążenia][ALB]
 -   [Brama aplikacji w][AppGW] / [zapory aplikacji sieci Web][WAF]
@@ -330,11 +317,11 @@ Następujące funkcje zostały omówione w tym dokumencie. Kliknij łącza, aby 
 | | | |
 |-|-|-|
 |Funkcje sieci|Równoważenie obciążenia|Łączność|
-|[Sieci wirtualnych platformy Azure][VNet]</br>[Grupy zabezpieczeń sieci][NSG]</br>[Dzienniki grupy NSG][NSGLog]</br>[Routing zdefiniowane przez użytkownika][UDR]</br>[Urządzenie wirtualne sieci][NVA]</br>[Publiczny adres IP][PIP]|[Moduł równoważenia obciążenia Azure (L3)][ALB]</br>[Brama aplikacji (P7)][AppGW]</br>[Zapora aplikacji sieci Web][WAF]</br>[Usługi Azure Traffic Manager][TM] |[Komunikacja równorzędna sieci wirtualnej][VNetPeering]</br>[Wirtualna sieć prywatna][VPN]</br>[ExpressRoute][ExR]
+|[Azure Virtual Networks][VNet]</br>[Grupy zabezpieczeń sieci][NSG]</br>[NSG Logs][NSGLog]</br>[Routing zdefiniowane przez użytkownika][UDR]</br>[Urządzenie wirtualne sieci][NVA]</br>[Publiczny adres IP][PIP]|[Moduł równoważenia obciążenia Azure (L3) ][ALB]</br>[Brama aplikacji (P7) ][AppGW]</br>[Zapora aplikacji sieci Web][WAF]</br>[Usługi Azure Traffic Manager][TM] |[Komunikacja równorzędna sieci wirtualnej][VNetPeering]</br>[Wirtualna sieć prywatna][VPN]</br>[ExpressRoute][ExR]
 |Tożsamość</br>|Monitorowanie</br>|Najlepsze rozwiązania</br>|
-|[Usługa Azure Active Directory][AAD]</br>[Uwierzytelnianie wieloskładnikowe][MFA]</br>[Rola dostępu bazowego formantów][RBAC]</br>[Domyślne role usługi AAD][Roles] |[Dzienniki aktywności][ActLog]</br>[Dzienniki diagnostyczne][DiagLog]</br>[Microsoft Operations Management Suite][OMS]</br> |[Najlepsze rozwiązania w zakresie sieci obwodowej][DMZ]</br>[Zarządzanie subskrypcją][SubMgmt]</br>[Zarządzanie grupami zasobów][RGMgmt]</br>[Limity subskrypcji platformy Azure][Limits] |
+|[Azure Active Directory][AAD]</br>[Multi-Factor Authentication][MFA]</br>[Rola dostępu bazowego formantów][RBAC]</br>[Domyślne role usługi AAD][Roles] |[Dzienniki aktywności][ActLog]</br>[Dzienniki diagnostyczne][DiagLog]</br>[Microsoft Operations Management Suite][OMS]</br> |[Najlepsze rozwiązania w zakresie sieci obwodowej][DMZ]</br>[Zarządzanie subskrypcją][SubMgmt]</br>[Zarządzanie grupami zasobów][RGMgmt]</br>[Limity subskrypcji platformy Azure][Limits] |
 |Innymi usługami platformy Azure|
-|[Aplikacje sieci Web Azure][WebApps]</br>[HDInsights (Hadoop)][HDI]</br>[Event Hubs][EventHubs]</br>[Service Bus][ServiceBus]|
+|[Aplikacje sieci Web Azure][WebApps]</br>[HDInsights (Hadoop) ][HDI]</br>[Event Hubs][EventHubs]</br>[Service Bus][ServiceBus]|
 
 
 
@@ -347,7 +334,7 @@ Następujące funkcje zostały omówione w tym dokumencie. Kliknij łącza, aby 
 [0]: ./media/networking-virtual-datacenter/redundant-equipment.png "przykłady nakładają się na siebie składnika" 
 [1]: ./media/networking-virtual-datacenter/vdc-high-level.png "wysokiego poziomu przykład vDC gwiazdy"
 [2]: ./media/networking-virtual-datacenter/hub-spokes-cluster.png "klastra koncentratorów i partnerów"
-[3]: ./media/networking-virtual-datacenter/spoke-to-spoke.png "gwiazdy gwiazdy"
+[3]: ./media/networking-virtual-datacenter/spoke-to-spoke.png "Spoke-to-spoke"
 [4]: ./media/networking-virtual-datacenter/vdc-block-level-diagram.png "poziomu diagram blokowy serwera wirtualnego"
 [5]: ./media/networking-virtual-datacenter/users-groups-subsciptions.png "użytkowników, grup, subskrypcje i projektów"
 [6]: ./media/networking-virtual-datacenter/infrastructure-high-level.png "diagramu wysokiego poziomu infrastruktury"

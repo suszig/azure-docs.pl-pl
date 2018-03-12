@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: a2422d8a79d102accb72476f6934bae38603973a
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 8526e949aee2935824a03a0972d9e45c71d6601b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Narzędzia wprowadzanie danych maszyny wirtualnej nauki danych
 
@@ -35,7 +35,7 @@ Poniżej przedstawiono niektóre narzędzia przepływu danych, które firma Micr
 | DSVM obsługiwane wersje      | Windows      |
 | Typowe zastosowania      | Importowanie wielu obiektów blob magazynu Azure do usługi Azure Data Lake Store.      |
 |  Jak używać / uruchom go?    |   Otwórz wiersz polecenia, wpisz `adlcopy` Aby uzyskać pomoc.    |
-| Łącza do próbek      | [Using AdlCopy]https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
+| Łącza do próbek      | [Korzystanie z narzędzia AdlCopy](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
 | Pokrewne narzędzia na DSVM      | AzCopy, Azure Command Line     |
 
 ## <a name="azure-command-line"></a>Wiersza polecenia platformy Azure
@@ -46,7 +46,7 @@ Poniżej przedstawiono niektóre narzędzia przepływu danych, które firma Micr
 | DSVM obsługiwane wersje      | Windows, Linux     |
 | Typowe zastosowania      | Importowanie i eksportowanie danych do i z magazynu Azure, Azure Data Lake Store      |
 |  Jak używać / uruchom go?    |   Otwórz wiersz polecenia, wpisz `az` Aby uzyskać pomoc.    |
-| Łącza do próbek      | [Korzystanie z interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/?viee-cli-latest)     |
+| Łącza do próbek      | [Korzystanie z interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure)     |
 | Pokrewne narzędzia na DSVM      | AzCopy, AdlCopy      |
 
 
@@ -93,7 +93,7 @@ Poniżej przedstawiono niektóre narzędzia przepływu danych, które firma Micr
 | DSVM obsługiwane wersje      | Linux      |
 | Typowe zastosowania      | Odczytywanie i zapisywanie do obiektów blob w kontenerze      |
 |  Jak używać / uruchom go?    |   Uruchom _blobfuse_ w terminalu.    |
-| Łącza do próbek      | [blobfuse w serwisie GitHub) [https://github.com/Azure/azure-storage-fuse]      |
+| Łącza do próbek      | [blobfuse w witrynie GitHub](https://github.com/Azure/azure-storage-fuse)      |
 | Pokrewne narzędzia na DSVM      | Wiersza polecenia platformy Azure      |
 
 

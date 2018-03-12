@@ -55,8 +55,8 @@ W poniższej tabeli przedstawiono krótkie podsumowanie różnic między typami 
 
 | Strategia replikacji | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
-| Dane są replikowane między wieloma obiektami. |Nie |Tak |Tak |Tak |
-| Dane mogą być odczytywane z lokalizacji pomocniczej i z lokalizacji podstawowej. |Nie |Nie |Nie |Tak |
+| Dane są replikowane między wieloma obiektami. |Nie |Yes |Yes |Yes |
+| Dane mogą być odczytywane z lokalizacji pomocniczej i z lokalizacji podstawowej. |Nie |Nie |Nie |Yes |
 | Liczba kopii danych obsługiwanych w osobnych węzłach. |3 |3 |6 |6 |
 
 Aby uzyskać więcej informacji, zobacz [opcje replikacji magazynu Azure Storage tutaj](../articles/storage/common/storage-redundancy.md). Aby uzyskać więcej informacji o dyskach zarządzanych, zobacz [Omówienie usługi Azure Managed Disks](../articles/virtual-machines/windows/managed-disks-overview.md).
@@ -75,7 +75,7 @@ Ceny różnią się w zależności od wybranego typu magazynu i dostępności.
 Zobacz [Cennik usługi Azure Storage](https://azure.microsoft.com/pricing/details/storage/), aby uzyskać informacje na temat różnych typów magazynów i opcji dostępności.
 
 ## <a name="availability-sets"></a>Zestawy dostępności
-Zestaw dostępności to logiczne grupowanie maszyn wirtualnych w centrum danych, który umożliwia platformie Azure zrozumieć, jak aplikacja jest wbudowana w celu zapewnienia nadmiarowości i dostępności. Zaleca się, że co najmniej dwie maszyny wirtualne są tworzone w ramach zestawu do zapewnienia wysokiej dostępności aplikacji i w celu spełnienia dostępności [99,95% umowy SLA platformy Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Jeśli pojedyncza maszyna wirtualna korzysta z usługi [Azure Premium Storage](../articles/virtual-machines/windows/premium-storage.md), w przypadku zdarzeń nieplanowanej konserwacji obowiązuje umowa SLA platformy Azure. 
+Zestaw dostępności to logiczne grupowanie maszyn wirtualnych w centrum danych, który umożliwia platformie Azure zrozumieć, jak aplikacja jest wbudowana w celu zapewnienia nadmiarowości i dostępności. Zaleca się, że co najmniej dwie maszyny wirtualne są tworzone w ramach zestawu do zapewnienia wysokiej dostępności aplikacji i w celu spełnienia dostępności [99,95% umowy SLA platformy Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Nie ma żadnych kosztów dla zestawu dostępności samego, płacisz za każde wystąpienie maszyny Wirtualnej, który utworzono. Jeśli pojedyncza maszyna wirtualna korzysta z usługi [Azure Premium Storage](../articles/virtual-machines/windows/premium-storage.md), w przypadku zdarzeń nieplanowanej konserwacji obowiązuje umowa SLA platformy Azure. 
 
 Zestaw dostępności składa się z dwóch dodatkowych grup, które chronić przed awariami sprzętu i zezwolić na aktualizacje, które można bezpiecznie można zastosować — fault domeny (FDs) i aktualizację domeny (UDs). Zapoznaj się z dodatkowymi informacjami na temat zarządzania dostępnością [maszyn wirtualnych z systemem Linux](../articles/virtual-machines/linux/manage-availability.md) lub [maszyn wirtualnych z systemem Windows](../articles/virtual-machines/windows/manage-availability.md).
 
@@ -90,7 +90,7 @@ Maszyny wirtualne korzystające z usługi [Azure Managed Disks](../articles/virt
 
 ## <a name="availability-zones"></a>Dostępność strefy
 
-[Dostępność strefy](../articles/availability-zones/az-overview.md) ustawia zamiast dostępności (wersja zapoznawcza), rozwiń poziom kontroli należy zachować dostępność aplikacje i dane maszyn wirtualnych. Strefa dostępności jest fizycznie oddzielnych stref w obrębie regionu platformy Azure. Istnieją trzy strefy dostępności na obsługiwany region platformy Azure. Każdej strefy dostępności ma oddzielny zasilania źródła, sieci i chłodzenia i jest logicznie oddzielona od innych stref dostępności w obrębie regionu Azure. Przez projektowania rozwiązań do użycia w strefach replikowanych maszyn wirtualnych, można chronić aplikacji i danych z utraty możliwości Centrum danych. W przypadku złamania zabezpieczeń jednego strefy, następnie replikowanych aplikacje i dane są dostępne natychmiast w innej strefie. 
+[Dostępność strefy](../articles/availability-zones/az-overview.md) ustawia zamiast dostępności (wersja zapoznawcza), rozwiń poziom kontroli należy zachować dostępność aplikacje i dane maszyn wirtualnych. Strefa dostępności to fizycznie oddzielona strefa w regionie świadczenia usługi Azure. Istnieją trzy strefy dostępności na obsługiwany region platformy Azure. Każdej strefy dostępności ma oddzielny zasilania źródła, sieci i chłodzenia i jest logicznie oddzielona od innych stref dostępności w obrębie regionu Azure. Przez projektowania rozwiązań do użycia w strefach replikowanych maszyn wirtualnych, można chronić aplikacji i danych z utraty możliwości Centrum danych. W przypadku złamania zabezpieczeń jednego strefy, następnie replikowanych aplikacje i dane są dostępne natychmiast w innej strefie. 
 
 ![Dostępność strefy](./media/virtual-machines-common-regions-and-availability/three-zones-per-region.png)
 
@@ -98,6 +98,6 @@ Maszyny wirtualne korzystające z usługi [Azure Managed Disks](../articles/virt
 
 Dowiedz się więcej o wdrażaniu [Windows](../articles/virtual-machines/windows/create-powershell-availability-zone.md) lub [Linux](../articles/virtual-machines/linux/create-cli-availability-zone.md) maszyny Wirtualnej w strefie dostępności.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Możesz teraz rozpocząć korzystanie z tych funkcji dostępności i nadmiarowości podczas kompilowania środowiska platformy Azure. Aby uzyskać informacje o najlepszych rozwiązaniach, zobacz [Azure availability best practices](../articles/best-practices-availability-checklist.md) (Najlepsze rozwiązania dotyczące dostępności platformy Azure).
 

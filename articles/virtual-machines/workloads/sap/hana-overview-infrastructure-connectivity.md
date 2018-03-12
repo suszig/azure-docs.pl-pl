@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 10/31/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7a44fdbfb973d75c21aa87e9b9d0eea8fb2b3392
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: d94e491d12ac43a4d85a638c79bcd3b24a4bc0ef
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>Infrastruktura SAP HANA (duże wystąpień) i łączność na platformie Azure 
 
@@ -75,7 +75,7 @@ Tak Oto nieco zbliżonej do tworzenia sieci wirtualnej platformy Azure dla wyst�
 >[!Note]
 >Sieć wirtualna Azure HANA dużych wystąpienia muszą być tworzone przy użyciu modelu wdrażania usługi Azure Resource Manager. Starszy model wdrożenia usługi Azure, powszechnie znane jako klasycznego modelu wdrażania, nie jest obsługiwana z rozwiązaniem HANA dużych wystąpienia.
 
-Można utworzyć sieci wirtualnej przy użyciu portalu Azure, programu PowerShell, szablon Azure lub interfejsu wiersza polecenia Azure (zobacz [utworzyć sieć wirtualną przy użyciu portalu Azure](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). W poniższym przykładzie opisano, w sieci wirtualnej została utworzona za pośrednictwem portalu Azure.
+Można utworzyć sieci wirtualnej przy użyciu portalu Azure, programu PowerShell, szablon Azure lub interfejsu wiersza polecenia Azure (zobacz [utworzyć sieć wirtualną przy użyciu portalu Azure](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network)). W poniższym przykładzie opisano, w sieci wirtualnej została utworzona za pośrednictwem portalu Azure.
 
 Jeśli szukamy do definicji sieć wirtualną platformy Azure za pośrednictwem portalu Azure, Oto do niektórych definicje i jak te dotyczą możemy liście zakresów adresów IP innego. Jak możemy mówimy więc o **przestrzeni adresowej**, możemy oznacza przestrzeni adresowej sieci wirtualnej platformy Azure może używać. Ta przestrzeń adresowa jest również zakres adresów sieci wirtualnej używa dla propagowania tras BGP. To **przestrzeni adresowej** są widoczne w tym miejscu:
 
@@ -250,7 +250,7 @@ Użyj portalu Azure, programu PowerShell lub interfejsu wiersza polecenia w przy
 
 W takim przypadku zalecane jest dodanie nowego zakresu adresów IP jako nowy zakres do przestrzeni adresowej sieci wirtualnej zamiast generowania nowego zagregowanych zakresu. W obu przypadkach należy przesłać tej zmiany do firmy Microsoft zezwalająca na łączności z tego nowego zakresu adresów IP z jednostkami wystąpienia dużych HANA na kliencie. Można otworzyć żądania pomocy technicznej platformy Azure można pobrać nowej przestrzeni adresowej sieci wirtualnej dodane. Po otrzymaniu potwierdzenia, wykonaj kolejne kroki.
 
-Aby utworzyć dodatkowe podsieci przy użyciu portalu Azure, zobacz artykuł [utworzyć sieć wirtualną przy użyciu portalu Azure](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)i aby utworzyć na podstawie programu PowerShell, zobacz [utworzyć sieć wirtualną przy użyciu programu PowerShell](../../../virtual-network/virtual-networks-create-vnet-arm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Aby utworzyć dodatkowe podsieci przy użyciu portalu Azure, zobacz artykuł [utworzyć sieć wirtualną przy użyciu portalu Azure](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network)i aby utworzyć na podstawie programu PowerShell, zobacz [utworzyć sieć wirtualną przy użyciu programu PowerShell](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network).
 
 ## <a name="adding-vnets"></a>Dodawanie sieci wirtualnych
 
@@ -277,15 +277,13 @@ Po utworzeniu nowego obwodu i SAP HANA w konfiguracji zarządzania usługą Azur
 
 Aby usunąć podsieć sieci wirtualnej, można użyć portalu Azure, programu PowerShell lub interfejsu wiersza polecenia. W przypadku, gdy IP sieci wirtualnej platformy Azure adres zakresu/Azure przestrzeni adresowej sieci wirtualnej została zagregowanych zakresu, nie ma żadnych wykonaj dla możesz z firmą Microsoft. Z tą różnicą, że sieć wirtualna jest nadal trwa propagowanie przestrzeni adresowej trasy protokołu BGP, która obejmuje usunięto podsieci. Jeśli IP sieci wirtualnej platformy Azure adres zakresu/Azure przestrzeni adresowej sieci wirtualnej jest zdefiniowany jako wiele zakresów adresów IP, z których jeden została przypisana do usuniętego podsieci, Usuń to poza przestrzeń adresowa sieci wirtualnej i następnie informuje SAP HANA na zarządzanie usługą Azure usunięcie go z zakresów, które może komunikować się z SAP HANA na platformie Azure (wystąpienia duże).
 
-Gdy nie ma jeszcze określone, dedykowanych witryny Azure.com wskazówki dotyczące usuwania podsieci, proces usuwania podsieci jest odwrotna procesu dodawania ich. Zapoznaj się z artykułem [utworzyć sieć wirtualną przy użyciu portalu Azure](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Aby uzyskać więcej informacji na temat tworzenia podsieci.
+Aby usunąć podsieć, zobacz [usunąć podsieć](../../../virtual-network/virtual-network-manage-subnet.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#delete-a-subnet) Aby uzyskać więcej informacji na temat tworzenia podsieci.
 
 ## <a name="deleting-a-vnet"></a>Usunięcie sieci wirtualnej
 
-Podczas usuwania sieci wirtualnej, użyj portalu Azure, programu PowerShell lub interfejsu wiersza polecenia. SAP HANA na zarządzania usługą Azure usuwa istniejące zezwolenia na SAP HANA obwodu usługi Azure ExpressRoute (duże wystąpień) i Usuń IP sieci wirtualnej platformy Azure adres zakresu/Azure przestrzeni adresowej sieci wirtualnej do komunikacji z wystąpieniami dużych HANA.
+Aby usunąć sieć wirtualną, zobacz [usunąć sieci wirtualnej](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#delete-a-virtual-network). SAP HANA na zarządzania usługą Azure usuwa istniejące zezwolenia na SAP HANA obwodu usługi Azure ExpressRoute (duże wystąpień) i Usuń IP sieci wirtualnej platformy Azure adres zakresu/Azure przestrzeni adresowej sieci wirtualnej do komunikacji z wystąpieniami dużych HANA.
 
 Po usunięciu sieci wirtualnej, otwórz żądanie pomocy technicznej platformy Azure do zapewnienia zakresów przestrzeni adresów IP do usunięcia.
-
-Gdy nie ma jeszcze określone, dedykowane witryny Azure.com wskazówki dotyczące usuwania sieci wirtualnych, proces usuwania sieci wirtualnych jest odwrotna procesu dodawania obrazu, który opisano powyżej. Zobacz artykuły [utworzyć sieć wirtualną przy użyciu portalu Azure](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) i [utworzyć sieć wirtualną przy użyciu programu PowerShell](../../../virtual-network/virtual-networks-create-vnet-arm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Aby uzyskać więcej informacji na temat tworzenia sieci wirtualnych.
 
 Aby zapewnić, że wszystko jest usuwany, Usuń następujące elementy:
 

@@ -15,11 +15,11 @@ ms.date: 03/02/2018
 ms.author: carlrab
 ms.workload: Active
 ms.topic: article
-ms.openlocfilehash: 917b5cdd82b44c1993eebd16634257d5a6518c96
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: e89d348c4b21a249401254c64e3887ec36283022
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Elastyczne pule pozwalają na zarządzanie i skalowania wielu baz danych Azure SQL
 
@@ -314,7 +314,7 @@ Tworzenie i zarządzanie nimi pule elastyczne bazy danych SQL przy użyciu progr
 
 ## <a name="manage-elastic-pools-and-databases-using-the-azure-cli"></a>Zarządzanie pule elastyczne i baz danych przy użyciu wiersza polecenia platformy Azure
 
-Tworzenie i zarządzanie nimi pule elastyczne bazy danych SQL z [interfejsu wiersza polecenia Azure](/cli/azure/overview), należy użyć następującego [bazy danych SQL interfejsu wiersza polecenia Azure](/cli/azure/sql/db) poleceń. Używaj usługi [Cloud Shell](/azure/cloud-shell/overview), aby uruchamiać interfejs wiersza polecenia w przeglądarce, albo [zainstaluj](/cli/azure/install-azure-cli) go w systemie macOS, Linux lub Windows. 
+Tworzenie i zarządzanie nimi pule elastyczne bazy danych SQL z [interfejsu wiersza polecenia Azure](/cli/azure), należy użyć następującego [bazy danych SQL interfejsu wiersza polecenia Azure](/cli/azure/sql/db) poleceń. Używaj usługi [Cloud Shell](/azure/cloud-shell/overview), aby uruchamiać interfejs wiersza polecenia w przeglądarce, albo [zainstaluj](/cli/azure/install-azure-cli) go w systemie macOS, Linux lub Windows. 
 
 > [!TIP]
 > Dla interfejsu wiersza polecenia Azure przykładowe skrypty, zobacz [Użyj interfejsu wiersza polecenia, aby przenieść bazę danych Azure SQL w puli elastycznej SQL](scripts/sql-database-move-database-between-pools-cli.md) i [Użyj wiersza polecenia platformy Azure do skalowania puli elastycznej SQL w bazie danych SQL Azure](scripts/sql-database-scale-pool-cli.md).

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2018
 ms.author: kumud
-ms.openlocfilehash: ddbfb415f062396f022f0f58cb975f6e3a5f1807
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7e4fa38145ac21aaca8efa37250cc32ef1b1655c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Omówienie usługi Azure Standard modułu równoważenia obciążenia (wersja zapoznawcza)
 
@@ -327,7 +327,7 @@ Jednostki SKU nie jest modyfikowalna. Wykonaj kroki opisane w tej sekcji, aby pr
 
 ## <a name="region-availability"></a>Dostępność w danym regionie
 
-Standardowe usługi równoważenia obciążenia jest obecnie dostępny we wszystkich regionach chmury publicznej.
+Standardowe usługi równoważenia obciążenia jest obecnie dostępny we wszystkich regionach chmury publicznej, z wyjątkiem zachodnie stany USA.
 
 >[!IMPORTANT]
 > Dla krótkim czasie dostępu do regionów poza początkowej uruchamiania regionów (wschodnie stany USA 2, środkowe stany USA, Europa Północna, zachodnie centralnej nam, Europa Zachodnia, Azja południowo-wschodnia) wymaga rejestracji subskrypcji dodatkowe funkcje (AllowLBPreviewWave2 i AllowLBPreviewWave3).  [Wykonaj poniższe czynności](#additionalpreviewregions). Wykonaj wszystkie z nich nawet wtedy, gdy zostało wcześniej zarejestrowane w do AllowLBPreview już.
@@ -467,6 +467,7 @@ Następujące ograniczenia obowiązują w czasie Podgląd i mogą ulec zmianie:
 - [Alerty monitora Azure](../monitoring-and-diagnostics/monitoring-overview-alerts.md) nie są obsługiwane w tej chwili.
 - Portal nie obsługuje jeszcze szerokim testowaniu regionów.  Użyj narzędzia klienta, takie jak szablony, Azure CLI w wersji 2.0 lub programu PowerShell, aby uniknąć tego problemu.
 - Operacji przenoszenia subskrypcji nie są obsługiwane.
+- Nie jest dostępna w zachodnie stany USA.
 
 
 ## <a name="next-steps"></a>Kolejne kroki

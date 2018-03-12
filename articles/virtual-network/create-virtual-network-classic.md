@@ -16,20 +16,20 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: f4a1562983ffa68dbd6586a2ae3a569f766387b5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1ec6d8d5327ec6d5ebb92e125cb4c52a7a929c0e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Tworzenie sieci wirtualnej (wdrożenia klasyczne) z wieloma podsieciami
 
 > [!IMPORTANT]
-> Platforma Azure ma dwa [różne modele wdrażania](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do tworzenia i pracy z zasobami: Resource Manager i model klasyczny. Ten artykuł dotyczy klasycznego modelu wdrożenia. Firma Microsoft zaleca utworzenie większości nowych sieci wirtualnych za pomocą [Resource Manager](virtual-networks-create-vnet-arm-pportal.md) modelu wdrażania.
+> Platforma Azure ma dwa [różne modele wdrażania](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do tworzenia i pracy z zasobami: Resource Manager i model klasyczny. Ten artykuł dotyczy klasycznego modelu wdrożenia. Firma Microsoft zaleca utworzenie większości nowych sieci wirtualnych za pomocą [Resource Manager](quick-create-portal.md) modelu wdrażania.
 
 W tym samouczku jak utworzyć podstawowy sieć wirtualna platformy Azure (klasyczną) ma oddzielne podsieci publiczne i prywatne. Można utworzyć zasobów platformy Azure, takich jak maszyny wirtualne i usługi w chmurze w podsieci. Zasoby utworzone w sieciach wirtualnych (klasyczne) może komunikować się ze sobą oraz z zasobami w innych sieciach, połączony z siecią wirtualną.
 
-Dowiedz się więcej na temat wszystkich [sieci wirtualnej](virtual-network-manage-network.md) i [podsieci](virtual-network-manage-subnet.md) ustawienia.
+Dowiedz się więcej na temat wszystkich [sieci wirtualnej](manage-virtual-network.md) i [podsieci](virtual-network-manage-subnet.md) ustawienia.
 
 > [!WARNING]
 > Sieci wirtualne (klasyczne) są natychmiast usuwane przez Azure podczas [subskrypcja została wyłączona](../billing/billing-subscription-become-disable.md?toc=%2fazure%2fvirtual-network%2ftoc.json#you-reached-your-spending-limit). Sieci wirtualne (klasyczne) są usuwane niezależnie od tego, czy istnieje zasobów w sieci wirtualnej. Jeśli później ponownie włączysz subskrypcji, muszą zostać ponownie utworzone zasoby, które były dostępne w sieci wirtualnej.
@@ -161,7 +161,7 @@ Można utworzyć sieci wirtualnej (wdrożenia klasyczne) przy użyciu [portalu A
 
 ## <a name="next-steps"></a>Kolejne kroki
 
-- Aby dowiedzieć się więcej o wszystkich ustawieniach podsieci i sieci wirtualnej, zobacz [Zarządzanie sieciami wirtualnymi](virtual-network-manage-network.md) i [Zarządzanie podsieci sieci wirtualnej](virtual-network-manage-subnet.md). Istnieją różne opcje dotyczące używania sieci wirtualnych i podsieci w środowisku produkcyjnym, aby spełnić różne wymagania.
+- Aby dowiedzieć się więcej o wszystkich ustawieniach podsieci i sieci wirtualnej, zobacz [Zarządzanie sieciami wirtualnymi](manage-virtual-network.md) i [Zarządzanie podsieci sieci wirtualnej](virtual-network-manage-subnet.md). Istnieją różne opcje dotyczące używania sieci wirtualnych i podsieci w środowisku produkcyjnym, aby spełnić różne wymagania.
 - Filtrowanie ruchu przychodzącego i wychodzącego podsieci, tworzenie i stosowanie [sieciowej grupy zabezpieczeń](virtual-networks-nsg.md) do podsieci.
 - Utwórz [systemu Windows](../virtual-machines/windows/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) lub [Linux](../virtual-machines/linux/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) maszyny wirtualnej, a następnie połącz się z istniejącą siecią wirtualną.
 - Aby połączyć dwie sieci wirtualne w tej samej lokalizacji platformy Azure, Utwórz [sieci wirtualnej komunikacji równorzędnej](create-peering-different-deployment-models.md) między sieciami wirtualnymi. Elementu równorzędnego sieci wirtualnej (Resource Manager) do sieci wirtualnej (wdrożenia klasyczne), ale nie można utworzyć komunikacji równorzędnej między dwoma sieciami wirtualnymi (klasyczny).

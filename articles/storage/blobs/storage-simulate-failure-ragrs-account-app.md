@@ -10,11 +10,11 @@ ms.devlang:
 ms.topic: tutorial
 ms.date: 12/23/2017
 ms.author: v-ruogun
-ms.openlocfilehash: 9ebf773cf39d832416dce820e67201c21a679296
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: ea57ba54fefb1942dcbdbde6e68b20d6290d9fd6
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Symulowanie błędu podczas uzyskiwania dostępu do odczytu do magazynu nadmiarowego
 
@@ -161,7 +161,7 @@ route del <destination_ip> gw <gateway_ip>
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
-route delete <destination_ip> <gateway_ip>
+route delete <destination_ip>
 
 ---
 
@@ -182,6 +182,6 @@ W drugiej części serii omówiono czynności dotyczące symulowania błędu w c
 Kliknij ten link, aby wyświetlić wstępnie skompilowane przykłady magazynu.
 
 > [!div class="nextstepaction"]
-> [Przykłady skryptów usługi Azure Storage](storage-samples-blobs-cli.md)
+> [Azure storage script samples (Przykładowe skrypty dla usługi Azure Storage)](storage-samples-blobs-cli.md)
 
 [previous-tutorial]: storage-create-geo-redundant-storage.md

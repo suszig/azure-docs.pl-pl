@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: e2aadf6a103e92a4fbb11223a449280a36dea6b4
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 4a50ae5e19ff9bf79b7f5361e5a274a2aba350f5
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Łączenie role usługi w chmurze Azure z niestandardowego kontrolera domeny AD hostowana na platformie Azure
 Sieć wirtualną (VNet) zostanie najpierw skonfigurowanie na platformie Azure. Następnie dodamy kontroler domeny usługi Active Directory (obsługiwanych na maszynie wirtualnej platformy Azure) do sieci wirtualnej. Następnie firma Microsoft będzie Dodaj istniejące role usługi w chmurze do wstępnie utworzone sieci wirtualnej, a następnie podłącz je do kontrolera domeny.
@@ -33,7 +33,7 @@ Wykonaj ten krok po kroku, a jeśli wystąpiły problemy, pozostaw komentarz na 
 Sieć, do którego odwołuje się przez usługę w chmurze musi być **klasycznej sieci wirtualnej**.
 
 ## <a name="create-a-virtual-network"></a>Tworzenie sieci wirtualnej
-Można utworzyć sieć wirtualną na platformie Azure przy użyciu portalu Azure lub programu PowerShell. W tym samouczku używamy środowiska PowerShell. Aby utworzyć sieć wirtualną przy użyciu portalu Azure, zobacz [tworzenie sieci wirtualnej](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+Można utworzyć sieć wirtualną na platformie Azure przy użyciu portalu Azure lub programu PowerShell. W tym samouczku jest używany programu PowerShell. Aby utworzyć sieć wirtualną przy użyciu portalu Azure, zobacz [utworzyć sieć wirtualną](../virtual-network/quick-create-portal.md). Artykuł obejmuje tworzenie sieci wirtualnej (Resource Manager), ale należy utworzyć sieć wirtualną (klasyczne) dla usług w chmurze. Aby to zrobić w portalu, wybierz **Utwórz zasób**, typ *sieci wirtualnej* w **wyszukiwania** polu, a następnie naciśnij klawisz **Enter**. W wynikach wyszukiwania w obszarze **wszystko**, wybierz pozycję **sieci wirtualnej**. W obszarze **wybierz model wdrożenia**, wybierz pozycję **klasycznego**, a następnie wybierz pozycję **Utwórz**. Można następnie wykonaj kroki opisane w artykule.
 
 ```powershell
 #Create Virtual Network

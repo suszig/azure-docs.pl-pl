@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 03/07/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
-ms.openlocfilehash: 805e39dfdee3a23d4ddc196085be59788cee912a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4d2a00f04e5b07aeb3585fb3ab6c8966e0de7e19
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Użyj bazy danych SQL Microsoft Azure stosu
 
@@ -175,14 +175,17 @@ Te parametry można określić w wierszu polecenia. Jeśli nie chcesz, lub jeśl
 
 
 ## <a name="update-the-sql-resource-provider-adapter-multi-node-only-builds-1710-and-later"></a>Zaktualizuj kartę Dostawca zasobów SQL (wielowęzłowego tylko kompilacje 1710 i nowsze)
-Nowa karta dostawcy zasobów SQL może zostać zwolniony, po zaktualizowaniu stosu Azure kompilacji. Istniejące karty będzie nadal działać, zaleca się jak najszybciej aktualizacja do nowszej kompilacji. Aktualizacje muszą być zainstalowane w kolejności: nie można pominąć wersje (patrz tabela powyżej).
+Nowa karta dostawcy zasobów programu SQL może być zwolnione po zaktualizowaniu kompilacje stosu Azure. Gdy istniejącej karty nadal działać, zaleca się jak najszybciej aktualizacja do nowszej kompilacji. Aktualizacje muszą być zainstalowane w kolejności: nie można pominąć wersje (zobacz tabelę w kroku 3 [wdrażanie dostawcy zasobów](#deploy-the-resource-provider)).
 
-Proces aktualizacji jest podobny do procesu instalacji, które jest opisane wcześniej. Utworzeniu nowej maszyny Wirtualnej za pomocą najnowszej kod dostawcy zasobów. Ponadto migracji ustawień dla tego nowego wystąpienia, w tym bazy danych i informacji o serwerze hosting. Można również migrację niezbędnych rekordów DNS.
+Do aktualizacji, należy użyć dostawcy zasobów *UpdateSQLProvider.ps1* skryptu. Proces jest podobny do procesu używane do instalowania dostawcy zasobów, zgodnie z opisem w [wdrażanie dostawcy zasobów](#deploy-the-resource-provider) sekcji tego artykułu. Skrypt jest dołączana do pobierania dostawcy zasobów.
 
-Za pomocą skryptu UpdateSQLProvider.ps1 te same argumenty, które firma Microsoft opisane wcześniej. Należy również podać certyfikatu w tym miejscu.
+*UpdateSQLProvider.ps1* skrypt tworzy nową maszynę Wirtualną z najnowszą kod dostawcy zasobów i przeprowadzanie migracji ustawień za pomocą starego maszyny Wirtualnej do nowej maszyny Wirtualnej. Ustawienia do zmigrowania obejmują bazy danych i informacji o serwerze hosting i rekordu DNS niezbędne.
+
+Skrypt wymaga użycia te same argumenty, które są opisane DeploySqlProvider.ps1 skryptu. Podaj certyfikat tutaj również. 
 
 Zalecamy pobranie najnowszych obrazu systemu Windows Server 2016 Core z witryny Marketplace zarządzania. Jeśli musisz zainstalować aktualizację, należy zaznaczyć jeden. Pakiet MSU w ścieżce lokalnej zależności. Jeśli więcej niż jeden. Plik MSU zostanie znaleziony, skrypt zakończy się niepowodzeniem.
 
+Poniżej przedstawiono przykład *UpdateSQLProvider.ps1* skrypt, który można uruchomić w wierszu polecenia programu PowerShell. Pamiętaj zmienić informacje o koncie i hasła w razie potrzeby: 
 
 > [!NOTE]
 > Proces aktualizacji dotyczy tylko systemów zintegrowanego.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: e9c6b85a439ba880c15ae16ab1cac093020430ba
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 3f1b55f2752821de447e6c03bcbf79f01d9f8264
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Jak utworzyć i skonfigurować Self-hosted integracji w czasie wykonywania
 Integracja środowiska uruchomieniowego (IR) jest używany przez fabryki danych Azure zapewnienie możliwości integracji danych w różnych środowiskach sieci infrastruktury obliczeniowej. Aby uzyskać więcej informacji o IR, zobacz [Omówienie środowiska uruchomieniowego integracji](concepts-integration-runtime.md).
@@ -65,7 +65,7 @@ Poniżej przedstawiono przepływ danych wysokiego poziomu podsumowania kroki kop
 - Hostowanie Samoobsługowe integrację środowiska uruchomieniowego, należy użyć do obsługi integracji danych w ramach sieci wirtualnej platformy Azure.
 - Traktuj źródła danych jako źródło danych lokalnych (który znajduje się za zaporą) nawet jeśli używasz **ExpressRoute**. Użyj środowiska uruchomieniowego integracji hostowania samoobsługowego nawiązać połączenie między usługą i źródła danych.
 - Należy użyć środowiska uruchomieniowego integracji siebie, nawet jeśli magazyn danych jest w chmurze na **maszyny wirtualne Azure IaaS**.
-- Zadania mogą nie działać w środowisku uruchomieniowym Self-hosted integracji zainstalowane w systemie Windows Server, na których zgodne ze standardem FIPS jest włączone szyfrowanie. Aby obejść ten problem, należy wyłączyć szyfrowanie zgodne ze standardem FIPS na serwerze.
+- Zadania mogą nie działać w środowisku uruchomieniowym Self-hosted integracji zainstalowane w systemie Windows Server, na których zgodne ze standardem FIPS jest włączone szyfrowanie. Aby obejść ten problem, należy wyłączyć szyfrowanie zgodne ze standardem FIPS na serwerze. Umożliwia wyłączenie szyfrowania zgodne ze standardem FIPS, należy zmienić następującą wartość rejestru z zakresu od 1 (włączone), 0 (wyłączone): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

@@ -16,16 +16,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: jgao
-ms.openlocfilehash: 491dbd157255dc4fa7f77178f9486959ba4847a1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: a6103c85747b2e76db7253de59b20f8b5d5a9433
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-using-the-azure-cli"></a>Zarządzanie klastrami Hadoop w HDInsight przy użyciu wiersza polecenia platformy Azure
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Dowiedz się, jak używać [interfejsu wiersza polecenia platformy Azure](../cli-install-nodejs.md) do zarządzania klastrami Hadoop w usłudze Azure HDInsight. Interfejs wiersza polecenia platformy Azure został zaimplementowany w środowisku Node.js. Można go używać na dowolnej platformie, która obsługuje środowisko Node.js, w tym w systemie Windows, Mac i Linux. Obecnie nie obsługuje HDInsight [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview).
+Dowiedz się, jak używać [interfejsu wiersza polecenia platformy Azure](../cli-install-nodejs.md) do zarządzania klastrami Hadoop w usłudze Azure HDInsight. Interfejs wiersza polecenia platformy Azure został zaimplementowany w środowisku Node.js. Można go używać na dowolnej platformie, która obsługuje środowisko Node.js, w tym w systemie Windows, Mac i Linux. Obecnie nie obsługuje HDInsight [Azure CLI 2.0](https://docs.microsoft.com/cli/azure).
 
 W tym artykule opisano tylko przy użyciu wiersza polecenia platformy Azure z usługą HDInsight. Aby uzyskać ogólne wskazówki dotyczące sposobu używania interfejsu wiersza polecenia Azure, zobacz [Instalowanie i Konfigurowanie interfejsu wiersza polecenia Azure][azure-command-line-tools].
 

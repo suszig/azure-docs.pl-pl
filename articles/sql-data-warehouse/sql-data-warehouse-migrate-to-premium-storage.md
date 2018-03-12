@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 11/29/2016
 ms.author: elbutter;barbkess
-ms.openlocfilehash: 751f553c277cec579327771beb2f3256664452b1
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 1e216da55a4c425fe112215464cdedb59c8db585
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="migrate-your-data-warehouse-to-premium-storage"></a>Migracja magazynu danych do magazynu w warstwie premium
 Usługa Azure SQL Data Warehouse niedawno wprowadzone [magazyn w warstwie premium dla większej wydajności przewidywalności][premium storage for greater performance predictability]. Teraz można migrować istniejące magazynów danych obecnie na magazynu w warstwie standardowa do magazyn w warstwie premium. Możesz korzystać z automatycznych migracji, lub jeśli wolisz decyduje o migracji (która jest związana z przestój), migrację można wykonać samodzielnie.
@@ -31,13 +31,13 @@ Jeśli magazyn danych został utworzony przed następujących dat, są aktualnie
 
 | **Region** | **Utworzone przed tą datą magazynu danych** |
 |:--- |:--- |
-| Australia Wschodnia |Magazyn w warstwie Premium nie są jeszcze dostępne |
+| Australia Wschodnia |1 stycznia 2018 |
 | Chiny Wschodnie |1 listopada 2016 r. |
 | Chiny Północne |1 listopada 2016 r. |
 | Niemcy Środkowe |1 listopada 2016 r. |
 | Niemcy Północno-Wschodnie |1 listopada 2016 r. |
-| Indie Zachodnie |Magazyn w warstwie Premium nie są jeszcze dostępne |
-| Japonia Zachodnia |Magazyn w warstwie Premium nie są jeszcze dostępne |
+| Indie Zachodnie |1 lutego 2018 |
+| Japonia Zachodnia |1 lutego 2018 |
 | Środkowo-północne stany USA |10 listopada 2016 r. |
 
 ## <a name="automatic-migration-details"></a>Szczegóły automatycznej migracji
@@ -69,14 +69,14 @@ Migracje automatyczne występują między 6:00 a 6:00:00 (czas lokalny dla regio
 
 | **Region** | **Szacowana data rozpoczęcia** | **Szacowana data końcowa** |
 |:--- |:--- |:--- |
-| Australia Wschodnia |Nie można ustalić jeszcze |Nie można ustalić jeszcze |
-| Chiny Wschodnie |9 stycznia 2017 r. |13 stycznia 2017 r. |
-| Chiny Północne |9 stycznia 2017 r. |13 stycznia 2017 r. |
-| Niemcy Środkowe |9 stycznia 2017 r. |13 stycznia 2017 r. |
-| Niemcy Północno-Wschodnie |9 stycznia 2017 r. |13 stycznia 2017 r. |
-| Indie Zachodnie |Nie można ustalić jeszcze |Nie można ustalić jeszcze |
-| Japonia Zachodnia |Nie można ustalić jeszcze |Nie można ustalić jeszcze |
-| Środkowo-północne stany USA |9 stycznia 2017 r. |13 stycznia 2017 r. |
+| Australia Wschodnia |19 marca 2018 |20 marca 2018 |
+| Chiny Wschodnie |Już migracji |Już migracji |
+| Chiny Północne |Już migracji |Już migracji |
+| Niemcy Środkowe |Już migracji |Już migracji |
+| Niemcy Północno-Wschodnie |Już migracji |Już migracji |
+| Indie Zachodnie |19 marca 2018 |20 marca 2018 |
+| Japonia Zachodnia |19 marca 2018 |20 marca 2018 |
+| Środkowo-północne stany USA |Już migracji |Już migracji |
 
 ## <a name="self-migration-to-premium-storage"></a>Samodzielna migracji magazyn w warstwie premium
 Jeśli chcesz kontrolować gdy nastąpi z przestoju, można użyć następujące kroki migracji istniejącego magazynu danych na standardowy magazyn na magazyn w warstwie premium. Wybierz tę opcję, należy wypełnić własny migracji, przed rozpoczęciem automatycznej migracji, w tym regionie. Dzięki temu, że uniknąć ryzyka automatycznej migracji powoduje konflikt (dotyczą [harmonogramu automatycznej migracji][automatic migration schedule]).
@@ -84,11 +84,14 @@ Jeśli chcesz kontrolować gdy nastąpi z przestoju, można użyć następujące
 ### <a name="self-migration-instructions"></a>Instrukcje dotyczące migracji samodzielnej
 Aby samodzielnie migracji magazynu danych, użyj kopii zapasowej i przywracania funkcji. Przywracanie część migracji powinien zająć około jednej godziny na terabajt magazynu na magazyn danych. Jeśli chcesz zachować tę samą nazwę, po zakończeniu migracji, należy wykonać [instrukcje dotyczące zmiany nazwy podczas migracji][steps to rename during migration].
 
-1. [Wstrzymaj] [ Pause] magazynu danych. Kliknięcie tej pozycji spowoduje automatyczne kopie zapasowe.
+1. [Wstrzymaj] [ Pause] magazynu danych. 
 2. [Przywróć] [ Restore] z najnowszych migawki.
 3. Usuwanie istniejącego magazynu danych na magazynu w warstwie standardowa. **Jeśli nie wykonać ten krok, zostanie naliczona opłata dla obu magazynów danych.**
 
 > [!NOTE]
+>
+> Podczas przywracania magazynu danych, sprawdź, czy najnowszy dostępny punkt przywracania występuje po magazynu danych został wstrzymany.
+>
 > Poniższe ustawienia nie przenoszone w ramach migracji:
 >
 > * Inspekcji na poziomie bazy danych należy ponownie włączyć.
@@ -105,60 +108,13 @@ W tym przykładzie załóżmy, że istniejącego magazynu danych na magazynu w w
    ```
    ALTER DATABASE CurrentDatabasename MODIFY NAME = NewDatabaseName;
    ```
-2. [Wstrzymaj] [ Pause] "MyDW_BeforeMigration." Kliknięcie tej pozycji spowoduje automatyczne kopie zapasowe.
+2. [Wstrzymaj] [ Pause] "MyDW_BeforeMigration." 
 3. [Przywróć] [ Restore] z najbardziej aktualną migawki nową bazę danych o nazwie on używany jako (na przykład "MyDW").
 4. Usuń "MyDW_BeforeMigration." **Jeśli nie wykonać ten krok, zostanie naliczona opłata dla obu magazynów danych.**
 
 
 ## <a name="next-steps"></a>Kolejne kroki
 W przypadku zmiany do magazynu w warstwie premium masz również zwiększonej liczby plików bazy danych obiektów blob w podstawowej architektury magazynu danych. Aby zmaksymalizować korzyści w zakresie wydajności tej zmiany, należy ponownie utworzyć Twoje klastrowane indeksy magazynu kolumn przy użyciu następującego skryptu. Działania skryptu, wymuszając istniejące dane na dodatkowe obiekty BLOB. Jeśli nie podejmiesz żadnych działań, dane naturalnie zostanie ponownie rozesłać wraz z upływem czasu, ponieważ załadowanie większej ilości danych w tabelach.
-
-**Wymagania wstępne:**
-
-- Magazyn danych powinno być ono uruchomione i jednostki magazynu danych 1000 lub nowszą (zobacz [mocy obliczeniowej skali][scale compute power]).
-- Musi należeć do użytkownika wykonywania skryptu [roli mediumrc] [ mediumrc role] lub nowszej. Aby dodać użytkownika do tej roli, wykonaj następujące czynności: ````EXEC sp_addrolemember 'xlargerc', 'MyUser'````
-
-````sql
--------------------------------------------------------------------------------
--- Step 1: Create table to control index rebuild
--- Run as user in mediumrc or higher
---------------------------------------------------------------------------------
-create table sql_statements
-WITH (distribution = round_robin)
-as select
-    'alter index all on ' + s.name + '.' + t.NAME + ' rebuild;' as statement,
-    row_number() over (order by s.name, t.name) as sequence
-from
-    sys.schemas s
-    inner join sys.tables t
-        on s.schema_id = t.schema_id
-where
-    is_external = 0
-;
-go
-
---------------------------------------------------------------------------------
--- Step 2: Execute index rebuilds. If script fails, the below can be re-run to restart where last left off.
--- Run as user in mediumrc or higher
---------------------------------------------------------------------------------
-
-declare @nbr_statements int = (select count(*) from sql_statements)
-declare @i int = 1
-while(@i <= @nbr_statements)
-begin
-      declare @statement nvarchar(1000)= (select statement from sql_statements where sequence = @i)
-      print cast(getdate() as nvarchar(1000)) + ' Executing... ' + @statement
-      exec (@statement)
-      delete from sql_statements where sequence = @i
-      set @i += 1
-end;
-go
--------------------------------------------------------------------------------
--- Step 3: Clean up table created in Step 1
---------------------------------------------------------------------------------
-drop table sql_statements;
-go
-````
 
 Jeśli wystąpią problemy z magazynem danych, [Utwórz bilet pomocy technicznej] [ create a support ticket] odwołanie "migracji do magazyn w warstwie premium" jako możliwe przyczyny i.
 

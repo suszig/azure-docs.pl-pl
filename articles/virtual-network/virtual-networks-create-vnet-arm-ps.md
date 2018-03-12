@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 1453dca453aa045752ea2300b9d7039c1bdd6542
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: c90bdc9381bf98e5c1457e8e28f74105227d8f8d
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-virtual-network-with-multiple-subnets-using-powershell"></a>Tworzenie sieci wirtualnej z wieloma podsieciami przy użyciu programu PowerShell
 
@@ -81,7 +81,7 @@ Zapisać konfiguracje podsieci sieci wirtualnej z [Set-AzureRmVirtualNetwork](/p
 $virtualNetwork | Set-AzureRmVirtualNetwork
 ```
 
-Przed wdrożeniem sieci wirtualnych platformy Azure i podsieci w środowisku produkcyjnym, firma Microsoft zaleca, aby należy dokładnie zapoznać się z przestrzeni adresowej [zagadnienia](virtual-network-manage-network.md#create-a-virtual-network) i [limity sieci wirtualnej](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Gdy zasoby są wdrażane na podsieci, niektóre sieci wirtualnej i zmiany podsieci, takie jak zmiana zakresów adresów, może wymagać ponownego wdrażania istniejących zasobów platformy Azure, wdrażana w obrębie podsieci.
+Przed wdrożeniem sieci wirtualnych platformy Azure i podsieci w środowisku produkcyjnym, zalecane jest, że należy dokładnie zapoznać się z przestrzeni adresowej [zagadnienia](manage-virtual-network.md#create-a-virtual-network) i [limity sieci wirtualnej](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Gdy zasoby są wdrażane na podsieci, niektóre sieci wirtualnej i zmiany podsieci, takie jak zmiana zakresów adresów, może wymagać ponownego wdrażania istniejących zasobów platformy Azure, wdrażana w obrębie podsieci.
 
 ## <a name="test-network-communication"></a>Test łączności sieciowej
 

@@ -236,10 +236,6 @@
               href: azure-stack-app-service-deploy.md
             - name: Wdrażanie usługi App Service w trybie offline
               href: azure-stack-app-service-deploy-offline.md
-            - name: Aktualizowanie dostawcy zasobów usługi aplikacji
-              href: azure-stack-app-service-update.md
-            - name: Aktualizowanie dostawcy zasobów usługi aplikacji w trybie offline
-              href: azure-stack-app-service-update-offline.md
             - name: Dodawanie większej liczby ról procesów roboczych w sieci Web
               href: azure-stack-app-service-add-worker-roles.md
             - name: Konfigurowanie źródeł wdrożenia

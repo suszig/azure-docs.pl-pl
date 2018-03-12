@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/14/2017
 ms.author: nepeters
-ms.openlocfilehash: 11d30931bd549f7e877264b4a33f8e06c6b1c802
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: e54ea62b7b7a7adb4874866a540ed9a6a097fc42
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="using-the-azure-cli-on-windows"></a>W systemie Windows przy użyciu interfejsu wiersza polecenia platformy Azure
 
 Azure interfejsu wiersza polecenia (CLI) oferuje wiersza polecenia i skryptów środowiska do tworzenia i zarządzania zasobami platformy Azure. Interfejsu wiersza polecenia Azure jest dostępna dla macOS, Linux i systemów operacyjnych Windows. W tych systemach operacyjnych polecenia interfejsu wiersza polecenia są identyczne, jednak może się różnić składni skryptów systemu operacyjnego.
 
-Ten dokument zawiera szczegóły dotyczące sposobów, że można instalować i uruchamiać na zagadnienia syntaktycznych systemu Windows i szczegóły dla każdego wiersza polecenia platformy Azure. Aby uzyskać szczegółowe interfejsu wiersza polecenia Azure dokumentacji, zobacz [dokumentacji interfejsu wiersza polecenia Azure]( https://docs.microsoft.com/cli/azure/overview).
+Ten dokument zawiera szczegóły dotyczące sposobów, że można instalować i uruchamiać na zagadnienia syntaktycznych systemu Windows i szczegóły dla każdego wiersza polecenia platformy Azure. Aby uzyskać szczegółowe interfejsu wiersza polecenia Azure dokumentacji, zobacz [dokumentacji interfejsu wiersza polecenia Azure]( https://docs.microsoft.com/cli/azure).
 
 ## <a name="windows-subsystem-for-linux"></a>Podsystem systemu Windows dla systemu Linux
 
@@ -35,7 +35,7 @@ Aby użyć wiersza polecenia platformy Azure w WSL, wykonaj poniższe kroki.
 
 |Zadanie | Instrukcje |
 |---|---|
-| Włącz WSL | [Zainstaluj WSL dokumentacji](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide) |
+| Włącz WSL | [Zainstaluj WSL dokumentacji ](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide) |
 | Zainstaluj interfejs wiersza polecenia platformy Azure |[Instalowanie interfejsu wiersza polecenia na WSL/Ubuntu 14.04](https://docs.microsoft.com/cli/azure/install-az-cli2#ubuntu)|
 
 ## <a name="powershell"></a>PowerShell

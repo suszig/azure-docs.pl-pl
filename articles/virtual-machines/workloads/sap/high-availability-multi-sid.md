@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 12/09/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1b28870938667076280d6e4b08ee84870296d133
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: a8c49f06719b68c2b3ca6aee4dfb0b90bdbf0afc
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>Tworzenie konfiguracji wielu SID SAP NetWeaver
 
@@ -425,7 +425,7 @@ ms.lasthandoff: 11/02/2017
 [virtual-network-deploy-multinic-arm-ps]:../windows/multiple-nics.md
 [virtual-network-deploy-multinic-arm-template]:../../../virtual-network/virtual-network-deploy-multinic-arm-template.md
 [virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
-[virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md
+[virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/manage-virtual-network.md#create-a-virtual-network
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
 [virtual-networks-multiple-nics]:../../../virtual-network/virtual-network-deploy-multinic-classic-ps.md
 [virtual-networks-nsg]:../../../virtual-network/virtual-networks-nsg.md
@@ -483,12 +483,12 @@ Zakończenie pozioma z dwoma systemami SAP wysokiej dostępności będzie wyglą
 > - Serwery aplikacji SAP, które należą do jednego systemu SAP identyfikatora SID musi mieć własne dedykowanych maszyn wirtualnych.
 
 
-## <a name="prepare-the-infrastructure"></a>Przygotowanie infrastruktury
+## <a name="prepare-the-infrastructure"></a>Przygotowywanie infrastruktury
 Aby przygotować infrastrukturę, można zainstalować dodatkowe wystąpienia SAP ASCS/SCS z następującymi parametrami:
 
 | Nazwa parametru | Wartość |
 | --- | --- |
-| SAP ASCS/SCS IDENTYFIKATORA SID |PR1-lb-ascs |
+| SAP ASCS/SCS SID |PR1-lb-ascs |
 | System DBMS SAP wewnętrznego modułu równoważenia obciążenia | PR5 |
 | Nazwa hosta wirtualnego SAP | cl-pr5-sap |
 | Adres IP hosta wirtualnego SAP ASCS/SCS (adres IP usługi równoważenia obciążenia Azure dodatkowe) | 10.0.0.50 |
@@ -504,8 +504,8 @@ Można zainstalować dodatkowe wystąpienia SAP ASCS/SCS w istniejącym klastrze
 
 | Roli maszyny wirtualnej | Nazwa hosta maszyny wirtualnej | Statyczny adres IP |
 | --- | --- | --- |
-| 1. węzła klastra dla wystąpienia ASCS/SCS |PR1-ascs-0 |10.0.0.10 |
-| 2 węzła klastra dla wystąpienia ASCS/SCS |PR1-ascs-1 |10.0.0.9 |
+| 1. węzła klastra dla wystąpienia ASCS/SCS |pr1-ascs-0 |10.0.0.10 |
+| 2 węzła klastra dla wystąpienia ASCS/SCS |pr1-ascs-1 |10.0.0.9 |
 
 ### <a name="create-a-virtual-host-name-for-the-clustered-sap-ascsscs-instance-on-the-dns-server"></a>Utwórz nazwę hosta wirtualnego wystąpienia klastra programu SAP ASCS/SCS na serwerze DNS
 
@@ -665,7 +665,7 @@ Procedury ogólne wygląda następująco:
 
 10. [Testowanie trybu failover wystąpienia programu SAP ASCS/SCS i replikacji SIOS][sap-ha-guide-10].
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Ograniczenia sieciowe: Usługa Azure Resource Manager][networking-limits-azure-resource-manager]
 - [Moduł równoważenia obciążenia z wieloma wirtualnymi adresami IP na platformie Azure][load-balancer-multivip-overview]

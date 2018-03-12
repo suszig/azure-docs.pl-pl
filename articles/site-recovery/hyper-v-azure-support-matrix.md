@@ -3,15 +3,16 @@ title: "Macierz obsługi replikacji funkcji Hyper-V Azure | Dokumentacja firmy M
 description: "Podsumowanie obsługiwanych składników oraz wymagania dotyczące replikacji funkcji Hyper-V do platformy Azure z usługą Azure Site Recovery"
 services: site-recovery
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 03/06/2018
 ms.author: raynew
-ms.openlocfilehash: 58d54c1e0e6aa88878b45400b9211396f5d1b9d5
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 81983b9287a6b8073724f0cd973929f4b4677d4a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Macierz obsługi replikacji funkcji Hyper-V w systemie Azure
 
@@ -29,7 +30,7 @@ Ten artykuł zawiera podsumowanie obsługiwanych składników i ustawienia odzys
 
 ## <a name="on-premises-servers"></a>Serwery lokalne
 
-**Serwer** | Wymagania | **Szczegóły**
+**Serwer** | **Wymagania** | **Szczegóły**
 --- | --- | ---
 **Funkcji Hyper-V (uruchomiony bez programu VMM)** | Windows Server 2016, Windows Server 2012 R2 z najnowszymi aktualizacjami. | Łączenie hostów z uruchomionym systemem Windows Server 2016 i 2012 R2 nie jest obsługiwana po skonfigurowaniu lokacji funkcji Hyper-V w usłudze Site Recovery.<br/><br/> Dla maszyn wirtualnych znajdujących się na hoście z systemem Windows Server 2016 odzyskiwania do alternatywnej lokalizacji nie jest obsługiwana.
 **(Uruchomione z programem VMM) funkcji Hyper-V** | VMM 2016, VMM 2012 R2 | Jeśli używany jest program VMM, hostach z systemem Windows Server 2016 powinny być zarządzane w programie VMM 2016.<br/><br/> Chmur programu VMM, które łączy hostów Hyper-V z systemem Windows Server 2016 lub 2012 R2 nie jest obecnie obsługiwany.<br/><br/> Środowiska, które obejmują uaktualnienie istniejącego serwera programu VMM 2012 R2, aby 2016 nie są obsługiwane.
@@ -139,21 +140,21 @@ Dyski zarządzane | Tak, dla trybu failover<br/><br/> Nie jest obsługiwana w pr
 
 Lokalnych maszyn wirtualnych, które są replikowane do platformy Azure musi spełniać wymagania maszyny Wirtualnej Azure podsumowaniem w poniższej tabeli.
 
-**Składnik** | Wymagania | **Szczegóły**
+**Składnik** | **Wymagania** | **Szczegóły**
 --- | --- | ---
-System operacyjny gościa | Usługa Site Recovery obsługuje wszystkich systemów operacyjnych, które są [obsługiwany przez platformę Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).  | Sprawdzanie wymagań wstępnych zakończy się niepowodzeniem, jeśli jest nieobsługiwany.
+**System operacyjny gościa** | Usługa Site Recovery obsługuje wszystkich systemów operacyjnych, które są [obsługiwany przez platformę Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).  | Sprawdzanie wymagań wstępnych zakończy się niepowodzeniem, jeśli jest nieobsługiwany.
 **Architektura systemu operacyjnego gościa** | 64-bitowa | Sprawdzanie wymagań wstępnych zakończy się niepowodzeniem, jeśli jest nieobsługiwany.
 **Rozmiar dysku systemu operacyjnego** | Do 2048 GB dla maszyny wirtualne generacji 1.<br/><br/> Dla maszyn wirtualnych generacji 2 do 300 GB.  | Sprawdzanie wymagań wstępnych zakończy się niepowodzeniem, jeśli jest nieobsługiwany.
 **Liczba dysków systemu operacyjnego** | 1 | Sprawdzanie wymagań wstępnych zakończy się niepowodzeniem, jeśli jest nieobsługiwany.
 **Liczba dysków danych** | 16 lub mniej  | Sprawdzanie wymagań wstępnych zakończy się niepowodzeniem, jeśli jest nieobsługiwany.
 **Rozmiar wirtualnego dysku twardego dysku danych** | Do 4095 GB | Sprawdzanie wymagań wstępnych zakończy się niepowodzeniem, jeśli jest nieobsługiwany.
-**Karty sieciowe** | Wiele kart sieciowych są obsługiwane. |
+**Karty sieciowe** | Obsługiwana jest konfiguracja z wieloma kartami sieciowymi |
 **Udostępniony wirtualny dysk twardy** | Nieobsługiwane | Sprawdzanie wymagań wstępnych zakończy się niepowodzeniem, jeśli jest nieobsługiwany.
-**FC dysku** | Nieobsługiwane | Sprawdzanie wymagań wstępnych zakończy się niepowodzeniem, jeśli jest nieobsługiwany.
+**Dysk FC** | Nieobsługiwane | Sprawdzanie wymagań wstępnych zakończy się niepowodzeniem, jeśli jest nieobsługiwany.
 **Format dysku twardego** | WIRTUALNEGO DYSKU TWARDEGO <br/><br/> VHDX | Usługa Site Recovery automatycznie konwertuje VHDX do wirtualnego dysku twardego, gdy awaryjnie na platformie Azure. Gdy nie powiedzie się do lokalnych maszyn wirtualnych w dalszym ciągu korzystać z formatu VHDX.
 **Bitlocker** | Nieobsługiwane | Przed włączeniem replikacji dla maszyny Wirtualnej, należy wyłączyć funkcję BitLocker.
-**Nazwa maszyny Wirtualnej** | Od 1 do 63 znaków. Ograniczone do litery, cyfry i łączniki. Nazwa maszyny Wirtualnej musi zaczynać i kończyć literą lub cyfrą. | Zaktualizuj tę wartość właściwości maszyny Wirtualnej w usłudze Site Recovery.
-**Typu maszyny Wirtualnej** | Generacja 1<br/><br/> Generacja 2 — systemu Windows | Maszyny wirtualne generacji 2 z typem dysku systemu operacyjnego, Basic (zawierającej co najmniej dwa woluminy danych w formacie VHDX) i mniejsza niż 300 GB miejsca na dysku są obsługiwane.<br></br>Maszyn wirtualnych systemu Linux generacji 2 nie są obsługiwane. [Dowiedz się więcej](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)|
+**Nazwa maszyny wirtualnej** | Od 1 do 63 znaków. Ograniczone do liter, cyfr i łączników. Nazwa maszyny wirtualnej musi zaczynać się i kończyć literą lub cyfrą. | Zaktualizuj tę wartość właściwości maszyny Wirtualnej w usłudze Site Recovery.
+**Typ maszyny wirtualnej** | Generacja 1<br/><br/> Generacja 2 — systemu Windows | Maszyny wirtualne generacji 2 z typem dysku systemu operacyjnego, Basic (zawierającej co najmniej dwa woluminy danych w formacie VHDX) i mniejsza niż 300 GB miejsca na dysku są obsługiwane.<br></br>Maszyn wirtualnych systemu Linux generacji 2 nie są obsługiwane. [Dowiedz się więcej](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)|
 
 ## <a name="recovery-services-vault-actions"></a>Akcje magazyn usług odzyskiwania
 

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: jdial
-ms.openlocfilehash: c113bbe646a54813a2885b3a9087a0171220f271
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9fc44fdd6ce01452ffc2506c599e3d05aa0803e1
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="traffic-analytics"></a>Analiza ruchu
 
@@ -46,9 +46,9 @@ Dzienniki przepływu NSG, zapewniających informacji na temat ruch przychodzący
 
 ## <a name="how-traffic-analytics-works"></a>Jak działa analizy ruchu 
 
-Analiza ruchu sprawdza nowych dzienników przepływu NSG i przechwytywanie zmniejszenie dzienniki przez agregowanie przepływów typowe między tego samego źródłowego adresu IP, docelowy adres IP, docelowy port i protokół. Na przykład 1 hosta (adres IP: 10.10.10.10) komunikowania się z hostem 2 (adres IP: 10.10.20.10), 100 razy w okresie 1 godziny przy użyciu portu (na przykład 80) i protokół (na przykład http). Zmniejszenie dziennik ma jeden wpis, który Host 1 i 2 hosta przekazywane 100 razy w ciągu 1 godziny przy użyciu portu *80* i protokół *HTTP*, zamiast pozycji 100. Zmniejszenie dzienniki są przechowywane w obszarze roboczym analizy dzienników i rozszerzone informacje geograficzne, zabezpieczeń i topologii. Dodatkowo przeanalizowaniu dzienników rozszerzonego pochodzić analytics. Na poniższej ilustracji przedstawiono przepływ danych:
+Analiza ruchu sprawdza nowych dzienników przepływu NSG i przechwytywanie zmniejszenie dzienniki przez agregowanie przepływów typowe między tego samego źródłowego adresu IP, docelowy adres IP, docelowy port i protokół. Na przykład 1 hosta (adres IP: 10.10.10.10) komunikowania się z hostem 2 (adres IP: 10.10.20.10), 100 razy w okresie 1 godziny przy użyciu portu (na przykład 80) i protokół (na przykład http). Zmniejszenie dziennik ma jeden wpis, który Host 1 i 2 hosta przekazywane 100 razy w ciągu 1 godziny przy użyciu portu *80* i protokół *HTTP*, zamiast pozycji 100. Zmniejszenie dzienniki są rozszerzona o lokalizacji geograficznej, zabezpieczeń i informacji o topologii, a następnie przechowywane w obszarze roboczym analizy dzienników. Na poniższej ilustracji przedstawiono przepływ danych:
 
-![Jak działa analizy ruchu](media/traffic-analytics/1.png)
+![Przepływ danych dzienników przepływu NSG przetwarzania](media/traffic-analytics/data-flow-for-nsg-flow-log-processing.png)
 
 ## <a name="supported-regions"></a>Obsługiwane regiony
 
@@ -74,7 +74,7 @@ Przed włączeniem rejestrowania przepływu NSG, musi mieć grupę zabezpieczeń
 
 Po lewej stronie portalu Azure, wybierz **Monitor**, następnie **obserwatora sieciowego**, a następnie wybierz **dzienniki przepływu NSG**. Wybierz grupy zabezpieczeń sieci, który chcesz włączyć dziennik przepływu NSG, jak pokazano na poniższej ilustracji:
 
-![Wybierz grupy NSG](media/traffic-analytics/2.png)
+![Wybór grup NSG, wymagających aktywacji dziennika przepływu NSG](media/traffic-analytics/selection-of-nsgs-that-require- enablement-of-nsg-flow-logging.png)
 
 Jeśli spróbujesz Włącz analizy ruchu dla grupy NSG, który znajduje się w dowolnym regionie innym niż [obsługiwane regiony](#supported-regions), komunikat o błędzie "Nie została odnaleziona". 
 
@@ -110,7 +110,7 @@ Wybierz poniższe opcje, jak pokazano na rysunku:
     Nie masz obszaru roboczego analizy dzienników (OMS) hosting rozwiązania analizy ruchu i grup NSG w tym samym regionie. Na przykład może być analizy ruchu w obszarze roboczym w regionie Europa Zachodnia, gdy masz grup NSG wschodnie stany USA i zachodnie stany USA. W tym samym obszarze roboczym można skonfigurować wiele grup NSG.
 6. Wybierz pozycję **Zapisz**.
 
-    ![Włącz analizy ruchu](media/traffic-analytics/3.png)
+    ![Wybór konta magazynu, obszar roboczy analizy dzienników i włączanie analizy ruchu](media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement.png)
 
 Powtórz poprzednie kroki dla innych grup NSG dla których chcesz włączyć analiza ruchu. Dane z dzienników przepływu są wysyłane do obszaru roboczego, dlatego upewnij się, że lokalne przepisom eksportowym obowiązującym w Twoim kraju na przechowywanie danych w regionie, w którym znajduje się obszar roboczy.
 
@@ -118,7 +118,7 @@ Powtórz poprzednie kroki dla innych grup NSG dla których chcesz włączyć ana
 
 W lewej stronie portalu, wybierz **wszystkie usługi**, wprowadź *Monitor* w **filtru** pole. Gdy **Monitor** pojawia się w wynikach wyszukiwania, wybierz go. Aby rozpocząć eksplorowanie analizy ruchu i jego możliwości, zaznacz **obserwatora sieciowego**, następnie **analizy ruchu (wersja zapoznawcza)**.
 
-![Analiza ruchu w widoku](media/traffic-analytics/4.png)
+![Uzyskiwanie dostępu do pulpitu nawigacyjnego Analytics ruchu](media/traffic-analytics/accessing-the-traffic-analytics-dashboard.png)
 
 Pulpit nawigacyjny może potrwać do 30 minut pojawi się po raz pierwszy, ponieważ analizy ruchu musi najpierw agregacji wystarczającej ilości danych dla niej pochodzić wgląd w istotne dane, zanim może generować raportów.
 
@@ -140,11 +140,11 @@ Niektóre szczegółowe informacje, które można uzyskać po ruchu Analytics je
 
     Wybierz **szczegółowe**w obszarze **hostów z większość ruchu**, jak pokazano na poniższej ilustracji:
 
-    ![Włącz analizy ruchu](media/traffic-analytics/5.png)
+    ![Pulpit nawigacyjny pokazujące hosta z większości szczegóły ruchu](media/traffic-analytics/dashboard-showcasing-host-with-most-traffic-details.png)
 
 - Na poniższej ilustracji przedstawiono czas analizy trendów top pięcioma hostami talking i szczegóły związane z przepływem (dozwolone — przychodzącego/wychodzącego i odmowy - przychodzącego/wychodzącego przepływu) dla maszyny Wirtualnej:
 
-    ![](media/traffic-analytics/6.png)
+    ![Trend hosta mówić większość 5](media/traffic-analytics/top-five-most-talking-host-trend.png)
 
 **Szukać**
 
@@ -156,11 +156,11 @@ Niektóre szczegółowe informacje, które można uzyskać po ruchu Analytics je
     - Te aplikacje są dozwolone w tej sieci?
     - Aplikacje są skonfigurowane prawidłowo? Są one przy użyciu odpowiedniego protokołu komunikacji? Wybierz **szczegółowe** w obszarze **najbardziej częste konwersacji**, co zostało przedstawione na poniższej ilustracji:
 
-    ![](media/traffic-analytics/7.png)
+        ![Pulpit nawigacyjny pokazujące najczęstsze konwersacji](media/traffic-analytics/dashboard-showcasing-most-frequent-conversation.png)
 
 - Na poniższej ilustracji przedstawiono czas analizy trendów dla górnej konwersacji pięć i szczegóły związane z przepływem, takich jak dozwolonych i zabronionych przepływów przychodzących i wychodzących dla pary konwersacji:
 
-    ![](media/traffic-analytics/8.png)
+    ![Szczegóły konwersacji chatty 5 i trend](media/traffic-analytics/top-five-chatty-conversation-details-and-trend.png)
 
 **Szukać**
 
@@ -168,13 +168,13 @@ Niektóre szczegółowe informacje, które można uzyskać po ruchu Analytics je
     - Te aplikacje są dozwolone w tej sieci?
     - Aplikacje są skonfigurowane prawidłowo? Są one przy użyciu odpowiedniego protokołu komunikacji? Oczekiwane zachowanie jest typowe porty, takie jak 80 i 443. Standardowe komunikacji jeśli są wyświetlane wszelkie nietypowe porty, mogą wymagać zmian w konfiguracji. Wybierz **szczegółowe** w obszarze **Top protokołów aplikacji**, na poniższej ilustracji:
 
-    ![](media/traffic-analytics/9.png)
+        ![Pulpit nawigacyjny pokazujące protokoły top aplikacji](media/traffic-analytics/dashboard-showcasing-top-application-protocols.png)
 
 - Następujące obrazy Pokaż podczas analizy trendów protokołów P7 5 i szczegóły związane z przepływem (na przykład dozwolonych i zabronionych przepływów w) dla protokołu P7:
 
-    ![](media/traffic-analytics/10.png)
+    ![Pięć górnej warstwy 7 szczegóły protokołów i trend](media/traffic-analytics/top five-layer-seven-protocols-details-and-trend.png)
 
-    ![](media/traffic-analytics/11.png)
+    ![Przepływ informacji dla aplikacji protokołu w dzienniku wyszukiwania](media/traffic-analytics/flow-details-for-application-protocol-in-log-search.png)
 
 **Szukać**
 
@@ -184,11 +184,11 @@ Niektóre szczegółowe informacje, które można uzyskać po ruchu Analytics je
 - Najbardziej conversing hostach, za pośrednictwem których bramy sieci VPN, które są przez port, który?
     - Ten wzorzec jest normalne? Wybierz **szczegółowe** w obszarze **aktywnych połączeń sieci VPN z góry**, jak pokazano na poniższej ilustracji:
 
-    ![](media/traffic-analytics/12.png)
+        ![Pulpit nawigacyjny pokazujące top aktywnych połączeń sieci VPN](media/traffic-analytics/dashboard-showcasing-top-active-vpn-connections.png)
 
 - Na poniższej ilustracji przedstawiono czas analizy trendów wykorzystania pojemności bramy sieci VPN platformy Azure i szczegóły związane z przepływem (takie jak dozwolone przepływów i portów):
 
-    ![](media/traffic-analytics/13.png)
+    ![Sieć VPN bramy trendu i przepływ szczegóły wykorzystania](media/traffic-analytics/vpn-gateway-utilization-trend-and-flow-details.png)
 
 ### <a name="visualize-traffic-distribution-by-geography"></a>Wizualizuj Dystrybucja ruchu według ich położenia
 
@@ -200,17 +200,17 @@ Niektóre szczegółowe informacje, które można uzyskać po ruchu Analytics je
 
     Wybierz **kliknij tutaj, aby wyświetlić na żywo geomap** w obszarze **ruchu dystrybucji między centrami danych Azure**, jak pokazano na poniższej ilustracji:
 
-    ![](media/traffic-analytics/14.png)
+  ![Dystrybucja ruchu pokazujące pulpitu nawigacyjnego](media/traffic-analytics/dashboard-showcasing-traffic-distribution.png)
 
 - Geograficznie — Mapa pokazuje top wstążki do wyboru parametrów takich jak centra danych (włączone Analytics wdrożono/nr — wdrożenia/Active/Inactive/ruch/nie włączono analizy ruchu) i krajów, przyczyniając się Benign/złośliwym kodem ruchu aktywne Wdrożenie:
 
-    ![](media/traffic-analytics/15.png)
+    ![Widoku mapy replikacji geograficznej — Warstwa prezentacji aktywnych wdrożeń](media/traffic-analytics/geo-map-view-showcasing-active-deployment.png)
 
 - Mapa geograficznie pokazuje rozkład ruchu centrum danych z innych krajów i kontynentów i komunikacji z jej w niebieski (ruch niegroźne) i kolor czerwony (szkodliwy ruch) pokolorowane wierszy:
 
-    ![](media/traffic-analytics/16.png)
+    ![Pokazujące Dystrybucja ruchu do innych krajów i kontynentów i widoku mapy Geo](media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png)
 
-    ![](media/traffic-analytics/17.png)
+    ![Przepływ szczegóły ruchu dystrybucji podczas wyszukiwania dziennika](media/traffic-analytics/flow-details-for-traffic-distribution-in-log-search.png)
 
 ### <a name="visualize-traffic-distribution-by-virtual-networks"></a>Wizualizuj Dystrybucja ruchu w sieci wirtualnych
 
@@ -222,14 +222,14 @@ Niektóre szczegółowe informacje, które można uzyskać po ruchu Analytics je
  
     Wybierz **kliknij tutaj, aby zobaczyć topologii ruchu w sieci wirtualnej** w obszarze **dystrybucji sieci wirtualnej**, jak pokazano na poniższej ilustracji: 
 
-        ![](media/traffic-analytics/18.png)
+    ![Pulpit nawigacyjny pokazujące dystrybucji sieci wirtualnej](media/traffic-analytics/dashboard-showcasing-virtual-network-distribution.png)
 
 - Topologię sieci wirtualnej pokazuje top wstążki wybór parametry, takie jak sieci wirtualnej (sieci wirtualnej między połączeń/Active/Inactive), połączeń zewnętrznych, aktywnych przepływów i złośliwych przepływów sieci wirtualnej.
 - Topologię sieci wirtualnej przedstawia rozkład ruchu do sieci wirtualnej w odniesieniu do przepływów (dozwolonych/zablokowanych/ruchu przychodzącego/wychodzącego/Benign/złośliwym kodem), protokołu aplikacji i grup zabezpieczeń sieci, na przykład:
 
-    ![](media/traffic-analytics/19.png)
+    ![Topologia sieci wirtualnej pokazujące szczegóły dystrybucji i przepływu ruchu](media/traffic-analytics/virtual-network-topology-showcasing-traffic-distribution-and-flow-details.png)
 
-    ![](media/traffic-analytics/20.png)
+    ![Przepływ szczegóły dla sieci wirtualnej Dystrybucja ruchu w dzienniku wyszukiwania](media/traffic-analytics/flow-details-for-virtual-network-traffic-distribution-in-log-search.png)
 
 **Szukać**
 
@@ -239,7 +239,7 @@ Niektóre szczegółowe informacje, które można uzyskać po ruchu Analytics je
 - Topologia podsieci pokazuje top wstążki do wyboru parametry, takie jak podsieci, połączeń zewnętrznych, aktywnych przepływów i złośliwych przepływów podsieci Active/Inactive.
 - Topologii podsieci przedstawia rozkład ruchu do sieci wirtualnej w odniesieniu do przepływów (dozwolonych/zablokowanych/ruchu przychodzącego/wychodzącego/Benign/złośliwym kodem), protokołu aplikacji i grup NSG, na przykład:
 
-    ![](media/traffic-analytics/21.png)
+    ![Pokazujące Dystrybucja ruchu w podsieci sieci wirtualnej, w odniesieniu do przepływów topologii podsieci](media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-virtual-subnet-with-regards-to-flows.png)
 
 ### <a name="view-ports-and-virtual-machines-receiving-traffic-from-the-internet"></a>Wyświetl portów i odbiera ruch z Internetu maszyny wirtualne
 
@@ -248,15 +248,15 @@ Niektóre szczegółowe informacje, które można uzyskać po ruchu Analytics je
 - Otwórz porty są konwersację przez internet?
     - Jeśli nieoczekiwane portów znajdują się otwarty, można poprawić konfigurację:
 
-        ![](media/traffic-analytics/22.png)
+        ![Pulpit nawigacyjny pokazujące porty odbieranie i wysyłanie ruch do Internetu](media/traffic-analytics/dashboard-showcasing-ports-receiving-and-sending-traffic-to-the-internet.png)
 
-        ![](media/traffic-analytics/23.png)
+        ![Szczegóły porty docelowe Azure i hostów](media/traffic-analytics/details-of-azure-destination-ports-and-hosts.png)
 
 **Szukać**
 
 Czy masz szkodliwy ruch w danym środowisku? Gdzie jest pochodzące z? Gdzie jest przeznaczony do?
 
-![](media/traffic-analytics/24.png)
+![Szczegóły przepływów szkodliwy ruch do wyszukiwania dziennika](media/traffic-analytics/malicious-traffic-flows-detail-in-log-search.png)
 
 
 ### <a name="visualize-the-trends-in-nsg-rule-hits"></a>Wizualizuj trendy w trafień reguły NSG
@@ -266,10 +266,14 @@ Czy masz szkodliwy ruch w danym środowisku? Gdzie jest pochodzące z? Gdzie jes
 - Grupa NSG/reguły, które mają najwięcej trafień?
 - Co to są top pary konwersacji źródłowego i docelowego na grupę NSG?
 
-    ![](media/traffic-analytics/25.png)
+    ![Pulpit nawigacyjny pokazujące NSG trafienia statystyki](media/traffic-analytics/dashboard-showcasing-nsg-hits-statistics.png)
 
 - Następujące obrazy Pokaż podczas analizy trendów dla trafień reguły NSG i szczegóły przepływu źródłowego i docelowego dla grupy zabezpieczeń sieci:
 
-    ![](media/traffic-analytics/26.png)
+    ![Czas pokazujące umożliwia analizę trendów trafień reguły NSG i górny reguły NSG](media/traffic-analytics/showcasing-time-trending-for-nsg-rule-hits-and-top-nsg-rules.png)
 
-    ![](media/traffic-analytics/27.png)
+    ![Górny NSG zasady statystyki szczegóły w dzienniku wyszukiwania](media/traffic-analytics/top-nsg-rules-statistics-details-in-log-search.png)
+
+## <a name="frequently-asked-questions"></a>Często zadawane pytania
+
+Aby uzyskać odpowiedzi na często zadawane pytania, zobacz [analizy ruchu — często zadawane pytania](traffic-analytics-faq.md).

@@ -1,6 +1,6 @@
 ---
 title: "Wprowadzenie — przewodnik dla operatorów Azure IT | Dokumentacja firmy Microsoft"
-description: Trwa pobieranie przewodnika Operatorzy Azure IT
+description: "Przewodnik Wprowadzenie dla operatorów IT na platformie Azure"
 services: 
 documentationcenter: 
 author: neilpeterson
@@ -15,11 +15,11 @@ ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
-ms.openlocfilehash: 4a913e188dd40b0306be375b016b9e8a3739ed72
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 8d7cbe27e5acfe741aeb5ed85756bf3c7ce2160b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Wprowadzenie do przetwarzania danych w chmurze i Microsoft Azure
 
@@ -98,7 +98,7 @@ Usługi do przechowywania danych i zarządzanie nimi:
 
 -   Usługa Azure Storage (obejmuje usługi obiektów Blob platformy Azure, kolejki, tabel i plików)
 
--   Usługa Azure SQL Database
+-   Azure SQL Database
 
 -   Azure Cosmos DB
 
@@ -116,9 +116,9 @@ Usługi dotyczące tworzenia i obsługi aplikacji:
 
 -   Usługa Azure HDInsight do przetwarzania danych big data
 
--   Harmonogram systemu Azure
+-   Azure Scheduler
 
--   Usługi Azure Media Services
+-   Azure Media Services
 
 ### <a name="network-services"></a>Usługi sieciowe
 
@@ -128,7 +128,7 @@ Usługi dotyczące sieci w obrębie platformy Azure i między Azure i lokalnymi 
 
 -   Usługa ExpressRoute systemu Azure
 
--   DNS platformy Azure
+-   Azure-provided DNS
 
 -   Azure Traffic Manager
 
@@ -348,7 +348,7 @@ Wdrażanie maszyny wirtualnej za pomocą portalu Azure wymaga aktywną subskrypc
 Oprócz wdrażania maszyny wirtualnej w portalu Azure, można wdrożyć szablonu usługi Azure Resource Manager z portalu. To wdroży i skonfiguruje wszystkie zasoby, zgodnie z definicją w szablonie. Aby uzyskać więcej informacji, zobacz [wdrożenie zasobów z szablonami usługi Resource Manager i portalu Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md).
 
 
-**PowerShell**
+**Program PowerShell**
 
 Wdrażanie maszyny wirtualnej platformy Azure przy użyciu programu PowerShell pozwala na automatyzację ukończenia wdrożenia wszystkich zasobów powiązanych maszyny wirtualnej, w tym magazynu i sieci. Aby uzyskać więcej informacji, zobacz [Utwórz maszynę Wirtualną z systemem Windows przy użyciu usługi Resource Manager i programu PowerShell](../../virtual-machines/windows/quick-create-powershell.md).
 
@@ -430,7 +430,7 @@ Wdrażanie konta magazynu przy użyciu portalu Azure wymaga tylko aktywną subsk
 
 Oprócz wdrażania konto magazynu z portalu Azure, można wdrożyć szablonu usługi Azure Resource Manager z portalu. To wdroży i skonfiguruje wszystkie zasoby, zgodnie z definicją w szablonie, łącznie ze wszystkich kont magazynu. Aby uzyskać więcej informacji, zobacz [wdrożenie zasobów z szablonami usługi Resource Manager i portalu Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md).
 
-**PowerShell**
+**Program PowerShell**
 
 Wdrażanie konta magazynu platformy Azure przy użyciu programu PowerShell pozwala na automatyzację Zakończenie wdrażania konta magazynu. Aby uzyskać więcej informacji, zobacz [przy użyciu programu Azure PowerShell z usługą Azure Storage](../../storage/common/storage-powershell-guide-full.md).
 
@@ -491,19 +491,19 @@ Dostępnych jest kilka opcji wdrażania sieci wirtualnej.
 
 **Portal**
 
-Wdrażanie sieci wirtualnej platformy Azure przy użyciu portalu Azure wymaga tylko aktywną subskrypcją platformy Azure i dostęp do przeglądarki sieci web. Można wdrożyć nową sieć wirtualną do grupy nowy lub istniejący zasób. Podczas tworzenia nowej maszyny wirtualnej z portalu, możesz wybrać istniejącej sieci wirtualnej lub Utwórz nową. Aby uzyskać więcej informacji, zobacz [utworzyć sieć wirtualną przy użyciu portalu Azure](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+Wdrażanie sieci wirtualnej platformy Azure przy użyciu portalu Azure wymaga tylko aktywną subskrypcją platformy Azure i dostęp do przeglądarki sieci web. Można wdrożyć nową sieć wirtualną do grupy nowy lub istniejący zasób. Podczas tworzenia nowej maszyny wirtualnej z portalu, możesz wybrać istniejącej sieci wirtualnej lub Utwórz nową. Aby uzyskać więcej informacji, zobacz [utworzyć sieć wirtualną przy użyciu portalu Azure](../../virtual-network/quick-create-portal.md).
 
 Oprócz wdrażania sieci wirtualnej platformy Azure w portalu Azure, można wdrożyć szablonu usługi Azure Resource Manager z portalu. To wdroży i skonfiguruje wszystkie zasoby, zgodnie z definicją w szablonie, w tym wszystkie zasoby sieci wirtualnej. Aby uzyskać więcej informacji, zobacz [wdrożenie zasobów z szablonami usługi Resource Manager i portalu Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md).
 
-**PowerShell**
+**Program PowerShell**
 
-Wdrażanie sieci wirtualnej platformy Azure przy użyciu programu PowerShell pozwala na automatyzację Zakończenie wdrażania konta magazynu. Aby uzyskać więcej informacji, zobacz [utworzyć sieć wirtualną przy użyciu programu PowerShell](../../virtual-network/virtual-networks-create-vnet-arm-ps.md).
+Wdrażanie sieci wirtualnej platformy Azure przy użyciu programu PowerShell pozwala na automatyzację Zakończenie wdrażania konta magazynu. Aby uzyskać więcej informacji, zobacz [utworzyć sieć wirtualną przy użyciu programu PowerShell](../../virtual-network/quick-create-powershell.md).
 
 Oprócz indywidualnie wdrażania zasobów platformy Azure, moduł Azure PowerShell służy do wdrażania szablonu usługi Azure Resource Manager. Aby uzyskać więcej informacji, zobacz [wdrażanie zasobów przy użyciu szablonów usługi Resource Manager i programu Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md).
 
 **Interfejs wiersza polecenia (CLI)**
 
-Podobnie jak w przypadku modułu programu PowerShell, interfejsu wiersza polecenia platformy Azure umożliwia automatyzację wdrożenia i może być używany z systemami Windows, OS X lub Linux. Można użyć interfejsu wiersza polecenia Azure **tworzenie sieci wirtualnej sieci** polecenie, aby utworzyć sieć wirtualną. Aby uzyskać więcej informacji, zobacz [utworzyć sieć wirtualną przy użyciu interfejsu wiersza polecenia Azure](../../virtual-network/virtual-networks-create-vnet-arm-cli.md).
+Podobnie jak w przypadku modułu programu PowerShell, interfejsu wiersza polecenia platformy Azure umożliwia automatyzację wdrożenia i może być używany z systemami Windows, OS X lub Linux. Można użyć interfejsu wiersza polecenia Azure **tworzenie sieci wirtualnej sieci** polecenie, aby utworzyć sieć wirtualną. Aby uzyskać więcej informacji, zobacz [utworzyć sieć wirtualną przy użyciu interfejsu wiersza polecenia Azure](../../virtual-network/quick-create-cli.md).
 
 Analogicznie można użyć wiersza polecenia platformy Azure do wdrożenia szablonu usługi Azure Resource Manager. Aby uzyskać więcej informacji, zobacz [wdrożenie zasobów z szablonami usługi Resource Manager i interfejsu wiersza polecenia Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md).
 
@@ -511,7 +511,7 @@ Analogicznie można użyć wiersza polecenia platformy Azure do wdrożenia szabl
 
 Bezpieczne sieci wirtualnych platformy Azure może pomóc za pomocą grupy zabezpieczeń sieci. Grupy NSG zawierają listę reguł listę kontroli dostępu (ACL) kontroli dostępu, które akceptować lub odrzucać ruch sieciowy do wystąpień maszyn wirtualnych w sieci wirtualnej. Grupy NSG można skojarzyć z podsieciami lub poszczególnymi wystąpieniami maszyn wirtualnych w danej podsieci. Po skojarzeniu grupy NSG z podsiecią, reguły listy ACL mają zastosowanie do wszystkich wystąpień maszyn wirtualnych w tej podsieci. Ponadto można bardziej ograniczyć ruch do poszczególnych maszyn wirtualnych przez skojarzenie grupy NSG bezpośrednio z tej maszyny Wirtualnej. Aby uzyskać więcej informacji, zobacz [filtrowania ruchu sieciowego z grup zabezpieczeń sieci](../../virtual-network/virtual-networks-nsg.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Tworzenie maszyny Wirtualnej systemu Windows](/virtual-machines/windows/quick-create-portal.md)
 - [Utwórz Maszynę wirtualną systemu Linux](../../virtual-machines/linux/quick-create-portal.md)

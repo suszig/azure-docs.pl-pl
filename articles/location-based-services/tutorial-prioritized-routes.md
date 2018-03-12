@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: ac57996e7dced5ef0f0a993889bfc13b1d064167
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 9501f3c8fa1abb6bcbfee086c542139596ab5504
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-location-based-services"></a>Znajdowanie tras dla różnych sposobów podróży za pomocą usług Azure Location Based Services
 
@@ -209,9 +209,10 @@ W tej sekcji pokazano, jak używać interfejsu API usługi Route Service w usłu
     ```
     Ten fragment kodu tworzy element [XMLHttpRequest](https://xhr.spec.whatwg.org/) i dodaje procedurę obsługi zdarzeń, która analizuje przychodzącą odpowiedź. W przypadku pomyślnej odpowiedzi tworzy on tablicę współrzędnych dla zwróconej trasy i dodaje ją do warstwy `truckRouteLayerName` mapy. 
     
-    Ten fragment kodu wysyła też zapytanie do usługi Route Service, aby uzyskać trasę dla określonego punktu początkowego i punktu końcowego dla klucza konta. Następujące parametry opcjonalne są używane do wskazania trasy dla dużej ciężarówki: - Parametr `travelMode=truck` określa sposób podróży *truck* (ciężarówka). Inne obsługiwane sposoby podróży to *taxi* (taksówka), *bus* (autobus), *van* (furgonetka), *motorcycle* (motocykl) i wartość domyślna *car* (samochód).
-        - Parametry `vehicleWidth`, `vehicleHeight` i `vehicleLength` określają wymiary pojazdu w metrach i są uwzględniane tylko w przypadku sposobu podróży *truck*.
-        - Parametr `vehicleLoadType` klasyfikuje ładunek jako niebezpieczny i objęty ograniczeniami na niektórych drogach. Obecnie jest on uwzględniany również tylko w przypadku sposobu podróży *truck*.
+    Ten fragment kodu wysyła też zapytanie do usługi Route Service, aby uzyskać trasę dla określonego punktu początkowego i punktu końcowego dla klucza konta. Następujące parametry opcjonalne służą do wskazywania trasy dla dużej ciężarówki:
+   - Parametr `travelMode=truck` określa tryb podróży jako *truck* (ciężarówka). Inne obsługiwane sposoby podróży to *taxi* (taksówka), *bus* (autobus), *van* (furgonetka), *motorcycle* (motocykl) i wartość domyślna *car* (samochód).
+   - Parametry `vehicleWidth`, `vehicleHeight` i `vehicleLength` określają wymiary pojazdu w metrach i są uwzględniane tylko w przypadku sposobu podróży *truck*.
+   - Parametr `vehicleLoadType` klasyfikuje ładunek jako niebezpieczny i objęty ograniczeniami na niektórych drogach. Obecnie jest on uwzględniany również tylko w przypadku sposobu podróży *truck*.
 
 2. Dodaj następujący kod JavaScript, aby uzyskać trasę dla samochodu przy użyciu usługi Route Service:
 

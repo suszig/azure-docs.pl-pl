@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: asgang
-ms.openlocfilehash: 472e44342fb1d5a0c432453bfcc2699c4d8b4cad
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 17cd6a931563c7d33576749453d742aca253526b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Włącz replikację maszyn wirtualnych VMware do platformy Azure
 
@@ -86,7 +86,7 @@ Podczas replikowania maszyn wirtualnych VMware:
 
 ## <a name="view-and-manage-vm-properties"></a>Wyświetlanie właściwości maszyny wirtualnej i zarządzanie nimi
 
-Następnie możesz sprawdzić właściwości maszyny źródłowej. Należy pamiętać, że nazwa maszyny Wirtualnej Azure wymaga zgodnie z [wymagania maszyny wirtualnej platformy Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+Następnie możesz sprawdzić właściwości maszyny źródłowej. Należy pamiętać, że nazwa maszyny Wirtualnej Azure wymaga zgodnie z [wymagania maszyny wirtualnej platformy Azure](vmware-physical-azure-support-matrix.md#replicated-machines).
 
 1. Kliknij przycisk **ustawienia** > **elementy replikowane** >, a następnie wybierz maszynę. **Essentials** strony zawiera informacje o ustawienia maszyny i stanu.
 2. W obszarze **Właściwości** możesz wyświetlić informacje dotyczące replikacji i trybu failover dla danej maszyny wirtualnej.

@@ -6,13 +6,13 @@ author: bsiva
 manager: abhiag
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 03/08/2018
 ms.author: bsiva
-ms.openlocfilehash: 5269fa528b6c32576b9cf1fb945ebf85b41ce819
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 4304cad9dc6aab7eb95885815a3ceb636ca6ff52
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Konfigurowanie odzyskiwania po awarii do platformy Azure dla maszyn wirtualnych funkcji Hyper-V przy użyciu programu PowerShell i usługi Azure Resource Manager
 
@@ -41,7 +41,7 @@ Upewnij się, że te wymagania wstępne zostały spełnione:
 Ponadto konkretnym przykładzie opisane w tym artykule ma następujące wymagania wstępne:
 
 * Hosta funkcji Hyper-V z systemem Windows Server 2012 R2 lub Microsoft Hyper-V Server 2012 R2 zawierającego co najmniej jednej maszyny wirtualnej. Serwery funkcji Hyper-V powinien połączony z Internetem, bezpośrednio lub za pośrednictwem serwera proxy.
-* Maszyny wirtualne mają być replikowane powinna być zgodna z [tych wymaganiach wstępnych](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+* Maszyny wirtualne mają być replikowane powinna być zgodna z [tych wymaganiach wstępnych](hyper-v-azure-support-matrix.md#replicated-vms).
 
 ## <a name="step-1-sign-in-to-your-azure-account"></a>Krok 1: Zaloguj się do konta platformy Azure
 

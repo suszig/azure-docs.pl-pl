@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 7b7625b3250d7e5b4cdb4090f34072eb58dda07c
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 5b1c443cae8481d98c32a3f4d9e3899621d1dd89
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Uzyskiwanie wysokiej dostępności danych aplikacji przy użyciu usługi Azure Storage
 
@@ -69,7 +69,7 @@ Wykonaj następujące kroki, aby utworzyć konto magazynu geograficznie nadmiaro
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Nazwa** | mystorageaccount | Unikatowa wartość konta magazynu |
    | **Model wdrażania** | Resource Manager  | Usługa Resource Manager oferuje najnowsze funkcje.|
-   | **Rodzaj konta** | Zastosowania ogólne | Aby uzyskać więcej informacji na temat typów kont, zobacz [Typy kont magazynu](../common/storage-introduction.md#types-of-storage-accounts) |
+   | **Rodzaj konta** | StorageV2 | Aby uzyskać więcej informacji na temat typów kont, zobacz [Typy kont magazynu](../common/storage-introduction.md#types-of-storage-accounts) |
    | **Wydajność** | Standardowa (Standard) | Warstwa Standardowa jest wystarczająca na potrzeby przykładowego scenariusza. |
    | **Replikacja**| Magazyn geograficznie nadmiarowy dostępny do odczytu (RA-GRS) | Jest to niezbędne do działania przykładu. |
    |**Wymagany bezpieczny transfer** | Disabled (Wyłączony)| Bezpieczny transfer nie jest wymagany w przypadku tego scenariusza. |
@@ -77,7 +77,7 @@ Wykonaj następujące kroki, aby utworzyć konto magazynu geograficznie nadmiaro
    |**ResourceGroup** | myResourceGroup |Prawidłowe nazwy grup zasobów opisano w artykule [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Reguły i ograniczenia nazewnictwa). |
    |**Lokalizacja** | Wschodnie stany USA | Wybierz lokalizację. |
 
-![tworzenie konta magazynu](media/storage-create-geo-redundant-storage/figure1.png)
+![tworzenie konta magazynu](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 
 ## <a name="download-the-sample"></a>Pobierz przykład
 

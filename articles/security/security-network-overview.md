@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: d3ce4d5c6766c41fe32164ebfe623ea8c06b58f9
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: e477ce9a5f9f35d88a6faeb68ee4e0403f64c030
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-network-security-overview"></a>Przegląd zabezpieczeń sieci platformy Azure
 Microsoft Azure obejmuje to niezawodna infrastruktura sieci do obsługi aplikacji i wymaganiami dotyczącymi łączności usługi. Łączność sieciowa będzie możliwe między zasobami znajdującymi się na platformie Azure, między lokalnymi i Azure hostowanych zasobów oraz do i z Internetu i Azure.
@@ -218,7 +218,7 @@ Do rozpoznawania nazw wewnętrznych dostępne są dwie opcje:
 Więcej informacji:
 
 * [Omówienie usługi Virtual Network](../virtual-network/virtual-networks-overview.md)
-* [Zarządzanie serwerami DNS używanymi przez sieć wirtualną (VNet)](../virtual-network/virtual-network-manage-network.md#dns-servers)
+* [Zarządzanie serwerami DNS używanymi przez sieć wirtualną (VNet)](../virtual-network/manage-virtual-network.md#change-dns-servers)
 
 Dla zewnętrznych rozpoznawanie nazw DNS dostępne są dwie opcje:
 

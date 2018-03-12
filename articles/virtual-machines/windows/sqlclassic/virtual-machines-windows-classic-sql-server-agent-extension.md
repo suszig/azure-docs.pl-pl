@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/05/2017
+ms.date: 03/07/2018
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f48adec11096cfcf7a51aedd316a7b7d3f047568
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3ff9a8b91b0359c57fae5b1a01b5d895ab9a1685
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-classic"></a>Automatyzacji zadań zarządzania na maszynach wirtualnych Azure z rozszerzeniem agenta serwera SQL (klasyczne)
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ Rozszerzenie agenta programu SQL Server IaaS obsługuje następujące zadania:
 | Funkcja administracji | Opis |
 | --- | --- |
 | **Automatyczna usługa Backup SQL** |Automatyzuje Planowanie kopii zapasowych dla wszystkich baz danych dla domyślnego wystąpienia programu SQL Server w maszynie Wirtualnej. Aby uzyskać więcej informacji, zobacz [automatycznego tworzenia kopii zapasowej dla programu SQL Server w maszynach wirtualnych platformy Azure (klasyczne)](../classic/sql-automated-backup.md). |
-| **Automatyczne stosowanie poprawek SQL** |Konfiguruje okno obsługi, w którym do maszyny Wirtualnej można przeprowadzać aktualizacje, aby uniknąć aktualizacje w godzinach szczytu dla obciążenia. Aby uzyskać więcej informacji, zobacz [automatyczne stosowanie poprawek dla programu SQL Server w maszynach wirtualnych platformy Azure (klasyczne)](../classic/sql-automated-patching.md). |
+| **Automatyczne stosowanie poprawek SQL** |Konfiguruje okno obsługi, w którym ważne aktualizacje systemu Windows do maszyny Wirtualnej może mieć miejsce, aby uniknąć aktualizacje w godzinach szczytu dla obciążenia. Aby uzyskać więcej informacji, zobacz [automatyczne stosowanie poprawek dla programu SQL Server w maszynach wirtualnych platformy Azure (klasyczne)](../classic/sql-automated-patching.md). |
 | **Integracja z usługą Azure Key Vault** |Umożliwia automatyczne instalowanie i konfigurowanie usługi Azure Key Vault na maszyną Wirtualną programu SQL Server. Aby uzyskać więcej informacji, zobacz [Konfigurowanie integracji magazynu kluczy Azure dla programu SQL Server na maszynach wirtualnych Azure (klasyczne)](../classic/ps-sql-keyvault.md). |
 
 ## <a name="prerequisites"></a>Wymagania wstępne

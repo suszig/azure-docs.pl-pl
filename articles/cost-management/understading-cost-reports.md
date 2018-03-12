@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 03/01/2018
+ms.date: 03/07/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 4effd63fbd9cb972a0d130826a7347dd34561792
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: bc2c696dceb3ed4741c10a5c611bd2d438b71bd5
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="understanding-cost-management-reports"></a>Raporty zarządzania koszt opis
 
@@ -76,6 +76,49 @@ Poszczególnych numerowane obszar obrazu poprzedniego jest szczegółowo opisane
      - Aplikacja
      - Środowisko
      - Kod kosztów
+
+    Poniżej przedstawiono listę wbudowanych grup dostępne w raportach:
+
+    - **Typ kosztu**
+      - Wybierz typ kosztu lub wiele typów kosztów, albo wybierz wszystko. Typy kosztu:
+        - Jednorazową opłatę
+        - Pomoc techniczna
+        - Koszt użycia
+    - **Klienta**
+        - Wybierz odbiorcę wielu klientów, lub wszystkich klientów.
+    - **Nazwa konta**
+        - Nazwa konta lub subskrypcji. Na platformie Azure jest to nazwa subskrypcji platformy Azure.
+    - **Brak konta**
+        - Wybierz konto, wiele kont lub wszystkich kont. Na platformie Azure jest identyfikatorem GUID subskrypcji platformy Azure.
+    - **Konto nadrzędne**
+        - Wybierz konto nadrzędne, wiele kont lub wybierz.
+    - **Usługa**
+        - Wybierz usługi, wielu usług lub wszystkich usług.
+    - **Dostawca**
+        - Dostawcy chmury, gdzie są skojarzone zasoby i koszty.
+    - **Region**
+        - Region, w którym znajduje się zasób.
+    - **Dostępność strefy**
+        - Usług AWS samodzielnie lokalizacji w obrębie regionu.
+    - **Typ zasobu**
+        - Typ zasobu w użyciu.
+    - **Sub-Type**
+        - Wybierz podtyp.
+    - **Operacja**
+        - Wybierz operację, lub **Pokaż wszystkie**.
+    - **Model cen**
+        - Wszystkie wyprzedzeniem
+        - Nr wyprzedzeniem
+        - Partial wyprzedzeniem
+        - Na żądanie
+        - Rezerwacja
+        - Miejsce
+    - **Typ opłaty**
+        - Wybierz typ opłaty ujemna lub dodatnia lub oba.
+    - **Tenancy**
+        - Określa, czy maszyna jest uruchomiona jako dedykowane maszyny.
+    -   **Typ użycia**
+          - Typ użycia może być jednorazowe opłaty lub cykliczne opłat.
 
 5. **filtry**
 

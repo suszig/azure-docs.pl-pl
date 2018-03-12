@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.date: 03/07/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: db7af48b4aaefefbea704cb87c2b7f3808fc5330
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: a7771eebc8359a5de1c79328014f5ecc06c9673b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Baza danych SQL wysokiej dostępności i platformy Azure
 Od chwili rozpoczęcia oferty PaaS bazy danych SQL Azure firma Microsoft wprowadziła Obietnica jej klientów, które wysokiej dostępności (HA) korzysta z wbudowanej w usługi i klientów nie są wymagane do działania, Dodaj logikę specjalnych lub podejmować decyzje dotyczące wysokiej dostępności. Firma Microsoft udostępnia pełną kontrolę nad HA system konfiguracji i obsłudze, zaoferować klientom umowy dotyczącej poziomu usług. HA umowy SLA stosuje się do bazy danych SQL w regionie i nie zapewnia ochrony w przypadku niepowodzenia obszar całkowity, który jest wystąpiły z przyczyn będących poza kontrolą firmy Microsoft (na przykład klęski żywiołowej, plik war, czynności terroryzmu, zamieszek, akcji dla instytucji rządowych, lub sieci lub na urządzeniu niepowodzenie zewnętrznych w centrach danych firmy Microsoft, w tym klientów w lokacjach lub między lokacjami klienta i centrum danych firmy Microsoft).
@@ -50,7 +50,7 @@ Najważniejsze korzyści:
 
 ## <a name="data-redundancy"></a>Nadmiarowość danych
 
-Rozwiązania wysokiej dostępności w bazie danych SQL jest oparty na [AlwaysON](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) technologii z programu SQL Server i ułatwia działa zarówno LS, jak i RS baz danych z minimalnym różnice. W elemencie LS konfiguracji zawsze służy ON trwałości znajduje się w usługach RS jest ona używana w przypadku dostępności (RTO niski). 
+Rozwiązania wysokiej dostępności w bazie danych SQL jest oparty na [Always ON](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) technologii z programu SQL Server i ułatwia działa zarówno LS, jak i RS baz danych z minimalnym różnice. W elemencie LS konfiguracji zawsze służy ON trwałości znajduje się w usługach RS jest ona używana w przypadku dostępności (RTO niski). 
 
 ## <a name="local-storage-configuration"></a>Lokalny magazyn konfiguracji
 
