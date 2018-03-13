@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/13/2017
+ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: dc045827fbd38054a334ff22eb30e0db6a31bac8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c266e1073722733ec8b7353c6fdddc3ae341ab20
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="resolve-errors-for-storage-account-names"></a>Rozwiąż problemy dotyczące nazw kont magazynów
 
@@ -48,16 +48,12 @@ Nazwy konta magazynu musi należeć do zakresu od 3 do 24 znaków i korzystać t
 
 ## <a name="solution"></a>Rozwiązanie
 
-### <a name="solution-1"></a>Rozwiązanie 1
-
 Upewnij się, że nazwa konta magazynu jest unikatowy. Można utworzyć unikatowej nazwy przez łączenie z wynikiem Konwencja nazewnictwa [uniqueString](resource-group-template-functions-string.md#uniquestring) funkcji.
 
 ```json
 "name": "[concat('storage', uniqueString(resourceGroup().id))]",
 "type": "Microsoft.Storage/storageAccounts",
 ```
-
-### <a name="solution-2"></a>Rozwiązanie 2
 
 Upewnij się, że nazwa konta magazynu nie może przekraczać 24 znaków. [UniqueString](resource-group-template-functions-string.md#uniquestring) funkcja zwraca 13 znaków. W przypadku łączenia prefiksu lub przyrostka do **uniqueString** powodować, podaj wartość, która jest 11 znaków lub mniej.
 
@@ -73,7 +69,5 @@ Upewnij się, że nazwa konta magazynu nie może przekraczać 24 znaków. [Uniqu
     }
 }
 ```
-
-### <a name="solution-3"></a>Rozwiązanie 3
 
 Upewnij się, że nazwa konta magazynu nie ma żadnych wielkich liter i znaków specjalnych.

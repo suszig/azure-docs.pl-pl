@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/13/2017
+ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: d6a99917e732a3439a31cafa5608348694014054
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 303b3ae0ee7b4baeda974d2b3c62fefa0a68796f
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>Rozwiązywanie błędów dla rejestracji dostawcy zasobów
 
@@ -40,6 +40,8 @@ Code: MissingSubscriptionRegistration
 Message: The subscription is not registered to use namespace {resource-provider-namespace}
 ```
 
+Komunikat o błędzie powinien zapewnić sugestie dotyczące obsługiwanych lokalizacji i wersje interfejsu API. Szablon można zmienić na jedną z sugerowane wartości. Większość dostawców są rejestrowane automatycznie w portalu Azure lub interfejsu wiersza polecenia, którego używasz, ale nie wszystkich. Nie używano dostawcę określonego zasobu przed, konieczne może zarejestrować tego dostawcy.
+
 ## <a name="cause"></a>Przyczyna
 
 Te błędy dla jednego z trzech powodów:
@@ -48,11 +50,7 @@ Te błędy dla jednego z trzech powodów:
 1. Wersja interfejsu API nie jest obsługiwana dla typu zasobu
 1. Lokalizacja nie jest obsługiwana dla typu zasobu
 
-## <a name="solution"></a>Rozwiązanie
-
-Komunikat o błędzie powinien zapewnić sugestie dotyczące obsługiwanych lokalizacji i wersje interfejsu API. Szablon można zmienić na jedną z sugerowane wartości. Większość dostawców są rejestrowane automatycznie w portalu Azure lub interfejsu wiersza polecenia, którego używasz, ale nie wszystkich. Nie używano dostawcę określonego zasobu przed, konieczne może zarejestrować tego dostawcy. Użytkownik może dowiedzieć się więcej o dostawców zasobów za pomocą programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
-
-### <a name="solution-1"></a>Rozwiązanie 1
+## <a name="solution-1---powershell"></a>Rozwiązanie 1 - programu PowerShell
 
 Dla programu PowerShell, użyj **Get AzureRmResourceProvider** aby zobaczyć stan rejestracji.
 
@@ -78,9 +76,7 @@ Aby uzyskać obsługiwanej wersji interfejsu API dla określonego typu zasobu, n
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
 ```
 
-### <a name="solution-2"></a>Rozwiązanie 2
-
-**Interfejs wiersza polecenia platformy Azure**
+## <a name="solution-2---azure-cli"></a>Rozwiązanie 2 - Azure CLI
 
 Aby sprawdzić, czy dostawca został zarejestrowany, użyj `az provider list` polecenia.
 
@@ -100,7 +96,7 @@ Aby wyświetlić obsługiwane lokalizacje i wersje interfejsu API dla typu zasob
 az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
 ```
 
-### <a name="solution-3"></a>Rozwiązanie 3
+## <a name="solution-3---azure-portal"></a>Rozwiązanie 3 - w portalu Azure
 
 Możesz wyświetlić stan rejestracji i zarejestrować przestrzeń nazw dostawcy zasobów za pośrednictwem portalu.
 

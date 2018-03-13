@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: muralikk
-ms.openlocfilehash: e9fce2530bc4e654304b946cea1715ac8e2ce6fa
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7eaf4c3c9b390e87dd8494cd6bfb2ea155451608
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Transfer danych do usługi Azure Storage za pomocą usługi Import/Eksport Microsoft Azure
 W tym artykule udostępniamy instrukcje krok po kroku na temat używania usługi Import/Eksport Azure do bezpiecznego przesyłania dużych ilości danych do magazynu obiektów Blob platformy Azure i usługi pliki Azure przez wysyłanie dysków do centrum danych platformy Azure. Ta usługa może również przesyłanie danych z magazynu Azure do dysków twardych i wysłać do lokalnych witryn. Dane z pojedynczej stacji dysków SATA wewnętrzny można zaimportować do magazynu obiektów Blob platformy Azure lub usługi pliki Azure. 
@@ -294,7 +294,7 @@ W poniższej tabeli opisano stanów awarii dysku i akcje wykonywane dla każdego
 | ND | Dysk, który nie jest częścią wszystkie zadania dociera do centrum danych w ramach innego zadania. | Dysk zostanie oznaczona jako dodatkowy dysk i zostanie zwrócony do klienta po zakończeniu zadania skojarzone z oryginalnego pakietu. |
 
 ### <a name="time-to-process-job"></a>Czas procesu zadania
-Czas potrzebny do procesu zadania importu/eksportu może być różna w zależności od różnych czynników, takich jak czas dostawy zadania typ, typ i rozmiar danych, w której są kopiowane i rozmiaru dysków podane. Usługa Import/Eksport nie ma umowy dotyczącej poziomu usług, ale po otrzymaniu dyski usługi dokłada starań, aby wykonać kopię w ciągu 7 do 10 dni. Można użyć interfejsu API REST dokładniejsze śledzenie postępu zadania. Brak procentu ukończenia parametr w operacji listę zadań, która wskazuje postęp kopiowania. Dostępu do nas Aby uzyskać szacunkową można zakończyć zadania importu/eksportu krytyczne czasu.
+Ilość czasu, jaki zajmuje to przetwarzanie zadania importu/eksportu zależy od wielu czynników, takich jak czas dostawy, obciążenia w centrum danych, typ zadania i rozmiar danych, w której są kopiowane, a liczba dysków w ramach zadania. Usługa Import/Eksport nie ma umowy dotyczącej poziomu usług, ale usługa dokłada starań, aby wykonać kopię w ciągu 7 do 10 dni po otrzymaniu dyski. Oprócz stanu opublikowane w portalu Azure interfejsów API REST można śledzić postęp zadania. Procent pełną parametr w wywołaniu interfejsu API operacji listy zadań zapewnia procent postępu kopiowania.
 
 ### <a name="pricing"></a>Cennik
 **Opłata obsługę dysku**

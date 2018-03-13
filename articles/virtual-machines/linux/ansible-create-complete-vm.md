@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: d5e3f3db4726bfb16cbb389cf99b9bf7c511da97
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 5efb666652bf124160df836b5d12305903d907ba
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="create-a-complete-linux-virtual-machine-environment-in-azure-with-ansible"></a>Utwórz pełną środowiska maszyny wirtualnej systemu Linux na platformie Azure z Ansible
 Ansible umożliwia automatyzację wdrożenia i konfiguracji zasobów w danym środowisku. Ansible służy do zarządzania maszyn wirtualnych (VM) na platformie Azure, takie same jak w przypadku innych zasobów. W tym artykule przedstawiono sposób tworzenia kompletne środowisko systemu Linux i pomocnicze zasoby z Ansible. Możesz też dowiedzieć się, jak [Tworzenie podstawowej maszyny Wirtualnej z Ansible](ansible-create-vm.md).
@@ -44,7 +44,7 @@ Następujące części podręcznika dotyczącego Ansible tworzy sieć wirtualną
   azure_rm_virtualnetwork:
     resource_group: myResourceGroup
     name: myVnet
-    address_prefixes: "10.10.0.0/16"
+    address_prefixes: "10.0.0.0/16"
 ```
 
 Aby dodać podsieci, poniższa sekcja tworzy podsieć o nazwie *mySubnet* w *myVnet* sieci wirtualnej:
@@ -81,7 +81,7 @@ Grupy zabezpieczeń sieci sterowanie przepływem ruchu sieciowego do i z maszyn�
     name: myNetworkSecurityGroup
     rules:
       - name: SSH
-        protocol: TCP
+        protocol: Tcp
         destination_port_range: 22
         access: Allow
         priority: 1001

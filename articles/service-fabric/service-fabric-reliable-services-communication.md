@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 209e657678b7f300f13fc16181a14d8ef422466d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 204280c8b81e5f751f3f0b609e04aba0a1cec381
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Jak używać komunikacji niezawodnej usługi interfejsów API
 Azure Service Fabric jako platformę jest całkowicie niezależny o komunikacji między usługami. Wszystkie protokoły i stosy są dopuszczalne, z UDP HTTP. To dewelopera usługi, aby wybrać komunikowania usług. Struktura aplikacji niezawodne usługi zawiera komunikacji wbudowanej stosach, a także interfejsów API, który można wykorzystać do tworzenia składników niestandardowych komunikacji.
@@ -76,10 +76,13 @@ public class MyStatelessService extends StatelessService {
 
 Dla stanowych usług:
 
-> [!NOTE]
-> Niezawodne usługi stanowej nie są obsługiwane w języku Java jeszcze.
->
->
+```java
+    @Override
+    protected List<ServiceReplicaListener> createServiceReplicaListeners() {
+        ...
+    }
+    ...
+```
 
 ```csharp
 class MyStatefulService : StatefulService
@@ -236,7 +239,7 @@ public interface CreateFabricClient {
 }
 ```
 
-`FabricClient`jest obiekt, który jest używany do komunikacji z klastrem usługi sieć szkieletowa usług dla różnych operacji zarządzania w klastrze. Jest to przydatne, jeśli chcesz mieć większą kontrolę nad jak program rozpoznawania nazw partycji usługi współdziała z klastra. `FabricClient`buforuje wewnętrznie i jest zwykle kosztowne, dlatego ważne jest, aby ponownie wykorzystać `FabricClient` wystąpień, jak to możliwe.
+`FabricClient` jest obiekt, który jest używany do komunikacji z klastrem usługi sieć szkieletowa usług dla różnych operacji zarządzania w klastrze. Jest to przydatne, jeśli chcesz mieć większą kontrolę nad jak program rozpoznawania nazw partycji usługi współdziała z klastra. `FabricClient` buforuje wewnętrznie i jest zwykle kosztowne, dlatego ważne jest, aby ponownie wykorzystać `FabricClient` wystąpień, jak to możliwe.
 
 ```csharp
 ServicePartitionResolver resolver = new  ServicePartitionResolver(() => CreateMyFabricClient());
@@ -267,7 +270,7 @@ Zazwyczaj kod klienta należy działa z ServicePartitionResolver bezpośrednio. 
 ### <a name="communication-clients-and-factories"></a>Komunikacja klientów i fabryki
 Biblioteka fabryki komunikacji zawiera typowe wzorzec ponownych prób obsługi błędów, który ułatwia ponawianie połączeń z punktami końcowymi usług rozwiązane. Biblioteka fabryki zapewnia mechanizm ponów próbę, gdy Podaj programy obsługi błędów.
 
-`ICommunicationClientFactory(C#) / CommunicationClientFactory(Java)`definiuje interfejs podstawowy zaimplementowana przez fabrykę klienta komunikacji, który spowoduje utworzenie klientów, którzy mogą komunikować się z usługą sieci szkieletowej usług. Implementacja CommunicationClientFactory zależy od stosu komunikacji używane przez usługę sieć szkieletowa usług, których chce komunikacji klienta. Zapewnia niezawodne interfejsu API usług `CommunicationClientFactoryBase<TCommunicationClient>`. Udostępnia podstawową implementację interfejsu CommunicationClientFactory i wykonuje zadania, które są wspólne dla wszystkich stosy komunikacji. (Te zadania obejmują przy użyciu ServicePartitionResolver w celu określenia punktu końcowego usługi). Klienci zwykle zaimplementować klasy abstrakcyjnej CommunicationClientFactoryBase do obsługi logiki, które dotyczą stosu komunikacji.
+`ICommunicationClientFactory(C#) / CommunicationClientFactory(Java)` definiuje interfejs podstawowy zaimplementowana przez fabrykę klienta komunikacji, który spowoduje utworzenie klientów, którzy mogą komunikować się z usługą sieci szkieletowej usług. Implementacja CommunicationClientFactory zależy od stosu komunikacji używane przez usługę sieć szkieletowa usług, których chce komunikacji klienta. Zapewnia niezawodne interfejsu API usług `CommunicationClientFactoryBase<TCommunicationClient>`. Udostępnia podstawową implementację interfejsu CommunicationClientFactory i wykonuje zadania, które są wspólne dla wszystkich stosy komunikacji. (Te zadania obejmują przy użyciu ServicePartitionResolver w celu określenia punktu końcowego usługi). Klienci zwykle zaimplementować klasy abstrakcyjnej CommunicationClientFactoryBase do obsługi logiki, które dotyczą stosu komunikacji.
 
 Komunikacja klienta po prostu otrzymuje adres i używa go do łączenia się z usługą. Klient może używać dowolnego protokołu chce.
 
@@ -426,7 +429,7 @@ CompletableFuture<?> result = myServicePartitionClient.invokeWithRetryAsync(clie
 
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Platformy ASP.NET Core z usługami Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md)
 * [Zdalne wywołania procedur z usług zdalnych niezawodne usługi](service-fabric-reliable-services-communication-remoting.md)
 * [Komunikacyjny WCF za pomocą niezawodnych usług](service-fabric-reliable-services-communication-wcf.md)

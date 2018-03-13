@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 03/09/2018
 ms.author: billmath
-ms.openlocfilehash: d82a91aa51b6684e6bf88de142d00705a0ceddba
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: d6d6eadf0ae8996b019a0564715f843913101944
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Wymagania wstępne dotyczące usługi Azure AD Connect
 W tym temacie opisano wymagania wstępne i wymagania sprzętowe programu Azure AD Connect.
@@ -31,6 +31,7 @@ Przed zainstalowaniem usługi Azure AD Connect, istnieje kilka rzeczy, które s�
   * Można również użyć [portalu Azure](https://portal.azure.com). Ten portal nie wymaga licencji usługi Azure AD.
 * [Dodaj i zweryfikuj domenę](../active-directory-domains-add-azure-portal.md) planujesz używać w usłudze Azure AD. Na przykład jeśli planujesz użyć contoso.com dla użytkowników, a następnie upewnij się, że ta domena została zweryfikowana i nie używasz tylko domyślnej domeny contoso.onmicrosoft.com.
 * Dzierżawa usługi Azure AD umożliwia przez obiekty domyślne 50k. Podczas weryfikowania domeny limit zostaje zwiększona do 300 obiektów k. Jeśli potrzebujesz więcej obiektów w usłudze Azure AD, należy otworzyć do sprawę pomocy technicznej, aby jeszcze bardziej zwiększyć limit. Jeśli potrzebujesz więcej niż 500 obiektów k potrzebna licencja, takich jak usługi Office 365, Azure AD podstawowa usługi Azure AD Premium lub pakietu Enterprise Mobility i zabezpieczeń.
+* ADSyncPrep jest moduł skryptu programu PowerShell, który udostępnia funkcje, które są używane w celu przygotowania środowiska usługi Active Directory programu Azure AD Connect.  Wymaga ADSyncPrep [Azure AD Microsoft Online v1.1 modułu PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).  W wersji 2 nie będzie działać.  Będzie można zainstalować przy użyciu modułu `Install-Module` polecenia cmdlet.  Aby uzyskać więcej informacji, zobacz link podany.
 
 ### <a name="prepare-your-on-premises-data"></a>Przygotowywanie danych lokalnych
 * Użyj [narzędzia IdFix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) do identyfikowania błędów, takich jak duplikaty i problemów z formatowaniem w katalogu przed synchronizacją z usługą Azure AD i Office 365.

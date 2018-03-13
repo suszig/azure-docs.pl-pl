@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: 6965e80cf10b732d4d0a8fb78447f188c133979d
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 7b9901ee3478cb193c808b65d2dbbcf8b596a3c1
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="managed-service-identity-preview"></a>Tożsamość usługi zarządzanej (wersja zapoznawcza)
 
@@ -60,19 +60,19 @@ Przejdź do obszaru nazw **kontroli dostępu (IAM)** w portalu, a następnie kli
  
 Tożsamość usługi zarządzanej aplikacji sieci web ma teraz dostęp do przestrzeni nazw usługi Service Bus, a do kolejki wcześniej została utworzona. 
 
-### <a name="run-the-app"></a>Uruchomienie aplikacji
+### <a name="run-the-app"></a>Uruchamianie aplikacji
 
-Teraz należy zmodyfikować domyślną stronę utworzoną aplikację ASP.NET. Można również użyć kodu aplikacji sieci web z [to repozytorium GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ManagedServiceIdentity). 
+Teraz należy zmodyfikować domyślną stronę utworzoną aplikację ASP.NET. Można również użyć kodu aplikacji sieci web z [to repozytorium GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ManagedServiceIdentity).
 
 Strona Default.aspx jest strony docelowej. Kod znajduje się w pliku Default.aspx.cs. Wynik jest aplikacją minimalnego sieci web z kilku pola wejścia i **wysyłania** i **odbierania** przyciski podłączoną do usługi Service Bus albo wysłać lub odebrać wiadomości.
 
-Uwaga jak [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) obiekt został zainicjowany. Zamiast za pomocą dostawcy tokenu dostępu tokenu dostępu Współdzielonego, kod tworzy dostawcę tokenów tożsamości zarządzanych usług z `TokenProvider.CreateManagedServiceIdentityTokenProvider(ServiceAudience.EventHubAudience)` wywołania. W efekcie nie ma żadnych kluczy tajnych zachować do użycia. Przepływ kontekst tożsamości zarządzana Usługa Service Bus i uzgadnianie autoryzacji automatycznie są obsługiwane przez dostawcę tokenu jest modelem prostsze niż przy użyciu sygnatury dostępu Współdzielonego.
+Uwaga jak [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) obiekt został zainicjowany. Zamiast za pomocą dostawcy tokenu dostępu tokenu dostępu Współdzielonego, kod tworzy dostawcę tokenów tożsamości zarządzanych usług z `TokenProvider.CreateManagedServiceIdentityTokenProvider(ServiceAudience.ServiceBusAudience)` wywołania. W efekcie nie ma żadnych kluczy tajnych zachować do użycia. Przepływ kontekst tożsamości zarządzana Usługa Service Bus i uzgadnianie autoryzacji automatycznie są obsługiwane przez dostawcę tokenu jest modelem prostsze niż przy użyciu sygnatury dostępu Współdzielonego.
 
 Po dokonaniu zmian, publikowanie i uruchomić aplikację. Łatwo uzyskać publikowania danych jest pobieranie, a następnie zaimportuj profil publikowania w programie Visual Studio:
 
 ![](./media/service-bus-managed-service-identity/msi3.png)
  
-Do wysyłania i odbierania wiadomości, wprowadź nazwę przestrzeni nazw i nazwę jednostki został utworzony, a następnie kliknij opcję **wysyłania** lub **odbierania**. 
+Do wysyłania i odbierania wiadomości, wprowadź nazwę przestrzeni nazw i nazwę jednostki został utworzony, a następnie kliknij opcję **wysyłania** lub **odbierania**.
  
 Należy pamiętać, że tożsamość usługi zarządzanej działa tylko w środowisku platformy Azure i tylko w przypadku wdrożenia usługi App Service, w którym można skonfigurować. Należy również zauważyć, że zarządzana usługa tożsamości nie współpracujesz z miejsc wdrożenia usługi aplikacji w tej chwili.
 

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 03/08/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 24873c685ee16520e6a8b8af9abeab84639613d7
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 825b2657cc6aa7b4e116f44020767beff911b1fc
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure SDK .NET dla interfejsu API SQL rozwiązania Cosmos DB: Pobierz i informacje o wersji
 > [!div class="op_single_selector"]
@@ -54,12 +54,6 @@ ms.lasthandoff: 03/08/2018
 </table></br>
 
 ## <a name="release-notes"></a>Informacje o wersji
-### <a name="a-name12101210"></a><a name="1.21.0"/>1.21.0
-
-* Pojedynczy pakiet NuGet programu .NET Framework i .NET Standard. [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/) pakietu jest przestarzała. 
-* Stała KeyNotFoundException dla innej kolejności partycji w zapytaniach w sytuacjach wyjątkowych.
-* Stały usterki, którym nie został trwa honorowane atrybutu JsonPropery w klauzuli select do kwerend LINQ.
-
 ### <a name="a-name12021202"></a><a name="1.20.2"/>1.20.2
 
 * Stałe usterkę, która zostaje trafiony w niektórych warunkach wyścigu, powodujące sporadyczne "Microsoft.Azure.Documents.NotFoundException: odczytu sesji nie jest dostępna dla tokenu sesji wejściowy" błędy podczas korzystania z poziomu spójności sesji.
@@ -296,7 +290,6 @@ Wszystkie żądania dotyczące bazy danych rozwiązania Cosmos Azure przy użyci
 
 | Wersja | Data wydania | Dacie wycofania |
 | --- | --- | --- |
-| [1.21.0](#1.21.0) |05 marca 2018 |--- |
 | [1.20.1](#1.20.1) |05 lutego 2018 |--- |
 | [1.19.1](#1.19.1) |16 listopada 2017 r. |--- |
 | [1.19.0](#1.19.0) |10 listopada 2017 r. |--- |

@@ -7,19 +7,19 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2017
+ms.date: 03/09/2018
 ms.author: rajanaki
-ms.openlocfilehash: 1c54ae96273880caede1f50f3a0705c41f15f26e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 6dcecce78de3caaefb40cb3fe4853d5d550163b4
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="troubleshoot-failback-from-azure-to-vmware"></a>Rozwiązywanie problemów z powrotu po awarii z platformy Azure do programu VMware
 
 W tym artykule opisano sposób rozwiązywania problemów, które mogą wystąpić podczas nie zostanie ponownie Azure maszyn wirtualnych o lokalnej infrastrukturze firmy VMware po przejściu w tryb failover Azure przy użyciu [usługi Azure Site Recovery](site-recovery-overview.md).
 
-Powrót po awarii zasadniczo obejmuje dwa podstawowe kroki. Po przejściu w tryb failover należy Włącz ponownie ochronę maszyn wirtualnych platformy Azure do środowiska lokalnego, dzięki czemu rozpoczęciu replikowanie. Drugim krokiem jest do uruchamiania trybu failover z platformy Azure, aby powrót po awarii do lokacji lokalnej. 
+Powrót po awarii zasadniczo obejmuje dwa podstawowe kroki. Po przejściu w tryb failover należy Włącz ponownie ochronę maszyn wirtualnych platformy Azure do środowiska lokalnego, dzięki czemu rozpoczęciu replikowanie. Drugim krokiem jest do uruchamiania trybu failover z platformy Azure, aby powrót po awarii do lokacji lokalnej.
 
 ## <a name="troubleshoot-reprotection-errors"></a>Rozwiązywanie problemów z błędami zastosowania
 
@@ -31,29 +31,29 @@ Ta sekcja zawiera szczegóły typowe zastosowania błędów i rozwiązania ich.
 
 Ten błąd występuje, gdy:
 
-1. Maszyna wirtualna platformy Azure można nawiązać połączenia z lokalnego serwera konfiguracji. Maszyny Wirtualnej nie można odnaleźć i zarejestrowany na serwerze konfiguracji. 
+1. Maszyna wirtualna platformy Azure można nawiązać połączenia z lokalnego serwera konfiguracji. Maszyny Wirtualnej nie można odnaleźć i zarejestrowany na serwerze konfiguracji.
 2. Usługa InMage Scout aplikacji nie jest uruchomiony na maszynie Wirtualnej Azure po pracy awaryjnej. Usługa jest wymagana do komunikacji z lokalnego serwera konfiguracji.
 
 Aby rozwiązać ten problem:
 
-1. Sprawdź, czy sieć wirtualna Azure umożliwia maszyny Wirtualnej platformy Azure do komunikowania się z lokalnego serwera konfiguracji. Aby to zrobić, konfigurowanie sieci VPN lokacja lokacja w lokalnym centrum danych lub skonfiguruj połączenie ExpressRoute z prywatnej komunikacji równorzędnej w sieci wirtualnej maszyny wirtualnej Azure. 
+1. Sprawdź, czy sieć wirtualna Azure umożliwia maszyny Wirtualnej platformy Azure do komunikowania się z lokalnego serwera konfiguracji. Aby to zrobić, konfigurowanie sieci VPN lokacja lokacja w lokalnym centrum danych lub skonfiguruj połączenie ExpressRoute z prywatnej komunikacji równorzędnej w sieci wirtualnej maszyny wirtualnej Azure.
 2. Jeśli maszyna wirtualna może komunikować się z serwera konfiguracji lokalnej, następnie logowania się do maszyny Wirtualnej i sprawdź "Usługa aplikacji InMage Scout". Jeśli zobaczysz, że nie jest uruchomiona, uruchom usługę ręcznie, a następnie sprawdź, czy typ uruchomienia usługi jest ustawiony na automatyczny.
 
 ### <a name="error-code-78052"></a>Kod błędu 78052
 
-***Nie można ukończyć włączania ochrony dla maszyny wirtualnej.**
+**Nie można ukończyć włączania ochrony dla maszyny wirtualnej.**
 
 Może to nastąpić, jeśli istnieje już maszyna wirtualna o tej samej nazwie na głównym serwerze docelowym z którym powrotu po awarii ponownie.
 
 Aby rozwiązać ten problem, wykonaj następujące czynności:
-1. Wybierz innego głównego serwera docelowego na innego hosta, dzięki czemu przełączonej utworzy komputera na inny host, gdzie nie powodują konfliktu nazw. 
+1. Wybierz innego głównego serwera docelowego na innego hosta, dzięki czemu przełączonej utworzy komputera na inny host, gdzie nie powodują konfliktu nazw.
 2. Można również vMotion główny cel do innego hosta, na którym nie nastąpi kolizję nazw. Jeśli istniejącej maszyny Wirtualnej jest stray maszyny, należy ją zmienić, aby na tym samym hoście ESXi można utworzyć nowej maszyny Wirtualnej.
 
 ### <a name="error-code-78093"></a>Kod błędu 78093
 
 **Maszyna wirtualna nie jest uruchomiona, w stanie zawieszone, lub jest niedostępny.**
 
-Włączyć ją ponownie nieudanej za pośrednictwem maszyny Wirtualnej, musi być uruchomiona maszyna wirtualna platformy Azure. Jest to, aby usługa mobilności rejestruje konfigurację serwera lokalnego i rozpocząć replikację komunikując się z serwerem przetwarzania. Jeśli komputer znajduje się w sieci nieprawidłowe lub nie jest uruchomiony (zawiesić lub zamknięcie), serwer konfiguracji nie można osiągnąć usługi mobilności na maszynie Wirtualnej, aby rozpocząć zastosowania. 
+Włączyć ją ponownie nieudanej za pośrednictwem maszyny Wirtualnej, musi być uruchomiona maszyna wirtualna platformy Azure. Jest to, aby usługa mobilności rejestruje konfigurację serwera lokalnego i rozpocząć replikację komunikując się z serwerem przetwarzania. Jeśli komputer znajduje się w sieci nieprawidłowe lub nie jest uruchomiony (zawiesić lub zamknięcie), serwer konfiguracji nie można osiągnąć usługi mobilności na maszynie Wirtualnej, aby rozpocząć zastosowania.
 
 1. Ponowne uruchomienie maszyny Wirtualnej tak, aby umożliwić komunikację wstecz lokalnymi.
 2. Uruchom ponownie zadanie ponownej ochrony po uruchomieniu maszyny wirtualnej platformy Azure
@@ -61,7 +61,7 @@ Włączyć ją ponownie nieudanej za pośrednictwem maszyny Wirtualnej, musi by�
 ### <a name="error-code-8061"></a>Kod błędu 8061
 
 **Magazyn danych jest niedostępny z hosta ESXi.**
- 
+
 Sprawdź [wzorca docelowego wymagania wstępne i obsługiwane magazyny danych](vmware-azure-reprotect.md#deploy-a-separate-master-target-server) powrotu po awarii.
 
 

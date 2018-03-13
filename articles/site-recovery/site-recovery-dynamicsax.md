@@ -12,17 +12,17 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 03/09/2018
 ms.author: asgang
-ms.openlocfilehash: 8ffc4a5a573b1c5951fab98fb766aed36f626fe4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b390f6c62a6ddf8c800f79b42a36dac2c4f4c908
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="replicate-a-multitier-dynamics-ax-application-by-using-azure-site-recovery"></a>Replikowanie wielowarstwowej aplikacji Dynamics AX za pomocą usługi Azure Site Recovery
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 
  Dynamics AX jest jednym z najbardziej popularnych rozwiązań ERP umożliwia przedsiębiorstwom standaryzacji procesów w lokalizacjach, zarządzanie zasobami i uprościć zgodności. Ponieważ aplikacja jest szczególnie ważne dla organizacji, na wypadek awarii, aplikacja powinna być uruchomiona w minimalny czas.
@@ -49,15 +49,15 @@ Na potrzeby tworzenia w tym artykule, będziemy używać maszyn wirtualnych VMwa
 
 ### <a name="source-and-target"></a>Źródłowa i docelowa
 
-**Scenariusz** | **Do lokacji dodatkowej** | **Na platformie Azure**
+**Scenariusz** | **Do lokacji dodatkowej** | **Platforma Azure**
 --- | --- | ---
-**Funkcja Hyper-V** | Tak | Tak
-**VMware** | Tak | Tak
-**Serwer fizyczny** | Tak | Tak
+**Funkcja Hyper-V** | Yes | Yes
+**VMware** | Yes | Yes
+**Serwer fizyczny** | Yes | Yes
 
 ## <a name="enable-disaster-recovery-of-the-dynamics-ax-application-by-using-site-recovery"></a>Włącz odzyskiwanie po awarii aplikacji Dynamics AX przy użyciu usługi Site Recovery
 ### <a name="protect-your-dynamics-ax-application"></a>Ochrona aplikacji Dynamics AX
-Aby włączyć replikację kompletna aplikacja i odzyskiwania, musi być chroniony każdego składnika programu Dynamics AX. 
+Aby włączyć replikację kompletna aplikacja i odzyskiwania, musi być chroniony każdego składnika programu Dynamics AX.
 
 ### <a name="1-set-up-active-directory-and-dns-replication"></a>1. Konfigurowanie replikacji usługi Active Directory i DNS
 
@@ -137,7 +137,7 @@ Dodawanie skryptów (za pośrednictwem usługi Automatyzacja Azure) po grupie ma
 
 ### <a name="perform-a-test-failover"></a>Wykonaj test trybu failover
 
-Aby uzyskać więcej informacji specyficznych dla usługi Active Directory podczas testowania trybu failover zobacz Przewodnik uzupełniający po "Rozwiązanie odzyskiwania po awarii usługi Active Directory". 
+Aby uzyskać więcej informacji specyficznych dla usługi Active Directory podczas testowania trybu failover zobacz Przewodnik uzupełniający po "Rozwiązanie odzyskiwania po awarii usługi Active Directory".
 
 Aby uzyskać więcej informacji specyficznych dla programu SQL server podczas testowania trybu failover, zobacz [Replikowanie aplikacji za pomocą programu SQL Server i usługi Azure Site Recovery](site-recovery-sql.md).
 
@@ -189,5 +189,5 @@ Aby uzyskać więcej informacji na ten powrotu po awarii, zobacz [maszyn wirtual
 ## <a name="summary"></a>Podsumowanie
 Przy użyciu usługi Site Recovery, można utworzyć plan odzyskiwania ukończenia automatycznego po awarii dla aplikacji programu Dynamics AX. W przypadku przerw w działaniu można zainicjować trybu failover w ciągu kilku sekund z dowolnego miejsca i pobrać i uruchomić aplikację w minutach.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby dowiedzieć się więcej o ochronie obciążeń przedsiębiorstwa z usługą Site Recovery, zobacz [jakie obciążenia mogę chronić?](site-recovery-workload.md).

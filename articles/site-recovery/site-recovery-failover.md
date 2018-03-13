@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
-ms.author: pratshar
-ms.openlocfilehash: 9b662099a75bf2eaebda388a6e675e70cf0b9cdc
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.date: 03/09/2018
+ms.author: ponatara
+ms.openlocfilehash: f7a60cd82508629ad3cf46882564aa68995ba3e6
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="failover-in-site-recovery"></a>Praca w trybie failover w usłudze Site Recovery
 W tym artykule opisano, jak do pracy awaryjnej maszyn wirtualnych i fizycznych serwerów są chronione przez usługę Site Recovery.
@@ -90,18 +90,18 @@ Po wyzwoleniu trybu failover obejmuje następujące kroki:
 W niektórych przypadkach pracy awaryjnej maszyn wirtualnych wymaga bardzo pośredniego kroku, który zazwyczaj trwa około 8 do 10 minut, aby zakończyć. W następujących przypadkach będzie wyższa niż zwykle czas potrzebny do trybu failover:
 
 * Maszyny wirtualne VMware przy użyciu usługi mobilności w wersji starszej niż 9,8
-* Serwerów fizycznych 
+* Serwerów fizycznych
 * Maszyny wirtualne VMware systemu Linux
 * Maszyny wirtualne funkcji Hyper-V chronione jako serwerów fizycznych
-* Maszyny wirtualne VMware, gdy następujące sterowniki nie są dostępne jako rozruchu sterowników 
-    * storvsc 
-    * vmbus 
-    * storflt 
-    * Intelide 
+* Maszyny wirtualne VMware, gdy następujące sterowniki nie są dostępne jako rozruchu sterowników
+    * storvsc
+    * vmbus
+    * storflt
+    * Intelide
     * atapi
 * Adresy IP maszyn wirtualnych VMware, które nie mają włączone niezależnie od tego, czy używasz DHCP lub statyczna usługi DHCP
 
-We wszystkich innych przypadkach ten krok pośrednie nie jest wymagane, a czas pracy w trybie failover jest niższa. 
+We wszystkich innych przypadkach ten krok pośrednie nie jest wymagane, a czas pracy w trybie failover jest niższa.
 
 
 
@@ -112,7 +112,7 @@ Można zautomatyzować niektóre działania podczas wykonywania pracy awaryjnej.
 
 ## <a name="post-failover-considerations"></a>Zagadnienia dotyczące trybu failover POST
 Po pracy awaryjnej należy wziąć pod uwagę następujące zalecenia:
-### <a name="retaining-drive-letter-after-failover"></a>Zachowywanie litery dysku po trybu failover 
+### <a name="retaining-drive-letter-after-failover"></a>Zachowywanie litery dysku po trybu failover
 Aby zachować litery dysku w przypadku maszyn wirtualnych po pracy awaryjnej, można ustawić **zasad sieci SAN** dla maszyny wirtualnej do **OnlineAll**. [Dowiedz się więcej](https://support.microsoft.com/en-us/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
 
 

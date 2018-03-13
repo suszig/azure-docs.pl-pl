@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: 2db9e60fe2807b1aa8ed7cab7eed6f7db8059a89
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 825bf3f6a3ea07cb229f00c81ad699d792ac53f9
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie produktu Workday do inicjowania obsługi użytkowników
 
@@ -768,12 +768,27 @@ Aby to zrobić, należy użyć [Studio produktu Workday](https://community.workd
 
 * Poprzedni problem z dziennikami inspekcji nie są widoczne w dzierżaw usługi Azure AD, znajduje się w Unii Europejskiej został rozwiązany. Jednak konfiguracji dodatkowych agenta jest wymagane dla dzierżaw usługi Azure AD w UE. Aby uzyskać więcej informacji, zobacz [część 3: Konfigurowanie agenta synchronizacji lokalnej](#Part 3: Configure the on-premises synchronization agent)
 
+## <a name="gdpr-compliance"></a>GDPR zgodności
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
-* [Samouczek: Konfigurowanie logowania jednokrotnego między produktu Workday i Azure Active Directory](active-directory-saas-workday-tutorial.md)
-* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+[Rozporządzenia ogólne ochrony danych (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) jest prawo ochrona i prywatność danych Unii Europejskiej (UE). GDPR nakłada reguł dla firm, agencji rządowych, z systemem innym niż zysków i innych organizacji, które oferują towarów i usług do osób w UE, lub że zbieranie i analizowanie danych powiązane mieszkańców Unii Europejskiej. 
+
+Inicjowania obsługi usługi Azure AD jest GDPR zgodne wraz z resztą funkcje i usługi firmy Microsoft. Aby dowiedzieć się więcej na temat wątku GDPR firmy Microsoft, zobacz [warunków użytkowania usługi](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
+
+Jednak ponieważ produktu Workday rozwiązania inicjowania obsługi administracyjnej dla usługi Active Directory wymaga agent synchronizacji musi zostać zainstalowany na serwerze przyłączonym do domeny, są niektóre zdarzenia, które mają być monitorowanie, aby być na bieżąco GDPR zgodne.
+ 
+Agent tworzy dzienniki w **dziennika zdarzeń systemu Windows**, które zawierają dane osobowe.
+
+Istnieją dwa sposoby pozostać GDPR zgodnych:
+
+1. Na żądanie wyodrębnić dane dla osoby i usuwanie danych z tej osoby z dzienników zdarzeń systemu Windows. 
+2. Zachowaj przechowywania dzienników zdarzeń systemu Windows, pochodzących z procesu AADSyncAgent w obszarze 48 godzin.
+
+Aby uzyskać informacje na temat konfigurowania przechowywania danych dzienników zdarzeń systemu Windows, temacie [ustawienia dzienników zdarzeń](https://technet.microsoft.com/en-us/library/cc952132.aspx). Aby uzyskać ogólne informacje w dzienniku zdarzeń systemu Windows, temacie [w tym artykule](https://msdn.microsoft.com/en-us/library/windows/desktop/aa385772.aspx).
+
 
 ## <a name="next-steps"></a>Kolejne kroki
 
 * [Dowiedz się, jak należy przejrzeć dzienniki i Uzyskaj raporty dotyczące inicjowania obsługi administracyjnej działania](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting)
+* [Informacje o sposobie konfigurowania rejestracji jednokrotnej między produktu Workday i Azure Active Directory](active-directory-saas-workday-tutorial.md)
+* [Dowiedz się, jak zintegrować innych aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
+

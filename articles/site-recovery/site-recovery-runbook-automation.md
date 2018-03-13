@@ -12,13 +12,13 @@ ms.devlang: powershell
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.workload: storage-backup-recovery
-ms.date: 11/28/2017
+ms.date: 03/09/2018
 ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: 986c3b62426949f1e4c2009aabbfec2f1130f821
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 4802215f903eb196afbf05637ad5e38dbbbc09a3
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Dodaj element runbook usługi Automatyzacja Azure do planów odzyskiwania
 W tym artykule opisano sposób Azure Site Recovery integruje się z automatyzacji Azure w celu umożliwienie wydłużenia planów odzyskiwania. Plany odzyskiwania można organizować odzyskiwania maszyn wirtualnych, które są chronione za pomocą usługi Site Recovery. Plany odzyskiwania działają zarówno dla replikacji do chmury dodatkowej, jak i dla replikacji do platformy Azure. Plany odzyskiwania również sprawić, że odzyskiwania **spójnie dokładne**, **powtarzalne**, i **automatyczne**. Jeśli w trybie Failover maszyny wirtualne na platformie Azure, integracja z usługi Automatyzacja Azure rozszerza planów odzyskiwania. Służy on do wykonywania elementów runbook, które oferują zaawansowane automatyzacji zadań.
@@ -193,7 +193,7 @@ Dla każdego planu odzyskiwania należy utworzyć zmienne niezależne, dzięki c
 
 ### <a name="use-a-complex-variable-to-store-more-information"></a>Użyj zmiennej złożone do przechowywania więcej informacji
 
-Rozważmy scenariusz, w którym ma zostać jednego skryptu, aby włączyć publicznego adresu IP na określonych maszynach wirtualnych. W innym scenariuszu możesz zastosować różne grupy NSG na różnych maszynach wirtualnych (a nie na wszystkich maszynach wirtualnych). Możesz wprowadzić skrypt, który jest wielokrotnego użytku dla każdego planu odzyskiwania. Każdy plan odzyskiwania może mieć zmiennej liczbę maszyn wirtualnych. Na przykład odzyskiwania SharePoint, ma dwa końce frontonu. Aplikacja podstawowe — biznesowych (LOB) ma tylko jeden frontonu. Nie można utworzyć oddzielne zmienne dla każdego planu odzyskiwania. 
+Rozważmy scenariusz, w którym ma zostać jednego skryptu, aby włączyć publicznego adresu IP na określonych maszynach wirtualnych. W innym scenariuszu możesz zastosować różne grupy NSG na różnych maszynach wirtualnych (a nie na wszystkich maszynach wirtualnych). Możesz wprowadzić skrypt, który jest wielokrotnego użytku dla każdego planu odzyskiwania. Każdy plan odzyskiwania może mieć zmiennej liczbę maszyn wirtualnych. Na przykład odzyskiwania SharePoint, ma dwa końce frontonu. Aplikacja podstawowe — biznesowych (LOB) ma tylko jeden frontonu. Nie można utworzyć oddzielne zmienne dla każdego planu odzyskiwania.
 
 W poniższym przykładzie, możemy użyć nowe techniki i Utwórz [zmiennej złożone](https://msdn.microsoft.com/library/dn913767.aspx?f=255&MSPPError=-2147217396) w zasobów konta usługi Automatyzacja Azure. W tym celu określania wielu wartości. Przy użyciu programu Azure PowerShell musi wykonać następujące czynności:
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 3f735b8742f22110b4de264bfb5661651a899afb
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 58c27c0872978c3a6a4c47be37e6fa6078309286
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Konfigurowanie aplikacji sieci Web w usłudze Azure App Service
 
@@ -74,10 +74,10 @@ W przypadku aplikacji .NET, te parametry połączenia są wstrzykiwane do konfig
 
 W przypadku aplikacji PHP, Python, Java i węzła te ustawienia będą dostępne jako zmienne środowiskowe w czasie wykonywania, prefiksem typu połączenia. Prefiksy zmiennej środowiskowej są następujące: 
 
-* Program SQL Server:`SQLCONNSTR_`
+* Program SQL Server: `SQLCONNSTR_`
 * MySQL: `MYSQLCONNSTR_`
-* Baza danych SQL:`SQLAZURECONNSTR_`
-* Niestandardowe:`CUSTOMCONNSTR_`
+* Baza danych SQL: `SQLAZURECONNSTR_`
+* Niestandardowe: `CUSTOMCONNSTR_`
 
 Na przykład, jeśli parametry połączenia MySql nazwany `connectionstring1`, czy dostęp do niej za pomocą zmiennej środowiskowej `MYSQLCONNSTR_connectionString1`.
 
@@ -128,13 +128,13 @@ Pełna nazwa użytkownika FTP jest "app\username", gdzie *aplikacji* to nazwa ap
 ![Poświadczenia wdrożenia FTP][configure02]
 
 ## <a name="other-configuration-tasks"></a>Inne zadania konfiguracji
-### <a name="ssl"></a>SSL
-W trybie Basic lub Standard możesz przekazać certyfikatów SSL dla domeny niestandardowej. Aby uzyskać więcej informacji zobacz [Włącz protokół HTTPS dla aplikacji sieci web]. 
+### <a name="ssl"></a>Protokół SSL
+W trybie Basic lub Standard możesz przekazać certyfikatów SSL dla domeny niestandardowej. Aby uzyskać więcej informacji, zobacz [Włącz protokół HTTPS dla aplikacji sieci web](app-service-web-tutorial-custom-ssl.md). 
 
 Aby wyświetlić przekazane certyfikaty, kliknij przycisk **wszystkie ustawienia** > **domen niestandardowych i SSL**.
 
 ### <a name="domain-names"></a>Nazwy domen
-Dodawanie niestandardowych nazw domen dla aplikacji sieci web. Aby uzyskać więcej informacji zobacz [Konfigurowanie niestandardowej nazwy domeny dla aplikacji sieci web w usłudze Azure App Service].
+Dodawanie niestandardowych nazw domen dla aplikacji sieci web. Aby uzyskać więcej informacji, zobacz [Konfigurowanie niestandardowej nazwy domeny dla aplikacji sieci web w usłudze Azure App Service](app-service-web-tutorial-custom-domain.md).
 
 Aby wyświetlić nazwy domeny, kliknij przycisk **wszystkie ustawienia** > **domen niestandardowych i SSL**.
 

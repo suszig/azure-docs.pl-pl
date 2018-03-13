@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 11/27/2017
+ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3ed3da2d9730d8c30d8170ddf40fe4895dfa5dec
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: d2cc760bf516e8ee96629886120a1bb092932a82
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Rozwiązywanie błędów dla przydziałami zasobów
 
@@ -47,9 +47,9 @@ please delete some resources of this type before creating a new one.
 Przydziały są stosowane dla grupy zasobów, subskrypcje kont i innych zakresów. Na przykład subskrypcji można skonfigurować w celu ograniczenia liczby rdzeni dla regionu. Próba wdrożyć maszynę wirtualną o większej liczby rdzeni niż dozwolone kwota pojawi się komunikat o błędzie informujący, że została przekroczona.
 Przydział pełne informacje, zobacz [subskrypcji platformy Azure i usługi limity, przydziały i ograniczenia](../azure-subscription-service-limits.md).
 
-## <a name="solution"></a>Rozwiązanie
+## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-### <a name="solution-1"></a>Rozwiązanie 1
+### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
 Dla wiersza polecenia platformy Azure, użyj `az vm list-usage` polecenie, aby znaleźć przydziały maszyny wirtualnej.
 
@@ -73,7 +73,7 @@ Polecenie to zwraca:
 ]
 ```
 
-### <a name="solution-2"></a>Rozwiązanie 2
+### <a name="powershell"></a>PowerShell
 
 Dla programu PowerShell, użyj **Get AzureRmVMUsage** polecenie, aby znaleźć przydziały maszyny wirtualnej.
 
@@ -91,7 +91,7 @@ Total Regional Cores                         0   100 Count
 Virtual Machines                             0 10000 Count
 ```
 
-### <a name="solution-3"></a>Rozwiązanie 3
+## <a name="solution"></a>Rozwiązanie
 
 Aby zażądać zwiększenia limitu przydziału, przejdź do portalu i plików problem pomocy technicznej. W problem pomocy technicznej należy zażądać zwiększenia limitu dla regionu, w której chcesz wdrożyć.
 

@@ -3,8 +3,8 @@ title: "Jak używać magazynu kolejek w oprogramowaniu Node.js | Dokumentacja fi
 description: "Dowiedz się, jak używać usługi kolejek platformy Azure do tworzenia i usuwania kolejki, Wstaw, Pobierz i usunąć wiadomości. Przykłady zapisywane w środowisku Node.js."
 services: storage
 documentationcenter: nodejs
-author: tamram
-manager: timlt
+author: craigshoemaker
+manager: jeconnoc
 editor: tysonn
 ms.assetid: a8a92db0-4333-43dd-a116-28b3147ea401
 ms.service: storage
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: tamram
-ms.openlocfilehash: 97522abd05d60eeaa2cc8dd07d3ab81d7f1d5fb9
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.author: cshoe
+ms.openlocfilehash: 2565f56324a070368c499a62ab54bb98830d8c20
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-to-use-queue-storage-from-nodejs"></a>Jak używać Magazynu kolejek w oprogramowaniu Node.js
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -33,7 +33,7 @@ W tym przewodniku przedstawiono sposób wykonywania typowych scenariuszy przy u�
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-nodejs-application"></a>Tworzenie aplikacji Node.js
-Utwórz pustą aplikację Node.js. Instrukcje dotyczące tworzenia aplikacji programu Node.js znajdują się [tworzenie aplikacji sieci web Node.js w usłudze Azure App Service](../../app-service/app-service-web-get-started-nodejs.md), [tworzenia i wdrażania aplikacji Node.js do usługi w chmurze platformy Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) przy użyciu programu Windows PowerShell lub [tworzenie i wdrażanie aplikacji sieci web Node.js na platformie Azure przy użyciu Web Matrix](https://www.microsoft.com/web/webmatrix/).
+Utwórz pustą aplikację Node.js. Aby uzyskać instrukcje tworzenia aplikacji Node.js, zobacz [tworzenie aplikacji sieci web Node.js w usłudze Azure App Service](../../app-service/app-service-web-get-started-nodejs.md), [tworzenia i wdrażania aplikacji Node.js do usługi w chmurze platformy Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) przy użyciu programu Windows PowerShell lub [ Visual Studio Code](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial).
 
 ## <a name="configure-your-application-to-access-storage"></a>Konfigurowanie aplikacji na dostęp do magazynu
 Korzystanie z usługi Azure storage, wymaga zestawu SDK usługi Magazyn Azure dla środowiska Node.js, w tym zestaw wygody bibliotek, które komunikują się z magazynu usługi REST.
@@ -42,7 +42,7 @@ Korzystanie z usługi Azure storage, wymaga zestawu SDK usługi Magazyn Azure dl
 1. Użyj interfejsu wiersza polecenia, takich jak **PowerShell** (system Windows), **terminali** (Mac), lub **Bash** (Unix), przejdź do folderu, w którym utworzono przykładowej aplikacji.
 2. Typ **magazyn azure instalacji narzędzia npm** w oknie wiersza polecenia. Dane wyjściowe polecenia jest podobny do poniższego przykładu.
  
-    ```
+    ```bash
     azure-storage@0.5.0 node_modules\azure-storage
     +-- extend@1.2.1
     +-- xmlbuilder@0.4.3
@@ -60,26 +60,26 @@ Korzystanie z usługi Azure storage, wymaga zestawu SDK usługi Magazyn Azure dl
 ### <a name="import-the-package"></a>Importowanie pakietu
 Za pomocą Notatnika lub innego edytora tekstu, Dodaj następujący element do góry **server.js** pliku aplikacji, których zamierzasz używać magazynu:
 
-```
+```javascript
 var azure = require('azure-storage');
 ```
 
 ## <a name="setup-an-azure-storage-connection"></a>Ustawienia połączenia z magazynem Azure
 Moduł azure odczyta zmiennych środowiskowych AZURE\_MAGAZYNU\_konto i AZURE\_MAGAZYNU\_dostępu\_klucz lub AZURE\_MAGAZYNU\_połączenia\_ciąg informacje wymagane do łączenia się z kontem magazynu platformy Azure. Jeśli te zmienne środowiskowe nie są skonfigurowane, należy określić informacje o koncie podczas wywoływania metody **createQueueService**.
 
-Ustawianie zmiennych środowiskowych, na przykład [Azure Portal](https://portal.azure.com) dla witryny sieci Web Azure, zobacz [aplikacji sieci web Node.js przy użyciu usługi Azure tabeli].
+Ustawianie zmiennych środowiskowych, na przykład [Azure Portal](https://portal.azure.com) dla witryny sieci Web Azure, zobacz [aplikacji sieci web Node.js przy użyciu usługi Azure tabeli](../../cosmos-db/table-storage-cloud-service-nodejs.md).
 
 ## <a name="how-to-create-a-queue"></a>Porady: Tworzenie kolejki
 Poniższy kod tworzy **QueueService** obiektu, który umożliwia pracę z kolejki.
 
-```
+```javascript
 var queueSvc = azure.createQueueService();
 ```
 
 Użyj **createQueueIfNotExists** metody, która zwraca określoną kolejkę, jeśli już istnieje lub tworzy nową kolejkę o określonej nazwie, jeśli jeszcze nie istnieje.
 
-```
-queueSvc.createQueueIfNotExists('myqueue', function(error, result, response){
+```javascript
+queueSvc.createQueueIfNotExists('myqueue', function(error, results, response){
   if(!error){
     // Queue created or exists
   }
@@ -91,13 +91,13 @@ Jeśli kolejka została utworzona, `result.created` ma wartość true. Jeśli ko
 ### <a name="filters"></a>Filtry
 Opcjonalne operacjach filtrowania może odnosić się do operacji wykonywanych przy użyciu **QueueService**. Filtrowanie operacje mogą obejmować rejestrowania, Automatyczne ponawianie próby itp. Obiekty, które implementują metodę o sygnaturze są następujące filtry:
 
-```
+```javascript
 function handle (requestOptions, next)
 ```
 
 Po wykonaniu przetwarzanie wstępne opcje żądania, metoda musi wywołać "dalej" przekazywanie wywołania zwrotnego z następującą sygnaturą:
 
-```
+```javascript
 function (returnObject, finalCallback, next)
 ```
 
@@ -105,7 +105,7 @@ W tym wywołania zwrotnego, a po przetworzeniu returnObject (odpowiedź z żąda
 
 Dwa filtry, które implementują logikę ponawiania wchodzą w skład zestawu Azure SDK dla środowiska Node.js, **ExponentialRetryPolicyFilter** i **LinearRetryPolicyFilter**. Tworzy następujące **QueueService** obiekt, który używa **ExponentialRetryPolicyFilter**:
 
-```
+```javascript
 var retryOperations = new azure.ExponentialRetryPolicyFilter();
 var queueSvc = azure.createQueueService().withFilter(retryOperations);
 ```
@@ -113,8 +113,8 @@ var queueSvc = azure.createQueueService().withFilter(retryOperations);
 ## <a name="how-to-insert-a-message-into-a-queue"></a>Porady: Wstawianie komunikatu do kolejki
 Aby wstawić komunikat do kolejki, użyj **polecenie createMessage** metodę, aby utworzyć nową wiadomość i dodaj go do kolejki.
 
-```
-queueSvc.createMessage('myqueue', "Hello world!", function(error, result, response){
+```javascript
+queueSvc.createMessage('myqueue', "Hello world!", function(error, results, response){
   if(!error){
     // Message inserted
   }
@@ -124,10 +124,10 @@ queueSvc.createMessage('myqueue', "Hello world!", function(error, result, respon
 ## <a name="how-to-peek-at-the-next-message"></a>Porady: Podgląd kolejnego komunikatu
 Możesz uzyskać wgląd w komunikat z przodu kolejki bez jego usuwania z kolejki, wywołując **peekMessages** metody. Domyślnie **peekMessages** wglądu w pojedynczym komunikacie.
 
-```
-queueSvc.peekMessages('myqueue', function(error, result, response){
+```javascript
+queueSvc.peekMessages('myqueue', function(error, results, response){
   if(!error){
-    // Message text is in messages[0].messageText
+    // Message text is in results[0].messageText
   }
 });
 ```
@@ -147,11 +147,11 @@ Przetwarza komunikat jest procesem dwuetapowym:
 
 Aby usunąć wiadomości z kolejki, użyj **getMessages**. Dzięki temu wiadomości niewidoczne w kolejce, więc może je przetwarzać żadnych innych klientów. Po przetworzeniu komunikatu aplikacji wywołać **deleteMessage** go usunąć z kolejki. Poniższy przykład pobiera komunikat, a następnie usuwa je:
 
-```
-queueSvc.getMessages('myqueue', function(error, result, response){
+```javascript
+queueSvc.getMessages('myqueue', function(error, results, response){
   if(!error){
-    // Message text is in messages[0].messageText
-    var message = result[0];
+    // Message text is in results[0].messageText
+    var message = results[0];
     queueSvc.deleteMessage('myqueue', message.messageId, message.popReceipt, function(error, response){
       if(!error){
         //message deleted
@@ -172,12 +172,12 @@ queueSvc.getMessages('myqueue', function(error, result, response){
 ## <a name="how-to-change-the-contents-of-a-queued-message"></a>Porady: Zmiana zawartości komunikatu w kolejce
 Można zmienić zawartość komunikatu w miejscu przy użyciu kolejki **updateMessage**. Poniższy przykład aktualizuje tekst wiadomości:
 
-```
-queueSvc.getMessages('myqueue', function(error, result, response){
+```javascript
+queueSvc.getMessages('myqueue', function(error, getResults, getResponse){
   if(!error){
     // Got the message
-    var message = result[0];
-    queueSvc.updateMessage('myqueue', message.messageId, message.popReceipt, 10, {messageText: 'new text'}, function(error, result, response){
+    var message = getResults[0];
+    queueSvc.updateMessage('myqueue', message.messageId, message.popReceipt, 10, {messageText: 'new text'}, function(error, updateResults, updateResponse){
       if(!error){
         // Message updated successfully
       }
@@ -189,19 +189,19 @@ queueSvc.getMessages('myqueue', function(error, result, response){
 ## <a name="how-to-additional-options-for-dequeuing-messages"></a>Porady: Dodatkowych opcji usuwania komunikatów
 Istnieją dwa sposoby dostosowania pobierania komunikatów z kolejki:
 
-* `options.numOfMessages`-Pobrać partii wiadomości (do 32).
-* `options.visibilityTimeout`-Ustawienia limit czasu niewidoczności dłuższy lub krótszy.
+* `options.numOfMessages` -Pobrać partii wiadomości (do 32).
+* `options.visibilityTimeout` -Ustawienia limit czasu niewidoczności dłuższy lub krótszy.
 
 W poniższym przykładzie użyto **getMessages** metodę, aby pobrać 15 komunikatów w jednym wywołaniu. Następnie przetwarza każdy komunikat przy użyciu pętli for. Ustawia również limitu czasu niewidoczności na pięć minut dla wszystkich wiadomości zwracane przez tę metodę.
 
-```
-queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, function(error, result, response){
+```javascript
+queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, function(error, results, getResponse){
   if(!error){
     // Messages retrieved
     for(var index in result){
       // text is available in result[index].messageText
-      var message = result[index];
-      queueSvc.deleteMessage(queueName, message.messageId, message.popReceipt, function(error, response){
+      var message = results[index];
+      queueSvc.deleteMessage(queueName, message.messageId, message.popReceipt, function(error, deleteResponse){
         if(!error){
           // Message deleted
         }
@@ -214,10 +214,10 @@ queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, 
 ## <a name="how-to-get-the-queue-length"></a>Porady: Pobieranie długości kolejki
 **GetQueueMetadata** zwraca metadane dotyczące kolejki, w tym przybliżoną liczbę komunikatów oczekujących w kolejce.
 
-```
-queueSvc.getQueueMetadata('myqueue', function(error, result, response){
+```javascript
+queueSvc.getQueueMetadata('myqueue', function(error, results, response){
   if(!error){
-    // Queue length is available in result.approximateMessageCount
+    // Queue length is available in results.approximateMessageCount
   }
 });
 ```
@@ -225,10 +225,10 @@ queueSvc.getQueueMetadata('myqueue', function(error, result, response){
 ## <a name="how-to-list-queues"></a>Porady: Lista kolejek
 Aby uzyskać listę kolejek, użyj **listQueuesSegmented**. Aby uzyskać listę filtrowane według określonego prefiksu, użyj **listQueuesSegmentedWithPrefix**.
 
-```
-queueSvc.listQueuesSegmented(null, function(error, result, response){
+```javascript
+queueSvc.listQueuesSegmented(null, function(error, results, response){
   if(!error){
-    // result.entries contains the list of queues
+    // results.entries contains the list of queues
   }
 });
 ```
@@ -238,7 +238,7 @@ Jeśli nie można zwrócić wszystkich kolejek, `result.continuationToken` może
 ## <a name="how-to-delete-a-queue"></a>Porady: Usuwanie kolejki
 Aby usunąć kolejkę i wszystkie zawarte w niej komunikaty, wywołaj **deleteQueue** metody dla obiekt kolejki.
 
-```
+```javascript
 queueSvc.deleteQueue(queueName, function(error, response){
   if(!error){
     // Queue has been deleted
@@ -255,7 +255,7 @@ Generuje zaufanych aplikacji, takich jak jest usługą opartą na chmurze przy u
 
 Poniższy przykład generuje nowe zasady dostępu współdzielonego, które umożliwia właścicielowi SAS dodać wiadomości do kolejki i wygasa 100 minut po jego utworzeniu.
 
-```
+```javascript
 var startDate = new Date();
 var expiryDate = new Date(startDate);
 expiryDate.setMinutes(startDate.getMinutes() + 100);
@@ -277,7 +277,7 @@ Należy pamiętać, że informacji o hoście należy podać także jako jest wym
 
 Następnie aplikacja kliencka używa SAS z **QueueServiceWithSAS** wykonywanie operacji względem kolejki. Poniższy przykład łączy do kolejki i tworzy komunikat.
 
-```
+```javascript
 var sharedQueueService = azure.createQueueServiceWithSas(host, queueSAS);
 sharedQueueService.createMessage('myqueue', 'Hello world from SAS!', function(error, result, response){
   if(!error){
@@ -293,7 +293,7 @@ Listy kontroli dostępu (ACL) umożliwia także ustawić zasady dostępu dla syg
 
 Listy ACL jest zaimplementowana przy użyciu tablicy zasad dostępu w usłudze identyfikator skojarzony z każdej zasady. W poniższym przykładzie zdefiniowano dwie zasady; jeden dla "Użytkownik1" i jeden dla "uzytkownik2":
 
-```
+```javascript
 var sharedAccessPolicy = {
   user1: {
     Permissions: azure.QueueUtilities.SharedAccessPermissions.PROCESS,
@@ -310,7 +310,7 @@ var sharedAccessPolicy = {
 
 Poniższy przykład pobiera bieżącej listy ACL dla **Moja_kolejka**, następnie dodaje nowe zasady przy użyciu **setQueueAcl**. Takie podejście umożliwia:
 
-```
+```javascript
 var extend = require('extend');
 queueSvc.getQueueAcl('myqueue', function(error, result, response) {
   if(!error){
@@ -326,7 +326,7 @@ queueSvc.getQueueAcl('myqueue', function(error, result, response) {
 
 Po ustawieniu listy ACL następnie można utworzyć na podstawie Identyfikatora zasady sygnatury dostępu Współdzielonego. Poniższy przykład tworzy nowe sygnatury dostępu Współdzielonego dla "uzytkownik2":
 
-```
+```javascript
 queueSAS = queueSvc.generateSharedAccessSignature('myqueue', { Id: 'user2' });
 ```
 

@@ -16,11 +16,11 @@ ms.date: 12/12/2017
 ms.author: asmalser
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: 17732ae616339020f11bc8973dc57b6d0fff4884
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 3b7f2f104046313e7d60cea4ef296f265d204aec
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="using-system-for-cross-domain-identity-management-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Przy użyciu systemu do innej domeny zarządzania tożsamościami do automatycznej aprowizacji użytkowników i grup z usługi Azure Active Directory do aplikacji
 
@@ -685,7 +685,7 @@ Na poniższej ilustracji pokazano komunikatów wysyła usługi Azure Active Dire
 ## <a name="group-provisioning-and-de-provisioning"></a>Grupy aprowizację i anulowanie obsługi
 Na poniższej ilustracji pokazano komunikatów wysyła Azure AcD z usługą SCIM do zarządzania cyklem życia grupy w innym magazynie tożsamości.  Te komunikaty różnią się od komunikaty dotyczące użytkowników na trzy sposoby: 
 
-* Schemat zasób grupy jest rozpoznawany jako http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  
+* Schemat zasób grupy zostanie zidentyfikowana jako `http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group`.  
 * Żądania pobrania grup stanowić atrybut elementów członkowskich mają być wykluczone z dowolnego zasobu w odpowiedzi na żądanie.  
 * Żądania, aby ustalić, czy jest atrybut odwołania ma określoną wartość są żądania dotyczące elementów członkowskich atrybutu.  
 

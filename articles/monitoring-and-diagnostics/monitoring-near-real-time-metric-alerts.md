@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/26/2018
 ms.author: snmuvva, vinagara
 ms.custom: 
-ms.openlocfilehash: 3ffc96b19d4601756530d7f9dd959d05ef5fa000
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 88995b1f3350fe485e28efccc93779ae0a42eb97
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="near-real-time-metric-alerts-preview"></a>Niemal w czasie rzeczywistym alerty metryki (wersja zapoznawcza)
 Azure Monitor obsługuje nowy typ alertu o nazwie niemal w czasie rzeczywistym alerty metryki (wersja zapoznawcza). Ta funkcja jest obecnie w wersji zapoznawczej.
@@ -37,7 +37,7 @@ Niemal w czasie rzeczywistym Metryka alerty różnią się od regularne alerty m
 >
 
 ## <a name="metrics-and-dimensions-supported"></a>Metryki i wymiary obsługiwane
-Niemal w czasie rzeczywistym alerty metryki obsługuje alerty dla metryki, które są używane wymiary. Wymiary służy do filtrowania Twoje metryki na odpowiedni poziom. Wszystkie metryki obsługiwanych wraz z odpowiednich wymiary mogą być zbadane i wizualizowane z [ *Azure Monitor - **metryki (wersja zapoznawcza)***](monitoring-metric-charts.md).
+Niemal w czasie rzeczywistym alerty metryki obsługuje alerty dla metryki, które są używane wymiary. Wymiary służy do filtrowania Twoje metryki na odpowiedni poziom. Wszystkie metryki obsługiwanych wraz z odpowiednich wymiary mogą być zbadane i wizualizowane z [Monitor Azure — Eksploratora metryk (wersja zapoznawcza)](monitoring-metric-charts.md).
 
 Poniżej przedstawiono pełną listę Azure monitora na podstawie źródeł metryki, które są obsługiwane w pobliżu metryki alertów w czasie rzeczywistym:
 
@@ -65,7 +65,7 @@ Poniżej przedstawiono pełną listę Azure monitora na podstawie źródeł metr
 
 
 Metryki z dzienników, obsługuje obecnie następujące popularnych dzienniki pakietu OMS:
-- [Liczniki wydajności](../log-analytics/https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-data-sources-performance-counters.md) dla komputerów z systemem Windows i Linux
+- [Liczniki wydajności](../log-analytics/log-analytics-data-sources-performance-counters.md) dla komputerów z systemem Windows i Linux
 - Rekordy pulsu dla komputerów
 - [Zarządzanie aktualizacjami](../operations-management-suite/oms-solution-update-management.md) rekordów
 

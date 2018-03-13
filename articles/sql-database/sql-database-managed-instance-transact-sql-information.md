@@ -7,14 +7,14 @@ ms.reviewer: carlrab, bonova
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/09/2018
 ms.author: jovanpop
 manager: cguyer
-ms.openlocfilehash: 699ac303c553e1f3b78f13fc12163f47a1e77941
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 27be2b9a5f2b9aaf2d4464a6c927ec2a1694131a
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL bazy danych zarządzanych wystąpienia T-SQL różnice z programu SQL Server 
 
@@ -34,7 +34,7 @@ Ta sekcja zawiera podsumowanie podstawowych różnic w składni T-SQL i zachowan
  - [UTWORZENIE GRUPY DOSTĘPNOŚCI](https://docs.microsoft.com/sql/t-sql/statements/create-availability-group-transact-sql.md)
  - [ALTER AVAILABILITY GROUP](https://docs.microsoft.com/sql/t-sql/statements/alter-availability-group-transact-sql.md)
  - [USUŃ GRUPY DOSTĘPNOŚCI](https://docs.microsoft.com/sql/t-sql/statements/drop-availability-group-transact-sql.md)
- - [Ustaw HADR](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-hadr.md) klauzula instrukcji ALTER DATABASE
+ - [Ustaw HADR](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-hadr.md) klauzuli [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql) — instrukcja
 
 ### <a name="auditing"></a>Inspekcja 
  
@@ -72,6 +72,8 @@ Ograniczenia:
 
 > [!TIP]
 > Aby obejść to ograniczenie lokalnymi, tworzenie kopii zapasowej na `DISK` zamiast kopii zapasowej `URL`, Przekaż plik kopii zapasowej do obiektu blob, a następnie przywrócić. Przywrócić pliki większe obsługuje, ponieważ jest używany typ inny obiektu blob.  
+
+Informacje o kopii zapasowych przy użyciu T-SQL, zobacz [kopii zapasowej](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql).
 
 ### <a name="buffer-pool-extension"></a>Rozszerzenie puli buforów 
  
@@ -367,7 +369,7 @@ Następujące nie są obsługiwane:
 - `EXTERNAL TABLE` 
 - `MEMORY_OPTIMIZED`  
 
-Informacje dotyczące tworzenia tabel, zobacz [instrukcji CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql).
+Aby uzyskać informacje dotyczące tworzenia i modyfikowania tabel, zobacz [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) i [instrukcji ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).
  
 ## <a name="Changes"></a> Zmiany sposobu działania 
  

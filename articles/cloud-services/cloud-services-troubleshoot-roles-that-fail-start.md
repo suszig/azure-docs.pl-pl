@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/03/2017
 ms.author: v-six
-ms.openlocfilehash: d24a55fd3b93760035f852a24537c1cec9e4bab2
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 36966151b616a14e429807feb63df93503e7b249
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Rozwiązywanie problemów z ról usługi w chmurze, które się nie uruchomić
 Poniżej przedstawiono niektóre typowe problemy i rozwiązania związane z usług Azure Cloud Services ról, które się nie uruchomić.
@@ -62,7 +62,7 @@ Gdy ponownie wdrożyć usługę, zostanie wyświetlony komunikat o błędzie, o 
 Pulpit zdalny umożliwia dostęp roli i wyświetlać informacje o błędzie bardziej szczegółowy zdalnie. Wykonaj następujące kroki, aby wyświetlić błędy przy użyciu pulpitu zdalnego:
 
 1. Upewnij się, że Azure SDK 1.3 lub nowszy jest zainstalowany.
-2. Podczas wdrażania rozwiązania przy użyciu programu Visual Studio należy wybrać opcję "Konfiguruj połączeń pulpitu zdalnego". Aby uzyskać więcej informacji na temat konfigurowania połączenia pulpitu zdalnego, zobacz [za pomocą pulpitu zdalnego z rolami Azure](../vs-azure-tools-remote-desktop-roles.md).
+2. Podczas wdrażania rozwiązania przy użyciu programu Visual Studio włączenie pulpitu zdalnego. Aby uzyskać więcej informacji, zobacz [włączyć Podłączanie pulpitu zdalnego dla roli w usług Azure Cloud Services przy użyciu programu Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md).
 3. W portalu Microsoft Azure, gdy wystąpienie wskazuje stan **gotowe**nawiąż połączenie zdalne wystąpienie. Aby uzyskać więcej informacji na temat używania pulpitu zdalnego z usługami w chmurze, zobacz [zdalnego do wystąpień roli](cloud-services-role-enable-remote-desktop-new-portal.md#remote-into-role-instances).
 5. Zaloguj się do maszyny wirtualnej przy użyciu poświadczeń, które zostały określone podczas konfigurowania usług pulpitu zdalnego.
 6. Otwórz okno poleceń.
@@ -121,7 +121,7 @@ W celu rozwiązania Brak biblioteki DLL i zestawu błędów, wykonaj następują
 
 Po upewnieniu się, że wszystkie błędy zostaną naprawione, można wdrożyć usługę bez sprawdzania **włączenia funkcji IntelliTrace dla ról platformy .NET 4** pole wyboru.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Wyświetl więcej [Rozwiązywanie problemów z artykułów](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) dla usług w chmurze.
 
 Aby dowiedzieć się, jak rozwiązywać problemy roli usługi w chmurze przy użyciu danych diagnostycznych na komputerze Azure PaaS, zobacz [serii blogu Kevina Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
