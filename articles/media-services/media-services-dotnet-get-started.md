@@ -154,7 +154,7 @@ Za pomocą usługi Media Services można przekazać (lub pozyskać) pliki cyfrow
 
 Zdefiniowana poniżej metoda **UploadFile** wywołuje metodę **CreateFromFile** (zdefiniowaną w rozszerzeniach zestawu SDK programu .NET). Metoda **CreateFromFile** tworzy nowy element zawartości, do którego jest przekazywany określony plik źródłowy.
 
-Metoda **CreateFromFile** przyjmuje opcje **AssetCreationOptions, które pozwalają określić jedną z poniższych opcji tworzenia elementów zawartości:
+Metoda **CreateFromFile** przyjmuje opcje \*\*AssetCreationOptions, które pozwalają określić jedną z poniższych opcji tworzenia elementów zawartości:
 
 * **None** — szyfrowanie nie jest stosowane. Jest to wartość domyślna. Należy pamiętać, że w przypadku korzystania z tej opcji zawartość nie jest chroniona w trakcie przesyłania lub przechowywania w magazynie.
   Jeśli planujesz dostarczać zawartość w formacie MP4 przy użyciu pobierania progresywnego, użyj tej opcji.
