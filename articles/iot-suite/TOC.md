@@ -66,6 +66,7 @@
 ### [Tworzenie nowego urządzenia symulowanego](iot-suite-remote-monitoring-test.md)
 ### [Dostosowywanie rozwiązania](iot-suite-remote-monitoring-customize.md)
 ### [Wdrażanie przy użyciu interfejsu wiersza polecenia](iot-suite-remote-monitoring-deploy-cli.md)
+### [Wdrażanie lokalne](iot-suite-remote-monitoring-deploy-local.md)
 ### Podłączanie urządzenia fizycznego
 #### [C w systemie Windows](iot-suite-connecting-devices.md)
 #### [C w systemie Linux](iot-suite-connecting-devices-linux.md)

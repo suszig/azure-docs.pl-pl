@@ -91,8 +91,10 @@
           maintainContext: true
     - name: Przesyłanie strumieniowe w usłudze Spark
       items:
-        - name: Omówienie
+        - name: Omówienie przesyłania strumieniowego
           href: apache-spark-streaming-overview.md
+        - name: Omówienie przesyłania strumieniowego ze strukturą
+          href: apache-spark-structured-streaming-overview.md
         - name: Tworzenie zadań przesyłania strumieniowego platformy Spark o wysokiej dostępności na platformie YARN
           href: apache-spark-streaming-high-availability.md
         - name: Przesyłanie strumieniowe ze strukturą za pomocą usługi Event Hubs

@@ -290,6 +290,8 @@
           href: transform-data-using-stored-procedure.md
         - name: Działanie języka U-SQL w usłudze Data Lake
           href: transform-data-using-data-lake-analytics.md
+        - name: Działanie notesu usługi Databricks
+          href: transform-data-using-databricks-notebook.md
         - name: Działanie niestandardowe
           href: transform-data-using-dotnet-custom-activity.md
         - name: Usługi połączone usługi Compute

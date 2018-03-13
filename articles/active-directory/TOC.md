@@ -76,7 +76,7 @@
 
 ## [Zarządzanie grupami i członkami](active-directory-manage-groups.md)
 ### Zarządzanie grupami
-#### [Azure portal](active-directory-groups-create-azure-portal.md)
+#### [Azure Portal](active-directory-groups-create-azure-portal.md)
 #### [Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 ### [Zarządzanie członkami grup](active-directory-groups-members-azure-portal.md)
 ### [Zarządzenie właścicielami grup](active-directory-accessmanagement-managing-group-owners.md)
@@ -290,9 +290,10 @@
 ### [Role administratorów](active-directory-assign-admin-roles-azure-portal.md)
 #### [Przypisywanie użytkownikowi roli administratora](active-directory-users-assign-role-azure-portal.md)
 #### [Porównanie uprawnień członka i gościa](users-default-permissions.md)
+### [Zabezpieczanie dostępu uprzywilejowanego](admin-roles-best-practices.md) 
+### [Tworzenie kont administracyjnych z dostępem awaryjnym](active-directory-admin-manage-emergency-access-accounts.md)
 ### [Jednostki administracyjne](active-directory-administrative-units-management.md)
 ### [Konfigurowanie okresów istnienia tokenu](active-directory-configurable-token-lifetimes.md)
-### [Zarządzanie kontami administracyjnymi z dostępem awaryjnym](active-directory-admin-manage-emergency-access-accounts.md)
 
 ## Przeglądy dostępu
 ### [Omówienie przeglądów dostępu](active-directory-azure-ad-controls-access-reviews-overview.md)
