@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.date: 03/07/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: a7771eebc8359a5de1c79328014f5ecc06c9673b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 86a839102e98a1b8e7cd9927c697cacf1f41a1a6
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Baza danych SQL wysokiej dostępności i platformy Azure
 Od chwili rozpoczęcia oferty PaaS bazy danych SQL Azure firma Microsoft wprowadziła Obietnica jej klientów, które wysokiej dostępności (HA) korzysta z wbudowanej w usługi i klientów nie są wymagane do działania, Dodaj logikę specjalnych lub podejmować decyzje dotyczące wysokiej dostępności. Firma Microsoft udostępnia pełną kontrolę nad HA system konfiguracji i obsłudze, zaoferować klientom umowy dotyczącej poziomu usług. HA umowy SLA stosuje się do bazy danych SQL w regionie i nie zapewnia ochrony w przypadku niepowodzenia obszar całkowity, który jest wystąpiły z przyczyn będących poza kontrolą firmy Microsoft (na przykład klęski żywiołowej, plik war, czynności terroryzmu, zamieszek, akcji dla instytucji rządowych, lub sieci lub na urządzeniu niepowodzenie zewnętrznych w centrach danych firmy Microsoft, w tym klientów w lokacjach lub między lokacjami klienta i centrum danych firmy Microsoft).
@@ -56,7 +56,7 @@ Rozwiązania wysokiej dostępności w bazie danych SQL jest oparty na [Always ON
 
 W tej konfiguracji każda baza danych jest przełączony w tryb online przez usługę zarządzania (MS) w kręgu formantu. Jedna replika podstawowa i co najmniej dwóch replik pomocniczych (zestawu kworum) znajdują się w pierścień dzierżawy obejmującej trzech niezależnych fizycznych podsystemami w tym samym centrum danych. Wszystkie odczyty i zapisy są wysyłane przez bramę (GW) do repliki podstawowej i zapisy asynchroniczne są replikowane w replikach pomocniczych. Baza danych SQL wykorzystuje schemat zatwierdzania na podstawie kworum, gdy dane są zapisywane do serwera podstawowego i co najmniej jedna replika pomocnicza przed zatwierdzeniem transakcji.
 
-[Sieci szkieletowej usług](/azure/service-fabric/service-fabric-overview.md) pracy awaryjnej systemu automatycznie odtwarza repliki, ponieważ awarii węzłów i przechowuje członkostwa zestawu kworum węzłów odbiegać i Dołącz do systemu. Planowana konserwacja jest dokładnie skoordynowany sposób, aby zapobiec zestawu kworum mniejszego niż liczba minimalna repliki (zwykle 2). Ten model działa dobrze w przypadku baz danych Premium, ale wymaga nadmiarowości zarówno do obliczeń, jak i magazynów składników i powoduje wyższe koszty.
+[Sieci szkieletowej usług](/service-fabric/service-fabric-overview.md) pracy awaryjnej systemu automatycznie odtwarza repliki, ponieważ awarii węzłów i przechowuje członkostwa zestawu kworum węzłów odbiegać i Dołącz do systemu. Planowana konserwacja jest dokładnie skoordynowany sposób, aby zapobiec zestawu kworum mniejszego niż liczba minimalna repliki (zwykle 2). Ten model działa dobrze w przypadku baz danych Premium, ale wymaga nadmiarowości zarówno do obliczeń, jak i magazynów składników i powoduje wyższe koszty.
 
 ## <a name="remote-storage-configuration"></a>Konfiguracja magazynu zdalnego
 
@@ -77,7 +77,7 @@ Funkcje Always ON do trybu failover baz danych konfiguracji magazynu zdalnego, j
 
 ## <a name="zone-redundant-configuration-preview"></a>Nadmiarowe konfiguracji strefy (wersja zapoznawcza)
 
-Domyślnie replik zestawu kworum w przypadku konfiguracji z magazynu lokalnego zostaną utworzone w tym samym centrum danych. Wraz z wprowadzeniem [stref dostępności Azure](/azure/availability-zones/az-overview.md), masz możliwość umieszczenia innej repliki w zestawach kworum dostępności różnych stref w tym samym regionie. Aby wyeliminować pojedynczy punkt awarii, pierścień kontroli również jest zduplikowany w wielu strefach jako trzy pierścienie bramy (GW). Routing do pierścień bramy jest kontrolowany przez [usługi Azure Traffic Manager](/traffic-manager/traffic-manager-overview.md) (ATM). Ponieważ konfiguracji nadmiarowe strefy nie tworzy nadmiarowość dodatkowej bazy danych, użycie stref dostępności w warstwie usług Premium znajduje się w temacie bez dodatkowych kosztów. Wybierając nadmiarowa strefy baza danych, możesz wprowadzić baz danych Premium odporne do znacznie większy zestaw awarii, w tym datacenter poważnej awarii, bez wprowadzania żadnych zmian logiki aplikacji. Możesz również przeprowadzić konwersję istniejącej bazy danych — warstwa Premium ani puli konfiguracji nadmiarowe strefy.
+Domyślnie replik zestawu kworum w przypadku konfiguracji z magazynu lokalnego zostaną utworzone w tym samym centrum danych. Wraz z wprowadzeniem [stref dostępności Azure](../availability-zones/az-overview.md), masz możliwość umieszczenia innej repliki w zestawach kworum dostępności różnych stref w tym samym regionie. Aby wyeliminować pojedynczy punkt awarii, pierścień kontroli również jest zduplikowany w wielu strefach jako trzy pierścienie bramy (GW). Routing do pierścień bramy jest kontrolowany przez [usługi Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) (ATM). Ponieważ konfiguracji nadmiarowe strefy nie tworzy nadmiarowość dodatkowej bazy danych, użycie stref dostępności w warstwie usług Premium znajduje się w temacie bez dodatkowych kosztów. Wybierając nadmiarowa strefy baza danych, możesz wprowadzić baz danych Premium odporne do znacznie większy zestaw awarii, w tym datacenter poważnej awarii, bez wprowadzania żadnych zmian logiki aplikacji. Możesz również przeprowadzić konwersję istniejącej bazy danych — warstwa Premium ani puli konfiguracji nadmiarowe strefy.
 
 Ponieważ strefy nadmiarowe kworum zestawie replik w różnych centrach danych, z niektórych odległość między nimi, opóźnienie sieci zwiększona może zwiększyć czas zatwierdzenia i w związku z tym wpływ na wydajność niektórych obciążeń OLTP. Możesz zawsze wrócić do konfiguracji strefy jednym wyłączenie ustawienia nadmiarowość strefy. Ten proces jest rozmiar operacji danych i jest podobny do aktualizacji (SLO), cel poziomu usługi regularne. Po zakończeniu procesu bazy danych lub puli migracji z nadmiarowych pierścień strefy pierścień jednej strefie lub odwrotnie.
 
@@ -93,6 +93,6 @@ Baza danych SQL Azure jest ściśle zintegrowana z platformą Azure i wysoce zal
 
 ## <a name="next-steps"></a>Kolejne kroki
 
-- Dowiedz się więcej o [stref dostępności Azure](/azure/availability-zones/az-overview.md)
-- Dowiedz się więcej o [usługi sieci szkieletowej](/azure/service-fabric/service-fabric-overview.md)
-- Dowiedz się więcej o [usługi Azure Traffic Manager](/traffic-manager/traffic-manager-overview.md) 
+- Dowiedz się więcej o [stref dostępności Azure](../availability-zones/az-overview.md)
+- Dowiedz się więcej o [usługi sieci szkieletowej](../service-fabric/service-fabric-overview.md)
+- Dowiedz się więcej o [usługi Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) 

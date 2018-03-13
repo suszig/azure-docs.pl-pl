@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/20/2017
+ms.date: 3/9/2018
 ms.author: vturecek
-ms.openlocfilehash: 43b3f758fe7017c0ec949ba6e28b76438cf1bc13
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ee248cb656eeb54e259ff1adf45080a207b5a866
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Jak elementy Reliable Actors korzystają z platformy usługi Service Fabric
 W tym artykule opisano, jak Reliable Actors działają na platformie Azure Service Fabric. Wywołuje Reliable Actors uruchomienia w ramach obsługiwanej w implementacji usługi stanowej niezawodnej *usługi aktora*. Usługa aktora zawiera składniki niezbędne do zarządzania cyklem życia i komunikat podczas wysyłania do sieci złośliwych użytkowników:
@@ -41,9 +41,6 @@ W usługach niezawodnej usługi dziedziczy `StatefulService` klasy. Ta klasa jes
 * Usługa tworzenia kopii zapasowej i przywracania.
 * Udostępnione funkcji dla wszystkich podmiotów, na przykład wyłącznika.
 * Zdalne wywoływanie procedur w samej usługi aktora i na każdym poszczególnych aktora.
-
-> [!NOTE]
-> Stanowe usług nie są obecnie obsługiwane w języku Java/Linux.
 
 ### <a name="using-the-actor-service"></a>Przy użyciu usługi aktora
 Wystąpienia aktora mają dostęp do usługi aktora, w którym jest uruchomiony. Za pośrednictwem usługi aktora wystąpień aktora programowo może uzyskać kontekstu usługi. Kontekst usługi zawiera identyfikator partycji, nazwę usługi, nazwa aplikacji i inne informacje specyficzne dla platformy Service Fabric:
@@ -347,7 +344,7 @@ Usługi aktora są podzielone na partycje usługi stanowej. Każda partycja usł
 Niezawodne usługi mogą być tworzone z różnych partycji, systemów i zakresami kluczy partycji. Usługa aktora wykorzystuje schemat partycjonowania Int64 z pełnego zakresu klucza Int64 do mapowania złośliwych użytkowników do partycji.
 
 ### <a name="actor-id"></a>Identyfikator aktora
-Każdy aktora utworzony w usłudze ma unikatowy identyfikator skojarzony z nim reprezentowany przez `ActorId` klasy. `ActorId`to wartość Identyfikatora nieprzezroczyste, która może służyć do dystrybucji uniform podmiotów między partycji usługi przez Generowanie losowe identyfikatory:
+Każdy aktora utworzony w usłudze ma unikatowy identyfikator skojarzony z nim reprezentowany przez `ActorId` klasy. `ActorId` to wartość Identyfikatora nieprzezroczyste, która może służyć do dystrybucji uniform podmiotów między partycji usługi przez Generowanie losowe identyfikatory:
 
 ```csharp
 ActorProxy.Create<IMyActor>(ActorId.CreateRandom());
@@ -401,7 +398,7 @@ Ten krok zapewnia, że serwer Proxy aktora używa stosu V2 komunikacji zdalnej.
     [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.V2Listener,RemotingClient = RemotingClient.V2Client)]
     ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Zarządzanie stanem aktora](service-fabric-reliable-actors-state-management.md)
 * [Aktora cykl życia i odzyskiwanie pamięci](service-fabric-reliable-actors-lifecycle.md)
 * [Dokumentacji interfejsu API złośliwych użytkowników](https://msdn.microsoft.com/library/azure/dn971626.aspx)

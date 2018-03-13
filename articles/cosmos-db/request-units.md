@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: mimig
-ms.openlocfilehash: d263c4f5ad14f6692a7c8f6e66429b439a52a84a
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 3679aa76d4a6b9fd6335371e1639f1f246867fa5
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Żądanie jednostki w Azure rozwiązania Cosmos bazy danych
 Teraz dostępne: Azure DB rozwiązania Cosmos [Kalkulator jednostki żądania](https://www.documentdb.com/capacityplanner). Dowiedz się więcej w [Szacowanie przepustowość sieci musi](request-units.md#estimating-throughput-needs).
@@ -35,9 +35,9 @@ Zapewnienie przewidywalnej wydajności, należy zarezerwować przepływności w 
 Po przeczytaniu tego artykułu, będziesz mieć możliwość odpowiedzieć na następujące pytania:  
 
 * Co to są jednostek żądania i żądania opłat?
-* Jak określić żądanie pojemność jednostki dla kolekcji?
+* Jak określić pojemność jednostki żądania kontener?
 * Jak oszacować musi jednostki żądania Moja aplikacja
-* Co się stanie, jeśli I przekracza pojemność jednostki żądania dla kolekcji?
+* Co się stanie, jeśli I przekracza pojemność jednostki żądania kontener?
 
 Bazy danych Azure rozwiązania Cosmos jest wiele modeli bazy danych, to należy pamiętać, że ten artykuł dotyczy kolekcji/dokumentu, dokument interfejsu API graph/węzeł Graph API i tabeli na jednostkę tabeli interfejsu API. Ten artykuł dotyczy koncepcji zbierania, wykres lub tabeli jako kontenera, a dokument, węzeł lub jednostki jako element.
 
@@ -53,14 +53,14 @@ Zalecamy rozpoczęcie pracy od obejrzenia poniższego klipu wideo, w którym Ara
 > 
 
 ## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>Określanie pojemność jednostki żądania w usłudze Azure DB rozwiązania Cosmos
-Przy uruchamianiu nową kolekcję, tabeli lub wykres, określ liczbę jednostek żądań na sekundę (RU na sekundę) mają zastrzeżone. Na podstawie udostępnionej przepływności, bazy danych rozwiązania Cosmos Azure przydziela fizycznej partycji do obsługi kolekcji i podziałów/rebalances danych na partycji jako ich przyrostu.
+Podczas uruchamiania nowy kontener określić liczbę jednostek żądań na sekundę (RU na sekundę) mają zastrzeżone. Na podstawie udostępnionej przepływności, bazy danych rozwiązania Cosmos Azure przydziela fizycznej partycji do hosta z kontenera i podziałów/rebalances danych na partycji jako ich przyrostu.
 
-Kontenery DB rozwiązania Cosmos Azure można utworzyć ustalonej lub nieograniczone. Kontenery o stałym rozmiarze są ograniczone do 10 GB, a ich maksymalna przepływność wynosi 10 000 jednostek żądań na sekundę. Aby utworzyć kontener nieograniczone należy określić minimalnej przepustowości 1 000 RU/s i [klucza partycji](partition-data.md). Ponieważ danych może być konieczne można podzielić na wiele partycji, jest konieczne pobranie klucz partycji, który ma dużej kardynalności (od 100 do milionów unikatowe wartości). Wybierając klucza partycji z wielu różnych wartości upewnieniu się, że żądania i kolekcji/tabeli/graph mogą być skalowane jednolicie Azure DB rozwiązania Cosmos. 
+Kontenery DB rozwiązania Cosmos Azure można utworzyć ustalonej lub nieograniczone. Kontenery o stałym rozmiarze są ograniczone do 10 GB, a ich maksymalna przepływność wynosi 10 000 jednostek żądań na sekundę. Aby utworzyć kontener nieograniczone należy określić minimalnej przepustowości 1 000 RU/s i [klucza partycji](partition-data.md). Ponieważ danych może być konieczne można podzielić na wiele partycji, jest konieczne pobranie klucz partycji, który ma dużej kardynalności (od 100 do milionów unikatowe wartości). Wybierając klucza partycji z wielu różnych wartości upewnieniu się, że żądania i wykres kontenera/tabeli mogą być skalowane jednolicie Azure DB rozwiązania Cosmos. 
 
 > [!NOTE]
 > Klucz partycji to logiczne granic, a nie jeden fizyczny. W związku z tym nie należy ograniczyć liczbę wartości klucza partycji distinct. W rzeczywistości jest lepiej użyć więcej różne wartości klucza partycji niż mniej, jako bazy danych rozwiązania Cosmos Azure ma więcej opcje równoważenia obciążenia.
 
-Oto fragment kodu dotyczący tworzenia kolekcji z 3000 jednostek żądania na drugi przy użyciu zestawu .NET SDK:
+Oto fragment kodu dotyczący tworzenia kontenera o 3000 jednostek żądania na drugi przy użyciu zestawu .NET SDK:
 
 ```csharp
 DocumentCollection myCollection = new DocumentCollection();
@@ -75,7 +75,7 @@ await client.CreateDocumentCollectionAsync(
 
 Azure DB rozwiązania Cosmos działa modelu rezerwacji przepływności. Oznacza to, że są rozliczane ilości przepływności *zastrzeżone*, niezależnie od tego, jaka część tego przepływności jest aktywnie *używane*. Aplikacją na obciążenia, danych i użycia zmiany wzorce, można łatwo skalowania ilość zastrzeżone RUs za pomocą zestawów SDK lub przy użyciu [Azure Portal](https://portal.azure.com).
 
-Każda kolekcja/tabeli/wykresu są mapowane na `Offer` zasobów w usłudze Azure DB rozwiązania Cosmos mającej metadane dotyczące udostępnionej przepływności. Możesz zmienić przydzielone przepływności wyszukiwania odpowiadający jej zasób oferta dla kontenera, a następnie zaktualizowaniem go przy użyciu nowej wartości przepływności. Oto fragment kodu do zmiany przepływność kolekcji do 5000 jednostek żądania na drugi przy użyciu zestawu .NET SDK:
+Każdy kontener jest mapowany na `Offer` zasobów w usłudze Azure DB rozwiązania Cosmos mającej metadane dotyczące udostępnionej przepływności. Możesz zmienić przydzielone przepływności wyszukiwania odpowiadający jej zasób oferta dla kontenera, a następnie zaktualizowaniem go przy użyciu nowej wartości przepływności. Oto fragment kodu do zmiany przepływności kontenera do 5000 jednostek żądania na drugi przy użyciu zestawu .NET SDK:
 
 ```csharp
 // Fetch the resource to be updated
@@ -334,10 +334,10 @@ Dzięki tym informacjom można oszacować wymagania dotyczące RU dla tej aplika
 | Wybierz grupy żywności |10 |700 |
 | Wybierz 10 pierwszych |15 |Łącznie 150 |
 
-W takim przypadku spodziewasz się wymóg średniej przepływności 1,275 RU/s.  Zaokrąglenie do najbliższej 100, może udostępnić 1300 RU/s dla kolekcji tej aplikacji.
+W takim przypadku spodziewasz się wymóg średniej przepływności 1,275 RU/s.  Zaokrąglenie do najbliższej 100, może udostępnić 1300 RU/s dla tej aplikacji kontenera.
 
 ## <a id="RequestRateTooLarge"></a> Przekraczanie limitów zarezerwowaną przepływnością w usłudze Azure DB rozwiązania Cosmos
-Odwołaj, że zużycie jednostka żądania jest oceniana jako szybkość na sekundę, jeśli budżetu jest pusta. Dla aplikacji, które przekroczyć współczynnika jednostki żądania elastycznie kontenera żądań do tej kolekcji są ograniczane dopóki częstotliwość spadnie poniżej poziomu zastrzeżone. W przypadku ograniczania serwera preemptively kończy żądanie z RequestRateTooLargeException (kod stanu HTTP 429) i zwraca wartość wskazującą czas (w milisekundach), które użytkownik musi czekać przed ponowną próbą wykonania nagłówek x-ms ponawiania — po ms żądanie.
+Odwołaj, że zużycie jednostka żądania jest oceniana jako szybkość na sekundę, jeśli budżetu jest pusta. Dla aplikacji, które przekroczyć współczynnika jednostki żądania elastycznie kontenera żądania do tego kontenera są ograniczane dopóki częstotliwość spadnie poniżej poziomu zastrzeżone. W przypadku ograniczania serwera preemptively kończy żądanie z RequestRateTooLargeException (kod stanu HTTP 429) i zwraca wartość wskazującą czas (w milisekundach), które użytkownik musi czekać przed ponowną próbą wykonania nagłówek x-ms ponawiania — po ms żądanie.
 
     HTTP Status 429
     Status Line: RequestRateTooLarge
@@ -348,7 +348,7 @@ Jeśli używasz zestawu SDK klienta usługi .NET i LINQ zapytania, a następnie 
 Jeśli masz więcej niż jednego klienta zbiorczo operacyjnego powyżej liczby żądań domyślne zachowanie ponownych prób nie mogą być niewystarczające, a klient zgłosi DocumentClientException z kodem stanu 429 do aplikacji. W przypadkach, takich jak ta można rozważyć Obsługa zachowanie ponownych prób i logikę w aplikacji Błąd procedury obsługi lub zwiększenie zarezerwowaną przepływnością kontenera.
 
 ## <a id="RequestRateTooLargeAPIforMongoDB"></a> Przekraczanie limitów zarezerwowaną przepływnością w interfejsie API bazy danych MongoDB
-Aplikacje, które przekraczają żądania elastycznie jednostki dla kolekcji będzie ograniczony, dopóki częstotliwość spadnie poniżej poziomu zastrzeżone. W przypadku przepustnicy wewnętrznej bazy danych preemptively zakończy się żądanie z *16500* kod błędu: - *zbyt wiele żądań*. Domyślnie interfejsu API bazy danych MongoDB ma automatycznie ponawiać próbę maksymalnie 10 razy przed zwróceniem *zbyt wiele żądań* kod błędu. W przypadku otrzymania wiele *zbyt wiele żądań* kody błędów, można rozważyć albo dodanie zachowanie ponownych prób w aplikacji Błąd procedury obsługi lub [zwiększenie zarezerwowaną przepływnością dla kolekcji](set-throughput.md).
+Aplikacje, które przekracza jednostek żądania elastycznie kontenera będzie ograniczony, dopóki częstotliwość spadnie poniżej poziomu zastrzeżone. W przypadku przepustnicy wewnętrznej bazy danych preemptively zakończy się żądanie z *16500* kod błędu: - *zbyt wiele żądań*. Domyślnie interfejsu API bazy danych MongoDB ma automatycznie ponawiać próbę maksymalnie 10 razy przed zwróceniem *zbyt wiele żądań* kod błędu. W przypadku otrzymania wiele *zbyt wiele żądań* kody błędów, można rozważyć albo dodanie zachowanie ponownych prób w aplikacji Błąd procedury obsługi lub [zwiększenie zarezerwowaną przepływnością kontenera](set-throughput.md).
 
 ## <a name="next-steps"></a>Kolejne kroki
 Aby dowiedzieć się więcej na temat zarezerwowaną przepływnością z bazami danych bazy danych Azure rozwiązania Cosmos, zapoznaj się z tymi zasobami:

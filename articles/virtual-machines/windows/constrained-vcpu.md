@@ -4,7 +4,7 @@ description: "Wyświetla listę rozmiarów maszyn wirtualnych, z możliwością 
 services: virtual-machines-windows
 documentationcenter: 
 author: jonbeck7
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager,azure-service-management
 ms.service: virtual-machines-linux
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 12/07/2017
+ms.date: 03/09/2018
 ms.author: jonbeck
-ms.openlocfilehash: c0f2d4797b2f9a3854c1a59a8f6cf3410e6c8b05
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 0ed14cc0978baaea5e334eef14d0354d8d6edcfb
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="constrained-vcpu-capable-vm-sizes"></a>Rozmiary maszyn wirtualnych z funkcją ograniczonego vCPU
 
@@ -33,6 +33,6 @@ ms.lasthandoff: 12/08/2017
 - [Procesor GPU](sizes-gpu.md)
 - [Obliczenia o wysokiej wydajności](sizes-hpc.md)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Dowiedz się więcej na temat [jednostki (ACU) rozwiązań usługi obliczenia Azure](acu.md) ułatwia porównanie wydajności obliczeniowej różnych jednostki SKU Azure.
 

@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 69eae46dc554911e0caadcf0aafbaec9e39f727d
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 5a9d1ba4d72bc6d4b297695c478438079d34c6e7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Jak można zaplanować uruchamianie i zatrzymywanie środowiska uruchomieniowego integracji Azure SSIS 
 Uruchomiona środowiska uruchomieniowego integracji SSIS Azure (SQL Server Integration Services) (IR) ma opłat skojarzonych z nim. W związku z tym który chcesz uruchomić IR tylko wtedy, gdy jest to wymagane do uruchamiania pakietów SSIS na platformie Azure i zatrzymaj ją, gdy nie będzie potrzebny. Można użyć interfejsu użytkownika z fabryki danych lub Azure PowerShell do [ręcznie uruchomić lub zatrzymać IR SSIS Azure](manage-azure-ssis-integration-runtime.md)). W tym artykule opisano sposób tworzenia harmonogramu uruchamiania i zatrzymywania Azure SSIS integrację środowiska uruchomieniowego (IR) przy użyciu usługi Automatyzacja Azure i fabryki danych Azure. Poniżej przedstawiono ogólne kroki opisane w tym artykule:
@@ -25,7 +25,7 @@ Uruchomiona środowiska uruchomieniowego integracji SSIS Azure (SQL Server Integ
 1. **Tworzenie i testowanie elementu runbook usługi Automatyzacja Azure.** W tym kroku tworzenia elementu runbook programu PowerShell ze skryptem, który uruchomienia lub zatrzymania podczerwieni Azure SSIS. Następnie testu elementu runbook w scenariuszach zarówno uruchamianie i ZATRZYMYWANIE i upewnij się, że IR uruchomienia lub zatrzymania. 
 2. **Utwórz dwa harmonogramy dla elementu runbook.** Pierwszy harmonogramu można skonfigurować elementu runbook z START jako wykonać operację. Drugi harmonogramu należy skonfigurować element runbook z ZATRZYMANA jako operacji. Dla obu harmonogramy należy określić okresach, w którym element runbook jest uruchomiony. Na przykład można zaplanować pierwsza z nich do uruchomienia na 8 AM codziennie i drugi na 23: 00 codziennie. Pierwszy element runbook działa, uruchamia podczerwieni Azure SSIS. Po uruchomieniu drugiego elementu runbook przestaje podczerwieni Azure SSIS. 
 3. **Utwórz dwa elementów webhook dla elementu runbook**, jeden dla operacji START, a drugą dla operacji ZATRZYMANIA. Adresy URL tych elementów webhook można użyć podczas konfigurowania sieci web działania w potoku fabryki danych. 
-4. **Utworzyć potok fabryki danych**. Potok, w którym można utworzyć składa się z czterech działań. Pierwszy **Web** działania wywołuje pierwszego elementu webhook uruchomić podczerwieni Azure SSIS. **Oczekiwania** działanie czeka na 30 minut (1800 sekund) IR SSIS Azure rozpocząć. **Procedury składowanej** działanie uruchamia skrypt SQL, który uruchamia pakiet SSIS. Drugi **Web** działania zatrzymuje podczerwieni Azure SSIS. Aby uzyskać więcej informacji na temat wywoływania pakietów SSIS z potoku fabryki danych za pomocą działania procedury składowanej, zobacz [wywołania pakietów SSIS](how-to-invoke-ssis-package-stored-procedure-activity.md). Następnie można utworzyć wyzwalacza harmonogramu, można zaplanować potoku do uruchamiania w okresach, które określisz.
+4. **Utworzyć potok fabryki danych**. Potok, w którym można utworzyć składa się z trzech działań. Pierwszy **Web** działania wywołuje pierwszego elementu webhook uruchomić podczerwieni Azure SSIS. **Procedury składowanej** działanie uruchamia skrypt SQL, który uruchamia pakiet SSIS. Drugi **Web** działania zatrzymuje podczerwieni Azure SSIS. Aby uzyskać więcej informacji na temat wywoływania pakietów SSIS z potoku fabryki danych za pomocą działania procedury składowanej, zobacz [wywołania pakietów SSIS](how-to-invoke-ssis-package-stored-procedure-activity.md). Następnie można utworzyć wyzwalacza harmonogramu, można zaplanować potoku do uruchamiania w okresach, które określisz.
 
 > [!NOTE]
 > Ten artykuł dotyczy wersji 2 usługi Data Factory, która jest obecnie dostępna w wersji zapoznawczej. Jeśli używasz wersji 1 usługi fabryka danych, która jest ogólnie dostępna (GA), zobacz [pakietów SSIS wywołać przy użyciu działania procedury składowanej w wersji 1](v1/how-to-invoke-ssis-package-stored-procedure-activity.md).
@@ -223,12 +223,11 @@ Powinien mieć dwa adresy URL: jeden dla **StartAzureSsisIR** webhook i drugi dl
 ## <a name="create-and-schedule-a-data-factory-pipeline-that-startsstops-the-ir"></a>Tworzenie i planowanie potok fabryki danych, który rozpoczyna/zatrzymuje IR
 W tej sekcji przedstawia sposób użycia aktywności sieci Web do wywołania elementów webhook, który został utworzony w poprzedniej sekcji.
 
-Potok, w którym można utworzyć składa się z czterech działań. 
+Potok, w którym można utworzyć składa się z trzech działań. 
 
 1. Pierwszy **Web** działania wywołuje pierwszego elementu webhook uruchomić podczerwieni Azure SSIS. 
-2. **Oczekiwania** działanie czeka na 30 minut (1800 sekund) IR SSIS Azure rozpocząć. 
-3. **Procedury składowanej** działanie uruchamia skrypt SQL, który uruchamia pakiet SSIS. Drugi **Web** działania zatrzymuje podczerwieni Azure SSIS. Aby uzyskać więcej informacji na temat wywoływania pakietów SSIS z potoku fabryki danych za pomocą działania procedury składowanej, zobacz [wywołania pakietów SSIS](how-to-invoke-ssis-package-stored-procedure-activity.md). 
-4. Drugi **Web** działania wywołuje element webhook, aby zatrzymać Azure SSIS IR. 
+2. **Procedury składowanej** działanie uruchamia skrypt SQL, który uruchamia pakiet SSIS. Drugi **Web** działania zatrzymuje podczerwieni Azure SSIS. Aby uzyskać więcej informacji na temat wywoływania pakietów SSIS z potoku fabryki danych za pomocą działania procedury składowanej, zobacz [wywołania pakietów SSIS](how-to-invoke-ssis-package-stored-procedure-activity.md). 
+3. Drugi **Web** działania wywołuje element webhook, aby zatrzymać Azure SSIS IR. 
 
 Po utworzeniu i przetestować potoku utworzyć wyzwalacza harmonogram i skojarzyć z potoku. Wyzwalacz harmonogram definiuje harmonogramu dla potoku. Załóżmy, można utworzyć wyzwalaczy, które jest zaplanowane do uruchomienia codziennie o 23: 00. Wyzwalacz uruchamia potoku godzinie 23: 00 każdego dnia. Potok uruchamia Azure SSIS IR, wykonuje pakietów SSIS i zatrzymywany podczerwieni Azure SSIS. 
 
@@ -392,7 +391,7 @@ Teraz, gdy proces działa jako oczekiwano, można utworzyć wyzwalacza do urucho
 6. Aby monitorować wyzwalacz uruchamia i działa w potoku, należy użyć **Monitor** karcie po lewej stronie. Aby uzyskać szczegółowe instrukcje, zobacz [monitorować potoku](quickstart-create-data-factory-portal.md#monitor-the-pipeline).
 
     ![Uruchomienia potoków](./media/how-to-schedule-azure-ssis-integration-runtime/pipeline-runs.png)
-7. Aby wyświetlić uruchomień działania związane z potokiem Uruchom, wybierz pierwszy link (**odbywa się działanie widoku**) w **akcje** kolumny. Zobacz uruchomień działania cztery skojarzone z każdego działania w potoku (najpierw sieci Web, działanie oczekiwania, działania procedury składowanej, a drugi sieci Web działaniem). Aby powrócić do wyświetlenia uruchamia potoku, wybierz **potoki** łącze u góry.
+7. Aby wyświetlić uruchomień działania związane z potokiem Uruchom, wybierz pierwszy link (**odbywa się działanie widoku**) w **akcje** kolumny. Zobacz uruchomień działania trzy skojarzone z każdego działania w potoku (najpierw sieci Web, działania procedury składowanej, a drugi działaniem sieci Web). Aby powrócić do wyświetlenia uruchamia potoku, wybierz **potoki** łącze u góry.
 
     ![Uruchomienia działania](./media/how-to-schedule-azure-ssis-integration-runtime/activity-runs.png)
 8. Wyzwalacz uruchamia można również wyświetlić, wybierając **wyzwolenia działa** z listy rozwijanej obok pola jest **uruchamia potoku** u góry. 

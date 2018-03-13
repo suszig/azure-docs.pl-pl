@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/05/2017
+ms.date: 03/08/2018
 ms.author: ganesr
-ms.openlocfilehash: 8c2f3036f754a98090ab860f95900416690ebf83
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 354f7c455e1a2846bbdd63fa12b1cc01e2a1b9c5
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Połączenie wirtualnej sieci do obwodu usługi ExpressRoute
 > [!div class="op_single_selector"]
@@ -34,7 +34,9 @@ Ten artykuł pomaga połączyć sieci wirtualnych (sieci wirtualne) do usługi A
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 * Zainstaluj najnowszą wersję programu Azure PowerShell modułów. Aby uzyskać więcej informacji, zobacz [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview).
+
 * Przegląd [wymagania wstępne](expressroute-prerequisites.md), [wymagania dotyczące routingu](expressroute-routing.md), i [przepływy pracy](expressroute-workflows.md) przed rozpoczęciem konfigurowania.
+
 * Musisz mieć aktywny obwód usługi ExpressRoute. 
   * Postępuj zgodnie z instrukcjami, aby [utworzyć obwodu usługi ExpressRoute](expressroute-howto-circuit-arm.md) i mieć obwodu włączane przez dostawcą połączenia. 
   * Upewnij się, że masz prywatnej komunikacji równorzędnej platformy Azure skonfigurowane dla obwodu. Zobacz [Konfigurowanie routingu](expressroute-howto-routing-arm.md) artykułu instrukcje routingu. 
@@ -42,6 +44,8 @@ Ten artykuł pomaga połączyć sieci wirtualnych (sieci wirtualne) do usługi A
   * Upewnij się, że masz sieci wirtualnej i Brama sieci wirtualnej utworzone i w pełni zaaprowizowanym. Postępuj zgodnie z instrukcjami, aby [Tworzenie bramy sieci wirtualnej dla usługi ExpressRoute](expressroute-howto-add-gateway-resource-manager.md). Brama sieci wirtualnej dla usługi ExpressRoute używa elementu GatewayType "ExpressRoute", nie sieci VPN.
 
 * Standardowa obwodu ExpressRoute można połączyć maksymalnie 10 sieciami wirtualnymi. Wszystkie wirtualne sieci musi być w tym samym regionie geograficznymi, gdy przy użyciu standardowych obwodu usługi expressroute. 
+
+* Pojedynczy sieci wirtualnej może odnosić się do maksymalnie cztery obwody usługi ExpressRoute. Umożliwia utworzenie nowego obiektu połączenia dla każdego obwodu ExpressRoute, który jest nawiązywane z procesem opisanym niżej. Obwody usługi ExpressRoute, można w tej samej subskrypcji, różnych subskrypcji lub kombinację obu.
 
 * Można połączyć sieci wirtualnych poza region geograficznymi obwodu ExpressRoute lub większą liczbę sieci wirtualnych połączyć się z obwodu ExpressRoute włączenie dodatek usługi ExpressRoute w warstwie premium. Sprawdź [— często zadawane pytania](expressroute-faqs.md) uzyskać więcej informacji dotyczących dodatek w warstwie premium.
 

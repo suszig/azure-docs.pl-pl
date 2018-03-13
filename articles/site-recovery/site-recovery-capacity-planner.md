@@ -12,17 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/28/2017
+ms.date: 03/09/2018
 ms.author: nisoneji
-ms.openlocfilehash: bfeefde53aa2b3645934f068d580c0714714dd69
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d9c2645be73c4b6e34d194d6b2444a700e3900d2
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="plan-capacity-for-protecting-hyper-v-vms-with-site-recovery"></a>Planowanie pojemności do ochrony maszyn wirtualnych funkcji Hyper-V z usługą Site Recovery
 
-Nowa wersja rozszerzone [Azure lokacji odzyskiwania wdrożenia Planistę dla funkcji Hyper-V do wdrożenia usługi Azure](site-recovery-hyper-v-deployment-planner.md) jest teraz dostępna. Zastępuje narzędzie stary. Użyj nowego narzędzia dla Planowanie wdrożenia. To narzędzie zawiera następujące wytyczne:
+Nowa wersja rozszerzone [Azure lokacji odzyskiwania wdrożenia Planistę dla funkcji Hyper-V do wdrożenia usługi Azure](site-recovery-hyper-v-deployment-planner.md) jest teraz dostępna. Zastępuje narzędzie stary. Użyj nowego narzędzia dla Planowanie wdrożenia.
+To narzędzie zawiera następujące wytyczne:
 
 * Ocena kwalifikujących się maszyny Wirtualnej, na podstawie liczby dysków, rozmiar dysku IOPS, przenoszenie i kilka właściwości maszyny Wirtualnej
 * Przepustowość sieci musi i oceny cel punktu odzyskiwania
@@ -45,7 +46,7 @@ Narzędzie można uruchomić w dwóch trybach:
 
 * Zbierz informacje o środowisku, w tym o maszynach wirtualnych, dysków dla maszyny Wirtualnej, magazynu na dysku.
 * Określ częstotliwość codziennych zmian (przenoszenia) dla replikowanych danych. Pobierz [narzędzia do planowania pojemności funkcji Hyper-V](https://www.microsoft.com/download/details.aspx?id=39057) uzyskać szybkość zmian. [Dowiedz się więcej](site-recovery-capacity-planning-for-hyper-v-replication.md) o tym narzędziu. Firma Microsoft zaleca, uruchom to narzędzie dłużej niż przez tydzień średnie przechwytywania.
-   
+
 
 ## <a name="run-the-quick-planner"></a>Uruchom szybki planowania
 1. Pobierz i Otwórz [planowania pojemności odzyskiwania lokacji](http://aka.ms/asr-capacity-planner-excel). Musisz uruchomić makra. Po wyświetleniu monitu wybierz odpowiednie opcje Włącz edytowanie i zawartości.
@@ -58,7 +59,7 @@ Narzędzie można uruchomić w dwóch trybach:
 
    a. W **wybierz scenariusz**, wybierz **funkcji Hyper-V w systemie Azure** lub **VMware/fizycznych do platformy Azure**.
 
-   b. W **średnie dzienne zmienić częstotliwość (%)**, wprowadź informacje Zbierz za pomocą [narzędzia do planowania pojemności funkcji Hyper-V](site-recovery-capacity-planning-for-hyper-v-replication.md) lub [lokacji odzyskiwania wdrożenia Planistę](./site-recovery-deployment-planner.md). 
+   b. W **średnie dzienne zmienić częstotliwość (%)**, wprowadź informacje Zbierz za pomocą [narzędzia do planowania pojemności funkcji Hyper-V](site-recovery-capacity-planning-for-hyper-v-replication.md) lub [lokacji odzyskiwania wdrożenia Planistę](./site-recovery-deployment-planner.md).
 
    c. **Kompresji** ustawienie nie jest używany podczas replikowania maszyn wirtualnych funkcji Hyper-V do platformy Azure. Kompresja Użyj urządzenia innych firm, takich jak Riverbed.
 
@@ -147,7 +148,7 @@ Po wprowadzeniu wszystkich informacji wybierz **przesyłania danych do narzędzi
 ### <a name="submit-data-in-capacity-planner"></a>Przesyłanie danych w planowania pojemności
 1. Po otwarciu **Capacity Planner** arkusza, zostanie wypełnione, zgodnie z ustawieniami określona. Wyraz "Obciążenie" pojawia się w **źródła danych wejściowych Infra** komórki, aby wyświetlić dane wejściowe są **kwalifikacji obciążenia** arkusza.
 
-2. Jeśli chcesz wprowadzić zmiany, należy zmodyfikować **kwalifikacji obciążenia** arkusza. Następnie wybierz **przesyłania danych do narzędzia do planowania** ponownie. 
+2. Jeśli chcesz wprowadzić zmiany, należy zmodyfikować **kwalifikacji obciążenia** arkusza. Następnie wybierz **przesyłania danych do narzędzia do planowania** ponownie.
 
    ![Planista pojemności](./media/site-recovery-capacity-planner/capacity-planner.png)
 

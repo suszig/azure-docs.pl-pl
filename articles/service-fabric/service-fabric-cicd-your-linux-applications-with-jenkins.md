@@ -12,13 +12,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/27/2017
+ms.date: 3/9/2018
 ms.author: saysa
-ms.openlocfilehash: 80c52cfeab007030203b6af4bb220f1a847e9426
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 00a6d04e7ec1da48ea17af4f17d3aba3cf4407d6
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Użyj Wpięć do tworzenia i wdrażania aplikacji systemu Linux
 Jenkins to popularne narzędzie służące do przeprowadzania ciągłej integracji i ciągłego wdrażania aplikacji. Poniżej przedstawiono sposób kompilowania i wdrażania aplikacji usługi Azure Service Fabric przy użyciu narzędzia Jenkins.
@@ -44,8 +44,8 @@ Narzędzie Jenkins możesz skonfigurować wewnątrz klastra usługi Service Fabr
 
 2. Klonowanie aplikacji, korzystając z następujących czynności:
   ```sh
-  git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
-  cd service-fabric-java-getting-started/Services/JenkinsDocker/
+  git clone https://github.com/suhuruli/jenkins-container-application.git
+  cd jenkins-container-application
   ```
 
 3. Utrwalanie stanu kontenera Wpięć w udziale plików:
@@ -166,7 +166,7 @@ Upewnij się, że klaster lub maszyna hostujące obraz kontenera narzędzia Jenk
 
    b. Wybierz pozycję **Add Service** (Dodaj usługę), wpisz ciąg **Jenkins** i wybierz pozycję **Jenkins-Github plugin** (Wtyczka Jenkins-Github).
 
-   d. Wprowadź adres URL elementu webhook narzędzia Jenkins (domyślnie adres URL powinien być następujący: ``http://<PublicIPorFQDN>:8081/github-webhook/``). Kliknij pozycję **add/update service** (dodaj/aktualizuj usługę).
+   c. Wprowadź adres URL elementu webhook narzędzia Jenkins (domyślnie adres URL powinien być następujący: ``http://<PublicIPorFQDN>:8081/github-webhook/``). Kliknij pozycję **add/update service** (dodaj/aktualizuj usługę).
 
    d. Do wystąpienia narzędzia Jenkins zostanie wysłane zdarzenie testowe. W usłudze GitHub powinien zostać wyświetlony zielony znacznik wyboru obok elementu webhook i projekt zostanie skompilowany.
 

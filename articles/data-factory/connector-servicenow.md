@@ -1,5 +1,5 @@
 ---
-title: "Kopiowanie danych z usługi ServiceNow przy użyciu fabryki danych Azure (wersja Beta) | Dokumentacja firmy Microsoft"
+title: "Kopiowanie danych z usługi ServiceNow przy użyciu fabryki danych Azure | Dokumentacja firmy Microsoft"
 description: "Dowiedz się, jak skopiować dane z usługi ServiceNow do zbiornika obsługiwane magazyny danych za pomocą działania kopiowania w potoku fabryki danych Azure."
 services: data-factory
 documentationcenter: 
@@ -13,21 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 64b0982ab1d0b212120d962d4c47a1b8db8ca025
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 4d05d816b43e04c2c2e88cab33b8e4c623ab9185
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/12/2018
 ---
-# <a name="copy-data-from-servicenow-using-azure-data-factory-beta"></a>Kopiowanie danych z usługi ServiceNow przy użyciu fabryki danych Azure (wersja Beta)
+# <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Kopiowanie danych z usługi ServiceNow przy użyciu fabryki danych Azure
 
 W tym artykule omówiono sposób użycia działanie kopiowania w fabryce danych Azure, aby skopiować dane z usługi ServiceNow. Opiera się na [skopiuj omówienie działania](copy-activity-overview.md) artykułu, który przedstawia ogólny przegląd działanie kopiowania.
 
 > [!NOTE]
 > Ten artykuł dotyczy wersji 2 usługi Data Factory, która jest obecnie dostępna w wersji zapoznawczej. Jeśli używasz wersji 1 usługi fabryka danych, która jest ogólnie dostępna (GA), zobacz [działanie kopiowania w wersji 1](v1/data-factory-data-movement-activities.md).
-
-> [!IMPORTANT]
-> Ten łącznik jest obecnie w wersji Beta. Możesz wypróbować jej możliwości i przekaż nam swoją opinię. Nie należy używać go w środowisku produkcyjnym.
 
 ## <a name="supported-capabilities"></a>Obsługiwane możliwości
 

@@ -4,13 +4,13 @@ description: "Ten artykuł zawiera omówienie składników i architektury używa
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 03/09/2018
 ms.author: raynew
-ms.openlocfilehash: e8a5f4fad75ea6211e96ba216c8b506306dcfa34
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: a8af2ee4a32925603d24aee2403ab504a0ca05a8
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="physical-server-to-azure-replication-architecture"></a>Serwer fizyczny do architektury Azure replikacji
 
@@ -27,7 +27,7 @@ Poniższej tabeli i grafiki zapewnia widok ogólny składników używanych w prz
 **Serwer konfiguracji** | Pojedynczy komputer fizyczny lokalnymi lub wdrożeniu maszyny Wirtualnej VMware do wszystkich lokalną składnikami usługi Site Recovery. Maszyna wirtualna działa serwer konfiguracji, serwer przetwarzania i główny serwer docelowy. | Serwer konfiguracji służy do koordynowania komunikacji między środowiskiem lokalnym i platformą Azure oraz do zarządzania replikacją danych.
  **Serwer przetwarzania**:  | Instalowany domyślnie z serwerem konfiguracji. | Działa jako brama replikacji. Odbiera dane replikacji, optymalizuje je przy użyciu pamięci podręcznej, kompresji i szyfrowania, a następnie wysyła je do usługi Azure Storage.<br/><br/> Serwer przetwarzania instaluje usługi mobilności na serwerach, które mają być replikowane.<br/><br/> Wraz z rozwojem wdrożenia, możesz dodać dodatkowe, oddzielne procesu serwerów do obsługi większych ilości ruchu replikacji.
  **Główny serwer docelowy** | Instalowany domyślnie z serwerem konfiguracji. | Służy do obsługi replikacji danych podczas powrotu po awarii z platformy Azure.<br/><br/> W przypadku dużych wdrożeń można dodać dodatkowe, oddzielne główny serwer docelowy do powrotu po awarii.
-**Zreplikowane serwerów** | Usługa mobilności jest zainstalowany na każdym serwerze, które są replikowane. | Zaleca się Zezwalaj automatycznej instalacji z serwera przetwarzania. Możesz też ręcznie zainstalować usługę lub użyć metody wdrażania automatycznego, takie jak System Center Configuration Manager. 
+**Zreplikowane serwerów** | Usługa mobilności jest zainstalowany na każdym serwerze, które są replikowane. | Zaleca się Zezwalaj automatycznej instalacji z serwera przetwarzania. Możesz też ręcznie zainstalować usługę lub użyć metody wdrażania automatycznego, takie jak System Center Configuration Manager.
 
 **Fizycznych do platformy Azure architektury**
 

@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: tamram
-ms.openlocfilehash: e365c1c8abb3799805e715945e8b74292995c5ec
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: d1a81a9029f2e9b8a36ecebdcc4be44984e82515
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-storage-security-guide"></a>Przewodnik po zabezpieczeniach magazynu Azure
 
@@ -214,7 +214,7 @@ Na przykład z naszych powyżej adresu URL, jeśli adres URL został wskazuje pl
 * SAS poziomu usług może służyć do dostępu do określonych zasobów na koncie magazynu. Niektóre przykłady są pobiera listę obiektów blob w kontenerze, pobieranie obiektu blob, aktualizowania jednostki w tabeli, dodawanie wiadomości do kolejki lub przekazywanie pliku do udziału plików.
 * SAS poziomie konta można uzyskać dostępu do wszystkich elementów, które SAS poziomu usług może służyć do. Ponadto zapewnia opcje z zasobami, które nie są dozwolone z poziomu usługi sygnatury dostępu Współdzielonego, takie jak możliwość tworzenia kontenerów, tabel, kolejek i udziałów plików. Dostęp do wielu usług można także określić jednocześnie. Na przykład może być ktoś udzielić dostępu do obiektów blob i plików na Twoim koncie magazynu.
 
-#### <a name="creating-an-sas-uri"></a>Tworzenie identyfikatora URI połączenia SAS
+#### <a name="creating-a-sas-uri"></a>Tworzenie identyfikatora URI sygnatury dostępu Współdzielonego
 1. Na żądanie, definiujący wszystkie parametry zapytania każdorazowo, można utworzyć identyfikatora URI.
 
    Takie podejście jest elastyczny, ale jeśli logiczne zestaw parametrów, które są podobne za każdym razem, za pomocą zasad dostępu przechowywany jest lepiej zrozumieć.
@@ -376,7 +376,7 @@ Szyfrowanie po stronie klienta jest większe obciążenie na kliencie, a muszą 
 
 #### <a name="storage-service-encryption-sse"></a>Szyfrowanie usługi Magazyn (SSE)
 
-SSE jest zarządzana przez usługi Azure Storage. SSE nie zapewniają bezpieczeństwo danych podczas przesyłania, ale szyfrowania danych, ponieważ jest ona zapisywana w usłudze Azure Storage. Nie ma żadnego wpływu na wydajność z SSE.
+SSE jest zarządzana przez usługi Azure Storage. SSE nie zapewniają bezpieczeństwo danych podczas przesyłania, ale szyfrowania danych, ponieważ jest ona zapisywana w usłudze Azure Storage. SSE nie wpływa na wydajność magazynu Azure.
 
 Można zaszyfrować każdego typu danych konta magazynu przy użyciu SSE (blokowe obiekty BLOB, Dołącz obiektów blob, stronicowe obiekty BLOB, tabeli danych, kolejki danych i plików).
 

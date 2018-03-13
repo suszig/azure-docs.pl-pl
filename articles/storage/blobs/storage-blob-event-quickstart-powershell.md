@@ -8,20 +8,20 @@ ms.author: dastanfo
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 329a79511b810159244b5530a49a5916440d2046
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 374a24448eb1bf366e26bb55fdf09e470b030c89
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-powershell"></a>Zdarzenia magazynu obiektów Blob trasy do punktu końcowego niestandardowe sieci web przy użyciu programu PowerShell
 
 Azure Event Grid to usługa obsługi zdarzeń dla chmury. W tym artykule subskrybować zdarzenia magazynu obiektów Blob, wyzwalacz zdarzenia przy użyciu programu Azure PowerShell i wyświetlenia wyników. 
 
-Zazwyczaj wysyła się zdarzenia do punktu końcowego, który na nie reaguje, takiego jak element webhook lub funkcja platformy Azure. Aby uprościć przykładzie przedstawionym w tym artykule, zdarzenia są wysyłane na adres URL, który tylko zbiera wiadomości. Utwórz ten adres URL przy użyciu narzędzia innej firmy z [RequestBin](https://requestb.in/) lub [Hookbin](https://hookbin.com/).
+Zazwyczaj wysyła się zdarzenia do punktu końcowego, który na nie reaguje, takiego jak element webhook lub funkcja platformy Azure. Aby uprościć przykładzie przedstawionym w tym artykule, zdarzenia są wysyłane na adres URL, który tylko zbiera wiadomości. Do utworzenia tego adresu URL użyte zostaną narzędzia innych producentów: [RequestBin](https://requestb.in/) lub [Hookbin](https://hookbin.com/).
 
 > [!NOTE]
-> **RequestBin** i **Hookbin** nie są przeznaczone do użycia z wysokiej przepływności. Korzystanie z tych narzędzi jest całkowicie demonstrative. W przypadku wypchnięcia więcej niż jednego zdarzenia w tym samym czasie w narzędziu mogą nie być widoczne wszystkie zdarzenia.
+> Narzędzia **RequestBin** i **Hookbin** nie są przeznaczone do używania przy wysokiej przepływności. Te narzędzia zostały tutaj użyte wyłącznie w celach pokazowych. W przypadku wypchnięcia więcej niż jednego zdarzenia w tym samym czasie w narzędziu mogą nie być widoczne wszystkie zdarzenia.
 
 Po wykonaniu czynności opisanych w tym artykule dane powinny zostać wysłane do punktu końcowego.
 
@@ -65,7 +65,7 @@ New-AzureRmResourceGroup -Name $resourceGroup -Location $location
 
 Aby używać zdarzenia magazynu obiektów Blob, należy albo [kontem magazynu obiektów Blob](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) lub [konta magazynu ogólnego przeznaczenia v2](../common/storage-account-options.md#general-purpose-v2). **Ogólnego przeznaczenia v2 (GPv2)** są konta magazynu, które obsługują wszystkie funkcje dla wszystkich usług magazynu, w tym obiekty BLOB, plików, kolejek i tabel. A **kontem magazynu obiektów Blob** to specjalne konto magazynu do przechowywania danych bez struktury jako obiekty BLOB (obiekty) w usłudze Azure Storage. Konta magazynu obiektów blob są podobne do kont magazynu ogólnego przeznaczenia i udostępniać wszystkie trwałości, dostępności, skalowalności i wydajności zalety że używane obecnie, łącznie z 100% spójnością interfejsu API dla blokowych obiektów blob i uzupełnialnych obiektów blob. W przypadku aplikacji wymagających tylko magazynu obiektów blokowych lub uzupełnialnych obiektów blob zalecamy używanie kont usługi Blob Storage.  
 
-Utwórz konto magazynu obiektów Blob przy użyciu replikacji LRS [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount), następnie pobrać kontekst konta magazynu, który definiuje konto magazynu do użycia. Działając na konto magazynu, możesz odwoływać się kontekstu zamiast wielokrotnie podawania poświadczeń. W tym przykładzie tworzy konto magazynu o nazwie **gridstorage** magazyn lokalnie nadmiarowy szyfrowania storage(LRS) i obiektów blob (domyślnie włączony). 
+Utwórz konto magazynu obiektów Blob przy użyciu replikacji LRS [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount), następnie pobrać kontekst konta magazynu, który definiuje konto magazynu do użycia. Działając na konto magazynu, możesz odwoływać się kontekstu zamiast wielokrotnie podawania poświadczeń. W tym przykładzie tworzy konto magazynu o nazwie **gridstorage** z magazyn lokalnie nadmiarowy (LRS). 
 
 > [!NOTE]
 > Nazwy konta magazynu są w przestrzeni nazwy globalnych, więc należy dołączyć niektórych losowo wybranych znaków na nazwę podaną w tym skrypcie.
@@ -84,7 +84,7 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-message-endpoint"></a>Tworzenie punktu końcowego komunikatów
 
-Przed zasubskrybowaniem tematu utwórzmy punkt końcowy dla komunikatów o zdarzeniach. Zamiast pisać kod w celu zareagowania na zdarzenie, utwórzmy punkt końcowy, który będzie zbierać komunikaty, aby można było je wyświetlić. RequestBin i Hookbin są narzędzia innych firm, które umożliwiają tworzenie punktu końcowego i wyświetlić żądań, które są wysyłane do niej. Przejdź do [RequestBin](https://requestb.in/)i kliknij przycisk **utworzyć RequestBin**, lub przejdź do [Hookbin](https://hookbin.com/) i kliknij przycisk **utworzyć nowy punkt końcowy**. Skopiuj adres URL bin i Zastąp `<bin URL>` w poniższym skrypcie.
+Przed zasubskrybowaniem tematu utwórzmy punkt końcowy dla komunikatów o zdarzeniach. Zamiast pisać kod w celu zareagowania na zdarzenie, utwórzmy punkt końcowy, który będzie zbierać komunikaty, aby można było je wyświetlić. RequestBin i Hookbin to narzędzia innych producentów, które umożliwiają utworzenie punktu końcowego i wyświetlanie wysyłanych do niego żądań. Przejdź do narzędzia [RequestBin](https://requestb.in/) i kliknij pozycję **Create a RequestBin** (Utwórz pojemnik na żądania) lub przejdź do narzędzia [Hookbin](https://hookbin.com/) i kliknij pozycję **Create New Endpoint** (Utwórz nowy punkt końcowy). Skopiuj adres URL bin i Zastąp `<bin URL>` w poniższym skrypcie.
 
 ```powershell
 $binEndPoint = "<bin URL>"
@@ -115,7 +115,7 @@ echo $null >> gridTestFile.txt
 Set-AzureStorageBlobContent -File gridTestFile.txt -Container $containerName -Context $ctx -Blob gridTestFile.txt
 ```
 
-Zdarzenie zostało wyzwolone, a usługa Event Grid wysłała komunikat do punktu końcowego skonfigurowanego podczas subskrybowania. Przejdź do adresu URL punktu końcowego, który został utworzony wcześniej. Lub kliknij przycisk Odśwież w przeglądarce otwórz. Zobaczysz właśnie wysłane zdarzenie. 
+Zdarzenie zostało wyzwolone, a usługa Event Grid wysłała komunikat do punktu końcowego skonfigurowanego podczas subskrybowania. Przejdź do adresu URL punktu końcowego utworzonego wcześniej. Ewentualnie kliknij przycisk Refresh (Odśwież) w otwartej przeglądarce. Zobaczysz właśnie wysłane zdarzenie. 
 
 ```json
 [{

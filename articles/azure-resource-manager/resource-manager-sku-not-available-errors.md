@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/13/2017
+ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: a6cccfa5097847429d3e402e3d522addc14b8c31
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: b0cbd3c232e5df831031cc8e436f8dbb24b0e72c
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>Rozwiązywanie błędów dla jednostki SKU nie jest dostępna
 
@@ -37,13 +37,9 @@ for subscription '<subscriptionID>'. Please try another tier or deploy to a diff
 
 Ten błąd jest wyświetlany, gdy zasób SKU wybrano (takich jak rozmiar maszyny Wirtualnej) nie jest dostępny w wybranej lokalizacji.
 
-## <a name="solution"></a>Rozwiązanie
+## <a name="solution-1---powershell"></a>Rozwiązanie 1 - programu PowerShell
 
-Aby rozwiązać ten problem, należy określić, które jednostki SKU są dostępne w regionie. Aby znaleźć dostępne jednostki SKU, można użyć programu PowerShell, portalu lub operacji REST.
-
-### <a name="solution-1"></a>Rozwiązanie 1
-
-Użyj [Get-AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku) polecenia programu PowerShell. Filtrowanie wyników według lokalizacji. Musi mieć najnowszą wersję programu PowerShell dla tego polecenia.
+Aby określić, które jednostki SKU są dostępne w regionie, użyj [Get-AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku) polecenia. Filtrowanie wyników według lokalizacji. Musi mieć najnowszą wersję programu PowerShell dla tego polecenia.
 
 ```powershell
 Get-AzureRmComputeResourceSku | where {$_.Locations -icontains "southcentralus"}
@@ -61,9 +57,9 @@ virtualMachines      Standard_A1 southcentralus
 virtualMachines      Standard_A2 southcentralus
 ```
 
-### <a name="solution-2"></a>Rozwiązanie 2
+## <a name="solution-2---azure-cli"></a>Rozwiązanie 2 - Azure CLI
 
-W przypadku interfejsu wiersza polecenia Azure, użyj `az vm list-skus` polecenia. Następnie można użyć `grep` lub podobne narzędzia do filtrowania wyników.
+Aby określić, które jednostki SKU są dostępne w regionie, użyj `az vm list-skus` polecenia. Następnie można użyć `grep` lub podobne narzędzia do filtrowania wyników.
 
 ```bash
 $ az vm list-skus --output table
@@ -79,15 +75,15 @@ availabilitySets  centralus           Classic                 MaximumPlatformFau
 availabilitySets  centralus           Aligned                 MaximumPlatformFaultDomainCount=3
 ```
 
-### <a name="solution-3"></a>Rozwiązanie 3
+## <a name="solution-3---azure-portal"></a>Rozwiązanie 3 - w portalu Azure
 
-Użyj [portal](https://portal.azure.com). Zaloguj się do portalu, a następnie dodaj zasobów za pomocą interfejsu. Jak ustawić wartości, zobaczysz dostępne jednostki SKU dla tego zasobu. Nie ma potrzeby wdrażania.
+Aby określić, które jednostki SKU są dostępne w regionie, użyj [portal](https://portal.azure.com). Zaloguj się do portalu, a następnie dodaj zasobów za pomocą interfejsu. Jak ustawić wartości, zobaczysz dostępne jednostki SKU dla tego zasobu. Nie ma potrzeby wdrażania.
 
 ![dostępne jednostki SKU](./media/resource-manager-sku-not-available-errors/view-sku.png)
 
-### <a name="solution-4"></a>Rozwiązanie 4
+## <a name="solution-4---rest"></a>Rozwiązanie 4 - REST
 
-Użyj interfejsu API REST dla maszyn wirtualnych. Wyślij żądanie następujące:
+Aby określić, które jednostki SKU są dostępne w regionie, należy użyć interfejsu API REST dla maszyn wirtualnych. Wyślij żądanie następujące:
 
 ```HTTP 
 GET

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: b7210c944e2f99aacdc2f554409552007286c5da
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 0589f2efeaaafc35bcb9d869c391a0533fe6e502
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Co to jest model usługi w chmurze i jak jest pakiet?
 Usługi w chmurze jest tworzona na podstawie trzech składników, definicji usługi *(csdef)*, konfiguracji usługi *(cscfg)*, a pakiet usługi *(cspkg)*. Zarówno **ServiceDefinition.csdef** i **ServiceConfig.cscfg** plików są oparte na języku XML i opisano strukturę usługi w chmurze i sposobu jego konfiguracji; nazywane modelu. **ServicePackage.cspkg** plik zip, który jest generowany na podstawie **ServiceDefinition.csdef** i między innymi zawiera wszystkie zależności wymagane formacie binarnym. Platforma Azure tworzy usługi w chmurze z obu **ServicePackage.cspkg** i **ServiceConfig.cscfg**.
@@ -117,7 +117,7 @@ Zawiera zadania, które są uruchamiane podczas uruchamiania roli. Zadania są d
 
 <a name="cscfg"></a>
 
-## <a name="serviceconfigurationcscfg"></a>Pliku ServiceConfiguration.cscfg
+## <a name="serviceconfigurationcscfg"></a>ServiceConfiguration.cscfg
 Konfiguracja ustawień usługi w chmurze jest określany przez wartości **pliku ServiceConfiguration.cscfg** pliku. Możesz określić liczbę wystąpień, które mają zostać wdrożone dla każdej roli, w tym pliku. Wartości ustawienia konfiguracji, które zostały zdefiniowane w pliku definicji usługi są dodawane do pliku konfiguracji usługi. Odciski palców wszelkich certyfikatów zarządzania, które są skojarzone z usługą w chmurze, również są dodawane do pliku. [Schemat konfiguracji usługi Azure (cscfg pliku)](https://msdn.microsoft.com/library/azure/ee758710.aspx) zapewnia dozwolony format pliku konfiguracji usługi.
 
 Pliku konfiguracji usługi nie jest dostarczana z aplikacją, ale zostało załadowane na platformie Azure jako osobny plik i służy do konfigurowania usługi w chmurze. Możesz przekazać plik konfiguracji usługi bez ponownego wdrożenia usługi w chmurze. Można zmienić wartości konfiguracji dla usługi w chmurze jest uruchomiona usługa w chmurze. W poniższym przykładzie przedstawiono ustawienia konfiguracji, które mogą być definiowane dla ról sieć Web i procesu roboczego:
@@ -269,14 +269,14 @@ Gdzie zmienne są zdefiniowane w następujący sposób:
 | --- | --- |
 | \[DirectoryName\] |Podkatalogu w katalogu głównym projektu zawierającego plik csdef projektu platformy Azure. |
 | \[ServiceDefinition\] |Nazwa pliku definicji usługi. Domyślnie ten plik ma nazwę ServiceDefinition.csdef. |
-| \[Nazwa_pliku_wyjściowego\] |Nazwa pliku wygenerowany pakiet. Zwykle ta jest ustawiona na nazwę aplikacji. Jeśli nazwa pliku nie jest określona, pakiet aplikacji jest tworzony jako \[ApplicationName\]cspkg. |
+| \[OutputFileName\] |Nazwa pliku wygenerowany pakiet. Zwykle ta jest ustawiona na nazwę aplikacji. Jeśli nazwa pliku nie jest określona, pakiet aplikacji jest tworzony jako \[ApplicationName\]cspkg. |
 | \[RoleName\] |Nazwa roli, zgodnie z definicją w pliku definicji usługi. |
 | \[RoleBinariesDirectory] |Lokalizacja plików binarnych roli. |
-| \[Właściwość VirtualPath\] |Katalogi fizyczne dla każdej ścieżki wirtualnej określona w sekcji witryn definicji usługi. |
+| \[VirtualPath\] |Katalogi fizyczne dla każdej ścieżki wirtualnej określona w sekcji witryn definicji usługi. |
 | \[PhysicalPath\] |Katalogi fizyczne zawartości dla każdej ścieżki wirtualnej zdefiniowany w węźle lokacji definicji usługi. |
 | \[RoleAssemblyName\] |Nazwa pliku binarnego dla roli. |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Tworzenia pakietu usług chmury i chcę...
 
 * [Ustawienia pulpitu zdalnego dla wystąpienia usługi chmury][remotedesktop]
@@ -291,7 +291,7 @@ Używam programu Visual Studio i chcę...
 
 [deploy]: cloud-services-how-to-create-deploy-portal.md
 [remotedesktop]: cloud-services-role-enable-remote-desktop-new-portal.md
-[vs_remote]: ../vs-azure-tools-remote-desktop-roles.md
+[vs_remote]: cloud-services-role-enable-remote-desktop-visual-studio.md
 [vs_deploy]: ../vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md
 [vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md
 [vs_create]: ../vs-azure-tools-azure-project-create.md

@@ -11,11 +11,11 @@ ms.custom: managed instance
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: bonova
-ms.openlocfilehash: 87efa41ce74a0d571c8fd5f7a0ebfbd7bc6b626e
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 2ff8c6cad7f9c63fe6403fbf292fa3eab3373aed
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migracja wystąpienia programu SQL Server do wystąpienia zarządzane bazy danych SQL Azure
 
@@ -83,7 +83,7 @@ Zarządzane wystąpienie obsługuje następujące opcje migracji bazy danych (ob
 
 ![DMS](./media/sql-database-managed-instance-migration/dms.png)
 
-Aby dowiedzieć się więcej na temat tego scenariusza i konfiguracji kroki dla DMS, zobacz [migracji lokalnej bazy danych do wystąpienia zarządzane przy użyciu DMS](../dms/tutorial-sql-server-to-azure-sql.md).  
+Aby dowiedzieć się więcej na temat tego scenariusza i konfiguracji kroki dla DMS, zobacz [migracji lokalnej bazy danych do wystąpienia zarządzane przy użyciu DMS](../dms/tutorial-sql-server-to-managed-instance.md).  
 
 ### <a name="native-restore-from-url"></a>Natywny przywracania z adresu URL
 
@@ -129,4 +129,4 @@ Do zwiększenia poziomu zabezpieczeń, należy rozważyć użycie niektórych fu
 
 - Informacji o zarządzanych wystąpienie znajduje się w temacie [co to jest wystąpieniem zarządzane?](sql-database-managed-instance.md)
 - Samouczek, która obejmuje przywrócenie z kopii zapasowej, zobacz [utworzyć wystąpienia zarządzanego](sql-database-managed-instance-tutorial-portal.md).
-- Samouczek przedstawiający migracji za pomocą DMS, zobacz [migracji lokalnej bazy danych do wystąpienia zarządzane przy użyciu DMS](../dms/tutorial-sql-server-to-azure-sql.md).  
+- Samouczek przedstawiający migracji za pomocą DMS, zobacz [migracji lokalnej bazy danych do wystąpienia zarządzane przy użyciu DMS](../dms/tutorial-sql-server-to-managed-instance.md).  

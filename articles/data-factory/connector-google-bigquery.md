@@ -1,5 +1,5 @@
 ---
-title: "Kopiowanie danych z Google BigQuery przy użyciu fabryki danych Azure (wersja beta) | Dokumentacja firmy Microsoft"
+title: "Kopiowanie danych z Google BigQuery przy użyciu fabryki danych Azure | Dokumentacja firmy Microsoft"
 description: "Dowiedz się, jak skopiować dane z Google BigQuery do zbiornika obsługiwane magazyny danych za pomocą działania kopiowania w potoku fabryki danych."
 services: data-factory
 documentationcenter: 
@@ -13,21 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 35f61f6bd38b59a2df0613ba2506d047c1daeaaa
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 955de6cf4b17f1df1e545ccc196856c7c898edfe
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/12/2018
 ---
-# <a name="copy-data-from-google-bigquery-by-using-azure-data-factory-beta"></a>Kopiowanie danych z Google BigQuery przy użyciu fabryki danych Azure (wersja beta)
+# <a name="copy-data-from-google-bigquery-by-using-azure-data-factory"></a>Kopiowanie danych z Google BigQuery przy użyciu fabryki danych Azure
 
 Ten artykuł przedstawia sposób użycia działanie kopiowania w fabryce danych Azure, aby skopiować dane z Google BigQuery. Opiera się na [omówienie działania kopiowania](copy-activity-overview.md) artykułu, który przedstawia ogólne omówienie działania kopiowania.
 
 > [!NOTE]
 > Ten artykuł dotyczy wersji 2 usługi Data Factory, która jest obecnie dostępna w wersji zapoznawczej. Jeśli używasz wersji 1 usługi fabryka danych, która jest ogólnie dostępna, zobacz [aktywności kopiowania w wersji 1](v1/data-factory-data-movement-activities.md).
-
-> [!IMPORTANT]
-> Ten łącznik jest obecnie w wersji beta. Możesz wypróbować jej możliwości i przekaż nam swoją opinię. Nie należy używać go w środowisku produkcyjnym.
 
 ## <a name="supported-capabilities"></a>Obsługiwane możliwości
 

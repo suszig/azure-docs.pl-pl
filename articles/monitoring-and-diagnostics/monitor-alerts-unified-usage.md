@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: vinagara
-ms.openlocfilehash: 60f6c45b7dacd26e0dea7b8b69c52534dcb5fec9
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b6b6bfee5b9e9036a6d7ff17ff1a8d4de542bbd3
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor---alerts-preview"></a>Utwórz, Wyświetl i alertami można zarządzać za pomocą monitora Azure - alerty (wersja zapoznawcza)
 
@@ -65,7 +65,7 @@ Szczegółowe dalej jest przewodnik krok po kroku przy użyciu alertów Azure (w
 
     > Ujednolicone alerty (wersja zapoznawcza) obsługuje również alerty dziennik aktywności. [Dowiedz się więcej](monitoring-activity-log-alerts-new-experience.md).
 
-5. *Alerty metryki*: Upewnij się, **typu zasobu** jest wybrana usługa platformy lub monitor (inne niż *analizy dzienników*), następnie raz właściwe **zasobów** jest Kliknij wybrany *gotowe* przycisk, aby powrócić do tworzenia alertu. Następnie użyj **Dodaj kryteria** przycisk, aby wybrać określonego sygnału z listy opcji sygnału, ich monitorowania usługi i typu na liście — które są dostępne dla zasobu wybranymi wcześniej.
+5. *Alerty metryki*: Upewnij się, **typu zasobu** wybrano typu sygnału jako **Metryka**, następnie raz właściwe **zasobów** jest wybierany kliknij  *Gotowe* przycisk, aby powrócić do tworzenia alertu. Następnie użyj **Dodaj kryteria** przycisk, aby wybrać określonego sygnału z listy opcji sygnału, ich monitorowania usługi i typu na liście — które są dostępne dla zasobu wybranymi wcześniej.
 
     ![Wybierz zasób](./media/monitor-alerts-unified/AlertsPreviewResourceSelection.png)
 
@@ -81,7 +81,7 @@ Szczegółowe dalej jest przewodnik krok po kroku przy użyciu alertów Azure (w
 
     ![Konfiguruj logikę sygnału metryki wielowymiarowej](./media/monitor-alerts-unified/AlertsPreviewCriteriaMultiDim.png)
 
-8. *Rejestrowania alertów*: Upewnij się, **typu zasobu** jest źródłem analytics, takich jak *analizy dzienników* lub *usługi Application Insights*, następnie raz właściwe  **zasób** jest wybrana, kliknij przycisk *gotowe*. Następnie użyj **Dodaj kryteria** przycisk, aby wyświetlić listę sygnału opcje dostępne dla zasobu i z listy sygnału **wyszukiwania dziennika niestandardowego** opcja wybrana dziennika monitora usługi, takiej jak *dziennika Analiza* lub *usługi Application Insights*.
+8. *Rejestrowania alertów*: Upewnij się, **typu zasobu** jest źródłem analytics, takich jak *analizy dzienników* lub *usługi Application Insights* i sygnalizuje typu jako **dziennika** , następnie raz właściwe **zasobów** jest wybrana, kliknij przycisk *gotowe*. Następnie użyj **Dodaj kryteria** przycisk, aby wyświetlić listę sygnału opcje dostępne dla zasobu i z listy sygnału **wyszukiwania dziennika niestandardowego** opcja wybrana dziennika monitora usługi, takiej jak *dziennika Analiza* lub *usługi Application Insights*.
 
    ![Wybierz zasób — dziennik niestandardowy wyszukiwania](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog.png)
 
@@ -121,8 +121,8 @@ Aby uzyskać **alerty dziennika** alerty mogą być oparte na:
 
     Aby uzyskać **alerty dziennika** kilka dodatkowych funkcji jest dostępna w celu zastąpienia domyślnych akcji:
 
-    - **Powiadomienia e-mail**: podmiot zastąpień w wiadomości e-mail wysyłane za pośrednictwem grupy działań. Nie można zmodyfikować treści wiadomości.
-    - **Uwzględnij niestandardowy ładunek Json**: zastępuje Json używane przez grupy akcji elementu webhook i zamiast tego zastąpić domyślny ładunek niestandardowy ładunek. Aby uzyskać więcej informacji na webhook formatów, zobacz [akcji elementu webhook dla dziennika alertów](monitor-alerts-unified-log-webhook.md)
+    - **Powiadomienia e-mail**: zastępuje *temat wiadomości e-mail* w wiadomości e-mail wysyłane za pośrednictwem grupy działań; Jeśli istnieje co najmniej jednego działania poczty e-mail w grupie tych akcji. Nie można zmodyfikować treść wiadomości e-mail i to pole jest **nie** adresu e-mail.
+    - **Uwzględnij niestandardowy ładunek Json**: przesłania elementu webhook JSON używane przez akcję grup, jeśli istnieje co najmniej jeden element webhook akcji w grupie tych akcji. Użytkownik może zdefiniuj format JSON do użycia dla wszystkich elementów webhook skonfigurowane w skojarzonych grup akcji; Aby uzyskać więcej informacji na webhook formatów, zobacz [akcji elementu webhook dla alertów dziennika](monitor-alerts-unified-log-webhook.md). Opcja Webhook testu został dostarczony do Sprawdź format i przetwarzania przez miejsce docelowe za pomocą przykładowej JSON i opcja etykietę przeznaczone tylko dla **testowania** celów.
 
         ![Akcja zastąpienia dla dziennika alertów](./media/monitor-alerts-unified/AlertsPreviewOverrideLog.png)
 

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: a65832a30a570944ff30d02c2f173df345bde32c
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: fa78c42ce93729379d3c532f94bc67bb8c069d53
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Konfigurowanie pamięci podręcznej Redis Azure
-W tym temacie opisano sposób przejrzeć i zaktualizować konfigurację dla swoich wystąpień w pamięci podręcznej Redis Azure i zawiera domyślną konfigurację serwera Redis wystąpienia pamięci podręcznej Redis Azure.
+W tym temacie opisano konfiguracje, które są dostępne dla swoich wystąpień w pamięci podręcznej Redis Azure. W tym temacie omówiono również domyślną konfigurację serwera Redis wystąpienia pamięci podręcznej Redis Azure.
 
 > [!NOTE]
 > Aby uzyskać więcej informacji na temat konfigurowania przy użyciu funkcji pamięci podręcznej premium, zobacz [Konfigurowanie trwałości](cache-how-to-premium-persistence.md), [sposobu konfigurowania klastra](cache-how-to-premium-clustering.md), i [Konfigurowanie obsługi sieci wirtualnej ](cache-how-to-premium-vnet.md).
@@ -53,7 +53,7 @@ Możesz wyświetlić i skonfigurować następujące ustawienia za pomocą **zaso
     * [Geo-replication](#geo-replication) (Replikacja geograficzna)
     * [Virtual Network](#virtual-network)
     * [Zapora](#firewall)
-    * [Właściwości](#properties)
+    * [właściwości](#properties)
     * [Blokady](#locks)
     * [Skrypt automatyzacji](#automation-script)
 * [Administracja](#administration)
@@ -66,7 +66,7 @@ Możesz wyświetlić i skonfigurować następujące ustawienia za pomocą **zaso
     * [Diagnostyka](#diagnostics)
 * [Rozwiązywanie problemów z ustawieniami i pomoc techniczna](#support-amp-troubleshooting-settings)
     * [Kondycja zasobów](#resource-health)
-    * [Nowe żądanie pomocy technicznej](#new-support-request)
+    * [nowe żądanie pomocy technicznej](#new-support-request)
 
 
 ## <a name="overview"></a>Przegląd
@@ -79,7 +79,7 @@ Kliknij przycisk **dziennik aktywności** Aby wyświetlić akcje wykonywane w pa
 
 ### <a name="access-control-iam"></a>Kontrola dostępu (IAM)
 
-**(IAM) kontroli dostępu** sekcji zapewnia obsługę kontroli dostępu opartej na rolach (RBAC) w portalu Azure, aby ułatwić organizacjom, które spełnia ich wymagania dotyczące zarządzania dostępu, wystarczy i dokładnie. Aby uzyskać więcej informacji, zobacz [kontroli dostępu opartej na rolach w portalu Azure](../active-directory/role-based-access-control-configure.md).
+**(IAM) kontroli dostępu** sekcji zapewnia obsługę kontroli dostępu opartej na rolach (RBAC) w portalu Azure. Taka konfiguracja pozwala organizacjom, które spełnia ich wymagania dotyczące zarządzania dostępu, wystarczy i dokładnie. Aby uzyskać więcej informacji, zobacz [kontroli dostępu opartej na rolach w portalu Azure](../active-directory/role-based-access-control-configure.md).
 
 ### <a name="tags"></a>Tagi
 
@@ -105,7 +105,7 @@ Kliknij przycisk **diagnozowanie i rozwiązywanie problemów** dostarczanych z n
 * [Geo-replication](#geo-replication) (Replikacja geograficzna)
 * [Virtual Network](#virtual-network)
 * [Zapora](#firewall)
-* [Właściwości](#properties)
+* [właściwości](#properties)
 * [Blokady](#locks)
 * [Skrypt automatyzacji](#automation-script)
 
@@ -136,7 +136,7 @@ Domyślnie dostęp inny niż za pomocą protokołu SSL jest zablokowany dla nowy
 
 **Zasady Maxmemory** konfiguruje zasady wykluczania dla pamięci podręcznej i można wybrać z następujących zasad wykluczenia:
 
-* `volatile-lru`— jest to wartość domyślna.
+* `volatile-lru` -To jest domyślne zasady wykluczania.
 * `allkeys-lru`
 * `volatile-random`
 * `allkeys-random`
@@ -147,9 +147,9 @@ Aby uzyskać więcej informacji na temat `maxmemory` zasad, zobacz [zasady wyklu
 
 **Zastrzeżone maxmemory** ustawienie określa ilość pamięci w Megabajtach, które jest zastrzeżone dla operacji-cache, takich jak replikacji w trybie failover. Ustawienie tej wartości pozwala na lepsze środowisko serwera Redis, gdy zmienia się obciążenia. Ta wartość musi być ustawiona wyższych obciążeń, które są zapisu ciężki. Pamięć jest zarezerwowana dla takich operacji, jest niedostępna dla magazynu danych z pamięci podręcznej.
 
-**Zastrzeżone maxfragmentationmemory** ustawienie określa ilość pamięci w Megabajtach, aby pomieścić fragmentacji pamięci zarezerwowanej. Ustawienie tej wartości umożliwia bardziej spójny serwer Redis wystąpić przy pamięci podręcznej jest pełny lub bliski pełnej i fragmentacji stosunek również jest wysoka. Pamięć jest zarezerwowana dla takich operacji, jest niedostępna dla magazynu danych z pamięci podręcznej.
+**Zastrzeżone maxfragmentationmemory** ustawienie określa ilość pamięci w Megabajtach, aby pomieścić fragmentacji pamięci zarezerwowanej. Ustawienie tej wartości pozwala na bardziej spójne środowisko serwera Redis, gdy pamięć podręczna jest pełna lub bliski pełnej i fragmentacji stosunek jest wysoka. Pamięć jest zarezerwowana dla takich operacji, jest niedostępna dla magazynu danych z pamięci podręcznej.
 
-Rzecz wziąć pod uwagę podczas wybierania nową wartość rezerwacji pamięci (**zastrzeżone maxmemory** lub **zastrzeżone maxfragmentationmemory**) jest jak tej zmiany mogą wpłynąć na pamięci podręcznej, który jest już uruchomione z duże ilości danych. Na przykład jeśli masz 53 GB pamięci podręcznej z 49 GB danych, a następnie zmień wartość rezerwacji na 8 GB, to spowoduje porzucenie maksymalną ilość dostępnej pamięci systemu do 45 GB. Jeśli bieżące `used_memory` lub `used_memory_rss` wartości są większe od nowego limitu 45 GB, a następnie system, należy wykluczyć danych przed zakończeniem `used_memory` i `used_memory_rss` są poniżej 45 GB. Wykluczanie może zwiększyć fragmentacji pamięci i obciążenia serwera. Aby uzyskać więcej informacji w pamięci podręcznej metryk, takich jak `used_memory` i `used_memory_rss`, zobacz [dostępne metryki i raportowania interwałów](cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
+Rzecz wziąć pod uwagę podczas wybierania nową wartość rezerwacji pamięci (**zastrzeżone maxmemory** lub **zastrzeżone maxfragmentationmemory**) jest jak tej zmiany mogą wpłynąć na pamięci podręcznej, który jest już uruchomione z duże ilości danych. Na przykład jeśli masz 53 GB pamięci podręcznej z 49 GB danych, a następnie zmień wartość rezerwacji na 8 GB, ta zmiana spowoduje porzucenie maksymalną ilość dostępnej pamięci systemu do 45 GB. Jeśli bieżące `used_memory` lub `used_memory_rss` wartości są większe od nowego limitu 45 GB, a następnie system, należy wykluczyć danych przed zakończeniem `used_memory` i `used_memory_rss` są poniżej 45 GB. Wykluczanie może zwiększyć fragmentacji pamięci i obciążenia serwera. Aby uzyskać więcej informacji w pamięci podręcznej metryk, takich jak `used_memory` i `used_memory_rss`, zobacz [dostępne metryki i raportowania interwałów](cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
 
 > [!IMPORTANT]
 > **Zastrzeżone maxmemory** i **zastrzeżone maxfragmentationmemory** ustawienia są dostępne tylko dla Standard i Premium przechowuje w pamięci podręcznej.
@@ -222,7 +222,7 @@ Aby zmienić rozmiar klastra, za pomocą suwaka, lub wpisz liczbę z zakresu od 
 > 
 
 
-### <a name="redis-data-persistence"></a>Stan trwały danych pamięci podręcznej Redis
+### <a name="redis-data-persistence"></a>Trwałość danych Redis
 Kliknij przycisk **trwałość danych Redis** Aby włączyć, wyłączyć lub skonfiguruj trwałości danych dla pamięci podręcznej premium. Pamięć podręczna Redis Azure oferuje trwałość Redis przy użyciu [trwałości RDB](cache-how-to-premium-persistence.md#configure-rdb-persistence) lub [trwałości AOF](cache-how-to-premium-persistence.md#configure-aof-persistence).
 
 Aby uzyskać więcej informacji, zobacz [Konfigurowanie trwałości dla podręczna Redis Azure Premium](cache-how-to-premium-persistence.md).
@@ -269,7 +269,9 @@ Aby określić okna obsługi, sprawdź odpowiednią dni i określ godzina rozpoc
 
 ### <a name="firewall"></a>Zapora
 
-Kliknij przycisk **zapory** Aby wyświetlić i skonfigurować reguły zapory dla pamięć podręczna Redis Azure Premium.
+Konfigurowanie reguł zapory jest dostępna dla wszystkich warstw pamięci podręcznej Redis Azure.
+
+Kliknij przycisk **zapory** Aby wyświetlić i skonfigurować reguły zapory dla pamięci podręcznej.
 
 ![Zapora](./media/cache-configure/redis-firewall-rules.png)
 
@@ -365,7 +367,7 @@ Ustawienia w **pomocy technicznej i rozwiązywania problemów** sekcja zawiera o
 ![Pomoc i rozwiązywanie problemów](./media/cache-configure/redis-cache-support-troubleshooting.png)
 
 * [Kondycja zasobów](#resource-health)
-* [Nowe żądanie pomocy technicznej](#new-support-request)
+* [nowe żądanie pomocy technicznej](#new-support-request)
 
 ### <a name="resource-health"></a>Kondycja zasobów
 **Kondycja zasobów** oczekuje zasobu i informuje, czy działa on zgodnie z oczekiwaniami. Aby uzyskać więcej informacji o usłudze kondycji zasobów Azure, zobacz [Przegląd kondycji zasobów Azure](../resource-health/resource-health-overview.md).
@@ -383,10 +385,10 @@ Kliknij przycisk **nowy obsługuje żądania** otwarcia żądania pomocy technic
 
 
 ## <a name="default-redis-server-configuration"></a>Domyślna konfiguracja serwera Redis
-Nowe wystąpienia pamięci podręcznej Redis Azure są skonfigurowane z następujących domyślnych wartości konfiguracji pamięci podręcznej Redis.
+Nowe wystąpienia pamięci podręcznej Redis Azure są skonfigurowane następujące wartości konfiguracji Redis domyślne:
 
 > [!NOTE]
-> Nie można zmienić ustawienia w tej sekcji przy użyciu `StackExchange.Redis.IServer.ConfigSet` metody. Jeśli ta metoda jest wywoływana z jednego z poleceń w tej sekcji, jest zgłaszany wyjątek podobny do następującego:  
+> Nie można zmienić ustawienia w tej sekcji przy użyciu `StackExchange.Redis.IServer.ConfigSet` metody. Jeśli ta metoda jest wywoływana z jednego z poleceń w tej sekcji, jest zgłaszany wyjątek podobny do poniższego przykładu:  
 > 
 > `StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`
 > 
@@ -397,10 +399,10 @@ Nowe wystąpienia pamięci podręcznej Redis Azure są skonfigurowane z następu
 | Ustawienie | Wartość domyślna | Opis |
 | --- | --- | --- |
 | `databases` |16 |Domyślna liczba baz danych jest 16, ale można skonfigurować wiele różnych oparte na warstwie cenowej. <sup>1</sup> domyślna baza danych jest DB 0, możesz wybrać inną na podstawę dla każdego połączenia przy użyciu `connection.GetDatabase(dbid)` gdzie `dbid` jest liczbą z zakresu od `0` i `databases - 1`. |
-| `maxclients` |Zależy od warstwy cenowej<sup>2</sup> |Jest to maksymalna liczba podłączonych klientów dozwolone w tym samym czasie. Po osiągnięciu limitu pamięci podręcznej Redis zamyka wszystkie nowe połączenia, zwróci komunikat "Osiągnięto maksymalną liczbę klientów". |
+| `maxclients` |Zależy od warstwy cenowej<sup>2</sup> |Ta wartość jest maksymalna liczba podłączonych klientów dozwolone w tym samym czasie. Po osiągnięciu limitu pamięci podręcznej Redis zamyka wszystkie nowe połączenia, zwróci komunikat "Osiągnięto maksymalną liczbę klientów". |
 | `maxmemory-policy` |`volatile-lru` |Zasady Maxmemory jest jak Redis wybiera co do usunięcia, gdy to ustawienie `maxmemory` osiągnięciu (rozmiar pamięci podręcznej oferty wybranej podczas tworzenia pamięci podręcznej). Z pamięci podręcznej Redis Azure jest ustawieniem domyślnym `volatile-lru`, które powoduje usunięcie kluczy z wygaśnięciem ustawić za pomocą algorytmu LRU. To ustawienie można skonfigurować w portalu Azure. Aby uzyskać więcej informacji, zobacz [zasady pamięci](#memory-policies). |
 | `maxmemory-samples` |3 |Aby zapisać pamięci, LRU i minimalny czas wygaśnięcia algorytmy są przybliżona algorytmy zamiast dokładne algorytmów. Domyślnie Redis kontroli trzy klucze i pobrania ten, który został użyty mniej ostatnio. |
-| `lua-time-limit` |5,000 |Maksymalny czas wykonywania skryptu Lua (w milisekundach). Po osiągnięciu maksymalnego czasu wykonywania Redis rejestruje skryptu nadal trwa wykonywanie po maksymalny dozwolony czas i uruchamia na udzielenie odpowiedzi na zapytania z powodu błędu. |
+| `lua-time-limit` |5000 |Maksymalny czas wykonywania skryptu Lua (w milisekundach). Po osiągnięciu maksymalnego czasu wykonywania Redis rejestruje skryptu nadal trwa wykonywanie po maksymalny dozwolony czas i uruchamia na udzielenie odpowiedzi na zapytania z powodu błędu. |
 | `lua-event-limit` |500 |Maksymalny rozmiar kolejki zdarzeń skryptu. |
 | `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |Limity buforu wyjściowego klienta można wymusić odłączenie klientów, którzy nie są odczytywanie danych z serwera wystarczająca jakiegoś powodu (typową przyczyną jest, że klient Pub/Sub nie mogą korzystać z wiadomości tak szybko, jak wydawcy można tworzyć je). Aby uzyskać więcej informacji, zobacz [http://redis.io/topics/clients](http://redis.io/topics/clients). |
 
@@ -495,7 +497,7 @@ Gdy za pomocą konsoli Redis z premium w klastrze pamięci podręcznej, można w
 
 ![Redis konsoli](./media/cache-configure/redis-console-premium-cluster.png)
 
-Jeśli użytkownik spróbuje uzyskać dostępu do klucza przechowywanego w różnych niezależnych od połączonych niezależnego fragmentu, pojawi się komunikat o błędzie podobny do następującego.
+Jeśli użytkownik spróbuje uzyskać dostępu do klucza przechowywanego w różnych niezależnych od połączonych niezależnego fragmentu, pojawi się komunikat o błędzie podobny do następującego:
 
 ```
 shard1>get myKey

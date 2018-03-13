@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6a1d56a270ae0c44db18f26091cc3c550a37e420
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: c4bf3871b4636ce769dd8d84a637b88d4a00db97
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Przenoszenie zasobów do nowej grupy zasobów lub subskrypcji
 
@@ -99,7 +99,7 @@ Skontaktuj się z [obsługuje](https://portal.azure.com/#blade/Microsoft_Azure_S
 * Przenoszenie zasobów dla nowego konta platformy Azure (i dzierżawy usługi Azure Active Directory) i potrzebujesz pomocy z instrukcjami w poprzedniej sekcji.
 * Przenoszenie zasobów klasycznych, ale występują problemy z ograniczeniami.
 
-## <a name="services-that-enable-move"></a>Usługi, które pozwalają przenoszenia
+## <a name="services-that-can-be-moved"></a>Usługi, które mogą zostać przeniesione.
 
 Usługi umożliwiające przeniesienie do nowej grupy zasobów i subskrypcji są:
 
@@ -149,7 +149,7 @@ Usługi umożliwiające przeniesienie do nowej grupy zasobów i subskrypcji są:
 * Sieci wirtualne — Zobacz [ograniczenia sieci wirtualnych](#virtual-networks-limitations)
 * VPN Gateway
 
-## <a name="services-that-do-not-enable-move"></a>Usługi, które nie należy włączać przenoszenia
+## <a name="services-that-cannot-be-moved"></a>Usługi, których nie można przenieść
 
 Usługi, które aktualnie nie należy włączać przenoszenie zasobu to:
 
@@ -307,7 +307,7 @@ Na przykład załóżmy, że skonfigurowano replikację maszyn lokalnych do kont
 Aby przenieść Maszynę wirtualną w **kopia zapasowa Azure** między grupami zasobów:
  1. Tymczasowo Zatrzymaj wykonywanie kopii zapasowej i Zachowaj dane kopii zapasowej
  2. Przenieś maszynę Wirtualną do docelowej grupy zasobów
- 3. Włącz ochronę ponownie w tym samym/nowy magazyn, które użytkownicy mogą przywracać z dostępnych punktów przywracania utworzone przed operacji przenoszenia.
+ 3. Włącz ponownie jej ochronę w tym samym/nowy magazyn, które użytkownicy mogą przywracać z dostępnych punktów przywracania utworzone przed operacji przenoszenia.
 Jeśli użytkownik przesuwa kopii zapasowej maszyny Wirtualnej w subskrypcjach, krok 1 i 2 pozostają takie same. W kroku 3 użytkownik musi ochronę maszyny Wirtualnej w obszarze Nowy magazyn istnieje / utworzone w docelowej subskrypcji. Magazyn usług odzyskiwania nie obsługuje kopii zapasowych między subskrypcji.
 
 ## <a name="hdinsight-limitations"></a>Ograniczenia usługi HDInsight

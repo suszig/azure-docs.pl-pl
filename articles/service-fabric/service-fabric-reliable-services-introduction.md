@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/23/2018
+ms.date: 3/9/2018
 ms.author: masnider;
-ms.openlocfilehash: 3c583d99a63c13a0a2ab351f82a4f5ff6840788a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: cf647c078728c9fbe357fea5bef4aa6dfb86c975
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="reliable-services-overview"></a>Omówienie usług Reliable Services
 Sieć szkieletowa usług Azure upraszcza zapisywanie i bezstanowe i stanowe niezawodne usługi zarządzania. W tym temacie omówiono:
@@ -87,10 +87,6 @@ Typowym przykładem sposobu usługi bezstanowej są używane w sieci szkieletowe
 Usługi stanowej to taki, który musi mieć część stanu zachowano spójności i znajdują się w kolejności dla usługi funkcji. Należy wziąć pod uwagę to usługa, która stale oblicza średnią kroczącą pewnej wartości na podstawie aktualizacji, który odbiera. Aby to zrobić, musi mieć bieżącego zestawu żądań przychodzących, wymaganych do przetworzenia oraz aktualny średni. Wszystkie usługi, która pobiera, procesów i zapisuje informacje w zewnętrznym sklepie (np. Azure blob lub tabeli magazynu dzisiaj) jest obiektem stanowym. Śledzi tylko jego stanu w magazynie stanów zewnętrznych.
 
 Większość usług dzisiaj przechowywane zewnętrznie, ich stanie, ponieważ jest zewnętrznym sklepie, co zapewnia niezawodność, dostępność, skalowalność i spójności dla tego stanu. W sieci szkieletowej usług usługi nie są wymagane do przechowywania ich stanu zewnętrznie. Sieć szkieletowa usług zapewnia obsługę tych wymagań dla kodu usługi i stan usługi.
-
-> [!NOTE]
-> Obsługa stanowych usług Reliable Services nie jest dostępna w systemie Linux jeszcze (dla C# lub języka Java).
->
 
 Załóżmy, że jeśli chcesz zapisać to usługa, która przetwarza obrazów. Aby to zrobić, usługa przyjmuje obrazu i serii konwersje do wykonania w tym obrazie. Ta usługa zwraca odbiornik komunikacji (teraz załóżmy, że jest WebAPI) czy ujawnia interfejs API, takich jak `ConvertImage(Image i, IList<Conversion> conversions)`. Po odebraniu żądania usługa zapisze go w `IReliableQueue`i zwraca identyfikator niektórych do klienta, więc można śledzić żądania.
 
