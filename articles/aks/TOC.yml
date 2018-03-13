@@ -87,6 +87,8 @@
       items:
         - name: Dostęp do węzła SSH
           href: aks-ssh.md
+        - name: Pobieranie dzienników agenta kubelet
+          href: kubelet-logs.md
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure

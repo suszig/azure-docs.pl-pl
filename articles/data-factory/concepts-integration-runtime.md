@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 7308c8754198ea3e7533b8a9c378cfaac1b5bbd2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 18792d8dc8b232ad048db2440c5b52428c50f92e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Infrastruktura Integration Runtime w usłudze Azure Data Factory
 Integration Runtime (IR) to infrastruktura obliczeniowa używana przez usługę Azure Data Factory do zapewnienia następujących możliwości integracji danych w różnych środowiskach sieciowych:
@@ -123,7 +123,7 @@ Na poniższym diagramie przedstawiono dwa przykłady działania kopiowania:
 ![Które środowisko IR wybrać](media/concepts-integration-runtime/which-integration-runtime-to-use.png)
 
 ## <a name="integration-runtime-location"></a>Lokalizacja środowiska Integration Runtime
-Lokalizacja usługi Data Factory to miejsce, w którym przechowywane są metadane fabryki danych i gdzie inicjowane jest wyzwalanie potoku. Obecnie obsługiwane lokalizacje usługi Data Factory to Wschodnie stany USA, Wschodnie stany USA 2 i Europa Zachodnia. Jednak fabryka danych może mieć dostęp do magazynów danych i usług obliczeniowych w innych regionach świadczenia usługi Azure, aby przenosić dane między magazynami danych lub przetwarzać dane przy użyciu usług obliczeniowych. Zachowanie to jest wykonywane przez środowisko IR dostępne globalnie w wielu regionach, co zapewnia zgodność danych, wydajność i niższe koszty wyjścia z sieci.
+Lokalizacja usługi Data Factory to miejsce, w którym przechowywane są metadane fabryki danych i gdzie inicjowane jest wyzwalanie potoku. Obecnie obsługiwane lokalizacje usługi Data Factory to Wschodnie stany USA, Wschodnie stany USA 2, Azja Południowo-Wschodnia i Europa Zachodnia. Jednak fabryka danych może mieć dostęp do magazynów danych i usług obliczeniowych w innych regionach świadczenia usługi Azure, aby przenosić dane między magazynami danych lub przetwarzać dane przy użyciu usług obliczeniowych. Zachowanie to jest wykonywane przez środowisko IR dostępne globalnie w wielu regionach, co zapewnia zgodność danych, wydajność i niższe koszty wyjścia z sieci.
 
 Lokalizacja IR definiuje lokalizację zaplecza obliczeniowego i w praktyce lokalizację, w której wykonywane jest przenoszenie danych, wysyłanie działania i wykonywanie pakietu SSIS. Lokalizacja IR może różnić się od lokalizacji fabryki danych, do której należy. Na poniższym diagramie przedstawiono ustawienia lokalizacji usługi Data Factory i jej czasy uruchomienia integracji:
 
@@ -176,7 +176,7 @@ Na poniższym rysunku przedstawiono przykład lokalizacji wynikowej, jeśli loka
 W przypadku zastosowania do wykonania przenoszenia danych, środowisko IR (Self-hosted) pobiera dane ze źródła i zapisuje je w miejscu docelowym.
 
 ### <a name="azure-ssis-ir"></a>Środowisko IR Azure-SSIS
-Wybór odpowiedniej lokalizacji dla środowiska IR Azure-SSIS jest kluczowy dla osiągnięcia wysokiej wydajności obciążeń wyodrębnianie-przekształcanie-ładowanie (ETL).  Początkowo w wersji zapoznawczej są dostępne dwie lokalizacje (Wschodnie stany USA i Europa Północna).
+Wybór odpowiedniej lokalizacji dla środowiska IR Azure-SSIS jest kluczowy dla osiągnięcia wysokiej wydajności obciążeń wyodrębnianie-przekształcanie-ładowanie (ETL).  Wersja zapoznawcza jest początkowo dostępna w sześciu lokalizacjach (Wschodnie stany USA, Wschodnie stany USA 2, Środkowe stany USA, Australia Wschodnia, Europa Północna i Europa Zachodnia).
 
 - Lokalizacja środowiska IR Azure-SSIS nie musi być identyczna z lokalizacją fabryki danych, ale powinna być identyczna z lokalizacją serwera bazy danych Azure SQL Database/wystąpienia zarządzanego (prywatna wersja zapoznawcza), na którym będzie hostowana baza SSISDB. Dzięki temu środowisko IR Azure-SSIS może z łatwością uzyskać dostęp do bazy SSISDB bez wytwarzania dużego ruchu między różnymi lokalizacjami.
 - Jeśli nie masz istniejącego serwera bazy danych Azure SQL Database/wystąpienia zarządzanego (prywatna wersja zapoznawcza) do hostowania bazy SSISDB, ale dysponujesz lokalnymi źródłami/miejscami docelowymi danych, należy utworzyć nowy serwer bazy danych Azure SQL Database/wystąpienia zarządzanego (prywatna wersja zapoznawcza) w tej samej lokalizacji sieci wirtualnej podłączonej do sieci lokalnej.  Dzięki temu możesz utworzyć swoje środowisko IR Azure-SSIS przy użyciu nowego serwera bazy danych Azure SQL Database/wystąpienia zarządzanego (prywatna wersja zapoznawcza) i dołączyć do tej sieci wirtualnej w jednej lokalizacji, co minimalizuje przenoszenie danych między różnymi lokalizacjami.

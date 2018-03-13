@@ -15,19 +15,19 @@
 # Rozpoczęcie pracy
 ## [Konfigurowanie usługi Network Watcher](network-watcher-create.md)
 ## Zarządzanie przechwytywaniem pakietów
-### [Azure portal](network-watcher-packet-capture-manage-portal.md)
+### [Azure Portal](network-watcher-packet-capture-manage-portal.md)
 ### [Azure PowerShell](network-watcher-packet-capture-manage-powershell.md)
 ### [Interfejs wiersza polecenia platformy Azure 1.0](network-watcher-packet-capture-manage-cli-nodejs.md)
 ### [Interfejs wiersza polecenia platformy Azure](network-watcher-packet-capture-manage-cli.md)
 ### [REST](network-watcher-packet-capture-manage-rest.md)
 ## Sprawdzanie przepływów adresów IP z maszyny wirtualnej i do niej
-### [Azure portal](network-watcher-check-ip-flow-verify-portal.md)
+### [Azure Portal](network-watcher-check-ip-flow-verify-portal.md)
 ### [Azure PowerShell](network-watcher-check-ip-flow-verify-powershell.md)
 ### [Interfejs wiersza polecenia platformy Azure 1.0](network-watcher-check-ip-flow-verify-cli-nodejs.md)
 ### [Interfejs wiersza polecenia platformy Azure](network-watcher-check-ip-flow-verify-cli.md)
 ### [REST](network-watcher-check-ip-flow-verify-rest.md)
 ## Analizowanie następnego przeskoku
-### [Azure portal](network-watcher-check-next-hop-portal.md)
+### [Azure Portal](network-watcher-check-next-hop-portal.md)
 ### [Azure PowerShell](network-watcher-check-next-hop-powershell.md)
 ### [Interfejs wiersza polecenia platformy Azure 1.0](network-watcher-check-next-hop-cli-nodejs.md)
 ### [Interfejs wiersza polecenia platformy Azure](network-watcher-check-next-hop-cli.md)
@@ -38,7 +38,7 @@
 ### [Interfejs wiersza polecenia platformy Azure](network-watcher-topology-cli.md)
 ### [REST](network-watcher-topology-rest.md)
 ## Rozwiązywanie problemów z usługą VPN Gateway i połączeniami
-### [Azure portal](network-watcher-troubleshoot-manage-portal.md)
+### [Azure Portal](network-watcher-troubleshoot-manage-portal.md)
 ### [Azure PowerShell](network-watcher-troubleshoot-manage-powershell.md)
 ### [Interfejs wiersza polecenia platformy Azure 1.0](network-watcher-troubleshoot-manage-cli-nodejs.md)
 ### [Interfejs wiersza polecenia platformy Azure](network-watcher-troubleshoot-manage-cli.md)
@@ -49,12 +49,12 @@
 ### [Interfejs wiersza polecenia platformy Azure](network-watcher-security-group-view-cli.md)
 ### [REST](network-watcher-security-group-view-rest.md)
 ## Rozwiązywanie problemów z połączeniami
-### [Azure portal](network-watcher-connectivity-portal.md)
+### [Azure Portal](network-watcher-connectivity-portal.md)
 ### [Azure PowerShell](network-watcher-connectivity-powershell.md)
 ### [Interfejs wiersza polecenia platformy Azure](network-watcher-connectivity-cli.md)
 ### [REST](network-watcher-connectivity-rest.md)
 ## Konfigurowanie dzienników przepływu sieciowych grup zabezpieczeń
-### [Azure portal](network-watcher-nsg-flow-logging-portal.md)
+### [Azure Portal](network-watcher-nsg-flow-logging-portal.md)
 ### [Azure PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 ### [Interfejs wiersza polecenia platformy Azure 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
 ### [Interfejs wiersza polecenia platformy Azure](network-watcher-nsg-flow-logging-cli.md)
@@ -73,7 +73,9 @@
 ### [Wizualizowanie wzorców ruchu sieciowego za pomocą narzędzi typu „open source”](network-watcher-using-open-source-tools.md)
 ## Analizowanie dzienników przepływu sieciowych grup zabezpieczeń
 ### [Read NSG flow logs (Odczytywanie dzienników przepływu sieciowych grup zabezpieczeń)](network-watcher-read-nsg-flow-logs.md)
-### [Korzystanie z analizy ruchu](traffic-analytics.md)
+### Analiza ruchu
+#### [Korzystanie z analizy ruchu](traffic-analytics.md)
+#### [Często zadawane pytania](traffic-analytics-faq.md)
 ### [Korzystanie z usługi Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 ### [Korzystanie z elastycznego stosu](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 ### [Korzystanie z narzędzia Grafana](network-watcher-nsg-grafana.md)

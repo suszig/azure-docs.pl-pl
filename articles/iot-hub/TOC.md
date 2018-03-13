@@ -42,6 +42,7 @@
 
 ## Używanie zestawu deweloperskiego IoT MXChip
 ### [Tłumaczenie wiadomości głosowych za pomocą usług Azure Cognitive Services](iot-hub-arduino-iot-devkit-az3166-translator.md)
+### [Pobieranie wiadomości z usługi Twitter za pomocą usługi Azure Functions](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)
 
 # Przewodniki z instrukcjami
 ## Planowanie

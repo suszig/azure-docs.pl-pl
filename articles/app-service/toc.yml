@@ -97,7 +97,7 @@
       items:
         - name: Wdrażanie aplikacji
           items:
-            - name: Wdrażanie plików ZIP
+            - name: Wdrażanie pliku ZIP lub WAR
               href: app-service-deploy-zip.md
             - name: Wdrażanie przy użyciu protokołu FTP
               href: app-service-deploy-ftp.md
