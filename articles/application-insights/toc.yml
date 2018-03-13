@@ -121,6 +121,10 @@
               href: app-insights-configuration-with-applicationinsights-config.md
             - name: Debuger migawek
               href: app-insights-snapshot-debugger.md
+        - name: ASP.NET Core
+          items:
+            - name: Profiler dla usług aplikacji w systemie Linux
+              href: app-insights-profiler-aspnetcore-linux.md
         - name: J2EE
           items:
             - name: Ślady dzienników

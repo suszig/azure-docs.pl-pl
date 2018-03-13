@@ -12,6 +12,8 @@
       href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Praca z obiektami blob — witryna Azure Portal
       href: storage-quickstart-blobs-portal.md
+    - name: Praca z obiektami blob — Eksplorator usługi Storage
+      href: storage-quickstart-blobs-storage-explorer.md
     - name: Praca z obiektami blob — program PowerShell
       href: storage-quickstart-blobs-powershell.md
     - name: Praca z obiektami blob — interfejs wiersza polecenia
@@ -28,8 +30,8 @@
       href: storage-quickstart-blobs-ruby.md
     - name: Praca z obiektami blob — Node.js
       href: storage-quickstart-blobs-nodejs.md
-    - name: Praca z obiektami blob — Eksplorator usługi Storage
-      href: storage-quickstart-blobs-storage-explorer.md
+    - name: Praca z obiektami blob — PHP
+      href: storage-quickstart-blobs-php.md
 - name: Samouczki
   items:
     - name: Przekazywanie i przetwarzanie obrazu
