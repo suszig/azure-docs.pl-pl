@@ -35,6 +35,7 @@
 ### Konfigurowanie pulpitu zdalnego
 #### [Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
 #### [Program PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+#### [Program Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 
 ## Wdrażanie
 ### [Tworzenie i wdrażanie usługi w chmurze w portalu](cloud-services-how-to-create-deploy-portal.md)
