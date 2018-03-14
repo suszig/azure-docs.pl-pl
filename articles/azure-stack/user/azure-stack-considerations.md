@@ -15,10 +15,10 @@ ms.topic: overview
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.openlocfilehash: 695824ef2537a97ea0530f2c33ad24d5cd9e20f8
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>Kluczowe zagadnienia dotyczące: za pomocą usług lub tworzenia aplikacji dla platformy Azure stosu
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/11/2017
 
 Podczas korzystania z usług lub tworzyć aplikacje dla stosu Azure, trzeba zrozumieć, czy istnieją różnice między stosu Azure i usługi Azure. Ten artykuł zawiera omówienie Najważniejsze kwestie, gdy docelowe stosu Azure jako środowiska deweloperskiego chmury hybrydowej.
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 Usługa Azure Stack to platforma chmury hybrydowej, która umożliwia korzystanie z usług platformy Azure z centrum danych Twojej firmy lub dostawcy usługi. Deweloperzy mogą tworzenie aplikacji uruchamianych na stosie Azure. Można następnie wdrożyć te aplikacje do stosu Azure, Azure, lub można utworzyć naprawdę aplikacje hybrydowe, korzystających z połączenia między chmury Azure stosu i Azure.
 
@@ -48,8 +48,8 @@ W poniższej tabeli opisano ogólne różnice między stosu Azure i usługi Azur
 | Kto działa? | Microsoft | Twój dostawca organizacji lub usługi.|
 | Który zamierzasz zgłosić obsługi? | Microsoft | Dla zintegrowany system skontaktuj się z operatorem stosu Azure (w dostawcy organizacji lub usługi) dla pomocy technicznej.<br><br>Azure stosu Development Kit pomocy technicznej, odwiedź stronę [fora Microsoft](https://social.msdn.microsoft.com/Forums/home?forum=azurestack). Ponieważ zestaw deweloperski środowiska do oceny, nie jest oficjalną obsługiwane oferowane za pośrednictwem usług obsługi klienta firmy Microsoft (CSS).
 | Dostępne usługi | Lista [produkty Azure](https://azure.microsoft.com/services/?b=17.04b). Dostępne usługi zależą od regionu systemu Azure. | Stos Azure obsługuje usług platformy Azure. Rzeczywiste usługi różni się zależnie od dostawcy organizacji lub usługa wybierze na ofertę.
-| Usługa Azure Resource Manager punktu końcowego * | https://management.azure.com | Dla systemu Azure stosu zintegrowane użycia punktu końcowego zapewnianej przez operatora sieci Azure stosu.<br><br>Dla zestawu SDK, użyj: https://management.local.azurestack.external
-| Portal adresu URL * | [https://Portal.Azure.com](https://portal.azure.com) | System Azure stosu zintegrowane przejdź do adresu URL, zapewnianej przez operatora sieci Azure stosu.<br><br>Dla zestawu SDK, użyj: https://portal.local.azurestack.external
+| Usługa Azure Resource Manager punktu końcowego * | https://management.azure.com | Dla systemu Azure stosu zintegrowane użycia punktu końcowego zapewnianej przez operatora sieci Azure stosu.<br><br>Dla zestawu SDK należy użyć: https://management.local.azurestack.external
+| Portal adresu URL * | [https://portal.azure.com](https://portal.azure.com) | System Azure stosu zintegrowane przejdź do adresu URL, zapewnianej przez operatora sieci Azure stosu.<br><br>Dla zestawu SDK należy użyć: https://portal.local.azurestack.external
 | Region | Możesz wybrać regionu, którego chcesz wdrożyć. | System Azure stosu zintegrowane Użyj regionu, która jest dostępna w systemie.<br><br>Dla zestawu SDK, zawsze będą region **lokalnego**.
 | Grupy zasobów | Grupa zasobów może obejmować regionów. | Dla zintegrowanych systemów i zestaw deweloperski istnieje tylko jeden region.
 |Obsługiwanych przestrzeniach nazw, typów zasobów i wersje interfejsu API | Najnowsze (i jego wcześniejsze wersje, które nie są jeszcze przestarzałe). | Stos Azure obsługuje określonych wersji. Zobacz sekcję "Wymagania dotyczące wersji" tego artykułu.
@@ -86,7 +86,7 @@ Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}
 
 Przykład danych wyjściowych (obcięty): ![przykładowe dane wyjściowe polecenia Get-AzureRmResourceProvider](media/azure-stack-considerations/image1.png)
  
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby uzyskać bardziej szczegółowe informacje na temat różnic na poziomie usługi zobacz:
 
