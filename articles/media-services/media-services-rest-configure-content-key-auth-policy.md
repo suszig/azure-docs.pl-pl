@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako
 ms.openlocfilehash: 3f3972232a4342bfb7d8579d747d0cc4250963bc
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>Szyfrowania dynamicznego: Skonfiguruj zasady autoryzacji klucza zawartości
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -30,7 +30,7 @@ Jeśli chcesz, aby usługi Media Services, aby zaszyfrować element zawartości,
 
 Strumień zleconą przez odtwarzacz usługi Media Services używa określonego klucza do dynamicznego szyfrowania przy użyciu szyfrowania AES lub PlayReady zawartości. Aby odszyfrować strumienia, odtwarzacza żądań klucz z usługi dostarczania klucza. Aby ustalić, czy użytkownik jest autoryzowany do uzyskania klucza, usługa oblicza zasad autoryzacji, które podane dla klucza.
 
-Usługa Media Services obsługuje wiele sposobów uwierzytelniania użytkowników, którzy tworzą żądania klucza. Zasady autoryzacji klucza zawartości mogą mieć jeden lub więcej ograniczeń za pomocą ograniczenie otwarte lub tokenu. Zasady ograniczonej tokenu musi towarzyszyć token wystawiony przez usługę tokenu zabezpieczającego (STS). Usługa Media Services obsługuje tokenów w tokenie proste sieci web ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) i formatuje tokenu Web JSON (JWT).
+Usługa Media Services obsługuje wiele sposobów uwierzytelniania użytkowników, którzy tworzą żądania klucza. Zasady autoryzacji klucza zawartości mogą mieć jeden lub więcej ograniczeń za pomocą ograniczenie otwarte lub tokenu. Zasadom ograniczenia tokenu musi towarzyszyć token wystawiony przez usługę tokenu zabezpieczającego (STS). Usługa Media Services obsługuje tokenów w tokenie proste sieci web ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) i formatuje tokenu Web JSON (JWT).
 
 Usługa Media Services nie dostarcza usługi STS. Można utworzyć niestandardowy STS lub użyć usługi Azure Active Directory (Azure AD) do wydawania tokenów. Usługa tokenu Zabezpieczającego musi być skonfigurowana do utworzenia tokenu podpisany określone oświadczenia klucza i problem, określonych w konfiguracji ograniczenia tokenu (zgodnie z opisem w tym artykule). Jeśli token jest prawidłowy i oświadczenia w tokenie pasują do klucz zawartości, usługa Media Services klucza dostawy zwraca klucz szyfrowania do klienta.
 
@@ -44,7 +44,7 @@ Aby uzyskać więcej informacji zobacz następujące artykuły:
 * Przekazywanie i kodowanie zasobów przy użyciu opcji AssetCreationOptions.StorageEncrypted.
 * Jeśli planowane jest wiele kluczy zawartości, które wymagają taką samą konfigurację zasad, zaleca się tworzenie zasad autoryzacji pojedynczego i użyć go ponownie wiele kluczy zawartości.
 * Usługa klucza dostawy buforuje ContentKeyAuthorizationPolicy i jego obiektów pokrewnych (opcje zasad i ograniczeń) przez 15 minut. Można utworzyć ContentKeyAuthorizationPolicy i określić ograniczenia tokenu, przetestować go, a następnie zaktualizuj zasady z otwartych ograniczenia. Ten proces trwa około 15 minut przed przełączniki zasad Otwórz wersję zasad.
-* Dodania lub zaktualizowania zasad dostarczania elementów zawartości, należy usunąć wszystkie istniejące lokalizatora i utworzyć nowy.
+* W przypadku dodania lub zaktualizowania zasad dostarczania elementów zawartości należy usunąć skojarzony lokalizator (jeśli istnieje) i utworzyć nowy.
 * Obecnie nie można zaszyfrować pobierania progresywnego.
 * Usługi Media Services punktu końcowego przesyłania strumieniowego ustawia wartość nagłówka CORS Access-Control-Allow-Origin w odpowiedzi dotyczące stanu wstępnego jako symbolu wieloznacznego "\*." Ta wartość działa prawidłowo w przypadku większości odtwarzaczy, w tym Azure Media Player, Roku i JWPlayer i inne. Jednak niektóre odtwarzacze, które używają dash.js nie działa, ponieważ wartość "Włącz" Tryb poświadczeń XMLHttpRequest w ich dash.js nie zezwala na symbol wieloznaczny "\*" jako wartości Access-Control-Allow-Origin. Jako obejście tego ograniczenia w dash.js Jeśli host klienta z pojedynczą domenę usługi Media Services można określić tej domeny w nagłówku odpowiedzi dotyczące stanu wstępnego. Aby uzyskać pomoc Otwórz bilet pomocy technicznej za pośrednictwem portalu Azure.
 
@@ -62,7 +62,7 @@ Otwórz ograniczeń oznacza, że system dostarcza klucza do każdego, kto wysył
 
 Poniższy przykład tworzy zasady autoryzacji otwarte i dodaje go do klucza zawartości.
 
-#### <a id="ContentKeyAuthorizationPolicies"></a>Utwórz ContentKeyAuthorizationPolicies
+#### <a id="ContentKeyAuthorizationPolicies"></a>Create ContentKeyAuthorizationPolicies
 Żądanie:
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeyAuthorizationPolicies HTTP/1.1
@@ -98,7 +98,7 @@ Odpowiedź:
 
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#ContentKeyAuthorizationPolicies/@Element","Id":"nb:ckpid:UUID:db4593da-f4d1-4cc5-a92a-d20eacbabee4","Name":"Open Authorization Policy"}
 
-#### <a id="ContentKeyAuthorizationPolicyOptions"></a>Utwórz ContentKeyAuthorizationPolicyOptions
+#### <a id="ContentKeyAuthorizationPolicyOptions"></a>Create ContentKeyAuthorizationPolicyOptions
 Żądanie:
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeyAuthorizationPolicyOptions HTTP/1.1
@@ -234,10 +234,10 @@ Po skonfigurowaniu zasad ograniczonej token, należy określić klucz podstawowy
 
 Poniższy przykład tworzy zasady autoryzacji z ograniczenia tokenu. W tym przykładzie klient musi przedstawić token, który zawiera klucz podpisujący (VerificationKey), wystawcy tokenów i oświadczeń wymagane.
 
-### <a name="create-contentkeyauthorizationpolicies"></a>Utwórz ContentKeyAuthorizationPolicies
+### <a name="create-contentkeyauthorizationpolicies"></a>Create ContentKeyAuthorizationPolicies
 Utwórz zasadę ograniczenia tokenu, jak pokazano w sekcji "[ContentKeyAuthorizationPolicies Utwórz](#ContentKeyAuthorizationPolicies)."
 
-### <a name="create-contentkeyauthorizationpolicyoptions"></a>Utwórz ContentKeyAuthorizationPolicyOptions
+### <a name="create-contentkeyauthorizationpolicyoptions"></a>Create ContentKeyAuthorizationPolicyOptions
 Żądanie:
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeyAuthorizationPolicyOptions HTTP/1.1
@@ -289,7 +289,7 @@ Otwórz ograniczeń oznacza, że system dostarcza klucza do każdego, kto wysył
 
 Poniższy przykład tworzy zasady autoryzacji otwarte i dodaje go do klucza zawartości.
 
-#### <a id="ContentKeyAuthorizationPolicies2"></a>Utwórz ContentKeyAuthorizationPolicies
+#### <a id="ContentKeyAuthorizationPolicies2"></a>Create ContentKeyAuthorizationPolicies
 Żądanie:
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeyAuthorizationPolicies HTTP/1.1
@@ -326,7 +326,7 @@ Odpowiedź:
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#ContentKeyAuthorizationPolicies/@Element","Id":"nb:ckpid:UUID:cc3c64a8-e2fc-4e09-bf60-ac954251a387","Name":"Deliver Common Content Key"}
 
 
-#### <a name="create-contentkeyauthorizationpolicyoptions"></a>Utwórz ContentKeyAuthorizationPolicyOptions
+#### <a name="create-contentkeyauthorizationpolicyoptions"></a>Create ContentKeyAuthorizationPolicyOptions
 Żądanie:
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeyAuthorizationPolicyOptions HTTP/1.1
@@ -371,10 +371,10 @@ Dodaj AuthorizationPolicy do ContentKey, jak pokazano w sekcji "[Dodaj zasady au
 ### <a name="token-restriction"></a>Ograniczenia tokenu
 Aby skonfigurować opcję ograniczenia tokenu, należy użyć XML opisujący wymagań autoryzacji tokenu. Konfiguracja ograniczenia tokenu XML muszą być zgodne ze schematem XML wyświetlone w sekcji "[schematu ograniczenia tokenu](#schema)."
 
-#### <a name="create-contentkeyauthorizationpolicies"></a>Utwórz ContentKeyAuthorizationPolicies
+#### <a name="create-contentkeyauthorizationpolicies"></a>Create ContentKeyAuthorizationPolicies
 Utwórz ContentKeyAuthorizationPolicies, jak pokazano w sekcji "[ContentKeyAuthorizationPolicies Utwórz](#ContentKeyAuthorizationPolicies2)."
 
-#### <a name="create-contentkeyauthorizationpolicyoptions"></a>Utwórz ContentKeyAuthorizationPolicyOptions
+#### <a name="create-contentkeyauthorizationpolicyoptions"></a>Create ContentKeyAuthorizationPolicyOptions
 Żądanie:
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeyAuthorizationPolicyOptions HTTP/1.1

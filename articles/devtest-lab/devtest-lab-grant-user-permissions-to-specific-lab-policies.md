@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/25/2016
 ms.author: v-craic
 ms.openlocfilehash: f92ad5e991bdb066bb9680b4865501076d43f450
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>Przyznawanie uprawnień użytkownikom zasad określonych laboratorium
 ## <a name="overview"></a>Przegląd
@@ -34,7 +34,7 @@ Na przykład, aby przyznać użytkownikom uprawnienia odczytu/zapisu do **dozwol
 Aby dowiedzieć się więcej na temat ról niestandardowych w RBAC, zobacz [niestandardowych ról dla kontroli dostępu](../active-directory/role-based-access-control-custom-roles.md).
 
 ## <a name="creating-a-lab-custom-role-using-powershell"></a>Tworzenie laboratorium niestandardowej roli zabezpieczeń przy użyciu programu PowerShell
-Aby rozpocząć pracę, należy przeczytać artykuł następujące, które wyjaśniają, jak zainstalować i skonfigurować poleceń cmdlet programu PowerShell usługi Azure: [https://azure.microsoft.com/blog/azps-1-0-pre](https://azure.microsoft.com/blog/azps-1-0-pre).
+Aby rozpocząć pracę, należy przeczytać artykuł następujące, które wyjaśniają, jak zainstalować i skonfigurować poleceń cmdlet programu PowerShell usługi Azure: [ https://azure.microsoft.com/blog/azps-1-0-pre ](https://azure.microsoft.com/blog/azps-1-0-pre).
 
 Po skonfigurowaniu poleceń cmdlet programu Azure PowerShell, można wykonywać następujące zadania:
 

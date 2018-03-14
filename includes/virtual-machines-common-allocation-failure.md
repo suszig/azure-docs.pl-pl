@@ -20,7 +20,7 @@ Te czynności może pomóc rozwiązać wiele błędów alokacji w przypadku masz
 
 ## <a name="background-information"></a>Informacje uzupełniające
 ### <a name="how-allocation-works"></a>Jak działa alokacji
-Serwery w centrach danych platformy Azure są dzielone w klastrach. Zwykle żądanie alokacji nastąpiła w wielu klastrach, ale istnieje możliwość, że niektóre ograniczenia na podstawie żądań alokacji wymusić platformy Azure prób żądania w tylko jednym klastrze. W tym artykule firma Microsoft będzie odwoływać się do to jako "przypięty do klastra". Poniższy diagram 1 przedstawiono w przypadku normalnych alokacji, który zostanie użyty w wielu klastrach. Diagram 2 przedstawia to alokacji który zawiera przypięta do klastra 2, ponieważ jest to, gdzie jest hostowana istniejącego zestawu CS_1 usługi w chmurze lub dostępności.
+Serwery w centrach danych platformy Azure są partycjonowane na klastry. Przeważnie próba wykonania żądania alokacji jest podejmowana w wielu klastrach, ale istnieje możliwość, że niektóre ograniczenia wynikające z żądania alokacji wymuszają próbę żądania tylko w jednym klastrze platformy Azure. W tym artykule firma Microsoft będzie odwoływać się do to jako "przypięty do klastra". Poniższy diagram 1 przedstawiono w przypadku normalnych alokacji, który zostanie użyty w wielu klastrach. Diagram 2 przedstawia to alokacji który zawiera przypięta do klastra 2, ponieważ jest to, gdzie jest hostowana istniejącego zestawu CS_1 usługi w chmurze lub dostępności.
 ![Diagram alokacji](./media/virtual-machines-common-allocation-failure/Allocation1.png)
 
 ### <a name="why-allocation-failures-happen"></a>Dlaczego stanie błędów alokacji
@@ -53,7 +53,7 @@ Rysunek 5 poniżej przedstawia taksonomii w scenariuszach alokacji (przypiętych
 > 
 
 ## <a name="allocation-scenario-resize-a-vm-or-add-vms-or-role-instances-to-an-existing-cloud-service"></a>Alokacja scenariusz: zmiana rozmiaru maszyny Wirtualnej lub Dodaj maszyny wirtualne lub wystąpień roli do istniejącej usługi w chmurze
-Błąd
+**Błąd**
 
 Upgrade_VMSizeNotSupported lub GeneralError
 
@@ -68,7 +68,7 @@ Jeśli błąd Upgrade_VMSizeNotSupported *, spróbuj zmienić rozmiar maszyny Wi
 Jeśli błąd jest GeneralError *, jest prawdopodobne, że typ zasobu (np. dla określonego rozmiaru maszyny Wirtualnej) jest obsługiwana przez klaster, ale klaster nie ma wolnego zasobów w tej chwili. Podobny scenariusz powyżej, Dodaj zasób obliczeniowy żądany przez proces tworzenia nowej usługi w chmurze (Zauważ, że nowa usługa w chmurze ma używać innego adresu VIP) i połączenia usługi w chmurze przy użyciu regionalną sieć wirtualną.
 
 ## <a name="allocation-scenario-restart-partially-stopped-deallocated-vms"></a>Scenariusz alokacji: ponowne uruchomienie częściowo zatrzymano (cofnięciu przydziału) maszyn wirtualnych
-Błąd
+**Błąd**
 
 GeneralError *
 
@@ -84,7 +84,7 @@ Jeśli można użyć różnych adresów VIP, Usuń zatrzymania maszyny wirtualne
 * Użycie istniejącej usługi w chmurze nie regionalną sieć wirtualną, Utwórz nową sieć wirtualną dla nowej usługi w chmurze, a następnie [połączyć istniejącej sieci wirtualnej do nowej sieci wirtualnej](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Zobacz więcej informacji [regionalnych sieci wirtualnych](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
 ## <a name="allocation-scenario-restart-fully-stopped-deallocated-vms"></a>Scenariusz alokacji: ponowne uruchomienie całkowicie zatrzymana (cofnięciu przydziału) maszyn wirtualnych
-Błąd
+**Błąd**
 
 GeneralError *
 
@@ -97,7 +97,7 @@ Pełna dezalokacji oznacza, że został zatrzymany (cofnięciu przydziału) wszy
 Jeśli można użyć różnych adresów VIP, usunąć oryginalny zatrzymania (cofnięciu przydziału) maszyn wirtualnych (ale zachować skojarzone dyski) i usuń odpowiednie usługi w chmurze (zasoby obliczeniowe skojarzone już zostały wydane, gdy zostanie zatrzymane (cofnięciu przydziału) maszyn wirtualnych). Utwórz nową usługę w chmurze można dodać z powrotem maszyn wirtualnych.
 
 ## <a name="allocation-scenario-stagingproduction-deployments-platform-as-a-service-only"></a>Scenariusz alokacji: wdrożeń przemieszczania/produkcyjnych (platforma jako usługa tylko)
-Błąd
+**Błąd**
 
 New_General * lub New_VMSizeNotSupported *
 
@@ -110,7 +110,7 @@ Wdrażanie tymczasowej i wdrożenia produkcyjnego usługi w chmurze są obsługi
 Usuń ich pierwszym wdrożeniu i oryginalnego usługi w chmurze, a następnie ponownie wdrożyć usługę w chmurze. Ta akcja może grunt ich pierwszym wdrożeniu w klastrze, który ma wystarczającej ilości wolnych zasobów, aby dopasować oba wdrożenia lub w klastrze, który obsługuje rozmiarów maszyn wirtualnych, które zostały wybrane.
 
 ## <a name="allocation-scenario-affinity-group-vmservice-proximity"></a>Scenariusz alokacji: Grupa koligacji (zbliżeniowe maszyny Wirtualnej lub usługi)
-Błąd
+**Błąd**
 
 New_General * lub New_VMSizeNotSupported *
 
@@ -123,7 +123,7 @@ Wszelkie obliczeń zasobów przypisanych do grupy koligacji jest związany z jed
 Grupy koligacji nie jest konieczne, nie używać grupy koligacji, czy grupa zasobów obliczeniowych do wielu grup koligacji.
 
 ## <a name="allocation-scenario-affinity-group-based-virtual-network"></a>Scenariusz alokacji: oparte na grupach koligacji sieci wirtualnej
-Błąd
+**Błąd**
 
 New_General * lub New_VMSizeNotSupported *
 
@@ -149,7 +149,7 @@ Gdy zostanie wyświetlony błąd alokacji, zobacz, jeśli dowolny z opisanych sc
 Ogólnie rzecz biorąc tak długo, jak błąd nie wskazuje "żądany rozmiar maszyny Wirtualnej nie jest obsługiwane", możesz zawsze ponowić w późniejszym czasie, jak mała liczba zasobów został zwolniony w klastrze, aby obsłużyć żądanie. Jeśli problem nie zostanie żądany rozmiar maszyny Wirtualnej nie jest obsługiwana, wymienione poniżej obejścia.
 
 ## <a name="allocation-scenario-resize-a-vm-or-add-vms-to-an-existing-availability-set"></a>Alokacja scenariusz: zmiana rozmiaru maszyny Wirtualnej lub dodawanie maszyn wirtualnych do istniejącego zestawu dostępności
-Błąd
+**Błąd**
 
 Upgrade_VMSizeNotSupported * lub GeneralError *
 
@@ -164,7 +164,7 @@ Jeśli błąd Upgrade_VMSizeNotSupported *, spróbuj zmienić rozmiar maszyny Wi
 Jeśli błąd jest GeneralError *, jest prawdopodobne, że typ zasobu (np. dla określonego rozmiaru maszyny Wirtualnej) jest obsługiwana przez klaster, ale klaster nie ma wolnego zasobów w tej chwili. Jeśli maszyna wirtualna może być częścią zestawu dostępności różnych, Utwórz nową maszynę Wirtualną w różnych dostępności, ustawić (w tym samym regionie). Następnie można dodać tej nowej maszyny Wirtualnej do tej samej sieci wirtualnej.  
 
 ## <a name="allocation-scenario-restart-partially-stopped-deallocated-vms"></a>Scenariusz alokacji: ponowne uruchomienie częściowo zatrzymano (cofnięciu przydziału) maszyn wirtualnych
-Błąd
+**Błąd**
 
 GeneralError *
 
@@ -177,7 +177,7 @@ Częściowe dezalokacji oznacza, że zatrzymane (cofnięciu przydziału) co najm
 Zatrzymanie wszystkich maszyn wirtualnych w zestawie przed ponownym uruchomieniem pierwszego dostępności. Dzięki uruchomieniu nowego próba alokacji i że nowy klaster można wybrać z dostępnej pojemności.
 
 ## <a name="allocation-scenario-restart-fully-stopped-deallocated"></a>Scenariusz alokacji: ponowne uruchomienie całkowicie zatrzymana (cofnięciu przydziału)
-Błąd
+**Błąd**
 
 GeneralError *
 

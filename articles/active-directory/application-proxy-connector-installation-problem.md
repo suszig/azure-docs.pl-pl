@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: 8fbd707b6708661ab0d655afadff2b18694a981e
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problem podczas instalowania agenta łącznika serwera Proxy aplikacji
 
@@ -54,7 +54,7 @@ Podczas instalacji łącznika nie powiedzie się, przyczynę zwykle jest jednym 
 
 **Aby rozwiązać ten problem:**
 
-1.  Sprawdź komputer obsługuje TLS1.2 — wersje wszystkich okien po 2012 R2 powinny obsługiwać protokół TLS 1.2. W przypadku komputera łącznika z wersji 2012 R2 lub wcześniej, upewnij się, czy na komputerze są zainstalowane następujące KB/s: <https://support.microsoft.com/help/2973337/sha512-is-disabled-in-windows-when-you-use-tls-1.2>
+1.  Sprawdź komputer obsługuje TLS1.2 — wersje wszystkich okien po 2012 R2 powinny obsługiwać protokół TLS 1.2. Jeśli komputer łącznika z wersji 2012 R2 lub wcześniej, upewnij się, że następujące KB/s są instalowane na komputerze: <https://support.microsoft.com/help/2973337/sha512-is-disabled-in-windows-when-you-use-tls-1.2>
 
 2.  Skontaktuj się z administratorem sieci i poproś o Sprawdź, czy wewnętrznej bazy danych serwera proxy i zapory nie blokują SHA512 dla ruchu wychodzącego.
 

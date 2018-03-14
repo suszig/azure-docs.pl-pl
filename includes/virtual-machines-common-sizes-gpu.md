@@ -9,10 +9,10 @@ ms.date: 03/05/2018
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 8614fa7a52c91419c66782f7434692228e6b18d2
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/13/2018
 ---
 Procesor GPU zoptymalizowanych pod kątem maszyny Wirtualnej są dostępne z jednego lub wielu procesorów graficznych NVIDIA specjalne maszyn wirtualnych. Rozmiary są przeznaczone dla obciążeń obliczeniowych, dużą ilością grafiki i wizualizacji. Ten artykuł zawiera informacje o liczbę i typ procesorów graficznych, Vcpu, dyski danych i karty sieciowe, jak również przepustowości przepływności i sieć magazynu dla każdego rozmiaru w tej metodzie grupowania. 
 
@@ -34,7 +34,7 @@ Maszyny wirtualne z serii NC są obsługiwane przez [K80 tesla — NVIDIA](http:
 
 1 procesor GPU = połowa karty K80.
 
-* Obsługa technologii RDMA
+*Obsługa technologii RDMA
 
 ## <a name="ncv2-series"></a>Seria NCv2
 
@@ -53,7 +53,7 @@ Maszyny wirtualne z serii NCv2 są obsługiwane przez [P100 tesla — NVIDIA](ht
 
 Procesor GPU 1 = co karta P100.
 
-* Obsługa technologii RDMA
+*Obsługa technologii RDMA
 
 ## <a name="ncv3-series"></a>Seria NCv3
 
@@ -72,7 +72,7 @@ Maszyny wirtualne z serii NCv3 są obsługiwane przez [V100 tesla — NVIDIA](ht
 
 Procesor GPU 1 = co karta V100.
 
-* Obsługa technologii RDMA
+*Obsługa technologii RDMA
 
 ## <a name="nd-series"></a>Seria ND
 
@@ -91,7 +91,7 @@ Maszyny wirtualne ND serii są nowe uzupełnienie rodziny procesora GPU, przezna
 
 Procesor GPU 1 = co karta P40.
 
-* Obsługa technologii RDMA
+*Obsługa technologii RDMA
 
 ## <a name="nv-series"></a>Seria NV
 

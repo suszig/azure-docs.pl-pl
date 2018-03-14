@@ -16,10 +16,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 1733e953d9dd65a3d2b801e6c5ba5cfbb5f82920
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="datasets-in-azure-data-factory"></a>Zestawy danych w fabryce danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -86,7 +86,7 @@ W poniższej tabeli opisano właściwości w powyższym JSON:
 | type |Typ zestawu danych. Określ jeden z typów obsługiwanych przez fabrykę danych (na przykład: AzureBlob, AzureSqlTable). <br/><br/>Aby uzyskać więcej informacji, zobacz [typ zestawu](#Type). |Yes |Nie dotyczy |
 | Struktura |Schemat zestawu danych.<br/><br/>Aby uzyskać więcej informacji, zobacz [struktury zestawu danych](#Structure). |Nie |Nie dotyczy |
 | typeProperties | Właściwości typu są różne dla każdego typu (na przykład: obiektów Blob platformy Azure, tabeli Azure SQL). Aby uzyskać szczegółowe informacje o obsługiwanych typów i ich właściwości, zobacz [typ zestawu](#Type). |Yes |Nie dotyczy |
-| external | Flaga wartości logicznej, aby określić, czy element dataset jawnie jest generowany przez potok fabryki danych, czy nie. Jeśli wejściowy zestaw danych działania nie jest generowany przez bieżący potoku, ustawienia tej flagi na wartość true. Ustawienia tej flagi na wartość true dla zestawu danych wejściowych pierwszy działania w potoku.  |Nie |fałsz |
+| external | Flaga wartości logicznej, aby określić, czy element dataset jawnie jest generowany przez potok fabryki danych, czy nie. Jeśli wejściowy zestaw danych działania nie jest generowany przez bieżący potoku, ustawienia tej flagi na wartość true. Ustawienia tej flagi na wartość true dla zestawu danych wejściowych pierwszy działania w potoku.  |Nie |false |
 | availability | Definiuje okna przetwarzania (na przykład godzinowo lub dziennie) lub skalowania modelu do produkcji zestawu danych. Każda jednostka danych używane i produkowane przez uruchomienia działania nosi nazwę wycinka danych. Jeśli dostępności wyjściowy zestaw danych jest ustawiony na codziennie (częstotliwość - Day, interwał - 1), wycinek jest tworzony codziennie. <br/><br/>Aby uzyskać więcej informacji, zobacz [dostępności zestawu danych](#Availability). <br/><br/>Szczegółowe informacje dotyczące tworzenia wycinków modelu zestawu danych, zobacz [planowania i wykonywania](data-factory-scheduling-and-execution.md) artykułu. |Yes |Nie dotyczy |
 | policy |Definiuje kryteria i warunków, które należy spełnić wycinków zestaw danych. <br/><br/>Aby uzyskać więcej informacji, zobacz [zestawie danych zasad](#Policy) sekcji. |Nie |Nie dotyczy |
 
@@ -145,7 +145,7 @@ Jak widać, połączonej usługi definiuje sposób nawiązywania połączenia z 
 > Jeśli zestaw danych jest tworzonym przez potok, powinien być oznaczony jako **zewnętrznych**. To ustawienie dotyczy wejść pierwsze działanie w potoku.   
 
 
-## <a name="Type"></a>Typ zestawu danych
+## <a name="Type"></a> Typ zestawu danych
 Typ zestawu danych zależy od źródła danych, którego używasz. Zobacz poniższą tabelę listę magazynów danych obsługiwane przez fabryki danych. Kliknij magazyn danych, aby dowiedzieć się, jak utworzyć połączonej usługi i zestawu danych dla tego magazynu danych.
 
 [!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]

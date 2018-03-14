@@ -10,14 +10,14 @@
 | **Bazy danych** |[Amazon Redshift](../articles/data-factory/v1/data-factory-amazon-redshift-connector.md) |✓ | |
 | &nbsp; |[DB2](../articles/data-factory/v1/data-factory-onprem-db2-connector.md)\* |✓ | |
 | &nbsp; |[MySQL](../articles/data-factory/v1/data-factory-onprem-mysql-connector.md)\* |✓ | |
-| &nbsp; |[Oracle](../articles/data-factory/v1/data-factory-onprem-oracle-connector.md)\* |✓ |✓ |
+| &nbsp; |[Oracle](../articles/data-factory/v1/data-factory-onprem-oracle-connector.md)* |✓ |✓ |
 | &nbsp; |[PostgreSQL](../articles/data-factory/v1/data-factory-onprem-postgresql-connector.md)\* |✓ | |
 | &nbsp; |[SAP Business Warehouse](../articles/data-factory/v1/data-factory-sap-business-warehouse-connector.md)\* |✓ | |
 | &nbsp; |[SAP HANA](../articles/data-factory/v1/data-factory-sap-hana-connector.md)\* |✓ | |
 | &nbsp; |[SQL Server](../articles/data-factory/v1/data-factory-sqlserver-connector.md)\* |✓ |✓ |
 | &nbsp; |[Sybase](../articles/data-factory/v1/data-factory-onprem-sybase-connector.md)\* |✓ | |
 | &nbsp; |[Teradata](../articles/data-factory/v1/data-factory-onprem-teradata-connector.md)\* |✓ | |
-| **NoSQL** |[Cassandra](../articles/data-factory/v1/data-factory-onprem-cassandra-connector.md)\* |✓ | |
+| **NoSQL** |[Cassandra](../articles/data-factory/v1/data-factory-onprem-cassandra-connector.md)* |✓ | |
 | &nbsp; |[MongoDB](../articles/data-factory/v1/data-factory-on-premises-mongodb-connector.md)\* |✓ | |
 | **Plik** |[Amazon S3](../articles/data-factory/v1/data-factory-amazon-simple-storage-service-connector.md) |✓ | |
 | &nbsp; |[System plików](../articles/data-factory/v1/data-factory-onprem-file-system-connector.md)\* |✓ |✓ |
