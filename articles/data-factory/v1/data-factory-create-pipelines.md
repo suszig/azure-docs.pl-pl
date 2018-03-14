@@ -16,10 +16,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: c8ddd2b49ca48f3bf232a8650d870a8b7159f66a
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Potoki i działań w fabryce danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -102,7 +102,7 @@ Przyjrzyjmy się bliżej definicji potoku w formacie JSON. Ogólna struktura pot
 | end | Data czas zakończenia dla potoku. Jeśli zostanie określona, musi być w formacie ISO. Na przykład: `2016-10-14T17:32:41Z` <br/><br/>Użytkownik może określić czas lokalny, na przykład czas EST. Oto przykład: `2016-02-27T06:00:00-05:00`, która jest szacowana AM 6<br/><br/>Aby działają przez nieograniczony czas potoku, należy określić 9999-09-09 jako wartość właściwości end. <br/><br/> Potok jest aktywna tylko między jego czas rozpoczęcia i godzina zakończenia. Nie jest wykonywany przed godziną rozpoczęcia lub późniejsza niż godzina zakończenia. Jeśli potoku jest wstrzymana, nie zostanie wykonana niezależnie od jego czas rozpoczęcia i zakończenia. Dla potoku do uruchamiania jego powinien nie można wstrzymać. Zobacz [planowania i wykonywania](data-factory-scheduling-and-execution.md) zrozumieć, jak działa planowania i wykonywania w fabryce danych Azure. |Nie <br/><br/>Jeśli określono wartość dla właściwości rozpoczęcia, należy określić wartość dla właściwości end.<br/><br/>Zobacz uwagi dla **start** właściwości. |
 | isPaused | Jeśli ma wartość true, potoku nie działa. Jest w stanie wstrzymania. Wartość domyślna = false. Ta właściwość umożliwia włączanie lub wyłączanie potoku. |Nie |
 | pipelineMode | Metoda planowania działa dla potoku. Dozwolone wartości to: (domyślnie), zaplanowane jednorazowe.<br/><br/>"Zaplanowana" wskazuje, że potoku jest uruchamiane w określonych odstępach czasu zgodnie z jego aktywny okres (czas rozpoczęcia i zakończenia). "Jednorazowe" wskazuje, że potoku jest uruchamiana tylko raz. Potoki jednorazowe utworzonej nie może być zmodyfikowany zaktualizowane obecnie. Zobacz [potoku Onetime](#onetime-pipeline) szczegółowe informacje o ustawienie jednorazowe. |Nie |
-| expirationTime | Czas, po utworzeniu, dla którego [potoku jednorazowego](#onetime-pipeline) jest prawidłowa i powinny być zainicjowana. Jeśli nie ma żadnych aktywnych nie powiodło się, lub oczekujące działa, proces zostanie automatycznie usunięta po osiągnie czas wygaśnięcia. Wartość domyślna:`"expirationTime": "3.00:00:00"`|Nie |
+| expirationTime | Czas, po utworzeniu, dla którego [potoku jednorazowego](#onetime-pipeline) jest prawidłowa i powinny być zainicjowana. Jeśli nie ma żadnych aktywnych nie powiodło się, lub oczekujące działa, proces zostanie automatycznie usunięta po osiągnie czas wygaśnięcia. Wartość domyślna: `"expirationTime": "3.00:00:00"`|Nie |
 | Zbiory danych |Lista zestawów danych, który będzie używany przez działania zdefiniowane w potoku. Ta właściwość może służyć do definiowania zestawów danych, które są specyficzne dla tego potoku i nie jest zdefiniowany w fabryce danych. Zestaw danych zdefiniowany w ramach tego potoku można używać tylko w ramach tego potoku i nie może zostać udostępniony. Zobacz [zakres zestawów danych](data-factory-create-datasets.md#scoped-datasets) szczegółowe informacje. |Nie |
 
 ## <a name="activity-json"></a>Format JSON działania

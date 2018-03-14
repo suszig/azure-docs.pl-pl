@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.openlocfilehash: 46c65e0efdc91b70c5d0d2afdf83d7205efc8057
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/06/2018
+ms.lasthandoff: 03/13/2018
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>W systemie dostawcy SAML 2.0 tożsamości (IdP) dla funkcji logowania jednokrotnego
 
@@ -45,8 +45,8 @@ Ten temat zawiera szczegółowe wymagania dla protokołu i formatowanie, że Tw�
 
 Zaleca się, że zapewnia Twój dostawca tożsamości SAML 2.0 komunikaty wyjściowe był jak podobny do śledzenia dostarczona próbka jak to możliwe. Należy także użyć wartości określonych atrybutów z podane metadanych usługi Azure AD w miarę możliwości. Po przejściu wszystkiego wiadomości dane wyjściowe można przetestować z analizatora łączności firmy Microsoft zgodnie z poniższym opisem.
 
-Można pobrać metadanych usługi Azure AD z tego adresu URL: [https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml](http://https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml).
-Klienci w Chinach, przy użyciu określonych Chin wystąpienie usługi Office 365, powinien być używany następujący punkt końcowy federacyjnej: [https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml](https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml).
+Można pobrać metadanych usługi Azure AD z tego adresu URL: [ https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml ](http://https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml).
+Klienci w Chinach, przy użyciu określonych Chin wystąpienie usługi Office 365, powinien być używany następujący punkt końcowy federacyjnej: [ https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml ](https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml).
 
 ## <a name="saml-protocol-requirements"></a>Wymagania dotyczące protokołu SAML
 W tej sekcji Szczegóły jak pary komunikatów żądań i odpowiedzi są wprowadzane razem, aby pomóc w wiadomości w formacie poprawnie.
@@ -149,7 +149,7 @@ To jest przykładowy komunikat odpowiedzi, który jest wysyłany przez dostawcę
 Ten temat zawiera wskazówki dotyczące konfigurowania dostawcy tożsamości SAML 2.0 w celu utworzenia federacji z usługą Azure AD, aby umożliwić dostęp znak pojedynczego jeden lub więcej usług chmurowych firmy Microsoft (takich jak Office 365) przy użyciu protokołu SAML 2.0. SAML 2.0 jednostki zależnej dla usługi w chmurze firmy Microsoft w tym scenariuszu jest usługi Azure AD.
 
 ## <a name="add-azure-ad-metadata"></a>Dodawanie metadanych usługi Azure AD
-Twój dostawca tożsamości SAML 2.0 musi być odpowiednia informacji na temat usługi Azure AD jednostki zależnej. Azure AD publishes metadata at https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml.
+Twój dostawca tożsamości SAML 2.0 musi być odpowiednia informacji na temat usługi Azure AD jednostki zależnej. Usługi Azure AD publikuje metadane na https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml.
 
 Zalecane jest zawsze importowania najnowsze metadanych usługi Azure AD podczas konfigurowania Twój dostawca tożsamości SAML 2.0. Należy pamiętać, że usługi Azure AD nie odczytać metadanych od dostawcy tożsamości.
 
@@ -162,7 +162,7 @@ Należy włączyć komunikację między dostawca tożsamości SAML 2.0 i usługi
 ## <a name="install-windows-powershell-for-sign-on-with-saml-20-identity-provider"></a>Zainstaluj środowisko Windows PowerShell dla logowania jednokrotnego z dostawca tożsamości SAML 2.0
 Po skonfigurowaniu dostawcy tożsamości SAML 2.0 do użytku z logowania jednokrotnego w usłudze Azure AD, następnym krokiem jest pobranie i zainstalowanie programu Azure Active Directory modułu dla Windows PowerShell. Po zakończeniu instalacji będzie używać tych poleceń cmdlet, skonfigurowanie usługi Azure AD jako Sfederowanych domen.
 
-Azure Active Directory modułu dla środowiska Windows PowerShell jest pobierania zarządzania danych organizacji w usłudze Azure AD. Ten moduł instaluje zestaw poleceń cmdlet programu Windows PowerShell; Uruchom te polecenia cmdlet, aby skonfigurować pojedynczy znak na dostęp do usługi Azure AD, a więc do wszystkich usług w chmurze subskrybujesz. Aby dowiedzieć się, jak pobrać i zainstalować polecenia cmdlet, zobacz [http://technet.microsoft.com/library/jj151815.aspx](http://technet.microsoft.com/library/jj151815.aspx)
+Azure Active Directory modułu dla środowiska Windows PowerShell jest pobierania zarządzania danych organizacji w usłudze Azure AD. Ten moduł instaluje zestaw poleceń cmdlet programu Windows PowerShell; Uruchom te polecenia cmdlet, aby skonfigurować pojedynczy znak na dostęp do usługi Azure AD, a więc do wszystkich usług w chmurze subskrybujesz. Aby dowiedzieć się, jak pobrać i zainstalować polecenia cmdlet zobacz [http://technet.microsoft.com/library/jj151815.aspx](http://technet.microsoft.com/library/jj151815.aspx)
 
 ## <a name="set-up-a-trust-between-your-saml-identity-provider-and-azure-ad"></a>Konfigurowanie relacji zaufania między dostawca tożsamości SAML i usługa Azure AD
 Przed rozpoczęciem konfigurowania Federacji dla domeny usługi Azure AD, trzeba dla niego skonfigurować własną domenę niestandardową. Nie można sfederować domeny domyślnej zapewnianej przez firmę Microsoft. Domena domyślna firmy Microsoft kończy się wyrazem "onmicrosoft.com".
@@ -182,12 +182,12 @@ Poniższa procedura przeprowadzi Cię przez Konwertowanie istniejącej domeny st
 
     `<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"> <KeyDescriptor use="signing"> <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#"> <X509Data> <X509Certificate>MIIC5jCCAc6gAwIBAgIQLnaxUPzay6ZJsC8HVv/QfTANBgkqhkiG9w0BAQsFADAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwHhcNMTMxMTA0MTgxMzMyWhcNMTQxMTA0MTgxMzMyWjAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCwMdVLTr5YTSRp+ccbSpuuFeXMfABD9mVCi2wtkRwC30TIyPdORz642MkurdxdPCWjwgJ0HW6TvXwcO9afH3OC5V//wEGDoNcI8PV4enCzTYFe/h//w51uqyv48Fbb3lEXs+aVl8155OAj2sO9IX64OJWKey82GQWK3g7LfhWWpp17j5bKpSd9DBH5pvrV+Q1ESU3mx71TEOvikHGCZYitEPywNeVMLRKrevdWI3FAhFjcCSO6nWDiMqCqiTDYOURXIcHVYTSof1YotkJ4tG6mP5Kpjzd4VQvnR7Pjb47nhIYG6iZ3mR1F85Ns9+hBWukQWNN2hcD/uGdPXhpdMVpBAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAK7h7jF7wPzhZ1dPl4e+XMAr8I7TNbhgEU3+oxKyW/IioQbvZVw1mYVCbGq9Rsw4KE06eSMybqHln3w5EeBbLS0MEkApqHY+p68iRpguqa+W7UHKXXQVgPMCpqxMFKonX6VlSQOR64FgpBme2uG+LJ8reTgypEKspQIN0WvtPWmiq4zAwBp08hAacgv868c0MM4WbOYU0rzMIR6Q+ceGVRImlCwZ5b7XKp4mJZ9hlaRjeuyVrDuzBkzROSurX1OXoci08yJvhbtiBJLf3uPOJHrhjKRwIt2TnzS9ElgFZlJiDIA26Athe73n43CT0af2IG6yC7e6sK4L3NEXJrwwUZk=</X509Certificate> </X509Data> </KeyInfo> </KeyDescriptor>` 
 
-Aby uzyskać więcej informacji na temat "Set-MsolDomainAuthentication", zobacz: [http://technet.microsoft.com/library/dn194112.aspx](http://technet.microsoft.com/library/dn194112.aspx).
+Aby uzyskać więcej informacji na temat "Set-MsolDomainAuthentication", zobacz: [ http://technet.microsoft.com/library/dn194112.aspx ](http://technet.microsoft.com/library/dn194112.aspx).
 
 >[!NOTE]
->Należy uruchomić Użyj "$ecpUrl"https://WS2012R2-0.contoso.com/PAOS"=" tylko wtedy, gdy rozszerzenie ECP skonfigurowane dla dostawcy tożsamości. Klienci usługi Exchange Online, z wyjątkiem aplikacji sieci Web programu Outlook (OWA) polegać na ogłoszenie na podstawie aktywnego punktu końcowego. Jeśli z SAML 2.0 STS implementuje aktywny punkt końcowy podobne do implementacji ECP Shibboleth dla aktywnego punktu końcowego może być możliwe w dla tych klientów sformatowanego do interakcji z usługą Exchange Online.
+>Należy uruchomić Użyj "$ecpUrl ="https://WS2012R2-0.contoso.com/PAOS"" tylko wtedy, gdy rozszerzenie ECP skonfigurowane dla dostawcy tożsamości. Klienci usługi Exchange Online, z wyjątkiem aplikacji sieci Web programu Outlook (OWA) polegać na ogłoszenie na podstawie aktywnego punktu końcowego. Jeśli z SAML 2.0 STS implementuje aktywny punkt końcowy podobne do implementacji ECP Shibboleth dla aktywnego punktu końcowego może być możliwe w dla tych klientów sformatowanego do interakcji z usługą Exchange Online.
 
-Po skonfigurowano federacyjnego można przełączyć do "niefederacyjnych" (lub "zarządzany"), jednak ta zmiana zostanie do dwóch godzin i wymaga Przypisywanie nowych losowe haseł dla logowania opartego na chmurze do poszczególnych użytkowników. Przełączanie do "zarządzany" mogą być wymagane w niektórych scenariuszach zresetować wystąpił błąd w ustawieniach. Aby uzyskać więcej informacji o konwersji domeny Zobacz: [http://msdn.microsoft.com/library/windowsazure/dn194122.aspx](http://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
+Po skonfigurowano federacyjnego można przełączyć do "niefederacyjnych" (lub "zarządzany"), jednak ta zmiana zostanie do dwóch godzin i wymaga Przypisywanie nowych losowe haseł dla logowania opartego na chmurze do poszczególnych użytkowników. Przełączanie do "zarządzany" mogą być wymagane w niektórych scenariuszach zresetować wystąpił błąd w ustawieniach. Aby uzyskać więcej informacji o konwersji domeny Zobacz: [ http://msdn.microsoft.com/library/windowsazure/dn194122.aspx ](http://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
 
 ## <a name="provision-user-principals-to-azure-ad--office-365"></a>Udostępniania podmiotów zabezpieczeń użytkownika do usługi Azure AD / usługi Office 365
 Zanim można uwierzytelniać użytkowników do usługi Office 365 z głównych użytkownika, które odpowiadają potwierdzenia oświadczenia SAML 2.0, należy umożliwić usługi Azure AD. Jeśli te podmioty użytkownika nie są znane do usługi Azure AD z wyprzedzeniem następnie one nie może służyć do federacyjnego logowania. Azure AD Connect lub środowiska Windows PowerShell, można go użyć do udostępnienia podmiotów zabezpieczeń użytkownika.
@@ -210,7 +210,7 @@ W tej procedurze pokazano, jak dodać pojedynczego użytkownika do usługi Azure
         -LicenseAssignment "samlp2test:ENTERPRISEPACK" 
         -UsageLocation "US" ` 
 
-Aby uzyskać więcej informacji na temat wyboru "New-MsolUser", [http://technet.microsoft.com/library/dn194096.aspx](http://technet.microsoft.com/library/dn194096.aspx)
+Aby uzyskać więcej informacji na temat wyboru "New-MsolUser" [http://technet.microsoft.com/library/dn194096.aspx](http://technet.microsoft.com/library/dn194096.aspx)
 
 >[!NOTE]
 >Wartość "UserPrinciplName" musi być zgodna wartość, która zostanie wysłana do "IDPEmail" w roszczenia SAML 2.0, a wartość "Nazwę ImmutableID" musi odpowiadać wartości wysyłane potwierdzenia Twojej "NameID".
@@ -242,7 +242,7 @@ Firma Microsoft udostępnia narzędzia, którego można używać do testowania d
 
 
 
-1. Pobieranie Analyzer łączności z [https://testconnectivity.microsoft.com/?tabid=Client](https://testconnectivity.microsoft.com/?tabid=Client).
+1. Pobieranie Analyzer łączności z [ https://testconnectivity.microsoft.com/?tabid=Client ](https://testconnectivity.microsoft.com/?tabid=Client).
 2.  Kliknij przycisk Zainstaluj teraz, aby rozpocząć pobieranie i instalowanie narzędzia.
 3.  Wybierz opcję "Nie może skonfigurować federacji z usługi Office 365, Azure lub innych usług używających usługi Azure Active Directory".
 4.  Po pobraniu narzędzia i uruchomiony, pojawi się okno diagnostyki łączności. Narzędzie będzie przetwarzać testowania połączenia federacji.

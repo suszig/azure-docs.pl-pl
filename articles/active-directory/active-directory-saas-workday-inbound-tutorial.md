@@ -17,7 +17,7 @@ ms.openlocfilehash: 825bf3f6a3ea07cb229f00c81ad699d792ac53f9
 ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie produktu Workday do inicjowania obsługi użytkowników
 
@@ -249,7 +249,7 @@ Wykonaj te instrukcje, aby skonfigurować konto użytkownika, inicjowania obsłu
 
    * **Hasło administratora —** wprowadź hasło do konta produktu Workday integracji systemu
 
-   * **Adres URL — dzierżawy** wprowadź adres URL punktu końcowego usługi sieci web produktu Workday dla dzierżawy. To powinien wyglądać następująco: https://wd3-impl-services1.workday.com/ccx/service/contoso4, gdzie contoso4 jest zastępowany nazwa dzierżawy poprawne, a wd3 impl jest zastępowany ciągiem poprawne środowisko.
+   * **Adres URL — dzierżawy** wprowadź adres URL punktu końcowego usługi sieci web produktu Workday dla dzierżawy. To powinien wyglądać następująco: https://wd3-impl-services1.workday.com/ccx/service/contoso4, gdzie contoso4 jest zastępowany nazwa dzierżawy poprawne i wd3 impl jest zastępowany ciągiem poprawne środowisko.
 
    * **Lasu usługi Active Directory -** "Name" usługi Active Directory lasu, zwracane przez polecenia powershell Get-ADForest. Zazwyczaj jest to ciąg, takich jak: *contoso.com*
 
@@ -427,7 +427,7 @@ Jeśli dzierżawy usługi Azure Active Directory znajduje się w jednym z centr�
 2. Przejdź do folderu instalacji agenta (przykład: C:\Program Files\Microsoft Azure inicjowania obsługi administracyjnej agenta programu AD Connect).
 3. Otwórz **SyncAgnt.exe.config** w edytorze tekstów.
 4. Zastąp https://manage.hub.syncfabric.windowsazure.com/Management z **https://eu.manage.hub.syncfabric.windowsazure.com/Management**
-5. Replace https://provision.hub.syncfabric.windowsazure.com/Provisioning with **https://eu.provision.hub.syncfabric.windowsazure.com/Provisioning**
+5. Zastąp https://provision.hub.syncfabric.windowsazure.com/Provisioning z **https://eu.provision.hub.syncfabric.windowsazure.com/Provisioning**
 6. Zapisz **SyncAgnt.exe.config** pliku.
 7. Otwórz **Services.msc**i uruchom **Microsoft Azure AD inicjowania obsługi administracyjnej agenta Connect** usługi.
 
@@ -504,7 +504,7 @@ W poniższych sekcjach opisano konfigurowanie połączenia między produktu Work
 
    * **Hasło administratora —** wprowadź hasło do konta produktu Workday integracji systemu
 
-   * **Adres URL — dzierżawy** wprowadź adres URL punktu końcowego usługi sieci web produktu Workday dla dzierżawy. To powinien wyglądać następująco: https://wd3-impl-services1.workday.com/ccx/service/contoso4, gdzie contoso4 jest zastępowany nazwa dzierżawy poprawne, a wd3 impl jest zastępowany ciągiem poprawne środowisko. Jeśli ten adres URL nie jest znany, proszę współpracować z produktu Workday integracji partnera lub pomocy technicznej przedstawicielem, aby określić prawidłowy adres URL do użycia.
+   * **Adres URL — dzierżawy** wprowadź adres URL punktu końcowego usługi sieci web produktu Workday dla dzierżawy. To powinien wyglądać następująco: https://wd3-impl-services1.workday.com/ccx/service/contoso4, gdzie contoso4 jest zastępowany nazwa dzierżawy poprawne i wd3 impl jest zastępowany ciągiem poprawne środowisko. Jeśli ten adres URL nie jest znany, proszę współpracować z produktu Workday integracji partnera lub pomocy technicznej przedstawicielem, aby określić prawidłowy adres URL do użycia.
 
    * **Wiadomość E-mail z powiadomieniem —** wprowadź swój adres e-mail, a następnie zaznacz pole wyboru "Wyślij wiadomość e-mail, jeśli wystąpi błąd".
 
@@ -609,7 +609,7 @@ Wykonaj te instrukcje, aby skonfigurować zapisywanie zwrotne adresu e-mail uży
 
    * **Hasło administratora —** wprowadź hasło do konta produktu Workday integracji systemu
 
-   * **Adres URL — dzierżawy** wprowadź adres URL punktu końcowego usługi sieci web produktu Workday dla dzierżawy. To powinien wyglądać następująco: https://wd3-impl-services1.workday.com/ccx/service/contoso4, gdzie contoso4 jest zastępowany nazwa dzierżawy poprawne, a wd3 impl jest zastępowany ciągiem poprawne środowisko (Jeśli to konieczne).
+   * **Adres URL — dzierżawy** wprowadź adres URL punktu końcowego usługi sieci web produktu Workday dla dzierżawy. To powinien wyglądać następująco: https://wd3-impl-services1.workday.com/ccx/service/contoso4, gdzie contoso4 jest zastępowany nazwa dzierżawy poprawne i wd3 impl jest zastępowany ciągiem poprawne środowisko (Jeśli to konieczne).
 
    * **Wiadomość E-mail z powiadomieniem —** wprowadź swój adres e-mail, a następnie zaznacz pole wyboru "Wyślij wiadomość e-mail, jeśli wystąpi błąd".
 

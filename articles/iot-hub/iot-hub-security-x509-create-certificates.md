@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 12/10/2017
 ms.author: dkshir
 ms.openlocfilehash: b2f78e8debd367f86ee9bb06bf7de50590c61ad7
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="powershell-scripts-to-manage-ca-signed-x509-certificates"></a>Skrypty programu PowerShell do zarządzania certyfikatami X.509 podpisany przez urząd certyfikacji
 
@@ -279,7 +279,7 @@ Następnie uruchom `New-CADevice "<yourTestDevice>"` w oknie programu PowerShell
 
 ## <a name="clean-up-certificates"></a>Wyczyść certyfikatów
 
-Na pasku start lub **ustawienia** aplikacji, wyszukaj i wybierz **zarządzanie certyfikatami komputera**. Usuń wszelkie certyfikaty wystawione przez **Azure IoT urzędu certyfikacji TestOnly***. Certyfikaty te powinny istnieć w następujących trzech miejscach: 
+Na pasku start lub **ustawienia** aplikacji, wyszukaj i wybierz **zarządzanie certyfikatami komputera**. Usuń wszelkie certyfikaty wystawione przez ** TestOnly *** Azure IoT urzędu certyfikacji. Certyfikaty te powinny istnieć w następujących trzech miejscach: 
 
 * Certyfikaty — komputer lokalny > osobiste > certyfikatów
 * Certyfikaty — komputer lokalny > Zaufane główne urzędy certyfikacji > certyfikatów
