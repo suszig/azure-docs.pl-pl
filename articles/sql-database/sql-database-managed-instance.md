@@ -2,29 +2,26 @@
 title: "Baza danych Azure SQL zarządzane wystąpienia omówienie | Dokumentacja firmy Microsoft"
 description: "W tym temacie opisano wystąpienia zarządzane bazy danych SQL Azure oraz wyjaśniono, jak działa i jak różni się od pojedynczej bazy danych w bazie danych SQL Azure."
 services: sql-database
-documentationcenter: na
 author: bonova
 ms.reviewer: carlrab
-manager: cguyer
-editor: 
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Active
-ms.date: 03/07/2018
+ms.date: 03/14/2018
 ms.author: bonova
-ms.openlocfilehash: dc3c93a1a13f3e10f9159d26411d6337c0269722
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 77d421e9c97f3baa3541040494fb91e0297edb5a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Co to jest wystąpienie zarządzane (wersja zapoznawcza)?
 
 Azure wystąpienia bazy danych SQL zarządzane (wersja zapoznawcza) jest nową funkcją bazy danych SQL Azure, zapewniając bliskie 100% zgodności z programu SQL Server w infrastrukturze lokalnej, zapewniając natywny [sieć wirtualną (VNet)](../virtual-network/virtual-networks-overview.md) implementacji, którego dotyczy typowe problemy z zabezpieczeniami i [modelu biznesowego](https://azure.microsoft.com/pricing/details/sql-database/) korzystna dla lokalnego programu SQL Server klientów. Zarządzane wystąpienia umożliwia istniejących klientów programu SQL Server do podnoszenia i przesunięcia ich aplikacji lokalnych do chmury przy minimalnych zmianach aplikacji i baz danych. W tym samym czasie wystąpienia zarządzane zachowuje wszystkie funkcje PaaS (Aktualizacje automatyczne stosowanie poprawek i wersja, kopia zapasowa, wysokiej dostępności), które znacząco zmniejsza nakład pracy i całkowitego kosztu posiadania.
+
+> [!IMPORTANT]
+> Lista regionów, w których jest obecnie dostępna zarządzane wystąpienia, zobacz [migracji baz danych do pełni zarządzanej usługi za pomocą wystąpienia zarządzane bazy danych SQL Azure](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/).
  
 Poniższy diagram przedstawia główne funkcje wystąpienia zarządzane:
 

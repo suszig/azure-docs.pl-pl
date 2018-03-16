@@ -232,14 +232,22 @@
               href: azure-stack-app-service-capacity-planning.md
             - name: Przed rozpoczęciem
               href: azure-stack-app-service-before-you-get-started.md
+            - name: Jak wykonać ponowną dystrybucję usłudze Azure App Service na stosie Azure domen błędów
+              href: azure-stack-app-service-fault-domain-update.md
             - name: Wdrażanie dostawcy zasobów usługi App Service
               href: azure-stack-app-service-deploy.md
             - name: Wdrażanie usługi App Service w trybie offline
               href: azure-stack-app-service-deploy-offline.md
+            - name: Aktualizacja usługi aplikacji
+              href: azure-stack-app-service-update.md
+            - name: Aktualizacja usługi aplikacji w trybie Offline
+              href: azure-stack-app-service-update-offline.md
             - name: Dodawanie większej liczby ról procesów roboczych w sieci Web
               href: azure-stack-app-service-add-worker-roles.md
             - name: Konfigurowanie źródeł wdrożenia
               href: azure-stack-app-service-configure-deployment-sources.md
+            - name: Usługi aplikacji — aktualizacja co informacje o wersji
+              href: azure-stack-app-service-release-notes-update-one.md
         - name: Wypełnianie portalu Marketplace treścią
           items:
             - name: Omówienie portalu Marketplace

@@ -2,23 +2,18 @@
 title: Wprowadzenie zadania elastycznej bazy danych | Dokumentacja firmy Microsoft
 description: "Zadania elastycznej bazy danych umożliwia wykonywanie skryptów T-SQL, które obejmują wiele baz danych."
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-ms.assetid: 2540de0e-2235-4cdd-9b6a-b841adba00e5
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
-ms.author: ddove
-ms.openlocfilehash: c5fe5256d4a8b8479f5e4aff95ec03fc1ba1018a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: sstein
+ms.openlocfilehash: 5d55ae225ca1b550bbf70314e2f48fc0161ad107
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Wprowadzenie zadania elastycznej bazy danych
 Baza danych zadania elastyczne (wersja zapoznawcza) w bazie danych SQL Azure umożliwia niezawodnie wykonywanie skryptów T-SQL, obejmującej wiele baz danych podczas Automatyczne ponawianie próby i zapewnienia gwarancji ostatecznego zakończenia. Aby uzyskać więcej informacji na temat funkcji zadania elastycznej bazy danych, zobacz [zadania elastyczne](sql-database-elastic-jobs-overview.md).
@@ -226,7 +221,7 @@ Poniższy skrypt programu PowerShell może służyć do wyświetlania szczegół
    ```
 
 ## <a name="retrieve-failures-within-job-task-executions"></a>Pobrać błędów w ramach zadania wykonania zadania
-Obiekt JobTaskExecution zawiera właściwość dla cyklu życia zadania wraz z właściwością wiadomości. Jeżeli wykonanie zadania zadania *nie powiodło się*, ma ustawioną właściwość cyklu życia i właściwości wiadomości ustawiono Wynikowy komunikat o wyjątku i jego stosu. Jeśli zadanie nie powiodło się, jest ważne wyświetlić szczegóły zadania, których nie powiodła się dla danego zadania.
+Obiekt JobTaskExecution zawiera właściwość dla cyklu życia zadania wraz z właściwością wiadomości. Jeżeli wykonanie zadania zadania nie powiodło się, ma ustawioną właściwość cyklu *życia* i właściwości wiadomości ustawiono Wynikowy komunikat o wyjątku i jego stosu. Jeśli zadanie nie powiodło się, jest ważne wyświetlić szczegóły zadania, których nie powiodła się dla danego zadania.
 
    ```
     $jobExecutionId = "{Job Execution Id}"
