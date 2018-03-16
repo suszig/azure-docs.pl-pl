@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/23/2017
 ms.author: billmath
 ms.openlocfilehash: 58ca992f9fcf9a03d917f0dc250a292c4d5f49e5
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory bezproblemowe logowanie jednokrotne: Szybki start
 
@@ -87,7 +87,7 @@ Ponadto należy włączyć zasadę strefy Intranet nosi nazwę **Zezwalaj na pas
 
 ### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>Dlaczego należy zmodyfikować ustawienia strefy Intranet użytkowników?
 
-Domyślnie przeglądarka automatycznie oblicza poprawnej strefy Internecie lub intranecie, z określonym adresem URL. Na przykład "http://contoso/" mapuje do strefy Intranet, podczas gdy "http://intranet.contoso.com/" mapuje strefie Internet (ponieważ adres URL zawiera kropkę). Przeglądarki nie wyśle biletów Kerberos do punktu końcowego w chmurze, takich jak Azure AD adresu URL, chyba że dodasz do strefy Intranet w przeglądarce adres URL.
+Domyślnie przeglądarka automatycznie oblicza poprawnej strefy Internecie lub intranecie, z określonym adresem URL. Na przykład "http://contoso/" mapy do strefy Intranet, podczas gdy "http://intranet.contoso.com/" mapuje strefie Internet (ponieważ adres URL zawiera kropkę). Przeglądarki nie wyśle biletów Kerberos do punktu końcowego w chmurze, takich jak Azure AD adresu URL, chyba że dodasz do strefy Intranet w przeglądarce adres URL.
 
 ### <a name="detailed-steps"></a>Szczegółowe procedury
 
@@ -101,7 +101,7 @@ Domyślnie przeglądarka automatycznie oblicza poprawnej strefy Internecie lub i
 
     Wynik wygląda następująco:
 
-    Value: https://autologon.microsoftazuread-sso.com
+    Wartość:https://autologon.microsoftazuread-sso.com
   
     Dane: 1
 
@@ -129,7 +129,7 @@ Mozilla Firefox nie są automatycznie używane uwierzytelnianie Kerberos. Każdy
 1. Uruchom program Firefox, a następnie wprowadź `about:config` na pasku adresu. Odrzucić żadnych powiadomień, które są wyświetlane.
 2. Wyszukaj **network.negotiate-auth.trusted URI** preferencji. Ta opcja wyświetla listę zaufanych witryn w programie Firefox uwierzytelniania Kerberos.
 3. Kliknij prawym przyciskiem myszy i wybierz **Modyfikuj**.
-4. W polu wprowadź https://autologon.microsoftazuread-sso.com.
+4. Wprowadź https://autologon.microsoftazuread-sso.com w polu.
 5. Wybierz **OK** , a następnie ponownie przeglądarkę.
 
 #### <a name="safari-mac-os"></a>Safari (Mac OS)
@@ -138,7 +138,7 @@ Upewnij się, że maszynę z systemem Mac OS jest dołączona do usługi Azure A
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (wszystkie platformy)
 
-Jeśli masz zastąpiona [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) lub [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) ustawień zasad w środowisku, upewnij się, Dodaj adres URL usługi Azure AD (https://autologon.microsoftazuread-sso.com) do nich również.
+Jeśli masz zastąpiona [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) lub [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) ustawień zasad w środowisku, upewnij się, że Dodaj adres URL usługi Azure AD (https://autologon.microsoftazuread-sso.com) dla nich oraz.
 
 #### <a name="google-chrome-mac-os-only"></a>Google Chrome (tylko Mac OS)
 

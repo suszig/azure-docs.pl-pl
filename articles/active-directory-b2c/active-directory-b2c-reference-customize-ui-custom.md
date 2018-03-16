@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 04/25/2017
 ms.author: joroja
 ms.openlocfilehash: 40245c25a7f80db27a25a0d34eb20f1057fc5e02
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Dostosowywanie interfejsu użytkownika w podróży użytkownika przy użyciu zasad niestandardowych
 
@@ -72,10 +72,10 @@ Aby upewnić się, że wszystko działa zgodnie z oczekiwaniami, należy:
 - Używać bezwzględnych adresów URL, takie jak https://yourdomain/content dla wszystkich łączy i zawartość arkusza CSS.
 
 > [!TIP]
-> Aby sprawdzić, czy w lokacji, które prowadzą hosting zawartości na włączonego mechanizmu CORS i żądań CORS testu, można użyć http://test-cors.org/ lokacji. Dzięki tej lokacji możesz wysłać żądanie CORS do serwera zdalnego (do testowania, jeśli jest obsługiwana przez CORS) lub Wyślij żądanie CORS na serwerze testowym (aby eksplorować niektórych funkcji CORS).
+> Aby sprawdzić, czy są hostingu zawartości na lokacji ma włączonego mechanizmu CORS i żądań CORS testu, można skorzystać z witryny http://test-cors.org/. Dzięki tej lokacji możesz wysłać żądanie CORS do serwera zdalnego (do testowania, jeśli jest obsługiwana przez CORS) lub Wyślij żądanie CORS na serwerze testowym (aby eksplorować niektórych funkcji CORS).
 
 > [!TIP]
-> Http://enable-cors.org/ lokacji stanowi również ponad przydatne zasoby na CORS.
+> Witryny http://enable-cors.org/ stanowi również ponad przydatne zasoby na CORS.
 
 Dzięki użyciu tej metody na podstawie specyfikacji CORS użytkownicy końcowi mają spójne działanie pomiędzy aplikacją i stron obsługiwanych przez usługę Azure AD B2C.
 
@@ -122,8 +122,8 @@ CORS (Cross-Origin Resource Sharing) musi być włączona dla usługi Azure AD B
 
 Aby sprawdzić, czy magazyn, które prowadzą hosting zawartości na ma włączonego mechanizmu CORS, kontynuować następujące czynności:
 
-1. Otwórz sesję przeglądania i przejdź do strony *unified.html* przy użyciu pełny adres URL lokalizacji na koncie magazynu `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`. For example, https://contoso369b2c.blob.core.windows.net/b2c/unified.html.
-2. Przejdź do http://test-cors.org. Tej lokacji pozwala sprawdzić, czy strona, której używasz ma włączonego mechanizmu CORS.  
+1. Otwórz sesję przeglądania i przejdź do strony *unified.html* przy użyciu pełny adres URL lokalizacji na koncie magazynu `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`. Na przykład https://contoso369b2c.blob.core.windows.net/b2c/unified.html.
+2. Przejdź do adresu http://test-cors.org. Tej lokacji pozwala sprawdzić, czy strona, której używasz ma włączonego mechanizmu CORS.  
 <!--
 ![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
 -->

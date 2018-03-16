@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 10/23/2017
 ms.author: yoelh
 ms.openlocfilehash: 77e2b9b283e4051370ffb905681135c27512834e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="azure-active-directory-b2c-add-linkedin-as-an-identity-provider-by-using-custom-policies"></a>Usługa Azure Active Directory B2C: Dodawanie LinkedIn funkcję dostawcy tożsamości za pomocą zasad niestandardowych
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -43,7 +43,7 @@ Aby użyć LinkedIn jako dostawca tożsamości w usłudze Azure Active Directory
 
     c. Wybierz **stosowania**.
 
-    d. W **adres URL witryny sieci Web** Wklej **https://login.microsoftonline.com**.
+    d. W **adres URL witryny sieci Web** Wklej  **https://login.microsoftonline.com** .
 
     e. Typ użytkownika **służbowy adres E-mail** adres i **Telefon służbowy** numer.
 
@@ -53,7 +53,7 @@ Aby użyć LinkedIn jako dostawca tożsamości w usłudze Azure Active Directory
 
 3. Wybierz **uwierzytelniania**, a następnie zanotuj **identyfikator klienta** i **klucz tajny klienta** wartości.
 
-4. W **autoryzacji adresów URL przekierowań** Wklej **https://login.microsoftonline.com/te/ {tenant}.onmicrosoft.com/oauth2/authresp**. Zastąp {*dzierżawy*} nazwą Twojej dzierżawy (na przykład contosob2c.onmicrosoft.com). Upewnij się, że używasz schematu HTTPS. 
+4. W **autoryzacji adresów URL przekierowań** Wklej  **https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/oauth2/authresp** . Zastąp {*dzierżawy*} nazwą Twojej dzierżawy (na przykład contosob2c.onmicrosoft.com). Upewnij się, że używasz schematu HTTPS. 
 
     ![Konto LinkedIn — zestaw uprawnień przekierowania adresów URL](media/active-directory-b2c-custom-setup-li-idp/adb2c-ief-setup-li-idp-new-app3.png)
 

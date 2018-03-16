@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/26/2018
+ms.date: 3/9/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 9277f2c8a4ff595e639f6332d61b936ce44aeb13
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 430e813b89f3e0004c517ef77f1028e00ebe5404
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="tutorial-deploy-api-management-with-service-fabric"></a>Samouczek: wdrażanie usługi API Management z usługą Service Fabric
 Niniejszy samouczek jest czwartą częścią serii.  Wdrażanie usługi Azure API Management z usługą Service Fabric odbywa się w ramach zaawansowanego scenariusza.  Usługa API Management jest przydatna, gdy trzeba opublikować interfejsy API z obszernym zestawem reguł rozsyłania dla usług zaplecza Service Fabric. Aplikacje w chmurze zwykle potrzebują bramy frontonu, aby udostępniać pojedynczy punkt danych przychodzących dla użytkowników, urządzeń lub innych aplikacji. W usłudze Service Fabric bramą może być dowolna usługa bezstanowa przeznaczona dla ruchu przychodzącego, na przykład aplikacja ASP.NET Core albo usługa Event Hubs, IoT Hub lub Azure API Management. 
@@ -116,7 +116,7 @@ W tym samouczku zostanie wdrożony podstawowy serwer sieci Web, która powtarza 
 
    ```bash
    git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
-   cd service-fabric-java-getting-started
+   cd service-fabric-java-getting-started/reliable-services-actor-sample
    ```
 
 2. Zmodyfikuj plik *Services/EchoServer/EchoServer1.0/EchoServerApplication/EchoServerPkg/ServiceManifest.xml*. Zaktualizuj punkt końcowy, tak aby usługa nasłuchiwała na porcie 8081.
@@ -136,7 +136,7 @@ W tym samouczku zostanie wdrożony podstawowy serwer sieci Web, która powtarza 
 
    ```bash
    cd Scripts
-   sfctl cluster select --endpoint http://mycluster.southcentralus.cloudapp.azure.com:19080
+   sfctl cluster select --endpoint https://mycluster.southcentralus.cloudapp.azure.com:19080 --pem <full_path_to_pem_on_dev_machine> --no-verify
    ./install.sh
    ```
 

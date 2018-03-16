@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 01/03/2018
 ms.author: jeedes
 ms.openlocfilehash: 943698311d10b479879fd92d2482d827650e2b0c
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scc-lifecycle"></a>Samouczek: Azure Active Directory integrację z cyklem życia SCC
 Celem tego samouczka jest pokazanie integracji Azure i SCC cyklu życia.  
@@ -75,7 +75,7 @@ Celem tej sekcji jest przedstawiają sposób umożliwić użytkownikom uwierzyte
 2. Na **jak chcesz użytkownikom zalogować się na cyklu życia SCC** wybierz pozycję **usługi Microsoft Azure AD rejestracji jednokrotnej**, a następnie kliknij przycisk **dalej**.
    
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-scc-lifecycle-tutorial/IC794123.png "skonfigurować logowanie jednokrotne")
-3. Na **Konfigurowanie adresu URL aplikacji** strony w **na adres URL logowania** tekstowym, wpisz adres URL używany przez użytkowników do logowania się SCC cyklem życia aplikacji przy użyciu następującego wzorca "*https://bs1.scc.com/lc7/welcome/customer/PICTtest.aspx*", a następnie kliknij przycisk **dalej**.
+3. Na **Konfigurowanie adresu URL aplikacji** strony w **na adres URL logowania** tekstowym, wpisz adres URL używany przez użytkowników do logowania się SCC cyklem życia aplikacji przy użyciu następującego wzorca " *https://bs1.scc.com/lc7/welcome/customer/PICTtest.aspx* ", a następnie kliknij przycisk **dalej**.
    
     ![Skonfiguruj adres URL aplikacji](./media/active-directory-saas-scc-lifecycle-tutorial/IC794124.png "skonfigurować adres URL aplikacji")
 4. Na **skonfigurować logowanie jednokrotne w cyklu życia SCC** kliknij przycisk **pobierania metadanych**, a następnie zapisz plik metadanych lokalnie na komputerze.

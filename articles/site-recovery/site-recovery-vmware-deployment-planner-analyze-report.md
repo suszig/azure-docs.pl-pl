@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/04/2017
+ms.date: 03/09/2018
 ms.author: nisoneji
-ms.openlocfilehash: d8c4f5431d8e2d406cd5b203b468c447d4dd6e17
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: dce374d85ef32fe1fbfc88502780fa2ad7a5eae4
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-site-recovery-deployment-planner-report"></a>Raport planisty wdrożenia usługi Azure Site Recovery
 Wygenerowany raport programu Microsoft Excel zawiera następujące arkusze:
@@ -132,16 +132,16 @@ Na wykresie przedstawiono podsumowanie szacowanych łącznych kosztów odzyskiwa
 ![Podsumowanie szacowania kosztów](media/site-recovery-vmware-deployment-planner-analyze-report/cost-estimation-summary-v2a.png)
 
 Podsumowanie pomaga zrozumieć ponoszone koszty magazynowania, obliczania, użycia sieci i licencji w przypadku ochrony wszystkich zgodnych maszyn wirtualnych na platformie Azure przy użyciu usługi Azure Site Recovery. Koszt jest obliczany dla zgodnych maszyn wirtualnych, a nie dla wszystkich profilowanych maszyn wirtualnych.  
- 
+
 Koszt można wyświetlić w rozliczeniu miesięcznym lub rocznym. Dowiedz się więcej o [obsługiwanych regionach docelowych](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions) i [obsługiwanych walutach](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).
 
 **Koszt według składników**: całkowity koszt odzyskiwania po awarii jest dzielony na cztery składniki: obliczenia, magazyn, sieć i koszt licencji usługi Azure Site Recovery. Koszt jest obliczany na podstawie wykorzystania powstałego podczas replikacji oraz w czasie testowania odzyskiwania po awarii dla mocy obliczeniowych, magazynu (warstwa Premium i Standardowa), usługi ExpressRoute/sieci VPN skonfigurowanej między lokacją lokalną i platformą Azure oraz dla licencji usługi Azure Site Recovery.
 
-**Koszt według stanów**: łączny koszt odzyskiwania po awarii (DR) jest dzielony na kategorie na podstawie dwóch różnych stanów — replikacji i testowania odzyskiwania po awarii. 
+**Koszt według stanów**: łączny koszt odzyskiwania po awarii (DR) jest dzielony na kategorie na podstawie dwóch różnych stanów — replikacji i testowania odzyskiwania po awarii.
 
-**Koszt replikacji**: koszt, który zostanie naliczony podczas replikacji. Obejmuje on koszt magazynu, użycia sieci i licencji usługi Azure Site Recovery. 
+**Koszt replikacji**: koszt, który zostanie naliczony podczas replikacji. Obejmuje on koszt magazynu, użycia sieci i licencji usługi Azure Site Recovery.
 
-**Koszt testowania odzyskiwania po awarii**: koszt, który zostanie naliczony podczas testów pracy w trybie failover. Usługa Azure Site Recovery uruchamia maszyny wirtualne podczas testu pracy w trybie failover. Koszt testowania odzyskiwania po awarii obejmuje koszt magazynu i mocy obliczeniowej działających maszyn wirtualnych. 
+**Koszt testowania odzyskiwania po awarii**: koszt, który zostanie naliczony podczas testów pracy w trybie failover. Usługa Azure Site Recovery uruchamia maszyny wirtualne podczas testu pracy w trybie failover. Koszt testowania odzyskiwania po awarii obejmuje koszt magazynu i mocy obliczeniowej działających maszyn wirtualnych.
 
 **Koszt magazynu platformy Azure na miesiąc/rok**: obejmuje łączny koszt magazynu, który zostanie naliczony dla magazynów w warstwie Premium i Standardowa podczas replikacji i testowania odzyskiwania po awarii.
 W arkuszu [Szacowanie kosztów](site-recovery-vmware-deployment-planner-cost-estimation.md) możesz wyświetlić szczegółową analizę kosztów dla poszczególnych maszyn wirtualnych.
@@ -266,7 +266,7 @@ Na przykład jeśli charakterystyki obciążenia dysku powodują umieszczenie go
 
 **Typ rozruchu**: typ rozruchu maszyny wirtualnej. Dozwolone wartości to BIOS i EFI.  Obecnie usługa Azure Site Recovery obsługuje maszyny wirtualne EFI systemu Windows Server (Windows Server 2012, 2012 R2 i 2016) pod warunkiem, że liczba partycji na dysku rozruchowym jest mniejsza niż 4, a rozmiar sektora rozruchowego wynosi 512 bajtów. Aby można było chronić maszyny wirtualne EFI, wersja usługi mobilności Azure Site Recovery musi być równa 9.13 lub wyższa. Dla maszyn wirtualnych EFI jest obsługiwane tylko przejście w tryb failover. Powrót po awarii nie jest obsługiwany.
 
-**Typ systemu operacyjnego**: jest to typ systemu operacyjnego maszyny wirtualnej. Może to być system Windows, Linux lub inny, zależnie od szablonu wybranego z oprogramowania VMware vSphere podczas tworzenia maszyny wirtualnej. 
+**Typ systemu operacyjnego**: jest to typ systemu operacyjnego maszyny wirtualnej. Może to być system Windows, Linux lub inny, zależnie od szablonu wybranego z oprogramowania VMware vSphere podczas tworzenia maszyny wirtualnej.
 
 ## <a name="azure-site-recovery-limits"></a>Limity usługi Azure Site Recovery
 W poniższej tabeli przedstawiono limity usługi Azure Site Recovery. Limity te są oparte na naszych testach, ale nie obejmują wszystkich możliwych kombinacji operacji we/wy aplikacji. Rzeczywiste wyniki mogą różnić w zależności od kombinacji operacji we/wy aplikacji. Aby uzyskać najlepsze wyniki nawet po zakończeniu planowania wdrożenia, zawsze zalecamy dokładne przetestowanie aplikacji przy użyciu testu pracy w trybie failover w celu uzyskania prawdziwych informacji o wydajności aplikacji.
@@ -282,15 +282,15 @@ Dysk w warstwie Premium P20, P30, P40 lub P50 | 16 KB lub większy |10 MB/s | 84
 
 **Źródłowy współczynnik zmian danych** | **Limit maksymalny**
 ---|---
-Średni współczynnik zmian danych na maszynę wirtualną| 25 MB/s 
+Średni współczynnik zmian danych na maszynę wirtualną| 25 MB/s
 Szczytowy współczynnik zmian danych na wszystkich dyskach na maszynie wirtualnej | 54 MB/s
-Maksymalny współczynnik zmian danych dziennie obsługiwany przez serwer przetwarzania | 2 TB 
+Maksymalny współczynnik zmian danych dziennie obsługiwany przez serwer przetwarzania | 2 TB
 
 Są to średnie wartości przy założeniu 30-procentowego nakładania się operacji we/wy. Usługa Site Recovery może obsługiwać większą przepływność na podstawie zakresu nakładania się na siebie, większego rozmiaru operacji zapisu i rzeczywistego zachowania związanego z obciążeniem operacji we/wy. Poprzednie liczby zakładają typowe zaległości wynoszące około pięć minut. Oznacza to, że przekazane dane są przetwarzane i punkt odzyskiwania jest tworzony w ciągu pięciu minut.
 
 
 ## <a name="cost-estimation"></a>Szacowanie kosztów
-Dowiedz się więcej na temat [szacowania kosztów](site-recovery-vmware-deployment-planner-cost-estimation.md). 
+Dowiedz się więcej na temat [szacowania kosztów](site-recovery-vmware-deployment-planner-cost-estimation.md).
 
 
 ## <a name="next-steps"></a>Następne kroki

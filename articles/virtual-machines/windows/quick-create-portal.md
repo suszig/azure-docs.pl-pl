@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 12/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: ca18b8b67d9af0c1f80d9726c1e20af0ad7e9c19
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ef2fdfc8f248f9ec5dd9fce9753548dfe802982a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-the-azure-portal"></a>Tworzenie maszyny wirtualnej z systemem Windows za pomocą witryny Azure Portal
 
@@ -30,7 +30,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 ## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
 
-Zaloguj się w witrynie Azure Portal pod adresem http://portal.azure.com.
+Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 
 ## <a name="create-virtual-machine"></a>Tworzenie maszyny wirtualnej
 

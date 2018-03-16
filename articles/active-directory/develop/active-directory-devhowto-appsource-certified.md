@@ -16,10 +16,10 @@ ms.date: 08/03/2017
 ms.author: andret
 ms.custom: aaddev
 ms.openlocfilehash: 5601ad80e271364fec519cf34bcdc2f650f3bb92
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Jak uzyskać AppSource certyfikowane dla usługi Azure Active Directory
 [Microsoft AppSource](https://appsource.microsoft.com/) jest docelowy dla użytkowników biznesowych wykrywanie, spróbuj i zarządzanie nimi z biznesowych aplikacji SaaS (SaaS, jak i dodatku do istniejących produktów Microsoft SaaS).
@@ -35,7 +35,7 @@ Aplikacja, która akceptuje logowania użytkowników z firmy lub organizacji maj
 
 Aby włączyć obsługi wielu dzierżawców w swojej aplikacji:
 - Ustaw `Multi-Tenanted` właściwości `Yes` na informacje o rejestracji aplikacji w [Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) (domyślnie aplikacje utworzone w portalu Azure są skonfigurowane jako *pojedynczej dzierżawy*)
-- Zaktualizuj kod do wysyłania żądań do "`common`" punktu końcowego (zaktualizować punktu końcowego z *https://login.microsoftonline.com/ {yourtenant}* do *https://login.microsoftonline.com/common*)
+- Zaktualizuj kod do wysyłania żądań do "`common`" punktu końcowego (zaktualizować punktu końcowego z  *https://login.microsoftonline.com/{yourtenant}*  do  *https://login.microsoftonline.com/common* )
 - Dla niektórych platform, takich jak ASP.NET należy również zaktualizować swój kod, aby zaakceptować wielu wystawców
 
 Aby uzyskać więcej informacji na temat obsługi wielu dzierżawców, zobacz: [jak zarejestrować każdy użytkownik usługi Azure Active Directory (AD) przy użyciu wzorca wielodostępnych aplikacji](./active-directory-devhowto-multi-tenant-overview.md).

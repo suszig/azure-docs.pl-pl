@@ -11,11 +11,11 @@ ms.topic: hero-article
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
-ms.openlocfilehash: ce3d6d5aa721f84bda6d8de6eac161deb934a1e5
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 96a4203c11cc20e01eb164dfdd9178988074ff48
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Wprowadzenie do zestawu SDK usługi Batch dla środowiska Node.js
 
@@ -73,7 +73,7 @@ To polecenie instaluje najnowszą wersję zestawu Node SDK usługi Azure Batch.
 
 ### <a name="step-2-create-an-azure-batch-account"></a>Krok 2. Tworzenie konta usługi Azure Batch
 
-Konto można utworzyć zarówno za pomocą witryny [Azure Portal](batch-account-create-portal.md), jak i wiersza polecenia ([PowerShell](batch-powershell-cmdlets-get-started.md) /[Interfejs wiersza polecenia platformy Azure](/cli/azure/overview)).
+Konto można utworzyć zarówno za pomocą witryny [Azure Portal](batch-account-create-portal.md), jak i wiersza polecenia ([PowerShell](batch-powershell-cmdlets-get-started.md) /[Interfejs wiersza polecenia platformy Azure](/cli/azure)).
 
 Poniżej przedstawiono polecenia, które umożliwiają utworzenie konta za pomocą interfejsu wiersza polecenia platformy Azure.
 

@@ -15,11 +15,11 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 11/29/2017
 ms.author: carlrab
-ms.openlocfilehash: b45acf8a7abdee070c6db2c5d7f4c108a073b1bb
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: a562851330d325ca4a8be20ec82b5f421e23c4f1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="use-php-to-query-an-azure-sql-database"></a>Korzystanie z języka PHP do wykonywania zapytań w bazie danych Azure SQL
 
@@ -35,7 +35,7 @@ Aby ukończyć ten samouczek Szybki start, upewnij się, że dysponujesz następ
 
 - W systemie operacyjnym zainstalowano język PHP i związane z nim oprogramowanie:
 
-    - **System MacOS**: zainstaluj oprogramowania Homebrew i PHP, zainstaluj sterownik ODBC i pakiet SQLCMD, a następnie zainstaluj sterownik języka PHP dla programu SQL Server. Zobacz [kroki 1.2, 1.3 i 2.1](https://www.microsoft.com/en-us/sql-server/developer-get-started/php/mac/).
+    - **System MacOS**: zainstaluj oprogramowania Homebrew i PHP, zainstaluj sterownik ODBC i pakiet SQLCMD, a następnie zainstaluj sterownik języka PHP dla programu SQL Server. Zobacz [kroki 1.2, 1.3 i 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/mac/).
     - **System Ubuntu**: zainstaluj język PHP i inne wymagane pakiety, a następnie zainstaluj sterownik języka PHP dla programu SQL Server. Zobacz [kroki 1.2 i 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/).
     - **System Windows**: zainstaluj najnowszą wersję programu PHP dla usług IIS Express, najnowszą wersja sterowników firmy Microsoft dla programu SQL Server w usługach IIS Express, Chocolatey, sterownik ODBC i pakiet SQLCMD. Zobacz [kroki 1.2 i 1.3](https://www.microsoft.com/sql-server/developer-get-started/php/windows/).    
 

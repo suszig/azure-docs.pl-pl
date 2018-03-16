@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 01/23/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 1a60c76b2687e4c6561eabf8a19dbfffffbe8681
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: d7f7407a385dd38989eaca2b81f66600c82cac2e
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service"></a>Tworzenie aplikacji internetowej platformy .NET Core i usługi SQL Database w usłudze Azure App Service
 
@@ -327,7 +327,7 @@ Znajdź element `<td>` z pomocnikami tagów (`asp-action`). Bezpośrednio nad ty
 
 ```csharp
 <td>
-    @Html.DisplayFor(modelItem => item.CreatedDate)
+    @Html.DisplayFor(modelItem => item.Done)
 </td>
 ```
 

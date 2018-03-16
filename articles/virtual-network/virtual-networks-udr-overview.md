@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: d05492425381649a7893b872c4b1c49e9f241b50
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4f4c4e9749eb5f0f6ba1950521f459f140cb5221
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>Routing ruchu w sieci wirtualnej
 
@@ -41,11 +41,11 @@ Każda trasa zawiera prefiks adresu i typ następnego przeskoku. Gdy ruch opuszc
 |Domyślne|10.0.0.0/8                                              |None           |
 |Domyślne|172.16.0.0/12                                           |None           |
 |Domyślne|192.168.0.0/16                                          |None           |
-|Domyślne|100.64.0.0/10                                           |None           |
+|Domyślne|100.64.0.0/10                                           |Brak           |
 
 Typy następnego przeskoku wymienione w powyższej tabeli określają sposób, w jaki platforma Azure kieruje ruch przeznaczony dla wymienionego prefiksu adresu. Poniżej znajdują się objaśnienia typów następnego przeskoku:
 
-- **Sieć wirtualna**: kieruje ruchem między zakresami adresów w obrębie [przestrzeni adresowej](virtual-network-manage-network.md#add-address-spaces) sieci wirtualnej. Platforma Azure tworzy trasę z prefiksem adresu odpowiadającym każdemu zakresowi adresów zdefiniowanemu w przestrzeni adresowej sieci wirtualnej. Jeśli przestrzeń adresowa sieci wirtualnej ma zdefiniowane wiele zakresów adresów, platforma Azure tworzy oddzielną trasę dla każdego zakresu adresów. Platforma Azure automatycznie kieruje ruchem między podsieciami za pomocą tras utworzonych dla każdego zakresu adresów. Nie musisz definiować bram dla platformy Azure, aby kierować ruchem między podsieciami. Chociaż sieć wirtualna zawiera podsieci, a każda podsieć ma zdefiniowany zakres adresów, platforma Azure *nie* tworzy tras domyślnych dla zakresów adresów podsieci, ponieważ każdy zakres adresów podsieci mieści się w ramach zakresu adresów przestrzeni adresowej sieci wirtualnej.
+- **Sieć wirtualna**: kieruje ruchem między zakresami adresów w obrębie [przestrzeni adresowej](manage-virtual-network.md#add-or-remove-an-address-range) sieci wirtualnej. Platforma Azure tworzy trasę z prefiksem adresu odpowiadającym każdemu zakresowi adresów zdefiniowanemu w przestrzeni adresowej sieci wirtualnej. Jeśli przestrzeń adresowa sieci wirtualnej ma zdefiniowane wiele zakresów adresów, platforma Azure tworzy oddzielną trasę dla każdego zakresu adresów. Platforma Azure automatycznie kieruje ruchem między podsieciami za pomocą tras utworzonych dla każdego zakresu adresów. Nie musisz definiować bram dla platformy Azure, aby kierować ruchem między podsieciami. Chociaż sieć wirtualna zawiera podsieci, a każda podsieć ma zdefiniowany zakres adresów, platforma Azure *nie* tworzy tras domyślnych dla zakresów adresów podsieci, ponieważ każdy zakres adresów podsieci mieści się w ramach zakresu adresów przestrzeni adresowej sieci wirtualnej.
 
 - **Internet**: kieruje określonym przez prefiks adresu ruchem do Internetu. Domyślna trasa systemowa określa prefiks adresu 0.0.0.0/0. Jeśli nie zastąpisz domyślnych tras platformy Azure, platforma Azure kieruje ruch dla każdego adresu, który nie został określony przez zakres adresów w ramach sieci wirtualnej, do Internetu z jednym wyjątkiem. Jeśli adres docelowy jest przeznaczony dla jednej z usług platformy Azure, platforma Azure kieruje ruch bezpośrednio do usługi za pośrednictwem sieci szkieletowej platformy Azure zamiast kierować ruch do Internetu. Ruch między usługami Azure nie przechodzi przez Internet niezależnie od tego, w którym regionie platformy Azure istnieje sieć wirtualna lub w którym regionie platformy Azure zostało wdrożone wystąpienie usługi platformy Azure. Można zastąpić domyślną trasę systemową platformy Azure dla prefiksu adresu 0.0.0.0/0 za pomocą [trasy niestandardowej](#custom-routes).
 
@@ -110,7 +110,7 @@ Nazwa wyświetlana i przywoływana dla typów następnego przeskoku jest różna
 |Sieć wirtualna                 |VNetLocal                                       |VNETLocal (niedostępne w wersji 1.0 interfejsu wiersza polecenia w trybie asm)|
 |Internet                        |Internet                                        |Internet (niedostępny w wersji 1.0 interfejsu wiersza polecenia w trybie asm)|
 |Urządzenie wirtualne               |VirtualAppliance                                |VirtualAppliance|
-|Brak                            |None                                            |Null (niedostępne w wersji 1.0 interfejsu wiersza polecenia w trybie asm)|
+|None                            |None                                            |Null (niedostępne w wersji 1.0 interfejsu wiersza polecenia w trybie asm)|
 |Wirtualne sieci równorzędne         |Komunikacja równorzędna sieci wirtualnych                                    |Nie dotyczy|
 |Punkt końcowy usługi sieci wirtualnej|VirtualNetworkServiceEndpoint                   |Nie dotyczy|
 
@@ -250,7 +250,7 @@ Tabela tras dla podsieci *Subnet2* zawiera wszystkie domyślne trasy utworzone p
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Create a user-defined route table with routes and a network virtual appliance (Tworzenie tabeli tras zdefiniowanej przez użytkownika z trasami i urządzeniem wirtualnym sieci)](create-user-defined-route-portal.md)
+- [Create a user-defined route table with routes and a network virtual appliance (Tworzenie tabeli tras zdefiniowanej przez użytkownika z trasami i urządzeniem wirtualnym sieci)](tutorial-create-route-table-portal.md)
 - [Configure BGP for an Azure VPN Gateway (Konfigurowanie protokołu BGP dla bramy sieci VPN platformy Azure)](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Use BGP with ExpressRoute (Używanie protokołu BGP z usługą ExpressRoute)](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#route-aggregation-and-prefix-limits)
 - [View all routes for a subnet (Wyświetlanie wszystkich tras dla podsieci)](virtual-network-routes-troubleshoot-portal.md). Tabela tras zdefiniowanych przez użytkownika wyświetla tylko trasy zdefiniowane przez użytkownika, a nie trasy domyślne i trasy protokołu BGP dla podsieci. Wyświetlanie wszystkich tras pokazuje trasy domyślne, protokołu BGP i zdefiniowane przez użytkownika dla podsieci, w której znajduje się interfejs sieciowy.

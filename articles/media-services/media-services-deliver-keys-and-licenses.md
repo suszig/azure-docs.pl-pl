@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/10/2017
 ms.author: juliako
 ms.openlocfilehash: 0f934cc572409462ca1a35ff3cce49be2f82a9bd
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="use-azure-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Użyj usługi Azure Media Services do dostarczania licencji DRM lub kluczy AES
 Usługa Azure Media Services umożliwia pozyskiwania, kodowania, Dodaj ochrony zawartości i strumienia zawartości. Aby uzyskać więcej informacji, zobacz [Użyj PlayReady i Widevine dynamicznego szyfrowania common encryption](media-services-protect-with-playready-widevine.md). Niektórzy klienci chcą używać usługi Media Services tylko w celu dostarczania licencji i/lub kluczy i kodowania, szyfrowania i przesyłania strumieniowego przy użyciu ich lokalnych serwerów. W tym artykule opisano, jak można użyć usługi Media Services do dostarczania licencji PlayReady i Widevine, ale wykonaj pozostałe z serwerów lokalnych. 
@@ -41,7 +41,7 @@ Aby pobrać przykładowy opisane w tym artykule, zobacz [użycia usługi Azure M
 
 2. Dodaj następujące elementy do węzła **appSettings** zdefiniowanego w pliku app.config:
 
-    add key="Issuer" value="http://testacs.com"/
+    Dodaj klucz = wartość "Wystawcy" = "http://testacs.com" /
     
     add key="Audience" value="urn:test"/
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: nitinme
 ms.openlocfilehash: 5da6ffc346cc0e7f0f83bf4a4c33600b668a17ca
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Często zadawane pytania dotyczące usługi Azure Databricks
 
@@ -101,7 +101,7 @@ Dzięki klastrom Databricks jeden publiczny adres IP na węzeł. Jeśli subskryp
 #### <a name="error-message"></a>Komunikat o błędzie
 
 "Błąd uruchamiania dostawcy usług w chmurze: Napotkano błąd dostawcy chmury podczas konfigurowania klastra. Aby uzyskać więcej informacji zobacz Podręcznik Databricks.
-Kod błędu systemu Azure: komunikat o błędzie platformy MissingSubscriptionRegistration Azure: subskrypcji nie jest zarejestrowany w celu używania przestrzeni nazw "Microsoft.Compute". Zobacz https://aka.ms/rps-not-found dotyczące sposobu rejestrowania subskrypcji."
+Kod błędu systemu Azure: komunikat o błędzie platformy MissingSubscriptionRegistration Azure: subskrypcji nie jest zarejestrowany w celu używania przestrzeni nazw "Microsoft.Compute". Zobacz https://aka.ms/rps-not-found dotyczące sposobu rejestrowania subskrypcji. "
 
 #### <a name="solution"></a>Rozwiązanie
 
@@ -113,7 +113,7 @@ Aby uzyskać szczegółowe instrukcje, zobacz [dostawców zasobów i typów](../
 
 ### <a name="issue-azure-databricks-needs-permissions-to-access-resources-in-your-organization-that-only-an-admin-can-grant"></a>Problem: Azure Databricks wymaga uprawnień dostępu do zasobów w organizacji, którzy mogą udzielić tylko administrator.
 
-#### <a name="background"></a>Tła
+#### <a name="background"></a>Tło
 
 Azure Databricks jest zintegrowany z usługą Azure AD. Dzięki temu można ustawić uprawnień w ramach Azure Databricks (na przykład na notesów lub klastry), określając użytkowników z usługi Azure AD. Dla Databricks Azure można było wyświetlić listę nazw użytkowników z usługi Azure AD wymaga uprawnienia do odczytu do tych informacji. Wymaga to zgodę. Jeśli zgody nie jest już dostępny, zostanie wyświetlony błąd.
 

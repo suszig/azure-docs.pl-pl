@@ -17,10 +17,10 @@ ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
 ms.openlocfilehash: 52be84b73e70a02c43ef71917dc272060d82b42d
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Zestawach skali maszyny wirtualnej platformy Azure — często zadawane pytania
 
@@ -77,7 +77,7 @@ Alerty można tworzyć na metryki dla zestawy skalowania maszyny wirtualnej za p
 
 Element TargetResourceId zestawu skali maszyny wirtualnej wygląda następująco: 
 
-/Subscriptions/yoursubscriptionid/resourceGroups/yourresourcegroup/Providers/Microsoft.COMPUTE/virtualMachineScaleSets/yourvmssname
+/subscriptions/yoursubscriptionid/resourceGroups/yourresourcegroup/providers/Microsoft.Compute/virtualMachineScaleSets/yourvmssname
 
 Jako metrykę, aby ustawić alert dla można wybrać żadnych licznika wydajności maszyny Wirtualnej. Aby uzyskać więcej informacji, zobacz [metryki systemu operacyjnego gościa dla maszyn wirtualnych Menedżera zasobów systemu Windows](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#guest-os-metrics-resource-manager-based-windows-vms) i [metryki systemu operacyjnego gościa dla maszyn wirtualnych systemu Linux](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#guest-os-metrics-linux-vms) w [Azure Monitor Skalowanie automatyczne wspólnej metryki](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/)artykułu.
 
@@ -293,7 +293,7 @@ Dokumentacja usługi Azure Key Vault stany, Pobierz klucz tajny interfejsu API R
  
 Metoda | Adres URL
 --- | ---
-GET | https://mykeyvault.Vault.Azure.NET/secrets/ {klucz tajny name} / {klucz tajny version}? api-version = {wersja interfejsu api}
+GET | https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?api-version={api-version}
 
 Zastąp {*nazwa klucza tajnego*} o nazwie i Zastąp {*wersja klucza tajnego*} przy użyciu wersji klucza tajnego do pobrania. Może zostać wyłączone wersję klucza tajnego. W takim przypadku jest pobierana bieżącej wersji.
   
@@ -339,7 +339,7 @@ Aby uzyskać więcej informacji, zobacz [Centrum zaufania firmy Microsoft](https
 
 ### <a name="does-azure-managed-service-identityhttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-virtual-machine-scale-sets"></a>Jest [tożsamości usługi zarządzane Azure](https://docs.microsoft.com/azure/active-directory/msi-overview) współpracują zestawy skalowania maszyny wirtualnej?
 
-Tak. Niektóre szablony MSI przykładzie w szablonach Szybki Start Azure jest widoczny. Linux: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux). System Windows: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows).
+Tak. Niektóre szablony MSI przykładzie w szablonach Szybki Start Azure jest widoczny. Linux: [ https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux ](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux). System Windows: [ https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows ](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows).
 
 
 ## <a name="extensions"></a>Rozszerzenia
@@ -690,7 +690,7 @@ Po utworzeniu nowej maszyny Wirtualnej, właściwość InstanceView maszyny wirt
 
 Aby uzyskać informacje dotyczące właściwości dla każdej maszyny Wirtualnej bez wykonywania wielu wywołań, można wywołać `ListVMInstanceViews` za pomocą interfejsu API REST `GET` na następującego identyfikatora URI zasobu:
 
-/Subscriptions/ < IDENTYFIKATOR_SUBSKRYPCJI > /resourceGroups/ < resource_group_name > /providers/Microsoft.Compute/virtualMachineScaleSets/ < scaleset_name > / virtualMachines? $rozwiń = instanceView & $select = instanceView
+/subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.Compute/virtualMachineScaleSets/<scaleset_name>/virtualMachines?$expand=instanceView&$select=instanceView
 
 ### <a name="can-i-pass-different-extension-arguments-to-different-vms-in-a-virtual-machine-scale-set"></a>Do różnych maszyn wirtualnych w zestawie skalowania maszyn wirtualnych można przekazać argumenty inne rozszerzenie?
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: fc8c5774eb616c33c00ecebeacd31e2a07b36e0c
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Jak delegować subskrypcji użytkownika rejestracji i produktu
 Delegowanie umożliwia przy użyciu istniejącej witryny sieci Web do obsługi projektanta logowania — w/tworzenia konta i subskrypcji do produktów, a nie za pomocą wbudowanej funkcji w portalu dla deweloperów. Dzięki temu witryny sieci Web do własnych danych użytkownika i przeprowadzania weryfikacji tych kroków w niestandardowy sposób.
@@ -44,7 +44,7 @@ Teraz musisz utworzyć **punktu końcowego delegowania**. Musi przeprowadzić sz
 
 1. Otrzyma żądanie w następującym formacie:
    
-   > *http://www.yourwebsite.com/apimdelegation?Operation=SignIn&returnUrl= {adres URL strony źródła} & soli = {ciąg} & sig = {ciąg}*
+   > *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL Źródło strony} & ziarna = {ciąg} & sig = {ciąg}*
    > 
    > 
    
@@ -70,7 +70,7 @@ Teraz musisz utworzyć **punktu końcowego delegowania**. Musi przeprowadzić sz
    * [żądania tokenu (rejestracji jednokrotnej SSO) single-sign-on] za pośrednictwem interfejsu API REST zarządzania interfejsu API
    * Dołącz returnUrl parametru zapytania do adresu URL logowania jednokrotnego otrzymane od wywołania interfejsu API powyżej:
      
-     > na przykład https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
+     > Na przykład https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
      > 
      > 
    * przekierowuje użytkownika do utworzonych powyższy adres URL
@@ -101,7 +101,7 @@ Następnie upewnij się, że punkt końcowy delegowania wykonuje następujące c
 
 1. Otrzyma żądanie w następującym formacie:
    
-   > *{Operacja} http://www.yourwebsite.com/apimdelegation?Operation= & productId = {produktu do subskrybowania} & userId = {użytkownika zgłaszającego żądanie} & ziarna = {ciąg} & sig = {ciąg}*
+   > *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product Aby subskrybować} & userId = {użytkownika zgłaszającego żądanie} & ziarna = {ciąg} & sig = {ciąg}*
    > 
    > 
    

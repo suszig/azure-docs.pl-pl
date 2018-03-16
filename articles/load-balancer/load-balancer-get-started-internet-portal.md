@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: ff61008710766830640c0de31bf9fd23198946fd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 35632cc93c9a0650b45220ba84b4983679de3d9c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="creating-an-internet-facing-load-balancer-using-the-azure-portal"></a>Tworzenie modułu równoważenia obciążenia dostępnego z Internetu za pomocą witryny Azure Portal
 
@@ -54,7 +54,7 @@ Więcej informacji o składnikach modułu równoważenia obciążenia tworzonego
 ## <a name="set-up-a-load-balancer-in-azure-portal"></a>Konfigurowanie modułu równoważenia obciążenia w witrynie Azure Portal
 
 > [!IMPORTANT]
-> Jednym z złożeń przyjętych na potrzeby poniższego przykładu jest utworzenie sieci wirtualnej o nazwie **myVNet**. Aby ją utworzyć, zapoznaj się z artykułem o [tworzeniu sieci wirtualnej](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). Kolejnym założeniem jest istnienie podsieci **LB-Subnet-BE** w sieci **myVNet** oraz dwóch maszyn wirtualnych (**web1** i **web2**) w zestawie dostępności o nazwie **myAvailSet** w sieci **myVNet**. Aby dowiedzieć się, jak utworzyć maszynę wirtualną, [kliknij tutaj](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> Jednym z złożeń przyjętych na potrzeby poniższego przykładu jest utworzenie sieci wirtualnej o nazwie **myVNet**. Aby ją utworzyć, zapoznaj się z artykułem o [tworzeniu sieci wirtualnej](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Kolejnym założeniem jest istnienie podsieci **LB-Subnet-BE** w sieci **myVNet** oraz dwóch maszyn wirtualnych (**web1** i **web2**) w zestawie dostępności o nazwie **myAvailSet** w sieci **myVNet**. Aby dowiedzieć się, jak utworzyć maszynę wirtualną, [kliknij tutaj](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 1. Przejdź w przeglądarce do witryny Azure Portal ([http://portal.azure.com](http://portal.azure.com)) i zaloguj się przy użyciu konta Azure.
 2. W lewym górnym rogu ekranu wybierz pozycję **Utwórz zasób** > **Sieć** > **Moduł równoważenia obciążenia**.
