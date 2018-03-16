@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/22/2017
+ms.date: 03/13/2018
 ms.author: mabrigg
 ms.reviewer: Thomas.Roettinger
-ms.openlocfilehash: 137e5d726aaedb405852c786b909b51110df1a50
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b922790d51c7028c37bb5863d43e99e19790488c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="manage-physical-memory-capacity-for-azure-stack"></a>Zarządzanie wydajnością pamięci fizycznej Azure stosu
 
 *Dotyczy: Azure stosu zintegrowane systemy*
 
-Aby zwiększyć pojemność całkowitej dostępnej pamięci stosu Azure, możesz dodać więcej pamięci. W stosie Azure serwera fizycznego jest również nazywany *węzła jednostki skali*. Wszystkie węzły jednostki skalowania, które są elementami członkowskimi jednostki skalowania pojedynczego musi mieć tego samego ilość pamięci.
+Aby zwiększyć pojemność całkowitej dostępnej pamięci stosu Azure, możesz dodać więcej pamięci. W stosie Azure serwera fizycznego jest również nazywany *węzła jednostki skali*. Wszystkie węzły jednostki skalowania, będących członkami jednostki skalowania pojedynczego musi mieć tego samego ilość pamięci.
 
 > [!note]  
 > Przed kontynuowaniem zapoznaj się z dokumentacją producenta sprzętu, aby zobaczyć, czy uaktualnia pamięci producenta obsługuje uaktualnienie pamięci fizycznej. Umowę dotyczącą pomocy technicznej producenta OEM sprzętu dostawcy może wymagać, że dostawcy wykonać rozmieszczenia stojak serwerów fizycznych i aktualizacji oprogramowania układowego urządzenia.

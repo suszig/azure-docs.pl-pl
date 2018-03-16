@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: bb5361022e4c9693812753ae33df5aeb037b5aaa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 01e85290f00dc70323a16056ca8e73bfba72c975
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>Interfejsy API protokołu HTTP w funkcji trwałe (funkcje platformy Azure)
 
@@ -28,7 +28,8 @@ Rozszerzenie zadania trwałe udostępnia zestaw interfejsów API protokołu HTTP
 * Wysyła zdarzenie do wystąpienia aranżacji oczekiwania.
 * Przerwanie uruchomione wystąpienie aranżacji.
 
-Wszystkie te interfejsy API protokołu HTTP są webhook operacje, które są obsługiwane bezpośrednio przez rozszerzenie zadania trwałe. Nie są one właściwe dla dowolnej funkcji w funkcji aplikacji.
+
+Każdy z poniższych interfejsów API HTTP jest operacją elementu webhook jest obsługiwany bezpośrednio przez rozszerzenie zadania trwałe. Nie są one właściwe dla dowolnej funkcji w funkcji aplikacji.
 
 > [!NOTE]
 > Te operacje może również wywoływany bezpośrednio za pomocą interfejsów API zarządzania wystąpienia na [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) klasy. Aby uzyskać więcej informacji, zobacz [Zarządzanie wystąpieniami](durable-functions-instance-management.md).
@@ -78,7 +79,7 @@ Odpowiedź HTTP wspomniano ułatwia wdrażanie asynchronicznej HTTP długotrwał
 Ten protokół umożliwia koordynowanie procesy długotrwałe z klientami zewnętrznymi lub usług, które obsługują sondowania punktu końcowego HTTP i wykonując `Location` nagłówka. Podstawowe elementy już są wbudowane w trwałe funkcje API HTTP.
 
 > [!NOTE]
-> Domyślnie wszystkie działania oparte na protokole HTTP pochodzącymi [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) obsługują wzorzec standardowych operacji asynchronicznej. Umożliwia osadzanie funkcję trwałego długotrwałe jako część przepływu pracy aplikacji logiki. Więcej informacji na temat aplikacji logiki obsługę wzorców asynchronicznych HTTP można znaleźć w [Azure Logic Apps przepływu pracy akcji i wyzwalaczy dokumentacji](../logic-apps/logic-apps-workflow-actions-triggers.md#asynchronous-patterns).
+> Domyślnie wszystkie działania oparte na protokole HTTP pochodzącymi [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) obsługują wzorzec standardowych operacji asynchronicznej. Ta funkcja umożliwia osadzanie funkcję trwałego długotrwałe jako część przepływu pracy aplikacji logiki. Więcej informacji na temat aplikacji logiki obsługę wzorców asynchronicznych HTTP można znaleźć w [Azure Logic Apps przepływu pracy akcji i wyzwalaczy dokumentacji](../logic-apps/logic-apps-workflow-actions-triggers.md#asynchronous-patterns).
 
 ## <a name="http-api-reference"></a>Dokumentacja interfejsu API HTTP
 
@@ -86,12 +87,14 @@ Wszystkie interfejsy API protokołu HTTP implementowana przez rozszerzenie podej
 
 | Parametr  | Typ parametru  | Opis |
 |------------|-----------------|-------------|
-| Identyfikator wystąpienia | ADRES URL             | Identyfikator wystąpienia aranżacji. |
+| instanceId | Adres URL             | Identyfikator wystąpienia aranżacji. |
 | taskHub    | Ciąg zapytania    | Nazwa [Centrum zadań](durable-functions-task-hubs.md). Jeśli nie zostanie określony, przyjęto, że nazwa Centrum zadania bieżącej aplikacji funkcji. |
 | połączenie | Ciąg zapytania    | **Nazwa** ciągu połączenia dla konta magazynu. Jeśli nie zostanie określona, przyjmowana jest domyślnego ciągu połączenia dla aplikacji funkcja. |
 | systemKey  | Ciąg zapytania    | Klucz autoryzacji wymaganych do wywołania interfejsu API. |
+| showHistory| Ciąg zapytania    | Parametr opcjonalny. Jeśli ustawiono `true`, historii wykonywania aranżacji zostaną uwzględnione w ładunku odpowiedzi.| 
+| showHistoryOutput| Ciąg zapytania    | Parametr opcjonalny. Jeśli ustawiono `true`, działanie wyjściowe zostaną uwzględnione w historię wykonywania aranżacji.| 
 
-`systemKey`jest klucz autoryzacji wygenerowana automatycznie przez hosta usługi Azure Functions. W szczególności nieograniczony dostęp do rozszerzenia zadania trwałe interfejsów API i można zarządzać w taki sam sposób jak [innych kluczy o autoryzacji](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API). Najprostszym sposobem, aby odnaleźć `systemKey` wartość jest za pomocą `CreateCheckStatusResponse` wspomniano interfejsu API.
+`systemKey` jest klucz autoryzacji wygenerowana automatycznie przez hosta usługi Azure Functions. W szczególności nieograniczony dostęp do rozszerzenia zadania trwałe interfejsów API i można zarządzać w taki sam sposób jak [innych kluczy o autoryzacji](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API). Najprostszym sposobem, aby odnaleźć `systemKey` wartość jest za pomocą `CreateCheckStatusResponse` wspomniano interfejsu API.
 
 Następne sekcje kilka obejmują określonych interfejsów API HTTP obsługiwane przez rozszerzenie i zawierają przykłady sposobu ich użycia.
 
@@ -110,7 +113,7 @@ GET /admin/extensions/DurableTaskExtension/instances/{instanceId}?taskHub={taskH
 Format 2.0 funkcji ma takie same parametry, ale ma nieco inny prefiks adresu URL:
 
 ```http
-GET /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}?taskHub={taskHub}&connection={connection}&code={systemKey}
+GET /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}?taskHub={taskHub}&connection={connection}&code={systemKey}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
 ```
 
 #### <a name="response"></a>Odpowiedź
@@ -122,29 +125,68 @@ Może być zwracany kilka wartości Kod stanu możliwe.
 * **HTTP 400 (nieprawidłowe żądanie)**: określone wystąpienie nie powiodło się lub zostało przerwane.
 * **HTTP 404 (nie znaleziono)**: określone wystąpienie nie istnieje lub nie została uruchomiona uruchomiona.
 
-Ładunek odpowiedzi dla **200 protokołu HTTP** i **HTTP 202** przypadków jest to obiekt JSON z następującymi polami.
+Ładunek odpowiedzi dla **200 protokołu HTTP** i **HTTP 202** przypadków jest to obiekt JSON z następującymi polami:
 
 | Pole           | Typ danych | Opis |
 |-----------------|-----------|-------------|
-| runtimeStatus   | Ciąg    | Stanu działania wystąpienia. Wartości to *systemem*, *oczekujące*, *niepowodzenie*, *anulowane*, *zwolniony*, *Ukończone*. |
+| runtimeStatus   | ciąg    | Stanu działania wystąpienia. Wartości to *systemem*, *oczekujące*, **, *anulowane*, *zwolniony*, *Ukończone*. |
 | Dane wejściowe           | JSON      | Dane JSON, używane do inicjowania wystąpienia. |
-| Dane wyjściowe          | JSON      | Dane wyjściowe JSON wystąpienia. To pole jest `null` Jeśli wystąpienie nie jest w stanie ukończone. |
-| createdTime     | Ciąg    | Podczas tworzenia tego wystąpienia. Używa ISO 8601 rozszerzony notacji. |
-| LastUpdatedTime | Ciąg    | Czas, jaką trwała ostatniego wystąpienia. Używa ISO 8601 rozszerzony notacji. |
+| output          | JSON      | Dane wyjściowe JSON wystąpienia. To pole jest `null` Jeśli wystąpienie nie jest w stanie ukończone. |
+| createdTime     | ciąg    | Podczas tworzenia tego wystąpienia. Używa ISO 8601 rozszerzony notacji. |
+| lastUpdatedTime | ciąg    | Czas, jaką trwała ostatniego wystąpienia. Używa ISO 8601 rozszerzony notacji. |
+| historyEvents   | JSON      | Tablica JSON zawierający historii wykonywania aranżacji. To pole jest `null` chyba że `showHistory` ustawiono parametr ciągu zapytania `true`.  | 
 
-Oto przykład ładunku odpowiedzi (sformatowany dla czytelności):
+Oto przykład odpowiedzi ładunek wyjść historii i działanie wykonanie orchestration (sformatowany dla czytelności) w tym:
 
 ```json
 {
-  "runtimeStatus": "Completed",
-  "input": null,
-  "output": [
-    "Hello Tokyo!",
-    "Hello Seattle!",
-    "Hello London!"
+  "createdTime": "2018-02-28T05:18:49Z",
+  "historyEvents": [
+      {
+          "EventType": "ExecutionStarted",
+          "FunctionName": "E1_HelloSequence",
+          "Timestamp": "2018-02-28T05:18:49.3452372Z"
+      },
+      {
+          "EventType": "TaskCompleted",
+          "FunctionName": "E1_SayHello",
+          "Result": "Hello Tokyo!",
+          "ScheduledTime": "2018-02-28T05:18:51.3939873Z",
+          "Timestamp": "2018-02-28T05:18:52.2895622Z"
+      },
+      {
+          "EventType": "TaskCompleted",
+          "FunctionName": "E1_SayHello",
+          "Result": "Hello Seattle!",
+          "ScheduledTime": "2018-02-28T05:18:52.8755705Z",
+          "Timestamp": "2018-02-28T05:18:53.1765771Z"
+      },
+      {
+          "EventType": "TaskCompleted",
+          "FunctionName": "E1_SayHello",
+          "Result": "Hello London!",
+          "ScheduledTime": "2018-02-28T05:18:53.5170791Z",
+          "Timestamp": "2018-02-28T05:18:53.891081Z"
+      },
+      {
+          "EventType": "ExecutionCompleted",
+          "OrchestrationStatus": "Completed",
+          "Result": [
+              "Hello Tokyo!",
+              "Hello Seattle!",
+              "Hello London!"
+          ],
+          "Timestamp": "2018-02-28T05:18:54.3660895Z"
+      }
   ],
-  "createdTime": "2017-10-06T18:30:24Z",
-  "lastUpdatedTime": "2017-10-06T18:30:30Z"
+  "input": null,
+  "lastUpdatedTime": "2018-02-28T05:18:54Z",
+  "output": [
+      "Hello Tokyo!",
+      "Hello Seattle!",
+      "Hello London!"
+  ],
+  "runtimeStatus": "Completed"
 }
 ```
 
@@ -168,12 +210,12 @@ Format 2.0 funkcji ma takie same parametry, ale ma nieco inny prefiks adresu URL
 POST /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection={connection}&code={systemKey}
 ```
 
-Parametry dla tego interfejsu API to domyślny zestaw wspomniano powyżej, a także następujące parametry unikatowy żądań.
+Parametry dla tego interfejsu API to domyślny zestaw wspomniano powyżej, a także następujące parametry unikatowy żądania:
 
 | Pole       | Typ parametru  | TType danych | Opis |
 |-------------|-----------------|-----------|-------------|
-| EventName   | ADRES URL             | Ciąg    | Nazwa zdarzenia, które czeka na wystąpienie docelowe aranżacji. |
-| {zawartość}   | Żądanie zawartości | JSON      | Ładunek zdarzenia w formacie JSON. |
+| eventName   | Adres URL             | ciąg    | Nazwa zdarzenia, które czeka na wystąpienie docelowe aranżacji. |
+| {content}   | Żądanie zawartości | JSON      | Ładunek zdarzenia w formacie JSON. |
 
 #### <a name="response"></a>Odpowiedź
 
@@ -218,7 +260,7 @@ Parametry dla tego interfejsu API to wymienione wcześniej oraz następujący pa
 
 | Pole       | Typ parametru  | Typ danych | Opis |
 |-------------|-----------------|-----------|-------------|
-| Przyczyna      | Ciąg zapytania    | Ciąg    | Opcjonalny. Przyczyna przerywanie wystąpienia aranżacji. |
+| Przyczyna      | Ciąg zapytania    | ciąg    | Opcjonalny. Przyczyna przerywanie wystąpienia aranżacji. |
 
 #### <a name="response"></a>Odpowiedź
 
@@ -236,7 +278,7 @@ DELETE /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52b
 
 Odpowiedzi dla tego interfejsu API nie zawierają żadnej zawartości.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 > [!div class="nextstepaction"]
 > [Informacje o sposobie obsługi błędów](durable-functions-error-handling.md)
