@@ -215,7 +215,7 @@ func host start
 | **`--nodeDebugPort -n`** | Numer portu debugera węzła do użycia. Wartość domyślna: Wartość z launch.json lub 5858. |
 | **`--debugLevel -d`** | Poziom śledzenia konsoli (wyłączony, pełne, info, warning lub error). Domyślne: informacji.|
 | **`--timeout -t`** | Limit czasu dla funkcji hosta można uruchomić w sekundach. Wartość domyślna: 20 sekund.|
-| **`--useHttps`** | Powiązać https://localhost: {port}, a nie do http://localhost: {port}. Domyślnie ta opcja tworzy zaufanego certyfikatu na tym komputerze.|
+| **`--useHttps`** | Powiązać https://localhost:{port}, a nie do http://localhost:{port}. Domyślnie ta opcja tworzy zaufanego certyfikatu na tym komputerze.|
 | **`--pause-on-error`** | Wstrzymaj na dodatkowe dane wejściowe przed zakończeniem procesu. Przydatne przy uruchamianiu narzędzia podstawowych funkcji platformy Azure z zintegrowane środowisko programistyczne (IDE).|
 
 Po uruchomieniu funkcji hosta danych wyjściowych funkcji wyzwalanych przez URL HTTP:
